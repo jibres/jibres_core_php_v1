@@ -66,6 +66,33 @@ class listen_cls{
 		}
 	}
 
+	function domain($domainParameters){
+		if(!is_array($domainParameters)){
+			$this->checkSubdomain($domainParameters, config_lib::$subdomain);
+			return;
+		}
+		$k = 0;
+		foreach ($domainParameters as $key => $value) {
+			$array = config_lib::$aSubdomain;
+			if(!isset($array[$key])){
+				$this->cond = false;
+				break;
+			}
+			$this->checkSubdomain($value, $array[$key]);
+			$k++;
+		}
+	}
+
+	function checkSubdomain($reg, $value){
+		if(preg_match("/^(\/.*\/|#.*#|[.*])[gui]{0,3}$/i", $reg)){
+			if(!preg_match($reg, $value)){
+				$this->cond = false;
+			}
+		}elseif($reg != $value){
+			$this->cond = false;
+		}
+	}
+
 	function func($f){
 		if(!call_user_func($f)){
 			$this->cond = false;

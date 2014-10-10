@@ -1,9 +1,13 @@
 <?php
 class controller extends main_controller
 {
-	public $permission = array();
 	public function config() 
 	{
+		$this->listen(
+		array(
+			"domain" => "login"
+			)
+		);
 		// ----------------------------------------- login
 		$this->listen(
 		array(

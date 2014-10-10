@@ -4,6 +4,9 @@ class main_controller{
 	public $__autocallMethod = array("sql", "redirect", "checkRedirect", "addMethod", "addPeroperty");
 	public $__autogetProperty = array( "redirect");
 	public final function __construct(){
+		if(method_exists($this, 'config')){
+			$this->config();
+		}
 	}
 
 	public final function hendel(){
