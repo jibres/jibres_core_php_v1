@@ -1,0 +1,9 @@
+{%extends layout%}
+{%block content%}
+    <form class="ajx" method="post">
+        {{forms.make(form.login)}}
+    </form>
+
+    <a href="{{global.site_url}}accounts/signup">Signup</a><br />
+    <a href="{{global.site_url}}accounts/recovery">Recovery</a>
+{%endblock%}
