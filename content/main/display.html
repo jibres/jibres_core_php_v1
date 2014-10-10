@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
  <head>
-	<meta charset="UTF-8" />
-	<base href="{{global.site_url}}" />
-	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8" />
+  <base href="{{global.site_url}}" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-	<title>{{global.site_title}} {% if global.page_title_spliter%}| {%endif%}{{global.page_title}}</title>
-	<meta name="description" content="{{global.page_desc}}"/>
-	<meta property="og:title" content="{{global.page_title}}"/>
-	<meta property="og:description" content="{{global.page_desc}}"/>
-	<meta property="og:site_name" content="{{global.site_title}}"/>
-	<meta property="og:type" content="website"/>
-	<meta property="og:url" content="{{global.site_url}}"/>
-	<meta property='og:locale' content='fa_IR'/>
-	<meta property="og:image" content="{{global.site_static}}images/logo.png"/>
-	<meta name="twitter:card" content="summary"/>
-	<meta name="twitter:site" content="@Tejarak"/>
-	<meta name="twitter:domain" content="Tejarak"/>
+  <title>{{global.site_title}} {% if global.page_title_spliter%}| {%endif%}{{global.page_title}}</title>
+  <meta name="description" content="{{global.page_desc}}"/>
+  <meta property="og:title" content="{{global.page_title}}"/>
+  <meta property="og:description" content="{{global.page_desc}}"/>
+  <meta property="og:site_name" content="{{global.site_title}}"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="{{global.site_url}}"/>
+  <meta property='og:locale' content='fa_IR'/>
+  <meta property="og:image" content="{{global.site_static}}images/logo.png"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="@Samac"/>
+  <meta name="twitter:domain" content="Samac"/>
 
-	<!-- [if lte IE 8]><script>document.location = 'http://www.whatbrowser.org/intl/fa/';</script><![endif] -->
-	<link href="{{global.site_static}}css/jquery.dataTables.css" rel="stylesheet" type="text/css">
-	<link href="{{global.site_static}}css/style.css?ver=0.0.1" rel="stylesheet" type="text/css">
-	<link href="{{global.site_static}}images/favicon.png" rel="shortcut icon">
-	<link href="{{global.site_static}}humans.txt" type="text/plain" rel="author" />
-	<script src="{{global.site_static}}js/jquery-modern.js" type="text/javascript"></script>
-	<script src="{{global.site_static}}js/jquery.dataTables.min.js" type="text/javascript"></script>
+  <!-- [if lte IE 8]><script>document.location = 'http://www.whatbrowser.org/intl/fa/';</script><![endif] -->
+  <link href="{{global.site_static}}css/jquery.dataTables.css" rel="stylesheet" type="text/css">
+  <link href="{{global.site_static}}css/style.css?ver=0.0.1" rel="stylesheet" type="text/css">
+  <link href="{{global.site_static}}images/favicon.png" rel="shortcut icon">
+  <link href="{{global.site_static}}humans.txt" type="text/plain" rel="author" />
+  <script src="{{global.site_static}}js/jquery-modern.js" type="text/javascript"></script>
+  <script src="{{global.site_static}}js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 {%block head%}{%endblock%}
  </head>
@@ -55,7 +55,45 @@
     </div>
    </div>
   </footer>
+
+{%if error.msg or error.fatal or error.true or error.warn%}
+  <div id="formError" class="error_{{error.status}}">
+  {%for myerror in error if myerror is iterable %}
+   <ul>
+   {%for err in myerror%}
+    <li>
+    {% if err is iterable %} 	{{err.error}} ({{err.form}})
+    {% else %} 					{{err}}
+    {%endif%}
+    </li>
+   {%endfor%}
+   </ul>
+  {%endfor%}
+  </div>
+{%endif%}
+
+
+
+ {%for key, debugs in debug%}
+ {%if key  != "status" and key != "msg"%}
+ <ul class ="submit-status-{{key}}">
+ {%for cKey, cDebug in debugs%}
+ {%if cDebug.error is defined%}
+ <li>{{cDebug[cDebug.group]}} : {{cDebug.error}}</li>
+ {%else%}
+ <li>{{cDebug}}</li>
+ {%endif%}
+ {%endfor%}
+ </ul>
+ {%endif%}
+ {%endfor%}
+
+
+
+
+
+
 {%block footer%}{%endblock%}
-  <script>$(document).ready(function(){$('.datatable').DataTable();});</script>	
+  <script>$(document).ready(function(){$('.datatable').DataTable();});</script>
  </body>
 </html>

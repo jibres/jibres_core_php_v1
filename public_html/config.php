@@ -7,13 +7,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database */
-define('db_name', 'quran_hadith');
+define('db_name', 'store');
 
 /** MySQL database username */
-define('db_user', 'root');
+define('db_user', 'samac');
 
 /** MySQL database password */
-define('db_password', 'root');
+define('db_password', 'sql@92');
 
 /** MySQL hostname  */
 define('db_host', 'localhost');
