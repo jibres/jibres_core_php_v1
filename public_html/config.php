@@ -7,13 +7,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database */
-define('db_name', 'quran_hadith');
+define('db_name', 'store');
 
 /** MySQL database username */
-define('db_user', 'root');
+define('db_user', 'samac');
 
 /** MySQL database password */
-define('db_password', 'root');
+define('db_password', 'sql@92');
 
 /** MySQL hostname  */
 define('db_host', 'localhost');
@@ -24,20 +24,21 @@ define('db_charset', 'utf8');
 /**
  * Localized Language, defaults to English.
  *
- * Change this to localize WordPress. A corresponding MO file for the chosen
+ * Change this to localize Saloos. A corresponding MO file for the chosen
  * language must be installed to content/languages. For example, install
- * fa_IR.mo to content/languages and set WPLANG to 'fa_IR' to enable Persian
+ * fa_IR.mo to content/languages and set SLANG to 'fa_IR' to enable Persian
  * language support.
  */
-define('WPLANG', 'en_US');
+define('SLANG', 'fa_IR');
 /**
  * For developers: debugging mode.
  *
  * Change this to true to enable the display of notices during development.
  * It is strongly recommended that plugin and theme developers use DEBUG
- * in their development environments.a
+ * in their development environments.
  */
 define('DEBUG', true);
+
 define('FACHR', 'ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیآيئؤكآأإة');
 define("core", DIR."/../../saloos/");
 define("root_dir", DIR."/../");

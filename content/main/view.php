@@ -2,35 +2,31 @@
 class main_view{
 	public $formIndex = array();
 	public final function __construct($controller){
-		$this->controller = $controller;
-		$this->data = new aDATA();
-		$this->data->global = new aData();
-		$this->global = $this->data->global;
+		$this->controller	= $controller;
+		$this->data			= new aDATA();
+		$this->data->global	= new aData();
+		$this->global		= $this->data->global;
 
 		// *********************************************************************** Site Global Variables
-		$this->global->domain             = DOMAIN;
-		$this->global->path               = PATH;
-		$this->global->site_url           = 'http://'.DOMAIN.PATH;
-		$this->global->site_static        = 'http://'.DOMAIN.PATH.'static/';
-
-		$this->global->site_title         = "مرکز قرآن و حدیث";
-		$this->global->site_desc          = "پورتال جامع مرکز قرآن و حدیث آستان مقدس حضرت فاطمه معصومه";
-		$this->global->page_title_spliter = true;
-		$this->global->page_title         = $this->global->site_title;
-		$this->global->page_desc          = $this->global->site_desc;
-
-		$this->global->menu = menu_cls::list_menu();
-
+		$this->global->domain				= DOMAIN;
+		$this->global->path					= PATH;
+		$this->global->site_url				= 'http://'.DOMAIN.PATH;
+		$this->global->site_static			= 'http://'.DOMAIN.PATH.'static/';
+		
+		$this->global->site_title			= "Store";
+		$this->global->site_desc			= "Store anagement project by SAMC";
+		$this->global->page_title_spliter	= true;
+		$this->global->page_title			= $this->global->site_title;
+		$this->global->page_desc			= $this->global->site_desc;
+		//$this->global->menu					= menu_cls::list_menu();
 
 		// *********************************************************************** Other ...
 		$this->form = (object) "form";
 		unset($this->form->scalar);
-		$this->data->form = $this->form;
-		$this->data->layout = './main/display.html';
-		// $this->data->homeLayout = './main/home.html';
-
-		$this->data->macro['forms'] = 'macro/forms.html';
-		$this->data->macro['list'] = 'macro/tagMaker.html';
+		$this->data->form			= $this->form;
+		$this->data->layout			= './main/display.html';
+		$this->data->macro['forms']	= 'macro/forms.html';
+		$this->data->macro['list']	= 'macro/tagMaker.html';
 		if(isset($_SESSION['error']) && isset($_SESSION['error'][config_lib::$URL]) && isset($_SERVER['HTTP_REFERER'])){
 			$this->data->debug = $_SESSION['error'][config_lib::$URL];
 			unset($_SESSION['error'][config_lib::$URL]);
@@ -43,8 +39,6 @@ class main_view{
 		$this->compile();
 
 	}
-
-
 
 	public final function form($type = false, $args = array()){
 		$this->data->extendForm = true;

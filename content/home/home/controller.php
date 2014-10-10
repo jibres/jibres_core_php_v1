@@ -1,40 +1,32 @@
 <?php
-/**
- * @author Ahmad Karimi <ahmadkarimi1991@gmail.com>
- */
-class controller extends main_controller {
+class controller extends main_controller
+{
 	public $permission = array();
-	public function config() {
-		if(config_lib::$url == "captcha.png"){
-			new captcha_lib;
-			exit();
-		}
+	public function config() 
+	{
+		// ----------------------------------------- login
+		$this->listen(
+		array(
+			"max" => 1,
+			"url" => "login"
+			),
+		array("accounts", 'login')
+		);
 
-		$this->listen(array(
+		// ----------------------------------------- logout
+		$this->listen(
+		array(
 			"max" => 1,
 			"url" => array("logout")
-			), function() {
+			),
+		function()
+		{
 			$_SESSION = array();
 			session_destroy();
-			header("location: ".host."/login");
+			header("location: "."/aaa");
 			exit();
-		});
-
-		$this->listen(array(
-			"max" => 1,
-			"url" => "/^(|profile|changepasswd)$/"
-			),
-		function () {
-			if(isset($_SESSION) && isset($_SESSION['users_id'])){
-				$this->access = true;
-			}
 		}
 		);
-		$this->listen(array(
-			"max" => 2,
-			"url" => "changepasswd"
-			), array("home","passwd"));
-		
 	}
 }
 ?>

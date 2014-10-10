@@ -47,6 +47,7 @@ setlocale( LC_ALL, $locale );
 $domain = $locale;
 bindtextdomain($domain, root_dir.'languages/');
 textdomain("*");
+
 session_start();
 //load auto load
 require_once(core."autoload.php");

@@ -1,6 +1,17 @@
-{# Ahmad Karimi ahmadkarimi1991@gmail.com #}
-{% extends layout %}
+{%extends layout%}
 {%block content%}
-<h3>{{global.gender}} {{global.name}} {{global.family}}</h3>
-<h3>به پورتال جامع مرکز قرآن و حدیث کریمه اهل بیت علیها السلام خوش آمدید.</h3>
+
+	<h2>Created Pages</h2>
+	<p>Now you can access to created page by below links</p>
+	<ul>
+		<li>Accounts</li>
+		<ul>
+			<li><a href="accounts/login">Login</a></li>
+			<li><a href="accounts/signup">Sign up</a></li>
+			<li><a href="accounts/recovery">Recovery</a></li>
+		</ul>
+
+		<li><a href="admin">Admin</a></li>
+	</ul>
+
 {%endblock%}
