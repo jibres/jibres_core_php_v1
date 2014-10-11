@@ -48,7 +48,7 @@ class controller extends main_controller
 		{
 			$_SESSION = array();
 			session_destroy();
-			header("location: "."/aaa");
+			header("location: "."/");
 			exit();
 		}
 		);

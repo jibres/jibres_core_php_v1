@@ -191,6 +191,26 @@ optgroup{font-weight:bold;}
 #formError ul{margin:0;padding:0 2%}
 #formError ul li{padding:1px 1%;}
 
+/* Base Elements */
+.container{position:relative;margin:0 auto;padding:0;max-width:1024px;min-width:959px;width:90%;/*Animation Property*/animation-property:width;animation-property:height;transition-duration:1s;-webkit-animation-property:width;-webkit-animation-property:height;-webkit-transition-duration:2s;-moz-animation-property:width;-moz-animation-property:height;-moz-transition-duration:2s;-o-animation-property:width;-o-animation-property:height;-o-transition-duration:2s;}
+.container:after{content:"\0020";display:block;height:0;clear:both;visibility:hidden}.clearfix:before,.clearfix:after{content:'\0020';display:block;overflow:hidden;visibility:hidden;width:0;height:0}.clearfix:after{clear:both}.clearfix{zoom:1}.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}img.scale-with-grid{max-width:100%;height:auto}
+
+#main{min-height:350px;}
+
+/* Headings */
+h1,h2,h3,h4,h5,h6{clear:both;margin-bottom:1.0rem;font-weight:400;color:#2f1515}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {font-weight:700;}
+h1{font-size:3.2rem;line-height:3.8rem}
+h2{font-size:2.8rem;line-height:3.4rem}
+h3{font-size:2.7rem;line-height:3.3rem}
+h4{font-size:2.6rem;line-height:3.2rem}
+h5{font-size:2.5rem;line-height:3.1rem}
+h6{font-size:2.4rem;line-height:3.0rem}
+p{margin-bottom:1.5rem;font-size:1.7rem;line-height:2.5rem;}
+.container{font-size:1.5rem;line-height:2.3rem;}
+
+
+
 
 /* Responsie Style
    ========================================================================== */
@@ -365,23 +385,7 @@ ul.list li a{padding:0.3rem 0.5rem;}
 
 
 
-/* Base Elements */
-.container{position:relative;margin:0 auto;padding:0;max-width:1024px;min-width:959px;width:90%;/*Animation Property*/animation-property:width;animation-property:height;transition-duration:1s;-webkit-animation-property:width;-webkit-animation-property:height;-webkit-transition-duration:3s;-moz-animation-property:width;-moz-animation-property:height;-moz-transition-duration:3s;-o-animation-property:width;-o-animation-property:height;-o-transition-duration:3s;}
-.container:after{content:"\0020";display:block;height:0;clear:both;visibility:hidden}.clearfix:before,.clearfix:after{content:'\0020';display:block;overflow:hidden;visibility:hidden;width:0;height:0}.clearfix:after{clear:both}.clearfix{zoom:1}.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}img.scale-with-grid{max-width:100%;height:auto}
 
-#main{min-height:350px;}
-
-/* Headings */
-h1,h2,h3,h4,h5,h6{clear:both;margin-bottom:1.0rem;font-weight:400;color:#2f1515}
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {font-weight:700;}
-h1{font-size:3.2rem;line-height:3.8rem}
-h2{font-size:2.8rem;line-height:3.4rem}
-h3{font-size:2.7rem;line-height:3.3rem}
-h4{font-size:2.6rem;line-height:3.2rem}
-h5{font-size:2.5rem;line-height:3.1rem}
-h6{font-size:2.4rem;line-height:3.0rem}
-p{margin-bottom:1.5rem;font-size:1.7rem;line-height:2.5rem;}
-.container{font-size:1.5rem;line-height:2.3rem;}
 
 /* Forms */
 .form form{margin:50px 0;}

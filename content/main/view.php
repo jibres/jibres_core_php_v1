@@ -2,10 +2,14 @@
 class main_view{
 	public $formIndex = array();
 	public final function __construct($controller){
-		$this->controller	= $controller;
-		$this->data			= new aDATA();
-		$this->data->global	= new aData();
-		$this->global		= $this->data->global;
+		$this->controller		= $controller;
+		$this->data				= new aDATA();
+		$this->data->global		= new aData();
+		$this->data->url		= new aData();
+		$this->data->include	= new aData();
+		$this->global			= $this->data->global;
+		$this->url				= $this->data->url;
+		$this->include			= $this->data->include;
 
 		// *********************************************************************** Site Global Variables
 		$this->global->domain				= DOMAIN;
@@ -13,12 +17,27 @@ class main_view{
 		$this->global->site_url				= 'http://'.DOMAIN.PATH;
 		$this->global->site_static			= 'http://'.DOMAIN.PATH.'static/';
 		
+		$this->url->domain					= DOMAIN;
+		$this->url->path					= PATH;
+		$host_names 						= explode(".", DOMAIN);
+		$this->url->raw				 		= $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+		$this->url->root				 	= "http://" . $this->url->raw. '/';
+		$this->url->static					= $this->url->root . 'static/';
+
 		$this->global->site_title			= "Store";
 		$this->global->site_desc			= "Store management by SAMC";
-		$this->global->site_title_show		= true;
-		//$this->global->page_title_spliter	= true;
 		$this->global->page_title			= "";
 		$this->global->page_desc			= $this->global->site_desc;
+		$this->global->site_title_show		= true;
+
+		$this->include->datatable			= false;
+		$this->include->jquery				= true;
+
+		$this->global->javad = parse_url($this->global->site_url,PHP_URL_HOST);
+		$this->global->javad = strstr(str_replace("www.","",$this->global->javad), ".",true);
+
+
+
 		//$this->global->menu					= menu_cls::list_menu();
 
 		// *********************************************************************** Other ...
