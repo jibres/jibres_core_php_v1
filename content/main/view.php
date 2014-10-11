@@ -2,22 +2,37 @@
 class main_view{
 	public $formIndex = array();
 	public final function __construct($controller){
-		$this->controller	= $controller;
-		$this->data			= new aDATA();
-		$this->data->global	= new aData();
-		$this->global		= $this->data->global;
+		$this->controller		= $controller;
+		$this->data				= new aDATA();
+		$this->data->global		= new aData();
+		$this->data->url		= new aData();
+		$this->data->include	= new aData();
+		$this->global			= $this->data->global;
+		$this->url				= $this->data->url;
+		$this->include			= $this->data->include;
 
 		// *********************************************************************** Site Global Variables
-		$this->global->domain				= DOMAIN;
-		$this->global->path					= PATH;
-		$this->global->site_url				= 'http://'.DOMAIN.PATH;
-		$this->global->site_static			= 'http://'.DOMAIN.PATH.'static/';
 		
+		$this->url->domain					= DOMAIN;
+		$this->url->path					= PATH;
+		$host_names 						= explode(".", DOMAIN);
+		$this->url->raw				 		= $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+		$this->url->root				 	= "http://" . $this->url->raw. '/';
+		$this->url->current				 	= "http://" . DOMAIN . PATH;
+		//$this->url->static					= $this->url->root . 'static/';
+		$this->url->static				 	= $this->url->current .'static/';
+
 		$this->global->site_title			= "Store";
-		$this->global->site_desc			= "Store anagement project by SAMC";
-		$this->global->page_title_spliter	= true;
-		$this->global->page_title			= $this->global->site_title;
+		$this->global->site_desc			= "Store management by SAMC";
+		$this->global->page_title			= "";
 		$this->global->page_desc			= $this->global->site_desc;
+		$this->global->site_title_show		= true;
+
+		$this->include->datatable			= false;
+		$this->include->jquery				= true;
+
+
+
 		//$this->global->menu					= menu_cls::list_menu();
 
 		// *********************************************************************** Other ...

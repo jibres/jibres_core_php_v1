@@ -1,0 +1,16 @@
+{%extends layout%}
+{%block content%}
+    <form class="ajx" method="post">
+        {{forms.make(form.recovery)}}
+    </form>
+
+	<p class="alert alert-block alert-info">You can manage all of your accounts
+	<a class="float-right" href="/">Home</a></p>
+	
+	<ul>
+		<li><a href="login">Login</a></li>
+		<li><a href="signup">Sign up</a></li>
+		<li><a href="logout">Logout</a></li>
+	</ul>
+
+{%endblock%}
