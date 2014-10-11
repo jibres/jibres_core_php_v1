@@ -3,7 +3,7 @@ class view extends main_view
 {
     function config(){
         $this->global->page_title         = 'Account Recovery';
-        $this->global->page_title_spliter = false;
+        $this->global->site_title_show = false;
         //$myForm = $this->form("@recovery");
     }
 }

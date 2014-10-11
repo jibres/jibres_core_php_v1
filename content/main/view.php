@@ -14,9 +14,10 @@ class main_view{
 		$this->global->site_static			= 'http://'.DOMAIN.PATH.'static/';
 		
 		$this->global->site_title			= "Store";
-		$this->global->site_desc			= "Store anagement project by SAMC";
-		$this->global->page_title_spliter	= true;
-		$this->global->page_title			= $this->global->site_title;
+		$this->global->site_desc			= "Store management by SAMC";
+		$this->global->site_title_show		= true;
+		//$this->global->page_title_spliter	= true;
+		$this->global->page_title			= "";
 		$this->global->page_desc			= $this->global->site_desc;
 		//$this->global->menu					= menu_cls::list_menu();
 
