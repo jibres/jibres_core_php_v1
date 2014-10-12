@@ -14,7 +14,7 @@ class addons
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate(".id");}
 	public function addon_name() 
 	{
 		
@@ -23,17 +23,18 @@ class addons
 	//------------------------------------------------------------------ slug
 	public function addon_slug() 
 	{
-		$this->form("slug")->name("addon_slug");
+		$this->form("#slug")->name("addon_slug");
 	}
 
 	//------------------------------------------------------------------ description
 	public function addon_desc() 
 	{
-		$this->form("desc")->name("addon_desc");
+		$this->form("#desc")->name("addon_desc");
 	}
 	public function addon_status() 
 	{
-		
+		$this->form("select")->name("addon_status")->label("addon_status");
+		$this->setChild();
 	}
 	public function addon_expire() 
 	{
