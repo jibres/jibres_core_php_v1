@@ -32,5 +32,5 @@ AddDefaultCharset "Content-Type: text/html; charset=UTF-8"
 RewriteCond %{REQUEST_METHOD} !^(GET|POST)
 RewriteRule .* - [F,L]
 
-RewriteCond         %{REQUEST_FILENAME}      !-s
-RewriteRule ^(.*)\/+$ $1 [R=301,L]
+#RewriteCond         %{REQUEST_FILENAME}      !-s
+#RewriteRule ^(.*)\/+$ $1 [R=301,L]
