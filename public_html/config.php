@@ -10,10 +10,10 @@
 define('db_name', 'store');
 
 /** MySQL database username */
-define('db_user', 'samac');
+define('db_user', 'root');
 
 /** MySQL database password */
-define('db_password', 'sql@92');
+define('db_password', 'root');
 
 /** MySQL hostname  */
 define('db_host', 'localhost');
