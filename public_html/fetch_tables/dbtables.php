@@ -32,6 +32,8 @@ function _type($type, $def){
 			
 
 
+			// ========================================================================================== Edit by Javad
+
 			$myfield	= $crow->Field;
 			$txtcomment	= "\n\t//------------------------------------------------------------------ ";
 			$txtstart	= "\tpublic function $crow->Field() \n\t{\n\t\t";
@@ -70,7 +72,8 @@ function _type($type, $def){
 			{
 				$fn .= $txtstart. $txtend;
 			}
-
+			
+			// ========================================================================================== Edit by Javad
 
 		}
 		$content .= $fn;
