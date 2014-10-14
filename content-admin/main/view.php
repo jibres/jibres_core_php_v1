@@ -14,12 +14,13 @@ class main_view{
 		// *********************************************************************** Site Global Variables
 		
 		$this->url->domain					= DOMAIN;
+		$this->url->path					= PATH;
 		$host_names 						= explode(".", DOMAIN);
 		$this->url->raw				 		= $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
 		$this->url->root				 	= "http://" . $this->url->raw. '/';
-		$this->url->current				 	= "http://" . DOMAIN . '/';
+		$this->url->current				 	= "http://" . DOMAIN . PATH;
 		$this->url->static					= $this->url->root . 'static/';
-		//$this->url->static				 	= $this->url->current .'static/';
+		// $this->url->static				 	= $this->url->current .'static/';
 
 		$this->global->site_title			= "Store";
 		$this->global->site_desc			= "Store management by SAMC";
@@ -30,7 +31,7 @@ class main_view{
 		$this->include->datatable			= false;
 		$this->include->jquery				= true;
 //define("MAIN_DOMAIN", "store.dev");
-//var_dump(DOMAIN);
+//var_dump($host_names);
 
 		//$this->global->menu					= menu_cls::list_menu();
 
@@ -44,7 +45,6 @@ class main_view{
 		if(isset($_SESSION['error']) && isset($_SESSION['error'][config_lib::$URL]) && isset($_SERVER['HTTP_REFERER'])){
 			$this->data->debug = $_SESSION['error'][config_lib::$URL];
 			unset($_SESSION['error'][config_lib::$URL]);
-
 		}
 
 		if(method_exists($this, 'config')){

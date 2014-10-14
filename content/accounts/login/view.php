@@ -4,16 +4,16 @@ class view extends main_view
  	public function config()
 	{
 		$this->global->page_title = 'Login';
-		//$myForm = $this->form("@login");
+		$myForm = $this->form("@users");
+        //$myForm->atFirst("user_email");
+        //$myForm->atEnd("user_email");
+        $myForm->before("user_email", "user_pass");
+        // $myForm->white("user_pass");
+        // $myForm->remove("user_pass");
+        
+        // echo "<pre>";
+        // print_r($myForm->compile());
+        // exit();
 	}
-}
-class forms extends forms_lib{
-    function login(){
-        $this->input    = $this->make('#hidden')->value('login');
-        $this->username = $this->make("#username");
-        $this->password = $this->make("#password");
-        $this->robot    = $this->make("#robot");
-        $this->submit   = $this->make("#submit")->value("Sign in");
-    }
 }
 ?>

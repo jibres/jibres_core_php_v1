@@ -1,7 +1,7 @@
 <?php
 /**
  @ In the name Of Allah
- * The base configurations of the Samac.
+ * The base configurations of the SAMAC.
  * This file has the configurations of MySQL settings and useful core settings
  */
 
@@ -22,15 +22,6 @@ define('db_host', 'localhost');
 define('db_charset', 'utf8');
 
 /**
- * Localized Language, defaults to English.
- *
- * Change this to localize Saloos. A corresponding MO file for the chosen
- * language must be installed to content/languages. For example, install
- * fa_IR.mo to content/languages and set SLANG to 'fa_IR' to enable Persian
- * language support.
- */
-define('SLANG', 'fa_IR');
-/**
  * For developers: debugging mode.
  *
  * Change this to true to enable the display of notices during development.
@@ -38,12 +29,4 @@ define('SLANG', 'fa_IR');
  * in their development environments.
  */
 define('DEBUG', true);
-
-define('FACHR', 'ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیآيئؤكآأإة');
-define("core", DIR."/../../saloos/");
-define("root_dir", DIR."/../");
-define("lib", core."lib/");
-define("cls", root_dir."cls/");
-define("sql", root_dir."sql/");
-define("content", root_dir."content/");
 ?>

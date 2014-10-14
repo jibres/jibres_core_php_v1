@@ -1,7 +1,8 @@
 {%extends layout%}
 {%block content%}
     <form class="ajx" method="post">
-        {{forms.make(form.login)}}
+        {{forms.make(form.users)}}
+        {{forms.radio()}}
     </form>
 
 	<p class="alert alert-block alert-info">You can manage all of your accounts

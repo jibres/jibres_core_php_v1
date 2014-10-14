@@ -61,25 +61,44 @@
    </div>
   </footer>
 
-{%if debug is iterable%}
-  <div id="formError" class="error_{{debug.status}}">
-  {%for mydebug in debug if mydebug is iterable %}
+{%if error.msg or error.fatal or error.true or error.warn%}
+  <div id="formError" class="error_{{error.status}}">
+  {%for myerror in error if myerror is iterable %}
    <ul>
-   {%for err in mydebug%}
-   {%if err.error is defined%}
-    <li>{{err[err.group]}} : {{err.error}}</li>
-   {%else%}
-    <li>{{err}}</li>
-   {%endif%}
+   {%for err in myerror%}
+    <li>
+    {% if err is iterable %} 	{{err.error}} ({{err.form}})
+    {% else %} 					{{err}}
+    {%endif%}
+    </li>
    {%endfor%}
    </ul>
-   {%endfor%}
+  {%endfor%}
   </div>
 {%endif%}
 
-{%if include.datatable%}
-  <script>$(document).ready(function(){$('.datatable').DataTable();});</script>
-{%endif%}
+
+
+ {%for key, debugs in debug%}
+ {%if key  != "status" and key != "msg"%}
+ <ul class ="submit-status-{{key}}">
+ {%for cKey, cDebug in debugs%}
+ {%if cDebug.error is defined%}
+ <li>{{cDebug[cDebug.group]}} : {{cDebug.error}}</li>
+ {%else%}
+ <li>{{cDebug}}</li>
+ {%endif%}
+ {%endfor%}
+ </ul>
+ {%endif%}
+ {%endfor%}
+
+
+
+
+
+
 {%block footer%}{%endblock%}
+  <script>$(document).ready(function(){$('.datatable').DataTable();});</script>
  </body>
 </html>
