@@ -6,9 +6,9 @@ class controller extends main_controller
 		// ----------------------------------------- accounts
 		$this->listen(
 		array(
-			"domain" => "accounts"
+			"domain" => "admin"
 			),
-		array("accounts", 'home')
+		array("admin", 'home')
 		);
 
 		// ----------------------------------------- signup

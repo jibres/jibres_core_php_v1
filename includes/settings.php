@@ -6,22 +6,32 @@ define("DOMAIN"		, $_SERVER["SERVER_NAME"]);
 $dir = preg_replace("[\\\\]", "/", __DIR__);
 define("DIR", $dir);
 
-// ------------------------------------------------------- SALOOS location 
+// ------------------------------------------------------- SALOOS location
 define("core"		, DIR . "/../../saloos/");
 
-// ------------------------------------------------------- root location 
+// ------------------------------------------------------- root location
 define("root_dir"	, DIR. "/../");
 
-// ------------------------------------------------------- define classes locations 
+// ------------------------------------------------------- define classes location
 define("cls"		, root_dir."includes/cls/");
 
-// ------------------------------------------------------- define classes locations 
+// ------------------------------------------------------- define sql locations
 define("sql"		, root_dir."includes/sql/");
+
+// ------------------------------------------------------- define main_domain location
+$host_names = explode(".", DOMAIN);
+$url_raw 	= $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+define("URL_RAW", $url_raw);
+define("MAIN_DOMAIN", $url_raw);
 
 // if you want to create a new repository simply copy contenr folder and rename to named like content-test
 // then create a folder test in content-test, now you can see the result on sample.com/test
 // first: we create the url of your module, then check if that folder exist, show related content automatically
-$repository = root_dir.'content-'.next(explode("/", $_SERVER['REQUEST_URI'])).'/';
+if(count($host_names)==3)
+	$repository = root_dir.'content-'.$host_names[0].'/';
+else
+	$repository = root_dir.'content-'.next(explode("/", $_SERVER['REQUEST_URI'])).'/';
+// var_dump($repository);
 if(!is_dir($repository))
 
 	define("content"	, root_dir."content/");
@@ -68,6 +78,8 @@ textdomain("*");
 
 /** Define PATH as the site location */
 define("PATH", preg_replace("/index\.php$/", "", $_SERVER["SCRIPT_NAME"]));
+
+define("host", 'http://'.DOMAIN);
 
 header("Content-Type:text/html; charset=UTF-8");
 define('FACHR'					, 'ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیآيئؤكآأإة');

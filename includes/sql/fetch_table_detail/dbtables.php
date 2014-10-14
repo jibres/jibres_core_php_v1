@@ -71,6 +71,11 @@ function _type($type, $def){
 				$fn .= $txtcomment. "description\n";
 				$fn .= $txtstart. '$this->form("#desc")->name("'. $myfield.'");'.$txtend;
 			}
+			elseif (substr($crow->Field, -5)=="email")
+			{
+				$fn .= $txtcomment. "email\n";
+				$fn .= $txtstart. '$this->form("#email")->name("'. $myfield.'");'.$txtend;
+			}
 			elseif($crow->Field=="date_created" or $crow->Field=="date_modified")
 			{
 				$fn .= "\tpublic function $crow->Field() {}\n";

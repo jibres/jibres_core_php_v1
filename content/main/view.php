@@ -12,14 +12,12 @@ class main_view{
 		$this->include			= $this->data->include;
 
 		// *********************************************************************** Site Global Variables
-		
 		$this->url->domain					= DOMAIN;
-		$host_names 						= explode(".", DOMAIN);
-		$this->url->raw				 		= $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
-		$this->url->root				 	= "http://" . $this->url->raw. '/';
+		$this->url->raw				 		= URL_RAW;
+		$this->url->root				 	= "http://" . $this->url->raw . '/';
 		$this->url->current				 	= "http://" . DOMAIN . '/';
 		$this->url->static					= $this->url->root . 'static/';
-		//$this->url->static				 	= $this->url->current .'static/';
+		//$this->url->static				 = $this->url->current .'static/';
 
 		$this->global->site_title			= "Store";
 		$this->global->site_desc			= "Store management by SAMC";
@@ -29,9 +27,6 @@ class main_view{
 
 		$this->include->datatable			= false;
 		$this->include->jquery				= true;
-//define("MAIN_DOMAIN", "store.dev");
-//var_dump(DOMAIN);
-
 		//$this->global->menu					= menu_cls::list_menu();
 
 		// *********************************************************************** Other ...

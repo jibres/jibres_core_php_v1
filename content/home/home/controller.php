@@ -11,6 +11,14 @@ class controller extends main_controller
 		array("accounts", 'home')
 		);
 
+		// ----------------------------------------- admin
+		$this->listen(
+		array(
+			"domain" => "admin"
+			),
+		array("admin", 'home')
+		);
+
 		// ----------------------------------------- signup
 		$this->listen(
 		array(
