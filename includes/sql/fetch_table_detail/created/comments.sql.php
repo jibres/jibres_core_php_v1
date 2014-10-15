@@ -2,20 +2,20 @@
 namespace sql;
 class comments 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'd');
-	public $post_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $product_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $comment_author = array('type' => 'varchar@50', 'label' => 'author');
-	public $comment_author_email = array('type' => 'varchar@100', 'label' => 'author_email');
-	public $comment_author_url = array('type' => 'varchar@100', 'label' => 'author_url');
-	public $comment_author_ip = array('type' => 'int@10', 'label' => 'author_ip');
-	public $comment_agent = array('type' => 'varchar@255', 'label' => 'agent');
-	public $comment_content = array('type' => 'varchar@999', 'label' => 'content');
-	public $comment_status = array('type' => 'enum@approved,unapproved,spam,deleted!unapproved', 'label' => 'status');
-	public $comment_parent = array('type' => 'int@10', 'label' => 'parent');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'ID');
+	public $post_id = array('type' => 'smallint@5', 'label' => 'Post Id');
+	public $product_id = array('type' => 'smallint@5', 'label' => 'Product Id');
+	public $comment_author = array('type' => 'varchar@50', 'label' => 'Author');
+	public $comment_author_email = array('type' => 'varchar@100', 'label' => 'Author Email');
+	public $comment_author_url = array('type' => 'varchar@100', 'label' => 'Author Url');
+	public $comment_author_ip = array('type' => 'int@10', 'label' => 'Author Ip');
+	public $comment_agent = array('type' => 'varchar@255', 'label' => 'Agent');
+	public $comment_content = array('type' => 'varchar@999', 'label' => 'Content');
+	public $comment_status = array('type' => 'enum@approved,unapproved,spam,deleted!unapproved', 'label' => 'Status');
+	public $comment_parent = array('type' => 'int@10', 'label' => 'Parent');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'User Id');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -34,43 +34,43 @@ class comments
 	}
 	public function comment_author() 
 	{
-		$this->form()->name("author")
+		$this->form()->name("Author")
 		->validate();
 	}
 
 	//------------------------------------------------------------------ email
 	public function comment_author_email() 
 	{
-		$this->form("#email")->name("author_email")->validate();
+		$this->form("#email")->name("Author Email")->validate();
 	}
 	public function comment_author_url() 
 	{
-		$this->form()->name("author_url")
+		$this->form()->name("Author Url")
 		->validate();
 	}
 	public function comment_author_ip() 
 	{
-		$this->form()->name("author_ip")
+		$this->form()->name("Author Ip")
 		->validate();
 	}
 	public function comment_agent() 
 	{
-		$this->form()->name("agent")
+		$this->form()->name("Agent")
 		->validate();
 	}
 	public function comment_content() 
 	{
-		$this->form()->name("content")
+		$this->form()->name("Content")
 		->validate();
 	}
 	public function comment_status() 
 	{
-		$this->form()->name("status")
+		$this->form()->name("Status")
 		->validate();
 	}
 	public function comment_parent() 
 	{
-		$this->form()->name("parent")
+		$this->form()->name("Parent")
 		->validate();
 	}
 

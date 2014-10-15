@@ -2,41 +2,41 @@
 namespace sql;
 class options 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'd');
-	public $option_cat = array('type' => 'varchar@50', 'label' => 'cat');
-	public $option_name = array('type' => 'varchar@50', 'label' => 'name');
-	public $option_value = array('type' => 'varchar@200', 'label' => 'value');
-	public $option_value_extra = array('type' => 'varchar@255', 'label' => 'value_extra');
-	public $option_status = array('type' => 'enum@active,deactive!active', 'label' => 'status');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'ID');
+	public $option_cat = array('type' => 'varchar@50', 'label' => 'Cat');
+	public $option_name = array('type' => 'varchar@50', 'label' => 'Name');
+	public $option_value = array('type' => 'varchar@200', 'label' => 'Value');
+	public $option_value_extra = array('type' => 'varchar@255', 'label' => 'Value Extra');
+	public $option_status = array('type' => 'enum@active,deactive!active', 'label' => 'Status');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate("id");}
 	public function option_cat() 
 	{
-		$this->form()->name("cat")
+		$this->form()->name("Cat")
 		->validate();
 	}
 	public function option_name() 
 	{
-		$this->form()->name("name")
+		$this->form()->name("Name")
 		->validate();
 	}
 	public function option_value() 
 	{
-		$this->form()->name("value")
+		$this->form()->name("Value")
 		->validate();
 	}
 	public function option_value_extra() 
 	{
-		$this->form()->name("value_extra")
+		$this->form()->name("Value Extra")
 		->validate();
 	}
 	public function option_status() 
 	{
-		$this->form()->name("status")
+		$this->form()->name("Status")
 		->validate();
 	}
 	public function date_created() {}

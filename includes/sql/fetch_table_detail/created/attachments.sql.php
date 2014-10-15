@@ -2,17 +2,17 @@
 namespace sql;
 class attachments 
 {
-	public $id = array('type' => 'int@10', 'label' => 'd');
-	public $attachment_title = array('type' => 'varchar@100', 'label' => 'title');
-	public $attachment_model = array('type' => 'enum@product_category,product,admin,bank_logo', 'label' => 'model');
-	public $attachment_addr = array('type' => 'varchar@100', 'label' => 'addr');
-	public $attachment_name = array('type' => 'varchar@50', 'label' => 'name');
-	public $attachment_type = array('type' => 'varchar@10', 'label' => 'type');
-	public $attachment_size = array('type' => 'float@12,0', 'label' => 'size');
-	public $attachment_desc = array('type' => 'varchar@200', 'label' => 'desc');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
+	public $id = array('type' => 'int@10', 'label' => 'ID');
+	public $attachment_title = array('type' => 'varchar@100', 'label' => 'Title');
+	public $attachment_model = array('type' => 'enum@product_category,product,admin,bank_logo', 'label' => 'Model');
+	public $attachment_addr = array('type' => 'varchar@100', 'label' => 'Addr');
+	public $attachment_name = array('type' => 'varchar@50', 'label' => 'Name');
+	public $attachment_type = array('type' => 'varchar@10', 'label' => 'Type');
+	public $attachment_size = array('type' => 'float@12,0', 'label' => 'Size');
+	public $attachment_desc = array('type' => 'varchar@200', 'label' => 'Description');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'User Id');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -21,38 +21,38 @@ class attachments
 	//------------------------------------------------------------------ title
 	public function attachment_title() 
 	{
-		$this->form("#title")->name("title")->validate();
+		$this->form("#title")->name("Title")->validate();
 	}
 	public function attachment_model() 
 	{
-		$this->form()->name("model")
+		$this->form()->name("Model")
 		->validate();
 	}
 	public function attachment_addr() 
 	{
-		$this->form()->name("addr")
+		$this->form()->name("Addr")
 		->validate();
 	}
 	public function attachment_name() 
 	{
-		$this->form()->name("name")
+		$this->form()->name("Name")
 		->validate();
 	}
 	public function attachment_type() 
 	{
-		$this->form()->name("type")
+		$this->form()->name("Type")
 		->validate();
 	}
 	public function attachment_size() 
 	{
-		$this->form()->name("size")
+		$this->form()->name("Size")
 		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function attachment_desc() 
 	{
-		$this->form("#desc")->name("desc")->validate();
+		$this->form("#desc")->name("Desc")->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key

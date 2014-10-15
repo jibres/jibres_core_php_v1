@@ -2,16 +2,16 @@
 namespace sql;
 class costs 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'd');
-	public $cost_title = array('type' => 'varchar@50', 'label' => 'title');
-	public $cost_price = array('type' => 'decimal@13,4', 'label' => 'price');
-	public $cc_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $account_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $cost_date = array('type' => 'datetime@', 'label' => 'date');
-	public $cost_desc = array('type' => 'varchar@200', 'label' => 'desc');
-	public $cost_type = array('type' => 'enum@income,outcome!outcome', 'label' => 'type');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'ID');
+	public $cost_title = array('type' => 'varchar@50', 'label' => 'Title');
+	public $cost_price = array('type' => 'decimal@13,4', 'label' => 'Price');
+	public $cc_id = array('type' => 'smallint@5', 'label' => 'Cc Id');
+	public $account_id = array('type' => 'smallint@5', 'label' => 'Account Id');
+	public $cost_date = array('type' => 'datetime@', 'label' => 'Date');
+	public $cost_desc = array('type' => 'varchar@200', 'label' => 'Description');
+	public $cost_type = array('type' => 'enum@income,outcome!outcome', 'label' => 'Type');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -20,11 +20,11 @@ class costs
 	//------------------------------------------------------------------ title
 	public function cost_title() 
 	{
-		$this->form("#title")->name("title")->validate();
+		$this->form("#title")->name("Title")->validate();
 	}
 	public function cost_price() 
 	{
-		$this->form()->name("price")
+		$this->form()->name("Price")
 		->validate();
 	}
 
@@ -41,18 +41,18 @@ class costs
 	}
 	public function cost_date() 
 	{
-		$this->form()->name("date")
+		$this->form()->name("Date")
 		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function cost_desc() 
 	{
-		$this->form("#desc")->name("desc")->validate();
+		$this->form("#desc")->name("Desc")->validate();
 	}
 	public function cost_type() 
 	{
-		$this->form()->name("type")
+		$this->form()->name("Type")
 		->validate();
 	}
 	public function date_created() {}

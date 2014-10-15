@@ -2,14 +2,14 @@
 namespace sql;
 class user_logs 
 {
-	public $id = array('type' => 'int@10', 'label' => 'd');
-	public $ul_title = array('type' => 'varchar@50', 'label' => 'title');
-	public $ul_desc = array('type' => 'varchar@999', 'label' => 'desc');
-	public $ul_priority = array('type' => 'enum@high,medium,low!medium', 'label' => 'priority');
-	public $ul_type = array('type' => 'enum@forget_password', 'label' => 'type');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
+	public $id = array('type' => 'int@10', 'label' => 'ID');
+	public $ul_title = array('type' => 'varchar@50', 'label' => 'Title');
+	public $ul_desc = array('type' => 'varchar@999', 'label' => 'Description');
+	public $ul_priority = array('type' => 'enum@high,medium,low!medium', 'label' => 'Priority');
+	public $ul_type = array('type' => 'enum@forget_password', 'label' => 'Type');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'User Id');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -18,22 +18,22 @@ class user_logs
 	//------------------------------------------------------------------ title
 	public function ul_title() 
 	{
-		$this->form("#title")->name("title")->validate();
+		$this->form("#title")->name("Title")->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function ul_desc() 
 	{
-		$this->form("#desc")->name("desc")->validate();
+		$this->form("#desc")->name("Desc")->validate();
 	}
 	public function ul_priority() 
 	{
-		$this->form()->name("priority")
+		$this->form()->name("Priority")
 		->validate();
 	}
 	public function ul_type() 
 	{
-		$this->form()->name("type")
+		$this->form()->name("Type")
 		->validate();
 	}
 

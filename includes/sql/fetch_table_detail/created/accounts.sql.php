@@ -2,18 +2,18 @@
 namespace sql;
 class accounts 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'd');
-	public $account_title = array('type' => 'varchar@50', 'label' => 'title');
-	public $account_slug = array('type' => 'varchar@50', 'label' => 'slug');
-	public $bank_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $account_branch_name = array('type' => 'varchar@50', 'label' => 'branch_name');
-	public $account_number = array('type' => 'varchar@50', 'label' => 'number');
-	public $account_card_number = array('type' => 'varchar@30', 'label' => 'card_number');
-	public $account_primarybalance = array('type' => 'decimal@14,4!0.0000', 'label' => 'primarybalance');
-	public $account_desc = array('type' => 'varchar@200', 'label' => 'desc');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'ID');
+	public $account_title = array('type' => 'varchar@50', 'label' => 'Title');
+	public $account_slug = array('type' => 'varchar@50', 'label' => 'Slug');
+	public $bank_id = array('type' => 'smallint@5', 'label' => 'Bank Id');
+	public $account_branch_name = array('type' => 'varchar@50', 'label' => 'Branch Name');
+	public $account_number = array('type' => 'varchar@50', 'label' => 'Number');
+	public $account_card_number = array('type' => 'varchar@30', 'label' => 'Card Number');
+	public $account_primarybalance = array('type' => 'decimal@14,4!0.0000', 'label' => 'Primarybalance');
+	public $account_desc = array('type' => 'varchar@200', 'label' => 'Description');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'User Id');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -22,13 +22,13 @@ class accounts
 	//------------------------------------------------------------------ title
 	public function account_title() 
 	{
-		$this->form("#title")->name("title")->validate();
+		$this->form("#title")->name("Title")->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function account_slug() 
 	{
-		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['account_title']->value
+		$this->form("#slug")->name("Slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['account_title']->value
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -38,29 +38,29 @@ class accounts
 	}
 	public function account_branch_name() 
 	{
-		$this->form()->name("branch_name")
+		$this->form()->name("Branch Name")
 		->validate();
 	}
 	public function account_number() 
 	{
-		$this->form()->name("number")
+		$this->form()->name("Number")
 		->validate();
 	}
 	public function account_card_number() 
 	{
-		$this->form()->name("card_number")
+		$this->form()->name("Card Number")
 		->validate();
 	}
 	public function account_primarybalance() 
 	{
-		$this->form()->name("primarybalance")
+		$this->form()->name("Primarybalance")
 		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function account_desc() 
 	{
-		$this->form("#desc")->name("desc")->validate();
+		$this->form("#desc")->name("Desc")->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key

@@ -2,11 +2,11 @@
 namespace sql;
 class term_usages 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'd');
-	public $term_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $post_id = array('type' => 'smallint@5', 'label' => 'id');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'ID');
+	public $term_id = array('type' => 'smallint@5', 'label' => 'Term Id');
+	public $post_id = array('type' => 'smallint@5', 'label' => 'Post Id');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

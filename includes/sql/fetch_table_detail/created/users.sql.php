@@ -2,187 +2,187 @@
 namespace sql;
 class users 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'd');
-	public $user_type = array('type' => 'enum@customer,supplier,employee!customer', 'label' => 'type');
-	public $user_pass = array('type' => 'char@32', 'label' => 'pass');
-	public $user_email = array('type' => 'varchar@50', 'label' => 'email');
-	public $user_gender = array('type' => 'enum@male,female', 'label' => 'gender');
-	public $user_married = array('type' => 'enum@single,married', 'label' => 'married');
-	public $user_firstname = array('type' => 'varchar@50', 'label' => 'firstname');
-	public $user_lastname = array('type' => 'varchar@50', 'label' => 'lastname');
-	public $user_nickname = array('type' => 'varchar@50', 'label' => 'nickname');
-	public $user_tel = array('type' => 'varchar@15', 'label' => 'tel');
-	public $user_mobile = array('type' => 'varchar@15', 'label' => 'mobile');
-	public $user_birthday = array('type' => 'datetime@', 'label' => 'birthday');
-	public $user_country = array('type' => 'smallint@5', 'label' => 'country');
-	public $user_state = array('type' => 'smallint@5', 'label' => 'state');
-	public $user_city = array('type' => 'smallint@5', 'label' => 'city');
-	public $user_address = array('type' => 'varchar@200', 'label' => 'address');
-	public $user_postcode = array('type' => 'varchar@10', 'label' => 'postcode');
-	public $user_newsletter = array('type' => 'enum@yes,no!no', 'label' => 'newsletter');
-	public $user_refer = array('type' => 'varchar@50', 'label' => 'refer');
-	public $user_nationalcode = array('type' => 'varchar@15', 'label' => 'nationalcode');
-	public $user_website = array('type' => 'varchar@100', 'label' => 'website');
-	public $user_status = array('type' => 'enum@active,awaiting,deactive,removed!awaiting', 'label' => 'status');
-	public $user_degree = array('type' => 'varchar@50', 'label' => 'degree');
-	public $user_activity = array('type' => 'varchar@50', 'label' => 'activity');
-	public $user_total_income = array('type' => 'bigint@11', 'label' => 'total_income');
-	public $user_total_outcome = array('type' => 'bigint@11', 'label' => 'total_outcome');
-	public $user_credit = array('type' => 'enum@yes,no!no', 'label' => 'credit');
-	public $user_question = array('type' => 'varchar@100', 'label' => 'question');
-	public $user_answer = array('type' => 'varchar@100', 'label' => 'answer');
-	public $permission_name = array('type' => 'varchar@50', 'label' => 'name');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'ID');
+	public $user_type = array('type' => 'enum@customer,supplier,employee!customer', 'label' => 'Type');
+	public $user_pass = array('type' => 'char@32', 'label' => 'Password');
+	public $user_email = array('type' => 'varchar@50', 'label' => 'Email');
+	public $user_gender = array('type' => 'enum@male,female', 'label' => 'Gender');
+	public $user_married = array('type' => 'enum@single,married', 'label' => 'Married');
+	public $user_firstname = array('type' => 'varchar@50', 'label' => 'Firstname');
+	public $user_lastname = array('type' => 'varchar@50', 'label' => 'Lastname');
+	public $user_nickname = array('type' => 'varchar@50', 'label' => 'Nickname');
+	public $user_tel = array('type' => 'varchar@15', 'label' => 'Tel');
+	public $user_mobile = array('type' => 'varchar@15', 'label' => 'Mobile');
+	public $user_birthday = array('type' => 'datetime@', 'label' => 'Birthday');
+	public $user_country = array('type' => 'smallint@5', 'label' => 'Country');
+	public $user_state = array('type' => 'smallint@5', 'label' => 'State');
+	public $user_city = array('type' => 'smallint@5', 'label' => 'City');
+	public $user_address = array('type' => 'varchar@200', 'label' => 'Address');
+	public $user_postcode = array('type' => 'varchar@10', 'label' => 'Postcode');
+	public $user_newsletter = array('type' => 'enum@yes,no!no', 'label' => 'Newsletter');
+	public $user_refer = array('type' => 'varchar@50', 'label' => 'Refer');
+	public $user_nationalcode = array('type' => 'varchar@15', 'label' => 'Nationalcode');
+	public $user_website = array('type' => 'varchar@100', 'label' => 'Website');
+	public $user_status = array('type' => 'enum@active,awaiting,deactive,removed!awaiting', 'label' => 'Status');
+	public $user_degree = array('type' => 'varchar@50', 'label' => 'Degree');
+	public $user_activity = array('type' => 'varchar@50', 'label' => 'Activity');
+	public $user_total_income = array('type' => 'bigint@11', 'label' => 'Total Income');
+	public $user_total_outcome = array('type' => 'bigint@11', 'label' => 'Total Outcome');
+	public $user_credit = array('type' => 'enum@yes,no!no', 'label' => 'Credit');
+	public $user_question = array('type' => 'varchar@100', 'label' => 'Question');
+	public $user_answer = array('type' => 'varchar@100', 'label' => 'Answer');
+	public $permission_name = array('type' => 'varchar@50', 'label' => 'Name');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate("id");}
 	public function user_type() 
 	{
-		$this->form()->name("type")
+		$this->form()->name("Type")
 		->validate();
 	}
 
 	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		$this->form("#pass")->name("pass")->validate();
+		$this->form("#password")->name("password")->validate();
 	}
 
 	//------------------------------------------------------------------ email
 	public function user_email() 
 	{
-		$this->form("#email")->name("email")->validate();
+		$this->form("#email")->name("Email")->validate();
 	}
 	public function user_gender() 
 	{
-		$this->form()->name("gender")
+		$this->form()->name("Gender")
 		->validate();
 	}
 	public function user_married() 
 	{
-		$this->form()->name("married")
+		$this->form()->name("Married")
 		->validate();
 	}
 	public function user_firstname() 
 	{
-		$this->form()->name("firstname")
+		$this->form()->name("Firstname")
 		->validate();
 	}
 	public function user_lastname() 
 	{
-		$this->form()->name("lastname")
+		$this->form()->name("Lastname")
 		->validate();
 	}
 	public function user_nickname() 
 	{
-		$this->form()->name("nickname")
+		$this->form()->name("Nickname")
 		->validate();
 	}
 	public function user_tel() 
 	{
-		$this->form()->name("tel")
+		$this->form()->name("Tel")
 		->validate();
 	}
 	public function user_mobile() 
 	{
-		$this->form()->name("mobile")
+		$this->form()->name("Mobile")
 		->validate();
 	}
 	public function user_birthday() 
 	{
-		$this->form()->name("birthday")
+		$this->form()->name("Birthday")
 		->validate();
 	}
 	public function user_country() 
 	{
-		$this->form()->name("country")
+		$this->form()->name("Country")
 		->validate();
 	}
 	public function user_state() 
 	{
-		$this->form()->name("state")
+		$this->form()->name("State")
 		->validate();
 	}
 	public function user_city() 
 	{
-		$this->form()->name("city")
+		$this->form()->name("City")
 		->validate();
 	}
 	public function user_address() 
 	{
-		$this->form()->name("address")
+		$this->form()->name("Address")
 		->validate();
 	}
 	public function user_postcode() 
 	{
-		$this->form()->name("postcode")
+		$this->form()->name("Postcode")
 		->validate();
 	}
 	public function user_newsletter() 
 	{
-		$this->form()->name("newsletter")
+		$this->form()->name("Newsletter")
 		->validate();
 	}
 	public function user_refer() 
 	{
-		$this->form()->name("refer")
+		$this->form()->name("Refer")
 		->validate();
 	}
 	public function user_nationalcode() 
 	{
-		$this->form()->name("nationalcode")
+		$this->form()->name("Nationalcode")
 		->validate();
 	}
 	public function user_website() 
 	{
-		$this->form()->name("website")
+		$this->form()->name("Website")
 		->validate();
 	}
 	public function user_status() 
 	{
-		$this->form()->name("status")
+		$this->form()->name("Status")
 		->validate();
 	}
 	public function user_degree() 
 	{
-		$this->form()->name("degree")
+		$this->form()->name("Degree")
 		->validate();
 	}
 	public function user_activity() 
 	{
-		$this->form()->name("activity")
+		$this->form()->name("Activity")
 		->validate();
 	}
 	public function user_total_income() 
 	{
-		$this->form()->name("total_income")
+		$this->form()->name("Total Income")
 		->validate();
 	}
 	public function user_total_outcome() 
 	{
-		$this->form()->name("total_outcome")
+		$this->form()->name("Total Outcome")
 		->validate();
 	}
 	public function user_credit() 
 	{
-		$this->form()->name("credit")
+		$this->form()->name("Credit")
 		->validate();
 	}
 	public function user_question() 
 	{
-		$this->form()->name("question")
+		$this->form()->name("Question")
 		->validate();
 	}
 	public function user_answer() 
 	{
-		$this->form()->name("answer")
+		$this->form()->name("Answer")
 		->validate();
 	}
 	public function permission_name() 
 	{
-		$this->form()->name("name")
+		$this->form()->name("Name")
 		->validate();
 	}
 	public function date_created() {}
