@@ -30,7 +30,10 @@ define("MAIN_DOMAIN", $url_raw);
 if(count($host_names)==3)
 	$repository = root_dir.'content-'.$host_names[0].'/';
 else
-	$repository = root_dir.'content-'.next(explode("/", $_SERVER['REQUEST_URI'])).'/';
+{
+	$tmp = explode("/", $_SERVER['REQUEST_URI'])
+	$repository = root_dir.'content-'.next($tmp).'/';
+}
 // var_dump($repository);
 if(!is_dir($repository))
 
