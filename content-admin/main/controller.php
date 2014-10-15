@@ -11,6 +11,116 @@ class main_controller{
 		}
 	}
 
+	// ---------------------------------------------------------------- default controller and some other function for ADMIN
+	public function config()
+	{
+		if(method_exists($this, "options")) $this->options();
+		/**
+		 * DONT REMOVE THIS COMMENTS ! ***************************
+		 * array(class, method, child)
+		 * array("class" => class, ...)
+		 * array('admin', 'locations', '', 'delete')
+		 * OR function(){save(class, method, child)}
+		 * try to use array
+		 */
+		// add user defined method for use in view, model and controller
+		$this->addMethod('url_child');
+		$this->addMethod('url_method');
+		$this->addMethod('url_class');
+		$this->addMethod('url_parameter');
+		$this->addMethod('url_title');
+		$this->addMethod('submit_title');		
+
+		if ($this->url_method())
+		{
+			if($this->url_child())
+			{
+				// in add, edit or delete pages do NOTHING
+			}
+			else
+			{
+				// in root page like site.com/admin/banks control
+				$this->listen(
+					array(
+						"min" => 1,
+						"max" => 1,
+						"url" => array('add')
+						),
+					array('child' => 'add')
+				);
+
+				$this->listen(
+					array(
+						"min" => 1,
+						"max" => 2,
+						"url" => array('edit')
+						// [ae][d][di][t]
+						// ^add$ ^edit$
+						),
+					array('child' => 'add')
+				);
+
+				$this->listen(
+					array(
+						"min" => 1,
+						"max" => 2,
+						"url" => array('delete')
+						),
+					array('child' => 'home', 'mod' => 'delete')
+				);
+			}
+		}
+	}
+
+	/*
+	 * this function check url and has two method for check address
+	 * first compare current address with user entered value and return True or False
+	 * second condition return the title of page
+	 */
+	function url_child($child="add")
+	{
+		// var_dump(config_lib::$child);
+		return config_lib::$child;
+	}
+
+	function url_method($method=false)
+	{
+		return config_lib::$method;
+	}
+
+	function url_class()
+	{
+		return config_lib::$class;
+	}
+
+	function url_parameter()
+	{
+		var_dump("parameter");
+		var_dump(config_lib::$aurl[0]);
+		if( isset(config_lib::$aurl[0]) && config_lib::$aurl[0] == 'edit' && isset(config_lib::$aurl[1]) )
+			return (config_lib::$aurl[1]);
+	}
+
+	function url_title()
+	{
+		$mychild = current(config_lib::$aurl);
+		if($mychild == 'add')
+			return 'Add New';
+		elseif($mychild == 'edit')
+			return 'Edit';
+	}
+
+	function submit_title()
+	{
+		$mychild = current(config_lib::$aurl);
+		if($mychild == 'add')
+			return 'Submit';
+		elseif($mychild == 'edit')
+			return 'Save';
+	}
+	// ---------------------------------------------------------------- Until this line - Added by Javad
+
+
 	public final function hendel(){
 		$sMod = config_lib::$mod;
 		$this->$sMod = new $sMod($this);

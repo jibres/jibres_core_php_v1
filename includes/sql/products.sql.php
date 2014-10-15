@@ -37,7 +37,8 @@ class products
 	//------------------------------------------------------------------ slug
 	public function product_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['product_title']->value
+		$this->form("#slug")->name("Slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['product_title']->value;});
 	}
 
 	//------------------------------------------------------------------ id - foreign key

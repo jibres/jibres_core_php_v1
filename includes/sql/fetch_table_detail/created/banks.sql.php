@@ -23,7 +23,8 @@ class banks
 	//------------------------------------------------------------------ slug
 	public function bank_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['bank_title']->value
+		$this->form("#slug")->name("Slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['bank_title']->value;});
 	}
 	public function bank_website() 
 	{

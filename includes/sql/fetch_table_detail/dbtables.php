@@ -79,8 +79,8 @@ function _type($type, $def){
 			elseif (substr($crow->Field, -4)=="slug")
 			{
 				$fn .= $txtcomment. "slug\n";
-				$fn .= $txtstart. '$this->form("#slug")->name("'. $myname.'")->validate();';
-				$fn .= "->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value";
+				$fn .= $txtstart. '$this->form("#slug")->name("'. $myname.'")->validate()';
+				$fn .= "\n\t\t->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value;});";
 				$fn .= $txtend;
 
 				// $this->validate()->xsslug(function()

@@ -23,7 +23,8 @@ class terms
 	//------------------------------------------------------------------ slug
 	public function term_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['term_title']->value
+		$this->form("#slug")->name("Slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['term_title']->value;});
 	}
 
 	//------------------------------------------------------------------ description

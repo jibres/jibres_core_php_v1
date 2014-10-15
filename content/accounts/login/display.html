@@ -1,9 +1,5 @@
 {%extends layout%}
 {%block content%}
-    <form class="ajx" method="post">
-        {{forms.make(form.users)}}
-        {{forms.radio()}}
-    </form>
 
 	<p class="alert alert-block alert-info">You can manage all of your accounts
 	<a class="float-right" href="">Home</a></p>
@@ -13,4 +9,10 @@
 		<li><a href="recovery">Recovery</a></li>
 		<li><a href="logout">Logout</a></li>
 	</ul>
+	
+    <form class="ajx" method="post">
+        {{forms.make(form.users)}}
+        {{forms.radio()}}
+    </form>
+    
 {%endblock%}

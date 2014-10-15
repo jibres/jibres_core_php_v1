@@ -1,7 +1,9 @@
 <?php
-class main_view{
+class main_view
+{
 	public $formIndex = array();
-	public final function __construct($controller){
+	public final function __construct($controller)
+	{
 		$this->controller		= $controller;
 		$this->data				= new aDATA();
 		$this->data->global		= new aData();
@@ -30,8 +32,8 @@ class main_view{
 
 		$this->include->datatable			= false;
 		$this->include->jquery				= true;
-//define("MAIN_DOMAIN", "store.dev");
-//var_dump($host_names);
+		//define("MAIN_DOMAIN", "store.dev");
+		//var_dump($host_names);
 
 		//$this->global->menu					= menu_cls::list_menu();
 
@@ -54,6 +56,41 @@ class main_view{
 		$this->compile();
 
 	}
+
+	// ---------------------------------------------------------------- default config function for ADMIN
+	public function config() 
+	{
+		// var_dump("aaa");
+		$this->data->child			= $this->url_child();
+		$this->data->module			= $this->url_method();
+		$this->data->class			= $this->url_class();
+		$this->global->page_title	= ucfirst($this->data->module);
+		// $myForm						= $this->form("@".$this->data->module);
+		
+		if(method_exists($this, "options")) $this->options();
+
+		if($this->data->module)
+		{
+			if($this->data->child)
+			{
+				// in add, edit or delete pages
+				$table_name					= $this->url_method();
+				$this->data->module			= $table_name;
+				$this->data->form_title		= ucfirst(substr($table_name,0,-1));
+				$this->global->page_title	= $this->url_title() . ' ' . $this->data->form_title;
+				$myForm						= $this->form("@".$table_name);
+				$this->data->form_show		= true;
+			}
+			else
+			{
+				// in root page like site.com/admin/banks show datatable
+				$this->include->datatable = true;
+			}
+			
+		}
+	}
+	// ---------------------------------------------------------------- Until this line - Added by Javad
+
 
 	public final function form($type = false, $args = array()){
 		$this->data->extendForm = true;

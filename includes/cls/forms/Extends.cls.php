@@ -2,7 +2,19 @@
 class forms_Extends_cls extends forms_lib{
 	function __construct(){
 		$this->hidden = $this->make("hidden")->name("_post");
+
+		// title contain email or mobile number
+		$this->title = $this->make("text")->name("title")->label("title");
+		$this->title->validate()->title()->form->title("title incorrect");
 		
+		// slug contain email or mobile number
+		$this->slug = $this->make("text")->name("slug")->label("slug");
+		$this->slug->validate()->slug()->form->slug("slug incorrect");
+
+		// desc contain email or mobile number
+		$this->desc = $this->make("text")->name("desc")->label("desc");
+		$this->desc->validate()->desc()->form->desc("desc incorrect");
+
 		// username contain email or mobile number
 		$this->username = $this->make("text")->name("username")->label("username");
 		$this->username->validate()->username()->form->username("username incorrect");

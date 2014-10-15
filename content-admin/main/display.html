@@ -43,7 +43,65 @@
   <div class="container" id="main">
   {%if global.page_title%}
   <h1>{{global.page_title}}</h1><hr />{%endif%}
-   
+
+{%if module%}
+  {%if child%}
+    <p class="alert alert-block alert-info">
+     <a href="{{class}}/{{module}}">Go to {{module|title}}</a>
+    </p>
+
+    <form class="ajx" method="post" id="{{form_title}}">
+      {%if form_show %}
+        {{forms.make(form.banks)}}
+      {%else%}
+        Does not exist!!!
+      {%endif%}
+    </form>
+
+  {%else%}
+    <p class="alert alert-block alert-info">
+     <a href="{{class}}/{{module}}/add">Add New Record</a>
+     <a class="float-right" href="admin">Home</a>
+    </p>
+
+
+    <table class="datatable display">
+      <thead>
+        <tr role="row">
+          <th class="column_row">#</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th class="column_slug">Slug</th>
+          <th class="column_actions">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {%for d in datarow%}
+        <tr role="row" class="{{ cycle(['odd', 'even'], loop.index0) }}">
+          <td class="column_row">{{loop.index}}</td>
+          <td><a href="admin/{{module}}/edit/{{d.location_slug}}">{{d.location_title}}</a></td>
+          <td>{{d.location_desc}}</td>
+          <td class="column_slug">{{d.location_slug}}</td>
+          <td>
+            <span class="hint--top hint--info" data-hint="Edit">
+              <a class="action-icons edit hint--top" href="admin/{{module}}/edit/{{d.location_slug}}">Edit</a>
+            </span>
+            <span class="hint--top hint--error" data-hint="Delete">
+              <a class="action-icons delete hide-text" href="admin/{{module}}/delete/{{d.location_slug}}">Delete</a>
+            </span>
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+
+
+
+
+  {%endif%}
+{%endif%}
+
 {%block content%}{%endblock%}
   </div>
 
@@ -61,44 +119,25 @@
    </div>
   </footer>
 
-{%if error.msg or error.fatal or error.true or error.warn%}
-  <div id="formError" class="error_{{error.status}}">
-  {%for myerror in error if myerror is iterable %}
+{%if debug is iterable%}
+  <div id="formError" class="error_{{debug.status}}">
+  {%for mydebug in debug if mydebug is iterable %}
    <ul>
-   {%for err in myerror%}
-    <li>
-    {% if err is iterable %} 	{{err.error}} ({{err.form}})
-    {% else %} 					{{err}}
-    {%endif%}
-    </li>
+   {%for err in mydebug%}
+   {%if err.error is defined%}
+    <li>{{err[err.group]}} : {{err.error}}</li>
+   {%else%}
+    <li>{{err}}</li>
+   {%endif%}
    {%endfor%}
    </ul>
-  {%endfor%}
+   {%endfor%}
   </div>
 {%endif%}
 
-
-
- {%for key, debugs in debug%}
- {%if key  != "status" and key != "msg"%}
- <ul class ="submit-status-{{key}}">
- {%for cKey, cDebug in debugs%}
- {%if cDebug.error is defined%}
- <li>{{cDebug[cDebug.group]}} : {{cDebug.error}}</li>
- {%else%}
- <li>{{cDebug}}</li>
- {%endif%}
- {%endfor%}
- </ul>
- {%endif%}
- {%endfor%}
-
-
-
-
-
-
-{%block footer%}{%endblock%}
+{%if include.datatable%}
   <script>$(document).ready(function(){$('.datatable').DataTable();});</script>
+{%endif%}
+{%block footer%}{%endblock%}
  </body>
 </html>

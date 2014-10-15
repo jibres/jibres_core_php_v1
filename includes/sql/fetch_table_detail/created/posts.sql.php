@@ -39,7 +39,8 @@ class posts
 	//------------------------------------------------------------------ slug
 	public function post_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['post_title']->value
+		$this->form("#slug")->name("Slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['post_title']->value;});
 	}
 	public function post_content() 
 	{

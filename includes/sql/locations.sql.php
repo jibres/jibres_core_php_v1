@@ -22,7 +22,8 @@ class locations
 	//------------------------------------------------------------------ slug
 	public function location_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['location_title']->value
+		$this->form("#slug")->name("Slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['location_title']->value;});
 	}
 
 	//------------------------------------------------------------------ description
