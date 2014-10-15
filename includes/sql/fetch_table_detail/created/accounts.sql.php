@@ -2,18 +2,18 @@
 namespace sql;
 class accounts 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'id');
-	public $account_title = array('type' => 'varchar@50', 'label' => 'account_title');
-	public $account_slug = array('type' => 'varchar@50', 'label' => 'account_slug');
-	public $bank_id = array('type' => 'smallint@5', 'label' => 'bank_id');
-	public $account_branch_name = array('type' => 'varchar@50', 'label' => 'account_branch_name');
-	public $account_number = array('type' => 'varchar@50', 'label' => 'account_number');
-	public $account_card_number = array('type' => 'varchar@30', 'label' => 'account_card_number');
-	public $account_primarybalance = array('type' => 'decimal@14,4!0.0000', 'label' => 'account_primarybalance');
-	public $account_desc = array('type' => 'varchar@200', 'label' => 'account_desc');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'user_id');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'date_created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'date_modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'd');
+	public $account_title = array('type' => 'varchar@50', 'label' => 'title');
+	public $account_slug = array('type' => 'varchar@50', 'label' => 'slug');
+	public $bank_id = array('type' => 'smallint@5', 'label' => 'id');
+	public $account_branch_name = array('type' => 'varchar@50', 'label' => 'branch_name');
+	public $account_number = array('type' => 'varchar@50', 'label' => 'number');
+	public $account_card_number = array('type' => 'varchar@30', 'label' => 'card_number');
+	public $account_primarybalance = array('type' => 'decimal@14,4!0.0000', 'label' => 'primarybalance');
+	public $account_desc = array('type' => 'varchar@200', 'label' => 'desc');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'id');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
 
 
 	//------------------------------------------------------------------ id - primary key

@@ -2,15 +2,15 @@
 namespace sql;
 class addons 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'id');
-	public $addon_name = array('type' => 'varchar@50', 'label' => 'addon_name');
-	public $addon_slug = array('type' => 'varchar@50', 'label' => 'addon_slug');
-	public $addon_desc = array('type' => 'varchar@999', 'label' => 'addon_desc');
-	public $addon_status = array('type' => 'enum@active,deactive,expire,going_to_expire!deactive', 'label' => 'addon_status');
-	public $addon_expire = array('type' => 'datetime@', 'label' => 'addon_expire');
-	public $addon_installdate = array('type' => 'datetime@', 'label' => 'addon_installdate');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'date_created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'date_modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'd');
+	public $addon_name = array('type' => 'varchar@50', 'label' => 'name');
+	public $addon_slug = array('type' => 'varchar@50', 'label' => 'slug');
+	public $addon_desc = array('type' => 'varchar@999', 'label' => 'desc');
+	public $addon_status = array('type' => 'enum@active,deactive,expire,going_to_expire!deactive', 'label' => 'status');
+	public $addon_expire = array('type' => 'datetime@', 'label' => 'expire');
+	public $addon_installdate = array('type' => 'datetime@', 'label' => 'installdate');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
 
 
 	//------------------------------------------------------------------ id - primary key

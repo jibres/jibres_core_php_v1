@@ -2,11 +2,11 @@
 namespace sql;
 class error_logs 
 {
-	public $id = array('type' => 'int@10', 'label' => 'id');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'user_id');
-	public $ed_id = array('type' => 'smallint@5', 'label' => 'ed_id');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'date_created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'date_modified');
+	public $id = array('type' => 'int@10', 'label' => 'd');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'id');
+	public $ed_id = array('type' => 'smallint@5', 'label' => 'id');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
 
 
 	//------------------------------------------------------------------ id - primary key

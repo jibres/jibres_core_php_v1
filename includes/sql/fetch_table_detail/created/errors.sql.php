@@ -2,12 +2,12 @@
 namespace sql;
 class errors 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'id');
-	public $ed_title = array('type' => 'varchar@100', 'label' => 'ed_title');
-	public $ed_solution = array('type' => 'varchar@999', 'label' => 'ed_solution');
-	public $ed_priority = array('type' => 'enum@critical,high,medium,low!medium', 'label' => 'ed_priority');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'date_created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'date_modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'd');
+	public $ed_title = array('type' => 'varchar@100', 'label' => 'title');
+	public $ed_solution = array('type' => 'varchar@999', 'label' => 'solution');
+	public $ed_priority = array('type' => 'enum@critical,high,medium,low!medium', 'label' => 'priority');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
 
 
 	//------------------------------------------------------------------ id - primary key

@@ -34,8 +34,7 @@ function _type($type, $def){
 
 		while ($crow = $qCOL->fetch_object()) {
 			//$LABEL = $TABLENAME.'_'.$crow->Field;
-			$LABEL = $crow->Field;
-			$content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'label' => '$LABEL');\n";
+			//$LABEL = $crow->Field;
 			
 
 
@@ -47,6 +46,7 @@ function _type($type, $def){
 			$txtcomment	= "\n\t//------------------------------------------------------------------ ";
 			$txtstart	= "\tpublic function $crow->Field() \n\t{\n\t\t";
 			$txtend		="\n\t}\n";
+			$content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'label' => '$myname');\n";
 
 			// --------------------------------------------------------------------------------- ID
 			if($crow->Field=="id")

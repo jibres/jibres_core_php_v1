@@ -2,13 +2,13 @@
 namespace sql;
 class banks 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'id');
-	public $bank_title = array('type' => 'varchar@50', 'label' => 'bank_title');
-	public $bank_slug = array('type' => 'varchar@50', 'label' => 'bank_slug');
-	public $bank_website = array('type' => 'varchar@50', 'label' => 'bank_website');
-	public $bank_active = array('type' => 'enum@yes,no!yes', 'label' => 'bank_active');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'date_created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'date_modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'd');
+	public $bank_title = array('type' => 'varchar@50', 'label' => 'title');
+	public $bank_slug = array('type' => 'varchar@50', 'label' => 'slug');
+	public $bank_website = array('type' => 'varchar@50', 'label' => 'website');
+	public $bank_active = array('type' => 'enum@yes,no!yes', 'label' => 'active');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
 
 
 	//------------------------------------------------------------------ id - primary key

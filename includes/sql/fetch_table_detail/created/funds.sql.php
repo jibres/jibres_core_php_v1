@@ -2,14 +2,14 @@
 namespace sql;
 class funds 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'id');
-	public $fund_title = array('type' => 'varchar@100', 'label' => 'fund_title');
-	public $fund_slug = array('type' => 'varchar@100', 'label' => 'fund_slug');
-	public $location_id = array('type' => 'smallint@5', 'label' => 'location_id');
-	public $fund_initial_balance = array('type' => 'decimal@14,4', 'label' => 'fund_initial_balance');
-	public $fund_desc = array('type' => 'varchar@200', 'label' => 'fund_desc');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'date_created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'date_modified');
+	public $id = array('type' => 'smallint@5', 'label' => 'd');
+	public $fund_title = array('type' => 'varchar@100', 'label' => 'title');
+	public $fund_slug = array('type' => 'varchar@100', 'label' => 'slug');
+	public $location_id = array('type' => 'smallint@5', 'label' => 'id');
+	public $fund_initial_balance = array('type' => 'decimal@14,4', 'label' => 'initial_balance');
+	public $fund_desc = array('type' => 'varchar@200', 'label' => 'desc');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'modified');
 
 
 	//------------------------------------------------------------------ id - primary key
