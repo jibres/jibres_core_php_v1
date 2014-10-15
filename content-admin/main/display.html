@@ -50,13 +50,13 @@
      <a href="{{class}}/{{module}}">Go to {{module|title}}</a>
     </p>
 
-    <form class="ajx" method="post" id="{{form_title}}">
-      {%if form_show %}
-        {{forms.make(form.banks)}}
-      {%else%}
-        Does not exist!!!
-      {%endif%}
-    </form>
+    {%if form_show %}
+      <form class="ajx" method="post" id="{{form_title}}">
+        {{forms.make( form.banks )}}
+      </form>
+    {%else%}
+      Does not exist!!!
+    {%endif%}
 
   {%else%}
     <p class="alert alert-block alert-info">
