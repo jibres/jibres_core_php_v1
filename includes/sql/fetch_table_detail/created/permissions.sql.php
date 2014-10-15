@@ -18,31 +18,38 @@ class permissions
 	public function id() {$this->validate("id");}
 	public function permission_name() 
 	{
-		
+		$this->form()->name("name")
+		->validate();
 	}
 	public function Permission_table() 
 	{
-		
+		$this->form()->name("table")
+		->validate();
 	}
 	public function permission_view() 
 	{
-		
+		$this->form()->name("view")
+		->validate();
 	}
 	public function permission_add() 
 	{
-		
+		$this->form()->name("add")
+		->validate();
 	}
 	public function permission_edit() 
 	{
-		
+		$this->form()->name("edit")
+		->validate();
 	}
 	public function permission_delete() 
 	{
-		
+		$this->form()->name("delete")
+		->validate();
 	}
 	public function permission_status() 
 	{
-		
+		$this->form()->name("status")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

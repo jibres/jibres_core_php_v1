@@ -19,15 +19,18 @@ class cheques
 	public function id() {$this->validate("id");}
 	public function cheque_number() 
 	{
-		
+		$this->form()->name("number")
+		->validate();
 	}
 	public function cheque_date() 
 	{
-		
+		$this->form()->name("date")
+		->validate();
 	}
 	public function cheque_price() 
 	{
-		
+		$this->form()->name("price")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -37,17 +40,19 @@ class cheques
 	}
 	public function cheque_holder() 
 	{
-		
+		$this->form()->name("holder")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function cheque_desc() 
 	{
-		$this->form("#desc")->name("cheque_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 	public function cheque_status() 
 	{
-		
+		$this->form()->name("status")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key

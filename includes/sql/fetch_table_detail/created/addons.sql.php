@@ -17,31 +17,35 @@ class addons
 	public function id() {$this->validate("id");}
 	public function addon_name() 
 	{
-		
+		$this->form()->name("name")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function addon_slug() 
 	{
-		$this->form("#slug")->name("addon_slug");
+		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['addon_title']->value
 	}
 
 	//------------------------------------------------------------------ description
 	public function addon_desc() 
 	{
-		$this->form("#desc")->name("addon_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 	public function addon_status() 
 	{
-		
+		$this->form()->name("status")
+		->validate();
 	}
 	public function addon_expire() 
 	{
-		
+		$this->form()->name("expire")
+		->validate();
 	}
 	public function addon_installdate() 
 	{
-		
+		$this->form()->name("installdate")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

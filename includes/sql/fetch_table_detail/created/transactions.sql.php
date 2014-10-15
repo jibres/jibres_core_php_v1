@@ -24,57 +24,69 @@ class transactions
 	public function id() {$this->validate("id");}
 	public function transaction_type() 
 	{
-		
+		$this->form()->name("type")
+		->validate();
 	}
 	public function user_id_employee() 
 	{
-		
+		$this->form()->name("id_employee")
+		->validate();
 	}
 	public function user_id_customer() 
 	{
-		
+		$this->form()->name("id_customer")
+		->validate();
 	}
 	public function transaction_date() 
 	{
-		
+		$this->form()->name("date")
+		->validate();
 	}
 	public function transaction_sum() 
 	{
-		
+		$this->form()->name("sum")
+		->validate();
 	}
 	public function transaction_discount() 
 	{
-		
+		$this->form()->name("discount")
+		->validate();
 	}
 	public function transaction_initial_received() 
 	{
-		
+		$this->form()->name("initial_received")
+		->validate();
 	}
 	public function transaction_received() 
 	{
-		
+		$this->form()->name("received")
+		->validate();
 	}
 	public function transaction_remained() 
 	{
-		
+		$this->form()->name("remained")
+		->validate();
 	}
 	public function transaction_pre() 
 	{
-		
+		$this->form()->name("pre")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function transaction_desc() 
 	{
-		$this->form("#desc")->name("transaction_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 	public function transaction_transport() 
 	{
-		
+		$this->form()->name("transport")
+		->validate();
 	}
 	public function transaction_vat() 
 	{
-		
+		$this->form()->name("vat")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

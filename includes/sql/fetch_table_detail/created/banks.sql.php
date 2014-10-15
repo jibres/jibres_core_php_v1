@@ -17,21 +17,23 @@ class banks
 	//------------------------------------------------------------------ title
 	public function bank_title() 
 	{
-		$this->form("#title")->name("bank_title");
+		$this->form("#title")->name("title")->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function bank_slug() 
 	{
-		$this->form("#slug")->name("bank_slug");
+		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['bank_title']->value
 	}
 	public function bank_website() 
 	{
-		
+		$this->form()->name("website")
+		->validate();
 	}
 	public function bank_active() 
 	{
-		
+		$this->form()->name("active")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

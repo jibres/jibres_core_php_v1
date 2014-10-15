@@ -16,15 +16,17 @@ class errors
 	//------------------------------------------------------------------ title
 	public function ed_title() 
 	{
-		$this->form("#title")->name("ed_title");
+		$this->form("#title")->name("title")->validate();
 	}
 	public function ed_solution() 
 	{
-		
+		$this->form()->name("solution")
+		->validate();
 	}
 	public function ed_priority() 
 	{
-		
+		$this->form()->name("priority")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

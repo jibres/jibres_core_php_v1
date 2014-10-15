@@ -25,31 +25,38 @@ class product_prices
 	}
 	public function productmeta_cat() 
 	{
-		
+		$this->form()->name("cat")
+		->validate();
 	}
 	public function pa_startdate() 
 	{
-		
+		$this->form()->name("startdate")
+		->validate();
 	}
 	public function pa_enddate() 
 	{
-		
+		$this->form()->name("enddate")
+		->validate();
 	}
 	public function pa_buy_price() 
 	{
-		
+		$this->form()->name("buy_price")
+		->validate();
 	}
 	public function pa_price() 
 	{
-		
+		$this->form()->name("price")
+		->validate();
 	}
 	public function pa_discount() 
 	{
-		
+		$this->form()->name("discount")
+		->validate();
 	}
 	public function pa_vat() 
 	{
-		
+		$this->form()->name("vat")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

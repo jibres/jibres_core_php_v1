@@ -19,31 +19,34 @@ class cost_categories
 	//------------------------------------------------------------------ title
 	public function cc_title() 
 	{
-		$this->form("#title")->name("cc_title");
+		$this->form("#title")->name("title")->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function cc_slug() 
 	{
-		$this->form("#slug")->name("cc_slug");
+		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['cc_title']->value
 	}
 
 	//------------------------------------------------------------------ description
 	public function cc_desc() 
 	{
-		$this->form("#desc")->name("cc_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 	public function cc_father() 
 	{
-		
+		$this->form()->name("father")
+		->validate();
 	}
 	public function cc_row() 
 	{
-		
+		$this->form()->name("row")
+		->validate();
 	}
 	public function cc_type() 
 	{
-		
+		$this->form()->name("type")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

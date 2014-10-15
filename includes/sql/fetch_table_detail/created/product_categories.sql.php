@@ -19,23 +19,24 @@ class product_categories
 	//------------------------------------------------------------------ title
 	public function pcat_title() 
 	{
-		$this->form("#title")->name("pcat_title");
+		$this->form("#title")->name("title")->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function pcat_slug() 
 	{
-		$this->form("#slug")->name("pcat_slug");
+		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['pcat_title']->value
 	}
 
 	//------------------------------------------------------------------ description
 	public function pcat_desc() 
 	{
-		$this->form("#desc")->name("pcat_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 	public function pcat_father() 
 	{
-		
+		$this->form()->name("father")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -45,7 +46,8 @@ class product_categories
 	}
 	public function pcat_row() 
 	{
-		
+		$this->form()->name("row")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

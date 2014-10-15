@@ -19,11 +19,13 @@ class receipts
 	public function id() {$this->validate("id");}
 	public function receipt_code() 
 	{
-		
+		$this->form()->name("code")
+		->validate();
 	}
 	public function receipt_price() 
 	{
-		
+		$this->form()->name("price")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -33,17 +35,19 @@ class receipts
 	}
 	public function receipt_cheque_date() 
 	{
-		
+		$this->form()->name("cheque_date")
+		->validate();
 	}
 	public function receipt_cheque_status() 
 	{
-		
+		$this->form()->name("cheque_status")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function receipt_desc() 
 	{
-		$this->form("#desc")->name("receipt_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key

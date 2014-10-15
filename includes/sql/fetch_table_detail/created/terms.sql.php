@@ -16,27 +16,30 @@ class terms
 	public function id() {$this->validate("id");}
 	public function term_name() 
 	{
-		
+		$this->form()->name("name")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function term_slug() 
 	{
-		$this->form("#slug")->name("term_slug");
+		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['term_title']->value
 	}
 
 	//------------------------------------------------------------------ description
 	public function term_desc() 
 	{
-		$this->form("#desc")->name("term_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 	public function term_father() 
 	{
-		
+		$this->form()->name("father")
+		->validate();
 	}
 	public function term_type() 
 	{
-		
+		$this->form()->name("type")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

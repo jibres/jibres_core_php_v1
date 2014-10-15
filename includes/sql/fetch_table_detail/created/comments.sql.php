@@ -34,37 +34,44 @@ class comments
 	}
 	public function comment_author() 
 	{
-		
+		$this->form()->name("author")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ email
 	public function comment_author_email() 
 	{
-		$this->form("#email")->name("comment_author_email");
+		$this->form("#email")->name("author_email")->validate();
 	}
 	public function comment_author_url() 
 	{
-		
+		$this->form()->name("author_url")
+		->validate();
 	}
 	public function comment_author_ip() 
 	{
-		
+		$this->form()->name("author_ip")
+		->validate();
 	}
 	public function comment_agent() 
 	{
-		
+		$this->form()->name("agent")
+		->validate();
 	}
 	public function comment_content() 
 	{
-		
+		$this->form()->name("content")
+		->validate();
 	}
 	public function comment_status() 
 	{
-		
+		$this->form()->name("status")
+		->validate();
 	}
 	public function comment_parent() 
 	{
-		
+		$this->form()->name("parent")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key

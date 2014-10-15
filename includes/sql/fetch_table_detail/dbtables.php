@@ -42,10 +42,13 @@ function _type($type, $def){
 			// ========================================================================================== Edit by Javad
 
 			$myfield	= $crow->Field;
+			$prefix		= substr($myfield, 0, strpos($myfield, '_') );
+			$myname		= substr($myfield, strpos($myfield, '_') + 1);
 			$txtcomment	= "\n\t//------------------------------------------------------------------ ";
 			$txtstart	= "\tpublic function $crow->Field() \n\t{\n\t\t";
 			$txtend		="\n\t}\n";
 
+			// --------------------------------------------------------------------------------- ID
 			if($crow->Field=="id")
 			{
 				$fn .= $txtcomment. "id - primary key\n";
@@ -56,33 +59,54 @@ function _type($type, $def){
 				$fn .= $txtcomment. "id - foreign key\n";
 				$fn .= $txtstart. '$this->validate("id");' .$txtend;
 			}
+
+			// --------------------------------------------------------------------------------- General
 			elseif (substr($crow->Field, -5)=="title")
 			{
 				$fn .= $txtcomment. "title\n";
-				$fn .= $txtstart. '$this->form("#title")->name("'. $myfield.'");'.$txtend;
+				$fn .= $txtstart. '$this->form("#title")->name("'. $myname.'")->validate();'.$txtend;
 			}
 			elseif (substr($crow->Field, -4)=="slug")
 			{
 				$fn .= $txtcomment. "slug\n";
-				$fn .= $txtstart. '$this->form("#slug")->name("'. $myfield.'");'.$txtend;
+				$fn .= $txtstart. '$this->form("#slug")->name("'. $myname.'")->validate();';
+				$fn .= "->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value";
+				$fn .= $txtend;
+
+				// $this->validate()->xsslug(function()
+				// {
+				// 	$this->value = \validator_lib::$save['form']['user_email']->value;
+				// });
 			}
 			elseif (substr($crow->Field, -4)=="desc")
 			{
 				$fn .= $txtcomment. "description\n";
-				$fn .= $txtstart. '$this->form("#desc")->name("'. $myfield.'");'.$txtend;
+				$fn .= $txtstart. '$this->form("#desc")->name("'. $myname.'")->validate();'.$txtend;
 			}
+
+			// --------------------------------------------------------------------------------- User Pass
 			elseif (substr($crow->Field, -5)=="email")
 			{
 				$fn .= $txtcomment. "email\n";
-				$fn .= $txtstart. '$this->form("#email")->name("'. $myfield.'");'.$txtend;
+				$fn .= $txtstart. '$this->form("#email")->name("'. $myname.'")->validate();'.$txtend;
 			}
+			elseif (substr($crow->Field, -4)=="pass")
+			{
+				$fn .= $txtcomment. "password\n";
+				$fn .= $txtstart. '$this->form("#pass")->name("'. $myname.'")->validate();'.$txtend;
+			}
+
+			// --------------------------------------------------------------------------------- unuse
 			elseif($crow->Field=="date_created" or $crow->Field=="date_modified")
 			{
 				$fn .= "\tpublic function $crow->Field() {}\n";
 			}
+			// --------------------------------------------------------------------------------- Other
 			else
 			{
-				$fn .= $txtstart. $txtend;
+				// $fn .= $txtcomment. "email\n";
+				$fn .= $txtstart. '$this->form()->name("'. $myname.'")'."\n\t\t".'->validate();'.$txtend;
+				// $fn .= $txtstart. $txtend;
 			}
 			
 			// ========================================================================================== Edit by Javad

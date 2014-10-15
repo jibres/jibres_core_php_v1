@@ -21,33 +21,38 @@ class attachments
 	//------------------------------------------------------------------ title
 	public function attachment_title() 
 	{
-		$this->form("#title")->name("attachment_title");
+		$this->form("#title")->name("title")->validate();
 	}
 	public function attachment_model() 
 	{
-		
+		$this->form()->name("model")
+		->validate();
 	}
 	public function attachment_addr() 
 	{
-		
+		$this->form()->name("addr")
+		->validate();
 	}
 	public function attachment_name() 
 	{
-		
+		$this->form()->name("name")
+		->validate();
 	}
 	public function attachment_type() 
 	{
-		
+		$this->form()->name("type")
+		->validate();
 	}
 	public function attachment_size() 
 	{
-		
+		$this->form()->name("size")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function attachment_desc() 
 	{
-		$this->form("#desc")->name("attachment_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key

@@ -21,35 +21,40 @@ class posts
 	public function id() {$this->validate("id");}
 	public function post_language() 
 	{
-		
+		$this->form()->name("language")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ title
 	public function post_title() 
 	{
-		$this->form("#title")->name("post_title");
+		$this->form("#title")->name("title")->validate();
 	}
 	public function post_slug_cat() 
 	{
-		
+		$this->form()->name("slug_cat")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function post_slug() 
 	{
-		$this->form("#slug")->name("post_slug");
+		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['post_title']->value
 	}
 	public function post_content() 
 	{
-		
+		$this->form()->name("content")
+		->validate();
 	}
 	public function post_type() 
 	{
-		
+		$this->form()->name("type")
+		->validate();
 	}
 	public function post_status() 
 	{
-		
+		$this->form()->name("status")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -65,7 +70,8 @@ class posts
 	}
 	public function post_publishdate() 
 	{
-		
+		$this->form()->name("publishdate")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

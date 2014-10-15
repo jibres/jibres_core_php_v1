@@ -16,23 +16,28 @@ class options
 	public function id() {$this->validate("id");}
 	public function option_cat() 
 	{
-		
+		$this->form()->name("cat")
+		->validate();
 	}
 	public function option_name() 
 	{
-		
+		$this->form()->name("name")
+		->validate();
 	}
 	public function option_value() 
 	{
-		
+		$this->form()->name("value")
+		->validate();
 	}
 	public function option_value_extra() 
 	{
-		
+		$this->form()->name("value_extra")
+		->validate();
 	}
 	public function option_status() 
 	{
-		
+		$this->form()->name("status")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

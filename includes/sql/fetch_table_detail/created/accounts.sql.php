@@ -22,13 +22,13 @@ class accounts
 	//------------------------------------------------------------------ title
 	public function account_title() 
 	{
-		$this->form("#title")->name("account_title");
+		$this->form("#title")->name("title")->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function account_slug() 
 	{
-		$this->form("#slug")->name("account_slug");
+		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['account_title']->value
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -38,25 +38,29 @@ class accounts
 	}
 	public function account_branch_name() 
 	{
-		
+		$this->form()->name("branch_name")
+		->validate();
 	}
 	public function account_number() 
 	{
-		
+		$this->form()->name("number")
+		->validate();
 	}
 	public function account_card_number() 
 	{
-		
+		$this->form()->name("card_number")
+		->validate();
 	}
 	public function account_primarybalance() 
 	{
-		
+		$this->form()->name("primarybalance")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function account_desc() 
 	{
-		$this->form("#desc")->name("account_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key

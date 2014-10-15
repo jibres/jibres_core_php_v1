@@ -18,21 +18,23 @@ class user_logs
 	//------------------------------------------------------------------ title
 	public function ul_title() 
 	{
-		$this->form("#title")->name("ul_title");
+		$this->form("#title")->name("title")->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function ul_desc() 
 	{
-		$this->form("#desc")->name("ul_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 	public function ul_priority() 
 	{
-		
+		$this->form()->name("priority")
+		->validate();
 	}
 	public function ul_type() 
 	{
-		
+		$this->form()->name("type")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key

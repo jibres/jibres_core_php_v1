@@ -20,11 +20,12 @@ class costs
 	//------------------------------------------------------------------ title
 	public function cost_title() 
 	{
-		$this->form("#title")->name("cost_title");
+		$this->form("#title")->name("title")->validate();
 	}
 	public function cost_price() 
 	{
-		
+		$this->form()->name("price")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -40,17 +41,19 @@ class costs
 	}
 	public function cost_date() 
 	{
-		
+		$this->form()->name("date")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function cost_desc() 
 	{
-		$this->form("#desc")->name("cost_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 	public function cost_type() 
 	{
-		
+		$this->form()->name("type")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

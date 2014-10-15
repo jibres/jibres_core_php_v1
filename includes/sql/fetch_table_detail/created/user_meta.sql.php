@@ -21,15 +21,18 @@ class user_meta
 	}
 	public function usermeta_cat() 
 	{
-		
+		$this->form()->name("cat")
+		->validate();
 	}
 	public function usermeta_name() 
 	{
-		
+		$this->form()->name("name")
+		->validate();
 	}
 	public function usermeta_value() 
 	{
-		
+		$this->form()->name("value")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

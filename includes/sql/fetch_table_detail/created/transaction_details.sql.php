@@ -11,7 +11,8 @@ class transaction_details
 
 	public function td_row() 
 	{
-		
+		$this->form()->name("row")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -27,15 +28,18 @@ class transaction_details
 	}
 	public function td_quantity() 
 	{
-		
+		$this->form()->name("quantity")
+		->validate();
 	}
 	public function td_price() 
 	{
-		
+		$this->form()->name("price")
+		->validate();
 	}
 	public function td_discount() 
 	{
-		
+		$this->form()->name("discount")
+		->validate();
 	}
 }
 ?>

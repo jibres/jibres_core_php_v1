@@ -31,13 +31,13 @@ class products
 	//------------------------------------------------------------------ title
 	public function product_title() 
 	{
-		$this->form("#title")->name("product_title");
+		$this->form("#title")->name("title")->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function product_slug() 
 	{
-		$this->form("#slug")->name("product_slug");
+		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['product_title']->value
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -47,51 +47,63 @@ class products
 	}
 	public function product_barcode() 
 	{
-		
+		$this->form()->name("barcode")
+		->validate();
 	}
 	public function product_barcode2() 
 	{
-		
+		$this->form()->name("barcode2")
+		->validate();
 	}
 	public function product_buy_price() 
 	{
-		
+		$this->form()->name("buy_price")
+		->validate();
 	}
 	public function product_price() 
 	{
-		
+		$this->form()->name("price")
+		->validate();
 	}
 	public function product_discount() 
 	{
-		
+		$this->form()->name("discount")
+		->validate();
 	}
 	public function product_vat() 
 	{
-		
+		$this->form()->name("vat")
+		->validate();
 	}
 	public function product_initial_balance() 
 	{
-		
+		$this->form()->name("initial_balance")
+		->validate();
 	}
 	public function product_min_inventory() 
 	{
-		
+		$this->form()->name("min_inventory")
+		->validate();
 	}
 	public function product_status() 
 	{
-		
+		$this->form()->name("status")
+		->validate();
 	}
 	public function product_sold() 
 	{
-		
+		$this->form()->name("sold")
+		->validate();
 	}
 	public function product_stock() 
 	{
-		
+		$this->form()->name("stock")
+		->validate();
 	}
 	public function product_carton() 
 	{
-		
+		$this->form()->name("carton")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -101,11 +113,13 @@ class products
 	}
 	public function product_service() 
 	{
-		
+		$this->form()->name("service")
+		->validate();
 	}
 	public function product_sellin() 
 	{
-		
+		$this->form()->name("sellin")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

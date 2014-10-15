@@ -20,11 +20,13 @@ class post_meta
 	}
 	public function postmeta_name() 
 	{
-		
+		$this->form()->name("name")
+		->validate();
 	}
 	public function postmeta_value() 
 	{
-		
+		$this->form()->name("value")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

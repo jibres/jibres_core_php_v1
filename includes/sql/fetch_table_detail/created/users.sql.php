@@ -40,121 +40,150 @@ class users
 	public function id() {$this->validate("id");}
 	public function user_type() 
 	{
-		
+		$this->form()->name("type")
+		->validate();
 	}
+
+	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		
+		$this->form("#pass")->name("pass")->validate();
 	}
 
 	//------------------------------------------------------------------ email
 	public function user_email() 
 	{
-		$this->form("#email")->name("user_email");
+		$this->form("#email")->name("email")->validate();
 	}
 	public function user_gender() 
 	{
-		
+		$this->form()->name("gender")
+		->validate();
 	}
 	public function user_married() 
 	{
-		
+		$this->form()->name("married")
+		->validate();
 	}
 	public function user_firstname() 
 	{
-		
+		$this->form()->name("firstname")
+		->validate();
 	}
 	public function user_lastname() 
 	{
-		
+		$this->form()->name("lastname")
+		->validate();
 	}
 	public function user_nickname() 
 	{
-		
+		$this->form()->name("nickname")
+		->validate();
 	}
 	public function user_tel() 
 	{
-		
+		$this->form()->name("tel")
+		->validate();
 	}
 	public function user_mobile() 
 	{
-		
+		$this->form()->name("mobile")
+		->validate();
 	}
 	public function user_birthday() 
 	{
-		
+		$this->form()->name("birthday")
+		->validate();
 	}
 	public function user_country() 
 	{
-		
+		$this->form()->name("country")
+		->validate();
 	}
 	public function user_state() 
 	{
-		
+		$this->form()->name("state")
+		->validate();
 	}
 	public function user_city() 
 	{
-		
+		$this->form()->name("city")
+		->validate();
 	}
 	public function user_address() 
 	{
-		
+		$this->form()->name("address")
+		->validate();
 	}
 	public function user_postcode() 
 	{
-		
+		$this->form()->name("postcode")
+		->validate();
 	}
 	public function user_newsletter() 
 	{
-		
+		$this->form()->name("newsletter")
+		->validate();
 	}
 	public function user_refer() 
 	{
-		
+		$this->form()->name("refer")
+		->validate();
 	}
 	public function user_nationalcode() 
 	{
-		
+		$this->form()->name("nationalcode")
+		->validate();
 	}
 	public function user_website() 
 	{
-		
+		$this->form()->name("website")
+		->validate();
 	}
 	public function user_status() 
 	{
-		
+		$this->form()->name("status")
+		->validate();
 	}
 	public function user_degree() 
 	{
-		
+		$this->form()->name("degree")
+		->validate();
 	}
 	public function user_activity() 
 	{
-		
+		$this->form()->name("activity")
+		->validate();
 	}
 	public function user_total_income() 
 	{
-		
+		$this->form()->name("total_income")
+		->validate();
 	}
 	public function user_total_outcome() 
 	{
-		
+		$this->form()->name("total_outcome")
+		->validate();
 	}
 	public function user_credit() 
 	{
-		
+		$this->form()->name("credit")
+		->validate();
 	}
 	public function user_question() 
 	{
-		
+		$this->form()->name("question")
+		->validate();
 	}
 	public function user_answer() 
 	{
-		
+		$this->form()->name("answer")
+		->validate();
 	}
 	public function permission_name() 
 	{
-		
+		$this->form()->name("name")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

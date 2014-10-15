@@ -21,15 +21,18 @@ class product_meta
 	}
 	public function productmeta_cat() 
 	{
-		
+		$this->form()->name("cat")
+		->validate();
 	}
 	public function productmeta_name() 
 	{
-		
+		$this->form()->name("name")
+		->validate();
 	}
 	public function productmeta_value() 
 	{
-		
+		$this->form()->name("value")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

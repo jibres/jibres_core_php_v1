@@ -18,13 +18,13 @@ class funds
 	//------------------------------------------------------------------ title
 	public function fund_title() 
 	{
-		$this->form("#title")->name("fund_title");
+		$this->form("#title")->name("title")->validate();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function fund_slug() 
 	{
-		$this->form("#slug")->name("fund_slug");
+		$this->form("#slug")->name("slug")->validate();->createslug(function()	{$this->value =\validator_lib::$save['form']['fund_title']->value
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -34,13 +34,14 @@ class funds
 	}
 	public function fund_initial_balance() 
 	{
-		
+		$this->form()->name("initial_balance")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ description
 	public function fund_desc() 
 	{
-		$this->form("#desc")->name("fund_desc");
+		$this->form("#desc")->name("desc")->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

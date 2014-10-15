@@ -16,17 +16,19 @@ class verifications
 	public function id() {$this->validate("id");}
 	public function verification_type() 
 	{
-		
+		$this->form()->name("type")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ email
 	public function verification_email() 
 	{
-		$this->form("#email")->name("verification_email");
+		$this->form("#email")->name("email")->validate();
 	}
 	public function verification_code() 
 	{
-		
+		$this->form()->name("code")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -36,7 +38,8 @@ class verifications
 	}
 	public function verification_verified() 
 	{
-		
+		$this->form()->name("verified")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}

@@ -17,29 +17,34 @@ class notifications
 	public function id() {$this->validate("id");}
 	public function user_id_sender() 
 	{
-		
+		$this->form()->name("id_sender")
+		->validate();
 	}
 	public function user_id_reciever() 
 	{
-		
+		$this->form()->name("id_reciever")
+		->validate();
 	}
 
 	//------------------------------------------------------------------ title
 	public function notification_title() 
 	{
-		$this->form("#title")->name("notification_title");
+		$this->form("#title")->name("title")->validate();
 	}
 	public function notification_content() 
 	{
-		
+		$this->form()->name("content")
+		->validate();
 	}
 	public function notification_url() 
 	{
-		
+		$this->form()->name("url")
+		->validate();
 	}
 	public function notification_status() 
 	{
-		
+		$this->form()->name("status")
+		->validate();
 	}
 	public function date_created() {}
 	public function date_modified() {}
