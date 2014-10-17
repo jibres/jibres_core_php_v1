@@ -53,6 +53,33 @@ class main_model{
 
 	}
 
+
+	// ---------------------------------------------------------------- default controller and some other function for ADMIN
+
+	public function sql_datarow($mytable = false) 
+	{
+		// this function get table name and return all record of it. table name can set in view
+		if (!$mytable)
+			return null;
+
+		$from = 'table'.ucfirst($mytable);
+		return $this->sql()->$from()->select()->allassoc();
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// ---------------------------------------------------------------- Until this line - Added by Javad
+
 	public function endEfect(){
 		$sQl = new dbconnection_lib;
 		if($this->endProcess) return;

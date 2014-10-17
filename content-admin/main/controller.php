@@ -24,12 +24,12 @@ class main_controller{
 		 * try to use array
 		 */
 		// add user defined method for use in view, model and controller
+		$this->addMethod('url_child_real');
 		$this->addMethod('url_child');
 		$this->addMethod('url_method');
 		$this->addMethod('url_class');
 		$this->addMethod('url_parameter');
 		$this->addMethod('url_title');
-		$this->addMethod('submit_title');		
 
 		if ($this->url_method())
 		{
@@ -52,8 +52,10 @@ class main_controller{
 				$this->listen(
 					array(
 						"min" => 1,
-						"max" => 2,
-						"url" => array('edit')
+						"max" => 1,
+						"url" => array("/.*/", "edit" => "/^\d+$/")
+						// "url" => array("edit" => "/^\d+$/"),
+						// "url" => array('edit')
 						// [ae][d][di][t]
 						// ^add$ ^edit$
 						),
@@ -63,8 +65,8 @@ class main_controller{
 				$this->listen(
 					array(
 						"min" => 1,
-						"max" => 2,
-						"url" => array('delete')
+						"max" => 1,
+						"url" => array("/.*/", "delete" => "/^\d+$/")
 						),
 					array('child' => 'home', 'mod' => 'delete')
 				);
@@ -77,6 +79,17 @@ class main_controller{
 	 * first compare current address with user entered value and return True or False
 	 * second condition return the title of page
 	 */
+	function url_child_real()
+	{
+		$mychild = current(config_lib::$aurl);
+		if($mychild == 'add')
+			return 'add';
+		
+		$mychild = substr($mychild,0,strrpos($mychild,'='));
+		if($mychild == 'edit')
+			return 'edit';
+	}
+
 	function url_child($child="add")
 	{
 		// var_dump(config_lib::$child);
@@ -106,18 +119,25 @@ class main_controller{
 		$mychild = current(config_lib::$aurl);
 		if($mychild == 'add')
 			return 'Add New';
-		elseif($mychild == 'edit')
+		
+		$mychild = substr($mychild,0,strrpos($mychild,'='));
+		if($mychild == 'edit')
 			return 'Edit';
 	}
 
-	function submit_title()
+	function url_id()
 	{
+		// check if user id on this table exist then return correct value else return 0
+		return 0;
 		$mychild = current(config_lib::$aurl);
 		if($mychild == 'add')
-			return 'Submit';
-		elseif($mychild == 'edit')
-			return 'Save';
+			return 'Add New';
+		
+		$mychild = substr($mychild,0,strrpos($mychild,'='));
+		if($mychild == 'edit')
+			return 'Edit';
 	}
+
 	// ---------------------------------------------------------------- Until this line - Added by Javad
 
 

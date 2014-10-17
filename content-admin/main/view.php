@@ -65,7 +65,6 @@ class main_view
 		$this->data->module			= $this->url_method();
 		$this->data->class			= $this->url_class();
 		$this->global->page_title	= ucfirst($this->data->module);
-		// $myForm						= $this->form("@".$this->data->module);
 		
 		if(method_exists($this, "options")) $this->options();
 
@@ -78,13 +77,18 @@ class main_view
 				$this->data->module			= $table_name;
 				$this->data->form_title		= ucfirst(substr($table_name,0,-1));
 				$this->global->page_title	= $this->url_title() . ' ' . $this->data->form_title;
-				$myForm						= $this->form("@".$table_name);
+				$myForm						= $this->createform("@".$table_name, $this->url_child_real());
 				$this->data->form_show		= true;
 			}
 			else
 			{
 				// in root page like site.com/admin/banks show datatable
-				$this->include->datatable = true;
+				$this->include->datatable	= true;
+
+				// get data from database through model
+				$this->data->datarow		= $this->sql("#datarow", $this->data->module);
+				// var_dump($this->data->datarow);
+				
 			}
 			
 		}
@@ -92,7 +96,7 @@ class main_view
 	// ---------------------------------------------------------------- Until this line - Added by Javad
 
 
-	public final function form($type = false, $args = array()){
+	public final function createform($type = false, $args = array()){
 		$this->data->extendForm = true;
 		$cForm = new forms_lib();
 		$form = $cForm->make($type, $args);
@@ -123,7 +127,7 @@ class main_view
 		}
 		$this->Localy();
 
-		$Header = apache_request_headers();
+		$Header 		= apache_request_headers();
 		$tmpname		= config_lib::$class.'/'.config_lib::$method;
 		$tmpname 		.= (config_lib::$child !='') ? '/'.config_lib::$child : '';
 		$tmpname 		.='/display.html';
@@ -133,9 +137,9 @@ class main_view
 		}
 		require_once core.'Twig/lib/Twig/Autoloader.php';
 		Twig_Autoloader::register();
-		$loader		= new Twig_Loader_Filesystem(content);
+		$loader			= new Twig_Loader_Filesystem(content);
 
-		$twig		= new Twig_Environment($loader);
+		$twig			= new Twig_Environment($loader);
 		$this->main_Extentions($twig);
 		$template		= $twig->loadTemplate($tmpname);
 		$template ->	display($this->data->compile());
@@ -144,6 +148,8 @@ class main_view
 	public final function main_Extentions($twig){
 		$twig->addFilter($this->twig_fcache());
 		$twig->addFilter($this->twig_lang());
+		if(DEBUG)
+			$twig->addExtension(new Twig_Extension_Debug());
 	}
 	public function twig_fcache(){
 		return new Twig_SimpleFilter('fcache', function ($string) {

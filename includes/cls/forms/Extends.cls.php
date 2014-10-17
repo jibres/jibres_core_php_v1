@@ -79,9 +79,10 @@ class forms_Extends_cls extends forms_lib{
 		$this->email->validate()->email()->form->email("email incorrect");
 		
 		// submit
-		$this->submitadd = $this->make("submit")->value("insert");
-		$this->submitedit = $this->make("submit")->value("edit");
-		$this->submitlogin = $this->make("submit")->value("login");
+		$this->submitadd = $this->make("submit")->value("Submit");
+		$this->submitedit = $this->make("submit")->value("Save");
+		$this->submitlogin = $this->make("submit")->value("Sign in");
+		$this->submitregister = $this->make("submit")->value("Create Account");
 
 		// deny robot to submit forms
 		$this->robot = $this->make("robot")->name("name")->label("User Name")->pl("Please Enter Your Name!");

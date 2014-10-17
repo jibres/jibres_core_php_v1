@@ -3,14 +3,11 @@
 // ------------------------------------------------------- Define SERVERNAME(url) as DOMAIN 
 define("DOMAIN"		, $_SERVER["SERVER_NAME"]);
 
-$dir = preg_replace("[\\\\]", "/", __DIR__);
-define("DIR", $dir);
-
 // ------------------------------------------------------- SALOOS location
-define("core"		, DIR . "/../../saloos/");
+define("core"		, preg_replace("[\\\\]", "/", realpath(__DIR__."/../../saloos/").'/') );
 
 // ------------------------------------------------------- root location
-define("root_dir"	, DIR. "/../");
+define("root_dir"	, preg_replace("[\\\\]", "/", realpath(__DIR__."/../").'/') );
 
 // ------------------------------------------------------- define classes location
 define("cls"		, root_dir."includes/cls/");
