@@ -65,38 +65,49 @@
      <a class="float-right" href="admin">Home</a>
     </p>
 
-
+{%block datatable%}
     <table class="datatable display">
       <thead>
         <tr role="row">
           <th class="column_row">#</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th class="column_slug">Slug</th>
+          {%for key,value in columns if value is not null%}
+          <th>{{value}}</th>
+          {%endfor%}
           <th class="column_actions">Actions</th>
         </tr>
       </thead>
 
       <tbody>
+        {%block tbody%}
         {%for d in datarow%}
         <tr role="row" class="{{ cycle(['odd', 'even'], loop.index0) }}">
           <td class="column_row">{{loop.index}}</td>
-          <td><a href="admin/{{module}}/edit/{{d.location_slug}}">{{d.location_title}}</a></td>
-          <td>{{d.location_desc}}</td>
-          <td class="column_slug">{{d.location_slug}}</td>
+
+          {%for key,value in columns if value is not null%}
+          <td>{{attribute(d,key)}}</td>
+          {%endfor%}
+
+{% set tmp = module ~'_slug' %}
+{%if tmp is same as(d)%}
+aaaa
+{%endif%}
+
+-{{attribute(d,tmp)}}-
+
           <td>
             <span class="hint--top hint--info" data-hint="Edit">
-              <a class="action-icons edit hint--top" href="admin/{{module}}/edit/{{d.location_slug}}">Edit</a>
+              <a class="action-icons edit hint--top" href="admin/{{module}}/edit={{attribute(d,tmp)}}">Edit</a>
             </span>
             <span class="hint--top hint--error" data-hint="Delete">
-              <a class="action-icons delete hide-text" href="admin/{{module}}/delete/{{d.location_slug}}">Delete</a>
+              <a class="action-icons delete hide-text" href="admin/{{module}}/delete={{d.location_slug}}">Delete</a>
             </span>
           </td>
         </tr>
         {%endfor%}
+        {%endblock%}
       </tbody>
     </table>
-
+{%endblock%}
 
 
 

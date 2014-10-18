@@ -32,7 +32,6 @@ class main_view
 
 		$this->include->datatable			= false;
 		$this->include->jquery				= true;
-		//define("MAIN_DOMAIN", "store.dev");
 		//var_dump($host_names);
 
 		//$this->global->menu					= menu_cls::list_menu();
@@ -60,7 +59,6 @@ class main_view
 	// ---------------------------------------------------------------- default config function for ADMIN
 	public function config() 
 	{
-		// var_dump("aaa");
 		$this->data->child			= $this->url_child();
 		$this->data->module			= $this->url_method();
 		$this->data->class			= $this->url_class();
@@ -87,7 +85,22 @@ class main_view
 
 				// get data from database through model
 				$this->data->datarow		= $this->sql("#datarow", $this->data->module);
-				// var_dump($this->data->datarow);
+
+				// get all fields of table and filter fields name for show in datatable, access from columns variable
+				$fields 					= array_keys($this->data->datarow[0]);
+				$this->data->columns 		= array_fill_keys($fields, null);
+
+				foreach ($fields as $key)
+					if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
+						$this->data->columns[$key] .= ucfirst(substr($key,strrpos($key,'_')+1));
+
+
+
+
+
+
+
+				// var_dump($this->data->datarow[0]);
 				
 			}
 			
