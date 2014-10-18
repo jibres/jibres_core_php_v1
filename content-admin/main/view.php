@@ -128,6 +128,7 @@ class main_view
 		array_push($this->formIndex, $form);
 		if(preg_match("/^@(.*)$/", $type, $name)){
 			$this->form->{$name[1]} = $form;
+			$form->hidden->value(preg_replace("/_[^_]*$/", "", $form->hidden->attr['value']))
 		}
 		return $form;
 	}
