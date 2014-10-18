@@ -26,10 +26,12 @@ class main_controller{
 		// add user defined method for use in view, model and controller
 		$this->addMethod('url_child_real');
 		$this->addMethod('url_child');
+		$this->addMethod('url_table_prefix');
 		$this->addMethod('url_method');
 		$this->addMethod('url_class');
 		$this->addMethod('url_parameter');
 		$this->addMethod('url_title');
+		$this->addMethod('slugify');
 
 		if ($this->url_method())
 		{
@@ -53,11 +55,8 @@ class main_controller{
 					array(
 						"min" => 1,
 						"max" => 1,
-						"url" => array("/.*/", "edit" => "/^\d+$/")
-						// "url" => array("edit" => "/^\d+$/"),
-						// "url" => array('edit')
-						// [ae][d][di][t]
-						// ^add$ ^edit$
+						"url" => array("/.*/", "edit" => "/^[A-z0-9-]+$/")
+						// "url" => array("/.*/", "edit" => "/^[a-z0-9-]+$/")
 						),
 					array('child' => 'add')
 				);
@@ -66,7 +65,8 @@ class main_controller{
 					array(
 						"min" => 1,
 						"max" => 1,
-						"url" => array("/.*/", "delete" => "/^\d+$/")
+						"url" => array("/.*/", "delete" => "/^[A-z0-9-]+$/")
+						// "url" => array("/.*/", "delete" => "/^\d+$/")
 						),
 					array('child' => 'home', 'mod' => 'delete')
 				);
@@ -94,6 +94,11 @@ class main_controller{
 	{
 		// var_dump(config_lib::$child);
 		return config_lib::$child;
+	}
+
+	function url_table_prefix()
+	{
+		return substr(config_lib::$method, 0, -1);
 	}
 
 	function url_method($method=false)
@@ -136,6 +141,25 @@ class main_controller{
 		$mychild = substr($mychild,0,strrpos($mychild,'='));
 		if($mychild == 'edit')
 			return 'Edit';
+	}
+
+	static public function slugify($text)
+	{ 
+	  // replace non letter or digits by -
+	  $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+	  // trim
+	  $text = trim($text, '-');
+	  // transliterate
+	  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+	  // lowercase
+	  $text = strtolower($text);
+	  // remove unwanted characters
+	  $text = preg_replace('~[^-\w]+~', '', $text);
+	  if (empty($text))
+	  {
+	    return 'n-a';
+	  }
+	  return $text;
 	}
 
 	// ---------------------------------------------------------------- Until this line - Added by Javad

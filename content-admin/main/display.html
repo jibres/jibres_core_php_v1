@@ -40,82 +40,69 @@
  <body>
 {%block header%}{%endblock%}
 
-  <div class="container" id="main">
+ <div class="container" id="main">
   {%if global.page_title%}
   <h1>{{global.page_title}}</h1><hr />{%endif%}
 
-{%if module%}
-  {%if child%}
+  {%if module%}
+   {%if child%}
     <p class="alert alert-block alert-info">
      <a href="{{class}}/{{module}}">Go to {{module|title}}</a>
     </p>
 
     {%if form_show %}
-      <form class="ajx" method="post" id="{{form_title}}">
-
-        {{forms.make( form.banks )}}
-      </form>
+     <form class="ajx" method="post" id="{{form_title}}">
+      {{forms.make( form.banks )}}
+     </form>
     {%else%}
-      Does not exist!!!
+     <p>Does not exist!!!</p>
     {%endif%}
 
-  {%else%}
+   {%else%}
     <p class="alert alert-block alert-info">
      <a href="{{class}}/{{module}}/add">Add New Record</a>
      <a class="float-right" href="admin">Home</a>
     </p>
 
-{%block datatable%}
-    <table class="datatable display">
-      <thead>
-        <tr role="row">
-          <th class="column_row">#</th>
-          {%for key,value in columns if value is not null%}
-          <th>{{value}}</th>
-          {%endfor%}
-          <th class="column_actions">Actions</th>
-        </tr>
-      </thead>
+  		{%block datatable%}
+  		  <table class="datatable display">
+  		   <thead>
+  		    <tr role="row">
+  		     <th class="column_row">#</th>
+  							{%for value in columns if value is not null%}
+  		     	<th>{{value}}</th>
+  							{%endfor%}
+  		     <th class="column_actions">Actions</th>
+  		    </tr>
+  		   </thead>
 
-      <tbody>
-        {%block tbody%}
-        {%for d in datarow%}
-        <tr role="row" class="{{ cycle(['odd', 'even'], loop.index0) }}">
-          <td class="column_row">{{loop.index}}</td>
-
-          {%for key,value in columns if value is not null%}
-          <td>{{attribute(d,key)}}</td>
-          {%endfor%}
-
-{% set tmp = module ~'_slug' %}
-{%if tmp is same as(d)%}
-aaaa
-{%endif%}
-
--{{attribute(d,tmp)}}-
-
-          <td>
-            <span class="hint--top hint--info" data-hint="Edit">
-              <a class="action-icons edit hint--top" href="admin/{{module}}/edit={{attribute(d,tmp)}}">Edit</a>
-            </span>
-            <span class="hint--top hint--error" data-hint="Delete">
-              <a class="action-icons delete hide-text" href="admin/{{module}}/delete={{d.location_slug}}">Delete</a>
-            </span>
-          </td>
-        </tr>
-        {%endfor%}
-        {%endblock%}
-      </tbody>
-    </table>
-{%endblock%}
-
-
-
+  		   <tbody>
+  					{%block tbody%}
+  						{%for d in datarow%}
+  			    <tr role="row" class="{{ cycle(['odd', 'even'], loop.index0) }}">
+  			     <td class="column_row">{{loop.index}}</td>
+  								{%for col,value in columns if value is not null%}
+  			     	<td>{{attribute(d,col)}}</td>
+  								{%endfor%}
+  			     <td>
+  			      <span class="hint--top hint--info" data-hint="Edit">
+  			       <a class="action-icons edit hint--top" href="admin/{{module}}/edit={{attribute(d, table_prefix ~ '_slug')}}">Edit</a>
+  			      </span>
+  			      <span class="hint--top hint--error" data-hint="Delete">
+  			       <a class="action-icons delete hide-text" href="admin/{{module}}/delete={{attribute(d, table_prefix ~ '_slug')}}">Delete</a>
+  			      </span>
+  			     </td>
+  		     </tr>
+  					 {%endfor%}
+  					{%endblock%}
+  		  </tbody>
+  		 </table>
+  		{%endblock%}
+   {%endif%}
   {%endif%}
-{%endif%}
 
-{%block content%}{%endblock%}
-  </div>
+  {%block content%}{%endblock%}
+ </div>
 
   <footer>
    <div id="footer">

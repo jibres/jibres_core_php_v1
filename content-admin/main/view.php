@@ -61,6 +61,7 @@ class main_view
 	{
 		$this->data->child			= $this->url_child();
 		$this->data->module			= $this->url_method();
+		$this->data->table_prefix	= $this->url_table_prefix();
 		$this->data->class			= $this->url_class();
 		$this->global->page_title	= ucfirst($this->data->module);
 		
@@ -71,11 +72,10 @@ class main_view
 			if($this->data->child)
 			{
 				// in add, edit or delete pages
-				$table_name					= $this->url_method();
-				$this->data->module			= $table_name;
-				$this->data->form_title		= ucfirst(substr($table_name,0,-1));
+				$this->data->module			= $this->url_method();
+				$this->data->form_title		= ucfirst($this->url_table_prefix());
 				$this->global->page_title	= $this->url_title() . ' ' . $this->data->form_title;
-				$myForm						= $this->createform("@".$table_name, $this->url_child_real());
+				$myForm						= $this->createform("@".$this->data->module, $this->url_child_real());
 				$this->data->form_show		= true;
 			}
 			else
@@ -89,10 +89,22 @@ class main_view
 				// get all fields of table and filter fields name for show in datatable, access from columns variable
 				$fields 					= array_keys($this->data->datarow[0]);
 				$this->data->columns 		= array_fill_keys($fields, null);
+				$this->data->slug			= null;
 
 				foreach ($fields as $key)
+				{
 					if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
-						$this->data->columns[$key] .= ucfirst(substr($key,strrpos($key,'_')+1));
+					{
+						$this->data->columns[$key]	.= ucfirst(substr($key,strrpos($key,'_')+1));
+						
+						if( $key== ($this->url_table().'_slug') )
+						{
+							$this->data->slug 		= $key;
+							// var_dump($key);
+						}
+						
+					}
+				}
 
 
 
