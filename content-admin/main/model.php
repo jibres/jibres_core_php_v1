@@ -45,7 +45,7 @@ class main_model{
 			}elseif($this->redirect){
 				if(!isset($_SESSION['error'])) $_SESSION['error'] = array();
 				$_SESSION['error'][$this->redirect->compileUrl()] = $array;
-				$this->checkRedirect();
+				// $this->checkRedirect();
 			}
 		}elseif(!$local){
 			page_lib::access("model");
