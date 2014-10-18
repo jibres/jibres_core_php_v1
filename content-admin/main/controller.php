@@ -67,7 +67,7 @@ class main_controller{
 						"url" => array("/.*/", "delete" => "/^[A-z0-9]+$/")
 						// "url" => array("/.*/", "delete" => "/^\d+$/")
 						),
-					array( 'mod' => 'delete')
+					array( 'child' => 'add', 'mod' => 'delete')
 				);
 			}
 		}
