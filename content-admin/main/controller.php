@@ -60,12 +60,11 @@ class main_controller{
 						),
 					array('child' => 'add')
 				);
-
 				$this->listen(
 					array(
 						"min" => 1,
 						"max" => 1,
-						"url" => array("/.*/", "delete" => "/^[A-z0-9-]+$/")
+						"url" => array("/.*/", "delete" => "/^[A-z0-9]+$/")
 						// "url" => array("/.*/", "delete" => "/^\d+$/")
 						),
 					array( 'mod' => 'delete')

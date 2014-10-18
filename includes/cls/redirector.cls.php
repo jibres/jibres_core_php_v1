@@ -5,7 +5,7 @@ class redirector_cls{
 		// $this->exit = $exit;
 		$this->php = $php;
 		$this->surl = config_lib::$surl;
-		$this->aurl = config_lib::$aurl;
+		$this->aurl = preg_split("[\/]", config_lib::$URL);
 		if(is_string($redirect)){
 			$this->url = preg_replace("/^\//", '', $redirect);
 		}
@@ -27,11 +27,15 @@ class redirector_cls{
 			}
 		}
 		if(!is_bool($url)){
-			if(is_int($str)){
-				$this->aurl[$url] = $replace;
-			}elseif(is_string($str)){
-				$this->surl[$str] = $replace;
-				$this->aurl[$url] = $str.'='.$replace;
+			if($replace === false){
+				unset($this->aurl[$url]);
+			}else{
+				if(is_int($str)){
+					$this->aurl[$url] = $replace;
+				}elseif(is_string($str)){
+					$this->surl[$str] = $replace;
+					$this->aurl[$url] = $str.'='.$replace;
+				}
 			}
 		}
 		return $this;
