@@ -30,7 +30,7 @@ class model extends main_model
 		});
 	}
 
-	function post_delete()
+	function post_delete_banks()
 	{
 		var_dump("delete");
 	}
