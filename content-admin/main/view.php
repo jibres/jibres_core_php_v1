@@ -134,10 +134,11 @@ class main_view
 
 	public final function compile(){
 		if(isset($this->data->form)){
+			$aForm = array();
 			$forms = $this->data->form;
 			foreach ($forms as $key => $value) {
 				if(method_exists($value, "compile")){
-					$this->data->form->$key = $value->compile();
+					$aForm[$key] = $value->compile();
 				}else{
 					$this->data->form->$key = array();
 					foreach ($value as $ckey => $cvalue) {
@@ -145,11 +146,12 @@ class main_view
 							echo "$ckey not found compile";
 							exit();
 						}
-						$this->data->form->{$key[$ckey]} = $cvalue->compile();
+						$aForm[$key[$ckey]] = $cvalue->compile();
 					}
 				}
 			}
 		}
+		$this->data->form = $aForm;
 		$this->Localy();
 
 		$Header 		= apache_request_headers();
