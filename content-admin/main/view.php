@@ -87,6 +87,7 @@ class main_view
 				$this->data->datarow		= $this->sql("#datarow", $this->data->module);
 
 				// get all fields of table and filter fields name for show in datatable, access from columns variable
+				// check if datarow exist then get this data
 				$fields 					= array_keys($this->data->datarow[0]);
 				$this->data->columns 		= array_fill_keys($fields, null);
 				$this->data->slug			= null;
@@ -128,7 +129,7 @@ class main_view
 		array_push($this->formIndex, $form);
 		if(preg_match("/^@(.*)$/", $type, $name)){
 			$this->form->{$name[1]} = $form;
-			$form->hidden->value(preg_replace("/_[^_]*$/", "", $form->hidden->attr['value']))
+			$form->hidden->value(preg_replace("/_[^_]*$/", "", $form->hidden->attr['value']));
 		}
 		return $form;
 	}
