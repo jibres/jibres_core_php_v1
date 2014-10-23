@@ -19,8 +19,8 @@ class main_view{
 		$this->url->static					= $this->url->root . 'static/';
 		//$this->url->static				 = $this->url->current .'static/';
 
-		$this->global->site_title			= "Store";
-		$this->global->site_desc			= "Store management by SAMC";
+		$this->global->site_title			= "Jibres";
+		$this->global->site_desc			= "Store management by SAMAC";
 		$this->global->page_title			= "";
 		$this->global->page_desc			= $this->global->site_desc;
 		$this->global->site_title_show		= true;

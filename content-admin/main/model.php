@@ -68,7 +68,22 @@ class main_model{
 	function post_add()
 	{
 		// if you want to create special function for each module, simply declare a function post_add() and use it!
+		
+		 
 
+
+		$sql = $this->sql()
+			->tableUsers()
+			// -> $x = "where"."->$dsadas"
+			->whereUser_email(post::user_email())
+			->andUser_pass(post::user_pass())
+			->select();
+		// alternative
+		// $f = "User_name";
+		// $w = "where".$f;
+		// $sql->tableUsers()
+		// ->$w()
+		// ->andPassword('111111')
 
 
 

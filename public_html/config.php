@@ -7,13 +7,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database */
-define('db_name', 'store');
+define('db_name', 'jibres');
 
 /** MySQL database username */
-define('db_user', 'samac');
+define('db_user', 'jibres');
 
 /** MySQL database password */
-define('db_password', 'sql@92');
+define('db_password', 'Jibres@#$567');
 
 /** MySQL hostname  */
 define('db_host', 'localhost');
