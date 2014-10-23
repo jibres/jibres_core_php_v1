@@ -21,11 +21,7 @@ class model extends main_model
 		});
 	}
 
-	function post_delete()
-	{
-		$this->redirect = false;
-		// var_dump($this->redirect->urlChange("delete", false));
-		var_dump("delete");
-	}
+
+
 }
 ?>

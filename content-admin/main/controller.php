@@ -8,6 +8,7 @@ class main_controller{
 		$this->querys = (object) array();
 		if(method_exists($this, 'config')){
 			$this->config();
+			var_dump(config_lib::$aurl);
 		}
 	}
 
@@ -27,11 +28,15 @@ class main_controller{
 		$this->addMethod('url_child_real');
 		$this->addMethod('url_child');
 		$this->addMethod('url_table_prefix');
+		$this->addMethod('url_method_real');
 		$this->addMethod('url_method');
 		$this->addMethod('url_class');
 		$this->addMethod('url_parameter');
 		$this->addMethod('url_title');
 		$this->addMethod('slugify');
+
+// var_dump($this->url_method());
+
 
 		if ($this->url_method())
 		{
@@ -44,11 +49,15 @@ class main_controller{
 				// in root page like site.com/admin/banks control
 				$this->listen(
 					array(
-						"min" => 1,
-						"max" => 1,
-						"url" => array('add')
+						// "min" => 0,
+						"max" => 2,
+						// "url" => array('add')
+						// "url" => array("test")
+						"url" => array("test")
 						),
-					array('child' => 'add')
+					// array('class' => 'home', 'method' => 'template')
+					array("home","template" )
+					// array()
 				);
 
 				$this->listen(
@@ -58,7 +67,7 @@ class main_controller{
 						"url" => array("/.*/", "edit" => "/^[A-z0-9-]+$/")
 						// "url" => array("/.*/", "edit" => "/^[a-z0-9-]+$/")
 						),
-					array('child' => 'add')
+					array()
 				);
 				$this->listen(
 					array(
@@ -67,7 +76,7 @@ class main_controller{
 						"url" => array("/.*/", "delete" => "/^[A-z0-9]+$/")
 						// "url" => array("/.*/", "delete" => "/^\d+$/")
 						),
-					array( 'child' => 'add', 'mod' => 'delete')
+					array( 'mod' => 'delete')
 				);
 			}
 		}
@@ -80,7 +89,13 @@ class main_controller{
 	 */
 	function url_child_real()
 	{
-		$mychild = current(config_lib::$aurl);
+		// this function must go to saloos
+		$mychild = explode('/', config_lib::$URL);
+		if(count($mychild)>2)
+			$mychild = $mychild[2];
+		else
+			$mychild = null;
+
 		if($mychild == 'add')
 			return 'add';
 		
@@ -97,7 +112,14 @@ class main_controller{
 
 	function url_table_prefix()
 	{
-		return substr(config_lib::$method, 0, -1);
+		return substr($this->url_method_real(), 0, -1);
+	}
+
+	function url_method_real()
+	{
+		// this function must go to saloos
+		$tmp_method = explode('/', config_lib::$URL);
+		return $tmp_method[1];
 	}
 
 	function url_method($method=false)
@@ -144,21 +166,21 @@ class main_controller{
 
 	static public function slugify($text)
 	{ 
-	  // replace non letter or digits by -
-	  $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
-	  // trim
-	  $text = trim($text, '-');
-	  // transliterate
-	  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-	  // lowercase
-	  $text = strtolower($text);
-	  // remove unwanted characters
-	  $text = preg_replace('~[^-\w]+~', '', $text);
-	  if (empty($text))
-	  {
-	    return 'n-a';
-	  }
-	  return $text;
+		// replace non letter or digits by -
+		$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+		// trim
+		$text = trim($text, '-');
+		// transliterate
+		$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+		// lowercase
+		$text = strtolower($text);
+		// remove unwanted characters
+		$text = preg_replace('~[^-\w]+~', '', $text);
+		if (empty($text))
+		{
+			return 'n-a';
+		}
+		return $text;
 	}
 
 	// ---------------------------------------------------------------- Until this line - Added by Javad

@@ -30,10 +30,10 @@ class model extends main_model
 		});
 	}
 
-	function post_delete()
-	{
-		var_dump($this->redirect->urlChange("delete", false));
-		var_dump("delete");
-	}
+	// function post_delete()
+	// {
+	// 	var_dump($this->redirect->urlChange("delete", false));
+	// 	var_dump("delete");
+	// }
 }
 ?>

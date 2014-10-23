@@ -45,12 +45,11 @@ class main_model{
 			}elseif($this->redirect){
 				if(!isset($_SESSION['error'])) $_SESSION['error'] = array();
 				$_SESSION['error'][$this->redirect->compileUrl()] = $array;
-				// $this->checkRedirect();
+				$this->checkRedirect();
 			}
 		}elseif(!$local){
 			page_lib::access("model");
 		}
-
 	}
 
 
@@ -62,23 +61,84 @@ class main_model{
 		if (!$mytable)
 			return null;
 
-		$from = 'table'.ucfirst($mytable);
-		return $this->sql()->$from()->select()->allassoc();
+		$tmp_table = 'table'.ucfirst($mytable);
+		return $this->sql()->$tmp_table()->select()->allassoc();
 	}
 
+	function post_add()
+	{
+		// if you want to create special function for each module, simply declare a function post_add() and use it!
 
 
 
 
+		// ======================================================
+		// you can manage next event with one of these variables,
+		// commit for successfull and rollback for failed
+		// 
+		// if query run without error means commit
+		$this->commit(function()
+		{
+			debug_lib::true("Insert a new ". $this->url_table_prefix() ." successfully");
+		} );
+
+		// if a query has error or any error occour in any part of codes, run roolback
+		$this->rollback(function()
+		{
+			debug_lib::fatal("Insert a new ". $this->url_table_prefix() ." failed");
+		} );
+	}
+
+	function post_edit()
+	{
+		// if you want to create special function for each module, simply declare a function post_edit() and use it!
 
 
 
+		// ======================================================
+		// you can manage next event with one of these variables,
+		// commit for successfull and rollback for failed
+		// 
+		// if query run without error means commit
+		$this->commit(function()
+		{
+			debug_lib::true("Update ". $this->url_table_prefix() ." successfully");
+		} );
+
+		// if a query has error or any error occour in any part of codes, run roolback
+		$this->rollback(function()
+		{
+			debug_lib::fatal("Update ". $this->url_table_prefix() ." failed");
+		} );
+	}
+
+	function post_delete()
+	{
+		// if you want to create special function for each module, simply declare a function post_delete() and use it!
+
+		$this->redirect = false;
+		// var_dump($this->redirect->urlChange("delete", false));
+		var_dump("delete");
 
 
+		// ======================================================
+		// you can manage next event with one of these variables,
+		// commit for successfull and rollback for failed
+		// 
+		// if query run without error means commit
+		$this->commit(function()
+		{
+			debug_lib::true("Delete ". $this->url_table_prefix() ." successfully");
+		} );
 
-
-
+		// if a query has error or any error occour in any part of codes, run roolback
+		$this->rollback(function()
+		{
+			debug_lib::fatal("Delete ". $this->url_table_prefix() ." failed");
+		} );
+	}
 	// ---------------------------------------------------------------- Until this line - Added by Javad
+
 
 	public function endEfect(){
 		$sQl = new dbconnection_lib;

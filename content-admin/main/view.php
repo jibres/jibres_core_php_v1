@@ -59,8 +59,8 @@ class main_view
 	// ---------------------------------------------------------------- default config function for ADMIN
 	public function config() 
 	{
-		$this->data->child			= $this->url_child();
-		$this->data->module			= $this->url_method();
+		$this->data->child			= $this->url_child_real();
+		$this->data->module			= $this->url_method_real();
 		$this->data->table_prefix	= $this->url_table_prefix();
 		$this->data->class			= $this->url_class();
 		$this->global->page_title	= ucfirst($this->data->module);
@@ -72,10 +72,9 @@ class main_view
 			if($this->data->child)
 			{
 				// in add, edit or delete pages
-				$this->data->module			= $this->url_method();
 				$this->data->form_title		= ucfirst($this->url_table_prefix());
 				$this->global->page_title	= $this->url_title() . ' ' . $this->data->form_title;
-				$myForm						= $this->createform("@".$this->data->module, $this->url_child_real());
+				$myForm						= $this->createform("@".$this->data->module, $this->data->child);
 				$this->data->form_show		= true;
 			}
 			else
@@ -85,29 +84,34 @@ class main_view
 
 				// get data from database through model
 				$this->data->datarow		= $this->sql("#datarow", $this->data->module);
-
-				// get all fields of table and filter fields name for show in datatable, access from columns variable
-				// check if datarow exist then get this data
-				$fields 					= array_keys($this->data->datarow[0]);
-				$this->data->columns 		= array_fill_keys($fields, null);
-				$this->data->slug			= null;
-
-				foreach ($fields as $key)
+				if($this->data->datarow)
 				{
-					if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
+					// get all fields of table and filter fields name for show in datatable, access from columns variable
+					// check if datarow exist then get this data
+					$fields 					= array_keys($this->data->datarow[0]);
+					$this->data->columns 		= array_fill_keys($fields, null);
+					$this->data->slug			= null;
+
+					foreach ($fields as $key)
 					{
-						$this->data->columns[$key]	.= ucfirst(substr($key,strrpos($key,'_')+1));
-						
-						if( $key== ($this->url_table().'_slug') )
+						if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
 						{
-							$this->data->slug 		= $key;
-							// var_dump($key);
+							$this->data->columns[$key] = ucfirst(substr($key,strrpos($key,'_')+1));
+							if ($this->data->columns[$key]==='Id')
+							{
+								// if this field related with other table(foreign key) only show the target table
+								$this->data->columns[$key] = ucfirst(substr($key,0,strrpos($key,'_')));
+							}								
+
+							
+							if( $key== ($this->url_table().'_slug') )
+							{
+								$this->data->slug 		= $key;
+								// var_dump($key);
+							}
 						}
-						
 					}
 				}
-
-
 
 
 

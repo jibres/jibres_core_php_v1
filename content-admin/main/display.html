@@ -47,7 +47,8 @@
   {%if module%}
    {%if child%}
     <p class="alert alert-block alert-info">
-     <a href="{{class}}/{{module}}">Go to {{module|title}}</a>
+     {{module|title}} Section
+     <a class="float-right" href="{{class}}/{{module}}">Go to {{module|title}}</a>
     </p>
     {%if form_show %}
      <form class="ajx" method="post" id="{{form_title}}">
