@@ -8,7 +8,6 @@ class main_controller{
 		$this->querys = (object) array();
 		if(method_exists($this, 'config')){
 			$this->config();
-			var_dump(config_lib::$aurl);
 		}
 	}
 
@@ -49,15 +48,11 @@ class main_controller{
 				// in root page like site.com/admin/banks control
 				$this->listen(
 					array(
-						// "min" => 0,
-						"max" => 2,
-						// "url" => array('add')
-						// "url" => array("test")
-						"url" => array("test")
+						"min" => 1,
+						"max" => 1,
+						"url" => array('add')
 						),
-					// array('class' => 'home', 'method' => 'template')
-					array("home","template" )
-					// array()
+					array()
 				);
 
 				$this->listen(
