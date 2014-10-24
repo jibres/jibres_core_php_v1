@@ -10,7 +10,11 @@ class controller extends main_controller
 			),
 		array("admin", 'home')
 		);
-
+		$this->listen(
+		array(
+			"url" => array("test")
+			)
+		);
 	}
 }
 ?>
