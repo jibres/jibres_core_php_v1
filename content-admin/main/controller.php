@@ -141,10 +141,15 @@ class main_controller
 
 	function url_parameter()
 	{
-		if (config_lib::$surl['edit']) 
-			return config_lib::$surl['edit'];
-		return null;
+		/**
+		@Hasan: Trim and safe the parameter in saloos
+		**/
+		if ( isset(config_lib::$surl['edit']) && config_lib::$surl['edit']) 
+			return trim( config_lib::$surl['edit'] );
+		elseif ( isset(config_lib::$surl['delete']) && config_lib::$surl['delete']) 
+			return trim( config_lib::$surl['delete'] );
 
+		return null;
 	}
 
 	function url_title()

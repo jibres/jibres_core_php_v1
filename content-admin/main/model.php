@@ -55,23 +55,24 @@ class main_model{
 
 	// ---------------------------------------------------------------- default controller and some other function for ADMIN
 
-	public function sql_datarow($mytable = false) 
+	public function sql_datarow($mytable = false)
 	{
 		// this function get table name and return all record of it. table name can set in view
 		if (!$mytable)
 			return null;
 
-		$qry_table = 'table'.ucfirst($mytable);
-		return $this->sql()->$qry_table()->select()->allassoc();
+		$tmp_qry_table = 'table'.ucfirst($mytable);
+		return $this->sql()->$tmp_qry_table()->select()->allassoc();
 	}
 
 	public function sql_query()
 	{
-		// $tmp_query = $this->sql()->tableCity()->setName(post::name())->setProvince_id(post::province());
-		$this->redirect 	= false;
+		// for debug uncomment below line for disable redirect
+		// $this->redirect 	= false;
 		$tmp_module			= $this->url_method_real();
-		$qry_table			= 'table'.ucfirst($tmp_module);
-		$tmp_query			= $this->sql()->$qry_table();
+		$tmp_qry_table		= 'table'.ucfirst($tmp_module);
+		$tmp_qry			= $this->sql()->$tmp_qry_table();
+		$tmp_table_prefix	= $this->url_table_prefix();
 
 		$tmp_datarow		= $this->sql_datarow($tmp_module);
 		if($tmp_datarow)
@@ -92,23 +93,24 @@ class main_model{
 						$tmp_columns[$key] = ucfirst(substr($key,0,strrpos($key,'_')));
 					}
 					$tmp_col			= $tmp_columns[$key];
-					$tmp_setfield			= 'set'.ucfirst($key) ;
-					$tmp_query	= $tmp_query->$tmp_setfield(post::$tmp_col()) ;
+					$tmp_setfield		= 'set'.ucfirst($key) ;
+					$tmp_qry			= $tmp_qry->$tmp_setfield(post::$tmp_col()) ;
 				}
 			}
 		}
-		return $tmp_query;
+		return $tmp_qry;
 	}
 
 	function post_add()
 	{
 		// if you want to create special function for each module, simply declare a function post_add() and use it!
-		$sql = $this->sql_query()->insert();
+		// $this->redirect 	= false;
+		$sql	= $this->sql_query()->insert();
 
 		// ======================================================
 		// you can manage next event with one of these variables,
 		// commit for successfull and rollback for failed
-		// 
+		//
 		// if query run without error means commit
 		$this->commit(function()
 		{
@@ -126,85 +128,156 @@ class main_model{
 	function post_edit()
 	{
 		// if you want to create special function for each module, simply declare a function post_edit() and use it!
-		$tmp_param = $this->url_parameter();
-		var_dump($tmp_param);
-		$sql = $this->sql_query()->whereBank_slug($tmp_param)->update();
+		// $this->redirect 	= false;
+		
+		if ($this->url_slug_invalid())
+			return 0;
+		
+		$tmp_slug_new			= post::Slug();
+		if (isset($tmp_slug_new) && !empty($tmp_slug_new) )
+		{
+			// if new slug is has a correct syntax and not empty run query
+			$tmp_table_prefix	= $this->url_table_prefix();
+			$tmp_qry_slug		= $this->url_parameter();
+			$tmp_qry_where		= 'where'.ucfirst($tmp_table_prefix).'_slug';
+			$sql				= $this->sql_query()->$tmp_qry_where($tmp_qry_slug)->update();
+
+			if ($tmp_qry_slug !== $tmp_slug_new)
+			{
+				// if slug is changed, then change the url to new slug
+				$this->redirect->urlChange("edit", $tmp_slug_new);
+			}
+		}
+		else
+		{
+			// if new slug has a incorrect syntax show error message
+			debug_lib::fatal("Please input correct slug");
+			return 0;
+		}
+
+
 
 		// ======================================================
 		// you can manage next event with one of these variables,
 		// commit for successfull and rollback for failed
-		// 
+		//
 		// if query run without error means commit
 		$this->commit(function()
 		{
+			// $this->redirect->childChange('edit', false);
 			debug_lib::true("Update ". $this->url_table_prefix() ." successfully");
-		} );
+		});
 
 		// if a query has error or any error occour in any part of codes, run roolback
 		$this->rollback(function()
 		{
 			debug_lib::fatal("Update ". $this->url_table_prefix() ." failed");
 		} );
+
 	}
 
 	function post_delete()
 	{
 		// if you want to create special function for each module, simply declare a function post_delete() and use it!
+		// $this->redirect = false;
 
-		$this->redirect = false;
-		// var_dump($this->redirect->urlChange("delete", false));
-		var_dump("delete");
+		if ($this->url_slug_invalid())
+			return 0;
+
+		$this->redirect->urlChange("delete", false);
+		$tmp_module			= $this->url_method_real();
+		$tmp_qry_table		= 'table'.ucfirst($tmp_module);
+		$tmp_qry_slug		= $this->url_parameter();
+		$tmp_table_prefix	= $this->url_table_prefix();
+		$tmp_qry_where		= 'where'.ucfirst($tmp_table_prefix).'_slug';
+
+		$sql				= $this->sql()->$tmp_qry_table()->$tmp_qry_where($tmp_qry_slug)->delete();
 
 
 		// ======================================================
 		// you can manage next event with one of these variables,
 		// commit for successfull and rollback for failed
-		// 
+		//
 		// if query run without error means commit
-		$this->commit(function()
+		$this->commit(function($tmp_slug=null)
 		{
-			debug_lib::true("Delete ". $this->url_table_prefix() ." successfully");
-		} );
+			debug_lib::true("Delete ". $this->url_table_prefix() ."($tmp_slug) successfully");
+		}, $tmp_qry_slug);
 
 		// if a query has error or any error occour in any part of codes, run roolback
-		$this->rollback(function()
+		$this->rollback(function($tmp_slug=null)
 		{
-			debug_lib::fatal("Delete ". $this->url_table_prefix() ." failed");
-		} );
+			debug_lib::fatal("Delete ". $this->url_table_prefix() ."($tmp_slug) failed");
+		}, $tmp_qry_slug);	
+	
 	}
 
-
-
-
-
-	function post_add_users()
+	function url_slug_invalid()
 	{
-		$sql = $this->sql()
-			->tableUsers()
-			// -> $x = "where"."->$dsadas"
-			->whereUser_email(post::user_email())
-			->andUser_pass(post::user_pass())
-			->select();
-// alternative
-// $f = "User_name";
-// $w = "where".$f;
-// $sql->tableUsers()
-// ->$w()
-// ->andPassword('111111')
-
-		if(debug_lib::$status and $sql->num() == 0){
-			debug_lib::fatal("username or password incorrect");
-			// debug_lib::fatal("username or password incorrect", "user_pass", "form");
+		$tmp_qry_slug		= $this->url_parameter();
+		if (isset($tmp_qry_slug) && !empty($tmp_qry_slug) )
+		{
+			// if slug in url is correct syntax
+			/**
+			 @Javad: check if slug is exist in related table
+			**/
+			$tmp_datarow		= $this->sql_datarow_slug($tmp_module);
+			return false;
+		}
+		else
+		{
+			// if slug in url is incorrect
+			debug_lib::fatal("Your slug is incorrect");
+			return true;
 		}
 
-		$this->commit(function($p){
-
-		}, $sql->assoc());
-
-		$this->rollback(function(){
-
-		});
 	}
+			/**
+			 @Javad: check if new slug is not exist in table
+			**/
+
+	public function sql_datarow_slug($mytable = false, $myslug = null)
+	{
+		// this function get table name and return all record of it. table name can set in view
+		if (!$mytable || !$myslug)
+			return null;
+
+		$tmp_qry_table	= 'table'.ucfirst($mytable);
+		$tmp_qry_where	= 'whereSlug';
+
+		return $this->sql()->$tmp_qry_table()->tmp_qry_where($myslug)->select()->allassoc();
+	}
+
+
+
+// 	function post_add_users()
+// 	{
+// 		$sql = $this->sql()
+// 			->tableUsers()
+// 			// -> $x = "where"."->$dsadas"
+// 			->whereUser_email(post::user_email())
+// 			->andUser_pass(post::user_pass())
+// 			->select();
+// // alternative
+// // $f = "User_name";
+// // $w = "where".$f;
+// // $sql->tableUsers()
+// // ->$w()
+// // ->andPassword('111111')
+
+// 		if(debug_lib::$status and $sql->num() == 0){
+// 			debug_lib::fatal("username or password incorrect");
+// 			// debug_lib::fatal("username or password incorrect", "user_pass", "form");
+// 		}
+
+// 		$this->commit(function($p){
+
+// 		}, $sql->assoc());
+
+// 		$this->rollback(function(){
+
+// 		});
+// 	}
 
 	// function post_delete()
 	// {
@@ -217,7 +290,7 @@ class main_model{
 
 
 
-	
+
 	// ---------------------------------------------------------------- Until this line - Added by Javad
 
 
@@ -240,7 +313,7 @@ class main_model{
 		$sqlf = $sql::$table();
 		return $sqlf->loadForm($args);
 	}
-	
+
 	public final function sql($name = false){
 		$sql = new query_cls;
 		$args = func_get_args();

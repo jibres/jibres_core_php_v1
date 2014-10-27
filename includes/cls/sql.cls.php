@@ -2,7 +2,7 @@
 /**
 * 
 */
-class sql_cls {
+class sql_cls2 {
 	// public function __construct($sql = false, $string = false) {
 	// 	// var_dump(func_get_args());
 	// 	// var_dump($sql);
@@ -28,7 +28,7 @@ class sql_cls {
 		if(!$string){
 			// where not found 
 			 $sql->whereId("10");
-			 var_dump($sql);
+			 // var_dump($sql);
 		}else{
 			 	$sql->andId("20");
 		}
