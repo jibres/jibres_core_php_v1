@@ -25,8 +25,7 @@ class cost_categories
 	//------------------------------------------------------------------ slug
 	public function cc_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate()
-		->createslug(function()	{$this->value =\validator_lib::$save['form']['cc_title']->value;});
+		$this->form()->name("Slug")->validate();
 	}
 
 	//------------------------------------------------------------------ description
@@ -44,10 +43,12 @@ class cost_categories
 		$this->form()->name("Row")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function cc_type() 
 	{
-		$this->form()->name("Type")
-		->validate();
+		$this->form("radio")->name("Type")->validate();
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

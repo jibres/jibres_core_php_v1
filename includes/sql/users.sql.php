@@ -38,10 +38,12 @@ class users
 
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate("id");}
+
+	//------------------------------------------------------------------ radio button
 	public function user_type() 
 	{
-		$this->form()->name("Type")
-		->validate();
+		$this->form("radio")->name("Type")->validate();
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ password
@@ -55,15 +57,19 @@ class users
 	{
 		$this->form("#email")->name("Email")->validate();
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function user_gender() 
 	{
-		$this->form()->name("Gender")
-		->validate();
+		$this->form("radio")->name("Gender")->validate();
+		$this->setChild($this->form);
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function user_married() 
 	{
-		$this->form()->name("Married")
-		->validate();
+		$this->form("radio")->name("Married")->validate();
+		$this->setChild($this->form);
 	}
 	public function user_firstname() 
 	{
@@ -120,10 +126,12 @@ class users
 		$this->form()->name("Postcode")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function user_newsletter() 
 	{
-		$this->form()->name("Newsletter")
-		->validate();
+		$this->form("radio")->name("Newsletter")->validate();
+		$this->setChild($this->form);
 	}
 	public function user_refer() 
 	{
@@ -140,10 +148,12 @@ class users
 		$this->form()->name("Website")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function user_status() 
 	{
-		$this->form()->name("Status")
-		->validate();
+		$this->form("select")->name("Status")->validate();
+		$this->setChild($this->form);
 	}
 	public function user_degree() 
 	{
@@ -165,10 +175,12 @@ class users
 		$this->form()->name("Total Outcome")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function user_credit() 
 	{
-		$this->form()->name("Credit")
-		->validate();
+		$this->form("radio")->name("Credit")->validate();
+		$this->setChild($this->form);
 	}
 	public function user_question() 
 	{

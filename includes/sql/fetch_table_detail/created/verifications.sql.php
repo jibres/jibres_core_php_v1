@@ -14,10 +14,12 @@ class verifications
 
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate("id");}
+
+	//------------------------------------------------------------------ radio button
 	public function verification_type() 
 	{
-		$this->form()->name("Type")
-		->validate();
+		$this->form("radio")->name("Type")->validate();
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ email
@@ -36,10 +38,12 @@ class verifications
 	{
 		$this->validate("id");
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function verification_verified() 
 	{
-		$this->form()->name("Verified")
-		->validate();
+		$this->form("radio")->name("Verified")->validate();
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

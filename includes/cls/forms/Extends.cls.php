@@ -43,14 +43,15 @@ class forms_Extends_cls extends forms_lib{
 		$this->text_title = $this->make("text")->name("title")->label("Title");
 		$this->text_title->validate();
 
+/*
 		// unicode text accept Slug
 		$this->text_slug = $this->make("text")->name("slug")->label("Slug");
 		$x = $this->text_slug->validate();
 		$x->slug(function(){
 			if(preg_match("[\/\\\"'\.]", $this->value)) return false;
 		})->form->slug("hi")->sql->unique("hiss");
-
-		// unicode text accept Slug
+*/
+		// unicode text accept website
 		$this->text_website = $this->make("text")->name("website")->label("Website");
 		$this->text_website->validate()->website();
 

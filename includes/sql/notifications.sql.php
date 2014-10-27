@@ -41,10 +41,12 @@ class notifications
 		$this->form()->name("Url")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function notification_status() 
 	{
-		$this->form()->name("Status")
-		->validate();
+		$this->form("select")->name("Status")->validate();
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

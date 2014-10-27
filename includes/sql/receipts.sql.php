@@ -38,10 +38,12 @@ class receipts
 		$this->form()->name("Cheque Date")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function receipt_cheque_status() 
 	{
-		$this->form()->name("Cheque Status")
-		->validate();
+		$this->form("select")->name("Cheque Status")->validate();
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ description

@@ -37,8 +37,7 @@ class products
 	//------------------------------------------------------------------ slug
 	public function product_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate()
-		->createslug(function()	{$this->value =\validator_lib::$save['form']['product_title']->value;});
+		$this->form()->name("Slug")->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -86,10 +85,12 @@ class products
 		$this->form()->name("Min Inventory")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function product_status() 
 	{
-		$this->form()->name("Status")
-		->validate();
+		$this->form("select")->name("Status")->validate();
+		$this->setChild($this->form);
 	}
 	public function product_sold() 
 	{
@@ -112,10 +113,12 @@ class products
 	{
 		$this->validate("id");
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function product_service() 
 	{
-		$this->form()->name("Service")
-		->validate();
+		$this->form("radio")->name("Service")->validate();
+		$this->setChild($this->form);
 	}
 	public function product_sellin() 
 	{

@@ -68,7 +68,7 @@ class main_model{
 	public function sql_query()
 	{
 		// $tmp_query = $this->sql()->tableCity()->setName(post::name())->setProvince_id(post::province());
-		// $this->redirect 	= false;
+		$this->redirect 	= false;
 		$tmp_module			= $this->url_method_real();
 		$qry_table			= 'table'.ucfirst($tmp_module);
 		$tmp_query			= $this->sql()->$qry_table();
@@ -126,7 +126,9 @@ class main_model{
 	function post_edit()
 	{
 		// if you want to create special function for each module, simply declare a function post_edit() and use it!
-		$sql = $this->sql_query()->whereId(post::$Slug())->update();
+		$tmp_param = $this->url_parameter();
+		var_dump($tmp_param);
+		$sql = $this->sql_query()->whereBank_slug($tmp_param)->update();
 
 		// ======================================================
 		// you can manage next event with one of these variables,

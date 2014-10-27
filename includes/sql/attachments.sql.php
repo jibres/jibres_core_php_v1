@@ -23,10 +23,12 @@ class attachments
 	{
 		$this->form("#title")->name("Title")->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function attachment_model() 
 	{
-		$this->form()->name("Model")
-		->validate();
+		$this->form("select")->name("Model")->validate();
+		$this->setChild($this->form);
 	}
 	public function attachment_addr() 
 	{
@@ -38,10 +40,12 @@ class attachments
 		$this->form()->name("Name")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function attachment_type() 
 	{
-		$this->form()->name("Type")
-		->validate();
+		$this->form("radio")->name("Type")->validate();
+		$this->setChild($this->form);
 	}
 	public function attachment_size() 
 	{

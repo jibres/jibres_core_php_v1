@@ -26,15 +26,19 @@ class user_logs
 	{
 		$this->form("#desc")->name("Desc")->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function ul_priority() 
 	{
-		$this->form()->name("Priority")
-		->validate();
+		$this->form("select")->name("Priority")->validate();
+		$this->setChild($this->form);
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function ul_type() 
 	{
-		$this->form()->name("Type")
-		->validate();
+		$this->form("radio")->name("Type")->validate();
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key

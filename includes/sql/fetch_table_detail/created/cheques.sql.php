@@ -49,10 +49,12 @@ class cheques
 	{
 		$this->form("#desc")->name("Desc")->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function cheque_status() 
 	{
-		$this->form()->name("Status")
-		->validate();
+		$this->form("select")->name("Status")->validate();
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key

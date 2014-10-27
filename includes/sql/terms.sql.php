@@ -23,8 +23,7 @@ class terms
 	//------------------------------------------------------------------ slug
 	public function term_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate()
-		->createslug(function()	{$this->value =\validator_lib::$save['form']['term_title']->value;});
+		$this->form()->name("Slug")->validate();
 	}
 
 	//------------------------------------------------------------------ description
@@ -37,10 +36,12 @@ class terms
 		$this->form()->name("Father")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function term_type() 
 	{
-		$this->form()->name("Type")
-		->validate();
+		$this->form("radio")->name("Type")->validate();
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

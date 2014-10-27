@@ -34,10 +34,12 @@ class options
 		$this->form()->name("Value Extra")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function option_status() 
 	{
-		$this->form()->name("Status")
-		->validate();
+		$this->form("select")->name("Status")->validate();
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

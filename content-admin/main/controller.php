@@ -141,10 +141,10 @@ class main_controller
 
 	function url_parameter()
 	{
-		var_dump("parameter");
-		var_dump(config_lib::$aurl[0]);
-		if( isset(config_lib::$aurl[0]) && config_lib::$aurl[0] == 'edit' && isset(config_lib::$aurl[1]) )
-			return (config_lib::$aurl[1]);
+		if (config_lib::$surl['edit']) 
+			return config_lib::$surl['edit'];
+		return null;
+
 	}
 
 	function url_title()

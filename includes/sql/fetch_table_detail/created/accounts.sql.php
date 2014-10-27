@@ -28,8 +28,7 @@ class accounts
 	//------------------------------------------------------------------ slug
 	public function account_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate()
-		->createslug(function()	{$this->value =\validator_lib::$save['form']['account_title']->value;});
+		$this->form()->name("Slug")->validate();
 	}
 
 	//------------------------------------------------------------------ id - foreign key

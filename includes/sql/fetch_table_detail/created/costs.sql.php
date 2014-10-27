@@ -50,10 +50,12 @@ class costs
 	{
 		$this->form("#desc")->name("Desc")->validate();
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function cost_type() 
 	{
-		$this->form()->name("Type")
-		->validate();
+		$this->form("radio")->name("Type")->validate();
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

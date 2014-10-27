@@ -152,6 +152,9 @@ optgroup{font-weight:bold;}
 .row .offset12{margin-right: 102.12764399999999%;}
 .row .offset12:not(:first-child){margin-right: 104.25530299999998%;}
 
+.row-clear:before,.row-clear:after{display:table;content:""}
+.row-clear:after{clear:both}
+
 /* Utility
    ========================================================================== */
 /* Twitter Bootstrap ALert Box */
@@ -441,15 +444,23 @@ form{
 
 form .form-element{
   padding: 2px 5px;
+
 }
 
 form label{
+  display: block;
   float: left;
   min-width: 150px;
+
 }
 
-form input{
-  padding: 0;
+form label.label-radio{
+  min-width:50px;
+  margin-right: 10px;
+}
+
+
+form input, form select{
   margin: 0;
   padding: 5px;
 }
@@ -473,4 +484,34 @@ form button:active{
 background-color: #1d1d1d;
 color: #ffffff;
 border-color: transparent;
+}
+
+
+form select{
+  
+}
+
+.radio, .checkbox {
+position: relative;
+display: block;
+min-height: 30px;
+}
+
+.radio input[type=radio], .radio-inline input[type=radio], .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox] {
+position: absolute;
+margin-top: 4px \9;
+margin-left: -20px;
+}
+
+input[type=radio], input[type=checkbox] {
+margin: 5px 0 0;
+margin-top: 1px \9;
+line-height: normal;
+}
+
+.radio label, .checkbox label {
+padding-left: 20px;
+margin-bottom: 0;
+font-weight: 400;
+cursor: pointer;
 }

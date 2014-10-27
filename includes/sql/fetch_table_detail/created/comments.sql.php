@@ -63,10 +63,12 @@ class comments
 		$this->form()->name("Content")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function comment_status() 
 	{
-		$this->form()->name("Status")
-		->validate();
+		$this->form("select")->name("Status")->validate();
+		$this->setChild($this->form);
 	}
 	public function comment_parent() 
 	{

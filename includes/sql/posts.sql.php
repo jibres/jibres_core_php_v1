@@ -39,23 +39,26 @@ class posts
 	//------------------------------------------------------------------ slug
 	public function post_slug() 
 	{
-		$this->form("#slug")->name("Slug")->validate()
-		->createslug(function()	{$this->value =\validator_lib::$save['form']['post_title']->value;});
+		$this->form()->name("Slug")->validate();
 	}
 	public function post_content() 
 	{
 		$this->form()->name("Content")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ radio button
 	public function post_type() 
 	{
-		$this->form()->name("Type")
-		->validate();
+		$this->form("radio")->name("Type")->validate();
+		$this->setChild($this->form);
 	}
+
+	//------------------------------------------------------------------ select button
 	public function post_status() 
 	{
-		$this->form()->name("Status")
-		->validate();
+		$this->form("select")->name("Status")->validate();
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key

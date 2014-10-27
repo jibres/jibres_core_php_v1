@@ -23,10 +23,12 @@ class errors
 		$this->form()->name("Solution")
 		->validate();
 	}
+
+	//------------------------------------------------------------------ select button
 	public function ed_priority() 
 	{
-		$this->form()->name("Priority")
-		->validate();
+		$this->form("select")->name("Priority")->validate();
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}
