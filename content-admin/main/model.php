@@ -61,31 +61,49 @@ class main_model{
 		if (!$mytable)
 			return null;
 
-		$tmp_table = 'table'.ucfirst($mytable);
-		return $this->sql()->$tmp_table()->select()->allassoc();
+		$qry_table = 'table'.ucfirst($mytable);
+		return $this->sql()->$qry_table()->select()->allassoc();
+	}
+
+	public function sql_query()
+	{
+		// $tmp_query = $this->sql()->tableCity()->setName(post::name())->setProvince_id(post::province());
+		// $this->redirect 	= false;
+		$tmp_module			= $this->url_method_real();
+		$qry_table			= 'table'.ucfirst($tmp_module);
+		$tmp_query			= $this->sql()->$qry_table();
+
+		$tmp_datarow		= $this->sql_datarow($tmp_module);
+		if($tmp_datarow)
+		{
+			// get all fields of table and filter fields name for show in datatable, access from columns variable
+			// check if datarow exist then get this data
+			$fields			= array_keys($tmp_datarow[0]);
+			$tmp_columns	= array_fill_keys($fields, null);
+
+			foreach ($fields as $key)
+			{
+				if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
+				{
+					$tmp_columns[$key] = ucfirst(substr($key,strrpos($key,'_')+1));
+					if ($tmp_columns[$key]==='Id')
+					{
+						// if this field related with other table(foreign key) only show the target table
+						$tmp_columns[$key] = ucfirst(substr($key,0,strrpos($key,'_')));
+					}
+					$tmp_col			= $tmp_columns[$key];
+					$tmp_setfield			= 'set'.ucfirst($key) ;
+					$tmp_query	= $tmp_query->$tmp_setfield(post::$tmp_col()) ;
+				}
+			}
+		}
+		return $tmp_query;
 	}
 
 	function post_add()
 	{
 		// if you want to create special function for each module, simply declare a function post_add() and use it!
-		
-		 
-
-
-		$sql = $this->sql()
-			->tableUsers()
-			// -> $x = "where"."->$dsadas"
-			->whereUser_email(post::user_email())
-			->andUser_pass(post::user_pass())
-			->select();
-		// alternative
-		// $f = "User_name";
-		// $w = "where".$f;
-		// $sql->tableUsers()
-		// ->$w()
-		// ->andPassword('111111')
-
-
+		$sql = $this->sql_query()->insert();
 
 		// ======================================================
 		// you can manage next event with one of these variables,
@@ -102,13 +120,13 @@ class main_model{
 		{
 			debug_lib::fatal("Insert a new ". $this->url_table_prefix() ." failed");
 		} );
+		// debug_lib::true($this->include->datatable. 'sss'. $this->url_method_real() );
 	}
 
 	function post_edit()
 	{
 		// if you want to create special function for each module, simply declare a function post_edit() and use it!
-
-
+		$sql = $this->sql_query()->whereId(post::$Slug())->update();
 
 		// ======================================================
 		// you can manage next event with one of these variables,

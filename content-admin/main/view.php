@@ -101,14 +101,12 @@ class main_view
 							{
 								// if this field related with other table(foreign key) only show the target table
 								$this->data->columns[$key] = ucfirst(substr($key,0,strrpos($key,'_')));
-							}								
-
-							
-							if( $key== ($this->url_table().'_slug') )
-							{
-								$this->data->slug 		= $key;
-								// var_dump($key);
 							}
+							// if( $key== ($this->data->table_prefix.'_slug') )
+							// {
+							// 	$this->data->slug 		= $key;
+							// 	// var_dump($this->data->slug);
+							// }
 						}
 					}
 				}

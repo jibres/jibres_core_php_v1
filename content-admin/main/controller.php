@@ -1,12 +1,15 @@
 <?php
-class main_controller{
+class main_controller
+{
 	public $onUrl = false;
 	public $querys;
 	public $__autocallMethod = array("sql", "redirect", "checkRedirect", "addMethod", "addPeroperty");
 	public $__autogetProperty = array( "redirect");
-	public final function __construct(){
+	public final function __construct()
+	{
 		$this->querys = (object) array();
-		if(method_exists($this, 'config')){
+		if(method_exists($this, 'config'))
+		{
 			$this->config();
 		}
 	}
@@ -36,6 +39,15 @@ class main_controller{
 
 // var_dump($this->url_method());
 
+		// catch for subdoamin
+		$this->listen(
+			array(
+				"domain" => "admin",
+				// "max" => 1,
+				),
+			array()
+			// array("admin", 'home')
+		);
 
 		if ($this->url_method())
 		{

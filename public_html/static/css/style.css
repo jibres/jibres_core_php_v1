@@ -5,7 +5,7 @@ Theme URL: http://Samac.ir/Lazood/
 Description: Lazood is our new Project, enjoy!
 Author: Samac Business Solutions
 Author URI: Samac.ir
-Version: 1.0.7
+Version: 1.1.0
 */
 
 @font-face {
@@ -217,49 +217,49 @@ p{margin-bottom:1.5rem;font-size:1.7rem;line-height:2.5rem;}
 .hidden-desktop{display:none;}.hidden-tablet{display:inherit;}.hidden-phone{display:inherit;}.visible-desktop{display:inherit;}.visible-tablet{display:none;}.visible-phone{display:none;}
 /* #Large Desktop ======================================== Design for a width of 1400 */
 @media screen and (min-width: 1400px){
-	html{font-size:70%;}
-	.container{max-width:1080px;min-width:1000px;}
+  html{font-size:70%;}
+  .container{max-width:1080px;min-width:1000px;}
 
 }
 
 
 /* #Tablet (Portrait) =================================== Design for a width of 768px */
 @media only screen and (min-width: 768px) and (max-width: 959px){
-	.hidden-desktop{display:inherit;}.hidden-tablet{display:none;}.hidden-phone{display:inherit;}.visible-desktop{display:none;}.visible-tablet{display:inherit;}.visible-phone{display:none;}
+  .hidden-desktop{display:inherit;}.hidden-tablet{display:none;}.hidden-phone{display:inherit;}.visible-desktop{display:none;}.visible-tablet{display:inherit;}.visible-phone{display:none;}
 
-	.row > [class*=span]{width:48%;margin-right:0!important;margin-bottom:20px}
-	.row > [class*=span]:nth-child(even){margin-right:20px!important}	
-	.row .span12,.row .span7,.row .span8,.row .span9,.row .span10,.row .span11{width:720px!important}
-	.row .span12:nth-child(even),.row .span7:nth-child(even),.row .span8:nth-child(even),.row .span9:nth-child(even),.row .span10:nth-child(even),.row .span11:nth-child(even){margin-right:0!important}
-	html{font-size: 60%;}
-	.container{max-width:959px;min-width:720px;}
+  .row > [class*=span]{width:48%;margin-right:0!important;margin-bottom:20px}
+  .row > [class*=span]:nth-child(even){margin-right:20px!important} 
+  .row .span12,.row .span7,.row .span8,.row .span9,.row .span10,.row .span11{width:720px!important}
+  .row .span12:nth-child(even),.row .span7:nth-child(even),.row .span8:nth-child(even),.row .span9:nth-child(even),.row .span10:nth-child(even),.row .span11:nth-child(even){margin-right:0!important}
+  html{font-size: 60%;}
+  .container{max-width:959px;min-width:720px;}
 
 }
 
 /* #Mobile (Landscape) =================================== Design for a width of 480px*/
 @media only screen and (min-width: 480px) and (max-width: 767px){
-	.hidden-desktop{display:inherit;}.hidden-tablet{display:inherit;}.hidden-phone{display:none;}.visible-desktop{display:none;}.visible-tablet{display:none;}.visible-phone{display:inherit;}
-	.row .row{margin:0}
-	.row > [class*=span],.row .row > [class*=span]{width:100%!important;margin:0 0 5px!important}
-	.row > [class*=span]:nth-child(even),.row .row > [class*=span]:nth-child(even){margin-right:0!important}
-	.row .span12,.row .row .span12{width:100%!important}
+  .hidden-desktop{display:inherit;}.hidden-tablet{display:inherit;}.hidden-phone{display:none;}.visible-desktop{display:none;}.visible-tablet{display:none;}.visible-phone{display:inherit;}
+  .row .row{margin:0}
+  .row > [class*=span],.row .row > [class*=span]{width:100%!important;margin:0 0 5px!important}
+  .row > [class*=span]:nth-child(even),.row .row > [class*=span]:nth-child(even){margin-right:0!important}
+  .row .span12,.row .row .span12{width:100%!important}
 
-	html{font-size: 50%;}
-	.container{max-width:767px;min-width:480px;}
+  html{font-size: 50%;}
+  .container{max-width:767px;min-width:480px;}
 
 }
 
 
 /*  #Mobile (Portrait) ================================== Design for a width of 320px */
 @media only screen and (max-width: 480px){
-	.hidden-desktop{display:inherit;}.hidden-tablet{display:inherit;}.hidden-phone{display:none;}.visible-desktop{display:none;}.visible-tablet{display:none;}.visible-phone{display:inherit;}
-	.row .row{margin:0}
-	.row > [class*=span],.row .row > [class*=span]{width:100%!important;margin:0 0 5px!important}
-	.row > [class*=span]:nth-child(even),.row .row > [class*=span]:nth-child(even){margin-right:0!important}
-	.row .span12,.row .row .span12{width:100%!important}
+  .hidden-desktop{display:inherit;}.hidden-tablet{display:inherit;}.hidden-phone{display:none;}.visible-desktop{display:none;}.visible-tablet{display:none;}.visible-phone{display:inherit;}
+  .row .row{margin:0}
+  .row > [class*=span],.row .row > [class*=span]{width:100%!important;margin:0 0 5px!important}
+  .row > [class*=span]:nth-child(even),.row .row > [class*=span]:nth-child(even){margin-right:0!important}
+  .row .span12,.row .row .span12{width:100%!important}
 
-	html{font-size: 50%;}
-	.container{max-width:480px;min-width:290px;}
+  html{font-size: 50%;}
+  .container{max-width:480px;min-width:290px;}
 
 }
 
@@ -435,7 +435,9 @@ text-indent:-999999px;
 
 
 
-
+form{
+  margin-bottom: 50px;
+}
 
 form .form-element{
   padding: 2px 5px;
@@ -450,4 +452,25 @@ form input{
   padding: 0;
   margin: 0;
   padding: 5px;
+}
+
+form button{
+padding: 4px 12px;
+text-align: center;
+vertical-align: middle;
+display: inline-block;
+outline: none;
+margin:auto;
+border: 1px transparent solid;
+background-color: #60a917;
+color: #ffffff;
+}
+
+form button:focus{
+background-color: #56901C;
+}
+form button:active{
+background-color: #1d1d1d;
+color: #ffffff;
+border-color: transparent;
 }
