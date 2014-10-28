@@ -79,7 +79,7 @@ class main_view
 				
 				if($this->url_child_real()==='edit')
 				{
-					$tmp_result = $this->sql("#datarow_getbyslug");
+					$tmp_result = $this->sql("#datarowbyslug");
 					$this->fill_for_edit($tmp_result, $myForm);
 				}
 			}

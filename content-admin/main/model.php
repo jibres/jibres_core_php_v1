@@ -70,7 +70,7 @@ class main_model{
 	/**
 	 @Javad: check if new slug is not exist in table
 	**/
-	public function sql_datarow_getbyslug($mytable=null, $myslug=null)
+	public function sql_datarowbyslug($mytable=null, $myslug=null)
 	{
 		// this function get table name and slug then related record of it. table name and slug can set
 		// but if user don't pass table name or slug,
@@ -114,12 +114,12 @@ class main_model{
 		$tmp_qry			= $this->sql()->$tmp_qry_table();
 		$tmp_table_prefix	= $this->url_table_prefix();
 
-		$tmp_datarow		= $this->sql_datarow($tmp_module);
-		if($tmp_datarow)
+		$tmp_datatable		= $this->sql_datatable($tmp_module);
+		if($tmp_datatable)
 		{
 			// get all fields of table and filter fields name for show in datatable, access from columns variable
-			// check if datarow exist then get this data
-			$fields			= array_keys($tmp_datarow[0]);
+			// check if datatable exist then get this data
+			$fields			= array_keys($tmp_datatable[0]);
 			$tmp_columns	= array_fill_keys($fields, null);
 
 			foreach ($fields as $key)
@@ -168,16 +168,15 @@ class main_model{
 	{
 		// if you want to create special function for each module, simply declare a function post_edit() and use it!
 		// $this->redirect 	= false;
-		
 		$tmp_slug_new			= post::Slug();
 		if (isset($tmp_slug_new) && !empty($tmp_slug_new) )
 		{
 			// if new slug is has a correct syntax and not empty run query
-			$tmp_table_prefix	= $this->url_table_prefix();
 			$tmp_qry_slug		= $this->url_parameter();
+			
+			$tmp_table_prefix	= $this->url_table_prefix();
 			$tmp_qry_where		= 'where'.ucfirst($tmp_table_prefix).'_slug';
 			$sql				= $this->sql_query()->$tmp_qry_where($tmp_qry_slug)->update();
-
 			if ($tmp_qry_slug !== $tmp_slug_new)
 			{
 				// if slug is changed, then change the url to new slug
@@ -190,7 +189,6 @@ class main_model{
 			debug_lib::fatal("Please input correct slug");
 			return 0;
 		}
-
 
 
 		// ======================================================
