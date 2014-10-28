@@ -34,7 +34,7 @@ class accounts
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function account_branch_name() 
 	{
@@ -66,7 +66,7 @@ class accounts
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function date_created() {}
 	public function date_modified() {}

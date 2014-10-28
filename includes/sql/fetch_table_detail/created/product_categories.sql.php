@@ -42,7 +42,7 @@ class product_categories
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function pcat_row() 
 	{

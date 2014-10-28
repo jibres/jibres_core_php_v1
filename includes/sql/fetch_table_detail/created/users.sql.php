@@ -39,10 +39,10 @@ class users
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate("id");}
 
-	//------------------------------------------------------------------ radio button
+	//------------------------------------------------------------------ select button
 	public function user_type() 
 	{
-		$this->form("radio")->name("Type")->validate();
+		$this->form("select")->name("Type")->validate();
 		$this->setChild($this->form);
 	}
 

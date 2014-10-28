@@ -44,10 +44,10 @@ class cost_categories
 		->validate();
 	}
 
-	//------------------------------------------------------------------ radio button
+	//------------------------------------------------------------------ select button
 	public function cc_type() 
 	{
-		$this->form("radio")->name("Type")->validate();
+		$this->form("select")->name("Type")->validate();
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

@@ -41,10 +41,10 @@ class attachments
 		->validate();
 	}
 
-	//------------------------------------------------------------------ radio button
+	//------------------------------------------------------------------ select button
 	public function attachment_type() 
 	{
-		$this->form("radio")->name("Type")->validate();
+		$this->form("select")->name("Type")->validate();
 		$this->setChild($this->form);
 	}
 	public function attachment_size() 
@@ -62,7 +62,7 @@ class attachments
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function date_created() {}
 	public function date_modified() {}

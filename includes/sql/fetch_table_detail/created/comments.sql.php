@@ -24,13 +24,13 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function comment_author() 
 	{
@@ -79,7 +79,7 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function date_created() {}
 	public function date_modified() {}

@@ -59,10 +59,11 @@ function _type($type, $def){
 				$mylabel = "ID";
 
 			}
+			// --------------------------------------------------------------------------------- Foreign Key
 			elseif (substr($crow->Field,-2)=="id")
 			{
 				$fn .= $txtcomment. "id - foreign key\n";
-				$fn .= $txtstart. '$this->validate("id");' .$txtend;
+				$fn .= $txtstart. '$this->form()->name("'. $myname.'")->validate("id");' .$txtend;
 
 				$mylabel = str_replace("_", " ", $myfield);
 				$mylabel = ucwords(strtolower($mylabel));
@@ -120,7 +121,7 @@ function _type($type, $def){
 			}
 
 			// --------------------------------------------------------------------------------- radio
-			elseif (substr($crow->Field,-6)=="active" 		|| substr($crow->Field,-4)=="type" 		|| substr($crow->Field,-4)=="view" 
+			elseif (substr($crow->Field,-6)=="active" 		|| substr($crow->Field,-4)=="view" 
 				|| substr($crow->Field,-3)=="add" 			|| substr($crow->Field,-4)=="edit" 		|| substr($crow->Field,-6)=="delete"
 				|| substr($crow->Field,-7)=="service"		|| substr($crow->Field,-6)=="gender"	|| substr($crow->Field,-7)=="married"
 				|| substr($crow->Field,-10)=="newsletter"	|| substr($crow->Field,-6)=="credit"	|| substr($crow->Field,-8)=="verified"
@@ -136,6 +137,7 @@ function _type($type, $def){
 			// --------------------------------------------------------------------------------- select
 			elseif (substr($crow->Field,-6)=="status" 	|| substr($crow->Field,-5)=="model" || substr($crow->Field,-8)=="priority"
 				|| substr($crow->Field,-3)=="sellin"	|| substr($crow->Field,-3)=="priority"
+				|| substr($crow->Field,-4)=="type"
 
 				)
 			{

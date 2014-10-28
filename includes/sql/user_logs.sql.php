@@ -34,17 +34,17 @@ class user_logs
 		$this->setChild($this->form);
 	}
 
-	//------------------------------------------------------------------ radio button
+	//------------------------------------------------------------------ select button
 	public function ul_type() 
 	{
-		$this->form("radio")->name("Type")->validate();
+		$this->form("select")->name("Type")->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function date_created() {}
 	public function date_modified() {}

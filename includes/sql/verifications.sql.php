@@ -15,10 +15,10 @@ class verifications
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate("id");}
 
-	//------------------------------------------------------------------ radio button
+	//------------------------------------------------------------------ select button
 	public function verification_type() 
 	{
-		$this->form("radio")->name("Type")->validate();
+		$this->form("select")->name("Type")->validate();
 		$this->setChild($this->form);
 	}
 
@@ -36,7 +36,7 @@ class verifications
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 
 	//------------------------------------------------------------------ radio button

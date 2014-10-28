@@ -17,7 +17,7 @@ class banks
 	//------------------------------------------------------------------ title
 	public function bank_title() 
 	{
-		$this->form()->name("Title")->validate();
+		$this->form("#title")->name("Title")->validate();
 	}
 
 	//------------------------------------------------------------------ slug

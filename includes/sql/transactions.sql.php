@@ -23,10 +23,10 @@ class transactions
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate("id");}
 
-	//------------------------------------------------------------------ radio button
+	//------------------------------------------------------------------ select button
 	public function transaction_type() 
 	{
-		$this->form("radio")->name("Type")->validate();
+		$this->form("select")->name("Type")->validate();
 		$this->setChild($this->form);
 	}
 	public function user_id_employee() 

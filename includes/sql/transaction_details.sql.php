@@ -18,13 +18,13 @@ class transaction_details
 	//------------------------------------------------------------------ id - foreign key
 	public function transaction_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function td_quantity() 
 	{

@@ -31,13 +31,13 @@ class costs
 	//------------------------------------------------------------------ id - foreign key
 	public function cc_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function account_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function cost_date() 
 	{
@@ -51,10 +51,10 @@ class costs
 		$this->form("#desc")->name("Desc")->validate();
 	}
 
-	//------------------------------------------------------------------ radio button
+	//------------------------------------------------------------------ select button
 	public function cost_type() 
 	{
-		$this->form("radio")->name("Type")->validate();
+		$this->form("select")->name("Type")->validate();
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

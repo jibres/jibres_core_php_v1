@@ -21,7 +21,7 @@ class product_prices
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function productmeta_cat() 
 	{

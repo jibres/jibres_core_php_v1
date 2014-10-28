@@ -17,7 +17,7 @@ class user_meta
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function usermeta_cat() 
 	{

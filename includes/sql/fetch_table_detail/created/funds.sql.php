@@ -30,7 +30,7 @@ class funds
 	//------------------------------------------------------------------ id - foreign key
 	public function location_id() 
 	{
-		$this->validate("id");
+		$this->form()->name("Id")->validate("id");
 	}
 	public function fund_initial_balance() 
 	{
