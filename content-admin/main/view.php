@@ -32,7 +32,6 @@ class main_view
 
 		$this->include->datatable			= false;
 		$this->include->jquery				= true;
-		//var_dump($host_names);
 
 		//$this->global->menu					= menu_cls::list_menu();
 
@@ -76,6 +75,13 @@ class main_view
 				$this->global->page_title	= $this->url_title() . ' ' . $this->data->form_title;
 				$myForm						= $this->createform("@".$this->data->module, $this->data->child);
 				$this->data->form_show		= true;
+
+				
+				if($this->url_child_real()==='edit')
+				{
+					$tmp_result = $this->sql("#datarow_getbyslug");
+					$this->fill_for_edit($tmp_result, $myForm);
+				}
 			}
 			else
 			{
@@ -83,12 +89,12 @@ class main_view
 				$this->include->datatable	= true;
 
 				// get data from database through model
-				$this->data->datarow		= $this->sql("#datarow", $this->data->module);
-				if($this->data->datarow)
+				$this->data->datatable		= $this->sql("#datatable");
+				if($this->data->datatable)
 				{
 					// get all fields of table and filter fields name for show in datatable, access from columns variable
-					// check if datarow exist then get this data
-					$fields 					= array_keys($this->data->datarow[0]);
+					// check if datatable exist then get this data
+					$fields 					= array_keys($this->data->datatable[0]);
 					$this->data->columns 		= array_fill_keys($fields, null);
 					$this->data->slug			= null;
 
@@ -110,17 +116,42 @@ class main_view
 						}
 					}
 				}
-
-
-
-
-
-				// var_dump($this->data->datarow[0]);
-				
 			}
-			
 		}
 	}
+
+	public function fill_for_edit($datarow, $form)
+	{
+		foreach ($form as $key => $value) 
+		{
+			if(isset($datarow[$key]))
+			{
+				$oForm = $form->$key;
+				if($oForm->attr['type'] == "radio" || $oForm->attr['type'] == "select" || $oForm->attr['type'] == "checkbox") 
+				{
+					foreach ($oForm->child as $k => $v) 
+					{
+						if($v->attr["value"] == $datarow[$key])
+						{
+							if ($oForm->attr['type'] == "select")
+							{
+								$form->$key->child($k)->selected("selected");
+							}
+							else
+							{
+								$v->checked("checked");
+							}
+						}
+					}
+				}
+				else
+				{
+					$oForm->value($datarow[$key]);
+				}
+			}
+		}
+	}
+
 	// ---------------------------------------------------------------- Until this line - Added by Javad
 
 

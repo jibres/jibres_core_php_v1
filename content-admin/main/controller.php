@@ -37,57 +37,50 @@ class main_controller
 		$this->addMethod('url_title');
 		$this->addMethod('slugify');
 
-// var_dump($this->url_method());
+		$this->addPeroperty('edit_datarow');
 
-		// catch for subdoamin
+
+		// @ Hasan: is this listen correct?
 		$this->listen(
 			array(
 				"domain" => "admin",
-				// "max" => 1,
 				),
 			array()
-			// array("admin", 'home')
 		);
 
 		if ($this->url_method())
 		{
-			if($this->url_child())
-			{
-				// in add, edit or delete pages do NOTHING
-			}
-			else
-			{
-				// in root page like site.com/admin/banks control
-				$this->listen(
-					array(
-						"min" => 1,
-						"max" => 1,
-						"url" => array('add')
-						),
-					array()
-				);
-
-				$this->listen(
-					array(
-						"min" => 1,
-						"max" => 1,
-						"url" => array("/.*/", "edit" => "/^[A-z0-9-]+$/")
-						// "url" => array("/.*/", "edit" => "/^[a-z0-9-]+$/")
-						),
-					array()
-				);
-				$this->listen(
-					array(
-						"min" => 1,
-						"max" => 1,
-						"url" => array("/.*/", "delete" => "/^[A-z0-9]+$/")
-						// "url" => array("/.*/", "delete" => "/^\d+$/")
-						),
-					array( 'mod' => 'delete')
-				);
-			}
+			$this->listen(
+				array(
+					"min" => 1,
+					"max" => 1,
+					"url" => array('add')
+					),
+				array()
+			);
+			$this->listen(
+				array(
+					"min" => 1,
+					"max" => 1,
+					"url" => array("/.*/", "edit" => "/^[A-z0-9-]+$/")
+					// "url" => array("/.*/", "edit" => "/^[a-z0-9-]+$/")
+					),
+				array()
+			);
+			$this->listen(
+				array(
+					"min" => 1,
+					"max" => 1,
+					"url" => array("/.*/", "delete" => "/^[A-z0-9]+$/")
+					// "url" => array("/.*/", "delete" => "/^\d+$/")
+					),
+				array( 'mod' => 'delete')
+			);
 		}
 	}
+
+	// declare public variable for save last row data for edit records
+	public $edit_datarow = 'datarow';
 
 	/*
 	 * this function check url and has two method for check address

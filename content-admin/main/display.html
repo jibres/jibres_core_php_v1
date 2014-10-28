@@ -78,7 +78,7 @@
 
   		   <tbody>
   					{%block tbody%}
-  						{%for d in datarow%}
+  						{%for d in datatable%}
   			    <tr role="row" class="{{ cycle(['odd', 'even'], loop.index0) }}">
   			     <td class="column_row">{{loop.index}}</td>
   								{%for col,value in columns if value is not null%}

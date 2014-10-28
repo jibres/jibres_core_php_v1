@@ -55,15 +55,55 @@ class main_model{
 
 	// ---------------------------------------------------------------- default controller and some other function for ADMIN
 
-	public function sql_datarow($mytable = false)
+	public function sql_datatable($mytable=null)
 	{
 		// this function get table name and return all record of it. table name can set in view
-		if (!$mytable)
-			return null;
+		// if user don't pass table name function use current real method name get from url
+		if ($mytable)
+			$tmp_qry_table = 'table'.ucfirst($mytable);
+		else
+			$tmp_qry_table = 'table'.ucfirst($this->url_method_real());
 
-		$tmp_qry_table = 'table'.ucfirst($mytable);
 		return $this->sql()->$tmp_qry_table()->select()->allassoc();
 	}
+
+	/**
+	 @Javad: check if new slug is not exist in table
+	**/
+	public function sql_datarow_getbyslug($mytable=null, $myslug=null)
+	{
+		// this function get table name and slug then related record of it. table name and slug can set
+		// but if user don't pass table name or slug,
+		// function use current real method name get from url for table name and current parameter for slug
+		if (!$mytable)
+			$mytable = $this->url_method_real();
+
+		// if myslug parameter set use it else use url parameter for myslug
+		if (!$myslug)
+			$myslug = $this->url_parameter();
+		
+		$mytable		= ucfirst($mytable);
+		$tmp_qry_where	= 'where'. substr($mytable, 0, -1). '_slug';
+		$mytable		= 'table'.$mytable;
+
+
+		$tmp_result = $this->sql()->$mytable()->$tmp_qry_where($myslug)->select();
+		
+		if ($tmp_result->num() == 1)
+		{
+			return $tmp_result->assoc();
+		}
+		elseif($tmp_result->num() > 1)
+		{
+			page_lib::access("slug is found 2 or more times. it's imposible!");
+		}
+		else
+		{
+			page_lib::access("Url incorrect: Slug not found");
+		}
+		return 0;
+	}
+
 
 	public function sql_query()
 	{
@@ -122,16 +162,12 @@ class main_model{
 		{
 			debug_lib::fatal("Insert a new ". $this->url_table_prefix() ." failed");
 		} );
-		// debug_lib::true($this->include->datatable. 'sss'. $this->url_method_real() );
 	}
 
 	function post_edit()
 	{
 		// if you want to create special function for each module, simply declare a function post_edit() and use it!
 		// $this->redirect 	= false;
-		
-		if ($this->url_slug_invalid())
-			return 0;
 		
 		$tmp_slug_new			= post::Slug();
 		if (isset($tmp_slug_new) && !empty($tmp_slug_new) )
@@ -181,9 +217,6 @@ class main_model{
 		// if you want to create special function for each module, simply declare a function post_delete() and use it!
 		// $this->redirect = false;
 
-		if ($this->url_slug_invalid())
-			return 0;
-
 		$this->redirect->urlChange("delete", false);
 		$tmp_module			= $this->url_method_real();
 		$tmp_qry_table		= 'table'.ucfirst($tmp_module);
@@ -210,42 +243,6 @@ class main_model{
 			debug_lib::fatal("Delete ". $this->url_table_prefix() ."($tmp_slug) failed");
 		}, $tmp_qry_slug);	
 	
-	}
-
-	function url_slug_invalid()
-	{
-		$tmp_qry_slug		= $this->url_parameter();
-		if (isset($tmp_qry_slug) && !empty($tmp_qry_slug) )
-		{
-			// if slug in url is correct syntax
-			/**
-			 @Javad: check if slug is exist in related table
-			**/
-			$tmp_datarow		= $this->sql_datarow_slug($tmp_module);
-			return false;
-		}
-		else
-		{
-			// if slug in url is incorrect
-			debug_lib::fatal("Your slug is incorrect");
-			return true;
-		}
-
-	}
-			/**
-			 @Javad: check if new slug is not exist in table
-			**/
-
-	public function sql_datarow_slug($mytable = false, $myslug = null)
-	{
-		// this function get table name and return all record of it. table name can set in view
-		if (!$mytable || !$myslug)
-			return null;
-
-		$tmp_qry_table	= 'table'.ucfirst($mytable);
-		$tmp_qry_where	= 'whereSlug';
-
-		return $this->sql()->$tmp_qry_table()->tmp_qry_where($myslug)->select()->allassoc();
 	}
 
 
