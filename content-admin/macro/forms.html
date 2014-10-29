@@ -64,7 +64,7 @@
 			<input type="text" {% for attr,value in array.attr%}{{attr}}="{{value}}" {% endfor %}>
 		{% else %}
 			<label for="{{array.attr.id}}" class="input-label">{{array.label}}</label>
-			<input type="text{{array.attr.type}}" {% for attr,value in array.attr%}{{attr}}="{{value}}" {% endfor %}>
+			<input type="{{array.attr.type}}" {% for attr,value in array.attr%}{{attr}}="{{value}}" {% endfor %}>
 		{% endif %}
 	{% endspaceless %}
 {% endmacro %}

@@ -181,5 +181,13 @@ class validateExtends_cls{
 	public function price() {
 		return true;
 	}
+
+	public function title() {
+		$form = array(
+		"set" => "only persian text accepted",
+		"farsi" => "The text should be between 3 and 32 characters long"
+		);
+		return false;
+	}
 }
 ?>

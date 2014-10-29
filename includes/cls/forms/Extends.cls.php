@@ -4,8 +4,8 @@ class forms_Extends_cls extends forms_lib{
 		$this->hidden = $this->make("hidden")->name("_post");
 
 		// title contain email or mobile number
-		$this->title = $this->make("text")->name("title")->label("title");
-		$this->title->validate()->title()->form->title("title incorrect");
+		$this->title = $this->make("text")->name("titleaaa")->label("titleaaaa");
+		$this->title->validate()->title()->form->title("title incorrectaaa");
 		
 		// slug contain email or mobile number
 		$this->slug = $this->make("text")->name("slug")->label("slug");
