@@ -11,35 +11,33 @@ class transaction_details
 
 	public function td_row() 
 	{
-		$this->form()->name("Row")
-		->validate();
+		$this->form()->name("Row");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function transaction_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function td_quantity() 
 	{
-		$this->form()->name("Quantity")
-		->validate();
+		$this->form()->name("Quantity");
 	}
 	public function td_price() 
 	{
-		$this->form()->name("Price")
-		->validate();
+		$this->form()->name("Price");
 	}
 	public function td_discount() 
 	{
-		$this->form()->name("Discount")
-		->validate();
+		$this->form()->name("Discount");
 	}
 }
 ?>

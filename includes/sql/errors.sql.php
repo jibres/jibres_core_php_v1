@@ -16,12 +16,11 @@ class errors
 	//------------------------------------------------------------------ title
 	public function ed_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 	public function ed_solution() 
 	{
-		$this->form()->name("Solution")
-		->validate();
+		$this->form()->name("Solution");
 	}
 
 	//------------------------------------------------------------------ select button

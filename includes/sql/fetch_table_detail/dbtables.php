@@ -63,7 +63,9 @@ function _type($type, $def){
 			elseif (substr($crow->Field,-2)=="id")
 			{
 				$fn .= $txtcomment. "id - foreign key\n";
-				$fn .= $txtstart. '$this->form()->name("'. $myname.'")->validate("id");' .$txtend;
+				// $fn .= $txtstart. '$this->form("#foreignkey")->name("'. $myname.'")->validate("id");' .$txtend;
+				$fn .= $txtstart. '$this->form("select")->name("'. $myname.'")->validate("id");';
+				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 
 				$mylabel = str_replace("_", " ", $myfield);
 				$mylabel = ucwords(strtolower($mylabel));
@@ -75,12 +77,12 @@ function _type($type, $def){
 			elseif (substr($crow->Field,-5)=="title")
 			{
 				$fn .= $txtcomment. "title\n";
-				$fn .= $txtstart. '$this->form("#title")->name("'. $myname.'")->validate();'.$txtend;
+				$fn .= $txtstart. '$this->form("#title");'.$txtend;
 			}
 			elseif (substr($crow->Field,-4)=="slug")
 			{
 				$fn .= $txtcomment. "slug\n";
-				$fn .= $txtstart. '$this->form()->name("'. $myname.'")->validate();';
+				$fn .= $txtstart. '$this->form("#slug");';
 				// $fn .= $txtstart. '$this->form("#slug")->name("'. $myname.'")->validate()';
 				// $fn .= "\n\t\t->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value;});";
 				$fn .= $txtend;
@@ -93,7 +95,7 @@ function _type($type, $def){
 			elseif (substr($crow->Field,-4)=="desc")
 			{
 				$fn .= $txtcomment. "description\n";
-				$fn .= $txtstart. '$this->form("#desc")->name("'. $myname.'")->validate();'.$txtend;
+				$fn .= $txtstart. '$this->form("#desc");'.$txtend;
 
 				$mylabel = "Description";
 			}
@@ -102,12 +104,12 @@ function _type($type, $def){
 			elseif (substr($crow->Field,-5)=="email")
 			{
 				$fn .= $txtcomment. "email\n";
-				$fn .= $txtstart. '$this->form("#email")->name("'. $myname.'")->validate();'.$txtend;
+				$fn .= $txtstart. '$this->form("#email");'.$txtend;
 			}
 			elseif (substr($crow->Field,-4)=="pass")
 			{
 				$fn .= $txtcomment. "password\n";
-				$fn .= $txtstart. '$this->form("#password")->name("password")->validate();'.$txtend;
+				$fn .= $txtstart. '$this->form("#password");'.$txtend;
 				$mylabel = "Password";
 			}
 
@@ -130,7 +132,7 @@ function _type($type, $def){
 				)	
 			{
 				$fn .= $txtcomment. "radio button\n";
-				$fn .= $txtstart. '$this->form("radio")->name("'. $myname.'")->validate();';
+				$fn .= $txtstart. '$this->form("radio")->name("'. $myname.'");';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 			}
 
@@ -146,11 +148,21 @@ function _type($type, $def){
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 			}
 
+			// --------------------------------------------------------------------------------- Website
+			elseif (substr($crow->Field,-7)=="website")
+			{
+				$fn .= $txtcomment. "website\n";
+				$fn .= $txtstart. '$this->form("#website");'.$txtend;
+
+				// $mylabel = "Description";
+			}
+
 			// --------------------------------------------------------------------------------- Other
 			else
 			{
 				// $fn .= $txtcomment. "email\n";
-				$fn .= $txtstart. '$this->form()->name("'. $myname.'")'."\n\t\t".'->validate();'.$txtend;
+				// $fn .= $txtstart. '$this->form()->name("'. $myname.'")'."\n\t\t".'->validate();'.$txtend;
+				$fn .= $txtstart. '$this->form()->name("'. $myname.'");'.$txtend;
 				// $fn .= $txtstart. $txtend;
 			}
 			
@@ -163,7 +175,8 @@ function _type($type, $def){
 		$content .= $fn;
 		$content .= "}\n";
 		$content .= "?>";
-		file_put_contents("./created/$TABLENAME.sql.php", $content);
+		// file_put_contents("./created/$TABLENAME.sql.php", $content);
+		file_put_contents("../$TABLENAME.sql.php", $content);
 	}
 	$connect->close();
 

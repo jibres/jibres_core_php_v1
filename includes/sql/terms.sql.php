@@ -16,25 +16,23 @@ class terms
 	public function id() {$this->validate("id");}
 	public function term_name() 
 	{
-		$this->form()->name("Name")
-		->validate();
+		$this->form()->name("Name");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function term_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
 
 	//------------------------------------------------------------------ description
 	public function term_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 	public function term_father() 
 	{
-		$this->form()->name("Father")
-		->validate();
+		$this->form()->name("Father");
 	}
 
 	//------------------------------------------------------------------ select button

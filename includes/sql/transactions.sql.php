@@ -31,64 +31,53 @@ class transactions
 	}
 	public function user_id_employee() 
 	{
-		$this->form()->name("Id Employee")
-		->validate();
+		$this->form()->name("Id Employee");
 	}
 	public function user_id_customer() 
 	{
-		$this->form()->name("Id Customer")
-		->validate();
+		$this->form()->name("Id Customer");
 	}
 	public function transaction_date() 
 	{
-		$this->form()->name("Date")
-		->validate();
+		$this->form()->name("Date");
 	}
 	public function transaction_sum() 
 	{
-		$this->form()->name("Sum")
-		->validate();
+		$this->form()->name("Sum");
 	}
 	public function transaction_discount() 
 	{
-		$this->form()->name("Discount")
-		->validate();
+		$this->form()->name("Discount");
 	}
 	public function transaction_initial_received() 
 	{
-		$this->form()->name("Initial Received")
-		->validate();
+		$this->form()->name("Initial Received");
 	}
 	public function transaction_received() 
 	{
-		$this->form()->name("Received")
-		->validate();
+		$this->form()->name("Received");
 	}
 	public function transaction_remained() 
 	{
-		$this->form()->name("Remained")
-		->validate();
+		$this->form()->name("Remained");
 	}
 	public function transaction_pre() 
 	{
-		$this->form()->name("Pre")
-		->validate();
+		$this->form()->name("Pre");
 	}
 
 	//------------------------------------------------------------------ description
 	public function transaction_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 	public function transaction_transport() 
 	{
-		$this->form()->name("Transport")
-		->validate();
+		$this->form()->name("Transport");
 	}
 	public function transaction_vat() 
 	{
-		$this->form()->name("Vat")
-		->validate();
+		$this->form()->name("Vat");
 	}
 	public function date_created() {}
 	public function date_modified() {}

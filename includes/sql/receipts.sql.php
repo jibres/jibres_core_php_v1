@@ -19,24 +19,22 @@ class receipts
 	public function id() {$this->validate("id");}
 	public function receipt_code() 
 	{
-		$this->form()->name("Code")
-		->validate();
+		$this->form()->name("Code");
 	}
 	public function receipt_price() 
 	{
-		$this->form()->name("Price")
-		->validate();
+		$this->form()->name("Price");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function cheque_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function receipt_cheque_date() 
 	{
-		$this->form()->name("Cheque Date")
-		->validate();
+		$this->form()->name("Cheque Date");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -49,19 +47,21 @@ class receipts
 	//------------------------------------------------------------------ description
 	public function receipt_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function transaction_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function fund_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

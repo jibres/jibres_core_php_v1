@@ -49,104 +49,92 @@ class users
 	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		$this->form("#password")->name("password")->validate();
+		$this->form("#password");
 	}
 
 	//------------------------------------------------------------------ email
 	public function user_email() 
 	{
-		$this->form("#email")->name("Email")->validate();
+		$this->form("#email");
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function user_gender() 
 	{
-		$this->form("radio")->name("Gender")->validate();
+		$this->form("radio")->name("Gender");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function user_married() 
 	{
-		$this->form("radio")->name("Married")->validate();
+		$this->form("radio")->name("Married");
 		$this->setChild($this->form);
 	}
 	public function user_firstname() 
 	{
-		$this->form()->name("Firstname")
-		->validate();
+		$this->form()->name("Firstname");
 	}
 	public function user_lastname() 
 	{
-		$this->form()->name("Lastname")
-		->validate();
+		$this->form()->name("Lastname");
 	}
 	public function user_nickname() 
 	{
-		$this->form()->name("Nickname")
-		->validate();
+		$this->form()->name("Nickname");
 	}
 	public function user_tel() 
 	{
-		$this->form()->name("Tel")
-		->validate();
+		$this->form()->name("Tel");
 	}
 	public function user_mobile() 
 	{
-		$this->form()->name("Mobile")
-		->validate();
+		$this->form()->name("Mobile");
 	}
 	public function user_birthday() 
 	{
-		$this->form()->name("Birthday")
-		->validate();
+		$this->form()->name("Birthday");
 	}
 	public function user_country() 
 	{
-		$this->form()->name("Country")
-		->validate();
+		$this->form()->name("Country");
 	}
 	public function user_state() 
 	{
-		$this->form()->name("State")
-		->validate();
+		$this->form()->name("State");
 	}
 	public function user_city() 
 	{
-		$this->form()->name("City")
-		->validate();
+		$this->form()->name("City");
 	}
 	public function user_address() 
 	{
-		$this->form()->name("Address")
-		->validate();
+		$this->form()->name("Address");
 	}
 	public function user_postcode() 
 	{
-		$this->form()->name("Postcode")
-		->validate();
+		$this->form()->name("Postcode");
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function user_newsletter() 
 	{
-		$this->form("radio")->name("Newsletter")->validate();
+		$this->form("radio")->name("Newsletter");
 		$this->setChild($this->form);
 	}
 	public function user_refer() 
 	{
-		$this->form()->name("Refer")
-		->validate();
+		$this->form()->name("Refer");
 	}
 	public function user_nationalcode() 
 	{
-		$this->form()->name("Nationalcode")
-		->validate();
+		$this->form()->name("Nationalcode");
 	}
+
+	//------------------------------------------------------------------ website
 	public function user_website() 
 	{
-		$this->form()->name("Website")
-		->validate();
+		$this->form("#website");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -157,45 +145,38 @@ class users
 	}
 	public function user_degree() 
 	{
-		$this->form()->name("Degree")
-		->validate();
+		$this->form()->name("Degree");
 	}
 	public function user_activity() 
 	{
-		$this->form()->name("Activity")
-		->validate();
+		$this->form()->name("Activity");
 	}
 	public function user_total_income() 
 	{
-		$this->form()->name("Total Income")
-		->validate();
+		$this->form()->name("Total Income");
 	}
 	public function user_total_outcome() 
 	{
-		$this->form()->name("Total Outcome")
-		->validate();
+		$this->form()->name("Total Outcome");
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function user_credit() 
 	{
-		$this->form("radio")->name("Credit")->validate();
+		$this->form("radio")->name("Credit");
 		$this->setChild($this->form);
 	}
 	public function user_question() 
 	{
-		$this->form()->name("Question")
-		->validate();
+		$this->form()->name("Question");
 	}
 	public function user_answer() 
 	{
-		$this->form()->name("Answer")
-		->validate();
+		$this->form()->name("Answer");
 	}
 	public function permission_name() 
 	{
-		$this->form()->name("Name")
-		->validate();
+		$this->form()->name("Name");
 	}
 	public function date_created() {}
 	public function date_modified() {}

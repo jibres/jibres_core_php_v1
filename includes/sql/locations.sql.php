@@ -16,19 +16,19 @@ class locations
 	//------------------------------------------------------------------ title
 	public function location_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function location_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
 
 	//------------------------------------------------------------------ description
 	public function location_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 	public function date_created() {}
 	public function date_modified() {}

@@ -18,13 +18,13 @@ class user_logs
 	//------------------------------------------------------------------ title
 	public function ul_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 
 	//------------------------------------------------------------------ description
 	public function ul_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -44,7 +44,8 @@ class user_logs
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

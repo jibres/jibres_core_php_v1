@@ -1,19 +1,22 @@
 <?php
 
 // ------------------------------------------------------- Define SERVERNAME(url) as DOMAIN 
-define("DOMAIN"		, $_SERVER["SERVER_NAME"]);
+define("DOMAIN"			, $_SERVER["SERVER_NAME"]);
 
 // ------------------------------------------------------- SALOOS location
-define("core"		, preg_replace("[\\\\]", "/", realpath(__DIR__."/../../saloos/").'/') );
+define("core"			, preg_replace("[\\\\]", "/", realpath(__DIR__."/../../saloos/").'/') );
 
 // ------------------------------------------------------- root location
-define("root_dir"	, preg_replace("[\\\\]", "/", realpath(__DIR__."/../").'/') );
+define("root_dir"		, preg_replace("[\\\\]", "/", realpath(__DIR__."/../").'/') );
+
+// ------------------------------------------------------- root include folder
+define("includes_dir"	, preg_replace("[\\\\]", "/", realpath(__DIR__."/../includes").'/') );
 
 // ------------------------------------------------------- define classes location
-define("cls"		, root_dir."includes/cls/");
+define("cls"			, includes_dir."cls/");
 
 // ------------------------------------------------------- define sql locations
-define("sql"		, root_dir."includes/sql/");
+define("sql"			, includes_dir."sql/");
 
 // ------------------------------------------------------- define main_domain location
 $host_names = explode(".", DOMAIN);
@@ -73,7 +76,7 @@ $locale = LANGUAGE;
 putenv( "LC_ALL={$locale}" );
 setlocale( LC_ALL				, $locale );
 $domain = $locale;
-bindtextdomain($domain			, root_dir.'languages/');
+bindtextdomain($domain			, includes_dir.'languages/');
 textdomain("*");
 
 /** Define PATH as the site location */

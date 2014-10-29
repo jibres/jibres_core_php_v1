@@ -15,13 +15,15 @@ class error_logs
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function ed_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

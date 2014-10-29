@@ -21,7 +21,7 @@ class attachments
 	//------------------------------------------------------------------ title
 	public function attachment_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -32,13 +32,11 @@ class attachments
 	}
 	public function attachment_addr() 
 	{
-		$this->form()->name("Addr")
-		->validate();
+		$this->form()->name("Addr");
 	}
 	public function attachment_name() 
 	{
-		$this->form()->name("Name")
-		->validate();
+		$this->form()->name("Name");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -49,20 +47,20 @@ class attachments
 	}
 	public function attachment_size() 
 	{
-		$this->form()->name("Size")
-		->validate();
+		$this->form()->name("Size");
 	}
 
 	//------------------------------------------------------------------ description
 	public function attachment_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

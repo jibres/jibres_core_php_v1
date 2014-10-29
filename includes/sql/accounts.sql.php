@@ -22,51 +22,49 @@ class accounts
 	//------------------------------------------------------------------ title
 	public function account_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function account_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function account_branch_name() 
 	{
-		$this->form()->name("Branch Name")
-		->validate();
+		$this->form()->name("Branch Name");
 	}
 	public function account_number() 
 	{
-		$this->form()->name("Number")
-		->validate();
+		$this->form()->name("Number");
 	}
 	public function account_card_number() 
 	{
-		$this->form()->name("Card Number")
-		->validate();
+		$this->form()->name("Card Number");
 	}
 	public function account_primarybalance() 
 	{
-		$this->form()->name("Primarybalance")
-		->validate();
+		$this->form()->name("Primarybalance");
 	}
 
 	//------------------------------------------------------------------ description
 	public function account_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

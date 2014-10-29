@@ -18,30 +18,30 @@ class funds
 	//------------------------------------------------------------------ title
 	public function fund_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function fund_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function location_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function fund_initial_balance() 
 	{
-		$this->form()->name("Initial Balance")
-		->validate();
+		$this->form()->name("Initial Balance");
 	}
 
 	//------------------------------------------------------------------ description
 	public function fund_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 	public function date_created() {}
 	public function date_modified() {}

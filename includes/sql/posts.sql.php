@@ -21,30 +21,27 @@ class posts
 	public function id() {$this->validate("id");}
 	public function post_language() 
 	{
-		$this->form()->name("Language")
-		->validate();
+		$this->form()->name("Language");
 	}
 
 	//------------------------------------------------------------------ title
 	public function post_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 	public function post_slug_cat() 
 	{
-		$this->form()->name("Slug Cat")
-		->validate();
+		$this->form()->name("Slug Cat");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function post_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
 	public function post_content() 
 	{
-		$this->form()->name("Content")
-		->validate();
+		$this->form()->name("Content");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -64,18 +61,19 @@ class posts
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function post_publishdate() 
 	{
-		$this->form()->name("Publishdate")
-		->validate();
+		$this->form()->name("Publishdate");
 	}
 	public function date_created() {}
 	public function date_modified() {}

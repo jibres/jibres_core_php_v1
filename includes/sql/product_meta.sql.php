@@ -17,22 +17,20 @@ class product_meta
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function productmeta_cat() 
 	{
-		$this->form()->name("Cat")
-		->validate();
+		$this->form()->name("Cat");
 	}
 	public function productmeta_name() 
 	{
-		$this->form()->name("Name")
-		->validate();
+		$this->form()->name("Name");
 	}
 	public function productmeta_value() 
 	{
-		$this->form()->name("Value")
-		->validate();
+		$this->form()->name("Value");
 	}
 	public function date_created() {}
 	public function date_modified() {}

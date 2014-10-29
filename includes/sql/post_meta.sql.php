@@ -16,17 +16,16 @@ class post_meta
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function postmeta_name() 
 	{
-		$this->form()->name("Name")
-		->validate();
+		$this->form()->name("Name");
 	}
 	public function postmeta_value() 
 	{
-		$this->form()->name("Value")
-		->validate();
+		$this->form()->name("Value");
 	}
 	public function date_created() {}
 	public function date_modified() {}

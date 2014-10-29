@@ -31,59 +31,52 @@ class products
 	//------------------------------------------------------------------ title
 	public function product_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function product_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function pcat_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function product_barcode() 
 	{
-		$this->form()->name("Barcode")
-		->validate();
+		$this->form()->name("Barcode");
 	}
 	public function product_barcode2() 
 	{
-		$this->form()->name("Barcode2")
-		->validate();
+		$this->form()->name("Barcode2");
 	}
 	public function product_buy_price() 
 	{
-		$this->form()->name("Buy Price")
-		->validate();
+		$this->form()->name("Buy Price");
 	}
 	public function product_price() 
 	{
-		$this->form()->name("Price")
-		->validate();
+		$this->form()->name("Price");
 	}
 	public function product_discount() 
 	{
-		$this->form()->name("Discount")
-		->validate();
+		$this->form()->name("Discount");
 	}
 	public function product_vat() 
 	{
-		$this->form()->name("Vat")
-		->validate();
+		$this->form()->name("Vat");
 	}
 	public function product_initial_balance() 
 	{
-		$this->form()->name("Initial Balance")
-		->validate();
+		$this->form()->name("Initial Balance");
 	}
 	public function product_min_inventory() 
 	{
-		$this->form()->name("Min Inventory")
-		->validate();
+		$this->form()->name("Min Inventory");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -94,36 +87,33 @@ class products
 	}
 	public function product_sold() 
 	{
-		$this->form()->name("Sold")
-		->validate();
+		$this->form()->name("Sold");
 	}
 	public function product_stock() 
 	{
-		$this->form()->name("Stock")
-		->validate();
+		$this->form()->name("Stock");
 	}
 	public function product_carton() 
 	{
-		$this->form()->name("Carton")
-		->validate();
+		$this->form()->name("Carton");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function product_service() 
 	{
-		$this->form("radio")->name("Service")->validate();
+		$this->form("radio")->name("Service");
 		$this->setChild($this->form);
 	}
 	public function product_sellin() 
 	{
-		$this->form()->name("Sellin")
-		->validate();
+		$this->form()->name("Sellin");
 	}
 	public function date_created() {}
 	public function date_modified() {}

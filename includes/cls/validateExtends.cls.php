@@ -183,11 +183,14 @@ class validateExtends_cls{
 	}
 
 	public function title() {
-		$form = array(
-		"set" => "only persian text accepted",
-		"farsi" => "The text should be between 3 and 32 characters long"
-		);
-		return false;
+		// $this->SetOnError('test for title');
+		return true;
 	}
+
+	public function slug() {
+		// $this->SetOnError('test for title');
+		return true;
+	}
+
 }
 ?>

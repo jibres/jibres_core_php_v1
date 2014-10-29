@@ -17,22 +17,20 @@ class user_meta
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function usermeta_cat() 
 	{
-		$this->form()->name("Cat")
-		->validate();
+		$this->form()->name("Cat");
 	}
 	public function usermeta_name() 
 	{
-		$this->form()->name("Name")
-		->validate();
+		$this->form()->name("Name");
 	}
 	public function usermeta_value() 
 	{
-		$this->form()->name("Value")
-		->validate();
+		$this->form()->name("Value");
 	}
 	public function date_created() {}
 	public function date_modified() {}

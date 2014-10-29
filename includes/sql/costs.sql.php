@@ -20,35 +20,35 @@ class costs
 	//------------------------------------------------------------------ title
 	public function cost_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 	public function cost_price() 
 	{
-		$this->form()->name("Price")
-		->validate();
+		$this->form()->name("Price");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function cc_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function account_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function cost_date() 
 	{
-		$this->form()->name("Date")
-		->validate();
+		$this->form()->name("Date");
 	}
 
 	//------------------------------------------------------------------ description
 	public function cost_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 
 	//------------------------------------------------------------------ select button

@@ -186,7 +186,7 @@ class main_model{
 		else
 		{
 			// if new slug has a incorrect syntax show error message
-			debug_lib::fatal("Please input correct slug");
+			debug_lib::fatal(_("Please input correct slug"));
 			return 0;
 		}
 

@@ -21,42 +21,36 @@ class product_prices
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function productmeta_cat() 
 	{
-		$this->form()->name("Cat")
-		->validate();
+		$this->form()->name("Cat");
 	}
 	public function pa_startdate() 
 	{
-		$this->form()->name("Startdate")
-		->validate();
+		$this->form()->name("Startdate");
 	}
 	public function pa_enddate() 
 	{
-		$this->form()->name("Enddate")
-		->validate();
+		$this->form()->name("Enddate");
 	}
 	public function pa_buy_price() 
 	{
-		$this->form()->name("Buy Price")
-		->validate();
+		$this->form()->name("Buy Price");
 	}
 	public function pa_price() 
 	{
-		$this->form()->name("Price")
-		->validate();
+		$this->form()->name("Price");
 	}
 	public function pa_discount() 
 	{
-		$this->form()->name("Discount")
-		->validate();
+		$this->form()->name("Discount");
 	}
 	public function pa_vat() 
 	{
-		$this->form()->name("Vat")
-		->validate();
+		$this->form()->name("Vat");
 	}
 	public function date_created() {}
 	public function date_modified() {}

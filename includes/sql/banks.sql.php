@@ -23,18 +23,19 @@ class banks
 	//------------------------------------------------------------------ slug
 	public function bank_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
+
+	//------------------------------------------------------------------ website
 	public function bank_website() 
 	{
-		$this->form()->name("Website")
-		->validate();
+		$this->form("#website");
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function bank_active() 
 	{
-		$this->form("radio")->name("Active")->validate();
+		$this->form("radio")->name("Active");
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

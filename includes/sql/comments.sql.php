@@ -24,44 +24,41 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function comment_author() 
 	{
-		$this->form()->name("Author")
-		->validate();
+		$this->form()->name("Author");
 	}
 
 	//------------------------------------------------------------------ email
 	public function comment_author_email() 
 	{
-		$this->form("#email")->name("Author Email")->validate();
+		$this->form("#email");
 	}
 	public function comment_author_url() 
 	{
-		$this->form()->name("Author Url")
-		->validate();
+		$this->form()->name("Author Url");
 	}
 	public function comment_author_ip() 
 	{
-		$this->form()->name("Author Ip")
-		->validate();
+		$this->form()->name("Author Ip");
 	}
 	public function comment_agent() 
 	{
-		$this->form()->name("Agent")
-		->validate();
+		$this->form()->name("Agent");
 	}
 	public function comment_content() 
 	{
-		$this->form()->name("Content")
-		->validate();
+		$this->form()->name("Content");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -72,14 +69,14 @@ class comments
 	}
 	public function comment_parent() 
 	{
-		$this->form()->name("Parent")
-		->validate();
+		$this->form()->name("Parent");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

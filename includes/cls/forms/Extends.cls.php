@@ -3,9 +3,17 @@ class forms_Extends_cls extends forms_lib{
 	function __construct(){
 		$this->hidden = $this->make("hidden")->name("_post");
 
+		// definition introduction for input in forms
+		// ->make("text")				= type
+		// ->name("test")				= name and if id does't exist use for id
+		// ->label("label for test")	= label
+		// ->pl("placeholder")			= placeholder
+		// ->title()					= call title function in validateExtends.cls.php locate in includes/cls
+		// 
+
 		// title contain email or mobile number
-		$this->title = $this->make("text")->name("titleaaa")->label("titleaaaa");
-		$this->title->validate()->title()->form->title("title incorrectaaa");
+		$this->title = $this->make("text")->name("titleaaass")->label("titleaaaa")->pl("aa");
+		$this->title->validate()->title()->form->title(_("title incorrectaaa"));
 		
 		// slug contain email or mobile number
 		$this->slug = $this->make("text")->name("slug")->label("slug");
@@ -80,14 +88,25 @@ class forms_Extends_cls extends forms_lib{
 		$this->email->validate()->email()->form->email("email incorrect");
 		
 		// submit
-		$this->submitadd = $this->make("submit")->value("Submit");
-		$this->submitedit = $this->make("submit")->value("Save");
-		$this->submitlogin = $this->make("submit")->value("Sign in");
-		$this->submitregister = $this->make("submit")->value("Create Account");
+		$this->submitadd = $this->make("submit")->value(_("Submit"));
+		$this->submitedit = $this->make("submit")->value(_("Save"));
+		$this->submitlogin = $this->make("submit")->value(_("Sign in"));
+		$this->submitregister = $this->make("submit")->value(_("Create Account"));
 
 		// deny robot to submit forms
 		$this->robot = $this->make("robot")->name("name")->label("User Name")->pl("Please Enter Your Name!");
-		$this->check = $this->make("checkbox");	
+		$this->check = $this->make("checkbox");
+
+
+		$this->website = $this->make("website")->form()->name("website")->label("website");
+		$this->website->validate()->website()->form->website("website incorrect")->setChild($this->website);
+
+		$this->foreignkey = $this->make("foreignkey")->form()->name("foreignkey")->label("foreignkey");
+		$this->foreignkey->validate()->foreignkey()->form->foreignkey("foreignkey incorrect")->setChild($this->foreignkey);
+
+
+
+
 	}
 }
 ?>

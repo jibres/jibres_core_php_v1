@@ -19,29 +19,27 @@ class cost_categories
 	//------------------------------------------------------------------ title
 	public function cc_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function cc_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
 
 	//------------------------------------------------------------------ description
 	public function cc_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 	public function cc_father() 
 	{
-		$this->form()->name("Father")
-		->validate();
+		$this->form()->name("Father");
 	}
 	public function cc_row() 
 	{
-		$this->form()->name("Row")
-		->validate();
+		$this->form()->name("Row");
 	}
 
 	//------------------------------------------------------------------ select button

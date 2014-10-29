@@ -19,35 +19,32 @@ class cheques
 	public function id() {$this->validate("id");}
 	public function cheque_number() 
 	{
-		$this->form()->name("Number")
-		->validate();
+		$this->form()->name("Number");
 	}
 	public function cheque_date() 
 	{
-		$this->form()->name("Date")
-		->validate();
+		$this->form()->name("Date");
 	}
 	public function cheque_price() 
 	{
-		$this->form()->name("Price")
-		->validate();
+		$this->form()->name("Price");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function cheque_holder() 
 	{
-		$this->form()->name("Holder")
-		->validate();
+		$this->form()->name("Holder");
 	}
 
 	//------------------------------------------------------------------ description
 	public function cheque_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -60,7 +57,8 @@ class cheques
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_created() {}
 	public function date_modified() {}

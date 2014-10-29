@@ -25,24 +25,24 @@ class verifications
 	//------------------------------------------------------------------ email
 	public function verification_email() 
 	{
-		$this->form("#email")->name("Email")->validate();
+		$this->form("#email");
 	}
 	public function verification_code() 
 	{
-		$this->form()->name("Code")
-		->validate();
+		$this->form()->name("Code");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function verification_verified() 
 	{
-		$this->form("radio")->name("Verified")->validate();
+		$this->form("radio")->name("Verified");
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

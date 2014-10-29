@@ -19,35 +19,34 @@ class product_categories
 	//------------------------------------------------------------------ title
 	public function pcat_title() 
 	{
-		$this->form("#title")->name("Title")->validate();
+		$this->form("#title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function pcat_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
 
 	//------------------------------------------------------------------ description
 	public function pcat_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 	public function pcat_father() 
 	{
-		$this->form()->name("Father")
-		->validate();
+		$this->form()->name("Father");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form()->name("Id")->validate("id");
+		$this->form("select")->name("Id")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function pcat_row() 
 	{
-		$this->form()->name("Row")
-		->validate();
+		$this->form()->name("Row");
 	}
 	public function date_created() {}
 	public function date_modified() {}

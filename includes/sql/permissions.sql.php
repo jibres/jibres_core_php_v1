@@ -18,40 +18,38 @@ class permissions
 	public function id() {$this->validate("id");}
 	public function permission_name() 
 	{
-		$this->form()->name("Name")
-		->validate();
+		$this->form()->name("Name");
 	}
 	public function Permission_table() 
 	{
-		$this->form()->name("Table")
-		->validate();
+		$this->form()->name("Table");
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_view() 
 	{
-		$this->form("radio")->name("View")->validate();
+		$this->form("radio")->name("View");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_add() 
 	{
-		$this->form("radio")->name("Add")->validate();
+		$this->form("radio")->name("Add");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_edit() 
 	{
-		$this->form("radio")->name("Edit")->validate();
+		$this->form("radio")->name("Edit");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_delete() 
 	{
-		$this->form("radio")->name("Delete")->validate();
+		$this->form("radio")->name("Delete");
 		$this->setChild($this->form);
 	}
 

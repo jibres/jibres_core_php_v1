@@ -17,20 +17,19 @@ class addons
 	public function id() {$this->validate("id");}
 	public function addon_name() 
 	{
-		$this->form()->name("Name")
-		->validate();
+		$this->form()->name("Name");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function addon_slug() 
 	{
-		$this->form()->name("Slug")->validate();
+		$this->form("#slug");
 	}
 
 	//------------------------------------------------------------------ description
 	public function addon_desc() 
 	{
-		$this->form("#desc")->name("Desc")->validate();
+		$this->form("#desc");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -41,13 +40,11 @@ class addons
 	}
 	public function addon_expire() 
 	{
-		$this->form()->name("Expire")
-		->validate();
+		$this->form()->name("Expire");
 	}
 	public function addon_installdate() 
 	{
-		$this->form()->name("Installdate")
-		->validate();
+		$this->form()->name("Installdate");
 	}
 	public function date_created() {}
 	public function date_modified() {}
