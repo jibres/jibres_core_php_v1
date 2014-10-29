@@ -192,5 +192,11 @@ class validateExtends_cls{
 		return true;
 	}
 
+	public function website() {
+		// $this->SetOnError('test for title');
+		return true;
+	}
+
+
 }
 ?>

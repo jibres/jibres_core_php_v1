@@ -20,13 +20,13 @@ class errors
 	}
 	public function ed_solution() 
 	{
-		$this->form()->name("Solution");
+		$this->form()->name("solution");
 	}
 
 	//------------------------------------------------------------------ select button
 	public function ed_priority() 
 	{
-		$this->form("select")->name("Priority")->validate();
+		$this->form("select")->name("priority")->validate();
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

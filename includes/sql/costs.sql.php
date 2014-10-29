@@ -5,8 +5,8 @@ class costs
 	public $id = array('type' => 'smallint@5', 'label' => 'ID');
 	public $cost_title = array('type' => 'varchar@50', 'label' => 'Title');
 	public $cost_price = array('type' => 'decimal@13,4', 'label' => 'Price');
-	public $cc_id = array('type' => 'smallint@5', 'label' => 'Cc Id');
-	public $account_id = array('type' => 'smallint@5', 'label' => 'Account Id');
+	public $cc_id = array('type' => 'smallint@5', 'label' => 'Cc');
+	public $account_id = array('type' => 'smallint@5', 'label' => 'Account');
 	public $cost_date = array('type' => 'datetime@', 'label' => 'Date');
 	public $cost_desc = array('type' => 'varchar@200', 'label' => 'Description');
 	public $cost_type = array('type' => 'enum@income,outcome!outcome', 'label' => 'Type');
@@ -24,25 +24,23 @@ class costs
 	}
 	public function cost_price() 
 	{
-		$this->form()->name("Price");
+		$this->form()->name("price");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function cc_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("cc")->validate("id");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function account_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("account")->validate("id");
 	}
 	public function cost_date() 
 	{
-		$this->form()->name("Date");
+		$this->form()->name("date");
 	}
 
 	//------------------------------------------------------------------ description
@@ -54,7 +52,7 @@ class costs
 	//------------------------------------------------------------------ select button
 	public function cost_type() 
 	{
-		$this->form("select")->name("Type")->validate();
+		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

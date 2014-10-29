@@ -6,7 +6,7 @@ class verifications
 	public $verification_type = array('type' => 'enum@register_by_email,register_by_mobile,forget,change_email,change_mobile', 'label' => 'Type');
 	public $verification_email = array('type' => 'varchar@50', 'label' => 'Email');
 	public $verification_code = array('type' => 'varchar@32', 'label' => 'Code');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'User Id');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'User');
 	public $verification_verified = array('type' => 'enum@yes,no!no', 'label' => 'Verified');
 	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
@@ -18,7 +18,7 @@ class verifications
 	//------------------------------------------------------------------ select button
 	public function verification_type() 
 	{
-		$this->form("select")->name("Type")->validate();
+		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
 
@@ -29,20 +29,19 @@ class verifications
 	}
 	public function verification_code() 
 	{
-		$this->form()->name("Code");
+		$this->form()->name("code");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("user")->validate("id");
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function verification_verified() 
 	{
-		$this->form("radio")->name("Verified");
+		$this->form("radio")->name("verified");
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

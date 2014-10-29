@@ -17,11 +17,11 @@ class notifications
 	public function id() {$this->validate("id");}
 	public function user_id_sender() 
 	{
-		$this->form()->name("Id Sender");
+		$this->form()->name("id_sender");
 	}
 	public function user_id_reciever() 
 	{
-		$this->form()->name("Id Reciever");
+		$this->form()->name("id_reciever");
 	}
 
 	//------------------------------------------------------------------ title
@@ -31,17 +31,17 @@ class notifications
 	}
 	public function notification_content() 
 	{
-		$this->form()->name("Content");
+		$this->form()->name("content");
 	}
 	public function notification_url() 
 	{
-		$this->form()->name("Url");
+		$this->form()->name("url");
 	}
 
 	//------------------------------------------------------------------ select button
 	public function notification_status() 
 	{
-		$this->form("select")->name("Status")->validate();
+		$this->form("select")->name("status")->validate();
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

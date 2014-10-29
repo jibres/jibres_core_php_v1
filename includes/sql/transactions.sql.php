@@ -26,44 +26,44 @@ class transactions
 	//------------------------------------------------------------------ select button
 	public function transaction_type() 
 	{
-		$this->form("select")->name("Type")->validate();
+		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
 	public function user_id_employee() 
 	{
-		$this->form()->name("Id Employee");
+		$this->form()->name("id_employee");
 	}
 	public function user_id_customer() 
 	{
-		$this->form()->name("Id Customer");
+		$this->form()->name("id_customer");
 	}
 	public function transaction_date() 
 	{
-		$this->form()->name("Date");
+		$this->form()->name("date");
 	}
 	public function transaction_sum() 
 	{
-		$this->form()->name("Sum");
+		$this->form()->name("sum");
 	}
 	public function transaction_discount() 
 	{
-		$this->form()->name("Discount");
+		$this->form()->name("discount");
 	}
 	public function transaction_initial_received() 
 	{
-		$this->form()->name("Initial Received");
+		$this->form()->name("initial_received");
 	}
 	public function transaction_received() 
 	{
-		$this->form()->name("Received");
+		$this->form()->name("received");
 	}
 	public function transaction_remained() 
 	{
-		$this->form()->name("Remained");
+		$this->form()->name("remained");
 	}
 	public function transaction_pre() 
 	{
-		$this->form()->name("Pre");
+		$this->form()->name("pre");
 	}
 
 	//------------------------------------------------------------------ description
@@ -73,11 +73,11 @@ class transactions
 	}
 	public function transaction_transport() 
 	{
-		$this->form()->name("Transport");
+		$this->form()->name("transport");
 	}
 	public function transaction_vat() 
 	{
-		$this->form()->name("Vat");
+		$this->form()->name("vat");
 	}
 	public function date_created() {}
 	public function date_modified() {}

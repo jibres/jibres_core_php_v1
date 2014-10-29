@@ -7,7 +7,7 @@ class product_categories
 	public $pcat_slug = array('type' => 'varchar@50', 'label' => 'Slug');
 	public $pcat_desc = array('type' => 'varchar@200', 'label' => 'Description');
 	public $pcat_father = array('type' => 'smallint@5', 'label' => 'Father');
-	public $attachment_id = array('type' => 'int@10', 'label' => 'Attachment Id');
+	public $attachment_id = array('type' => 'int@10', 'label' => 'Attachment');
 	public $pcat_row = array('type' => 'smallint@5', 'label' => 'Row');
 	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
@@ -35,18 +35,17 @@ class product_categories
 	}
 	public function pcat_father() 
 	{
-		$this->form()->name("Father");
+		$this->form()->name("father");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("attachment")->validate("id");
 	}
 	public function pcat_row() 
 	{
-		$this->form()->name("Row");
+		$this->form()->name("row");
 	}
 	public function date_created() {}
 	public function date_modified() {}

@@ -3,7 +3,7 @@ namespace sql;
 class product_prices 
 {
 	public $id = array('type' => 'int@10', 'label' => 'ID');
-	public $product_id = array('type' => 'smallint@5', 'label' => 'Product Id');
+	public $product_id = array('type' => 'smallint@5', 'label' => 'Product');
 	public $productmeta_cat = array('type' => 'varchar@50', 'label' => 'Cat');
 	public $pa_startdate = array('type' => 'datetime@', 'label' => 'Startdate');
 	public $pa_enddate = array('type' => 'datetime@', 'label' => 'Enddate');
@@ -21,36 +21,35 @@ class product_prices
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("product")->validate("id");
 	}
 	public function productmeta_cat() 
 	{
-		$this->form()->name("Cat");
+		$this->form()->name("cat");
 	}
 	public function pa_startdate() 
 	{
-		$this->form()->name("Startdate");
+		$this->form()->name("startdate");
 	}
 	public function pa_enddate() 
 	{
-		$this->form()->name("Enddate");
+		$this->form()->name("enddate");
 	}
 	public function pa_buy_price() 
 	{
-		$this->form()->name("Buy Price");
+		$this->form()->name("buy_price");
 	}
 	public function pa_price() 
 	{
-		$this->form()->name("Price");
+		$this->form()->name("price");
 	}
 	public function pa_discount() 
 	{
-		$this->form()->name("Discount");
+		$this->form()->name("discount");
 	}
 	public function pa_vat() 
 	{
-		$this->form()->name("Vat");
+		$this->form()->name("vat");
 	}
 	public function date_created() {}
 	public function date_modified() {}

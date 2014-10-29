@@ -35,17 +35,17 @@ class cost_categories
 	}
 	public function cc_father() 
 	{
-		$this->form()->name("Father");
+		$this->form()->name("father");
 	}
 	public function cc_row() 
 	{
-		$this->form()->name("Row");
+		$this->form()->name("row");
 	}
 
 	//------------------------------------------------------------------ select button
 	public function cc_type() 
 	{
-		$this->form("select")->name("Type")->validate();
+		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

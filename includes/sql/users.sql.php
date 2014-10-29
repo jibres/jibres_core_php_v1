@@ -42,7 +42,7 @@ class users
 	//------------------------------------------------------------------ select button
 	public function user_type() 
 	{
-		$this->form("select")->name("Type")->validate();
+		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
 
@@ -61,74 +61,74 @@ class users
 	//------------------------------------------------------------------ radio button
 	public function user_gender() 
 	{
-		$this->form("radio")->name("Gender");
+		$this->form("radio")->name("gender");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function user_married() 
 	{
-		$this->form("radio")->name("Married");
+		$this->form("radio")->name("married");
 		$this->setChild($this->form);
 	}
 	public function user_firstname() 
 	{
-		$this->form()->name("Firstname");
+		$this->form()->name("firstname");
 	}
 	public function user_lastname() 
 	{
-		$this->form()->name("Lastname");
+		$this->form()->name("lastname");
 	}
 	public function user_nickname() 
 	{
-		$this->form()->name("Nickname");
+		$this->form()->name("nickname");
 	}
 	public function user_tel() 
 	{
-		$this->form()->name("Tel");
+		$this->form()->name("tel");
 	}
 	public function user_mobile() 
 	{
-		$this->form()->name("Mobile");
+		$this->form()->name("mobile");
 	}
 	public function user_birthday() 
 	{
-		$this->form()->name("Birthday");
+		$this->form()->name("birthday");
 	}
 	public function user_country() 
 	{
-		$this->form()->name("Country");
+		$this->form()->name("country");
 	}
 	public function user_state() 
 	{
-		$this->form()->name("State");
+		$this->form()->name("state");
 	}
 	public function user_city() 
 	{
-		$this->form()->name("City");
+		$this->form()->name("city");
 	}
 	public function user_address() 
 	{
-		$this->form()->name("Address");
+		$this->form()->name("address");
 	}
 	public function user_postcode() 
 	{
-		$this->form()->name("Postcode");
+		$this->form()->name("postcode");
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function user_newsletter() 
 	{
-		$this->form("radio")->name("Newsletter");
+		$this->form("radio")->name("newsletter");
 		$this->setChild($this->form);
 	}
 	public function user_refer() 
 	{
-		$this->form()->name("Refer");
+		$this->form()->name("refer");
 	}
 	public function user_nationalcode() 
 	{
-		$this->form()->name("Nationalcode");
+		$this->form()->name("nationalcode");
 	}
 
 	//------------------------------------------------------------------ website
@@ -140,43 +140,43 @@ class users
 	//------------------------------------------------------------------ select button
 	public function user_status() 
 	{
-		$this->form("select")->name("Status")->validate();
+		$this->form("select")->name("status")->validate();
 		$this->setChild($this->form);
 	}
 	public function user_degree() 
 	{
-		$this->form()->name("Degree");
+		$this->form()->name("degree");
 	}
 	public function user_activity() 
 	{
-		$this->form()->name("Activity");
+		$this->form()->name("activity");
 	}
 	public function user_total_income() 
 	{
-		$this->form()->name("Total Income");
+		$this->form()->name("total_income");
 	}
 	public function user_total_outcome() 
 	{
-		$this->form()->name("Total Outcome");
+		$this->form()->name("total_outcome");
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function user_credit() 
 	{
-		$this->form("radio")->name("Credit");
+		$this->form("radio")->name("credit");
 		$this->setChild($this->form);
 	}
 	public function user_question() 
 	{
-		$this->form()->name("Question");
+		$this->form()->name("question");
 	}
 	public function user_answer() 
 	{
-		$this->form()->name("Answer");
+		$this->form()->name("answer");
 	}
 	public function permission_name() 
 	{
-		$this->form()->name("Name");
+		$this->form()->name("name");
 	}
 	public function date_created() {}
 	public function date_modified() {}

@@ -115,6 +115,7 @@ class main_model{
 		$tmp_table_prefix	= $this->url_table_prefix();
 
 		$tmp_datatable		= $this->sql_datatable($tmp_module);
+		// var_dump($tmp_datatable);
 		if($tmp_datatable)
 		{
 			// get all fields of table and filter fields name for show in datatable, access from columns variable
@@ -126,7 +127,7 @@ class main_model{
 			{
 				if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
 				{
-					$tmp_columns[$key] = ucfirst(substr($key,strrpos($key,'_')+1));
+					$tmp_columns[$key] = substr($key,strrpos($key,'_')+1);
 					if ($tmp_columns[$key]==='Id')
 					{
 						// if this field related with other table(foreign key) only show the target table
@@ -138,6 +139,7 @@ class main_model{
 				}
 			}
 		}
+		// var_dump($tmp_qry);
 		return $tmp_qry;
 	}
 
@@ -168,7 +170,7 @@ class main_model{
 	{
 		// if you want to create special function for each module, simply declare a function post_edit() and use it!
 		// $this->redirect 	= false;
-		$tmp_slug_new			= post::Slug();
+		$tmp_slug_new			= post::slug();
 		if (isset($tmp_slug_new) && !empty($tmp_slug_new) )
 		{
 			// if new slug is has a correct syntax and not empty run query

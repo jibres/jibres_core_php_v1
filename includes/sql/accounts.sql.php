@@ -5,13 +5,13 @@ class accounts
 	public $id = array('type' => 'smallint@5', 'label' => 'ID');
 	public $account_title = array('type' => 'varchar@50', 'label' => 'Title');
 	public $account_slug = array('type' => 'varchar@50', 'label' => 'Slug');
-	public $bank_id = array('type' => 'smallint@5', 'label' => 'Bank Id');
+	public $bank_id = array('type' => 'smallint@5', 'label' => 'Bank');
 	public $account_branch_name = array('type' => 'varchar@50', 'label' => 'Branch Name');
 	public $account_number = array('type' => 'varchar@50', 'label' => 'Number');
 	public $account_card_number = array('type' => 'varchar@30', 'label' => 'Card Number');
 	public $account_primarybalance = array('type' => 'decimal@14,4!0.0000', 'label' => 'Primarybalance');
 	public $account_desc = array('type' => 'varchar@200', 'label' => 'Description');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'User Id');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'User');
 	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
@@ -34,24 +34,23 @@ class accounts
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("bank")->validate("id");
 	}
 	public function account_branch_name() 
 	{
-		$this->form()->name("Branch Name");
+		$this->form()->name("branch_name");
 	}
 	public function account_number() 
 	{
-		$this->form()->name("Number");
+		$this->form()->name("number");
 	}
 	public function account_card_number() 
 	{
-		$this->form()->name("Card Number");
+		$this->form()->name("card_number");
 	}
 	public function account_primarybalance() 
 	{
-		$this->form()->name("Primarybalance");
+		$this->form()->name("primarybalance");
 	}
 
 	//------------------------------------------------------------------ description
@@ -63,8 +62,7 @@ class accounts
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("user")->validate("id");
 	}
 	public function date_created() {}
 	public function date_modified() {}

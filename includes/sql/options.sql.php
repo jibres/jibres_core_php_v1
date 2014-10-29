@@ -16,25 +16,25 @@ class options
 	public function id() {$this->validate("id");}
 	public function option_cat() 
 	{
-		$this->form()->name("Cat");
+		$this->form()->name("cat");
 	}
 	public function option_name() 
 	{
-		$this->form()->name("Name");
+		$this->form()->name("name");
 	}
 	public function option_value() 
 	{
-		$this->form()->name("Value");
+		$this->form()->name("value");
 	}
 	public function option_value_extra() 
 	{
-		$this->form()->name("Value Extra");
+		$this->form()->name("value_extra");
 	}
 
 	//------------------------------------------------------------------ select button
 	public function option_status() 
 	{
-		$this->form("select")->name("Status")->validate();
+		$this->form("select")->name("status")->validate();
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

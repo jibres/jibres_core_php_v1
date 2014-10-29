@@ -10,7 +10,7 @@ class attachments
 	public $attachment_type = array('type' => 'varchar@10', 'label' => 'Type');
 	public $attachment_size = array('type' => 'float@12,0', 'label' => 'Size');
 	public $attachment_desc = array('type' => 'varchar@200', 'label' => 'Description');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'User Id');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'User');
 	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
 
@@ -27,27 +27,27 @@ class attachments
 	//------------------------------------------------------------------ select button
 	public function attachment_model() 
 	{
-		$this->form("select")->name("Model")->validate();
+		$this->form("select")->name("model")->validate();
 		$this->setChild($this->form);
 	}
 	public function attachment_addr() 
 	{
-		$this->form()->name("Addr");
+		$this->form()->name("addr");
 	}
 	public function attachment_name() 
 	{
-		$this->form()->name("Name");
+		$this->form()->name("name");
 	}
 
 	//------------------------------------------------------------------ select button
 	public function attachment_type() 
 	{
-		$this->form("select")->name("Type")->validate();
+		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
 	public function attachment_size() 
 	{
-		$this->form()->name("Size");
+		$this->form()->name("size");
 	}
 
 	//------------------------------------------------------------------ description
@@ -59,8 +59,7 @@ class attachments
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("user")->validate("id");
 	}
 	public function date_created() {}
 	public function date_modified() {}

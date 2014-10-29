@@ -12,7 +12,7 @@ class forms_Extends_cls extends forms_lib{
 		// 
 
 		// title contain email or mobile number
-		$this->title = $this->make("text")->name("titleaaass")->label("titleaaaa")->pl("aa");
+		$this->title = $this->make("text")->name("title")->label("title");
 		$this->title->validate()->title()->form->title(_("title incorrectaaa"));
 		
 		// slug contain email or mobile number
@@ -20,7 +20,7 @@ class forms_Extends_cls extends forms_lib{
 		$this->slug->validate()->slug()->form->slug("slug incorrect");
 
 		// desc contain email or mobile number
-		$this->desc = $this->make("text")->name("desc")->label("desc");
+		$this->desc = $this->make("text")->name("desc")->label("description");
 		$this->desc->validate()->desc()->form->desc("desc incorrect");
 
 		// username contain email or mobile number
@@ -98,11 +98,11 @@ class forms_Extends_cls extends forms_lib{
 		$this->check = $this->make("checkbox");
 
 
-		$this->website = $this->make("website")->form()->name("website")->label("website");
-		$this->website->validate()->website()->form->website("website incorrect")->setChild($this->website);
+		$this->website = $this->make("text")->name("website")->label("website");
+		$this->website->validate()->website()->form->website("website incorrect");
 
-		$this->foreignkey = $this->make("foreignkey")->form()->name("foreignkey")->label("foreignkey");
-		$this->foreignkey->validate()->foreignkey()->form->foreignkey("foreignkey incorrect")->setChild($this->foreignkey);
+		$this->foreignkey = $this->make("text")->name("foreignkey")->label("foreignkey");
+		$this->foreignkey->validate()->foreignkey()->form->foreignkey("foreignkey incorrect");
 
 
 

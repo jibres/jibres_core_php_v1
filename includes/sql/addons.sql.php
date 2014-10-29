@@ -17,7 +17,7 @@ class addons
 	public function id() {$this->validate("id");}
 	public function addon_name() 
 	{
-		$this->form()->name("Name");
+		$this->form()->name("name");
 	}
 
 	//------------------------------------------------------------------ slug
@@ -35,16 +35,16 @@ class addons
 	//------------------------------------------------------------------ select button
 	public function addon_status() 
 	{
-		$this->form("select")->name("Status")->validate();
+		$this->form("select")->name("status")->validate();
 		$this->setChild($this->form);
 	}
 	public function addon_expire() 
 	{
-		$this->form()->name("Expire");
+		$this->form()->name("expire");
 	}
 	public function addon_installdate() 
 	{
-		$this->form()->name("Installdate");
+		$this->form()->name("installdate");
 	}
 	public function date_created() {}
 	public function date_modified() {}

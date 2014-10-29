@@ -10,8 +10,8 @@ class posts
 	public $post_content = array('type' => 'text@', 'label' => 'Content');
 	public $post_type = array('type' => 'enum@post,page!post', 'label' => 'Type');
 	public $post_status = array('type' => 'enum@publish,draft,schedule,deleted!draft', 'label' => 'Status');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'User Id');
-	public $attachment_id = array('type' => 'int@10', 'label' => 'Attachment Id');
+	public $user_id = array('type' => 'smallint@5', 'label' => 'User');
+	public $attachment_id = array('type' => 'int@10', 'label' => 'Attachment');
 	public $post_publishdate = array('type' => 'datetime@!CURRENT_TIMESTAMP', 'label' => 'Publishdate');
 	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
@@ -21,7 +21,7 @@ class posts
 	public function id() {$this->validate("id");}
 	public function post_language() 
 	{
-		$this->form()->name("Language");
+		$this->form()->name("language");
 	}
 
 	//------------------------------------------------------------------ title
@@ -31,7 +31,7 @@ class posts
 	}
 	public function post_slug_cat() 
 	{
-		$this->form()->name("Slug Cat");
+		$this->form()->name("slug_cat");
 	}
 
 	//------------------------------------------------------------------ slug
@@ -41,39 +41,37 @@ class posts
 	}
 	public function post_content() 
 	{
-		$this->form()->name("Content");
+		$this->form()->name("content");
 	}
 
 	//------------------------------------------------------------------ select button
 	public function post_type() 
 	{
-		$this->form("select")->name("Type")->validate();
+		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ select button
 	public function post_status() 
 	{
-		$this->form("select")->name("Status")->validate();
+		$this->form("select")->name("status")->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("user")->validate("id");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("attachment")->validate("id");
 	}
 	public function post_publishdate() 
 	{
-		$this->form()->name("Publishdate");
+		$this->form()->name("publishdate");
 	}
 	public function date_created() {}
 	public function date_modified() {}

@@ -35,7 +35,7 @@ class banks
 	//------------------------------------------------------------------ radio button
 	public function bank_active() 
 	{
-		$this->form("radio")->name("Active");
+		$this->form("radio")->name("active");
 		$this->setChild($this->form);
 	}
 	public function date_created() {}

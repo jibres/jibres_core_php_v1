@@ -3,7 +3,7 @@ namespace sql;
 class product_meta 
 {
 	public $id = array('type' => 'int@10', 'label' => 'ID');
-	public $product_id = array('type' => 'smallint@5', 'label' => 'Product Id');
+	public $product_id = array('type' => 'smallint@5', 'label' => 'Product');
 	public $productmeta_cat = array('type' => 'varchar@50', 'label' => 'Cat');
 	public $productmeta_name = array('type' => 'varchar@100', 'label' => 'Name');
 	public $productmeta_value = array('type' => 'varchar@999', 'label' => 'Value');
@@ -17,20 +17,19 @@ class product_meta
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("Id")->validate("id");
-		$this->setChild($this->form);
+		$this->form("#foreignkey")->name("product")->validate("id");
 	}
 	public function productmeta_cat() 
 	{
-		$this->form()->name("Cat");
+		$this->form()->name("cat");
 	}
 	public function productmeta_name() 
 	{
-		$this->form()->name("Name");
+		$this->form()->name("name");
 	}
 	public function productmeta_value() 
 	{
-		$this->form()->name("Value");
+		$this->form()->name("value");
 	}
 	public function date_created() {}
 	public function date_modified() {}

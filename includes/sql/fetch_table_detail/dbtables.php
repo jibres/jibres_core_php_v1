@@ -37,15 +37,18 @@ function _type($type, $def){
 
 
 			// ========================================================================================== Edit by Javad
+			// for fields from currect table except foreign key
+			// we remove the table prefix, then show ramained text for name and for label we replace _ with space
+			// for foreign key we remove second part of text after _ and show only the name of table without last char
 			
 			$myfield		= $crow->Field;
 			$tmp_pos 		= strpos($myfield, '_');
 			$prefix			= substr($myfield, 0, $tmp_pos );
 			$myname			= substr($myfield, ($tmp_pos ? $tmp_pos+1 : 0) );
-			// var_dump($myname.$tmp_pos);
-			$myname 		= str_replace("_", " ", $myname);
-			$myname 		= ucwords(strtolower($myname));
-			$mylabel		= $myname;
+			$myname 		= strtolower($myname);
+			// var_dump($myname.' :'.$tmp_pos);
+			$mylabel 		= str_replace("_", " ", $myname);
+			$mylabel		= ucwords($mylabel);
 			$txtcomment		= "\n\t//------------------------------------------------------------------ ";
 			$txtstart		= "\tpublic function $crow->Field() \n\t{\n\t\t";
 			$txtend			="\n\t}\n";
@@ -62,13 +65,14 @@ function _type($type, $def){
 			// --------------------------------------------------------------------------------- Foreign Key
 			elseif (substr($crow->Field,-2)=="id")
 			{
+				// for foreign key we use prefix that means we use (table name-last char)
 				$fn .= $txtcomment. "id - foreign key\n";
-				// $fn .= $txtstart. '$this->form("#foreignkey")->name("'. $myname.'")->validate("id");' .$txtend;
-				$fn .= $txtstart. '$this->form("select")->name("'. $myname.'")->validate("id");';
-				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
+				$fn .= $txtstart. '$this->form("#foreignkey")->name("'. $prefix.'")->validate("id");' .$txtend;
+				// $fn .= $txtstart. '$this->form("select")->name("'. $myname.'")->validate("id");';
+				// $fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 
-				$mylabel = str_replace("_", " ", $myfield);
-				$mylabel = ucwords(strtolower($mylabel));
+				// $mylabel = str_replace("_", " ", $myfield);
+				$mylabel = ucwords(strtolower($prefix));
 				$mylabel = $mylabel;
 				
 			}

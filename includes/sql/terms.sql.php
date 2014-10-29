@@ -16,7 +16,7 @@ class terms
 	public function id() {$this->validate("id");}
 	public function term_name() 
 	{
-		$this->form()->name("Name");
+		$this->form()->name("name");
 	}
 
 	//------------------------------------------------------------------ slug
@@ -32,13 +32,13 @@ class terms
 	}
 	public function term_father() 
 	{
-		$this->form()->name("Father");
+		$this->form()->name("father");
 	}
 
 	//------------------------------------------------------------------ select button
 	public function term_type() 
 	{
-		$this->form("select")->name("Type")->validate();
+		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
 	public function date_created() {}
