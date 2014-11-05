@@ -2,14 +2,14 @@
 namespace sql;
 class user_logs 
 {
-	public $id = array('type' => 'int@10', 'label' => 'ID');
-	public $ul_title = array('type' => 'varchar@50', 'label' => 'Title');
-	public $ul_desc = array('type' => 'varchar@999', 'label' => 'Description');
-	public $ul_priority = array('type' => 'enum@high,medium,low!medium', 'label' => 'Priority');
-	public $ul_type = array('type' => 'enum@forget_password', 'label' => 'Type');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'User');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
+	public $ul_title = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Title');
+	public $ul_desc = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Description');
+	public $ul_priority = array('type' => 'enum@high,medium,low!medium', 'null' =>'NO' ,'label' => 'Priority');
+	public $ul_type = array('type' => 'enum@forget_password', 'null' =>'YES' ,'label' => 'Type');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

@@ -2,17 +2,17 @@
 namespace sql;
 class attachments 
 {
-	public $id = array('type' => 'int@10', 'label' => 'ID');
-	public $attachment_title = array('type' => 'varchar@100', 'label' => 'Title');
-	public $attachment_model = array('type' => 'enum@product_category,product,admin,bank_logo', 'label' => 'Model');
-	public $attachment_addr = array('type' => 'varchar@100', 'label' => 'Addr');
-	public $attachment_name = array('type' => 'varchar@50', 'label' => 'Name');
-	public $attachment_type = array('type' => 'varchar@10', 'label' => 'Type');
-	public $attachment_size = array('type' => 'float@12,0', 'label' => 'Size');
-	public $attachment_desc = array('type' => 'varchar@200', 'label' => 'Description');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'User');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
+	public $attachment_title = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Title');
+	public $attachment_model = array('type' => 'enum@product_category,product,admin,bank_logo', 'null' =>'NO' ,'label' => 'Model');
+	public $attachment_addr = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Addr');
+	public $attachment_name = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Name');
+	public $attachment_type = array('type' => 'varchar@10', 'null' =>'NO' ,'label' => 'Type');
+	public $attachment_size = array('type' => 'float@12,0', 'null' =>'NO' ,'label' => 'Size');
+	public $attachment_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

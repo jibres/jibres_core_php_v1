@@ -2,13 +2,13 @@
 namespace sql;
 class banks 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'ID');
-	public $bank_title = array('type' => 'varchar@50', 'label' => 'Title');
-	public $bank_slug = array('type' => 'varchar@50', 'label' => 'Slug');
-	public $bank_website = array('type' => 'varchar@50', 'label' => 'Website');
-	public $bank_active = array('type' => 'enum@yes,no!yes', 'label' => 'Active');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
+	public $bank_title = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Title');
+	public $bank_slug = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Slug');
+	public $bank_website = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Website');
+	public $bank_active = array('type' => 'enum@yes,no!yes', 'null' =>'NO' ,'label' => 'Active');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

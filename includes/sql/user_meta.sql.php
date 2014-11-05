@@ -2,13 +2,13 @@
 namespace sql;
 class user_meta 
 {
-	public $id = array('type' => 'smallint@6', 'label' => 'ID');
-	public $user_id = array('type' => 'smallint@6', 'label' => 'User');
-	public $usermeta_cat = array('type' => 'varchar@50', 'label' => 'Cat');
-	public $usermeta_name = array('type' => 'varchar@100', 'label' => 'Name');
-	public $usermeta_value = array('type' => 'varchar@999', 'label' => 'Value');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@6', 'null' =>'NO' ,'label' => 'ID');
+	public $user_id = array('type' => 'smallint@6', 'null' =>'YES' ,'label' => 'User');
+	public $usermeta_cat = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Cat');
+	public $usermeta_name = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Name');
+	public $usermeta_value = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Value');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

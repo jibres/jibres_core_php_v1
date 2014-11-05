@@ -2,14 +2,14 @@
 namespace sql;
 class verifications 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'ID');
-	public $verification_type = array('type' => 'enum@register_by_email,register_by_mobile,forget,change_email,change_mobile', 'label' => 'Type');
-	public $verification_email = array('type' => 'varchar@50', 'label' => 'Email');
-	public $verification_code = array('type' => 'varchar@32', 'label' => 'Code');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'User');
-	public $verification_verified = array('type' => 'enum@yes,no!no', 'label' => 'Verified');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
+	public $verification_type = array('type' => 'enum@register_by_email,register_by_mobile,forget,change_email,change_mobile', 'null' =>'NO' ,'label' => 'Type');
+	public $verification_email = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Email');
+	public $verification_code = array('type' => 'varchar@32', 'null' =>'NO' ,'label' => 'Code');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User');
+	public $verification_verified = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Verified');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

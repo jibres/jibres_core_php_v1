@@ -2,16 +2,16 @@
 namespace sql;
 class costs 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'ID');
-	public $cost_title = array('type' => 'varchar@50', 'label' => 'Title');
-	public $cost_price = array('type' => 'decimal@13,4', 'label' => 'Price');
-	public $cc_id = array('type' => 'smallint@5', 'label' => 'Cc');
-	public $account_id = array('type' => 'smallint@5', 'label' => 'Account');
-	public $cost_date = array('type' => 'datetime@', 'label' => 'Date');
-	public $cost_desc = array('type' => 'varchar@200', 'label' => 'Description');
-	public $cost_type = array('type' => 'enum@income,outcome!outcome', 'label' => 'Type');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
+	public $cost_title = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Title');
+	public $cost_price = array('type' => 'decimal@13,4', 'null' =>'NO' ,'label' => 'Price');
+	public $cc_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Cc');
+	public $account_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Account');
+	public $cost_date = array('type' => 'datetime@', 'null' =>'NO' ,'label' => 'Date');
+	public $cost_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
+	public $cost_type = array('type' => 'enum@income,outcome!outcome', 'null' =>'NO' ,'label' => 'Type');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

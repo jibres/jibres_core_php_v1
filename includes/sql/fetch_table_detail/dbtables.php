@@ -33,8 +33,7 @@ function _type($type, $def){
 		$fn			="\n";
 
 		while ($crow = $qCOL->fetch_object()) {
-			
-
+			// var_dump($crow);
 
 			// ========================================================================================== Edit by Javad
 			// for fields from currect table except foreign key
@@ -42,6 +41,7 @@ function _type($type, $def){
 			// for foreign key we remove second part of text after _ and show only the name of table without last char
 			
 			$myfield		= $crow->Field;
+			$mynull			= $crow->Null;
 			$tmp_pos 		= strpos($myfield, '_');
 			$prefix			= substr($myfield, 0, $tmp_pos );
 			$myname			= substr($myfield, ($tmp_pos ? $tmp_pos+1 : 0) );
@@ -173,7 +173,8 @@ function _type($type, $def){
 
 			// ========================================================================================== Edit by Javad
 
-		$content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'label' => '$mylabel');\n";
+		// $content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'label' => '$mylabel');\n";
+		$content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel');\n";
 
 		}
 		$content .= $fn;

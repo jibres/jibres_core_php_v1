@@ -2,17 +2,17 @@
 namespace sql;
 class receipts 
 {
-	public $id = array('type' => 'int@10', 'label' => 'ID');
-	public $receipt_code = array('type' => 'varchar@30', 'label' => 'Code');
-	public $receipt_price = array('type' => 'decimal@13,4!0.0000', 'label' => 'Price');
-	public $cheque_id = array('type' => 'smallint@5', 'label' => 'Cheque');
-	public $receipt_cheque_date = array('type' => 'datetime@', 'label' => 'Cheque Date');
-	public $receipt_cheque_status = array('type' => 'enum@pass,back_recovery,back_fail,lost,block,delete,inprogress', 'label' => 'Cheque Status');
-	public $receipt_desc = array('type' => 'varchar@200', 'label' => 'Description');
-	public $transaction_id = array('type' => 'int@10', 'label' => 'Transaction');
-	public $fund_id = array('type' => 'smallint@5', 'label' => 'Fund');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
+	public $receipt_code = array('type' => 'varchar@30', 'null' =>'YES' ,'label' => 'Code');
+	public $receipt_price = array('type' => 'decimal@13,4!0.0000', 'null' =>'NO' ,'label' => 'Price');
+	public $cheque_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Cheque');
+	public $receipt_cheque_date = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Cheque Date');
+	public $receipt_cheque_status = array('type' => 'enum@pass,back_recovery,back_fail,lost,block,delete,inprogress', 'null' =>'YES' ,'label' => 'Cheque Status');
+	public $receipt_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
+	public $transaction_id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'Transaction');
+	public $fund_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Fund');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

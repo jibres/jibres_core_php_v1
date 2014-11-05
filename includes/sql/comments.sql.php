@@ -2,20 +2,20 @@
 namespace sql;
 class comments 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'ID');
-	public $post_id = array('type' => 'smallint@5', 'label' => 'Post');
-	public $product_id = array('type' => 'smallint@5', 'label' => 'Product');
-	public $comment_author = array('type' => 'varchar@50', 'label' => 'Author');
-	public $comment_author_email = array('type' => 'varchar@100', 'label' => 'Author Email');
-	public $comment_author_url = array('type' => 'varchar@100', 'label' => 'Author Url');
-	public $comment_author_ip = array('type' => 'int@10', 'label' => 'Author Ip');
-	public $comment_agent = array('type' => 'varchar@255', 'label' => 'Agent');
-	public $comment_content = array('type' => 'varchar@999', 'label' => 'Content');
-	public $comment_status = array('type' => 'enum@approved,unapproved,spam,deleted!unapproved', 'label' => 'Status');
-	public $comment_parent = array('type' => 'int@10', 'label' => 'Parent');
-	public $user_id = array('type' => 'smallint@5', 'label' => 'User');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
+	public $post_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Post');
+	public $product_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Product');
+	public $comment_author = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Author');
+	public $comment_author_email = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Author Email');
+	public $comment_author_url = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Author Url');
+	public $comment_author_ip = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Author Ip');
+	public $comment_agent = array('type' => 'varchar@255', 'null' =>'YES' ,'label' => 'Agent');
+	public $comment_content = array('type' => 'varchar@999', 'null' =>'NO' ,'label' => 'Content');
+	public $comment_status = array('type' => 'enum@approved,unapproved,spam,deleted!unapproved', 'null' =>'NO' ,'label' => 'Status');
+	public $comment_parent = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Parent');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

@@ -2,14 +2,14 @@
 namespace sql;
 class options 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'ID');
-	public $option_cat = array('type' => 'varchar@50', 'label' => 'Cat');
-	public $option_name = array('type' => 'varchar@50', 'label' => 'Name');
-	public $option_value = array('type' => 'varchar@200', 'label' => 'Value');
-	public $option_value_extra = array('type' => 'varchar@255', 'label' => 'Value Extra');
-	public $option_status = array('type' => 'enum@active,deactive!active', 'label' => 'Status');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
+	public $option_cat = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Cat');
+	public $option_name = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Name');
+	public $option_value = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Value');
+	public $option_value_extra = array('type' => 'varchar@255', 'null' =>'YES' ,'label' => 'Value Extra');
+	public $option_status = array('type' => 'enum@active,deactive!active', 'null' =>'NO' ,'label' => 'Status');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

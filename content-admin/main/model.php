@@ -122,6 +122,7 @@ class main_model{
 			// check if datatable exist then get this data
 			$fields			= array_keys($tmp_datatable[0]);
 			$tmp_columns	= array_fill_keys($fields, null);
+			$isnull			= true;
 
 			foreach ($fields as $key)
 			{
@@ -135,10 +136,20 @@ class main_model{
 					}
 					$tmp_col			= $tmp_columns[$key];
 					$tmp_setfield		= 'set'.ucfirst($key) ;
-					$tmp_qry			= $tmp_qry->$tmp_setfield(post::$tmp_col()) ;
+					$tmp_value			= post::$tmp_col();
+					$tmp_qry			= $tmp_qry->$tmp_setfield($tmp_value);
+
+					if ($tmp_value)
+						$isnull = false;
 				}
 			}
 		}
+		if($isnull)
+		{
+			debug_lib::$status=0;
+			debug_lib::msg("All of records are null");
+		}
+
 		// var_dump($tmp_qry);
 		return $tmp_qry;
 	}
@@ -148,6 +159,7 @@ class main_model{
 		// if you want to create special function for each module, simply declare a function post_add() and use it!
 		// $this->redirect 	= false;
 		$sql	= $this->sql_query()->insert();
+		 // var_dump($sql);
 
 		// ======================================================
 		// you can manage next event with one of these variables,

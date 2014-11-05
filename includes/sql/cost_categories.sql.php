@@ -2,15 +2,15 @@
 namespace sql;
 class cost_categories 
 {
-	public $id = array('type' => 'smallint@5', 'label' => 'ID');
-	public $cc_title = array('type' => 'varchar@50', 'label' => 'Title');
-	public $cc_slug = array('type' => 'varchar@50', 'label' => 'Slug');
-	public $cc_desc = array('type' => 'varchar@200', 'label' => 'Description');
-	public $cc_father = array('type' => 'smallint@5', 'label' => 'Father');
-	public $cc_row = array('type' => 'smallint@5', 'label' => 'Row');
-	public $cc_type = array('type' => 'enum@income,outcome', 'label' => 'Type');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'label' => 'Date Created');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
+	public $cc_title = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Title');
+	public $cc_slug = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Slug');
+	public $cc_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
+	public $cc_father = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Father');
+	public $cc_row = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Row');
+	public $cc_type = array('type' => 'enum@income,outcome', 'null' =>'YES' ,'label' => 'Type');
+	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
