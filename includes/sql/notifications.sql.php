@@ -9,7 +9,6 @@ class notifications
 	public $notification_content = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Content');
 	public $notification_url = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Url');
 	public $notification_status = array('type' => 'enum@read,unread!unread', 'null' =>'NO' ,'label' => 'Status');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -17,25 +16,25 @@ class notifications
 	public function id() {$this->validate("id");}
 	public function user_id_sender() 
 	{
-		$this->form()->name("id_sender");
+		$this->form("text")->name("id_sender");
 	}
 	public function user_id_reciever() 
 	{
-		$this->form()->name("id_reciever");
+		$this->form("text")->name("id_reciever");
 	}
 
 	//------------------------------------------------------------------ title
 	public function notification_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 	public function notification_content() 
 	{
-		$this->form()->name("content");
+		$this->form("text")->name("content");
 	}
 	public function notification_url() 
 	{
-		$this->form()->name("url");
+		$this->form("text")->name("url");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -44,7 +43,6 @@ class notifications
 		$this->form("select")->name("status")->validate();
 		$this->setChild($this->form);
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

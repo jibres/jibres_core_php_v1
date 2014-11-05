@@ -9,7 +9,6 @@ class addons
 	public $addon_status = array('type' => 'enum@active,deactive,expire,going_to_expire!deactive', 'null' =>'NO' ,'label' => 'Status');
 	public $addon_expire = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Expire');
 	public $addon_installdate = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Installdate');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -17,13 +16,14 @@ class addons
 	public function id() {$this->validate("id");}
 	public function addon_name() 
 	{
-		$this->form()->name("name");
+		$this->form("text")->name("name");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function addon_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['addon_title']->value;});
 	}
 
 	//------------------------------------------------------------------ description
@@ -40,13 +40,12 @@ class addons
 	}
 	public function addon_expire() 
 	{
-		$this->form()->name("expire");
+		$this->form("text")->name("expire");
 	}
 	public function addon_installdate() 
 	{
-		$this->form()->name("installdate");
+		$this->form("text")->name("installdate");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

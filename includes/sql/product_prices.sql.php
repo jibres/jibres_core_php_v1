@@ -11,7 +11,6 @@ class product_prices
 	public $pa_price = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Price');
 	public $pa_discount = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Discount');
 	public $pa_vat = array('type' => 'decimal@6,4', 'null' =>'YES' ,'label' => 'Vat');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -25,33 +24,32 @@ class product_prices
 	}
 	public function productmeta_cat() 
 	{
-		$this->form()->name("cat");
+		$this->form("text")->name("cat");
 	}
 	public function pa_startdate() 
 	{
-		$this->form()->name("startdate");
+		$this->form("text")->name("startdate");
 	}
 	public function pa_enddate() 
 	{
-		$this->form()->name("enddate");
+		$this->form("text")->name("enddate");
 	}
 	public function pa_buy_price() 
 	{
-		$this->form()->name("buy_price");
+		$this->form("text")->name("buy_price");
 	}
 	public function pa_price() 
 	{
-		$this->form()->name("price");
+		$this->form("text")->name("price");
 	}
 	public function pa_discount() 
 	{
-		$this->form()->name("discount");
+		$this->form("text")->name("discount");
 	}
 	public function pa_vat() 
 	{
-		$this->form()->name("vat");
+		$this->form("text")->name("vat");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

@@ -8,7 +8,6 @@ class funds
 	public $location_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Location');
 	public $fund_initial_balance = array('type' => 'decimal@14,4', 'null' =>'YES' ,'label' => 'Initial Balance');
 	public $fund_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -18,13 +17,14 @@ class funds
 	//------------------------------------------------------------------ title
 	public function fund_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function fund_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['fund_title']->value;});
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -34,7 +34,7 @@ class funds
 	}
 	public function fund_initial_balance() 
 	{
-		$this->form()->name("initial_balance");
+		$this->form("text")->name("initial_balance");
 	}
 
 	//------------------------------------------------------------------ description
@@ -42,7 +42,6 @@ class funds
 	{
 		$this->form("#desc");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

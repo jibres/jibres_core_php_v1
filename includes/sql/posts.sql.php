@@ -13,7 +13,6 @@ class posts
 	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User');
 	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment');
 	public $post_publishdate = array('type' => 'datetime@!CURRENT_TIMESTAMP', 'null' =>'YES' ,'label' => 'Publishdate');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -21,27 +20,28 @@ class posts
 	public function id() {$this->validate("id");}
 	public function post_language() 
 	{
-		$this->form()->name("language");
+		$this->form("text")->name("language");
 	}
 
 	//------------------------------------------------------------------ title
 	public function post_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 	public function post_slug_cat() 
 	{
-		$this->form()->name("slug_cat");
+		$this->form("text")->name("slug_cat");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function post_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['post_title']->value;});
 	}
 	public function post_content() 
 	{
-		$this->form()->name("content");
+		$this->form("text")->name("content");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -71,9 +71,8 @@ class posts
 	}
 	public function post_publishdate() 
 	{
-		$this->form()->name("publishdate");
+		$this->form("text")->name("publishdate");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

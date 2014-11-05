@@ -11,7 +11,6 @@ class cheques
 	public $cheque_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
 	public $cheque_status = array('type' => 'enum@pass,back_recovery,back_fail,lost,block,delete,inprogress', 'null' =>'YES' ,'label' => 'Status');
 	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -19,15 +18,15 @@ class cheques
 	public function id() {$this->validate("id");}
 	public function cheque_number() 
 	{
-		$this->form()->name("number");
+		$this->form("text")->name("number");
 	}
 	public function cheque_date() 
 	{
-		$this->form()->name("date");
+		$this->form("text")->name("date");
 	}
 	public function cheque_price() 
 	{
-		$this->form()->name("price");
+		$this->form("text")->name("price");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -37,7 +36,7 @@ class cheques
 	}
 	public function cheque_holder() 
 	{
-		$this->form()->name("holder");
+		$this->form("text")->name("holder");
 	}
 
 	//------------------------------------------------------------------ description
@@ -58,7 +57,6 @@ class cheques
 	{
 		$this->form("#foreignkey")->name("user")->validate("id");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

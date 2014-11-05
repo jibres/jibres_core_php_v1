@@ -7,7 +7,6 @@ class user_meta
 	public $usermeta_cat = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Cat');
 	public $usermeta_name = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Name');
 	public $usermeta_value = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Value');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -21,17 +20,16 @@ class user_meta
 	}
 	public function usermeta_cat() 
 	{
-		$this->form()->name("cat");
+		$this->form("text")->name("cat");
 	}
 	public function usermeta_name() 
 	{
-		$this->form()->name("name");
+		$this->form("text")->name("name");
 	}
 	public function usermeta_value() 
 	{
-		$this->form()->name("value");
+		$this->form("text")->name("value");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

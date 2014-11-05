@@ -6,7 +6,6 @@ class locations
 	public $location_title = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Title');
 	public $location_slug = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Slug');
 	public $location_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -16,13 +15,14 @@ class locations
 	//------------------------------------------------------------------ title
 	public function location_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function location_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['location_title']->value;});
 	}
 
 	//------------------------------------------------------------------ description
@@ -30,7 +30,6 @@ class locations
 	{
 		$this->form("#desc");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

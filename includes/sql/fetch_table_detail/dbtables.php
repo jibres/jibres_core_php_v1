@@ -45,10 +45,11 @@ function _type($type, $def){
 			$tmp_pos 		= strpos($myfield, '_');
 			$prefix			= substr($myfield, 0, $tmp_pos );
 			$myname			= substr($myfield, ($tmp_pos ? $tmp_pos+1 : 0) );
+			
 			$myname 		= strtolower($myname);
-			// var_dump($myname.' :'.$tmp_pos);
 			$mylabel 		= str_replace("_", " ", $myname);
 			$mylabel		= ucwords($mylabel);
+
 			$txtcomment		= "\n\t//------------------------------------------------------------------ ";
 			$txtstart		= "\tpublic function $crow->Field() \n\t{\n\t\t";
 			$txtend			="\n\t}\n";
@@ -63,7 +64,7 @@ function _type($type, $def){
 
 			}
 			// --------------------------------------------------------------------------------- Foreign Key
-			elseif (substr($crow->Field,-2)=="id")
+			elseif ($myname=="id")
 			{
 				// for foreign key we use prefix that means we use (table name-last char)
 				$fn .= $txtcomment. "id - foreign key\n";
@@ -78,17 +79,17 @@ function _type($type, $def){
 			}
 
 			// --------------------------------------------------------------------------------- General
-			elseif (substr($crow->Field,-5)=="title")
+			elseif ($myname=='title')
 			{
-				$fn .= $txtcomment. "title\n";
-				$fn .= $txtstart. '$this->form("#title");'.$txtend;
+				$fn .= $txtcomment. 'title'."\n";
+				$fn .= $txtstart. '$this->form("text")->name("title");'.$txtend;
 			}
-			elseif (substr($crow->Field,-4)=="slug")
+			elseif ($myname=="slug")
 			{
 				$fn .= $txtcomment. "slug\n";
-				$fn .= $txtstart. '$this->form("#slug");';
-				// $fn .= $txtstart. '$this->form("#slug")->name("'. $myname.'")->validate()';
-				// $fn .= "\n\t\t->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value;});";
+				// $fn .= $txtstart. '$this->form("#slug");';
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")->validate()';
+				$fn .= "\n\t\t->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value;});";
 				$fn .= $txtend;
 
 				// $this->validate()->xsslug(function()
@@ -96,7 +97,7 @@ function _type($type, $def){
 				// 	$this->value = \validator_lib::$save['form']['user_email']->value;
 				// });
 			}
-			elseif (substr($crow->Field,-4)=="desc")
+			elseif ($myname=="desc")
 			{
 				$fn .= $txtcomment. "description\n";
 				$fn .= $txtstart. '$this->form("#desc");'.$txtend;
@@ -105,12 +106,12 @@ function _type($type, $def){
 			}
 
 			// --------------------------------------------------------------------------------- User Pass
-			elseif (substr($crow->Field,-5)=="email")
+			elseif ($myname=="email")
 			{
 				$fn .= $txtcomment. "email\n";
 				$fn .= $txtstart. '$this->form("#email");'.$txtend;
 			}
-			elseif (substr($crow->Field,-4)=="pass")
+			elseif ($myname=="pass")
 			{
 				$fn .= $txtcomment. "password\n";
 				$fn .= $txtstart. '$this->form("#password");'.$txtend;
@@ -127,10 +128,10 @@ function _type($type, $def){
 			}
 
 			// --------------------------------------------------------------------------------- radio
-			elseif (substr($crow->Field,-6)=="active" 		|| substr($crow->Field,-4)=="view" 
-				|| substr($crow->Field,-3)=="add" 			|| substr($crow->Field,-4)=="edit" 		|| substr($crow->Field,-6)=="delete"
-				|| substr($crow->Field,-7)=="service"		|| substr($crow->Field,-6)=="gender"	|| substr($crow->Field,-7)=="married"
-				|| substr($crow->Field,-10)=="newsletter"	|| substr($crow->Field,-6)=="credit"	|| substr($crow->Field,-8)=="verified"
+			elseif ($myname=="active" 		|| $myname=="view" 
+				|| $myname=="add" 			|| $myname=="edit" 		|| $myname=="delete"
+				|| $myname=="service"		|| $myname=="gender"	|| $myname=="married"
+				|| $myname=="newsletter"	|| $myname=="credit"	|| $myname=="verified"
 				
 				
 				)	
@@ -141,9 +142,9 @@ function _type($type, $def){
 			}
 
 			// --------------------------------------------------------------------------------- select
-			elseif (substr($crow->Field,-6)=="status" 	|| substr($crow->Field,-5)=="model" || substr($crow->Field,-8)=="priority"
-				|| substr($crow->Field,-3)=="sellin"	|| substr($crow->Field,-3)=="priority"
-				|| substr($crow->Field,-4)=="type"
+			elseif ($myname=="status" 	|| $myname=="model" || $myname=="priority"
+				|| $myname=="sellin"	|| $myname=="priority"
+				|| $myname=="type"
 
 				)
 			{
@@ -153,7 +154,7 @@ function _type($type, $def){
 			}
 
 			// --------------------------------------------------------------------------------- Website
-			elseif (substr($crow->Field,-7)=="website")
+			elseif ($myname=="website")
 			{
 				$fn .= $txtcomment. "website\n";
 				$fn .= $txtstart. '$this->form("#website");'.$txtend;
@@ -166,7 +167,7 @@ function _type($type, $def){
 			{
 				// $fn .= $txtcomment. "email\n";
 				// $fn .= $txtstart. '$this->form()->name("'. $myname.'")'."\n\t\t".'->validate();'.$txtend;
-				$fn .= $txtstart. '$this->form()->name("'. $myname.'");'.$txtend;
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'");'.$txtend;
 				// $fn .= $txtstart. $txtend;
 			}
 			

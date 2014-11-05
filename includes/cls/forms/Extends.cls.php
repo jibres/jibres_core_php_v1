@@ -12,15 +12,15 @@ class forms_Extends_cls extends forms_lib{
 		// 
 
 		// title contain email or mobile number
-		$this->title = $this->make("text")->name("title")->label("title");
-		$this->title->validate()->title()->form->title(_("title incorrectaaa"));
+		// $this->title = $this->make("text")->name("title");
+		
 		
 		// slug contain email or mobile number
-		$this->slug = $this->make("text")->name("slug")->label("slug");
+		$this->slug = $this->make("text")->name("slug");
 		$this->slug->validate()->slug()->form->slug("slug incorrect");
 
 		// desc contain email or mobile number
-		$this->desc = $this->make("text")->name("desc")->label("description");
+		$this->desc = $this->make("text")->name("desc");
 		$this->desc->validate()->desc()->form->desc("desc incorrect");
 
 		// username contain email or mobile number

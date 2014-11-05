@@ -8,7 +8,6 @@ class user_logs
 	public $ul_priority = array('type' => 'enum@high,medium,low!medium', 'null' =>'NO' ,'label' => 'Priority');
 	public $ul_type = array('type' => 'enum@forget_password', 'null' =>'YES' ,'label' => 'Type');
 	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -18,7 +17,7 @@ class user_logs
 	//------------------------------------------------------------------ title
 	public function ul_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 
 	//------------------------------------------------------------------ description
@@ -46,7 +45,6 @@ class user_logs
 	{
 		$this->form("#foreignkey")->name("user")->validate("id");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

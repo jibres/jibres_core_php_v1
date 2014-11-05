@@ -11,7 +11,6 @@ class receipts
 	public $receipt_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
 	public $transaction_id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'Transaction');
 	public $fund_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Fund');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -19,11 +18,11 @@ class receipts
 	public function id() {$this->validate("id");}
 	public function receipt_code() 
 	{
-		$this->form()->name("code");
+		$this->form("text")->name("code");
 	}
 	public function receipt_price() 
 	{
-		$this->form()->name("price");
+		$this->form("text")->name("price");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -33,14 +32,11 @@ class receipts
 	}
 	public function receipt_cheque_date() 
 	{
-		$this->form()->name("cheque_date");
+		$this->form("text")->name("cheque_date");
 	}
-
-	//------------------------------------------------------------------ select button
 	public function receipt_cheque_status() 
 	{
-		$this->form("select")->name("cheque_status")->validate();
-		$this->setChild($this->form);
+		$this->form("text")->name("cheque_status");
 	}
 
 	//------------------------------------------------------------------ description
@@ -60,7 +56,6 @@ class receipts
 	{
 		$this->form("#foreignkey")->name("fund")->validate("id");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

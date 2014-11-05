@@ -8,7 +8,6 @@ class terms
 	public $term_desc = array('type' => 'varchar@200', 'null' =>'NO' ,'label' => 'Description');
 	public $term_father = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Father');
 	public $term_type = array('type' => 'enum@cat,tag!cat', 'null' =>'NO' ,'label' => 'Type');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -16,13 +15,14 @@ class terms
 	public function id() {$this->validate("id");}
 	public function term_name() 
 	{
-		$this->form()->name("name");
+		$this->form("text")->name("name");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function term_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['term_title']->value;});
 	}
 
 	//------------------------------------------------------------------ description
@@ -32,7 +32,7 @@ class terms
 	}
 	public function term_father() 
 	{
-		$this->form()->name("father");
+		$this->form("text")->name("father");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -41,7 +41,6 @@ class terms
 		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

@@ -12,7 +12,6 @@ class accounts
 	public $account_primarybalance = array('type' => 'decimal@14,4!0.0000', 'null' =>'NO' ,'label' => 'Primarybalance');
 	public $account_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
 	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -22,13 +21,14 @@ class accounts
 	//------------------------------------------------------------------ title
 	public function account_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function account_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['account_title']->value;});
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -38,19 +38,19 @@ class accounts
 	}
 	public function account_branch_name() 
 	{
-		$this->form()->name("branch_name");
+		$this->form("text")->name("branch_name");
 	}
 	public function account_number() 
 	{
-		$this->form()->name("number");
+		$this->form("text")->name("number");
 	}
 	public function account_card_number() 
 	{
-		$this->form()->name("card_number");
+		$this->form("text")->name("card_number");
 	}
 	public function account_primarybalance() 
 	{
-		$this->form()->name("primarybalance");
+		$this->form("text")->name("primarybalance");
 	}
 
 	//------------------------------------------------------------------ description
@@ -64,7 +64,6 @@ class accounts
 	{
 		$this->form("#foreignkey")->name("user")->validate("id");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

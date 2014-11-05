@@ -9,7 +9,6 @@ class product_categories
 	public $pcat_father = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Father');
 	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment');
 	public $pcat_row = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Row');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -19,13 +18,14 @@ class product_categories
 	//------------------------------------------------------------------ title
 	public function pcat_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function pcat_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['pcat_title']->value;});
 	}
 
 	//------------------------------------------------------------------ description
@@ -35,7 +35,7 @@ class product_categories
 	}
 	public function pcat_father() 
 	{
-		$this->form()->name("father");
+		$this->form("text")->name("father");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -45,9 +45,8 @@ class product_categories
 	}
 	public function pcat_row() 
 	{
-		$this->form()->name("row");
+		$this->form("text")->name("row");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

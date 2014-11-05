@@ -10,7 +10,6 @@ class costs
 	public $cost_date = array('type' => 'datetime@', 'null' =>'NO' ,'label' => 'Date');
 	public $cost_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
 	public $cost_type = array('type' => 'enum@income,outcome!outcome', 'null' =>'NO' ,'label' => 'Type');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -20,11 +19,11 @@ class costs
 	//------------------------------------------------------------------ title
 	public function cost_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 	public function cost_price() 
 	{
-		$this->form()->name("price");
+		$this->form("text")->name("price");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -40,7 +39,7 @@ class costs
 	}
 	public function cost_date() 
 	{
-		$this->form()->name("date");
+		$this->form("text")->name("date");
 	}
 
 	//------------------------------------------------------------------ description
@@ -55,7 +54,6 @@ class costs
 		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

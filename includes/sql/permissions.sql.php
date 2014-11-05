@@ -10,7 +10,6 @@ class permissions
 	public $permission_edit = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Edit');
 	public $permission_delete = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Delete');
 	public $permission_status = array('type' => 'enum@active,deactive!active', 'null' =>'NO' ,'label' => 'Status');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -18,11 +17,11 @@ class permissions
 	public function id() {$this->validate("id");}
 	public function permission_name() 
 	{
-		$this->form()->name("name");
+		$this->form("text")->name("name");
 	}
 	public function Permission_table() 
 	{
-		$this->form()->name("table");
+		$this->form("text")->name("table");
 	}
 
 	//------------------------------------------------------------------ radio button
@@ -59,7 +58,6 @@ class permissions
 		$this->form("select")->name("status")->validate();
 		$this->setChild($this->form);
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

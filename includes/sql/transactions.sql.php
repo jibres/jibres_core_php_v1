@@ -16,7 +16,6 @@ class transactions
 	public $transaction_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
 	public $transaction_transport = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Transport');
 	public $transaction_vat = array('type' => 'enum@yes,yes_nocalc,no', 'null' =>'YES' ,'label' => 'Vat');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -31,39 +30,39 @@ class transactions
 	}
 	public function user_id_employee() 
 	{
-		$this->form()->name("id_employee");
+		$this->form("text")->name("id_employee");
 	}
 	public function user_id_customer() 
 	{
-		$this->form()->name("id_customer");
+		$this->form("text")->name("id_customer");
 	}
 	public function transaction_date() 
 	{
-		$this->form()->name("date");
+		$this->form("text")->name("date");
 	}
 	public function transaction_sum() 
 	{
-		$this->form()->name("sum");
+		$this->form("text")->name("sum");
 	}
 	public function transaction_discount() 
 	{
-		$this->form()->name("discount");
+		$this->form("text")->name("discount");
 	}
 	public function transaction_initial_received() 
 	{
-		$this->form()->name("initial_received");
+		$this->form("text")->name("initial_received");
 	}
 	public function transaction_received() 
 	{
-		$this->form()->name("received");
+		$this->form("text")->name("received");
 	}
 	public function transaction_remained() 
 	{
-		$this->form()->name("remained");
+		$this->form("text")->name("remained");
 	}
 	public function transaction_pre() 
 	{
-		$this->form()->name("pre");
+		$this->form("text")->name("pre");
 	}
 
 	//------------------------------------------------------------------ description
@@ -73,13 +72,12 @@ class transactions
 	}
 	public function transaction_transport() 
 	{
-		$this->form()->name("transport");
+		$this->form("text")->name("transport");
 	}
 	public function transaction_vat() 
 	{
-		$this->form()->name("vat");
+		$this->form("text")->name("vat");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

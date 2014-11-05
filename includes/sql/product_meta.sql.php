@@ -7,7 +7,6 @@ class product_meta
 	public $productmeta_cat = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Cat');
 	public $productmeta_name = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Name');
 	public $productmeta_value = array('type' => 'varchar@999', 'null' =>'NO' ,'label' => 'Value');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -21,17 +20,16 @@ class product_meta
 	}
 	public function productmeta_cat() 
 	{
-		$this->form()->name("cat");
+		$this->form("text")->name("cat");
 	}
 	public function productmeta_name() 
 	{
-		$this->form()->name("name");
+		$this->form("text")->name("name");
 	}
 	public function productmeta_value() 
 	{
-		$this->form()->name("value");
+		$this->form("text")->name("value");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

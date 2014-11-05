@@ -21,7 +21,6 @@ class products
 	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment');
 	public $product_service = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Service');
 	public $product_sellin = array('type' => 'enum@store,online,both!both', 'null' =>'NO' ,'label' => 'Sellin');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -31,13 +30,14 @@ class products
 	//------------------------------------------------------------------ title
 	public function product_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function product_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['product_title']->value;});
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -47,35 +47,35 @@ class products
 	}
 	public function product_barcode() 
 	{
-		$this->form()->name("barcode");
+		$this->form("text")->name("barcode");
 	}
 	public function product_barcode2() 
 	{
-		$this->form()->name("barcode2");
+		$this->form("text")->name("barcode2");
 	}
 	public function product_buy_price() 
 	{
-		$this->form()->name("buy_price");
+		$this->form("text")->name("buy_price");
 	}
 	public function product_price() 
 	{
-		$this->form()->name("price");
+		$this->form("text")->name("price");
 	}
 	public function product_discount() 
 	{
-		$this->form()->name("discount");
+		$this->form("text")->name("discount");
 	}
 	public function product_vat() 
 	{
-		$this->form()->name("vat");
+		$this->form("text")->name("vat");
 	}
 	public function product_initial_balance() 
 	{
-		$this->form()->name("initial_balance");
+		$this->form("text")->name("initial_balance");
 	}
 	public function product_min_inventory() 
 	{
-		$this->form()->name("min_inventory");
+		$this->form("text")->name("min_inventory");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -86,15 +86,15 @@ class products
 	}
 	public function product_sold() 
 	{
-		$this->form()->name("sold");
+		$this->form("text")->name("sold");
 	}
 	public function product_stock() 
 	{
-		$this->form()->name("stock");
+		$this->form("text")->name("stock");
 	}
 	public function product_carton() 
 	{
-		$this->form()->name("carton");
+		$this->form("text")->name("carton");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -109,11 +109,13 @@ class products
 		$this->form("radio")->name("service");
 		$this->setChild($this->form);
 	}
+
+	//------------------------------------------------------------------ select button
 	public function product_sellin() 
 	{
-		$this->form()->name("sellin");
+		$this->form("select")->name("sellin")->validate();
+		$this->setChild($this->form);
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

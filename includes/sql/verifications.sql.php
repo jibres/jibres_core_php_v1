@@ -8,7 +8,6 @@ class verifications
 	public $verification_code = array('type' => 'varchar@32', 'null' =>'NO' ,'label' => 'Code');
 	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User');
 	public $verification_verified = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Verified');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -29,7 +28,7 @@ class verifications
 	}
 	public function verification_code() 
 	{
-		$this->form()->name("code");
+		$this->form("text")->name("code");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -44,7 +43,6 @@ class verifications
 		$this->form("radio")->name("verified");
 		$this->setChild($this->form);
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

@@ -7,7 +7,6 @@ class banks
 	public $bank_slug = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Slug');
 	public $bank_website = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Website');
 	public $bank_active = array('type' => 'enum@yes,no!yes', 'null' =>'NO' ,'label' => 'Active');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -17,13 +16,14 @@ class banks
 	//------------------------------------------------------------------ title
 	public function bank_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function bank_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['bank_title']->value;});
 	}
 
 	//------------------------------------------------------------------ website
@@ -38,7 +38,6 @@ class banks
 		$this->form("radio")->name("active");
 		$this->setChild($this->form);
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

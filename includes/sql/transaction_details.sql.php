@@ -11,7 +11,7 @@ class transaction_details
 
 	public function td_row() 
 	{
-		$this->form()->name("row");
+		$this->form("text")->name("row");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -27,15 +27,15 @@ class transaction_details
 	}
 	public function td_quantity() 
 	{
-		$this->form()->name("quantity");
+		$this->form("text")->name("quantity");
 	}
 	public function td_price() 
 	{
-		$this->form()->name("price");
+		$this->form("text")->name("price");
 	}
 	public function td_discount() 
 	{
-		$this->form()->name("discount");
+		$this->form("text")->name("discount");
 	}
 }
 ?>

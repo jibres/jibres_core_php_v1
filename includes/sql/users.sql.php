@@ -32,7 +32,6 @@ class users
 	public $user_question = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Question');
 	public $user_answer = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Answer');
 	public $permission_name = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Name');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -73,47 +72,47 @@ class users
 	}
 	public function user_firstname() 
 	{
-		$this->form()->name("firstname");
+		$this->form("text")->name("firstname");
 	}
 	public function user_lastname() 
 	{
-		$this->form()->name("lastname");
+		$this->form("text")->name("lastname");
 	}
 	public function user_nickname() 
 	{
-		$this->form()->name("nickname");
+		$this->form("text")->name("nickname");
 	}
 	public function user_tel() 
 	{
-		$this->form()->name("tel");
+		$this->form("text")->name("tel");
 	}
 	public function user_mobile() 
 	{
-		$this->form()->name("mobile");
+		$this->form("text")->name("mobile");
 	}
 	public function user_birthday() 
 	{
-		$this->form()->name("birthday");
+		$this->form("text")->name("birthday");
 	}
 	public function user_country() 
 	{
-		$this->form()->name("country");
+		$this->form("text")->name("country");
 	}
 	public function user_state() 
 	{
-		$this->form()->name("state");
+		$this->form("text")->name("state");
 	}
 	public function user_city() 
 	{
-		$this->form()->name("city");
+		$this->form("text")->name("city");
 	}
 	public function user_address() 
 	{
-		$this->form()->name("address");
+		$this->form("text")->name("address");
 	}
 	public function user_postcode() 
 	{
-		$this->form()->name("postcode");
+		$this->form("text")->name("postcode");
 	}
 
 	//------------------------------------------------------------------ radio button
@@ -124,11 +123,11 @@ class users
 	}
 	public function user_refer() 
 	{
-		$this->form()->name("refer");
+		$this->form("text")->name("refer");
 	}
 	public function user_nationalcode() 
 	{
-		$this->form()->name("nationalcode");
+		$this->form("text")->name("nationalcode");
 	}
 
 	//------------------------------------------------------------------ website
@@ -145,19 +144,19 @@ class users
 	}
 	public function user_degree() 
 	{
-		$this->form()->name("degree");
+		$this->form("text")->name("degree");
 	}
 	public function user_activity() 
 	{
-		$this->form()->name("activity");
+		$this->form("text")->name("activity");
 	}
 	public function user_total_income() 
 	{
-		$this->form()->name("total_income");
+		$this->form("text")->name("total_income");
 	}
 	public function user_total_outcome() 
 	{
-		$this->form()->name("total_outcome");
+		$this->form("text")->name("total_outcome");
 	}
 
 	//------------------------------------------------------------------ radio button
@@ -168,17 +167,16 @@ class users
 	}
 	public function user_question() 
 	{
-		$this->form()->name("question");
+		$this->form("text")->name("question");
 	}
 	public function user_answer() 
 	{
-		$this->form()->name("answer");
+		$this->form("text")->name("answer");
 	}
 	public function permission_name() 
 	{
-		$this->form()->name("name");
+		$this->form("text")->name("name");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

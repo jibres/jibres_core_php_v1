@@ -14,7 +14,6 @@ class comments
 	public $comment_status = array('type' => 'enum@approved,unapproved,spam,deleted!unapproved', 'null' =>'NO' ,'label' => 'Status');
 	public $comment_parent = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Parent');
 	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -34,29 +33,27 @@ class comments
 	}
 	public function comment_author() 
 	{
-		$this->form()->name("author");
+		$this->form("text")->name("author");
 	}
-
-	//------------------------------------------------------------------ email
 	public function comment_author_email() 
 	{
-		$this->form("#email");
+		$this->form("text")->name("author_email");
 	}
 	public function comment_author_url() 
 	{
-		$this->form()->name("author_url");
+		$this->form("text")->name("author_url");
 	}
 	public function comment_author_ip() 
 	{
-		$this->form()->name("author_ip");
+		$this->form("text")->name("author_ip");
 	}
 	public function comment_agent() 
 	{
-		$this->form()->name("agent");
+		$this->form("text")->name("agent");
 	}
 	public function comment_content() 
 	{
-		$this->form()->name("content");
+		$this->form("text")->name("content");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -67,7 +64,7 @@ class comments
 	}
 	public function comment_parent() 
 	{
-		$this->form()->name("parent");
+		$this->form("text")->name("parent");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -75,7 +72,6 @@ class comments
 	{
 		$this->form("#foreignkey")->name("user")->validate("id");
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>

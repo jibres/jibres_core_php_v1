@@ -9,7 +9,6 @@ class cost_categories
 	public $cc_father = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Father');
 	public $cc_row = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Row');
 	public $cc_type = array('type' => 'enum@income,outcome', 'null' =>'YES' ,'label' => 'Type');
-	public $date_created = array('type' => 'timestamp@!CURRENT_TIMESTAMP', 'null' =>'NO' ,'label' => 'Date Created');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -19,13 +18,14 @@ class cost_categories
 	//------------------------------------------------------------------ title
 	public function cc_title() 
 	{
-		$this->form("#title");
+		$this->form("text")->name("title");
 	}
 
 	//------------------------------------------------------------------ slug
 	public function cc_slug() 
 	{
-		$this->form("#slug");
+		$this->form("text")->name("slug")->validate()
+		->createslug(function()	{$this->value =\validator_lib::$save['form']['cc_title']->value;});
 	}
 
 	//------------------------------------------------------------------ description
@@ -35,11 +35,11 @@ class cost_categories
 	}
 	public function cc_father() 
 	{
-		$this->form()->name("father");
+		$this->form("text")->name("father");
 	}
 	public function cc_row() 
 	{
-		$this->form()->name("row");
+		$this->form("text")->name("row");
 	}
 
 	//------------------------------------------------------------------ select button
@@ -48,7 +48,6 @@ class cost_categories
 		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
-	public function date_created() {}
 	public function date_modified() {}
 }
 ?>
