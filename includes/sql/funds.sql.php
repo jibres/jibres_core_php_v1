@@ -5,8 +5,8 @@ class funds
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
 	public $fund_title = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Title');
 	public $fund_slug = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Slug');
-	public $location_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Location');
-	public $fund_initial_balance = array('type' => 'decimal@14,4', 'null' =>'YES' ,'label' => 'Initial Balance');
+	public $location_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Location', 'foreign' => 'locations@id!location_title');
+	public $fund_initialbalance = array('type' => 'decimal@14,4', 'null' =>'YES' ,'label' => 'Initialbalance');
 	public $fund_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
@@ -31,9 +31,9 @@ class funds
 	{
 		$this->form("#foreignkey")->name("location")->validate("id");
 	}
-	public function fund_initial_balance() 
+	public function fund_initialbalance() 
 	{
-		$this->form("text")->name("initial_balance");
+		$this->form("text")->name("initialbalance");
 	}
 
 	//------------------------------------------------------------------ description

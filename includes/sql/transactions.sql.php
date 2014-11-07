@@ -4,12 +4,12 @@ class transactions
 {
 	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
 	public $transaction_type = array('type' => 'enum@sale,purchase,customer_to_store,store_to_company,anbargardani,install,repair,chqeue_back_fail!sale', 'null' =>'YES' ,'label' => 'Type');
-	public $user_id_employee = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Id Employee');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_title');
 	public $user_id_customer = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Id Customer');
 	public $transaction_date = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Date');
 	public $transaction_sum = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Sum');
 	public $transaction_discount = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Discount');
-	public $transaction_initial_received = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Initial Received');
+	public $transaction_initialreceived = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Initialreceived');
 	public $transaction_received = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Received');
 	public $transaction_remained = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Remained');
 	public $transaction_pre = array('type' => 'enum@yes,no', 'null' =>'YES' ,'label' => 'Pre');
@@ -28,9 +28,11 @@ class transactions
 		$this->form("select")->name("type")->validate();
 		$this->setChild($this->form);
 	}
-	public function user_id_employee() 
+
+	//------------------------------------------------------------------ id - foreign key
+	public function user_id() 
 	{
-		$this->form("text")->name("id_employee");
+		$this->form("#foreignkey")->name("user")->validate("id");
 	}
 	public function user_id_customer() 
 	{
@@ -48,9 +50,9 @@ class transactions
 	{
 		$this->form("text")->name("discount");
 	}
-	public function transaction_initial_received() 
+	public function transaction_initialreceived() 
 	{
-		$this->form("text")->name("initial_received");
+		$this->form("text")->name("initialreceived");
 	}
 	public function transaction_received() 
 	{

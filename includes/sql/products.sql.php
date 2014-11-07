@@ -5,20 +5,20 @@ class products
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
 	public $product_title = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Title');
 	public $product_slug = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Slug');
-	public $pcat_id = array('type' => 'smallint@5!1', 'null' =>'NO' ,'label' => 'Pcat');
+	public $productcat_id = array('type' => 'smallint@5!1', 'null' =>'NO' ,'label' => 'Productcat', 'foreign' => 'productcats@id!productcat_title');
 	public $product_barcode = array('type' => 'varchar@20', 'null' =>'YES' ,'label' => 'Barcode');
 	public $product_barcode2 = array('type' => 'varchar@20', 'null' =>'YES' ,'label' => 'Barcode2');
-	public $product_buy_price = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Buy Price');
+	public $product_buyprice = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Buyprice');
 	public $product_price = array('type' => 'decimal@13,4', 'null' =>'NO' ,'label' => 'Price');
 	public $product_discount = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Discount');
 	public $product_vat = array('type' => 'decimal@6,4', 'null' =>'YES' ,'label' => 'Vat');
-	public $product_initial_balance = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Initial Balance');
-	public $product_min_inventory = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Min Inventory');
+	public $product_initialbalance = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Initialbalance');
+	public $product_mininventory = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Mininventory');
 	public $product_status = array('type' => 'enum@unset,available,soon,discontinued,unavailable!unset', 'null' =>'YES' ,'label' => 'Status');
 	public $product_sold = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Sold');
 	public $product_stock = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Stock');
 	public $product_carton = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Carton');
-	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment');
+	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment', 'foreign' => 'attachments@id!attachment_title');
 	public $product_service = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Service');
 	public $product_sellin = array('type' => 'enum@store,online,both!both', 'null' =>'NO' ,'label' => 'Sellin');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
@@ -40,9 +40,9 @@ class products
 	}
 
 	//------------------------------------------------------------------ id - foreign key
-	public function pcat_id() 
+	public function productcat_id() 
 	{
-		$this->form("#foreignkey")->name("pcat")->validate("id");
+		$this->form("#foreignkey")->name("productcat")->validate("id");
 	}
 	public function product_barcode() 
 	{
@@ -52,9 +52,9 @@ class products
 	{
 		$this->form("text")->name("barcode2");
 	}
-	public function product_buy_price() 
+	public function product_buyprice() 
 	{
-		$this->form("text")->name("buy_price");
+		$this->form("text")->name("buyprice");
 	}
 	public function product_price() 
 	{
@@ -68,13 +68,13 @@ class products
 	{
 		$this->form("text")->name("vat");
 	}
-	public function product_initial_balance() 
+	public function product_initialbalance() 
 	{
-		$this->form("text")->name("initial_balance");
+		$this->form("text")->name("initialbalance");
 	}
-	public function product_min_inventory() 
+	public function product_mininventory() 
 	{
-		$this->form("text")->name("min_inventory");
+		$this->form("text")->name("mininventory");
 	}
 
 	//------------------------------------------------------------------ select button

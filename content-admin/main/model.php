@@ -193,7 +193,7 @@ class main_model{
 		// if you want to create special function for each module, simply declare a function post_add() and use it!
 		// $this->redirect 	= false;
 		$sql	= $this->sql_query()->insert();
-		// var_dump($sql); exit();
+		var_dump($sql); exit();
 		
 
 		// ======================================================

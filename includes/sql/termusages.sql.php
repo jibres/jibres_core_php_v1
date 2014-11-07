@@ -1,10 +1,10 @@
 <?php
 namespace sql;
-class term_usages 
+class termusages 
 {
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $term_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Term');
-	public $post_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Post');
+	public $term_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Term', 'foreign' => 'terms@id!term_title');
+	public $post_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Post', 'foreign' => 'posts@id!post_title');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 

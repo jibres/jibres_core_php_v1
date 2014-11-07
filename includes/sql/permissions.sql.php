@@ -4,7 +4,7 @@ class permissions
 {
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
 	public $permission_name = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Name');
-	public $Permission_table = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Table');
+	public $Permission_module = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Module');
 	public $permission_view = array('type' => 'enum@yes,no!yes', 'null' =>'NO' ,'label' => 'View');
 	public $permission_add = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Add');
 	public $permission_edit = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Edit');
@@ -19,9 +19,9 @@ class permissions
 	{
 		$this->form("text")->name("name");
 	}
-	public function Permission_table() 
+	public function Permission_module() 
 	{
-		$this->form("text")->name("table");
+		$this->form("text")->name("module");
 	}
 
 	//------------------------------------------------------------------ radio button

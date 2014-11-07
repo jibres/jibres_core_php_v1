@@ -62,7 +62,7 @@ class main_controller
 				array(
 					"min" => 1,
 					"max" => 1,
-					"url" => array("/.*/", "edit" => "/^[A-z0-9-]+$/")
+					"url" => array("/.*/", "edit" => "/^[0-9]{1,10}+$/")
 					// "url" => array("/.*/", "edit" => "/^[a-z0-9-]+$/")
 					),
 				array()
@@ -71,7 +71,7 @@ class main_controller
 				array(
 					"min" => 1,
 					"max" => 1,
-					"url" => array("/.*/", "delete" => "/^[A-z0-9]+$/")
+					"url" => array("/.*/", "delete" => "/^[0-9]{1,10}+$/")
 					// "url" => array("/.*/", "delete" => "/^\d+$/")
 					),
 				array( 'mod' => 'delete')

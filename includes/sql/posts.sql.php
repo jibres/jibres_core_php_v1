@@ -5,13 +5,13 @@ class posts
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
 	public $post_language = array('type' => 'char@2', 'null' =>'YES' ,'label' => 'Language');
 	public $post_title = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Title');
-	public $post_slug_cat = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Slug Cat');
+	public $post_cat = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Cat');
 	public $post_slug = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Slug');
 	public $post_content = array('type' => 'text@', 'null' =>'YES' ,'label' => 'Content');
 	public $post_type = array('type' => 'enum@post,page!post', 'null' =>'NO' ,'label' => 'Type');
 	public $post_status = array('type' => 'enum@publish,draft,schedule,deleted!draft', 'null' =>'NO' ,'label' => 'Status');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User');
-	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_title');
+	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment', 'foreign' => 'attachments@id!attachment_title');
 	public $post_publishdate = array('type' => 'datetime@!CURRENT_TIMESTAMP', 'null' =>'YES' ,'label' => 'Publishdate');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
@@ -28,9 +28,9 @@ class posts
 	{
 		$this->form("text")->name("title");
 	}
-	public function post_slug_cat() 
+	public function post_cat() 
 	{
-		$this->form("text")->name("slug_cat");
+		$this->form("text")->name("cat");
 	}
 
 	//------------------------------------------------------------------ slug

@@ -1,9 +1,9 @@
 <?php
 namespace sql;
-class user_meta 
+class usermeta 
 {
 	public $id = array('type' => 'smallint@6', 'null' =>'NO' ,'label' => 'ID');
-	public $user_id = array('type' => 'smallint@6', 'null' =>'YES' ,'label' => 'User');
+	public $user_id = array('type' => 'smallint@6', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_title');
 	public $usermeta_cat = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Cat');
 	public $usermeta_name = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Name');
 	public $usermeta_value = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Value');

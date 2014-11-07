@@ -5,12 +5,12 @@ class receipts
 	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
 	public $receipt_code = array('type' => 'varchar@30', 'null' =>'YES' ,'label' => 'Code');
 	public $receipt_price = array('type' => 'decimal@13,4!0.0000', 'null' =>'NO' ,'label' => 'Price');
-	public $cheque_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Cheque');
-	public $receipt_cheque_date = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Cheque Date');
-	public $receipt_cheque_status = array('type' => 'enum@pass,back_recovery,back_fail,lost,block,delete,inprogress', 'null' =>'YES' ,'label' => 'Cheque Status');
+	public $cheque_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Cheque', 'foreign' => 'cheques@id!cheque_title');
+	public $receipt_chequedate = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Chequedate');
+	public $receipt_chequestatus = array('type' => 'enum@pass,back_recovery,back_fail,lost,block,delete,inprogress', 'null' =>'YES' ,'label' => 'Chequestatus');
 	public $receipt_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $transaction_id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'Transaction');
-	public $fund_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Fund');
+	public $transaction_id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'Transaction', 'foreign' => 'transactions@id!transaction_title');
+	public $fund_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Fund', 'foreign' => 'funds@id!fund_title');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -30,13 +30,13 @@ class receipts
 	{
 		$this->form("#foreignkey")->name("cheque")->validate("id");
 	}
-	public function receipt_cheque_date() 
+	public function receipt_chequedate() 
 	{
-		$this->form("text")->name("cheque_date");
+		$this->form("text")->name("chequedate");
 	}
-	public function receipt_cheque_status() 
+	public function receipt_chequestatus() 
 	{
-		$this->form("text")->name("cheque_status");
+		$this->form("text")->name("chequestatus");
 	}
 
 	//------------------------------------------------------------------ description

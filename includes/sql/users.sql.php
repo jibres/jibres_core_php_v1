@@ -26,12 +26,12 @@ class users
 	public $user_status = array('type' => 'enum@active,awaiting,deactive,removed!awaiting', 'null' =>'YES' ,'label' => 'Status');
 	public $user_degree = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Degree');
 	public $user_activity = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Activity');
-	public $user_total_income = array('type' => 'bigint@11', 'null' =>'YES' ,'label' => 'Total Income');
-	public $user_total_outcome = array('type' => 'bigint@11', 'null' =>'YES' ,'label' => 'Total Outcome');
+	public $user_incomes = array('type' => 'bigint@11', 'null' =>'YES' ,'label' => 'Incomes');
+	public $user_outcomes = array('type' => 'bigint@11', 'null' =>'YES' ,'label' => 'Outcomes');
 	public $user_credit = array('type' => 'enum@yes,no!no', 'null' =>'YES' ,'label' => 'Credit');
 	public $user_question = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Question');
 	public $user_answer = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Answer');
-	public $permission_name = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Name');
+	public $permission_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Permission', 'foreign' => 'permissions@id!permission_title');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -150,13 +150,13 @@ class users
 	{
 		$this->form("text")->name("activity");
 	}
-	public function user_total_income() 
+	public function user_incomes() 
 	{
-		$this->form("text")->name("total_income");
+		$this->form("text")->name("incomes");
 	}
-	public function user_total_outcome() 
+	public function user_outcomes() 
 	{
-		$this->form("text")->name("total_outcome");
+		$this->form("text")->name("outcomes");
 	}
 
 	//------------------------------------------------------------------ radio button
@@ -173,9 +173,11 @@ class users
 	{
 		$this->form("text")->name("answer");
 	}
-	public function permission_name() 
+
+	//------------------------------------------------------------------ id - foreign key
+	public function permission_id() 
 	{
-		$this->form("text")->name("name");
+		$this->form("#foreignkey")->name("permission")->validate("id");
 	}
 	public function date_modified() {}
 }

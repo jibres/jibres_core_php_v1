@@ -5,8 +5,8 @@ class costs
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
 	public $cost_title = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Title');
 	public $cost_price = array('type' => 'decimal@13,4', 'null' =>'NO' ,'label' => 'Price');
-	public $cc_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Cc');
-	public $account_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Account');
+	public $costcat_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Costcat', 'foreign' => 'costcats@id!costcat_title');
+	public $account_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Account', 'foreign' => 'accounts@id!account_title');
 	public $cost_date = array('type' => 'datetime@', 'null' =>'NO' ,'label' => 'Date');
 	public $cost_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
 	public $cost_type = array('type' => 'enum@income,outcome!outcome', 'null' =>'NO' ,'label' => 'Type');
@@ -27,9 +27,9 @@ class costs
 	}
 
 	//------------------------------------------------------------------ id - foreign key
-	public function cc_id() 
+	public function costcat_id() 
 	{
-		$this->form("#foreignkey")->name("cc")->validate("id");
+		$this->form("#foreignkey")->name("costcat")->validate("id");
 	}
 
 	//------------------------------------------------------------------ id - foreign key

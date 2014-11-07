@@ -8,12 +8,14 @@ CAUTIONS :YOU DON'T NEED TO RUN THIS FILE!
 **/
 $connect = mysqli_connect("localhost", "jibres", "Jibres@#$567", "jibres");
 $qTables = $connect->query("SHOW TABLES FROM jibres");
-function _type($type, $def){
+function _type($type, $def)
+{
 	$def = $def ? "!$def" : null;
 	preg_match("/^([^(]*)(\((.*)\))?/", $type, $tp);
 		$_type = $tp[1];
 		$_length = isset($tp[3]) ? $tp[3] : null;
-		switch ($_type) {
+		switch ($_type) 
+		{
 			case 'enum':
 			$_length = preg_replace("[']", "", $_length);
 			return ("'type' => '$_type@$_length{$def}'");
@@ -23,8 +25,9 @@ function _type($type, $def){
 			return ("'type' => '$_type@$_length{$def}'");
 			break;
 		}
-	}
-	while ($row = $qTables->fetch_object()) {
+}
+	while ($row = $qTables->fetch_object()) 
+	{
 		$content	= "<?php\n";
 		$content	.= "namespace sql;\n";
 		$TABLENAME	= $row->Tables_in_jibres;
@@ -32,7 +35,8 @@ function _type($type, $def){
 		$qCOL		= $connect->query("DESCRIBE $TABLENAME");
 		$fn			="\n";
 
-		while ($crow = $qCOL->fetch_object()) {
+		while ($crow = $qCOL->fetch_object()) 
+		{
 			// var_dump($crow);
 
 			// ========================================================================================== Edit by Javad
@@ -44,6 +48,7 @@ function _type($type, $def){
 			$mynull			= $crow->Null;
 			$tmp_pos 		= strpos($myfield, '_');
 			$prefix			= substr($myfield, 0, $tmp_pos );
+			$isforeign		= false;
 			$myname			= substr($myfield, ($tmp_pos ? $tmp_pos+1 : 0) );
 			
 			$myname 		= strtolower($myname);
@@ -73,8 +78,9 @@ function _type($type, $def){
 				// $fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 
 				// $mylabel = str_replace("_", " ", $myfield);
-				$mylabel = ucwords(strtolower($prefix));
-				$mylabel = $mylabel;
+				$isforeign	= true;
+				$mylabel	= ucwords(strtolower($prefix));
+				$mylabel	= $mylabel;
 				
 			}
 
@@ -176,9 +182,16 @@ function _type($type, $def){
 
 			// ========================================================================================== Edit by Javad
 
-		// $content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'label' => '$mylabel');\n";
-		$content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel');\n";
+			// $content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'label' => '$mylabel');\n";
+			// 'foreign' => 'table@id!value'
+			$fields	= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel');\n";
+			if($isforeign)
+			{
+				$table 	= $prefix.'s';
+				$fields = "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel', 'foreign' => '$table@id!".$prefix."_title');\n";
+			}
 
+			$content .= $fields;
 		}
 		$content .= $fn;
 		$content .= "}\n";

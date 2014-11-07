@@ -1,9 +1,9 @@
 <?php
 namespace sql;
-class post_meta 
+class postmetas 
 {
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $post_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Post');
+	public $post_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Post', 'foreign' => 'posts@id!post_title');
 	public $postmeta_name = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Name');
 	public $postmeta_value = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Value');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');

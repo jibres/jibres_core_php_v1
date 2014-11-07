@@ -4,7 +4,7 @@ class notifications
 {
 	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
 	public $user_id_sender = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Id Sender');
-	public $user_id_reciever = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Id Reciever');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_title');
 	public $notification_title = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Title');
 	public $notification_content = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Content');
 	public $notification_url = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Url');
@@ -18,9 +18,11 @@ class notifications
 	{
 		$this->form("text")->name("id_sender");
 	}
-	public function user_id_reciever() 
+
+	//------------------------------------------------------------------ id - foreign key
+	public function user_id() 
 	{
-		$this->form("text")->name("id_reciever");
+		$this->form("#foreignkey")->name("user")->validate("id");
 	}
 
 	//------------------------------------------------------------------ title

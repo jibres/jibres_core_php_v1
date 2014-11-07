@@ -10,7 +10,7 @@ class attachments
 	public $attachment_type = array('type' => 'varchar@10', 'null' =>'NO' ,'label' => 'Type');
 	public $attachment_size = array('type' => 'float@12,0', 'null' =>'NO' ,'label' => 'Size');
 	public $attachment_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_title');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
