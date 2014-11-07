@@ -182,6 +182,10 @@ class validateExtends_cls{
 		return true;
 	}
 
+	public function desc() {
+		return true;
+	}
+
 	public function title() {
 		// $this->SetOnError('test for title');
 		return true;
