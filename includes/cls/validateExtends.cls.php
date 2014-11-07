@@ -185,6 +185,9 @@ class validateExtends_cls{
 	public function desc() {
 		return true;
 	}
+	public function foreignkey() {
+		return true;
+	}
 
 	public function title() {
 		// $this->SetOnError('test for title');

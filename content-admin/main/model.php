@@ -171,17 +171,23 @@ class main_model{
 					$tmp_col			= $tmp_columns[$key];
 					$tmp_setfield		= 'set'.ucfirst($key) ;
 					$tmp_value			= post::$tmp_col();
-					$tmp_qry			= $tmp_qry->$tmp_setfield($tmp_value);
+					if(!empty($tmp_value))
+						$tmp_qry	= $tmp_qry->$tmp_setfield($tmp_value);
 
 					if ($tmp_value)
 						$isnull = false;
 				}
 			}
+			if($isnull)
+			{
+				debug_lib::$status=0;
+				debug_lib::msg("All of records are null");
+			}
 		}
-		if($isnull)
+		else
 		{
 			debug_lib::$status=0;
-			debug_lib::msg("All of records are null");
+			debug_lib::msg("At least one record must be exist. This methode must be replace with read from table classes");
 		}
 
 		// var_dump($tmp_qry);
@@ -193,7 +199,7 @@ class main_model{
 		// if you want to create special function for each module, simply declare a function post_add() and use it!
 		// $this->redirect 	= false;
 		$sql	= $this->sql_query()->insert();
-		var_dump($sql); exit();
+		// var_dump($sql); exit();
 		
 
 		// ======================================================
@@ -217,28 +223,11 @@ class main_model{
 	{
 		// if you want to create special function for each module, simply declare a function post_edit() and use it!
 		// $this->redirect 	= false;
-		$tmp_slug_new			= post::slug();
-		if (isset($tmp_slug_new) && !empty($tmp_slug_new) )
-		{
-			// if new slug is has a correct syntax and not empty run query
-			$tmp_qry_id			= $this->url_parameter();
-			
-			// $tmp_table_prefix	= $this->url_table_prefix();
-			// $tmp_qry_where		= 'where'.ucfirst($tmp_table_prefix).'_slug';
-			$tmp_qry_where		= 'whereId';
-			$sql				= $this->sql_query()->$tmp_qry_where($tmp_qry_id)->update();
-			// if ($tmp_qry_id !== $tmp_slug_new)
-			// {
-			// 	// if slug is changed, then change the url to new slug
-			// 	$this->redirect->urlChange("edit", $tmp_slug_new);
-			// }
-		}
-		else
-		{
-			// if new slug has a incorrect syntax show error message
-			debug_lib::fatal(_("Please input correct slug"));
-			return 0;
-		}
+
+		$tmp_qry_where		= 'whereId';
+		$tmp_qry_id			= $this->url_parameter();
+		$sql				= $this->sql_query()->$tmp_qry_where($tmp_qry_id)->update();
+		// var_dump($sql); exit();
 
 
 		// ======================================================
