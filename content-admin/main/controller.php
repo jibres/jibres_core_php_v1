@@ -35,7 +35,7 @@ class main_controller
 		$this->addMethod('url_class');
 		$this->addMethod('url_parameter');
 		$this->addMethod('url_title');
-		$this->addMethod('slugify');
+		// $this->addMethod('slugify');
 
 		$this->addPeroperty('edit_datarow');
 

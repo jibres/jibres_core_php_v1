@@ -24,8 +24,7 @@ class product_categories
 	//------------------------------------------------------------------ slug
 	public function pcat_slug() 
 	{
-		$this->form("text")->name("slug")->validate()
-		->createslug(function()	{$this->value =\validator_lib::$save['form']['pcat_title']->value;});
+		$this->form("text")->name("slug")->validate()->slugify("pcat_title");
 	}
 
 	//------------------------------------------------------------------ description

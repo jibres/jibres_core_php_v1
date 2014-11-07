@@ -22,8 +22,7 @@ class addons
 	//------------------------------------------------------------------ slug
 	public function addon_slug() 
 	{
-		$this->form("text")->name("slug")->validate()
-		->createslug(function()	{$this->value =\validator_lib::$save['form']['addon_title']->value;});
+		$this->form("text")->name("slug")->validate()->slugify("addon_title");
 	}
 
 	//------------------------------------------------------------------ description

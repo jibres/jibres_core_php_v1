@@ -201,6 +201,37 @@ class validateExtends_cls{
 		return true;
 	}
 
+	public function slugify($field = null)
+	{
+		// replace non letter or digits by -
+		$text = $this->value;
+
+		$text = preg_replace('/[^\00-\255]+/u', '', $text);
+		$text = trim($text);
+		$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+
+		// trim
+		$text = trim($text, '-');
+		// transliterate
+		$text = iconv('utf-8', mb_detect_encoding($text), $text);
+		// lowercase
+		$text = strtolower($text);
+		// remove unwanted characters
+		$text = preg_replace('~[^-\w]+~', '', $text);
+		if (empty($text))
+		{
+			if(isset($field) && isset(validator_lib::$save["form"][$field]->value))
+			{
+				$this->value = 's-'.validator_lib::$save["form"][$field ]->value;
+				return true;
+			}
+			$this->value = null;
+			return false;
+		}
+		$this->value = $text;
+		return true;
+	}
+
 
 }
 ?>

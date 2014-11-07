@@ -70,6 +70,40 @@ class main_model{
 	/**
 	 @Javad: check if new slug is not exist in table
 	**/
+	public function sql_datarowbyid($mytable=null, $myid=null)
+	{
+		// this function get table name and slug then related record of it. table name and slug can set
+		// but if user don't pass table name or slug,
+		// function use current real method name get from url for table name and current parameter for slug
+		if (!$mytable)
+			$mytable = $this->url_method_real();
+
+		// if myid parameter set use it else use url parameter for myid
+		if (!$myid)
+			$myid = $this->url_parameter();
+		
+		$mytable		= ucfirst($mytable);
+		$tmp_qry_where	= 'whereId';
+		$mytable		= 'table'.$mytable;
+
+
+		$tmp_result = $this->sql()->$mytable()->$tmp_qry_where($myid)->select();
+		
+		if ($tmp_result->num() == 1)
+		{
+			return $tmp_result->assoc();
+		}
+		elseif($tmp_result->num() > 1)
+		{
+			page_lib::access("id is found 2 or more times. it's imposible!");
+		}
+		else
+		{
+			page_lib::access("Url incorrect: id not found");
+		}
+		return 0;
+	}
+
 	public function sql_datarowbyslug($mytable=null, $myslug=null)
 	{
 		// this function get table name and slug then related record of it. table name and slug can set
@@ -99,7 +133,7 @@ class main_model{
 		}
 		else
 		{
-			page_lib::access("Url incorrect: Slug not found");
+			page_lib::access("Url incorrect: slug not found");
 		}
 		return 0;
 	}
@@ -159,7 +193,8 @@ class main_model{
 		// if you want to create special function for each module, simply declare a function post_add() and use it!
 		// $this->redirect 	= false;
 		$sql	= $this->sql_query()->insert();
-		 // var_dump($sql);
+		// var_dump($sql); exit();
+		
 
 		// ======================================================
 		// you can manage next event with one of these variables,
@@ -186,16 +221,17 @@ class main_model{
 		if (isset($tmp_slug_new) && !empty($tmp_slug_new) )
 		{
 			// if new slug is has a correct syntax and not empty run query
-			$tmp_qry_slug		= $this->url_parameter();
+			$tmp_qry_id			= $this->url_parameter();
 			
-			$tmp_table_prefix	= $this->url_table_prefix();
-			$tmp_qry_where		= 'where'.ucfirst($tmp_table_prefix).'_slug';
-			$sql				= $this->sql_query()->$tmp_qry_where($tmp_qry_slug)->update();
-			if ($tmp_qry_slug !== $tmp_slug_new)
-			{
-				// if slug is changed, then change the url to new slug
-				$this->redirect->urlChange("edit", $tmp_slug_new);
-			}
+			// $tmp_table_prefix	= $this->url_table_prefix();
+			// $tmp_qry_where		= 'where'.ucfirst($tmp_table_prefix).'_slug';
+			$tmp_qry_where		= 'whereId';
+			$sql				= $this->sql_query()->$tmp_qry_where($tmp_qry_id)->update();
+			// if ($tmp_qry_id !== $tmp_slug_new)
+			// {
+			// 	// if slug is changed, then change the url to new slug
+			// 	$this->redirect->urlChange("edit", $tmp_slug_new);
+			// }
 		}
 		else
 		{
@@ -233,8 +269,10 @@ class main_model{
 		$tmp_module			= $this->url_method_real();
 		$tmp_qry_table		= 'table'.ucfirst($tmp_module);
 		$tmp_qry_slug		= $this->url_parameter();
-		$tmp_table_prefix	= $this->url_table_prefix();
-		$tmp_qry_where		= 'where'.ucfirst($tmp_table_prefix).'_slug';
+		// two below line delete with slug
+		// $tmp_table_prefix	= $this->url_table_prefix();
+		// $tmp_qry_where		= 'where'.ucfirst($tmp_table_prefix).'_slug';
+		$tmp_qry_where		= 'whereId';
 
 		$sql				= $this->sql()->$tmp_qry_table()->$tmp_qry_where($tmp_qry_slug)->delete();
 

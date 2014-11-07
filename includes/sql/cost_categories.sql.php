@@ -24,8 +24,7 @@ class cost_categories
 	//------------------------------------------------------------------ slug
 	public function cc_slug() 
 	{
-		$this->form("text")->name("slug")->validate()
-		->createslug(function()	{$this->value =\validator_lib::$save['form']['cc_title']->value;});
+		$this->form("text")->name("slug")->validate()->slugify("cc_title");
 	}
 
 	//------------------------------------------------------------------ description

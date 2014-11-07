@@ -86,10 +86,10 @@
   								{%endfor%}
   			     <td>
   			      <span class="hint--top hint--info" data-hint="Edit">
-  			       <a class="action-icons edit hint--top" href="admin/{{module}}/edit={{attribute(d, table_prefix ~ '_slug')}}">Edit</a>
+  			       <a class="action-icons edit hint--top" href="admin/{{module}}/edit={{d.id}}">Edit</a>
   			      </span>
   			      <span class="hint--top hint--error" data-hint="Delete">
-  			       <a class="action-icons delete hide-text" href="admin/{{module}}/delete={{attribute(d, table_prefix ~ '_slug')}}">Delete</a>
+  			       <a class="action-icons delete hide-text" href="admin/{{module}}/delete={{d.id}}">Delete</a>
   			      </span>
   			     </td>
   		     </tr>

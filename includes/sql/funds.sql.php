@@ -23,8 +23,7 @@ class funds
 	//------------------------------------------------------------------ slug
 	public function fund_slug() 
 	{
-		$this->form("text")->name("slug")->validate()
-		->createslug(function()	{$this->value =\validator_lib::$save['form']['fund_title']->value;});
+		$this->form("text")->name("slug")->validate()->slugify("fund_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key

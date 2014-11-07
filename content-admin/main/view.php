@@ -79,7 +79,7 @@ class main_view
 				
 				if($this->url_child_real()==='edit')
 				{
-					$tmp_result = $this->sql("#datarowbyslug");
+					$tmp_result = $this->sql("#datarowbyid");
 					$this->fill_for_edit($tmp_result, $myForm);
 				}
 			}
@@ -100,7 +100,7 @@ class main_view
 
 					foreach ($fields as $key)
 					{
-						if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
+						if ($key!=='id' and $key!=='date_modified')
 						{
 							$this->data->columns[$key] = ucfirst(substr($key,strrpos($key,'_')+1));
 							if ($this->data->columns[$key]==='Id')

@@ -88,8 +88,10 @@ function _type($type, $def){
 			{
 				$fn .= $txtcomment. "slug\n";
 				// $fn .= $txtstart. '$this->form("#slug");';
-				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")->validate()';
-				$fn .= "\n\t\t->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value;});";
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")->validate()->slugify("'.$prefix.'_title");';
+				
+				// $fn .= $txtstart. '$this->form("text")->name("'. $myname.'")->validate()';
+				// $fn .= "\n\t\t->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value;});";
 				$fn .= $txtend;
 
 				// $this->validate()->xsslug(function()
