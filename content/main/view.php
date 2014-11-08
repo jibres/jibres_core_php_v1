@@ -57,9 +57,15 @@ class main_view{
 		array_push($this->formIndex, $form);
 		if(preg_match("/^@(.*)$/", $type, $name)){
 			$this->form->{$name[1]} = $form;
+		}elseif(preg_match("/^.(.*)$/", $type, $name)){
+			if(!isset($this->customforms)){
+				$this->customforms = new customforms_cls;
+				$this->form->{$name[1]} = $form = $this->customforms->{$name[1]}();
+			}
 		}
 		return $form;
 	}
+
 
 	public final function compile(){
 		if(isset($this->data->form)){

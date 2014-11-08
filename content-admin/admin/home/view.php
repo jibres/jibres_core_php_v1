@@ -18,6 +18,8 @@ class view extends main_view
 				$tmp_array[].= $b;
 		}
 		$this->data->tmp	= $tmp_array;
+         // $this->createform(".login");
+         // $this->data->module = "login";
 		
 
 	}

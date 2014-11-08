@@ -5,6 +5,7 @@ class main_model{
 	public $rollback = array();
 	public $endProcess = false;
 	public final function __construct($controller, $local = false){
+		// var_dump($this->sqlcustom_datatable2('users'));
 		$this->controller = $controller;
 		$sQl = new dbconnection_lib;
 		$sQl->query("START TRANSACTION");
@@ -67,6 +68,17 @@ class main_model{
 		return $this->sql()->$tmp_qry_table()->select()->allassoc();
 	}
 
+	public function sqlcustom_datatable2($mytable=null)
+	{
+		// this function get table name and return all record of it. table name can set in view
+		// if user don't pass table name function use current real method name get from url
+		if ($mytable)
+			$tmp_qry_table = 'table'.ucfirst($mytable);
+		else
+			$tmp_qry_table = 'table'.ucfirst($this->url_method_real());
+
+		return $this->sql()->$tmp_qry_table()->select()->allassoc();
+	}
 	/**
 	 @Javad: check if new slug is not exist in table
 	**/

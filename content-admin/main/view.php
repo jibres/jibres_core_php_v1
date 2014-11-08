@@ -14,7 +14,6 @@ class main_view
 		$this->include			= $this->data->include;
 
 		// *********************************************************************** Site Global Variables
-		
 		$this->url->domain					= DOMAIN;
 		$this->url->path					= PATH;
 		$host_names 						= explode(".", DOMAIN);
@@ -127,9 +126,9 @@ class main_view
 			if(isset($datarow[$key]))
 			{
 				$oForm = $form->$key;
-				if($oForm->attr['type'] == "radio" || $oForm->attr['type'] == "select" || $oForm->attr['type'] == "checkbox") 
+				if($oForm->attr['type'] == "radio" || $oForm->attr['type'] == "select" || $oForm->attr['type'] == "checkbox")
 				{
-					foreach ($oForm->child as $k => $v) 
+					foreach ($oForm->child as $k => $v)
 					{
 						if($v->attr["value"] == $datarow[$key])
 						{
@@ -163,7 +162,15 @@ class main_view
 		if(preg_match("/^@(.*)$/", $type, $name)){
 			$this->form->{$name[1]} = $form;
 			$form->hidden->value(preg_replace("/_[^_]*$/", "", $form->hidden->attr['value']));
+
+		//************************************************************************************************
+		}elseif(preg_match("/^.(.*)$/", $type, $name)){
+			if(!isset($this->customforms)){
+				$this->customforms = new customforms_cls;
+				$this->form->{$name[1]} = $form = $this->customforms->{$name[1]}();
+			}
 		}
+		//************************************************************************************************
 		return $form;
 	}
 
