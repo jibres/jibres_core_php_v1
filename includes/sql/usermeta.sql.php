@@ -3,7 +3,7 @@ namespace sql;
 class usermeta 
 {
 	public $id = array('type' => 'smallint@6', 'null' =>'NO' ,'label' => 'ID');
-	public $user_id = array('type' => 'smallint@6', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_title');
+	public $user_id = array('type' => 'smallint@6', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $usermeta_cat = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Cat');
 	public $usermeta_name = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Name');
 	public $usermeta_value = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Value');
@@ -16,7 +16,8 @@ class usermeta
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("#foreignkey")->name("user")->validate("id");
+		$this->form("select")->name("userid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function usermeta_cat() 
 	{

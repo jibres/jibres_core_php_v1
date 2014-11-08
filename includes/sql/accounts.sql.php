@@ -11,7 +11,7 @@ class accounts
 	public $account_card = array('type' => 'varchar@30', 'null' =>'YES' ,'label' => 'Card');
 	public $account_primarybalance = array('type' => 'decimal@14,4!0.0000', 'null' =>'NO' ,'label' => 'Primarybalance');
 	public $account_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_title');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -33,7 +33,8 @@ class accounts
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form("#foreignkey")->name("bank")->validate("id");
+		$this->form("select")->name("bankid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function account_branch() 
 	{
@@ -61,7 +62,8 @@ class accounts
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("#foreignkey")->name("user")->validate("id");
+		$this->form("select")->name("userid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_modified() {}
 }

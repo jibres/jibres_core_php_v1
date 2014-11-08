@@ -10,7 +10,7 @@ class posts
 	public $post_content = array('type' => 'text@', 'null' =>'YES' ,'label' => 'Content');
 	public $post_type = array('type' => 'enum@post,page!post', 'null' =>'NO' ,'label' => 'Type');
 	public $post_status = array('type' => 'enum@publish,draft,schedule,deleted!draft', 'null' =>'NO' ,'label' => 'Status');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_title');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment', 'foreign' => 'attachments@id!attachment_title');
 	public $post_publishdate = array('type' => 'datetime@!CURRENT_TIMESTAMP', 'null' =>'YES' ,'label' => 'Publishdate');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
@@ -60,13 +60,15 @@ class posts
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("#foreignkey")->name("user")->validate("id");
+		$this->form("select")->name("userid")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("#foreignkey")->name("attachment")->validate("id");
+		$this->form("select")->name("attachmentid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function post_publishdate() 
 	{

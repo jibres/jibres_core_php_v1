@@ -21,13 +21,15 @@ class productprices
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("#foreignkey")->name("product")->validate("id");
+		$this->form("select")->name("productid")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function productmeta_id() 
 	{
-		$this->form("#foreignkey")->name("productmeta")->validate("id");
+		$this->form("select")->name("productmetaid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function productprice_cat() 
 	{

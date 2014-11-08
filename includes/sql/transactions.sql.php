@@ -4,7 +4,7 @@ class transactions
 {
 	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
 	public $transaction_type = array('type' => 'enum@sale,purchase,customer_to_store,store_to_company,anbargardani,install,repair,chqeue_back_fail!sale', 'null' =>'YES' ,'label' => 'Type');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_title');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $user_id_customer = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Id Customer');
 	public $transaction_date = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Date');
 	public $transaction_sum = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Sum');
@@ -32,7 +32,8 @@ class transactions
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("#foreignkey")->name("user")->validate("id");
+		$this->form("select")->name("userid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function user_id_customer() 
 	{

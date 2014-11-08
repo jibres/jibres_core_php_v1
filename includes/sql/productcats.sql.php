@@ -8,7 +8,7 @@ class productcats
 	public $productcat_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
 	public $productcat_father = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Father');
 	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment', 'foreign' => 'attachments@id!attachment_title');
-	public $productcat_row = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Row');
+	public $productcat_row = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Row');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -40,7 +40,8 @@ class productcats
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("#foreignkey")->name("attachment")->validate("id");
+		$this->form("select")->name("attachmentid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function productcat_row() 
 	{

@@ -14,13 +14,15 @@ class termusages
 	//------------------------------------------------------------------ id - foreign key
 	public function term_id() 
 	{
-		$this->form("#foreignkey")->name("term")->validate("id");
+		$this->form("select")->name("termid")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->form("#foreignkey")->name("post")->validate("id");
+		$this->form("select")->name("postid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_modified() {}
 }

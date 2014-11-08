@@ -29,13 +29,15 @@ class costs
 	//------------------------------------------------------------------ id - foreign key
 	public function costcat_id() 
 	{
-		$this->form("#foreignkey")->name("costcat")->validate("id");
+		$this->form("select")->name("costcatid")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function account_id() 
 	{
-		$this->form("#foreignkey")->name("account")->validate("id");
+		$this->form("select")->name("accountid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function cost_date() 
 	{

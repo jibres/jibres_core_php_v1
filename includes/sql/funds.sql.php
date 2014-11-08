@@ -29,7 +29,8 @@ class funds
 	//------------------------------------------------------------------ id - foreign key
 	public function location_id() 
 	{
-		$this->form("#foreignkey")->name("location")->validate("id");
+		$this->form("select")->name("locationid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function fund_initialbalance() 
 	{

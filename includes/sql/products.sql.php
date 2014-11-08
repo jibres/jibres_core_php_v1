@@ -42,7 +42,8 @@ class products
 	//------------------------------------------------------------------ id - foreign key
 	public function productcat_id() 
 	{
-		$this->form("#foreignkey")->name("productcat")->validate("id");
+		$this->form("select")->name("productcatid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function product_barcode() 
 	{
@@ -99,7 +100,8 @@ class products
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("#foreignkey")->name("attachment")->validate("id");
+		$this->form("select")->name("attachmentid")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button

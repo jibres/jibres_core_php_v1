@@ -3,7 +3,7 @@ namespace sql;
 class permissions 
 {
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $permission_name = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Name');
+	public $permission_title = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Title');
 	public $Permission_module = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Module');
 	public $permission_view = array('type' => 'enum@yes,no!yes', 'null' =>'NO' ,'label' => 'View');
 	public $permission_add = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Add');
@@ -15,9 +15,11 @@ class permissions
 
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate("id");}
-	public function permission_name() 
+
+	//------------------------------------------------------------------ title
+	public function permission_title() 
 	{
-		$this->form("text")->name("name");
+		$this->form("text")->name("title");
 	}
 	public function Permission_module() 
 	{

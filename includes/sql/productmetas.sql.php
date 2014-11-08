@@ -16,7 +16,8 @@ class productmetas
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("#foreignkey")->name("product")->validate("id");
+		$this->form("select")->name("productid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function productmeta_cat() 
 	{

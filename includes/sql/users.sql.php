@@ -177,7 +177,8 @@ class users
 	//------------------------------------------------------------------ id - foreign key
 	public function permission_id() 
 	{
-		$this->form("#foreignkey")->name("permission")->validate("id");
+		$this->form("select")->name("permissionid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_modified() {}
 }

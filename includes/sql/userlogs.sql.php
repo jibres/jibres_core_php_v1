@@ -7,7 +7,7 @@ class userlogs
 	public $userlog_desc = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Description');
 	public $userlog_priority = array('type' => 'enum@high,medium,low!medium', 'null' =>'NO' ,'label' => 'Priority');
 	public $userlog_type = array('type' => 'enum@forget_password', 'null' =>'YES' ,'label' => 'Type');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_title');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -43,7 +43,8 @@ class userlogs
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("#foreignkey")->name("user")->validate("id");
+		$this->form("select")->name("userid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_modified() {}
 }

@@ -11,7 +11,7 @@ class comments
 	public $comment_content = array('type' => 'varchar@999', 'null' =>'NO' ,'label' => 'Content');
 	public $comment_status = array('type' => 'enum@approved,unapproved,spam,deleted!unapproved', 'null' =>'NO' ,'label' => 'Status');
 	public $comment_parent = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Parent');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_title');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $Visitor_id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'Visitor', 'foreign' => 'Visitors@id!Visitor_title');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
@@ -22,13 +22,15 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->form("#foreignkey")->name("post")->validate("id");
+		$this->form("select")->name("postid")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("#foreignkey")->name("product")->validate("id");
+		$this->form("select")->name("productid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function comment_author() 
 	{
@@ -63,13 +65,15 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("#foreignkey")->name("user")->validate("id");
+		$this->form("select")->name("userid")->validate("id");
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function Visitor_id() 
 	{
-		$this->form("#foreignkey")->name("Visitor")->validate("id");
+		$this->form("select")->name("Visitorid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_modified() {}
 }

@@ -74,7 +74,7 @@ function _type($type, $def)
 				// for foreign key we use prefix that means we use (table name-last char)
 				$fn .= $txtcomment. "id - foreign key\n";
 				// $fn .= $txtstart. '$this->form("#foreignkey")->name("'. $prefix.'")->validate("id");' .$txtend;
-				$fn .= $txtstart. '$this->form("select")->name("'. $myname.'")->validate("id");';
+				$fn .= $txtstart. '$this->form("select")->name("'. $prefix.$myname.'")->validate("id");';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 
 				// $mylabel = str_replace("_", " ", $myfield);
@@ -134,6 +134,10 @@ function _type($type, $def)
 				$mylabel = ucwords(strtolower($mylabel));
 				$mylabel = $mylabel;
 			}
+			elseif($crow->Field=="attachment_type")
+			{
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'");'.$txtend;
+			}
 
 			// --------------------------------------------------------------------------------- radio
 			elseif ($myname=="active" 		|| $myname=="view" 
@@ -189,6 +193,10 @@ function _type($type, $def)
 			{
 				$table 	= $prefix.'s';
 				$fields = "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel', 'foreign' => '$table@id!".$prefix."_title');\n";
+				if($table=="users")
+				{
+					$fields = "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel', 'foreign' => '$table@id!".$prefix."_nickname');\n";
+				}
 			}
 
 			$content .= $fields;

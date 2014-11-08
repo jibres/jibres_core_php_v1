@@ -10,7 +10,7 @@ class attachments
 	public $attachment_type = array('type' => 'varchar@10', 'null' =>'NO' ,'label' => 'Type');
 	public $attachment_size = array('type' => 'float@12,0', 'null' =>'NO' ,'label' => 'Size');
 	public $attachment_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_title');
+	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -37,12 +37,9 @@ class attachments
 	{
 		$this->form("text")->name("name");
 	}
-
-	//------------------------------------------------------------------ select button
 	public function attachment_type() 
 	{
-		$this->form("select")->name("type")->validate();
-		$this->setChild($this->form);
+		$this->form("text")->name("type");
 	}
 	public function attachment_size() 
 	{
@@ -58,7 +55,8 @@ class attachments
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("#foreignkey")->name("user")->validate("id");
+		$this->form("select")->name("userid")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_modified() {}
 }
