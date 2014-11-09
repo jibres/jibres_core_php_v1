@@ -2,7 +2,7 @@
 
 // ------------------------------------------------------- Define SERVERNAME(url) as DOMAIN 
 define("DOMAIN"			, $_SERVER["SERVER_NAME"]);
-
+var_dump(__DIR__);
 // ------------------------------------------------------- SALOOS location
 define("core"			, preg_replace("[\\\\]", "/", realpath(__DIR__."/../../saloos/").'/') );
 
