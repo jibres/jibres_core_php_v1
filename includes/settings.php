@@ -2,7 +2,7 @@
 
 // ------------------------------------------------------- Define SERVERNAME(url) as DOMAIN 
 define("DOMAIN"			, $_SERVER["SERVER_NAME"]);
-var_dump(__DIR__);
+
 // ------------------------------------------------------- SALOOS location
 define("core"			, preg_replace("[\\\\]", "/", realpath(__DIR__."/../../saloos/").'/') );
 
@@ -101,7 +101,6 @@ Unil this line
 
 
 // if Saloos exist, require it else show related error message
-var_dump(core);
 if ( file_exists( core . 'autoload.php') )
 	require_once( core . 'autoload.php');
 else
