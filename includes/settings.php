@@ -5,13 +5,13 @@ define("DOMAIN"			, $_SERVER["SERVER_NAME"]);
 
 // ------------------------------------------------------- SALOOS location
 define("core"			, preg_replace("[\\\\]", "/", realpath(__DIR__."/../../saloos/").'/') );
-
+var_dump(core);
 // ------------------------------------------------------- root location
 define("root_dir"		, preg_replace("[\\\\]", "/", realpath(__DIR__."/../").'/') );
 
 // ------------------------------------------------------- root include folder
 define("includes_dir"	, preg_replace("[\\\\]", "/", realpath(__DIR__."/../includes").'/') );
-
+var_dump(includes_dir);
 // ------------------------------------------------------- define classes location
 define("cls"			, includes_dir."cls/");
 
