@@ -19,11 +19,11 @@ Options -Indexes
 </IfModule>
 AddDefaultCharset "Content-Type: text/html; charset=UTF-8"
 
-<FilesMatch "index\.php$">
-	Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
-	Header set Pragma "no-cache"
-	Header unset Last-Modified
-</FilesMatch>
+#<FilesMatch "index\.php$">
+#	Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+#	Header set Pragma "no-cache"
+#	Header unset Last-Modified
+#</FilesMatch>
 
 # -----------------------------------------------------
 #RewriteCond         %{REQUEST_FILENAME} (config\.php)
