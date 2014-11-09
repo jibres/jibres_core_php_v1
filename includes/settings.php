@@ -101,6 +101,7 @@ Unil this line
 
 
 // if Saloos exist, require it else show related error message
+var_dump(core);
 if ( file_exists( core . 'autoload.php') )
 	require_once( core . 'autoload.php');
 else
