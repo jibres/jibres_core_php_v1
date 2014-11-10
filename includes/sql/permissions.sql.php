@@ -54,10 +54,10 @@ class permissions
 		$this->setChild($this->form);
 	}
 
-	//------------------------------------------------------------------ select button
+	//------------------------------------------------------------------ radio button
 	public function permission_status() 
 	{
-		$this->form("select")->name("status")->validate();
+		$this->form("radio")->name("status");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

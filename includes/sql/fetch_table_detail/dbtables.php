@@ -74,7 +74,7 @@ function _type($type, $def)
 				// for foreign key we use prefix that means we use (table name-last char)
 				$fn .= $txtcomment. "id - foreign key\n";
 				// $fn .= $txtstart. '$this->form("#foreignkey")->name("'. $prefix.'")->validate("id");' .$txtend;
-				$fn .= $txtstart. '$this->form("select")->name("'. $prefix.$myname.'")->validate("id");';
+				$fn .= $txtstart. '$this->form("select")->name("'. $prefix.'")->validate("id");';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 
 				// $mylabel = str_replace("_", " ", $myfield);
@@ -140,10 +140,10 @@ function _type($type, $def)
 			}
 
 			// --------------------------------------------------------------------------------- radio
-			elseif ($myname=="active" 		|| $myname=="view" 
+			elseif ($myname=="active" 		|| $myname=="view"		|| $myname=="verified"
 				|| $myname=="add" 			|| $myname=="edit" 		|| $myname=="delete"
 				|| $myname=="service"		|| $myname=="gender"	|| $myname=="married"
-				|| $myname=="newsletter"	|| $myname=="credit"	|| $myname=="verified"
+				|| $myname=="newsletter"	|| $myname=="credit"	|| $crow->Field=="permission_status"
 				
 				
 				)	

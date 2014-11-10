@@ -14,14 +14,14 @@ class errorlogs
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("userid")->validate("id");
+		$this->form("select")->name("user")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function errorlog_id() 
 	{
-		$this->form("select")->name("errorlogid")->validate("id");
+		$this->form("select")->name("errorlog")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

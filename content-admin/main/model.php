@@ -168,14 +168,15 @@ class main_model{
 
 		foreach ($fields as $key)
 		{
-			if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
+			if ($key!=='id' and $key!=='date_modified')
 			{
 				$tmp_columns[$key] = substr($key,strrpos($key,'_')+1);
-				if ($tmp_columns[$key]==='Id')
+				if ($tmp_columns[$key]==='id')
 				{
 					// if this field related with other table(foreign key) only show the target table
-					$tmp_columns[$key] = ucfirst(substr($key,0,strrpos($key,'_')));
+					$tmp_columns[$key] = substr($key,0,strrpos($key,'_'));
 				}
+					var_dump($tmp_columns[$key]);
 				$tmp_col			= $tmp_columns[$key];
 				$tmp_setfield		= 'set'.ucfirst($key) ;
 				$tmp_value			= post::$tmp_col();
@@ -191,6 +192,7 @@ class main_model{
 			debug_lib::$status=0;
 			debug_lib::msg("All of records are null");
 		}
+		// exit();
 		// var_dump($tmp_qry);
 		return $tmp_qry;
 	}
@@ -230,7 +232,7 @@ class main_model{
 		$tmp_qry_where		= 'whereId';
 		$tmp_qry_id			= $this->url_parameter();
 		$sql				= $this->sql_query()->$tmp_qry_where($tmp_qry_id)->update();
-		// var_dump($sql); exit();
+		var_dump($sql); exit();
 
 
 		// ======================================================

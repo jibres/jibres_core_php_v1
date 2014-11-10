@@ -28,7 +28,7 @@ class receipts
 	//------------------------------------------------------------------ id - foreign key
 	public function cheque_id() 
 	{
-		$this->form("select")->name("chequeid")->validate("id");
+		$this->form("select")->name("cheque")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function receipt_chequedate() 
@@ -49,14 +49,14 @@ class receipts
 	//------------------------------------------------------------------ id - foreign key
 	public function transaction_id() 
 	{
-		$this->form("select")->name("transactionid")->validate("id");
+		$this->form("select")->name("transaction")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function fund_id() 
 	{
-		$this->form("select")->name("fundid")->validate("id");
+		$this->form("select")->name("fund")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

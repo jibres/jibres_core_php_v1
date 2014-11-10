@@ -22,14 +22,14 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->form("select")->name("postid")->validate("id");
+		$this->form("select")->name("post")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("productid")->validate("id");
+		$this->form("select")->name("product")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function comment_author() 
@@ -65,14 +65,14 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("userid")->validate("id");
+		$this->form("select")->name("user")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function Visitor_id() 
 	{
-		$this->form("select")->name("Visitorid")->validate("id");
+		$this->form("select")->name("Visitor")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

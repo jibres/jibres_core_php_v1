@@ -43,7 +43,7 @@ class userlogs
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("userid")->validate("id");
+		$this->form("select")->name("user")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}
