@@ -7,6 +7,7 @@ class view extends main_view
 	{
 
 		$x = sql_lib::getTable("banks");
+		var_dump($x->id->type);
 		var_dump($x);
 	}
 }
