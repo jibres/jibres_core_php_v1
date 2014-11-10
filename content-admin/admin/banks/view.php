@@ -6,8 +6,7 @@ class view extends main_view
 	function options()
 	{
 
-		$x = sql_lib::getTable("banks");
-		var_dump($x->id->type);
+		$x = getTable_cls::get("banks");
 		var_dump($x);
 	}
 }
