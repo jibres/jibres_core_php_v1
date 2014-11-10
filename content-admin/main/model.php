@@ -178,7 +178,7 @@ class main_model extends model_cls{
 		$tmp_qry_where		= 'whereId';
 		$tmp_qry_id			= $this->url_parameter();
 		$sql				= $this->sql_query()->$tmp_qry_where($tmp_qry_id)->update();
-		var_dump($sql); exit();
+		// var_dump($sql); exit();
 
 
 		// ======================================================

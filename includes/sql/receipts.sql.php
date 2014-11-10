@@ -9,8 +9,8 @@ class receipts
 	public $receipt_chequedate = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Chequedate');
 	public $receipt_chequestatus = array('type' => 'enum@pass,back_recovery,back_fail,lost,block,delete,inprogress', 'null' =>'YES' ,'label' => 'Chequestatus');
 	public $receipt_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $transaction_id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'Transaction', 'foreign' => 'transactions@id!transaction_title');
-	public $fund_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Fund', 'foreign' => 'funds@id!fund_title');
+	public $transaction_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Transaction', 'foreign' => 'transactions@id!transaction_title');
+	public $fund_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Fund', 'foreign' => 'funds@id!fund_title');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 

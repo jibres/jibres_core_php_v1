@@ -3,7 +3,7 @@ namespace sql;
 class verifications 
 {
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $verification_type = array('type' => 'enum@register_by_email,register_by_mobile,forget,change_email,change_mobile', 'null' =>'NO' ,'label' => 'Type');
+	public $verification_type = array('type' => 'enum@registerbyemail,registerbymobile,forget,changeemail,changemobile', 'null' =>'NO' ,'label' => 'Type');
 	public $verification_email = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Email');
 	public $verification_code = array('type' => 'varchar@32', 'null' =>'NO' ,'label' => 'Code');
 	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
