@@ -6,8 +6,6 @@ class view extends main_view
 	function options()
 	{
 
-		$x = getTable_cls::get("banks");
-		var_dump($x);
 	}
 }
 ?>
