@@ -27,7 +27,7 @@
 	{% spaceless %}
 		<label for="{{array.attr.id}}" class="input-label">{{array.label}}</label>
 		<select {% for attr,value in array.attr%}{{attr}}="{{value}}" {% endfor %}>
-			<option value="" disabled="disabled" selected="selected">لطفا یکی از گزینه ها را انتخاب کنید</option>
+			<option value="" disabled="disabled" selected="selected">Please select one item</option>
 			{% for child in array.child%}
 				<option {% for attr,value in child.attr%}{{attr}}="{{value}}" {% endfor %}>{{child.label}}</option>
 			{% endfor %}
@@ -72,7 +72,6 @@
 
 {% macro submit(array) %}
 	{% spaceless %}
-		<label class="input-label"></label>
 		<button {% for attr,value in array.attr%}{{attr}}="{{value}}" {% endfor %}>{{array.attr.value|lang}}</button>
 	{% endspaceless %}
 {% endmacro %}

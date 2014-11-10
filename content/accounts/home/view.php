@@ -6,6 +6,8 @@ class view extends main_view
 		$this->global->page_title = 'Accounts';
 		//$this->include->datatable = true;
 		//$this->include->jquery = false;
+		// $this->createform(".login");
+		
 	}
 }
 ?>

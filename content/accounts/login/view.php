@@ -14,7 +14,12 @@ class view extends main_view
         // echo "<pre>";
         // print_r($myForm->compile());
         // exit();
-                $this->form(".login");
+        
+        
+        $this->createform(".login");
+        $this->data->module ="login";
+        $this->data->form_title ="login";
+        
 	}
 }
 ?>

@@ -9,10 +9,9 @@
 		<li><a href="recovery">Recovery</a></li>
 		<li><a href="logout">Logout</a></li>
 	</ul>
-	
-    <form class="ajx" method="post">
-        {{forms.make(form.login)}}
-        {{forms.radio()}}
-    </form>
+
+     <form class="ajx" method="post" id="{{form_title}}">
+      {{forms.make(form[module])}}
+     </form>
     
 {%endblock%}
