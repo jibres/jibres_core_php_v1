@@ -15,9 +15,13 @@ class view extends main_view
 			$a				= explode('/', $i);
 			$b				= $a[count($a)-1];
 			if($b!='home')
-				$tmp_array[].= $b;
+			{
+				$tmp_array[$b]= '';
+			}
 		}
-		$this->data->tmp	= $tmp_array;
+
+		$this->data->tmp	= array_keys($tmp_array);
+		
          // $this->createform(".login");
          // $this->data->module = "login";
 		

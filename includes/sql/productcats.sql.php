@@ -40,7 +40,7 @@ class productcats
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("select")->name("attachmentid")->validate("id");
+		$this->form("select")->name("attachment")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function productcat_row() 

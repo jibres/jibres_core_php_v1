@@ -32,7 +32,7 @@ class cheques
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form("select")->name("bankid")->validate("id");
+		$this->form("select")->name("bank")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function cheque_holder() 
@@ -56,7 +56,7 @@ class cheques
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("userid")->validate("id");
+		$this->form("select")->name("user")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

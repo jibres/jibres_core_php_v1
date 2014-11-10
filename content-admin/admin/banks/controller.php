@@ -5,6 +5,7 @@ class controller extends main_controller
     // if you want to use config, add on options function, also in normal situations you don't need to add any code in this function.
 	public function options()
 	{
+		
 	}
 }
 ?>
