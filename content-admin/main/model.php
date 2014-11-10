@@ -160,48 +160,37 @@ class main_model{
 		$tmp_qry			= $this->sql()->$tmp_qry_table();
 		$tmp_table_prefix	= $this->url_table_prefix();
 
-		$tmp_datatable		= $this->sql_datatable($tmp_module);
-		// var_dump($tmp_datatable);
-		if($tmp_datatable)
+		// get all fields of table and filter fields name for show in datatable, access from columns variable
+		// check if datatable exist then get this data
+		$fields			= getTable_cls::get($this->url_method_real());
+		$tmp_columns	= array_fill_keys($fields, null);
+		$isnull			= true;
+
+		foreach ($fields as $key)
 		{
-			// get all fields of table and filter fields name for show in datatable, access from columns variable
-			// check if datatable exist then get this data
-			$fields			= array_keys($tmp_datatable[0]);
-			$tmp_columns	= array_fill_keys($fields, null);
-			$isnull			= true;
-
-			foreach ($fields as $key)
+			if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
 			{
-				if ($key!=='id' and $key!=='date_created' and $key!=='date_modified')
+				$tmp_columns[$key] = substr($key,strrpos($key,'_')+1);
+				if ($tmp_columns[$key]==='Id')
 				{
-					$tmp_columns[$key] = substr($key,strrpos($key,'_')+1);
-					if ($tmp_columns[$key]==='Id')
-					{
-						// if this field related with other table(foreign key) only show the target table
-						$tmp_columns[$key] = ucfirst(substr($key,0,strrpos($key,'_')));
-					}
-					$tmp_col			= $tmp_columns[$key];
-					$tmp_setfield		= 'set'.ucfirst($key) ;
-					$tmp_value			= post::$tmp_col();
-					if(!empty($tmp_value))
-						$tmp_qry	= $tmp_qry->$tmp_setfield($tmp_value);
-
-					if ($tmp_value)
-						$isnull = false;
+					// if this field related with other table(foreign key) only show the target table
+					$tmp_columns[$key] = ucfirst(substr($key,0,strrpos($key,'_')));
 				}
-			}
-			if($isnull)
-			{
-				debug_lib::$status=0;
-				debug_lib::msg("All of records are null");
+				$tmp_col			= $tmp_columns[$key];
+				$tmp_setfield		= 'set'.ucfirst($key) ;
+				$tmp_value			= post::$tmp_col();
+				if(!empty($tmp_value))
+					$tmp_qry	= $tmp_qry->$tmp_setfield($tmp_value);
+
+				if ($tmp_value)
+					$isnull = false;
 			}
 		}
-		else
+		if($isnull)
 		{
 			debug_lib::$status=0;
-			debug_lib::msg("At least one record must be exist. This methode must be replace with read from table classes");
+			debug_lib::msg("All of records are null");
 		}
-
 		// var_dump($tmp_qry);
 		return $tmp_qry;
 	}
