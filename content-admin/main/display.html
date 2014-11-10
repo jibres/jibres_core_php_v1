@@ -65,6 +65,7 @@
     </p>
 
   		{%block datatable%}
+       {%if include.datatable%}
   		  <table class="datatable display">
   		   <thead>
   		    <tr role="row">
@@ -95,8 +96,11 @@
   		     </tr>
   					 {%endfor%}
   					{%endblock%}
-  		  </tbody>
-  		 </table>
+  		   </tbody>
+  		  </table>
+        {%else%}
+        Data not exist!
+       {%endif%}
   		{%endblock%}
    {%endif%}
   {%endif%}

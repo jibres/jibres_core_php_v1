@@ -85,7 +85,6 @@ class main_view
 			else
 			{
 				// in root page like site.com/admin/banks show datatable
-				$this->include->datatable	= true;
 
 				// get data from database through model
 				$this->data->datatable		= $this->sql("#datatable");
@@ -93,8 +92,10 @@ class main_view
 				{
 					// get all fields of table and filter fields name for show in datatable, access from columns variable
 					// check if datatable exist then get this data
-					$fields 					= array_keys($this->data->datatable[0]);
-					$this->data->columns 		= array_fill_keys($fields, null);
+					$this->include->datatable	= true;
+					// $fields					= array_keys($this->data->datatable[0]);
+					$fields						= getTable_cls::get($this->url_method_real());
+					$this->data->columns		= array_fill_keys($fields, null);
 					$this->data->slug			= null;
 
 					foreach ($fields as $key)
