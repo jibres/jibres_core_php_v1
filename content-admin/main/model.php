@@ -229,6 +229,8 @@ class main_model{
 		{
 			debug_lib::fatal("Insert a new ". $this->url_table_prefix() ." failed");
 		} );
+		// var_dump(debug_lib::$status);
+		// exit();
 	}
 
 	function post_edit()
