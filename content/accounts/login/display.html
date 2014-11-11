@@ -4,14 +4,15 @@
 	<p class="alert alert-block alert-info">You can manage all of your accounts
 	<a class="float-right" href="">Home</a></p>
 	
+	<form class="ajx" method="post" id="{{form_title}}">
+		{{forms.make(form[module])}}
+	</form>
+
 	<ul>
+		<li><a href="login">Login</a></li>
 		<li><a href="signup">Sign up</a></li>
 		<li><a href="recovery">Recovery</a></li>
 		<li><a href="logout">Logout</a></li>
 	</ul>
 
-     <form class="ajx" method="post" id="{{form_title}}">
-      {{forms.make(form[module])}}
-     </form>
-    
 {%endblock%}

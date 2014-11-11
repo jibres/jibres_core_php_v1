@@ -16,9 +16,9 @@ class view_cls{
 		$this->global			= $this->data->global;
 		$this->url				= $this->data->url;
 		$this->include			= $this->data->include;
-		$this->data->class			= $this->url_class();
-		$this->data->module			= $this->url_method_real();
-		$this->data->child			= $this->url_child_real();
+		$this->data->class		= $this->url_class();
+		$this->data->module		= $this->url_method_real();
+		$this->data->child		= $this->url_child_real();
 
 		// *********************************************************************** Site Global Variables
 		$this->url->domain					= DOMAIN;
@@ -45,7 +45,7 @@ class view_cls{
 		$this->form = (object) "form";
 		unset($this->form->scalar);
 		$this->data->form			= $this->form;
-		$this->data->layout			= './main/display.html';
+		$this->data->layout			= 'main/display.html';
 		$this->data->macro['forms']	= 'macro/forms.html';
 		// $this->data->macro['list']	= 'macro/tagMaker.html';
 		if(isset($_SESSION['error']) && isset($_SESSION['error'][config_lib::$URL]) && isset($_SERVER['HTTP_REFERER'])){
@@ -157,7 +157,9 @@ class view_cls{
 	public final function createform($type = false, $args = array()){
 		$this->data->extendForm = true;
 		$cForm = new forms_lib();
+		// var_dump($cForm);
 		$form = $cForm->make($type, $args);
+		// var_dump($form);
 		array_push($this->formIndex, $form);
 		if(preg_match("/^@(.*)$/", $type, $name)){
 			$this->form->{$name[1]} = $form;

@@ -11,7 +11,7 @@ class main_view extends view_cls
 				// in add, edit or delete pages
 				$this->data->form_title		= ucfirst($this->url_table_prefix());
 				$this->global->page_title	= $this->url_title() . ' ' . $this->data->form_title;
-				$myForm						= $this->createform("@".$this->data->module, $this->data->child);
+				$myForm						= $this->createform("@".$this->data->module);
 				$this->data->form_show		= true;
 
 				
