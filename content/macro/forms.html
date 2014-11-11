@@ -36,23 +36,29 @@
 {% endmacro %}
 
 
-{% macro datalist(array) %}
-	{% spaceless %}
-		<label for="{{array.attr.id}}" label="input-label">{{array.label}}</label>
-		<input list="{{array.attr.name}}" {% for attr,value in array.attr%}{{attr}}="{{value}}" {% endfor %}>
-		<datalist id="{{array.attr.name}}">
-			{% for child in array.childs%}
-				<option {% for attr,value in child.attr%}{{attr}}="{{value}}" {% endfor %}>{{child.label}}</option>
-			{% endfor %}
-		</datalist>
-	{% endspaceless %}
-{% endmacro %}
-
-
 {% macro textarea(array) %}
 	{% spaceless %}
 			<label for="{{array.attr.id}}" class="input-label">{{array.label}}</label>
 			<textarea type="{{array.type}}" {% for attr,value in array.attr%}{%if attr != 'value'%}{{attr}}="{{value}}"{%endif%} {% endfor %}>{{array.attr.value}}</textarea>
+	{% endspaceless %}
+{% endmacro %}
+
+
+{% macro submit(array) %}
+	{% spaceless %}
+		<label class="input-label"></label>
+		<button {% for attr,value in array.attr%}{{attr}}="{{value}}" {% endfor %}>{{array.attr.value|lang}}</button>
+	{% endspaceless %}
+{% endmacro %}
+
+
+{% macro captcha(array) %}
+	{% spaceless %}
+		<label class="input-label"></label>
+		<img src="captcha.png">
+		<br>
+		<label for="captcha" class="input-label">{{"captcha"|lang}}</label>
+		<input type="text" name="captcha" id="captcha">
 	{% endspaceless %}
 {% endmacro %}
 
@@ -70,22 +76,17 @@
 {% endmacro %}
 
 
-{% macro submit(array) %}
+{% macro datalist(array) %}
 	{% spaceless %}
-		<button {% for attr,value in array.attr%}{{attr}}="{{value}}" {% endfor %}>{{array.attr.value|lang}}</button>
+		<label for="{{array.attr.id}}" label="input-label">{{array.label}}</label>
+		<input list="{{array.attr.name}}" {% for attr,value in array.attr%}{{attr}}="{{value}}" {% endfor %}>
+		<datalist id="{{array.attr.name}}">
+			{% for child in array.childs%}
+				<option {% for attr,value in child.attr%}{{attr}}="{{value}}" {% endfor %}>{{child.label}}</option>
+			{% endfor %}
+		</datalist>
 	{% endspaceless %}
 {% endmacro %}
-
-{% macro captcha(array) %}
-	{% spaceless %}
-		<label class="input-label"></label>
-		<img src="captcha.png">
-		<br>
-		<label for="captcha" class="input-label">{{"captcha"|lang}}</label>
-		<input type="text" name="captcha" id="captcha">
-	{% endspaceless %}
-{% endmacro %}
-
 
 {% macro make(array) %}
 	{% import _self as form%}
