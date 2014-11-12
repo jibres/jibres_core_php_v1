@@ -58,7 +58,7 @@ if($coming_soon && isset($_GET['dev'])){
 	setcookie('preview','yes',time() + 30*24*60*60,'/','.'.MAIN_DOMAIN);
 }
 elseif($coming_soon && !isset($_COOKIE["preview"])){
-	header('Location: http://'.URL_RAW."/pages/coming/", true, 302);
+	header('Location: http://'.URL_RAW."/page/coming/", true, 302);
 	exit();
 }
 

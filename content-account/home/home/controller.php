@@ -3,12 +3,12 @@ class controller extends main_controller
 {
 	public function config() 
 	{
-		// ----------------------------------------- accounts
+		// ----------------------------------------- account
 		$this->listen(
 		array(
-			"domain" => "accounts"
+			"domain" => "account"
 			),
-		array("accounts", 'home')
+		array("account", 'home')
 		);
 
 		// ----------------------------------------- admin
@@ -19,31 +19,13 @@ class controller extends main_controller
 		array("admin", 'home')
 		);
 
-		// ----------------------------------------- signup
-		$this->listen(
-		array(
-			"max" => 1,
-			"url" => "signup"
-			),
-		array("accounts", 'signup')
-		);
-
-		// ----------------------------------------- recovery
-		$this->listen(
-		array(
-			"max" => 1,
-			"url" => "recovery"
-			),
-		array("accounts", 'recovery')
-		);
-
 		// ----------------------------------------- login
 		$this->listen(
 		array(
 			"max" => 1,
 			"url" => "login"
 			),
-		array("accounts", 'login')
+		array("account", 'login')
 		);
 
 		// ----------------------------------------- logout
@@ -54,7 +36,7 @@ class controller extends main_controller
 			),
 		function()
 		{
-			$_SESSION = array();
+			session_unset(); 
 			session_destroy();
 			header("location: "."/");
 			exit();

@@ -6,9 +6,9 @@ class main_controller extends controller_cls
 		// @ Hasan: is this listen correct?
 		$this->listen(
 			array(
-				"domain" => "admin",
+				"domain" => "cp",
 				),
-			array("admin", 'home')
+			array("cp", 'home')
 		);
 
 		if ($this->url_method())
