@@ -20,10 +20,6 @@ class controller_cls{
 		 */
 		// add user defined method for use in view, model and controller
 
-		$this->addMethod('url_class');
-		$this->addMethod('url_method');
-		$this->addMethod('url_child');
-
 		$this->addMethod('url_class_real');
 		$this->addMethod('url_method_real');
 		$this->addMethod('url_child_real');
@@ -32,8 +28,8 @@ class controller_cls{
 		$this->addMethod('url_parameter');
 		$this->addMethod('url_title');
 		// $this->addMethod('slugify');
+		var_dump(config_lib::$allurl);
 
-		$this->addPeroperty('edit_datarow');
 	}
 
 
@@ -131,9 +127,7 @@ class controller_cls{
 	/**
 	@Hasan: Trim and safe the parameter in saloos and copy below function to saloos
 	**/
-	// @hasan:
-	// declare public variable for save last row data for edit records
-	public $edit_datarow = 'datarow';
+
 
 	/*
 	 * this function check url and has two method for check address
@@ -157,11 +151,6 @@ class controller_cls{
 			return 'edit';
 	}
 
-	function url_child($child="add")
-	{
-		// var_dump(config_lib::$child);
-		return config_lib::$child;
-	}
 
 	function url_table_prefix()
 	{
@@ -174,16 +163,6 @@ class controller_cls{
 		$tmp = explode('/', config_lib::$URL);
 		if(count($tmp)>1)
 			return $tmp[1];
-	}
-
-	function url_method($method=false)
-	{
-		return config_lib::$method;
-	}
-
-	function url_class()
-	{
-		return config_lib::$class;
 	}
 
 	function url_class_real()

@@ -3,9 +3,6 @@ class controller extends main_controller
 {
 	public function config() 
 	{
-
-
-
 		// ----------------------------------------- login
 		$this->listen(
 		array(

@@ -5,7 +5,7 @@ class view extends main_view
         $this->global->page_title         = 'Account Recovery';
         $this->global->site_title_show = false;
 
-        $this->data->module = $this->url_method();
+        $this->data->module = config_lib::$method;
         // $this->global->page_title = ucfirst($this->data->module);
         $this->createform(".".$this->data->module);
         $this->data->form_title =$this->data->module;

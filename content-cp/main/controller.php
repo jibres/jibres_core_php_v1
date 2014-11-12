@@ -11,7 +11,7 @@ class main_controller extends controller_cls
 			array("cp", 'home')
 		);
 
-		if ($this->url_method())
+		if (config_lib::$method)
 		{
 			$this->listen(
 				array(
