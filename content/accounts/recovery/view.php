@@ -19,8 +19,5 @@ class view extends main_view
 //         $this->submit   = $this->make("#submit")->value("Recovery");
 //     }
 // }
-class forms_recovery_cls extends forms_lib
-{
 
-}
 ?>

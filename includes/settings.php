@@ -55,7 +55,7 @@ define('LANGUAGE', 'fa_IR');
 // developer must set get parameter like site.com/dev=anyvalue
 $coming_soon = true;
 if($coming_soon && isset($_GET['dev'])){
-	setcookie('preview','yes',time() + 30*24*60*60,'/');
+	setcookie('preview','yes',time() + 30*24*60*60,'/','.'.MAIN_DOMAIN);
 }
 elseif($coming_soon && !isset($_COOKIE["preview"])){
 	header('Location: http://'.URL_RAW."/pages/coming/", true, 302);

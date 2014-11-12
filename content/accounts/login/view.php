@@ -22,9 +22,4 @@ class view extends main_view
         // $myForm                                         = $this->createform(".".$this->data->module);
 	}
 }
-// class forms_login_cls extends forms_lib
-// {
-
-// }
-
 ?>

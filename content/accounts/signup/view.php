@@ -9,8 +9,4 @@ class view extends main_view
         $this->data->form_title =$this->data->module;
     }
 }
-class forms_signup_cls extends forms_lib
-{
-
-}
 ?>
