@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2014 at 08:28 PM
+-- Generation Time: Nov 13, 2014 at 12:27 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `addons` (
   `addon_name` varchar(50) NOT NULL,
   `addon_slug` varchar(50) NOT NULL,
   `addon_desc` varchar(999) DEFAULT NULL,
-  `addon_status` enum('active','deactive','expire','going_to_expire') NOT NULL DEFAULT 'deactive',
+  `addon_status` enum('active','deactive','expire','goingtoexpire') NOT NULL DEFAULT 'deactive',
   `addon_expire` datetime DEFAULT NULL,
   `addon_installdate` datetime DEFAULT NULL,
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `attachments` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name+type_unique` (`attachment_name`,`attachment_type`),
   KEY `attachments_users_id` (`user_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `banks` (
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_unique` (`bank_slug`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=58 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
 
 --
 -- Dumping data for table `banks`
@@ -130,47 +130,6 @@ INSERT INTO `banks` (`id`, `bank_title`, `bank_slug`, `bank_website`, `bank_acti
 (50, 'test', 'tt', '3', 'yes', '0000-00-00 00:00:00'),
 (55, 'test2', 't2', 'www', 'yes', '0000-00-00 00:00:00'),
 (56, 'test312', 't3', 'wwwwwwwq', 'no', '2014-11-10 17:36:12');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cheques`
---
-
-CREATE TABLE IF NOT EXISTS `cheques` (
-  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `cheque_number` varchar(20) DEFAULT NULL,
-  `cheque_date` datetime DEFAULT NULL,
-  `cheque_price` decimal(13,4) DEFAULT NULL,
-  `bank_id` smallint(5) unsigned NOT NULL,
-  `cheque_holder` varchar(100) DEFAULT NULL,
-  `cheque_desc` varchar(200) DEFAULT NULL,
-  `cheque_status` enum('pass','back_recovery','back_fail','lost','block','delete','inprogress') DEFAULT NULL,
-  `user_id` smallint(5) unsigned NOT NULL,
-  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id+bankid_unique` (`id`,`bank_id`) USING BTREE,
-  KEY `bank_id` (`bank_id`),
-  KEY `cheques_users_id` (`user_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Triggers `cheques`
---
-DROP TRIGGER IF EXISTS `cheques_AU_outline_copy`;
-DELIMITER //
-CREATE TRIGGER `cheques_AU_outline_copy` BEFORE UPDATE ON `cheques`
- FOR EACH ROW IF coalesce(OLD.cheque_date , '') <> coalesce(NEW.cheque_date , '') or
-    coalesce(OLD.cheque_price , '') <> coalesce(NEW.cheque_price , '') or
-    coalesce(OLD.cheque_status , '') <> coalesce(NEW.cheque_status , '')
-THEN
-
-  Update receipts 
-    SET receipt_chequedate = NEW.cheque_date, receipt_price = NEW.cheque_price, receipt_chequestatus = NEW.cheque_status
-    WHERE cheque_id = NEW.id;
-End if
-//
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -216,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `costcats` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_unique` (`costcat_slug`),
   KEY `type` (`costcat_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `costcats`
@@ -247,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `costs` (
   KEY `type_index` (`cost_type`) USING BTREE,
   KEY `costs_costcats_id` (`costcat_id`) USING BTREE,
   KEY `costs_accounts_id` (`account_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -298,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `funds` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_unique` (`fund_slug`),
   KEY `funds_locations_id` (`location_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `funds`
@@ -333,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_unique` (`location_slug`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `locations`
@@ -432,6 +391,45 @@ INSERT INTO `options` (`id`, `option_cat`, `option_name`, `option_value`, `optio
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `papers`
+--
+
+CREATE TABLE IF NOT EXISTS `papers` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `paper_number` varchar(20) DEFAULT NULL,
+  `paper_date` datetime DEFAULT NULL,
+  `paper_price` decimal(13,4) DEFAULT NULL,
+  `bank_id` smallint(5) unsigned NOT NULL,
+  `paper_holder` varchar(100) DEFAULT NULL,
+  `paper_desc` varchar(200) DEFAULT NULL,
+  `paper_status` enum('pass','recovery','fail','lost','block','delete','inprogress') DEFAULT NULL,
+  `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id+bankid_unique` (`id`,`bank_id`) USING BTREE,
+  KEY `bank_id` (`bank_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Triggers `papers`
+--
+DROP TRIGGER IF EXISTS `cheques_AU_outline_copy`;
+DELIMITER //
+CREATE TRIGGER `cheques_AU_outline_copy` BEFORE UPDATE ON `papers`
+ FOR EACH ROW IF coalesce(OLD.paper_date , '') <> coalesce(NEW.paper_date , '') or
+    coalesce(OLD.paper_price , '') <> coalesce(NEW.paper_price , '') or
+    coalesce(OLD.paper_status , '') <> coalesce(NEW.paper_status , '')
+THEN
+
+  Update receipts 
+    SET receipt_paperdate = NEW.paper_date, receipt_price = NEW.paper_price, receipt_paperstatus = NEW.paper_status
+    WHERE paper_id = NEW.id;
+End if
+//
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `permissions`
 --
 
@@ -447,7 +445,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name+module_unique` (`permission_title`,`Permission_module`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `permissions`
@@ -497,7 +495,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   UNIQUE KEY `slug+catslug_unique` (`post_cat`,`post_slug`),
   KEY `posts_users_id` (`user_id`) USING BTREE,
   KEY `posts_attachments_id` (`attachment_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -517,7 +515,7 @@ CREATE TABLE IF NOT EXISTS `productcats` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_unique` (`productcat_slug`) USING BTREE,
   KEY `productcats_attachments_id` (`attachment_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `productcats`
@@ -706,7 +704,7 @@ CREATE TABLE IF NOT EXISTS `productprices` (
   KEY `enddate` (`productprice_enddate`),
   KEY `productprices_products_id` (`product_id`) USING BTREE,
   KEY `productprices_productmetas_id` (`productmeta_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -741,7 +739,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   UNIQUE KEY `barcode2_unique` (`product_barcode2`) USING BTREE,
   KEY `products_attachments_id` (`attachment_id`) USING BTREE,
   KEY `products_productcats_id` (`productcat_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `products`
@@ -813,19 +811,25 @@ DELIMITER ;
 CREATE TABLE IF NOT EXISTS `receipts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `receipt_code` varchar(30) DEFAULT NULL,
+  `receipt_type` enum('income','outcome') DEFAULT 'income',
   `receipt_price` decimal(13,4) NOT NULL DEFAULT '0.0000',
-  `cheque_id` smallint(5) unsigned DEFAULT NULL,
-  `receipt_chequedate` datetime DEFAULT NULL,
-  `receipt_chequestatus` enum('pass','back_recovery','back_fail','lost','block','delete','inprogress') DEFAULT NULL,
+  `receipt_date` datetime NOT NULL,
+  `paper_id` smallint(5) unsigned DEFAULT NULL,
+  `receipt_paperdate` datetime DEFAULT NULL,
+  `receipt_paperstatus` enum('pass','recovery','fail','lost','block','delete','inprogress') DEFAULT NULL,
   `receipt_desc` varchar(200) DEFAULT NULL,
   `transaction_id` int(10) unsigned DEFAULT NULL,
   `fund_id` smallint(5) unsigned NOT NULL,
+  `user_id` smallint(5) unsigned NOT NULL,
+  `user_id_customer` smallint(5) unsigned NOT NULL,
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `receipts_cheques_id` (`cheque_id`) USING BTREE,
+  UNIQUE KEY `receipts_papers_id` (`paper_id`) USING BTREE,
   KEY `receipts_transactions_id` (`transaction_id`) USING BTREE,
-  KEY `receipts_funds_id` (`fund_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  KEY `receipts_funds_id` (`fund_id`) USING BTREE,
+  KEY `receipts_users_id` (`user_id`),
+  KEY `receipts_users_idcustomer` (`user_id_customer`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -843,7 +847,7 @@ CREATE TABLE IF NOT EXISTS `terms` (
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_unique` (`term_slug`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `terms`
@@ -977,19 +981,19 @@ DELIMITER ;
 
 CREATE TABLE IF NOT EXISTS `transactions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `transaction_type` enum('sale','purchase','customer_to_store','store_to_company','anbargardani','install','repair','chqeue_back_fail') DEFAULT 'sale',
-  `user_id` smallint(5) unsigned DEFAULT NULL,
-  `user_id_customer` smallint(5) unsigned DEFAULT NULL,
-  `transaction_date` datetime DEFAULT NULL,
-  `transaction_sum` decimal(13,4) DEFAULT NULL,
-  `transaction_discount` decimal(13,4) DEFAULT NULL,
+  `transaction_type` enum('sale','purchase','customertostore','storetocompany','anbargardani','install','repair','chqeuebackfail') NOT NULL DEFAULT 'sale',
+  `user_id` smallint(5) unsigned NOT NULL,
+  `user_id_customer` smallint(5) unsigned NOT NULL,
+  `transaction_date` datetime NOT NULL,
+  `transaction_sum` decimal(13,4) NOT NULL,
+  `transaction_discount` decimal(13,4) NOT NULL DEFAULT '0.0000',
   `transaction_initialreceived` decimal(13,4) DEFAULT NULL,
   `transaction_received` decimal(13,4) DEFAULT NULL,
   `transaction_remained` decimal(13,4) DEFAULT NULL,
-  `transaction_pre` enum('yes','no') DEFAULT NULL,
+  `transaction_pre` enum('yes','no') NOT NULL DEFAULT 'no',
   `transaction_desc` varchar(200) DEFAULT NULL,
   `transaction_transport` decimal(13,4) DEFAULT NULL,
-  `transaction_vat` enum('yes','yes_nocalc','no') DEFAULT NULL COMMENT 'in percent',
+  `transaction_vat` enum('yes','nocalc','no') NOT NULL DEFAULT 'no' COMMENT 'in percent',
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `transactions_users_id` (`user_id`) USING BTREE,
@@ -1001,9 +1005,9 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 --
 
 INSERT INTO `transactions` (`id`, `transaction_type`, `user_id`, `user_id_customer`, `transaction_date`, `transaction_sum`, `transaction_discount`, `transaction_initialreceived`, `transaction_received`, `transaction_remained`, `transaction_pre`, `transaction_desc`, `transaction_transport`, `transaction_vat`, `date_modified`) VALUES
-(2, 'sale', 15, 15, NULL, '50.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-05-30 21:42:55'),
-(3, 'sale', 15, 16, NULL, '240.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-05-30 21:41:20'),
-(5, 'sale', 15, 14, NULL, '10000.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00');
+(2, 'sale', 15, 15, '0000-00-00 00:00:00', '50.0000', '0.0000', NULL, NULL, NULL, '', NULL, NULL, '', '2014-05-30 21:42:55'),
+(3, 'sale', 15, 16, '0000-00-00 00:00:00', '240.0000', '0.0000', NULL, NULL, NULL, '', NULL, NULL, '', '2014-05-30 21:41:20'),
+(5, 'sale', 15, 14, '0000-00-00 00:00:00', '10000.0000', '0.0000', NULL, NULL, NULL, '', NULL, NULL, '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1130,7 +1134,7 @@ CREATE TABLE IF NOT EXISTS `verifications` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `code_unique` (`verification_code`),
   KEY `verifications_users_id` (`user_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `verifications`
@@ -1165,8 +1169,10 @@ CREATE TABLE IF NOT EXISTS `visitors` (
   `visitor_ip` int(10) unsigned NOT NULL COMMENT 'use the INET_ATON() and INET_NTOA() functions to return the IP address from its numeric value, and vice versa.',
   `visitor_agent` varchar(255) DEFAULT NULL,
   `visitor_referrer` varchar(255) DEFAULT NULL,
+  `user_id` smallint(5) unsigned DEFAULT NULL,
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `visitors_users_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
@@ -1185,13 +1191,6 @@ ALTER TABLE `accounts`
 --
 ALTER TABLE `attachments`
   ADD CONSTRAINT `attachments_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `cheques`
---
-ALTER TABLE `cheques`
-  ADD CONSTRAINT `cheques_banks_id` FOREIGN KEY (`bank_id`) REFERENCES `banks` (`id`),
-  ADD CONSTRAINT `cheques_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `comments`
@@ -1228,6 +1227,12 @@ ALTER TABLE `funds`
 ALTER TABLE `notifications`
   ADD CONSTRAINT `notifications_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `notifications_users_idsender` FOREIGN KEY (`user_id_sender`) REFERENCES `users` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `papers`
+--
+ALTER TABLE `papers`
+  ADD CONSTRAINT `papers_banks_id` FOREIGN KEY (`bank_id`) REFERENCES `banks` (`id`);
 
 --
 -- Constraints for table `postmetas`
@@ -1272,9 +1277,11 @@ ALTER TABLE `products`
 -- Constraints for table `receipts`
 --
 ALTER TABLE `receipts`
+  ADD CONSTRAINT `receipts_users_idcustomer` FOREIGN KEY (`user_id_customer`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `receipts_funds_id` FOREIGN KEY (`fund_id`) REFERENCES `funds` (`id`),
+  ADD CONSTRAINT `receipts_papers_id` FOREIGN KEY (`paper_id`) REFERENCES `papers` (`id`),
   ADD CONSTRAINT `receipts_transactions_id` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`),
-  ADD CONSTRAINT `receipts_cheques_id` FOREIGN KEY (`cheque_id`) REFERENCES `cheques` (`id`),
-  ADD CONSTRAINT `receipts_funds_id` FOREIGN KEY (`fund_id`) REFERENCES `funds` (`id`);
+  ADD CONSTRAINT `receipts_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `termusages`
@@ -1320,6 +1327,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `verifications`
   ADD CONSTRAINT `verifications_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `visitors`
+--
+ALTER TABLE `visitors`
+  ADD CONSTRAINT `visitors_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
