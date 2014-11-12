@@ -156,23 +156,21 @@ class view_cls{
 
 	public final function createform($type = false, $args = array()){
 		$this->data->extendForm = true;
-		$cForm = new forms_lib();
-		// var_dump($cForm);
-		$form = $cForm->make($type, $args);
-		// var_dump($form);
-		array_push($this->formIndex, $form);
-		if(preg_match("/^@(.*)$/", $type, $name)){
-			$this->form->{$name[1]} = $form;
-			$form->hidden->value(preg_replace("/_[^_]*$/", "", $form->hidden->attr['value']));
-
-		//************************************************************************************************
-		}elseif(preg_match("/^.(.*)$/", $type, $name)){
+		if(preg_match("/^.(.*)$/", $type, $name)){
 			if(!isset($this->customforms)){
 				$this->customforms = new customforms_cls;
 				$this->form->{$name[1]} = $form = $this->customforms->{$name[1]}();
+				array_push($this->formIndex, $form);
+			}
+		}else{
+			$cForm = new forms_lib();
+			$form = $cForm->make($type, $args);
+			array_push($this->formIndex, $form);
+			if(preg_match("/^@(.*)$/", $type, $name)){
+				$this->form->{$name[1]} = $form;
+				$form->hidden->value(preg_replace("/_[^_]*$/", "", $form->hidden->attr['value']));
 			}
 		}
-		//************************************************************************************************
 		return $form;
 	}
 
