@@ -28,8 +28,6 @@ class controller_cls{
 		$this->addMethod('url_parameter');
 		$this->addMethod('url_title');
 		// $this->addMethod('slugify');
-		var_dump(config_lib::$allurl);
-
 	}
 
 
