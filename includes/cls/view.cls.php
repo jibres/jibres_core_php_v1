@@ -156,7 +156,7 @@ class view_cls{
 
 	public final function createform($type = false, $args = array()){
 		$this->data->extendForm = true;
-		if(preg_match("/^.(.*)$/", $type, $name)){
+		if(preg_match("/^\.(.*)$/", $type, $name)){
 			if(!isset($this->customforms)){
 				$this->customforms = new customforms_cls;
 				$this->form->{$name[1]} = $form = $this->customforms->{$name[1]}();
