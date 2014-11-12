@@ -1,7 +1,7 @@
 <?php
 class view extends main_view 
 {
-	public function config() 
+	public function options() 
 	{
 		$this->global->page_title = 'Admin';
 		//$this->include->datatable = true;

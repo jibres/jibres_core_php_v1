@@ -16,8 +16,9 @@ class view_cls{
 		$this->global			= $this->data->global;
 		$this->url				= $this->data->url;
 		$this->include			= $this->data->include;
-		$this->data->class		= $this->url_class();
+		// $this->data->class		= $this->url_class();
 		$this->data->module		= $this->url_method_real();
+		$this->data->module		= $this->url_class_real();
 		$this->data->child		= $this->url_child_real();
 
 		// *********************************************************************** Site Global Variables

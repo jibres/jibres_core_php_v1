@@ -2,11 +2,10 @@
 {%block content%}
 	<p class="alert alert-block alert-success">You can manage system
 	<a class="float-right" href="{{url.root}}">Home</a></p>
-
 	<ul>
 		{% for i in tmp %}
 			<li>
-				<a href="admin/{{i}}">{{i}}</a>
+				<a href="{{i}}">{{i}}</a>
 			</li>
 	    {% endfor %}
 	</ul>

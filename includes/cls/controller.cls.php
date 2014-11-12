@@ -19,12 +19,16 @@ class controller_cls{
 		 * try to use array
 		 */
 		// add user defined method for use in view, model and controller
-		$this->addMethod('url_child_real');
-		$this->addMethod('url_child');
-		$this->addMethod('url_table_prefix');
-		$this->addMethod('url_method_real');
-		$this->addMethod('url_method');
+
 		$this->addMethod('url_class');
+		$this->addMethod('url_method');
+		$this->addMethod('url_child');
+
+		$this->addMethod('url_class_real');
+		$this->addMethod('url_method_real');
+		$this->addMethod('url_child_real');
+		
+		$this->addMethod('url_table_prefix');
 		$this->addMethod('url_parameter');
 		$this->addMethod('url_title');
 		// $this->addMethod('slugify');
@@ -167,9 +171,9 @@ class controller_cls{
 	function url_method_real()
 	{
 		// this function must go to saloos
-		$tmp_method = explode('/', config_lib::$URL);
-		if(count($tmp_method)>=2)
-			return $tmp_method[1];
+		$tmp = explode('/', config_lib::$URL);
+		if(count($tmp)>1)
+			return $tmp[1];
 	}
 
 	function url_method($method=false)
@@ -180,6 +184,14 @@ class controller_cls{
 	function url_class()
 	{
 		return config_lib::$class;
+	}
+
+	function url_class_real()
+	{
+		// this function must go to saloos
+		$tmp = explode('/', config_lib::$URL);
+		if(count($tmp)>0)
+			return $tmp[0];
 	}
 
 	function url_parameter()
