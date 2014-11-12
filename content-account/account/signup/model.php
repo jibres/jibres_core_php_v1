@@ -23,6 +23,12 @@ class model extends main_model
 		
 
 		// we need to create a module for sale the account to users for ourselves
+		// 
+		// 
+		// 
+		// 
+		// $x = new dbconnection_lib
+		// $x->query("my QUERY")
 	}
 }
 ?>
