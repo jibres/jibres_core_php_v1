@@ -7,6 +7,7 @@ class config_cls{
 				)
 			,function(){
 				config_hendel_lib::url_shift("test");
+				config_hendel_lib::change_content("content-test");
 			}
 			);
 	}
