@@ -4,7 +4,7 @@ class main_view extends view_cls
 	// ---------------------------------------------------------------- default config function for ADMIN
 	public function config() 
 	{
-		if($this->data->module)
+		if($this->data->module && $this->data->module!="home")
 		{
 			if($this->data->child)
 			{
@@ -27,7 +27,6 @@ class main_view extends view_cls
 
 				// get data from database through model
 				$this->data->datatable		= $this->sql("#datatable");
-				var_dump($this->data->datatable);
 				if($this->data->datatable)
 				{
 					// get all fields of table and filter fields name for show in datatable, access from columns variable
