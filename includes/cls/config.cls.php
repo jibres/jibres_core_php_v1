@@ -6,19 +6,18 @@ class config_cls{
 				"url" => array("login")
 				)
 			,function(){
-				// config_hendel_lib::url_shift();
 				config_hendel_lib::change_content("content-account");
 			}
 			);
+		$l = config_lib::listen(
+			array(
+				"sub_domain" => array("admin")
+				)
+			,function(){
+				config_hendel_lib::url_unshift("admin");
+			}
+			);
 	}
-	// static function _after(){
-	// 	$l = config_lib::listen(
-	// 		array(
-	// 			"sub_domain" => array("test")
-	// 			)
-	// 		,function(){
-	// 			config_hendel_lib::change_content("content-test");
-	// 		}
-	// 		);
-	// }
+	static function _after(){
+	}
 }
