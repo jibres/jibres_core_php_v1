@@ -4,7 +4,6 @@ class main_view extends view_cls
 	// ---------------------------------------------------------------- default config function for ADMIN
 	public function config() 
 	{
-		var_dump(config_lib::$method);
 		if($this->data->module)
 		{
 			if($this->data->child)

@@ -132,7 +132,7 @@ class model_cls{
 		if ($mytable)
 			$tmp_qry_table = 'table'.ucfirst($mytable);
 		else
-			$tmp_qry_table = 'table'.ucfirst($this->url_class_real());
+			$tmp_qry_table = 'table'.ucfirst(config_lib::$method);
 
 		return $this->sql()->$tmp_qry_table()->select()->allassoc();
 	}
