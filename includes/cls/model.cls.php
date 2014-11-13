@@ -210,14 +210,14 @@ class model_cls{
 	{
 		// for debug uncomment below line for disable redirect
 		// $this->redirect 	= false;
-		$tmp_module			= $this->url_method_real();
+		$tmp_module			= config_lib::$method;
 		$tmp_qry_table		= 'table'.ucfirst($tmp_module);
 		$tmp_qry			= $this->sql()->$tmp_qry_table();
 		$tmp_table_prefix	= $this->url_table_prefix();
 
 		// get all fields of table and filter fields name for show in datatable, access from columns variable
 		// check if datatable exist then get this data
-		$fields			= getTable_cls::get($this->url_method_real());
+		$fields			= getTable_cls::get($tmp_module);
 		$tmp_columns	= array_fill_keys($fields, null);
 		$isnull			= true;
 
