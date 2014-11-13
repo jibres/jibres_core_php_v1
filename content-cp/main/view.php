@@ -4,7 +4,7 @@ class main_view extends view_cls
 	// ---------------------------------------------------------------- default config function for ADMIN
 	public function config() 
 	{
-		if($this->data->module)
+		if($this->data->module && $this->data->module!="home")
 		{
 			if($this->data->child)
 			{
@@ -33,7 +33,7 @@ class main_view extends view_cls
 					// check if datatable exist then get this data
 					$this->include->datatable	= true;
 					// $fields					= array_keys($this->data->datatable[0]);
-					$fields						= getTable_cls::get($this->url_method_real());
+					$fields						= getTable_cls::get($this->data->module);
 					$this->data->columns		= array_fill_keys($fields, null);
 					$this->data->slug			= null;
 

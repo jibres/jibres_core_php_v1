@@ -3,14 +3,6 @@ class main_controller extends controller_cls
 {
 	public function config()
 	{
-		// @ Hasan: is this listen correct?
-		$this->listen(
-			array(
-				"domain" => "cp",
-				),
-			array("cp", 'home')
-		);
-
 		if (config_lib::$method)
 		{
 			$this->listen(

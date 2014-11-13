@@ -43,8 +43,7 @@
  <div class="container" id="main">
   {%if global.page_title%}
   <h1>{{global.page_title}}</h1><hr />{%endif%}
-
-  {%if module%}
+  {%if module and module!="home"%}
    {%if child%}
     <p class="alert alert-block alert-info">
      {{module|title}} Section
@@ -60,7 +59,7 @@
 
    {%else%}
     <p class="alert alert-block alert-info">
-     <a href="{{class}}/{{module}}/add">Add New Record</a>
+     <a href="{{module}}/add">Add New Record</a>
      <a class="float-right" href="admin">Home</a>
     </p>
 
@@ -87,10 +86,10 @@
   								{%endfor%}
   			     <td>
   			      <span class="hint--top hint--info" data-hint="Edit">
-  			       <a class="action-icons edit hint--top" href="admin/{{module}}/edit={{d.id}}">Edit</a>
+  			       <a class="action-icons edit hint--top" href="{{module}}/edit={{d.id}}">Edit</a>
   			      </span>
   			      <span class="hint--top hint--error" data-hint="Delete">
-  			       <a class="action-icons delete hide-text" href="admin/{{module}}/delete={{d.id}}">Delete</a>
+  			       <a class="action-icons delete hide-text" href="{{module}}/delete={{d.id}}">Delete</a>
   			      </span>
   			     </td>
   		     </tr>

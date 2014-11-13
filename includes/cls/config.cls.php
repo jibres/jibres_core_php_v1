@@ -17,7 +17,15 @@ class config_cls{
 				config_hendel_lib::url_unshift("admin");
 			}
 			);
+		$l = config_lib::listen(
+			array(
+				"sub_domain" => array("cp")
+				)
+			,function(){
+				config_hendel_lib::url_unshift("cp");
+			}
+			);
 	}
-	static function _after(){
-	}
+	// static function _after(){
+	// }
 }
