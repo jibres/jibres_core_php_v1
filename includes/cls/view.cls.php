@@ -19,7 +19,14 @@ class view_cls{
 		$this->data->class		= config_lib::$class;
 		// $this->data->module		= $this->url_class_real();
 		$this->data->module		= config_lib::$method;
-		$this->data->child		= config_lib::$child_real;
+
+
+		if(isset(config_lib::$aurl[0]) && config_lib::$aurl[0]=='add')
+			$this->data->child		= 'add';
+		elseif(isset(config_lib::$surl['edit']))
+			$this->data->child		= 'edit';
+		else
+			$this->data->child		= null;
 
 		// *********************************************************************** Site Global Variables
 		$this->url->domain					= DOMAIN;

@@ -142,7 +142,7 @@ class model_cls{
 		// but if user don't pass table name or slug,
 		// function use current real method name get from url for table name and current parameter for slug
 		if (!$mytable)
-			$mytable = $this->url_method_real();
+			$mytable = config_lib::$method;
 
 		// if myid parameter set use it else use url parameter for myid
 		if (!$myid)
@@ -176,7 +176,7 @@ class model_cls{
 		// but if user don't pass table name or slug,
 		// function use current real method name get from url for table name and current parameter for slug
 		if (!$mytable)
-			$mytable = $this->url_method_real();
+			$mytable = config_lib::$method;
 
 		// if myslug parameter set use it else use url parameter for myslug
 		if (!$myslug)

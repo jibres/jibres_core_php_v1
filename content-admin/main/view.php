@@ -15,7 +15,7 @@ class main_view extends view_cls
 				$this->data->form_show		= true;
 
 				
-				if($this->url_child_real()==='edit')
+				if(isset(config_lib::$surl['edit']))
 				{
 					$tmp_result = $this->sql("#datarowbyid");
 					$this->fill_for_edit($tmp_result, $myForm);

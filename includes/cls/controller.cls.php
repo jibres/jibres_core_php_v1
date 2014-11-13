@@ -20,9 +20,6 @@ class controller_cls{
 		 */
 		// add user defined method for use in view, model and controller
 
-		$this->addMethod('url_class_real');
-		$this->addMethod('url_method_real');
-		$this->addMethod('url_child_real');
 		
 		$this->addMethod('url_table_prefix');
 		$this->addMethod('url_parameter');
@@ -127,49 +124,13 @@ class controller_cls{
 	**/
 
 
-	/*
-	 * this function check url and has two method for check address
-	 * first compare current address with user entered value and return True or False
-	 * second condition return the title of page
-	 */
-	function url_child_real()
-	{
-		// this function must go to saloos
-		$mychild = explode('/', config_lib::$URL);
-		if(count($mychild)>2)
-			$mychild = $mychild[2];
-		else
-			$mychild = null;
-
-		if($mychild == 'add')
-			return 'add';
-		
-		$mychild = substr($mychild,0,strrpos($mychild,'='));
-		if($mychild == 'edit')
-			return 'edit';
-	}
 
 
 	function url_table_prefix()
 	{
-		return substr($this->url_method_real(), 0, -1);
+		return substr(config_lib::$method, 0, -1);
 	}
 
-	function url_method_real()
-	{
-		// this function must go to saloos
-		$tmp = explode('/', config_lib::$URL);
-		if(count($tmp)>1)
-			return $tmp[1];
-	}
-
-	function url_class_real()
-	{
-		// this function must go to saloos
-		$tmp = explode('/', config_lib::$URL);
-		if(count($tmp)>0)
-			return $tmp[0];
-	}
 
 	function url_parameter()
 	{
@@ -183,19 +144,6 @@ class controller_cls{
 
 	function url_title()
 	{
-		$mychild = current(config_lib::$aurl);
-		if($mychild == 'add')
-			return 'Add New';
-		
-		$mychild = substr($mychild,0,strrpos($mychild,'='));
-		if($mychild == 'edit')
-			return 'Edit';
-	}
-
-	function url_id()
-	{
-		// check if user id on this table exist then return correct value else return 0
-		return 0;
 		$mychild = current(config_lib::$aurl);
 		if($mychild == 'add')
 			return 'Add New';
