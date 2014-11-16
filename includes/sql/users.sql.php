@@ -90,7 +90,7 @@ class users
 	}
 	public function user_mobile() 
 	{
-		$this->form("text")->name("mobile")->maxlength(15);
+		$this->form("text")->name("mobile")->maxlength(15)->type("mobile");
 	}
 	public function user_birthday() 
 	{
