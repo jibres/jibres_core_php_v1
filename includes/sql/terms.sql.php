@@ -15,19 +15,19 @@ class terms
 	public function id() {$this->validate("id");}
 	public function term_name() 
 	{
-		$this->form("text")->name("name");
+		$this->form("text")->name("name")->required();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function term_slug() 
 	{
-		$this->form("text")->name("slug")->validate()->slugify("term_title");
+		$this->form("text")->name("slug")->required()->validate()->slugify("term_title");
 	}
 
 	//------------------------------------------------------------------ description
 	public function term_desc() 
 	{
-		$this->form("#desc");
+		$this->form("#desc")->required();
 	}
 	public function term_father() 
 	{
@@ -37,7 +37,7 @@ class terms
 	//------------------------------------------------------------------ select button
 	public function term_type() 
 	{
-		$this->form("select")->name("type")->validate();
+		$this->form("select")->name("type")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

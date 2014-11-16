@@ -21,7 +21,7 @@ class productprices
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("product")->validate("id");
+		$this->form("select")->name("product")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 
@@ -37,7 +37,7 @@ class productprices
 	}
 	public function productprice_startdate() 
 	{
-		$this->form("text")->name("startdate");
+		$this->form("text")->name("startdate")->required();
 	}
 	public function productprice_enddate() 
 	{

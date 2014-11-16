@@ -15,11 +15,11 @@ class options
 	public function id() {$this->validate("id");}
 	public function option_cat() 
 	{
-		$this->form("text")->name("cat");
+		$this->form("text")->name("cat")->required();
 	}
 	public function option_name() 
 	{
-		$this->form("text")->name("name");
+		$this->form("text")->name("name")->required();
 	}
 	public function option_value() 
 	{
@@ -33,7 +33,7 @@ class options
 	//------------------------------------------------------------------ select button
 	public function option_status() 
 	{
-		$this->form("select")->name("status")->validate();
+		$this->form("select")->name("status")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

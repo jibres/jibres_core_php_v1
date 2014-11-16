@@ -31,7 +31,7 @@ class papers
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form("select")->name("bank")->validate("id");
+		$this->form("select")->name("bank")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function paper_holder() 

@@ -48,13 +48,13 @@ class comments
 	}
 	public function comment_content() 
 	{
-		$this->form("text")->name("content");
+		$this->form("text")->name("content")->required();
 	}
 
 	//------------------------------------------------------------------ select button
 	public function comment_status() 
 	{
-		$this->form("select")->name("status")->validate();
+		$this->form("select")->name("status")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function comment_parent() 
@@ -72,7 +72,7 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function Visitor_id() 
 	{
-		$this->form("select")->name("Visitor")->validate("id");
+		$this->form("select")->name("Visitor")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

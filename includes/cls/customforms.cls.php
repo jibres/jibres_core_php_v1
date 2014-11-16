@@ -12,6 +12,9 @@
 			$form->white("hidden, user_mobile, user_pass, submit");
 			$form->hidden->value("login");
 			$form->before("user_mobile","user_pass");
+
+			$form->user_mobile->required();
+			$form->user_pass->required();
 			$form->submit->value("Login");
 			return $form;
 		}
@@ -22,6 +25,8 @@
 			$form->white("hidden, user_mobile, user_pass, submit");
 			$form->hidden->value("signup");
 			$form->before("user_mobile","user_pass");
+			$form->user_mobile->required();
+			$form->user_pass->required();
 			$form->submit->value("Create an account");
 			return $form;
 		}

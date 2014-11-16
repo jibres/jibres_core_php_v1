@@ -22,14 +22,14 @@ class notifications
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ title
 	public function notification_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 	public function notification_content() 
 	{
@@ -43,7 +43,7 @@ class notifications
 	//------------------------------------------------------------------ select button
 	public function notification_status() 
 	{
-		$this->form("select")->name("status")->validate();
+		$this->form("select")->name("status")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

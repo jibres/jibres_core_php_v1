@@ -15,7 +15,7 @@ class errors
 	//------------------------------------------------------------------ title
 	public function error_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 	public function error_solution() 
 	{
@@ -25,7 +25,7 @@ class errors
 	//------------------------------------------------------------------ select button
 	public function error_priority() 
 	{
-		$this->form("select")->name("priority")->validate();
+		$this->form("select")->name("priority")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

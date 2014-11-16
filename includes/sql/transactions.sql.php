@@ -25,31 +25,31 @@ class transactions
 	//------------------------------------------------------------------ select button
 	public function transaction_type() 
 	{
-		$this->form("select")->name("type")->validate();
+		$this->form("select")->name("type")->required()->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function user_id_customer() 
 	{
-		$this->form("text")->name("id_customer");
+		$this->form("text")->name("id_customer")->required();
 	}
 	public function transaction_date() 
 	{
-		$this->form("text")->name("date");
+		$this->form("text")->name("date")->required();
 	}
 	public function transaction_sum() 
 	{
-		$this->form("text")->name("sum");
+		$this->form("text")->name("sum")->required();
 	}
 	public function transaction_discount() 
 	{
-		$this->form("text")->name("discount");
+		$this->form("text")->name("discount")->required();
 	}
 	public function transaction_initialreceived() 
 	{
@@ -65,7 +65,7 @@ class transactions
 	}
 	public function transaction_pre() 
 	{
-		$this->form("text")->name("pre");
+		$this->form("text")->name("pre")->required();
 	}
 
 	//------------------------------------------------------------------ description
@@ -79,7 +79,7 @@ class transactions
 	}
 	public function transaction_vat() 
 	{
-		$this->form("text")->name("vat");
+		$this->form("text")->name("vat")->required();
 	}
 	public function date_modified() {}
 }

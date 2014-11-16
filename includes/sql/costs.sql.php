@@ -19,29 +19,29 @@ class costs
 	//------------------------------------------------------------------ title
 	public function cost_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 	public function cost_price() 
 	{
-		$this->form("text")->name("price");
+		$this->form("text")->name("price")->required();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function costcat_id() 
 	{
-		$this->form("select")->name("costcat")->validate("id");
+		$this->form("select")->name("costcat")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function account_id() 
 	{
-		$this->form("select")->name("account")->validate("id");
+		$this->form("select")->name("account")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function cost_date() 
 	{
-		$this->form("text")->name("date");
+		$this->form("text")->name("date")->required();
 	}
 
 	//------------------------------------------------------------------ description
@@ -53,7 +53,7 @@ class costs
 	//------------------------------------------------------------------ select button
 	public function cost_type() 
 	{
-		$this->form("select")->name("type")->validate();
+		$this->form("select")->name("type")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

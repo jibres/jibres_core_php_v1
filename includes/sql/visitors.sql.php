@@ -14,7 +14,7 @@ class visitors
 	public function id() {$this->validate("id");}
 	public function visitor_ip() 
 	{
-		$this->form("text")->name("ip");
+		$this->form("text")->name("ip")->required();
 	}
 	public function visitor_agent() 
 	{

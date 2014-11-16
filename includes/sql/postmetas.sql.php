@@ -15,12 +15,12 @@ class postmetas
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->form("select")->name("post")->validate("id");
+		$this->form("select")->name("post")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function postmeta_name() 
 	{
-		$this->form("text")->name("name");
+		$this->form("text")->name("name")->required();
 	}
 	public function postmeta_value() 
 	{

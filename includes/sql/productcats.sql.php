@@ -18,13 +18,13 @@ class productcats
 	//------------------------------------------------------------------ title
 	public function productcat_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function productcat_slug() 
 	{
-		$this->form("text")->name("slug")->validate()->slugify("productcat_title");
+		$this->form("text")->name("slug")->required()->validate()->slugify("productcat_title");
 	}
 
 	//------------------------------------------------------------------ description

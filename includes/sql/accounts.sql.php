@@ -21,19 +21,19 @@ class accounts
 	//------------------------------------------------------------------ title
 	public function account_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function account_slug() 
 	{
-		$this->form("text")->name("slug")->validate()->slugify("account_title");
+		$this->form("text")->name("slug")->required()->validate()->slugify("account_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form("select")->name("bank")->validate("id");
+		$this->form("select")->name("bank")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function account_branch() 
@@ -50,7 +50,7 @@ class accounts
 	}
 	public function account_primarybalance() 
 	{
-		$this->form("text")->name("primarybalance");
+		$this->form("text")->name("primarybalance")->required();
 	}
 
 	//------------------------------------------------------------------ description
@@ -62,7 +62,7 @@ class accounts
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

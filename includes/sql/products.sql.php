@@ -30,19 +30,19 @@ class products
 	//------------------------------------------------------------------ title
 	public function product_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function product_slug() 
 	{
-		$this->form("text")->name("slug")->validate()->slugify("product_title");
+		$this->form("text")->name("slug")->required()->validate()->slugify("product_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function productcat_id() 
 	{
-		$this->form("select")->name("productcat")->validate("id");
+		$this->form("select")->name("productcat")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function product_barcode() 
@@ -59,7 +59,7 @@ class products
 	}
 	public function product_price() 
 	{
-		$this->form("text")->name("price");
+		$this->form("text")->name("price")->required();
 	}
 	public function product_discount() 
 	{
@@ -107,14 +107,14 @@ class products
 	//------------------------------------------------------------------ radio button
 	public function product_service() 
 	{
-		$this->form("radio")->name("service");
+		$this->form("radio")->name("service")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ select button
 	public function product_sellin() 
 	{
-		$this->form("select")->name("sellin")->validate();
+		$this->form("select")->name("sellin")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

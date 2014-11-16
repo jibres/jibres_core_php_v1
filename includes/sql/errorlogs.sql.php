@@ -21,7 +21,7 @@ class errorlogs
 	//------------------------------------------------------------------ id - foreign key
 	public function errorlog_id() 
 	{
-		$this->form("select")->name("errorlog")->validate("id");
+		$this->form("select")->name("errorlog")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

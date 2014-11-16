@@ -48,7 +48,7 @@ class users
 	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		$this->form("#password");
+		$this->form("#password")->required();
 	}
 
 	//------------------------------------------------------------------ email

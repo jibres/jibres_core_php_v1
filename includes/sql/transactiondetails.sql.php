@@ -17,23 +17,23 @@ class transactiondetails
 	//------------------------------------------------------------------ id - foreign key
 	public function transaction_id() 
 	{
-		$this->form("select")->name("transaction")->validate("id");
+		$this->form("select")->name("transaction")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("product")->validate("id");
+		$this->form("select")->name("product")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function transactiondetail_quantity() 
 	{
-		$this->form("text")->name("quantity");
+		$this->form("text")->name("quantity")->required();
 	}
 	public function transactiondetail_price() 
 	{
-		$this->form("text")->name("price");
+		$this->form("text")->name("price")->required();
 	}
 	public function transactiondetail_discount() 
 	{

@@ -16,13 +16,13 @@ class addons
 	public function id() {$this->validate("id");}
 	public function addon_name() 
 	{
-		$this->form("text")->name("name");
+		$this->form("text")->name("name")->required();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function addon_slug() 
 	{
-		$this->form("text")->name("slug")->validate()->slugify("addon_title");
+		$this->form("text")->name("slug")->required()->validate()->slugify("addon_title");
 	}
 
 	//------------------------------------------------------------------ description
@@ -34,7 +34,7 @@ class addons
 	//------------------------------------------------------------------ select button
 	public function addon_status() 
 	{
-		$this->form("select")->name("status")->validate();
+		$this->form("select")->name("status")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function addon_expire() 

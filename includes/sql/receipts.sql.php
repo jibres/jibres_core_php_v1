@@ -33,11 +33,11 @@ class receipts
 	}
 	public function receipt_price() 
 	{
-		$this->form("text")->name("price");
+		$this->form("text")->name("price")->required();
 	}
 	public function receipt_date() 
 	{
-		$this->form("text")->name("date");
+		$this->form("text")->name("date")->required();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -71,19 +71,19 @@ class receipts
 	//------------------------------------------------------------------ id - foreign key
 	public function fund_id() 
 	{
-		$this->form("select")->name("fund")->validate("id");
+		$this->form("select")->name("fund")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function user_id_customer() 
 	{
-		$this->form("text")->name("id_customer");
+		$this->form("text")->name("id_customer")->required();
 	}
 	public function date_modified() {}
 }

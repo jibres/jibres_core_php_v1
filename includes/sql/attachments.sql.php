@@ -26,24 +26,24 @@ class attachments
 	//------------------------------------------------------------------ select button
 	public function attachment_model() 
 	{
-		$this->form("select")->name("model")->validate();
+		$this->form("select")->name("model")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function attachment_addr() 
 	{
-		$this->form("text")->name("addr");
+		$this->form("text")->name("addr")->required();
 	}
 	public function attachment_name() 
 	{
-		$this->form("text")->name("name");
+		$this->form("text")->name("name")->required();
 	}
 	public function attachment_type() 
 	{
-		$this->form("text")->name("type");
+		$this->form("text")->name("type")->required();
 	}
 	public function attachment_size() 
 	{
-		$this->form("text")->name("size");
+		$this->form("text")->name("size")->required();
 	}
 
 	//------------------------------------------------------------------ description
@@ -55,7 +55,7 @@ class attachments
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

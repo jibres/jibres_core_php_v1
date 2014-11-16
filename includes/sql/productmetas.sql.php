@@ -16,16 +16,16 @@ class productmetas
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("product")->validate("id");
+		$this->form("select")->name("product")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 	public function productmeta_cat() 
 	{
-		$this->form("text")->name("cat");
+		$this->form("text")->name("cat")->required();
 	}
 	public function productmeta_name() 
 	{
-		$this->form("text")->name("name");
+		$this->form("text")->name("name")->required();
 	}
 	public function productmeta_value() 
 	{

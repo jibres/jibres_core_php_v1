@@ -26,7 +26,7 @@ class posts
 	//------------------------------------------------------------------ title
 	public function post_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 	public function post_cat() 
 	{
@@ -36,7 +36,7 @@ class posts
 	//------------------------------------------------------------------ slug
 	public function post_slug() 
 	{
-		$this->form("text")->name("slug")->validate()->slugify("post_title");
+		$this->form("text")->name("slug")->required()->validate()->slugify("post_title");
 	}
 	public function post_content() 
 	{
@@ -46,21 +46,21 @@ class posts
 	//------------------------------------------------------------------ select button
 	public function post_type() 
 	{
-		$this->form("select")->name("type")->validate();
+		$this->form("select")->name("type")->required()->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ select button
 	public function post_status() 
 	{
-		$this->form("select")->name("status")->validate();
+		$this->form("select")->name("status")->required()->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 

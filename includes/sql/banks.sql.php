@@ -16,13 +16,13 @@ class banks
 	//------------------------------------------------------------------ title
 	public function bank_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function bank_slug() 
 	{
-		$this->form("text")->name("slug")->validate()->slugify("bank_title");
+		$this->form("text")->name("slug")->required()->validate()->slugify("bank_title");
 	}
 
 	//------------------------------------------------------------------ website
@@ -34,7 +34,7 @@ class banks
 	//------------------------------------------------------------------ radio button
 	public function bank_active() 
 	{
-		$this->form("radio")->name("active");
+		$this->form("radio")->name("active")->required();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

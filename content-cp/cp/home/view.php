@@ -19,8 +19,8 @@ class view extends main_view
 				$tmp_array[$b]= '';
 			}
 		}
-
-		$this->data->tmp	= array_keys($tmp_array);
+		if($tmp_array)
+			$this->data->tmp	= array_keys($tmp_array);
 		
          // $this->createform(".login");
          // $this->data->module = "login";

@@ -17,31 +17,31 @@ class verifications
 	//------------------------------------------------------------------ select button
 	public function verification_type() 
 	{
-		$this->form("select")->name("type")->validate();
+		$this->form("select")->name("type")->required()->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ email
 	public function verification_email() 
 	{
-		$this->form("#email");
+		$this->form("#email")->required();
 	}
 	public function verification_code() 
 	{
-		$this->form("text")->name("code");
+		$this->form("text")->name("code")->required();
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->required()->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function verification_verified() 
 	{
-		$this->form("radio")->name("verified");
+		$this->form("radio")->name("verified")->required();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

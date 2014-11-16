@@ -19,45 +19,45 @@ class permissions
 	//------------------------------------------------------------------ title
 	public function permission_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 	public function Permission_module() 
 	{
-		$this->form("text")->name("module");
+		$this->form("text")->name("module")->required();
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_view() 
 	{
-		$this->form("radio")->name("view");
+		$this->form("radio")->name("view")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_add() 
 	{
-		$this->form("radio")->name("add");
+		$this->form("radio")->name("add")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_edit() 
 	{
-		$this->form("radio")->name("edit");
+		$this->form("radio")->name("edit")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_delete() 
 	{
-		$this->form("radio")->name("delete");
+		$this->form("radio")->name("delete")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_status() 
 	{
-		$this->form("radio")->name("status");
+		$this->form("radio")->name("status")->required();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

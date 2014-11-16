@@ -47,7 +47,7 @@
    {%if child%}
     <p class="alert alert-block alert-info">
      {{module|title}} Section
-     <a class="float-right" href="{{class}}/{{module}}">Go to {{module|title}}</a>
+     <a class="float-right" href="/{{module}}">Go to {{module|title}}</a>
     </p>
     {%if form_show %}
      <form class="ajx" method="post" id="{{form_title}}">
@@ -60,7 +60,7 @@
    {%else%}
     <p class="alert alert-block alert-info">
      <a href="{{module}}/add">Add New Record</a>
-     <a class="float-right" href="admin">Home</a>
+     <a class="float-right" href="/">Home</a>
     </p>
 
   		{%block datatable%}

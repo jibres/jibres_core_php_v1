@@ -15,13 +15,13 @@ class locations
 	//------------------------------------------------------------------ title
 	public function location_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function location_slug() 
 	{
-		$this->form("text")->name("slug")->validate()->slugify("location_title");
+		$this->form("text")->name("slug")->required()->validate()->slugify("location_title");
 	}
 
 	//------------------------------------------------------------------ description

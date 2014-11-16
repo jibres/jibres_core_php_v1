@@ -29,7 +29,7 @@ class userlogs
 	//------------------------------------------------------------------ select button
 	public function userlog_priority() 
 	{
-		$this->form("select")->name("priority")->validate();
+		$this->form("select")->name("priority")->required()->validate();
 		$this->setChild($this->form);
 	}
 

@@ -18,13 +18,13 @@ class costcats
 	//------------------------------------------------------------------ title
 	public function costcat_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->required();
 	}
 
 	//------------------------------------------------------------------ slug
 	public function costcat_slug() 
 	{
-		$this->form("text")->name("slug")->validate()->slugify("costcat_title");
+		$this->form("text")->name("slug")->required()->validate()->slugify("costcat_title");
 	}
 
 	//------------------------------------------------------------------ description
