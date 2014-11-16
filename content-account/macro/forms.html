@@ -39,7 +39,7 @@
 {% macro textarea(array) %}
 	{% spaceless %}
 			<label for="{{array.attr.id}}" class="input-label">{{array.label}}</label>
-			<textarea type="{{array.type}}" {% for attr,value in array.attr%}{%if attr != 'value'%}{{attr}}="{{value}}"{%endif%} {% endfor %}>{{array.attr.value}}</textarea>
+			<textarea {% for attr,value in array.attr%}{%if attr != 'value'%}{{attr}}="{{value}}"{%endif%} {% endfor %}>{{array.attr.value}}</textarea>
 	{% endspaceless %}
 {% endmacro %}
 
