@@ -84,7 +84,8 @@ class users
 	}
 	public function user_tel() 
 	{
-		$this->form("text")->name("tel")->maxlength(15);
+		$this->form("text")->name("tel")->maxlength(15)
+			->validate("mobile");
 	}
 	public function user_mobile() 
 	{
