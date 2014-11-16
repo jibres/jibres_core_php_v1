@@ -1,14 +1,15 @@
 <?php
 class config_cls{
 	static function _before(){
-		$l = config_lib::listen(
-			array(
-				"url" => array("login")
-				)
-			,function(){
-				config_hendel_lib::change_content("content-account");
-			}
-			);
+		// login not work and i use redirect
+		// $l = config_lib::listen(
+		// 	array(
+		// 		"url" => array("login")
+		// 		)
+		// 	,function(){
+		// 		config_hendel_lib::change_content("content-account");
+		// 	}
+		// 	);
 		$l = config_lib::listen(
 			array(
 				"sub_domain" => array("admin")

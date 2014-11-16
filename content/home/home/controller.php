@@ -11,7 +11,7 @@ class controller extends main_controller
 			),
 		function()
 		{
-			header("location: "."account/login");
+			header("location: http://account.".DOMAIN."/login");
 			exit();
 		}
 		);
