@@ -48,7 +48,9 @@ class users
 	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		$this->form("#password")->required()->maxlength(32);
+		$this->form("#text_desc")->type("test");
+		var_dump($this->form->compile());
+		// $this->form("#password")->required()->maxlength(32);
 	}
 
 	//------------------------------------------------------------------ email
@@ -84,9 +86,7 @@ class users
 	}
 	public function user_tel() 
 	{
-		// $this->form("text")->name("tel")->maxlength(15);
-		$this->form("#password")->type("test");
-		var_dump($this->form->compile());
+		$this->form("text")->name("tel")->maxlength(15);
 	}
 	public function user_mobile() 
 	{
