@@ -85,7 +85,7 @@ class users
 	public function user_tel() 
 	{
 		// $this->form("text")->name("tel")->maxlength(15);
-		$this->form("#password")->type("text");
+		$this->form("#password")->type("test");
 		var_dump($this->form->compile());
 	}
 	public function user_mobile() 
