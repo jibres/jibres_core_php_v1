@@ -1,30 +1,29 @@
 <?php
 namespace sql;
-class cheques 
+class papers 
 {
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $cheque_number = array('type' => 'varchar@20', 'null' =>'YES' ,'label' => 'Number');
-	public $cheque_date = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Date');
-	public $cheque_price = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Price');
+	public $paper_number = array('type' => 'varchar@20', 'null' =>'YES' ,'label' => 'Number');
+	public $paper_date = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Date');
+	public $paper_price = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Price');
 	public $bank_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Bank', 'foreign' => 'banks@id!bank_title');
-	public $cheque_holder = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Holder');
-	public $cheque_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $cheque_status = array('type' => 'enum@pass,back_recovery,back_fail,lost,block,delete,inprogress', 'null' =>'YES' ,'label' => 'Status');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
+	public $paper_holder = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Holder');
+	public $paper_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
+	public $paper_status = array('type' => 'enum@pass,recovery,fail,lost,block,delete,inprogress', 'null' =>'YES' ,'label' => 'Status');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate("id");}
-	public function cheque_number() 
+	public function paper_number() 
 	{
 		$this->form("text")->name("number");
 	}
-	public function cheque_date() 
+	public function paper_date() 
 	{
 		$this->form("text")->name("date");
 	}
-	public function cheque_price() 
+	public function paper_price() 
 	{
 		$this->form("text")->name("price");
 	}
@@ -35,28 +34,21 @@ class cheques
 		$this->form("select")->name("bank")->validate("id");
 		$this->setChild($this->form);
 	}
-	public function cheque_holder() 
+	public function paper_holder() 
 	{
 		$this->form("text")->name("holder");
 	}
 
 	//------------------------------------------------------------------ description
-	public function cheque_desc() 
+	public function paper_desc() 
 	{
 		$this->form("#desc");
 	}
 
 	//------------------------------------------------------------------ select button
-	public function cheque_status() 
+	public function paper_status() 
 	{
 		$this->form("select")->name("status")->validate();
-		$this->setChild($this->form);
-	}
-
-	//------------------------------------------------------------------ id - foreign key
-	public function user_id() 
-	{
-		$this->form("select")->name("user")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

@@ -6,7 +6,7 @@ class addons
 	public $addon_name = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Name');
 	public $addon_slug = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Slug');
 	public $addon_desc = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Description');
-	public $addon_status = array('type' => 'enum@active,deactive,expire,going_to_expire!deactive', 'null' =>'NO' ,'label' => 'Status');
+	public $addon_status = array('type' => 'enum@active,deactive,expire,goingtoexpire!deactive', 'null' =>'NO' ,'label' => 'Status');
 	public $addon_expire = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Expire');
 	public $addon_installdate = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Installdate');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
