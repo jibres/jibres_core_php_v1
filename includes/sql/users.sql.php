@@ -48,13 +48,13 @@ class users
 	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		$this->form("#password")->required();
+		$this->form("#password")->required()->maxlength(32);
 	}
 
 	//------------------------------------------------------------------ email
 	public function user_email() 
 	{
-		$this->form("#email");
+		$this->form("#email")->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ radio button
@@ -72,23 +72,23 @@ class users
 	}
 	public function user_firstname() 
 	{
-		$this->form("text")->name("firstname");
+		$this->form("text")->name("firstname")->maxlength(50);
 	}
 	public function user_lastname() 
 	{
-		$this->form("text")->name("lastname");
+		$this->form("text")->name("lastname")->maxlength(50);
 	}
 	public function user_nickname() 
 	{
-		$this->form("text")->name("nickname");
+		$this->form("text")->name("nickname")->maxlength(50);
 	}
 	public function user_tel() 
 	{
-		$this->form("text")->name("tel");
+		$this->form("text")->name("tel")->maxlength(15);
 	}
 	public function user_mobile() 
 	{
-		$this->form("text")->name("mobile");
+		$this->form("text")->name("mobile")->maxlength(15);
 	}
 	public function user_birthday() 
 	{
@@ -96,23 +96,23 @@ class users
 	}
 	public function user_country() 
 	{
-		$this->form("text")->name("country");
+		$this->form("text")->name("country")->min(0)->max(9999);
 	}
 	public function user_state() 
 	{
-		$this->form("text")->name("state");
+		$this->form("text")->name("state")->min(0)->max(9999);
 	}
 	public function user_city() 
 	{
-		$this->form("text")->name("city");
+		$this->form("text")->name("city")->min(0)->max(9999);
 	}
 	public function user_address() 
 	{
-		$this->form("text")->name("address");
+		$this->form("text")->name("address")->maxlength(200);
 	}
 	public function user_postcode() 
 	{
-		$this->form("text")->name("postcode");
+		$this->form("text")->name("postcode")->maxlength(10);
 	}
 
 	//------------------------------------------------------------------ radio button
@@ -123,17 +123,17 @@ class users
 	}
 	public function user_refer() 
 	{
-		$this->form("text")->name("refer");
+		$this->form("text")->name("refer")->maxlength(50);
 	}
 	public function user_nationalcode() 
 	{
-		$this->form("text")->name("nationalcode");
+		$this->form("text")->name("nationalcode")->maxlength(15);
 	}
 
 	//------------------------------------------------------------------ website
 	public function user_website() 
 	{
-		$this->form("#website");
+		$this->form("#website")->maxlength(100);
 	}
 
 	//------------------------------------------------------------------ select button
@@ -144,19 +144,19 @@ class users
 	}
 	public function user_degree() 
 	{
-		$this->form("text")->name("degree");
+		$this->form("text")->name("degree")->maxlength(50);
 	}
 	public function user_activity() 
 	{
-		$this->form("text")->name("activity");
+		$this->form("text")->name("activity")->maxlength(50);
 	}
 	public function user_incomes() 
 	{
-		$this->form("text")->name("incomes");
+		$this->form("text")->name("incomes")->max(9999999999);
 	}
 	public function user_outcomes() 
 	{
-		$this->form("text")->name("outcomes");
+		$this->form("text")->name("outcomes")->max(9999999999);
 	}
 
 	//------------------------------------------------------------------ radio button
@@ -167,17 +167,17 @@ class users
 	}
 	public function user_question() 
 	{
-		$this->form("text")->name("question");
+		$this->form("text")->name("question")->maxlength(100);
 	}
 	public function user_answer() 
 	{
-		$this->form("text")->name("answer");
+		$this->form("text")->name("answer")->maxlength(100);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function permission_id() 
 	{
-		$this->form("select")->name("permission")->validate("id");
+		$this->form("select")->name("permission")->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

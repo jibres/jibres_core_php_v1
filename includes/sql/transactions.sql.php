@@ -32,12 +32,12 @@ class transactions
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->required()->validate("id");
+		$this->form("select")->name("user")->required()->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function user_id_customer() 
 	{
-		$this->form("text")->name("id_customer")->required();
+		$this->form("text")->name("id_customer")->required()->min(0)->max(9999);
 	}
 	public function transaction_date() 
 	{
@@ -45,23 +45,23 @@ class transactions
 	}
 	public function transaction_sum() 
 	{
-		$this->form("text")->name("sum")->required();
+		$this->form("text")->name("sum")->required()->max(999999999999);
 	}
 	public function transaction_discount() 
 	{
-		$this->form("text")->name("discount")->required();
+		$this->form("text")->name("discount")->required()->max(999999999999);
 	}
 	public function transaction_initialreceived() 
 	{
-		$this->form("text")->name("initialreceived");
+		$this->form("text")->name("initialreceived")->max(999999999999);
 	}
 	public function transaction_received() 
 	{
-		$this->form("text")->name("received");
+		$this->form("text")->name("received")->max(999999999999);
 	}
 	public function transaction_remained() 
 	{
-		$this->form("text")->name("remained");
+		$this->form("text")->name("remained")->max(999999999999);
 	}
 	public function transaction_pre() 
 	{
@@ -71,11 +71,11 @@ class transactions
 	//------------------------------------------------------------------ description
 	public function transaction_desc() 
 	{
-		$this->form("#desc");
+		$this->form("#desc")->maxlength(200);
 	}
 	public function transaction_transport() 
 	{
-		$this->form("text")->name("transport");
+		$this->form("text")->name("transport")->max(999999999999);
 	}
 	public function transaction_vat() 
 	{

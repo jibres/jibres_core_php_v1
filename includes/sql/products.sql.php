@@ -30,52 +30,52 @@ class products
 	//------------------------------------------------------------------ title
 	public function product_title() 
 	{
-		$this->form("text")->name("title")->required();
+		$this->form("text")->name("title")->required()->maxlength(100);
 	}
 
 	//------------------------------------------------------------------ slug
 	public function product_slug() 
 	{
-		$this->form("text")->name("slug")->required()->validate()->slugify("product_title");
+		$this->form("text")->name("slug")->required()->maxlength(50)->validate()->slugify("product_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function productcat_id() 
 	{
-		$this->form("select")->name("productcat")->required()->validate("id");
+		$this->form("select")->name("productcat")->required()->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function product_barcode() 
 	{
-		$this->form("text")->name("barcode");
+		$this->form("text")->name("barcode")->maxlength(20);
 	}
 	public function product_barcode2() 
 	{
-		$this->form("text")->name("barcode2");
+		$this->form("text")->name("barcode2")->maxlength(20);
 	}
 	public function product_buyprice() 
 	{
-		$this->form("text")->name("buyprice");
+		$this->form("text")->name("buyprice")->max(999999999999);
 	}
 	public function product_price() 
 	{
-		$this->form("text")->name("price")->required();
+		$this->form("text")->name("price")->required()->max(999999999999);
 	}
 	public function product_discount() 
 	{
-		$this->form("text")->name("discount");
+		$this->form("text")->name("discount")->max(999999999999);
 	}
 	public function product_vat() 
 	{
-		$this->form("text")->name("vat");
+		$this->form("text")->name("vat")->max(99999);
 	}
 	public function product_initialbalance() 
 	{
-		$this->form("text")->name("initialbalance");
+		$this->form("text")->name("initialbalance")->max(999999999);
 	}
 	public function product_mininventory() 
 	{
-		$this->form("text")->name("mininventory");
+		$this->form("text")->name("mininventory")->max(999999999);
 	}
 
 	//------------------------------------------------------------------ select button
@@ -86,21 +86,21 @@ class products
 	}
 	public function product_sold() 
 	{
-		$this->form("text")->name("sold");
+		$this->form("text")->name("sold")->max(999999999);
 	}
 	public function product_stock() 
 	{
-		$this->form("text")->name("stock");
+		$this->form("text")->name("stock")->max(999999999);
 	}
 	public function product_carton() 
 	{
-		$this->form("text")->name("carton");
+		$this->form("text")->name("carton")->max(999999999);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("select")->name("attachment")->validate("id");
+		$this->form("select")->name("attachment")->min(0)->max(999999999)->validate("id");
 		$this->setChild($this->form);
 	}
 

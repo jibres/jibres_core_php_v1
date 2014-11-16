@@ -16,19 +16,19 @@ class banks
 	//------------------------------------------------------------------ title
 	public function bank_title() 
 	{
-		$this->form("text")->name("title")->required();
+		$this->form("text")->name("title")->required()->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ slug
 	public function bank_slug() 
 	{
-		$this->form("text")->name("slug")->required()->validate()->slugify("bank_title");
+		$this->form("text")->name("slug")->required()->maxlength(50)->validate()->slugify("bank_title");
 	}
 
 	//------------------------------------------------------------------ website
 	public function bank_website() 
 	{
-		$this->form("#website");
+		$this->form("#website")->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ radio button

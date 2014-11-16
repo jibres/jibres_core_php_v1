@@ -21,48 +21,48 @@ class accounts
 	//------------------------------------------------------------------ title
 	public function account_title() 
 	{
-		$this->form("text")->name("title")->required();
+		$this->form("text")->name("title")->required()->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ slug
 	public function account_slug() 
 	{
-		$this->form("text")->name("slug")->required()->validate()->slugify("account_title");
+		$this->form("text")->name("slug")->required()->maxlength(50)->validate()->slugify("account_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form("select")->name("bank")->required()->validate("id");
+		$this->form("select")->name("bank")->required()->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function account_branch() 
 	{
-		$this->form("text")->name("branch");
+		$this->form("text")->name("branch")->maxlength(50);
 	}
 	public function account_number() 
 	{
-		$this->form("text")->name("number");
+		$this->form("text")->name("number")->maxlength(50);
 	}
 	public function account_card() 
 	{
-		$this->form("text")->name("card");
+		$this->form("text")->name("card")->maxlength(30);
 	}
 	public function account_primarybalance() 
 	{
-		$this->form("text")->name("primarybalance")->required();
+		$this->form("text")->name("primarybalance")->required()->max(9999999999999);
 	}
 
 	//------------------------------------------------------------------ description
 	public function account_desc() 
 	{
-		$this->form("#desc");
+		$this->form("#desc")->maxlength(200);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->required()->validate("id");
+		$this->form("select")->name("user")->required()->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

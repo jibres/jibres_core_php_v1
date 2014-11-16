@@ -15,19 +15,19 @@ class options
 	public function id() {$this->validate("id");}
 	public function option_cat() 
 	{
-		$this->form("text")->name("cat")->required();
+		$this->form("text")->name("cat")->required()->maxlength(50);
 	}
 	public function option_name() 
 	{
-		$this->form("text")->name("name")->required();
+		$this->form("text")->name("name")->required()->maxlength(50);
 	}
 	public function option_value() 
 	{
-		$this->form("text")->name("value");
+		$this->form("text")->name("value")->maxlength(200);
 	}
 	public function option_extra() 
 	{
-		$this->form("text")->name("extra");
+		$this->form("text")->name("extra")->maxlength(400);
 	}
 
 	//------------------------------------------------------------------ select button

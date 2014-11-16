@@ -24,6 +24,9 @@
   <link href="{{url.static}}images/favicon.png" rel="shortcut icon">
   
   <link href="{{url.static}}css/style.css?ver=0.0.1" rel="stylesheet" type="text/css">
+{%if include.fontawesome%}
+  <link href="{{url.static}}css/font-awesome.min.css?v4.2.0" rel="stylesheet" type="text/css">
+{%endif%}
 {%if include.jquery%}
   <script src="{{url.static}}js/jquery-modern.js" type="text/javascript"></script>
 {%endif%}
@@ -31,6 +34,7 @@
   <script src="{{url.static}}js/jquery.dataTables.min.js" type="text/javascript"></script>
   <link href="{{url.static}}css/jquery.dataTables.css" rel="stylesheet" type="text/css">
 {%endif%}
+  <script src="{{url.static}}js/custom.js" type="text/javascript"></script>
 {%block head%}{%endblock%}
  </head>
  {% if extendForm%}
@@ -43,7 +47,6 @@
   <div class="container" id="main">
   {%if global.page_title%}
   <h1>{{global.page_title}}</h1><hr />{%endif%}
-   
 {%block content%}{%endblock%}
   </div>
 

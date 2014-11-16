@@ -16,28 +16,28 @@ class notifications
 	public function id() {$this->validate("id");}
 	public function user_id_sender() 
 	{
-		$this->form("text")->name("id_sender");
+		$this->form("text")->name("id_sender")->min(0)->max(9999);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->required()->validate("id");
+		$this->form("select")->name("user")->required()->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ title
 	public function notification_title() 
 	{
-		$this->form("text")->name("title")->required();
+		$this->form("text")->name("title")->required()->maxlength(50);
 	}
 	public function notification_content() 
 	{
-		$this->form("text")->name("content");
+		$this->form("text")->name("content")->maxlength(200);
 	}
 	public function notification_url() 
 	{
-		$this->form("text")->name("url");
+		$this->form("text")->name("url")->maxlength(100);
 	}
 
 	//------------------------------------------------------------------ select button

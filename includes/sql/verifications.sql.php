@@ -24,17 +24,17 @@ class verifications
 	//------------------------------------------------------------------ email
 	public function verification_email() 
 	{
-		$this->form("#email")->required();
+		$this->form("#email")->required()->maxlength(50);
 	}
 	public function verification_code() 
 	{
-		$this->form("text")->name("code")->required();
+		$this->form("text")->name("code")->required()->maxlength(32);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->required()->validate("id");
+		$this->form("select")->name("user")->required()->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 

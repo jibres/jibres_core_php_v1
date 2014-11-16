@@ -22,33 +22,33 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->form("select")->name("post")->validate("id");
+		$this->form("select")->name("post")->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("product")->validate("id");
+		$this->form("select")->name("product")->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function comment_author() 
 	{
-		$this->form("text")->name("author");
+		$this->form("text")->name("author")->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ email
 	public function comment_email() 
 	{
-		$this->form("#email");
+		$this->form("#email")->maxlength(100);
 	}
 	public function comment_url() 
 	{
-		$this->form("text")->name("url");
+		$this->form("text")->name("url")->maxlength(100);
 	}
 	public function comment_content() 
 	{
-		$this->form("text")->name("content")->required();
+		$this->form("text")->name("content")->required()->maxlength(999);
 	}
 
 	//------------------------------------------------------------------ select button
@@ -59,20 +59,20 @@ class comments
 	}
 	public function comment_parent() 
 	{
-		$this->form("text")->name("parent");
+		$this->form("text")->name("parent")->min(0)->max(999999999);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function Visitor_id() 
 	{
-		$this->form("select")->name("Visitor")->required()->validate("id");
+		$this->form("select")->name("Visitor")->required()->min(0)->max(999999999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

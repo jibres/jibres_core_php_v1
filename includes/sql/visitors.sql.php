@@ -14,21 +14,21 @@ class visitors
 	public function id() {$this->validate("id");}
 	public function visitor_ip() 
 	{
-		$this->form("text")->name("ip")->required();
+		$this->form("text")->name("ip")->required()->min(0)->max(999999999);
 	}
 	public function visitor_agent() 
 	{
-		$this->form("text")->name("agent");
+		$this->form("text")->name("agent")->maxlength(255);
 	}
 	public function visitor_referrer() 
 	{
-		$this->form("text")->name("referrer");
+		$this->form("text")->name("referrer")->maxlength(255);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

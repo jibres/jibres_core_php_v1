@@ -17,13 +17,13 @@ class userlogs
 	//------------------------------------------------------------------ title
 	public function userlog_title() 
 	{
-		$this->form("text")->name("title");
+		$this->form("text")->name("title")->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ description
 	public function userlog_desc() 
 	{
-		$this->form("#desc");
+		$this->form("#desc")->maxlength(999);
 	}
 
 	//------------------------------------------------------------------ select button
@@ -43,7 +43,7 @@ class userlogs
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

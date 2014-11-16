@@ -16,19 +16,19 @@ class addons
 	public function id() {$this->validate("id");}
 	public function addon_name() 
 	{
-		$this->form("text")->name("name")->required();
+		$this->form("text")->name("name")->required()->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ slug
 	public function addon_slug() 
 	{
-		$this->form("text")->name("slug")->required()->validate()->slugify("addon_title");
+		$this->form("text")->name("slug")->required()->maxlength(50)->validate()->slugify("addon_title");
 	}
 
 	//------------------------------------------------------------------ description
 	public function addon_desc() 
 	{
-		$this->form("#desc");
+		$this->form("#desc")->maxlength(999);
 	}
 
 	//------------------------------------------------------------------ select button

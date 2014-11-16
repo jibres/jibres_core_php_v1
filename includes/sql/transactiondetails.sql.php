@@ -11,33 +11,33 @@ class transactiondetails
 
 	public function transactiondetail_row() 
 	{
-		$this->form("text")->name("row");
+		$this->form("text")->name("row")->min(0)->max(9999);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function transaction_id() 
 	{
-		$this->form("select")->name("transaction")->required()->validate("id");
+		$this->form("select")->name("transaction")->required()->min(0)->max(999999999)->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("product")->required()->validate("id");
+		$this->form("select")->name("product")->required()->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function transactiondetail_quantity() 
 	{
-		$this->form("text")->name("quantity")->required();
+		$this->form("text")->name("quantity")->required()->max(999999999);
 	}
 	public function transactiondetail_price() 
 	{
-		$this->form("text")->name("price")->required();
+		$this->form("text")->name("price")->required()->max(999999999999);
 	}
 	public function transactiondetail_discount() 
 	{
-		$this->form("text")->name("discount");
+		$this->form("text")->name("discount")->max(999999999999);
 	}
 }
 ?>

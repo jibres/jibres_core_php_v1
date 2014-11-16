@@ -15,11 +15,11 @@ class errors
 	//------------------------------------------------------------------ title
 	public function error_title() 
 	{
-		$this->form("text")->name("title")->required();
+		$this->form("text")->name("title")->required()->maxlength(100);
 	}
 	public function error_solution() 
 	{
-		$this->form("text")->name("solution");
+		$this->form("text")->name("solution")->maxlength(999);
 	}
 
 	//------------------------------------------------------------------ select button

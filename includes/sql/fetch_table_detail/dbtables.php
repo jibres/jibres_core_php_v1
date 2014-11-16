@@ -12,19 +12,76 @@ function _type($type, $def)
 {
 	$def = $def ? "!$def" : null;
 	preg_match("/^([^(]*)(\((.*)\))?/", $type, $tp);
-		$_type = $tp[1];
-		$_length = isset($tp[3]) ? $tp[3] : null;
-		switch ($_type) 
-		{
-			case 'enum':
+	$_type		= $tp[1];
+	$_length	= isset($tp[3]) ? $tp[3] : null;
+	switch ($_type) 
+	{
+		case 'enum':
 			$_length = preg_replace("[']", "", $_length);
 			return ("'type' => '$_type@$_length{$def}'");
 			break;
-			default:
 
+		default:
 			return ("'type' => '$_type@$_length{$def}'");
 			break;
-		}
+	}
+}
+
+function setproperty($type)
+{
+	// for add new HTML5 feature to forms
+	preg_match("/^([^(]*)(\((.*)\))?/", $type, $tp);
+	$_type		= $tp[1];
+	$_length	= isset($tp[3]) ? $tp[3] : null;
+	$mydotpos	= strpos($_length,',');
+	$mydotpos	= $mydotpos?$mydotpos:strlen($_length);
+	$mylen 		= substr($_length, 0, $mydotpos);
+
+	$mylength	= $_length;
+	$mymax		= "->maxlength('".$_length."')";
+	$tmp		= "";
+
+	switch ($_type) 
+	{
+		case 'enum':
+		case 'timestamp':
+			return false;
+			break;
+
+
+		case 'smallint':
+		case 'int':
+		case 'bigint':
+		case 'decimal':
+		case 'float':
+			// $tmp 	.= "->type('number')";
+			if( substr($type, strlen($type)-8) == "unsigned" )
+				$tmp 	.= "->min(0)";
+				
+			// check for max input
+			// $tmp 	.= "->onKeyDown('if(this.value.length==".$mylen.") return false;')";
+			$tmp 	.= "->max(".str_repeat("9",$mylen-1).")";
+
+			return $tmp;
+			break;
+
+
+		case 'varchar':
+		case 'char':
+			$tmp 	.= "->maxlength(".$mylen.")";
+			return $tmp;
+			break;
+
+
+		case 'datetime':
+			return $tmp;
+			break;
+
+
+		default:
+			return ("N-A: Create Error");
+			break;
+	}
 }
 	while ($row = $qTables->fetch_object()) 
 	{
@@ -47,6 +104,10 @@ function _type($type, $def)
 			$myfield		= $crow->Field;
 			$mynull			= $crow->Null;
 			$required		= $mynull=='NO'?'->required()':null;
+			$property		= $required;
+			$property		.= setproperty($crow->Type);
+			// var_dump( $property );
+			// exit();
 			$tmp_pos 		= strpos($myfield, '_');
 			$prefix			= substr($myfield, 0, $tmp_pos );
 			$isforeign		= false;
@@ -76,7 +137,7 @@ function _type($type, $def)
 				// for foreign key we use prefix that means we use (table name-last char)
 				$fn .= $txtcomment. "id - foreign key\n";
 				// $fn .= $txtstart. '$this->form("#foreignkey")->name("'. $prefix.'")->validate("id");' .$txtend;
-				$fn .= $txtstart. '$this->form("select")->name("'. $prefix.'")'.$required.'->validate("id");';
+				$fn .= $txtstart. '$this->form("select")->name("'. $prefix.'")'.$property.'->validate("id");';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 
 				// $mylabel = str_replace("_", " ", $myfield);
@@ -90,13 +151,13 @@ function _type($type, $def)
 			elseif ($myname=='title')
 			{
 				$fn .= $txtcomment. 'title'."\n";
-				$fn .= $txtstart. '$this->form("text")->name("title")'.$required.';'.$txtend;
+				$fn .= $txtstart. '$this->form("text")->name("title")'.$property.';'.$txtend;
 			}
 			elseif ($myname=="slug")
 			{
 				$fn .= $txtcomment. "slug\n";
 				// $fn .= $txtstart. '$this->form("#slug");';
-				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$required.'->validate()->slugify("'.$prefix.'_title");';
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.'->validate()->slugify("'.$prefix.'_title");';
 				
 				// $fn .= $txtstart. '$this->form("text")->name("'. $myname.'")->validate()';
 				// $fn .= "\n\t\t->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value;});";
@@ -110,7 +171,7 @@ function _type($type, $def)
 			elseif ($myname=="desc")
 			{
 				$fn .= $txtcomment. "description\n";
-				$fn .= $txtstart. '$this->form("#desc")'.$required.';'.$txtend;
+				$fn .= $txtstart. '$this->form("#desc")'.$property.';'.$txtend;
 
 				$mylabel = "Description";
 			}
@@ -119,12 +180,12 @@ function _type($type, $def)
 			elseif ($myname=="email")
 			{
 				$fn .= $txtcomment. "email\n";
-				$fn .= $txtstart. '$this->form("#email")'.$required.';'.$txtend;
+				$fn .= $txtstart. '$this->form("#email")'.$property.';'.$txtend;
 			}
 			elseif ($myname=="pass")
 			{
 				$fn .= $txtcomment. "password\n";
-				$fn .= $txtstart. '$this->form("#password")'.$required.';'.$txtend;
+				$fn .= $txtstart. '$this->form("#password")'.$property.';'.$txtend;
 				$mylabel = "Password";
 			}
 
@@ -138,7 +199,7 @@ function _type($type, $def)
 			}
 			elseif($crow->Field=="attachment_type")
 			{
-				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$required.';'.$txtend;
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.';'.$txtend;
 			}
 
 			// --------------------------------------------------------------------------------- radio
@@ -151,7 +212,7 @@ function _type($type, $def)
 				)	
 			{
 				$fn .= $txtcomment. "radio button\n";
-				$fn .= $txtstart. '$this->form("radio")->name("'. $myname.'")'.$required.';';
+				$fn .= $txtstart. '$this->form("radio")->name("'. $myname.'")'.$property.';';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 			}
 
@@ -163,7 +224,7 @@ function _type($type, $def)
 				)
 			{
 				$fn .= $txtcomment. "select button\n";
-				$fn .= $txtstart. '$this->form("select")->name("'. $myname.'")'.$required.'->validate();';
+				$fn .= $txtstart. '$this->form("select")->name("'. $myname.'")'.$property.'->validate();';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 			}
 
@@ -171,7 +232,7 @@ function _type($type, $def)
 			elseif ($myname=="website")
 			{
 				$fn .= $txtcomment. "website\n";
-				$fn .= $txtstart. '$this->form("#website")'.$required.';'.$txtend;
+				$fn .= $txtstart. '$this->form("#website")'.$property.';'.$txtend;
 
 				// $mylabel = "Description";
 			}
@@ -181,7 +242,7 @@ function _type($type, $def)
 			{
 				// $fn .= $txtcomment. "email\n";
 				// $fn .= $txtstart. '$this->form()->name("'. $myname.'")'."\n\t\t".'->validate();'.$txtend;
-				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$required.';'.$txtend;
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.';'.$txtend;
 				// $fn .= $txtstart. $txtend;
 			}
 			

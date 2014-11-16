@@ -20,27 +20,27 @@ class posts
 	public function id() {$this->validate("id");}
 	public function post_language() 
 	{
-		$this->form("text")->name("language");
+		$this->form("text")->name("language")->maxlength(2);
 	}
 
 	//------------------------------------------------------------------ title
 	public function post_title() 
 	{
-		$this->form("text")->name("title")->required();
+		$this->form("text")->name("title")->required()->maxlength(100);
 	}
 	public function post_cat() 
 	{
-		$this->form("text")->name("cat");
+		$this->form("text")->name("cat")->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ slug
 	public function post_slug() 
 	{
-		$this->form("text")->name("slug")->required()->validate()->slugify("post_title");
+		$this->form("text")->name("slug")->required()->maxlength(100)->validate()->slugify("post_title");
 	}
 	public function post_content() 
 	{
-		$this->form("text")->name("content");
+		$this->form("text")->name("content")N-A: Create Error;
 	}
 
 	//------------------------------------------------------------------ select button
@@ -60,14 +60,14 @@ class posts
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->required()->validate("id");
+		$this->form("select")->name("user")->required()->min(0)->max(9999)->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("select")->name("attachment")->validate("id");
+		$this->form("select")->name("attachment")->min(0)->max(999999999)->validate("id");
 		$this->setChild($this->form);
 	}
 	public function post_publishdate() 

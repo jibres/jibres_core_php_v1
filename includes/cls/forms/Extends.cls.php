@@ -14,13 +14,16 @@ class forms_Extends_cls extends forms_lib{
 		// title contain email or mobile number
 		// $this->title = $this->make("text")->name("title");
 		
-		
+		/**
+		 * use below syntax for show custom error on require or patten fail
+		 ->title("show popup on error")
+		*/
 		// slug contain email or mobile number
 		$this->slug = $this->make("text")->name("slug");
 		$this->slug->validate()->slug()->form->slug("slug incorrect");
 
 		// desc contain email or mobile number
-		$this->desc = $this->make("text")->name("desc");
+		$this->desc = $this->make("textarea")->name("desc");
 		$this->desc->validate()->desc()->form->desc("desc incorrect");
 
 		// username contain email or mobile number

@@ -19,11 +19,11 @@ class permissions
 	//------------------------------------------------------------------ title
 	public function permission_title() 
 	{
-		$this->form("text")->name("title")->required();
+		$this->form("text")->name("title")->required()->maxlength(50);
 	}
 	public function Permission_module() 
 	{
-		$this->form("text")->name("module")->required();
+		$this->form("text")->name("module")->required()->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ radio button
