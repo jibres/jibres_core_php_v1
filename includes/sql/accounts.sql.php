@@ -21,48 +21,48 @@ class accounts
 	//------------------------------------------------------------------ title
 	public function account_title() 
 	{
-		$this->form("text")->name("title")->required()->maxlength(50);
+		$this->form("text")->name("title")->maxlength(50)->required()->type('text');
 	}
 
 	//------------------------------------------------------------------ slug
 	public function account_slug() 
 	{
-		$this->form("text")->name("slug")->required()->maxlength(50)->validate()->slugify("account_title");
+		$this->form("text")->name("slug")->maxlength(50)->required()->type('text')->validate()->slugify("account_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form("select")->name("bank")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("bank")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function account_branch() 
 	{
-		$this->form("text")->name("branch")->maxlength(50);
+		$this->form("text")->name("branch")->maxlength(50)->type('text');
 	}
 	public function account_number() 
 	{
-		$this->form("text")->name("number")->maxlength(50);
+		$this->form("text")->name("number")->maxlength(50)->type('text');
 	}
 	public function account_card() 
 	{
-		$this->form("text")->name("card")->maxlength(30);
+		$this->form("text")->name("card")->maxlength(30)->type('text');
 	}
 	public function account_primarybalance() 
 	{
-		$this->form("text")->name("primarybalance")->required()->max(9999999999999);
+		$this->form("text")->name("primarybalance")->max(9999999999999)->required()->type('number');
 	}
 
 	//------------------------------------------------------------------ description
 	public function account_desc() 
 	{
-		$this->form("#desc")->maxlength(200);
+		$this->form("#desc")->maxlength(200)->type('textarea');
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

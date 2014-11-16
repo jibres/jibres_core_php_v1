@@ -16,20 +16,20 @@ class usermeta
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->min(0)->max(99999)->validate("id");
+		$this->form("select")->name("user")->min(0)->max(99999)->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function usermeta_cat() 
 	{
-		$this->form("text")->name("cat")->maxlength(50);
+		$this->form("text")->name("cat")->maxlength(50)->type('text');
 	}
 	public function usermeta_name() 
 	{
-		$this->form("text")->name("name")->maxlength(100);
+		$this->form("text")->name("name")->maxlength(100)->type('text');
 	}
 	public function usermeta_value() 
 	{
-		$this->form("text")->name("value")->maxlength(999);
+		$this->form("text")->name("value")->maxlength(999)->type('textarea');
 	}
 	public function date_modified() {}
 }

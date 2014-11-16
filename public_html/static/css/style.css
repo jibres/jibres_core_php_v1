@@ -464,6 +464,7 @@ form label.label-radio{
 form input, form select{
   margin: 0;
   padding: 5px;
+
 }
 
 form button{
@@ -492,6 +493,9 @@ form select{
   
 }
 
+form textarea{
+    max-width: 100%;
+}
 .radio, .checkbox {
 position: relative;
 display: block;

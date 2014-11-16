@@ -7,14 +7,14 @@ class receipts
 	public $receipt_type = array('type' => 'enum@income,outcome!income', 'null' =>'YES' ,'label' => 'Type');
 	public $receipt_price = array('type' => 'decimal@13,4!0.0000', 'null' =>'NO' ,'label' => 'Price');
 	public $receipt_date = array('type' => 'datetime@', 'null' =>'NO' ,'label' => 'Date');
-	public $paper_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Paper', 'foreign' => 'papers@id!paper_title');
+	public $paper_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Paper', 'foreign' => 'papers@id!id');
 	public $receipt_paperdate = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Paperdate');
 	public $receipt_paperstatus = array('type' => 'enum@pass,recovery,fail,lost,block,delete,inprogress', 'null' =>'YES' ,'label' => 'Paperstatus');
 	public $receipt_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $transaction_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Transaction', 'foreign' => 'transactions@id!transaction_title');
+	public $transaction_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Transaction', 'foreign' => 'transactions@id!id');
 	public $fund_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Fund', 'foreign' => 'funds@id!fund_title');
 	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
-	public $user_id_customer = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Id Customer');
+	public $user_id_customer = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
 
@@ -22,18 +22,18 @@ class receipts
 	public function id() {$this->validate("id");}
 	public function receipt_code() 
 	{
-		$this->form("text")->name("code")->maxlength(30);
+		$this->form("text")->name("code")->maxlength(30)->type('text');
 	}
 
 	//------------------------------------------------------------------ select button
 	public function receipt_type() 
 	{
-		$this->form("select")->name("type")->validate();
+		$this->form("select")->name("type")->type("select")->validate();
 		$this->setChild($this->form);
 	}
 	public function receipt_price() 
 	{
-		$this->form("text")->name("price")->required()->max(999999999999);
+		$this->form("text")->name("price")->max(999999999999)->required()->type('number');
 	}
 	public function receipt_date() 
 	{
@@ -43,47 +43,53 @@ class receipts
 	//------------------------------------------------------------------ id - foreign key
 	public function paper_id() 
 	{
-		$this->form("select")->name("paper")->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("paper")->min(0)->max(9999)->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function receipt_paperdate() 
 	{
 		$this->form("text")->name("paperdate");
 	}
+
+	//------------------------------------------------------------------ select button
 	public function receipt_paperstatus() 
 	{
-		$this->form("text")->name("paperstatus");
+		$this->form("select")->name("paperstatus")->type("select")->validate();
+		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ description
 	public function receipt_desc() 
 	{
-		$this->form("#desc")->maxlength(200);
+		$this->form("#desc")->maxlength(200)->type('textarea');
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function transaction_id() 
 	{
-		$this->form("select")->name("transaction")->min(0)->max(999999999)->validate("id");
+		$this->form("select")->name("transaction")->min(0)->max(999999999)->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function fund_id() 
 	{
-		$this->form("select")->name("fund")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("fund")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
+
+	//------------------------------------------------------------------ id - foreign key
 	public function user_id_customer() 
 	{
-		$this->form("text")->name("id_customer")->required()->min(0)->max(9999);
+		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->setChild($this->form);
 	}
 	public function date_modified() {}
 }

@@ -20,54 +20,54 @@ class posts
 	public function id() {$this->validate("id");}
 	public function post_language() 
 	{
-		$this->form("text")->name("language")->maxlength(2);
+		$this->form("text")->name("language")->maxlength(2)->type('text');
 	}
 
 	//------------------------------------------------------------------ title
 	public function post_title() 
 	{
-		$this->form("text")->name("title")->required()->maxlength(100);
+		$this->form("text")->name("title")->maxlength(100)->required()->type('text');
 	}
 	public function post_cat() 
 	{
-		$this->form("text")->name("cat")->maxlength(50);
+		$this->form("text")->name("cat")->maxlength(50)->type('text');
 	}
 
 	//------------------------------------------------------------------ slug
 	public function post_slug() 
 	{
-		$this->form("text")->name("slug")->required()->maxlength(100)->validate()->slugify("post_title");
+		$this->form("text")->name("slug")->maxlength(100)->required()->type('text')->validate()->slugify("post_title");
 	}
 	public function post_content() 
 	{
-		$this->form("text")->name("content")N-A: Create Error;
+		$this->form("text")->name("content");
 	}
 
 	//------------------------------------------------------------------ select button
 	public function post_type() 
 	{
-		$this->form("select")->name("type")->required()->validate();
+		$this->form("select")->name("type")->type("select")->required()->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ select button
 	public function post_status() 
 	{
-		$this->form("select")->name("status")->required()->validate();
+		$this->form("select")->name("status")->type("select")->required()->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("select")->name("attachment")->min(0)->max(999999999)->validate("id");
+		$this->form("select")->name("attachment")->min(0)->max(999999999)->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function post_publishdate() 

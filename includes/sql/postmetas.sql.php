@@ -15,16 +15,16 @@ class postmetas
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->form("select")->name("post")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("post")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function postmeta_name() 
 	{
-		$this->form("text")->name("name")->required()->maxlength(100);
+		$this->form("text")->name("name")->maxlength(100)->required()->type('text');
 	}
 	public function postmeta_value() 
 	{
-		$this->form("text")->name("value")->maxlength(999);
+		$this->form("text")->name("value")->maxlength(999)->type('textarea');
 	}
 	public function date_modified() {}
 }

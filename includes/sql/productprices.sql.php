@@ -21,19 +21,19 @@ class productprices
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("product")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("product")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function productmeta_id() 
 	{
-		$this->form("select")->name("productmeta")->min(0)->max(999999999)->validate("id");
+		$this->form("select")->name("productmeta")->min(0)->max(999999999)->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function productprice_cat() 
 	{
-		$this->form("text")->name("cat")->maxlength(50);
+		$this->form("text")->name("cat")->maxlength(50)->type('text');
 	}
 	public function productprice_startdate() 
 	{
@@ -45,19 +45,19 @@ class productprices
 	}
 	public function productprice_buyprice() 
 	{
-		$this->form("text")->name("buyprice")->max(999999999999);
+		$this->form("text")->name("buyprice")->max(999999999999)->type('number');
 	}
 	public function productprice_price() 
 	{
-		$this->form("text")->name("price")->max(999999999999);
+		$this->form("text")->name("price")->max(999999999999)->type('number');
 	}
 	public function productprice_discount() 
 	{
-		$this->form("text")->name("discount")->max(999999999999);
+		$this->form("text")->name("discount")->max(999999999999)->type('number');
 	}
 	public function productprice_vat() 
 	{
-		$this->form("text")->name("vat")->max(99999);
+		$this->form("text")->name("vat")->max(99999)->type('number');
 	}
 	public function date_modified() {}
 }

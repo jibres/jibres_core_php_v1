@@ -15,25 +15,25 @@ class options
 	public function id() {$this->validate("id");}
 	public function option_cat() 
 	{
-		$this->form("text")->name("cat")->required()->maxlength(50);
+		$this->form("text")->name("cat")->maxlength(50)->required()->type('text');
 	}
 	public function option_name() 
 	{
-		$this->form("text")->name("name")->required()->maxlength(50);
+		$this->form("text")->name("name")->maxlength(50)->required()->type('text');
 	}
 	public function option_value() 
 	{
-		$this->form("text")->name("value")->maxlength(200);
+		$this->form("text")->name("value")->maxlength(200)->type('textarea');
 	}
 	public function option_extra() 
 	{
-		$this->form("text")->name("extra")->maxlength(400);
+		$this->form("text")->name("extra")->maxlength(400)->type('textarea');
 	}
 
 	//------------------------------------------------------------------ select button
 	public function option_status() 
 	{
-		$this->form("select")->name("status")->required()->validate();
+		$this->form("select")->name("status")->type("select")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

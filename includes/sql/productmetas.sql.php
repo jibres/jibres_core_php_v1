@@ -16,20 +16,20 @@ class productmetas
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("product")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("product")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function productmeta_cat() 
 	{
-		$this->form("text")->name("cat")->required()->maxlength(50);
+		$this->form("text")->name("cat")->maxlength(50)->required()->type('text');
 	}
 	public function productmeta_name() 
 	{
-		$this->form("text")->name("name")->required()->maxlength(100);
+		$this->form("text")->name("name")->maxlength(100)->required()->type('text');
 	}
 	public function productmeta_value() 
 	{
-		$this->form("text")->name("value")->maxlength(999);
+		$this->form("text")->name("value")->maxlength(999)->type('textarea');
 	}
 	public function date_modified() {}
 }

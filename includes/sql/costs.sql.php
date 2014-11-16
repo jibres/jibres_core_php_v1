@@ -19,24 +19,24 @@ class costs
 	//------------------------------------------------------------------ title
 	public function cost_title() 
 	{
-		$this->form("text")->name("title")->required()->maxlength(50);
+		$this->form("text")->name("title")->maxlength(50)->required()->type('text');
 	}
 	public function cost_price() 
 	{
-		$this->form("text")->name("price")->required()->max(999999999999);
+		$this->form("text")->name("price")->max(999999999999)->required()->type('number');
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function costcat_id() 
 	{
-		$this->form("select")->name("costcat")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("costcat")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function account_id() 
 	{
-		$this->form("select")->name("account")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("account")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function cost_date() 
@@ -47,13 +47,13 @@ class costs
 	//------------------------------------------------------------------ description
 	public function cost_desc() 
 	{
-		$this->form("#desc")->maxlength(200);
+		$this->form("#desc")->maxlength(200)->type('textarea');
 	}
 
 	//------------------------------------------------------------------ select button
 	public function cost_type() 
 	{
-		$this->form("select")->name("type")->required()->validate();
+		$this->form("select")->name("type")->type("select")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

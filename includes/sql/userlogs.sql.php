@@ -17,33 +17,33 @@ class userlogs
 	//------------------------------------------------------------------ title
 	public function userlog_title() 
 	{
-		$this->form("text")->name("title")->maxlength(50);
+		$this->form("text")->name("title")->maxlength(50)->type('text');
 	}
 
 	//------------------------------------------------------------------ description
 	public function userlog_desc() 
 	{
-		$this->form("#desc")->maxlength(999);
+		$this->form("#desc")->maxlength(999)->type('textarea');
 	}
 
 	//------------------------------------------------------------------ select button
 	public function userlog_priority() 
 	{
-		$this->form("select")->name("priority")->required()->validate();
+		$this->form("select")->name("priority")->type("select")->required()->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ select button
 	public function userlog_type() 
 	{
-		$this->form("select")->name("type")->validate();
+		$this->form("select")->name("type")->type("select")->validate();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

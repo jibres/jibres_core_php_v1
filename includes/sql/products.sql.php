@@ -30,91 +30,91 @@ class products
 	//------------------------------------------------------------------ title
 	public function product_title() 
 	{
-		$this->form("text")->name("title")->required()->maxlength(100);
+		$this->form("text")->name("title")->maxlength(100)->required()->type('text');
 	}
 
 	//------------------------------------------------------------------ slug
 	public function product_slug() 
 	{
-		$this->form("text")->name("slug")->required()->maxlength(50)->validate()->slugify("product_title");
+		$this->form("text")->name("slug")->maxlength(50)->required()->type('text')->validate()->slugify("product_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function productcat_id() 
 	{
-		$this->form("select")->name("productcat")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("productcat")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function product_barcode() 
 	{
-		$this->form("text")->name("barcode")->maxlength(20);
+		$this->form("text")->name("barcode")->maxlength(20)->type('text');
 	}
 	public function product_barcode2() 
 	{
-		$this->form("text")->name("barcode2")->maxlength(20);
+		$this->form("text")->name("barcode2")->maxlength(20)->type('text');
 	}
 	public function product_buyprice() 
 	{
-		$this->form("text")->name("buyprice")->max(999999999999);
+		$this->form("text")->name("buyprice")->max(999999999999)->type('number');
 	}
 	public function product_price() 
 	{
-		$this->form("text")->name("price")->required()->max(999999999999);
+		$this->form("text")->name("price")->max(999999999999)->required()->type('number');
 	}
 	public function product_discount() 
 	{
-		$this->form("text")->name("discount")->max(999999999999);
+		$this->form("text")->name("discount")->max(999999999999)->type('number');
 	}
 	public function product_vat() 
 	{
-		$this->form("text")->name("vat")->max(99999);
+		$this->form("text")->name("vat")->max(99999)->type('number');
 	}
 	public function product_initialbalance() 
 	{
-		$this->form("text")->name("initialbalance")->max(999999999);
+		$this->form("text")->name("initialbalance")->max(999999999)->type('number');
 	}
 	public function product_mininventory() 
 	{
-		$this->form("text")->name("mininventory")->max(999999999);
+		$this->form("text")->name("mininventory")->max(999999999)->type('number');
 	}
 
 	//------------------------------------------------------------------ select button
 	public function product_status() 
 	{
-		$this->form("select")->name("status")->validate();
+		$this->form("select")->name("status")->type("select")->validate();
 		$this->setChild($this->form);
 	}
 	public function product_sold() 
 	{
-		$this->form("text")->name("sold")->max(999999999);
+		$this->form("text")->name("sold")->max(999999999)->type('number');
 	}
 	public function product_stock() 
 	{
-		$this->form("text")->name("stock")->max(999999999);
+		$this->form("text")->name("stock")->max(999999999)->type('number');
 	}
 	public function product_carton() 
 	{
-		$this->form("text")->name("carton")->max(999999999);
+		$this->form("text")->name("carton")->max(999999999)->type('number');
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("select")->name("attachment")->min(0)->max(999999999)->validate("id");
+		$this->form("select")->name("attachment")->min(0)->max(999999999)->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function product_service() 
 	{
-		$this->form("radio")->name("service")->required();
+		$this->form("radio")->name("service")->type("radio")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ select button
 	public function product_sellin() 
 	{
-		$this->form("select")->name("sellin")->required()->validate();
+		$this->form("select")->name("sellin")->type("select")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

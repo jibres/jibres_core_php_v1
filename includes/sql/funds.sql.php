@@ -17,30 +17,30 @@ class funds
 	//------------------------------------------------------------------ title
 	public function fund_title() 
 	{
-		$this->form("text")->name("title")->required()->maxlength(100);
+		$this->form("text")->name("title")->maxlength(100)->required()->type('text');
 	}
 
 	//------------------------------------------------------------------ slug
 	public function fund_slug() 
 	{
-		$this->form("text")->name("slug")->required()->maxlength(100)->validate()->slugify("fund_title");
+		$this->form("text")->name("slug")->maxlength(100)->required()->type('text')->validate()->slugify("fund_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function location_id() 
 	{
-		$this->form("select")->name("location")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("location")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function fund_initialbalance() 
 	{
-		$this->form("text")->name("initialbalance")->required()->max(9999999999999);
+		$this->form("text")->name("initialbalance")->max(9999999999999)->required()->type('number');
 	}
 
 	//------------------------------------------------------------------ description
 	public function fund_desc() 
 	{
-		$this->form("#desc")->maxlength(200);
+		$this->form("#desc")->maxlength(200)->type('textarea');
 	}
 	public function date_modified() {}
 }

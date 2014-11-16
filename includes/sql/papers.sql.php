@@ -17,7 +17,7 @@ class papers
 	public function id() {$this->validate("id");}
 	public function paper_number() 
 	{
-		$this->form("text")->name("number")->maxlength(20);
+		$this->form("text")->name("number")->maxlength(20)->type('text');
 	}
 	public function paper_date() 
 	{
@@ -25,30 +25,30 @@ class papers
 	}
 	public function paper_price() 
 	{
-		$this->form("text")->name("price")->max(999999999999);
+		$this->form("text")->name("price")->max(999999999999)->type('number');
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form("select")->name("bank")->required()->min(0)->max(9999)->validate("id");
+		$this->form("select")->name("bank")->min(0)->max(9999)->required()->type("select")->validate("id");
 		$this->setChild($this->form);
 	}
 	public function paper_holder() 
 	{
-		$this->form("text")->name("holder")->maxlength(100);
+		$this->form("text")->name("holder")->maxlength(100)->type('text');
 	}
 
 	//------------------------------------------------------------------ description
 	public function paper_desc() 
 	{
-		$this->form("#desc")->maxlength(200);
+		$this->form("#desc")->maxlength(200)->type('textarea');
 	}
 
 	//------------------------------------------------------------------ select button
 	public function paper_status() 
 	{
-		$this->form("select")->name("status")->validate();
+		$this->form("select")->name("status")->type("select")->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

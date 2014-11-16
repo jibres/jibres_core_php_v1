@@ -15,17 +15,17 @@ class errors
 	//------------------------------------------------------------------ title
 	public function error_title() 
 	{
-		$this->form("text")->name("title")->required()->maxlength(100);
+		$this->form("text")->name("title")->maxlength(100)->required()->type('text');
 	}
 	public function error_solution() 
 	{
-		$this->form("text")->name("solution")->maxlength(999);
+		$this->form("text")->name("solution")->maxlength(999)->type('textarea');
 	}
 
 	//------------------------------------------------------------------ select button
 	public function error_priority() 
 	{
-		$this->form("select")->name("priority")->required()->validate();
+		$this->form("select")->name("priority")->type("select")->required()->validate();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

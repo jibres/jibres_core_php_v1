@@ -15,19 +15,19 @@ class locations
 	//------------------------------------------------------------------ title
 	public function location_title() 
 	{
-		$this->form("text")->name("title")->required()->maxlength(100);
+		$this->form("text")->name("title")->maxlength(100)->required()->type('text');
 	}
 
 	//------------------------------------------------------------------ slug
 	public function location_slug() 
 	{
-		$this->form("text")->name("slug")->required()->maxlength(100)->validate()->slugify("location_title");
+		$this->form("text")->name("slug")->maxlength(100)->required()->type('text')->validate()->slugify("location_title");
 	}
 
 	//------------------------------------------------------------------ description
 	public function location_desc() 
 	{
-		$this->form("#desc")->maxlength(200);
+		$this->form("#desc")->maxlength(200)->type('textarea');
 	}
 	public function date_modified() {}
 }

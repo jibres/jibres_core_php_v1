@@ -27,8 +27,10 @@ function _type($type, $def)
 	}
 }
 
-function setproperty($type)
+function setproperty($myparam)
 {
+	$type = $myparam->Type;
+	// var_dump($type);
 	// for add new HTML5 feature to forms
 	preg_match("/^([^(]*)(\((.*)\))?/", $type, $tp);
 	$_type		= $tp[1];
@@ -39,13 +41,23 @@ function setproperty($type)
 
 	$mylength	= $_length;
 	$mymax		= "->maxlength('".$_length."')";
-	$tmp		= "";
+	$tmp		= array();
+	// tmp[0]	type
+	// tmp[1]	min
+	// tmp[2]	max
 
+	// '->type("select")'
 	switch ($_type) 
 	{
 		case 'enum':
+			$tmp[0] 	= "->type('select')";
+			return $tmp;
+			break;
+
 		case 'timestamp':
-			return false;
+		case 'text':
+			
+			return $tmp;
 			break;
 
 
@@ -54,13 +66,15 @@ function setproperty($type)
 		case 'bigint':
 		case 'decimal':
 		case 'float':
-			// $tmp 	.= "->type('number')";
+			$tmp[0] 	= "->type('number')";
 			if( substr($type, strlen($type)-8) == "unsigned" )
-				$tmp 	.= "->min(0)";
+				array_push($tmp, "->min(0)");
 				
 			// check for max input
 			// $tmp 	.= "->onKeyDown('if(this.value.length==".$mylen.") return false;')";
-			$tmp 	.= "->max(".str_repeat("9",$mylen-1).")";
+			// $tmp 	.= "->max(".str_repeat("9",$mylen-1).")";
+			array_push($tmp, "->max(".str_repeat("9",$mylen-1).")");
+
 
 			return $tmp;
 			break;
@@ -68,7 +82,12 @@ function setproperty($type)
 
 		case 'varchar':
 		case 'char':
-			$tmp 	.= "->maxlength(".$mylen.")";
+			if($mylen>100)
+				$tmp[0] 	= "->type('textarea')";
+			else
+				$tmp[0] 	= "->type('text')";
+			array_push($tmp, "->maxlength(".$mylen.")");
+
 			return $tmp;
 			break;
 
@@ -103,41 +122,55 @@ function setproperty($type)
 			
 			$myfield		= $crow->Field;
 			$mynull			= $crow->Null;
+			// $property		= setproperty($crow);
+			$property		= "";
+			$property_type	= "";
+			foreach (setproperty($crow) as $key => $value) 
+			{
+				if( substr($value, 0, 6)=='->type' )
+				{
+					$property_type = $value;
+				}
+				else
+				{
+					$property .= $value;
+				}
+			}
 			$required		= $mynull=='NO'?'->required()':null;
-			$property		= $required;
-			$property		.= setproperty($crow->Type);
+			$property		.= $required;
+			// var_dump($myfield."::".$property);
 			// var_dump( $property );
 			// exit();
 			$tmp_pos 		= strpos($myfield, '_');
 			$prefix			= substr($myfield, 0, $tmp_pos );
 			$isforeign		= false;
 			$myname			= substr($myfield, ($tmp_pos ? $tmp_pos+1 : 0) );
-			
+
 			$myname 		= strtolower($myname);
 			$mylabel 		= str_replace("_", " ", $myname);
 			$mylabel		= ucwords($mylabel);
 
 			$txtcomment		= "\n\t//------------------------------------------------------------------ ";
-			$txtstart		= "\tpublic function $crow->Field() \n\t{\n\t\t";
+			$txtstart		= "\tpublic function $myfield() \n\t{\n\t\t";
 			$txtend			="\n\t}\n";
 			// $content		.= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'label' => '$myname');\n";
 
 			// --------------------------------------------------------------------------------- ID
-			if($crow->Field=="id")
+			if($myfield=="id")
 			{
 
 				$fn .= $txtcomment. "id - primary key\n";
-				$fn .= "\tpublic function $crow->Field() {" . '$this->validate("id");' ."}\n";
+				$fn .= "\tpublic function $myfield() {" . '$this->validate("id");' ."}\n";
 				$mylabel = "ID";
 
 			}
 			// --------------------------------------------------------------------------------- Foreign Key
-			elseif ($myname=="id")
+			elseif ($myname=="id" || $myfield=="user_id_customer")
 			{
 				// for foreign key we use prefix that means we use (table name-last char)
 				$fn .= $txtcomment. "id - foreign key\n";
 				// $fn .= $txtstart. '$this->form("#foreignkey")->name("'. $prefix.'")->validate("id");' .$txtend;
-				$fn .= $txtstart. '$this->form("select")->name("'. $prefix.'")'.$property.'->validate("id");';
+				$fn .= $txtstart. '$this->form("select")->name("'. $prefix.'")'.$property.'->type("select")->validate("id");';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 
 				// $mylabel = str_replace("_", " ", $myfield);
@@ -150,11 +183,13 @@ function setproperty($type)
 			// --------------------------------------------------------------------------------- General
 			elseif ($myname=='title')
 			{
+				$property = $property.$property_type;
 				$fn .= $txtcomment. 'title'."\n";
 				$fn .= $txtstart. '$this->form("text")->name("title")'.$property.';'.$txtend;
 			}
 			elseif ($myname=="slug")
 			{
+				$property = $property.$property_type;
 				$fn .= $txtcomment. "slug\n";
 				// $fn .= $txtstart. '$this->form("#slug");';
 				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.'->validate()->slugify("'.$prefix.'_title");';
@@ -170,6 +205,7 @@ function setproperty($type)
 			}
 			elseif ($myname=="desc")
 			{
+				$property = $property.$property_type;
 				$fn .= $txtcomment. "description\n";
 				$fn .= $txtstart. '$this->form("#desc")'.$property.';'.$txtend;
 
@@ -180,24 +216,42 @@ function setproperty($type)
 			elseif ($myname=="email")
 			{
 				$fn .= $txtcomment. "email\n";
-				$fn .= $txtstart. '$this->form("#email")'.$property.';'.$txtend;
+				$fn .= $txtstart. '$this->form("#email")->type("email")'.$property.';'.$txtend;
 			}
+
+			// --------------------------------------------------------------------------------- Website
+			elseif ($myname=="website")
+			{
+				$fn .= $txtcomment. "website\n";
+				$fn .= $txtstart. '$this->form("#website")->type("url")'.$property.';'.$txtend;
+
+				// $mylabel = "Description";
+			}
+
+			elseif ($myname=="mobile" || $myname=="tel")
+			{
+				$fn .= $txtcomment. "website\n";
+				$fn .= $txtstart. '$this->form()->type("tel")'.$property.';'.$txtend;
+
+				// $mylabel = "Description";
+			}
+
 			elseif ($myname=="pass")
 			{
 				$fn .= $txtcomment. "password\n";
-				$fn .= $txtstart. '$this->form("#password")'.$property.';'.$txtend;
+				$fn .= $txtstart. '$this->form("#password")->type("password")'.$property.';'.$txtend;
 				$mylabel = "Password";
 			}
 
 			// --------------------------------------------------------------------------------- unuse
-			elseif($crow->Field=="date_created" or $crow->Field=="date_modified")
+			elseif($myfield=="date_modified")
 			{
-				$fn .= "\tpublic function $crow->Field() {}\n";
+				$fn .= "\tpublic function $myfield() {}\n";
 				$mylabel = str_replace("_", " ", $myfield);
 				$mylabel = ucwords(strtolower($mylabel));
 				$mylabel = $mylabel;
 			}
-			elseif($crow->Field=="attachment_type")
+			elseif($myfield=="attachment_type")
 			{
 				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.';'.$txtend;
 			}
@@ -206,35 +260,26 @@ function setproperty($type)
 			elseif ($myname=="active" 		|| $myname=="view"		|| $myname=="verified"
 				|| $myname=="add" 			|| $myname=="edit" 		|| $myname=="delete"
 				|| $myname=="service"		|| $myname=="gender"	|| $myname=="married"
-				|| $myname=="newsletter"	|| $myname=="credit"	|| $crow->Field=="permission_status"
+				|| $myname=="newsletter"	|| $myname=="credit"	|| $myfield=="permission_status"
 				
 				
 				)	
 			{
 				$fn .= $txtcomment. "radio button\n";
-				$fn .= $txtstart. '$this->form("radio")->name("'. $myname.'")'.$property.';';
+				$fn .= $txtstart. '$this->form("radio")->name("'. $myname.'")->type("radio")'.$property.';';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 			}
 
 			// --------------------------------------------------------------------------------- select
 			elseif ($myname=="status" 	|| $myname=="model" || $myname=="priority"
 				|| $myname=="sellin"	|| $myname=="priority"
-				|| $myname=="type"
+				|| $myname=="type"		|| $myname=="paperstatus"
 
 				)
 			{
 				$fn .= $txtcomment. "select button\n";
-				$fn .= $txtstart. '$this->form("select")->name("'. $myname.'")'.$property.'->validate();';
+				$fn .= $txtstart. '$this->form("select")->name("'. $myname.'")->type("select")'.$property.'->validate();';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
-			}
-
-			// --------------------------------------------------------------------------------- Website
-			elseif ($myname=="website")
-			{
-				$fn .= $txtcomment. "website\n";
-				$fn .= $txtstart. '$this->form("#website")'.$property.';'.$txtend;
-
-				// $mylabel = "Description";
 			}
 
 			// --------------------------------------------------------------------------------- Other
@@ -242,7 +287,7 @@ function setproperty($type)
 			{
 				// $fn .= $txtcomment. "email\n";
 				// $fn .= $txtstart. '$this->form()->name("'. $myname.'")'."\n\t\t".'->validate();'.$txtend;
-				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.';'.$txtend;
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.$property_type.';'.$txtend;
 				// $fn .= $txtstart. $txtend;
 			}
 			
@@ -254,12 +299,17 @@ function setproperty($type)
 			$fields	= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel');\n";
 			if($isforeign)
 			{
-				$table 	= $prefix.'s';
-				$fields = "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel', 'foreign' => '$table@id!".$prefix."_title');\n";
+				$table				= $prefix.'s';
+				$tmp_fields_start	= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel', 'foreign' => '$table@id!";
+				$tmp_fields_end		= "');\n";
+				$tmp_fields_name	= $prefix . "_title";
+				// $fields				= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel', 'foreign' => '$table@id!".$prefix."_title');\n";
+				// if table has a especial record
 				if($table=="users")
-				{
-					$fields = "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel', 'foreign' => '$table@id!".$prefix."_nickname');\n";
-				}
+					$tmp_fields_name = $prefix."_nickname";
+				if($table=="receipts" || $table=="transactions" || $table=="papers")
+					$tmp_fields_name = "id";
+				$fields				= $tmp_fields_start. $tmp_fields_name. $tmp_fields_end;
 			}
 
 			$content .= $fields;

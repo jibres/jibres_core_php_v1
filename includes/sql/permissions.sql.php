@@ -19,45 +19,45 @@ class permissions
 	//------------------------------------------------------------------ title
 	public function permission_title() 
 	{
-		$this->form("text")->name("title")->required()->maxlength(50);
+		$this->form("text")->name("title")->maxlength(50)->required()->type('text');
 	}
 	public function Permission_module() 
 	{
-		$this->form("text")->name("module")->required()->maxlength(50);
+		$this->form("text")->name("module")->maxlength(50)->required()->type('text');
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_view() 
 	{
-		$this->form("radio")->name("view")->required();
+		$this->form("radio")->name("view")->type("radio")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_add() 
 	{
-		$this->form("radio")->name("add")->required();
+		$this->form("radio")->name("add")->type("radio")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_edit() 
 	{
-		$this->form("radio")->name("edit")->required();
+		$this->form("radio")->name("edit")->type("radio")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_delete() 
 	{
-		$this->form("radio")->name("delete")->required();
+		$this->form("radio")->name("delete")->type("radio")->required();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ radio button
 	public function permission_status() 
 	{
-		$this->form("radio")->name("status")->required();
+		$this->form("radio")->name("status")->type("radio")->required();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}
