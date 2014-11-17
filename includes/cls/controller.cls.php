@@ -6,7 +6,7 @@ class controller_cls{
 	public $__autogetProperty = array( "redirect");
 	public final function __construct()
 	{
-		// dbconnection_lib::$db_name_selected = "USER_1301";
+		dbconnection_lib::$db_name_selected = "jibres";
 		$this->querys = (object) array();
 		if(method_exists($this, 'config')) $this->config();
 		if(method_exists($this, "options"))	$this->options();

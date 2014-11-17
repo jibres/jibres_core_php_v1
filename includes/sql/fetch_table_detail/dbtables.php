@@ -231,12 +231,12 @@ function setproperty($myparam)
 			elseif ($myname=="mobile")
 			{
 				$fn .= $txtcomment. "website\n";
-				$fn .= $txtstart. '$this->form()->type("tel")'.$property.'->id("mobile-number")->maxlength(17);'.$txtend;
+				$fn .= $txtstart. '$this->form()->type("tel")'.$property.'->name("mobile")->maxlength(17);'.$txtend;
 			}
 			elseif ( $myname=="tel")
 			{
 				$fn .= $txtcomment. "website\n";
-				$fn .= $txtstart. '$this->form()->type("tel")'.$property.'->id("tel-number")->maxlength(17);'.$txtend;
+				$fn .= $txtstart. '$this->form()->type("tel")'.$property.'->name("tel")->maxlength(17);'.$txtend;
 			}
 
 			elseif ($myname=="pass")

@@ -230,7 +230,7 @@ class model_cls{
 					// if this field related with other table(foreign key) only show the target table
 					$tmp_columns[$key] = substr($key,0,strrpos($key,'_'));
 				}
-					var_dump($tmp_columns[$key]);
+					// var_dump($tmp_columns[$key]);
 				$tmp_col			= $tmp_columns[$key];
 				$tmp_setfield		= 'set'.ucfirst($key) ;
 				$tmp_value			= post::$tmp_col();
