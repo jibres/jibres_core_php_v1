@@ -2,9 +2,37 @@
 class model extends main_model
 {
 	function post_signup(){
+		// for debug you can uncomment below line to disallow redirect
+		$this->redirect 	= false;
+		$mymobile	= str_replace(' ', '', post::mobile());
+		$tmp_result	=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
+
+		if($tmp_result->num() == 1)
+		{
+			// mobile exist
+			// login: check password then user can login
+			// register: show error
+
+			debug_lib::fatal("Mobile number exist!");
+		}
+
+		elseif($tmp_result->num() == 0 )
+		{
+			// mobile does not exits
+			// login: show mobile does not exist
+			// register: ok, can register
+			var_dump("new: can add to db");
+			
+
+		}
+
+		else
+		{
+			// mobile exist more than 2 times!
+			debug_lib::fatal("Please forward this message to Administrator");
+		}
 
 
-		
 		// $myform = $this->validate("@signup");
 		// $query  = $this->sql()->insert()->table("users")->field(array(
 		// 	"user_email"       => $myform->username,

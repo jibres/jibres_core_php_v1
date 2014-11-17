@@ -31,6 +31,7 @@ class users
 	public $user_credit = array('type' => 'enum@yes,no!no', 'null' =>'YES' ,'label' => 'Credit');
 	public $user_question = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Question');
 	public $user_answer = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Answer');
+	public $user_extra = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Extra');
 	public $permission_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Permission', 'foreign' => 'permissions@id!permission_title');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
@@ -48,13 +49,13 @@ class users
 	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		$this->form("#password")->type("password")->maxlength(32)->required();
+		$this->form("#password")->type("password")->required()->maxlength(32)->required();
 	}
 
 	//------------------------------------------------------------------ email
 	public function user_email() 
 	{
-		$this->form("#email")->type("email")->maxlength(50);
+		$this->form("#email")->type("email")->required()->maxlength(50);
 	}
 
 	//------------------------------------------------------------------ radio button
@@ -86,13 +87,13 @@ class users
 	//------------------------------------------------------------------ website
 	public function user_tel() 
 	{
-		$this->form()->type("tel")->maxlength(15)->name("tel")->maxlength(17);
+		$this->form()->type("tel")->name("tel")->maxlength(17);
 	}
 
 	//------------------------------------------------------------------ website
 	public function user_mobile() 
 	{
-		$this->form()->type("tel")->maxlength(15)->name("mobile")->maxlength(17);
+		$this->form()->type("tel")->name("mobile")->maxlength(17)->required();
 	}
 	public function user_birthday() 
 	{
@@ -176,6 +177,13 @@ class users
 	public function user_answer() 
 	{
 		$this->form("text")->name("answer")->maxlength(100)->type('text');
+	}
+
+	//------------------------------------------------------------------ Extra
+	public function user_extra() 
+	{
+		$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()
+			->maxlength(20)->pattern("/^[a-z0-9-].{3,15}$/")->title("3 to 15 characters or number");
 	}
 
 	//------------------------------------------------------------------ id - foreign key

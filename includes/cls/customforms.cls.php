@@ -12,9 +12,6 @@
 			$form->white("hidden, user_mobile, user_pass, submit");
 			$form->hidden->value("login");
 			$form->before("user_mobile","user_pass");
-
-			$form->user_mobile->required();
-			$form->user_pass->required();
 			$form->submit->value("Login");
 			return $form;
 		}
@@ -22,11 +19,9 @@
 		{
 			$form = new forms_lib;
 			$form = $form->make("@users");
-			$form->white("hidden, user_mobile, user_pass, submit");
+			$form->white("hidden, user_mobile, user_pass, user_extra, submit");
 			$form->hidden->value("signup");
-			$form->before("user_mobile","user_pass");
-			$form->user_mobile->required();
-			$form->user_pass->required();
+			$form->before("user_mobile","user_pass", "user_extra");
 			$form->submit->value("Create an account");
 			return $form;
 		}

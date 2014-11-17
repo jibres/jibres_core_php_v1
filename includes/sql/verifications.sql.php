@@ -24,7 +24,7 @@ class verifications
 	//------------------------------------------------------------------ email
 	public function verification_email() 
 	{
-		$this->form("#email")->type("email")->maxlength(50)->required();
+		$this->form("#email")->type("email")->required()->maxlength(50)->required();
 	}
 	public function verification_code() 
 	{

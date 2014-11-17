@@ -212,11 +212,11 @@ function setproperty($myparam)
 				$mylabel = "Description";
 			}
 
-			// --------------------------------------------------------------------------------- User Pass
+			// --------------------------------------------------------------------------------- Email
 			elseif ($myname=="email")
 			{
 				$fn .= $txtcomment. "email\n";
-				$fn .= $txtstart. '$this->form("#email")->type("email")'.$property.';'.$txtend;
+				$fn .= $txtstart. '$this->form("#email")->type("email")->required()'.$property.';'.$txtend;
 			}
 
 			// --------------------------------------------------------------------------------- Website
@@ -228,21 +228,22 @@ function setproperty($myparam)
 				// $mylabel = "Description";
 			}
 
+			// --------------------------------------------------------------------------------- Website
 			elseif ($myname=="mobile")
 			{
 				$fn .= $txtcomment. "website\n";
-				$fn .= $txtstart. '$this->form()->type("tel")'.$property.'->name("mobile")->maxlength(17);'.$txtend;
+				$fn .= $txtstart. '$this->form()->type("tel")->name("mobile")->maxlength(17)->required();'.$txtend;
 			}
 			elseif ( $myname=="tel")
 			{
 				$fn .= $txtcomment. "website\n";
-				$fn .= $txtstart. '$this->form()->type("tel")'.$property.'->name("tel")->maxlength(17);'.$txtend;
+				$fn .= $txtstart. '$this->form()->type("tel")->name("tel")->maxlength(17);'.$txtend;
 			}
-
+			// --------------------------------------------------------------------------------- Password
 			elseif ($myname=="pass")
 			{
 				$fn .= $txtcomment. "password\n";
-				$fn .= $txtstart. '$this->form("#password")->type("password")'.$property.';'.$txtend;
+				$fn .= $txtstart. '$this->form("#password")->type("password")->required()'.$property.';'.$txtend;
 				$mylabel = "Password";
 			}
 
@@ -286,11 +287,18 @@ function setproperty($myparam)
 			}
 
 			// --------------------------------------------------------------------------------- Other
+			elseif ($myfield=="user_extra")
+			{
+				$fn .= $txtcomment. "Extra\n";
+				$fn .= $txtstart. '$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()';
+				$fn .= "\n\t\t\t".'->maxlength(20)->pattern("/^[a-z0-9-].{3,15}$/")->title("3 to 15 characters or number");'.$txtend;
+			}
 			else
 			{
+				$property = $property.$property_type;
 				// $fn .= $txtcomment. "email\n";
 				// $fn .= $txtstart. '$this->form()->name("'. $myname.'")'."\n\t\t".'->validate();'.$txtend;
-				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.$property_type.';'.$txtend;
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.';'.$txtend;
 				// $fn .= $txtstart. $txtend;
 			}
 			
