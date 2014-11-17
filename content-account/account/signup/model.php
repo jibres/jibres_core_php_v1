@@ -5,6 +5,8 @@ class model extends main_model
 		// for debug you can uncomment below line to disallow redirect
 		$this->redirect 	= false;
 		$mymobile	= str_replace(' ', '', post::mobile());
+		$mypass		= post::password();
+		$mystore	= post::store();
 		$tmp_result	=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
 
 		if($tmp_result->num() == 1)
@@ -22,8 +24,41 @@ class model extends main_model
 			// login: show mobile does not exist
 			// register: ok, can register
 			var_dump("new: can add to db");
-			
 
+			$qry		= $this->sql()->tableUsers()
+							->setUser_mobile($mymobile)
+							->setUser_pass($mymobile)
+							->setUser_extra($mystore);
+			$sql		= $qry->insert();
+			$myuserid	= $sql->LAST_INSERT_ID();
+			$mycode		= $this->randomCode();
+			
+			
+			$qry		= $this->sql()->tableVerifications()
+							->setVerification_type('mobileregister')
+							->setVerification_value($mymobile)
+							->setVerification_code($mycode)
+							->setUser_id($myuserid)
+							->setVerification_verified('no');
+			$sql		= $qry->insert();
+
+
+
+			// ======================================================
+			// you can manage next event with one of these variables,
+			// commit for successfull and rollback for failed
+			//
+			// if query run without error means commit
+			$this->commit(function()
+			{
+				debug_lib::true("Register successfully");
+			} );
+
+			// if a query has error or any error occour in any part of codes, run roolback
+			$this->rollback(function()
+			{
+				debug_lib::fatal("Register failed!");
+			} );
 		}
 
 		else

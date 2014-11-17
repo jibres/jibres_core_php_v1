@@ -342,5 +342,20 @@ class model_cls{
 		}, $tmp_qry_slug);	
 	
 	}
+
+	function randomCode($length=4, $number=true) 
+	{
+	 	$string		= '';
+		if($number)
+			$characters = "23456789";
+		else
+			$characters = "23456789ABCDEFHJKLMNPRTVWXYZ";
+
+		for ($p = 0; $p < $length; $p++) 
+		{
+			$string .= $characters[mt_rand(0, strlen($characters)-1)];
+		}
+		return $string;
+	}
 }
 ?>

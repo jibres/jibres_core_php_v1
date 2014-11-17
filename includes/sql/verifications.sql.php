@@ -3,8 +3,8 @@ namespace sql;
 class verifications 
 {
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $verification_type = array('type' => 'enum@registerbyemail,registerbymobile,forget,changeemail,changemobile', 'null' =>'NO' ,'label' => 'Type');
-	public $verification_email = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Email');
+	public $verification_type = array('type' => 'enum@emailregister,emailchange,emailforger,mobileregister,mobilechange,mobileforget', 'null' =>'NO' ,'label' => 'Type');
+	public $verification_value = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Value');
 	public $verification_code = array('type' => 'varchar@32', 'null' =>'NO' ,'label' => 'Code');
 	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $verification_verified = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Verified');
@@ -20,11 +20,9 @@ class verifications
 		$this->form("select")->name("type")->type("select")->required()->validate();
 		$this->setChild($this->form);
 	}
-
-	//------------------------------------------------------------------ email
-	public function verification_email() 
+	public function verification_value() 
 	{
-		$this->form("#email")->type("email")->required()->maxlength(50)->required();
+		$this->form("text")->name("value")->maxlength(50)->required()->type('text');
 	}
 	public function verification_code() 
 	{
