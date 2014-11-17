@@ -86,13 +86,13 @@ class users
 	//------------------------------------------------------------------ website
 	public function user_tel() 
 	{
-		$this->form()->type("tel")->maxlength(15);
+		$this->form()->type("tel")->maxlength(15)->id("tel-number")->maxlength(20);
 	}
 
 	//------------------------------------------------------------------ website
 	public function user_mobile() 
 	{
-		$this->form()->type("tel")->maxlength(15);
+		$this->form()->type("tel")->maxlength(15)->id("mobile-number")->maxlength(20);
 	}
 	public function user_birthday() 
 	{

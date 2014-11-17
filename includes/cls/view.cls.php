@@ -45,8 +45,9 @@ class view_cls{
 		$this->global->site_title_show		= true;
 
 		$this->include->datatable			= false;
-		$this->include->fontawesome			= true;
 		$this->include->jquery				= true;
+		$this->include->fontawesome			= true;
+		$this->include->telinput			= false;
 
 		//$this->global->menu					= menu_cls::list_menu();
 

@@ -3,44 +3,36 @@ class controller extends main_controller
 {
 	public function config() 
 	{
-		// ----------------------------------------- account
-		$this->listen(
-		array(
-			"domain" => "account"
-			),
-		array("account", 'home')
-		);
-
-		// ----------------------------------------- admin
-		$this->listen(
-		array(
-			"domain" => "admin"
-			),
-		array("admin", 'home')
-		);
 
 		// ----------------------------------------- login
 		$this->listen(
 		array(
-			"max" => 1,
-			"url" => "login"
+				"max" => 1,
 			),
-		array("account", 'login')
+			function()
+			{
+				/**
+				@Javad: if user login to system redirect to home
+				 */
+				header("location: "."/login");
+				// header("location: http://".DOMAIN);
+				exit();
+			}
 		);
 
 		// ----------------------------------------- logout
 		$this->listen(
-		array(
-			"max" => 1,
-			"url" => array("logout")
+			array(
+				"max" => 1,
+				"url" => array("logout")
 			),
-		function()
-		{
-			session_unset(); 
-			session_destroy();
-			header("location: "."/");
-			exit();
-		}
+			function()
+			{
+				session_unset(); 
+				session_destroy();
+				header("location: "."/");
+				exit();
+			}
 		);
 	}
 }

@@ -34,7 +34,11 @@
   <script src="{{url.static}}js/jquery.dataTables.min.js" type="text/javascript"></script>
   <link href="{{url.static}}css/jquery.dataTables.css" rel="stylesheet" type="text/css">
 {%endif%}
-  <script src="{{url.static}}js/custom.js" type="text/javascript"></script>
+{%if include.telinput%}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="{{url.static}}js/intlTelInput.min.js" type="text/javascript"></script>
+  <link href="{{url.static}}css/intlTelInput.css" rel="stylesheet" type="text/css">
+{%endif%}
 {%block head%}{%endblock%}
  </head>
  {% if extendForm%}
@@ -64,7 +68,6 @@
     </div>
    </div>
   </footer>
-
 {%if debug is iterable%}
   <div id="formError" class="error_{{debug.status}}">
   {%for mydebug in debug if mydebug is iterable %}
@@ -84,6 +87,7 @@
 {%if include.datatable%}
   <script>$(document).ready(function(){$('.datatable').DataTable();});</script>
 {%endif%}
+  <script src="{{url.static}}js/custom.js" type="text/javascript"></script>
 {%block footer%}{%endblock%}
  </body>
 </html>

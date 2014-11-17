@@ -8,7 +8,7 @@ class controller extends main_controller
 			array(
 				"max" => 1,
 				"url" => "login"
-				),
+			),
 			function()
 			{
 				header("location: http://account.".DOMAIN."/login");
@@ -20,7 +20,7 @@ class controller extends main_controller
 			array(
 				"max" => 1,
 				"url" => "signup"
-				),
+			),
 			function()
 			{
 				header("location: http://account.".DOMAIN."/signup");

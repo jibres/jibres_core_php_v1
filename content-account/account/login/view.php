@@ -1,7 +1,7 @@
 <?php
 class view extends main_view
 {
- 	public function config()
+ 	public function options()
 	{
         $this->data->module =config_lib::$method;
         $this->global->page_title = ucfirst($this->data->module);
