@@ -7,6 +7,7 @@ class model extends main_model
 		// $this->redirect 	= false;
 		$mymobile	= str_replace(' ', '', post::mobile());
 		$tmp_result	=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
+		$mypass		= md5(post::password());
 
 		if($tmp_result->num() == 1)
 		{
@@ -15,7 +16,7 @@ class model extends main_model
 			// register: show error
 			
 			$tmp_result = $tmp_result->assoc();
-			if (isset($tmp_result['user_pass']) && $tmp_result['user_pass'] == post::password())
+			if (isset($tmp_result['user_pass']) && $tmp_result['user_pass'] == $mypass)
 			{
 				// password is correct
 				$_SESSION['user']	= array();

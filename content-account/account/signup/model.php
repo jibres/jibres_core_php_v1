@@ -3,7 +3,7 @@ class model extends main_model
 {
 	function post_signup(){
 		// for debug you can uncomment below line to disallow redirect
-		$this->redirect 	= false;
+		// $this->redirect 	= false;
 		$mymobile	= str_replace(' ', '', post::mobile());
 		$mypass		= post::password();
 		$mystore	= post::store();
@@ -23,9 +23,9 @@ class model extends main_model
 			// mobile does not exits
 			// login: show mobile does not exist
 			// register: ok, can register
-			var_dump("new: can add to db");
 
 			$qry		= $this->sql()->tableUsers()
+							->setUser_type('store_admin')
 							->setUser_mobile($mymobile)
 							->setUser_pass($mymobile)
 							->setUser_extra($mystore);
@@ -41,6 +41,9 @@ class model extends main_model
 							->setUser_id($myuserid)
 							->setVerification_verified('no');
 			$sql		= $qry->insert();
+
+			//send sms
+			var_dump($mycode);
 
 
 
@@ -67,32 +70,7 @@ class model extends main_model
 			debug_lib::fatal("Please forward this message to Administrator");
 		}
 
-
-		// $myform = $this->validate("@signup");
-		// $query  = $this->sql()->insert()->table("users")->field(array(
-		// 	"user_email"       => $myform->username,
-		// 	"user_pass"        => $myform->password
-		// 	));
-		// //var_dump($query->on);
-		// $query->result();
-		// $this->commit(function(){
-		// 	$this->debug->true("Register Successfully");
-		// });
-		// $this->rollback(function(){
-		// 	$this->debug->fatal("an error occur during registration");
-		// });
-
-
-		//var_dump("hi javad, plz commit all change to git server.");
-		//var_dump($this->debug->compile());
-		//$this->redirect = false;
-		
-
 		// we need to create a module for sale the account to users for ourselves
-		// 
-		// 
-		// 
-		// 
 		// $x = new dbconnection_lib
 		// $x->query("my QUERY")
 	}

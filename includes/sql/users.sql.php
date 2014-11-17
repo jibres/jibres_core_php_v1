@@ -3,7 +3,7 @@ namespace sql;
 class users 
 {
 	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $user_type = array('type' => 'enum@customer,supplier,employee!customer', 'null' =>'YES' ,'label' => 'Type');
+	public $user_type = array('type' => 'enum@store_admin,store_employee,store_supplier,store_customer,admin,user!user', 'null' =>'YES' ,'label' => 'Type');
 	public $user_pass = array('type' => 'char@32', 'null' =>'NO' ,'label' => 'Password');
 	public $user_email = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Email');
 	public $user_gender = array('type' => 'enum@male,female', 'null' =>'YES' ,'label' => 'Gender');
@@ -49,7 +49,8 @@ class users
 	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		$this->form("#password")->type("password")->required()->maxlength(32)->required();
+		$this->form("#password")->type("password")->required()->maxlength(20)
+			->pattern("^.{6,20}$")->title("between 6-20 character");
 	}
 
 	//------------------------------------------------------------------ email
@@ -87,13 +88,13 @@ class users
 	//------------------------------------------------------------------ website
 	public function user_tel() 
 	{
-		$this->form()->type("tel")->name("tel")->maxlength(17);
+		$this->form()->type("tel")->name("tel")->pattern(".{9,}")->maxlength(17);
 	}
 
 	//------------------------------------------------------------------ website
 	public function user_mobile() 
 	{
-		$this->form()->type("tel")->name("mobile")->maxlength(17)->required();
+		$this->form()->type("tel")->name("mobile")->pattern(".{10,}")->maxlength(17)->required();
 	}
 	public function user_birthday() 
 	{
@@ -183,7 +184,7 @@ class users
 	public function user_extra() 
 	{
 		$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()
-			->maxlength(20)->pattern("/^[a-z0-9-].{3,15}$/")->title("3 to 15 characters or number");
+			->maxlength(20)->pattern("^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$")->title("start with letter. 3 to 20 characters or number");
 	}
 
 	//------------------------------------------------------------------ id - foreign key

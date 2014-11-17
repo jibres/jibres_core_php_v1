@@ -345,7 +345,7 @@ class model_cls{
 
 	function randomCode($length=4, $number=true) 
 	{
-	 	$string		= '';
+	 	$string	= '';
 		if($number)
 			$characters = "23456789";
 		else

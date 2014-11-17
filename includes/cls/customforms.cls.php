@@ -29,9 +29,8 @@
 		{
 			$form = new forms_lib;
 			$form = $form->make("@users");
-			$form->white("hidden, user_email, submit");
+			$form->white("hidden, user_mobile, submit");
 			$form->hidden->value("recovery");
-			$form->before("user_mobile","user_pass");
 			$form->submit->value("Recover my account");
 			return $form;
 		}
