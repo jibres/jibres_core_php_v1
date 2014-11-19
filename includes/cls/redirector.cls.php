@@ -2,10 +2,9 @@
 class redirector_cls{
 	private $exit = true, $aurl, $surl, $url = false;
 	function __construct($redirect = false, $php = false){
-		// $this->exit = $exit;
 		$this->php = $php;
 		$this->surl = config_lib::$surl;
-		$this->aurl = preg_split("[\/]", config_lib::$URL);
+		$this->aurl = config_hendel_lib::$real_url;
 		if(is_string($redirect)){
 			$this->url = preg_replace("/^\//", '', $redirect);
 		}
