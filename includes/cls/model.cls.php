@@ -314,7 +314,7 @@ class model_cls{
 		// $this->redirect = false;
 
 		$this->redirect->urlChange("delete", false);
-		$tmp_module			= $this->url_method_real();
+		$tmp_module			= config_lib::$method;
 		$tmp_qry_table		= 'table'.ucfirst($tmp_module);
 		$tmp_qry_slug		= $this->url_parameter();
 		// two below line delete with slug
