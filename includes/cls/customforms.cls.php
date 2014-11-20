@@ -12,7 +12,11 @@
 			$form->white("hidden, user_mobile, user_pass, submit");
 			$form->hidden->value("login");
 			$form->before("user_mobile","user_pass");
-			$form->submit->value("Login");
+			$form->user_mobile->label('');
+			$form->user_mobile->pl('Mobile');
+			$form->user_pass->label('');
+			$form->user_pass->pl('Password');
+			$form->submit->value("");
 			return $form;
 		}
 		public function signup()
@@ -22,7 +26,12 @@
 			$form->white("hidden, user_mobile, user_pass, user_extra, submit");
 			$form->hidden->value("signup");
 			$form->before("user_mobile","user_pass", "user_extra");
-			$form->submit->value("Create an account");
+			$form->user_mobile->label('');
+			$form->user_mobile->pl('Mobile');
+			$form->user_pass->label('');
+			$form->user_pass->pl('Password');
+			$form->user_extra->label('');
+			$form->submit->value("");
 			return $form;
 		}
 		public function recovery()
@@ -31,7 +40,9 @@
 			$form = $form->make("@users");
 			$form->white("hidden, user_mobile, submit");
 			$form->hidden->value("recovery");
-			$form->submit->value("Recover my account");
+			$form->user_mobile->label('');
+			$form->user_mobile->pl('Mobile');
+			$form->submit->value("");
 			return $form;
 		}
 	}

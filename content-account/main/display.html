@@ -23,7 +23,6 @@
   <link href="{{url.static}}humans.txt" type="text/plain" rel="author" />
   <link href="{{url.static}}images/favicon.png" rel="shortcut icon">
   
-  <link href="{{url.static}}css/style.css?ver=0.0.1" rel="stylesheet" type="text/css">
 {%if include.fontawesome%}
   <link href="{{url.static}}css/font-awesome.min.css?v4.2.0" rel="stylesheet" type="text/css">
 {%endif%}
@@ -38,6 +37,7 @@
   <script src="{{url.static}}js/intlTelInput.min.js" type="text/javascript"></script>
   <link href="{{url.static}}css/intlTelInput.css" rel="stylesheet" type="text/css">
 {%endif%}
+  <link href="{{url.static}}css/style-account.css?ver=0.0.1" rel="stylesheet" type="text/css">
 {%block head%}{%endblock%}
  </head>
  {% if extendForm%}
@@ -47,26 +47,32 @@
  <body>
 {%block header%}{%endblock%}
 
-  <div class="container" id="main">
-  {%if global.page_title%}
-  <h1>{{global.page_title}}</h1><hr />{%endif%}
-   
-{%block content%}{%endblock%}
+  <div class="center" id="{{form_title}}">
+    <h1>{{form_title |title}}</h1>
+    <form class="ajx" method="post" id="{{form_title}}">
+      {{forms.make(form[module])}}
+    </form>
+
+  {%block content%}
+    <p id="desc">
+      <a href="/recovery" title="click here to recovery your password">Can't access your account?</a>
+    </p>
+  {%endblock%}
   </div>
 
   <footer>
    <div id="footer">
-    <div class="light1 row-padding-medium">
-     <div class="container">
-      <div class="row">
-       <div class="span12">
-        <p>Goto <a href="{{url.root}}" title="{{global.site_desc}}" class="roller cursor-help"><span data-title="{{global.site_title}} Homepage">{{global.site_title}} Homepage</span></a>.</p>
-       </div>
-      </div>
+     <div id="copyright">
+      {%block footer%}
+        <div class="left">&copy; {{'now'|date('Y')}} 
+          <a href="{{url.root}}" title="{{global.site_desc}}" >{{global.site_title}}</a>
+        </div>
+      {%endblock%}
+       
      </div>
-    </div>
    </div>
   </footer>
+
 {%if debug is iterable%}
   <div id="formError" class="error_{{debug.status}}">
   {%for mydebug in debug if mydebug is iterable %}
@@ -83,10 +89,6 @@
   </div>
 {%endif%}
 
-{%if include.datatable%}
-  <script>$(document).ready(function(){$('.datatable').DataTable();});</script>
-{%endif%}
   <script src="{{url.static}}js/custom.js" type="text/javascript"></script>
-{%block footer%}{%endblock%}
  </body>
 </html>

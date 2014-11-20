@@ -232,7 +232,7 @@ function setproperty($myparam)
 			elseif ($myname=="mobile")
 			{
 				$fn .= $txtcomment. "website\n";
-				$fn .= $txtstart. '$this->form()->type("tel")->name("mobile")->pattern(".{10,}")->maxlength(17)->required();'.$txtend;
+				$fn .= $txtstart. '$this->form()->type("tel")->name("mobile")->pl("Mobile")->pattern(".{10,}")->maxlength(17)->required();'.$txtend;
 			}
 			elseif ( $myname=="tel")
 			{
@@ -244,7 +244,7 @@ function setproperty($myparam)
 			{
 				$fn .= $txtcomment. "password\n";
 				// Pattern:: (?=^.{6,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$
-				$fn .= $txtstart. '$this->form("#password")->type("password")->required()->maxlength(20)';
+				$fn .= $txtstart. '$this->form("#password")->pl("Password")->type("password")->required()->maxlength(20)';
 				$fn .= "\n\t\t\t". '->pattern("^.{5,20}$")->title("between 5-20 character");'.$txtend;
 				$mylabel = "Password";
 			}

@@ -4,7 +4,7 @@
         defaultCountry: "ir",
         // defaultCountry: "auto",
         // nationalMode: true,
-        numberType: "MOBILE",
+        // numberType: "MOBILE",
         //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
         preferredCountries: ['ir'],
         // responsiveDropdown: true,
