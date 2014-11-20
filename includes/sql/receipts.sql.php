@@ -19,7 +19,7 @@ class receipts
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 	public function receipt_code() 
 	{
 		$this->form("text")->name("code")->maxlength(30)->type('text');
@@ -43,7 +43,7 @@ class receipts
 	//------------------------------------------------------------------ id - foreign key
 	public function paper_id() 
 	{
-		$this->form("select")->name("paper")->min(0)->max(9999)->type("select")->validate("id");
+		$this->form("select")->name("paper")->min(0)->max(9999)->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function receipt_paperdate() 
@@ -67,28 +67,28 @@ class receipts
 	//------------------------------------------------------------------ id - foreign key
 	public function transaction_id() 
 	{
-		$this->form("select")->name("transaction")->min(0)->max(999999999)->type("select")->validate("id");
+		$this->form("select")->name("transaction")->min(0)->max(999999999)->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function fund_id() 
 	{
-		$this->form("select")->name("fund")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("fund")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id_customer() 
 	{
-		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

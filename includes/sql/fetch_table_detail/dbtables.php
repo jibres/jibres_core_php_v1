@@ -160,7 +160,7 @@ function setproperty($myparam)
 			{
 
 				$fn .= $txtcomment. "id - primary key\n";
-				$fn .= "\tpublic function $myfield() {" . '$this->validate("id");' ."}\n";
+				$fn .= "\tpublic function $myfield() {" . '$this->validate()->id();' ."}\n";
 				$mylabel = "ID";
 
 			}
@@ -170,7 +170,7 @@ function setproperty($myparam)
 				// for foreign key we use prefix that means we use (table name-last char)
 				$fn .= $txtcomment. "id - foreign key\n";
 				// $fn .= $txtstart. '$this->form("#foreignkey")->name("'. $prefix.'")->validate("id");' .$txtend;
-				$fn .= $txtstart. '$this->form("select")->name("'. $prefix.'")'.$property.'->type("select")->validate("id");';
+				$fn .= $txtstart. '$this->form("select")->name("'. $prefix.'")'.$property.'->type("select")->validate()->id();';
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 
 				// $mylabel = str_replace("_", " ", $myfield);

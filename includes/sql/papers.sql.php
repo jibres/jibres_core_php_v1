@@ -14,7 +14,7 @@ class papers
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 	public function paper_number() 
 	{
 		$this->form("text")->name("number")->maxlength(20)->type('text');
@@ -31,7 +31,7 @@ class papers
 	//------------------------------------------------------------------ id - foreign key
 	public function bank_id() 
 	{
-		$this->form("select")->name("bank")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("bank")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function paper_holder() 

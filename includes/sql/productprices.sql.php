@@ -16,19 +16,19 @@ class productprices
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("product")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("product")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function productmeta_id() 
 	{
-		$this->form("select")->name("productmeta")->min(0)->max(999999999)->type("select")->validate("id");
+		$this->form("select")->name("productmeta")->min(0)->max(999999999)->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function productprice_cat() 

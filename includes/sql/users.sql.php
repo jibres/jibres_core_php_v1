@@ -37,7 +37,7 @@ class users
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ select button
 	public function user_type() 
@@ -190,7 +190,7 @@ class users
 	//------------------------------------------------------------------ id - foreign key
 	public function permission_id() 
 	{
-		$this->form("select")->name("permission")->min(0)->max(9999)->type("select")->validate("id");
+		$this->form("select")->name("permission")->min(0)->max(9999)->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

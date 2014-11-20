@@ -12,7 +12,7 @@ class options
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 	public function option_cat() 
 	{
 		$this->form("text")->name("cat")->maxlength(50)->required()->type('text');

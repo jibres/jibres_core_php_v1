@@ -11,7 +11,7 @@ class visitors
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 	public function visitor_ip() 
 	{
 		$this->form("text")->name("ip")->min(0)->max(999999999)->required()->type('number');
@@ -28,7 +28,7 @@ class visitors
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->min(0)->max(9999)->type("select")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

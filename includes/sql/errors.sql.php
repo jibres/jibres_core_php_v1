@@ -10,7 +10,7 @@ class errors
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ title
 	public function error_title() 

@@ -14,7 +14,7 @@ class costs
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ title
 	public function cost_title() 
@@ -29,14 +29,14 @@ class costs
 	//------------------------------------------------------------------ id - foreign key
 	public function costcat_id() 
 	{
-		$this->form("select")->name("costcat")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("costcat")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function account_id() 
 	{
-		$this->form("select")->name("account")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("account")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function cost_date() 

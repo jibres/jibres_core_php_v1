@@ -12,7 +12,7 @@ class funds
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ title
 	public function fund_title() 
@@ -29,7 +29,7 @@ class funds
 	//------------------------------------------------------------------ id - foreign key
 	public function location_id() 
 	{
-		$this->form("select")->name("location")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("location")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function fund_initialbalance() 

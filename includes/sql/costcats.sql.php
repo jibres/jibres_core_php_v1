@@ -13,7 +13,7 @@ class costcats
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ title
 	public function costcat_title() 

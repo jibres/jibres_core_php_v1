@@ -20,7 +20,7 @@ class transactions
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ select button
 	public function transaction_type() 
@@ -32,14 +32,14 @@ class transactions
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id_customer() 
 	{
-		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function transaction_date() 

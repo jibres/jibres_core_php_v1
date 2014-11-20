@@ -17,19 +17,19 @@ class comments
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function post_id() 
 	{
-		$this->form("select")->name("post")->min(0)->max(9999)->type("select")->validate("id");
+		$this->form("select")->name("post")->min(0)->max(9999)->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function product_id() 
 	{
-		$this->form("select")->name("product")->min(0)->max(9999)->type("select")->validate("id");
+		$this->form("select")->name("product")->min(0)->max(9999)->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function comment_author() 
@@ -65,14 +65,14 @@ class comments
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->min(0)->max(9999)->type("select")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function Visitor_id() 
 	{
-		$this->form("select")->name("Visitor")->min(0)->max(999999999)->required()->type("select")->validate("id");
+		$this->form("select")->name("Visitor")->min(0)->max(999999999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function date_modified() {}

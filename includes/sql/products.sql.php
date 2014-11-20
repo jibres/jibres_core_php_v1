@@ -25,7 +25,7 @@ class products
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ title
 	public function product_title() 
@@ -42,7 +42,7 @@ class products
 	//------------------------------------------------------------------ id - foreign key
 	public function productcat_id() 
 	{
-		$this->form("select")->name("productcat")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("productcat")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 	public function product_barcode() 
@@ -100,7 +100,7 @@ class products
 	//------------------------------------------------------------------ id - foreign key
 	public function attachment_id() 
 	{
-		$this->form("select")->name("attachment")->min(0)->max(999999999)->type("select")->validate("id");
+		$this->form("select")->name("attachment")->min(0)->max(999999999)->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 

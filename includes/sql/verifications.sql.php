@@ -12,7 +12,7 @@ class verifications
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ select button
 	public function verification_type() 
@@ -32,7 +32,7 @@ class verifications
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id() 
 	{
-		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate("id");
+		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate()->id();
 		$this->setChild($this->form);
 	}
 

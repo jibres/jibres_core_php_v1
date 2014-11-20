@@ -12,7 +12,7 @@ class terms
 
 
 	//------------------------------------------------------------------ id - primary key
-	public function id() {$this->validate("id");}
+	public function id() {$this->validate()->id();}
 	public function term_name() 
 	{
 		$this->form("text")->name("name")->maxlength(50)->required()->type('text');
