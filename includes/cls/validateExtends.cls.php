@@ -51,7 +51,7 @@ class validateExtends_cls{
 	}
 
 	public function password(){
-		if(!preg_match("/^.{6,32}$/", $this->value)){
+		if(!preg_match("/^.{5,20}$/", $this->value)){
 			return false;
 			// $this->SetOnError('password');
 		}else{
