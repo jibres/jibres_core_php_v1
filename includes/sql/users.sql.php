@@ -50,7 +50,7 @@ class users
 	public function user_pass() 
 	{
 		$this->form("#password")->type("password")->required()->maxlength(20)
-			->pattern("^.{6,20}$")->title("between 6-20 character");
+			->pattern("^.{5,20}$")->title("between 5-20 character");
 	}
 
 	//------------------------------------------------------------------ email

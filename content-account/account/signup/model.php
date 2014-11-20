@@ -27,7 +27,7 @@ class model extends main_model
 			$qry		= $this->sql()->tableUsers()
 							->setUser_type('store_admin')
 							->setUser_mobile($mymobile)
-							->setUser_pass($mymobile)
+							->setUser_pass($mypass)
 							->setUser_extra($mystore);
 			$sql		= $qry->insert();
 			$myuserid	= $sql->LAST_INSERT_ID();

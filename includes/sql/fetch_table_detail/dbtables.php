@@ -245,7 +245,7 @@ function setproperty($myparam)
 				$fn .= $txtcomment. "password\n";
 				// Pattern:: (?=^.{6,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$
 				$fn .= $txtstart. '$this->form("#password")->type("password")->required()->maxlength(20)';
-				$fn .= "\n\t\t\t". '->pattern("^.{6,20}$")->title("between 6-20 character");'.$txtend;
+				$fn .= "\n\t\t\t". '->pattern("^.{5,20}$")->title("between 5-20 character");'.$txtend;
 				$mylabel = "Password";
 			}
 
