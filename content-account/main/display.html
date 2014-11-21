@@ -44,10 +44,10 @@
     {% import macro.forms as forms %}
  {% endif %}
 
- <body>
+ <body id="{{form_title}}">
 {%block header%}{%endblock%}
 
-  <div class="center" id="{{form_title}}">
+  <div class="center">
     <h1>{{form_title |title}}</h1>
     <form class="ajx" method="post" id="{{form_title}}">
       {{forms.make(form[module])}}
@@ -66,6 +66,7 @@
       {%block footer%}
         <div class="left">&copy; {{'now'|date('Y')}} 
           <a href="{{url.root}}" title="{{global.site_desc}}" >{{global.site_title}}</a>
+          <a class="register" href="/signup" title="click here to create an account">Create an account</a>
         </div>
       {%endblock%}
        

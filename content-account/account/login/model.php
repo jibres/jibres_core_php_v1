@@ -4,7 +4,7 @@ class model extends main_model
 	function post_login()
 	{
 		// for debug you can uncomment below line to disallow redirect
-		// $this->redirect 	= false;
+		$this->redirect 	= false;
 		$mymobile	= str_replace(' ', '', post::mobile());
 		$tmp_result	=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
 		$mypass		= md5(post::password());
@@ -27,12 +27,14 @@ class model extends main_model
 				}
 				$_SESSION['user']['permission_id']	= $tmp_result['permission_id'];
 				debug_lib::true("Login successfully");
+				var_dump("Login successfully");
 			}
 			else
 			{
 				// password is incorrect
 				unset($_SESSION['user']);
 				debug_lib::fatal("Password is incorrect");
+				var_dump("Password is incorrect");
 			}
 		}
 
@@ -42,6 +44,7 @@ class model extends main_model
 			// login: show mobile does not exist
 			// register: ok, can register
 			debug_lib::fatal("Mobile number is incorrect");
+			var_dump("Mobile number is incorrect");
 		}
 
 		else

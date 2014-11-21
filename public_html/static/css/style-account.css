@@ -46,9 +46,10 @@ input:focus,select:focus,textarea:focus,button:focus{outline:none;}
 .intl-tel-input .selected-flag .arrow {left:inherit;right: 10px;}
 
 
-#footer {position: fixed;bottom: 0;width:80%;height:45px;z-index: 1000;background-color: rgba(0, 0, 0, 0.1);padding: 0 10%;padding-top: 19px;height: 40px;font-size: 16px}
-
-#footer .copyright {float:right;border-left:0px;}
+#footer{position: fixed;bottom: 0;width:80%;z-index: 1000;background-color: rgba(0, 0, 0, 0.1);padding:15px 10%;font-size: 16px}
+#footer .copyright{float:right;border-left:0px;}
+#footer .register{float:right;}
+#signup .register{display:none}
 
 
 /* Form Error Box */
