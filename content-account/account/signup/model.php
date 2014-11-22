@@ -6,7 +6,6 @@ class model extends main_model
 		// $this->redirect 	= false;
 		$mymobile	= str_replace(' ', '', post::mobile());
 		$mypass		= post::password();
-		$mystore	= post::store();
 		$tmp_result	=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
 		if($tmp_result->num() == 1)
 		{
@@ -26,8 +25,7 @@ class model extends main_model
 			$qry		= $this->sql()->tableUsers()
 							->setUser_type('store_admin')
 							->setUser_mobile($mymobile)
-							->setUser_pass($mypass)
-							->setUser_extra($mystore);
+							->setUser_pass($mypass);
 			$sql		= $qry->insert();
 			// var_dump(debug_lib::compile());
 			// var_dump($sql->string());
@@ -43,11 +41,9 @@ class model extends main_model
 							->setUser_id($myuserid)
 							->setVerification_verified('no');
 			$sql		= $qry->insert();
-			// var_dump($sql->string());
-			var_dump(debug_lib::compile());
+
 			//send sms
 			// var_dump($mycode);
-
 
 
 			// ======================================================
@@ -55,19 +51,16 @@ class model extends main_model
 			// commit for successfull and rollback for failed
 			//
 			// if query run without error means commit
-			$this->commit(function($mymobile)
+			$this->commit(function($parameter)
 			{
 				debug_lib::true("Register successfully");
-				// var_dump("Register");
-
-				header("location: "."/verification?mobile=".substr($mymobile, 1) );
+				header("location: "."/verification?mobile=".substr($parameter, 1) );
 			}, $mymobile);
 
 			// if a query has error or any error occour in any part of codes, run roolback
 			$this->rollback(function()
 			{
 				debug_lib::fatal("Register failed!");
-				// var_dump("failed");
 			} );
 		}
 

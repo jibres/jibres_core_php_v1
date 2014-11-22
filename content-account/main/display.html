@@ -48,16 +48,23 @@
 {%block header%}{%endblock%}
 
   <div class="center">
-    <h1>{{form_title |title}}</h1>
+    <header>
+      <img id='logo' alt="{{global.site_title}}-logo"  src='{{url.static}}images/logo.png'>
+      <h1>{{global.page_title}}</h1>
+    </header>
+
     <form class="ajx" method="post" id="{{form_title}}">
       {{forms.make(form[module])}}
     </form>
 
-  {%block content%}
-    <p id="desc">
-      <a href="/recovery" title="click here to recovery your password">Can't access your account?</a>
-    </p>
-  {%endblock%}
+    {%block content%}
+    <footer>
+      <div id="desc">
+        <p><a href="/recovery" title="click here to recovery your password">Can't access your account?</a></p>
+        <p>Don't have an account? <a href="/signup" title="click here to create an account">Sign Up</a></p>
+      </div>
+    </footer>
+    {%endblock%}
   </div>
 
   <footer>
@@ -66,7 +73,6 @@
       {%block footer%}
         <div class="left">&copy; {{'now'|date('Y')}} 
           <a href="{{url.root}}" title="{{global.site_desc}}" >{{global.site_title}}</a>
-          <a class="register" href="/signup" title="click here to create an account">Create an account</a>
         </div>
       {%endblock%}
        
