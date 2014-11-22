@@ -32,6 +32,7 @@ class model extends main_model
 			// var_dump(debug_lib::compile());
 			// var_dump($sql->string());
 			$myuserid	= $sql->LAST_INSERT_ID();
+			$myuserid	= 15;
 			$mycode		= $this->randomCode();
 			
 			
