@@ -49,7 +49,7 @@ class users
 	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		$this->form("#password")->pl("Password")->type("password")->required()->maxlength(20)->autocomplete("off")
+		$this->form("#password")->pl("Password")->type("password")->required()->maxlength(20)
 			->pattern("^.{5,20}$")->title("between 5-20 character");
 	}
 
@@ -94,7 +94,7 @@ class users
 	//------------------------------------------------------------------ website
 	public function user_mobile() 
 	{
-		$this->form()->type("tel")->name("mobile")->pl("Mobile")->pattern(".{10,}")->maxlength(17)->required()->autocomplete("off");
+		$this->form()->type("tel")->name("mobile")->pl("Mobile")->pattern(".{10,}")->maxlength(17)->required();
 	}
 	public function user_birthday() 
 	{
@@ -183,7 +183,7 @@ class users
 	//------------------------------------------------------------------ Extra
 	public function user_extra() 
 	{
-		$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()->autocomplete("off")
+		$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()
 			->maxlength(20)->pattern("^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$")->title("start with letter. 3 to 20 characters or number");
 	}
 

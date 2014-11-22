@@ -232,7 +232,7 @@ function setproperty($myparam)
 			elseif ($myname=="mobile")
 			{
 				$fn .= $txtcomment. "website\n";
-				$fn .= $txtstart. '$this->form()->type("tel")->name("mobile")->pl("Mobile")->pattern(".{10,}")->maxlength(17)->required()->autocomplete("off");'.$txtend;
+				$fn .= $txtstart. '$this->form()->type("tel")->name("mobile")->pl("Mobile")->pattern(".{10,}")->maxlength(17)->required();'.$txtend;
 				
 			}
 			elseif ( $myname=="tel")
@@ -245,7 +245,7 @@ function setproperty($myparam)
 			{
 				$fn .= $txtcomment. "password\n";
 				// Pattern:: (?=^.{6,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$
-				$fn .= $txtstart. '$this->form("#password")->pl("Password")->type("password")->required()->maxlength(20)->autocomplete("off")';
+				$fn .= $txtstart. '$this->form("#password")->pl("Password")->type("password")->required()->maxlength(20)';
 				$fn .= "\n\t\t\t". '->pattern("^.{5,20}$")->title("between 5-20 character");'.$txtend;
 				$mylabel = "Password";
 			}
@@ -293,7 +293,7 @@ function setproperty($myparam)
 			elseif ($myfield=="user_extra")
 			{
 				$fn .= $txtcomment. "Extra\n";
-				$fn .= $txtstart. '$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()->autocomplete("off")';
+				$fn .= $txtstart. '$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()';
 				// $fn .= "\n\t\t\t".'->maxlength(20)->title("3 to 20 characters or number");'.$txtend;
 				$fn .= "\n\t\t\t".'->maxlength(20)->pattern("^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$")->title("start with letter. 3 to 20 characters or number");'.$txtend;
 				// ^[a-zA-Z][a-zA-Z0-9-_\.]{3,20}$

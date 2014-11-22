@@ -6,6 +6,7 @@ class verifications
 	public $verification_type = array('type' => 'enum@emailregister,emailchange,emailforget,mobileregister,mobilechange,mobileforget', 'null' =>'NO' ,'label' => 'Type');
 	public $verification_value = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Value');
 	public $verification_code = array('type' => 'varchar@32', 'null' =>'NO' ,'label' => 'Code');
+	public $verification_url = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Url');
 	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
 	public $verification_verified = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Verified');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
@@ -27,6 +28,10 @@ class verifications
 	public function verification_code() 
 	{
 		$this->form("text")->name("code")->maxlength(32)->required()->type('text');
+	}
+	public function verification_url() 
+	{
+		$this->form("text")->name("url")->maxlength(100)->type('text');
 	}
 
 	//------------------------------------------------------------------ id - foreign key
