@@ -1,6 +1,18 @@
 <?php
 class model extends main_model
 {
+	function post_code()
+	{
+		$this->redirect 	= false;
+		var_dump("code");
+	}
+
+	function post_verification()
+	{
+		$this->redirect 	= false;
+		var_dump("mobile");
+	}
+
 	function post_signup(){
 		// for debug you can uncomment below line to disallow redirect
 		$this->redirect 	= false;
@@ -58,8 +70,6 @@ class model extends main_model
 			{
 				debug_lib::true("Register successfully");
 				var_dump("Register");
-
-				header("location: "."/verification?mobile=".substr($mymobile, 1) );
 			} );
 
 			// if a query has error or any error occour in any part of codes, run roolback

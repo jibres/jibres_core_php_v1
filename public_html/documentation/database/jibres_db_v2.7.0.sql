@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2014 at 12:27 AM
+-- Generation Time: Nov 22, 2014 at 12:27 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `banks` (
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_unique` (`bank_slug`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
 
 --
 -- Dumping data for table `banks`
@@ -129,7 +129,16 @@ INSERT INTO `banks` (`id`, `bank_title`, `bank_slug`, `bank_website`, `bank_acti
 (10, 'اقتصاد نوین', 'eghtesad', NULL, 'yes', '0000-00-00 00:00:00'),
 (50, 'test', 'tt', '3', 'yes', '0000-00-00 00:00:00'),
 (55, 'test2', 't2', 'www', 'yes', '0000-00-00 00:00:00'),
-(56, 'test312', 't3', 'wwwwwwwq', 'no', '2014-11-10 17:36:12');
+(56, 'test312', 't3', 'wwwwwwwq', 'no', '2014-11-10 17:36:12'),
+(57, '', '', NULL, 'yes', '0000-00-00 00:00:00'),
+(60, 'fsadfsda', 'fwefwqe', NULL, 'yes', '0000-00-00 00:00:00'),
+(61, 'retew', 'tewtewt', NULL, 'yes', '0000-00-00 00:00:00'),
+(64, 'wrr325', '34tweate', NULL, 'yes', '0000-00-00 00:00:00'),
+(65, 'rewqr', 'rwerq', NULL, 'yes', '0000-00-00 00:00:00'),
+(66, 'reqare', 'rwqrw', NULL, 'yes', '0000-00-00 00:00:00'),
+(68, 'rwer', 'wqerqer', NULL, 'yes', '0000-00-00 00:00:00'),
+(70, 'test', 'test2', NULL, 'yes', '0000-00-00 00:00:00'),
+(71, 'wrqwrqwr', 'rwerwe', NULL, 'no', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -151,10 +160,10 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `Visitor_id` int(10) unsigned NOT NULL,
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  KEY `comments_visitors_id` (`Visitor_id`),
   KEY `comments_posts_id` (`post_id`) USING BTREE,
   KEY `comments_users_id` (`user_id`) USING BTREE,
-  KEY `comments_products_id` (`product_id`) USING BTREE
+  KEY `comments_products_id` (`product_id`) USING BTREE,
+  KEY `comments_visitors_id` (`Visitor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -251,20 +260,21 @@ CREATE TABLE IF NOT EXISTS `funds` (
   `fund_title` varchar(100) NOT NULL,
   `fund_slug` varchar(100) NOT NULL,
   `location_id` smallint(5) unsigned NOT NULL,
-  `fund_initialbalance` decimal(14,4) DEFAULT NULL,
+  `fund_initialbalance` decimal(14,4) NOT NULL DEFAULT '0.0000',
   `fund_desc` varchar(200) DEFAULT NULL,
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_unique` (`fund_slug`),
   KEY `funds_locations_id` (`location_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `funds`
 --
 
 INSERT INTO `funds` (`id`, `fund_title`, `fund_slug`, `location_id`, `fund_initialbalance`, `fund_desc`, `date_modified`) VALUES
-(2, 'Main', 'main', 1, NULL, NULL, '0000-00-00 00:00:00');
+(2, 'Main', 'main', 1, '0.0000', NULL, '0000-00-00 00:00:00'),
+(3, 'werew', 'wqrwer', 1, '9999999999.9999', NULL, '0000-00-00 00:00:00');
 
 --
 -- Triggers `funds`
@@ -407,7 +417,14 @@ CREATE TABLE IF NOT EXISTS `papers` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id+bankid_unique` (`id`,`bank_id`) USING BTREE,
   KEY `bank_id` (`bank_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `papers`
+--
+
+INSERT INTO `papers` (`id`, `paper_number`, `paper_date`, `paper_price`, `bank_id`, `paper_holder`, `paper_desc`, `paper_status`, `date_modified`) VALUES
+(1, '123', NULL, '500.0000', 1, NULL, NULL, NULL, '0000-00-00 00:00:00');
 
 --
 -- Triggers `papers`
@@ -829,7 +846,14 @@ CREATE TABLE IF NOT EXISTS `receipts` (
   KEY `receipts_funds_id` (`fund_id`) USING BTREE,
   KEY `receipts_users_id` (`user_id`),
   KEY `receipts_users_idcustomer` (`user_id_customer`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `receipts`
+--
+
+INSERT INTO `receipts` (`id`, `receipt_code`, `receipt_type`, `receipt_price`, `receipt_date`, `paper_id`, `receipt_paperdate`, `receipt_paperstatus`, `receipt_desc`, `transaction_id`, `fund_id`, `user_id`, `user_id_customer`, `date_modified`) VALUES
+(6, '123', 'income', '0.0000', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, 2, 14, 15, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1054,7 +1078,7 @@ CREATE TABLE IF NOT EXISTS `usermeta` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'use char(36) if i want use uuid',
-  `user_type` enum('customer','supplier','employee') DEFAULT 'customer',
+  `user_type` enum('store_admin','store_employee','store_supplier','store_customer','admin','user') DEFAULT 'user',
   `user_pass` char(32) NOT NULL COMMENT 'Password',
   `user_email` varchar(50) DEFAULT NULL,
   `user_gender` enum('male','female') DEFAULT NULL COMMENT 'Gender',
@@ -1082,11 +1106,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_credit` enum('yes','no') DEFAULT 'no',
   `user_question` varchar(100) DEFAULT NULL,
   `user_answer` varchar(100) DEFAULT NULL,
+  `user_extra` varchar(50) DEFAULT NULL COMMENT '''user_shop'' is userd in app',
   `permission_id` smallint(5) unsigned DEFAULT NULL,
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_uniques` (`user_email`) USING BTREE,
   UNIQUE KEY `mobile_unique` (`user_mobile`) USING BTREE,
+  UNIQUE KEY `email_unique` (`user_email`) USING BTREE,
+  UNIQUE KEY `extra_unique` (`user_extra`),
   KEY `users_permissions_id` (`permission_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
@@ -1094,28 +1120,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_type`, `user_pass`, `user_email`, `user_gender`, `user_married`, `user_firstname`, `user_lastname`, `user_nickname`, `user_tel`, `user_mobile`, `user_birthday`, `user_country`, `user_state`, `user_city`, `user_address`, `user_postcode`, `user_newsletter`, `user_refer`, `user_nationalcode`, `user_website`, `user_status`, `user_degree`, `user_activity`, `user_incomes`, `user_outcomes`, `user_credit`, `user_question`, `user_answer`, `permission_id`, `date_modified`) VALUES
-(14, 'customer', '1', 'eee2', 'male', NULL, NULL, NULL, 'Test1', NULL, '9112223333', NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, 'active', NULL, NULL, 9010, 0, 'no', NULL, NULL, 1, '2014-11-08 09:34:15'),
-(15, 'supplier', '1', NULL, NULL, NULL, 'Test', NULL, 'Test2', NULL, '9123334444', NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, 'awaiting', NULL, NULL, 9032, 0, 'no', NULL, NULL, 1, '2014-11-08 09:34:17'),
-(16, 'employee', '1', 'aaa2', NULL, NULL, NULL, 'Test last', 'Test3', NULL, '9134445555', NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, 'active', NULL, NULL, 0, 0, 'no', NULL, NULL, 1, '2014-11-08 09:34:19'),
-(28, 'customer', '', 'test&commat;test&period;com', NULL, NULL, 'Javad', 'Evazzadeh', 'Javad', '123', '09357269759', NULL, 0, 0, 0, 'test', '12345', 'no', NULL, '2190053994', 'evazzadeh&period;com', 'active', NULL, NULL, 0, 0, 'yes', NULL, NULL, NULL, '0000-00-00 00:00:00');
-
---
--- Triggers `users`
---
-DROP TRIGGER IF EXISTS `Users_AI_ouline_verification`;
-DELIMITER //
-CREATE TRIGGER `Users_AI_ouline_verification` AFTER INSERT ON `users`
- FOR EACH ROW insert into verifications 
-(verification_type, verification_email, verification_code, user_id)
-VALUES(	
-				"register_by_email",
-				new.user_email,
-				md5(New.id & New.date_modified),
-				New.id
- )
-//
-DELIMITER ;
+INSERT INTO `users` (`id`, `user_type`, `user_pass`, `user_email`, `user_gender`, `user_married`, `user_firstname`, `user_lastname`, `user_nickname`, `user_tel`, `user_mobile`, `user_birthday`, `user_country`, `user_state`, `user_city`, `user_address`, `user_postcode`, `user_newsletter`, `user_refer`, `user_nationalcode`, `user_website`, `user_status`, `user_degree`, `user_activity`, `user_incomes`, `user_outcomes`, `user_credit`, `user_question`, `user_answer`, `user_extra`, `permission_id`, `date_modified`) VALUES
+(14, 'store_admin', '96e79218965eb72c92a549dd5a330112', 'eee2', '', NULL, NULL, NULL, 'Test1', NULL, '+989113334444', NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, 'active', NULL, NULL, 9010, 0, 'no', NULL, NULL, NULL, 1, '2014-11-21 21:31:11'),
+(15, 'store_admin', '96e79218965eb72c92a549dd5a330112', NULL, NULL, NULL, 'Test', NULL, 'Test2', NULL, '+989123334444', NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, 'awaiting', NULL, NULL, 9032, 0, 'no', NULL, NULL, NULL, 1, '2014-11-21 21:31:13'),
+(16, 'store_admin', '96e79218965eb72c92a549dd5a330112', 'aaa2', NULL, NULL, NULL, 'Test last', 'Test3', NULL, '+989357269759', NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, 'active', NULL, NULL, 0, 0, 'no', NULL, NULL, NULL, 1, '2014-11-21 21:31:13'),
+(28, 'store_admin', '96e79218965eb72c92a549dd5a330112', 'aaa', NULL, NULL, 'Javad', 'Evazzadeh', 'Javad', '123', '+989363334444', NULL, 0, 0, 0, 'test', '12345', 'no', NULL, '2190053994', 'evazzadeh&period;com', 'active', NULL, NULL, 0, 0, 'yes', NULL, NULL, NULL, NULL, '2014-11-21 21:31:14');
 
 -- --------------------------------------------------------
 
@@ -1125,24 +1134,24 @@ DELIMITER ;
 
 CREATE TABLE IF NOT EXISTS `verifications` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `verification_type` enum('registerbyemail','registerbymobile','forget','changeemail','changemobile') CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
-  `verification_email` varchar(50) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
+  `verification_type` enum('emailregister','emailchange','emailforget','mobileregister','mobilechange','mobileforget') CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
+  `verification_value` varchar(50) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
   `verification_code` varchar(32) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
+  `verification_url` varchar(100) DEFAULT NULL,
   `user_id` smallint(5) unsigned NOT NULL,
   `verification_verified` enum('yes','no') CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL DEFAULT 'no',
   `date_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code_unique` (`verification_code`),
   KEY `verifications_users_id` (`user_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `verifications`
 --
 
-INSERT INTO `verifications` (`id`, `verification_type`, `verification_email`, `verification_code`, `user_id`, `verification_verified`, `date_modified`) VALUES
-(13, 'forget', 'test&commat;test&period;com', 'cfcd208495d565ef66e7dff9f98764da', 28, 'no', '2014-11-10 19:13:12'),
-(14, 'registerbymobile', 'test@aa.com', '432rfewfw432r', 28, 'no', '2014-11-10 19:25:52');
+INSERT INTO `verifications` (`id`, `verification_type`, `verification_value`, `verification_code`, `verification_url`, `user_id`, `verification_verified`, `date_modified`) VALUES
+(27, 'mobileforget', '+989357269759', '4543', NULL, 16, 'no', '0000-00-00 00:00:00');
 
 --
 -- Triggers `verifications`
@@ -1277,11 +1286,11 @@ ALTER TABLE `products`
 -- Constraints for table `receipts`
 --
 ALTER TABLE `receipts`
-  ADD CONSTRAINT `receipts_users_idcustomer` FOREIGN KEY (`user_id_customer`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `receipts_funds_id` FOREIGN KEY (`fund_id`) REFERENCES `funds` (`id`),
   ADD CONSTRAINT `receipts_papers_id` FOREIGN KEY (`paper_id`) REFERENCES `papers` (`id`),
   ADD CONSTRAINT `receipts_transactions_id` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`),
-  ADD CONSTRAINT `receipts_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `receipts_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `receipts_users_idcustomer` FOREIGN KEY (`user_id_customer`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `termusages`
@@ -1314,7 +1323,7 @@ ALTER TABLE `userlogs`
 -- Constraints for table `usermeta`
 --
 ALTER TABLE `usermeta`
-  ADD CONSTRAINT `usermeta_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `usermetas_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `users`
@@ -1327,12 +1336,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `verifications`
   ADD CONSTRAINT `verifications_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `visitors`
---
-ALTER TABLE `visitors`
-  ADD CONSTRAINT `visitors_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

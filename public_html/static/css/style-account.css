@@ -29,7 +29,7 @@ button:after,button:before{position: absolute;content: " ";right: 15px;top: 7px;
 button:before{height: 14px;top: 19px;right: 16px;z-index: 3;-moz-transform: rotate(-137deg);-ms-transform: rotate(-137deg);-webkit-transform: rotate(-137deg);transform: rotate(-137deg);-webkit-filter: drop-shadow(0 -2px 0 rgba(0, 0, 0, 0.15));filter: drop-shadow(0 -2px 0 rgba(0, 0, 0, 0.15));}
 button:hover:after,button:hover:before,button:focus:after,button:focus:before{background:#fff;}
 
-#recovery button{top:-3px;}
+#recovery button{top:-2px;}
 #signup button{top:35px;}
 
 input:focus,select:focus,textarea:focus,button:focus{outline:none;}
