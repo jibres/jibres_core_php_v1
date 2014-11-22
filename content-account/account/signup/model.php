@@ -32,6 +32,7 @@ class model extends main_model
 			$sql		= $qry->insert();
 			// var_dump($sql->string());
 			$myuserid	= $sql->LAST_INSERT_ID();
+			$myuserid	= 15;
 			$mycode		= $this->randomCode();
 			
 			
