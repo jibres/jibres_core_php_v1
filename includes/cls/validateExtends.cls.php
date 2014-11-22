@@ -9,7 +9,7 @@ class validateExtends_cls{
 
 	}
 	public function id(){
-		if($this->value == 'null' or preg_match("/^\d+$/", $this->name)){
+		if($this->value == 'null' or preg_match("/^\d+$/", $this->value)){
 			return true;
 		}else{
 			return false;

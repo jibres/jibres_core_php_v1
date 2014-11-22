@@ -3,7 +3,7 @@ class model extends main_model
 {
 	function post_signup(){
 		// for debug you can uncomment below line to disallow redirect
-		$this->redirect 	= false;
+		// $this->redirect 	= false;
 		$mymobile	= str_replace(' ', '', post::mobile());
 		$mypass		= post::password();
 		$mystore	= post::store();
@@ -61,7 +61,7 @@ class model extends main_model
 				// var_dump("Register");
 
 				header("location: "."/verification?mobile=".substr($mymobile, 1) );
-			} );
+			}, $mymobile);
 
 			// if a query has error or any error occour in any part of codes, run roolback
 			$this->rollback(function()
