@@ -1,5 +1,5 @@
 <?php
-class main_view extends view_cls
+class main_view extends mvcView_cls
 {
 	
 }

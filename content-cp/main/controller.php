@@ -1,5 +1,5 @@
 <?php
-class main_controller extends controller_cls
+class main_controller extends mvcController_cls
 {
 	public function config()
 	{

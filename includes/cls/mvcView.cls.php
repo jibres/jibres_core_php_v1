@@ -5,7 +5,7 @@ class aDATA{
 	}
 }
 
-class view_cls{
+class mvcView_cls{
 	public final function __construct($controller)
 	{
 		$this->controller		= $controller;

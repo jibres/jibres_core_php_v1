@@ -1,5 +1,5 @@
 <?php
-class main_model extends model_cls{
+class main_model extends mvcModel_cls{
 	
 }
 ?>

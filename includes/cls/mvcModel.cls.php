@@ -1,5 +1,5 @@
 <?php
-class model_cls{
+class mvcModel_cls{
 	public $plugin = true;
 	public $commit = array();
 	public $rollback = array();

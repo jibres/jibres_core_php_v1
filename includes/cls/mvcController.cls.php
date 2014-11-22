@@ -1,5 +1,5 @@
 <?php
-class controller_cls{
+class mvcController_cls{
 	public $onUrl = false;
 	public $querys;
 	public $__autocallMethod = array("sql", "redirect", "checkRedirect", "addMethod", "addPeroperty");

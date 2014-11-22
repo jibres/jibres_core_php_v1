@@ -54,8 +54,8 @@ class model extends main_model
 			$this->commit(function($parameter)
 			{
 				debug_lib::true("Register successfully");
-				
-				header("location: "."/verification?mobile=".substr($parameter, 1) );
+				header('location: '.'/verification?mobile='.(substr($parameter,1)) );
+				exit();
 			}, $mymobile);
 
 			// if a query has error or any error occour in any part of codes, run roolback
