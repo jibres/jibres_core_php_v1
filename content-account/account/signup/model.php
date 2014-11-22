@@ -3,7 +3,7 @@ class model extends main_model
 {
 	function post_signup(){
 		// for debug you can uncomment below line to disallow redirect
-		$this->redirect 	= false;
+		// $this->redirect 	= false;
 		$mymobile	= str_replace(' ', '', post::mobile());
 		$mypass		= post::password();
 		$mystore	= post::store();
@@ -30,6 +30,7 @@ class model extends main_model
 							->setUser_pass($mypass)
 							->setUser_extra($mystore);
 			$sql		= $qry->insert();
+			// var_dump($sql->string());
 			$myuserid	= $sql->LAST_INSERT_ID();
 			$mycode		= $this->randomCode();
 			
@@ -40,12 +41,11 @@ class model extends main_model
 							->setVerification_code($mycode)
 							->setUser_id($myuserid)
 							->setVerification_verified('no');
-			var_dump($qry);
 			$sql		= $qry->insert();
-			var_dump($sql);
-
+			// var_dump($sql->string());
+			// var_dump(debug_lib::compile());
 			//send sms
-			var_dump($mycode);
+			// var_dump($mycode);
 
 
 
@@ -57,7 +57,7 @@ class model extends main_model
 			$this->commit(function()
 			{
 				debug_lib::true("Register successfully");
-				var_dump("Register");
+				// var_dump("Register");
 
 				header("location: "."/verification?mobile=".substr($mymobile, 1) );
 			} );
@@ -66,7 +66,7 @@ class model extends main_model
 			$this->rollback(function()
 			{
 				debug_lib::fatal("Register failed!");
-				var_dump("failed");
+				// var_dump("failed");
 			} );
 		}
 

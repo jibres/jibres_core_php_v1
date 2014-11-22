@@ -57,10 +57,9 @@ class view_cls{
 		$this->data->form			= $this->form;
 		$this->data->layout			= 'main/display.html';
 		$this->data->macro['forms']	= 'macro/forms.html';
-		// $this->data->macro['list']	= 'macro/tagMaker.html';
-		if(isset($_SESSION['error']) && isset($_SESSION['error'][config_lib::$URL]) && isset($_SERVER['HTTP_REFERER'])){
-			$this->data->debug = $_SESSION['error'][config_lib::$URL];
-			unset($_SESSION['error'][config_lib::$URL]);
+		if(isset($_SESSION['error']) && isset($_SESSION['error'][join(config_hendel_lib::$real_url, '/')]) && isset($_SERVER['HTTP_REFERER'])){
+			$this->data->debug = $_SESSION['error'][join(config_hendel_lib::$real_url, '/')];
+			unset($_SESSION['error'][join(config_hendel_lib::$real_url, '/')]);
 		}
 
 		if(method_exists($this, 'config')){
