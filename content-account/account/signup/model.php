@@ -55,7 +55,7 @@ class model extends main_model
 			// commit for successfull and rollback for failed
 			//
 			// if query run without error means commit
-			$this->commit(function()
+			$this->commit(function($mymobile)
 			{
 				debug_lib::true("Register successfully");
 				// var_dump("Register");
