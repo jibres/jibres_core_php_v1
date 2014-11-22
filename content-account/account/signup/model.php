@@ -30,7 +30,6 @@ class model extends main_model
 			// var_dump(debug_lib::compile());
 			// var_dump($sql->string());
 			$myuserid	= $sql->LAST_INSERT_ID();
-			$myuserid	= 15;
 			$mycode		= $this->randomCode();
 			
 			
@@ -42,8 +41,9 @@ class model extends main_model
 							->setVerification_verified('no');
 			$sql		= $qry->insert();
 
-			//send sms
-			// var_dump($mycode);
+			//Send SMS
+			$sendnotify = new sendnotify_cls;
+			$sendnotify->sms($mymobile, $mycode);
 
 
 			// ======================================================
@@ -54,6 +54,7 @@ class model extends main_model
 			$this->commit(function($parameter)
 			{
 				debug_lib::true("Register successfully");
+				
 				header("location: "."/verification?mobile=".substr($parameter, 1) );
 			}, $mymobile);
 

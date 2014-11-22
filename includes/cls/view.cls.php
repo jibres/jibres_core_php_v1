@@ -106,7 +106,18 @@ class view_cls{
 		Twig_Autoloader::register();
 		$loader			= new Twig_Loader_Filesystem(content);
 
-		$twig			= new Twig_Environment($loader);
+		if(DEBUG)
+		{
+			$twig 		= new Twig_Environment($loader, array(
+			    'debug' => true,
+			    // ...
+			));
+		}
+		else
+		{
+			$twig		= new Twig_Environment($loader);
+		}
+
 		$this->main_Extentions($twig);
 		$template		= $twig->loadTemplate($tmpname);
 		$template ->	display($this->data->compile());
