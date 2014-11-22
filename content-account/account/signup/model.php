@@ -3,12 +3,11 @@ class model extends main_model
 {
 	function post_signup(){
 		// for debug you can uncomment below line to disallow redirect
-		// $this->redirect 	= false;
+		$this->redirect 	= false;
 		$mymobile	= str_replace(' ', '', post::mobile());
 		$mypass		= post::password();
 		$mystore	= post::store();
 		$tmp_result	=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
-
 		if($tmp_result->num() == 1)
 		{
 			// mobile exist
@@ -30,6 +29,7 @@ class model extends main_model
 							->setUser_pass($mypass)
 							->setUser_extra($mystore);
 			$sql		= $qry->insert();
+			// var_dump(debug_lib::compile());
 			// var_dump($sql->string());
 			$myuserid	= $sql->LAST_INSERT_ID();
 			$mycode		= $this->randomCode();
@@ -43,7 +43,7 @@ class model extends main_model
 							->setVerification_verified('no');
 			$sql		= $qry->insert();
 			// var_dump($sql->string());
-			// var_dump(debug_lib::compile());
+			var_dump(debug_lib::compile());
 			//send sms
 			// var_dump($mycode);
 
