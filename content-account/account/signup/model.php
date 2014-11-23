@@ -48,9 +48,7 @@ class model extends main_model
 			$this->commit(function($parameter, $parameter2)
 			{
 				debug_lib::true("Register successfully");
-				// $this->redierct->methodChange('verification', false);
-				// header('location: '.'/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2 );
-				// exit();
+				$this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
 			}, $mymobile, $mycode);
 
 			// if a query has error or any error occour in any part of codes, run roolback

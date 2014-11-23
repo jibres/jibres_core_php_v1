@@ -43,6 +43,7 @@ class mvcView_cls{
 		$this->global->page_title			= ucfirst($this->data->module);
 		$this->global->page_desc			= $this->global->site_desc;
 		$this->global->site_title_show		= true;
+		$this->global->login 				= $this->login();
 
 		$this->include->datatable			= false;
 		$this->include->jquery				= true;

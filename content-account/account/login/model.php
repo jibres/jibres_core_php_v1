@@ -12,13 +12,12 @@ class model extends main_model
 		if($tmp_result->num() == 1)
 		{
 			// mobile exist
-			// login: check password then user can login
-			// register: show error
 			
 			$tmp_result = $tmp_result->assoc();
 			if (isset($tmp_result['user_pass']) && $tmp_result['user_pass'] == $mypass)
 			{
 				// password is correct
+				$_SESSION['login']	= true;
 				$_SESSION['user']	= array();
 				$tmp_fields			=  array('type', 'gender', 'firstname', 'lastname', 'nickname', 'mobile', 'status', 'credit');
 				foreach ($tmp_fields as $key => $value) 
@@ -26,25 +25,22 @@ class model extends main_model
 					$_SESSION['user'][$value]	= $tmp_result['user_'.$value];
 				}
 				$_SESSION['user']['permission_id']	= $tmp_result['permission_id'];
+				
 				debug_lib::true("Login successfully");
-				// var_dump("Login successfully");
+				// $this->redirect('http://cp.jibres.dev');
 			}
 			else
 			{
 				// password is incorrect
 				unset($_SESSION['user']);
 				debug_lib::fatal("Password is incorrect");
-				// var_dump("Password is incorrect");
 			}
 		}
 
 		elseif($tmp_result->num() == 0 )
 		{
 			// mobile does not exits
-			// login: show mobile does not exist
-			// register: ok, can register
 			debug_lib::fatal("Mobile number is incorrect");
-			// var_dump("Mobile number is incorrect");
 		}
 
 		else

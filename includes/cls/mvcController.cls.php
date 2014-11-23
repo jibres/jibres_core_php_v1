@@ -24,6 +24,7 @@ class mvcController_cls{
 		$this->addMethod('url_table_prefix');
 		$this->addMethod('url_parameter');
 		$this->addMethod('url_title');
+		$this->addMethod('login');
 		// $this->addMethod('slugify');
 	}
 
@@ -151,6 +152,11 @@ class mvcController_cls{
 		$mychild = substr($mychild,0,strrpos($mychild,'='));
 		if($mychild == 'edit')
 			return 'Edit';
+	}
+
+	function login()
+	{
+		return (isset($_SESSION['login'])?$_SESSION['login']:false);
 	}
 
 	static public function slugify($text)
