@@ -26,12 +26,13 @@ class users
 	public $user_status = array('type' => 'enum@active,awaiting,deactive,removed!awaiting', 'null' =>'YES' ,'label' => 'Status');
 	public $user_degree = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Degree');
 	public $user_activity = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Activity');
-	public $user_incomes = array('type' => 'bigint@11', 'null' =>'YES' ,'label' => 'Incomes');
-	public $user_outcomes = array('type' => 'bigint@11', 'null' =>'YES' ,'label' => 'Outcomes');
+	public $user_incomes = array('type' => 'bigint@11', 'null' =>'YES' ,'label' => 'User Incomes');
+	public $user_outcomes = array('type' => 'bigint@11', 'null' =>'YES' ,'label' => 'User Outcomes');
 	public $user_credit = array('type' => 'enum@yes,no!no', 'null' =>'YES' ,'label' => 'Credit');
 	public $user_question = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Question');
 	public $user_answer = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Answer');
 	public $user_extra = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Extra');
+	public $user_logincount = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'User Logincount');
 	public $permission_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Permission', 'foreign' => 'permissions@id!permission_title');
 	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
 
@@ -156,14 +157,8 @@ class users
 	{
 		$this->form("text")->name("activity")->maxlength(50)->type('text');
 	}
-	public function user_incomes() 
-	{
-		$this->form("text")->name("incomes")->max(9999999999)->type('number');
-	}
-	public function user_outcomes() 
-	{
-		$this->form("text")->name("outcomes")->max(9999999999)->type('number');
-	}
+	public function user_incomes() {}
+	public function user_outcomes() {}
 
 	//------------------------------------------------------------------ radio button
 	public function user_credit() 
@@ -186,6 +181,7 @@ class users
 		$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()
 			->maxlength(20)->pattern("^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$")->title("start with letter. 3 to 20 characters or number");
 	}
+	public function user_logincount() {}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function permission_id() 

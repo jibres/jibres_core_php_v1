@@ -251,7 +251,8 @@ function setproperty($myparam)
 			}
 
 			// --------------------------------------------------------------------------------- unuse
-			elseif($myfield=="date_modified")
+			elseif($myfield=="date_modified" || $myfield=='user_incomes' || $myfield=='user_outcomes'
+				|| $myfield=='user_logincount')
 			{
 				$fn .= "\tpublic function $myfield() {}\n";
 				$mylabel = str_replace("_", " ", $myfield);

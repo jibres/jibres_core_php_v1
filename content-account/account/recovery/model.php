@@ -36,10 +36,12 @@ class model extends main_model
 			// commit for successfull and rollback for failed
 			//
 			// if query run without error means commit
-			$this->commit(function()
+			$this->commit(function($parameter)
 			{
+				header('location: '.'/verification?mobile='.(substr($parameter,1)) );
 				debug_lib::true("Step 1 of 2 is complete. Please check your mobile to continue");
-			} );
+				exit();
+			}, $mymobile);
 
 			// if a query has error or any error occour in any part of codes, run roolback
 			$this->rollback(function()

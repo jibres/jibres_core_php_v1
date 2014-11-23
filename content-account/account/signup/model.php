@@ -1,37 +1,31 @@
 <?php
 class model extends main_model
 {
-	function post_signup(){
+	function post_signup()
+	{
 		// for debug you can uncomment below line to disallow redirect
-		// $this->redirect 	= false;
-		$mymobile	= str_replace(' ', '', post::mobile());
-		$mypass		= post::password();
-		$tmp_result	=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
+		// $this->redirect	= false;
+		$mymobile			= str_replace(' ', '', post::mobile());
+		$mypass				= post::password();
+		$tmp_result			=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
+		
 		if($tmp_result->num() == 1)
 		{
 			// mobile exist
-			// login: check password then user can login
-			// register: show error
-
 			debug_lib::fatal("Mobile number exist!");
 		}
 
 		elseif($tmp_result->num() == 0 )
 		{
 			// mobile does not exits
-			// login: show mobile does not exist
-			// register: ok, can register
-
 			$qry		= $this->sql()->tableUsers()
 							->setUser_type('store_admin')
 							->setUser_mobile($mymobile)
 							->setUser_pass($mypass);
 			$sql		= $qry->insert();
-			// var_dump(debug_lib::compile());
-			// var_dump($sql->string());
+
 			$myuserid	= $sql->LAST_INSERT_ID();
 			$mycode		= $this->randomCode();
-			
 			
 			$qry		= $this->sql()->tableVerifications()
 							->setVerification_type('mobileregister')
@@ -51,18 +45,20 @@ class model extends main_model
 			// commit for successfull and rollback for failed
 			//
 			// if query run without error means commit
-			$this->commit(function($parameter)
+			$this->commit(function($parameter, $parameter2)
 			{
 				debug_lib::true("Register successfully");
-				header('location: '.'/verification?mobile='.(substr($parameter,1)) );
-				exit();
-			}, $mymobile);
+				// $this->redierct->methodChange('verification', false);
+				// header('location: '.'/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2 );
+				// exit();
+			}, $mymobile, $mycode);
 
 			// if a query has error or any error occour in any part of codes, run roolback
 			$this->rollback(function()
 			{
 				debug_lib::fatal("Register failed!");
 			} );
+			
 		}
 
 		else
