@@ -1,10 +1,59 @@
 <?php
-class getTable_cls{
-	public static function get($name){
+class getTable_cls
+{
+	public static function get($name)
+	{
 		$ret = array();
 		$table = sql_lib::getTable($name);
-		foreach ($table as $key => $value) {
+		foreach ($table as $key => $value) 
+		{
 			array_push($ret, $key);
+		}
+		return $ret;
+	}
+
+	public static function getfields($name)
+	{
+		$ret = array();
+		$table = sql_lib::getTable($name);
+		foreach ($table as $key => $value) 
+		{
+			if ($key!=='id' and $key!=='date_modified')
+			{
+				$ret[$key] = substr($key,strrpos($key,'_')+1);
+				if ($ret[$key]==='id')
+				{
+					// if this field related with other table(foreign key) only show the target table
+					$ret[$key] = substr($key,0,strrpos($key,'_'));
+				}
+			}
+			else
+			{
+				$ret[$key] = '';
+			}
+		}
+		return $ret;
+	}
+
+	public static function show($name)
+	{
+		$ret = array();
+		$table = sql_lib::getTable($name);
+		foreach ($table as $key => $value) 
+		{
+			if ($key!=='id' and $key!=='date_modified')
+			{
+				$ret[$key] = substr($key,strrpos($key,'_')+1);
+				if ($ret[$key]==='id')
+				{
+					// if this field related with other table(foreign key) only show the target table
+					$ret[$key] = substr($key,0,strrpos($key,'_'));
+				}
+			}
+			else
+			{
+				$ret[$key] = '';
+			}
 		}
 		return $ret;
 	}

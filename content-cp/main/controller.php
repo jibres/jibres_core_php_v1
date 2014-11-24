@@ -3,6 +3,16 @@ class main_controller extends mvcController_cls
 {
 	public function config()
 	{
+		if($this->login())
+		{
+			var_dump($_SESSION['user']['nickname']);
+		}
+		else
+		{
+			//redirect to login
+			var_dump('redirect to login');
+		}
+
 		if (config_lib::$method)
 		{
 			$this->listen(

@@ -220,27 +220,22 @@ class mvcModel_cls{
 		$tmp_columns	= array_fill_keys($fields, null);
 		$isnull			= true;
 
-		foreach ($fields as $key)
+		$fields			= getTable_cls::getfields($tmp_module);
+		foreach ($fields as $key => $value)
 		{
-			if ($key!=='id' and $key!=='date_modified')
+			if($key)
 			{
-				$tmp_columns[$key] = substr($key,strrpos($key,'_')+1);
-				if ($tmp_columns[$key]==='id')
-				{
-					// if this field related with other table(foreign key) only show the target table
-					$tmp_columns[$key] = substr($key,0,strrpos($key,'_'));
-				}
-					// var_dump($tmp_columns[$key]);
-				$tmp_col			= $tmp_columns[$key];
 				$tmp_setfield		= 'set'.ucfirst($key) ;
-				$tmp_value			= post::$tmp_col();
+				$tmp_value			= post::$value();
 				if(!empty($tmp_value))
 					$tmp_qry	= $tmp_qry->$tmp_setfield($tmp_value);
 
 				if ($tmp_value)
 					$isnull = false;
 			}
+
 		}
+
 		if($isnull)
 		{
 			debug_lib::$status=0;
