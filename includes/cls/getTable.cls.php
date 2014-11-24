@@ -51,7 +51,7 @@ class getTable_cls
 					$field_name = substr($key,0,strrpos($key,'_'));
 				}
 
-				if($value->null=='YES' || $field_name =='slug')
+				if($value->null=='YES')
 				{
 					$ret[$field_name] = false;
 					

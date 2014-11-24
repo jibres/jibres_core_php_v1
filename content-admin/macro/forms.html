@@ -98,6 +98,10 @@
 					<li class="adam">
 						{{ form.input(input)}}
 					</li>
+					
+				{% elseif input.attr.type == 'submit' or input.attr.type == 'button'%}
+					{{ form.submit(input) }}
+
 				{%else%}
 					<div class="form-element hide {{input.attr.id}}">
 							{% if input.attr.type == 'radio'%}
@@ -112,8 +116,6 @@
 							{% elseif input.attr.type == 'textarea'%}
 								{{ form.textarea(input) }}
 
-							{% elseif input.attr.type == 'submit' or input.attr.type == 'button'%}
-								{{ form.submit(input) }}
 
 							{% elseif input.attr.type == 'captcha'%}
 								{{ form.captcha(input) }}
