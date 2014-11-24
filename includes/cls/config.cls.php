@@ -7,9 +7,9 @@ class config_cls{
 				"sub_domain" => array("account")
 				)
 			,function()
-				{
-					config_hendel_lib::url_unshift("account");
-				}
+			{
+				config_hendel_lib::url_unshift("account");
+			}
 			);
 
 		$l = config_lib::listen(
@@ -17,20 +17,22 @@ class config_cls{
 				"sub_domain" => array("admin")
 				)
 			,function()
-				{
-					config_hendel_lib::url_unshift("admin");
-				}
+			{
+				config_hendel_lib::url_unshift("admin");
+			}
 			);
 		$l = config_lib::listen(
 			array(
-				"sub_domain" => array("cp")
+				"url" => array("~")
 				)
 			,function()
-				{
-					config_hendel_lib::url_unshift("cp");
-				}
+			{
+				config_hendel_lib::url_unshift("~");
+				exit();
+				// config_hendel_lib::url_unshift("~");
+			}
 			);
 	}
-	// static function _after(){
-	// }
+	static function _after(){
+	}
 }

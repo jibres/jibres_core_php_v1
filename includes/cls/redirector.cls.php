@@ -55,16 +55,16 @@ class redirector_cls{
 	}
 	public function redirect(){
 		$redirect_url = $this->compileUrl();
-		$redirect = "http://";
+		$redirect = 'http://';
 		if($this->subdomain){
 			$domain = config_hendel_lib::$a_domain;
 			$redirect .= $this->subdomain.'.'.$domain[count($domain)-2].'.'.$domain[count($domain)-1];
 		}else{
-			$redirect .= host;
+			$redirect .= DOMAIN;
 		}
 		$redirect .= '/'.$redirect_url;
 		if($this->php){
-			header("Location:$redirect");
+			header('Location: '.$redirect);
 		}else{
 			echo '<html><head>';
 			echo '<meta http-equiv="refresh" content="3; URL='.$redirect.'">';
