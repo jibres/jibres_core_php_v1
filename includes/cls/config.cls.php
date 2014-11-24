@@ -23,13 +23,12 @@ class config_cls{
 			);
 		$l = config_lib::listen(
 			array(
-				"url" => array("~")
+				"url" => array("~", "/.*/")
 				)
 			,function()
 			{
-				config_hendel_lib::url_unshift("~");
-				exit();
-				// config_hendel_lib::url_unshift("~");
+				config_hendel_lib::url_shift();
+				config_hendel_lib::url_shift();
 			}
 			);
 	}
