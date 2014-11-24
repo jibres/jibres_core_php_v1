@@ -21,31 +21,9 @@ class main_view extends mvcView_cls
 					$this->fill_for_edit($tmp_result, $myForm);
 				}
 
+				$this->data->fields			= getTable_cls::show($this->data->module);
+				var_dump($this->data->fields);
 
-				// $fields			= getTable_cls::show($this->data->module);
-				// $tmp_columns	= array_fill_keys($fields, null);
-				// foreach ($fields as $key)
-				// {
-				// 	if ($key!=='id' and $key!=='date_modified')
-				// 	{
-				// 		$tmp_columns[$key] = substr($key,strrpos($key,'_')+1);
-				// 		if ($tmp_columns[$key]==='id')
-				// 		{
-				// 			// if this field related with other table(foreign key) only show the target table
-				// 			$tmp_columns[$key] = substr($key,0,strrpos($key,'_'));
-				// 		}
-				// 		$tmp_col			= $tmp_columns[$key];
-				// 		$tmp_setfield		= 'set'.ucfirst($key) ;
-				// 		$tmp_value			= post::$tmp_col();
-				// 		if(!empty($tmp_value))
-				// 			$tmp_qry	= $tmp_qry->$tmp_setfield($tmp_value);
-
-				// 		if ($tmp_value)
-				// 			$isnull = false;
-				// 	}
-				// }
-
-				// var_dump($fields);
 			}
 			else
 			{

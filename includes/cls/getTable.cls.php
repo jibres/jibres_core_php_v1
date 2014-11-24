@@ -43,16 +43,23 @@ class getTable_cls
 		{
 			if ($key!=='id' and $key!=='date_modified')
 			{
-				$ret[$key] = substr($key,strrpos($key,'_')+1);
-				if ($ret[$key]==='id')
+				// $ret[$key] = substr($key,strrpos($key,'_')+1);
+				$field_name = substr($key,strrpos($key,'_')+1);
+				if ($field_name==='id')
 				{
 					// if this field related with other table(foreign key) only show the target table
-					$ret[$key] = substr($key,0,strrpos($key,'_'));
+					$field_name = substr($key,0,strrpos($key,'_'));
 				}
-			}
-			else
-			{
-				$ret[$key] = '';
+
+				if($value->null=='YES' || $field_name =='slug')
+				{
+					$ret[$field_name] = false;
+					
+				}
+				else
+				{
+					$ret[$field_name] = true;
+				}
 			}
 		}
 		return $ret;
