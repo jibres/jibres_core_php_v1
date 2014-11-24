@@ -7,18 +7,12 @@ class usermeta
 	public $usermeta_cat = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Cat');
 	public $usermeta_name = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Name');
 	public $usermeta_value = array('type' => 'varchar@999', 'null'=>'YES', 'show'=>'YES', 'label'=>'Value');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
 	public function id() {$this->validate()->id();}
-
-	//------------------------------------------------------------------ id - foreign key
-	public function user_id() 
-	{
-		$this->form("select")->name("user")->min(0)->max(99999)->type("select")->validate()->id();
-		$this->setChild($this->form);
-	}
+	public function user_id() {$this->validate()->id();}
 	public function usermeta_cat() 
 	{
 		$this->form("text")->name("cat")->maxlength(50)->type('text');

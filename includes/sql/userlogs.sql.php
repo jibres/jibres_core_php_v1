@@ -8,7 +8,7 @@ class userlogs
 	public $userlog_priority = array('type' => 'enum@high,medium,low!medium', 'null'=>'NO', 'show'=>'YES', 'label'=>'Priority');
 	public $userlog_type = array('type' => 'enum@forget_password', 'null'=>'YES', 'show'=>'YES', 'label'=>'Type');
 	public $user_id = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -39,13 +39,7 @@ class userlogs
 		$this->form("select")->name("type")->type("select")->validate();
 		$this->setChild($this->form);
 	}
-
-	//------------------------------------------------------------------ id - foreign key
-	public function user_id() 
-	{
-		$this->form("select")->name("user")->min(0)->max(9999)->type("select")->validate()->id();
-		$this->setChild($this->form);
-	}
+	public function user_id() {$this->validate()->id();}
 	public function date_modified() {}
 }
 ?>

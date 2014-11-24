@@ -13,7 +13,7 @@ class comments
 	public $comment_parent = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Parent');
 	public $user_id = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
 	public $Visitor_id = array('type' => 'int@10', 'null'=>'NO', 'show'=>'YES', 'label'=>'Visitor', 'foreign'=>'Visitors@id!Visitor_title');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -61,13 +61,7 @@ class comments
 	{
 		$this->form("text")->name("parent")->min(0)->max(999999999)->type('number');
 	}
-
-	//------------------------------------------------------------------ id - foreign key
-	public function user_id() 
-	{
-		$this->form("select")->name("user")->min(0)->max(9999)->type("select")->validate()->id();
-		$this->setChild($this->form);
-	}
+	public function user_id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function Visitor_id() 

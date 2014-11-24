@@ -4,9 +4,9 @@ class locations
 {
 	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
 	public $location_title = array('type' => 'varchar@100', 'null'=>'NO', 'show'=>'YES', 'label'=>'Title');
-	public $location_slug = array('type' => 'varchar@100', 'null'=>'NO', 'show'=>'NO', 'label'=>'Slug');
+	public $location_slug = array('type' => 'varchar@100', 'null'=>'NO', 'show'=>'YES', 'label'=>'Slug');
 	public $location_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -21,7 +21,7 @@ class locations
 	//------------------------------------------------------------------ slug
 	public function location_slug() 
 	{
-		$this->form("text")->name("slug")->maxlength(100)->required()->type('text')->validate()->slugify("location_title");
+		$this->form("text")->name("slug")->maxlength(40)->validate()->slugify("location_title");
 	}
 
 	//------------------------------------------------------------------ description

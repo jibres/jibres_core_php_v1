@@ -4,12 +4,12 @@ class addons
 {
 	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
 	public $addon_name = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Name');
-	public $addon_slug = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'NO', 'label'=>'Slug');
+	public $addon_slug = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Slug');
 	public $addon_desc = array('type' => 'varchar@999', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
 	public $addon_status = array('type' => 'enum@active,deactive,expire,goingtoexpire!deactive', 'null'=>'NO', 'show'=>'YES', 'label'=>'Status');
 	public $addon_expire = array('type' => 'datetime@', 'null'=>'YES', 'show'=>'YES', 'label'=>'Expire');
 	public $addon_installdate = array('type' => 'datetime@', 'null'=>'YES', 'show'=>'YES', 'label'=>'Installdate');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -22,7 +22,7 @@ class addons
 	//------------------------------------------------------------------ slug
 	public function addon_slug() 
 	{
-		$this->form("text")->name("slug")->maxlength(50)->required()->type('text')->validate()->slugify("addon_title");
+		$this->form("text")->name("slug")->maxlength(40)->validate()->slugify("addon_title");
 	}
 
 	//------------------------------------------------------------------ description

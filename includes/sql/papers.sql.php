@@ -10,7 +10,7 @@ class papers
 	public $paper_holder = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Holder');
 	public $paper_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
 	public $paper_status = array('type' => 'enum@pass,recovery,fail,lost,block,delete,inprogress', 'null'=>'YES', 'show'=>'YES', 'label'=>'Status');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

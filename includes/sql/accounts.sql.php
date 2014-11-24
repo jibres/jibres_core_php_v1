@@ -4,7 +4,7 @@ class accounts
 {
 	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
 	public $account_title = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Title');
-	public $account_slug = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'NO', 'label'=>'Slug');
+	public $account_slug = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Slug');
 	public $bank_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'YES', 'label'=>'Bank', 'foreign'=>'banks@id!bank_title');
 	public $account_branch = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Branch');
 	public $account_number = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Number');
@@ -12,7 +12,7 @@ class accounts
 	public $account_primarybalance = array('type' => 'decimal@14,4!0.0000', 'null'=>'NO', 'show'=>'YES', 'label'=>'Primarybalance');
 	public $account_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
 	public $user_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -27,7 +27,7 @@ class accounts
 	//------------------------------------------------------------------ slug
 	public function account_slug() 
 	{
-		$this->form("text")->name("slug")->maxlength(50)->required()->type('text')->validate()->slugify("account_title");
+		$this->form("text")->name("slug")->maxlength(40)->validate()->slugify("account_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key
@@ -58,13 +58,7 @@ class accounts
 	{
 		$this->form("#desc")->maxlength(200)->type('textarea');
 	}
-
-	//------------------------------------------------------------------ id - foreign key
-	public function user_id() 
-	{
-		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate()->id();
-		$this->setChild($this->form);
-	}
+	public function user_id() {$this->validate()->id();}
 	public function date_modified() {}
 }
 ?>

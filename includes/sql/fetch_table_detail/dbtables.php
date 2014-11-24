@@ -139,9 +139,6 @@ function setproperty($myparam)
 			}
 			$required		= $mynull=='NO'?'->required()':null;
 			$property		.= $required;
-			// var_dump($myfield."::".$property);
-			// var_dump( $property );
-			// exit();
 			$tmp_pos 		= strpos($myfield, '_');
 			$prefix			= substr($myfield, 0, $tmp_pos );
 			$isforeign		= false;
@@ -164,6 +161,23 @@ function setproperty($myparam)
 				$mylabel		= "ID";
 				$myfield_show	= 'NO';
 			}
+
+			// --------------------------------------------------------------------------------- Foreign Key - User_id
+			elseif ($myfield=='user_id' && $TABLENAME!='')
+			{
+				// for foreign key we use prefix that means we use (table name-last char)
+				$fn				.= "\tpublic function $myfield() {" . '$this->validate()->id();' ."}\n";
+				// $fn .= $txtcomment. "id - foreign key - Users\n";
+				// $fn .= $txtstart. '$this->form("select")->name("'. $prefix.'")'.$property.'->type("select")->validate()->id();';
+				// $fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
+
+				// $mylabel = str_replace("_", " ", $myfield);
+				$isforeign		= true;
+				$mylabel		= ucwords(strtolower($prefix));
+				$mylabel		= $mylabel;
+				$myfield_show	= 'NO';
+			}
+
 			// --------------------------------------------------------------------------------- Foreign Key
 			elseif ($myname=="id" || $myfield=="user_id_customer")
 			{
@@ -191,7 +205,7 @@ function setproperty($myparam)
 				$property = $property.$property_type;
 				$fn .= $txtcomment. "slug\n";
 				// $fn .= $txtstart. '$this->form("#slug");';
-				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.'->validate()->slugify("'.$prefix.'_title");';
+				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")->maxlength(40)->validate()->slugify("'.$prefix.'_title");';
 				
 				// $fn .= $txtstart. '$this->form("text")->name("'. $myname.'")->validate()';
 				// $fn .= "\n\t\t->createslug(function()\t{" .'$this->value =\validator_lib::$save'."['form']['".$prefix."_title']->value;});";
@@ -201,7 +215,9 @@ function setproperty($myparam)
 				// {
 				// 	$this->value = \validator_lib::$save['form']['user_email']->value;
 				// });
-				$myfield_show	= 'NO';
+				
+				// $myfield_show	= 'NO';
+				// comment above line after check validation
 			}
 			elseif ($myname=="desc")
 			{
@@ -226,6 +242,7 @@ function setproperty($myparam)
 				$fn .= $txtcomment. "website\n";
 				$fn .= $txtstart. '$this->form("#website")->type("url")'.$property.';'.$txtend;
 				// $mylabel = "Description";
+				$myfield_show	= 'NO';
 			}
 
 			// --------------------------------------------------------------------------------- Website
@@ -244,11 +261,12 @@ function setproperty($myparam)
 			// --------------------------------------------------------------------------------- Password
 			elseif ($myname=="pass")
 			{
-				$fn .= $txtcomment. "password\n";
-				// Pattern:: (?=^.{6,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$
-				$fn .= $txtstart. '$this->form()->name("pass")->pl("Password")->type("password")->required()->maxlength(20)';
-				$fn .= "\n\t\t\t". '->pattern("^.{5,20}$")->title("between 5-20 character")->validate()->password();'.$txtend;
-				$mylabel = "Password";
+				$fn				.= $txtcomment. "password\n";
+				// Pattern:: (?	=^.{6,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$
+				$fn				.= $txtstart. '$this->form()->name("pass")->pl("Password")->type("password")->required()->maxlength(20)';
+				$fn				.= "\n\t\t\t". '->pattern("^.{5,20}$")->title("between 5-20 character")->validate()->password();'.$txtend;
+				$mylabel		= "Password";
+				$myfield_show	= 'NO';
 			}
 
 			// --------------------------------------------------------------------------------- unuse
@@ -312,22 +330,11 @@ function setproperty($myparam)
 
 
 			// ****************************************************************************for show in form or not
-			if($mynull=='NO')
-			{
-				$myfield_show	= 'YES';	
-			}
-
-			if(
-					$myfield=="account_branch"
-			)
-			{
-				$myfield_show	= 'YES';
-			}
-			
-			elseif($myfield=="user_id")
+			if ( $myfield=="user_id" )
 			{
 				$myfield_show	= 'NO';
 			}
+
 			elseif($myfield=="user_id_customer")
 			{
 				$myfield_show	= 'NO';

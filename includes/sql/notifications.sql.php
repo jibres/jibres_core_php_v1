@@ -9,7 +9,7 @@ class notifications
 	public $notification_content = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'YES', 'label'=>'Content');
 	public $notification_url = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Url');
 	public $notification_status = array('type' => 'enum@read,unread!unread', 'null'=>'NO', 'show'=>'YES', 'label'=>'Status');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -18,13 +18,7 @@ class notifications
 	{
 		$this->form("text")->name("id_sender")->min(0)->max(9999)->type('number');
 	}
-
-	//------------------------------------------------------------------ id - foreign key
-	public function user_id() 
-	{
-		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate()->id();
-		$this->setChild($this->form);
-	}
+	public function user_id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ title
 	public function notification_title() 

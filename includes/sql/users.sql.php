@@ -4,14 +4,14 @@ class users
 {
 	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
 	public $user_type = array('type' => 'enum@store_admin,store_employee,store_supplier,store_customer,admin,user!user', 'null'=>'YES', 'show'=>'YES', 'label'=>'Type');
-	public $user_pass = array('type' => 'char@32', 'null'=>'NO', 'show'=>'YES', 'label'=>'Password');
+	public $user_pass = array('type' => 'char@32', 'null'=>'NO', 'show'=>'NO', 'label'=>'Password');
 	public $user_email = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Email');
 	public $user_gender = array('type' => 'enum@male,female', 'null'=>'YES', 'show'=>'YES', 'label'=>'Gender');
 	public $user_married = array('type' => 'enum@single,married', 'null'=>'YES', 'show'=>'YES', 'label'=>'Married');
 	public $user_firstname = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Firstname');
 	public $user_lastname = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Lastname');
 	public $user_nickname = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Nickname');
-	public $user_tel = array('type' => 'varchar@15', 'null'=>'YES', 'show'=>'YES', 'label'=>'Tel');
+	public $user_tel = array('type' => 'varchar@15', 'null'=>'YES', 'show'=>'NO', 'label'=>'Tel');
 	public $user_mobile = array('type' => 'varchar@15', 'null'=>'NO', 'show'=>'YES', 'label'=>'Mobile');
 	public $user_birthday = array('type' => 'datetime@', 'null'=>'YES', 'show'=>'YES', 'label'=>'Birthday');
 	public $user_country = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Country');
@@ -22,19 +22,19 @@ class users
 	public $user_newsletter = array('type' => 'enum@yes,no!no', 'null'=>'YES', 'show'=>'YES', 'label'=>'Newsletter');
 	public $user_refer = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Refer');
 	public $user_nationalcode = array('type' => 'varchar@15', 'null'=>'YES', 'show'=>'YES', 'label'=>'Nationalcode');
-	public $user_website = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Website');
+	public $user_website = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'NO', 'label'=>'Website');
 	public $user_status = array('type' => 'enum@active,awaiting,deactive,removed!awaiting', 'null'=>'YES', 'show'=>'YES', 'label'=>'Status');
 	public $user_degree = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Degree');
 	public $user_activity = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Activity');
-	public $user_incomes = array('type' => 'bigint@11', 'null'=>'YES', 'show'=>'YES', 'label'=>'User Incomes');
-	public $user_outcomes = array('type' => 'bigint@11', 'null'=>'YES', 'show'=>'YES', 'label'=>'User Outcomes');
+	public $user_incomes = array('type' => 'bigint@11', 'null'=>'YES', 'show'=>'NO', 'label'=>'User Incomes');
+	public $user_outcomes = array('type' => 'bigint@11', 'null'=>'YES', 'show'=>'NO', 'label'=>'User Outcomes');
 	public $user_credit = array('type' => 'enum@yes,no!no', 'null'=>'YES', 'show'=>'YES', 'label'=>'Credit');
 	public $user_question = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Question');
 	public $user_answer = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Answer');
-	public $user_extra = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Extra');
-	public $user_logincount = array('type' => 'int@10', 'null'=>'NO', 'show'=>'YES', 'label'=>'User Logincount');
+	public $user_extra = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'NO', 'label'=>'Extra');
+	public $user_logincount = array('type' => 'int@10', 'null'=>'NO', 'show'=>'NO', 'label'=>'User Logincount');
 	public $permission_id = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Permission', 'foreign'=>'permissions@id!permission_title');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

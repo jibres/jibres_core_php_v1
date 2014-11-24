@@ -4,7 +4,7 @@ class products
 {
 	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
 	public $product_title = array('type' => 'varchar@100', 'null'=>'NO', 'show'=>'YES', 'label'=>'Title');
-	public $product_slug = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'NO', 'label'=>'Slug');
+	public $product_slug = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Slug');
 	public $productcat_id = array('type' => 'smallint@5!1', 'null'=>'NO', 'show'=>'YES', 'label'=>'Productcat', 'foreign'=>'productcats@id!productcat_title');
 	public $product_barcode = array('type' => 'varchar@20', 'null'=>'YES', 'show'=>'YES', 'label'=>'Barcode');
 	public $product_barcode2 = array('type' => 'varchar@20', 'null'=>'YES', 'show'=>'YES', 'label'=>'Barcode2');
@@ -21,7 +21,7 @@ class products
 	public $attachment_id = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Attachment', 'foreign'=>'attachments@id!attachment_title');
 	public $product_service = array('type' => 'enum@yes,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Service');
 	public $product_sellin = array('type' => 'enum@store,online,both!both', 'null'=>'NO', 'show'=>'YES', 'label'=>'Sellin');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -36,7 +36,7 @@ class products
 	//------------------------------------------------------------------ slug
 	public function product_slug() 
 	{
-		$this->form("text")->name("slug")->maxlength(50)->required()->type('text')->validate()->slugify("product_title");
+		$this->form("text")->name("slug")->maxlength(40)->validate()->slugify("product_title");
 	}
 
 	//------------------------------------------------------------------ id - foreign key

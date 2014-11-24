@@ -6,7 +6,7 @@ class errors
 	public $error_title = array('type' => 'varchar@100', 'null'=>'NO', 'show'=>'YES', 'label'=>'Title');
 	public $error_solution = array('type' => 'varchar@999', 'null'=>'YES', 'show'=>'YES', 'label'=>'Solution');
 	public $error_priority = array('type' => 'enum@critical,high,medium,low!medium', 'null'=>'NO', 'show'=>'YES', 'label'=>'Priority');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

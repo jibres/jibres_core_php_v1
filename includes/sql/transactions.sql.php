@@ -16,7 +16,7 @@ class transactions
 	public $transaction_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
 	public $transaction_transport = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Transport');
 	public $transaction_vat = array('type' => 'enum@yes,nocalc,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Vat');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -28,13 +28,7 @@ class transactions
 		$this->form("select")->name("type")->type("select")->required()->validate();
 		$this->setChild($this->form);
 	}
-
-	//------------------------------------------------------------------ id - foreign key
-	public function user_id() 
-	{
-		$this->form("select")->name("user")->min(0)->max(9999)->required()->type("select")->validate()->id();
-		$this->setChild($this->form);
-	}
+	public function user_id() {$this->validate()->id();}
 
 	//------------------------------------------------------------------ id - foreign key
 	public function user_id_customer() 

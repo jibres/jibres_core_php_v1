@@ -81,6 +81,8 @@ class getTable_cls
 					$field_name = substr($key,0,strrpos($key,'_'));
 				}
 				// var_dump($field_name."::".$value->show);
+				if($value->null=='NO')
+					$value->show=='YES';
 
 				if($value->show=='YES')
 				{

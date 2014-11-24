@@ -4,10 +4,12 @@ class model extends main_model
 	function post_login()
 	{
 		// for debug you can uncomment below line to disallow redirect
-		// $this->redirect	= false;
+		// $this->redirect		= false;
 		$mymobile			= str_replace(' ', '', post::mobile());
 		$tmp_result			=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
 		$mypass				= md5(post::password());
+		
+		// debug_lib::true("Login::".$tmp_result->num()  );
 		if($tmp_result->num() == 1)
 		{
 			// mobile exist

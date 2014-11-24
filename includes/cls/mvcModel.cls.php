@@ -218,7 +218,7 @@ class mvcModel_cls{
 		// check if datatable exist then get this data
 		$isnull			= true;
 
-		$fields			= getTable_cls::getfields($tmp_module);
+		$fields			= getTable_cls::fields($tmp_module);
 		foreach ($fields as $key => $value)
 		{
 			if($key)
