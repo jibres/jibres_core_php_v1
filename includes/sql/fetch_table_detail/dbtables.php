@@ -218,7 +218,6 @@ function setproperty($myparam)
 			{
 				$fn .= $txtcomment. "email\n";
 				$fn .= $txtstart. '$this->form("#email")->type("email")->required()'.$property.';'.$txtend;
-				$myfield_show	= 'YES';
 			}
 
 			// --------------------------------------------------------------------------------- Website
@@ -226,7 +225,6 @@ function setproperty($myparam)
 			{
 				$fn .= $txtcomment. "website\n";
 				$fn .= $txtstart. '$this->form("#website")->type("url")'.$property.';'.$txtend;
-				$myfield_show	= 'YES';
 				// $mylabel = "Description";
 			}
 
@@ -235,12 +233,12 @@ function setproperty($myparam)
 			{
 				$fn .= $txtcomment. "website\n";
 				$fn .= $txtstart. '$this->form()->type("tel")->name("mobile")->pl("Mobile")->pattern(".{10,}")->maxlength(17)->required();'.$txtend;
-				$myfield_show	= 'YES';
 			}
 			elseif ( $myname=="tel")
 			{
 				$fn .= $txtcomment. "website\n";
 				$fn .= $txtstart. '$this->form()->type("tel")->name("tel")->pattern(".{9,}")->maxlength(17);'.$txtend;
+				$myfield_show	= 'NO';
 
 			}
 			// --------------------------------------------------------------------------------- Password
@@ -251,7 +249,6 @@ function setproperty($myparam)
 				$fn .= $txtstart. '$this->form()->name("pass")->pl("Password")->type("password")->required()->maxlength(20)';
 				$fn .= "\n\t\t\t". '->pattern("^.{5,20}$")->title("between 5-20 character")->validate()->password();'.$txtend;
 				$mylabel = "Password";
-				$myfield_show	= 'YES';
 			}
 
 			// --------------------------------------------------------------------------------- unuse
@@ -262,10 +259,12 @@ function setproperty($myparam)
 				$mylabel = str_replace("_", " ", $myfield);
 				$mylabel = ucwords(strtolower($mylabel));
 				$mylabel = $mylabel;
+				$myfield_show	= 'NO';
 			}
 			elseif($myfield=="attachment_type")
 			{
 				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.';'.$txtend;
+				$myfield_show	= 'NO';
 			}
 
 			// --------------------------------------------------------------------------------- radio
@@ -299,6 +298,7 @@ function setproperty($myparam)
 				// $fn .= "\n\t\t\t".'->maxlength(20)->title("3 to 20 characters or number");'.$txtend;
 				$fn .= "\n\t\t\t".'->maxlength(20)->pattern("^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$")->title("start with letter. 3 to 20 characters or number");'.$txtend;
 				// ^[a-zA-Z][a-zA-Z0-9-_\.]{3,20}$
+				$myfield_show	= 'NO';
 			}
 			else
 			{
@@ -307,11 +307,16 @@ function setproperty($myparam)
 				// $fn .= $txtstart. '$this->form()->name("'. $myname.'")'."\n\t\t".'->validate();'.$txtend;
 				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.';'.$txtend;
 				// $fn .= $txtstart. $txtend;
-				$myfield_show	= 'YES';
 			}
 			
-			// for show in form or not
-			
+
+
+			// ****************************************************************************for show in form or not
+			if($mynull=='NO')
+			{
+				$myfield_show	= 'YES';	
+			}
+
 			if(
 					$myfield=="account_branch"
 			)

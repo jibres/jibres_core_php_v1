@@ -82,13 +82,13 @@ class getTable_cls
 				}
 				// var_dump($field_name."::".$value->show);
 
-				if($value->null=='NO')
-				{
-					$ret[$field_name] = $field_name;
-				}
 				if($value->show=='YES')
 				{
-					$ret[$field_name] = $field_name;
+					$ret[$field_name]	= $field_name;
+				}
+				else
+				{
+					$ret[$field_name]	= '';
 				}
 			}
 		}
