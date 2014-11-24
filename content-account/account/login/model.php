@@ -8,7 +8,6 @@ class model extends main_model
 		$mymobile			= str_replace(' ', '', post::mobile());
 		$tmp_result			=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
 		$mypass				= md5(post::password());
-
 		if($tmp_result->num() == 1)
 		{
 			// mobile exist
@@ -27,7 +26,7 @@ class model extends main_model
 				$_SESSION['user']['permission_id']	= $tmp_result['permission_id'];
 				
 				debug_lib::true("Login successfully");
-				// $this->redirect('http://cp.jibres.dev');
+				$this->redirect->urlChange()->subdomain("cp");
 			}
 			else
 			{
@@ -36,7 +35,6 @@ class model extends main_model
 				debug_lib::fatal("Password is incorrect");
 			}
 		}
-
 		elseif($tmp_result->num() == 0 )
 		{
 			// mobile does not exits

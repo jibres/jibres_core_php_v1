@@ -1,6 +1,6 @@
 <?php
 class redirector_cls{
-	private $exit = true, $aurl, $surl, $url = false;
+	private $exit = true, $aurl, $surl, $url = false, $subdomain;
 	function __construct($redirect = false, $php = false){
 		$this->php = $php;
 		$this->surl = config_lib::$surl;
@@ -40,6 +40,11 @@ class redirector_cls{
 		return $this;
 	}
 
+	public function subdomain($domain){
+		$this->subdomain = $domain;
+		return $this;
+	}
+
 	public function compileUrl(){
 		if($this->url === false){
 			$redirect = join($this->aurl, '/');
@@ -49,8 +54,15 @@ class redirector_cls{
 		return $redirect;
 	}
 	public function redirect(){
-		$redirect = $this->compileUrl();
-		$redirect = host.'/'.$redirect;
+		$redirect_url = $this->compileUrl();
+		$redirect = "http://";
+		if($this->subdomain){
+			$domain = config_hendel_lib::$a_domain;
+			$redirect .= $this->subdomain.'.'.$domain[count($domain)-2].'.'.$domain[count($domain)-1];
+		}else{
+			$redirect .= host;
+		}
+		$redirect .= '/'.$redirect_url;
 		if($this->php){
 			header("Location:$redirect");
 		}else{
