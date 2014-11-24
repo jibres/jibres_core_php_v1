@@ -223,15 +223,14 @@ class mvcModel_cls{
 		{
 			if($key)
 			{
-				$tmp_setfield		= 'set'.ucfirst($key) ;
-				$tmp_value			= post::$value();
+				$tmp_setfield	= 'set'.ucfirst($key) ;
+				$tmp_value		= post::$value();
 				if(!empty($tmp_value))
+				{
 					$tmp_qry	= $tmp_qry->$tmp_setfield($tmp_value);
-
-				if ($tmp_value)
-					$isnull = false;
+					$isnull 	= false;
+				}
 			}
-
 		}
 		// var_dump($tmp_qry);
 

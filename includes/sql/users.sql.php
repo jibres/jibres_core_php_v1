@@ -178,7 +178,7 @@ class users
 	//------------------------------------------------------------------ Extra
 	public function user_extra() 
 	{
-		$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()
+		$this->form()->type("text")->label("Extra")->pl("Extra value")->name("extra")->required()
 			->maxlength(20)->pattern("^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$")->title("start with letter. 3 to 20 characters or number");
 	}
 	public function user_logincount() {}

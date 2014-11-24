@@ -68,10 +68,11 @@ class getTable_cls
 	{
 		$ret = array();
 		$table = sql_lib::getTable($name);
-		var_dump($table);
+		// var_dump($table);
 		foreach ($table as $key => $value) 
 		{
-			if ($key!=='id' and $key!=='date_modified')
+
+			if(isset($value->closure->form))
 			{
 				$field_name = substr($key,strrpos($key,'_')+1);
 				if ($field_name==='id')

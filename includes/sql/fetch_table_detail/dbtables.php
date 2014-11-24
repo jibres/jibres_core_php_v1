@@ -122,6 +122,7 @@ function setproperty($myparam)
 			
 			$myfield		= $crow->Field;
 			$mynull			= $crow->Null;
+			$myfield_show	= false;
 			// $property		= setproperty($crow);
 			$property		= "";
 			$property_type	= "";
@@ -294,7 +295,7 @@ function setproperty($myparam)
 			elseif ($myfield=="user_extra")
 			{
 				$fn .= $txtcomment. "Extra\n";
-				$fn .= $txtstart. '$this->form()->type("text")->label("Store name")->pl("your store name")->name("store")->required()';
+				$fn .= $txtstart. '$this->form()->type("text")->label("Extra")->pl("Extra value")->name("extra")->required()';
 				// $fn .= "\n\t\t\t".'->maxlength(20)->title("3 to 20 characters or number");'.$txtend;
 				$fn .= "\n\t\t\t".'->maxlength(20)->pattern("^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$")->title("start with letter. 3 to 20 characters or number");'.$txtend;
 				// ^[a-zA-Z][a-zA-Z0-9-_\.]{3,20}$
