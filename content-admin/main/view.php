@@ -11,7 +11,7 @@ class main_view extends mvcView_cls
 				// in add, edit or delete pages
 				$this->data->form_title		= ucfirst($this->url_table_prefix());
 				$this->global->page_title	= $this->url_title() . ' ' . $this->data->form_title;
-				$myForm						= $this->createform("@".$this->data->module);
+				$myForm						= $this->createform("@".$this->data->module, $this->data->child);
 				$this->data->form_show		= true;
 
 				
@@ -22,7 +22,7 @@ class main_view extends mvcView_cls
 				}
 
 
-				$fields			= getTable_cls::show($this->data->module);
+				// $fields			= getTable_cls::show($this->data->module);
 				// $tmp_columns	= array_fill_keys($fields, null);
 				// foreach ($fields as $key)
 				// {
@@ -44,8 +44,8 @@ class main_view extends mvcView_cls
 				// 			$isnull = false;
 				// 	}
 				// }
-				
-				var_dump($fields);
+
+				// var_dump($fields);
 			}
 			else
 			{

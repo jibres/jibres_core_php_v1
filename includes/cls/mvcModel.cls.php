@@ -216,8 +216,6 @@ class mvcModel_cls{
 
 		// get all fields of table and filter fields name for show in datatable, access from columns variable
 		// check if datatable exist then get this data
-		$fields			= getTable_cls::get($tmp_module);
-		$tmp_columns	= array_fill_keys($fields, null);
 		$isnull			= true;
 
 		$fields			= getTable_cls::getfields($tmp_module);
@@ -235,6 +233,7 @@ class mvcModel_cls{
 			}
 
 		}
+		// var_dump($tmp_qry);
 
 		if($isnull)
 		{
