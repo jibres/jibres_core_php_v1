@@ -2,13 +2,13 @@
 namespace sql;
 class userlogs 
 {
-	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
-	public $userlog_title = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Title');
-	public $userlog_desc = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Description');
-	public $userlog_priority = array('type' => 'enum@high,medium,low!medium', 'null' =>'NO' ,'label' => 'Priority');
-	public $userlog_type = array('type' => 'enum@forget_password', 'null' =>'YES' ,'label' => 'Type');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'int@10', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $userlog_title = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Title');
+	public $userlog_desc = array('type' => 'varchar@999', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
+	public $userlog_priority = array('type' => 'enum@high,medium,low!medium', 'null'=>'NO', 'show'=>'YES', 'label'=>'Priority');
+	public $userlog_type = array('type' => 'enum@forget_password', 'null'=>'YES', 'show'=>'YES', 'label'=>'Type');
+	public $user_id = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

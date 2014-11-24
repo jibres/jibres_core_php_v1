@@ -2,15 +2,15 @@
 namespace sql;
 class permissions 
 {
-	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $permission_title = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Title');
-	public $Permission_module = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Module');
-	public $permission_view = array('type' => 'enum@yes,no!yes', 'null' =>'NO' ,'label' => 'View');
-	public $permission_add = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Add');
-	public $permission_edit = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Edit');
-	public $permission_delete = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Delete');
-	public $permission_status = array('type' => 'enum@active,deactive!active', 'null' =>'NO' ,'label' => 'Status');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $permission_title = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Title');
+	public $Permission_module = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Module');
+	public $permission_view = array('type' => 'enum@yes,no!yes', 'null'=>'NO', 'show'=>'YES', 'label'=>'View');
+	public $permission_add = array('type' => 'enum@yes,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Add');
+	public $permission_edit = array('type' => 'enum@yes,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Edit');
+	public $permission_delete = array('type' => 'enum@yes,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Delete');
+	public $permission_status = array('type' => 'enum@active,deactive!active', 'null'=>'NO', 'show'=>'YES', 'label'=>'Status');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

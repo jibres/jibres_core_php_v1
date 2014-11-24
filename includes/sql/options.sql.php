@@ -2,13 +2,13 @@
 namespace sql;
 class options 
 {
-	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $option_cat = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Cat');
-	public $option_name = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Name');
-	public $option_value = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Value');
-	public $option_extra = array('type' => 'varchar@400', 'null' =>'YES' ,'label' => 'Extra');
-	public $option_status = array('type' => 'enum@active,deactive!active', 'null' =>'NO' ,'label' => 'Status');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $option_cat = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Cat');
+	public $option_name = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Name');
+	public $option_value = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'YES', 'label'=>'Value');
+	public $option_extra = array('type' => 'varchar@400', 'null'=>'YES', 'show'=>'YES', 'label'=>'Extra');
+	public $option_status = array('type' => 'enum@active,deactive!active', 'null'=>'NO', 'show'=>'YES', 'label'=>'Status');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

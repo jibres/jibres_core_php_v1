@@ -2,26 +2,26 @@
 namespace sql;
 class products 
 {
-	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $product_title = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Title');
-	public $product_slug = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Slug');
-	public $productcat_id = array('type' => 'smallint@5!1', 'null' =>'NO' ,'label' => 'Productcat', 'foreign' => 'productcats@id!productcat_title');
-	public $product_barcode = array('type' => 'varchar@20', 'null' =>'YES' ,'label' => 'Barcode');
-	public $product_barcode2 = array('type' => 'varchar@20', 'null' =>'YES' ,'label' => 'Barcode2');
-	public $product_buyprice = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Buyprice');
-	public $product_price = array('type' => 'decimal@13,4', 'null' =>'NO' ,'label' => 'Price');
-	public $product_discount = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Discount');
-	public $product_vat = array('type' => 'decimal@6,4', 'null' =>'YES' ,'label' => 'Vat');
-	public $product_initialbalance = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Initialbalance');
-	public $product_mininventory = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Mininventory');
-	public $product_status = array('type' => 'enum@unset,available,soon,discontinued,unavailable!unset', 'null' =>'YES' ,'label' => 'Status');
-	public $product_sold = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Sold');
-	public $product_stock = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Stock');
-	public $product_carton = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Carton');
-	public $attachment_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Attachment', 'foreign' => 'attachments@id!attachment_title');
-	public $product_service = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Service');
-	public $product_sellin = array('type' => 'enum@store,online,both!both', 'null' =>'NO' ,'label' => 'Sellin');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $product_title = array('type' => 'varchar@100', 'null'=>'NO', 'show'=>'YES', 'label'=>'Title');
+	public $product_slug = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'NO', 'label'=>'Slug');
+	public $productcat_id = array('type' => 'smallint@5!1', 'null'=>'NO', 'show'=>'YES', 'label'=>'Productcat', 'foreign'=>'productcats@id!productcat_title');
+	public $product_barcode = array('type' => 'varchar@20', 'null'=>'YES', 'show'=>'YES', 'label'=>'Barcode');
+	public $product_barcode2 = array('type' => 'varchar@20', 'null'=>'YES', 'show'=>'YES', 'label'=>'Barcode2');
+	public $product_buyprice = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Buyprice');
+	public $product_price = array('type' => 'decimal@13,4', 'null'=>'NO', 'show'=>'YES', 'label'=>'Price');
+	public $product_discount = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Discount');
+	public $product_vat = array('type' => 'decimal@6,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Vat');
+	public $product_initialbalance = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Initialbalance');
+	public $product_mininventory = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Mininventory');
+	public $product_status = array('type' => 'enum@unset,available,soon,discontinued,unavailable!unset', 'null'=>'YES', 'show'=>'YES', 'label'=>'Status');
+	public $product_sold = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Sold');
+	public $product_stock = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Stock');
+	public $product_carton = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Carton');
+	public $attachment_id = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Attachment', 'foreign'=>'attachments@id!attachment_title');
+	public $product_service = array('type' => 'enum@yes,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Service');
+	public $product_sellin = array('type' => 'enum@store,online,both!both', 'null'=>'NO', 'show'=>'YES', 'label'=>'Sellin');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

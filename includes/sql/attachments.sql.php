@@ -2,16 +2,16 @@
 namespace sql;
 class attachments 
 {
-	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
-	public $attachment_title = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Title');
-	public $attachment_model = array('type' => 'enum@product_category,product,admin,bank_logo', 'null' =>'NO' ,'label' => 'Model');
-	public $attachment_addr = array('type' => 'varchar@100', 'null' =>'NO' ,'label' => 'Addr');
-	public $attachment_name = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Name');
-	public $attachment_type = array('type' => 'varchar@10', 'null' =>'NO' ,'label' => 'Type');
-	public $attachment_size = array('type' => 'float@12,0', 'null' =>'NO' ,'label' => 'Size');
-	public $attachment_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'int@10', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $attachment_title = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Title');
+	public $attachment_model = array('type' => 'enum@product_category,product,admin,bank_logo', 'null'=>'NO', 'show'=>'YES', 'label'=>'Model');
+	public $attachment_addr = array('type' => 'varchar@100', 'null'=>'NO', 'show'=>'YES', 'label'=>'Addr');
+	public $attachment_name = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Name');
+	public $attachment_type = array('type' => 'varchar@10', 'null'=>'NO', 'show'=>'YES', 'label'=>'Type');
+	public $attachment_size = array('type' => 'float@12,0', 'null'=>'NO', 'show'=>'YES', 'label'=>'Size');
+	public $attachment_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
+	public $user_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

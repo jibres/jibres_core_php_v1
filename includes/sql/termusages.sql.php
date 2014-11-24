@@ -2,10 +2,10 @@
 namespace sql;
 class termusages 
 {
-	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $term_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Term', 'foreign' => 'terms@id!term_title');
-	public $post_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Post', 'foreign' => 'posts@id!post_title');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $term_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'YES', 'label'=>'Term', 'foreign'=>'terms@id!term_title');
+	public $post_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'YES', 'label'=>'Post', 'foreign'=>'posts@id!post_title');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

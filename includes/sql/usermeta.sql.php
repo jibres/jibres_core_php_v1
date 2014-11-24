@@ -2,12 +2,12 @@
 namespace sql;
 class usermeta 
 {
-	public $id = array('type' => 'smallint@6', 'null' =>'NO' ,'label' => 'ID');
-	public $user_id = array('type' => 'smallint@6', 'null' =>'YES' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
-	public $usermeta_cat = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Cat');
-	public $usermeta_name = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Name');
-	public $usermeta_value = array('type' => 'varchar@999', 'null' =>'YES' ,'label' => 'Value');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@6', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $user_id = array('type' => 'smallint@6', 'null'=>'YES', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
+	public $usermeta_cat = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Cat');
+	public $usermeta_name = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Name');
+	public $usermeta_value = array('type' => 'varchar@999', 'null'=>'YES', 'show'=>'YES', 'label'=>'Value');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

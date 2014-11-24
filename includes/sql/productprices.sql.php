@@ -2,17 +2,17 @@
 namespace sql;
 class productprices 
 {
-	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
-	public $product_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Product', 'foreign' => 'products@id!product_title');
-	public $productmeta_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Productmeta', 'foreign' => 'productmetas@id!productmeta_title');
-	public $productprice_cat = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Cat');
-	public $productprice_startdate = array('type' => 'datetime@', 'null' =>'NO' ,'label' => 'Startdate');
-	public $productprice_enddate = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Enddate');
-	public $productprice_buyprice = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Buyprice');
-	public $productprice_price = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Price');
-	public $productprice_discount = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Discount');
-	public $productprice_vat = array('type' => 'decimal@6,4', 'null' =>'YES' ,'label' => 'Vat');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'int@10', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $product_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'YES', 'label'=>'Product', 'foreign'=>'products@id!product_title');
+	public $productmeta_id = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Productmeta', 'foreign'=>'productmetas@id!productmeta_title');
+	public $productprice_cat = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Cat');
+	public $productprice_startdate = array('type' => 'datetime@', 'null'=>'NO', 'show'=>'YES', 'label'=>'Startdate');
+	public $productprice_enddate = array('type' => 'datetime@', 'null'=>'YES', 'show'=>'YES', 'label'=>'Enddate');
+	public $productprice_buyprice = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Buyprice');
+	public $productprice_price = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Price');
+	public $productprice_discount = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Discount');
+	public $productprice_vat = array('type' => 'decimal@6,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Vat');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

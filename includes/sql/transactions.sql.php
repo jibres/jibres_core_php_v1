@@ -2,21 +2,21 @@
 namespace sql;
 class transactions 
 {
-	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
-	public $transaction_type = array('type' => 'enum@sale,purchase,customertostore,storetocompany,anbargardani,install,repair,chqeuebackfail!sale', 'null' =>'NO' ,'label' => 'Type');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
-	public $user_id_customer = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
-	public $transaction_date = array('type' => 'datetime@', 'null' =>'NO' ,'label' => 'Date');
-	public $transaction_sum = array('type' => 'decimal@13,4', 'null' =>'NO' ,'label' => 'Sum');
-	public $transaction_discount = array('type' => 'decimal@13,4!0.0000', 'null' =>'NO' ,'label' => 'Discount');
-	public $transaction_initialreceived = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Initialreceived');
-	public $transaction_received = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Received');
-	public $transaction_remained = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Remained');
-	public $transaction_pre = array('type' => 'enum@yes,no!no', 'null' =>'NO' ,'label' => 'Pre');
-	public $transaction_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $transaction_transport = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Transport');
-	public $transaction_vat = array('type' => 'enum@yes,nocalc,no!no', 'null' =>'NO' ,'label' => 'Vat');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'int@10', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $transaction_type = array('type' => 'enum@sale,purchase,customertostore,storetocompany,anbargardani,install,repair,chqeuebackfail!sale', 'null'=>'NO', 'show'=>'YES', 'label'=>'Type');
+	public $user_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
+	public $user_id_customer = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
+	public $transaction_date = array('type' => 'datetime@', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date');
+	public $transaction_sum = array('type' => 'decimal@13,4', 'null'=>'NO', 'show'=>'YES', 'label'=>'Sum');
+	public $transaction_discount = array('type' => 'decimal@13,4!0.0000', 'null'=>'NO', 'show'=>'YES', 'label'=>'Discount');
+	public $transaction_initialreceived = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Initialreceived');
+	public $transaction_received = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Received');
+	public $transaction_remained = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Remained');
+	public $transaction_pre = array('type' => 'enum@yes,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Pre');
+	public $transaction_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
+	public $transaction_transport = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Transport');
+	public $transaction_vat = array('type' => 'enum@yes,nocalc,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Vat');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

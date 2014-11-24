@@ -13,16 +13,16 @@ class main_view extends mvcView_cls
 				$this->global->page_title	= $this->url_title() . ' ' . $this->data->form_title;
 				$myForm						= $this->createform("@".$this->data->module, $this->data->child);
 				$this->data->form_show		= true;
+				$this->data->field_list		= getTable_cls::forms($this->data->module);
+				// var_dump($this->data->field_list);
 
 				
-				if(isset(config_lib::$surl['edit']))
+				if($this->data->child=='edit')
 				{
 					$tmp_result = $this->sql("#datarowbyid");
 					$this->fill_for_edit($tmp_result, $myForm);
 				}
 
-				$this->data->field_list		= getTable_cls::forms($this->data->module);
-				// var_dump($this->data->field_list);
 
 			}
 			else

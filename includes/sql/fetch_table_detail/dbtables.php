@@ -122,7 +122,7 @@ function setproperty($myparam)
 			
 			$myfield		= $crow->Field;
 			$mynull			= $crow->Null;
-			$myfield_show	= false;
+			$myfield_show	= 'YES';
 			// $property		= setproperty($crow);
 			$property		= "";
 			$property_type	= "";
@@ -159,11 +159,10 @@ function setproperty($myparam)
 			// --------------------------------------------------------------------------------- ID
 			if($myfield=="id")
 			{
-
-				$fn .= $txtcomment. "id - primary key\n";
-				$fn .= "\tpublic function $myfield() {" . '$this->validate()->id();' ."}\n";
-				$mylabel = "ID";
-
+				$fn				.= $txtcomment. "id - primary key\n";
+				$fn				.= "\tpublic function $myfield() {" . '$this->validate()->id();' ."}\n";
+				$mylabel		= "ID";
+				$myfield_show	= 'NO';
 			}
 			// --------------------------------------------------------------------------------- Foreign Key
 			elseif ($myname=="id" || $myfield=="user_id_customer")
@@ -175,10 +174,9 @@ function setproperty($myparam)
 				$fn .= "\n\t\t".'$this->setChild($this->form);'.$txtend;
 
 				// $mylabel = str_replace("_", " ", $myfield);
-				$isforeign	= true;
-				$mylabel	= ucwords(strtolower($prefix));
-				$mylabel	= $mylabel;
-				
+				$isforeign		= true;
+				$mylabel		= ucwords(strtolower($prefix));
+				$mylabel		= $mylabel;
 			}
 
 			// --------------------------------------------------------------------------------- General
@@ -203,6 +201,7 @@ function setproperty($myparam)
 				// {
 				// 	$this->value = \validator_lib::$save['form']['user_email']->value;
 				// });
+				$myfield_show	= 'NO';
 			}
 			elseif ($myname=="desc")
 			{
@@ -211,6 +210,7 @@ function setproperty($myparam)
 				$fn .= $txtstart. '$this->form("#desc")'.$property.';'.$txtend;
 
 				$mylabel = "Description";
+				$myfield_show	= 'NO';
 			}
 
 			// --------------------------------------------------------------------------------- Email
@@ -218,6 +218,7 @@ function setproperty($myparam)
 			{
 				$fn .= $txtcomment. "email\n";
 				$fn .= $txtstart. '$this->form("#email")->type("email")->required()'.$property.';'.$txtend;
+				$myfield_show	= 'YES';
 			}
 
 			// --------------------------------------------------------------------------------- Website
@@ -225,7 +226,7 @@ function setproperty($myparam)
 			{
 				$fn .= $txtcomment. "website\n";
 				$fn .= $txtstart. '$this->form("#website")->type("url")'.$property.';'.$txtend;
-
+				$myfield_show	= 'YES';
 				// $mylabel = "Description";
 			}
 
@@ -234,12 +235,13 @@ function setproperty($myparam)
 			{
 				$fn .= $txtcomment. "website\n";
 				$fn .= $txtstart. '$this->form()->type("tel")->name("mobile")->pl("Mobile")->pattern(".{10,}")->maxlength(17)->required();'.$txtend;
-				
+				$myfield_show	= 'YES';
 			}
 			elseif ( $myname=="tel")
 			{
 				$fn .= $txtcomment. "website\n";
 				$fn .= $txtstart. '$this->form()->type("tel")->name("tel")->pattern(".{9,}")->maxlength(17);'.$txtend;
+
 			}
 			// --------------------------------------------------------------------------------- Password
 			elseif ($myname=="pass")
@@ -249,6 +251,7 @@ function setproperty($myparam)
 				$fn .= $txtstart. '$this->form()->name("pass")->pl("Password")->type("password")->required()->maxlength(20)';
 				$fn .= "\n\t\t\t". '->pattern("^.{5,20}$")->title("between 5-20 character")->validate()->password();'.$txtend;
 				$mylabel = "Password";
+				$myfield_show	= 'YES';
 			}
 
 			// --------------------------------------------------------------------------------- unuse
@@ -270,8 +273,6 @@ function setproperty($myparam)
 				|| $myname=="add" 			|| $myname=="edit" 		|| $myname=="delete"
 				|| $myname=="service"		|| $myname=="gender"	|| $myname=="married"
 				|| $myname=="newsletter"	|| $myname=="credit"	|| $myfield=="permission_status"
-				
-				
 				)	
 			{
 				$fn .= $txtcomment. "radio button\n";
@@ -283,7 +284,6 @@ function setproperty($myparam)
 			elseif ($myname=="status" 	|| $myname=="model" || $myname=="priority"
 				|| $myname=="sellin"	|| $myname=="priority"
 				|| $myname=="type"		|| $myname=="paperstatus"
-
 				)
 			{
 				$fn .= $txtcomment. "select button\n";
@@ -307,18 +307,37 @@ function setproperty($myparam)
 				// $fn .= $txtstart. '$this->form()->name("'. $myname.'")'."\n\t\t".'->validate();'.$txtend;
 				$fn .= $txtstart. '$this->form("text")->name("'. $myname.'")'.$property.';'.$txtend;
 				// $fn .= $txtstart. $txtend;
+				$myfield_show	= 'YES';
 			}
 			
+			// for show in form or not
+			
+			if(
+					$myfield=="account_branch"
+			)
+			{
+				$myfield_show	= 'YES';
+			}
+			
+			elseif($myfield=="user_id")
+			{
+				$myfield_show	= 'NO';
+			}
+			elseif($myfield=="user_id_customer")
+			{
+				$myfield_show	= 'NO';
+			}
+
 
 			// ========================================================================================== Edit by Javad
 
 			// $content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'label' => '$mylabel');\n";
 			// 'foreign' => 'table@id!value'
-			$fields	= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel');\n";
+			$fields	= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null'=>'$mynull', 'show'=>'$myfield_show', 'label'=>'$mylabel');\n";
 			if($isforeign)
 			{
 				$table				= $prefix.'s';
-				$tmp_fields_start	= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel', 'foreign' => '$table@id!";
+				$tmp_fields_start	= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null'=>'$mynull', 'show'=>'$myfield_show', 'label'=>'$mylabel', 'foreign'=>'$table@id!";
 				$tmp_fields_end		= "');\n";
 				$tmp_fields_name	= $prefix . "_title";
 				// $fields				= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'null' =>'$mynull' ,'label' => '$mylabel', 'foreign' => '$table@id!".$prefix."_title');\n";

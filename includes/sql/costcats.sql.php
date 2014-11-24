@@ -2,14 +2,14 @@
 namespace sql;
 class costcats 
 {
-	public $id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'ID');
-	public $costcat_title = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Title');
-	public $costcat_slug = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Slug');
-	public $costcat_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $costcat_father = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Father');
-	public $costcat_row = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Row');
-	public $costcat_type = array('type' => 'enum@income,outcome', 'null' =>'YES' ,'label' => 'Type');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $costcat_title = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Title');
+	public $costcat_slug = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'NO', 'label'=>'Slug');
+	public $costcat_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
+	public $costcat_father = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Father');
+	public $costcat_row = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Row');
+	public $costcat_type = array('type' => 'enum@income,outcome', 'null'=>'YES', 'show'=>'YES', 'label'=>'Type');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

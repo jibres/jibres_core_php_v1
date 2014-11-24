@@ -2,12 +2,12 @@
 namespace sql;
 class transactiondetails 
 {
-	public $transactiondetail_row = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Row');
-	public $transaction_id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'Transaction', 'foreign' => 'transactions@id!id');
-	public $product_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Product', 'foreign' => 'products@id!product_title');
-	public $transactiondetail_quantity = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'Quantity');
-	public $transactiondetail_price = array('type' => 'decimal@13,4', 'null' =>'NO' ,'label' => 'Price');
-	public $transactiondetail_discount = array('type' => 'decimal@13,4', 'null' =>'YES' ,'label' => 'Discount');
+	public $transactiondetail_row = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Row');
+	public $transaction_id = array('type' => 'int@10', 'null'=>'NO', 'show'=>'YES', 'label'=>'Transaction', 'foreign'=>'transactions@id!id');
+	public $product_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'YES', 'label'=>'Product', 'foreign'=>'products@id!product_title');
+	public $transactiondetail_quantity = array('type' => 'int@10', 'null'=>'NO', 'show'=>'YES', 'label'=>'Quantity');
+	public $transactiondetail_price = array('type' => 'decimal@13,4', 'null'=>'NO', 'show'=>'YES', 'label'=>'Price');
+	public $transactiondetail_discount = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Discount');
 
 	public function transactiondetail_row() 
 	{

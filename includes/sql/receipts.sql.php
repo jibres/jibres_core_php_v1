@@ -2,20 +2,20 @@
 namespace sql;
 class receipts 
 {
-	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
-	public $receipt_code = array('type' => 'varchar@30', 'null' =>'YES' ,'label' => 'Code');
-	public $receipt_type = array('type' => 'enum@income,outcome!income', 'null' =>'YES' ,'label' => 'Type');
-	public $receipt_price = array('type' => 'decimal@13,4!0.0000', 'null' =>'NO' ,'label' => 'Price');
-	public $receipt_date = array('type' => 'datetime@', 'null' =>'NO' ,'label' => 'Date');
-	public $paper_id = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Paper', 'foreign' => 'papers@id!id');
-	public $receipt_paperdate = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Paperdate');
-	public $receipt_paperstatus = array('type' => 'enum@pass,recovery,fail,lost,block,delete,inprogress', 'null' =>'YES' ,'label' => 'Paperstatus');
-	public $receipt_desc = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Description');
-	public $transaction_id = array('type' => 'int@10', 'null' =>'YES' ,'label' => 'Transaction', 'foreign' => 'transactions@id!id');
-	public $fund_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'Fund', 'foreign' => 'funds@id!fund_title');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
-	public $user_id_customer = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'int@10', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $receipt_code = array('type' => 'varchar@30', 'null'=>'YES', 'show'=>'YES', 'label'=>'Code');
+	public $receipt_type = array('type' => 'enum@income,outcome!income', 'null'=>'YES', 'show'=>'YES', 'label'=>'Type');
+	public $receipt_price = array('type' => 'decimal@13,4!0.0000', 'null'=>'NO', 'show'=>'YES', 'label'=>'Price');
+	public $receipt_date = array('type' => 'datetime@', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date');
+	public $paper_id = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Paper', 'foreign'=>'papers@id!id');
+	public $receipt_paperdate = array('type' => 'datetime@', 'null'=>'YES', 'show'=>'YES', 'label'=>'Paperdate');
+	public $receipt_paperstatus = array('type' => 'enum@pass,recovery,fail,lost,block,delete,inprogress', 'null'=>'YES', 'show'=>'YES', 'label'=>'Paperstatus');
+	public $receipt_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
+	public $transaction_id = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Transaction', 'foreign'=>'transactions@id!id');
+	public $fund_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'YES', 'label'=>'Fund', 'foreign'=>'funds@id!fund_title');
+	public $user_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
+	public $user_id_customer = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

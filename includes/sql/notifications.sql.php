@@ -2,14 +2,14 @@
 namespace sql;
 class notifications 
 {
-	public $id = array('type' => 'int@10', 'null' =>'NO' ,'label' => 'ID');
-	public $user_id_sender = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Id Sender');
-	public $user_id = array('type' => 'smallint@5', 'null' =>'NO' ,'label' => 'User', 'foreign' => 'users@id!user_nickname');
-	public $notification_title = array('type' => 'varchar@50', 'null' =>'NO' ,'label' => 'Title');
-	public $notification_content = array('type' => 'varchar@200', 'null' =>'YES' ,'label' => 'Content');
-	public $notification_url = array('type' => 'varchar@100', 'null' =>'YES' ,'label' => 'Url');
-	public $notification_status = array('type' => 'enum@read,unread!unread', 'null' =>'NO' ,'label' => 'Status');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null' =>'NO' ,'label' => 'Date Modified');
+	public $id = array('type' => 'int@10', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
+	public $user_id_sender = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Id Sender');
+	public $user_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
+	public $notification_title = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Title');
+	public $notification_content = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'YES', 'label'=>'Content');
+	public $notification_url = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Url');
+	public $notification_status = array('type' => 'enum@read,unread!unread', 'null'=>'NO', 'show'=>'YES', 'label'=>'Status');
+	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'YES', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

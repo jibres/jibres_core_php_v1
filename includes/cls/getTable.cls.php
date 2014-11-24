@@ -18,10 +18,10 @@ class getTable_cls
 		$table = sql_lib::getTable($name);
 		foreach ($table as $key => $value) 
 		{
-			if ($key!=='id' and $key!=='date_modified')
+			if (isset($value->closure->form))
 			{
 				$ret[$key] = substr($key,strrpos($key,'_')+1);
-				if ($ret[$key]==='id')
+				if ($ret[$key]==='id' || $key=="user_id_customer")
 				{
 					// if this field related with other table(foreign key) only show the target table
 					$ret[$key] = substr($key,0,strrpos($key,'_'));
@@ -41,10 +41,10 @@ class getTable_cls
 		$table = sql_lib::getTable($name);
 		foreach ($table as $key => $value) 
 		{
-			if ($key!=='id' and $key!=='date_modified')
+			if (isset($value->closure->form))
 			{
 				$field_name = substr($key,strrpos($key,'_')+1);
-				if ($field_name==='id')
+				if ($field_name==='id' || $key=="user_id_customer")
 				{
 					// if this field related with other table(foreign key) only show the target table
 					$field_name = substr($key,0,strrpos($key,'_'));
@@ -75,21 +75,20 @@ class getTable_cls
 			if(isset($value->closure->form))
 			{
 				$field_name = substr($key,strrpos($key,'_')+1);
-				if ($field_name==='id')
+				if ($field_name==='id' || $key=="user_id_customer")
 				{
 					// if this field related with other table(foreign key) only show the target table
 					$field_name = substr($key,0,strrpos($key,'_'));
 				}
-				// var_dump($field_name."::".$value->null);
+				// var_dump($field_name."::".$value->show);
 
-				if($value->null=='YES')
+				if($value->null=='NO')
 				{
-					$ret[$field_name] = false;
-					
+					$ret[$field_name] = $field_name;
 				}
-				else
+				if($value->show=='YES')
 				{
-					$ret[$field_name] = true;
+					$ret[$field_name] = $field_name;
 				}
 			}
 		}
