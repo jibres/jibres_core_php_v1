@@ -21,6 +21,7 @@ define("sql"			, includes_dir."sql/");
 // ------------------------------------------------------- define main_domain location
 $host_names = explode(".", DOMAIN);
 $url_raw 	= $host_names[count($host_names)-2] . "." . $host_names[count($host_names)-1];
+define("URL_DOMAIN", $host_names[count($host_names)-2]);
 define("URL_RAW", $url_raw);
 define("MAIN_DOMAIN", $url_raw);
 
@@ -55,7 +56,7 @@ define('LANGUAGE', 'fa_IR');
 // developer must set get parameter like site.com/dev=anyvalue
 $coming_soon = true;
 if($coming_soon && isset($_GET['dev'])){
-	setcookie('preview','yes',time() + 30*24*60*60,'/','.'.MAIN_DOMAIN);
+	setcookie('preview','yes',time() + 30*24*60*60,'/','.'.URL_RAW);
 }
 elseif($coming_soon && !isset($_COOKIE["preview"])){
 	header('Location: http://'.URL_RAW."/page/coming/", true, 302);
@@ -97,6 +98,8 @@ header("Content-Type:text/html; charset=UTF-8");
 define('FACHR'					, 'ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیآيئؤكآأإة');
 define("lib"					, core."lib/");
 
+session_name(URL_DOMAIN);
+session_set_cookie_params(0, '/', '.'.URL_RAW);
 session_start();
 
 /**

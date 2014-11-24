@@ -7,6 +7,7 @@ class main_controller extends mvcController_cls
 		{
 			//redirect to cp
 			var_dump('user login to system: redirect to cp');
+			var_dump($_SESSION['user'] );
 		}
 	}
 

@@ -26,8 +26,6 @@ class view extends main_view
          // $this->data->module = "login";
 		
 
-		var_dump($this->login());
-
 	}
 }
 ?>

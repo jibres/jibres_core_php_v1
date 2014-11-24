@@ -9,9 +9,10 @@ Version: 1.1.0
 */
 
 html {font-size:62.5%;font-family:Tahoma, Helvetica, Arial, Sans-Serif;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-rendering: optimizeLegibility;}
-body {margin:0;padding:0;background-color: #34383d;overflow: hidden;color:#4f5561;background: #34383d;}
+body {margin:0;padding:0;background-color: #34383d;color:#4f5561;background: #34383d;}
 a{color:#6f7787;text-decoration:none;transition: all .3s ease;-webkit-transition: all .3s ease;-o-transition: all .3s ease;-moz-transition: all .3s ease;}
 ul{list-style-type:none }
+pre{direction:ltr;text-align:left;background:#eee;font-size:15px;font-size:1.5rem;line-height:1.6;margin:1em auto;padding:1.6em;overflow:auto;max-width:90%;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
 .center{position: relative;width:350px;margin: 0 auto;}
 h1{color: #222;text-shadow: 0px 2px 3px #555;text-align: center;font: 30px Helvetica,Tahoma, Sans-Serif;}
 #logo{display: block;margin:10vh auto 0px;width:120px;height:auto;}
