@@ -94,8 +94,8 @@
   		   <thead>
   		    <tr role="row">
   		     <th class="column_row">#</th>
-  							{%for value in columns if value is not null%}
-  		     	<th>{{value}}</th>
+  							{%for value in columns if value%}
+  		     	<th>{{value | title}}</th>
   							{%endfor%}
   		     <th class="column_actions">Actions</th>
   		    </tr>
@@ -106,7 +106,7 @@
   						{%for d in datatable%}
   			    <tr role="row" class="{{ cycle(['odd', 'even'], loop.index0) }}">
   			     <td class="column_row">{{loop.index}}</td>
-  								{%for col,value in columns if value is not null%}
+  								{%for col,value in columns if value%}
   			     	<td>{{attribute(d,col)}}</td>
   								{%endfor%}
   			     <td>

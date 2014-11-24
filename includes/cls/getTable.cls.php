@@ -12,7 +12,7 @@ class getTable_cls
 		return $ret;
 	}
 
-	public static function getfields($name)
+	public static function fields($name)
 	{
 		$ret = array();
 		$table = sql_lib::getTable($name);
@@ -35,7 +35,7 @@ class getTable_cls
 		return $ret;
 	}
 
-	public static function show($name)
+	public static function datatable($name)
 	{
 		$ret = array();
 		$table = sql_lib::getTable($name);
@@ -43,13 +43,43 @@ class getTable_cls
 		{
 			if ($key!=='id' and $key!=='date_modified')
 			{
-				// $ret[$key] = substr($key,strrpos($key,'_')+1);
 				$field_name = substr($key,strrpos($key,'_')+1);
 				if ($field_name==='id')
 				{
 					// if this field related with other table(foreign key) only show the target table
 					$field_name = substr($key,0,strrpos($key,'_'));
 				}
+
+				if($value->null=='YES')
+				{
+					$ret[$key] = false;
+					
+				}
+				else
+				{
+					$ret[$key] = $field_name;
+				}
+			}
+		}
+		return $ret;
+	}
+
+	public static function forms($name)
+	{
+		$ret = array();
+		$table = sql_lib::getTable($name);
+		var_dump($table);
+		foreach ($table as $key => $value) 
+		{
+			if ($key!=='id' and $key!=='date_modified')
+			{
+				$field_name = substr($key,strrpos($key,'_')+1);
+				if ($field_name==='id')
+				{
+					// if this field related with other table(foreign key) only show the target table
+					$field_name = substr($key,0,strrpos($key,'_'));
+				}
+				// var_dump($field_name."::".$value->null);
 
 				if($value->null=='YES')
 				{

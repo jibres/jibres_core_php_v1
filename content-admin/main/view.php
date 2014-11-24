@@ -2,7 +2,7 @@
 class main_view extends mvcView_cls
 {
 	// ---------------------------------------------------------------- default config function for ADMIN
-	public function config() 
+	public function config()
 	{
 		if($this->data->module && $this->data->module!="home")
 		{
@@ -21,8 +21,7 @@ class main_view extends mvcView_cls
 					$this->fill_for_edit($tmp_result, $myForm);
 				}
 
-				$this->data->field_list		= getTable_cls::show($this->data->module);
-				// read from related table for save default value of each module
+				$this->data->field_list		= getTable_cls::forms($this->data->module);
 				// var_dump($this->data->field_list);
 
 			}
@@ -37,28 +36,9 @@ class main_view extends mvcView_cls
 					// get all fields of table and filter fields name for show in datatable, access from columns variable
 					// check if datatable exist then get this data
 					$this->include->datatable	= true;
-					// $fields					= array_keys($this->data->datatable[0]);
-					$fields						= getTable_cls::get($this->data->module);
-					$this->data->columns		= array_fill_keys($fields, null);
-					$this->data->slug			= null;
-
-					foreach ($fields as $key)
-					{
-						if ($key!=='id' and $key!=='date_modified')
-						{
-							$this->data->columns[$key] = ucfirst(substr($key,strrpos($key,'_')+1));
-							if ($this->data->columns[$key]==='Id')
-							{
-								// if this field related with other table(foreign key) only show the target table
-								$this->data->columns[$key] = ucfirst(substr($key,0,strrpos($key,'_')));
-							}
-							// if( $key== ($this->url_table_prefix().'_slug') )
-							// {
-							// 	$this->data->slug 		= $key;
-							// 	// var_dump($this->data->slug);
-							// }
-						}
-					}
+					// $this->data->columns		= getTable_cls::fields($this->data->module);
+					// var_dump($this->data->columns);
+					$this->data->columns		= getTable_cls::datatable($this->data->module);
 				}
 			}
 		}

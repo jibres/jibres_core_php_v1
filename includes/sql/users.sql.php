@@ -12,7 +12,7 @@ class users
 	public $user_lastname = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Lastname');
 	public $user_nickname = array('type' => 'varchar@50', 'null' =>'YES' ,'label' => 'Nickname');
 	public $user_tel = array('type' => 'varchar@15', 'null' =>'YES' ,'label' => 'Tel');
-	public $user_mobile = array('type' => 'varchar@15', 'null' =>'YES' ,'label' => 'Mobile');
+	public $user_mobile = array('type' => 'varchar@15', 'null' =>'NO' ,'label' => 'Mobile');
 	public $user_birthday = array('type' => 'datetime@', 'null' =>'YES' ,'label' => 'Birthday');
 	public $user_country = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'Country');
 	public $user_state = array('type' => 'smallint@5', 'null' =>'YES' ,'label' => 'State');
@@ -50,8 +50,8 @@ class users
 	//------------------------------------------------------------------ password
 	public function user_pass() 
 	{
-		$this->form("#password")->pl("Password")->type("password")->required()->maxlength(20)
-			->pattern("^.{5,20}$")->title("between 5-20 character");
+		$this->form()->name("pass")->pl("Password")->type("password")->required()->maxlength(20)
+			->pattern("^.{5,20}$")->title("between 5-20 character")->validate()->password();
 	}
 
 	//------------------------------------------------------------------ email
