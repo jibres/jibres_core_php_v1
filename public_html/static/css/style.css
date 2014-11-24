@@ -404,6 +404,8 @@ ul.list li a{padding:0.3rem 0.5rem;}
 .form input[type="submit"]:active{color:#000;}
 .form textarea{min-height: 70px}
 .adam{display: none;}
+.hide{display: none;}
+.show{display: block;}
 .input-free{width:auto;}
 .input-mini{width:60px;}
 .input-small{width:90px;}
@@ -439,16 +441,16 @@ text-indent:-999999px;
 
 
 
-form{
+#main form{
   margin-bottom: 50px;
 }
 
-form .form-element{
+#main form .form-element{
   padding: 2px 5px;
 
 }
 
-form label{
+#main form label{
   display: block;
   float: left;
   min-width: 150px;

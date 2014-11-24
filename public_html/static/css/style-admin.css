@@ -1,1 +1,34 @@
 /* Admin */
+#options{
+background-color:#f3f3f3;
+}
+
+#meta{
+padding:0 10px;
+line-height: 35px;
+}
+
+#meta-link a{
+	font-size: 14px;
+	line-height: 35px;
+	height: 35px;
+	padding:0 20px;
+	position: absolute;top:0; left:0px;z-index:2;
+	background-color: #363636;
+	background-color:#f3f3f3;
+	border-width: 0;
+	border-left-width: 3px;
+	border-style: solid;
+	border-color: transparent;
+}
+
+#meta-link a:hover{
+background-color: #E8E5E5;
+border-style: solid;
+border-left-color: #2DB2EA;
+}
+
+#meta form label{min-width: 70px;margin-left:10px;
+  
+  float: left;
+  }

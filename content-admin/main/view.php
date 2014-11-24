@@ -21,8 +21,9 @@ class main_view extends mvcView_cls
 					$this->fill_for_edit($tmp_result, $myForm);
 				}
 
-				$this->data->fields			= getTable_cls::show($this->data->module);
-				var_dump($this->data->fields);
+				$this->data->field_list		= getTable_cls::show($this->data->module);
+				// read from related table for save default value of each module
+				// var_dump($this->data->field_list);
 
 			}
 			else

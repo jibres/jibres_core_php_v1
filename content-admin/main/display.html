@@ -46,9 +46,23 @@
  {% endif %}
 
  <body class='{{module}} {{child}}'>
-  <div id="meta">
-    
-  </div>
+{%if child%}
+  <div id="options">
+    <div id="meta" class="container hide">
+      <form id="meta-options" method="post">
+{% for key, value in field_list %}
+        <label class="label-custom"><input class="fields-toggle" type="checkbox" name="{{key}}" value="{{key}}" {%if value%}checked="checked"{%endif%}>{{key}}</label>
+{% endfor %}
+      </form>
+    </div>
+    <div id="meta-link">
+      <a id="options-link" href="javascript: void(0)">
+        Options
+      </a>
+    </div>
+     
+ </div>
+{%endif%}
 {%block header%}{%endblock%}
 
  <div class="container" id="main">

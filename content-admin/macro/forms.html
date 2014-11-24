@@ -99,7 +99,7 @@
 						{{ form.input(input)}}
 					</li>
 				{%else%}
-					<div class="form-element">
+					<div class="form-element hide {{input.attr.id}}">
 							{% if input.attr.type == 'radio'%}
 								{{ form.radio(input) }}
 
