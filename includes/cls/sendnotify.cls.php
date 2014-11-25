@@ -42,7 +42,7 @@ class sendnotify_cls
 			require(cls."/Kavenegar/KavenegarApi.php");
 
 			$api = new KavenegarApi("332F776565494F4D736446712F6D30553061767879673D3D");
-			$result = $api->send("30006703323323","09357269759","کد فعال سازی شما: ".$tmp_code . "\r\n جیبرس");
+			$result = $api->send("30006703323323","09357269759","کد فعال سازی شما: ".$tmp_code . "\r\n\n\nجیبرس");
 			
 			debug_lib::true($result);
 		// try
