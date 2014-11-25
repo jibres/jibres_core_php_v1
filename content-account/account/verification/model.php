@@ -30,6 +30,7 @@ class model extends main_model
 			$this->commit(function($parameter)
 			{
 				debug_lib::true("Verify successfully");
+				$this->redirect('/login?mobile='.(substr($parameter,1)));
 			}, $mymobile);
 
 			// if a query has error or any error occour in any part of codes, run roolback

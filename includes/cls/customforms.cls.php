@@ -13,6 +13,7 @@
 			$form->hidden->value("login");
 			$form->before("user_mobile","user_pass");
 			$form->user_mobile->label('')->pl('Mobile');
+			$form->user_mobile->value( ((isset($_GET["mobile"]))?htmlspecialchars('+'.$_GET["mobile"]):"") );
 			$form->user_pass->label('')->pl('Password');
 			$form->submit->value("");
 			return $form;
@@ -26,6 +27,7 @@
 			$form->hidden->value("signup");
 			$form->before("user_mobile","user_pass");
 			$form->user_mobile->label('')->pl('Mobile');
+			$form->user_mobile->value( ((isset($_GET["mobile"]))?htmlspecialchars('+'.$_GET["mobile"]):"") );
 			$form->user_pass->label('')->pl('Password');
 			$form->submit->value("");
 			return $form;
@@ -38,6 +40,7 @@
 			$form->white("hidden, user_mobile, submit");
 			$form->hidden->value("recovery");
 			$form->user_mobile->label('')->pl('Mobile');
+			$form->user_mobile->value( ((isset($_GET["mobile"]))?htmlspecialchars('+'.$_GET["mobile"]):"") );
 			$form->submit->value("");
 			return $form;
 		}
