@@ -1,8 +1,8 @@
 <?php
 
-	require(cls."Kavenegar/exceptions/BaseException.php");
-	require(cls."Kavenegar/exceptions/HttpException.php");
-	require(cls."Kavenegar/exceptions/ApiException.php");
+	// require(cls."Kavenegar/exceptions/BaseException.php");
+	// require(cls."Kavenegar/exceptions/HttpException.php");
+	// require(cls."Kavenegar/exceptions/ApiException.php");
 	// var_dump(file_exists( cls."Kavenegar/exceptions/ApiException.php"));
 	require(cls."Kavenegar/models/AccountInfoResult.php");
 	require(cls."Kavenegar/models/SendResult.php");

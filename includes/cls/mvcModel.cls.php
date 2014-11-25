@@ -25,6 +25,7 @@ class mvcModel_cls{
 				unset($_SESSION['model'][$KEY]);
 			}
 			$array = debug_lib::compile();
+			var_dump($array);
 			foreach ($array as $key => $value) {
 				if(!is_array($value) || $key == 'msg') continue;
 				foreach ($value as $k => $v) {
