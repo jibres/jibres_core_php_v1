@@ -1,5 +1,4 @@
 <?php
-
 	// require(cls."Kavenegar/exceptions/BaseException.php");
 	// require(cls."Kavenegar/exceptions/HttpException.php");
 	// require(cls."Kavenegar/exceptions/ApiException.php");
@@ -23,7 +22,6 @@
 		}
 		private  function execute($url,$data)
     	{
-			
         	$headers = array (
             	'Accept: application/json',
             	'Content-Type: application/x-www-form-urlencoded',
@@ -34,7 +32,7 @@
 				foreach($data as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
 				rtrim($fields_string, '&');
 			}
-			echo "<br/>" .  $fields_string . "<br/>";
+			// var_dump($fields_string);
 			//======================================================================================//
         	$handle = curl_init();
 	        curl_setopt($handle, CURLOPT_URL, $url);
@@ -46,6 +44,7 @@
 	        curl_setopt($handle, CURLOPT_POSTFIELDS, $fields_string);
 	        $response = curl_exec($handle);
 	        $code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+	        curl_close ($handle);
 	        //=====================================================================================//
 	        $json_data = json_decode($response,true);
 			$json_return = $json_data["return"];
@@ -70,6 +69,8 @@
 			$params = array("message" => $message , "sender" => $sender , "receptor" => $receptors , "type" => $type,"date" => $date);
 			$json = $this->execute($path,$params);
 			$list = array();
+			if(!is_array($json))
+				// exit();
 			var_dump($json);
 			foreach($json as $item)
 			{
@@ -83,7 +84,7 @@
 				$result->set_statustext($item['statustext']);
 				array_push($list,$result);
 			}
-			var_dump($receptor);
+			var_dump($list);
 			if(is_array($receptor))
 			{
 				return $list;
