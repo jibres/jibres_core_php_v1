@@ -9,7 +9,8 @@ class model extends main_model
 		$tmp_result			=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
 		$mypass				= md5(post::password());
 		
-		// debug_lib::true("Login::".$tmp_result->num()  );
+
+		debug_lib::true("Login".$tmp_result->num().$mypass );
 		if($tmp_result->num() == 1)
 		{
 			// mobile exist
@@ -33,7 +34,7 @@ class model extends main_model
 			else
 			{
 				// password is incorrect
-				unset($_SESSION['user']);
+				// unset($_SESSION['user']);
 				debug_lib::fatal("Password is incorrect");
 			}
 		}
