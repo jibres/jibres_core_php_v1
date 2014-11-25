@@ -70,6 +70,7 @@
 			$params = array("message" => $message , "sender" => $sender , "receptor" => $receptors , "type" => $type,"date" => $date);
 			$json = $this->execute($path,$params);
 			$list = array();
+			var_dump($json);
 			foreach($json as $item)
 			{
 				$result = new SendResult();
