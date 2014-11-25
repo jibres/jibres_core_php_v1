@@ -7,10 +7,8 @@ class model extends main_model
 		// $this->redirect		= false;
 		$mymobile			= str_replace(' ', '', post::mobile());
 		$tmp_result			=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
-		$mypass				= md5(post::password());
+		$mypass				= md5(post::pass());
 		
-
-		debug_lib::true($tmp_result->num()." Hash: ".$mypass.' pass:'.post::password() );
 		if($tmp_result->num() == 1)
 		{
 			// mobile exist
