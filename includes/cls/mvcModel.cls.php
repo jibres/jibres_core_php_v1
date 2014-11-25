@@ -27,8 +27,7 @@ class mvcModel_cls{
 			foreach ($array as $key => $value) {
 				if(!is_array($value)) continue;
 				foreach ($value as $k => $v) {
-					echo "<pre>";
-					print_r($v);
+					$v = (is_object($v)) ? (array)  $v : $v;
 					$err = isset($v['error']) ? $v['error'] : $v;
 					if(preg_match("/^\[\[(update|insert|delete|select)\s(.*)\s(true|false|successful|failed)\]\]$/", $err, $parm)){
 						$err = _($parm[1]).' '._($parm[2]).' '._($parm[3]);
