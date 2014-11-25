@@ -69,30 +69,37 @@
 			$params = array("message" => $message , "sender" => $sender , "receptor" => $receptors , "type" => $type,"date" => $date);
 			$json = $this->execute($path,$params);
 			$list = array();
-			if(!is_array($json))
-				// exit();
-			var_dump($json);
-			foreach($json as $item)
+			if(is_array($json))
 			{
-				$result = new SendResult();
-				$result->set_messageid($item['messageid']);
-				$result->set_message($item['message']);
-				$result->set_receptor($item['receptor']);
-				$result->set_date($item['date']);
-				$result->set_cost($item['cost']);
-				$result->set_status($item['status']);
-				$result->set_statustext($item['statustext']);
-				array_push($list,$result);
-			}
-			var_dump($list);
-			if(is_array($receptor))
-			{
-				return $list;
+				foreach($json as $item)
+				{
+					$result = new SendResult();
+					$result->set_messageid($item['messageid']);
+					$result->set_message($item['message']);
+					$result->set_receptor($item['receptor']);
+					$result->set_date($item['date']);
+					$result->set_cost($item['cost']);
+					$result->set_status($item['status']);
+					$result->set_statustext($item['statustext']);
+					array_push($list,$result);
+				}
+				// if($list)
+				if(is_array($receptor))
+				{
+					return $list;
+				}
+				else
+				{
+				    return $list[0];
+				}
 			}
 			else
 			{
-			    return $list[0];
+				var_dump("error");
+				// temporary
+				debug_lib::fatal("Send message failed! check api");
 			}
+
  		}
 		public function send_array($sender,$receptors,$messages,$type=1,$date = 0)
 		{
