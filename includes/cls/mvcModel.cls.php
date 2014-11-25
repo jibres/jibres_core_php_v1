@@ -19,15 +19,13 @@ class mvcModel_cls{
 			// $this->afterConfig();
 
 			$this->endEfect();
-
 			if(isset($_POST['INPUT_MODEL_ID']) && isset($_SESSION['model'])){
 				$KEY = array_search($_POST['INPUT_MODEL_ID'], $_SESSION['model']);
 				unset($_SESSION['model'][$KEY]);
 			}
 			$array = debug_lib::compile();
-			var_dump($array);
 			foreach ($array as $key => $value) {
-				if(!is_array($value) || $key == 'msg') continue;
+				if(!is_array($value)) continue;
 				foreach ($value as $k => $v) {
 					$err = isset($v['error']) ? $v['error'] : $v;
 					if(preg_match("/^\[\[(update|insert|delete|select)\s(.*)\s(true|false|successful|failed)\]\]$/", $err, $parm)){
@@ -334,12 +332,12 @@ class mvcModel_cls{
 		{
 			debug_lib::fatal("Delete ". $this->url_table_prefix() ."($tmp_slug) failed");
 		}, $tmp_qry_slug);	
-	
+
 	}
 
 	function randomCode($length=4, $number=true) 
 	{
-	 	$string	= '';
+		$string	= '';
 		if($number)
 			$characters = "23456789";
 		else
