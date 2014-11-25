@@ -83,6 +83,7 @@
 				$result->set_statustext($item['statustext']);
 				array_push($list,$result);
 			}
+			var_dump($receptor);
 			if(is_array($receptor))
 			{
 				return $list;
