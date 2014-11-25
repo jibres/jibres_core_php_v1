@@ -10,7 +10,7 @@ class model extends main_model
 		$mypass				= md5(post::password());
 		
 
-		debug_lib::true("Login".$tmp_result->num().$mypass );
+		debug_lib::true($tmp_result->num()." Hash: ".$mypass.' pass:'.post::password() );
 		if($tmp_result->num() == 1)
 		{
 			// mobile exist
