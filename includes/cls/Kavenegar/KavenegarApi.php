@@ -1,263 +1,271 @@
 <?php
-	// require(cls."Kavenegar/exceptions/BaseException.php");
-	// require(cls."Kavenegar/exceptions/HttpException.php");
-	// require(cls."Kavenegar/exceptions/ApiException.php");
-	// var_dump(file_exists( cls."Kavenegar/exceptions/ApiException.php"));
-	require(cls."Kavenegar/models/AccountInfoResult.php");
-	require(cls."Kavenegar/models/SendResult.php");
-	require(cls."Kavenegar/models/ReciveResult.php");
-	require(cls."Kavenegar/models/StatusResult.php");
+/*
+@ Kavenegar Api
+@ Version: 2.0
+@ Author: Javad Evazzadeh | Evazzadeh.com
 
+Quick Start:
+	copy this file in your project and edit KavenegarApi.php first line and insert your apikey and linenumber
+	then copy and paste below line to quickly sent message!
+		require("KavenegarApi.php");
+		$api 	= new KavenegarApi();
+		$result = $api->send('09120000000', 'Hi, This is for test!');
+
+
+How to Use:
+	for use this class you must require this file in your project with below line
+		require("KavenegarApi.php");
+
+	then you must create an instance from KavenegarApi with below line
+		$api = new KavenegarApi();
+
+	you can set the apikey and linenumber from declaration part of class in first lines
+	but if you want you can set this parameter on create new instance with below code
+		$api = new KavenegarApi('Your-apikey', 'Your-linenumber');
+
+	for use the functions you can use below line sample, this line send message to 09120000000
+		$result = $api->send('09120000000', 'Hi, This is for test!');
+	
+	if you want you can set the line number value after initializing class
+		$api->linenumber = '100020003000';
+
+	for access current status and server message you can read status value with below line
+	var_dump($api->status);
+	var_dump($api->msg);
+
+*/
 	class  KavenegarApi
 	{
-		protected $apikey;
-		const apipath = "http://api.kavenegar.com/v1/%s/%s/%s.json";
-		public function __construct($_apikey)
+		// declare variable
+		// you can replace null with your api code or your default linenumber
+		protected $apikey 	= '332F776565494F4D736446712F6D30553061767879673D3D';
+		public $linenumber 	= '10006660066600';
+		public $status 		= null;
+		public $msg 		= null;
+		const apipath 		= "http://api.kavenegar.com/v1/%s/%s/%s.json";
+
+		public function __construct($_apikey= null, $_sender= null)
 		{
-			$this->apikey = $_apikey;
+			$this->apikey 	= (is_null($_apikey)) ? $this->apikey : $_apikey;
+			$this->linenumber 	= (is_null($_sender)) ? $this->linenumber : $_sender;
 		}
-		private   function get_path($base,$method)
+
+		private function get_path($_method, $_base = 'sms')
 		{
-			return sprintf(self::apipath,$this->apikey,$base,$method);
+			return sprintf(self::apipath, $this->apikey, $_base,$_method);
 		}
-		private  function execute($url,$data)
+
+		private function execute($_url, $_data)
     	{
         	$headers = array (
             	'Accept: application/json',
             	'Content-Type: application/x-www-form-urlencoded',
         	);
-			$fields_string = "";
-			if(!is_null($data))
+			$fields_string = null;
+			if(!is_null($_data))
 			{
-				foreach($data as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+				foreach($_data as $key=>$value) { $fields_string.=$key.'='.$value.'&'; }
 				rtrim($fields_string, '&');
 			}
-			// var_dump($fields_string);
+			// for debug you can uncomment below line to see the send parameters
+			// var_dump($_data);
+
 			//======================================================================================//
         	$handle = curl_init();
-	        curl_setopt($handle, CURLOPT_URL, $url);
+	        curl_setopt($handle, CURLOPT_URL, $_url);
 	        curl_setopt($handle, CURLOPT_HTTPHEADER, $headers);
 	        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
 	        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
 	        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
 	        curl_setopt($handle, CURLOPT_POST, true);
 	        curl_setopt($handle, CURLOPT_POSTFIELDS, $fields_string);
-	        $response = curl_exec($handle);
-	        $code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+	        $response 	= curl_exec($handle);
+	        $mycode 	= curl_getinfo($handle, CURLINFO_HTTP_CODE);
+	        // check mycode in special situation, if has default code with status handle it
 	        curl_close ($handle);
 	        //=====================================================================================//
-	        $json_data = json_decode($response,true);
-			$json_return = $json_data["return"];
-	        if($json_return["status"] != 200) {
-	        	// throw new ApiException($json_return["message"], $json_return["status"]);
-	        	var_dump('Api Exception: '.$json_return["message"]. $json_return["status"]);
-	        }
-	        if($code != 200) {
- 				// throw new HttpExcetion("Request have errors", $code);
- 				var_dump('http: '.$code);
-	        }
+	        // for debug you can uncomment below line to see the result get from server
+	        // var_dump($response);
+	        if(!$response)
+			{
+				$this->status 	= -1;
+				$this->msg 		= null;
+				return 22;
+			}
+
+			$json_data		= json_decode($response,true);
+			$this->status	= $json_data["return"]["status"];
+			$this->msg		= $json_data["return"]["message"];
+
 	        return $json_data["entries"];
 	    }
- 		public function send($sender,$receptor,$message,$type = 1,$date = 0)
- 		{
- 			$receptors = $receptor;
- 			if(is_array($receptor))
- 			{
- 				$receptors = join(",",$receptor);
- 			}
-			$path =   $this->get_path("sms","send");
-			$params = array("message" => $message , "sender" => $sender , "receptor" => $receptors , "type" => $type,"date" => $date);
-			$json = $this->execute($path,$params);
-			$list = array();
-			if(is_array($json))
-			{
-				foreach($json as $item)
-				{
-					$result = new SendResult();
-					$result->set_messageid($item['messageid']);
-					$result->set_message($item['message']);
-					$result->set_receptor($item['receptor']);
-					$result->set_date($item['date']);
-					$result->set_cost($item['cost']);
-					$result->set_status($item['status']);
-					$result->set_statustext($item['statustext']);
-					array_push($list,$result);
-				}
-				// if($list)
-				if(is_array($receptor))
-				{
-					return $list;
-				}
-				else
-				{
-				    return $list[0];
-				}
-			}
-			else
-			{
-				var_dump("error");
-				// temporary
-				debug_lib::fatal("Send message failed! check api");
-			}
 
- 		}
-		public function send_array($sender,$receptors,$messages,$type=1,$date = 0)
+		public function send($_receptor, $_message, $_type= 1, $_date= 0, $_LocalMessageid= null)
 		{
-			$senders = array();
-			$types = array();
-			if(is_array($sender))
-			{
-				$senders = $sender;
-			} 
-			else
-			{
-				for ($i = 0; $i < count($receptors); $i++) {
-					array_push($senders,$sender);
-				}
-			}
-			if(is_array($type))
-			{
-				$types = $type;
-			} 
-			else
-			{
-				for ($i = 0; $i < count($receptors); $i++) {
-					array_push($types,$type);
-				}
-			}
+			$receptor 	= is_array($_receptor)? join(",", $_receptor): $_receptor;
+			$path 		= $this->get_path(__FUNCTION__);
+			$params 	= array(
+								 "receptor"			=> $receptor,
+								 "sender"			=> $this->linenumber,
+								 "message"			=> $_message,
+								 "type" 			=> $_type,
+								 "date" 			=> $_date,
+								 "LocalMessageid"	=> $_LocalMessageid
+								);
+			$json 		= $this->execute($path, $params);
 			
-			$path = $this->get_path("sms","sendarray");
-			$params = array("receptor" => json_encode($receptors) , "sender" => json_encode($senders) , "message" => json_encode($messages), "date" => $date , "type" => json_encode($types));
-			$json = $this->execute($path,$params);
-			$list = array();
-			foreach($json as $item)
-			{
-				$result = new SendResult();
-				$result->set_messageid($item['messageid']);
-				$result->set_message($item['message']);
-				$result->set_receptor($item['receptor']);
-				$result->set_date($item['date']);
-				$result->set_cost($item['cost']);
-				$result->set_status($item['status']);
-				$result->set_statustext($item['statustext']);
-				array_push($list,$result);
-			}
-			return $list;
-		}
-		public function select($ids) 
-		{
-			$id = $ids;
-			if(is_array($ids))
-			{
-				$id = join(",",$ids);
-			}
-			$path = $this->get_path("sms","select");
-			$json = $this->execute($path,array("messageid" => $id)); // @todo ********************************
-			$list = array();
-			foreach($json as $item)
-			{
-				$result = new SendResult();
-				$result->set_messageid($item['messageid']);
-				$result->set_message($item['message']);
-				$result->set_receptor($item['receptor']);
-				$result->set_date($item['date']);
-				$result->set_cost($item['cost']);
-				$result->set_status($item['status']);
-				$result->set_statustext($item['statustext']);
-				array_push($list,$result);
-			}
-			if(is_array($ids))
-			{
-				return $list;
-			}
+			if(!is_array($json))
+				return $this->status;
+
+			if(is_array($receptor))
+				return $json;
 			else
-			{
-			    return $list[0];
-			}
+			    return $json[0];
 		}
-		public function status($ids)
-		{
-			$id = $ids;
-			if(is_array($ids))
-			{
-				$id = join(",",$ids);
-			}
-			$path = $this->get_path("sms","status");
-			$json = $this->execute($path,array("messageid" => $id));
-			$list = array();
-			foreach($json as $item)
-			{
-				$result = new StatusResult();
-				$result->set_messageid($item['messageid']);
-				$result->set_status($item['status']);
-				$result->set_statustext($item['statustext']);
-				array_push($list,$result);
-			}
-			if(is_array($ids))
-			{
-				return $list;
-			}
+
+ 		public function sendarray($_sender, $_receptor, $_message, $_type= 1, $_date= 0)
+ 		{
+			$sender 	= array();
+			$message 	= array();
+			$type		= array();
+
+			if(is_array($_sender))
+				$sender = $_sender;
 			else
-			{
-			    return $list[0];
-			}
-		}
-		public function cancel($ids)
-		{
-			$id = $ids;
-			if(is_array($ids))
-			{
-				$id = join(",",$ids);
-			}
-			$path = $this->get_path("sms","cancel");
-			$json = $this->execute($path,array("messageid" => $id));
-			$list = array();
-			foreach($json as $item)
-			{
-				$result = new StatusResult();
-				$result->set_messageid($item['messageid']);
-				$result->set_status($item['status']);
-				$result->set_statustext($item['statustext']);
-				array_push($list,$result);
-			}
-			if(is_array($ids))
-			{
-				return $list;
-			}
+				for ($i = 0; $i < count($_receptor); $i++){
+					array_push($sender, $_sender);
+				}
+
+			if(is_array($_message))
+				$message = $_message;
 			else
-			{
-			    return $list[0];
-			}
-		}
-		public function unreads($linenumber,$isread=0)
+				for ($i = 0; $i < count($_receptor); $i++){
+					array_push($message, $_message);
+				}
+
+			if(is_array($_type))
+				$type 	= $_type;
+			else
+				for ($i = 0; $i < count($_receptor); $i++){
+					array_push($type, $_type);
+				}
+
+			$path 		= $this->get_path(__FUNCTION__);
+			$params 	= array( 
+								 "receptor" 		=> json_encode($_receptor),
+								 "sender"			=> json_encode($sender),
+								 "message" 			=> json_encode($message),
+								 "type" 			=> json_encode($type),
+								 "date" 			=> $_date
+								);
+			$json 		= $this->execute($path, $params);
+
+			if(!is_array($json))
+				return $this->status;
+
+			return $json;
+ 		}
+
+		public function select($_id)
 		{
-			$path = $this->get_path("sms","unreads");
-			$params = array("isread" => $isread , "linenumber" => $linenumber);
-			$json = $this->execute($path,$params);
-			$list  = array();
-			foreach($json as $item)
-			{
-				$result = new ReciveResult();
-				$result->set_messageid($item['messageid']);
-				$result->set_sender($item['sender']);
-				$result->set_receptor($item['receptor']);
-				$result->set_message($item['message']);
-				$result->set_date($item['date']);
-				array_push($list,$result);
-			}
-			return $list;
+			$id 	= is_array($_id)? join(",", $_id) : $_id;
+			$path 	= $this->get_path(__FUNCTION__);
+			$params	= array( "messageid" => $id);
+			$json 	= $this->execute($path, $params);
+
+			if(!is_array($json))
+				return $this->status;
+
+			if(is_array($receptor))
+				return $json;
+			else
+			    return $json[0];
 		}
+
+		public function selectoutbox($_startdate, $_enddate= null)
+		{
+			$path 	= $this->get_path(__FUNCTION__);
+			$params	= array(
+							 "startdate"	=> $_startdate,
+							 "enddate"		=> $_enddate
+							);
+			$json 	= $this->execute($path, $params);
+
+			if(!is_array($json))
+				return $this->status;
+
+			return $json;
+		}
+
+		public function latestoutbox($_pagesize = 10)
+		{
+			$path 	= $this->get_path(__FUNCTION__);
+			$params	= array( "pagesize" => $_pagesize);
+			$json 	= $this->execute($path, $params);
+
+			if(!is_array($json))
+				return $this->status;
+
+			return $json;
+		}
+
+		public function status($_id)
+		{
+			$id 	= is_array($_id)? join(",", $_id) : $_id;
+			$path 	= $this->get_path(__FUNCTION__);
+			$params	= array( "messageid" => $id);
+			$json 	= $this->execute($path, $params);
+
+			if(!is_array($json))
+				return $this->status;
+
+			if(is_array($_id))
+				return $json;
+			else
+			    return $json[0];
+		}
+
+		public function cancel($_id)
+		{
+			$id 	= is_array($_id)? join(",", $_id) : $_id;
+			$path 	= $this->get_path(__FUNCTION__);
+			$params	= array( "messageid" => $id);
+			$json 	= $this->execute($path, $params);
+
+			if(!is_array($json))
+				return $this->status;
+
+			if(is_array($_id))
+				return $json;
+			else
+			    return $json[0];
+		}
+
+		public function unreads($_linenumber= null, $_isread= 0)
+		{
+			$_linenumber	= is_null($_linenumber)? $this->linenumber: $_linenumber;
+			$path 			= $this->get_path(__FUNCTION__);
+			$params			= array(
+									 "isread"		=> $_isread,
+									 "linenumber"	=> $_linenumber
+									);
+			$json 			= $this->execute($path, $params);
+
+			if(!is_array($json))
+				return $this->status;
+
+			return $json;
+		}
+
 		public function account_info()
 		{
-			$path = $this->get_path("account","info");
-			$json = $this->execute($path,null);
-			$result = new AccountInfoResult();
-			$result->set_type($json['type']);
-			$result->set_credit($json['remaincredit']);
-			$result->set_expiredate($json['expiredate']);
-			return result;
+			$path 		= $this->get_path('info','account');
+			$json 		= $this->execute($path, null);
+
+			if(!is_array($json))
+				return $this->status;
+
+			return $json;
 		}
-	}	
-
+	}
 ?>
-

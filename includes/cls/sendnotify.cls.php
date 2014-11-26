@@ -1,16 +1,16 @@
 <?php
 class sendnotify_cls
 {
-	function email($tmp_email, $tmp_code, $tmp_url)
+	function email($_email, $_code, $_url)
 	{
 		// $sendnotify = new sendnotify_cls;
 		// $sendnotify->email("email","code","url");
 
-		debug_lib::true("Send Email".$tmp_email.' :: '.$tmp_code.' :: '.$tmp_url);
+		debug_lib::true("Send Email".$_email.' :: '.$_code.' :: '.$_url);
 
-		$myemail	= $tmp_email;
-		$mycode		= $tmp_code;
-		$myurl		= $tmp_url;
+		$myemail	= $_email;
+		$mycode		= $_code;
+		$myurl		= $_url;
 
 		// *******************************************Send Email
 		$to      = "$myemail";
@@ -22,9 +22,9 @@ class sendnotify_cls
 
 		$message .= '<h1>Jibres</h1><hr />';
 		$message .= "<p>Please click the following link to verify your e-mail address and set a password of your choosing.";
-		$message .= " Alternatively you can copy-paste the link into your browser's address bar or verify code: $tmp_code.<br /><br />";
-		$message .= '<p style="direction:ltr"><a href="http://dev.samac.ir/accounts/recovery/'. $tmp_url .
-					'">http://dev.samac.ir/accounts/recovery/'. $tmp_url .'</a></p>';
+		$message .= " Alternatively you can copy-paste the link into your browser's address bar or verify code: $_code.<br /><br />";
+		$message .= '<p style="direction:ltr"><a href="http://dev.samac.ir/accounts/recovery/'. $_url .
+					'">http://dev.samac.ir/accounts/recovery/'. $_url .'</a></p>';
 
 		$message .= '<br /><p>Best regards, Samac Team</p>';
 		$message .= '</body></html>';
@@ -32,43 +32,46 @@ class sendnotify_cls
 		mail($to, '=?UTF-8?B?'.base64_encode($subject).'?=', $message, $headers);
 	}
 
-	function sms($tmp_mobile, $tmp_code)
+	function sms($_mobile, $_code, $_status)
 	{
-		// $sendnotify = new sendnotify_cls;
-		// $sendnotify->sms("mobile","code");
+		$mymessage = 'جیبرس'."\n";
+		switch ($_status) 
+		{
+			case 'signup':
+				$mymessage .= 'کد فعال سازی اکانت شما '.$_code.' می باشد.';
+				break;
 
-		// debug_lib::true("Send SMS".$tmp_mobile.' :: '.$tmp_code);
+			case 'recovery':
+				$mymessage .= 'کد بازیابی کلمه عبور شما '.$_code.' می‌باشد.';
+				break;
+			
+			default:
+				$mymessage .= 'وضعیت مشخص نیست! لطفا این پیغام را به بخش پشتیبانی اطلاع دهید!!';
+				break;
+		}
+		$mymessage .= "\n\n".'Jibres.com';
 
+		if(substr($_mobile,0,3)=='+98')
+			$iran = true;
+
+		if($iran)
+		{
 			require(cls."/Kavenegar/KavenegarApi.php");
 
-			$api = new KavenegarApi("332F776565494F4D736446712F6D30553061767879673D3D");
-			$result = $api->send("10008642","09357269759","جیبرس\n\n"."کد فعال سازی شما: ".$tmp_code);
+			$api = new KavenegarApi();
+			$result = $api->send($_mobile, $mymessage);
+			// $result = $api->select(27657835);
+			// $result = $api->cancel(27657835);
+			// $result = $api->selectoutbox(1410570000);
+			// $result = $api->account_info();
 			
-			// debug_lib::true($result);
-		// try
-		// {	
-		// }
-		// catch(ApiException $ex)
-		// {
-		// 	var_dump('error-Api');
-		// 	// echo $ex->errorMessage();
-		// }
-		// catch(HttpException $ex)
-		// {
-		// 	var_dump('error-http');
-		// 	// echo $ex->errorMessage();
-		// }
-		
-	}
-
-	function sms_iran()
-	{
-
-	}
-
-	function sms_other()
-	{
-
+			// var_dump($result);
+			// exit();
+		}
+		else
+		{
+			debug_lib::fatal('Now we only support Iran!');
+		}
 	}
 }
 ?>
