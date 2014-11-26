@@ -29,7 +29,7 @@ class model extends main_model
 
 			//Send SMS
 			$sendnotify = new sendnotify_cls;
-			$sendnotify->sms($mymobile, $mycode, config_lib::$method);
+			$sendnotify->sms($mymobile, $mycode);
 
 			// ======================================================
 			// you can manage next event with one of these variables,

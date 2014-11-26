@@ -6,7 +6,7 @@ class model extends main_model
 		// for debug you can uncomment below line to disallow redirect
 		// $this->redirect		= false;
 		$mymobile			= str_replace(' ', '', post::mobile());
-		$mypass				= post::password();
+		$mypass				= post::pass();
 		$tmp_result			=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
 		
 		if($tmp_result->num() == 1)
@@ -37,7 +37,7 @@ class model extends main_model
 
 			//Send SMS
 			$sendnotify = new sendnotify_cls;
-			$sendnotify->sms($mymobile, $mycode, config_lib::$method);
+			$sendnotify->sms($mymobile, $mycode);
 
 
 			// ======================================================

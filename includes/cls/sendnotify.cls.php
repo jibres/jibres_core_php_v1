@@ -1,15 +1,15 @@
 <?php
 class sendnotify_cls
 {
-	function email($_email, $_code, $_url)
+	function email($_email, $_param, $_url)
 	{
 		// $sendnotify = new sendnotify_cls;
 		// $sendnotify->email("email","code","url");
 
-		debug_lib::true("Send Email".$_email.' :: '.$_code.' :: '.$_url);
+		debug_lib::true("Send Email".$_email.' :: '.$_param.' :: '.$_url);
 
 		$myemail	= $_email;
-		$mycode		= $_code;
+		$mycode		= $_param;
 		$myurl		= $_url;
 
 		// *******************************************Send Email
@@ -22,7 +22,7 @@ class sendnotify_cls
 
 		$message .= '<h1>Jibres</h1><hr />';
 		$message .= "<p>Please click the following link to verify your e-mail address and set a password of your choosing.";
-		$message .= " Alternatively you can copy-paste the link into your browser's address bar or verify code: $_code.<br /><br />";
+		$message .= " Alternatively you can copy-paste the link into your browser's address bar or verify code: $_param.<br /><br />";
 		$message .= '<p style="direction:ltr"><a href="http://dev.samac.ir/accounts/recovery/'. $_url .
 					'">http://dev.samac.ir/accounts/recovery/'. $_url .'</a></p>';
 
@@ -32,24 +32,32 @@ class sendnotify_cls
 		mail($to, '=?UTF-8?B?'.base64_encode($subject).'?=', $message, $headers);
 	}
 
-	function sms($_mobile, $_code, $_status)
+	function sms($_mobile, $_param, $_status= null)
 	{
-		$mymessage = 'جیبرس'."\n";
+		$_status	= is_null($_status)? config_lib::$method: $_status;
+		// var_dump(config_lib::$method);
+		// exit();
+		$mymessage	= 'جیبرس'."\n";
 		switch ($_status) 
 		{
 			case 'signup':
-				$mymessage .= 'کد فعال سازی اکانت شما '.$_code.' می باشد.';
+				$mymessage .= 'کد فعال سازی حساب کاربری شما '.$_param.' می باشد.';
 				break;
 
 			case 'recovery':
-				$mymessage .= 'کد بازیابی کلمه عبور شما '.$_code.' می‌باشد.';
+				$mymessage .= 'کد بازیابی کلمه عبور شما '.$_param.' می‌باشد.';
 				break;
-			
+
+			case 'verification':
+				$mymessage .= 'اعتبارسنجی حساب کاربری شما با موفقیت انجام شد.';
+				break;
+
 			default:
 				$mymessage .= 'وضعیت مشخص نیست! لطفا این پیغام را به بخش پشتیبانی اطلاع دهید!!';
 				break;
 		}
 		$mymessage .= "\n\n".'Jibres.com';
+		// var_dump($mymessage);
 
 		if(substr($_mobile,0,3)=='+98')
 			$iran = true;

@@ -21,6 +21,9 @@ class model extends main_model
 							->andVerification_code($mycode);
 			$sql		= $qry->update();
 
+			//Send SMS
+			$sendnotify = new sendnotify_cls;
+			$sendnotify->sms($mymobile);
 
 			// ======================================================
 			// you can manage next event with one of these variables,
@@ -29,8 +32,8 @@ class model extends main_model
 			// if query run without error means commit
 			$this->commit(function($parameter)
 			{
-				debug_lib::true("Verify successfully");
 				$this->redirect('/login?mobile='.(substr($parameter,1)));
+				debug_lib::true("Verify successfully");
 			}, $mymobile);
 
 			// if a query has error or any error occour in any part of codes, run roolback
