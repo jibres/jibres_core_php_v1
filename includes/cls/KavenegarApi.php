@@ -60,6 +60,7 @@ How to Use:
         	$headers = array (
             	'Accept: application/json',
             	'Content-Type: application/x-www-form-urlencoded',
+            	'charset: utf-8'
         	);
 			$fields_string = null;
 			if(!is_null($_data))

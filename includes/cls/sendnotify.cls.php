@@ -45,7 +45,7 @@ class sendnotify_cls
 				break;
 
 			case 'recovery':
-				$mymessage .= 'کد بازیابی کلمه عبور شما '.$_param.' می‌باشد.';
+				$mymessage .= 'کد بازیابی کلمه عبور شما '.$_param.' میباشد.';
 				break;
 
 			case 'verification':
@@ -57,7 +57,7 @@ class sendnotify_cls
 				break;
 		}
 		$mymessage .= "\n\n".'Jibres.com';
-		// var_dump($mymessage);
+		// var_dump($mymessage); exit();
 
 		if(substr($_mobile,0,3)=='+98')
 			$iran = true;
