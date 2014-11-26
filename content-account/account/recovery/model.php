@@ -39,7 +39,7 @@ class model extends main_model
 			$this->commit(function($parameter, $parameter2)
 			{
 				debug_lib::true("Step 1 of 2 is complete. Please check your mobile to continue");
-				// $this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
+				$this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
 				
 
 			}, $mymobile, $mycode);

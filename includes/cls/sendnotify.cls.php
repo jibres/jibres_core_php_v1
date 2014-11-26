@@ -56,7 +56,7 @@ class sendnotify_cls
 
 		if($iran)
 		{
-			require(cls."/Kavenegar/KavenegarApi.php");
+			require(cls."/KavenegarApi.php");
 
 			$api = new KavenegarApi();
 			$result = $api->send($_mobile, $mymessage);

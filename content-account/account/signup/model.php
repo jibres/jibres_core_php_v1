@@ -4,7 +4,7 @@ class model extends main_model
 	function post_signup()
 	{
 		// for debug you can uncomment below line to disallow redirect
-		// $this->redirect	= false;
+		// $this->redirect		= false;
 		$mymobile			= str_replace(' ', '', post::mobile());
 		$mypass				= post::password();
 		$tmp_result			=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
