@@ -11,10 +11,24 @@ class controller extends main_controller
 			),
 			function()
 			{
-				header("location: http://account.".DOMAIN."/login");
+				header("location: http://account.".URL_RAW."/login");
 				exit();
 			}
 		);
+
+		// ----------------------------------------- logout
+		$this->listen(
+			array(
+				"max" => 1,
+				"url" => "logout"
+			),
+			function()
+			{
+				header("location: http://account.".URL_RAW."/logout");
+				exit();
+			}
+		);
+		
 		// ----------------------------------------- signup
 		$this->listen(
 			array(
@@ -23,7 +37,7 @@ class controller extends main_controller
 			),
 			function()
 			{
-				header("location: http://account.".DOMAIN."/signup");
+				header("location: http://account.".URL_RAW."/signup");
 				exit();
 			}
 		);

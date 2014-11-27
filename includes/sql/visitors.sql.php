@@ -9,7 +9,7 @@ class visitors
 	public $visitor_referer = array('type' => 'varchar@255', 'null'=>'YES', 'show'=>'YES', 'label'=>'Referer');
 	public $visitor_robot = array('type' => 'enum@yes,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Robot');
 	public $user_id = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
-	public $visitor_datetime = array('type' => 'datetime@', 'null'=>'NO', 'show'=>'YES', 'label'=>'Datetime');
+	public $visitor_datetime = array('type' => 'datetime@!CURRENT_TIMESTAMP', 'null'=>'NO', 'show'=>'YES', 'label'=>'Datetime');
 	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
