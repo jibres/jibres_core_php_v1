@@ -415,8 +415,8 @@ class mvcModel_cls{
 			// return -1;
 		});
 
-		var_dump($sql);
-		exit();
+		// var_dump($sql);
+		// exit();
 		return $sql;
 	}
 }
