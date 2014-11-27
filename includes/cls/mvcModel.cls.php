@@ -361,7 +361,6 @@ class mvcModel_cls{
 		$referer = isset($_SERVER['HTTP_REFERER'])? $_SERVER['HTTP_REFERER']: null;
 		$agent = $_SERVER['HTTP_USER_AGENT'];
 		$robot = 'no';
-
 		$botlist = array("Teoma", "alexa", "froogle", "Gigabot", "inktomi",
 			"looksmart", "URL_Spider_SQL", "Firefly", "NationalDirectory",
 			"Ask Jeeves", "TECNOSEEK", "InfoSeek", "WebFindBot", "girafabot",
@@ -375,7 +374,7 @@ class mvcModel_cls{
 			if(strpos($_SERVER['HTTP_USER_AGENT'], $bot) !== false)
 				$robot = 'yes';
 		}
-
+		$now = new DateTime();
 		$userid = isset($_SESSION['user']['id'])? $_SESSION['user']['id']: null;
 
 		$qry		= $this->sql()->tableVisitors()
@@ -384,7 +383,7 @@ class mvcModel_cls{
 						->setVisitor_agent(urlencode($agent))
 						->setVisitor_referer(urlencode($referer))
 						->setVisitor_robot($robot)
-						->setVisitor_datetime($_SERVER['REQUEST_TIME'])
+						->setVisitor_datetime($now->format('Y-m-d H:i:s'))
 						->setUser_id($userid);
 		$sql		= $qry->insert();
 
