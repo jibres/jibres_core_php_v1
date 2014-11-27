@@ -1,21 +1,6 @@
 <?php
-class controller extends mvcController_cls
+class controller extends main_controller
 {
-	function config(){
-		// ----------------------------------------- logout
-		$this->listen(
-			array(
-				"url" => array("account", "logout")
-				),
-			function()
-			{
-				session_unset(); 
-				session_destroy();
-				header("location: "."/login");
-				exit();
-			}
-			);
-	}
-
+	
 }
 ?>
