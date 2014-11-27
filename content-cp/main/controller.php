@@ -5,7 +5,7 @@ class main_controller extends mvcController_cls
 	{
 		if($this->login())
 		{
-			var_dump($_SESSION['user']['nickname']);
+			var_dump( 'User Logined to system. Nickname: ' . $_SESSION['user']['nickname'] );
 		}
 		else
 		{
