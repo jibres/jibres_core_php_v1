@@ -378,19 +378,13 @@ class mvcModel_cls{
 
 		$userid = isset($_SESSION['user']['id'])? $_SESSION['user']['id']: null;
 
-		// var_dump( $_SERVER['REQUEST_TIME']);
-		// $now = new DateTime();
-		// echo $now->format('Y-m-d H:i:s');    // MySQL datetime format
-		// echo $now->getTimestamp();           // Unix Timestamp -- Since PHP 5.3
-
-		// exit();
-
 		$qry		= $this->sql()->tableVisitors()
 						->setVisitor_ip($ip)
 						->setVisitor_url(urlencode($url))
 						->setVisitor_agent(urlencode($agent))
 						->setVisitor_referer(urlencode($referer))
 						->setVisitor_robot($robot)
+						->setVisitor_datetime($_SERVER['REQUEST_TIME'])
 						->setUser_id($userid);
 		$sql		= $qry->insert();
 
