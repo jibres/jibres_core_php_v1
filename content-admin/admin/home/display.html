@@ -1,6 +1,7 @@
 {%extends layout%}
 {%block content%}
-	<p class="alert alert-block alert-success">You can manage system
+	<p class="alert alert-block alert-success">
+	<a href="{{url.root}}logout">Logout</a>
 	<a class="float-right" href="{{url.root}}">Home</a></p>
 	<ul>
 		{% for i in tmp %}

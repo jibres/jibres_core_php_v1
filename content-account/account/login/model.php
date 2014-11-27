@@ -24,6 +24,7 @@ class model extends main_model
 				{
 					$_SESSION['user'][$value]	= $tmp_result['user_'.$value];
 				}
+				$_SESSION['user']['id']	= $tmp_result['id'];
 				$_SESSION['user']['permission_id']	= $tmp_result['permission_id'];
 				
 				debug_lib::true("Login successfully");
