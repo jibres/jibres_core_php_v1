@@ -160,7 +160,7 @@ class mvcController_cls{
 
 	function login()
 	{
-		return (isset($_SESSION['login'])?$_SESSION['login']:false);
+		return (isset($_SESSION['user'])? true: false);
 	}
 
 	static public function slugify($text)

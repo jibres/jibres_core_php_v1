@@ -7,7 +7,7 @@ class banks
 	public $bank_slug = array('type' => 'varchar@50', 'null'=>'NO', 'show'=>'YES', 'label'=>'Slug');
 	public $bank_website = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'NO', 'label'=>'Website');
 	public $bank_active = array('type' => 'enum@yes,no!yes', 'null'=>'NO', 'show'=>'YES', 'label'=>'Active');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

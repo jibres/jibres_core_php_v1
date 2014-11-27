@@ -13,7 +13,7 @@ class posts
 	public $user_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
 	public $attachment_id = array('type' => 'int@10', 'null'=>'YES', 'show'=>'YES', 'label'=>'Attachment', 'foreign'=>'attachments@id!attachment_title');
 	public $post_publishdate = array('type' => 'datetime@', 'null'=>'YES', 'show'=>'YES', 'label'=>'Publishdate');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

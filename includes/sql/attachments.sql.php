@@ -11,7 +11,7 @@ class attachments
 	public $attachment_size = array('type' => 'float@12,0', 'null'=>'NO', 'show'=>'YES', 'label'=>'Size');
 	public $attachment_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
 	public $user_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

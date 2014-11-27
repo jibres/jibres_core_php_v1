@@ -361,26 +361,21 @@ class mvcModel_cls{
 		$referer = isset($_SERVER['HTTP_REFERER'])? $_SERVER['HTTP_REFERER']: null;
 		$agent = $_SERVER['HTTP_USER_AGENT'];
 		$robot = 'no';
-
 		$botlist = array("Teoma", "alexa", "froogle", "Gigabot", "inktomi",
-		"looksmart", "URL_Spider_SQL", "Firefly", "NationalDirectory",
-		"Ask Jeeves", "TECNOSEEK", "InfoSeek", "WebFindBot", "girafabot",
-		"crawler", "www.galaxy.com", "Googlebot", "Scooter", "Slurp",
-		"msnbot", "appie", "FAST", "WebBug", "Spade", "ZyBorg", "rabaz",
-		"Baiduspider", "Feedfetcher-Google", "TechnoratiSnoop", "Rankivabot",
-		"Mediapartners-Google", "Sogou web spider", "WebAlta Crawler","TweetmemeBot",
-		"Butterfly","Twitturls","Me.dium","Twiceler");
+			"looksmart", "URL_Spider_SQL", "Firefly", "NationalDirectory",
+			"Ask Jeeves", "TECNOSEEK", "InfoSeek", "WebFindBot", "girafabot",
+			"crawler", "www.galaxy.com", "Googlebot", "Scooter", "Slurp",
+			"msnbot", "appie", "FAST", "WebBug", "Spade", "ZyBorg", "rabaz",
+			"Baiduspider", "Feedfetcher-Google", "TechnoratiSnoop", "Rankivabot",
+			"Mediapartners-Google", "Sogou web spider", "WebAlta Crawler","TweetmemeBot",
+			"Butterfly","Twitturls","Me.dium","Twiceler");
 		foreach($botlist as $bot)
 		{
 			if(strpos($_SERVER['HTTP_USER_AGENT'], $bot) !== false)
 				$robot = 'yes';
 		}
-
-		$userid = null;
-		if($this->login && isset($_SESSION['user']) && isset($_SESSION['user']['id']) )
-		{
-			$userid = $_SESSION['user']['id'];
-		}
+		$now = new DateTime();
+		$userid = isset($_SESSION['user']['id'])? $_SESSION['user']['id']: null;
 
 		$qry		= $this->sql()->tableVisitors()
 						->setVisitor_ip($ip)
@@ -388,12 +383,13 @@ class mvcModel_cls{
 						->setVisitor_agent(urlencode($agent))
 						->setVisitor_referer(urlencode($referer))
 						->setVisitor_robot($robot)
+						->setVisitor_datetime($now->format('Y-m-d H:i:s'))
 						->setUser_id($userid);
 		$sql		= $qry->insert();
+
 		$sQl = new dbconnection_lib;
 		$sQl->query("COMMIT");
 		$sQl->query("START TRANSACTION");
-
 	}
 }
 ?>

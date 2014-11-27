@@ -5,7 +5,7 @@ class errorlogs
 	public $id = array('type' => 'int@10', 'null'=>'NO', 'show'=>'NO', 'label'=>'ID');
 	public $user_id = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
 	public $errorlog_id = array('type' => 'smallint@5', 'null'=>'NO', 'show'=>'YES', 'label'=>'Errorlog', 'foreign'=>'errorlogs@id!errorlog_title');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

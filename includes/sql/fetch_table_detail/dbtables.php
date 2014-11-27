@@ -93,6 +93,8 @@ function setproperty($myparam)
 
 
 		case 'datetime':
+		case 'date':
+		case 'time':
 			return $tmp;
 			break;
 
@@ -126,7 +128,9 @@ function setproperty($myparam)
 			// $property		= setproperty($crow);
 			$property		= "";
 			$property_type	= "";
-			foreach (setproperty($crow) as $key => $value) 
+			$tmp_result		= setproperty($crow);
+			// var_dump($tmp_result);
+			foreach ($tmp_result as $key => $value) 
 			{
 				if( substr($value, 0, 6)=='->type' )
 				{

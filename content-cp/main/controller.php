@@ -10,7 +10,8 @@ class main_controller extends mvcController_cls
 		else
 		{
 			//redirect to login
-			var_dump('redirect to login');
+			header("Location: http://".URL_RAW."/login");
+			exit();
 		}
 
 		if (config_lib::$method)

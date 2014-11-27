@@ -34,7 +34,7 @@ class users
 	public $user_extra = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'NO', 'label'=>'Extra');
 	public $user_logincount = array('type' => 'int@10', 'null'=>'NO', 'show'=>'NO', 'label'=>'User Logincount');
 	public $permission_id = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Permission', 'foreign'=>'permissions@id!permission_title');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

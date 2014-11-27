@@ -7,7 +7,7 @@ class usermeta
 	public $usermeta_cat = array('type' => 'varchar@50', 'null'=>'YES', 'show'=>'YES', 'label'=>'Cat');
 	public $usermeta_name = array('type' => 'varchar@100', 'null'=>'YES', 'show'=>'YES', 'label'=>'Name');
 	public $usermeta_value = array('type' => 'varchar@999', 'null'=>'YES', 'show'=>'YES', 'label'=>'Value');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

@@ -8,7 +8,7 @@ class terms
 	public $term_desc = array('type' => 'varchar@200', 'null'=>'NO', 'show'=>'NO', 'label'=>'Description');
 	public $term_father = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Father');
 	public $term_type = array('type' => 'enum@cat,tag!cat', 'null'=>'NO', 'show'=>'YES', 'label'=>'Type');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

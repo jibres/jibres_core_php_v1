@@ -12,7 +12,7 @@ class productprices
 	public $productprice_price = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Price');
 	public $productprice_discount = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Discount');
 	public $productprice_vat = array('type' => 'decimal@6,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Vat');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
