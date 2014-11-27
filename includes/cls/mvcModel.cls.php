@@ -390,34 +390,10 @@ class mvcModel_cls{
 						->setVisitor_robot($robot)
 						->setUser_id($userid);
 		$sql		= $qry->insert();
+		$sQl = new dbconnection_lib;
+		$sQl->query("COMMIT");
+		$sQl->query("START TRANSACTION");
 
-
-		// ======================================================
-		// you can manage next event with one of these variables,
-		// commit for successfull and rollback for failed
-		//
-		// if query run without error means commit
-		$this->commit(function()
-		{
-			// debug_lib::true("Step 1 of 2 is complete. Please check your mobile to continue");
-			// $this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
-			// return 1;
-			var_dump("ok");
-			
-
-		});
-
-		// if a query has error or any error occour in any part of codes, run roolback
-		$this->rollback(function()
-		{
-			// debug_lib::fatal("Recovery failed!");
-			var_dump("nokat");
-			// return -1;
-		});
-
-		// var_dump($sql);
-		// exit();
-		return $sql;
 	}
 }
 ?>

@@ -1,9 +1,15 @@
 <?php
 class main_controller extends mvcController_cls
 {
+	
 
 	function options()
 	{
+		if(preg_match("/^(?<!login)$/", "asdf")){
+			var_dump(20);
+		}else{
+			var_dump(40);
+		}
 		if($this->login())
 		{
 			//redirect to cp
