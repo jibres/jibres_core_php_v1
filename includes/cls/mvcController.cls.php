@@ -20,7 +20,9 @@ class mvcController_cls{
 		 */
 		// add user defined method for use in view, model and controller
 
-		
+		// set visitor detail in visitor table
+		$tmp_result = $this->sql("#addVisitor");
+
 		$this->addMethod('url_table_prefix');
 		$this->addMethod('url_parameter');
 		$this->addMethod('url_title');

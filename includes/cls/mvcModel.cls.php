@@ -350,5 +350,119 @@ class mvcModel_cls{
 		}
 		return $string;
 	}
+
+	public function sql_addVisitor()
+	{
+		// this function add each visitor detail in visitors table
+		// var_dump($_SERVER['REMOTE_ADDR']);
+
+
+		if (!empty($_SERVER["HTTP_CLIENT_IP"]))
+		{
+		 //check for ip from share internet
+		 $ip = $_SERVER["HTTP_CLIENT_IP"];
+		}
+		elseif (!empty($_SERVER["HTTP_X_FORWARDED_FOR"]))
+		{
+		 // Check for the Proxy User
+		 $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+		}
+		else
+		{
+		 $ip = $_SERVER["REMOTE_ADDR"];
+		}
+
+		// This will print user's real IP Address
+		// does't matter if user using proxy or not.
+		var_dump( $ip );
+
+
+
+
+
+	$ref		=$_SERVER['HTTP_REFERER'];
+	$agent		=$_SERVER['HTTP_USER_AGENT'];
+	$ip			=$_SERVER['REMOTE_ADDR'];
+	$host_name	= gethostbyaddr($_SERVER['REMOTE_ADDR']);
+
+	var_dump($ref);
+	var_dump($agent);
+	var_dump($ip);
+	var_dump($host_name);
+	var_dump($_SERVER['REQUEST_TIME']);
+
+
+$ipaddress = $_SERVER['REMOTE_ADDR'];
+$page = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}";
+$page .= (!empty($_SERVER['QUERY_STRING'])? "?{$_SERVER['QUERY_STRING']}": "");
+$referrer = $_SERVER['HTTP_REFERER'];
+$datetime = mktime();
+$useragent = $_SERVER['HTTP_USER_AGENT'];
+$remotehost = @getHostByAddr($ipaddress);
+
+
+var_dump($ipaddress);
+var_dump($page);
+var_dump($referrer);
+var_dump($datetime);
+var_dump($useragent);
+var_dump($remotehost);
+
+
+
+		$ip = $this->get_client_ip();
+	    var_dump($ip);
+
+		exit();
+
+		// return $this->sql()->tableVisitors()->select()->allassoc();
+		$qry		= $this->sql()->tableVisitors()
+						->setVisitor_ip( $this->get_client_ip() )
+						->setVisitor_agent()
+						->setVisitor_refer()
+						->setUser_id();
+		$sql		= $qry->insert();
+
+		// ======================================================
+		// you can manage next event with one of these variables,
+		// commit for successfull and rollback for failed
+		//
+		// if query run without error means commit
+		$this->commit(function()
+		{
+			debug_lib::true("Step 1 of 2 is complete. Please check your mobile to continue");
+			// $this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
+			
+
+		});
+
+		// if a query has error or any error occour in any part of codes, run roolback
+		$this->rollback(function()
+		{
+			debug_lib::fatal("Recovery failed!");
+		});
+	}
+
+	// Function to get the client IP address
+	function get_client_ip() {
+	    $ipaddress = '';
+	    if (getenv('HTTP_CLIENT_IP'))
+	        $ipaddress = getenv('HTTP_CLIENT_IP');
+	    else if(getenv('HTTP_X_FORWARDED_FOR'))
+	        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+	    else if(getenv('HTTP_X_FORWARDED'))
+	        $ipaddress = getenv('HTTP_X_FORWARDED');
+	    else if(getenv('HTTP_FORWARDED_FOR'))
+	        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+	    else if(getenv('HTTP_FORWARDED'))
+	       $ipaddress = getenv('HTTP_FORWARDED');
+	    else if(getenv('REMOTE_ADDR'))
+	        $ipaddress = getenv('REMOTE_ADDR');
+	    else
+	        $ipaddress = 'UNKNOWN';
+	    return $ipaddress;
+	}
+
+
 }
 ?>
