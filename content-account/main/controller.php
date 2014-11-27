@@ -1,21 +1,14 @@
 <?php
-class main_controller extends mvcController_cls
-{
-	
-
-	function options()
-	{
-		if(preg_match("/^(?<!login)$/", "asdf")){
-			var_dump(20);
-		}else{
-			var_dump(40);
-		}
-		if($this->login())
-		{
-			//redirect to cp
-			// var_dump('user login to system: redirect to cp');
-			// $this->redirect->urlChange()->subdomain("cp");
-			// var_dump($_SESSION['user'] );
+class main_controller extends mvcController_cls{
+	function options(){
+		if(!$this->login()){
+			$this->listen(array(
+				"real_url" => array("/^(?!login)/")
+					),
+				function(){
+					header("Location: /login");
+					exit();
+				});
 		}
 	}
 }

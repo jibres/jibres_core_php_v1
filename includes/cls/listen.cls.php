@@ -45,12 +45,6 @@ class listen_cls{
 				$this->cond = false;
 				break;
 			}
-			/*if(($this->static === true || $this->static === 1) && $array == config_lib::$surl){
-				if(!isset(config_lib::$aurl[$k]) || config_lib::$aurl[$k] != "$key=".config_lib::$surl[$key]){
-					$this->cond = false;
-					break;
-				}
-			}*/
 			$this->checkUrlReg($value, $array[$key]);
 			$k++;
 		}
@@ -66,35 +60,46 @@ class listen_cls{
 		}
 	}
 
-	function domain($domainParameters){
-		if(!is_array($domainParameters)){
-			$this->checkSubdomain($domainParameters, config_lib::$subdomain);
+	function real_url($url_Parameters){
+		$this->parametersCaller($url_Parameters, config_hendel_lib::$real_url);
+	}
+
+	function domain($domain_Parameters){
+		$this->parametersCaller($domain_Parameters, config_hendel_lib::$a_domain, '.');
+	}
+
+	function func($f){
+		if(!call_user_func($f)){
+			$this->cond = false;
+		}
+	}
+
+	/**
+	 * 
+	 */
+
+	function parametersCaller($parameters, $array, $join = "/"){
+		if(!is_array($parameters)){
+			$this->check_parameters($parameters, join($array, $join));
 			return;
 		}
 		$k = 0;
-		foreach ($domainParameters as $key => $value) {
-			$array = config_lib::$aSubdomain;
+		foreach ($parameters as $key => $value) {
 			if(!isset($array[$key])){
 				$this->cond = false;
 				break;
 			}
-			$this->checkSubdomain($value, $array[$key]);
+			$this->check_parameters($value, $array[$key]);
 			$k++;
 		}
 	}
 
-	function checkSubdomain($reg, $value){
+	function check_parameters($reg, $value){
 		if(preg_match("/^(\/.*\/|#.*#|[.*])[gui]{0,3}$/i", $reg)){
 			if(!preg_match($reg, $value)){
 				$this->cond = false;
 			}
 		}elseif($reg != $value){
-			$this->cond = false;
-		}
-	}
-
-	function func($f){
-		if(!call_user_func($f)){
 			$this->cond = false;
 		}
 	}
