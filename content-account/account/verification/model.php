@@ -21,9 +21,6 @@ class model extends main_model
 							->andVerification_code($mycode);
 			$sql		= $qry->update();
 
-			//Send SMS
-			$sendnotify = new sendnotify_cls;
-			$sendnotify->sms($mymobile);
 
 			// ======================================================
 			// you can manage next event with one of these variables,
@@ -32,6 +29,10 @@ class model extends main_model
 			// if query run without error means commit
 			$this->commit(function($parameter)
 			{
+				//Send SMS
+				$sendnotify = new sendnotify_cls;
+				$sendnotify->sms($mymobile);
+				
 				$this->redirect('/login?mobile='.(substr($parameter,1)));
 				debug_lib::true("Verify successfully");
 			}, $mymobile);

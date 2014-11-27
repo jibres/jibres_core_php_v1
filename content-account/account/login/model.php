@@ -27,12 +27,11 @@ class model extends main_model
 				$_SESSION['user']['permission_id']	= $tmp_result['permission_id'];
 				
 				debug_lib::true("Login successfully");
-				$this->redirect->urlChange()->subdomain("cp");
+				$this->redirect('/');
 			}
 			else
 			{
 				// password is incorrect
-				// unset($_SESSION['user']);
 				debug_lib::fatal("Password is incorrect");
 			}
 		}

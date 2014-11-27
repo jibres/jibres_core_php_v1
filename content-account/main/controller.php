@@ -13,7 +13,7 @@ class main_controller extends mvcController_cls
 			{
 				session_unset(); 
 				session_destroy();
-				header("location: "."/login");
+				header("location: http://".URL_RAW);
 				exit();
 			}
 			);
@@ -25,7 +25,7 @@ class main_controller extends mvcController_cls
 		{
 			if(config_lib::$method!='verification')
 			{
-				header("Location: http://cp.".URL_RAW."");
+				header("Location: http://".URL_RAW);
 				exit();
 			}
 		}

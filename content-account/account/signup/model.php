@@ -35,9 +35,6 @@ class model extends main_model
 							->setVerification_verified('no');
 			$sql		= $qry->insert();
 
-			//Send SMS
-			$sendnotify = new sendnotify_cls;
-			$sendnotify->sms($mymobile, $mycode);
 
 
 			// ======================================================
@@ -47,6 +44,10 @@ class model extends main_model
 			// if query run without error means commit
 			$this->commit(function($parameter, $parameter2)
 			{
+				//Send SMS
+				$sendnotify = new sendnotify_cls;
+				$sendnotify->sms($mymobile, $mycode);
+
 				debug_lib::true("Register successfully");
 				$this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
 			}, $mymobile, $mycode);
