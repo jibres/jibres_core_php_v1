@@ -81,8 +81,6 @@ class getTable_cls
 					$field_name = substr($key,0,strrpos($key,'_'));
 				}
 				// var_dump($field_name."::".$value->show);
-				if($value->null=='NO')
-					$value->show=='YES';
 
 				if($value->show=='YES')
 				{
@@ -92,6 +90,8 @@ class getTable_cls
 				{
 					$ret[$field_name]	= '';
 				}
+				if($value->null=='NO')
+					unset($ret[$field_name]);
 			}
 		}
 		return $ret;

@@ -12,9 +12,13 @@ $(document).ready(function () {
 });
 
 function hideFields() {
-    $("input:checkbox:checked").each(function()
+    $("input:checkbox").each(function()
     {
-        $("."+$(this).val()).removeClass('hide');
+
+        if( !$(this).is(":checked") )
+        {
+            $("."+$(this).val()).addClass('hide');
+        }
     }
 );}
 

@@ -22,8 +22,6 @@ class main_view extends mvcView_cls
 					$tmp_result = $this->sql("#datarowbyid");
 					$this->fill_for_edit($tmp_result, $myForm);
 				}
-
-
 			}
 			else
 			{

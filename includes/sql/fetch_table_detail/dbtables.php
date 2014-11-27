@@ -341,6 +341,7 @@ function setproperty($myparam)
 			}
 
 
+
 			// ========================================================================================== Edit by Javad
 
 			// $content .= "\tpublic \$$crow->Field = array(". _type($crow->Type, $crow->Default).", 'label' => '$mylabel');\n";
