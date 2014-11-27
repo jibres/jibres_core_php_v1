@@ -375,13 +375,12 @@ class mvcModel_cls{
 			if(strpos($_SERVER['HTTP_USER_AGENT'], $bot) !== false)
 				$robot = 'yes';
 		}
+
 		$userid = null;
-		if($this->login && isset($_SESSION['user'] ) )
+		if($this->login && isset($_SESSION['user']) && isset($_SESSION['user']['id']) )
 		{
 			$userid = $_SESSION['user']['id'];
 		}
-		// var_dump($userid);
-		// exit();
 
 		$qry		= $this->sql()->tableVisitors()
 						->setVisitor_ip($ip)
@@ -392,8 +391,7 @@ class mvcModel_cls{
 						->setUser_id($userid);
 		$sql		= $qry->insert();
 
-		// var_dump("expression");
-		// exit();
+
 		// ======================================================
 		// you can manage next event with one of these variables,
 		// commit for successfull and rollback for failed
@@ -416,6 +414,9 @@ class mvcModel_cls{
 			var_dump("nokat");
 			// return -1;
 		});
+
+		var_dump($sql);
+		exit();
 		return $sql;
 	}
 }
