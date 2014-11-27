@@ -376,12 +376,12 @@ class mvcModel_cls{
 				$robot = 'yes';
 		}
 		$userid = null;
-		if($this->login && isset($_SESSION['user'] && isset($_SESSION['user']['id']) ) )
+		if($this->login && isset($_SESSION['user'] ) )
 		{
 			$userid = $_SESSION['user']['id'];
 		}
-		var_dump($userid);
-		exit();
+		// var_dump($userid);
+		// exit();
 
 		$qry		= $this->sql()->tableVisitors()
 						->setVisitor_ip($ip)
@@ -392,8 +392,8 @@ class mvcModel_cls{
 						->setUser_id($userid);
 		$sql		= $qry->insert();
 
-		var_dump("expression");
-		exit();
+		// var_dump("expression");
+		// exit();
 		// ======================================================
 		// you can manage next event with one of these variables,
 		// commit for successfull and rollback for failed
