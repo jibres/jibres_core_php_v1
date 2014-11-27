@@ -3,18 +3,7 @@ class main_controller extends mvcController_cls
 {
 	public function config()
 	{
-		if($this->login())
-		{
-			var_dump($_SESSION['user']['nickname']);
-		}
-		else
-		{
-			//redirect to login
-			header("Location: http://".URL_RAW."/login");
-			exit();
-		}
-
-		if (config_lib::$method !='home')
+		if (config_lib::$method)
 		{
 			$this->listen(
 				array(

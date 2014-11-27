@@ -1,6 +1,7 @@
 <?php
 class config_cls{
-	static function _before(){
+	static function _before()
+	{
 		// if i remove below function, all of the modules on this class fail
 		$l = config_lib::listen(
 			array(
@@ -10,7 +11,7 @@ class config_cls{
 			{
 				config_hendel_lib::url_unshift("account");
 			}
-			);
+		);
 
 		$l = config_lib::listen(
 			array(
@@ -20,18 +21,31 @@ class config_cls{
 			{
 				config_hendel_lib::url_unshift("admin");
 			}
-			);
+		);
+
 		$l = config_lib::listen(
 			array(
-				"url" => array("~", "/.*/")
+				"sub_domain" => array("cp")
 				)
 			,function()
 			{
-				config_hendel_lib::url_shift();
-				config_hendel_lib::url_shift();
+				config_hendel_lib::url_unshift("cp");
 			}
-			);
+		);
+
+		// $l = config_lib::listen(
+		// 	array(
+		// 		"url" => array("~", "/.*/")
+		// 		)
+		// 	,function()
+		// 	{
+		// 		config_hendel_lib::url_shift();
+		// 		config_hendel_lib::url_shift();
+		// 	}
+		// 	);
 	}
-	static function _after(){
+	static function _after()
+	{
+
 	}
 }
