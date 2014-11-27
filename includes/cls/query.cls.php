@@ -22,7 +22,6 @@ class query_cls{
 					$sName = "{$name}_$count";
 				}
 			}while ($continue);
-
 			$querys->$sName = $sql;
 		}
 		return $sql;

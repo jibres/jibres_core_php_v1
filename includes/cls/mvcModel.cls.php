@@ -355,72 +355,39 @@ class mvcModel_cls{
 	{
 		// this function add each visitor detail in visitors table
 		// var_dump($_SERVER['REMOTE_ADDR']);
+		$ip = ip2long($_SERVER['REMOTE_ADDR']);
+		$url = 'http'.(empty($_SERVER['HTTPS'])?'':'s').'://'.$_SERVER['SERVER_NAME']
+				.( $_SERVER["SERVER_PORT"] != "80"? ":".$_SERVER["SERVER_PORT"]: '' ).$_SERVER['REQUEST_URI'];
+		$referer = isset($_SERVER['HTTP_REFERER'])? $_SERVER['HTTP_REFERER']: null;
+		$agent = $_SERVER['HTTP_USER_AGENT'];
+		$robot = 'no';
 
-
-		if (!empty($_SERVER["HTTP_CLIENT_IP"]))
+		$botlist = array("Teoma", "alexa", "froogle", "Gigabot", "inktomi",
+		"looksmart", "URL_Spider_SQL", "Firefly", "NationalDirectory",
+		"Ask Jeeves", "TECNOSEEK", "InfoSeek", "WebFindBot", "girafabot",
+		"crawler", "www.galaxy.com", "Googlebot", "Scooter", "Slurp",
+		"msnbot", "appie", "FAST", "WebBug", "Spade", "ZyBorg", "rabaz",
+		"Baiduspider", "Feedfetcher-Google", "TechnoratiSnoop", "Rankivabot",
+		"Mediapartners-Google", "Sogou web spider", "WebAlta Crawler","TweetmemeBot",
+		"Butterfly","Twitturls","Me.dium","Twiceler");
+		foreach($botlist as $bot)
 		{
-		 //check for ip from share internet
-		 $ip = $_SERVER["HTTP_CLIENT_IP"];
+			if(strpos($_SERVER['HTTP_USER_AGENT'], $bot) !== false)
+				$robot = 'yes';
 		}
-		elseif (!empty($_SERVER["HTTP_X_FORWARDED_FOR"]))
+		$userid =null;
+		if($this->login())
 		{
-		 // Check for the Proxy User
-		 $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
-		}
-		else
-		{
-		 $ip = $_SERVER["REMOTE_ADDR"];
+			$userid = 1;
 		}
 
-		// This will print user's real IP Address
-		// does't matter if user using proxy or not.
-		var_dump( $ip );
-
-
-
-
-
-	$ref		=$_SERVER['HTTP_REFERER'];
-	$agent		=$_SERVER['HTTP_USER_AGENT'];
-	$ip			=$_SERVER['REMOTE_ADDR'];
-	$host_name	= gethostbyaddr($_SERVER['REMOTE_ADDR']);
-
-	var_dump($ref);
-	var_dump($agent);
-	var_dump($ip);
-	var_dump($host_name);
-	var_dump($_SERVER['REQUEST_TIME']);
-
-
-$ipaddress = $_SERVER['REMOTE_ADDR'];
-$page = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}";
-$page .= (!empty($_SERVER['QUERY_STRING'])? "?{$_SERVER['QUERY_STRING']}": "");
-$referrer = $_SERVER['HTTP_REFERER'];
-$datetime = mktime();
-$useragent = $_SERVER['HTTP_USER_AGENT'];
-$remotehost = @getHostByAddr($ipaddress);
-
-
-var_dump($ipaddress);
-var_dump($page);
-var_dump($referrer);
-var_dump($datetime);
-var_dump($useragent);
-var_dump($remotehost);
-
-
-
-		$ip = $this->get_client_ip();
-	    var_dump($ip);
-
-		exit();
-
-		// return $this->sql()->tableVisitors()->select()->allassoc();
 		$qry		= $this->sql()->tableVisitors()
-						->setVisitor_ip( $this->get_client_ip() )
-						->setVisitor_agent()
-						->setVisitor_refer()
-						->setUser_id();
+						->setVisitor_ip($ip)
+						->setVisitor_url(urlencode($url))
+						->setVisitor_agent(urlencode($agent))
+						->setVisitor_referer(urlencode($referer))
+						->setVisitor_robot($robot)
+						->setUser_id($userid);
 		$sql		= $qry->insert();
 
 		// ======================================================
@@ -430,8 +397,10 @@ var_dump($remotehost);
 		// if query run without error means commit
 		$this->commit(function()
 		{
-			debug_lib::true("Step 1 of 2 is complete. Please check your mobile to continue");
+			// debug_lib::true("Step 1 of 2 is complete. Please check your mobile to continue");
 			// $this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
+			// return 1;
+			var_dump("ok");
 			
 
 		});
@@ -439,30 +408,11 @@ var_dump($remotehost);
 		// if a query has error or any error occour in any part of codes, run roolback
 		$this->rollback(function()
 		{
-			debug_lib::fatal("Recovery failed!");
+			// debug_lib::fatal("Recovery failed!");
+			var_dump("nokat");
+			// return -1;
 		});
+		return $sql;
 	}
-
-	// Function to get the client IP address
-	function get_client_ip() {
-	    $ipaddress = '';
-	    if (getenv('HTTP_CLIENT_IP'))
-	        $ipaddress = getenv('HTTP_CLIENT_IP');
-	    else if(getenv('HTTP_X_FORWARDED_FOR'))
-	        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-	    else if(getenv('HTTP_X_FORWARDED'))
-	        $ipaddress = getenv('HTTP_X_FORWARDED');
-	    else if(getenv('HTTP_FORWARDED_FOR'))
-	        $ipaddress = getenv('HTTP_FORWARDED_FOR');
-	    else if(getenv('HTTP_FORWARDED'))
-	       $ipaddress = getenv('HTTP_FORWARDED');
-	    else if(getenv('REMOTE_ADDR'))
-	        $ipaddress = getenv('REMOTE_ADDR');
-	    else
-	        $ipaddress = 'UNKNOWN';
-	    return $ipaddress;
-	}
-
-
 }
 ?>
