@@ -376,7 +376,8 @@ class mvcModel_cls{
 				$robot = 'yes';
 		}
 		$userid =null;
-		if($this->login())
+		var_dump($this->login);
+		if($this->login)
 		{
 			$userid = 1;
 		}

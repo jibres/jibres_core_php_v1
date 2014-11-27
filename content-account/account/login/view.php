@@ -19,9 +19,6 @@ class view extends main_view
         // var_dump($this->data->module);
         // $myForm                                         = $this->createform(".".$this->data->module);
         // 
-        $tmp_result = $this->sql("#addVisitor");
-        var_dump($tmp_result);
-        exit();
 	}
 }
 ?>
