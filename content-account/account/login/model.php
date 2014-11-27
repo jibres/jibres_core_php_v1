@@ -17,7 +17,6 @@ class model extends main_model
 			if (isset($tmp_result['user_pass']) && $tmp_result['user_pass'] == $mypass)
 			{
 				// password is correct
-				$_SESSION['login']	= true;
 				$_SESSION['user']	= array();
 				$tmp_fields			=  array('type', 'gender', 'firstname', 'lastname', 'nickname', 'mobile', 'status', 'credit');
 				foreach ($tmp_fields as $key => $value) 

@@ -9,7 +9,7 @@ class costcats
 	public $costcat_father = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Father');
 	public $costcat_row = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'YES', 'label'=>'Row');
 	public $costcat_type = array('type' => 'enum@income,outcome', 'null'=>'YES', 'show'=>'YES', 'label'=>'Type');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key

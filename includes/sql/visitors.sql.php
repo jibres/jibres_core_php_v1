@@ -9,7 +9,8 @@ class visitors
 	public $visitor_referer = array('type' => 'varchar@255', 'null'=>'YES', 'show'=>'YES', 'label'=>'Referer');
 	public $visitor_robot = array('type' => 'enum@yes,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Robot');
 	public $user_id = array('type' => 'smallint@5', 'null'=>'YES', 'show'=>'NO', 'label'=>'User', 'foreign'=>'users@id!user_nickname');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $visitor_datetime = array('type' => 'datetime@', 'null'=>'NO', 'show'=>'YES', 'label'=>'Datetime');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
@@ -35,6 +36,10 @@ class visitors
 		$this->form("text")->name("robot")->required()->type('select');
 	}
 	public function user_id() {$this->validate()->id();}
+	public function visitor_datetime() 
+	{
+		$this->form("text")->name("datetime")->required();
+	}
 	public function date_modified() {}
 }
 ?>

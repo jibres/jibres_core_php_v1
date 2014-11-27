@@ -16,7 +16,7 @@ class transactions
 	public $transaction_desc = array('type' => 'varchar@200', 'null'=>'YES', 'show'=>'NO', 'label'=>'Description');
 	public $transaction_transport = array('type' => 'decimal@13,4', 'null'=>'YES', 'show'=>'YES', 'label'=>'Transport');
 	public $transaction_vat = array('type' => 'enum@yes,nocalc,no!no', 'null'=>'NO', 'show'=>'YES', 'label'=>'Vat');
-	public $date_modified = array('type' => 'timestamp@!0000-00-00 00:00:00', 'null'=>'NO', 'show'=>'NO', 'label'=>'Date Modified');
+	public $date_modified = array('type' => 'timestamp@', 'null'=>'YES', 'show'=>'NO', 'label'=>'Date Modified');
 
 
 	//------------------------------------------------------------------ id - primary key
