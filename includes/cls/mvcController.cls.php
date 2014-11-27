@@ -6,6 +6,7 @@ class mvcController_cls{
 	public $__autogetProperty = array( "redirect");
 	public final function __construct()
 	{
+		main_lib::$controller = $this;
 		dbconnection_lib::$db_name_selected = db_name;
 		$this->querys = (object) array();
 		if(method_exists($this, 'config')) $this->config();
