@@ -14,6 +14,7 @@ class main_controller extends mvcController_cls
 				session_unset(); 
 				session_destroy();
 				header("location: http://".URL_RAW);
+				debug_lib::true("Logout successfully");
 				exit();
 			}
 			);

@@ -1,12 +1,81 @@
 {%extends layout%}
 {%block content%}
+	<section>
+		<div class="topic cover light1">
+			<div class="row Slogan">
+				<h2>The world’s fastest, easiest, and most intuitive store management</h2>
+			</div>
+			<div class="body">
+				<div class="row">
+					<div class="span7"></div>
+					<div class="span5">
+						<h2>{{global.site_title}}</h2>
+						<div class="desc">
+							
+						</div>
 
-	<h2>Created Pages</h2>
-	<p>Now you can access to created page by below links</p>
-	<ul>
-		<li><a href="http://account.{{url.raw}}/" target="_blank">Account</a></li>
-		<li><a href="http://admin.{{url.raw}}/" target="_blank">Admin for users</a></li>
-		<li><a href="http://cp.{{url.raw}}/" target="_blank">Control Panel for our</a></li>
-	</ul>
+						<ul>
+							<li><a href="http://account.{{url.raw}}/" target="_blank">Account</a></li>
+							<li><a href="http://admin.{{url.raw}}/" target="_blank">Admin for users</a></li>
+							<li><a href="http://cp.{{url.raw}}/" target="_blank">Control Panel for our</a></li>
+						</ul>
+						<div class="tmp_userstatus">
+							{%if global.login%} User Logined to system. Do you want to <a href="/logout">Logout</a>?
+							{%else%}
+							You can <a href="/login">login</a> to system?
+							{%endif%}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
+	<section>
+		<div class="topic topic3">
+			<div class="body">
+				<div class="row">
+					<div class="span7"></div>
+					<div class="span5">
+						<h2>your asistant</h2>
+						<div class="desc">
+							Jibres is your asistant
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="topic topic2">
+			<div class="body">
+				<div class="row">
+					<div class="span7"></div>
+					<div class="span5">
+						<h2>your bag organizer</h2>
+						<div class="desc">
+							Jibres is your bag organizer
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="topic  blue3">
+			<div class="body">
+				<div class="row">
+					<div class="span7"></div>
+					<div class="span5">
+						<h2>Do more with Jibres</h2>
+						<div class="desc">
+							The world’s fastest, easiest, and most intuitive store management
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 {%endblock%}
