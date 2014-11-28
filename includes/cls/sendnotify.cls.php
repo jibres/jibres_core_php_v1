@@ -32,7 +32,7 @@ class sendnotify_cls
 		mail($to, '=?UTF-8?B?'.base64_encode($subject).'?=', $message, $headers);
 	}
 
-	function sms($_mobile, $_param, $_status= null)
+	function sms($_mobile, $_param= null , $_status= null)
 	{
 		$_status	= is_null($_status)? config_lib::$method: $_status;
 		// var_dump(config_lib::$method);
