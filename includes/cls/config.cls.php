@@ -1,5 +1,6 @@
 <?php
 class config_cls{
+	static $project = false;
 	static function _before()
 	{
 		// if i remove below function, all of the modules on this class fail
@@ -11,7 +12,7 @@ class config_cls{
 			{
 				config_hendel_lib::url_unshift("account");
 			}
-		);
+			);
 
 		$l = config_lib::listen(
 			array(
@@ -19,10 +20,15 @@ class config_cls{
 				)
 			,function()
 			{
+				if(isset(config_hendel_lib::$real_url[0])){
+					$project = self::$project = config_hendel_lib::$real_url[0];
+					config_hendel_lib::url_shift($project);
+
+				}
 				config_hendel_lib::change_content("content-admin");
 				config_hendel_lib::url_unshift("admin");
 			}
-		);
+			);
 
 		$l = config_lib::listen(
 			array(
@@ -32,7 +38,7 @@ class config_cls{
 			{
 				config_hendel_lib::url_unshift("cp");
 			}
-		);
+			);
 	}
 	static function _after()
 	{
