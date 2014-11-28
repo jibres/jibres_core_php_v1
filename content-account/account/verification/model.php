@@ -31,7 +31,7 @@ class model extends main_model
 			{
 				//Send SMS
 				$sendnotify = new sendnotify_cls;
-				$sendnotify->sms($mymobile);
+				$sendnotify->sms($parameter);
 				
 				$this->redirect('/login?mobile='.(substr($parameter,1)));
 				debug_lib::true("Verify successfully");

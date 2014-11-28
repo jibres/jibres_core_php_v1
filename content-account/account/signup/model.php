@@ -46,7 +46,7 @@ class model extends main_model
 			{
 				//Send SMS
 				$sendnotify = new sendnotify_cls;
-				$sendnotify->sms($mymobile, $mycode);
+				$sendnotify->sms($parameter, $parameter2);
 
 				debug_lib::true("Register successfully");
 				$this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
