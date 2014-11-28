@@ -27,7 +27,7 @@ class model extends main_model
 				$_SESSION['user']['permission_id']	= $tmp_result['permission_id'];
 				
 				debug_lib::true("Login successfully");
-				$this->redirect('/');
+				$this->redirect->root();
 			}
 			else
 			{

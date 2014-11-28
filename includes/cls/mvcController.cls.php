@@ -2,13 +2,26 @@
 class mvcController_cls{
 	public $onUrl = false;
 	public $querys;
-	public $__autocallMethod = array("sql", "redirect", "checkRedirect", "addMethod", "addPeroperty");
+	public $__autocallMethod = array("sql", "redirect", "checkRedirect", "addMethod", "addPeroperty", "url_parameter", "url_table_prefix");
+	public $redirect = false;
 	public $__autogetProperty = array( "redirect");
 	public final function __construct()
 	{
 		main_lib::$controller = $this;
 		dbconnection_lib::$db_name_selected = db_name;
 		$this->querys = (object) array();
+
+
+		// set visitor detail in visitor table
+		$tmp_result = $this->sql("#addVisitor");
+		
+
+		$this->addMethod('url_table_prefix');
+		$this->addMethod('url_parameter');
+		$this->addMethod('url_title');
+		$this->addMethod('login');
+
+
 		if(method_exists($this, 'config')) $this->config();
 		if(method_exists($this, "options"))	$this->options();
 				/**
@@ -21,21 +34,15 @@ class mvcController_cls{
 		 */
 		// add user defined method for use in view, model and controller
 
-		// set visitor detail in visitor table
-		$tmp_result = $this->sql("#addVisitor");
-		
-
-		$this->addMethod('url_table_prefix');
-		$this->addMethod('url_parameter');
-		$this->addMethod('url_title');
-		$this->addMethod('login');
-		// $this->addMethod('slugify');
 	}
 
 
 	public final function hendel(){
 		$sMod = config_lib::$mod;
 		$this->$sMod = new $sMod($this);
+		if(isset($this->redirect) && $this->redirect !== false){
+			$this->redirect->redirect();
+		}
 	}
 
 	public final function addMethod($name){
@@ -81,7 +88,7 @@ class mvcController_cls{
 	public final function redirect($redirect = false, $exit = true, $php = false){
 		$redirectClass = new redirector_cls($redirect, $exit, $php);
 		$this->redirect = $redirectClass;
-		return $redirectClass;
+		return $this->redirect;
 	}
 
 	public final function checkRedirect(){
