@@ -6,13 +6,14 @@ class main_controller extends mvcController_cls
 
 		if($this->login())
 		{
-			var_dump( 'User Logined to system. Nickname: ' . $_SESSION['user']['nickname'] );
+			// var_dump( 'User Logined to system. Nickname: ' . $_SESSION['user']['nickname'] );
 		}
 		else
 		{
-			header("Location: http://".URL_RAW."/login");
-			exit();
+			debug_lib::warn("You must login to use admin");
+			$this->redirect('login')->subdomain("account");
 		}
+		// var_dump(config_cls::$project);
 
 		if (config_lib::$method !='home')
 		{

@@ -4,6 +4,7 @@ class main_view extends mvcView_cls
 	// ---------------------------------------------------------------- default config function for ADMIN
 	public function config()
 	{
+		$this->data->store = config_cls::$project;
 		if($this->data->module && $this->data->module!="home")
 		{
 			if($this->data->child)

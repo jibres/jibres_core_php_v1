@@ -9,9 +9,8 @@ class main_controller extends mvcController_cls
 		}
 		else
 		{
-			//redirect to login
-			header("Location: http://".URL_RAW."/login");
-			exit();
+			debug_lib::warn("You must login to use admin");
+			$this->redirect('login')->subdomain("account");
 		}
 
 		if (config_lib::$method)

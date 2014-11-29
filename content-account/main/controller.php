@@ -26,6 +26,7 @@ class main_controller extends mvcController_cls
 		{
 			if(config_lib::$method!='verification')
 			{
+				debug_lib::true("You are loggined to system!");
 				header("Location: http://".URL_RAW);
 				exit();
 			}
