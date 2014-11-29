@@ -45,13 +45,13 @@
 			return $form;
 		}
 
-		public function changepassword()
+		public function changepass()
 		{
 			$form = new forms_lib;
 			$form = $form->make("@users");
 			$form->white("hidden, user_pass, submit");
 			$form->hidden->value(__FUNCTION__);
-			$form->user_pass->label('')->pl('Password');
+			$form->user_pass->label('')->pl('Enter your new password');
 			$form->submit->value("");
 			return $form;
 		}

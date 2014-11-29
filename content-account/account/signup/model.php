@@ -4,7 +4,7 @@ class model extends main_model
 	function post_signup()
 	{
 		// for debug you can uncomment below line to disallow redirect
-		// $this->redirect		= false;
+		// $this->redirect 	= false;
 		$mymobile			= str_replace(' ', '', post::mobile());
 		$mypass				= post::pass();
 		$tmp_result			=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
@@ -42,14 +42,15 @@ class model extends main_model
 			// commit for successfull and rollback for failed
 			//
 			// if query run without error means commit
-			$this->commit(function($parameter, $parameter2)
+			$this->commit(function($_parameter, $_parameter2)
 			{
 				//Send SMS
 				$sendnotify = new sendnotify_cls;
-				$sendnotify->sms($parameter, $parameter2);
+				$sendnotify->sms($_parameter, $_parameter2);
 
 				debug_lib::true("Register successfully");
-				$this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
+				// $this->redirect('/verification?mobile='.(substr($_parameter,1)).'&code='.$_parameter2);
+				$this->redirect('/verification?from=signup&mobile='.(substr($_parameter,1)));
 			}, $mymobile, $mycode);
 
 			// if a query has error or any error occour in any part of codes, run roolback

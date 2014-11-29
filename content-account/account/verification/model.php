@@ -10,6 +10,7 @@ class model extends main_model
 		$tmp_result			=  $this->sql()->tableVerifications()
 								->whereVerification_value($mymobile)
 								->andVerification_code($mycode)
+								->andVerification_verified('no')
 								->select();
 
 		if($tmp_result->num() == 1)
@@ -27,15 +28,23 @@ class model extends main_model
 			// commit for successfull and rollback for failed
 			//
 			// if query run without error means commit
-			$this->commit(function($parameter)
+			$this->commit(function($_parameter, $_parameter2)
 			{
-				//Send SMS
-				$sendnotify = new sendnotify_cls;
-				$sendnotify->sms($parameter);
-				
-				$this->redirect('/login?mobile='.(substr($parameter,1)));
-				debug_lib::true("Verify successfully");
-			}, $mymobile);
+				if($_parameter2=='signup')
+				{
+					//Send SMS
+					$sendnotify = new sendnotify_cls;
+					$sendnotify->sms($_parameter);
+
+					$this->redirect('/login?from=verification&mobile='.(substr($_parameter,1)));
+					debug_lib::true("Verify successfully");
+				}
+				elseif($_parameter2=='recovery')
+				{
+					$this->redirect('/changepass?from=verification&mobile='.(substr($_parameter,1)));
+					debug_lib::true("Verify successfully. Please Input your new password");	
+				}
+			}, $mymobile, get::from());
 
 			// if a query has error or any error occour in any part of codes, run roolback
 			$this->rollback(function()

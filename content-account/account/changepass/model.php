@@ -1,10 +1,23 @@
 <?php
 class model extends main_model
 {
-	function post_recovery()
+	function post_changepass()
 	{
 		// for debug you can uncomment below line to disallow redirect
 		// $this->redirect 	= false;
+		var_dump("we have problem in this part");
+		var_dump("we must read user mobile from other source");
+		exit();
+
+		$mypass				= post::pass();
+		$qry				= $this->sql()->tableUsers()
+								->setUser_type('store_admin')
+								->setUser_mobile($mymobile)
+								->setUser_pass($mypass);
+		$sql				= $qry->update();
+
+
+		$mymobile			= str_replace(' ', '', post::mobile());
 		$mymobile	= str_replace(' ', '', post::mobile());
 		$tmp_result	=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
 

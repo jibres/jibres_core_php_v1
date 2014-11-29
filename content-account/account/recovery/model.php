@@ -33,14 +33,15 @@ class model extends main_model
 			// commit for successfull and rollback for failed
 			//
 			// if query run without error means commit
-			$this->commit(function($parameter, $parameter2)
+			$this->commit(function($_parameter, $_parameter2)
 			{
 				//Send SMS
 				$sendnotify = new sendnotify_cls;
-				$sendnotify->sms($parameter, $parameter2);
+				$sendnotify->sms($_parameter, $_parameter2);
 
 				debug_lib::true("Step 1 of 2 is complete. Please check your mobile to continue");
-				$this->redirect('/verification?mobile='.(substr($parameter,1)).'&code='.$parameter2);
+				// $this->redirect('/verification?mobile='.(substr($_parameter,1)).'&code='.$_parameter2);
+				$this->redirect('/verification?from=recovery&mobile='.(substr($_parameter,1)));
 				
 
 			}, $mymobile, $mycode);
