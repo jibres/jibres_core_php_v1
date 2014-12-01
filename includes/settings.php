@@ -103,7 +103,8 @@ bindtextdomain($domain , includes_dir.'languages/');
 bind_textdomain_codeset($domain , 'UTF-8');
 textdomain($domain);
 
-echo _("HELLO_WORLD");
+// translator does not work!
+// echo _("HELLO_WORLD");
 
 
 

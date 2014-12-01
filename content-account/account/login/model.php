@@ -6,6 +6,7 @@ class model extends main_model
 		// for debug you can uncomment below line to disallow redirect
 		// $this->redirect		= false;
 		$mymobile			= str_replace(' ', '', post::mobile());
+		// var_dump($mymobile); exit();
 		$tmp_result			=  $this->sql()->tableUsers()->whereUser_mobile($mymobile)->select();
 		$mypass				= md5(post::pass());
 		
