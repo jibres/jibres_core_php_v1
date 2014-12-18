@@ -4,7 +4,7 @@
 define("DOMAIN"			, $_SERVER["SERVER_NAME"]);
 
 // ------------------------------------------------------- SALOOS location
-define("core"			, preg_replace("[\\\\]", "/", realpath(__DIR__."/../../saloos/").'/') );
+define("core"			, preg_replace("[\\\\]", "/", realpath(__DIR__."/../core/").'/') );
 
 // ------------------------------------------------------- root location
 define("root_dir"		, preg_replace("[\\\\]", "/", realpath(__DIR__."/../").'/') );

@@ -87,7 +87,7 @@
    {%if child%}
     <p class="alert alert-block alert-info">
      {{module|title}} Section
-     <a class="float-right" href="/{{module}}">Go to {{module|title}}</a>
+     <a class="float-right" href="{{store}}/{{module}}">Go to {{module|title}}</a>
     </p>
     {%if form_show %}
      <form class="ajx" method="post" id="{{form_title}}">
@@ -99,7 +99,7 @@
 
    {%else%}
     <p class="alert alert-block alert-info">
-     <a href="{{module}}/add">Add New Record</a>
+     <a href="{{store}}/{{module}}/add">Add New Record</a>
      <a class="float-right" href="/">Home</a>
     </p>
 
@@ -126,10 +126,10 @@
   								{%endfor%}
   			     <td>
   			      <span class="hint--top hint--info" data-hint="Edit">
-  			       <a class="action-icons edit hint--top" href="{{module}}/edit={{d.id}}">Edit</a>
+  			       <a class="action-icons edit hint--top" href="{{store}}/{{module}}/edit={{d.id}}">Edit</a>
   			      </span>
   			      <span class="hint--top hint--error" data-hint="Delete">
-  			       <a class="action-icons delete hide-text" href="{{module}}/delete={{d.id}}">Delete</a>
+  			       <a class="action-icons delete hide-text" href="{{store}}/{{module}}/delete={{d.id}}">Delete</a>
   			      </span>
   			     </td>
   		     </tr>
