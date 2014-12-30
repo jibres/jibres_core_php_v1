@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2014 at 06:20 PM
+-- Generation Time: Dec 30, 2014 at 11:49 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `jibres`
+-- Database: `ermile`
 --
 
 -- --------------------------------------------------------
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `addons` (
   `addon_name` varchar(50) NOT NULL,
   `addon_slug` varchar(50) NOT NULL,
   `addon_desc` varchar(999) DEFAULT NULL,
-  `addon_status` enum('active','deactive','expire','goingtoexpire') NOT NULL DEFAULT 'deactive',
+  `addon_status` enum('enable','disable','expire','goingtoexpire') NOT NULL DEFAULT 'enable',
   `addon_expire` datetime DEFAULT NULL,
   `addon_installdate` datetime DEFAULT NULL,
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `banks` (
   `bank_title` varchar(50) NOT NULL,
   `bank_slug` varchar(50) NOT NULL,
   `bank_website` varchar(50) DEFAULT NULL,
-  `bank_active` enum('yes','no') NOT NULL DEFAULT 'yes',
+  `bank_status` enum('enable','disable') NOT NULL DEFAULT 'enable',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
@@ -105,32 +105,32 @@ CREATE TABLE IF NOT EXISTS `banks` (
 -- Dumping data for table `banks`
 --
 
-INSERT INTO `banks` (`id`, `bank_title`, `bank_slug`, `bank_website`, `bank_active`, `date_modified`) VALUES
-(1, 'پارسیان', 'parsian', 'http://parsian-bank.com', 'yes', '2014-11-24 12:43:55'),
-(2, 'ملی', 'melli', NULL, 'yes', '2014-11-07 17:37:14'),
-(3, 'ملت', 'mellat', NULL, 'yes', '0000-00-00 00:00:00'),
-(4, 'پاسارگاد', 'pasargad', NULL, 'yes', '0000-00-00 00:00:00'),
-(5, 'تجارت', 'tejarat', NULL, 'yes', '0000-00-00 00:00:00'),
-(6, 'انصار', 'ansar', NULL, 'yes', '0000-00-00 00:00:00'),
-(7, 'آینده', 'ayandeh', NULL, 'yes', '0000-00-00 00:00:00'),
-(8, 'صادرات', 'saderat', NULL, 'yes', '0000-00-00 00:00:00'),
-(9, 'سینا', 'sina', NULL, 'yes', '0000-00-00 00:00:00'),
-(10, 'اقتصاد نوین', 'eghtesad', NULL, 'yes', '0000-00-00 00:00:00'),
-(50, 'test', 'tt', '3', 'yes', '0000-00-00 00:00:00'),
-(55, 'test2', 't2', 'www', 'yes', '0000-00-00 00:00:00'),
-(56, 'test312', 't3', 'wwwwwwwq', 'no', '2014-11-10 17:36:12'),
-(57, '', '', NULL, 'yes', '0000-00-00 00:00:00'),
-(60, 'fsadfsda', 'fwefwqe', NULL, 'yes', '0000-00-00 00:00:00'),
-(61, 'retew', 'tewtewt', NULL, 'yes', '0000-00-00 00:00:00'),
-(64, 'wrr325', '34tweate', NULL, 'yes', '0000-00-00 00:00:00'),
-(65, 'rewqr', 'rwerq', NULL, 'yes', '0000-00-00 00:00:00'),
-(66, 'reqare', 'rwqrw', NULL, 'yes', '0000-00-00 00:00:00'),
-(68, 'rwer', 'wqerqer', NULL, 'yes', '0000-00-00 00:00:00'),
-(70, 'test', 'test2', NULL, 'yes', '0000-00-00 00:00:00'),
-(71, 'wrqwrqwr', 'rwerwe', NULL, 'no', '0000-00-00 00:00:00'),
-(72, 'fsfewf', 'ewrweq', NULL, 'no', '0000-00-00 00:00:00'),
-(91, 'salam khobi', 'bale', NULL, 'yes', '2014-11-24 08:02:51'),
-(100, 'reba', 'reba', NULL, 'yes', '0000-00-00 00:00:00');
+INSERT INTO `banks` (`id`, `bank_title`, `bank_slug`, `bank_website`, `bank_status`, `date_modified`) VALUES
+(1, 'پارسیان', 'parsian', 'http://parsian-bank.com', '', '2014-11-24 12:43:55'),
+(2, 'ملی', 'melli', NULL, '', '2014-11-07 17:37:14'),
+(3, 'ملت', 'mellat', NULL, '', '0000-00-00 00:00:00'),
+(4, 'پاسارگاد', 'pasargad', NULL, '', '0000-00-00 00:00:00'),
+(5, 'تجارت', 'tejarat', NULL, '', '0000-00-00 00:00:00'),
+(6, 'انصار', 'ansar', NULL, '', '0000-00-00 00:00:00'),
+(7, 'آینده', 'ayandeh', NULL, '', '0000-00-00 00:00:00'),
+(8, 'صادرات', 'saderat', NULL, '', '0000-00-00 00:00:00'),
+(9, 'سینا', 'sina', NULL, '', '0000-00-00 00:00:00'),
+(10, 'اقتصاد نوین', 'eghtesad', NULL, '', '0000-00-00 00:00:00'),
+(50, 'test', 'tt', '3', '', '0000-00-00 00:00:00'),
+(55, 'test2', 't2', 'www', '', '0000-00-00 00:00:00'),
+(56, 'test312', 't3', 'wwwwwwwq', '', '2014-11-10 17:36:12'),
+(57, '', '', NULL, '', '0000-00-00 00:00:00'),
+(60, 'fsadfsda', 'fwefwqe', NULL, '', '0000-00-00 00:00:00'),
+(61, 'retew', 'tewtewt', NULL, '', '0000-00-00 00:00:00'),
+(64, 'wrr325', '34tweate', NULL, '', '0000-00-00 00:00:00'),
+(65, 'rewqr', 'rwerq', NULL, '', '0000-00-00 00:00:00'),
+(66, 'reqare', 'rwqrw', NULL, '', '0000-00-00 00:00:00'),
+(68, 'rwer', 'wqerqer', NULL, '', '0000-00-00 00:00:00'),
+(70, 'test', 'test2', NULL, '', '0000-00-00 00:00:00'),
+(71, 'wrqwrqwr', 'rwerwe', NULL, '', '0000-00-00 00:00:00'),
+(72, 'fsfewf', 'ewrweq', NULL, '', '0000-00-00 00:00:00'),
+(91, 'salam khobi', 'bale', NULL, '', '2014-11-24 08:02:51'),
+(100, 'reba', 'reba', NULL, '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -167,6 +167,7 @@ CREATE TABLE IF NOT EXISTS `costcats` (
   `costcat_father` smallint(5) DEFAULT NULL,
   `costcat_row` smallint(5) DEFAULT NULL,
   `costcat_type` enum('income','outcome') DEFAULT NULL,
+  `costcat_status` enum('enable','disable') NOT NULL DEFAULT 'enable',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
@@ -174,10 +175,10 @@ CREATE TABLE IF NOT EXISTS `costcats` (
 -- Dumping data for table `costcats`
 --
 
-INSERT INTO `costcats` (`id`, `costcat_title`, `costcat_slug`, `costcat_desc`, `costcat_father`, `costcat_row`, `costcat_type`, `date_modified`) VALUES
-(3, 'test', 'tt', 'eee', NULL, NULL, 'outcome', '0000-00-00 00:00:00'),
-(4, 'test2', 'tt2', 'tt2', NULL, NULL, 'income', '0000-00-00 00:00:00'),
-(5, 'test3', 't3', 'tt3', 3, 4, 'income', '0000-00-00 00:00:00');
+INSERT INTO `costcats` (`id`, `costcat_title`, `costcat_slug`, `costcat_desc`, `costcat_father`, `costcat_row`, `costcat_type`, `costcat_status`, `date_modified`) VALUES
+(3, 'test', 'tt', 'eee', NULL, NULL, 'outcome', 'enable', '0000-00-00 00:00:00'),
+(4, 'test2', 'tt2', 'tt2', NULL, NULL, 'income', 'enable', '0000-00-00 00:00:00'),
+(5, 'test3', 't3', 'tt3', 3, 4, 'income', 'enable', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -270,6 +271,7 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `location_title` varchar(100) NOT NULL,
   `location_slug` varchar(100) NOT NULL,
   `location_desc` varchar(200) DEFAULT NULL,
+  `location_status` enum('enable','disable') NOT NULL DEFAULT 'enable',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -277,9 +279,9 @@ CREATE TABLE IF NOT EXISTS `locations` (
 -- Dumping data for table `locations`
 --
 
-INSERT INTO `locations` (`id`, `location_title`, `location_slug`, `location_desc`, `date_modified`) VALUES
-(1, 'Main Location', 'main', NULL, '2014-11-07 18:21:17'),
-(2, 'test', 't', NULL, '0000-00-00 00:00:00');
+INSERT INTO `locations` (`id`, `location_title`, `location_slug`, `location_desc`, `location_status`, `date_modified`) VALUES
+(1, 'Main Location', 'main', NULL, 'enable', '2014-11-07 18:21:17'),
+(2, 'test', 't', NULL, 'enable', '0000-00-00 00:00:00');
 
 --
 -- Triggers `locations`
@@ -321,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `options` (
   `option_name` varchar(50) NOT NULL,
   `option_value` varchar(200) DEFAULT NULL,
   `option_extra` varchar(400) DEFAULT NULL,
-  `option_status` enum('active','deactive') NOT NULL DEFAULT 'active',
+  `option_status` enum('enable','disable') NOT NULL DEFAULT 'enable',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
@@ -330,35 +332,35 @@ CREATE TABLE IF NOT EXISTS `options` (
 --
 
 INSERT INTO `options` (`id`, `option_cat`, `option_name`, `option_value`, `option_extra`, `option_status`, `date_modified`) VALUES
-(1, 'global', 'language', 'fa', NULL, 'active', '2014-05-01 08:18:41'),
-(2, 'global', 'language', 'en', NULL, 'active', '2014-05-01 08:18:42'),
-(3, 'global', 'title', 'Jibres', NULL, 'active', '2014-11-07 17:29:37'),
-(4, 'global', 'desc', 'Jibres for all', NULL, 'active', '2014-11-07 17:29:46'),
-(5, 'global', 'keyword', 'Jibres, store, online store', NULL, 'active', '2014-11-07 17:30:07'),
-(6, 'global', 'url', 'http://jibres.ir', NULL, 'active', '2014-11-07 17:30:18'),
-(7, 'global', 'email', 'info@jibres.ir', NULL, 'active', '2014-11-07 17:30:22'),
-(8, 'global', 'auto_mail', 'no-reply@jibres.ir', NULL, 'active', '2014-11-07 17:30:27'),
-(9, 'users', 'user_degree', 'under diploma', NULL, 'deactive', '0000-00-00 00:00:00'),
-(10, 'users', 'user_degree', 'diploma', NULL, 'deactive', '0000-00-00 00:00:00'),
-(11, 'users', 'user_degree', '2-year collage', NULL, 'deactive', '0000-00-00 00:00:00'),
-(12, 'users', 'user_degree', 'bachelor', NULL, 'deactive', '0000-00-00 00:00:00'),
-(13, 'users', 'user_degree', 'master', NULL, 'deactive', '0000-00-00 00:00:00'),
-(14, 'users', 'user_degree', 'doctorate', NULL, 'deactive', '0000-00-00 00:00:00'),
-(15, 'users', 'user_degree', 'religious', NULL, 'deactive', '0000-00-00 00:00:00'),
-(16, 'users', 'user_activity', 'employee', NULL, 'deactive', '0000-00-00 00:00:00'),
-(17, 'users', 'user_activity', 'housekeeper ', NULL, 'deactive', '0000-00-00 00:00:00'),
-(18, 'users', 'user_activity', 'free lance', NULL, 'deactive', '0000-00-00 00:00:00'),
-(19, 'users', 'user_activity', 'retired', NULL, 'deactive', '0000-00-00 00:00:00'),
-(20, 'users', 'user_activity', 'student', NULL, 'active', '0000-00-00 00:00:00'),
-(21, 'users', 'user_activity', 'unemployed', NULL, 'active', '0000-00-00 00:00:00'),
-(22, 'users', 'user_activity', 'seminary student', NULL, 'active', '0000-00-00 00:00:00'),
-(23, 'permissions', 'permission_name', 'admin', NULL, 'active', '2014-11-07 17:30:55'),
-(24, 'permissions', 'permission_name', 'reseller', NULL, 'active', '2014-11-07 17:30:56'),
-(26, 'ships', 'post', '1', NULL, 'active', '2014-11-07 17:30:56'),
-(27, 'ships', 'tipax', '2', NULL, 'active', '2014-11-07 17:30:57'),
-(28, 'units', 'money_unit', 'toman', NULL, 'active', '2014-11-07 17:31:08'),
-(29, 'units', 'product_unit', 'adad', NULL, 'active', '2014-11-07 17:31:29'),
-(30, 'permissions', 'permission_name', 'viewer', NULL, 'active', '2014-05-17 21:28:51');
+(1, 'global', 'language', 'fa', NULL, '', '2014-05-01 08:18:41'),
+(2, 'global', 'language', 'en', NULL, '', '2014-05-01 08:18:42'),
+(3, 'global', 'title', 'Jibres', NULL, '', '2014-11-07 17:29:37'),
+(4, 'global', 'desc', 'Jibres for all', NULL, '', '2014-11-07 17:29:46'),
+(5, 'global', 'keyword', 'Jibres, store, online store', NULL, '', '2014-11-07 17:30:07'),
+(6, 'global', 'url', 'http://jibres.ir', NULL, '', '2014-11-07 17:30:18'),
+(7, 'global', 'email', 'info@jibres.ir', NULL, '', '2014-11-07 17:30:22'),
+(8, 'global', 'auto_mail', 'no-reply@jibres.ir', NULL, '', '2014-11-07 17:30:27'),
+(9, 'users', 'user_degree', 'under diploma', NULL, '', '0000-00-00 00:00:00'),
+(10, 'users', 'user_degree', 'diploma', NULL, '', '0000-00-00 00:00:00'),
+(11, 'users', 'user_degree', '2-year collage', NULL, '', '0000-00-00 00:00:00'),
+(12, 'users', 'user_degree', 'bachelor', NULL, '', '0000-00-00 00:00:00'),
+(13, 'users', 'user_degree', 'master', NULL, '', '0000-00-00 00:00:00'),
+(14, 'users', 'user_degree', 'doctorate', NULL, '', '0000-00-00 00:00:00'),
+(15, 'users', 'user_degree', 'religious', NULL, '', '0000-00-00 00:00:00'),
+(16, 'users', 'user_activity', 'employee', NULL, '', '0000-00-00 00:00:00'),
+(17, 'users', 'user_activity', 'housekeeper ', NULL, '', '0000-00-00 00:00:00'),
+(18, 'users', 'user_activity', 'free lance', NULL, '', '0000-00-00 00:00:00'),
+(19, 'users', 'user_activity', 'retired', NULL, '', '0000-00-00 00:00:00'),
+(20, 'users', 'user_activity', 'student', NULL, '', '0000-00-00 00:00:00'),
+(21, 'users', 'user_activity', 'unemployed', NULL, '', '0000-00-00 00:00:00'),
+(22, 'users', 'user_activity', 'seminary student', NULL, '', '0000-00-00 00:00:00'),
+(23, 'permissions', 'permission_name', 'admin', NULL, '', '2014-11-07 17:30:55'),
+(24, 'permissions', 'permission_name', 'reseller', NULL, '', '2014-11-07 17:30:56'),
+(26, 'ships', 'post', '1', NULL, '', '2014-11-07 17:30:56'),
+(27, 'ships', 'tipax', '2', NULL, '', '2014-11-07 17:30:57'),
+(28, 'units', 'money_unit', 'toman', NULL, '', '2014-11-07 17:31:08'),
+(29, 'units', 'product_unit', 'adad', NULL, '', '2014-11-07 17:31:29'),
+(30, 'permissions', 'permission_name', 'viewer', NULL, '', '2014-05-17 21:28:51');
 
 -- --------------------------------------------------------
 
@@ -368,6 +370,7 @@ INSERT INTO `options` (`id`, `option_cat`, `option_name`, `option_value`, `optio
 
 CREATE TABLE IF NOT EXISTS `papers` (
 `id` smallint(5) unsigned NOT NULL,
+  `paper_type` varchar(50) DEFAULT NULL,
   `paper_number` varchar(20) DEFAULT NULL,
   `paper_date` datetime DEFAULT NULL,
   `paper_price` decimal(13,4) DEFAULT NULL,
@@ -382,8 +385,8 @@ CREATE TABLE IF NOT EXISTS `papers` (
 -- Dumping data for table `papers`
 --
 
-INSERT INTO `papers` (`id`, `paper_number`, `paper_date`, `paper_price`, `bank_id`, `paper_holder`, `paper_desc`, `paper_status`, `date_modified`) VALUES
-(1, '123', NULL, '500.0000', 1, NULL, NULL, NULL, '0000-00-00 00:00:00');
+INSERT INTO `papers` (`id`, `paper_type`, `paper_number`, `paper_date`, `paper_price`, `bank_id`, `paper_holder`, `paper_desc`, `paper_status`, `date_modified`) VALUES
+(1, NULL, '123', NULL, '500.0000', 1, NULL, NULL, NULL, '0000-00-00 00:00:00');
 
 --
 -- Triggers `papers`
@@ -416,7 +419,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `permission_add` enum('yes','no') NOT NULL DEFAULT 'no',
   `permission_edit` enum('yes','no') NOT NULL DEFAULT 'no',
   `permission_delete` enum('yes','no') NOT NULL DEFAULT 'no',
-  `permission_status` enum('active','deactive') NOT NULL DEFAULT 'active',
+  `permission_status` enum('enable','disable') NOT NULL DEFAULT 'enable',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
@@ -425,9 +428,9 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `permission_title`, `Permission_module`, `permission_view`, `permission_add`, `permission_edit`, `permission_delete`, `permission_status`, `date_modified`) VALUES
-(1, 'admin', 'banks', 'yes', 'yes', 'yes', 'yes', 'active', '2014-11-08 14:08:16'),
+(1, 'admin', 'banks', 'yes', 'yes', 'yes', 'yes', '', '2014-11-08 14:08:16'),
 (2, 'reseller', '', '', '', '', '', '', '0000-00-00 00:00:00'),
-(4, 'admin2', '', 'yes', 'no', 'no', 'no', 'active', '2014-11-08 09:29:25');
+(4, 'admin2', '', 'yes', 'no', 'no', 'no', '', '2014-11-08 09:29:25');
 
 -- --------------------------------------------------------
 
@@ -438,8 +441,10 @@ INSERT INTO `permissions` (`id`, `permission_title`, `Permission_module`, `permi
 CREATE TABLE IF NOT EXISTS `postmetas` (
   `id` smallint(5) NOT NULL,
   `post_id` smallint(5) unsigned NOT NULL,
+  `postmeta_cat` varchar(50) NOT NULL,
   `postmeta_name` varchar(100) NOT NULL,
   `postmeta_value` varchar(999) DEFAULT NULL,
+  `postmeta_status` enum('enable','disable') NOT NULL DEFAULT 'enable',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -511,6 +516,7 @@ CREATE TABLE IF NOT EXISTS `productmetas` (
   `productmeta_cat` varchar(50) NOT NULL,
   `productmeta_name` varchar(100) NOT NULL,
   `productmeta_value` varchar(999) DEFAULT NULL,
+  `productmeta_status` enum('enable','disable') NOT NULL DEFAULT 'enable',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
@@ -518,11 +524,11 @@ CREATE TABLE IF NOT EXISTS `productmetas` (
 -- Dumping data for table `productmetas`
 --
 
-INSERT INTO `productmetas` (`id`, `product_id`, `productmeta_cat`, `productmeta_name`, `productmeta_value`, `date_modified`) VALUES
-(21, 1, 'price_white', 'product_price', '600', '2014-11-07 16:49:50'),
-(22, 1, 'price_white', 'product_buy_price', '5000', '2014-11-07 16:49:51'),
-(39, 1, 'price1', 'product_vat', '11', '2014-11-07 16:33:34'),
-(73, 1, 'price1', 'product_discount', '20', '2014-11-07 16:49:52');
+INSERT INTO `productmetas` (`id`, `product_id`, `productmeta_cat`, `productmeta_name`, `productmeta_value`, `productmeta_status`, `date_modified`) VALUES
+(21, 1, 'price_white', 'product_price', '600', 'enable', '2014-11-07 16:49:50'),
+(22, 1, 'price_white', 'product_buy_price', '5000', 'enable', '2014-11-07 16:49:51'),
+(39, 1, 'price1', 'product_vat', '11', 'enable', '2014-11-07 16:33:34'),
+(73, 1, 'price1', 'product_discount', '20', 'enable', '2014-11-07 16:49:52');
 
 --
 -- Triggers `productmetas`
@@ -781,6 +787,33 @@ INSERT INTO `receipts` (`id`, `receipt_code`, `receipt_type`, `receipt_price`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `smss`
+--
+
+CREATE TABLE IF NOT EXISTS `smss` (
+`id` int(10) unsigned NOT NULL,
+  `sms_from` varchar(15) DEFAULT NULL,
+  `sms_to` varchar(15) DEFAULT NULL,
+  `sms_message` varchar(255) DEFAULT NULL,
+  `sms_messageid` int(10) unsigned DEFAULT NULL,
+  `sms_status` tinyint(4) unsigned DEFAULT NULL,
+  `sms_method` enum('post','get') NOT NULL DEFAULT 'post',
+  `sms_type` enum('receive','delivery') DEFAULT 'delivery',
+  `sms_date` datetime DEFAULT NULL,
+  `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `smss`
+--
+
+INSERT INTO `smss` (`id`, `sms_from`, `sms_to`, `sms_message`, `sms_messageid`, `sms_status`, `sms_method`, `sms_type`, `sms_date`, `date_modified`) VALUES
+(70, NULL, NULL, NULL, 30221993, 4, 'get', 'delivery', '2014-12-29 22:05:24', NULL),
+(71, NULL, NULL, NULL, 777, 0, 'post', 'delivery', '2014-12-30 10:53:40', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `terms`
 --
 
@@ -791,6 +824,7 @@ CREATE TABLE IF NOT EXISTS `terms` (
   `term_desc` varchar(200) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
   `term_father` smallint(5) unsigned DEFAULT NULL,
   `term_type` enum('cat','tag') CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL DEFAULT 'cat',
+  `term_status` enum('enable','disable') NOT NULL DEFAULT 'enable',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
@@ -798,9 +832,9 @@ CREATE TABLE IF NOT EXISTS `terms` (
 -- Dumping data for table `terms`
 --
 
-INSERT INTO `terms` (`id`, `term_name`, `term_slug`, `term_desc`, `term_father`, `term_type`, `date_modified`) VALUES
-(1, 'news', 'news', '', NULL, 'cat', '0000-00-00 00:00:00'),
-(5, 'test', 't', 't', 1, 'tag', '0000-00-00 00:00:00');
+INSERT INTO `terms` (`id`, `term_name`, `term_slug`, `term_desc`, `term_father`, `term_type`, `term_status`, `date_modified`) VALUES
+(1, 'news', 'news', '', NULL, 'cat', 'enable', '0000-00-00 00:00:00'),
+(5, 'test', 't', 't', 1, 'tag', 'enable', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -913,6 +947,22 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transactionmetas`
+--
+
+CREATE TABLE IF NOT EXISTS `transactionmetas` (
+`id` smallint(6) unsigned NOT NULL,
+  `transaction_id` int(10) unsigned DEFAULT NULL,
+  `transactionmeta_cat` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `transactionmeta_name` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `transactionmeta_value` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
+  `transactionmeta_status` enum('enable','disable') CHARACTER SET utf8 NOT NULL DEFAULT 'enable',
+  `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transactions`
 --
 
@@ -923,14 +973,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `user_id_customer` smallint(5) unsigned NOT NULL,
   `transaction_date` datetime NOT NULL,
   `transaction_sum` decimal(13,4) NOT NULL,
-  `transaction_discount` decimal(13,4) NOT NULL DEFAULT '0.0000',
-  `transaction_initialreceived` decimal(13,4) DEFAULT NULL,
-  `transaction_received` decimal(13,4) DEFAULT NULL,
   `transaction_remained` decimal(13,4) DEFAULT NULL,
-  `transaction_pre` enum('yes','no') NOT NULL DEFAULT 'no',
-  `transaction_desc` varchar(200) DEFAULT NULL,
-  `transaction_transport` decimal(13,4) DEFAULT NULL,
-  `transaction_vat` enum('yes','nocalc','no') NOT NULL DEFAULT 'no' COMMENT 'in percent',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
@@ -938,10 +981,10 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 -- Dumping data for table `transactions`
 --
 
-INSERT INTO `transactions` (`id`, `transaction_type`, `user_id`, `user_id_customer`, `transaction_date`, `transaction_sum`, `transaction_discount`, `transaction_initialreceived`, `transaction_received`, `transaction_remained`, `transaction_pre`, `transaction_desc`, `transaction_transport`, `transaction_vat`, `date_modified`) VALUES
-(2, 'sale', 15, 15, '0000-00-00 00:00:00', '50.0000', '0.0000', NULL, NULL, NULL, '', NULL, NULL, '', '2014-05-30 21:42:55'),
-(3, 'sale', 15, 16, '0000-00-00 00:00:00', '240.0000', '0.0000', NULL, NULL, NULL, '', NULL, NULL, '', '2014-05-30 21:41:20'),
-(5, 'sale', 15, 14, '0000-00-00 00:00:00', '10000.0000', '0.0000', NULL, NULL, NULL, '', NULL, NULL, '', '0000-00-00 00:00:00');
+INSERT INTO `transactions` (`id`, `transaction_type`, `user_id`, `user_id_customer`, `transaction_date`, `transaction_sum`, `transaction_remained`, `date_modified`) VALUES
+(2, 'sale', 15, 15, '0000-00-00 00:00:00', '50.0000', NULL, '2014-05-30 21:42:55'),
+(3, 'sale', 15, 16, '0000-00-00 00:00:00', '240.0000', NULL, '2014-05-30 21:41:20'),
+(5, 'sale', 15, 14, '0000-00-00 00:00:00', '10000.0000', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -954,25 +997,51 @@ CREATE TABLE IF NOT EXISTS `userlogs` (
   `userlog_title` varchar(50) DEFAULT NULL,
   `userlog_desc` varchar(999) DEFAULT NULL,
   `userlog_priority` enum('high','medium','low') NOT NULL DEFAULT 'medium',
-  `userlog_type` enum('forget_password') DEFAULT NULL,
+  `userlog_type` enum('forgetpassword') DEFAULT NULL,
   `user_id` smallint(5) unsigned DEFAULT NULL,
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `userlogs`
+--
+
+INSERT INTO `userlogs` (`id`, `userlog_title`, `userlog_desc`, `userlog_priority`, `userlog_type`, `user_id`, `date_modified`) VALUES
+(1, NULL, ' |status:قصضقصثق', 'medium', NULL, NULL, NULL),
+(2, '235235', ' |status:wq4wrqw', 'low', NULL, NULL, NULL),
+(5, NULL, ' |status:', 'low', NULL, NULL, NULL),
+(6, NULL, ' |status:', 'low', NULL, NULL, NULL),
+(7, NULL, ' |status:', 'low', NULL, NULL, NULL),
+(8, NULL, ' |status:', 'low', NULL, NULL, NULL),
+(9, NULL, ' |status:', 'low', NULL, NULL, NULL),
+(10, 'from: 123 | to: 456', ' |message:test-javad |msgid: 678', 'medium', NULL, NULL, NULL),
+(11, '364264', ' |status:364264', 'low', NULL, NULL, NULL),
+(12, NULL, ' |status:', 'low', NULL, NULL, NULL),
+(13, NULL, ' |status:', 'low', NULL, NULL, NULL),
+(14, '343215132', 'msgid: 343215132 |status:ثصضقثص', 'low', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usermeta`
+-- Table structure for table `usermetas`
 --
 
-CREATE TABLE IF NOT EXISTS `usermeta` (
+CREATE TABLE IF NOT EXISTS `usermetas` (
 `id` smallint(6) unsigned NOT NULL,
   `user_id` smallint(6) unsigned DEFAULT NULL,
   `usermeta_cat` varchar(50) DEFAULT NULL,
   `usermeta_name` varchar(100) DEFAULT NULL,
-  `usermeta_value` varchar(999) DEFAULT NULL,
+  `usermeta_value` varchar(500) DEFAULT NULL,
+  `usermeta_status` enum('enable','disable') NOT NULL DEFAULT 'enable',
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `usermetas`
+--
+
+INSERT INTO `usermetas` (`id`, `user_id`, `usermeta_cat`, `usermeta_name`, `usermeta_value`, `usermeta_status`, `date_modified`) VALUES
+(1, 14, 'login_token', NULL, '913526532056', 'enable', '2014-12-30 07:40:37');
 
 -- --------------------------------------------------------
 
@@ -983,49 +1052,42 @@ CREATE TABLE IF NOT EXISTS `usermeta` (
 CREATE TABLE IF NOT EXISTS `users` (
 `id` smallint(5) unsigned NOT NULL COMMENT 'use char(36) if i want use uuid',
   `user_type` enum('store_admin','store_employee','store_supplier','store_customer','admin','user') DEFAULT 'user',
+  `user_mobile` varchar(15) NOT NULL COMMENT 'Mobile',
   `user_pass` char(32) NOT NULL COMMENT 'Password',
   `user_email` varchar(50) DEFAULT NULL,
   `user_gender` enum('male','female') DEFAULT NULL COMMENT 'Gender',
-  `user_married` enum('single','married') DEFAULT NULL,
+  `user_nickname` varchar(50) DEFAULT NULL,
   `user_firstname` varchar(50) DEFAULT NULL COMMENT 'First Name',
   `user_lastname` varchar(50) DEFAULT NULL COMMENT 'Last Name',
-  `user_nickname` varchar(50) DEFAULT NULL,
-  `user_tel` varchar(15) DEFAULT NULL COMMENT 'Tel',
-  `user_mobile` varchar(15) NOT NULL COMMENT 'Mobile',
   `user_birthday` datetime DEFAULT NULL,
-  `user_country` smallint(5) unsigned DEFAULT NULL,
-  `user_state` smallint(5) unsigned DEFAULT NULL,
-  `user_city` smallint(5) unsigned DEFAULT NULL,
-  `user_address` varchar(200) DEFAULT NULL,
-  `user_postcode` varchar(10) DEFAULT NULL,
-  `user_newsletter` enum('yes','no') DEFAULT 'no',
-  `user_refer` varchar(50) DEFAULT NULL COMMENT 'select from list like enum',
-  `user_nationalcode` varchar(15) DEFAULT NULL,
-  `user_website` varchar(100) DEFAULT NULL COMMENT 'Website',
   `user_status` enum('active','awaiting','deactive','removed') DEFAULT 'awaiting' COMMENT 'Status',
-  `user_degree` varchar(50) DEFAULT NULL COMMENT 'Select from list',
-  `user_activity` varchar(50) DEFAULT NULL COMMENT 'Select from list',
-  `user_incomes` bigint(11) DEFAULT '0',
-  `user_outcomes` bigint(11) DEFAULT '0',
   `user_credit` enum('yes','no') DEFAULT 'no',
-  `user_question` varchar(100) DEFAULT NULL,
-  `user_answer` varchar(100) DEFAULT NULL,
-  `user_extra` varchar(50) DEFAULT NULL COMMENT '''user_shop'' is userd in app',
-  `user_logincount` int(10) NOT NULL DEFAULT '0',
   `permission_id` smallint(5) unsigned DEFAULT NULL,
+  `user_createdate` datetime NOT NULL,
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=150 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_type`, `user_pass`, `user_email`, `user_gender`, `user_married`, `user_firstname`, `user_lastname`, `user_nickname`, `user_tel`, `user_mobile`, `user_birthday`, `user_country`, `user_state`, `user_city`, `user_address`, `user_postcode`, `user_newsletter`, `user_refer`, `user_nationalcode`, `user_website`, `user_status`, `user_degree`, `user_activity`, `user_incomes`, `user_outcomes`, `user_credit`, `user_question`, `user_answer`, `user_extra`, `user_logincount`, `permission_id`, `date_modified`) VALUES
-(14, 'store_admin', '96e79218965eb72c92a549dd5a330112', 'eee2', 'male', 'single', 'Javad', 'Evazzadeh', 'J.Evazzadeh', '123', '+989357269759', NULL, NULL, NULL, NULL, NULL, '12345', 'no', NULL, '2190053994', 'Evazzadeh.com', 'active', NULL, NULL, 9010, 0, 'no', NULL, NULL, NULL, 0, 1, '2014-11-25 13:34:20'),
-(15, 'store_admin', '96e79218965eb72c92a549dd5a330112', NULL, NULL, NULL, 'Test', NULL, 'Test1', NULL, '+989113334444', NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, 'awaiting', NULL, NULL, 9032, 0, 'no', NULL, NULL, NULL, 0, 1, '2014-11-25 13:34:29'),
-(16, 'store_admin', '96e79218965eb72c92a549dd5a330112', 'aaa2', NULL, NULL, NULL, 'Test last', 'Test3', NULL, '+989357269750', NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, 'active', NULL, NULL, 0, 0, 'no', NULL, NULL, NULL, 0, 1, '2014-11-25 13:34:06'),
-(28, 'store_admin', '96e79218965eb72c92a549dd5a330112', 'aaa', NULL, NULL, 'Javad', 'Evazzadeh', 'Javad', '123', '+989363334444', NULL, 0, 0, 0, 'test', '12345', 'no', NULL, '2190053994', 'evazzadeh&period;com', 'active', NULL, NULL, 0, 0, 'yes', NULL, NULL, NULL, 0, NULL, '2014-11-26 10:14:24'),
-(74, 'store_admin', '96e79218965eb72c92a549dd5a330112', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '+989389105350', NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, 'active', NULL, NULL, 0, 0, 'no', NULL, NULL, NULL, 0, NULL, '2014-11-26 15:46:37');
+INSERT INTO `users` (`id`, `user_type`, `user_mobile`, `user_pass`, `user_email`, `user_gender`, `user_nickname`, `user_firstname`, `user_lastname`, `user_birthday`, `user_status`, `user_credit`, `permission_id`, `user_createdate`, `date_modified`) VALUES
+(14, 'store_admin', '+989357269758', '96e79218965eb72c92a549dd5a330112', 'eee2', 'male', 'J.Evazzadeh', 'Javad', 'Evazzadeh', NULL, 'active', 'no', 1, '0000-00-00 00:00:00', '2014-12-28 12:23:54'),
+(15, 'store_admin', '+989113334444', '96e79218965eb72c92a549dd5a330112', NULL, NULL, 'Test1', 'Test', NULL, NULL, 'awaiting', 'no', 1, '0000-00-00 00:00:00', '2014-11-25 13:34:29'),
+(16, 'store_admin', '+989357269750', '96e79218965eb72c92a549dd5a330112', 'aaa2', NULL, 'Test3', NULL, 'Test last', NULL, 'active', 'no', 1, '0000-00-00 00:00:00', '2014-11-25 13:34:06'),
+(28, 'store_admin', '+989363334444', '96e79218965eb72c92a549dd5a330112', 'aaa', NULL, 'Javad', 'Javad', 'Evazzadeh', NULL, 'active', 'yes', NULL, '0000-00-00 00:00:00', '2014-11-26 10:14:24'),
+(74, 'store_admin', '+989389105350', '96e79218965eb72c92a549dd5a330112', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'no', NULL, '0000-00-00 00:00:00', '2014-11-26 15:46:37'),
+(134, 'store_admin', '+989357269759', '111111', NULL, NULL, NULL, NULL, NULL, NULL, 'awaiting', 'no', NULL, '0000-00-00 00:00:00', '2014-12-28 19:17:04'),
+(137, 'store_admin', '+984982364893', '221231231', NULL, NULL, NULL, NULL, NULL, NULL, 'awaiting', 'no', NULL, '0000-00-00 00:00:00', NULL),
+(138, 'store_admin', '+984982364842', '123124321424', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'no', NULL, '0000-00-00 00:00:00', '2014-12-28 17:56:51'),
+(139, 'store_admin', '+981241242353', '235325213', NULL, NULL, NULL, NULL, NULL, NULL, 'awaiting', 'no', NULL, '0000-00-00 00:00:00', NULL),
+(142, 'store_admin', '+984233242314', '214132432', NULL, NULL, NULL, NULL, NULL, NULL, 'awaiting', 'no', NULL, '0000-00-00 00:00:00', NULL),
+(143, 'store_admin', '+984233242313', '1241224', NULL, NULL, NULL, NULL, NULL, NULL, 'awaiting', 'no', NULL, '0000-00-00 00:00:00', NULL),
+(144, 'store_admin', '+984233242311', '14124124213', NULL, NULL, NULL, NULL, NULL, NULL, 'awaiting', 'no', NULL, '0000-00-00 00:00:00', NULL),
+(145, 'store_admin', '+984233242310', '124124124', NULL, NULL, NULL, NULL, NULL, NULL, 'awaiting', 'no', NULL, '0000-00-00 00:00:00', NULL),
+(146, 'store_admin', '+989357262593', '123123122', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'no', NULL, '0000-00-00 00:00:00', '2014-12-28 19:00:29'),
+(148, 'store_admin', '+94715247352', '252315325125', NULL, NULL, NULL, NULL, NULL, NULL, 'awaiting', 'no', NULL, '0000-00-00 00:00:00', NULL),
+(149, 'store_admin', '+923141325235', '214324234', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'no', NULL, '0000-00-00 00:00:00', '2014-12-28 21:10:34');
 
 -- --------------------------------------------------------
 
@@ -1041,93 +1103,122 @@ CREATE TABLE IF NOT EXISTS `verifications` (
   `verification_url` varchar(100) DEFAULT NULL,
   `user_id` smallint(5) unsigned NOT NULL,
   `verification_verified` enum('yes','no') CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL DEFAULT 'no',
+  `verification_createdate` datetime DEFAULT NULL,
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=277 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=365 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `verifications`
 --
 
-INSERT INTO `verifications` (`id`, `verification_type`, `verification_value`, `verification_code`, `verification_url`, `user_id`, `verification_verified`, `date_modified`) VALUES
-(27, 'mobileforget', '+989357269759', '4543', NULL, 16, 'no', '0000-00-00 00:00:00'),
-(28, 'mobileregister', '+9811112222', '2625', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(29, 'mobileregister', '+989112225555', '8785', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(30, 'mobileregister', '+989123124112', '4338', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(31, 'mobileregister', '+989111941061', '8686', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(32, 'mobileregister', '+98124124124', '2423', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(33, 'mobileregister', '+9812412412', '6454', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(34, 'mobileregister', '+98214124124', '8765', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(35, 'mobileregister', '+98235352135', '3233', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(36, 'mobileregister', '+98432432423', '5483', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(37, 'mobileregister', '+98253253215', '3857', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(38, 'mobileregister', '+983535315', '9456', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(39, 'mobileregister', '+984325235', '6674', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(42, 'mobileforget', '+989113334444', '8484', NULL, 14, 'yes', '2014-11-22 23:54:38'),
-(43, 'mobileforget', '+989113334444', '4893', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(44, 'mobileforget', '+989113334444', '3483', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(45, 'mobileforget', '+989113334444', '9468', NULL, 14, 'yes', '2014-11-22 23:53:33'),
-(46, 'mobileforget', '+989113334444', '4388', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(62, 'mobileforget', '+989357269759', '8249', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(65, 'mobileforget', '+989357269759', '5768', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(66, 'mobileforget', '+989357269759', '4526', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(82, 'mobileforget', '+989357269759', '3536', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(103, 'mobileforget', '+989357269759', '7737', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(104, 'mobileforget', '+989357269759', '3795', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(105, 'mobileforget', '+989357269759', '2253', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(106, 'mobileforget', '+989357269759', '2997', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(107, 'mobileforget', '+989357269759', '9269', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(108, 'mobileforget', '+989357269759', '8682', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(111, 'mobileforget', '+989357269759', '8796', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(112, 'mobileforget', '+989357269759', '6325', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(115, 'mobileforget', '+989357269759', '5526', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(116, 'mobileforget', '+989357269759', '2592', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(117, 'mobileforget', '+989357269759', '2595', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(118, 'mobileforget', '+989357269759', '9994', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(119, 'mobileforget', '+989357269759', '3274', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(120, 'mobileforget', '+989357269759', '9553', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(121, 'mobileforget', '+989357269759', '9954', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(122, 'mobileforget', '+989357269759', '2665', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(123, 'mobileforget', '+989357269759', '9242', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(124, 'mobileforget', '+989357269759', '6634', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(125, 'mobileforget', '+989357269759', '2296', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(126, 'mobileforget', '+989357269759', '4834', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(127, 'mobileforget', '+989357269759', '5676', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(128, 'mobileforget', '+989357269759', '9882', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(129, 'mobileforget', '+989357269759', '7849', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(131, 'mobileforget', '+989357269759', '2947', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(132, 'mobileforget', '+989357269759', '5467', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(133, 'mobileforget', '+989357269759', '7548', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(134, 'mobileforget', '+989357269759', '6982', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(135, 'mobileforget', '+989357269759', '7258', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(136, 'mobileforget', '+989357269759', '7554', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(137, 'mobileforget', '+989357269759', '9349', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(138, 'mobileforget', '+989357269759', '9453', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(139, 'mobileforget', '+989357269759', '8252', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(140, 'mobileforget', '+989357269759', '8437', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(141, 'mobileforget', '+989357269759', '7279', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(142, 'mobileforget', '+989357269759', '3739', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(143, 'mobileforget', '+989357269759', '6467', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(144, 'mobileforget', '+989357269759', '8467', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(145, 'mobileforget', '+989357269759', '5247', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(146, 'mobileforget', '+989357269759', '4955', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(147, 'mobileforget', '+989113334444', '3298', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(149, 'mobileforget', '+989357269759', '3653', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(150, 'mobileforget', '+989357269759', '4652', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(151, 'mobileforget', '+989357269759', '5379', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(155, 'mobileforget', '+989113334444', '3575', NULL, 15, 'no', '0000-00-00 00:00:00'),
-(156, 'mobileforget', '+989357269759', '2539', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(161, 'mobileforget', '+989357269759', '6575', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(225, 'mobileforget', '+989357269759', '5284', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(226, 'mobileforget', '+989357269759', '9544', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(227, 'mobileforget', '+989357269759', '9758', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(228, 'mobileforget', '+989357269759', '8763', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(261, 'mobileforget', '+989357269759', '2879', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(262, 'mobileforget', '+989357269759', '6733', NULL, 14, 'yes', '2014-11-26 15:35:18'),
-(266, 'mobileregister', '+989389105350', '5457', NULL, 74, 'yes', '2014-11-26 15:46:37'),
-(267, 'mobileforget', '+989389105350', '5282', NULL, 74, 'yes', '2014-11-26 15:48:00'),
-(274, 'mobileforget', '+989357269759', '6635', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(275, 'mobileforget', '+989357269759', '6276', NULL, 14, 'no', '0000-00-00 00:00:00'),
-(276, 'mobileforget', '+989357269759', '2945', NULL, 14, 'no', '0000-00-00 00:00:00');
+INSERT INTO `verifications` (`id`, `verification_type`, `verification_value`, `verification_code`, `verification_url`, `user_id`, `verification_verified`, `verification_createdate`, `date_modified`) VALUES
+(27, 'mobileforget', '+989357269759', '4543', NULL, 16, 'no', NULL, '0000-00-00 00:00:00'),
+(28, 'mobileregister', '+9811112222', '2625', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(29, 'mobileregister', '+989112225555', '8785', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(30, 'mobileregister', '+989123124112', '4338', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(31, 'mobileregister', '+989111941061', '8686', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(32, 'mobileregister', '+98124124124', '2423', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(33, 'mobileregister', '+9812412412', '6454', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(34, 'mobileregister', '+98214124124', '8765', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(35, 'mobileregister', '+98235352135', '3233', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(36, 'mobileregister', '+98432432423', '5483', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(37, 'mobileregister', '+98253253215', '3857', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(38, 'mobileregister', '+983535315', '9456', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(39, 'mobileregister', '+984325235', '6674', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(42, 'mobileforget', '+989113334444', '8484', NULL, 14, 'yes', NULL, '2014-11-22 23:54:38'),
+(43, 'mobileforget', '+989113334444', '4893', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(44, 'mobileforget', '+989113334444', '3483', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(45, 'mobileforget', '+989113334444', '9468', NULL, 14, 'yes', NULL, '2014-11-22 23:53:33'),
+(46, 'mobileforget', '+989113334444', '4388', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(62, 'mobileforget', '+989357269759', '8249', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(65, 'mobileforget', '+989357269759', '5768', NULL, 14, 'no', '2014-12-28 21:47:42', '2014-12-28 18:17:44'),
+(66, 'mobileforget', '+989357269759', '4526', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(82, 'mobileforget', '+989357269759', '3536', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(103, 'mobileforget', '+989357269759', '7737', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(104, 'mobileforget', '+989357269759', '3795', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(105, 'mobileforget', '+989357269759', '2253', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(106, 'mobileforget', '+989357269759', '2997', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(107, 'mobileforget', '+989357269759', '9269', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(108, 'mobileforget', '+989357269759', '8682', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(111, 'mobileforget', '+989357269759', '8796', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(112, 'mobileforget', '+989357269759', '6325', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(115, 'mobileforget', '+989357269759', '5526', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(116, 'mobileforget', '+989357269759', '2592', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(117, 'mobileforget', '+989357269759', '2595', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(118, 'mobileforget', '+989357269759', '9994', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(119, 'mobileforget', '+989357269759', '3274', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(120, 'mobileforget', '+989357269759', '9553', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(121, 'mobileforget', '+989357269759', '9954', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(122, 'mobileforget', '+989357269759', '2665', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(123, 'mobileforget', '+989357269759', '9242', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(124, 'mobileforget', '+989357269759', '6634', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(125, 'mobileforget', '+989357269759', '2296', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(126, 'mobileforget', '+989357269759', '4834', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(127, 'mobileforget', '+989357269759', '5676', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(128, 'mobileforget', '+989357269759', '9882', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(129, 'mobileforget', '+989357269759', '7849', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(131, 'mobileforget', '+989357269759', '2947', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(132, 'mobileforget', '+989357269759', '5467', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(133, 'mobileforget', '+989357269759', '7548', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(134, 'mobileforget', '+989357269759', '6982', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(135, 'mobileforget', '+989357269759', '7258', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(136, 'mobileforget', '+989357269759', '7554', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(137, 'mobileforget', '+989357269759', '9349', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(138, 'mobileforget', '+989357269759', '9453', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(139, 'mobileforget', '+989357269759', '8252', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(140, 'mobileforget', '+989357269759', '8437', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(141, 'mobileforget', '+989357269759', '7279', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(142, 'mobileforget', '+989357269759', '3739', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(143, 'mobileforget', '+989357269759', '6467', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(144, 'mobileforget', '+989357269759', '8467', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(145, 'mobileforget', '+989357269759', '5247', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(146, 'mobileforget', '+989357269759', '4955', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(147, 'mobileforget', '+989113334444', '3298', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(149, 'mobileforget', '+989357269759', '3653', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(150, 'mobileforget', '+989357269759', '4652', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(151, 'mobileforget', '+989357269759', '5379', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(155, 'mobileforget', '+989113334444', '3575', NULL, 15, 'no', NULL, '0000-00-00 00:00:00'),
+(156, 'mobileforget', '+989357269759', '2539', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(161, 'mobileforget', '+989357269759', '6575', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(225, 'mobileforget', '+989357269759', '5284', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(226, 'mobileforget', '+989357269759', '9544', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(227, 'mobileforget', '+989357269759', '9758', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(228, 'mobileforget', '+989357269759', '8763', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(261, 'mobileforget', '+989357269759', '2879', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(262, 'mobileforget', '+989357269759', '6733', NULL, 14, 'yes', NULL, '2014-11-26 15:35:18'),
+(266, 'mobileregister', '+989389105350', '5457', NULL, 74, 'yes', NULL, '2014-11-26 15:46:37'),
+(267, 'mobileforget', '+989389105350', '5282', NULL, 74, 'yes', NULL, '2014-11-26 15:48:00'),
+(274, 'mobileforget', '+989357269759', '6635', NULL, 14, 'no', NULL, '0000-00-00 00:00:00'),
+(275, 'mobileforget', '+989357269759', '6276', NULL, 14, 'yes', NULL, '2014-12-28 13:49:21'),
+(276, 'mobileforget', '+989357269759', '2945', NULL, 14, 'yes', NULL, '2014-12-28 13:49:50'),
+(334, 'mobileregister', '+989357269759', '2682', NULL, 134, 'no', NULL, NULL),
+(337, 'mobileforget', '+989357269759', '6273', NULL, 134, 'no', NULL, NULL),
+(338, 'mobileregister', '+984982364893', '7294', NULL, 137, 'no', NULL, NULL),
+(339, 'mobileregister', '+984982364842', '7676', NULL, 138, 'yes', NULL, '2014-12-28 17:56:51'),
+(340, 'mobileregister', '+981241242353', '5835', NULL, 139, 'no', NULL, NULL),
+(341, 'mobileregister', '+984233242314', '2483', NULL, 142, 'no', '2014-12-28 19:18:26', NULL),
+(342, 'mobileregister', '+984233242313', '4697', NULL, 143, 'no', '0000-00-00 00:00:00', NULL),
+(343, 'mobileregister', '+984233242311', '4863', NULL, 144, 'no', '0000-00-00 00:00:00', NULL),
+(344, 'mobileregister', '+984233242310', '4726', NULL, 145, 'no', '2014-12-28 19:24:39', NULL),
+(345, 'mobileforget', '+989357269759', '9585', NULL, 134, 'no', NULL, NULL),
+(346, 'mobileregister', '+989357262593', '8924', NULL, 146, 'yes', '2014-12-28 20:00:20', '2014-12-28 19:00:29'),
+(348, 'mobileregister', '+94715247352', '2936', NULL, 148, 'no', '2014-12-28 22:05:48', NULL),
+(349, 'mobileregister', '+923141325235', '6448', NULL, 149, 'yes', '2014-12-28 22:08:24', '2014-12-28 21:13:10'),
+(350, 'mobileforget', '+989357269759', '6576', NULL, 134, 'no', NULL, NULL),
+(351, 'mobileforget', '+989357269759', '7775', NULL, 134, 'no', NULL, NULL),
+(352, 'mobileforget', '+989357269759', '4225', NULL, 134, 'no', NULL, NULL),
+(353, 'mobileforget', '+989357269759', '3568', NULL, 134, 'no', NULL, NULL),
+(354, 'mobileforget', '+989357269759', '8293', NULL, 134, 'no', NULL, NULL),
+(355, 'mobileforget', '+989357269759', '3254', NULL, 134, 'no', NULL, NULL),
+(356, 'mobileforget', '+989357269759', '9723', NULL, 134, 'no', NULL, NULL),
+(357, 'mobileforget', '+989357269759', '5648', NULL, 134, 'no', NULL, NULL),
+(358, 'mobileforget', '+989357269759', '3367', NULL, 134, 'no', NULL, NULL),
+(359, 'mobileforget', '+989357269759', '6293', NULL, 134, 'no', NULL, NULL),
+(360, 'mobileforget', '+989357269759', '2355', NULL, 134, 'no', NULL, NULL),
+(361, 'mobileforget', '+989357269759', '8837', NULL, 134, 'no', NULL, NULL),
+(362, 'mobileforget', '+989357269759', '4327', NULL, 134, 'no', NULL, NULL),
+(363, 'mobileforget', '+989357269759', '9275', NULL, 134, 'no', NULL, NULL),
+(364, 'mobileforget', '+989357269759', '6548', NULL, 134, 'no', NULL, NULL);
 
 --
 -- Triggers `verifications`
@@ -1156,7 +1247,7 @@ CREATE TABLE IF NOT EXISTS `visitors` (
   `visitor_referer` varchar(255) DEFAULT NULL,
   `visitor_robot` enum('yes','no') NOT NULL DEFAULT 'no',
   `user_id` smallint(5) unsigned DEFAULT NULL,
-  `visitor_datetime` datetime DEFAULT NULL,
+  `visitor_createdate` datetime DEFAULT NULL,
   `date_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=197 DEFAULT CHARSET=utf8;
 
@@ -1164,7 +1255,7 @@ CREATE TABLE IF NOT EXISTS `visitors` (
 -- Dumping data for table `visitors`
 --
 
-INSERT INTO `visitors` (`id`, `visitor_ip`, `visitor_url`, `visitor_agent`, `visitor_referer`, `visitor_robot`, `user_id`, `visitor_datetime`, `date_modified`) VALUES
+INSERT INTO `visitors` (`id`, `visitor_ip`, `visitor_url`, `visitor_agent`, `visitor_referer`, `visitor_robot`, `user_id`, `visitor_createdate`, `date_modified`) VALUES
 (195, 2130706433, 'http%3A%2F%2Fjibres.dev%2F', 'Mozilla%2F5.0+%28Windows+NT+6.2%3B+WOW64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F39.0.2171.95+Safari%2F537.36', NULL, 'no', NULL, '2014-12-23 10:29:20', NULL),
 (196, 2130706433, 'http%3A%2F%2Fjibres.dev%2F', 'Mozilla%2F5.0+%28Windows+NT+6.2%3B+WOW64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F39.0.2171.95+Safari%2F537.36', NULL, 'no', NULL, '2014-12-23 10:29:21', NULL);
 
@@ -1305,6 +1396,12 @@ ALTER TABLE `receipts`
  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `receipts_papers_id` (`paper_id`) USING BTREE, ADD KEY `receipts_transactions_id` (`transaction_id`) USING BTREE, ADD KEY `receipts_funds_id` (`fund_id`) USING BTREE, ADD KEY `receipts_users_id` (`user_id`), ADD KEY `receipts_users_idcustomer` (`user_id_customer`);
 
 --
+-- Indexes for table `smss`
+--
+ALTER TABLE `smss`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `terms`
 --
 ALTER TABLE `terms`
@@ -1323,6 +1420,12 @@ ALTER TABLE `transactiondetails`
  ADD UNIQUE KEY `sale+product_unique` (`transaction_id`,`product_id`), ADD KEY `transactiondetails_products_id` (`product_id`) USING BTREE;
 
 --
+-- Indexes for table `transactionmetas`
+--
+ALTER TABLE `transactionmetas`
+ ADD PRIMARY KEY (`id`), ADD KEY `transactionmetas_transactions_id` (`transaction_id`);
+
+--
 -- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
@@ -1335,16 +1438,16 @@ ALTER TABLE `userlogs`
  ADD PRIMARY KEY (`id`), ADD KEY `priority_index` (`userlog_priority`), ADD KEY `type_index` (`userlog_type`), ADD KEY `userlogs_users_id` (`user_id`) USING BTREE;
 
 --
--- Indexes for table `usermeta`
+-- Indexes for table `usermetas`
 --
-ALTER TABLE `usermeta`
+ALTER TABLE `usermetas`
  ADD PRIMARY KEY (`id`), ADD KEY `usermeta_users_id` (`user_id`) USING BTREE;
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `mobile_unique` (`user_mobile`) USING BTREE, ADD UNIQUE KEY `email_unique` (`user_email`) USING BTREE, ADD UNIQUE KEY `extra_unique` (`user_extra`), ADD KEY `users_permissions_id` (`permission_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `mobile_unique` (`user_mobile`) USING BTREE, ADD UNIQUE KEY `email_unique` (`user_email`) USING BTREE, ADD KEY `users_permissions_id` (`permission_id`);
 
 --
 -- Indexes for table `verifications`
@@ -1463,6 +1566,11 @@ MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 ALTER TABLE `receipts`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT for table `smss`
+--
+ALTER TABLE `smss`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=73;
+--
 -- AUTO_INCREMENT for table `terms`
 --
 ALTER TABLE `terms`
@@ -1473,6 +1581,11 @@ MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 ALTER TABLE `termusages`
 MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `transactionmetas`
+--
+ALTER TABLE `transactionmetas`
+MODIFY `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
@@ -1481,22 +1594,22 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `userlogs`
 --
 ALTER TABLE `userlogs`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT for table `usermeta`
+-- AUTO_INCREMENT for table `usermetas`
 --
-ALTER TABLE `usermeta`
-MODIFY `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `usermetas`
+MODIFY `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'use char(36) if i want use uuid',AUTO_INCREMENT=75;
+MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'use char(36) if i want use uuid',AUTO_INCREMENT=150;
 --
 -- AUTO_INCREMENT for table `verifications`
 --
 ALTER TABLE `verifications`
-MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=277;
+MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=365;
 --
 -- AUTO_INCREMENT for table `visitors`
 --
@@ -1625,6 +1738,12 @@ ADD CONSTRAINT `transactiondetails_products_id` FOREIGN KEY (`product_id`) REFER
 ADD CONSTRAINT `transactiondetails_transactions_id` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `transactionmetas`
+--
+ALTER TABLE `transactionmetas`
+ADD CONSTRAINT `transactionmetas_transactions_id` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `transactions`
 --
 ALTER TABLE `transactions`
@@ -1638,9 +1757,9 @@ ALTER TABLE `userlogs`
 ADD CONSTRAINT `userlogs_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION;
 
 --
--- Constraints for table `usermeta`
+-- Constraints for table `usermetas`
 --
-ALTER TABLE `usermeta`
+ALTER TABLE `usermetas`
 ADD CONSTRAINT `usermetas_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
