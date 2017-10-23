@@ -1,5 +1,5 @@
 // METHOD  POST
-// URL     /team
+// URL     /store
 {
 	"name" : null,
 	"website" : null,
@@ -41,11 +41,11 @@
     "title": "عملیات کامل شد",
     "msg": {
         "callback": {
-            "team_id": "RHC"
+            "store_id": "RHC"
         }
     },
     "result": {
-        "team_id": "RHC"
+        "store_id": "RHC"
     },
     "messages": {
         "true": [
@@ -61,7 +61,7 @@
 
 
 // METHOD  PATCH
-// URL     /team
+// URL     /store
 // POST PARAMETER AND
 { "id" : "2kf" }
 

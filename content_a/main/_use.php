@@ -7,6 +7,9 @@ trait _use
 	// API OPTIONS
 	use \addons\content_api\v1\home\tools\_use;
 
+	use \content_api\v1\store\tools\add;
+	use \content_api\v1\store\tools\get;
+
 	/**
 	 * check team language and redirect if is set
 	 * the 'data' mean the arguments of this function is data of team

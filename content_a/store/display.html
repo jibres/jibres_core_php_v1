@@ -8,38 +8,31 @@
 <div class='middle normal f justify-center'>
 
   <div class="vcard mA10">
-    <img src="{{url.static}}siftal/images/useful/plus1.png" alt="add new store">
+    <img src="{{url.static}}siftal/images/useful/plus1.png" alt="add new team">
     <div class="content"></div>
     <div class="footer pAn">
-     <a class="btn block primary" href="{{url.baseFull}}/store/add">{%trans "Add new store"%}</a>
+     <a class="btn block primary" href="{{url.baseFull}}/team/add">{%trans "Add new team"%}</a>
     </div>
   </div>
 
-{%for key, value in store_list%}
+{%for key, value in list_store%}
 
 {%set cardColor%}
 {%if value.status == 'close'%}red{%elseif not value.stats.traffic_count%}black{%elseif value.rule == 'admin'%}blue{%else%}{%endif%}
 {%endset%}
 
-  <a class="vcard mA10 shadow {{cardColor}}" href='{{url.baseFull}}/{{value.id}}'>
+  <a class="vcard mA10 shadow {{cardColor}}" href='{{value.url}}'>
     <img src="{{value.logo}}" alt="{{value.name}}" class="pA10-f">
     <div class="content">
       <div class="header">{{value.name}}</div>
-      {%if value.rule != 'admin' and value.privacy == 'private' %}
-      {%else%}
-        {%if not value.stats.last_traffic_string%}
-          <div class="meta"><span>{%trans "Without traffic"%}</span></div>
-        {%else%}
-          <div class="meta"><span>{%trans "Last traffic"%} {{value.stats.last_traffic_string| fitNumber}}</span></div>
-        {%endif%}
-      {%endif%}
+
     </div>
     <div class="footer">
     <i class="sf-users"></i>{{value.stats.member_count | number_format | fitNumber}} {%trans "member"%}
     {%if value.stats.traffic_count%}
       <i class="sf-refresh"></i><span>{{value.stats.traffic_count | number_format | fitNumber}}</span> {%trans "traffic"%}
     {%endif%}
-    {%if value.rule=='admin'%} <i class="sf-star fc-gold" title='{%trans "Owner of store"%}'></i>{%endif%}
+    {%if value.rule=='admin'%} <i class="sf-star fc-gold" title='{%trans "Owner of team"%}'></i>{%endif%}
     </div>
   </a>
 {%endfor%}
