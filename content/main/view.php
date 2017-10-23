@@ -1,6 +1,8 @@
 <?php
-class main_view extends mvcView_cls
+namespace content\main;
+
+class view extends \mvc\view
 {
-	
+
 }
 ?>

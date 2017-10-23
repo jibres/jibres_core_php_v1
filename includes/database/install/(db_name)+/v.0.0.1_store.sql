@@ -1,0 +1,27 @@
+CREATE TABLE `stores` (
+`id`            int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`name`          varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+`slug`	        varchar(50) NOT NULL,
+`creator`       int(10) UNSIGNED NOT NULL,
+`website`       varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
+`alias`         varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
+`status`        enum('enable','disable','expire','deleted','lock','awaiting','block','filter','close') NOT NULL DEFAULT 'enable',
+`logo`	        varchar(2000) DEFAULT NULL,
+`plan`          varchar(50) DEFAULT NULL,
+`parent`        int(10) UNSIGNED DEFAULT NULL,
+`meta`          mediumtext CHARACTER SET utf8mb4,
+`datecreated`   datetime DEFAULT CURRENT_TIMESTAMP,
+`datemodified`  timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+`lang`          char(2) DEFAULT NULL,
+`country`       varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+`province`      varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+`city`          varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+`location`      varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+`zipcode`       varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+`phone`         varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
+`desc`          text CHARACTER SET utf8mb4,
+PRIMARY KEY (`id`),
+UNIQUE KEY `slug` (`slug`),
+CONSTRAINT `stores_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

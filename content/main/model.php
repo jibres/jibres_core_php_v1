@@ -1,5 +1,8 @@
 <?php
-class main_model extends mvcModel_cls{
-	
+namespace content\main;
+
+class model extends \mvc\model
+{
+	use \content_a\main\_use;
 }
 ?>

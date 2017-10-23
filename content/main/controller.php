@@ -1,6 +1,9 @@
 <?php
-class main_controller extends mvcController_cls
+namespace content\main;
+
+
+class controller extends \mvc\controller
 {
-	
+
 }
 ?>

@@ -1,0 +1,169 @@
+{%extends display.main%}
+
+{%set pageTitle%}{%trans "Personnel Card"%}{%endset%}
+
+{%set pageDesc%}
+{%trans "A beautiful and quick way for attendance"%}
+{%endset%}
+
+{%block content%}
+<div class="page-block">
+	<div class="cn">
+		<div class="tile">
+			<h2>{%trans "Personnel Card"%}</h2>
+			<h3>{%trans "A beautiful and quick way for attendance"%}</h3>
+		</div>
+	</div>
+</div>
+
+<div class="tile" id="personnel-card-intro">
+	<div class="flex f-column align-center cn">
+		<div class="personnel-card"></div>
+		<h3>{%trans "Setup your dedicated and beautiful attendance system in less than a minute and have a <span>real time</span> and scrupulously monitoring on your business from anywhere"%}</h3>
+		<a href="#" class="btn btn-positive" data-direct>{%trans "Order Now"%}</a>
+	</div>
+</div>
+
+<div class="pc" id="logo-and-info">
+	<div class="cn">
+		<div class="pa">
+			<div class="f">
+				<div class="c1"></div>
+				<div class="flex f-column justify-center c6">
+					<h4>{%trans "Logo and personal information"%}</h4>
+					<p>{%trans "Try the logo of your organization or your company on one of existing designs and after choosing the right card, enter personal information of your employees, such as a photo, first name and last name and job position. Jibres eye-catching personnel cards are a great way to showcase the logo and expand your brand, in addition to facilitating the attendance process."%}</p>
+				</div>
+				<div class="c4 flex justify-center align-center">
+					<div class="f personnel-card id-card">
+						<div class="flex f-column justify-center align-center c">
+							<img src="{{url.static}}images/brand/brand-reg.jpg" alt='' class="logo animated infinite fadeInLeft">
+						</div>
+						<div class="flex f-column justify-center align-center c">
+							<div class="avatar-frame animated infinite fadeInDown">
+								<img src="{{url.static}}images/avatar/sample/boy.svg" alt='' class="avatar">
+							</div>
+							<div class="avatar-name animated infinite fadeInUp">{%trans "Javad Evazzadeh"%}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="pc" id="barcode">
+	<div class="cn">
+		<div class="pa">
+			<div class="f">
+				<div class="c1"></div>
+				<div class="flex justify-center align-center c4">
+					<div class="flex justify-center align-center personnel-card">
+						<ul class="flex barcode">
+							<li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+							<div class="diode"><div class="laser"></div></div>
+						</ul>
+					</div>
+				</div>
+				<div class="flex f-column justify-center c6">
+					<h4>{%trans "Barcode"%}</h4>
+					<p>{%trans "Always have a plan B! By printing the staffing numbers in barcode format behind the personnel cards, you can register employee attendance at the time of the problem or equipment change with a barcode scanner or using an application installed on your smart phone. Additionally, the barcode printing adds to the beauty of the staff card."%}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="pc">
+	<div class="cn">
+		<div class="pa">
+			<div class="f">
+				<div class="c1"></div>
+				<div class="flex f-column justify-center c6">
+					<h4>{%trans "Custom design"%}</h4>
+					<p>{%trans "Did not any of Jibres designs for staff card satisfy your satisfaction? Would you like to get started and print your design on your cards? No problem! Instead of using Jibres designs, send us your design and get your cards as soon as possible with the highest possible quality."%}</p>
+				</div>
+				<div class="flex justify-center align-center c4">
+					<div class="f personnel-card id-card">
+						<div class="flex f-column justify-center align-center c">
+							<img src="{{url.static}}images/brand/brand-reg.jpg" alt='{%trans "Jibres logo"%}' class="logo animated infinite scale">
+						</div>
+						<div class="flex f-column justify-center align-center c">
+							<div class="avatar-frame">
+								<img src="{{url.static}}images/avatar/sample/boy.svg" alt='{%trans "Sample personal card"%}' class="avatar">
+							</div>
+							<div class="avatar-name">{%trans "Javad Evazzadeh"%}</div>
+							<img src="{{url.static}}images/card/barcode.svg" class="id-card-barcode animated infinite fadeInUp" alt='{%trans "Barcode"%}'>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="pc">
+	<div class="cn">
+		<div class="pa">
+			<div class="f">
+				<div class="c1"></div>
+				<div class="flex justify-center align-center c4">
+					<div class="flex align-center personnel-card" id="fast-delivery-example">
+						<div class="car-outer">
+							<div class="car">
+								<div class="car-body"><div></div></div>
+								<div class="extra">
+									<div class="bottom-line"></div>
+									<div class="door">
+										<div class="handle"></div>
+									</div>
+									<div class="window"></div>
+									<div class="light"></div>
+									<div class="light-front"></div>
+									<div class="wheel1"></div>
+									<div class="wheel2"></div>
+									<img class="car-logo" src="{{url.static}}images/logo/svg/jibres-logo.svg" alt='{%trans "Jibres logo"%}'>
+								</div>
+								<div class="wind">
+									<div class="wind-p wind-p1"></div>
+									<div class="wind-p wind-p2"></div>
+									<div class="wind-p wind-p3"></div>
+									<div class="wind-p wind-p4"></div>
+									<div class="wind-p wind-p5"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex f-column justify-center c6">
+					<h4>{%trans "Fast delivery"%}</h4>
+					<p>{%trans "Time is gold and Jibres is a gold mining machine! We have made every effort at Jibres to begin the process of approval and printing of personnel cards from the very early stages of order registration, so that you can get your order delivered as soon as possible and keep your attendance process more professional."%}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="pc">
+	<div class="cn">
+		<div class="pa">
+			<div class="f">
+				<div class="c1"></div>
+				<div class="flex f-column justify-center c6">
+					<h4>{%trans "Good cost"%}</h4>
+					<p>{%trans "Getting information on the types of personnel cards and the cost of printing is easy and you can complete the registration process with full details. We take all the power of Jibres to take into account all the technical aspects of the issuance of personnel cards, so that we can give our customers and users the best possible service with the highest possible quality."%}</p>
+				</div>
+				<div class="flex justify-center align-center c4">
+					<div class="personnel-card"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="tile" id="personnel-card-interested">
+	<div class="flex f-column justify-center align-center cn">
+		<h2>{%trans "Interested?"%}</h2>
+		<a href="#" data-direct class="btn btn-positive">{%trans "Order your personnel cards"%}</a>
+	</div>
+</div>
+{%endblock%}
