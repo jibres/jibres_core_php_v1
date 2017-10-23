@@ -6,6 +6,7 @@ CREATE TABLE products (
 `name`					varchar(200) NULL DEFAULT NULL,
 `slug`					varchar(200) NULL DEFAULT NULL,
 `shortcode`				int(10) NULL DEFAULT NULL,
+`unit`					varchar(100) NULL DEFAULT NULL,
 `barcode`				varchar(100) NULL DEFAULT NULL,
 `barcode2`				varchar(100) NULL DEFAULT NULL,
 `code`					varchar(100) NULL DEFAULT NULL,
