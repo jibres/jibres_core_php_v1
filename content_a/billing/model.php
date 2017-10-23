@@ -173,62 +173,6 @@ class model extends \mvc\model
 	}
 
 
-	/**
-	 * use usage
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public function usage()
-	{
 
-		if(isset($_SESSION['usage_team']) && isset($_SESSION['usage_team_time']))
-		{
-			if(time() - strtotime($_SESSION['usage_team_time']) > (60*60))
-			{
-				$_SESSION['usage_team'] = $this->run_usage();
-				$_SESSION['usage_team_time'] = date("Y-m-d H:i:s");
-			}
-		}
-		else
-		{
-			$_SESSION['usage_team'] = $this->run_usage();
-			$_SESSION['usage_team_time'] = date("Y-m-d H:i:s");
-		}
-
-		return $_SESSION['usage_team'];
-	}
-
-
-	/**
-	 * { function_description }
-	 */
-	public function run_usage()
-	{
-		if(!$this->login())
-		{
-			return false;
-		}
-
-		$user_id = $this->login('id');
-
-		$all_creator_team = \lib\db\teams::get(['creator' => $user_id]);
-
-		$total_usage = 0;
-		if(is_array($all_creator_team))
-		{
-			foreach ($all_creator_team as $key => $value)
-			{
-				if(isset($value['id']))
-				{
-					$calc = new \lib\utility\calc($value['id']);
-					$calc->save(false);
-					$calc->notify(false);
-					$calc->type('calc');
-					$total_usage += $calc->calc();
-				}
-			}
-		}
-		return $total_usage;
-	}
 }
 ?>

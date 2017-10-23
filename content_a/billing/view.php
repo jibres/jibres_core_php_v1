@@ -29,7 +29,6 @@ class view extends \content_a\main\view
 			}
 			$this->data->user_cash = $user_cash_all;
 
-			$this->data->usage = $this->model()->usage();
 		}
 	}
 
