@@ -13,7 +13,7 @@ CREATE TABLE `productterms` (
 `status` enum('enable','disable', 'delete') NOT NULL DEFAULT 'enable',
 `count` int(10) UNSIGNED DEFAULT NULL,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-`datecreated` datetime DEFAULT CURRENT_TIMESTAMP,
+`datecreated` timestamp DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
 CONSTRAINT `productterms_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

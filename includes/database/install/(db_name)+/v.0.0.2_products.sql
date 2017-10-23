@@ -5,6 +5,7 @@ CREATE TABLE products (
 `title`					varchar(500) NOT NULL,
 `name`					varchar(200) NULL DEFAULT NULL,
 `slug`					varchar(200) NULL DEFAULT NULL,
+`company`				varchar(200) NULL DEFAULT NULL,
 `shortcode`				int(10) NULL DEFAULT NULL,
 `unit`					varchar(100) NULL DEFAULT NULL,
 `barcode`				varchar(100) NULL DEFAULT NULL,
@@ -30,6 +31,6 @@ CREATE TABLE products (
 `datemodified` 			timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 `desc`					text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
 PRIMARY KEY (`id`),
-CONSTRAINT `products_creator` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `products_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `products_store_id` FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

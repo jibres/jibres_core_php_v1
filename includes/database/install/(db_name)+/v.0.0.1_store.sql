@@ -10,7 +10,7 @@ CREATE TABLE `stores` (
 `plan`          varchar(50) DEFAULT NULL,
 `parent`        int(10) UNSIGNED DEFAULT NULL,
 `meta`          mediumtext CHARACTER SET utf8mb4,
-`datecreated`   datetime DEFAULT CURRENT_TIMESTAMP,
+`datecreated`   timestamp DEFAULT CURRENT_TIMESTAMP,
 `datemodified`  timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 `lang`          char(2) DEFAULT NULL,
 `country`       varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
