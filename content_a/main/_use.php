@@ -10,6 +10,9 @@ trait _use
 	use \content_api\v1\store\tools\add;
 	use \content_api\v1\store\tools\get;
 
+	use \content_api\v1\product\tools\add;
+	use \content_api\v1\product\tools\get;
+
 	/**
 	 * check team language and redirect if is set
 	 * the 'data' mean the arguments of this function is data of team
