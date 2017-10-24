@@ -27,11 +27,14 @@ class model extends \content_a\main\model
 	public function post_add()
 	{
 		$request = $this->getPost();
-		utility::set_request_array($request);
-		$this->add_store();
+
+		\lib\app::request_init($request);
+
+		\lib\app\store::add();
+
 		if(debug::$status)
 		{
-			$this->redirector($this->url('baseFull'). '/store');
+			$this->redirector($this->url('baseFull'));
 		}
 	}
 }

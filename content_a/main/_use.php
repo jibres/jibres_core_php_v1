@@ -5,13 +5,13 @@ use \lib\utility;
 trait _use
 {
 	// API OPTIONS
-	use \addons\content_api\v1\home\tools\_use;
+	// use \addons\content_api\v1\home\tools\_use;
 
-	use \content_api\v1\store\tools\add;
-	use \content_api\v1\store\tools\get;
+	// use \content_api\v1\store\tools\add;
+	// use \content_api\v1\store\tools\get;
 
-	use \content_api\v1\product\tools\add;
-	use \content_api\v1\product\tools\get;
+	// use \content_api\v1\product\tools\add;
+	// use \content_api\v1\product\tools\get;
 
 	/**
 	 * check team language and redirect if is set
@@ -96,8 +96,5 @@ trait _use
 			}
 		}
 	}
-
-
-
 }
 ?>
