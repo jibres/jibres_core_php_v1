@@ -1,0 +1,18 @@
+{%extends "content_c/main/layout.html"%}
+
+
+{%block pageContent%}
+<div class="f justify-center">
+  <div class="c8 s12">
+    <form method="post" class="cbox">
+    {{block ("iname")}}
+    {{block ("islug")}}
+    {{block ("idesc")}}
+
+    {{block ("iInsert")}}
+    </form>
+
+  </div>
+</div>
+{%endblock%}
+

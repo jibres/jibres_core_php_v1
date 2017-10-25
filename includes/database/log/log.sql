@@ -143,3 +143,73 @@
 ---2017-10-24 16:00:47
 	---0.00034308433532715s		---0ms
 	SELECT * FROM `stores` WHERE `creator` = 1 ORDER BY `stores`.`id` DESC LIMIT 0, 10 -- stores::search() -- ["stores","1",{"creator":"1"}]
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:50:10
+	---0.00029706954956055s		---0ms
+	SELECT COUNT(*) AS `count` FROM `stores` WHERE `creator` = 1
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:50:10
+	---0.00029802322387695s		---0ms
+	SELECT * FROM `stores` WHERE `creator` = 1 ORDER BY `stores`.`id` DESC LIMIT 0, 10 -- stores::search() -- ["stores",1,{"creator":1}]
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:54:24
+	---0.00043511390686035s		---0ms
+	SELECT COUNT(*) AS `count` FROM `stores` WHERE `creator` = 1
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:54:24
+	---0.00035405158996582s		---0ms
+	SELECT * FROM `stores` WHERE `creator` = 1 ORDER BY `stores`.`id` DESC LIMIT 0, 10 -- stores::search() -- ["stores",1,{"creator":1}]
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:57:47
+	---0.00029993057250977s		---0ms
+	SELECT COUNT(*) AS `count` FROM `stores` WHERE `creator` = 1
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:57:47
+	---0.00025200843811035s		---0ms
+	SELECT * FROM `stores` WHERE `creator` = 1 ORDER BY `stores`.`id` DESC LIMIT 0, 10 -- stores::search() -- ["stores",1,{"creator":1}]
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:58:08
+	---0.00034809112548828s		---0ms
+	SELECT COUNT(*) AS `count` FROM `stores` WHERE `creator` = 1
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:58:08
+	---0.00072407722473145s		---1ms
+	SELECT * FROM `stores` WHERE `creator` = 1 ORDER BY `stores`.`id` DESC LIMIT 0, 10 -- stores::search() -- ["stores",1,{"creator":1}]
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:58:27
+	---0.00031709671020508s		---0ms
+	SELECT COUNT(*) AS `count` FROM `stores` WHERE `creator` = 1
+
+#---------------------------------------------------------------------- /c
+---2017-10-25 15:58:27
+	---0.00026297569274902s		---0ms
+	SELECT * FROM `stores` WHERE `creator` = 1 ORDER BY `stores`.`id` DESC LIMIT 0, 10 -- stores::search() -- ["stores",1,{"creator":1}]
+
+#---------------------------------------------------------------------- /c/store
+---2017-10-25 16:02:10
+	---0.00037002563476562s		---0ms
+	SELECT COUNT(*) AS `count` FROM `stores` WHERE `creator` = 1
+
+#---------------------------------------------------------------------- /c/store
+---2017-10-25 16:02:10
+	---0.00030803680419922s		---0ms
+	SELECT * FROM `stores` WHERE `creator` = 1 ORDER BY `stores`.`id` DESC LIMIT 0, 10 -- stores::search() -- ["stores",1,{"creator":1}]
+
+#---------------------------------------------------------------------- /c/store
+---2017-10-25 16:02:17
+	---0.00061702728271484s		---1ms
+	SELECT COUNT(*) AS `count` FROM `stores` WHERE `creator` = 1
+
+#---------------------------------------------------------------------- /c/store
+---2017-10-25 16:02:17
+	---0.00027298927307129s		---0ms
+	SELECT * FROM `stores` WHERE `creator` = 1 ORDER BY `stores`.`id` DESC LIMIT 0, 10 -- stores::search() -- ["stores",1,{"creator":1}]

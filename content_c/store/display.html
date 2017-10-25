@@ -1,0 +1,43 @@
+{%extends display.admin%}
+
+{%block sidenav%}
+{{parent()}}
+{%endblock%}
+
+{%block pageContent%}
+<div class='middle normal f justify-center'>
+
+  <div class="vcard mA10">
+    <img src="{{url.static}}siftal/images/useful/plus1.png" alt="add new store">
+    <div class="content"></div>
+    <div class="footer pAn">
+     <a class="btn block primary" href="{{url.baseFull}}/store/add">{%trans "Add new store"%}</a>
+    </div>
+  </div>
+
+{%for key, value in list_store%}
+
+{%set cardColor%}
+{%if value.status == 'close'%}red{%elseif not value.stats.traffic_count%}black{%elseif value.rule == 'admin'%}blue{%else%}{%endif%}
+{%endset%}
+
+  <a class="vcard mA10 shadow {{cardColor}}" href='{{value.url}}'>
+    <img src="{{value.logo}}" alt="{{value.name}}" class="pA10-f">
+    <div class="content">
+      <div class="header">{{value.name}}</div>
+
+    </div>
+    <div class="footer">
+    <i class="sf-users"></i>{{value.stats.member_count | number_format | fitNumber}} {%trans "member"%}
+    {%if value.stats.traffic_count%}
+      <i class="sf-refresh"></i><span>{{value.stats.traffic_count | number_format | fitNumber}}</span> {%trans "traffic"%}
+    {%endif%}
+    {%if value.rule=='admin'%} <i class="sf-star fc-gold" title='{%trans "Owner of store"%}'></i>{%endif%}
+    </div>
+  </a>
+{%endfor%}
+
+
+</div>
+{%endblock%}
+

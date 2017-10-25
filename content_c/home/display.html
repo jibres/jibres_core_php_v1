@@ -1,0 +1,20 @@
+{%extends display.admin%}
+
+{%block sidenav%}
+{{parent()}}
+{%endblock%}
+
+{%block pageContent%}
+<div class='middle normal f justify-center'>
+
+  <div class="vcard mA10">
+    <img src="{{url.static}}siftal/images/useful/plus1.png" alt="add new store">
+    <div class="content"></div>
+    <div class="footer pAn">
+     <a class="btn block primary" href="{{url.baseFull}}/store">{%trans "List of your stores"%}</a>
+    </div>
+  </div>
+
+</div>
+{%endblock%}
+
