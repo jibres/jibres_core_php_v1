@@ -14,6 +14,11 @@ class controller extends \mvc\controller
 			$this->redirector($this->url('base'). '/enter')->redirect();
 			return;
 		}
+
+		if(!SubDomain)
+		{
+			\lib\error::page(T_("SubDomain not found"));
+		}
 	}
 }
 ?>

@@ -3,6 +3,9 @@ namespace content_a\home;
 
 class view extends \content_a\main\view
 {
+	/**
+	 * title and desc of page
+	 */
 	public function config()
 	{
 		$this->data->page['title'] = T_("Dashboard");
@@ -17,8 +20,7 @@ class view extends \content_a\main\view
 	 */
 	public function view_dashboard($_args)
 	{
-		$list_store = $this->model()->getListStore();
-		$this->data->list_store = $list_store;
+
 	}
 }
 ?>
