@@ -9,7 +9,7 @@ class model extends \content_a\main\model
 	{
 		$request = [];
 		utility::set_request_array($request);
-		return \lib\app\store::get_list_store();
+		return \lib\app\store::list();
 	}
 }
 ?>

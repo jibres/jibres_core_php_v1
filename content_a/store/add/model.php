@@ -11,7 +11,7 @@ class model extends \content_a\main\model
 	 *
 	 * @return     array  The post.
 	 */
-	public function getPost()
+	public static function getPost()
 	{
 		$post         = [];
 		$post['name'] = utility::post('name');
@@ -26,11 +26,7 @@ class model extends \content_a\main\model
 	 */
 	public function post_add()
 	{
-		$request = $this->getPost();
-
-		\lib\app::request_init($request);
-
-		\lib\app\store::add();
+		\lib\app\store::add(self::getPost());
 
 		if(debug::$status)
 		{
