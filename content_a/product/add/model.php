@@ -1,7 +1,7 @@
 <?php
 namespace content_a\product\add;
-use \lib\debug;
 use \lib\utility;
+use \lib\debug;
 
 class model extends \content_a\main\model
 {
@@ -11,28 +11,32 @@ class model extends \content_a\main\model
 	 *
 	 * @return     array  The post.
 	 */
-	public function getPost()
+	public static function getPost()
 	{
-		$post         = [];
-		$post['name'] = utility::post('name');
-		$post['slug'] = utility::post('slug');
-		$post['desc'] = utility::post('desc');
+		$args =
+		[
+			'title' => utility::post('title'),
+			'name'  => utility::post('name'),
+		];
 
-  		return $post;
+		return $args;
 	}
 
+
 	/**
-	 * Posts an add.
+	 * Posts an addproduct.
+	 *
+	 * @param      <type>  $_args  The arguments
 	 */
-	public function post_add()
+	public function post_add($_args)
 	{
-		$request = $this->getPost();
-		utility::set_request_array($request);
-		$this->add_product();
+		\lib\app\product::add(self::getPost());
+
 		if(debug::$status)
 		{
 			$this->redirector($this->url('baseFull'). '/product');
 		}
+
 	}
 }
 ?>

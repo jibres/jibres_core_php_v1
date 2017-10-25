@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\add;
+namespace content_a\product\parent;
 
 class controller extends \content_a\main\controller
 {
@@ -8,8 +8,9 @@ class controller extends \content_a\main\controller
 	 */
 	public function ready()
 	{
-		$this->get(false, 'add')->ALL();
-		$this->post('add')->ALL();
+
+
+		$this->get(false, 'list')->ALL("/.*/");
 	}
 }
 ?>

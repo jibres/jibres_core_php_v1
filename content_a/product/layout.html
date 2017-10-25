@@ -1,0 +1,252 @@
+{%extends display.adminTeam%}
+
+{%block pageContent%}
+<div class="f">
+ <div class="cauto s12 pA10">
+{{block("psidebar")}}
+ </div>
+ <div class="c s12 pA10">
+{%block data%}{%endblock%}
+ </div>
+</div>
+{%endblock%}
+
+
+
+
+
+{%block psidebar%}
+<div class="cbox normal">
+
+  <a class="vcard mA10 shadow {{cardColor}}" href='{{url.baseFull}}/{{team}}/product/avatar/{{product.id}}'>
+    <img src="{{product.file}}" alt="{{product.name}}" class="pA10-f">
+    <div class="content">
+      <div class="header">{{product.displayname}}</div>
+        <div class="meta"><span>{{product.postion}}</span></div>
+    </div>
+  </a>
+
+ <a class="btn block mTB5" href='{{url.baseFull}}/{{team}}/product/general/{{product.id}}'>{%trans "General Detail"%}</a>
+ <a class="btn block mTB5" href='{{url.baseFull}}/{{team}}/product/identify/{{product.id}}'>{%trans "Personnel Card"%}</a>
+ <a class="btn block mTB5" href='{{url.baseFull}}/{{team}}/product/permission/{{product.id}}'>{%trans "Special Access"%}</a>
+ <a class="btn block mTB5" href='{{url.baseFull}}/{{team}}/product/observer/{{product.id}}'>{%trans "Observer or Parent"%}</a>
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+{%block iadd%}
+<button class="btn primary block mT20">{%trans "Add"%}</button>
+{%endblock%}
+
+
+{%block isave%}
+<button class="btn primary block mT20">{%trans "Save"%}</button>
+{%endblock%}
+
+{%block iInsert%}
+<button class="btn primary block mT20">{%trans "Insert"%}</button>
+{%endblock%}
+
+{%block iSaveAll%}
+<button class="btn primary block mT20">{%trans "Save All"%}</button>
+{%endblock%}
+
+
+{%block iAvatar%}
+ <div class="input preview">
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="avatar" id="avatar1" data-preview data-max="500">
+ <label for="avatar1" title='{%trans "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"%}'>
+{%if product.file%}
+   <img src="{{product.file}}" alt="{{product.displayname}}" id="avatarPreview">
+{%endif%}
+ </label>
+</div>
+{%endblock%}
+
+
+{%block iName%}
+<label for='fname'>{%trans "Name"%} <span class="fc-red">*</span></label>
+<div class="input">
+ <input type="text" name="name" placeholder='{%trans "Name of product"%}' value="{{product.displayname}}" required autofocus maxlength='50' minlength="1" pattern=".{1,50}" title='{%trans "Enter a valid name"%}' id='fname'>
+</div>
+{%endblock%}
+
+
+{%block iPosition%}
+<label for="position">{%trans "Postion"%}</label>
+<div class="input">
+ <input type="text" name="postion" id="position" placeholder='{%trans "Postion in team show below name" %}' value="{{product.postion}}" maxlength='50' pattern=".{1,50}" title='{%trans "Enter a valid team position from 3 to 50 character"%}'>
+</div>
+{%endblock%}
+
+
+{%block iMobile%}
+<label for='mobile'>{%trans "Mobile"%}</label>
+<div class="input">
+ <input type="tel" name="mobile" id="mobile" placeholder='{%trans "Mobile"%}' value="{{product.mobile}}" maxlength="15" class='ltr'>
+</div>
+{%endblock%}
+
+
+{%block iRole%}
+<label class="mT25" for='rule'>{%trans "Role of this product in team"%}</label>
+<div class="radio1">
+ <input type="radio" id="r-user" name="rule" value="user" {%if product.rule == 'user' or not product.rule%} checked{%endif%} >
+ <label for="r-user">{%trans "User"%} <small>{%trans "Only can see personal report"%}</small></label>
+</div>
+
+<div class="radio1">
+ <input type="radio" id="r-admin" name="rule" value="admin" {%if product.rule == 'admin' %} checked{%endif%}>
+ <label for="r-admin">{%trans "Admin"%} <small>{%trans "All permission like owner except billing of team"%}</small></label>
+</div>
+{%endblock%}
+
+
+{%block iStatus%}
+<label class="mT25">{%trans "Status of product"%}</label>
+<div class="radio1 green">
+ <input type="radio" id="r-active" name="status" value="active" {%if product.status == 'active' or not product.status%} checked{%endif%} >
+ <label for="r-active">{%trans "Active"%} <small>{%trans "Normal status for product"%}</small></label>
+</div>
+
+<div class="radio1 yellow">
+ <input type="radio" id="r-deactive" name="status" value="deactive" {%if product.status == 'deactive' %} checked{%endif%}>
+ <label for="r-deactive">{%trans "Deactive"%} <small>{%trans "Temporary deactive product"%}</small></label>
+</div>
+
+<div class="radio1 red">
+ <input type="radio" id="r-suspended" name="status" value="suspended" {%if product.status == 'suspended' %} checked{%endif%}>
+ <label for="r-suspended">{%trans "Remove"%} <small>{%trans "does not exist and quit from team, don't show in board"%}</small></label>
+</div>
+{%endblock%}
+
+
+{%block iVisibility%}
+<div data-response='status' data-response-where='active|deactive' data-response-effect='slide' {%if product.status == 'suspended' %} data-response-hide{%endif%}>
+ <label class="mT25">{%trans "Visibility of product in board"%}</label>
+ <div class="radio1">
+  <input type="radio" id="r-visible" name="visibility" value="visible" {%if product.visibility == 'visible' or not product.visibility%} checked{%endif%} >
+  <label for="r-visible">{%trans "Visible"%}</label>
+ </div>
+
+ <div class="radio1 black">
+  <input type="radio" id="r-hidden" name="visibility" value="hidden" {%if product.visibility == 'hidden' %} checked{%endif%}>
+  <label for="r-hidden">{%trans "Hidden"%}</label>
+ </div>
+</div>
+{%endblock%}
+
+
+{%block iBarcode%}
+<label for="barcode">{%trans "Barcode"%}</label>
+<div class="input">
+ <input type="text" name="barcode" id="barcode" placeholder='{%trans "Scan Barcode here..."%}' value="{{product.codes.barcode1}}" class="barcode">
+</div>
+{%endblock%}
+
+
+{%block iRfid%}
+<label for="rfid">{%trans "Rfid card"%}</label>
+<div class="input">
+ <input type="text" name="rfid" id="rfid" placeholder='{%trans "Scan Rfid here..."%}' value="{{product.codes.rfid1}}" class="barcode">
+</div>
+{%endblock%}
+
+
+{%block iQrcode%}
+<label for="qrcode">{%trans "Qrcode"%}</label>
+<div class="input">
+ <input type="text" name="qrcode" id="qrcode" placeholder='{%trans "Scan Qrcode here..."%}' value="{{product.codes.qrcode1}}" class="barcode">
+</div>
+{%endblock%}
+
+
+{%block iDefaultMemberRemote%}
+<div class="switch1">
+ <input type="checkbox" name="remoteUser" id="remoteUser" {% if product.remote_user%} checked{%endif%}>
+ <label for="remoteUser"></label>
+ <label for="remoteUser">{%trans "Remote product"%} <small>{%trans "can set enter and exit with their account without need another permission"%}</small></label>
+</div>
+{%endblock%}
+
+
+{%block iDefaultMember24%}
+<div class="switch1">
+ <input type="checkbox" name="24h" id="24h" {% if product['24h']%} checked{%endif%}>
+ <label for="24h"></label>
+ <label for="24h">{%trans "24 hour product"%} <small>{%trans "can stay more than one day and after 23:59! Like night workers"%}</small></label>
+</div>
+{%endblock%}
+
+
+{%block iDefaultMemberMission%}
+<div class="switch1">
+ <input type="checkbox" name="allowPlus" id="allowPlus" {%if product.allow_plus or not team%} checked{%endif%}>
+ <label for="allowPlus"></label>
+ <label for="allowPlus">{%trans "Allow to set mission time"%} <small>{%trans "used for someone work on home or suppliers"%}</small></label>
+</div>
+{%endblock%}
+
+
+{%block iDefaultMemberPersonalwork%}
+<div class="switch1">
+ <input type="checkbox" name="allowMinus" id="allowMinus" {% if product.allow_minus or not team%} checked{%endif%}>
+ <label for="allowMinus"></label>
+ <label for="allowMinus">{%trans "Allow to set personal work time"%} <small>{%trans "product can enter waste time as personal work"%}</small></label>
+</div>
+{%endblock%}
+
+
+{%block iParentMobile%}
+<label for="title">{%trans "Mobile of observer or parent"%}</label>
+<div class="input">
+ <input type="tel" name="parent_mobile" placeholder='{%trans "Parent mobile"%}' required>
+</div>
+{%endblock%}
+
+
+{%block iParentTitle%}
+<label for="title">{%trans "Title of observer"%}</label>
+<select name="title" class="select">
+ <option value="">{%trans "Please select one items"%}</option>
+ <option value="father">{%trans "Father"%}</option>
+ <option value="mother">{%trans "Mother"%}</option>
+ <option value="sister">{%trans "Sister"%}</option>
+ <option value="brother">{%trans "Brother"%}</option>
+ <option value="grandfather">{%trans "Grandfather"%}</option>
+ <option value="grandmother">{%trans "Grandmother"%}</option>
+ <option value="aunt">{%trans "Aunt"%}</option>
+ <option value="husband of the aunt">{%trans "Husband of the aunt"%}</option>
+ <option value="uncle">{%trans "Uncle"%}</option>
+ <option value="boy">{%trans "Boy"%}</option>
+ <option value="girl">{%trans "Girl"%}</option>
+ <option value="spouse">{%trans "Spouse"%}</option>
+ <option value="stepmother">{%trans "Stepmother"%}</option>
+ <option value="stepfather">{%trans "Stepfather"%}</option>
+ <option value="neighbor">{%trans "Neighbor"%}</option>
+ <option value="teacher">{%trans "Teacher"%}</option>
+ <option value="friend">{%trans "Friend"%}</option>
+ <option value="boss">{%trans "Boss"%}</option>
+ <option value="supervisor">{%trans "Supervisor"%}</option>
+ <option value="child">{%trans "Child"%}</option>
+ <option value="grandson">{%trans "Grandson"%}</option>
+ <option value="custom">{%trans "Custom"%}</option>
+</select>
+
+<div class="mT10" data-response="title" data-response-where="custom" data-response-effect='slide' data-response-hide>
+ <label for="othertitle">{%trans "Custom title"%}</label>
+ <div class="input">
+  <input type="text" name="othertitle" placeholder='{%trans "Other title"%}' class="">
+ </div>
+</div>
+{%endblock%}
+
+
+
+
+

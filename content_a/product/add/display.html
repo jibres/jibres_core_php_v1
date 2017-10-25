@@ -1,18 +1,35 @@
-{%extends "content_a/main/layout.html"%}
-
+{%extends display.adminTeam%}
 
 {%block pageContent%}
-<div class="f justify-center">
-  <div class="c8 s12">
-    <form method="post" class="cbox">
-    {{block ("iname")}}
-    {{block ("islug")}}
-    {{block ("idesc")}}
+  <div class="f justify-center">
+    <div class="c8 s12">
+      <div class="cbox">
 
-    {{block ("iInsert")}}
-    </form>
+        <form method="post" enctype="multipart/form-data">
+          <div class="f">
+
+            <div class="c s12">
+              <label for="title">{%trans "Title"%} *</label>
+              <div class="input">
+               <input type="text" name="title" id="title" placeholder='{%trans "Title" %} *'  required autofocus maxlength='500' pattern=".{1,500}" title='{%trans "Enter a valid team title from 1 to 500 character"%}'>
+              </div>
+              <label for='fname'>{%trans "Name"%}</label>
+              <div class="input">
+                <input type="text" name="name" placeholder='{%trans "Name"%}'  maxlength='200' minlength="1" pattern=".{1,200}" title='{%trans "Enter a valid name from 1 to 200 character"%}' id='fname'>
+              </div>
+            </div>
+
+          </div>
+
+
+          <button class="btn primary block mT25">{%trans "Add"%}</button>
+
+
+        </form>
+      </div>
+    </div>
 
   </div>
-</div>
 {%endblock%}
+
 
