@@ -8,18 +8,8 @@ class controller extends \content_a\main\controller
 	 */
 	function ready()
 	{
-
-
-
-		$url = \lib\router::get_url();
-
-		if($url === 'setting/report')
-		{
-			\lib\error::page();
-		}
-		$this->get(false, 'report')->ALL("/.*/");
-		$this->post('report')->ALL("/.*/");
-
+		$this->get(false, 'report')->ALL();
+		$this->post('report')->ALL();
 	}
 }
 ?>

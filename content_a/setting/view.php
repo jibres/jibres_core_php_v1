@@ -17,6 +17,8 @@ class view extends \content_a\main\view
 			$child = ucfirst($child);
 			$this->data->page['title'] .= ' | '. $child;
 		}
+		$this->data->current_store = \lib\store::detail();
+
 	}
 }
 ?>

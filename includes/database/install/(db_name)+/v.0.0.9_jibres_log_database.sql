@@ -1,7 +1,7 @@
 CREATE DATABASE `jibres_log` DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `jibres_log`.`logitems` (
-`id` smallint(5) UNSIGNED NOT NULL,
+`id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
 `type` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `caller` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
 `title` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
@@ -16,7 +16,7 @@ PRIMARY KEY (`id`)
 
 
 CREATE TABLE IF NOT EXISTS `jibres_log`.`logs` (
-`id` bigint(20) UNSIGNED NOT NULL,
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `logitem_id` smallint(5) UNSIGNED NOT NULL,
 `user_id` int(10) UNSIGNED DEFAULT NULL,
 `data` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,

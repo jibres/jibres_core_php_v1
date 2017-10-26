@@ -1,5 +1,6 @@
 <?php
 namespace lib\app\store;
+use \lib\debug;
 
 trait edit
 {
@@ -14,31 +15,38 @@ trait edit
 	{
 		\lib\app::variable($_args);
 
-		$id = \lib\app::request('id');
-		$id = \lib\utility\shortURL::decode($id);
-		if(!$id || !is_numeric($id))
+		$log_meta =
+		[
+			'data' => null,
+			'meta' =>
+			[
+				'input' => \lib\app::request(),
+			]
+		];
+
+		if(!\lib\store::id())
 		{
-			\lib\app::log('api:store:method:put:id:not:set', $this->user_id, $log_meta);
+			\lib\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
 			debug::error(T_("Id not set"), 'id', 'permission');
 			return false;
 		}
 
-		$admin_of_store = \lib\db\stores::access_store_id($id, $this->user_id, ['action' => 'edit']);
-
-		if(!$admin_of_store || !isset($admin_of_store['id']) || !isset($admin_of_store['slug']))
+		$check_is_admin = \lib\db\stores::get(['id' => \lib\store::id(), 'creator' => \lib\user::id(), 'limit' => 1]);
+		if(!$check_is_admin || !isset($check_is_admin['id']))
 		{
-			\lib\app::log('api:store:method:put:permission:denide', $this->user_id, $log_meta);
-			debug::error(T_("Can not access to edit it"), 'store', 'permission');
+			\lib\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
+			debug::error(T_("Can not access to edit store"), 'store');
 			return false;
 		}
 
+
 		$args = self::check();
+
 		if($args === false || !\lib\debug::$status)
 		{
 			return false;
 		}
 
-		unset($args['creator']);
 		if(!\lib\app::isset_request('name'))             unset($args['name']);
 		if(!\lib\app::isset_request('slug'))      		 unset($args['slug']);
 		if(!\lib\app::isset_request('website'))          unset($args['website']);
@@ -53,45 +61,39 @@ trait edit
 		if(!\lib\app::isset_request('desc'))             unset($args['desc']);
 		if(!\lib\app::isset_request('status'))           unset($args['status']);
 
-
-		if(isset($args['parent']) && intval($args['parent']) === intval($id))
-		{
-			\lib\app::log('api:store:parent:is:the:store', $this->user_id, $log_meta);
-			debug::error(T_("A store can not be the parent himself"), 'parent', 'arguments');
-			return false;
-		}
-
 		if(array_key_exists('name', $args) && !$args['name'])
 		{
-			\lib\app::log('api:store:name:not:set:edit', $this->user_id, $log_meta);
+			\lib\app::log('api:store:name:not:set:edit', \lib\user::id(), $log_meta);
 			debug::error(T_("Store name of store can not be null"), 'name', 'arguments');
 			return false;
 		}
 
 		if(array_key_exists('slug', $args) && !$args['slug'])
 		{
-			\lib\app::log('api:store:slug:not:set:edit', $this->user_id, $log_meta);
+			\lib\app::log('api:store:slug:not:set:edit', \lib\user::id(), $log_meta);
 			debug::error(T_("slug of store can not be null"), 'slug', 'arguments');
 			return false;
 		}
 
 		if(!empty($args))
 		{
-			$update = \lib\db\stores::update($args, $admin_of_store['id']);
+			$update = \lib\db\stores::update($args, $check_is_admin['id']);
 
 			if(isset($args['slug']))
 			{
 				if(!$update)
 				{
 					$args['slug'] = $this->slug_fix($args);
-					$update = \lib\db\stores::update($args, $admin_of_store['id']);
+					$update = \lib\db\stores::update($args, $check_is_admin['id']);
 				}
 				// user change slug
-				if($admin_of_store['slug'] != $args['slug'])
+				if($check_is_admin['slug'] != $args['slug'])
 				{
-					\lib\app::log('api:store:change:slug', $this->user_id, $log_meta);
+					\lib\app::log('api:store:change:slug', \lib\user::id(), $log_meta);
 				}
 			}
+			// clean chach
+			\lib\store::clean();
 		}
 	}
 }

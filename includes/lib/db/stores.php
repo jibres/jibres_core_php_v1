@@ -32,6 +32,17 @@ class stores
 
 
 	/**
+	 * update stores
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function update()
+	{
+		return \lib\db\config::public_update('stores', ...func_get_args());
+	}
+
+
+	/**
 	 * get store detail
 	 *
 	 * @return     <type>  ( description_of_the_return_value )

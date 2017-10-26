@@ -109,29 +109,13 @@ class store
 			return false;
 		}
 
-		$logo_id  = null;
-		$logo_url = null;
 
-		$logo = \lib\app::request('logo');
-		if($logo)
+		$logo_url = \lib\app::request('logo');
+		if($logo_url && !is_string($logo_url))
 		{
-			$logo_id = \lib\utility\shortURL::decode($logo);
-			if($logo_id)
-			{
-				$logo_record = \lib\db\posts::is_attachment($logo_id);
-				if(!$logo_record)
-				{
-					$logo_id = null;
-				}
-				elseif(isset($logo_record['meta']['url']))
-				{
-					$logo_url = $logo_record['meta']['url'];
-				}
-			}
-			else
-			{
-				$logo_id = null;
-			}
+			\lib\app::log('api:store:is:not:string:logo', \lib\user::id(), $log_meta);
+			debug::error(T_("Invalid logo url fo store"), 'logo');
+			return false;
 		}
 
 		$parent = null;
@@ -187,21 +171,6 @@ class store
 			return false;
 		}
 
-		$tel               = \lib\app::request('tel');
-		if($tel && mb_strlen($tel) > 50)
-		{
-			\lib\app::log('api:store:add:tel:max:lenght', \lib\user::id(), $log_meta);
-			debug::error(T_("You must set tel less than 50 character", 'tel', 'arguments'));
-			return false;
-		}
-
-		$zipcode           = \lib\app::request('zipcode');
-		if($zipcode && mb_strlen($zipcode) > 50)
-		{
-			\lib\app::log('api:store:add:zipcode:max:lenght', \lib\user::id(), $log_meta);
-			debug::error(T_("You must set zipcode less than 50 character", 'zipcode', 'arguments'));
-			return false;
-		}
 
 		$status = \lib\app::request('status');
 		if($status && !in_array($status, ['enable', 'disable']))
@@ -214,7 +183,6 @@ class store
 		$args             = [];
 		$args['name']     = $name;
 		$args['slug']     = $slug;
-		$args['creator']  = \lib\user::id();
 		$args['website']  = $website;
 		$args['desc']     = $desc;
 		$args['lang']     = $lang;
@@ -223,8 +191,8 @@ class store
 		$args['country']  = $country;
 		$args['province'] = $province;
 		$args['city']     = $city;
-		$args['phone']    = $tel;
-		$args['zipcode']  = $zipcode;
+		$args['status']   = $status;
+
 
 		return $args;
 	}
@@ -261,49 +229,8 @@ class store
 					$result['url'] = isset($value) ? Protocol. '://'. $value. '.jibres.'. Tld : null;
 					break;
 
-				case 'country':
-				case 'city':
-				case 'province':
-				case 'zipcode':
-				case 'name':
-				case 'website':
-				case 'desc':
-				case 'alias':
-				case 'status':
-					$result[$key] = isset($value) ? (string) $value : null;
-					break;
-				case 'lang':
-					$result['language'] = isset($value) ? (string) $value : null;
-					break;
-
-				case 'logo':
-					if($value)
-					{
-						// $result['logo'] = self::host('file'). '/'. $value;
-					}
-					else
-					{
-						// $result['logo'] = self::host('siftal_image');
-					}
-					break;
-
-				case 'createdate':
-					$result[$key] = $value;
-					$date_now = new \DateTime("now");
-					$start    = new \DateTime($value);
-					$result['day_use']    = $date_now->diff($start)->days;
-					$result['day_use']++;
-					break;
-
-				case 'telegram_id':
-					$result['telegram'] = $value ? true : false;
-					break;
-
-				case 'plan':
-					$result[$key] = $value;
-					break;
 				default:
-					continue;
+					$result[$key] = $value;
 					break;
 			}
 		}

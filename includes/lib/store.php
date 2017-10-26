@@ -11,6 +11,17 @@ class store
 
 
 	/**
+	 * clean chach to load detail again
+	 * user in edit store
+	 */
+	public static function clean()
+	{
+		\lib\session::set('store_detail', null);
+		self::$store = [];
+	}
+
+
+	/**
 	 * initial store detail
 	 */
 	public static function init()
@@ -50,6 +61,28 @@ class store
 			return intval(self::$store['id']);
 		}
 		return null;
+	}
+
+
+	/**
+	 * get store detail
+	 */
+	public static function detail($_name = null)
+	{
+		self::init();
+
+		if($_name)
+		{
+			if(array_key_exists($_name, self::$store))
+			{
+				return self::$store[$_name];
+			}
+			return null;
+		}
+		else
+		{
+			return self::$store;
+		}
 	}
 }
 ?>
