@@ -17,10 +17,17 @@ trait datalist
 			return false;
 		}
 
-		$meta            = [];
-		$meta['creator'] = \lib\user::id();
-		$result          = \lib\db\products::search(\lib\user::id(), $meta);
-		$temp            = [];
+		if(!\lib\store::id())
+		{
+			return false;
+		}
+
+		$search           = null;
+		$meta             = [];
+		$meta['store_id'] = \lib\store::id();
+		$result           = \lib\db\products::search($search, $meta);
+		$temp             = [];
+
 		foreach ($result as $key => $value)
 		{
 			$check = self::ready($value);
