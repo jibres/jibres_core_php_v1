@@ -1,23 +1,23 @@
 <?php
-namespace content_a\product\avatar;
+namespace content_a\product\thumb;
 
 class view extends \content_a\product\view
 {
 
 	/**
-	 * avatar product
+	 * thumb product
 	 *
 	 * @param      <type>  $_args  The arguments
 	 */
-	public function view_avatar($_args)
+	public function view_thumb($_args)
 	{
 		if(isset($product['displayname']))
 		{
-			$this->data->page['title'] = T_('avatar :name', ['name' => $product['displayname']]);
+			$this->data->page['title'] = T_('thumb :name', ['name' => $product['displayname']]);
 		}
 		else
 		{
-			$this->data->page['title'] = T_('avatar product!');
+			$this->data->page['title'] = T_('thumb product!');
 		}
 		$this->data->page['desc']  = $this->data->page['title'];
 

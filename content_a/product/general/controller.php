@@ -8,10 +8,8 @@ class controller extends \content_a\main\controller
 	 */
 	public function ready()
 	{
-
-
-		$this->get(false, 'general')->ALL("/.*/");
-		$this->post('general')->ALL("/.*/");
+		$this->get(false, 'general')->ALL("/^product\/general\/([a-zA-Z0-9]+)$/");
+		$this->post('general')->ALL("/^product\/general\/([a-zA-Z0-9]+)$/");
 	}
 }
 ?>

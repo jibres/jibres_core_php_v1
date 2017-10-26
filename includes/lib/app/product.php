@@ -57,228 +57,215 @@ class product
 			return false;
 		}
 
+		$slug = \lib\app::request('slug');
+		if($slug && !preg_match("/^[A-Za-z0-9]+$/", $slug))
+		{
+			\lib\app::log('api:product:slug:invalid', \lib\user::id(), $log_meta);
+			debug::error(T_("Product slug is incorrect"), 'slug');
+			return false;
+		}
 
+		$company = \lib\app::request('company');
+		if($company && mb_strlen($company) >= 200)
+		{
+			\lib\app::log('api:product:company:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("String of product company is too large"), 'company');
+			return false;
+		}
 
-		$name           = \lib\app::request('name');
-		$slug           = \lib\app::request('slug');
-		$company        = \lib\app::request('company');
-		$shortcode      = \lib\app::request('shortcode');
-		$unit           = \lib\app::request('unit');
-		$barcode        = \lib\app::request('barcode');
-		$barcode2       = \lib\app::request('barcode2');
-		$code           = \lib\app::request('code');
-		// $buyprice       = \lib\app::request('buyprice');
-		// $price          = \lib\app::request('price');
-		// $discount       = \lib\app::request('discount');
-		$vat            = \lib\app::request('vat');
+		$shortcode = \lib\app::request('shortcode');
+		if(!is_numeric($shortcode))
+		{
+			\lib\app::log('api:product:company:not:numberic', \lib\user::id(), $log_meta);
+			debug::error(T_("Shortcode must be a number"), 'shortcode');
+			return false;
+		}
+
+		if(floatval($shortcode) > 1E+10 || floatval($shortcode) < 0)
+		{
+			\lib\app::log('api:product:shortcode:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of shortcode is out of rage"), 'shortcode');
+			return false;
+		}
+
+		$unit = \lib\app::request('unit');
+		if($unit && mb_strlen($unit) >= 100)
+		{
+			\lib\app::log('api:product:unit:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("String of product unit is too large"), 'unit');
+			return false;
+		}
+
+		$barcode = \lib\app::request('barcode');
+		if($barcode && mb_strlen($barcode) >= 100)
+		{
+			\lib\app::log('api:product:barcode:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("String of product barcode is too large"), 'barcode');
+			return false;
+		}
+
+		$barcode2 = \lib\app::request('barcode2');
+		if($barcode2 && mb_strlen($barcode2) >= 100)
+		{
+			\lib\app::log('api:product:barcode2:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("String of product barcode2 is too large"), 'barcode2');
+			return false;
+		}
+
+		$code = \lib\app::request('code');
+		if($code && mb_strlen($code) >= 200)
+		{
+			\lib\app::log('api:product:code:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("String of product code is too large"), 'code');
+			return false;
+		}
+
+		$buyprice = \lib\app::request('buyprice');
+		if(floatval($buyprice) >= 1E+20 || floatval($buyprice) < 0)
+		{
+			\lib\app::log('api:product:buyprice:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of buyprice is out of rage"), 'buyprice');
+			return false;
+		}
+
+		$price = \lib\app::request('price');
+		if(floatval($price) >= 1E+20 || floatval($price) < 0)
+		{
+			\lib\app::log('api:product:price:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of price is out of rage"), 'price');
+			return false;
+		}
+
+		$discount = \lib\app::request('discount');
+		if(abs(floatval($discount)) >= 1E+10)
+		{
+			\lib\app::log('api:product:discount:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of discount is out of rage"), 'discount');
+			return false;
+		}
+
+		$vat = \lib\app::request('vat');
+		$vat = $vat ? 1 : 0;
+
 		$initialbalance = \lib\app::request('initialbalance');
-		$minstock       = \lib\app::request('minstock');
-		$maxstock       = \lib\app::request('maxstock');
-		$status         = \lib\app::request('status');
-		$sold           = \lib\app::request('sold');
-		$stock          = \lib\app::request('stock');
-		$thumb          = \lib\app::request('thumb');
-		$service        = \lib\app::request('service');
-		$checkstock     = \lib\app::request('checkstock');
-		$sellonline     = \lib\app::request('sellonline');
-		$sellstore      = \lib\app::request('sellstore');
-		$carton         = \lib\app::request('carton');
-		$desc           = \lib\app::request('desc');
-
-
-		$name = trim($name);
-		if(!$name)
+		if(floatval($initialbalance) >= 1E+10 || floatval($initialbalance) < 0)
 		{
-			\lib\app::log('api:product:name:not:set', \lib\user::id(), $log_meta);
-			debug::error(T_("Product name of product can not be null"), 'name', 'arguments');
+			\lib\app::log('api:product:initialbalance:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of initialbalance is out of rage"), 'initialbalance');
 			return false;
 		}
 
-		if(mb_strlen($name) > 100)
+		$minstock = \lib\app::request('minstock');
+		if(floatval($minstock) >= 1E+10 || floatval($minstock) < 0)
 		{
-			\lib\app::log('api:product:maxlength:name', \lib\user::id(), $log_meta);
-			debug::error(T_("Product name must be less than 100 character"), 'name', 'arguments');
+			\lib\app::log('api:product:minstock:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of minstock is out of rage"), 'minstock');
 			return false;
 		}
 
-		$title = \lib\app::request('title');
-		$title = trim($title);
-		if($title && mb_strlen($title) >= 100)
+		$maxstock = \lib\app::request('maxstock');
+		if(floatval($maxstock) >= 1E+10 || floatval($maxstock) < 0)
 		{
-			\lib\app::log('api:product:maxlength:title', \lib\user::id(), $log_meta);
-			debug::error(T_("Product title must be less than 200 character"), 'title', 'arguments');
+			\lib\app::log('api:product:maxstock:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of maxstock is out of rage"), 'maxstock');
 			return false;
 		}
 
-		// $slug = \lib\app::request('slug');
-		// $slug = trim($slug);
+		$status = \lib\app::request('status');
+		$status  = trim(mb_strtolower($status));
+		if(!$status)
+		{
+			\lib\app::log('api:product:status:not:set', \lib\user::id(), $log_meta);
+			debug::error(T_("Product status not set"), 'status');
+			return false;
+		}
 
-		// if(!$slug && !$name)
-		// {
-		// 	\lib\app::log('api:product:slug:not:sert', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("slug of product can not be null"), 'slug', 'arguments');
-		// 	return false;
-		// }
+		if(!in_array($status, ['unset','available','unavailable','soon','discountinued']))
+		{
+			\lib\app::log('api:product:status:invalid', \lib\user::id(), $log_meta);
+			debug::error(T_("Product status is incorrect"), 'status');
+			return false;
+		}
 
-		// // get slug of name in slug if the slug is not set
-		// if(!$slug && $name)
-		// {
-		// 	$slug = \lib\utility\shortURL::encode((int) \lib\user::id() + (int) rand(10000,99999) * 10000);
-		// 	// $slug = \lib\utility\filter::slug($name);
-		// }
+		$sold = \lib\app::request('sold');
+		if(floatval($sold) >= 1E+20 || floatval($sold) < 0)
+		{
+			\lib\app::log('api:product:sold:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of sold is out of rage"), 'sold');
+			return false;
+		}
 
-		// // remove - from slug
-		// // if the name is persian and slug not set
-		// // we change the slug as slug of name
-		// // in the slug we have some '-' in return
-		// $slug = str_replace('-', '', $slug);
+		$stock = \lib\app::request('stock');
+		if(floatval($stock) >= 1E+20 || floatval($stock) < 0)
+		{
+			\lib\app::log('api:product:stock:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of stock is out of rage"), 'stock');
+			return false;
+		}
 
-		// if($slug && mb_strlen($slug) < 5)
-		// {
-		// 	\lib\app::log('api:product:minlength:slug', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("Product slug must be larger than 5 character"), 'slug', 'arguments');
-		// 	return false;
-		// }
+		$thumb = \lib\app::request('thumb');
+		if($thumb && !is_string($thumb))
+		{
+			\lib\app::log('api:product:thumb:is:not:string', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of thumb is out of rage"), 'thumb');
+			return false;
+		}
 
-		// if($slug && !preg_match("/^[A-Za-z0-9]+$/", $slug))
-		// {
-		// 	\lib\app::log('api:product:invalid:slug', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("Only [A-Za-z0-9] can use in product slug"), 'slug', 'arguments');
-		// 	return false;
-		// }
+		$service    = \lib\app::request('service');
+		$service    = $service ? 1 : 0;
 
-		// // check slug
-		// if($slug && mb_strlen($slug) >= 50)
-		// {
-		// 	\lib\app::log('api:product:maxlength:slug', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("Product slug must be less than 500 character"), 'slug', 'arguments');
-		// 	return false;
-		// }
+		$checkstock = \lib\app::request('checkstock');
+		$checkstock = $checkstock ? 1 : 0;
 
-		// $desc = \lib\app::request('desc');
-		// if($desc && mb_strlen($desc) > 200)
-		// {
-		// 	\lib\app::log('api:product:maxlength:desc', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("Product desc must be less than 200 character"), 'desc', 'arguments');
-		// 	return false;
-		// }
+		$sellonline = \lib\app::request('sellonline');
+		$sellonline = $sellonline ? 1 : 0;
 
-		// $logo_id  = null;
-		// $logo_url = null;
+		$sellstore  = \lib\app::request('sellstore');
+		$sellstore  = $sellstore ? 1 : 0;
 
-		// $logo = \lib\app::request('logo');
-		// if($logo)
-		// {
-		// 	$logo_id = \lib\utility\shortURL::decode($logo);
-		// 	if($logo_id)
-		// 	{
-		// 		$logo_record = \lib\db\posts::is_attachment($logo_id);
-		// 		if(!$logo_record)
-		// 		{
-		// 			$logo_id = null;
-		// 		}
-		// 		elseif(isset($logo_record['meta']['url']))
-		// 		{
-		// 			$logo_url = $logo_record['meta']['url'];
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		$logo_id = null;
-		// 	}
-		// }
+		$carton     = \lib\app::request('carton');
+		if(floatval($carton) >= 1E+10 || floatval($carton) < 0)
+		{
+			\lib\app::log('api:product:carton:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of carton is out of rage"), 'carton');
+			return false;
+		}
 
-		// $parent = null;
+		$desc = \lib\app::request('desc');
+		if($desc && mb_strlen($desc))
+		{
+			\lib\app::log('api:product:desc:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Value of desc is out of rage"), 'desc');
+			return false;
+		}
 
-		// $parent = \lib\app::request('parent');
-		// if($parent)
-		// {
-		// 	$parent = \lib\utility\shortURL::decode($parent);
-		// }
-
-		// if($parent)
-		// {
-		// 	// check this product and the parent product have one owner
-		// 	$check_owner = \lib\db\products::get(['id' => $parent, 'creator' => \lib\user::id(), 'limit' => 1]);
-		// 	if(is_array($check_owner) && !array_key_exists('parent', $check_owner))
-		// 	{
-		// 		\lib\app::log('api:product:parent:owner:not:match', \lib\user::id(), $log_meta);
-		// 		debug::error(T_("The parent is not in your product"), 'parent', 'arguments');
-		// 		return false;
-		// 	}
-		// }
-
-
-		// $lang = \lib\app::request('language');
-		// if($lang && (mb_strlen($lang) !== 2 || !utility\location\languages::check($lang)))
-		// {
-		// 	\lib\app::log('api:product:invalid:lang', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("Invalid language field"), 'language', 'arguments');
-		// 	return false;
-		// }
-
-		// $country           = \lib\app::request('country');
-		// if($country && mb_strlen($country) > 50)
-		// {
-		// 	\lib\app::log('api:product:add:country:max:lenght', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("You must set country less than 50 character", 'country', 'arguments'));
-		// 	return false;
-		// }
-
-		// $province          = \lib\app::request('province');
-		// if($province && mb_strlen($province) > 50)
-		// {
-		// 	\lib\app::log('api:product:add:province:max:lenght', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("You must set province less than 50 character", 'province', 'arguments'));
-		// 	return false;
-		// }
-
-		// $city              = \lib\app::request('city');
-		// if($city && mb_strlen($city) > 50)
-		// {
-		// 	\lib\app::log('api:product:add:city:max:lenght', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("You must set city less than 50 character", 'city', 'arguments'));
-		// 	return false;
-		// }
-
-		// $tel               = \lib\app::request('tel');
-		// if($tel && mb_strlen($tel) > 50)
-		// {
-		// 	\lib\app::log('api:product:add:tel:max:lenght', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("You must set tel less than 50 character", 'tel', 'arguments'));
-		// 	return false;
-		// }
-
-		// $zipcode           = \lib\app::request('zipcode');
-		// if($zipcode && mb_strlen($zipcode) > 50)
-		// {
-		// 	\lib\app::log('api:product:add:zipcode:max:lenght', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("You must set zipcode less than 50 character", 'zipcode', 'arguments'));
-		// 	return false;
-		// }
-
-		// $status = \lib\app::request('status');
-		// if($status && !in_array($status, ['enable', 'disable']))
-		// {
-		// 	\lib\app::log('api:product:add:status:invalid', \lib\user::id(), $log_meta);
-		// 	debug::error(T_("Invalid status of products", 'status', 'arguments'));
-		// 	return false;
-		// }
-
-		$args            = [];
-		$args['name']    = $name;
-		$args['title']   = $title;
-
-		// $args['slug']     = $slug;
-		// $args['desc']     = $desc;
-		// $args['lang']     = $lang;
-		// $args['logo']     = $logo_url;
-		// $args['parent']   = $parent ? $parent : null;
-		// $args['country']  = $country;
-		// $args['province'] = $province;
-		// $args['city']     = $city;
-		// $args['phone']    = $tel;
-		// $args['zipcode']  = $zipcode;
+		$args                   = [];
+		$args['title']          = $title;
+		$args['name']           = $name;
+		$args['slug']           = $slug;
+		$args['company']        = $company;
+		$args['shortcode']      = $shortcode;
+		$args['unit']           = $unit;
+		$args['barcode']        = $barcode;
+		$args['barcode2']       = $barcode2;
+		$args['code']           = $code;
+		$args['buyprice']       = $buyprice;
+		$args['price']          = $price;
+		$args['discount']       = $discount;
+		$args['vat']            = $vat;
+		$args['initialbalance'] = $initialbalance;
+		$args['minstock']       = $minstock;
+		$args['maxstock']       = $maxstock;
+		$args['status']         = $status;
+		$args['sold']           = $sold;
+		$args['stock']          = $stock;
+		$args['thumb']          = $thumb;
+		$args['service']        = $service;
+		$args['checkstock']     = $checkstock;
+		$args['sellonline']     = $sellonline;
+		$args['sellstore']      = $sellstore;
+		$args['carton']         = $carton;
+		$args['desc']           = $desc;
 
 		return $args;
 	}
@@ -324,40 +311,8 @@ class product
 				case 'desc':
 				case 'alias':
 				case 'status':
-					$result[$key] = isset($value) ? (string) $value : null;
-					break;
-				case 'lang':
-					$result['language'] = isset($value) ? (string) $value : null;
-					break;
-
-				case 'logo':
-					if($value)
-					{
-						// $result['logo'] = self::host('file'). '/'. $value;
-					}
-					else
-					{
-						// $result['logo'] = self::host('siftal_image');
-					}
-					break;
-
-				case 'createdate':
-					$result[$key] = $value;
-					$date_now = new \DateTime("now");
-					$start    = new \DateTime($value);
-					$result['day_use']    = $date_now->diff($start)->days;
-					$result['day_use']++;
-					break;
-
-				case 'telegram_id':
-					$result['telegram'] = $value ? true : false;
-					break;
-
-				case 'plan':
-					$result[$key] = $value;
-					break;
 				default:
-					continue;
+					$result[$key] = isset($value) ? (string) $value : null;
 					break;
 			}
 		}

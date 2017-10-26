@@ -14,85 +14,100 @@ trait edit
 	{
 		\lib\app::variable($_args);
 
+		$log_meta =
+		[
+			'data' => null,
+			'meta' =>
+			[
+				'input' => \lib\app::request(),
+			]
+		];
+
 		$id = \lib\app::request('id');
 		$id = \lib\utility\shortURL::decode($id);
+
 		if(!$id || !is_numeric($id))
 		{
-			\lib\app::log('api:product:method:put:id:not:set', $this->user_id, $log_meta);
-			debug::error(T_("Id not set"), 'id', 'permission');
+			\lib\app::log('api:product:method:put:id:not:set', \lib\user::id(), $log_meta);
+			debug::error(T_("Id not set"));
 			return false;
 		}
 
-		$admin_of_product = \lib\db\products::access_product_id($id, $this->user_id, ['action' => 'edit']);
-
-		if(!$admin_of_product || !isset($admin_of_product['id']) || !isset($admin_of_product['slug']))
+		if(!\lib\store::id())
 		{
-			\lib\app::log('api:product:method:put:permission:denide', $this->user_id, $log_meta);
+			\lib\app::log('api:product:edit:store:id:not:set', \lib\user::id(), $log_meta);
+			debug::error(T_("Id not set"));
+			return false;
+		}
+
+		$load_product = \lib\db\products::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+
+		if(empty($load_product) || !$load_product || !isset($load_product['id']))
+		{
+			\lib\app::log('api:product:edit:product:not:found', \lib\user::id(), $log_meta);
 			debug::error(T_("Can not access to edit it"), 'product', 'permission');
 			return false;
 		}
 
 		$args = self::check();
+
 		if($args === false || !\lib\debug::$status)
 		{
 			return false;
 		}
 
-		unset($args['creator']);
-		if(!\lib\app::isset_request('name'))             unset($args['name']);
-		if(!\lib\app::isset_request('slug'))      		 unset($args['slug']);
-		if(!\lib\app::isset_request('website'))          unset($args['website']);
-		if(!\lib\app::isset_request('desc'))             unset($args['desc']);
-		if(!\lib\app::isset_request('language'))         unset($args['lang']);
-		if(!\lib\app::isset_request('parent'))           unset($args['parent']);
-		if(!\lib\app::isset_request('country'))          unset($args['country']);
-		if(!\lib\app::isset_request('province'))         unset($args['province']);
-		if(!\lib\app::isset_request('city'))             unset($args['city']);
-		if(!\lib\app::isset_request('tel'))              unset($args['phone']);
-		if(!\lib\app::isset_request('zipcode'))          unset($args['zipcode']);
-		if(!\lib\app::isset_request('desc'))             unset($args['desc']);
-		if(!\lib\app::isset_request('status'))           unset($args['status']);
+		if(!\lib\app::isset_request('title'))          unset($args['title']);
+		if(!\lib\app::isset_request('name'))           unset($args['name']);
+		if(!\lib\app::isset_request('slug'))           unset($args['slug']);
+		if(!\lib\app::isset_request('company'))        unset($args['company']);
+		if(!\lib\app::isset_request('shortcode'))      unset($args['shortcode']);
+		if(!\lib\app::isset_request('unit'))           unset($args['unit']);
+		if(!\lib\app::isset_request('barcode'))        unset($args['barcode']);
+		if(!\lib\app::isset_request('barcode2'))       unset($args['barcode2']);
+		if(!\lib\app::isset_request('buyprice'))       unset($args['buyprice']);
+		if(!\lib\app::isset_request('price'))          unset($args['price']);
+		if(!\lib\app::isset_request('discount'))       unset($args['discount']);
+		if(!\lib\app::isset_request('vat') )           unset($args['vat']);
+		if(!\lib\app::isset_request('initialbalance')) unset($args['initialbalance']);
+		if(!\lib\app::isset_request('minstock'))       unset($args['minstock']);
+		if(!\lib\app::isset_request('maxstock'))       unset($args['maxstock']);
+		if(!\lib\app::isset_request('status'))         unset($args['status']);
+		if(!\lib\app::isset_request('sold'))           unset($args['sold']);
+		if(!\lib\app::isset_request('stock'))          unset($args['stock']);
+		if(!\lib\app::isset_request('service'))        unset($args['service']);
+		if(!\lib\app::isset_request('sellonline'))     unset($args['sellonline']);
+		if(!\lib\app::isset_request('sellstore'))      unset($args['sellstore']);
+		if(!\lib\app::isset_request('carton'))         unset($args['carton']);
 
-
-		if(isset($args['parent']) && intval($args['parent']) === intval($id))
+		if(array_key_exists('title', $args) && !$args['title'])
 		{
-			\lib\app::log('api:product:parent:is:the:product', $this->user_id, $log_meta);
-			debug::error(T_("A product can not be the parent himself"), 'parent', 'arguments');
-			return false;
-		}
-
-		if(array_key_exists('name', $args) && !$args['name'])
-		{
-			\lib\app::log('api:product:name:not:set:edit', $this->user_id, $log_meta);
-			debug::error(T_("Store name of product can not be null"), 'name', 'arguments');
-			return false;
-		}
-
-		if(array_key_exists('slug', $args) && !$args['slug'])
-		{
-			\lib\app::log('api:product:slug:not:set:edit', $this->user_id, $log_meta);
-			debug::error(T_("slug of product can not be null"), 'slug', 'arguments');
+			\lib\app::log('api:product:title:not:set:edit', \lib\user::id(), $log_meta);
+			debug::error(T_("Store title of product can not be null"), 'title');
 			return false;
 		}
 
 		if(!empty($args))
 		{
-			$update = \lib\db\products::update($args, $admin_of_product['id']);
+			$update = \lib\db\products::update($args, $load_product['id']);
 
 			if(isset($args['slug']))
 			{
 				if(!$update)
 				{
-					$args['slug'] = $this->slug_fix($args);
-					$update = \lib\db\products::update($args, $admin_of_product['id']);
+					$args['slug'] = self::slug_fix($args);
+					$update = \lib\db\products::update($args, $load_product['id']);
 				}
 				// user change slug
-				if($admin_of_product['slug'] != $args['slug'])
+				if($load_product['slug'] != $args['slug'])
 				{
-					\lib\app::log('api:product:change:slug', $this->user_id, $log_meta);
+					\lib\app::log('api:product:change:slug', \lib\user::id(), $log_meta);
 				}
 			}
 		}
+
+		$return = [];
+
+		return $return;
 	}
 }
 ?>

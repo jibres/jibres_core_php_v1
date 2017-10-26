@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\avatar;
+namespace content_a\product\thumb;
 use \lib\utility;
 use \lib\debug;
 
@@ -7,15 +7,15 @@ class model extends \content_a\product\model
 {
 
 	/**
-	 * Uploads an avatar.
+	 * Uploads an thumb.
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public function upload_avatar()
+	public function upload_thumb()
 	{
-		if(utility::files('avatar'))
+		if(utility::files('thumb'))
 		{
-			utility::set_request_array(['upload_name' => 'avatar']);
+			utility::set_request_array(['upload_name' => 'thumb']);
 			$uploaded_file = $this->upload_file(['debug' => false]);
 			if(isset($uploaded_file['code']))
 			{
@@ -38,11 +38,11 @@ class model extends \content_a\product\model
 	 *
 	 * @param      <type>  $_args  The arguments
 	 */
-	public function post_avatar($_args)
+	public function post_thumb($_args)
 	{
 		$this->user_id = $this->login('id');
-		$file_code     = $this->upload_avatar();
-		// we have an error in upload avatar
+		$file_code     = $this->upload_thumb();
+		// we have an error in upload thumb
 		if($file_code === false)
 		{
 			return false;

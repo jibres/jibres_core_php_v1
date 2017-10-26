@@ -1,0 +1,15 @@
+<?php
+namespace content_a\product\search;
+
+class controller extends \content_a\main\controller
+{
+	/**
+	 * rout
+	 */
+	public function ready()
+	{
+		$this->get(false, 'search')->ALL();
+		$this->post('search')->ALL();
+	}
+}
+?>
