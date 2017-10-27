@@ -8,7 +8,7 @@ class view extends \mvc\view
 		$this->data->bodyclass = 'unselectable vflex';
 		// $this->include->js     = false;
 
-		$this->data->page['title']   = $this->data->site['title'] . ' | '. $this->data->site['slogan'];
+		$this->data->page['title']   = $this->data->site['title']. ' - '. T_('Integrated Sales and Online Accounting');
 		$this->data->page['special'] = true;
 	}
 

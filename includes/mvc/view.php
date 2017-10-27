@@ -7,8 +7,9 @@ class view extends \lib\view
 	{
 		// define default value for global
 
+
 		$this->data->site['title']           = T_("Jibres");
-		$this->data->site['desc']            = T_("Jibres provides beautiful solutions for your business;"). ' '.  T_("Do attendance easily and enjoy realtime reports.");
+		$this->data->site['desc']            = T_("Jibres is not just an online accounting software;"). ' '.  T_("We try to create the best financial platform that has everything you need to sell and manage your financial life.");
 		$this->data->site['slogan']          = T_("Modern Approach");
 
 		$this->data->page['desc']            = $this->data->site['desc']. ' | '. $this->data->site['slogan'];
@@ -33,9 +34,9 @@ class view extends \lib\view
 			$this->data->footer_stat         = T_("We help :count people to work beter!", ['count' => $this->data->total_users]);
 		}
 
-		$this->include->css_ermile       = false;
+		// $this->include->css_ermile       = false;
 		// $this->include->js_main       = false;
-		$this->include->css              = false;
+		// $this->include->css              = false;
 		// $this->include->js            = false;
 
 		// if you need to set a class for body element in html add in this value
