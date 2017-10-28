@@ -7,7 +7,7 @@
  {{block('keepSimple')}}
  {{block('statistic')}}
  {{block('enterprise')}}
- {{block('history')}}
+ {{block('history---')}}
  {{block('installation')}}
  {{block('roadmap')}}
  {{block('quote')}}
@@ -22,9 +22,25 @@
 
 {%block landPage%}
 <section id='landing'>
- <div id='header' class='f'>
-  <img src="{{url.static}}images/logo/jibres.svg">
- </div>
+ <header id='site-header' class="cn f" data-scroll>
+  <h1 class="cauto logo">
+   <a class="flex" href='{{url.base}}' tabindex='1'>
+    <img src='{{url.static}}images/logo/jibres.svg' alt='{{site.title}} | {{site.desc}}'>
+    <span>{{site.title}}</span>
+   </a>
+  </h1>
+
+  <nav class="cauto os">
+   <a href="{{url.base}}/pricing">{%trans "Pricing"%}</a>
+   <a href="{{url.bases}}contact">{%trans "Contact"%}</a>
+{%if login.id%}
+   <a href="{{url.base}}/a" data-direct class="btn">{%trans "Admin Panel"%}</a>
+{%else%}
+   <a href="{{url.base}}/enter" data-direct class="btn">{%trans "Enter"%}</a>
+{%endif%}
+  </nav>
+ </header>
+
  <div class="title">
   <h2>{%trans "Run Your Store"%}</h2>
   <h3>{%trans ""%} {{site.desc}}</h3>
