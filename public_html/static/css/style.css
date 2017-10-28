@@ -86,3 +86,78 @@ body{
 
 
 
+
+
+/* footer*/
+#tfooter{font-size:1.2em;padding:3rem 0 0;background-color:#333;}
+#tfooter a{color:#888;transition:0.3s;}
+#tfooter nav a:hover{color:#eee}
+#tfooter nav a:focus{color:#fff}
+/* footer top nav*/
+#tfooter .top{border-bottom:1px solid #4070c0;font-size:1.3em;font-weight:900;position:relative}
+#tfooter .top a{display:inline-block;padding:1.2em .5em;color:#aaa;margin-right:1.5em;}
+.rtl #tfooter .top a{margin-right:0;margin-left:1.5em}
+/* footer-links*/
+#tfooter .middle{font-size:1.2em;border-bottom:1px solid #4070c0;padding:2em 0}
+#tfooter .middle h4{font-weight:500;color:#ccc;margin-bottom:5px;font-size:1.1em}
+#tfooter .middle nav a{display:block;padding:0.5em}
+#tfooter .middle .enamad{min-width:150px;padding:1em 0}
+#tfooter .middle .enamad a{display:block;max-width:90px;padding:0;position:relative;}
+#tfooter .middle .enamad a:focus{background-color:#ccc}
+#tfooter .middle .enamad img{display:block;max-width:100%;background-color:#eee;padding:0.5em 0}
+#tfooter .middle .enamad a:before{content:"";position:absolute;top:-4px;right:0;left:0;height:4px;background-image:url(../images/cert/footer-box.svg);background-repeat:repeat-x;}
+#tfooter .middle .enamad a:after{content:"";position:absolute;bottom:-4px;right:0;left:0;height:4px;background-image:url(../images/cert/footer-box.svg);background-repeat:repeat-x;-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+/* footer-note*/
+#tfooter .bottom{padding:2em 0;color:#aaa}
+#tfooter .bottom .langlist{display:inline-block}
+#tfooter .bottom .langlist a{background-color:rgba(0,0,0,0.1);color:#aaa;padding:1em 2em;display:inline-block;-webkit-transition:.3s;-o-transition:.3s;-moz-transition:.3s;transition:.3s;border-radius:2px}
+#tfooter .bottom .langlist a:hover,#tfooter .bottom .langlist a:focus{background-color:rgba(0,0,0,0.4);color:#ddd;}
+#tfooter .bottom .love{text-align:right;text-transform:uppercase}
+#tfooter .bottom .love a:hover,#tfooter .bottom .love a:focus{color:#fff}
+#tfooter .bottom .counter{font-weight:700;text-align:center;text-transform:uppercase}
+#tfooter .bottom{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-moz-box-orient:horizontal;-moz-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+#tfooter .bottom .counter,#tfooter .bottom .love{padding:1em 0}
+.rtl #tfooter .bottom .love{text-align:left}
+/* xaccess*/
+#tfooter #xaccess{position:fixed;left:0;bottom:17%;z-index:3;}
+#tfooter #xaccess a{display:block;background-color:#000;opacity:0.3;padding:0.5em 1em;transition:0.3s;margin-top:0.2em;margin-right:2em;color:#fff;}
+#tfooter #xaccess a:hover{opacity:0.8;padding:0.5em 2em;margin-right:0;}
+.rtl #tfooter #xaccess{right:0;left:initial;}
+.rtl #tfooter #xaccess a{right:0;left:initial;margin-right:0;margin-left:2em;}
+.rtl #tfooter #xaccess a:hover{margin-right:0;margin-left:0;}
+
+#tfooter .middle .share2 a{display:inline-block;}
+.share2 a{position:relative;display:inline-block;vertical-align:top;overflow:hidden;margin:5px;width:35px;height:35px;font-size:0;line-height:0;border-radius:1px;}
+.share2 a::before,.share2 a::after{display:block;position:absolute;top:0;left:0;width:100%;height:100%;content:""}
+.share2 a::before{z-index:1;-webkit-transition:box-shadow .3s;transition:box-shadow .2s}
+.share2 a::after{z-index:2;background:url(../images/sprite/share.png);}
+.share2 .facebook::before{box-shadow:inset 0 0 0 48px #3b5998}
+.share2 .facebook:hover::before{box-shadow:inset 0 0 0 4px #3b5998}
+.share2 .facebook::after{background-position:0 0}
+.share2 .twitter::before{box-shadow:inset 0 0 0 48px #4099ff}
+.share2 .twitter:hover::before{box-shadow:inset 0 0 0 4px #4099ff}
+.share2 .twitter::after{background-position:-35px 0}
+.share2 .googleplus::before{box-shadow:inset 0 0 0 48px #d34836}
+.share2 .googleplus:hover::before{box-shadow:inset 0 0 0 4px #d34836}
+.share2 .googleplus::after{background-position:-70px 0}
+.share2 .github::before{box-shadow:inset 0 0 0 48px #333}
+.share2 .github:hover::before{box-shadow:inset 0 0 0 4px #333}
+.share2 .github::after{background-position:-105px 0}
+.share2 .rss::before{box-shadow:inset 0 0 0 48px #ee802f}
+.share2 .rss:hover::before{box-shadow:inset 0 0 0 4px #ee802f}
+.share2 .rss::after{background-position:-140px 0}
+.share2 .telegram::before{box-shadow:inset 0 0 0 48px #34a3dd}
+.share2 .telegram:hover::before{box-shadow:inset 0 0 0 4px #34a3dd}
+.share2 .telegram::after{background-position:-175px 0}
+.share2 .linkedin::before{box-shadow:inset 0 0 0 48px #1283ad}
+.share2 .linkedin:hover::before{box-shadow:inset 0 0 0 4px #1283ad}
+.share2 .linkedin::after{background-position:-210px 0}
+.share2 .instagram::before{box-shadow:inset 0 0 0 48px #f22579}
+.share2 .instagram:hover::before{box-shadow:inset 0 0 0 4px #f22579}
+.share2 .instagram::after{background-position:-245px 0}
+
+
+
+
+
+
