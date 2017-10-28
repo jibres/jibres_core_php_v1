@@ -28,17 +28,16 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  color:#fff;
 }
 
 #roadmap .title{
-  color: #fff;
   position: absolute;
   top: 20%;
   left: 10%;
   font-size: 2em;
   text-align: center;
 }
-
 #roadmap .title h2{
   font-weight: 400;
   font-size: 4.5em;
@@ -47,4 +46,43 @@ body{
   font-weight: 100;
   font-size: 1.5em;
 }
+
+
+#quote{
+  background-image: url('/static/images/homepage/quote-mailchimp.jpg');
+  height: 80%;
+  /*background-attachment: fixed;*/
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color:#fff;
+}
+#quote .title{
+  position: absolute;
+  bottom: 40%;
+  width: 80%;
+  margin:0 auto;
+  right: 0;
+  left: 0;
+  font-size: 2em;
+  text-align: center;
+}
+#quote .title h4{
+  font-weight: 100;
+  line-height: 1.3em;
+}
+#quote .title h5{
+  font-weight: 400;
+  font-size: 0.6em;
+  color: #ccc;
+  margin-top: 3em;
+}
+
+
+
+
+
+
+
 
