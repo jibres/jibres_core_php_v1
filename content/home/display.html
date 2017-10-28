@@ -4,12 +4,12 @@
 {%block body%}
 
  {{block('landPage')}}
- {{block('roadmap')}}
  {{block('keepSimple')}}
  {{block('statistic')}}
  {{block('enterprise')}}
  {{block('history')}}
  {{block('installation')}}
+ {{block('roadmap')}}
  {{block('quote')}}
  {{block('why')}}
  {{block('support')}}
@@ -19,9 +19,10 @@
 
 
 {%block landPage%}
-<div>
+<section>
+
   <img src="{{url.static}}images/homepage/desk.jpg">
-</div>
+</section>
 
 
 {%endblock%}
@@ -46,6 +47,13 @@ Keep it simple
 2
 {%endblock%}
 
+
+{%block roadmap%}
+<section>
+  <img src="{{url.static}}images/homepage/jibres-roadmap.jpg">
+</section>
+
+{%endblock%}
 
 {%block enterprise%}
 3
