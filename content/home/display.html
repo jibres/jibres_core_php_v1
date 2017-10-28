@@ -19,12 +19,16 @@
 
 
 {%block landPage%}
-<section>
+<section id='landing'>
+ <div id='header' class='f'>
+  <img src="{{url.static}}images/logo/jibres.svg">
+ </div>
+ <div class="center">
+  <h2>{%trans "Run Your Store"%}</h2>
+  <h3>{%trans ""%} {{site.desc}}</h3>
+ </div>
 
-  <img src="{{url.static}}images/homepage/desk.jpg">
 </section>
-
-
 {%endblock%}
 
 
@@ -39,49 +43,64 @@
 
 
 {%block keepSimple%}
-Keep it simple
+<section>
+ <h2>Keep it simple</h2>
+</section>
 {%endblock%}
 
 
 {%block statistic%}
-2
+<section>
+ statistic
+</section>
 {%endblock%}
 
 
 {%block roadmap%}
-<section>
-  <img src="{{url.static}}images/homepage/jibres-roadmap.jpg">
+<section id='roadmap'>
+ 123
 </section>
-
 {%endblock%}
 
 {%block enterprise%}
-3
+<section>
+ enterprise
+</section>
 {%endblock%}
 
 
 {%block history%}
-history
+<section>
+ history
+</section>
 {%endblock%}
 
 
 {%block installation%}
-4
+<section>
+ installation
+</section>
 {%endblock%}
 
 
 {%block quote%}
-5
+<section>
+ quote
+</section>
 {%endblock%}
 
 
 {%block why%}
-6
+<section>
+ why
+</section>
 {%endblock%}
 
 
 {%block support%}
-7
+<section>
+ support
+</section>
 {%endblock%}
 
 

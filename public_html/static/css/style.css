@@ -1,3 +1,32 @@
 
 
+html {
+  height: 100%;
+}
+
+
+body{
+  height: 100%;
+}
+
+#landing{
+  background-image: url('/static/images/homepage/desk.jpg');
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color:#fff;
+}
+
+
+#roadmap{
+  background-image: url('/static/images/homepage/jibres-roadmap.jpg');
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
