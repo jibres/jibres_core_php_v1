@@ -30,7 +30,7 @@ class model extends \content_c\main\model
 
 		if(debug::$status)
 		{
-			$this->redirector($this->url('baseFull'));
+			$this->redirector($this->url('baseFull').'/store');
 		}
 	}
 }

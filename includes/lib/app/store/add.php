@@ -45,7 +45,8 @@ trait add
 
 		\lib\temp::set('last_store_added', isset($args['slug'])? $args['slug'] : null);
 
-		$args['creator']  = \lib\user::id();
+		$args['creator'] = \lib\user::id();
+		$args['status']  = 'enable';
 		$store_id = \lib\db\stores::insert($args);
 
 		if(!$store_id)
