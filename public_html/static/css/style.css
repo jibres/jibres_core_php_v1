@@ -50,15 +50,18 @@ body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
   right: 0;
   text-align: center;
   padding-top: 30vh;
+  min-width: 280px;
   width: 70%;
   margin:0 auto;
 }
 #landing .title h2{
-  font-size: 3em;
+  font-size: 5em;
+  line-height: 2em;
 }
 #landing .title h3{
-  line-height: 1.7em;
-
+  line-height: 2em;
+  padding:0 2%;
+  font-weight: 100;
 }
 
 
