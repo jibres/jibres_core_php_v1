@@ -11,7 +11,8 @@ class products
 	 */
 	public static function insert()
 	{
-		return \lib\db\config::public_insert('products', ...func_get_args());
+		\lib\db\config::public_insert('products', ...func_get_args());
+		return \lib\db::insert_id();
 	}
 
 

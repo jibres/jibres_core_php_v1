@@ -51,17 +51,17 @@ trait add
 		$args['store_id'] = \lib\store::id();
 		$args['creator']  = \lib\user::id();
 
+		if(!isset($args['status']) || (isset($args['status']) && !$args['status']))
+		{
+			$args['status']  = 'available';
+		}
+
+
 		$return = [];
 
 		// \lib\temp::set('last_product_added', isset($args['slug'])? $args['slug'] : null);
 
 		$product_id = \lib\db\products::insert($args);
-
-		if(!$product_id)
-		{
-			$args['slug'] = self::slug_fix($args);
-			$product_id     = \lib\db\products::insert($args);
-		}
 
 		if(!$product_id)
 		{
@@ -78,34 +78,6 @@ trait add
 		}
 
 		return $return;
-	}
-
-
-	/**
-	 * fix duplicate slug
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
-	public static function slug_fix($_args)
-	{
-		if(!isset($_args['slug']))
-		{
-			$_args['slug'] = (string) \lib\user::id(). (string) rand(1000,5000);
-		}
-
-		$new_slug     = null;
-		$similar_slug = \lib\db\products::get_similar_slug($_args['slug']);
-		$count        = count($similar_slug);
-		$i            = 1;
-		$new_slug     = (string) $_args['slug']. (string) ((int) $count +  (int) $i);
-		while (in_array($new_slug, $similar_slug))
-		{
-			$i++;
-			$new_slug = (string) $_args['slug']. (string) ((int) $count +  (int) $i);
-		}
-
-		\lib\temp::set('last_product_added', $new_slug);
-		return $new_slug;
 	}
 }
 ?>
