@@ -42,7 +42,7 @@ self::$config['passphrase']                   = null;
 self::$config['passkey']                      = null;
 self::$config['passvalue']                    = null;
 self::$config['default']                      = null;
-self::$config['redirect']                     = 'a';
+self::$config['redirect']                     = 'c';
 self::$config['register']                     = true;
 self::$config['recovery']                     = true;
 self::$config['fake_sub']                     = null;
@@ -82,7 +82,7 @@ self::$config['enter']['static_token'][]  = '**Ermile**Azvir^^Jibres--Token__Sta
  * first signup url
  * main redirect url . signup redirect url
  */
-self::$config['enter']['singup_redirect']     = 'a/setup';
+self::$config['enter']['singup_redirect']     = 'c';
 
 
 /**
