@@ -15,7 +15,7 @@ class productprices
 			return false;
 		}
 
-		$query  = "SELECT * FROM productprices WHERE `product_id` = $_product_id AND `enddate` IS NULL ORDER BY id DESC LIMIT 1";
+		$query  = "SELECT * FROM productprices WHERE `product_id` = $_product_id AND `enddate` IS NULL ORDER BY `id` DESC LIMIT 1";
 		$result = \lib\db::get($query, null, true);
 		return $result;
 	}

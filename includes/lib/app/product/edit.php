@@ -58,6 +58,7 @@ trait edit
 
 		if(!\lib\app::isset_request('title'))          unset($args['title']);
 		if(!\lib\app::isset_request('name'))           unset($args['name']);
+		if(!\lib\app::isset_request('cat'))            unset($args['cat']);
 		if(!\lib\app::isset_request('slug'))           unset($args['slug']);
 		if(!\lib\app::isset_request('company'))        unset($args['company']);
 		if(!\lib\app::isset_request('shortcode'))      unset($args['shortcode']);

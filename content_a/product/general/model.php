@@ -16,8 +16,9 @@ class model extends \content_a\product\model
 
 		$args =
 		[
-			'title'        => utility::post('title'),
+			'title'          => utility::post('title'),
 			'name'           => utility::post('name'),
+			'cat'            => utility::post('cat'),
 			'slug'           => utility::post('slug'),
 			'company'        => utility::post('company'),
 			'shortcode'      => utility::post('shortcode'),

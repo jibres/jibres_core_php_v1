@@ -101,6 +101,14 @@
 {%endblock%}
 
 
+{%block iCat%}
+<label for='cat'>{%trans "Cat"%}</label>
+<div class="input">
+ <input type="text" name="cat" id="cat" placeholder='{%trans "Cat"%}' value="{{product.cat}}" maxlength="50">
+</div>
+{%endblock%}
+
+
 
 {%block iShortcode%}
 <label for='shortcode'>{%trans "Short code"%}</label>

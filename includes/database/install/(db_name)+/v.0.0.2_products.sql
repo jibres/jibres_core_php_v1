@@ -4,6 +4,7 @@ CREATE TABLE products (
 `creator`				int(10) UNSIGNED NOT NULL,
 `title`					varchar(500) NOT NULL,
 `name`					varchar(200) NULL DEFAULT NULL,
+`cat`					varchar(200) NULL DEFAULT NULL,
 `slug`					varchar(200) NULL DEFAULT NULL,
 `company`				varchar(200) NULL DEFAULT NULL,
 `shortcode`				int(10) NULL DEFAULT NULL,

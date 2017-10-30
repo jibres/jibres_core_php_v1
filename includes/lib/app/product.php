@@ -58,6 +58,16 @@ class product
 			return false;
 		}
 
+		$cat = \lib\app::request('cat');
+		$cat = trim($cat);
+		if($cat && mb_strlen($cat) >= 200)
+		{
+			\lib\app::log('api:product:cat:max:lenght', \lib\user::id(), $log_meta);
+			debug::error(T_("Product cat must be less than 200 character"), 'cat');
+			return false;
+		}
+
+
 		// $slug = \lib\app::request('slug');
 		$slug = \lib\utility\filter::slug($title, null, 'persian');
 		$slug = substr($slug, 0, 199);
@@ -89,6 +99,7 @@ class product
 		// }
 
 		$unit = \lib\app::request('unit');
+		$unit = trim($unit);
 		if($unit && mb_strlen($unit) >= 100)
 		{
 			\lib\app::log('api:product:unit:max:lenght', \lib\user::id(), $log_meta);
@@ -97,6 +108,7 @@ class product
 		}
 
 		$barcode = \lib\app::request('barcode');
+		$barcode = trim($barcode);
 		if($barcode && mb_strlen($barcode) >= 100)
 		{
 			\lib\app::log('api:product:barcode:max:lenght', \lib\user::id(), $log_meta);
@@ -105,6 +117,7 @@ class product
 		}
 
 		$barcode2 = \lib\app::request('barcode2');
+		$barcode2 = trim($barcode2);
 		if($barcode2 && mb_strlen($barcode2) >= 100)
 		{
 			\lib\app::log('api:product:barcode2:max:lenght', \lib\user::id(), $log_meta);
@@ -113,6 +126,7 @@ class product
 		}
 
 		$code = \lib\app::request('code');
+		$code = trim($code);
 		if($code && mb_strlen($code) >= 200)
 		{
 			\lib\app::log('api:product:code:max:lenght', \lib\user::id(), $log_meta);
@@ -288,6 +302,7 @@ class product
 		}
 
 		$desc = \lib\app::request('desc');
+		$desc = trim($desc);
 		if($desc && mb_strlen($desc))
 		{
 			\lib\app::log('api:product:desc:max:lenght', \lib\user::id(), $log_meta);
@@ -298,9 +313,10 @@ class product
 		$args                   = [];
 		$args['title']          = $title;
 		$args['name']           = $name;
+		$args['cat']            = $cat;
 		$args['slug']           = $slug;
 		$args['company']        = $company;
-		// $args['shortcode']      = $shortcode;
+		// $args['shortcode']   = $shortcode;
 		$args['unit']           = $unit;
 		$args['barcode']        = $barcode;
 		$args['barcode2']       = $barcode2;
@@ -313,7 +329,7 @@ class product
 		$args['minstock']       = $minstock;
 		$args['maxstock']       = $maxstock;
 		$args['status']         = $status;
-		// $args['sold']           = $sold;
+		// $args['sold']        = $sold;
 		$args['stock']          = $stock;
 		$args['thumb']          = $thumb;
 		$args['service']        = $service;
