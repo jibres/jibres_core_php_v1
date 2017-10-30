@@ -70,6 +70,23 @@ trait add
 			return false;
 		}
 
+		// the product was inserted
+		// set the productprice record
+		$insert_productprices =
+		[
+			'product_id'      => $product_id,
+			'creator'         => \lib\user::id(),
+			'startdate'       => date("Y-m-d H:i:s"),
+			'startshamsidate' => \lib\utility\jdate::date("Ymd", false, false),
+			'enddate'         => null,
+			'endshamsidate'   => null,
+			'buyprice'        => $args['buyprice'],
+			'price'           => $args['price'],
+			'discount'        => $args['discount'],
+		];
+		\lib\db\productprices::insert($insert_productprices);
+
+
 		$return['product_id'] = \lib\utility\shortURL::encode($product_id);
 
 		if(debug::$status)
