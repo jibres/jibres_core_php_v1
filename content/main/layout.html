@@ -3,7 +3,7 @@
 {%use 'content/main/header-social.html'%}
 
 {%block body%}
-{%include template.header%}
+{%include 'content/template/header.html'%}
  <div class="wrapper" data-xhr='wrapper'>
 {%block content%}
   <div class="page-block">
@@ -16,6 +16,8 @@
 {%endblock%}
    </div>
   </div>
+
+
   <div class="pc">
    <div class="cn">
 {%block page%}{%endblock%}
@@ -24,7 +26,7 @@
 {%block pageExtra%}{%endblock%}
 {%endblock%}
  </div>
-{%include template.footer%}
+{%include 'content/template/footer.html'%}
 
 
 {%set introOption%}

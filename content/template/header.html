@@ -1,19 +1,22 @@
- <header id='site-header' class="cn f" data-scroll>
-  <h1 class="cauto logo">
-   <a class="flex" href='{{url.base}}' tabindex='1'>
-    <img src='{{url.static}}images/logo/jibres.svg' alt='{{site.title}} | {{site.desc}}'>
-    <span>{{site.title}}</span>
-   </a>
-  </h1>
+ <header id='site-header' data-scroll>
+  <div  class="cn f">
 
-  <nav class="cauto os">
-   <a href="{{url.base}}/pricing">{%trans "Pricing"%}</a>
-   <a href="{{url.bases}}contact">{%trans "Contact"%}</a>
+   <h1 class="cauto logo">
+    <a class="flex" href='{{url.base}}' tabindex='1'>
+     <img src='{{url.static}}images/logo/jibres.svg' alt='{{site.title}} | {{site.desc}}'>
+     <span>{{site.title}}</span>
+    </a>
+   </h1>
+
+   <nav class="cauto os">
+    <a href="{{url.base}}/pricing">{%trans "Pricing"%}</a>
+    <a href="{{url.bases}}contact">{%trans "Contact"%}</a>
 {%if login.id%}
-   <a href="{{url.base}}/a" data-direct class="btn">{%trans "Admin Panel"%}</a>
+    <a href="{{url.base}}/a" data-direct class="btn">{%trans "Admin Panel"%}</a>
 {%else%}
-   <a href="{{url.base}}/enter" data-direct class="btn">{%trans "Enter"%}</a>
+    <a href="{{url.base}}/enter" data-direct class="btn">{%trans "Enter"%}</a>
 {%endif%}
-  </nav>
+   </nav>
+  </div>
  </header>
 
