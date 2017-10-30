@@ -1,0 +1,23 @@
+{%extends display.adminTeam%}
+
+{%block pageContent%}
+  <div class="f justify-center">
+    <div class="c8 s12">
+      <div class="cbox">
+
+        <form method="post" enctype="multipart/form-data">
+          <div class="input preview">
+           <input type="file" accept="text/csv"  name="product_list" id="product-list-import" data-max="500">
+           <label for="product-list-import" title='{%trans "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"%}'>
+           </label>
+          </div>
+
+          <button class="btn primary block mT25">{%trans "Import"%}</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+{%endblock%}
+
+

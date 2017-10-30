@@ -14,6 +14,7 @@ class product
 	use product\datalist;
 	use product\get;
 	use product\buyprice;
+	use product\import;
 
 
 	/**
