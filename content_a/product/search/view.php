@@ -16,6 +16,11 @@ class view extends \content_a\product\view
 
 		$this->data->page['title'] = T_('Add new product');
 		$this->data->page['desc']  = T_('You can set detail of team product and assign some extra data to use later');
+
+		if(isset($this->controller->pagnation))
+		{
+			$this->data->pagnation = $this->controller->pagnation_get();
+		}
 	}
 }
 ?>
