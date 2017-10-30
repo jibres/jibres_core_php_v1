@@ -86,6 +86,12 @@ trait edit
 			return false;
 		}
 
+		// check archive of price if price or discount or buyprice sended
+		if(array_key_exists('price', $args) || array_key_exists('discount', $args) || array_key_exists('buyprice', $args))
+		{
+			self::buyprice_check($load_product['id'], $args);
+		}
+
 		if(!empty($args))
 		{
 			$update = \lib\db\products::update($args, $load_product['id']);

@@ -3,6 +3,24 @@ namespace lib\db;
 
 class productprices
 {
+	/**
+	 * get last of product id
+	 *
+	 * @param      <type>  $_product_id  The product identifier
+	 */
+	public static function last($_product_id)
+	{
+		if(!$_product_id || !is_numeric($_product_id))
+		{
+			return false;
+		}
+
+		$query  = "SELECT * FROM productprices WHERE `product_id` = $_product_id AND `enddate` IS NULL ORDER BY id DESC LIMIT 1";
+		$result = \lib\db::get($query, null, true);
+		return $result;
+	}
+
+
 
 	/**
 	 * insert new productprice

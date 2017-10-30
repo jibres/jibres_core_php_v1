@@ -13,6 +13,7 @@ class product
 	use product\edit;
 	use product\datalist;
 	use product\get;
+	use product\buyprice;
 
 
 	/**
