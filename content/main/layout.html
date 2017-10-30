@@ -6,14 +6,10 @@
 {%include 'content/template/header.html'%}
  <div class="wrapper" data-xhr='wrapper'>
 {%block content%}
-  <div class="page-block">
+  <div class="page-title">
    <div class="cn">
-{%block pageTitle%}
-    <div class="tile">
-     <h2>{{pageTitle}}</h2>
-     <h3>{{pageDesc}}</h3>
-    </div>
-{%endblock%}
+    <h1>{{page.title}}</h1>
+    <h2>{{page.desc}}</h2>
    </div>
   </div>
 

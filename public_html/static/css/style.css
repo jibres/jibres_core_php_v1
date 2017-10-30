@@ -32,10 +32,16 @@ body[data-page="homepage"] #site-header{background-color:transparent;}
 /* page loading effect*/
 body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
 
-.page-block{
+.page-title{padding:10em 0;text-align:center;overflow:hidden;background-color:#ddd;}
+.page-title h1{font-weight:700;font-size:3em;color:#333;}
+.page-title h2{font-weight:100;color:#888;padding:0 10%;}
 
-}
 
+.pc{color:#333;background-color:#f2f2f2;font-size:1.4em;padding:5em 0;}
+.pc .em{font-weight:bold;text-align:center;padding:1em 5%;background-color:#ddd;}
+.pc h2{margin-top:1.5em;}
+.pc h3{margin-top:1em;}
+.pc h4{margin-top:0.5em;}
 
 
 
