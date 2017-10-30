@@ -13,7 +13,7 @@ body{
 
 
 /* header*/
-#site-header{height:70px;min-height:70px;font-size:1.2em;overflow:hidden;background-color:rgba(51, 51, 51, 0.7);transition:0.3s}
+#site-header{height:70px;min-height:70px;font-size:1.2em;overflow:hidden;background-color:rgba(51, 51, 51, 1);transition:0.3s}
 body[data-page="homepage"] #site-header{background-color:transparent;}
 #site-header .logo{transition:0.3s;padding:0;margin:0;}
 #site-header .logo a{padding:0 1em;color:#fff;font-weight:700;display:inline-block;line-height:70px;}
@@ -32,9 +32,9 @@ body[data-page="homepage"] #site-header{background-color:transparent;}
 /* page loading effect*/
 body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
 
-.page-title{padding:10em 0;text-align:center;overflow:hidden;background-color:#ddd;}
-.page-title h1{font-weight:700;font-size:3em;color:#333;}
-.page-title h2{font-weight:100;color:#888;padding:0 10%;}
+.page-title{padding:15em 0;text-align:center;overflow:hidden;background-color:#ddd;}
+.page-title h1{font-weight:700;line-height:2em;font-size:3em;color:#333;}
+.page-title h2{font-weight:100;line-height:2em;color:#888;padding:0 10%;}
 
 
 .pc{color:#333;background-color:#f2f2f2;font-size:1.4em;padding:5em 0;}

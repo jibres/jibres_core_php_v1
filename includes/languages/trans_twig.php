@@ -30,13 +30,13 @@ class twigTransTerms
 	echo T_("Roadmap");                                                               // Line 63
 	echo T_("Amazing Financial Platform");                                            // Line 64
 	echo T_("It's helped us to rapidly iterate and rapidly prototype in ways that were much more time-consuming in the past.");// Line 94
-	echo T_("AARRON WALTER, DIRECTOR OF UX AT MAILCHIMP");                            // Line 95
+	echo T_("Majid Sadeghi, Sales Supervisor at SuperSaeed");                         // Line 95
 
 	//--------------------------------------------------------content\main\layout.html
-	echo T_("Next →");                                                                // Line 31
-	echo T_("← Back");                                                                // Line 31
-	echo T_("Skip");                                                                  // Line 31
-	echo T_("Done");                                                                  // Line 31
+	echo T_("Next →");                                                                // Line 29
+	echo T_("← Back");                                                                // Line 29
+	echo T_("Skip");                                                                  // Line 29
+	echo T_("Done");                                                                  // Line 29
 
 	//---------------------------------------------------content\template\dafault.html
 	echo T_("View your current location and navigate to parent of it");               // Line 9
@@ -52,22 +52,22 @@ class twigTransTerms
 	echo T_("Enamad");                                                                // Line 16
 	echo T_("Jibres");                                                                // Line 7 Seperate
 	echo T_("Benefits");                                                              // Line 23
-	echo T_("Pricing");                                                               // Line 10
+	echo T_("Pricing");                                                               // Line 12
 	echo T_("Learn More");                                                            // Line 28
 	echo T_("Terms of Service");                                                      // Line 29
 	echo T_("Privacy Policy");                                                        // Line 3
 	echo T_("Changelog");                                                             // Line 31
 	echo T_("Support");                                                               // Line 168
-	echo T_("Contact");                                                               // Line 11
+	echo T_("Contact");                                                               // Line 13
 	echo T_("Logo");                                                                  // Line 38
 	echo T_("Proudly Made in IRAN");                                                  // Line 52
 	echo T_("Control Panel");                                                         // Line 59
-	echo T_("Admin Panel");                                                           // Line 13
+	echo T_("Admin Panel");                                                           // Line 15
 	echo T_("Exit Session");                                                          // Line 61
 	echo T_("Another Session");                                                       // Line 62
 
 	//----------------------------------------------------content\template\header.html
-	echo T_("Enter");                                                                 // Line 15
+	echo T_("Enter");                                                                 // Line 17
 
 	//------------------------------------------content\template\priceSchoolTable.html
 	echo T_("Free");                                                                  // Line 150
@@ -455,7 +455,7 @@ class twigTransTerms
 	echo T_("Unset");                                                                 // Line 206
 	echo T_("Normal status for product");                                             // Line 206
 	echo T_("Avalible");                                                              // Line 211
-	echo T_("Temporary abalible product");                                            // Line 211
+	echo T_("Temporary available product");                                           // Line 211
 	echo T_("Unavailable");                                                           // Line 216
 	echo T_("does not exist and quit from team, don't show in board");                // Line 226
 	echo T_("Soon");                                                                  // Line 221
