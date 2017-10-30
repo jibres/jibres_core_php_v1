@@ -166,9 +166,11 @@
 
 
 {%block iVat%}
-<label for='vat'>{%trans "Vat"%}</label>
-<div class="input">
- <input type="text" name="vat" id="vat" placeholder='{%trans "Vat"%}' value="{{product.vat}}" maxlength="50">
+
+<div class="switch1">
+ <input type="checkbox" name="vat" id="vat" {% if product.vat%} checked{%endif%}>
+ <label for="vat"></label>
+ <label for="vat">{%trans "Vat"%} <small>{%trans "This product is vat base"%}</small></label>
 </div>
 {%endblock%}
 
@@ -261,7 +263,7 @@
 <div class="switch1">
  <input type="checkbox" name="sellonline" id="sellonline" {% if product.sellonline%} checked{%endif%}>
  <label for="sellonline"></label>
- <label for="sellonline">{%trans "Service"%} <small>{%trans "This product is sellonline base"%}</small></label>
+ <label for="sellonline">{%trans "Sell Online"%} <small>{%trans "This product is sellonline base"%}</small></label>
 </div>
 {%endblock%}
 
@@ -271,7 +273,7 @@
 <div class="switch1">
  <input type="checkbox" name="sellstore" id="sellstore" {% if product.sellstore%} checked{%endif%}>
  <label for="sellstore"></label>
- <label for="sellstore">{%trans "Service"%} <small>{%trans "This product is sellstore base"%}</small></label>
+ <label for="sellstore">{%trans "Sell in store"%} <small>{%trans "This product is sellstore base"%}</small></label>
 </div>
 {%endblock%}
 
