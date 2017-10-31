@@ -9,7 +9,7 @@ class controller extends \content_c\main\controller
 	function ready()
 	{
 		// list of all team the user is them
-		$this->get(false, 'list')->ALL();
+		$this->get()->ALL();
 	}
 }
 ?>
