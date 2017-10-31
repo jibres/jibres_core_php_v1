@@ -3,16 +3,44 @@
 
 {%block pageContent%}
 <div class="f justify-center">
-  <div class="c8 s12">
+  <div class="c6 s12">
     <form method="post" class="cbox">
     {{block ("iname")}}
     {{block ("islug")}}
     {{block ("idesc")}}
-
     {{block ("iInsert")}}
     </form>
-
   </div>
 </div>
+{%endblock%}
+
+
+
+
+{%block iname%}
+<label for="name">{%trans "Name"%} <span class="fc-red">*</span></label>
+<div class="input">
+  <input type="text" name="name" id="name" placeholder='{%trans "Name"%} *' autofocus maxlength='70' pattern=".{1,70}" title='{%trans "Enter a valid name"%}' required>
+</div>
+{%endblock%}
+
+
+{%block islug%}
+<label for="slug">{%trans "Store short name"%} <small>{%trans "Used for url of store as subdomain"%}</small></label>
+<div class="input fix">
+  <input type="text" name="slug" id="slug" placeholder='{%trans "subdomain for your store"%}' maxlength='40' class="ltr">
+  <label class="addon ltr" for="slug">.Jibres.com</label>
+</div>
+{%endblock%}
+
+
+{%block idesc%}
+<label for="desc">{%trans "Description"%} <small>{%trans "Used for description of store and show in social media links"%}</small></label>
+<textarea class="txt mB20" name="desc" placeholder='{%trans "Description"%}' maxlength='300' rows="3"></textarea>
+{%endblock%}
+
+
+{%block iInsert%}
+<button class="btn primary block mT20">{%trans "Insert"%}</button>
 {%endblock%}
 

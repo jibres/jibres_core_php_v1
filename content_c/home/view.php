@@ -8,19 +8,8 @@ class view extends \content_c\main\view
 	 */
 	public function config()
 	{
-		$this->data->page['title'] = T_("Dashboard");
-		$this->data->page['desc'] = T_("View store summary");
-	}
-
-
-	/**
-	 * view all team and branch
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
-	public function view_dashboard($_args)
-	{
-
+		$this->data->page['title'] = T_("Jibres Dashboard");
+		$this->data->page['desc'] = T_("Glance at your stores and quickly navigate to stores.");
 	}
 }
 ?>

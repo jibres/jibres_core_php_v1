@@ -5,19 +5,8 @@ class view extends \content_c\main\view
 {
 	public function config()
 	{
-		$this->data->page['title'] = T_("Dashboard");
-		$this->data->page['desc'] = T_("View team summary and add new team or change it");
-	}
-
-
-	/**
-	 * view all team and branch
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
-	public function view_add($_args)
-	{
-
+		$this->data->page['title'] = T_("Add New Store");
+		$this->data->page['desc'] = T_("Add with simple detail and config more after adding new store.");
 	}
 }
 ?>
