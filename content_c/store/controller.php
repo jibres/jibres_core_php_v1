@@ -1,6 +1,7 @@
 <?php
 namespace content_c\store;
 
+
 class controller extends \content_c\main\controller
 {
 	/**
@@ -8,7 +9,6 @@ class controller extends \content_c\main\controller
 	 */
 	function ready()
 	{
-		// list of all team the user is them
 		$this->get()->ALL();
 	}
 }

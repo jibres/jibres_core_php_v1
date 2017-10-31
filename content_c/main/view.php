@@ -7,6 +7,8 @@ class view extends \mvc\view
 	{
 		$this->data->bodyclass = 'fixed unselectable siftal';
 		$this->include->chart  = true;
+
+		$this->data->display['jibresControlLayout'] = 'content_a/main/layout.html';
 	}
 }
 ?>

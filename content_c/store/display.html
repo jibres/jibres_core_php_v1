@@ -1,19 +1,8 @@
-{%extends display.admin%}
+{%extends display.jibresControlLayout%}
 
-{%block sidenav%}
-{{parent()}}
-{%endblock%}
 
 {%block pageContent%}
 <div class='middle normal f justify-center'>
-
-  <div class="vcard mA10">
-    <img src="{{url.static}}siftal/images/useful/plus1.png" alt="add new store">
-    <div class="content"></div>
-    <div class="footer pAn">
-     <a class="btn block primary" href="{{url.baseFull}}/store/add">{%trans "Add new store"%}</a>
-    </div>
-  </div>
 
 {%for key, value in list_store%}
 
@@ -37,7 +26,19 @@
   </a>
 {%endfor%}
 
-
+{{block("NewStoreCard")}}
 </div>
+{%endblock%}
+
+
+
+{%block NewStoreCard%}
+  <div class="vcard mA10">
+    <img src="{{url.static}}siftal/images/useful/plus1.png" alt="add new store">
+    <div class="content"></div>
+    <div class="footer pAn">
+     <a class="btn block primary" href="{{url.baseFull}}/store/add">{%trans "Add new store"%}</a>
+    </div>
+  </div>
 {%endblock%}
 

@@ -41,17 +41,6 @@ class view extends \lib\view
 
 		// if you need to set a class for body element in html add in this value
 		$this->data->bodyclass           = null;
-
 	}
-
-
-	/**
-	 * [pushState description]
-	 * @return [type] [description]
-	 */
-	// function pushState()
-	// {
-
-	// }
 }
 ?>

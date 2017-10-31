@@ -1,12 +1,9 @@
 <?php
 namespace content_c\main;
 
+
 class controller extends \mvc\controller
 {
-
-	/**
-	 * rout
-	 */
 	public function repository()
 	{
 		if(!$this->login())

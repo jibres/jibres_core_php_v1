@@ -5,11 +5,10 @@ class view extends \content_c\main\view
 {
 	public function config()
 	{
-		$this->data->page['title'] = T_("Dashboard");
-		$this->data->page['desc']  = T_("View team summary and add new team or change it");
+		$this->data->page['title'] = T_("Stores");
+		$this->data->page['desc']  = T_("View list of stores and add new one easily just in seconds.");
 
-		$list_store                = $this->model()->getListStore();
-		$this->data->list_store    = $list_store;
+		$this->data->list_store    = $this->model()->getListStore();
 	}
 }
 ?>
