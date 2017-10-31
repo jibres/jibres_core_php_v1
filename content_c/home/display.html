@@ -7,6 +7,18 @@
  <div class="c4 s12">{{block ("storeCount")}}</div>
  <div class="c4 s12">{{block ("prDate")}}</div>
 </div>
+
+<h2 class="mT20">{%trans "List of your stores"%}</h2>
+<div class="f">
+{%for key, value in list_store%}
+ <div class="c4 s12">
+  <a class="dcard" href='{{value.url}}/a'>
+   <div class="statistic">{{value.name}}
+   </div>
+  </a>
+ </div>
+{%endfor%}
+</div>
 {%endblock%}
 
 

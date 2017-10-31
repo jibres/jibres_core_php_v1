@@ -9,7 +9,7 @@ class view extends \content_c\main\view
 		$this->data->page['title'] = T_("Stores");
 		$this->data->page['desc']  = T_("View list of stores and add new one easily just in seconds.");
 
-		$this->data->list_store    = $this->model()->getListStore();
+		$this->data->list_store    = \lib\app\store::list();
 	}
 }
 ?>

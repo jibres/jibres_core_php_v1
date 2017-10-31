@@ -10,6 +10,7 @@ class view extends \content_c\main\view
 		$this->data->page['desc']  = T_("Glance at your stores and quickly navigate to stores.");
 
 		$this->data->dateDetail    = \lib\utility\date::month_precent();
+		$this->data->list_store    = \lib\app\store::list();
 	}
 }
 ?>
