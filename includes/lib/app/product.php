@@ -200,8 +200,6 @@ class product
 			$discountpercent = round((floatval($discount) * 100) / floatval($price), 3);
 		}
 
-		$vat = \lib\app::request('vat');
-		$vat = $vat ? 1 : 0;
 
 		$initialbalance = \lib\app::request('initialbalance');
 
@@ -293,17 +291,43 @@ class product
 			return false;
 		}
 
-		$service    = \lib\app::request('service');
-		$service    = $service ? 1 : 0;
+		$vat = null;
+		if(\lib\app::isset_request('vat'))
+		{
+			$vat = \lib\app::request('vat');
+			$vat = $vat ? 1 : 0;
+		}
 
-		$checkstock = \lib\app::request('checkstock');
-		$checkstock = $checkstock ? 1 : 0;
+		$service = null;
+		if(\lib\app::isset_request('service'))
+		{
+			$service    = \lib\app::request('service');
+			$service    = $service ? 1 : 0;
+		}
 
-		$sellonline = \lib\app::request('sellonline');
-		$sellonline = $sellonline ? 1 : 0;
 
-		$sellstore  = \lib\app::request('sellstore');
-		$sellstore  = $sellstore ? 1 : 0;
+		$checkstock = null;
+		if(\lib\app::isset_request('checkstock'))
+		{
+			$checkstock = \lib\app::request('checkstock');
+			$checkstock = $checkstock ? 1 : 0;
+		}
+
+		$sellonline = null;
+		if(\lib\app::isset_request('sellonline'))
+		{
+			$sellonline = \lib\app::request('sellonline');
+			$sellonline = $sellonline ? 1 : 0;
+		}
+
+
+		$sellstore = null;
+		if(\lib\app::isset_request('sellstore'))
+		{
+			$sellstore  = \lib\app::request('sellstore');
+			$sellstore  = $sellstore ? 1 : 0;
+		}
+
 
 		$carton     = \lib\app::request('carton');
 

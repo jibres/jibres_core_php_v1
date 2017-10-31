@@ -36,6 +36,7 @@ class model extends \content_a\main\model
 				return false;
 			}
 		}
+		debug::error(T_("No file was sended"));
 		return false;
 	}
 
@@ -54,10 +55,11 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		\lib\app\product::import($list);
+		$imported = \lib\app\product::import($list);
 
 		if(debug::$status)
 		{
+			\lib\debug::true(T_("Import product successfully complete"));
 			$this->redirector($this->url('baseFull'). '/product/search');
 		}
 
