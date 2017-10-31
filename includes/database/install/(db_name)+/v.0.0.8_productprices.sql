@@ -9,6 +9,7 @@ CREATE TABLE `productprices` (
 `buyprice` bigint(20) UNSIGNED NULL DEFAULT NULL,
 `price` bigint(20) UNSIGNED NULL DEFAULT NULL,
 `discount` bigint(20) NULL DEFAULT NULL,
+`discountpercent`		smallint(3) NULL DEFAULT NULL,
 `datecreated` datetime DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
