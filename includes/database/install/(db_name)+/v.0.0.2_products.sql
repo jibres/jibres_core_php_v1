@@ -15,7 +15,7 @@ CREATE TABLE products (
 `buyprice`				BIGINT(20) UNSIGNED NULL DEFAULT NULL,
 `price`					BIGINT(20) UNSIGNED NULL DEFAULT NULL,
 `discount`				BIGINT(20) NULL DEFAULT NULL,
-`discountpercent`		smallint(3) NULL DEFAULT NULL,
+`discountpercent`		float(5) NULL DEFAULT NULL,
 `vat`					BIT(1) NULL DEFAULT NULL,
 `initialbalance`		float(10) UNSIGNED NULL DEFAULT NULL,
 `minstock`				float(10) UNSIGNED NULL DEFAULT NULL,

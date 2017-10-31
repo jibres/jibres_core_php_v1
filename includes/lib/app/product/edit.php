@@ -10,8 +10,20 @@ trait edit
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function edit($_args)
+	public static function edit($_args, $_option = [])
 	{
+		$default_option =
+		[
+			'debug' => true,
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
 		\lib\app::variable($_args);
 
 		$log_meta =
@@ -29,14 +41,14 @@ trait edit
 		if(!$id || !is_numeric($id))
 		{
 			\lib\app::log('api:product:method:put:id:not:set', \lib\user::id(), $log_meta);
-			debug::error(T_("Id not set"));
+			if($_option['debug']) debug::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:product:edit:store:id:not:set', \lib\user::id(), $log_meta);
-			debug::error(T_("Id not set"));
+			if($_option['debug']) debug::error(T_("Id not set"));
 			return false;
 		}
 
@@ -45,11 +57,11 @@ trait edit
 		if(empty($load_product) || !$load_product || !isset($load_product['id']))
 		{
 			\lib\app::log('api:product:edit:product:not:found', \lib\user::id(), $log_meta);
-			debug::error(T_("Can not access to edit it"), 'product', 'permission');
+			if($_option['debug']) debug::error(T_("Can not access to edit it"), 'product', 'permission');
 			return false;
 		}
 
-		$args = self::check();
+		$args = self::check($_option);
 
 		if($args === false || !\lib\debug::$status)
 		{
@@ -83,7 +95,7 @@ trait edit
 		if(array_key_exists('title', $args) && !$args['title'])
 		{
 			\lib\app::log('api:product:title:not:set:edit', \lib\user::id(), $log_meta);
-			debug::error(T_("Store title of product can not be null"), 'title');
+			if($_option['debug']) debug::error(T_("Store title of product can not be null"), 'title');
 			return false;
 		}
 

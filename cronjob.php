@@ -31,11 +31,11 @@ class cronjob
 	 */
 	public function requests()
 	{
-		$requests   = [];
-		$requests[] = ['url' => 'https://jibres.com/cronjob/pinger', 'header' => []];
-		$requests[] = ['url' => 'https://jibres.com/cronjob/report', 'header' => []];
-		$requests[] = ['url' => 'https://jibres.com/cronjob/notification', 'header' => []];
-		$requests[] = ['url' => 'https://jibres.com/cronjob/calc', 'header' => []];
+		// $requests   = [];
+		// $requests[] = ['url' => 'https://jibres.com/cronjob/pinger', 'header' => []];
+		// $requests[] = ['url' => 'https://jibres.com/cronjob/report', 'header' => []];
+		// $requests[] = ['url' => 'https://jibres.com/cronjob/notification', 'header' => []];
+		// $requests[] = ['url' => 'https://jibres.com/cronjob/calc', 'header' => []];
 
 		// $requests[] = ['url' => 'http://jibres.dev/cronjob/report', 'header' => []];
 		// $requests[] = ['url' => 'http://jibres.dev/cronjob/calc', 'header' => []];

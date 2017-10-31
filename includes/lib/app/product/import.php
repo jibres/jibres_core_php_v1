@@ -77,7 +77,7 @@ trait import
 			{
 				$data      = self::xTrim($data);
 				$insert    = array_combine($column, $data);
-				$result [] = \lib\app\product::add($insert);
+				$result [] = \lib\app\product::add($insert, ['debug' => false]);
 			}
 		}
 

@@ -13,8 +13,20 @@ trait add
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function add($_args = [])
+	public static function add($_args, $_option = [])
 	{
+		$default_option =
+		[
+			'debug' => true,
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
 		\lib\app::variable($_args);
 
 		$log_meta =
@@ -29,19 +41,19 @@ trait add
 		if(!\lib\user::id())
 		{
 			\lib\app::log('api:product:user_id:notfound', null, $log_meta);
-			debug::error(T_("User not found"), 'user');
+			if($_option['debug']) debug::error(T_("User not found"), 'user');
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:product:store_id:notfound', null, $log_meta);
-			debug::error(T_("Store not found"), 'subdomain');
+			if($_option['debug']) debug::error(T_("Store not found"), 'subdomain');
 			return false;
 		}
 
 		// check args
-		$args = self::check();
+		$args = self::check($_option);
 
 		if($args === false || !\lib\debug::$status)
 		{
@@ -66,7 +78,7 @@ trait add
 		if(!$product_id)
 		{
 			\lib\app::log('api:product:no:way:to:insert:product', \lib\user::id(), $log_meta);
-			debug::error(T_("No way to insert product"), 'db', 'system');
+			if($_option['debug']) debug::error(T_("No way to insert product"), 'db', 'system');
 			return false;
 		}
 
@@ -83,6 +95,7 @@ trait add
 			'buyprice'        => $args['buyprice'],
 			'price'           => $args['price'],
 			'discount'        => $args['discount'],
+			'discountpercent' => $args['discountpercent'],
 		];
 		\lib\db\productprices::insert($insert_productprices);
 
@@ -91,7 +104,7 @@ trait add
 
 		if(debug::$status)
 		{
-			debug::true(T_("Store successfuly added"));
+			if($_option['debug']) debug::true(T_("Store successfuly added"));
 		}
 
 		return $return;

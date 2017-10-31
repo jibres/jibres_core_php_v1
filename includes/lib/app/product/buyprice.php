@@ -20,9 +20,10 @@ trait buyprice
 		if(!$last_product_price || !isset($last_product_price['id']))
 		{
 			// old record not exits
-			if(array_key_exists('price', $_args)) 	 $new_record['price']    = $_args['price'];
-			if(array_key_exists('discount', $_args)) $new_record['discount'] = $_args['discount'];
-			if(array_key_exists('buyprice', $_args)) $new_record['buyprice'] = $_args['buyprice'];
+			if(array_key_exists('price', $_args)) 	 		$new_record['price']           = $_args['price'];
+			if(array_key_exists('discount', $_args)) 		$new_record['discount']        = $_args['discount'];
+			if(array_key_exists('discountpercent', $_args)) $new_record['discountpercent'] = $_args['discountpercent'];
+			if(array_key_exists('buyprice', $_args)) 		$new_record['buyprice']        = $_args['buyprice'];
 		}
 		else
 		{
@@ -59,6 +60,18 @@ trait buyprice
 				$new_record['buyprice'] = $_args['buyprice'];
 				$changed = true;
 			}
+
+			if
+			(
+				array_key_exists('discountpercent', $last_product_price) &&
+				array_key_exists('discountpercent', $_args) &&
+				floatval($_args['discountpercent']) !== floatval($last_product_price['discountpercent'])
+			)
+			{
+				$new_record['discountpercent'] = $_args['discountpercent'];
+				$changed = true;
+			}
+
 		}
 
 
