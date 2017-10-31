@@ -1,0 +1,14 @@
+{%extends "content_a/staff/layout.html"%}
+
+{%block data%}
+<form class="cbox" method="post">
+
+{{block('iPhone')}}
+{{block('iStaffMobile')}}
+
+
+{{block('iEmail')}}
+ <button class="mT25 btn primary block">{%trans "Save"%}</button>
+</form>
+{%endblock%}
+
