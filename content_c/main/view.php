@@ -1,6 +1,7 @@
 <?php
 namespace content_c\main;
 
+
 class view extends \mvc\view
 {
 	public function repository()

@@ -1,6 +1,7 @@
 <?php
 namespace content_c\store\add;
 
+
 class view extends \content_c\main\view
 {
 	public function config()

@@ -5,24 +5,15 @@
 <div class='middle normal f justify-center'>
 
 {%for key, value in list_store%}
-
-{%set cardColor%}
-{%if value.status == 'close'%}red{%elseif not value.stats.traffic_count%}black{%elseif value.rule == 'admin'%}blue{%else%}{%endif%}
-{%endset%}
-
-  <a class="vcard mA10 shadow {{cardColor}}" href='{{value.url}}'>
-    <img src="{{value.logo}}" alt="{{value.name}}" class="pA10-f">
-    <div class="content">
-      <div class="header">{{value.name}}</div>
-
-    </div>
-    <div class="footer">
-    <i class="sf-users"></i>{{value.stats.member_count | number_format | fitNumber}} {%trans "member"%}
-    {%if value.stats.traffic_count%}
-      <i class="sf-refresh"></i><span>{{value.stats.traffic_count | number_format | fitNumber}}</span> {%trans "traffic"%}
-    {%endif%}
+  <a class="vcard mA10 shadow" href='{{value.url}}/a'>
+   <img src="{{value.logo}}" alt="{{value.name}}" class="pA10-f">
+   <div class="content">
+    <div class="header">{{value.name}}</div>
+   </div>
+   <div class="footer">
+    <i class="sf-money"></i> {%trans "Total sale"%} {{value.stats.member_count | number_format | fitNumber}}
     {%if value.rule=='admin'%} <i class="sf-star fc-gold" title='{%trans "Owner of store"%}'></i>{%endif%}
-    </div>
+   </div>
   </a>
 {%endfor%}
 
