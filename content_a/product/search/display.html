@@ -7,9 +7,23 @@
 
     <thead>
       <tr>
-        <th>{%trans "Code"%}</th>
-        <th>{%trans "Title"%}</th>
-        <th>{%trans "Name"%}</th>
+        <!-- <th>{% trans "Code"%}</th> -->
+        <th>{% trans "Title"%}</th>
+        <th>{% trans "Name"%}</th>
+        <th>{% trans "Cat"%}</th>
+        <th>{% trans "Company" %}</th>
+        <th>{% trans "Unit" %}</th>
+        <th>{% trans "Code" %}</th>
+        <th>{% trans "Buy price" %}</th>
+        <th>{% trans "Price" %}</th>
+        <th>{% trans "Discount" %}</th>
+        <th>{% trans "Discount percent" %}</th>
+        <th>{% trans "Vat" %}</th>
+        <th>{% trans "Initial balance" %}</th>
+        <th>{% trans "Min stock" %}</th>
+        <th>{% trans "Max stock" %}</th>
+        <th>{% trans "Sold" %}</th>
+        <th>{% trans "Stock" %}</th>
         <th>{%trans "Status"%}</th>
         <th>{%trans "Desc"%}</th>
       </tr>
@@ -18,10 +32,24 @@
     <tbody>
       {%for key, value in product_list%}
       <tr>
-        <td>{{value.id}}</td>
+        <!-- <td>{{value.id}}</td> -->
         <td><a href="{{url.baseFull}}/product/edit/{{value.id}}">{{value.title}}</a></td>
         <td>{{value.name}}</td>
-        <td>{{value.status}}</td>
+        <td>{{value.cat}}</td>
+        <td>{{value.company}}</td>
+        <td>{{value.unit}}</td>
+        <td>{{value.code}}</td>
+        <td>{{value.buyprice | number_format | fitNumber}}</td>
+        <td>{{value.price | number_format | fitNumber}}</td>
+        <td>{{value.discount | number_format | fitNumber}}</td>
+        <td>{{value.discountpercent | number_format | fitNumber}}</td>
+        <td>{{value.vat}}</td>
+        <td>{{value.initialbalance | number_format | fitNumber}}</td>
+        <td>{{value.minstock | number_format | fitNumber}}</td>
+        <td>{{value.maxstock | number_format | fitNumber}}</td>
+        <td>{{value.sold | number_format | fitNumber}}</td>
+        <td>{{value.stock | number_format | fitNumber}}</td>
+        <td>{%set myStatus = value.status |capitalize %}{%trans myStatus%}</td>
         <td>{{value.desc}}</td>
       </tr>
       {%endfor%}
@@ -34,4 +62,40 @@
 
 {%endblock%}
 
+{%block All_field_we_have%}
 
+      'id'              => string 'BQ' (length=2)
+      'store_id'        => string '1' (length=1)
+      'creator'         => string '3' (length=1)
+      'title'           => string 'سرکه سفید دلوسه' (length=28)
+      'name'            => null
+      'cat'             => string 'محصولات غذایی' (length=25)
+      'slug'            => string 'سرکه-سفید-دلوسه' (length=28)
+      'url'             => string 'http://سرکه-سفید-دلوسه.jibres.dev' (length=46)
+      'company'         => null
+      'shortcode'       => null
+      'unit'            => string 'بطری' (length=8)
+      'barcode'         => string '6262164400421' (length=13)
+      'barcode2'        => null
+      'code'            => string '1412' (length=4)
+      'buyprice'        => null
+      'price'           => string '5450' (length=4)
+      'discount'        => string '450' (length=3)
+      'discountpercent' => string '8.257' (length=5)
+      'vat'             => null
+      'initialbalance'  => null
+      'minstock'        => string '1' (length=1)
+      'maxstock'        => null
+      'status'          => string 'available' (length=9)
+      'sold'            => null
+      'stock'           => null
+      'thumb'           => null
+      'service'         => null
+      'checkstock'      => null
+      'sellonline'      => null
+      'sellstore'       => null
+      'carton'          => null
+      'datecreated'     => string '2017-10-31 08:12:23' (length=19)
+      'datemodified'    => null
+      'desc'            => null
+{%endblock%}

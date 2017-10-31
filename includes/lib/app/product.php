@@ -416,7 +416,6 @@ class product
 
 				case 'slug':
 					$result[$key] = isset($value) ? (string) $value : null;
-					$result['url'] = isset($value) ? Protocol. '://'. $value. '.jibres.'. Tld : null;
 					break;
 
 				case 'country':
