@@ -64,6 +64,24 @@ class store
 	}
 
 
+
+	/**
+	 * get name of store
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function name()
+	{
+		self::init();
+
+		if(isset(self::$store['name']))
+		{
+			return self::$store['name'];
+		}
+		return null;
+	}
+
+
 	/**
 	 * get store detail
 	 */
