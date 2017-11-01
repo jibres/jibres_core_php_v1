@@ -6,7 +6,13 @@
 {%block sidenav%}
 
 <li><a href="{{url.baseFull}}"><i class='sf-gauge'></i> <span>{% trans "Dashboard" %}</span></a></li>
-<li><a href="{{url.base}}/account/billing"><i class="sf-credit-card"></i>{%trans "Billing"%}</a></li>
+<li><a href="{{url.baseFull}}/staff"><i class="sf-user-4"></i>{%trans "Staff"%}</a></li>
+<li><a href="{{url.baseFull}}/product"><i class="sf-archive"></i>{%trans "Product"%}</a></li>
+<li><a href="{{url.baseFull}}/supplier"><i class="sf-network"></i>{%trans "Supplier"%}</a></li>
+<li><a href="{{url.baseFull}}/customer"><i class="sf-users"></i>{%trans "Customer"%}</a></li>
+<li><a href="{{url.baseFull}}/buy"><i class="sf-bag"></i>{%trans "Buy"%}</a></li>
+<li><a href="{{url.baseFull}}/sell"><i class="sf-basket"></i>{%trans "Sell"%}</a></li>
+<li><a href="{{url.baseFull}}/setting/general"><i class="sf-cogs"></i>{%trans "Setting"%}</a></li>
 
 {%endblock%}
 
