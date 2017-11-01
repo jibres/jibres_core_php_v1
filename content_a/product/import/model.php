@@ -19,7 +19,7 @@ class model extends \content_a\main\model
 		{
 			if(isset($file['type']))
 			{
-				if($file['type'] !== 'text/csv')
+				if($file['type'] !== 'text/csv' && $file['type'] !== "application/vnd.ms-excel")
 				{
 					debug::error(T_("Please upload a csv file"), 'product_list');
 					return false;
