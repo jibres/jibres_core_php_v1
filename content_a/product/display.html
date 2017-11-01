@@ -5,27 +5,17 @@
 <div class="cbox">
   <table class="tbl">
 
-    <thead>
+    <thead class="primary">
       <tr>
         <!-- <th>{% trans "Code"%}</th> -->
         <th>{% trans "Title"%}</th>
-        <th>{% trans "Name"%}</th>
-        <th>{% trans "Cat"%}</th>
-        <th>{% trans "Company" %}</th>
+        <th>{% trans "Category"%}</th>
         <th>{% trans "Unit" %}</th>
-        <th>{% trans "Code" %}</th>
         <th>{% trans "Buy price" %}</th>
         <th>{% trans "Price" %}</th>
         <th>{% trans "Discount" %}</th>
-        <th>{% trans "Discount percent" %}</th>
-        <th>{% trans "Vat" %}</th>
-        <th>{% trans "Initial balance" %}</th>
-        <th>{% trans "Min stock" %}</th>
-        <th>{% trans "Max stock" %}</th>
-        <th>{% trans "Sold" %}</th>
+        <th>{% trans "Discount percent"%}</th>
         <th>{% trans "Stock" %}</th>
-        <th>{%trans "Status"%}</th>
-        <th>{%trans "Desc"%}</th>
       </tr>
     </thead>
 
@@ -33,24 +23,15 @@
       {%for key, value in product_list%}
       <tr>
         <!-- <td>{{value.id}}</td> -->
-        <td><a href="{{url.baseFull}}/product/edit/{{value.id}}">{{value.title}}</a></td>
-        <td>{{value.name}}</td>
+        <td><a href="{{url.baseFull}}/product/edit/{{value.id}}">{{value.title}} <small>{{value.name}}</small>></a></td>
+        <td></td>
         <td>{{value.cat}}</td>
-        <td>{{value.company}}</td>
         <td>{{value.unit}}</td>
-        <td>{{value.code}}</td>
         <td>{{value.buyprice | number_format | fitNumber}}</td>
         <td>{{value.price | number_format | fitNumber}}</td>
         <td>{{value.discount | number_format | fitNumber}}</td>
         <td>{{value.discountpercent | number_format | fitNumber}}</td>
-        <td>{{value.vat}}</td>
-        <td>{{value.initialbalance | number_format | fitNumber}}</td>
-        <td>{{value.minstock | number_format | fitNumber}}</td>
-        <td>{{value.maxstock | number_format | fitNumber}}</td>
-        <td>{{value.sold | number_format | fitNumber}}</td>
         <td>{{value.stock | number_format | fitNumber}}</td>
-        <td>{%set myStatus = value.status |capitalize %}{%trans myStatus%}</td>
-        <td>{{value.desc}}</td>
       </tr>
       {%endfor%}
     </tbody>
