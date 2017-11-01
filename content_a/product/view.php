@@ -1,20 +1,17 @@
 <?php
 namespace content_a\product;
 
+
 class view extends \content_a\main\view
 {
-
 	public function config()
 	{
-
 		$team    = \lib\router::get_url(0);
 		$product = \lib\router::get_url(2);
 
 		if($product)
 		{
-			$product_detail = \lib\app\product::get(['id' => $product]);
-
-			$this->data->product = $product_detail;
+			$this->data->product = \lib\app\product::get(['id' => $product]);
 		}
 	}
 
