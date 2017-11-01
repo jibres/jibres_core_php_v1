@@ -11,6 +11,13 @@ class view extends \content_a\product\view
 	 */
 	public function view_general($_args)
 	{
+		$product = \lib\router::get_url(2);
+
+		if($product)
+		{
+			$this->data->product = \lib\app\product::get(['id' => $product]);
+		}
+
 		$productName = '';
 		if(isset($this->data->product['displayname']))
 		{
