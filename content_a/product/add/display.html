@@ -1,35 +1,36 @@
-{%extends display.adminTeam%}
-
-{%block pageContent%}
-  <div class="f justify-center">
-    <div class="c8 s12">
-      <div class="cbox">
-
-        <form method="post" enctype="multipart/form-data">
-          <div class="f">
-
-            <div class="c s12">
-              <label for="title">{%trans "Title"%} *</label>
-              <div class="input">
-               <input type="text" name="title" id="title" placeholder='{%trans "Title" %} *'  required autofocus maxlength='500' pattern=".{1,500}" title='{%trans "Enter a valid team title from 1 to 500 character"%}'>
-              </div>
-              <label for='fname'>{%trans "Name"%}</label>
-              <div class="input">
-                <input type="text" name="name" placeholder='{%trans "Name"%}'  maxlength='200' minlength="1" pattern=".{1,200}" title='{%trans "Enter a valid name from 1 to 200 character"%}' id='fname'>
-              </div>
-            </div>
-
-          </div>
+{%extends "content_a/product/layout.html"%}
 
 
-          <button class="btn primary block mT25">{%trans "Add"%}</button>
-
-
-        </form>
-      </div>
-    </div>
-
-  </div>
+{%block content%}
+<div class="tbox">
+<h3>{%trans "Add new product"%}</h3>
+</div>
+<div class="cbox">
+  <form class="cbox" method="post">
+  {{block ('iTitle') }}
+  {{block ('iName') }}
+  {{block ('iCat') }}
+  {{block ('iSlug') }}
+  {{block ('iCompany') }}
+  {{block ('iShortcode') }}
+  {{block ('iUnit') }}
+  {{block ('iBarcode') }}
+  {{block ('iBarcode2') }}
+  {{block ('iBuyprice') }}
+  {{block ('iPrice') }}
+  {{block ('iDiscount') }}
+  {{block ('iVat') }}
+  {{block ('iInitialBalance') }}
+  {{block ('iMinstock') }}
+  {{block ('iMaxstock') }}
+  {{block ('iStatus') }}
+  {{block ('iSold') }}
+  {{block ('iStock') }}
+  {{block ('iServiec') }}
+  {{block ('iSellonline') }}
+  {{block ('iSellstore') }}
+  {{block ('iCarton') }}
+  {{block("isave")}}
+  </form>
+</div>
 {%endblock%}
-
-
