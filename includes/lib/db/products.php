@@ -53,7 +53,7 @@ class products
 	{
 		$default_option =
 		[
-			'search_field' => "( products.title LIKE '%__string__%') ",
+			'search_field' => "( products.title LIKE '%__string__%' OR products.barcode = '__string__' OR products.barcode2 = '__string__') ",
 		];
 
 		if(!is_array($_option))
