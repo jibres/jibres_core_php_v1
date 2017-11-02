@@ -1,36 +1,50 @@
 {%extends "content_a/product/layout.html"%}
 
 
-{%block content%}
-<div class="tbox">
-<h3>{%trans "Add new product"%}</h3>
+{%block pageContent%}
+
+<form method="post" class="f justify-center">
+<div class="cbox c9 s12">
+ <h3>{%trans "Basic detail"%}</h3>
+{{block ('iTitle') }}
+
+<div class="f">
+ <div class="c pRa5">{{block ('iCat') }}</div>
+ <div class="c">{{block ('iManufacturer') }}</div>
 </div>
-<div class="cbox">
-  <form class="cbox" method="post">
-  {{block ('iTitle') }}
-  {{block ('iName') }}
-  {{block ('iCat') }}
-  {{block ('iSlug') }}
-  {{block ('iCompany') }}
-  {{block ('iShortcode') }}
-  {{block ('iUnit') }}
-  {{block ('iBarcode') }}
-  {{block ('iBarcode2') }}
-  {{block ('iBuyprice') }}
-  {{block ('iPrice') }}
-  {{block ('iDiscount') }}
-  {{block ('iVat') }}
-  {{block ('iInitialBalance') }}
-  {{block ('iMinstock') }}
-  {{block ('iMaxstock') }}
-  {{block ('iStatus') }}
-  {{block ('iSold') }}
-  {{block ('iStock') }}
-  {{block ('iServiec') }}
-  {{block ('iSellonline') }}
-  {{block ('iSellstore') }}
-  {{block ('iCarton') }}
-  {{block("isave")}}
-  </form>
+
+<div class="f">
+ <div class="c pRa5">{{block ('iUnit') }}</div>
+ <div class="c">{{block ('iCarton') }}</div>
 </div>
+
+<div class="f">
+ <div class="c pRa5">{{block ('iBarcode') }}</div>
+ <div class="c">{{block ('iBarcode2') }}</div>
+</div>
+
+<div class="f">
+ <div class="c pRa5">{{block ('iMinstock') }}</div>
+ <div class="c">{{block ('iMaxstock') }}</div>
+</div>
+
+
+
+ <h3 class="mT20">{%trans "Initial detail before start sell"%}</h3>
+{{block ('iBuyprice') }}
+
+<div class="f">
+ <div class="c s12 pRa5">{{block ('iPrice') }}</div>
+ <div class="c s12">{{block ('iDiscount') }}</div>
+</div>
+
+
+{{block ('iInitialBalance') }}
+{{block ('iStatus') }}
+
+
+{{block("iadd")}}
+</div>
+</form>
+
 {%endblock%}

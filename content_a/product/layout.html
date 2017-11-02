@@ -39,7 +39,7 @@
 
 
 {%block iadd%}
-<button class="btn primary block mT20">{%trans "Add"%}</button>
+<button class="btn primary block mT50">{%trans "Add"%}</button>
 {%endblock%}
 
 {%block iDelete%}
@@ -125,7 +125,7 @@
 {%block iUnit%}
 <label for='unit'>{%trans "Unit"%}</label>
 <div class="input">
- <input type="text" name="unit" id="unit" placeholder='{%trans "Count unit like Qty, kg, liter and etc"%}' value="{{product.unit}}" maxlength="50">
+ <input class="awesomplete" name="unit" id="unit" placeholder='{%trans "Count unit like Qty, kg, liter and etc"%}' value="{{product.unit}}" maxlength="50" data-minchars="1" data-autofirst data-list="Qty, Kg, Liter, person">
 </div>
 {%endblock%}
 
@@ -187,7 +187,7 @@
 {%block iInitialBalance%}
 <label for='initialbalance'>{%trans "Initial Balance"%}</label>
 <div class="input">
- <input type="text" name="initialbalance" id="initialbalance" placeholder='{%trans "Initial Balance"%}' value="{{product.initialbalance}}" maxlength="50">
+ <input type="number" name="initialbalance" id="initialbalance" placeholder='{%trans "Initial Balance"%}' value="{{product.initialbalance}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -195,7 +195,7 @@
 {%block iMinstock%}
 <label for='minstock'>{%trans "Min stock"%}</label>
 <div class="input">
- <input type="text" name="minstock" id="minstock" placeholder='{%trans "Min stock"%}' value="{{product.minstock}}" maxlength="50">
+ <input type="number" name="minstock" id="minstock" placeholder='{%trans "Min stock"%}' value="{{product.minstock}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -204,37 +204,39 @@
 {%block iMaxstock%}
 <label for='maxstock'>{%trans "Max stock"%}</label>
 <div class="input">
- <input type="text" name="maxstock" id="maxstock" placeholder='{%trans "Max stock"%}' value="{{product.maxstock}}" maxlength="50">
+ <input type="number" name="maxstock" id="maxstock" placeholder='{%trans "Max stock"%}' value="{{product.maxstock}}" maxlength="50">
 </div>
 {%endblock%}
 
 
 {%block iStatus%}
-<label class="mT25">{%trans "Status of product"%}</label>
+<div class="mT15">
+ <label >{%trans "Status of product"%}</label>
 
-<div class="radio1 green">
- <input type="radio" id="r-available" name="status" value="available" {%if product.status == 'available' %} checked{%endif%}>
- <label for="r-available">{%trans "Avalible"%} <small>{%trans "Normal status of product"%}</small></label>
-</div>
+ <div class="radio1 green">
+  <input type="radio" id="r-available" name="status" value="available" {%if product.status == 'available' or not product.status %} checked{%endif%}>
+  <label for="r-available">{%trans "Avalible"%} <small>{%trans "Normal status of product"%}</small></label>
+ </div>
 
-<div class="radio1 blue">
- <input type="radio" id="r-soon" name="status" value="soon" {%if product.status == 'soon' %} checked{%endif%}>
- <label for="r-soon">{%trans "Soon"%} <small>{%trans "maybe come in future and be available"%}</small></label>
-</div>
+ <div class="radio1 blue">
+  <input type="radio" id="r-soon" name="status" value="soon" {%if product.status == 'soon' %} checked{%endif%}>
+  <label for="r-soon">{%trans "Soon"%} <small>{%trans "maybe come in future and be available"%}</small></label>
+ </div>
 
-<div class="radio1 yellow">
- <input type="radio" id="r-unavailable" name="status" value="unavailable" {%if product.status == 'unavailable' %} checked{%endif%}>
- <label for="r-unavailable">{%trans "Unavailable"%} <small>{%trans "temporary does not exist in store"%}</small></label>
-</div>
+ <div class="radio1 yellow">
+  <input type="radio" id="r-unavailable" name="status" value="unavailable" {%if product.status == 'unavailable' %} checked{%endif%}>
+  <label for="r-unavailable">{%trans "Unavailable"%} <small>{%trans "temporary does not exist in store"%}</small></label>
+ </div>
 
-<div class="radio1 red">
- <input type="radio" id="r-discountinued" name="status" value="discountinued" {%if product.status == 'discountinued' %} checked{%endif%}>
- <label for="r-discountinued">{%trans "Discountinued"%} <small>{%trans "does not exist for now and on the future"%}</small></label>
-</div>
+ <div class="radio1 red">
+  <input type="radio" id="r-discountinued" name="status" value="discountinued" {%if product.status == 'discountinued' %} checked{%endif%}>
+  <label for="r-discountinued">{%trans "Discountinued"%} <small>{%trans "does not exist for now and on the future"%}</small></label>
+ </div>
 
-<div class="radio1 black mB25">
- <input type="radio" id="r-unset" name="status" value="unset" {%if product.status == 'unset' or not product.status%} checked{%endif%} >
- <label for="r-unset">{%trans "Unset"%} <small>{%trans "Unknown status for product"%}</small></label>
+ <div class="radio1 black mB25">
+  <input type="radio" id="r-unset" name="status" value="unset" {%if product.status == 'unset'%} checked{%endif%} >
+  <label for="r-unset">{%trans "Unset"%} <small>{%trans "Unknown status for product"%}</small></label>
+ </div>
 </div>
 {%endblock%}
 
@@ -291,6 +293,6 @@
 {%block iCarton%}
 <label for='carton'>{%trans "Count in carton"%}</label>
 <div class="input">
- <input type="text" name="carton" id="carton" placeholder='{%trans "Count of product in carton"%}' value="{{product.carton}}" maxlength="50">
+ <input type="number" name="carton" id="carton" placeholder='{%trans "Count of product in carton"%}' value="{{product.carton}}" maxlength="50">
 </div>
 {%endblock%}

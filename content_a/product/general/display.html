@@ -2,7 +2,8 @@
 
 
 {%block data%}
-<form class="cbox" method="post">
+<form method="post">
+<div class="cbox">
  <h3>{%trans "Basic detail"%}</h3>
 {{block ('iTitle') }}
 
@@ -20,13 +21,12 @@
  <div class="c pRa5">{{block ('iBarcode') }}</div>
  <div class="c">{{block ('iBarcode2') }}</div>
 </div>
-{{block ('iServiec') }}
 
 
-{{block("isave")}}
-</form>
+{{block("iSaveAll")}}
+</div>
 
-<form class="cbox" method="post">
+<div class="cbox">
  <h3>{%trans "Initial detail before start sell"%}</h3>
 {{block ('iBuyprice') }}
 
@@ -38,11 +38,11 @@
 
 {{block ('iInitialBalance') }}
 
-{{block("isave")}}
-</form>
+{{block("iSaveAll")}}
+</div>
 
+<div class="cbox">
 
-<form class="cbox" method="post">
  <h3>{%trans "Warehouse"%}</h3>
 
 
@@ -53,6 +53,7 @@
 {{block ('iStatus') }}
 
 
-{{block("isave")}}
+{{block("iSaveAll")}}
+</div>
 </form>
 {%endblock%}
