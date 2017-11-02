@@ -72,6 +72,23 @@ class productprices
 		return \lib\db\config::public_search('productprices', ...func_get_args());
 	}
 
-}
 
+	/**
+	 * delete by where
+	 *
+	 * @param      <type>   $_where  The where
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function delete_where($_where)
+	{
+		$where = \lib\db\config::make_where($_where);
+		if($where)
+		{
+			$query = "DELETE FROM productprices WHERE $where";
+			return \lib\db::query($query);
+		}
+		return false;
+	}
+}
 ?>

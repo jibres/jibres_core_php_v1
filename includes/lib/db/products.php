@@ -66,6 +66,25 @@ class products
 		return \lib\db\config::public_search('products', $_string, $_option);
 	}
 
+
+	/**
+	 * delete one product by id
+	 *
+	 * @param      <type>   $_id    The identifier
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function delete($_id)
+	{
+		if(!$_id || !is_numeric($_id))
+		{
+			return false;
+		}
+
+		$query = "DELETE FROM products WHERE id = $_id LIMIT 1";
+		return \lib\db::query($query);
+	}
+
 }
 
 ?>

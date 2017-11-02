@@ -6,12 +6,6 @@ use \lib\debug;
 class model extends \content_a\product\model
 {
 
-
-
-
-
-
-
 	/**
 	 * Posts an addproduct.
 	 *
