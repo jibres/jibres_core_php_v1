@@ -1,7 +1,7 @@
 <?php
 namespace content_a\product\general;
 
-class view extends \content_a\product\view
+class view extends \content_a\product\edit\view
 {
 
 	/**
@@ -11,17 +11,11 @@ class view extends \content_a\product\view
 	 */
 	public function view_general($_args)
 	{
-		$product = \lib\router::get_url(2);
-
-		if($product)
-		{
-			$this->data->product = \lib\app\product::get(['id' => $product]);
-		}
 
 		$productName = '';
-		if(isset($this->data->product['displayname']))
+		if(isset($this->data->product['admin']))
 		{
-			$productName = $this->data->product['displayname'];
+			$productName = $this->data->product['admin'];
 		}
 
 		$this->data->page['title'] = T_('General setting | :name', ['name' => $productName]);

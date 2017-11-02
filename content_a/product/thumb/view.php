@@ -1,7 +1,7 @@
 <?php
 namespace content_a\product\thumb;
 
-class view extends \content_a\product\view
+class view extends \content_a\product\edit\view
 {
 
 	/**

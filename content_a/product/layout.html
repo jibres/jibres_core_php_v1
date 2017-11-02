@@ -27,6 +27,7 @@
   </a>
 
  <a class="btn block mTB5" href='{{url.baseFull}}/product/general/{{product.id}}'>{%trans "General Detail"%}</a>
+ <a class="btn block mTB5" href='{{url.baseFull}}/product/delete/{{product.id}}'>{%trans "Delete product"%}</a>
 
 </div>
 {%endblock%}
@@ -41,6 +42,9 @@
 <button class="btn primary block mT20">{%trans "Add"%}</button>
 {%endblock%}
 
+{%block iDelete%}
+<button class="btn danger block mT20">{%trans "Delete product"%}</button>
+{%endblock%}
 
 {%block isave%}
 <button class="btn primary block mT20">{%trans "Save"%}</button>

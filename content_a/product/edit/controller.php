@@ -8,13 +8,7 @@ class controller extends \content_a\main\controller
 	 */
 	public function ready()
 	{
-		$module_list = ['avatar', 'general', 'idenfity'];
-
-		$url = \lib\router::get_url();
-
-		$child = \lib\router::get_url(2);
-
-		if(!$child)
+		if(!\lib\router::get_url(2))
 		{
 			\lib\error::page(T_("Invalid url"));
 		}
@@ -23,8 +17,6 @@ class controller extends \content_a\main\controller
 		$this->redirector($this->url('baseFull'). '/product/general/'. $child)->redirect();
 		return;
 
-		// $this->get(false, 'edit')->ALL("/^product\/edit\/([a-zA-Z0-9]+)$/");
-		// $this->post('edit')->ALL("/^product\/edit\/([a-zA-Z0-9]+)$/");
 	}
 }
 ?>

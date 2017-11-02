@@ -3,7 +3,7 @@ namespace content_a\product\thumb;
 use \lib\utility;
 use \lib\debug;
 
-class model extends \content_a\product\model
+class model extends \content_a\product\edit\model
 {
 
 	/**
