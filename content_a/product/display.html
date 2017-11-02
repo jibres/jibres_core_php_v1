@@ -2,7 +2,7 @@
 
 {%block pageContent%}
 
-<div class="cbox">
+<div class="cbox fs12">
   <table class="tbl">
 
     <thead class="primary">
@@ -23,8 +23,7 @@
       {%for key, value in product_list%}
       <tr>
         <!-- <td>{{value.id}}</td> -->
-        <td><a href="{{url.baseFull}}/product/edit/{{value.id}}">{{value.title}} <small>{{value.name}}</small>></a></td>
-        <td></td>
+        <td><a href="{{url.baseFull}}/product/edit/{{value.id}}">{{value.title}}</a></td>
         <td>{{value.cat}}</td>
         <td>{{value.unit}}</td>
         <td>{{value.buyprice | number_format | fitNumber}}</td>
