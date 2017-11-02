@@ -11,15 +11,15 @@ class model extends \content_a\product\edit\model
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public function upload_thumb()
+	public static function upload_thumb()
 	{
 		if(utility::files('thumb'))
 		{
-			utility::set_request_array(['upload_name' => 'thumb']);
-			$uploaded_file = $this->upload_file(['debug' => false]);
-			if(isset($uploaded_file['code']))
+			$uploaded_file = \lib\app\file::upload(['debug' => false, 'upload_name' => 'thumb']);
+
+			if(isset($uploaded_file['url']))
 			{
-				return $uploaded_file['code'];
+				return $uploaded_file['url'];
 			}
 			// if in upload have error return
 			if(!debug::$status)
@@ -40,26 +40,20 @@ class model extends \content_a\product\edit\model
 	 */
 	public function post_thumb($_args)
 	{
-		$this->user_id = $this->login('id');
-		$file_code     = $this->upload_thumb();
+		$file_url     = self::upload_thumb();
+
 		// we have an error in upload thumb
-		if($file_code === false)
+		if($file_url === false)
 		{
 			return false;
 		}
 
-		if($file_code)
-		{
-			$request['file'] = $file_code;
-		}
+		$request          = [];
+		$request['thumb'] = $file_url;
+		$request['id']    = \lib\router::get_url(2);
 
-		$product          = \lib\router::get_url(3);
-		$request['id']   = $product;
-		$request['team'] = $team = \lib\router::get_url(0);
-		utility::set_request_array($request);
+		\lib\app\product::edit($request);
 
-		// API ADD MEMBER FUNCTION
-		$this->add_product(['method' => 'patch']);
 		if(debug::$status)
 		{
 			$this->redirector($this->url('full'));

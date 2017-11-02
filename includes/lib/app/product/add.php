@@ -68,6 +68,12 @@ trait add
 			$args['status']  = 'available';
 		}
 
+		if(!isset($args['title']) || (isset($args['title']) && !$args['title']))
+		{
+			\lib\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
+			if($_option['debug']) debug::error(T_("Product title can not be null"), 'title');
+			return false;
+		}
 
 		$return = [];
 

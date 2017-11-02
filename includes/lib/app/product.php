@@ -46,20 +46,24 @@ class product
 			]
 		];
 
-		$title = \lib\app::request('title');
-		$title = trim($title);
-		if(!$title)
+		$title = null;
+		if(\lib\app::isset_request('title'))
 		{
-			\lib\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Product title can not be null"), 'title');
-			return false;
-		}
+			$title = \lib\app::request('title');
+			$title = trim($title);
+			if(!$title)
+			{
+				\lib\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
+				if($_option['debug']) debug::error(T_("Product title can not be null"), 'title');
+				return false;
+			}
 
-		if(mb_strlen($title) >= 500)
-		{
-			\lib\app::log('api:product:title:max:lenght', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Product title must be less than 500 character"), 'title');
-			return false;
+			if(mb_strlen($title) >= 500)
+			{
+				\lib\app::log('api:product:title:max:lenght', \lib\user::id(), $log_meta);
+				if($_option['debug']) debug::error(T_("Product title must be less than 500 character"), 'title');
+				return false;
+			}
 		}
 
 

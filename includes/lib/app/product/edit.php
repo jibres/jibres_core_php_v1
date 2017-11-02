@@ -1,5 +1,7 @@
 <?php
 namespace lib\app\product;
+use \lib\debug;
+
 
 trait edit
 {
@@ -91,6 +93,10 @@ trait edit
 		if(!\lib\app::isset_request('sellonline'))     unset($args['sellonline']);
 		if(!\lib\app::isset_request('sellstore'))      unset($args['sellstore']);
 		if(!\lib\app::isset_request('carton'))         unset($args['carton']);
+		if(!\lib\app::isset_request('code'))           unset($args['code']);
+		if(!\lib\app::isset_request('discountpercent'))unset($args['discountpercent']);
+		if(!\lib\app::isset_request('checkstock'))     unset($args['checkstock']);
+		if(!\lib\app::isset_request('desc'))           unset($args['desc']);
 
 		if(array_key_exists('title', $args) && !$args['title'])
 		{
@@ -125,6 +131,11 @@ trait edit
 		}
 
 		$return = [];
+
+		if(\lib\debug::$status)
+		{
+			\lib\debug::true(T_("Your product successfully updated"));
+		}
 
 		return $return;
 	}
