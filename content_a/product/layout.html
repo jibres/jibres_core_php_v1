@@ -100,7 +100,7 @@
 {%block iManufacturer%}
 <label for='company'>{%trans "Manufacturer"%}</label>
 <div class="input">
- <input type="text" name="company" id="company" placeholder='{%trans "Product manufacturer"%}' value="{{product.company}}" maxlength="50">
+ <input class="awesomplete" type="text" name="company" id="company" placeholder='{%trans "Product manufacturer"%}' value="{{product.company}}" maxlength="50" data-minchars="1" data-autofirst data-list="t1, t2, t3">
 </div>
 {%endblock%}
 
@@ -108,7 +108,7 @@
 {%block iCat%}
 <label for='cat'>{%trans "Cat"%}</label>
 <div class="input">
- <input type="text" name="cat" id="cat" placeholder='{%trans "Cat"%}' value="{{product.cat}}" maxlength="50">
+ <input class="awesomplete" type="text" name="cat" id="cat" placeholder='{%trans "Cat"%}' value="{{product.cat}}" maxlength="50" data-minchars="1" data-autofirst data-list="t1, t2, t3">
 </div>
 {%endblock%}
 
