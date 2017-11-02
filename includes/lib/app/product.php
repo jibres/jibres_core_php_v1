@@ -419,6 +419,16 @@ class product
 					$result[$key] = isset($value) ? (string) $value : null;
 					break;
 
+				case 'thumb':
+					if($value)
+					{
+						$result[$key] = $value;
+					}
+					else
+					{
+						$result[$key] = \lib\app::static_image_url();
+					}
+					break;
 				case 'country':
 				case 'city':
 				case 'province':
