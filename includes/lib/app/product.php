@@ -16,6 +16,7 @@ class product
 	use product\buyprice;
 	use product\import;
 	use product\delete;
+	use product\barcode;
 
 
 	/**
@@ -127,6 +128,16 @@ class product
 
 		$barcode = \lib\app::request('barcode');
 		$barcode = trim($barcode);
+
+		if($barcode)
+		{
+			self::check_unique_barcode($barcode, $_option);
+			if(!\lib\debug::$status)
+			{
+				return false;
+			}
+		}
+
 		if($barcode && mb_strlen($barcode) >= 100)
 		{
 			\lib\app::log('api:product:barcode:max:lenght', \lib\user::id(), $log_meta);
@@ -136,6 +147,17 @@ class product
 
 		$barcode2 = \lib\app::request('barcode2');
 		$barcode2 = trim($barcode2);
+
+		if($barcode2)
+		{
+			self::check_unique_barcode($barcode2, $_option);
+			if(!\lib\debug::$status)
+			{
+				return false;
+			}
+		}
+
+
 		if($barcode2 && mb_strlen($barcode2) >= 100)
 		{
 			\lib\app::log('api:product:barcode2:max:lenght', \lib\user::id(), $log_meta);
@@ -367,8 +389,8 @@ class product
 		$args['company']         = $company;
 		// $args['shortcode']    = $shortcode;
 		$args['unit']            = $unit;
-		$args['barcode']         = $barcode;
-		$args['barcode2']        = $barcode2;
+		$args['barcode']         = "(SELECT '$barcode')";
+		$args['barcode2']        = "(SELECT '$barcode2')";
 		$args['code']            = $code;
 		$args['buyprice']        = $buyprice;
 		$args['price']           = $price;

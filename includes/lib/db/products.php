@@ -85,6 +85,25 @@ class products
 		return \lib\db::query($query);
 	}
 
+
+	/**
+	 * Gets the barcode.
+	 *
+	 * @param      <type>   $_barcode  The barcode
+	 *
+	 * @return     boolean  The barcode.
+	 */
+	public static function get_barcode($_barcode)
+	{
+		if(!$_barcode)
+		{
+			return false;
+		}
+
+		$query = "SELECT * FROM  products WHERE products.barcode = '$_barcode' OR products.barcode2 = '$_barcode' ";
+		return \lib\db::get($query);
+	}
+
 }
 
 ?>
