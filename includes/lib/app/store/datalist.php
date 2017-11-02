@@ -18,6 +18,12 @@ trait datalist
 		}
 
 		$meta            = [];
+		if(array_key_exists('pagenation', $_args))
+		{
+			$meta['pagenation'] = $_args['pagenation'];
+			unset($_args['pagenation']);
+		}
+
 		$meta['creator'] = \lib\user::id();
 		$result          = \lib\db\stores::search(\lib\user::id(), $meta);
 		$temp            = [];

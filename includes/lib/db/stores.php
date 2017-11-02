@@ -63,6 +63,19 @@ class stores
 		return \lib\db\config::public_search('stores', ...func_get_args());
 	}
 
+
+	/**
+	 * Gets the count store by creator.
+	 *
+	 * @param      <type>  $_creator  The creator
+	 */
+	public static function get_count_store_by_creator($_creator)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM stores WHERE stores.creator = $_creator ";
+		$result = \lib\db::get($query, 'count', true);
+		return $result;
+	}
+
 }
 
 ?>

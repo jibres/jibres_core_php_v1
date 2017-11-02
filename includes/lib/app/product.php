@@ -15,6 +15,7 @@ class product
 	use product\get;
 	use product\buyprice;
 	use product\import;
+	use product\delete;
 
 
 	/**

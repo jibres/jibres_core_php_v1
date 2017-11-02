@@ -13,6 +13,7 @@ class store
 	use store\edit;
 	use store\datalist;
 	use store\get;
+	use store\dashboard;
 
 
 	/**
@@ -227,6 +228,17 @@ class store
 				case 'slug':
 					$result[$key] = isset($value) ? (string) $value : null;
 					$result['url'] = isset($value) ? Protocol. '://'. $value. '.jibres.'. Tld : null;
+					break;
+
+				case 'logo':
+					if($value)
+					{
+						$result['logo'] = $value;
+					}
+					else
+					{
+						$result['logo'] = \lib\app::static_logo_url();
+					}
 					break;
 
 				default:

@@ -1,4 +1,5 @@
 <?php
+require_once('api.php');
 require_once('social.php');
 require_once('notification.php');
 require_once('payment.php');

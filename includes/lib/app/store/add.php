@@ -40,6 +40,31 @@ trait add
 		{
 			return false;
 		}
+		// check store count
+		$count_store = self::count_store_by_creator(\lib\user::id());
+		if($count_store >= 1)
+		{
+			$user_budget = \lib\db\transactions::budget(\lib\user::id(), ['unit' => 'toman']);
+			if(is_array($user_budget))
+			{
+				$user_budget = array_sum($user_budget);
+			}
+			$user_budget = floatval($user_budget);
+
+			if($user_budget < 10000)
+			{
+				\lib\app::log('api:store:user_id:try:add:store2:budget:10000', null, $log_meta);
+				debug::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+				return false;
+			}
+		}
+
+		if($count_store >= 3)
+		{
+			\lib\app::log('api:store:try:add:store3:and:>3', null, $log_meta);
+			debug::error(T_("You can not have more than three active stores. Contact support if needed"));
+			return false;
+		}
 
 		$return = [];
 
@@ -47,6 +72,7 @@ trait add
 
 		$args['creator'] = \lib\user::id();
 		$args['status']  = 'enable';
+
 		$store_id = \lib\db\stores::insert($args);
 
 		if(!$store_id)
@@ -60,6 +86,15 @@ trait add
 			\lib\app::log('api:store:no:way:to:insert:store', \lib\user::id(), $log_meta);
 			debug::error(T_("No way to insert store"), 'db', 'system');
 			return false;
+		}
+
+		if(Tld === 'dev')
+		{
+			// in dev mode not set the subdomain
+		}
+		else
+		{
+			\lib\utility\cloudflare::create_dns_record(['type' => 'CNAME', 'name' => $args['slug'], 'content' => 'jibres.com']);
 		}
 
 		$return['store_id'] = \lib\utility\shortURL::encode($store_id);

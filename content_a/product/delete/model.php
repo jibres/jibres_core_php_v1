@@ -6,43 +6,7 @@ use \lib\debug;
 class model extends \content_a\product\model
 {
 
-	/**
-	 * Gets the post.
-	 *
-	 * @return     array  The post.
-	 */
-	public static function getPost()
-	{
 
-		$args =
-		[
-			'title'          => utility::post('title'),
-			'name'           => utility::post('name'),
-			'cat'            => utility::post('cat'),
-			'slug'           => utility::post('slug'),
-			'company'        => utility::post('company'),
-			'shortcode'      => utility::post('shortcode'),
-			'unit'           => utility::post('unit'),
-			'barcode'        => utility::post('barcode'),
-			'barcode2'       => utility::post('barcode2'),
-			'buyprice'       => utility::post('buyprice'),
-			'price'          => utility::post('price'),
-			'discount'       => utility::post('discount'),
-			'vat'            => utility::post('vat'),
-			'initialbalance' => utility::post('initialbalance'),
-			'minstock'       => utility::post('minstock'),
-			'maxstock'       => utility::post('maxstock'),
-			'status'         => utility::post('status'),
-			'sold'           => utility::post('sold'),
-			'stock'          => utility::post('stock'),
-			'service'        => utility::post('service') === 'on' ? 1 : 0,
-			'sellonline'     => utility::post('sellonline') === 'on' ? 1 : 0,
-			'sellstore'      => utility::post('sellstore') === 'on' ? 1 : 0,
-			'carton'         => utility::post('carton'),
-		];
-
-		return $args;
-	}
 
 
 
@@ -56,15 +20,22 @@ class model extends \content_a\product\model
 	public function post_delete($_args)
 	{
 
-		$request         = self::getPost();
-		$product         = \lib\router::get_url(2);
-		$request['id']   = $product;
+		$url_product  = \lib\router::get_url(2);
+		$post_product = \lib\utility::post('delete');
 
-		\lib\app\product::edit($request);
-
-		if(debug::$status)
+		if($url_product === $post_product)
 		{
-			$this->redirector($this->url('full'));
+			\lib\app\product::delete($url_product);
+
+			if(debug::$status)
+			{
+				$this->redirector($this->url('baseFull'). '/product');
+			}
+		}
+		else
+		{
+			\lib\debug::error(T_("What are you doing?"));
+			return false;
 		}
 	}
 }
