@@ -109,7 +109,7 @@ class twigTransTerms
 	echo T_("Logo and personal information");                                         // Line 33
 	echo T_("Try the logo of your organization or your company on one of existing designs and after choosing the right card, enter personal information of your employees, such as a photo, first name and last name and job position. Jibres eye-catching personnel cards are a great way to showcase the logo and expand your brand, in addition to facilitating the attendance process.");// Line 34
 	echo T_("Javad Evazzadeh");                                                       // Line 94
-	echo T_("Barcode");                                                               // Line 132
+	echo T_("Barcode");                                                               // Line 136
 	echo T_("Always have a plan B! By printing the staffing numbers in barcode format behind the personnel cards, you can register employee attendance at the time of the problem or equipment change with a barcode scanner or using an application installed on your smart phone. Additionally, the barcode printing adds to the beauty of the staff card.");// Line 69
 	echo T_("Custom design");                                                         // Line 82
 	echo T_("Did not any of Jibres designs for staff card satisfy your satisfaction? Would you like to get started and print your design on your cards? No problem! Instead of using Jibres designs, send us your design and get your cards as soon as possible with the highest possible quality.");// Line 83
@@ -197,7 +197,7 @@ class twigTransTerms
 	echo T_("only team admin");                                                       // Line 16
 	echo T_("Unlimited");                                                             // Line 17
 	echo T_("FREE");                                                                  // Line 28
-	echo T_("Price");                                                                 // Line 160
+	echo T_("Price");                                                                 // Line 35
 	echo T_("Toman");                                                                 // Line 40
 	echo T_("per member/month");                                                      // Line 44
 	echo T_("per month. fix!");                                                       // Line 40
@@ -402,19 +402,23 @@ class twigTransTerms
 	echo T_("Board");                                                                 // Line 24
 
 	//----------------------------------------------content_a\product\add\display.html
-	echo T_("Title");                                                                 // Line 79
-	echo T_("Enter a valid team title from 1 to 500 character");                      // Line 14
-	echo T_("Enter a valid name from 1 to 200 character");                            // Line 18
+	echo T_("Add new product");                                                       // Line 6
 
 	//--------------------------------------------------content_a\product\display.html
 	echo T_("Search in products");                                                    // Line 8
 	echo T_("Search");                                                                // Line 13
+	echo T_("Title");                                                                 // Line 83
 	echo T_("Category");                                                              // Line 19
-	echo T_("Buy price");                                                             // Line 152
-	echo T_("Sell Price");                                                            // Line 21
-	echo T_("Discount");                                                              // Line 169
+	echo T_("Buy price");                                                             // Line 156
+	echo T_("Sell Price");                                                            // Line 162
+	echo T_("Discount");                                                              // Line 171
 	echo T_("Discount percent");                                                      // Line 23
 	echo T_("Stock");                                                                 // Line 256
+
+	//------------------------------------------content_a\product\general\display.html
+	echo T_("Basic detail");                                                          // Line 6
+	echo T_("Initial detail before start sell");                                      // Line 30
+	echo T_("Warehouse");                                                             // Line 46
 
 	//-------------------------------------------content_a\product\import\display.html
 	echo T_("Please wait to complete import progress");                               // Line 15
@@ -422,40 +426,48 @@ class twigTransTerms
 
 	//---------------------------------------------------content_a\product\layout.html
 	echo T_("General Detail");                                                        // Line 52
-	echo T_("Name of product");                                                       // Line 73
+	echo T_("Delete product");                                                        // Line 46
+	echo T_("Name of product");                                                       // Line 77
 	echo T_("Enter a valid name");                                                    // Line 22
-	echo T_("Title in team show below name");                                         // Line 81
-	echo T_("Enter a valid team title from 3 to 50 character");                       // Line 81
-	echo T_("Slug");                                                                  // Line 90
-	echo T_("Company");                                                               // Line 99
-	echo T_("Cat");                                                                   // Line 107
-	echo T_("Short code");                                                            // Line 116
-	echo T_("Unit");                                                                  // Line 124
-	echo T_("Scan Barcode here...");                                                  // Line 134
-	echo T_("Barcode2");                                                              // Line 140
-	echo T_("Scan Barcode2 here...");                                                 // Line 142
-	echo T_("Vat");                                                                   // Line 181
-	echo T_("This product is vat base");                                              // Line 181
+	echo T_("Title in team show below name");                                         // Line 85
+	echo T_("Enter a valid team title from 3 to 50 character");                       // Line 85
+	echo T_("Slug");                                                                  // Line 94
+	echo T_("Manufacturer");                                                          // Line 101
+	echo T_("Product manufacturer");                                                  // Line 103
+	echo T_("Cat");                                                                   // Line 111
+	echo T_("Short code");                                                            // Line 120
+	echo T_("Unit");                                                                  // Line 126
+	echo T_("Count unit like Qty, kg, liter and etc");                                // Line 128
+	echo T_("Scan Barcode here...");                                                  // Line 138
+	echo T_("Barcode2");                                                              // Line 144
+	echo T_("Scan Barcode2 here...");                                                 // Line 146
+	echo T_("Price for sale without discount");                                       // Line 164
+	echo T_("Discount on sale");                                                      // Line 173
+	echo T_("Vat");                                                                   // Line 182
+	echo T_("This product is vat base");                                              // Line 182
 	echo T_("Initial Balance");                                                       // Line 190
 	echo T_("Min stock");                                                             // Line 198
 	echo T_("Max stock");                                                             // Line 207
 	echo T_("Status of product");                                                     // Line 213
-	echo T_("Unset");                                                                 // Line 216
-	echo T_("Normal status for product");                                             // Line 216
-	echo T_("Avalible");                                                              // Line 221
-	echo T_("Temporary available product");                                           // Line 221
-	echo T_("Unavailable");                                                           // Line 226
-	echo T_("does not exist and quit from team, don't show in board");                // Line 236
-	echo T_("Soon");                                                                  // Line 231
-	echo T_("Discountinued");                                                         // Line 236
+	echo T_("Avalible");                                                              // Line 217
+	echo T_("Normal status of product");                                              // Line 217
+	echo T_("Soon");                                                                  // Line 222
+	echo T_("maybe come in future and be available");                                 // Line 222
+	echo T_("Unavailable");                                                           // Line 227
+	echo T_("temporary does not exist in store");                                     // Line 227
+	echo T_("Discountinued");                                                         // Line 232
+	echo T_("does not exist for now and on the future");                              // Line 232
+	echo T_("Unset");                                                                 // Line 237
+	echo T_("Unknown status for product");                                            // Line 237
 	echo T_("Sold");                                                                  // Line 247
 	echo T_("Service");                                                               // Line 265
-	echo T_("This product is service base");                                          // Line 265
+	echo T_("This product is service base and not a real goods");                     // Line 265
 	echo T_("Sell Online");                                                           // Line 274
 	echo T_("This product is sellonline base");                                       // Line 274
 	echo T_("Sell in store");                                                         // Line 284
 	echo T_("This product is sellstore base");                                        // Line 284
-	echo T_("Carton");                                                                // Line 294
+	echo T_("Count in carton");                                                       // Line 292
+	echo T_("Count of product in carton");                                            // Line 294
 
 	//--------------------------------------------------content_a\setting\display.html
 	echo T_("Hi");                                                                    // Line 6

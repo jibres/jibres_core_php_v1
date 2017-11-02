@@ -3,29 +3,56 @@
 
 {%block data%}
 <form class="cbox" method="post">
+ <h3>{%trans "Basic detail"%}</h3>
 {{block ('iTitle') }}
-{{block ('iName') }}
-{{block ('iCat') }}
-{{block ('iSlug') }}
-{{block ('iCompany') }}
-{{block ('iShortcode') }}
-{{block ('iUnit') }}
-{{block ('iBarcode') }}
-{{block ('iBarcode2') }}
-{{block ('iBuyprice') }}
-{{block ('iPrice') }}
-{{block ('iDiscount') }}
-{{block ('iVat') }}
-{{block ('iInitialBalance') }}
-{{block ('iMinstock') }}
-{{block ('iMaxstock') }}
-{{block ('iStatus') }}
-{{block ('iSold') }}
-{{block ('iStock') }}
+
+<div class="f">
+ <div class="c pRa5">{{block ('iCat') }}</div>
+ <div class="c">{{block ('iManufacturer') }}</div>
+</div>
+
+<div class="f">
+ <div class="c pRa5">{{block ('iUnit') }}</div>
+ <div class="c">{{block ('iCarton') }}</div>
+</div>
+
+<div class="f">
+ <div class="c pRa5">{{block ('iBarcode') }}</div>
+ <div class="c">{{block ('iBarcode2') }}</div>
+</div>
 {{block ('iServiec') }}
-{{block ('iSellonline') }}
-{{block ('iSellstore') }}
-{{block ('iCarton') }}
+
+
+{{block("isave")}}
+</form>
+
+<form class="cbox" method="post">
+ <h3>{%trans "Initial detail before start sell"%}</h3>
+{{block ('iBuyprice') }}
+
+<div class="f">
+ <div class="c s12 pRa5">{{block ('iPrice') }}</div>
+ <div class="c s12">{{block ('iDiscount') }}</div>
+</div>
+
+
+{{block ('iInitialBalance') }}
+
+{{block("isave")}}
+</form>
+
+
+<form class="cbox" method="post">
+ <h3>{%trans "Warehouse"%}</h3>
+
+
+<div class="f">
+ <div class="c pRa5">{{block ('iMinstock') }}</div>
+ <div class="c">{{block ('iMaxstock') }}</div>
+</div>
+{{block ('iStatus') }}
+
+
 {{block("isave")}}
 </form>
 {%endblock%}

@@ -47,7 +47,7 @@
 {%endblock%}
 
 {%block isave%}
-<button class="btn primary block mT20">{%trans "Save"%}</button>
+<button class="btn primary block mT25">{%trans "Save"%}</button>
 {%endblock%}
 
 {%block iInsert%}
@@ -97,10 +97,10 @@
 
 
 
-{%block iCompany%}
-<label for='company'>{%trans "Company"%}</label>
+{%block iManufacturer%}
+<label for='company'>{%trans "Manufacturer"%}</label>
 <div class="input">
- <input type="text" name="company" id="company" placeholder='{%trans "Company"%}' value="{{product.company}}" maxlength="50">
+ <input type="text" name="company" id="company" placeholder='{%trans "Product manufacturer"%}' value="{{product.company}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -125,7 +125,7 @@
 {%block iUnit%}
 <label for='unit'>{%trans "Unit"%}</label>
 <div class="input">
- <input type="text" name="unit" id="unit" placeholder='{%trans "Unit"%}' value="{{product.unit}}" maxlength="50">
+ <input type="text" name="unit" id="unit" placeholder='{%trans "Count unit like Qty, kg, liter and etc"%}' value="{{product.unit}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -159,9 +159,9 @@
 
 
 {%block iPrice%}
-<label for='price'>{%trans "Price"%}</label>
+<label for='price'>{%trans "Sell Price"%}</label>
 <div class="input">
- <input type="text" name="price" id="price" placeholder='{%trans "Price"%}' value="{{product.price}}" maxlength="50">
+ <input type="text" name="price" id="price" placeholder='{%trans "Price for sale without discount"%}' value="{{product.price}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -170,22 +170,18 @@
 {%block iDiscount%}
 <label for='discount'>{%trans "Discount"%}</label>
 <div class="input">
- <input type="text" name="discount" id="discount" placeholder='{%trans "Discount"%}' value="{{product.discount}}" maxlength="50">
+ <input type="text" name="discount" id="discount" placeholder='{%trans "Discount on sale"%}' value="{{product.discount}}" maxlength="50">
 </div>
 {%endblock%}
 
 
-
-
 {%block iVat%}
-
 <div class="switch1">
  <input type="checkbox" name="vat" id="vat" {% if product.vat%} checked{%endif%}>
  <label for="vat"></label>
  <label for="vat">{%trans "Vat"%} <small>{%trans "This product is vat base"%}</small></label>
 </div>
 {%endblock%}
-
 
 
 {%block iInitialBalance%}
@@ -215,31 +211,31 @@
 
 {%block iStatus%}
 <label class="mT25">{%trans "Status of product"%}</label>
-<div class="radio1 red">
- <input type="radio" id="r-unset" name="status" value="unset" {%if product.status == 'unset' or not product.status%} checked{%endif%} >
- <label for="r-unset">{%trans "Unset"%} <small>{%trans "Normal status for product"%}</small></label>
-</div>
 
 <div class="radio1 green">
  <input type="radio" id="r-available" name="status" value="available" {%if product.status == 'available' %} checked{%endif%}>
- <label for="r-available">{%trans "Avalible"%} <small>{%trans "Temporary available product"%}</small></label>
-</div>
-
-<div class="radio1 red">
- <input type="radio" id="r-unavailable" name="status" value="unavailable" {%if product.status == 'unavailable' %} checked{%endif%}>
- <label for="r-unavailable">{%trans "Unavailable"%} <small>{%trans "does not exist and quit from team, don't show in board"%}</small></label>
+ <label for="r-available">{%trans "Avalible"%} <small>{%trans "Normal status of product"%}</small></label>
 </div>
 
 <div class="radio1 blue">
  <input type="radio" id="r-soon" name="status" value="soon" {%if product.status == 'soon' %} checked{%endif%}>
- <label for="r-soon">{%trans "Soon"%} <small>{%trans "does not exist and quit from team, don't show in board"%}</small></label>
+ <label for="r-soon">{%trans "Soon"%} <small>{%trans "maybe come in future and be available"%}</small></label>
 </div>
 
-<div class="radio1 black">
+<div class="radio1 yellow">
+ <input type="radio" id="r-unavailable" name="status" value="unavailable" {%if product.status == 'unavailable' %} checked{%endif%}>
+ <label for="r-unavailable">{%trans "Unavailable"%} <small>{%trans "temporary does not exist in store"%}</small></label>
+</div>
+
+<div class="radio1 red">
  <input type="radio" id="r-discountinued" name="status" value="discountinued" {%if product.status == 'discountinued' %} checked{%endif%}>
- <label for="r-discountinued">{%trans "Discountinued"%} <small>{%trans "does not exist and quit from team, don't show in board"%}</small></label>
+ <label for="r-discountinued">{%trans "Discountinued"%} <small>{%trans "does not exist for now and on the future"%}</small></label>
 </div>
 
+<div class="radio1 black mB25">
+ <input type="radio" id="r-unset" name="status" value="unset" {%if product.status == 'unset' or not product.status%} checked{%endif%} >
+ <label for="r-unset">{%trans "Unset"%} <small>{%trans "Unknown status for product"%}</small></label>
+</div>
 {%endblock%}
 
 
@@ -266,7 +262,7 @@
 <div class="switch1">
  <input type="checkbox" name="service" id="service" {% if product.service%} checked{%endif%}>
  <label for="service"></label>
- <label for="service">{%trans "Service"%} <small>{%trans "This product is service base"%}</small></label>
+ <label for="service">{%trans "Service"%} <small>{%trans "This product is service base and not a real goods"%}</small></label>
 </div>
 {%endblock%}
 
@@ -293,8 +289,8 @@
 
 
 {%block iCarton%}
-<label for='carton'>{%trans "Carton"%}</label>
+<label for='carton'>{%trans "Count in carton"%}</label>
 <div class="input">
- <input type="text" name="carton" id="carton" placeholder='{%trans "Carton"%}' value="{{product.carton}}" maxlength="50">
+ <input type="text" name="carton" id="carton" placeholder='{%trans "Count of product in carton"%}' value="{{product.carton}}" maxlength="50">
 </div>
 {%endblock%}
