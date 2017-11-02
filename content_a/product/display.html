@@ -13,31 +13,28 @@
 
 <div class="cbox fs12">
   <table class="tbl">
-
-    <thead class="primary">
+    <thead class="">
       <tr>
-        <th>{% trans "Title"%}</th>
-        <th>{% trans "Category"%}</th>
-        <th>{% trans "Unit" %}</th>
-        <th>{% trans "Buy price" %}</th>
-        <th>{% trans "Price" %}</th>
-        <th>{% trans "Discount" %}</th>
-        <th>{% trans "Discount percent"%}</th>
-        <th>{% trans "Stock" %}</th>
+        <th data-sort="desc"><a href='#'>{%trans "Title"%}</a></th>
+        <th class="s0">{%trans "Category"%}</th>
+        <th>{%trans "Buy price" %}</th>
+        <th>{%trans "Sell Price" %}</th>
+        <th>{%trans "Discount" %}</th>
+        <th class="s0">{%trans "Discount percent"%}</th>
+        <th class="s0">{%trans "Stock" %}</th>
       </tr>
     </thead>
 
     <tbody>
       {%for key, value in product_list%}
       <tr>
-        <td><a href="{{url.baseFull}}/product/edit/{{value.id}}">{{value.title}}</a></td>
-        <td>{{value.cat}}</td>
-        <td>{{value.unit}}</td>
+        <td><a href="{{url.baseFull}}/product/general/{{value.id}}">{{value.title}}</a></td>
+        <td class="s0">{{value.cat}}</td>
         <td>{{value.buyprice | number_format | fitNumber}}</td>
         <td>{{value.price | number_format | fitNumber}}</td>
         <td>{{value.discount | number_format | fitNumber}}</td>
-        <td>{{value.discountpercent | number_format | fitNumber}}</td>
-        <td>{{value.stock | number_format | fitNumber}}</td>
+        <td class="s0">{{value.discountpercent | number_format | fitNumber}} <small>%</small></td>
+        <td class="s0">{{value.stock | number_format | fitNumber}} <small>{{value.unit}}</small></td>
       </tr>
       {%endfor%}
     </tbody>
