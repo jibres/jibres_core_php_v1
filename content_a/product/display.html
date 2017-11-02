@@ -3,11 +3,19 @@
 {%block pageContent%}
 
 <div class="cbox fs12">
+  <form method="get" data-action>
+    <div class="input">
+      <input type="text" name="q" placeholder='{%trans "Search in products"%}' id="q" value="{{utilityGET.q}}">
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+
+<div class="cbox fs12">
   <table class="tbl">
 
     <thead class="primary">
       <tr>
-        <!-- <th>{% trans "Code"%}</th> -->
         <th>{% trans "Title"%}</th>
         <th>{% trans "Category"%}</th>
         <th>{% trans "Unit" %}</th>
@@ -22,7 +30,6 @@
     <tbody>
       {%for key, value in product_list%}
       <tr>
-        <!-- <td>{{value.id}}</td> -->
         <td><a href="{{url.baseFull}}/product/edit/{{value.id}}">{{value.title}}</a></td>
         <td>{{value.cat}}</td>
         <td>{{value.unit}}</td>
