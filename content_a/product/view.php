@@ -9,6 +9,9 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('List of products');
 		$this->data->page['desc']  = T_('You can search in list of products, add new product and edit existing.');
 
+		$this->data->page['badge']['link'] = '/a/product/add';
+		$this->data->page['badge']['text'] = T_('Add new product');
+
 		$args =
 		[
 			'order'  => \lib\utility::get('order'),
