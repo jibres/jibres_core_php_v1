@@ -10,4 +10,3 @@ class controller extends \content_a\main\controller
 	}
 }
 ?>
-
