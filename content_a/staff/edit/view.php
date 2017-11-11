@@ -1,12 +1,21 @@
 <?php
 namespace content_a\staff\edit;
 
+
 class view extends \content_a\main\view
 {
 
+	public function config()
+	{
+		$this->static_var();
+		// $get_staff = ['id' => \lib\utility\shortURL::encode(\lib\userschool::id())];
+		// $this->data->staff = $staff = \lib\app\staff::get($get_staff, ['its_me' => true]);
+	}
+
+
 	public function static_var()
 	{
-		$this->data->grade_list = \lib\utility\grade::list();
+		// $this->data->grade_list = \lib\utility\grade::list();
 		$parent_list =
 		[
 			"father"              => T_("Father"),
@@ -24,7 +33,7 @@ class view extends \content_a\main\view
 			"stepmother"          => T_("Stepmother"),
 			"stepfather"          => T_("Stepfather"),
 			"neighbor"            => T_("Neighbor"),
-			"staff"             => T_("Staff"),
+			"teacher"             => T_("Teacher"),
 			"friend"              => T_("Friend"),
 			"boss"                => T_("Boss"),
 			"supervisor"          => T_("Supervisor"),
@@ -44,61 +53,5 @@ class view extends \content_a\main\view
 		$provice_list = array_unique($provice_list);
 		$this->data->provice_list = implode(',', $provice_list);
 	}
-
-
-	/**
-	 * edit staff
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
-	public function view_staff_edit($_args)
-	{
-		$this->static_var();
-		$this->data->staff = $x =  $this->model()->loadStaffData($_args);
-
-		$this->data->edit_id = isset($_args->match->url[0][1]) ? $_args->match->url[0][1] : null;
-		$this->data->edit_mode = true;
-
-		$staff_name = null;
-
-
-
-		if($this->data->staff['displayname'])
-		{
-			$staff_name = $this->data->staff['displayname'];
-		}
-		// set title and desc for all pages
-		$this->data->page['title'] = T_('Edit staff');
-		$this->data->page['desc']  = T_('you can edit detail of staff');
-
-		switch (\lib\router::get_url(2))
-		{
-			case 'avatar':
-				$this->data->page['title'] = T_('Staff avatar');
-				$this->data->page['desc']  = T_('Allow to set and change avatar of staff');
-				break;
-
-			case 'contact':
-				$this->data->page['title'] = T_('Staff contact');
-				$this->data->page['desc']  = T_('Change mobile number of staff and parents, email and tel of home');
-				break;
-
-			case 'identification':
-				$this->data->page['title'] = T_('Staff identification detail');
-				$this->data->page['desc']  = T_('set personal and birth identification detail and some other id detail like passport and etc');
-				break;
-
-			case 'address':
-				$this->data->page['title'] = T_('Staff address');
-				$this->data->page['desc']  = T_('set current location and full address');
-				break;
-
-			case '':
-			default:
-				break;
-		}
-		$this->data->page['desc'] .= ' | '. $staff_name;
-	}
-
 }
 ?>

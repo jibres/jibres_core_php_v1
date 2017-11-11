@@ -1,4 +1,4 @@
-{%extends display.adminTeam%}
+{%extends display.dash%}
 
 {%block content%}
 <div class="tbox">
@@ -22,6 +22,11 @@
 {%endif%}
 {%endblock%}
 
+{%block sidenav%}
+{{parent()}}
+<li><a href="{{url.baseFull}}/staff"><i class="sf-credit-card"></i>{%trans "Complete Profile"%}</a></li>
+{%endblock%}
+
 
 
 
@@ -30,9 +35,9 @@
 <div class="cbox normal">
 
  <div class="vcard">
-  <a href='{{url.baseFull}}/staff/edit={{edit_id}}/avatar'>
-  {%if staff.fileurl%}
-    <img src="{{staff.fileurl}}">
+  <a href='{{url.baseFull}}/staff/avatar'>
+  {%if staff.avatar%}
+    <img src="{{staff.avatar}}">
   {%else%}
     <img src="{{url.static}}siftal/images/useful/user1.png">
   {%endif%}
@@ -49,26 +54,26 @@
   {%endif%}
  </div>
 
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit={{edit_id}}'>{%trans "General Detail"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit={{edit_id}}/avatar'>{%trans "Profile Photo"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit={{edit_id}}/contact'>{%trans "Contact information"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit={{edit_id}}/identification'>{%trans "Identification detail"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit={{edit_id}}/address'>{%trans "Location and address"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/staff/general'>{%trans "General Detail"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/staff/thumb'>{%trans "Document Photo"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/staff/contact'>{%trans "Contact information"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/staff/identification'>{%trans "Identification detail"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/staff/address'>{%trans "Location and address"%}</a>
 </div>
 {%endblock%}
 
 
 
 {%block iname%}
-<label for="name">{%trans "Name"%} *</label>
+<label for="name">{%trans "Name"%} <span class="fc-red">*</span></label>
 <div class="input">
-  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{staff.name}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{staff.firstname}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
 </div>
 {%endblock%}
 
 
 {%block ifamily%}
-<label for="lastName">{%trans "Last name"%} *</label>
+<label for="lastName">{%trans "Last name"%} <span class="fc-red">*</span></label>
 <div class="input">
   <input type="text" name="lastName" id="lastName" placeholder='{%trans "Last name"%}' value="{{staff.lastname}}" maxlength='60'>
 </div>
@@ -152,7 +157,7 @@
 {%block icountry%}
 <label for='country'>{%trans "Country"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='country' id='country' data-minchars="1" data-autofirst data-list="{{country_list}}" value="{{staff.meta.location.country}}" />
+ <input type='text' class="awesomplete" name='country' id='country' data-minchars="1" data-autofirst data-list="{{country_list}}" value="{{staff.country}}" />
 </div>
 {%endblock%}
 
@@ -161,7 +166,7 @@
 
 <label for='province'>{%trans "Province"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='province' id='province' data-minchars="1" data-autofirst data-list="{{provice_list}}" value="{{staff.meta.location.province}}" />
+ <input type='text' class="awesomplete" name='province' id='province' data-minchars="1" data-autofirst data-list="{{provice_list}}" value="{{staff.province}}" />
 </div>
 {%endblock%}
 
@@ -169,7 +174,7 @@
 {%block icity%}
 <label for='city'>{%trans "City"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='city' id='city' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{staff.meta.location.city}}" />
+ <input type='text' class="awesomplete" name='city' id='city' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{staff.city}}" />
 </div>
 {%endblock%}
 
@@ -177,7 +182,7 @@
 {%block izipcode%}
 <label for='zipcode'>{%trans "Zip code"%}</label>
 <div class="input">
- <input type='number' name='zipcode' id='zipcode' min="0" value="{{staff.meta.contact.postcode}}"/>
+ <input type='number' name='zipcode' id='zipcode' min="0" value="{{staff.zipcode}}"/>
 </div>
 {%endblock%}
 
@@ -201,7 +206,7 @@
 {%block iissueplace%}
 <label for='issueplace'>{%trans "Issue Place"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='issueplace' id='issueplace' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{staff.shfrom}}" />
+ <input type='text' class="awesomplete" name='issueplace' id='issueplace' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{staff.issueplace}}" />
 </div>
 {%endblock%}
 
@@ -225,7 +230,7 @@
 {%block iid%}
 <label for='id'>{%trans "Id number"%}</label>
 <div class="input">
- <input type="tel" name='id' id='id' value="{{staff.shcode}}" />
+ <input type="tel" name='shcode' id='id' value="{{staff.shcode}}" />
 </div>
 {%endblock%}
 
@@ -233,14 +238,14 @@
 {%block inid%}
 <label for='nid'>{%trans "National Id"%}</label>
 <div class="input">
- <input type="tel" name='nid' id='nid' value="{{staff.nationalcode}}" />
+ <input type="tel" name='nationalcode' id='nid' value="{{staff.nationalcode}}" />
 </div>
 {%endblock%}
 
 {%block iaddrress%}
 <label for='addrress'>{%trans "Address"%}</label>
 <div class="input">
- <input name='addrress' id='addrress' value="{{staff.meta.contact.address}}" />
+ <input name='address' id='addrress' value="{{staff.address}}" />
 </div>
 {%endblock%}
 
@@ -253,7 +258,7 @@
 {%block iStaffMobile%}
 <label for="staff-mobile">{%trans "Mobile of Staff"%}</label>
 <div class="input">
-  <input type="tel" name="staff-mobile" id="staff-mobile" placeholder='{%trans "Like"%} 0912 012 3456' value="{{staff.mobile}}" maxlength='50'>
+  <input type="tel" name="staffmobile" id="staff-mobile" placeholder='{%trans "Like"%} 0912 012 3456' value="{{staff.staffmobile}}" maxlength='50'>
 </div>
 {%endblock%}
 
@@ -261,7 +266,7 @@
 {%block iPhone%}
 <label for="phone">{%trans "Phone"%}</label>
 <div class="input">
-  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} 025 3650 5281' value="{{staff.meta.tel.phone}}" maxlength='50'>
+  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} 025 3650 5281' value="{{staff.phone}}" maxlength='50'>
 </div>
 {%endblock%}
 
@@ -270,7 +275,7 @@
 {%block iFatherMobile%}
 <label for="father-mobile">{%trans "Mobile of father"%}</label>
 <div class="input">
-  <input type="tel" name="father-mobile" id="father-mobile" placeholder='{%trans "Like"%} 0912 111 2222' value="{{staff.parent.father}}" maxlength='50'>
+  <input type="tel" name="fathermobile" id="father-mobile" placeholder='{%trans "Like"%} 0912 111 2222' value="{{staff.fathermobile}}" maxlength='50'>
 </div>
 {%endblock%}
 
@@ -279,7 +284,7 @@
 {%block iMotherMobile%}
 <label for="mother-mobile">{%trans "Mobile of mother"%}</label>
 <div class="input">
-  <input type="tel" name="mother-mobile" id="mother-mobile" placeholder='{%trans "Like"%} 0912 111 2222' value="{{staff.parent.mother}}" maxlength='50'>
+  <input type="tel" name="mothermobile" id="mother-mobile" placeholder='{%trans "Like"%} 0912 111 2222' value="{{staff.mothermobile}}" maxlength='50'>
 </div>
 {%endblock%}
 
@@ -287,7 +292,7 @@
 {%block iPostcode%}
 <label for="postcode">{%trans "Post code"%}</label>
 <div class="input">
-  <input type="number" name="postcode" id="postcode" placeholder='{%trans "Post code"%}' value="{{staff.meta.contact.postcode}}" maxlength='50'>
+  <input type="number" name="postcode" id="postcode" placeholder='{%trans "Post code"%}' value="{{staff.postcode}}" maxlength='50'>
 </div>
 {%endblock%}
 
@@ -295,7 +300,7 @@
 {%block iAddress%}
 <label for="address">{%trans "Address"%}</label>
 <div class="input">
-  <input type="text" name="address" id="address" placeholder='{%trans "Address"%}' value="{{staff.meta.contact.address}}" maxlength='500'>
+  <input type="text" name="address" id="address" placeholder='{%trans "Address"%}' value="{{staff.address}}" maxlength='500'>
 </div>
 {%endblock%}
 
@@ -312,7 +317,27 @@
 <div class="input preview">
  <input type="file" accept="image/gif, image/jpeg, image/png" name="avatar" id="avatar1" data-preview data-max="500">
  <label for="avatar1" title="Simple Title">
-    {%if staff.fileurl%}<img src="{{staff.fileurl}}">{%endif%}
+    {%if staff.avatar%}<img src="{{staff.avatar}}">{%endif%}
+ </label>
+</div>
+{%endblock%}
+
+
+{%block iNationalthumb%}
+<div class="input preview">
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="nationalthumb" id="nationalthumb" data-preview data-max="500">
+ <label for="nationalthumb" title="Simple Title">
+    {%if staff.nationalthumb%}<img src="{{staff.nationalthumb}}">{%endif%}
+ </label>
+</div>
+{%endblock%}
+
+
+{%block iShthumb%}
+<div class="input preview">
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="shthumb" id="shthumb" data-preview data-max="500">
+ <label for="shthumb" title="Simple Title">
+    {%if staff.shthumb%}<img src="{{staff.shthumb}}">{%endif%}
  </label>
 </div>
 {%endblock%}

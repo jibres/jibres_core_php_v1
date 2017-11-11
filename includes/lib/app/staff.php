@@ -1,40 +1,74 @@
 <?php
 namespace lib\app;
-use \lib\utility;
-use \lib\debug;
+
 
 /**
  * Class for staff.
  */
-class staff
+class staff extends \lib\app\user
 {
-
-	use staff\add;
-	use staff\edit;
-	use staff\datalist;
-	use staff\get;
-
-
 	/**
-	 * check args
+	 * add new user and save the userstore record
 	 *
-	 * @return     array|boolean  ( description_of_the_return_value )
+	 * @param      <type>  $_args    The arguments
+	 * @param      array   $_option  The option
 	 */
-	private static function check()
+	public static function add($_args, $_option = [])
 	{
-		return \lib\app\user::check(...func_get_args());
+		$displayname = null;
+		if(isset($_args['displayname']))
+		{
+			$displayname = $_args['displayname'];
+		}
+		else
+		{
+			if(isset($_args['firstname']))
+			{
+				$displayname = $_args['firstname'];
+			}
+
+			if(isset($_args['lastname']))
+			{
+				$displayname .= ' '. $_args['lastname'];
+			}
+		}
+
+		$displayname = trim($displayname);
+
+		unset($_args['type']);
+
+		// save in contacts.store_id
+		$_option['other_field']    = 'store_id';
+		$_option['other_field_id'] = \lib\store::id();
+		// add user
+		$result = parent::add($_args, $_option);
+
+		if(isset($result['user_id']))
+		{
+			$user_id = \lib\utility\shortURL::decode($result['user_id']);
+
+			$insert_userstore =
+			[
+				'user_id'     => $user_id,
+				'store_id'    => \lib\store::id(),
+				'type'        => 'staff',
+				'displayname' => $displayname,
+			];
+
+			$userstore_id = \lib\db\userstores::insert($insert_userstore);
+
+			if(!$userstore_id)
+			{
+				\lib\app::log('cannot:add:user:to:userstore', \lib\user::id());
+				\lib\debug::error(T_("Can not set the user in you store user list"));
+				return false;
+			}
+
+			$result['userstore_id'] = \lib\utility\shortURL::encode($userstore_id);
+		}
+
+		return $result;
+
 	}
-
-
-	/**
-	 * ready data of store to load in api
-	 *
-	 * @param      <type>  $_data  The data
-	 */
-	public static function ready($_data)
-	{
-		return \lib\app\user::ready(...func_get_args());
-	}
-
 }
 ?>

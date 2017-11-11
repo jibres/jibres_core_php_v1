@@ -1,7 +1,6 @@
 <?php
 namespace content_a\staff\add;
-use \lib\utility;
-use \lib\debug;
+
 
 class model extends \content_a\main\model
 {
@@ -14,12 +13,12 @@ class model extends \content_a\main\model
 	{
 		$post =
 		[
-			'firstname'      => utility::post('name'),
-			'lastname'       => utility::post('lastName'),
-			'nationalcode'   => utility::post('nationalcode'),
-			'father'         => utility::post('father'),
-			'birthday'       => utility::post('birthday'),
-			'gender'         => utility::post('gender') === 'on' ? 'female' : 'male',
+			'firstname'      => \lib\utility::post('name'),
+			'lastname'       => \lib\utility::post('lastName'),
+			'nationalcode'   => \lib\utility::post('nationalcode'),
+			'father'         => \lib\utility::post('father'),
+			'birthday'       => \lib\utility::post('birthday'),
+			'gender'         => \lib\utility::post('gender') === 'on' ? 'female' : 'male',
 		];
 
 		$post['type']  = 'staff';
@@ -38,13 +37,13 @@ class model extends \content_a\main\model
 
 		if(!$request['firstname'] && !$request['lastname'])
 		{
-			debug::error(T_("Fill name or family is require!"));
+			\lib\debug::error(T_("Fill name or family is require!"));
 			return false;
 		}
 
 		\lib\app\staff::add($request);
 
-		if(debug::$status)
+		if(\lib\debug::$status)
 		{
 			if(isset($result['user_id']))
 			{
