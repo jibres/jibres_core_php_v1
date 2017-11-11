@@ -8,8 +8,9 @@ class controller extends \content_a\main\controller
 	 */
 	public function ready()
 	{
-		\lib\router::set_controller("\\content_a\\staff\\edit\\controller");
-		return;
+		$this->get()->ALL();
+		// \lib\router::set_controller("\\content_a\\staff\\edit\\controller");
+		// return;
 	}
 }
 ?>

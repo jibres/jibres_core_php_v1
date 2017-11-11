@@ -47,11 +47,11 @@ class model extends \content_a\main\model
 		{
 			if(isset($result['user_id']))
 			{
-				$this->redirector($this->url('base'). '/s/staff/edit='. $result['user_id']);
+				$this->redirector($this->url('base'). '/a/staff/edit='. $result['user_id']);
 			}
 			else
 			{
-				$this->redirector($this->url('base'). '/s/staff');
+				$this->redirector($this->url('base'). '/a/staff');
 			}
 		}
 	}

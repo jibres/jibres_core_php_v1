@@ -36,5 +36,16 @@ class userstores
 	{
 		return \lib\db\config::public_get('userstores', ...func_get_args());
 	}
+
+
+	/**
+	 * search in userstore
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function search()
+	{
+		return \lib\db\config::public_search('userstores', ...func_get_args());
+	}
 }
 ?>

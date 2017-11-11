@@ -66,9 +66,14 @@ class staff extends \lib\app\user
 
 			$result['userstore_id'] = \lib\utility\shortURL::encode($userstore_id);
 		}
-
 		return $result;
+	}
 
+
+	public static function list($_args = [])
+	{
+		$list = \lib\db\userstores::search(null, []);
+		return $list;
 	}
 }
 ?>
