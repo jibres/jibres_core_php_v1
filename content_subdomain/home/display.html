@@ -1,0 +1,34 @@
+{%extends display.mvc%}
+
+
+{%block body%}
+
+<div class="wrapper">
+ <div class="tbox txtc">
+  <h1>{{site.title}}</h1>
+  <h2>{%trans "Jibres"%}{%trans "; "%}{{site.slogan}}</h2>
+ </div>
+ {%if login%}
+ <a href="/a" data-direct class="btn block primary">{%trans "Admin Panel"%}</a>
+ {%else%}
+ <a href="/enter" data-direct class="btn block secondary">{%trans "Enter"%}</a>
+ {%endif%}
+</div>
+
+ <div id="nodes"></div>
+{%endblock%}
+
+
+
+
+
+{%block head_css%}
+ <link rel="stylesheet"       href="{{url.static}}{{'css/subdomain.css' | filemtime(true)}}"/>
+{%endblock%}
+
+
+{%block foot_js%}
+
+<script src="{{url.static}}js/particles.min.js"></script>
+{%endblock%}
+
