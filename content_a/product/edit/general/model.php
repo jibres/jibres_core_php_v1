@@ -2,7 +2,7 @@
 namespace content_a\product\edit\general;
 
 
-class model extends \content_a\product\model
+class model extends \content_a\main\model
 {
 	public static function getPost()
 	{
@@ -41,8 +41,7 @@ class model extends \content_a\product\model
 	{
 
 		$request         = self::getPost();
-		$product         = \lib\router::get_url(2);
-		$request['id']   = $product;
+		$request['id']   = \lib\utility::get('id');
 
 		\lib\app\product::edit($request);
 

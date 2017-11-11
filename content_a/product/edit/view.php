@@ -21,14 +21,8 @@ class view extends \content_a\main\view
 		}
 
 		$this->data->page['title'] = T_('General setting | :name', ['name' => $productName]);
+
+		$this->data->page['desc']  = T_('You can have some edit on this product');
 	}
-
-
-	public function view_edit($_args)
-	{
-		$this->data->page['title'] = T_('Special Access');
-		$this->data->page['desc']  = T_('You can set some edit to product to do some more activity in Tejarak.');
-	}
-
 }
 ?>

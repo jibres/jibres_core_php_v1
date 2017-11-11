@@ -2,10 +2,12 @@
 namespace content_a\product\edit\general;
 
 
-class view extends \content_a\product\edit\view
+class view extends \content_a\main\view
 {
-	public function view_general($_args)
+	public function config()
 	{
+		$product_id          = \lib\utility::get('id');
+		$this->data->product = \lib\app\product::get(['id' => $product_id]);
 
 		$productTitle = '';
 		if(isset($this->data->product['title']))
