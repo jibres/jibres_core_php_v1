@@ -6,8 +6,8 @@ class view extends \content_a\main\view
 {
 	public function config()
 	{
-		$this->data->page['title'] = T_('Add new product');
-		$this->data->page['desc']  = T_('You can set detail of team product and assign some extra data to use later');
+		$this->data->page['title'] = T_('Import product from CSV');
+		$this->data->page['desc']  = T_('You can import more than one product in one request via CSV import process');
 	}
 }
 ?>
