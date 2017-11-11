@@ -75,5 +75,177 @@ class staff extends \lib\app\user
 		$list = \lib\db\userstores::search(null, []);
 		return $list;
 	}
+
+
+	/**
+	 * Gets the staff.
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  The staff.
+	 */
+	public static function get($_args, $_options = [])
+	{
+		\lib\app::variable($_args);
+
+		$default_options =
+		[
+			'debug' => true,
+		];
+
+		if(!is_array($_options))
+		{
+			$_options = [];
+		}
+
+		$_options = array_merge($default_options, $_options);
+
+		$log_meta =
+		[
+			'data' => null,
+			'meta' =>
+			[
+				'input' => \lib\app::request(),
+			]
+		];
+
+		if(!\lib\user::id())
+		{
+			return false;
+		}
+
+		$id = \lib\app::request("id");
+		$id = \lib\utility\shortURL::decode($id);
+		if(!$id)
+		{
+			if($_options['debug'])
+			{
+				\lib\app::log('api:staff:id:shortname:not:set', \lib\user::id(), $log_meta);
+				debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
+			}
+			return false;
+		}
+
+		$get_staff =
+		[
+			'id'       => $id,
+			'store_id' => \lib\store::id(),
+			'limit'    => 1,
+		];
+
+
+		$result = \lib\db\userstores::get($get_staff);
+
+
+		if(!$result || !isset($result['user_id']))
+		{
+			\lib\app::log('api:staff:access:denide', \lib\user::id(), $log_meta);
+			if($_options['debug'])
+			{
+				debug::error(T_("Can not access to load this staff details"), 'staff', 'permission');
+			}
+			return false;
+		}
+
+		$get_contact_detail = \lib\db\contacts::get(['user_id' => $result['user_id'], 'store_id' => \lib\store::id()]);
+
+
+		if(is_array($get_contact_detail))
+		{
+			$result = array_column($get_contact_detail, 'value', 'key');
+		}
+		else
+		{
+			$result = [];
+		}
+
+
+		return $result;
+	}
+
+
+	/**
+	 * edit a staff
+	 *
+	 * @param      <type>   $_args  The arguments
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function edit($_args, $_option = [])
+	{
+		\lib\app::variable($_args);
+
+		$default_option =
+		[
+			'its_me' => false,
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
+		$its_me = false;
+		if($_option['its_me'])
+		{
+			$its_me = true;
+		}
+
+		$log_meta =
+		[
+			'data' => null,
+			'meta' =>
+			[
+				'input' => \lib\app::request(),
+			]
+		];
+
+		// check args
+		$args = $_args; //self::check($_option);
+
+		if($args === false || !\lib\debug::$status)
+		{
+			return false;
+		}
+
+
+		if($its_me)
+		{
+			$userstore_id = null; // \lib\userstore::id();
+		}
+		else
+		{
+			$userstore_id = \lib\app::request('id');
+			$userstore_id = \lib\utility\shortURL::decode($userstore_id);
+		}
+
+		if(!$userstore_id)
+		{
+			\lib\app::log('api:staff:edit:permission:denide', \lib\user::id(), $log_meta);
+			debug::error(T_("Can not access to edit staff"), 'staff');
+			return false;
+		}
+
+		$find_user_id = \lib\db\userstores::get(['id' => $userstore_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+		if(!isset($find_user_id['user_id']))
+		{
+			\lib\app::log('api:staff:edit:userstores:not:found', \lib\user::id(), $log_meta);
+			debug::error(T_("Can not access to edit staff"), 'staff');
+			return false;
+		}
+
+		$_option['user_id']        = $find_user_id['user_id'];
+		$_option['other_field']    = 'store_id';
+		$_option['other_field_id'] = \lib\store::id();
+
+		\lib\app\contact::merge($args, $_option);
+
+		if(\lib\debug::$status)
+		{
+			\lib\debug::true(T_("Profile successfully updated"));
+		}
+	}
 }
 ?>

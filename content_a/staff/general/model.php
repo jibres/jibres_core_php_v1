@@ -25,9 +25,9 @@ class model extends \content_a\main\model
 	public function post_general($_args)
 	{
 		$request       = self::getPost();
-		$request['id'] = \lib\userschool::id();
+		$request['id'] = \lib\utility::get('id');
 
-		\lib\app\staff::edit($request, ['its_me' => true]);
+		\lib\app\staff::edit($request);
 
 		if(\lib\debug::$status)
 		{

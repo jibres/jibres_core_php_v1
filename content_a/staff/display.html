@@ -16,7 +16,7 @@
 
     {%for key, value in staff_list%}
       <div class="icard">
-        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/staff/edit={{value.id}}">
+        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/staff/edit?id={{value.id}}">
           {%if value.fileurl%}
             <img src="{{value.fileurl}}" alt="{{value.name}} {{value.lastname}}">
           {%else%}
@@ -25,7 +25,7 @@
         </a>
 
         <div class="f-column align-start fc-black">
-          <a href="{{url.baseFull}}/staff/edit={{value.id}}">
+          <a href="{{url.baseFull}}/staff/edit?id={{value.id}}">
             {{value.displayname}} <b>{{value.lastname}}</b>
           </a>
           <span>{{value.father}}</span>

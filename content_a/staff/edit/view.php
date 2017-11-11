@@ -8,8 +8,17 @@ class view extends \content_a\main\view
 	public function config()
 	{
 		$this->static_var();
-		// $get_staff = ['id' => \lib\utility\shortURL::encode(\lib\userschool::id())];
-		// $this->data->staff = $staff = \lib\app\staff::get($get_staff, ['its_me' => true]);
+
+		$user_id = \lib\utility::get('id');
+		$user_id = \lib\utility\shortURL::decode($user_id);
+
+		if(!$user_id)
+		{
+			\lib\error::page(T_("User id not found"));
+		}
+
+		$get_staff = ['id' => \lib\utility::get('id')];
+		$this->data->staff = $staff = \lib\app\staff::get($get_staff, ['its_me' => true]);
 	}
 
 
