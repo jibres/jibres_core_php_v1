@@ -7,6 +7,20 @@ namespace lib\app;
  */
 class staff extends \lib\app\user
 {
+
+	public static function check($_option = [])
+	{
+		if(\lib\app::isset_request('firstname') && !trim(\lib\app::request('firstname')))
+		{
+			\lib\app::log('app:staff:firstname:cannot:null', \lib\user::id());
+			\lib\debug::error(T_("Firstname of staff can not be null"), 'firstname');
+			return false;
+		}
+
+		return parent::check(...func_get_args());
+	}
+
+
 	/**
 	 * add new user and save the userstore record
 	 *
@@ -15,23 +29,19 @@ class staff extends \lib\app\user
 	 */
 	public static function add($_args, $_option = [])
 	{
-		$displayname = null;
-		if(isset($_args['displayname']))
-		{
-			$displayname = $_args['displayname'];
-		}
-		else
-		{
-			if(isset($_args['firstname']))
-			{
-				$displayname = $_args['firstname'];
-			}
+		\lib\app::variable($_args);
 
-			if(isset($_args['lastname']))
-			{
-				$displayname .= ' '. $_args['lastname'];
-			}
+		$displayname = null;
+		if(isset($_args['firstname']))
+		{
+			$displayname = $_args['firstname'];
 		}
+
+		if(isset($_args['lastname']))
+		{
+			$displayname .= ' '. $_args['lastname'];
+		}
+
 
 		$displayname = trim($displayname);
 
@@ -44,6 +54,21 @@ class staff extends \lib\app\user
 				\lib\debug::error(T_("This user already exist in your staff list"), 'mobile');
 				return false;
 			}
+		}
+
+		if(\lib\app::isset_request('firstname') && !trim(\lib\app::request('firstname')))
+		{
+			\lib\app::log('app:staff:firstname:cannot:null', \lib\user::id());
+			\lib\debug::error(T_("Firstname of staff can not be null"), 'firstname');
+			return false;
+		}
+
+		// check args
+		$args = self::check($_option);
+
+		if($args === false || !\lib\debug::$status)
+		{
+			return false;
 		}
 
 		unset($_args['type']);
@@ -217,13 +242,12 @@ class staff extends \lib\app\user
 		];
 
 		// check args
-		$args = $_args; //self::check($_option);
+		$args = self::check($_option);
 
 		if($args === false || !\lib\debug::$status)
 		{
 			return false;
 		}
-
 
 		if($its_me)
 		{

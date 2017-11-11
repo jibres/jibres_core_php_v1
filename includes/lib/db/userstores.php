@@ -94,29 +94,9 @@ class userstores
 				userstores.displayname =
 				CONCAT
 				(
-					(
-						SELECT
-							contacts.value
-						FROM
-							contacts
-						WHERE
-							contacts.store_id = $store_id AND
-							contacts.user_id  = $user_id AND
-							contacts.key      = 'firstname'
-						LIMIT 1
-
-					 ), ' ',
-					 (
-					 	SELECT
-							contacts.value
-						FROM
-							contacts
-						WHERE
-							contacts.store_id = $store_id AND
-							contacts.user_id  = $user_id AND
-							contacts.key      = 'lastname'
-						LIMIT 1
-					 )
+					COALESCE((SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id  = $user_id AND contacts.key = 'firstname' LIMIT 1), ''),
+					' ',
+					COALESCE((SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id  = $user_id AND contacts.key = 'lastname' LIMIT 1), '')
 				)
 			WHERE userstores.id = $_id
 		";
