@@ -17,6 +17,45 @@ class userstores
 
 
 	/**
+	 * Determines if duplicate mobile.
+	 *
+	 * @param      <type>  $_mobile    The mobile
+	 * @param      <type>  $_type      The type
+	 * @param      <type>  $_store_id  The store identifier
+	 */
+	public static function is_duplicate_mobile($_mobile, $_type, $_store_id)
+	{
+		if(!$_store_id)
+		{
+			return null;
+		}
+
+		$_mobile = \lib\utility\filter::mobile($_mobile);
+		if(!$_mobile)
+		{
+			return false;
+		}
+
+		$query =
+		"
+			SELECT
+				userstores.*
+			FROM
+				userstores
+			INNER JOIN users ON users.id = userstores.user_id
+			WHERE
+				users.mobile        = '$_mobile' AND
+				userstores.type     = '$_type' AND
+				userstores.store_id = $_store_id
+			LIMIT 1
+		";
+
+		$result = \lib\db::get($query, null, true);
+		return $result;
+	}
+
+
+	/**
 	 * update userstores
 	 *
 	 * @return     <type>  ( description_of_the_return_value )

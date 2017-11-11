@@ -35,6 +35,17 @@ class staff extends \lib\app\user
 
 		$displayname = trim($displayname);
 
+		if(isset($_args['mobile']))
+		{
+			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile($_args['mobile'], 'staff', \lib\store::id());
+			if($check_duplicate_mobile_in_store)
+			{
+				\lib\app::log('app:staff:duplicate:user:in:store', \lib\user::id());
+				\lib\debug::error(T_("This user already exist in your staff list"), 'mobile');
+				return false;
+			}
+		}
+
 		unset($_args['type']);
 
 		// save in contacts.store_id
@@ -238,6 +249,17 @@ class staff extends \lib\app\user
 			\lib\app::log('api:staff:edit:userstores:not:found', \lib\user::id(), $log_meta);
 			\lib\debug::error(T_("Can not access to edit staff"), 'staff');
 			return false;
+		}
+
+		if(isset($_args['mobile']))
+		{
+			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile($_args['mobile'], 'staff', \lib\store::id());
+			if($check_duplicate_mobile_in_store)
+			{
+				\lib\app::log('app:staff:duplicate:user:in:store', \lib\user::id());
+				\lib\debug::error(T_("This user already exist in your staff list"), 'mobile');
+				return false;
+			}
 		}
 
 		// to edit this user
