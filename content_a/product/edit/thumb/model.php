@@ -2,7 +2,7 @@
 namespace content_a\product\edit\thumb;
 
 
-class model extends \content_a\product\edit\model
+class model extends \content_a\main\model
 {
 	public static function upload_thumb()
 	{
@@ -36,7 +36,7 @@ class model extends \content_a\product\edit\model
 
 		$request          = [];
 		$request['thumb'] = $file_url;
-		$request['id']    = \lib\router::get_url(2);
+		$request['id']    = \lib\utility::get('id');
 
 		\lib\app\product::edit($request);
 

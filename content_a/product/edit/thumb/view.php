@@ -2,10 +2,13 @@
 namespace content_a\product\edit\thumb;
 
 
-class view extends \content_a\product\edit\view
+class view extends \content_a\main\view
 {
-	public function view_thumb($_args)
+	public function config()
 	{
+		$product_id          = \lib\utility::get('id');
+		$this->data->product = \lib\app\product::get(['id' => $product_id]);
+
 		if(isset($product['displayname']))
 		{
 			$this->data->page['title'] = T_('thumb :name', ['name' => $product['displayname']]);
