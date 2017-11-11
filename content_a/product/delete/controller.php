@@ -1,6 +1,7 @@
 <?php
 namespace content_a\product\delete;
 
+
 class controller extends \content_a\main\controller
 {
 	/**

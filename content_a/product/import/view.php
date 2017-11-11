@@ -1,13 +1,9 @@
 <?php
 namespace content_a\product\import;
 
+
 class view extends \content_a\main\view
 {
-	/**
-	 * { function_description }
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
 	public function view_import($_args)
 	{
 		$this->data->page['title'] = T_('Add new product');

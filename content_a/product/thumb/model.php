@@ -1,19 +1,12 @@
 <?php
 namespace content_a\product\thumb;
-use \lib\utility;
-use \lib\debug;
+
 
 class model extends \content_a\product\edit\model
 {
-
-	/**
-	 * Uploads an thumb.
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
 	public static function upload_thumb()
 	{
-		if(utility::files('thumb'))
+		if(\lib\utility::files('thumb'))
 		{
 			$uploaded_file = \lib\app\file::upload(['debug' => false, 'upload_name' => 'thumb']);
 
@@ -22,7 +15,7 @@ class model extends \content_a\product\edit\model
 				return $uploaded_file['url'];
 			}
 			// if in upload have error return
-			if(!debug::$status)
+			if(!\lib\debug::$status)
 			{
 				return false;
 			}
@@ -31,13 +24,6 @@ class model extends \content_a\product\edit\model
 	}
 
 
-
-
-	/**
-	 * Posts an addproduct.
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
 	public function post_thumb($_args)
 	{
 		$file_url     = self::upload_thumb();
@@ -54,7 +40,7 @@ class model extends \content_a\product\edit\model
 
 		\lib\app\product::edit($request);
 
-		if(debug::$status)
+		if(\lib\debug::$status)
 		{
 			$this->redirector($this->url('full'));
 		}

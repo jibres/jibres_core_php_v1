@@ -1,11 +1,9 @@
 <?php
 namespace content_a\product\edit;
 
+
 class view extends \content_a\main\view
 {
-	/**
-	 * { function_description }
-	 */
 	public function config()
 	{
 		$product = \lib\router::get_url(2);
@@ -25,11 +23,7 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('General setting | :name', ['name' => $productName]);
 	}
 
-	/**
-	 * edit product
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
+
 	public function view_edit($_args)
 	{
 		$this->data->page['title'] = T_('Special Access');

@@ -1,16 +1,9 @@
 <?php
 namespace content_a\product\delete;
-use \lib\utility;
-use \lib\debug;
+
 
 class model extends \content_a\product\model
 {
-
-	/**
-	 * Posts an addproduct.
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
 	public function post_delete($_args)
 	{
 
@@ -21,7 +14,7 @@ class model extends \content_a\product\model
 		{
 			\lib\app\product::delete($url_product);
 
-			if(debug::$status)
+			if(\lib\debug::$status)
 			{
 				$this->redirector($this->url('baseFull'). '/product');
 			}

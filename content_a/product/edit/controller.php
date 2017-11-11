@@ -13,8 +13,6 @@ class controller extends \content_a\main\controller
 
 		// need to complete dashboard of product and remove this line to load the dashboar detail
 		$this->redirector($this->url('baseFull'). '/product/')->redirect();
-		return;
-
 	}
 }
 ?>
