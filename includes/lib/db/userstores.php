@@ -21,9 +21,67 @@ class userstores
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function update()
+	public static function update($_args, $_id)
 	{
-		return \lib\db\config::public_update('userstores', ...func_get_args());
+		$result = \lib\db\config::public_update('userstores', $_args, $_id);
+		self::update_cache($_id);
+		return $result;
+	}
+
+
+	public static function update_cache($_id)
+	{
+		$store_id = \lib\store::id();
+		if(!$store_id)
+		{
+			return false;
+		}
+
+		$user_id = self::get(['id' => $_id, 'limit' => 1]);
+		if(isset($user_id['user_id']))
+		{
+			$user_id = $user_id['user_id'];
+		}
+		else
+		{
+			return false;
+		}
+
+		$query =
+		"
+			UPDATE
+				userstores
+			SET
+				userstores.displayname =
+				CONCAT
+				(
+					(
+						SELECT
+							contacts.value
+						FROM
+							contacts
+						WHERE
+							contacts.store_id = $store_id AND
+							contacts.user_id  = $user_id AND
+							contacts.key      = 'firstname'
+						LIMIT 1
+
+					 ), ' ',
+					 (
+					 	SELECT
+							contacts.value
+						FROM
+							contacts
+						WHERE
+							contacts.store_id = $store_id AND
+							contacts.user_id  = $user_id AND
+							contacts.key      = 'lastname'
+						LIMIT 1
+					 )
+				)
+			WHERE userstores.id = $_id
+		";
+		return \lib\db::query($query);
 	}
 
 
