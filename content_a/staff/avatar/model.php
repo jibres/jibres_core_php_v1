@@ -49,7 +49,7 @@ class model extends \content_a\main\model
 
 		$request           = [];
 		$request['avatar'] = $file_url;
-		$request['id']     = \lib\userschool::id();
+		$request['id']     = \lib\utility::get('id');
 
 		\lib\app\staff::edit($request, ['its_me' => true]);
 

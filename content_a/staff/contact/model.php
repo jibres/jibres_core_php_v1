@@ -10,11 +10,13 @@ class model extends \content_a\main\model
 	{
 		$post =
 		[
-			'phone'         => \lib\utility::post('phone'),
-			'staffmobile' => \lib\utility::post('staffmobile'),
-			'fathermobile'  => \lib\utility::post('fathermobile'),
-			'mothermobile'  => \lib\utility::post('mothermobile'),
-			'email'         => \lib\utility::post('email'),
+			'phone'        => \lib\utility::post('phone'),
+			'staffmobile'  => \lib\utility::post('staffmobile'),
+			'fathermobile' => \lib\utility::post('fathermobile'),
+			'mothermobile' => \lib\utility::post('mothermobile'),
+			'email'        => \lib\utility::post('email'),
+			'id'           => \lib\utility::get('id'),
+
 		];
 		return $post;
 	}
@@ -22,7 +24,7 @@ class model extends \content_a\main\model
 
 	public function post_contact($_args)
 	{
-		\lib\app\staff::edit(self::getPost(), ['its_me' => true]);
+		\lib\app\staff::edit(self::getPost());
 
 		if(\lib\debug::$status)
 		{

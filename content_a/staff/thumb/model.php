@@ -40,14 +40,34 @@ class model extends \content_a\main\model
 	public function post_thumb($_args)
 	{
 
-		$request                  = [];
-		$request['nationalthumb'] = self::upload_file('nationalthumb');
+		$request = [];
 
-		\lib\app\staff::edit($request, ['its_me' => true]);
-
-		if(\lib\debug::$status)
+		$nationalthumb = self::upload_file('nationalthumb');
+		if($nationalthumb)
 		{
-			$this->redirector($this->url('full'));
+			$request['nationalthumb'] = $nationalthumb;
+		}
+
+		$avatar = self::upload_file('avatar');
+		if($avatar)
+		{
+			$request['avatar'] = $avatar;
+		}
+
+		if(!empty($request))
+		{
+			$request['id'] = \lib\utility::get('id');
+
+			\lib\app\staff::edit($request);
+
+			if(\lib\debug::$status)
+			{
+				$this->redirector($this->url('full'));
+			}
+		}
+		else
+		{
+			\lib\debug::warn(T_("Not changed!"));
 		}
 	}
 }

@@ -121,7 +121,7 @@ class staff extends \lib\app\user
 			if($_options['debug'])
 			{
 				\lib\app::log('api:staff:id:shortname:not:set', \lib\user::id(), $log_meta);
-				debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
+				\lib\debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			}
 			return false;
 		}
@@ -142,7 +142,7 @@ class staff extends \lib\app\user
 			\lib\app::log('api:staff:access:denide', \lib\user::id(), $log_meta);
 			if($_options['debug'])
 			{
-				debug::error(T_("Can not access to load this staff details"), 'staff', 'permission');
+				\lib\debug::error(T_("Can not access to load this staff details"), 'staff', 'permission');
 			}
 			return false;
 		}
@@ -224,7 +224,7 @@ class staff extends \lib\app\user
 		if(!$userstore_id)
 		{
 			\lib\app::log('api:staff:edit:permission:denide', \lib\user::id(), $log_meta);
-			debug::error(T_("Can not access to edit staff"), 'staff');
+			\lib\debug::error(T_("Can not access to edit staff"), 'staff');
 			return false;
 		}
 
@@ -232,7 +232,7 @@ class staff extends \lib\app\user
 		if(!isset($find_user_id['user_id']))
 		{
 			\lib\app::log('api:staff:edit:userstores:not:found', \lib\user::id(), $log_meta);
-			debug::error(T_("Can not access to edit staff"), 'staff');
+			\lib\debug::error(T_("Can not access to edit staff"), 'staff');
 			return false;
 		}
 
