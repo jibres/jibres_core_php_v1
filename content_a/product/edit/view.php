@@ -6,7 +6,7 @@ class view extends \content_a\main\view
 {
 	public function config()
 	{
-		$product = \lib\router::get_url(2);
+		$product = \lib\utility::get('id');
 
 		if($product)
 		{

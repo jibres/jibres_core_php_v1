@@ -2,12 +2,11 @@
 namespace content_a\product\edit\delete;
 
 
-class model extends \content_a\product\model
+class model extends \content_a\main\model
 {
 	public function post_delete($_args)
 	{
-
-		$url_product  = \lib\router::get_url(2);
+		$url_product  = \lib\utility::get('id');
 		$post_product = \lib\utility::post('delete');
 
 		if($url_product === $post_product)
@@ -22,7 +21,6 @@ class model extends \content_a\product\model
 		else
 		{
 			\lib\debug::error(T_("What are you doing?"));
-			return false;
 		}
 	}
 }

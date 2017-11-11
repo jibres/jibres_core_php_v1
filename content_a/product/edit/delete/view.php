@@ -2,18 +2,19 @@
 namespace content_a\product\edit\delete;
 
 
-class view extends \content_a\product\edit\view
+class view extends \content_a\main\view
 {
-	public function view_delete($_args)
+	public function config()
 	{
-		$product = \lib\router::get_url(2);
+		$product = \lib\utility::get('id');
 
 		if($product)
 		{
 			$this->data->product = \lib\app\product::get(['id' => $product]);
 		}
 
-		$this->data->page['desc']  = T_('Manage delete setting of product like name and position, you can change another setting by choose another type of setting.');
+		$this->data->page['title'] = T_('Delete Product');
+		$this->data->page['desc']  = T_('You can delete product easily form this page, be careful!');
 	}
 }
 ?>
