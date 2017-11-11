@@ -2,6 +2,7 @@
 
 {%block pageContent%}
 
+{%if not product_list%}
 <div class="cbox fs12">
   <form method="get" data-action>
     <div class="input">
@@ -40,9 +41,16 @@
     </tbody>
 
   </table>
-
     {%include display.pagination%}
+
 </div>
+
+{%else%}
+<div class="cbox fs12">
+ <h3>{%trans "You are not have product yet! add new one."%}</h3>
+ <a class="btn primary mT10 pLR50" href="{{url.baseFull}}/product/add">{%trans "Add new product"%}</a>
+</div>
+{%endif%}
 
 {%endblock%}
 
