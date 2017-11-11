@@ -91,13 +91,14 @@ class userstores
 			UPDATE
 				userstores
 			SET
-				userstores.displayname =
-				CONCAT
-				(
-					COALESCE((SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id  = $user_id AND contacts.key = 'firstname' LIMIT 1), ''),
-					' ',
-					COALESCE((SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id  = $user_id AND contacts.key = 'lastname' LIMIT 1), '')
-				)
+				userstores.firstname    = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'firstname' 	LIMIT 1),
+				userstores.lastname     = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'lastname' 	LIMIT 1),
+				userstores.mobile       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'mobile' 		LIMIT 1),
+				userstores.birthday     = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'birthday' 	LIMIT 1),
+				userstores.avatar       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'avatar' 		LIMIT 1),
+				userstores.father       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'father' 		LIMIT 1),
+				userstores.nationalcode = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'nationalcode' LIMIT 1)
+
 			WHERE userstores.id = $_id
 		";
 		return \lib\db::query($query);
@@ -125,7 +126,16 @@ class userstores
 	{
 		$default_option =
 		[
-			'search_field' => "( userstores.displayname LIKE '%__string__%' ) ",
+			'search_field' =>
+			"
+				(
+					userstores.firstname LIKE '%__string__%' OR
+					userstores.lastname LIKE '%__string__%' OR
+					userstores.mobile LIKE '%__string__%' OR
+					userstores.nationalcode LIKE '%__string__%' OR
+					userstores.birthday LIKE '%__string__%'
+				)
+			",
 		];
 
 		if(!is_array($_option))

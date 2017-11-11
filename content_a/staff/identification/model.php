@@ -26,7 +26,7 @@ class model extends \content_a\main\model
 
 		if(\lib\debug::$status)
 		{
-			$this->redirector($this->url('baseFull'). '/'. \lib\router::get_url());
+			$this->redirector($this->url('full'));
 		}
 	}
 }

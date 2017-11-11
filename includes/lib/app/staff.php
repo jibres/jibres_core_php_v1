@@ -31,20 +31,6 @@ class staff extends \lib\app\user
 	{
 		\lib\app::variable($_args);
 
-		$displayname = null;
-		if(isset($_args['firstname']))
-		{
-			$displayname = $_args['firstname'];
-		}
-
-		if(isset($_args['lastname']))
-		{
-			$displayname .= ' '. $_args['lastname'];
-		}
-
-
-		$displayname = trim($displayname);
-
 		if(isset($_args['mobile']))
 		{
 			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile($_args['mobile'], 'staff', \lib\store::id());
@@ -85,10 +71,11 @@ class staff extends \lib\app\user
 
 			$insert_userstore =
 			[
-				'user_id'     => $user_id,
-				'store_id'    => \lib\store::id(),
-				'type'        => 'staff',
-				'displayname' => $displayname,
+				'user_id'   => $user_id,
+				'store_id'  => \lib\store::id(),
+				'type'      => 'staff',
+				'firstname' => \lib\app::request('firstname'),
+				'lastname'  => \lib\app::request('lastname'),
 			];
 
 			$userstore_id = \lib\db\userstores::insert($insert_userstore);
