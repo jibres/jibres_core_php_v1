@@ -11,7 +11,7 @@ class model extends \content_a\main\model
 		$post =
 		[
 			'phone'        => \lib\utility::post('phone'),
-			'staffmobile'  => \lib\utility::post('staffmobile'),
+			'mobile'       => \lib\utility::post('mobile'),
 			'fathermobile' => \lib\utility::post('fathermobile'),
 			'mothermobile' => \lib\utility::post('mothermobile'),
 			'email'        => \lib\utility::post('email'),

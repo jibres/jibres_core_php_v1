@@ -73,7 +73,20 @@ class staff extends \lib\app\user
 	public static function list($_args = [])
 	{
 		$list = \lib\db\userstores::search(null, []);
-		return $list;
+		$temp = [];
+		if(is_array($list))
+		{
+			foreach ($list as $key => $value)
+			{
+				$a = parent::ready($value);
+				if($a)
+				{
+					$temp[] = $a;
+				}
+			}
+		}
+
+		return $temp;
 	}
 
 
@@ -133,9 +146,7 @@ class staff extends \lib\app\user
 			'limit'    => 1,
 		];
 
-
 		$result = \lib\db\userstores::get($get_staff);
-
 
 		if(!$result || !isset($result['user_id']))
 		{
@@ -147,20 +158,12 @@ class staff extends \lib\app\user
 			return false;
 		}
 
-		$get_contact_detail = \lib\db\contacts::get(['user_id' => $result['user_id'], 'store_id' => \lib\store::id()]);
+		$_options['other_field']    = 'store_id';
+		$_options['other_field_id'] = \lib\store::id();
+		$_options['user_id']        = $result['user_id'];
+		$_args['id']                = \lib\utility\shortURL::encode($result['user_id']);
 
-
-		if(is_array($get_contact_detail))
-		{
-			$result = array_column($get_contact_detail, 'value', 'key');
-		}
-		else
-		{
-			$result = [];
-		}
-
-
-		return $result;
+		return parent::get($_args, $_options);
 	}
 
 
@@ -229,6 +232,7 @@ class staff extends \lib\app\user
 		}
 
 		$find_user_id = \lib\db\userstores::get(['id' => $userstore_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+
 		if(!isset($find_user_id['user_id']))
 		{
 			\lib\app::log('api:staff:edit:userstores:not:found', \lib\user::id(), $log_meta);
@@ -236,16 +240,22 @@ class staff extends \lib\app\user
 			return false;
 		}
 
+		// to edit this user
+		$_args['id'] = \lib\utility\shortURL::encode($find_user_id['user_id']);
+
 		$_option['user_id']        = $find_user_id['user_id'];
 		$_option['other_field']    = 'store_id';
 		$_option['other_field_id'] = \lib\store::id();
 
-		\lib\app\contact::merge($args, $_option);
+		$result_edit = parent::edit($_args, $_option);
 
-		if(\lib\debug::$status)
+		if(\lib\temp::get('app_user_id_changed'))
 		{
-			\lib\debug::true(T_("Profile successfully updated"));
+			\lib\db\userstores::update(['user_id' => \lib\temp::get('app_new_user_id_changed')], $userstore_id);
 		}
+
+		return $result_edit;
+
 	}
 }
 ?>
