@@ -1,63 +1,48 @@
 <?php
 namespace content_a\product\add;
-use \lib\utility;
-use \lib\debug;
+
 
 class model extends \content_a\main\model
 {
-
-
-	/**
-	 * Gets the post.
-	 *
-	 * @return     array  The post.
-	 */
 	public static function getPost()
 	{
 
 		$args =
 		[
-			'title'          => utility::post('title'),
-			'name'           => utility::post('name'),
-			'cat'            => utility::post('cat'),
-			'slug'           => utility::post('slug'),
-			'company'        => utility::post('company'),
-			'shortcode'      => utility::post('shortcode'),
-			'unit'           => utility::post('unit'),
-			'barcode'        => utility::post('barcode'),
-			'barcode2'       => utility::post('barcode2'),
-			'buyprice'       => utility::post('buyprice'),
-			'price'          => utility::post('price'),
-			'discount'       => utility::post('discount'),
-			'vat'            => utility::post('vat'),
-			'initialbalance' => utility::post('initialbalance'),
-			'minstock'       => utility::post('minstock'),
-			'maxstock'       => utility::post('maxstock'),
-			'status'         => utility::post('status'),
-			'sold'           => utility::post('sold'),
-			'stock'          => utility::post('stock'),
-			'service'        => utility::post('service') === 'on' ? 1 : 0,
-			'sellonline'     => utility::post('sellonline') === 'on' ? 1 : 0,
-			'sellstore'      => utility::post('sellstore') === 'on' ? 1 : 0,
-			'carton'         => utility::post('carton'),
+			'title'          => \lib\utility::post('title'),
+			'name'           => \lib\utility::post('name'),
+			'cat'            => \lib\utility::post('cat'),
+			'slug'           => \lib\utility::post('slug'),
+			'company'        => \lib\utility::post('company'),
+			'shortcode'      => \lib\utility::post('shortcode'),
+			'unit'           => \lib\utility::post('unit'),
+			'barcode'        => \lib\utility::post('barcode'),
+			'barcode2'       => \lib\utility::post('barcode2'),
+			'buyprice'       => \lib\utility::post('buyprice'),
+			'price'          => \lib\utility::post('price'),
+			'discount'       => \lib\utility::post('discount'),
+			'vat'            => \lib\utility::post('vat'),
+			'initialbalance' => \lib\utility::post('initialbalance'),
+			'minstock'       => \lib\utility::post('minstock'),
+			'maxstock'       => \lib\utility::post('maxstock'),
+			'status'         => \lib\utility::post('status'),
+			'sold'           => \lib\utility::post('sold'),
+			'stock'          => \lib\utility::post('stock'),
+			'service'        => \lib\utility::post('service') === 'on' ? 1 : 0,
+			'sellonline'     => \lib\utility::post('sellonline') === 'on' ? 1 : 0,
+			'sellstore'      => \lib\utility::post('sellstore') === 'on' ? 1 : 0,
+			'carton'         => \lib\utility::post('carton'),
 		];
 
 		return $args;
 	}
 
 
-
-
-	/**
-	 * Posts an addproduct.
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
 	public function post_add($_args)
 	{
 		\lib\app\product::add(self::getPost());
 
-		if(debug::$status)
+		if(\lib\debug::$status)
 		{
 			$this->redirector($this->url('baseFull'). '/product');
 		}

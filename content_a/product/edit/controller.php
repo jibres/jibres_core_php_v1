@@ -1,11 +1,9 @@
 <?php
 namespace content_a\product\edit;
 
+
 class controller extends \content_a\main\controller
 {
-	/**
-	 * rout
-	 */
 	public function ready()
 	{
 		if(!\lib\router::get_url(2))
@@ -14,7 +12,7 @@ class controller extends \content_a\main\controller
 		}
 
 		// need to complete dashboard of product and remove this line to load the dashboar detail
-		$this->redirector($this->url('baseFull'). '/product/general/'. $child)->redirect();
+		$this->redirector($this->url('baseFull'). '/product/')->redirect();
 		return;
 
 	}
