@@ -115,14 +115,29 @@ class userstores
 	}
 
 
+
 	/**
-	 * search in userstore
+	 * Searches for the first match.
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function search()
+	public static function search($_string = null, $_option = [])
 	{
-		return \lib\db\config::public_search('userstores', ...func_get_args());
+		$default_option =
+		[
+			'search_field' => "( userstores.displayname LIKE '%__string__%' ) ",
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
+		return \lib\db\config::public_search('userstores', $_string, $_option);
 	}
+
+
 }
 ?>

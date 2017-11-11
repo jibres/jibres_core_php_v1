@@ -106,9 +106,9 @@ class staff extends \lib\app\user
 	}
 
 
-	public static function list($_args = [])
+	public static function list($_string = null, $_options = [])
 	{
-		$list = \lib\db\userstores::search(null, []);
+		$list = \lib\db\userstores::search($_string, $_options);
 		$temp = [];
 		if(is_array($list))
 		{
