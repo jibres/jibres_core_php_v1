@@ -278,11 +278,18 @@ class staff extends \lib\app\user
 		if(isset($_args['mobile']))
 		{
 			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile($_args['mobile'], 'staff', \lib\store::id());
-			if($check_duplicate_mobile_in_store)
+			if(isset($check_duplicate_mobile_in_store['id']))
 			{
-				\lib\app::log('app:staff:duplicate:user:in:store', \lib\user::id());
-				\lib\debug::error(T_("This user already exist in your staff list"), 'mobile');
-				return false;
+				if(intval($check_duplicate_mobile_in_store['id']) === intval($userstore_id))
+				{
+
+				}
+				else
+				{
+					\lib\app::log('app:staff:duplicate:user:in:store', \lib\user::id());
+					\lib\debug::error(T_("This user already exist in your staff list"), 'mobile');
+					return false;
+				}
 			}
 		}
 
