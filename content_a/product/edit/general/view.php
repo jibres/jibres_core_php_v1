@@ -1,11 +1,12 @@
 <?php
-namespace content_a\product\general;
+namespace content_a\product\edit\general;
 
 
 class view extends \content_a\product\edit\view
 {
 	public function view_general($_args)
 	{
+
 		$productTitle = '';
 		if(isset($this->data->product['title']))
 		{

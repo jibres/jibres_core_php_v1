@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\delete;
+namespace content_a\product\edit\delete;
 
 
 class view extends \content_a\product\edit\view

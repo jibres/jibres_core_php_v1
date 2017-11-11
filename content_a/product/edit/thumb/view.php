@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\thumb;
+namespace content_a\product\edit\thumb;
 
 
 class view extends \content_a\product\edit\view

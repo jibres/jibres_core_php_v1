@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\general;
+namespace content_a\product\edit\general;
 
 
 class model extends \content_a\product\model

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product;
+namespace content_a\product\home;
 
 
 class controller extends \content_a\main\controller

@@ -6,7 +6,6 @@ class model extends \content_a\main\model
 {
 	public static function getPost()
 	{
-
 		$args =
 		[
 			'title'          => \lib\utility::post('title'),
