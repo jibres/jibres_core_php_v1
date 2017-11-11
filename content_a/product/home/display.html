@@ -28,7 +28,7 @@
     <tbody>
       {%for key, value in product_list%}
       <tr>
-        <td><a href="{{url.baseFull}}/product/general/{{value.id}}">{{value.title}}</a></td>
+        <td><a href="{{url.baseFull}}/product/edit/general/{{value.id}}">{{value.title}}</a></td>
         <td class="s0">{{value.cat}}</td>
         <td>{{value.buyprice | number_format | fitNumber}}</td>
         <td>{{value.price | number_format | fitNumber}}</td>

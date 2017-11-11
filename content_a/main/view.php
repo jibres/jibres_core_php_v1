@@ -10,6 +10,9 @@ class view extends \mvc\view
 		$this->include->chart  = true;
 
 		$this->data->display['admin'] = 'content_a/main/layout.html';
+		$this->data->site['title']    = \lib\store::name();
+
+
 	}
 }
 ?>
