@@ -16,13 +16,13 @@
   <table class="tbl">
     <thead class="">
       <tr>
-        <th data-sort="desc"><a href='#'>{%trans "Title"%}</a></th>
-        <th class="s0">{%trans "Category"%}</th>
-        <th>{%trans "Buy price" %}</th>
-        <th>{%trans "Sell Price" %}</th>
-        <th>{%trans "Discount" %}</th>
-        <th class="s0">{%trans "Discount percent"%}</th>
-        <th class="s0">{%trans "Stock" %}</th>
+        <th data-sort="{{sort_link.title.order}}"><a href='{{sort_link.title.link}}'>{%trans "Title"%}</a></th>
+        <th data-sort="{{sort_link.cat.order}}"  class="s0"><a href='{{sort_link.cat.link}}'>{%trans "Category"%}</a></th>
+        <th data-sort="{{sort_link.buyprice.order}}" ><a href='{{sort_link.buyprice.link}}'>{%trans "Buy price" %}</a></th>
+        <th data-sort="{{sort_link.price.order}}" ><a href='{{sort_link.price.link}}'>{%trans "Sell Price" %}</a></th>
+        <th data-sort="{{sort_link.discount.order}}" ><a href='{{sort_link.discount.link}}'>{%trans "Discount" %}</a></th>
+        <th data-sort="{{sort_link.discountpercent.order}}"  class="s0"><a href='{{sort_link.discountpercent.link}}'>{%trans "Discount percent"%}</a></th>
+        <th data-sort="{{sort_link.stock.order}}"  class="s0"><a href='{{sort_link.stock.link}}'>{%trans "Stock" %}</a></th>
       </tr>
     </thead>
 
