@@ -66,8 +66,28 @@ trait barcode
 							$barcode_title = T_('2');
 						}
 
+						$product_title = '';
+						if(isset($check_exist[0]['title']))
+						{
+							$product_title = $check_exist[0]['title'];
+						}
+
+						$product_id = null;
+						if(isset($check_exist[0]['id']))
+						{
+							$product_id = \lib\utility\shortURL::encode($check_exist[0]['id']);
+						}
+
+						$msg = T_("This barcode used in barcode :n of another product :title", ['n' => $barcode_title, 'title' => $product_title]);
+
+						if($product_id)
+						{
+							$link = Protocol. '://'. SubDomain. '.'. Domain. '.'. Tld. '/a/product/edit/general?id='. $product_id;
+							$msg = "<a href='$link'>". $msg. '</a>';
+						}
+
 						\lib\app::log('app:product:barcode:is:duplicate:', \lib\user::id(), $log_meta);
-						\lib\debug::error(T_("This barcode used in barcode :n of another product", ['n' => $barcode_title]));
+						\lib\debug::error($msg);
 						return false;
 					}
 				}
