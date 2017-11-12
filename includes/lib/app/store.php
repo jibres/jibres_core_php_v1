@@ -37,7 +37,7 @@ class store
 		if(!$name)
 		{
 			\lib\app::log('api:store:name:not:set', \lib\user::id(), $log_meta);
-			debug::error(T_("Store name of store can not be null"), 'name', 'arguments');
+			debug::error(T_("Name of store can not be null"), 'name', 'arguments');
 			return false;
 		}
 
@@ -98,7 +98,7 @@ class store
 		if($slug && mb_strlen($slug) >= 50)
 		{
 			\lib\app::log('api:store:maxlength:slug', \lib\user::id(), $log_meta);
-			debug::error(T_("Store slug must be less than 500 character"), 'slug', 'arguments');
+			debug::error(T_("Store slug must be less than 50 character"), 'slug', 'arguments');
 			return false;
 		}
 

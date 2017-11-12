@@ -106,7 +106,7 @@ class staff extends \lib\app\user
 			if(!$userstore_id)
 			{
 				\lib\app::log('cannot:add:user:to:userstore'. self::$type , \lib\user::id());
-				\lib\debug::error(T_("Can not set the user in you store user list"));
+				\lib\debug::error(T_("Can not set the user in you store"));
 				return false;
 			}
 

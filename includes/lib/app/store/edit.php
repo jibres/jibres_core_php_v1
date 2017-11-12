@@ -64,7 +64,7 @@ trait edit
 		if(array_key_exists('name', $args) && !$args['name'])
 		{
 			\lib\app::log('api:store:name:not:set:edit', \lib\user::id(), $log_meta);
-			debug::error(T_("Store name of store can not be null"), 'name', 'arguments');
+			debug::error(T_("Name of store can not be null"), 'name', 'arguments');
 			return false;
 		}
 

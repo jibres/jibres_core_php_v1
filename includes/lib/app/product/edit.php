@@ -101,7 +101,7 @@ trait edit
 		if(array_key_exists('title', $args) && !$args['title'])
 		{
 			\lib\app::log('api:product:title:not:set:edit', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Store title of product can not be null"), 'title');
+			if($_option['debug']) debug::error(T_("Title of product can not be null"), 'title');
 			return false;
 		}
 

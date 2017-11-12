@@ -78,7 +78,7 @@ trait barcode
 							$product_id = \lib\utility\shortURL::encode($check_exist[0]['id']);
 						}
 
-						$msg = T_("This barcode used in barcode :n of another product :title", ['n' => $barcode_title, 'title' => $product_title]);
+						$msg = T_("This barcode used in barcode :n :title", ['n' => $barcode_title, 'title' => $product_title]);
 
 						if($product_id)
 						{

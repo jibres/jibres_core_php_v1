@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2017-11-11 14:42+0330\n"
-"PO-Revision-Date: 2017-11-11 14:47+0330\n"
-"Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
+"POT-Creation-Date: 2017-11-12 10:53+0330\n"
+"PO-Revision-Date: 2017-11-12 10:53+0330\n"
+"Last-Translator: Reza <rm.biqarar@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-Basepath: ../../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -86,7 +86,7 @@ msgstr ""
 #: dash/addons/content_account/home/view.php:11
 #: dash/addons/includes/languages/trans_addons.php:159
 #: jibres/includes/languages/trans_addons.php:39
-#: jibres/includes/languages/trans_twig.php:317
+#: jibres/includes/languages/trans_twig.php:322
 msgid "Dashboard"
 msgstr "داشبورد"
 
@@ -124,7 +124,7 @@ msgstr "اطلاعات پروفایل به‌روزرسانی شد"
 #: dash/addons/content_api/v1/transaction/tools/add.php:40
 #: dash/addons/content_api/v1/transaction/tools/get.php:89
 #: dash/addons/content_api/v1/user/tools/add.php:42
-#: dash/addons/content_api/v1/user/tools/get.php:96 dash/lib/app/user/get.php:34
+#: dash/addons/content_api/v1/user/tools/get.php:96
 #: jibres/includes/lib/app/product/get.php:34
 #: jibres/includes/lib/app/store/get.php:34
 msgid "Operation Faild"
@@ -178,7 +178,7 @@ msgstr "محتوا نمی‌توانند خالی باشد"
 #: dash/addons/content_api/v1/comment/tools/comment_check_args.php:75
 #: dash/addons/content_api/v1/term/tools/term_check_args.php:150
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:137
-#: dash/lib/app/user.php:92
+#: dash/lib/app/user.php:93
 msgid "Invalid parameter status"
 msgstr "پارامتر وضعیت نامعتبر است"
 
@@ -188,7 +188,7 @@ msgstr "پارامتر user_id نامعتبره"
 
 #: dash/addons/content_api/v1/comment/tools/comment_check_args.php:99
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:195
-#: dash/lib/app/user.php:110
+#: dash/lib/app/user.php:111
 msgid "You must set the type less than 50 character"
 msgstr "نوع باید کمتر از 50 کاراکتر باشد"
 
@@ -202,8 +202,8 @@ msgstr "نوع باید کمتر از 50 کاراکتر باشد"
 #: dash/addons/content_api/v1/user/tools/add.php:59
 #: dash/addons/content_api/v1/user/tools/get.php:110
 #: dash/addons/content_enter/home/model.php:43
-#: dash/addons/content_su/sendnotify/model.php:31 dash/lib/app/user/add.php:46
-#: jibres/includes/lib/app/product/add.php:44
+#: dash/addons/content_su/sendnotify/model.php:31 dash/lib/app/user/add.php:48
+#: jibres/includes/lib/app/product/add.php:43
 #: jibres/includes/lib/app/store/add.php:32
 msgid "User not found"
 msgstr "کاربر یافت نشد"
@@ -214,7 +214,7 @@ msgstr "کاربر یافت نشد"
 #: dash/addons/content_api/v1/term/tools/get.php:109
 #: dash/addons/content_api/v1/transaction/tools/get.php:113
 #: dash/addons/content_api/v1/user/tools/add.php:154
-#: dash/addons/content_api/v1/user/tools/get.php:120 dash/lib/app/user/edit.php:30
+#: dash/addons/content_api/v1/user/tools/get.php:120
 #: jibres/includes/lib/app/product/edit.php:46
 #: jibres/includes/lib/app/product/edit.php:53
 #: jibres/includes/lib/app/store/edit.php:30
@@ -542,7 +542,7 @@ msgid "user successfully updated"
 msgstr "کاربر با موفقیت بروزرسانی شد"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:63
-#: dash/lib/app/user.php:63
+#: dash/lib/app/user.php:64
 msgid "You can set the displayname less than 50 character"
 msgstr "شما می‌توانید نام نمایشی را با حداکثر ۵۰ کاراکتر تنظیم کنید"
 
@@ -575,7 +575,7 @@ msgid "You must set the birthday name less than 50 character"
 msgstr "تاریخ تولد باید کمتر از ۵۰ کاراکتر باشد"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:187
-#: dash/lib/app/user.php:101
+#: dash/lib/app/user.php:102
 msgid "Invalid gender field"
 msgstr "رشته جنسیت اشتباه است"
 
@@ -628,22 +628,22 @@ msgid "You must set the cardnumber less than 50 character"
 msgstr " شماره کارت باید کمتر از 50 کاراکتر باشد "
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:302
-#: dash/lib/app/user.php:122
+#: dash/lib/app/user.php:123
 msgid "Email is incorrect"
 msgstr "ایمیل نادرست است"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:311
-#: dash/lib/app/user.php:131
+#: dash/lib/app/user.php:132
 msgid "Parent is incorrect"
 msgstr "والدین نادرست است"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:319
-#: dash/lib/app/user.php:140
+#: dash/lib/app/user.php:141
 msgid "Permission is incorrect"
 msgstr "مجوز نادرست است"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:327
-#: dash/lib/app/user.php:149
+#: dash/lib/app/user.php:150
 msgid "Username is incorrect"
 msgstr "نام کاربری نادرست است"
 
@@ -652,12 +652,12 @@ msgid "Group is incorrect"
 msgstr "گروه نادرست است"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:343
-#: dash/lib/app/user.php:157
+#: dash/lib/app/user.php:158
 msgid "Pin is incorrect"
 msgstr "پین نادرست است"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:352
-#: dash/lib/app/user.php:166
+#: dash/lib/app/user.php:167
 msgid "Ref is incorrect"
 msgstr "مرجع نادرست است"
 
@@ -686,12 +686,12 @@ msgid "Dependantscount is incorrect"
 msgstr "تعداد وابستگی نادرست است"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:420
-#: dash/lib/app/user.php:181
+#: dash/lib/app/user.php:182
 msgid "Unit id is incorrect"
 msgstr "کد واحد مالی نادرست است"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:428
-#: dash/lib/app/user.php:189
+#: dash/lib/app/user.php:190
 msgid "Language is incorrect"
 msgstr "زبان نادرست است"
 
@@ -790,7 +790,6 @@ msgid "Come back to us!"
 msgstr "پیش ما برگردید!"
 
 #: dash/addons/content_enter/callback/controller.php:15
-#: jibres/content_a/product/edit/controller.php:13
 #: jibres/content_a/staff/edit/controller.php:12
 msgid "Invalid url"
 msgstr "آدرس اشتباه"
@@ -912,7 +911,7 @@ msgid "Invalid telegram id"
 msgstr "آی‌دی تلگرام نامعتبر است"
 
 #: dash/addons/content_enter/hook/model.php:61
-#: dash/addons/content_enter/hook/model.php:81 dash/lib/app/user/get.php:123
+#: dash/addons/content_enter/hook/model.php:81
 #: jibres/includes/lib/app/store/get.php:123
 msgid "Operation complete"
 msgstr "عملیات کامل شد"
@@ -998,7 +997,7 @@ msgstr "پیامک شما بدست ما نرسیده است!"
 #: dash/addons/content_enter/main/tools/verification_code.php:232
 #: dash/addons/content_enter/main/tools/verification_code.php:239
 #: dash/addons/content_enter/verify/model.php:17
-#: jibres/content_a/product/delete/model.php:31
+#: jibres/content_a/product/edit/delete/model.php:23
 msgid "What are you doing?"
 msgstr "اینجا چیکار می‌کنی عزیز جان!؟"
 
@@ -1092,7 +1091,7 @@ msgstr "کلمه‌عبور جدید شما همان قدیمی‌است"
 #: dash/addons/content_enter/pass/recovery/model.php:53
 #: dash/addons/includes/languages/trans_addons.php:980
 #: jibres/includes/languages/trans_addons.php:1069
-#: jibres/includes/languages/trans_twig.php:71
+#: jibres/includes/languages/trans_twig.php:37
 msgid "Enter"
 msgstr "ورود"
 
@@ -1389,7 +1388,7 @@ msgstr "نقشه‌ی سایت"
 
 #: dash/addons/includes/languages/trans_addons.php:8
 #: jibres/includes/languages/trans_addons.php:266
-#: jibres/includes/languages/trans_twig.php:472
+#: jibres/includes/languages/trans_twig.php:391
 msgid "Hi"
 msgstr "سلام"
 
@@ -1585,7 +1584,7 @@ msgstr "نمی‌خواهم از تلفن همراه استفاده کنم"
 
 #: dash/addons/includes/languages/trans_addons.php:84
 #: jibres/includes/languages/trans_addons.php:111
-#: jibres/includes/languages/trans_twig.php:410
+#: jibres/includes/languages/trans_twig.php:343
 msgid "Search"
 msgstr "جستجو"
 
@@ -1611,7 +1610,7 @@ msgstr "صداکننده"
 
 #: dash/addons/includes/languages/trans_addons.php:89
 #: jibres/includes/languages/trans_addons.php:26
-#: jibres/includes/languages/trans_twig.php:411
+#: jibres/includes/languages/trans_twig.php:433
 msgid "Title"
 msgstr "عنوان"
 
@@ -1649,7 +1648,7 @@ msgstr "متا"
 
 #: dash/addons/includes/languages/trans_addons.php:98
 #: jibres/includes/languages/trans_addons.php:27
-#: jibres/includes/languages/trans_twig.php:129
+#: jibres/includes/languages/trans_twig.php:56
 msgid "Date"
 msgstr "تاریخ"
 
@@ -1742,7 +1741,7 @@ msgstr "قانون"
 
 #: dash/addons/includes/languages/trans_addons.php:121
 #: jibres/includes/languages/trans_addons.php:93
-#: jibres/includes/languages/trans_twig.php:130
+#: jibres/includes/languages/trans_twig.php:57
 msgid "Description"
 msgstr "توضیح"
 
@@ -1786,13 +1785,13 @@ msgstr "جایزه"
 
 #: dash/addons/includes/languages/trans_addons.php:129
 #: jibres/includes/languages/trans_addons.php:192
-#: jibres/includes/languages/trans_twig.php:438
+#: jibres/includes/languages/trans_twig.php:453
 msgid "Unit"
 msgstr "واحد"
 
 #: dash/addons/includes/languages/trans_addons.php:130
 #: jibres/includes/languages/trans_addons.php:57
-#: jibres/includes/languages/trans_twig.php:201
+#: jibres/includes/languages/trans_twig.php:188
 msgid "Toman"
 msgstr "تومان"
 
@@ -1809,7 +1808,7 @@ msgstr "موبایل"
 
 #: dash/addons/includes/languages/trans_addons.php:133
 #: jibres/includes/languages/trans_addons.php:194
-#: jibres/includes/languages/trans_twig.php:325
+#: jibres/includes/languages/trans_twig.php:384
 msgid "Add"
 msgstr "افزودن"
 
@@ -1997,44 +1996,44 @@ msgstr "نام"
 
 #: dash/addons/includes/languages/trans_addons.php:180
 #: jibres/includes/languages/trans_addons.php:227
-#: jibres/includes/languages/trans_twig.php:330
+#: jibres/includes/languages/trans_twig.php:353
 msgid "Enter a valid name from 3 to 40 character"
 msgstr "نام معتبری بین ۳ تا ۳۰ کاراکتر وارد کنید"
 
 #: dash/addons/includes/languages/trans_addons.php:181
 #: jibres/includes/languages/trans_addons.php:228
-#: jibres/includes/languages/trans_twig.php:501
+#: jibres/includes/languages/trans_twig.php:354
 msgid "Last name"
 msgstr "نام‌خانوادگی"
 
 #: dash/addons/includes/languages/trans_addons.php:182
 #: jibres/includes/languages/trans_addons.php:50
-#: jibres/includes/languages/trans_twig.php:329
+#: jibres/includes/languages/trans_twig.php:400
 msgid "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"
 msgstr ""
 "پسوندهای مجاز jpg و png هستند‌(‌gif برای پلن‌های تجاری). حداکثر حجم مجاز ۵۰۰ کیلوبایت"
 
 #: dash/addons/includes/languages/trans_addons.php:183
 #: jibres/includes/languages/trans_addons.php:229
-#: jibres/includes/languages/trans_twig.php:505
+#: jibres/includes/languages/trans_twig.php:358
 msgid "National code"
 msgstr "کد ملی"
 
 #: dash/addons/includes/languages/trans_addons.php:184
 #: jibres/includes/languages/trans_addons.php:230
-#: jibres/includes/languages/trans_twig.php:507
+#: jibres/includes/languages/trans_twig.php:360
 msgid "Father name"
 msgstr "نام پدر"
 
 #: dash/addons/includes/languages/trans_addons.php:185
 #: jibres/includes/languages/trans_addons.php:231
-#: jibres/includes/languages/trans_twig.php:508
+#: jibres/includes/languages/trans_twig.php:361
 msgid "Birthday"
 msgstr "تاریخ تولد"
 
 #: dash/addons/includes/languages/trans_addons.php:186
 #: jibres/includes/languages/trans_addons.php:232
-#: jibres/includes/languages/trans_twig.php:509
+#: jibres/includes/languages/trans_twig.php:362
 msgid "Gender"
 msgstr "جنسیت"
 
@@ -2070,7 +2069,7 @@ msgstr "تعداد فرزندان"
 
 #: dash/addons/includes/languages/trans_addons.php:193
 #: jibres/includes/languages/trans_addons.php:239
-#: jibres/includes/languages/trans_twig.php:512
+#: jibres/includes/languages/trans_twig.php:365
 msgid "Birth city"
 msgstr "شهر محل تولد"
 
@@ -2137,7 +2136,7 @@ msgstr "نام‌کاربری"
 
 #: dash/addons/includes/languages/trans_addons.php:208
 #: jibres/includes/languages/trans_addons.php:221
-#: jibres/includes/languages/trans_twig.php:533
+#: jibres/includes/languages/trans_twig.php:331
 msgid "Avatar"
 msgstr "آواتار"
 
@@ -2319,7 +2318,6 @@ msgstr "زیاد"
 
 #: dash/addons/includes/languages/trans_addons.php:261
 #: jibres/includes/languages/trans_addons.php:347
-#: jibres/includes/languages/trans_twig.php:354
 msgid "Medium"
 msgstr "متوسط"
 
@@ -2330,7 +2328,7 @@ msgstr "کم"
 
 #: dash/addons/includes/languages/trans_addons.php:263
 #: jibres/includes/languages/trans_addons.php:349
-#: jibres/includes/languages/trans_twig.php:326
+#: jibres/includes/languages/trans_twig.php:335
 msgid "Save"
 msgstr "ذخیره"
 
@@ -3352,12 +3350,12 @@ msgstr "کارت می‌تواند دارای یک عنوان باشد."
 
 #: dash/addons/includes/languages/trans_addons.php:459
 #: jibres/includes/languages/trans_addons.php:422
-#: jibres/includes/languages/trans_twig.php:111
+#: jibres/includes/languages/trans_twig.php:161
 msgid "Javad Evazzadeh"
 msgstr "جواد عوض زاده"
 
 #: dash/addons/includes/languages/trans_addons.php:460
-#: jibres/content_a/staff/edit/view.php:37
+#: jibres/content_a/staff/edit/view.php:46
 #: jibres/includes/languages/trans_addons.php:927
 msgid "Friend"
 msgstr "دوست"
@@ -3480,13 +3478,11 @@ msgstr "کوچک"
 
 #: dash/addons/includes/languages/trans_addons.php:482
 #: jibres/includes/languages/trans_addons.php:946
-#: jibres/includes/languages/trans_twig.php:353
 msgid "Small"
 msgstr "کوچک"
 
 #: dash/addons/includes/languages/trans_addons.php:483
 #: jibres/includes/languages/trans_addons.php:947
-#: jibres/includes/languages/trans_twig.php:355
 msgid "Large"
 msgstr "بزرگ"
 
@@ -3846,7 +3842,7 @@ msgstr " خانه"
 
 #: dash/addons/includes/languages/trans_addons.php:564
 #: jibres/includes/languages/trans_addons.php:391
-#: jibres/includes/languages/trans_twig.php:64
+#: jibres/includes/languages/trans_twig.php:283
 msgid "Control Panel"
 msgstr "کنترل پنل"
 
@@ -3927,7 +3923,6 @@ msgstr "پروازها"
 
 #: dash/addons/includes/languages/trans_addons.php:582
 #: jibres/includes/languages/trans_addons.php:876
-#: jibres/includes/languages/trans_twig.php:397
 msgid "Team Members"
 msgstr "اعضای تیم"
 
@@ -3978,7 +3973,7 @@ msgstr "خاکستری"
 
 #: dash/addons/includes/languages/trans_addons.php:594
 #: jibres/includes/languages/trans_addons.php:468
-#: jibres/includes/languages/trans_twig.php:112
+#: jibres/includes/languages/trans_twig.php:162
 msgid "Barcode"
 msgstr "بارکد"
 
@@ -4243,7 +4238,7 @@ msgstr "تلمبار"
 
 #: dash/addons/includes/languages/trans_addons.php:654
 #: jibres/includes/languages/trans_addons.php:853
-#: jibres/includes/languages/trans_twig.php:53 jibres/includes/mvc/view.php:11
+#: jibres/includes/languages/trans_twig.php:276 jibres/includes/mvc/view.php:11
 msgid "Jibres"
 msgstr "جیبرس"
 
@@ -4333,7 +4328,7 @@ msgstr "درهنگام روت شدن صفحه این را اجرا کن"
 
 #: dash/addons/includes/languages/trans_addons.php:673
 #: jibres/includes/languages/trans_addons.php:540
-#: jibres/includes/languages/trans_twig.php:76
+#: jibres/includes/languages/trans_twig.php:43
 msgid "Simple"
 msgstr "ساده"
 
@@ -4604,13 +4599,11 @@ msgstr "وضعیت حریم‌خصوصی"
 
 #: dash/addons/includes/languages/trans_addons.php:732
 #: jibres/includes/languages/trans_addons.php:747
-#: jibres/includes/languages/trans_twig.php:338
 msgid "Private"
 msgstr "خصوصی"
 
 #: dash/addons/includes/languages/trans_addons.php:733
 #: jibres/includes/languages/trans_addons.php:748
-#: jibres/includes/languages/trans_twig.php:342
 msgid "Public"
 msgstr "عمومی"
 
@@ -5476,7 +5469,7 @@ msgstr "خروج از سیستم"
 
 #: dash/addons/includes/languages/trans_addons.php:948
 #: jibres/includes/languages/trans_addons.php:1040
-#: jibres/includes/languages/trans_twig.php:42
+#: jibres/includes/languages/trans_twig.php:29
 msgid "View your current location and navigate to parent of it"
 msgstr "مکان فعلی خود را دیده و به مکان‌های والد آن منتقل شوید"
 
@@ -5946,7 +5939,7 @@ msgstr "خانه"
 
 #: dash/addons/includes/languages/trans_addons.php:1050
 #: dash/lib/view/twigAddons.php:354 jibres/includes/languages/trans_addons.php:1144
-#: jibres/includes/languages/trans_twig.php:46
+#: jibres/includes/languages/trans_twig.php:270
 msgid "Home"
 msgstr "صفحه نخست"
 
@@ -7168,7 +7161,7 @@ msgstr "ما به شماره موبایل نیاز داریم!"
 
 #: dash/addons/includes/languages/trans_addons.php:1289
 #: jibres/includes/languages/trans_addons.php:1383
-#: jibres/includes/languages/trans_twig.php:559
+#: jibres/includes/languages/trans_twig.php:304
 msgid " "
 msgstr " "
 
@@ -7343,52 +7336,45 @@ msgid "Key of contact is too large"
 msgstr "کلید مربوط به این مخاطب بیش از اندازه بزرگ است"
 
 #: dash/lib/app/contact.php:108
-msgid "Store name of contact can not be null"
-msgstr "نام فروشگاه این مخاطب نمی‌تواند تنظیم نشده باشد"
+msgid "Contact value is too large."
+msgstr "مقدار وارد شده از حد مجاز بزرگتر است"
 
-#: dash/lib/app/user.php:53
+#: dash/lib/app/user.php:54
 msgid "Mobile is incorrect"
 msgstr "موبایل اشتباه است"
 
-#: dash/lib/app/user.php:73
+#: dash/lib/app/user.php:74
 msgid "You can set the title less than 50 character"
 msgstr "عنوان باید کمتر از ۵۰ کاراکتر باشد"
 
-#: dash/lib/app/user.php:83
+#: dash/lib/app/user.php:84
 msgid "Invalid parameter avatar"
 msgstr "پارامتر آواتار اشتباه است."
 
-#: dash/lib/app/user/add.php:67
+#: dash/lib/app/user/add.php:69
 msgid "No way to insert user"
 msgstr "روشی برای افزودن کاربر نیست"
 
-#: dash/lib/app/user/add.php:80
+#: dash/lib/app/user/add.php:81
 msgid "User successfuly added"
 msgstr "کاربر با موفقیت اضافه شد"
 
-#: dash/lib/app/user/edit.php:38
-msgid "Can not access to edit user"
-msgstr "دسترسی برای ویرایش کاربر مقدور نیست"
+#: dash/lib/app/user/edit.php:60
+msgid "Can not access to edit staff"
+msgstr "شما دسترسی لازم برای ویرایش این کاربر را ندارید"
 
-#: dash/lib/app/user/edit.php:67
-msgid "User name of user can not be null"
-msgstr "نام کاربری نمی‌تواند تنظیم نشده باشد"
+#: dash/lib/app/user/edit.php:89
+msgid "Profile successfully updated"
+msgstr "اطلاعات با موفقیت به روزرسانی شد"
 
-#: dash/lib/app/user/edit.php:74
-msgid "slug of user can not be null"
-msgstr "نامک کاربر نمی‌تواند تنظیم نشده باشد"
+#: dash/lib/app/user/get.php:56 jibres/includes/lib/app/product/get.php:67
+#: jibres/includes/lib/app/staff.php:185 jibres/includes/lib/app/store/get.php:61
+msgid "Store id or shortname not set"
+msgstr "شناسه فروشگاه یا نام آن تنظیم نشده است"
 
-#: dash/lib/app/user/get.php:61
-msgid "User id or shortname not set"
-msgstr "کد کاربر یا نام کوتاه تنظیم نشده است"
-
-#: dash/lib/app/user/get.php:71
-msgid "Can not set user id and shortname together"
-msgstr "نمی‌توان کدکاربر و نام کوتاه را باهم تنظیم کرد"
-
-#: dash/lib/app/user/get.php:116
-msgid "Can not access to load this user details"
-msgstr "دسترسی برای بارگزاری جزئیات این کاربر مقدور نیست"
+#: dash/lib/app/user/user_id.php:50
+msgid "User not found."
+msgstr "کاربر یافت نشد."
 
 #: dash/lib/controller.php:838 dash/lib/controller/url.php:52
 msgid "delete"
@@ -7817,7 +7803,7 @@ msgstr "لطفا تلاشی برای تایپ داشته باشید!"
 msgid "We could'nt save the contact"
 msgstr "مشکلی در ذخیره‌سازی مخاطب پیش آمد"
 
-#: jibres/content/home/view.php:11 jibres/includes/languages/trans_twig.php:29
+#: jibres/content/home/view.php:11 jibres/includes/languages/trans_twig.php:294
 #: jibres/includes/mvc/view.php:13
 msgid "Integrated Sales and Online Accounting"
 msgstr "فروش یکپارچه و حسابداری آنلاین"
@@ -7840,72 +7826,96 @@ msgstr "روز خوبی داشته باشید؛)"
 msgid "SubDomain not found"
 msgstr "ساب‌دامین یافت نشد"
 
-#: jibres/content_a/product/add/view.php:13
-#: jibres/content_a/product/import/view.php:13
-msgid "Add new product"
-msgstr "افزودن محصول جدید"
+#: jibres/content_a/product/add/view.php:9
+msgid "Add new product or goods"
+msgstr "افزودن محصول یا کالای جدید"
 
-#: jibres/content_a/product/add/view.php:14
-#: jibres/content_a/product/import/view.php:14
-msgid "You can set detail of team product and assign some extra data to use later"
-msgstr ""
-
-#: jibres/content_a/product/delete/view.php:22
+#: jibres/content_a/product/add/view.php:10
 msgid ""
-"Manage delete setting of product like name and position, you can change another "
-"setting by choose another type of setting."
+"You can set main property of product and allow to assign some extra or edit it "
+"later."
 msgstr ""
+"شما می توانید ویژگی اصلی محصول را تنظیم کنید و نیز برخی ویژگی های اضافی را تنظیم "
+"کنید یا بعدا ویرایش کنید."
 
-#: jibres/content_a/product/edit/view.php:25
-#: jibres/content_a/product/general/view.php:15
+#: jibres/content_a/product/edit/delete/view.php:16
+msgid "Delete Product"
+msgstr "حذف محصول"
+
+#: jibres/content_a/product/edit/delete/view.php:17
+msgid "You can delete product easily form this page, be careful!"
+msgstr "شما می توانید محصول را به راحتی از طریق همین صفحه حذف کنید، مراقب باشید!"
+
+#: jibres/content_a/product/edit/general/view.php:22
+#: jibres/content_a/product/edit/view.php:27
 msgid "General setting | :name"
 msgstr "تنظیمات عمومی | :name"
 
-#: jibres/content_a/product/edit/view.php:35
-msgid "Special Access"
-msgstr "دسترسی ویژه"
-
-#: jibres/content_a/product/edit/view.php:36
-msgid "You can set some edit to product to do some more activity in Tejarak."
-msgstr ""
-
-#: jibres/content_a/product/general/view.php:16
+#: jibres/content_a/product/edit/general/view.php:23
 msgid "Manage general setting of product like name, category, price and etc."
 msgstr "مدیریت تنظیمات عمومی محصولات و کالاها مثل نام، دسته‌بندی، قیمت و ..."
 
-#: jibres/content_a/product/general/view.php:16
+#: jibres/content_a/product/edit/general/view.php:23
 msgid "You can change another setting by choose another type of setting."
 msgstr "شما می‌توانید سایر تنظیمات را از طریق دسترسی به بخش‌های مختلف تنظیم کنید."
 
-#: jibres/content_a/product/import/model.php:24
-msgid "Please upload a csv file"
-msgstr "لطفا فایل سی‌اس‌وی را بارگذاری کنید"
-
-#: jibres/content_a/product/import/model.php:39
-msgid "No file was sended"
-msgstr "فایلی ارسال نشد"
-
-#: jibres/content_a/product/import/model.php:62
-msgid "Import product successfully complete"
-msgstr "فرآیند ورود داده‌های اولیه‌ی کالاها با موفقیت به انجام رسید"
-
-#: jibres/content_a/product/thumb/view.php:16
+#: jibres/content_a/product/edit/thumb/view.php:14
 msgid "thumb :name"
-msgstr ""
+msgstr "تصویر :name"
 
-#: jibres/content_a/product/thumb/view.php:20
+#: jibres/content_a/product/edit/thumb/view.php:18
 msgid "thumb product!"
-msgstr ""
+msgstr "تصویر محصول"
 
-#: jibres/content_a/product/view.php:9
+#: jibres/content_a/product/edit/view.php:29
+msgid "You can have some edit on this product"
+msgstr "شما می توانید برخی از ویژگی های این محصول را ویرایش کنید"
+
+#: jibres/content_a/product/home/view.php:9
 msgid "List of products"
 msgstr "لیست محصولات"
 
-#: jibres/content_a/product/view.php:10
+#: jibres/content_a/product/home/view.php:10
 msgid "You can search in list of products, add new product and edit existing."
 msgstr ""
 "شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا "
 "ویرایش کنید."
+
+#: jibres/content_a/product/home/view.php:13
+#: jibres/content_a/product/summary/view.php:13
+#: jibres/includes/languages/trans_twig.php:441
+msgid "Add new product"
+msgstr "افزودن محصول جدید"
+
+#: jibres/content_a/product/import/model.php:17
+msgid "Please upload a csv file"
+msgstr "لطفا فایل سی‌اس‌وی را بارگذاری کنید"
+
+#: jibres/content_a/product/import/model.php:32
+msgid "No file was sended"
+msgstr "فایلی ارسال نشد"
+
+#: jibres/content_a/product/import/model.php:50
+msgid "Import product successfully complete"
+msgstr "فرآیند ورود داده‌های اولیه‌ی کالاها با موفقیت به انجام رسید"
+
+#: jibres/content_a/product/import/view.php:9
+msgid "Import product from CSV"
+msgstr "وارد کردن محصولات از طریق فایل سی اس وی "
+
+#: jibres/content_a/product/import/view.php:10
+msgid "You can import more than one product in one request via CSV import process"
+msgstr ""
+"شما می توانید تمامی محصولات خود را از طریق وارد کردن فایل سی اس وی به یکباره در "
+"سیستم ثبت کنید."
+
+#: jibres/content_a/product/summary/view.php:9
+msgid "Products Summary"
+msgstr "خلاصه وضعیت محصول"
+
+#: jibres/content_a/product/summary/view.php:10
+msgid "Some detail about this product!"
+msgstr "اطلاعاتی در مورد این محصول!"
 
 #: jibres/content_a/setting/plan/model.php:24
 #: jibres/content_a/setting/plan/model.php:80
@@ -7945,7 +7955,7 @@ msgstr ""
 "می‌کنیم و فاکتور بعدی شما ماه آینده دقیقا در همین لحظه صادر خواهد شد. پرداخت این "
 "فاکتورها از طریق بخش مالی امکان‌پذیر است."
 
-#: jibres/content_a/setting/view.php:9 jibres/includes/languages/trans_twig.php:324
+#: jibres/content_a/setting/view.php:9 jibres/includes/languages/trans_twig.php:493
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -7961,7 +7971,7 @@ msgid "Fill name or family is require!"
 msgstr "ورود نام یا نام‌خانوادگی الزامی است!"
 
 #: jibres/content_a/staff/add/view.php:14
-#: jibres/includes/languages/trans_twig.php:489
+#: jibres/includes/languages/trans_twig.php:344
 msgid "Add new staff"
 msgstr "افزودن کارمند جدید"
 
@@ -7997,89 +8007,93 @@ msgstr "اطلاعات تماس کارمند"
 msgid "Change mobile number of staff and parents, email and tel of home"
 msgstr "تغییر شماره تلفن‌همراه، رایانامه و شماره تماس کارمند"
 
-#: jibres/content_a/staff/edit/view.php:21
+#: jibres/content_a/staff/edit/view.php:17 jibres/includes/lib/app/product/get.php:49
+msgid "User id not found"
+msgstr "شناسه کاربر یافت نشد"
+
+#: jibres/content_a/staff/edit/view.php:30
 msgid "Father"
 msgstr "پدر"
 
-#: jibres/content_a/staff/edit/view.php:22
+#: jibres/content_a/staff/edit/view.php:31
 msgid "Mother"
 msgstr "مادر"
 
-#: jibres/content_a/staff/edit/view.php:23
+#: jibres/content_a/staff/edit/view.php:32
 msgid "Sister"
 msgstr "خواهر"
 
-#: jibres/content_a/staff/edit/view.php:24
+#: jibres/content_a/staff/edit/view.php:33
 msgid "Brother"
 msgstr "برادر"
 
-#: jibres/content_a/staff/edit/view.php:25
+#: jibres/content_a/staff/edit/view.php:34
 msgid "Grandfather"
 msgstr "پدر بزرگ"
 
-#: jibres/content_a/staff/edit/view.php:26
+#: jibres/content_a/staff/edit/view.php:35
 msgid "Grandmother"
 msgstr "مادر بزرگ"
 
-#: jibres/content_a/staff/edit/view.php:27
+#: jibres/content_a/staff/edit/view.php:36
 msgid "Aunt"
 msgstr "عمه- خاله"
 
-#: jibres/content_a/staff/edit/view.php:28
+#: jibres/content_a/staff/edit/view.php:37
 msgid "Husband of the aunt"
 msgstr "شوهر عمه"
 
-#: jibres/content_a/staff/edit/view.php:29
+#: jibres/content_a/staff/edit/view.php:38
 msgid "Uncle"
 msgstr "عمو - دایی"
 
-#: jibres/content_a/staff/edit/view.php:30
+#: jibres/content_a/staff/edit/view.php:39
 msgid "Boy"
 msgstr "پسر"
 
-#: jibres/content_a/staff/edit/view.php:31
+#: jibres/content_a/staff/edit/view.php:40
 msgid "Girl"
 msgstr "دختر"
 
-#: jibres/content_a/staff/edit/view.php:32
+#: jibres/content_a/staff/edit/view.php:41
 msgid "Spouse"
 msgstr "همسر"
 
-#: jibres/content_a/staff/edit/view.php:33
+#: jibres/content_a/staff/edit/view.php:42
 msgid "Stepmother"
 msgstr "مادر خوانده"
 
-#: jibres/content_a/staff/edit/view.php:34
+#: jibres/content_a/staff/edit/view.php:43
 msgid "Stepfather"
 msgstr "پدر خوانده"
 
-#: jibres/content_a/staff/edit/view.php:35
+#: jibres/content_a/staff/edit/view.php:44
 msgid "Neighbor"
 msgstr "همسایه"
 
-#: jibres/content_a/staff/edit/view.php:36
+#: jibres/content_a/staff/edit/view.php:45
 msgid "Teacher"
 msgstr "معلم"
 
-#: jibres/content_a/staff/edit/view.php:38
+#: jibres/content_a/staff/edit/view.php:47
 msgid "Boss"
 msgstr "رئیس"
 
-#: jibres/content_a/staff/edit/view.php:39
+#: jibres/content_a/staff/edit/view.php:48
 msgid "Supervisor"
 msgstr "سرپرست"
 
-#: jibres/content_a/staff/edit/view.php:40
+#: jibres/content_a/staff/edit/view.php:49
 msgid "Child"
 msgstr "کودک"
 
-#: jibres/content_a/staff/edit/view.php:41
+#: jibres/content_a/staff/edit/view.php:50
 msgid "Grandson"
 msgstr "نوه"
 
 #: jibres/content_a/staff/general/view.php:11
 msgid "Edit your general"
-msgstr ""
+msgstr "ویرایش"
 
 #: jibres/content_a/staff/general/view.php:12
 msgid "you can edit detail of staff"
@@ -8095,13 +8109,17 @@ msgid ""
 "passport and etc"
 msgstr "تنظیم جزئيات اطلاعات هویتی شخصی مثل تولد، پاسپورت، کدملی،‌ شناسنامه و غیره"
 
+#: jibres/content_a/staff/thumb/model.php:70
+msgid "Not changed!"
+msgstr "تغییری اعمال نشده!"
+
 #: jibres/content_a/staff/thumb/view.php:11
 msgid "Staff thumb"
-msgstr ""
+msgstr "تصویر کارکنان"
 
 #: jibres/content_a/staff/thumb/view.php:12
 msgid "Allow to set and change thumb of staff"
-msgstr ""
+msgstr "شما می توانید برای کارکنان خود تصویری اختصاص دهید یا آن را ویرایش کنید."
 
 #: jibres/content_c/home/view.php:9
 msgid "Jibres Dashboard"
@@ -8510,7 +8528,7 @@ msgid "Factor of team"
 msgstr "فاکتور تیم"
 
 #: jibres/includes/languages/trans_addons.php:35
-#: jibres/includes/languages/trans_twig.php:200
+#: jibres/includes/languages/trans_twig.php:187
 msgid "Price"
 msgstr "قیمت"
 
@@ -8519,7 +8537,7 @@ msgid "Count"
 msgstr "تعداد"
 
 #: jibres/includes/languages/trans_addons.php:40
-#: jibres/includes/languages/trans_twig.php:542
+#: jibres/includes/languages/trans_twig.php:323
 msgid "Billing"
 msgstr "مالی"
 
@@ -8849,146 +8867,34 @@ msgid "Floor2, Yas Building"
 msgstr "ساختمان یاس، طبقه دوم"
 
 #: jibres/includes/languages/trans_twig.php:30
-msgid "Roadmap"
-msgstr "نقشه راه"
-
-#: jibres/includes/languages/trans_twig.php:31
-msgid "Amazing Financial Platform"
-msgstr "بهترین پلتفرم مالی"
-
-#: jibres/includes/languages/trans_twig.php:32
-msgid ""
-"With Jibres we take less time of our customers and this means modern customer "
-"orientation"
-msgstr ""
-"با جیبرس وقت کمتری از مشتری که سهم بیشتری از فروشگاه را دارد گرفته می‌شود و این "
-"یعنی مشتری مداری مدرن"
-
-#: jibres/includes/languages/trans_twig.php:33
-msgid "Majid Sadeghi, Sales Supervisor at SuperSaeed"
-msgstr "مجید صادقی، سرپرست فروش در سوپرسعید"
-
-#: jibres/includes/languages/trans_twig.php:36
-msgid "Next →"
-msgstr "→ بعدی"
-
-#: jibres/includes/languages/trans_twig.php:37
-msgid "← Back"
-msgstr "قبلی ←"
-
-#: jibres/includes/languages/trans_twig.php:38
-msgid "Skip"
-msgstr "خروج"
-
-#: jibres/includes/languages/trans_twig.php:39
-msgid "Done"
-msgstr "اتمام"
-
-#: jibres/includes/languages/trans_twig.php:43
 msgid "Some right reserved!"
 msgstr "برخی از حقوق محفوظ است!"
 
-#: jibres/includes/languages/trans_twig.php:47
-msgid "About"
-msgstr "درباره"
-
-#: jibres/includes/languages/trans_twig.php:48
-msgid "Press and Media"
-msgstr "مطبوعات و رسانه‌ها"
-
-#: jibres/includes/languages/trans_twig.php:49
-msgid "Careers"
-msgstr "فرصت‌های شغلی"
-
-#: jibres/includes/languages/trans_twig.php:50
-msgid "Social Responsibility"
-msgstr "مسئولیت اجتماعی"
-
-#: jibres/includes/languages/trans_twig.php:51
-msgid "FAQ"
-msgstr "سوالات پرتکرار"
-
-#: jibres/includes/languages/trans_twig.php:52
-msgid "Enamad"
-msgstr "نماد اعتماد"
-
-#: jibres/includes/languages/trans_twig.php:54
-msgid "Benefits"
-msgstr "مزایا"
-
-#: jibres/includes/languages/trans_twig.php:55
+#: jibres/includes/languages/trans_twig.php:33
 msgid "Pricing"
 msgstr "هزینه‌ها"
 
-#: jibres/includes/languages/trans_twig.php:56
-msgid "Learn More"
-msgstr "بیشتر بدانید"
-
-#: jibres/includes/languages/trans_twig.php:57
-msgid "Terms of Service"
-msgstr "شرایط استفاده"
-
-#: jibres/includes/languages/trans_twig.php:58
-msgid "Privacy Policy"
-msgstr "حریم خصوصی"
-
-#: jibres/includes/languages/trans_twig.php:59
-msgid "Changelog"
-msgstr "پیشرفت پروژه"
-
-#: jibres/includes/languages/trans_twig.php:60
-msgid "Support"
-msgstr "پشتیبانی"
-
-#: jibres/includes/languages/trans_twig.php:61
+#: jibres/includes/languages/trans_twig.php:34
 msgid "Contact"
 msgstr "تماس"
 
-#: jibres/includes/languages/trans_twig.php:62
-msgid "Logo"
-msgstr "لوگو"
-
-#: jibres/includes/languages/trans_twig.php:63
-msgid "Proudly Made in IRAN"
-msgstr "با افتخار ساخت ایران"
-
-#: jibres/includes/languages/trans_twig.php:65
-msgid "Admin Panel"
-msgstr "پنل ادمین"
-
-#: jibres/includes/languages/trans_twig.php:66
-msgid "Exit Session"
-msgstr "خروج از نشست"
-
-#: jibres/includes/languages/trans_twig.php:67
-msgid "Another Session"
-msgstr "نشست دیگر"
-
-#: jibres/includes/languages/trans_twig.php:70
+#: jibres/includes/languages/trans_twig.php:35
 msgid "Store Panel"
 msgstr "پنل فروشگاه"
 
-#: jibres/includes/languages/trans_twig.php:74
+#: jibres/includes/languages/trans_twig.php:36
+msgid "Admin Panel"
+msgstr "پنل ادمین"
+
+#: jibres/includes/languages/trans_twig.php:40
 msgid "Free"
 msgstr "رایگان"
 
-#: jibres/includes/languages/trans_twig.php:75
+#: jibres/includes/languages/trans_twig.php:41
 msgid "forever"
 msgstr "برای همیشه"
 
-#: jibres/includes/languages/trans_twig.php:77
-msgid "per month"
-msgstr "در ماه"
-
-#: jibres/includes/languages/trans_twig.php:78
-msgid "Standard"
-msgstr "استاندارد"
-
-#: jibres/includes/languages/trans_twig.php:79
-msgid "Full"
-msgstr "کامل"
-
-#: jibres/includes/languages/trans_twig.php:82
+#: jibres/includes/languages/trans_twig.php:42
 msgid ""
 "All the basics for personal use and anyone who wants to explore Jibres for an "
 "<b>unlimited period of time</b>."
@@ -8996,11 +8902,11 @@ msgstr ""
 "تمام نیازهای اولیه برای استفاده شخصی و یا کسانی که می‌خواهند <b>بصورت نامحدود</b> "
 "در جیبرس کنکاش کنند."
 
-#: jibres/includes/languages/trans_twig.php:83
+#: jibres/includes/languages/trans_twig.php:44
 msgid "per active user/month"
 msgstr "به‌ازای هر عضو فعال در ماه"
 
-#: jibres/includes/languages/trans_twig.php:84
+#: jibres/includes/languages/trans_twig.php:45
 msgid ""
 "Everything in Free plus automatic report via Telegram for who wants have a <b>real "
 "time monitoring</b> from anywhere."
@@ -9008,7 +8914,11 @@ msgstr ""
 "تمام داشته‌های پلن رایگان به‌اضافه‌ی گزارش خودکار از طریق تلگرام برای کسانی که "
 "<b>مانیتورینگ لحظه‌ای</b> را از هرجایی می‌خواهند."
 
-#: jibres/includes/languages/trans_twig.php:85
+#: jibres/includes/languages/trans_twig.php:46
+msgid "Standard"
+msgstr "استاندارد"
+
+#: jibres/includes/languages/trans_twig.php:47
 msgid ""
 "For teams and businesses ready to use Jibres as hero. <b>Everything you need</b> "
 "for a growing business."
@@ -9016,106 +8926,529 @@ msgstr ""
 "برای تیم‌ها و کسب و کارهایی که آماده‌ی استفاده از قدرت جیبرس هستند. <b>تمام نیازهای "
 "شما</b> برای یک کسب و کار درحال توسعه."
 
-#: jibres/includes/languages/trans_twig.php:86
+#: jibres/includes/languages/trans_twig.php:48
+msgid "Full"
+msgstr "کامل"
+
+#: jibres/includes/languages/trans_twig.php:49
+msgid "per month"
+msgstr "در ماه"
+
+#: jibres/includes/languages/trans_twig.php:50
 msgid ""
 "For <b>first class companies</b> who requiring full features! All of them is here."
 msgstr ""
 "برای <b>شرکت‌های فرست کلاس</b> که همه امکانات را یکجا می‌خواهند! تمام آن‌ها اینجاست."
 
+#: jibres/includes/languages/trans_twig.php:53
+msgid "Change log of Jibres"
+msgstr "پیشرفت پروژه جیبرس"
+
+#: jibres/includes/languages/trans_twig.php:54
+msgid "We were born to do Best!"
+msgstr "ما برای انجام بهترین‌ها متولد شدیم!"
+
+#: jibres/includes/languages/trans_twig.php:55
+msgid "We are Developers, please wait!"
+msgstr "ما توسعه دهنده هستیم، صبور باشید!"
+
+#: jibres/includes/languages/trans_twig.php:58
+msgid "Version 3 of Jibres released with new features and bugfixes and improvements."
+msgstr "نسخه سوم جیبرس با امکانات جدید و رفع برخی از مشکلات قبلی از راه رسید."
+
+#: jibres/includes/languages/trans_twig.php:59
+msgid "Version 2 of Jibres is released and ready to used by everyone in everyteam."
+msgstr "نسخه دوم جیبرس منتشر شد و آماده استفاده توسط هر شخصی در هر تیمی است."
+
+#: jibres/includes/languages/trans_twig.php:60
+msgid "We are ready to have some change on Jibres and publish it as public service."
+msgstr ""
+"ما آماده شروع برای انجام برخی تغییرات در جیبرس برای تجاری‌سازی آن هستیم و سپس آن را "
+"به‌عنوان یک سرویس عمومی عرضه می‌کنیم."
+
+#: jibres/includes/languages/trans_twig.php:61
+msgid "Version 1 of Jibres released."
+msgstr "نسخه اول جیبرس منتشر شد."
+
+#: jibres/includes/languages/trans_twig.php:62
+msgid "This version is used in Ermile without plan to publish it."
+msgstr ""
+"این نسخه به‌صورت اختصاصی برای ارمایل مورد استفاده قرار گرفت و برنامه‌ای برای عرضه "
+"عمومی این نسخه وجود ندارد."
+
+#: jibres/includes/languages/trans_twig.php:63
+msgid "Beta version of Jibres released"
+msgstr "نسخه بتای جیبرس منتشر شد"
+
+#: jibres/includes/languages/trans_twig.php:64
+msgid "Alfa version of Jibres released"
+msgstr "نسخه آلفای جیبرس منتشر شد"
+
+#: jibres/includes/languages/trans_twig.php:65
+msgid "First enterence traffic of Jibres is registered for Ermile."
+msgstr "اولین تردد ورود به جیبرس در ارمایل به ثبت رسید."
+
+#: jibres/includes/languages/trans_twig.php:66
+msgid ""
+"The name of project selected as Jibres and <a href='http://Jibres.ir'>Jibres.ir</"
+"a> domains registered."
+msgstr ""
+"نام جیبرس برای این پروژه برگزیده شده و دامنه‌ی <a href='http://Jibres.ir'>Jibres."
+"ir</a> ثبت شد."
+
+#: jibres/includes/languages/trans_twig.php:69
+msgid "Jibres Logo"
+msgstr "لوگوی جیبرس"
+
+#: jibres/includes/languages/trans_twig.php:70
+msgid "Need know more about Jibres Logo? Be patient..."
+msgstr "نیاز به دانستن بیشتر درباره لوگوی جیبرس دارید؟ صبور باشید..."
+
+#: jibres/includes/languages/trans_twig.php:71
+msgid "Drawing logo"
+msgstr "ترسیم نشان‌واره"
+
+#: jibres/includes/languages/trans_twig.php:72
+msgid "Dowload our logo"
+msgstr "نشان‌واره‌ی ما را دریافت کنید"
+
+#: jibres/includes/languages/trans_twig.php:73
+msgid "Square"
+msgstr "مربع"
+
+#: jibres/includes/languages/trans_twig.php:74
+msgid "Circle"
+msgstr "دایره"
+
+#: jibres/includes/languages/trans_twig.php:77
+msgid "Help Center"
+msgstr "مرکز راهنمایی"
+
+#: jibres/includes/languages/trans_twig.php:78
+msgid "Need HELP? Be patient..."
+msgstr "کمک نیاز دارید؟ صبور باشید..."
+
+#: jibres/includes/languages/trans_twig.php:81
+msgid "FAQ"
+msgstr "سوالات پرتکرار"
+
+#: jibres/includes/languages/trans_twig.php:82
+msgid "This FAQ provides answers to basic questions about Jibres."
+msgstr "این سوالات متداول برای پاسخ به سوالات ساده‌ای درباره جیبرس است."
+
+#: jibres/includes/languages/trans_twig.php:83
+msgid "General questions"
+msgstr "سوالات عمومی"
+
+#: jibres/includes/languages/trans_twig.php:84
+msgid "How does Jibres work?"
+msgstr "جیبرس چگونه کار می‌کند؟"
+
+#: jibres/includes/languages/trans_twig.php:85
+msgid ""
+"The easiest way to learn how to use Tejark is enter to it, which takes less than 3 "
+"minutes to setup your team."
+msgstr ""
+"آسان‌ترین راه برای یادگیری نحوه‌ی کارکرد ازویر ورود به آن است که کمتر از ۳ دقیقه از "
+"زمان شما را برای راه‌اندازی اولیه و شروع به‌کار می‌گیرد."
+
+#: jibres/includes/languages/trans_twig.php:86
+msgid "What is your privacy and security policy?"
+msgstr "قوانین و شرایط حریم خصوصی شما چیست؟"
+
+#: jibres/includes/languages/trans_twig.php:87
+msgid "View Jibres's privacy and security policy at"
+msgstr "نگاه ما به حریم خصوصی را در این صفحه بخوانید"
+
+#: jibres/includes/languages/trans_twig.php:88
+msgid "Where can I find your Terms of Service (TOS)?"
+msgstr "کجا می‌توانم شرایط و قوانین استفاده از سرویس را پیدا کنم؟"
+
 #: jibres/includes/languages/trans_twig.php:89
-msgid "About Jibres"
-msgstr "درباره جیبرس"
+msgid "You can find them at"
+msgstr "شما می‌توانید آن را در اینجا بیابید"
 
 #: jibres/includes/languages/trans_twig.php:90
-msgid ""
-"Jibres have a set of simple and practical tools on a regular basis for modern "
-"businesses."
-msgstr ""
-"جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار کسب و کارهای "
-"مدرن و همینطور تجارت‌های سنتی مایل به حرکت به‌سوی تکنولوژی قرار می‌دهد."
+msgid "What are your bandwidth fees?"
+msgstr "تعرفه‌ی پهنای باند شما چقدر است؟"
 
 #: jibres/includes/languages/trans_twig.php:91
-msgid ""
-"Advancement of technology and development of Web-based business Cause Need new "
-"tools to resolve the daily needs and that’s the goal of making Jibres."
+msgid "There are none. All Jibres plans include unlimited bandwidth for free."
 msgstr ""
-"با پیشرفت روزافزون تکنولوژی و گسترش کسب و کارهای مدرن مبتنی بر وب، احتیاج به "
-"ابزارهایی مدرن برای رفع نیازهای روزمره، جرقه‌ای برای تولد جیبرس بود."
+"هیچ! تمامی پلن‌های جیبرس شامل پهنای‌باند نامحدود رایگان هستند و شما هزینه‌ای برای "
+"پهنای‌باند پرداخت نمی‌کنید."
 
 #: jibres/includes/languages/trans_twig.php:92
-msgid ""
-"It’s good to know that in addition to the core services, features such as "
-"inventory and invoice will be added."
-msgstr ""
-"قابل توجه اینکه علاوه‌بر توسعه‌ی خدمات اصلی، بخش‌های کوچک‌تر و کاربردی در روند توسعه "
-"ازویر به آن افزوده خواهند شد."
+msgid "Do I need a web host?"
+msgstr "آیا برای استفاده از ازویر نیاز به هاست دارم؟"
 
 #: jibres/includes/languages/trans_twig.php:93
-msgid "Attendance system"
-msgstr "سرویس حضور و غیاب"
+msgid ""
+"No! Jibres includes secure, unlimited hosting on all plans with free bandwith."
+msgstr ""
+"خیر! جیبرس به‌همراه هاست نامحدود و امن شده بر روی تمامی پلن‌ها به همراه پهنای باند "
+"نامحدود برای شما قابل استفاده است."
 
 #: jibres/includes/languages/trans_twig.php:94
-msgid ""
-"Attendance is so different in Jibres. Beautiful and stylish design without "
-"requiring any hardware. Notification via social networks, Online reports and "
-"difference compared to other systems are the best feature of Jibres."
-msgstr ""
-"هسته‌ی اصلی جیبرس، سامانه حضور و غیاب متفاوت آن نسبت به نمونه‌های موجود است. طراحی "
-"مدرن و چشم‌نواز، بی‌نیاز به تهیه سخت‌افزار، اطلاع‌رسانی از طریق شبکه‌های اجتماعی، "
-"آنلاین و لحظه‌ای بودن گزارشات و مهم‌تر از همه تفاوت آن، از بارزترین مزایای سرویس "
-"حضور و غیاب جیبرس است."
+msgid "Billing & Invoicing"
+msgstr "مالی و فاکتور"
 
 #: jibres/includes/languages/trans_twig.php:95
-msgid "Daily report"
-msgstr "گزارش روزانه"
+msgid "Is there a setup fee?"
+msgstr "آیا هزینه اولیه راه‌اندازی وجود داد؟"
 
 #: jibres/includes/languages/trans_twig.php:96
-msgid ""
-"In many collections received daily reports of the employees is very important. On "
-"the other hands Employees reluctant to do that. In addition to the classical "
-"method, using social networks on Twitter and Daily Telegram reported in Jibres "
-"possible to get there."
-msgstr ""
-"در اغلب مجموعه‌ها دریافت گزارش روزانه از کارکنان به‌عنوان بخشی مهم از برنامه‌ریزی "
-"سازمانی است. از طرفی به دلایل گوناگون کارکنان تمایل چندانی به این عمل ندارند. با "
-"به‌خدمت گرفتن شبکه‌های اجتماعی علاوه‌بر روش‌های کلاسیک ثبت گزارش روزانه، جیبرس امکان "
-"دریافت گزارش کار را از طریق توییتر و تلگرام نیز امکان‌پذیر کرده و عملکردهای جدیدی "
-"را نیز ارائه می‌دهد."
+msgid "No. There are no setup fees on any of our plans!"
+msgstr "نه. هیچ‌گونه هزینه اولیه راه‌اندازی برای هیچ‌کدام از پلن‌ها وجود ندارد!"
 
 #: jibres/includes/languages/trans_twig.php:97
-msgid "Salary calculator"
-msgstr "محاسبه حقوق و دستمزد"
+msgid "Can I cancel my account at any time?"
+msgstr "آیا می‌توانم حساب‌کاربری خودم را هر زمانی لغو کنم؟"
 
 #: jibres/includes/languages/trans_twig.php:98
 msgid ""
-"For many small business is very complex method of calculating monthly salary and "
-"they Need to have simpler method. In addition to supporting traditional methods, "
-"Jibres provide monthly salary simple solutions to employees have modern and "
-"beautiful Payroll."
+"Yes. If you ever decide that Jibres isn’t the best platform for your business, "
+"simply cancel your account."
 msgstr ""
-"پیچیدگی‌های روش محاسبه حقوق و دستمزد ماهیانه در ایران، برای بسیاری از کسب و کارهای "
-"خرد دست و پاگیر بوده و نیاز به روش‌های ساده‌تری برای محاسبه سال‌هاست که نیاز بسیاری "
-"از کسب و کارهاست. جیبرس علاوه بر پشتیبانی از روش‌های سنتی ولی سخت، راه‌حل‌هایی ساده "
-"برای حقوق ماهیانه کارکنان ارائه می‌دهد تا کارکنان امروزی، فیش‌های حقوقی مدرن و زیبا "
-"را هم تجربه کنند."
+"بله. اگر هر زمانی تصمیم گرفتید که جیبرس بهترین خدمات موجود را به کسب و کار شما "
+"ارائه نمی‌دهد، به‌راحتی اکانت خود را لغو کنید."
+
+#: jibres/includes/languages/trans_twig.php:99
+msgid "How long are your contracts?"
+msgstr "مدت زمان قراردادهای شما چقدر است؟"
+
+#: jibres/includes/languages/trans_twig.php:100
+msgid "All Jibres plans are month to month. simple."
+msgstr "تمامی پلن‌های جیبرس به مدت یکماه است. ساده‌ی ساده."
 
 #: jibres/includes/languages/trans_twig.php:101
-msgid "Jibres benefits"
-msgstr "مزایای جیبرس"
+msgid "Can I change my plan later on?"
+msgstr "آیا در آینده می‌توانم پلن انتخابی را تغییر دهم؟"
 
 #: jibres/includes/languages/trans_twig.php:102
-msgid "What can you do with Jibres?"
-msgstr "جیبرس چه کارهایی میتواند انجام دهد؟"
+msgid "Absolutely! You can upgrade or downgrade your plan at any time."
+msgstr ""
+"قطعا! شما هر زمانی لازم دیدید می‌توانید پلن خود را ارتقا داده و یا به پلن‌های "
+"پایین‌تر جابجا شوید."
 
-#: jibres/includes/languages/trans_twig.php:105
+#: jibres/includes/languages/trans_twig.php:103
+msgid "When is my billing date?"
+msgstr "موعد پرداخت هزینه‌های مالی من چه‌زمانی است؟"
+
+#: jibres/includes/languages/trans_twig.php:104
+msgid ""
+"The date you first select a paid plan will be the recurring billing date. For "
+"example: If you sign up for the first time on July 15, all future charges will be "
+"billed on the 15th of every month."
+msgstr ""
+"اولین روزی که پلن مالی را انتخاب کردید به‌عنوان روز شروع تعیین شده و در دوره‌های "
+"زمانی تکرار می‌شود. به‌طور مثال اگر شما اولین بار در تاریخ ۱۷ خرداد پلن خود را "
+"انتخاب کردید، تمامی فاکتورهای بعدی در تاریخ ۱۷‌ ام ماه‌های آینده صادر و کسر خواهند "
+"شد."
+
+#: jibres/includes/languages/trans_twig.php:107
+msgid "Jibres Social Responsibility"
+msgstr "مسئولیت اجتماعی جیبرس"
+
+#: jibres/includes/languages/trans_twig.php:108
+msgid ""
+"Social responsibility refers to our role in maintaining, caring about and helping "
+"our society, while having set as its goal a responsibility-centered enterprise "
+"along with wealth production."
+msgstr ""
+"مسئولیت اجتماعی به نقش ما در جهت حفظ، مراقبت و کمک به جامعه‌ای که در آن هستیم اشاره "
+"می‌کند و هدف آن کسب‌وکار مسئولانه‌ی همراه با تولید ثروت است."
+
+#: jibres/includes/languages/trans_twig.php:109
+msgid ""
+"The issue of the social responsibility of organizations and corporations towards "
+"the society is from among the important issues being focused on in recent years."
+msgstr ""
+"موضوع مسئولیت اجتماعی سازمان‌ها و شرکت‌ها نسبت به جامعه از جمله موضوعات مهمی است که "
+"در سال‌های اخیر مورد اهمیت قرار گرفته است."
+
+#: jibres/includes/languages/trans_twig.php:110
+msgid ""
+"The social responsibility of organizations relates to the organization's "
+"responsibility towards society, human beings and the environment in which they are "
+"active."
+msgstr ""
+"مسئولیت اجتماعی سازمان‌ها مرتبط با مسئولیت سازمان در برابر جامعه، انسان‌ها و محیطی "
+"است که در آن فعالیت می‌کند. این مسئولیت فراتر از قوانین مرسوم و منافع مالی سازمان "
+"بوده و پیشرفت منافع اجتماعی را دنبال می‌کند."
+
+#: jibres/includes/languages/trans_twig.php:111
+msgid "Jibres's Social Responsibilities"
+msgstr "مسئولیت‌های اجتماعی جیبرس"
+
+#: jibres/includes/languages/trans_twig.php:112
+msgid ""
+"Based on the mentioned definitions of social responsibility, Jibres considers "
+"itself committed to society. Accordingly, besides attempting to offer creative and "
+"effective services, Jibres has invariably had social responsibility as one of its "
+"most important missions and, God willing, will continue to do so."
+msgstr ""
+"براساس تعاریفی که از مسئولیت اجتماعی شد، جیبرس نیز خود را در قبال جامعه متعهد "
+"دانسته و در کنار تلاش جهت ارائه خدمات خلاقانه و اثربخش، همواره مسئولیت اجتماعی از "
+"مهم‌ترین ماموریت‌های جیبرس بوده و به‌امیدخدا خواهد بود."
+
+#: jibres/includes/languages/trans_twig.php:113
+msgid "Environmentalist"
+msgstr "دوست‌دار محیط‌زیست"
+
+#: jibres/includes/languages/trans_twig.php:114
+msgid ""
+"In spite of technological advancements, paper usage is unfortunately preferred to "
+"modern ways. One of Jibres's objectives is trying to change this habit and "
+"contribute to the elimination of paper from the routine life and, therefore, to "
+"save the environment."
+msgstr ""
+"با وجود پیشرفت تکنولوژی، متاسفانه همچنان علاقه به استفاده از کاغذ قابل پذیرش‌تر از "
+"روش‌های مدرن است؛ یکی از اهداف جیبرس تلاش برای تغییر این عادت و کمک به حذف کاغذ از "
+"زندگی روزمره و درنتیجه حفظ محیط‌زیست است."
+
+#: jibres/includes/languages/trans_twig.php:115
+msgid ""
+"Accordingly, with the aim of total elimination of paper use as well as electronic "
+"presentation of services, Jibres has taken significant steps towards "
+"environmentalism. Be informed about Jibres's paper-saving quantity."
+msgstr ""
+"جیبرس با حذف صددرصدی استفاده از کاغذ و ارائه خدمات به صورت الکترونیکی توانسته "
+"اقدامی مهم در زمینه حفظ محیط‌زیست داشته باشد. از میزان صرفه‌جویی جیبرس در مصرف کاغذ "
+"آگاه شوید."
+
+#: jibres/includes/languages/trans_twig.php:116
+msgid "Philanthropist Activities"
+msgstr "فعالیت‌های خیرخواهانه"
+
+#: jibres/includes/languages/trans_twig.php:117
+msgid ""
+"One of the most valuable resources of charity organizations is the voluntary and "
+"active participation of the individuals who, without any expectations, provide "
+"them with their skillfulness and capital."
+msgstr ""
+"یکی از ارزشمندترین سرمایه‌‌ی سازمان‌های خیریه، فعالیت و مشارکت داوطلبانه افرادی است "
+"که مهارت و سرمایه خود را بدون هیچ چشم‌داشتی در اختیار آن‌ها قرار می‌دهند."
+
+#: jibres/includes/languages/trans_twig.php:118
+msgid ""
+"Jibres as well, with regard to its contribution to philanthropist activities, will "
+"honorably provide them with its services free of charge. To make use of these "
+"services, send your identity documents along with your request to Jibres's support "
+"center."
+msgstr ""
+"جیبرس نیز با توجه به ماموریت خود در راستای کمک به فعالیت‌های خیرخواهانه، خدمات خود "
+"را با افتخار و به‌صورت رایگان دراختیار آنان قرار می‌دهد. برای استفاده از این خدمات، "
+"درخواست خود را همراه با مدارک احراز هویت به مرکز پشتیبانی جیبرس ارسال نمایید."
+
+#: jibres/includes/languages/trans_twig.php:119
+msgid "Recruiting Motivated Staff"
+msgstr "بکارگیری نیروهای باانگیزه"
+
+#: jibres/includes/languages/trans_twig.php:120
+msgid ""
+"An outstanding characteristic of any organization is its specialized and highly "
+"motivated staff, playing a vital role in growth and development."
+msgstr ""
+"ویژگی چشم‌گیر و بارز هر سازمانی وجود نیروی‌ انسانی باانگیزه و متخصص است که نقشی "
+"بنیادین در رشد و توسعه دارند."
+
+#: jibres/includes/languages/trans_twig.php:121
+msgid ""
+"By the same token, we are always looking for creative and motivated Iranian youths "
+"in order to make the best and be effective in cooperation with them."
+msgstr ""
+"ما هم در این راستا و برای خدمت به سرزمین‌مان، به دنبال جوانان ایرانی خلاق و "
+"باانگیزه هستیم تا با کمک هم برترین‌ها را بسازیم و اثرگذار باشیم."
+
+#: jibres/includes/languages/trans_twig.php:122
+msgid "Join us and grow in a different location."
+msgstr "به ما بپیوندید و در مکانی متفاوت رشد کنید."
+
+#: jibres/includes/languages/trans_twig.php:123
+msgid "Customer Care and Complete Satisfaction"
+msgstr "مشتری‌مداری و کسب رضایت کامل"
+
+#: jibres/includes/languages/trans_twig.php:124
+msgid ""
+"Attracting people's participation as well as having their valuable presence has "
+"always been a great honor for Jibres and to appreciate your support, in return, "
+"Jibres presents services to promote customer satisfaction."
+msgstr ""
+"جلب مشارکت مردم و حضور ارزشمند آنان در جیبرس باعث افتخار ما بوده و به‌منظور قدردانی "
+"از این حمایت، جیبرس نیز خدمات متقابلی را برای افزایش رضایت مشتریان خود ارائه می‌کند."
+
+#: jibres/includes/languages/trans_twig.php:125
+msgid ""
+"These services are presented in different time intervals and are aimed at costomer "
+"care mission and appreciation of your valuable presence."
+msgstr ""
+"این خدمات در بازه‌های زمانی متفاوت ارائه‌شده و در راستای ماموریت مشتری‌مداری و ارج "
+"نهادن به این حضور گرانبها می‌باشد."
+
+#: jibres/includes/languages/trans_twig.php:128
+msgid "Jibres for School"
+msgstr "جیبرس برای مدارس"
+
+#: jibres/includes/languages/trans_twig.php:129
+msgid "Jibres provide complete solution for school."
+msgstr "جیبرس راه‌حل کاملی را برای کنترل مدارس ارائه می‌کند."
+
+#: jibres/includes/languages/trans_twig.php:130
+msgid "Now only available for Iranians"
+msgstr "درحال حاضر تنها برای ایرانیان فعال است"
+
+#: jibres/includes/languages/trans_twig.php:133
+msgid "Jibres solutions"
+msgstr "راه‌حل‌های جیبرس"
+
+#: jibres/includes/languages/trans_twig.php:134
+msgid "Jibres is trying to have a solution for special business."
+msgstr "جیبرس در تلاش برای ارائه راه‌حل‌هایی برای کسب و کارهای خاص است."
+
+#: jibres/includes/languages/trans_twig.php:135
+msgid "Check Jibres for School."
+msgstr "جیبرس برای مدارس."
+
+#: jibres/includes/languages/trans_twig.php:138
+msgid "Terms of Service Agreement"
+msgstr "توافق‌نامه استفاده از سرویس"
+
+#: jibres/includes/languages/trans_twig.php:139
+msgid ""
+"Jibres acts upon international rules, depends on the countries receiving its "
+"services and renders its activities within this framework."
+msgstr ""
+"جیبرس مطابق قوانین بین‌الملل و وابسته به کشورهای دریافت‌کننده خدمات بوده و در این "
+"چارچوب فعالیت می‌نماید."
+
+#: jibres/includes/languages/trans_twig.php:140
+msgid ""
+"Utilizing Jibres's services means the acceptance of and commitment to observing "
+"all the tenors of this agreement."
+msgstr ""
+"استفاده از خدمات جیبرس به منزله‌ پذیرش و تعهد به رعایت تمام مفاد مندرج در این "
+"توافق‌نامه است."
+
+#: jibres/includes/languages/trans_twig.php:141
+msgid ""
+"It is worth mentioning that due to the insecurity of cyberspace, you should never "
+"post your vital information on either Jibres or any other services!"
+msgstr ""
+"لازم به یادآوری‌ست که با توجه به ناامن بودن فضای ‌مجازی، نه تنها در جیبرس بلکه در "
+"هیچ سرویس دیگری، اطلاعات حیاتی خود را منتشر نکنید!"
+
+#: jibres/includes/languages/trans_twig.php:142
+msgid ""
+"User's personal information is strictly confidential in our service. Jibres "
+"preserves the information as encoded and will not under any conditions transfer it "
+"to another person."
+msgstr ""
+"اطلاعات شخصی کاربران در این سرویس به‌صورت کاملا محرمانه می‌باشد و جیبرس این اطلاعات "
+"را به صورت کدشده نگه‌داری کرده و تحت هیچ شرایطی آن‌را به غیر واگذار نخواهد کرد."
+
+#: jibres/includes/languages/trans_twig.php:143
+msgid ""
+"In case there is a request for receiving user's information by the competent "
+"authorities, according to the country the user lives in, Jibres will cooperate "
+"with them only upon receiving the judicial order issued by the country submitting "
+"the request."
+msgstr ""
+"با توجه به کشور محل سکونت کاربر، درصورت درخواست مراجع دارای صلاحیت به دریافت "
+"اطلاعات‌کاربری، جیبرس تنها پس از دریافت حکم قضایی کشور درخواست کننده، توانایی "
+"همکاری با آنان را خواهد داشت."
+
+#: jibres/includes/languages/trans_twig.php:144
+msgid ""
+"Jibres will not offer any guarantee as to the quality of the products or services "
+"presented by the teams and will not accept any responsibility in this regard!"
+msgstr ""
+"جیبرس هیچگونه ضمانتی در مورد کیفیت محصولات یا خدمات ارائه شده توسط تیم‌ها را "
+"نمی‌پذیرد و مسئولیتی در قبال آن ندارد!"
+
+#: jibres/includes/languages/trans_twig.php:145
+msgid ""
+"Users should assume responsibility for any harm, both material and immaterial, "
+"caused by direct, indirect or penal factors and due to their utilization of this "
+"service; and, Jibres bears no responsibility accordingly."
+msgstr ""
+"خسارت‌های‌ مادی و معنوی ناشی از عوامل مستقیم، غیرمستقیم و کیفری، در قبال استفاده از "
+"این سرویس برعهده کاربران بوده و جیبرس هیچ‌گونه مسئولیتی دراین‌باره ندارد."
+
+#: jibres/includes/languages/trans_twig.php:146
+msgid ""
+"Jibres accepts no responsibility, under any conditions, for the harms caused by "
+"users' mutual trust in each other or by the disclosure of information by users."
+msgstr ""
+"تحت هیچ شرایطی جیبرس مسئولیت خسارت‌های وارده در اثر اعتماد و اتکاء اعضاء به یکدیگر "
+"و فاش‌شدن اطلاعات توسط کاربر را نمی‌پذیرد."
+
+#: jibres/includes/languages/trans_twig.php:147
+msgid ""
+"Jibres will do its best to protect both the users' information and the service; "
+"however, regarding the lack of certainty within the cyberspace, it will not assume "
+"any responsibility for the loss of the information entered on the service."
+msgstr ""
+"جیبرس تمام تلاش خود را برای محافظت از اطلاعات کاربران و سرویس می‌نماید؛ ولی با توجه "
+"به عدم قطعیت در فضای مجازی، مسئولیتی در مورد از بين رفتن اطلاعات قرارگرفته بر روی "
+"سرویس نخواهد پذیرفت."
+
+#: jibres/includes/languages/trans_twig.php:148
+msgid ""
+"We will publicize our information and news only via Jibres's formal website. "
+"Accordingly, those who publicize any attributed news and claims, within social "
+"media and networks, must assume the responsibility and Jibres will not assume any "
+"responsibility."
+msgstr ""
+"اخبار و اطلاعات ما تنها از طریق وب‌سایت رسمی جیبرس منتشر می‌شود. مسئولیت هرگونه خبر "
+"و ادعای نسبت‌داده‌شده در رسانه‌ها و شبکه‌های اجتماعی به عهده منتشرکننده آن بوده و "
+"جیبرس مسئولیتی در قبال آن ندارد."
+
+#: jibres/includes/languages/trans_twig.php:149
+msgid ""
+"Jibres will bear no responsibility for whatsoever messages sent to users, "
+"including those indicating winning a lottery, and all our information "
+"dissemination will be through the ways of Jibres's contact with users."
+msgstr ""
+"جیبرس هیچ مسئولیتی در مقابل پیام‌های ارسالی مبنی بر برنده‌شدن در قرعه‌کشی یا هر پیام "
+"دیگری نداشته و تمام اطلاع‌رسانی‌های ما از طریق روش‌های برقراری ارتباط کاربر با جیبرس "
+"خواهد بود."
+
+#: jibres/includes/languages/trans_twig.php:150
+msgid ""
+"Any misuse of Jibres's trade name is prohibited and will be suable by making a "
+"complaint to the legal competent authorities."
+msgstr ""
+"هرگونه سوءاستفاده از نام تجاری جیبرس ممنوع بوده و از طریق شکایت به مراجع قانونی "
+"دارای صلاحیت، قابل پیگرد خواهد بود."
+
+#: jibres/includes/languages/trans_twig.php:151
+msgid ""
+"Furthermore, this agreement, under the name Terms and Conditions, will be "
+"available and observable, in all pages of the website. Users will be responsible "
+"for a lack of information on the most recent changes."
+msgstr ""
+"هم‌چنین این توافق‌نامه در تمام صفحات وب‌سایت با عنوان شرایط و قوانین موجود و قابل "
+"مشاهده است. مسئولیت عدم کسب اطلاع از آخرین تغییرات برعهده کاربر خواهد بود."
+
+#: jibres/includes/languages/trans_twig.php:152
+msgid ""
+"It should be mentioned that in case there would be any modifications in the above-"
+"mentioned tenors, an updated version will be available for the public, and as "
+"well, all the users will be informed."
+msgstr ""
+"لازم به ذکر است که درصورت هرگونه تغییر در مفاد ذکر شده، نسخه به‌روزشده آن در دسترس "
+"عموم قرار خواهد گرفت و به اطلاع تمام کاربران خواهد رسید."
+
+#: jibres/includes/languages/trans_twig.php:155
 msgid "Personnel Card"
 msgstr "کارت پرسنلی"
 
-#: jibres/includes/languages/trans_twig.php:106
+#: jibres/includes/languages/trans_twig.php:156
 msgid "A beautiful and quick way for attendance"
 msgstr "یک روش زیبا و سریع برای حضور و غیاب"
 
-#: jibres/includes/languages/trans_twig.php:107
+#: jibres/includes/languages/trans_twig.php:157
 msgid ""
 "Setup your dedicated and beautiful attendance system in less than a minute and "
 "have a <span>real time</span> and scrupulously monitoring on your business from "
@@ -9124,15 +9457,15 @@ msgstr ""
 "سامانه‌ی حضور و غیاب اختصاصی و چشم‌نواز خودتان را در چند دقیقه راه‌اندازی کرده و از "
 "هرجایی بر کسب و کارتان نظارت <span>لحظه‌ای</span> و موشکافانه داشته باشید"
 
-#: jibres/includes/languages/trans_twig.php:108
+#: jibres/includes/languages/trans_twig.php:158
 msgid "Order Now"
 msgstr "هم‌اکنون سفارش دهید"
 
-#: jibres/includes/languages/trans_twig.php:109
+#: jibres/includes/languages/trans_twig.php:159
 msgid "Logo and personal information"
 msgstr "لوگو و اطلاعات شخصی"
 
-#: jibres/includes/languages/trans_twig.php:110
+#: jibres/includes/languages/trans_twig.php:160
 msgid ""
 "Try the logo of your organization or your company on one of existing designs and "
 "after choosing the right card, enter personal information of your employees, such "
@@ -9145,7 +9478,7 @@ msgstr ""
 "خانوادگی و موقعیت شغلی بپردازید. کارت‌های پرسنلی چشم‌نواز جیبرس علاوه بر تسهیل "
 "فرآیند حضور و غیاب، روش مناسبی برای نمایش نشان‌واره و گسترش نام تجاری شما هستند."
 
-#: jibres/includes/languages/trans_twig.php:113
+#: jibres/includes/languages/trans_twig.php:163
 msgid ""
 "Always have a plan B! By printing the staffing numbers in barcode format behind "
 "the personnel cards, you can register employee attendance at the time of the "
@@ -9158,11 +9491,11 @@ msgstr ""
 "اسکنر یا با استفاده از گوشی تلفن همراه خود حضور و غیاب کارکنان را ثبت کنید. "
 "علاوه‌براین چاپ بارکد در پشت کارت پرسنلی به زیبایی آن می‌افزاید."
 
-#: jibres/includes/languages/trans_twig.php:114
+#: jibres/includes/languages/trans_twig.php:164
 msgid "Custom design"
 msgstr "طرح سفارشی"
 
-#: jibres/includes/languages/trans_twig.php:115
+#: jibres/includes/languages/trans_twig.php:165
 msgid ""
 "Did not any of Jibres designs for staff card satisfy your satisfaction? Would you "
 "like to get started and print your design on your cards? No problem! Instead of "
@@ -9174,19 +9507,19 @@ msgstr ""
 "نیست! به‌جای استفاده از طرح‌های جیبرس، طرح مورد نظر خودتان را برای ما ارسال کنید و "
 "کارت‌هایتان را در اسرع وقت با بالاترین کیفیت ممکن تحویل بگیرید."
 
-#: jibres/includes/languages/trans_twig.php:116
+#: jibres/includes/languages/trans_twig.php:166
 msgid "Jibres logo"
 msgstr "لوگو جیبرس"
 
-#: jibres/includes/languages/trans_twig.php:117
+#: jibres/includes/languages/trans_twig.php:167
 msgid "Sample personal card"
 msgstr "نمونه کارت پرسنلی"
 
-#: jibres/includes/languages/trans_twig.php:118
+#: jibres/includes/languages/trans_twig.php:168
 msgid "Fast delivery"
 msgstr "تحویل سریع"
 
-#: jibres/includes/languages/trans_twig.php:119
+#: jibres/includes/languages/trans_twig.php:169
 msgid ""
 "Time is gold and Jibres is a gold mining machine! We have made every effort at "
 "Jibres to begin the process of approval and printing of personnel cards from the "
@@ -9198,11 +9531,11 @@ msgstr ""
 "شود تا شما بتوانید در کوتاه‌ترین زمان ممکن سفارش خود را تحویل گرفته روند حضور و "
 "غیاب خود را حرفه‌ای‌تر انجام بدهید."
 
-#: jibres/includes/languages/trans_twig.php:120
+#: jibres/includes/languages/trans_twig.php:170
 msgid "Good cost"
 msgstr "هزینه مناسب"
 
-#: jibres/includes/languages/trans_twig.php:121
+#: jibres/includes/languages/trans_twig.php:171
 msgid ""
 "Getting information on the types of personnel cards and the cost of printing is "
 "easy and you can complete the registration process with full details. We take all "
@@ -9215,79 +9548,23 @@ msgstr ""
 "کارت‌های پرسنلی، همه‌ی توان خود را به‌کار گرفته‌ایم تا با مناسب‌ترین هزینه و بالاترین "
 "کیفیت ممکن خدمات خود را به شما مشتریان و کاربران گرامی برسانیم."
 
-#: jibres/includes/languages/trans_twig.php:122
+#: jibres/includes/languages/trans_twig.php:172
 msgid "Interested?"
 msgstr "علاقه‌مند شدید؟"
 
-#: jibres/includes/languages/trans_twig.php:123
+#: jibres/includes/languages/trans_twig.php:173
 msgid "Order your personnel cards"
 msgstr "کارت‌های پرسنلی خود را سفارش دهید"
 
-#: jibres/includes/languages/trans_twig.php:126
-msgid "Change log of Jibres"
-msgstr "پیشرفت پروژه جیبرس"
-
-#: jibres/includes/languages/trans_twig.php:127
-msgid "We were born to do Best!"
-msgstr "ما برای انجام بهترین‌ها متولد شدیم!"
-
-#: jibres/includes/languages/trans_twig.php:128
-msgid "We are Developers, please wait!"
-msgstr "ما توسعه دهنده هستیم، صبور باشید!"
-
-#: jibres/includes/languages/trans_twig.php:131
-msgid "Version 3 of Jibres released with new features and bugfixes and improvements."
-msgstr "نسخه سوم جیبرس با امکانات جدید و رفع برخی از مشکلات قبلی از راه رسید."
-
-#: jibres/includes/languages/trans_twig.php:132
-msgid "Version 2 of Jibres is released and ready to used by everyone in everyteam."
-msgstr "نسخه دوم جیبرس منتشر شد و آماده استفاده توسط هر شخصی در هر تیمی است."
-
-#: jibres/includes/languages/trans_twig.php:133
-msgid "We are ready to have some change on Jibres and publish it as public service."
-msgstr ""
-"ما آماده شروع برای انجام برخی تغییرات در جیبرس برای تجاری‌سازی آن هستیم و سپس آن را "
-"به‌عنوان یک سرویس عمومی عرضه می‌کنیم."
-
-#: jibres/includes/languages/trans_twig.php:134
-msgid "Version 1 of Jibres released."
-msgstr "نسخه اول جیبرس منتشر شد."
-
-#: jibres/includes/languages/trans_twig.php:135
-msgid "This version is used in Ermile without plan to publish it."
-msgstr ""
-"این نسخه به‌صورت اختصاصی برای ارمایل مورد استفاده قرار گرفت و برنامه‌ای برای عرضه "
-"عمومی این نسخه وجود ندارد."
-
-#: jibres/includes/languages/trans_twig.php:136
-msgid "Beta version of Jibres released"
-msgstr "نسخه بتای جیبرس منتشر شد"
-
-#: jibres/includes/languages/trans_twig.php:137
-msgid "Alfa version of Jibres released"
-msgstr "نسخه آلفای جیبرس منتشر شد"
-
-#: jibres/includes/languages/trans_twig.php:138
-msgid "First enterence traffic of Jibres is registered for Ermile."
-msgstr "اولین تردد ورود به جیبرس در ارمایل به ثبت رسید."
-
-#: jibres/includes/languages/trans_twig.php:139
-msgid ""
-"The name of project selected as Jibres and <a href='http://Jibres.ir'>Jibres.ir</"
-"a> domains registered."
-msgstr ""
-"نام جیبرس برای این پروژه برگزیده شده و دامنه‌ی <a href='http://Jibres.ir'>Jibres."
-"ir</a> ثبت شد."
-
-#: jibres/includes/languages/trans_twig.php:142
+#: jibres/includes/languages/trans_twig.php:176
 msgid "Enterprise"
 msgstr "مشتریان سازمان"
 
-#: jibres/includes/languages/trans_twig.php:143
+#: jibres/includes/languages/trans_twig.php:177
 msgid "Have a headaches? We have soulutions. Be patient..."
 msgstr "سردرد دارید؟ ما راه‌حل‌هایی برای شما داریم. صبور باشید..."
 
-#: jibres/includes/languages/trans_twig.php:144
+#: jibres/includes/languages/trans_twig.php:178
 msgid ""
 "Big companies simply don’t work like small companies, and they don’t use Jibres "
 "the same way either. That’s why there’s Enterprise."
@@ -9295,357 +9572,280 @@ msgstr ""
 "شرکت‌های بزرگ به آسانی شرکت‌های کوچک کار نمی‌کنند و از جیبرس نیز به همان شکل استفاده "
 "نمی‌کنند. این دلیل راه‌اندازی بخش سازمانی ماست."
 
-#: jibres/includes/languages/trans_twig.php:147
-msgid "Jibres solutions"
-msgstr "راه‌حل‌های جیبرس"
-
-#: jibres/includes/languages/trans_twig.php:148
-msgid "Jibres is trying to have a solution for special business."
-msgstr "جیبرس در تلاش برای ارائه راه‌حل‌هایی برای کسب و کارهای خاص است."
-
-#: jibres/includes/languages/trans_twig.php:149
-msgid "Check Jibres for School."
-msgstr "جیبرس برای مدارس."
-
-#: jibres/includes/languages/trans_twig.php:150
-msgid "Now only available for Iranians"
-msgstr "درحال حاضر تنها برای ایرانیان فعال است"
-
-#: jibres/includes/languages/trans_twig.php:153
-msgid "Jibres for School"
-msgstr "جیبرس برای مدارس"
-
-#: jibres/includes/languages/trans_twig.php:154
-msgid "Jibres provide complete solution for school."
-msgstr "جیبرس راه‌حل کاملی را برای کنترل مدارس ارائه می‌کند."
-
-#: jibres/includes/languages/trans_twig.php:157
-msgid "This FAQ provides answers to basic questions about Jibres."
-msgstr "این سوالات متداول برای پاسخ به سوالات ساده‌ای درباره جیبرس است."
-
-#: jibres/includes/languages/trans_twig.php:158
-msgid "General questions"
-msgstr "سوالات عمومی"
-
-#: jibres/includes/languages/trans_twig.php:159
-msgid "How does Jibres work?"
-msgstr "جیبرس چگونه کار می‌کند؟"
-
-#: jibres/includes/languages/trans_twig.php:160
-msgid ""
-"The easiest way to learn how to use Tejark is enter to it, which takes less than 3 "
-"minutes to setup your team."
-msgstr ""
-"آسان‌ترین راه برای یادگیری نحوه‌ی کارکرد ازویر ورود به آن است که کمتر از ۳ دقیقه از "
-"زمان شما را برای راه‌اندازی اولیه و شروع به‌کار می‌گیرد."
-
-#: jibres/includes/languages/trans_twig.php:161
-msgid "What is your privacy and security policy?"
-msgstr "قوانین و شرایط حریم خصوصی شما چیست؟"
-
-#: jibres/includes/languages/trans_twig.php:162
-msgid "View Jibres's privacy and security policy at"
-msgstr "نگاه ما به حریم خصوصی را در این صفحه بخوانید"
-
-#: jibres/includes/languages/trans_twig.php:163
-msgid "Where can I find your Terms of Service (TOS)?"
-msgstr "کجا می‌توانم شرایط و قوانین استفاده از سرویس را پیدا کنم؟"
-
-#: jibres/includes/languages/trans_twig.php:164
-msgid "You can find them at"
-msgstr "شما می‌توانید آن را در اینجا بیابید"
-
-#: jibres/includes/languages/trans_twig.php:165
-msgid "What are your bandwidth fees?"
-msgstr "تعرفه‌ی پهنای باند شما چقدر است؟"
-
-#: jibres/includes/languages/trans_twig.php:166
-msgid "There are none. All Jibres plans include unlimited bandwidth for free."
-msgstr ""
-"هیچ! تمامی پلن‌های جیبرس شامل پهنای‌باند نامحدود رایگان هستند و شما هزینه‌ای برای "
-"پهنای‌باند پرداخت نمی‌کنید."
-
-#: jibres/includes/languages/trans_twig.php:167
-msgid "Do I need a web host?"
-msgstr "آیا برای استفاده از ازویر نیاز به هاست دارم؟"
-
-#: jibres/includes/languages/trans_twig.php:168
-msgid ""
-"No! Jibres includes secure, unlimited hosting on all plans with free bandwith."
-msgstr ""
-"خیر! جیبرس به‌همراه هاست نامحدود و امن شده بر روی تمامی پلن‌ها به همراه پهنای باند "
-"نامحدود برای شما قابل استفاده است."
-
-#: jibres/includes/languages/trans_twig.php:169
-msgid "Billing & Invoicing"
-msgstr "مالی و فاکتور"
-
-#: jibres/includes/languages/trans_twig.php:170
-msgid "Is there a setup fee?"
-msgstr "آیا هزینه اولیه راه‌اندازی وجود داد؟"
-
-#: jibres/includes/languages/trans_twig.php:171
-msgid "No. There are no setup fees on any of our plans!"
-msgstr "نه. هیچ‌گونه هزینه اولیه راه‌اندازی برای هیچ‌کدام از پلن‌ها وجود ندارد!"
-
-#: jibres/includes/languages/trans_twig.php:172
-msgid "Can I cancel my account at any time?"
-msgstr "آیا می‌توانم حساب‌کاربری خودم را هر زمانی لغو کنم؟"
-
-#: jibres/includes/languages/trans_twig.php:173
-msgid ""
-"Yes. If you ever decide that Jibres isn’t the best platform for your business, "
-"simply cancel your account."
-msgstr ""
-"بله. اگر هر زمانی تصمیم گرفتید که جیبرس بهترین خدمات موجود را به کسب و کار شما "
-"ارائه نمی‌دهد، به‌راحتی اکانت خود را لغو کنید."
-
-#: jibres/includes/languages/trans_twig.php:174
-msgid "How long are your contracts?"
-msgstr "مدت زمان قراردادهای شما چقدر است؟"
-
-#: jibres/includes/languages/trans_twig.php:175
-msgid "All Jibres plans are month to month. simple."
-msgstr "تمامی پلن‌های جیبرس به مدت یکماه است. ساده‌ی ساده."
-
-#: jibres/includes/languages/trans_twig.php:176
-msgid "Can I change my plan later on?"
-msgstr "آیا در آینده می‌توانم پلن انتخابی را تغییر دهم؟"
-
-#: jibres/includes/languages/trans_twig.php:177
-msgid "Absolutely! You can upgrade or downgrade your plan at any time."
-msgstr ""
-"قطعا! شما هر زمانی لازم دیدید می‌توانید پلن خود را ارتقا داده و یا به پلن‌های "
-"پایین‌تر جابجا شوید."
-
-#: jibres/includes/languages/trans_twig.php:178
-msgid "When is my billing date?"
-msgstr "موعد پرداخت هزینه‌های مالی من چه‌زمانی است؟"
-
-#: jibres/includes/languages/trans_twig.php:179
-msgid ""
-"The date you first select a paid plan will be the recurring billing date. For "
-"example: If you sign up for the first time on July 15, all future charges will be "
-"billed on the 15th of every month."
-msgstr ""
-"اولین روزی که پلن مالی را انتخاب کردید به‌عنوان روز شروع تعیین شده و در دوره‌های "
-"زمانی تکرار می‌شود. به‌طور مثال اگر شما اولین بار در تاریخ ۱۷ خرداد پلن خود را "
-"انتخاب کردید، تمامی فاکتورهای بعدی در تاریخ ۱۷‌ ام ماه‌های آینده صادر و کسر خواهند "
-"شد."
-
-#: jibres/includes/languages/trans_twig.php:182
-msgid "Help Center"
-msgstr "مرکز راهنمایی"
-
-#: jibres/includes/languages/trans_twig.php:183
-msgid "Need HELP? Be patient..."
-msgstr "کمک نیاز دارید؟ صبور باشید..."
-
-#: jibres/includes/languages/trans_twig.php:186
-msgid "Jibres Logo"
-msgstr "لوگوی جیبرس"
-
-#: jibres/includes/languages/trans_twig.php:187
-msgid "Need know more about Jibres Logo? Be patient..."
-msgstr "نیاز به دانستن بیشتر درباره لوگوی جیبرس دارید؟ صبور باشید..."
-
-#: jibres/includes/languages/trans_twig.php:188
-msgid "Drawing logo"
-msgstr "ترسیم نشان‌واره"
-
-#: jibres/includes/languages/trans_twig.php:189
-msgid "Dowload our logo"
-msgstr "نشان‌واره‌ی ما را دریافت کنید"
-
-#: jibres/includes/languages/trans_twig.php:190
-msgid "Square"
-msgstr "مربع"
-
-#: jibres/includes/languages/trans_twig.php:191
-msgid "Circle"
-msgstr "دایره"
-
-#: jibres/includes/languages/trans_twig.php:194
+#: jibres/includes/languages/trans_twig.php:181
 msgid "Plans and Pricing of Jibres"
 msgstr "پلن‌ها و هزینه‌های جیبرس"
 
-#: jibres/includes/languages/trans_twig.php:195
+#: jibres/includes/languages/trans_twig.php:182
 msgid "Always know what you'll pay per month."
 msgstr "همیشه از پرداختی ماهیانه خود آگاه باشید."
 
-#: jibres/includes/languages/trans_twig.php:196
+#: jibres/includes/languages/trans_twig.php:183
 msgid "Simple pricing"
 msgstr "هزینه‌های شفاف و ساده"
 
-#: jibres/includes/languages/trans_twig.php:197
+#: jibres/includes/languages/trans_twig.php:184
 msgid "only team admin"
 msgstr "فقط مدیر تیم"
 
-#: jibres/includes/languages/trans_twig.php:198
+#: jibres/includes/languages/trans_twig.php:185
 msgid "Unlimited"
 msgstr "نامحدود"
 
-#: jibres/includes/languages/trans_twig.php:199
+#: jibres/includes/languages/trans_twig.php:186
 msgid "FREE"
 msgstr "رایگان"
 
-#: jibres/includes/languages/trans_twig.php:202
+#: jibres/includes/languages/trans_twig.php:189
 msgid "per member/month"
 msgstr "به‌ازای هر عضو در ماه"
 
-#: jibres/includes/languages/trans_twig.php:203
+#: jibres/includes/languages/trans_twig.php:190
 msgid "per month. fix!"
 msgstr "در ماه، ثابت!"
 
-#: jibres/includes/languages/trans_twig.php:204
+#: jibres/includes/languages/trans_twig.php:191
 msgid "Max number of team members"
 msgstr "حداکثر اعضای تیم"
 
-#: jibres/includes/languages/trans_twig.php:205
+#: jibres/includes/languages/trans_twig.php:192
 msgid "Max number of gateway"
 msgstr "حداکثر تعداد ورودی‌ها"
 
-#: jibres/includes/languages/trans_twig.php:206
+#: jibres/includes/languages/trans_twig.php:193
 msgid "Subteam (categorize team)"
 msgstr "زیرتیم (دسته‌بندی تیم)"
 
-#: jibres/includes/languages/trans_twig.php:207
+#: jibres/includes/languages/trans_twig.php:194
 msgid "Face detection"
 msgstr "تشخیص چهره"
 
-#: jibres/includes/languages/trans_twig.php:208
+#: jibres/includes/languages/trans_twig.php:195
 msgid "Save image of each atttendance record"
 msgstr "ذخیره تصویر در هر ورود و خروج"
 
-#: jibres/includes/languages/trans_twig.php:209
+#: jibres/includes/languages/trans_twig.php:196
 msgid "Analytics and reports"
 msgstr "تجزیه و تحلیل و گزارش"
 
-#: jibres/includes/languages/trans_twig.php:210
+#: jibres/includes/languages/trans_twig.php:197
 msgid "Simple reports"
 msgstr "گزارش ساده"
 
-#: jibres/includes/languages/trans_twig.php:211
+#: jibres/includes/languages/trans_twig.php:198
 msgid "Custom order reports"
 msgstr "گزارش‌ با قابلیت مرتب‌سازی دلخواه"
 
-#: jibres/includes/languages/trans_twig.php:212
+#: jibres/includes/languages/trans_twig.php:199
 msgid "Visual reports with chart"
 msgstr "گزارشات تصویری و نموداری"
 
-#: jibres/includes/languages/trans_twig.php:213
+#: jibres/includes/languages/trans_twig.php:200
 msgid "Automatically email monthly report"
 msgstr "ارسال خودکار گزارش ماهانه از طریق رایانامه"
 
-#: jibres/includes/languages/trans_twig.php:214
+#: jibres/includes/languages/trans_twig.php:201
 msgid "Automatically SMS daily report"
 msgstr "ارسال خودکار گزارش روزانه از طریق پیامک"
 
-#: jibres/includes/languages/trans_twig.php:215
+#: jibres/includes/languages/trans_twig.php:202
 msgid "Professional analytic reports"
 msgstr "گزارشات پیشرفته"
 
-#: jibres/includes/languages/trans_twig.php:216
+#: jibres/includes/languages/trans_twig.php:203
 msgid "Professional analysis chart"
 msgstr "نمودارهای تحلیلی حرفه‌ای"
 
-#: jibres/includes/languages/trans_twig.php:217
+#: jibres/includes/languages/trans_twig.php:204
 msgid "Telegram Integration"
 msgstr "یکپارچگی با تلگرام"
 
-#: jibres/includes/languages/trans_twig.php:218
+#: jibres/includes/languages/trans_twig.php:205
 msgid "Report via telegram"
 msgstr "گزارش از طریق تلگرام"
 
-#: jibres/includes/languages/trans_twig.php:219
+#: jibres/includes/languages/trans_twig.php:206
 msgid "Automatically send each report to admin(s)"
 msgstr "ارسال خودکار همه گزارش‌ها به مدیر(ها)"
 
-#: jibres/includes/languages/trans_twig.php:220
+#: jibres/includes/languages/trans_twig.php:207
 msgid "Automatically send daily report to group"
 msgstr "ارسال خودکار گزارش روزانه به گروه"
 
-#: jibres/includes/languages/trans_twig.php:221
+#: jibres/includes/languages/trans_twig.php:208
 msgid "Request now report"
 msgstr "درخواست گزارش لحظه‌ای"
 
-#: jibres/includes/languages/trans_twig.php:222
+#: jibres/includes/languages/trans_twig.php:209
 msgid "Request daily report"
 msgstr "درخواست گزارش روزانه"
 
-#: jibres/includes/languages/trans_twig.php:223
+#: jibres/includes/languages/trans_twig.php:210
 msgid "Send attendance image"
 msgstr "ارسال تصویر حضور و غیاب"
 
-#: jibres/includes/languages/trans_twig.php:224
+#: jibres/includes/languages/trans_twig.php:211
 msgid "Branding"
 msgstr "برندینگ"
 
-#: jibres/includes/languages/trans_twig.php:225
+#: jibres/includes/languages/trans_twig.php:212
 msgid "Number of automatic report reciever"
 msgstr "تعداد دریافت‌کنندگان گزارش خودکار"
 
-#: jibres/includes/languages/trans_twig.php:226
+#: jibres/includes/languages/trans_twig.php:213
 msgid "Customize with your own logo"
 msgstr "لوگوی سفارشی نام‌تجاری"
 
-#: jibres/includes/languages/trans_twig.php:227
+#: jibres/includes/languages/trans_twig.php:214
 msgid "Customize the color scheme"
 msgstr "شخصی‌سازی رنگ‌بندی"
 
-#: jibres/includes/languages/trans_twig.php:228
+#: jibres/includes/languages/trans_twig.php:215
 msgid "Customize messages"
 msgstr "فرمت پیام سفارشی"
 
-#: jibres/includes/languages/trans_twig.php:229
+#: jibres/includes/languages/trans_twig.php:216
+msgid "Support"
+msgstr "پشتیبانی"
+
+#: jibres/includes/languages/trans_twig.php:217
 msgid "Technical Support"
 msgstr "پشتیبانی فنی"
 
-#: jibres/includes/languages/trans_twig.php:230
+#: jibres/includes/languages/trans_twig.php:218
 msgid "Email response time"
 msgstr "زمان پاسخ به ایمیل"
 
-#: jibres/includes/languages/trans_twig.php:231
+#: jibres/includes/languages/trans_twig.php:219
 msgid "(max)"
 msgstr "(حداکثر)"
 
-#: jibres/includes/languages/trans_twig.php:232
+#: jibres/includes/languages/trans_twig.php:220
 msgid "2 work day"
 msgstr "۲ روز کاری"
 
-#: jibres/includes/languages/trans_twig.php:233
+#: jibres/includes/languages/trans_twig.php:221
 msgid "a work day"
 msgstr "یک روز کاری"
 
-#: jibres/includes/languages/trans_twig.php:234
+#: jibres/includes/languages/trans_twig.php:222
 msgid "4 hours"
 msgstr "۴ ساعت"
 
-#: jibres/includes/languages/trans_twig.php:235
+#: jibres/includes/languages/trans_twig.php:223
 msgid "1 hour"
 msgstr "یک ساعت"
 
-#: jibres/includes/languages/trans_twig.php:236
+#: jibres/includes/languages/trans_twig.php:224
 msgid "Emergency phone support"
 msgstr "پشتیبانی اضطراری تلفنی"
 
-#: jibres/includes/languages/trans_twig.php:237
+#: jibres/includes/languages/trans_twig.php:225
 msgid "Dedicated Success Manager"
 msgstr "مدیر اختصاصی موفقیت"
 
-#: jibres/includes/languages/trans_twig.php:238
+#: jibres/includes/languages/trans_twig.php:226
 msgid "Ready to use Jibres Enterprise?"
 msgstr "آماده استفاده از پلن سازمانی جیبرس هستید؟"
 
-#: jibres/includes/languages/trans_twig.php:239
+#: jibres/includes/languages/trans_twig.php:227
 msgid "Get started with our Enterprise plan."
 msgstr "با پلن سازمانی ما شروع کنید."
 
-#: jibres/includes/languages/trans_twig.php:240
+#: jibres/includes/languages/trans_twig.php:228
 msgid "Get in Touch"
 msgstr "با ما در تماس باشید"
 
+#: jibres/includes/languages/trans_twig.php:231
+msgid "Jibres benefits"
+msgstr "مزایای جیبرس"
+
+#: jibres/includes/languages/trans_twig.php:232
+msgid "What can you do with Jibres?"
+msgstr "جیبرس چه کارهایی میتواند انجام دهد؟"
+
+#: jibres/includes/languages/trans_twig.php:235
+msgid "About Jibres"
+msgstr "درباره جیبرس"
+
+#: jibres/includes/languages/trans_twig.php:236
+msgid ""
+"Jibres have a set of simple and practical tools on a regular basis for modern "
+"businesses."
+msgstr ""
+"جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار کسب و کارهای "
+"مدرن و همینطور تجارت‌های سنتی مایل به حرکت به‌سوی تکنولوژی قرار می‌دهد."
+
+#: jibres/includes/languages/trans_twig.php:237
+msgid ""
+"Advancement of technology and development of Web-based business Cause Need new "
+"tools to resolve the daily needs and that’s the goal of making Jibres."
+msgstr ""
+"با پیشرفت روزافزون تکنولوژی و گسترش کسب و کارهای مدرن مبتنی بر وب، احتیاج به "
+"ابزارهایی مدرن برای رفع نیازهای روزمره، جرقه‌ای برای تولد جیبرس بود."
+
+#: jibres/includes/languages/trans_twig.php:238
+msgid ""
+"It’s good to know that in addition to the core services, features such as "
+"inventory and invoice will be added."
+msgstr ""
+"قابل توجه اینکه علاوه‌بر توسعه‌ی خدمات اصلی، بخش‌های کوچک‌تر و کاربردی در روند توسعه "
+"ازویر به آن افزوده خواهند شد."
+
+#: jibres/includes/languages/trans_twig.php:239
+msgid "Attendance system"
+msgstr "سرویس حضور و غیاب"
+
+#: jibres/includes/languages/trans_twig.php:240
+msgid ""
+"Attendance is so different in Jibres. Beautiful and stylish design without "
+"requiring any hardware. Notification via social networks, Online reports and "
+"difference compared to other systems are the best feature of Jibres."
+msgstr ""
+"هسته‌ی اصلی جیبرس، سامانه حضور و غیاب متفاوت آن نسبت به نمونه‌های موجود است. طراحی "
+"مدرن و چشم‌نواز، بی‌نیاز به تهیه سخت‌افزار، اطلاع‌رسانی از طریق شبکه‌های اجتماعی، "
+"آنلاین و لحظه‌ای بودن گزارشات و مهم‌تر از همه تفاوت آن، از بارزترین مزایای سرویس "
+"حضور و غیاب جیبرس است."
+
+#: jibres/includes/languages/trans_twig.php:241
+msgid "Daily report"
+msgstr "گزارش روزانه"
+
+#: jibres/includes/languages/trans_twig.php:242
+msgid ""
+"In many collections received daily reports of the employees is very important. On "
+"the other hands Employees reluctant to do that. In addition to the classical "
+"method, using social networks on Twitter and Daily Telegram reported in Jibres "
+"possible to get there."
+msgstr ""
+"در اغلب مجموعه‌ها دریافت گزارش روزانه از کارکنان به‌عنوان بخشی مهم از برنامه‌ریزی "
+"سازمانی است. از طرفی به دلایل گوناگون کارکنان تمایل چندانی به این عمل ندارند. با "
+"به‌خدمت گرفتن شبکه‌های اجتماعی علاوه‌بر روش‌های کلاسیک ثبت گزارش روزانه، جیبرس امکان "
+"دریافت گزارش کار را از طریق توییتر و تلگرام نیز امکان‌پذیر کرده و عملکردهای جدیدی "
+"را نیز ارائه می‌دهد."
+
 #: jibres/includes/languages/trans_twig.php:243
+msgid "Salary calculator"
+msgstr "محاسبه حقوق و دستمزد"
+
+#: jibres/includes/languages/trans_twig.php:244
+msgid ""
+"For many small business is very complex method of calculating monthly salary and "
+"they Need to have simpler method. In addition to supporting traditional methods, "
+"Jibres provide monthly salary simple solutions to employees have modern and "
+"beautiful Payroll."
+msgstr ""
+"پیچیدگی‌های روش محاسبه حقوق و دستمزد ماهیانه در ایران، برای بسیاری از کسب و کارهای "
+"خرد دست و پاگیر بوده و نیاز به روش‌های ساده‌تری برای محاسبه سال‌هاست که نیاز بسیاری "
+"از کسب و کارهاست. جیبرس علاوه بر پشتیبانی از روش‌های سنتی ولی سخت، راه‌حل‌هایی ساده "
+"برای حقوق ماهیانه کارکنان ارائه می‌دهد تا کارکنان امروزی، فیش‌های حقوقی مدرن و زیبا "
+"را هم تجربه کنند."
+
+#: jibres/includes/languages/trans_twig.php:247
+msgid "Privacy Policy"
+msgstr "حریم خصوصی"
+
+#: jibres/includes/languages/trans_twig.php:248
 msgid ""
 "We wish to assure you that our main concern is to secure your privacy and protect "
 "your information against impermissible access."
@@ -9653,11 +9853,11 @@ msgstr ""
 "ما این اطمینان را به شما می‌دهیم که دغدغه‌ی ما، حفظ حریم‌خصوصی و محافظت از اطلاعات "
 "شما در برابر دسترسی‌های غیرمجاز هست."
 
-#: jibres/includes/languages/trans_twig.php:244
+#: jibres/includes/languages/trans_twig.php:249
 msgid "What is Privacy?"
 msgstr "حریم‌خصوصی چیست؟"
 
-#: jibres/includes/languages/trans_twig.php:245
+#: jibres/includes/languages/trans_twig.php:250
 msgid ""
 "Privacy means that any individual is entitled to choose the information related to "
 "them, and selectively, share it with others."
@@ -9665,7 +9865,7 @@ msgstr ""
 "حریم‌خصوصی یعنی شخص بتواند اطلاعات مربوط به خود را مجزا کرده و به انتخاب خویش، در "
 "برابر دیگران آشکار کند."
 
-#: jibres/includes/languages/trans_twig.php:246
+#: jibres/includes/languages/trans_twig.php:251
 msgid ""
 "privacy is so important for mental peace as well as a peaceful personality that "
 "some experts have considered invasion of privacy disrespectful to human dignity."
@@ -9673,18 +9873,18 @@ msgstr ""
 "حریم‌خصوصی برای آرامش روانی و شخصیتی، بسیار مهم است تا جایی‌که بعضی از صاحب‌نظران نقض "
 "آن را به عنوان یک اقدام توهین‌آمیز نسبت به شرافت بشری قلمداد کرده‌اند."
 
-#: jibres/includes/languages/trans_twig.php:247
+#: jibres/includes/languages/trans_twig.php:252
 msgid "Controversies over the Invasion of Privacy"
 msgstr "جنجال‌های نقض حریم‌خصوصی"
 
-#: jibres/includes/languages/trans_twig.php:248
+#: jibres/includes/languages/trans_twig.php:253
 msgid ""
 "Within e-commerce, privacy has always been from among the most controversial "
 "topics and continues to be."
 msgstr ""
 "حریم‌خصوصی در کسب‌و‌کارهای الکترونیکی همیشه یکی از بحث‌برانگیزترین موضوعات بوده و هست."
 
-#: jibres/includes/languages/trans_twig.php:249
+#: jibres/includes/languages/trans_twig.php:254
 msgid ""
 "Accordingly, formulating privacy policies is regarded as one of the crucial "
 "concerns of technology companies."
@@ -9692,7 +9892,7 @@ msgstr ""
 "به همین دلیل، تعیین سیاست‌های حریم‌خصوصی جزء دغدغه‌های بسیار مهم شرکت‌های فناورانه "
 "محسوب می‌شود."
 
-#: jibres/includes/languages/trans_twig.php:250
+#: jibres/includes/languages/trans_twig.php:255
 msgid ""
 "Meanwhile, widespread controversies have been provoked over invasion of privacy in "
 "e-commerce so that, occasionally, the regulations have to be revised to eliminate "
@@ -9702,17 +9902,17 @@ msgstr ""
 "گرفته است؛ به‌گونه‌ای که هرچند وقت یک‌بار مجبور هستند قوانین را بازبینی نموده تا "
 "حفره‌های موجود را رفع نمایند."
 
-#: jibres/includes/languages/trans_twig.php:251
+#: jibres/includes/languages/trans_twig.php:256
 msgid "Privacy from Our Point of View"
 msgstr "حریم‌خصوصی از دیدگاه ما"
 
-#: jibres/includes/languages/trans_twig.php:252
+#: jibres/includes/languages/trans_twig.php:257
 msgid ""
 "Let us be straightforward! Cyberspace is not a safe location for personal "
 "information."
 msgstr "رو راست باشیم، فضای مجازی محل امنی برای اطلاعات خصوصی نیست."
 
-#: jibres/includes/languages/trans_twig.php:253
+#: jibres/includes/languages/trans_twig.php:258
 msgid ""
 "For that reason, Jibres makes no request for important information of yours and "
 "allow to save some general information including age, gender, education, "
@@ -9722,13 +9922,13 @@ msgstr ""
 "از اطلاعات عمومی شامل سن، جنسیت، مدرک تحصیلی، علاقمندی‌ها و ... را برای استفاده "
 "خصوصی در تیم یا شرکت شما می‌دهد."
 
-#: jibres/includes/languages/trans_twig.php:254
+#: jibres/includes/languages/trans_twig.php:259
 msgid ""
 "It is worth mentioning that recording the aforementioned points is totally "
 "voluntary."
 msgstr "لازم به توضیح است که ثبت موارد ذکرشده نیز به‌صورت کاملا اختیاری است."
 
-#: jibres/includes/languages/trans_twig.php:255
+#: jibres/includes/languages/trans_twig.php:260
 msgid ""
 "However, taking the nature of cyberspace into account, we should remember that "
 "offering an absolute assurance might not be possible."
@@ -9736,7 +9936,7 @@ msgstr ""
 "این را در نظر داشته باشید که با توجه به ماهیت فضای مجازی، ارائه تضمین صددرصدی "
 "به‌طور کل ممکن نیست."
 
-#: jibres/includes/languages/trans_twig.php:256
+#: jibres/includes/languages/trans_twig.php:261
 msgid ""
 "Assuring privacy and security, with that ideal concept we bear in mind, does not "
 "exist; and if somebody gives you an assurance of securing your privacy, he has "
@@ -9746,7 +9946,7 @@ msgstr ""
 "اگر کسی در دنیای مجازی، تضمین امنیت حریم‌خصوصی شما را بدهد قطعا از اعتماد شما "
 "سوءاستفاده کرده است."
 
-#: jibres/includes/languages/trans_twig.php:257
+#: jibres/includes/languages/trans_twig.php:262
 msgid ""
 "Upon buying any digital or the so-called smart device, you have invaded your own "
 "privacy yourself."
@@ -9754,7 +9954,7 @@ msgstr ""
 "شما با خرید هر دستگاه دیجیتالی یا به اصطلاح هوشمند، با دست خود حریم‌خصوصی‌تان را نقض "
 "کرده‌اید."
 
-#: jibres/includes/languages/trans_twig.php:258
+#: jibres/includes/languages/trans_twig.php:263
 msgid ""
 "If you want your privacy not to be invaded, you should depart from technology and "
 "say goodbye to any digital and smart device."
@@ -9762,7 +9962,7 @@ msgstr ""
 "اگر می‌خواهید این حریم‌خصوصی نقض نشود باید به‌طور کل از دنیای تکنولوژی فاصله بگیرید و "
 "با هر دستگاه دیجیتالی و هوشمندی خداحافظی کنید."
 
-#: jibres/includes/languages/trans_twig.php:259
+#: jibres/includes/languages/trans_twig.php:264
 msgid ""
 "In fact, we have employed all updated technologies of the world to provide you "
 "with the maximum security."
@@ -9770,7 +9970,7 @@ msgstr ""
 "ما به‌لحاظ فنی تمام تکنولوژی‌های روز دنیا را به‌کار برده‌ایم تا امنیت حداکثری را برای "
 "شما به ارمغان بیاوریم."
 
-#: jibres/includes/languages/trans_twig.php:260
+#: jibres/includes/languages/trans_twig.php:265
 msgid ""
 "As the final remark, we wish to assure you that our main concern is to secure your "
 "privacy and protect your information against impermissible access."
@@ -9778,1167 +9978,796 @@ msgstr ""
 "در پایان، این اطمینان را به شما می‌دهیم که دغدغه‌ی ما، حفظ حریم‌خصوصی و محافظت از "
 "اطلاعات شما در برابر دسترسی‌های غیرمجاز هست."
 
-#: jibres/includes/languages/trans_twig.php:263
-msgid "Jibres Social Responsibility"
-msgstr "مسئولیت اجتماعی جیبرس"
-
-#: jibres/includes/languages/trans_twig.php:264
-msgid ""
-"Social responsibility refers to our role in maintaining, caring about and helping "
-"our society, while having set as its goal a responsibility-centered enterprise "
-"along with wealth production."
-msgstr ""
-"مسئولیت اجتماعی به نقش ما در جهت حفظ، مراقبت و کمک به جامعه‌ای که در آن هستیم اشاره "
-"می‌کند و هدف آن کسب‌وکار مسئولانه‌ی همراه با تولید ثروت است."
-
-#: jibres/includes/languages/trans_twig.php:265
-msgid ""
-"The issue of the social responsibility of organizations and corporations towards "
-"the society is from among the important issues being focused on in recent years."
-msgstr ""
-"موضوع مسئولیت اجتماعی سازمان‌ها و شرکت‌ها نسبت به جامعه از جمله موضوعات مهمی است که "
-"در سال‌های اخیر مورد اهمیت قرار گرفته است."
-
-#: jibres/includes/languages/trans_twig.php:266
-msgid ""
-"The social responsibility of organizations relates to the organization's "
-"responsibility towards society, human beings and the environment in which they are "
-"active."
-msgstr ""
-"مسئولیت اجتماعی سازمان‌ها مرتبط با مسئولیت سازمان در برابر جامعه، انسان‌ها و محیطی "
-"است که در آن فعالیت می‌کند. این مسئولیت فراتر از قوانین مرسوم و منافع مالی سازمان "
-"بوده و پیشرفت منافع اجتماعی را دنبال می‌کند."
-
-#: jibres/includes/languages/trans_twig.php:267
-msgid "Jibres's Social Responsibilities"
-msgstr "مسئولیت‌های اجتماعی جیبرس"
-
-#: jibres/includes/languages/trans_twig.php:268
-msgid ""
-"Based on the mentioned definitions of social responsibility, Jibres considers "
-"itself committed to society. Accordingly, besides attempting to offer creative and "
-"effective services, Jibres has invariably had social responsibility as one of its "
-"most important missions and, God willing, will continue to do so."
-msgstr ""
-"براساس تعاریفی که از مسئولیت اجتماعی شد، جیبرس نیز خود را در قبال جامعه متعهد "
-"دانسته و در کنار تلاش جهت ارائه خدمات خلاقانه و اثربخش، همواره مسئولیت اجتماعی از "
-"مهم‌ترین ماموریت‌های جیبرس بوده و به‌امیدخدا خواهد بود."
-
-#: jibres/includes/languages/trans_twig.php:269
-msgid "Environmentalist"
-msgstr "دوست‌دار محیط‌زیست"
-
-#: jibres/includes/languages/trans_twig.php:270
-msgid ""
-"In spite of technological advancements, paper usage is unfortunately preferred to "
-"modern ways. One of Jibres's objectives is trying to change this habit and "
-"contribute to the elimination of paper from the routine life and, therefore, to "
-"save the environment."
-msgstr ""
-"با وجود پیشرفت تکنولوژی، متاسفانه همچنان علاقه به استفاده از کاغذ قابل پذیرش‌تر از "
-"روش‌های مدرن است؛ یکی از اهداف جیبرس تلاش برای تغییر این عادت و کمک به حذف کاغذ از "
-"زندگی روزمره و درنتیجه حفظ محیط‌زیست است."
-
 #: jibres/includes/languages/trans_twig.php:271
-msgid ""
-"Accordingly, with the aim of total elimination of paper use as well as electronic "
-"presentation of services, Jibres has taken significant steps towards "
-"environmentalism. Be informed about Jibres's paper-saving quantity."
-msgstr ""
-"جیبرس با حذف صددرصدی استفاده از کاغذ و ارائه خدمات به صورت الکترونیکی توانسته "
-"اقدامی مهم در زمینه حفظ محیط‌زیست داشته باشد. از میزان صرفه‌جویی جیبرس در مصرف کاغذ "
-"آگاه شوید."
+msgid "About"
+msgstr "درباره"
 
 #: jibres/includes/languages/trans_twig.php:272
-msgid "Philanthropist Activities"
-msgstr "فعالیت‌های خیرخواهانه"
+msgid "Press and Media"
+msgstr "مطبوعات و رسانه‌ها"
 
 #: jibres/includes/languages/trans_twig.php:273
-msgid ""
-"One of the most valuable resources of charity organizations is the voluntary and "
-"active participation of the individuals who, without any expectations, provide "
-"them with their skillfulness and capital."
-msgstr ""
-"یکی از ارزشمندترین سرمایه‌‌ی سازمان‌های خیریه، فعالیت و مشارکت داوطلبانه افرادی است "
-"که مهارت و سرمایه خود را بدون هیچ چشم‌داشتی در اختیار آن‌ها قرار می‌دهند."
+msgid "Careers"
+msgstr "فرصت‌های شغلی"
 
 #: jibres/includes/languages/trans_twig.php:274
-msgid ""
-"Jibres as well, with regard to its contribution to philanthropist activities, will "
-"honorably provide them with its services free of charge. To make use of these "
-"services, send your identity documents along with your request to Jibres's support "
-"center."
-msgstr ""
-"جیبرس نیز با توجه به ماموریت خود در راستای کمک به فعالیت‌های خیرخواهانه، خدمات خود "
-"را با افتخار و به‌صورت رایگان دراختیار آنان قرار می‌دهد. برای استفاده از این خدمات، "
-"درخواست خود را همراه با مدارک احراز هویت به مرکز پشتیبانی جیبرس ارسال نمایید."
+msgid "Social Responsibility"
+msgstr "مسئولیت اجتماعی"
 
 #: jibres/includes/languages/trans_twig.php:275
-msgid "Recruiting Motivated Staff"
-msgstr "بکارگیری نیروهای باانگیزه"
-
-#: jibres/includes/languages/trans_twig.php:276
-msgid ""
-"An outstanding characteristic of any organization is its specialized and highly "
-"motivated staff, playing a vital role in growth and development."
-msgstr ""
-"ویژگی چشم‌گیر و بارز هر سازمانی وجود نیروی‌ انسانی باانگیزه و متخصص است که نقشی "
-"بنیادین در رشد و توسعه دارند."
+msgid "Enamad"
+msgstr "نماد اعتماد"
 
 #: jibres/includes/languages/trans_twig.php:277
-msgid ""
-"By the same token, we are always looking for creative and motivated Iranian youths "
-"in order to make the best and be effective in cooperation with them."
-msgstr ""
-"ما هم در این راستا و برای خدمت به سرزمین‌مان، به دنبال جوانان ایرانی خلاق و "
-"باانگیزه هستیم تا با کمک هم برترین‌ها را بسازیم و اثرگذار باشیم."
+msgid "Benefits"
+msgstr "مزایا"
 
 #: jibres/includes/languages/trans_twig.php:278
-msgid "Join us and grow in a different location."
-msgstr "به ما بپیوندید و در مکانی متفاوت رشد کنید."
+msgid "Learn More"
+msgstr "بیشتر بدانید"
 
 #: jibres/includes/languages/trans_twig.php:279
-msgid "Customer Care and Complete Satisfaction"
-msgstr "مشتری‌مداری و کسب رضایت کامل"
+msgid "Terms of Service"
+msgstr "شرایط استفاده"
 
 #: jibres/includes/languages/trans_twig.php:280
-msgid ""
-"Attracting people's participation as well as having their valuable presence has "
-"always been a great honor for Jibres and to appreciate your support, in return, "
-"Jibres presents services to promote customer satisfaction."
-msgstr ""
-"جلب مشارکت مردم و حضور ارزشمند آنان در جیبرس باعث افتخار ما بوده و به‌منظور قدردانی "
-"از این حمایت، جیبرس نیز خدمات متقابلی را برای افزایش رضایت مشتریان خود ارائه می‌کند."
+msgid "Changelog"
+msgstr "پیشرفت پروژه"
 
 #: jibres/includes/languages/trans_twig.php:281
-msgid ""
-"These services are presented in different time intervals and are aimed at costomer "
-"care mission and appreciation of your valuable presence."
-msgstr ""
-"این خدمات در بازه‌های زمانی متفاوت ارائه‌شده و در راستای ماموریت مشتری‌مداری و ارج "
-"نهادن به این حضور گرانبها می‌باشد."
+msgid "Logo"
+msgstr "لوگو"
+
+#: jibres/includes/languages/trans_twig.php:282
+msgid "Proudly Made in IRAN"
+msgstr "با افتخار ساخت ایران"
 
 #: jibres/includes/languages/trans_twig.php:284
-msgid "Terms of Service Agreement"
-msgstr "توافق‌نامه استفاده از سرویس"
+msgid "Exit Session"
+msgstr "خروج از نشست"
 
 #: jibres/includes/languages/trans_twig.php:285
-msgid ""
-"Jibres acts upon international rules, depends on the countries receiving its "
-"services and renders its activities within this framework."
-msgstr ""
-"جیبرس مطابق قوانین بین‌الملل و وابسته به کشورهای دریافت‌کننده خدمات بوده و در این "
-"چارچوب فعالیت می‌نماید."
-
-#: jibres/includes/languages/trans_twig.php:286
-msgid ""
-"Utilizing Jibres's services means the acceptance of and commitment to observing "
-"all the tenors of this agreement."
-msgstr ""
-"استفاده از خدمات جیبرس به منزله‌ پذیرش و تعهد به رعایت تمام مفاد مندرج در این "
-"توافق‌نامه است."
-
-#: jibres/includes/languages/trans_twig.php:287
-msgid ""
-"It is worth mentioning that due to the insecurity of cyberspace, you should never "
-"post your vital information on either Jibres or any other services!"
-msgstr ""
-"لازم به یادآوری‌ست که با توجه به ناامن بودن فضای ‌مجازی، نه تنها در جیبرس بلکه در "
-"هیچ سرویس دیگری، اطلاعات حیاتی خود را منتشر نکنید!"
+msgid "Another Session"
+msgstr "نشست دیگر"
 
 #: jibres/includes/languages/trans_twig.php:288
-msgid ""
-"User's personal information is strictly confidential in our service. Jibres "
-"preserves the information as encoded and will not under any conditions transfer it "
-"to another person."
-msgstr ""
-"اطلاعات شخصی کاربران در این سرویس به‌صورت کاملا محرمانه می‌باشد و جیبرس این اطلاعات "
-"را به صورت کدشده نگه‌داری کرده و تحت هیچ شرایطی آن‌را به غیر واگذار نخواهد کرد."
+msgid "Next →"
+msgstr "→ بعدی"
 
 #: jibres/includes/languages/trans_twig.php:289
-msgid ""
-"In case there is a request for receiving user's information by the competent "
-"authorities, according to the country the user lives in, Jibres will cooperate "
-"with them only upon receiving the judicial order issued by the country submitting "
-"the request."
-msgstr ""
-"با توجه به کشور محل سکونت کاربر، درصورت درخواست مراجع دارای صلاحیت به دریافت "
-"اطلاعات‌کاربری، جیبرس تنها پس از دریافت حکم قضایی کشور درخواست کننده، توانایی "
-"همکاری با آنان را خواهد داشت."
+msgid "← Back"
+msgstr "قبلی ←"
 
 #: jibres/includes/languages/trans_twig.php:290
-msgid ""
-"Jibres will not offer any guarantee as to the quality of the products or services "
-"presented by the teams and will not accept any responsibility in this regard!"
-msgstr ""
-"جیبرس هیچگونه ضمانتی در مورد کیفیت محصولات یا خدمات ارائه شده توسط تیم‌ها را "
-"نمی‌پذیرد و مسئولیتی در قبال آن ندارد!"
+msgid "Skip"
+msgstr "خروج"
 
 #: jibres/includes/languages/trans_twig.php:291
-msgid ""
-"Users should assume responsibility for any harm, both material and immaterial, "
-"caused by direct, indirect or penal factors and due to their utilization of this "
-"service; and, Jibres bears no responsibility accordingly."
-msgstr ""
-"خسارت‌های‌ مادی و معنوی ناشی از عوامل مستقیم، غیرمستقیم و کیفری، در قبال استفاده از "
-"این سرویس برعهده کاربران بوده و جیبرس هیچ‌گونه مسئولیتی دراین‌باره ندارد."
-
-#: jibres/includes/languages/trans_twig.php:292
-msgid ""
-"Jibres accepts no responsibility, under any conditions, for the harms caused by "
-"users' mutual trust in each other or by the disclosure of information by users."
-msgstr ""
-"تحت هیچ شرایطی جیبرس مسئولیت خسارت‌های وارده در اثر اعتماد و اتکاء اعضاء به یکدیگر "
-"و فاش‌شدن اطلاعات توسط کاربر را نمی‌پذیرد."
-
-#: jibres/includes/languages/trans_twig.php:293
-msgid ""
-"Jibres will do its best to protect both the users' information and the service; "
-"however, regarding the lack of certainty within the cyberspace, it will not assume "
-"any responsibility for the loss of the information entered on the service."
-msgstr ""
-"جیبرس تمام تلاش خود را برای محافظت از اطلاعات کاربران و سرویس می‌نماید؛ ولی با توجه "
-"به عدم قطعیت در فضای مجازی، مسئولیتی در مورد از بين رفتن اطلاعات قرارگرفته بر روی "
-"سرویس نخواهد پذیرفت."
-
-#: jibres/includes/languages/trans_twig.php:294
-msgid ""
-"We will publicize our information and news only via Jibres's formal website. "
-"Accordingly, those who publicize any attributed news and claims, within social "
-"media and networks, must assume the responsibility and Jibres will not assume any "
-"responsibility."
-msgstr ""
-"اخبار و اطلاعات ما تنها از طریق وب‌سایت رسمی جیبرس منتشر می‌شود. مسئولیت هرگونه خبر "
-"و ادعای نسبت‌داده‌شده در رسانه‌ها و شبکه‌های اجتماعی به عهده منتشرکننده آن بوده و "
-"جیبرس مسئولیتی در قبال آن ندارد."
+msgid "Done"
+msgstr "اتمام"
 
 #: jibres/includes/languages/trans_twig.php:295
-msgid ""
-"Jibres will bear no responsibility for whatsoever messages sent to users, "
-"including those indicating winning a lottery, and all our information "
-"dissemination will be through the ways of Jibres's contact with users."
-msgstr ""
-"جیبرس هیچ مسئولیتی در مقابل پیام‌های ارسالی مبنی بر برنده‌شدن در قرعه‌کشی یا هر پیام "
-"دیگری نداشته و تمام اطلاع‌رسانی‌های ما از طریق روش‌های برقراری ارتباط کاربر با جیبرس "
-"خواهد بود."
+msgid "Roadmap"
+msgstr "نقشه راه"
 
 #: jibres/includes/languages/trans_twig.php:296
-msgid ""
-"Any misuse of Jibres's trade name is prohibited and will be suable by making a "
-"complaint to the legal competent authorities."
-msgstr ""
-"هرگونه سوءاستفاده از نام تجاری جیبرس ممنوع بوده و از طریق شکایت به مراجع قانونی "
-"دارای صلاحیت، قابل پیگرد خواهد بود."
+msgid "Amazing Financial Platform"
+msgstr "بهترین پلتفرم مالی"
 
 #: jibres/includes/languages/trans_twig.php:297
 msgid ""
-"Furthermore, this agreement, under the name Terms and Conditions, will be "
-"available and observable, in all pages of the website. Users will be responsible "
-"for a lack of information on the most recent changes."
+"With Jibres we take less time of our customers and this means modern customer "
+"orientation"
 msgstr ""
-"هم‌چنین این توافق‌نامه در تمام صفحات وب‌سایت با عنوان شرایط و قوانین موجود و قابل "
-"مشاهده است. مسئولیت عدم کسب اطلاع از آخرین تغییرات برعهده کاربر خواهد بود."
+"با جیبرس وقت کمتری از مشتری که سهم بیشتری از فروشگاه را دارد گرفته می‌شود و این "
+"یعنی مشتری مداری مدرن"
 
 #: jibres/includes/languages/trans_twig.php:298
-msgid ""
-"It should be mentioned that in case there would be any modifications in the above-"
-"mentioned tenors, an updated version will be available for the public, and as "
-"well, all the users will be informed."
-msgstr ""
-"لازم به ذکر است که درصورت هرگونه تغییر در مفاد ذکر شده، نسخه به‌روزشده آن در دسترس "
-"عموم قرار خواهد گرفت و به اطلاع تمام کاربران خواهد رسید."
+msgid "Majid Sadeghi, Sales Supervisor at SuperSaeed"
+msgstr "مجید صادقی، سرپرست فروش در سوپرسعید"
 
 #: jibres/includes/languages/trans_twig.php:301
-msgid "Add event day counter"
-msgstr "افزودن روزشمار رویداد"
-
-#: jibres/includes/languages/trans_twig.php:302
-msgid "Present Members"
-msgstr "حاضرین"
-
-#: jibres/includes/languages/trans_twig.php:303
-msgid "Customer"
-msgstr "مشتری"
-
-#: jibres/includes/languages/trans_twig.php:304
-msgid "Supplier"
-msgstr "تامین‌کنندگان"
+msgid "; "
+msgstr "؛"
 
 #: jibres/includes/languages/trans_twig.php:305
-msgid "Staff"
-msgstr "کارمند"
+msgid "money"
+msgstr "پول"
 
 #: jibres/includes/languages/trans_twig.php:306
-msgid "Start date of using tejarak"
-msgstr "تاریخ شروع استفاده شما از تجارک"
-
-#: jibres/includes/languages/trans_twig.php:307
-msgid "day ago"
-msgstr "روز پیش"
-
-#: jibres/includes/languages/trans_twig.php:308
-msgid "Day Used"
-msgstr "روز کارکرد"
+msgid "toman"
+msgstr "تومان"
 
 #: jibres/includes/languages/trans_twig.php:309
-msgid "Top Members"
-msgstr "برترین اعضا"
-
-#: jibres/includes/languages/trans_twig.php:310
-msgid "Last sells"
-msgstr "آخرین فروش‌ها"
-
-#: jibres/includes/languages/trans_twig.php:313
-msgid "Add team"
-msgstr "افزودن تیم"
-
-#: jibres/includes/languages/trans_twig.php:314
-msgid "List team"
-msgstr "لیست تیم‌ها"
-
-#: jibres/includes/languages/trans_twig.php:318
-msgid "Products"
-msgstr "محصولات"
-
-#: jibres/includes/languages/trans_twig.php:319
-msgid "Staffs"
-msgstr "کارمندان"
-
-#: jibres/includes/languages/trans_twig.php:320
-msgid "Suppliers"
-msgstr "تامین‌کنندگان"
-
-#: jibres/includes/languages/trans_twig.php:321
-msgid "Customers"
-msgstr "مشتریان"
-
-#: jibres/includes/languages/trans_twig.php:322
-msgid "Buy"
-msgstr "خرید"
-
-#: jibres/includes/languages/trans_twig.php:323
-msgid "Sell"
-msgstr "فروش"
-
-#: jibres/includes/languages/trans_twig.php:327
-msgid "Insert"
-msgstr "افزودن"
-
-#: jibres/includes/languages/trans_twig.php:328
-msgid "Save All"
-msgstr "ذخیره همه"
-
-#: jibres/includes/languages/trans_twig.php:331
-msgid "Team short name"
-msgstr "نام کوتاه تیم"
-
-#: jibres/includes/languages/trans_twig.php:332
-msgid "Used for url of board"
-msgstr "استفاده برای آدرس در بورد"
-
-#: jibres/includes/languages/trans_twig.php:333
-msgid "Slug of team for board url"
-msgstr "نام کوتاه تیم برای آدرس بورد"
-
-#: jibres/includes/languages/trans_twig.php:334
-msgid "Website"
-msgstr "وب‌سایت"
-
-#: jibres/includes/languages/trans_twig.php:335
-msgid "Link your logo on board for visitors"
-msgstr "لینک شدن لوگوی شما در بورد برای بازدیدکنندگان"
-
-#: jibres/includes/languages/trans_twig.php:336
-msgid "Used for description of board and show in social media links"
-msgstr "استفاده‌شده برای توضیح بورد جهت نمایش در لینک بورد در شبکه‌های اجتماعی"
-
-#: jibres/includes/languages/trans_twig.php:337
-msgid "Board privacy mode"
-msgstr "وضعیت حریم‌خصوصی بورد"
-
-#: jibres/includes/languages/trans_twig.php:339
-msgid "Only admin of team can see board"
-msgstr "تنها مدیران تیم می‌توانند بورد را ببینند"
-
-#: jibres/includes/languages/trans_twig.php:340
-msgid "Team"
-msgstr "تیم"
-
-#: jibres/includes/languages/trans_twig.php:341
-msgid "Admin and all member of team can see board"
-msgstr "مدیران و تمام اعضای تیم می‌توانند تیم را ببینند"
-
-#: jibres/includes/languages/trans_twig.php:343
-msgid "Anyone can access to link of board can see team board"
-msgstr "هرکسی که امکان دسترسی به لینک بورد را داشته باشد، می‌تواند تیم را ببیند"
-
-#: jibres/includes/languages/trans_twig.php:344
-msgid "Choose your plan"
-msgstr "پلن خود را انتخاب کنید"
-
-#: jibres/includes/languages/trans_twig.php:345
-msgid "All the basics for personal use."
-msgstr "تمام نیازهای اولیه برای استفاده شخصی."
-
-#: jibres/includes/languages/trans_twig.php:346
-msgid "Everything in Free plus automatic report via Telegram."
-msgstr "تمام داشته‌های پلن رایگان به‌اضافه‌ی گزارش خودکار از طریق تلگرام."
-
-#: jibres/includes/languages/trans_twig.php:347
-msgid "Everything you need for a growing business."
-msgstr "تمام نیازهای شما برای یک کسب و کار در حال توسعه."
-
-#: jibres/includes/languages/trans_twig.php:348
-msgid "For big companies that need fix price per month."
-msgstr "برای شرکت‌های بزرگ که نیاز به صرفه‌جویی و پرداخت هزینه ثابت در ماه دارند."
-
-#: jibres/includes/languages/trans_twig.php:349
-msgid "New Owner Mobile"
-msgstr "تلفن همراه مالک جدید"
-
-#: jibres/includes/languages/trans_twig.php:350
-msgid "Send Request"
-msgstr "ارسال درخواست"
-
-#: jibres/includes/languages/trans_twig.php:351
-msgid "Card size"
-msgstr "اندازه کارت"
-
-#: jibres/includes/languages/trans_twig.php:352
-msgid "Auto size"
-msgstr "خودکار"
-
-#: jibres/includes/languages/trans_twig.php:356
-msgid "Force show in specefic language"
-msgstr "اجبار به نمایش بورد در زبان خاص"
-
-#: jibres/includes/languages/trans_twig.php:357
-msgid "Please select one language"
-msgstr "لطفا یکی از زبانها را انتخاب کنید"
-
-#: jibres/includes/languages/trans_twig.php:358
-msgid "Persian"
-msgstr "فارسی"
-
-#: jibres/includes/languages/trans_twig.php:359
-msgid "English"
-msgstr "انگلیسی"
-
-#: jibres/includes/languages/trans_twig.php:360
-msgid "Report Header"
-msgstr "سرصفحه گزارش"
-
-#: jibres/includes/languages/trans_twig.php:361
-msgid "Report Footer"
-msgstr "پانویس گزارش"
-
-#: jibres/includes/languages/trans_twig.php:362
-msgid "Automatic daily traffic count report"
-msgstr "ارسال خودکار گزارش تردد روزانه"
-
-#: jibres/includes/languages/trans_twig.php:363
-msgid "We automatically send report in Telegram on this time"
-msgstr "ما به‌صورت خودکار گزارش را در این زمان ارسال خواهیم کرد"
-
-#: jibres/includes/languages/trans_twig.php:364
-msgid "Time of send automatic daily report"
-msgstr "زمان ارسال گزارش خودکار تردد روزانه"
-
-#: jibres/includes/languages/trans_twig.php:365
-msgid "Status of connected group"
-msgstr "وضعیت گروه متصل‌شده"
-
-#: jibres/includes/languages/trans_twig.php:366
-msgid "Can disable group activity"
-msgstr "امکان غیرفعال سازی فعالیت‌ها در گروه"
-
-#: jibres/includes/languages/trans_twig.php:367
-msgid "Remove Group Connection"
-msgstr "حذف اتصالات گروه"
-
-#: jibres/includes/languages/trans_twig.php:368
-msgid "Show name of first person in day first message"
-msgstr "نمایش نام اولین شخص حاضر در پیام اعلام تاریخ روز"
-
-#: jibres/includes/languages/trans_twig.php:369
-msgid "Make a motivation to be first one of the day"
-msgstr "انگیزه‌ای برای اولین نفر بودن در روز ایجاد کنید"
-
-#: jibres/includes/languages/trans_twig.php:370
-msgid "Send daily report after exit last person on the day"
-msgstr "ارسال گزارش روزانه در پایان هر روز پس از خروج آخرین عضو تیم"
-
-#: jibres/includes/languages/trans_twig.php:371
-msgid "List of person present in day"
-msgstr "لیست اعضای حاضر در روز"
-
-#: jibres/includes/languages/trans_twig.php:372
-msgid "Show work time of each member in daily report"
-msgstr "نمایش ساعت کاری هر عضو در گزارش روزانه"
-
-#: jibres/includes/languages/trans_twig.php:373
-msgid "Useful on open mind companies"
-msgstr "مناسب برای شرکت‌های روشن فکر!"
-
-#: jibres/includes/languages/trans_twig.php:374
-msgid "Give a medal to top 3 person of the day"
-msgstr "به سه نفر برتر هر روز مدال بدهید"
-
-#: jibres/includes/languages/trans_twig.php:375
-msgid "Gold, silver and bronze medal added to member list"
-msgstr "مدال‌های طلا، نقره و برنز به لیست اعضا اضافه می‌شود"
-
-#: jibres/includes/languages/trans_twig.php:376
-msgid "Limit count of person list in daily report."
-msgstr "محدودسازی تعداد نفرات نمایش داده‌شده در لیست گزارش روزانه."
-
-#: jibres/includes/languages/trans_twig.php:377
-msgid "-1 means have no limit"
-msgstr "-۱ به معنی عدم محدودیت است"
-
-#: jibres/includes/languages/trans_twig.php:378
-msgid "Used for large companies"
-msgstr "مورد استفاده برای شرکت‌های بزرگ"
-
-#: jibres/includes/languages/trans_twig.php:379
-msgid "Event title"
-msgstr "عنوان رویداد"
-
-#: jibres/includes/languages/trans_twig.php:380
-msgid "Event date start"
-msgstr "زمان شروع محاسبه رویداد"
-
-#: jibres/includes/languages/trans_twig.php:381
-msgid "Need to calc remain percentage of deadline. Today as default"
-msgstr "برای محاسبه درصد باقی‌مانده از ددلاین نیاز هست. امروز به‌صورت پیش‌فرض"
-
-#: jibres/includes/languages/trans_twig.php:382
-msgid "Event date"
-msgstr "زمان رویداد"
-
-#: jibres/includes/languages/trans_twig.php:383
-msgid "Remote member"
-msgstr "عضو ریموت"
-
-#: jibres/includes/languages/trans_twig.php:384
-msgid "can set enter and exit with their account without need another permission"
-msgstr ""
-"امکان تنظیم ورود و خروج از طریق حساب کاربری خودشان بدون نیاز به سطح‌دسترسی دیگر"
-
-#: jibres/includes/languages/trans_twig.php:385
-msgid "24 hour member"
-msgstr "عضو ۲۴ ساعته"
-
-#: jibres/includes/languages/trans_twig.php:386
-msgid "can stay more than one day and after 23:59! Like night workers"
-msgstr "می‌توانند بیشتر از یک روز و پس از ۲۳:۵۹ حاضر باشند! مثل شب‌کارها"
-
-#: jibres/includes/languages/trans_twig.php:387
-msgid "Allow to set mission time"
-msgstr "اجازه‌ی ثبت زمان ماموریت"
-
-#: jibres/includes/languages/trans_twig.php:388
-msgid "used for someone work on home or suppliers"
-msgstr "مناسب برای کسانی که در منزل کار می‌کنند یا مسئول خرید یا راننده"
-
-#: jibres/includes/languages/trans_twig.php:389
-msgid "Allow to set personal work time"
-msgstr "اجازه ثبت زمان امور شخصی"
-
-#: jibres/includes/languages/trans_twig.php:390
-msgid "member can enter waste time as personal work"
-msgstr "اعضا می‌توانند زمان هدر رفته در روز را به‌عنوان امور شخصی وارد کنند"
-
-#: jibres/includes/languages/trans_twig.php:391
-msgid "Show member avatar on board"
-msgstr "نمایش عکس اعضا در بورد"
-
-#: jibres/includes/languages/trans_twig.php:392
-msgid "Maybe for privacy you need to hide avatar on board!"
-msgstr "شاید برای حریم خصوصی شما نیاز به مخفی‌سازی تصاویر در بورد دارید!"
-
-#: jibres/includes/languages/trans_twig.php:395
-msgid "Team Operation"
-msgstr "تنظیمات تیم"
-
-#: jibres/includes/languages/trans_twig.php:396
-msgid "Team Dashboard"
-msgstr "داشبورد تیم"
-
-#: jibres/includes/languages/trans_twig.php:398
-msgid "Gateway"
-msgstr "ورودی"
-
-#: jibres/includes/languages/trans_twig.php:399
-msgid "Reports"
-msgstr "گزارش‌ها"
-
-#: jibres/includes/languages/trans_twig.php:400
-msgid "Settings"
-msgstr "تنظیمات"
-
-#: jibres/includes/languages/trans_twig.php:401
-msgid "Team is private and you can not see board!"
-msgstr "این تیم خصوصی است و شما امکان مشاهده بورد را ندارید!"
-
-#: jibres/includes/languages/trans_twig.php:402
-msgid "Board"
-msgstr "بورد"
-
-#: jibres/includes/languages/trans_twig.php:405
-msgid "Basic detail"
-msgstr "اطلاعات اولیه"
-
-#: jibres/includes/languages/trans_twig.php:406
-msgid "Initial detail before start sell"
-msgstr "مقادیر اولیه قبل از شروع فروش"
-
-#: jibres/includes/languages/trans_twig.php:409
-msgid "Search in products"
-msgstr "جستجو در محصولات"
-
-#: jibres/includes/languages/trans_twig.php:412
-msgid "Category"
-msgstr "دسته‌بندی"
-
-#: jibres/includes/languages/trans_twig.php:413
-msgid "Buy price"
-msgstr "قیمت خرید"
-
-#: jibres/includes/languages/trans_twig.php:414
-msgid "Sell Price"
-msgstr "قیمت فروش"
-
-#: jibres/includes/languages/trans_twig.php:415
-msgid "Discount"
-msgstr "تخفیف"
-
-#: jibres/includes/languages/trans_twig.php:416
-msgid "Discount percent"
-msgstr "درصد تخفیف"
-
-#: jibres/includes/languages/trans_twig.php:417
-msgid "Stock"
-msgstr "موجودی انبار"
-
-#: jibres/includes/languages/trans_twig.php:420
-msgid "Warehouse"
-msgstr "انبار"
-
-#: jibres/includes/languages/trans_twig.php:423
-msgid "Please wait to complete import progress"
-msgstr "لطفا تا اتمام فرآیند ورود صبر کنید"
-
-#: jibres/includes/languages/trans_twig.php:424
-msgid "Import"
-msgstr "وارد کردن"
-
-#: jibres/includes/languages/trans_twig.php:427
-msgid "General Detail"
-msgstr "جزئیات عمومی"
-
-#: jibres/includes/languages/trans_twig.php:428
-msgid "Delete product"
-msgstr "حذف محصول"
-
-#: jibres/includes/languages/trans_twig.php:429
-msgid "Name of product"
-msgstr "نام محصول"
-
-#: jibres/includes/languages/trans_twig.php:430
 msgid "Enter a valid name"
 msgstr "نام معتبر وارد کنید"
 
-#: jibres/includes/languages/trans_twig.php:431
-msgid "Title in team show below name"
-msgstr ""
-
-#: jibres/includes/languages/trans_twig.php:432
-msgid "Enter a valid team title from 3 to 50 character"
-msgstr ""
-
-#: jibres/includes/languages/trans_twig.php:433
-msgid "Slug"
-msgstr "نامک"
-
-#: jibres/includes/languages/trans_twig.php:434
-msgid "Manufacturer"
-msgstr "سازنده"
-
-#: jibres/includes/languages/trans_twig.php:435
-msgid "Product manufacturer"
-msgstr "کارخانه سازنده محصول"
-
-#: jibres/includes/languages/trans_twig.php:436
-msgid "Cat"
-msgstr "دسته‌بندی"
-
-#: jibres/includes/languages/trans_twig.php:437
-msgid "Short code"
-msgstr "کد کوتاه"
-
-#: jibres/includes/languages/trans_twig.php:439
-msgid "Count unit like Qty, kg, liter and etc"
-msgstr "واحد شمارش مثل عدد، کیلوگرم، لیتر"
-
-#: jibres/includes/languages/trans_twig.php:440
-msgid "Scan Barcode here..."
-msgstr "بارکد را اسکن کنید..."
-
-#: jibres/includes/languages/trans_twig.php:441
-msgid "Barcode2"
-msgstr "ایران بارکد"
-
-#: jibres/includes/languages/trans_twig.php:442
-msgid "Scan Barcode2 here..."
-msgstr "ایران بارکد را اسکن کنید..."
-
-#: jibres/includes/languages/trans_twig.php:443
-msgid "Price for sale without discount"
-msgstr "قیمت برای فروش بدون کسر تخفیف"
-
-#: jibres/includes/languages/trans_twig.php:444
-msgid "Discount on sale"
-msgstr "تخفیف روی قیمت فروش"
-
-#: jibres/includes/languages/trans_twig.php:445
-msgid "Vat"
-msgstr "مالیات بر ارزش افزوده"
-
-#: jibres/includes/languages/trans_twig.php:446
-msgid "This product is vat base"
-msgstr ""
-
-#: jibres/includes/languages/trans_twig.php:447
-msgid "Initial Balance"
-msgstr "موجودی اولیه"
-
-#: jibres/includes/languages/trans_twig.php:448
-msgid "Min stock"
-msgstr "حداقل موجودی انبار"
-
-#: jibres/includes/languages/trans_twig.php:449
-msgid "Max stock"
-msgstr "حداکثر موجودی انبار"
-
-#: jibres/includes/languages/trans_twig.php:450
-msgid "Status of product"
-msgstr "وضعیت محصول"
-
-#: jibres/includes/languages/trans_twig.php:451
-msgid "Avalible"
-msgstr "موجود"
-
-#: jibres/includes/languages/trans_twig.php:452
-msgid "Normal status of product"
-msgstr "وضعیت معمول یک محصول"
-
-#: jibres/includes/languages/trans_twig.php:453
-msgid "Soon"
-msgstr "بزودی"
-
-#: jibres/includes/languages/trans_twig.php:454
-msgid "maybe come in future and be available"
-msgstr "شاید در آینده در فروشگاه عرضه شود"
-
-#: jibres/includes/languages/trans_twig.php:455
-msgid "Unavailable"
-msgstr "ناموجود"
-
-#: jibres/includes/languages/trans_twig.php:456
-msgid "temporary does not exist in store"
-msgstr "موقتا در فروشگاه موجود نیست"
-
-#: jibres/includes/languages/trans_twig.php:457
-msgid "Discountinued"
-msgstr "توقف تولید"
-
-#: jibres/includes/languages/trans_twig.php:458
-msgid "does not exist for now and on the future"
-msgstr "موجود نیست و در آینده هم نخواهد شد"
-
-#: jibres/includes/languages/trans_twig.php:459
-msgid "Unset"
-msgstr "تنظیم‌نشده"
-
-#: jibres/includes/languages/trans_twig.php:460
-msgid "Unknown status for product"
-msgstr "وضعیت نامشخص برای محصول"
-
-#: jibres/includes/languages/trans_twig.php:461
-msgid "Sold"
-msgstr "فروخته‌شده"
-
-#: jibres/includes/languages/trans_twig.php:462
-msgid "Service"
-msgstr "خدمات"
-
-#: jibres/includes/languages/trans_twig.php:463
-msgid "This product is service base and not a real goods"
-msgstr "این محصول بر مبنای خدمات است و یک کالای فیزیکی نیست"
-
-#: jibres/includes/languages/trans_twig.php:464
-msgid "Sell Online"
-msgstr "فروش آنلاین"
-
-#: jibres/includes/languages/trans_twig.php:465
-msgid "This product is sellonline base"
-msgstr ""
-
-#: jibres/includes/languages/trans_twig.php:466
-msgid "Sell in store"
-msgstr "فروش در فروشگاه"
-
-#: jibres/includes/languages/trans_twig.php:467
-msgid "This product is sellstore base"
-msgstr ""
-
-#: jibres/includes/languages/trans_twig.php:468
-msgid "Count in carton"
-msgstr "تعداد در کارتن"
-
-#: jibres/includes/languages/trans_twig.php:469
-msgid "Count of product in carton"
-msgstr "تعداد محصولات موجود در هر کارتن"
-
-#: jibres/includes/languages/trans_twig.php:475
-msgid "Without traffic"
-msgstr "بدون تردد"
-
-#: jibres/includes/languages/trans_twig.php:476
-msgid "Last traffic"
-msgstr "آخرین تردد"
-
-#: jibres/includes/languages/trans_twig.php:477
-msgid "Store Plan"
-msgstr "پلن فروشگاه"
-
-#: jibres/includes/languages/trans_twig.php:478
-msgid "Security and privacy"
-msgstr "امنیتی و حریم‌خصوصی"
-
-#: jibres/includes/languages/trans_twig.php:479
-msgid "Report Settings"
-msgstr "تنظیمات گزارش"
-
-#: jibres/includes/languages/trans_twig.php:482
-msgid "Current Plan"
-msgstr "پلن فعلی"
-
-#: jibres/includes/languages/trans_twig.php:483
-msgid "Activate on"
-msgstr "فعال‌شده در"
-
-#: jibres/includes/languages/trans_twig.php:488
-msgid "Search in staffs list"
-msgstr "جستجو در لیست کارمندان"
-
-#: jibres/includes/languages/trans_twig.php:492
-msgid "ID Cards"
-msgstr "کارت‌های شناسایی"
-
-#: jibres/includes/languages/trans_twig.php:493
-msgid "Birth Detail"
-msgstr "جزئیات تولد"
-
-#: jibres/includes/languages/trans_twig.php:496
-msgid "Complete Profile"
-msgstr "تکمیل پروفایل"
-
-#: jibres/includes/languages/trans_twig.php:497
-msgid "Document Photo"
-msgstr ""
-
-#: jibres/includes/languages/trans_twig.php:498
-msgid "Contact information"
-msgstr "اطلاعات تماس"
-
-#: jibres/includes/languages/trans_twig.php:499
-msgid "Identification detail"
-msgstr "جزئیات شناسنامه‌ای"
-
-#: jibres/includes/languages/trans_twig.php:500
-msgid "Location and address"
-msgstr "آدرس و موقعیت"
-
-#: jibres/includes/languages/trans_twig.php:502
-msgid "Grade"
-msgstr "مقطع"
-
-#: jibres/includes/languages/trans_twig.php:503
-msgid "Select staff grade"
-msgstr "مقطع تحصیلی کارمند را انتخاب کنید"
-
-#: jibres/includes/languages/trans_twig.php:504
-msgid "Like 09120123456"
-msgstr "مثل 0912 012 3456"
-
-#: jibres/includes/languages/trans_twig.php:506
-msgid "10 digit national code"
-msgstr "کدملی ده رقمی"
-
-#: jibres/includes/languages/trans_twig.php:510
-msgid "Classroom"
-msgstr "کلاس"
-
-#: jibres/includes/languages/trans_twig.php:511
-msgid "Please select one classroom"
-msgstr "لطفا یک کلاس را انتخاب کنید"
-
-#: jibres/includes/languages/trans_twig.php:513
-msgid "Country"
-msgstr "کشور"
-
-#: jibres/includes/languages/trans_twig.php:514
-msgid "Province"
-msgstr "استان"
-
-#: jibres/includes/languages/trans_twig.php:515
-msgid "City"
-msgstr "شهر"
-
-#: jibres/includes/languages/trans_twig.php:516
-msgid "Zip code"
-msgstr "کدپستی"
-
-#: jibres/includes/languages/trans_twig.php:517
-msgid "Religion"
-msgstr "مذهب"
-
-#: jibres/includes/languages/trans_twig.php:518
-msgid "Birth place"
-msgstr "محل تولد"
-
-#: jibres/includes/languages/trans_twig.php:519
-msgid "Issue Place"
-msgstr "محل صدور"
-
-#: jibres/includes/languages/trans_twig.php:520
-msgid "Passport id"
-msgstr "شماره گذرنامه"
-
-#: jibres/includes/languages/trans_twig.php:521
-msgid "Passport expire date"
-msgstr ""
-
-#: jibres/includes/languages/trans_twig.php:522
-msgid "Id number"
-msgstr "شماره شناسنامه"
-
-#: jibres/includes/languages/trans_twig.php:523
-msgid "National Id"
-msgstr "کد ملی"
-
-#: jibres/includes/languages/trans_twig.php:524
-msgid "Address"
-msgstr "آدرس"
-
-#: jibres/includes/languages/trans_twig.php:525
-msgid "Mobile of Staff"
-msgstr "تلفن‌همراه کارمند"
-
-#: jibres/includes/languages/trans_twig.php:526
-msgid "Like"
-msgstr "مثل"
-
-#: jibres/includes/languages/trans_twig.php:527
-msgid "Phone"
-msgstr "شماره تلفن"
-
-#: jibres/includes/languages/trans_twig.php:528
-msgid "Mobile of father"
-msgstr "تلفن‌همراه پدر"
-
-#: jibres/includes/languages/trans_twig.php:529
-msgid "Mobile of mother"
-msgstr "تلفن‌همراه مادر"
-
-#: jibres/includes/languages/trans_twig.php:530
-msgid "Post code"
-msgstr "کدپستی"
-
-#: jibres/includes/languages/trans_twig.php:534
-msgid "Photo of national card"
-msgstr ""
-
-#: jibres/includes/languages/trans_twig.php:537
-msgid "List of your stores"
-msgstr "لیست فروشگاه‌های شما"
-
-#: jibres/includes/languages/trans_twig.php:538
-msgid "Add new Store"
-msgstr "افزودن فروشگاه جدید"
-
-#: jibres/includes/languages/trans_twig.php:539
-msgid "Store"
-msgstr "فروشگاه"
-
-#: jibres/includes/languages/trans_twig.php:545
+#: jibres/includes/languages/trans_twig.php:310
 msgid "Store short name"
 msgstr "نام کوتاه فروشگاه"
 
-#: jibres/includes/languages/trans_twig.php:546
+#: jibres/includes/languages/trans_twig.php:311
 msgid "Used for url of store as subdomain"
 msgstr "به‌عنوان ساب‌دامین در آدرس فروشگاه مورد استفاده قرار می‌گیرد"
 
-#: jibres/includes/languages/trans_twig.php:547
+#: jibres/includes/languages/trans_twig.php:312
 msgid "subdomain for your store"
 msgstr "ساب‌دامین فروشگاه شما"
 
-#: jibres/includes/languages/trans_twig.php:548
+#: jibres/includes/languages/trans_twig.php:313
 msgid "Used for description of store and show in social media links"
 msgstr ""
 "برای توضیح در لینک‌های فروشگاه شما در شبکه‌های اجتماعی مورد استفاده قرار می‌گیرد"
 
-#: jibres/includes/languages/trans_twig.php:551
+#: jibres/includes/languages/trans_twig.php:314
+msgid "Insert"
+msgstr "افزودن"
+
+#: jibres/includes/languages/trans_twig.php:317
 msgid "Total sale"
 msgstr "جمع فروش"
 
-#: jibres/includes/languages/trans_twig.php:552
+#: jibres/includes/languages/trans_twig.php:318
 msgid "Owner of store"
 msgstr "مالک فروشگاه"
 
-#: jibres/includes/languages/trans_twig.php:553
+#: jibres/includes/languages/trans_twig.php:319
 msgid "Add new store"
 msgstr "افزودن فروشگاه جدید"
 
-#: jibres/includes/languages/trans_twig.php:556
-msgid "; "
-msgstr "؛"
+#: jibres/includes/languages/trans_twig.php:326
+msgid "List of your stores"
+msgstr "لیست فروشگاه‌های شما"
 
-#: jibres/includes/languages/trans_twig.php:560
-msgid "money"
-msgstr "پول"
+#: jibres/includes/languages/trans_twig.php:327
+msgid "Add new Store"
+msgstr "افزودن فروشگاه جدید"
 
-#: jibres/includes/languages/trans_twig.php:561
-msgid "toman"
-msgstr "تومان"
+#: jibres/includes/languages/trans_twig.php:328
+msgid "Store"
+msgstr "فروشگاه"
 
-#: jibres/includes/lib/app/product.php:58 jibres/includes/lib/app/product/add.php:74
+#: jibres/includes/languages/trans_twig.php:332
+msgid "Photo of national card"
+msgstr "تصویر کارت ملی"
+
+#: jibres/includes/languages/trans_twig.php:338
+msgid "ID Cards"
+msgstr "کارت‌های شناسایی"
+
+#: jibres/includes/languages/trans_twig.php:339
+msgid "Birth Detail"
+msgstr "جزئیات تولد"
+
+#: jibres/includes/languages/trans_twig.php:342
+msgid "Search in staffs list"
+msgstr "جستجو در لیست کارمندان"
+
+#: jibres/includes/languages/trans_twig.php:347
+msgid "Complete Profile"
+msgstr "تکمیل پروفایل"
+
+#: jibres/includes/languages/trans_twig.php:348
+msgid "General Detail"
+msgstr "جزئیات عمومی"
+
+#: jibres/includes/languages/trans_twig.php:349
+msgid "Document Photo"
+msgstr "مدارک تصویری"
+
+#: jibres/includes/languages/trans_twig.php:350
+msgid "Contact information"
+msgstr "اطلاعات تماس"
+
+#: jibres/includes/languages/trans_twig.php:351
+msgid "Identification detail"
+msgstr "جزئیات شناسنامه‌ای"
+
+#: jibres/includes/languages/trans_twig.php:352
+msgid "Location and address"
+msgstr "آدرس و موقعیت"
+
+#: jibres/includes/languages/trans_twig.php:355
+msgid "Grade"
+msgstr "مقطع"
+
+#: jibres/includes/languages/trans_twig.php:356
+msgid "Select staff grade"
+msgstr "مقطع تحصیلی کارمند را انتخاب کنید"
+
+#: jibres/includes/languages/trans_twig.php:357
+msgid "Like 09120123456"
+msgstr "مثل 0912 012 3456"
+
+#: jibres/includes/languages/trans_twig.php:359
+msgid "10 digit national code"
+msgstr "کدملی ده رقمی"
+
+#: jibres/includes/languages/trans_twig.php:363
+msgid "Classroom"
+msgstr "کلاس"
+
+#: jibres/includes/languages/trans_twig.php:364
+msgid "Please select one classroom"
+msgstr "لطفا یک کلاس را انتخاب کنید"
+
+#: jibres/includes/languages/trans_twig.php:366
+msgid "Country"
+msgstr "کشور"
+
+#: jibres/includes/languages/trans_twig.php:367
+msgid "Province"
+msgstr "استان"
+
+#: jibres/includes/languages/trans_twig.php:368
+msgid "City"
+msgstr "شهر"
+
+#: jibres/includes/languages/trans_twig.php:369
+msgid "Zip code"
+msgstr "کدپستی"
+
+#: jibres/includes/languages/trans_twig.php:370
+msgid "Religion"
+msgstr "مذهب"
+
+#: jibres/includes/languages/trans_twig.php:371
+msgid "Birth place"
+msgstr "محل تولد"
+
+#: jibres/includes/languages/trans_twig.php:372
+msgid "Issue Place"
+msgstr "محل صدور"
+
+#: jibres/includes/languages/trans_twig.php:373
+msgid "Passport id"
+msgstr "شماره گذرنامه"
+
+#: jibres/includes/languages/trans_twig.php:374
+msgid "Passport expire date"
+msgstr "تاریخ انقضای گذرنامه"
+
+#: jibres/includes/languages/trans_twig.php:375
+msgid "Id number"
+msgstr "شماره شناسنامه"
+
+#: jibres/includes/languages/trans_twig.php:376
+msgid "National Id"
+msgstr "کد ملی"
+
+#: jibres/includes/languages/trans_twig.php:377
+msgid "Address"
+msgstr "آدرس"
+
+#: jibres/includes/languages/trans_twig.php:378
+msgid "Mobile of Staff"
+msgstr "تلفن‌همراه کارمند"
+
+#: jibres/includes/languages/trans_twig.php:379
+msgid "Like"
+msgstr "مثل"
+
+#: jibres/includes/languages/trans_twig.php:380
+msgid "Phone"
+msgstr "شماره تلفن"
+
+#: jibres/includes/languages/trans_twig.php:381
+msgid "Mobile of father"
+msgstr "تلفن‌همراه پدر"
+
+#: jibres/includes/languages/trans_twig.php:382
+msgid "Mobile of mother"
+msgstr "تلفن‌همراه مادر"
+
+#: jibres/includes/languages/trans_twig.php:383
+msgid "Post code"
+msgstr "کدپستی"
+
+#: jibres/includes/languages/trans_twig.php:387
+msgid "Current Plan"
+msgstr "پلن فعلی"
+
+#: jibres/includes/languages/trans_twig.php:388
+msgid "Activate on"
+msgstr "فعال‌شده در"
+
+#: jibres/includes/languages/trans_twig.php:394
+msgid "Without traffic"
+msgstr "بدون تردد"
+
+#: jibres/includes/languages/trans_twig.php:395
+msgid "Last traffic"
+msgstr "آخرین تردد"
+
+#: jibres/includes/languages/trans_twig.php:396
+msgid "Store Plan"
+msgstr "پلن فروشگاه"
+
+#: jibres/includes/languages/trans_twig.php:397
+msgid "Security and privacy"
+msgstr "امنیتی و حریم‌خصوصی"
+
+#: jibres/includes/languages/trans_twig.php:398
+msgid "Report Settings"
+msgstr "تنظیمات گزارش"
+
+#: jibres/includes/languages/trans_twig.php:399
+msgid "Save All"
+msgstr "ذخیره همه"
+
+#: jibres/includes/languages/trans_twig.php:401
+msgid "Team short name"
+msgstr "نام کوتاه تیم"
+
+#: jibres/includes/languages/trans_twig.php:402
+msgid "Used for url of board"
+msgstr "استفاده برای آدرس در بورد"
+
+#: jibres/includes/languages/trans_twig.php:403
+msgid "Slug of team for board url"
+msgstr "نام کوتاه تیم برای آدرس بورد"
+
+#: jibres/includes/languages/trans_twig.php:404
+msgid "Website"
+msgstr "وب‌سایت"
+
+#: jibres/includes/languages/trans_twig.php:405
+msgid "Link your logo on board for visitors"
+msgstr "لینک شدن لوگوی شما در بورد برای بازدیدکنندگان"
+
+#: jibres/includes/languages/trans_twig.php:406
+msgid "Used for description of board and show in social media links"
+msgstr "استفاده‌شده برای توضیح بورد جهت نمایش در لینک بورد در شبکه‌های اجتماعی"
+
+#: jibres/includes/languages/trans_twig.php:407
+msgid "Choose your plan"
+msgstr "پلن خود را انتخاب کنید"
+
+#: jibres/includes/languages/trans_twig.php:408
+msgid "All the basics for personal use."
+msgstr "تمام نیازهای اولیه برای استفاده شخصی."
+
+#: jibres/includes/languages/trans_twig.php:409
+msgid "Everything in Free plus automatic report via Telegram."
+msgstr "تمام داشته‌های پلن رایگان به‌اضافه‌ی گزارش خودکار از طریق تلگرام."
+
+#: jibres/includes/languages/trans_twig.php:410
+msgid "Everything you need for a growing business."
+msgstr "تمام نیازهای شما برای یک کسب و کار در حال توسعه."
+
+#: jibres/includes/languages/trans_twig.php:411
+msgid "For big companies that need fix price per month."
+msgstr "برای شرکت‌های بزرگ که نیاز به صرفه‌جویی و پرداخت هزینه ثابت در ماه دارند."
+
+#: jibres/includes/languages/trans_twig.php:412
+msgid "Force show in specefic language"
+msgstr "اجبار به نمایش بورد در زبان خاص"
+
+#: jibres/includes/languages/trans_twig.php:413
+msgid "Please select one language"
+msgstr "لطفا یکی از زبانها را انتخاب کنید"
+
+#: jibres/includes/languages/trans_twig.php:414
+msgid "Persian"
+msgstr "فارسی"
+
+#: jibres/includes/languages/trans_twig.php:415
+msgid "English"
+msgstr "انگلیسی"
+
+#: jibres/includes/languages/trans_twig.php:416
+msgid "Report Header"
+msgstr "سرصفحه گزارش"
+
+#: jibres/includes/languages/trans_twig.php:417
+msgid "Report Footer"
+msgstr "پانویس گزارش"
+
+#: jibres/includes/languages/trans_twig.php:420
+msgid "Basic detail"
+msgstr "اطلاعات اولیه"
+
+#: jibres/includes/languages/trans_twig.php:421
+msgid "Initial detail before start sell"
+msgstr "مقادیر اولیه قبل از شروع فروش"
+
+#: jibres/includes/languages/trans_twig.php:424
+msgid "Warehouse"
+msgstr "انبار"
+
+#: jibres/includes/languages/trans_twig.php:427
+msgid "Choose your CSV"
+msgstr "فایل سی اس وی خود را انتخاب کنید"
+
+#: jibres/includes/languages/trans_twig.php:428
+msgid "Please wait to complete import progress"
+msgstr "لطفا تا اتمام فرآیند ورود صبر کنید"
+
+#: jibres/includes/languages/trans_twig.php:429
+msgid "Import"
+msgstr "وارد کردن"
+
+#: jibres/includes/languages/trans_twig.php:432
+msgid "Search in products"
+msgstr "جستجو در محصولات"
+
+#: jibres/includes/languages/trans_twig.php:434
+msgid "Category"
+msgstr "دسته‌بندی"
+
+#: jibres/includes/languages/trans_twig.php:435
+msgid "Buy price"
+msgstr "قیمت خرید"
+
+#: jibres/includes/languages/trans_twig.php:436
+msgid "Sell Price"
+msgstr "قیمت فروش"
+
+#: jibres/includes/languages/trans_twig.php:437
+msgid "Discount"
+msgstr "تخفیف"
+
+#: jibres/includes/languages/trans_twig.php:438
+msgid "Discount percent"
+msgstr "درصد تخفیف"
+
+#: jibres/includes/languages/trans_twig.php:439
+msgid "Stock"
+msgstr "موجودی انبار"
+
+#: jibres/includes/languages/trans_twig.php:440
+msgid "You are not have product yet! add new one."
+msgstr "شما تاکنون هیچ محصولی ثبت نکرده اید! یک محصول اضافه کنید."
+
+#: jibres/includes/languages/trans_twig.php:444
+msgid "Delete product"
+msgstr "حذف محصول"
+
+#: jibres/includes/languages/trans_twig.php:445
+msgid "Name of product"
+msgstr "نام محصول"
+
+#: jibres/includes/languages/trans_twig.php:446
+msgid "Title of product"
+msgstr "عنوان محصول"
+
+#: jibres/includes/languages/trans_twig.php:447
+msgid "Enter a valid team title"
+msgstr "یک عنوان صحیح برای تیم انتخاب کنید"
+
+#: jibres/includes/languages/trans_twig.php:448
+msgid "Slug"
+msgstr "نامک"
+
+#: jibres/includes/languages/trans_twig.php:449
+msgid "Manufacturer"
+msgstr "سازنده"
+
+#: jibres/includes/languages/trans_twig.php:450
+msgid "Product manufacturer"
+msgstr "کارخانه سازنده محصول"
+
+#: jibres/includes/languages/trans_twig.php:451
+msgid "Cat"
+msgstr "دسته‌بندی"
+
+#: jibres/includes/languages/trans_twig.php:452
+msgid "Short code"
+msgstr "کد کوتاه"
+
+#: jibres/includes/languages/trans_twig.php:454
+msgid "Count unit like Qty, kg, liter and etc"
+msgstr "واحد شمارش مثل عدد، کیلوگرم، لیتر"
+
+#: jibres/includes/languages/trans_twig.php:455
+msgid "Scan Barcode here..."
+msgstr "بارکد را اسکن کنید..."
+
+#: jibres/includes/languages/trans_twig.php:456
+msgid "Barcode2"
+msgstr "ایران بارکد"
+
+#: jibres/includes/languages/trans_twig.php:457
+msgid "Scan Barcode2 here..."
+msgstr "ایران بارکد را اسکن کنید..."
+
+#: jibres/includes/languages/trans_twig.php:458
+msgid "Price for sale without discount"
+msgstr "قیمت برای فروش بدون کسر تخفیف"
+
+#: jibres/includes/languages/trans_twig.php:459
+msgid "Discount on sale"
+msgstr "تخفیف روی قیمت فروش"
+
+#: jibres/includes/languages/trans_twig.php:460
+msgid "Vat"
+msgstr "مالیات بر ارزش افزوده"
+
+#: jibres/includes/languages/trans_twig.php:461
+msgid "This product is vat base"
+msgstr ""
+
+#: jibres/includes/languages/trans_twig.php:462
+msgid "Initial Balance"
+msgstr "موجودی اولیه"
+
+#: jibres/includes/languages/trans_twig.php:463
+msgid "Min stock"
+msgstr "حداقل موجودی انبار"
+
+#: jibres/includes/languages/trans_twig.php:464
+msgid "Max stock"
+msgstr "حداکثر موجودی انبار"
+
+#: jibres/includes/languages/trans_twig.php:465
+msgid "Status of product"
+msgstr "وضعیت محصول"
+
+#: jibres/includes/languages/trans_twig.php:466
+msgid "Avalible"
+msgstr "موجود"
+
+#: jibres/includes/languages/trans_twig.php:467
+msgid "Normal status of product"
+msgstr "وضعیت معمول یک محصول"
+
+#: jibres/includes/languages/trans_twig.php:468
+msgid "Soon"
+msgstr "بزودی"
+
+#: jibres/includes/languages/trans_twig.php:469
+msgid "maybe come in future and be available"
+msgstr "شاید در آینده در فروشگاه عرضه شود"
+
+#: jibres/includes/languages/trans_twig.php:470
+msgid "Unavailable"
+msgstr "ناموجود"
+
+#: jibres/includes/languages/trans_twig.php:471
+msgid "temporary does not exist in store"
+msgstr "موقتا در فروشگاه موجود نیست"
+
+#: jibres/includes/languages/trans_twig.php:472
+msgid "Discountinued"
+msgstr "توقف تولید"
+
+#: jibres/includes/languages/trans_twig.php:473
+msgid "does not exist for now and on the future"
+msgstr "موجود نیست و در آینده هم نخواهد شد"
+
+#: jibres/includes/languages/trans_twig.php:474
+msgid "Unset"
+msgstr "تنظیم‌نشده"
+
+#: jibres/includes/languages/trans_twig.php:475
+msgid "Unknown status for product"
+msgstr "وضعیت نامشخص برای محصول"
+
+#: jibres/includes/languages/trans_twig.php:476
+msgid "Sold"
+msgstr "فروخته‌شده"
+
+#: jibres/includes/languages/trans_twig.php:477
+msgid "Service"
+msgstr "خدمات"
+
+#: jibres/includes/languages/trans_twig.php:478
+msgid "This product is service base and not a real goods"
+msgstr "این محصول بر مبنای خدمات است و یک کالای فیزیکی نیست"
+
+#: jibres/includes/languages/trans_twig.php:479
+msgid "Sell Online"
+msgstr "فروش آنلاین"
+
+#: jibres/includes/languages/trans_twig.php:480
+msgid "This product is sellonline base"
+msgstr ""
+
+#: jibres/includes/languages/trans_twig.php:481
+msgid "Sell in store"
+msgstr "فروش در فروشگاه"
+
+#: jibres/includes/languages/trans_twig.php:482
+msgid "This product is sellstore base"
+msgstr ""
+
+#: jibres/includes/languages/trans_twig.php:483
+msgid "Count in carton"
+msgstr "تعداد در کارتن"
+
+#: jibres/includes/languages/trans_twig.php:484
+msgid "Count of product in carton"
+msgstr "تعداد محصولات موجود در هر کارتن"
+
+#: jibres/includes/languages/trans_twig.php:487
+msgid "Products"
+msgstr "محصولات"
+
+#: jibres/includes/languages/trans_twig.php:488
+msgid "Staffs"
+msgstr "کارمندان"
+
+#: jibres/includes/languages/trans_twig.php:489
+msgid "Suppliers"
+msgstr "تامین‌کنندگان"
+
+#: jibres/includes/languages/trans_twig.php:490
+msgid "Customers"
+msgstr "مشتریان"
+
+#: jibres/includes/languages/trans_twig.php:491
+msgid "Buy"
+msgstr "خرید"
+
+#: jibres/includes/languages/trans_twig.php:492
+msgid "Sell"
+msgstr "فروش"
+
+#: jibres/includes/languages/trans_twig.php:496
+msgid "Add event day counter"
+msgstr "افزودن روزشمار رویداد"
+
+#: jibres/includes/languages/trans_twig.php:497
+msgid "Present Members"
+msgstr "حاضرین"
+
+#: jibres/includes/languages/trans_twig.php:498
+msgid "Customer"
+msgstr "مشتری"
+
+#: jibres/includes/languages/trans_twig.php:499
+msgid "Supplier"
+msgstr "تامین‌کنندگان"
+
+#: jibres/includes/languages/trans_twig.php:500
+msgid "Staff"
+msgstr "کارمند"
+
+#: jibres/includes/languages/trans_twig.php:501
+msgid "Start date of using tejarak"
+msgstr "تاریخ شروع استفاده شما از تجارک"
+
+#: jibres/includes/languages/trans_twig.php:502
+msgid "day ago"
+msgstr "روز پیش"
+
+#: jibres/includes/languages/trans_twig.php:503
+msgid "Day Used"
+msgstr "روز کارکرد"
+
+#: jibres/includes/languages/trans_twig.php:504
+msgid "Top Members"
+msgstr "برترین اعضا"
+
+#: jibres/includes/languages/trans_twig.php:505
+msgid "Last sells"
+msgstr "آخرین فروش‌ها"
+
+#: jibres/includes/lib/app/product.php:114 jibres/includes/lib/app/product/add.php:73
 #: jibres/includes/lib/app/product/delete.php:37
 msgid "Product title can not be null"
-msgstr ""
+msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: jibres/includes/lib/app/product.php:65
+#: jibres/includes/lib/app/product.php:121
 msgid "Product title must be less than 500 character"
-msgstr ""
+msgstr "عنوان محصول باید کمتر از ۵۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/product.php:76
+#: jibres/includes/lib/app/product.php:132
 msgid "Product name must be less than 500 character"
-msgstr ""
+msgstr "نام محصول باید کمتر از ۵۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/product.php:85
+#: jibres/includes/lib/app/product.php:141
 msgid "Product cat must be less than 200 character"
-msgstr ""
+msgstr "دسته بندی محصول باید کمتر از ۲۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/product.php:100
+#: jibres/includes/lib/app/product.php:156
 msgid "String of product company is too large"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:125
-msgid "String of product unit is too large"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:144
-msgid "String of product barcode is too large"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:164
-msgid "String of product barcode2 is too large"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:173
-msgid "String of product code is too large"
-msgstr ""
+msgstr "متن عنوان شرکت سازنده از حد مجاز بزرگتر است"
 
 #: jibres/includes/lib/app/product.php:181
+msgid "String of product unit is too large"
+msgstr "متن واحد شمارش کالای این محصول از حد مجاز بزرگتر است"
+
+#: jibres/includes/lib/app/product.php:200
+msgid "String of product barcode is too large"
+msgstr "متن بارکد این محصول از حد مجاز بزرگتر است"
+
+#: jibres/includes/lib/app/product.php:220
+msgid "String of product barcode2 is too large"
+msgstr "متن بارکد ۲ این محصول از حد مجاز بزرگتر است"
+
+#: jibres/includes/lib/app/product.php:229
+msgid "String of product code is too large"
+msgstr "متن کد این محصول از حد مجاز بزرگتر است"
+
+#: jibres/includes/lib/app/product.php:237
 msgid "Value of buyprice muset be a number"
-msgstr ""
+msgstr "قیمت خرید باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:188
+#: jibres/includes/lib/app/product.php:244
 msgid "Value of buyprice is out of rage"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:196
-msgid "Value of price muset be a number"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:203
-msgid "Value of price is out of rage"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:212
-msgid "Value of discount muset be a number"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:219
-msgid "Value of discount is out of rage"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:236
-msgid "Value of initialbalance muset be a number"
-msgstr ""
-
-#: jibres/includes/lib/app/product.php:243
-msgid "Value of initialbalance is out of rage"
-msgstr ""
+msgstr "قیمت خرید خارج از محدوده مجاز است"
 
 #: jibres/includes/lib/app/product.php:252
-msgid "Value of minstock muset be a number"
-msgstr ""
+msgid "Value of price muset be a number"
+msgstr "قیمت باید به صورت عددی وارد شود"
 
 #: jibres/includes/lib/app/product.php:259
-msgid "Value of minstock is out of rage"
-msgstr ""
+msgid "Value of price is out of rage"
+msgstr "قیمت خارج از محدوده مجاز است"
 
 #: jibres/includes/lib/app/product.php:268
-msgid "Value of maxstock muset be a number"
-msgstr ""
+msgid "Value of discount muset be a number"
+msgstr "تخفیف باید به صورت عددی وارد شود"
 
 #: jibres/includes/lib/app/product.php:275
+msgid "Value of discount is out of rage"
+msgstr "تخفیف خارج از محدوده مجاز است"
+
+#: jibres/includes/lib/app/product.php:292
+msgid "Value of initialbalance muset be a number"
+msgstr "موجودی اولیه باید به صورت عددی وارد شود"
+
+#: jibres/includes/lib/app/product.php:299
+msgid "Value of initialbalance is out of rage"
+msgstr "موجودی اولیه خارج از محدوده مجاز است"
+
+#: jibres/includes/lib/app/product.php:308
+msgid "Value of minstock muset be a number"
+msgstr "حد اقل موجودی باید به صورت عددی وارد شود"
+
+#: jibres/includes/lib/app/product.php:315
+msgid "Value of minstock is out of rage"
+msgstr "حد اقل موجودی خارج از محدوده مجاز است"
+
+#: jibres/includes/lib/app/product.php:324
+msgid "Value of maxstock muset be a number"
+msgstr "حد اکثر موجودی باید به صورت عددی وارد شود"
+
+#: jibres/includes/lib/app/product.php:331
 msgid "Value of maxstock is out of rage"
-msgstr ""
+msgstr "حد اکثر موجودی خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:285
+#: jibres/includes/lib/app/product.php:341
 msgid "Product status is incorrect"
-msgstr ""
+msgstr "وضعیت محصول اشتباه است"
 
-#: jibres/includes/lib/app/product.php:302
+#: jibres/includes/lib/app/product.php:358
 msgid "Value of stock muset be a number"
-msgstr ""
+msgstr "تعداد فروخته شده باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:309
+#: jibres/includes/lib/app/product.php:365
 msgid "Value of stock is out of rage"
-msgstr ""
+msgstr "تعداد فروخته شده خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:317
+#: jibres/includes/lib/app/product.php:373
 msgid "Value of thumb is out of rage"
-msgstr ""
+msgstr "آدرس تصویر محصول خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:364
+#: jibres/includes/lib/app/product.php:420
 msgid "Value of carton muset be a number"
-msgstr ""
+msgstr "تعداد در کارتون باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:371
+#: jibres/includes/lib/app/product.php:427
 msgid "Value of carton is out of rage"
-msgstr ""
+msgstr "تعداد در کارتون خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:380
+#: jibres/includes/lib/app/product.php:436
 msgid "Value of desc is out of rage"
-msgstr ""
+msgstr "طول رشته توضیحات خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product/add.php:51
+#: jibres/includes/lib/app/product/add.php:50
 msgid "Store not found"
-msgstr ""
+msgstr "فروشگاه یافت نشد"
 
-#: jibres/includes/lib/app/product/add.php:87
+#: jibres/includes/lib/app/product/add.php:86
 msgid "No way to insert product"
-msgstr ""
+msgstr "راهی برای ثبت محصول نیست! خطایی رخ داده است."
 
-#: jibres/includes/lib/app/product/add.php:113
+#: jibres/includes/lib/app/product/add.php:112
 #: jibres/includes/lib/app/store/add.php:105
 msgid "Store successfuly added"
-msgstr ""
+msgstr "فروشگاه با موفقیت ثبت شد"
 
 #: jibres/includes/lib/app/product/barcode.php:61
 msgid "1"
@@ -10948,106 +10777,117 @@ msgstr "۱"
 msgid "2"
 msgstr "۲"
 
-#: jibres/includes/lib/app/product/barcode.php:70
-msgid "This barcode used in barcode :n of another product"
-msgstr ""
+#: jibres/includes/lib/app/product/barcode.php:81
+msgid "This barcode used in barcode :n :title"
+msgstr "این بارکد در بارکد :n :title استفاده شده است"
 
-#: jibres/includes/lib/app/product/barcode.php:77
+#: jibres/includes/lib/app/product/barcode.php:97
 msgid "Undefined error was happend"
-msgstr ""
+msgstr "خطای ناشناخته رخ داده است"
 
-#: jibres/includes/lib/app/product/barcode.php:84
+#: jibres/includes/lib/app/product/barcode.php:104
 msgid "More than 2 products saved by this barcode"
-msgstr ""
+msgstr "بیش از دو محصول با این بارکد به ثبت رسیده اند"
 
 #: jibres/includes/lib/app/product/delete.php:47
 msgid "Can not access to delete this product"
-msgstr ""
+msgstr "دسترسی لازم برای حذف این محصول وجود ندارد"
 
 #: jibres/includes/lib/app/product/delete.php:61
 msgid "Product was deleted"
-msgstr ""
+msgstr "محصول حذف شد."
 
 #: jibres/includes/lib/app/product/delete.php:68
 msgid "We can not delete this product"
-msgstr ""
+msgstr "ما نمی توانیم این محصول را حذف کنیم."
 
 #: jibres/includes/lib/app/product/edit.php:62
 msgid "Can not access to edit it"
 msgstr "دسترسی لازم برای ویرایش را ندارید"
 
 #: jibres/includes/lib/app/product/edit.php:104
-msgid "Store title of product can not be null"
-msgstr ""
+msgid "Title of product can not be null"
+msgstr "عنوان محصول نمی تواند خالی باشد"
 
 #: jibres/includes/lib/app/product/edit.php:137
 msgid "Your product successfully updated"
-msgstr ""
-
-#: jibres/includes/lib/app/product/get.php:49
-msgid "User id not found"
-msgstr "شناسه کاربر یافت نشد"
+msgstr "محصول با موفقیت به روز رسانی شد"
 
 #: jibres/includes/lib/app/product/get.php:56
 msgid "Store id not found"
-msgstr ""
-
-#: jibres/includes/lib/app/product/get.php:67
-#: jibres/includes/lib/app/store/get.php:61
-msgid "Store id or shortname not set"
-msgstr ""
+msgstr "شناسه فروشگاه یافت نشد"
 
 #: jibres/includes/lib/app/product/get.php:76
 msgid "Can not access to load this product details"
-msgstr ""
+msgstr "دسترسی لازم برای مشاهده اطلاعات این محصول وجود ندارد"
 
 #: jibres/includes/lib/app/product/import.php:67
 msgid "Your file has not field 'title' "
-msgstr ""
+msgstr "فایل ارسالی شما شامل ستون 'title' نیست"
 
-#: jibres/includes/lib/app/staff.php:63
-msgid "Can not set the user in you store user list"
-msgstr ""
+#: jibres/includes/lib/app/staff.php:36
+msgid "Firstname or Lastname of :staff can not be null"
+msgstr "نام و یا نام خانوادگی برای کارکنان الزامی است"
+
+#: jibres/includes/lib/app/staff.php:47
+msgid "birthday is incorrect"
+msgstr "تاریخ تولد اشتباه است"
+
+#: jibres/includes/lib/app/staff.php:72 jibres/includes/lib/app/staff.php:302
+msgid "This user already exist in your :staff list"
+msgstr "این کاربر هم اکنون در لیست کارکنان شما وجود دارد"
+
+#: jibres/includes/lib/app/staff.php:109
+msgid "Can not set the user in you store"
+msgstr "ما نمی توانیم کاربر را در فروشگاه شما ثبت کنیم."
+
+#: jibres/includes/lib/app/staff.php:204
+msgid "Can not access to load this :staff details"
+msgstr "دسترسی لازم برای مشاهده اطلاعات کارکنان وجود ندارد"
+
+#: jibres/includes/lib/app/staff.php:277 jibres/includes/lib/app/staff.php:286
+msgid "Can not access to edit :staff"
+msgstr "شما دسترسی لازم را برای ویرایش این کارمند ندارید."
 
 #: jibres/includes/lib/app/store.php:40 jibres/includes/lib/app/store/edit.php:67
-msgid "Store name of store can not be null"
-msgstr ""
+msgid "Name of store can not be null"
+msgstr "نام فروشگاه نمی تواند خالی باشد"
 
 #: jibres/includes/lib/app/store.php:47
 msgid "Store name must be less than 100 character"
-msgstr ""
+msgstr "نام فروشگاه باید کمتر از ۱۰۰ حرف باشد"
 
 #: jibres/includes/lib/app/store.php:56
 msgid "Store website must be less than 200 character"
-msgstr ""
+msgstr "آدرس وبسایت فروشگاه باید کمتر از ۲۰۰ حرف باشد"
 
 #: jibres/includes/lib/app/store.php:66 jibres/includes/lib/app/store/edit.php:74
 msgid "slug of store can not be null"
-msgstr ""
+msgstr "نام کوتاه فروشگاه نمی تواند خالی باشد"
 
 #: jibres/includes/lib/app/store.php:86
 msgid "Store slug must be larger than 5 character"
-msgstr ""
+msgstr "نام کوتاه فروشگاه باید بیشتر از ۵ حرف باشد"
 
 #: jibres/includes/lib/app/store.php:93
 msgid "Only [A-Za-z0-9] can use in store slug"
-msgstr ""
+msgstr "شما باید فقط از حروف و اعداد لاتین در نام کوتاه فروشگاه استفاده کنید"
 
 #: jibres/includes/lib/app/store.php:101
-msgid "Store slug must be less than 500 character"
-msgstr ""
+msgid "Store slug must be less than 50 character"
+msgstr "نام کوتاه فروشگاه باید کمتر از ۵۰ حرف باشد"
 
 #: jibres/includes/lib/app/store.php:109
 msgid "Store desc must be less than 200 character"
-msgstr ""
+msgstr "توضیحات فروشگاه باید کمتر از ۲۰۰ حرف باشد"
 
 #: jibres/includes/lib/app/store.php:118
 msgid "Invalid logo url fo store"
-msgstr ""
+msgstr "آدرس فایل لوگوی فروشگاه اشتباه است"
 
 #: jibres/includes/lib/app/store.php:137
 msgid "The parent is not in your store"
-msgstr ""
+msgstr "والد معرفی شده در فروشگاه شما نیست"
 
 #: jibres/includes/lib/app/store.php:147
 msgid "Invalid language field"
@@ -11074,10 +10914,14 @@ msgid ""
 "To register a second store, you need to have at least 10,000 toman in inventory on "
 "your account"
 msgstr ""
+"برای ثبت فروشگاه دوم و سوم خود، شما باید حد اقل مبلغ ۱۰ هزار تومان موجودی در حساب "
+"خود داشته باشید."
 
 #: jibres/includes/lib/app/store/add.php:65
 msgid "You can not have more than three active stores. Contact support if needed"
 msgstr ""
+"شما نمی توانید بیشتر از ۳ فروشگاه فعال داشته باشید. اگه به فروشگاه های بیشتری نیاز "
+"دارید با پشتیبانی تماس بگیرید."
 
 #: jibres/includes/lib/app/store/add.php:87
 msgid "No way to insert store"
@@ -11085,15 +10929,19 @@ msgstr "روشی برای افزودن فروشگاه نیست"
 
 #: jibres/includes/lib/app/store/edit.php:38
 msgid "Can not access to edit store"
-msgstr ""
+msgstr "شما دسترسی لازم برای ویرایش فروشگاه را ندارید."
+
+#: jibres/includes/lib/app/store/edit.php:101
+msgid "Your store successfully update"
+msgstr "فروشگاه شما با موفقیت به روز رسانی شد"
 
 #: jibres/includes/lib/app/store/get.php:71
 msgid "Can not set store id and shortname together"
-msgstr ""
+msgstr "شناسه و نام کوتاه نباید با یک دیگر استفاده شود"
 
 #: jibres/includes/lib/app/store/get.php:116
 msgid "Can not access to load this store details"
-msgstr ""
+msgstr "شما دسترسی لازم را برای مشاهده اطلاعات این فروشگاه ندارید."
 
 #: jibres/includes/mvc/view.php:12
 msgid "Jibres is not just an online accounting software;"
@@ -11134,6 +10982,178 @@ msgstr "اجازه مشاهده لاگ‌های سیستم"
 #: jibres/includes/permission/permission.php:104
 msgid "Allow to login by another session"
 msgstr "اجازه ورود با کاربر دیگر"
+
+#~ msgid "Store name of contact can not be null"
+#~ msgstr "نام فروشگاه این مخاطب نمی‌تواند تنظیم نشده باشد"
+
+#~ msgid "Can not access to edit user"
+#~ msgstr "دسترسی برای ویرایش کاربر مقدور نیست"
+
+#~ msgid "User name of user can not be null"
+#~ msgstr "نام کاربری نمی‌تواند تنظیم نشده باشد"
+
+#~ msgid "slug of user can not be null"
+#~ msgstr "نامک کاربر نمی‌تواند تنظیم نشده باشد"
+
+#~ msgid "User id or shortname not set"
+#~ msgstr "کد کاربر یا نام کوتاه تنظیم نشده است"
+
+#~ msgid "Can not set user id and shortname together"
+#~ msgstr "نمی‌توان کدکاربر و نام کوتاه را باهم تنظیم کرد"
+
+#~ msgid "Can not access to load this user details"
+#~ msgstr "دسترسی برای بارگزاری جزئیات این کاربر مقدور نیست"
+
+#~ msgid "Special Access"
+#~ msgstr "دسترسی ویژه"
+
+#~ msgid "Add team"
+#~ msgstr "افزودن تیم"
+
+#~ msgid "List team"
+#~ msgstr "لیست تیم‌ها"
+
+#~ msgid "Board privacy mode"
+#~ msgstr "وضعیت حریم‌خصوصی بورد"
+
+#~ msgid "Only admin of team can see board"
+#~ msgstr "تنها مدیران تیم می‌توانند بورد را ببینند"
+
+#~ msgid "Team"
+#~ msgstr "تیم"
+
+#~ msgid "Admin and all member of team can see board"
+#~ msgstr "مدیران و تمام اعضای تیم می‌توانند تیم را ببینند"
+
+#~ msgid "Anyone can access to link of board can see team board"
+#~ msgstr "هرکسی که امکان دسترسی به لینک بورد را داشته باشد، می‌تواند تیم را ببیند"
+
+#~ msgid "New Owner Mobile"
+#~ msgstr "تلفن همراه مالک جدید"
+
+#~ msgid "Send Request"
+#~ msgstr "ارسال درخواست"
+
+#~ msgid "Card size"
+#~ msgstr "اندازه کارت"
+
+#~ msgid "Auto size"
+#~ msgstr "خودکار"
+
+#~ msgid "Automatic daily traffic count report"
+#~ msgstr "ارسال خودکار گزارش تردد روزانه"
+
+#~ msgid "We automatically send report in Telegram on this time"
+#~ msgstr "ما به‌صورت خودکار گزارش را در این زمان ارسال خواهیم کرد"
+
+#~ msgid "Time of send automatic daily report"
+#~ msgstr "زمان ارسال گزارش خودکار تردد روزانه"
+
+#~ msgid "Status of connected group"
+#~ msgstr "وضعیت گروه متصل‌شده"
+
+#~ msgid "Can disable group activity"
+#~ msgstr "امکان غیرفعال سازی فعالیت‌ها در گروه"
+
+#~ msgid "Remove Group Connection"
+#~ msgstr "حذف اتصالات گروه"
+
+#~ msgid "Show name of first person in day first message"
+#~ msgstr "نمایش نام اولین شخص حاضر در پیام اعلام تاریخ روز"
+
+#~ msgid "Make a motivation to be first one of the day"
+#~ msgstr "انگیزه‌ای برای اولین نفر بودن در روز ایجاد کنید"
+
+#~ msgid "Send daily report after exit last person on the day"
+#~ msgstr "ارسال گزارش روزانه در پایان هر روز پس از خروج آخرین عضو تیم"
+
+#~ msgid "List of person present in day"
+#~ msgstr "لیست اعضای حاضر در روز"
+
+#~ msgid "Show work time of each member in daily report"
+#~ msgstr "نمایش ساعت کاری هر عضو در گزارش روزانه"
+
+#~ msgid "Useful on open mind companies"
+#~ msgstr "مناسب برای شرکت‌های روشن فکر!"
+
+#~ msgid "Give a medal to top 3 person of the day"
+#~ msgstr "به سه نفر برتر هر روز مدال بدهید"
+
+#~ msgid "Gold, silver and bronze medal added to member list"
+#~ msgstr "مدال‌های طلا، نقره و برنز به لیست اعضا اضافه می‌شود"
+
+#~ msgid "Limit count of person list in daily report."
+#~ msgstr "محدودسازی تعداد نفرات نمایش داده‌شده در لیست گزارش روزانه."
+
+#~ msgid "-1 means have no limit"
+#~ msgstr "-۱ به معنی عدم محدودیت است"
+
+#~ msgid "Used for large companies"
+#~ msgstr "مورد استفاده برای شرکت‌های بزرگ"
+
+#~ msgid "Event title"
+#~ msgstr "عنوان رویداد"
+
+#~ msgid "Event date start"
+#~ msgstr "زمان شروع محاسبه رویداد"
+
+#~ msgid "Need to calc remain percentage of deadline. Today as default"
+#~ msgstr "برای محاسبه درصد باقی‌مانده از ددلاین نیاز هست. امروز به‌صورت پیش‌فرض"
+
+#~ msgid "Event date"
+#~ msgstr "زمان رویداد"
+
+#~ msgid "Remote member"
+#~ msgstr "عضو ریموت"
+
+#~ msgid "can set enter and exit with their account without need another permission"
+#~ msgstr ""
+#~ "امکان تنظیم ورود و خروج از طریق حساب کاربری خودشان بدون نیاز به سطح‌دسترسی دیگر"
+
+#~ msgid "24 hour member"
+#~ msgstr "عضو ۲۴ ساعته"
+
+#~ msgid "can stay more than one day and after 23:59! Like night workers"
+#~ msgstr "می‌توانند بیشتر از یک روز و پس از ۲۳:۵۹ حاضر باشند! مثل شب‌کارها"
+
+#~ msgid "Allow to set mission time"
+#~ msgstr "اجازه‌ی ثبت زمان ماموریت"
+
+#~ msgid "used for someone work on home or suppliers"
+#~ msgstr "مناسب برای کسانی که در منزل کار می‌کنند یا مسئول خرید یا راننده"
+
+#~ msgid "Allow to set personal work time"
+#~ msgstr "اجازه ثبت زمان امور شخصی"
+
+#~ msgid "member can enter waste time as personal work"
+#~ msgstr "اعضا می‌توانند زمان هدر رفته در روز را به‌عنوان امور شخصی وارد کنند"
+
+#~ msgid "Show member avatar on board"
+#~ msgstr "نمایش عکس اعضا در بورد"
+
+#~ msgid "Maybe for privacy you need to hide avatar on board!"
+#~ msgstr "شاید برای حریم خصوصی شما نیاز به مخفی‌سازی تصاویر در بورد دارید!"
+
+#~ msgid "Team Operation"
+#~ msgstr "تنظیمات تیم"
+
+#~ msgid "Team Dashboard"
+#~ msgstr "داشبورد تیم"
+
+#~ msgid "Gateway"
+#~ msgstr "ورودی"
+
+#~ msgid "Reports"
+#~ msgstr "گزارش‌ها"
+
+#~ msgid "Settings"
+#~ msgstr "تنظیمات"
+
+#~ msgid "Team is private and you can not see board!"
+#~ msgstr "این تیم خصوصی است و شما امکان مشاهده بورد را ندارید!"
+
+#~ msgid "Board"
+#~ msgstr "بورد"
 
 #~ msgid "Please enter mobile or skip this step"
 #~ msgstr "لطفا شماره‌ تلفن همراه خود را وارد کنید یا از این مرحله عبور کنید"
