@@ -7,14 +7,46 @@ namespace lib\app;
  */
 class staff extends \lib\app\user
 {
+	/**
+	 * type of users
+	 * staff
+	 * costomer
+	 * suplier
+	 *
+	 *
+	 * @var        string
+	 */
+	public static $type = 'staff';
 
+
+	/**
+	 * check some variable to be true
+	 *
+	 * @param      array    $_option  The option
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function check($_option = [])
 	{
 		if(\lib\app::isset_request('firstname') && !trim(\lib\app::request('firstname')))
 		{
-			\lib\app::log('app:staff:firstname:cannot:null', \lib\user::id());
-			\lib\debug::error(T_("Firstname of staff can not be null"), 'firstname');
-			return false;
+			if(\lib\app::isset_request('lastname') && !trim(\lib\app::request('lastname')))
+			{
+				\lib\app::log('app:staff:firstname:cannot:null'. self::$type , \lib\user::id());
+				\lib\debug::error(T_("Firstname or Lastname of :staff can not be null", ['staff' => T_(self::$type)]), ['firstname', 'lastname']);
+				return false;
+			}
+		}
+
+		if(\lib\app::isset_request('birthday') && \lib\app::request('birthday'))
+		{
+			$birthday = \lib\utility\human::number(\lib\app::request('birthday'), 'en');
+			if(strtotime($birthday) === false)
+			{
+				\lib\app::log('app:staff:invalid:birthday'. self::$type , \lib\user::id());
+				\lib\debug::error(T_("birthday is incorrect"), 'birthday');
+				return false;
+			}
 		}
 
 		return parent::check(...func_get_args());
@@ -33,20 +65,13 @@ class staff extends \lib\app\user
 
 		if(isset($_args['mobile']))
 		{
-			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile($_args['mobile'], 'staff', \lib\store::id());
+			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile($_args['mobile'], self::$type, \lib\store::id());
 			if($check_duplicate_mobile_in_store)
 			{
-				\lib\app::log('app:staff:duplicate:user:in:store', \lib\user::id());
-				\lib\debug::error(T_("This user already exist in your staff list"), 'mobile');
+				\lib\app::log('app:staff:duplicate:user:in:store'. self::$type , \lib\user::id());
+				\lib\debug::error(T_("This user already exist in your :staff list", ['staff' => T_(self::$type)]), 'mobile');
 				return false;
 			}
-		}
-
-		if(\lib\app::isset_request('firstname') && !trim(\lib\app::request('firstname')))
-		{
-			\lib\app::log('app:staff:firstname:cannot:null', \lib\user::id());
-			\lib\debug::error(T_("Firstname of staff can not be null"), 'firstname');
-			return false;
 		}
 
 		// check args
@@ -73,19 +98,19 @@ class staff extends \lib\app\user
 			[
 				'user_id'   => $user_id,
 				'store_id'  => \lib\store::id(),
-				'type'      => 'staff',
-				'firstname' => \lib\app::request('firstname'),
-				'lastname'  => \lib\app::request('lastname'),
+				'type'      => self::$type,
 			];
 
 			$userstore_id = \lib\db\userstores::insert($insert_userstore);
 
 			if(!$userstore_id)
 			{
-				\lib\app::log('cannot:add:user:to:userstore', \lib\user::id());
+				\lib\app::log('cannot:add:user:to:userstore'. self::$type , \lib\user::id());
 				\lib\debug::error(T_("Can not set the user in you store user list"));
 				return false;
 			}
+
+			\lib\db\userstores::update_cache($userstore_id);
 
 			$result['userstore_id'] = \lib\utility\shortURL::encode($userstore_id);
 		}
@@ -156,7 +181,7 @@ class staff extends \lib\app\user
 		{
 			if($_options['debug'])
 			{
-				\lib\app::log('api:staff:id:shortname:not:set', \lib\user::id(), $log_meta);
+				\lib\app::log('api:staff:id:shortname:not:set'. self::$type , \lib\user::id(), $log_meta);
 				\lib\debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			}
 			return false;
@@ -173,10 +198,10 @@ class staff extends \lib\app\user
 
 		if(!$result || !isset($result['user_id']))
 		{
-			\lib\app::log('api:staff:access:denide', \lib\user::id(), $log_meta);
+			\lib\app::log('api:staff:access:denide'. self::$type , \lib\user::id(), $log_meta);
 			if($_options['debug'])
 			{
-				\lib\debug::error(T_("Can not access to load this staff details"), 'staff', 'permission');
+				\lib\debug::error(T_("Can not access to load this :staff details", ['staff' => T_(self::$type)]), self::$type, 'permission');
 			}
 			return false;
 		}
@@ -248,8 +273,8 @@ class staff extends \lib\app\user
 
 		if(!$userstore_id)
 		{
-			\lib\app::log('api:staff:edit:permission:denide', \lib\user::id(), $log_meta);
-			\lib\debug::error(T_("Can not access to edit staff"), 'staff');
+			\lib\app::log('api:staff:edit:permission:denide'. self::$type, \lib\user::id(), $log_meta);
+			\lib\debug::error(T_("Can not access to edit :staff", ['staff' => T_(self::$type)]), self::$type);
 			return false;
 		}
 
@@ -257,14 +282,14 @@ class staff extends \lib\app\user
 
 		if(!isset($find_user_id['user_id']))
 		{
-			\lib\app::log('api:staff:edit:userstores:not:found', \lib\user::id(), $log_meta);
-			\lib\debug::error(T_("Can not access to edit staff"), 'staff');
+			\lib\app::log('api:staff:edit:userstores:not:found'. self::$type , \lib\user::id(), $log_meta);
+			\lib\debug::error(T_("Can not access to edit :staff", ['staff' => T_(self::$type)]), self::$type);
 			return false;
 		}
 
 		if(isset($_args['mobile']))
 		{
-			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile($_args['mobile'], 'staff', \lib\store::id());
+			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile($_args['mobile'], self::$type, \lib\store::id());
 			if(isset($check_duplicate_mobile_in_store['id']))
 			{
 				if(intval($check_duplicate_mobile_in_store['id']) === intval($userstore_id))
@@ -273,8 +298,8 @@ class staff extends \lib\app\user
 				}
 				else
 				{
-					\lib\app::log('app:staff:duplicate:user:in:store', \lib\user::id());
-					\lib\debug::error(T_("This user already exist in your staff list"), 'mobile');
+					\lib\app::log('app:staff:duplicate:user:in:store'. self::$type , \lib\user::id());
+					\lib\debug::error(T_("This user already exist in your :staff list", ['staff' => T_(self::$type)]), 'mobile');
 					return false;
 				}
 			}
