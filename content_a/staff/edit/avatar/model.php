@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff\avatar;
+namespace content_a\staff\edit\avatar;
 
 
 class model extends \content_a\main\model

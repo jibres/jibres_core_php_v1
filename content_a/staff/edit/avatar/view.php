@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff\avatar;
+namespace content_a\staff\edit\avatar;
 
 
 class view extends \content_a\staff\edit\view

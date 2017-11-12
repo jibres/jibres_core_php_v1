@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff\general;
+namespace content_a\staff\edit\general;
 
 
 class controller extends \content_a\main\controller

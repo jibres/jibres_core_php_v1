@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff\identification;
+namespace content_a\staff\edit\identification;
 
 
 class model extends \content_a\main\model

@@ -4,21 +4,16 @@ namespace content_a\staff\add;
 
 class model extends \content_a\main\model
 {
-	/**
-	 * Gets the post staff.
-	 *
-	 * @return     array  The post staff.
-	 */
 	public static function getPoststaff()
 	{
 		$post =
 		[
-			'firstname'      => \lib\utility::post('name'),
-			'lastname'       => \lib\utility::post('lastName'),
-			'nationalcode'   => \lib\utility::post('nationalcode'),
-			'father'         => \lib\utility::post('father'),
-			'birthday'       => \lib\utility::post('birthday'),
-			'gender'         => \lib\utility::post('gender') === 'on' ? 'female' : 'male',
+			'firstname'    => \lib\utility::post('name'),
+			'lastname'     => \lib\utility::post('lastName'),
+			'nationalcode' => \lib\utility::post('nationalcode'),
+			'father'       => \lib\utility::post('father'),
+			'birthday'     => \lib\utility::post('birthday'),
+			'gender'       => \lib\utility::post('gender') === 'on' ? 'female' : 'male',
 		];
 
 		$post['type']  = 'staff';
@@ -27,9 +22,6 @@ class model extends \content_a\main\model
 	}
 
 
-	/**
-	 * Posts a staff add.
-	 */
 	public function post_staff_add()
 	{
 		// ready request

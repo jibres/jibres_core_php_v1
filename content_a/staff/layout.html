@@ -35,7 +35,7 @@
 <div class="cbox normal">
 
  <div class="vcard">
-  <a href='{{url.baseFull}}/staff/avatar?id={{utilityGET.id}}'>
+  <a href='{{url.baseFull}}/staff/edit/avatar?id={{utilityGET.id}}'>
   {%if staff.avatar%}
     <img src="{{staff.avatar}}">
   {%else%}
@@ -54,11 +54,11 @@
   {%endif%}
  </div>
 
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/general?id={{utilityGET.id}}'>{%trans "General Detail"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/thumb?id={{utilityGET.id}}'>{%trans "Document Photo"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/contact?id={{utilityGET.id}}'>{%trans "Contact information"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/identification?id={{utilityGET.id}}'>{%trans "Identification detail"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/staff/address?id={{utilityGET.id}}'>{%trans "Location and address"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit/general?id={{utilityGET.id}}'>{%trans "General Detail"%}</a>
+ <!-- <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit/thumb?id={{utilityGET.id}}'>{%trans "Document Photo"%}</a> -->
+ <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit/contact?id={{utilityGET.id}}'>{%trans "Contact information"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit/identification?id={{utilityGET.id}}'>{%trans "Identification detail"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/staff/edit/address?id={{utilityGET.id}}'>{%trans "Location and address"%}</a>
 </div>
 {%endblock%}
 

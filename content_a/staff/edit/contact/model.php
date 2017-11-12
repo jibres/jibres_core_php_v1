@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff\contact;
+namespace content_a\staff\edit\contact;
 
 
 class model extends \content_a\main\model
@@ -12,8 +12,6 @@ class model extends \content_a\main\model
 		[
 			'phone'        => \lib\utility::post('phone'),
 			'mobile'       => \lib\utility::post('mobile'),
-			'fathermobile' => \lib\utility::post('fathermobile'),
-			'mothermobile' => \lib\utility::post('mothermobile'),
 			'email'        => \lib\utility::post('email'),
 			'id'           => \lib\utility::get('id'),
 

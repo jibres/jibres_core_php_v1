@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff;
+namespace content_a\staff\home;
 
 
 class view extends \content_a\main\view

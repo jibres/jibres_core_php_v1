@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff\general;
+namespace content_a\staff\edit\general;
 
 
 class view extends \content_a\staff\edit\view

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff\contact;
+namespace content_a\staff\edit\address;
 
 
 class controller extends \content_a\main\controller
@@ -7,7 +7,7 @@ class controller extends \content_a\main\controller
 	public function ready()
 	{
 		$this->get()->ALL();
-		$this->post('contact')->ALL();
+		$this->post('address')->ALL();
 	}
 }
 ?>

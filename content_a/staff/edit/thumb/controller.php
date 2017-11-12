@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff\thumb;
+namespace content_a\staff\edit\thumb;
 
 
 class controller extends \content_a\main\controller

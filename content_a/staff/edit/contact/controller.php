@@ -1,5 +1,5 @@
 <?php
-namespace content_a\staff\avatar;
+namespace content_a\staff\edit\contact;
 
 
 class controller extends \content_a\main\controller
@@ -7,7 +7,7 @@ class controller extends \content_a\main\controller
 	public function ready()
 	{
 		$this->get()->ALL();
-		$this->post('avatar')->ALL();
+		$this->post('contact')->ALL();
 	}
 }
 ?>
