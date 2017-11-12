@@ -15,7 +15,6 @@ class model extends \content_a\main\model
 		$post['address']  = \lib\utility::post('address');
 		$post['id']       = \lib\utility::get('id');
 
-
 		return $post;
 	}
 
