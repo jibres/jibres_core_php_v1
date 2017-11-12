@@ -1,7 +1,6 @@
 <?php
 namespace lib\app\product;
-use \lib\utility;
-use \lib\debug;
+
 
 trait add
 {
@@ -41,14 +40,14 @@ trait add
 		if(!\lib\user::id())
 		{
 			\lib\app::log('api:product:user_id:notfound', null, $log_meta);
-			if($_option['debug']) debug::error(T_("User not found"), 'user');
+			if($_option['debug']) \lib\debug::error(T_("User not found"), 'user');
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:product:store_id:notfound', null, $log_meta);
-			if($_option['debug']) debug::error(T_("Store not found"), 'subdomain');
+			if($_option['debug']) \lib\debug::error(T_("Store not found"), 'subdomain');
 			return false;
 		}
 
@@ -71,7 +70,7 @@ trait add
 		if(!isset($args['title']) || (isset($args['title']) && !$args['title']))
 		{
 			\lib\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Product title can not be null"), 'title');
+			if($_option['debug']) \lib\debug::error(T_("Product title can not be null"), 'title');
 			return false;
 		}
 
@@ -84,7 +83,7 @@ trait add
 		if(!$product_id)
 		{
 			\lib\app::log('api:product:no:way:to:insert:product', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("No way to insert product"), 'db', 'system');
+			if($_option['debug']) \lib\debug::error(T_("No way to insert product"), 'db', 'system');
 			return false;
 		}
 
@@ -108,9 +107,9 @@ trait add
 
 		$return['product_id'] = \lib\utility\shortURL::encode($product_id);
 
-		if(debug::$status)
+		if(\lib\debug::$status)
 		{
-			if($_option['debug']) debug::true(T_("Store successfuly added"));
+			if($_option['debug']) \lib\debug::true(T_("Store successfuly added"));
 		}
 
 		return $return;

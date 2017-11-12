@@ -9,14 +9,70 @@ use \lib\debug;
 class product
 {
 
-	use product\add;
-	use product\edit;
-	use product\datalist;
-	use product\get;
-	use product\buyprice;
-	use product\import;
-	use product\delete;
-	use product\barcode;
+	use \lib\app\product\add;
+	use \lib\app\product\edit;
+	use \lib\app\product\datalist;
+	use \lib\app\product\get;
+	use \lib\app\product\buyprice;
+	use \lib\app\product\import;
+	use \lib\app\product\delete;
+	use \lib\app\product\barcode;
+
+
+	/**
+	 * Gets the static list.
+	 * cat
+	 * company
+	 * unit
+	 *
+	 * @param      string   $_type     The type
+	 * @param      boolean  $_implode  The implode
+	 *
+	 * @return     array    The static list.
+	 */
+	private static function get_static_list($_type, $_implode = false)
+	{
+		if(\lib\session::get("product_static_list_". $_type))
+		{
+			$static_list = \lib\session::get("product_static_list_". $_type);
+		}
+		else
+		{
+			$fn = "get_". $_type. "_list";
+			$static_list = \lib\db\products::{$fn}(\lib\store::id());
+			if(!is_array($static_list))
+			{
+				$static_list = [];
+			}
+			\lib\session::set("product_static_list_". $_type, $static_list, null, (60 * 1));
+		}
+
+		if($_implode)
+		{
+			$static_list = implode(',', $static_list);
+		}
+
+		return $static_list;
+
+	}
+
+
+	public static function cat_list($_implode = false)
+	{
+		return self::get_static_list('cat', $_implode);
+	}
+
+
+	public static function company_list($_implode = false)
+	{
+		return self::get_static_list('company', $_implode);
+	}
+
+
+	public static function unit_list($_implode = false)
+	{
+		return self::get_static_list('unit', $_implode);
+	}
 
 
 	/**

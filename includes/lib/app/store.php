@@ -9,11 +9,11 @@ use \lib\debug;
 class store
 {
 
-	use store\add;
-	use store\edit;
-	use store\datalist;
-	use store\get;
-	use store\dashboard;
+	use \lib\app\store\add;
+	use \lib\app\store\edit;
+	use \lib\app\store\datalist;
+	use \lib\app\store\get;
+	use \lib\app\store\dashboard;
 
 
 	/**

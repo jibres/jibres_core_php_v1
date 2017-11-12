@@ -104,6 +104,66 @@ class products
 		return \lib\db::get($query);
 	}
 
+
+	/**
+	 * Gets the cat list.
+	 *
+	 * @param      <type>   $_store_id  The store identifier
+	 *
+	 * @return     boolean  The cat list.
+	 */
+	public static function get_cat_list($_store_id)
+	{
+		if(!$_store_id)
+		{
+			return false;
+		}
+
+		$query = "SELECT products.cat AS `cat` FROM products WHERE products.store_id = $_store_id GROUP BY products.cat ";
+		return \lib\db::get($query, 'cat');
+	}
+
+
+	/**
+	 * Gets the company list.
+	 *
+	 * @param      <type>   $_store_id  The store identifier
+	 *
+	 * @return     boolean  The company list.
+	 */
+	public static function get_company_list($_store_id)
+	{
+		if(!$_store_id)
+		{
+			return false;
+		}
+
+		$query = "SELECT products.company AS `company` FROM products WHERE products.store_id = $_store_id  GROUP BY products.company ";
+		return \lib\db::get($query, 'company');
+	}
+
+
+	/**
+	 * Gets the unit list.
+	 *
+	 * @param      <type>   $_store_id  The store identifier
+	 *
+	 * @return     boolean  The unit list.
+	 */
+	public static function get_unit_list($_store_id)
+	{
+		if(!$_store_id)
+		{
+			return false;
+		}
+
+		$query = "SELECT products.unit AS `unit` FROM products WHERE products.store_id = $_store_id  GROUP BY products.unit ";
+		return \lib\db::get($query, 'unit');
+	}
+
+
+
+
 }
 
 ?>

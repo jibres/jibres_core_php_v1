@@ -100,7 +100,7 @@
 {%block iManufacturer%}
 <label for='company'>{%trans "Manufacturer"%}</label>
 <div class="input">
- <input class="awesomplete" type="text" name="company" id="company" placeholder='{%trans "Product manufacturer"%}' value="{{product.company}}" maxlength="50" data-minchars="1" data-autofirst data-list="t1, t2, t3">
+ <input class="awesomplete" type="text" name="company" id="company" placeholder='{%trans "Product manufacturer"%}' value="{{product.company}}" maxlength="50" data-minchars="1" data-autofirst data-list="{{company_list}}">
 </div>
 {%endblock%}
 
@@ -108,7 +108,7 @@
 {%block iCat%}
 <label for='cat'>{%trans "Cat"%}</label>
 <div class="input">
- <input class="awesomplete" type="text" name="cat" id="cat" placeholder='{%trans "Cat"%}' value="{{product.cat}}" maxlength="50" data-minchars="1" data-autofirst data-list="t1, t2, t3">
+ <input class="awesomplete" type="text" name="cat" id="cat" placeholder='{%trans "Cat"%}' value="{{product.cat}}" maxlength="50" data-minchars="1" data-autofirst data-list="{{cat_list}}">
 </div>
 {%endblock%}
 
@@ -125,7 +125,7 @@
 {%block iUnit%}
 <label for='unit'>{%trans "Unit"%}</label>
 <div class="input">
- <input class="awesomplete" name="unit" id="unit" placeholder='{%trans "Count unit like Qty, kg, liter and etc"%}' value="{{product.unit}}" maxlength="50" data-minchars="1" data-autofirst data-list="Qty, Kg, Liter, person">
+ <input class="awesomplete" name="unit" id="unit" placeholder='{%trans "Count unit like Qty, kg, liter and etc"%}' value="{{product.unit}}" maxlength="50" data-minchars="1" data-autofirst data-list="{{unit_list}}">
 </div>
 {%endblock%}
 

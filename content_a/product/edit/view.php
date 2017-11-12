@@ -13,6 +13,10 @@ class view extends \content_a\main\view
 			$this->data->product = \lib\app\product::get(['id' => $product]);
 		}
 
+		$this->data->cat_list     = \lib\app\product::cat_list(true);
+		$this->data->company_list = \lib\app\product::company_list(true);
+		$this->data->unit_list    = \lib\app\product::unit_list(true);
+
 		$productName = '';
 
 		if(isset($this->data->product['title']))
