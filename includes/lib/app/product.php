@@ -47,6 +47,8 @@ class product
 			\lib\session::set("product_static_list_". $_type, $static_list, null, (60 * 1));
 		}
 
+		$static_list = array_filter($static_list);
+
 		if($_implode)
 		{
 			$static_list = implode(',', $static_list);

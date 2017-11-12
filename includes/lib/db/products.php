@@ -119,7 +119,7 @@ class products
 			return false;
 		}
 
-		$query = "SELECT products.cat AS `cat` FROM products WHERE products.store_id = $_store_id GROUP BY products.cat ";
+		$query = "SELECT products.cat AS `cat` FROM products WHERE products.store_id = $_store_id GROUP BY products.cat ORDER BY COUNT(*) DESC";
 		return \lib\db::get($query, 'cat');
 	}
 
@@ -138,7 +138,7 @@ class products
 			return false;
 		}
 
-		$query = "SELECT products.company AS `company` FROM products WHERE products.store_id = $_store_id  GROUP BY products.company ";
+		$query = "SELECT products.company AS `company` FROM products WHERE products.store_id = $_store_id  GROUP BY products.company ORDER BY COUNT(*) DESC";
 		return \lib\db::get($query, 'company');
 	}
 
@@ -157,7 +157,7 @@ class products
 			return false;
 		}
 
-		$query = "SELECT products.unit AS `unit` FROM products WHERE products.store_id = $_store_id  GROUP BY products.unit ";
+		$query = "SELECT products.unit AS `unit` FROM products WHERE products.store_id = $_store_id  GROUP BY products.unit ORDER BY COUNT(*) DESC";
 		return \lib\db::get($query, 'unit');
 	}
 
