@@ -3,6 +3,30 @@
 {%block pageContent%}
 
 {%if product_list%}
+{{block('searchblock')}}
+<div class="cbox fs12">
+{{block('datatable')}}
+</div>
+
+
+{%elseif utilityGET.q%}
+{{block('searchblock')}}
+<div class="cbox fs12">
+ <h3>{%trans "No result founded."%} {%trans "Search with new keywords."%}</h3>
+</div>
+
+
+{%else%}
+<div class="cbox fs12">
+ <h3>{%trans "You are not have product yet! add new one."%}</h3>
+ <a class="btn primary mT10 pLR50" href="{{url.baseFull}}/product/add">{%trans "Add new product"%}</a>
+</div>
+{%endif%}
+
+{%endblock%}
+
+
+{%block searchblock%}
 <div class="cbox fs12">
   <form method="get" data-action>
     <div class="input">
@@ -11,8 +35,10 @@
     </div>
   </form>
 </div>
+{%endblock%}
 
-<div class="cbox fs12">
+
+{%block datatable%}
   <table class="tbl">
     <thead class="">
       <tr>
@@ -39,21 +65,9 @@
       </tr>
       {%endfor%}
     </tbody>
-
   </table>
-    {%include display.pagination%}
-
-</div>
-
-{%else%}
-<div class="cbox fs12">
- <h3>{%trans "You are not have product yet! add new one."%}</h3>
- <a class="btn primary mT10 pLR50" href="{{url.baseFull}}/product/add">{%trans "Add new product"%}</a>
-</div>
-{%endif%}
-
+  {%include display.pagination%}
 {%endblock%}
-
 
 
 
