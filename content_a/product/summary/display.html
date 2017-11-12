@@ -1,9 +1,317 @@
 {%extends display.admin%}
 
 {%block pageContent%}
+<div class="f">
+ <div class="c6 s6">{{block ("stListOfProducts")}}</div>
+ <div class="c6 s6">{{block ("stAddProduct")}}</div>
+</div>
 
-123
+<div class="f">
+ <div class="c4 s6">{{block ("stProductCount")}}</div>
+ <div class="c4 s6">{{block ("stProductWBarode1Count")}}</div>
+ <div class="c4 s6">{{block ("stProductWBarode2Count")}}</div>
+</div>
+
+<div class="f">
+  <div class="c9 s12">
+    {{block ("chartProductPriceVariation")}}
+  </div>
+  <div class="c3 s0">
+{{block ("topProducts")}}
+  </div>
+</div>
+
+{{block ("PriceData")}}
+
+<div class="f mT25">
+  <div class="c9 s12">
+    {{block ("chartProductGbyUnit")}}
+  </div>
+  <div class="c3 s0">
+   <div class="dcard x3">
+    <h3>{%trans "Product GroupBy Unit"%}</h3>
+   </div>
+  </div>
+</div>
+
+
+<div class="f">
+  <div class="c3 s0">
+   <div class="dcard x3">
+    <h3>{%trans "Product GroupBy Category"%}</h3>
+   </div>
+  </div>
+  <div class="c9 s12">
+    {{block ("chartProductGbyCat")}}
+  </div>
+</div>
 
 {%endblock%}
+
+
+
+{%block stListOfProducts%}
+<a class="dcard x2" href="{{url.baseFull}}/product/add">
+ <div class="statistic gray">
+  <div class="label">{%trans "Add new products"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stAddProduct%}
+<a class="dcard x2" href="{{url.baseFull}}/product">
+ <div class="statistic gray">
+  <div class="label">{%trans "List of products"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+
+{%block topProducts%}
+<div class="dcard x3">
+ <h3>{%trans "Price Variation"%}</h3>
+</div>
+{%endblock%}
+
+
+{%block chartProductPriceVariation%}
+<div class="dcard x3 pA0">
+ <div class="chart" data-type2='line' data-vals='[{"key":"1396-08-20","value":0},{"key":"1396-08-19","value":0},{"key":"1396-08-18","value":"469"},{"key":"1396-08-17","value":"9952"},{"key":"1396-08-16","value":"14977"},{"key":"1396-08-15","value":"10822"},{"key":"1396-08-14","value":"11259"},{"key":"1396-08-13","value":"12307"},{"key":"1396-08-12","value":"888"},{"key":"1396-08-11","value":"5348"}]'>
+ </div>
+</div>
+{%endblock%}
+
+
+
+
+{%block stProductCount%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+  <div class="label">{%trans "Product Count"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stProductWBarode1Count%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+  <div class="label">{%trans "Prouduct with barcode"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stProductWBarode2Count%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+  <div class="label">{%trans "Prouduct with barcode2"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block PriceData%}
+<div class="f mT25">
+ <div class="c3 s6"></div>
+ <div class="c3 s6">{{block ("stBuyPrice")}}</div>
+ <div class="c3 s6">{{block ("stPrice")}}</div>
+ <div class="c3 s6">{{block ("stDiscount")}}</div>
+ <div class="c3 s6">{{block ("stDiscountPercent")}}</div>
+</div>
+
+<div class="f">
+ <div class="c3 s6">{{block ("stMax")}}</div>
+ <div class="c3 s6">{{block ("stProductBuyPriceMax")}}</div>
+ <div class="c3 s6">{{block ("stProductPriceMax")}}</div>
+ <div class="c3 s6">{{block ("stProductDiscountMax")}}</div>
+</div>
+
+<div class="f">
+ <div class="c3 s6">{{block ("stAvg")}}</div>
+ <div class="c3 s6">{{block ("stProductBuyPriceAvg")}}</div>
+ <div class="c3 s6">{{block ("stProductPriceAvg")}}</div>
+ <div class="c3 s6">{{block ("stProductDiscountAvg")}}</div>
+</div>
+
+<div class="f">
+ <div class="c3 s6">{{block ("stMin")}}</div>
+ <div class="c3 s6">{{block ("stProductBuyPriceMin")}}</div>
+ <div class="c3 s6">{{block ("stProductPriceMin")}}</div>
+ <div class="c3 s6">{{block ("stProductDiscountMin")}}</div>
+</div>
+{%endblock%}
+
+
+
+{%block stMin%}
+<a class="dcard" href="{{url.baseFull}}/product">
+ <div class="statistic gray">
+  <div class="label">{%trans "Min"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stMax%}
+<a class="dcard" href="{{url.baseFull}}/product">
+ <div class="statistic gray">
+  <div class="label">{%trans "Max"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stAvg%}
+<a class="dcard" href="{{url.baseFull}}/product">
+ <div class="statistic gray">
+  <div class="label">{%trans "Average"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+
+{%block stBuyPrice%}
+<a class="dcard" href="{{url.baseFull}}/product">
+ <div class="statistic gray">
+  <div class="label">{%trans "Buy Price"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stPrice%}
+<a class="dcard" href="{{url.baseFull}}/product">
+ <div class="statistic gray">
+  <div class="label">{%trans "Price"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stDiscount%}
+<a class="dcard" href="{{url.baseFull}}/product">
+ <div class="statistic gray">
+  <div class="label">{%trans "Discount"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block stProductBuyPriceMin%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stProductBuyPriceMax%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stProductBuyPriceAvg%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+
+{%block stProductPriceMin%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stProductPriceMax%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stProductPriceAvg%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+
+{%block stProductDiscountMin%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stProductDiscountMax%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stProductDiscountAvg%}
+<a class="dcard">
+ <div class="statistic gray">
+  <div class="value">{{dashboard_detail.member_count |number_format |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+
+{%block chartProductGbyUnit%}
+<div class="dcard x3 pA0">
+ <div class="chart" data-type='line' data-vals='[{"key":"کاردانی","value":442},{"key":"کارشناسی 234","value":1050},{"key":"کارشناسی‌ارشد","value":408},{"key":"دکتری","value":96}]'>
+ </div>
+</div>
+{%endblock%}
+
+
+{%block chartProductGbyCat%}
+<div class="dcard x3 pA0">
+ <div class="chart" data-vals='[{"key":"کاردانی","value":442},{"key":"کارشناسی 234","value":1050},{"key":"کارشناسی‌ارشد","value":408},{"key":"دکتری","value":96}]'>
+ </div>
+</div>
+{%endblock%}
+
+
+
 
 
