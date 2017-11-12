@@ -66,15 +66,14 @@ class view extends \content_a\main\view
 			}
 			else
 			{
-				$temp_link['order'] = 'asc';
-				$link[$field]['order'] = $temp_link['order'];
+				$temp_link['order']    = 'asc';
+				$link[$field]['order'] = null;
 			}
 
 			$temp_link['q']    = $get['q'];
 
 			$link[$field]['link'] = $_url . '?'.  http_build_query($temp_link);
 		}
-
 		return $link;
 	}
 }
