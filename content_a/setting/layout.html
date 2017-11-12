@@ -37,7 +37,7 @@
  <a class="btn block mTB5" href='{{url.baseFull}}/setting/general'>{%trans "General Detail"%}</a>
  <a class="btn block mTB5" href='{{url.baseFull}}/setting/plan'>{%trans "Store Plan"%}</a>
   <!-- <a class="btn block mTB5" href='{{url.baseFull}}/setting/security'>{%trans "Security and privacy"%}</a> -->
- <a class="btn block mTB5" href='{{url.baseFull}}/setting/report'>{%trans "Report Settings"%}</a>
+ <!-- <a class="btn block mTB5" href='{{url.baseFull}}/setting/report'>{%trans "Report Settings"%}</a> -->
 
 </div>
 {%endblock%}
@@ -89,7 +89,7 @@
 {%block islug%}
 <label for="slug">{%trans "Team short name"%} <small>{%trans "Used for url of board"%}</small></label>
 <div class="input fix">
-  <input type="text" name="slug" id="slug" placeholder='{%trans "Slug of team for board url"%}' value="{{current_store.slug}}" maxlength='30' class="ltr">
+  <input type="text" name="slug" id="slug" placeholder='{%trans "Slug of team for board url"%}' value="{{current_store.slug}}" maxlength='30' class="ltr" disabled>
   <label class="addon ltr" for="slug">.Jibres.com</label>
 </div>
 {%endblock%}

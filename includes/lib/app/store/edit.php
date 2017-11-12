@@ -95,6 +95,11 @@ trait edit
 			// clean chach
 			\lib\store::clean();
 		}
+
+		if(\lib\debug::$status)
+		{
+			\lib\debug::true(T_("Your store successfully update"));
+		}
 	}
 }
 ?>
