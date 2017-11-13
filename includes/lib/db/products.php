@@ -12,9 +12,29 @@ class products
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function insert()
+	public static function insert($_args)
 	{
-		\lib\db\config::public_insert('products', ...func_get_args());
+		$set = [];
+		foreach ($_args as $key => $value)
+		{
+			if($value)
+			{
+				$set[] = "products.$key = '$value' ";
+			}
+		}
+
+		if(empty($set))
+		{
+			return null;
+		}
+
+		$set = implode(',', $set);
+
+		$query = "INSERT INTO products SET $set";
+
+		\lib\db::query($query);
+
+
 		return \lib\db::insert_id();
 	}
 

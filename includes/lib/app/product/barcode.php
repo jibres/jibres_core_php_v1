@@ -65,7 +65,7 @@ trait barcode
 
 						if(isset($check_exist[0]['barcode']) && $_barcode === $check_exist[0]['barcode'])
 						{
-							$msg = T_("This barcode used as barcode1 :title", ['title' => $product_title]);
+							$msg = T_("This barcode used as barcode2 :title", ['title' => $product_title]);
 						}
 
 						if(isset($check_exist[0]['barcode2']) && $_barcode === $check_exist[0]['barcode2'])

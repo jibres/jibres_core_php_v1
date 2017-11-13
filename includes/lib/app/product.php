@@ -191,18 +191,9 @@ class product
 		$to_barcode = \lib\utility\convert::to_barcode($barcode);
 		if($barcode != $to_barcode)
 		{
-			\lib\app::log('barcode:is:different:barcode1', \lib\user::id(), \lib\app::log_meta(1, ['barcode' => $barcode, 'fixed' => $to_barcode]));
+			\lib\app::log('barcode:is:different:barcode2', \lib\user::id(), \lib\app::log_meta(1, ['barcode' => $barcode, 'fixed' => $to_barcode]));
 			\lib\debug::warn(T_("Your barcode have wrong character. we change it. please check your product again"), 'barcode');
 			$barcode = $to_barcode;
-		}
-
-		if($barcode)
-		{
-			self::check_unique_barcode($barcode, $_option);
-			if(!\lib\debug::$status)
-			{
-				return false;
-			}
 		}
 
 		if($barcode && mb_strlen($barcode) >= 100)
@@ -223,6 +214,29 @@ class product
 			$barcode2 = $to_barcode2;
 		}
 
+		if($barcode2 && mb_strlen($barcode2) >= 100)
+		{
+			\lib\app::log('api:product:barcode2:max:lenght', \lib\user::id(), $log_meta);
+			if($_option['debug']) debug::error(T_("String of product barcode2 is too large"), 'barcode2');
+			return false;
+		}
+
+		if($barcode && $barcode2 && $barcode == $barcode2)
+		{
+			\lib\app::log('app:product:barcode:in:one:product:add', \lib\user::id(), $log_meta);
+			\lib\debug::error(T_("Duplicate barcode in one product"), 'barcode2');
+			return false;
+		}
+
+		if($barcode)
+		{
+			self::check_unique_barcode($barcode, $_option);
+			if(!\lib\debug::$status)
+			{
+				return false;
+			}
+		}
+
 		if($barcode2)
 		{
 			self::check_unique_barcode($barcode2, $_option);
@@ -230,14 +244,6 @@ class product
 			{
 				return false;
 			}
-		}
-
-
-		if($barcode2 && mb_strlen($barcode2) >= 100)
-		{
-			\lib\app::log('api:product:barcode2:max:lenght', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("String of product barcode2 is too large"), 'barcode2');
-			return false;
 		}
 
 		$code = \lib\app::request('code');
