@@ -2,8 +2,9 @@
 
 {%block pageContent%}
 <div class="f">
- <div class="c6 s6">{{block ("stListOfProducts")}}</div>
- <div class="c6 s6">{{block ("stAddProduct")}}</div>
+ <div class="c5 s6">{{block ("stListOfProducts")}}</div>
+ <div class="c5 s6">{{block ("stAddProduct")}}</div>
+ <div class="c2 s0">{{block ("stProductImport")}}</div>
 </div>
 
 <div class="f">
@@ -68,6 +69,16 @@
 {%endblock%}
 
 
+{%block stProductImport%}
+<a class="dcard x2" href="{{url.baseFull}}/product/import">
+ <div class="statistic gray">
+  <div class="label">{%trans "Import products"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
 
 
 {%block topProducts%}
@@ -89,8 +100,8 @@
 
 {%block stProductCount%}
 <a class="dcard">
- <div class="statistic gray">
-  <div class="value">{{dashboard_detail.product_count |number_format |fitNumber}}</div>
+ <div class="statistic teal">
+  <div class="value counter">{{dashboard_detail.product_count |number_format |fitNumber}}</div>
   <div class="label">{%trans "Product Count"%}</div>
  </div>
 </a>
@@ -220,7 +231,7 @@
 
 {%block stProductBuyPriceMax%}
 <a class="dcard">
- <div class="statistic gray">
+ <div class="statistic orange">
   <div class="value">{{dashboard_detail.product_buyprice_max |number_format |fitNumber}}</div>
  </div>
 </a>
@@ -229,7 +240,7 @@
 
 {%block stProductBuyPriceAvg%}
 <a class="dcard">
- <div class="statistic gray">
+ <div class="statistic green">
   <div class="value">{{dashboard_detail.product_buyprice_avg |number_format |fitNumber}}</div>
  </div>
 </a>
@@ -249,7 +260,7 @@
 
 {%block stProductPriceMax%}
 <a class="dcard">
- <div class="statistic gray">
+ <div class="statistic orange">
   <div class="value">{{dashboard_detail.product_price_max |number_format |fitNumber}}</div>
  </div>
 </a>
@@ -258,7 +269,7 @@
 
 {%block stProductPriceAvg%}
 <a class="dcard">
- <div class="statistic gray">
+ <div class="statistic green">
   <div class="value">{{dashboard_detail.product_price_avg |number_format |fitNumber}}</div>
  </div>
 </a>
@@ -278,7 +289,7 @@
 
 {%block stProductDiscountMax%}
 <a class="dcard">
- <div class="statistic gray">
+ <div class="statistic orange">
   <div class="value">{{dashboard_detail.product_discount_max |number_format |fitNumber}}</div>
  </div>
 </a>
@@ -287,7 +298,7 @@
 
 {%block stProductDiscountAvg%}
 <a class="dcard">
- <div class="statistic gray">
+ <div class="statistic green">
   <div class="value">{{dashboard_detail.product_discount_avg |number_format |fitNumber}}</div>
  </div>
 </a>
