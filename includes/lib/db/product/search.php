@@ -179,9 +179,27 @@ trait search
 		$search = null;
 		if($_string !== null)
 		{
-			$_string = trim($_string);
+			$_string   = trim($_string);
+			$barcode   = \lib\utility\convert::to_barcode($_string);
+			$en_number = \lib\utility\convert::to_en_number($_string);
 
-			$search = " ( products.title LIKE '%$_string%') ";
+			$search =
+			"
+			(
+				products.title 	  LIKE '%$_string%' OR
+				products.cat 	  LIKE '%$_string%' OR
+
+				products.price    = '$en_number' 	OR
+				products.discount = '$en_number' 	OR
+				products.buyprice = '$en_number' 	OR
+
+				products.barcode  = '$_string' 		OR
+				products.barcode2 = '$_string' 		OR
+
+				products.barcode  = '$barcode' 		OR
+				products.barcode2 = '$barcode'
+			)
+			";
 
 			if($where)
 			{
