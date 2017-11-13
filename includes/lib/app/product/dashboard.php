@@ -14,19 +14,23 @@ trait dashboard
 			return false;
 		}
 
-		$result                          = [];
-		$result['product_count']         = self::product_count();
-		$result['product_with_barcode']  = self::product_with_barcode();
-		$result['product_whit_barcode2'] = self::product_with_barcode2();
-		$result['product_buyprice_min']  = self::max_min_avg_field('min', 'buyprice');
-		$result['product_buyprice_max']  = self::max_min_avg_field('max', 'buyprice');
-		$result['product_buyprice_avg']  = self::max_min_avg_field('avg', 'buyprice');
-		$result['product_price_min']     = self::max_min_avg_field('min', 'price');
-		$result['product_price_max']     = self::max_min_avg_field('max', 'price');
-		$result['product_price_avg']     = self::max_min_avg_field('avg', 'price');
-		$result['product_discount_min']  = self::max_min_avg_field('min', 'discount');
-		$result['product_discount_max']  = self::max_min_avg_field('max', 'discount');
-		$result['product_discount_avg']  = self::max_min_avg_field('avg', 'discount');
+		$result                                = [];
+		$result['product_count']               = self::product_count();
+		$result['product_with_barcode']        = self::product_with_barcode();
+		$result['product_whit_barcode2']       = self::product_with_barcode2();
+		$result['product_buyprice_min']        = self::max_min_avg_field('min', 'buyprice');
+		$result['product_buyprice_max']        = self::max_min_avg_field('max', 'buyprice');
+		$result['product_buyprice_avg']        = self::max_min_avg_field('avg', 'buyprice');
+		$result['product_price_min']           = self::max_min_avg_field('min', 'price');
+		$result['product_price_max']           = self::max_min_avg_field('max', 'price');
+		$result['product_price_avg']           = self::max_min_avg_field('avg', 'price');
+		$result['product_discount_min']        = self::max_min_avg_field('min', 'discount');
+		$result['product_discount_max']        = self::max_min_avg_field('max', 'discount');
+		$result['product_discount_avg']        = self::max_min_avg_field('avg', 'discount');
+		$result['product_price_variation']     = self::product_price_variation();
+		$result['product_price_group_by_unit'] = self::product_price_group_by_unit();
+		$result['product_price_group_by_cat']  = self::product_price_group_by_cat();
+
 		return $result;
 	}
 
@@ -96,6 +100,65 @@ trait dashboard
 		}
 		return $value;
 	}
+
+
+	public static function product_price_variation()
+	{
+		$chart = \lib\session::get('dashboard_price_variation');
+		if($chart === null)
+		{
+			$chart = \lib\db\products::price_variation(\lib\store::id());
+			$temp = [];
+			foreach ($chart as $key => $value)
+			{
+				$temp[] = ["key" => $key, "value" => $value];
+			}
+			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
+			\lib\session::set('dashboard_price_variation', $chart, null,  self::$life_time);
+		}
+
+		return $chart;
+	}
+
+
+	public static function product_price_group_by_unit()
+	{
+		$chart = \lib\session::get('dashboard_price_group_by_unit');
+		if($chart === null)
+		{
+			$chart = \lib\db\products::price_group_by_unit(\lib\store::id());
+			$temp = [];
+			foreach ($chart as $key => $value)
+			{
+				$temp[] = ["key" => $key, "value" => $value];
+			}
+			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
+			\lib\session::set('dashboard_price_group_by_unit', $chart, null,  self::$life_time);
+		}
+
+		return $chart;
+	}
+
+
+	public static function product_price_group_by_cat()
+	{
+		$chart = \lib\session::get('dashboard_price_group_by_cat');
+		if($chart === null)
+		{
+			$chart = \lib\db\products::price_group_by_cat(\lib\store::id());
+			$temp = [];
+			foreach ($chart as $key => $value)
+			{
+				$temp[] = ["key" => $key, "value" => $value];
+			}
+			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
+			\lib\session::set('dashboard_price_group_by_cat', $chart, null,  self::$life_time);
+		}
+
+		return $chart;
+	}
+
+
 
 
 }

@@ -50,5 +50,73 @@ trait dashboard
 		$query = "SELECT $_type(products.$_field) AS `val` FROM products WHERE products.store_id = $_store_id ";
 		return \lib\db::get($query, 'val', true);
 	}
+
+
+	public static function price_variation($_store_id)
+	{
+		if(!is_numeric($_store_id))
+		{
+			return false;
+		}
+
+		$query =
+		"
+			SELECT
+				ROUND(products.price, -3) AS `price_key`,
+				COUNT(*) AS `value`
+			FROM
+				products
+			WHERE
+				products.store_id = $_store_id
+			GROUP BY price_key
+			";
+		return \lib\db::get($query, ['price_key', 'value']);
+	}
+
+
+	public static function price_group_by_unit($_store_id)
+	{
+		if(!is_numeric($_store_id))
+		{
+			return false;
+		}
+
+		$query =
+		"
+			SELECT
+				products.unit AS `unit`,
+				COUNT(*) AS `value`
+			FROM
+				products
+			WHERE
+				products.store_id = $_store_id
+			GROUP BY unit
+
+			";
+		return \lib\db::get($query, ['unit', 'value']);
+	}
+
+
+	public static function price_group_by_cat($_store_id)
+	{
+		if(!is_numeric($_store_id))
+		{
+			return false;
+		}
+
+		$query =
+		"
+			SELECT
+				products.cat AS `cat`,
+				COUNT(*) AS `value`
+			FROM
+				products
+			WHERE
+				products.store_id = $_store_id
+			GROUP BY cat
+			ORDER BY value DESC
+			";
+		return \lib\db::get($query, ['cat', 'value']);
+	}
 }
 ?>

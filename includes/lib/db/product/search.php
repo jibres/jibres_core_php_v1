@@ -187,7 +187,9 @@ trait search
 			"
 			(
 				products.title 	  LIKE '%$_string%' OR
-				products.cat 	  LIKE '%$_string%' OR
+
+				products.cat 	  = '$_string' 		OR
+				products.unit 	  = '$_string' 		OR
 
 				products.price    = '$en_number' 	OR
 				products.discount = '$en_number' 	OR
