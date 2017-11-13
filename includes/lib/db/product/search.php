@@ -11,10 +11,10 @@ trait search
 	 */
 	public static function search($_string = null, $_options = [], $_field = [])
 	{
-		// var_dump(func_get_args());exit();
+
 		$where = []; // conditions
 
-		if(!$_string && empty($_options))
+		if(!$_string && empty(array_filter($_options)))
 		{
 			// default return of this function 10 last record of search
 			$_options['get_last'] = true;
