@@ -1,4 +1,4 @@
-{%extends display.dash%}
+{%extends display.admin%}
 
 {%block content%}
 <div class="tbox">
@@ -21,12 +21,6 @@
 </div>
 {%endif%}
 {%endblock%}
-
-{%block sidenav%}
-{{parent()}}
-<li><a href="{{url.baseFull}}/staff"><i class="sf-credit-card"></i>{%trans "Complete Profile"%}</a></li>
-{%endblock%}
-
 
 
 

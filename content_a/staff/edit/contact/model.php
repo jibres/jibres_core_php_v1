@@ -4,8 +4,6 @@ namespace content_a\staff\edit\contact;
 
 class model extends \content_a\main\model
 {
-
-
 	public static function getPost()
 	{
 		$post =

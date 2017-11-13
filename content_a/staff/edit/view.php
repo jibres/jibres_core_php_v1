@@ -7,6 +7,11 @@ class view extends \content_a\main\view
 
 	public function config()
 	{
+
+	}
+
+	public function loadMemberDetail()
+	{
 		$this->static_var();
 
 		$user_id = \lib\utility::get('id');
@@ -20,7 +25,6 @@ class view extends \content_a\main\view
 		$get_staff = ['id' => \lib\utility::get('id')];
 		$this->data->staff = $staff = \lib\app\staff::get($get_staff, ['its_me' => true]);
 	}
-
 
 	public function static_var()
 	{

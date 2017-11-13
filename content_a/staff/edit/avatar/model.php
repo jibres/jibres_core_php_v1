@@ -4,12 +4,6 @@ namespace content_a\staff\edit\avatar;
 
 class model extends \content_a\main\model
 {
-
-	/**
-	 * UploAads an avatar.
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
 	public static function upload_avatar()
 	{
 		if(\lib\utility::files('avatar'))
@@ -30,13 +24,6 @@ class model extends \content_a\main\model
 	}
 
 
-
-
-	/**
-	 * Posts an addstaff.
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
 	public function post_avatar($_args)
 	{
 		$file_url     = self::upload_avatar();

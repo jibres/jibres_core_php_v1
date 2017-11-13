@@ -4,12 +4,6 @@ namespace content_a\staff\edit\thumb;
 
 class model extends \content_a\main\model
 {
-
-	/**
-	 * UploAads an thumb.
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
 	public static function upload_file($_name)
 	{
 		if(\lib\utility::files($_name))
@@ -30,13 +24,6 @@ class model extends \content_a\main\model
 	}
 
 
-
-
-	/**
-	 * Posts an addstaff.
-	 *
-	 * @param      <type>  $_args  The arguments
-	 */
 	public function post_thumb($_args)
 	{
 
