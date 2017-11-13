@@ -4,6 +4,8 @@ namespace lib\db;
 class products
 {
 
+	use \lib\db\product\search;
+
 	/**
 	 * insert new product
 	 *
@@ -41,29 +43,6 @@ class products
 		$result = \lib\db\config::public_get('products', ...func_get_args());
 		\lib\db\cache::set_cache('products', func_get_args(), $result);
 		return $result;
-	}
-
-
-	/**
-	 * Searches for the first match.
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function search($_string = null, $_option = [])
-	{
-		$default_option =
-		[
-			'search_field' => "( products.title LIKE '%__string__%' OR products.barcode = '__string__' OR products.barcode2 = '__string__') ",
-		];
-
-		if(!is_array($_option))
-		{
-			$_option = [];
-		}
-
-		$_option = array_merge($default_option, $_option);
-
-		return \lib\db\config::public_search('products', $_string, $_option);
 	}
 
 

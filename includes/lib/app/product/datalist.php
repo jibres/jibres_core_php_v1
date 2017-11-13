@@ -46,27 +46,28 @@ trait datalist
 			$_args = [];
 		}
 
-		$meta             = [];
-		$meta             = array_merge($default_args, $_args);
+		$option             = [];
+		$option             = array_merge($default_args, $_args);
 
-		if($meta['order'])
+		if($option['order'])
 		{
-			if(!in_array($meta['order'], ['asc', 'desc']))
+			if(!in_array($option['order'], ['asc', 'desc']))
 			{
-				unset($meta['order']);
+				unset($option['order']);
 			}
 		}
 
-		if($meta['sort'])
+		if($option['sort'])
 		{
-			if(!in_array($meta['sort'], self::$sort_field))
+			if(!in_array($option['sort'], self::$sort_field))
 			{
-				unset($meta['sort']);
+				unset($option['sort']);
 			}
 		}
+		$field             = [];
+		$field['store_id'] = \lib\store::id();
 
-		$meta['store_id'] = \lib\store::id();
-		$result           = \lib\db\products::search($_string, $meta);
+		$result           = \lib\db\products::search($_string, $option, $field);
 		$temp             = [];
 
 		foreach ($result as $key => $value)
