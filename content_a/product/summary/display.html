@@ -2,15 +2,15 @@
 
 {%block pageContent%}
 <div class="f">
- <div class="c5 s6">{{block ("stListOfProducts")}}</div>
- <div class="c5 s6">{{block ("stAddProduct")}}</div>
+ <div class="c5 s12">{{block ("stListOfProducts")}}</div>
+ <div class="c5 s12">{{block ("stAddProduct")}}</div>
  <div class="c2 s0">{{block ("stProductImport")}}</div>
 </div>
 
 <div class="f">
- <div class="c4 s6">{{block ("stProductCount")}}</div>
- <div class="c4 s6">{{block ("stProductWBarode1Count")}}</div>
- <div class="c4 s6">{{block ("stProductWBarode2Count")}}</div>
+ <div class="c4 s12">{{block ("stProductCount")}}</div>
+ <div class="c4 s0">{{block ("stProductWBarode1Count")}}</div>
+ <div class="c4 s0">{{block ("stProductWBarode2Count")}}</div>
 </div>
 
 <div class="f">
@@ -53,7 +53,7 @@
 
 {%block stListOfProducts%}
 <a class="dcard x2" href="{{url.baseFull}}/product/add">
- <div class="statistic gray">
+ <div class="statistic">
   <div class="label">{%trans "Add new products"%}</div>
  </div>
 </a>
@@ -62,7 +62,7 @@
 
 {%block stAddProduct%}
 <a class="dcard x2" href="{{url.baseFull}}/product">
- <div class="statistic gray">
+ <div class="statistic blue lg">
   <div class="label">{%trans "List of products"%}</div>
  </div>
 </a>
@@ -99,7 +99,7 @@
 
 
 {%block stProductCount%}
-<a class="dcard">
+<a class="dcard" href="{{url.baseFull}}/product" title='{%trans "Check list of products"%}'>
  <div class="statistic teal">
   <div class="value counter">{{dashboard_detail.product_count |number_format |fitNumber}}</div>
   <div class="label">{%trans "Product Count"%}</div>
@@ -131,32 +131,32 @@
 
 {%block PriceData%}
 <div class="f mT25">
- <div class="c3 s6"></div>
- <div class="c3 s6">{{block ("stBuyPrice")}}</div>
- <div class="c3 s6">{{block ("stPrice")}}</div>
- <div class="c3 s6">{{block ("stDiscount")}}</div>
- <div class="c3 s6">{{block ("stDiscountPercent")}}</div>
+ <div class="c3 s0"></div>
+ <div class="c3 s0">{{block ("stBuyPrice")}}</div>
+ <div class="c3 s12">{{block ("stPrice")}}</div>
+ <div class="c3 s0">{{block ("stDiscount")}}</div>
+ <div class="c3 s0">{{block ("stDiscountPercent")}}</div>
 </div>
 
 <div class="f">
  <div class="c3 s6">{{block ("stMax")}}</div>
- <div class="c3 s6">{{block ("stProductBuyPriceMax")}}</div>
+ <div class="c3 s0">{{block ("stProductBuyPriceMax")}}</div>
  <div class="c3 s6">{{block ("stProductPriceMax")}}</div>
- <div class="c3 s6">{{block ("stProductDiscountMax")}}</div>
+ <div class="c3 s0">{{block ("stProductDiscountMax")}}</div>
 </div>
 
 <div class="f">
  <div class="c3 s6">{{block ("stAvg")}}</div>
- <div class="c3 s6">{{block ("stProductBuyPriceAvg")}}</div>
+ <div class="c3 s0">{{block ("stProductBuyPriceAvg")}}</div>
  <div class="c3 s6">{{block ("stProductPriceAvg")}}</div>
- <div class="c3 s6">{{block ("stProductDiscountAvg")}}</div>
+ <div class="c3 s0">{{block ("stProductDiscountAvg")}}</div>
 </div>
 
 <div class="f">
  <div class="c3 s6">{{block ("stMin")}}</div>
- <div class="c3 s6">{{block ("stProductBuyPriceMin")}}</div>
+ <div class="c3 s0">{{block ("stProductBuyPriceMin")}}</div>
  <div class="c3 s6">{{block ("stProductPriceMin")}}</div>
- <div class="c3 s6">{{block ("stProductDiscountMin")}}</div>
+ <div class="c3 s0">{{block ("stProductDiscountMin")}}</div>
 </div>
 {%endblock%}
 
@@ -220,7 +220,7 @@
 
 
 {%block stProductBuyPriceMin%}
-<a class="dcard">
+<a class="dcard" href="{{url.baseFull}}/product?sort=buyprice&order=asc">
  <div class="statistic gray">
   <div class="value">{{dashboard_detail.product_buyprice_min |number_format |fitNumber}}</div>
 
@@ -230,7 +230,7 @@
 
 
 {%block stProductBuyPriceMax%}
-<a class="dcard">
+<a class="dcard" href="{{url.baseFull}}/product?sort=buyprice&order=desc">
  <div class="statistic orange">
   <div class="value">{{dashboard_detail.product_buyprice_max |number_format |fitNumber}}</div>
  </div>
@@ -250,7 +250,7 @@
 
 
 {%block stProductPriceMin%}
-<a class="dcard">
+<a class="dcard" href="{{url.baseFull}}/product?sort=price&order=asc">
  <div class="statistic gray">
   <div class="value">{{dashboard_detail.product_price_min |number_format |fitNumber}}</div>
  </div>
@@ -259,7 +259,7 @@
 
 
 {%block stProductPriceMax%}
-<a class="dcard">
+<a class="dcard" href="{{url.baseFull}}/product?sort=price&order=desc">
  <div class="statistic orange">
   <div class="value">{{dashboard_detail.product_price_max |number_format |fitNumber}}</div>
  </div>
@@ -279,7 +279,7 @@
 
 
 {%block stProductDiscountMin%}
-<a class="dcard">
+<a class="dcard" href="{{url.baseFull}}/product?sort=discount&order=asc">
  <div class="statistic gray">
   <div class="value">{{dashboard_detail.product_discount_min |number_format |fitNumber}}</div>
  </div>
@@ -288,7 +288,7 @@
 
 
 {%block stProductDiscountMax%}
-<a class="dcard">
+<a class="dcard" href="{{url.baseFull}}/product?sort=discount&order=desc">
  <div class="statistic orange">
   <div class="value">{{dashboard_detail.product_discount_max |number_format |fitNumber}}</div>
  </div>
