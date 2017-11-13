@@ -3,10 +3,41 @@ namespace lib\app\product;
 
 trait dashboard
 {
-	private static $life_time = 60 * 1;
+	private static $life_time = 60 * 10;
+
+	public static function clean_cache($_type = null)
+	{
+		switch ($_type)
+		{
+			case 'var':
+				self::product_count(true);
+				self::product_with_barcode(true);
+				self::product_with_barcode2(true);
+				self::max_min_avg_field('min', 'buyprice', true);
+				self::max_min_avg_field('max', 'buyprice', true);
+				self::max_min_avg_field('avg', 'buyprice', true);
+				self::max_min_avg_field('min', 'price', true);
+				self::max_min_avg_field('max', 'price', true);
+				self::max_min_avg_field('avg', 'price', true);
+				self::max_min_avg_field('min', 'discount', true);
+				self::max_min_avg_field('max', 'discount', true);
+				self::max_min_avg_field('avg', 'discount', true);
+				break;
+
+			case 'chart':
+				self::product_price_variation(true);
+				self::product_price_group_by_unit(true);
+				self::product_price_group_by_cat(true);
+				break;
+
+			default:
+				self::dashboard(true);
+				break;
+		}
+	}
 
 
-	public static function dashboard()
+	public static function dashboard($_clean_cache = false)
 	{
 		$store_id = \lib\store::id();
 		if(!$store_id)
@@ -15,28 +46,34 @@ trait dashboard
 		}
 
 		$result                                = [];
-		$result['product_count']               = self::product_count();
-		$result['product_with_barcode']        = self::product_with_barcode();
-		$result['product_whit_barcode2']       = self::product_with_barcode2();
-		$result['product_buyprice_min']        = self::max_min_avg_field('min', 'buyprice');
-		$result['product_buyprice_max']        = self::max_min_avg_field('max', 'buyprice');
-		$result['product_buyprice_avg']        = self::max_min_avg_field('avg', 'buyprice');
-		$result['product_price_min']           = self::max_min_avg_field('min', 'price');
-		$result['product_price_max']           = self::max_min_avg_field('max', 'price');
-		$result['product_price_avg']           = self::max_min_avg_field('avg', 'price');
-		$result['product_discount_min']        = self::max_min_avg_field('min', 'discount');
-		$result['product_discount_max']        = self::max_min_avg_field('max', 'discount');
-		$result['product_discount_avg']        = self::max_min_avg_field('avg', 'discount');
-		$result['product_price_variation']     = self::product_price_variation();
-		$result['product_price_group_by_unit'] = self::product_price_group_by_unit();
-		$result['product_price_group_by_cat']  = self::product_price_group_by_cat();
+		$result['product_count']               = self::product_count($_clean_cache);
+		$result['product_with_barcode']        = self::product_with_barcode($_clean_cache);
+		$result['product_whit_barcode2']       = self::product_with_barcode2($_clean_cache);
+		$result['product_buyprice_min']        = self::max_min_avg_field('min', 'buyprice', $_clean_cache);
+		$result['product_buyprice_max']        = self::max_min_avg_field('max', 'buyprice', $_clean_cache);
+		$result['product_buyprice_avg']        = self::max_min_avg_field('avg', 'buyprice', $_clean_cache);
+		$result['product_price_min']           = self::max_min_avg_field('min', 'price', $_clean_cache);
+		$result['product_price_max']           = self::max_min_avg_field('max', 'price', $_clean_cache);
+		$result['product_price_avg']           = self::max_min_avg_field('avg', 'price', $_clean_cache);
+		$result['product_discount_min']        = self::max_min_avg_field('min', 'discount', $_clean_cache);
+		$result['product_discount_max']        = self::max_min_avg_field('max', 'discount', $_clean_cache);
+		$result['product_discount_avg']        = self::max_min_avg_field('avg', 'discount', $_clean_cache);
+		$result['product_price_variation']     = self::product_price_variation($_clean_cache);
+		$result['product_price_group_by_unit'] = self::product_price_group_by_unit($_clean_cache);
+		$result['product_price_group_by_cat']  = self::product_price_group_by_cat($_clean_cache);
 
 		return $result;
 	}
 
 
-	public static function product_count()
+	public static function product_count($_clean_cache = false)
 	{
+		if($_clean_cache)
+		{
+			\lib\session::set('dashboard_product_count', null);
+			return null;
+		}
+
 		$count = \lib\session::get('dashboard_product_count');
 		if($count === null)
 		{
@@ -48,8 +85,14 @@ trait dashboard
 	}
 
 
-	public static function product_with_barcode()
+	public static function product_with_barcode($_clean_cache = false)
 	{
+		if($_clean_cache)
+		{
+			\lib\session::set('dashboard_product_with_barcode', null);
+			return null;
+		}
+
 		$count = \lib\session::get('dashboard_product_with_barcode');
 		if($count === null)
 		{
@@ -61,8 +104,14 @@ trait dashboard
 	}
 
 
-	public static function product_with_barcode2()
+	public static function product_with_barcode2($_clean_cache = false)
 	{
+		if($_clean_cache)
+		{
+			\lib\session::set('dashboard_product_with_barcode2', null);
+			return null;
+		}
+
 		$count = \lib\session::get('dashboard_product_with_barcode2');
 		if($count === null)
 		{
@@ -74,27 +123,19 @@ trait dashboard
 	}
 
 
-	public static function max_min_avg_field($_type, $_field)
+	public static function max_min_avg_field($_type, $_field, $_clean_cache = false)
 	{
 		$key = "dashboard_product_". $_type. "_". $_field;
+		if($_clean_cache)
+		{
+			\lib\session::set($key, null);
+			return null;
+		}
+
 		$value = \lib\session::get($key);
 		if($value === null)
 		{
-			$type = null;
-			switch ($_type)
-			{
-				case 'min':
-				case 'max':
-				case 'avg':
-					$type = mb_strtoupper($_type);
-					break;
-
-				default:
-					return false;
-					break;
-			}
-
-			$value = \lib\db\products::max_min_avg_field(\lib\store::id(), $type, $_field);
+			$value = \lib\db\products::max_min_avg_field(\lib\store::id(), $_type, $_field);
 			$value = floatval($value);
 			\lib\session::set($key, $value,  null, self::$life_time);
 		}
@@ -102,8 +143,14 @@ trait dashboard
 	}
 
 
-	public static function product_price_variation()
+	public static function product_price_variation($_clean_cache = false)
 	{
+		if($_clean_cache)
+		{
+			\lib\session::set('dashboard_price_variation', null);
+			return null;
+		}
+
 		$chart = \lib\session::get('dashboard_price_variation');
 		if($chart === null)
 		{
@@ -121,8 +168,13 @@ trait dashboard
 	}
 
 
-	public static function product_price_group_by_unit()
+	public static function product_price_group_by_unit($_clean_cache = false)
 	{
+		if($_clean_cache)
+		{
+			\lib\session::set('dashboard_price_group_by_unit', null);
+			return null;
+		}
 		$chart = \lib\session::get('dashboard_price_group_by_unit');
 		if($chart === null)
 		{
@@ -140,8 +192,14 @@ trait dashboard
 	}
 
 
-	public static function product_price_group_by_cat()
+	public static function product_price_group_by_cat($_clean_cache = false)
 	{
+		if($_clean_cache)
+		{
+			\lib\session::set('dashboard_price_group_by_cat', null);
+			return null;
+		}
+
 		$chart = \lib\session::get('dashboard_price_group_by_cat');
 		if($chart === null)
 		{
@@ -157,9 +215,5 @@ trait dashboard
 
 		return $chart;
 	}
-
-
-
-
 }
 ?>

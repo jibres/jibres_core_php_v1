@@ -34,7 +34,6 @@ class products
 
 		\lib\db::query($query);
 
-
 		return \lib\db::insert_id();
 	}
 

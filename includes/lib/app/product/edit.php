@@ -147,6 +147,8 @@ trait edit
 			\lib\debug::true(T_("Your product successfully updated"));
 		}
 
+		self::clean_cache('var');
+
 		return $return;
 	}
 }

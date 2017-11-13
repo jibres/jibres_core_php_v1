@@ -112,6 +112,8 @@ trait add
 			if($_option['debug']) \lib\debug::true(T_("Product successfuly added"));
 		}
 
+		self::clean_cache('var');
+
 		return $return;
 	}
 }
