@@ -11,6 +11,8 @@ class view extends \content_a\main\view
 
 		$this->data->page['badge']['link'] = '/a/product/add';
 		$this->data->page['badge']['text'] = T_('Add new product');
+
+		$this->data->dashboard_detail = \lib\app\product::dashboard();
 	}
 }
 ?>

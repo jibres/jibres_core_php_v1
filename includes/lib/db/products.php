@@ -5,6 +5,7 @@ class products
 {
 
 	use \lib\db\product\search;
+	use \lib\db\product\dashboard;
 
 	/**
 	 * insert new product

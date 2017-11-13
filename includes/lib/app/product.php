@@ -17,7 +17,7 @@ class product
 	use \lib\app\product\import;
 	use \lib\app\product\delete;
 	use \lib\app\product\barcode;
-
+	use \lib\app\product\dashboard;
 
 	/**
 	 * Gets the static list.
@@ -447,8 +447,8 @@ class product
 		$args['company']         = $company;
 		// $args['shortcode']    = $shortcode;
 		$args['unit']            = $unit;
-		$args['barcode']         = "(SELECT '$barcode')";
-		$args['barcode2']        = "(SELECT '$barcode2')";
+		$args['barcode']         = $barcode;
+		$args['barcode2']        = $barcode2;
 		$args['code']            = $code;
 		$args['buyprice']        = $buyprice;
 		$args['price']           = $price;

@@ -111,6 +111,16 @@ trait edit
 			self::buyprice_check($load_product['id'], $args);
 		}
 
+		if(array_key_exists('barcode', $args))
+		{
+			$args['barcode'] = "(SELECT '$args[barcode]')";
+		}
+
+		if(array_key_exists('barcode2', $args))
+		{
+			$args['barcode2'] = "(SELECT '$args[barcode2]')";
+		}
+
 		if(!empty($args))
 		{
 			$update = \lib\db\products::update($args, $load_product['id']);

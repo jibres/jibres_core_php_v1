@@ -109,7 +109,7 @@ trait add
 
 		if(\lib\debug::$status)
 		{
-			if($_option['debug']) \lib\debug::true(T_("Store successfuly added"));
+			if($_option['debug']) \lib\debug::true(T_("Product successfuly added"));
 		}
 
 		return $return;
