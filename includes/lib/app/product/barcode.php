@@ -55,16 +55,7 @@ trait barcode
 					}
 					else
 					{
-						$barcode_title = '';
-						if(isset($check_exist[0]['barcode']) && $_barcode === $check_exist[0]['barcode'])
-						{
-							$barcode_title = T_('1');
-						}
 
-						if(isset($check_exist[0]['barcode2']) && $_barcode === $check_exist[0]['barcode2'])
-						{
-							$barcode_title = T_('2');
-						}
 
 						$product_title = '';
 						if(isset($check_exist[0]['title']))
@@ -72,13 +63,21 @@ trait barcode
 							$product_title = $check_exist[0]['title'];
 						}
 
+						if(isset($check_exist[0]['barcode']) && $_barcode === $check_exist[0]['barcode'])
+						{
+							$msg = T_("This barcode used as barcode1 :title", ['title' => $product_title]);
+						}
+
+						if(isset($check_exist[0]['barcode2']) && $_barcode === $check_exist[0]['barcode2'])
+						{
+							$msg = T_("This barcode used as barcode2 :title", ['title' => $product_title]);
+						}
+
 						$product_id = null;
 						if(isset($check_exist[0]['id']))
 						{
 							$product_id = \lib\utility\shortURL::encode($check_exist[0]['id']);
 						}
-
-						$msg = T_("This barcode used in barcode :n :title", ['n' => $barcode_title, 'title' => $product_title]);
 
 						if($product_id)
 						{
