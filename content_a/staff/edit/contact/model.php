@@ -9,7 +9,7 @@ class model extends \content_a\main\model
 		$post =
 		[
 			'phone'        => \lib\utility::post('phone'),
-			'mobile'       => \lib\utility::post('mobile'),
+			'mobile'       => \lib\utility\filter::mobile(\lib\utility::post('mobile')),
 			'email'        => \lib\utility::post('email'),
 			'id'           => \lib\utility::get('id'),
 

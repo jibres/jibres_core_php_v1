@@ -8,6 +8,7 @@ class model extends \content_a\main\model
 	{
 		$post =
 		[
+			'mobile'       => \lib\utility\filter::mobile(\lib\utility::post('mobile')),
 			'firstname'    => \lib\utility::post('name'),
 			'lastname'     => \lib\utility::post('lastName'),
 			'nationalcode' => \lib\utility::post('nationalcode'),
