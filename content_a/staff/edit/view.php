@@ -32,6 +32,9 @@ class view extends \content_a\main\view
 		{
 			$this->data->page['title'] = ' | '. $staff['fullname'];
 		}
+
+		$this->data->page['badge']['link'] = $this->url('baseFull'). '/staff/add';
+		$this->data->page['badge']['text'] = T_('Add new staff');
 	}
 
 
