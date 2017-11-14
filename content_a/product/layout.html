@@ -162,16 +162,22 @@
 <label for='price'>{%trans "Sell Price"%}</label>
 <div class="input">
  <input type="text" name="price" id="price" placeholder='{%trans "Price for sale without discount"%}' value="{{product.price}}" maxlength="50">
+{%if product.intrestrate_impure%}
  <span class="addon" title='{%trans "Impure Interest Rate"%}'>{{ product.intrestrate_impure | fitNumber}} %</span>
+{%endif%}
 </div>
 {%endblock%}
 
 
 {%block iFinalPrice%}
-<label for='finalprice'>{%trans "Final Price"%}</label>
-<div class="input disabled">
- <input type="text" id="finalprice" placeholder='{%trans "Final Pure Price"%}' value="{{product.finalprice}}" readonly>
- <span class="addon" title='{%trans "Pure Interest Rates"%}'>{{ product.intrestrate | fitNumber}} %</span>
+<div {%if not product.finalprice%} class="hide"{%endif%}>
+ <label for='finalprice'>{%trans "Final Price"%}</label>
+ <div class="input disabled">
+  <input type="text" id="finalprice" placeholder='{%trans "Final Pure Price"%}' value="{{product.finalprice}}" readonly>
+ {%if product.intrestrate%}
+  <span class="addon" title='{%trans "Pure Interest Rates"%}'>{{ product.intrestrate | fitNumber}} %</span>
+ {%endif%}
+ </div>
 </div>
 {%endblock%}
 
@@ -181,7 +187,9 @@
 <label for='discount'>{%trans "Discount"%}</label>
 <div class="input">
  <input type="text" name="discount" id="discount" placeholder='{%trans "Discount on sale"%}' value="{{product.discount}}" maxlength="50">
+{%if product.discountpercent%}
  <span class="addon" title='{%trans "Discount Percent"%}'>{{ product.discountpercent | fitNumber}} %</span>
+{%endif%}
 </div>
 {%endblock%}
 
