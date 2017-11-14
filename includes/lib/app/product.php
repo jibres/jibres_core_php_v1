@@ -558,6 +558,7 @@ class product
 		if(intval($result['buyprice']) === 0)
 		{
 			$result['intrestrate'] = null;
+			$result['intrestrate_impure'] = null;
 		}
 		else
 		{
