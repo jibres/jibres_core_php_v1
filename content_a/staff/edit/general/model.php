@@ -12,7 +12,6 @@ class model extends \content_a\main\model
 			'firstname'    => \lib\utility::post('name'),
 			'lastname'     => \lib\utility::post('lastName'),
 			'nationalcode' => \lib\utility::post('nationalcode'),
-			'father'       => \lib\utility::post('father'),
 			'birthday'     => \lib\utility::post('birthday'),
 			'gender'       => \lib\utility::post('gender') === 'on' ? 'female' : 'male',
 		];

@@ -8,8 +8,8 @@ class view extends \content_a\staff\edit\view
 	{
 		self::loadMemberDetail();
 
-		$this->data->page['title'] = T_('Edit your general');
-		$this->data->page['desc']  = T_('you can edit detail of staff');
+		$this->data->page['title'] = T_('Edit general information'). $this->data->page['title'];
+		$this->data->page['desc']  = T_('you can edit general detail of staff');
 	}
 }
 ?>

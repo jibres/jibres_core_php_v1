@@ -13,6 +13,7 @@ class model extends \content_a\main\model
 		$post['passportcode']   = \lib\utility::post('passport');
 		$post['passportexpire'] = \lib\utility::post('passportexpire');
 		$post['nationalcode']   = \lib\utility::post('nationalcode');
+		$post['father']         = \lib\utility::post('father');
 		$post['id']             = \lib\utility::get('id');
 
 		return $post;

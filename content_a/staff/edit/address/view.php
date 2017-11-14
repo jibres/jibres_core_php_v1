@@ -8,7 +8,7 @@ class view extends \content_a\staff\edit\view
 	{
 		self::loadMemberDetail();
 
-		$this->data->page['title'] = T_('Staff address');
+		$this->data->page['title'] = T_('Edit address'). $this->data->page['title'];
 		$this->data->page['desc']  = T_('set current location and full address');
 	}
 }

@@ -10,6 +10,7 @@ class view extends \content_a\main\view
 
 	}
 
+
 	public function loadMemberDetail()
 	{
 		$this->static_var();
@@ -22,9 +23,17 @@ class view extends \content_a\main\view
 			\lib\error::page(T_("User id not found"));
 		}
 
-		$get_staff = ['id' => \lib\utility::get('id')];
-		$this->data->staff = $staff = \lib\app\staff::get($get_staff, ['its_me' => true]);
+		$get_staff         = ['id' => \lib\utility::get('id')];
+		$staff             = \lib\app\staff::get($get_staff, ['its_me' => true]);
+		$this->data->staff = $staff;
+
+		// var_dump($staff);
+		if(isset($staff['fullname']))
+		{
+			$this->data->page['title'] = ' | '. $staff['fullname'];
+		}
 	}
+
 
 	public function static_var()
 	{
