@@ -94,7 +94,6 @@ trait edit
 		if(!\lib\app::isset_request('sellstore'))      unset($args['sellstore']);
 		if(!\lib\app::isset_request('carton'))         unset($args['carton']);
 		if(!\lib\app::isset_request('code'))           unset($args['code']);
-		if(!\lib\app::isset_request('discountpercent'))unset($args['discountpercent']);
 		if(!\lib\app::isset_request('checkstock'))     unset($args['checkstock']);
 		if(!\lib\app::isset_request('desc'))           unset($args['desc']);
 
@@ -111,12 +110,12 @@ trait edit
 			self::buyprice_check($load_product['id'], $args);
 		}
 
-		if(array_key_exists('barcode', $args))
+		if(array_key_exists('barcode', $args) && $args['barcode'] != '')
 		{
 			$args['barcode'] = "(SELECT '$args[barcode]')";
 		}
 
-		if(array_key_exists('barcode2', $args))
+		if(array_key_exists('barcode2', $args) && $args['barcode2'] != '')
 		{
 			$args['barcode2'] = "(SELECT '$args[barcode2]')";
 		}
