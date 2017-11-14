@@ -511,7 +511,6 @@ class product
 			{
 				case 'id':
 				case 'creator':
-				// case 'parent':
 					if(isset($value))
 					{
 						$result[$key] = \lib\utility\shortURL::encode($value);
@@ -536,6 +535,7 @@ class product
 						$result[$key] = \lib\app::static_image_url();
 					}
 					break;
+
 				case 'country':
 				case 'city':
 				case 'province':
@@ -551,8 +551,24 @@ class product
 			}
 		}
 
+		// process some variable
+
+		$result['finalprice'] = intval($result['price']) - intval($result['discount']);
+
+		if(intval($result['buyprice']) === 0)
+		{
+			$result['intrestrate'] = null;
+		}
+		else
+		{
+			$result['intrestrate'] = (intval($result['finalprice']) * 100) / intval($result['buyprice']);
+			$result['intrestrate'] = round($result['intrestrate'], 2) - 100;
+
+			$result['intrestrate_impure'] = (intval($result['price']) * 100) / intval($result['buyprice']);
+			$result['intrestrate_impure'] = round($result['intrestrate_impure'], 2) - 100;
+		}
+
 		return $result;
 	}
-
 }
 ?>

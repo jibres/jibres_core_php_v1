@@ -63,13 +63,26 @@ class userstores
 	public static function update($_args, $_id)
 	{
 		$result = \lib\db\config::public_update('userstores', $_args, $_id);
-		self::update_cache($_id);
+		self::update_cache($_id, true);
 		return $result;
 	}
 
 
-	public static function update_cache($_id)
+	public static function update_cache($_id, $_force = false)
 	{
+		// no detail was changed
+		if(!\lib\temp::get('contact_change_any_thing') && !$_force)
+		{
+			return null;
+		}
+
+		if(\lib\temp::get('user_team_already_run_update_cache'))
+		{
+			return true;
+		}
+
+		\lib\temp::set('user_team_already_run_update_cache', true);
+
 		$store_id = \lib\store::id();
 		if(!$store_id)
 		{
@@ -110,9 +123,19 @@ class userstores
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function get()
+	public static function get($_args)
 	{
-		return \lib\db\config::public_get('userstores', ...func_get_args());
+		$key = $_args;
+		krsort($key);
+		$cash = \lib\db\cache::get_cache('userstores', $key);
+		if($cash)
+		{
+			return $cash;
+		}
+
+		$result = \lib\db\config::public_get('userstores', $_args);
+		\lib\db\cache::set_cache('userstores', $key , $result);
+		return $result;
 	}
 
 
