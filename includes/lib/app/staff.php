@@ -35,7 +35,7 @@ class staff
 			if(\lib\app::isset_request('lastname') && !trim(\lib\app::request('lastname')))
 			{
 				\lib\app::log('app:staff:firstname:cannot:null:'. self::$type , \lib\user::id());
-				\lib\debug::error(T_("Firstname or Lastname of :staff can not be null", ['staff' => T_(self::$type)]), ['firstname', 'lastname']);
+				\lib\debug::error(T_("Firstname or Lastname of staff can not be null"), ['firstname', 'lastname']);
 				return false;
 			}
 		}

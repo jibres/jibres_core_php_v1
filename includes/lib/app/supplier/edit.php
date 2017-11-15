@@ -42,7 +42,7 @@ trait edit
 		if(!$userstore_id)
 		{
 			\lib\app::log('api:supplier:edit:permission:denide:'. self::$type, \lib\user::id(), \lib\app::log_meta());
-			\lib\debug::error(T_("Can not access to edit :supplier", ['supplier' => T_(self::$type)]), self::$type);
+			\lib\debug::error(T_("Can not access to edit supplier"), self::$type);
 			return false;
 		}
 
@@ -51,7 +51,7 @@ trait edit
 		if(!isset($find_user_id['user_id']))
 		{
 			\lib\app::log('api:supplier:edit:userstores:not:found:'. self::$type , \lib\user::id(), \lib\app::log_meta());
-			\lib\debug::error(T_("Can not access to edit :supplier", ['supplier' => T_(self::$type)]), self::$type);
+			\lib\debug::error(T_("Can not access to edit supplier"), self::$type);
 			return false;
 		}
 
@@ -67,7 +67,7 @@ trait edit
 				else
 				{
 					\lib\app::log('app:supplier:duplicate:user:in:store:'. self::$type , \lib\user::id());
-					\lib\debug::error(T_("This user already exist in your :supplier list", ['supplier' => T_(self::$type)]), 'mobile');
+					\lib\debug::error(T_("This user already exist in your supplier list"), 'mobile');
 					return false;
 				}
 			}

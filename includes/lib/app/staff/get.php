@@ -68,7 +68,7 @@ trait get
 			\lib\app::log('api:staff:access:denide:'. self::$type , \lib\user::id(), $log_meta);
 			if($_options['debug'])
 			{
-				\lib\debug::error(T_("Can not access to load this :staff details", ['staff' => T_(self::$type)]), self::$type, 'permission');
+				\lib\debug::error(T_("Can not access to load this staff details"), self::$type, 'permission');
 			}
 			return false;
 		}

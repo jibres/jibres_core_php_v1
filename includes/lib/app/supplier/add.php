@@ -21,7 +21,7 @@ trait add
 			if($check_duplicate_mobile_in_store)
 			{
 				\lib\app::log('app:supplier:duplicate:user:in:store:'. self::$type , \lib\user::id());
-				\lib\debug::error(T_("This user already exist in your :supplier list", ['supplier' => T_(self::$type)]), 'mobile');
+				\lib\debug::error(T_("This user already exist in your supplier list"), 'mobile');
 				return false;
 			}
 		}

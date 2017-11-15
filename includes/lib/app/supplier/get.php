@@ -68,7 +68,7 @@ trait get
 			\lib\app::log('api:supplier:access:denide:'. self::$type , \lib\user::id(), $log_meta);
 			if($_options['debug'])
 			{
-				\lib\debug::error(T_("Can not access to load this :supplier details", ['supplier' => T_(self::$type)]), self::$type, 'permission');
+				\lib\debug::error(T_("Can not access to load this supplier details"), self::$type, 'permission');
 			}
 			return false;
 		}

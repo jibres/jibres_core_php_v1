@@ -42,7 +42,7 @@ trait edit
 		if(!$userstore_id)
 		{
 			\lib\app::log('api:staff:edit:permission:denide:'. self::$type, \lib\user::id(), \lib\app::log_meta());
-			\lib\debug::error(T_("Can not access to edit :staff", ['staff' => T_(self::$type)]), self::$type);
+			\lib\debug::error(T_("Can not access to edit staff"), self::$type);
 			return false;
 		}
 
@@ -51,7 +51,7 @@ trait edit
 		if(!isset($find_user_id['user_id']))
 		{
 			\lib\app::log('api:staff:edit:userstores:not:found:'. self::$type , \lib\user::id(), \lib\app::log_meta());
-			\lib\debug::error(T_("Can not access to edit :staff", ['staff' => T_(self::$type)]), self::$type);
+			\lib\debug::error(T_("Can not access to edit staff"), self::$type);
 			return false;
 		}
 
@@ -67,7 +67,7 @@ trait edit
 				else
 				{
 					\lib\app::log('app:staff:duplicate:user:in:store:'. self::$type , \lib\user::id());
-					\lib\debug::error(T_("This user already exist in your :staff list", ['staff' => T_(self::$type)]), 'mobile');
+					\lib\debug::error(T_("This user already exist in your staff list"), 'mobile');
 					return false;
 				}
 			}
