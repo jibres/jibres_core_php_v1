@@ -156,6 +156,7 @@ class userstores
 					userstores.lastname LIKE '%__string__%' OR
 					userstores.mobile LIKE '%__string__%' OR
 					userstores.nationalcode LIKE '%__string__%' OR
+					userstores.father LIKE '%__string__%' OR
 					userstores.birthday LIKE '%__string__%'
 				)
 			",
