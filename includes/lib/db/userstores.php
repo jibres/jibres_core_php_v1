@@ -23,6 +23,42 @@ class userstores
 	 * @param      <type>  $_type      The type
 	 * @param      <type>  $_store_id  The store identifier
 	 */
+	public static function is_duplicate_code($_code, $_type, $_store_id)
+	{
+		if(!$_store_id)
+		{
+			return null;
+		}
+
+		if(!$_code)
+		{
+			return false;
+		}
+
+		$query =
+		"
+			SELECT
+				userstores.*
+			FROM
+				userstores
+			WHERE
+				userstores.code     = '$_code' AND
+				userstores.type     = '$_type' AND
+				userstores.store_id = $_store_id
+			LIMIT 1
+		";
+
+		$result = \lib\db::get($query, null, true);
+		return $result;
+	}
+
+	/**
+	 * Determines if duplicate mobile.
+	 *
+	 * @param      <type>  $_mobile    The mobile
+	 * @param      <type>  $_type      The type
+	 * @param      <type>  $_store_id  The store identifier
+	 */
 	public static function is_duplicate_mobile($_mobile, $_type, $_store_id)
 	{
 		if(!$_store_id)
@@ -110,8 +146,8 @@ class userstores
 				userstores.birthday     = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'birthday' 	LIMIT 1),
 				userstores.avatar       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'avatar' 		LIMIT 1),
 				userstores.father       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'father' 		LIMIT 1),
-				userstores.nationalcode = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'nationalcode' LIMIT 1)
-
+				userstores.nationalcode = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'nationalcode' LIMIT 1),
+				userstores.code         = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'code' 		LIMIT 1)
 			WHERE userstores.id = $_id
 		";
 		return \lib\db::query($query);

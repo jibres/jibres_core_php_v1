@@ -51,6 +51,28 @@ class customer
 			}
 		}
 
+		if(\lib\app::request('mobile'))
+		{
+			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile(\lib\app::request('mobile'), self::$type, \lib\store::id());
+			if($check_duplicate_mobile_in_store)
+			{
+				\lib\app::log('app:customer:duplicate:user:in:store:'. self::$type , \lib\user::id());
+				\lib\debug::error(T_("This user already exist in your customer list"), 'mobile');
+				return false;
+			}
+		}
+
+		if(\lib\app::request('code'))
+		{
+			$check_duplicate_code_in_store = \lib\db\userstores::is_duplicate_code(\lib\app::request('code'), self::$type, \lib\store::id());
+			if($check_duplicate_code_in_store)
+			{
+				\lib\app::log('app:customer:duplicate:user:in:store:'. self::$type , \lib\user::id());
+				\lib\debug::error(T_("This user already exist in your customer list"), 'code');
+				return false;
+			}
+		}
+
 		return \lib\app\user::check(...func_get_args());
 	}
 }

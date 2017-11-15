@@ -15,17 +15,6 @@ trait add
 	{
 		\lib\app::variable($_args);
 
-		if(\lib\app::request('mobile'))
-		{
-			$check_duplicate_mobile_in_store = \lib\db\userstores::is_duplicate_mobile(\lib\app::request('mobile'), self::$type, \lib\store::id());
-			if($check_duplicate_mobile_in_store)
-			{
-				\lib\app::log('app:customer:duplicate:user:in:store:'. self::$type , \lib\user::id());
-				\lib\debug::error(T_("This user already exist in your customer list"), 'mobile');
-				return false;
-			}
-		}
-
 		// check args
 		$args = self::check($_option);
 

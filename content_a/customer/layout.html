@@ -96,6 +96,21 @@
 </div>
 {%endblock%}
 
+{%block icode%}
+<label for="code">{%trans "Customer code"%}</label>
+<div class="input">
+  <input type="number" name="code" id="code" placeholder='{%trans "Customer code"%}' value="{{customer.code}}" min=0 max=9999999999>
+</div>
+{%endblock%}
+
+
+
+{%block iDesc%}
+<label for="desc">{%trans "Desctiption"%}</label>
+<div class="input">
+  <textarea  name="desc" id="desc" placeholder='{%trans "Desctiption"%}' class="txt" rows="4">{{customer.desc}}</textarea>
+</div>
+{%endblock%}
 
 {%block ifather%}
 <label for="father">{%trans "Father name"%}</label>
