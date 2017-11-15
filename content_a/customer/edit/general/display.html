@@ -1,0 +1,32 @@
+{%extends "content_a/customer/layout.html"%}
+
+{%block data%}
+<form class="cbox" method="post">
+ <div class="f">
+   <div class="c pRa5">
+{{block("iname")}}
+   </div>
+   <div class="c">
+{{block("ifamily")}}
+   </div>
+ </div>
+
+ <div class="f">
+   <div class="c pRa5">
+{{block("ibirthday")}}
+   </div>
+   <div class="c">
+{{block("incode")}}
+   </div>
+ </div>
+
+
+{{block('iCustomerMobile')}}
+{{block("igender")}}
+
+ <div class="f pA5 pT20">
+{{block("isave")}}
+ </div>
+</form>
+{%endblock%}
+
