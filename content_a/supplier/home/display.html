@@ -23,15 +23,15 @@
 
         <div class="f-column align-start fc-black">
           <a href="{{url.baseFull}}/supplier/edit/general?id={{value.id}}">
-            {{value.firstname}} <b>{{value.lastname}}</b>
+            {{value.father}} <b>{{value.lastname}}</b>
           </a>
-          <span>{{value.father}}</span>
+
         </div>
 
         <div class="justify-start">
-          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
-          {{value.mobile|fitNumber}}
-          {%endif%}
+
+          {{value.firstname|fitNumber}}
+
         </div>
 
         <div>

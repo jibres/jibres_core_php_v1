@@ -2,26 +2,18 @@
 
 {%block data%}
 <form class="cbox" method="post">
+	 {{block('inamecompany')}}
  <div class="f">
+
    <div class="c pRa5">
-{{block("iname")}}
+
+{{block("inamevisitor")}}
    </div>
    <div class="c">
-{{block("ifamily")}}
+{{block("imobilevisitor")}}
    </div>
  </div>
 
- <div class="f">
-   <div class="c pRa5">
-{{block("ibirthday")}}
-   </div>
-   <div class="c">
-{{block("incode")}}
-   </div>
- </div>
-
-
-{{block('iSupplierMobile')}}
 {{block("igender")}}
 
  <div class="f pA5 pT20">

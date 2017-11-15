@@ -46,26 +46,28 @@
 
  <a class="btn block mTB10" href='{{url.baseFull}}/supplier/edit/general?id={{utilityGET.id}}'>{%trans "General Detail"%}</a>
  <!-- <a class="btn block mTB10" href='{{url.baseFull}}/supplier/edit/thumb?id={{utilityGET.id}}'>{%trans "Document Photo"%}</a> -->
- <a class="btn block mTB10" href='{{url.baseFull}}/supplier/edit/contact?id={{utilityGET.id}}'>{%trans "Contact information"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/supplier/edit/identification?id={{utilityGET.id}}'>{%trans "Identification detail"%}</a>
- <a class="btn block mTB10" href='{{url.baseFull}}/supplier/edit/address?id={{utilityGET.id}}'>{%trans "Location and address"%}</a>
+ <!-- <a class="btn block mTB10" href='{{url.baseFull}}/supplier/edit/contact?id={{utilityGET.id}}'>{%trans "Contact information"%}</a> -->
+ <!-- <a class="btn block mTB10" href='{{url.baseFull}}/supplier/edit/identification?id={{utilityGET.id}}'>{%trans "Identification detail"%}</a> -->
+ <!-- <a class="btn block mTB10" href='{{url.baseFull}}/supplier/edit/address?id={{utilityGET.id}}'>{%trans "Location and address"%}</a> -->
+</div>
+{%endblock%}
+
+{%block inamecompany%}
+
+
+
+<label for="company">{%trans "Company"%} <span class="fc-red">*</span></label>
+<div class="input">
+  <input type="text" name="company" id="company" placeholder='{%trans "Company"%}' value="{{supplier.father}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
 </div>
 {%endblock%}
 
 
 
-{%block iname%}
-<label for="name">{%trans "Name"%} <span class="fc-red">*</span></label>
+{%block inamevisitor%}
+<label for="visitorname">{%trans "Name"%} <span class="fc-red">*</span></label>
 <div class="input">
-  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{supplier.firstname}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
-</div>
-{%endblock%}
-
-
-{%block ifamily%}
-<label for="lastName">{%trans "Last name"%} <span class="fc-red">*</span></label>
-<div class="input">
-  <input type="text" name="lastName" id="lastName" placeholder='{%trans "Last name"%}' value="{{supplier.lastname}}" maxlength='60'>
+  <input type="text" name="visitorname" id="visitorname" placeholder='{%trans "Visitor name"%}' value="{{supplier.lastname}}" maxlength='60'>
 </div>
 {%endblock%}
 
@@ -81,10 +83,10 @@
 {%endblock%}
 
 
-{%block imobile%}
-<label for="mobile">{%trans "Mobile"%}</label>
+{%block imobilevisitor%}
+<label for="visitormobile">{%trans "Mobile"%}</label>
 <div class="input">
-  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like 09120123456"%}' value="{{supplier.mobile}}" maxlength='30'>
+  <input type="text" name="visitormobile" id="visitormobile" placeholder='{%trans "Like 09120123456"%}' value="{{supplier.firstname}}" maxlength='30'>
 </div>
 {%endblock%}
 
