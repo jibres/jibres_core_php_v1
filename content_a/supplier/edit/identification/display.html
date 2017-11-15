@@ -1,0 +1,28 @@
+{%extends "content_a/supplier/layout.html"%}
+
+{%block data%}
+<form class="cbox" method="post">
+
+<h4 class="pT15">{%trans "ID Cards"%}</h4>
+<div class="f">
+ <div class="c s12 pRa5">{{block("iid")}}</div>
+ <div class="c s12 pRa5">{{block("inid")}}</div>
+</div>
+<div class="f">
+ <div class="c s12 pRa5">{{block("ipassport")}}</div>
+ <div class="c s12 pRa5">{{block("ipassportexpire")}}</div>
+</div>
+
+<h4 class="pT15">{%trans "Birth Detail"%}</h4>
+<div class="f">
+ <div class="c s12 pRa5">{{block("ibirthplace")}}</div>
+ <div class="c s12 pRa5">{{block("iissueplace")}}</div>
+</div>
+
+{{block("ifather")}}
+
+{{block("isave")}}
+
+</form>
+{%endblock%}
+

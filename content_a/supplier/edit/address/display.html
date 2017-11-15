@@ -1,0 +1,21 @@
+{%extends "content_a/supplier/layout.html"%}
+
+{%block data%}
+<form class="cbox" method="post">
+
+<div class="f">
+ <div class="c s12 pRa5">{{block("icountry")}}</div>
+ <div class="c s12 pRa5">{{block("iprovince")}}</div>
+ <div class="c s12">{{block("icity")}}</div>
+</div>
+<div class="f">
+ <div class="c8 s12 pRa5">{{block("iaddrress")}}</div>
+ <div class="c4 s12">{{block("izipcode")}}</div>
+</div>
+
+
+{{block("isave")}}
+
+</form>
+{%endblock%}
+

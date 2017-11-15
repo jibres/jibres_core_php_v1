@@ -1,0 +1,61 @@
+{%extends display.admin%}
+
+{%block pageContent%}
+
+<div class="f justify-center fs12">
+  <div class="c8 m8 s12">
+    <form method="get" data-action class="mB20">
+      <div class="input">
+        <input type="text" name="search" placeholder='{%trans "Search in suppliers list"%}' id="search" value="{{utilityGET.search}}">
+        <button class="addon btn ">{%trans "Search" %}</button>
+      </div>
+    </form>
+
+    {%for key, value in supplier_list%}
+      <div class="icard">
+        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/supplier/edit/general?id={{value.id}}">
+          {%if value.avatar%}
+            <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
+          {%else%}
+            <img src="{{url.static}}siftal/images/useful/user1.png" alt="{{value.name}} {{value.lastname}}">
+          {%endif%}
+        </a>
+
+        <div class="f-column align-start fc-black">
+          <a href="{{url.baseFull}}/supplier/edit/general?id={{value.id}}">
+            {{value.firstname}} <b>{{value.lastname}}</b>
+          </a>
+          <span>{{value.father}}</span>
+        </div>
+
+        <div class="justify-start">
+          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
+          {{value.mobile|fitNumber}}
+          {%endif%}
+        </div>
+
+        <div>
+          {{value.birthday|fitNumber}}
+        </div>
+
+        <div>
+          {{value.nationalcode|fitNumber}}
+        </div>
+      </div>
+    {%endfor%}
+
+    <div class="icard">
+      <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/supplier/add">
+        <img src="{{url.static}}siftal/images/useful/adduser.png" alt="add">
+      </a>
+      <div>
+        <a href="{{url.baseFull}}/supplier/add" class="btn primary block">{%trans "Add new supplier"%}</a>
+      </div>
+    </div>
+
+    {%include display.pagination%}
+  </div>
+</div>
+
+{%endblock%}
+
