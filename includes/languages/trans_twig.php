@@ -297,6 +297,57 @@ class twigTransTerms
 	echo T_("Furthermore, this agreement, under the name Terms and Conditions, will be available and observable, in all pages of the website. Users will be responsible for a lack of information on the most recent changes.");// Line 27
 	echo T_("It should be mentioned that in case there would be any modifications in the above-mentioned tenors, an updated version will be available for the public, and as well, all the users will be informed.");// Line 30
 
+	//------------------------------------content_a\customer\edit\contact\display.html
+	echo T_("Save");                                                                  // Line 343
+
+	//-----------------------------content_a\customer\edit\identification\display.html
+	echo T_("ID Cards");                                                              // Line 6
+	echo T_("Birth Detail");                                                          // Line 16
+
+	//--------------------------------------------content_a\customer\home\display.html
+	echo T_("Search in customers list");                                              // Line 9
+	echo T_("Search");                                                                // Line 10
+	echo T_("Add new customer");                                                      // Line 52
+
+	//--------------------------------------------------content_a\customer\layout.html
+	echo T_("General Detail");                                                        // Line 47
+	echo T_("Document Photo");                                                        // Line 48
+	echo T_("Contact information");                                                   // Line 49
+	echo T_("Identification detail");                                                 // Line 50
+	echo T_("Location and address");                                                  // Line 51
+	echo T_("Enter a valid name from 3 to 40 character");                             // Line 60
+	echo T_("Last name");                                                             // Line 68
+	echo T_("Grade");                                                                 // Line 74
+	echo T_("Select customer grade");                                                 // Line 76
+	echo T_("Like 09120123456");                                                      // Line 87
+	echo T_("National code");                                                         // Line 93
+	echo T_("10 digit national code");                                                // Line 95
+	echo T_("Father name");                                                           // Line 103
+	echo T_("Birthday");                                                              // Line 109
+	echo T_("Gender");                                                                // Line 120
+	echo T_("Classroom");                                                             // Line 126
+	echo T_("Please select one classroom");                                           // Line 129
+	echo T_("Birth city");                                                            // Line 141
+	echo T_("Country");                                                               // Line 148
+	echo T_("Province");                                                              // Line 157
+	echo T_("City");                                                                  // Line 165
+	echo T_("Zip code");                                                              // Line 173
+	echo T_("Religion");                                                              // Line 181
+	echo T_("Birth place");                                                           // Line 189
+	echo T_("Issue Place");                                                           // Line 197
+	echo T_("Passport id");                                                           // Line 205
+	echo T_("Passport expire date");                                                  // Line 213
+	echo T_("Id number");                                                             // Line 221
+	echo T_("National Id");                                                           // Line 229
+	echo T_("Address");                                                               // Line 293
+	echo T_("Mobile of Customer");                                                    // Line 249
+	echo T_("Like");                                                                  // Line 301
+	echo T_("Phone");                                                                 // Line 257
+	echo T_("Mobile of father");                                                      // Line 266
+	echo T_("Mobile of mother");                                                      // Line 275
+	echo T_("Post code");                                                             // Line 285
+	echo T_("Add");                                                                   // Line 339
+
 	//-----------------------------------------------------content_a\home\display.html
 	echo T_("Add event day counter");                                                 // Line 48
 	echo T_("Present Members");                                                       // Line 67
@@ -332,7 +383,6 @@ class twigTransTerms
 	echo T_("You are not have product yet! add new one.");                            // Line 21
 	echo T_("Add new product");                                                       // Line 22
 	echo T_("Search in products");                                                    // Line 33
-	echo T_("Search");                                                                // Line 10
 	echo T_("Title");                                                                 // Line 83
 	echo T_("Category");                                                              // Line 46
 	echo T_("Buy price");                                                             // Line 156
@@ -347,10 +397,7 @@ class twigTransTerms
 	echo T_("Import");                                                                // Line 14
 
 	//---------------------------------------------------content_a\product\layout.html
-	echo T_("General Detail");                                                        // Line 47
 	echo T_("Delete product");                                                        // Line 46
-	echo T_("Add");                                                                   // Line 339
-	echo T_("Save");                                                                  // Line 343
 	echo T_("Insert");                                                                // Line 43
 	echo T_("Save All");                                                              // Line 65
 	echo T_("allowed extentions jpg, png (gif for bussiness plans). Max 500Kb");      // Line 72
@@ -426,7 +473,6 @@ class twigTransTerms
 	echo T_("Store Plan");                                                            // Line 38
 	echo T_("Security and privacy");                                                  // Line 39
 	echo T_("Report Settings");                                                       // Line 40
-	echo T_("Enter a valid name from 3 to 40 character");                             // Line 60
 	echo T_("Team short name");                                                       // Line 90
 	echo T_("Used for url of board");                                                 // Line 90
 	echo T_("Slug of team for board url");                                            // Line 92
@@ -452,48 +498,26 @@ class twigTransTerms
 	//---------------------------------------content_a\staff\edit\contact\display.html
 
 	//--------------------------------content_a\staff\edit\identification\display.html
-	echo T_("ID Cards");                                                              // Line 6
-	echo T_("Birth Detail");                                                          // Line 16
 
 	//-----------------------------------------------content_a\staff\home\display.html
 	echo T_("Search in staffs list");                                                 // Line 9
 	echo T_("Add new staff");                                                         // Line 52
 
 	//-----------------------------------------------------content_a\staff\layout.html
-	echo T_("Document Photo");                                                        // Line 48
-	echo T_("Contact information");                                                   // Line 49
-	echo T_("Identification detail");                                                 // Line 50
-	echo T_("Location and address");                                                  // Line 51
-	echo T_("Last name");                                                             // Line 68
-	echo T_("Grade");                                                                 // Line 74
 	echo T_("Select staff grade");                                                    // Line 76
-	echo T_("Like 09120123456");                                                      // Line 87
-	echo T_("National code");                                                         // Line 93
-	echo T_("10 digit national code");                                                // Line 95
-	echo T_("Father name");                                                           // Line 103
-	echo T_("Birthday");                                                              // Line 109
-	echo T_("Gender");                                                                // Line 120
-	echo T_("Classroom");                                                             // Line 126
-	echo T_("Please select one classroom");                                           // Line 129
-	echo T_("Birth city");                                                            // Line 141
-	echo T_("Country");                                                               // Line 148
-	echo T_("Province");                                                              // Line 157
-	echo T_("City");                                                                  // Line 165
-	echo T_("Zip code");                                                              // Line 173
-	echo T_("Religion");                                                              // Line 181
-	echo T_("Birth place");                                                           // Line 189
-	echo T_("Issue Place");                                                           // Line 197
-	echo T_("Passport id");                                                           // Line 205
-	echo T_("Passport expire date");                                                  // Line 213
-	echo T_("Id number");                                                             // Line 221
-	echo T_("National Id");                                                           // Line 229
-	echo T_("Address");                                                               // Line 293
 	echo T_("Mobile of Staff");                                                       // Line 249
-	echo T_("Like");                                                                  // Line 301
-	echo T_("Phone");                                                                 // Line 257
-	echo T_("Mobile of father");                                                      // Line 266
-	echo T_("Mobile of mother");                                                      // Line 275
-	echo T_("Post code");                                                             // Line 285
+
+	//------------------------------------content_a\supplier\edit\contact\display.html
+
+	//-----------------------------content_a\supplier\edit\identification\display.html
+
+	//--------------------------------------------content_a\supplier\home\display.html
+	echo T_("Search in suppliers list");                                              // Line 9
+	echo T_("Add new supplier");                                                      // Line 52
+
+	//--------------------------------------------------content_a\supplier\layout.html
+	echo T_("Select supplier grade");                                                 // Line 76
+	echo T_("Mobile of Supplier");                                                    // Line 249
 
 	//-----------------------------------------------------content_c\home\display.html
 	echo T_("List of your stores");                                                   // Line 11
