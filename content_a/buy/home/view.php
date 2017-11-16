@@ -13,9 +13,8 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['text'] = T_('Add new buy');
 
 		$meta         = [];
-		$meta['type'] = 'buy';
 
-		// $this->data->buy_list = \lib\app\buy::list(\lib\utility::get('search'), $meta);
+		$this->data->buy_list = \lib\app\factor::list(\lib\utility::get('search'), $meta);
 
 		if(isset($this->controller->pagnation))
 		{
