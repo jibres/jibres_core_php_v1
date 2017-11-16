@@ -20,12 +20,32 @@
 
     {%for key, value in staff_list%}
       <div class="icard">
-        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/staff/edit/general?id={{value.id}}">
-          {%if value.avatar%}
-            <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
-          {%else%}
-            <img src="{{url.static}}siftal/images/useful/user1.png" alt="{{value.name}} {{value.lastname}}">
+{%set myType = value.type | capitalize %}
+
+{%if myType == 'Customer'%}
+
+        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/customer/edit/general?id={{value.id}}">
+          <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
+        </a>
+
+        <div class="f-column align-start fc-black">
+          <a href="{{url.baseFull}}/customer/edit/general?id={{value.id}}">
+            {{value.firstname}} <b>{{value.lastname}}</b>
+          </a>
+          <span>{{value.code}}</span>
+        </div>
+
+        <div class="justify-start">
+          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
+          {{value.mobile|fitNumber}}
           {%endif%}
+        </div>
+        <div>{%trans myType%}<i class="sf-users"></i></div>
+
+{%elseif myType == 'Staff'%}
+
+        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/staff/edit/general?id={{value.id}}">
+          <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
         </a>
 
         <div class="f-column align-start fc-black">
@@ -41,13 +61,31 @@
           {%endif%}
         </div>
 
-        <div>
-          {{value.birthday|fitNumber}}
+        <div>{%trans myType%} <i class="sf-user-4"></i></div>
+
+{%elseif myType == 'Supplier'%}
+
+        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/supplier/edit/general?id={{value.id}}">
+          <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
+        </a>
+
+        <div class="f-column align-start fc-black">
+          <a href="{{url.baseFull}}/supplier/edit/general?id={{value.id}}">
+            {{value.firstname}} <b>{{value.lastname}}</b>
+          </a>
         </div>
 
-        <div>
-          {%set myType = value.type | capitalize %}{%trans myType%}
+        <div class="justify-start">
+          {{value.father}}
+          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
+          {{value.mobile|fitNumber}}
+          {%endif%}
         </div>
+
+        <div>{%trans myType%} <i class="sf-network"></i></div>
+
+{%endif%}
+
       </div>
     {%endfor%}
 

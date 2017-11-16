@@ -14,11 +14,7 @@
     {%for key, value in staff_list%}
       <div class="icard">
         <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/staff/edit/general?id={{value.id}}">
-          {%if value.avatar%}
-            <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
-          {%else%}
-            <img src="{{url.static}}siftal/images/useful/user1.png" alt="{{value.name}} {{value.lastname}}">
-          {%endif%}
+          <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
         </a>
 
         <div class="f-column align-start fc-black">
@@ -34,13 +30,8 @@
           {%endif%}
         </div>
 
-        <div>
-          {{value.birthday|fitNumber}}
-        </div>
-
-        <div>
-          {{value.nationalcode|fitNumber}}
-        </div>
+        <div>{{value.birthday|fitNumber}}</div>
+        <div>{{value.nationalcode|fitNumber}}</div>
       </div>
     {%endfor%}
 
