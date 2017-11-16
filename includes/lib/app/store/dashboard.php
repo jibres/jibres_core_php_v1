@@ -3,6 +3,8 @@ namespace lib\app\store;
 
 trait dashboard
 {
+	private static $life_time = 60 * 10;
+
 	/**
 	 * dashboard detail
 	 *
@@ -25,6 +27,10 @@ trait dashboard
 			$result['count_store'] = self::count_store_by_creator($store_detail['creator']);
 		}
 
+		$result['customer_count'] = self::user_count('customer');
+		$result['supplier_count'] = self::user_count('supplier');
+		$result['staff_count']    = self::user_count('staff');
+
 		return $result;
 	}
 
@@ -44,6 +50,25 @@ trait dashboard
 		}
 
 		return intval(\lib\db\stores::get_count_store_by_creator($_creator_id));
+	}
+
+
+	public static function user_count($_type, $_clean_cache = false)
+	{
+		if($_clean_cache)
+		{
+			\lib\session::set('store_dashboard_'. $_type, null);
+			return null;
+		}
+
+		$count = \lib\session::get('store_dashboard_'. $_type);
+		if($count === null)
+		{
+			$count = \lib\db\userstores::get_count(['type' => $_type]);
+			$count = intval($count);
+			\lib\session::set('store_dashboard_'. $_type, $count, null,  self::$life_time);
+		}
+		return $count;
 	}
 
 }

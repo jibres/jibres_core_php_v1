@@ -55,6 +55,9 @@ trait add
 
 			$result['userstore_id'] = \lib\utility\shortURL::encode($userstore_id);
 		}
+
+		\lib\app\store::user_count('customer', true);
+
 		return $result;
 	}
 

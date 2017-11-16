@@ -16,6 +16,12 @@ class userstores
 	}
 
 
+	public static function get_count()
+	{
+		return \lib\db\config::public_get_count('userstores', ...func_get_args());
+	}
+
+
 	/**
 	 * Determines if duplicate mobile.
 	 *
