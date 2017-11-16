@@ -1,0 +1,88 @@
+{%extends display.admin%}
+
+{%block pageContent%}
+
+<div class="f mB25">
+ <div class="c4 s6">{{block ("stSupplier")}}</div>
+ <div class="c4 s6">{{block ("stCustomer")}}</div>
+ <div class="c4 s6">{{block ("stStaff")}}</div>
+</div>
+<div class="f justify-center fs12">
+
+  <div class="c8 m8 s12">
+
+    <form method="get" data-action class="mB20">
+      <div class="input">
+        <input type="text" name="search" placeholder='{%trans "Search in third parties list"%}' id="search" value="{{utilityGET.search}}">
+        <button class="addon btn ">{%trans "Search" %}</button>
+      </div>
+    </form>
+
+    {%for key, value in staff_list%}
+      <div class="icard">
+        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/staff/edit/general?id={{value.id}}">
+          {%if value.avatar%}
+            <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
+          {%else%}
+            <img src="{{url.static}}siftal/images/useful/user1.png" alt="{{value.name}} {{value.lastname}}">
+          {%endif%}
+        </a>
+
+        <div class="f-column align-start fc-black">
+          <a href="{{url.baseFull}}/staff/edit/general?id={{value.id}}">
+            {{value.firstname}} <b>{{value.lastname}}</b>
+          </a>
+          <span>{{value.father}}</span>
+        </div>
+
+        <div class="justify-start">
+          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
+          {{value.mobile|fitNumber}}
+          {%endif%}
+        </div>
+
+        <div>
+          {{value.birthday|fitNumber}}
+        </div>
+
+        <div>
+          {{value.nationalcode|fitNumber}}
+        </div>
+      </div>
+    {%endfor%}
+
+    {%include display.pagination%}
+  </div>
+</div>
+
+{%endblock%}
+
+
+{%block stCustomer%}
+<a class="dcard" href='{{url.baseFull}}/customer'>
+ <div class="statistic gray">
+  <div class="value"><i class="sf-users"></i><span>{{dashboard_detail.customer_count |number_format |fitNumber}}</span></div>
+  <div class="label">{%trans "Customer"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stSupplier%}
+<a class="dcard" href='{{url.baseFull}}/supplier'>
+ <div class="statistic teal">
+  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboard_detail.supplier_count |number_format |fitNumber}}</span></div>
+  <div class="label">{%trans "Supplier"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stStaff%}
+<a class="dcard" href='{{url.baseFull}}/staff'>
+ <div class="statistic orange">
+  <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.staff_count  | number_format  |fitNumber}}</span></div>
+  <div class="label">{%trans "Staff"%}</div>
+ </div>
+</a>
+{%endblock%}
