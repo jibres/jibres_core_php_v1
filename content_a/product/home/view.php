@@ -20,6 +20,12 @@ class view extends \content_a\main\view
 
 		$this->data->product_list  = \lib\app\product::list(\lib\utility::get('q'), $args);
 
+		if(\lib\utility::get('json') === 'true')
+		{
+			echo json_encode($this->data->product_list, JSON_UNESCAPED_UNICODE);
+			\lib\code::exit();
+		}
+
 		$this->data->sort_link = self::make_sort_link(\lib\app\product::$sort_field, $this->url('baseFull'). '/product');
 
 		if(isset($this->controller->pagnation))
