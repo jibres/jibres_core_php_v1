@@ -47,22 +47,26 @@ function recalcPricePercents()
     impureIntrestRate = ((sell * 100 / buy) - 100).toFixed(2);
     pureIntrestRate   = (((sell - discount) * 100 / buy) - 100).toFixed(2);
   }
-  $('#price').parent().find('.addon').text(fitNumber(impureIntrestRate) + '%');
+  $('#price').parent().find('.addon').text(fitNumber(impureIntrestRate, false) + '%');
 
   // Discount Rate
   if(discount && sell)
   {
-    discountRate = discount * 100 / sell;
+    discountRate = (discount * 100 / sell).toFixed(2);
   }
-  $('#discount').parent().find('.addon').text(fitNumber(discountRate) + '%');
+  $('#discount').parent().find('.addon').text(fitNumber(discountRate, false) + '%');
 
   // final price
   finalPrice = sell - discount;
   $('#finalprice').val(finalPrice);
-  elFinalPriceBox.find('.addon').text(fitNumber(pureIntrestRate) + '%');
+  elFinalPriceBox.find('.addon').text(fitNumber(pureIntrestRate, false) + '%');
   if(sell)
   {
     elFinalPriceBox.slideDown().removeClass('hide');
+  }
+  else
+  {
+    // elFinalPriceBox.slideUp();
   }
 }
 
