@@ -18,11 +18,11 @@ function recalcPricePercents()
     return;
   }
   // declare variables
-  var ElFinalprice = $('#finalprice');
-  var buy          = parseInt($('#buyprice').val());
-  var sell         = parseInt($('#price').val());
-  var discount     = parseInt($('#discount').val());
-  var finalPrice   = 0;
+  var elFinalPriceBox = $('#finalprice').parent().parent();
+  var buy             = parseInt($('#buyprice').val());
+  var sell            = parseInt($('#price').val());
+  var discount        = parseInt($('#discount').val());
+  var finalPrice      = 0;
 
   var impureIntrestRate = 0;
   var pureIntrestRate   = 0;
@@ -40,14 +40,12 @@ function recalcPricePercents()
   {
     discount = 0;
   }
-  // console.log(buy);
-  // console.log(sell);
-  // console.log(discount);
 
   // impureIntrestRate
   if(buy && sell)
   {
     impureIntrestRate = ((sell * 100 / buy) - 100).toFixed(2);
+    pureIntrestRate   = (((sell - discount) * 100 / buy) - 100).toFixed(2);
   }
   $('#price').parent().find('.addon').text(fitNumber(impureIntrestRate) + '%');
 
@@ -58,15 +56,14 @@ function recalcPricePercents()
   }
   $('#discount').parent().find('.addon').text(fitNumber(discountRate) + '%');
 
-  console.log($('#finalprice').parents('.hide'));
   // final price
+  finalPrice = sell - discount;
+  $('#finalprice').val(finalPrice);
+  elFinalPriceBox.find('.addon').text(fitNumber(pureIntrestRate) + '%');
   if(sell)
   {
-    finalPrice = sell - discount;
-    $('#finalprice').val(finalPrice);
-    $('#finalprice').parents('.hide').fadeIn().removeClass('hide');
+    elFinalPriceBox.slideDown().removeClass('hide');
   }
-
 }
 
 
