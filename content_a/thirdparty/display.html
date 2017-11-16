@@ -46,7 +46,7 @@
         </div>
 
         <div>
-          {{value.nationalcode|fitNumber}}
+          {%set myType = value.type | capitalize %}{%trans myType%}
         </div>
       </div>
     {%endfor%}

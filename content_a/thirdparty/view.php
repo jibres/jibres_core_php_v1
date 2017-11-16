@@ -10,7 +10,7 @@ class view extends \content_a\main\view
 		$this->data->page['desc']  = T_('You can search in all type of third parties like staffs, customers and suppliers.');
 
 		$meta         = [];
-		$meta['type'] = 'staff';
+		$meta['type'] = ["IN", "('staff', 'customer', 'supplier') "];
 
 		$this->data->staff_list = \lib\app\staff::list(\lib\utility::get('search'), $meta);
 
@@ -18,6 +18,9 @@ class view extends \content_a\main\view
 		{
 			$this->data->pagnation = $this->controller->pagnation_get();
 		}
+
+		$this->data->dashboard_detail = \lib\app\store::dashboard_detail(\lib\store::id());
+
 	}
 }
 ?>
