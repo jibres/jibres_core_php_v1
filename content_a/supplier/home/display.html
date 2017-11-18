@@ -23,24 +23,22 @@
 
         <div class="f-column align-start fc-black">
           <a href="{{url.baseFull}}/supplier/edit/general?id={{value.id}}">
-            {{value.father}} <b>{{value.lastname}}</b>
+            {{value.lastname}}
           </a>
 
         </div>
 
+        <div>
+          <b>{{value.father}}</b>
+        </div>
+
         <div class="justify-start">
 
-          {{value.firstname|fitNumber}}
+          {{value.mobile|fitNumber}}
 
         </div>
 
-        <div>
-          {{value.birthday|fitNumber}}
-        </div>
 
-        <div>
-          {{value.nationalcode|fitNumber}}
-        </div>
       </div>
     {%endfor%}
 

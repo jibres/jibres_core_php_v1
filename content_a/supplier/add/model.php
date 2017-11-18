@@ -8,11 +8,11 @@ class model extends \content_a\main\model
 	{
 		$post =
 		[
-			'firstname' => \lib\utility\filter::mobile(\lib\utility::post('visitormobile')),
-			'lastname'  => \lib\utility::post('visitorname'),
-			'father'    => \lib\utility::post('company'),
-			'desc'      => \lib\utility::post('desc'),
-			'gender'    => \lib\utility::post('gender') === 'on' ? 'female' : 'male',
+			'nationalcode' => \lib\utility\filter::mobile(\lib\utility::post('visitormobile')),
+			'lastname'     => \lib\utility::post('company'),
+			'father'       => \lib\utility::post('visitorname'),
+			'desc'         => \lib\utility::post('desc'),
+			'gender'       => \lib\utility::post('gender') === 'on' ? 'female' : 'male',
 		];
 
 		$post['type']  = 'supplier';

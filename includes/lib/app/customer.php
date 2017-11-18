@@ -14,7 +14,7 @@ class customer
 	 * type of users
 	 * customer
 	 * costomer
-	 * suplier
+	 * supplier
 	 *
 	 * @var        string
 	 */
@@ -74,6 +74,12 @@ class customer
 		}
 
 		return \lib\app\user::check(...func_get_args());
+	}
+
+
+	public static function ready()
+	{
+		return \lib\app\user::ready(...func_get_args());
 	}
 }
 ?>

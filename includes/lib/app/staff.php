@@ -14,7 +14,7 @@ class staff
 	 * type of users
 	 * staff
 	 * costomer
-	 * suplier
+	 * supplier
 	 *
 	 * @var        string
 	 */
@@ -52,6 +52,20 @@ class staff
 		}
 
 		return \lib\app\user::check(...func_get_args());
+	}
+
+
+	public static function ready($_data)
+	{
+		if(isset($_data['type']) && $_data['type'] === 'supplier')
+		{
+			if(array_key_exists('nationalcode', $_data))
+			{
+				$_data['mobile'] = $_data['nationalcode'];
+			}
+		}
+
+		return \lib\app\user::ready($_data);
 	}
 }
 ?>

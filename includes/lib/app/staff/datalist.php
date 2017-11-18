@@ -12,7 +12,7 @@ trait datalist
 		{
 			foreach ($list as $key => $value)
 			{
-				$a = \lib\app\user::ready($value);
+				$a = self::ready($value);
 				if($a)
 				{
 					$temp[] = $a;
