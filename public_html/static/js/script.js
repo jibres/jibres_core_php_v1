@@ -147,26 +147,31 @@ function calcFooterValues(_table)
     calcDtSumPrice += tmpPriceCol;
     calcDtSumDiscount += tmpDiscountCol;
     calcDtSumTotal += tmpFinalCol;
-    $(this).find('td:eq(5)').text(fitNumber(calcDtSumTotal));
+    if(tmpFinalCol)
+    {
+      $(this).find('td:eq(5)').text(fitNumber(tmpFinalCol));
+    }
+    else
+    {
+      $(this).find('td:eq(5)').text('');
+    }
 
     // some conditional formating
     if(tmpPrice < tmpDiscount)
     {
-      console.log(1);
       $(this).find('.discount').addClass('negative');
       $(this).find('td:eq(4)').addClass('negative');
       $(this).find('td:eq(5)').addClass('negative');
     }
     else
     {
-      console.log(2);
       $(this).find('.discount').removeClass('negative');
       $(this).find('td:eq(4)').removeClass('negative');
       $(this).find('td:eq(5)').removeClass('negative');
     }
 
   });
-  _table.find('tfoot tr th:eq(0)').text(fitNumber(calcDtCountRow));
+  // _table.find('tfoot tr th:eq(0)').text(fitNumber(calcDtCountRow));
   _table.find('tfoot tr th:eq(2)').text(fitNumber(calcDtSumCount));
   _table.find('tfoot tr th:eq(3)').text(fitNumber(calcDtSumPrice));
   _table.find('tfoot tr th:eq(4)').text(fitNumber(calcDtSumDiscount));
@@ -174,6 +179,34 @@ function calcFooterValues(_table)
 
 }
 
+
+
+function addnewRecord_ProductList(_table)
+{
+  if(!_table)
+  {
+    _table = $('.productList');
+    if(_table.length < 1)
+    {
+      return null;
+    }
+  }
+  var emptyRecord = _table.find('tbody tr:eq(0)').clone();
+  var cuRow       = _table.find('tr').length - 1;
+  // empty all inputs
+  emptyRecord.find("input").val('');
+  emptyRecord.find('td:eq(0)').text(fitNumber(cuRow));
+  emptyRecord.find('td:eq(3)').text('');
+  emptyRecord.find('td:eq(5)').text('');
+
+  console.log(emptyRecord);
+
+
+  // appent to end of table
+  emptyRecord.appendTo('.productList tbody:last');
+  // recalc table values
+  calcFooterValues(_table);
+}
 
 
 
