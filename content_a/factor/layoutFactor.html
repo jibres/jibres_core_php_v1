@@ -4,7 +4,7 @@
 {%block iCustomer%}
 <label for='customer'>{%trans "Customer"%}</label>
 <div class="input">
- <input class="autoList" type="text" name="customer" id="customer" autofocus placeholder='{%trans "Add or choose customer"%}' value="{{product.customer}}" maxlength="100" data-list="{{customer_list}}">
+ <input class="autoList" type="text" name="customer" id="customer" autofocus placeholder='{%trans "Add or choose customer"%}' value="{{product.customer}}" maxlength="100" data-list="{{customer_list}}" data-find='customer'>
 </div>
 {%endblock%}
 

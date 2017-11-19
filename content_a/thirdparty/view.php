@@ -16,7 +16,10 @@ class view extends \content_a\main\view
 
 		if(\lib\utility::get('json') === 'true')
 		{
-			echo json_encode($this->data->staff_list, JSON_UNESCAPED_UNICODE);
+			\lib\debug::msg("list", json_encode($this->data->staff_list, JSON_UNESCAPED_UNICODE));
+			// return;
+			// echo json_encode($this->data->staff_list, JSON_UNESCAPED_UNICODE);
+			$this->_processor(['force_stop' => true, 'force_json' => true]);
 			\lib\code::exit();
 		}
 
