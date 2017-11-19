@@ -221,6 +221,29 @@ function bindBtnOnFactor()
   $('#addNewRecordProduct').on('click', function(){
     addNewRecord_ProductList();
   });
+
+  $('body').on('barcode:detect', function(_e, _barcode)
+  {
+    insertProductViaBarcode(_barcode);
+  })
+}
+
+
+function insertProductViaBarcode(_barcode)
+{
+  getProductDetail(_barcode);
+}
+
+
+function getProductDetail(_barcode)
+{
+  let pSearchURL = "/a/product?json=true&barcode=" + _barcode;
+  $.get(pSearchURL ,function(_data)
+  {
+
+    console.log(_data);
+  });
+
 }
 
 

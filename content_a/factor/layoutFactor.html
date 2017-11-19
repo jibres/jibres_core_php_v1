@@ -31,4 +31,11 @@
 <textarea  name="desc" class="txt" rows='2' placeholder='{%trans "Description"%}' value='{{product.desc}}'></textarea>
 {%endblock%}
 
+{%block iBarcode%}
+<label for='customer'>{%trans "Last scanned barcode"%}</label>
+<div class="input">
+ <input class="barCode" type="text" placeholder='{%trans "Last scanned barcode"%}' data-lock data-default>
+</div>
+{%endblock%}
+
 
