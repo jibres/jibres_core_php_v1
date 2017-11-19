@@ -7,6 +7,7 @@ route('*', function()
 {
   runRunner();
   calcFooterValues();
+  bindBtnOnFactor();
 });
 
 
@@ -181,7 +182,7 @@ function calcFooterValues(_table)
 
 
 
-function addnewRecord_ProductList(_table)
+function addNewRecord_ProductList(_table, _product)
 {
   if(!_table)
   {
@@ -191,23 +192,35 @@ function addnewRecord_ProductList(_table)
       return null;
     }
   }
-  var emptyRecord = _table.find('tbody tr:eq(0)').clone();
+  var newRecord = _table.find('tbody tr:eq(0)').clone();
   var cuRow       = _table.find('tr').length - 1;
-  // empty all inputs
-  emptyRecord.find("input").val('');
-  emptyRecord.find('td:eq(0)').text(fitNumber(cuRow));
-  emptyRecord.find('td:eq(3)').text('');
-  emptyRecord.find('td:eq(5)').text('');
+  if(_product)
+  {
+    // fill with product details
 
-  console.log(emptyRecord);
+  }
+  else
+  {
+    // empty all inputs
+    newRecord.find("input").val('');
+    newRecord.find('td:eq(0)').text(fitNumber(cuRow));
+    newRecord.find('td:eq(3)').text('');
+    newRecord.find('td:eq(5)').text('');
+  }
 
 
   // appent to end of table
-  emptyRecord.appendTo('.productList tbody:last');
+  newRecord.appendTo('.productList tbody:last');
   // recalc table values
   calcFooterValues(_table);
 }
 
 
+function bindBtnOnFactor()
+{
+  $('#addNewRecordProduct').on('click', function(){
+    addNewRecord_ProductList();
+  });
+}
 
 
