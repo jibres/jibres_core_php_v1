@@ -46,6 +46,36 @@ class view extends \content_a\main\view
 					}
 					break;
 
+				case 'product':
+					$meta         = [];
+					$meta['type'] = ["IN", "('staff', 'customer', 'supplier') "];
+					$resultRaw    = \lib\app\staff::list(\lib\utility::get('q'), $meta);
+
+					foreach ($resultRaw as $key => $value)
+					{
+						if($value['id'])
+						{
+							$result[$key]['value'] = T_($value['id']);
+						}
+						if($value['fullname'])
+						{
+							$result[$key]['title'] = $value['fullname'];
+						}
+						if($value['mobile'])
+						{
+							$result[$key]['count'] = $value['mobile'];
+						}
+						if($value['type'])
+						{
+							$result[$key]['desc'] = T_($value['type']);
+						}
+						if($value['code'])
+						{
+							$result[$key]['desc2'] = T_('code') . ' '. $value['code'];
+						}
+					}
+					break;
+
 				default:
 					break;
 			}
