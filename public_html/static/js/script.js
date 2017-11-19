@@ -148,13 +148,13 @@ function calcFooterValues(_table)
     calcDtSumPrice += tmpPriceCol;
     calcDtSumDiscount += tmpDiscountCol;
     calcDtSumTotal += tmpFinalCol;
-    if(tmpFinalCol)
+    if(tmpFinalCol === 0 && !tmpPrice)
     {
-      $(this).find('td:eq(5)').text(fitNumber(tmpFinalCol));
+      $(this).find('td:eq(5)').text('');
     }
     else
     {
-      $(this).find('td:eq(5)').text('');
+      $(this).find('td:eq(5)').text(fitNumber(tmpFinalCol));
     }
 
     // some conditional formating
@@ -197,6 +197,14 @@ function addNewRecord_ProductList(_table, _product)
   if(_product)
   {
     // fill with product details
+    console.log(_product);
+    newRecord.attr('data-barcode', _product.barcode);
+    newRecord.find('td:eq(0)').text(fitNumber(cuRow));
+    newRecord.find('td:eq(1) input').val(_product.title);
+    newRecord.find('td:eq(2) input').val(1);
+    newRecord.find('td:eq(3)').text(fitNumber(_product.price));
+    newRecord.find('td:eq(4) input').val(_product.discount);
+    newRecord.find('td:eq(5)').text(fitNumber(_product.finalprice));
 
   }
   else
@@ -226,24 +234,39 @@ function bindBtnOnFactor()
   {
     insertProductViaBarcode(_barcode);
   })
+
+  $(document).on('input', '.count', function()
+  {
+    recalcProductListPrices();
+  });
+  $(document).on('input', '.discount', function()
+  {
+    recalcProductListPrices();
+  });
+
 }
 
 
 function insertProductViaBarcode(_barcode)
 {
-  getProductDetail(_barcode);
-}
-
-
-function getProductDetail(_barcode)
-{
   let pSearchURL = "/a/product?json=true&barcode=" + _barcode;
-  $.get(pSearchURL ,function(_data)
+  $.get(pSearchURL, function(_productData)
   {
+    _productData      = $.parseJSON(_productData);
+    let productInList = $('[data-barcode='+ _barcode +'] .productName');
+    if(productInList.length)
+    {
+      console.log('exist');
 
-    console.log(_data);
+    }
+    else
+    {
+      console.log('new');
+      addNewRecord_ProductList(null, _productData);
+    }
+
+    // console.log(_productData);
   });
-
 }
 
 
