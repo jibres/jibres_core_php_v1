@@ -4,48 +4,95 @@ namespace content_a\sell\add;
 
 class model extends \content_a\main\model
 {
-	public static function getPostsell()
+	/**
+	 * Gets the post sell product.
+	 *
+	 * @return     array|boolean  The post sell product.
+	 */
+	public static function getPostSellProduct()
 	{
-		$post =
-		[
-			'mobile'       => \lib\utility\filter::mobile(\lib\utility::post('mobile')),
-			'firstname'    => \lib\utility::post('name'),
-			'lastname'     => \lib\utility::post('lastName'),
-			'nationalcode' => \lib\utility::post('nationalcode'),
-			'father'       => \lib\utility::post('father'),
-			'birthday'     => \lib\utility::post('birthday'),
-			'gender'       => \lib\utility::post('gender') === 'on' ? 'female' : 'male',
-		];
+		$product  = \lib\utility::post('productName');
+		$count    = \lib\utility::post('count');
+		$discount = \lib\utility::post('discount');
 
-		$post['type']  = 'sell';
-
-		return $post;
-	}
-
-
-	public function post_sell_add()
-	{
-		// ready request
-		$request = self::getPostsell();
-
-		if(!$request['firstname'] && !$request['lastname'])
+		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
-			\lib\debug::error(T_("Fill name or family is require!"));
+			\lib\debug::error(T_("What are you doing?"));
 			return false;
 		}
 
-		\lib\app\sell::add($request);
+		$product  = array_values($product);
+		$count    = array_values($count);
+		$discount = array_values($discount);
+
+		if(count($product) === count($count) && count($count) === count($discount))
+		{
+			// no problem!
+		}
+		else
+		{
+			\lib\debug::error(T_("What are you doing?"));
+			return false;
+		}
+
+		$sell_list = [];
+
+		foreach ($product as $key => $value)
+		{
+			$sell_list[] =
+			[
+				'product'  => $value,
+				'count'    => $count[$key],
+				'discount' => $discount[$key],
+			];
+		}
+
+		return $sell_list;
+	}
+
+
+	/**
+	 * Gets the post sell detail.
+	 *
+	 * @return     array  The post sell detail.
+	 */
+	public static function getPostSellDetail()
+	{
+		$detail             = [];
+		$detail['customer'] = \lib\utility::post('customer');
+		$detail['desc']     = \lib\utility::post('desc');
+		return $detail;
+	}
+
+
+	/**
+	 * Posts a sell add.
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public function post_sell_add()
+	{
+		// ready sell_list
+		$sell_list = self::getPostSellProduct();
+
+		if($sell_list === false)
+		{
+			return false;
+		}
+
+				// ready sell_list
+		$detail = self::getPostSellDetail();
+
+		if($detail === false)
+		{
+			return false;
+		}
+
+		\lib\app\factor::add($detail, $sell_list);
 
 		if(\lib\debug::$status)
 		{
-			if(isset($result['user_id']))
-			{
-				$this->redirector($this->url('base'). '/a/sell/edit='. $result['user_id']);
-			}
-			else
-			{
-				$this->redirector($this->url('base'). '/a/sell');
-			}
+			$this->redirector($this->url('base'). '/a/sell');
 		}
 	}
 }

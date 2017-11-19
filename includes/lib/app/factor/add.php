@@ -12,8 +12,9 @@ trait add
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function add($_args, $_option = [])
+	public static function add($_factor, $_factor_detail, $_option = [])
 	{
+
 		$default_option =
 		[
 			'debug' => true,
@@ -26,7 +27,6 @@ trait add
 
 		$_option = array_merge($default_option, $_option);
 
-		\lib\app::variable($_args);
 
 		$log_meta =
 		[
@@ -51,16 +51,26 @@ trait add
 			return false;
 		}
 
+		\lib\app::variable($_factor);
 		// check args
-		$args = self::check($_option);
+		$factor = self::check_factor($_option);
 
-		if($args === false || !\lib\debug::$status)
+		if($factor === false || !\lib\debug::$status)
 		{
 			return false;
 		}
 
-		$args['store_id'] = \lib\store::id();
-		$args['creator']  = \lib\user::id();
+		$factor['store_id'] = \lib\store::id();
+
+
+		\lib\app::variable($_factor_detail);
+		$factor_detail = self::check_factor_detail($_option);
+
+		if($factor_detail === false || !\lib\debug::$status)
+		{
+			return false;
+		}
+
 
 		$return = [];
 

@@ -7,6 +7,16 @@ class products
 	use \lib\db\product\search;
 	use \lib\db\product\dashboard;
 
+
+	public static function check_multi_product_id($_multi_id, $_store_id)
+	{
+		$ids = implode(',', $_multi_id);
+
+		$query = "SELECT * FROM products WHERE products.store_id = $_store_id AND products.id IN ($ids) ";
+		return \lib\db::get($query);
+	}
+
+
 	/**
 	 * insert new product
 	 *
