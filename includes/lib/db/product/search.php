@@ -3,6 +3,26 @@ namespace lib\db\product;
 
 trait search
 {
+	private static $public_show_field = "*";
+
+	public static function search_barcode($_barcode, $_store_id)
+	{
+		$field           = self::$public_show_field;
+		$barcode         = $_barcode;
+		$barcode_convert = \lib\utility\convert::to_barcode($barcode);
+
+		if($barcode == $barcode_convert)
+		{
+			$query = "SELECT $field FROM products WHERE products.barcode = '$barcode' OR products.barcode2 = '$barcode' LIMIT 1";
+		}
+		else
+		{
+			$query = "SELECT $field FROM products WHERE products.barcode = '$barcode' OR products.barcode2 = '$barcode' OR products.barcode = '$barcode_convert' OR products.barcode2 = '$barcode_convert' LIMIT 1";
+		}
+		return \lib\db::get($query, null);
+	}
+
+
 	/**
 	 * Searches for the first match.
 	 *
@@ -76,7 +96,7 @@ trait search
 		{
 			$limit             = null;
 
-			$public_show_field = " * ";
+			$public_show_field = self::$public_show_field;
 
 			$public_fields = " $public_show_field FROM `products` ";
 

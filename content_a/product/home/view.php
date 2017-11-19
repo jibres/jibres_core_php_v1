@@ -14,8 +14,9 @@ class view extends \content_a\main\view
 
 		$args =
 		[
-			'order'  => \lib\utility::get('order'),
-			'sort'   => \lib\utility::get('sort'),
+			'order'   => \lib\utility::get('order'),
+			'sort'    => \lib\utility::get('sort'),
+			'barcode' => \lib\utility::get('barcode'),
 		];
 
 		$this->data->product_list  = \lib\app\product::list(\lib\utility::get('q'), $args);

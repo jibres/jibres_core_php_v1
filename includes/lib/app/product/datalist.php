@@ -64,10 +64,19 @@ trait datalist
 				unset($option['sort']);
 			}
 		}
+
 		$field             = [];
 		$field['store_id'] = \lib\store::id();
 
-		$result           = \lib\db\products::search($_string, $option, $field);
+		if(isset($_args['barcode']) && $_args['barcode'])
+		{
+			$result = \lib\db\products::search_barcode($_args['barcode'], \lib\store::id());
+		}
+		else
+		{
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+
 		$temp             = [];
 
 		foreach ($result as $key => $value)
