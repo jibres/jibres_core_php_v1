@@ -29,12 +29,12 @@
    </thead>
    <tbody>
     <tr>
-     <td data-row>{{1 | fitNumber}}</td>
-     <td data-product>{{block('iProductName')}}</td>
-     <td data-count>{{block('iCount')}}</td>
-     <td data-price>{{200 | fitNumber}}</td>
-     <td data-discount>{{block('iDiscount')}}</td>
-     <td data-total>{{750 | fitNumber}}</td>
+     <td>{{1 | fitNumber}}</td>
+     <td>{{block('iProductName')}}</td>
+     <td>{{block('iCount')}}</td>
+     <td>{{200 | fitNumber}}</td>
+     <td>{{block('iDiscount')}}</td>
+     <td>{{750 | fitNumber}}</td>
     </tr>
 
     <tr>
@@ -49,12 +49,12 @@
    </tbody>
    <tfoot class="dark">
     <tr>
+     <th title='{%trans "Count of rows"%}'></th>
      <th></th>
-     <th></th>
-     <th></th>
-     <th></th>
-     <th></th>
-     <th></th>
+     <th title='{%trans "Sum of counts"%}'></th>
+     <th title='{%trans "Sum of prices"%}'></th>
+     <th title='{%trans "Sum of discounts"%}'></th>
+     <th title='{%trans "Sum of final prices"%}' class="txtbold"></th>
     </tr>
    </tfoot>
   </table>
