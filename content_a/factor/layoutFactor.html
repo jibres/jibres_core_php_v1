@@ -12,22 +12,18 @@
 
 {%block iProductName%}
 <div class="input">
- <input class="autoList" type="text" name="productName1" maxlength="100" placeholder='{%trans "Search in products"%}' value="{{product.product}}"  data-list="{{product_list}}">
+ <input class="autoList productName" type="text" name="productName[]" maxlength="100" placeholder='{%trans "Search in products"%}' value="{{product.product}}"  data-list="{{product_list}}">
 </div>
 {%endblock%}
 
 
 {%block iCount%}
-<div class="input">
- <input type="number" name="Count1" min='0' max="10000000000" value="{{product.count1}}" placeholder="1" value='1'>
-</div>
+ <input class="input count" type="number" name="count[]" min='0' max="10000000000" value="{{product.count1}}" value='1' data-run-input='recalcProductListPrices' data-step=".001">
 {%endblock%}
 
 
 {%block iDiscount%}
-<div class="input">
- <input type="number" name="Discount1" min='0' max="10000000000" value="{{product.discount1}}" value=''>
-</div>
+ <input class="input discount" type="number" name="discount[]" min='0' max="10000000000" value="{{product.discount1}}" value='' data-run-input='recalcProductListPrices'>
 {%endblock%}
 
 
