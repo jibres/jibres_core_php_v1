@@ -12,7 +12,13 @@ class view extends \content_a\main\view
 		$meta         = [];
 		$meta['type'] = ["IN", "('staff', 'customer', 'supplier') "];
 
-		$this->data->staff_list = \lib\app\staff::list(\lib\utility::get('search'), $meta);
+		$this->data->staff_list = \lib\app\staff::list(\lib\utility::get('q'), $meta);
+
+		if(\lib\utility::get('json') === 'true')
+		{
+			echo json_encode($this->data->staff_list, JSON_UNESCAPED_UNICODE);
+			\lib\code::exit();
+		}
 
 		if(isset($this->controller->pagnation))
 		{
