@@ -323,7 +323,8 @@ sub {
 code, kbd, samp {
   font-family: monospace, monospace, sans-serif;
   font-size: 1em;
-  display: inline-block; }
+  display: inline-block;
+  direction: ltr; }
 
 pre {
   white-space: pre;
@@ -13957,6 +13958,9 @@ body .w200 {
   html body {
     display: none !important; } }
 /* Design for print */
+svg.barcodePrev {
+  height: 70px; }
+
 .Test-describe {
   font-size: 1.5em;
   margin: 60px 0 20px; }
