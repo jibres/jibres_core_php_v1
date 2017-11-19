@@ -96,20 +96,7 @@ function runRunner()
 
 function recalcProductListPrices(_this)
 {
-  var elRow      = _this.parents('tr');
-  var elTable    = _this.parents('table');
-  var elRowTotal = elRow.find(':eq(5)');
-
-  var valCount    = elRow.find('.count').val().toEnglish();
-  var valPrice    = elRow.find(':eq(3)').text().toEnglish();
-  var valDiscount = elRow.find('.discount').val().toEnglish();
-  var valTotal    = elRowTotal.text().toEnglish();
-
-
-  var calcRowTotal = valCount * (valPrice - valDiscount);
-  elRowTotal.text(fitNumber(calcRowTotal));
-
-  calcFooterValues(elTable);
+  calcFooterValues();
 }
 
 
@@ -152,7 +139,6 @@ function calcFooterValues(_table)
     let tmpPriceCol    = tmpCount * tmpPrice;
     let tmpDiscountCol = tmpCount * tmpDiscount;
     let tmpFinalCol    = tmpCount * (tmpPrice - tmpDiscount);
-    console.log(tmpFinalCol);
 
     // count of row
     calcDtCountRow += 1;
@@ -162,6 +148,22 @@ function calcFooterValues(_table)
     calcDtSumDiscount += tmpDiscountCol;
     calcDtSumTotal += tmpFinalCol;
     $(this).find('td:eq(5)').text(fitNumber(calcDtSumTotal));
+
+    // some conditional formating
+    if(tmpPrice < tmpDiscount)
+    {
+      console.log(1);
+      $(this).find('.discount').addClass('negative');
+      $(this).find('td:eq(4)').addClass('negative');
+      $(this).find('td:eq(5)').addClass('negative');
+    }
+    else
+    {
+      console.log(2);
+      $(this).find('.discount').removeClass('negative');
+      $(this).find('td:eq(4)').removeClass('negative');
+      $(this).find('td:eq(5)').removeClass('negative');
+    }
 
   });
   _table.find('tfoot tr th:eq(0)').text(fitNumber(calcDtCountRow));
