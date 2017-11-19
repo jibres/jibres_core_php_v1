@@ -23,6 +23,18 @@ class view extends \content_a\main\view
 
 		if(\lib\utility::get('json') === 'true')
 		{
+			if(\lib\utility::get('barcode'))
+			{
+				if(count($this->data->product_list) === 1)
+				{
+					$this->data->product_list = array_values($this->data->product_list);
+					$this->data->product_list = $this->data->product_list[0];
+				}
+				else
+				{
+					$this->data->product_list = null;
+				}
+			}
 			echo json_encode($this->data->product_list, JSON_UNESCAPED_UNICODE);
 			\lib\code::exit();
 		}
