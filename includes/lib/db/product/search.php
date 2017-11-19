@@ -23,24 +23,25 @@ trait search
 		$default_options =
 		[
 			// just return the count record
-			"get_count"           => false,
+			"get_count"      => false,
 			// enable|disable paignation,
-			"pagenation"          => true,
+			"pagenation"     => true,
 			// for example in get_count mode we needless to limit and pagenation
 			// default limit of record is 10
-			// set the limit      = null and pagenation = false to get all record whitout limit
-			"limit"               => 10,
+			// set the limit = null and pagenation = false to get all record whitout limit
+			"limit"          => 10,
 			// for manual pagenation set the statrt_limit and end limit
-			"start_limit"         => 0,
+			"start_limit"    => 0,
 			// for manual pagenation set the statrt_limit and end limit
-			"end_limit"           => 10,
+			"end_limit"      => 10,
 			// the the last record inserted to post table
-			"get_last"            => false,
+			"get_last"       => false,
 			// default order by DESC you can change to DESC
-			"order"               => "DESC",
+			"order"          => "DESC",
 			// custom sort by field
-			"sort"                => null,
+			"sort"           => null,
 
+			"page"           => 1,
 		];
 
 		// if limit not set and the pagenation is false
@@ -222,6 +223,8 @@ trait search
 		{
 			$pagenation_query = "SELECT	COUNT(*) AS `count`	FROM `products` 	$where $search ";
 			$pagenation_query = \lib\db::get($pagenation_query, 'count', true);
+
+			// list($limit_start, $limit) = \lib\utility\pagination::get_query_limit((int) $pagenation_query, $_options['page'], $limit);
 
 			list($limit_start, $limit) = \lib\db::pagnation((int) $pagenation_query, $limit);
 			$limit = " LIMIT $limit_start, $limit ";
