@@ -23,7 +23,10 @@
 
 
 {%block iDiscount%}
- <input class="input discount" type="number" name="discount[]" min='0' max="10000000000" value="{{product.discount1}}" value=''>
+ <div class="input">
+  <input class="discount" type="number" name="discount[]" min='0' max="10000000000" value="{{product.discount1}}" value='' step='100'>
+  <span class="addon small">0%</span>
+ </div>
 {%endblock%}
 
 

@@ -120,9 +120,10 @@ function calcFooterValues(_table)
   _table.find('tbody tr').each(function()
   {
     // variables
-    let tmpCount       = parseFloat($(this).find('.count').val().toEnglish());
-    let tmpPrice       = parseInt($(this).find('td:eq(3)').attr('data-val'));
-    let tmpDiscount    = parseInt($(this).find('.discount').val().toEnglish());
+    let tmpCount           = parseFloat($(this).find('.count').val().toEnglish());
+    let tmpPrice           = parseInt($(this).find('td:eq(3)').attr('data-val'));
+    let tmpDiscount        = parseInt($(this).find('.discount').val().toEnglish());
+    let tmpDiscountPercent = 0;
     // check NaN values
     if(isNaN(tmpCount))
     {
@@ -148,6 +149,19 @@ function calcFooterValues(_table)
     calcDtSumPrice += tmpPriceCol;
     calcDtSumDiscount += tmpDiscountCol;
     calcDtSumTotal += tmpFinalCol;
+
+    // set discount percent
+    tmpDiscountPercent = (tmpDiscount * 100 / tmpPrice).toFixed(2);
+    if($.isNumeric(tmpDiscountPercent) && tmpDiscountPercent>0 )
+    {
+      $(this).find('td:eq(4) .addon').text(fitNumber(tmpDiscountPercent) + '%');
+    }
+    else
+    {
+      $(this).find('td:eq(4) .addon').text('');
+    }
+
+    // set final price
     if(tmpFinalCol === 0 && !tmpPrice)
     {
       $(this).find('td:eq(5)').text('');
