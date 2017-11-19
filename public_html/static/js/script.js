@@ -121,7 +121,7 @@ function calcFooterValues(_table)
   {
     // variables
     let tmpCount       = parseFloat($(this).find('.count').val().toEnglish());
-    let tmpPrice       = parseInt($(this).find('td:eq(3)').text().toEnglish());
+    let tmpPrice       = parseInt($(this).find('td:eq(3)').attr('data-val'));
     let tmpDiscount    = parseInt($(this).find('.discount').val().toEnglish());
     // check NaN values
     if(isNaN(tmpCount))
@@ -174,9 +174,9 @@ function calcFooterValues(_table)
   });
   // _table.find('tfoot tr th:eq(0)').text(fitNumber(calcDtCountRow));
   _table.find('tfoot tr th:eq(2)').text(fitNumber(calcDtSumCount));
-  _table.find('tfoot tr th:eq(3)').text(fitNumber(calcDtSumPrice));
+  _table.find('tfoot tr th:eq(3)').text(fitNumber(calcDtSumPrice)).attr('data-val', calcDtSumPrice);
   _table.find('tfoot tr th:eq(4)').text(fitNumber(calcDtSumDiscount));
-  _table.find('tfoot tr th:eq(5)').text(fitNumber(calcDtSumTotal));
+  _table.find('tfoot tr th:eq(5)').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
 
 }
 
@@ -202,10 +202,9 @@ function addNewRecord_ProductList(_table, _product)
     newRecord.find('td:eq(0)').text(fitNumber(cuRow));
     newRecord.find('td:eq(1) input').val(_product.title);
     newRecord.find('td:eq(2) input').val(1);
-    newRecord.find('td:eq(3)').text(fitNumber(_product.price));
+    newRecord.find('td:eq(3)').text(fitNumber(_product.price)).attr('data-val', _product.price);
     newRecord.find('td:eq(4) input').val(_product.discount);
-    newRecord.find('td:eq(5)').text(fitNumber(_product.finalprice));
-
+    newRecord.find('td:eq(5)').text(fitNumber(_product.finalprice)).attr('data-val', _product.finalprice);
   }
   else
   {
@@ -221,6 +220,20 @@ function addNewRecord_ProductList(_table, _product)
   newRecord.appendTo('.productList tbody:last');
   // recalc table values
   calcFooterValues(_table);
+}
+
+
+function updateRecord_ProductList(_row, _key, _value)
+{
+  switch (_key)
+  {
+    case 'count':
+      let currentCounter = _row.find('.count');
+      currentCounter.val(parseFloat(currentCounter.val())+1);
+      break;
+  }
+
+  calcFooterValues();
 }
 
 
@@ -253,11 +266,11 @@ function insertProductViaBarcode(_barcode)
   $.get(pSearchURL, function(_productData)
   {
     _productData      = $.parseJSON(_productData);
-    let productInList = $('[data-barcode='+ _barcode +'] .productName');
+    let productInList = $('[data-barcode='+ _barcode +']');
     if(productInList.length)
     {
       console.log('exist');
-
+      updateRecord_ProductList(productInList, 'count');
     }
     else
     {
