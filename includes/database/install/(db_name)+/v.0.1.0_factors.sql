@@ -1,8 +1,8 @@
 CREATE TABLE `factors` (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `store_id` int(10) UNSIGNED NOT NULL,
-`customer` int(10) UNSIGNED NOT NULL,
-`seller` int(10) UNSIGNED NOT NULL,
+`customer` bigint(20) UNSIGNED NULL,
+`seller` bigint(20) UNSIGNED NOT NULL,
 `date` datetime NOT NULL,
 `shamsidate` int(10) UNSIGNED NOT NULL,
 `title` varchar(500) NULL,
@@ -21,7 +21,7 @@ CREATE TABLE `factors` (
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 `desc` text CHARACTER SET utf8mb4,
 PRIMARY KEY (`id`),
-CONSTRAINT `factors_customer` FOREIGN KEY (`seller`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
-CONSTRAINT `factors_seller` FOREIGN KEY (`customer`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+CONSTRAINT `factors_customer` FOREIGN KEY (`seller`) REFERENCES `userstores` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `factors_seller` FOREIGN KEY (`customer`) REFERENCES `userstores` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -68,8 +68,8 @@ self::$config['main_site']                    = 'http://jibres.dev';
  * call kavenegar template
  */
 self::$config['enter']['call']                = true;
-self::$config['enter']['call_template_fa'] = 'jibres-fa';
-self::$config['enter']['call_template_en'] = 'jibres-en';
+self::$config['enter']['call_template_fa'] = 'ermile-fa';
+self::$config['enter']['call_template_en'] = 'ermile-en';
 
 /**
  * telegram hook

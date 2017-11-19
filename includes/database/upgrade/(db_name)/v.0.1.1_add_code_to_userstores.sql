@@ -1,1 +1,0 @@
-ALTER TABLE `userstores` ADD `code` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL;
