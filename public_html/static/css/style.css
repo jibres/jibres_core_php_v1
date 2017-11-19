@@ -195,3 +195,15 @@ body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
 
 
 
+
+
+.tbl.productList th{vertical-align: middle;text-align: center;}
+.tbl.productList td{vertical-align: middle;text-align: center;padding:0.25em}
+.tbl.productList .product{white-space:nowrap;min-width:300px;}
+.tbl .min80{white-space:nowrap;width:80px}
+.tbl .min100{white-space:nowrap;width:100px}
+.tbl .min120{white-space:nowrap;width:120px}
+.tbl .min150{white-space:nowrap;width:150px}
+
+
+

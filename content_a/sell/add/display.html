@@ -1,36 +1,66 @@
-{%extends "content_a/sell/layout.html"%}
+{%extends "content_a/factor/layoutFactor.html"%}
 
-{%block dataAdd%}
-<form method="post" enctype="multipart/form-data">
-<div class="f justify-center">
-  <div class="c6 s12">
-    <div class="cbox">
-      <div class="f">
-        <div class="c pRa5">
-{{block("iname")}}
-        </div>
-        <div class="c">
-{{block("ifamily")}}
-        </div>
-      </div>
+{%block pageContent%}
+<form method="post">
 
-      <div class="f">
-        <div class="c pRa5">
-{{block("ibirthday")}}
-        </div>
-        <div class="c">
-{{block("incode")}}
-        </div>
-      </div>
-
-{{block("imobile")}}
-{{block("igender")}}
-
-{{block("iadd")}}
-
-    </div>
+ <div class="cbox">
+  <div class="f justify-center">
+{{block("iCustomer")}}
   </div>
-</div>
+ </div>
+
+{{block("listOfProducts")}}
 </form>
 {%endblock%}
+
+
+{%block listOfProducts%}
+ <div class="cbox" style="min-height:300px;">
+  <table class="tbl productList txtC">
+   <thead>
+    <tr>
+     <th class="min100">{%trans "Row"%}</th>
+     <th class="product">{%trans "Product"%}</th>
+     <th class="min120">{%trans "Count"%}</th>
+     <th class="min100">{%trans "Price"%}</th>
+     <th class="min150">{%trans "Discount"%}</th>
+     <th class="min100">{%trans "Total"%}</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>{{1 | fitNumber}}</td>
+     <td>{{block('iProductName')}}</td>
+     <td>{{block('iCount')}}</td>
+     <td>0</td>
+     <td>{{block('iDiscount')}}</td>
+     <td>0</td>
+    </tr>
+
+    <tr>
+     <td>{{2 | fitNumber}}</td>
+     <td>{{block('iProductName')}}</td>
+     <td>{{block('iCount')}}</td>
+     <td>0</td>
+     <td>{{block('iDiscount')}}</td>
+     <td>0</td>
+    </tr>
+
+   </tbody>
+   <tfoot class="dark">
+    <tr>
+     <th></th>
+     <th></th>
+     <th></th>
+     <th></th>
+     <th></th>
+     <th></th>
+    </tr>
+   </tfoot>
+  </table>
+ </div>
+{%endblock%}
+
+
+
 

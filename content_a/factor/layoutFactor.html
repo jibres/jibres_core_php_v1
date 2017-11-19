@@ -1,0 +1,35 @@
+{%extends display.admin%}
+
+
+{%block iCustomer%}
+<label for='customer'>{%trans "Customer"%}</label>
+<div class="input">
+ <input class="autoList" type="text" name="customer" id="customer" placeholder='{%trans "Add or choose customer"%}' value="{{product.customer}}" maxlength="100" data-list="{{customer_list}}">
+</div>
+{%endblock%}
+
+
+
+{%block iProductName%}
+<div class="input">
+ <input class="autoList" type="text" name="productName1" maxlength="100" placeholder='{%trans "Search in products"%}' value="{{product.product}}"  data-list="{{product_list}}">
+</div>
+{%endblock%}
+
+
+{%block iCount%}
+<div class="input">
+ <input type="number" name="Count1" min='0' max="10000000000" value="{{product.count1}}" placeholder="1" value='1'>
+</div>
+{%endblock%}
+
+
+{%block iDiscount%}
+<div class="input">
+ <input type="number" name="Discount1" min='0' max="10000000000" value="{{product.discount1}}" value=''>
+</div>
+{%endblock%}
+
+
+
+
