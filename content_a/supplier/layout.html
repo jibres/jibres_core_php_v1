@@ -140,7 +140,7 @@
 {%block ibirthcity%}
 <label for="birthcity">{%trans "Birth city"%}</label>
 <div class="input">
-  <input type='text' class="awesomplete" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{supplier.birthplace}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{city_list}}"/>
+  <input type='text' class="autoList" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{supplier.birthplace}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{city_list}}"/>
 
 </div>
 {%endblock%}
@@ -149,7 +149,7 @@
 {%block icountry%}
 <label for='country'>{%trans "Country"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='country' id='country' data-minchars="1" data-autofirst data-list="{{country_list}}" value="{{supplier.country}}" />
+ <input type='text' class="autoList" name='country' id='country' data-minchars="1" data-autofirst data-list="{{country_list}}" value="{{supplier.country}}" />
 </div>
 {%endblock%}
 
@@ -158,7 +158,7 @@
 
 <label for='province'>{%trans "Province"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='province' id='province' data-minchars="1" data-autofirst data-list="{{provice_list}}" value="{{supplier.province}}" />
+ <input type='text' class="autoList" name='province' id='province' data-minchars="1" data-autofirst data-list="{{provice_list}}" value="{{supplier.province}}" />
 </div>
 {%endblock%}
 
@@ -166,7 +166,7 @@
 {%block icity%}
 <label for='city'>{%trans "City"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='city' id='city' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{supplier.city}}" />
+ <input type='text' class="autoList" name='city' id='city' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{supplier.city}}" />
 </div>
 {%endblock%}
 
@@ -182,7 +182,7 @@
 {%block ireligion%}
 <label for='religion'>{%trans "Religion"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='religion' id='religion' data-minchars="1" data-autofirst data-list="Islam"/>
+ <input type='text' class="autoList" name='religion' id='religion' data-minchars="1" data-autofirst data-list="Islam"/>
 </div>
 {%endblock%}
 
@@ -190,7 +190,7 @@
 {%block ibirthplace%}
 <label for='birthplace'>{%trans "Birth place"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='birthplace' id='birthplace' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{supplier.birthplace}}" />
+ <input type='text' class="autoList" name='birthplace' id='birthplace' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{supplier.birthplace}}" />
 </div>
 {%endblock%}
 
@@ -198,7 +198,7 @@
 {%block iissueplace%}
 <label for='issueplace'>{%trans "Issue Place"%}</label>
 <div class="input">
- <input type='text' class="awesomplete" name='issueplace' id='issueplace' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{supplier.issueplace}}" />
+ <input type='text' class="autoList" name='issueplace' id='issueplace' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{supplier.issueplace}}" />
 </div>
 {%endblock%}
 
