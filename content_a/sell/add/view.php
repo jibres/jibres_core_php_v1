@@ -60,18 +60,18 @@ class view extends \content_a\main\view
 						{
 							$result[$key]['title'] = $value['title'];
 						}
-						if(isset($value['minstock']))
+						if(isset($value['finalprice']))
 						{
-							$result[$key]['count'] = $value['minstock'];
+							$result[$key]['count'] = \lib\utility\human::fitNumber($value['finalprice']);;
 						}
-						if(isset($value['cat']))
-						{
-							$result[$key]['desc'] = T_($value['cat']);
-						}
-						if(isset($value['name']))
-						{
-							$result[$key]['desc2'] = $value['name'];
-						}
+						// if(isset($value['cat']))
+						// {
+						// 	$result[$key]['desc'] = T_($value['cat']);
+						// }
+						// if(isset($value['name']))
+						// {
+						// 	$result[$key]['desc2'] = $value['name'];
+						// }
 					}
 					break;
 
