@@ -169,13 +169,14 @@ class userstores
 	{
 		$key = $_args;
 		krsort($key);
-		$cash = \lib\db\cache::get_cache('userstores', $key);
-		if($cash)
+		$cache = \lib\db\cache::get_cache('userstores', $key);
+		if($cache)
 		{
-			return $cash;
+			return $cache;
 		}
 
 		$result = \lib\db\config::public_get('userstores', $_args);
+
 		\lib\db\cache::set_cache('userstores', $key , $result);
 		return $result;
 	}

@@ -56,7 +56,7 @@ class factor
 			$customer = \lib\utility\shortURL::decode($customer);
 			if(!$customer)
 			{
-				\lib\app::log('api:factor:customer:invalid', \lib\user::id(), \lib\app::log_meta());
+				\lib\app::log('api:factor:customer:invalid', \lib\user::id(), \lib\app::log_meta(1));
 				\lib\debug::error(T_("Customer detail is invalid"), 'customer');
 				return false;
 			}
@@ -64,7 +64,7 @@ class factor
 			$customer_detail = \lib\db\userstores::get(['id' => $customer, 'store_id' => \lib\store::id(), 'limit' => 1]);
 			if(!isset($customer_detail))
 			{
-				\lib\app::log('api:factor:customer:invalid:id:not:found', \lib\user::id(), \lib\app::log_meta());
+				\lib\app::log('api:factor:customer:invalid:id:not:found', \lib\user::id(), \lib\app::log_meta(1));
 				\lib\debug::error(T_("Customer detail is invalid"), 'customer');
 				return false;
 			}
@@ -73,7 +73,7 @@ class factor
 		$desc = \lib\app::request('desc');
 		if($desc && mb_strlen($desc) > 1000)
 		{
-			\lib\app::log('api:factor:desc:max:lenght', \lib\user::id(), \lib\app::log_meta());
+			\lib\app::log('api:factor:desc:max:lenght', \lib\user::id(), \lib\app::log_meta(1));
 			\lib\debug::error(T_("Description of factor out of range"), 'desc');
 			return false;
 		}
@@ -123,10 +123,13 @@ class factor
 
 		$_option = array_merge($default_option, $_option);
 
-		$list = \lib\app::request();
+		$list    = \lib\app::request();
 
 		$decode_list   = [];
 		$allproduct_id = [];
+		$new_list      = [];
+
+		$have_warn     = [];
 
 		foreach ($list as $key => $value)
 		{
@@ -138,45 +141,61 @@ class factor
 
 			if(!$product_id)
 			{
-				\lib\app::log('api:factor:detail:product_id:invalid', \lib\user::id(), \lib\app::log_meta());
-				\lib\debug::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
-				return false;
+				$have_warn[] = $key + 1;
+				continue;
 			}
 
-			if(isset($value['count']) && !is_numeric($value['count']))
+			if(!isset($value['count']) || !isset($value['discount']))
 			{
-				\lib\app::log('api:factor:detail:product:count:not:numberic', \lib\user::id(), \lib\app::log_meta());
-				\lib\debug::error(T_("Invalid proudct count in factor :key", ['key' => $key]), 'count');
-				return false;
+				$have_warn[] = $key + 1;
+				continue;
 			}
 
-
-			if(isset($value['discount']) && $value['discount'] &&  !is_numeric($value['discount']))
+			if(!is_numeric($value['count']))
 			{
-				\lib\app::log('api:factor:detail:product:discount:not:numberic', \lib\user::id(), \lib\app::log_meta());
-				\lib\debug::error(T_("Invalid proudct discount in factor :key", ['key' => $key]), 'discount');
-				return false;
+				$have_warn[] = $key + 1;
+				continue;
 			}
 
-			$list[$key]['product_id'] = $product_id;
+			if($value['discount'] &&  !is_numeric($value['discount']))
+			{
+				$have_warn[] = $key + 1;
+				continue;
+			}
 
-			$allproduct_id[] = $product_id;
+			$new_list[$key]['count']      = intval($value['count']);
+			$new_list[$key]['discount']   = intval($value['discount']);
+			$new_list[$key]['product_id'] = $product_id;
+
+			$allproduct_id[]              = $product_id;
 		}
 
+		if(count($allproduct_id) <> count(array_unique($allproduct_id)))
+		{
+			\lib\debug::error(T_("Duplicate product in one factor founded"));
+			return false;
+		}
+
+		if(!empty($have_warn))
+		{
+			\lib\debug::warn(T_("Invalid product detail in some record of this factor ,[:key]", ['key' => implode(',', $have_warn)]));
+		}
+
+		$allproduct_id      = array_unique($allproduct_id);
 		$check_true_product = \lib\db\products::check_multi_product_id($allproduct_id, \lib\store::id());
 		$true_product_ids   = array_column($check_true_product, 'id');
 		$check_true_product = array_combine($true_product_ids, $check_true_product);
 
 		$factor_detail = [];
 
-		foreach ($list as $key => $value)
+		foreach ($new_list as $key => $value)
 		{
 
 			$temp = [];
 
 			if(!isset($check_true_product[$value['product_id']]))
 			{
-				\lib\app::log('api:factor:detail:product_id:not:true', \lib\user::id(), \lib\app::log_meta());
+
 				\lib\debug::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
 				return false;
 			}
@@ -192,27 +211,16 @@ class factor
 				$price = intval($this_proudct['price']);
 			}
 
-			$temp['price']    = $price;
-			$temp['count']    = $value['count'];
-			$temp['discount'] = $value['discount'];
-			$temp['sum']      = (floatval($price) - floatval($value['discount'])) * intval($value['count']);
+			$temp['product_id'] = $value['product_id'];
+			$temp['price']      = $price;
+			$temp['count']      = $value['count'];
+			$temp['discount']   = $value['discount'];
+			$temp['sum']        = (floatval($price) - floatval($value['discount'])) * intval($value['count']);
 
 			$factor_detail[] = $temp;
 		}
 
-
-		var_dump($factor_detail);
-		var_dump($allproduct_id);exit();
-
-		$args['factor_id']  = null;
-		$args['product_id'] = null;
-		$args['price']      = null;
-		$args['count']      = null;
-		$args['discount']   = null;
-		$args['sum']        = null;
-
-		return $args;
-
+		return $factor_detail;
 	}
 
 

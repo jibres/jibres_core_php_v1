@@ -71,8 +71,9 @@ trait add
 			return false;
 		}
 
-
 		$return = [];
+
+		var_dump($factor, $factor_detail);exit();
 
 		$factor_id = \lib\db\factors::insert($args);
 
