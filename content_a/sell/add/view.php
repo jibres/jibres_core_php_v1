@@ -23,23 +23,23 @@ class view extends \content_a\main\view
 
 					foreach ($resultRaw as $key => $value)
 					{
-						if($value['id'])
+						if(isset($value['id']))
 						{
 							$result[$key]['value'] = T_($value['id']);
 						}
-						if($value['fullname'])
+						if(isset($value['fullname']))
 						{
 							$result[$key]['title'] = $value['fullname'];
 						}
-						if($value['mobile'])
+						if(isset($value['mobile']))
 						{
 							$result[$key]['count'] = $value['mobile'];
 						}
-						if($value['type'])
+						if(isset($value['type']))
 						{
 							$result[$key]['desc'] = T_($value['type']);
 						}
-						if($value['code'])
+						if(isset($value['code']))
 						{
 							$result[$key]['desc2'] = T_('code') . ' '. $value['code'];
 						}
@@ -48,30 +48,29 @@ class view extends \content_a\main\view
 
 				case 'product':
 					$meta         = [];
-					$meta['type'] = ["IN", "('staff', 'customer', 'supplier') "];
-					$resultRaw    = \lib\app\staff::list(\lib\utility::get('q'), $meta);
+					$resultRaw    = \lib\app\product::list(\lib\utility::get('q'), $meta);
 
 					foreach ($resultRaw as $key => $value)
 					{
-						if($value['id'])
+						if(isset($value['id']))
 						{
 							$result[$key]['value'] = T_($value['id']);
 						}
-						if($value['fullname'])
+						if(isset($value['title']))
 						{
-							$result[$key]['title'] = $value['fullname'];
+							$result[$key]['title'] = $value['title'];
 						}
-						if($value['mobile'])
+						if(isset($value['minstock']))
 						{
-							$result[$key]['count'] = $value['mobile'];
+							$result[$key]['count'] = $value['minstock'];
 						}
-						if($value['type'])
+						if(isset($value['cat']))
 						{
-							$result[$key]['desc'] = T_($value['type']);
+							$result[$key]['desc'] = T_($value['cat']);
 						}
-						if($value['code'])
+						if(isset($value['name']))
 						{
-							$result[$key]['desc2'] = T_('code') . ' '. $value['code'];
+							$result[$key]['desc2'] = $value['name'];
 						}
 					}
 					break;
