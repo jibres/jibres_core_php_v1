@@ -240,6 +240,8 @@ function addNewRecord_ProductList(_table, _product)
 
   // appent to end of table
   newRecord.appendTo('.productList tbody:last');
+  // bing new autolist
+  bindAwesomplete.call(newRecord.find('.autoList').get(0));
   // recalc table values
   calcFooterValues(_table);
 }
