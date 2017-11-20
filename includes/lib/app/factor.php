@@ -176,12 +176,19 @@ class factor
 			return false;
 		}
 
-		if(!empty($have_warn))
+		$allproduct_id      = array_unique($allproduct_id);
+
+		if(empty($allproduct_id))
 		{
-			\lib\debug::warn(T_("Invalid product detail in some record of this factor ,[:key]", ['key' => implode(',', $have_warn)]));
+			\lib\debug::error(T_("No valid products found in your list"));
+			return false;
 		}
 
-		$allproduct_id      = array_unique($allproduct_id);
+		if(!empty($have_warn))
+		{
+			\lib\debug::warn(T_("Invalid product detail in some record of this factor, [:key]", ['key' => implode(',', $have_warn)]));
+		}
+
 		$check_true_product = \lib\db\products::check_multi_product_id($allproduct_id, \lib\store::id());
 		$true_product_ids   = array_column($check_true_product, 'id');
 		$check_true_product = array_combine($true_product_ids, $check_true_product);

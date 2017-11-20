@@ -88,6 +88,17 @@ trait add
 			return false;
 		}
 
+		$insert_userstore =
+		[
+			'mobile'    => \lib\user::detail('mobile'),
+			'firstname' => \lib\user::detail('displayname') ?  \lib\user::detail('displayname') : T_("You"),
+			'type'      => 'staff',
+			'gender'    => \lib\user::detail('gender'),
+			'postion'   => T_('Admin'),
+		];
+
+		\lib\app\staff::add($insert_userstore, ['debug' => false, 'store_id' => $store_id]);
+
 		if(Tld === 'dev')
 		{
 			// in dev mode not set the subdomain

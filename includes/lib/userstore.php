@@ -35,7 +35,8 @@ class userstore
 			return;
 		}
 
-		$userstore_detail = \lib\db\userstores::get(['store_id' => \lib\store::id(), 'user_id' => \lib\user::id(), 'limit' => 1]);
+		$get = ['store_id' => \lib\store::id(), 'user_id' => \lib\user::id(), 'limit' => 1];
+		$userstore_detail = \lib\db\userstores::get($get);
 
 		if(is_array($userstore_detail))
 		{

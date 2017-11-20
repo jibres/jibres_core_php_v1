@@ -51,7 +51,7 @@ trait add
 				return false;
 			}
 
-			\lib\db\userstores::update_cache($userstore_id);
+			\lib\db\userstores::update_cache($userstore_id, \lib\store::id());
 
 			$result['userstore_id'] = \lib\utility\shortURL::encode($userstore_id);
 		}

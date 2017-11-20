@@ -73,9 +73,15 @@ trait add
 
 		$return = [];
 
-		var_dump($factor, $factor_detail);exit();
+		$factor['detailsum']      = array_sum(array_column($factor_detail, 'price'));
+		$factor['detaildiscount'] = array_sum(array_column($factor_detail, 'discount'));;
+		$factor['detailtotalsum'] = array_sum(array_column($factor_detail, 'sum'));;
+		$factor['detailcount']    = array_sum(array_column($factor_detail, 'count'));;
+		$factor['vat']            = null;
+		$factor['discount']       = null;
+		$factor['sum']            = floatval($factor['detailtotalsum']) - floatval($factor['discount']);
 
-		$factor_id = \lib\db\factors::insert($args);
+		$factor_id = \lib\db\factors::insert($factor);
 
 		if(!$factor_id)
 		{
@@ -84,12 +90,18 @@ trait add
 			return false;
 		}
 
+		foreach ($factor_detail as $key => $value)
+		{
+			$factor_detail[$key]['factor_id'] = $factor_id;
+		}
+
+		\lib\db\factordetails::multi_insert($factor_detail);
+
+
 		if(\lib\debug::$status)
 		{
 			if($_option['debug']) \lib\debug::true(T_("Factor successfuly added"));
 		}
-
-		self::clean_cache('var');
 
 		return $return;
 	}

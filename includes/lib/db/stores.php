@@ -27,7 +27,8 @@ class stores
 	 */
 	public static function insert()
 	{
-		return \lib\db\config::public_insert('stores', ...func_get_args());
+		\lib\db\config::public_insert('stores', ...func_get_args());
+		return \lib\db::insert_id();
 	}
 
 

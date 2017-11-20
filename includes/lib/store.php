@@ -16,7 +16,7 @@ class store
 	 */
 	public static function clean()
 	{
-		\lib\session::set('store_detail', null);
+		\lib\session::set('store_detail_'. SubDomain, null);
 		self::$store = [];
 	}
 
@@ -31,9 +31,9 @@ class store
 			return;
 		}
 
-		if(\lib\session::get('store_detail'))
+		if(\lib\session::get('store_detail_'. SubDomain))
 		{
-			self::$store = \lib\session::get('store_detail');
+			self::$store = \lib\session::get('store_detail_'. SubDomain);
 			return;
 		}
 
@@ -42,7 +42,7 @@ class store
 		if(is_array($store_detail))
 		{
 			self::$store = $store_detail;
-			\lib\session::set('store_detail', $store_detail);
+			\lib\session::set('store_detail_'. SubDomain, $store_detail);
 		}
 	}
 

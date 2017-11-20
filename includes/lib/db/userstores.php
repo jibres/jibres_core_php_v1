@@ -105,12 +105,11 @@ class userstores
 	public static function update($_args, $_id)
 	{
 		$result = \lib\db\config::public_update('userstores', $_args, $_id);
-		self::update_cache($_id, true);
 		return $result;
 	}
 
 
-	public static function update_cache($_id, $_force = false)
+	public static function update_cache($_id, $_store_id, $_force = false)
 	{
 		// no detail was changed
 		if(!\lib\temp::get('contact_change_any_thing') && !$_force)
@@ -125,13 +124,13 @@ class userstores
 
 		\lib\temp::set('user_team_already_run_update_cache', true);
 
-		$store_id = \lib\store::id();
-		if(!$store_id)
+		if(!$_store_id)
 		{
 			return false;
 		}
 
 		$user_id = self::get(['id' => $_id, 'limit' => 1]);
+
 		if(isset($user_id['user_id']))
 		{
 			$user_id = $user_id['user_id'];
@@ -146,14 +145,15 @@ class userstores
 			UPDATE
 				userstores
 			SET
-				userstores.firstname    = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'firstname' 	LIMIT 1),
-				userstores.lastname     = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'lastname' 	LIMIT 1),
-				userstores.mobile       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'mobile' 		LIMIT 1),
-				userstores.birthday     = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'birthday' 	LIMIT 1),
-				userstores.avatar       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'avatar' 		LIMIT 1),
-				userstores.father       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'father' 		LIMIT 1),
-				userstores.nationalcode = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'nationalcode' LIMIT 1),
-				userstores.code         = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $store_id AND contacts.user_id = $user_id AND contacts.key = 'code' 		LIMIT 1)
+			userstores.firstname    = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'firstname' 	LIMIT 1),
+			userstores.lastname     = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'lastname' 	LIMIT 1),
+			userstores.mobile       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'mobile' 		LIMIT 1),
+			userstores.birthday     = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'birthday' 	LIMIT 1),
+			userstores.avatar       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'avatar' 		LIMIT 1),
+			userstores.father       = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'father' 		LIMIT 1),
+			userstores.nationalcode = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'nationalcode' LIMIT 1),
+			userstores.postion      = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'postion' 	LIMIT 1),
+			userstores.code         = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'code' 		LIMIT 1)
 			WHERE userstores.id = $_id
 		";
 		return \lib\db::query($query);

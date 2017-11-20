@@ -38,7 +38,16 @@ trait add
 
 		// save in contacts.store_id
 		$_option['other_field']    = 'store_id';
-		$_option['other_field_id'] = \lib\store::id();
+
+		if(isset($_option['store_id']) && $_option['store_id'])
+		{
+			$_option['other_field_id'] = $_option['store_id'];
+		}
+		else
+		{
+			$_option['other_field_id'] = \lib\store::id();
+		}
+
 		// add user
 		$result = \lib\app\user::add($_args, $_option);
 
@@ -49,7 +58,7 @@ trait add
 			$insert_userstore =
 			[
 				'user_id'   => $user_id,
-				'store_id'  => \lib\store::id(),
+				'store_id'  => $_option['other_field_id'],
 				'type'      => self::$type,
 			];
 
@@ -62,7 +71,7 @@ trait add
 				return false;
 			}
 
-			\lib\db\userstores::update_cache($userstore_id);
+			\lib\db\userstores::update_cache($userstore_id, $_option['other_field_id'], true);
 
 			$result['userstore_id'] = \lib\utility\shortURL::encode($userstore_id);
 		}

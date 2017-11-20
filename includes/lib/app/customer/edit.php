@@ -87,7 +87,7 @@ trait edit
 			\lib\db\userstores::update(['user_id' => \lib\temp::get('app_new_user_id_changed')], $userstore_id);
 		}
 
-		\lib\db\userstores::update_cache($userstore_id);
+		\lib\db\userstores::update_cache($userstore_id, \lib\store::id());
 
 		return $result_edit;
 
