@@ -7,8 +7,14 @@ route('*', function()
 {
   runRunner();
   calcFooterValues();
+});
+
+$(function()
+{
+  // run once on ready
   bindBtnOnFactor();
 });
+
 
 
 
@@ -77,7 +83,7 @@ function runRunner()
 {
   $('[data-run-input]').each(function()
   {
-
+    $(this).off('input');
     $(this).on('input', function(_e)
     {
       callFunc($(this).attr('data-run-input'), $(this));
@@ -87,6 +93,7 @@ function runRunner()
   $('[data-run-change]').each(function()
   {
 
+    $(this).off('change');
     $(this).on('change', function(_e)
     {
       callFunc($(this).attr('data-run-change'), $(this));
@@ -253,7 +260,8 @@ function updateRecord_ProductList(_row, _key, _value)
 
 function bindBtnOnFactor()
 {
-  $('#addNewRecordProduct').on('click', function(){
+  $('#addNewRecordProduct').on('click', function()
+  {
     addNewRecord_ProductList();
   });
 
@@ -266,6 +274,7 @@ function bindBtnOnFactor()
   {
     recalcProductListPrices();
   });
+
   $(document).on('input', '.discount', function()
   {
     recalcProductListPrices();
