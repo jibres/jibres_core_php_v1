@@ -220,6 +220,7 @@ function addNewRecord_ProductList(_table, _product)
     // fill with product details
     console.log(_product);
     newRecord.attr('data-barcode', _product.barcode);
+    newRecord.attr('data-barcode2', _product.barcode2);
     newRecord.find('td:eq(0)').text(fitNumber(cuRow));
     newRecord.find('td:eq(1) input').val(_product.title);
     newRecord.find('td:eq(2) input').val(1);
@@ -290,6 +291,11 @@ function insertProductViaBarcode(_barcode)
   {
     _productData      = $.parseJSON(_productData);
     let productInList = $('[data-barcode='+ _barcode +']');
+    if(!productInList.length)
+    {
+      productInList = $('[data-barcode2='+ _barcode +']');
+    }
+
     if(productInList.length)
     {
       console.log('exist');
