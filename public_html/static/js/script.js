@@ -127,10 +127,10 @@ function calcFooterValues(_table)
   _table.find('tbody tr').each(function()
   {
     // variables
-    let tmpCount           = parseFloat($(this).find('.count').val().toEnglish());
-    let tmpPrice           = parseInt($(this).find('td:eq(3)').attr('data-val'));
-    let tmpDiscount        = parseInt($(this).find('.discount').val().toEnglish());
-    let tmpDiscountPercent = 0;
+    var tmpCount           = parseFloat($(this).find('.count').val().toEnglish());
+    var tmpPrice           = parseInt($(this).find('td:eq(3)').attr('data-val'));
+    var tmpDiscount        = parseInt($(this).find('.discount').val().toEnglish());
+    var tmpDiscountPercent = 0;
     // check NaN values
     if(isNaN(tmpCount))
     {
@@ -145,9 +145,9 @@ function calcFooterValues(_table)
       tmpDiscount = 0;
     }
 
-    let tmpPriceCol    = tmpCount * tmpPrice;
-    let tmpDiscountCol = tmpCount * tmpDiscount;
-    let tmpFinalCol    = tmpCount * (tmpPrice - tmpDiscount);
+    var tmpPriceCol    = tmpCount * tmpPrice;
+    var tmpDiscountCol = tmpCount * tmpDiscount;
+    var tmpFinalCol    = tmpCount * (tmpPrice - tmpDiscount);
 
     // count of row
     calcDtCountRow += 1;
@@ -259,7 +259,7 @@ function updateRecord_ProductList(_row, _key, _value)
   switch (_key)
   {
     case 'count':
-      let currentCounter = _row.find('.count');
+      var currentCounter = _row.find('.count');
       currentCounter.val(parseFloat(currentCounter.val())+1);
       break;
   }
@@ -274,7 +274,7 @@ function bindBtnOnFactor()
   $('body').on('barcode:detect', function(_e, _barcode)
   {
     $('#productSearch').val('');
-    searchAndInsertProduct('barcode', _barcode);
+    checkBarcodeOrSearchAddProduct(_barcode)
   })
 
   $(document).on('input', '.count', function()
@@ -287,69 +287,117 @@ function bindBtnOnFactor()
     recalcProductListPrices();
   });
 
-  $(document).on('awesomplete-selectcomplete', ".productList .autoList", function()
+  $(document).on('awesomplete-select', "#productSearch", function(_e)
   {
-    console.log($(this).attr('data-val'));
-    searchAndInsertProduct('id', $(this).attr('data-val'));
+    var datalist        = $(this).data('datalist');
+    var choosen         = $(this).attr('aria-activedescendant');
+    var selectedProduct = [];
+    choosen             = parseInt(choosen.substr(choosen.lastIndexOf("item") + 5));
+    // get choosen barcode detail
+    if(datalist.length > 0)
+    {
+      selectedProduct = datalist[choosen];
+    }
+
+    console.log(selectedProduct);
+    addFindedProduct(selectedProduct);
+
   });
 }
 
 
-function searchAndInsertProduct(_key, _value)
+function checkProductExist(_key, _value)
 {
   // try to find this product with barcode
-  if(_key === 'barcode')
+  switch(_key)
   {
-    let productInList = $('[data-barcode='+ _value +']');
-    // if not finded in barcode, search in barcode2
-    if(!productInList.length)
-    {
-      productInList = $('[data-barcode2='+ _value +']');
-    }
-    // if finded try to increase number of this product
-    if(productInList.length)
-    {
-      console.log('exist, barcode duplicate');
-      updateRecord_ProductList(productInList, 'count');
-      return;
-    }
-  }
+    case 'barcode':
+      var productInList = $('[data-barcode='+ _value +']');
+      // if not finded in barcode, search in barcode2
+      if(!productInList.length)
+      {
+        productInList = $('[data-barcode2='+ _value +']');
+      }
+      // if finded try to increase number of this product
+      if(productInList.length)
+      {
+        return productInList;
+      }
+      break;
 
+    case 'id':
+      var productInList = $('[data-id='+ _value +']');
+      // if finded try to increase number of this product
+      if(productInList.length)
+      {
+        return productInList;
+      }
+      break;
+  }
+  // not finded
+  return false;
+}
+
+
+function checkBarcodeOrSearchAddProduct(_barcode)
+{
+  console.log(_barcode);
+  var existRecord = checkProductExist('barcode', _barcode);
+  if(existRecord)
+  {
+
+  }
+  else
+  {
+    searchForProduct('barcode', _barcode);
+  }
+}
+
+function searchForProduct(_key, _value)
+{
   // if is not barcode and not finde02902749
   // d, search and if find, add or update
-  let pSearchURL = "/a/product?json=true&" + _key + "=" + _value;
+  var pSearchURL = "/a/sell/add?json=true&list=product&" + _key + "=" + _value;
   $.get(pSearchURL, function(_productData)
   {
-    _productData      = $.parseJSON(_productData);
-    if(_productData)
-    {
-      if(_productData.id)
-      {
-        let productInList = $('[data-id='+ _productData.id +']');
+    console.log(_productData);
+    var pData = $.parseJSON(_productData);
+    console.log(pData);
+    addFindedProduct(pData);
+  });
+}
 
-        if(productInList.length)
-        {
-          console.log('exist');
-          updateRecord_ProductList(productInList, 'count');
-        }
-        else
-        {
-          console.log('new');
-          addNewRecord_ProductList(null, _productData);
-        }
+
+function addFindedProduct(_product)
+{
+  console.log(_product);
+  if(_product)
+  {
+    if(_product.id)
+    {
+      var existRecord = checkProductExist('id', _product.id);
+      if(existRecord)
+      {
+        updateRecord_ProductList(existRecord, 'count');
       }
       else
       {
-        var msg = 'error in products.';
-        notif('info', msg);
+        addNewRecord_ProductList(null, _product);
       }
     }
     else
     {
-      var msg = 'product not found. <a href="/a/product/add?' + _key + "=" + _value + '" target="_blank">add as new product</a>';
-      notif('info', msg);
+      var msg = 'error in products.';
+      notif('warn', msg);
     }
-  });
+  }
+  else
+  {
+    _key = 0;
+    _value = 0;
+    var msg = 'product not found. <a href="/a/product/add?' + _key + "=" + _value + '" target="_blank">add as new product</a>';
+    notif('info', msg);
+  }
 }
 
 

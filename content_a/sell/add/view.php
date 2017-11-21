@@ -11,7 +11,7 @@ class view extends \content_a\main\view
 		// $this->data->page['desc']  = T_('Sell your product via Jibres and enjoy using integrated web base platform.');
 
 
-		if(\lib\utility::get('q') && \lib\utility::get('json') === 'true')
+		if(\lib\utility::get('json') === 'true')
 		{
 			$result = [];
 			switch (\lib\utility::get('list'))
@@ -56,6 +56,7 @@ class view extends \content_a\main\view
 						{
 							if(isset($value['id']))
 							{
+								$result[$key]['id'] = T_($value['id']);
 								$result[$key]['value'] = T_($value['id']);
 							}
 							if(isset($value['title']))
