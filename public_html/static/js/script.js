@@ -150,12 +150,12 @@ function calcFooterValues(_table)
     var tmpFinalCol    = tmpCount * (tmpPrice - tmpDiscount);
 
     // count of row
-    calcDtCountRow += 1;
+    calcDtCountRow    += 1;
     // sum of counts
-    calcDtSumCount += tmpCount;
-    calcDtSumPrice += tmpPriceCol;
+    calcDtSumCount    += tmpCount;
+    calcDtSumPrice    += tmpPriceCol;
     calcDtSumDiscount += tmpDiscountCol;
-    calcDtSumTotal += tmpFinalCol;
+    calcDtSumTotal    += tmpFinalCol;
 
     // set discount percent
     tmpDiscountPercent = (tmpDiscount * 100 / tmpPrice).toFixed(2);
@@ -199,6 +199,10 @@ function calcFooterValues(_table)
   _table.find('tfoot tr th:eq(4)').text(fitNumber(calcDtSumDiscount));
   _table.find('tfoot tr th:eq(5)').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
 
+  if(calcDtSumTotal > 0 )
+  {
+    _table.find('tfoot').removeClass('hide');
+  }
 }
 
 
@@ -405,6 +409,8 @@ function addNewRecord_ProductList(_table, _product, _append)
       return null;
     }
   }
+  _table.parents('.cbox').fadeIn();
+  _table.parents('.cbox').removeClass('hide');
 
   var trEmpty   = '<tr>';
   trEmpty       += '<td></td>';

@@ -4,6 +4,8 @@
 {%block pageContent%}
 <form method="post">
 
+{{block("btns")}}
+
  <div class="cbox">
   <div class="f justify-center">
     <div class="c s12">
@@ -18,10 +20,14 @@
 {{block("addProducts")}}
 {{block("listOfProducts")}}
 
- <div class="cbox mB50">
+</form>
+{%endblock%}
+
+
+{%block btns%}
+ <div class="cbox">
   <button class="btn primary">{%trans "Save"%}</button>
  </div>
-</form>
 {%endblock%}
 
 
@@ -33,7 +39,7 @@
 
 
 {%block listOfProducts%}
- <div class="cbox" style="min-height:300px;">
+ <div class="cbox hide">
   <table class="tbl productList txtC">
    <thead>
     <tr>
@@ -48,7 +54,7 @@
    <tbody>
 
    </tbody>
-   <tfoot class="dark">
+   <tfoot class="dark hide">
     <tr>
      <th title='{%trans "Count of rows"%}'></th>
      <th></th>
