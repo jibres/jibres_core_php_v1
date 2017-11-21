@@ -54,56 +54,7 @@ class view extends \content_a\main\view
 
 						foreach ($resultRaw as $key => $value)
 						{
-							if(isset($value['id']))
-							{
-								$result[$key]['id'] = T_($value['id']);
-								$result[$key]['value'] = T_($value['id']);
-							}
-							if(isset($value['title']))
-							{
-								$result[$key]['title'] = $value['title'];
-							}
-							if(isset($value['finalprice']))
-							{
-								$result[$key]['count'] = \lib\utility\human::fitNumber($value['finalprice']);;
-							}
-							if(isset($value['barcode']))
-							{
-								$result[$key]['barcode'] = $value['barcode'];
-							}
-
-							if(isset($value['barcode2']))
-							{
-								$result[$key]['barcode2'] = $value['barcode2'];
-							}
-
-							if(isset($value['price']))
-							{
-								$result[$key]['price'] = $value['price'];
-							}
-
-							if(isset($value['discount']))
-							{
-								$result[$key]['discount'] = $value['discount'];
-							}
-
-							$all_field_we_have =
-							[
-								'title', 'name', 'cat', 'slug', 'company', 'shortcode', 'unit',
-								'barcode', 'barcode2', 'code', 'buyprice', 'price', 'discount',
-								'discountpercent', 'vat', 'initialbalance', 'minstock', 'maxstock',
-								'status', 'sold', 'stock', 'thumb', 'service', 'checkstock',
-								'sellonline', 'sellstore', 'carton', 'datecreated', 'datemodified', 'desc',
-							];
-
-							// if(isset($value['cat']))
-							// {
-							// 	$result[$key]['desc'] = T_($value['cat']);
-							// }
-							// if(isset($value['name']))
-							// {
-							// 	$result[$key]['desc2'] = $value['name'];
-							// }
+							$result[$key] = self::getNeededField($value);
 						}
 					}
 					elseif(\lib\utility::get('barcode'))
@@ -113,6 +64,8 @@ class view extends \content_a\main\view
 						{
 							$result = null;
 						}
+						$result = self::getNeededField($result);
+
 					}
 					elseif(\lib\utility::get('id'))
 					{
@@ -121,6 +74,7 @@ class view extends \content_a\main\view
 						{
 							$result = null;
 						}
+						$result = self::getNeededField($result);
 					}
 					break;
 
@@ -129,12 +83,64 @@ class view extends \content_a\main\view
 			}
 
 
-			\lib\debug::msg("list", json_encode($result, JSON_UNESCAPED_UNICODE));
+			\lib\debug::msg("list", $result);
 			// force show json
 			$this->_processor(['force_stop' => true, 'force_json' => true]);
 			// \lib\code::exit();
 		}
 
+	}
+
+	private static function getNeededField($_data)
+	{
+		$result = [];
+
+		if(isset($_data['id']))
+		{
+			$result['id'] = T_($_data['id']);
+			$result['value'] = T_($_data['id']);
+		}
+
+		if(isset($_data['title']))
+		{
+			$result['title'] = $_data['title'];
+		}
+
+		if(isset($_data['finalprice']))
+		{
+			$result['count'] = \lib\utility\human::fitNumber($_data['finalprice']);;
+		}
+
+		if(isset($_data['barcode']))
+		{
+			$result['barcode'] = $_data['barcode'];
+		}
+
+		if(isset($_data['barcode2']))
+		{
+			$result['barcode2'] = $_data['barcode2'];
+		}
+
+		if(isset($_data['price']))
+		{
+			$result['price'] = $_data['price'];
+		}
+
+		if(isset($_data['discount']))
+		{
+			$result['discount'] = $_data['discount'];
+		}
+
+		// $all_field_we_have =
+		// [
+		// 	'title', 'name', 'cat', 'slug', 'company', 'shortcode', 'unit',
+		// 	'barcode', 'barcode2', 'code', 'buyprice', 'price', 'discount',
+		// 	'discountpercent', 'vat', 'initialbalance', 'minstock', 'maxstock',
+		// 	'status', 'sold', 'stock', 'thumb', 'service', 'checkstock',
+		// 	'sellonline', 'sellstore', 'carton', 'datecreated', 'datemodified', 'desc',
+		// ];
+
+		return $result;
 	}
 }
 ?>
