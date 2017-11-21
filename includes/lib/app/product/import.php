@@ -63,7 +63,7 @@ trait import
 
 		if(!in_array('title', $column))
 		{
-			\lib\app::log('api:product:import:title:notfound', null, $log_meta);
+			\lib\app::log('api:product:import:title:notfound', null, \lib\app::log_meta());
 			debug::error(T_("Your file has not field 'title' "));
 			return false;
 		}
