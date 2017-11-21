@@ -7,7 +7,7 @@ class view extends \content_a\main\view
 	public function config()
 	{
 		$this->data->page['title'] = T_('List of sells');
-		$this->data->page['desc']  = T_('You can search in list of sells, add new member and edit existing.');
+		$this->data->page['desc']  = T_('You can search in list of sells, add new sell and edit existing.');
 
 		$this->data->page['badge']['link'] = $this->url('baseFull'). '/sell/add';
 		$this->data->page['badge']['text'] = T_('Add new sell');

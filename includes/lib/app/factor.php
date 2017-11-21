@@ -145,7 +145,7 @@ class factor
 				continue;
 			}
 
-			if(!isset($value['count']) || !isset($value['discount']))
+			if(!array_key_exists('count', $value) || !array_key_exists('discount', $value))
 			{
 				$have_warn[] = $key + 1;
 				continue;
@@ -162,6 +162,8 @@ class factor
 				$have_warn[] = $key + 1;
 				continue;
 			}
+
+
 
 			$new_list[$key]['count']      = intval($value['count']);
 			$new_list[$key]['discount']   = intval($value['discount']);
@@ -197,12 +199,16 @@ class factor
 
 		foreach ($new_list as $key => $value)
 		{
-
 			$temp = [];
 
 			if(!isset($check_true_product[$value['product_id']]))
 			{
+				\lib\debug::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
+				return false;
+			}
 
+			if(!array_key_exists('discount', $check_true_product[$value['product_id']]))
+			{
 				\lib\debug::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
 				return false;
 			}
@@ -220,8 +226,8 @@ class factor
 
 			$temp['product_id'] = $value['product_id'];
 			$temp['price']      = $price;
-			$temp['count']      = $value['count'];
-			$temp['discount']   = $value['discount'];
+			$temp['count']      = $value['count'] === null ? 1 : $value['count'];
+			$temp['discount']   = $value['discount'] === null ? $check_true_product[$value['product_id']]['discount'] : $value['discount'];
 			$temp['sum']        = (floatval($price) - floatval($value['discount'])) * intval($value['count']);
 
 			$factor_detail[] = $temp;

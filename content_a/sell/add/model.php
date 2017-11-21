@@ -11,7 +11,7 @@ class model extends \content_a\main\model
 	 */
 	public static function getPostSellProduct()
 	{
-		$product  = \lib\utility::post('productName');
+		$product  = \lib\utility::post('products');
 		$count    = \lib\utility::post('count');
 		$discount = \lib\utility::post('discount');
 
@@ -25,16 +25,6 @@ class model extends \content_a\main\model
 		$count    = array_values($count);
 		$discount = array_values($discount);
 
-		if(count($product) === count($count) && count($count) === count($discount))
-		{
-			// no problem!
-		}
-		else
-		{
-			\lib\debug::error(T_("What are you doing?"));
-			return false;
-		}
-
 		$sell_list = [];
 
 		foreach ($product as $key => $value)
@@ -42,8 +32,8 @@ class model extends \content_a\main\model
 			$sell_list[] =
 			[
 				'product'  => $value,
-				'count'    => $count[$key],
-				'discount' => $discount[$key],
+				'count'    => array_key_exists($key, $count) ? $count[$key] : null,
+				'discount' => array_key_exists($key, $discount) ? $discount[$key] : null,
 			];
 		}
 
