@@ -416,7 +416,8 @@ function addNewRecord_ProductList(_table, _product, _append)
     newRecord.attr('data-id', _product.id);
     newRecord.attr('data-barcode', _product.barcode);
     newRecord.attr('data-barcode2', _product.barcode2);
-    newRecord.find('td:eq(1)').text(_product.title);
+    var productName = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
+    newRecord.find('td:eq(1)').html(productName);
     newRecord.find('td:eq(2) input').val(1);
     newRecord.find('td:eq(3)').text(fitNumber(_product.price)).attr('data-val', _product.price);
     newRecord.find('td:eq(4) input').val(_product.discount);
