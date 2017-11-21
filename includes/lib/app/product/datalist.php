@@ -72,6 +72,10 @@ trait datalist
 		{
 			$result = \lib\db\products::search_barcode($_args['barcode'], \lib\store::id());
 		}
+		elseif (isset($_args['id']) && $_args['id'] && $id = \lib\utiility\shortURL::decode($_args['id']))
+		{
+			$result = \lib\db\products::search_id($id, \lib\store::id());
+		}
 		else
 		{
 			$result = \lib\db\products::search($_string, $option, $field);

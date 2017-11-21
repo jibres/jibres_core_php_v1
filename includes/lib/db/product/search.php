@@ -5,6 +5,25 @@ trait search
 {
 	private static $public_show_field = "*";
 
+	public static function search_id($_id, $_store_id)
+	{
+		$field = self::$public_show_field;
+		$query =
+		"
+			SELECT
+				$field
+			FROM
+				products
+			WHERE
+				products.id       = '$_id' AND
+				products.store_id = $_store_id
+			LIMIT 1
+		";
+
+		return \lib\db::get($query, null, true);
+	}
+
+
 	public static function search_barcode($_barcode, $_store_id)
 	{
 		$field           = self::$public_show_field;
@@ -13,13 +32,41 @@ trait search
 
 		if($barcode == $barcode_convert)
 		{
-			$query = "SELECT $field FROM products WHERE products.barcode = '$barcode' OR products.barcode2 = '$barcode' LIMIT 1";
+			$query =
+			"
+				SELECT
+					$field
+				FROM
+					products
+				WHERE
+					products.store_id = $_store_id AND
+					(
+						products.barcode  = '$barcode' OR
+						products.barcode2 = '$barcode'
+					)
+				LIMIT 1
+			";
 		}
 		else
 		{
-			$query = "SELECT $field FROM products WHERE products.barcode = '$barcode' OR products.barcode2 = '$barcode' OR products.barcode = '$barcode_convert' OR products.barcode2 = '$barcode_convert' LIMIT 1";
+			$query =
+			"
+				SELECT
+					$field
+				FROM
+					products
+				WHERE
+					products.store_id = $_store_id AND
+					(
+						products.barcode  = '$barcode' OR
+						products.barcode2 = '$barcode' OR
+						products.barcode  = '$barcode_convert' OR
+						products.barcode2 = '$barcode_convert'
+					)
+				LIMIT 1
+			";
 		}
-		return \lib\db::get($query, null);
+		return \lib\db::get($query, null, true);
 	}
 
 

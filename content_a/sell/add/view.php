@@ -48,30 +48,78 @@ class view extends \content_a\main\view
 
 				case 'product':
 					$meta         = [];
-					$resultRaw    = \lib\app\product::list(\lib\utility::get('q'), $meta);
-
-					foreach ($resultRaw as $key => $value)
+					if(\lib\utility::get('q'))
 					{
-						if(isset($value['id']))
+						$resultRaw    = \lib\app\product::list(\lib\utility::get('q'), $meta);
+
+						foreach ($resultRaw as $key => $value)
 						{
-							$result[$key]['value'] = T_($value['id']);
+							if(isset($value['id']))
+							{
+								$result[$key]['value'] = T_($value['id']);
+							}
+							if(isset($value['title']))
+							{
+								$result[$key]['title'] = $value['title'];
+							}
+							if(isset($value['finalprice']))
+							{
+								$result[$key]['count'] = \lib\utility\human::fitNumber($value['finalprice']);;
+							}
+							if(isset($value['barcode']))
+							{
+								$result[$key]['barcode'] = $value['barcode'];
+							}
+
+							if(isset($value['barcode2']))
+							{
+								$result[$key]['barcode2'] = $value['barcode2'];
+							}
+
+							if(isset($value['price']))
+							{
+								$result[$key]['price'] = $value['price'];
+							}
+
+							if(isset($value['discount']))
+							{
+								$result[$key]['discount'] = $value['discount'];
+							}
+
+							$all_field_we_have =
+							[
+								'title', 'name', 'cat', 'slug', 'company', 'shortcode', 'unit',
+								'barcode', 'barcode2', 'code', 'buyprice', 'price', 'discount',
+								'discountpercent', 'vat', 'initialbalance', 'minstock', 'maxstock',
+								'status', 'sold', 'stock', 'thumb', 'service', 'checkstock',
+								'sellonline', 'sellstore', 'carton', 'datecreated', 'datemodified', 'desc',
+							];
+
+							// if(isset($value['cat']))
+							// {
+							// 	$result[$key]['desc'] = T_($value['cat']);
+							// }
+							// if(isset($value['name']))
+							// {
+							// 	$result[$key]['desc2'] = $value['name'];
+							// }
 						}
-						if(isset($value['title']))
+					}
+					elseif(\lib\utility::get('barcode'))
+					{
+						$result = \lib\app\product::list(null, ['barcode' => \lib\utility::get('barcode')]);
+						if(!$result)
 						{
-							$result[$key]['title'] = $value['title'];
+							$result = null;
 						}
-						if(isset($value['finalprice']))
+					}
+					elseif(\lib\utility::get('id'))
+					{
+						$result = \lib\app\product::list(null, ['id' => \lib\utility::get('id')]);
+						if(!$result)
 						{
-							$result[$key]['count'] = \lib\utility\human::fitNumber($value['finalprice']);;
+							$result = null;
 						}
-						// if(isset($value['cat']))
-						// {
-						// 	$result[$key]['desc'] = T_($value['cat']);
-						// }
-						// if(isset($value['name']))
-						// {
-						// 	$result[$key]['desc2'] = $value['name'];
-						// }
 					}
 					break;
 

@@ -504,6 +504,12 @@ class product
 	public static function ready($_data)
 	{
 		$result = [];
+
+		if(!is_array($_data))
+		{
+			return null;
+		}
+
 		foreach ($_data as $key => $value)
 		{
 
@@ -552,8 +558,35 @@ class product
 		}
 
 		// process some variable
+		if(array_key_exists('price', $result))
+		{
+			$price = floatval($result['price']);
+		}
+		else
+		{
+			$price = 0;
+		}
 
-		$result['finalprice'] = intval($result['price']) - intval($result['discount']);
+		if(array_key_exists('discount', $result))
+		{
+			$discount = floatval($result['discount']);
+		}
+		else
+		{
+			$discount = 0;
+		}
+
+		if(array_key_exists('buyprice', $result))
+		{
+			$buyprice = floatval($result['buyprice']);
+		}
+		else
+		{
+			$buyprice = 0;
+		}
+
+
+		$result['finalprice'] = intval($price) - intval($discount);
 
 		if(intval($result['buyprice']) === 0)
 		{
@@ -562,10 +595,10 @@ class product
 		}
 		else
 		{
-			$result['intrestrate'] = (intval($result['finalprice']) * 100) / intval($result['buyprice']);
+			$result['intrestrate'] = (intval($result['finalprice']) * 100) / intval($buyprice);
 			$result['intrestrate'] = round($result['intrestrate'], 2) - 100;
 
-			$result['intrestrate_impure'] = (intval($result['price']) * 100) / intval($result['buyprice']);
+			$result['intrestrate_impure'] = (intval($price) * 100) / intval($buyprice);
 			$result['intrestrate_impure'] = round($result['intrestrate_impure'], 2) - 100;
 		}
 
