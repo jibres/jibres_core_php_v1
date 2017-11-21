@@ -244,13 +244,18 @@ class factor
 	 */
 	public static function ready($_data)
 	{
+
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
-
 			switch ($key)
 			{
 				case 'id':
+				case 'store_id':
+				case 'customer':
+				case 'seller':
+				case 'creator':
+
 					if(isset($value))
 					{
 						$result[$key] = \lib\utility\shortURL::encode($value);
@@ -259,6 +264,11 @@ class factor
 					{
 						$result[$key] = null;
 					}
+					break;
+
+				case 'datecreated':
+				case 'datemodified':
+					continue;
 					break;
 
 				default:

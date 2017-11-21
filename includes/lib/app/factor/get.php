@@ -29,30 +29,16 @@ trait get
 
 		$_option = array_merge($default_option, $_option);
 
-		if($_option['debug'])
-		{
-			debug::title(T_("Operation Faild"));
-		}
-
-		$log_meta =
-		[
-			'data' => null,
-			'meta' =>
-			[
-				'input' => \lib\app::request(),
-			]
-		];
-
 		if(!\lib\user::id())
 		{
-			\lib\app::log('api:factor:user:id:not:found', \lib\user::id(), $log_meta);
+			\lib\app::log('api:factor:user:id:not:found', \lib\user::id(), \lib\app::log_meta());
 			if($_option['debug']) debug::error(T_("User id not found"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:factor:store:id:not:found', \lib\user::id(), $log_meta);
+			\lib\app::log('api:factor:store:id:not:found', \lib\user::id(), \lib\app::log_meta());
 			if($_option['debug']) debug::error(T_("Store id not found"));
 			return false;
 		}
@@ -62,22 +48,35 @@ trait get
 		$id = \lib\utility\shortURL::decode($id);
 		if(!$id)
 		{
-
-			\lib\app::log('api:factor:id:shortname:not:set', \lib\user::id(), $log_meta);
+			\lib\app::log('api:factor:id:shortname:not:set', \lib\user::id(), \lib\app::log_meta());
 			if($_option['debug']) debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			return false;
 		}
 
-		$result = \lib\db\factors::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+
+		$result = \lib\db\factors::get_print($id, \lib\store::id());
 
 		if(!$result)
 		{
-			\lib\app::log('api:factor:access:denide', \lib\user::id(), $log_meta);
+			\lib\app::log('api:factor:access:denide', \lib\user::id(), \lib\app::log_meta());
 			if($_option['debug']) debug::error(T_("Can not access to load this factor details"), 'factor');
 			return false;
 		}
 
-		$result = self::ready($result);
+		if(isset($result['factor']))
+		{
+			$result['factor'] = self::ready($result['factor']);
+		}
+
+		if(isset($result['factor_detail']) && is_array($result['factor_detail']))
+		{
+			$temp = [];
+			foreach ($result['factor_detail'] as $key => $value)
+			{
+				$temp[] = self::ready($value);
+			}
+			$result['factor_detail'] = $temp;
+		}
 
 		return $result;
 	}
