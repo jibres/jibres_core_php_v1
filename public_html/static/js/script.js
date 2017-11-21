@@ -221,6 +221,7 @@ function addNewRecord_ProductList(_table, _product, _append)
   {
     // fill with product details
     console.log(_product);
+    newRecord.attr('data-id', _product.id);
     newRecord.attr('data-barcode', _product.barcode);
     newRecord.attr('data-barcode2', _product.barcode2);
     newRecord.find('td:eq(1)').text(_product.title);
@@ -276,7 +277,7 @@ function bindBtnOnFactor()
 
   $('body').on('barcode:detect', function(_e, _barcode)
   {
-    insertProductViaBarcode(_barcode);
+    searchAndInsertProduct('barcode', _barcode);
   })
 
   $(document).on('input', '.count', function()
@@ -291,23 +292,37 @@ function bindBtnOnFactor()
 
   $(document).on('awesomplete-selectcomplete', ".productList .autoList", function()
   {
-    let relatedVal = $(this).parents('td').find('[name="productID[]"]');
-    relatedVal.val($(this).attr('data-val'));
+    console.log($(this).attr('data-val'));
   });
 }
 
 
-function insertProductViaBarcode(_barcode)
+function searchAndInsertProduct(_key, _value)
 {
-  let pSearchURL = "/a/product?json=true&barcode=" + _barcode;
+  // try to find this product with barcode
+  if(_key === 'barcode')
+  {
+    let productInList = $('[data-barcode='+ _value +']');
+    // if not finded in barcode, search in barcode2
+    if(!productInList.length)
+    {
+      productInList = $('[data-barcode2='+ _value +']');
+    }
+    // if finded try to increase number of this product
+    if(productInList.length)
+    {
+      console.log('exist, barcode duplicate');
+      updateRecord_ProductList(productInList, 'count');
+      return;
+    }
+  }
+
+  // if is not barcode and not finded, search and if find, add or update
+  let pSearchURL = "/a/product?json=true&" + _key + "=" + _value;
   $.get(pSearchURL, function(_productData)
   {
     _productData      = $.parseJSON(_productData);
-    let productInList = $('[data-barcode='+ _barcode +']');
-    if(!productInList.length)
-    {
-      productInList = $('[data-barcode2='+ _barcode +']');
-    }
+    let productInList = $('[data-id='+ _productData.id +']');
 
     if(productInList.length)
     {
