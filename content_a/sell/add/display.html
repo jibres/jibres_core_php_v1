@@ -5,10 +5,9 @@
 <form method="post">
 
 {{block("btns")}}
-
-
 {{block("addProducts")}}
 {{block("listOfProducts")}}
+{{block("showFinalPrice")}}
 
 </form>
 {%endblock%}
@@ -26,6 +25,11 @@
     </div>
   </div>
  </div>
+{%endblock%}
+
+
+{%block showFinalPrice%}
+  <p class="alert alert-info hide" id='finalPriceString'>{%trans "Final Price"%} <b></b></p>
 {%endblock%}
 
 
