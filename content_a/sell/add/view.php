@@ -60,21 +60,21 @@ class view extends \content_a\main\view
 					elseif(\lib\utility::get('barcode'))
 					{
 						$result = \lib\app\product::list(null, ['barcode' => \lib\utility::get('barcode')]);
+						$result = self::getNeededField($result);
 						if(!$result)
 						{
 							$result = null;
 						}
-						$result = self::getNeededField($result);
 
 					}
 					elseif(\lib\utility::get('id'))
 					{
 						$result = \lib\app\product::list(null, ['id' => \lib\utility::get('id')]);
+						$result = self::getNeededField($result);
 						if(!$result)
 						{
 							$result = null;
 						}
-						$result = self::getNeededField($result);
 					}
 					break;
 
@@ -82,8 +82,14 @@ class view extends \content_a\main\view
 					break;
 			}
 
-
-			$result = json_encode($result, JSON_UNESCAPED_UNICODE);
+			if(!$result)
+			{
+				$result = null;
+			}
+			else
+			{
+				$result = json_encode($result, JSON_UNESCAPED_UNICODE);
+			}
 			\lib\debug::msg("list", $result);
 			// force show json
 			$this->_processor(['force_stop' => true, 'force_json' => true]);
@@ -107,7 +113,7 @@ class view extends \content_a\main\view
 			$result['title'] = $_data['title'];
 		}
 
-		if(isset($_data['finalprice']))
+		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
 			$result['count'] = \lib\utility\human::fitNumber($_data['finalprice']);;
 		}
