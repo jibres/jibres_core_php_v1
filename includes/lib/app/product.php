@@ -588,7 +588,7 @@ class product
 
 		$result['finalprice'] = intval($price) - intval($discount);
 
-		if(intval($result['buyprice']) === 0)
+		if(intval($buyprice) === 0)
 		{
 			$result['intrestrate'] = null;
 			$result['intrestrate_impure'] = null;
