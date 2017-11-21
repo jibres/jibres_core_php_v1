@@ -405,22 +405,36 @@ function addNewRecord_ProductList(_table, _product, _append)
       return null;
     }
   }
-  var newRecord = _table.find('tbody tr:eq(0)').clone();
+
+  var trEmpty   = '<tr>';
+  trEmpty       += '<td></td>';
+  trEmpty       += '<td></td>';
+  trEmpty       += '<td></td>';
+  trEmpty       += '<td></td>';
+  trEmpty       += '<td></td>';
+  trEmpty       += '<td></td>';
+  trEmpty       += '</tr>';
+  var newRecord = $(trEmpty);
   var cuRow     = _table.find('tr').length - 2;
   // set row number
   newRecord.find('td:eq(0)').text(fitNumber(cuRow));
   if(_product)
   {
+    var htmlPName     = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
+    var htmlPCount    = '<input class="input count" type="number" name="count[]" min=0 max=10000000000 data-step=".001" value=1>';
+    var htmlPDiscount = '<div class="input">';
+    htmlPDiscount    += '<input class="discount" type="number" name="discount[]" min=0 max=10000000000 value="' + _product.discount + '">';
+    htmlPDiscount    += '<span class="addon small">0%</span>'+ '</div>';
+
     // fill with product details
     console.log(_product);
     newRecord.attr('data-id', _product.id);
     newRecord.attr('data-barcode', _product.barcode);
     newRecord.attr('data-barcode2', _product.barcode2);
-    var productName = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
-    newRecord.find('td:eq(1)').html(productName);
-    newRecord.find('td:eq(2) input').val(1);
+    newRecord.find('td:eq(1)').html(htmlPName);
+    newRecord.find('td:eq(2)').html(htmlPCount);
     newRecord.find('td:eq(3)').text(fitNumber(_product.price)).attr('data-val', _product.price);
-    newRecord.find('td:eq(4) input').val(_product.discount);
+    newRecord.find('td:eq(4)').html(htmlPDiscount);
     newRecord.find('td:eq(5)').text(fitNumber(_product.finalprice)).attr('data-val', _product.finalprice);
   }
   else
@@ -442,7 +456,6 @@ function addNewRecord_ProductList(_table, _product, _append)
     newRecord.prependTo('.productList tbody');
   }
 
-  // recalc table values
   calcFooterValues(_table);
 }
 
