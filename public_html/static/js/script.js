@@ -203,7 +203,7 @@ function calcFooterValues(_table)
 
 
 
-function addNewRecord_ProductList(_table, _product)
+function addNewRecord_ProductList(_table, _product, _append)
 {
   if(!_table)
   {
@@ -214,15 +214,16 @@ function addNewRecord_ProductList(_table, _product)
     }
   }
   var newRecord = _table.find('tbody tr:eq(0)').clone();
-  var cuRow       = _table.find('tr').length - 1;
+  var cuRow     = _table.find('tr').length - 2;
+  // set row number
+  newRecord.find('td:eq(0)').text(fitNumber(cuRow));
   if(_product)
   {
     // fill with product details
     console.log(_product);
     newRecord.attr('data-barcode', _product.barcode);
     newRecord.attr('data-barcode2', _product.barcode2);
-    newRecord.find('td:eq(0)').text(fitNumber(cuRow));
-    newRecord.find('td:eq(1) input').val(_product.title);
+    newRecord.find('td:eq(1)').text(_product.title);
     newRecord.find('td:eq(2) input').val(1);
     newRecord.find('td:eq(3)').text(fitNumber(_product.price)).attr('data-val', _product.price);
     newRecord.find('td:eq(4) input').val(_product.discount);
@@ -232,16 +233,21 @@ function addNewRecord_ProductList(_table, _product)
   {
     // empty all inputs
     newRecord.find("input").val('');
-    newRecord.find('td:eq(0)').text(fitNumber(cuRow));
     newRecord.find('td:eq(3)').text('');
     newRecord.find('td:eq(5)').text('');
   }
 
+  if(_append)
+  {
+    // appent to end of table
+    newRecord.appendTo('.productList tbody');
+  }
+  else
+  {
+    // prepent to start of table
+    newRecord.prependTo('.productList tbody');
+  }
 
-  // appent to end of table
-  newRecord.appendTo('.productList tbody:last');
-  // bing new autolist
-  bindAwesomplete.call(newRecord.find('.autoList').get(0));
   // recalc table values
   calcFooterValues(_table);
 }
@@ -283,6 +289,11 @@ function bindBtnOnFactor()
     recalcProductListPrices();
   });
 
+  $(document).on('awesomplete-selectcomplete', ".productList .autoList", function()
+  {
+    let relatedVal = $(this).parents('td').find('[name="productID[]"]');
+    relatedVal.val($(this).attr('data-val'));
+  });
 }
 
 
