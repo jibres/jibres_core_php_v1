@@ -293,6 +293,7 @@ function bindBtnOnFactor()
   $(document).on('awesomplete-selectcomplete', ".productList .autoList", function()
   {
     console.log($(this).attr('data-val'));
+    searchAndInsertProduct('id', $(this).attr('data-val'));
   });
 }
 
@@ -317,25 +318,32 @@ function searchAndInsertProduct(_key, _value)
     }
   }
 
-  // if is not barcode and not finded, search and if find, add or update
+  // if is not barcode and not finde02902749
+  // d, search and if find, add or update
   let pSearchURL = "/a/product?json=true&" + _key + "=" + _value;
   $.get(pSearchURL, function(_productData)
   {
     _productData      = $.parseJSON(_productData);
-    let productInList = $('[data-id='+ _productData.id +']');
-
-    if(productInList.length)
+    if(_productData)
     {
-      console.log('exist');
-      updateRecord_ProductList(productInList, 'count');
+      let productInList = $('[data-id='+ _productData.id +']');
+
+      if(productInList.length)
+      {
+        console.log('exist');
+        updateRecord_ProductList(productInList, 'count');
+      }
+      else
+      {
+        console.log('new');
+        addNewRecord_ProductList(null, _productData);
+      }
     }
     else
     {
-      console.log('new');
-      addNewRecord_ProductList(null, _productData);
+      var msg = 'product not found. <a href="/a/product/add?' + _key + "=" + _value + '" target="_blank">add as new product</a>';
+      notif('info', msg);
     }
-
-    // console.log(_productData);
   });
 }
 
