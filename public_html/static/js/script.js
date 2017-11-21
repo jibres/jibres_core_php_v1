@@ -326,17 +326,25 @@ function searchAndInsertProduct(_key, _value)
     _productData      = $.parseJSON(_productData);
     if(_productData)
     {
-      let productInList = $('[data-id='+ _productData.id +']');
-
-      if(productInList.length)
+      if(_productData.id)
       {
-        console.log('exist');
-        updateRecord_ProductList(productInList, 'count');
+        let productInList = $('[data-id='+ _productData.id +']');
+
+        if(productInList.length)
+        {
+          console.log('exist');
+          updateRecord_ProductList(productInList, 'count');
+        }
+        else
+        {
+          console.log('new');
+          addNewRecord_ProductList(null, _productData);
+        }
       }
       else
       {
-        console.log('new');
-        addNewRecord_ProductList(null, _productData);
+        var msg = 'error in products.';
+        notif('info', msg);
       }
     }
     else
