@@ -2,8 +2,8 @@
 
 
 {%block iCustomer%}
-<label for='customer'>{%trans "Customer"%}</label>
-<div class="input">
+<div class="input f">
+ <label for='customer' class="addon cauto">{%trans "Customer"%}</label>
  <input class="autoList" type="text" name="customer" id="customer" autofocus placeholder='{%trans "Add or choose customer"%}' value="{{product.customer}}" maxlength="100" data-find='customer'>
 </div>
 {%endblock%}
@@ -11,8 +11,9 @@
 
 
 {%block iProductName%}
-<div class="input small">
- <input class="autoList productName" type="text" name="productName[]" maxlength="100" placeholder='{%trans "Search in products"%}' value="{{product.product}}" data-find='product'>
+<div class="input small f">
+ <span class="addon cauto s12">{%trans "Search to add product"%}</span>
+ <input class="autoList productName barCode" type="text" name="productName[]" maxlength="100" placeholder='{%trans "Search in list to add product"%}' value="{{product.product}}" data-find='product' data-default>
 </div>
 {%endblock%}
 
