@@ -47,7 +47,8 @@ class view extends \content_a\main\view
 					break;
 
 				case 'product':
-					$meta         = [];
+					$meta = [];
+					$msg  = T_("Product not found."). ' ';
 					if(\lib\utility::get('q'))
 					{
 						$resultRaw    = \lib\app\product::list(\lib\utility::get('q'), $meta);
@@ -63,9 +64,9 @@ class view extends \content_a\main\view
 						$result = self::getNeededField($result);
 						if(!$result)
 						{
+							$msg .= '<a href="/a/product/add?barcode='. \lib\utility::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
 							$result = null;
 						}
-
 					}
 					elseif(\lib\utility::get('id'))
 					{
@@ -75,6 +76,10 @@ class view extends \content_a\main\view
 						{
 							$result = null;
 						}
+					}
+					if(!$result)
+					{
+						\lib\debug::title($msg);
 					}
 					break;
 

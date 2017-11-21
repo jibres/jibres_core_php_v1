@@ -211,7 +211,7 @@ function bindBtnOnFactor()
 {
   $('body').on('barcode:detect', function(_e, _barcode)
   {
-    $('#productSearch').val('');
+    $('#productSearch').attr('last-barcode', _barcode).val('');
     productBarcodeFinded(_barcode)
   })
 
@@ -237,7 +237,6 @@ function bindBtnOnFactor()
       selectedProduct = datalist[choosen];
     }
 
-    console.log(selectedProduct);
     addFindedProduct(selectedProduct);
   });
   $(document).on('awesomplete-selectcomplete', "#productSearch", function(_e)
@@ -315,8 +314,16 @@ function searchForProduct(_key, _value)
   var pSearchURL = "/a/sell/add?json=true&list=product&" + _key + "=" + _value;
   $.get(pSearchURL, function(_productData)
   {
+    console.log(_productData);
     pData = clearJson(_productData);
-    addFindedProduct(pData);
+    if(_productData && _productData.title)
+    {
+      addFindedProduct(pData, _productData.title);
+    }
+    else
+    {
+      addFindedProduct(pData);
+    }
   });
 }
 
@@ -326,7 +333,7 @@ function searchForProduct(_key, _value)
  * final function to add record of product
  * @param {[type]} _product [description]
  */
-function addFindedProduct(_product)
+function addFindedProduct(_product, _msg)
 {
   console.log(_product);
   if(_product)
@@ -351,10 +358,11 @@ function addFindedProduct(_product)
   }
   else
   {
-    _key = 0;
-    _value = 0;
-    var msg = 'product not found. <a href="/a/product/add?' + _key + "=" + _value + '" target="_blank">add as new product</a>';
-    notif('info', msg);
+    if(_msg)
+    {
+      notif('info', _msg);
+
+    }
   }
 }
 
