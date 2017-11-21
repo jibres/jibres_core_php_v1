@@ -203,6 +203,185 @@ function calcFooterValues(_table)
 
 
 
+
+
+
+
+function bindBtnOnFactor()
+{
+  $('body').on('barcode:detect', function(_e, _barcode)
+  {
+    $('#productSearch').val('');
+    productBarcodeFinded(_barcode)
+  })
+
+  $(document).on('input', '.count', function()
+  {
+    recalcProductListPrices();
+  });
+
+  $(document).on('input', '.discount', function()
+  {
+    recalcProductListPrices();
+  });
+
+  $(document).on('awesomplete-select', "#productSearch", function(_e)
+  {
+    var datalist        = $(this).data('datalist');
+    var choosen         = $(this).attr('aria-activedescendant');
+    var selectedProduct = [];
+    choosen             = parseInt(choosen.substr(choosen.lastIndexOf("item") + 5));
+    // get choosen barcode detail
+    if(datalist.length > 0)
+    {
+      selectedProduct = datalist[choosen];
+    }
+
+    console.log(selectedProduct);
+    addFindedProduct(selectedProduct);
+  });
+}
+
+
+
+
+function checkProductExist(_key, _value)
+{
+  // try to find this product with barcode
+  switch(_key)
+  {
+    case 'barcode':
+      var productInList = $('[data-barcode='+ _value +']');
+      // if not finded in barcode, search in barcode2
+      if(!productInList.length)
+      {
+        productInList = $('[data-barcode2='+ _value +']');
+      }
+      // if finded try to increase number of this product
+      if(productInList.length)
+      {
+        return productInList;
+      }
+      break;
+
+    case 'id':
+      var productInList = $('[data-id='+ _value +']');
+      // if finded try to increase number of this product
+      if(productInList.length)
+      {
+        return productInList;
+      }
+      break;
+  }
+  // not finded
+  return false;
+}
+
+
+/**
+ * check conditions after finding barcode
+ * @param  {[type]} _barcode [description]
+ * @return {[type]}          [description]
+ */
+function productBarcodeFinded(_barcode)
+{
+  var existRecord = checkProductExist('barcode', _barcode);
+  if(existRecord)
+  {
+    updateRecord_ProductList(existRecord, 'count');
+  }
+  else
+  {
+    searchForProduct('barcode', _barcode);
+  }
+}
+
+
+/**
+ * try to search on server
+ * @param  {[type]} _key   [description]
+ * @param  {[type]} _value [description]
+ * @return {[type]}        [description]
+ */
+function searchForProduct(_key, _value)
+{
+  // if is not barcode and not finde02902749
+  // d, search and if find, add or update
+  var pSearchURL = "/a/sell/add?json=true&list=product&" + _key + "=" + _value;
+  $.get(pSearchURL, function(_productData)
+  {
+    pData = clearJson(_productData);
+    addFindedProduct(pData);
+  });
+}
+
+
+
+/**
+ * final function to add record of product
+ * @param {[type]} _product [description]
+ */
+function addFindedProduct(_product)
+{
+  console.log(_product);
+  if(_product)
+  {
+    if(_product.id)
+    {
+      var existRecord = checkProductExist('id', _product.id);
+      if(existRecord)
+      {
+        updateRecord_ProductList(existRecord, 'count');
+      }
+      else
+      {
+        addNewRecord_ProductList(null, _product);
+      }
+    }
+    else
+    {
+      var msg = 'error in products.';
+      notif('warn', msg);
+    }
+  }
+  else
+  {
+    _key = 0;
+    _value = 0;
+    var msg = 'product not found. <a href="/a/product/add?' + _key + "=" + _value + '" target="_blank">add as new product</a>';
+    notif('info', msg);
+  }
+}
+
+
+/**
+ * update record and increase number of exist record
+ * @param  {[type]} _row   [description]
+ * @param  {[type]} _key   [description]
+ * @param  {[type]} _value [description]
+ * @return {[type]}        [description]
+ */
+function updateRecord_ProductList(_row, _key, _value)
+{
+  switch (_key)
+  {
+    case 'count':
+      var currentCounter = _row.find('.count');
+      currentCounter.val(parseFloat(currentCounter.val())+1);
+      break;
+  }
+
+  $('#productSearch').val('');
+  calcFooterValues();
+}
+
+
+/**
+ * add record to table of products
+ * @param {[type]} _table   [description]
+ * @param {[type]} _product [description]
+ * @param {[type]} _append  [description]
+ */
 function addNewRecord_ProductList(_table, _product, _append)
 {
   if(!_table)
@@ -253,156 +432,5 @@ function addNewRecord_ProductList(_table, _product, _append)
   calcFooterValues(_table);
 }
 
-
-function updateRecord_ProductList(_row, _key, _value)
-{
-  switch (_key)
-  {
-    case 'count':
-      var currentCounter = _row.find('.count');
-      currentCounter.val(parseFloat(currentCounter.val())+1);
-      break;
-  }
-
-  $('#productSearch').val('');
-  calcFooterValues();
-}
-
-
-function bindBtnOnFactor()
-{
-  $('body').on('barcode:detect', function(_e, _barcode)
-  {
-    $('#productSearch').val('');
-    checkBarcodeOrSearchAddProduct(_barcode)
-  })
-
-  $(document).on('input', '.count', function()
-  {
-    recalcProductListPrices();
-  });
-
-  $(document).on('input', '.discount', function()
-  {
-    recalcProductListPrices();
-  });
-
-  $(document).on('awesomplete-select', "#productSearch", function(_e)
-  {
-    var datalist        = $(this).data('datalist');
-    var choosen         = $(this).attr('aria-activedescendant');
-    var selectedProduct = [];
-    choosen             = parseInt(choosen.substr(choosen.lastIndexOf("item") + 5));
-    // get choosen barcode detail
-    if(datalist.length > 0)
-    {
-      selectedProduct = datalist[choosen];
-    }
-
-    console.log(selectedProduct);
-    addFindedProduct(selectedProduct);
-
-  });
-}
-
-
-function checkProductExist(_key, _value)
-{
-  // try to find this product with barcode
-  switch(_key)
-  {
-    case 'barcode':
-      var productInList = $('[data-barcode='+ _value +']');
-      // if not finded in barcode, search in barcode2
-      if(!productInList.length)
-      {
-        productInList = $('[data-barcode2='+ _value +']');
-      }
-      // if finded try to increase number of this product
-      if(productInList.length)
-      {
-        return productInList;
-      }
-      break;
-
-    case 'id':
-      var productInList = $('[data-id='+ _value +']');
-      // if finded try to increase number of this product
-      if(productInList.length)
-      {
-        return productInList;
-      }
-      break;
-  }
-  // not finded
-  return false;
-}
-
-
-function checkBarcodeOrSearchAddProduct(_barcode)
-{
-  var existRecord = checkProductExist('barcode', _barcode);
-  if(existRecord)
-  {
-
-  }
-  else
-  {
-    searchForProduct('barcode', _barcode);
-  }
-}
-
-function searchForProduct(_key, _value)
-{
-  // if is not barcode and not finde02902749
-  // d, search and if find, add or update
-  var pSearchURL = "/a/sell/add?json=true&list=product&" + _key + "=" + _value;
-  $.get(pSearchURL, function(_productData)
-  {
-    var pData = null;
-    try
-    {
-      pData = $.parseJSON(_productData);
-    }
-    catch(_err)
-    {
-      // nothing
-    }
-    addFindedProduct(pData);
-  });
-}
-
-
-function addFindedProduct(_product)
-{
-  console.log(_product);
-  if(_product)
-  {
-    if(_product.id)
-    {
-      var existRecord = checkProductExist('id', _product.id);
-      if(existRecord)
-      {
-        updateRecord_ProductList(existRecord, 'count');
-      }
-      else
-      {
-        addNewRecord_ProductList(null, _product);
-      }
-    }
-    else
-    {
-      var msg = 'error in products.';
-      notif('warn', msg);
-    }
-  }
-  else
-  {
-    _key = 0;
-    _value = 0;
-    var msg = 'product not found. <a href="/a/product/add?' + _key + "=" + _value + '" target="_blank">add as new product</a>';
-    notif('info', msg);
-  }
-}
 
 

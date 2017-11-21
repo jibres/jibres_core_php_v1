@@ -83,6 +83,7 @@ class view extends \content_a\main\view
 			}
 
 
+			$result = json_encode($result, JSON_UNESCAPED_UNICODE);
 			\lib\debug::msg("list", $result);
 			// force show json
 			$this->_processor(['force_stop' => true, 'force_json' => true]);
