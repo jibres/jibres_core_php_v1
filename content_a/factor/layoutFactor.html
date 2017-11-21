@@ -12,8 +12,8 @@
 
 {%block iProductName%}
 <div class="input small f">
- <span class="addon cauto s12">{%trans "Search to add product"%}</span>
- <input class="autoList productName barCode" type="text" name="productName[]" maxlength="100" placeholder='{%trans "Search in list to add product"%}' value="{{product.product}}" data-find='product' data-default>
+ <label for="productSearch" class="addon cauto s12">{%trans "Search to add product"%}</label>
+ <input id="productSearch" class="autoList productName barCode" type="text" name="productName[]" maxlength="100" placeholder='{%trans "Search in list to add product"%}' value="{{product.product}}" data-find='product' data-default>
 </div>
 {%endblock%}
 

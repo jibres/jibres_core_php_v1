@@ -264,19 +264,16 @@ function updateRecord_ProductList(_row, _key, _value)
       break;
   }
 
+  $('#productSearch').val('');
   calcFooterValues();
 }
 
 
 function bindBtnOnFactor()
 {
-  $('#addNewRecordProduct').on('click', function()
-  {
-    addNewRecord_ProductList();
-  });
-
   $('body').on('barcode:detect', function(_e, _barcode)
   {
+    $('#productSearch').val('');
     searchAndInsertProduct('barcode', _barcode);
   })
 
