@@ -341,7 +341,6 @@ function checkProductExist(_key, _value)
 
 function checkBarcodeOrSearchAddProduct(_barcode)
 {
-  console.log(_barcode);
   var existRecord = checkProductExist('barcode', _barcode);
   if(existRecord)
   {
@@ -360,9 +359,15 @@ function searchForProduct(_key, _value)
   var pSearchURL = "/a/sell/add?json=true&list=product&" + _key + "=" + _value;
   $.get(pSearchURL, function(_productData)
   {
-    console.log(_productData);
-    var pData = $.parseJSON(_productData);
-    console.log(pData);
+    var pData = null;
+    try
+    {
+      pData = $.parseJSON(_productData);
+    }
+    catch(_err)
+    {
+      // nothing
+    }
     addFindedProduct(pData);
   });
 }
