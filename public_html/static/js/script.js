@@ -240,6 +240,11 @@ function bindBtnOnFactor()
     console.log(selectedProduct);
     addFindedProduct(selectedProduct);
   });
+  $(document).on('awesomplete-selectcomplete', "#productSearch", function(_e)
+  {
+    // clear product search value
+    $(this).val('');
+  });
 }
 
 
