@@ -67,29 +67,40 @@ trait datalist
 
 		$field             = [];
 		$field['store_id'] = \lib\store::id();
+		$multi_record      = true;
 
 		if(isset($_args['barcode']) && $_args['barcode'])
 		{
 			$result = \lib\db\products::search_barcode($_args['barcode'], \lib\store::id());
+			$multi_record = false;
 		}
 		elseif (isset($_args['id']) && $_args['id'] && $id = \lib\utiility\shortURL::decode($_args['id']))
 		{
 			$result = \lib\db\products::search_id($id, \lib\store::id());
+			$multi_record = false;
 		}
 		else
 		{
 			$result = \lib\db\products::search($_string, $option, $field);
 		}
 
-		$temp             = [];
-
-		foreach ($result as $key => $value)
+		if($multi_record)
 		{
-			$check = self::ready($value);
-			if($check)
+			$temp             = [];
+
+			foreach ($result as $key => $value)
 			{
-				$temp[] = $check;
+				$check = self::ready($value);
+				if($check)
+				{
+					$temp[] = $check;
+				}
 			}
+
+		}
+		else
+		{
+			$temp = self::ready($result);
 		}
 
 		return $temp;
