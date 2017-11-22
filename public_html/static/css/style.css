@@ -207,3 +207,24 @@ body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
 
 
 
+/*style for print*/
+@page {
+  margin:0;
+}
+
+
+@media print {
+  html{overflow: auto}
+  body{overflow: auto}
+  #main{overflow: auto;}
+  #content{overflow: auto;}
+
+  body.siftal{background-color:transparent;}
+  .siftal #content .tbox{display: none}
+  .tbl{color:#000!important;font-size:1.2em}
+  .tbl tfoot{background-color:#ddd;font-size:1.1em}
+}
+
+
+
+

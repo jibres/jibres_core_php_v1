@@ -1,10 +1,80 @@
 {%extends display.admin%}
 
+
 {%block pageContent%}
 
- {{sell_detail|dump}}
+<h2 class="txtC">جیبرس؛ انتخاب بزرگان</h2>
+
+<div><svg class="barcodePrev" data-val="#barcode"></svg></div>
+<div class="txtC hide"> تاریخ {{sell_detail.factor.date}}</div>
+
+<table class="tbl">
+ <thead>
+  <th>{%trans "Row"%}</th>
+  <th>{%trans "Product Name"%}</th>
+  <th>{%trans "Qty"%}</th>
+  <th>{%trans "Price"%}</th>
+  <th>{%trans "Discount"%}</th>
+  <th>{%trans "Sum"%}</th>
+ </thead>
+{%for key, datarow in sell_detail.factor_detail%}
+ <tr>
+  <td>{{key}}</td>
+  <td>{{datarow.title}}</td>
+  <td>{{datarow.factordetails_count | number_format | fitNumber}}</td>
+  <td>{{datarow.factordetails_price | number_format | fitNumber}}</td>
+  <td>{{datarow.factordetails_discount | number_format | fitNumber}}</td>
+  <td>{{datarow.factordetails_sum | number_format | fitNumber}}</td>
+ </tr>
+{%endfor%}
+ <tfoot>
+  <th></th>
+  <th></th>
+  <th>{{sell_detail.factor.detailcount | number_format | fitNumber}}</th>
+  <th>{{sell_detail.factor.detailsum | number_format | fitNumber}}</th>
+  <th>{{sell_detail.factor.detaildiscount | number_format | fitNumber}}</th>
+  <th>{{sell_detail.factor.sum | number_format | fitNumber}}</th>
+ </tfoot>
+</table>
+
+<h1 class="txtC">{%trans "Final Price"%} {{sell_detail.factor.sum | number_format |fitNumber}}</h1>
+
+
 
 {%endblock%}
+
+
+{%block foot_js%}
+{{parent()}}
+<script type="text/javascript">
+  JsBarcode($('.barcodePrev')[0], {{sell_detail.factor.id}}, {height: 50});
+  // printResult();
+  // simplePrint();
+
+function simplePrint()
+{
+  window.print();
+  $(this).close();
+}
+
+function printResult() {
+    var DocumentContainer = document.getElementById('content');
+    var WindowObject = window.open('', "PrintWindow", "width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes");
+    WindowObject.document.writeln(DocumentContainer.innerHTML);
+    WindowObject.document.close();
+    WindowObject.focus();
+    WindowObject.print();
+    WindowObject.close();
+}
+
+</script>
+{%endblock%}
+
+
+
+
+
+
 
 
 
