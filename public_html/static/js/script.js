@@ -221,6 +221,10 @@ function bindBtnOnFactor()
 {
   $('body').on('barcode:detect', function(_e, _barcode)
   {
+    if($('#productSearch').length < 1)
+    {
+      return null;
+    }
     $('#productSearch').attr('last-barcode', _barcode).val('');
     productBarcodeFinded(_barcode)
   })
