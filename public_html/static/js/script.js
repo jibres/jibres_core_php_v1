@@ -7,6 +7,7 @@ route('*', function()
 {
   runRunner();
   calcFooterValues();
+  recalcPricePercents();
 });
 
 $(function()
@@ -21,10 +22,11 @@ $(function()
 
 function recalcPricePercents()
 {
-  if(!window.location.pathname === '/a/product/add')
+  if((window.location.pathname).indexOf('/a/product') < 0 || $('#price').length === 0)
   {
     return;
   }
+
   // declare variables
   var elFinalPriceBox = $('#finalprice').parent().parent();
   var buy             = parseInt($('#buyprice').val().toEnglish());
