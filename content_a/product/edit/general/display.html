@@ -9,12 +9,7 @@
 
 <div class="f">
  <div class="c pRa5">{{block ('iCat') }}</div>
- <div class="c">{{block ('iManufacturer') }}</div>
-</div>
-
-<div class="f">
- <div class="c pRa5">{{block ('iUnit') }}</div>
- <div class="c">{{block ('iCarton') }}</div>
+ <div class="c">{{block ('iUnit') }}</div>
 </div>
 
 <div class="f">
@@ -43,7 +38,6 @@
 {{block ('iFinalPrice') }}
 
 
-{{block ('iInitialBalance') }}
 
 {{block("iSaveAll")}}
 </div>
@@ -52,11 +46,17 @@
 
  <h3>{%trans "Warehouse"%}</h3>
 
+{{block ('iInitialBalance') }}
 
-<div class="f">
- <div class="c pRa5">{{block ('iMinstock') }}</div>
- <div class="c">{{block ('iMaxstock') }}</div>
-</div>
+ <div class="f">
+  <div class="c pRa5">{{block ('iMinstock') }}</div>
+  <div class="c">{{block ('iMaxstock') }}</div>
+ </div>
+
+ <div class="f">
+  <div class="c pRa5">{{block ('iManufacturer') }}</div>
+  <div class="c">{{block ('iCarton') }}</div>
+ </div>
 {{block ('iStatus') }}
 
 
