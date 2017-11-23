@@ -153,7 +153,7 @@
 {%block iBuyprice%}
 <label for='buyprice'>{%trans "Buy price"%}</label>
 <div class="input">
- <input type="text" name="buyprice" id="buyprice" placeholder='{%trans "Buy price"%}' value="{{product.buyprice}}" maxlength="50" data-run-input='recalcPricePercents'>
+ <input type="number" name="buyprice" id="buyprice" placeholder='{%trans "Buy price"%}' value="{{product.buyprice}}" min='0' max="100000000000" data-run-input='recalcPricePercents'>
 </div>
 {%endblock%}
 
@@ -161,7 +161,7 @@
 {%block iPrice%}
 <label for='price'>{%trans "Sell Price"%}</label>
 <div class="input">
- <input type="text" name="price" id="price" placeholder='{%trans "Price for sale without discount"%}' value="{{product.price}}" maxlength="50" data-run-input='recalcPricePercents'>
+ <input type="number" name="price" id="price" placeholder='{%trans "Price for sale without discount"%}' value="{{product.price}}" min='0' max="100000000000" data-run-input='recalcPricePercents'>
  <span class="addon" title='{%trans "Impure Interest Rate"%}'>{{ product.intrestrate_impure | fitNumber}} %</span>
 </div>
 {%endblock%}
@@ -171,7 +171,7 @@
 <div {%if not product.finalprice%} class="hide"{%endif%}>
  <label for='finalprice'>{%trans "Final Price"%}</label>
  <div class="input disabled">
-  <input type="text" id="finalprice" placeholder='{%trans "Final Pure Price"%}' value="{{product.finalprice}}" readonly>
+  <input type="number" id="finalprice" placeholder='{%trans "Final Pure Price"%}' value="{{product.finalprice}}" readonly>
   <span class="addon" title='{%trans "Pure Interest Rates"%}'>{{ product.intrestrate | fitNumber}} %</span>
  </div>
 </div>
@@ -182,7 +182,7 @@
 {%block iDiscount%}
 <label for='discount'>{%trans "Discount"%}</label>
 <div class="input">
- <input type="text" name="discount" id="discount" placeholder='{%trans "Discount on sale"%}' value="{{product.discount}}" maxlength="50" data-run-input='recalcPricePercents'>
+ <input type="number" name="discount" id="discount" placeholder='{%trans "Discount on sale"%}' value="{{product.discount}}" maxlength="50" data-run-input='recalcPricePercents'>
  <span class="addon" title='{%trans "Discount Percent"%}'>{{ product.discountpercent | fitNumber}} %</span>
 </div>
 {%endblock%}
