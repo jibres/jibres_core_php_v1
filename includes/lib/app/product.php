@@ -112,14 +112,14 @@ class product
 			$title = trim($title);
 			if(!$title)
 			{
-				\lib\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
+				// \lib\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
 				if($_option['debug']) debug::error(T_("Product title can not be null"), 'title');
 				return false;
 			}
 
 			if(mb_strlen($title) >= 500)
 			{
-				\lib\app::log('api:product:title:max:lenght', \lib\user::id(), $log_meta);
+				// \lib\app::log('api:product:title:max:lenght', \lib\user::id(), $log_meta);
 				if($_option['debug']) debug::error(T_("Product title must be less than 500 character"), 'title');
 				return false;
 			}
@@ -130,7 +130,7 @@ class product
 		$name = trim($name);
 		if($name && mb_strlen($name) >= 500)
 		{
-			\lib\app::log('api:product:name:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:name:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Product name must be less than 500 character"), 'name');
 			return false;
 		}
@@ -139,7 +139,7 @@ class product
 		$cat = trim($cat);
 		if($cat && mb_strlen($cat) >= 200)
 		{
-			\lib\app::log('api:product:cat:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:cat:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Product cat must be less than 200 character"), 'cat');
 			return false;
 		}
@@ -154,7 +154,7 @@ class product
 		$company = trim($company);
 		if($company && mb_strlen($company) >= 200)
 		{
-			\lib\app::log('api:product:company:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:company:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("String of product company is too large"), 'company');
 			return false;
 		}
@@ -164,14 +164,14 @@ class product
 		// $shortcode = \lib\utility\convert::to_en_number($shortcode);
 		// if(!is_numeric($shortcode))
 		// {
-		// 	\lib\app::log('api:product:company:not:numberic', \lib\user::id(), $log_meta);
+		// 	// \lib\app::log('api:product:company:not:numberic', \lib\user::id(), $log_meta);
 		// 	if($_option['debug']) debug::error(T_("Shortcode must be a number"), 'shortcode');
 		// 	return false;
 		// }
 
 		// if(floatval($shortcode) > 1E+10 || floatval($shortcode) < 0)
 		// {
-		// 	\lib\app::log('api:product:shortcode:max:lenght', \lib\user::id(), $log_meta);
+		// 	// \lib\app::log('api:product:shortcode:max:lenght', \lib\user::id(), $log_meta);
 		// 	if($_option['debug']) debug::error(T_("Value of shortcode is out of rage"), 'shortcode');
 		// 	return false;
 		// }
@@ -180,7 +180,7 @@ class product
 		$unit = trim($unit);
 		if($unit && mb_strlen($unit) >= 100)
 		{
-			\lib\app::log('api:product:unit:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:unit:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("String of product unit is too large"), 'unit');
 			return false;
 		}
@@ -191,14 +191,14 @@ class product
 		$to_barcode = \lib\utility\convert::to_barcode($barcode);
 		if($barcode != $to_barcode)
 		{
-			\lib\app::log('barcode:is:different:barcode2', \lib\user::id(), \lib\app::log_meta(1, ['barcode' => $barcode, 'fixed' => $to_barcode]));
+			// \lib\app::log('barcode:is:different:barcode2', \lib\user::id(), // \lib\app::log_meta(1, ['barcode' => $barcode, 'fixed' => $to_barcode]));
 			\lib\debug::warn(T_("Your barcode have wrong character. we change it. please check your product again"), 'barcode');
 			$barcode = $to_barcode;
 		}
 
 		if($barcode && mb_strlen($barcode) >= 100)
 		{
-			\lib\app::log('api:product:barcode:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:barcode:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("String of product barcode is too large"), 'barcode');
 			return false;
 		}
@@ -209,21 +209,21 @@ class product
 		$to_barcode2 = \lib\utility\convert::to_barcode($barcode2);
 		if($barcode2 != $to_barcode2)
 		{
-			\lib\app::log('barcode2:is:different:barcode2', \lib\user::id(), \lib\app::log_meta(1, ['barcode2' => $barcode2, 'fixed' => $to_barcode2]));
+			// \lib\app::log('barcode2:is:different:barcode2', \lib\user::id(), // \lib\app::log_meta(1, ['barcode2' => $barcode2, 'fixed' => $to_barcode2]));
 			\lib\debug::warn(T_("Your barcode2 have wrong character. we change it. please check your product again"), 'barcode2');
 			$barcode2 = $to_barcode2;
 		}
 
 		if($barcode2 && mb_strlen($barcode2) >= 100)
 		{
-			\lib\app::log('api:product:barcode2:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:barcode2:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("String of product barcode2 is too large"), 'barcode2');
 			return false;
 		}
 
 		if($barcode && $barcode2 && $barcode == $barcode2)
 		{
-			\lib\app::log('app:product:barcode:in:one:product:add', \lib\user::id(), $log_meta);
+			// \lib\app::log('app:product:barcode:in:one:product:add', \lib\user::id(), $log_meta);
 			\lib\debug::error(T_("Duplicate barcode in one product"), 'barcode2');
 			return false;
 		}
@@ -250,7 +250,7 @@ class product
 		$code = trim($code);
 		if($code && mb_strlen($code) >= 200)
 		{
-			\lib\app::log('api:product:code:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:code:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("String of product code is too large"), 'code');
 			return false;
 		}
@@ -259,14 +259,14 @@ class product
 		$buyprice = \lib\utility\convert::to_en_number($buyprice);
 		if($buyprice && !is_numeric($buyprice))
 		{
-			\lib\app::log('api:product:buyprice:is:nan', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:buyprice:is:nan', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of buyprice muset be a number"), 'buyprice');
 			return false;
 		}
 
 		if(floatval($buyprice) >= 1E+20 || floatval($buyprice) < 0)
 		{
-			\lib\app::log('api:product:buyprice:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:buyprice:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of buyprice is out of rage"), 'buyprice');
 			return false;
 		}
@@ -275,14 +275,14 @@ class product
 		$price = \lib\utility\convert::to_en_number($price);
 		if($price && !is_numeric($price))
 		{
-			\lib\app::log('api:product:price:is:nan', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:price:is:nan', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of price muset be a number"), 'price');
 			return false;
 		}
 
 		if(floatval($price) >= 1E+20 || floatval($price) < 0)
 		{
-			\lib\app::log('api:product:price:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:price:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of price is out of rage"), 'price');
 			return false;
 		}
@@ -291,14 +291,14 @@ class product
 		$discount = \lib\utility\convert::to_en_number($discount);
 		if($discount && !is_numeric($discount))
 		{
-			\lib\app::log('api:product:discount:is:nan', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:discount:is:nan', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of discount muset be a number"), 'discount');
 			return false;
 		}
 
 		if($discount && abs(floatval($discount)) >= 1E+10)
 		{
-			\lib\app::log('api:product:discount:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:discount:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of discount is out of rage"), 'discount');
 			return false;
 		}
@@ -313,14 +313,14 @@ class product
 		$initialbalance = \lib\utility\convert::to_en_number($initialbalance);
 		if($initialbalance && !is_numeric($initialbalance))
 		{
-			\lib\app::log('api:product:initialbalance:is:nan', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:initialbalance:is:nan', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of initialbalance muset be a number"), 'initialbalance');
 			return false;
 		}
 
 		if(floatval($initialbalance) >= 1E+10 || floatval($initialbalance) < 0)
 		{
-			\lib\app::log('api:product:initialbalance:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:initialbalance:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of initialbalance is out of rage"), 'initialbalance');
 			return false;
 		}
@@ -329,14 +329,14 @@ class product
 		$minstock = \lib\utility\convert::to_en_number($minstock);
 		if($minstock && !is_numeric($minstock))
 		{
-			\lib\app::log('api:product:minstock:is:nan', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:minstock:is:nan', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of minstock muset be a number"), 'minstock');
 			return false;
 		}
 
 		if(floatval($minstock) >= 1E+10 || floatval($minstock) < 0)
 		{
-			\lib\app::log('api:product:minstock:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:minstock:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of minstock is out of rage"), 'minstock');
 			return false;
 		}
@@ -345,14 +345,14 @@ class product
 		$maxstock = \lib\utility\convert::to_en_number($maxstock);
 		if($maxstock && !is_numeric($maxstock))
 		{
-			\lib\app::log('api:product:maxstock:is:nan', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:maxstock:is:nan', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of maxstock muset be a number"), 'maxstock');
 			return false;
 		}
 
 		if(floatval($maxstock) >= 1E+10 || floatval($maxstock) < 0)
 		{
-			\lib\app::log('api:product:maxstock:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:maxstock:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of maxstock is out of rage"), 'maxstock');
 			return false;
 		}
@@ -362,7 +362,7 @@ class product
 
 		if($status && !in_array($status, ['unset','available','unavailable','soon','discountinued']))
 		{
-			\lib\app::log('api:product:status:invalid', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:status:invalid', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Product status is incorrect"), 'status');
 			return false;
 		}
@@ -370,7 +370,7 @@ class product
 		// $sold = \lib\app::request('sold');
 		// if(floatval($sold) >= 1E+20 || floatval($sold) < 0)
 		// {
-		// 	\lib\app::log('api:product:sold:max:lenght', \lib\user::id(), $log_meta);
+		// 	// \lib\app::log('api:product:sold:max:lenght', \lib\user::id(), $log_meta);
 		// 	if($_option['debug']) debug::error(T_("Value of sold is out of rage"), 'sold');
 		// 	return false;
 		// }
@@ -379,14 +379,14 @@ class product
 		$stock = \lib\utility\convert::to_en_number($stock);
 		if($stock && !is_numeric($stock))
 		{
-			\lib\app::log('api:product:stock:is:nan', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:stock:is:nan', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of stock muset be a number"), 'stock');
 			return false;
 		}
 
 		if(floatval($stock) >= 1E+20 || floatval($stock) < 0)
 		{
-			\lib\app::log('api:product:stock:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:stock:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of stock is out of rage"), 'stock');
 			return false;
 		}
@@ -394,7 +394,7 @@ class product
 		$thumb = \lib\app::request('thumb');
 		if($thumb && !is_string($thumb))
 		{
-			\lib\app::log('api:product:thumb:is:not:string', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:thumb:is:not:string', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of thumb is out of rage"), 'thumb');
 			return false;
 		}
@@ -441,14 +441,14 @@ class product
 		$carton = \lib\utility\convert::to_en_number($carton);
 		if($carton && !is_numeric($carton))
 		{
-			\lib\app::log('api:product:carton:is:nan', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:carton:is:nan', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of carton muset be a number"), 'carton');
 			return false;
 		}
 
 		if(floatval($carton) >= 1E+10 || floatval($carton) < 0)
 		{
-			\lib\app::log('api:product:carton:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:carton:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of carton is out of rage"), 'carton');
 			return false;
 		}
@@ -457,10 +457,24 @@ class product
 		$desc = trim($desc);
 		if($desc && mb_strlen($desc))
 		{
-			\lib\app::log('api:product:desc:max:lenght', \lib\user::id(), $log_meta);
+			// \lib\app::log('api:product:desc:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of desc is out of rage"), 'desc');
 			return false;
 		}
+
+		// prosess finalprice
+		$finalprice = floatval($price) - floatval($discount);
+		if($finalprice < 0)
+		{
+			\lib\debug::error(T_("Final price is less than 0"), 'price');
+			return false;
+		}
+
+		if($finalprice < floatval($buyprice))
+		{
+			\lib\debug::warn(T_("Final price less than buyprice!"));
+		}
+
 
 		$args                    = [];
 		$args['title']           = $title;
