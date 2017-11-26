@@ -3,6 +3,10 @@ namespace lib\db;
 
 class factors
 {
+
+	use \lib\db\factor\search;
+
+
 	public static function get_print($_id, $_store_id)
 	{
 		$factor = "SELECT * FROM factors WHERE factors.id = $_id AND factors.store_id = $_store_id LIMIT 1";
@@ -66,12 +70,6 @@ class factors
 	public static function update()
 	{
 		return \lib\db\config::public_update('factors', ...func_get_args());
-	}
-
-
-	public static function search()
-	{
-		return \lib\db\config::public_search('factors', ...func_get_args());
 	}
 
 
