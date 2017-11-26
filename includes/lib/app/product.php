@@ -209,7 +209,7 @@ class product
 		$to_barcode2 = \lib\utility\convert::to_barcode($barcode2);
 		if($barcode2 != $to_barcode2)
 		{
-			// \lib\app::log('barcode2:is:different:barcode2', \lib\user::id(), // \lib\app::log_meta(1, ['barcode2' => $barcode2, 'fixed' => $to_barcode2]));
+			\lib\app::log('barcode2:is:different:barcode2', \lib\user::id(), \lib\app::log_meta(1, ['barcode2' => $barcode2, 'fixed' => $to_barcode2]));
 			\lib\debug::warn(T_("Your barcode2 have wrong character. we change it. please check your product again"), 'barcode2');
 			$barcode2 = $to_barcode2;
 		}
