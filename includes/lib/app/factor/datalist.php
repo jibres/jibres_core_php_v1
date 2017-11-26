@@ -7,8 +7,12 @@ trait datalist
 	public static $sort_field =
 	[
 		'title',
-		'count',
-		'discount',
+		'date',
+		'detailsum',
+		'detailtotalsum',
+		'detaildiscount',
+		'detailcount',
+
 	];
 
 

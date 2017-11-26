@@ -15,12 +15,12 @@
       <thead>
 
         <tr>
-          <th>{%trans "Date"%}</th>
-          <th>{%trans "Price"%}</th>
-          <th>{%trans "Sum"%}</th>
-          <th>{%trans "Discount"%}</th>
-          <th>{%trans "Count"%}</th>
-          <th>{%trans "Print"%}</th>
+          <th data-sort="{{sort_link.date.order}}"><a href="{{sort_link.date.link}}">{%trans "Date"%}</a></th>
+          <th data-sort="{{sort_link.detailsum.order}}"><a href="{{sort_link.detailsum.link}}">{%trans "Price"%}</a></th>
+          <th data-sort="{{sort_link.detailtotalsum.order}}"><a href="{{sort_link.detailtotalsum.link}}">{%trans "Sum"%}</a></th>
+          <th data-sort="{{sort_link.detaildiscount.order}}"><a href="{{sort_link.detaildiscount.link}}">{%trans "Discount"%}</a></th>
+          <th data-sort="{{sort_link.detailcount.order}}"><a href="{{sort_link.detailcount.link}}">{%trans "Count"%}</a></th>
+          <th >{%trans "Print"%}</th>
         </tr>
 
       </thead>
