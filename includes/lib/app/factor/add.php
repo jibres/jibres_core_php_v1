@@ -17,7 +17,8 @@ trait add
 
 		$default_option =
 		[
-			'debug' => true,
+			'debug'     => true,
+			'factor_id' => null,
 		];
 
 		if(!is_array($_option))
@@ -81,7 +82,14 @@ trait add
 		$factor['discount']       = null;
 		$factor['sum']            = floatval($factor['detailtotalsum']) - floatval($factor['discount']);
 
-		$factor_id = \lib\db\factors::insert($factor);
+		if(!$_option['factor_id'])
+		{
+			$factor_id = \lib\db\factors::insert($factor);
+		}
+		else
+		{
+			$factor_id = $_option['factor_id'];
+		}
 
 		if(!$factor_id)
 		{

@@ -3,6 +3,19 @@ namespace lib\db;
 
 class factordetails
 {
+
+	public static function remove_factor($_factor_id)
+	{
+		if(!$_factor_id || !is_numeric($_factor_id))
+		{
+			return false;
+		}
+
+		$query = "DELETE FROM factordetails WHERE factor_id = $_factor_id";
+		return \lib\db::query($query);
+	}
+
+
 	/**
 	 * insert new factordetail
 	 *

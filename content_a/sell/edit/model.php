@@ -70,7 +70,7 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-				// ready sell_list
+		// ready sell_list
 		$detail = self::getPostSellDetail();
 
 		if($detail === false)
@@ -78,7 +78,7 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		\lib\app\factor::edit($detail, $sell_list);
+		\lib\app\factor::edit(\lib\utility::get('id'), $detail, $sell_list);
 
 		if(\lib\debug::$status)
 		{

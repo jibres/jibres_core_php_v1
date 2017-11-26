@@ -8,11 +8,11 @@ trait edit
 	/**
 	 * edit a factor
 	 *
-	 * @param      <type>   $_args  The arguments
+	 * @param      <type>   $_factor  The arguments
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function edit($_args, $_option = [])
+	public static function edit($_id, $_factor, $_factor_detail, $_option = [])
 	{
 		$default_option =
 		[
@@ -26,7 +26,7 @@ trait edit
 
 		$_option = array_merge($default_option, $_option);
 
-		\lib\app::variable($_args);
+		\lib\app::variable($_factor);
 
 		$log_meta =
 		[
@@ -37,8 +37,7 @@ trait edit
 			]
 		];
 
-		$id = \lib\app::request('id');
-		$id = \lib\utility\shortURL::decode($id);
+		$id = \lib\utility\shortURL::decode($_id);
 
 		if(!$id || !is_numeric($id))
 		{
@@ -63,50 +62,14 @@ trait edit
 			return false;
 		}
 
-		$args = self::check($_option);
+		\lib\db\factordetails::remove_factor($load_factor['id']);
 
-		if($args === false || !\lib\debug::$status)
-		{
-			return false;
-		}
-
-		if(!\lib\app::isset_request('desc'))           unset($args['desc']);
-
-		if(array_key_exists('title', $args) && !$args['title'])
-		{
-			\lib\app::log('api:factor:title:not:set:edit', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Title of factor can not be null"), 'title');
-			return false;
-		}
-
-
-		if(!empty($args))
-		{
-			$update = \lib\db\factors::update($args, $load_factor['id']);
-
-			if(isset($args['slug']))
-			{
-				if(!$update)
-				{
-					$args['slug'] = self::slug_fix($args);
-					$update = \lib\db\factors::update($args, $load_factor['id']);
-				}
-				// user change slug
-				if($load_factor['slug'] != $args['slug'])
-				{
-					\lib\app::log('api:factor:change:slug', \lib\user::id(), $log_meta);
-				}
-			}
-		}
-
-		$return = [];
+		$return = \lib\app\factor::add($_factor, $_factor_detail, ['factor_id' => $load_factor['id'], 'debug' => false]);
 
 		if(\lib\debug::$status)
 		{
 			\lib\debug::true(T_("Your factor successfully updated"));
 		}
-
-		self::clean_cache('var');
 
 		return $return;
 	}
