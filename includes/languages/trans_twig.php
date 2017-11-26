@@ -398,22 +398,30 @@ class twigTransTerms
 	echo T_("Supplier");                                                              // Line 116
 	echo T_("Staff");                                                                 // Line 126
 
-	//-------------------------------------------------content_a/sell/add/display.html
-	echo T_("Row");                                                                   // Line 40
-	echo T_("Product");                                                               // Line 41
-	echo T_("Count");                                                                 // Line 22
+	//-------------------------------------------content_a/sell/fishprint/display.html
+	echo T_("Row");                                                                   // Line 57
+	echo T_("Product Name");                                                          // Line 14
+	echo T_("Qty");                                                                   // Line 15
 	echo T_("Discount");                                                              // Line 183
-	echo T_("Total");                                                                 // Line 45
-	echo T_("Count of rows");                                                         // Line 61
-	echo T_("Sum of counts");                                                         // Line 63
-	echo T_("Sum of prices");                                                         // Line 64
-	echo T_("Sum of discounts");                                                      // Line 65
-	echo T_("Sum of final prices");                                                   // Line 66
+	echo T_("Sum");                                                                   // Line 20
+	echo T_("Final Price");                                                           // Line 172
+
+	//-------------------------------------------------content_a/sell/add/display.html
+	echo T_("Save & edit");                                                           // Line 39
+	echo T_("Save & print");                                                          // Line 40
+	echo T_("Product");                                                               // Line 58
+	echo T_("Count");                                                                 // Line 22
+	echo T_("Total");                                                                 // Line 62
+	echo T_("Count of rows");                                                         // Line 70
+	echo T_("Sum of counts");                                                         // Line 72
+	echo T_("Sum of prices");                                                         // Line 73
+	echo T_("Sum of discounts");                                                      // Line 74
+	echo T_("Sum of final prices");                                                   // Line 75
 
 	//------------------------------------------------content_a/sell/home/display.html
 	echo T_("Search in sells list");                                                  // Line 9
-	echo T_("Sum");                                                                   // Line 20
-	echo T_("Add new sell");                                                          // Line 41
+	echo T_("Print");                                                                 // Line 23
+	echo T_("Add new sell");                                                          // Line 43
 
 	//---------------------------------------------content_a/setting/plan/display.html
 	echo T_("Current Plan");                                                          // Line 7
@@ -450,10 +458,10 @@ class twigTransTerms
 
 	//----------------------------------------------content_a/product/add/display.html
 	echo T_("Basic detail");                                                          // Line 7
-	echo T_("Initial detail before start sell");                                      // Line 35
+	echo T_("Initial detail before start sell");                                      // Line 30
+	echo T_("Warehouse");                                                             // Line 47
 
 	//-------------------------------------content_a/product/edit/general/display.html
-	echo T_("Warehouse");                                                             // Line 53
 
 	//-------------------------------------------content_a/product/import/display.html
 	echo T_("Choose your CSV");                                                       // Line 10
@@ -506,7 +514,6 @@ class twigTransTerms
 	echo T_("Scan Barcode2 here...");                                                 // Line 146
 	echo T_("Price for sale without discount");                                       // Line 164
 	echo T_("Impure Interest Rate");                                                  // Line 165
-	echo T_("Final Price");                                                           // Line 172
 	echo T_("Final Pure Price");                                                      // Line 174
 	echo T_("Pure Interest Rates");                                                   // Line 175
 	echo T_("Discount on sale");                                                      // Line 185
