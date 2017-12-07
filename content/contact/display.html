@@ -9,37 +9,37 @@
    <form method="post" data-clear class="dft">
    {%if login%}
    {%else%}
-    <div class="f pab">
+    <div class="input pA5">
      <label class="c2" for="name">{%trans "Name"%}</label>
-     <input class="c" type="text" name="name" id="name" placeholder='{%trans "Full Name"%}' maxlength='40'>
+     <input type="text" name="name" id="name" placeholder='{%trans "Full Name"%}' maxlength='40'>
     </div>
-    <div class="f pab">
+    <div class="input pA5">
      <label class="c2" for="mobile">{%trans "Mobile"%}</label>
-     <input class="c en" type="tel" name="mobile" id="mobile" placeholder='98 912 333 4444' maxlength="17" autocomplete="off" data-validity='{%trans "Please enter valid mobile number. `:val` is incorrect"%}'>
+     <input type="tel" name="mobile" id="mobile" placeholder='98 912 333 4444' maxlength="17" autocomplete="off" data-validity='{%trans "Please enter valid mobile number. `:val` is incorrect"%}'>
     </div>
-    <div class="f pab">
+    <div class="input pA5">
      <label class="c2" for="email">{%trans "Email"%}</label>
-     <input class="c en" type="email" name="email" id="email" placeholder='mail@example.com' maxlength='40'>
+     <input type="email" name="email" id="email" placeholder='mail@example.com' maxlength='40'>
     </div>
    {%endif%}
-    <div class="f pab">
+    <div class="pA5">
      <label class="c2" for="content">{%trans "Message"%} *</label>
-     <textarea class="c textarea" name="content" placeholder='{%trans "Your Message"%}' minlength="5" maxlength="1000" data-resizable></textarea>
+     <textarea class="c txt" name="content" placeholder='{%trans "Your Message"%}' rows=4 minlength="5" maxlength="1000" data-resizable></textarea>
     </div>
-    <div class="f pab">
+    <div class="input pA5">
      <div class="c2"></div>
-     <button type="submit" name="submit-contact" class="c btn try submit-contact">{%trans "Send"%}</button>
+     <button type="submit" name="submit-contact" class="btn block success">{%trans "Send"%}</button>
     </div>
 
    </form>
   </div>
 
 
-  <div class="c4 s12 os bg-white pas">
-     <h3>{%trans "How to contact us"%}</h3>
+  <div class="c4 s12 os bg-white pA25">
+    <h3>{%trans "How to contact us"%}</h3>
     <div class="contact-data">
 
-       <address class="vcard">
+       <address class="vcard mB10">
         <div class="email ltr">info@jibres.com</div>
         <a class="tel ltr" href="tel:+982536505281">{{"(+98) 25" | fitNumber}} {{"3650 5281" | fitNumber}}</a>
         <div class="author author_name hide"><span class="fn">{%trans "jibres"%}</span></div>
@@ -59,8 +59,8 @@
         </div>
        </address>
     </div>
-    <a href="https://goo.gl/maps/wNW2K5iuYv82" target="_blank" class="map">
-     <img src="{{url.static}}images/map.png">
+    <a href="https://goo.gl/maps/HUdi1YmcFBz" target="_blank" class="map">
+     <img src="{{url.static}}images/map/ermile.png">
     </a>
 
   </div>
