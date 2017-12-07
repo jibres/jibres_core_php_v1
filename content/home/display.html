@@ -1,7 +1,7 @@
 {%extends display.main%}
 
 
-{%block body%}
+{%block content%}
 
 
  {{block('landPage')}}
@@ -15,7 +15,6 @@
  {{block('why--')}}
  {{block('support--')}}
 
-{%include template.footer%}
 
 
 {%endblock%}
@@ -23,7 +22,6 @@
 
 {%block landPage%}
 <section id='landing'>
-{%include 'content/template/header.html'%}
  <div class="title">
   <h2>{%trans "Integrated Sales and Online Accounting"%}</h2>
   <h3>{%trans ""%} {{site.desc}}</h3>

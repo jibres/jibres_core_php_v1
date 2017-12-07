@@ -9,28 +9,27 @@ body{
   height: 100%;
 }
 .vflex{min-height:100vh;display:flex;flex-direction:column;}
-.wrapper{flex:1;}
 
 
 /* header*/
-#site-header{height:60px;min-height:60px;font-size:1.2em;overflow:hidden;background-color:rgba(51, 51, 51, 1);transition:0.3s}
-body[data-page="homepage"] #site-header{background-color:rgba(51, 51, 51, 1);}
-#site-header .logo{transition:0.3s;padding:0;margin:0;}
-#site-header .logo a{padding:0 1em;color:#fff;font-weight:700;display:inline-block;line-height:60px;}
-#site-header .logo h1{display:inline-block;margin:0;line-height:60px;}
-#site-header .logo img{margin-top:5px;height:50px;width:50px;padding:5px 5px;transition:0.1s;-webkit-animation-duration:0.5s;animation-duration:0.5s;-webkit-animation-timing-function:cubic-bezier(.43, .84, .61, .14);animation-timing-function:cubic-bezier(.43, .84, .61, .14);-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;}
-#site-header .logo:hover{opacity:0.8}
-#site-header .logo a:focus{opacity:0.6;}
-#site-header nav{}
-#site-header nav a{padding:0 1em;line-height:59px;color:#fff;display:inline-block;transition:0.2s;font-weight:700;position:relative;border-bottom:1px solid transparent;}
-#site-header nav a:hover{border-bottom-color:#fff;}
-/*#site-header nav a:focus{background-color:rgba(255,255,255,0.8);}*/
-#site-header .btn{margin:10px;line-height:40px;color:#fff;padding:0 1em;border:1px solid #fff;background-color:transparent;transition:0.3s;min-width:100px;}
-#site-header .btn:hover{box-shadow:0 0px 3px 0 #fff;background-color:rgba(255,255,255,0.2);}
-#site-header .btn:focus{background-color:rgba(255,255,255,0.5);}
+.site-header{height:60px;min-height:60px;font-size:1.2em;overflow:hidden;background-color:rgba(51, 51, 51, 1);transition:0.3s;}
+body[data-page="homepage"] >.site-header{background-color:rgba(51, 51, 51, 1);}
+.site-header .logo{transition:0.3s;padding:0;margin:0;}
+.site-header .logo a{padding:0 1em;color:#fff;font-weight:700;display:inline-block;line-height:60px;}
+.site-header .logo h1{display:inline-block;margin:0;line-height:60px;}
+.site-header .logo img{margin-top:5px;height:50px;width:50px;padding:5px 5px;transition:0.1s;-webkit-animation-duration:0.5s;animation-duration:0.5s;-webkit-animation-timing-function:cubic-bezier(.43, .84, .61, .14);animation-timing-function:cubic-bezier(.43, .84, .61, .14);-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;}
+.site-header .logo:hover{opacity:0.8}
+.site-header .logo a:focus{opacity:0.6;}
+.site-header nav{}
+.site-header nav a{padding:0 1em;line-height:59px;color:#fff;display:inline-block;transition:0.2s;font-weight:700;position:relative;border-bottom:1px solid transparent;}
+.site-header nav a:hover{border-bottom-color:#fff;}
+/*.site-header nav a:focus{background-color:rgba(255,255,255,0.8);}*/
+.site-header .btn{margin:10px;line-height:40px;color:#fff;padding:0 1em;border:1px solid #fff;background-color:transparent;transition:0.3s;min-width:100px;}
+.site-header .btn:hover{box-shadow:0 0px 3px 0 #fff;background-color:rgba(255,255,255,0.2);}
+.site-header .btn:focus{background-color:rgba(255,255,255,0.5);}
 
 /* page loading effect*/
-body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
+body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 
 .page-title{padding:15em 0;text-align:center;overflow:hidden;background-color:#ddd;}
 .page-title h1{font-weight:700;line-height:2em;font-size:3em;color:#333;}
@@ -47,8 +46,8 @@ body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
 
 #landing{
   background-image: url('/static/images/homepage/desk.jpg');
-  min-height: 100%;
-  height: 100%;
+  min-height: 100vh;
+  height: 700px;
   /*background-attachment: fixed;*/
   background-position: center;
   background-repeat: no-repeat;
@@ -63,7 +62,7 @@ body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
   left: 0;
   right: 0;
   text-align: center;
-  padding-top: 30vh;
+  padding-top: 200px;
   min-width: 280px;
   width: 70%;
   margin:0 auto;
@@ -81,8 +80,7 @@ body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
 
 #roadmap{
   background-image: url('/static/images/homepage/jibres-roadmap.jpg');
-  min-height: 100%;
-  height: 100%;
+  min-height: 300px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -93,7 +91,7 @@ body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
 
 #roadmap .title{
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 10%;
   font-size: 2em;
   text-align: center;
@@ -101,6 +99,7 @@ body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
 #roadmap .title h2{
   font-weight: 400;
   font-size: 4.5em;
+  margin-bottom:0;
 }
 #roadmap .title h3{
   font-weight: 100;
@@ -110,8 +109,7 @@ body.loading-page #site-header .logo img{padding:7px;opacity:0.7}
 
 #quote{
   background-image: url('/static/images/homepage/quote-supersaeed-sadeghi.jpg');
-  min-height: 60%;
-  height: 60%;
+  min-height: 500px;
   /*background-attachment: fixed;*/
   background-position: top left;
   background-repeat: no-repeat;
