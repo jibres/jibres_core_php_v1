@@ -2,7 +2,7 @@
 namespace content\cronjob;
 use \lib\saloos;
 
-class controller extends \content\main\controller
+class controller extends \mvc\controller
 {
 	function ready()
 	{

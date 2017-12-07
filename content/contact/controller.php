@@ -1,7 +1,7 @@
 <?php
 namespace content\contact;
 
-class controller extends \content\main\controller
+class controller extends \mvc\controller
 {
 	function ready()
 	{
