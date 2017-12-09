@@ -73,8 +73,9 @@ class twigTransTerms
 	echo T_("All the basics for personal use and anyone who wants to explore Jibres for an <b>unlimited period of time</b>.");// Line 13
 	echo T_("Standard");                                                              // Line 128
 	echo T_("per month");                                                             // Line 27
-	echo T_("For someones ready to use Jibres as hero.");                             // Line 29
-	echo T_("<b>Everything you need</b> for a growing business.");                    // Line 29
+	echo T_("2 month discount on year");                                              // Line 28
+	echo T_("For someones ready to use Jibres as hero.");                             // Line 30
+	echo T_("<b>Everything you need</b> for a growing business.");                    // Line 30
 
 	//----------------------------------------------content\template\static\about.html
 	echo T_("Advancement of technology and development of Web-based business Cause Need new tools to resolve the daily needs and that’s the goal of making Jibres.");// Line 6
