@@ -393,7 +393,6 @@ function searchForProduct(_key, _value)
   var pSearchURL = "/a/sell/add?json=true&list=product&" + _key + "=" + _value;
   $.get(pSearchURL, function(_productData)
   {
-    console.log(_productData);
     pData = clearJson(_productData);
     if(_productData && _productData.title)
     {
@@ -508,15 +507,20 @@ function addNewRecord_ProductList(_table, _product, _append)
     htmlPDiscount    += '<span class="addon small">0%</span>'+ '</div>';
 
     // fill with product details
-    console.log(_product);
+    // console.log(_product);
+    console.log(11);
     newRecord.attr('data-id', _product.id);
     newRecord.attr('data-barcode', _product.barcode);
     newRecord.attr('data-barcode2', _product.barcode2);
     newRecord.find('td:eq(1)').html(htmlPName);
     newRecord.find('td:eq(2)').html(htmlPCount);
     newRecord.find('td:eq(3)').text(fitNumber(_product.price)).attr('data-val', _product.price);
+    console.log(12);
+    console.log(htmlPDiscount);
     newRecord.find('td:eq(4)').html(htmlPDiscount);
+    console.log(121);
     newRecord.find('td:eq(5)').text(fitNumber(_product.finalprice)).attr('data-val', _product.finalprice);
+    console.log(13);
   }
   else
   {
