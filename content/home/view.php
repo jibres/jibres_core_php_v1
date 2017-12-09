@@ -50,6 +50,18 @@ class view extends \mvc\view
 				break;
 
 
+			case 'social-responsibility':
+				$this->data->page['title'] = T_('Jibres Social Responsibility');
+				$this->data->page['desc']  = T_('Social responsibility refers to our role in maintaining, caring about and helping our society, while having set as its goal a responsibility-centered enterprise along with wealth production.');
+				break;
+
+			case 'enterprise':
+				$this->data->page['title'] = T_('Enterprise');
+				$this->data->page['desc']  = T_('Have a headaches? We have soulutions. Be patient...');
+				break;
+
+
+
 			case 'about':
 				$this->data->page['title'] = T_('About our platform');
 				$this->data->page['desc']  = $this->data->site['desc'];
