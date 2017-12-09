@@ -84,9 +84,9 @@ class view extends \mvc\view
 				break;
 
 
-			case 'help_faq':
-				$this->data->page['title'] = T_('Help Center');
-				$this->data->page['desc']  = T_('Need HELP? Be patient...');
+			case 'benefits':
+				$this->data->page['title'] = T_('Jibres benefits');
+				$this->data->page['desc']  = T_('What can you do with Jibres?');
 				break;
 
 
@@ -94,6 +94,12 @@ class view extends \mvc\view
 				$this->data->page['title'] = T_('About our platform');
 				$this->data->page['desc']  = $this->data->site['desc'];
 				break;
+
+			case 'logo':
+				$this->data->page['title'] = T_('Jibres Logo');
+				$this->data->page['desc']  = T_('Need know more about Jibres Logo? We are not choose our final logo yet!');
+				break;
+
 
 
 
