@@ -55,11 +55,17 @@ class view extends \mvc\view
 				$this->data->page['desc']  = T_('Social responsibility refers to our role in maintaining, caring about and helping our society, while having set as its goal a responsibility-centered enterprise along with wealth production.');
 				break;
 
+
 			case 'enterprise':
 				$this->data->page['title'] = T_('Enterprise');
 				$this->data->page['desc']  = T_('Have a headaches? We have soulutions. Be patient...');
 				break;
 
+
+			case 'changelog':
+				$this->data->page['title'] = T_('Change log of Jibres');
+				$this->data->page['desc']  = T_('We were born to do Best!'). ' ' . T_("We are Developers, please wait!");
+				break;
 
 
 			case 'about':
