@@ -100,11 +100,15 @@ class view extends \mvc\view
 				$this->data->page['desc']  = T_('Need know more about Jibres Logo? We are not choose our final logo yet!');
 				break;
 
+			case 'pricing':
+				$this->data->page['title'] = T_('Plans and Pricing of Jibres');
+				$this->data->page['desc']  = T_("Always know what you'll pay per month.") . ' ' . T_('Simple pricing');
+				break;
 
 
 
 			default:
-				// $this->data->page['title']   = $this->data->site['title']. ' - '. T_('Integrated Sales and Online Accounting');
+				$this->data->page['title']   = $this->data->site['title']. ' - '. T_('Integrated Sales and Online Accounting');
 				break;
 		}
 	}
