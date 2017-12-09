@@ -15,178 +15,8 @@
 
 {%include template.price%}
 
-    <div class="p dtc pricingTable pc">
-     <div class="f th">
-      <div class="c4 s4"></div>
-      <div class="c s2">{%trans "FREE"%}</div>
-      <div class="c s2">{%trans "Simple"%}</div>
-      <div class="c s2">{%trans "Standard"%}</div>
-      <div class="c s2">{%trans "Full"%}</div>
-     </div>
-
-     <div class="f price">
-      <div class="c4 s4">{%trans "Price"%}</div>
-{%if site.currentlang == 'fa'%}
-      <div class="c s2">{{0 | fitNumber}}</div>
-      <div class="c s2">{{"2,000" | fitNumber}}<sup>{%trans "Toman"%}</sup><br/><small>{%trans "per member/month"%}</small></div>
-      <div class="c s2">{{"10,000" | fitNumber}}<sup>{%trans "Toman"%}</sup><br/><small>{%trans "per member/month"%}</small></div>
-      <div class="c s2">{{"499,000" | fitNumber}}<sup>{%trans "Toman"%}</sup><br/><small>{%trans "per month. fix!"%}</small></div>
-{%else%}
-      <div class="c">0</div>
-      <div class="c">1<sup>$</sup><br/><small>{%trans "per member/month"%}</small></div>
-      <div class="c">5<sup>$</sup><br/><small>{%trans "per member/month"%}</small></div>
-      <div class="c">250<sup>$</sup><br/><small>{%trans "per month"%} <b>fix!</b></small></div>
-{%endif%}
-     </div>
-
-
-     <div class="f">
-      <div class="c4 s4">{%trans "Max number of team members"%}</div>
-      {{fu}} {{fu}} {{fu}} {{fu}}
-     </div>
-
-     <div class="f">
-      <div class="c4 s4">{%trans "Max number of gateway"%}</div>
-      {{f1}} {{f1}} {{fu}} {{fu}}
-     </div>
-
-     <div class="f">
-      <div class="c4 s4">{%trans "Subteam (categorize team)"%}</div>
-      {{ff}} {{ft}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f hide">
-      <div class="c4">{%trans "Face detection"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Save image of each atttendance record"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-     <div class="f th gh"><div class="c4">{%trans "Analytics and reports"%}</div></div>
-
-     <div class="f">
-      <div class="c4">{%trans "Simple reports"%}</div>
-      {{ft}} {{ft}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Custom order reports"%}</div>
-      {{ff}} {{ff}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Visual reports with chart"%}</div>
-      {{ff}} {{ff}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Automatically email monthly report"%}</div>
-      {{ff}} {{ff}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Automatically SMS daily report"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-
-     <div class="f">
-      <div class="c4">{%trans "Professional analytic reports"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Professional analysis chart"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-
-     <div class="f th gh"><div class="c4">{%trans "Telegram Integration"%}</div></div>
-     <div class="f">
-      <div class="c4">{%trans "Report via telegram"%}</div>
-      {{ff}} {{ft}} {{ft}} {{ft}}
-     </div>
-     <div class="f">
-      <div class="c4">{%trans "Automatically send each report to admin(s)"%}</div>
-      {{ff}} {{ft}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Automatically send daily report to group"%}</div>
-      {{ff}} {{ff}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f hide">
-      <div class="c4">{%trans "Request now report"%}</div>
-      {{ff}} {{ff}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f hide">
-      <div class="c4">{%trans "Request daily report"%}</div>
-      {{ff}} {{ff}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Send attendance image"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-
-     <div class="f th gh"><div class="c4">{%trans "Branding"%}</div></div>
-
-     <div class="f">
-      <div class="c4">{%trans "Number of automatic report reciever"%}</div>
-      {{ff}} {{fadmin}} {{fadmin}} {{fu}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Customize with your own logo"%}</div>
-      {{ff}} {{ff}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f hide">
-      <div class="c4">{%trans "Customize the color scheme"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Customize messages"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-
-     <div class="f th gh"><div class="c4">{%trans "Support"%}</div></div>
-     <div class="f">
-      <div class="c4">{%trans "Technical Support"%}</div>
-      {{ft}} {{ft}} {{ft}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Email response time"%} {%trans "(max)"%}</div>
-      <div class="c">{%trans "2 work day"%}</div>
-      <div class="c">{%trans "a work day"%}</div>
-      <div class="c">{%trans "4 hours"%}</div>
-      <div class="c">{%trans "1 hour"%}</div>
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Emergency phone support"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-     <div class="f">
-      <div class="c4">{%trans "Dedicated Success Manager"%}</div>
-      {{ff}} {{ff}} {{ff}} {{ft}}
-     </div>
-
-
-
-
-    </div>
 {%endblock%}
+
 
 
 {%block pageExtra%}
@@ -204,11 +34,11 @@
  </div>
 
 
- <div class="pc p">
+ <div class="pc">
   <div class="cn f">
    <div class="c6 s12">
     <h3>{%trans "Billing & Invoicing"%}</h3>
-     <ul class="ps faq">
+     <ul class="faq">
       <li>
        <h4>{%trans "Is there a setup fee?"%}</h4>
        <p>{%trans "No. There are no setup fees on any of our plans!"%}</p>

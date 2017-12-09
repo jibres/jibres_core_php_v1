@@ -54,54 +54,42 @@ class twigTransTerms
 	echo T_("Learn More");                                                            // Line 29
 	echo T_("Terms of Service");                                                      // Line 30
 	echo T_("Privacy Policy");                                                        // Line 31
-	echo T_("Support");                                                               // Line 168
+	echo T_("Support");                                                               // Line 36
 	echo T_("Contact");                                                               // Line 13
 	echo T_("Logo");                                                                  // Line 39
 	echo T_("Proudly Made in IRAN");                                                  // Line 53
 	echo T_("Control Panel");                                                         // Line 60
-	echo T_("Admin Panel");                                                           // Line 12
+	echo T_("Admin Panel");                                                           // Line 18
 	echo T_("Exit Session");                                                          // Line 62
 	echo T_("Another Session");                                                       // Line 63
 
 	//----------------------------------------------------content\template\header.html
-	echo T_("Store Panel");                                                           // Line 16
+	echo T_("Store Panel");                                                           // Line 12
 	echo T_("Enter");                                                                 // Line 14
 
-	//------------------------------------------content\template\priceSchoolTable.html
+	//------------------------------------------------content\template\priceTable.html
 	echo T_("Free");                                                                  // Line 118
 	echo T_("forever");                                                               // Line 11
-	echo T_("Simple");                                                                // Line 123
-	echo T_("per month");                                                             // Line 45
-	echo T_("Standard");                                                              // Line 128
-	echo T_("Full");                                                                  // Line 133
-
-	//------------------------------------------------content\template\priceTable.html
 	echo T_("All the basics for personal use and anyone who wants to explore Jibres for an <b>unlimited period of time</b>.");// Line 13
-	echo T_("per active user/month");                                                 // Line 41
-	echo T_("Everything in Free plus automatic report via Telegram for who wants have a <b>real time monitoring</b> from anywhere.");// Line 28
-	echo T_("For teams and businesses ready to use Jibres as hero. <b>Everything you need</b> for a growing business.");// Line 43
-	echo T_("For <b>first class companies</b> who requiring full features! All of them is here.");// Line 58
+	echo T_("Standard");                                                              // Line 128
+	echo T_("per month");                                                             // Line 27
+	echo T_("For someones ready to use Jibres as hero.");                             // Line 29
+	echo T_("<b>Everything you need</b> for a growing business.");                    // Line 29
 
 	//----------------------------------------------content\template\static\about.html
-	echo T_("Advancement of technology and development of Web-based business Cause Need new tools to resolve the daily needs and that’s the goal of making Jibres.");// Line 8
-	echo T_("Jibres have a set of simple and practical tools on a regular basis for modern businesses.");// Line 8
-	echo T_("It’s good to know that in addition to the core services, features such as inventory and invoice will be added.");// Line 10
-	echo T_("Attendance system");                                                     // Line 12
-	echo T_("Attendance is so different in Jibres. Beautiful and stylish design without requiring any hardware. Notification via social networks, Online reports and difference compared to other systems are the best feature of Jibres.");// Line 13
-	echo T_("Daily report");                                                          // Line 15
-	echo T_("In many collections received daily reports of the employees is very important. On the other hands Employees reluctant to do that. In addition to the classical method, using social networks on Twitter and Daily Telegram reported in Jibres possible to get there.");// Line 16
-	echo T_("Salary calculator");                                                     // Line 18
-	echo T_("For many small business is very complex method of calculating monthly salary and they Need to have simpler method. In addition to supporting traditional methods, Jibres provide monthly salary simple solutions to employees have modern and beautiful Payroll.");// Line 19
+	echo T_("Advancement of technology and development of Web-based business Cause Need new tools to resolve the daily needs and that’s the goal of making Jibres.");// Line 6
+	echo T_("Jibres have a set of simple and practical tools on a regular basis for modern businesses.");// Line 6
+	echo T_("It’s good to know that in addition to the core services, features such as inventory and invoice will be added.");// Line 8
+	echo T_("Attendance system");                                                     // Line 10
+	echo T_("Attendance is so different in Jibres. Beautiful and stylish design without requiring any hardware. Notification via social networks, Online reports and difference compared to other systems are the best feature of Jibres.");// Line 11
 
 	//-------------------------------------------content\template\static\benefits.html
-	echo T_("Jibres benefits");                                                       // Line 3
-	echo T_("What can you do with Jibres?");                                          // Line 6
+	echo T_("Soon");                                                                  // Line 236
 
 	//------------------------------------------content\template\static\changelog.html
 	echo T_("Date");                                                                  // Line 18
 	echo T_("Description");                                                           // Line 38
 	echo T_("We are Developers, please wait!");                                       // Line 17
-	echo T_("Soon");                                                                  // Line 236
 	echo T_("Alfa version of Jibres will be released.");                              // Line 22
 	echo T_("The name of project selected as Jibres and <a href='http://Jibres.ir'>Jibres.ir</a> domains registered.");// Line 27
 	echo T_("We were born to do Best!");                                              // Line 32
@@ -110,100 +98,42 @@ class twigTransTerms
 	//-----------------------------------------content\template\static\enterprise.html
 	echo T_("Big companies simply don’t work like small companies, and they don’t use Jibres the same way either. That’s why there’s Enterprise.");// Line 6
 
-	//-------------------------------------------content\template\static\for\home.html
-	echo T_("Jibres solutions");                                                      // Line 3
-	echo T_("Jibres is trying to have a solution for special business.");             // Line 6
-	echo T_("Check Jibres for School.");                                              // Line 12
-	echo T_("Now only available for Iranians");                                       // Line 15
-
-	//-----------------------------------------content\template\static\for\school.html
-	echo T_("Jibres for School");                                                     // Line 3
-	echo T_("Jibres provide complete solution for school.");                          // Line 6
-
 	//-------------------------------------------content\template\static\help\faq.html
-	echo T_("General questions");                                                     // Line 245
-	echo T_("How does Jibres work?");                                                 // Line 248
+	echo T_("General questions");                                                     // Line 68
+	echo T_("How does Jibres work?");                                                 // Line 71
 	echo T_("The easiest way to learn how to use Jibres is enter to it, which takes less than 3 minutes to setup your team.");// Line 12
-	echo T_("What is your privacy and security policy?");                             // Line 252
-	echo T_("View Jibres's privacy and security policy at");                          // Line 253
-	echo T_("Where can I find your Terms of Service (TOS)?");                         // Line 256
-	echo T_("You can find them at");                                                  // Line 257
-	echo T_("What are your bandwidth fees?");                                         // Line 260
-	echo T_("There are none. All Jibres plans include unlimited bandwidth for free.");// Line 261
-	echo T_("Do I need a web host?");                                                 // Line 264
-	echo T_("No! Jibres includes secure, unlimited hosting on all plans with free bandwith.");// Line 265
-	echo T_("Billing & Invoicing");                                                   // Line 217
-	echo T_("Is there a setup fee?");                                                 // Line 220
-	echo T_("No. There are no setup fees on any of our plans!");                      // Line 221
-	echo T_("Can I cancel my account at any time?");                                  // Line 225
-	echo T_("Yes. If you ever decide that Jibres isn’t the best platform for your business, simply cancel your account.");// Line 226
-	echo T_("How long are your contracts?");                                          // Line 230
-	echo T_("All Jibres plans are month to month. simple.");                          // Line 231
-	echo T_("Can I change my plan later on?");                                        // Line 234
-	echo T_("Absolutely! You can upgrade or downgrade your plan at any time.");       // Line 235
-	echo T_("When is my billing date?");                                              // Line 238
-	echo T_("The date you first select a paid plan will be the recurring billing date. For example: If you sign up for the first time on July 15, all future charges will be billed on the 15th of every month.");// Line 239
+	echo T_("What is your privacy and security policy?");                             // Line 75
+	echo T_("View Jibres's privacy and security policy at");                          // Line 76
+	echo T_("Where can I find your Terms of Service (TOS)?");                         // Line 79
+	echo T_("You can find them at");                                                  // Line 80
+	echo T_("What are your bandwidth fees?");                                         // Line 83
+	echo T_("There are none. All Jibres plans include unlimited bandwidth for free.");// Line 84
+	echo T_("Do I need a web host?");                                                 // Line 87
+	echo T_("No! Jibres includes secure, unlimited hosting on all plans with free bandwith.");// Line 88
+	echo T_("Billing & Invoicing");                                                   // Line 40
+	echo T_("Is there a setup fee?");                                                 // Line 43
+	echo T_("No. There are no setup fees on any of our plans!");                      // Line 44
+	echo T_("Can I cancel my account at any time?");                                  // Line 48
+	echo T_("Yes. If you ever decide that Jibres isn’t the best platform for your business, simply cancel your account.");// Line 49
+	echo T_("How long are your contracts?");                                          // Line 53
+	echo T_("All Jibres plans are month to month. simple.");                          // Line 54
+	echo T_("Can I change my plan later on?");                                        // Line 57
+	echo T_("Absolutely! You can upgrade or downgrade your plan at any time.");       // Line 58
+	echo T_("When is my billing date?");                                              // Line 61
+	echo T_("The date you first select a paid plan will be the recurring billing date. For example: If you sign up for the first time on July 15, all future charges will be billed on the 15th of every month.");// Line 62
 
 	//------------------------------------------content\template\static\help\home.html
 	echo T_("We try to complete help center as soon as posible");                     // Line 6
 
 	//-----------------------------------------------content\template\static\logo.html
-	echo T_("Jibres Logo");                                                           // Line 3
-	echo T_("Need know more about Jibres Logo? Be patient...");                       // Line 6
-	echo T_("Drawing logo");                                                          // Line 12
-	echo T_("Dowload our logo");                                                      // Line 79
-	echo T_("Square");                                                                // Line 80
-	echo T_("Circle");                                                                // Line 114
 
 	//---------------------------------------content\template\static\pricing\home.html
-	echo T_("Plans and Pricing of Jibres");                                           // Line 3
-	echo T_("Always know what you'll pay per month.");                                // Line 6
-	echo T_("Simple pricing");                                                        // Line 6
-	echo T_("only team admin");                                                       // Line 16
-	echo T_("Unlimited");                                                             // Line 17
-	echo T_("FREE");                                                                  // Line 28
-	echo T_("Price");                                                                 // Line 19
-	echo T_("Toman");                                                                 // Line 40
-	echo T_("per member/month");                                                      // Line 44
-	echo T_("per month. fix!");                                                       // Line 40
-	echo T_("Max number of team members");                                            // Line 51
-	echo T_("Max number of gateway");                                                 // Line 56
-	echo T_("Subteam (categorize team)");                                             // Line 61
-	echo T_("Face detection");                                                        // Line 66
-	echo T_("Save image of each atttendance record");                                 // Line 71
-	echo T_("Analytics and reports");                                                 // Line 75
-	echo T_("Simple reports");                                                        // Line 78
-	echo T_("Custom order reports");                                                  // Line 83
-	echo T_("Visual reports with chart");                                             // Line 88
-	echo T_("Automatically email monthly report");                                    // Line 93
-	echo T_("Automatically SMS daily report");                                        // Line 98
-	echo T_("Professional analytic reports");                                         // Line 104
-	echo T_("Professional analysis chart");                                           // Line 109
-	echo T_("Telegram Integration");                                                  // Line 114
-	echo T_("Report via telegram");                                                   // Line 116
-	echo T_("Automatically send each report to admin(s)");                            // Line 120
-	echo T_("Automatically send daily report to group");                              // Line 125
-	echo T_("Request now report");                                                    // Line 130
-	echo T_("Request daily report");                                                  // Line 135
-	echo T_("Send attendance image");                                                 // Line 140
-	echo T_("Branding");                                                              // Line 145
-	echo T_("Number of automatic report reciever");                                   // Line 148
-	echo T_("Customize with your own logo");                                          // Line 153
-	echo T_("Customize the color scheme");                                            // Line 158
-	echo T_("Customize messages");                                                    // Line 163
-	echo T_("Technical Support");                                                     // Line 170
-	echo T_("Email response time");                                                   // Line 175
-	echo T_("(max)");                                                                 // Line 175
-	echo T_("2 work day");                                                            // Line 176
-	echo T_("a work day");                                                            // Line 177
-	echo T_("4 hours");                                                               // Line 178
-	echo T_("1 hour");                                                                // Line 179
-	echo T_("Emergency phone support");                                               // Line 183
-	echo T_("Dedicated Success Manager");                                             // Line 188
-	echo T_("Ready to use Jibres Enterprise?");                                       // Line 203
-	echo T_("Get started with our Enterprise plan.");                                 // Line 204
-	echo T_("Get in Touch");                                                          // Line 207
-	echo T_("The easiest way to learn how to use Tejark is enter to it, which takes less than 3 minutes to setup your team.");// Line 249
+	echo T_("only team admin");                                                       // Line 9
+	echo T_("Unlimited");                                                             // Line 10
+	echo T_("Ready to use Jibres Enterprise?");                                       // Line 26
+	echo T_("Get started with our Enterprise plan.");                                 // Line 27
+	echo T_("Get in Touch");                                                          // Line 30
+	echo T_("The easiest way to learn how to use Tejark is enter to it, which takes less than 3 minutes to setup your team.");// Line 72
 
 	//--------------------------------------------content\template\static\privacy.html
 	echo T_("What is Privacy?");                                                      // Line 6
@@ -446,6 +376,7 @@ class twigTransTerms
 	echo T_("Max");                                                                   // Line 177
 	echo T_("Average");                                                               // Line 186
 	echo T_("Buy Price");                                                             // Line 197
+	echo T_("Price");                                                                 // Line 19
 
 	//-------------------------------------------------content_a\sell\add\display.html
 	echo T_("Save & edit");                                                           // Line 39
@@ -489,8 +420,10 @@ class twigTransTerms
 	echo T_("Used for description of board and show in social media links");          // Line 107
 	echo T_("Choose your plan");                                                      // Line 114
 	echo T_("All the basics for personal use.");                                      // Line 118
+	echo T_("Simple");                                                                // Line 123
 	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 123
 	echo T_("Everything you need for a growing business.");                           // Line 128
+	echo T_("Full");                                                                  // Line 133
 	echo T_("For big companies that need fix price per month.");                      // Line 133
 	echo T_("Force show in specefic language");                                       // Line 142
 	echo T_("Please select one language");                                            // Line 144
@@ -551,7 +484,6 @@ class twigTransTerms
 	echo T_("Add new store");                                                         // Line 31
 
 	//---------------------------------------------content_subdomain\home\display.html
-	echo T_("; ");                                                                    // Line 9
 
 	//--------------------------------------------includes\languages\trans_static.html
 	echo T_(" ");                                                                     // Line 11 Seperate
