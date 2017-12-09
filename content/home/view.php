@@ -68,6 +68,28 @@ class view extends \mvc\view
 				break;
 
 
+			case 'help':
+				switch ($this->child())
+				{
+					case 'faq':
+						$this->data->page['title'] = T_('Frequently Asked Questions');
+						$this->data->page['desc']  = T_('This FAQ provides answers to basic questions about Jibres.');
+						break;
+
+					default:
+						$this->data->page['title'] = T_('Help Center');
+						$this->data->page['desc']  = T_('Need HELP? Be patient...');
+						break;
+				}
+				break;
+
+
+			case 'help_faq':
+				$this->data->page['title'] = T_('Help Center');
+				$this->data->page['desc']  = T_('Need HELP? Be patient...');
+				break;
+
+
 			case 'about':
 				$this->data->page['title'] = T_('About our platform');
 				$this->data->page['desc']  = $this->data->site['desc'];
