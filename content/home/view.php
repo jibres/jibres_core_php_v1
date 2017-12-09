@@ -44,10 +44,17 @@ class view extends \mvc\view
 				break;
 
 
+			case 'privacy':
+				$this->data->page['title'] = T_('Privacy Policy');
+				$this->data->page['desc']  = T_('We wish to assure you that our main concern is to secure your privacy and protect your information against impermissible access.');
+				break;
+
+
 			case 'about':
 				$this->data->page['title'] = T_('About our platform');
 				$this->data->page['desc']  = $this->data->site['desc'];
 				break;
+
 
 
 			default:
