@@ -165,7 +165,7 @@ class factor
 
 
 
-			$new_list[$key]['count']      = intval($value['count']);
+			$new_list[$key]['count']      = floatval($value['count']);
 			$new_list[$key]['discount']   = intval($value['discount']);
 			$new_list[$key]['product_id'] = $product_id;
 
@@ -228,7 +228,7 @@ class factor
 			$temp['price']      = $price;
 			$temp['count']      = $value['count'] === null ? 1 : $value['count'];
 			$temp['discount']   = $value['discount'] === null ? $check_true_product[$value['product_id']]['discount'] : $value['discount'];
-			$temp['sum']        = (floatval($price) - floatval($value['discount'])) * intval($value['count']);
+			$temp['sum']        = (floatval($price) - floatval($value['discount'])) * floatval($value['count']);
 
 			$factor_detail[] = $temp;
 		}
