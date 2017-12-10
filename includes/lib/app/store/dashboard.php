@@ -55,18 +55,20 @@ trait dashboard
 
 	public static function user_count($_type, $_clean_cache = false)
 	{
+		$cache_key = 'store_dashboard_'. $_type. '_'. \lib\store::id();
+
 		if($_clean_cache)
 		{
-			\lib\session::set('store_dashboard_'. $_type, null);
+			\lib\session::set($cache_key, null);
 			return null;
 		}
 
-		$count = \lib\session::get('store_dashboard_'. $_type);
+		$count = \lib\session::get($cache_key);
 		if($count === null)
 		{
-			$count = \lib\db\userstores::get_count(['type' => $_type]);
+			$count = \lib\db\userstores::get_count(['type' => $_type, 'store_id' => \lib\store::id()]);
 			$count = intval($count);
-			\lib\session::set('store_dashboard_'. $_type, $count, null,  self::$life_time);
+			\lib\session::set($cache_key, $count, null,  self::$life_time);
 		}
 		return $count;
 	}

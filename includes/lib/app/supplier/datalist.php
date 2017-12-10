@@ -6,6 +6,8 @@ trait datalist
 {
 	public static function list($_string = null, $_options = [])
 	{
+		$_options['store_id'] = \lib\store::id();
+
 		$list = \lib\db\userstores::search($_string, $_options);
 		$temp = [];
 		if(is_array($list))
