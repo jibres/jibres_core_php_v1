@@ -83,5 +83,11 @@ class userstore
 			return self::$userstore;
 		}
 	}
+
+
+	public static function in_store()
+	{
+		return self::id();
+	}
 }
 ?>

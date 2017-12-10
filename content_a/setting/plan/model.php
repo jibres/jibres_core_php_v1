@@ -15,17 +15,14 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		$team = \lib\router::get_url(0);
-		$team = \lib\utility\shortURL::decode($team);
-
-		if(!$team)
+		if(!\lib\store::id())
 		{
-			\lib\db\logs::set('plan:invalid:team', $this->login('id'));
-			debug::error(T_("Invalid team!"), 'team');
+			\lib\db\logs::set('plan:invalid:store', $this->login('id'));
+			debug::error(T_("Invalid store!"), 'store');
 			return false;
 		}
 
-		return \lib\db\teamplans::current($team);
+		return \lib\db\storeplans::current(\lib\store::id());
 
 	}
 
@@ -59,9 +56,10 @@ class model extends \content_a\main\model
 			// 'pro',
 			// 'business'
 			'free',
-			'simple',
+			// 'simple',
 			'standard',
-			'full'
+			'standard_year',
+			// 'full'
 		];
 
 		if(!in_array($plan, $all_plan_list))
@@ -71,36 +69,31 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		$team = \lib\router::get_url(0);
-		$team = \lib\utility\shortURL::decode($team);
-
-		if(!$team)
+		if(!\lib\store::id())
 		{
-			\lib\db\logs::set('plan:invalid:team', $this->login('id'));
-			debug::error(T_("Invalid team!"), 'team');
+			\lib\db\logs::set('plan:invalid:store', $this->login('id'));
+			debug::error(T_("Invalid store!"), 'store');
 			return false;
 		}
 
-		$access = \lib\db\teams::access_team_id($team, $this->login('id'), ['action' => 'admin']);
-
-		if(!$access)
+		if(!\lib\store::is_creator())
 		{
 			\lib\db\logs::set('plan:no:access:to:change:plan', $this->login('id'));
-			debug::error(T_("No access to change plan"), 'team');
+			debug::error(T_("No access to change plan"), 'store');
 			return false;
 		}
 
 		$args =
 		[
-			'team_id' => $team,
-			'plan'    => $plan,
-			'creator' => $this->login('id'),
+			'store_id' => \lib\store::id(),
+			'plan'     => $plan,
+			'creator'  => $this->login('id'),
 		];
-		$result = \lib\db\teamplans::set($args);
+		$result = \lib\db\storeplans::set($args);
 
 		if($result)
 		{
-			debug::true(T_("Your team plan was changed"));
+			debug::true(T_("Your store plan was changed"));
 			if(debug::$status)
 			{
 				$this->redirector($this->url('full'));
@@ -108,7 +101,7 @@ class model extends \content_a\main\model
 		}
 		else
 		{
-			// debug::error(T_("Can not save this plan of your team"));
+			// debug::error(T_("Can not save this plan of your store"));
 			return false;
 		}
 	}

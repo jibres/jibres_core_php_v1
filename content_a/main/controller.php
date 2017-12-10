@@ -16,6 +16,11 @@ class controller extends \mvc\controller
 		{
 			\lib\error::page(T_("SubDomain not found"));
 		}
+
+		if(!\lib\userstore::in_store())
+		{
+			\lib\error::access();
+		}
 	}
 }
 ?>

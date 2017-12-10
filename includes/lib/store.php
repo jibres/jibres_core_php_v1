@@ -107,5 +107,37 @@ class store
 			return self::$store;
 		}
 	}
+
+
+	/**
+	 * check the user is creator of this store or no
+	 *
+	 * @return     boolean  True if creator, False otherwise.
+	 */
+	public static function is_creator()
+	{
+		if(
+			\lib\user::id() &&
+			\lib\store::id() &&
+			\lib\store::detail('creator') &&
+			intval(\lib\user::id()) === intval(\lib\store::detail('creator'))
+		  )
+		{
+			return true;
+		}
+		return false;
+	}
+
+
+	public static function plan()
+	{
+		return self::detail('plan');
+	}
+
+
+	public static function creator()
+	{
+		return intval(self::detail('creator'));
+	}
 }
 ?>
