@@ -41,6 +41,11 @@ class store
 
 		if(is_array($store_detail))
 		{
+			if(array_key_exists('logo', $store_detail) && !$store_detail['logo'])
+			{
+				$store_detail['logo'] = \lib\app::static_logo_url();
+			}
+
 			self::$store = $store_detail;
 			\lib\session::set('store_detail_'. SubDomain, $store_detail);
 		}
