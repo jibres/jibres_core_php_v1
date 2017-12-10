@@ -247,29 +247,55 @@ trait search
 		$search = null;
 		if($_string !== null)
 		{
-			$_string   = trim($_string);
-			$barcode   = \lib\utility\convert::to_barcode($_string);
-			$en_number = \lib\utility\convert::to_en_number($_string);
+			$search_in_code = false;
 
-			$search =
-			"
-			(
-				products.title 	  LIKE '%$_string%' OR
+			if(substr($_string, 0, 1) === '+')
+			{
+				$_string        = trim($_string);
+				$my_code        = substr($_string, 1);
+				$search_in_code = true;
+			}
+			else
+			{
+				$_string   = trim($_string);
+				$barcode   = \lib\utility\convert::to_barcode($_string);
+				$en_number = \lib\utility\convert::to_en_number($_string);
+			}
 
-				products.cat 	  = '$_string' 		OR
-				products.unit 	  = '$_string' 		OR
+			// search by +
+			if($search_in_code)
+			{
+				$search =
+				"
+				(
+					products.code = '$my_code'
+				)
+				";
+			}
+			else
+			{
 
-				products.price    = '$en_number' 	OR
-				products.discount = '$en_number' 	OR
-				products.buyprice = '$en_number' 	OR
+				$search =
+				"
+				(
+					products.title 	  LIKE '%$_string%' OR
+					$search_in_code
+					products.cat 	  = '$_string' 		OR
+					products.unit 	  = '$_string' 		OR
 
-				products.barcode  = '$_string' 		OR
-				products.barcode2 = '$_string' 		OR
+					products.price    = '$en_number' 	OR
+					products.discount = '$en_number' 	OR
+					products.buyprice = '$en_number' 	OR
 
-				products.barcode  = '$barcode' 		OR
-				products.barcode2 = '$barcode'
-			)
-			";
+					products.barcode  = '$_string' 		OR
+					products.barcode2 = '$_string' 		OR
+
+					products.barcode  = '$barcode' 		OR
+					products.barcode2 = '$barcode'
+				)
+				";
+
+			}
 
 			if($where)
 			{

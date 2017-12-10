@@ -143,6 +143,13 @@ class view extends \content_a\main\view
 			$result['discount'] = $_data['discount'];
 		}
 
+		if(isset($_data['code']))
+		{
+			$result['desc'] = T_("Code"). ' +'. $_data['code'];
+		}
+
+
+
 		// $all_field_we_have =
 		// [
 		// 	'title', 'name', 'cat', 'slug', 'company', 'shortcode', 'unit',

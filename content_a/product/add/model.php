@@ -9,6 +9,7 @@ class model extends \content_a\main\model
 		$args =
 		[
 			'title'          => \lib\utility::post('title'),
+			'code'            => \lib\utility::post('code'),
 
 			'cat'            => \lib\utility::post('cat'),
 			'company'        => \lib\utility::post('company'),

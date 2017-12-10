@@ -10,6 +10,7 @@ class model extends \content_a\main\model
 		[
 			'title'          => \lib\utility::post('title'),
 			'name'           => \lib\utility::post('name'),
+			'code'           => \lib\utility::post('code'),
 			'cat'            => \lib\utility::post('cat'),
 			'slug'           => \lib\utility::post('slug'),
 			'company'        => \lib\utility::post('company'),

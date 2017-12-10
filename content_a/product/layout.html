@@ -114,6 +114,14 @@
 
 
 
+{%block iCode%}
+<label for='code'>{%trans "Code"%}</label>
+<div class="input">
+ <input type="text" name="code" id="code" placeholder='{%trans "Code for quick access"%}' value="{{product.code}}" maxlength="50">
+</div>
+{%endblock%}
+
+
 {%block iShortcode%}
 <label for='shortcode'>{%trans "Short code"%}</label>
 <div class="input">
