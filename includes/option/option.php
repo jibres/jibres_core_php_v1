@@ -28,11 +28,11 @@ self::$language =
  * system default lanuage
  */
 self::$config['default_language']             = 'fa';
-self::$config['redirect_url']                 = 'http://jibres.dev';
+self::$config['redirect_url']                 = 'https://jibres.com';
 self::$config['multi_domain']                 = true;
 self::$config['redirect_to_main']             = true;
-self::$config['https']                        = false;
-self::$config['default_tld']                  = 'dev';
+self::$config['https']                        = true;
+self::$config['default_tld']                  = 'com';
 self::$config['default_permission']           = null;
 self::$config['debug']                        = true;
 self::$config['coming']                       = false;
@@ -58,7 +58,7 @@ self::$config['use_main_account']             = false;
 
 self::$config['domain_same']                  = true;
 self::$config['domain_name']                  = 'jibres';
-self::$config['main_site']                    = 'http://jibres.dev';
+self::$config['main_site']                    = 'https://jibres.com';
 
 
 
