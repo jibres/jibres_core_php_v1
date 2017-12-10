@@ -1,7 +1,5 @@
 <?php
 namespace content\contact;
-use \lib\debug;
-use \lib\utility;
 
 class model extends \mvc\model
 {
@@ -29,7 +27,7 @@ class model extends \mvc\model
 
 			if(!$mobile)
 			{
-				$mobile = utility::post('mobile');
+				$mobile = \lib\utility::post('mobile');
 			}
 
 			// get display name from user login session
@@ -37,26 +35,26 @@ class model extends \mvc\model
 			// user not set users display name, we get display name from contact form
 			if(!$displayname)
 			{
-				$displayname = utility::post("name");
+				$displayname = \lib\utility::post("name");
 			}
 			// get email from user login session
 			$email = \lib\db\users::get_email($user_id);
 			// user not set users email, we get email from contact form
 			if(!$email)
 			{
-				$email = utility::post("email");
+				$email = \lib\utility::post("email");
 			}
 		}
 		else
 		{
 			// users not registered
 			$user_id     = null;
-			$displayname = utility::post("name");
-			$email       = utility::post("email");
-			$mobile      = utility::post("mobile");
+			$displayname = \lib\utility::post("name");
+			$email       = \lib\utility::post("email");
+			$mobile      = \lib\utility::post("mobile");
 		}
 		// get the content
-		$content = utility::post("content");
+		$content = \lib\utility::post("content");
 
 		// save log meta
 		$log_meta =
@@ -65,7 +63,7 @@ class model extends \mvc\model
 			[
 				'login'    => $this->login('all'),
 				'language' => \lib\define::get_language(),
-				'post'     => utility::post(),
+				'post'     => \lib\utility::post(),
 			]
 		];
 
@@ -74,8 +72,10 @@ class model extends \mvc\model
 		 */
 		if($mobile && !$this->login())
 		{
+			$mobile = \lib\utility\filter::mobile($mobile);
+
 			// check valid mobile
-			if(\lib\utility\filter::mobile($mobile))
+			if($mobile)
 			{
 				// check existing mobile
 				$exists_user = \lib\db\users::get_by_mobile($mobile);
@@ -83,9 +83,13 @@ class model extends \mvc\model
 				if(!$exists_user || empty($exists_user))
 				{
 					// signup user by site_guest
-					$user_id = \lib\db\users::signup(['mobile' => $mobile ,'type' => 'inspection', 'port' => 'site_guest']);
+					$user_id = \lib\db\users::signup(['mobile' => $mobile, 'displayname' => $displayname]);
 					// save log by caller 'user:send:contact:register:by:mobile'
 					\lib\db\logs::set('user:send:contact:register:by:mobile', $user_id, $log_meta);
+				}
+				elseif(isset($exists_user['id']))
+				{
+					$user_id = $exists_user['id'];
 				}
 			}
 		}
@@ -93,8 +97,7 @@ class model extends \mvc\model
 		// check content
 		if($content == '')
 		{
-			\lib\db\logs::set('user:send:contact:empty:message', $user_id, $log_meta);
-			debug::error(T_("Please try type something!"), "content");
+			\lib\debug::error(T_("Please try type something!"), "content");
 			return false;
 		}
 		// ready to insert comments
@@ -104,7 +107,7 @@ class model extends \mvc\model
 			'email'   => $email,
 			'type'    => 'comment',
 			'content' => $content,
-			'user_id'         => $user_id
+			'user_id' => $user_id
 		];
 		// insert comments
 		$result = \lib\db\comments::insert($args);
@@ -121,12 +124,12 @@ class model extends \mvc\model
 			// \lib\utility\mail::send($mail);
 
 			\lib\db\logs::set('user:send:contact', $user_id, $log_meta);
-			debug::true(T_("Thank You For contacting us"));
+			\lib\debug::true(T_("Thank You For contacting us"));
 		}
 		else
 		{
 			\lib\db\logs::set('user:send:contact:fail', $user_id, $log_meta);
-			debug::error(T_("We could'nt save the contact"));
+			\lib\debug::error(T_("We could'nt save the contact"));
 		}
 	}
 }
