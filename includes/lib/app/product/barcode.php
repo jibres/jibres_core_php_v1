@@ -33,7 +33,7 @@ trait barcode
 			]
 		];
 
-		$check_exist  = \lib\db\products::get_barcode($_barcode);
+		$check_exist  = \lib\db\products::get_barcode($_barcode, \lib\store::id());
 		$log_meta['meta']['barcode'] = $check_exist;
 
 		if(!$check_exist)

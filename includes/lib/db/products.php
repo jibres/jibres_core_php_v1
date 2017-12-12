@@ -102,14 +102,19 @@ class products
 	 *
 	 * @return     boolean  The barcode.
 	 */
-	public static function get_barcode($_barcode)
+	public static function get_barcode($_barcode, $_store_id)
 	{
 		if(!$_barcode)
 		{
 			return false;
 		}
 
-		$query = "SELECT * FROM  products WHERE products.barcode = '$_barcode' OR products.barcode2 = '$_barcode' ";
+		if(!$_store_id || !is_numeric($_store_id))
+		{
+			return false;
+		}
+
+		$query = "SELECT * FROM  products WHERE products.store_id = $_store_id AND (products.barcode = '$_barcode' OR products.barcode2 = '$_barcode')";
 		return \lib\db::get($query);
 	}
 
