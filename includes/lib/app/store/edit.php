@@ -83,7 +83,7 @@ trait edit
 			{
 				if(!$update)
 				{
-					$args['slug'] = $this->slug_fix($args);
+					$args['slug'] = self::slug_fix($args);
 					$update = \lib\db\stores::update($args, $check_is_admin['id']);
 				}
 				// user change slug
@@ -100,6 +100,48 @@ trait edit
 		{
 			\lib\debug::true(T_("Your store successfully update"));
 		}
+	}
+
+
+
+	public static function edit_logo($_logo_url)
+	{
+		if(!$_logo_url || !is_string($_logo_url))
+		{
+			return false;
+		}
+
+		if(!\lib\store::id())
+		{
+			\lib\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
+			debug::error(T_("Id not set"), 'id', 'permission');
+			return false;
+		}
+
+		$check_is_admin = \lib\db\stores::get(['id' => \lib\store::id(), 'creator' => \lib\user::id(), 'limit' => 1]);
+		if(!$check_is_admin || !isset($check_is_admin['id']))
+		{
+			\lib\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
+			debug::error(T_("Can not access to edit store"), 'store');
+			return false;
+		}
+
+		if(\lib\store::detail('logo') === $_logo_url)
+		{
+			\lib\debug::warn(T_("No change in store logo"));
+			return null;
+		}
+
+		$update = \lib\db\stores::update(['logo' => $_logo_url], \lib\store::id());
+
+		if($update)
+		{
+			\lib\store::clean();
+			\lib\debug::true(T_("The store logo updated"));
+			return true;
+		}
+
+		return false;
 	}
 }
 ?>

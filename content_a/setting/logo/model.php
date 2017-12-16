@@ -11,16 +11,20 @@ class model extends \content_a\main\model
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public function upload_logo()
+	public static function upload_logo()
 	{
-		if(utility::files('logo'))
+		if(\lib\utility::files('logo'))
 		{
-			$this->user_id = $this->login('id');
-			utility::set_request_array(['upload_name' => 'logo']);
-			$uploaded_file = $this->upload_file(['debug' => false]);
-			if(isset($uploaded_file['code']))
+			$uploaded_file = \lib\app\file::upload(['debug' => false, 'upload_name' => 'logo']);
+
+			if(isset($uploaded_file['url']))
 			{
-				return $uploaded_file['code'];
+				return $uploaded_file['url'];
+			}
+			// if in upload have error return
+			if(!\lib\debug::$status)
+			{
+				return false;
 			}
 		}
 		return null;
@@ -34,23 +38,19 @@ class model extends \content_a\main\model
 	 */
 	public function post_logo($_args)
 	{
-		$code = \lib\router::get_url(0);
-		$request       = [];
+		$upload = self::upload_logo();
 
-		if(utility::files('logo'))
+		if($upload)
 		{
-			$request['logo'] = $this->upload_logo();
+			\lib\app\store::edit_logo($upload);
+		}
+		else
+		{
+			\lib\debug::error(T_("No file was sended"), 'logo');
+			return false;
 		}
 
-		$this->user_id = $this->login('id');
-		$request['id'] = $code;
-
-		utility::set_request_array($request);
-
-		// THE API ADD TEAM FUNCTION BY METHOD PATHC
-		$this->add_team(['method' => 'patch']);
-
-		if(debug::$status)
+		if(\lib\debug::$status)
 		{
 			$this->redirector($this->url('full'));
 		}
