@@ -62,6 +62,8 @@ class model extends \content_a\main\model
 	 */
 	public function post_sell_add()
 	{
+
+
 		// ready sell_list
 		$sell_list = self::getPostSellProduct();
 
@@ -78,11 +80,33 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		\lib\app\factor::add($detail, $sell_list);
+		$factor_detail = \lib\app\factor::add($detail, $sell_list);
 
 		if(\lib\debug::$status)
 		{
-			$this->redirector($this->url('base'). '/a/sell');
+			if(isset($factor_detail['factor_id']))
+			{
+				switch (\lib\utility::post('btn_type'))
+				{
+					case 'save_next':
+						$redirect_url = $this->url('base'). '/a/sell/add';
+						break;
+
+					case 'save_print':
+						$redirect_url = $this->url('base'). '/a/sell/fishprint?id='. $factor_detail['factor_id'];
+						break;
+
+					default:
+						$redirect_url = $this->url('base'). '/a/sell';
+						break;
+				}
+			}
+			else
+			{
+				$redirect_url = $this->url('base'). '/a/sell';
+			}
+
+			$this->redirector($redirect_url);
 		}
 	}
 }

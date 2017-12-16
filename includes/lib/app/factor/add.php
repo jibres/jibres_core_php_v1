@@ -98,6 +98,8 @@ trait add
 			return false;
 		}
 
+		$return['factor_id'] = \lib\utility\shortURL::encode($factor_id);
+
 		foreach ($factor_detail as $key => $value)
 		{
 			$factor_detail[$key]['factor_id'] = $factor_id;
