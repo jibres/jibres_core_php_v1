@@ -12,9 +12,16 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['link'] = $this->url('baseFull'). '/buy/add';
 		$this->data->page['badge']['text'] = T_('Add new buy');
 
-		$meta         = [];
+		$args =
+		[
+			'order' => \lib\utility::get('order'),
+			'sort'  => \lib\utility::get('sort'),
+			'type'  => 'buy',
+		];
 
-		$this->data->buy_list = \lib\app\factor::list(\lib\utility::get('search'), $meta);
+		$this->data->buy_list = \lib\app\factor::list(\lib\utility::get('search'), $args);
+
+		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, $this->url('baseFull'). '/buy');
 
 		if(isset($this->controller->pagnation))
 		{

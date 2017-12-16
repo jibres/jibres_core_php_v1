@@ -11,51 +11,65 @@
       </div>
     </form>
 
-    {%for key, value in buy_list%}
-      <div class="icard">
-        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/buy/edit/general?id={{value.id}}">
-          {%if value.avatar%}
-            <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
-          {%else%}
-            <img src="{{url.static}}siftal/images/useful/user1.png" alt="{{value.name}} {{value.lastname}}">
-          {%endif%}
-        </a>
+    <table class="tbl">
+      <thead>
 
-        <div class="f-column align-start fc-black">
-          <a href="{{url.baseFull}}/buy/edit/general?id={{value.id}}">
-            {{value.firstname}} <b>{{value.lastname}}</b>
-          </a>
-          <span>{{value.father}}</span>
-        </div>
+        <tr>
+          <th data-sort="{{sort_link.date.order}}"><a href="{{sort_link.date.link}}">{%trans "Date"%}</a></th>
+          <th data-sort="{{sort_link.detailsum.order}}"><a href="{{sort_link.detailsum.link}}">{%trans "Price"%}</a></th>
+          <th data-sort="{{sort_link.detailtotalsum.order}}"><a href="{{sort_link.detailtotalsum.link}}">{%trans "Sum"%}</a></th>
+          <th data-sort="{{sort_link.detaildiscount.order}}"><a href="{{sort_link.detaildiscount.link}}">{%trans "Discount"%}</a></th>
+          <th data-sort="{{sort_link.detailcount.order}}"><a href="{{sort_link.detailcount.link}}">{%trans "Count"%}</a></th>
+          <th >{%trans "Print"%}</th>
+        </tr>
 
-        <div class="justify-start">
-          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
-          {{value.mobile|fitNumber}}
-          {%endif%}
-        </div>
+      </thead>
+      <tbody>
+        {%for key, value in buy_list%}
+          <tr>
+            <td>{{value.date|tdate("Y-m-d")}}</td>
+            <td>{{value.detailsum| number_format | fitNumber}}</td>
+            <td>{{value.detailtotalsum| number_format | fitNumber}}</td>
+            <td>{{value.detaildiscount| number_format | fitNumber}}</td>
+            <td>{{value.detailcount| number_format | fitNumber}}</td>
+            <td><a href="{{url.baseFull}}/buy/fishprint?id={{value.id}}"><i class="sf-print"></i></a></td>
+          </tr>
+        {%endfor%}
+      </tbody>
+    </table>
 
-        <div>
-          {{value.birthday|fitNumber}}
-        </div>
-
-        <div>
-          {{value.nationalcode|fitNumber}}
-        </div>
-      </div>
-    {%endfor%}
-
-    <div class="icard">
-      <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/buy/add">
-        <img src="{{url.static}}siftal/images/useful/adduser.png" alt="add">
-      </a>
-      <div>
-        <a href="{{url.baseFull}}/buy/add" class="btn primary block">{%trans "Add new buy"%}</a>
-      </div>
-    </div>
 
     {%include display.pagination%}
+    <a href="{{url.baseFull}}/buy/add" class="btn primary block">{%trans "Add new buy"%}</a>
   </div>
 </div>
 
 {%endblock%}
 
+
+
+{%block all_field_we_have_hidden%}
+
+    'id'             => string '4' (length=1)
+    'store_id'       => string '9' (length=1)
+    'customer'       => null
+    'buyer'         => string '7' (length=1)
+    'date'           => string '2017-11-20 15:37:57' (length=19)
+    'shamsidate'     => string '13960829' (length=8)
+    'title'          => null
+    'pre'            => null
+    'transport'      => null
+    'pay'            => null
+    'detailsum'      => string '16000' (length=5)
+    'detaildiscount' => null
+    'detailtotalsum' => string '16000' (length=5)
+    'detailcount'    => string '2' (length=1)
+    'vat'            => null
+    'discount'       => null
+    'sum'            => string '16000' (length=5)
+    'status'         => string 'enable' (length=6)
+    'datecreated'    => string '2017-11-20 15:37:57' (length=19)
+    'datemodified'   => null
+    'desc'           => null
+
+{%endblock%}

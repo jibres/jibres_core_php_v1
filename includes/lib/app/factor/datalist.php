@@ -19,56 +19,59 @@ trait datalist
 	/**
 	 * Gets the factor.
 	 *
-	 * @param      <type>  $_args  The arguments
+	 * @param      <type>  $_option  The arguments
 	 *
 	 * @return     <type>  The factor.
 	 */
-	public static function list($_string = null, $_args = [])
+	public static function list($_string = null, $_option = [])
 	{
 		if(!\lib\user::id())
 		{
 			return false;
 		}
 
+
 		if(!\lib\store::id())
 		{
 			return false;
 		}
 
-		$default_args =
+		$default_option =
 		[
-			'order'  => null,
-			'sort'   => null,
+			'order' => null,
+			'sort'  => null,
+			'type'  => 'sell',
 		];
 
-		if(!is_array($_args))
+		if(!is_array($_option))
 		{
-			$_args = [];
+			$_option = [];
 		}
 
-		$option             = [];
-		$option             = array_merge($default_args, $_args);
+		$_option = array_merge($default_option, $_option);
 
-		if($option['order'])
+		if($_option['order'])
 		{
-			if(!in_array($option['order'], ['asc', 'desc']))
+			if(!in_array($_option['order'], ['asc', 'desc']))
 			{
-				unset($option['order']);
+				unset($_option['order']);
 			}
 		}
 
-		if($option['sort'])
+		if($_option['sort'])
 		{
-			if(!in_array($option['sort'], self::$sort_field))
+			if(!in_array($_option['sort'], self::$sort_field))
 			{
-				unset($option['sort']);
+				unset($_option['sort']);
 			}
 		}
+
 		$field             = [];
 		$field['store_id'] = \lib\store::id();
+		$field['type']     = $_option['type'];
 
-		$result           = \lib\db\factors::search($_string, $option, $field);
-		$temp             = [];
+		$result            = \lib\db\factors::search($_string, $_option, $field);
+		$temp              = [];
 
 		foreach ($result as $key => $value)
 		{

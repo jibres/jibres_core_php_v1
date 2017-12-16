@@ -1,5 +1,5 @@
 <?php
-namespace content_a\buy\add;
+namespace content_a\buy\edit;
 
 
 class model extends \content_a\main\model
@@ -56,14 +56,12 @@ class model extends \content_a\main\model
 
 
 	/**
-	 * Posts a buy add.
+	 * Posts a buy edit.
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public function post_buy_add()
+	public function post_buy_edit()
 	{
-
-
 		// ready buy_list
 		$buy_list = self::getPostBuyProduct();
 
@@ -72,7 +70,7 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-				// ready buy_list
+		// ready buy_list
 		$detail = self::getPostBuyDetail();
 
 		if($detail === false)
@@ -80,33 +78,11 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		$factor_detail = \lib\app\factor::add($detail, $buy_list);
+		\lib\app\factor::edit(\lib\utility::get('id'), $detail, $buy_list);
 
 		if(\lib\debug::$status)
 		{
-			if(isset($factor_detail['factor_id']))
-			{
-				switch (\lib\utility::post('btn_type'))
-				{
-					case 'save_next':
-						$redirect_url = $this->url('base'). '/a/buy/add';
-						break;
-
-					case 'save_print':
-						$redirect_url = $this->url('base'). '/a/buy/fishprint?id='. $factor_detail['factor_id'];
-						break;
-
-					default:
-						$redirect_url = $this->url('base'). '/a/buy';
-						break;
-				}
-			}
-			else
-			{
-				$redirect_url = $this->url('base'). '/a/buy';
-			}
-
-			$this->redirector($redirect_url);
+			$this->redirector($this->url('base'). '/a/buy');
 		}
 	}
 }

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\buy\add;
+namespace content_a\buy\edit;
 
 
 class view extends \content_a\main\view
@@ -64,7 +64,7 @@ class view extends \content_a\main\view
 						$result = self::getNeededField($result);
 						if(!$result)
 						{
-							$msg .= '<a href="/a/product/add?barcode='. \lib\utility::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
+							$msg .= '<a href="/a/product/edit?barcode='. \lib\utility::get('barcode'). '" target="_blank">'. T_('edit as new product'). '</a>';
 							$result = null;
 						}
 					}
@@ -99,7 +99,12 @@ class view extends \content_a\main\view
 			// force show json
 			$this->_processor(['force_stop' => true, 'force_json' => true]);
 			// \lib\code::exit();
+
 		}
+
+		$meta         = [];
+
+		$this->data->buy_detail = \lib\app\factor::get(['id' => \lib\utility::get('id')], $meta);
 
 	}
 
@@ -142,13 +147,6 @@ class view extends \content_a\main\view
 		{
 			$result['discount'] = $_data['discount'];
 		}
-
-		if(isset($_data['code']))
-		{
-			$result['desc'] = T_("Code"). ' +'. $_data['code'];
-		}
-
-
 
 		// $all_field_we_have =
 		// [

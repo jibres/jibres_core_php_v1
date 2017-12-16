@@ -2,6 +2,7 @@
 
 
 {%block pageContent%}
+
 <form method="post">
 
 {{block("btns")}}
@@ -35,9 +36,8 @@
 
 {%block btns%}
  <div class="cbox">
-  <input type="hidden" id="buy_clicked_btn" name="btn_type" value="">
-  <button class="btn primary buy_save_btn" type="submit" name="save_btn" value="save_next">{%trans "Save & Next"%}</button>
-  <button class="btn primary buy_save_btn" type="submit" name="save_btn" value="save_print">{%trans "Save & Print"%}</button>
+  <button class="btn primary">{%trans "Save"%}</button>
+  <button class="btn primary">{%trans "Save & print"%}</button>
  </div>
 {%endblock%}
 
@@ -50,7 +50,7 @@
 
 
 {%block listOfProducts%}
- <div class="cbox hide">
+ <div class="cbox ">
   <table class="tbl productList txtC">
    <thead>
     <tr>
@@ -64,8 +64,28 @@
    </thead>
    <tbody>
 
+    {%for key, value in buy_detail.factor_detail%}
+    <tr data-id="{{value.id}}" data-barcode="{{value.barcode}}" data-barcode2="{{value.barcode2}}">
+      <td>{{(key + 1)|number_format|fitNumber}}</td>
+      <td>
+        {{value.title}}<input type="hidden" name="products[]" class="hidden" value="{{value.id}}">
+      </td>
+      <td>
+        <input class="input count" type="number" name="count[]" min="0" max="10000000000" data-step=".001" value="{{value.factordetails_count}}">
+      </td>
+      <td data-val="{{value.price}}">{{value.price|number_format|fitNumber}}</td>
+      <td>
+        <div class="input">
+          <input class="discount" type="number" name="discount[]" min="0" max="10000000000" value="{{value.factordetails_discount}}"><span class="addon small"></span>
+        </div>
+      </td>
+      <td>{{value.factordetails_sum|number_format|fitNumber}}</td>
+    </tr>
+    {%endfor%}
+
+
    </tbody>
-   <tfoot class="dark hide">
+   <tfoot class="dark">
     <tr>
      <th title='{%trans "Count of rows"%}'></th>
      <th></th>
@@ -83,17 +103,4 @@
 
 {%block pageHeader2%}
 {%endblock%}
-
-
-
-
-{%block foot_js%}
-<script type="text/javascript">
-  $(".buy_save_btn").on('click', function(){
-    $("#buy_clicked_btn").attr('value', $(this).val());
-  });
-</script>
-{%endblock%}
-
-
 
