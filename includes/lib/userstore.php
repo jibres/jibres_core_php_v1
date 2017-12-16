@@ -14,7 +14,7 @@ class userstore
 	 */
 	public static function clean()
 	{
-		\lib\session::set('userstore_detail', null);
+		\lib\session::set('userstore_detail_'. \lib\user::id(), null);
 		self::$userstore = [];
 	}
 
@@ -29,10 +29,15 @@ class userstore
 			return;
 		}
 
-		if(\lib\session::get('userstore_detail'))
+		if(\lib\session::get('userstore_detail_'. \lib\user::id()))
 		{
-			self::$userstore = \lib\session::get('userstore_detail');
+			self::$userstore = \lib\session::get('userstore_detail_'. \lib\user::id());
 			return;
+		}
+
+		if(!\lib\store::id())
+		{
+			return false;
 		}
 
 		$get = ['store_id' => \lib\store::id(), 'user_id' => \lib\user::id(), 'limit' => 1];
@@ -41,7 +46,7 @@ class userstore
 		if(is_array($userstore_detail))
 		{
 			self::$userstore = $userstore_detail;
-			\lib\session::set('userstore_detail', $userstore_detail);
+			\lib\session::set('userstore_detail_'. \lib\user::id(), $userstore_detail);
 		}
 	}
 
