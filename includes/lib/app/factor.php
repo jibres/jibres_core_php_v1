@@ -174,9 +174,21 @@ class factor
 			$new_list[$key]['discount']   = intval($value['discount']);
 			$new_list[$key]['product_id'] = $product_id;
 
-			// save query of sold plus and minus stock in cache to run multi query after this foreach
-			self::sold_plus($product_id, floatval($value['count']), true);
-			self::stock_minus($product_id, floatval($value['count']), true);
+			switch ($_option['type'])
+			{
+				case 'sell':
+					// save query of sold plus and minus stock in cache to run multi query after this foreach
+					self::sold_plus($product_id, floatval($value['count']), true);
+					self::stock_minus($product_id, floatval($value['count']), true);
+					break;
+				case 'buy':
+					self::stock_plus($product_id, floatval($value['count']), true);
+					break;
+
+				default:
+					# code...
+					break;
+			}
 
 			$allproduct_id[]              = $product_id;
 		}

@@ -21,6 +21,7 @@ trait add
 		[
 			'debug'     => true,
 			'factor_id' => null,
+			'type'      => 'sell',
 		];
 
 		if(!is_array($_option))
@@ -79,6 +80,7 @@ trait add
 
 		$return = [];
 
+		$factor['type']           = $_option['type'];
 		$factor['detailsum']      = array_sum(array_column($factor_detail, 'price'));
 		$factor['detaildiscount'] = array_sum(array_column($factor_detail, 'discount'));;
 		$factor['detailtotalsum'] = array_sum(array_column($factor_detail, 'sum'));;
