@@ -14,6 +14,8 @@ trait add
 	 */
 	public static function add($_factor, $_factor_detail, $_option = [])
 	{
+		// start transaction of db
+		\lib\db::transaction();
 
 		$default_option =
 		[
@@ -28,7 +30,6 @@ trait add
 
 		$_option = array_merge($default_option, $_option);
 
-
 		$log_meta =
 		[
 			'data' => null,
@@ -42,6 +43,7 @@ trait add
 		{
 			\lib\app::log('api:factor:user_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\debug::error(T_("User not found"), 'user');
+			\lib\db::rollback();
 			return false;
 		}
 
@@ -49,6 +51,7 @@ trait add
 		{
 			\lib\app::log('api:factor:store_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\debug::error(T_("Store not found"), 'subdomain');
+			\lib\db::rollback();
 			return false;
 		}
 
@@ -58,6 +61,7 @@ trait add
 
 		if($factor === false || !\lib\debug::$status)
 		{
+			\lib\db::rollback();
 			return false;
 		}
 
@@ -69,6 +73,7 @@ trait add
 
 		if($factor_detail === false || !\lib\debug::$status)
 		{
+			\lib\db::rollback();
 			return false;
 		}
 
@@ -95,6 +100,7 @@ trait add
 		{
 			\lib\app::log('api:factor:no:way:to:insert:factor', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\debug::error(T_("No way to insert factor"), 'db', 'system');
+			\lib\db::rollback();
 			return false;
 		}
 
@@ -105,11 +111,16 @@ trait add
 			$factor_detail[$key]['factor_id'] = $factor_id;
 		}
 
-		\lib\db\factordetails::multi_insert($factor_detail);
+		$add_detail = \lib\db\factordetails::multi_insert($factor_detail);
 
+		if(!$add_detail)
+		{
+			\lib\db::rollback();
+		}
 
 		if(\lib\debug::$status)
 		{
+			\lib\db::commit();
 			if($_option['debug']) \lib\debug::true(T_("Factor successfuly added"));
 		}
 

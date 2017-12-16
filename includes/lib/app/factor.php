@@ -14,6 +14,7 @@ class factor
 	use \lib\app\factor\datalist;
 	use \lib\app\factor\get;
 	use \lib\app\factor\dashboard;
+	use \lib\app\factor\balance;
 
 
 	/**
@@ -157,20 +158,32 @@ class factor
 				continue;
 			}
 
+			if(floatval($value['count']) == 0)
+			{
+				$have_warn[] = $key + 1;
+				continue;
+			}
+
 			if($value['discount'] &&  !is_numeric($value['discount']))
 			{
 				$have_warn[] = $key + 1;
 				continue;
 			}
 
-
-
 			$new_list[$key]['count']      = floatval($value['count']);
 			$new_list[$key]['discount']   = intval($value['discount']);
 			$new_list[$key]['product_id'] = $product_id;
 
+			// save query of sold plus and minus stock in cache to run multi query after this foreach
+			self::sold_plus($product_id, floatval($value['count']), true);
+			self::stock_minus($product_id, floatval($value['count']), true);
+
 			$allproduct_id[]              = $product_id;
 		}
+
+		// run the multi query to change every change in var static
+		// for example in sold and stock
+		self::change_var_static_multi_query();
 
 		if(count($allproduct_id) <> count(array_unique($allproduct_id)))
 		{
