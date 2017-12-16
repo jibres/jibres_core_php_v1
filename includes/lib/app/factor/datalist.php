@@ -70,6 +70,8 @@ trait datalist
 		$field['store_id'] = \lib\store::id();
 		$field['type']     = $_option['type'];
 
+		unset($_option['type']);
+
 		$result            = \lib\db\factors::search($_string, $_option, $field);
 		$temp              = [];
 

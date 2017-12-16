@@ -80,7 +80,6 @@ trait buyprice
 
 			$update_old_record =
 			[
-				'creator'       => \lib\user::id(),
 				'enddate'       => date("Y-m-d H:i:s"),
 				'endshamsidate' => \lib\utility\jdate::date("Ymd", false, false),
 			];

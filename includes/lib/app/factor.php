@@ -170,10 +170,6 @@ class factor
 				continue;
 			}
 
-			$new_list[$key]['count']      = floatval($value['count']);
-			$new_list[$key]['discount']   = intval($value['discount']);
-			$new_list[$key]['product_id'] = $product_id;
-
 			switch ($_option['type'])
 			{
 				case 'sell':
@@ -181,14 +177,63 @@ class factor
 					self::sold_plus($product_id, floatval($value['count']), true);
 					self::stock_minus($product_id, floatval($value['count']), true);
 					break;
+
 				case 'buy':
+					if(!array_key_exists('price', $value))
+					{
+						$have_warn[] = $key + 1;
+						continue;
+					}
+
+					if($value['price'] &&  !is_numeric($value['price']))
+					{
+						$have_warn[] = $key + 1;
+						continue;
+					}
+
+					$new_price      = floatval($value['price']);
+
+					if(!array_key_exists('buyprice', $value))
+					{
+						$have_warn[] = $key + 1;
+						continue;
+					}
+
+					if($value['buyprice'] &&  !is_numeric($value['buyprice']))
+					{
+						$have_warn[] = $key + 1;
+						continue;
+					}
+
+					$new_buyprice      = floatval($value['buyprice']);
+
+					$price_change                    = [];
+					$price_change['price']           = $new_price;
+					$price_change['discount']        = $value['discount'];
+					$price_change['buyprice']        = $new_buyprice;
+
+					$discountpercent = null;
+					if(floatval($new_price) != 0)
+					{
+						$discountpercent = round((floatval($value['discount']) * 100) / floatval($new_price), 3);
+					}
+
+					$price_change['discountpercent'] = $discountpercent;
+
+					\lib\app\product::buyprice_check($product_id, $price_change);
+
 					self::stock_plus($product_id, floatval($value['count']), true);
+
 					break;
 
 				default:
 					# code...
 					break;
 			}
+
+			$new_list[$key]['count']      = floatval($value['count']);
+			$new_list[$key]['discount']   = intval($value['discount']);
+			$new_list[$key]['product_id'] = $product_id;
 
 			$allproduct_id[]              = $product_id;
 		}
