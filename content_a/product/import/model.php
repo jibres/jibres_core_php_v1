@@ -47,6 +47,9 @@ class model extends \content_a\main\model
 
 		if(\lib\debug::$status)
 		{
+			// clean all cache
+			\lib\app\product::clean_cache();
+
 			\lib\debug::true(T_("Import product successfully complete"));
 			$this->redirector($this->url('baseFull'). '/product');
 		}
