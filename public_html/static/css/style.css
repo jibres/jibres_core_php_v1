@@ -78,8 +78,9 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 
 #landing{
   background-image: url('/static/images/homepage/desk.jpg');
-  min-height: 100vh;
-  height: 700px;
+  min-height:700px;
+  height: 100vh;
+  max-height: 1000px;
   /*background-attachment: fixed;*/
   background-position: center;
   background-repeat: no-repeat;
