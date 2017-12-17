@@ -322,6 +322,7 @@ class twigTransTerms
 	echo T_("Buy price");                                                             // Line 164
 	echo T_("Sell Price");                                                            // Line 170
 	echo T_("Discount percent");                                                      // Line 50
+	echo T_("Final price");                                                           // Line 51
 	echo T_("Stock");                                                                 // Line 279
 
 	//-------------------------------------------content_a\product\import\display.html
