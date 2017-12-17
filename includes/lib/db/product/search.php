@@ -3,7 +3,14 @@ namespace lib\db\product;
 
 trait search
 {
-	private static $public_show_field = "*";
+
+	private static $public_show_field =
+	"
+		(products.price - products.discount) AS `finalprice`,
+		((products.price - products.discount) * 100 / products.buyprice) AS `intrestrate`,
+		ROUND(products.price * 100 / products.buyprice, 2) - 100 AS `intrestrate_impure`,
+		products.*
+	";
 
 	public static function search_id($_id, $_store_id)
 	{

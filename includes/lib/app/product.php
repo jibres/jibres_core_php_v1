@@ -556,6 +556,12 @@ class product
 					}
 					break;
 
+				case 'finalprice':
+				case 'intrestrate':
+				case 'intrestrate_impure':
+					$result[$key] = isset($value) ? (float) $value : null;
+					break;
+
 				case 'country':
 				case 'city':
 				case 'province':
@@ -570,52 +576,6 @@ class product
 					break;
 			}
 		}
-
-		// process some variable
-		if(array_key_exists('price', $result))
-		{
-			$price = floatval($result['price']);
-		}
-		else
-		{
-			$price = 0;
-		}
-
-		if(array_key_exists('discount', $result))
-		{
-			$discount = floatval($result['discount']);
-		}
-		else
-		{
-			$discount = 0;
-		}
-
-		if(array_key_exists('buyprice', $result))
-		{
-			$buyprice = floatval($result['buyprice']);
-		}
-		else
-		{
-			$buyprice = 0;
-		}
-
-
-		$result['finalprice'] = intval($price) - intval($discount);
-
-		if(intval($buyprice) === 0)
-		{
-			$result['intrestrate'] = null;
-			$result['intrestrate_impure'] = null;
-		}
-		else
-		{
-			$result['intrestrate'] = (intval($result['finalprice']) * 100) / intval($buyprice);
-			$result['intrestrate'] = round($result['intrestrate'], 2) - 100;
-
-			$result['intrestrate_impure'] = (intval($price) * 100) / intval($buyprice);
-			$result['intrestrate_impure'] = round($result['intrestrate_impure'], 2) - 100;
-		}
-
 		return $result;
 	}
 }

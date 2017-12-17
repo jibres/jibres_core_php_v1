@@ -13,6 +13,7 @@ trait datalist
 		'discount',
 		'discountpercent',
 		'stock',
+		'finalprice',
 	];
 
 

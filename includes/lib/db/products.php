@@ -11,8 +11,8 @@ class products
 	public static function check_multi_product_id($_multi_id, $_store_id)
 	{
 		$ids = implode(',', $_multi_id);
-
-		$query = "SELECT * FROM products WHERE products.store_id = $_store_id AND products.id IN ($ids) ";
+		$field = self::$public_show_field;
+		$query = "SELECT $field FROM products WHERE products.store_id = $_store_id AND products.id IN ($ids) ";
 		return \lib\db::get($query);
 	}
 
@@ -113,8 +113,8 @@ class products
 		{
 			return false;
 		}
-
-		$query = "SELECT * FROM  products WHERE products.store_id = $_store_id AND (products.barcode = '$_barcode' OR products.barcode2 = '$_barcode')";
+		$field = self::$public_show_field;
+		$query = "SELECT $field FROM  products WHERE products.store_id = $_store_id AND (products.barcode = '$_barcode' OR products.barcode2 = '$_barcode')";
 		return \lib\db::get($query);
 	}
 
