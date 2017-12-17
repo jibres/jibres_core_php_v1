@@ -14,8 +14,10 @@ class model extends \content_a\main\model
 		$product  = \lib\utility::post('products');
 		$count    = \lib\utility::post('count');
 		$discount = \lib\utility::post('discount');
+		$price    = \lib\utility::post('price');
+		$buyprice = \lib\utility::post('buyprice');
 
-		if(!is_array($product) || !is_array($count) || !is_array($discount))
+		if(!is_array($product) || !is_array($count) || !is_array($discount) || !is_array($price) || !is_array($buyprice))
 		{
 			\lib\debug::error(T_("What are you doing?"));
 			return false;
@@ -24,6 +26,8 @@ class model extends \content_a\main\model
 		$product  = array_values($product);
 		$count    = array_values($count);
 		$discount = array_values($discount);
+		$price    = array_values($price);
+		$buyprice = array_values($buyprice);
 
 		$buy_list = [];
 
@@ -34,6 +38,8 @@ class model extends \content_a\main\model
 				'product'  => $value,
 				'count'    => array_key_exists($key, $count) ? $count[$key] : null,
 				'discount' => array_key_exists($key, $discount) ? $discount[$key] : null,
+				'price'    => array_key_exists($key, $price) ? $price[$key] : null,
+				'buyprice' => array_key_exists($key, $buyprice) ? $buyprice[$key] : null,
 			];
 		}
 
@@ -80,7 +86,7 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		$factor_detail = \lib\app\factor::add($detail, $buy_list);
+		$factor_detail = \lib\app\factor::add($detail, $buy_list, ['type' => 'buy']);
 
 		if(\lib\debug::$status)
 		{
