@@ -82,7 +82,7 @@
 {%block iTitle%}
 <label for="title">{%trans "Title"%}<span class="fc-red">*</span></label>
 <div class="input">
- <input type="text" name="title" id="title" placeholder='{%trans "Title of product" %} *' value="{{product.title}}" maxlength='50' pattern=".{1,50}" title='{%trans "Enter a valid team title"%}'>
+ <input type="text" name="title" id="title" placeholder='{%trans "Title of product" %} *' value="{{product.title}}" maxlength='50' pattern=".{1,50}" title='{%trans "Enter a valid team title"%}' autofocus>
 </div>
 {%endblock%}
 
