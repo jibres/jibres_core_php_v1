@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2017-12-17 13:08+0330\n"
-"PO-Revision-Date: 2017-12-17 13:11+0330\n"
+"POT-Creation-Date: 2017-12-17 17:20+0330\n"
+"PO-Revision-Date: 2017-12-17 17:21+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -10282,12 +10282,12 @@ msgid "Warehouse"
 msgstr "انبار"
 
 #: jibres/includes/languages/trans_twig.php:315
-msgid "No result founded."
-msgstr "نتیجه‌ای یافت نشد."
+msgid "No product founded."
+msgstr "هیچ محصولی یافت نشد."
 
 #: jibres/includes/languages/trans_twig.php:316
-msgid "Search with new keywords."
-msgstr "با کلیدواژه‌های بهتری جستجو کنید."
+msgid "Search with new keywords or barcode."
+msgstr "با کلیدواژه‌های بهتر یا بارکد دیگری جستجو کنید."
 
 #: jibres/includes/languages/trans_twig.php:317
 msgid "You are not have product yet! add new one."
@@ -11238,6 +11238,12 @@ msgstr "اجازه مشاهده لاگ‌های سیستم"
 #: jibres/includes/permission/permission.php:104
 msgid "Allow to login by another session"
 msgstr "اجازه ورود با کاربر دیگر"
+
+#~ msgid "No result founded."
+#~ msgstr "نتیجه‌ای یافت نشد."
+
+#~ msgid "Search with new keywords."
+#~ msgstr "با کلیدواژه‌های بهتری جستجو کنید."
 
 #~ msgid ""
 #~ "You can add new buy and after add with minimal data, we allow you to add extra "

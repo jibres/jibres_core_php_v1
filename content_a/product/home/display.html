@@ -11,8 +11,9 @@
 
 {%elseif utilityGET.q or utilityGET.barcode%}
 {{block('searchblock')}}
-<div class="cbox fs12">
- <h3>{%trans "No result founded."%} {%trans "Search with new keywords."%}</h3>
+<div class="fs14 alert alert-info pA25">
+ {%trans "No product founded."%} {%trans "Search with new keywords or barcode."%}
+ <a class="badge primary pA10" href="{{url.baseFull}}/product/add">{%trans "Add new product"%}</a>
 </div>
 
 

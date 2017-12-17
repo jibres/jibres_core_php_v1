@@ -312,8 +312,8 @@ class twigTransTerms
 	//-------------------------------------content_a\product\edit\general\display.html
 
 	//---------------------------------------------content_a\product\home\display.html
-	echo T_("No result founded.");                                                    // Line 15
-	echo T_("Search with new keywords.");                                             // Line 15
+	echo T_("No product founded.");                                                   // Line 15
+	echo T_("Search with new keywords or barcode.");                                  // Line 15
 	echo T_("You are not have product yet! add new one.");                            // Line 21
 	echo T_("Add new product");                                                       // Line 22
 	echo T_("Search in products");                                                    // Line 33
