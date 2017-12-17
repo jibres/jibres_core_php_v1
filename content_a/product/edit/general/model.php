@@ -48,7 +48,10 @@ class model extends \content_a\main\model
 
 		if(\lib\debug::$status)
 		{
-			$this->redirector($this->url('full'));
+			// $this->redirector($this->url('full'));
+			// after save redirect to list of products
+			$url_of_product_list = $this->url('baseFull').'/product';
+			$this->redirector($url_of_product_list);
 		}
 	}
 }
