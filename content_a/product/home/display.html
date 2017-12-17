@@ -44,13 +44,13 @@
     <thead class="">
       <tr>
         <th data-sort="{{sort_link.title.order}}"><a href='{{sort_link.title.link}}'>{%trans "Title"%}</a></th>
-        <th data-sort="{{sort_link.cat.order}}"  class="s0"><a href='{{sort_link.cat.link}}'>{%trans "Category"%}</a></th>
-        <th data-sort="{{sort_link.buyprice.order}}" ><a href='{{sort_link.buyprice.link}}'>{%trans "Buy price" %}</a></th>
-        <th data-sort="{{sort_link.price.order}}" ><a href='{{sort_link.price.link}}'>{%trans "Sell Price" %}</a></th>
-        <th data-sort="{{sort_link.discount.order}}" ><a href='{{sort_link.discount.link}}'>{%trans "Discount" %}</a></th>
-        <th data-sort="{{sort_link.discountpercent.order}}"  class="s0"><a href='{{sort_link.discountpercent.link}}'>{%trans "Discount percent"%}</a></th>
-        <th data-sort="{{sort_link.finalprice.order}}"  class="s0"><a href='{{sort_link.finalprice.link}}'>{%trans "Final price" %}</a></th>
-        <th data-sort="{{sort_link.stock.order}}"  class="s0"><a href='{{sort_link.stock.link}}'>{%trans "Stock" %}</a></th>
+        <th data-sort="{{sort_link.cat.order}}" class="s0"><a href='{{sort_link.cat.link}}'>{%trans "Category"%}</a></th>
+        <th data-sort="{{sort_link.buyprice.order}}"><a href='{{sort_link.buyprice.link}}'>{%trans "Buy price" %}</a></th>
+        <th data-sort="{{sort_link.price.order}}" class="s0"><a href='{{sort_link.price.link}}'>{%trans "Sell Price" %}</a></th>
+        <th data-sort="{{sort_link.discount.order}}"><a href='{{sort_link.discount.link}}'>{%trans "Discount" %}</a></th>
+        <th data-sort="{{sort_link.discountpercent.order}}" class="s0"><a href='{{sort_link.discountpercent.link}}'>{%trans "Discount percent"%}</a></th>
+        <th data-sort="{{sort_link.finalprice.order}}"><a href='{{sort_link.finalprice.link}}'>{%trans "Final price" %}</a></th>
+        <th data-sort="{{sort_link.stock.order}}" class="s0"><a href='{{sort_link.stock.link}}'>{%trans "Stock" %}</a></th>
       </tr>
     </thead>
 
@@ -60,10 +60,10 @@
         <td><a href="{{url.baseFull}}/product/edit/general?id={{value.id}}">{{value.title}}</a></td>
         <td class="s0"><a href="{{url.baseFull}}/product?q={{value.cat}}">{{value.cat}}</a></td>
         <td><a href="{{url.baseFull}}/product?q={{value.buyprice}}">{{value.buyprice | number_format | fitNumber}}</a></td>
-        <td><a href="{{url.baseFull}}/product?q={{value.price}}">{{value.price | number_format | fitNumber}}</a></td>
+        <td class="s0"><a href="{{url.baseFull}}/product?q={{value.price}}">{{value.price | number_format | fitNumber}}</a></td>
         <td><a href="{{url.baseFull}}/product?q={{value.discount}}">{{value.discount | number_format | fitNumber}}</a></td>
         <td class="s0">{{value.discountpercent | number_format | fitNumber}} <small>%</small></td>
-        <td><a href="{{url.baseFull}}/product?q={{value.price - value.discount}}" class="bold">{{(value.price - value.discount) | number_format | fitNumber}}</a></td>
+        <td><a href="{{url.baseFull}}/product?q={{value.finalprice}}" class="bold">{{(value.finalprice) | number_format | fitNumber}}</a></td>
         <td class="s0">{{value.stock | number_format | fitNumber}} <small><a href="{{url.baseFull}}/product?q={{value.unit}}">{{value.unit}}</a></small></td>
       </tr>
       {%endfor%}
