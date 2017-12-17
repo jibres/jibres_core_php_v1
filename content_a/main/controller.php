@@ -14,6 +14,7 @@ class controller extends \mvc\controller
 
 		if(!SubDomain)
 		{
+			$this->redirector($this->url('base'))->redirect();
 			\lib\error::page(T_("SubDomain not found"));
 		}
 
