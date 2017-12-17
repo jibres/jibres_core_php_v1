@@ -22,6 +22,10 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('General setting | :name', ['name' => $productTitle]);
 		$this->data->page['desc']  = T_('Manage general setting of product like name, category, price and etc.') .' '. T_('You can change another setting by choose another type of setting.');
 
+		// add back to product list link
+		$product_list_link =  '<a href="'. $this->url('base') .'/a/product">'. T_('Back to product list'). '</a>';
+		$this->data->page['desc']  .= ' '. $product_list_link;
+
 
 		$this->data->page['badge']['link'] = $this->url('baseFull'). '/product/add';
 		$this->data->page['badge']['text'] = T_('Add new product');
