@@ -21,6 +21,27 @@ class view extends \content_a\main\view
 
 		$this->data->product_list  = \lib\app\product::list(\lib\utility::get('q'), $args);
 
+		if(is_array($this->data->product_list) && count($this->data->product_list) === 1)
+		{
+			$barcode_is_scaned = false;
+			if(isset($this->data->product_list[0]['barcode']) && $this->data->product_list[0]['barcode'] === \lib\utility::get('q'))
+			{
+				$barcode_is_scaned = true;
+			}
+
+			if(isset($this->data->product_list[0]['barcode2']) && $this->data->product_list[0]['barcode2'] === \lib\utility::get('q'))
+			{
+				$barcode_is_scaned = true;
+			}
+
+			if(isset($this->data->product_list[0]['id']) && $barcode_is_scaned)
+			{
+				$this->redirector($this->url('baseFull').'/product/edit/general?id='. $this->data->product_list[0]['id'])->redirect();
+				return;
+			}
+
+		}
+
 		if(\lib\utility::get('json') === 'true')
 		{
 			if(\lib\utility::get('barcode'))
