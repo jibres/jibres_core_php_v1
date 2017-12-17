@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2017-12-17 12:45+0330\n"
-"PO-Revision-Date: 2017-12-17 12:47+0330\n"
+"POT-Creation-Date: 2017-12-17 13:01+0330\n"
+"PO-Revision-Date: 2017-12-17 13:02+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -8666,8 +8666,8 @@ msgstr "شما می توانید محصول را به راحتی از طریق �
 #: jibres/content_a/product/edit/general/view.php:31
 #: jibres/content_a/product/edit/thumb/view.php:24
 #: jibres/content_a/product/edit/view.php:32
-#: jibres/content_a/product/home/view.php:13
-#: jibres/content_a/product/summary/view.php:13
+#: jibres/content_a/product/home/view.php:17
+#: jibres/content_a/product/summary/view.php:17
 #: jibres/includes/languages/trans_twig.php:318
 msgid "Add new product"
 msgstr "افزودن محصول جدید"
@@ -8698,6 +8698,7 @@ msgid "You can have some edit on this product"
 msgstr "شما می توانید برخی از ویژگی های این محصول را ویرایش کنید"
 
 #: jibres/content_a/product/home/view.php:9
+#: jibres/content_a/product/summary/view.php:13
 #: jibres/includes/languages/trans_twig.php:388
 msgid "List of products"
 msgstr "لیست محصولات"
@@ -8707,6 +8708,10 @@ msgid "You can search in list of products, add new product and edit existing."
 msgstr ""
 "شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا "
 "ویرایش کنید."
+
+#: jibres/content_a/product/home/view.php:13
+msgid "Products dashboard"
+msgstr "داشبورد محصولات"
 
 #: jibres/content_a/product/import/model.php:17
 msgid "Please upload a csv file"
