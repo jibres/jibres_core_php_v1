@@ -15,7 +15,7 @@ $(function()
   // run once on ready
   bindBtnOnFactor();
   // bind shortkey on each page
-  bindShortkey();
+  callFunc('bindShortkey')
 });
 
 
