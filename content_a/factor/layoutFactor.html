@@ -13,7 +13,7 @@
 {%block iProductName%}
 <div class="input small f">
  <label for="productSearch" class="addon cauto s12">{%trans "Search to add product"%}</label>
- <input id="productSearch" class="autoList productName barCode" type="text" maxlength="100" placeholder='{%trans "Search in list to add product"%}' value="{{product.product}}" data-find='product' data-default autofocus>
+ <input id="productSearch" class="autoList productName barCode" type="text" maxlength="100" placeholder='{%trans "Search in list to add product"%}' value="{{product.product}}" data-find='product' data-default autofocus autocomplete="off">
 </div>
 {%endblock%}
 

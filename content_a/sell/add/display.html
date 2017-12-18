@@ -36,8 +36,8 @@
 {%block btns%}
  <div class="cbox">
   <input type="hidden" id="sell_clicked_btn" name="btn_type" value="">
-  <button class="btn primary sell_save_btn" type="submit" name="save_btn" value="save_next">{%trans "Save & Next"%}</button>
-  <button class="btn primary sell_save_btn" type="submit" name="save_btn" value="save_print">{%trans "Save & Print"%}</button>
+  <button class="btn primary sell_save_btn" type="submit" name="save_btn" value="save_next" id='save_next'>{%trans "Save & Next"%}</button>
+  <button class="btn primary sell_save_btn" type="submit" name="save_btn" value="save_print" id='save_print'>{%trans "Save & Print"%}</button>
  </div>
 {%endblock%}
 
@@ -88,11 +88,13 @@
 
 
 {%block foot_js%}
-<script type="text/javascript">
-  $(".sell_save_btn").on('click', function(){
-    $("#sell_clicked_btn").attr('value', $(this).val());
-  });
-</script>
+
+{{ parent() }}
+  <script type="text/javascript">
+    $(".sell_save_btn").on('click', function(){
+      $("#sell_clicked_btn").attr('value', $(this).val());
+    });
+  </script>
 {%endblock%}
 
 

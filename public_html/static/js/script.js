@@ -14,6 +14,8 @@ $(function()
 {
   // run once on ready
   bindBtnOnFactor();
+  // bind shortkey on each page
+  bindShortkey();
 });
 
 
@@ -495,7 +497,7 @@ function addNewRecord_ProductList(_table, _product, _append)
   trEmpty       += '<td></td>';
   trEmpty       += '</tr>';
   var newRecord = $(trEmpty);
-  var cuRow     = _table.find('tr').length - 2;
+  var cuRow     = _table.find('tr').length - 1;
   // set row number
   newRecord.find('td:eq(0)').text(fitNumber(cuRow));
   if(_product)
