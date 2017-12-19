@@ -415,7 +415,6 @@ function searchForProduct(_key, _value)
  */
 function addFindedProduct(_product, _msg)
 {
-  console.log(_product);
   if(_product)
   {
     if(_product.id)
@@ -505,24 +504,24 @@ function addNewRecord_ProductList(_table, _product, _append)
     var htmlPName     = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
     var htmlPCount    = '<input class="input count" type="number" name="count[]" min=0 max=10000000000 data-step=".001" value=1>';
     var htmlPDiscount = '<div class="input">';
-    htmlPDiscount    += '<input class="discount" type="number" name="discount[]" min=0 max=10000000000 value="' + _product.discount + '">';
+    htmlPDiscount    += '<input class="discount" type="number" name="discount[]" min=0 max=10000000000';
+    if(_product.discount)
+    {
+      htmlPDiscount += 'value="' + _product.discount + '"';
+    }
+    htmlPDiscount    += '>';
     htmlPDiscount    += '<span class="addon small">0%</span>'+ '</div>';
 
     // fill with product details
     // console.log(_product);
-    console.log(11);
     newRecord.attr('data-id', _product.id);
     newRecord.attr('data-barcode', _product.barcode);
     newRecord.attr('data-barcode2', _product.barcode2);
     newRecord.find('td:eq(1)').html(htmlPName);
     newRecord.find('td:eq(2)').html(htmlPCount);
     newRecord.find('td:eq(3)').text(fitNumber(_product.price)).attr('data-val', _product.price);
-    console.log(12);
-    console.log(htmlPDiscount);
     newRecord.find('td:eq(4)').html(htmlPDiscount);
-    console.log(121);
     newRecord.find('td:eq(5)').text(fitNumber(_product.finalprice)).attr('data-val', _product.finalprice);
-    console.log(13);
   }
   else
   {
