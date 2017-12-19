@@ -82,7 +82,7 @@ class twigTransTerms
 	echo T_("Jibres have a set of simple and practical tools on a regular basis for modern businesses.");// Line 6
 
 	//-------------------------------------------content\template\static\benefits.html
-	echo T_("Soon");                                                                  // Line 244
+	echo T_("Soon");                                                                  // Line 251
 
 	//------------------------------------------content\template\static\changelog.html
 	echo T_("Date");                                                                  // Line 18
@@ -285,45 +285,50 @@ class twigTransTerms
 	echo T_("Last scanned barcode");                                                  // Line 41
 
 	//-----------------------------------------------------content_a\home\display.html
-	echo T_("Add event day counter");                                                 // Line 48
-	echo T_("Present Members");                                                       // Line 67
+	echo T_("Add event day counter");                                                 // Line 60
+	echo T_("Present Members");                                                       // Line 79
+	echo T_("Products Summary");                                                      // Line 118
+	echo T_("Add new Product");                                                       // Line 12
+	echo T_("Sale Invoicing");                                                        // Line 148
+	echo T_("Buy Invocing");                                                          // Line 158
 	echo T_("Supplier");                                                              // Line 113
 	echo T_("Staff");                                                                 // Line 123
-	echo T_("Start date of using tejarak");                                           // Line 136
-	echo T_("day ago");                                                               // Line 136
-	echo T_("Day Used");                                                              // Line 140
-	echo T_("Top Members");                                                           // Line 166
-	echo T_("Last sells");                                                            // Line 172
+	echo T_("Start date of using tejarak");                                           // Line 199
+	echo T_("day ago");                                                               // Line 199
+	echo T_("Day Used");                                                              // Line 203
+	echo T_("Top Members");                                                           // Line 229
+	echo T_("Last sells");                                                            // Line 235
 
 	//------------------------------------------------------content_a\main\layout.html
 	echo T_("Dashboard");                                                             // Line 5
 	echo T_("Products");                                                              // Line 8
 	echo T_("Product List");                                                          // Line 11
-	echo T_("Add new Product");                                                       // Line 12
-	echo T_("Third Parties");                                                         // Line 14
-	echo T_("Factor");                                                                // Line 15
-	echo T_("Setting");                                                               // Line 16
+	echo T_("Third Parties");                                                         // Line 15
+	echo T_("Factor");                                                                // Line 16
+	echo T_("List of last sales");                                                    // Line 18
+	echo T_("register new sale");                                                     // Line 19
+	echo T_("Setting");                                                               // Line 21
 
 	//----------------------------------------------content_a\product\add\display.html
 	echo T_("Basic detail");                                                          // Line 7
-	echo T_("Initial detail before start sell");                                      // Line 35
-	echo T_("Warehouse");                                                             // Line 52
+	echo T_("Initial detail before start sell");                                      // Line 32
+	echo T_("Warehouse");                                                             // Line 49
 
 	//-------------------------------------content_a\product\edit\general\display.html
 
 	//---------------------------------------------content_a\product\home\display.html
 	echo T_("No product founded.");                                                   // Line 15
 	echo T_("Search with new keywords or barcode.");                                  // Line 15
-	echo T_("You are not have product yet! add new one.");                            // Line 21
-	echo T_("Add new product");                                                       // Line 22
-	echo T_("Search in products");                                                    // Line 33
+	echo T_("Add new product");                                                       // Line 23
+	echo T_("You are not have product yet! add new one.");                            // Line 22
+	echo T_("Search in products");                                                    // Line 34
 	echo T_("Title");                                                                 // Line 83
-	echo T_("Category");                                                              // Line 46
-	echo T_("Buy price");                                                             // Line 164
-	echo T_("Sell Price");                                                            // Line 170
-	echo T_("Discount percent");                                                      // Line 50
-	echo T_("Final price");                                                           // Line 51
-	echo T_("Stock");                                                                 // Line 279
+	echo T_("Category");                                                              // Line 47
+	echo T_("Buy price");                                                             // Line 171
+	echo T_("Sell Price");                                                            // Line 177
+	echo T_("Discount percent");                                                      // Line 51
+	echo T_("Final price");                                                           // Line 52
+	echo T_("Stock");                                                                 // Line 286
 
 	//-------------------------------------------content_a\product\import\display.html
 	echo T_("Choose your CSV");                                                       // Line 10
@@ -351,36 +356,36 @@ class twigTransTerms
 	echo T_("Scan Barcode here...");                                                  // Line 146
 	echo T_("Barcode2");                                                              // Line 152
 	echo T_("Scan Barcode2 here...");                                                 // Line 154
-	echo T_("Price for sale without discount");                                       // Line 172
-	echo T_("Impure Interest Rate");                                                  // Line 173
-	echo T_("Final Pure Price");                                                      // Line 182
-	echo T_("Pure Interest Rates");                                                   // Line 183
-	echo T_("Discount on sale");                                                      // Line 193
-	echo T_("Discount Percent");                                                      // Line 194
-	echo T_("Vat");                                                                   // Line 203
-	echo T_("This product is vat base");                                              // Line 203
-	echo T_("Initial Balance");                                                       // Line 211
-	echo T_("Min stock");                                                             // Line 219
-	echo T_("Max stock");                                                             // Line 228
-	echo T_("Status of product");                                                     // Line 235
-	echo T_("Avalible");                                                              // Line 239
-	echo T_("Normal status of product");                                              // Line 239
-	echo T_("maybe come in future and be available");                                 // Line 244
-	echo T_("Unavailable");                                                           // Line 249
-	echo T_("temporary does not exist in store");                                     // Line 249
-	echo T_("Discountinued");                                                         // Line 254
-	echo T_("does not exist for now and on the future");                              // Line 254
-	echo T_("Unset");                                                                 // Line 259
-	echo T_("Unknown status for product");                                            // Line 259
-	echo T_("Sold");                                                                  // Line 270
-	echo T_("Service");                                                               // Line 288
-	echo T_("This product is service base and not a real goods");                     // Line 288
-	echo T_("Sell Online");                                                           // Line 297
-	echo T_("This product is sellonline base");                                       // Line 297
-	echo T_("Sell in store");                                                         // Line 307
-	echo T_("This product is sellstore base");                                        // Line 307
-	echo T_("Count in carton");                                                       // Line 315
-	echo T_("Count of product in carton");                                            // Line 317
+	echo T_("Price for sale without discount");                                       // Line 179
+	echo T_("Impure Interest Rate");                                                  // Line 180
+	echo T_("Final Pure Price");                                                      // Line 189
+	echo T_("Pure Interest Rates");                                                   // Line 190
+	echo T_("Discount on sale");                                                      // Line 200
+	echo T_("Discount Percent");                                                      // Line 201
+	echo T_("Vat");                                                                   // Line 210
+	echo T_("This product is vat base");                                              // Line 210
+	echo T_("Initial Balance");                                                       // Line 218
+	echo T_("Min stock");                                                             // Line 226
+	echo T_("Max stock");                                                             // Line 235
+	echo T_("Status of product");                                                     // Line 242
+	echo T_("Avalible");                                                              // Line 246
+	echo T_("Normal status of product");                                              // Line 246
+	echo T_("maybe come in future and be available");                                 // Line 251
+	echo T_("Unavailable");                                                           // Line 256
+	echo T_("temporary does not exist in store");                                     // Line 256
+	echo T_("Discountinued");                                                         // Line 261
+	echo T_("does not exist for now and on the future");                              // Line 261
+	echo T_("Unset");                                                                 // Line 266
+	echo T_("Unknown status for product");                                            // Line 266
+	echo T_("Sold");                                                                  // Line 277
+	echo T_("Service");                                                               // Line 295
+	echo T_("This product is service base and not a real goods");                     // Line 295
+	echo T_("Sell Online");                                                           // Line 304
+	echo T_("This product is sellonline base");                                       // Line 304
+	echo T_("Sell in store");                                                         // Line 314
+	echo T_("This product is sellstore base");                                        // Line 314
+	echo T_("Count in carton");                                                       // Line 322
+	echo T_("Count of product in carton");                                            // Line 324
 
 	//------------------------------------------content_a\product\summary\display.html
 	echo T_("Product GroupBy Unit");                                                  // Line 33
