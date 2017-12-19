@@ -2,6 +2,18 @@
 
 
 {%block pageContent%}
+
+<div class="f">
+ <div class="c6 s6">{{block ("stSellAdd")}}</div>
+ <div class="c6 s6">{{block ("stBuyAdd")}}</div>
+</div>
+
+<div class="f">
+ <div class="c4 s0">{{block ("stProductDashboard")}}</div>
+ <div class="c4 s6">{{block ("stProduct")}}</div>
+ <div class="c4 s6">{{block ("stProductAdd")}}</div>
+</div>
+
 <div class="f">
  <div class="c3 s6">{{block ("stCustomer")}}</div>
  <div class="c3 s6">{{block ("stSupplier")}}</div>
@@ -97,6 +109,57 @@ remain_percent -->
  </div>
 </div>
 {%endblock%}
+
+
+{%block stProductDashboard%}
+<a class="dcard" href='{{url.baseFull}}/product/summary'>
+ <div class="statistic brown">
+  <div class="value"><i class="sf-archive"></i></div>
+  <div class="label">{%trans "Products Summary"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+{%block stProduct%}
+<a class="dcard" href='{{url.baseFull}}/product'>
+ <div class="statistic">
+  <div class="value"><span>{{dashboard_detail.product_count |number_format |fitNumber}}</span></div>
+  <div class="label">{%trans "Product"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stProductAdd%}
+<a class="dcard" href='{{url.baseFull}}/product/add'>
+ <div class="statistic green">
+  <div class="value"><i class="sf-plus"></i></div>
+  <div class="label">{%trans "Add new Product"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block stSellAdd%}
+<a class="dcard x2" href='{{url.baseFull}}/sell/add'>
+ <div class="statistic teal">
+  <div class="value"><i class="sf-basket"></i></div>
+  <div class="label">{%trans "Sell Invocing"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stBuyAdd%}
+<a class="dcard x2" href='{{url.baseFull}}/buy/add'>
+ <div class="statistic gray">
+  <div class="value"><i class="sf-basket"></i></div>
+  <div class="label">{%trans "Buy Invocing"%}</div>
+ </div>
+</a>
+{%endblock%}
+
 
 
 {%block stCustomer%}
