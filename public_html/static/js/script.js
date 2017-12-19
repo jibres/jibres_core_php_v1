@@ -292,7 +292,7 @@ function bindBtnOnFactor()
     {
       return null;
     }
-    $('#productSearch').attr('last-barcode', _barcode).val('');
+    $('#productSearch').val('');
     productBarcodeFinded(_barcode)
   })
 
@@ -336,11 +336,11 @@ function checkProductExist(_key, _value)
   switch(_key)
   {
     case 'barcode':
-      var productInList = $('[data-barcode='+ _value +']');
+      var productInList = $('table tbody [data-barcode='+ _value +']');
       // if not finded in barcode, search in barcode2
       if(!productInList.length)
       {
-        productInList = $('[data-barcode2='+ _value +']');
+        productInList = $('table tbody [data-barcode2='+ _value +']');
       }
       // if finded try to increase number of this product
       if(productInList.length)
@@ -350,7 +350,7 @@ function checkProductExist(_key, _value)
       break;
 
     case 'id':
-      var productInList = $('[data-id='+ _value +']');
+      var productInList = $('table tbody [data-id='+ _value +']');
       // if finded try to increase number of this product
       if(productInList.length)
       {
