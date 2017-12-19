@@ -15,24 +15,26 @@
       <thead>
 
         <tr>
-          <th data-sort="{{sort_link.date.order}}"><a href="{{sort_link.date.link}}">{%trans "Date"%}</a></th>
+          <th data-sort="{{sort_link.date.order}}"><a href="{{sort_link.date.link}}">{%trans "Invoice Date"%}</a></th>
+          <th data-sort="{{sort_link.date.order}}"><a href="{{sort_link.date.link}}">{%trans "Customer"%}</a></th>
+          <th data-sort="{{sort_link.detailcount.order}}"><a href="{{sort_link.detailcount.link}}">{%trans "Items"%}</a></th>
+          <th data-sort="{{sort_link.detailcount.order}}"><a href="{{sort_link.detailcount.link}}">{%trans "Qty"%}</a></th>
           <th data-sort="{{sort_link.detailsum.order}}"><a href="{{sort_link.detailsum.link}}">{%trans "Price"%}</a></th>
-          <th data-sort="{{sort_link.detailtotalsum.order}}"><a href="{{sort_link.detailtotalsum.link}}">{%trans "Sum"%}</a></th>
-          <th data-sort="{{sort_link.detaildiscount.order}}"><a href="{{sort_link.detaildiscount.link}}">{%trans "Discount"%}</a></th>
-          <th data-sort="{{sort_link.detailcount.order}}"><a href="{{sort_link.detailcount.link}}">{%trans "Count"%}</a></th>
-          <th >{%trans "Print"%}</th>
+          <th data-sort="{{sort_link.detailtotalsum.order}}"><a href="{{sort_link.detailtotalsum.link}}">{%trans "Discount"%}</a></th>
+          <th data-sort="{{sort_link.detaildiscount.order}}"><a href="{{sort_link.detaildiscount.link}}">{%trans "Total"%}</a></th>
         </tr>
 
       </thead>
       <tbody>
         {%for key, value in sell_list%}
           <tr>
-            <td>{{value.date|tdate("Y-m-d")}}</td>
-            <td>{{value.detailsum| number_format | fitNumber}}</td>
-            <td>{{value.detailtotalsum| number_format | fitNumber}}</td>
-            <td>{{value.detaildiscount| number_format | fitNumber}}</td>
+            <td><a href="{{url.baseFull}}/sell/fishprint?id={{value.id}}">{{value.date|tdate("Y-m-d")}}</a></td>
+            <td>{{value.customer}}</td>
             <td>{{value.detailcount| number_format | fitNumber}}</td>
-            <td><a href="{{url.baseFull}}/sell/fishprint?id={{value.id}}"><i class="sf-print"></i></a></td>
+            <td>{{value.detailcount| number_format | fitNumber}}</td>
+            <td>{{value.detailsum| number_format | fitNumber}}</td>
+            <td>{{value.detaildiscount| number_format | fitNumber}}</td>
+            <td>{{value.detailtotalsum| number_format | fitNumber}}</td>
           </tr>
         {%endfor%}
       </tbody>
