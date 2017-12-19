@@ -32,7 +32,7 @@ function event_corridor(_e, _self, _key)
   var alt    = _e.altKey   ? 'alt'   : '';
   var mytxt  = String(_key) + ctrl + alt + shift;
   var keyp   = String.fromCharCode(_key);
-  // console.log(mytxt);
+  console.log(mytxt);
 
 
   switch(mytxt)
@@ -42,7 +42,6 @@ function event_corridor(_e, _self, _key)
       break;
 
     case '13ctrl':          // ctrl + Enter
-    case '106':             // *
       break;
 
 
@@ -120,12 +119,60 @@ function event_corridor(_e, _self, _key)
     case '72shift':         // h + shift (Home page)
       break;
 
+    case '56shift':         // * | shift + 8
+    case '106':             // *
+      var aa = $('table.productList tbody tr').length;
+      var lastRow = null;
+      if(aa > 0)
+      {
+        var selectedRowEl = $('table.productList tbody tr [data-selected]');
+        if(selectedRowEl.length == 1)
+        {
+          // lastRow = ...
+        }
+        else
+        {
+          lastRow = $('table.productList tbody tr:eq(0)')
+        }
+        var RowQtyEl = lastRow.find('input.count');
+        var oldQty = parseFloat(RowQtyEl.val());
+        RowQtyEl.val(oldQty + 1);
+        _e.preventDefault();
+      }
+      break;
+
     case '107':             // plus +
     case '187shift':        // plus +
       break;
 
     case '109':             // minus -
     case '189shift':        // minus -
+      var aa = $('table.productList tbody tr').length;
+      var lastRow = null;
+      if(aa > 0)
+      {
+        var selectedRowEl = $('table.productList tbody tr [data-selected]');
+        if(selectedRowEl.length == 1)
+        {
+          // lastRow = ...
+        }
+        else
+        {
+          lastRow = $('table.productList tbody tr:eq(0)')
+        }
+        var RowQtyEl = lastRow.find('input.count');
+        var oldQty = parseFloat(RowQtyEl.val());
+        if(oldQty > 0)
+        {
+          oldQty -= 1;
+        }
+        else
+        {
+          oldQty = 0;
+        }
+        RowQtyEl.val(oldQty);
+        _e.preventDefault();
+      }
       break;
 
     case '110':             // .
