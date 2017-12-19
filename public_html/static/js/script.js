@@ -313,7 +313,7 @@ function bindBtnOnFactor()
     var selectedProduct = [];
     choosen             = parseInt(choosen.substr(choosen.lastIndexOf("item") + 5));
     // get choosen barcode detail
-    if(datalist.length > 0)
+    if(datalist && datalist.length > 0)
     {
       selectedProduct = datalist[choosen];
     }
