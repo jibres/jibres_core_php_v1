@@ -65,9 +65,9 @@ function event_corridor(_e, _self, _key)
     case '38':              // up
       if(check_factor())
       {
-        var aa = $('table.productList tbody tr').length;
-        $('table.productList tbody tr').attr('data-selected', '');
-        console.log(aa);
+        // var aa = $('table.productList tbody tr').length;
+        // $('table.productList tbody tr').attr('data-selected', '');
+        // console.log(aa);
       }
       console.log('up');
       break;
@@ -103,6 +103,10 @@ function event_corridor(_e, _self, _key)
     case '8':               // Back Space
     // ---------------------------------------------------------- Delete
     case '46':              // delete
+      var aa = $('table.productList tbody tr').length;
+      var lastRow = $('table.productList tbody tr:eq(0)');
+      lastRow.remove();
+      calcFooterValues();
       break;
 
 
