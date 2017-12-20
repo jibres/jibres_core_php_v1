@@ -78,12 +78,7 @@ function event_corridor(_e, _self, _key)
     case '33':              // PageUP
     // ---------------------------------------------------------- Up
     case '38':              // up
-      if(check_factor())
-      {
-        // var aa = $('table.productList tbody tr').length;
-        // $('table.productList tbody tr').attr('data-selected', '');
-        // console.log(aa);
-      }
+
       console.log('up');
       break;
 
@@ -205,17 +200,11 @@ function event_corridor(_e, _self, _key)
       break;
 
     case '115':             // f4
-      if(check_factor())
-      {
-        $("#save_next").click();
-      }
+
       break;
 
     case '119':             // f8
-      if(check_factor())
-      {
-        $("#save_print").click();
-      }
+
       break;
 
    case '122shift':         // f11 + shift
