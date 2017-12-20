@@ -70,16 +70,16 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\lib\session::set('dashboard_product_count', null);
+			\lib\session::set('dashboard_product_count_'. \lib\store::id(), null);
 			return null;
 		}
 
-		$count = \lib\session::get('dashboard_product_count');
+		$count = \lib\session::get('dashboard_product_count_'. \lib\store::id());
 		if($count === null)
 		{
 			$count = \lib\db\products::product_count(\lib\store::id());
 			$count = intval($count);
-			\lib\session::set('dashboard_product_count', $count, null,  self::$life_time);
+			\lib\session::set('dashboard_product_count_'. \lib\store::id(), $count, null,  self::$life_time);
 		}
 		return $count;
 	}
@@ -89,16 +89,16 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\lib\session::set('dashboard_product_with_barcode', null);
+			\lib\session::set('dashboard_product_with_barcode_'. \lib\store::id(), null);
 			return null;
 		}
 
-		$count = \lib\session::get('dashboard_product_with_barcode');
+		$count = \lib\session::get('dashboard_product_with_barcode_'. \lib\store::id());
 		if($count === null)
 		{
 			$count = \lib\db\products::product_with_barcode(\lib\store::id());
 			$count = intval($count);
-			\lib\session::set('dashboard_product_with_barcode', $count, null,  self::$life_time);
+			\lib\session::set('dashboard_product_with_barcode_'. \lib\store::id(), $count, null,  self::$life_time);
 		}
 		return $count;
 	}
@@ -108,16 +108,16 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\lib\session::set('dashboard_product_with_barcode2', null);
+			\lib\session::set('dashboard_product_with_barcode2_'. \lib\store::id(), null);
 			return null;
 		}
 
-		$count = \lib\session::get('dashboard_product_with_barcode2');
+		$count = \lib\session::get('dashboard_product_with_barcode2_'. \lib\store::id());
 		if($count === null)
 		{
 			$count = \lib\db\products::product_with_barcode2(\lib\store::id());
 			$count = intval($count);
-			\lib\session::set('dashboard_product_with_barcode2', $count, null,  self::$life_time);
+			\lib\session::set('dashboard_product_with_barcode2_'. \lib\store::id(), $count, null,  self::$life_time);
 		}
 		return $count;
 	}
@@ -125,7 +125,7 @@ trait dashboard
 
 	public static function max_min_avg_field($_type, $_field, $_clean_cache = false)
 	{
-		$key = "dashboard_product_". $_type. "_". $_field;
+		$key = "dashboard_product_". $_type. "_". $_field. "_". \lib\store::id();
 		if($_clean_cache)
 		{
 			\lib\session::set($key, null);
@@ -147,11 +147,11 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\lib\session::set('dashboard_price_variation', null);
+			\lib\session::set('dashboard_price_variation_'. \lib\store::id(), null);
 			return null;
 		}
 
-		$chart = \lib\session::get('dashboard_price_variation');
+		$chart = \lib\session::get('dashboard_price_variation_'. \lib\store::id());
 		if($chart === null)
 		{
 			$chart = \lib\db\products::price_variation(\lib\store::id());
@@ -161,7 +161,7 @@ trait dashboard
 				$temp[] = ["key" => $key, "value" => $value];
 			}
 			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\lib\session::set('dashboard_price_variation', $chart, null,  self::$life_time);
+			\lib\session::set('dashboard_price_variation_'. \lib\store::id(), $chart, null,  self::$life_time);
 		}
 
 		return $chart;
@@ -172,10 +172,10 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\lib\session::set('dashboard_price_group_by_unit', null);
+			\lib\session::set('dashboard_price_group_by_unit_'. \lib\store::id(), null);
 			return null;
 		}
-		$chart = \lib\session::get('dashboard_price_group_by_unit');
+		$chart = \lib\session::get('dashboard_price_group_by_unit_'. \lib\store::id());
 		if($chart === null)
 		{
 			$chart = \lib\db\products::price_group_by_unit(\lib\store::id());
@@ -185,7 +185,7 @@ trait dashboard
 				$temp[] = ["key" => $key, "value" => $value];
 			}
 			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\lib\session::set('dashboard_price_group_by_unit', $chart, null,  self::$life_time);
+			\lib\session::set('dashboard_price_group_by_unit_'. \lib\store::id(), $chart, null,  self::$life_time);
 		}
 
 		return $chart;
@@ -196,11 +196,11 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\lib\session::set('dashboard_price_group_by_cat', null);
+			\lib\session::set('dashboard_price_group_by_cat_'. \lib\store::id(), null);
 			return null;
 		}
 
-		$chart = \lib\session::get('dashboard_price_group_by_cat');
+		$chart = \lib\session::get('dashboard_price_group_by_cat_'. \lib\store::id());
 		if($chart === null)
 		{
 			$chart = \lib\db\products::price_group_by_cat(\lib\store::id());
@@ -210,7 +210,7 @@ trait dashboard
 				$temp[] = ["key" => $key, "value" => $value];
 			}
 			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\lib\session::set('dashboard_price_group_by_cat', $chart, null,  self::$life_time);
+			\lib\session::set('dashboard_price_group_by_cat_'. \lib\store::id(), $chart, null,  self::$life_time);
 		}
 
 		return $chart;
