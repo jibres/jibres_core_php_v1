@@ -47,6 +47,7 @@ function event_corridor(_e, _self, _key)
       elShortkey.focus();
     }
     console.log(elShortkey);
+    _e.preventDefault();
   }
 
 
@@ -111,6 +112,8 @@ function event_corridor(_e, _self, _key)
 
     // ---------------------------------------------------------- BackSpace
     case '8':               // Back Space
+      break;
+
     // ---------------------------------------------------------- Delete
     case '46':              // delete
       var aa = $('table.productList tbody tr').length;
@@ -151,6 +154,10 @@ function event_corridor(_e, _self, _key)
         var RowQtyEl = lastRow.find('input.count');
         var oldQty = parseFloat(RowQtyEl.val());
         RowQtyEl.val(oldQty + 1);
+        RowQtyEl.trigger("change");
+        recalcProductListPrices();
+        // recalcPricePercents();
+        // calcFooterValues();
         _e.preventDefault();
       }
       break;
@@ -185,6 +192,9 @@ function event_corridor(_e, _self, _key)
           oldQty = 0;
         }
         RowQtyEl.val(oldQty);
+        RowQtyEl.trigger("change");
+        recalcProductListPrices();
+        // calcFooterValues();
         _e.preventDefault();
       }
       break;
