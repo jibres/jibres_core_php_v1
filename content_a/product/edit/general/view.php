@@ -23,7 +23,7 @@ class view extends \content_a\main\view
 		$this->data->page['desc']  = T_('Manage general setting of product like name, category, price and etc.') .' '. T_('You can change another setting by choose another type of setting.');
 
 		// add back to product list link
-		$product_list_link =  '<a href="'. $this->url('baseFull') .'/product">'. T_('Back to product list'). '</a>';
+		$product_list_link =  '<a href="'. $this->url('baseFull') .'/product" data-shortkey="117">'. T_('Back to product list'). '</a>';
 		$this->data->page['desc']  .= ' '. $product_list_link;
 
 

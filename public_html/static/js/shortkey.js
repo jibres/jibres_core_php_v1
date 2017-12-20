@@ -34,6 +34,21 @@ function event_corridor(_e, _self, _key)
   var keyp   = String.fromCharCode(_key);
   console.log(mytxt);
 
+  var elShortkey = $('[data-shortkey= '+ mytxt +']');
+  if(elShortkey.length == 1)
+  {
+    if(elShortkey.is('a[href], a[href] *, button, input[type=submit]'))
+    {
+      elShortkey.trigger("click");
+      return;
+    }
+    else if(elShortkey.is('input, select, textarea'))
+    {
+      elShortkey.focus();
+    }
+    console.log(elShortkey);
+  }
+
 
   switch(mytxt)
   {
