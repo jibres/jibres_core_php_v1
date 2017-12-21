@@ -10,7 +10,7 @@ class view extends \content_a\main\view
 		$this->data->page['desc']  = T_('You can set main property of product and allow to assign some extra or edit it later.');
 
 		// add back to product list link
-		$product_list_link =  '<a href="'. $this->url('baseFull') .'/product" data-shortkey="117">'. T_('Back to product list'). '</a>';
+		$product_list_link =  '<a href="'. $this->url('baseFull') .'/product" data-shortkey="118">'. T_('Back to product list'). '</a>';
 		$this->data->page['desc']  .= ' '. $product_list_link;
 
 		$this->data->cat_list     = \lib\app\product::cat_list(true);
