@@ -88,16 +88,14 @@ class model extends \content_a\main\model
 			{
 				switch (\lib\utility::post('btn_type'))
 				{
-					case 'save_next':
-						$redirect_url = $this->url('base'). '/a/sell/add';
-						break;
-
 					case 'save_print':
 						$redirect_url = $this->url('base'). '/a/sell/fishprint?id='. $factor_detail['factor_id'];
 						break;
 
+					case 'save_next':
 					default:
-						$redirect_url = $this->url('base'). '/a/sell';
+						$redirect_url = $this->url('base'). '/a/sell/add';
+						// $redirect_url = $this->url('base'). '/a/sell';
 						break;
 				}
 			}
