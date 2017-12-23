@@ -301,6 +301,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
   .siftal #content .tbox{display: none}
   .tbl{color:#000!important;font-size:1.2em}
   .tbl tfoot{background-color:#ddd;font-size:1.1em}
+  .iziToast-wrapper{display:none;}
 }
 
 
