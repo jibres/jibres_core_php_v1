@@ -3,7 +3,7 @@
 
 {%block pageContent%}
 
-<h2 class="txtC">جیبرس؛ انتخاب بزرگان</h2>
+<h2 class="txtC">{{store.name}}</h2>
 
 <div class="txtC"><svg class="barcodePrev" data-val="#barcode"></svg></div>
 <div class="txtC hide"> تاریخ {{sell_detail.factor.date}}</div>
@@ -19,7 +19,7 @@
  </thead>
 {%for key, datarow in sell_detail.factor_detail%}
  <tr>
-  <td>{{key}}</td>
+  <td>{{ (key + 1) | fitNumber}}</td>
   <td>{{datarow.title}}</td>
   <td>{{datarow.factordetails_count  | fitNumber}}</td>
   <td>{{datarow.factordetails_price | number_format | fitNumber}}</td>
@@ -48,27 +48,15 @@
 {{parent()}}
 
 <script type="text/javascript">
-
   JsBarcode($('.barcodePrev')[0], "{{sell_detail.factor.id}}", {height: 50});
-  // printResult();
-  simplePrint();
+// console.log(44);
+//   route('*', function()
+//   {
 
-function simplePrint()
-{
-  window.print();
-  $(this).close();
-}
-
-// function printResult() {
-//     var DocumentContainer = document.getElementById('content');
-//     var WindowObject = window.open('', "PrintWindow", "width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes");
-//     WindowObject.document.writeln(DocumentContainer.innerHTML);
-//     WindowObject.document.close();
-//     WindowObject.focus();
-//     WindowObject.print();
-//     WindowObject.close();
-// }
-
+//   }).once(function()
+//   {
+//     simplePrint();
+//   });
 </script>
 {%endblock%}
 

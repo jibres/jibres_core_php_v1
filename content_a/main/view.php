@@ -11,6 +11,7 @@ class view extends \mvc\view
 
 		$this->data->display['admin'] = 'content_a/main/layout.html';
 		$this->data->site['title']    = \lib\store::name();
+		$this->data->store    = \lib\store::detail();
 
 
 	}

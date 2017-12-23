@@ -8,6 +8,7 @@ route('*', function()
   runRunner();
   calcFooterValues();
   recalcPricePercents();
+  simplePrint();
 });
 
 $(function()
@@ -549,18 +550,23 @@ function addNewRecord_ProductList(_table, _product, _append)
 
 function shortkey_print(_el)
 {
-  console.log($("#sell_clicked_btn").length);
   if($("#sell_clicked_btn").length)
   {
-    console.log(22);
-
     $("#sell_clicked_btn").attr('value', 'save_print');
+    $("#sell_clicked_btn").parents('form').submit();
   }
-
   console.log('printing...');
 }
 
 
+function simplePrint()
+{
+  if (window.location.href.indexOf("print=auto") > -1)
+  {
+      window.print();
+  }
+  console.log('open print...');
+}
 
 
 // Persian Wordifier
