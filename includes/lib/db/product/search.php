@@ -281,18 +281,31 @@ trait search
 			}
 			else
 			{
+				if(is_numeric($_string))
+				{
+					$search_in_numeric_field =
+					"
+						products.price    = '$en_number' 	OR
+						products.discount = '$en_number' 	OR
+						products.buyprice = '$en_number' 	OR
+					";
+				}
+				else
+				{
+					$search_in_numeric_field = null;
+				}
 
 				$search =
 				"
 				(
 					products.title 	  LIKE '%$_string%' OR
+
 					$search_in_code
+
 					products.cat 	  = '$_string' 		OR
 					products.unit 	  = '$_string' 		OR
 
-					products.price    = '$en_number' 	OR
-					products.discount = '$en_number' 	OR
-					products.buyprice = '$en_number' 	OR
+					$search_in_numeric_field
 
 					products.barcode  = '$_string' 		OR
 					products.barcode2 = '$_string' 		OR
