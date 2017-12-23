@@ -28,7 +28,7 @@
       <tbody>
         {%for key, value in sell_list%}
           <tr>
-            <td><a href="{{url.baseFull}}/sell/fishprint?id={{value.id}}">{{value.date|tdate("Y-m-d")}}</a></td>
+            <td><a href="{{url.baseFull}}/sell/fishprint?id={{value.id}}">{{value.date|tdate("Y-m-d H:i:s")}}</a></td>
             <td>{{value.customer}}</td>
             <td>{{value.detailcount| number_format | fitNumber}}</td>
             <td>{{value.detailcount| number_format | fitNumber}}</td>
