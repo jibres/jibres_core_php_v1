@@ -11,6 +11,12 @@ class model extends \content_a\main\model
 	 */
 	public static function getPostSellProduct()
 	{
+		if(empty(array_filter(\lib\utility::post())))
+		{
+			\lib\debug::warn(T_("No items have been added for sale"));
+			return false;
+		}
+
 		$product  = \lib\utility::post('products');
 		$count    = \lib\utility::post('count');
 		$discount = \lib\utility::post('discount');
