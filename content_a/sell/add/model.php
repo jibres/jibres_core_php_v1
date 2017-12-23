@@ -95,7 +95,7 @@ class model extends \content_a\main\model
 				switch (\lib\utility::post('btn_type'))
 				{
 					case 'save_print':
-						$redirect_url = $this->url('base'). '/a/sell/fishprint?id='. $factor_detail['factor_id'];
+						$redirect_url = $this->url('base'). '/a/sell/fishprint?auto=true&id='. $factor_detail['factor_id'];
 						break;
 
 					case 'save_next':

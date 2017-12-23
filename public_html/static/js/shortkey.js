@@ -12,6 +12,33 @@ function bindShortkey()
 
 
 /**
+ * [shortkeyCallFunc description]
+ * @return {[type]} [description]
+ */
+function shortkeyCallFunc(_elShortkey, _e)
+{
+    var myFuncCall = _elShortkey.attr('data-shortkey-call');
+    // this shortkey has called function
+    if(myFuncCall !== undefined)
+    {
+      myFuncCall = 'shortkey_'+ myFuncCall;
+      // if function exist
+      if(callFunc(myFuncCall, null, true))
+      {
+        callFunc(myFuncCall, _e);
+        return true;
+      }
+      else
+      {
+        console.log('shortkey func is not exist!');
+      }
+    }
+    return false;
+}
+
+
+
+/**
  * corridor of all events on keyboard and mouse
  * @param  {[type]} e     the element that event doing on that
  * @param  {[type]} _self seperated element for doing jobs on it
@@ -26,29 +53,46 @@ function event_corridor(_e, _self, _key)
   }
 
   _self = $(_self);
-
   var ctrl   = _e.ctrlKey  ? 'ctrl'  : '';
   var shift  = _e.shiftKey ? 'shift' : '';
   var alt    = _e.altKey   ? 'alt'   : '';
   var mytxt  = String(_key) + ctrl + alt + shift;
   var keyp   = String.fromCharCode(_key);
+  var myFunc = 'shortkey_'+ mytxt;
+
   console.log(mytxt);
 
   var elShortkey = $('[data-shortkey= '+ mytxt +']');
   if(elShortkey.length == 1)
   {
-    if(elShortkey.is('a[href], a[href] *, button, input[type=submit]'))
+    // this shortkey has called function
+    if(shortkeyCallFunc(elShortkey, _e))
     {
-      elShortkey.trigger("click");
-      return;
+      // if yse prevent default changes
+      _e.preventDefault();
     }
-    else if(elShortkey.is('input, select, textarea'))
+    else
     {
-      elShortkey.focus();
+      // else do some default event like click or set focus
+      if(elShortkey.is('a[href], a[href] *, button, input[type=submit]'))
+      {
+        elShortkey.trigger("click");
+        return;
+      }
+      else if(elShortkey.is('input, select, textarea'))
+      {
+        elShortkey.focus();
+      }
+      _e.preventDefault();
     }
-    console.log(elShortkey);
+
+  }
+  else if(shortkeyCallFunc(elShortkey, _e))
+  {
+    // if yse prevent default changes
     _e.preventDefault();
   }
+
 
 
   switch(mytxt)

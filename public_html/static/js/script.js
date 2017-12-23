@@ -547,6 +547,20 @@ function addNewRecord_ProductList(_table, _product, _append)
 
 
 
+function shortkey_print(_el)
+{
+  console.log($("#sell_clicked_btn").length);
+  if($("#sell_clicked_btn").length)
+  {
+    console.log(22);
+
+    $("#sell_clicked_btn").attr('value', 'save_print');
+  }
+
+  console.log('printing...');
+}
+
+
 
 
 // Persian Wordifier
