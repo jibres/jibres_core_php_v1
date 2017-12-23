@@ -14,6 +14,7 @@ trait datalist
 		'discountpercent',
 		'stock',
 		'finalprice',
+		'datemodified',
 	];
 
 

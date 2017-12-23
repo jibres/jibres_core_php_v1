@@ -51,6 +51,7 @@
         <th data-sort="{{sort_link.discountpercent.order}}" class="s0"><a href='{{sort_link.discountpercent.link}}'>{%trans "Discount percent"%}</a></th>
         <th data-sort="{{sort_link.finalprice.order}}"><a href='{{sort_link.finalprice.link}}'>{%trans "Final price" %}</a></th>
         <th data-sort="{{sort_link.stock.order}}" class="s0"><a href='{{sort_link.stock.link}}'>{%trans "Stock" %}</a></th>
+        <th data-sort="{{sort_link.datemodified.order}}" class="s0"><a href='{{sort_link.datemodified.link}}'>{%trans "Date Modified" %}</a></th>
       </tr>
     </thead>
 
@@ -65,6 +66,7 @@
         <td class="s0">{{value.discountpercent | number_format | fitNumber}} <small>%</small></td>
         <td><a href="{{url.baseFull}}/product?q={{value.finalprice}}" class="bold">{{(value.finalprice) | number_format | fitNumber}}</a></td>
         <td class="s0">{{value.stock | number_format | fitNumber}} <small><a href="{{url.baseFull}}/product?q={{value.unit}}">{{value.unit}}</a></small></td>
+        <td class="s0">{%if value.datemodified%}{{value.datemodified | tdate("Y/m/d H:i")}}{%else%}<small><i>{%trans "No change"%}</i></small>{%endif%}</td>
       </tr>
       {%endfor%}
     </tbody>
