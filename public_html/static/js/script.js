@@ -507,7 +507,7 @@ function addNewRecord_ProductList(_table, _product, _append)
     htmlPDiscount    += '<input class="discount" type="number" name="discount[]" min=0 max=10000000000';
     if(_product.discount)
     {
-      htmlPDiscount += 'value="' + _product.discount + '"';
+      htmlPDiscount += ' value="' + _product.discount + '"';
     }
     htmlPDiscount    += '>';
     htmlPDiscount    += '<span class="addon small">0%</span>'+ '</div>';
