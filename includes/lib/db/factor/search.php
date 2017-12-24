@@ -183,7 +183,7 @@ trait search
 
 		$where = join($where, " AND ");
 		$search = null;
-		if($_string !== null)
+		if($_string !== null && $_string)
 		{
 			$_string   = trim($_string);
 			$en_number = \lib\utility\convert::to_en_number($_string);
