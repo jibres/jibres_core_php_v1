@@ -3,7 +3,10 @@ namespace lib\db\factor;
 
 trait search
 {
-	private static $public_show_field = "*";
+	private static $public_show_field =
+	"
+		factors.*
+	";
 
 	/**
 	 * Searches for the first match.

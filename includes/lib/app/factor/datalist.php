@@ -11,7 +11,8 @@ trait datalist
 		'detailsum',
 		'detailtotalsum',
 		'detaildiscount',
-		'detailcount',
+		'item',
+		'qty',
 
 	];
 
