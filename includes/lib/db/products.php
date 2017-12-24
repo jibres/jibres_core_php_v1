@@ -176,8 +176,49 @@ class products
 	}
 
 
+	public static function get_all_product($_store_id)
+	{
+		if(!$_store_id || !is_numeric($_store_id))
+		{
+			return false;
+		}
+		$field = self::$public_show_field;
+		$query =
+		"
+			SELECT
+				products.title          AS `title`,
+				products.name           AS `name`,
+				products.cat            AS `cat`,
+				products.slug           AS `slug`,
+				products.company        AS `company`,
+				products.shortcode      AS `shortcode`,
+				products.unit           AS `unit`,
+				products.barcode        AS `barcode`,
+				products.barcode2       AS `barcode2`,
+				products.code           AS `code`,
+				products.buyprice       AS `buyprice`,
+				products.price          AS `price`,
+				products.discount       AS `discount`,
+				products.vat            AS `vat`,
+				products.initialbalance AS `initialbalance`,
+				products.minstock       AS `minstock`,
+				products.maxstock       AS `maxstock`,
+				products.status         AS `status`,
+				products.sold           AS `sold`,
+				products.stock          AS `stock`,
+				products.thumb          AS `thumb`,
+				products.service        AS `service`,
+				products.sellonline     AS `sellonline`,
+				products.sellstore      AS `sellstore`,
+				products.carton         AS `carton`,
+				products.desc           AS `desc`
+			FROM
+				products
+			WHERE
+				products.store_id = $_store_id
+		";
+		return \lib\db::get($query);
 
-
+	}
 }
-
 ?>
