@@ -6,6 +6,19 @@ class factors
 
 	use \lib\db\factor\search;
 
+	public static function get_count_group_by($_store_id)
+	{
+		if(!$_store_id || !is_numeric($_store_id))
+		{
+			return false;
+		}
+
+		$query = "SELECT COUNT(*) AS `count`, factors.type AS `type` FROM factors WHERE factors.store_id = '$_store_id' GROUP BY factors.type ";
+
+		return \lib\db::get($query, ['type', 'count']);
+	}
+
+
 	public static function time_chart($_store_id, $_type)
 	{
 		if(!$_store_id || !is_numeric($_store_id) || !$_type)
