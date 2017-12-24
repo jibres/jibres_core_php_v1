@@ -15,7 +15,7 @@ class view extends \mvc\view
 
 
 		// set shortkey for all badges is this content
-		$this->data->page['badge']['shortkey'] = 123;
+		$this->data->page['badge']['shortkey'] = 120;
 	}
 
 
