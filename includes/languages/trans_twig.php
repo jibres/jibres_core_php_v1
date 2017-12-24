@@ -310,11 +310,11 @@ class twigTransTerms
 	echo T_("Setting");                                                               // Line 21
 
 	//----------------------------------------------content_a\product\add\display.html
-	echo T_("Basic detail");                                                          // Line 7
-	echo T_("Initial detail before start sell");                                      // Line 32
 	echo T_("Warehouse");                                                             // Line 49
 
 	//-------------------------------------content_a\product\edit\general\display.html
+	echo T_("Basic detail");                                                          // Line 7
+	echo T_("Initial detail before start sell");                                      // Line 32
 
 	//---------------------------------------------content_a\product\home\display.html
 	echo T_("No product founded.");                                                   // Line 15
@@ -341,16 +341,17 @@ class twigTransTerms
 	echo T_("allowed extentions jpg, png (gif for bussiness plans). Max 500Kb");      // Line 72
 	echo T_("Name of product");                                                       // Line 77
 	echo T_("Enter a valid name");                                                    // Line 22
-	echo T_("Title of product");                                                      // Line 85
+	echo T_("Set short and best title for your product");                             // Line 85
 	echo T_("Enter a valid team title");                                              // Line 85
 	echo T_("Slug");                                                                  // Line 94
 	echo T_("Manufacturer");                                                          // Line 101
 	echo T_("Product manufacturer");                                                  // Line 103
-	echo T_("Cat");                                                                   // Line 111
-	echo T_("Code for quick access");                                                 // Line 120
+	echo T_("Cat");                                                                   // Line 109
+	echo T_("Organize by category");                                                  // Line 111
+	echo T_("For quick access");                                                      // Line 120
 	echo T_("Short code");                                                            // Line 128
 	echo T_("Unit");                                                                  // Line 134
-	echo T_("Count unit like Qty, kg, liter and etc");                                // Line 136
+	echo T_("like Qty, kg, etc");                                                     // Line 136
 	echo T_("Barcode");                                                               // Line 144
 	echo T_("Scan Barcode here...");                                                  // Line 146
 	echo T_("Barcode2");                                                              // Line 152

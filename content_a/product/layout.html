@@ -39,7 +39,7 @@
 
 
 {%block iadd%}
-<button class="btn primary block mT50">{%trans "Add"%}</button>
+<button class="btn primary block mT25">{%trans "Add"%}</button>
 {%endblock%}
 
 {%block iDelete%}
@@ -82,7 +82,7 @@
 {%block iTitle%}
 <label for="title">{%trans "Title"%}<span class="fc-red">*</span></label>
 <div class="input">
- <input type="text" name="title" id="title" placeholder='{%trans "Title of product" %} *' value="{{product.title}}" maxlength='50' pattern=".{1,50}" title='{%trans "Enter a valid team title"%}' autofocus>
+ <input type="text" name="title" id="title" placeholder='{%trans "Set short and best title for your product" %} *' value="{{product.title}}" maxlength='50' pattern=".{1,50}" title='{%trans "Enter a valid team title"%}' autofocus>
 </div>
 {%endblock%}
 
@@ -108,7 +108,7 @@
 {%block iCat%}
 <label for='cat'>{%trans "Cat"%}</label>
 <div class="input">
- <input class="autoList" type="text" name="cat" id="cat" placeholder='{%trans "Cat"%}' value="{{product.cat}}" maxlength="50" data-list="{{cat_list}}">
+ <input class="autoList" type="text" name="cat" id="cat" placeholder='{%trans "Organize by category"%}' value="{{product.cat}}" maxlength="50" data-list="{{cat_list}}">
 </div>
 {%endblock%}
 
@@ -117,7 +117,7 @@
 {%block iCode%}
 <label for='code'>{%trans "Code"%}</label>
 <div class="input">
- <input type="text" name="code" id="code" placeholder='{%trans "Code for quick access"%}' value="{{product.code}}" maxlength="50">
+ <input type="text" name="code" id="code" placeholder='{%trans "For quick access"%}' value="{{product.code}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -133,7 +133,7 @@
 {%block iUnit%}
 <label for='unit'>{%trans "Unit"%}</label>
 <div class="input">
- <input class="autoList" name="unit" id="unit" placeholder='{%trans "Count unit like Qty, kg, liter and etc"%}' value="{{product.unit}}" maxlength="50" data-list="{{unit_list}}">
+ <input class="autoList" name="unit" id="unit" placeholder='{%trans "like Qty, kg, etc"%}' value="{{product.unit}}" maxlength="50" data-list="{{unit_list}}">
 </div>
 {%endblock%}
 

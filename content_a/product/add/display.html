@@ -5,17 +5,12 @@
 
 <form method="post" class="f justify-center">
 <div class="cbox c9 s12">
- <h3>{%trans "Basic detail"%}</h3>
 {{block ('iTitle') }}
 
 <div class="f">
- <div class="c pRa5">{{block ('iCat') }}</div>
- <div class="c">{{block ('iUnit') }}</div>
-</div>
-
-<div class="f">
- <div class="c pRa5">{{block ('iCode') }}</div>
- <div class="c">{{block ('iUnit_hidden') }}</div>
+ <div class="c s12 pRa5">{{block ('iCat') }}</div>
+ <div class="c s6 pRa5">{{block ('iUnit') }}</div>
+ <div class="c s6">{{block ('iCode') }}</div>
 </div>
 
 <div class="f">
@@ -26,11 +21,7 @@
 {{block ('iBarcodePrev') }}
 
 
-
-
- <h3 class="mT25">{%trans "Initial detail before start sell"%}</h3>
 {{block ('iBuyprice') }}
-
 <div class="f">
  <div class="c s12 pRa5">{{block ('iPrice') }}</div>
  <div class="c s12">{{block ('iDiscount') }}</div>
@@ -41,16 +32,17 @@
 
 <h3 class="mT25">{%trans "Warehouse"%}</h3>
 
-{{block ('iInitialBalance') }}
-<div class="f">
- <div class="c pRa5">{{block ('iMinstock') }}</div>
- <div class="c">{{block ('iMaxstock') }}</div>
-</div>
-
 <div class="f">
  <div class="c pRa5">{{block ('iManufacturer') }}</div>
  <div class="c">{{block ('iCarton') }}</div>
 </div>
+<div class="f">
+ <div class="c s12 pRa5">{{block ('iInitialBalance') }}</div>
+ <div class="c s6 pRa5">{{block ('iMinstock') }}</div>
+ <div class="c s6">{{block ('iMaxstock') }}</div>
+</div>
+
+
 
 {{block ('iStatus') }}
 
