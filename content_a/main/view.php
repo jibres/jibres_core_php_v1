@@ -62,6 +62,17 @@ class view extends \mvc\view
 
 			$temp_link['q']    = $get['q'];
 
+			if(is_array(\lib\utility::get(null , 'raw')))
+			{
+				foreach (\lib\utility::get(null , 'raw') as $query_key => $query_value)
+				{
+					if(!in_array($query_key, ['q', 'sort', 'order']))
+					{
+						$temp_link[$query_key] = $query_value;
+					}
+				}
+			}
+
 			$link[$field]['link'] = $_url . '?'.  http_build_query($temp_link);
 		}
 		return $link;
