@@ -6,8 +6,8 @@ trait search
 
 	private static $public_show_field =
 	"
-		(products.price - products.discount) AS `finalprice`,
-		((products.price - products.discount) * 100 / products.buyprice) AS `intrestrate`,
+		(products.price - IFNULL(products.discount, 0)) AS `finalprice`,
+		((products.price - IFNULL(products.discount,0)) * 100 / products.buyprice) AS `intrestrate`,
 		ROUND(products.price * 100 / products.buyprice, 2) - 100 AS `intrestrate_impure`,
 		products.*
 	";
