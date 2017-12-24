@@ -117,7 +117,7 @@
 {%block iCode%}
 <label for='code'>{%trans "Code"%}</label>
 <div class="input">
- <input type="text" name="code" id="code" placeholder='{%trans "For quick access"%}' value="{{product.code}}" maxlength="50">
+ <input type="text" name="code" id="code" placeholder='{%trans "For quick access"%}' value="{{product.code}}" maxlength="50" class="txtC">
 </div>
 {%endblock%}
 
@@ -143,7 +143,7 @@
 {%block iBarcode%}
 <label for="barcode">{%trans "Barcode"%}</label>
 <div class="input ltr">
- <input type="text" name="barcode" id="barcode" placeholder='{%trans "Scan Barcode here..."%}' value="{{product.barcode}}" class="barCode" data-lock autocomplete="off">
+ <input type="text" name="barcode" id="barcode" placeholder='{%trans "Scan Barcode here..."%}' value="{{product.barcode}}" class="barCode txtC" data-lock autocomplete="off">
 </div>
 {%endblock%}
 
@@ -151,13 +151,13 @@
 {%block iBarcode2%}
 <label for="barcode2">{%trans "Barcode2"%}</label>
 <div class="input ltr">
- <input type="text" name="barcode2" id="barcode2" placeholder='{%trans "Scan Barcode2 here..."%}' value="{{product.barcode2}}" class="barCode" data-lock autocomplete="off">
+ <input type="text" name="barcode2" id="barcode2" placeholder='{%trans "Scan Barcode2 here..."%}' value="{{product.barcode2}}" class="barCode txtC" data-lock autocomplete="off">
 </div>
 {%endblock%}
 
 
 {%block iBarcodePrev%}
-<div class="f txtC">
+<div class="f txtC s0">
  <div class="c6 pRa5"><svg class="barcodePrev" data-val="#barcode"></svg></div>
  <div class="c6"><svg class="barcodePrev" data-val="#barcode2"></svg></div>
 </div>
