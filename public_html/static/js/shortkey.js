@@ -251,6 +251,17 @@ function event_corridor(_e, _self, _key)
       break;
 
     case '113':             // f2
+        // prevent any other change
+        _e.preventDefault();
+        // set sell url
+        var sellUrl = '/a/sell/add';
+        if($('html').attr('lang') !== undefined)
+        {
+          sellUrl = $('html').attr('lang')+ sellUrl;
+        }
+        // navigate to add new sell page
+        // Navigate({ url: sellUrl });
+        window.open(sellUrl, '_blank');
       break;
 
 
