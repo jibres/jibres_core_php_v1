@@ -253,6 +253,17 @@ function event_corridor(_e, _self, _key)
     case '113':             // f2
       break;
 
+
+    case '114':             // f3
+    case '114ctrl':         // f3 + ctrl
+    case '70ctrl':          // f3 + ctrl
+      if($('input[type=search]').length === 1)
+      {
+        $('input[type=search]').focus();
+        _e.preventDefault();
+      }
+      break;
+
     case '115':             // f4
 
       break;
