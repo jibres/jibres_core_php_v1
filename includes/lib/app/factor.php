@@ -91,7 +91,8 @@ class factor
 		$args['detailsum']      = null;
 		$args['detaildiscount'] = null;
 		$args['detailtotalsum'] = null;
-		$args['detailcount']    = null;
+		$args['item']           = null;
+		$args['qty']            = null;
 		$args['vat']            = null;
 		$args['discount']       = null;
 		$args['sum']            = null;

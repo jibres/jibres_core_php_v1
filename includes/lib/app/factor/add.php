@@ -84,7 +84,8 @@ trait add
 		$factor['detailsum']      = array_sum(array_column($factor_detail, 'price'));
 		$factor['detaildiscount'] = array_sum(array_column($factor_detail, 'discount'));;
 		$factor['detailtotalsum'] = array_sum(array_column($factor_detail, 'sum'));;
-		$factor['detailcount']    = array_sum(array_column($factor_detail, 'count'));;
+		$factor['qty']            = array_sum(array_column($factor_detail, 'count'));;
+		$factor['item']           = count($factor_detail);
 		$factor['vat']            = null;
 		$factor['discount']       = null;
 		$factor['sum']            = floatval($factor['detailtotalsum']) - floatval($factor['discount']);
