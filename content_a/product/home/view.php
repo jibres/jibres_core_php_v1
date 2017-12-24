@@ -21,7 +21,9 @@ class view extends \content_a\main\view
 			'order'   => \lib\utility::get('order'),
 			'sort'    => \lib\utility::get('sort'),
 			'barcode' => \lib\utility::get('barcode'),
+			'in'      => \lib\utility::get('in'),
 		];
+
 		$search_string            = \lib\utility::get('q');
 
 		$this->data->product_list = \lib\app\product::list($search_string, $args);

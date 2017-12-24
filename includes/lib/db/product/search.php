@@ -12,6 +12,7 @@ trait search
 		products.*
 	";
 
+
 	public static function search_id($_id, $_store_id)
 	{
 		$field = self::$public_show_field;
@@ -116,6 +117,8 @@ trait search
 			"sort"           => null,
 
 			"page"           => 1,
+			// just search in one field
+			'just_one_field' => false,
 		];
 
 		// if limit not set and the pagenation is false
@@ -252,7 +255,7 @@ trait search
 
 		$where = join($where, " AND ");
 		$search = null;
-		if($_string !== null)
+		if($_string !== null && !$_options['just_one_field'])
 		{
 			$search_in_code = false;
 

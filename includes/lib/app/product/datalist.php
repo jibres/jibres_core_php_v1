@@ -17,6 +17,15 @@ trait datalist
 		'datemodified',
 	];
 
+	public static $search_in =
+	[
+		'cat',
+		'buyprice',
+		'price',
+		'discount',
+		'finalprice',
+	];
+
 
 	/**
 	 * Gets the product.
@@ -39,8 +48,9 @@ trait datalist
 
 		$default_args =
 		[
-			'order'  => null,
-			'sort'   => null,
+			'order' => null,
+			'sort'  => null,
+			'in'    => null,
 		];
 
 		if(!is_array($_args))
@@ -67,11 +77,19 @@ trait datalist
 			}
 		}
 
+
 		$field             = [];
 		$field['store_id'] = \lib\store::id();
 		$multi_record      = true;
 
-		if(isset($_args['barcode']) && $_args['barcode'])
+		// search in current field
+		if($option['in'] && in_array($option['in'], self::$search_in))
+		{
+			$field[$option['in']] = $_string;
+			$option['just_one_field'] = true;
+		}
+
+		if (isset($_args['barcode']) && $_args['barcode'])
 		{
 			$result = \lib\db\products::search_barcode($_args['barcode'], \lib\store::id());
 			$multi_record = false;
