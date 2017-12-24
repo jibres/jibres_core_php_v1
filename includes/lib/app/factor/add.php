@@ -80,11 +80,17 @@ trait add
 
 		$return = [];
 
+		foreach ($factor_detail as $key => $value)
+		{
+			$sum                      = (floatval($value['price']) * floatval($value['count']));
+			$discount                 = (floatval($value['discount']) * floatval($value['count']));
+			$factor['detailsum']      += $sum;
+			$factor['detaildiscount'] += $discount;
+			$factor['detailtotalsum'] += $sum - $discount;
+		}
+
 		$factor['type']           = $_option['type'];
-		$factor['detailsum']      = array_sum(array_column($factor_detail, 'price'));
-		$factor['detaildiscount'] = array_sum(array_column($factor_detail, 'discount'));;
-		$factor['detailtotalsum'] = array_sum(array_column($factor_detail, 'sum'));;
-		$factor['qty']            = array_sum(array_column($factor_detail, 'count'));;
+		$factor['qty']            = array_sum(array_column($factor_detail, 'count'));
 		$factor['item']           = count($factor_detail);
 		$factor['vat']            = null;
 		$factor['discount']       = null;
