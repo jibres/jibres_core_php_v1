@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2017-12-24 11:43+0330\n"
-"PO-Revision-Date: 2017-12-24 11:44+0330\n"
+"POT-Creation-Date: 2017-12-24 15:45+0330\n"
+"PO-Revision-Date: 2017-12-24 15:47+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -1476,7 +1476,7 @@ msgstr "تاریخچه پرداخت‌ها"
 
 #: dash/addons/includes/languages/trans_addons.php:26
 #: jibres/includes/languages/trans_addons.php:26
-#: jibres/includes/languages/trans_twig.php:325
+#: jibres/includes/languages/trans_twig.php:327
 msgid "Title"
 msgstr "عنوان"
 
@@ -1526,7 +1526,7 @@ msgstr "تعداد"
 
 #: dash/addons/includes/languages/trans_addons.php:40
 #: jibres/includes/languages/trans_addons.php:40
-#: jibres/includes/languages/trans_twig.php:489
+#: jibres/includes/languages/trans_twig.php:491
 msgid "Billing"
 msgstr "مالی"
 
@@ -1567,7 +1567,7 @@ msgstr "موقعیت شغلی مناسبی بین ۳ تا ۳۰ کاراکتر و
 
 #: dash/addons/includes/languages/trans_addons.php:50
 #: jibres/includes/languages/trans_addons.php:50
-#: jibres/includes/languages/trans_twig.php:341
+#: jibres/includes/languages/trans_twig.php:343
 msgid "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"
 msgstr ""
 "پسوندهای مجاز jpg و png هستند‌(‌gif برای پلن‌های تجاری). حداکثر حجم مجاز ۵۰۰ کیلوبایت"
@@ -1883,6 +1883,7 @@ msgid "Enter to Jibres"
 msgstr "ورود به جیبرس"
 
 #: dash/addons/includes/languages/trans_addons.php:111
+#: jibres/content_a/product/home/view.php:32
 #: jibres/includes/languages/trans_addons.php:111
 #: jibres/includes/languages/trans_twig.php:215
 msgid "Search"
@@ -2194,7 +2195,7 @@ msgid "Saved record"
 msgstr "رکورد ذخیره شد"
 
 #: dash/addons/includes/languages/trans_addons.php:180
-#: jibres/content_a/buy/add/view.php:148 jibres/content_a/sell/add/view.php:148
+#: jibres/content_a/buy/add/view.php:148 jibres/content_a/sell/add/view.php:150
 #: jibres/includes/languages/trans_addons.php:180
 #: jibres/includes/languages/trans_twig.php:227
 msgid "Code"
@@ -2255,7 +2256,7 @@ msgstr "جایزه"
 
 #: dash/addons/includes/languages/trans_addons.php:192
 #: jibres/includes/languages/trans_addons.php:192
-#: jibres/includes/languages/trans_twig.php:353
+#: jibres/includes/languages/trans_twig.php:355
 msgid "Unit"
 msgstr "واحد"
 
@@ -2546,7 +2547,7 @@ msgstr "خداحافط :("
 
 #: dash/addons/includes/languages/trans_addons.php:266
 #: jibres/includes/languages/trans_addons.php:266
-#: jibres/includes/languages/trans_twig.php:421
+#: jibres/includes/languages/trans_twig.php:423
 msgid "Hi"
 msgstr "سلام"
 
@@ -3315,7 +3316,7 @@ msgstr ""
 
 #: dash/addons/includes/languages/trans_addons.php:468
 #: jibres/includes/languages/trans_addons.php:468
-#: jibres/includes/languages/trans_twig.php:355
+#: jibres/includes/languages/trans_twig.php:357
 msgid "Barcode"
 msgstr "بارکد"
 
@@ -3703,7 +3704,7 @@ msgstr "در مورد clockpicker بیشتر بخوانید و مثال‌های
 
 #: dash/addons/includes/languages/trans_addons.php:540
 #: jibres/includes/languages/trans_addons.php:540
-#: jibres/includes/languages/trans_twig.php:440
+#: jibres/includes/languages/trans_twig.php:442
 msgid "Simple"
 msgstr "ساده"
 
@@ -7600,7 +7601,7 @@ msgstr "ما به شماره موبایل نیاز داریم!"
 
 #: dash/addons/includes/languages/trans_addons.php:1383
 #: jibres/includes/languages/trans_addons.php:1383
-#: jibres/includes/languages/trans_twig.php:505
+#: jibres/includes/languages/trans_twig.php:507
 msgid " "
 msgstr " "
 
@@ -8382,16 +8383,16 @@ msgid "Sale invoicing"
 msgstr "صدور فاکتور فروش"
 
 #: jibres/content_a/buy/add/view.php:44 jibres/content_a/buy/edit/view.php:44
-#: jibres/content_a/sell/add/view.php:44 jibres/content_a/sell/edit/view.php:44
+#: jibres/content_a/sell/add/view.php:46 jibres/content_a/sell/edit/view.php:44
 msgid "code"
 msgstr "کد"
 
 #: jibres/content_a/buy/add/view.php:51 jibres/content_a/buy/edit/view.php:51
-#: jibres/content_a/sell/add/view.php:51 jibres/content_a/sell/edit/view.php:51
+#: jibres/content_a/sell/add/view.php:53 jibres/content_a/sell/edit/view.php:51
 msgid "Product not found."
 msgstr "کالا یافت نشد."
 
-#: jibres/content_a/buy/add/view.php:67 jibres/content_a/sell/add/view.php:67
+#: jibres/content_a/buy/add/view.php:67 jibres/content_a/sell/add/view.php:69
 msgid "add as new product"
 msgstr "به عنوان یک کالای جدید ثبت کنید."
 
@@ -8619,6 +8620,11 @@ msgstr "فاکتور"
 msgid "Register any type of factor"
 msgstr "ثبت هر نوع فاکتور"
 
+#: jibres/content_a/factor/view.php:13 jibres/content_a/sell/home/view.php:13
+#: jibres/includes/languages/trans_twig.php:420
+msgid "Add new sell"
+msgstr "افزودن فروش جدید"
+
 #: jibres/content_a/home/view.php:9
 msgid "Dashboard of your store"
 msgstr "داشبورد فروشگاه شما"
@@ -8650,7 +8656,10 @@ msgstr ""
 "کنید یا بعدا ویرایش کنید."
 
 #: jibres/content_a/product/add/view.php:13
-#: jibres/content_a/product/edit/general/view.php:26
+#: jibres/content_a/product/edit/delete/view.php:20
+#: jibres/content_a/product/edit/general/view.php:31
+#: jibres/content_a/product/edit/thumb/view.php:24
+#: jibres/content_a/product/edit/view.php:32
 msgid "Back to product list"
 msgstr "بازگشت به لیست محصولات"
 
@@ -8661,16 +8670,6 @@ msgstr "حذف محصول"
 #: jibres/content_a/product/edit/delete/view.php:17
 msgid "You can delete product easily form this page, be careful!"
 msgstr "شما می توانید محصول را به راحتی از طریق همین صفحه حذف کنید، مراقب باشید!"
-
-#: jibres/content_a/product/edit/delete/view.php:20
-#: jibres/content_a/product/edit/general/view.php:31
-#: jibres/content_a/product/edit/thumb/view.php:24
-#: jibres/content_a/product/edit/view.php:32
-#: jibres/content_a/product/home/view.php:17
-#: jibres/content_a/product/summary/view.php:17
-#: jibres/includes/languages/trans_twig.php:322
-msgid "Add new product"
-msgstr "افزودن محصول جدید"
 
 #: jibres/content_a/product/edit/general/view.php:22
 #: jibres/content_a/product/edit/view.php:27
@@ -8697,21 +8696,43 @@ msgstr "تصویر محصول"
 msgid "You can have some edit on this product"
 msgstr "شما می توانید برخی از ویژگی های این محصول را ویرایش کنید"
 
-#: jibres/content_a/product/home/view.php:9
-#: jibres/content_a/product/summary/view.php:13
-#: jibres/includes/languages/trans_twig.php:396
+#: jibres/content_a/product/export/model.php:16
+msgid "Export product successfully complete"
+msgstr "خروجی‌گرفتن از محصولات و کالاها با موفقیت تکمیل شد"
+
+#: jibres/content_a/product/export/view.php:9
+msgid "Export product to CSV"
+msgstr "خروجی از محصولات در فرمت سی‌اس‌وی"
+
+#: jibres/content_a/product/export/view.php:10
+msgid "You can export all product to CSV file"
+msgstr "شما می‌توانید از محصولات و کالاهای خود در فرمت سی‌اس‌وی خروجی بگیرید"
+
+#: jibres/content_a/product/export/view.php:13
+#: jibres/content_a/product/import/view.php:13
+msgid "Back to product dashboard"
+msgstr "بازگشت به داشبورد محصولات"
+
+#: jibres/content_a/product/home/view.php:10
+#: jibres/content_a/product/summary/view.php:17
+#: jibres/includes/languages/trans_twig.php:398
 msgid "List of products"
 msgstr "لیست محصولات"
 
-#: jibres/content_a/product/home/view.php:10
+#: jibres/content_a/product/home/view.php:11
 msgid "You can search in list of products, add new product and edit existing."
 msgstr ""
 "شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا "
 "ویرایش کنید."
 
-#: jibres/content_a/product/home/view.php:13
+#: jibres/content_a/product/home/view.php:14
 msgid "Products dashboard"
 msgstr "داشبورد محصولات"
+
+#: jibres/content_a/product/home/view.php:18
+#: jibres/includes/languages/trans_twig.php:324
+msgid "Add new product"
+msgstr "افزودن محصول جدید"
 
 #: jibres/content_a/product/import/model.php:17
 msgid "Please upload a csv file"
@@ -8749,20 +8770,23 @@ msgstr "یک سری جزئیات درباره محصولات شما!"
 msgid "No items have been added for sale"
 msgstr "هیچ محصولی برای فروش انتخاب نشده است!"
 
+#: jibres/content_a/sell/add/view.php:14 jibres/content_a/sell/fishprint/view.php:13
+msgid "Back to last sales"
+msgstr "بازگشت به آخرین فروش‌ها"
+
 #: jibres/content_a/sell/fishprint/view.php:10 jibres/content_a/sell/home/view.php:10
 msgid "You can search in list of sells, add new sell and edit existing."
 msgstr ""
 "شما می‌توانید در لیست فروش ها جستجو کنید، یا یک خرید جدید ثبت کنید یا خرید قبلی را "
 "ویرایش کنید."
 
-#: jibres/content_a/sell/fishprint/view.php:13 jibres/content_a/sell/home/view.php:13
-#: jibres/includes/languages/trans_twig.php:418
-msgid "Add new sell"
-msgstr "افزودن فروش جدید"
-
 #: jibres/content_a/sell/home/view.php:9
 msgid "List of sells"
 msgstr "لیست فروش‌ها"
+
+#: jibres/content_a/sell/home/view.php:16
+msgid "Back to factor list"
+msgstr "بازگشت به صدور فاکتور"
 
 #: jibres/content_a/setting/plan/model.php:21
 #: jibres/content_a/setting/plan/model.php:75
@@ -8815,7 +8839,7 @@ msgstr ""
 
 #: jibres/content_a/staff/add/view.php:9 jibres/content_a/staff/edit/view.php:37
 #: jibres/content_a/staff/home/view.php:13
-#: jibres/includes/languages/trans_twig.php:460
+#: jibres/includes/languages/trans_twig.php:462
 msgid "Add new staff"
 msgstr "افزودن کارمند جدید"
 
@@ -8852,7 +8876,7 @@ msgstr ""
 #: jibres/content_a/supplier/add/view.php:9
 #: jibres/content_a/supplier/edit/view.php:37
 #: jibres/content_a/supplier/home/view.php:13
-#: jibres/includes/languages/trans_twig.php:472
+#: jibres/includes/languages/trans_twig.php:474
 msgid "Add new supplier"
 msgstr "افزودن تامین‌کننده جدید"
 
@@ -10267,8 +10291,8 @@ msgid "Top Members"
 msgstr "برترین اعضا"
 
 #: jibres/includes/languages/trans_twig.php:300
-msgid "Last sells"
-msgstr "آخرین فروش‌ها"
+msgid "Sales count group by hour"
+msgstr "تعداد فروش به تفکیک ساعت"
 
 #: jibres/includes/languages/trans_twig.php:304
 msgid "Products"
@@ -10294,512 +10318,512 @@ msgstr "ثبت فروش جدید"
 msgid "Warehouse"
 msgstr "انبار"
 
-#: jibres/includes/languages/trans_twig.php:316
-msgid "Basic detail"
-msgstr "اطلاعات اولیه"
+#: jibres/includes/languages/trans_twig.php:318
+msgid "Please wait to complete export progress"
+msgstr "لطفا تا تکمیل شدن فرآیند خروجی‌گرفتن تامل کنید."
 
-#: jibres/includes/languages/trans_twig.php:317
-msgid "Initial detail before start sell"
-msgstr "مقادیر اولیه قبل از شروع فروش"
+#: jibres/includes/languages/trans_twig.php:319
+msgid "Export"
+msgstr "خروجی"
 
-#: jibres/includes/languages/trans_twig.php:320
+#: jibres/includes/languages/trans_twig.php:322
 msgid "No product founded."
 msgstr "هیچ محصولی یافت نشد."
 
-#: jibres/includes/languages/trans_twig.php:321
+#: jibres/includes/languages/trans_twig.php:323
 msgid "Search with new keywords or barcode."
 msgstr "با کلیدواژه‌های بهتر یا بارکد دیگری جستجو کنید."
 
-#: jibres/includes/languages/trans_twig.php:323
+#: jibres/includes/languages/trans_twig.php:325
 msgid "You are not have product yet! add new one."
 msgstr "شما تاکنون هیچ محصولی ثبت نکرده اید! یک محصول اضافه کنید."
 
-#: jibres/includes/languages/trans_twig.php:324
+#: jibres/includes/languages/trans_twig.php:326
 msgid "Search in products"
 msgstr "جستجو در محصولات"
 
-#: jibres/includes/languages/trans_twig.php:326
+#: jibres/includes/languages/trans_twig.php:328
 msgid "Category"
 msgstr "دسته‌بندی"
 
-#: jibres/includes/languages/trans_twig.php:327
+#: jibres/includes/languages/trans_twig.php:329
 msgid "Discount percent"
 msgstr "درصد تخفیف"
 
-#: jibres/includes/languages/trans_twig.php:328
+#: jibres/includes/languages/trans_twig.php:330
 msgid "Final price"
 msgstr "قیمت نهایی"
 
-#: jibres/includes/languages/trans_twig.php:329
+#: jibres/includes/languages/trans_twig.php:331
 msgid "Stock"
 msgstr "موجودی"
 
-#: jibres/includes/languages/trans_twig.php:330
+#: jibres/includes/languages/trans_twig.php:332
 msgid "Last modified"
 msgstr "آخرین به‌روزرسانی"
 
-#: jibres/includes/languages/trans_twig.php:333
+#: jibres/includes/languages/trans_twig.php:335
 msgid "Choose your CSV"
 msgstr "فایل سی اس وی خود را انتخاب کنید"
 
-#: jibres/includes/languages/trans_twig.php:334
+#: jibres/includes/languages/trans_twig.php:336
 msgid "Please wait to complete import progress"
 msgstr "لطفا تا اتمام فرآیند ورود صبر کنید"
 
-#: jibres/includes/languages/trans_twig.php:335
+#: jibres/includes/languages/trans_twig.php:337
 msgid "Import"
 msgstr "وارد کردن"
 
-#: jibres/includes/languages/trans_twig.php:338
+#: jibres/includes/languages/trans_twig.php:340
 msgid "Delete product"
 msgstr "حذف محصول"
 
-#: jibres/includes/languages/trans_twig.php:339
+#: jibres/includes/languages/trans_twig.php:341
 msgid "Insert"
 msgstr "افزودن"
 
-#: jibres/includes/languages/trans_twig.php:340
+#: jibres/includes/languages/trans_twig.php:342
 msgid "Save All"
 msgstr "ذخیره همه"
 
-#: jibres/includes/languages/trans_twig.php:342
+#: jibres/includes/languages/trans_twig.php:344
 msgid "Name of product"
 msgstr "نام محصول"
 
-#: jibres/includes/languages/trans_twig.php:343
+#: jibres/includes/languages/trans_twig.php:345
 msgid "Enter a valid name"
 msgstr "نام معتبر وارد کنید"
 
-#: jibres/includes/languages/trans_twig.php:344
+#: jibres/includes/languages/trans_twig.php:346
 msgid "Set short and best title for your product"
 msgstr "عنوانی کوتاه و مناسب برای محصول یا کالای خود وارد کنید"
 
-#: jibres/includes/languages/trans_twig.php:345
+#: jibres/includes/languages/trans_twig.php:347
 msgid "Enter a valid team title"
 msgstr "یک عنوان صحیح برای تیم انتخاب کنید"
 
-#: jibres/includes/languages/trans_twig.php:346
+#: jibres/includes/languages/trans_twig.php:348
 msgid "Slug"
 msgstr "نامک"
 
-#: jibres/includes/languages/trans_twig.php:347
+#: jibres/includes/languages/trans_twig.php:349
 msgid "Manufacturer"
 msgstr "سازنده"
 
-#: jibres/includes/languages/trans_twig.php:348
+#: jibres/includes/languages/trans_twig.php:350
 msgid "Product manufacturer"
 msgstr "کارخانه سازنده محصول"
 
-#: jibres/includes/languages/trans_twig.php:349
+#: jibres/includes/languages/trans_twig.php:351
 msgid "Cat"
 msgstr "دسته‌بندی"
 
-#: jibres/includes/languages/trans_twig.php:350
+#: jibres/includes/languages/trans_twig.php:352
 msgid "Organize by category"
 msgstr "دسته برای طبقه‌بندی"
 
-#: jibres/includes/languages/trans_twig.php:351
+#: jibres/includes/languages/trans_twig.php:353
 msgid "For quick access"
 msgstr "برای دسترسی سریع"
 
-#: jibres/includes/languages/trans_twig.php:352
+#: jibres/includes/languages/trans_twig.php:354
 msgid "Short code"
 msgstr "کد کوتاه"
 
-#: jibres/includes/languages/trans_twig.php:354
+#: jibres/includes/languages/trans_twig.php:356
 msgid "like Qty, kg, etc"
 msgstr "مثل عدد، کیلوگرم یا ..."
 
-#: jibres/includes/languages/trans_twig.php:356
+#: jibres/includes/languages/trans_twig.php:358
 msgid "Scan Barcode here..."
 msgstr "بارکد را اسکن کنید..."
 
-#: jibres/includes/languages/trans_twig.php:357
+#: jibres/includes/languages/trans_twig.php:359
 msgid "Barcode2"
 msgstr "ایران بارکد"
 
-#: jibres/includes/languages/trans_twig.php:358
+#: jibres/includes/languages/trans_twig.php:360
 msgid "Scan Barcode2 here..."
 msgstr "ایران بارکد را اسکن کنید..."
 
-#: jibres/includes/languages/trans_twig.php:359
+#: jibres/includes/languages/trans_twig.php:361
 msgid "Buy price"
 msgstr "قیمت خرید"
 
-#: jibres/includes/languages/trans_twig.php:360
+#: jibres/includes/languages/trans_twig.php:362
 msgid "Sell Price"
 msgstr "قیمت فروش"
 
-#: jibres/includes/languages/trans_twig.php:361
+#: jibres/includes/languages/trans_twig.php:363
 msgid "Price for sale without discount"
 msgstr "قیمت برای فروش بدون کسر تخفیف"
 
-#: jibres/includes/languages/trans_twig.php:362
+#: jibres/includes/languages/trans_twig.php:364
 msgid "Impure Interest Rate"
 msgstr "درصد سود ناخالص"
 
-#: jibres/includes/languages/trans_twig.php:363
+#: jibres/includes/languages/trans_twig.php:365
 msgid "Final Pure Price"
 msgstr "قیمت نهایی خالص"
 
-#: jibres/includes/languages/trans_twig.php:364
+#: jibres/includes/languages/trans_twig.php:366
 msgid "Pure Interest Rates"
 msgstr "درصد سود خالص"
 
-#: jibres/includes/languages/trans_twig.php:365
+#: jibres/includes/languages/trans_twig.php:367
 msgid "Discount on sale"
 msgstr "تخفیف روی قیمت فروش"
 
-#: jibres/includes/languages/trans_twig.php:366
+#: jibres/includes/languages/trans_twig.php:368
 msgid "Discount Percent"
 msgstr "درصد تخفیف"
 
-#: jibres/includes/languages/trans_twig.php:367
+#: jibres/includes/languages/trans_twig.php:369
 msgid "Vat"
 msgstr "مالیات بر ارزش افزوده"
 
-#: jibres/includes/languages/trans_twig.php:368
+#: jibres/includes/languages/trans_twig.php:370
 msgid "This product is vat base"
 msgstr "مالیات بر ارزش افزوده بر این کالا تعلق می‌گیرد"
 
-#: jibres/includes/languages/trans_twig.php:369
+#: jibres/includes/languages/trans_twig.php:371
 msgid "Initial Balance"
 msgstr "موجودی اولیه"
 
-#: jibres/includes/languages/trans_twig.php:370
+#: jibres/includes/languages/trans_twig.php:372
 msgid "Min stock"
 msgstr "حداقل موجودی"
 
-#: jibres/includes/languages/trans_twig.php:371
+#: jibres/includes/languages/trans_twig.php:373
 msgid "Max stock"
 msgstr "حداکثر موجودی"
 
-#: jibres/includes/languages/trans_twig.php:372
+#: jibres/includes/languages/trans_twig.php:374
 msgid "Status of product"
 msgstr "وضعیت محصول"
 
-#: jibres/includes/languages/trans_twig.php:373
+#: jibres/includes/languages/trans_twig.php:375
 msgid "Avalible"
 msgstr "موجود"
 
-#: jibres/includes/languages/trans_twig.php:374
+#: jibres/includes/languages/trans_twig.php:376
 msgid "Normal status of product"
 msgstr "وضعیت معمول یک محصول"
 
-#: jibres/includes/languages/trans_twig.php:375
+#: jibres/includes/languages/trans_twig.php:377
 msgid "maybe come in future and be available"
 msgstr "شاید در آینده در فروشگاه عرضه شود"
 
-#: jibres/includes/languages/trans_twig.php:376
+#: jibres/includes/languages/trans_twig.php:378
 msgid "Unavailable"
 msgstr "ناموجود"
 
-#: jibres/includes/languages/trans_twig.php:377
+#: jibres/includes/languages/trans_twig.php:379
 msgid "temporary does not exist in store"
 msgstr "موقتا در فروشگاه موجود نیست"
 
-#: jibres/includes/languages/trans_twig.php:378
+#: jibres/includes/languages/trans_twig.php:380
 msgid "Discountinued"
 msgstr "توقف تولید"
 
-#: jibres/includes/languages/trans_twig.php:379
+#: jibres/includes/languages/trans_twig.php:381
 msgid "does not exist for now and on the future"
 msgstr "موجود نیست و در آینده هم نخواهد شد"
 
-#: jibres/includes/languages/trans_twig.php:380
+#: jibres/includes/languages/trans_twig.php:382
 msgid "Unset"
 msgstr "تنظیم‌نشده"
 
-#: jibres/includes/languages/trans_twig.php:381
+#: jibres/includes/languages/trans_twig.php:383
 msgid "Unknown status for product"
 msgstr "وضعیت نامشخص برای محصول"
 
-#: jibres/includes/languages/trans_twig.php:382
+#: jibres/includes/languages/trans_twig.php:384
 msgid "Sold"
 msgstr "فروخته‌شده"
 
-#: jibres/includes/languages/trans_twig.php:383
+#: jibres/includes/languages/trans_twig.php:385
 msgid "Service"
 msgstr "خدمات"
 
-#: jibres/includes/languages/trans_twig.php:384
+#: jibres/includes/languages/trans_twig.php:386
 msgid "This product is service base and not a real goods"
 msgstr "این محصول بر مبنای خدمات است و یک کالای فیزیکی نیست"
 
-#: jibres/includes/languages/trans_twig.php:385
+#: jibres/includes/languages/trans_twig.php:387
 msgid "Sell Online"
 msgstr "فروش آنلاین"
 
-#: jibres/includes/languages/trans_twig.php:386
+#: jibres/includes/languages/trans_twig.php:388
 msgid "This product is sellonline base"
 msgstr "این کالا برای فروش آنلاین است"
 
-#: jibres/includes/languages/trans_twig.php:387
+#: jibres/includes/languages/trans_twig.php:389
 msgid "Sell in store"
 msgstr "فروش در فروشگاه"
 
-#: jibres/includes/languages/trans_twig.php:388
+#: jibres/includes/languages/trans_twig.php:390
 msgid "This product is sellstore base"
 msgstr "این کالا برای فروش در فروشگاه است"
 
-#: jibres/includes/languages/trans_twig.php:389
+#: jibres/includes/languages/trans_twig.php:391
 msgid "Count in carton"
 msgstr "تعداد در کارتن"
 
-#: jibres/includes/languages/trans_twig.php:390
+#: jibres/includes/languages/trans_twig.php:392
 msgid "Count of product in carton"
 msgstr "تعداد محصولات موجود در هر کارتن"
 
-#: jibres/includes/languages/trans_twig.php:393
+#: jibres/includes/languages/trans_twig.php:395
 msgid "Product GroupBy Unit"
 msgstr "محصولات به‌تفکیک واحد شمارش"
 
-#: jibres/includes/languages/trans_twig.php:394
+#: jibres/includes/languages/trans_twig.php:396
 msgid "Product GroupBy Category"
 msgstr "محصولات به‌تفکیک دسته‌بندی"
 
-#: jibres/includes/languages/trans_twig.php:395
+#: jibres/includes/languages/trans_twig.php:397
 msgid "Add new products"
 msgstr "افزودن محصولات جدید"
 
-#: jibres/includes/languages/trans_twig.php:397
+#: jibres/includes/languages/trans_twig.php:399
 msgid "Import products"
 msgstr "واردکردن دسته‌ای محصولات"
 
-#: jibres/includes/languages/trans_twig.php:398
+#: jibres/includes/languages/trans_twig.php:400
 msgid "Price Variation"
 msgstr "پراکندگی قیمت"
 
-#: jibres/includes/languages/trans_twig.php:399
+#: jibres/includes/languages/trans_twig.php:401
 msgid "Check list of products"
 msgstr "لیست محصولات را چک کنید"
 
-#: jibres/includes/languages/trans_twig.php:400
+#: jibres/includes/languages/trans_twig.php:402
 msgid "Product Count"
 msgstr "تعداد محصولات"
 
-#: jibres/includes/languages/trans_twig.php:401
+#: jibres/includes/languages/trans_twig.php:403
 msgid "Product with barcode"
 msgstr "محصولات دارای بارکد"
 
-#: jibres/includes/languages/trans_twig.php:402
+#: jibres/includes/languages/trans_twig.php:404
 msgid "Product with barcode2"
 msgstr "محصولات دارای ایران بارکد"
 
-#: jibres/includes/languages/trans_twig.php:403
+#: jibres/includes/languages/trans_twig.php:405
 msgid "Min"
 msgstr "حداقل"
 
-#: jibres/includes/languages/trans_twig.php:404
+#: jibres/includes/languages/trans_twig.php:406
 msgid "Max"
 msgstr "بیشترین"
 
-#: jibres/includes/languages/trans_twig.php:405
+#: jibres/includes/languages/trans_twig.php:407
 msgid "Average"
 msgstr "میانگین"
 
-#: jibres/includes/languages/trans_twig.php:406
+#: jibres/includes/languages/trans_twig.php:408
 msgid "Buy Price"
 msgstr "قیمت خرید"
 
-#: jibres/includes/languages/trans_twig.php:415
+#: jibres/includes/languages/trans_twig.php:417
 msgid "Search in sells list"
 msgstr "جستجو در لیست فروش‌ها"
 
-#: jibres/includes/languages/trans_twig.php:416
+#: jibres/includes/languages/trans_twig.php:418
 msgid "Invoice Date"
 msgstr "تاریخ فاکتور"
 
-#: jibres/includes/languages/trans_twig.php:417
+#: jibres/includes/languages/trans_twig.php:419
 msgid "Items"
 msgstr "آیتم‌ها"
 
-#: jibres/includes/languages/trans_twig.php:424
+#: jibres/includes/languages/trans_twig.php:426
 msgid "Without traffic"
 msgstr "بدون تردد"
 
-#: jibres/includes/languages/trans_twig.php:425
+#: jibres/includes/languages/trans_twig.php:427
 msgid "Last traffic"
 msgstr "آخرین تردد"
 
-#: jibres/includes/languages/trans_twig.php:426
+#: jibres/includes/languages/trans_twig.php:428
 msgid "Store Plan"
 msgstr "پلن فروشگاه"
 
-#: jibres/includes/languages/trans_twig.php:427
+#: jibres/includes/languages/trans_twig.php:429
 msgid "Security and privacy"
 msgstr "امنیتی و حریم‌خصوصی"
 
-#: jibres/includes/languages/trans_twig.php:428
+#: jibres/includes/languages/trans_twig.php:430
 msgid "Report Settings"
 msgstr "تنظیمات گزارش"
 
-#: jibres/includes/languages/trans_twig.php:429
+#: jibres/includes/languages/trans_twig.php:431
 msgid "Team short name"
 msgstr "نام کوتاه تیم"
 
-#: jibres/includes/languages/trans_twig.php:430
+#: jibres/includes/languages/trans_twig.php:432
 msgid "Used for url of board"
 msgstr "استفاده برای آدرس در بورد"
 
-#: jibres/includes/languages/trans_twig.php:431
+#: jibres/includes/languages/trans_twig.php:433
 msgid "Slug of team for board url"
 msgstr "نام کوتاه تیم برای آدرس بورد"
 
-#: jibres/includes/languages/trans_twig.php:432
+#: jibres/includes/languages/trans_twig.php:434
 msgid "Website"
 msgstr "وب‌سایت"
 
-#: jibres/includes/languages/trans_twig.php:433
+#: jibres/includes/languages/trans_twig.php:435
 msgid "Link your logo on board for visitors"
 msgstr "لینک شدن لوگوی شما در بورد برای بازدیدکنندگان"
 
-#: jibres/includes/languages/trans_twig.php:434
+#: jibres/includes/languages/trans_twig.php:436
 msgid "Used for description of board and show in social media links"
 msgstr "استفاده‌شده برای توضیح بورد جهت نمایش در لینک بورد در شبکه‌های اجتماعی"
 
-#: jibres/includes/languages/trans_twig.php:435
+#: jibres/includes/languages/trans_twig.php:437
 msgid "Choose your plan"
 msgstr "پلن خود را انتخاب کنید"
 
-#: jibres/includes/languages/trans_twig.php:436
+#: jibres/includes/languages/trans_twig.php:438
 msgid "All the basics for personal use."
 msgstr "تمام نیازهای اولیه برای استفاده شخصی."
 
-#: jibres/includes/languages/trans_twig.php:437
+#: jibres/includes/languages/trans_twig.php:439
 msgid "Everything you need for a growing business."
 msgstr "تمام نیازهای شما برای یک کسب و کار در حال توسعه."
 
-#: jibres/includes/languages/trans_twig.php:438
+#: jibres/includes/languages/trans_twig.php:440
 msgid "Yearly"
 msgstr "سالانه"
 
-#: jibres/includes/languages/trans_twig.php:439
+#: jibres/includes/languages/trans_twig.php:441
 msgid "Everything in Free plus automatic report via Telegram."
 msgstr "تمام داشته‌های پلن رایگان به‌اضافه‌ی گزارش خودکار از طریق تلگرام."
 
-#: jibres/includes/languages/trans_twig.php:441
+#: jibres/includes/languages/trans_twig.php:443
 msgid "Full"
 msgstr "کامل"
 
-#: jibres/includes/languages/trans_twig.php:442
+#: jibres/includes/languages/trans_twig.php:444
 msgid "For big companies that need fix price per month."
 msgstr "برای شرکت‌های بزرگ که نیاز به صرفه‌جویی و پرداخت هزینه ثابت در ماه دارند."
 
-#: jibres/includes/languages/trans_twig.php:443
+#: jibres/includes/languages/trans_twig.php:445
 msgid "Force show in specefic language"
 msgstr "اجبار به نمایش بورد در زبان خاص"
 
-#: jibres/includes/languages/trans_twig.php:444
+#: jibres/includes/languages/trans_twig.php:446
 msgid "Please select one language"
 msgstr "لطفا یکی از زبانها را انتخاب کنید"
 
-#: jibres/includes/languages/trans_twig.php:445
+#: jibres/includes/languages/trans_twig.php:447
 msgid "Persian"
 msgstr "فارسی"
 
-#: jibres/includes/languages/trans_twig.php:446
+#: jibres/includes/languages/trans_twig.php:448
 msgid "English"
 msgstr "انگلیسی"
 
-#: jibres/includes/languages/trans_twig.php:447
+#: jibres/includes/languages/trans_twig.php:449
 msgid "Report Header"
 msgstr "سرصفحه گزارش"
 
-#: jibres/includes/languages/trans_twig.php:448
+#: jibres/includes/languages/trans_twig.php:450
 msgid "Report Footer"
 msgstr "پانویس گزارش"
 
-#: jibres/includes/languages/trans_twig.php:451
+#: jibres/includes/languages/trans_twig.php:453
 msgid "Current Plan"
 msgstr "پلن فعلی"
 
-#: jibres/includes/languages/trans_twig.php:452
+#: jibres/includes/languages/trans_twig.php:454
 msgid "Activate on"
 msgstr "فعال‌شده در"
 
-#: jibres/includes/languages/trans_twig.php:459
+#: jibres/includes/languages/trans_twig.php:461
 msgid "Search in staffs list"
 msgstr "جستجو در لیست کارمندان"
 
-#: jibres/includes/languages/trans_twig.php:463
+#: jibres/includes/languages/trans_twig.php:465
 msgid "Select staff grade"
 msgstr "مقطع تحصیلی کارمند را انتخاب کنید"
 
-#: jibres/includes/languages/trans_twig.php:464
+#: jibres/includes/languages/trans_twig.php:466
 msgid "Mobile of Staff"
 msgstr "تلفن‌همراه کارمند"
 
-#: jibres/includes/languages/trans_twig.php:471
+#: jibres/includes/languages/trans_twig.php:473
 msgid "Search in suppliers list"
 msgstr "جستجو در لیست تامین‌کنندگان"
 
-#: jibres/includes/languages/trans_twig.php:475
+#: jibres/includes/languages/trans_twig.php:477
 msgid "Company"
 msgstr "شرکت"
 
-#: jibres/includes/languages/trans_twig.php:476
+#: jibres/includes/languages/trans_twig.php:478
 msgid "Visitor name"
 msgstr "نام ویزیتور"
 
-#: jibres/includes/languages/trans_twig.php:477
+#: jibres/includes/languages/trans_twig.php:479
 msgid "Select supplier grade"
 msgstr "مقطع تحصیلی تامین‌کننده را انتخاب کنید"
 
-#: jibres/includes/languages/trans_twig.php:478
+#: jibres/includes/languages/trans_twig.php:480
 msgid "Mobile of Supplier"
 msgstr "تلفن‌همراه تامین‌کننده"
 
-#: jibres/includes/languages/trans_twig.php:481
+#: jibres/includes/languages/trans_twig.php:483
 msgid "Search in third parties list"
 msgstr "جستجو در لیست طرف حساب‌ها"
 
-#: jibres/includes/languages/trans_twig.php:484
+#: jibres/includes/languages/trans_twig.php:486
 msgid "List of your stores"
 msgstr "لیست فروشگاه‌های شما"
 
-#: jibres/includes/languages/trans_twig.php:485
+#: jibres/includes/languages/trans_twig.php:487
 msgid "Add new Store"
 msgstr "افزودن فروشگاه جدید"
 
-#: jibres/includes/languages/trans_twig.php:486
+#: jibres/includes/languages/trans_twig.php:488
 msgid "Store"
 msgstr "فروشگاه"
 
-#: jibres/includes/languages/trans_twig.php:492
+#: jibres/includes/languages/trans_twig.php:494
 msgid "Store short name"
 msgstr "نام کوتاه فروشگاه"
 
-#: jibres/includes/languages/trans_twig.php:493
+#: jibres/includes/languages/trans_twig.php:495
 msgid "Used for url of store as subdomain"
 msgstr "به‌عنوان ساب‌دامین در آدرس فروشگاه مورد استفاده قرار می‌گیرد"
 
-#: jibres/includes/languages/trans_twig.php:494
+#: jibres/includes/languages/trans_twig.php:496
 msgid "subdomain for your store"
 msgstr "ساب‌دامین فروشگاه شما"
 
-#: jibres/includes/languages/trans_twig.php:495
+#: jibres/includes/languages/trans_twig.php:497
 msgid "Used for description of store and show in social media links"
 msgstr ""
 "برای توضیح در لینک‌های فروشگاه شما در شبکه‌های اجتماعی مورد استفاده قرار می‌گیرد"
 
-#: jibres/includes/languages/trans_twig.php:498
+#: jibres/includes/languages/trans_twig.php:500
 msgid "Total sale"
 msgstr "جمع فروش"
 
-#: jibres/includes/languages/trans_twig.php:499
+#: jibres/includes/languages/trans_twig.php:501
 msgid "Owner of store"
 msgstr "مالک فروشگاه"
 
-#: jibres/includes/languages/trans_twig.php:500
+#: jibres/includes/languages/trans_twig.php:502
 msgid "Add new store"
 msgstr "افزودن فروشگاه جدید"
 
-#: jibres/includes/languages/trans_twig.php:506
+#: jibres/includes/languages/trans_twig.php:508
 msgid "money"
 msgstr "پول"
 
-#: jibres/includes/languages/trans_twig.php:507
+#: jibres/includes/languages/trans_twig.php:509
 msgid "toman"
 msgstr "تومان"
 
@@ -10886,142 +10910,142 @@ msgstr "شناسه فروشگاه یافت نشد"
 msgid "Can not access to load this factor details"
 msgstr "شما دسترسی لازم برای مشاهده اطلاعات این فاکتور ندارید."
 
-#: jibres/includes/lib/app/product.php:116 jibres/includes/lib/app/product/add.php:73
+#: jibres/includes/lib/app/product.php:117 jibres/includes/lib/app/product/add.php:73
 #: jibres/includes/lib/app/product/delete.php:37
 msgid "Product title can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: jibres/includes/lib/app/product.php:123
+#: jibres/includes/lib/app/product.php:124
 msgid "Product title must be less than 500 character"
 msgstr "عنوان محصول باید کمتر از ۵۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/product.php:134
+#: jibres/includes/lib/app/product.php:135
 msgid "Product name must be less than 500 character"
 msgstr "نام محصول باید کمتر از ۵۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/product.php:143
+#: jibres/includes/lib/app/product.php:144
 msgid "Product cat must be less than 200 character"
 msgstr "دسته بندی محصول باید کمتر از ۲۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/product.php:158
+#: jibres/includes/lib/app/product.php:159
 msgid "String of product company is too large"
 msgstr "متن عنوان شرکت سازنده از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:184
+#: jibres/includes/lib/app/product.php:185
 msgid "String of product unit is too large"
 msgstr "متن واحد شمارش کالای این محصول از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:195
+#: jibres/includes/lib/app/product.php:196
 msgid ""
 "Your barcode have wrong character. we change it. please check your product again"
 msgstr ""
 "بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا بررسی "
 "نمایید."
 
-#: jibres/includes/lib/app/product.php:202
+#: jibres/includes/lib/app/product.php:203
 msgid "String of product barcode is too large"
 msgstr "متن بارکد این محصول از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:213
+#: jibres/includes/lib/app/product.php:214
 msgid ""
 "Your barcode2 have wrong character. we change it. please check your product again"
 msgstr ""
 "ایران بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا "
 "بررسی نمایید."
 
-#: jibres/includes/lib/app/product.php:220
+#: jibres/includes/lib/app/product.php:221
 msgid "String of product barcode2 is too large"
 msgstr "متن بارکد ۲ این محصول از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:227
+#: jibres/includes/lib/app/product.php:228
 msgid "Duplicate barcode in one product"
 msgstr "بارکد تکراری در یک محصول"
 
-#: jibres/includes/lib/app/product.php:254
+#: jibres/includes/lib/app/product.php:255
 msgid "String of product code is too large"
 msgstr "متن کد این محصول از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:263
+#: jibres/includes/lib/app/product.php:264
 msgid "Value of buyprice muset be a number"
 msgstr "قیمت خرید باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:270
+#: jibres/includes/lib/app/product.php:271
 msgid "Value of buyprice is out of rage"
 msgstr "قیمت خرید خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:279
+#: jibres/includes/lib/app/product.php:280
 msgid "Value of price muset be a number"
 msgstr "قیمت باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:286
+#: jibres/includes/lib/app/product.php:287
 msgid "Value of price is out of rage"
 msgstr "قیمت خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:295
+#: jibres/includes/lib/app/product.php:296
 msgid "Value of discount muset be a number"
 msgstr "تخفیف باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:302
+#: jibres/includes/lib/app/product.php:303
 msgid "Value of discount is out of rage"
 msgstr "تخفیف خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:317
+#: jibres/includes/lib/app/product.php:318
 msgid "Value of initialbalance muset be a number"
 msgstr "موجودی اولیه باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:324
+#: jibres/includes/lib/app/product.php:325
 msgid "Value of initialbalance is out of rage"
 msgstr "موجودی اولیه خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:333
+#: jibres/includes/lib/app/product.php:334
 msgid "Value of minstock muset be a number"
 msgstr "حداقل موجودی باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:340
+#: jibres/includes/lib/app/product.php:341
 msgid "Value of minstock is out of rage"
 msgstr "حداقل موجودی خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:349
+#: jibres/includes/lib/app/product.php:350
 msgid "Value of maxstock muset be a number"
 msgstr "حداکثر موجودی باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:356
+#: jibres/includes/lib/app/product.php:357
 msgid "Value of maxstock is out of rage"
 msgstr "حداکثر موجودی خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:366
+#: jibres/includes/lib/app/product.php:367
 msgid "Product status is incorrect"
 msgstr "وضعیت محصول اشتباه است"
 
-#: jibres/includes/lib/app/product.php:383
+#: jibres/includes/lib/app/product.php:384
 msgid "Value of stock muset be a number"
 msgstr "تعداد فروخته شده باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:390
+#: jibres/includes/lib/app/product.php:391
 msgid "Value of stock is out of rage"
 msgstr "تعداد فروخته شده خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:398
+#: jibres/includes/lib/app/product.php:399
 msgid "Value of thumb is out of rage"
 msgstr "آدرس تصویر محصول خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:445
+#: jibres/includes/lib/app/product.php:446
 msgid "Value of carton muset be a number"
 msgstr "تعداد در کارتون باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:452
+#: jibres/includes/lib/app/product.php:453
 msgid "Value of carton is out of rage"
 msgstr "تعداد در کارتون خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:461
+#: jibres/includes/lib/app/product.php:462
 msgid "Value of desc is out of rage"
 msgstr "طول رشته توضیحات خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:469
+#: jibres/includes/lib/app/product.php:470
 msgid "Final price is less than 0"
 msgstr "قیمت نهایی زیر صفر است!"
 
-#: jibres/includes/lib/app/product.php:475
+#: jibres/includes/lib/app/product.php:476
 msgid "Final price less than buyprice!"
 msgstr "قیمت نهایی از قیمت خرید کمتر است!"
 
@@ -11275,6 +11299,15 @@ msgstr "اجازه مشاهده لاگ‌های سیستم"
 #: jibres/includes/permission/permission.php:104
 msgid "Allow to login by another session"
 msgstr "اجازه ورود با کاربر دیگر"
+
+#~ msgid "Last sells"
+#~ msgstr "آخرین فروش‌ها"
+
+#~ msgid "Basic detail"
+#~ msgstr "اطلاعات اولیه"
+
+#~ msgid "Initial detail before start sell"
+#~ msgstr "مقادیر اولیه قبل از شروع فروش"
 
 #~ msgid "Title of product"
 #~ msgstr "عنوان محصول"

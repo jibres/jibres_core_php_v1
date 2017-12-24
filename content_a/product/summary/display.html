@@ -77,6 +77,13 @@
 </a>
 {%endblock%}
 
+{%block stProductExport%}
+<a class="dcard" href="{{url.baseFull}}/product/export">
+ <div class="statistic gray">
+  <div class="label">{%trans "Export"%}</div>
+ </div>
+</a>
+{%endblock%}
 
 
 
@@ -131,7 +138,7 @@
 
 {%block PriceData%}
 <div class="f mT25">
- <div class="c3 s0"></div>
+ <div class="c3 s0">{{block ("stProductExport")}}</div>
  <div class="c3 s0">{{block ("stBuyPrice")}}</div>
  <div class="c3 s12">{{block ("stPrice")}}</div>
  <div class="c3 s0">{{block ("stDiscount")}}</div>

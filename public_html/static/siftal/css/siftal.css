@@ -2059,9 +2059,9 @@ progress.xl, meter.xl {
   display: inline-block;
   cursor: pointer;
   vertical-align: bottom;
-  padding: 0 1em;
+  padding: 0 2px;
   position: absolute;
-  top: 50%;
+  top: 55%;
   right: 0;
   margin-top: -10px; }
 
@@ -2169,6 +2169,9 @@ progress.xl, meter.xl {
 .dcard [class^="sf-"]:before, .dcard [class*=" sf-"]:before {
   vertical-align: baseline; }
 
+.dcard.x1 {
+  height: 90px; }
+
 .dcard.x2 {
   min-height: 190px; }
 
@@ -2215,7 +2218,9 @@ progress.xl, meter.xl {
   line-height: 1.25;
   background-color: rgba(255, 255, 255, 0.7);
   margin: 0 auto;
-  transition: 0.3s; }
+  transition: 0.3s;
+  margin-right: auto;
+  margin-left: auto; }
 
 .vcard.shadow:hover, .vcard.active {
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5, 0 5px 20px rgba(0, 0, 0, 0.19), 0 5px 7px rgba(0, 0, 0, 0.23); }
@@ -11911,7 +11916,8 @@ body.siftal.loading-page #sidebar .avatar:before {
   padding: 0.8em 3em; }
 
 .siftal #sidebar ul > li > a.weAreHere {
-  background-color: rgba(0, 0, 0, 0.8); }
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff; }
 
 /* footer */
 .siftal footer {

@@ -112,7 +112,7 @@ remain_percent -->
 
 
 {%block stProductDashboard%}
-<a class="dcard" href='{{url.baseFull}}/product/summary'>
+<a class="dcard x1" href='{{url.baseFull}}/product/summary'>
  <div class="statistic brown">
   <div class="value"><i class="sf-archive"></i></div>
   <div class="label">{%trans "Products Summary"%}</div>
@@ -121,7 +121,7 @@ remain_percent -->
 {%endblock%}
 
 {%block stProduct%}
-<a class="dcard" href='{{url.baseFull}}/product'>
+<a class="dcard x1" href='{{url.baseFull}}/product'>
  <div class="statistic">
   <div class="value"><span>{{dashboard_detail.product_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Product"%}</div>
@@ -131,7 +131,7 @@ remain_percent -->
 
 
 {%block stProductAdd%}
-<a class="dcard" href='{{url.baseFull}}/product/add'>
+<a class="dcard x1" href='{{url.baseFull}}/product/add'>
  <div class="statistic green">
   <div class="value"><i class="sf-plus"></i></div>
   <div class="label">{%trans "Add new Product"%}</div>
@@ -231,8 +231,8 @@ remain_percent -->
 {%endblock%}
 
 {%block lastTraffics%}
-<div class="dcard x3">
- <h3>{%trans "Last sells"%}</h3>
+<div class="dcard x3 txtC">
+ <h3>{%trans "Sales count group by hour"%}</h3>
 
 </div>
 {%endblock%}

@@ -297,7 +297,7 @@ class twigTransTerms
 	echo T_("day ago");                                                               // Line 199
 	echo T_("Day Used");                                                              // Line 203
 	echo T_("Top Members");                                                           // Line 229
-	echo T_("Last sells");                                                            // Line 235
+	echo T_("Sales count group by hour");                                             // Line 235
 
 	//------------------------------------------------------content_a\main\layout.html
 	echo T_("Dashboard");                                                             // Line 5
@@ -310,11 +310,13 @@ class twigTransTerms
 	echo T_("Setting");                                                               // Line 21
 
 	//----------------------------------------------content_a\product\add\display.html
-	echo T_("Warehouse");                                                             // Line 49
+	echo T_("Warehouse");                                                             // Line 39
 
 	//-------------------------------------content_a\product\edit\general\display.html
-	echo T_("Basic detail");                                                          // Line 7
-	echo T_("Initial detail before start sell");                                      // Line 32
+
+	//-------------------------------------------content_a\product\export\display.html
+	echo T_("Please wait to complete export progress");                               // Line 11
+	echo T_("Export");                                                                // Line 83
 
 	//---------------------------------------------content_a\product\home\display.html
 	echo T_("No product founded.");                                                   // Line 15
@@ -395,15 +397,15 @@ class twigTransTerms
 	echo T_("Add new products");                                                      // Line 57
 	echo T_("List of products");                                                      // Line 66
 	echo T_("Import products");                                                       // Line 75
-	echo T_("Price Variation");                                                       // Line 86
-	echo T_("Check list of products");                                                // Line 102
-	echo T_("Product Count");                                                         // Line 105
-	echo T_("Product with barcode");                                                  // Line 115
-	echo T_("Product with barcode2");                                                 // Line 125
-	echo T_("Min");                                                                   // Line 168
-	echo T_("Max");                                                                   // Line 177
-	echo T_("Average");                                                               // Line 186
-	echo T_("Buy Price");                                                             // Line 197
+	echo T_("Price Variation");                                                       // Line 93
+	echo T_("Check list of products");                                                // Line 109
+	echo T_("Product Count");                                                         // Line 112
+	echo T_("Product with barcode");                                                  // Line 122
+	echo T_("Product with barcode2");                                                 // Line 132
+	echo T_("Min");                                                                   // Line 175
+	echo T_("Max");                                                                   // Line 184
+	echo T_("Average");                                                               // Line 193
+	echo T_("Buy Price");                                                             // Line 204
 
 	//-------------------------------------------------content_a\sell\add\display.html
 
