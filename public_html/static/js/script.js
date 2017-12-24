@@ -563,9 +563,9 @@ function simplePrint()
 {
   if (window.location.href.indexOf("print=auto") > -1)
   {
-      window.print();
+    window.print();
+    console.log('open print...');
   }
-  console.log('open print...');
 }
 
 

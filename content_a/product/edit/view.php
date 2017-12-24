@@ -28,8 +28,8 @@ class view extends \content_a\main\view
 
 		$this->data->page['desc']  = T_('You can have some edit on this product');
 
-		$this->data->page['badge']['link'] = $this->url('baseFull'). '/product/add';
-		$this->data->page['badge']['text'] = T_('Add new product');
+		$this->data->page['badge']['link'] = $this->url('baseFull'). '/product';
+		$this->data->page['badge']['text'] = T_('Back to product list');
 	}
 }
 ?>

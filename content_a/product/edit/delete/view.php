@@ -16,8 +16,8 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('Delete Product');
 		$this->data->page['desc']  = T_('You can delete product easily form this page, be careful!');
 
-		$this->data->page['badge']['link'] = $this->url('baseFull'). '/product/add';
-		$this->data->page['badge']['text'] = T_('Add new product');
+		$this->data->page['badge']['link'] = $this->url('baseFull'). '/product';
+		$this->data->page['badge']['text'] = T_('Back to product list');
 	}
 }
 ?>
