@@ -23,7 +23,6 @@ trait datalist
 		'buyprice',
 		'price',
 		'discount',
-		'finalprice',
 	];
 
 
