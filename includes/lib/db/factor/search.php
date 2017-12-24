@@ -188,7 +188,7 @@ trait search
 			$_string   = trim($_string);
 			$en_number = \lib\utility\convert::to_en_number($_string);
 
-			$search_in = null;
+			$search_in_id = null;
 
 			if(\lib\utility\shortURL::is($_string))
 			{
@@ -200,18 +200,18 @@ trait search
 			(
 				$search_in_id
 				factors.date           = '$_string' OR
-				factors.shamsidate     = '$en_number' OR
-				factors.title          = '$_string' OR
-				factors.detailsum      = '$en_number' OR
-				factors.detaildiscount = '$en_number' OR
-				factors.detailtotalsum = '$en_number' OR
-				factors.item           = '$en_number' OR
-				factors.qty            = '$en_number' OR
-				factors.discount       = '$en_number' OR
-				factors.sum            = '$_string' OR
-				factors.title 	    LIKE '%$_string%'
+				factors.shamsidate     = '$en_number'
 			)
 			";
+				// factors.title          = '$_string' OR
+				// factors.detailsum      = '$en_number' OR
+				// factors.detaildiscount = '$en_number' OR
+				// factors.detailtotalsum = '$en_number' OR
+				// factors.item           = '$en_number' OR
+				// factors.qty            = '$en_number' OR
+				// factors.discount       = '$en_number' OR
+				// factors.sum            = '$_string' OR
+				// factors.title 	    LIKE '%$_string%'
 
 			if($where)
 			{
