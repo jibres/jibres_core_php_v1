@@ -186,20 +186,28 @@ trait search
 		if($_string !== null)
 		{
 			$_string   = trim($_string);
-			$barcode   = \lib\utility\convert::to_barcode($_string);
 			$en_number = \lib\utility\convert::to_en_number($_string);
+
+			$search_in = null;
+
+			if(\lib\utility\shortURL::is($_string))
+			{
+				$search_in_id = "factors.id = '". \lib\utility\shortURL::decode($_string). "' OR ";
+			}
 
 			$search =
 			"
 			(
+				$search_in_id
 				factors.date           = '$_string' OR
-				factors.shamsidate     = '$_string' OR
+				factors.shamsidate     = '$en_number' OR
 				factors.title          = '$_string' OR
-				factors.detailsum      = '$_string' OR
-				factors.detaildiscount = '$_string' OR
-				factors.detailtotalsum = '$_string' OR
-				factors.detailcount    = '$_string' OR
-				factors.discount       = '$_string' OR
+				factors.detailsum      = '$en_number' OR
+				factors.detaildiscount = '$en_number' OR
+				factors.detailtotalsum = '$en_number' OR
+				factors.item           = '$en_number' OR
+				factors.qty            = '$en_number' OR
+				factors.discount       = '$en_number' OR
 				factors.sum            = '$_string' OR
 				factors.title 	    LIKE '%$_string%'
 			)
