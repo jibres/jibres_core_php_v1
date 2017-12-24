@@ -182,64 +182,32 @@ function event_corridor(_e, _self, _key)
 
     case '56shift':         // * | shift + 8
     case '106':             // *
-      var aa = $('table.productList tbody tr').length;
-      var lastRow = null;
-      if(aa > 0)
+      var RowCountEl = getSelectedRow();
+      if(RowCountEl)
       {
-        var selectedRowEl = $('table.productList tbody tr [data-selected]');
-        if(selectedRowEl.length == 1)
-        {
-          // lastRow = ...
-        }
-        else
-        {
-          lastRow = $('table.productList tbody tr:eq(0)')
-        }
-        var RowQtyEl = lastRow.find('input.count');
-        var oldQty = parseFloat(RowQtyEl.val());
-        RowQtyEl.val(oldQty + 1);
-        RowQtyEl.trigger("change");
-        recalcProductListPrices();
-        // recalcPricePercents();
-        // calcFooterValues();
         _e.preventDefault();
+        var RowCountEl = RowCountEl.find('input.count');
+        RowCountEl.select();
       }
       break;
 
     case '107':             // plus +
     case '187shift':        // plus +
+      if(check_factor())
+      {
+        _e.preventDefault();
+        $('input[type=search]').select();
+      }
       break;
 
     case '109':             // minus -
     case '189shift':        // minus -
-      var aa = $('table.productList tbody tr').length;
-      var lastRow = null;
-      if(aa > 0)
+      var RowDiscountEl = getSelectedRow();
+      if(RowDiscountEl)
       {
-        var selectedRowEl = $('table.productList tbody tr [data-selected]');
-        if(selectedRowEl.length == 1)
-        {
-          // lastRow = ...
-        }
-        else
-        {
-          lastRow = $('table.productList tbody tr:eq(0)')
-        }
-        var RowQtyEl = lastRow.find('input.count');
-        var oldQty = parseFloat(RowQtyEl.val());
-        if(oldQty > 0)
-        {
-          oldQty -= 1;
-        }
-        else
-        {
-          oldQty = 0;
-        }
-        RowQtyEl.val(oldQty);
-        RowQtyEl.trigger("change");
-        recalcProductListPrices();
-        // calcFooterValues();
         _e.preventDefault();
+        var RowDiscountEl = RowDiscountEl.find('input.discount');
+        RowDiscountEl.select();
       }
       break;
 
@@ -301,6 +269,29 @@ function event_corridor(_e, _self, _key)
   }
 }
 
+
+function getSelectedRow()
+{
+  if(check_factor())
+  {
+    var aa = $('table.productList tbody tr').length;
+    var lastRow = null;
+    if(aa > 0)
+    {
+      var selectedRowEl = $('table.productList tbody tr [data-selected]');
+      if(selectedRowEl.length == 1)
+      {
+        // lastRow = ...
+      }
+      else
+      {
+        lastRow = $('table.productList tbody tr:eq(0)')
+      }
+      return lastRow;
+    }
+  }
+  return null;
+}
 
 function check_factor()
 {
