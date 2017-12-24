@@ -195,7 +195,6 @@ function event_corridor(_e, _self, _key)
     case '187shift':        // plus +
       if(check_factor())
       {
-        _e.preventDefault();
         $('input[type=search]').select();
       }
       break;
