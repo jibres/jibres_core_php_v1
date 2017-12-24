@@ -12,7 +12,9 @@ class model extends \content_a\main\model
 			'name'    => \lib\utility::post('name'),
 			'website' => \lib\utility::post('website'),
 			'desc'    => \lib\utility::post('desc'),
-			// 'slug' => \lib\utility::post('slug'),
+			'mobile'  => \lib\utility::post('mobile'),
+			'address' => \lib\utility::post('address'),
+			'phone'   => \lib\utility::post('phone'),
 		];
 		return $args;
 	}

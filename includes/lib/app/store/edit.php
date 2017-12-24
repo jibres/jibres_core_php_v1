@@ -47,19 +47,21 @@ trait edit
 			return false;
 		}
 
-		if(!\lib\app::isset_request('name'))             unset($args['name']);
-		if(!\lib\app::isset_request('slug'))      		 unset($args['slug']);
-		if(!\lib\app::isset_request('website'))          unset($args['website']);
-		if(!\lib\app::isset_request('desc'))             unset($args['desc']);
-		if(!\lib\app::isset_request('language'))         unset($args['lang']);
-		if(!\lib\app::isset_request('parent'))           unset($args['parent']);
-		if(!\lib\app::isset_request('country'))          unset($args['country']);
-		if(!\lib\app::isset_request('province'))         unset($args['province']);
-		if(!\lib\app::isset_request('city'))             unset($args['city']);
-		if(!\lib\app::isset_request('tel'))              unset($args['phone']);
-		if(!\lib\app::isset_request('zipcode'))          unset($args['zipcode']);
-		if(!\lib\app::isset_request('desc'))             unset($args['desc']);
-		if(!\lib\app::isset_request('status'))           unset($args['status']);
+		if(!\lib\app::isset_request('name'))    unset($args['name']);
+		if(!\lib\app::isset_request('slug'))    unset($args['slug']);
+		if(!\lib\app::isset_request('website')) unset($args['website']);
+		if(!\lib\app::isset_request('desc'))    unset($args['desc']);
+		if(!\lib\app::isset_request('language'))unset($args['lang']);
+		if(!\lib\app::isset_request('parent'))  unset($args['parent']);
+		if(!\lib\app::isset_request('country')) unset($args['country']);
+		if(!\lib\app::isset_request('province'))unset($args['province']);
+		if(!\lib\app::isset_request('city'))    unset($args['city']);
+		if(!\lib\app::isset_request('zipcode')) unset($args['zipcode']);
+		if(!\lib\app::isset_request('desc'))    unset($args['desc']);
+		if(!\lib\app::isset_request('status'))  unset($args['status']);
+		if(!\lib\app::isset_request('address')) unset($args['address']);
+		if(!\lib\app::isset_request('phone'))   unset($args['phone']);
+		if(!\lib\app::isset_request('mobile'))  unset($args['mobile']);
 
 		if(array_key_exists('name', $args) && !$args['name'])
 		{

@@ -102,10 +102,31 @@
 </div>
 {%endblock%}
 
+{%block iphone%}
+<label for="phone">{%trans "Phone"%} <small>{%trans "Link your logo on board for visitors"%}</small></label>
+<div class="input">
+  <input type="tel" name="phone" id="phone" placeholder='{%trans "Phone"%}' value="{{current_store.phone}}" maxlength='30'>
+</div>
+{%endblock%}
+
+
+{%block imobile%}
+<label for="mobile">{%trans "Mobile"%} <small>{%trans "Link your logo on board for visitors"%}</small></label>
+<div class="input">
+  <input type="tel" name="mobile" id="mobile" placeholder='{%trans "Mobile"%}' value="{{current_store.mobile}}" maxlength='30'>
+</div>
+{%endblock%}
+
 
 {%block idesc%}
 <label for="desc">{%trans "Description"%} <small>{%trans "Used for description of board and show in social media links"%}</small></label>
 <textarea class="txt mB10" name="desc" placeholder='{%trans "Description"%}' maxlength='300' rows="3">{{current_store.desc}}</textarea>
+{%endblock%}
+
+
+{%block iaddress%}
+<label for="address">{%trans "Address"%} <small>{%trans "Used for address of board and show in social media links"%}</small></label>
+<textarea class="txt mB10" name="address" placeholder='{%trans "Address"%}' maxlength='500' rows="3">{{current_store.address}}</textarea>
 {%endblock%}
 
 
