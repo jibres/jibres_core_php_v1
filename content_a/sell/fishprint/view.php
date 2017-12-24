@@ -9,9 +9,8 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('Print factor');
 		$this->data->page['desc']  = T_('You can search in list of sells, add new sell and edit existing.');
 
-		$this->data->page['badge']['link']     = $this->url('baseFull'). '/sell/add';
-		$this->data->page['badge']['text']     = T_('Add new sell');
-		$this->data->page['badge']['shortkey'] = '118';
+		$this->data->page['badge']['link'] = $this->url('baseFull'). '/sell';
+		$this->data->page['badge']['text'] = T_('Back to last sales');
 
 		$meta         = [];
 

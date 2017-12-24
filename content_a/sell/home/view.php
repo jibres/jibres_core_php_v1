@@ -12,6 +12,10 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['link'] = $this->url('baseFull'). '/sell/add';
 		$this->data->page['badge']['text'] = T_('Add new sell');
 
+		// add back to product list link
+		$product_list_link =  '<a href="'. $this->url('baseFull') .'/factor" data-shortkey="120">'. T_('Back to factor list'). '</a>';
+		$this->data->page['desc']  .= ' '. $product_list_link;
+
 		$args =
 		[
 			'order' => \lib\utility::get('order'),
