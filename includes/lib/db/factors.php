@@ -6,6 +6,34 @@ class factors
 
 	use \lib\db\factor\search;
 
+	public static function time_chart($_store_id, $_type)
+	{
+		if(!$_store_id || !is_numeric($_store_id) || !$_type)
+		{
+			return false;
+		}
+
+		$date     = date("Y-m-d", strtotime("-30 day"));
+		$date_now = date("Y-m-d");
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `value`,
+				hour(factors.date) AS `key`
+			FROM
+				factors
+			WHERE
+				factors.store_id = $_store_id AND
+				DATE(factors.date) > DATE('$date') AND
+				DATE(factors.date) != DATE('$date_now')
+
+			GROUP BY `key`
+			ORDER BY `key` ASC
+
+		";
+		$result = \lib\db::get($query, ['key', 'value']);
+		return $result;
+	}
 
 	public static function get_print($_id, $_store_id)
 	{

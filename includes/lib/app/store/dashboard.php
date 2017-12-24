@@ -3,7 +3,7 @@ namespace lib\app\store;
 
 trait dashboard
 {
-	private static $life_time = 60 * 10;
+	private static $life_time = 60 * 1;
 
 	/**
 	 * dashboard detail
@@ -27,12 +27,35 @@ trait dashboard
 			$result['count_store'] = self::count_store_by_creator($store_detail['creator']);
 		}
 
-		$result['customer_count'] = self::user_count('customer');
-		$result['supplier_count'] = self::user_count('supplier');
-		$result['staff_count']    = self::user_count('staff');
-		$result['product_count']  = \lib\app\product::product_count();
+		$result['customer_count']  = self::user_count('customer');
+		$result['supplier_count']  = self::user_count('supplier');
+		$result['staff_count']     = self::user_count('staff');
+		$result['product_count']   = \lib\app\product::product_count();
+		$result['sell_time_chart'] = self::sell_time_chart();
 
 		return $result;
+	}
+
+
+	public static function sell_time_chart()
+	{
+		$sell_time_chart = \lib\session::get('dashboard_sell_time_chart_'. \lib\store::id());
+		if($sell_time_chart === null)
+		{
+			$sell_time_chart = \lib\db\factors::time_chart(\lib\store::id(), 'sell');
+			$temp = [];
+			if(is_array($sell_time_chart))
+			{
+				foreach ($sell_time_chart as $key => $value)
+				{
+					$temp[] = ['key' => $key, 'value' => $value];
+				}
+			}
+			$sell_time_chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
+
+			\lib\session::set('dashboard_sell_time_chart_'. \lib\store::id(), $sell_time_chart, null,  self::$life_time);
+		}
+		return $sell_time_chart;
 	}
 
 

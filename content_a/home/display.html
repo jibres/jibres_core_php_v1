@@ -18,7 +18,7 @@
  <div class="c3 s6">{{block ("stCustomer")}}</div>
  <div class="c3 s6">{{block ("stSupplier")}}</div>
  <div class="c3 s6">{{block ("stStaff")}}</div>
- <div class="c3 s6">{{block ("stDayUsed")}}</div>
+ <div class="c3 s6">{{block ("prDate")}}</div>
 </div>
 
 <div class="f">
@@ -34,7 +34,7 @@
 
 
 
-<div class="f">
+<div class="f hide">
  <div class="c4 s12">{{block ("prDeadline")}}</div>
  <div class="c5 s12">{{block ("prPresentCount")}}</div>
  <div class="c3 s12">{{block ("prDate")}}</div>
@@ -208,7 +208,7 @@ remain_percent -->
 
 {%block chart_primary%}
 <div class="dcard x3 pA0">
- <div class="chart" data-vals='[{"key":"1396-08-20","value":0},{"key":"1396-08-19","value":0},{"key":"1396-08-18","value":"469"},{"key":"1396-08-17","value":"9952"},{"key":"1396-08-16","value":"14977"},{"key":"1396-08-15","value":"10822"},{"key":"1396-08-14","value":"11259"},{"key":"1396-08-13","value":"12307"},{"key":"1396-08-12","value":"888"},{"key":"1396-08-11","value":"5348"}]'>
+ <div class="chart" data-vals='{{dashboard_detail.sell_time_chart}}'>
  </div>
 </div>
 {%endblock%}
