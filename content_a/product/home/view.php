@@ -6,6 +6,7 @@ class view extends \content_a\main\view
 {
 	public function config()
 	{
+
 		$this->data->page['title'] = T_('List of products');
 		$this->data->page['desc']  = T_('You can search in list of products, add new product and edit existing.');
 
@@ -25,6 +26,11 @@ class view extends \content_a\main\view
 		];
 
 		$search_string            = \lib\utility::get('q');
+
+		if($search_string)
+		{
+			$this->data->page['title'] = T_('Search'). ' '.  $search_string;
+		}
 
 		$this->data->product_list = \lib\app\product::list($search_string, $args);
 
