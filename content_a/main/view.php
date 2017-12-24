@@ -11,9 +11,11 @@ class view extends \mvc\view
 
 		$this->data->display['admin'] = 'content_a/main/layout.html';
 		$this->data->site['title']    = \lib\store::name();
-		$this->data->store    = \lib\store::detail();
+		$this->data->store            = \lib\store::detail();
 
 
+		// set shortkey for all badges is this content
+		$this->data->page['badge']['shortkey'] = 123;
 	}
 
 
