@@ -63,6 +63,12 @@ class view extends \content_a\main\view
 			\lib\code::exit();
 		}
 
+		$this->data->barcode_scaned = null;
+		if(\lib\utility::get('q') && ctype_digit(\lib\utility::get('q')) && mb_strlen(\lib\utility::get('q')) === 13)
+		{
+			$this->data->barcode_scaned = '?barcode='. \lib\utility::get('q');
+		}
+
 		$this->data->sort_link = self::make_sort_link(\lib\app\product::$sort_field, $this->url('baseFull'). '/product');
 
 		if(isset($this->controller->pagnation))
