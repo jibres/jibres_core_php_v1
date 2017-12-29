@@ -259,7 +259,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
   .printArea[data-size=letter.landscape] { width: 280mm; height: 215mm }
   .printArea[data-size=legal]            { width: 216mm; height: 356mm }
   .printArea[data-size=legal.landscape]  { width: 357mm; height: 215mm }
-  .printArea[data-size=receipt8]         { width: 84mm;  padding:18mm 0mm 1mm }
+  .printArea[data-size=receipt8]         { width: 84mm;  padding:18mm 4mm 1mm }
 }
 
 .factor .storeDetail h1{font-weight: bold;font-size: 2em}
