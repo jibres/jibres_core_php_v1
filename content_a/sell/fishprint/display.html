@@ -2,20 +2,49 @@
 
 
 {%block pageContent%}
-<div class="printArea" data-size='{{pageSize}}'>
- <h2 class="txtC">{{store.name}}</h2>
+<div class="factor printArea" data-size='{{pageSize}}'>
 
- <div class="txtC"><svg class="barcodePrev" data-val="#barcode"></svg></div>
+ <div class="f storeDetail">
+  <div class="c8">
+   <h1>{{store.name}}</h1>
+   <address>
+    <div class="address">{{store.address}}</div>
+    <div class="f">
+     <div class="phone">{{store.phone | fitNumber}}</div>
+     <div class="website">{{store.website}}</div>
+    </div>
+   </address>
+   <div class="desc">{{store.desc}}</div>
+  </div>
+  <div class="c4 logo">
+   <img src="{{store.logo}}" alt="{{store.name}}">
+  </div>
+ </div>
+
+ <div class="f factorDetail">
+  <div class="cauto">
+   <div class="datetime">{{sell_detail.factor.date | jdate('l j F Y | ساعت G:i')}}</div>
+   <div></div>
+  </div>
+  <div class="cauto os">
+   <svg class="barcodePrev" data-val="#barcode"></svg>
+  </div>
+ </div>
+
+
+
+ <div class="txtC"></div>
  <div class="txtC hide"> تاریخ {{sell_detail.factor.date}}</div>
 
- <table class="tbl compact txtC">
-  <thead>
+ <table class="tbl compact">
+  <thead class="primary fs07 txtC">
    <th>{%trans "Name"%}</th>
    <th>{%trans "Qty"%}</th>
    <th>{%trans "Price"%}</th>
    <th>{%trans "Discount"%}</th>
    <th>{%trans "Sum"%}</th>
   </thead>
+  <tbody class="txtC">
  {%for key, datarow in sell_detail.factor_detail%}
   <tr>
    <td>{{datarow.title}}</td>
@@ -25,6 +54,7 @@
    <td>{{datarow.factordetails_sum | number_format | fitNumber}}</td>
   </tr>
  {%endfor%}
+  </tbody>
   <tfoot>
    <th></th>
    <th>{{sell_detail.factor.detailcount | number_format | fitNumber}}</th>
@@ -47,7 +77,7 @@
 {{parent()}}
 
 <script type="text/javascript">
-  JsBarcode($('.barcodePrev')[0], "{{sell_detail.factor.id}}", {height: 50});
+  JsBarcode($('.barcodePrev')[0], "{{sell_detail.factor.id}}", {height: 20});
 // console.log(44);
 //   route('*', function()
 //   {
