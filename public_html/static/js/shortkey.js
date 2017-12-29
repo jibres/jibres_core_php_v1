@@ -246,6 +246,14 @@ function event_corridor(_e, _self, _key)
 
       break;
 
+    case '118':             // f7
+      if(check_factor())
+      {
+        shortkey_toggleDiscount();
+        _e.preventDefault();
+      }
+      break;
+
     case '119':             // f8
 
       break;

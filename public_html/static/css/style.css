@@ -272,6 +272,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 .factor .factorDetail .datetime .time{font-weight:700}
 .factor .factorDetail code{font-size: 1.5em;background-color:#eee;border-radius:3px;padding:3px 5px;min-width:50px;text-align:center;}
 .factor .factorDetail .barcodePrev{height: 40px;width:140px;}
+.factor .tbl{color:#000}
 .factor .tbl thead th{border-bottom-color: #000;padding-top:1em;padding-bottom:1em; }
 .factor .tbl tbody td{line-height:1.4em;}
 .factor .tbl td{vertical-align: middle;}

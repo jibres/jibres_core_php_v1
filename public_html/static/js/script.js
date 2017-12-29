@@ -547,6 +547,47 @@ function addNewRecord_ProductList(_table, _product, _append)
 }
 
 
+function shortkey_toggleDiscount(_status)
+{
+  var removeDiscount = !($('.productList').attr('data-woDiscount') !== undefined);
+  if(removeDiscount)
+  {
+    $('.productList').attr('data-woDiscount', '');
+    $('.productList thead th:eq(4)').addClass('negative').attr('data-woDiscount', '');
+  }
+  else
+  {
+    $('.productList').attr('data-woDiscount', null);
+    $('.productList thead th:eq(4)').removeClass('negative').attr('data-woDiscount', null);
+  }
+
+  $('.productList input.discount').each(function()
+  {
+    if(removeDiscount)
+    {
+      var currentVal = parseInt($(this).val());
+      if(!$.isNumeric(currentVal))
+      {
+        currentVal = null;
+      }
+      $(this).attr('data-discount', currentVal);
+      $(this).val('');
+    }
+    else
+    {
+      var savedDiscount = $(this).attr('data-discount');
+      if($.isNumeric(savedDiscount))
+      {
+        $(this).val(savedDiscount);
+      }
+    }
+  });
+  // recalc values
+  calcFooterValues();
+  recalcPricePercents();
+}
+
+
 
 function shortkey_print(_el)
 {
