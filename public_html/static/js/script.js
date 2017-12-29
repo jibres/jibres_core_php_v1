@@ -266,12 +266,13 @@ function calcFooterValues(_table)
   _table.find('tfoot tr th:eq(3)').text(fitNumber(calcDtSumPrice)).attr('data-val', calcDtSumPrice);
   _table.find('tfoot tr th:eq(4)').text(fitNumber(calcDtSumDiscount));
   _table.find('tfoot tr th:eq(5)').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
+  $('.finalPriceVal span').text(fitNumber(calcDtSumTotal));
 
   if(calcDtSumTotal > 0 )
   {
     _table.find('tfoot').removeClass('hide');
     $('#finalPriceString').fadeIn().removeClass('hide');
-    $('#finalPriceString b').text(wordifyTomans(calcDtSumTotal))
+    $('#finalPriceString b').text(wordifyTomans(calcDtSumTotal));
   }
   else
   {
