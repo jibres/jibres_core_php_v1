@@ -22,12 +22,12 @@
  </div>
 
  <div class="f factorDetail">
-  <div class="cauto">
-   <div class="datetime">{{sell_detail.factor.date | jdate('l j F Y | ساعت G:i')}}</div>
-   <div></div>
+  <div class="c">
+   <div class="datetime"><span class="date">{{sell_detail.factor.date | jdate('l j F Y')}}</span> | <span class="time">{{sell_detail.factor.date | jdate('G:i:s')}}</span></div>
+   <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{sell_detail.factor.id}}'>{{sell_detail.factor.id}}</code></div>
   </div>
   <div class="cauto os">
-   <svg class="barcodePrev" data-val="#barcode"></svg>
+   <svg class="barcodePrev" data-val="#barcode" data-height=20 data-hideValue></svg>
   </div>
  </div>
 
@@ -55,9 +55,9 @@
   </tr>
  {%endfor%}
   </tbody>
-  <tfoot>
-   <th></th>
-   <th>{{sell_detail.factor.detailcount | number_format | fitNumber}}</th>
+  <tfoot class="txtC">
+   <th>{{sell_detail.factor.item | number_format | fitNumber}}</th>
+   <th>{{sell_detail.factor.qty | number_format | fitNumber}}</th>
    <th></th>
    <th></th>
    <th>{{sell_detail.factor.sum | number_format | fitNumber}}</th>
@@ -72,22 +72,6 @@
 
 {%endblock%}
 
-
-{%block foot_js%}
-{{parent()}}
-
-<script type="text/javascript">
-  JsBarcode($('.barcodePrev')[0], "{{sell_detail.factor.id}}", {height: 20});
-// console.log(44);
-//   route('*', function()
-//   {
-
-//   }).once(function()
-//   {
-//     simplePrint();
-//   });
-</script>
-{%endblock%}
 
 
 
