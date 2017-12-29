@@ -2,42 +2,41 @@
 
 
 {%block pageContent%}
+<div class="printArea" data-size='{{pageSize}}'>
+ <h2 class="txtC">{{store.name}}</h2>
 
-<h2 class="txtC">{{store.name}}</h2>
+ <div class="txtC"><svg class="barcodePrev" data-val="#barcode"></svg></div>
+ <div class="txtC hide"> تاریخ {{sell_detail.factor.date}}</div>
 
-<div class="txtC"><svg class="barcodePrev" data-val="#barcode"></svg></div>
-<div class="txtC hide"> تاریخ {{sell_detail.factor.date}}</div>
+ <table class="tbl compact txtC">
+  <thead>
+   <th>{%trans "Name"%}</th>
+   <th>{%trans "Qty"%}</th>
+   <th>{%trans "Price"%}</th>
+   <th>{%trans "Discount"%}</th>
+   <th>{%trans "Sum"%}</th>
+  </thead>
+ {%for key, datarow in sell_detail.factor_detail%}
+  <tr>
+   <td>{{datarow.title}}</td>
+   <td>{{datarow.factordetails_count  | fitNumber}}</td>
+   <td>{{datarow.factordetails_price | number_format | fitNumber}}</td>
+   <td>{{datarow.factordetails_discount | number_format | fitNumber}}</td>
+   <td>{{datarow.factordetails_sum | number_format | fitNumber}}</td>
+  </tr>
+ {%endfor%}
+  <tfoot>
+   <th></th>
+   <th>{{sell_detail.factor.detailcount | number_format | fitNumber}}</th>
+   <th></th>
+   <th></th>
+   <th>{{sell_detail.factor.sum | number_format | fitNumber}}</th>
+  </tfoot>
+ </table>
 
-<table class="tbl">
- <thead>
-  <th>{%trans "Row"%}</th>
-  <th>{%trans "Product Name"%}</th>
-  <th>{%trans "Qty"%}</th>
-  <th>{%trans "Price"%}</th>
-  <th>{%trans "Discount"%}</th>
-  <th>{%trans "Sum"%}</th>
- </thead>
-{%for key, datarow in sell_detail.factor_detail%}
- <tr>
-  <td>{{ (key + 1) | fitNumber}}</td>
-  <td>{{datarow.title}}</td>
-  <td>{{datarow.factordetails_count  | fitNumber}}</td>
-  <td>{{datarow.factordetails_price | number_format | fitNumber}}</td>
-  <td>{{datarow.factordetails_discount | number_format | fitNumber}}</td>
-  <td>{{datarow.factordetails_sum | number_format | fitNumber}}</td>
- </tr>
-{%endfor%}
- <tfoot>
-  <th></th>
-  <th></th>
-  <th>{{sell_detail.factor.detailcount | number_format | fitNumber}}</th>
-  <th></th>
-  <th></th>
-  <th>{{sell_detail.factor.sum | number_format | fitNumber}}</th>
- </tfoot>
-</table>
+ <h1 class="txtC">{%trans "Final Price"%} {{sell_detail.factor.sum | number_format |fitNumber}}</h1>
 
-<h1 class="txtC">{%trans "Final Price"%} {{sell_detail.factor.sum | number_format |fitNumber}}</h1>
+</div>
 
 
 
