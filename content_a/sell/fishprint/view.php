@@ -17,7 +17,6 @@ class view extends \content_a\main\view
 		$this->data->sell_detail = \lib\app\factor::get(['id' => \lib\utility::get('id')], $meta);
 
 		$this->data->pageSize = \lib\utility::get('size');
-
 	}
 }
 ?>

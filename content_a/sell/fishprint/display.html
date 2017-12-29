@@ -38,7 +38,9 @@
    <th>{%trans "Name"%}</th>
    <th>{%trans "Qty"%}</th>
    <th>{%trans "Price"%}</th>
+{%if sell_detail.factor.detaildiscount%}
    <th>{%trans "Discount"%}</th>
+{%endif%}
    <th>{%trans "Sum"%}</th>
   </thead>
   <tbody class="txtC">
@@ -47,7 +49,9 @@
    <td>{{datarow.title}}</td>
    <td>{{datarow.factordetails_count  | fitNumber}}</td>
    <td>{{datarow.factordetails_price | number_format | fitNumber}}</td>
+{%if sell_detail.factor.detaildiscount%}
    <td>{{datarow.factordetails_discount | number_format | fitNumber}}</td>
+{%endif%}
    <td>{{datarow.factordetails_sum | number_format | fitNumber}}</td>
   </tr>
  {%endfor%}
@@ -56,13 +60,16 @@
    <th>{{sell_detail.factor.item | number_format | fitNumber}}</th>
    <th>{{sell_detail.factor.qty | number_format | fitNumber}}</th>
    <th></th>
+{%if sell_detail.factor.detaildiscount%}
    <th></th>
+{%endif%}
    <th>{{sell_detail.factor.sum | number_format | fitNumber}}</th>
   </tfoot>
  </table>
 
  <table class="tbl fs12 factorResult mB25">
   <tbody>
+{%if sell_detail.factor.detaildiscount%}
    <tr>
      <th class="txtRa">{%trans "Invoice amount"%}</th>
      <td class="collapsing txtLa">{{sell_detail.factor.detailsum | number_format |fitNumber}}</td>
@@ -71,6 +78,7 @@
      <th class="txtRa">{%trans "Your total discount and profits"%}</th>
      <td class="collapsing txtLa">{{sell_detail.factor.detaildiscount | number_format |fitNumber}}</td>
    </tr>
+{%endif%}
    <tr class="alert alert-info factorSum">
      <th class="txtRa">{%trans "Total payable"%}</th>
      <td class="collapsing txtLa">{{sell_detail.factor.sum | number_format |fitNumber}}</td>
