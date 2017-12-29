@@ -561,11 +561,15 @@ function shortkey_print(_el)
 
 function simplePrint()
 {
-  if (window.location.href.indexOf("print=auto") > -1)
-  {
-    window.print();
-    console.log('open print...');
-  }
+    printTimeout = setTimeout(function()
+    {
+      if (window.location.href.indexOf("print=auto") > -1)
+      {
+        window.print();
+        console.log('open print...');
+      }
+
+    }, 50);
 }
 
 
