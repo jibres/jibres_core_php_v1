@@ -68,10 +68,10 @@ class twigTransTerms
 	echo T_("Enter");                                                                 // Line 14
 
 	//------------------------------------------------content\template\priceTable.html
-	echo T_("Free");                                                                  // Line 118
+	echo T_("Free");                                                                  // Line 140
 	echo T_("forever");                                                               // Line 11
 	echo T_("All the basics for personal use and anyone who wants to explore Jibres for an <b>unlimited period of time</b>.");// Line 13
-	echo T_("Standard");                                                              // Line 129
+	echo T_("Standard");                                                              // Line 151
 	echo T_("per month");                                                             // Line 27
 	echo T_("2 month discount on year");                                              // Line 28
 	echo T_("For someones ready to use Jibres as hero.");                             // Line 30
@@ -186,10 +186,10 @@ class twigTransTerms
 	echo T_("It should be mentioned that in case there would be any modifications in the above-mentioned tenors, an updated version will be available for the public, and as well, all the users will be informed.");// Line 22
 
 	//--------------------------------------------------content_a\buy\add\display.html
-	echo T_("Final Price");                                                           // Line 40
+	echo T_("Final Price");                                                           // Line 33
 	echo T_("Save & Next");                                                           // Line 39
 	echo T_("Save & Print");                                                          // Line 40
-	echo T_("Row");                                                                   // Line 13
+	echo T_("Row");                                                                   // Line 57
 	echo T_("Product");                                                               // Line 58
 	echo T_("Count");                                                                 // Line 59
 	echo T_("Price");                                                                 // Line 22
@@ -208,7 +208,7 @@ class twigTransTerms
 	//--------------------------------------------content_a\buy\fishprint\display.html
 	echo T_("Product Name");                                                          // Line 14
 	echo T_("Qty");                                                                   // Line 21
-	echo T_("Sum");                                                                   // Line 18
+	echo T_("Sum");                                                                   // Line 42
 
 	//-------------------------------------------------content_a\buy\home\display.html
 	echo T_("Search in buys list");                                                   // Line 9
@@ -412,6 +412,10 @@ class twigTransTerms
 	//------------------------------------------------content_a\sell\edit\display.html
 
 	//-------------------------------------------content_a\sell\fishprint\display.html
+	echo T_("Sale Invoice");                                                          // Line 28
+	echo T_("Invoice amount");                                                        // Line 67
+	echo T_("Your total discount and profits");                                       // Line 71
+	echo T_("Total payable");                                                         // Line 75
 
 	//------------------------------------------------content_a\sell\home\display.html
 	echo T_("Search in sells list");                                                  // Line 9
@@ -433,21 +437,22 @@ class twigTransTerms
 	echo T_("Slug of team for board url");                                            // Line 92
 	echo T_("Website");                                                               // Line 101
 	echo T_("Link your logo on board for visitors");                                  // Line 99
-	echo T_("Used for description of board and show in social media links");          // Line 107
-	echo T_("Choose your plan");                                                      // Line 114
-	echo T_("All the basics for personal use.");                                      // Line 118
-	echo T_("Everything you need for a growing business.");                           // Line 124
-	echo T_("Yearly");                                                                // Line 129
-	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 136
-	echo T_("Simple");                                                                // Line 136
-	echo T_("Full");                                                                  // Line 140
-	echo T_("For big companies that need fix price per month.");                      // Line 140
-	echo T_("Force show in specefic language");                                       // Line 149
-	echo T_("Please select one language");                                            // Line 151
-	echo T_("Persian");                                                               // Line 152
-	echo T_("English");                                                               // Line 153
-	echo T_("Report Header");                                                         // Line 163
-	echo T_("Report Footer");                                                         // Line 171
+	echo T_("For show in factors");                                                   // Line 129
+	echo T_("Used for description of board and show in social media links");          // Line 123
+	echo T_("Choose your plan");                                                      // Line 136
+	echo T_("All the basics for personal use.");                                      // Line 140
+	echo T_("Everything you need for a growing business.");                           // Line 146
+	echo T_("Yearly");                                                                // Line 151
+	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 158
+	echo T_("Simple");                                                                // Line 158
+	echo T_("Full");                                                                  // Line 162
+	echo T_("For big companies that need fix price per month.");                      // Line 162
+	echo T_("Force show in specefic language");                                       // Line 171
+	echo T_("Please select one language");                                            // Line 173
+	echo T_("Persian");                                                               // Line 174
+	echo T_("English");                                                               // Line 175
+	echo T_("Report Header");                                                         // Line 185
+	echo T_("Report Footer");                                                         // Line 193
 
 	//---------------------------------------------content_a\setting\plan\display.html
 	echo T_("Current Plan");                                                          // Line 7
