@@ -112,12 +112,12 @@ trait edit
 
 		if(array_key_exists('barcode', $args) && $args['barcode'] != '')
 		{
-			$args['barcode'] = "(SELECT '$args[barcode]')";
+			$args['barcode'] = "$args[barcode]";
 		}
 
 		if(array_key_exists('barcode2', $args) && $args['barcode2'] != '')
 		{
-			$args['barcode2'] = "(SELECT '$args[barcode2]')";
+			$args['barcode2'] = "$args[barcode2]";
 		}
 
 		if(!empty($args))
