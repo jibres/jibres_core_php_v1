@@ -24,7 +24,7 @@
 
 {%block foot_js%}
 
- <script src="{{url.static}}js/JsBarcode.all.min.js"></script>
- <script src="{{url.static}}js/shortkey.js"></script>
+ <script src="{{url.static}}{{'js/JsBarcode.all.min.js' | filemtime(true)}}"></script>
+ <script src="{{url.static}}{{'js/shortkey.js' | filemtime(true)}}"></script>
 {%endblock%}
 
