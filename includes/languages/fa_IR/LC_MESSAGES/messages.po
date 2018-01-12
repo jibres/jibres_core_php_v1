@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2017-12-29 21:35+0330\n"
-"PO-Revision-Date: 2018-01-01 11:33+0330\n"
+"POT-Creation-Date: 2018-01-12 16:27+0330\n"
+"PO-Revision-Date: 2018-01-12 16:29+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.12\n"
 "X-Poedit-Basepath: ../../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -129,7 +129,8 @@ msgid "Operation Faild"
 msgstr "عملیات با خطا مواجه شد"
 
 #: dash/addons/content_api/v1/comment/tools/add.php:84
-#: jibres/content_a/buy/edit/controller.php:11 jibres/content_a/sell/edit/controller.php:11
+#: dash/addons/content_cp/terms/view.php:77 jibres/content_a/buy/edit/controller.php:11
+#: jibres/content_a/sell/edit/controller.php:11
 msgid "Id not found"
 msgstr "کد یافت نشد"
 
@@ -199,9 +200,9 @@ msgstr "نوع باید کمتر از 50 کاراکتر باشد"
 #: dash/addons/content_api/v1/user/tools/add.php:59
 #: dash/addons/content_api/v1/user/tools/get.php:110
 #: dash/addons/content_enter/home/model.php:43
-#: dash/addons/content_su/sendnotify/model.php:31 dash/lib/app/user/add.php:48
-#: jibres/includes/lib/app/factor/add.php:46 jibres/includes/lib/app/product/add.php:43
-#: jibres/includes/lib/app/store/add.php:32
+#: dash/addons/content_su/sendnotify/model.php:31 dash/lib/app/term.php:162
+#: dash/lib/app/user/add.php:48 jibres/includes/lib/app/factor/add.php:46
+#: jibres/includes/lib/app/product/add.php:43 jibres/includes/lib/app/store/add.php:32
 msgid "User not found"
 msgstr "کاربر یافت نشد"
 
@@ -611,7 +612,7 @@ msgstr " تاریخ انقضاء باید کمتر از 50 کاراکتر باش
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:275
 msgid "You must set the paymentaccountnumber less than 50 character"
-msgstr " شماره حساب باید کمتر از 50 کاراکتر باشد "
+msgstr "شماره حساب باید کمتر از 50 کاراکتر باشد"
 
 #: dash/addons/content_api/v1/user/tools/user_check_args.php:283
 msgid "You must set the shaba less than 50 character"
@@ -681,22 +682,39 @@ msgstr "کد واحد مالی نادرست است"
 msgid "Language is incorrect"
 msgstr "زبان نادرست است"
 
-#: dash/addons/content_cp/home/controller.php:19
-msgid "first of all, you must login to system!"
-msgstr "شما ابتدا باید وارد سیستم شوید!"
-
-#: dash/addons/content_cp/home/controller.php:52
+#: dash/addons/content_cp/main/controller.php:30
 msgid "Can not access to cp"
 msgstr "نمی‌توانید به کنترل پنل دسترسی داشته باشید"
-
-#: dash/addons/content_cp/home/controller.php:82
-msgid "Not found!"
-msgstr "یافت نشد!"
 
 #: dash/addons/content_cp/permission/model.php:60
 #: dash/addons/content_su/permission/model.php:56
 msgid "Permission added to this user"
 msgstr "سطح‌دسترسی برای اضافه‌کردن این‌ کاربر"
+
+#: dash/addons/content_cp/terms/model.php:32
+msgid "Term successfully edited"
+msgstr "ترم با موفقتی ویرایش شد"
+
+#: dash/addons/content_cp/terms/model.php:37
+msgid "Way successfully added"
+msgstr "راه با موفقیت افزوده شد"
+
+#: dash/addons/content_cp/terms/view.php:9
+#: dash/addons/includes/languages/trans_addons.php:1161
+#: jibres/includes/languages/trans_addons.php:1160
+msgid "Terms"
+msgstr "عبارات"
+
+#: dash/addons/content_cp/terms/view.php:10
+msgid "check terms and add some new terms"
+msgstr "عبارات را بررسی کنید و عبارات جدید را ثبت کنید"
+
+#: dash/addons/content_cp/terms/view.php:38
+#: dash/addons/includes/languages/trans_addons.php:111
+#: jibres/content_a/product/home/view.php:32 jibres/includes/languages/trans_addons.php:111
+#: jibres/includes/languages/trans_twig.php:215
+msgid "Search"
+msgstr "جستجو"
 
 #: dash/addons/content_cp/transactions/add/model.php:51
 #: dash/addons/content_su/transactions/model.php:85
@@ -863,20 +881,27 @@ msgstr "با استفاده از گوگل وارد :name شوید"
 msgid "Mobile not found"
 msgstr "موبایل یافت نشد"
 
-#: dash/addons/content_enter/home/model.php:92
+#: dash/addons/content_enter/home/model.php:94
+#: dash/addons/content_enter/signup/model.php:30
+#: dash/addons/includes/languages/trans_addons.php:657
+#: jibres/includes/languages/trans_addons.php:657
+msgid "How are you?"
+msgstr "حال شما چطوره؟"
+
+#: dash/addons/content_enter/home/model.php:106
 #: dash/addons/content_enter/mobile/change/model.php:20
 #: dash/addons/content_enter/mobile/set/model.php:30
 #: dash/addons/content_enter/pass/change/model.php:20
 #: dash/addons/content_enter/pass/recovery/model.php:30
 #: dash/addons/content_enter/pass/set/model.php:30
 #: dash/addons/content_enter/pass/signup/model.php:30
-#: dash/addons/content_enter/signup/model.php:19
+#: dash/addons/content_enter/signup/model.php:36
 #: dash/addons/content_enter/username/model.php:12
 #: dash/addons/content_enter/verify/model.php:23
 msgid "Dont!"
 msgstr "نکن عزیزم!"
 
-#: dash/addons/content_enter/home/model.php:126
+#: dash/addons/content_enter/home/model.php:140
 #: dash/addons/content_enter/username/model.php:40
 msgid "Username not found"
 msgstr "نام کاربری یافت نشد"
@@ -1149,40 +1174,40 @@ msgstr "لینوکس"
 msgid "Active sessions"
 msgstr "ورودهای فعال"
 
-#: dash/addons/content_enter/signup/model.php:26
+#: dash/addons/content_enter/signup/model.php:43
 msgid "Pleaes set mobile number"
 msgstr "لطفا شماره تلفن‌همراه را وارد کنید"
 
-#: dash/addons/content_enter/signup/model.php:33
+#: dash/addons/content_enter/signup/model.php:50
 msgid "Pleaes set a valid mobile number"
 msgstr "لطفا شماره تلفن‌همراه معتبری وارد کنید"
 
-#: dash/addons/content_enter/signup/model.php:40
+#: dash/addons/content_enter/signup/model.php:59
 msgid "Pleaes set a valid username"
 msgstr "لطفا نام‌کاربری معتبری وارد کنید"
 
-#: dash/addons/content_enter/signup/model.php:46
+#: dash/addons/content_enter/signup/model.php:66
 msgid "Username must in [A-Za-z0-9]"
 msgstr "نام کاربری تنها باید از بین حروف و انگلیسی باشد"
 
-#: dash/addons/content_enter/signup/model.php:53
+#: dash/addons/content_enter/signup/model.php:73
 msgid "Pleaes set a valid password"
 msgstr "لطفا گذرواژه‌ی معتبری تنظیم کنید"
 
-#: dash/addons/content_enter/signup/model.php:60
+#: dash/addons/content_enter/signup/model.php:80
 msgid "Invalid full name"
 msgstr "نام کامل اشتباه"
 
-#: dash/addons/content_enter/signup/model.php:67
+#: dash/addons/content_enter/signup/model.php:89
 msgid "This username is already taken."
 msgstr "این نام‌کاربری پیش از این گرفته شده است."
 
-#: dash/addons/content_enter/signup/model.php:74
+#: dash/addons/content_enter/signup/model.php:97
 msgid "This mobile is already signuped. You can login by this mobile"
 msgstr ""
 "این شماره تلفن‌همراه پیش از این ثبت‌نام کرده است. شما می‌توانید با این شماره وارد سیستم شوید"
 
-#: dash/addons/content_enter/signup/model.php:96
+#: dash/addons/content_enter/signup/model.php:119
 msgid "We can not signup you"
 msgstr "ما نمی‌توانیم شما را ثبت‌نام کنیم"
 
@@ -1848,12 +1873,6 @@ msgstr "برای گسترش معرفی خود از لوگوی ما استفاد�
 #: jibres/includes/languages/trans_addons.php:108
 msgid "Enter to Jibres"
 msgstr "ورود به جیبرس"
-
-#: dash/addons/includes/languages/trans_addons.php:111
-#: jibres/content_a/product/home/view.php:32 jibres/includes/languages/trans_addons.php:111
-#: jibres/includes/languages/trans_twig.php:215
-msgid "Search"
-msgstr "جستجو"
 
 #: dash/addons/includes/languages/trans_addons.php:112
 #: jibres/includes/database/jibres/translation.php:12
@@ -4155,11 +4174,6 @@ msgstr "خط"
 msgid "Add fix simple line to bottom of page"
 msgstr "افزودن خط ساده به انتهای صفحه"
 
-#: dash/addons/includes/languages/trans_addons.php:657
-#: jibres/includes/languages/trans_addons.php:657
-msgid "How are you?"
-msgstr "حال شما چطوره؟"
-
 #: dash/addons/includes/languages/trans_addons.php:658
 #: jibres/includes/languages/trans_addons.php:658
 msgid "Ermile is intelligent"
@@ -6399,11 +6413,6 @@ msgstr "حذف"
 msgid "Pages"
 msgstr "صفحات"
 
-#: dash/addons/includes/languages/trans_addons.php:1161
-#: jibres/includes/languages/trans_addons.php:1160
-msgid "Terms"
-msgstr "عبارات"
-
 #: dash/addons/includes/languages/trans_addons.php:1162
 #: jibres/includes/languages/trans_addons.php:1161
 msgid "Attachments"
@@ -6947,7 +6956,7 @@ msgstr "وضعیت ویژگی‌ها"
 #: dash/addons/includes/languages/trans_addons.php:1268
 #: jibres/includes/languages/trans_addons.php:1267
 msgid "Use fake subdomain"
-msgstr "شبیه‌سازی ساب‌دامین"
+msgstr "شبیه‌سازی زیردامنه"
 
 #: dash/addons/includes/languages/trans_addons.php:1269
 #: jibres/includes/languages/trans_addons.php:1268
@@ -7713,6 +7722,38 @@ msgstr "کلید مربوط به این مخاطب بیش از اندازه بز
 msgid "Contact value is too large."
 msgstr "مقدار وارد شده از حد مجاز بزرگتر است"
 
+#: dash/lib/app/term.php:38
+msgid "Please set the term title"
+msgstr "لطفا عنوان ترم را وارد کنید"
+
+#: dash/lib/app/term.php:44
+msgid "Please set the term title less than 150 character"
+msgstr "لطفا عنوان ترم را کمتر از ۱۵۰ حرف وارد کنید"
+
+#: dash/lib/app/term.php:53
+msgid "Please set the term slug less than 150 character"
+msgstr "لطفا نامک ترم را کمتر از ۱۵۰ حرف وارد کنید"
+
+#: dash/lib/app/term.php:60
+msgid "Please set the term desc less than 500 character"
+msgstr "لطفا توضیحات ترم را کمتر از ۱۵۰ حرف وارد کنید"
+
+#: dash/lib/app/term.php:76
+msgid "Please set the term type"
+msgstr "لطفا نوع ترم را مشخص کنید"
+
+#: dash/lib/app/term.php:85
+msgid "Invalid status of term"
+msgstr "وضعیت ترم اشتباه است"
+
+#: dash/lib/app/term.php:180
+msgid "No way to insert term"
+msgstr "هیچ راهی برای ثبت ترم وجود ندارد"
+
+#: dash/lib/app/term.php:277
+msgid "Can not access to edit term"
+msgstr "دسترسی لازم برای ویرایش ترم وجود ندارد"
+
 #: dash/lib/app/user.php:54
 msgid "Mobile is incorrect"
 msgstr "موبایل اشتباه است"
@@ -7930,7 +7971,7 @@ msgstr "خطا در ارسال‌کننده ایمیل :error"
 msgid "Invalid amount"
 msgstr "مقدار نامعتبر"
 
-#: dash/lib/utility/payment/pay.php:62
+#: dash/lib/utility/payment/pay.php:68
 msgid "This payment is not supported in this system"
 msgstr "این روش پرداخت در این سیستم پشتیبانی نمی‌شود"
 
@@ -8559,7 +8600,7 @@ msgstr "روز خوبی داشته باشید؛)"
 
 #: jibres/content_a/main/controller.php:18
 msgid "SubDomain not found"
-msgstr "ساب‌دامین یافت نشد"
+msgstr "زیردامنه یافت نشد"
 
 #: jibres/content_a/product/add/view.php:9
 msgid "Add new product or goods"
@@ -8569,7 +8610,7 @@ msgstr "افزودن محصول یا کالای جدید"
 msgid ""
 "You can set main property of product and allow to assign some extra or edit it later."
 msgstr ""
-"شما می توانید ویژگی اصلی محصول را تنظیم کنید و نیز برخی ویژگی های اضافی را تنظیم کنید یا "
+"شما می‌توانید ویژگی اصلی محصول را تنظیم کنید و نیز برخی ویژگی های اضافی را تنظیم کنید یا "
 "بعدا ویرایش کنید."
 
 #: jibres/content_a/product/add/view.php:13
@@ -8586,7 +8627,7 @@ msgstr "حذف محصول"
 
 #: jibres/content_a/product/edit/delete/view.php:17
 msgid "You can delete product easily form this page, be careful!"
-msgstr "شما می توانید محصول را به راحتی از طریق همین صفحه حذف کنید، مراقب باشید!"
+msgstr "شما می‌توانید محصول را به راحتی از طریق همین صفحه حذف کنید، مراقب باشید!"
 
 #: jibres/content_a/product/edit/general/view.php:22
 #: jibres/content_a/product/edit/view.php:27
@@ -8611,7 +8652,7 @@ msgstr "تصویر محصول"
 
 #: jibres/content_a/product/edit/view.php:29
 msgid "You can have some edit on this product"
-msgstr "شما می توانید برخی از ویژگی های این محصول را ویرایش کنید"
+msgstr "شما می‌توانید برخی از ویژگی های این محصول را ویرایش کنید"
 
 #: jibres/content_a/product/export/model.php:16
 msgid "Export product successfully complete"
@@ -8667,8 +8708,8 @@ msgstr "وارد کردن محصولات از طریق فایل سی اس وی "
 #: jibres/content_a/product/import/view.php:10
 msgid "You can import more than one product in one request via CSV import process"
 msgstr ""
-"شما می توانید تمامی محصولات خود را از طریق وارد کردن فایل سی اس وی به یکباره در سیستم "
-"ثبت کنید."
+"شما می‌توانید تمامی محصولات خود را از طریق وارد کردن فایل سی اس وی به یکباره در سیستم ثبت "
+"کنید."
 
 #: jibres/content_a/product/summary/view.php:9 jibres/includes/languages/trans_twig.php:290
 msgid "Products Summary"
@@ -10708,11 +10749,11 @@ msgstr "نام کوتاه فروشگاه"
 
 #: jibres/includes/languages/trans_twig.php:500
 msgid "Used for url of store as subdomain"
-msgstr "به‌عنوان ساب‌دامین در آدرس فروشگاه مورد استفاده قرار می‌گیرد"
+msgstr "به‌عنوان زیردامنه در آدرس فروشگاه مورد استفاده قرار می‌گیرد"
 
 #: jibres/includes/languages/trans_twig.php:501
 msgid "subdomain for your store"
-msgstr "ساب‌دامین فروشگاه شما"
+msgstr "زیردامنه فروشگاه شما"
 
 #: jibres/includes/languages/trans_twig.php:502
 msgid "Used for description of store and show in social media links"
@@ -11209,6 +11250,12 @@ msgstr "اجازه مشاهده لاگ‌های سیستم"
 msgid "Allow to login by another session"
 msgstr "اجازه ورود با کاربر دیگر"
 
+#~ msgid "first of all, you must login to system!"
+#~ msgstr "شما ابتدا باید وارد سیستم شوید!"
+
+#~ msgid "Not found!"
+#~ msgstr "یافت نشد!"
+
 #~ msgid "Last sells"
 #~ msgstr "آخرین فروش‌ها"
 
@@ -11243,8 +11290,8 @@ msgstr "اجازه ورود با کاربر دیگر"
 #~ "You can add new buy and after add with minimal data, we allow you to add extra detail "
 #~ "of buy."
 #~ msgstr ""
-#~ "شما می‌توانید خرید جدید را اضافه کنید و پس از اضافه کردن با حداقل اطلاعات، ما اجازه می "
-#~ "دهیم جزئیات بیشتری از خرید را اضافه کنید."
+#~ "شما می‌توانید خرید جدید را اضافه کنید و پس از اضافه کردن با حداقل اطلاعات، ما اجازه "
+#~ "می‌دهیم جزئیات بیشتری از خرید را اضافه کنید."
 
 #~ msgid "Save & edit"
 #~ msgstr "ذخیره و ویرایش"
@@ -11674,7 +11721,7 @@ msgstr "اجازه ورود با کاربر دیگر"
 #~ msgstr "تصویر کارکنان"
 
 #~ msgid "Allow to set and change thumb of staff"
-#~ msgstr "شما می توانید برای کارکنان خود تصویری اختصاص دهید یا آن را ویرایش کنید."
+#~ msgstr "شما می‌توانید برای کارکنان خود تصویری اختصاص دهید یا آن را ویرایش کنید."
 
 #~ msgid "Photo of national card"
 #~ msgstr "تصویر کارت ملی"
@@ -11966,7 +12013,7 @@ msgstr "اجازه ورود با کاربر دیگر"
 #~ "The :alpha team has filed your ownership transfer request, Do you accept this request?"
 #~ msgstr ""
 #~ "تیم :alpha درخواست تغییر مالکیت خود را برای شما ارسال کرده است. آیا شما این درخواست "
-#~ "را می پذیرید؟"
+#~ "را می‌پذیرید؟"
 
 #~ msgid "Security and Privacy"
 #~ msgstr "امنیتی و حریم‌خصوصی"
@@ -12063,7 +12110,7 @@ msgstr "اجازه ورود با کاربر دیگر"
 #~ msgstr "گزارشات گروه تلگرام"
 
 #~ msgid "You can connect your team to one group."
-#~ msgstr "شما می توانید تیم خود را به یک گروه متصل کنید."
+#~ msgstr "شما می‌توانید تیم خود را به یک گروه متصل کنید."
 
 #~ msgid "Use our @tejarakBot menu and connect your team to your team telegram group."
 #~ msgstr ""
@@ -12097,7 +12144,7 @@ msgstr "اجازه ورود با کاربر دیگر"
 #~ msgstr "انتقال مالکیت تیم به شخص دیگر"
 
 #~ msgid "You can transfer this yeam to another person."
-#~ msgstr "شما می توانید مالکیت تیم خود را به کاربر دیگری منتقل کنید."
+#~ msgstr "شما می‌توانید مالکیت تیم خود را به کاربر دیگری منتقل کنید."
 
 #~ msgid "To start process choose new owner"
 #~ msgstr "برای شروع فرآیند مالک جدید را انتخاب کنید"
@@ -12125,13 +12172,13 @@ msgstr "اجازه ورود با کاربر دیگر"
 #~ msgstr "در انتظار تایید یا رد درخواست توسط کاربر"
 
 #~ msgid "You can <b>cancel</b> the request now"
-#~ msgstr "شما می توانید این درخواست را هم اکنون لغو کنید"
+#~ msgstr "شما می‌توانید این درخواست را هم اکنون لغو کنید"
 
 #~ msgid "Cancel request"
 #~ msgstr "لغو درخواست"
 
 #~ msgid "You can give over your team to another people."
-#~ msgstr "شما می توانید مالکیت تیم خود را به کاربر دیگری منتقل کنید."
+#~ msgstr "شما می‌توانید مالکیت تیم خود را به کاربر دیگری منتقل کنید."
 
 #~ msgid "If you are not sure, leave this page!"
 #~ msgstr "اگر مطمئن نیستید این صفحه را ترک کنید!"
