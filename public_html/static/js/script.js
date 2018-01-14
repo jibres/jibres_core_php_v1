@@ -442,8 +442,8 @@ function addFindedProduct(_product, _msg)
     if(_msg)
     {
       notif('warn', _msg, null, null, {position:'center'});
+      sysBeep();
       beep(500);
-
     }
   }
 }
@@ -475,6 +475,11 @@ function beep(duration, frequency, volume, type, callback)
     oscillator.start();
     setTimeout(function(){oscillator.stop()}, (duration ? duration : 500));
 };
+
+function sysBeep()
+{
+  console.log('\u0007');
+}
 
 
 
