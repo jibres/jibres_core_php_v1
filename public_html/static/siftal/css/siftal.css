@@ -195,10 +195,12 @@ html {
 
 body.rtl {
   direction: rtl;
+  overflow-x: hidden;
   font-family: IRANSans, "Segoe UI", Helvetica, sans-serif; }
 
 body.ltr {
   direction: ltr;
+  overflow-x: hidden;
   font-family: LatoLatinWeb, IRANSans, "Segoe UI", Helvetica, sans-serif; }
 
 *,
@@ -1362,7 +1364,8 @@ a:active {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  padding: 0.5em 2.5em; }
+  padding: 0.5em 2.5em;
+  overflow: hidden; }
 
 .alert .close {
   font-family: "FontAwesome";
@@ -2220,7 +2223,8 @@ progress.xl, meter.xl {
   margin: 0 auto;
   transition: 0.3s;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5; }
 
 .vcard.shadow:hover, .vcard.active {
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5, 0 5px 20px rgba(0, 0, 0, 0.19), 0 5px 7px rgba(0, 0, 0, 0.23); }
@@ -2260,7 +2264,8 @@ progress.xl, meter.xl {
   clear: both;
   color: #777;
   margin-top: 0.5em;
-  display: block; }
+  display: block;
+  line-height: 1.5; }
 
 .vcard .meta {
   clear: both;
@@ -8915,7 +8920,7 @@ html[lang=fa] .switch1.gender input:checked + label:first-of-type:before {
   width: 100%;
   min-width: 100%;
   max-width: 100%;
-  min-height: 4em;
+  min-height: 36px;
   max-height: 30em;
   overflow: hidden; }
 
@@ -8927,6 +8932,9 @@ html[lang=fa] .switch1.gender input:checked + label:first-of-type:before {
 
 .txt[rows] {
   resize: none; }
+
+.txt[rows] {
+  line-height: 1; }
 
 .select {
   display: block;
@@ -11653,7 +11661,8 @@ body.siftal .full .middle {
 .siftal header h1 {
   margin: 0;
   overflow: hidden;
-  min-width: 100px; }
+  min-width: 100px;
+  font-size: 1.5em; }
 
 .siftal header h1 a {
   margin: 0;
@@ -11679,7 +11688,8 @@ body.siftal .full .middle {
   padding: 5px; }
 
 .siftal header h1 span {
-  padding: 0 0.5em; }
+  padding: 0 0.5em;
+  font-weight: bold; }
 
 /* header flex */
 .siftal header i {
@@ -11890,7 +11900,7 @@ body.siftal.loading-page #sidebar .avatar:before {
 
 .siftal #sidebar ul > li > a {
   display: block;
-  padding: 1.5em 2em;
+  padding: 1.2em 2em;
   color: #d5d5d5;
   transition: 0.3s;
   cursor: pointer;
@@ -11910,10 +11920,11 @@ body.siftal.loading-page #sidebar .avatar:before {
   background-color: rgba(0, 0, 0, 0.7); }
 
 .siftal #sidebar ul > li > ul {
-  display: none; }
+  background-color: #252525;
+  font-size: 0.9em; }
 
 .siftal #sidebar ul > li > ul > li > a {
-  padding: 0.8em 3em; }
+  padding: 0.7em 3em; }
 
 .siftal #sidebar ul > li > a.weAreHere {
   background-color: rgba(0, 0, 0, 0.8);
@@ -13860,6 +13871,14 @@ body .w200 {
   body .w200 {
     min-width: 150px;
     width: 150px; }
+
+  .siftal #header h1 {
+    max-width: 60%;
+    max-width: calc( 100% - 110px);
+    font-size: 1.2em; }
+
+  .siftal #header h1 + .hm {
+    display: none !important; }
 
   .siftal #sidebar {
     display: block;

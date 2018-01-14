@@ -434,14 +434,14 @@ function addFindedProduct(_product, _msg)
     else
     {
       var msg = 'error in products.';
-      notif('warn', msg);
+      notif('error', msg);
     }
   }
   else
   {
     if(_msg)
     {
-      notif('info', _msg);
+      notif('warn', _msg, null, null, {position:'center'});
 
     }
   }
