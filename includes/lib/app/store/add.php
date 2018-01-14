@@ -99,9 +99,9 @@ trait add
 
 		\lib\app\staff::add($insert_userstore, ['debug' => false, 'store_id' => $store_id]);
 
-		if(Tld === 'dev')
+		if(Tld === 'local')
 		{
-			// in dev mode not set the subdomain
+			// in local mode not set the subdomain
 		}
 		else
 		{

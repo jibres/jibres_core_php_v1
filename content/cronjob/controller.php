@@ -11,7 +11,7 @@ class controller extends \mvc\controller
 			\lib\error::page();
 		}
 
-		if(Tld === 'dev')
+		if(Tld === 'local')
 		{
 			return;
 		}
