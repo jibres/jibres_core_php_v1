@@ -112,7 +112,8 @@ trait edit
 		{
 			return false;
 		}
-
+		// check below line
+		$log_meta = null;
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
