@@ -62,6 +62,7 @@ trait edit
 		if(!\lib\app::isset_request('address')) unset($args['address']);
 		if(!\lib\app::isset_request('phone'))   unset($args['phone']);
 		if(!\lib\app::isset_request('mobile'))  unset($args['mobile']);
+		if(!\lib\app::isset_request('logo'))    unset($args['logo']);
 
 		if(array_key_exists('name', $args) && !$args['name'])
 		{
