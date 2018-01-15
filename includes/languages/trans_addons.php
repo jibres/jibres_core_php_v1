@@ -131,6 +131,11 @@ class twigTransTerms
 
 	//----------------------------------------------addons\content_cp\main\layout.html
 	echo T_("Options");                                                               // Line 84 Seperate
+	echo T_("News");                                                                  // Line 9
+	echo T_("All news");                                                              // Line 11
+	echo T_("Add new news");                                                          // Line 12
+	echo T_("Categries");                                                             // Line 13
+	echo T_("Tags");                                                                  // Line 14
 	echo T_("Last update on");                                                        // Line 26
 	echo T_("wait for next version!");                                                // Line 26
 	echo T_("Powered by");                                                            // Line 28
@@ -142,6 +147,20 @@ class twigTransTerms
 	echo T_("Change permission of user");                                             // Line 6
 	echo T_("Permission cat");                                                        // Line 10
 	echo T_("Save change");                                                           // Line 32
+
+	//--------------------------------------------addons\content_cp\terms\display.html
+	echo T_("Slug");                                                                  // Line 87
+	echo T_("Desctiption");                                                           // Line 45
+	echo T_("Add");                                                                   // Line 149 Seperate
+	echo T_("Edit");                                                                  // Line 150 Seperate
+	echo T_("Require");                                                               // Line 77
+	echo T_("Enter a valid title");                                                   // Line 79
+	echo T_("Used for url");                                                          // Line 85
+	echo T_("Enter a valid slug");                                                    // Line 87
+	echo T_("Parent Category");                                                       // Line 93
+	echo T_("Please select one itme");                                                // Line 95
+	echo T_("Active");                                                                // Line 56
+	echo T_("Deactive");                                                              // Line 112
 
 	//---------------------------------addons\content_cp\transactions\add\display.html
 	echo T_("Saved record");                                                          // Line 6
@@ -160,7 +179,6 @@ class twigTransTerms
 	echo T_("Prize");                                                                 // Line 53
 	echo T_("Unit");                                                                  // Line 34
 	echo T_("Mobile");                                                                // Line 168 Seperate
-	echo T_("Add");                                                                   // Line 149 Seperate
 
 	//-------------------------------------addons\content_cp\transactions\display.html
 	echo T_("Add New Transaction");                                                   // Line 7
@@ -188,7 +206,6 @@ class twigTransTerms
 	echo T_("Email");                                                                 // Line 100
 	echo T_("Username");                                                              // Line 27
 	echo T_("Avatar");                                                                // Line 28
-	echo T_("Edit");                                                                  // Line 150 Seperate
 	echo T_("Logs");                                                                  // Line 31
 	echo T_("Transactions");                                                          // Line 32
 	echo T_("Permission");                                                            // Line 33
@@ -626,7 +643,6 @@ class twigTransTerms
 
 	//------------------------------------addons\content_su\sample\template\input.html
 	echo T_("Focus");                                                                 // Line 51
-	echo T_("Active");                                                                // Line 56
 	echo T_("Readonly");                                                              // Line 61
 	echo T_("Disabled");                                                              // Line 66
 	echo T_("All type of input conditions");                                          // Line 74
@@ -1032,12 +1048,12 @@ class twigTransTerms
 	//---------------------------------------addons\content_su\users\edit\display.html
 
 	//------------------------------------------addons\includes\html\display-dash.html
-	echo T_("Edit your profile");                                                     // Line 50
-	echo T_("Avatar of you");                                                         // Line 52
-	echo T_("Default Avatar");                                                        // Line 54
-	echo T_("Hello");                                                                 // Line 57
+	echo T_("Edit your profile");                                                     // Line 51
+	echo T_("Avatar of you");                                                         // Line 53
+	echo T_("Default Avatar");                                                        // Line 55
+	echo T_("Hello");                                                                 // Line 61
 	echo T_("Logout");                                                                // Line 104 Seperate
-	echo T_("View your current location and navigate to parent of it");               // Line 95
+	echo T_("View your current location and navigate to parent of it");               // Line 99
 
 	//----------------------------------addons\includes\html\display-enter-blocks.html
 	echo T_("Please enter valid mobile number");                                      // Line 12

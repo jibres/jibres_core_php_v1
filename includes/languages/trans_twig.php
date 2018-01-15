@@ -187,8 +187,8 @@ class twigTransTerms
 
 	//--------------------------------------------------content_a\buy\add\display.html
 	echo T_("Final Price");                                                           // Line 33
-	echo T_("Save & Next");                                                           // Line 39
-	echo T_("Save & Print");                                                          // Line 40
+	echo T_("Save & Next");                                                           // Line 41
+	echo T_("Save & Print");                                                          // Line 44
 	echo T_("Row");                                                                   // Line 57
 	echo T_("Product");                                                               // Line 58
 	echo T_("Count");                                                                 // Line 59
@@ -208,7 +208,7 @@ class twigTransTerms
 	//--------------------------------------------content_a\buy\fishprint\display.html
 	echo T_("Product Name");                                                          // Line 14
 	echo T_("Qty");                                                                   // Line 21
-	echo T_("Sum");                                                                   // Line 42
+	echo T_("Sum");                                                                   // Line 44
 
 	//-------------------------------------------------content_a\buy\home\display.html
 	echo T_("Search in buys list");                                                   // Line 9
@@ -413,9 +413,9 @@ class twigTransTerms
 
 	//-------------------------------------------content_a\sell\fishprint\display.html
 	echo T_("Sale Invoice");                                                          // Line 28
-	echo T_("Invoice amount");                                                        // Line 67
-	echo T_("Your total discount and profits");                                       // Line 71
-	echo T_("Total payable");                                                         // Line 75
+	echo T_("Invoice amount");                                                        // Line 74
+	echo T_("Your total discount and profits");                                       // Line 78
+	echo T_("Total payable");                                                         // Line 83
 
 	//------------------------------------------------content_a\sell\home\display.html
 	echo T_("Search in sells list");                                                  // Line 9
