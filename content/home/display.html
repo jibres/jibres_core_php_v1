@@ -5,7 +5,7 @@
 
 
  {{block('landPage')}}
- {{block('keepSimple--')}}
+ {{block('keepSimple')}}
  {{block('statistic--')}}
  {{block('enterprise--')}}
  {{block('history---')}}
@@ -24,7 +24,7 @@
 <section id='landing'>
  <div class="title">
   <h2>{%trans "Integrated Sales and Online Accounting"%}</h2>
-  <h3>{%trans ""%} {{site.desc}}</h3>
+  <h3>{{site.desc}}</h3>
  </div>
 
 </section>
@@ -42,8 +42,12 @@
 
 
 {%block keepSimple%}
-<section>
- <h2>Keep it simple</h2>
+<section id='keepitsimple'>
+ <div class="title">
+  <h2>{%trans "Keep it simple"%}</h2>
+  <h3>{%trans "Simplicity is the ultimate sophistication"%}</h3>
+  <h3>{%trans "No one can fullfill your e-commerce needs like us"%} <span>💪</span></h3>
+ </div>
 </section>
 {%endblock%}
 
