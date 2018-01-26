@@ -6,7 +6,7 @@
 
  {{block('landPage')}}
  {{block('keepSimple')}}
- {{block('statistic--')}}
+ {{block('statistic')}}
  {{block('enterprise--')}}
  {{block('history---')}}
  {{block('installation--')}}
@@ -31,16 +31,6 @@
 {%endblock%}
 
 
-
-{%block readmap%}
-<section class="module parallax parallax-2">
-  <div class="container">
-    <h1>WORK</h1>
-  </div>
-</section>
-{%endblock%}
-
-
 {%block keepSimple%}
 <section id='keepitsimple'>
  <div class="title">
@@ -53,8 +43,30 @@
 
 
 {%block statistic%}
-<section>
- statistic
+<section id='statistic'>
+  <div class="cn">
+    <h3></h3>
+    <div class="f txtC">
+      <div class="c4 s12">
+        <div class="statistic xl">
+          <div class="value" title='{%trans "Item"%}'>{{2580 | number_format | fitNumber}}+</div>
+          <h5 class="label">{%trans "Products"%}</h5>
+        </div>
+      </div>
+      <div class="c4 s12">
+        <div class="statistic xl" title='{%trans "Qty"%}'>
+          <div class="value">{{8167 | number_format | fitNumber}}+</div>
+          <h5 class="label">{%trans "Factor"%}</h5>
+        </div>
+      </div>
+      <div class="c4 s12">
+        <div class="statistic xl">
+          <div class="value" title='{%trans "Toman"%}'>{{12785300 | number_format | fitNumber}}+</div>
+          <h5 class="label">{%trans "Sold on Jibres"%}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 {%endblock%}
 
