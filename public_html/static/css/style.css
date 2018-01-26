@@ -111,8 +111,10 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 #keepitsimple .title h3:hover span{opacity:1}
 
 
-#statistic{padding:5em 0;background-color:#333;color:#eee}
-
+#statistic{padding:7em 0;background-color:#333;color:#eee}
+#statistic .value{color:#fff}
+#statistic h2 span{opacity:0;transition:0.3s}
+#statistic:hover h2 span{opacity:1}
 
 
 
