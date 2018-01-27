@@ -21,13 +21,26 @@ class twigTransTerms
 	echo T_("Qom");                                                                   // Line 50
 	echo T_("Iran");                                                                  // Line 49
 	echo T_("Floor2, Yas Building");                                                  // Line 52
+	echo T_("Our location on map");                                                   // Line 60
 
 	//-------------------------------------------------------content\home\display.html
 	echo T_("Integrated Sales and Online Accounting");                                // Line 26
-	echo T_("Roadmap");                                                               // Line 61
-	echo T_("Amazing Financial Platform");                                            // Line 62
-	echo T_("With Jibres we take less time of our customers and this means modern customer orientation");// Line 92
-	echo T_("Majid Sadeghi, Sales Supervisor at SuperSaeed");                         // Line 93
+	echo T_("Simplest forever");                                                      // Line 37
+	echo T_("Keep it simple");                                                        // Line 37
+	echo T_("Simplicity is the ultimate sophistication");                             // Line 38
+	echo T_("No one can fullfill your e-commerce needs like us");                     // Line 39
+	echo T_("Of course Made with love 😍");                                            // Line 48
+	echo T_("Jibres has created for futuristic entrepreneurs");                       // Line 48
+	echo T_("Item");                                                                  // Line 51
+	echo T_("Products");                                                              // Line 8
+	echo T_("Qty");                                                                   // Line 21
+	echo T_("Factor");                                                                // Line 16
+	echo T_("Toman");                                                                 // Line 59
+	echo T_("Sold on Jibres");                                                        // Line 60
+	echo T_("Roadmap");                                                               // Line 71
+	echo T_("Amazing Financial Platform");                                            // Line 72
+	echo T_("With Jibres we take less time of our customers and this means modern customer orientation");// Line 102
+	echo T_("Majid Sadeghi, Sales Supervisor at SuperSaeed");                         // Line 103
 
 	//--------------------------------------------------------content\main\layout.html
 	echo T_("Next →");                                                                // Line 30
@@ -70,12 +83,12 @@ class twigTransTerms
 	//------------------------------------------------content\template\priceTable.html
 	echo T_("Free");                                                                  // Line 140
 	echo T_("forever");                                                               // Line 11
-	echo T_("All the basics for personal use and anyone who wants to explore Jibres for an <b>unlimited period of time</b>.");// Line 13
+	echo T_("All the basics for personal use and anyone who wants to explore Jibres for an <span class='bold'>unlimited period of time</span>.");// Line 13
 	echo T_("Standard");                                                              // Line 151
 	echo T_("per month");                                                             // Line 27
 	echo T_("2 month discount on year");                                              // Line 28
 	echo T_("For someones ready to use Jibres as hero.");                             // Line 30
-	echo T_("<b>Everything you need</b> for a growing business.");                    // Line 30
+	echo T_("<span class='bold'>Everything you need</span> for a growing business."); // Line 30
 
 	//----------------------------------------------content\template\static\about.html
 	echo T_("Advancement of technology and development of Web-based business Cause Need new tools to resolve the daily needs and that’s the goal of making Jibres.");// Line 6
@@ -207,7 +220,6 @@ class twigTransTerms
 
 	//--------------------------------------------content_a\buy\fishprint\display.html
 	echo T_("Product Name");                                                          // Line 14
-	echo T_("Qty");                                                                   // Line 21
 	echo T_("Sum");                                                                   // Line 44
 
 	//-------------------------------------------------content_a\buy\home\display.html
@@ -301,10 +313,8 @@ class twigTransTerms
 
 	//------------------------------------------------------content_a\main\layout.html
 	echo T_("Dashboard");                                                             // Line 5
-	echo T_("Products");                                                              // Line 8
 	echo T_("Product List");                                                          // Line 11
 	echo T_("Third Parties");                                                         // Line 15
-	echo T_("Factor");                                                                // Line 16
 	echo T_("List of last sales");                                                    // Line 18
 	echo T_("register new sale");                                                     // Line 19
 	echo T_("Setting");                                                               // Line 21
