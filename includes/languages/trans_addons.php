@@ -119,6 +119,12 @@ class twigTransTerms
 	echo T_("Hi!");                                                                   // Line 193
 	echo T_("Try to start with add new :posts!");                                     // Line 93
 
+	//-----------------------------------------addons\content_cp\cms\home\display.html
+	echo T_("Posts");                                                                 // Line 94 Seperate
+	echo T_("Page");                                                                  // Line 34
+	echo T_("Category");                                                              // Line 45
+	echo T_("Tags");                                                                  // Line 12
+
 	//------------------------------------addons\content_cp\contacts\home\display.html
 
 	//-----------------------------------addons\content_cp\invoicedetails\display.html
@@ -145,7 +151,6 @@ class twigTransTerms
 	echo T_("CMS");                                                                   // Line 8
 	echo T_("News");                                                                  // Line 10
 	echo T_("Categries");                                                             // Line 11
-	echo T_("Tags");                                                                  // Line 12
 	echo T_("Pages");                                                                 // Line 95 Seperate
 	echo T_("Options");                                                               // Line 84 Seperate
 	echo T_("Last update on");                                                        // Line 26
@@ -161,27 +166,34 @@ class twigTransTerms
 	echo T_("Save change");                                                           // Line 32
 
 	//---------------------------------------addons\content_cp\posts\home\display.html
-	echo T_("Try to start with add new record!");                                     // Line 93
+	echo T_("Try to start with add new record!");                                     // Line 92
 
 	//---------------------------------------------addons\content_cp\posts\layout.html
 	echo T_("Enter title here");                                                      // Line 4
 	echo T_("Enter a good and short title");                                          // Line 4
+	echo T_("Enter subtitle here");                                                   // Line 11
+	echo T_("Subtitle can used based on theme support");                              // Line 11
+	echo T_("Enter excerpt here");                                                    // Line 17
+	echo T_("Excerpt used for social media and search engines");                      // Line 17
 	echo T_("Slug");                                                                  // Line 132
-	echo T_("Slug used to create url");                                               // Line 16
-	echo T_("Write post ");                                                           // Line 22
-	echo T_("Publish date");                                                          // Line 29
+	echo T_("Slug used to create url");                                               // Line 28
+	echo T_("Write post ");                                                           // Line 34
+	echo T_("Publish date");                                                          // Line 41
+	echo T_("To add image gallery drop file here or");                                // Line 47
 	echo T_("Save");                                                                  // Line 46
-	echo T_("Publish");                                                               // Line 53
-	echo T_("Draft");                                                                 // Line 58
-	echo T_("Deleted");                                                               // Line 63
-	echo T_("Comment");                                                               // Line 74
-	echo T_("Language");                                                              // Line 80
-	echo T_("Whithout language");                                                     // Line 82
-	echo T_("Choose category of post");                                               // Line 95
-	echo T_("Tag");                                                                   // Line 112
-	echo T_("Tag keywords...");                                                       // Line 116
-	echo T_("Add tag");                                                               // Line 117
-	echo T_("allowed extentions jpg, png. Max 1000Kb");                               // Line 127
+	echo T_("Publish");                                                               // Line 68
+	echo T_("Draft");                                                                 // Line 73
+	echo T_("Deleted");                                                               // Line 78
+	echo T_("Comment");                                                               // Line 89
+	echo T_("Language");                                                              // Line 95
+	echo T_("Whithout language");                                                     // Line 97
+	echo T_("Choose category of post");                                               // Line 110
+	echo T_("Add tag manually to link articles togethers");                           // Line 125
+	echo T_("Tag");                                                                   // Line 127
+	echo T_("Tag keywords...");                                                       // Line 131
+	echo T_("Add tag");                                                               // Line 132
+	echo T_("allowed extentions jpg, png. Max 1000Kb");                               // Line 142
+	echo T_("Remove");                                                                // Line 261
 
 	//--------------------------------------------addons\content_cp\terms\display.html
 	echo T_("Add");                                                                   // Line 149 Seperate
@@ -434,7 +446,6 @@ class twigTransTerms
 	echo T_("Check our FAQ");                                                         // Line 78
 	echo T_("Icons");                                                                 // Line 87
 	echo T_("Badge");                                                                 // Line 112
-	echo T_("Posts");                                                                 // Line 94 Seperate
 	echo T_("Add New");                                                               // Line 113
 	echo T_("Notification");                                                          // Line 28
 	echo T_("125");                                                                   // Line 115
@@ -477,7 +488,6 @@ class twigTransTerms
 	echo T_("Check more!");                                                           // Line 285
 	echo T_("Javad Evazzdeh");                                                        // Line 388
 	echo T_("CEO and Founder");                                                       // Line 389
-	echo T_("Remove");                                                                // Line 261
 	echo T_("Clockpicker");                                                           // Line 271
 	echo T_("Datepicker");                                                            // Line 281
 	echo T_("Checkbox");                                                              // Line 298
