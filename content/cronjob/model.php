@@ -13,54 +13,29 @@ class model extends \mvc\model
 
 		$url = \lib\router::get_url(1);
 
-		// switch ($url)
-		// {
-		// 	case 'pinger':
-		// 		$this->pinger();
-		// 		break;
+		switch ($url)
+		{
+			case 'homepagenumber':
+				$this->homepagenumber();
+				break;
 
-		// 	case 'report':
-		// 		$this->report();
-		// 		break;
-
-		// 	case 'calc':
-		// 		$this->calc();
-		// 		break;
-
-		// 	case 'notification':
-		// 		(new \lib\utility\notifications)->send();
-		// 		break;
-
-		// 	default:
-		// 		return;
-		// 		break;
-		// }
+			default:
+				return;
+				break;
+		}
 	}
 
 
 	/**
 	 * check in this time have any report or no
 	 */
-	public function report()
+	public function homepagenumber()
 	{
-
-		$time_now    = date("H:i");
-		$query       = "SELECT teams.id AS `id` FROM teams WHERE teams.timed_auto_report = '$time_now'";
-		$check_exist = \lib\db::get($query, 'id');
-
-		if($check_exist && is_array($check_exist))
+		$time_now    = date("i");
+		// every 10 minuts
+		if(is_string($time_now) && mb_strlen($time_now) === 2 && $time_now{1} == '0')
 		{
-			foreach ($check_exist as $key => $value)
-			{
-				$msg = new \lib\utility\message($value);
-				$msg->send_by('telegram');
-				$msg->type('timed_auto_report');
-				$msg->send();
-			}
-		}
-		else
-		{
-			return;
+			\lib\utility\homepagenumber::set();
 		}
 	}
 

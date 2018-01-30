@@ -7,6 +7,7 @@ class view extends \mvc\view
 	{
 		$this->data->bodyclass = 'unselectable vflex';
 		// $this->include->js     = false;
+		$this->data->homepagenumber = \lib\utility\homepagenumber::get();
 
 		self::set_static_titles();
 	}

@@ -14,6 +14,14 @@ self::$config['zarinpal']['exchange']    = 1;
 
 
 /**
+* cofig op pay.ir
+*/
+self::$config['payir']['status']   = true;
+self::$config['payir']['api']      = "3c350829ff1161278c63640a798f2daf";
+self::$config['payir']['redirect'] = null;
+
+
+/**
 * config of parsian payment
 */
 self::$config['parsian']['status']       = true;

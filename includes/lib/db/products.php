@@ -220,5 +220,11 @@ class products
 		return \lib\db::get($query);
 
 	}
+
+
+	public static function get_count()
+	{
+		return \lib\db\config::public_get_count('products', ...func_get_args());
+	}
 }
 ?>

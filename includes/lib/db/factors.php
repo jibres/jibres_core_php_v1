@@ -149,5 +149,17 @@ class factors
 		return \lib\db::query($query);
 	}
 
+
+	public static function get_count()
+	{
+		return \lib\db\config::public_get_count('factors', ...func_get_args());
+	}
+
+	public static function sum_all()
+	{
+		$query = "SELECT SUM(factors.sum) AS `sum` FROM factors WHERE type = 'sell' ";
+		return \lib\db::get($query, 'sum', true);
+	}
+
 }
 ?>
