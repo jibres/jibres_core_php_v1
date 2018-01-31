@@ -1,0 +1,45 @@
+<?php
+namespace lib\app\thirdparty;
+
+
+trait get
+{
+
+	/**
+	 * Gets the thirdparty.
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  The thirdparty.
+	 */
+	public static function get($_id, $_options = [])
+	{
+		$id = \lib\utility\shortURL::decode($_id);
+		if(!$id)
+		{
+			\lib\debug::error(T_("Thirdparty id not set"));
+			return false;
+		}
+
+		if(!\lib\store::id())
+		{
+			\lib\debug::error(T_(":store not found"));
+			return false;
+		}
+
+		$get = \lib\db\userstores::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+
+		if(!$get)
+		{
+			\lib\debug::error(T_("Invalid thirdparty id"));
+			return false;
+		}
+
+		$result = self::ready($get);
+
+		return $result;
+	}
+
+
+}
+?>
