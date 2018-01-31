@@ -110,6 +110,11 @@ class model extends \content_a\main\model
 				$redirect_url = $this->url('base'). '/a/sell';
 			}
 
+			if(isset($factor_detail['factor_id']))
+			{
+				$redirect_url .= '?lastfactor='. $factor_detail['factor_id'];
+			}
+
 			$this->redirector($redirect_url);
 		}
 	}

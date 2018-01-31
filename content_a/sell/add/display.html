@@ -43,7 +43,15 @@
     <div class="cauto pRa10">
       <button class="cauto btn primary sell_save_btn" type="submit" name="save_btn" value="save_print" id='save_print' data-shortkey='119' data-shortkey-call='print'>{%trans "Save & Print"%}</button>
     </div>
+
+    {%if utilityGET.lastfactor%}
+    <div class="cauto pRa10">
+      <a class="btn success" href="{{url.baseFull}}/sell/edit?id={{utilityGET.lastfactor}}" >{%trans "Open last factor added"%}</a>
+    </div>
+    {%endif%}
+
     <div class="cauto os finalPriceVal">{%trans "Final Price"%}<br/><span></span></div>
+
   </div>
  </div>
 {%endblock%}
