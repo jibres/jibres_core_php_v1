@@ -21,10 +21,9 @@ trait dashboard
 
 		$result = [];
 
-		$store_detail = \lib\db\stores::get(['id' => $_store_id, 'limit' => 1]);
-		if(isset($store_detail['creator']))
+		if(\lib\store::detail('creator'))
 		{
-			$result['count_store'] = self::count_store_by_creator($store_detail['creator']);
+			$result['count_store'] = self::count_store_by_creator(\lib\store::detail('creator'));
 		}
 
 		$result['customer_count']  = self::user_count('customer');
@@ -66,14 +65,30 @@ trait dashboard
 	 *
 	 * @return     boolean  Number of store by creator.
 	 */
-	public static function count_store_by_creator($_creator_id)
+	public static function count_store_by_creator($_creator_id, $_clean_cache = false)
 	{
 		if(!$_creator_id || !is_numeric($_creator_id))
 		{
 			return false;
 		}
 
-		return intval(\lib\db\stores::get_count_store_by_creator($_creator_id));
+		$cache_key = 'store_dashboard_count_store_by_creator'. \lib\user::id();
+
+		if($_clean_cache)
+		{
+			\lib\session::set($cache_key, null);
+			return null;
+		}
+
+		$count = \lib\session::get($cache_key);
+
+		if($count === null)
+		{
+			$count = intval(\lib\db\stores::get_count_store_by_creator($_creator_id));
+			\lib\session::set($cache_key, $count, null,  self::$life_time);
+		}
+
+		return $count;
 	}
 
 

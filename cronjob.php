@@ -1,6 +1,7 @@
 <?php
 class cronjob
 {
+
 	public function _curl($_requests)
 	{
 		$handle   = curl_init();
@@ -26,24 +27,15 @@ class cronjob
 		curl_close ($handle);
 	}
 
-	/**
-	 * { function_description }
-	 */
+
 	public function requests()
 	{
-		// $requests   = [];
-		$requests[] = ['url' => 'https://jibres.com/cronjob/homepagenumber', 'header' => []];
-		// $requests[] = ['url' => 'https://jibres.com/cronjob/report', 'header' => []];
-		// $requests[] = ['url' => 'https://jibres.com/cronjob/notification', 'header' => []];
-		// $requests[] = ['url' => 'https://jibres.com/cronjob/calc', 'header' => []];
-
+		$requests      = [];
+		$requests[]    = ['url' => 'https://jibres.com/cronjob/homepagenumber', 'header' => []];
 		// $requests[] = ['url' => 'http://jibres.local/cronjob/homepagenumber', 'header' => []];
-		// $requests[] = ['url' => 'http://jibres.local/cronjob/calc', 'header' => []];
-		// $requests[] = ['url' => 'http://jibres.local/cronjob/notification', 'header' => []];
-		// $requests[] = ['url' => 'http://jibres.local/cronjob/pinger', 'header' => []];
-
 		return $requests;
 	}
+
 
 	public function run()
 	{
