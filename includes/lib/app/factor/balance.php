@@ -75,11 +75,11 @@ trait balance
 
 		if($_type === 'plus')
 		{
-			$query = "UPDATE products SET products.$_field = IF(products.$_field = '' OR products.$_field IS NULL , 1, products.$_field + $_count) WHERE products.id = $_product_id LIMIT 1";
+			$query = "UPDATE products SET products.$_field = IF(products.$_field = '' OR products.$_field IS NULL , $_count, products.$_field + $_count) WHERE products.id = $_product_id LIMIT 1";
 		}
 		elseif($_type === 'minus')
 		{
-			$query = "UPDATE products SET products.$_field = IF(products.$_field = '' OR products.$_field IS NULL , -1, products.$_field - $_count) WHERE products.id = $_product_id LIMIT 1";
+			$query = "UPDATE products SET products.$_field = IF(products.$_field = '' OR products.$_field IS NULL , -$_count, products.$_field - $_count) WHERE products.id = $_product_id LIMIT 1";
 		}
 		else
 		{

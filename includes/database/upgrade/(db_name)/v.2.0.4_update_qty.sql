@@ -1,0 +1,1 @@
+ALTER TABLE `factors` CHANGE `qty` `qty`  float(5) unsigned NULL DEFAULT NULL;
