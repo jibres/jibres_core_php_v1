@@ -14,7 +14,7 @@ class userstore
 	 */
 	public static function clean()
 	{
-		\lib\session::set('userstore_detail_'. \lib\user::id(), null);
+		\lib\session::set('userstore_detail_'. SubDomain. '_'. \lib\user::id(), null);
 		self::$userstore = [];
 	}
 
@@ -29,9 +29,9 @@ class userstore
 			return;
 		}
 
-		if(\lib\session::get('userstore_detail_'. \lib\user::id()))
+		if(\lib\session::get('userstore_detail_'. SubDomain. '_'. \lib\user::id()))
 		{
-			self::$userstore = \lib\session::get('userstore_detail_'. \lib\user::id());
+			self::$userstore = \lib\session::get('userstore_detail_'. SubDomain. '_'. \lib\user::id());
 			return;
 		}
 
@@ -46,7 +46,7 @@ class userstore
 		if(is_array($userstore_detail))
 		{
 			self::$userstore = $userstore_detail;
-			\lib\session::set('userstore_detail_'. \lib\user::id(), $userstore_detail);
+			\lib\session::set('userstore_detail_'. SubDomain. '_'. \lib\user::id(), $userstore_detail);
 		}
 	}
 
