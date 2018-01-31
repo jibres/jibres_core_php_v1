@@ -13,7 +13,7 @@ trait import
 	 */
 	private static function xTrim($_array)
 	{
-		return array_map(function($_a){return trim($_a);}, $_array);
+		return array_map(function($_a){return trim(trim($_a), '"');}, $_array);
 	}
 
 
