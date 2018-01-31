@@ -42,28 +42,36 @@ trait add
 		}
 		// check store count
 		$count_store = self::count_store_by_creator(\lib\user::id());
-		if($count_store >= 1)
-		{
-			$user_budget = \lib\db\transactions::budget(\lib\user::id(), ['unit' => 'toman']);
-			if(is_array($user_budget))
-			{
-				$user_budget = array_sum($user_budget);
-			}
-			$user_budget = floatval($user_budget);
 
-			if($user_budget < 10000)
+		if(Tld === 'local')
+		{
+			// no check in local
+		}
+		else
+		{
+			if($count_store >= 1)
 			{
-				\lib\app::log('api:store:user_id:try:add:store2:budget:10000', null, $log_meta);
-				debug::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+				$user_budget = \lib\db\transactions::budget(\lib\user::id(), ['unit' => 'toman']);
+				if(is_array($user_budget))
+				{
+					$user_budget = array_sum($user_budget);
+				}
+				$user_budget = floatval($user_budget);
+
+				if($user_budget < 10000)
+				{
+					\lib\app::log('api:store:user_id:try:add:store2:budget:10000', null, $log_meta);
+					debug::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+					return false;
+				}
+			}
+
+			if($count_store >= 3)
+			{
+				\lib\app::log('api:store:try:add:store3:and:>3', null, $log_meta);
+				debug::error(T_("You can not have more than three active stores. Contact support if needed"));
 				return false;
 			}
-		}
-
-		if($count_store >= 3)
-		{
-			\lib\app::log('api:store:try:add:store3:and:>3', null, $log_meta);
-			debug::error(T_("You can not have more than three active stores. Contact support if needed"));
-			return false;
 		}
 
 		$return = [];
