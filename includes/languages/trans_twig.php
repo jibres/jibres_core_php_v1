@@ -101,10 +101,20 @@ class twigTransTerms
 	echo T_("Date");                                                                  // Line 18
 	echo T_("Description");                                                           // Line 38
 	echo T_("We are Developers, please wait!");                                       // Line 17
-	echo T_("Alfa version of Jibres will be released.");                              // Line 22
-	echo T_("The name of project selected as Jibres and <a href='http://Jibres.ir'>Jibres.ir</a> domains registered.");// Line 27
-	echo T_("We were born to do Best!");                                              // Line 32
-	echo T_("Be patient...");                                                         // Line 37
+	echo T_("Version 1 of Jibres will be released.");                                 // Line 22
+	echo T_("We reach 10000 factor records.");                                        // Line 27
+	echo T_("First factor of first store is generated.");                             // Line 32
+	echo T_("Our first store on web is created and start add product to store.");     // Line 37
+	echo T_("Beta version is released.");                                             // Line 42
+	echo T_("Alfa version is released.");                                             // Line 47
+	echo T_("We restart plans to run Jibres at Ermile.");                             // Line 52
+	echo T_("The name of project selected as Jibres and <a href='https://Jibres.ir' target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> domains are registered.");// Line 57
+	echo T_("Create git repository and first commit is pushed.");                     // Line 62
+	echo T_("Database is completely designed and implementated.");                    // Line 67
+	echo T_("02:00 AM");                                                              // Line 71
+	echo T_("Start database analysis of Jibres.");                                    // Line 72
+	echo T_("We were born to do Best!");                                              // Line 77
+	echo T_("Be patient...");                                                         // Line 82
 
 	//-----------------------------------------content\template\static\enterprise.html
 	echo T_("Big companies simply don’t work like small companies, and they don’t use Jibres the same way either. That’s why there’s Enterprise.");// Line 6
@@ -418,6 +428,7 @@ class twigTransTerms
 	echo T_("Buy Price");                                                             // Line 204
 
 	//-------------------------------------------------content_a\sell\add\display.html
+	echo T_("Open last factor added");                                                // Line 49
 
 	//------------------------------------------------content_a\sell\edit\display.html
 
