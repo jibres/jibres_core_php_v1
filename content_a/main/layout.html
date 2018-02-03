@@ -5,12 +5,17 @@
 {%block sidenav%}
 
   <li><a href="{{url.baseFull}}"><i class='sf-gauge'></i> <span>{% trans "Dashboard" %}</span></a></li>
-  <li><a href="{{url.baseFull}}/product/summary"><i class="sf-archive"></i>{%trans "Products"%}</a>
-  </li>
+
+  <li>
+    <a href="{{url.baseFull}}/product/summary"><i class="sf-archive"></i>{%trans "Products"%}</a>
   {%if module == "product"%}
-  <li><a href="{{url.baseFull}}/product"><i class="sf-list"></i>{%trans "Product List"%}</a></li>
-  <li><a href="{{url.baseFull}}/product/add"><i class="sf-plus"></i>{%trans "Add new Product"%}</a></li>
+    <ul>
+        <li><a href="{{url.baseFull}}/product"><i class="sf-list"></i>{%trans "Product List"%}</a></li>
+        <li><a href="{{url.baseFull}}/product/add"><i class="sf-plus"></i>{%trans "Add new Product"%}</a></li>
+    </ul>
   {%endif%}
+  </li>
+
 
   <li><a href="{{url.baseFull}}/thirdparty"><i class="sf-users"></i>{%trans "Third Parties"%}</a></li>
   <li><a href="{{url.baseFull}}/factor"><i class="sf-print"></i>{%trans "Factor"%}</a></li>

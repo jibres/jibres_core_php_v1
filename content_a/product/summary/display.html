@@ -7,11 +7,14 @@
  <div class="c2 s0">{{block ("stProductImport")}}</div>
 </div>
 
+{%if dashboard_detail.product_count > 0%}
 <div class="f">
  <div class="c4 s12">{{block ("stProductCount")}}</div>
  <div class="c4 s0">{{block ("stProductWBarode1Count")}}</div>
  <div class="c4 s0">{{block ("stProductWBarode2Count")}}</div>
 </div>
+
+
 
 <div class="f">
   <div class="c9 s12">
@@ -47,6 +50,9 @@
   </div>
 </div>
 
+{%else%}
+  <p class="msg info fs14">{%trans "You are not add product yet!"%} <a href="{{url.baseFull}}product/add">{%trans "Add some new product"%}</a></p>
+{%endif%}
 {%endblock%}
 
 
