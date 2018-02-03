@@ -13,7 +13,7 @@ class model extends \mvc\model
 
 		$url = \lib\router::get_url(1);
 
-		\lib\db\mysql\tools\log::log($url, time(), 'cronjob.log', 'json');
+		// \lib\db\mysql\tools\log::log($url, time(), 'cronjob.log', 'json');
 
 		switch ($url)
 		{
