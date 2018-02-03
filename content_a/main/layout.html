@@ -18,11 +18,17 @@
 
 
   <li><a href="{{url.baseFull}}/thirdparty"><i class="sf-users"></i>{%trans "Third Parties"%}</a></li>
-  <li><a href="{{url.baseFull}}/factor"><i class="sf-print"></i>{%trans "Factor"%}</a></li>
+  <li>
+    <a href="{{url.baseFull}}/factor"><i class="sf-print"></i>{%trans "Factor"%}</a>
+
   {%if module == "sell" or module == "factor"%}
-  <li><a href="{{url.baseFull}}/sell"><i class="sf-list"></i>{%trans "List of last sales"%}</a></li>
-  <li><a href="{{url.baseFull}}/sell/add"><i class="sf-plus"></i>{%trans "register new sale"%}</a></li>
+    <ul>
+      <li><a href="{{url.baseFull}}/sell"><i class="sf-list"></i>{%trans "List of last sales"%}</a></li>
+      <li><a href="{{url.baseFull}}/sell/add"><i class="sf-plus"></i>{%trans "register new sale"%}</a></li>
+    </ul>
   {%endif%}
+
+  </li>
   <li><a href="{{url.baseFull}}/setting/general"><i class="sf-cogs"></i>{%trans "Setting"%}</a></li>
 {%endblock%}
 
