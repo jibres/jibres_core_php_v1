@@ -57,7 +57,7 @@
 
     <tbody>
       {%for key, value in product_list%}
-      <tr {%if value.buyprice > value.finalprice%} class='warning'{%endif%}>
+      <tr {%if value.buyprice > value.finalprice%} class='warning' title='{%trans "Final price is under buy price"%}'{%endif%}>
         <td><a href="{{url.baseFull}}/product/edit/general?id={{value.id}}">{{value.title}}</a></td>
         <td class="s0"><small><a href="{{url.baseFull}}/product?q={{value.cat}}&in=cat">{{value.cat}}</a></small></td>
         <td><a href="{{url.baseFull}}/product?q={{value.buyprice}}&in=buyprice">{{value.buyprice | number_format | fitNumber}}</a></td>

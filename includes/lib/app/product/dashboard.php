@@ -154,12 +154,46 @@ trait dashboard
 		$chart = \lib\session::get('dashboard_price_variation_'. \lib\store::id());
 		if($chart === null)
 		{
-			$chart = \lib\db\products::price_variation(\lib\store::id());
-			$temp = [];
+			$chart        = \lib\db\products::price_variation(\lib\store::id());
+			$temp         = [];
+			$chartGroup10 = [];
+			$chartTotal   = 0;
+
 			foreach ($chart as $key => $value)
 			{
-				$temp[] = ["key" => $key, "value" => $value];
+				$myGroup = floor($key / 10000);
+				if(!isset($chartGroup10[$myGroup]))
+				{
+					$chartGroup10[$myGroup] = +$value;
+				}
+				else
+				{
+					$chartGroup10[$myGroup] += $value;
+				}
 			}
+			$chartTotal = array_sum($chartGroup10);
+
+			foreach ($chart as $key => $value)
+			{
+				$myGroup = floor($key / 10000);
+				if($key === '')
+				{
+					$key = T_('unknown');
+				}
+				if(isset($chartGroup10[$myGroup]) && $chartGroup10[$myGroup])
+				{
+					if($chartTotal / $chartGroup10[$myGroup] > 10)
+					{
+						$temp[] = ["key" => ($myGroup* 10000).'+' , "value" => $chartGroup10[$myGroup]];
+						$chartGroup10[$myGroup] = null;
+					}
+					else
+					{
+						$temp[] = ["key" => $key, "value" => $value];
+					}
+				}
+			}
+
 			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
 			\lib\session::set('dashboard_price_variation_'. \lib\store::id(), $chart, null,  self::$life_time);
 		}
