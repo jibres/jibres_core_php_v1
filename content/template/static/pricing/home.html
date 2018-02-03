@@ -6,6 +6,7 @@
 {%set f1%}<div class="c s2">{{1 | fitNumber}}</div>{%endset%}
 {%set f3%}<div class="c s2">{{3 | fitNumber}}</div>{%endset%}
 {%set f10%}<div class="c s2">{{10 | fitNumber}}</div>{%endset%}
+{%set f100%}<div class="c s2">{{100 | fitNumber}}</div>{%endset%}
 {%set fadmin%}<div class="c s2">{%trans "only team admin"%}</div>{%endset%}
 {%set fu%}<div class="c s2">{%trans "Unlimited"%}</div>{%endset%}
 
@@ -14,6 +15,7 @@
 {%block page%}
 
 {%include template.price%}
+{{block ("pagePriceTable")}}
 
 {%endblock%}
 
@@ -94,3 +96,94 @@
  </div>
 
 {%endblock%}
+
+
+
+
+
+
+{%block pagePriceTable%}
+    <div class="p dtc pricingTable pc">
+     <div class="f th">
+      <div class="c4 s4"></div>
+      <div class="c s2">{%trans "FREE"%}</div>
+      <div class="c s2">{%trans "Standard"%}</div>
+     </div>
+
+     <div class="f price">
+      <div class="c4 s4">{%trans "Price"%}</div>
+{%if site.currentlang == 'fa'%}
+      <div class="c s2">{{0 | fitNumber}}</div>
+      <div class="c s2">{{"70,000" | fitNumber}}<sup>{%trans "Toman"%}</sup><br/><small>{%trans "per store / month"%}</small></div>
+{%else%}
+      <div class="c">0</div>
+      <div class="c">70<sup>$</sup><br/><small>{%trans "per store / month"%}</small></div>
+{%endif%}
+     </div>
+
+
+     <div class="f">
+      <div class="c4 s4">{%trans "Max number of products"%}</div>
+      {{f100}} {{fu}}
+     </div>
+
+     <div class="f">
+      <div class="c4 s4">{%trans "Max number of third parties"%}</div>
+      {{f100}} {{fu}}
+     </div>
+
+     <div class="f">
+      <div class="c4 s4">{%trans "Max number of factor in day"%}</div>
+      {{f100}} {{fu}}
+     </div>
+
+
+     <div class="f th gh"><div class="c4">{%trans "Analytics and reports"%}</div></div>
+     <div class="f">
+      <div class="c4">{%trans "Simple reports"%}</div>
+      {{ft}} {{ft}}
+     </div>
+
+     <div class="f">
+      <div class="c4">{%trans "Professional analytic reports"%}</div>
+      {{ff}} {{ft}}
+     </div>
+
+     <div class="f">
+      <div class="c4">{%trans "Visual reports with chart"%}</div>
+      {{ff}} {{ft}}
+     </div>
+
+     <div class="f hide">
+      <div class="c4">{%trans "Professional analysis chart"%}</div>
+      {{ff}} {{ft}}
+     </div>
+
+
+
+     <div class="f th gh"><div class="c4">{%trans "Branding"%}</div></div>
+     <div class="f">
+      <div class="c4">{%trans "Customize with your own logo"%}</div>
+      {{ff}} {{ft}}
+     </div>
+
+
+     <div class="f th gh"><div class="c4">{%trans "Support"%}</div></div>
+     <div class="f">
+      <div class="c4">{%trans "Technical Support"%}</div>
+      {{ft}} {{ft}}
+     </div>
+
+     <div class="f">
+      <div class="c4">{%trans "Email response time"%} {%trans "(max)"%}</div>
+      <div class="c">{%trans "2 work day"%}</div>
+      <div class="c">{%trans "4 hours"%}</div>
+     </div>
+
+     <div class="f">
+      <div class="c4">{%trans "Emergency phone support"%}</div>
+      {{ff}} {{ft}}
+     </div>
+    </div>
+{%endblock%}
+

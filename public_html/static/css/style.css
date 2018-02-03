@@ -162,6 +162,24 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 #tfooter .middle .share1 a{display:inline-block;}
 
 
+.pricingTable{text-align:center;color:#888;font-size:1.2em}
+.pricingTable .price .c{font-weight:500;color:#333}
+.ltr .pricingTable .c4, .ltr .pricingTable .c12{text-align:left}
+.rtl .pricingTable .c4, .rtl .pricingTable .c12{text-align:right;}
+.pricingTable sup{font-size:0.6em;padding:0 0.3em;}
+.pricingTable small{color:#777;font-size:0.6em;}
+body .pc .em{font-weight:bold;text-align:center;padding:1em 5%;background-color:#ddd;}
+  /* pricing */
+.dtc > div{transition:0.3s;}
+.dtc > div > *{padding:1em 1em;}
+.dtc > .th{background-color:#e0d7c1;font-weight:700}
+.dtc > .gh{font-weight:700;background-color:#d9dddd;margin-top:1em;}
+.dtc > .th:hover{background-color:rgba(0,0,0,0.1);}
+.dtc > .th.gh:hover{background-color:rgba(0,0,0,0.1)}
+.dtc > div:not(.th):hover{background-color:rgba(0,0,0,0.05)}
+.dtc > div a{color:#333;transition:0.3s;}
+.dtc > div > *{padding:1rem .5rem;}
+
 
 
 /*vcard*/

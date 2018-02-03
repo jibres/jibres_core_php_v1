@@ -32,10 +32,10 @@ class twigTransTerms
 	echo T_("Of course Made with love 😍");                                            // Line 48
 	echo T_("Jibres has created for futuristic entrepreneurs");                       // Line 48
 	echo T_("Item");                                                                  // Line 51
-	echo T_("Products");                                                              // Line 8
+	echo T_("Products");                                                              // Line 10
 	echo T_("Qty");                                                                   // Line 21
-	echo T_("Factor");                                                                // Line 16
-	echo T_("Toman");                                                                 // Line 59
+	echo T_("Factor");                                                                // Line 22
+	echo T_("Toman");                                                                 // Line 117
 	echo T_("Sold on Jibres");                                                        // Line 60
 	echo T_("Roadmap");                                                               // Line 71
 	echo T_("Amazing Financial Platform");                                            // Line 72
@@ -67,14 +67,14 @@ class twigTransTerms
 	echo T_("Learn More");                                                            // Line 29
 	echo T_("Terms of Service");                                                      // Line 30
 	echo T_("Privacy Policy");                                                        // Line 31
-	echo T_("Support");                                                               // Line 36
+	echo T_("Support");                                                               // Line 171
 	echo T_("Contact");                                                               // Line 13
 	echo T_("Logo");                                                                  // Line 39
-	echo T_("Proudly Made in IRAN");                                                  // Line 53
-	echo T_("Control Panel");                                                         // Line 60
+	echo T_("Proudly Made in IRAN");                                                  // Line 52
+	echo T_("Control Panel");                                                         // Line 59
 	echo T_("Admin Panel");                                                           // Line 18
-	echo T_("Exit Session");                                                          // Line 62
-	echo T_("Another Session");                                                       // Line 63
+	echo T_("Exit Session");                                                          // Line 61
+	echo T_("Another Session");                                                       // Line 62
 
 	//----------------------------------------------------content\template\header.html
 	echo T_("Store Panel");                                                           // Line 12
@@ -120,28 +120,28 @@ class twigTransTerms
 	echo T_("Big companies simply don’t work like small companies, and they don’t use Jibres the same way either. That’s why there’s Enterprise.");// Line 6
 
 	//-------------------------------------------content\template\static\help\faq.html
-	echo T_("General questions");                                                     // Line 68
-	echo T_("How does Jibres work?");                                                 // Line 71
+	echo T_("General questions");                                                     // Line 70
+	echo T_("How does Jibres work?");                                                 // Line 73
 	echo T_("The easiest way to learn how to use Jibres is enter to it, which takes less than 3 minutes to setup your team.");// Line 12
-	echo T_("What is your privacy and security policy?");                             // Line 75
-	echo T_("View Jibres's privacy and security policy at");                          // Line 76
-	echo T_("Where can I find your Terms of Service (TOS)?");                         // Line 79
-	echo T_("You can find them at");                                                  // Line 80
-	echo T_("What are your bandwidth fees?");                                         // Line 83
-	echo T_("There are none. All Jibres plans include unlimited bandwidth for free.");// Line 84
-	echo T_("Do I need a web host?");                                                 // Line 87
-	echo T_("No! Jibres includes secure, unlimited hosting on all plans with free bandwith.");// Line 88
-	echo T_("Billing & Invoicing");                                                   // Line 40
-	echo T_("Is there a setup fee?");                                                 // Line 43
-	echo T_("No. There are no setup fees on any of our plans!");                      // Line 44
-	echo T_("Can I cancel my account at any time?");                                  // Line 48
-	echo T_("Yes. If you ever decide that Jibres isn’t the best platform for your business, simply cancel your account.");// Line 49
-	echo T_("How long are your contracts?");                                          // Line 53
-	echo T_("All Jibres plans are month to month. simple.");                          // Line 54
-	echo T_("Can I change my plan later on?");                                        // Line 57
-	echo T_("Absolutely! You can upgrade or downgrade your plan at any time.");       // Line 58
-	echo T_("When is my billing date?");                                              // Line 61
-	echo T_("The date you first select a paid plan will be the recurring billing date. For example: If you sign up for the first time on July 15, all future charges will be billed on the 15th of every month.");// Line 62
+	echo T_("What is your privacy and security policy?");                             // Line 77
+	echo T_("View Jibres's privacy and security policy at");                          // Line 78
+	echo T_("Where can I find your Terms of Service (TOS)?");                         // Line 81
+	echo T_("You can find them at");                                                  // Line 82
+	echo T_("What are your bandwidth fees?");                                         // Line 85
+	echo T_("There are none. All Jibres plans include unlimited bandwidth for free.");// Line 86
+	echo T_("Do I need a web host?");                                                 // Line 89
+	echo T_("No! Jibres includes secure, unlimited hosting on all plans with free bandwith.");// Line 90
+	echo T_("Billing & Invoicing");                                                   // Line 42
+	echo T_("Is there a setup fee?");                                                 // Line 45
+	echo T_("No. There are no setup fees on any of our plans!");                      // Line 46
+	echo T_("Can I cancel my account at any time?");                                  // Line 50
+	echo T_("Yes. If you ever decide that Jibres isn’t the best platform for your business, simply cancel your account.");// Line 51
+	echo T_("How long are your contracts?");                                          // Line 55
+	echo T_("All Jibres plans are month to month. simple.");                          // Line 56
+	echo T_("Can I change my plan later on?");                                        // Line 59
+	echo T_("Absolutely! You can upgrade or downgrade your plan at any time.");       // Line 60
+	echo T_("When is my billing date?");                                              // Line 63
+	echo T_("The date you first select a paid plan will be the recurring billing date. For example: If you sign up for the first time on July 15, all future charges will be billed on the 15th of every month.");// Line 64
 
 	//------------------------------------------content\template\static\help\home.html
 	echo T_("We try to complete help center as soon as posible");                     // Line 6
@@ -149,12 +149,31 @@ class twigTransTerms
 	//-----------------------------------------------content\template\static\logo.html
 
 	//---------------------------------------content\template\static\pricing\home.html
-	echo T_("only team admin");                                                       // Line 9
-	echo T_("Unlimited");                                                             // Line 10
-	echo T_("Ready to use Jibres Enterprise?");                                       // Line 26
-	echo T_("Get started with our Enterprise plan.");                                 // Line 27
-	echo T_("Get in Touch");                                                          // Line 30
-	echo T_("The easiest way to learn how to use Tejark is enter to it, which takes less than 3 minutes to setup your team.");// Line 72
+	echo T_("only team admin");                                                       // Line 10
+	echo T_("Unlimited");                                                             // Line 11
+	echo T_("Ready to use Jibres Enterprise?");                                       // Line 28
+	echo T_("Get started with our Enterprise plan.");                                 // Line 29
+	echo T_("Get in Touch");                                                          // Line 32
+	echo T_("The easiest way to learn how to use Tejark is enter to it, which takes less than 3 minutes to setup your team.");// Line 74
+	echo T_("FREE");                                                                  // Line 109
+	echo T_("Price");                                                                 // Line 22
+	echo T_("per store / month");                                                     // Line 120
+	echo T_("Max number of products");                                                // Line 126
+	echo T_("Max number of third parties");                                           // Line 131
+	echo T_("Max number of factor in day");                                           // Line 136
+	echo T_("Analytics and reports");                                                 // Line 141
+	echo T_("Simple reports");                                                        // Line 143
+	echo T_("Professional analytic reports");                                         // Line 148
+	echo T_("Visual reports with chart");                                             // Line 153
+	echo T_("Professional analysis chart");                                           // Line 158
+	echo T_("Branding");                                                              // Line 164
+	echo T_("Customize with your own logo");                                          // Line 166
+	echo T_("Technical Support");                                                     // Line 173
+	echo T_("Email response time");                                                   // Line 178
+	echo T_("(max)");                                                                 // Line 178
+	echo T_("2 work day");                                                            // Line 179
+	echo T_("4 hours");                                                               // Line 180
+	echo T_("Emergency phone support");                                               // Line 184
 
 	//--------------------------------------------content\template\static\privacy.html
 	echo T_("What is Privacy?");                                                      // Line 6
@@ -215,7 +234,6 @@ class twigTransTerms
 	echo T_("Row");                                                                   // Line 57
 	echo T_("Product");                                                               // Line 58
 	echo T_("Count");                                                                 // Line 59
-	echo T_("Price");                                                                 // Line 22
 	echo T_("Discount");                                                              // Line 23
 	echo T_("Total");                                                                 // Line 24
 	echo T_("Count of rows");                                                         // Line 90
@@ -307,27 +325,27 @@ class twigTransTerms
 	echo T_("Last scanned barcode");                                                  // Line 41
 
 	//-----------------------------------------------------content_a\home\display.html
-	echo T_("Add event day counter");                                                 // Line 60
-	echo T_("Present Members");                                                       // Line 79
-	echo T_("Products Summary");                                                      // Line 118
-	echo T_("Add new Product");                                                       // Line 12
-	echo T_("Sale Invoicing");                                                        // Line 148
-	echo T_("Buy Invocing");                                                          // Line 158
+	echo T_("Add event day counter");                                                 // Line 61
+	echo T_("Present Members");                                                       // Line 80
+	echo T_("Products Summary");                                                      // Line 119
+	echo T_("Add new Product");                                                       // Line 14
+	echo T_("Sale Invoicing");                                                        // Line 149
+	echo T_("Buy Invocing");                                                          // Line 159
 	echo T_("Supplier");                                                              // Line 113
 	echo T_("Staff");                                                                 // Line 123
-	echo T_("Start date of using tejarak");                                           // Line 199
-	echo T_("day ago");                                                               // Line 199
-	echo T_("Day Used");                                                              // Line 203
-	echo T_("Top Members");                                                           // Line 229
-	echo T_("Sales count group by hour");                                             // Line 235
+	echo T_("Start date of using tejarak");                                           // Line 200
+	echo T_("day ago");                                                               // Line 200
+	echo T_("Day Used");                                                              // Line 204
+	echo T_("Top Members");                                                           // Line 230
+	echo T_("Sales count group by hour");                                             // Line 236
 
 	//------------------------------------------------------content_a\main\layout.html
 	echo T_("Dashboard");                                                             // Line 5
-	echo T_("Product List");                                                          // Line 11
-	echo T_("Third Parties");                                                         // Line 15
-	echo T_("List of last sales");                                                    // Line 18
-	echo T_("register new sale");                                                     // Line 19
-	echo T_("Setting");                                                               // Line 21
+	echo T_("Product List");                                                          // Line 13
+	echo T_("Third Parties");                                                         // Line 20
+	echo T_("List of last sales");                                                    // Line 26
+	echo T_("register new sale");                                                     // Line 27
+	echo T_("Setting");                                                               // Line 32
 
 	//----------------------------------------------content_a\product\add\display.html
 	echo T_("Warehouse");                                                             // Line 39
@@ -336,7 +354,7 @@ class twigTransTerms
 
 	//-------------------------------------------content_a\product\export\display.html
 	echo T_("Please wait to complete export progress");                               // Line 11
-	echo T_("Export");                                                                // Line 83
+	echo T_("Export");                                                                // Line 89
 
 	//---------------------------------------------content_a\product\home\display.html
 	echo T_("No product founded.");                                                   // Line 15
@@ -350,6 +368,9 @@ class twigTransTerms
 	echo T_("Final price");                                                           // Line 52
 	echo T_("Stock");                                                                 // Line 286
 	echo T_("Last modified");                                                         // Line 54
+	echo T_("stock count is less than zero!");                                        // Line 60
+	echo T_("Discount more than 50 percent!");                                        // Line 66
+	echo T_("Final price is under buy price");                                        // Line 67
 
 	//-------------------------------------------content_a\product\import\display.html
 	echo T_("Choose your CSV");                                                       // Line 10
@@ -412,23 +433,24 @@ class twigTransTerms
 	echo T_("Count of product in carton");                                            // Line 324
 
 	//------------------------------------------content_a\product\summary\display.html
-	echo T_("Product GroupBy Unit");                                                  // Line 33
-	echo T_("Product GroupBy Category");                                              // Line 42
-	echo T_("Add new products");                                                      // Line 57
-	echo T_("List of products");                                                      // Line 66
-	echo T_("Import products");                                                       // Line 75
-	echo T_("Price Variation");                                                       // Line 93
-	echo T_("Check list of products");                                                // Line 109
-	echo T_("Product Count");                                                         // Line 112
-	echo T_("Product with barcode");                                                  // Line 122
-	echo T_("Product with barcode2");                                                 // Line 132
-	echo T_("Min");                                                                   // Line 175
-	echo T_("Max");                                                                   // Line 184
-	echo T_("Average");                                                               // Line 193
-	echo T_("Buy Price");                                                             // Line 204
+	echo T_("Product GroupBy Unit");                                                  // Line 36
+	echo T_("Product GroupBy Category");                                              // Line 45
+	echo T_("You are not add product yet!");                                          // Line 54
+	echo T_("Add some new product");                                                  // Line 54
+	echo T_("Add new products");                                                      // Line 63
+	echo T_("List of products");                                                      // Line 72
+	echo T_("Import products");                                                       // Line 81
+	echo T_("Price Variation");                                                       // Line 99
+	echo T_("Check list of products");                                                // Line 115
+	echo T_("Product Count");                                                         // Line 118
+	echo T_("Product with barcode");                                                  // Line 128
+	echo T_("Product with barcode2");                                                 // Line 138
+	echo T_("Min");                                                                   // Line 181
+	echo T_("Max");                                                                   // Line 190
+	echo T_("Average");                                                               // Line 199
+	echo T_("Buy Price");                                                             // Line 210
 
 	//-------------------------------------------------content_a\sell\add\display.html
-	echo T_("Open last factor added");                                                // Line 49
 
 	//------------------------------------------------content_a\sell\edit\display.html
 
