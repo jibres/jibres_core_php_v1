@@ -11,6 +11,8 @@ class controller extends \mvc\controller
 			\lib\error::page();
 		}
 
+		\lib\db\mysql\tools\log::log($_SERVER, time(), 'cronjob.log', 'json');
+
 		if(Tld === 'local')
 		{
 			return;
