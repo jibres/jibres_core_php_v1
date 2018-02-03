@@ -21,16 +21,17 @@
  <div class="c3 s6">{{block ("prDate")}}</div>
 </div>
 
+{%if dashboard_detail.sell_time_chart == '[]'%}
+{%else%}
 <div class="f">
   <div class="c9 s12">
     {{block ("chart_primary")}}
   </div>
   <div class="c3 s12">
-
-
 {{block ("lastTraffics")}}
   </div>
 </div>
+{%endif%}
 
 
 
