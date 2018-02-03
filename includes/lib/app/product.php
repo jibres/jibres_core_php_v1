@@ -385,7 +385,7 @@ class product
 			return false;
 		}
 
-		if(floatval($stock) >= 1E+20 || floatval($stock) < 0)
+		if(abs(floatval($stock)) >= 1E+20)
 		{
 			// \lib\app::log('api:product:stock:max:lenght', \lib\user::id(), $log_meta);
 			if($_option['debug']) debug::error(T_("Value of stock is out of rage"), 'stock');
