@@ -200,15 +200,16 @@ body .pc .em{font-weight:bold;text-align:center;padding:1em 5%;background-color:
 /*final price*/
 .priceBox{font-size:1.4em;margin-bottom:10px;padding:0;border-radius:0.25rem;background-color:#d55b4b;color:#eee;text-align:center;}
 .priceBox h3{font-size:1em;padding:1em;margin:0}
-.priceBox div span{font-weight:bold;color:#fff}
+.priceBox div span{font-weight:bold;color:#fff;display:inline-block;}
 .priceBox div{transition:0.3s;}
 .priceBox div:hover{color:#fff}
-.priceBox .final{padding:0.5em 0;background-color:#b1463a;color:#fff;font-size:2.5em;margin-bottom:10px;}
+.priceBox .final{padding:0;background-color:#b1463a;color:#fff;font-size:2.5em;margin-bottom:10px;height:70px;}
+.priceBox .final span{line-height:70px;}
 .priceBox .final abbr{font-size:1rem;display:inline-block;transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);vertical-align:middle;}
 .priceBox .desc{padding:0.2em 0;color:#fff;font-size:1.1rem;margin-bottom:1em;font-weight:100}
 .ltr .priceBox .desc{display:none;}
 .priceBox .detail{padding:0.5em;text-align:initial;}
-.priceBox .detail span{float:right;font-size:1.2em;display:inline-block;}
+.priceBox .detail span{float:right;font-size:1.2em;}
 .rtl .priceBox .detail span{float:left;}
 .priceBox .discount{background-color:#c74d40}
 

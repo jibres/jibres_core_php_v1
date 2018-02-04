@@ -267,6 +267,7 @@ function calcFooterValues(_table)
   {
     $('.priceBox').fadeIn().removeClass('hide');
     $('.priceBox .final span').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
+    $(".priceBox .final").shrink(60);
     $('.priceBox .desc').text(wordifyTomans(calcDtSumTotal));
     $('.priceBox .item span').text(fitNumber(calcDtCountRow)).attr('data-val', calcDtCountRow);
     $('.priceBox .count span').text(fitNumber(calcDtSumCount)).attr('data-val', calcDtSumCount);
@@ -741,5 +742,31 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports.wordifyRials = wordifyRials;
   module.exports.wordifyRialsInTomans = wordifyRialsInTomans;
 }
+
+
+(function($) {
+    $.fn.shrink = function(maxFontSize)
+    {
+        maxFontSize = parseInt(maxFontSize, 10);
+        return this.each(function()
+        {
+            var ourText = $("span", this),
+                parent = ourText.parent(),
+                maxHeight = parent.height(),
+                maxWidth = parent.width()-20,
+                fontSize = parseInt(ourText.css("fontSize"), 10),
+                // multiplier = maxWidth/(ourText.width()-15),
+                multiplier = maxWidth/ourText.width(),
+                newSize = (fontSize*(multiplier-0.1));
+            ourText.css(
+                "fontSize",
+                (maxFontSize > 0 && newSize > maxFontSize) ?
+                    maxFontSize :
+                    newSize
+            );
+        });
+    };
+})(jQuery);
+
 
 
