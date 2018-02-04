@@ -4,6 +4,26 @@ use \lib\debug;
 
 trait edit
 {
+
+	public static function edit_meta($_meta)
+	{
+		$meta = json_encode($_meta, JSON_UNESCAPED_UNICODE);
+		if(!\lib\store::id())
+		{
+			\lib\debug::error(T_("Store not found"), 'id', 'permission');
+			return false;
+		}
+
+		$result = \lib\db\stores::update(['meta' => $meta], \lib\store::id());
+
+		if($result)
+		{
+			\lib\store::clean();
+		}
+
+		return  $result;
+	}
+
 	/**
 	 * edit a store
 	 *
