@@ -341,16 +341,35 @@ function bindBtnOnFactor()
   {
     var datalist        = $(this).data('datalist');
     var choosen         = $(this).attr('aria-activedescendant');
+    var productId       = _e.originalEvent.text.value;
     var selectedProduct = [];
-    choosen             = parseInt(choosen.substr(choosen.lastIndexOf("item") + 5));
-    // get choosen barcode detail
+
     if(datalist && datalist.length > 0)
     {
-      selectedProduct = datalist[choosen];
-    }
+      $.each(datalist, function(index, value)
+      {
+        if(value.id === productId)
+        {
+          // this one is our target
+          selectedProduct = datalist[index];
+        }
+      });
 
-    addFindedProduct(selectedProduct);
+      if(selectedProduct)
+      {
+        addFindedProduct(selectedProduct);
+      }
+      else
+      {
+        console.log('product not exist!');
+      }
+    }
+    else
+    {
+      console.log('datalist is not exist');
+    }
   });
+
   $(document).on('awesomplete-selectcomplete', "#productSearch", function(_e)
   {
     // clear product search value
