@@ -199,7 +199,15 @@ function event_corridor(_e, _self, _key)
     case '187shift':        // plus +
       if(check_factor())
       {
-        $('input[type=search]').select();
+        if($(":focus").is('#productSearch'))
+        {
+          $('input[type=search]').select();
+        }
+        else
+        {
+          $('input[type=search]').select();
+          _e.preventDefault();
+        }
       }
       break;
 
@@ -306,7 +314,7 @@ function getSelectedRow()
 
 function check_factor()
 {
-  if($('body').attr('data-page') === 'sell_add')
+  if($('#factorAdd').length > 0)
   {
     return true;
   }
