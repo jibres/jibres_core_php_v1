@@ -2,14 +2,24 @@
 
 
 {%block pageContent%}
-<form method="post">
 
-{{block("btns")}}
-{{block("addProducts")}}
-{{block("listOfProducts")}}
-{{block("showFinalPrice")}}
+<div class="f">
+  <div class="c9 pRa10">
+    <form method="post">
 
-</form>
+    {{block("addProducts")}}
+    {{block("listOfProducts")}}
+
+    </form>
+
+  </div>
+  <div class="c3">
+    {{block("btns")}}
+    {{block("showFinalPrice")}}
+
+  </div>
+</div>
+
 {%endblock%}
 
 
@@ -35,16 +45,16 @@
 
 {%block btns%}
  <div class="cbox">
-  <div class="f">
-    <div class="cauto pRa10">
+  <div class="f txtC">
+    <div class="c12 mB5">
       <input type="hidden" id="sell_clicked_btn" name="btn_type" value="">
       <button class="cauto btn primary sell_save_btn" type="submit" name="save_btn" value="save_next" id='save_next' data-shortkey='115'>{%trans "Save & Next"%}</button>
     </div>
-    <div class="cauto pRa10">
+    <div class="c12 mB5">
       <button class="cauto btn primary sell_save_btn" type="submit" name="save_btn" value="save_print" id='save_print' data-shortkey='119' data-shortkey-call='print'>{%trans "Save & Print"%}</button>
     </div>
 
-    <div class="cauto os finalPriceVal">{%trans "Final Price"%}<br/><span></span></div>
+    <div class="c12 mB5 finalPriceVal">{%trans "Final Price"%}<br/><span></span></div>
 
   </div>
  </div>
@@ -61,9 +71,9 @@
 {%block listOfProducts%}
  <div class="cbox hide">
   <table class="tbl productList txtC">
-   <thead>
+   <thead class="fs08">
     <tr>
-     <th class="min80">{%trans "Row"%}</th>
+     <th class="collapsing">{%trans "Row"%}</th>
      <th class="product">{%trans "Product"%}</th>
      <th class="min120">{%trans "Count"%}</th>
      <th class="min100">{%trans "Price"%}</th>
