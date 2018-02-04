@@ -35,7 +35,7 @@ class twigTransTerms
 	echo T_("Products");                                                              // Line 10
 	echo T_("Qty");                                                                   // Line 21
 	echo T_("Factor");                                                                // Line 22
-	echo T_("Toman");                                                                 // Line 117
+	echo T_("Toman");                                                                 // Line 45
 	echo T_("Sold on Jibres");                                                        // Line 60
 	echo T_("Roadmap");                                                               // Line 71
 	echo T_("Amazing Financial Platform");                                            // Line 72
@@ -229,8 +229,8 @@ class twigTransTerms
 
 	//--------------------------------------------------content_a\buy\add\display.html
 	echo T_("Final Price");                                                           // Line 33
-	echo T_("Save & Next");                                                           // Line 41
-	echo T_("Save & Print");                                                          // Line 44
+	echo T_("Save & Next");                                                           // Line 62
+	echo T_("Save & Print");                                                          // Line 65
 	echo T_("Row");                                                                   // Line 57
 	echo T_("Product");                                                               // Line 58
 	echo T_("Count");                                                                 // Line 59
@@ -317,13 +317,6 @@ class twigTransTerms
 	echo T_("Back from sell");                                                        // Line 77
 	echo T_("Waste product");                                                         // Line 88
 
-	//----------------------------------------------content_a\factor\layoutFactor.html
-	echo T_("Customer");                                                              // Line 103
-	echo T_("Add or choose customer");                                                // Line 7
-	echo T_("Search to add product");                                                 // Line 15
-	echo T_("Search in list to add product");                                         // Line 16
-	echo T_("Last scanned barcode");                                                  // Line 41
-
 	//-----------------------------------------------------content_a\home\display.html
 	echo T_("Add event day counter");                                                 // Line 61
 	echo T_("Present Members");                                                       // Line 80
@@ -331,6 +324,7 @@ class twigTransTerms
 	echo T_("Add new Product");                                                       // Line 14
 	echo T_("Sale Invoicing");                                                        // Line 149
 	echo T_("Buy Invocing");                                                          // Line 159
+	echo T_("Customer");                                                              // Line 103
 	echo T_("Supplier");                                                              // Line 113
 	echo T_("Staff");                                                                 // Line 123
 	echo T_("Start date of using tejarak");                                           // Line 200
@@ -451,14 +445,21 @@ class twigTransTerms
 	echo T_("Buy Price");                                                             // Line 210
 
 	//-------------------------------------------------content_a\sell\add\display.html
+	echo T_("Factor Price Detail");                                                   // Line 44
+	echo T_("Total payable");                                                         // Line 83
+	echo T_("Sum of items");                                                          // Line 47
+	echo T_("Invoice amount");                                                        // Line 74
+	echo T_("Total discount");                                                        // Line 50
+	echo T_("Add or choose customer");                                                // Line 107
+	echo T_("Search to add product");                                                 // Line 116
+	echo T_("Search in list to add product");                                         // Line 117
+	echo T_("Last scanned barcode");                                                  // Line 143
 
 	//------------------------------------------------content_a\sell\edit\display.html
 
 	//-------------------------------------------content_a\sell\fishprint\display.html
 	echo T_("Sale Invoice");                                                          // Line 28
-	echo T_("Invoice amount");                                                        // Line 74
 	echo T_("Your total discount and profits");                                       // Line 78
-	echo T_("Total payable");                                                         // Line 83
 
 	//------------------------------------------------content_a\sell\home\display.html
 	echo T_("Search in sells list");                                                  // Line 9

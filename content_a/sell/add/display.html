@@ -3,7 +3,7 @@
 
 {%block pageContent%}
 
-<div class="f">
+<div class="f" id='factorAdd'>
   <div class="c9 m12 s12 pRa10">
     <form method="post">
 
@@ -14,8 +14,9 @@
 
   </div>
   <div class="c3 m12 s12">
+
+    {{block("totalPriceDetail")}}
     {{block("btns")}}
-    {{block("showFinalPrice")}}
 
   </div>
 </div>
@@ -38,9 +39,19 @@
 {%endblock%}
 
 
-{%block showFinalPrice%}
-  <p class="alert alert-info fs14 txtC hide" id='finalPriceString'>{%trans "Final Price"%} <b></b></p>
+{%block totalPriceDetail%}
+<div class="priceBox hide">
+  <h3>{%trans "Factor Price Detail"%}</h3>
+  <div class="final" title='{%trans "Total payable"%}'><span>0</span><abbr>{%trans "Toman"%}</abbr></div>
+  <div class="desc">-</div>
+  <div class="detail item"><abbr>{%trans "Sum of items"%}</abbr> <span>-</span></div>
+  <div class="detail count"><abbr>{%trans "Sum of counts"%}</abbr> <span>-</span></div>
+  <div class="detail sum"><abbr>{%trans "Invoice amount"%}</abbr> <span>-</span></div>
+  <div class="detail discount"><abbr>{%trans "Total discount"%}</abbr> <span>-</span></div>
+</div>
 {%endblock%}
+
+
 
 
 {%block btns%}
@@ -61,12 +72,6 @@
 {%endblock%}
 
 
-{%block addProducts%}
- <div class="cbox">
-{{block('iProductName')}}
- </div>
-{%endblock%}
-
 
 {%block listOfProducts%}
  <div class="cbox hide">
@@ -84,19 +89,10 @@
    <tbody>
 
    </tbody>
-   <tfoot class="dark hide">
-    <tr>
-     <th title='{%trans "Count of rows"%}'></th>
-     <th></th>
-     <th title='{%trans "Sum of counts"%}'></th>
-     <th title='{%trans "Sum of prices"%}'></th>
-     <th title='{%trans "Sum of discounts"%}'></th>
-     <th title='{%trans "Sum of final prices"%}' class="txtbold"></th>
-    </tr>
-   </tfoot>
   </table>
  </div>
 {%endblock%}
+
 
 
 
@@ -114,10 +110,12 @@
 
 
 
-{%block iProductName%}
-<div class="input small f">
- <label for="productSearch" class="addon cauto s12">{%trans "Search to add product"%}</label>
- <input id="productSearch" class="autoList productName barCode" type="search" maxlength="100" placeholder='{%trans "Search in list to add product"%}' value="{{product.product}}" data-find='product' data-default autofocus autocomplete="off">
+{%block addProducts%}
+<div class="cbox">
+  <div class="input small f">
+   <label for="productSearch" class="addon cauto s0">{%trans "Search to add product"%}</label>
+   <input id="productSearch" class="autoList productName barCode" type="search" maxlength="100" placeholder='{%trans "Search in list to add product"%}' value="{{product.product}}" data-find='product' data-default autofocus autocomplete="off">
+  </div>
 </div>
 {%endblock%}
 

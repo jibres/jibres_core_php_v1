@@ -261,22 +261,21 @@ function calcFooterValues(_table)
     }
 
   });
-  // _table.find('tfoot tr th:eq(0)').text(fitNumber(calcDtCountRow));
-  _table.find('tfoot tr th:eq(2)').text(fitNumber(calcDtSumCount));
-  _table.find('tfoot tr th:eq(3)').text(fitNumber(calcDtSumPrice)).attr('data-val', calcDtSumPrice);
-  _table.find('tfoot tr th:eq(4)').text(fitNumber(calcDtSumDiscount));
-  _table.find('tfoot tr th:eq(5)').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
-  $('.finalPriceVal span').text(fitNumber(calcDtSumTotal));
+
 
   if(calcDtSumTotal > 0 )
   {
-    _table.find('tfoot').removeClass('hide');
-    $('#finalPriceString').fadeIn().removeClass('hide');
-    $('#finalPriceString b').text(wordifyTomans(calcDtSumTotal));
+    $('.priceBox').fadeIn().removeClass('hide');
+    $('.priceBox .final span').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
+    $('.priceBox .desc').text(wordifyTomans(calcDtSumTotal));
+    $('.priceBox .item span').text(fitNumber(calcDtCountRow)).attr('data-val', calcDtCountRow);
+    $('.priceBox .count span').text(fitNumber(calcDtSumCount)).attr('data-val', calcDtSumCount);
+    $('.priceBox .sum span').text(fitNumber(calcDtSumPrice)).attr('data-val', calcDtSumPrice);
+    $('.priceBox .discount span').text(fitNumber(calcDtSumDiscount)).attr('data-val', calcDtSumDiscount);
   }
   else
   {
-    $('#finalPriceString').fadeOut();
+    // $('.priceBox').fadeOut();
   }
 }
 
@@ -533,7 +532,7 @@ function addNewRecord_ProductList(_table, _product, _append)
   trEmpty       += '<td></td>';
   trEmpty       += '</tr>';
   var newRecord = $(trEmpty);
-  var cuRow     = _table.find('tr').length - 1;
+  var cuRow     = _table.find('tr').length;
   // set row number
   newRecord.find('td:eq(0)').text(fitNumber(cuRow));
   if(_product)
