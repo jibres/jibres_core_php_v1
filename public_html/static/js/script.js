@@ -212,6 +212,11 @@ function calcFooterValues(_table)
     {
       tmpDiscount = 0;
     }
+    if(tmpPrice < tmpDiscount)
+    {
+      $(this).find('.discount').val(0);
+      tmpDiscount = 0;
+    }
 
     var tmpPriceCol    = tmpCount * tmpPrice;
     var tmpDiscountCol = tmpCount * tmpDiscount;
@@ -300,6 +305,7 @@ function calcFooterValues(_table)
   }
   else
   {
+    $('.priceBox .final span').text('-');
     // $('.priceBox').fadeOut();
   }
 }
