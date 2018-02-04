@@ -447,7 +447,7 @@ class twigTransTerms
 	//-------------------------------------------------content_a\sell\add\display.html
 	echo T_("Factor Price Detail");                                                   // Line 44
 	echo T_("Total payable");                                                         // Line 83
-	echo T_("Sum of items");                                                          // Line 47
+	echo T_("Count of items");                                                        // Line 47
 	echo T_("Invoice amount");                                                        // Line 74
 	echo T_("Total discount");                                                        // Line 50
 	echo T_("Add or choose customer");                                                // Line 107

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-02-04 11:56+0330\n"
-"PO-Revision-Date: 2018-02-04 11:57+0330\n"
+"POT-Creation-Date: 2018-02-04 12:00+0330\n"
+"PO-Revision-Date: 2018-02-04 12:17+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -11384,7 +11384,7 @@ msgid "Total payable"
 msgstr "جمع مبلغ قابل پرداخت"
 
 #: jibres/includes/languages/trans_twig.php:450
-msgid "Sum of items"
+msgid "Count of items"
 msgstr "تعداد اقلام"
 
 #: jibres/includes/languages/trans_twig.php:451
@@ -12254,6 +12254,9 @@ msgstr "اجازه مشاهده لاگ‌های سیستم"
 #: jibres/includes/permission/permission.php:104
 msgid "Allow to login by another session"
 msgstr "اجازه ورود با کاربر دیگر"
+
+#~ msgid "Sum of items"
+#~ msgstr "تعداد اقلام"
 
 #~ msgid "Max number of team members"
 #~ msgstr "حداکثر اعضای تیم"
