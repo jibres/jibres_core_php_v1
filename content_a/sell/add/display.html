@@ -84,7 +84,7 @@
      <th class="product">{%trans "Product"%}</th>
      <th class="min120">{%trans "Count"%}</th>
      <th class="min100">{%trans "Price"%}</th>
-     <th class="min150">{%trans "Discount"%}</th>
+     <th class="min100">{%trans "Discount"%}</th>
      <th class="min100">{%trans "Total"%}</th>
     </tr>
    </thead>
@@ -131,7 +131,7 @@
 
 {%block iDiscount%}
  <div class="input discountCn">
-  <input class="discount" type="number" name="discount[]" min='0' max="10000000000" value="{{product.discount1}}" value=''>
+  <input class="discount" type="tel" name="discount[]" min='0' max="10000000000" value="{{product.discount1}}" value=''>
   <span class="addon small">0%</span>
  </div>
 {%endblock%}
