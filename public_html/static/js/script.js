@@ -479,7 +479,15 @@ function addFindedProduct(_product, _msg)
 
 
 //if you have another AudioContext class use that one, as some browsers have a limit
-var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+try
+{
+  var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+}
+catch(err)
+{
+  console.log(err.message);
+}
+
 
 //All arguments are optional:
 
@@ -490,6 +498,8 @@ var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.a
 //callback to use on end of tone
 function beep(duration, frequency, volume, type, callback)
 {
+  if(audioCtx)
+  {
     var oscillator = audioCtx.createOscillator();
     var gainNode   = audioCtx.createGain();
 
@@ -503,6 +513,11 @@ function beep(duration, frequency, volume, type, callback)
 
     oscillator.start();
     setTimeout(function(){oscillator.stop()}, (duration ? duration : 500));
+  }
+  else
+  {
+    console.log('close some tabs!');
+  }
 };
 
 function sysBeep()
