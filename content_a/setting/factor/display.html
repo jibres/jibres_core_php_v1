@@ -1,0 +1,18 @@
+{%extends "content_a/setting/layout.html"%}
+
+
+{%block data%}
+  <div class="cbox">
+ <form method="post">
+  
+  {{block ("iPrintStatus")}}
+  {{block ("iPrintList")}}
+  {{block ("iPosStatus")}}
+  {{block ("iPostList")}}
+  {{block ("iSaveAll")}}
+ </form>
+</div>
+
+
+
+{%endblock%}
