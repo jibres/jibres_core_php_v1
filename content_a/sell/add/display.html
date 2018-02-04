@@ -3,7 +3,7 @@
 
 {%block pageContent%}
 
-<form method="post" class="f" id='factorAdd'>
+<form method="post" class="f" id='factorAdd' disallowEnter>
   <div class="c9 x10 s12 pRa10">
 
     {{block("addProducts")}}
@@ -130,7 +130,7 @@
 
 
 {%block iDiscount%}
- <div class="input">
+ <div class="input discountCn">
   <input class="discount" type="number" name="discount[]" min='0' max="10000000000" value="{{product.discount1}}" value=''>
   <span class="addon small">0%</span>
  </div>

@@ -34,8 +34,8 @@ class twigTransTerms
 	echo T_("Item");                                                                  // Line 51
 	echo T_("Products");                                                              // Line 10
 	echo T_("Qty");                                                                   // Line 21
-	echo T_("Factor");                                                                // Line 22
-	echo T_("Toman");                                                                 // Line 45
+	echo T_("Factor");                                                                // Line 39
+	echo T_("Toman");                                                                 // Line 43
 	echo T_("Sold on Jibres");                                                        // Line 60
 	echo T_("Roadmap");                                                               // Line 71
 	echo T_("Amazing Financial Platform");                                            // Line 72
@@ -81,10 +81,10 @@ class twigTransTerms
 	echo T_("Enter");                                                                 // Line 14
 
 	//------------------------------------------------content\template\priceTable.html
-	echo T_("Free");                                                                  // Line 140
+	echo T_("Free");                                                                  // Line 141
 	echo T_("forever");                                                               // Line 11
 	echo T_("All the basics for personal use and anyone who wants to explore Jibres for an <span class='bold'>unlimited period of time</span>.");// Line 13
-	echo T_("Standard");                                                              // Line 151
+	echo T_("Standard");                                                              // Line 152
 	echo T_("per month");                                                             // Line 27
 	echo T_("2 month discount on year");                                              // Line 28
 	echo T_("For someones ready to use Jibres as hero.");                             // Line 30
@@ -102,19 +102,20 @@ class twigTransTerms
 	echo T_("Description");                                                           // Line 38
 	echo T_("We are Developers, please wait!");                                       // Line 17
 	echo T_("Version 1 of Jibres will be released.");                                 // Line 22
-	echo T_("We reach 10000 factor records.");                                        // Line 27
-	echo T_("First factor of first store is generated.");                             // Line 32
-	echo T_("Our first store on web is created and start add product to store.");     // Line 37
-	echo T_("Beta version is released.");                                             // Line 42
-	echo T_("Alfa version is released.");                                             // Line 47
-	echo T_("We restart plans to run Jibres at Ermile.");                             // Line 52
-	echo T_("The name of project selected as Jibres and <a href='https://Jibres.ir' target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> domains are registered.");// Line 57
-	echo T_("Create git repository and first commit is pushed.");                     // Line 62
-	echo T_("Database is completely designed and implementated.");                    // Line 67
-	echo T_("02:00 AM");                                                              // Line 71
-	echo T_("Start database analysis of Jibres.");                                    // Line 72
-	echo T_("We were born to do Best!");                                              // Line 77
-	echo T_("Be patient...");                                                         // Line 82
+	echo T_("We reach 100M+ Toman sold on Jibres.");                                  // Line 27
+	echo T_("We reach 10000 factor records.");                                        // Line 32
+	echo T_("First factor of first store is generated.");                             // Line 37
+	echo T_("Our first store on web is created and start add product to store.");     // Line 42
+	echo T_("Beta version is released.");                                             // Line 47
+	echo T_("Alfa version is released.");                                             // Line 52
+	echo T_("We restart plans to run Jibres at Ermile.");                             // Line 57
+	echo T_("The name of project selected as Jibres and <a href='https://Jibres.ir' target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> domains are registered.");// Line 62
+	echo T_("Create git repository and first commit is pushed.");                     // Line 67
+	echo T_("Database is completely designed and implementated.");                    // Line 72
+	echo T_("02:00 AM");                                                              // Line 76
+	echo T_("Start database analysis of Jibres.");                                    // Line 77
+	echo T_("We were born to do Best!");                                              // Line 82
+	echo T_("Be patient...");                                                         // Line 87
 
 	//-----------------------------------------content\template\static\enterprise.html
 	echo T_("Big companies simply don’t work like small companies, and they don’t use Jibres the same way either. That’s why there’s Enterprise.");// Line 6
@@ -229,8 +230,8 @@ class twigTransTerms
 
 	//--------------------------------------------------content_a\buy\add\display.html
 	echo T_("Final Price");                                                           // Line 33
-	echo T_("Save & Next");                                                           // Line 62
-	echo T_("Save & Print");                                                          // Line 65
+	echo T_("Save & Next");                                                           // Line 67
+	echo T_("Save & Print");                                                          // Line 70
 	echo T_("Row");                                                                   // Line 57
 	echo T_("Product");                                                               // Line 58
 	echo T_("Count");                                                                 // Line 59
@@ -374,8 +375,8 @@ class twigTransTerms
 	//---------------------------------------------------content_a\product\layout.html
 	echo T_("Delete product");                                                        // Line 46
 	echo T_("Insert");                                                                // Line 43
-	echo T_("Save All");                                                              // Line 65
-	echo T_("allowed extentions jpg, png (gif for bussiness plans). Max 500Kb");      // Line 72
+	echo T_("Save All");                                                              // Line 66
+	echo T_("allowed extentions jpg, png (gif for bussiness plans). Max 500Kb");      // Line 73
 	echo T_("Name of product");                                                       // Line 77
 	echo T_("Enter a valid name");                                                    // Line 22
 	echo T_("Set short and best title for your product");                             // Line 85
@@ -445,15 +446,17 @@ class twigTransTerms
 	echo T_("Buy Price");                                                             // Line 210
 
 	//-------------------------------------------------content_a\sell\add\display.html
-	echo T_("Factor Price Detail");                                                   // Line 44
+	echo T_("Factor Price Detail");                                                   // Line 42
 	echo T_("Total payable");                                                         // Line 83
-	echo T_("Count of items");                                                        // Line 47
+	echo T_("Count of items");                                                        // Line 45
 	echo T_("Invoice amount");                                                        // Line 74
-	echo T_("Total discount");                                                        // Line 50
-	echo T_("Add or choose customer");                                                // Line 107
-	echo T_("Search to add product");                                                 // Line 116
-	echo T_("Search in list to add product");                                         // Line 117
-	echo T_("Last scanned barcode");                                                  // Line 143
+	echo T_("Press f7 or click to toggle discount");                                  // Line 48
+	echo T_("Total discount");                                                        // Line 48
+	echo T_("Save Factor & Continue");                                                // Line 57
+	echo T_("Add or choose customer");                                                // Line 110
+	echo T_("Search to add product");                                                 // Line 120
+	echo T_("Search in list to add product");                                         // Line 121
+	echo T_("Last scanned barcode");                                                  // Line 147
 
 	//------------------------------------------------content_a\sell\edit\display.html
 
@@ -474,29 +477,38 @@ class twigTransTerms
 	echo T_("Without traffic");                                                       // Line 29
 	echo T_("Last traffic");                                                          // Line 31
 	echo T_("Store Plan");                                                            // Line 38
-	echo T_("Security and privacy");                                                  // Line 39
-	echo T_("Report Settings");                                                       // Line 40
-	echo T_("Team short name");                                                       // Line 90
-	echo T_("Used for url of board");                                                 // Line 90
-	echo T_("Slug of team for board url");                                            // Line 92
-	echo T_("Website");                                                               // Line 101
-	echo T_("Link your logo on board for visitors");                                  // Line 99
-	echo T_("For show in factors");                                                   // Line 129
-	echo T_("Used for description of board and show in social media links");          // Line 123
-	echo T_("Choose your plan");                                                      // Line 136
-	echo T_("All the basics for personal use.");                                      // Line 140
-	echo T_("Everything you need for a growing business.");                           // Line 146
-	echo T_("Yearly");                                                                // Line 151
-	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 158
-	echo T_("Simple");                                                                // Line 158
-	echo T_("Full");                                                                  // Line 162
-	echo T_("For big companies that need fix price per month.");                      // Line 162
-	echo T_("Force show in specefic language");                                       // Line 171
-	echo T_("Please select one language");                                            // Line 173
-	echo T_("Persian");                                                               // Line 174
-	echo T_("English");                                                               // Line 175
-	echo T_("Report Header");                                                         // Line 185
-	echo T_("Report Footer");                                                         // Line 193
+	echo T_("Security and privacy");                                                  // Line 40
+	echo T_("Report Settings");                                                       // Line 41
+	echo T_("Team short name");                                                       // Line 91
+	echo T_("Used for url of board");                                                 // Line 91
+	echo T_("Slug of team for board url");                                            // Line 93
+	echo T_("Website");                                                               // Line 102
+	echo T_("Link your logo on board for visitors");                                  // Line 100
+	echo T_("For show in factors");                                                   // Line 130
+	echo T_("Used for description of board and show in social media links");          // Line 124
+	echo T_("Choose your plan");                                                      // Line 137
+	echo T_("All the basics for personal use.");                                      // Line 141
+	echo T_("Everything you need for a growing business.");                           // Line 147
+	echo T_("Yearly");                                                                // Line 152
+	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 159
+	echo T_("Simple");                                                                // Line 159
+	echo T_("Full");                                                                  // Line 163
+	echo T_("For big companies that need fix price per month.");                      // Line 163
+	echo T_("Force show in specefic language");                                       // Line 172
+	echo T_("Please select one language");                                            // Line 174
+	echo T_("Persian");                                                               // Line 175
+	echo T_("English");                                                               // Line 176
+	echo T_("Report Header");                                                         // Line 186
+	echo T_("Report Footer");                                                         // Line 194
+	echo T_("Active print factor");                                                   // Line 205
+	echo T_("Fish print");                                                            // Line 219
+	echo T_("A4");                                                                    // Line 225
+	echo T_("A5");                                                                    // Line 231
+	echo T_("Cash");                                                                  // Line 252
+	echo T_("Pos");                                                                   // Line 258
+	echo T_("Check");                                                                 // Line 264
+	echo T_("Add new pos list");                                                      // Line 277
+	echo T_("Pos name");                                                              // Line 279
 
 	//---------------------------------------------content_a\setting\plan\display.html
 	echo T_("Current Plan");                                                          // Line 7
