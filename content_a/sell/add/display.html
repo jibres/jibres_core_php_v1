@@ -1,10 +1,10 @@
-{%extends "content_a/factor/layoutFactor.html"%}
+{%extends display.admin%}
 
 
 {%block pageContent%}
 
 <div class="f">
-  <div class="c9 pRa10">
+  <div class="c9 m12 s12 pRa10">
     <form method="post">
 
     {{block("addProducts")}}
@@ -13,7 +13,7 @@
     </form>
 
   </div>
-  <div class="c3">
+  <div class="c3 m12 s12">
     {{block("btns")}}
     {{block("showFinalPrice")}}
 
@@ -105,16 +105,44 @@
 
 
 
-
-{%block foot_js2%}
-
-{{ parent() }}
-  <script type="text/javascript">
-    $(".sell_save_btn").on('click', function(){
-      $("#sell_clicked_btn").attr('value', $(this).val());
-    });
-  </script>
+{%block iCustomer%}
+<div class="input f">
+ <label for='customer' class="addon cauto">{%trans "Customer"%}</label>
+ <input class="autoList" type="text" name="customer" id="customer" placeholder='{%trans "Add or choose customer"%}' value="{{product.customer}}" maxlength="100" data-find='customer'>
+</div>
 {%endblock%}
 
 
+
+{%block iProductName%}
+<div class="input small f">
+ <label for="productSearch" class="addon cauto s12">{%trans "Search to add product"%}</label>
+ <input id="productSearch" class="autoList productName barCode" type="search" maxlength="100" placeholder='{%trans "Search in list to add product"%}' value="{{product.product}}" data-find='product' data-default autofocus autocomplete="off">
+</div>
+{%endblock%}
+
+
+{%block iCount%}
+ <input class="input count" type="number" name="count[]" min='0' max="10000000000" step="any" value="{{product.count1}}" >
+{%endblock%}
+
+
+{%block iDiscount%}
+ <div class="input">
+  <input class="discount" type="number" name="discount[]" min='0' max="10000000000" value="{{product.discount1}}" value=''>
+  <span class="addon small">0%</span>
+ </div>
+{%endblock%}
+
+
+{%block iDesc%}
+<textarea  name="desc" class="txt" rows='2' placeholder='{%trans "Description"%}' value='{{product.desc}}'></textarea>
+{%endblock%}
+
+{%block iBarcode%}
+<label for='customer'>{%trans "Last scanned barcode"%}</label>
+<div class="input">
+ <input class="barCode" type="text" placeholder='{%trans "Last scanned barcode"%}' data-lock data-default>
+</div>
+{%endblock%}
 
