@@ -189,6 +189,10 @@ function event_corridor(_e, _self, _key)
         var RowCountEl = RowCountEl.find('input.count');
         RowCountEl.select();
       }
+      else if($('#factorAdd').length)
+      {
+        _e.preventDefault();
+      }
       break;
 
     case '107':             // plus +
