@@ -211,7 +211,9 @@ body .pc .em{font-weight:bold;text-align:center;padding:1em 5%;background-color:
 .priceBox .detail{padding:0.5em;text-align:initial;}
 .priceBox .detail span{float:right;font-size:1.2em;}
 .rtl .priceBox .detail span{float:left;}
-.priceBox .discount{background-color:#c74d40}
+.priceBox .count{display:none;}
+.priceBox .discount{background-color:#c74d40;cursor:pointer;display:none;}
+kbd{font-family:monospace;}
 
 
 .tbl.productList th{vertical-align: middle;text-align: center;}

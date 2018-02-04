@@ -273,6 +273,30 @@ function calcFooterValues(_table)
     $('.priceBox .count span').text(fitNumber(calcDtSumCount)).attr('data-val', calcDtSumCount);
     $('.priceBox .sum span').text(fitNumber(calcDtSumPrice)).attr('data-val', calcDtSumPrice);
     $('.priceBox .discount span').text(fitNumber(calcDtSumDiscount)).attr('data-val', calcDtSumDiscount);
+
+    if(calcDtCountRow === calcDtSumCount)
+    {
+      $('.priceBox .count').fadeOut();
+    }
+    else
+    {
+      $('.priceBox .count').fadeIn();
+    }
+    if(calcDtSumDiscount === 0)
+    {
+      if($('.priceBox .discount').attr('data-wodiscount') === undefined)
+      {
+        $('.priceBox .discount').fadeOut('fast');
+      }
+      else
+      {
+        $('.priceBox .discount').fadeIn();
+      }
+    }
+    else
+    {
+      $('.priceBox .discount').fadeIn();
+    }
   }
   else
   {
@@ -301,6 +325,11 @@ function bindBtnOnFactor()
   $(document).on('input', '.count', function()
   {
     recalcProductListPrices();
+  });
+
+  $(document).on('click', '.priceBox .discount', function()
+  {
+    shortkey_toggleDiscount();
   });
 
   $(document).on('input', '.discount', function()
@@ -591,15 +620,16 @@ function addNewRecord_ProductList(_table, _product, _append)
 
 function shortkey_toggleDiscount(_status)
 {
-  var removeDiscount = !($('.productList').attr('data-woDiscount') !== undefined);
+  var priceDiscountEl = $('.priceBox .discount');
+  var removeDiscount = !(priceDiscountEl.attr('data-woDiscount') !== undefined);
   if(removeDiscount)
   {
-    $('.productList').attr('data-woDiscount', '');
+    priceDiscountEl.attr('data-woDiscount', '');
     $('.productList thead th:eq(4)').addClass('negative').attr('data-woDiscount', '');
   }
   else
   {
-    $('.productList').attr('data-woDiscount', null);
+    priceDiscountEl.attr('data-woDiscount', null);
     $('.productList thead th:eq(4)').removeClass('negative').attr('data-woDiscount', null);
   }
 
