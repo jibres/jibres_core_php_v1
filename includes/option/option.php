@@ -60,7 +60,7 @@ self::$config['domain_same']                  = true;
 self::$config['domain_name']                  = 'jibres';
 self::$config['main_site']                    = 'https://jibres.com';
 
-self::$config['favicon']['version']           = 4;
+self::$config['favicon']['version']           = null;
 
 
 
