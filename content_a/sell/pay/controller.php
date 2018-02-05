@@ -12,6 +12,7 @@ class controller extends \content_a\main\controller
 		}
 
 		$this->get()->ALL();
+		$this->post('pay')->ALL();
 	}
 }
 ?>

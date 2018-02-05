@@ -2,5 +2,37 @@
 
 
 {%block pageContent%}
-pay
+
+<form method="post">
+	<div class="cbox">
+		{%if store_meta.factor.print_status%}
+		<div class="msg success">
+			{%trans "Print Status is active"%}
+		</div>
+		{%endif%}
+		<div class="msg info2">
+		{%if store_meta.factor.print_size%}
+		{%for key, value in store_meta.factor.print_size%}
+				<button class="btn" type="submit" name="{{value}}">{{value}}</button>
+			{%endfor%}
+		{%endif%}
+		</div>
+		<div class="msg info">
+			{%if store_meta.factor.pay%}
+				{%for key, value in store_meta.factor.pay%}
+					<button class="btn" type="submit" name="{{value}}">{{value}}</button>
+				{%endfor%}
+			{%endif%}
+		</div>
+		<div class="info2 msg">
+			{%if store_meta.factor.pos_list%}
+				{%for key, value in store_meta.factor.pos_list%}
+					<button class="btn" type="submit" name="{{value}}">{{value}}</button>
+				{%endfor%}
+			{%endif%}
+		</div>
+	</div>
+</form>
+
+
 {%endblock%}
