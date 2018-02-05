@@ -30,7 +30,7 @@ function shortkeyCallFunc(_elShortkey, _e)
       }
       else
       {
-        console.log('shortkey func is not exist!');
+        logy('shortkey func is not exist!');
       }
     }
     return false;
@@ -60,7 +60,7 @@ function event_corridor(_e, _self, _key)
   var keyp   = String.fromCharCode(_key);
   var myFunc = 'shortkey_'+ mytxt;
 
-  console.log(mytxt);
+  logy(mytxt, 'info');
 
   var elShortkey = $('[data-shortkey= '+ mytxt +']');
   if(elShortkey.length == 1)
@@ -124,7 +124,7 @@ function event_corridor(_e, _self, _key)
     // ---------------------------------------------------------- Up
     case '38':              // up
 
-      console.log('up');
+      logy('up');
       break;
 
 

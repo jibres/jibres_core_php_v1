@@ -369,12 +369,12 @@ function bindBtnOnFactor()
       }
       else
       {
-        console.log('product not exist!');
+        logy('product not exist!');
       }
     }
     else
     {
-      console.log('datalist is not exist');
+      logy('datalist is not exist');
     }
   });
 
@@ -512,7 +512,7 @@ try
 }
 catch(err)
 {
-  console.log(err.message);
+  logy(err.message);
 }
 
 
@@ -543,13 +543,13 @@ function beep(duration, frequency, volume, type, callback)
   }
   else
   {
-    console.log('close some tabs!');
+    logy('close some tabs!');
   }
 };
 
 function sysBeep()
 {
-  console.log('\u0007');
+  logy('\u0007');
 }
 
 
@@ -627,7 +627,7 @@ function addNewRecord_ProductList(_table, _product, _append)
     htmlPDiscount    += '<span class="addon small">0%</span>'+ '</div>';
 
     // fill with product details
-    // console.log(_product);
+    // logy(_product);
     newRecord.attr('data-id', _product.id);
     newRecord.attr('data-barcode', _product.barcode);
     newRecord.attr('data-barcode2', _product.barcode2);
@@ -712,7 +712,7 @@ function shortkey_print(_el)
     $("#sell_clicked_btn").attr('value', 'save_print');
     $("#sell_clicked_btn").parents('form').submit();
   }
-  console.log('printing...');
+  logy('printing...');
 }
 
 
@@ -723,7 +723,7 @@ function simplePrint()
       if (window.location.href.indexOf("print=auto") > -1)
       {
         window.print();
-        console.log('open print...');
+        logy('open print...');
       }
 
     }, 50);
