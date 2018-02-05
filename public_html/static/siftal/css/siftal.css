@@ -186,7 +186,7 @@ main, article, aside, figure, figcaption, footer, header, nav, section, details,
 /* force a vertical scrollbar to prevent a jumpy page */
 html {
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -323,7 +323,7 @@ sub {
 
 /* standardize any monospaced elements */
 code, kbd, samp {
-  font-family: monospace, monospace, sans-serif;
+  font-family: monospace, sans-serif;
   font-size: 1em;
   display: inline-block;
   direction: ltr; }
@@ -339,8 +339,17 @@ pre {
   /* IE */
   display: block;
   direction: ltr;
-  font-family: monospace, monospace, sans-serif;
+  font-family: monospace, sans-serif;
   font-size: 1em; }
+
+kbd {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 3px 6px;
+  transition: 0.3s;
+  border-radius: 0.25rem; }
+
+kbd:hover {
+  background-color: rgba(0, 0, 0, 0.2); }
 
 audio,
 video {
@@ -2116,7 +2125,9 @@ progress.xl, meter.xl {
   display: block;
   border-radius: 0.25rem;
   background-color: #fff;
-  color: #555; }
+  color: #555;
+  position: relative;
+  transition: 0.3s; }
 
 .cbox .example {
   padding: 1em; }
