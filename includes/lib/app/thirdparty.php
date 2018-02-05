@@ -339,7 +339,6 @@ class thirdparty
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
-
 			switch ($key)
 			{
 				case 'id':
@@ -363,8 +362,12 @@ class thirdparty
 					}
 
 					$result[$key] = $value;
-
 					break;
+
+				case 'avatar':
+					$result['avatar'] = $value ? $value : \lib\app::static_avatar_url();
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;

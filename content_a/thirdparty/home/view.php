@@ -14,7 +14,15 @@ class view extends \content_a\main\view
 
 		$meta         = [];
 
-		$this->data->thirdparty_list = \lib\app\staff::list(\lib\utility::get('search'), $meta);
+		if(\lib\utility::get('type'))
+		{
+			$meta['type'] = \lib\utility::get('type');
+		}
+
+		$this->data->thirdparty_list = \lib\app\thirdparty::list(\lib\utility::get('search'), $meta);
+
+
+		$this->data->dashboard_detail = \lib\app\store::dashboard_detail(\lib\store::id());
 
 		if(isset($this->controller->pagnation))
 		{

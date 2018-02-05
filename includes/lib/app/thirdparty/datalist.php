@@ -26,7 +26,7 @@ trait datalist
 			return false;
 		}
 
-		$default_meta =
+		$default_args =
 		[
 			'sort'  => null,
 			'order' => null,
@@ -38,12 +38,12 @@ trait datalist
 			$_args = [];
 		}
 
+		$_args = array_merge($default_args, $_args);
+
 		if($_args['sort'] && !in_array($_args['sort'], self::$sort_field))
 		{
 			$_args['sort'] = null;
 		}
-
-		$_args = array_merge($default_meta, $_args);
 
 		$_args['store_id'] = \lib\store::id();
 

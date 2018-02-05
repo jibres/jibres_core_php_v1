@@ -28,7 +28,6 @@ class view extends \content_a\main\view
 			$this->data->pagnation = $this->controller->pagnation_get();
 		}
 
-		$this->data->dashboard_detail = \lib\app\store::dashboard_detail(\lib\store::id());
 
 	}
 }
