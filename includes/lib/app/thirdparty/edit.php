@@ -12,7 +12,7 @@ trait edit
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function edit($_args, $_option = [])
+	public static function edit($_args, $_id, $_option = [])
 	{
 		\lib\app::variable($_args);
 
@@ -33,7 +33,6 @@ trait edit
 		}
 
 		// no change type of user for every!
-		unset($args['type']);
 
 		if(!\lib\app::isset_request('avatar'))         unset($args['avatar']);
 		if(!\lib\app::isset_request('mobile'))         unset($args['mobile']);
@@ -57,16 +56,28 @@ trait edit
 		if(!\lib\app::isset_request('address'))        unset($args['address']);
 		if(!\lib\app::isset_request('phone'))          unset($args['phone']);
 		if(!\lib\app::isset_request('status'))         unset($args['status']);
-		if(!\lib\app::isset_request('desc'))           unset($args['desc']);
+
+		if($args['type'] === 'supplier')
+		{
+			// no thing
+		}
+		else
+		{
+			if(!\lib\app::isset_request('desc'))           unset($args['desc']);
+			if(!\lib\app::isset_request('displayname'))    unset($args['displayname']);
+		}
+
+		unset($args['type']);
+
 		if(!\lib\app::isset_request('code'))           unset($args['code']);
 
 		if(!empty($args))
 		{
-			$update = \lib\db\userschools::update($args, $id);
+			$update = \lib\db\userstores::update($args, $id);
 
 			if(\lib\debug::$status)
 			{
-				\lib\debug::true(T_(":member successfully updated"));
+				\lib\debug::true(T_("Thirdparty successfully updated"));
 			}
 		}
 

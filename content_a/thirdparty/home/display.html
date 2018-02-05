@@ -1,0 +1,56 @@
+{%extends display.admin%}
+
+{%block pageContent%}
+
+<div class="f justify-center fs12">
+  <div class="c8 m8 s12">
+    <form method="get" data-action class="mB20">
+      <div class="input">
+        <input type="search" name="search" placeholder='{%trans "Search in thirdpartys list"%}' id="search" value="{{utilityGET.search}}">
+        <button class="addon btn ">{%trans "Search" %}</button>
+      </div>
+    </form>
+
+    {%for key, value in thirdparty_list%}
+      <div class="icard">
+        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+          <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
+        </a>
+
+        <div class="f-column align-start fc-black">
+          <a href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+            {%if value.firstname or value.lastname%}
+              {{value.firstname}} <b>{{value.lastname}}</b>
+            {%else%}
+              <b>{{value.displayname}}</b>
+            {%endif%}
+          </a>
+          <span>{{value.father}}</span>
+        </div>
+
+        <div class="justify-start">
+          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
+          {{value.mobile|fitNumber}}
+          {%endif%}
+        </div>
+
+        <div>{{value.birthday|fitNumber}}</div>
+        <div>{{value.nationalcode|fitNumber}}</div>
+      </div>
+    {%endfor%}
+
+    <div class="icard">
+      <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/thirdparty/add">
+        <img src="{{url.static}}siftal/images/useful/adduser.png" alt="add">
+      </a>
+      <div>
+        <a href="{{url.baseFull}}/thirdparty/add" class="btn primary block">{%trans "Add new thirdparty"%}</a>
+      </div>
+    </div>
+
+    {%include display.pagination%}
+  </div>
+</div>
+
+{%endblock%}
+

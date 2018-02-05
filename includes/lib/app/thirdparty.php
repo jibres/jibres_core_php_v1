@@ -55,13 +55,28 @@ class thirdparty
 			return false;
 		}
 
-		if(\lib\app::isset_request('firstname') || \lib\app::isset_request('lastname'))
+		$detail = null;
+
+		if($type === 'supplier')
 		{
-			if(!$firstname && !$lastname)
+			$displayname             = \lib\app::request('company');
+			$detail                  = [];
+			$detail['visitorname']   = \lib\app::request('visitorname');
+			$detail['visitormobile'] = \lib\app::request('visitormobile');
+			$detail                  = json_encode($detail, JSON_UNESCAPED_UNICODE);
+		}
+		else
+		{
+			if(\lib\app::isset_request('firstname') || \lib\app::isset_request('lastname'))
 			{
-				\lib\debug::error(T_("firstname or lastname is required"), ['firstname', 'lastname']);
-				return false;
+				if(!$firstname && !$lastname)
+				{
+					\lib\debug::error(T_("firstname or lastname is required"), ['firstname', 'lastname']);
+					return false;
+				}
 			}
+			$displayname = trim($firstname. ' '. $lastname);
+
 		}
 
 		$father = \lib\app::request('father');
@@ -69,12 +84,6 @@ class thirdparty
 
 		if(\lib\app::isset_request('father'))
 		{
-			if(!$father)
-			{
-				\lib\debug::error(T_("Father name is required"), 'father');
-				return false;
-			}
-
 			if($father && mb_strlen($father) > 100)
 			{
 				\lib\debug::error(T_("Invalid father"), 'father');
@@ -105,39 +114,24 @@ class thirdparty
 			return false;
 		}
 
-		if(\lib\app::isset_request('nationalcode') || \lib\app::isset_request('pasportcode'))
+		$birthday = null;
+
+		if(\lib\app::isset_request('birthday'))
 		{
-			if(!$nationalcode && !$pasportcode)
+			$birthday = \lib\app::request('birthday');
+			$birthday = \lib\date::db($birthday);
+			if($birthday === false)
 			{
-				\lib\debug::error(T_("National code or pasportcode is required"), ['nationalcode', 'pasportcode']);
-				return false;
-			}
-		}
-
-		$birthdate = null;
-
-		if(\lib\app::isset_request('birthdate'))
-		{
-			$birthdate = \lib\app::request('birthdate');
-			$birthdate = \lib\date::db($birthdate);
-			if($birthdate === false)
-			{
-				\lib\debug::error(T_("Invalid birthdate"), 'birthdate');
+				\lib\debug::error(T_("Invalid birthday"), 'birthday');
 				return false;
 			}
 
-			if(!$birthdate)
-			{
-				\lib\debug::error(T_("Birthdate is required"), 'birthdate');
-				return false;
-			}
-
-			$datetime1 = new \DateTime($birthdate);
+			$datetime1 = new \DateTime($birthday);
 			$datetime2 = new \DateTime(date("Y-m-d"));
 
 			if($datetime1 >= $datetime2)
 			{
-				\lib\debug::error(T_("Invalid birthdate, birthdate can not larger than date now!"), 'birthdate');
+				\lib\debug::error(T_("Invalid birthday, birthday can not larger than date now!"), 'birthday');
 				return false;
 			}
 
@@ -146,7 +140,7 @@ class thirdparty
 
 			if($datetime1 >= $datetime2)
 			{
-				\lib\debug::error(T_("Invalid birthdate, birthdate can not larger than date now!"), 'birthdate');
+				\lib\debug::error(T_("Invalid birthday, birthday can not larger than date now!"), 'birthday');
 				return false;
 			}
 
@@ -162,15 +156,6 @@ class thirdparty
 		}
 
 		$gender = \lib\app::request('gender');
-		if(\lib\app::isset_request('gender'))
-		{
-			if(!$gender)
-			{
-				\lib\debug::error(T_('Gender is required'), 'gender');
-				return false;
-			}
-		}
-
 		if($gender && !in_array($gender, ['male', 'female']))
 		{
 			\lib\debug::error(T_("Invalid gender"), 'gender');
@@ -274,7 +259,7 @@ class thirdparty
 
 		$status = \lib\app::request('status');
 		$status = trim($status);
-		if($status && !in_array($status, ['active','awaiting','deactive','removed','filter','unreachable']))
+		if($status && !in_array($status, ['active','deactive','disable','filter','leave','delete','parent','suspended']))
 		{
 			\lib\debug::error(T_("Invalid status"), 'status');
 			return false;
@@ -290,31 +275,55 @@ class thirdparty
 
 		$args                 = [];
 		$args['type']         = $type;
-		$args['mobile']       = $mobile;
-		$args['email']        = $email;
-		$args['shfrom']       = $shfrom;
-		$args['nationalcode'] = $nationalcode;
-		$args['pasportcode']  = $pasportcode;
-		$args['nationalcode'] = $nationalcode;
-		$args['pasportcode']  = $pasportcode;
-		$args['firstname']    = $firstname;
-		$args['lastname']     = $lastname;
-		$args['father']       = $father;
-		$args['birthdate']    = $birthdate;
-		$args['pasportdate']  = $pasportdate;
-		$args['gender']       = $gender;
-		$args['marital']      = $marital;
-		$args['shcode']       = $shcode;
-		$args['birthcity']    = $birthcity;
-		$args['zipcode']      = $zipcode;
-		$args['avatar']       = $avatar;
-		$args['city']         = $city;
-		$args['province']     = $province;
-		$args['country']      = $country;
-		$args['address']      = $address;
-		$args['phone']        = $phone;
 		$args['status']       = $status;
-		$args['desc']         = $desc;
+
+		if($type)
+		{
+			$args[$type]      = 1;
+		}
+
+		if($type === 'supplier')
+		{
+			$args['displayname'] = $displayname;
+			$args['desc']        = $detail;
+		}
+		else
+		{
+			if(\lib\app::isset_request('firstname') || \lib\app::isset_request('lastname'))
+			{
+				if(!$firstname && !$lastname)
+				{
+					\lib\debug::error(T_("Fill name or family is require!"), ['firstname', 'lastname']);
+					return false;
+				}
+			}
+
+			$args['displayname']  = $displayname;
+			$args['mobile']       = $mobile;
+			$args['email']        = $email;
+			$args['shfrom']       = $shfrom;
+			$args['nationalcode'] = $nationalcode;
+			$args['pasportcode']  = $pasportcode;
+			$args['nationalcode'] = $nationalcode;
+			$args['pasportcode']  = $pasportcode;
+			$args['firstname']    = $firstname;
+			$args['lastname']     = $lastname;
+			$args['father']       = $father;
+			$args['birthday']    = $birthday;
+			$args['pasportdate']  = $pasportdate;
+			$args['gender']       = $gender;
+			$args['marital']      = $marital;
+			$args['shcode']       = $shcode;
+			$args['birthcity']    = $birthcity;
+			$args['zipcode']      = $zipcode;
+			$args['avatar']       = $avatar;
+			$args['city']         = $city;
+			$args['province']     = $province;
+			$args['country']      = $country;
+			$args['address']      = $address;
+			$args['phone']        = $phone;
+			$args['desc']         = $desc;
+		}
 
 		return $args;
 	}
@@ -346,12 +355,22 @@ class thirdparty
 					}
 					break;
 
+				case 'desc':
+					if(is_string($value) && $value && substr($value, 0, 1) === '{')
+					{
+						$temp = json_decode($value, true);
+						$result = array_merge($temp, $result);
+					}
+
+					$result[$key] = $value;
+
+					break;
 				default:
 					$result[$key] = $value;
 					break;
 			}
 		}
-
+		// var_dump($result);exit();
 		return $result;
 	}
 

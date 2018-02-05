@@ -1,0 +1,54 @@
+{%extends "content_a/thirdparty/layout.html"%}
+
+{%block data%}
+<form class="cbox" method="post">
+
+
+{%if supplier_mode %}
+
+	{{block("inamecompany")}}
+	<div class="f">
+	  <div class="c pRa5">
+	    {{block("inamevisitor")}}
+	  </div>
+	  <div class="c">
+	    {{block("imobilevisitor")}}
+	  </div>
+	</div>
+
+{%else%}
+
+
+
+	 <div class="f">
+	   <div class="c pRa5">
+	{{block("iname")}}
+	   </div>
+	   <div class="c">
+	{{block("ifamily")}}
+	   </div>
+	 </div>
+
+	 <div class="f">
+	   <div class="c pRa5">
+	{{block("ibirthday")}}
+	   </div>
+	   <div class="c">
+	{{block("incode")}}
+	   </div>
+	 </div>
+
+
+	{{block('iStaffMobile')}}
+	{{block("igender")}}
+
+
+
+{%endif%}
+
+ <div class="f pA5 pT20">
+{{block("isave")}}
+ </div>
+</form>
+{%endblock%}
+

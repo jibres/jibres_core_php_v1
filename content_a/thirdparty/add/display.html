@@ -1,0 +1,114 @@
+{%extends "content_a/thirdparty/layout.html"%}
+
+{%block dataAdd%}
+
+<form method="post" enctype="multipart/form-data">
+
+<div class="f justify-center">
+
+    <div class="c6 s12">
+      <div class="cbox">
+
+        {%if utilityGET.type == 'customer' %}
+
+          {{block('iFormCustomer')}}
+
+        {%elseif utilityGET.type == 'staff'%}
+
+          {{block('iFormStaff')}}
+
+        {%elseif utilityGET.type == 'supplier'%}
+
+          {{block('iFormSupllier')}}
+
+        {%else%}
+
+          <div class="msg txtC"><a href="{{url.baseFull}}/thirdparty/add?type=customer">{%trans "Add new customer"%}</a></div>
+          <div class="msg txtC"><a href="{{url.baseFull}}/thirdparty/add?type=staff">{%trans "Add new staff"%}</a></div>
+          <div class="msg txtC"><a href="{{url.baseFull}}/thirdparty/add?type=supplier">{%trans "Add new supplier"%}</a></div>
+
+        {%endif%}
+      </div>
+    </div>
+  </div>
+</form>
+{%endblock%}
+
+
+
+
+
+{%block iFormCustomer%}
+
+<div class="f">
+  <div class="c pRa5">
+    {{block("iname")}}
+  </div>
+  <div class="c">
+    {{block("ifamily")}}
+  </div>
+</div>
+<div class="f">
+  <div class="c pRa5">
+    {{block("ibirthday")}}
+  </div>
+  <div class="c">
+    {{block("incode")}}
+  </div>
+</div>
+  {{block("imobile")}}
+  {{block("igender")}}
+
+{{block("iadd")}}
+
+{%endblock%}
+
+
+
+
+
+{%block iFormSupllier%}
+
+{{block("inamecompany")}}
+<div class="f">
+  <div class="c pRa5">
+    {{block("inamevisitor")}}
+  </div>
+  <div class="c">
+    {{block("imobilevisitor")}}
+  </div>
+</div>
+
+{{block("iadd")}}
+
+{%endblock%}
+
+
+
+
+
+{%block iFormStaff%}
+
+<div class="f">
+  <div class="c pRa5">
+    {{block("iname")}}
+  </div>
+  <div class="c">
+    {{block("ifamily")}}
+  </div>
+</div>
+<div class="f">
+  <div class="c pRa5">
+    {{block("ibirthday")}}
+  </div>
+  <div class="c">
+    {{block("incode")}}
+  </div>
+</div>
+  {{block("imobile")}}
+  {{block("igender")}}
+
+{{block("iadd")}}
+
+
+{%endblock%}

@@ -1,0 +1,428 @@
+{%extends display.admin%}
+
+{%block pageContent%}
+
+{%if child == "add"%}
+{%block dataAdd%}{%endblock%}
+
+{%else%}
+
+<div class="f">
+ <div class="cauto s12 pA10">
+  {%if supplier_mode%}
+    {{block("psidebarSupplier")}}
+  {%else%}
+    {{block("psidebar")}}
+  {%endif%}
+ </div>
+ <div class="c s12 pA10">
+{%block data%}{%endblock%}
+ </div>
+</div>
+{%endif%}
+{%endblock%}
+
+
+{%block iType%}
+<div class="mT10">
+  <label for="type">{%trans "Type of thirdparty"%} <small class="fc-red">* {%trans "Require"%}</small></label>
+  <div class="f">
+   <div class="radio1">
+    <input type="radio" id="r-customer" name="type" value="customer" {%if thirdparty.type == 'customer' or not thirdparty.type%}checked{%endif%}>
+    <label for="r-customer">{%trans "Customer"%}</label>
+   </div>
+
+   <div class="radio1">
+    <input type="radio" id="r-staff" name="type" value="staff" {%if thirdparty.type == 'staff' %}checked{%endif%}>
+    <label for="r-staff">{%trans "Staff"%}</label>
+   </div>
+
+   <div class="radio1">
+    <input type="radio" id="r-supplier" name="type" value="supplier" {%if thirdparty.type == 'supplier' %}checked{%endif%}>
+    <label for="r-supplier">{%trans "Supplier"%}</label>
+   </div>
+  </div>
+</div>
+{%endblock%}
+
+{%block psidebarSupplier%}
+<div class="cbox normal">
+
+ <div class="vcard">
+  <a href='{{url.baseFull}}/thirdparty/edit/avatar?id={{utilityGET.id}}'>
+  {%if thirdparty.avatar%}
+    <img src="{{thirdparty.avatar}}">
+  {%else%}
+    <img src="{{url.static}}siftal/images/useful/user1.png">
+  {%endif%}
+  </a>
+  <div class="content">
+    <div class="header"><b>{{thirdparty.displayname}}</b></div>
+    <div class="meta"><span>{{thirdparty.visitorname}}</span></div>
+    {%if thirdparty.visitormobile%}
+    <div class="desc"><i class="sf-mobile fs2"></i>{{thirdparty.visitormobile|fitNumber}}</div>
+    {%endif%}
+  </div>
+
+  <!-- <div class="footer">{{thirdparty.nationalcode|fitNumber}}</div> -->
+
+ </div>
+
+</div>
+{%endblock%}
+
+
+{%block psidebar%}
+<div class="cbox normal">
+
+ <div class="vcard">
+  <a href='{{url.baseFull}}/thirdparty/edit/avatar?id={{utilityGET.id}}'>
+  {%if thirdparty.avatar%}
+    <img src="{{thirdparty.avatar}}">
+  {%else%}
+    <img src="{{url.static}}siftal/images/useful/user1.png">
+  {%endif%}
+  </a>
+  <div class="content">
+    <div class="header">{{thirdparty.firstname}} <b>{{thirdparty.lastname}}</b></div>
+    <div class="meta"><span>{{thirdparty.grade_title}}</span></div>
+    {%if thirdparty.mobile%}
+    <div class="desc"><i class="sf-mobile fs2"></i>{{thirdparty.mobile|fitNumber}}</div>
+    {%endif%}
+  </div>
+  {%if thirdparty.nationalcode%}
+  <div class="footer">{{thirdparty.nationalcode|fitNumber}}</div>
+  {%endif%}
+ </div>
+
+ <a class="btn block mTB10" href='{{url.baseFull}}/thirdparty/edit/general?id={{utilityGET.id}}'>{%trans "General Detail"%}</a>
+ <!-- <a class="btn block mTB10" href='{{url.baseFull}}/thirdparty/edit/thumb?id={{utilityGET.id}}'>{%trans "Document Photo"%}</a> -->
+ <a class="btn block mTB10" href='{{url.baseFull}}/thirdparty/edit/contact?id={{utilityGET.id}}'>{%trans "Contact information"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/thirdparty/edit/identification?id={{utilityGET.id}}'>{%trans "Identification detail"%}</a>
+ <a class="btn block mTB10" href='{{url.baseFull}}/thirdparty/edit/address?id={{utilityGET.id}}'>{%trans "Location and address"%}</a>
+</div>
+{%endblock%}
+
+
+
+{%block iname%}
+<label for="name">{%trans "Name"%} <span class="fc-red">*</span></label>
+<div class="input">
+  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{thirdparty.firstname}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+</div>
+{%endblock%}
+
+
+{%block ifamily%}
+<label for="lastName">{%trans "Last name"%} <span class="fc-red">*</span></label>
+<div class="input">
+  <input type="text" name="lastName" id="lastName" placeholder='{%trans "Last name"%}' value="{{thirdparty.lastname}}" maxlength='60'>
+</div>
+{%endblock%}
+
+
+{%block igrade%}
+<label for="grade">{%trans "Grade"%}</label>
+<select name="grade" id="grade" class="select">
+  <option value="" readonly>{%trans "Select thirdparty grade"%}</option>
+  {%for key, value in grade_list%}
+  <option value="{{key}}" {%if thirdparty.grade == key%} selected {%endif%}>{{value.title}}</option>
+  {%endfor%}
+</select>
+{%endblock%}
+
+
+{%block imobile%}
+<label for="mobile">{%trans "Mobile"%}</label>
+<div class="input">
+  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like 09120123456"%}' value="{{thirdparty.mobile}}" maxlength='30'>
+</div>
+{%endblock%}
+
+
+{%block incode%}
+<label for="nationalcode">{%trans "National code"%}</label>
+<div class="input">
+  <input type="number" name="nationalcode" id="nationalcode" placeholder='{%trans "10 digit national code"%}' value="{{thirdparty.nationalcode}}" min=0 max=9999999999>
+</div>
+{%endblock%}
+
+
+{%block ifather%}
+<label for="father">{%trans "Father name"%}</label>
+<div class="input">
+  <input type="text" name="father" id="father" placeholder='{%trans "Father name"%}' value="{{thirdparty.father}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+{%block ibirthday%}
+<label for="birthday">{%trans "Birthday"%}</label>
+<div class="input">
+  <input class="datepicker" type="text" name="birthday" id="birthday" placeholder='{{"1369/04/15" | fitNumber}}' value="{{thirdparty.birthday}}" maxlength='20' data-format="YYYY/MM/DD" data-initialValue='false' data-view="year">
+</div>
+{%endblock%}
+
+
+{%block igender%}
+<div class="switch1 gender pA5">
+ <input type="checkbox" name="gender" id="gender" {%if thirdparty.gender == 'female' or school_gender == 'female'%}checked{%endif%}>
+ <label for="gender"></label>
+ <label for="gender">{%trans "Gender"%}</label>
+</div>
+{%endblock%}
+
+
+{%block iclassroom%}
+<label for="classroom_id">{%trans "Classroom"%}</label>
+<div class="input">
+  <select  name="classroom_id" class="select" id="classroom_id">
+      <option value="">{%trans "Please select one classroom"%}</option>
+    {%for key, value in classroomList%}
+      <option value="{{key}}" {%if key == thirdparty.classroom_id%} selected {%endif%}>{{value}}</option>
+    {%endfor%}
+  </select>
+</div>
+{%endblock%}
+
+
+{%block ibirthcity%}
+<label for="birthcity">{%trans "Birth city"%}</label>
+<div class="input">
+  <input type='text' class="autoList" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{thirdparty.birthplace}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{city_list}}"/>
+
+</div>
+{%endblock%}
+
+
+{%block icountry%}
+<label for='country'>{%trans "Country"%}</label>
+<div class="input">
+ <input type='text' class="autoList" name='country' id='country' data-minchars="1" data-autofirst data-list="{{country_list}}" value="{{thirdparty.country}}" />
+</div>
+{%endblock%}
+
+
+{%block iprovince%}
+
+<label for='province'>{%trans "Province"%}</label>
+<div class="input">
+ <input type='text' class="autoList" name='province' id='province' data-minchars="1" data-autofirst data-list="{{provice_list}}" value="{{thirdparty.province}}" />
+</div>
+{%endblock%}
+
+
+{%block icity%}
+<label for='city'>{%trans "City"%}</label>
+<div class="input">
+ <input type='text' class="autoList" name='city' id='city' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{thirdparty.city}}" />
+</div>
+{%endblock%}
+
+
+{%block izipcode%}
+<label for='zipcode'>{%trans "Zip code"%}</label>
+<div class="input">
+ <input type='number' name='zipcode' id='zipcode' min="0" value="{{thirdparty.zipcode}}"/>
+</div>
+{%endblock%}
+
+
+{%block ireligion%}
+<label for='religion'>{%trans "Religion"%}</label>
+<div class="input">
+ <input type='text' class="autoList" name='religion' id='religion' data-minchars="1" data-autofirst data-list="Islam"/>
+</div>
+{%endblock%}
+
+
+{%block ibirthplace%}
+<label for='birthcity'>{%trans "Birth place"%}</label>
+<div class="input">
+ <input type='text' class="autoList" name='birthcity' id='birthcity' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{thirdparty.birthcity}}" />
+</div>
+{%endblock%}
+
+
+{%block iissueplace%}
+<label for='shfrom'>{%trans "Issue Place"%}</label>
+<div class="input">
+ <input type='text' class="autoList" name='shfrom' id='shfrom' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{thirdparty.shfrom}}" />
+</div>
+
+{%endblock%}
+
+
+{%block ipassport%}
+<label for='pasportcode'>{%trans "Passport id"%}</label>
+<div class="input ltr">
+ <input name='pasportcode' id='pasportcode' value="{{thirdparty.pasportcode}}" />
+
+</div>
+{%endblock%}
+
+
+{%block ipassportexpire%}
+<label for='pasportdate'>{%trans "Passport expire date"%}</label>
+<div class="input ltr">
+ <input name='pasportdate' id='pasportdate' value="{{thirdparty.pasportdate}}" />
+
+</div>
+{%endblock%}
+
+
+{%block iid%}
+<label for='id'>{%trans "Id number"%}</label>
+<div class="input">
+ <input type="tel" name='shcode' id='id' value="{{thirdparty.shcode}}" />
+</div>
+{%endblock%}
+
+
+{%block inid%}
+<label for='nid'>{%trans "National Id"%}</label>
+<div class="input">
+ <input type="tel" name='nationalcode' id='nid' value="{{thirdparty.nationalcode}}" />
+</div>
+{%endblock%}
+
+{%block iaddrress%}
+<label for='addrress'>{%trans "Address"%}</label>
+<div class="input">
+ <input name='address' id='addrress' value="{{thirdparty.address}}" />
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+{%block iStaffMobile%}
+<label for="thirdparty-mobile">{%trans "Mobile of Staff"%}</label>
+<div class="input">
+  <input type="tel" name="mobile" id="thirdparty-mobile" placeholder='{%trans "Like"%} 0912 012 3456' value="{{thirdparty.mobile}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+{%block iPhone%}
+<label for="phone">{%trans "Phone"%}</label>
+<div class="input">
+  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} 025 3650 5281' value="{{thirdparty.phone}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+
+{%block iFatherMobile%}
+<label for="father-mobile">{%trans "Mobile of father"%}</label>
+<div class="input">
+  <input type="tel" name="fathermobile" id="father-mobile" placeholder='{%trans "Like"%} 0912 111 2222' value="{{thirdparty.fathermobile}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+
+{%block iMotherMobile%}
+<label for="mother-mobile">{%trans "Mobile of mother"%}</label>
+<div class="input">
+  <input type="tel" name="mothermobile" id="mother-mobile" placeholder='{%trans "Like"%} 0912 111 2222' value="{{thirdparty.mothermobile}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+{%block iPostcode%}
+<label for="postcode">{%trans "Post code"%}</label>
+<div class="input">
+  <input type="number" name="postcode" id="postcode" placeholder='{%trans "Post code"%}' value="{{thirdparty.postcode}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+{%block iAddress%}
+<label for="address">{%trans "Address"%}</label>
+<div class="input">
+  <input type="text" name="address" id="address" placeholder='{%trans "Address"%}' value="{{thirdparty.address}}" maxlength='500'>
+</div>
+{%endblock%}
+
+
+{%block iEmail%}
+<label for="email">{%trans "Email"%}</label>
+<div class="input">
+  <input type="email" name="email" id="email" placeholder='{%trans "Like"%} abc@example.com' value="{{thirdparty.email}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+{%block iAvatar%}
+<div class="input preview">
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="avatar" id="avatar1" data-preview data-max="500">
+ <label for="avatar1" title="Simple Title">
+    {%if thirdparty.avatar%}<img src="{{thirdparty.avatar}}">{%endif%}
+ </label>
+</div>
+{%endblock%}
+
+
+{%block iNationalthumb%}
+<div class="input preview">
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="nationalthumb" id="nationalthumb" data-preview data-max="500">
+ <label for="nationalthumb" title="Simple Title">
+    {%if thirdparty.nationalthumb%}<img src="{{thirdparty.nationalthumb}}">{%endif%}
+ </label>
+</div>
+{%endblock%}
+
+
+{%block iShthumb%}
+<div class="input preview">
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="shthumb" id="shthumb" data-preview data-max="500">
+ <label for="shthumb" title="Simple Title">
+    {%if thirdparty.shthumb%}<img src="{{thirdparty.shthumb}}">{%endif%}
+ </label>
+</div>
+{%endblock%}
+
+
+
+
+{%block iadd%}
+<button class="btn primary block mT20">{%trans "Add"%}</button>
+{%endblock%}
+
+{%block isave%}
+<button class="btn primary block mT20">{%trans "Save"%}</button>
+{%endblock%}
+
+
+{%block inamecompany%}
+
+
+
+<label for="company">{%trans "Company"%} <span class="fc-red">*</span></label>
+<div class="input">
+  <input type="text" name="company" id="company" placeholder='{%trans "Company"%}' value="{{thirdparty.displayname}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+</div>
+{%endblock%}
+
+
+
+{%block inamevisitor%}
+<label for="visitorname">{%trans "Name"%} <span class="fc-red">*</span></label>
+<div class="input">
+  <input type="text" name="visitorname" id="visitorname" placeholder='{%trans "Visitor name"%}' value="{{thirdparty.visitorname}}" maxlength='60'>
+</div>
+{%endblock%}
+
+
+{%block imobilevisitor%}
+<label for="visitormobile">{%trans "Mobile"%}</label>
+<div class="input">
+  <input type="text" name="visitormobile" id="visitormobile" placeholder='{%trans "Like 09120123456"%}' value="{{thirdparty.visitormobile}}" maxlength='30'>
+</div>
+{%endblock%}
+
+

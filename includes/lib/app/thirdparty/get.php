@@ -14,6 +14,11 @@ trait get
 	 */
 	public static function get($_id, $_options = [])
 	{
+		if(!$_id || !\lib\utility\shortURL::is($_id))
+		{
+			return false;
+		}
+
 		$id = \lib\utility\shortURL::decode($_id);
 		if(!$id)
 		{

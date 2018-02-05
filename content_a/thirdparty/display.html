@@ -18,7 +18,7 @@
       </div>
     </form>
 
-    {%for key, value in staff_list%}
+    {%for key, value in thirdparty_list%}
       <div class="icard">
 {%set myType = value.type | capitalize %}
 
@@ -44,12 +44,12 @@
 
 {%elseif myType == 'Staff'%}
 
-        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/staff/edit/general?id={{value.id}}">
+        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
           <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
         </a>
 
         <div class="f-column align-start fc-black">
-          <a href="{{url.baseFull}}/staff/edit/general?id={{value.id}}">
+          <a href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
             {{value.firstname}} <b>{{value.lastname}}</b>
           </a>
           <span>{{value.father}}</span>
@@ -117,9 +117,9 @@
 
 
 {%block stStaff%}
-<a class="dcard" href='{{url.baseFull}}/staff'>
+<a class="dcard" href='{{url.baseFull}}/thirdparty'>
  <div class="statistic orange">
-  <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.staff_count  | number_format  |fitNumber}}</span></div>
+  <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.thirdparty_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Staff"%}</div>
  </div>
 </a>

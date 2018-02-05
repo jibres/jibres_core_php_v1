@@ -41,7 +41,7 @@ trait add
 
 		if(!$args['status'])
 		{
-			$args['status']  = 'awaiting';
+			$args['status']  = 'active';
 		}
 
 		$user_id = \lib\app\user::add($args, ['debug' => false, 'contact' => false]);
