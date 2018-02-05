@@ -182,16 +182,15 @@ function event_corridor(_e, _self, _key)
 
     case '56shift':         // * | shift + 8
     case '106':             // *
-      var RowCountEl = getSelectedRow();
-      if(RowCountEl)
+      if(check_factor())
       {
-        _e.preventDefault();
-        var RowCountEl = RowCountEl.find('input.count');
-        RowCountEl.select();
-      }
-      else if($('#factorAdd').length)
-      {
-        _e.preventDefault();
+        var RowCountEl = getSelectedRow();
+        if(RowCountEl)
+        {
+          var RowCountEl = RowCountEl.find('input.count');
+          RowCountEl.select();
+        }
+          _e.preventDefault();
       }
       break;
 
@@ -213,12 +212,15 @@ function event_corridor(_e, _self, _key)
 
     case '109':             // minus -
     case '189shift':        // minus -
-      var RowDiscountEl = getSelectedRow();
-      if(RowDiscountEl)
+      if(check_factor())
       {
+        var RowDiscountEl = getSelectedRow();
+        if(RowDiscountEl)
+        {
+          var RowDiscountEl = RowDiscountEl.find('input.discount');
+          RowDiscountEl.select();
+        }
         _e.preventDefault();
-        var RowDiscountEl = RowDiscountEl.find('input.discount');
-        RowDiscountEl.select();
       }
       break;
 
