@@ -1,5 +1,5 @@
 <?php
-namespace content_a\sell\fishprint;
+namespace content_a\sell\export;
 
 
 class controller extends \content_a\main\controller

@@ -94,23 +94,10 @@ class model extends \content_a\main\model
 		{
 			if(isset($factor_detail['factor_id']))
 			{
-				switch (\lib\utility::post('btn_type'))
-				{
-					case 'save_print':
-						$query_data['print'] = 'auto';
-						$query_data['size']  = 'receipt8';
-						$query_data['id']    = $factor_detail['factor_id'];
-
-						$redirect_url = $this->url('base'). '/a/sell/fishprint';
-						break;
-
-					case 'save_next':
-					default:
-						$query_data['lastfactor'] = $factor_detail['factor_id'];
-						$redirect_url = $this->url('base'). '/a/sell/add';
-						// $redirect_url = $this->url('base'). '/a/sell';
-						break;
-				}
+				// $query_data['print'] = 'auto';
+				// $query_data['size']  = 'receipt8';
+				$query_data['id']    = $factor_detail['factor_id'];
+				$redirect_url        = $this->url('base'). '/a/sell/pay';
 			}
 			else
 			{
