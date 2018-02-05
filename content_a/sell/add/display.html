@@ -23,18 +23,6 @@
 
 
 
-{%block customer%}
- <div class="cbox">
-  <div class="f justify-center">
-    <div class="c s12">
-{{block("iCustomer")}}
-    </div>
-    <div class="c4 s12 pLa5">
-{{block("iDesc")}}
-    </div>
-  </div>
- </div>
-{%endblock%}
 
 
 {%block totalPriceDetail%}
@@ -105,9 +93,9 @@
 
 {%block iCustomer%}
 <div class="cbox">
+  <label for='customer'>{%trans "Customer"%} <a class="badge" href="{{url.baseFull}}/thirdparty?type=customer" target='_blank'>{%trans "Add new customer"%}</a></label>
   <div class="input f">
-   <label for='customer' class="addon cauto s0">{%trans "Customer"%}</label>
-   <input class="autoList" type="text" name="customer" id="customer" placeholder='{%trans "Add or choose customer"%}' value="{{product.customer}}" maxlength="100" data-find='customer'>
+   <input class="autoList" type="text" name="customer" id="customer" placeholder='{%trans "Search and choose customer"%}' value="{{product.customer}}" maxlength="100" data-find='customer'>
   </div>
 </div>
 {%endblock%}
@@ -142,7 +130,7 @@
 {%endblock%}
 
 {%block iBarcode%}
-<label for='customer'>{%trans "Last scanned barcode"%}</label>
+<label for='ibarcode'>{%trans "Last scanned barcode"%}</label>
 <div class="input">
  <input class="barCode" type="text" placeholder='{%trans "Last scanned barcode"%}' data-lock data-default>
 </div>
