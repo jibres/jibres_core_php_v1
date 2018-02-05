@@ -19,7 +19,7 @@ class view extends \content_a\main\view
 			$meta['type'] = \lib\utility::get('type');
 		}
 
-		$this->data->thirdparty_list = \lib\app\thirdparty::list(\lib\utility::get('search'), $meta);
+		$this->data->thirdparty_list = \lib\app\thirdparty::list(\lib\utility::get('q'), $meta);
 
 
 		$this->data->dashboard_detail = \lib\app\store::dashboard_detail(\lib\store::id());
