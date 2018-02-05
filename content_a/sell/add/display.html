@@ -93,10 +93,11 @@
 
 {%block iCustomer%}
 <div class="cbox">
-  <label for='customer' class="block">{%trans "Customer"%} <a class="floatRa" href="{{url.baseFull}}/thirdparty?type=customer" target='_blank'><small>{%trans "Add new customer"%}</small></a></label>
   <div class="input f">
-   <input class="autoList" type="text" name="customer" id="customer" placeholder='{%trans "Search and choose customer"%}' value="{{product.customer}}" maxlength="100" data-find='customer'>
+   <input class="autoList" type="text" name="customer" id="customerSearch" placeholder='{%trans "Search in Customers"%}' value="{{product.customer}}" maxlength="100" data-find='customer'>
+   <a class="addon btn secondary" href="{{url.baseFull}}/thirdparty?type=customer" target='_blank'><small>{%trans "Add"%}</small></a>
   </div>
+  <input type="text" class="input" name="customerId">
 </div>
 {%endblock%}
 
