@@ -14,6 +14,8 @@ trait add
 	 */
 	public static function add($_args, $_option = [])
 	{
+		\lib\app::variable($_args);
+
 		$default_option =
 		[
 			'debug'     => true,
@@ -51,20 +53,17 @@ trait add
 			return false;
 		}
 
-		\lib\app::variable($_storetransaction);
 		// check args
 		$args = self::check($_option);
 
 		if($args === false || !\lib\debug::$status)
 		{
-			\lib\db::rollback();
 			return false;
 		}
 
 		$args['store_id'] = \lib\store::id();
 
 		$storetransaction_id = \lib\db\storetransactions::insert($args);
-
 
 		if(!$storetransaction_id)
 		{

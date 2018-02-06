@@ -19,7 +19,8 @@ trait get
 
 		$default_option =
 		[
-			'debug' => true,
+			'debug'       => true,
+			'only_factor' => false,
 		];
 
 		if(!is_array($_option))
@@ -53,29 +54,29 @@ trait get
 			return false;
 		}
 
-
-		$result = \lib\db\factors::get_print($id, \lib\store::id());
-
-		if(!$result)
+		if($_option['only_factor'])
 		{
-			\lib\app::log('api:factor:access:denide', \lib\user::id(), \lib\app::log_meta());
-			if($_option['debug']) debug::error(T_("Can not access to load this factor details"), 'factor');
-			return false;
+			$result = \lib\db\factors::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+			$result = self::ready($result);
 		}
-
-		if(isset($result['factor']))
+		else
 		{
-			$result['factor'] = self::ready($result['factor']);
-		}
+			$result = \lib\db\factors::get_print($id, \lib\store::id());
 
-		if(isset($result['factor_detail']) && is_array($result['factor_detail']))
-		{
-			$temp = [];
-			foreach ($result['factor_detail'] as $key => $value)
+			if(isset($result['factor']))
 			{
-				$temp[] = self::ready($value);
+				$result['factor'] = self::ready($result['factor']);
 			}
-			$result['factor_detail'] = $temp;
+
+			if(isset($result['factor_detail']) && is_array($result['factor_detail']))
+			{
+				$temp = [];
+				foreach ($result['factor_detail'] as $key => $value)
+				{
+					$temp[] = self::ready($value);
+				}
+				$result['factor_detail'] = $temp;
+			}
 		}
 
 		return $result;
