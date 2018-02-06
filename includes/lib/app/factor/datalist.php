@@ -41,7 +41,7 @@ trait datalist
 		[
 			'order' => null,
 			'sort'  => null,
-			'type'  => 'sell',
+			'type'  => null,
 		];
 
 		if(!is_array($_option))
@@ -69,7 +69,11 @@ trait datalist
 
 		$field             = [];
 		$field['store_id'] = \lib\store::id();
-		$field['type']     = $_option['type'];
+
+		if($_option['type'])
+		{
+			$field['type']     = $_option['type'];
+		}
 
 		unset($_option['type']);
 

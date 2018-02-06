@@ -15,6 +15,7 @@
       <thead>
 
         <tr>
+          <th data-sort="{{sort_link.type.order}}"><a href="{{sort_link.type.link}}">{%trans "Type"%}</a></th>
           <th data-sort="{{sort_link.date.order}}"><a href="{{sort_link.date.link}}">{%trans "Invoice Date"%}</a></th>
           <th data-sort="{{sort_link.date.order}}"><a href="{{sort_link.date.link}}">{%trans "Customer"%}</a></th>
           <th data-sort="{{sort_link.item.order}}"><a href="{{sort_link.item.link}}">{%trans "Items"%}</a></th>
@@ -28,6 +29,7 @@
       <tbody>
         {%for key, value in factor_list%}
           <tr>
+            <td>{%set myType = value.type | capitalize%}<a href="{{url.baseFull}}/factor?type={{value.type}}">{%trans myType%}</a></td>
             <td class="ltr txtL"><a href="{{url.baseFull}}/factor/fishprint?id={{value.id}}&size=receipt8">{{value.date|tdate("Y-m-d")}} <b>{{value.date|tdate("H:i:s")}}</b></a></td>
             <td>{{value.customer}}</td>
             <td>{{value.item| number_format | fitNumber}}</td>

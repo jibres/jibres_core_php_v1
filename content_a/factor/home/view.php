@@ -13,7 +13,7 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['text'] = T_('Add new factor');
 
 		// add back to product list link
-		$product_list_link =  '<a href="'. $this->url('baseFull') .'/factor" data-shortkey="121">'. T_('Back to factor list'). ' <kbd>f10</kbd</a>';
+		$product_list_link =  '<a href="'. $this->url('baseFull') .'/factor" data-shortkey="121">'. T_('Back to factor list'). ' <kbd>f10</kbd></a>';
 		$this->data->page['desc']  .= ' '. $product_list_link;
 
 		$args =
@@ -22,12 +22,12 @@ class view extends \content_a\main\view
 			'sort'  => \lib\utility::get('sort'),
 		];
 
-		$this->data->factor_list = \lib\app\factor::list(\lib\utility::get('search'), $args);
-
-		if(!\lib\utility::get('search') && !$this->data->factor_list)
+		if(\lib\utility::get('type'))
 		{
-			$this->redirector($this->url('baseFull'). '/factor/add')->redirect();
+			$args['type'] = \lib\utility::get('type');
 		}
+
+		$this->data->factor_list = \lib\app\factor::list(\lib\utility::get('search'), $args);
 
 		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, $this->url('baseFull'). '/factor');
 
