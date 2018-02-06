@@ -8,14 +8,14 @@
 	</div>
 
 	<div class="c7">
-
+		{{block("paymentMethods")}}
 	</div>
 
 </div>
+{%endblock%}
 
 
-
-
+{%block paymentMethods%}
 <form method="post">
 	<div class="cbox">
 		{%if store_meta.factor.print_status%}
