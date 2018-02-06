@@ -304,6 +304,8 @@ function calcFooterValues(_table)
     {
       $('.priceBox .discount').fadeIn();
     }
+    // show fadein box
+    $('.NextBox').fadeIn().removeClass('hide');
   }
   else
   {

@@ -13,8 +13,8 @@
   </div>
   <div class="c3 x2 s12">
 
-    {{block("totalPriceDetail")}}
     {{block("iCustomer")}}
+    {{block("totalPriceDetail")}}
     {{block("btnNext")}}
 
   </div>
@@ -41,7 +41,7 @@
 
 
 {%block btnNext%}
-<div class="cbox">
+<div class="cbox NextBox hide">
   <button class="cauto btn success block sell_save_btn" type="submit" name="save_btn" value="save_next" id='save_next' data-shortkey='115'>{%trans "Save Factor & Continue"%} <kbd>f4</kbd></button>
 </div>
 {%endblock%}
