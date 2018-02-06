@@ -200,7 +200,7 @@
 {% block iPrintStatus %}
 <div>
   <div class="switch1">
-   <input type="checkbox" name="printStatus" id="printStatus" {%if current_store.meta.factor.print_status%} checked {%endif%}>
+   <input type="checkbox" name="printStatus" id="printStatus" {%if current_store.meta.factor.print_status or not current_store.meta.factor%} checked {%endif%}>
    <label for="printStatus"></label>
    <label for="printStatus">{%trans "Active print factor"%}</label>
   </div>
@@ -209,24 +209,24 @@
 
 
 {% block iPrintList %}
-<div data-response='printStatus'  {%if current_store.meta.factor.print_status%} {%else%} data-response-hide {%endif%}>
+<div data-response='printStatus'  {%if current_store.meta.factor.print_status or not current_store.meta.factor%} {%else%} data-response-hide {%endif%}>
   <div class="f sortable">
 
     <div class="c">
       <div class="switch1">
-       <input type="checkbox" name="print_size[]" id="Fishprint" value="fishprint" {%if   current_store.meta.factor.print_size.fishprint%} checked {%endif%}>
+       <input type="checkbox" name="print_size[]" id="Fishprint" value="fishprint" {%if   current_store.meta.factor.print_size.fishprint or not current_store.meta.facro.print_size%} checked {%endif%}>
        <label for="Fishprint"></label>
        <label for="Fishprint">{%trans "Fish print"%}</label>
       </div>
 
       <div class="switch1">
-       <input type="checkbox" name="print_size[]" id="A4Print" value="a4" {%if   current_store.meta.factor.print_size.a4%} checked {%endif%}>
+       <input type="checkbox" name="print_size[]" id="A4Print" value="a4" {%if   current_store.meta.factor.print_size.a4 or not current_store.meta.facro.print_size%} checked {%endif%}>
        <label for="A4Print"></label>
        <label for="A4Print">{%trans "A4"%}</label>
       </div>
 
       <div class="switch1">
-       <input type="checkbox" name="print_size[]" id="A5Print" value="a5" {%if   current_store.meta.factor.print_size.a5%} checked {%endif%}>
+       <input type="checkbox" name="print_size[]" id="A5Print" value="a5" {%if   current_store.meta.factor.print_size.a5 or not current_store.meta.facro.print_size%} checked {%endif%}>
        <label for="A5Print"></label>
        <label for="A5Print">{%trans "A5"%}</label>
       </div>
@@ -247,19 +247,19 @@
 
   <div class="c">
     <div class="switch1">
-     <input type="checkbox" name="pay[]" value="cash" id="f-waycash" {%if   current_store.meta.factor.pay.cash%} checked {%endif%}>
+     <input type="checkbox" name="pay[]" value="cash" id="f-waycash" {%if   current_store.meta.factor.pay.cash or not current_store.meta.facro.pay%} checked {%endif%}>
      <label for="f-waycash"></label>
      <label for="f-waycash">{%trans "Cash"%}</label>
     </div>
 
     <div class="switch1">
-     <input type="checkbox" name="pay[]" value="pos" id="f-waypos" {%if   current_store.meta.factor.pay.pos%} checked {%endif%}>
+     <input type="checkbox" name="pay[]" value="pos" id="f-waypos" {%if   current_store.meta.factor.pay.pos or not current_store.meta.facro.pay%} checked {%endif%}>
      <label for="f-waypos"></label>
      <label for="f-waypos">{%trans "Pos"%}</label>
     </div>
 
     <div class="switch1">
-     <input type="checkbox" name="pay[]" value="cheque" id="f-waychekc" {%if   current_store.meta.factor.pay.cheque%} checked {%endif%}>
+     <input type="checkbox" name="pay[]" value="cheque" id="f-waychekc" {%if   current_store.meta.factor.pay.cheque or not current_store.meta.facro.pay%} checked {%endif%}>
      <label for="f-waychekc"></label>
      <label for="f-waychekc">{%trans "Check"%}</label>
     </div>
