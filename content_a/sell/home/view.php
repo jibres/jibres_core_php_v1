@@ -13,7 +13,7 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['text'] = T_('Add new sell');
 
 		// add back to product list link
-		$product_list_link =  '<a href="'. $this->url('baseFull') .'/factor" data-shortkey="121">'. T_('Back to factor list'). '</a>';
+		$product_list_link =  '<a href="'. $this->url('baseFull') .'/factor" data-shortkey="121">'. T_('Back to factor list'). ' <kbd>f10</kbd</a>';
 		$this->data->page['desc']  .= ' '. $product_list_link;
 
 		$args =
