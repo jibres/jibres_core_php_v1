@@ -3,51 +3,62 @@
 
 {%block pageContent%}
 <div class="f">
-	<div class="c5 pRa10 mB25">
+  <div class="c5 x3 s12 pRa10 mB25">
 {%embed template.fishprint%}
-{%block storeDetailArea%}{%endblock%}
-{%endembed%}
-	</div>
+  {%block storeDetailArea%}{%endblock%}
 
-	<div class="c7">
-		{{block("paymentMethods")}}
-	</div>
+  {%block footerExtraArea%}
+    {%if store_meta.factor.print_status%}
+    <a class="btn info block mB10" href="{{url.baseFull}}sell/print?">{%trans "Print Status is active"%} <kbd>f8</kbd></a>
+    {%endif%}
+  {%endblock%}
+
+{%endembed%}
+
+  </div>
+
+  <div class="c7 x9 s12">
+    {{block("paymentMethods")}}
+  </div>
 
 </div>
 {%endblock%}
 
 
+
 {%block paymentMethods%}
-<form method="post">
-	<div class="cbox">
-		{%if store_meta.factor.print_status%}
-		<div class="msg success">
-			{%trans "Print Status is active"%}
-		</div>
-		{%endif%}
-		<div class="msg info2">
-		{%if store_meta.factor.print_size%}
-		{%for key, value in store_meta.factor.print_size%}
-				<button class="btn" type="submit" name="{{key}}">{{key}}</button>
-			{%endfor%}
-		{%endif%}
-		</div>
-		<div class="msg info">
-			{%if store_meta.factor.pay%}
-				{%for key, value in store_meta.factor.pay%}
-					<button class="btn" type="submit" name="{{key}}">{{key}}</button>
-				{%endfor%}
-			{%endif%}
-		</div>
-		<div class="info2 msg">
-			{%if store_meta.factor.pos_list%}
-				{%for key, value in store_meta.factor.pos_list%}
-					<button class="btn" type="submit" name="{{key}}">{{key}}</button>
-				{%endfor%}
-			{%endif%}
-		</div>
-	</div>
+<form>
+<div class="cbox">
+
+ <div class="paymentMethods f">
+{%if store_meta.factor.pay%}
+  {%for key, value in store_meta.factor.pay%}
+  <div class="c4">
+    <a class="dcard x2">
+     <div class="statistic brown">
+      <div class="value"><i class="sf-{{key}}"></i></div>
+      <div class="label" name="{{key}}">{%trans key%}</div>
+     </div>
+    </a>
+  </div>
+  {%endfor%}
+{%endif%}
+ </div>
+</div>
+
+<div class="cbox">
+  <div class="paymentDetails txtC">
+      {%if store_meta.factor.pos_list%}
+        {%for key, value in store_meta.factor.pos_list%}
+          <div class="radioGateway" title='{%trans value%}'>
+           <input type="radio" name="bank" value="{{value}}" id="p-{{value}}">
+           <label for='p-{{value}}' class="spay-64-{{value}}"></label>
+          </div>
+        {%endfor%}
+      {%endif%}
+  </div>
+</div>
+
 </form>
-
-
 {%endblock%}
+
