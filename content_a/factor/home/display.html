@@ -50,6 +50,16 @@
 
 {%endblock%}
 
+{%block footer2%}
+  <a class="c btn mA10" href='{{url.baseFull}}/factor/add?type=sell'>{%trans "Sell"%}</a>
+  <a class="c btn mA10" href='{{url.baseFull}}/factor/add?type=buy'>{%trans "Buy"%}</a>
+  <a class="c btn mA10" href='{{url.baseFull}}/factor/add?type=prefactor'>{%trans "Prefactor"%}</a>
+  <a class="c btn mA10" href='{{url.baseFull}}/factor/add?type=lending'>{%trans "Lending"%}</a>
+  <a class="c btn mA10" href='{{url.baseFull}}/factor/add?type=backbuy'>{%trans "Backbuy"%}</a>
+  <a class="c btn mA10" href='{{url.baseFull}}/factor/add?type=backfactor'>{%trans "Backfactor"%}</a>
+  <a class="c btn mA10" href='{{url.baseFull}}/factor/add?type=waste'>{%trans "Waste"%}</a>
+{%endblock%}
+
 
 
 {%block all_field_we_have_hidden%}
