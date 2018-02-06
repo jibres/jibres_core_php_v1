@@ -6,7 +6,7 @@ class view extends \mvc\view
 {
 	public function repository()
 	{
-		$this->data->bodyclass = 'fixed unselectable siftal';
+		$this->data->bodyclass = 'siftal';
 		$this->include->chart  = true;
 
 		$this->data->display['jibresControlLayout'] = 'content_c/main/layout.html';
