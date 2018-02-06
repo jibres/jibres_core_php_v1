@@ -7,6 +7,9 @@ class model extends \content_a\main\model
 
 	public static function getPost($_old_meta = [])
 	{
+		// @important!
+		// if you want to change this array
+		// must be change the array in view of factor/pay/view.php
 		$default_meta =
 		[
 			'print_status'  => false,

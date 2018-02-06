@@ -12,8 +12,42 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['link'] = $this->url('baseFull'). '/sell';
 		$this->data->page['badge']['text'] = T_('Back to last sales');
 
-		$store_meta = \lib\store::detail('meta');
-		$this->data->store_meta = $store_meta;
+		$store_factor_setting = \lib\store::detail('meta');
+
+		$default_meta =
+		[
+			'print_status'  => true,
+			'print_size'    =>
+			[
+				'fishprint' => true,
+				'a4'        => true,
+				'a5'        => true,
+			],
+			'detault_print' => 'fishprint',
+
+			'pay_status' => true,
+			'pay'        =>
+			[
+				'cash'   => true,
+				'pos'    => true,
+				'cheque' => true,
+			],
+
+			'detault_pay' => 'cash',
+			'pos_list'    =>  [],
+			'default_pos' => null,
+		];
+
+		if(isset($store_factor_setting['factor']) && is_array($store_factor_setting['factor']))
+		{
+			$store_factor_setting = array_merge($default_meta, $store_factor_setting['factor']);
+		}
+		else
+		{
+			$store_factor_setting = $default_meta;
+		}
+
+		$this->data->store_meta['factor'] = $store_factor_setting;
 
 		// add to factor main
 		$this->data->template['fishprint'] = 'content_a/sell/fishprint/fishprint.html';
