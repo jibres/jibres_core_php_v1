@@ -1,5 +1,5 @@
 <?php
-namespace content_a\factor;
+namespace content_a\factor\selector;
 
 
 class controller extends \content_a\main\controller
