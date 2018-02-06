@@ -4,7 +4,7 @@ CREATE TABLE `storetransactions` (
 `title` text NULL DEFAULT NULL,
 `type` varchar(100) NULL DEFAULT NULL,
 `store_id` int(10) UNSIGNED NOT NULL,
-`userstore_id` bigint(20) UNSIGNED NOT NULL,
+`userstore_id` bigint(20) UNSIGNED NULL,
 `operator` bigint(20) UNSIGNED NOT NULL,
 `fund_id` int(10) UNSIGNED DEFAULT NULL,
 `factor_id` bigint(20) UNSIGNED DEFAULT NULL,
