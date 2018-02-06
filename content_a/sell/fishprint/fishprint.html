@@ -1,0 +1,104 @@
+
+<div class="factor printArea" data-size='{{pageSize}}'>
+
+{%block storeDetailArea%}
+ <div class="f storeDetail">
+  <div class="c8">
+   <h1>{{store.name}}</h1>
+   <address>
+    <div class="address">{{store.address}}</div>
+    <div class="f">
+     <div class="phone">{{store.phone | fitNumber}}</div>
+     <div class="website">{{store.website}}</div>
+    </div>
+   </address>
+   <div class="desc">{{store.desc}}</div>
+  </div>
+  <div class="c4 logo txtRa">
+   <img src="{{store.logo}}" alt="{{store.name}}">
+  </div>
+ </div>
+{%endblock%}
+
+
+
+{%block factorDetailArea%}
+ <div class="f factorDetail">
+  <div class="c">
+   <div class="datetime"><span class="date">{{sell_detail.factor.date | jdate('l j F Y')}}</span> | <span class="time">{{sell_detail.factor.date | jdate('G:i:s')}}</span></div>
+   <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{sell_detail.factor.id}}'>{{sell_detail.factor.id}}</code></div>
+  </div>
+  <div class="cauto os">
+   <svg class="barcodePrev" data-val="#barcode" data-height=20 data-hideValue></svg>
+  </div>
+ </div>
+{%endblock%}
+
+
+
+{%block factorTableArea%}
+ <table class="tbl">
+  <thead class="primary fs07 txtC">
+   <th>{%trans "Name"%}</th>
+   <th>{%trans "Qty"%}</th>
+   <th>{%trans "Price"%}</th>
+{%if sell_detail.factor.detaildiscount%}
+   <th>{%trans "Discount"%}</th>
+{%endif%}
+   <th>{%trans "Sum"%}</th>
+  </thead>
+  <tbody class="txtC">
+ {%for key, datarow in sell_detail.factor_detail%}
+  <tr>
+   <td>{{datarow.title}}</td>
+   <td>{{datarow.factordetails_count  | fitNumber}}</td>
+   <td>{{datarow.factordetails_price | number_format | fitNumber}}</td>
+{%if sell_detail.factor.detaildiscount%}
+   <td>{{datarow.factordetails_discount | number_format | fitNumber}}</td>
+{%endif%}
+   <td>{{datarow.factordetails_sum | number_format | fitNumber}}</td>
+  </tr>
+ {%endfor%}
+  </tbody>
+
+{%if sell_detail.factor.item > 0%}
+  <tfoot class="txtC">
+   <th>{{sell_detail.factor.item | number_format | fitNumber}}</th>
+   <th>{{sell_detail.factor.qty | fitNumber}}</th>
+   <th></th>
+{%if sell_detail.factor.detaildiscount%}
+   <th></th>
+{%endif%}
+   <th>{{sell_detail.factor.sum | number_format | fitNumber}}</th>
+  </tfoot>
+{%endif%}
+
+ </table>
+{%endblock%}
+
+
+
+{%block factorResultArea%}
+ <table class="tbl fs12 factorResult mB25">
+  <tbody>
+{%if sell_detail.factor.detaildiscount%}
+   <tr>
+     <th class="txtRa">{%trans "Invoice amount"%}</th>
+     <td class="collapsing txtLa">{{sell_detail.factor.detailsum | number_format |fitNumber}}</td>
+   </tr>
+   <tr>
+     <th class="txtRa">{%trans "Your total discount and profits"%}</th>
+     <td class="collapsing txtLa">{{sell_detail.factor.detaildiscount | number_format |fitNumber}}</td>
+   </tr>
+{%endif%}
+   <tr class="alert alert-info factorSum">
+     <th class="txtRa">{%trans "Total payable"%}</th>
+     <td class="collapsing txtLa">{{sell_detail.factor.sum | number_format |fitNumber}}</td>
+   </tr>
+  </tbody>
+
+ </table>
+{%endblock%}
+
+</div>
+

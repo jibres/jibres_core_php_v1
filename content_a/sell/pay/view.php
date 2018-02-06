@@ -15,6 +15,9 @@ class view extends \content_a\main\view
 		$store_meta = \lib\store::detail('meta');
 		$this->data->store_meta = $store_meta;
 
+		// add to factor main
+		$this->data->template['fishprint'] = 'content_a/sell/fishprint/fishprint.html';
+		$this->data->pageSize = 'receipt8';
 	}
 }
 ?>
