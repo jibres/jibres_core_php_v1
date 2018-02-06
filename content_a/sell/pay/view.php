@@ -12,7 +12,9 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['link'] = $this->url('baseFull'). '/sell';
 		$this->data->page['badge']['text'] = T_('Back to last sales');
 
-		$store_factor_setting = \lib\store::detail('meta');
+		$meta                    = [];
+		$this->data->sell_detail = \lib\app\factor::get(['id' => \lib\utility::get('id')], $meta);
+		$store_factor_setting    = \lib\store::detail('meta');
 
 		$default_meta =
 		[
