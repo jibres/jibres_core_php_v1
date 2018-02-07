@@ -16,8 +16,8 @@
 
 <div class="f">
  <div class="c3 s6">{{block ("stCustomer")}}</div>
- <div class="c3 s6">{{block ("stSupplier")}}</div>
  <div class="c3 s6">{{block ("stStaff")}}</div>
+ <div class="c3 s6">{{block ("stSupplier")}}</div>
  <div class="c3 s6">{{block ("prDate")}}</div>
 </div>
 
@@ -164,7 +164,7 @@ remain_percent -->
 
 
 {%block stCustomer%}
-<a class="dcard" href='{{url.baseFull}}/customer'>
+<a class="dcard" href='{{url.baseFull}}/thirdparty?type=customer'>
  <div class="statistic gray">
   <div class="value"><i class="sf-user"></i><span>{{dashboard_detail.customer_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Customer"%}</div>
@@ -174,7 +174,7 @@ remain_percent -->
 
 
 {%block stSupplier%}
-<a class="dcard" href='{{url.full}}/supplier'>
+<a class="dcard" href='{{url.full}}/thirdparty?type=supplier'>
  <div class="statistic teal">
   <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboard_detail.supplier_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Supplier"%}</div>
@@ -184,7 +184,7 @@ remain_percent -->
 
 
 {%block stStaff%}
-<a class="dcard" href='{{url.full}}/staff'>
+<a class="dcard" href='{{url.full}}/thirdparty?type=staff'>
  <div class="statistic orange">
   <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.staff_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Staff"%}</div>
