@@ -152,7 +152,7 @@
 
 
 {%block stCustomer%}
-<a class="dcard" href='{{url.baseFull}}/thirdparty?type=customer'>
+<a class="dcard {%if utilityGET.type == 'customer'%}active{%endif%}" href='{{url.baseFull}}/thirdparty?type=customer'>
  <div class="statistic gray">
   <div class="value"><i class="sf-users"></i><span>{{dashboard_detail.customer_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Customer"%}</div>
@@ -162,7 +162,7 @@
 
 
 {%block stSupplier%}
-<a class="dcard" href='{{url.baseFull}}/thirdparty?type=supplier'>
+<a class="dcard {%if utilityGET.type == 'supplier'%}active{%endif%}" href='{{url.baseFull}}/thirdparty?type=supplier'>
  <div class="statistic teal">
   <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboard_detail.supplier_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Supplier"%}</div>
@@ -172,7 +172,7 @@
 
 
 {%block stStaff%}
-<a class="dcard" href='{{url.baseFull}}/thirdparty?type=staff'>
+<a class="dcard {%if utilityGET.type == 'staff'%}active{%endif%}" href='{{url.baseFull}}/thirdparty?type=staff'>
  <div class="statistic orange">
   <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.staff_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Staff"%}</div>
