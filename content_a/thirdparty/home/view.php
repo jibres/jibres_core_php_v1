@@ -10,10 +10,13 @@ class view extends \content_a\main\view
 
 		$meta = [];
 
-		if(\lib\utility::get('type'))
+		$type = \lib\utility::get('type');
+
+		if($type && in_array($type, ['customer', 'staff', 'suppliser']))
 		{
-			$meta['type'] = \lib\utility::get('type');
+			$meta[$type] = 1;
 		}
+
 
 		$meta['order'] = 'desc';
 

@@ -70,15 +70,20 @@ class factor
 			}
 			else
 			{
-				$search_customer = \lib\db\userstores::search_customer($customer, \lib\store::id());
-				if(isset($search_customer['id']))
+				$customer_detail = \lib\db\userstores::search_customer($customer, \lib\store::id());
+				if(isset($customer_detail['id']))
 				{
-					$customer = $search_customer['id'];
+					$customer = $customer_detail['id'];
 				}
 				else
 				{
 					$customer = null;
 				}
+			}
+			// every one sell one more time set this is a customer
+			if(isset($customer_detail['id']) && !isset($customer_detail['customer']))
+			{
+				\lib\db\userstores::update(['customer' => 1], $customer_detail['id']);
 			}
 		}
 

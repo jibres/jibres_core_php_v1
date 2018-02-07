@@ -116,7 +116,7 @@ class thirdparty
 
 		$birthday = null;
 
-		if(\lib\app::isset_request('birthday'))
+		if(\lib\app::isset_request('birthday') && \lib\app::request('birthday'))
 		{
 			$birthday = \lib\app::request('birthday');
 			$birthday = \lib\date::db($birthday);
