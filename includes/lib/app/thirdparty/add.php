@@ -44,6 +44,25 @@ trait add
 			$args['status']  = 'active';
 		}
 
+		if(isset($args['code']) && $args['code'])
+		{
+
+			$check_duplicate =
+			[
+				'code'  => $args['code'],
+				'store_id' => \lib\store::id(),
+				'limit'    => 1,
+			];
+
+			$check_duplicate = \lib\db\userstores::get($check_duplicate);
+
+			if(isset($check_duplicate['id']))
+			{
+				\lib\debug::error(T_("Duplicate customer code in this store"), 'code');
+				return false;
+			}
+		}
+
 		$user_id = \lib\app\user::add($args, ['debug' => false, 'contact' => false]);
 
 		if(!\lib\debug::$status || !isset($user_id['user_id']))

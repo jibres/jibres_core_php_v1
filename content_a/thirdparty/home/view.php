@@ -15,6 +15,8 @@ class view extends \content_a\main\view
 			$meta['type'] = \lib\utility::get('type');
 		}
 
+		$meta['order'] = 'desc';
+
 		$this->data->thirdparty_list = \lib\app\thirdparty::list(\lib\utility::get('q'), $meta);
 
 

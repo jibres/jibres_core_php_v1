@@ -210,6 +210,14 @@ class thirdparty
 			return false;
 		}
 
+
+		$code = \lib\app::request('code');
+		if ($code && mb_strlen($code) > 100)
+		{
+			\lib\debug::error(T_("Invalid code"), 'code');
+			return false;
+		}
+
 		$email = \lib\app::request('email');
 		if ($email && mb_strlen($email) > 150)
 		{
@@ -300,6 +308,7 @@ class thirdparty
 
 			$args['displayname']  = $displayname;
 			$args['mobile']       = $mobile;
+			$args['code']         = $code;
 			$args['email']        = $email;
 			$args['shfrom']       = $shfrom;
 			$args['nationalcode'] = $nationalcode;
@@ -309,7 +318,7 @@ class thirdparty
 			$args['firstname']    = $firstname;
 			$args['lastname']     = $lastname;
 			$args['father']       = $father;
-			$args['birthday']    = $birthday;
+			$args['birthday']     = $birthday;
 			$args['pasportdate']  = $pasportdate;
 			$args['gender']       = $gender;
 			$args['marital']      = $marital;

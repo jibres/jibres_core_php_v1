@@ -430,7 +430,7 @@
 {%block icode%}
 <label for="code">{%trans "Customer code"%}</label>
 <div class="input">
-  <input type="number" name="code" id="code" placeholder='{%trans "Customer code"%}' value="{{customer.code}}" min=0 max=9999999999>
+  <input type="number" name="code" id="code" placeholder='{%trans "Customer code"%}' value="{{thirdparty.code}}" min=0 max=9999999999>
 </div>
 {%endblock%}
 
@@ -438,6 +438,6 @@
 {%block iDesc%}
 <label for="desc">{%trans "Desctiption"%}</label>
 <div class="input">
-  <textarea  name="desc" id="desc" placeholder='{%trans "Desctiption"%}' class="txt" rows="4">{{customer.desc}}</textarea>
+  <textarea  name="desc" id="desc" placeholder='{%trans "Desctiption"%}' class="txt" rows="4">{{thirdparty.desc}}</textarea>
 </div>
 {%endblock%}
