@@ -13,12 +13,12 @@
 
     {%for key, value in thirdparty_list%}
       <div class="icard">
-        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+        <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/edit/general?id={{value.id}}">
           <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
         </a>
 
         <div class="f-column align-start fc-black">
-          <a href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+          <a href="{{modulePath}}/edit/general?id={{value.id}}">
             {%if value.firstname or value.lastname%}
               {{value.firstname}} <b>{{value.lastname}}</b>
             {%else%}
@@ -40,11 +40,11 @@
     {%endfor%}
 
     <div class="icard">
-      <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/thirdparty/add">
+      <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/add">
         <img src="{{url.static}}siftal/images/useful/adduser.png" alt="add">
       </a>
       <div>
-        <a href="{{url.baseFull}}/thirdparty/add" class="btn primary block">{%trans "Add new thirdparty"%}</a>
+        <a href="{{modulePath}}/add" class="btn primary block">{%trans "Add new thirdparty"%}</a>
       </div>
     </div>
 
@@ -58,9 +58,9 @@
 {%block pageContent%}
 
 <div class="f mB25">
- <div class="c4 s6">{{block ("stSupplier")}}</div>
  <div class="c4 s6">{{block ("stCustomer")}}</div>
  <div class="c4 s6">{{block ("stStaff")}}</div>
+ <div class="c4 s6">{{block ("stSupplier")}}</div>
 </div>
 <div class="f justify-center fs12">
 
@@ -68,7 +68,7 @@
 
     <form method="get" data-action class="mB20">
       <div class="input">
-        <input type="search" name="q" placeholder='{%trans "Search in third parties list"%}' id="search" value="{{utilityGET.q}}">
+        <input type="search" name="q" placeholder='{%trans "Search"%}' id="search" value="{{utilityGET.q}}">
         <button class="addon btn ">{%trans "Search" %}</button>
       </div>
     </form>
@@ -79,12 +79,12 @@
 
 {%if myType == 'Customer'%}
 
-        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+        <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/edit/general?id={{value.id}}">
           <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
         </a>
 
         <div class="f-column align-start fc-black">
-          <a href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+          <a href="{{modulePath}}/edit/general?id={{value.id}}">
             {{value.firstname}} <b>{{value.lastname}}</b>
           </a>
           <span>{{value.code}}</span>
@@ -95,16 +95,16 @@
           {{value.mobile|fitNumber}}
           {%endif%}
         </div>
-        <div><a href="{{url.baseFull}}/thirdparty?type={{value.type}}">{%trans myType%}<i class="sf-users"></a></i></div>
+        <div><a href="{{modulePath}}?type={{value.type}}">{%trans myType%}<i class="sf-users"></a></i></div>
 
 {%elseif myType == 'Staff'%}
 
-        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+        <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/edit/general?id={{value.id}}">
           <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
         </a>
 
         <div class="f-column align-start fc-black">
-          <a href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+          <a href="{{modulePath}}/edit/general?id={{value.id}}">
             {{value.firstname}} <b>{{value.lastname}}</b>
           </a>
           <span>{{value.father}}</span>
@@ -116,16 +116,16 @@
           {%endif%}
         </div>
 
-        <div><a href="{{url.baseFull}}/thirdparty?type={{value.type}}">{%trans myType%} <i class="sf-user-4"></a></i></div>
+        <div><a href="{{modulePath}}?type={{value.type}}">{%trans myType%} <i class="sf-user-4"></a></i></div>
 
 {%elseif myType == 'Supplier'%}
 
-        <a class="size-we50 size-he50 pA2p5" href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+        <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/edit/general?id={{value.id}}">
           <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
         </a>
 
         <div class="f-column align-start fc-black">
-          <a href="{{url.baseFull}}/thirdparty/edit/general?id={{value.id}}">
+          <a href="{{modulePath}}/edit/general?id={{value.id}}">
             <b>{{value.displayname}}</b><small>{{value.visitorname}}</small>
           </a>
         </div>
@@ -137,7 +137,7 @@
           {%endif%}
         </div>
 
-        <div><a href="{{url.baseFull}}/thirdparty?type={{value.type}}">{%trans myType%} <i class="sf-network"></a></i></div>
+        <div><a href="{{modulePath}}?type={{value.type}}">{%trans myType%} <i class="sf-network"></a></i></div>
 
 {%endif%}
 
@@ -152,30 +152,31 @@
 
 
 {%block stCustomer%}
-<a class="dcard {%if utilityGET.type == 'customer'%}active{%endif%}" href='{{url.baseFull}}/thirdparty?type=customer'>
+<a class="dcard {%if utilityGET.type == 'customer'%}active{%endif%}" href='{{modulePath}}?type=customer' data-shortkey="49shift">
  <div class="statistic gray">
   <div class="value"><i class="sf-users"></i><span>{{dashboard_detail.customer_count |number_format |fitNumber}}</span></div>
-  <div class="label">{%trans "Customer"%}</div>
- </div>
-</a>
-{%endblock%}
-
-
-{%block stSupplier%}
-<a class="dcard {%if utilityGET.type == 'supplier'%}active{%endif%}" href='{{url.baseFull}}/thirdparty?type=supplier'>
- <div class="statistic teal">
-  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboard_detail.supplier_count |number_format |fitNumber}}</span></div>
-  <div class="label">{%trans "Supplier"%}</div>
+  <div class="label">{%trans "Customer"%} <kbd>Shift+1</kbd></div>
  </div>
 </a>
 {%endblock%}
 
 
 {%block stStaff%}
-<a class="dcard {%if utilityGET.type == 'staff'%}active{%endif%}" href='{{url.baseFull}}/thirdparty?type=staff'>
+<a class="dcard {%if utilityGET.type == 'staff'%}active{%endif%}" href='{{modulePath}}?type=staff' data-shortkey="50shift">
  <div class="statistic orange">
   <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.staff_count  | number_format  |fitNumber}}</span></div>
-  <div class="label">{%trans "Staff"%}</div>
+  <div class="label">{%trans "Staff"%} <kbd>Shift+2</kbd></div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block stSupplier%}
+<a class="dcard {%if utilityGET.type == 'supplier'%}active{%endif%}" href='{{modulePath}}?type=supplier' data-shortkey="51shift">
+ <div class="statistic teal">
+  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboard_detail.supplier_count |number_format |fitNumber}}</span></div>
+  <div class="label">{%trans "Supplier"%} <kbd>Shift+3</kbd></div>
  </div>
 </a>
 {%endblock%}

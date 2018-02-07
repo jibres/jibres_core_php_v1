@@ -47,6 +47,8 @@ class view extends \content_a\main\view
 		{
 			$this->data->page['title'] = T_('List of :type', ['type' => $this->data->moduleType.'s']);
 			$this->data->page['desc']  = T_('Search in list of :type, add and edit and manage them.', ['type' => $this->data->moduleType.'s']);
+			$this->data->page['desc']  .= ' <a href="'. $this->data->modulePath .'" data-shortkey="121">'. T_('List of all third parties.'). '<kbd>f10</kbd></a>';
+
 
 			$this->data->page['badge']['link'] = $this->data->modulePath. '/add?type='. $this->data->moduleType;
 			$this->data->page['badge']['text'] = T_('Add new :type', ['type' => $this->data->moduleType]);
