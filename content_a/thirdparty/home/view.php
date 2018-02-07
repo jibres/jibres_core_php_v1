@@ -6,13 +6,9 @@ class view extends \content_a\main\view
 {
 	public function config()
 	{
-		$this->data->page['title'] = T_('List of thirdpartys');
-		$this->data->page['desc']  = T_('You can search in list of thirdpartys, add new member and edit existing.');
+		self::set_best_title();
 
-		$this->data->page['badge']['link'] = $this->url('baseFull'). '/thirdparty/add';
-		$this->data->page['badge']['text'] = T_('Add new thirdparty');
-
-		$meta         = [];
+		$meta = [];
 
 		if(\lib\utility::get('type'))
 		{
@@ -28,6 +24,34 @@ class view extends \content_a\main\view
 		{
 			$this->data->pagnation = $this->controller->pagnation_get();
 		}
+	}
+
+
+
+	private function set_best_title()
+	{
+		// set usable variable
+		$this->data->modulePath = $this->url('baseFull'). '/thirdparty';
+		$this->data->moduleType = \lib\utility::get('type');
+
+		// set default title
+		$this->data->page['title'] = T_('List of third parties');
+		$this->data->page['desc']  = T_('All type of poeple or companies like customers, staffs and supplisers is known as third parties that work with your store is exist here');
+		// set badge
+		$this->data->page['badge']['link'] = $this->data->modulePath. '/selector';
+		$this->data->page['badge']['text'] = T_('Add new third party');
+
+
+		// for special condition
+		if($this->data->moduleType)
+		{
+			$this->data->page['title'] = T_('List of :type', ['type' => $this->data->moduleType.'s']);
+			$this->data->page['desc']  = T_('Search in list of :type, add and edit and manage them.', ['type' => $this->data->moduleType.'s']);
+
+			$this->data->page['badge']['link'] = $this->data->modulePath. '/add?type='. $this->data->moduleType;
+			$this->data->page['badge']['text'] = T_('Add new :type', ['type' => $this->data->moduleType]);
+		}
+
 	}
 }
 ?>
