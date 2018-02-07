@@ -38,7 +38,7 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('List of third parties');
 		$this->data->page['desc']  = T_('All type of poeple or companies like customers, staffs and supplisers is known as third parties that work with your store is exist here');
 		// set badge
-		$this->data->page['badge']['link'] = $this->data->modulePath. '/selector';
+		$this->data->page['badge']['link'] = $this->data->modulePath. '/add';
 		$this->data->page['badge']['text'] = T_('Add new third party');
 
 
