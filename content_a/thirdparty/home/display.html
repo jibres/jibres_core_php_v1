@@ -154,7 +154,7 @@
 {%block stCustomer%}
 <a class="dcard {%if utilityGET.type == 'customer'%}active{%endif%}" href='{{modulePath}}?type=customer' data-shortkey="49shift">
  <div class="statistic gray">
-  <div class="value"><i class="sf-users"></i><span>{{dashboard_detail.customer_count |number_format |fitNumber}}</span></div>
+  <div class="value"><i class="sf-user"></i><span>{{dashboard_detail.customer_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Customer"%} <kbd>Shift+1</kbd></div>
  </div>
 </a>

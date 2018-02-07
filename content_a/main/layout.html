@@ -17,16 +17,26 @@
   </li>
 
 
-  <li><a href="{{url.baseFull}}/thirdparty"><i class="sf-users"></i>{%trans "Third Parties"%}</a></li>
+  <li>
+    <a href="{{url.baseFull}}/thirdparty"><i class="sf-users"></i>{%trans "Third Parties"%}</a>
+{%if module == "thirdparty"%}
+    <ul>
+      <li><a href="{{url.baseFull}}/thirdparty?type=customer"><i class="sf-user"></i>{%trans "Customers"%}</a></li>
+      <li><a href="{{url.baseFull}}/thirdparty?type=staff"><i class="sf-user-4"></i>{%trans "Staffs"%}</a></li>
+      <li><a href="{{url.baseFull}}/thirdparty?type=supplier"><i class="sf-network"></i>{%trans "Suppliers"%}</a></li>
+    </ul>
+{%endif%}
+  </li>
+
   <li>
     <a href="{{url.baseFull}}/factor"><i class="sf-print"></i>{%trans "Factor"%}</a>
 
-  {%if module == "sell" or module == "factor"%}
+{%if module == "factor"%}
     <ul>
       <li><a href="{{url.baseFull}}/sell"><i class="sf-list"></i>{%trans "List of last sales"%}</a></li>
       <li><a href="{{url.baseFull}}/sell/add"><i class="sf-plus"></i>{%trans "register new sale"%}</a></li>
     </ul>
-  {%endif%}
+{%endif%}
 
   </li>
   <li><a href="{{url.baseFull}}/setting/general"><i class="sf-cogs"></i>{%trans "Setting"%}</a></li>
