@@ -79,8 +79,21 @@ class factor
 			return false;
 		}
 
+		$type = \lib\app::request('type');
+		if($type && !in_array($type, ['buy','sell','prefactor','lending','backbuy','backfactor','waste']))
+		{
+			\lib\debug::error(T_("Invalid type of factor"), 'type');
+			return false;
+		}
+
+		if(!$type)
+		{
+			$type = 'sell';
+		}
+
 		$args                   = [];
 		$args['customer']       = $customer;
+		$args['type']           = $type;
 		$args['seller']         = \lib\userstore::id();
 		$args['date']           = date("Y-m-d H:i:s");
 		$args['shamsidate']     = \lib\utility\jdate::date("Ymd", time(), false);
@@ -224,11 +237,38 @@ class factor
 					\lib\app\product::buyprice_check($product_id, $price_change);
 
 					self::stock_plus($product_id, floatval($value['count']), true);
-
 					break;
 
+					// -------------------- prefactor
+					case 'prefactor':
+						// no thing
+						break;
+
+					// -------------------- backbuy
+					case 'lending':
+						self::stock_minus($product_id, floatval($value['count']), true);
+						break;
+
+					// -------------------- backbuy
+					case 'backbuy':
+						self::stock_minus($product_id, floatval($value['count']), true);
+						break;
+
+					// -------------------- backfactor
+					case 'backfactor':
+						self::sold_minus($product_id, floatval($value['count']), true);
+						self::stock_plus($product_id, floatval($value['count']), true);
+						break;
+
+					// -------------------- wast
+					case 'waste':
+						self::stock_minus($product_id, floatval($value['count']), true);
+						break;
+
+					// invalid type
 				default:
-					# code...
+						\lib\debug::error(T_("Invalid factor type"), 'type');
+						return false;
 					break;
 			}
 

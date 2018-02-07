@@ -1,5 +1,5 @@
 <?php
-namespace content_a\factor\pay;
+namespace content_a\factor\opr;
 
 
 class controller extends \content_a\main\controller
@@ -12,7 +12,7 @@ class controller extends \content_a\main\controller
 		}
 
 		$this->get()->ALL();
-		$this->post('pay')->ALL();
+		$this->post('opr')->ALL();
 	}
 }
 ?>

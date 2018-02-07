@@ -21,7 +21,6 @@ trait add
 		[
 			'debug'     => true,
 			'factor_id' => null,
-			'type'      => 'sell',
 		];
 
 		if(!is_array($_option))
@@ -58,7 +57,8 @@ trait add
 
 		\lib\app::variable($_factor);
 		// check args
-		$factor = self::check_factor($_option);
+		$factor          = self::check_factor($_option);
+		$_option['type'] = $factor['type'];
 
 		if($factor === false || !\lib\debug::$status)
 		{
@@ -67,7 +67,6 @@ trait add
 		}
 
 		$factor['store_id'] = \lib\store::id();
-
 
 		\lib\app::variable($_factor_detail);
 		$factor_detail = self::check_factor_detail($_option);
@@ -89,7 +88,6 @@ trait add
 			$factor['detailtotalsum'] += $sum - $discount;
 		}
 
-		$factor['type']           = $_option['type'];
 		$factor['qty']            = array_sum(array_column($factor_detail, 'count'));
 		$factor['item']           = count($factor_detail);
 		$factor['vat']            = null;

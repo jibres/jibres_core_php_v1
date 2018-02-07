@@ -23,7 +23,7 @@ class model extends \content_a\main\model
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
-			\lib\debug::error(T_("What are you doing?"));
+			\lib\debug::warn(T_("No valid data was sended!"));
 			return false;
 		}
 
@@ -56,6 +56,7 @@ class model extends \content_a\main\model
 	{
 		$detail             = [];
 		$detail['customer'] = \lib\utility::post('customer');
+		$detail['type']     = \lib\utility::get('type');
 		$detail['desc']     = \lib\utility::post('desc');
 		return $detail;
 	}
@@ -97,7 +98,7 @@ class model extends \content_a\main\model
 				// $query_data['print'] = 'auto';
 				// $query_data['size']  = 'receipt8';
 				$query_data['id']    = $factor_detail['factor_id'];
-				$redirect_url        = $this->url('base'). '/a/factor/pay';
+				$redirect_url        = $this->url('base'). '/a/factor/opr';
 			}
 			else
 			{

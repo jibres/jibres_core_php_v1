@@ -1,10 +1,10 @@
 <?php
-namespace content_a\factor\pay;
+namespace content_a\factor\opr;
 
 
 class model extends \content_a\main\model
 {
-	public function post_pay()
+	public function post_opr()
 	{
 
 		$pay               = \lib\utility::post('pay');
