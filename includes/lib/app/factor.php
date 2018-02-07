@@ -54,27 +54,37 @@ class factor
 
 		if($customer)
 		{
-			$customer = \lib\utility\shortURL::decode($customer);
-			if(!$customer)
+			$customer_id = \lib\utility\shortURL::decode($customer);
+			if($customer_id)
 			{
-				\lib\app::log('api:factor:customer:invalid', \lib\user::id(), \lib\app::log_meta(1));
-				\lib\debug::error(T_("Customer detail is invalid"), 'customer');
-				return false;
+				$customer_detail = \lib\db\userstores::get(['id' => $customer, 'store_id' => \lib\store::id(), 'limit' => 1]);
+				if(!isset($customer_detail['id']))
+				{
+					\lib\debug::error(T_("Customer detail is invalid"), 'customer');
+					return false;
+				}
+				else
+				{
+					$customer = $customer_detail['id'];
+				}
 			}
-
-			$customer_detail = \lib\db\userstores::get(['id' => $customer, 'store_id' => \lib\store::id(), 'limit' => 1]);
-			if(!isset($customer_detail))
+			else
 			{
-				\lib\app::log('api:factor:customer:invalid:id:not:found', \lib\user::id(), \lib\app::log_meta(1));
-				\lib\debug::error(T_("Customer detail is invalid"), 'customer');
-				return false;
+				$search_customer = \lib\db\userstores::search_customer($customer, \lib\store::id());
+				if(isset($search_customer['id']))
+				{
+					$customer = $search_customer['id'];
+				}
+				else
+				{
+					$customer = null;
+				}
 			}
 		}
 
 		$desc = \lib\app::request('desc');
 		if($desc && mb_strlen($desc) > 1000)
 		{
-			\lib\app::log('api:factor:desc:max:lenght', \lib\user::id(), \lib\app::log_meta(1));
 			\lib\debug::error(T_("Description of factor out of range"), 'desc');
 			return false;
 		}
@@ -109,9 +119,9 @@ class factor
 		$args['vat']            = null;
 		$args['discount']       = null;
 		$args['sum']            = null;
-		$args['status']         = 'enable';
-
+		$args['status']         = null;
 		$args['desc']           = $desc;
+
 		return $args;
 
 	}

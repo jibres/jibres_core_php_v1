@@ -88,11 +88,12 @@ trait add
 			$factor['detailtotalsum'] += $sum - $discount;
 		}
 
-		$factor['qty']            = array_sum(array_column($factor_detail, 'count'));
-		$factor['item']           = count($factor_detail);
-		$factor['vat']            = null;
-		$factor['discount']       = null;
-		$factor['sum']            = floatval($factor['detailtotalsum']) - floatval($factor['discount']);
+		$factor['qty']      = array_sum(array_column($factor_detail, 'count'));
+		$factor['item']     = count($factor_detail);
+		$factor['vat']      = null;
+		$factor['discount'] = null;
+		$factor['status']   = 'draft';
+		$factor['sum']      = floatval($factor['detailtotalsum']) - floatval($factor['discount']);
 
 		if(!$_option['factor_id'])
 		{
@@ -102,6 +103,7 @@ trait add
 		{
 			$factor_id = $_option['factor_id'];
 		}
+
 
 		if(!$factor_id)
 		{

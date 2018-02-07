@@ -4,6 +4,17 @@ namespace lib\db;
 class userstores
 {
 
+	public static function search_customer($_search_name, $_store_id)
+	{
+		if(!$_search_name || !$_store_id || !is_numeric($_store_id))
+		{
+			return false;
+		}
+
+		$query = "SELECT * FROM userstores WHERE userstores.store_id = $_store_id AND  CONCAT(userstores.firstname, ' ', userstores.lastname) = '$_search_name' LIMIT 1";
+		return \lib\db::get($query, null, true);
+	}
+
 	/**
 	 * insert new userstore
 	 *

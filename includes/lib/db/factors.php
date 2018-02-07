@@ -50,15 +50,30 @@ class factors
 
 	public static function get_print($_id, $_store_id)
 	{
-		$factor = "SELECT * FROM factors WHERE factors.id = $_id AND factors.store_id = $_store_id LIMIT 1";
+		$factor =
+		"
+			SELECT
+				factors.*,
+				userstores.firstname AS `customer_firstname`,
+				userstores.lastname AS `customer_lastname`,
+				userstores.mobile AS `customer_mobile`,
+				userstores.gender AS `customer_gender`
+			FROM
+				factors
+			LEFT JOIN userstores ON userstores.id = factors.customer
+			WHERE
+				factors.id       = $_id AND
+				factors.store_id = $_store_id
+			LIMIT 1
+		";
 		$factor_detail =
 		"
 			SELECT
 				products.*,
-				factordetails.price AS `factordetails_price`,
-				factordetails.count AS `factordetails_count`,
+				factordetails.price    AS `factordetails_price`,
+				factordetails.count    AS `factordetails_count`,
 				factordetails.discount AS `factordetails_discount`,
-				factordetails.sum AS `factordetails_sum`
+				factordetails.sum      AS `factordetails_sum`
 			FROM
 				factordetails
 			INNER JOIN products ON products.id = factordetails.product_id
