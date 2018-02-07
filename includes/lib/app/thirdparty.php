@@ -144,11 +144,28 @@ class thirdparty
 
 
 		$pasportdate = \lib\app::request('pasportdate');
-		$pasportdate = \lib\date::db($pasportdate);
-		if($pasportdate === false)
+		if($pasportdate)
 		{
-			\lib\debug::error(T_("Invalid pasportdate"), 'pasportdate');
-			return false;
+			$pasportdate = \lib\date::db($pasportdate);
+			if($pasportdate === false)
+			{
+				\lib\debug::error(T_("Invalid pasportdate"), 'pasportdate');
+				return false;
+			}
+
+			if(\lib\utility\jdate::is_jalali($pasportdate))
+			{
+				$pasportdate = \lib\utility\jdate::to_gregorian($pasportdate, "Y-m-d");
+			}
+
+			$datetime1 = new \DateTime($pasportdate);
+			$datetime2 = new \DateTime(date("Y-m-d"));
+
+			if($datetime1 >= $datetime2)
+			{
+				\lib\debug::error(T_("Invalid pasportdate, pasportdate can not larger than date now!"), 'pasportdate');
+				return false;
+			}
 		}
 
 		$gender = \lib\app::request('gender');
