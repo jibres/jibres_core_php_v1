@@ -126,17 +126,13 @@ class thirdparty
 				return false;
 			}
 
-			$datetime1 = new \DateTime($birthday);
-			$datetime2 = new \DateTime(date("Y-m-d"));
-
-			if($datetime1 >= $datetime2)
+			if(\lib\utility\jdate::is_jalali($birthday))
 			{
-				\lib\debug::error(T_("Invalid birthday, birthday can not larger than date now!"), 'birthday');
-				return false;
+				$birthday = \lib\utility\jdate::to_gregorian($birthday, "Y-m-d");
 			}
 
-			$datetime2 = \lib\utility\jdate::date("Y-m-d", time(), false);
-			$datetime2 = new \DateTime($datetime2);
+			$datetime1 = new \DateTime($birthday);
+			$datetime2 = new \DateTime(date("Y-m-d"));
 
 			if($datetime1 >= $datetime2)
 			{
