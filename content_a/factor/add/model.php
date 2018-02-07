@@ -23,7 +23,7 @@ class model extends \content_a\main\model
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
-			\lib\debug::warn(T_("No valid data was sended!"));
+			\lib\debug::warn(T_("No items have been added for sale"));
 			return false;
 		}
 

@@ -5,9 +5,16 @@ class controller extends \mvc\controller
 {
 	public function ready()
 	{
-		if(!\lib\store::id())
+		if(in_array(SubDomain, \lib\app\store::$black_list_slug))
 		{
-			\lib\error::page(T_("Store not found"));
+			// no thing
+		}
+		else
+		{
+			if(!\lib\store::id())
+			{
+				\lib\error::page(T_("Store not found"));
+			}
 		}
 	}
 }

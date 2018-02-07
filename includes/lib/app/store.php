@@ -15,6 +15,31 @@ class store
 	use \lib\app\store\get;
 	use \lib\app\store\dashboard;
 
+	public static $black_list_slug =
+	[
+		'ssl',			'www',
+		'http',			'https',
+		'jibres',		'ermile',
+		'azvir',		'sarshomar',
+		'tejarak',		'demo',
+		'talambar',		'benefits',
+		'pricing',		'help',
+		'admin',		'enter',
+		'about',		'social-responsibility',
+		'social',		'terms',
+		'privacy',		'changelog',
+		'logo',			'contact',
+		'api',			'branch',
+		'team',			'member',
+		'add',			'edit',
+		'delete',		'user',
+		'hours',		'report',
+		'last',			'daily',
+		'account',		'for',
+		'files',		'static',
+		'private',		'public',
+		'dollar',
+	];
 
 	/**
 	 * check args
@@ -99,6 +124,12 @@ class store
 		{
 			// \lib\app::log('api:store:maxlength:slug', \lib\user::id(), $log_meta);
 			debug::error(T_("Store slug must be less than 50 character"), 'slug', 'arguments');
+			return false;
+		}
+
+		if($slug && in_array($slug, self::$black_list_slug))
+		{
+			\lib\debug::error(T_("You can not choose this slug"), 'slug', 'arguments');
 			return false;
 		}
 
