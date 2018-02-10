@@ -8,6 +8,7 @@ trait search
 		factors.*,
 		userstores.firstname AS `customer_firstname`,
 		userstores.lastname AS `customer_lastname`,
+		userstores.displayname AS `customer_displayname`,
 		userstores.mobile AS `customer_mobile`,
 		userstores.gender AS `customer_gender`
 	";

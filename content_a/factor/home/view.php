@@ -19,13 +19,10 @@ class view extends \content_a\main\view
 			$args['order'] = 'DESC';
 		}
 
-		$check_empty_datatable = [];
 		if(\lib\utility::get('type'))
 		{
-			$args['type']                  = \lib\utility::get('type');
-			$check_empty_datatable['type'] = \lib\utility::get('type');
+			$args['type'] = \lib\utility::get('type');
 		}
-
 
 		if(\lib\utility::get('customer'))
 		{
@@ -36,7 +33,7 @@ class view extends \content_a\main\view
 
 		$this->data->dataTable = \lib\app\factor::list(\lib\utility::get('q'), $args);
 
-		$this->data->dataFilter = $this->createFilterMsg($search_string, $check_empty_datatable);
+		$this->data->dataFilter = $this->createFilterMsg($search_string, $this->filter_condition_msg($this->data->dataTable, $args));
 		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, $this->url('baseFull'). '/factor');
 
 		if(isset($this->controller->pagnation))
@@ -44,6 +41,30 @@ class view extends \content_a\main\view
 			$this->data->pagnation = $this->controller->pagnation_get();
 		}
 	}
+
+
+
+	public function filter_condition_msg($_data, $_args)
+	{
+		$filter_array = $_args;
+		unset($filter_array['sort']);
+		unset($filter_array['order']);
+
+		if(isset($filter_array['customer']))
+		{
+			if(is_array($_data))
+			{
+				$customer_displayname   = array_column($_data, 'customer_displayname', 'customer');
+			}
+
+			$temp = array_key_exists($filter_array['customer'], $customer_displayname) === false ? T_("Invalid") : $customer_displayname[$filter_array['customer']];
+			unset($filter_array['customer']);
+			$filter_array[T_('Customer')] = $temp;
+		}
+		return $filter_array;
+	}
+
+
 
 	private function set_best_title()
 	{
