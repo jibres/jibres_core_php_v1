@@ -73,7 +73,7 @@ class view extends \content_a\main\view
 		{
 			$this->data->barcode_scaned = '?barcode='. \lib\utility::get('q');
 		}
-
+		$this->data->dataFilter = $this->createFilterMsg($args);
 		$this->data->sort_link = self::make_sort_link(\lib\app\product::$sort_field, $this->url('baseFull'). '/product');
 
 		if(isset($this->controller->pagnation))

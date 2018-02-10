@@ -43,20 +43,23 @@ class view extends \lib\view
 		$this->data->bodyclass           = null;
 	}
 
-	public function createFilterMsg($_searchText, $_filterArray)
+	public function createFilterMsg($_args)
 	{
 		$result = null;
+		$searchText = \lib\utility::get('q');
 
-		if($_searchText)
+		if($searchText)
 		{
-			$result = T_('Search with keyword :search', ['search' => '<b>'. $_searchText. '</b>']);
+			$result = T_('Search with keyword :search', ['search' => '<b>'. $searchText. '</b>']);
 		}
 
-		if($_filterArray)
+		$filterArray = $this->filter_condition_msg($_args);
+
+		if($filterArray)
 		{
 			$result .= ' '. T_('with condition'). ' ';
 			$index  = 0;
-			foreach ($_filterArray as $key => $value)
+			foreach ($filterArray as $key => $value)
 			{
 				if($result && $index > 0)
 				{
@@ -80,6 +83,38 @@ class view extends \lib\view
 		}
 
 		return $result;
+	}
+
+
+
+	public function filter_condition_msg($_args)
+	{
+		$filter_array = $_args;
+
+		unset($filter_array['sort']);
+		unset($filter_array['order']);
+
+		switch ($this->module())
+		{
+			case 'factor':
+				if(isset($filter_array['customer']))
+				{
+					if(is_array($this->data->dataTable))
+					{
+						$customer_displayname   = array_column($this->data->dataTable, 'customer_displayname', 'customer');
+					}
+
+					$temp = array_key_exists($filter_array['customer'], $customer_displayname) === false ? T_("Invalid") : $customer_displayname[$filter_array['customer']];
+					unset($filter_array['customer']);
+					$filter_array[T_('Customer')] = $temp;
+				}
+				break;
+
+			default:
+				# code...
+				break;
+		}
+		return $filter_array;
 	}
 
 }

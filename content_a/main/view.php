@@ -21,6 +21,7 @@ class view extends \mvc\view
 		$this->data->modulePath  = $this->url('baseFull'). '/'. $this->module();
 		$this->data->moduleType  = \lib\utility::get('type');
 		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
+
 	}
 
 
