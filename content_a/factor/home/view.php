@@ -14,9 +14,16 @@ class view extends \content_a\main\view
 			'sort'  => \lib\utility::get('sort'),
 		];
 
+		if(!$args['order'])
+		{
+			$args['order'] = 'DESC';
+		}
+
+		$check_empty_datatable = [];
 		if(\lib\utility::get('type'))
 		{
-			$args['type'] = \lib\utility::get('type');
+			$args['type']                  = \lib\utility::get('type');
+			$check_empty_datatable['type'] = \lib\utility::get('type');
 		}
 
 
@@ -25,7 +32,6 @@ class view extends \content_a\main\view
 			$args['customer'] = \lib\utility::get('customer');
 		}
 
-		$check_empty_datatable = '';
 		$search_string            = \lib\utility::get('q');
 
 		$this->data->dataTable = \lib\app\factor::list(\lib\utility::get('q'), $args);
