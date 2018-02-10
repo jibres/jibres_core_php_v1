@@ -19,9 +19,9 @@ class view extends \content_a\main\view
 			switch (\lib\utility::get('list'))
 			{
 				case 'customer':
-					$meta         = [];
-					$meta['type'] = ["IN", "('staff', 'customer', 'supplier') "];
-					$resultRaw    = \lib\app\staff::list(\lib\utility::get('q'), $meta);
+					$meta             = [];
+					$meta['userstores.supplier'] = ["IS", "NULL"];
+					$resultRaw        = \lib\app\thirdparty::list(\lib\utility::get('q'), $meta);
 
 					foreach ($resultRaw as $key => $value)
 					{
@@ -29,18 +29,36 @@ class view extends \content_a\main\view
 						{
 							$result[$key]['value'] = T_($value['id']);
 						}
-						if(isset($value['fullname']))
+						if(isset($value['displayname']))
 						{
-							$result[$key]['title'] = $value['fullname'];
+							$result[$key]['title'] = $value['displayname'];
 						}
 						if(isset($value['mobile']))
 						{
 							$result[$key]['count'] = $value['mobile'];
 						}
-						if(isset($value['type']))
+
+						$desc = null;
+
+						if(isset($value['staff']) && $value['staff'])
 						{
-							$result[$key]['desc'] = T_($value['type']);
+							$desc .= T_("Staff");
 						}
+
+
+						if(isset($value['customer']) && $value['customer'])
+						{
+							$desc .= ' - '. T_("Customer");
+						}
+
+
+						if(isset($value['supplier']) && $value['supplier'])
+						{
+							$desc .= ' - '. T_("Supplier");
+						}
+
+						$result[$key]['desc'] = trim(trim($desc), '-');
+
 						if(isset($value['code']))
 						{
 							$result[$key]['desc2'] = T_('code') . ' '. $value['code'];
