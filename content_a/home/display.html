@@ -28,66 +28,15 @@
     {{block ("chart_primary")}}
   </div>
   <div class="c3 s12">
-{{block ("lastTraffics")}}
+{{block ("chart_primary_title")}}
   </div>
 </div>
 {%endif%}
 
 
 
-<div class="f hide">
- <div class="c4 s12">{{block ("prDeadline")}}</div>
- <div class="c5 s12">{{block ("prPresentCount")}}</div>
- <div class="c3 s12">{{block ("prDate")}}</div>
-</div>
-
-{{block ("chart_secondary2")}}
-
 {%endblock%}
 
-
-
-
-
-
-
-{%block prDeadline%}
-<a class="dcard" href='{{url.full}}/setting/board'>
- <div class="block">
-  <div class="f">
-  {%if current_team.event_title%}
-   <h5 class="c fc-mute">{{current_team.event_title}}</h5>
-  {%else%}
-   <h5 class="c fc-mute">{%trans "Add event day counter"%}</h5>
-  {%endif%}
-   <h4 class="cauto fc-danger fs30 txtra counter">{{current_team.event.left | number_format}}</h4>
-  </div>
-<!-- left_percent
-remain_percent -->
-  <div class="f">
-   <div class="progress" data-percent='{{current_team.event.left_percent}}'>
-    <div class="bar"></div>
-   </div>
-  </div>
- </div>
-</a>
-{%endblock%}
-
-{%block prPresentCount%}
-<div class="dcard">
- <div class="block">
-  <div class="f">
-   <h5 class="c fc-mute">{%trans "Present Members"%}</h5>
-   <h4 class="cauto fc-warn fs30 txtra counter">{{dashboard_detail.member_present | number_format}}</h4>
-  </div>
-  <div class="f">
-   <div class="progress" data-percent='{{dashboard_detail.member_percent}}'>
-    <div class="bar"></div>
-   </div>
-  </div>
- </div>
-</div>
-{%endblock%}
 
 
 {%block prDate%}
@@ -143,7 +92,7 @@ remain_percent -->
 
 
 {%block stSellAdd%}
-<a class="dcard x2" href='{{url.baseFull}}/sell/add'>
+<a class="dcard x2" href='{{url.baseFull}}/factor/add?type=sell'>
  <div class="statistic teal">
   <div class="value"><i class="sf-basket"></i></div>
   <div class="label">{%trans "Sale Invoicing"%}</div>
@@ -153,7 +102,7 @@ remain_percent -->
 
 
 {%block stBuyAdd%}
-<a class="dcard x2" href='{{url.baseFull}}/buy/add'>
+<a class="dcard x2" href='{{url.baseFull}}/factor/add?type=buy'>
  <div class="statistic gray">
   <div class="value"><i class="sf-basket"></i></div>
   <div class="label">{%trans "Buy Invocing"%}</div>
@@ -193,19 +142,6 @@ remain_percent -->
 {%endblock%}
 
 
-{%block stDayUsed%}
-{%if site.currentlang == 'fa'%}
-  <div class="dcard"  title='{%trans "Start date of using tejarak"%}: {{current_team.createdate |jdate("Y-m-d")}} | {{current_team.day_use|number_format | fitNumber}} {%trans "day ago"%}'>
-{%else%}
-  <div class="dcard"  title='{%trans "Start date of using tejarak"%}: {{current_team.createdate | date("Y-m-d")}} | {{current_team.day_use|number_format | fitNumber}} {%trans "day ago"%}'>
-{%endif%}
-   <div class="statistic blue">
-    <div class="value"><i class="sf-calendar-check-o"></i><span class="counter">{{dashboard_detail.count_day_work | number_format}}</span></div>
-    <div class="label">{%trans "Day Used"%}</div>
-   </div>
-  </div>
-{%endblock%}
-
 
 {%block chart_primary%}
 <div class="dcard x3 pA0">
@@ -215,23 +151,9 @@ remain_percent -->
 {%endblock%}
 
 
-{%block chart_secondary%}
-<div class="dcard x3">
- <div class="chart" data-type='line' data-vals='[{"key":"کاردانی","value":442},{"key":"کارشناسی 234","value":1050},{"key":"کارشناسی‌ارشد","value":408},{"key":"دکتری","value":96}]'>
-
-  Chart
- </div>
-</div>
-{%endblock%}
 
 
-{%block topMembers%}
-<div class="dcard x3">
- <h3>{%trans "Top Members"%}</h3>
-</div>
-{%endblock%}
-
-{%block lastTraffics%}
+{%block chart_primary_title%}
 <div class="dcard x3 txtC">
  <h3>{%trans "Sales count group by hour"%}</h3>
 

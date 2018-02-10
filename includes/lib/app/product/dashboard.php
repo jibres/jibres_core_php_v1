@@ -175,7 +175,8 @@ trait dashboard
 
 			foreach ($chart as $key => $value)
 			{
-				$myGroup = floor($key / 10000);
+
+				$myGroup = floor((float) $key / 10000);
 				if($key === '')
 				{
 					$key = T_('unknown');
