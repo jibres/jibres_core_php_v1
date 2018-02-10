@@ -28,9 +28,10 @@ trait datalist
 
 		$default_args =
 		[
-			'sort'  => null,
-			'order' => null,
-			'type'  => null,
+			'sort'      => null,
+			'order'     => null,
+			'type'      => null,
+			'sort_type' => null,
 		];
 
 		if(!is_array($_args))
@@ -51,6 +52,24 @@ trait datalist
 		{
 			unset($_args['type']);
 		}
+
+		if($_args['sort_type'] && !$_args['sort'])
+		{
+			switch ($_args['sort_type'])
+			{
+				case 'sell':
+					$_args['order_raw'] = " userstores.customer DESC, userstores.staff DESC, userstores.id DESC ";
+					break;
+				case 'buy':
+					$_args['order_raw'] = " userstores.supplier DESC, userstores.staff DESC, userstores.customer DESC, userstores.id DESC ";
+					break;
+
+				default:
+
+					break;
+			}
+		}
+		unset($_args['sort_type']);
 
 		$result            = \lib\db\userstores::search($_string, $_args);
 
