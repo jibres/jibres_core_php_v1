@@ -75,7 +75,7 @@ function recalcPricePercents()
   elFinalPriceBox.find('.addon').text(fitNumber(pureIntrestRate) + '%');
   if(sell)
   {
-    elFinalPriceBox.slideDown().removeClass('hide');
+    elFinalPriceBox.removeClass('hide').hide().slideDown();
   }
   else
   {
@@ -272,7 +272,7 @@ function calcFooterValues(_table)
 
   if(calcDtSumTotal > 0 )
   {
-    $('.priceBox').fadeIn().removeClass('hide');
+    $('.priceBox').removeClass('hide').hide().fadeIn();
     $('.priceBox .final span').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
     $(".priceBox .final").shrink(60);
     $('.priceBox .desc').text(wordifyTomans(calcDtSumTotal));
@@ -305,7 +305,7 @@ function calcFooterValues(_table)
       $('.priceBox .discount').fadeIn();
     }
     // show fadein box
-    $('.NextBox').fadeIn().removeClass('hide');
+    $('.NextBox').removeClass('hide').hide().fadeIn();
   }
   else
   {
@@ -452,7 +452,7 @@ function searchForProduct(_key, _value)
 {
   // if is not barcode and not finde02902749
   // d, search and if find, add or update
-  var pSearchURL = "/a/sell/add?json=true&list=product&" + _key + "=" + _value;
+  var pSearchURL = "/a/factor/add?json=true&list=product&" + _key + "=" + _value;
   $.get(pSearchURL, function(_productData)
   {
     pData = clearJson(_productData);
@@ -594,8 +594,8 @@ function addNewRecord_ProductList(_table, _product, _append)
       return null;
     }
   }
-  _table.parents('.cbox').fadeIn();
-  _table.parents('.cbox').removeClass('hide');
+  _table.parents('.cbox').removeClass('hide').hide().fadeIn();
+
 
   var trEmpty   = '<tr>';
   trEmpty       += '<td></td>';
@@ -661,6 +661,13 @@ function addNewRecord_ProductList(_table, _product, _append)
   runTippy();
 
   calcFooterValues(_table);
+}
+
+
+function qtyFactorTableItems()
+{
+  NoRecordExist = $('#factorAdd table tbody tr').length;
+  return NoRecordExist;
 }
 
 

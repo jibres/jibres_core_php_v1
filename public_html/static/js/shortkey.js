@@ -234,15 +234,33 @@ function event_corridor(_e, _self, _key)
     case '113':             // f2
         // prevent any other change
         _e.preventDefault();
-        // set sell url
-        var sellUrl = '/a/sell/add';
+
+        // set factor url
+        var factorUrl = '/a/factor/add';
         if($('html').attr('lang') !== undefined)
         {
-          sellUrl = $('html').attr('lang')+ sellUrl;
+          factorUrl = $('html').attr('lang')+ factorUrl;
         }
-        // navigate to add new sell page
-        // Navigate({ url: sellUrl });
-        window.open(sellUrl, '_blank');
+        // navigate to add new factor page
+        // Navigate({ url: factorUrl });
+        if(check_factor())
+        {
+          // if we are in check url, first check this one is empty or not
+          if(qtyFactorTableItems() == 0)
+          {
+            var msg = $('#factorAdd').attr('data-msgNewError');
+            notif('warn', msg);
+          }
+          else
+          {
+            window.open(factorUrl, '_blank');
+          }
+        }
+        else
+        {
+          window.open(factorUrl, '_blank');
+        }
+
       break;
 
 
