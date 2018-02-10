@@ -62,9 +62,9 @@
   <div class="paymentDetails txtC">
       {%if store_meta.factor.pos_list%}
         {%for key, value in store_meta.factor.pos_list%}
-          <div class="radioGateway" title='{%trans value%}'>
-           <input type="radio" name="bank" value="{{value}}" id="p-{{value}}">
-           <label for='p-{{value}}' class="spay-64-{{value}}"></label>
+          <div class="radioGateway" title='{{value.name}}'>
+           <input type="radio" name="bank" value="{{key}}" id="p-{{key}}">
+           <label for='p-{{key}}' class="spay-64-{{key}}"></label>
           </div>
         {%endfor%}
       {%endif%}
