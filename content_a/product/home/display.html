@@ -1,30 +1,42 @@
 {%extends display.admin%}
 
+
+
 {%block pageContent%}
 
-{%if product_list%}
-{{block('htmlSearchBox')}}
-<div class="cbox fs12">
-{{block('htmlTable')}}
-</div>
+{%if dataTable%}
+ {%if dataFilter%}
 
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
 
-{%elseif utilityGET.q or utilityGET.barcode%}
-{{block('htmlSearchBox')}}
-<div class="fs14 alert alert-info pA25">
- {%trans "No product founded."%} {%trans "Search with new keywords or barcode."%}
- <a class="badge primary pA10" href="{{url.baseFull}}/product/add{{barcode_scaned}}" data-shortkey="119">{%trans "Add new product"%}</a>
-</div>
+ {%else%}
 
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
 
+ {%endif%}
 {%else%}
-<div class="cbox fs12">
- <h3>{%trans "You are not have product yet! add new one."%}</h3>
- <a class="btn primary mT10 pLR50" href="{{url.baseFull}}/product/add">{%trans "Add new product"%}</a>
-</div>
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
 {%endif%}
 
 {%endblock%}
+
+
+
+
+
+
 
 
 {%block htmlSearchBox%}
@@ -40,6 +52,7 @@
 
 
 {%block htmlTable%}
+ <div class="cbox fs12">
   <table class="tbl">
     <thead class="">
       <tr>
@@ -56,7 +69,7 @@
     </thead>
 
     <tbody>
-      {%for key, value in product_list%}
+      {%for key, value in dataTable%}
       <tr {%if value.stock < 0%} class='warning' title='{%trans "stock count is less than zero!"%}'{%endif%}>
         <td><a href="{{url.baseFull}}/product/edit/general?id={{value.id}}">{{value.title}}</a></td>
         <td class="s0"><small><a href="{{url.baseFull}}/product?q={{value.cat}}&in=cat">{{value.cat}}</a></small></td>
@@ -72,8 +85,32 @@
     </tbody>
   </table>
   {%include display.pagination%}
+ </div>
 {%endblock%}
 
 
 
+
+{%block htmlFilter%}
+<p class="f fs14 alert alert-info">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{modulePath}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 alert alert-error">
+  <span class="c s12">{%trans "Result not found!"%} {%trans "Search with new keywords."%} </span>
+{%if barcode_scaned%}
+  <a class="c" href="{{modulePath}}/add{{barcode_scaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
+{%endif%}
+  <a class="cauto" href="{{modulePath}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 alert alert-success pTB20">{%trans "Hi!"%} <a href="{{modulePath}}/add">{%trans "Try to start with add new product!"%}</a></p>
+{%endblock%}
 

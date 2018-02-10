@@ -31,24 +31,24 @@ class view extends \content_a\main\view
 			$this->data->page['title'] = T_('Search'). ' '.  $search_string;
 		}
 
-		$this->data->product_list = \lib\app\product::list($search_string, $args);
+		$this->data->dataTable = \lib\app\product::list($search_string, $args);
 
-		if(is_array($this->data->product_list) && count($this->data->product_list) === 1)
+		if(is_array($this->data->dataTable) && count($this->data->dataTable) === 1)
 		{
 			$barcode_is_scaned = false;
-			if(isset($this->data->product_list[0]['barcode']) && $this->data->product_list[0]['barcode'] === $search_string)
+			if(isset($this->data->dataTable[0]['barcode']) && $this->data->dataTable[0]['barcode'] === $search_string)
 			{
 				$barcode_is_scaned = true;
 			}
 
-			if(isset($this->data->product_list[0]['barcode2']) && $this->data->product_list[0]['barcode2'] === $search_string)
+			if(isset($this->data->dataTable[0]['barcode2']) && $this->data->dataTable[0]['barcode2'] === $search_string)
 			{
 				$barcode_is_scaned = true;
 			}
 
-			if(isset($this->data->product_list[0]['id']) && $barcode_is_scaned)
+			if(isset($this->data->dataTable[0]['id']) && $barcode_is_scaned)
 			{
-				$this->redirector($this->data->modulePath.'/edit/general?id='. $this->data->product_list[0]['id'])->redirect();
+				$this->redirector($this->data->modulePath.'/edit/general?id='. $this->data->dataTable[0]['id'])->redirect();
 				return;
 			}
 
@@ -58,13 +58,13 @@ class view extends \content_a\main\view
 		{
 			if(\lib\utility::get('barcode'))
 			{
-				if(!$this->data->product_list)
+				if(!$this->data->dataTable)
 				{
-					$this->data->product_list = null;
+					$this->data->dataTable = null;
 				}
 			}
 
-			echo json_encode($this->data->product_list, JSON_UNESCAPED_UNICODE);
+			echo json_encode($this->data->dataTable, JSON_UNESCAPED_UNICODE);
 			\lib\code::exit();
 		}
 
