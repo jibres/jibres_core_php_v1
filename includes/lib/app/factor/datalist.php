@@ -39,9 +39,10 @@ trait datalist
 
 		$default_option =
 		[
-			'order' => null,
-			'sort'  => null,
-			'type'  => null,
+			'order'    => null,
+			'sort'     => null,
+			'type'     => null,
+			'customer' => null,
 		];
 
 		if(!is_array($_option))
@@ -75,7 +76,14 @@ trait datalist
 			$field['factors.type']     = $_option['type'];
 		}
 
-		unset($_option['type']);
+		if($_option['customer'])
+		{
+			$customer_id = \lib\utility\shortURL::decode($_option['customer']);
+			if($customer_id)
+			{
+				$field['factors.customer']     = $customer_id;
+			}
+		}
 
 		$result            = \lib\db\factors::search($_string, $_option, $field);
 		$temp              = [];

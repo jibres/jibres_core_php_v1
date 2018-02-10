@@ -33,7 +33,9 @@
             <td class="ltr txtL"><a href="{{url.baseFull}}/factor/fishprint?id={{value.id}}&size=receipt8">{{value.date|tdate("Y-m-d")}} <b>{{value.date|tdate("H:i:s")}}</b></a></td>
             <td>
             {%if value.customer%}
-              {{value.customer_firstname}} <b>{{value.customer_lastname}}</b>
+              <a href="{{url.baseFull}}/factor?customer={{value.customer}}">
+                {{value.customer_firstname}} <b>{{value.customer_lastname}}</b>
+              </a>
             {%else%}
               <i class="disabled">-</i>
             {%endif%}

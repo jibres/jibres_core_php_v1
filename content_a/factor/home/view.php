@@ -27,6 +27,12 @@ class view extends \content_a\main\view
 			$args['type'] = \lib\utility::get('type');
 		}
 
+
+		if(\lib\utility::get('customer'))
+		{
+			$args['customer'] = \lib\utility::get('customer');
+		}
+
 		$this->data->factor_list = \lib\app\factor::list(\lib\utility::get('search'), $args);
 
 
