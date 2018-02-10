@@ -1,18 +1,8 @@
 {%extends display.admin%}
 
 
-
-{%block TempForm%}
-<form method="post">
-  <input type="text" name="amount" value="{{factor_detail.factor.sum}}" >
-  <input type="text" name="type" value="cash" >
-  <input type="submit"  value="Send" >
-</form>
-{%endblock%}
-
 {%block pageContent%}
 
-{{block('TempForm')}}
 
 <div class="f">
   <div class="c5 x3 s12 pRa10 mB25">
@@ -33,42 +23,49 @@
     {{block("paymentMethods")}}
   </div>
 
+
 </div>
 {%endblock%}
 
 
 
 {%block paymentMethods%}
-<form>
+<form method="post">
 <div class="cbox">
+
+  <div class="input xxl fs20 txtC">
+    <label for="famount" class="addon">{%trans "Amount"%}</label>
+    <input type="tel" id="famount" name="amount" value="{{factor_detail.factor.sum | number_format | fitNumber}}">
+    <label for="famount" class="addon">{%trans "Toman"%}</label>
+  </div>
 
  <div class="paymentMethods f">
 {%if store_meta.factor.pay%}
   {%for key, value in store_meta.factor.pay%}
   <div class="c4">
-    <a class="dcard x2">
-     <div class="statistic brown">
-      <div class="value"><i class="sf-{{key}}"></i></div>
-      <div class="label" name="{{key}}">{%trans key%}</div>
+     <div class="statistic radioGateway ">
+      <input type="radio" name="type" value="{{key}}" id="p-{{key}}">
+      <label for="p-{{key}}" class="value"><i class="sf-{{key}}"></i>{%trans key%}</label>
+      <label for="p-{{key}}" class="label" name="{{key}}"></label>
      </div>
-    </a>
   </div>
   {%endfor%}
 {%endif%}
  </div>
-</div>
-
-<div class="cbox">
-  <div class="paymentDetails txtC">
-      {%if store_meta.factor.pos_list%}
-        {%for key, value in store_meta.factor.pos_list%}
-          <div class="radioGateway" title='{{value.name}}'>
-           <input type="radio" name="bank" value="{{key}}" id="p-{{key}}">
-           <label for='p-{{key}}' class="spay-64-{{key}}"></label>
-          </div>
-        {%endfor%}
-      {%endif%}
-  </div>
+ <div data-response="type" data-response-where='pos' data-response-hide >
+    <hr>
+    <div class="paymentDetails txtC">
+        {%if store_meta.factor.pos_list%}
+          {%for key, value in store_meta.factor.pos_list%}
+            <div class="radioGateway" title='{{value.name}}'>
+             <input type="radio" name="bank" value="{{key}}" id="p-{{key}}">
+             <label for='p-{{key}}' class="spay-64-{{key}}"></label>
+            </div>
+          {%endfor%}
+        {%endif%}
+    </div>
+ </div>
+  <button type="submit" class="btn primary block">{%trans "Save Pay & continue"%}</button>
 </div>
 
 </form>

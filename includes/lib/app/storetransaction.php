@@ -33,6 +33,7 @@ class storetransaction
 
 
 		$plus = \lib\app::request('plus');
+		$plus = str_replace(',', '', $plus);
 		$plus = \lib\utility\convert::to_en_number($plus);
 		if($plus && !is_numeric($plus))
 		{
@@ -53,6 +54,7 @@ class storetransaction
 		}
 
 		$minus = \lib\app::request('minus');
+		$minus = str_replace(',', '', $minus);
 		$minus = \lib\utility\convert::to_en_number($minus);
 		if($minus && !is_numeric($minus))
 		{
@@ -90,6 +92,7 @@ class storetransaction
 			}
 
 			$amount = \lib\app::request('amount');
+			$amount = str_replace(',', '', $amount);
 			$amount = \lib\utility\convert::to_en_number($amount);
 
 			if(!$amount)
