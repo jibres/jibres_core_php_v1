@@ -57,7 +57,7 @@ trait datalist
 		{
 			switch ($_args['sort_type'])
 			{
-				case 'sell':
+				case 'sale':
 					$_args['order_raw'] = " userstores.customer DESC, userstores.staff DESC, userstores.id DESC ";
 					break;
 				case 'buy':

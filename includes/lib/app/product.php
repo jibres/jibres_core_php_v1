@@ -422,19 +422,19 @@ class product
 			$checkstock = $checkstock ? 1 : 0;
 		}
 
-		$sellonline = null;
-		if(\lib\app::isset_request('sellonline'))
+		$saleonline = null;
+		if(\lib\app::isset_request('saleonline'))
 		{
-			$sellonline = \lib\app::request('sellonline');
-			$sellonline = $sellonline ? 1 : 0;
+			$saleonline = \lib\app::request('saleonline');
+			$saleonline = $saleonline ? 1 : 0;
 		}
 
 
-		$sellstore = null;
-		if(\lib\app::isset_request('sellstore'))
+		$salestore = null;
+		if(\lib\app::isset_request('salestore'))
 		{
-			$sellstore  = \lib\app::request('sellstore');
-			$sellstore  = $sellstore ? 1 : 0;
+			$salestore  = \lib\app::request('salestore');
+			$salestore  = $salestore ? 1 : 0;
 		}
 
 
@@ -502,8 +502,8 @@ class product
 		$args['thumb']           = $thumb;
 		$args['service']         = $service;
 		$args['checkstock']      = $checkstock;
-		$args['sellonline']      = $sellonline;
-		$args['sellstore']       = $sellstore;
+		$args['saleonline']      = $saleonline;
+		$args['salestore']       = $salestore;
 		$args['carton']          = $carton;
 		$args['desc']            = $desc;
 

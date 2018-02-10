@@ -118,7 +118,7 @@ class storetransaction
 
 			switch ($factor_detail['type'])
 			{
-				case 'sell':
+				case 'sale':
 					$plus = $amount;
 					break;
 

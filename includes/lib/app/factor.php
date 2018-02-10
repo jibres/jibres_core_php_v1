@@ -80,7 +80,7 @@ class factor
 					$customer = null;
 				}
 			}
-			// every one sell one more time set this is a customer
+			// every one sale one more time set this is a customer
 			if(isset($customer_detail['id']) && !isset($customer_detail['customer']))
 			{
 				\lib\db\userstores::update(['customer' => 1], $customer_detail['id']);
@@ -95,7 +95,7 @@ class factor
 		}
 
 		$type = \lib\app::request('type');
-		if($type && !in_array($type, ['buy','sell','prefactor','lending','backbuy','backfactor','waste']))
+		if($type && !in_array($type, ['buy','sale','prefactor','lending','backbuy','backfactor','waste']))
 		{
 			\lib\debug::error(T_("Invalid type of factor"), 'type');
 			return false;
@@ -103,7 +103,7 @@ class factor
 
 		if(!$type)
 		{
-			$type = 'sell';
+			$type = 'sale';
 		}
 
 		$args                   = [];
@@ -201,7 +201,7 @@ class factor
 
 			switch ($_option['type'])
 			{
-				case 'sell':
+				case 'sale':
 					// save query of sold plus and minus stock in cache to run multi query after this foreach
 					self::sold_plus($product_id, floatval($value['count']), true);
 					self::stock_minus($product_id, floatval($value['count']), true);

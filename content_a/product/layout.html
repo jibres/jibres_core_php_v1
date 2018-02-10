@@ -174,7 +174,7 @@
 
 
 {%block iPrice%}
-<label for='price'>{%trans "Sell Price"%}</label>
+<label for='price'>{%trans "Sale Price"%}</label>
 <div class="input">
  <input type="number" name="price" id="price" placeholder='{%trans "Price for sale without discount"%}' value="{{product.price}}" min='0' max="100000000000" data-run-input='recalcPricePercents'>
  <span class="addon" title='{%trans "Impure Interest Rate"%}'>{{ product.intrestrate_impure | fitNumber}} %</span>
@@ -297,21 +297,21 @@
 {%endblock%}
 
 
-{%block iSellonline%}
+{%block iSaleonline%}
 <div class="switch1">
- <input type="checkbox" name="sellonline" id="sellonline" {% if product.sellonline%} checked{%endif%}>
- <label for="sellonline"></label>
- <label for="sellonline">{%trans "Sell Online"%} <small>{%trans "This product is sellonline base"%}</small></label>
+ <input type="checkbox" name="saleonline" id="saleonline" {% if product.saleonline%} checked{%endif%}>
+ <label for="saleonline"></label>
+ <label for="saleonline">{%trans "Sale Online"%} <small>{%trans "This product is saleonline base"%}</small></label>
 </div>
 {%endblock%}
 
 
 
-{%block iSellstore%}
+{%block iSalestore%}
 <div class="switch1">
- <input type="checkbox" name="sellstore" id="sellstore" {% if product.sellstore%} checked{%endif%}>
- <label for="sellstore"></label>
- <label for="sellstore">{%trans "Sell in store"%} <small>{%trans "This product is sellstore base"%}</small></label>
+ <input type="checkbox" name="salestore" id="salestore" {% if product.salestore%} checked{%endif%}>
+ <label for="salestore"></label>
+ <label for="salestore">{%trans "Sale in store"%} <small>{%trans "This product is salestore base"%}</small></label>
 </div>
 {%endblock%}
 

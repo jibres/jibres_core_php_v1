@@ -29,8 +29,8 @@ class model extends \content_a\main\model
 			'sold'           => \lib\utility::post('sold'),
 			'stock'          => \lib\utility::post('stock'),
 			'service'        => \lib\utility::post('service') === 'on' ? 1 : 0,
-			'sellonline'     => \lib\utility::post('sellonline') === 'on' ? 1 : 0,
-			'sellstore'      => \lib\utility::post('sellstore') === 'on' ? 1 : 0,
+			'saleonline'     => \lib\utility::post('saleonline') === 'on' ? 1 : 0,
+			'salestore'      => \lib\utility::post('salestore') === 'on' ? 1 : 0,
 			'carton'         => \lib\utility::post('carton'),
 		];
 

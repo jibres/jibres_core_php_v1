@@ -3,17 +3,17 @@
 {%block pageContent%}
 
 <div class="f">
- <div class="c6 s6">{{block ("stSell")}}</div>
+ <div class="c6 s6">{{block ("stSale")}}</div>
  <div class="c6 s6">{{block ("stBuy")}}</div>
 </div>
 
 <div class="f">
- <div class="c6 s6">{{block ("stPreSell")}}</div>
+ <div class="c6 s6">{{block ("stPreSale")}}</div>
  <div class="c6 s6">{{block ("stLending")}}</div>
 </div>
 
 <div class="f">
- <div class="c4 s6">{{block ("stBackSell")}}</div>
+ <div class="c4 s6">{{block ("stBackSale")}}</div>
  <div class="c4 s6">{{block ("stBackBuy")}}</div>
  <div class="c4 s6">{{block ("stWaste")}}</div>
 </div>
@@ -31,21 +31,21 @@
 {%endblock%}
 
 
-{%block stSell%}
-<a class="dcard x2" href='{{url.baseFull}}/factor?type=sell'>
+{%block stSale%}
+<a class="dcard x2" href='{{url.baseFull}}/factor?type=sale'>
  <div class="statistic teal">
-  <div class="value"><i class="sf-basket"></i><span class="fs08">{{factor_dashboard_detail.sell_count |number_format |fitNumber}}</span></div>
-  <div class="label">{%trans "Sell"%}</div>
+  <div class="value"><i class="sf-basket"></i><span class="fs08">{{factor_dashboard_detail.sale_count |number_format |fitNumber}}</span></div>
+  <div class="label">{%trans "Sale"%}</div>
  </div>
 </a>
 {%endblock%}
 
 
-{%block stPreSell%}
+{%block stPreSale%}
 <a class="dcard" href='{{url.baseFull}}/factor?type=prefactor'>
  <div class="statistic blue">
-  <div class="value"><i class="sf-pin-1"></i><span>{{factor_dashboard_detail.pre_sell_count  | number_format  |fitNumber}}</span></div>
-  <div class="label">{%trans "Pre Sell"%}</div>
+  <div class="value"><i class="sf-pin-1"></i><span>{{factor_dashboard_detail.pre_sale_count  | number_format  |fitNumber}}</span></div>
+  <div class="label">{%trans "Pre Sale"%}</div>
  </div>
 </a>
 {%endblock%}
@@ -71,10 +71,10 @@
 {%endblock%}
 
 
-{%block stBackSell%}
+{%block stBackSale%}
 <a class="dcard" href='{{url.baseFull}}/factor?type=backfactor'>
  <div class="statistic black">
-  <div class="value"><i class="sf-indent"></i><span>{{factor_dashboard_detail.back_from_sell_count  | number_format  |fitNumber}}</span></div>
+  <div class="value"><i class="sf-indent"></i><span>{{factor_dashboard_detail.back_from_sale_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Back from factor"%}</div>
  </div>
 </a>

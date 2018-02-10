@@ -9,7 +9,7 @@ class view extends \lib\view
 
 
 		$this->data->site['title']           = T_("Jibres");
-		$this->data->site['desc']            = T_("Jibres is not just an online accounting software;"). ' '.  T_("We try to create the best financial platform that has everything you need to sell and manage your financial life.");
+		$this->data->site['desc']            = T_("Jibres is not just an online accounting software;"). ' '.  T_("We try to create the best financial platform that has everything you need to sale and manage your financial life.");
 		$this->data->site['slogan']          = T_("Integrated Sales and Online Accounting");
 
 		$this->data->page['desc']            = $this->data->site['desc']. ' | '. $this->data->site['slogan'];

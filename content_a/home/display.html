@@ -4,7 +4,7 @@
 {%block pageContent%}
 
 <div class="f">
- <div class="c6 s6">{{block ("stSellAdd")}}</div>
+ <div class="c6 s6">{{block ("stSaleAdd")}}</div>
  <div class="c6 s6">{{block ("stBuyAdd")}}</div>
 </div>
 
@@ -21,7 +21,7 @@
  <div class="c3 s6">{{block ("prDate")}}</div>
 </div>
 
-{%if dashboard_detail.sell_time_chart == '[]'%}
+{%if dashboard_detail.sale_time_chart == '[]'%}
 {%else%}
 <div class="f">
   <div class="c9 s12">
@@ -91,8 +91,8 @@
 
 
 
-{%block stSellAdd%}
-<a class="dcard x2" href='{{url.baseFull}}/factor/add?type=sell'>
+{%block stSaleAdd%}
+<a class="dcard x2" href='{{url.baseFull}}/factor/add?type=sale'>
  <div class="statistic teal">
   <div class="value"><i class="sf-basket"></i></div>
   <div class="label">{%trans "Sale Invoicing"%}</div>
@@ -145,7 +145,7 @@
 
 {%block chart_primary%}
 <div class="dcard x3 pA0">
- <div class="chart" data-vals='{{dashboard_detail.sell_time_chart}}'>
+ <div class="chart" data-vals='{{dashboard_detail.sale_time_chart}}'>
  </div>
 </div>
 {%endblock%}

@@ -208,8 +208,8 @@ class products
 				products.stock          AS `stock`,
 				products.thumb          AS `thumb`,
 				products.service        AS `service`,
-				products.sellonline     AS `sellonline`,
-				products.sellstore      AS `sellstore`,
+				products.saleonline     AS `saleonline`,
+				products.salestore      AS `salestore`,
 				products.carton         AS `carton`,
 				products.desc           AS `desc`
 			FROM

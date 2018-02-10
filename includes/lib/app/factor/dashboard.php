@@ -17,11 +17,11 @@ trait dashboard
 		// $result['factor_count']         = self::factor_count($_clean_cache);
 		$count_group_by                 = self::factor_count_group_by();
 		$result['buy_count']            = isset($count_group_by['buy']) ? $count_group_by['buy'] : 0;
-		$result['sell_count']           = isset($count_group_by['sell']) ? $count_group_by['sell'] : 0;
-		$result['pre_sell_count']       = isset($count_group_by['presell']) ? $count_group_by['presell'] : 0;
+		$result['sale_count']           = isset($count_group_by['sale']) ? $count_group_by['sale'] : 0;
+		$result['pre_sale_count']       = isset($count_group_by['presale']) ? $count_group_by['presale'] : 0;
 		$result['lending_count']        = isset($count_group_by['lending']) ? $count_group_by['lending'] : 0;
 		$result['back_from_buy_count']  = isset($count_group_by['backbuy']) ? $count_group_by['backbuy'] : 0;
-		$result['back_from_sell_count'] = isset($count_group_by['backsell']) ? $count_group_by['backsell'] : 0;
+		$result['back_from_sale_count'] = isset($count_group_by['backsale']) ? $count_group_by['backsale'] : 0;
 		$result['waste_product_count']  = isset($count_group_by['waste']) ? $count_group_by['waste'] : 0;
 		return $result;
 	}

@@ -8,7 +8,7 @@ class view extends \content_a\main\view
 	{
 		$this->data->page['title'] = T_('Sale invoicing');
 		$this->data->page['desc']  = '';
-		// $this->data->page['desc']  = T_('Sell your product via Jibres and enjoy using integrated web base platform.');
+		// $this->data->page['desc']  = T_('Sale your product via Jibres and enjoy using integrated web base platform.');
 
 		$this->data->page['badge']['link'] = $this->url('baseFull'). '/factor';
 		$this->data->page['badge']['text'] = T_('Back to last sales');

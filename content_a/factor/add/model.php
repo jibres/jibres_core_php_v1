@@ -9,7 +9,7 @@ class model extends \content_a\main\model
 	 *
 	 * @return     array|boolean  The post factor product.
 	 */
-	public static function getPostSellProduct()
+	public static function getPostSaleProduct()
 	{
 		if(empty(array_filter(\lib\utility::post())))
 		{
@@ -52,7 +52,7 @@ class model extends \content_a\main\model
 	 *
 	 * @return     array  The post factor detail.
 	 */
-	public static function getPostSellDetail()
+	public static function getPostSaleDetail()
 	{
 		$detail             = [];
 		$detail['customer'] = \lib\utility::post('customer');
@@ -72,7 +72,7 @@ class model extends \content_a\main\model
 
 
 		// ready factor_list
-		$factor_list = self::getPostSellProduct();
+		$factor_list = self::getPostSaleProduct();
 
 		if($factor_list === false)
 		{
@@ -80,7 +80,7 @@ class model extends \content_a\main\model
 		}
 
 				// ready factor_list
-		$detail = self::getPostSellDetail();
+		$detail = self::getPostSaleDetail();
 
 		if($detail === false)
 		{

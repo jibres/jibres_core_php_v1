@@ -172,7 +172,7 @@ class factors
 
 	public static function sum_all()
 	{
-		$query = "SELECT SUM(factors.sum) AS `sum` FROM factors WHERE type = 'sell' ";
+		$query = "SELECT SUM(factors.sum) AS `sum` FROM factors WHERE type = 'sale' ";
 		return \lib\db::get($query, 'sum', true);
 	}
 

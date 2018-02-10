@@ -33,7 +33,7 @@ function recalcPricePercents()
   // declare variables
   var elFinalPriceBox = $('#finalprice').parent().parent();
   var buy             = parseInt($('#buyprice').val().toEnglish());
-  var sell            = parseInt($('#price').val().toEnglish());
+  var sale            = parseInt($('#price').val().toEnglish());
   var discount        = parseInt($('#discount').val().toEnglish());
   var finalPrice      = 0;
 
@@ -45,9 +45,9 @@ function recalcPricePercents()
   {
     buy = 0;
   }
-  if(isNaN(sell))
+  if(isNaN(sale))
   {
-    sell = 0;
+    sale = 0;
   }
   if(isNaN(discount))
   {
@@ -55,25 +55,25 @@ function recalcPricePercents()
   }
 
   // impureIntrestRate
-  if(buy && sell)
+  if(buy && sale)
   {
-    impureIntrestRate = ((sell * 100 / buy) - 100).toFixed(2);
-    pureIntrestRate   = (((sell - discount) * 100 / buy) - 100).toFixed(2);
+    impureIntrestRate = ((sale * 100 / buy) - 100).toFixed(2);
+    pureIntrestRate   = (((sale - discount) * 100 / buy) - 100).toFixed(2);
   }
   $('#price').parent().find('.addon').text(fitNumber(impureIntrestRate) + '%');
 
   // Discount Rate
-  if(discount && sell)
+  if(discount && sale)
   {
-    discountRate = (discount * 100 / sell).toFixed(2);
+    discountRate = (discount * 100 / sale).toFixed(2);
   }
   $('#discount').parent().find('.addon').text(fitNumber(discountRate) + '%');
 
   // final price
-  finalPrice = sell - discount;
+  finalPrice = sale - discount;
   $('#finalprice').val(finalPrice);
   elFinalPriceBox.find('.addon').text(fitNumber(pureIntrestRate) + '%');
-  if(sell)
+  if(sale)
   {
     elFinalPriceBox.removeClass('hide').hide().slideDown();
   }
@@ -97,7 +97,7 @@ function recalcPricePercents()
   {
     elPrice.removeClass('warning');
   }
-  // if discount is more than 100% of sell price
+  // if discount is more than 100% of sale price
   if(discount === 0)
   {
     elDiscount.removeClass('error');
@@ -108,7 +108,7 @@ function recalcPricePercents()
     elDiscount.addClass('error');
     elDiscount.removeClass('warning');
   }
-  else if(sell - discount < buy)
+  else if(sale - discount < buy)
   {
     elDiscount.removeClass('error');
     elDiscount.addClass('warning');
@@ -716,10 +716,10 @@ function shortkey_toggleDiscount(_status)
 
 function shortkey_print(_el)
 {
-  if($("#sell_clicked_btn").length)
+  if($("#sale_clicked_btn").length)
   {
-    $("#sell_clicked_btn").attr('value', 'save_print');
-    $("#sell_clicked_btn").parents('form').submit();
+    $("#sale_clicked_btn").attr('value', 'save_print');
+    $("#sale_clicked_btn").parents('form').submit();
   }
   logy('printing...');
 }
