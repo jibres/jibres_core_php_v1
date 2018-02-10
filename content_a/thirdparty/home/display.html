@@ -15,6 +15,9 @@
     <form method="get" data-action class="mB20">
       <div class="input">
         <input type="search" name="q" placeholder='{%trans "Search"%}' id="search" value="{{utilityGET.q}}">
+        {%if utilityGET.type%}
+          <input type="hidden" name="type" value="{{utilityGET.type}}">
+        {%endif%}
         <button class="addon btn ">{%trans "Search" %}</button>
       </div>
     </form>
