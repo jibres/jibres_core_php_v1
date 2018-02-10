@@ -29,6 +29,7 @@ class view extends \content_a\main\view
 
 		$this->data->factor_list = \lib\app\factor::list(\lib\utility::get('search'), $args);
 
+
 		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, $this->url('baseFull'). '/factor');
 
 		if(isset($this->controller->pagnation))

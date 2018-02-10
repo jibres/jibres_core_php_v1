@@ -68,11 +68,11 @@ trait datalist
 		}
 
 		$field             = [];
-		$field['store_id'] = \lib\store::id();
+		$field['factors.store_id'] = \lib\store::id();
 
 		if($_option['type'])
 		{
-			$field['type']     = $_option['type'];
+			$field['factors.type']     = $_option['type'];
 		}
 
 		unset($_option['type']);

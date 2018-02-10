@@ -5,8 +5,14 @@ trait search
 {
 	private static $public_show_field =
 	"
-		factors.*
+		factors.*,
+		userstores.firstname AS `customer_firstname`,
+		userstores.lastname AS `customer_lastname`,
+		userstores.mobile AS `customer_mobile`,
+		userstores.gender AS `customer_gender`
 	";
+
+	private static $master_join = " LEFT JOIN userstores ON userstores.id = factors.customer ";
 
 	/**
 	 * Searches for the first match.
@@ -48,6 +54,8 @@ trait search
 
 			"page"           => 1,
 		];
+
+		$master_join = self::$master_join;
 
 		// if limit not set and the pagenation is false
 		// remove limit from query to load add record
@@ -230,7 +238,7 @@ trait search
 
 		if($pagenation && !$get_count)
 		{
-			$pagenation_query = "SELECT	COUNT(*) AS `count`	FROM `factors` 	$where $search ";
+			$pagenation_query = "SELECT	COUNT(*) AS `count`	FROM `factors` $master_join	$where $search ";
 			$pagenation_query = \lib\db::get($pagenation_query, 'count', true);
 
 			// list($limit_start, $limit) = \lib\utility\pagination::get_query_limit((int) $pagenation_query, $_options['page'], $limit);
@@ -253,7 +261,7 @@ trait search
 			$limit = null;
 		}
 
-		$query = " SELECT $public_fields $where $search $order $limit -- factors::search() 	-- $json";
+		$query = " SELECT $public_fields $master_join $where $search $order $limit -- factors::search() 	-- $json";
 
 		if(!$only_one_value)
 		{
