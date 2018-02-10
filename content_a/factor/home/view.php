@@ -25,9 +25,12 @@ class view extends \content_a\main\view
 			$args['customer'] = \lib\utility::get('customer');
 		}
 
+		$check_empty_datatable = '';
+		$search_string            = \lib\utility::get('q');
+
 		$this->data->dataTable = \lib\app\factor::list(\lib\utility::get('q'), $args);
 
-
+		$this->data->dataFilter = $this->createFilterMsg($search_string, $check_empty_datatable);
 		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, $this->url('baseFull'). '/factor');
 
 		if(isset($this->controller->pagnation))
