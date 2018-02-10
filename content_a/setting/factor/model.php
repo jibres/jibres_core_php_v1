@@ -51,18 +51,40 @@ class model extends \content_a\main\model
 			$meta['pay']['cheque'] = in_array('cheque', \lib\utility::post('pay')) ? true : false;
 		}
 
-		$pos_name = \lib\utility::post('posList');
 
-		if(isset($_old_meta['pos_list']) && is_array($_old_meta['pos_list']))
-		{
-			array_push($_old_meta['pos_list'], $pos_name);
-		}
-		else
-		{
-			$_old_meta['pos_list'] = $default_meta['pos_list'];
-		}
+		$pos_active = \lib\utility::post('pos_active');
 
-		$meta['pos_list'] = array_filter(array_unique($_old_meta['pos_list']));
+		$support_pos_active =
+		[
+			'saderat',		'mellat',		'tejarat',		'melli',
+			'sepah',		'keshavarzi',	'parsian',		'maskan',
+			'refah',		'novin',		'ansar',		'pasargad',
+			'saman',		'sina',			'post',			'ghavamin',
+			'taavon',		'shahr',		'ayande',		'sarmayeh',
+			'day',			'hekmat',		'iranzamin',	'karafarin',
+			'gardeshgari',	'madan',		'tsaderat',		'khavarmiyane',
+			'ivbb',			'irkish',		'asanpardakht',	'zarinpal',
+			'payir',
+		];
+
+		$meta['pos_list'] = [];
+
+		if($pos_active && is_array($pos_active))
+		{
+			foreach ($pos_active as $key => $value)
+			{
+				if(in_array($value, $support_pos_active))
+				{
+					$temp =
+					[
+						'status' => true,
+						'class'  => $value,
+						'name'   => T_(ucfirst($value)),
+					];
+					$meta['pos_list'][$value] = $temp;
+				}
+			}
+		}
 
 		return $meta;
 	}
