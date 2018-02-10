@@ -25,7 +25,7 @@ class view extends \content_a\main\view
 			$args['customer'] = \lib\utility::get('customer');
 		}
 
-		$this->data->factor_list = \lib\app\factor::list(\lib\utility::get('search'), $args);
+		$this->data->factor_list = \lib\app\factor::list(\lib\utility::get('q'), $args);
 
 
 		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, $this->url('baseFull'). '/factor');
@@ -39,8 +39,9 @@ class view extends \content_a\main\view
 	private function set_best_title()
 	{
 		// set usable variable
-		$this->data->modulePath = $this->url('baseFull'). '/factor';
-		$this->data->moduleType = \lib\utility::get('type');
+		$this->data->modulePath  = $this->url('baseFull'). '/factor';
+		$this->data->moduleType  = \lib\utility::get('type');
+		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
 
 		// set default title
 		$this->data->page['title'] = T_('List of factors');
