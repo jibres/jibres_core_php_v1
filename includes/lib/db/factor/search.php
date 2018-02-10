@@ -203,14 +203,29 @@ trait search
 				$search_in_id = "factors.id = '". \lib\utility\shortURL::decode($_string). "' OR ";
 			}
 
-			$search =
-			"
-			(
-				$search_in_id
-				factors.date           = '$_string' OR
-				factors.shamsidate     = '$en_number'
-			)
-			";
+			if(is_numeric($en_number))
+			{
+				$search =
+				"
+				(
+					$search_in_id
+					userstores.displayname  LIKE '%$_string%' OR
+					factors.date       = '$en_number' OR
+					factors.shamsidate = '$en_number'
+				)
+				";
+
+			}
+			else
+			{
+				$search =
+				"
+				(
+					userstores.displayname  LIKE '%$_string%'
+				)
+				";
+			}
+
 				// factors.title          = '$_string' OR
 				// factors.detailsum      = '$en_number' OR
 				// factors.detaildiscount = '$en_number' OR
