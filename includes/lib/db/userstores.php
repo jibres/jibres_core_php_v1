@@ -11,7 +11,19 @@ class userstores
 			return false;
 		}
 
-		$query = "SELECT * FROM userstores WHERE userstores.store_id = $_store_id AND  CONCAT(userstores.firstname, ' ', userstores.lastname) = '$_search_name' LIMIT 1";
+		$_search_name = trim($_search_name);
+
+		$query =
+		"
+			SELECT
+				*
+			FROM
+				userstores
+			WHERE
+				userstores.store_id    = $_store_id AND
+				userstores.displayname = '$_search_name'
+			LIMIT 1
+		";
 		return \lib\db::get($query, null, true);
 	}
 

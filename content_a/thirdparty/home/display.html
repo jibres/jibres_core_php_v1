@@ -1,59 +1,5 @@
 {%extends display.admin%}
 
-{%block pageContent22%}
-
-<div class="f justify-center fs12">
-  <div class="c8 m8 s12">
-    <form method="get" data-action class="mB20">
-      <div class="input">
-        <input type="search" name="search" placeholder='{%trans "Search in thirdpartys list"%}' id="search" value="{{utilityGET.search}}">
-        <button class="addon btn ">{%trans "Search" %}</button>
-      </div>
-    </form>
-
-    {%for key, value in thirdparty_list%}
-      <div class="icard">
-        <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/edit/general?id={{value.id}}">
-          <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
-        </a>
-
-        <div class="f-column align-start fc-black">
-          <a href="{{modulePath}}/edit/general?id={{value.id}}">
-            {%if value.firstname or value.lastname%}
-              {{value.firstname}} <b>{{value.lastname}}</b>
-            {%else%}
-              <b>{{value.displayname}}</b>
-            {%endif%}
-          </a>
-          <span>{{value.father}}</span>
-        </div>
-
-        <div class="justify-start">
-          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
-          {{value.mobile|fitNumber}}
-          {%endif%}
-        </div>
-
-        <div>{{value.birthday|fitNumber}}</div>
-        <div>{{value.nationalcode|fitNumber}}</div>
-      </div>
-    {%endfor%}
-
-    <div class="icard">
-      <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/add">
-        <img src="{{url.static}}siftal/images/useful/adduser.png" alt="add">
-      </a>
-      <div>
-        <a href="{{modulePath}}/add" class="btn primary block">{%trans "Add new thirdparty"%}</a>
-      </div>
-    </div>
-
-    {%include display.pagination%}
-  </div>
-</div>
-
-{%endblock%}
-
 
 {%block pageContent%}
 
@@ -74,10 +20,8 @@
     </form>
 
     {%for key, value in thirdparty_list%}
-      <div class="icard">
-{%set myType = value.type | capitalize %}
 
-{%if myType == 'Customer'%}
+      <div class="icard">
 
         <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/edit/general?id={{value.id}}">
           <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
@@ -85,62 +29,37 @@
 
         <div class="f-column align-start fc-black">
           <a href="{{modulePath}}/edit/general?id={{value.id}}">
-            {{value.firstname}} <b>{{value.lastname}}</b>
+            {%if value.supplier%}
+              <b>{{value.displayname}}</b><small>{{value.visitorname}}</small>
+            {%else%}
+              {{value.firstname}} <b>{{value.lastname}}</b>
+            {%endif%}
           </a>
           <span>{{value.code}}</span>
         </div>
 
         <div class="justify-start">
-          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
-          {{value.mobile|fitNumber}}
+          {%if value.supplier%}
+            {%if value.visitormobile%}<span class="icon sf-mobile fs18"></span>
+              {{value.visitormobile|fitNumber}}
+            {%endif%}
+          {%else%}
+            {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
+              {{value.mobile|fitNumber}}
+            {%endif%}
           {%endif%}
         </div>
-        <div><a href="{{modulePath}}?type={{value.type}}">{%trans myType%}<i class="sf-users"></a></i></div>
-
-{%elseif myType == 'Staff'%}
-
-        <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/edit/general?id={{value.id}}">
-          <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
-        </a>
-
-        <div class="f-column align-start fc-black">
-          <a href="{{modulePath}}/edit/general?id={{value.id}}">
-            {{value.firstname}} <b>{{value.lastname}}</b>
-          </a>
-          <span>{{value.father}}</span>
+        <div>
+            {%if value.customer%}
+              <a href="{{modulePath}}?type={{value.type}}">{%trans "Customer"%}<i class="sf-users"></i></a>
+            {%endif%}
+            {%if value.staff%}
+              <a href="{{modulePath}}?type={{value.type}}">{%trans "Staff"%}<i class="sf-user-4"></i></a>
+            {%endif%}
+            {%if value.supplier%}
+              <a href="{{modulePath}}?type={{value.type}}">{%trans "Supplier"%}<i class="sf-network"></i></a>
+            {%endif%}
         </div>
-
-        <div class="justify-start">
-          {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
-          {{value.mobile|fitNumber}}
-          {%endif%}
-        </div>
-
-        <div><a href="{{modulePath}}?type={{value.type}}">{%trans myType%} <i class="sf-user-4"></a></i></div>
-
-{%elseif myType == 'Supplier'%}
-
-        <a class="size-we50 size-he50 pA2p5" href="{{modulePath}}/edit/general?id={{value.id}}">
-          <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
-        </a>
-
-        <div class="f-column align-start fc-black">
-          <a href="{{modulePath}}/edit/general?id={{value.id}}">
-            <b>{{value.displayname}}</b><small>{{value.visitorname}}</small>
-          </a>
-        </div>
-
-        <div class="justify-start">
-
-          {%if value.visitormobile%}<span class="icon sf-mobile fs18"></span>
-          {{value.visitormobile|fitNumber}}
-          {%endif%}
-        </div>
-
-        <div><a href="{{modulePath}}?type={{value.type}}">{%trans myType%} <i class="sf-network"></a></i></div>
-
-{%endif%}
-
       </div>
     {%endfor%}
 
