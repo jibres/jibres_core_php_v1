@@ -20,6 +20,7 @@
 {%endblock%}
 
 
+
 {%block stBuy%}
 <a class="dcard x2" href='{{url.baseFull}}/factor/add?type=buy'>
  <div class="statistic gray">
@@ -33,7 +34,7 @@
 {%block stSell%}
 <a class="dcard x2" href='{{url.baseFull}}/factor/add?type=sell'>
  <div class="statistic teal">
-  <div class="value"><i class="sf-basket"></i><span class="fs08">{{factor_dashboard_detail.factor_count |number_format |fitNumber}}</span></div>
+  <div class="value"><i class="sf-basket"></i><span class="fs08">{{factor_dashboard_detail.sell_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Sell"%}</div>
  </div>
 </a>
@@ -43,7 +44,7 @@
 {%block stPreSell%}
 <a class="dcard" href='{{url.baseFull}}/factor/add?type=prefactor'>
  <div class="statistic blue">
-  <div class="value"><i class="sf-pin-1"></i><span>{{factor_dashboard_detail.pre_factor_count  | number_format  |fitNumber}}</span></div>
+  <div class="value"><i class="sf-pin-1"></i><span>{{factor_dashboard_detail.pre_sell_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Pre Sell"%}</div>
  </div>
 </a>
@@ -73,7 +74,7 @@
 {%block stBackSell%}
 <a class="dcard" href='{{url.baseFull}}/factor/add?type=backfactor'>
  <div class="statistic black">
-  <div class="value"><i class="sf-indent"></i><span>{{factor_dashboard_detail.back_from_factor_count  | number_format  |fitNumber}}</span></div>
+  <div class="value"><i class="sf-indent"></i><span>{{factor_dashboard_detail.back_from_sell_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Back from factor"%}</div>
  </div>
 </a>

@@ -13,6 +13,7 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['text'] = T_('Quick add new sale factor');
 
 		$this->data->factor_dashboard_detail = \lib\app\factor::dashboard();
+
 	}
 }
 ?>
