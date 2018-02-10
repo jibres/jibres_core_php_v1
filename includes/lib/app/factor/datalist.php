@@ -13,6 +13,7 @@ trait datalist
 		'detaildiscount',
 		'item',
 		'qty',
+		'customer',
 
 	];
 
