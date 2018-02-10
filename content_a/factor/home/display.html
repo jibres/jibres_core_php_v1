@@ -3,7 +3,40 @@
 
 {%block pageContent%}
 
-{%if factor_list%}
+{%if dataTable%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block pageContent3%}
+
+{%if dataTable%}
 {{block('searchblock')}}
 <div class="cbox fs12">
 {{block('datatable')}}
@@ -29,7 +62,7 @@
 
 {%block pageContent2%}
 
-{%if factor_list%}
+{%if dataTable%}
   <div class="">
     <form method="get" data-action class="cbox">
       <div class="input">
@@ -51,7 +84,7 @@
 
 
 
-{%block searchblock%}
+{%block htmlSearchBox%}
 <div class="cbox fs12">
   <form method="get">
     <div class="input">
@@ -63,46 +96,48 @@
 {%endblock%}
 
 
-{%block datatable%}
-<table class="tbl">
-  <thead>
+{%block htmlTable%}
+ <div class="cbox fs12">
 
-    <tr>
-      <th data-sort="{{sort_link.type.order}}"><a href="{{sort_link.type.link}}">{%trans "Type"%}</a></th>
-      <th data-sort="{{sort_link.date.order}}"><a href="{{sort_link.date.link}}">{%trans "Invoice Date"%}</a></th>
-      <th data-sort="{{sort_link.customer.order}}"><a href="{{sort_link.customer.link}}">{%trans "Customer"%}</a></th>
-      <th data-sort="{{sort_link.item.order}}"><a href="{{sort_link.item.link}}">{%trans "Items"%}</a></th>
-      <th data-sort="{{sort_link.qty.order}}"><a href="{{sort_link.qty.link}}">{%trans "Qty"%}</a></th>
-      <th data-sort="{{sort_link.detailsum.order}}"><a href="{{sort_link.detailsum.link}}">{%trans "Price"%}</a></th>
-      <th data-sort="{{sort_link.detaildiscount.order}}"><a href="{{sort_link.detaildiscount.link}}">{%trans "Discount"%}</a></th>
-      <th data-sort="{{sort_link.detailtotalsum.order}}"><a href="{{sort_link.detailtotalsum.link}}">{%trans "Total"%}</a></th>
-    </tr>
-
-  </thead>
-  <tbody>
-    {%for key, value in factor_list%}
+  <table class="tbl">
+    <thead>
       <tr>
-        <td>{%set myType = value.type | capitalize%}<a href="{{modulePath}}?type={{value.type}}">{%trans myType%}</a></td>
-        <td class="ltr txtL"><a href="{{modulePath}}/fishprint?id={{value.id}}&size=receipt8">{{value.date|tdate("Y-m-d")}} <b>{{value.date|tdate("H:i:s")}}</b></a></td>
-        <td>
-        {%if value.customer%}
-          <a href="{{modulePath}}?customer={{value.customer}}">
-            {{value.customer_firstname}} <b>{{value.customer_lastname}}</b>
-          </a>
-        {%else%}
-          <i class="disabled">-</i>
-        {%endif%}
-        </td>
-        <td>{{value.item| number_format | fitNumber}}</td>
-        <td>{{value.qty| number_format | fitNumber}}</td>
-        <td>{{value.detailsum| number_format | fitNumber}}</td>
-        <td>{{value.detaildiscount| number_format | fitNumber}}</td>
-        <td>{{value.detailtotalsum| number_format | fitNumber}}</td>
+        <th data-sort="{{sort_link.type.order}}"><a href="{{sort_link.type.link}}">{%trans "Type"%}</a></th>
+        <th data-sort="{{sort_link.date.order}}"><a href="{{sort_link.date.link}}">{%trans "Invoice Date"%}</a></th>
+        <th data-sort="{{sort_link.customer.order}}"><a href="{{sort_link.customer.link}}">{%trans "Customer"%}</a></th>
+        <th data-sort="{{sort_link.item.order}}"><a href="{{sort_link.item.link}}">{%trans "Items"%}</a></th>
+        <th data-sort="{{sort_link.qty.order}}"><a href="{{sort_link.qty.link}}">{%trans "Qty"%}</a></th>
+        <th data-sort="{{sort_link.detailsum.order}}"><a href="{{sort_link.detailsum.link}}">{%trans "Price"%}</a></th>
+        <th data-sort="{{sort_link.detaildiscount.order}}"><a href="{{sort_link.detaildiscount.link}}">{%trans "Discount"%}</a></th>
+        <th data-sort="{{sort_link.detailtotalsum.order}}"><a href="{{sort_link.detailtotalsum.link}}">{%trans "Total"%}</a></th>
       </tr>
-    {%endfor%}
-  </tbody>
-</table>
+
+    </thead>
+    <tbody>
+      {%for key, value in dataTable%}
+        <tr>
+          <td>{%set myType = value.type | capitalize%}<a href="{{modulePath}}?type={{value.type}}">{%trans myType%}</a></td>
+          <td class="ltr txtL"><a href="{{modulePath}}/fishprint?id={{value.id}}&size=receipt8">{{value.date|tdate("Y-m-d")}} <b>{{value.date|tdate("H:i:s")}}</b></a></td>
+          <td>
+          {%if value.customer%}
+            <a href="{{modulePath}}?customer={{value.customer}}">
+              {{value.customer_firstname}} <b>{{value.customer_lastname}}</b>
+            </a>
+          {%else%}
+            <i class="disabled">-</i>
+          {%endif%}
+          </td>
+          <td>{{value.item| number_format | fitNumber}}</td>
+          <td>{{value.qty| number_format | fitNumber}}</td>
+          <td>{{value.detailsum| number_format | fitNumber}}</td>
+          <td>{{value.detaildiscount| number_format | fitNumber}}</td>
+          <td>{{value.detailtotalsum| number_format | fitNumber}}</td>
+        </tr>
+      {%endfor%}
+    </tbody>
+  </table>
     {%include display.pagination%}
+ </div>
 {%endblock%}
 
 
@@ -119,28 +154,22 @@
 
 
 
-{%block all_field_we_have_hidden%}
+{%block htmlFilter%}
+<p class="f fs14 alert alert-info">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{modulePath}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
 
-    'id'             => string '4' (length=1)
-    'store_id'       => string '9' (length=1)
-    'customer'       => null
-    'factorer'         => string '7' (length=1)
-    'date'           => string '2017-11-20 15:37:57' (length=19)
-    'shamsidate'     => string '13960829' (length=8)
-    'title'          => null
-    'pre'            => null
-    'transport'      => null
-    'pay'            => null
-    'detailsum'      => string '16000' (length=5)
-    'detaildiscount' => null
-    'detailtotalsum' => string '16000' (length=5)
-    'item'    => string '2' (length=1)
-    'vat'            => null
-    'discount'       => null
-    'sum'            => string '16000' (length=5)
-    'status'         => string 'enable' (length=6)
-    'datecreated'    => string '2017-11-20 15:37:57' (length=19)
-    'datemodified'   => null
-    'desc'           => null
 
+{%block htmlFilterNoResult%}
+<p class="f fs14 alert alert-error">
+  <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
+  <a class="cauto" href="{{modulePath}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 alert alert-success pTB20">{%trans "Hi!"%} <a href="{{modulePath}}/add{{moduleTypeP}}">{%trans "Try to start with add new factor!"%}</a></p>
 {%endblock%}
