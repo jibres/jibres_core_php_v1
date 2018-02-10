@@ -3,14 +3,14 @@
 {%block pageContent%}
 
 {%if product_list%}
-{{block('searchblock')}}
+{{block('htmlSearchBox')}}
 <div class="cbox fs12">
-{{block('datatable')}}
+{{block('htmlTable')}}
 </div>
 
 
 {%elseif utilityGET.q or utilityGET.barcode%}
-{{block('searchblock')}}
+{{block('htmlSearchBox')}}
 <div class="fs14 alert alert-info pA25">
  {%trans "No product founded."%} {%trans "Search with new keywords or barcode."%}
  <a class="badge primary pA10" href="{{url.baseFull}}/product/add{{barcode_scaned}}" data-shortkey="119">{%trans "Add new product"%}</a>
@@ -27,7 +27,7 @@
 {%endblock%}
 
 
-{%block searchblock%}
+{%block htmlSearchBox%}
 <div class="cbox fs12">
   <form method="get" action='{{url.baseFull}}/product'>
     <div class="input">
@@ -39,7 +39,7 @@
 {%endblock%}
 
 
-{%block datatable%}
+{%block htmlTable%}
   <table class="tbl">
     <thead class="">
       <tr>
@@ -76,41 +76,4 @@
 
 
 
-{%block All_field_we_have_hide%}
-
-      'id'              => string 'BQ' (length=2)
-      'store_id'        => string '1' (length=1)
-      'creator'         => string '3' (length=1)
-      'title'           => string 'سرکه سفید دلوسه' (length=28)
-      'name'            => null
-      'cat'             => string 'محصولات غذایی' (length=25)
-      'slug'            => string 'سرکه-سفید-دلوسه' (length=28)
-      'url'             => string 'http://سرکه-سفید-دلوسه.jibres.dev' (length=46)
-      'company'         => null
-      'shortcode'       => null
-      'unit'            => string 'بطری' (length=8)
-      'barcode'         => string '6262164400421' (length=13)
-      'barcode2'        => null
-      'code'            => string '1412' (length=4)
-      'buyprice'        => null
-      'price'           => string '5450' (length=4)
-      'discount'        => string '450' (length=3)
-      'discountpercent' => string '8.257' (length=5)
-      'vat'             => null
-      'initialbalance'  => null
-      'minstock'        => string '1' (length=1)
-      'maxstock'        => null
-      'status'          => string 'available' (length=9)
-      'sold'            => null
-      'stock'           => null
-      'thumb'           => null
-      'service'         => null
-      'checkstock'      => null
-      'saleonline'      => null
-      'salestore'       => null
-      'carton'          => null
-      'datecreated'     => string '2017-10-31 08:12:23' (length=19)
-      'datemodified'    => null
-      'desc'            => null
-{%endblock%}
 

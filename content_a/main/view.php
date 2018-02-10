@@ -16,6 +16,11 @@ class view extends \mvc\view
 
 		// set shortkey for all badges is this content
 		$this->data->page['badge']['shortkey'] = 120;
+
+		// set usable variable
+		$this->data->modulePath  = $this->url('baseFull'). '/'. $this->module();
+		$this->data->moduleType  = \lib\utility::get('type');
+		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
 	}
 
 
