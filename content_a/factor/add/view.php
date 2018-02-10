@@ -19,8 +19,9 @@ class view extends \content_a\main\view
 			switch (\lib\utility::get('list'))
 			{
 				case 'customer':
-					$meta             = [];
+					$meta                        = [];
 					$meta['userstores.supplier'] = ["IS", "NULL"];
+					$meta['sort_type']           = \lib\utility::get('type');
 					$resultRaw        = \lib\app\thirdparty::list(\lib\utility::get('q'), $meta);
 
 					foreach ($resultRaw as $key => $value)

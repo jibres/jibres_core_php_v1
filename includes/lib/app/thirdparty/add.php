@@ -13,6 +13,18 @@ trait add
 	 */
 	public static function add($_args, $_option = [])
 	{
+		$default_option =
+		[
+			'store_id' => null,
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
 		\lib\app::variable($_args);
 
 		if(!\lib\user::id())
@@ -21,7 +33,7 @@ trait add
 			return false;
 		}
 
-		if(!\lib\store::id())
+		if(!\lib\store::id() && !$_option['store_id'])
 		{
 			\lib\debug::error(T_("store not found"), 'store');
 			return false;
@@ -37,7 +49,14 @@ trait add
 
 		$return = [];
 
-		$args['store_id'] = \lib\store::id();
+		if($_option['store_id'])
+		{
+			$args['store_id'] = $_option['store_id'];
+		}
+		else
+		{
+			$args['store_id'] = \lib\store::id();
+		}
 
 		if(!$args['status'])
 		{

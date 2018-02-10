@@ -105,7 +105,7 @@ trait add
 			'postion'   => T_('Admin'),
 		];
 
-		\lib\app\staff::add($insert_userstore, ['debug' => false, 'store_id' => $store_id]);
+		\lib\app\thirdparty::add($insert_userstore, ['debug' => false, 'store_id' => $store_id]);
 
 		if(Tld === 'local')
 		{

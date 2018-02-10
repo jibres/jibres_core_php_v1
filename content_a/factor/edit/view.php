@@ -19,7 +19,7 @@ class view extends \content_a\main\view
 				case 'customer':
 					$meta         = [];
 					$meta['type'] = ["IN", "('staff', 'customer', 'supplier') "];
-					$resultRaw    = \lib\app\staff::list(\lib\utility::get('q'), $meta);
+					$resultRaw    = \lib\app\thirdparty::list(\lib\utility::get('q'), $meta);
 
 					foreach ($resultRaw as $key => $value)
 					{
