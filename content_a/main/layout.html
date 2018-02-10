@@ -33,13 +33,23 @@
 
 {%if module == "factor"%}
     <ul>
-      <li><a href="{{url.baseFull}}/sell"><i class="sf-list"></i>{%trans "List of last sales"%}</a></li>
-      <li><a href="{{url.baseFull}}/sell/add"><i class="sf-plus"></i>{%trans "register new sale"%}</a></li>
+      <li><a href="{{url.baseFull}}/factor/add"><i class="sf-cart-plus"></i>{%trans "register new sale factor"%}</a></li>
+      <li><a href="{{url.baseFull}}/factor?type=sale"><i class="sf-basket"></i>{%trans "List of sales"%}</a></li>
+      <li><a href="{{url.baseFull}}/factor?type=buy"><i class="sf-bag"></i>{%trans "List of purchases"%}</a></li>
+      <li><a href="{{url.baseFull}}/factor"><i class="sf-list"></i>{%trans "List of all factors"%}</a></li>
     </ul>
 {%endif%}
 
   </li>
-  <li><a href="{{url.baseFull}}/setting/general"><i class="sf-cogs"></i>{%trans "Setting"%}</a></li>
+  <li>
+    <a href="{{url.baseFull}}/setting/general"><i class="sf-cogs"></i>{%trans "Setting"%}</a>
+{%if module == "setting"%}
+    <ul>
+      <li><a href="{{url.baseFull}}/setting/plan"><i class="sf-lamp"></i>{%trans "Store plans"%}</a></li>
+      <li><a href="{{url.baseFull}}/setting/factor"><i class="sf-sliders"></i>{%trans "Factor settings"%}</a></li>
+    </ul>
+{%endif%}
+  </li>
 {%endblock%}
 
 
