@@ -110,6 +110,24 @@ class view extends \lib\view
 				}
 				break;
 
+			case 'thirdparty':
+				if(isset($filter_array['supplier']))
+				{
+					$filter_array['type'] = T_("Supplier");
+					unset($filter_array['supplier']);
+				}
+				if(isset($filter_array['staff']))
+				{
+					$filter_array['type'] = T_("Staff");
+					unset($filter_array['staff']);
+				}
+				if(isset($filter_array['customer']))
+				{
+					$filter_array['type'] = T_("Customer");
+					unset($filter_array['customer']);
+				}
+				break;
+
 			default:
 				# code...
 				break;

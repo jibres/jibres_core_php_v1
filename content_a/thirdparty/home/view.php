@@ -8,18 +8,18 @@ class view extends \content_a\main\view
 	{
 		self::set_best_title();
 
-		$meta = [];
+		$args = [];
 
 		$type = \lib\utility::get('type');
 
 		if($type && in_array($type, ['customer', 'staff', 'supplier']))
 		{
-			$meta[$type] = 1;
+			$args[$type] = 1;
 		}
 
-		$meta['order'] = 'desc';
-
-		$this->data->thirdparty_list = \lib\app\thirdparty::list(\lib\utility::get('q'), $meta);
+		$args['order'] = 'desc';
+		$this->data->dataTable = \lib\app\thirdparty::list(\lib\utility::get('q'), $args);
+		$this->data->dataFilter = $this->createFilterMsg($args);
 
 		$this->data->dashboard_detail = \lib\app\store::dashboard_detail(\lib\store::id());
 

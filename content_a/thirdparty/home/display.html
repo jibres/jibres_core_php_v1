@@ -22,7 +22,7 @@
       </div>
     </form>
 
-    {%for key, value in thirdparty_list%}
+    {%for key, value in dataTable%}
 
       <div class="icard">
 
@@ -65,7 +65,7 @@
         </div>
       </div>
     {%endfor%}
-
+{{block('htmlFilter')}}
     {%include display.pagination%}
   </div>
 </div>
@@ -103,3 +103,10 @@
 </a>
 {%endblock%}
 
+
+{%block htmlFilter%}
+<p class="f fs14 alert alert-info">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{modulePath}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
