@@ -47,9 +47,13 @@ trait datalist
 
 		$default_args =
 		[
-			'order' => null,
-			'sort'  => null,
-			'in'    => null,
+			'order'    => null,
+			'sort'     => null,
+			'cat'      => null,
+			'buyprice' => null,
+			'price'    => null,
+			'discount' => null,
+			'unit'     => null,
 		];
 
 		if(!is_array($_args))
@@ -82,10 +86,39 @@ trait datalist
 		$multi_record      = true;
 
 		// search in current field
-		if($option['in'] && in_array($option['in'], self::$search_in))
+		if($option['price'])
 		{
-			$field[$option['in']] = $_string;
-			$option['just_one_field'] = true;
+			$field['price'] = $option['price'];
+			$option['just_search_in_one_field'] = true;
+		}
+
+		if($option['cat'])
+		{
+			$field['cat'] = $option['cat'];
+			$option['just_search_in_one_field'] = true;
+		}
+
+		if($option['buyprice'])
+		{
+			$field['buyprice'] = $option['buyprice'];
+			$option['just_search_in_one_field'] = true;
+		}
+
+		if($option['discount'])
+		{
+			$field['discount'] = $option['discount'];
+			$option['just_search_in_one_field'] = true;
+		}
+
+		if($option['unit'])
+		{
+			$field['unit'] = $option['unit'];
+			$option['just_search_in_one_field'] = true;
+		}
+
+		if(!$option['order'])
+		{
+			$option['order'] = 'DESC';
 		}
 
 		if (isset($_args['barcode']) && $_args['barcode'])

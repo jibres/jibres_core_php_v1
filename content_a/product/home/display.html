@@ -72,10 +72,10 @@
       {%for key, value in dataTable%}
       <tr {%if value.stock < 0%} class='warning' title='{%trans "stock count is less than zero!"%}'{%endif%}>
         <td><a href="{{url.baseFull}}/product/edit/general?id={{value.id}}">{{value.title}}</a></td>
-        <td class="s0"><small><a href="{{url.baseFull}}/product?q={{value.cat}}&in=cat">{{value.cat}}</a></small></td>
-        <td><a href="{{url.baseFull}}/product?q={{value.buyprice}}&in=buyprice">{{value.buyprice | number_format | fitNumber}}</a></td>
-        <td class="s0"><a href="{{url.baseFull}}/product?q={{value.price}}&in=price">{{value.price | number_format | fitNumber}}</a></td>
-        <td><a href="{{url.baseFull}}/product?q={{value.discount}}&in=discount">{{value.discount | number_format | fitNumber}}</a></td>
+        <td class="s0"><small><a href="{{url.baseFull}}/product?cat={{value.cat}}">{{value.cat}}</a></small></td>
+        <td><a href="{{url.baseFull}}/product?buyprice={{value.buyprice}}">{{value.buyprice | number_format | fitNumber}}</a></td>
+        <td class="s0"><a href="{{url.baseFull}}/product?price={{value.price}}">{{value.price | number_format | fitNumber}}</a></td>
+        <td><a href="{{url.baseFull}}/product?discount={{value.discount}}">{{value.discount | number_format | fitNumber}}</a></td>
         <td {%if value.discountpercent > 50%} class='s0 ltr txtC warning' title='{%trans "Discount more than 50 percent!"%}'{%else%} class="s0 ltr txtC"{%endif%}>{{value.discountpercent | number_format | fitNumber}} <small>%</small></td>
         <td {%if value.buyprice > value.finalprice%} class='negative' title='{%trans "Final price is under buy price"%}'{%endif%}><a class="bold">{{(value.finalprice) | number_format | fitNumber}}</a></td>
         <td class="s0">{{value.stock | number_format | fitNumber}} <small><a href="{{url.baseFull}}/product?unit={{value.unit}}">{{value.unit}}</a></small></td>

@@ -20,9 +20,37 @@ class view extends \content_a\main\view
 		[
 			'order'   => \lib\utility::get('order'),
 			'sort'    => \lib\utility::get('sort'),
-			'barcode' => \lib\utility::get('barcode'),
-			'in'      => \lib\utility::get('in'),
 		];
+
+		if(\lib\utility::get('barcode'))
+		{
+			$args['barcode'] = \lib\utility::get('barcode');
+		}
+
+		if(\lib\utility::get('price'))
+		{
+			$args['price'] = \lib\utility::get('price');
+		}
+
+		if(\lib\utility::get('buyprice'))
+		{
+			$args['buyprice'] = \lib\utility::get('buyprice');
+		}
+
+		if(\lib\utility::get('cat'))
+		{
+			$args['cat'] = \lib\utility::get('cat');
+		}
+
+		if(\lib\utility::get('discount'))
+		{
+			$args['discount'] = \lib\utility::get('discount');
+		}
+
+		if(\lib\utility::get('unit'))
+		{
+			$args['unit'] = \lib\utility::get('unit');
+		}
 
 		$search_string            = \lib\utility::get('q');
 
