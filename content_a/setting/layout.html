@@ -214,19 +214,19 @@
 
     <div class="c">
       <div class="switch1">
-       <input type="checkbox" name="print_size[]" id="Fishprint" value="fishprint" {%if   current_store.meta.factor.print_size.fishprint or not current_store.meta.facro.print_size%} checked {%endif%}>
+       <input type="checkbox" name="print_size[]" id="Fishprint" value="fishprint" {%if   current_store.meta.factor.print_size.fishprint or not current_store.meta.factor.print_size%} checked {%endif%}>
        <label for="Fishprint"></label>
        <label for="Fishprint">{%trans "Fish print"%}</label>
       </div>
 
       <div class="switch1">
-       <input type="checkbox" name="print_size[]" id="A4Print" value="a4" {%if   current_store.meta.factor.print_size.a4 or not current_store.meta.facro.print_size%} checked {%endif%}>
+       <input type="checkbox" name="print_size[]" id="A4Print" value="a4" {%if   current_store.meta.factor.print_size.a4 or not current_store.meta.factor.print_size%} checked {%endif%}>
        <label for="A4Print"></label>
        <label for="A4Print">{%trans "A4"%}</label>
       </div>
 
       <div class="switch1">
-       <input type="checkbox" name="print_size[]" id="A5Print" value="a5" {%if   current_store.meta.factor.print_size.a5 or not current_store.meta.facro.print_size%} checked {%endif%}>
+       <input type="checkbox" name="print_size[]" id="A5Print" value="a5" {%if   current_store.meta.factor.print_size.a5 or not current_store.meta.factor.print_size%} checked {%endif%}>
        <label for="A5Print"></label>
        <label for="A5Print">{%trans "A5"%}</label>
       </div>
@@ -237,7 +237,33 @@
 
 {%endblock%}
 
+{% block iPrintDefault %}
+<div data-response='printStatus'  {%if current_store.meta.factor.print_status or not current_store.meta.factor%} {%else%} data-response-hide {%endif%}>
+  {%if current_store.meta.factor.print_size.fishprint or current_store.meta.factor.print_size.a4 or current_store.meta.factor.print_size.a5%}
+  <label for="idefaultPrint">{%trans "Default print_size"%}</label>
+  <div class="input">
+    <select name="defaultPrint" class="select" id="idefaultPrint">
+        <option value="" {%if not current_store.meta.factor.detault_print  %} selected {%endif%}>{%trans "No default"%}</option>
 
+      {%if current_store.meta.factor.print_size.fishprint %}
+        <option value="fishprint" {%if current_store.meta.factor.detault_print == 'fishprint' %} selected {%endif%}>{%trans "Fish print"%}</option>
+      {%endif%}
+
+      {%if current_store.meta.factor.print_size.a4 %}
+        <option value="a4" {%if current_store.meta.factor.detault_print == 'a4' %} selected {%endif%}>{%trans "A4"%}</option>
+      {%endif%}
+
+      {%if current_store.meta.factor.print_size.a5 %}
+        <option value="a5" {%if current_store.meta.factor.detault_print == 'a5' %} selected {%endif%}>{%trans "A5"%}</option>
+      {%endif%}
+
+    </select>
+  </div>
+{%endif%}
+</div>
+
+
+{%endblock%}
 
 
 
@@ -247,22 +273,22 @@
 
   <div class="c">
     <div class="switch1">
-     <input type="checkbox" name="pay[]" value="cash" id="f-waycash" {%if   current_store.meta.factor.pay.cash or not current_store.meta.facro.pay%} checked {%endif%}>
+     <input type="checkbox" name="pay[]" value="cash" id="f-waycash" {%if   current_store.meta.factor.pay.cash or not current_store.meta.factor.pay%} checked {%endif%}>
      <label for="f-waycash"></label>
      <label for="f-waycash">{%trans "Cash"%}</label>
     </div>
 
     <div class="switch1">
-     <input type="checkbox" name="pay[]" value="pos" id="f-waypos" {%if   current_store.meta.factor.pay.pos or not current_store.meta.facro.pay%} checked {%endif%}>
+     <input type="checkbox" name="pay[]" value="pos" id="f-waypos" {%if   current_store.meta.factor.pay.pos or not current_store.meta.factor.pay%} checked {%endif%}>
      <label for="f-waypos"></label>
      <label for="f-waypos">{%trans "Pos"%}</label>
     </div>
 
     <div class="switch1">
-     <input type="checkbox" name="pay[]" value="cheque" id="f-waychekc" {%if   current_store.meta.factor.pay.cheque or not current_store.meta.facro.pay%} checked {%endif%}>
+     <input type="checkbox" name="pay[]" value="cheque" id="f-waychekc" {%if   current_store.meta.factor.pay.cheque or not current_store.meta.factor.pay%} checked {%endif%}>
      <label for="f-waychekc"></label>
      <label for="f-waychekc">{%trans "Check"%}</label>
-    </div
+    </div>
   </div>
 
 </div>
@@ -276,18 +302,18 @@
 <label for="idefaultPay">{%trans "Default pay"%}</label>
 <div class="input">
   <select name="defaultPay" class="select" id="idefaultPay">
-      <option value="" {%if not current_store.meta.factor.pay.detault  %} selected {%endif%}>{%trans "No default"%}</option>
+      <option value="" {%if not current_store.meta.factor.detault_pay  %} selected {%endif%}>{%trans "No default"%}</option>
 
     {%if current_store.meta.factor.pay.cheque %}
-      <option value="cheque" {%if current_store.meta.factor.pay.detault == 'cheque' %} selected {%endif%}>{%trans "Cheque"%}</option>
+      <option value="cheque" {%if current_store.meta.factor.detault_pay == 'cheque' %} selected {%endif%}>{%trans "Cheque"%}</option>
     {%endif%}
 
     {%if current_store.meta.factor.pay.cash %}
-      <option value="cash" {%if current_store.meta.factor.pay.detault == 'cash' %} selected {%endif%}>{%trans "Cash"%}</option>
+      <option value="cash" {%if current_store.meta.factor.detault_pay == 'cash' %} selected {%endif%}>{%trans "Cash"%}</option>
     {%endif%}
 
     {%if current_store.meta.factor.pay.pos %}
-      <option value="pos" {%if current_store.meta.factor.pay.detault == 'pos' %} selected {%endif%}>{%trans "Pos"%}</option>
+      <option value="pos" {%if current_store.meta.factor.detault_pay == 'pos' %} selected {%endif%}>{%trans "Pos"%}</option>
     {%endif%}
 
   </select>
@@ -464,5 +490,22 @@
   <input type="checkbox"  name="pos_active[]" value="payir" id="pos_payir_id" {%if current_store.meta.factor.pos_list.payir.status%} checked {%endif%}>
   <label class="spay-64-payir" for="pos_payir_id"></label>
 </div>
+
+{%endblock%}
+
+
+{% block iPosDefault %}
+
+{%if current_store.meta.factor.pos_list%}
+<label for="idefaultPos">{%trans "Default pay"%}</label>
+<div class="input">
+  <select name="defaultPos" class="select" id="idefaultPos">
+      <option value="" {%if not current_store.meta.factor.default_pos  %} selected {%endif%}>{%trans "No default"%}</option>
+      {%for key, value in current_store.meta.factor.pos_list%}
+        <option value="{{key}}" {%if current_store.meta.factor.default_pos == key %} selected {%endif%} >{{value.name}}</option>
+      {%endfor%}
+  </select>
+</div>
+{%endif%}
 
 {%endblock%}

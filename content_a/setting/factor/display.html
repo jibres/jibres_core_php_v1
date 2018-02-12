@@ -5,18 +5,23 @@
   <div class="cbox">
  <form method="post">
 
-  {{block ("iPrintStatus")}}
-  {{block ("iPrintList")}}
-  <hr>
+	<h2>{%trans "Print status"%}</h2>
+  	{{block ("iPrintStatus")}}
 
-  <div class="f">
-  	<div class="c">{{block ("iPayWayList")}}</div>
-  	<div class="c">{{block ("iPayDefault")}}</div>
-  </div>
+	<div class="f">
+		<div class="c">{{block ("iPrintList")}}</div>
+	  	<div class="c">{{block ("iPrintDefault")}}</div>
+	 </div>
+	<h2>{%trans "Pay setting"%}</h2>
+	<div class="f">
+	  	<div class="c">{{block ("iPayWayList")}}</div>
+	 	<div class="c">{{block ("iPayDefault")}}</div>
+	</div>
 
-  <hr>
-  {{block ("iPosList")}}
-  {{block ("iSaveAll")}}
+	<h2>{%trans "Pos setting"%}</h2>
+  	{{block ("iPosList")}}
+  	{{block ("iPosDefault")}}
+	{{block ("iSaveAll")}}
  </form>
 </div>
 
