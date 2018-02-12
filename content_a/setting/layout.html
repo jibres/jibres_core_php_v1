@@ -262,7 +262,7 @@
      <input type="checkbox" name="pay[]" value="cheque" id="f-waychekc" {%if   current_store.meta.factor.pay.cheque or not current_store.meta.facro.pay%} checked {%endif%}>
      <label for="f-waychekc"></label>
      <label for="f-waychekc">{%trans "Check"%}</label>
-    </div>
+    </div
   </div>
 
 </div>
@@ -270,6 +270,32 @@
 
 {%endblock%}
 
+
+{% block iPayDefault %}
+{%if current_store.meta.factor.pay.cash or current_store.meta.factor.pay.pos or current_store.meta.factor.pay.cheque%}
+<label for="idefaultPay">{%trans "Default pay"%}</label>
+<div class="input">
+  <select name="defaultPay" class="select" id="idefaultPay">
+      <option value="" {%if not current_store.meta.factor.pay.detault  %} selected {%endif%}>{%trans "No default"%}</option>
+
+    {%if current_store.meta.factor.pay.cheque %}
+      <option value="cheque" {%if current_store.meta.factor.pay.detault == 'cheque' %} selected {%endif%}>{%trans "Cheque"%}</option>
+    {%endif%}
+
+    {%if current_store.meta.factor.pay.cash %}
+      <option value="cash" {%if current_store.meta.factor.pay.detault == 'cash' %} selected {%endif%}>{%trans "Cash"%}</option>
+    {%endif%}
+
+    {%if current_store.meta.factor.pay.pos %}
+      <option value="pos" {%if current_store.meta.factor.pay.detault == 'pos' %} selected {%endif%}>{%trans "Pos"%}</option>
+    {%endif%}
+
+  </select>
+</div>
+{%endif%}
+
+
+{%endblock%}
 
 
 {% block iPosList %}
