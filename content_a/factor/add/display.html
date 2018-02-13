@@ -93,7 +93,7 @@
 
 {%block iCustomer%}
 <div class="cbox">
-  <div class="input f">
+  <div class="input f" data-relative-f>
    <input class="autoList" type="text" name="customer" id="customerSearch" placeholder='{%trans "Search in Customers"%}' value="{{product.customer}}" maxlength="100" data-find='customer'>
    <a class="addon btn secondary" href="{{url.baseFull}}/thirdparty?type=customer" target='_blank'><small>{%trans "Add"%}</small></a>
   </div>
