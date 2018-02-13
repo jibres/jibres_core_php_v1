@@ -4,12 +4,18 @@ class twigTransTerms
  private function transtext()
  {
 
+	//--------------------------------------addons\content_account\appkey\display.html
+	echo T_("YOUR API KEY");                                                          // Line 8
+	echo T_("GENERATE NEW API KEY");                                                  // Line 9
+	echo T_("Get new API KEY");                                                       // Line 11
+
 	//------------------------------addons\content_account\billing\detail\display.html
 	echo T_("Name");                                                                  // Line 17
-	echo T_("plan");                                                                  // Line 10
-	echo T_("Start plan");                                                            // Line 11
-	echo T_("Active member");                                                         // Line 12
+	echo T_("plan");                                                                  // Line 12
+	echo T_("Start plan");                                                            // Line 13
+	echo T_("Active member");                                                         // Line 14
 	echo T_("Usage");                                                                 // Line 79
+	echo T_("You are not have billing detail yet!");                                  // Line 39
 
 	//-------------------------------------addons\content_account\billing\display.html
 	echo T_("Charge your account");                                                   // Line 9
@@ -29,6 +35,7 @@ class twigTransTerms
 	echo T_("Value");                                                                 // Line 116 Seperate
 	echo T_("Budget After");                                                          // Line 96
 	echo T_("Invoice");                                                               // Line 37
+	echo T_("You are not have payment history yet!");                                 // Line 139
 
 	//-----------------------------addons\content_account\billing\invoice\display.html
 	echo T_("Factor of team");                                                        // Line 8
@@ -36,28 +43,30 @@ class twigTransTerms
 	echo T_("Price");                                                                 // Line 20
 	echo T_("Count");                                                                 // Line 91
 
-	//-----------------------------------------addons\content_account\main\layout.html
-	echo T_("Dashboard");                                                             // Line 93 Seperate
+	//----------------------------------------addons\content_account\home\display.html
+	echo T_("Profile");                                                               // Line 386 Seperate
 	echo T_("Billing");                                                               // Line 8
 
+	//-----------------------------------------addons\content_account\main\layout.html
+	echo T_("Dashboard");                                                             // Line 93 Seperate
+
 	//-------------------------------------addons\content_account\profile\display.html
-	echo T_("Your profile information");                                              // Line 7
 	echo T_("First Name *");                                                          // Line 29
 	echo T_("Enter a valid name from 3 to 30 character");                             // Line 29
 	echo T_("Last Name");                                                             // Line 284
-	echo T_("Enter a valid family from 3 to 50 character");                           // Line 34
+	echo T_("Enter a valid family from 3 to 50 character");                           // Line 36
 	echo T_("Display name");                                                          // Line 24
-	echo T_("Enter a valid team position from 3 to 50 character");                    // Line 39
-	echo T_("allowed extentions jpg, png (gif for bussiness plans). Max 500Kb");      // Line 27
-	echo T_("mobile");                                                                // Line 60
-	echo T_("Your mobile");                                                           // Line 62
+	echo T_("Enter a valid team position from 3 to 50 character");                    // Line 44
+	echo T_("allowed extentions jpg, png. Max 1000Kb");                               // Line 142
+	echo T_("mobile");                                                                // Line 65
+	echo T_("Your mobile");                                                           // Line 67
 	echo T_("email");                                                                 // Line 101
-	echo T_("Your email");                                                            // Line 72
-	echo T_("Money unit");                                                            // Line 80
-	echo T_("Please select one unit for default");                                    // Line 90
+	echo T_("Your email");                                                            // Line 75
+	echo T_("Money unit");                                                            // Line 82
+	echo T_("Please select one unit for default");                                    // Line 92
 	echo T_("Toman");                                                                 // Line 60
 	echo T_("$");                                                                     // Line 61
-	echo T_("Dollar");                                                                // Line 106
+	echo T_("Dollar");                                                                // Line 108
 	echo T_("Update profile");                                                        // Line 115
 
 	//-----------------------------------------addons\content_account\ref\display.html
@@ -192,7 +201,6 @@ class twigTransTerms
 	echo T_("Tag");                                                                   // Line 127
 	echo T_("Tag keywords...");                                                       // Line 131
 	echo T_("Add tag");                                                               // Line 132
-	echo T_("allowed extentions jpg, png. Max 1000Kb");                               // Line 142
 	echo T_("Remove");                                                                // Line 261
 
 	//--------------------------------------------addons\content_cp\terms\display.html
@@ -260,6 +268,7 @@ class twigTransTerms
 	echo T_("Edit user detail");                                                      // Line 6
 	echo T_("Enter a valid name from 3 to 40 character");                             // Line 17
 	echo T_("Last name");                                                             // Line 22
+	echo T_("allowed extentions jpg, png (gif for bussiness plans). Max 500Kb");      // Line 27
 	echo T_("National code");                                                         // Line 41
 	echo T_("Father name");                                                           // Line 46
 	echo T_("Birthday");                                                              // Line 51
@@ -649,16 +658,13 @@ class twigTransTerms
 	echo T_("A simple date picker for fast use");                                     // Line 8
 	echo T_("Read more info and example about persian datepicker");                   // Line 14
 	echo T_("Without any option");                                                    // Line 18
-	echo T_("Without any option and without default value");                          // Line 22
-	echo T_("Without any option to use in php, get timestamp on backend");            // Line 25
-	echo T_("With custom format");                                                    // Line 31
-	echo T_("with default value");                                                    // Line 35
+	echo T_("with default value");                                                    // Line 21
+	echo T_("Without any option to use in php, get timestamp on backend");            // Line 26
+	echo T_("With custom format");                                                    // Line 33
 	echo T_("Connect to another field");                                              // Line 40
 	echo T_("Inline Mode");                                                           // Line 46
 	echo T_("English Number");                                                        // Line 52
 	echo T_("Special View mode");                                                     // Line 57
-	echo T_("Min is today");                                                          // Line 64
-	echo T_("Max is today");                                                          // Line 66
 
 	//---------------------------------addons\content_su\sample\template\deadline.html
 	echo T_("Deadline");                                                              // Line 7
@@ -1021,6 +1027,11 @@ class twigTransTerms
 	echo T_("What do you want to send to this user?");                                // Line 59
 	echo T_("Send");                                                                  // Line 63
 
+	//-------------------------------------------addons\content_su\server\display.html
+	echo T_("Show $_SERVER");                                                         // Line 6
+
+	//------------------------------------------addons\content_su\session\display.html
+
 	//-----------------------------------------addons\content_su\shorturl\display.html
 	echo T_("Test shortURL function");                                                // Line 6
 	echo T_("String or Number");                                                      // Line 12
@@ -1051,9 +1062,11 @@ class twigTransTerms
 	echo T_("Logs - warn");                                                           // Line 19
 	echo T_("Logs - critical");                                                       // Line 20
 	echo T_("Error Logs");                                                            // Line 21
-	echo T_("Telegram Errors");                                                       // Line 26
-	echo T_("telegram Logs");                                                         // Line 29
-	echo T_("telegram - Error Logs");                                                 // Line 30
+	echo T_("Cronjob log");                                                           // Line 26
+	echo T_("Cronjob Logs");                                                          // Line 28
+	echo T_("Telegram Errors");                                                       // Line 34
+	echo T_("telegram Logs");                                                         // Line 37
+	echo T_("telegram - Error Logs");                                                 // Line 38
 
 	//------------------------------------addons\content_su\tools\sitemap\display.html
 	echo T_("Create sitemap automatically by click on this page");                    // Line 6
@@ -1094,13 +1107,14 @@ class twigTransTerms
 	//---------------------------------------addons\content_su\users\edit\display.html
 
 	//------------------------------------------addons\includes\html\display-dash.html
-	echo T_("Edit your profile");                                                     // Line 51
-	echo T_("Avatar of you");                                                         // Line 53
-	echo T_("Default Avatar");                                                        // Line 55
-	echo T_("Hello");                                                                 // Line 61
-	echo T_("Work in your language");                                                 // Line 82
+	echo T_("Edit your profile");                                                     // Line 50
+	echo T_("Avatar of you");                                                         // Line 52
+	echo T_("Default Avatar");                                                        // Line 54
+	echo T_("Hello");                                                                 // Line 60
+	echo T_("View website");                                                          // Line 77
+	echo T_("Work in your language");                                                 // Line 81
 	echo T_("Logout");                                                                // Line 104 Seperate
-	echo T_("View your current location and navigate to parent of it");               // Line 99
+	echo T_("View your current location and navigate to parent of it");               // Line 98
 
 	//----------------------------------addons\includes\html\display-enter-blocks.html
 	echo T_("Please enter valid mobile number");                                      // Line 12
@@ -1220,7 +1234,6 @@ class twigTransTerms
 	echo T_("Comments");                                                              // Line 98 Seperate
 	echo T_("Visitors");                                                              // Line 99 Seperate
 	echo T_("My Profile");                                                            // Line 101 Seperate
-	echo T_("Profile");                                                               // Line 386 Seperate
 	echo T_("Lock Screen");                                                           // Line 103 Seperate
 	echo T_("Powered by Dash.");                                                      // Line 105 Seperate
 	echo T_("Powered by Ermile.");                                                    // Line 106 Seperate
@@ -1471,6 +1484,38 @@ class twigTransTerms
 	echo T_("hormozgan");                                                             // Line 433 Seperate
 	echo T_("hamedan");                                                               // Line 434 Seperate
 	echo T_("yazd");                                                                  // Line 435 Seperate
+	echo T_("Saderat");                                                               // Line 439 Seperate
+	echo T_("Mellat");                                                                // Line 440 Seperate
+	echo T_("Tejarat");                                                               // Line 441 Seperate
+	echo T_("Melli");                                                                 // Line 442 Seperate
+	echo T_("Sepah");                                                                 // Line 443 Seperate
+	echo T_("Keshavarzi");                                                            // Line 444 Seperate
+	echo T_("Maskan");                                                                // Line 445 Seperate
+	echo T_("Refah");                                                                 // Line 446 Seperate
+	echo T_("Novin");                                                                 // Line 447 Seperate
+	echo T_("Ansar");                                                                 // Line 448 Seperate
+	echo T_("Pasargad");                                                              // Line 449 Seperate
+	echo T_("Saman");                                                                 // Line 450 Seperate
+	echo T_("Sina");                                                                  // Line 451 Seperate
+	echo T_("Post");                                                                  // Line 452 Seperate
+	echo T_("Ghavamin");                                                              // Line 453 Seperate
+	echo T_("Taavon");                                                                // Line 454 Seperate
+	echo T_("Shahr");                                                                 // Line 455 Seperate
+	echo T_("Ayande");                                                                // Line 456 Seperate
+	echo T_("Sarmayeh");                                                              // Line 457 Seperate
+	echo T_("Day");                                                                   // Line 458 Seperate
+	echo T_("Hekmat");                                                                // Line 459 Seperate
+	echo T_("Iranzamin");                                                             // Line 460 Seperate
+	echo T_("Karafarin");                                                             // Line 461 Seperate
+	echo T_("Gardeshgari");                                                           // Line 462 Seperate
+	echo T_("Madan");                                                                 // Line 463 Seperate
+	echo T_("Tsaderat");                                                              // Line 464 Seperate
+	echo T_("Khavarmiyane");                                                          // Line 465 Seperate
+	echo T_("Ivbb");                                                                  // Line 466 Seperate
+	echo T_("Irkish");                                                                // Line 467 Seperate
+	echo T_("Asanpardakht");                                                          // Line 468 Seperate
+	echo T_("Zarinpal");                                                              // Line 469 Seperate
+	echo T_("Payir");                                                                 // Line 470 Seperate
 
  }
 }
