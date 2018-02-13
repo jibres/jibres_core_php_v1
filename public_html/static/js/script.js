@@ -272,7 +272,7 @@ function calcFooterValues(_table)
 
   if(calcDtSumTotal > 0 )
   {
-    $('.priceBox').removeClass('hide').hide().fadeIn();
+    showWithFade($('.priceBox'));
     $('.priceBox .final span').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
     $(".priceBox .final").shrink(60);
     $('.priceBox .desc').text(wordifyTomans(calcDtSumTotal));
@@ -305,7 +305,7 @@ function calcFooterValues(_table)
       $('.priceBox .discount').fadeIn();
     }
     // show fadein box
-    $('.NextBox').removeClass('hide').hide().fadeIn();
+    showWithFade($('.NextBox'));
   }
   else
   {
@@ -594,7 +594,7 @@ function addNewRecord_ProductList(_table, _product, _append)
       return null;
     }
   }
-  _table.parents('.cbox').removeClass('hide').hide().fadeIn();
+  showWithFade(_table.parents('.cbox'));
 
 
   var trEmpty   = '<tr>';
@@ -668,6 +668,16 @@ function qtyFactorTableItems()
 {
   NoRecordExist = $('#factorAdd table tbody tr').length;
   return NoRecordExist;
+}
+
+
+function showWithFade(_el)
+{
+  if(_el.hasClass('hide'))
+  {
+    _el.removeClass('hide').hide();
+  }
+  _el.fadeIn();
 }
 
 
