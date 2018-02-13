@@ -186,11 +186,12 @@ function calcFooterValues(_table)
       return null;
     }
   }
-  var calcDtCountRow    = 0;
-  var calcDtSumCount    = 0;
-  var calcDtSumPrice    = 0;
-  var calcDtSumDiscount = 0;
-  var calcDtSumTotal    = 0;
+  var calcDtCountRow        = 0;
+  var calcDtSumCount        = 0;
+  var calcDtSumPrice        = 0;
+  var calcDtSumDiscount     = 0;
+  var calcDtDiscountPercent = 0;
+  var calcDtSumTotal        = 0;
   // calc total of column
   _table.find('tbody tr').each(function()
   {
@@ -269,6 +270,11 @@ function calcFooterValues(_table)
 
   });
 
+  // calc discount percent
+  if(calcDtSumDiscount > 0)
+  {
+    calcDtDiscountPercent = (calcDtSumPrice / calcDtSumDiscount).toFixed(2);
+  }
 
   if(calcDtSumTotal > 0 )
   {
@@ -279,6 +285,7 @@ function calcFooterValues(_table)
     $('.priceBox .item span').text(fitNumber(calcDtCountRow)).attr('data-val', calcDtCountRow);
     $('.priceBox .count span').text(fitNumber(calcDtSumCount)).attr('data-val', calcDtSumCount);
     $('.priceBox .sum span').text(fitNumber(calcDtSumPrice)).attr('data-val', calcDtSumPrice);
+    $('.priceBox .discountPercent span').text(fitNumber(calcDtDiscountPercent)+ "%").attr('data-val', calcDtDiscountPercent);
     $('.priceBox .discount span').text(fitNumber(calcDtSumDiscount)).attr('data-val', calcDtSumDiscount);
 
     if(calcDtCountRow === calcDtSumCount)
@@ -293,15 +300,18 @@ function calcFooterValues(_table)
     {
       if($('.priceBox .discount').attr('data-wodiscount') === undefined)
       {
+        $('.priceBox .discountPercent').fadeOut('fast');
         $('.priceBox .discount').fadeOut('fast');
       }
       else
       {
+        $('.priceBox .discountPercent').fadeIn();
         $('.priceBox .discount').fadeIn();
       }
     }
     else
     {
+      $('.priceBox .discountPercent').fadeIn();
       $('.priceBox .discount').fadeIn();
     }
     // show fadein box
