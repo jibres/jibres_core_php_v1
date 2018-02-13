@@ -7,7 +7,6 @@
 <div class="f">
   <div class="c5 x3 s12 pRa10 mB25">
 {%embed template.fishprint%}
-  {%block storeDetailArea%}{%endblock%}
 
   {%block footerExtraArea%}
     {%if store_meta.factor.print_status%}
@@ -45,8 +44,7 @@
   <div class="c4">
      <div class="statistic radioGateway ">
       <input type="radio" name="type" value="{{key}}" id="p-{{key}}">
-      <label for="p-{{key}}" class="value"><i class="sf-{{key}}"></i>{%trans key%}</label>
-      <label for="p-{{key}}" class="label" name="{{key}}"></label>
+      <label for="p-{{key}}" class="value" title='{%trans key%}'><i class="sf-{{key}}"></i></label>
      </div>
   </div>
   {%endfor%}
@@ -65,7 +63,7 @@
         {%endif%}
     </div>
  </div>
-  <button type="submit" class="btn primary block">{%trans "Save Pay & continue"%}</button>
+  <button type="submit" class="btn success block">{%trans "Save Pay & continue"%} <kbd>f2</kbd></button>
 </div>
 
 </form>
