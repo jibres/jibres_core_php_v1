@@ -51,14 +51,14 @@
 </div>
 
 {%else%}
-  <p class="msg info fs14">{%trans "You are not add product yet!"%} <a href="{{url.baseFull}}product/add">{%trans "Add some new product"%}</a></p>
+  <p class="msg info fs14">{%trans "You are not add product yet!"%} <a href="{{modulePath}}/add">{%trans "Add some new product"%}</a></p>
 {%endif%}
 {%endblock%}
 
 
 
 {%block stListOfProducts%}
-<a class="dcard x2" href="{{url.baseFull}}/product/add">
+<a class="dcard x2" href="{{modulePath}}/add">
  <div class="statistic">
   <div class="label">{%trans "Add new products"%}</div>
  </div>
@@ -67,7 +67,7 @@
 
 
 {%block stAddProduct%}
-<a class="dcard x2" href="{{url.baseFull}}/product">
+<a class="dcard x2" href="{{modulePath}}">
  <div class="statistic blue lg">
   <div class="label">{%trans "List of products"%}</div>
  </div>
@@ -76,7 +76,7 @@
 
 
 {%block stProductImport%}
-<a class="dcard x2" href="{{url.baseFull}}/product/import">
+<a class="dcard x2" href="{{modulePath}}/import">
  <div class="statistic gray">
   <div class="label">{%trans "Import products"%}</div>
  </div>
@@ -84,7 +84,7 @@
 {%endblock%}
 
 {%block stProductExport%}
-<a class="dcard" href="{{url.baseFull}}/product/export">
+<a class="dcard" href="{{modulePath}}/export">
  <div class="statistic gray">
   <div class="label">{%trans "Export"%}</div>
  </div>
@@ -112,7 +112,7 @@
 
 
 {%block stProductCount%}
-<a class="dcard" href="{{url.baseFull}}/product" title='{%trans "Check list of products"%}'>
+<a class="dcard" href="{{modulePath}}" title='{%trans "Check list of products"%}'>
  <div class="statistic teal">
   <div class="value counter">{{dashboard_detail.product_count |number_format |fitNumber}}</div>
   <div class="label">{%trans "Product Count"%}</div>
@@ -176,7 +176,7 @@
 
 
 {%block stMin%}
-<a class="dcard" href="{{url.baseFull}}/product">
+<a class="dcard" href="{{modulePath}}">
  <div class="statistic gray">
   <div class="label">{%trans "Min"%}</div>
  </div>
@@ -185,7 +185,7 @@
 
 
 {%block stMax%}
-<a class="dcard" href="{{url.baseFull}}/product">
+<a class="dcard" href="{{modulePath}}">
  <div class="statistic gray">
   <div class="label">{%trans "Max"%}</div>
  </div>
@@ -194,7 +194,7 @@
 
 
 {%block stAvg%}
-<a class="dcard" href="{{url.baseFull}}/product">
+<a class="dcard" href="{{modulePath}}">
  <div class="statistic gray">
   <div class="label">{%trans "Average"%}</div>
  </div>
@@ -205,7 +205,7 @@
 
 
 {%block stBuyPrice%}
-<a class="dcard" href="{{url.baseFull}}/product">
+<a class="dcard" href="{{modulePath}}">
  <div class="statistic gray">
   <div class="label">{%trans "Buy Price"%}</div>
  </div>
@@ -214,7 +214,7 @@
 
 
 {%block stPrice%}
-<a class="dcard" href="{{url.baseFull}}/product">
+<a class="dcard" href="{{modulePath}}">
  <div class="statistic gray">
   <div class="label">{%trans "Price"%}</div>
  </div>
@@ -223,7 +223,7 @@
 
 
 {%block stDiscount%}
-<a class="dcard" href="{{url.baseFull}}/product">
+<a class="dcard" href="{{modulePath}}">
  <div class="statistic gray">
   <div class="label">{%trans "Discount"%}</div>
  </div>
@@ -233,7 +233,7 @@
 
 
 {%block stProductBuyPriceMin%}
-<a class="dcard" href="{{url.baseFull}}/product?sort=buyprice&order=asc">
+<a class="dcard" href="{{modulePath}}?sort=buyprice&order=asc">
  <div class="statistic gray">
   <div class="value">{{dashboard_detail.product_buyprice_min |number_format |fitNumber}}</div>
 
@@ -243,7 +243,7 @@
 
 
 {%block stProductBuyPriceMax%}
-<a class="dcard" href="{{url.baseFull}}/product?sort=buyprice&order=desc">
+<a class="dcard" href="{{modulePath}}?sort=buyprice&order=desc">
  <div class="statistic orange">
   <div class="value">{{dashboard_detail.product_buyprice_max |number_format |fitNumber}}</div>
  </div>
@@ -263,7 +263,7 @@
 
 
 {%block stProductPriceMin%}
-<a class="dcard" href="{{url.baseFull}}/product?sort=price&order=asc">
+<a class="dcard" href="{{modulePath}}?sort=price&order=asc">
  <div class="statistic gray">
   <div class="value">{{dashboard_detail.product_price_min |number_format |fitNumber}}</div>
  </div>
@@ -272,7 +272,7 @@
 
 
 {%block stProductPriceMax%}
-<a class="dcard" href="{{url.baseFull}}/product?sort=price&order=desc">
+<a class="dcard" href="{{modulePath}}?sort=price&order=desc">
  <div class="statistic orange">
   <div class="value">{{dashboard_detail.product_price_max |number_format |fitNumber}}</div>
  </div>
@@ -292,7 +292,7 @@
 
 
 {%block stProductDiscountMin%}
-<a class="dcard" href="{{url.baseFull}}/product?sort=discount&order=asc">
+<a class="dcard" href="{{modulePath}}?sort=discount&order=asc">
  <div class="statistic gray">
   <div class="value">{{dashboard_detail.product_discount_min |number_format |fitNumber}}</div>
  </div>
@@ -301,7 +301,7 @@
 
 
 {%block stProductDiscountMax%}
-<a class="dcard" href="{{url.baseFull}}/product?sort=discount&order=desc">
+<a class="dcard" href="{{modulePath}}?sort=discount&order=desc">
  <div class="statistic orange">
   <div class="value">{{dashboard_detail.product_discount_max |number_format |fitNumber}}</div>
  </div>
