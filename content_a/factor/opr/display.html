@@ -19,7 +19,7 @@
   </div>
 
   <div class="c7 x9 s12">
-    {{block("paymentMethods")}}
+    {{block("paymentWays")}}
   </div>
 
 
@@ -28,21 +28,35 @@
 
 
 
-{%block paymentMethods%}
+{%block paymentWays%}
 <form method="post">
 <div class="cbox">
+  {{block("paymentType")}}
+  {{block("paymentAmount")}}
+  {{block("paymentCardDetail")}}
+  <button type="submit" class="btn success block mT25">{%trans "Save Pay & continue"%} <kbd>f2</kbd></button>
+</div>
 
-  <div class="input xxl fs20 txtC">
-    <label for="famount" class="addon">{%trans "Amount"%}</label>
-    <input type="tel" id="famount" name="amount" value="{{factor_detail.factor.sum | number_format | fitNumber}}">
-    <label for="famount" class="addon">{%trans "Toman"%}</label>
-  </div>
+</form>
+{%endblock%}
 
+
+
+{%block paymentAmount%}
+<div class="input xxl fs20 txtC">
+  <label for="famount" class="addon">{%trans "Amount"%}</label>
+  <input type="tel" id="famount" name="amount" value="{{factor_detail.factor.sum | number_format | fitNumber}}">
+  <label for="famount" class="addon">{%trans "Toman"%}</label>
+</div>
+{%endblock%}
+
+
+{%block paymentType%}
  <div class="paymentMethods f">
 {%if store_meta.factor.pay%}
   {%for key, value in store_meta.factor.pay%}
   <div class="c4">
-     <div class="statistic radioGateway ">
+     <div class="statistic radioGateway">
       <input type="radio" name="type" value="{{key}}" id="p-{{key}}">
       <label for="p-{{key}}" class="value" title='{%trans key%}'><i class="sf-{{key}}"></i></label>
      </div>
@@ -50,8 +64,11 @@
   {%endfor%}
 {%endif%}
  </div>
- <div data-response="type" data-response-where='pos' data-response-hide >
-    <hr>
+{%endblock%}
+
+
+{%block paymentCardDetail%}
+ <div data-response="type" data-response-where='pos' data-response-hide>
     <div class="paymentDetails txtC">
         {%if store_meta.factor.pos_list%}
           {%for key, value in store_meta.factor.pos_list%}
@@ -63,9 +80,10 @@
         {%endif%}
     </div>
  </div>
-  <button type="submit" class="btn success block">{%trans "Save Pay & continue"%} <kbd>f2</kbd></button>
-</div>
-
-</form>
 {%endblock%}
+
+
+{%block paymentChequeDetail%}
+{%endblock%}
+
 
