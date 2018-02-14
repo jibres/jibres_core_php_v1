@@ -49,7 +49,7 @@ class view extends \content_a\main\view
 			$store_factor_setting = $default_meta;
 		}
 
-		$this->data->store_meta['factor'] = $store_factor_setting;
+		$this->data->current_store['meta']['factor'] = $store_factor_setting;
 
 		// add to factor main
 		$this->data->template['fishprint'] = 'content_a/factor/fishprint/fishprint.html';

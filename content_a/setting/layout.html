@@ -243,18 +243,18 @@
   <label for="idefaultPrint">{%trans "Default print_size"%}</label>
   <div class="input">
     <select name="defaultPrint" class="select" id="idefaultPrint">
-        <option value="" {%if not current_store.meta.factor.detault_print  %} selected {%endif%}>{%trans "No default"%}</option>
+        <option value="" {%if not current_store.meta.factor.default_print  %} selected {%endif%}>{%trans "No default"%}</option>
 
       {%if current_store.meta.factor.print_size.fishprint %}
-        <option value="fishprint" {%if current_store.meta.factor.detault_print == 'fishprint' %} selected {%endif%}>{%trans "Fish print"%}</option>
+        <option value="fishprint" {%if current_store.meta.factor.default_print == 'fishprint' %} selected {%endif%}>{%trans "Fish print"%}</option>
       {%endif%}
 
       {%if current_store.meta.factor.print_size.a4 %}
-        <option value="a4" {%if current_store.meta.factor.detault_print == 'a4' %} selected {%endif%}>{%trans "A4"%}</option>
+        <option value="a4" {%if current_store.meta.factor.default_print == 'a4' %} selected {%endif%}>{%trans "A4"%}</option>
       {%endif%}
 
       {%if current_store.meta.factor.print_size.a5 %}
-        <option value="a5" {%if current_store.meta.factor.detault_print == 'a5' %} selected {%endif%}>{%trans "A5"%}</option>
+        <option value="a5" {%if current_store.meta.factor.default_print == 'a5' %} selected {%endif%}>{%trans "A5"%}</option>
       {%endif%}
 
     </select>
@@ -302,18 +302,18 @@
 <label for="idefaultPay">{%trans "Default pay"%}</label>
 <div class="input">
   <select name="defaultPay" class="select" id="idefaultPay">
-      <option value="" {%if not current_store.meta.factor.detault_pay  %} selected {%endif%}>{%trans "No default"%}</option>
+      <option value="" {%if not current_store.meta.factor.default_pay  %} selected {%endif%}>{%trans "No default"%}</option>
 
     {%if current_store.meta.factor.pay.cheque %}
-      <option value="cheque" {%if current_store.meta.factor.detault_pay == 'cheque' %} selected {%endif%}>{%trans "Cheque"%}</option>
+      <option value="cheque" {%if current_store.meta.factor.default_pay == 'cheque' %} selected {%endif%}>{%trans "Cheque"%}</option>
     {%endif%}
 
     {%if current_store.meta.factor.pay.cash %}
-      <option value="cash" {%if current_store.meta.factor.detault_pay == 'cash' %} selected {%endif%}>{%trans "Cash"%}</option>
+      <option value="cash" {%if current_store.meta.factor.default_pay == 'cash' %} selected {%endif%}>{%trans "Cash"%}</option>
     {%endif%}
 
     {%if current_store.meta.factor.pay.pos %}
-      <option value="pos" {%if current_store.meta.factor.detault_pay == 'pos' %} selected {%endif%}>{%trans "Pos"%}</option>
+      <option value="pos" {%if current_store.meta.factor.default_pay == 'pos' %} selected {%endif%}>{%trans "Pos"%}</option>
     {%endif%}
 
   </select>

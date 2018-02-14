@@ -19,7 +19,7 @@ class model extends \content_a\main\model
 				'a4'        => false,
 				'a5'        => false,
 			],
-			'detault_print' => 'fishprint',
+			'default_print' => 'fishprint',
 
 			'pay_status' => false,
 			'pay'        =>
@@ -29,7 +29,7 @@ class model extends \content_a\main\model
 				'cheque' => false,
 			],
 
-			'detault_pay' => 'cash',
+			'default_pay' => 'cash',
 			'pos_list'    =>  [],
 			'default_pos' => null,
 		];
@@ -38,8 +38,8 @@ class model extends \content_a\main\model
 		$meta                  = $default_meta;
 		$meta['print_status']  = \lib\utility::post('printStatus') ? true : false;
 		$meta['default_pos']   = \lib\utility::post('defaultPos');
-		$meta['detault_print'] = \lib\utility::post('defaultPrint');
-		$meta['detault_pay']   = \lib\utility::post('defaultPay');
+		$meta['default_print'] = \lib\utility::post('defaultPrint');
+		$meta['default_pay']   = \lib\utility::post('defaultPay');
 
 		if(\lib\utility::post('print_size') && is_array(\lib\utility::post('print_size')))
 		{
