@@ -622,9 +622,9 @@ function addNewRecord_ProductList(_table, _product, _append)
   if(_product)
   {
     var htmlPName     = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
-    var htmlPCount    = '<input class="input count" type="tel" name="count[]" min=0 max=10000000000 step="any" value=1>';
+    var htmlPCount    = '<input class="input count" type="tel" name="count[]" autocomplete="off" min=0 max=10000000000 step="any" value=1>';
     var htmlPDiscount = '<div class="input discountCn">';
-    htmlPDiscount    += '<input class="discount" type="tel" name="discount[]" title="%" min=0 max=10000000000';
+    htmlPDiscount    += '<input class="discount" type="tel" name="discount[]" autocomplete="off" title="%" min=0 max=10000000000';
     if(_product.discount)
     {
       var removeDiscount = !(_table.attr('data-woDiscount') !== undefined);
@@ -688,6 +688,81 @@ function showWithFade(_el)
     _el.removeClass('hide').hide();
   }
   _el.fadeIn();
+}
+
+
+function navigateonFactorAddInputs(_type)
+{
+  if(!check_factor())
+  {
+    return false;
+  }
+  // check focus
+  var $focus = $(":focus");
+
+  if(($focus.parents('.productList ').length !== 1))
+  {
+    // outside of table
+    return false;
+  }
+
+  var currentTd  = $focus.parents('td');
+  var currentTr  = $focus.parents('tr');
+
+  // var currentRow = $('#factorAdd .productList tbody').index(currentTr);
+  var currentRow = currentTr.index();
+  var maxRow     = $('#factorAdd .productList tbody tr').length -1;
+  var nextRow    = currentRow;
+  var nextField  = 'count';
+  // check input group
+  if($focus.is('.count'))
+  {
+    nextField = 'count';
+  }
+  else if($focus.is('.discount'))
+  {
+    nextField = 'discount';
+  }
+
+  switch(_type)
+  {
+    case 'up':
+      nextRow -= 1;
+      break;
+
+    case 'down':
+      nextRow += 1;
+      break;
+
+    case 'left':
+    case 'right':
+
+      if(nextField == 'count')
+      {
+        nextField = 'discount';
+      }
+      else if(nextField == 'discount')
+      {
+        nextField = 'count';
+      }
+      break;
+  }
+
+  if(nextRow < 0)
+  {
+    // end
+    nextRow = maxRow;
+  }
+  else if(nextRow > maxRow)
+  {
+    nextRow = 0;
+  }
+
+  var nextRowEl      = $('#factorAdd .productList tbody tr:eq('+ nextRow +')');
+  var nextRowInputEl = nextRowEl.find('input.'+ nextField);
+
+  // select next element
+  nextRowInputEl.select();
 }
 
 

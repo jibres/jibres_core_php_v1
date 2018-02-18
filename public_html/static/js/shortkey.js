@@ -60,7 +60,7 @@ function event_corridor(_e, _self, _key)
   var keyp   = String.fromCharCode(_key);
   var myFunc = 'shortkey_'+ mytxt;
 
-  logy(mytxt, 'info');
+  // logy(mytxt, 'info');
 
   var elShortkey = $('[data-shortkey= '+ mytxt +']');
   if(elShortkey.length == 1)
@@ -121,17 +121,24 @@ function event_corridor(_e, _self, _key)
 
     // ---------------------------------------------------------- Page Up
     case '33':              // PageUP
+      break;
+
+
     // ---------------------------------------------------------- Up
     case '38':              // up
-
       logy('up');
+      navigateonFactorAddInputs('up');
       break;
 
 
     // ---------------------------------------------------------- Page Down
     case '34':              // PageDown
+      break;
+
+
     // ---------------------------------------------------------- Down
     case '40':              // down
+      navigateonFactorAddInputs('down');
       break;
 
 
@@ -147,11 +154,13 @@ function event_corridor(_e, _self, _key)
 
     // ---------------------------------------------------------- Left
     case '37':              // left
+      navigateonFactorAddInputs('left');
       break;
 
 
     // ---------------------------------------------------------- Right
     case '39':              // right
+      navigateonFactorAddInputs('right');
       break;
 
     // ---------------------------------------------------------- BackSpace
