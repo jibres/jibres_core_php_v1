@@ -622,7 +622,7 @@ function addNewRecord_ProductList(_table, _product, _append)
   if(_product)
   {
     var htmlPName     = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
-    var htmlPCount    = '<input class="input count" type="number" name="count[]" min=0 max=10000000000 step="any" value=1>';
+    var htmlPCount    = '<input class="input count" type="tel" name="count[]" min=0 max=10000000000 step="any" value=1>';
     var htmlPDiscount = '<div class="input discountCn">';
     htmlPDiscount    += '<input class="discount" type="tel" name="discount[]" title="%" min=0 max=10000000000';
     if(_product.discount)

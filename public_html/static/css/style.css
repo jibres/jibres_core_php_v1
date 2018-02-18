@@ -235,7 +235,7 @@ kbd{font-family:monospace;}
 
 .tbl.productList .input.discountCn{width:120px;margin:0 auto;}
 .tbl.productList .input.discountCn input.discount{padding:5px 0.5em;text-align:center;}
-.tbl.productList .input.discountCn .addon.small{min-width:40px;max-width:45px;text-align:center;transition:0.3s;opacity:1}
+.tbl.productList .input.discountCn .addon.small{min-width:40px;max-width:45px;text-align:center;transition:0.3s;opacity:1;line-height:24px;display:inline-block;}
 .tbl.productList .input.discountCn .addon.small:empty{min-width:0;width:0;opacity:0;border-width:none;padding:0}
 
 .tbl .min80{white-space:nowrap;width:80px}
