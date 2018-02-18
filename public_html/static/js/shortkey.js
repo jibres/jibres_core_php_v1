@@ -323,19 +323,21 @@ function getSelectedRow()
   if(check_factor())
   {
     var aa = $('table.productList tbody tr').length;
-    var lastRow = null;
+    var selectedRow = null;
     if(aa > 0)
     {
-      var selectedRowEl = $('table.productList tbody tr [data-selected]');
+      var selectedRowEl = $('table.productList tbody tr[data-selected]');
       if(selectedRowEl.length == 1)
       {
-        // lastRow = ...
+
+        // selectedRow = selectedRowEl.index();
       }
       else
       {
-        lastRow = $('table.productList tbody tr:eq(0)')
+        selectedRow = $('table.productList tbody tr:eq(0)')
       }
-      return lastRow;
+      console.log(selectedRow);
+      return selectedRow;
     }
   }
   return null;
