@@ -763,6 +763,9 @@ function navigateonFactorAddInputs(_type)
 
   // select next element
   nextRowInputEl.select();
+  $('#factorAdd .productList tbody tr').removeClass('positive');
+  nextRowEl.addClass('positive');
+
 }
 
 
