@@ -323,7 +323,6 @@ function getSelectedRow()
   if(check_factor())
   {
     var aa = $('table.productList tbody tr').length;
-    var selectedRow = null;
     if(aa > 0)
     {
       var selectedRowEl = $('table.productList tbody tr[data-selected]');
@@ -334,10 +333,10 @@ function getSelectedRow()
       }
       else
       {
-        selectedRow = $('table.productList tbody tr:eq(0)')
+        selectedRowEl = $('table.productList tbody tr:eq(0)')
       }
-      console.log(selectedRow);
-      return selectedRow;
+      console.log(selectedRowEl);
+      return selectedRowEl;
     }
   }
   return null;
