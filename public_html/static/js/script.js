@@ -350,6 +350,11 @@ function bindBtnOnFactor()
     }
   });
 
+  $(document).on('blur', '#factorAdd table input', function()
+  {
+    $(this).parents('tr').attr('data-selected', null);
+  });
+
   $(document).on('input', '.count', function()
   {
     recalcProductListPrices();

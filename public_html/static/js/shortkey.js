@@ -344,7 +344,6 @@ function getSelectedRow()
       {
         selectedRowEl = $('table.productList tbody tr:eq(0)')
       }
-      console.log(selectedRowEl);
       return selectedRowEl;
     }
   }
