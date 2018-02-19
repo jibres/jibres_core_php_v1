@@ -6364,7 +6364,6 @@ li.sortable-placeholder {
   padding: 0;
   margin: 0;
   background: #fff;
-  overflow: hidden;
   text-align: initial;
   -webkit-border-radius: .3em;
   -moz-border-radius: .3em;
@@ -6398,6 +6397,13 @@ li.sortable-placeholder {
     -o-transform-origin: 1.43em -.43em;
     transform-origin: 1.43em -.43em; }
 
+  .rtl .awesomplete > ul {
+    -webkit-transform-origin: top right;
+    -moz-transform-origin: top right;
+    -ms-transform-origin: top right;
+    -o-transform-origin: top right;
+    transform-origin: top right; }
+
   .awesomplete > ul[hidden], .awesomplete > ul:empty {
     opacity: 0;
     -webkit-transform: scale(0);
@@ -6427,7 +6433,12 @@ li.sortable-placeholder {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
-  transform: rotate(45deg); }
+  transform: rotate(45deg);
+  margin: 0 auto; }
+
+.rtl .awesomplete > ul:before {
+  left: initial;
+  right: 1em; }
 
 .awesomplete > ul > li {
   position: relative;
@@ -6490,6 +6501,12 @@ li.sortable-placeholder {
 
 .small .awesomplete > ul {
   font-size: 0.8em; }
+
+[data-relative-f] {
+  position: relative; }
+
+[data-relative-f] > * {
+  position: initial !important; }
 
 /*
 * iziToast | v1.1.5
@@ -12880,7 +12897,8 @@ body.siftal.loading-page #sidebar .avatar:before {
     opacity: 0.5; } }
 /* sidenav menu */
 .siftal #sidebar ul.sidenav {
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  margin-bottom: 1em; }
 
 .siftal #sidebar ul > li {
   color: #d5d5d5; }
@@ -12891,7 +12909,7 @@ body.siftal.loading-page #sidebar .avatar:before {
 
 .siftal #sidebar ul > li > a {
   display: block;
-  padding: 1.2em 2em;
+  padding: 1.2em 1.5em;
   color: #d5d5d5;
   transition: 0.3s;
   cursor: pointer;
@@ -12910,12 +12928,21 @@ body.siftal.loading-page #sidebar .avatar:before {
 .siftal #sidebar ul > li > a:focus {
   background-color: rgba(0, 0, 0, 0.7); }
 
+.siftal #sidebar ul > li > a:active {
+  background-color: rgba(0, 0, 0, 0.7); }
+
 .siftal #sidebar ul > li > ul {
   background-color: #252525;
   font-size: 0.9em; }
 
 .siftal #sidebar ul > li > ul > li > a {
-  padding: 0.8em 3em; }
+  padding: 0.7em 2.5em; }
+
+.ltr.siftal #sidebar ul > li > ul > li > a {
+  padding-right: 0; }
+
+.rtl.siftal #sidebar ul > li > ul > li > a {
+  padding-left: 0; }
 
 .siftal #sidebar ul > li > a.weAreHere {
   background-color: rgba(0, 0, 0, 0.8);
@@ -14642,7 +14669,9 @@ body .w200 {
     flex: 0 0 100%;
     max-width: 100%;
     margin-right: 0;
-    margin-left: 0; }
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0; }
 
   .s-flex {
     display: -webkit-box !important;
@@ -14833,6 +14862,9 @@ body .w200 {
     -webkit-align-content: stretch !important;
     -ms-flex-line-pack: stretch !important;
     align-content: stretch !important; }
+
+  kbd {
+    display: none; }
 
   .siftal header h1 a {
     padding: 0; }
