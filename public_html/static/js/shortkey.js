@@ -169,10 +169,18 @@ function event_corridor(_e, _self, _key)
 
     // ---------------------------------------------------------- Delete
     case '46':              // delete
-      var aa = $('table.productList tbody tr').length;
-      var lastRow = $('table.productList tbody tr:eq(0)');
-      lastRow.remove();
-      calcFooterValues();
+      if(check_factor())
+      {
+        var selectedRowEl = getSelectedRow();
+        if(selectedRowEl)
+        {
+          selectedRowEl.remove();
+          calcFooterValues();
+        }
+
+        var aa = $('table.productList tbody tr').length;
+        _e.preventDefault();
+      }
       break;
 
 
