@@ -175,6 +175,7 @@ function event_corridor(_e, _self, _key)
         if(selectedRowEl)
         {
           selectedRowEl.remove();
+          navigationFactorAddSetSelected();
           calcFooterValues();
         }
 

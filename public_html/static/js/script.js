@@ -341,6 +341,14 @@ function bindBtnOnFactor()
     $('#productSearch').val('');
     productBarcodeFinded(_barcode)
   })
+  $(document).on('focus', '#factorAdd table input', function()
+  {
+    var myTr = $(this).parents('tr');
+    if(myTr.attr('data-selected') === undefined)
+    {
+      navigationFactorAddSetSelected(myTr);
+    }
+  });
 
   $(document).on('input', '.count', function()
   {
@@ -763,9 +771,21 @@ function navigateonFactorAddInputs(_type)
 
   // select next element
   nextRowInputEl.select();
-  $('#factorAdd .productList tbody tr').attr('data-selected', null);
-  nextRowEl.attr('data-selected', '');
+  navigationFactorAddSetSelected(nextRowEl);
+}
 
+
+function navigationFactorAddSetSelected(_tr)
+{
+  if(!_tr)
+  {
+    _tr = $('#factorAdd .productList tbody tr:eq(0)');
+  }
+
+  // remove other selecred
+  $('#factorAdd .productList tbody tr').attr('data-selected', null);
+  // add selected to specefic one
+  _tr.attr('data-selected', '');
 }
 
 
