@@ -20,7 +20,7 @@ class model extends \content_a\main\model
 
 				if(isset($file['tmp_name']))
 				{
-					$product_list = file_get_contents($file['tmp_name']);
+					$product_list = $file['tmp_name'];
 					return $product_list;
 				}
 			}

@@ -39,6 +39,7 @@ trait import
 	 */
 	public static function import($_string)
 	{
+
 		if(!\lib\user::id())
 		{
 			return false;
@@ -54,37 +55,16 @@ trait import
 			return false;
 		}
 
-		$line        = explode("\n", $_string);
-		$column_line = current($line);
-		array_shift($line);
-		$column      = explode(",", $column_line);
-		$column      = self::xTrim($column);
-		$column      = self::xStrToLower($column);
-
-		if(!in_array('title', $column))
-		{
-			\lib\app::log('api:product:import:title:notfound', null, \lib\app::log_meta());
-			\lib\debug::error(T_("Your file has not field 'title' "));
-			return false;
-		}
+		$raw_data = \lib\utility\import::csv($_string);
 
 		$result = [];
 
-		foreach ($line as $key => $value)
+		foreach ($raw_data as $column => $data)
 		{
-			$data = explode(',', $value);
-			if(count($column) === count($data))
-			{
-				$data      = self::xTrim($data);
-				$insert    = array_combine($column, $data);
-				$result [] = \lib\app\product::add($insert, ['debug' => false]);
-			}
+			$result [] = \lib\app\product::add($data, ['debug' => false]);
 		}
 
 		return $result;
 	}
-
-
-
 }
 ?>
