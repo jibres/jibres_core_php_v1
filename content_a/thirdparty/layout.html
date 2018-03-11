@@ -60,11 +60,11 @@
     <div class="header"><b>{{thirdparty.displayname}}</b></div>
     <div class="meta"><span>{{thirdparty.visitorname}}</span></div>
     {%if thirdparty.visitormobile%}
-    <div class="desc"><i class="sf-mobile fs2"></i>{{thirdparty.visitormobile|fitNumber}}</div>
+    <div class="desc"><i class="sf-mobile fs2"></i>{{thirdparty.visitormobile|fitNumber(false)}}</div>
     {%endif%}
   </div>
 
-  <!-- <div class="footer">{{thirdparty.nationalcode|fitNumber}}</div> -->
+  <!-- <div class="footer">{{thirdparty.nationalcode|fitNumber(false)}}</div> -->
 
  </div>
 
@@ -88,11 +88,11 @@
     <div class="header">{{thirdparty.firstname}} <b>{{thirdparty.lastname}}</b></div>
     <div class="meta"><span>{{thirdparty.grade_title}}</span></div>
     {%if thirdparty.mobile%}
-    <div class="desc"><i class="sf-mobile fs2"></i>{{thirdparty.mobile|fitNumber}}</div>
+    <div class="desc"><i class="sf-mobile fs2"></i>{{thirdparty.mobile|fitNumber(false)}}</div>
     {%endif%}
   </div>
   {%if thirdparty.nationalcode%}
-  <div class="footer">{{thirdparty.nationalcode|fitNumber}}</div>
+  <div class="footer">{{thirdparty.nationalcode|fitNumber(false)}}</div>
   {%endif%}
  </div>
 
@@ -160,7 +160,7 @@
 {%block ibirthday%}
 <label for="birthday">{%trans "Birthday"%}</label>
 <div class="input">
-  <input class="datepicker" type="text" name="birthday" id="birthday" placeholder='{{"1369/04/15" | fitNumber}}' value="{{thirdparty.birthday}}" maxlength='20' data-format="YYYY/MM/DD" data-view="year">
+  <input class="datepicker" type="text" name="birthday" id="birthday" placeholder='{{"1369/04/15" | fitNumber(false)}}' value="{{thirdparty.birthday}}" maxlength='20' data-format="YYYY/MM/DD" data-view="year">
 </div>
 {%endblock%}
 
