@@ -4,6 +4,17 @@ namespace lib\app\storetransaction;
 trait get
 {
 
+	public static function factor_pay_list($_factor_id)
+	{
+		$_factor_id = \lib\utility\shortURL::decode($_factor_id);
+		if(!$_factor_id)
+		{
+			return false;
+		}
+		$result = \lib\db\storetransactions::get(['factor_id' => $_factor_id, 'store_id' => \lib\store::id()]);
+		return $result;
+	}
+
 
 	/**
 	 * Gets the storetransaction.

@@ -74,74 +74,13 @@ class storetransaction
 			return false;
 		}
 
-		$factor_id = \lib\app::request('factor_id');
-		$factor_id = \lib\utility\shortURL::decode($factor_id);
-		if(!$factor_id && \lib\app::isset_request('factor_id'))
+		$subtitle = \lib\app::request('subtitle');
+		$subtitle = trim($subtitle);
+		if($subtitle && mb_strlen($subtitle) >= 200)
 		{
-			\lib\debug::error(T_("Invalid userstore id"), 'factor_id');
+			\lib\debug::error(T_("Please set the subtitle less than 200 character"), 'subtitle');
 			return false;
 		}
-
-		if($factor_id)
-		{
-			$factor_detail = \lib\db\factors::get(['id' => $factor_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
-			if(!$factor_detail || !array_key_exists('type', $factor_detail))
-			{
-				\lib\debug::error(T_("Invalid factor id"));
-				return false;
-			}
-
-			$amount = \lib\app::request('amount');
-			$amount = str_replace(',', '', $amount);
-			$amount = \lib\utility\convert::to_en_number($amount);
-
-			if(!$amount)
-			{
-				\lib\debug::error(T_("Please set the amount"));
-				return false;
-			}
-
-			if($amount && !is_numeric($amount))
-			{
-				\lib\debug::error(T_("Amount must be a number"), 'amount');
-				return false;
-			}
-
-			if($amount && intval($amount) > 1E+20)
-			{
-				\lib\debug::error(T_("Amount is out of range"), 'amount');
-				return false;
-			}
-
-			if($amount && intval($amount) < 0)
-			{
-				\lib\debug::error(T_("Can not set amount less than zero"), 'amount');
-				return false;
-			}
-
-			switch ($factor_detail['type'])
-			{
-				case 'sale':
-					$plus = $amount;
-					break;
-
-				case 'buy':
-					$minus = $amount;
-					break;
-
-				default:
-					\lib\debug::error(T_("Invalid factor type"));
-					return false;
-					break;
-			}
-		}
-
-
-		if(isset($factor_detail['customer']))
-		{
-			$userstore_id = $factor_detail['customer'];
-		}
-
 
 		$code = \lib\app::request('code');
 		$code = trim($code);
@@ -166,7 +105,6 @@ class storetransaction
 			return false;
 		}
 
-
 		$duedate = \lib\app::request('duedate');
 		if(\lib\app::isset_request('duedate') && $duedate)
 		{
@@ -185,6 +123,137 @@ class storetransaction
 			return false;
 		}
 
+		$factor_id = \lib\app::request('factor_id');
+		$factor_id = \lib\utility\shortURL::decode($factor_id);
+		if(!$factor_id && \lib\app::isset_request('factor_id'))
+		{
+			\lib\debug::error(T_("Invalid userstore id"), 'factor_id');
+			return false;
+		}
+
+		if($factor_id)
+		{
+			// check type of pay factor
+			if($type && !in_array($type, ['cash', 'cheque', 'pos']))
+			{
+				\lib\debug::error(T_("Invalid type of factor pay"), 'type');
+				return false;
+			}
+
+
+			// load factor detail
+			$factor_detail = \lib\db\factors::get(['id' => $factor_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+			if(!$factor_detail || !array_key_exists('type', $factor_detail) || !array_key_exists('sum', $factor_detail))
+			{
+				\lib\debug::error(T_("Invalid factor id"));
+				return false;
+			}
+
+			// get customer from factor
+			if(isset($factor_detail['customer']))
+			{
+				$userstore_id = $factor_detail['customer'];
+			}
+			else
+			{
+				$userstore_id = null;
+			}
+
+
+			$amount = \lib\app::request('amount');
+			$amount = str_replace(',', '', $amount);
+			$amount = \lib\utility\convert::to_en_number($amount);
+
+			if(!$amount)
+			{
+				\lib\debug::error(T_("Please set the amount"), 'amount');
+				return false;
+			}
+
+			if($amount && !is_numeric($amount))
+			{
+				\lib\debug::error(T_("Amount must be a number"), 'amount');
+				return false;
+			}
+
+			if($amount && intval($amount) > 1E+20)
+			{
+				\lib\debug::error(T_("Amount is out of range"), 'amount');
+				return false;
+			}
+
+			if($amount && intval($amount) < 0)
+			{
+				\lib\debug::error(T_("Can not set amount less than zero"), 'amount');
+				return false;
+			}
+
+			if($amount)
+			{
+				$amount = intval($amount);
+			}
+
+			if(isset($factor_detail['pay']) && intval($factor_detail['pay']) === 1)
+			{
+				\lib\debug::error(T_("This factor was payed before. can not add another pay for this factor"));
+				return false;
+			}
+
+			$factor_sum = intval($factor_detail['sum']);
+
+			$factor_pay = false;
+
+			if($factor_sum > $amount)
+			{
+				if(!$userstore_id)
+				{
+					\lib\debug::error(T_("Can not set amount larger than factor sum when no customer selected"), 'amount');
+					return false;
+				}
+				$factor_pay = true;
+			}
+			elseif($factor_sum < $amount)
+			{
+				// no thing
+			}
+			elseif($factor_sum === $amount)
+			{
+				$factor_pay = true;
+			}
+
+			if($factor_pay)
+			{
+				\lib\db\factors::update(['pay' => 1], $factor_detail['id']);
+			}
+
+			switch ($factor_detail['type'])
+			{
+				case 'sale':
+					$plus = $amount;
+					break;
+
+				case 'buy':
+					$minus = $amount;
+					break;
+
+				default:
+					\lib\debug::error(T_("Invalid factor type"));
+					return false;
+					break;
+			}
+
+			$bank = \lib\app::request('bank');
+			if($bank && mb_strlen($bank) > 150)
+			{
+				\lib\debug::error(T_("Value of bank is out of range"), 'bank');
+				return false;
+			}
+			// set pos name in subtitle of storetransaction
+			if($bank && $type === 'pos')
+			{
+				$subtitle = $bank;
+			}
+		}
 
 		$operator = \lib\userstore::id();
 		$date     = date("Y-m-d H:i:s");
@@ -194,6 +263,7 @@ class storetransaction
 
 		$args                 = [];
 		$args['code']         = $code;
+		$args['subtitle']     = $subtitle;
 		$args['title']        = $title;
 		$args['type']         = $type;
 		$args['userstore_id'] = $userstore_id;

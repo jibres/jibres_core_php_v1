@@ -12,6 +12,9 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['link'] = $this->url('baseFull'). '/factor';
 		$this->data->page['badge']['text'] = T_('Back to last sales');
 
+		$pay_detail = \lib\app\storetransaction::factor_pay_list(\lib\utility::get('id'));
+		$this->data->pay_detail = $pay_detail;
+
 		$meta                    = [];
 		$this->data->factor_detail = \lib\app\factor::get(['id' => \lib\utility::get('id')], $meta);
 		$store_factor_setting    = \lib\store::detail('meta');

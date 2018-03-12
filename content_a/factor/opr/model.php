@@ -7,15 +7,16 @@ class model extends \content_a\main\model
 	public function post_opr()
 	{
 
-		$pay               = \lib\utility::post('pay');
-		$factor_id         = \lib\utility::get('id');
 		$post              = [];
+		$factor_id         = \lib\utility::get('id');
 		$post['factor_id'] = $factor_id;
 		$post['amount']    = \lib\utility::post('amount');
+		$post['type']      = \lib\utility::post('type');
+		$post['bank']      = \lib\utility::post('bank');
 
-		$result = \lib\app\storetransaction::add($post);
+		$result            = \lib\app\storetransaction::add($post);
 
-		$new_url = $this->url('full');
+		$new_url           = $this->url('full');
 
 		if(isset($result['complete']) && $result['complete'])
 		{

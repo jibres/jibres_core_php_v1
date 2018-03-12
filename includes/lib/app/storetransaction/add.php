@@ -14,6 +14,9 @@ trait add
 	 */
 	public static function add($_args, $_option = [])
 	{
+		// start transaction of db
+		\lib\db::transaction();
+
 		\lib\app::variable($_args);
 
 		$default_option =
@@ -58,6 +61,7 @@ trait add
 
 		if($args === false || !\lib\debug::$status)
 		{
+			\lib\db::rollback();
 			return false;
 		}
 
@@ -67,11 +71,15 @@ trait add
 
 		if(!$storetransaction_id)
 		{
+			\lib\db::rollback();
 			\lib\debug::error(T_("No way to insert this transaction"));
 			return false;
 		}
 
+		\lib\db::commit();
+
 		$return = [];
+
 		$return['storetransaction_id'] = \lib\utility\shortURL::encode($storetransaction_id);
 
 		if(\lib\debug::$status)

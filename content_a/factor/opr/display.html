@@ -2,7 +2,7 @@
 
 
 {%block pageContent%}
-
+{{block('payList')}}
 
 <div class="f">
   <div class="c5 x3 s12 pRa10 mB25">
@@ -87,3 +87,238 @@
 {%endblock%}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%block payList%}
+<table class="tbl">
+  <thead>
+    <tr>
+      <th>{%trans "Plus"%}</th>
+      <th>{%trans "Type"%}</th>
+      <th>{%trans "Bank"%}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for key, value in pay_detail %}
+    <tr>
+      <td>{{value.plus}}</td>
+      <td>{{value.type}}</td>
+      <td>{{value.subtitle}}</td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{%endblock%}
