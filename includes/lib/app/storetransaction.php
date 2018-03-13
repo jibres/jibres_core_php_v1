@@ -140,7 +140,6 @@ class storetransaction
 				return false;
 			}
 
-
 			// load factor detail
 			$factor_detail = \lib\db\factors::get(['id' => $factor_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 			if(!$factor_detail || !array_key_exists('type', $factor_detail) || !array_key_exists('sum', $factor_detail))
@@ -158,7 +157,6 @@ class storetransaction
 			{
 				$userstore_id = null;
 			}
-
 
 			$amount = \lib\app::request('amount');
 			$amount = str_replace(',', '', $amount);
@@ -199,11 +197,27 @@ class storetransaction
 				return false;
 			}
 
+			$load_saved_transactions = \lib\db\storetransactions::get(['factor_id' => $factor_id]);
+			$saved_amount            = 0;
+
+			if(is_array($load_saved_transactions))
+			{
+				$temp         = array_column($load_saved_transactions, 'plus');
+				$temp         = array_sum($temp);
+				$saved_amount = intval($temp);
+			}
+
+			$saved_amount = $saved_amount + $amount;
+
 			$factor_sum = intval($factor_detail['sum']);
 
 			$factor_pay = false;
 
-			if($factor_sum > $amount)
+			if($factor_sum > $saved_amount)
+			{
+				// no thing
+			}
+			elseif($factor_sum < $saved_amount)
 			{
 				if(!$userstore_id)
 				{
@@ -212,11 +226,7 @@ class storetransaction
 				}
 				$factor_pay = true;
 			}
-			elseif($factor_sum < $amount)
-			{
-				// no thing
-			}
-			elseif($factor_sum === $amount)
+			elseif($factor_sum === $saved_amount)
 			{
 				$factor_pay = true;
 			}

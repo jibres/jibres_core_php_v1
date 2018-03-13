@@ -45,7 +45,7 @@
 {%block paymentAmount%}
 <div class="input xxl fs20 txtC">
   <label for="famount" class="addon">{%trans "Amount"%}</label>
-  <input type="tel" id="famount" name="amount" value="{{factor_detail.factor.sum | number_format | fitNumber}}">
+  <input type="tel" id="famount" name="amount" value="{{factor_detail.factor.sum_remain | number_format | fitNumber}}">
   <label for="famount" class="addon">{%trans "Toman"%}</label>
 </div>
 {%endblock%}
