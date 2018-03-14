@@ -284,7 +284,7 @@ class store
 
 				case 'slug':
 					$result[$key] = isset($value) ? (string) $value : null;
-					$result['url'] = isset($value) ? Protocol. '://'. $value. '.jibres.'. Tld : null;
+					$result['url'] = isset($value) ? Protocol. '://'. $value. '.jibres.'. \lib\url::tld() : null;
 					break;
 
 				case 'logo':
