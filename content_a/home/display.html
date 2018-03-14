@@ -123,7 +123,7 @@
 
 
 {%block stSupplier%}
-<a class="dcard" href='{{url.full}}/thirdparty?type=supplier'>
+<a class="dcard" href='{{url.pwd}}/thirdparty?type=supplier'>
  <div class="statistic teal">
   <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboard_detail.supplier_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Supplier"%}</div>
@@ -133,7 +133,7 @@
 
 
 {%block stStaff%}
-<a class="dcard" href='{{url.full}}/thirdparty?type=staff'>
+<a class="dcard" href='{{url.pwd}}/thirdparty?type=staff'>
  <div class="statistic orange">
   <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.staff_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Staff"%}</div>
