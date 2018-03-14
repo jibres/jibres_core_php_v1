@@ -20,7 +20,7 @@ class model extends \content_a\main\model
 
 		if(isset($result['complete']) && $result['complete'])
 		{
-			$new_url = $this->url('baseFull'). '/add?type=getthetypefromresult';
+			$new_url = \lib\url::here(). '/add?type=getthetypefromresult';
 		}
 
 		$this->redirector($new_url);

@@ -8,7 +8,7 @@ class controller extends \content_a\main\controller
 	 */
 	function ready()
 	{
-		$new_url = $this->url('baseFull'). '/setting/general';
+		$new_url = \lib\url::here(). '/setting/general';
 
 		$this->redirector($new_url)->redirect();
 

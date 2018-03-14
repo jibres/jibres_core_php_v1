@@ -62,7 +62,7 @@
 
 
 {%block stProductDashboard%}
-<a class="dcard x1" href='{{url.baseFull}}/product/summary'>
+<a class="dcard x1" href='{{url.here}}/product/summary'>
  <div class="statistic brown">
   <div class="value"><i class="sf-archive"></i></div>
   <div class="label">{%trans "Products Summary"%}</div>
@@ -71,7 +71,7 @@
 {%endblock%}
 
 {%block stProduct%}
-<a class="dcard x1" href='{{url.baseFull}}/product'>
+<a class="dcard x1" href='{{url.here}}/product'>
  <div class="statistic">
   <div class="value"><span>{{dashboard_detail.product_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Product"%}</div>
@@ -81,7 +81,7 @@
 
 
 {%block stProductAdd%}
-<a class="dcard x1" href='{{url.baseFull}}/product/add'>
+<a class="dcard x1" href='{{url.here}}/product/add'>
  <div class="statistic green">
   <div class="value"><i class="sf-plus"></i></div>
   <div class="label">{%trans "Add new Product"%}</div>
@@ -92,7 +92,7 @@
 
 
 {%block stSaleAdd%}
-<a class="dcard x2" href='{{url.baseFull}}/factor/add?type=sale'>
+<a class="dcard x2" href='{{url.here}}/factor/add?type=sale'>
  <div class="statistic teal">
   <div class="value"><i class="sf-basket"></i></div>
   <div class="label">{%trans "Sale Invoicing"%}</div>
@@ -102,7 +102,7 @@
 
 
 {%block stBuyAdd%}
-<a class="dcard x2" href='{{url.baseFull}}/factor/add?type=buy'>
+<a class="dcard x2" href='{{url.here}}/factor/add?type=buy'>
  <div class="statistic gray">
   <div class="value"><i class="sf-basket"></i></div>
   <div class="label">{%trans "Buy Invocing"%}</div>
@@ -113,7 +113,7 @@
 
 
 {%block stCustomer%}
-<a class="dcard" href='{{url.baseFull}}/thirdparty?type=customer'>
+<a class="dcard" href='{{url.here}}/thirdparty?type=customer'>
  <div class="statistic gray">
   <div class="value"><i class="sf-user"></i><span>{{dashboard_detail.customer_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Customer"%}</div>

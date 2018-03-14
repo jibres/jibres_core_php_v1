@@ -31,7 +31,7 @@ class view extends \content_a\main\view
 
 		$this->data->dataTable = \lib\app\factor::list(\lib\utility::get('q'), $args);
 		$this->data->dataFilter = $this->createFilterMsg($args);
-		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, $this->url('baseFull'). '/factor');
+		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, \lib\url::here(). '/factor');
 
 		if(isset($this->controller->pagnation))
 		{
@@ -43,7 +43,7 @@ class view extends \content_a\main\view
 	private function set_best_title()
 	{
 		// set usable variable
-		$this->data->modulePath  = $this->url('baseFull'). '/factor';
+		$this->data->modulePath  = \lib\url::here(). '/factor';
 		$this->data->moduleType  = \lib\utility::get('type');
 		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
 

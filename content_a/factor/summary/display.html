@@ -22,7 +22,7 @@
 
 
 {%block stBuy%}
-<a class="dcard x2" href='{{url.baseFull}}/factor?type=buy'>
+<a class="dcard x2" href='{{url.here}}/factor?type=buy'>
  <div class="statistic gray">
   <div class="value"><i class="sf-bag"></i><span>{{factor_dashboard_detail.buy_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Buy"%}</div>
@@ -32,7 +32,7 @@
 
 
 {%block stSale%}
-<a class="dcard x2" href='{{url.baseFull}}/factor?type=sale'>
+<a class="dcard x2" href='{{url.here}}/factor?type=sale'>
  <div class="statistic teal">
   <div class="value"><i class="sf-basket"></i><span class="fs08">{{factor_dashboard_detail.sale_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Sale"%}</div>
@@ -42,7 +42,7 @@
 
 
 {%block stPreSale%}
-<a class="dcard" href='{{url.baseFull}}/factor?type=prefactor'>
+<a class="dcard" href='{{url.here}}/factor?type=prefactor'>
  <div class="statistic blue">
   <div class="value"><i class="sf-pin-1"></i><span>{{factor_dashboard_detail.pre_sale_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Pre Sale"%}</div>
@@ -52,7 +52,7 @@
 
 
 {%block stLending%}
-<a class="dcard" href='{{url.baseFull}}/factor?type=lending'>
+<a class="dcard" href='{{url.here}}/factor?type=lending'>
  <div class="statistic green">
   <div class="value"><i class="sf-flag"></i><span>{{factor_dashboard_detail.lending_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Lending"%}</div>
@@ -62,7 +62,7 @@
 
 
 {%block stBackBuy%}
-<a class="dcard" href='{{url.baseFull}}/factor?type=backbuy'>
+<a class="dcard" href='{{url.here}}/factor?type=backbuy'>
  <div class="statistic black">
   <div class="value"><i class="sf-outdent"></i><span>{{factor_dashboard_detail.back_from_buy_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Back from buy"%}</div>
@@ -72,7 +72,7 @@
 
 
 {%block stBackSale%}
-<a class="dcard" href='{{url.baseFull}}/factor?type=backfactor'>
+<a class="dcard" href='{{url.here}}/factor?type=backfactor'>
  <div class="statistic black">
   <div class="value"><i class="sf-indent"></i><span>{{factor_dashboard_detail.back_from_sale_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Back from factor"%}</div>
@@ -83,7 +83,7 @@
 
 
 {%block stWaste%}
-<a class="dcard" href='{{url.baseFull}}/factor?type=waste'>
+<a class="dcard" href='{{url.here}}/factor?type=waste'>
  <div class="statistic orange">
   <div class="value"><i class="sf-trash-o"></i><span>{{factor_dashboard_detail.waste_product_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Waste product"%}</div>

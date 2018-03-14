@@ -34,7 +34,7 @@ class view extends \content_a\main\view
 	private function set_best_title()
 	{
 		// set usable variable
-		$this->data->modulePath = $this->url('baseFull'). '/thirdparty';
+		$this->data->modulePath = \lib\url::here(). '/thirdparty';
 		$this->data->moduleType = \lib\utility::get('type');
 
 		// set default title

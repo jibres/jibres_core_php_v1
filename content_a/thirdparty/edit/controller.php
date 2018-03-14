@@ -8,11 +8,11 @@ class controller extends \content_a\main\controller
 	{
 		if(\lib\utility::get('id'))
 		{
-			$this->redirector($this->url('baseFull'). '/thirdparty/edit/general?id='.\lib\utility::get('id'))->redirect();
+			$this->redirector(\lib\url::here(). '/thirdparty/edit/general?id='.\lib\utility::get('id'))->redirect();
 		}
 		else
 		{
-			$this->redirector($this->url('baseFull'). '/thirdparty')->redirect();
+			$this->redirector(\lib\url::here(). '/thirdparty')->redirect();
 		}
 
 		// \lib\error::page(T_("Invalid url"));

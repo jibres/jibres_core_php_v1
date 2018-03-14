@@ -46,7 +46,7 @@
 
 
 {%block addNewStore%}
-<a class="dcard x2" href='{{url.baseFull}}/store/add'>
+<a class="dcard x2" href='{{url.here}}/store/add'>
  <div class="statistic">
   <div class="value"><i class="sf-plus"></i></div>
   <div class="label">{%trans "Add new Store"%}</div>
@@ -56,7 +56,7 @@
 
 
 {%block storeCount%}
-<a class="dcard x2" href='{{url.baseFull}}/store'>
+<a class="dcard x2" href='{{url.here}}/store'>
  <div class="statistic gray">
   <div class="value"><i class="sf-shopping-cart"></i><span>{{count_store_by_creator |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Store"%}</div>
