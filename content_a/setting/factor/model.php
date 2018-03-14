@@ -115,7 +115,7 @@ class model extends \content_a\main\model
 		if(\lib\debug::$status)
 		{
 			\lib\debug::true(T_("Factor setting saved"));
-			$this->redirector($this->url('full'));
+			$this->redirector(\lib\url::pwd());
 		}
 	}
 }

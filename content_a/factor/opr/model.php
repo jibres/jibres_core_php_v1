@@ -16,7 +16,7 @@ class model extends \content_a\main\model
 
 		$result            = \lib\app\storetransaction::add($post);
 
-		$new_url           = $this->url('full');
+		$new_url           = \lib\url::pwd();
 
 		if(isset($result['complete']) && $result['complete'])
 		{
