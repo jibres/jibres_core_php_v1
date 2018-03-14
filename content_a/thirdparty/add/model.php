@@ -53,11 +53,11 @@ class model extends \content_a\main\model
 		{
 			if(isset($result['thirdparty_id']))
 			{
-				$this->redirector($this->url('base'). '/a/thirdparty/edit?id='. $result['thirdparty_id']);
+				$this->redirector(\lib\url::base(). '/a/thirdparty/edit?id='. $result['thirdparty_id']);
 			}
 			else
 			{
-				$this->redirector($this->url('base'). '/a/thirdparty');
+				$this->redirector(\lib\url::base(). '/a/thirdparty');
 			}
 		}
 	}

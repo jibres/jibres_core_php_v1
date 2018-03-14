@@ -98,11 +98,11 @@ class model extends \content_a\main\model
 				// $query_data['print'] = 'auto';
 				// $query_data['size']  = 'receipt8';
 				$query_data['id']    = $factor_detail['factor_id'];
-				$redirect_url        = $this->url('base'). '/a/factor/opr';
+				$redirect_url        = \lib\url::base(). '/a/factor/opr';
 			}
 			else
 			{
-				$redirect_url = $this->url('base'). '/a/factor';
+				$redirect_url = \lib\url::base(). '/a/factor';
 			}
 
 			if(!empty($query_data))

@@ -8,7 +8,7 @@ class controller extends \mvc\controller
 	{
 		if(!\lib\url::subdomain())
 		{
-			$this->redirector($this->url('base'))->redirect();
+			$this->redirector(\lib\url::base())->redirect();
 		}
 
 		if(!\lib\store::id())
@@ -18,7 +18,7 @@ class controller extends \mvc\controller
 
 		if(!$this->login())
 		{
-			$this->redirector($this->url('base'). '/enter')->redirect();
+			$this->redirector(\lib\url::base(). '/enter')->redirect();
 			return;
 		}
 
