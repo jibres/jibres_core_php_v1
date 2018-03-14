@@ -18,7 +18,7 @@ class controller extends \mvc\controller
 		 */
 		if(SubDomain)
 		{
-			$url = Protocol. '://'. Domain. '.'. \lib\url::tld() . '/c';
+			$url = \lib\url::protocol(). '://'. Domain. '.'. \lib\url::tld() . '/c';
 			$this->redirector($url)->redirect();
 			return;
 		}
