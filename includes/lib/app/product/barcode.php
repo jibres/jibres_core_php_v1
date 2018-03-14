@@ -81,7 +81,7 @@ trait barcode
 
 						if($product_id)
 						{
-							$link = \lib\url::protocol(). '://'. SubDomain. '.'. Domain. '.'. \lib\url::tld(). '/a/product/edit/general?id='. $product_id;
+							$link = \lib\url::protocol(). '://'. \lib\url::subdomain(). '.'. Domain. '.'. \lib\url::tld(). '/a/product/edit/general?id='. $product_id;
 							$msg = "<a href='$link'>". $msg. '</a>';
 						}
 

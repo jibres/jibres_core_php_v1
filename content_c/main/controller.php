@@ -16,7 +16,7 @@ class controller extends \mvc\controller
 		 * if we have domain in this content
 		 * redirect to whitout subdomain
 		 */
-		if(SubDomain)
+		if(\lib\url::subdomain())
 		{
 			$url = \lib\url::protocol(). '://'. Domain. '.'. \lib\url::tld() . '/c';
 			$this->redirector($url)->redirect();

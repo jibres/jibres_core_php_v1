@@ -6,7 +6,7 @@ class controller extends \mvc\controller
 {
 	public function repository()
 	{
-		if(!SubDomain)
+		if(!\lib\url::subdomain())
 		{
 			$this->redirector($this->url('base'))->redirect();
 		}
