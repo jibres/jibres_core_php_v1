@@ -10,7 +10,7 @@ class controller extends \content_a\main\controller
 		// $this->post('search')->ALL();
 
 		// redirect if query not exist
-		if(\lib\utility::get('q') === '' && \lib\router::get_url_property('page') === null)
+		if(\lib\utility::get('q') === '' && !\lib\utility::get('page'))
 		{
 			$new_url = \lib\url::pwd();
 			$new_url = strtok($new_url,'?');
