@@ -18,7 +18,7 @@ class view extends \mvc\view
 		$this->data->page['badge']['shortkey'] = 120;
 
 		// set usable variable
-		$this->data->modulePath  = \lib\url::here(). '/'. $this->module();
+		$this->data->modulePath  = \lib\url::this();
 		$this->data->moduleType  = \lib\utility::get('type');
 		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
 

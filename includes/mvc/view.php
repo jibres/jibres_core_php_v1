@@ -94,7 +94,7 @@ class view extends \lib\view
 		unset($filter_array['sort']);
 		unset($filter_array['order']);
 
-		switch ($this->module())
+		switch (\lib\url::module())
 		{
 			case 'factor':
 				if(isset($filter_array['customer']))

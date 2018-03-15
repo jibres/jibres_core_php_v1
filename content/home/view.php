@@ -19,7 +19,7 @@ class view extends \mvc\view
 	 */
 	function pushState()
 	{
-		// if($this->module() !== 'home')
+		// if(\lib\url::module() !== null)
 		// {
 		// 	$this->data->display['mvc']     = "content/home/layout-xhr.html";
 		// }
@@ -31,9 +31,10 @@ class view extends \mvc\view
 	 */
 	function set_static_titles()
 	{
-		switch ($this->module())
+		switch (\lib\url::module())
 		{
-			case 'home':
+			case '':
+			case null:
 				$this->data->page['title']   = $this->data->site['title']. ' - '. T_('Integrated Sales and Online Accounting');
 				$this->data->page['special'] = true;
 				break;
