@@ -8,27 +8,27 @@ class model extends \content_a\main\model
 	{
 		$args =
 		[
-			'title'          => \lib\utility::post('title'),
-			'code'            => \lib\utility::post('code'),
+			'title'          => \lib\request::post('title'),
+			'code'            => \lib\request::post('code'),
 
-			'cat'            => \lib\utility::post('cat'),
-			'company'        => \lib\utility::post('company'),
+			'cat'            => \lib\request::post('cat'),
+			'company'        => \lib\request::post('company'),
 
-			'unit'           => \lib\utility::post('unit'),
-			'carton'         => \lib\utility::post('carton'),
+			'unit'           => \lib\request::post('unit'),
+			'carton'         => \lib\request::post('carton'),
 
-			'barcode'        => \lib\utility::post('barcode'),
-			'barcode2'       => \lib\utility::post('barcode2'),
+			'barcode'        => \lib\request::post('barcode'),
+			'barcode2'       => \lib\request::post('barcode2'),
 
-			'minstock'       => \lib\utility::post('minstock'),
-			'maxstock'       => \lib\utility::post('maxstock'),
+			'minstock'       => \lib\request::post('minstock'),
+			'maxstock'       => \lib\request::post('maxstock'),
 
-			'buyprice'       => \lib\utility::post('buyprice'),
-			'price'          => \lib\utility::post('price'),
-			'discount'       => \lib\utility::post('discount'),
+			'buyprice'       => \lib\request::post('buyprice'),
+			'price'          => \lib\request::post('price'),
+			'discount'       => \lib\request::post('discount'),
 
-			'initialbalance' => \lib\utility::post('initialbalance'),
-			'status'         => \lib\utility::post('status'),
+			'initialbalance' => \lib\request::post('initialbalance'),
+			'status'         => \lib\request::post('status'),
 		];
 
 		return $args;

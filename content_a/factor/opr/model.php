@@ -10,9 +10,9 @@ class model extends \content_a\main\model
 		$post              = [];
 		$factor_id         = \lib\utility::get('id');
 		$post['factor_id'] = $factor_id;
-		$post['amount']    = \lib\utility::post('amount');
-		$post['type']      = \lib\utility::post('type');
-		$post['bank']      = \lib\utility::post('bank');
+		$post['amount']    = \lib\request::post('amount');
+		$post['type']      = \lib\request::post('type');
+		$post['bank']      = \lib\request::post('bank');
 
 		$result            = \lib\app\storetransaction::add($post);
 

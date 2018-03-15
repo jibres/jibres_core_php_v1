@@ -7,11 +7,11 @@ class model extends \content_a\main\model
 	public static function getPost()
 	{
 		$post             = [];
-		$post['country']  = \lib\utility::post('country');
-		$post['province'] = \lib\utility::post('province');
-		$post['city']     = \lib\utility::post('city');
-		$post['zipcode']  = \lib\utility::post('zipcode');
-		$post['address']  = \lib\utility::post('address');
+		$post['country']  = \lib\request::post('country');
+		$post['province'] = \lib\request::post('province');
+		$post['city']     = \lib\request::post('city');
+		$post['zipcode']  = \lib\request::post('zipcode');
+		$post['address']  = \lib\request::post('address');
 		return $post;
 	}
 

@@ -36,27 +36,27 @@ class model extends \content_a\main\model
 
 
 		$meta                  = $default_meta;
-		$meta['print_status']  = \lib\utility::post('printStatus') ? true : false;
-		$meta['default_pos']   = \lib\utility::post('defaultPos');
-		$meta['default_print'] = \lib\utility::post('defaultPrint');
-		$meta['default_pay']   = \lib\utility::post('defaultPay');
+		$meta['print_status']  = \lib\request::post('printStatus') ? true : false;
+		$meta['default_pos']   = \lib\request::post('defaultPos');
+		$meta['default_print'] = \lib\request::post('defaultPrint');
+		$meta['default_pay']   = \lib\request::post('defaultPay');
 
-		if(\lib\utility::post('print_size') && is_array(\lib\utility::post('print_size')))
+		if(\lib\request::post('print_size') && is_array(\lib\request::post('print_size')))
 		{
-			$meta['print_size']['fishprint'] = in_array('fishprint', \lib\utility::post('print_size')) ? true : false;
-			$meta['print_size']['a4']        = in_array('a4', \lib\utility::post('print_size')) ? true : false;
-			$meta['print_size']['a5']        = in_array('a5', \lib\utility::post('print_size')) ? true : false;
+			$meta['print_size']['fishprint'] = in_array('fishprint', \lib\request::post('print_size')) ? true : false;
+			$meta['print_size']['a4']        = in_array('a4', \lib\request::post('print_size')) ? true : false;
+			$meta['print_size']['a5']        = in_array('a5', \lib\request::post('print_size')) ? true : false;
 		}
 
-		if(\lib\utility::post('pay') && is_array(\lib\utility::post('pay')))
+		if(\lib\request::post('pay') && is_array(\lib\request::post('pay')))
 		{
-			$meta['pay']['cash']   = in_array('cash', \lib\utility::post('pay')) ? true : false;
-			$meta['pay']['pos']    = in_array('pos', \lib\utility::post('pay')) ? true : false;
-			$meta['pay']['cheque'] = in_array('cheque', \lib\utility::post('pay')) ? true : false;
+			$meta['pay']['cash']   = in_array('cash', \lib\request::post('pay')) ? true : false;
+			$meta['pay']['pos']    = in_array('pos', \lib\request::post('pay')) ? true : false;
+			$meta['pay']['cheque'] = in_array('cheque', \lib\request::post('pay')) ? true : false;
 		}
 
 
-		$pos_active = \lib\utility::post('pos_active');
+		$pos_active = \lib\request::post('pos_active');
 
 		$support_pos_active =
 		[

@@ -11,30 +11,30 @@ class model extends \content_a\main\model
 
 		if(\lib\utility::get('type') === 'supplier')
 		{
-			$post['visitorname']   = \lib\utility::post('visitorname');
-			$post['visitormobile'] = \lib\utility::post('visitormobile');
-			$post['company']       = \lib\utility::post('company');
+			$post['visitorname']   = \lib\request::post('visitorname');
+			$post['visitormobile'] = \lib\request::post('visitormobile');
+			$post['company']       = \lib\request::post('company');
 		}
 		else
 		{
 
-			$post['mobile']       = \lib\utility\filter::mobile(\lib\utility::post('mobile'));
+			$post['mobile']       = \lib\utility\filter::mobile(\lib\request::post('mobile'));
 			$post['type']         = \lib\utility::get('type');
-			$post['firstname']    = \lib\utility::post('name');
-			$post['lastname']     = \lib\utility::post('lastName');
-			$post['nationalcode'] = \lib\utility::post('nationalcode');
-			$post['gender']       = \lib\utility::post('gender') === 'on' ? 'female' : 'male';
+			$post['firstname']    = \lib\request::post('name');
+			$post['lastname']     = \lib\request::post('lastName');
+			$post['nationalcode'] = \lib\request::post('nationalcode');
+			$post['gender']       = \lib\request::post('gender') === 'on' ? 'female' : 'male';
 
 			if(\lib\utility::get('type') === 'staff')
 			{
-				$post['birthday']  = \lib\utility::post('birthday');
+				$post['birthday']  = \lib\request::post('birthday');
 			}
 			else
 			{
-				$post['code']    = \lib\utility::post('code');
-				$post['address'] = \lib\utility::post('address');
-				$post['phone']   = \lib\utility::post('phone');
-				$post['desc']    = \lib\utility::post('desc');
+				$post['code']    = \lib\request::post('code');
+				$post['address'] = \lib\request::post('address');
+				$post['phone']   = \lib\request::post('phone');
+				$post['desc']    = \lib\request::post('desc');
 			}
 		}
 

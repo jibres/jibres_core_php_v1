@@ -9,12 +9,12 @@ class model extends \content_a\main\model
 	{
 		$args =
 		[
-			'name'    => \lib\utility::post('name'),
-			'website' => \lib\utility::post('website'),
-			'desc'    => \lib\utility::post('desc'),
-			'mobile'  => \lib\utility::post('mobile'),
-			'address' => \lib\utility::post('address'),
-			'phone'   => \lib\utility::post('phone'),
+			'name'    => \lib\request::post('name'),
+			'website' => \lib\request::post('website'),
+			'desc'    => \lib\request::post('desc'),
+			'mobile'  => \lib\request::post('mobile'),
+			'address' => \lib\request::post('address'),
+			'phone'   => \lib\request::post('phone'),
 		];
 		return $args;
 	}

@@ -7,13 +7,13 @@ class model extends \content_a\main\model
 	public static function getPost()
 	{
 		$post                 = [];
-		$post['shfrom']       = \lib\utility::post('shfrom');
-		$post['birthcity']    = \lib\utility::post('birthcity');
-		$post['shcode']       = \lib\utility::post('shcode');
-		$post['pasportcode']  = \lib\utility::post('pasportcode');
-		$post['pasportdate']  = \lib\utility::post('pasportdate');
-		$post['nationalcode'] = \lib\utility::post('nationalcode');
-		$post['father']       = \lib\utility::post('father');
+		$post['shfrom']       = \lib\request::post('shfrom');
+		$post['birthcity']    = \lib\request::post('birthcity');
+		$post['shcode']       = \lib\request::post('shcode');
+		$post['pasportcode']  = \lib\request::post('pasportcode');
+		$post['pasportdate']  = \lib\request::post('pasportdate');
+		$post['nationalcode'] = \lib\request::post('nationalcode');
+		$post['father']       = \lib\request::post('father');
 
 		return $post;
 	}

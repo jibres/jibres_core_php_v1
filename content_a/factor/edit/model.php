@@ -11,9 +11,9 @@ class model extends \content_a\main\model
 	 */
 	public static function getPostSaleProduct()
 	{
-		$product  = \lib\utility::post('products');
-		$count    = \lib\utility::post('count');
-		$discount = \lib\utility::post('discount');
+		$product  = \lib\request::post('products');
+		$count    = \lib\request::post('count');
+		$discount = \lib\request::post('discount');
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
@@ -49,8 +49,8 @@ class model extends \content_a\main\model
 	public static function getPostSaleDetail()
 	{
 		$detail             = [];
-		$detail['customer'] = \lib\utility::post('customer');
-		$detail['desc']     = \lib\utility::post('desc');
+		$detail['customer'] = \lib\request::post('customer');
+		$detail['desc']     = \lib\request::post('desc');
 		return $detail;
 	}
 
