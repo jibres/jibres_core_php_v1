@@ -196,7 +196,7 @@ class store
 
 
 		$lang = \lib\app::request('language');
-		if($lang && (mb_strlen($lang) !== 2 || !utility\location\languages::check($lang)))
+		if($lang && (mb_strlen($lang) !== 2 || !\lib\language::check($lang)))
 		{
 			// \lib\app::log('api:store:invalid:lang', \lib\user::id(), $log_meta);
 			debug::error(T_("Invalid language field"), 'language', 'arguments');
