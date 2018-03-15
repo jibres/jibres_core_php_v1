@@ -1,6 +1,5 @@
 <?php
 namespace lib\app\factor;
-use \lib\debug;
 
 
 trait edit
@@ -42,14 +41,14 @@ trait edit
 		if(!$id || !is_numeric($id))
 		{
 			\lib\app::log('api:factor:method:put:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Id not set"));
+			if($_option['debug']) \lib\debug::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:factor:edit:store:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Id not set"));
+			if($_option['debug']) \lib\debug::error(T_("Id not set"));
 			return false;
 		}
 
@@ -58,7 +57,7 @@ trait edit
 		if(empty($load_factor) || !$load_factor || !isset($load_factor['id']))
 		{
 			\lib\app::log('api:factor:edit:factor:not:found', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Can not access to edit it"), 'factor', 'permission');
+			if($_option['debug']) \lib\debug::error(T_("Can not access to edit it"), 'factor', 'permission');
 			return false;
 		}
 

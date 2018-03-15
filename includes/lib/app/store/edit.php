@@ -1,6 +1,6 @@
 <?php
 namespace lib\app\store;
-use \lib\debug;
+
 
 trait edit
 {
@@ -47,7 +47,7 @@ trait edit
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
-			debug::error(T_("Id not set"), 'id', 'permission');
+			\lib\debug::error(T_("Id not set"), 'id', 'permission');
 			return false;
 		}
 
@@ -55,7 +55,7 @@ trait edit
 		if(!$check_is_admin || !isset($check_is_admin['id']))
 		{
 			\lib\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
-			debug::error(T_("Can not access to edit store"), 'store');
+			\lib\debug::error(T_("Can not access to edit store"), 'store');
 			return false;
 		}
 
@@ -87,14 +87,14 @@ trait edit
 		if(array_key_exists('name', $args) && !$args['name'])
 		{
 			\lib\app::log('api:store:name:not:set:edit', \lib\user::id(), $log_meta);
-			debug::error(T_("Name of store can not be null"), 'name', 'arguments');
+			\lib\debug::error(T_("Name of store can not be null"), 'name', 'arguments');
 			return false;
 		}
 
 		if(array_key_exists('slug', $args) && !$args['slug'])
 		{
 			\lib\app::log('api:store:slug:not:set:edit', \lib\user::id(), $log_meta);
-			debug::error(T_("slug of store can not be null"), 'slug', 'arguments');
+			\lib\debug::error(T_("slug of store can not be null"), 'slug', 'arguments');
 			return false;
 		}
 
@@ -138,7 +138,7 @@ trait edit
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
-			debug::error(T_("Id not set"), 'id', 'permission');
+			\lib\debug::error(T_("Id not set"), 'id', 'permission');
 			return false;
 		}
 
@@ -146,7 +146,7 @@ trait edit
 		if(!$check_is_admin || !isset($check_is_admin['id']))
 		{
 			\lib\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
-			debug::error(T_("Can not access to edit store"), 'store');
+			\lib\debug::error(T_("Can not access to edit store"), 'store');
 			return false;
 		}
 

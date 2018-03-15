@@ -1,6 +1,6 @@
 <?php
 namespace lib\app\store;
-use \lib\debug;
+
 
 trait get
 {
@@ -31,7 +31,7 @@ trait get
 
 		if($_options['debug'])
 		{
-			debug::title(T_("Operation Faild"));
+			\lib\debug::title(T_("Operation Faild"));
 		}
 
 		$log_meta =
@@ -58,7 +58,7 @@ trait get
 			if($_options['debug'])
 			{
 				\lib\app::log('api:store:id:shortname:not:set', \lib\user::id(), $log_meta);
-				debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
+				\lib\debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			}
 			return false;
 		}
@@ -68,7 +68,7 @@ trait get
 			\lib\app::log('api:store:id:shortname:together:set', \lib\user::id(), $log_meta);
 			if($_options['debug'])
 			{
-				debug::error(T_("Can not set store id and shortname together"), 'id', 'arguments');
+				\lib\debug::error(T_("Can not set store id and shortname together"), 'id', 'arguments');
 			}
 			return false;
 		}
@@ -113,14 +113,14 @@ trait get
 			\lib\app::log('api:store:access:denide', \lib\user::id(), $log_meta);
 			if($_options['debug'])
 			{
-				debug::error(T_("Can not access to load this store details"), 'store', 'permission');
+				\lib\debug::error(T_("Can not access to load this store details"), 'store', 'permission');
 			}
 			return false;
 		}
 
 		if($_options['debug'])
 		{
-			debug::title(T_("Operation complete"));
+			\lib\debug::title(T_("Operation complete"));
 		}
 
 		$result = self::ready($result);

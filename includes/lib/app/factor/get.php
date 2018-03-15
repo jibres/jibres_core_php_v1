@@ -1,6 +1,6 @@
 <?php
 namespace lib\app\factor;
-use \lib\debug;
+
 
 trait get
 {
@@ -33,14 +33,14 @@ trait get
 		if(!\lib\user::id())
 		{
 			\lib\app::log('api:factor:user:id:not:found', \lib\user::id(), \lib\app::log_meta());
-			if($_option['debug']) debug::error(T_("User id not found"));
+			if($_option['debug']) \lib\debug::error(T_("User id not found"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:factor:store:id:not:found', \lib\user::id(), \lib\app::log_meta());
-			if($_option['debug']) debug::error(T_("Store id not found"));
+			if($_option['debug']) \lib\debug::error(T_("Store id not found"));
 			return false;
 		}
 
@@ -50,7 +50,7 @@ trait get
 		if(!$id)
 		{
 			\lib\app::log('api:factor:id:shortname:not:set', \lib\user::id(), \lib\app::log_meta());
-			if($_option['debug']) debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
+			if($_option['debug']) \lib\debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			return false;
 		}
 

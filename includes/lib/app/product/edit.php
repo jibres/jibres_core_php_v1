@@ -1,6 +1,5 @@
 <?php
 namespace lib\app\product;
-use \lib\debug;
 
 
 trait edit
@@ -43,14 +42,14 @@ trait edit
 		if(!$id || !is_numeric($id))
 		{
 			\lib\app::log('api:product:method:put:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Id not set"));
+			if($_option['debug']) \lib\debug::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:product:edit:store:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Id not set"));
+			if($_option['debug']) \lib\debug::error(T_("Id not set"));
 			return false;
 		}
 
@@ -59,7 +58,7 @@ trait edit
 		if(empty($load_product) || !$load_product || !isset($load_product['id']))
 		{
 			\lib\app::log('api:product:edit:product:not:found', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Can not access to edit it"), 'product', 'permission');
+			if($_option['debug']) \lib\debug::error(T_("Can not access to edit it"), 'product', 'permission');
 			return false;
 		}
 
@@ -100,7 +99,7 @@ trait edit
 		if(array_key_exists('title', $args) && !$args['title'])
 		{
 			\lib\app::log('api:product:title:not:set:edit', \lib\user::id(), $log_meta);
-			if($_option['debug']) debug::error(T_("Title of product can not be null"), 'title');
+			if($_option['debug']) \lib\debug::error(T_("Title of product can not be null"), 'title');
 			return false;
 		}
 

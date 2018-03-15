@@ -1,7 +1,6 @@
 <?php
 namespace lib\app;
-use \lib\utility;
-use \lib\debug;
+
 
 /**
  * Class for factor.

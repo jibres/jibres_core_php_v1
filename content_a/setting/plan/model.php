@@ -1,7 +1,6 @@
 <?php
 namespace content_a\setting\plan;
-use \lib\debug;
-use \lib\utility;
+
 
 class model extends \content_a\main\model
 {
@@ -18,7 +17,7 @@ class model extends \content_a\main\model
 		if(!\lib\store::id())
 		{
 			\lib\db\logs::set('plan:invalid:store', $this->login('id'));
-			debug::error(T_("Invalid store!"), 'store');
+			\lib\debug::error(T_("Invalid store!"), 'store');
 			return false;
 		}
 
@@ -36,11 +35,11 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		$plan = utility::post('plan');
+		$plan = \lib\utility::post('plan');
 		if(!$plan)
 		{
 			\lib\db\logs::set('plan:plan:not:set', $this->login('id'));
-			debug::error(T_("Please select one of plan"), 'plan');
+			\lib\debug::error(T_("Please select one of plan"), 'plan');
 			return false;
 		}
 
@@ -65,21 +64,21 @@ class model extends \content_a\main\model
 		if(!in_array($plan, $all_plan_list))
 		{
 			\lib\db\logs::set('plan:invalid:plan', $this->login('id'));
-			debug::error(T_("Invalid plan!"), 'plan');
+			\lib\debug::error(T_("Invalid plan!"), 'plan');
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\db\logs::set('plan:invalid:store', $this->login('id'));
-			debug::error(T_("Invalid store!"), 'store');
+			\lib\debug::error(T_("Invalid store!"), 'store');
 			return false;
 		}
 
 		if(!\lib\store::is_creator())
 		{
 			\lib\db\logs::set('plan:no:access:to:change:plan', $this->login('id'));
-			debug::error(T_("No access to change plan"), 'store');
+			\lib\debug::error(T_("No access to change plan"), 'store');
 			return false;
 		}
 
@@ -93,15 +92,15 @@ class model extends \content_a\main\model
 
 		if($result)
 		{
-			debug::true(T_("Your store plan was changed"));
-			if(debug::$status)
+			\lib\debug::true(T_("Your store plan was changed"));
+			if(\lib\debug::$status)
 			{
 				$this->redirector(\lib\url::pwd());
 			}
 		}
 		else
 		{
-			// debug::error(T_("Can not save this plan of your store"));
+			// \lib\debug::error(T_("Can not save this plan of your store"));
 			return false;
 		}
 	}
