@@ -46,7 +46,7 @@ class view extends \lib\view
 	public function createFilterMsg($_args)
 	{
 		$result = null;
-		$searchText = \lib\utility::get('q');
+		$searchText = \lib\request::get('q');
 
 		if($searchText)
 		{

@@ -7,7 +7,7 @@ class model extends \content_a\main\model
 
 	public static function getPost()
 	{
-		$thirdparty             = \lib\app\thirdparty::get(\lib\utility::get('id'));
+		$thirdparty             = \lib\app\thirdparty::get(\lib\request::get('id'));
 
 		if(isset($thirdparty['supplier']) || (isset($thirdparty['type']) && $thirdparty['type'] === 'supplier'))
 		{
@@ -23,7 +23,7 @@ class model extends \content_a\main\model
 		{
 			$post                 = [];
 			$post['mobile']       = \lib\utility\filter::mobile(\lib\request::post('mobile'));
-			$post['type']         = \lib\utility::get('type');
+			$post['type']         = \lib\request::get('type');
 			$post['firstname']    = \lib\request::post('name');
 			$post['lastname']     = \lib\request::post('lastName');
 			$post['nationalcode'] = \lib\request::post('nationalcode');
@@ -44,7 +44,7 @@ class model extends \content_a\main\model
 	{
 		$request       = self::getPost();
 
-		\lib\app\thirdparty::edit($request, \lib\utility::get('id'));
+		\lib\app\thirdparty::edit($request, \lib\request::get('id'));
 
 		if(\lib\debug::$status)
 		{

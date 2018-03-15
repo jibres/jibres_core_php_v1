@@ -37,7 +37,7 @@ class model extends \content_a\main\model
 		$request           = [];
 		$request['avatar'] = $file_url;
 
-		\lib\app\thirdparty::edit($request, \lib\utility::get('id'));
+		\lib\app\thirdparty::edit($request, \lib\request::get('id'));
 
 		if(\lib\debug::$status)
 		{

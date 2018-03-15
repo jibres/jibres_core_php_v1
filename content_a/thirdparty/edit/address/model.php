@@ -18,7 +18,7 @@ class model extends \content_a\main\model
 
 	public function post_address($_args)
 	{
-		\lib\app\thirdparty::edit(self::getPost(), \lib\utility::get('id'));
+		\lib\app\thirdparty::edit(self::getPost(), \lib\request::get('id'));
 
 		if(\lib\debug::$status)
 		{

@@ -13,16 +13,16 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['link'] = \lib\url::here(). '/factor';
 		$this->data->page['badge']['text'] = T_('Back to last sales');
 
-		if(\lib\utility::get('json') === 'true')
+		if(\lib\request::get('json') === 'true')
 		{
 			$result = [];
-			switch (\lib\utility::get('list'))
+			switch (\lib\request::get('list'))
 			{
 				case 'customer':
 					$meta                        = [];
 					$meta['userstores.supplier'] = ["IS", "NULL"];
-					$meta['sort_type']           = \lib\utility::get('type');
-					$resultRaw        = \lib\app\thirdparty::list(\lib\utility::get('q'), $meta);
+					$meta['sort_type']           = \lib\request::get('type');
+					$resultRaw        = \lib\app\thirdparty::list(\lib\request::get('q'), $meta);
 
 					foreach ($resultRaw as $key => $value)
 					{
@@ -70,28 +70,28 @@ class view extends \content_a\main\view
 				case 'product':
 					$meta = [];
 					$msg  = T_("Product not found."). ' ';
-					if(\lib\utility::get('q'))
+					if(\lib\request::get('q'))
 					{
-						$resultRaw    = \lib\app\product::list(\lib\utility::get('q'), $meta);
+						$resultRaw    = \lib\app\product::list(\lib\request::get('q'), $meta);
 
 						foreach ($resultRaw as $key => $value)
 						{
 							$result[$key] = self::getNeededField($value);
 						}
 					}
-					elseif(\lib\utility::get('barcode'))
+					elseif(\lib\request::get('barcode'))
 					{
-						$result = \lib\app\product::list(null, ['barcode' => \lib\utility::get('barcode')]);
+						$result = \lib\app\product::list(null, ['barcode' => \lib\request::get('barcode')]);
 						$result = self::getNeededField($result);
 						if(!$result)
 						{
-							$msg .= '<a href="/a/product/add?barcode='. \lib\utility::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
+							$msg .= '<a href="/a/product/add?barcode='. \lib\request::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
 							$result = null;
 						}
 					}
-					elseif(\lib\utility::get('id'))
+					elseif(\lib\request::get('id'))
 					{
-						$result = \lib\app\product::list(null, ['id' => \lib\utility::get('id')]);
+						$result = \lib\app\product::list(null, ['id' => \lib\request::get('id')]);
 						$result = self::getNeededField($result);
 						if(!$result)
 						{

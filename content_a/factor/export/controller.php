@@ -6,7 +6,7 @@ class controller extends \content_a\main\controller
 {
 	public function ready()
 	{
-		if(!\lib\utility::get('id'))
+		if(!\lib\request::get('id'))
 		{
 			\lib\error::page(T_("Id not found"));
 		}

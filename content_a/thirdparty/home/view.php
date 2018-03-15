@@ -10,7 +10,7 @@ class view extends \content_a\main\view
 
 		$args = [];
 
-		$type = \lib\utility::get('type');
+		$type = \lib\request::get('type');
 
 		if($type && in_array($type, ['customer', 'staff', 'supplier']))
 		{
@@ -18,7 +18,7 @@ class view extends \content_a\main\view
 		}
 
 		$args['order'] = 'desc';
-		$this->data->dataTable = \lib\app\thirdparty::list(\lib\utility::get('q'), $args);
+		$this->data->dataTable = \lib\app\thirdparty::list(\lib\request::get('q'), $args);
 		$this->data->dataFilter = $this->createFilterMsg($args);
 
 		$this->data->dashboard_detail = \lib\app\store::dashboard_detail(\lib\store::id());
@@ -34,7 +34,7 @@ class view extends \content_a\main\view
 	private function set_best_title()
 	{
 		// set usable variable
-		$this->data->moduleType = \lib\utility::get('type');
+		$this->data->moduleType = \lib\request::get('type');
 
 		// set default title
 		$this->data->page['title'] = T_('List of third parties');

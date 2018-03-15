@@ -42,7 +42,7 @@ class model extends \content_a\main\model
 	{
 
 		$request         = self::getPost();
-		$request['id']   = \lib\utility::get('id');
+		$request['id']   = \lib\request::get('id');
 
 		\lib\app\product::edit($request);
 

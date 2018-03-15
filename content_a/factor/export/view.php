@@ -14,9 +14,9 @@ class view extends \content_a\main\view
 
 		$meta         = [];
 
-		$this->data->factor_detail = \lib\app\factor::get(['id' => \lib\utility::get('id')], $meta);
+		$this->data->factor_detail = \lib\app\factor::get(['id' => \lib\request::get('id')], $meta);
 
-		$this->data->pageSize = \lib\utility::get('size');
+		$this->data->pageSize = \lib\request::get('size');
 	}
 }
 ?>

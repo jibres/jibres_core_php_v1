@@ -15,7 +15,7 @@ class view extends \content_a\main\view
 	{
 		$this->static_var();
 
-		$userstore_id = \lib\utility::get('id');
+		$userstore_id = \lib\request::get('id');
 		$userstore_id = \lib\utility\shortURL::decode($userstore_id);
 
 		if(!$userstore_id)
@@ -23,7 +23,7 @@ class view extends \content_a\main\view
 			\lib\error::page(T_("Thirdparty id not found"));
 		}
 
-		$thirdparty             = \lib\app\thirdparty::get(\lib\utility::get('id'));
+		$thirdparty             = \lib\app\thirdparty::get(\lib\request::get('id'));
 
 		if(isset($thirdparty['supplier']) || (isset($thirdparty['type']) && $thirdparty['type'] === 'supplier'))
 		{

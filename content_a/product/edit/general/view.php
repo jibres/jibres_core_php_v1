@@ -6,7 +6,7 @@ class view extends \content_a\main\view
 {
 	public function config()
 	{
-		$product_id          = \lib\utility::get('id');
+		$product_id          = \lib\request::get('id');
 		$this->data->product = \lib\app\product::get(['id' => $product_id]);
 
 		$this->data->cat_list     = \lib\app\product::cat_list(true);

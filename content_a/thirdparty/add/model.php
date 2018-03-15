@@ -7,9 +7,9 @@ class model extends \content_a\main\model
 	public static function getPostthirdparty()
 	{
 		$post         = [];
-		$post['type'] = \lib\utility::get('type');
+		$post['type'] = \lib\request::get('type');
 
-		if(\lib\utility::get('type') === 'supplier')
+		if(\lib\request::get('type') === 'supplier')
 		{
 			$post['visitorname']   = \lib\request::post('visitorname');
 			$post['visitormobile'] = \lib\request::post('visitormobile');
@@ -19,13 +19,13 @@ class model extends \content_a\main\model
 		{
 
 			$post['mobile']       = \lib\utility\filter::mobile(\lib\request::post('mobile'));
-			$post['type']         = \lib\utility::get('type');
+			$post['type']         = \lib\request::get('type');
 			$post['firstname']    = \lib\request::post('name');
 			$post['lastname']     = \lib\request::post('lastName');
 			$post['nationalcode'] = \lib\request::post('nationalcode');
 			$post['gender']       = \lib\request::post('gender') === 'on' ? 'female' : 'male';
 
-			if(\lib\utility::get('type') === 'staff')
+			if(\lib\request::get('type') === 'staff')
 			{
 				$post['birthday']  = \lib\request::post('birthday');
 			}

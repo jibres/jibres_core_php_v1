@@ -36,7 +36,7 @@ class model extends \content_a\main\model
 
 		$request          = [];
 		$request['thumb'] = $file_url;
-		$request['id']    = \lib\utility::get('id');
+		$request['id']    = \lib\request::get('id');
 
 		\lib\app\product::edit($request);
 

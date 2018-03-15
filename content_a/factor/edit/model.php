@@ -78,7 +78,7 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		\lib\app\factor::edit(\lib\utility::get('id'), $detail, $factor_list);
+		\lib\app\factor::edit(\lib\request::get('id'), $detail, $factor_list);
 
 		if(\lib\debug::$status)
 		{

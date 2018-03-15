@@ -6,9 +6,9 @@ class controller extends \content_a\main\controller
 {
 	public function ready()
 	{
-		if(\lib\utility::get('id'))
+		if(\lib\request::get('id'))
 		{
-			$this->redirector(\lib\url::here(). '/thirdparty/edit/general?id='.\lib\utility::get('id'))->redirect();
+			$this->redirector(\lib\url::here(). '/thirdparty/edit/general?id='.\lib\request::get('id'))->redirect();
 		}
 		else
 		{

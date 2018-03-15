@@ -18,41 +18,41 @@ class view extends \content_a\main\view
 
 		$args =
 		[
-			'order'   => \lib\utility::get('order'),
-			'sort'    => \lib\utility::get('sort'),
+			'order'   => \lib\request::get('order'),
+			'sort'    => \lib\request::get('sort'),
 		];
 
-		if(\lib\utility::get('barcode'))
+		if(\lib\request::get('barcode'))
 		{
-			$args['barcode'] = \lib\utility::get('barcode');
+			$args['barcode'] = \lib\request::get('barcode');
 		}
 
-		if(\lib\utility::get('price'))
+		if(\lib\request::get('price'))
 		{
-			$args['price'] = \lib\utility::get('price');
+			$args['price'] = \lib\request::get('price');
 		}
 
-		if(\lib\utility::get('buyprice'))
+		if(\lib\request::get('buyprice'))
 		{
-			$args['buyprice'] = \lib\utility::get('buyprice');
+			$args['buyprice'] = \lib\request::get('buyprice');
 		}
 
-		if(\lib\utility::get('cat'))
+		if(\lib\request::get('cat'))
 		{
-			$args['cat'] = \lib\utility::get('cat');
+			$args['cat'] = \lib\request::get('cat');
 		}
 
-		if(\lib\utility::get('discount'))
+		if(\lib\request::get('discount'))
 		{
-			$args['discount'] = \lib\utility::get('discount');
+			$args['discount'] = \lib\request::get('discount');
 		}
 
-		if(\lib\utility::get('unit'))
+		if(\lib\request::get('unit'))
 		{
-			$args['unit'] = \lib\utility::get('unit');
+			$args['unit'] = \lib\request::get('unit');
 		}
 
-		$search_string            = \lib\utility::get('q');
+		$search_string            = \lib\request::get('q');
 
 		if($search_string)
 		{
@@ -82,9 +82,9 @@ class view extends \content_a\main\view
 
 		}
 
-		if(\lib\utility::get('json') === 'true')
+		if(\lib\request::get('json') === 'true')
 		{
-			if(\lib\utility::get('barcode'))
+			if(\lib\request::get('barcode'))
 			{
 				if(!$this->data->dataTable)
 				{
@@ -97,9 +97,9 @@ class view extends \content_a\main\view
 		}
 
 		$this->data->barcode_scaned = null;
-		if(\lib\utility::get('q') && ctype_digit(\lib\utility::get('q')) && mb_strlen(\lib\utility::get('q')) === 13)
+		if(\lib\request::get('q') && ctype_digit(\lib\request::get('q')) && mb_strlen(\lib\request::get('q')) === 13)
 		{
-			$this->data->barcode_scaned = '?barcode='. \lib\utility::get('q');
+			$this->data->barcode_scaned = '?barcode='. \lib\request::get('q');
 		}
 		$this->data->dataFilter = $this->createFilterMsg($args);
 		$this->data->sort_link = self::make_sort_link(\lib\app\product::$sort_field, \lib\url::here(). '/product');

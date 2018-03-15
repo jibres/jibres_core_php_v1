@@ -56,7 +56,7 @@ class model extends \content_a\main\model
 	{
 		$detail             = [];
 		$detail['customer'] = \lib\request::post('customer');
-		$detail['type']     = \lib\utility::get('type');
+		$detail['type']     = \lib\request::get('type');
 		$detail['desc']     = \lib\request::post('desc');
 		return $detail;
 	}

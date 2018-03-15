@@ -8,7 +8,7 @@ class model extends \content_a\main\model
 	{
 
 		$post              = [];
-		$factor_id         = \lib\utility::get('id');
+		$factor_id         = \lib\request::get('id');
 		$post['factor_id'] = $factor_id;
 		$post['amount']    = \lib\request::post('amount');
 		$post['type']      = \lib\request::post('type');
