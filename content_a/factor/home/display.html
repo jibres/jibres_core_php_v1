@@ -47,13 +47,13 @@
 {{block('searchblock')}}
 <div class="fs14 alert alert-info pA25">
  {%trans "No factor founded."%} {%trans "Search with new keywords or barcode."%}
- <a class="badge primary pA10" href="{{modulePath}}/add{{moduleTypeP}}" data-shortkey2="119">{%trans "Add new factor"%}</a>
+ <a class="badge primary pA10" href="{{url.this}}/add{{moduleTypeP}}" data-shortkey2="119">{%trans "Add new factor"%}</a>
 </div>
 
 {%else%}
 <div class="cbox fs12">
  <h3>{%trans "You are not have factor yet! add new one."%}</h3>
- <a class="btn primary mT10 pLR50" href="{{modulePath}}/add{{moduleTypeP}}">{%trans "Add new factor"%}</a>
+ <a class="btn primary mT10 pLR50" href="{{url.this}}/add{{moduleTypeP}}">{%trans "Add new factor"%}</a>
 </div>
 {%endif%}
 
@@ -75,9 +75,9 @@
 
 
 {%else%}
-<p class="msg info2">{%trans "You are not register any factor yet!"%} <a href="{{modulePath}}/add{{moduleTypeP}}">{%trans "Add new factor"%}</a></p>
+<p class="msg info2">{%trans "You are not register any factor yet!"%} <a href="{{url.this}}/add{{moduleTypeP}}">{%trans "Add new factor"%}</a></p>
 {%endif%}
-    <a href="{{modulePath}}/add" class="btn primary block">{%trans "Add new factor"%}</a>
+    <a href="{{url.this}}/add" class="btn primary block">{%trans "Add new factor"%}</a>
   </div>
 
 {%endblock%}
@@ -86,7 +86,7 @@
 
 {%block htmlSearchBox%}
 <div class="cbox fs12">
-  <form method="get" action="{{modulePath}}">
+  <form method="get" action="{{url.this}}">
     <div class="input">
       <input type="search" name="q" placeholder='{%trans "Search in factors list"%}' id="q" value="{{utilityGET.q}}" autofocus class="barCode" data-default data-pass='submit' autocomplete='off'>
       {%if utilityGET.type%}
@@ -119,16 +119,16 @@
     <tbody>
       {%for key, value in dataTable%}
         <tr>
-          <td class="ltr"><a href="{{modulePath}}/fishprint?id={{value.id}}&size=receipt8">{{value.date|tdate("Y-m-d")}} <b>{{value.date|tdate("H:i:s")}}</b></a></td>
+          <td class="ltr"><a href="{{url.this}}/fishprint?id={{value.id}}&size=receipt8">{{value.date|tdate("Y-m-d")}} <b>{{value.date|tdate("H:i:s")}}</b></a></td>
           <td>
           {%if value.customer%}
-            <a href="{{modulePath}}?customer={{value.customer}}">
+            <a href="{{url.this}}?customer={{value.customer}}">
               {{value.customer_firstname}} <b>{{value.customer_lastname}}</b>
             </a>
           {%else%}
             <i class="disabled">-</i>
           {%endif%}
-          <td>{%set myType = value.type | capitalize%}<a href="{{modulePath}}?type={{value.type}}">{%trans myType%}</a></td>
+          <td>{%set myType = value.type | capitalize%}<a href="{{url.this}}?type={{value.type}}">{%trans myType%}</a></td>
           </td>
           <td>{{value.item| number_format | fitNumber}}</td>
           <td>{{value.qty| number_format | fitNumber}}</td>
@@ -146,13 +146,13 @@
 
 
 {%block footer2%}
-  <a class="c btn mA10" href='{{modulePath}}/add?type=sale'>{%trans "Sale"%}</a>
-  <a class="c btn mA10" href='{{modulePath}}/add?type=buy'>{%trans "Buy"%}</a>
-  <a class="c btn mA10" href='{{modulePath}}/add?type=prefactor'>{%trans "Prefactor"%}</a>
-  <a class="c btn mA10" href='{{modulePath}}/add?type=lending'>{%trans "Lending"%}</a>
-  <a class="c btn mA10" href='{{modulePath}}/add?type=backbuy'>{%trans "Backbuy"%}</a>
-  <a class="c btn mA10" href='{{modulePath}}/add?type=backfactor'>{%trans "Backfactor"%}</a>
-  <a class="c btn mA10" href='{{modulePath}}/add?type=waste'>{%trans "Waste"%}</a>
+  <a class="c btn mA10" href='{{url.this}}/add?type=sale'>{%trans "Sale"%}</a>
+  <a class="c btn mA10" href='{{url.this}}/add?type=buy'>{%trans "Buy"%}</a>
+  <a class="c btn mA10" href='{{url.this}}/add?type=prefactor'>{%trans "Prefactor"%}</a>
+  <a class="c btn mA10" href='{{url.this}}/add?type=lending'>{%trans "Lending"%}</a>
+  <a class="c btn mA10" href='{{url.this}}/add?type=backbuy'>{%trans "Backbuy"%}</a>
+  <a class="c btn mA10" href='{{url.this}}/add?type=backfactor'>{%trans "Backfactor"%}</a>
+  <a class="c btn mA10" href='{{url.this}}/add?type=waste'>{%trans "Waste"%}</a>
 {%endblock%}
 
 
@@ -160,7 +160,7 @@
 {%block htmlFilter%}
 <p class="f fs14 alert alert-info">
   <span class="c">{{dataFilter | raw}}</span>
-  <a class="cauto" href="{{modulePath}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.this}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
@@ -168,11 +168,11 @@
 {%block htmlFilterNoResult%}
 <p class="f fs14 alert alert-error">
   <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
-  <a class="cauto" href="{{modulePath}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.this}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
 
 {%block htmlStartAddNew%}
-<p class="fs14 alert alert-success pTB20">{%trans "Hi!"%} <a href="{{modulePath}}/add{{moduleTypeP}}">{%trans "Try to start with add new factor!"%}</a></p>
+<p class="fs14 alert alert-success pTB20">{%trans "Hi!"%} <a href="{{url.this}}/add{{moduleTypeP}}">{%trans "Try to start with add new factor!"%}</a></p>
 {%endblock%}

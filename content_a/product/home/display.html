@@ -94,7 +94,7 @@
 {%block htmlFilter%}
 <p class="f fs14 alert alert-info">
   <span class="c">{{dataFilter | raw}}</span>
-  <a class="cauto" href="{{modulePath}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
@@ -103,14 +103,14 @@
 <p class="f fs14 alert alert-error">
   <span class="c s12">{%trans "Result not found!"%} {%trans "Search with new keywords."%} </span>
 {%if barcode_scaned%}
-  <a class="c" href="{{modulePath}}/add{{barcode_scaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
+  <a class="c" href="{{url.this}}/add{{barcode_scaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
 {%endif%}
-  <a class="cauto" href="{{modulePath}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
 
 {%block htmlStartAddNew%}
-<p class="fs14 alert alert-success pTB20">{%trans "Hi!"%} <a href="{{modulePath}}/add">{%trans "Try to start with add new product!"%}</a></p>
+<p class="fs14 alert alert-success pTB20">{%trans "Hi!"%} <a href="{{url.this}}/add">{%trans "Try to start with add new product!"%}</a></p>
 {%endblock%}
 
