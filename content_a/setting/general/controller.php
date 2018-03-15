@@ -8,7 +8,7 @@ class controller extends \content_a\main\controller
 	 */
 	function ready()
 	{
-		$url = \lib\router::get_url();
+		$url = \lib\url::directory();
 
 		$this->get()->ALL();
 		$this->post('general')->ALL();
