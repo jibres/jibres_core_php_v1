@@ -71,7 +71,7 @@ class view extends \mvc\view
 
 
 			case 'help':
-				switch ($this->child())
+				switch (\lib\url::child())
 				{
 					case 'faq':
 						$this->data->page['title'] = T_('Frequently Asked Questions');
