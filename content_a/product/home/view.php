@@ -10,10 +10,10 @@ class view extends \content_a\main\view
 		$this->data->page['desc']  = T_('You can search in list of products, add new product and edit existing.');
 
 		// add back to product list link
-		$product_list_link =  '<a href="'. $this->data->modulePath .'/summary" data-shortkey="121">'. T_('Products dashboard'). '</a>';
+		$product_list_link =  '<a href="'. \lib\url::this() .'/summary" data-shortkey="121">'. T_('Products dashboard'). '</a>';
 		$this->data->page['desc']  .= ' '. $product_list_link;
 
-		$this->data->page['badge']['link'] = $this->data->modulePath. '/add';
+		$this->data->page['badge']['link'] = \lib\url::this(). '/add';
 		$this->data->page['badge']['text'] = T_('Add new product');
 
 		$args =
@@ -76,7 +76,7 @@ class view extends \content_a\main\view
 
 			if(isset($this->data->dataTable[0]['id']) && $barcode_is_scaned)
 			{
-				$this->redirector($this->data->modulePath.'/edit/general?id='. $this->data->dataTable[0]['id'])->redirect();
+				$this->redirector(\lib\url::this().'/edit/general?id='. $this->data->dataTable[0]['id'])->redirect();
 				return;
 			}
 

@@ -13,7 +13,6 @@ class view extends \content_a\main\view
 	private function set_best_title()
 	{
 		// set usable variable
-		$this->data->modulePath = \lib\url::here(). '/thirdparty';
 		$this->data->moduleType = \lib\utility::get('type');
 
 		// set default title
@@ -21,7 +20,7 @@ class view extends \content_a\main\view
 		$this->data->page['desc']  = T_('You can add new third party and after add with minimal data, we allow you to add extra detail.');
 		// set badge
 
-		$this->data->page['badge']['link'] = $this->data->modulePath;
+		$this->data->page['badge']['link'] = \lib\url::this();
 		$this->data->page['badge']['text'] = T_('Back to third parties list');
 
 
@@ -32,7 +31,7 @@ class view extends \content_a\main\view
 			$this->data->page['desc']  = T_('Add new :type with minmal data and after that you can add extra detail.', ['type' => $this->data->moduleType]);
 
 
-			$this->data->page['badge']['link'] = $this->data->modulePath. '?type='. $this->data->moduleType;
+			$this->data->page['badge']['link'] = \lib\url::this(). '?type='. $this->data->moduleType;
 			$this->data->page['badge']['text'] = T_('Back to :type', ['type' => $this->data->moduleType]);
 		}
 	}

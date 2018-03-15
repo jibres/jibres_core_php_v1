@@ -43,7 +43,6 @@ class view extends \content_a\main\view
 	private function set_best_title()
 	{
 		// set usable variable
-		$this->data->modulePath  = \lib\url::here(). '/factor';
 		$this->data->moduleType  = \lib\utility::get('type');
 		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
 
@@ -51,7 +50,7 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('List of factors');
 		$this->data->page['desc']  = T_('You can search in list of factors, add new factor or edit existing.');
 		// set badge
-		$this->data->page['badge']['link'] = $this->data->modulePath. '/summary';
+		$this->data->page['badge']['link'] = \lib\url::this(). '/summary';
 		$this->data->page['badge']['text'] = T_('Back to factors summary');
 
 
@@ -60,10 +59,10 @@ class view extends \content_a\main\view
 		{
 			$this->data->page['title'] = T_('List of :type', ['type' => $this->data->moduleType]);
 			$this->data->page['desc']  = T_('Search in list of :type factors, add or edit them.', ['type' => $this->data->moduleType]);
-			$this->data->page['desc']  .= ' <a href="'. $this->data->modulePath .'" data-shortkey="121">'. T_('List of all factors.'). '<kbd>f10</kbd></a>';
+			$this->data->page['desc']  .= ' <a href="'. \lib\url::this() .'" data-shortkey="121">'. T_('List of all factors.'). '<kbd>f10</kbd></a>';
 
 
-			$this->data->page['badge']['link'] = $this->data->modulePath. '/add?type='. $this->data->moduleType;
+			$this->data->page['badge']['link'] = \lib\url::this(). '/add?type='. $this->data->moduleType;
 			$this->data->page['badge']['text'] = T_('Add new :type', ['type' => $this->data->moduleType]);
 		}
 	}
