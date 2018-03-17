@@ -48,10 +48,10 @@ class model extends \content_a\main\model
 
 		if(\lib\debug::$status)
 		{
-			// $this->redirector(\lib\url::pwd());
+			// \lib\redirect::pwd();
 			// after save redirect to list of products
 			$url_of_product_list = \lib\url::here().'/product';
-			$this->redirector($url_of_product_list);
+			\lib\redirect::to($url_of_product_list);
 		}
 	}
 }

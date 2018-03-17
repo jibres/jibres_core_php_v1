@@ -51,7 +51,7 @@ class model extends \content_a\main\model
 			\lib\app\product::clean_cache();
 
 			\lib\debug::true(T_("Import product successfully complete"));
-			$this->redirector(\lib\url::here(). '/product');
+			\lib\redirect::to(\lib\url::here(). '/product');
 		}
 
 	}

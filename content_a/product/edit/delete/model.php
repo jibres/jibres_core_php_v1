@@ -15,7 +15,7 @@ class model extends \content_a\main\model
 
 			if(\lib\debug::$status)
 			{
-				$this->redirector(\lib\url::here(). '/product');
+				\lib\redirect::to(\lib\url::here(). '/product');
 			}
 		}
 		else

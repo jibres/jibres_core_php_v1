@@ -110,7 +110,7 @@ class model extends \content_a\main\model
 				$redirect_url .= '?'. http_build_query($query_data);
 			}
 
-			$this->redirector($redirect_url);
+			\lib\redirect::to($redirect_url);
 		}
 	}
 }

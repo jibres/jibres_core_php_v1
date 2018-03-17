@@ -21,7 +21,7 @@ class model extends \content_c\main\model
 
 		if(\lib\debug::$status)
 		{
-			$this->redirector(\lib\url::here().'/store');
+			\lib\redirect::to(\lib\url::here().'/store');
 		}
 	}
 }

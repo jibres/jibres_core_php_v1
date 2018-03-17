@@ -23,7 +23,7 @@ class model extends \content_a\main\model
 			$new_url = \lib\url::here(). '/add?type=getthetypefromresult';
 		}
 
-		$this->redirector($new_url);
+		\lib\redirect::to($new_url);
 
 	}
 }

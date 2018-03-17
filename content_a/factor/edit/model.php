@@ -82,7 +82,7 @@ class model extends \content_a\main\model
 
 		if(\lib\debug::$status)
 		{
-			$this->redirector(\lib\url::base(). '/a/factor');
+			\lib\redirect::to(\lib\url::base(). '/a/factor');
 		}
 	}
 }

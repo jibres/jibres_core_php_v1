@@ -14,7 +14,7 @@ class model extends \content_a\main\model
 		if(\lib\debug::$status)
 		{
 			\lib\debug::true(T_("Export product successfully complete"));
-			$this->redirector(\lib\url::here(). '/product');
+			\lib\redirect::to(\lib\url::here(). '/product');
 		}
 
 	}
