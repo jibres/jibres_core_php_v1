@@ -3,7 +3,7 @@
       <div class="prBox free">
        <h3>{%trans "Free"%}</h3>
        <div class="price">
-{%if site.currentlang == 'fa'%}
+{%if lang.current == 'fa'%}
         <span>{{0 | fitNumber}}<sub>تومان</sub></span>
 {%else%}
         <span><sup>$</sup>{{0 | fitNumber}}</span>
@@ -19,7 +19,7 @@
       <div class="prBox standard">
        <h3>{%trans "Standard"%}</h3>
        <div class="price">
-{%if site.currentlang == 'fa'%}
+{%if lang.current == 'fa'%}
         <span>{{70 | fitNumber}}<sub>هزار تومان</sub></span>
 {%else%}
         <span><sup>$</sup>{{70 | fitNumber}}</span>
