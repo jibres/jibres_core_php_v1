@@ -16,7 +16,7 @@ class controller extends \mvc\controller
 			\lib\error::page(T_("Store not found"));
 		}
 
-		if(!$this->login())
+		if(!\lib\user::login())
 		{
 			\lib\redirect::to(\lib\url::base(). '/enter');
 			return;

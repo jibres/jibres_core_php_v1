@@ -9,14 +9,14 @@ class model extends \content_a\main\model
 	 */
 	public function plan()
 	{
-		if(!$this->login())
+		if(!\lib\user::login())
 		{
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\db\logs::set('plan:invalid:store', $this->login('id'));
+			\lib\db\logs::set('plan:invalid:store', \lib\user::id());
 			\lib\notif::error(T_("Invalid store!"), 'store');
 			return false;
 		}
@@ -30,7 +30,7 @@ class model extends \content_a\main\model
 	 */
 	public function post_plan()
 	{
-		if(!$this->login())
+		if(!\lib\user::login())
 		{
 			return false;
 		}
@@ -38,7 +38,7 @@ class model extends \content_a\main\model
 		$plan = \lib\request::post('plan');
 		if(!$plan)
 		{
-			\lib\db\logs::set('plan:plan:not:set', $this->login('id'));
+			\lib\db\logs::set('plan:plan:not:set', \lib\user::id());
 			\lib\notif::error(T_("Please select one of plan"), 'plan');
 			return false;
 		}
@@ -63,21 +63,21 @@ class model extends \content_a\main\model
 
 		if(!in_array($plan, $all_plan_list))
 		{
-			\lib\db\logs::set('plan:invalid:plan', $this->login('id'));
+			\lib\db\logs::set('plan:invalid:plan', \lib\user::id());
 			\lib\notif::error(T_("Invalid plan!"), 'plan');
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\db\logs::set('plan:invalid:store', $this->login('id'));
+			\lib\db\logs::set('plan:invalid:store', \lib\user::id());
 			\lib\notif::error(T_("Invalid store!"), 'store');
 			return false;
 		}
 
 		if(!\lib\store::is_creator())
 		{
-			\lib\db\logs::set('plan:no:access:to:change:plan', $this->login('id'));
+			\lib\db\logs::set('plan:no:access:to:change:plan', \lib\user::id());
 			\lib\notif::error(T_("No access to change plan"), 'store');
 			return false;
 		}
@@ -86,7 +86,7 @@ class model extends \content_a\main\model
 		[
 			'store_id' => \lib\store::id(),
 			'plan'     => $plan,
-			'creator'  => $this->login('id'),
+			'creator'  => \lib\user::id(),
 		];
 		$result = \lib\db\storeplans::set($args);
 
