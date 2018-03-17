@@ -29,20 +29,20 @@ trait add
 
 		if(!\lib\user::id())
 		{
-			\lib\debug::error(T_("user not found"), 'user');
+			\lib\notif::error(T_("user not found"), 'user');
 			return false;
 		}
 
 		if(!\lib\store::id() && !$_option['store_id'])
 		{
-			\lib\debug::error(T_("store not found"), 'store');
+			\lib\notif::error(T_("store not found"), 'store');
 			return false;
 		}
 
 		// check args
 		$args = self::check();
 
-		if($args === false || !\lib\debug::$status)
+		if($args === false || !\lib\notif::$status)
 		{
 			return false;
 		}
@@ -77,14 +77,14 @@ trait add
 
 			if(isset($check_duplicate['id']))
 			{
-				\lib\debug::error(T_("Duplicate customer code in this store"), 'code');
+				\lib\notif::error(T_("Duplicate customer code in this store"), 'code');
 				return false;
 			}
 		}
 
 		$user_id = \lib\app\user::add($args, ['debug' => false, 'contact' => false]);
 
-		if(!\lib\debug::$status || !isset($user_id['user_id']))
+		if(!\lib\notif::$status || !isset($user_id['user_id']))
 		{
 			return false;
 		}
@@ -104,7 +104,7 @@ trait add
 
 		if(isset($check_duplicate['id']))
 		{
-			\lib\debug::error(T_("Duplicate user in this store"), 'duplicate');
+			\lib\notif::error(T_("Duplicate user in this store"), 'duplicate');
 			return false;
 		}
 
@@ -113,15 +113,15 @@ trait add
 		if(!$userstore_id)
 		{
 			\lib\app::log('api:thirdparty:no:way:to:insert:thirdparty', \lib\user::id(), \lib\app::log_meta());
-			\lib\debug::error(T_("No way to insert :thirdparty"), 'db', 'system');
+			\lib\notif::error(T_("No way to insert :thirdparty"), 'db', 'system');
 			return false;
 		}
 
 		$return['thirdparty_id'] = \lib\utility\shortURL::encode($userstore_id);
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
-			\lib\debug::true(T_("Thirdparty successfuly added"));
+			\lib\notif::true(T_("Thirdparty successfuly added"));
 			\lib\app\store::user_count('thirdparty', true);
 		}
 

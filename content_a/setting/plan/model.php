@@ -17,7 +17,7 @@ class model extends \content_a\main\model
 		if(!\lib\store::id())
 		{
 			\lib\db\logs::set('plan:invalid:store', $this->login('id'));
-			\lib\debug::error(T_("Invalid store!"), 'store');
+			\lib\notif::error(T_("Invalid store!"), 'store');
 			return false;
 		}
 
@@ -39,7 +39,7 @@ class model extends \content_a\main\model
 		if(!$plan)
 		{
 			\lib\db\logs::set('plan:plan:not:set', $this->login('id'));
-			\lib\debug::error(T_("Please select one of plan"), 'plan');
+			\lib\notif::error(T_("Please select one of plan"), 'plan');
 			return false;
 		}
 
@@ -64,21 +64,21 @@ class model extends \content_a\main\model
 		if(!in_array($plan, $all_plan_list))
 		{
 			\lib\db\logs::set('plan:invalid:plan', $this->login('id'));
-			\lib\debug::error(T_("Invalid plan!"), 'plan');
+			\lib\notif::error(T_("Invalid plan!"), 'plan');
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\db\logs::set('plan:invalid:store', $this->login('id'));
-			\lib\debug::error(T_("Invalid store!"), 'store');
+			\lib\notif::error(T_("Invalid store!"), 'store');
 			return false;
 		}
 
 		if(!\lib\store::is_creator())
 		{
 			\lib\db\logs::set('plan:no:access:to:change:plan', $this->login('id'));
-			\lib\debug::error(T_("No access to change plan"), 'store');
+			\lib\notif::error(T_("No access to change plan"), 'store');
 			return false;
 		}
 
@@ -92,15 +92,15 @@ class model extends \content_a\main\model
 
 		if($result)
 		{
-			\lib\debug::true(T_("Your store plan was changed"));
-			if(\lib\debug::$status)
+			\lib\notif::true(T_("Your store plan was changed"));
+			if(\lib\notif::$status)
 			{
 				\lib\redirect::pwd();
 			}
 		}
 		else
 		{
-			// \lib\debug::error(T_("Can not save this plan of your store"));
+			// \lib\notif::error(T_("Can not save this plan of your store"));
 			return false;
 		}
 	}

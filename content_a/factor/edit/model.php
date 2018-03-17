@@ -17,7 +17,7 @@ class model extends \content_a\main\model
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
-			\lib\debug::error(T_("What are you doing?"));
+			\lib\notif::error(T_("What are you doing?"));
 			return false;
 		}
 
@@ -80,7 +80,7 @@ class model extends \content_a\main\model
 
 		\lib\app\factor::edit(\lib\request::get('id'), $detail, $factor_list);
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
 			\lib\redirect::to(\lib\url::base(). '/a/factor');
 		}

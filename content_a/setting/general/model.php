@@ -24,7 +24,7 @@ class model extends \content_a\main\model
 	{
 		\lib\app\store::edit(self::getPost());
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
 			\lib\redirect::pwd();
 		}

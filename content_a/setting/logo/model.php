@@ -21,7 +21,7 @@ class model extends \content_a\main\model
 				return $uploaded_file['url'];
 			}
 			// if in upload have error return
-			if(!\lib\debug::$status)
+			if(!\lib\notif::$status)
 			{
 				return false;
 			}
@@ -45,11 +45,11 @@ class model extends \content_a\main\model
 		}
 		else
 		{
-			\lib\debug::error(T_("No file was sended"), 'logo');
+			\lib\notif::error(T_("No file was sended"), 'logo');
 			return false;
 		}
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
 			\lib\redirect::pwd();
 		}

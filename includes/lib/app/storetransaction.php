@@ -25,7 +25,7 @@ class storetransaction
 		$userstore_id = \lib\utility\shortURL::decode($userstore_id);
 		if(!$userstore_id && \lib\app::isset_request('userstore_id'))
 		{
-			\lib\debug::error(T_("Invalid userstore id"), 'userstore_id');
+			\lib\notif::error(T_("Invalid userstore id"), 'userstore_id');
 			return false;
 		}
 
@@ -37,19 +37,19 @@ class storetransaction
 		$plus = \lib\utility\convert::to_en_number($plus);
 		if($plus && !is_numeric($plus))
 		{
-			\lib\debug::error(T_("Amount must be a number"), 'plus');
+			\lib\notif::error(T_("Amount must be a number"), 'plus');
 			return false;
 		}
 
 		if($plus && intval($plus) > 1E+20)
 		{
-			\lib\debug::error(T_("Amount is out of range"), 'plus');
+			\lib\notif::error(T_("Amount is out of range"), 'plus');
 			return false;
 		}
 
 		if($plus && intval($plus) < 0)
 		{
-			\lib\debug::error(T_("Can not set amount less than zero"), 'plus');
+			\lib\notif::error(T_("Can not set amount less than zero"), 'plus');
 			return false;
 		}
 
@@ -58,19 +58,19 @@ class storetransaction
 		$minus = \lib\utility\convert::to_en_number($minus);
 		if($minus && !is_numeric($minus))
 		{
-			\lib\debug::error(T_("Amount must be a number"), 'minus');
+			\lib\notif::error(T_("Amount must be a number"), 'minus');
 			return false;
 		}
 
 		if($minus && intval($minus) > 1E+20)
 		{
-			\lib\debug::error(T_("Amount is out of range"), 'minus');
+			\lib\notif::error(T_("Amount is out of range"), 'minus');
 			return false;
 		}
 
 		if($minus && intval($minus) < 0)
 		{
-			\lib\debug::error(T_("Can not set amount less than zero"), 'minus');
+			\lib\notif::error(T_("Can not set amount less than zero"), 'minus');
 			return false;
 		}
 
@@ -78,7 +78,7 @@ class storetransaction
 		$subtitle = trim($subtitle);
 		if($subtitle && mb_strlen($subtitle) >= 200)
 		{
-			\lib\debug::error(T_("Please set the subtitle less than 200 character"), 'subtitle');
+			\lib\notif::error(T_("Please set the subtitle less than 200 character"), 'subtitle');
 			return false;
 		}
 
@@ -86,7 +86,7 @@ class storetransaction
 		$code = trim($code);
 		if($code && mb_strlen($code) >= 200)
 		{
-			\lib\debug::error(T_("Please set the code less than 200 character"), 'code');
+			\lib\notif::error(T_("Please set the code less than 200 character"), 'code');
 			return false;
 		}
 
@@ -94,14 +94,14 @@ class storetransaction
 		$title = trim($title);
 		if($title && mb_strlen($title) > 1E+4)
 		{
-			\lib\debug::error(T_("Title is out of range"), 'title');
+			\lib\notif::error(T_("Title is out of range"), 'title');
 			return false;
 		}
 
 		$type = \lib\app::request('type');
 		if($type && mb_strlen($type) > 100)
 		{
-			\lib\debug::error(T_("Please set the type less thang 100 character"), 'type');
+			\lib\notif::error(T_("Please set the type less thang 100 character"), 'type');
 			return false;
 		}
 
@@ -111,7 +111,7 @@ class storetransaction
 			$duedate = \lib\date::format($duedate, "Y-m-d H:i:s");
 			if(!$duedate)
 			{
-				\lib\debug::error(T_("Invalid duedate"), 'duedate');
+				\lib\notif::error(T_("Invalid duedate"), 'duedate');
 				return false;
 			}
 		}
@@ -119,7 +119,7 @@ class storetransaction
 		$status = \lib\app::request('status');
 		if($status && !in_array($status, ['enable','disable','deleted','expired','awaiting','filtered','blocked','spam']))
 		{
-			\lib\debug::error(T_("Invalid status"), 'status');
+			\lib\notif::error(T_("Invalid status"), 'status');
 			return false;
 		}
 
@@ -127,7 +127,7 @@ class storetransaction
 		$factor_id = \lib\utility\shortURL::decode($factor_id);
 		if(!$factor_id && \lib\app::isset_request('factor_id'))
 		{
-			\lib\debug::error(T_("Invalid userstore id"), 'factor_id');
+			\lib\notif::error(T_("Invalid userstore id"), 'factor_id');
 			return false;
 		}
 
@@ -136,7 +136,7 @@ class storetransaction
 			// check type of pay factor
 			if($type && !in_array($type, ['cash', 'cheque', 'pos']))
 			{
-				\lib\debug::error(T_("Invalid type of factor pay"), 'type');
+				\lib\notif::error(T_("Invalid type of factor pay"), 'type');
 				return false;
 			}
 
@@ -144,7 +144,7 @@ class storetransaction
 			$factor_detail = \lib\db\factors::get(['id' => $factor_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 			if(!$factor_detail || !array_key_exists('type', $factor_detail) || !array_key_exists('sum', $factor_detail))
 			{
-				\lib\debug::error(T_("Invalid factor id"));
+				\lib\notif::error(T_("Invalid factor id"));
 				return false;
 			}
 
@@ -164,25 +164,25 @@ class storetransaction
 
 			if(!$amount)
 			{
-				\lib\debug::error(T_("Please set the amount"), 'amount');
+				\lib\notif::error(T_("Please set the amount"), 'amount');
 				return false;
 			}
 
 			if($amount && !is_numeric($amount))
 			{
-				\lib\debug::error(T_("Amount must be a number"), 'amount');
+				\lib\notif::error(T_("Amount must be a number"), 'amount');
 				return false;
 			}
 
 			if($amount && intval($amount) > 1E+20)
 			{
-				\lib\debug::error(T_("Amount is out of range"), 'amount');
+				\lib\notif::error(T_("Amount is out of range"), 'amount');
 				return false;
 			}
 
 			if($amount && intval($amount) < 0)
 			{
-				\lib\debug::error(T_("Can not set amount less than zero"), 'amount');
+				\lib\notif::error(T_("Can not set amount less than zero"), 'amount');
 				return false;
 			}
 
@@ -193,7 +193,7 @@ class storetransaction
 
 			if(isset($factor_detail['pay']) && intval($factor_detail['pay']) === 1)
 			{
-				\lib\debug::error(T_("This factor was payed before. can not add another pay for this factor"));
+				\lib\notif::error(T_("This factor was payed before. can not add another pay for this factor"));
 				return false;
 			}
 
@@ -221,7 +221,7 @@ class storetransaction
 			{
 				if(!$userstore_id)
 				{
-					\lib\debug::error(T_("Can not set amount larger than factor sum when no customer selected"), 'amount');
+					\lib\notif::error(T_("Can not set amount larger than factor sum when no customer selected"), 'amount');
 					return false;
 				}
 				$factor_pay = true;
@@ -247,7 +247,7 @@ class storetransaction
 					break;
 
 				default:
-					\lib\debug::error(T_("Invalid factor type"));
+					\lib\notif::error(T_("Invalid factor type"));
 					return false;
 					break;
 			}
@@ -255,7 +255,7 @@ class storetransaction
 			$bank = \lib\app::request('bank');
 			if($bank && mb_strlen($bank) > 150)
 			{
-				\lib\debug::error(T_("Value of bank is out of range"), 'bank');
+				\lib\notif::error(T_("Value of bank is out of range"), 'bank');
 				return false;
 			}
 			// set pos name in subtitle of storetransaction

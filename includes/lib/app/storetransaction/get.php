@@ -42,14 +42,14 @@ trait get
 		if(!\lib\user::id())
 		{
 			\lib\app::log('api:storetransaction:user:id:not:found', \lib\user::id(), \lib\app::log_meta());
-			if($_option['debug']) \lib\debug::error(T_("User id not found"));
+			if($_option['debug']) \lib\notif::error(T_("User id not found"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:storetransaction:store:id:not:found', \lib\user::id(), \lib\app::log_meta());
-			if($_option['debug']) \lib\debug::error(T_("Store id not found"));
+			if($_option['debug']) \lib\notif::error(T_("Store id not found"));
 			return false;
 		}
 
@@ -59,7 +59,7 @@ trait get
 		if(!$id)
 		{
 			\lib\app::log('api:storetransaction:id:shortname:not:set', \lib\user::id(), \lib\app::log_meta());
-			if($_option['debug']) \lib\debug::error(T_("Store id or shortname not set"), 'id', 'arguments');
+			if($_option['debug']) \lib\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			return false;
 		}
 

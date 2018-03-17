@@ -39,7 +39,7 @@ class model extends \content_a\main\model
 	{
 		\lib\app\product::add(self::getPost());
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
 			\lib\redirect::to(\lib\url::here(). '/product');
 		}

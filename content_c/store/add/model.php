@@ -19,7 +19,7 @@ class model extends \content_c\main\model
 	{
 		\lib\app\store::add(self::getPost());
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
 			\lib\redirect::to(\lib\url::here().'/store');
 		}

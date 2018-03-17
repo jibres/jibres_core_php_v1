@@ -13,14 +13,14 @@ class model extends \content_a\main\model
 		{
 			\lib\app\product::delete($url_product);
 
-			if(\lib\debug::$status)
+			if(\lib\notif::$status)
 			{
 				\lib\redirect::to(\lib\url::here(). '/product');
 			}
 		}
 		else
 		{
-			\lib\debug::error(T_("What are you doing?"));
+			\lib\notif::error(T_("What are you doing?"));
 		}
 	}
 }

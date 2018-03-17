@@ -86,21 +86,21 @@ trait barcode
 						}
 
 						\lib\app::log('app:product:barcode:is:duplicate:', \lib\user::id(), $log_meta);
-						\lib\debug::error($msg);
+						\lib\notif::error($msg);
 						return false;
 					}
 				}
 				else
 				{
 					\lib\app::log('app:product:barcode:1:record:havenot:id:error:', \lib\user::id(), $log_meta);
-					\lib\debug::error(T_("Undefined error was happend"));
+					\lib\notif::error(T_("Undefined error was happend"));
 					return false;
 				}
 			}
 			else
 			{
 				\lib\app::log('more:than:2:product:save:by:one:barcode', \lib\user::id(), $log_meta);
-				\lib\debug::error(T_("More than 2 products saved by this barcode"));
+				\lib\notif::error(T_("More than 2 products saved by this barcode"));
 				return false;
 			}
 		}

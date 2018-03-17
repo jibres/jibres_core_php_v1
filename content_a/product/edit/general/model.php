@@ -46,7 +46,7 @@ class model extends \content_a\main\model
 
 		\lib\app\product::edit($request);
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
 			// \lib\redirect::pwd();
 			// after save redirect to list of products

@@ -15,7 +15,7 @@ class model extends \content_a\main\model
 				return $uploaded_file['url'];
 			}
 			// if in upload have error return
-			if(!\lib\debug::$status)
+			if(!\lib\notif::$status)
 			{
 				return false;
 			}
@@ -39,7 +39,7 @@ class model extends \content_a\main\model
 
 		\lib\app\thirdparty::edit($request, \lib\request::get('id'));
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
 			\lib\redirect::pwd();
 		}

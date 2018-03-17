@@ -43,7 +43,7 @@ trait add
 		if(!\lib\user::id())
 		{
 			\lib\app::log('api:storetransaction:user_id:notfound', null, $log_meta);
-			if($_option['debug']) \lib\debug::error(T_("User not found"), 'user');
+			if($_option['debug']) \lib\notif::error(T_("User not found"), 'user');
 			\lib\db::rollback();
 			return false;
 		}
@@ -51,7 +51,7 @@ trait add
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:storetransaction:store_id:notfound', null, $log_meta);
-			if($_option['debug']) \lib\debug::error(T_("Store not found"), 'subdomain');
+			if($_option['debug']) \lib\notif::error(T_("Store not found"), 'subdomain');
 			\lib\db::rollback();
 			return false;
 		}
@@ -59,7 +59,7 @@ trait add
 		// check args
 		$args = self::check($_option);
 
-		if($args === false || !\lib\debug::$status)
+		if($args === false || !\lib\notif::$status)
 		{
 			\lib\db::rollback();
 			return false;
@@ -72,7 +72,7 @@ trait add
 		if(!$storetransaction_id)
 		{
 			\lib\db::rollback();
-			\lib\debug::error(T_("No way to insert this transaction"));
+			\lib\notif::error(T_("No way to insert this transaction"));
 			return false;
 		}
 
@@ -82,9 +82,9 @@ trait add
 
 		$return['storetransaction_id'] = \lib\utility\shortURL::encode($storetransaction_id);
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
-			\lib\debug::true(T_("Transaction successfuly saved"));
+			\lib\notif::true(T_("Transaction successfuly saved"));
 		}
 
 		return $return;

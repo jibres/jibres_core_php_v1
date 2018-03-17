@@ -162,7 +162,7 @@ class storeplans
 		if(!\lib\store::is_creator())
 		{
 			\lib\db\logs::set('plan:change:not:creator', $_args['creator'], $log_meta);
-			\lib\debug::error(T_("Just creator of store can change the plan"));
+			\lib\notif::error(T_("Just creator of store can change the plan"));
 			return false;
 		}
 
@@ -179,7 +179,7 @@ class storeplans
 
 		if(isset($current['plan']) && intval($current['plan']) === intval($_args['plan']))
 		{
-			\lib\debug::error(T_("This plan is already active for you"));
+			\lib\notif::error(T_("This plan is already active for you"));
 			return false;
 		}
 
@@ -192,14 +192,14 @@ class storeplans
 				case 'standard':
 					if(time() - strtotime($current['createdate']) < (29 * 24 * 60 * 60))
 					{
-						\lib\debug::error(T_("You can not choose another plan before the current course is completed"));
+						\lib\notif::error(T_("You can not choose another plan before the current course is completed"));
 						return false;
 					}
 					break;
 				case 'standard_year':
 					if(time() - strtotime($current['createdate']) < (364 * 24 * 60 * 60))
 					{
-						\lib\debug::error(T_("You can not choose another plan before the current course is completed"));
+						\lib\notif::error(T_("You can not choose another plan before the current course is completed"));
 						return false;
 					}
 					break;
@@ -344,7 +344,7 @@ class storeplans
         if(intval($user_budget) < intval($amount))
         {
 			\lib\db\logs::set('invoice:store:full:money>credit', null, \lib\app::log_meta());
-        	\lib\debug::error(T_("Your credit is less than amount of this plan, please charge your account"));
+        	\lib\notif::error(T_("Your credit is less than amount of this plan, please charge your account"));
         	return false;
         }
 
@@ -413,7 +413,7 @@ class storeplans
 
         \lib\db\transactions::set($transaction_set);
 
-        if(\lib\debug::$status)
+        if(\lib\notif::$status)
         {
         	return true;
         }

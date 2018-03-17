@@ -59,7 +59,7 @@ class factor
 				$customer_detail = \lib\db\userstores::get(['id' => $customer, 'store_id' => \lib\store::id(), 'limit' => 1]);
 				if(!isset($customer_detail['id']))
 				{
-					\lib\debug::error(T_("Customer detail is invalid"), 'customer');
+					\lib\notif::error(T_("Customer detail is invalid"), 'customer');
 					return false;
 				}
 				else
@@ -89,14 +89,14 @@ class factor
 		$desc = \lib\app::request('desc');
 		if($desc && mb_strlen($desc) > 1000)
 		{
-			\lib\debug::error(T_("Description of factor out of range"), 'desc');
+			\lib\notif::error(T_("Description of factor out of range"), 'desc');
 			return false;
 		}
 
 		$type = \lib\app::request('type');
 		if($type && !in_array($type, ['buy','sale','prefactor','lending','backbuy','backfactor','waste']))
 		{
-			\lib\debug::error(T_("Invalid type of factor"), 'type');
+			\lib\notif::error(T_("Invalid type of factor"), 'type');
 			return false;
 		}
 
@@ -281,7 +281,7 @@ class factor
 
 					// invalid type
 				default:
-						\lib\debug::error(T_("Invalid factor type"), 'type');
+						\lib\notif::error(T_("Invalid factor type"), 'type');
 						return false;
 					break;
 			}
@@ -299,7 +299,7 @@ class factor
 
 		if(count($allproduct_id) <> count(array_unique($allproduct_id)))
 		{
-			\lib\debug::error(T_("Duplicate product in one factor founded"));
+			\lib\notif::error(T_("Duplicate product in one factor founded"));
 			return false;
 		}
 
@@ -307,13 +307,13 @@ class factor
 
 		if(empty($allproduct_id))
 		{
-			\lib\debug::error(T_("No valid products found in your list"));
+			\lib\notif::error(T_("No valid products found in your list"));
 			return false;
 		}
 
 		if(!empty($have_warn))
 		{
-			\lib\debug::warn(T_("Invalid product detail in some record of this factor, [:key]", ['key' => implode(',', $have_warn)]));
+			\lib\notif::warn(T_("Invalid product detail in some record of this factor, [:key]", ['key' => implode(',', $have_warn)]));
 		}
 
 		$check_true_product = \lib\db\products::check_multi_product_id($allproduct_id, \lib\store::id());
@@ -328,13 +328,13 @@ class factor
 
 			if(!isset($check_true_product[$value['product_id']]))
 			{
-				\lib\debug::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
+				\lib\notif::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
 				return false;
 			}
 
 			if(!array_key_exists('discount', $check_true_product[$value['product_id']]))
 			{
-				\lib\debug::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
+				\lib\notif::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
 				return false;
 			}
 

@@ -41,14 +41,14 @@ trait edit
 		if(!$id || !is_numeric($id))
 		{
 			\lib\app::log('api:factor:method:put:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\debug::error(T_("Id not set"));
+			if($_option['debug']) \lib\notif::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:factor:edit:store:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\debug::error(T_("Id not set"));
+			if($_option['debug']) \lib\notif::error(T_("Id not set"));
 			return false;
 		}
 
@@ -57,7 +57,7 @@ trait edit
 		if(empty($load_factor) || !$load_factor || !isset($load_factor['id']))
 		{
 			\lib\app::log('api:factor:edit:factor:not:found', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\debug::error(T_("Can not access to edit it"), 'factor', 'permission');
+			if($_option['debug']) \lib\notif::error(T_("Can not access to edit it"), 'factor', 'permission');
 			return false;
 		}
 
@@ -65,9 +65,9 @@ trait edit
 
 		$return = \lib\app\factor::add($_factor, $_factor_detail, ['factor_id' => $load_factor['id'], 'debug' => false]);
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
-			\lib\debug::true(T_("Your factor successfully updated"));
+			\lib\notif::true(T_("Your factor successfully updated"));
 		}
 
 		return $return;

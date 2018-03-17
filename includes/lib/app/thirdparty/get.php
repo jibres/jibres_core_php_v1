@@ -22,13 +22,13 @@ trait get
 		$id = \lib\utility\shortURL::decode($_id);
 		if(!$id)
 		{
-			\lib\debug::error(T_("Thirdparty id not set"));
+			\lib\notif::error(T_("Thirdparty id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\debug::error(T_(":store not found"));
+			\lib\notif::error(T_(":store not found"));
 			return false;
 		}
 
@@ -36,7 +36,7 @@ trait get
 
 		if(!$get)
 		{
-			\lib\debug::error(T_("Invalid thirdparty id"));
+			\lib\notif::error(T_("Invalid thirdparty id"));
 			return false;
 		}
 

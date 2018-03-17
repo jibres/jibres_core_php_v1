@@ -13,7 +13,7 @@ class model extends \content_a\main\model
 	{
 		if(empty(array_filter(\lib\request::post())))
 		{
-			\lib\debug::warn(T_("No items have been added for sale"));
+			\lib\notif::warn(T_("No items have been added for sale"));
 			return false;
 		}
 
@@ -23,7 +23,7 @@ class model extends \content_a\main\model
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
-			\lib\debug::warn(T_("No items have been added for sale"));
+			\lib\notif::warn(T_("No items have been added for sale"));
 			return false;
 		}
 
@@ -91,7 +91,7 @@ class model extends \content_a\main\model
 
 		$query_data = [];
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
 			if(isset($factor_detail['factor_id']))
 			{

@@ -11,9 +11,9 @@ class model extends \content_a\main\model
 
 		$exported = \lib\app\product::export($file_name);
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
-			\lib\debug::true(T_("Export product successfully complete"));
+			\lib\notif::true(T_("Export product successfully complete"));
 			\lib\redirect::to(\lib\url::here(). '/product');
 		}
 

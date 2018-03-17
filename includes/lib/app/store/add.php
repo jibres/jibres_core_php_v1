@@ -28,14 +28,14 @@ trait add
 		if(!\lib\user::id())
 		{
 			\lib\app::log('api:store:user_id:notfound', null, $log_meta);
-			\lib\debug::error(T_("User not found"), 'user');
+			\lib\notif::error(T_("User not found"), 'user');
 			return false;
 		}
 
 		// check args
 		$args = self::check();
 
-		if($args === false || !\lib\debug::$status)
+		if($args === false || !\lib\notif::$status)
 		{
 			return false;
 		}
@@ -60,7 +60,7 @@ trait add
 				if($user_budget < 10000)
 				{
 					\lib\app::log('api:store:user_id:try:add:store2:budget:10000', null, $log_meta);
-					\lib\debug::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+					\lib\notif::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
 					return false;
 				}
 			}
@@ -68,7 +68,7 @@ trait add
 			if($count_store >= 3)
 			{
 				\lib\app::log('api:store:try:add:store3:and:>3', null, $log_meta);
-				\lib\debug::error(T_("You can not have more than three active stores. Contact support if needed"));
+				\lib\notif::error(T_("You can not have more than three active stores. Contact support if needed"));
 				return false;
 			}
 		}
@@ -91,7 +91,7 @@ trait add
 		if(!$store_id)
 		{
 			\lib\app::log('api:store:no:way:to:insert:store', \lib\user::id(), $log_meta);
-			\lib\debug::error(T_("No way to insert store"), 'db', 'system');
+			\lib\notif::error(T_("No way to insert store"), 'db', 'system');
 			return false;
 		}
 
@@ -118,9 +118,9 @@ trait add
 		$return['store_id'] = \lib\utility\shortURL::encode($store_id);
 		$return['slug']     = $args['slug'];
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
-			\lib\debug::true(T_("Store successfuly added"));
+			\lib\notif::true(T_("Store successfuly added"));
 		}
 
 		return $return;

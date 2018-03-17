@@ -10,7 +10,7 @@ trait edit
 		$meta = json_encode($_meta, JSON_UNESCAPED_UNICODE);
 		if(!\lib\store::id())
 		{
-			\lib\debug::error(T_("Store not found"), 'id', 'permission');
+			\lib\notif::error(T_("Store not found"), 'id', 'permission');
 			return false;
 		}
 
@@ -47,7 +47,7 @@ trait edit
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
-			\lib\debug::error(T_("Id not set"), 'id', 'permission');
+			\lib\notif::error(T_("Id not set"), 'id', 'permission');
 			return false;
 		}
 
@@ -55,14 +55,14 @@ trait edit
 		if(!$check_is_admin || !isset($check_is_admin['id']))
 		{
 			\lib\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
-			\lib\debug::error(T_("Can not access to edit store"), 'store');
+			\lib\notif::error(T_("Can not access to edit store"), 'store');
 			return false;
 		}
 
 
 		$args = self::check();
 
-		if($args === false || !\lib\debug::$status)
+		if($args === false || !\lib\notif::$status)
 		{
 			return false;
 		}
@@ -87,14 +87,14 @@ trait edit
 		if(array_key_exists('name', $args) && !$args['name'])
 		{
 			\lib\app::log('api:store:name:not:set:edit', \lib\user::id(), $log_meta);
-			\lib\debug::error(T_("Name of store can not be null"), 'name', 'arguments');
+			\lib\notif::error(T_("Name of store can not be null"), 'name', 'arguments');
 			return false;
 		}
 
 		if(array_key_exists('slug', $args) && !$args['slug'])
 		{
 			\lib\app::log('api:store:slug:not:set:edit', \lib\user::id(), $log_meta);
-			\lib\debug::error(T_("slug of store can not be null"), 'slug', 'arguments');
+			\lib\notif::error(T_("slug of store can not be null"), 'slug', 'arguments');
 			return false;
 		}
 
@@ -119,9 +119,9 @@ trait edit
 			\lib\store::clean();
 		}
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
-			\lib\debug::true(T_("Your store successfully update"));
+			\lib\notif::true(T_("Your store successfully update"));
 		}
 	}
 
@@ -138,7 +138,7 @@ trait edit
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
-			\lib\debug::error(T_("Id not set"), 'id', 'permission');
+			\lib\notif::error(T_("Id not set"), 'id', 'permission');
 			return false;
 		}
 
@@ -146,13 +146,13 @@ trait edit
 		if(!$check_is_admin || !isset($check_is_admin['id']))
 		{
 			\lib\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
-			\lib\debug::error(T_("Can not access to edit store"), 'store');
+			\lib\notif::error(T_("Can not access to edit store"), 'store');
 			return false;
 		}
 
 		if(\lib\store::detail('logo') === $_logo_url)
 		{
-			\lib\debug::warn(T_("No change in store logo"));
+			\lib\notif::warn(T_("No change in store logo"));
 			return null;
 		}
 
@@ -161,7 +161,7 @@ trait edit
 		if($update)
 		{
 			\lib\store::clean();
-			\lib\debug::true(T_("The store logo updated"));
+			\lib\notif::true(T_("The store logo updated"));
 			return true;
 		}
 

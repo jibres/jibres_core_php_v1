@@ -27,7 +27,7 @@ trait edit
 
 		$args = self::check($id);
 
-		if($args === false || !\lib\debug::$status)
+		if($args === false || !\lib\notif::$status)
 		{
 			return false;
 		}
@@ -51,7 +51,7 @@ trait edit
 				}
 				else
 				{
-					\lib\debug::error(T_("Duplicate customer code in this store"), 'code');
+					\lib\notif::error(T_("Duplicate customer code in this store"), 'code');
 					return false;
 				}
 			}
@@ -101,9 +101,9 @@ trait edit
 		{
 			$update = \lib\db\userstores::update($args, $id);
 
-			if(\lib\debug::$status)
+			if(\lib\notif::$status)
 			{
-				\lib\debug::true(T_("Thirdparty successfully updated"));
+				\lib\notif::true(T_("Thirdparty successfully updated"));
 			}
 		}
 

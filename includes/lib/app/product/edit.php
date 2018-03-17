@@ -42,14 +42,14 @@ trait edit
 		if(!$id || !is_numeric($id))
 		{
 			\lib\app::log('api:product:method:put:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\debug::error(T_("Id not set"));
+			if($_option['debug']) \lib\notif::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\lib\app::log('api:product:edit:store:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\debug::error(T_("Id not set"));
+			if($_option['debug']) \lib\notif::error(T_("Id not set"));
 			return false;
 		}
 
@@ -58,13 +58,13 @@ trait edit
 		if(empty($load_product) || !$load_product || !isset($load_product['id']))
 		{
 			\lib\app::log('api:product:edit:product:not:found', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\debug::error(T_("Can not access to edit it"), 'product', 'permission');
+			if($_option['debug']) \lib\notif::error(T_("Can not access to edit it"), 'product', 'permission');
 			return false;
 		}
 
 		$args = self::check($_option);
 
-		if($args === false || !\lib\debug::$status)
+		if($args === false || !\lib\notif::$status)
 		{
 			return false;
 		}
@@ -99,7 +99,7 @@ trait edit
 		if(array_key_exists('title', $args) && !$args['title'])
 		{
 			\lib\app::log('api:product:title:not:set:edit', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\debug::error(T_("Title of product can not be null"), 'title');
+			if($_option['debug']) \lib\notif::error(T_("Title of product can not be null"), 'title');
 			return false;
 		}
 
@@ -140,9 +140,9 @@ trait edit
 
 		$return = [];
 
-		if(\lib\debug::$status)
+		if(\lib\notif::$status)
 		{
-			\lib\debug::true(T_("Your product successfully updated"));
+			\lib\notif::true(T_("Your product successfully updated"));
 		}
 
 		self::clean_cache('var');
