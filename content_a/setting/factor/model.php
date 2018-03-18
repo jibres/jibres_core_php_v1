@@ -114,7 +114,7 @@ class model extends \content_a\main\model
 
 		if(\lib\notif::$status)
 		{
-			\lib\notif::true(T_("Factor setting saved"));
+			\lib\notif::ok(T_("Factor setting saved"));
 			\lib\redirect::pwd();
 		}
 	}

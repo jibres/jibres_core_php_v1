@@ -67,7 +67,7 @@ trait edit
 
 		if(\lib\notif::$status)
 		{
-			\lib\notif::true(T_("Your factor successfully updated"));
+			\lib\notif::ok(T_("Your factor successfully updated"));
 		}
 
 		return $return;

@@ -121,7 +121,7 @@ trait edit
 
 		if(\lib\notif::$status)
 		{
-			\lib\notif::true(T_("Your store successfully update"));
+			\lib\notif::ok(T_("Your store successfully update"));
 		}
 	}
 
@@ -161,7 +161,7 @@ trait edit
 		if($update)
 		{
 			\lib\store::clean();
-			\lib\notif::true(T_("The store logo updated"));
+			\lib\notif::ok(T_("The store logo updated"));
 			return true;
 		}
 

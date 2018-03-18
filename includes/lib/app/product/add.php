@@ -109,7 +109,7 @@ trait add
 
 		if(\lib\notif::$status)
 		{
-			if($_option['debug']) \lib\notif::true(T_("Product successfuly added"));
+			if($_option['debug']) \lib\notif::ok(T_("Product successfuly added"));
 		}
 
 		self::clean_cache('var');

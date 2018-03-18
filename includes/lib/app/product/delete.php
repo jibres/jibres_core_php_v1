@@ -58,7 +58,7 @@ trait delete
 		if($result)
 		{
 			\lib\app::log('api:product:deleted', \lib\user::id(), $log_meta);
-			\lib\notif::true(T_("Product was deleted"));
+			\lib\notif::ok(T_("Product was deleted"));
 			return true;
 		}
 		else

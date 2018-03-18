@@ -84,7 +84,7 @@ trait add
 
 		if(\lib\notif::$status)
 		{
-			\lib\notif::true(T_("Transaction successfuly saved"));
+			\lib\notif::ok(T_("Transaction successfuly saved"));
 		}
 
 		return $return;

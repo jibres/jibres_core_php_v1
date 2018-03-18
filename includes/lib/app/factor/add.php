@@ -130,7 +130,7 @@ trait add
 		if(\lib\notif::$status)
 		{
 			\lib\db::commit();
-			if($_option['debug']) \lib\notif::true(T_("Factor successfuly added"));
+			if($_option['debug']) \lib\notif::ok(T_("Factor successfuly added"));
 		}
 
 		return $return;

@@ -67,7 +67,7 @@ trait edit
 
 		if(\lib\notif::$status)
 		{
-			\lib\notif::true(T_("Your storetransaction successfully updated"));
+			\lib\notif::ok(T_("Your storetransaction successfully updated"));
 		}
 
 		return $return;

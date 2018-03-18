@@ -103,7 +103,7 @@ trait edit
 
 			if(\lib\notif::$status)
 			{
-				\lib\notif::true(T_("Thirdparty successfully updated"));
+				\lib\notif::ok(T_("Thirdparty successfully updated"));
 			}
 		}
 

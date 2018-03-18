@@ -142,7 +142,7 @@ trait edit
 
 		if(\lib\notif::$status)
 		{
-			\lib\notif::true(T_("Your product successfully updated"));
+			\lib\notif::ok(T_("Your product successfully updated"));
 		}
 
 		self::clean_cache('var');

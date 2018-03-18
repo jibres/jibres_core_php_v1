@@ -120,7 +120,7 @@ trait add
 
 		if(\lib\notif::$status)
 		{
-			\lib\notif::true(T_("Store successfuly added"));
+			\lib\notif::ok(T_("Store successfuly added"));
 		}
 
 		return $return;

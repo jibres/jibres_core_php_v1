@@ -13,7 +13,7 @@ class model extends \content_a\main\model
 
 		if(\lib\notif::$status)
 		{
-			\lib\notif::true(T_("Export product successfully complete"));
+			\lib\notif::ok(T_("Export product successfully complete"));
 			\lib\redirect::to(\lib\url::here(). '/product');
 		}
 

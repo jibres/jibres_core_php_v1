@@ -50,7 +50,7 @@ class model extends \content_a\main\model
 			// clean all cache
 			\lib\app\product::clean_cache();
 
-			\lib\notif::true(T_("Import product successfully complete"));
+			\lib\notif::ok(T_("Import product successfully complete"));
 			\lib\redirect::to(\lib\url::here(). '/product');
 		}
 

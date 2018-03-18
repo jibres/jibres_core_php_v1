@@ -92,7 +92,7 @@ class model extends \content_a\main\model
 
 		if($result)
 		{
-			\lib\notif::true(T_("Your store plan was changed"));
+			\lib\notif::ok(T_("Your store plan was changed"));
 			if(\lib\notif::$status)
 			{
 				\lib\redirect::pwd();

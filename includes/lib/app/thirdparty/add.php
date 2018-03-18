@@ -121,7 +121,7 @@ trait add
 
 		if(\lib\notif::$status)
 		{
-			\lib\notif::true(T_("Thirdparty successfuly added"));
+			\lib\notif::ok(T_("Thirdparty successfuly added"));
 			\lib\app\store::user_count('thirdparty', true);
 		}
 
