@@ -24,7 +24,7 @@ class controller extends \mvc\controller
 
 		if(!\lib\userstore::in_store())
 		{
-			\lib\error::access(T_("Your are not in this store"));
+			\lib\header::status(403, T_("Your are not in this store"));
 		}
 	}
 }
