@@ -115,13 +115,11 @@ class model extends \mvc\model
 		{
 			// $mail =
 			// [
-			// 	'from'    => 'info@jibres.com',
 			// 	'to'      => 'info@jibres.com',
 			// 	'subject' => 'contact',
 			// 	'body'    => $content,
-			// 	'debug'   => false,
 			// ];
-			// \lib\utility\mail::send($mail);
+			// \lib\mail::send($mail);
 
 			\lib\db\logs::set('user:send:contact', $user_id, $log_meta);
 			\lib\notif::ok(T_("Thank You For contacting us"));
