@@ -15,7 +15,7 @@ class controller extends \content_a\main\controller
 			\lib\redirect::to(\lib\url::here(). '/thirdparty');
 		}
 
-		// \lib\error::page(T_("Invalid url"));
+		// \lib\header::status(404, T_("Invalid url"));
 	}
 }
 ?>

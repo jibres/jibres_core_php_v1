@@ -13,7 +13,7 @@ class controller extends \mvc\controller
 
 		if(!\lib\store::id())
 		{
-			\lib\error::page(T_("Store not found"));
+			\lib\header::status(404, T_("Store not found"));
 		}
 
 		if(!\lib\user::login())

@@ -8,7 +8,7 @@ class controller extends \content_a\main\controller
 	{
 		if(!\lib\request::get('id'))
 		{
-			\lib\error::page(T_("Id not found"));
+			\lib\header::status(404, T_("Id not found"));
 		}
 
 		$this->post('factor_edit')->ALL();
