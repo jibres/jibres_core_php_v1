@@ -116,7 +116,7 @@ class view extends \content_a\main\view
 			{
 				$result = json_encode($result, JSON_UNESCAPED_UNICODE);
 			}
-			\lib\notif::msg("list", $result);
+			\lib\notif::result(["list" => $result]);
 			// force show json
 			$this->_processor(['force_stop' => true, 'force_json' => true]);
 			// \lib\code::exit();
