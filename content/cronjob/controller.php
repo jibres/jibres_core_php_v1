@@ -8,7 +8,7 @@ class controller extends \mvc\controller
 	{
 		if(isset($_SERVER['REQUEST_METHOD']) && mb_strtolower($_SERVER['REQUEST_METHOD']) === 'get')
 		{
-			\lib\error::page();
+			\lib\header::status(404);
 		}
 
 		// \lib\db\mysql\tools\log::log($_SERVER, time(), 'cronjob.log', 'json');
@@ -37,7 +37,7 @@ class controller extends \mvc\controller
 		else
 		{
 			\lib\utility\telegram::sendMessage("@jibres_monitor", "#ERROR\n".  json_encode($_SERVER, JSON_UNESCAPED_UNICODE));
-			\lib\error::page();
+			\lib\header::status(404);
 		}
 
 	}

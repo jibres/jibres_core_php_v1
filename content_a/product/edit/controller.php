@@ -6,7 +6,7 @@ class controller extends \content_a\main\controller
 {
 	public function ready()
 	{
-		\lib\error::page();
+		\lib\header::status(404);
 	}
 }
 ?>

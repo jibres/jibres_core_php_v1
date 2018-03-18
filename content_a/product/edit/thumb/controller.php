@@ -8,7 +8,7 @@ class controller extends \content_a\main\controller
 	{
 		if(!\lib\request::get('id'))
 		{
-			\lib\error::page();
+			\lib\header::status(404);
 		}
 
 		$this->get()->ALL();
