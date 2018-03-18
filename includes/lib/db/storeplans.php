@@ -413,7 +413,7 @@ class storeplans
 
         \lib\db\transactions::set($transaction_set);
 
-        if(\lib\notif::$status)
+        if(\lib\engine\process::status())
         {
         	return true;
         }

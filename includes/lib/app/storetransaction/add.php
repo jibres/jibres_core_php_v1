@@ -59,7 +59,7 @@ trait add
 		// check args
 		$args = self::check($_option);
 
-		if($args === false || !\lib\notif::$status)
+		if($args === false || !\lib\engine\process::status())
 		{
 			\lib\db::rollback();
 			return false;
@@ -82,7 +82,7 @@ trait add
 
 		$return['storetransaction_id'] = \lib\utility\shortURL::encode($storetransaction_id);
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			\lib\notif::ok(T_("Transaction successfuly saved"));
 		}

@@ -80,7 +80,7 @@ class model extends \content_a\main\model
 
 		\lib\app\factor::edit(\lib\request::get('id'), $detail, $factor_list);
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			\lib\redirect::to(\lib\url::base(). '/a/factor');
 		}

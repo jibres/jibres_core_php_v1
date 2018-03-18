@@ -46,7 +46,7 @@ class model extends \content_a\main\model
 
 		\lib\app\thirdparty::edit($request, \lib\request::get('id'));
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			\lib\redirect::pwd();
 		}

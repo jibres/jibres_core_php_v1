@@ -91,7 +91,7 @@ class model extends \content_a\main\model
 
 		$query_data = [];
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			if(isset($factor_detail['factor_id']))
 			{

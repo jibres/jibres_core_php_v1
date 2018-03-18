@@ -228,7 +228,7 @@ class product
 		if($barcode)
 		{
 			self::check_unique_barcode($barcode, $_option);
-			if(!\lib\notif::$status)
+			if(!\lib\engine\process::status())
 			{
 				return false;
 			}
@@ -237,7 +237,7 @@ class product
 		if($barcode2)
 		{
 			self::check_unique_barcode($barcode2, $_option);
-			if(!\lib\notif::$status)
+			if(!\lib\engine\process::status())
 			{
 				return false;
 			}

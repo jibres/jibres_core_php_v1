@@ -15,7 +15,7 @@ class model extends \content_a\main\model
 				return $uploaded_file['url'];
 			}
 			// if in upload have error return
-			if(!\lib\notif::$status)
+			if(!\lib\engine\process::status())
 			{
 				return false;
 			}
@@ -40,7 +40,7 @@ class model extends \content_a\main\model
 
 		\lib\app\product::edit($request);
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			\lib\redirect::pwd();
 		}

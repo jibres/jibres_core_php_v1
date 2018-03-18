@@ -35,7 +35,7 @@ trait add
 		// check args
 		$args = self::check();
 
-		if($args === false || !\lib\notif::$status)
+		if($args === false || !\lib\engine\process::status())
 		{
 			return false;
 		}
@@ -118,7 +118,7 @@ trait add
 		$return['store_id'] = \lib\utility\shortURL::encode($store_id);
 		$return['slug']     = $args['slug'];
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			\lib\notif::ok(T_("Store successfuly added"));
 		}

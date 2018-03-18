@@ -42,7 +42,7 @@ trait add
 		// check args
 		$args = self::check();
 
-		if($args === false || !\lib\notif::$status)
+		if($args === false || !\lib\engine\process::status())
 		{
 			return false;
 		}
@@ -84,7 +84,7 @@ trait add
 
 		$user_id = \lib\app\user::add($args, ['debug' => false, 'contact' => false]);
 
-		if(!\lib\notif::$status || !isset($user_id['user_id']))
+		if(!\lib\engine\process::status() || !isset($user_id['user_id']))
 		{
 			return false;
 		}
@@ -119,7 +119,7 @@ trait add
 
 		$return['thirdparty_id'] = \lib\utility\shortURL::encode($userstore_id);
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			\lib\notif::ok(T_("Thirdparty successfuly added"));
 			\lib\app\store::user_count('thirdparty', true);

@@ -45,7 +45,7 @@ class model extends \content_a\main\model
 
 		$imported = \lib\app\product::import($list);
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			// clean all cache
 			\lib\app\product::clean_cache();

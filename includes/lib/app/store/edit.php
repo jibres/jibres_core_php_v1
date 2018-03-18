@@ -62,7 +62,7 @@ trait edit
 
 		$args = self::check();
 
-		if($args === false || !\lib\notif::$status)
+		if($args === false || !\lib\engine\process::status())
 		{
 			return false;
 		}
@@ -119,7 +119,7 @@ trait edit
 			\lib\store::clean();
 		}
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			\lib\notif::ok(T_("Your store successfully update"));
 		}

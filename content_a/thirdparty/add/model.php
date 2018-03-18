@@ -49,7 +49,7 @@ class model extends \content_a\main\model
 
 		$result = \lib\app\thirdparty::add($request);
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			if(isset($result['thirdparty_id']))
 			{

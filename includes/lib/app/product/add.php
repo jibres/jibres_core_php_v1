@@ -54,7 +54,7 @@ trait add
 		// check args
 		$args = self::check($_option);
 
-		if($args === false || !\lib\notif::$status)
+		if($args === false || !\lib\engine\process::status())
 		{
 			return false;
 		}
@@ -107,7 +107,7 @@ trait add
 
 		$return['product_id'] = \lib\utility\shortURL::encode($product_id);
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			if($_option['debug']) \lib\notif::ok(T_("Product successfuly added"));
 		}

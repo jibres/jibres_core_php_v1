@@ -65,7 +65,7 @@ trait edit
 
 		$return = \lib\app\storetransaction::add($_storetransaction, $_storetransaction_detail, ['storetransaction_id' => $load_storetransaction['id'], 'debug' => false]);
 
-		if(\lib\notif::$status)
+		if(\lib\engine\process::status())
 		{
 			\lib\notif::ok(T_("Your storetransaction successfully updated"));
 		}
