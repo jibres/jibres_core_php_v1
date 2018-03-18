@@ -6,7 +6,7 @@ class model extends \content_a\main\model
 {
 	public static function upload_thumb()
 	{
-		if(\lib\utility::files('thumb'))
+		if(\lib\request::files('thumb'))
 		{
 			$uploaded_file = \lib\app\file::upload(['debug' => false, 'upload_name' => 'thumb']);
 
