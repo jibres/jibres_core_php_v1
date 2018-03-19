@@ -22,19 +22,19 @@ class homepagenumber
 		$result ="$product\n$factor\n$sum_factor";
 
 		$url    = self::$dir;
-		if(!\lib\utility\file::exists($url))
+		if(!\lib\file::exists($url))
 		{
-			\lib\utility\file::makeDir($url, null, true);
+			\lib\file::makeDir($url, null, true);
 		}
 
 		$url .= self::$filename. self::$ext;
-		if(!\lib\utility\file::exists($url))
+		if(!\lib\file::exists($url))
 		{
-			\lib\utility\file::write($url, $result);
+			\lib\file::write($url, $result);
 		}
 		else
 		{
-			\lib\utility\file::write($url, $result);
+			\lib\file::write($url, $result);
 		}
 	}
 
@@ -43,7 +43,7 @@ class homepagenumber
 	{
 		$url = self::$dir. self::$filename. self::$ext;
 
-		$result = @\lib\utility\file::read($url);
+		$result = @\lib\file::read($url);
 
 		$temp               = [];
 		$temp['product']    = 2580;
