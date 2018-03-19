@@ -79,7 +79,7 @@ class view extends \content_a\main\view
 					}
 					if(!$result)
 					{
-						\lib\notif::title($msg);
+						// \lib\notif::title($msg);
 					}
 					break;
 

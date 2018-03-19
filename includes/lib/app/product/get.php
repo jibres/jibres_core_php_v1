@@ -31,7 +31,7 @@ trait get
 
 		if($_option['debug'])
 		{
-			\lib\notif::title(T_("Operation Faild"));
+			// \lib\notif::title(T_("Operation Faild"));
 		}
 
 		$log_meta =
