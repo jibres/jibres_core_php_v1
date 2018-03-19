@@ -93,7 +93,7 @@ class thirdparty
 
 		$nationalcode = \lib\app::request('nationalcode');
 		$nationalcode = trim($nationalcode);
-		if($nationalcode && !\lib\utility\nationalcode::check($nationalcode))
+		if($nationalcode && !\lib\utility\filter::nationalcode($nationalcode))
 		{
 			\lib\notif::error(T_("Invalid nationalcode"), 'nationalcode');
 			return false;
