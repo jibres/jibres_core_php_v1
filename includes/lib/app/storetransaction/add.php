@@ -80,7 +80,7 @@ trait add
 
 		$return = [];
 
-		$return['storetransaction_id'] = \lib\utility\shortURL::encode($storetransaction_id);
+		$return['storetransaction_id'] = \lib\coding::encode($storetransaction_id);
 
 		if(\lib\engine\process::status())
 		{

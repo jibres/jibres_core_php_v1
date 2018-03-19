@@ -6,7 +6,7 @@ trait get
 
 	public static function factor_pay_list($_factor_id)
 	{
-		$_factor_id = \lib\utility\shortURL::decode($_factor_id);
+		$_factor_id = \lib\coding::decode($_factor_id);
 		if(!$_factor_id)
 		{
 			return false;
@@ -55,7 +55,7 @@ trait get
 
 
 		$id = \lib\app::request("id");
-		$id = \lib\utility\shortURL::decode($id);
+		$id = \lib\coding::decode($id);
 		if(!$id)
 		{
 			\lib\app::log('api:storetransaction:id:shortname:not:set', \lib\user::id(), \lib\app::log_meta());

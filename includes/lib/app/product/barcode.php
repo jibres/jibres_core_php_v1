@@ -47,7 +47,7 @@ trait barcode
 				if(isset($check_exist[0]['id']))
 				{
 					$product_id = \lib\app::request('id');
-					$product_id = \lib\utility\shortURL::decode($product_id);
+					$product_id = \lib\coding::decode($product_id);
 					if($product_id && intval($product_id) === intval($check_exist[0]['id']))
 					{
 						// update product by old barcode
@@ -76,7 +76,7 @@ trait barcode
 						$product_id = null;
 						if(isset($check_exist[0]['id']))
 						{
-							$product_id = \lib\utility\shortURL::encode($check_exist[0]['id']);
+							$product_id = \lib\coding::encode($check_exist[0]['id']);
 						}
 
 						if($product_id)

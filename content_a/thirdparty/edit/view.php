@@ -16,7 +16,7 @@ class view extends \content_a\main\view
 		$this->static_var();
 
 		$userstore_id = \lib\request::get('id');
-		$userstore_id = \lib\utility\shortURL::decode($userstore_id);
+		$userstore_id = \lib\coding::decode($userstore_id);
 
 		if(!$userstore_id)
 		{

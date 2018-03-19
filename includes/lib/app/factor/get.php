@@ -46,7 +46,7 @@ trait get
 
 
 		$id = \lib\app::request("id");
-		$id = \lib\utility\shortURL::decode($id);
+		$id = \lib\coding::decode($id);
 		if(!$id)
 		{
 			\lib\app::log('api:factor:id:shortname:not:set', \lib\user::id(), \lib\app::log_meta());

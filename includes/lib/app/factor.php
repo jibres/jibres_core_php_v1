@@ -53,7 +53,7 @@ class factor
 
 		if($customer)
 		{
-			$customer_id = \lib\utility\shortURL::decode($customer);
+			$customer_id = \lib\coding::decode($customer);
 			if($customer_id)
 			{
 				$customer_detail = \lib\db\userstores::get(['id' => $customer, 'store_id' => \lib\store::id(), 'limit' => 1]);
@@ -165,7 +165,7 @@ class factor
 			$product_id = null;
 			if(isset($value['product']))
 			{
-				$product_id = \lib\utility\shortURL::decode($value['product']);
+				$product_id = \lib\coding::decode($value['product']);
 			}
 
 			if(!$product_id)
@@ -383,7 +383,7 @@ class factor
 
 					if(isset($value))
 					{
-						$result[$key] = \lib\utility\shortURL::encode($value);
+						$result[$key] = \lib\coding::encode($value);
 					}
 					else
 					{

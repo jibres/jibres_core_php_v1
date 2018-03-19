@@ -115,7 +115,7 @@ trait add
 			\lib\utility\cloudflare::create_dns_record(['type' => 'CNAME', 'name' => $args['slug'], 'content' => 'jibres.com']);
 		}
 
-		$return['store_id'] = \lib\utility\shortURL::encode($store_id);
+		$return['store_id'] = \lib\coding::encode($store_id);
 		$return['slug']     = $args['slug'];
 
 		if(\lib\engine\process::status())

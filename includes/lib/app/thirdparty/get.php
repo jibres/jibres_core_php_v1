@@ -14,12 +14,12 @@ trait get
 	 */
 	public static function get($_id, $_options = [])
 	{
-		if(!$_id || !\lib\utility\shortURL::is($_id))
+		if(!$_id || !\lib\coding::is($_id))
 		{
 			return false;
 		}
 
-		$id = \lib\utility\shortURL::decode($_id);
+		$id = \lib\coding::decode($_id);
 		if(!$id)
 		{
 			\lib\notif::error(T_("Thirdparty id not set"));

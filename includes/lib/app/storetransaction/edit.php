@@ -36,7 +36,7 @@ trait edit
 			]
 		];
 
-		$id = \lib\utility\shortURL::decode($_id);
+		$id = \lib\coding::decode($_id);
 
 		if(!$id || !is_numeric($id))
 		{

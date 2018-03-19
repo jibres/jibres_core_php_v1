@@ -89,7 +89,7 @@ trait add
 			return false;
 		}
 
-		$user_id = \lib\utility\shortURL::decode($user_id['user_id']);
+		$user_id = \lib\coding::decode($user_id['user_id']);
 
 		$args['user_id'] = $user_id;
 
@@ -117,7 +117,7 @@ trait add
 			return false;
 		}
 
-		$return['thirdparty_id'] = \lib\utility\shortURL::encode($userstore_id);
+		$return['thirdparty_id'] = \lib\coding::encode($userstore_id);
 
 		if(\lib\engine\process::status())
 		{

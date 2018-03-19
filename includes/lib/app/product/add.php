@@ -105,7 +105,7 @@ trait add
 		\lib\db\productprices::insert($insert_productprices);
 
 
-		$return['product_id'] = \lib\utility\shortURL::encode($product_id);
+		$return['product_id'] = \lib\coding::encode($product_id);
 
 		if(\lib\engine\process::status())
 		{

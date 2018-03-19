@@ -113,7 +113,7 @@ trait add
 			return false;
 		}
 
-		$return['factor_id'] = \lib\utility\shortURL::encode($factor_id);
+		$return['factor_id'] = \lib\coding::encode($factor_id);
 
 		foreach ($factor_detail as $key => $value)
 		{

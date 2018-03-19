@@ -368,7 +368,7 @@ class thirdparty
 				case 'user_id':
 					if(isset($value))
 					{
-						$result[$key] = \lib\utility\shortURL::encode($value);
+						$result[$key] = \lib\coding::encode($value);
 					}
 					else
 					{

@@ -91,7 +91,7 @@ class store
 		// get slug of name in slug if the slug is not set
 		if(!$slug && $name)
 		{
-			$slug = \lib\utility\shortURL::encode((int) \lib\user::id() + (int) rand(10000,99999) * 10000);
+			$slug = \lib\coding::encode((int) \lib\user::id() + (int) rand(10000,99999) * 10000);
 			// $slug = \lib\utility\filter::slug($name);
 		}
 
@@ -175,7 +175,7 @@ class store
 		$parent = \lib\app::request('parent');
 		if($parent)
 		{
-			$parent = \lib\utility\shortURL::decode($parent);
+			$parent = \lib\coding::decode($parent);
 		}
 
 		if($parent)
@@ -270,7 +270,7 @@ class store
 				// case 'parent':
 					if(isset($value))
 					{
-						$result[$key] = \lib\utility\shortURL::encode($value);
+						$result[$key] = \lib\coding::encode($value);
 					}
 					else
 					{

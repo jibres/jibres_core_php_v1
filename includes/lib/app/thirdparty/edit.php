@@ -23,7 +23,7 @@ trait edit
 			return false;
 		}
 
-		$id = \lib\utility\shortURL::decode($_id);
+		$id = \lib\coding::decode($_id);
 
 		$args = self::check($id);
 

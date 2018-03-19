@@ -30,7 +30,7 @@ trait delete
 			[],
 		];
 
-		$id = \lib\utility\shortURL::decode($_id);
+		$id = \lib\coding::decode($_id);
 		if(!$id)
 		{
 			\lib\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);

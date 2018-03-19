@@ -126,7 +126,7 @@ trait datalist
 			$result = \lib\db\products::search_barcode($_args['barcode'], \lib\store::id());
 			$multi_record = false;
 		}
-		elseif (isset($_args['id']) && $_args['id'] && $id = \lib\utiility\shortURL::decode($_args['id']))
+		elseif (isset($_args['id']) && $_args['id'] && $id = \lib\coding::decode($_args['id']))
 		{
 			$result = \lib\db\products::search_id($id, \lib\store::id());
 			$multi_record = false;

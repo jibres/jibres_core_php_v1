@@ -22,7 +22,7 @@ class storetransaction
 	{
 
 		$userstore_id = \lib\app::request('userstore_id');
-		$userstore_id = \lib\utility\shortURL::decode($userstore_id);
+		$userstore_id = \lib\coding::decode($userstore_id);
 		if(!$userstore_id && \lib\app::isset_request('userstore_id'))
 		{
 			\lib\notif::error(T_("Invalid userstore id"), 'userstore_id');
@@ -124,7 +124,7 @@ class storetransaction
 		}
 
 		$factor_id = \lib\app::request('factor_id');
-		$factor_id = \lib\utility\shortURL::decode($factor_id);
+		$factor_id = \lib\coding::decode($factor_id);
 		if(!$factor_id && \lib\app::isset_request('factor_id'))
 		{
 			\lib\notif::error(T_("Invalid userstore id"), 'factor_id');
@@ -312,7 +312,7 @@ class storetransaction
 
 					if(isset($value))
 					{
-						$result[$key] = \lib\utility\shortURL::encode($value);
+						$result[$key] = \lib\coding::encode($value);
 					}
 					else
 					{

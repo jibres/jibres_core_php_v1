@@ -42,7 +42,7 @@ class plan
 		self::list();
 		if(self::$store_id)
 		{
-			// self::$store_id = \lib\utility\shortURL::decode(self::$store_id);
+			// self::$store_id = \lib\coding::decode(self::$store_id);
 			$store_detail   = \lib\store::detail();
 		}
 
