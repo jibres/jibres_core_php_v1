@@ -9,15 +9,15 @@
     <div class="c6 s12">
       <div class="cbox">
 
-        {%if utilityGET.type == 'customer' %}
+        {%if requestGET.type == 'customer' %}
 
           {{block('iFormCustomer')}}
 
-        {%elseif utilityGET.type == 'staff'%}
+        {%elseif requestGET.type == 'staff'%}
 
           {{block('iFormStaff')}}
 
-        {%elseif utilityGET.type == 'supplier'%}
+        {%elseif requestGET.type == 'supplier'%}
 
           {{block('iFormSupllier')}}
 

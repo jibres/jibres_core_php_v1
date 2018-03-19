@@ -14,9 +14,9 @@
 
     <form method="get" data-action class="mB20">
       <div class="input">
-        <input type="search" name="q" placeholder='{%trans "Search"%}' id="search" value="{{utilityGET.q}}">
-        {%if utilityGET.type%}
-          <input type="hidden" name="type" value="{{utilityGET.type}}">
+        <input type="search" name="q" placeholder='{%trans "Search"%}' id="search" value="{{requestGET.q}}">
+        {%if requestGET.type%}
+          <input type="hidden" name="type" value="{{requestGET.type}}">
         {%endif%}
         <button class="addon btn ">{%trans "Search" %}</button>
       </div>
@@ -74,7 +74,7 @@
 
 
 {%block stCustomer%}
-<a class="dcard {%if utilityGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer' data-shortkey="49shift">
+<a class="dcard {%if requestGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer' data-shortkey="49shift">
  <div class="statistic gray">
   <div class="value"><i class="sf-user"></i><span>{{dashboard_detail.customer_count | fitNumber}}</span></div>
   <div class="label">{%trans "Customer"%} <kbd>Shift+1</kbd></div>
@@ -84,7 +84,7 @@
 
 
 {%block stStaff%}
-<a class="dcard {%if utilityGET.type == 'staff'%}active{%endif%}" href='{{url.this}}?type=staff' data-shortkey="50shift">
+<a class="dcard {%if requestGET.type == 'staff'%}active{%endif%}" href='{{url.this}}?type=staff' data-shortkey="50shift">
  <div class="statistic orange">
   <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.staff_count | fitNumber}}</span></div>
   <div class="label">{%trans "Staff"%} <kbd>Shift+2</kbd></div>
@@ -95,7 +95,7 @@
 
 
 {%block stSupplier%}
-<a class="dcard {%if utilityGET.type == 'supplier'%}active{%endif%}" href='{{url.this}}?type=supplier' data-shortkey="51shift">
+<a class="dcard {%if requestGET.type == 'supplier'%}active{%endif%}" href='{{url.this}}?type=supplier' data-shortkey="51shift">
  <div class="statistic teal">
   <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboard_detail.supplier_count | fitNumber}}</span></div>
   <div class="label">{%trans "Supplier"%} <kbd>Shift+3</kbd></div>

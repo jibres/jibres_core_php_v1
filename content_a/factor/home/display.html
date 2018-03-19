@@ -43,7 +43,7 @@
 </div>
 
 
-{%elseif utilityGET.q%}
+{%elseif requestGET.q%}
 {{block('searchblock')}}
 <div class="fs14 alert alert-info pA25">
  {%trans "No factor founded."%} {%trans "Search with new keywords or barcode."%}
@@ -66,7 +66,7 @@
   <div class="">
     <form method="get" data-action class="cbox">
       <div class="input">
-        <input type="text" name="search" placeholder='{%trans "Search in factors list"%}' id="search" value="{{utilityGET.search}}">
+        <input type="text" name="search" placeholder='{%trans "Search in factors list"%}' id="search" value="{{requestGET.search}}">
         <button class="addon btn ">{%trans "Search" %}</button>
       </div>
     </form>
@@ -88,9 +88,9 @@
 <div class="cbox fs12">
   <form method="get" action="{{url.this}}">
     <div class="input">
-      <input type="search" name="q" placeholder='{%trans "Search in factors list"%}' id="q" value="{{utilityGET.q}}" autofocus class="barCode" data-default data-pass='submit' autocomplete='off'>
-      {%if utilityGET.type%}
-        <input type="hidden" name="type" value="{{utilityGET.type}}">
+      <input type="search" name="q" placeholder='{%trans "Search in factors list"%}' id="q" value="{{requestGET.q}}" autofocus class="barCode" data-default data-pass='submit' autocomplete='off'>
+      {%if requestGET.type%}
+        <input type="hidden" name="type" value="{{requestGET.type}}">
       {%endif%}
       <button class="addon btn ">{%trans "Search" %}</button>
     </div>
