@@ -1,7 +1,7 @@
 <?php
 namespace mvc;
 
-class controller extends \lib\controller
+class controller
 {
 	public function project()
 	{
