@@ -1,7 +1,7 @@
 <?php
 namespace content\contact;
 
-class model extends \mvc\model
+class model
 {
 
 	// log callers
@@ -15,7 +15,7 @@ class model extends \mvc\model
 	/**
 	 * save contact form
 	 */
-	public function post_contact()
+	public static function post()
 	{
 		// check login
 		if(\lib\user::login())
