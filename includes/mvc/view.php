@@ -1,9 +1,9 @@
 <?php
 namespace mvc;
 
-class view extends \lib\view
+class view
 {
-	function project()
+	static function project()
 	{
 		// define default value for global
 
