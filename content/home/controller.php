@@ -1,7 +1,7 @@
 <?php
 namespace content\home;
 
-class controller extends \mvc\controller
+class controller
 {
 
 	/**
@@ -44,13 +44,8 @@ class controller extends \mvc\controller
 	];
 
 	// for routing check
-	function ready()
+	public static function routing()
 	{
-		// if have display return false
-		if($this->display_name !== null)
-		{
-			return false;
-		}
 		// if on homepage return false
 		$url = \lib\url::directory();
 		if(!$url)
