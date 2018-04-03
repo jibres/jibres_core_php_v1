@@ -28,12 +28,6 @@ class view
 				break;
 
 
-			case 'enterprise':
-				\lib\data::page(T_('Enterprise'), 'title');
-				\lib\data::page(T_('Have a headaches? We have soulutions. Be patient...'), 'desc');
-				break;
-
-
 			case 'help':
 				switch (\lib\url::child())
 				{
