@@ -52,12 +52,6 @@ class view
 				break;
 
 
-			case 'changelog':
-				\lib\data::page(T_('Change log of Jibres'), 'title');
-				\lib\data::page(T_('We were born to do Best!'). ' ' . T_("We are Developers, please wait!"), 'desc');
-				break;
-
-
 			case 'help':
 				switch (\lib\url::child())
 				{
@@ -85,10 +79,6 @@ class view
 				\lib\data::page(\lib\data::get('site', 'desc'), 'desc');
 				break;
 
-			case 'logo':
-				\lib\data::page(T_('Jibres Logo'), 'title');
-				\lib\data::page(T_('Need know more about Jibres Logo? We are not choose our final logo yet!'), 'desc');
-				break;
 
 			case 'pricing':
 				\lib\data::page(T_('Plans and Pricing of Jibres'), 'title');
