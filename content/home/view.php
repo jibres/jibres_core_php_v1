@@ -27,23 +27,6 @@ class view
 				\lib\data::page(true, 'special');
 				break;
 
-
-			case 'help':
-				switch (\lib\url::child())
-				{
-					case 'faq':
-						\lib\data::page(T_('Frequently Asked Questions'), 'title');
-						\lib\data::page(T_('This FAQ provides answers to basic questions about Jibres.'), 'desc');
-						break;
-
-					default:
-						\lib\data::page(T_('Help Center'), 'title');
-						\lib\data::page(T_('Need HELP? Be patient...'), 'desc');
-						break;
-				}
-				break;
-
-
 			case 'benefits':
 				\lib\data::page(T_('Jibres benefits'), 'title');
 				\lib\data::page(T_('What can you do with Jibres?'), 'desc');
