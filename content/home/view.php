@@ -56,13 +56,6 @@ class view
 				break;
 
 
-			case 'pricing':
-				\lib\data::page(T_('Plans and Pricing of Jibres'), 'title');
-				\lib\data::page(T_("Always know what you'll pay per month.") . ' ' . T_('Simple pricing'), 'desc');
-				break;
-
-
-
 			default:
 				\lib\data::page(\lib\data::get('site', 'title'). ' - '. T_('Integrated Sales and Online Accounting'), 'title');
 				break;
