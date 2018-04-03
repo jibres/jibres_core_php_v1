@@ -32,13 +32,6 @@ class view
 				\lib\data::page(T_('What can you do with Jibres?'), 'desc');
 				break;
 
-
-			case 'about':
-				\lib\data::page(T_('About our platform'), 'title');
-				\lib\data::page(\lib\data::get('site', 'desc'), 'desc');
-				break;
-
-
 			default:
 				\lib\data::page(\lib\data::get('site', 'title'). ' - '. T_('Integrated Sales and Online Accounting'), 'title');
 				break;
