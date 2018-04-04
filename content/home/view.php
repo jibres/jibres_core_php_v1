@@ -6,6 +6,8 @@ class view
 {
 	public static function config()
 	{
+		\mvc\view::project();
+
 		\lib\data::bodyclass('unselectable vflex');
 		// $this->include->js     = false;
 		\lib\data::homepagenumber(\lib\utility\homepagenumber::get());

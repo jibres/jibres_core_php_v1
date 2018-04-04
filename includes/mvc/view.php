@@ -3,39 +3,39 @@ namespace mvc;
 
 class view
 {
-	static function project()
+	public static function project()
 	{
 		// define default value for global
 
 
-		$this->data->site['title']           = T_("Jibres");
-		$this->data->site['desc']            = T_("Jibres is not just an online accounting software;"). ' '.  T_("We try to create the best financial platform that has everything you need to sale and manage your financial life.");
-		$this->data->site['slogan']          = T_("Integrated Sales and Online Accounting");
+		\lib\data::site_title(T_("Jibres"));
+		\lib\data::site_desc(T_("Jibres is not just an online accounting software;"). ' '.  T_("We try to create the best financial platform that has everything you need to sale and manage your financial life."));
+		\lib\data::site_slogan(T_("Integrated Sales and Online Accounting"));
 
-		$this->data->page['desc']            = $this->data->site['desc']. ' | '. $this->data->site['slogan'];
+		\lib\data::page_desc(\lib\data::site_desc(). ' | '. \lib\data::site_slogan());
 
-		$this->data->bodyclass               = 'unselectable';
+		\lib\data::bodyclass('unselectable');
 
 		// for pushstate of main page
-		$this->data->template['xhr']         = 'content/main/layout-xhr.html';
+		\lib\data::template_xhr('content/main/layout-xhr.html');
 
-		$this->data->display['admin']        = 'content_a/main/layout.html';
-		$this->data->template['social']      = 'content/template/social.html';
-		$this->data->template['share']       = 'content/template/share.html';
-		$this->data->template['price']       = 'content/template/priceTable.html';
-		$this->data->template['priceSchool'] = 'content/template/priceSchoolTable.html';
+		\lib\data::display_admin('content_a/main/layout.html');
+		\lib\data::template_social('content/template/social.html');
+		\lib\data::template_share('content/template/share.html');
+		\lib\data::template_price('content/template/priceTable.html');
+		\lib\data::template_priceSchool('content/template/priceSchoolTable.html');
 
-		if(\lib\url::content() === null)
-		{
-			// get total uses
-			$total_users                     = 10; // intval(\lib\db\userteams::total_userteam());
-			$total_users                     = number_format($total_users);
-			$this->data->total_users         = \lib\utility\human::number($total_users);
-			$this->data->footer_stat         = T_("We help :count people to work beter!", ['count' => $this->data->total_users]);
-		}
+		// if(\lib\url::content() === null)
+		// {
+		// 	// get total uses
+		// 	$total_users                     = 10; // intval(\lib\db\userteams::total_userteam());
+		// 	$total_users                     = number_format($total_users);
+		// 	$this->data->total_users         = \lib\utility\human::number($total_users);
+		// 	$this->data->footer_stat         = T_("We help :count people to work beter!", ['count' => $this->data->total_users]);
+		// }
 
 		// if you need to set a class for body element in html add in this value
-		$this->data->bodyclass           = null;
+		// $this->data->bodyclass           = null;
 	}
 
 	public function createFilterMsg($_args)
