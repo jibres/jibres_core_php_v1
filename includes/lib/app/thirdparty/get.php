@@ -22,13 +22,13 @@ trait get
 		$id = \dash\coding::decode($_id);
 		if(!$id)
 		{
-			\lib\notif::error(T_("Thirdparty id not set"));
+			\dash\notif::error(T_("Thirdparty id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\notif::error(T_(":store not found"));
+			\dash\notif::error(T_(":store not found"));
 			return false;
 		}
 
@@ -36,7 +36,7 @@ trait get
 
 		if(!$get)
 		{
-			\lib\notif::error(T_("Invalid thirdparty id"));
+			\dash\notif::error(T_("Invalid thirdparty id"));
 			return false;
 		}
 

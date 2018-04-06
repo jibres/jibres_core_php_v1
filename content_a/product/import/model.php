@@ -14,7 +14,7 @@ class model extends \content_a\main\model
 			{
 				if($file['type'] !== 'text/csv' && $file['type'] !== "application/vnd.ms-excel")
 				{
-					\lib\notif::error(T_("Please upload a csv file"), 'product_list');
+					\dash\notif::error(T_("Please upload a csv file"), 'product_list');
 					return false;
 				}
 
@@ -29,7 +29,7 @@ class model extends \content_a\main\model
 				return false;
 			}
 		}
-		\lib\notif::error(T_("No file was sended"));
+		\dash\notif::error(T_("No file was sended"));
 		return false;
 	}
 
@@ -50,8 +50,8 @@ class model extends \content_a\main\model
 			// clean all cache
 			\lib\app\product::clean_cache();
 
-			\lib\notif::ok(T_("Import product successfully complete"));
-			\lib\redirect::to(\dash\url::here(). '/product');
+			\dash\notif::ok(T_("Import product successfully complete"));
+			\dash\redirect::to(\dash\url::here(). '/product');
 		}
 
 	}

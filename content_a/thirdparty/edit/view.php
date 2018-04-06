@@ -20,7 +20,7 @@ class view extends \content_a\main\view
 
 		if(!$userstore_id)
 		{
-			\lib\header::status(404, T_("Thirdparty id not found"));
+			\dash\header::status(404, T_("Thirdparty id not found"));
 		}
 
 		$thirdparty             = \lib\app\thirdparty::get(\dash\request::get('id'));

@@ -13,7 +13,7 @@ class controller extends \mvc\controller
 		{
 			if(!\lib\store::id())
 			{
-				\lib\header::status(404, T_("Store not found"));
+				\dash\header::status(404, T_("Store not found"));
 			}
 		}
 	}

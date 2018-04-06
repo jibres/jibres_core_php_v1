@@ -23,7 +23,7 @@ class model extends \content_a\main\model
 			$new_url = \dash\url::here(). '/add?type=getthetypefromresult';
 		}
 
-		\lib\redirect::to($new_url);
+		\dash\redirect::to($new_url);
 
 	}
 }

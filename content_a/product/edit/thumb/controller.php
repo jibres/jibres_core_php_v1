@@ -8,7 +8,7 @@ class controller extends \content_a\main\controller
 	{
 		if(!\dash\request::get('id'))
 		{
-			\lib\header::status(404);
+			\dash\header::status(404);
 		}
 
 		$this->get()->ALL();

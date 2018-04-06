@@ -17,7 +17,7 @@ class model extends \content_a\main\model
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
-			\lib\notif::error(T_("What are you doing?"));
+			\dash\notif::error(T_("What are you doing?"));
 			return false;
 		}
 
@@ -82,7 +82,7 @@ class model extends \content_a\main\model
 
 		if(\lib\engine\process::status())
 		{
-			\lib\redirect::to(\dash\url::base(). '/a/factor');
+			\dash\redirect::to(\dash\url::base(). '/a/factor');
 		}
 	}
 }

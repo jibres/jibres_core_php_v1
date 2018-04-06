@@ -40,7 +40,7 @@ trait import
 	public static function import($_string)
 	{
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
 			return false;
 		}

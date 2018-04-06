@@ -8,23 +8,23 @@ class controller extends \mvc\controller
 	{
 		if(!\dash\url::subdomain())
 		{
-			\lib\redirect::to(\dash\url::base());
+			\dash\redirect::to(\dash\url::base());
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\header::status(404, T_("Store not found"));
+			\dash\header::status(404, T_("Store not found"));
 		}
 
-		if(!\lib\user::login())
+		if(!\dash\user::login())
 		{
-			\lib\redirect::to(\dash\url::base(). '/enter');
+			\dash\redirect::to(\dash\url::base(). '/enter');
 			return;
 		}
 
 		if(!\lib\userstore::in_store())
 		{
-			\lib\header::status(403, T_("Your are not in this store"));
+			\dash\header::status(403, T_("Your are not in this store"));
 		}
 	}
 }

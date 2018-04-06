@@ -41,15 +41,15 @@ trait edit
 
 		if(!$id || !is_numeric($id))
 		{
-			\dash\app::log('api:product:method:put:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Id not set"));
+			\dash\app::log('api:product:method:put:id:not:set', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\dash\app::log('api:product:edit:store:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Id not set"));
+			\dash\app::log('api:product:edit:store:id:not:set', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Id not set"));
 			return false;
 		}
 
@@ -57,8 +57,8 @@ trait edit
 
 		if(empty($load_product) || !$load_product || !isset($load_product['id']))
 		{
-			\dash\app::log('api:product:edit:product:not:found', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Can not access to edit it"), 'product', 'permission');
+			\dash\app::log('api:product:edit:product:not:found', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Can not access to edit it"), 'product', 'permission');
 			return false;
 		}
 
@@ -98,8 +98,8 @@ trait edit
 
 		if(array_key_exists('title', $args) && !$args['title'])
 		{
-			\dash\app::log('api:product:title:not:set:edit', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Title of product can not be null"), 'title');
+			\dash\app::log('api:product:title:not:set:edit', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Title of product can not be null"), 'title');
 			return false;
 		}
 
@@ -133,7 +133,7 @@ trait edit
 				// user change slug
 				if($load_product['slug'] != $args['slug'])
 				{
-					\dash\app::log('api:product:change:slug', \lib\user::id(), $log_meta);
+					\dash\app::log('api:product:change:slug', \dash\user::id(), $log_meta);
 				}
 			}
 		}
@@ -142,7 +142,7 @@ trait edit
 
 		if(\lib\engine\process::status())
 		{
-			\lib\notif::ok(T_("Your product successfully updated"));
+			\dash\notif::ok(T_("Your product successfully updated"));
 		}
 
 		self::clean_cache('var');

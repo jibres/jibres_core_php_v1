@@ -17,11 +17,11 @@ class view extends \content_c\main\view
 
 		// get list of store of this user
 		// cache this number for 1 min
-		$list_store = \lib\session::get('get_list_store_dashboard_'. \lib\user::id());
+		$list_store = \dash\session::get('get_list_store_dashboard_'. \dash\user::id());
 		if(!$list_store)
 		{
 			$list_store = \lib\app\store::list(['pagenation' => false]);
-			\lib\session::set('get_list_store_dashboard_'. \lib\user::id(), $list_store, null, $cache_time);
+			\dash\session::set('get_list_store_dashboard_'. \dash\user::id(), $list_store, null, $cache_time);
 		}
 		$this->data->list_store = $list_store;
 		$this->data->count_store_by_creator = count($list_store);

@@ -31,7 +31,7 @@ trait get
 
 		if($_option['debug'])
 		{
-			// \lib\notif::title(T_("Operation Faild"));
+			// \dash\notif::title(T_("Operation Faild"));
 		}
 
 		$log_meta =
@@ -43,17 +43,17 @@ trait get
 			]
 		];
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
-			\dash\app::log('api:product:user:id:not:found', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("User id not found"));
+			\dash\app::log('api:product:user:id:not:found', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("User id not found"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\dash\app::log('api:product:store:id:not:found', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Store id not found"));
+			\dash\app::log('api:product:store:id:not:found', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Store id not found"));
 			return false;
 		}
 
@@ -63,8 +63,8 @@ trait get
 		if(!$id)
 		{
 
-			\dash\app::log('api:product:id:shortname:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
+			\dash\app::log('api:product:id:shortname:not:set', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			return false;
 		}
 
@@ -72,8 +72,8 @@ trait get
 
 		if(!$result)
 		{
-			\dash\app::log('api:product:access:denide', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Can not access to load this product details"), 'product');
+			\dash\app::log('api:product:access:denide', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Can not access to load this product details"), 'product');
 			return false;
 		}
 

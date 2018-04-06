@@ -25,7 +25,7 @@ class thirdparty
 			$type = mb_strtolower($type);
 			if(!in_array($type, ['staff', 'customer', 'supplier']))
 			{
-				\lib\notif::error(T_("Invalid thirdparty type"), 'type');
+				\dash\notif::error(T_("Invalid thirdparty type"), 'type');
 				return false;
 			}
 		}
@@ -35,7 +35,7 @@ class thirdparty
 
 		if($mobile && !\dash\utility\filter::mobile($mobile))
 		{
-			\lib\notif::error(T_("Invalid mobile"), 'mobile');
+			\dash\notif::error(T_("Invalid mobile"), 'mobile');
 			return false;
 		}
 
@@ -43,7 +43,7 @@ class thirdparty
 		$firstname = trim($firstname);
 		if($firstname && mb_strlen($firstname) > 100)
 		{
-			\lib\notif::error(T_("Plese set firstname less than 100 character"), 'firstname');
+			\dash\notif::error(T_("Plese set firstname less than 100 character"), 'firstname');
 			return false;
 		}
 
@@ -51,7 +51,7 @@ class thirdparty
 		$lastname = trim($lastname);
 		if($lastname && mb_strlen($lastname) > 100)
 		{
-			\lib\notif::error(T_("Plese set firstname less than 100 character"), 'lastname');
+			\dash\notif::error(T_("Plese set firstname less than 100 character"), 'lastname');
 			return false;
 		}
 
@@ -71,7 +71,7 @@ class thirdparty
 			{
 				if(!$firstname && !$lastname)
 				{
-					\lib\notif::error(T_("firstname or lastname is required"), ['firstname', 'lastname']);
+					\dash\notif::error(T_("firstname or lastname is required"), ['firstname', 'lastname']);
 					return false;
 				}
 			}
@@ -86,7 +86,7 @@ class thirdparty
 		{
 			if($father && mb_strlen($father) > 100)
 			{
-				\lib\notif::error(T_("Invalid father"), 'father');
+				\dash\notif::error(T_("Invalid father"), 'father');
 				return false;
 			}
 		}
@@ -95,7 +95,7 @@ class thirdparty
 		$nationalcode = trim($nationalcode);
 		if($nationalcode && !\dash\utility\filter::nationalcode($nationalcode))
 		{
-			\lib\notif::error(T_("Invalid nationalcode"), 'nationalcode');
+			\dash\notif::error(T_("Invalid nationalcode"), 'nationalcode');
 			return false;
 		}
 
@@ -104,13 +104,13 @@ class thirdparty
 		$pasportcode = trim($pasportcode);
 		if($pasportcode && !is_numeric($pasportcode) )
 		{
-			\lib\notif::error(T_("Invalid pasportcode"), 'pasportcode');
+			\dash\notif::error(T_("Invalid pasportcode"), 'pasportcode');
 			return false;
 		}
 
 		if($pasportcode && intval($pasportcode) > 1E+14)
 		{
-			\lib\notif::error(T_("Invalid pasportcode"), 'pasportcode');
+			\dash\notif::error(T_("Invalid pasportcode"), 'pasportcode');
 			return false;
 		}
 
@@ -122,7 +122,7 @@ class thirdparty
 			$birthday = \dash\date::db($birthday);
 			if($birthday === false)
 			{
-				\lib\notif::error(T_("Invalid birthday"), 'birthday');
+				\dash\notif::error(T_("Invalid birthday"), 'birthday');
 				return false;
 			}
 
@@ -136,7 +136,7 @@ class thirdparty
 
 			if($datetime1 >= $datetime2)
 			{
-				\lib\notif::error(T_("Invalid birthday, birthday can not larger than date now!"), 'birthday');
+				\dash\notif::error(T_("Invalid birthday, birthday can not larger than date now!"), 'birthday');
 				return false;
 			}
 
@@ -149,7 +149,7 @@ class thirdparty
 			$pasportdate = \dash\date::db($pasportdate);
 			if($pasportdate === false)
 			{
-				\lib\notif::error(T_("Invalid pasportdate"), 'pasportdate');
+				\dash\notif::error(T_("Invalid pasportdate"), 'pasportdate');
 				return false;
 			}
 
@@ -163,7 +163,7 @@ class thirdparty
 
 			if($datetime1 >= $datetime2)
 			{
-				\lib\notif::error(T_("Invalid pasportdate, pasportdate can not larger than date now!"), 'pasportdate');
+				\dash\notif::error(T_("Invalid pasportdate, pasportdate can not larger than date now!"), 'pasportdate');
 				return false;
 			}
 		}
@@ -171,14 +171,14 @@ class thirdparty
 		$gender = \dash\app::request('gender');
 		if($gender && !in_array($gender, ['male', 'female']))
 		{
-			\lib\notif::error(T_("Invalid gender"), 'gender');
+			\dash\notif::error(T_("Invalid gender"), 'gender');
 			return false;
 		}
 
 		$marital = \dash\app::request('marital');
 		if($marital && !in_array($marital, ['single', 'married']))
 		{
-			\lib\notif::error(T_("Invalid marital"), 'marital');
+			\dash\notif::error(T_("Invalid marital"), 'marital');
 			return false;
 		}
 
@@ -187,7 +187,7 @@ class thirdparty
 		$shcode = \dash\utility\convert::to_en_number($shcode);
 		if($shcode && !is_numeric($shcode))
 		{
-			\lib\notif::error(T_("Invalid shcode"), 'shcode');
+			\dash\notif::error(T_("Invalid shcode"), 'shcode');
 			return false;
 		}
 
@@ -195,7 +195,7 @@ class thirdparty
 		$birthcity = trim($birthcity);
 		if($birthcity && mb_strlen($birthcity) > 50)
 		{
-			\lib\notif::error(T_("Invalid birthcity"), 'birthcity');
+			\dash\notif::error(T_("Invalid birthcity"), 'birthcity');
 			return false;
 		}
 
@@ -204,7 +204,7 @@ class thirdparty
 		$zipcode = \dash\utility\convert::to_en_number($zipcode);
 		if($zipcode && !is_numeric($zipcode))
 		{
-			\lib\notif::error(T_("Invalid zipcode"), 'zipcode');
+			\dash\notif::error(T_("Invalid zipcode"), 'zipcode');
 			return false;
 		}
 
@@ -212,14 +212,14 @@ class thirdparty
 		$avatar = \dash\app::request('avatar');
 		if($avatar && mb_strlen($avatar) > 2000)
 		{
-			\lib\notif::error(T_("Invalid avatar"), 'avatar');
+			\dash\notif::error(T_("Invalid avatar"), 'avatar');
 			return false;
 		}
 
 		$shfrom = \dash\app::request('shfrom');
 		if ($shfrom && mb_strlen($shfrom) > 200)
 		{
-			\lib\notif::error(T_("Invalid issue place"), 'shfrom');
+			\dash\notif::error(T_("Invalid issue place"), 'shfrom');
 			return false;
 		}
 
@@ -227,14 +227,14 @@ class thirdparty
 		$code = \dash\app::request('code');
 		if ($code && mb_strlen($code) > 100)
 		{
-			\lib\notif::error(T_("Invalid code"), 'code');
+			\dash\notif::error(T_("Invalid code"), 'code');
 			return false;
 		}
 
 		$email = \dash\app::request('email');
 		if ($email && mb_strlen($email) > 150)
 		{
-			\lib\notif::error(T_("Invalid email"), 'email');
+			\dash\notif::error(T_("Invalid email"), 'email');
 			return false;
 		}
 
@@ -242,7 +242,7 @@ class thirdparty
 		$city = trim($city);
 		if($city && mb_strlen($city) > 100)
 		{
-			\lib\notif::error(T_("Invalid city"), 'city');
+			\dash\notif::error(T_("Invalid city"), 'city');
 			return false;
 		}
 
@@ -250,7 +250,7 @@ class thirdparty
 		$province = trim($province);
 		if($province && mb_strlen($province) > 100)
 		{
-			\lib\notif::error(T_("Invalid province"), 'province');
+			\dash\notif::error(T_("Invalid province"), 'province');
 			return false;
 		}
 
@@ -258,7 +258,7 @@ class thirdparty
 		$country = trim($country);
 		if($country && mb_strlen($country) > 100)
 		{
-			\lib\notif::error(T_("Invalid country"), 'country');
+			\dash\notif::error(T_("Invalid country"), 'country');
 			return false;
 		}
 
@@ -266,7 +266,7 @@ class thirdparty
 		$address = trim($address);
 		if($address && mb_strlen($address) > 500)
 		{
-			\lib\notif::error(T_("Invalid address"), 'address');
+			\dash\notif::error(T_("Invalid address"), 'address');
 			return false;
 		}
 
@@ -274,7 +274,7 @@ class thirdparty
 		$phone = trim($phone);
 		if($phone && mb_strlen($phone) > 50)
 		{
-			\lib\notif::error(T_("Invalid phone"), 'phone');
+			\dash\notif::error(T_("Invalid phone"), 'phone');
 			return false;
 		}
 
@@ -282,7 +282,7 @@ class thirdparty
 		$status = trim($status);
 		if($status && !in_array($status, ['active','deactive','disable','filter','leave','delete','parent','suspended']))
 		{
-			\lib\notif::error(T_("Invalid status"), 'status');
+			\dash\notif::error(T_("Invalid status"), 'status');
 			return false;
 		}
 
@@ -290,7 +290,7 @@ class thirdparty
 		$desc = trim($desc);
 		if($desc && mb_strlen($desc) > 500)
 		{
-			\lib\notif::error(T_("Invalid desc"), 'desc');
+			\dash\notif::error(T_("Invalid desc"), 'desc');
 			return false;
 		}
 
@@ -314,7 +314,7 @@ class thirdparty
 			{
 				if(!$firstname && !$lastname)
 				{
-					\lib\notif::error(T_("Fill name or family is require!"), ['firstname', 'lastname']);
+					\dash\notif::error(T_("Fill name or family is require!"), ['firstname', 'lastname']);
 					return false;
 				}
 			}

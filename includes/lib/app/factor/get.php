@@ -30,17 +30,17 @@ trait get
 
 		$_option = array_merge($default_option, $_option);
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
-			\dash\app::log('api:factor:user:id:not:found', \lib\user::id(), \dash\app::log_meta());
-			if($_option['debug']) \lib\notif::error(T_("User id not found"));
+			\dash\app::log('api:factor:user:id:not:found', \dash\user::id(), \dash\app::log_meta());
+			if($_option['debug']) \dash\notif::error(T_("User id not found"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\dash\app::log('api:factor:store:id:not:found', \lib\user::id(), \dash\app::log_meta());
-			if($_option['debug']) \lib\notif::error(T_("Store id not found"));
+			\dash\app::log('api:factor:store:id:not:found', \dash\user::id(), \dash\app::log_meta());
+			if($_option['debug']) \dash\notif::error(T_("Store id not found"));
 			return false;
 		}
 
@@ -49,8 +49,8 @@ trait get
 		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
-			\dash\app::log('api:factor:id:shortname:not:set', \lib\user::id(), \dash\app::log_meta());
-			if($_option['debug']) \lib\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
+			\dash\app::log('api:factor:id:shortname:not:set', \dash\user::id(), \dash\app::log_meta());
+			if($_option['debug']) \dash\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			return false;
 		}
 

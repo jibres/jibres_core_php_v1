@@ -53,11 +53,11 @@ class model extends \content_a\main\model
 		{
 			if(isset($result['thirdparty_id']))
 			{
-				\lib\redirect::to(\dash\url::base(). '/a/thirdparty/edit?id='. $result['thirdparty_id']);
+				\dash\redirect::to(\dash\url::base(). '/a/thirdparty/edit?id='. $result['thirdparty_id']);
 			}
 			else
 			{
-				\lib\redirect::to(\dash\url::base(). '/a/thirdparty');
+				\dash\redirect::to(\dash\url::base(). '/a/thirdparty');
 			}
 		}
 	}

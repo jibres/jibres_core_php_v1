@@ -37,17 +37,17 @@ trait add
 			]
 		];
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
 			\dash\app::log('api:product:user_id:notfound', null, $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("User not found"), 'user');
+			if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
 			\dash\app::log('api:product:store_id:notfound', null, $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Store not found"), 'subdomain');
+			if($_option['debug']) \dash\notif::error(T_("Store not found"), 'subdomain');
 			return false;
 		}
 
@@ -60,7 +60,7 @@ trait add
 		}
 
 		$args['store_id'] = \lib\store::id();
-		$args['creator']  = \lib\user::id();
+		$args['creator']  = \dash\user::id();
 
 		if(!isset($args['status']) || (isset($args['status']) && !$args['status']))
 		{
@@ -69,21 +69,21 @@ trait add
 
 		if(!isset($args['title']) || (isset($args['title']) && !$args['title']))
 		{
-			\dash\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Product title can not be null"), 'title');
+			\dash\app::log('api:product:title:not:set', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Product title can not be null"), 'title');
 			return false;
 		}
 
 		$return = [];
 
-		// \lib\temp::set('last_product_added', isset($args['slug'])? $args['slug'] : null);
+		// \dash\temp::set('last_product_added', isset($args['slug'])? $args['slug'] : null);
 
 		$product_id = \lib\db\products::insert($args);
 
 		if(!$product_id)
 		{
-			\dash\app::log('api:product:no:way:to:insert:product', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("No way to insert product"), 'db', 'system');
+			\dash\app::log('api:product:no:way:to:insert:product', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("No way to insert product"), 'db', 'system');
 			return false;
 		}
 
@@ -92,7 +92,7 @@ trait add
 		$insert_productprices =
 		[
 			'product_id'      => $product_id,
-			'creator'         => \lib\user::id(),
+			'creator'         => \dash\user::id(),
 			'startdate'       => date("Y-m-d H:i:s"),
 			'startshamsidate' => \dash\utility\jdate::date("Ymd", false, false),
 			'enddate'         => null,
@@ -109,7 +109,7 @@ trait add
 
 		if(\lib\engine\process::status())
 		{
-			if($_option['debug']) \lib\notif::ok(T_("Product successfuly added"));
+			if($_option['debug']) \dash\notif::ok(T_("Product successfuly added"));
 		}
 
 		self::clean_cache('var');

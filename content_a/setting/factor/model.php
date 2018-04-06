@@ -114,8 +114,8 @@ class model extends \content_a\main\model
 
 		if(\lib\engine\process::status())
 		{
-			\lib\notif::ok(T_("Factor setting saved"));
-			\lib\redirect::pwd();
+			\dash\notif::ok(T_("Factor setting saved"));
+			\dash\redirect::pwd();
 		}
 	}
 }

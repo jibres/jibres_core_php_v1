@@ -40,15 +40,15 @@ trait edit
 
 		if(!$id || !is_numeric($id))
 		{
-			\dash\app::log('api:storetransaction:method:put:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Id not set"));
+			\dash\app::log('api:storetransaction:method:put:id:not:set', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\dash\app::log('api:storetransaction:edit:store:id:not:set', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Id not set"));
+			\dash\app::log('api:storetransaction:edit:store:id:not:set', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Id not set"));
 			return false;
 		}
 
@@ -56,8 +56,8 @@ trait edit
 
 		if(empty($load_storetransaction) || !$load_storetransaction || !isset($load_storetransaction['id']))
 		{
-			\dash\app::log('api:storetransaction:edit:storetransaction:not:found', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Can not access to edit it"), 'storetransaction', 'permission');
+			\dash\app::log('api:storetransaction:edit:storetransaction:not:found', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("Can not access to edit it"), 'storetransaction', 'permission');
 			return false;
 		}
 
@@ -67,7 +67,7 @@ trait edit
 
 		if(\lib\engine\process::status())
 		{
-			\lib\notif::ok(T_("Your storetransaction successfully updated"));
+			\dash\notif::ok(T_("Your storetransaction successfully updated"));
 		}
 
 		return $return;

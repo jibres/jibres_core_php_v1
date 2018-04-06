@@ -12,7 +12,7 @@ trait datalist
 	 */
 	public static function list($_args = [])
 	{
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
 			return false;
 		}
@@ -24,8 +24,8 @@ trait datalist
 			unset($_args['pagenation']);
 		}
 
-		$meta['creator'] = \lib\user::id();
-		$result          = \lib\db\stores::search(\lib\user::id(), $meta);
+		$meta['creator'] = \dash\user::id();
+		$result          = \lib\db\stores::search(\dash\user::id(), $meta);
 		$temp            = [];
 		foreach ($result as $key => $value)
 		{

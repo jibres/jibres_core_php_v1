@@ -31,7 +31,7 @@ trait get
 
 		if($_options['debug'])
 		{
-			// \lib\notif::title(T_("Operation Faild"));
+			// \dash\notif::title(T_("Operation Faild"));
 		}
 
 		$log_meta =
@@ -43,7 +43,7 @@ trait get
 			]
 		];
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
 			// return false;
 		}
@@ -57,29 +57,29 @@ trait get
 		{
 			if($_options['debug'])
 			{
-				\dash\app::log('api:store:id:shortname:not:set', \lib\user::id(), $log_meta);
-				\lib\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
+				\dash\app::log('api:store:id:shortname:not:set', \dash\user::id(), $log_meta);
+				\dash\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			}
 			return false;
 		}
 
 		if($id && $shortname)
 		{
-			\dash\app::log('api:store:id:shortname:together:set', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:id:shortname:together:set', \dash\user::id(), $log_meta);
 			if($_options['debug'])
 			{
-				\lib\notif::error(T_("Can not set store id and shortname together"), 'id', 'arguments');
+				\dash\notif::error(T_("Can not set store id and shortname together"), 'id', 'arguments');
 			}
 			return false;
 		}
 
 		if($id)
 		{
-			$result = \lib\db\stores::access_store_id($id, \lib\user::id(), ['action' => 'view']);
+			$result = \lib\db\stores::access_store_id($id, \dash\user::id(), ['action' => 'view']);
 		}
 		else
 		{
-			$result = \lib\db\stores::access_store($shortname, \lib\user::id(), ['action' => 'view']);
+			$result = \lib\db\stores::access_store($shortname, \dash\user::id(), ['action' => 'view']);
 		}
 
 		if(!$result)
@@ -95,14 +95,14 @@ trait get
 
 			if($result)
 			{
-				if(\lib\permission::access('load:all:store', null, \lib\user::id()))
+				if(\dash\permission::access('load:all:store', null, \dash\user::id()))
 				{
 					$result = $result;
 				}
 				else
 				{
-					\lib\temp::set('store_access_denied', true);
-					\lib\temp::set('store_exist', true);
+					\dash\temp::set('store_access_denied', true);
+					\dash\temp::set('store_exist', true);
 					$result = false;
 				}
 			}
@@ -110,17 +110,17 @@ trait get
 
 		if(!$result)
 		{
-			\dash\app::log('api:store:access:denide', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:access:denide', \dash\user::id(), $log_meta);
 			if($_options['debug'])
 			{
-				\lib\notif::error(T_("Can not access to load this store details"), 'store', 'permission');
+				\dash\notif::error(T_("Can not access to load this store details"), 'store', 'permission');
 			}
 			return false;
 		}
 
 		if($_options['debug'])
 		{
-			// \lib\notif::title(T_("Operation complete"));
+			// \dash\notif::title(T_("Operation complete"));
 		}
 
 		$result = self::ready($result);

@@ -14,7 +14,7 @@ class userstore
 	 */
 	public static function clean()
 	{
-		\lib\session::set('userstore_detail_'. \dash\url::subdomain(). '_'. \lib\user::id(), null);
+		\dash\session::set('userstore_detail_'. \dash\url::subdomain(). '_'. \dash\user::id(), null);
 		self::$userstore = [];
 	}
 
@@ -29,9 +29,9 @@ class userstore
 			return;
 		}
 
-		if(\lib\session::get('userstore_detail_'. \dash\url::subdomain(). '_'. \lib\user::id()))
+		if(\dash\session::get('userstore_detail_'. \dash\url::subdomain(). '_'. \dash\user::id()))
 		{
-			self::$userstore = \lib\session::get('userstore_detail_'. \dash\url::subdomain(). '_'. \lib\user::id());
+			self::$userstore = \dash\session::get('userstore_detail_'. \dash\url::subdomain(). '_'. \dash\user::id());
 			return;
 		}
 
@@ -40,13 +40,13 @@ class userstore
 			return false;
 		}
 
-		$get = ['store_id' => \lib\store::id(), 'user_id' => \lib\user::id(), 'limit' => 1];
+		$get = ['store_id' => \lib\store::id(), 'user_id' => \dash\user::id(), 'limit' => 1];
 		$userstore_detail = \lib\db\userstores::get($get);
 
 		if(is_array($userstore_detail))
 		{
 			self::$userstore = $userstore_detail;
-			\lib\session::set('userstore_detail_'. \dash\url::subdomain(). '_'. \lib\user::id(), $userstore_detail);
+			\dash\session::set('userstore_detail_'. \dash\url::subdomain(). '_'. \dash\user::id(), $userstore_detail);
 		}
 	}
 

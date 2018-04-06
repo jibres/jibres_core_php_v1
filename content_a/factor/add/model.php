@@ -13,7 +13,7 @@ class model extends \content_a\main\model
 	{
 		if(empty(array_filter(\dash\request::post())))
 		{
-			\lib\notif::warn(T_("No items have been added for sale"));
+			\dash\notif::warn(T_("No items have been added for sale"));
 			return false;
 		}
 
@@ -23,7 +23,7 @@ class model extends \content_a\main\model
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
-			\lib\notif::warn(T_("No items have been added for sale"));
+			\dash\notif::warn(T_("No items have been added for sale"));
 			return false;
 		}
 
@@ -110,7 +110,7 @@ class model extends \content_a\main\model
 				$redirect_url .= '?'. http_build_query($query_data);
 			}
 
-			\lib\redirect::to($redirect_url);
+			\dash\redirect::to($redirect_url);
 		}
 	}
 }

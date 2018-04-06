@@ -15,12 +15,12 @@ class model extends \content_a\main\model
 
 			if(\lib\engine\process::status())
 			{
-				\lib\redirect::to(\dash\url::here(). '/product');
+				\dash\redirect::to(\dash\url::here(). '/product');
 			}
 		}
 		else
 		{
-			\lib\notif::error(T_("What are you doing?"));
+			\dash\notif::error(T_("What are you doing?"));
 		}
 	}
 }

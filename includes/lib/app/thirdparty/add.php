@@ -27,15 +27,15 @@ trait add
 
 		\dash\app::variable($_args);
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
-			\lib\notif::error(T_("user not found"), 'user');
+			\dash\notif::error(T_("user not found"), 'user');
 			return false;
 		}
 
 		if(!\lib\store::id() && !$_option['store_id'])
 		{
-			\lib\notif::error(T_("store not found"), 'store');
+			\dash\notif::error(T_("store not found"), 'store');
 			return false;
 		}
 
@@ -77,7 +77,7 @@ trait add
 
 			if(isset($check_duplicate['id']))
 			{
-				\lib\notif::error(T_("Duplicate customer code in this store"), 'code');
+				\dash\notif::error(T_("Duplicate customer code in this store"), 'code');
 				return false;
 			}
 		}
@@ -104,7 +104,7 @@ trait add
 
 		if(isset($check_duplicate['id']))
 		{
-			\lib\notif::error(T_("Duplicate user in this store"), 'duplicate');
+			\dash\notif::error(T_("Duplicate user in this store"), 'duplicate');
 			return false;
 		}
 
@@ -112,8 +112,8 @@ trait add
 
 		if(!$userstore_id)
 		{
-			\dash\app::log('api:thirdparty:no:way:to:insert:thirdparty', \lib\user::id(), \dash\app::log_meta());
-			\lib\notif::error(T_("No way to insert :thirdparty"), 'db', 'system');
+			\dash\app::log('api:thirdparty:no:way:to:insert:thirdparty', \dash\user::id(), \dash\app::log_meta());
+			\dash\notif::error(T_("No way to insert :thirdparty"), 'db', 'system');
 			return false;
 		}
 
@@ -121,7 +121,7 @@ trait add
 
 		if(\lib\engine\process::status())
 		{
-			\lib\notif::ok(T_("Thirdparty successfuly added"));
+			\dash\notif::ok(T_("Thirdparty successfuly added"));
 			\lib\app\store::user_count('thirdparty', true);
 		}
 

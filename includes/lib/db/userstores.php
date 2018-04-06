@@ -135,17 +135,17 @@ class userstores
 	public static function update_cache($_id, $_store_id, $_force = false)
 	{
 		// no detail was changed
-		if(!\lib\temp::get('contact_change_any_thing') && !$_force)
+		if(!\dash\temp::get('contact_change_any_thing') && !$_force)
 		{
 			return null;
 		}
 
-		if(\lib\temp::get('user_team_already_run_update_cache'))
+		if(\dash\temp::get('user_team_already_run_update_cache'))
 		{
 			return true;
 		}
 
-		\lib\temp::set('user_team_already_run_update_cache', true);
+		\dash\temp::set('user_team_already_run_update_cache', true);
 
 		if(!$_store_id)
 		{

@@ -39,10 +39,10 @@ trait add
 			]
 		];
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
 			\dash\app::log('api:factor:user_id:notfound', null, $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("User not found"), 'user');
+			if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
 			\dash\db::rollback();
 			return false;
 		}
@@ -50,7 +50,7 @@ trait add
 		if(!\lib\store::id())
 		{
 			\dash\app::log('api:factor:store_id:notfound', null, $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Store not found"), 'subdomain');
+			if($_option['debug']) \dash\notif::error(T_("Store not found"), 'subdomain');
 			\dash\db::rollback();
 			return false;
 		}
@@ -107,8 +107,8 @@ trait add
 
 		if(!$factor_id)
 		{
-			\dash\app::log('api:factor:no:way:to:insert:factor', \lib\user::id(), $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("No way to insert factor"), 'db', 'system');
+			\dash\app::log('api:factor:no:way:to:insert:factor', \dash\user::id(), $log_meta);
+			if($_option['debug']) \dash\notif::error(T_("No way to insert factor"), 'db', 'system');
 			\dash\db::rollback();
 			return false;
 		}
@@ -130,7 +130,7 @@ trait add
 		if(\lib\engine\process::status())
 		{
 			\dash\db::commit();
-			if($_option['debug']) \lib\notif::ok(T_("Factor successfuly added"));
+			if($_option['debug']) \dash\notif::ok(T_("Factor successfuly added"));
 		}
 
 		return $return;

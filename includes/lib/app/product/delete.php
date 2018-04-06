@@ -13,7 +13,7 @@ trait delete
 	public static function delete($_id, $_option = [])
 	{
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
 			return false;
 		}
@@ -33,8 +33,8 @@ trait delete
 		$id = \dash\coding::decode($_id);
 		if(!$id)
 		{
-			\dash\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
-			\lib\notif::error(T_("Product title can not be null"), 'title');
+			\dash\app::log('api:product:title:not:set', \dash\user::id(), $log_meta);
+			\dash\notif::error(T_("Product title can not be null"), 'title');
 			return false;
 		}
 
@@ -43,8 +43,8 @@ trait delete
 
 		if(!$result)
 		{
-			\dash\app::log('api:product:delete:access:denide', \lib\user::id(), $log_meta);
-			\lib\notif::error(T_("Can not access to delete this product"), 'product');
+			\dash\app::log('api:product:delete:access:denide', \dash\user::id(), $log_meta);
+			\dash\notif::error(T_("Can not access to delete this product"), 'product');
 			return false;
 		}
 
@@ -57,15 +57,15 @@ trait delete
 
 		if($result)
 		{
-			\dash\app::log('api:product:deleted', \lib\user::id(), $log_meta);
-			\lib\notif::ok(T_("Product was deleted"));
+			\dash\app::log('api:product:deleted', \dash\user::id(), $log_meta);
+			\dash\notif::ok(T_("Product was deleted"));
 			return true;
 		}
 		else
 		{
 			$log_meta['meta']['mysql_error'] = \dash\db::error();
-			\dash\app::log('api:product:can:not:deleted', \lib\user::id(), $log_meta);
-			\lib\notif::error(T_("We can not delete this product"));
+			\dash\app::log('api:product:can:not:deleted', \dash\user::id(), $log_meta);
+			\dash\notif::error(T_("We can not delete this product"));
 			return false;
 		}
 	}

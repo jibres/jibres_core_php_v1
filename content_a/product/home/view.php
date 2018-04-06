@@ -76,7 +76,7 @@ class view extends \content_a\main\view
 
 			if(isset($this->data->dataTable[0]['id']) && $barcode_is_scaned)
 			{
-				\lib\redirect::to(\dash\url::this().'/edit/general?id='. $this->data->dataTable[0]['id']);
+				\dash\redirect::to(\dash\url::this().'/edit/general?id='. $this->data->dataTable[0]['id']);
 				return;
 			}
 

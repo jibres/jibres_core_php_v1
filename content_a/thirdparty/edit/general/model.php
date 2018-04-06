@@ -48,7 +48,7 @@ class model extends \content_a\main\model
 
 		if(\lib\engine\process::status())
 		{
-			\lib\redirect::pwd();
+			\dash\redirect::pwd();
 		}
 	}
 }

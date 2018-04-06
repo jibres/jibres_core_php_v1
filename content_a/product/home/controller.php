@@ -14,7 +14,7 @@ class controller extends \content_a\main\controller
 		{
 			$new_url = \dash\url::pwd();
 			$new_url = strtok($new_url,'?');
-			\lib\redirect::to($new_url);
+			\dash\redirect::to($new_url);
 		}
 	}
 }

@@ -18,12 +18,12 @@ class model
 	public static function post()
 	{
 		// check login
-		if(\lib\user::login())
+		if(\dash\user::login())
 		{
-			$user_id = \lib\user::id();
+			$user_id = \dash\user::id();
 
 			// get mobile from user login session
-			$mobile = \lib\user::login('mobile');
+			$mobile = \dash\user::login('mobile');
 
 			if(!$mobile)
 			{
@@ -31,7 +31,7 @@ class model
 			}
 
 			// get display name from user login session
-			$displayname = \lib\user::login("displayname");
+			$displayname = \dash\user::login("displayname");
 			// user not set users display name, we get display name from contact form
 			if(!$displayname)
 			{
@@ -61,8 +61,8 @@ class model
 		[
 			'meta' =>
 			[
-				'login'    => \lib\user::login('all'),
-				'language' => \lib\language::current(),
+				'login'    => \dash\user::login('all'),
+				'language' => \dash\language::current(),
 				'post'     => \dash\request::post(),
 			]
 		];
@@ -70,7 +70,7 @@ class model
 		/**
 		 * register user if set mobile and not register
 		 */
-		if($mobile && !\lib\user::login())
+		if($mobile && !\dash\user::login())
 		{
 			$mobile = \dash\utility\filter::mobile($mobile);
 
@@ -97,7 +97,7 @@ class model
 		// check content
 		if($content == '')
 		{
-			\lib\notif::error(T_("Please try type something!"), "content");
+			\dash\notif::error(T_("Please try type something!"), "content");
 			return false;
 		}
 		// ready to insert comments
@@ -119,15 +119,15 @@ class model
 			// 	'subject' => 'contact',
 			// 	'body'    => $content,
 			// ];
-			// \lib\mail::send($mail);
+			// \dash\mail::send($mail);
 
 			\dash\db\logs::set('user:send:contact', $user_id, $log_meta);
-			\lib\notif::ok(T_("Thank You For contacting us"));
+			\dash\notif::ok(T_("Thank You For contacting us"));
 		}
 		else
 		{
 			\dash\db\logs::set('user:send:contact:fail', $user_id, $log_meta);
-			\lib\notif::error(T_("We could'nt save the contact"));
+			\dash\notif::error(T_("We could'nt save the contact"));
 		}
 	}
 }

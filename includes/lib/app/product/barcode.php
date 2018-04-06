@@ -85,22 +85,22 @@ trait barcode
 							$msg = "<a href='$link'>". $msg. '</a>';
 						}
 
-						\dash\app::log('app:product:barcode:is:duplicate:', \lib\user::id(), $log_meta);
-						\lib\notif::error($msg);
+						\dash\app::log('app:product:barcode:is:duplicate:', \dash\user::id(), $log_meta);
+						\dash\notif::error($msg);
 						return false;
 					}
 				}
 				else
 				{
-					\dash\app::log('app:product:barcode:1:record:havenot:id:error:', \lib\user::id(), $log_meta);
-					\lib\notif::error(T_("Undefined error was happend"));
+					\dash\app::log('app:product:barcode:1:record:havenot:id:error:', \dash\user::id(), $log_meta);
+					\dash\notif::error(T_("Undefined error was happend"));
 					return false;
 				}
 			}
 			else
 			{
-				\dash\app::log('more:than:2:product:save:by:one:barcode', \lib\user::id(), $log_meta);
-				\lib\notif::error(T_("More than 2 products saved by this barcode"));
+				\dash\app::log('more:than:2:product:save:by:one:barcode', \dash\user::id(), $log_meta);
+				\dash\notif::error(T_("More than 2 products saved by this barcode"));
 				return false;
 			}
 		}

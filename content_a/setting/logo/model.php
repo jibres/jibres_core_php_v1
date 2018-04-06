@@ -45,13 +45,13 @@ class model extends \content_a\main\model
 		}
 		else
 		{
-			\lib\notif::error(T_("No file was sended"), 'logo');
+			\dash\notif::error(T_("No file was sended"), 'logo');
 			return false;
 		}
 
 		if(\lib\engine\process::status())
 		{
-			\lib\redirect::pwd();
+			\dash\redirect::pwd();
 		}
 	}
 }

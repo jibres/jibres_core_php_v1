@@ -25,10 +25,10 @@ trait add
 			]
 		];
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
 			\dash\app::log('api:store:user_id:notfound', null, $log_meta);
-			\lib\notif::error(T_("User not found"), 'user');
+			\dash\notif::error(T_("User not found"), 'user');
 			return false;
 		}
 
@@ -40,7 +40,7 @@ trait add
 			return false;
 		}
 		// check store count
-		$count_store = self::count_store_by_creator(\lib\user::id());
+		$count_store = self::count_store_by_creator(\dash\user::id());
 
 		if(\dash\url::isLocal())
 		{
@@ -50,7 +50,7 @@ trait add
 		{
 			if($count_store >= 1)
 			{
-				$user_budget = \dash\db\transactions::budget(\lib\user::id(), ['unit' => 'toman']);
+				$user_budget = \dash\db\transactions::budget(\dash\user::id(), ['unit' => 'toman']);
 				if(is_array($user_budget))
 				{
 					$user_budget = array_sum($user_budget);
@@ -60,7 +60,7 @@ trait add
 				if($user_budget < 10000)
 				{
 					\dash\app::log('api:store:user_id:try:add:store2:budget:10000', null, $log_meta);
-					\lib\notif::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+					\dash\notif::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
 					return false;
 				}
 			}
@@ -68,16 +68,16 @@ trait add
 			if($count_store >= 3)
 			{
 				\dash\app::log('api:store:try:add:store3:and:>3', null, $log_meta);
-				\lib\notif::error(T_("You can not have more than three active stores. Contact support if needed"));
+				\dash\notif::error(T_("You can not have more than three active stores. Contact support if needed"));
 				return false;
 			}
 		}
 
 		$return = [];
 
-		\lib\temp::set('last_store_added', isset($args['slug'])? $args['slug'] : null);
+		\dash\temp::set('last_store_added', isset($args['slug'])? $args['slug'] : null);
 
-		$args['creator'] = \lib\user::id();
+		$args['creator'] = \dash\user::id();
 		$args['status']  = 'enable';
 
 		$store_id = \lib\db\stores::insert($args);
@@ -90,17 +90,17 @@ trait add
 
 		if(!$store_id)
 		{
-			\dash\app::log('api:store:no:way:to:insert:store', \lib\user::id(), $log_meta);
-			\lib\notif::error(T_("No way to insert store"), 'db', 'system');
+			\dash\app::log('api:store:no:way:to:insert:store', \dash\user::id(), $log_meta);
+			\dash\notif::error(T_("No way to insert store"), 'db', 'system');
 			return false;
 		}
 
 		$insert_userstore =
 		[
-			'mobile'    => \lib\user::detail('mobile'),
-			'firstname' => \lib\user::detail('displayname') ?  \lib\user::detail('displayname') : T_("You"),
+			'mobile'    => \dash\user::detail('mobile'),
+			'firstname' => \dash\user::detail('displayname') ?  \dash\user::detail('displayname') : T_("You"),
 			'type'      => 'staff',
-			'gender'    => \lib\user::detail('gender'),
+			'gender'    => \dash\user::detail('gender'),
 			'postion'   => T_('Admin'),
 		];
 
@@ -120,7 +120,7 @@ trait add
 
 		if(\lib\engine\process::status())
 		{
-			\lib\notif::ok(T_("Store successfuly added"));
+			\dash\notif::ok(T_("Store successfuly added"));
 		}
 
 		return $return;
@@ -136,7 +136,7 @@ trait add
 	{
 		if(!isset($_args['slug']))
 		{
-			$_args['slug'] = (string) \lib\user::id(). (string) rand(1000,5000);
+			$_args['slug'] = (string) \dash\user::id(). (string) rand(1000,5000);
 		}
 
 		$new_slug     = null;
@@ -150,7 +150,7 @@ trait add
 			$new_slug = (string) $_args['slug']. (string) ((int) $count +  (int) $i);
 		}
 
-		\lib\temp::set('last_store_added', $new_slug);
+		\dash\temp::set('last_store_added', $new_slug);
 		return $new_slug;
 	}
 }

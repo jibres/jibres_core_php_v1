@@ -31,16 +31,16 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\lib\session::set('dashboard_factor_count_group_by_'. \lib\store::id(), null);
+			\dash\session::set('dashboard_factor_count_group_by_'. \lib\store::id(), null);
 			return null;
 		}
 
-		$count = \lib\session::get('dashboard_factor_count_group_by_'. \lib\store::id());
+		$count = \dash\session::get('dashboard_factor_count_group_by_'. \lib\store::id());
 
 		if($count === null)
 		{
 			$count = \lib\db\factors::get_count_group_by(\lib\store::id());
-			\lib\session::set('dashboard_factor_count_group_by_'. \lib\store::id(), $count, null,  self::$life_time);
+			\dash\session::set('dashboard_factor_count_group_by_'. \lib\store::id(), $count, null,  self::$life_time);
 		}
 
 		return $count;
@@ -51,16 +51,16 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\lib\session::set('dashboard_factor_count_'. \lib\store::id(), null);
+			\dash\session::set('dashboard_factor_count_'. \lib\store::id(), null);
 			return null;
 		}
 
-		$count = \lib\session::get('dashboard_factor_count_'. \lib\store::id());
+		$count = \dash\session::get('dashboard_factor_count_'. \lib\store::id());
 		if($count === null)
 		{
 			$count = \lib\db\factors::get_count(['store_id' => \lib\store::id()]);
 			$count = intval($count);
-			\lib\session::set('dashboard_factor_count_'. \lib\store::id(), $count, null,  self::$life_time);
+			\dash\session::set('dashboard_factor_count_'. \lib\store::id(), $count, null,  self::$life_time);
 		}
 		return $count;
 	}

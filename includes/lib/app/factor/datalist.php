@@ -27,7 +27,7 @@ trait datalist
 	 */
 	public static function list($_string = null, $_option = [])
 	{
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
 			return false;
 		}

@@ -79,7 +79,7 @@ class view extends \content_a\main\view
 					}
 					if(!$result)
 					{
-						// \lib\notif::title($msg);
+						// \dash\notif::title($msg);
 					}
 					break;
 
@@ -95,7 +95,7 @@ class view extends \content_a\main\view
 			{
 				$result = json_encode($result, JSON_UNESCAPED_UNICODE);
 			}
-			\lib\notif::result(["list" => $result]);
+			\dash\notif::result(["list" => $result]);
 			// force show json
 			$this->_processor(['force_stop' => true, 'force_json' => true]);
 			// \dash\code::exit();

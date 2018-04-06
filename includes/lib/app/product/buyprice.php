@@ -94,7 +94,7 @@ trait buyprice
 			// set the productprice record
 
 			$new_record['product_id']      = $_product_id;
-			$new_record['creator']         = \lib\user::id();
+			$new_record['creator']         = \dash\user::id();
 			$new_record['startdate']       = date("Y-m-d H:i:s");
 			$new_record['startshamsidate'] = \dash\utility\jdate::date("Ymd", false, false);
 

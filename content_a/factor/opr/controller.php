@@ -8,7 +8,7 @@ class controller extends \content_a\main\controller
 	{
 		if(!\dash\request::get('id'))
 		{
-			\lib\header::status(404, T_("Id not found"));
+			\dash\header::status(404, T_("Id not found"));
 		}
 
 		$this->get()->ALL();

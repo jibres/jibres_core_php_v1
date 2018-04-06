@@ -51,7 +51,7 @@ trait edit
 				}
 				else
 				{
-					\lib\notif::error(T_("Duplicate customer code in this store"), 'code');
+					\dash\notif::error(T_("Duplicate customer code in this store"), 'code');
 					return false;
 				}
 			}
@@ -103,7 +103,7 @@ trait edit
 
 			if(\lib\engine\process::status())
 			{
-				\lib\notif::ok(T_("Thirdparty successfully updated"));
+				\dash\notif::ok(T_("Thirdparty successfully updated"));
 			}
 		}
 

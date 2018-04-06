@@ -9,15 +9,15 @@ class model extends \content_a\main\model
 	 */
 	public function plan()
 	{
-		if(!\lib\user::login())
+		if(!\dash\user::login())
 		{
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\dash\db\logs::set('plan:invalid:store', \lib\user::id());
-			\lib\notif::error(T_("Invalid store!"), 'store');
+			\dash\db\logs::set('plan:invalid:store', \dash\user::id());
+			\dash\notif::error(T_("Invalid store!"), 'store');
 			return false;
 		}
 
@@ -30,7 +30,7 @@ class model extends \content_a\main\model
 	 */
 	public function post_plan()
 	{
-		if(!\lib\user::login())
+		if(!\dash\user::login())
 		{
 			return false;
 		}
@@ -38,8 +38,8 @@ class model extends \content_a\main\model
 		$plan = \dash\request::post('plan');
 		if(!$plan)
 		{
-			\dash\db\logs::set('plan:plan:not:set', \lib\user::id());
-			\lib\notif::error(T_("Please select one of plan"), 'plan');
+			\dash\db\logs::set('plan:plan:not:set', \dash\user::id());
+			\dash\notif::error(T_("Please select one of plan"), 'plan');
 			return false;
 		}
 
@@ -63,22 +63,22 @@ class model extends \content_a\main\model
 
 		if(!in_array($plan, $all_plan_list))
 		{
-			\dash\db\logs::set('plan:invalid:plan', \lib\user::id());
-			\lib\notif::error(T_("Invalid plan!"), 'plan');
+			\dash\db\logs::set('plan:invalid:plan', \dash\user::id());
+			\dash\notif::error(T_("Invalid plan!"), 'plan');
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\dash\db\logs::set('plan:invalid:store', \lib\user::id());
-			\lib\notif::error(T_("Invalid store!"), 'store');
+			\dash\db\logs::set('plan:invalid:store', \dash\user::id());
+			\dash\notif::error(T_("Invalid store!"), 'store');
 			return false;
 		}
 
 		if(!\lib\store::is_creator())
 		{
-			\dash\db\logs::set('plan:no:access:to:change:plan', \lib\user::id());
-			\lib\notif::error(T_("No access to change plan"), 'store');
+			\dash\db\logs::set('plan:no:access:to:change:plan', \dash\user::id());
+			\dash\notif::error(T_("No access to change plan"), 'store');
 			return false;
 		}
 
@@ -86,21 +86,21 @@ class model extends \content_a\main\model
 		[
 			'store_id' => \lib\store::id(),
 			'plan'     => $plan,
-			'creator'  => \lib\user::id(),
+			'creator'  => \dash\user::id(),
 		];
 		$result = \lib\db\storeplans::set($args);
 
 		if($result)
 		{
-			\lib\notif::ok(T_("Your store plan was changed"));
+			\dash\notif::ok(T_("Your store plan was changed"));
 			if(\lib\engine\process::status())
 			{
-				\lib\redirect::pwd();
+				\dash\redirect::pwd();
 			}
 		}
 		else
 		{
-			// \lib\notif::error(T_("Can not save this plan of your store"));
+			// \dash\notif::error(T_("Can not save this plan of your store"));
 			return false;
 		}
 	}

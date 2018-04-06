@@ -13,8 +13,8 @@ class model extends \content_a\main\model
 
 		if(\lib\engine\process::status())
 		{
-			\lib\notif::ok(T_("Export product successfully complete"));
-			\lib\redirect::to(\dash\url::here(). '/product');
+			\dash\notif::ok(T_("Export product successfully complete"));
+			\dash\redirect::to(\dash\url::here(). '/product');
 		}
 
 	}

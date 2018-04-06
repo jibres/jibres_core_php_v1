@@ -38,7 +38,7 @@ trait dashboard
 
 	public static function sale_time_chart()
 	{
-		$sale_time_chart = \lib\session::get('dashboard_sale_time_chart_'. \lib\store::id());
+		$sale_time_chart = \dash\session::get('dashboard_sale_time_chart_'. \lib\store::id());
 		if($sale_time_chart === null)
 		{
 			$sale_time_chart = \lib\db\factors::time_chart(\lib\store::id(), 'sale');
@@ -52,7 +52,7 @@ trait dashboard
 			}
 			$sale_time_chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
 
-			\lib\session::set('dashboard_sale_time_chart_'. \lib\store::id(), $sale_time_chart, null,  self::$life_time);
+			\dash\session::set('dashboard_sale_time_chart_'. \lib\store::id(), $sale_time_chart, null,  self::$life_time);
 		}
 		return $sale_time_chart;
 	}
@@ -72,20 +72,20 @@ trait dashboard
 			return false;
 		}
 
-		$cache_key = 'store_dashboard_count_store_by_creator'. \lib\user::id();
+		$cache_key = 'store_dashboard_count_store_by_creator'. \dash\user::id();
 
 		if($_clean_cache)
 		{
-			\lib\session::set($cache_key, null);
+			\dash\session::set($cache_key, null);
 			return null;
 		}
 
-		$count = \lib\session::get($cache_key);
+		$count = \dash\session::get($cache_key);
 
 		if($count === null)
 		{
 			$count = intval(\lib\db\stores::get_count_store_by_creator($_creator_id));
-			\lib\session::set($cache_key, $count, null,  self::$life_time);
+			\dash\session::set($cache_key, $count, null,  self::$life_time);
 		}
 
 		return $count;
@@ -98,16 +98,16 @@ trait dashboard
 
 		if($_clean_cache)
 		{
-			\lib\session::set($cache_key, null);
+			\dash\session::set($cache_key, null);
 			return null;
 		}
 
-		$count = \lib\session::get($cache_key);
+		$count = \dash\session::get($cache_key);
 		if($count === null)
 		{
 			$count = \lib\db\userstores::get_count(['type' => $_type, 'store_id' => \lib\store::id()]);
 			$count = intval($count);
-			\lib\session::set($cache_key, $count, null,  self::$life_time);
+			\dash\session::set($cache_key, $count, null,  self::$life_time);
 		}
 		return $count;
 	}

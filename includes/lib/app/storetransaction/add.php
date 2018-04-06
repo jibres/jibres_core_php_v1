@@ -40,10 +40,10 @@ trait add
 			]
 		];
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
 			\dash\app::log('api:storetransaction:user_id:notfound', null, $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("User not found"), 'user');
+			if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
 			\dash\db::rollback();
 			return false;
 		}
@@ -51,7 +51,7 @@ trait add
 		if(!\lib\store::id())
 		{
 			\dash\app::log('api:storetransaction:store_id:notfound', null, $log_meta);
-			if($_option['debug']) \lib\notif::error(T_("Store not found"), 'subdomain');
+			if($_option['debug']) \dash\notif::error(T_("Store not found"), 'subdomain');
 			\dash\db::rollback();
 			return false;
 		}
@@ -72,7 +72,7 @@ trait add
 		if(!$storetransaction_id)
 		{
 			\dash\db::rollback();
-			\lib\notif::error(T_("No way to insert this transaction"));
+			\dash\notif::error(T_("No way to insert this transaction"));
 			return false;
 		}
 
@@ -84,7 +84,7 @@ trait add
 
 		if(\lib\engine\process::status())
 		{
-			\lib\notif::ok(T_("Transaction successfuly saved"));
+			\dash\notif::ok(T_("Transaction successfuly saved"));
 		}
 
 		return $return;

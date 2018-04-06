@@ -16,7 +16,7 @@ class store
 	 */
 	public static function clean()
 	{
-		\lib\session::set('store_detail_'. \dash\url::subdomain(), null);
+		\dash\session::set('store_detail_'. \dash\url::subdomain(), null);
 		self::$store = [];
 	}
 
@@ -31,9 +31,9 @@ class store
 			return;
 		}
 
-		if(\lib\session::get('store_detail_'. \dash\url::subdomain()))
+		if(\dash\session::get('store_detail_'. \dash\url::subdomain()))
 		{
-			self::$store = \lib\session::get('store_detail_'. \dash\url::subdomain());
+			self::$store = \dash\session::get('store_detail_'. \dash\url::subdomain());
 			return;
 		}
 
@@ -55,7 +55,7 @@ class store
 			}
 
 			self::$store = $store_detail;
-			\lib\session::set('store_detail_'. \dash\url::subdomain(), $store_detail);
+			\dash\session::set('store_detail_'. \dash\url::subdomain(), $store_detail);
 		}
 	}
 
@@ -125,10 +125,10 @@ class store
 	public static function is_creator()
 	{
 		if(
-			\lib\user::id() &&
+			\dash\user::id() &&
 			\lib\store::id() &&
 			\lib\store::detail('creator') &&
-			intval(\lib\user::id()) === intval(\lib\store::detail('creator'))
+			intval(\dash\user::id()) === intval(\lib\store::detail('creator'))
 		  )
 		{
 			return true;
