@@ -255,11 +255,11 @@ trait search
 		if($pagenation && !$get_count)
 		{
 			$pagenation_query = "SELECT	COUNT(*) AS `count`	FROM `factors` $master_join	$where $search ";
-			$pagenation_query = \lib\db::get($pagenation_query, 'count', true);
+			$pagenation_query = \dash\db::get($pagenation_query, 'count', true);
 
 			// list($limit_start, $limit) = \dash\utility\pagination::get_query_limit((int) $pagenation_query, $_options['page'], $limit);
 
-			list($limit_start, $limit) = \lib\db::pagnation((int) $pagenation_query, $limit);
+			list($limit_start, $limit) = \dash\db::pagnation((int) $pagenation_query, $limit);
 			$limit = " LIMIT $limit_start, $limit ";
 		}
 		else
@@ -281,12 +281,12 @@ trait search
 
 		if(!$only_one_value)
 		{
-			$result = \lib\db::get($query, null, false);
+			$result = \dash\db::get($query, null, false);
 			$result = \dash\utility\filter::meta_decode($result);
 		}
 		else
 		{
-			$result = \lib\db::get($query, 'searchcount', true);
+			$result = \dash\db::get($query, 'searchcount', true);
 		}
 
 		return $result;

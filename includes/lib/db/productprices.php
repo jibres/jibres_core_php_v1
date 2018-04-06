@@ -16,7 +16,7 @@ class productprices
 		}
 
 		$query  = "SELECT * FROM productprices WHERE `product_id` = $_product_id AND `enddate` IS NULL ORDER BY `id` DESC LIMIT 1";
-		$result = \lib\db::get($query, null, true);
+		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 
@@ -30,7 +30,7 @@ class productprices
 	public static function insert()
 	{
 		\dash\db\config::public_insert('productprices', ...func_get_args());
-		return \lib\db::insert_id();
+		return \dash\db::insert_id();
 	}
 
 
@@ -86,7 +86,7 @@ class productprices
 		if($where)
 		{
 			$query = "DELETE FROM productprices WHERE $where";
-			return \lib\db::query($query);
+			return \dash\db::query($query);
 		}
 		return false;
 	}

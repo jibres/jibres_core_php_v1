@@ -24,7 +24,7 @@ class userstores
 				userstores.displayname = '$_search_name'
 			LIMIT 1
 		";
-		return \lib\db::get($query, null, true);
+		return \dash\db::get($query, null, true);
 	}
 
 	/**
@@ -35,7 +35,7 @@ class userstores
 	public static function insert()
 	{
 		\dash\db\config::public_insert('userstores', ...func_get_args());
-		return \lib\db::insert_id();
+		return \dash\db::insert_id();
 	}
 
 
@@ -77,7 +77,7 @@ class userstores
 			LIMIT 1
 		";
 
-		$result = \lib\db::get($query, null, true);
+		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 
@@ -115,7 +115,7 @@ class userstores
 			LIMIT 1
 		";
 
-		$result = \lib\db::get($query, null, true);
+		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 
@@ -179,7 +179,7 @@ class userstores
 			userstores.code         = (SELECT contacts.value FROM contacts WHERE contacts.store_id = $_store_id AND contacts.user_id = $user_id AND contacts.key = 'code' 		LIMIT 1)
 			WHERE userstores.id = $_id
 		";
-		return \lib\db::query($query);
+		return \dash\db::query($query);
 	}
 
 

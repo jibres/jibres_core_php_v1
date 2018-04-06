@@ -15,7 +15,7 @@ trait add
 	public static function add($_factor, $_factor_detail, $_option = [])
 	{
 		// start transaction of db
-		\lib\db::transaction();
+		\dash\db::transaction();
 
 		$default_option =
 		[
@@ -43,7 +43,7 @@ trait add
 		{
 			\dash\app::log('api:factor:user_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("User not found"), 'user');
-			\lib\db::rollback();
+			\dash\db::rollback();
 			return false;
 		}
 
@@ -51,7 +51,7 @@ trait add
 		{
 			\dash\app::log('api:factor:store_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Store not found"), 'subdomain');
-			\lib\db::rollback();
+			\dash\db::rollback();
 			return false;
 		}
 
@@ -62,7 +62,7 @@ trait add
 
 		if($factor === false || !\lib\engine\process::status())
 		{
-			\lib\db::rollback();
+			\dash\db::rollback();
 			return false;
 		}
 
@@ -73,7 +73,7 @@ trait add
 
 		if($factor_detail === false || !\lib\engine\process::status())
 		{
-			\lib\db::rollback();
+			\dash\db::rollback();
 			return false;
 		}
 
@@ -109,7 +109,7 @@ trait add
 		{
 			\dash\app::log('api:factor:no:way:to:insert:factor', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("No way to insert factor"), 'db', 'system');
-			\lib\db::rollback();
+			\dash\db::rollback();
 			return false;
 		}
 
@@ -124,12 +124,12 @@ trait add
 
 		if(!$add_detail)
 		{
-			\lib\db::rollback();
+			\dash\db::rollback();
 		}
 
 		if(\lib\engine\process::status())
 		{
-			\lib\db::commit();
+			\dash\db::commit();
 			if($_option['debug']) \lib\notif::ok(T_("Factor successfuly added"));
 		}
 

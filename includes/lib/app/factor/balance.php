@@ -92,7 +92,7 @@ trait balance
 		}
 		else
 		{
-			return \lib\db::query($query);
+			return \dash\db::query($query);
 		}
 	}
 
@@ -103,7 +103,7 @@ trait balance
 		if(!empty(self::$CHANGE_STATIC_QUERY))
 		{
 			$query = implode(';', self::$CHANGE_STATIC_QUERY);
-			$result = \lib\db::query($query, true, ['multi_query' => true]);
+			$result = \dash\db::query($query, true, ['multi_query' => true]);
 		}
 		self::$CHANGE_STATIC_QUERY = [];
 		return $result;

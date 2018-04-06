@@ -12,7 +12,7 @@ trait dashboard
 		}
 
 		$query = "SELECT COUNT(*) AS `count` FROM products WHERE products.store_id = $_store_id ";
-		return \lib\db::get($query, 'count', true);
+		return \dash\db::get($query, 'count', true);
 	}
 
 
@@ -24,7 +24,7 @@ trait dashboard
 		}
 
 		$query = "SELECT COUNT(*) AS `count` FROM products WHERE products.store_id = $_store_id AND products.barcode IS NOT NULL ";
-		return \lib\db::get($query, 'count', true);
+		return \dash\db::get($query, 'count', true);
 	}
 
 
@@ -36,7 +36,7 @@ trait dashboard
 		}
 
 		$query = "SELECT COUNT(*) AS `count` FROM products WHERE products.store_id = $_store_id AND products.barcode2 IS NOT NULL ";
-		return \lib\db::get($query, 'count', true);
+		return \dash\db::get($query, 'count', true);
 	}
 
 
@@ -48,7 +48,7 @@ trait dashboard
 		}
 
 		$query = "SELECT $_type(products.$_field) AS `val` FROM products WHERE products.store_id = $_store_id ";
-		return \lib\db::get($query, 'val', true);
+		return \dash\db::get($query, 'val', true);
 	}
 
 
@@ -70,7 +70,7 @@ trait dashboard
 				products.store_id = $_store_id
 			GROUP BY price_key
 			";
-		return \lib\db::get($query, ['price_key', 'value']);
+		return \dash\db::get($query, ['price_key', 'value']);
 	}
 
 
@@ -93,7 +93,7 @@ trait dashboard
 			GROUP BY unit
 
 			";
-		return \lib\db::get($query, ['unit', 'value']);
+		return \dash\db::get($query, ['unit', 'value']);
 	}
 
 
@@ -116,7 +116,7 @@ trait dashboard
 			GROUP BY cat
 			ORDER BY value DESC
 			";
-		return \lib\db::get($query, ['cat', 'value']);
+		return \dash\db::get($query, ['cat', 'value']);
 	}
 }
 ?>

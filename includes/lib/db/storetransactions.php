@@ -6,7 +6,7 @@ class storetransactions
 	public static function insert()
 	{
 		\dash\db\config::public_insert('storetransactions', ...func_get_args());
-		return \lib\db::insert_id();
+		return \dash\db::insert_id();
 	}
 
 

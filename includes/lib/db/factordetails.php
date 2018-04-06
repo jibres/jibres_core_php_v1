@@ -12,7 +12,7 @@ class factordetails
 		}
 
 		$query = "DELETE FROM factordetails WHERE factor_id = $_factor_id";
-		return \lib\db::query($query);
+		return \dash\db::query($query);
 	}
 
 
@@ -41,9 +41,9 @@ class factordetails
 
 		$query = "INSERT INTO factordetails SET $set";
 
-		\lib\db::query($query);
+		\dash\db::query($query);
 
-		return \lib\db::insert_id();
+		return \dash\db::insert_id();
 	}
 
 	public static function multi_insert()
@@ -100,7 +100,7 @@ class factordetails
 		}
 
 		$query = "DELETE FROM factordetails WHERE id = $_id LIMIT 1";
-		return \lib\db::query($query);
+		return \dash\db::query($query);
 	}
 
 }

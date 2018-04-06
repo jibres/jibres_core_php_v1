@@ -16,7 +16,7 @@ class stores
 	public static function get_similar_slug($_like)
 	{
 		$query = "SELECT stores.slug AS `slug` FROM stores WHERE stores.slug LIKE '$_like%' ";
-		return \lib\db::get($query, 'slug');
+		return \dash\db::get($query, 'slug');
 	}
 
 
@@ -28,7 +28,7 @@ class stores
 	public static function insert()
 	{
 		\dash\db\config::public_insert('stores', ...func_get_args());
-		return \lib\db::insert_id();
+		return \dash\db::insert_id();
 	}
 
 
@@ -73,7 +73,7 @@ class stores
 	public static function get_count_store_by_creator($_creator)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM stores WHERE stores.creator = $_creator ";
-		$result = \lib\db::get($query, 'count', true);
+		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
 

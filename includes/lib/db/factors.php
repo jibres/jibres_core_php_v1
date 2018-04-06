@@ -15,7 +15,7 @@ class factors
 
 		$query = "SELECT COUNT(*) AS `count`, factors.type AS `type` FROM factors WHERE factors.store_id = '$_store_id' GROUP BY factors.type ";
 
-		return \lib\db::get($query, ['type', 'count']);
+		return \dash\db::get($query, ['type', 'count']);
 	}
 
 
@@ -44,7 +44,7 @@ class factors
 			ORDER BY `key` ASC
 
 		";
-		$result = \lib\db::get($query, ['key', 'value']);
+		$result = \dash\db::get($query, ['key', 'value']);
 		return $result;
 	}
 
@@ -82,8 +82,8 @@ class factors
 				factordetails.factor_id = $_id
 		";
 		$result                  = [];
-		$result['factor']        = \lib\db::get($factor, null, true);
-		$result['factor_detail'] = \lib\db::get($factor_detail);
+		$result['factor']        = \dash\db::get($factor, null, true);
+		$result['factor_detail'] = \dash\db::get($factor_detail);
 
 		return $result;
 	}
@@ -113,9 +113,9 @@ class factors
 
 		$query = "INSERT INTO factors SET $set";
 
-		\lib\db::query($query);
+		\dash\db::query($query);
 
-		return \lib\db::insert_id();
+		return \dash\db::insert_id();
 	}
 
 
@@ -162,7 +162,7 @@ class factors
 		}
 
 		$query = "DELETE FROM factors WHERE id = $_id LIMIT 1";
-		return \lib\db::query($query);
+		return \dash\db::query($query);
 	}
 
 
@@ -174,7 +174,7 @@ class factors
 	public static function sum_all()
 	{
 		$query = "SELECT SUM(factors.sum) AS `sum` FROM factors WHERE type = 'sale' ";
-		return \lib\db::get($query, 'sum', true);
+		return \dash\db::get($query, 'sum', true);
 	}
 
 }

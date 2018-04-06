@@ -63,7 +63,7 @@ trait delete
 		}
 		else
 		{
-			$log_meta['meta']['mysql_error'] = \lib\db::error();
+			$log_meta['meta']['mysql_error'] = \dash\db::error();
 			\dash\app::log('api:product:can:not:deleted', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("We can not delete this product"));
 			return false;

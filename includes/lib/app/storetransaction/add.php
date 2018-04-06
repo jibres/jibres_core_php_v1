@@ -15,7 +15,7 @@ trait add
 	public static function add($_args, $_option = [])
 	{
 		// start transaction of db
-		\lib\db::transaction();
+		\dash\db::transaction();
 
 		\dash\app::variable($_args);
 
@@ -44,7 +44,7 @@ trait add
 		{
 			\dash\app::log('api:storetransaction:user_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("User not found"), 'user');
-			\lib\db::rollback();
+			\dash\db::rollback();
 			return false;
 		}
 
@@ -52,7 +52,7 @@ trait add
 		{
 			\dash\app::log('api:storetransaction:store_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Store not found"), 'subdomain');
-			\lib\db::rollback();
+			\dash\db::rollback();
 			return false;
 		}
 
@@ -61,7 +61,7 @@ trait add
 
 		if($args === false || !\lib\engine\process::status())
 		{
-			\lib\db::rollback();
+			\dash\db::rollback();
 			return false;
 		}
 
@@ -71,12 +71,12 @@ trait add
 
 		if(!$storetransaction_id)
 		{
-			\lib\db::rollback();
+			\dash\db::rollback();
 			\lib\notif::error(T_("No way to insert this transaction"));
 			return false;
 		}
 
-		\lib\db::commit();
+		\dash\db::commit();
 
 		$return = [];
 

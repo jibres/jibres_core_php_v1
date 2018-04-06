@@ -13,7 +13,7 @@ class products
 		$ids = implode(',', $_multi_id);
 		$field = self::$public_show_field;
 		$query = "SELECT $field FROM products WHERE products.store_id = $_store_id AND products.id IN ($ids) ";
-		return \lib\db::get($query);
+		return \dash\db::get($query);
 	}
 
 
@@ -42,9 +42,9 @@ class products
 
 		$query = "INSERT INTO products SET $set";
 
-		\lib\db::query($query);
+		\dash\db::query($query);
 
-		return \lib\db::insert_id();
+		return \dash\db::insert_id();
 	}
 
 
@@ -91,7 +91,7 @@ class products
 		}
 
 		$query = "DELETE FROM products WHERE id = $_id LIMIT 1";
-		return \lib\db::query($query);
+		return \dash\db::query($query);
 	}
 
 
@@ -115,7 +115,7 @@ class products
 		}
 		$field = self::$public_show_field;
 		$query = "SELECT $field FROM  products WHERE products.store_id = $_store_id AND (products.barcode = '$_barcode' OR products.barcode2 = '$_barcode')";
-		return \lib\db::get($query);
+		return \dash\db::get($query);
 	}
 
 
@@ -134,7 +134,7 @@ class products
 		}
 
 		$query = "SELECT products.cat AS `cat` FROM products WHERE products.store_id = $_store_id GROUP BY products.cat ORDER BY COUNT(*) DESC";
-		return \lib\db::get($query, 'cat');
+		return \dash\db::get($query, 'cat');
 	}
 
 
@@ -153,7 +153,7 @@ class products
 		}
 
 		$query = "SELECT products.company AS `company` FROM products WHERE products.store_id = $_store_id  GROUP BY products.company ORDER BY COUNT(*) DESC";
-		return \lib\db::get($query, 'company');
+		return \dash\db::get($query, 'company');
 	}
 
 
@@ -172,7 +172,7 @@ class products
 		}
 
 		$query = "SELECT products.unit AS `unit` FROM products WHERE products.store_id = $_store_id  GROUP BY products.unit ORDER BY COUNT(*) DESC";
-		return \lib\db::get($query, 'unit');
+		return \dash\db::get($query, 'unit');
 	}
 
 
@@ -217,7 +217,7 @@ class products
 			WHERE
 				products.store_id = $_store_id
 		";
-		return \lib\db::get($query);
+		return \dash\db::get($query);
 
 	}
 
