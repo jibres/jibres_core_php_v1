@@ -6,8 +6,8 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page(T_('Enterprise'), 'title');
-		\dash\data::page(T_('Have a headaches? We have soulutions. Be patient...'), 'desc');
+		\dash\data::page_title(T_('Enterprise'));
+		\dash\data::page_desc(T_('Have a headaches? We have soulutions. Be patient...'));
 	}
 }
 ?>

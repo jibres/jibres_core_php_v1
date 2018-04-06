@@ -6,8 +6,8 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page(T_('Jibres Social Responsibility'), 'title');
-		\dash\data::page(T_('Social responsibility refers to our role in maintaining, caring about and helping our society, while having set as its goal a responsibility-centered enterprise along with wealth production.'), 'desc');
+		\dash\data::page_title(T_('Jibres Social Responsibility'));
+		\dash\data::page_desc(T_('Social responsibility refers to our role in maintaining, caring about and helping our society, while having set as its goal a responsibility-centered enterprise along with wealth production.'));
 	}
 }
 ?>
