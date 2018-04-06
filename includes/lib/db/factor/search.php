@@ -199,9 +199,9 @@ trait search
 
 			$search_in_id = null;
 
-			if(\lib\coding::is($_string))
+			if(\dash\coding::is($_string))
 			{
-				$search_in_id = "factors.id = '". \lib\coding::decode($_string). "' OR ";
+				$search_in_id = "factors.id = '". \dash\coding::decode($_string). "' OR ";
 			}
 
 			if(is_numeric($en_number))

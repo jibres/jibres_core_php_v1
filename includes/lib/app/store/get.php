@@ -15,7 +15,7 @@ trait get
 	 */
 	public static function get($_args)
 	{
-		\lib\app::valiable($_args);
+		\dash\app::valiable($_args);
 
 		$default_options =
 		[
@@ -39,7 +39,7 @@ trait get
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
@@ -48,16 +48,16 @@ trait get
 			// return false;
 		}
 
-		$id = \lib\app::request("id");
-		$id = \lib\coding::decode($id);
+		$id = \dash\app::request("id");
+		$id = \dash\coding::decode($id);
 
-		$shortname = \lib\app::request('shortname');
+		$shortname = \dash\app::request('shortname');
 
 		if(!$id && !$shortname)
 		{
 			if($_options['debug'])
 			{
-				\lib\app::log('api:store:id:shortname:not:set', \lib\user::id(), $log_meta);
+				\dash\app::log('api:store:id:shortname:not:set', \lib\user::id(), $log_meta);
 				\lib\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			}
 			return false;
@@ -65,7 +65,7 @@ trait get
 
 		if($id && $shortname)
 		{
-			\lib\app::log('api:store:id:shortname:together:set', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:id:shortname:together:set', \lib\user::id(), $log_meta);
 			if($_options['debug'])
 			{
 				\lib\notif::error(T_("Can not set store id and shortname together"), 'id', 'arguments');
@@ -110,7 +110,7 @@ trait get
 
 		if(!$result)
 		{
-			\lib\app::log('api:store:access:denide', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:access:denide', \lib\user::id(), $log_meta);
 			if($_options['debug'])
 			{
 				\lib\notif::error(T_("Can not access to load this store details"), 'store', 'permission');

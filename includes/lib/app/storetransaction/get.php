@@ -6,7 +6,7 @@ trait get
 
 	public static function factor_pay_list($_factor_id)
 	{
-		$_factor_id = \lib\coding::decode($_factor_id);
+		$_factor_id = \dash\coding::decode($_factor_id);
 		if(!$_factor_id)
 		{
 			return false;
@@ -25,7 +25,7 @@ trait get
 	 */
 	public static function get($_args, $_option = [])
 	{
-		\lib\app::variable($_args);
+		\dash\app::variable($_args);
 
 		$default_option =
 		[
@@ -41,24 +41,24 @@ trait get
 
 		if(!\lib\user::id())
 		{
-			\lib\app::log('api:storetransaction:user:id:not:found', \lib\user::id(), \lib\app::log_meta());
+			\dash\app::log('api:storetransaction:user:id:not:found', \lib\user::id(), \dash\app::log_meta());
 			if($_option['debug']) \lib\notif::error(T_("User id not found"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:storetransaction:store:id:not:found', \lib\user::id(), \lib\app::log_meta());
+			\dash\app::log('api:storetransaction:store:id:not:found', \lib\user::id(), \dash\app::log_meta());
 			if($_option['debug']) \lib\notif::error(T_("Store id not found"));
 			return false;
 		}
 
 
-		$id = \lib\app::request("id");
-		$id = \lib\coding::decode($id);
+		$id = \dash\app::request("id");
+		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
-			\lib\app::log('api:storetransaction:id:shortname:not:set', \lib\user::id(), \lib\app::log_meta());
+			\dash\app::log('api:storetransaction:id:shortname:not:set', \lib\user::id(), \dash\app::log_meta());
 			if($_option['debug']) \lib\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			return false;
 		}

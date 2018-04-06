@@ -40,11 +40,11 @@ class factor
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
-		$customer = \lib\app::request('customer');
+		$customer = \dash\app::request('customer');
 		$customer = trim($customer);
 		if(!$customer || $customer === '')
 		{
@@ -53,7 +53,7 @@ class factor
 
 		if($customer)
 		{
-			$customer_id = \lib\coding::decode($customer);
+			$customer_id = \dash\coding::decode($customer);
 			if($customer_id)
 			{
 				$customer_detail = \lib\db\userstores::get(['id' => $customer, 'store_id' => \lib\store::id(), 'limit' => 1]);
@@ -86,14 +86,14 @@ class factor
 			}
 		}
 
-		$desc = \lib\app::request('desc');
+		$desc = \dash\app::request('desc');
 		if($desc && mb_strlen($desc) > 1000)
 		{
 			\lib\notif::error(T_("Description of factor out of range"), 'desc');
 			return false;
 		}
 
-		$type = \lib\app::request('type');
+		$type = \dash\app::request('type');
 		if($type && !in_array($type, ['buy','sale','prefactor','lending','backbuy','backfactor','waste']))
 		{
 			\lib\notif::error(T_("Invalid type of factor"), 'type');
@@ -152,7 +152,7 @@ class factor
 
 		$_option = array_merge($default_option, $_option);
 
-		$list    = \lib\app::request();
+		$list    = \dash\app::request();
 
 		$decode_list   = [];
 		$allproduct_id = [];
@@ -165,7 +165,7 @@ class factor
 			$product_id = null;
 			if(isset($value['product']))
 			{
-				$product_id = \lib\coding::decode($value['product']);
+				$product_id = \dash\coding::decode($value['product']);
 			}
 
 			if(!$product_id)
@@ -383,7 +383,7 @@ class factor
 
 					if(isset($value))
 					{
-						$result[$key] = \lib\coding::encode($value);
+						$result[$key] = \dash\coding::encode($value);
 					}
 					else
 					{

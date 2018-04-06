@@ -25,29 +25,29 @@ trait edit
 
 		$_option = array_merge($default_option, $_option);
 
-		\lib\app::variable($_factor);
+		\dash\app::variable($_factor);
 
 		$log_meta =
 		[
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
-		$id = \lib\coding::decode($_id);
+		$id = \dash\coding::decode($_id);
 
 		if(!$id || !is_numeric($id))
 		{
-			\lib\app::log('api:factor:method:put:id:not:set', \lib\user::id(), $log_meta);
+			\dash\app::log('api:factor:method:put:id:not:set', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:factor:edit:store:id:not:set', \lib\user::id(), $log_meta);
+			\dash\app::log('api:factor:edit:store:id:not:set', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Id not set"));
 			return false;
 		}
@@ -56,7 +56,7 @@ trait edit
 
 		if(empty($load_factor) || !$load_factor || !isset($load_factor['id']))
 		{
-			\lib\app::log('api:factor:edit:factor:not:found', \lib\user::id(), $log_meta);
+			\dash\app::log('api:factor:edit:factor:not:found', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Can not access to edit it"), 'factor', 'permission');
 			return false;
 		}

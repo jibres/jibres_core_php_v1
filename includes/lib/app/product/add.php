@@ -26,27 +26,27 @@ trait add
 
 		$_option = array_merge($default_option, $_option);
 
-		\lib\app::variable($_args);
+		\dash\app::variable($_args);
 
 		$log_meta =
 		[
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
 		if(!\lib\user::id())
 		{
-			\lib\app::log('api:product:user_id:notfound', null, $log_meta);
+			\dash\app::log('api:product:user_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("User not found"), 'user');
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:product:store_id:notfound', null, $log_meta);
+			\dash\app::log('api:product:store_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Store not found"), 'subdomain');
 			return false;
 		}
@@ -69,7 +69,7 @@ trait add
 
 		if(!isset($args['title']) || (isset($args['title']) && !$args['title']))
 		{
-			\lib\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
+			\dash\app::log('api:product:title:not:set', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Product title can not be null"), 'title');
 			return false;
 		}
@@ -82,7 +82,7 @@ trait add
 
 		if(!$product_id)
 		{
-			\lib\app::log('api:product:no:way:to:insert:product', \lib\user::id(), $log_meta);
+			\dash\app::log('api:product:no:way:to:insert:product', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("No way to insert product"), 'db', 'system');
 			return false;
 		}
@@ -105,7 +105,7 @@ trait add
 		\lib\db\productprices::insert($insert_productprices);
 
 
-		$return['product_id'] = \lib\coding::encode($product_id);
+		$return['product_id'] = \dash\coding::encode($product_id);
 
 		if(\lib\engine\process::status())
 		{

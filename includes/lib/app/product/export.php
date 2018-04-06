@@ -8,7 +8,7 @@ trait export
 	{
 		$list = \lib\db\products::get_all_product(\lib\store::id());
 		\dash\utility\export::csv(['name' => $_file_name, 'data' => $list]);
-		\lib\code::exit();
+		\dash\code::exit();
 
 	}
 }

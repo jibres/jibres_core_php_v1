@@ -25,7 +25,7 @@ trait add
 
 		$_option = array_merge($default_option, $_option);
 
-		\lib\app::variable($_args);
+		\dash\app::variable($_args);
 
 		if(!\lib\user::id())
 		{
@@ -89,7 +89,7 @@ trait add
 			return false;
 		}
 
-		$user_id = \lib\coding::decode($user_id['user_id']);
+		$user_id = \dash\coding::decode($user_id['user_id']);
 
 		$args['user_id'] = $user_id;
 
@@ -112,12 +112,12 @@ trait add
 
 		if(!$userstore_id)
 		{
-			\lib\app::log('api:thirdparty:no:way:to:insert:thirdparty', \lib\user::id(), \lib\app::log_meta());
+			\dash\app::log('api:thirdparty:no:way:to:insert:thirdparty', \lib\user::id(), \dash\app::log_meta());
 			\lib\notif::error(T_("No way to insert :thirdparty"), 'db', 'system');
 			return false;
 		}
 
-		$return['thirdparty_id'] = \lib\coding::encode($userstore_id);
+		$return['thirdparty_id'] = \dash\coding::encode($userstore_id);
 
 		if(\lib\engine\process::status())
 		{

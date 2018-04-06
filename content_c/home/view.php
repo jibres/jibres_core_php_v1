@@ -10,7 +10,7 @@ class view extends \content_c\main\view
 		$this->data->page['desc']    = T_("Glance at your stores and quickly navigate to stores.");
 		$this->data->page['special'] = true;
 
-		$this->data->dateDetail      = \lib\date::month_precent();
+		$this->data->dateDetail      = \dash\date::month_precent();
 
 		// cache all data for 1 min in this page
 		$cache_time = 60;

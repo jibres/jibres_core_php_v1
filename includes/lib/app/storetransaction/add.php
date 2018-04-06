@@ -17,7 +17,7 @@ trait add
 		// start transaction of db
 		\lib\db::transaction();
 
-		\lib\app::variable($_args);
+		\dash\app::variable($_args);
 
 		$default_option =
 		[
@@ -36,13 +36,13 @@ trait add
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
 		if(!\lib\user::id())
 		{
-			\lib\app::log('api:storetransaction:user_id:notfound', null, $log_meta);
+			\dash\app::log('api:storetransaction:user_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("User not found"), 'user');
 			\lib\db::rollback();
 			return false;
@@ -50,7 +50,7 @@ trait add
 
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:storetransaction:store_id:notfound', null, $log_meta);
+			\dash\app::log('api:storetransaction:store_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Store not found"), 'subdomain');
 			\lib\db::rollback();
 			return false;
@@ -80,7 +80,7 @@ trait add
 
 		$return = [];
 
-		$return['storetransaction_id'] = \lib\coding::encode($storetransaction_id);
+		$return['storetransaction_id'] = \dash\coding::encode($storetransaction_id);
 
 		if(\lib\engine\process::status())
 		{

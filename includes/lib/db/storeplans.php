@@ -329,7 +329,7 @@ class storeplans
 		// for the free plan
 		if(!$amount)
 		{
-			\dash\db\logs::set('invoice:store:full:make:amount:0:return:true', null, \lib\app::log_meta());
+			\dash\db\logs::set('invoice:store:full:make:amount:0:return:true', null, \dash\app::log_meta());
 			return true;
 		}
 
@@ -343,7 +343,7 @@ class storeplans
 
         if(intval($user_budget) < intval($amount))
         {
-			\dash\db\logs::set('invoice:store:full:money>credit', null, \lib\app::log_meta());
+			\dash\db\logs::set('invoice:store:full:money>credit', null, \dash\app::log_meta());
         	\lib\notif::error(T_("Your credit is less than amount of this plan, please charge your account"));
         	return false;
         }

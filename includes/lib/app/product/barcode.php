@@ -29,7 +29,7 @@ trait barcode
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
@@ -46,8 +46,8 @@ trait barcode
 			{
 				if(isset($check_exist[0]['id']))
 				{
-					$product_id = \lib\app::request('id');
-					$product_id = \lib\coding::decode($product_id);
+					$product_id = \dash\app::request('id');
+					$product_id = \dash\coding::decode($product_id);
 					if($product_id && intval($product_id) === intval($check_exist[0]['id']))
 					{
 						// update product by old barcode
@@ -76,7 +76,7 @@ trait barcode
 						$product_id = null;
 						if(isset($check_exist[0]['id']))
 						{
-							$product_id = \lib\coding::encode($check_exist[0]['id']);
+							$product_id = \dash\coding::encode($check_exist[0]['id']);
 						}
 
 						if($product_id)
@@ -85,21 +85,21 @@ trait barcode
 							$msg = "<a href='$link'>". $msg. '</a>';
 						}
 
-						\lib\app::log('app:product:barcode:is:duplicate:', \lib\user::id(), $log_meta);
+						\dash\app::log('app:product:barcode:is:duplicate:', \lib\user::id(), $log_meta);
 						\lib\notif::error($msg);
 						return false;
 					}
 				}
 				else
 				{
-					\lib\app::log('app:product:barcode:1:record:havenot:id:error:', \lib\user::id(), $log_meta);
+					\dash\app::log('app:product:barcode:1:record:havenot:id:error:', \lib\user::id(), $log_meta);
 					\lib\notif::error(T_("Undefined error was happend"));
 					return false;
 				}
 			}
 			else
 			{
-				\lib\app::log('more:than:2:product:save:by:one:barcode', \lib\user::id(), $log_meta);
+				\dash\app::log('more:than:2:product:save:by:one:barcode', \lib\user::id(), $log_meta);
 				\lib\notif::error(T_("More than 2 products saved by this barcode"));
 				return false;
 			}

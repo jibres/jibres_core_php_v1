@@ -43,7 +43,7 @@ class store
 		{
 			if(array_key_exists('logo', $store_detail) && !$store_detail['logo'])
 			{
-				$store_detail['logo'] = \lib\app::static_logo_url();
+				$store_detail['logo'] = \dash\app::static_logo_url();
 			}
 
 			if(isset($store_detail['meta']))

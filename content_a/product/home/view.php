@@ -93,7 +93,7 @@ class view extends \content_a\main\view
 			}
 
 			echo json_encode($this->data->dataTable, JSON_UNESCAPED_UNICODE);
-			\lib\code::exit();
+			\dash\code::exit();
 		}
 
 		$this->data->barcode_scaned = null;

@@ -33,20 +33,20 @@ trait edit
 	 */
 	public static function edit($_args)
 	{
-		\lib\app::variable($_args);
+		\dash\app::variable($_args);
 
 		$log_meta =
 		[
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Id not set"), 'id', 'permission');
 			return false;
 		}
@@ -54,7 +54,7 @@ trait edit
 		$check_is_admin = \lib\db\stores::get(['id' => \lib\store::id(), 'creator' => \lib\user::id(), 'limit' => 1]);
 		if(!$check_is_admin || !isset($check_is_admin['id']))
 		{
-			\lib\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Can not access to edit store"), 'store');
 			return false;
 		}
@@ -67,33 +67,33 @@ trait edit
 			return false;
 		}
 
-		if(!\lib\app::isset_request('name'))    unset($args['name']);
-		if(!\lib\app::isset_request('slug'))    unset($args['slug']);
-		if(!\lib\app::isset_request('website')) unset($args['website']);
-		if(!\lib\app::isset_request('desc'))    unset($args['desc']);
-		if(!\lib\app::isset_request('language'))unset($args['lang']);
-		if(!\lib\app::isset_request('parent'))  unset($args['parent']);
-		if(!\lib\app::isset_request('country')) unset($args['country']);
-		if(!\lib\app::isset_request('province'))unset($args['province']);
-		if(!\lib\app::isset_request('city'))    unset($args['city']);
-		if(!\lib\app::isset_request('zipcode')) unset($args['zipcode']);
-		if(!\lib\app::isset_request('desc'))    unset($args['desc']);
-		if(!\lib\app::isset_request('status'))  unset($args['status']);
-		if(!\lib\app::isset_request('address')) unset($args['address']);
-		if(!\lib\app::isset_request('phone'))   unset($args['phone']);
-		if(!\lib\app::isset_request('mobile'))  unset($args['mobile']);
-		if(!\lib\app::isset_request('logo'))    unset($args['logo']);
+		if(!\dash\app::isset_request('name'))    unset($args['name']);
+		if(!\dash\app::isset_request('slug'))    unset($args['slug']);
+		if(!\dash\app::isset_request('website')) unset($args['website']);
+		if(!\dash\app::isset_request('desc'))    unset($args['desc']);
+		if(!\dash\app::isset_request('language'))unset($args['lang']);
+		if(!\dash\app::isset_request('parent'))  unset($args['parent']);
+		if(!\dash\app::isset_request('country')) unset($args['country']);
+		if(!\dash\app::isset_request('province'))unset($args['province']);
+		if(!\dash\app::isset_request('city'))    unset($args['city']);
+		if(!\dash\app::isset_request('zipcode')) unset($args['zipcode']);
+		if(!\dash\app::isset_request('desc'))    unset($args['desc']);
+		if(!\dash\app::isset_request('status'))  unset($args['status']);
+		if(!\dash\app::isset_request('address')) unset($args['address']);
+		if(!\dash\app::isset_request('phone'))   unset($args['phone']);
+		if(!\dash\app::isset_request('mobile'))  unset($args['mobile']);
+		if(!\dash\app::isset_request('logo'))    unset($args['logo']);
 
 		if(array_key_exists('name', $args) && !$args['name'])
 		{
-			\lib\app::log('api:store:name:not:set:edit', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:name:not:set:edit', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Name of store can not be null"), 'name', 'arguments');
 			return false;
 		}
 
 		if(array_key_exists('slug', $args) && !$args['slug'])
 		{
-			\lib\app::log('api:store:slug:not:set:edit', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:slug:not:set:edit', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("slug of store can not be null"), 'slug', 'arguments');
 			return false;
 		}
@@ -112,7 +112,7 @@ trait edit
 				// user change slug
 				if($check_is_admin['slug'] != $args['slug'])
 				{
-					\lib\app::log('api:store:change:slug', \lib\user::id(), $log_meta);
+					\dash\app::log('api:store:change:slug', \lib\user::id(), $log_meta);
 				}
 			}
 			// clean chach
@@ -137,7 +137,7 @@ trait edit
 		$log_meta = null;
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:method:put:id:not:set', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Id not set"), 'id', 'permission');
 			return false;
 		}
@@ -145,7 +145,7 @@ trait edit
 		$check_is_admin = \lib\db\stores::get(['id' => \lib\store::id(), 'creator' => \lib\user::id(), 'limit' => 1]);
 		if(!$check_is_admin || !isset($check_is_admin['id']))
 		{
-			\lib\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:edit:permission:denide', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Can not access to edit store"), 'store');
 			return false;
 		}

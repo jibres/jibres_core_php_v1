@@ -49,41 +49,41 @@ class store
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
-		$name = \lib\app::request('name');
+		$name = \dash\app::request('name');
 		$name = trim($name);
 		if(!$name)
 		{
-			// \lib\app::log('api:store:name:not:set', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:name:not:set', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Name of store can not be null"), 'name', 'arguments');
 			return false;
 		}
 
 		if(mb_strlen($name) > 100)
 		{
-			// \lib\app::log('api:store:maxlength:name', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:maxlength:name', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Store name must be less than 100 character"), 'name', 'arguments');
 			return false;
 		}
 
-		$website = \lib\app::request('website');
+		$website = \dash\app::request('website');
 		$website = trim($website);
 		if($website && mb_strlen($website) >= 200)
 		{
-			// \lib\app::log('api:store:maxlength:website', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:maxlength:website', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Store website must be less than 200 character"), 'website', 'arguments');
 			return false;
 		}
 
-		$slug = \lib\app::request('slug');
+		$slug = \dash\app::request('slug');
 		$slug = trim($slug);
 
 		if(!$slug && !$name)
 		{
-			// \lib\app::log('api:store:slug:not:sert', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:slug:not:sert', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("slug of store can not be null"), 'slug', 'arguments');
 			return false;
 		}
@@ -91,7 +91,7 @@ class store
 		// get slug of name in slug if the slug is not set
 		if(!$slug && $name)
 		{
-			$slug = \lib\coding::encode((int) \lib\user::id() + (int) rand(10000,99999) * 10000);
+			$slug = \dash\coding::encode((int) \lib\user::id() + (int) rand(10000,99999) * 10000);
 			// $slug = \dash\utility\filter::slug($name);
 		}
 
@@ -103,14 +103,14 @@ class store
 
 		if($slug && mb_strlen($slug) < 5)
 		{
-			// \lib\app::log('api:store:minlength:slug', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:minlength:slug', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Store slug must be larger than 5 character"), 'slug', 'arguments');
 			return false;
 		}
 
 		if($slug && !preg_match("/^[A-Za-z0-9]+$/", $slug))
 		{
-			// \lib\app::log('api:store:invalid:slug', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:invalid:slug', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Only [A-Za-z0-9] can use in store slug"), 'slug', 'arguments');
 			return false;
 		}
@@ -118,7 +118,7 @@ class store
 		// check slug
 		if($slug && mb_strlen($slug) >= 50)
 		{
-			// \lib\app::log('api:store:maxlength:slug', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:maxlength:slug', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Store slug must be less than 50 character"), 'slug', 'arguments');
 			return false;
 		}
@@ -129,53 +129,53 @@ class store
 			return false;
 		}
 
-		$desc = \lib\app::request('desc');
+		$desc = \dash\app::request('desc');
 		if($desc && mb_strlen($desc) > 200)
 		{
-			// \lib\app::log('api:store:maxlength:desc', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:maxlength:desc', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Store desc must be less than 200 character"), 'desc', 'arguments');
 			return false;
 		}
 
-		$phone = \lib\app::request('phone');
+		$phone = \dash\app::request('phone');
 		if($phone && mb_strlen($phone) > 50)
 		{
-			// \lib\app::log('api:store:maxlength:phone', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:maxlength:phone', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Store phone must be less than 50 character"), 'phone', 'arguments');
 			return false;
 		}
 
-		$mobile = \lib\app::request('mobile');
+		$mobile = \dash\app::request('mobile');
 		if($mobile && mb_strlen($mobile) > 50)
 		{
-			// \lib\app::log('api:store:maxlength:mobile', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:maxlength:mobile', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Store mobile must be less than 50 character"), 'mobile', 'arguments');
 			return false;
 		}
 
-		$address = \lib\app::request('address');
+		$address = \dash\app::request('address');
 		if($address && mb_strlen($address) > 1000)
 		{
-			// \lib\app::log('api:store:maxlength:address', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:maxlength:address', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Store address must be less than 1000 character"), 'address', 'arguments');
 			return false;
 		}
 
 
-		$logo_url = \lib\app::request('logo');
+		$logo_url = \dash\app::request('logo');
 		if($logo_url && !is_string($logo_url))
 		{
-			// \lib\app::log('api:store:is:not:string:logo', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:is:not:string:logo', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Invalid logo url fo store"), 'logo');
 			return false;
 		}
 
 		$parent = null;
 
-		$parent = \lib\app::request('parent');
+		$parent = \dash\app::request('parent');
 		if($parent)
 		{
-			$parent = \lib\coding::decode($parent);
+			$parent = \dash\coding::decode($parent);
 		}
 
 		if($parent)
@@ -184,50 +184,50 @@ class store
 			$check_owner = \lib\db\stores::get(['id' => $parent, 'creator' => \lib\user::id(), 'limit' => 1]);
 			if(is_array($check_owner) && !array_key_exists('parent', $check_owner))
 			{
-				// \lib\app::log('api:store:parent:owner:not:match', \lib\user::id(), $log_meta);
+				// \dash\app::log('api:store:parent:owner:not:match', \lib\user::id(), $log_meta);
 				\lib\notif::error(T_("The parent is not in your store"), 'parent', 'arguments');
 				return false;
 			}
 		}
 
 
-		$lang = \lib\app::request('language');
+		$lang = \dash\app::request('language');
 		if($lang && (mb_strlen($lang) !== 2 || !\lib\language::check($lang)))
 		{
-			// \lib\app::log('api:store:invalid:lang', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:invalid:lang', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Invalid language field"), 'language', 'arguments');
 			return false;
 		}
 
-		$country           = \lib\app::request('country');
+		$country           = \dash\app::request('country');
 		if($country && mb_strlen($country) > 50)
 		{
-			// \lib\app::log('api:store:add:country:max:lenght', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:add:country:max:lenght', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("You must set country less than 50 character", 'country', 'arguments'));
 			return false;
 		}
 
-		$province          = \lib\app::request('province');
+		$province          = \dash\app::request('province');
 		if($province && mb_strlen($province) > 50)
 		{
-			// \lib\app::log('api:store:add:province:max:lenght', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:add:province:max:lenght', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("You must set province less than 50 character", 'province', 'arguments'));
 			return false;
 		}
 
-		$city              = \lib\app::request('city');
+		$city              = \dash\app::request('city');
 		if($city && mb_strlen($city) > 50)
 		{
-			// \lib\app::log('api:store:add:city:max:lenght', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:add:city:max:lenght', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("You must set city less than 50 character", 'city', 'arguments'));
 			return false;
 		}
 
 
-		$status = \lib\app::request('status');
+		$status = \dash\app::request('status');
 		if($status && !in_array($status, ['enable', 'disable']))
 		{
-			// \lib\app::log('api:store:add:status:invalid', \lib\user::id(), $log_meta);
+			// \dash\app::log('api:store:add:status:invalid', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("Invalid status of stores", 'status', 'arguments'));
 			return false;
 		}
@@ -270,7 +270,7 @@ class store
 				// case 'parent':
 					if(isset($value))
 					{
-						$result[$key] = \lib\coding::encode($value);
+						$result[$key] = \dash\coding::encode($value);
 					}
 					else
 					{
@@ -290,7 +290,7 @@ class store
 					}
 					else
 					{
-						$result['logo'] = \lib\app::static_logo_url();
+						$result['logo'] = \dash\app::static_logo_url();
 					}
 					break;
 

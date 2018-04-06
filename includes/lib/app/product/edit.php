@@ -25,30 +25,30 @@ trait edit
 
 		$_option = array_merge($default_option, $_option);
 
-		\lib\app::variable($_args);
+		\dash\app::variable($_args);
 
 		$log_meta =
 		[
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
-		$id = \lib\app::request('id');
-		$id = \lib\coding::decode($id);
+		$id = \dash\app::request('id');
+		$id = \dash\coding::decode($id);
 
 		if(!$id || !is_numeric($id))
 		{
-			\lib\app::log('api:product:method:put:id:not:set', \lib\user::id(), $log_meta);
+			\dash\app::log('api:product:method:put:id:not:set', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:product:edit:store:id:not:set', \lib\user::id(), $log_meta);
+			\dash\app::log('api:product:edit:store:id:not:set', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Id not set"));
 			return false;
 		}
@@ -57,7 +57,7 @@ trait edit
 
 		if(empty($load_product) || !$load_product || !isset($load_product['id']))
 		{
-			\lib\app::log('api:product:edit:product:not:found', \lib\user::id(), $log_meta);
+			\dash\app::log('api:product:edit:product:not:found', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Can not access to edit it"), 'product', 'permission');
 			return false;
 		}
@@ -69,36 +69,36 @@ trait edit
 			return false;
 		}
 
-		if(!\lib\app::isset_request('title'))          unset($args['title']);
-		if(!\lib\app::isset_request('name'))           unset($args['name']);
-		if(!\lib\app::isset_request('cat'))            unset($args['cat']);
-		if(!\lib\app::isset_request('slug'))           unset($args['slug']);
-		if(!\lib\app::isset_request('company'))        unset($args['company']);
-		if(!\lib\app::isset_request('shortcode'))      unset($args['shortcode']);
-		if(!\lib\app::isset_request('unit'))           unset($args['unit']);
-		if(!\lib\app::isset_request('barcode'))        unset($args['barcode']);
-		if(!\lib\app::isset_request('barcode2'))       unset($args['barcode2']);
-		if(!\lib\app::isset_request('buyprice'))       unset($args['buyprice']);
-		if(!\lib\app::isset_request('price'))          unset($args['price']);
-		if(!\lib\app::isset_request('discount'))       unset($args['discount']);
-		if(!\lib\app::isset_request('vat') )           unset($args['vat']);
-		if(!\lib\app::isset_request('initialbalance')) unset($args['initialbalance']);
-		if(!\lib\app::isset_request('minstock'))       unset($args['minstock']);
-		if(!\lib\app::isset_request('maxstock'))       unset($args['maxstock']);
-		if(!\lib\app::isset_request('status'))         unset($args['status']);
-		if(!\lib\app::isset_request('sold'))           unset($args['sold']);
-		if(!\lib\app::isset_request('stock'))          unset($args['stock']);
-		if(!\lib\app::isset_request('service'))        unset($args['service']);
-		if(!\lib\app::isset_request('saleonline'))     unset($args['saleonline']);
-		if(!\lib\app::isset_request('salestore'))      unset($args['salestore']);
-		if(!\lib\app::isset_request('carton'))         unset($args['carton']);
-		if(!\lib\app::isset_request('code'))           unset($args['code']);
-		if(!\lib\app::isset_request('checkstock'))     unset($args['checkstock']);
-		if(!\lib\app::isset_request('desc'))           unset($args['desc']);
+		if(!\dash\app::isset_request('title'))          unset($args['title']);
+		if(!\dash\app::isset_request('name'))           unset($args['name']);
+		if(!\dash\app::isset_request('cat'))            unset($args['cat']);
+		if(!\dash\app::isset_request('slug'))           unset($args['slug']);
+		if(!\dash\app::isset_request('company'))        unset($args['company']);
+		if(!\dash\app::isset_request('shortcode'))      unset($args['shortcode']);
+		if(!\dash\app::isset_request('unit'))           unset($args['unit']);
+		if(!\dash\app::isset_request('barcode'))        unset($args['barcode']);
+		if(!\dash\app::isset_request('barcode2'))       unset($args['barcode2']);
+		if(!\dash\app::isset_request('buyprice'))       unset($args['buyprice']);
+		if(!\dash\app::isset_request('price'))          unset($args['price']);
+		if(!\dash\app::isset_request('discount'))       unset($args['discount']);
+		if(!\dash\app::isset_request('vat') )           unset($args['vat']);
+		if(!\dash\app::isset_request('initialbalance')) unset($args['initialbalance']);
+		if(!\dash\app::isset_request('minstock'))       unset($args['minstock']);
+		if(!\dash\app::isset_request('maxstock'))       unset($args['maxstock']);
+		if(!\dash\app::isset_request('status'))         unset($args['status']);
+		if(!\dash\app::isset_request('sold'))           unset($args['sold']);
+		if(!\dash\app::isset_request('stock'))          unset($args['stock']);
+		if(!\dash\app::isset_request('service'))        unset($args['service']);
+		if(!\dash\app::isset_request('saleonline'))     unset($args['saleonline']);
+		if(!\dash\app::isset_request('salestore'))      unset($args['salestore']);
+		if(!\dash\app::isset_request('carton'))         unset($args['carton']);
+		if(!\dash\app::isset_request('code'))           unset($args['code']);
+		if(!\dash\app::isset_request('checkstock'))     unset($args['checkstock']);
+		if(!\dash\app::isset_request('desc'))           unset($args['desc']);
 
 		if(array_key_exists('title', $args) && !$args['title'])
 		{
-			\lib\app::log('api:product:title:not:set:edit', \lib\user::id(), $log_meta);
+			\dash\app::log('api:product:title:not:set:edit', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Title of product can not be null"), 'title');
 			return false;
 		}
@@ -133,7 +133,7 @@ trait edit
 				// user change slug
 				if($load_product['slug'] != $args['slug'])
 				{
-					\lib\app::log('api:product:change:slug', \lib\user::id(), $log_meta);
+					\dash\app::log('api:product:change:slug', \lib\user::id(), $log_meta);
 				}
 			}
 		}

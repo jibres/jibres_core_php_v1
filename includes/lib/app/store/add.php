@@ -14,20 +14,20 @@ trait add
 	 */
 	public static function add($_args = [])
 	{
-		\lib\app::variable($_args);
+		\dash\app::variable($_args);
 
 		$log_meta =
 		[
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
 		if(!\lib\user::id())
 		{
-			\lib\app::log('api:store:user_id:notfound', null, $log_meta);
+			\dash\app::log('api:store:user_id:notfound', null, $log_meta);
 			\lib\notif::error(T_("User not found"), 'user');
 			return false;
 		}
@@ -59,7 +59,7 @@ trait add
 
 				if($user_budget < 10000)
 				{
-					\lib\app::log('api:store:user_id:try:add:store2:budget:10000', null, $log_meta);
+					\dash\app::log('api:store:user_id:try:add:store2:budget:10000', null, $log_meta);
 					\lib\notif::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
 					return false;
 				}
@@ -67,7 +67,7 @@ trait add
 
 			if($count_store >= 3)
 			{
-				\lib\app::log('api:store:try:add:store3:and:>3', null, $log_meta);
+				\dash\app::log('api:store:try:add:store3:and:>3', null, $log_meta);
 				\lib\notif::error(T_("You can not have more than three active stores. Contact support if needed"));
 				return false;
 			}
@@ -90,7 +90,7 @@ trait add
 
 		if(!$store_id)
 		{
-			\lib\app::log('api:store:no:way:to:insert:store', \lib\user::id(), $log_meta);
+			\dash\app::log('api:store:no:way:to:insert:store', \lib\user::id(), $log_meta);
 			\lib\notif::error(T_("No way to insert store"), 'db', 'system');
 			return false;
 		}
@@ -115,7 +115,7 @@ trait add
 			\dash\utility\cloudflare::create_dns_record(['type' => 'CNAME', 'name' => $args['slug'], 'content' => 'jibres.com']);
 		}
 
-		$return['store_id'] = \lib\coding::encode($store_id);
+		$return['store_id'] = \dash\coding::encode($store_id);
 		$return['slug']     = $args['slug'];
 
 		if(\lib\engine\process::status())

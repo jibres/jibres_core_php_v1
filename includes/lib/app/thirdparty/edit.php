@@ -14,7 +14,7 @@ trait edit
 	 */
 	public static function edit($_args, $_id, $_option = [])
 	{
-		\lib\app::variable($_args);
+		\dash\app::variable($_args);
 
 		$result = self::get($_id);
 
@@ -23,7 +23,7 @@ trait edit
 			return false;
 		}
 
-		$id = \lib\coding::decode($_id);
+		$id = \dash\coding::decode($_id);
 
 		$args = self::check($id);
 
@@ -59,31 +59,31 @@ trait edit
 
 		// no change type of user for every!
 
-		if(!\lib\app::isset_request('status'))      unset($args['status']);
-		if(!\lib\app::isset_request('mobile'))      unset($args['mobile']);
-		if(!\lib\app::isset_request('code'))        unset($args['code']);
-		if(!\lib\app::isset_request('email'))       unset($args['email']);
-		if(!\lib\app::isset_request('shfrom'))      unset($args['shfrom']);
-		if(!\lib\app::isset_request('nationalcode'))unset($args['nationalcode']);
-		if(!\lib\app::isset_request('pasportcode')) unset($args['pasportcode']);
-		if(!\lib\app::isset_request('nationalcode'))unset($args['nationalcode']);
-		if(!\lib\app::isset_request('pasportcode')) unset($args['pasportcode']);
-		if(!\lib\app::isset_request('firstname'))   unset($args['firstname']);
-		if(!\lib\app::isset_request('lastname'))    unset($args['lastname']);
-		if(!\lib\app::isset_request('father'))      unset($args['father']);
-		if(!\lib\app::isset_request('birthday'))    unset($args['birthday']);
-		if(!\lib\app::isset_request('pasportdate')) unset($args['pasportdate']);
-		if(!\lib\app::isset_request('gender'))      unset($args['gender']);
-		if(!\lib\app::isset_request('marital'))     unset($args['marital']);
-		if(!\lib\app::isset_request('shcode'))      unset($args['shcode']);
-		if(!\lib\app::isset_request('birthcity'))   unset($args['birthcity']);
-		if(!\lib\app::isset_request('zipcode'))     unset($args['zipcode']);
-		if(!\lib\app::isset_request('avatar'))      unset($args['avatar']);
-		if(!\lib\app::isset_request('city'))        unset($args['city']);
-		if(!\lib\app::isset_request('province'))    unset($args['province']);
-		if(!\lib\app::isset_request('country'))     unset($args['country']);
-		if(!\lib\app::isset_request('address'))     unset($args['address']);
-		if(!\lib\app::isset_request('phone'))       unset($args['phone']);
+		if(!\dash\app::isset_request('status'))      unset($args['status']);
+		if(!\dash\app::isset_request('mobile'))      unset($args['mobile']);
+		if(!\dash\app::isset_request('code'))        unset($args['code']);
+		if(!\dash\app::isset_request('email'))       unset($args['email']);
+		if(!\dash\app::isset_request('shfrom'))      unset($args['shfrom']);
+		if(!\dash\app::isset_request('nationalcode'))unset($args['nationalcode']);
+		if(!\dash\app::isset_request('pasportcode')) unset($args['pasportcode']);
+		if(!\dash\app::isset_request('nationalcode'))unset($args['nationalcode']);
+		if(!\dash\app::isset_request('pasportcode')) unset($args['pasportcode']);
+		if(!\dash\app::isset_request('firstname'))   unset($args['firstname']);
+		if(!\dash\app::isset_request('lastname'))    unset($args['lastname']);
+		if(!\dash\app::isset_request('father'))      unset($args['father']);
+		if(!\dash\app::isset_request('birthday'))    unset($args['birthday']);
+		if(!\dash\app::isset_request('pasportdate')) unset($args['pasportdate']);
+		if(!\dash\app::isset_request('gender'))      unset($args['gender']);
+		if(!\dash\app::isset_request('marital'))     unset($args['marital']);
+		if(!\dash\app::isset_request('shcode'))      unset($args['shcode']);
+		if(!\dash\app::isset_request('birthcity'))   unset($args['birthcity']);
+		if(!\dash\app::isset_request('zipcode'))     unset($args['zipcode']);
+		if(!\dash\app::isset_request('avatar'))      unset($args['avatar']);
+		if(!\dash\app::isset_request('city'))        unset($args['city']);
+		if(!\dash\app::isset_request('province'))    unset($args['province']);
+		if(!\dash\app::isset_request('country'))     unset($args['country']);
+		if(!\dash\app::isset_request('address'))     unset($args['address']);
+		if(!\dash\app::isset_request('phone'))       unset($args['phone']);
 
 		if($args['type'] === 'supplier')
 		{
@@ -91,8 +91,8 @@ trait edit
 		}
 		else
 		{
-			if(!\lib\app::isset_request('desc'))           unset($args['desc']);
-			if(!\lib\app::isset_request('displayname'))    unset($args['displayname']);
+			if(!\dash\app::isset_request('desc'))           unset($args['desc']);
+			if(!\dash\app::isset_request('displayname'))    unset($args['displayname']);
 		}
 
 		unset($args['type']);

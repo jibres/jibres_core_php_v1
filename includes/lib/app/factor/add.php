@@ -35,13 +35,13 @@ trait add
 			'data' => null,
 			'meta' =>
 			[
-				'input' => \lib\app::request(),
+				'input' => \dash\app::request(),
 			]
 		];
 
 		if(!\lib\user::id())
 		{
-			\lib\app::log('api:factor:user_id:notfound', null, $log_meta);
+			\dash\app::log('api:factor:user_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("User not found"), 'user');
 			\lib\db::rollback();
 			return false;
@@ -49,13 +49,13 @@ trait add
 
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:factor:store_id:notfound', null, $log_meta);
+			\dash\app::log('api:factor:store_id:notfound', null, $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("Store not found"), 'subdomain');
 			\lib\db::rollback();
 			return false;
 		}
 
-		\lib\app::variable($_factor);
+		\dash\app::variable($_factor);
 		// check args
 		$factor          = self::check_factor($_option);
 		$_option['type'] = $factor['type'];
@@ -68,7 +68,7 @@ trait add
 
 		$factor['store_id'] = \lib\store::id();
 
-		\lib\app::variable($_factor_detail);
+		\dash\app::variable($_factor_detail);
 		$factor_detail = self::check_factor_detail($_option);
 
 		if($factor_detail === false || !\lib\engine\process::status())
@@ -107,13 +107,13 @@ trait add
 
 		if(!$factor_id)
 		{
-			\lib\app::log('api:factor:no:way:to:insert:factor', \lib\user::id(), $log_meta);
+			\dash\app::log('api:factor:no:way:to:insert:factor', \lib\user::id(), $log_meta);
 			if($_option['debug']) \lib\notif::error(T_("No way to insert factor"), 'db', 'system');
 			\lib\db::rollback();
 			return false;
 		}
 
-		$return['factor_id'] = \lib\coding::encode($factor_id);
+		$return['factor_id'] = \dash\coding::encode($factor_id);
 
 		foreach ($factor_detail as $key => $value)
 		{

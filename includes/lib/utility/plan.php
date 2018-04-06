@@ -42,7 +42,7 @@ class plan
 		self::list();
 		if(self::$store_id)
 		{
-			// self::$store_id = \lib\coding::decode(self::$store_id);
+			// self::$store_id = \dash\coding::decode(self::$store_id);
 			$store_detail   = \lib\store::detail();
 		}
 

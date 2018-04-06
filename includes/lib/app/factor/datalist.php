@@ -79,7 +79,7 @@ trait datalist
 
 		if($_option['customer'])
 		{
-			$customer_id = \lib\coding::decode($_option['customer']);
+			$customer_id = \dash\coding::decode($_option['customer']);
 			if($customer_id)
 			{
 				$field['factors.customer']     = $customer_id;

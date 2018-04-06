@@ -21,9 +21,9 @@ class storetransaction
 	private static function check($_option = [])
 	{
 
-		$userstore_id = \lib\app::request('userstore_id');
-		$userstore_id = \lib\coding::decode($userstore_id);
-		if(!$userstore_id && \lib\app::isset_request('userstore_id'))
+		$userstore_id = \dash\app::request('userstore_id');
+		$userstore_id = \dash\coding::decode($userstore_id);
+		if(!$userstore_id && \dash\app::isset_request('userstore_id'))
 		{
 			\lib\notif::error(T_("Invalid userstore id"), 'userstore_id');
 			return false;
@@ -32,7 +32,7 @@ class storetransaction
 		if(!$userstore_id) $userstore_id = null;
 
 
-		$plus = \lib\app::request('plus');
+		$plus = \dash\app::request('plus');
 		$plus = str_replace(',', '', $plus);
 		$plus = \dash\utility\convert::to_en_number($plus);
 		if($plus && !is_numeric($plus))
@@ -53,7 +53,7 @@ class storetransaction
 			return false;
 		}
 
-		$minus = \lib\app::request('minus');
+		$minus = \dash\app::request('minus');
 		$minus = str_replace(',', '', $minus);
 		$minus = \dash\utility\convert::to_en_number($minus);
 		if($minus && !is_numeric($minus))
@@ -74,7 +74,7 @@ class storetransaction
 			return false;
 		}
 
-		$subtitle = \lib\app::request('subtitle');
+		$subtitle = \dash\app::request('subtitle');
 		$subtitle = trim($subtitle);
 		if($subtitle && mb_strlen($subtitle) >= 200)
 		{
@@ -82,7 +82,7 @@ class storetransaction
 			return false;
 		}
 
-		$code = \lib\app::request('code');
+		$code = \dash\app::request('code');
 		$code = trim($code);
 		if($code && mb_strlen($code) >= 200)
 		{
@@ -90,7 +90,7 @@ class storetransaction
 			return false;
 		}
 
-		$title = \lib\app::request('title');
+		$title = \dash\app::request('title');
 		$title = trim($title);
 		if($title && mb_strlen($title) > 1E+4)
 		{
@@ -98,17 +98,17 @@ class storetransaction
 			return false;
 		}
 
-		$type = \lib\app::request('type');
+		$type = \dash\app::request('type');
 		if($type && mb_strlen($type) > 100)
 		{
 			\lib\notif::error(T_("Please set the type less thang 100 character"), 'type');
 			return false;
 		}
 
-		$duedate = \lib\app::request('duedate');
-		if(\lib\app::isset_request('duedate') && $duedate)
+		$duedate = \dash\app::request('duedate');
+		if(\dash\app::isset_request('duedate') && $duedate)
 		{
-			$duedate = \lib\date::format($duedate, "Y-m-d H:i:s");
+			$duedate = \dash\date::format($duedate, "Y-m-d H:i:s");
 			if(!$duedate)
 			{
 				\lib\notif::error(T_("Invalid duedate"), 'duedate');
@@ -116,16 +116,16 @@ class storetransaction
 			}
 		}
 
-		$status = \lib\app::request('status');
+		$status = \dash\app::request('status');
 		if($status && !in_array($status, ['enable','disable','deleted','expired','awaiting','filtered','blocked','spam']))
 		{
 			\lib\notif::error(T_("Invalid status"), 'status');
 			return false;
 		}
 
-		$factor_id = \lib\app::request('factor_id');
-		$factor_id = \lib\coding::decode($factor_id);
-		if(!$factor_id && \lib\app::isset_request('factor_id'))
+		$factor_id = \dash\app::request('factor_id');
+		$factor_id = \dash\coding::decode($factor_id);
+		if(!$factor_id && \dash\app::isset_request('factor_id'))
 		{
 			\lib\notif::error(T_("Invalid userstore id"), 'factor_id');
 			return false;
@@ -158,7 +158,7 @@ class storetransaction
 				$userstore_id = null;
 			}
 
-			$amount = \lib\app::request('amount');
+			$amount = \dash\app::request('amount');
 			$amount = str_replace(',', '', $amount);
 			$amount = \dash\utility\convert::to_en_number($amount);
 
@@ -252,7 +252,7 @@ class storetransaction
 					break;
 			}
 
-			$bank = \lib\app::request('bank');
+			$bank = \dash\app::request('bank');
 			if($bank && mb_strlen($bank) > 150)
 			{
 				\lib\notif::error(T_("Value of bank is out of range"), 'bank');
@@ -312,7 +312,7 @@ class storetransaction
 
 					if(isset($value))
 					{
-						$result[$key] = \lib\coding::encode($value);
+						$result[$key] = \dash\coding::encode($value);
 					}
 					else
 					{

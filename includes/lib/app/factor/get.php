@@ -15,7 +15,7 @@ trait get
 	 */
 	public static function get($_args, $_option = [])
 	{
-		\lib\app::variable($_args);
+		\dash\app::variable($_args);
 
 		$default_option =
 		[
@@ -32,24 +32,24 @@ trait get
 
 		if(!\lib\user::id())
 		{
-			\lib\app::log('api:factor:user:id:not:found', \lib\user::id(), \lib\app::log_meta());
+			\dash\app::log('api:factor:user:id:not:found', \lib\user::id(), \dash\app::log_meta());
 			if($_option['debug']) \lib\notif::error(T_("User id not found"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\lib\app::log('api:factor:store:id:not:found', \lib\user::id(), \lib\app::log_meta());
+			\dash\app::log('api:factor:store:id:not:found', \lib\user::id(), \dash\app::log_meta());
 			if($_option['debug']) \lib\notif::error(T_("Store id not found"));
 			return false;
 		}
 
 
-		$id = \lib\app::request("id");
-		$id = \lib\coding::decode($id);
+		$id = \dash\app::request("id");
+		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
-			\lib\app::log('api:factor:id:shortname:not:set', \lib\user::id(), \lib\app::log_meta());
+			\dash\app::log('api:factor:id:shortname:not:set', \lib\user::id(), \dash\app::log_meta());
 			if($_option['debug']) \lib\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
 			return false;
 		}

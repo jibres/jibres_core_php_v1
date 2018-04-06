@@ -18,7 +18,7 @@ class thirdparty
 	 */
 	private static function check($_id = null)
 	{
-		$type = \lib\app::request('type');
+		$type = \dash\app::request('type');
 		if(!$_id)
 		{
 			$type = trim($type);
@@ -30,7 +30,7 @@ class thirdparty
 			}
 		}
 
-		$mobile = \lib\app::request('mobile');
+		$mobile = \dash\app::request('mobile');
 		$mobile = trim($mobile);
 
 		if($mobile && !\dash\utility\filter::mobile($mobile))
@@ -39,7 +39,7 @@ class thirdparty
 			return false;
 		}
 
-		$firstname = \lib\app::request('firstname');
+		$firstname = \dash\app::request('firstname');
 		$firstname = trim($firstname);
 		if($firstname && mb_strlen($firstname) > 100)
 		{
@@ -47,7 +47,7 @@ class thirdparty
 			return false;
 		}
 
-		$lastname = \lib\app::request('lastname');
+		$lastname = \dash\app::request('lastname');
 		$lastname = trim($lastname);
 		if($lastname && mb_strlen($lastname) > 100)
 		{
@@ -59,15 +59,15 @@ class thirdparty
 
 		if($type === 'supplier')
 		{
-			$displayname             = \lib\app::request('company');
+			$displayname             = \dash\app::request('company');
 			$detail                  = [];
-			$detail['visitorname']   = \lib\app::request('visitorname');
-			$detail['visitormobile'] = \lib\app::request('visitormobile');
+			$detail['visitorname']   = \dash\app::request('visitorname');
+			$detail['visitormobile'] = \dash\app::request('visitormobile');
 			$detail                  = json_encode($detail, JSON_UNESCAPED_UNICODE);
 		}
 		else
 		{
-			if(\lib\app::isset_request('firstname') || \lib\app::isset_request('lastname'))
+			if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
 			{
 				if(!$firstname && !$lastname)
 				{
@@ -79,10 +79,10 @@ class thirdparty
 
 		}
 
-		$father = \lib\app::request('father');
+		$father = \dash\app::request('father');
 		$father = trim($father);
 
-		if(\lib\app::isset_request('father'))
+		if(\dash\app::isset_request('father'))
 		{
 			if($father && mb_strlen($father) > 100)
 			{
@@ -91,7 +91,7 @@ class thirdparty
 			}
 		}
 
-		$nationalcode = \lib\app::request('nationalcode');
+		$nationalcode = \dash\app::request('nationalcode');
 		$nationalcode = trim($nationalcode);
 		if($nationalcode && !\dash\utility\filter::nationalcode($nationalcode))
 		{
@@ -100,7 +100,7 @@ class thirdparty
 		}
 
 
-		$pasportcode = \lib\app::request('pasportcode');
+		$pasportcode = \dash\app::request('pasportcode');
 		$pasportcode = trim($pasportcode);
 		if($pasportcode && !is_numeric($pasportcode) )
 		{
@@ -116,10 +116,10 @@ class thirdparty
 
 		$birthday = null;
 
-		if(\lib\app::isset_request('birthday') && \lib\app::request('birthday'))
+		if(\dash\app::isset_request('birthday') && \dash\app::request('birthday'))
 		{
-			$birthday = \lib\app::request('birthday');
-			$birthday = \lib\date::db($birthday);
+			$birthday = \dash\app::request('birthday');
+			$birthday = \dash\date::db($birthday);
 			if($birthday === false)
 			{
 				\lib\notif::error(T_("Invalid birthday"), 'birthday');
@@ -143,10 +143,10 @@ class thirdparty
 		}
 
 
-		$pasportdate = \lib\app::request('pasportdate');
+		$pasportdate = \dash\app::request('pasportdate');
 		if($pasportdate)
 		{
-			$pasportdate = \lib\date::db($pasportdate);
+			$pasportdate = \dash\date::db($pasportdate);
 			if($pasportdate === false)
 			{
 				\lib\notif::error(T_("Invalid pasportdate"), 'pasportdate');
@@ -168,21 +168,21 @@ class thirdparty
 			}
 		}
 
-		$gender = \lib\app::request('gender');
+		$gender = \dash\app::request('gender');
 		if($gender && !in_array($gender, ['male', 'female']))
 		{
 			\lib\notif::error(T_("Invalid gender"), 'gender');
 			return false;
 		}
 
-		$marital = \lib\app::request('marital');
+		$marital = \dash\app::request('marital');
 		if($marital && !in_array($marital, ['single', 'married']))
 		{
 			\lib\notif::error(T_("Invalid marital"), 'marital');
 			return false;
 		}
 
-		$shcode = \lib\app::request('shcode');
+		$shcode = \dash\app::request('shcode');
 		$shcode = trim($shcode);
 		$shcode = \dash\utility\convert::to_en_number($shcode);
 		if($shcode && !is_numeric($shcode))
@@ -191,7 +191,7 @@ class thirdparty
 			return false;
 		}
 
-		$birthcity = \lib\app::request('birthcity');
+		$birthcity = \dash\app::request('birthcity');
 		$birthcity = trim($birthcity);
 		if($birthcity && mb_strlen($birthcity) > 50)
 		{
@@ -199,7 +199,7 @@ class thirdparty
 			return false;
 		}
 
-		$zipcode = \lib\app::request('zipcode');
+		$zipcode = \dash\app::request('zipcode');
 		$zipcode = trim($zipcode);
 		$zipcode = \dash\utility\convert::to_en_number($zipcode);
 		if($zipcode && !is_numeric($zipcode))
@@ -209,14 +209,14 @@ class thirdparty
 		}
 
 
-		$avatar = \lib\app::request('avatar');
+		$avatar = \dash\app::request('avatar');
 		if($avatar && mb_strlen($avatar) > 2000)
 		{
 			\lib\notif::error(T_("Invalid avatar"), 'avatar');
 			return false;
 		}
 
-		$shfrom = \lib\app::request('shfrom');
+		$shfrom = \dash\app::request('shfrom');
 		if ($shfrom && mb_strlen($shfrom) > 200)
 		{
 			\lib\notif::error(T_("Invalid issue place"), 'shfrom');
@@ -224,21 +224,21 @@ class thirdparty
 		}
 
 
-		$code = \lib\app::request('code');
+		$code = \dash\app::request('code');
 		if ($code && mb_strlen($code) > 100)
 		{
 			\lib\notif::error(T_("Invalid code"), 'code');
 			return false;
 		}
 
-		$email = \lib\app::request('email');
+		$email = \dash\app::request('email');
 		if ($email && mb_strlen($email) > 150)
 		{
 			\lib\notif::error(T_("Invalid email"), 'email');
 			return false;
 		}
 
-		$city = \lib\app::request('city');
+		$city = \dash\app::request('city');
 		$city = trim($city);
 		if($city && mb_strlen($city) > 100)
 		{
@@ -246,7 +246,7 @@ class thirdparty
 			return false;
 		}
 
-		$province = \lib\app::request('province');
+		$province = \dash\app::request('province');
 		$province = trim($province);
 		if($province && mb_strlen($province) > 100)
 		{
@@ -254,7 +254,7 @@ class thirdparty
 			return false;
 		}
 
-		$country = \lib\app::request('country');
+		$country = \dash\app::request('country');
 		$country = trim($country);
 		if($country && mb_strlen($country) > 100)
 		{
@@ -262,7 +262,7 @@ class thirdparty
 			return false;
 		}
 
-		$address = \lib\app::request('address');
+		$address = \dash\app::request('address');
 		$address = trim($address);
 		if($address && mb_strlen($address) > 500)
 		{
@@ -270,7 +270,7 @@ class thirdparty
 			return false;
 		}
 
-		$phone = \lib\app::request('phone');
+		$phone = \dash\app::request('phone');
 		$phone = trim($phone);
 		if($phone && mb_strlen($phone) > 50)
 		{
@@ -278,7 +278,7 @@ class thirdparty
 			return false;
 		}
 
-		$status = \lib\app::request('status');
+		$status = \dash\app::request('status');
 		$status = trim($status);
 		if($status && !in_array($status, ['active','deactive','disable','filter','leave','delete','parent','suspended']))
 		{
@@ -286,7 +286,7 @@ class thirdparty
 			return false;
 		}
 
-		$desc = \lib\app::request('desc');
+		$desc = \dash\app::request('desc');
 		$desc = trim($desc);
 		if($desc && mb_strlen($desc) > 500)
 		{
@@ -310,7 +310,7 @@ class thirdparty
 		}
 		else
 		{
-			if(\lib\app::isset_request('firstname') || \lib\app::isset_request('lastname'))
+			if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
 			{
 				if(!$firstname && !$lastname)
 				{
@@ -368,7 +368,7 @@ class thirdparty
 				case 'user_id':
 					if(isset($value))
 					{
-						$result[$key] = \lib\coding::encode($value);
+						$result[$key] = \dash\coding::encode($value);
 					}
 					else
 					{
@@ -387,7 +387,7 @@ class thirdparty
 					break;
 
 				case 'avatar':
-					$result['avatar'] = $value ? $value : \lib\app::static_avatar_url();
+					$result['avatar'] = $value ? $value : \dash\app::static_avatar_url();
 					break;
 
 				default:

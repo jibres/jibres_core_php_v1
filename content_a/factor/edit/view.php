@@ -98,7 +98,7 @@ class view extends \content_a\main\view
 			\lib\notif::result(["list" => $result]);
 			// force show json
 			$this->_processor(['force_stop' => true, 'force_json' => true]);
-			// \lib\code::exit();
+			// \dash\code::exit();
 
 		}
 
