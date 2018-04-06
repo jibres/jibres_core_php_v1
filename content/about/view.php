@@ -6,8 +6,8 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page(T_('About our platform'), 'title');
-		\dash\data::page(\dash\data::get('site', 'desc'), 'desc');
+		\dash\data::page_title(T_('About our platform'));
+		\dash\data::page_desc(\dash\data::site_desc());
 	}
 }
 ?>
