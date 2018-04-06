@@ -1,5 +1,5 @@
 <?php
-namespace content\logo;
+namespace content\benefits;
 
 
 class view
