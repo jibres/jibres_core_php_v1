@@ -29,7 +29,7 @@ class productprices
 	 */
 	public static function insert()
 	{
-		\lib\db\config::public_insert('productprices', ...func_get_args());
+		\dash\db\config::public_insert('productprices', ...func_get_args());
 		return \lib\db::insert_id();
 	}
 
@@ -41,7 +41,7 @@ class productprices
 	 */
 	public static function update()
 	{
-		return \lib\db\config::public_update('productprices', ...func_get_args());
+		return \dash\db\config::public_update('productprices', ...func_get_args());
 	}
 
 
@@ -52,12 +52,12 @@ class productprices
 	 */
 	public static function get()
 	{
-		if($chach = \lib\db\cache::get_cache('productprices', func_get_args()))
+		if($chach = \dash\db\cache::get_cache('productprices', func_get_args()))
 		{
 			return $chach;
 		}
-		$result = \lib\db\config::public_get('productprices', ...func_get_args());
-		\lib\db\cache::set_cache('productprices', func_get_args(), $result);
+		$result = \dash\db\config::public_get('productprices', ...func_get_args());
+		\dash\db\cache::set_cache('productprices', func_get_args(), $result);
 		return $result;
 	}
 
@@ -69,7 +69,7 @@ class productprices
 	 */
 	public static function search()
 	{
-		return \lib\db\config::public_search('productprices', ...func_get_args());
+		return \dash\db\config::public_search('productprices', ...func_get_args());
 	}
 
 
@@ -82,7 +82,7 @@ class productprices
 	 */
 	public static function delete_where($_where)
 	{
-		$where = \lib\db\config::make_where($_where);
+		$where = \dash\db\config::make_where($_where);
 		if($where)
 		{
 			$query = "DELETE FROM productprices WHERE $where";

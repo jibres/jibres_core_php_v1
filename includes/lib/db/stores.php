@@ -27,7 +27,7 @@ class stores
 	 */
 	public static function insert()
 	{
-		\lib\db\config::public_insert('stores', ...func_get_args());
+		\dash\db\config::public_insert('stores', ...func_get_args());
 		return \lib\db::insert_id();
 	}
 
@@ -39,7 +39,7 @@ class stores
 	 */
 	public static function update()
 	{
-		return \lib\db\config::public_update('stores', ...func_get_args());
+		return \dash\db\config::public_update('stores', ...func_get_args());
 	}
 
 
@@ -50,7 +50,7 @@ class stores
 	 */
 	public static function get()
 	{
-		return \lib\db\config::public_get('stores', ...func_get_args());
+		return \dash\db\config::public_get('stores', ...func_get_args());
 	}
 
 
@@ -61,7 +61,7 @@ class stores
 	 */
 	public static function search()
 	{
-		return \lib\db\config::public_search('stores', ...func_get_args());
+		return \dash\db\config::public_search('stores', ...func_get_args());
 	}
 
 

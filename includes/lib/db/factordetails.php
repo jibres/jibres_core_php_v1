@@ -48,7 +48,7 @@ class factordetails
 
 	public static function multi_insert()
 	{
-		return \lib\db\config::public_multi_insert('factordetails', ...func_get_args());
+		return \dash\db\config::public_multi_insert('factordetails', ...func_get_args());
 	}
 
 	/**
@@ -58,13 +58,13 @@ class factordetails
 	 */
 	public static function update()
 	{
-		return \lib\db\config::public_update('factordetails', ...func_get_args());
+		return \dash\db\config::public_update('factordetails', ...func_get_args());
 	}
 
 
 	public static function search()
 	{
-		return \lib\db\config::public_search('factordetails', ...func_get_args());
+		return \dash\db\config::public_search('factordetails', ...func_get_args());
 	}
 
 
@@ -75,12 +75,12 @@ class factordetails
 	 */
 	public static function get()
 	{
-		if($chach = \lib\db\cache::get_cache('factordetails', func_get_args()))
+		if($chach = \dash\db\cache::get_cache('factordetails', func_get_args()))
 		{
 			return $chach;
 		}
-		$result = \lib\db\config::public_get('factordetails', ...func_get_args());
-		\lib\db\cache::set_cache('factordetails', func_get_args(), $result);
+		$result = \dash\db\config::public_get('factordetails', ...func_get_args());
+		\dash\db\cache::set_cache('factordetails', func_get_args(), $result);
 		return $result;
 	}
 

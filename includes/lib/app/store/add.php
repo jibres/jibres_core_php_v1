@@ -50,7 +50,7 @@ trait add
 		{
 			if($count_store >= 1)
 			{
-				$user_budget = \lib\db\transactions::budget(\lib\user::id(), ['unit' => 'toman']);
+				$user_budget = \dash\db\transactions::budget(\lib\user::id(), ['unit' => 'toman']);
 				if(is_array($user_budget))
 				{
 					$user_budget = array_sum($user_budget);

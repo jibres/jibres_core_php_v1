@@ -126,7 +126,7 @@ class factors
 	 */
 	public static function update()
 	{
-		return \lib\db\config::public_update('factors', ...func_get_args());
+		return \dash\db\config::public_update('factors', ...func_get_args());
 	}
 
 
@@ -137,12 +137,12 @@ class factors
 	 */
 	public static function get()
 	{
-		if($chach = \lib\db\cache::get_cache('factors', func_get_args()))
+		if($chach = \dash\db\cache::get_cache('factors', func_get_args()))
 		{
 			return $chach;
 		}
-		$result = \lib\db\config::public_get('factors', ...func_get_args());
-		\lib\db\cache::set_cache('factors', func_get_args(), $result);
+		$result = \dash\db\config::public_get('factors', ...func_get_args());
+		\dash\db\cache::set_cache('factors', func_get_args(), $result);
 		return $result;
 	}
 
@@ -168,7 +168,7 @@ class factors
 
 	public static function get_count()
 	{
-		return \lib\db\config::public_get_count('factors', ...func_get_args());
+		return \dash\db\config::public_get_count('factors', ...func_get_args());
 	}
 
 	public static function sum_all()

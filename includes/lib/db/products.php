@@ -55,7 +55,7 @@ class products
 	 */
 	public static function update()
 	{
-		return \lib\db\config::public_update('products', ...func_get_args());
+		return \dash\db\config::public_update('products', ...func_get_args());
 	}
 
 
@@ -66,12 +66,12 @@ class products
 	 */
 	public static function get()
 	{
-		if($chach = \lib\db\cache::get_cache('products', func_get_args()))
+		if($chach = \dash\db\cache::get_cache('products', func_get_args()))
 		{
 			return $chach;
 		}
-		$result = \lib\db\config::public_get('products', ...func_get_args());
-		\lib\db\cache::set_cache('products', func_get_args(), $result);
+		$result = \dash\db\config::public_get('products', ...func_get_args());
+		\dash\db\cache::set_cache('products', func_get_args(), $result);
 		return $result;
 	}
 
@@ -224,7 +224,7 @@ class products
 
 	public static function get_count()
 	{
-		return \lib\db\config::public_get_count('products', ...func_get_args());
+		return \dash\db\config::public_get_count('products', ...func_get_args());
 	}
 }
 ?>

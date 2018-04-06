@@ -34,14 +34,14 @@ class userstores
 	 */
 	public static function insert()
 	{
-		\lib\db\config::public_insert('userstores', ...func_get_args());
+		\dash\db\config::public_insert('userstores', ...func_get_args());
 		return \lib\db::insert_id();
 	}
 
 
 	public static function get_count()
 	{
-		return \lib\db\config::public_get_count('userstores', ...func_get_args());
+		return \dash\db\config::public_get_count('userstores', ...func_get_args());
 	}
 
 
@@ -127,7 +127,7 @@ class userstores
 	 */
 	public static function update($_args, $_id)
 	{
-		$result = \lib\db\config::public_update('userstores', $_args, $_id);
+		$result = \dash\db\config::public_update('userstores', $_args, $_id);
 		return $result;
 	}
 
@@ -192,15 +192,15 @@ class userstores
 	{
 		$key = $_args;
 		krsort($key);
-		$cache = \lib\db\cache::get_cache('userstores', $key);
+		$cache = \dash\db\cache::get_cache('userstores', $key);
 		if($cache)
 		{
 			return $cache;
 		}
 
-		$result = \lib\db\config::public_get('userstores', $_args);
+		$result = \dash\db\config::public_get('userstores', $_args);
 
-		\lib\db\cache::set_cache('userstores', $key , $result);
+		\dash\db\cache::set_cache('userstores', $key , $result);
 		return $result;
 	}
 
@@ -235,7 +235,7 @@ class userstores
 
 		$_option = array_merge($default_option, $_option);
 
-		return \lib\db\config::public_search('userstores', $_string, $_option);
+		return \dash\db\config::public_search('userstores', $_string, $_option);
 	}
 
 

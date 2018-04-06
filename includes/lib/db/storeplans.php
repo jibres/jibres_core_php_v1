@@ -161,7 +161,7 @@ class storeplans
 
 		if(!\lib\store::is_creator())
 		{
-			\lib\db\logs::set('plan:change:not:creator', $_args['creator'], $log_meta);
+			\dash\db\logs::set('plan:change:not:creator', $_args['creator'], $log_meta);
 			\lib\notif::error(T_("Just creator of store can change the plan"));
 			return false;
 		}
@@ -171,7 +171,7 @@ class storeplans
 		$_args['plan'] = self::plan_code($_args['plan']);
 		if(!$_args['plan'])
 		{
-			\lib\db\logs::set('plan:cannot:support', $_args['creator'], $log_meta);
+			\dash\db\logs::set('plan:cannot:support', $_args['creator'], $log_meta);
 			return false;
 		}
 
@@ -258,7 +258,7 @@ class storeplans
 
 		$log_meta['meta']['current'] = $current;
 
-		\lib\db\logs::set('plan:changed', $_args['creator'], $log_meta);
+		\dash\db\logs::set('plan:changed', $_args['creator'], $log_meta);
 		// insert new storeplans
 		self::insert($_args);
 
@@ -303,7 +303,7 @@ class storeplans
 
 		$_options = array_merge($default_option, $_options);
 
-		return \lib\db\config::public_search('storeplans', $_string, $_options);
+		return \dash\db\config::public_search('storeplans', $_string, $_options);
 
 	}
 
@@ -329,12 +329,12 @@ class storeplans
 		// for the free plan
 		if(!$amount)
 		{
-			\lib\db\logs::set('invoice:store:full:make:amount:0:return:true', null, \lib\app::log_meta());
+			\dash\db\logs::set('invoice:store:full:make:amount:0:return:true', null, \lib\app::log_meta());
 			return true;
 		}
 
         // get user budget
-        $user_budget = \lib\db\transactions::budget(\lib\store::creator(), ['unit' => 'toman']);
+        $user_budget = \dash\db\transactions::budget(\lib\store::creator(), ['unit' => 'toman']);
 
         if($user_budget && is_array($user_budget))
         {
@@ -343,7 +343,7 @@ class storeplans
 
         if(intval($user_budget) < intval($amount))
         {
-			\lib\db\logs::set('invoice:store:full:money>credit', null, \lib\app::log_meta());
+			\dash\db\logs::set('invoice:store:full:money>credit', null, \lib\app::log_meta());
         	\lib\notif::error(T_("Your credit is less than amount of this plan, please charge your account"));
         	return false;
         }
@@ -392,7 +392,7 @@ class storeplans
 		// 	'cat'     => 'invoice',
 		//       ];
 
-		//       \lib\db\notifications::set($notify_set);
+		//       \dash\db\notifications::set($notify_set);
 
 
 		$transaction_set =
@@ -411,7 +411,7 @@ class storeplans
 			'invoice_id'      => $invoice_id,
         ];
 
-        \lib\db\transactions::set($transaction_set);
+        \dash\db\transactions::set($transaction_set);
 
         if(\lib\engine\process::status())
         {
