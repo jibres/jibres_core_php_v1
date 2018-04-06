@@ -13,7 +13,7 @@ class view extends \content_a\main\view
 	private function set_best_title()
 	{
 		// set usable variable
-		$this->data->moduleType = \lib\request::get('type');
+		$this->data->moduleType = \dash\request::get('type');
 
 		// set default title
 		$this->data->page['title'] = T_('Add new third party');

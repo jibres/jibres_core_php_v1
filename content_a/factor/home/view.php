@@ -10,8 +10,8 @@ class view extends \content_a\main\view
 
 		$args =
 		[
-			'order' => \lib\request::get('order'),
-			'sort'  => \lib\request::get('sort'),
+			'order' => \dash\request::get('order'),
+			'sort'  => \dash\request::get('sort'),
 		];
 
 		if(!$args['order'])
@@ -19,17 +19,17 @@ class view extends \content_a\main\view
 			$args['order'] = 'DESC';
 		}
 
-		if(\lib\request::get('type'))
+		if(\dash\request::get('type'))
 		{
-			$args['type'] = \lib\request::get('type');
+			$args['type'] = \dash\request::get('type');
 		}
 
-		if(\lib\request::get('customer'))
+		if(\dash\request::get('customer'))
 		{
-			$args['customer'] = \lib\request::get('customer');
+			$args['customer'] = \dash\request::get('customer');
 		}
 
-		$this->data->dataTable = \lib\app\factor::list(\lib\request::get('q'), $args);
+		$this->data->dataTable = \lib\app\factor::list(\dash\request::get('q'), $args);
 		$this->data->dataFilter = $this->createFilterMsg($args);
 		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, \dash\url::here(). '/factor');
 
@@ -43,7 +43,7 @@ class view extends \content_a\main\view
 	private function set_best_title()
 	{
 		// set usable variable
-		$this->data->moduleType  = \lib\request::get('type');
+		$this->data->moduleType  = \dash\request::get('type');
 		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
 
 		// set default title

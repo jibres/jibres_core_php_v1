@@ -6,7 +6,7 @@ class model extends \content_a\main\model
 {
 	public static function upload_avatar()
 	{
-		if(\lib\request::files('avatar'))
+		if(\dash\request::files('avatar'))
 		{
 			$uploaded_file = \lib\app\file::upload(['debug' => false, 'upload_name' => 'avatar']);
 
@@ -37,7 +37,7 @@ class model extends \content_a\main\model
 		$request           = [];
 		$request['avatar'] = $file_url;
 
-		\lib\app\thirdparty::edit($request, \lib\request::get('id'));
+		\lib\app\thirdparty::edit($request, \dash\request::get('id'));
 
 		if(\lib\engine\process::status())
 		{

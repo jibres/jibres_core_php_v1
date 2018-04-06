@@ -18,7 +18,7 @@ class view extends \mvc\view
 		$this->data->page['badge']['shortkey'] = 120;
 
 		// set usable variable
-		$this->data->moduleType  = \lib\request::get('type');
+		$this->data->moduleType  = \dash\request::get('type');
 		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
 
 	}
@@ -26,7 +26,7 @@ class view extends \mvc\view
 
 	public static function make_sort_link($_field, $_url)
 	{
-		$get = \lib\request::get();
+		$get = \dash\request::get();
 		if(!is_array($get))
 		{
 			$get = [];
@@ -67,9 +67,9 @@ class view extends \mvc\view
 
 			$temp_link['q']    = $get['q'];
 
-			if(is_array(\lib\request::get()))
+			if(is_array(\dash\request::get()))
 			{
-				foreach (\lib\request::get() as $query_key => $query_value)
+				foreach (\dash\request::get() as $query_key => $query_value)
 				{
 					if(!in_array($query_key, ['q', 'sort', 'order']))
 					{

@@ -17,29 +17,29 @@ class view extends \content_a\main\view
 		$this->data->unit_list    = \lib\app\product::unit_list(true);
 
 		// get some value from get
-		if(\lib\request::get('barcode'))
+		if(\dash\request::get('barcode'))
 		{
-			$this->data->product['barcode'] = \lib\request::get('barcode');
+			$this->data->product['barcode'] = \dash\request::get('barcode');
 		}
-		if(\lib\request::get('barcode2'))
+		if(\dash\request::get('barcode2'))
 		{
-			$this->data->product['barcode2'] = \lib\request::get('barcode2');
+			$this->data->product['barcode2'] = \dash\request::get('barcode2');
 		}
-		if(\lib\request::get('price'))
+		if(\dash\request::get('price'))
 		{
-			$this->data->product['price'] = \lib\request::get('price');
+			$this->data->product['price'] = \dash\request::get('price');
 		}
-		if(\lib\request::get('discount'))
+		if(\dash\request::get('discount'))
 		{
-			$this->data->product['discount'] = \lib\request::get('discount');
+			$this->data->product['discount'] = \dash\request::get('discount');
 		}
-		if(\lib\request::get('buyprice'))
+		if(\dash\request::get('buyprice'))
 		{
-			$this->data->product['buyprice'] = \lib\request::get('buyprice');
+			$this->data->product['buyprice'] = \dash\request::get('buyprice');
 		}
-		if(\lib\request::get('title'))
+		if(\dash\request::get('title'))
 		{
-			$this->data->product['title'] = \lib\request::get('title');
+			$this->data->product['title'] = \dash\request::get('title');
 		}
 	}
 }

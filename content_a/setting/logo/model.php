@@ -12,7 +12,7 @@ class model extends \content_a\main\model
 	 */
 	public static function upload_logo()
 	{
-		if(\lib\request::files('logo'))
+		if(\dash\request::files('logo'))
 		{
 			$uploaded_file = \lib\app\file::upload(['debug' => false, 'upload_name' => 'logo']);
 

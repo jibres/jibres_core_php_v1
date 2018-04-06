@@ -8,11 +8,11 @@ class model extends \content_a\main\model
 	{
 
 		$post              = [];
-		$factor_id         = \lib\request::get('id');
+		$factor_id         = \dash\request::get('id');
 		$post['factor_id'] = $factor_id;
-		$post['amount']    = \lib\request::post('amount');
-		$post['type']      = \lib\request::post('type');
-		$post['bank']      = \lib\request::post('bank');
+		$post['amount']    = \dash\request::post('amount');
+		$post['type']      = \dash\request::post('type');
+		$post['bank']      = \dash\request::post('bank');
 
 		$result            = \lib\app\storetransaction::add($post);
 

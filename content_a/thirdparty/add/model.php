@@ -7,34 +7,34 @@ class model extends \content_a\main\model
 	public static function getPostthirdparty()
 	{
 		$post         = [];
-		$post['type'] = \lib\request::get('type');
+		$post['type'] = \dash\request::get('type');
 
-		if(\lib\request::get('type') === 'supplier')
+		if(\dash\request::get('type') === 'supplier')
 		{
-			$post['visitorname']   = \lib\request::post('visitorname');
-			$post['visitormobile'] = \lib\request::post('visitormobile');
-			$post['company']       = \lib\request::post('company');
+			$post['visitorname']   = \dash\request::post('visitorname');
+			$post['visitormobile'] = \dash\request::post('visitormobile');
+			$post['company']       = \dash\request::post('company');
 		}
 		else
 		{
 
-			$post['mobile']       = \lib\utility\filter::mobile(\lib\request::post('mobile'));
-			$post['type']         = \lib\request::get('type');
-			$post['firstname']    = \lib\request::post('name');
-			$post['lastname']     = \lib\request::post('lastName');
-			$post['nationalcode'] = \lib\request::post('nationalcode');
-			$post['gender']       = \lib\request::post('gender') === 'on' ? 'female' : 'male';
+			$post['mobile']       = \lib\utility\filter::mobile(\dash\request::post('mobile'));
+			$post['type']         = \dash\request::get('type');
+			$post['firstname']    = \dash\request::post('name');
+			$post['lastname']     = \dash\request::post('lastName');
+			$post['nationalcode'] = \dash\request::post('nationalcode');
+			$post['gender']       = \dash\request::post('gender') === 'on' ? 'female' : 'male';
 
-			if(\lib\request::get('type') === 'staff')
+			if(\dash\request::get('type') === 'staff')
 			{
-				$post['birthday']  = \lib\request::post('birthday');
+				$post['birthday']  = \dash\request::post('birthday');
 			}
 			else
 			{
-				$post['code']    = \lib\request::post('code');
-				$post['address'] = \lib\request::post('address');
-				$post['phone']   = \lib\request::post('phone');
-				$post['desc']    = \lib\request::post('desc');
+				$post['code']    = \dash\request::post('code');
+				$post['address'] = \dash\request::post('address');
+				$post['phone']   = \dash\request::post('phone');
+				$post['desc']    = \dash\request::post('desc');
 			}
 		}
 

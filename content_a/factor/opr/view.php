@@ -12,7 +12,7 @@ class view extends \content_a\main\view
 		$this->data->page['badge']['link'] = \dash\url::here(). '/factor';
 		$this->data->page['badge']['text'] = T_('Back to last sales');
 
-		$pay_detail                        = \lib\app\storetransaction::factor_pay_list(\lib\request::get('id'));
+		$pay_detail                        = \lib\app\storetransaction::factor_pay_list(\dash\request::get('id'));
 		$saved_amount = 0;
 		if(is_array($pay_detail))
 		{
@@ -24,7 +24,7 @@ class view extends \content_a\main\view
 		$this->data->pay_detail            = $pay_detail;
 
 		$meta                              = [];
-		$factor_detail = \lib\app\factor::get(['id' => \lib\request::get('id')], $meta);
+		$factor_detail = \lib\app\factor::get(['id' => \dash\request::get('id')], $meta);
 
 		if(isset($factor_detail['factor']['sum']))
 		{

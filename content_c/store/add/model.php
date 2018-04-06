@@ -7,9 +7,9 @@ class model extends \content_c\main\model
 	public static function getPost()
 	{
 		$post         = [];
-		$post['name'] = \lib\request::post('name');
-		$post['slug'] = \lib\request::post('slug');
-		$post['desc'] = \lib\request::post('desc');
+		$post['name'] = \dash\request::post('name');
+		$post['slug'] = \dash\request::post('slug');
+		$post['desc'] = \dash\request::post('desc');
 
   		return $post;
 	}

@@ -8,27 +8,27 @@ class model extends \content_a\main\model
 	{
 		$args =
 		[
-			'title'          => \lib\request::post('title'),
-			'code'            => \lib\request::post('code'),
+			'title'          => \dash\request::post('title'),
+			'code'            => \dash\request::post('code'),
 
-			'cat'            => \lib\request::post('cat'),
-			'company'        => \lib\request::post('company'),
+			'cat'            => \dash\request::post('cat'),
+			'company'        => \dash\request::post('company'),
 
-			'unit'           => \lib\request::post('unit'),
-			'carton'         => \lib\request::post('carton'),
+			'unit'           => \dash\request::post('unit'),
+			'carton'         => \dash\request::post('carton'),
 
-			'barcode'        => \lib\request::post('barcode'),
-			'barcode2'       => \lib\request::post('barcode2'),
+			'barcode'        => \dash\request::post('barcode'),
+			'barcode2'       => \dash\request::post('barcode2'),
 
-			'minstock'       => \lib\request::post('minstock'),
-			'maxstock'       => \lib\request::post('maxstock'),
+			'minstock'       => \dash\request::post('minstock'),
+			'maxstock'       => \dash\request::post('maxstock'),
 
-			'buyprice'       => \lib\request::post('buyprice'),
-			'price'          => \lib\request::post('price'),
-			'discount'       => \lib\request::post('discount'),
+			'buyprice'       => \dash\request::post('buyprice'),
+			'price'          => \dash\request::post('price'),
+			'discount'       => \dash\request::post('discount'),
 
-			'initialbalance' => \lib\request::post('initialbalance'),
-			'status'         => \lib\request::post('status'),
+			'initialbalance' => \dash\request::post('initialbalance'),
+			'status'         => \dash\request::post('status'),
 		];
 
 		return $args;

@@ -41,7 +41,7 @@ class view
 	public function createFilterMsg($_args)
 	{
 		$result = null;
-		$searchText = \lib\request::get('q');
+		$searchText = \dash\request::get('q');
 
 		if($searchText)
 		{

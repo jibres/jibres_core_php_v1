@@ -11,15 +11,15 @@ class view extends \content_a\main\view
 		// $this->data->page['desc']  = T_('Sale your product via Jibres and enjoy using integrated web base platform.');
 
 
-		if(\lib\request::get('json') === 'true')
+		if(\dash\request::get('json') === 'true')
 		{
 			$result = [];
-			switch (\lib\request::get('list'))
+			switch (\dash\request::get('list'))
 			{
 				case 'customer':
 					$meta         = [];
 					$meta['type'] = ["IN", "('staff', 'customer', 'supplier') "];
-					$resultRaw    = \lib\app\thirdparty::list(\lib\request::get('q'), $meta);
+					$resultRaw    = \lib\app\thirdparty::list(\dash\request::get('q'), $meta);
 
 					foreach ($resultRaw as $key => $value)
 					{
@@ -49,28 +49,28 @@ class view extends \content_a\main\view
 				case 'product':
 					$meta = [];
 					$msg  = T_("Product not found."). ' ';
-					if(\lib\request::get('q'))
+					if(\dash\request::get('q'))
 					{
-						$resultRaw    = \lib\app\product::list(\lib\request::get('q'), $meta);
+						$resultRaw    = \lib\app\product::list(\dash\request::get('q'), $meta);
 
 						foreach ($resultRaw as $key => $value)
 						{
 							$result[$key] = self::getNeededField($value);
 						}
 					}
-					elseif(\lib\request::get('barcode'))
+					elseif(\dash\request::get('barcode'))
 					{
-						$result = \lib\app\product::list(null, ['barcode' => \lib\request::get('barcode')]);
+						$result = \lib\app\product::list(null, ['barcode' => \dash\request::get('barcode')]);
 						$result = self::getNeededField($result);
 						if(!$result)
 						{
-							$msg .= '<a href="/a/product/edit?barcode='. \lib\request::get('barcode'). '" target="_blank">'. T_('edit as new product'). '</a>';
+							$msg .= '<a href="/a/product/edit?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('edit as new product'). '</a>';
 							$result = null;
 						}
 					}
-					elseif(\lib\request::get('id'))
+					elseif(\dash\request::get('id'))
 					{
-						$result = \lib\app\product::list(null, ['id' => \lib\request::get('id')]);
+						$result = \lib\app\product::list(null, ['id' => \dash\request::get('id')]);
 						$result = self::getNeededField($result);
 						if(!$result)
 						{
@@ -104,7 +104,7 @@ class view extends \content_a\main\view
 
 		$meta         = [];
 
-		$this->data->factor_detail = \lib\app\factor::get(['id' => \lib\request::get('id')], $meta);
+		$this->data->factor_detail = \lib\app\factor::get(['id' => \dash\request::get('id')], $meta);
 
 	}
 

@@ -11,9 +11,9 @@ class model extends \content_a\main\model
 	 */
 	public static function getPostSaleProduct()
 	{
-		$product  = \lib\request::post('products');
-		$count    = \lib\request::post('count');
-		$discount = \lib\request::post('discount');
+		$product  = \dash\request::post('products');
+		$count    = \dash\request::post('count');
+		$discount = \dash\request::post('discount');
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
@@ -49,8 +49,8 @@ class model extends \content_a\main\model
 	public static function getPostSaleDetail()
 	{
 		$detail             = [];
-		$detail['customer'] = \lib\request::post('customer');
-		$detail['desc']     = \lib\request::post('desc');
+		$detail['customer'] = \dash\request::post('customer');
+		$detail['desc']     = \dash\request::post('desc');
 		return $detail;
 	}
 
@@ -78,7 +78,7 @@ class model extends \content_a\main\model
 			return false;
 		}
 
-		\lib\app\factor::edit(\lib\request::get('id'), $detail, $factor_list);
+		\lib\app\factor::edit(\dash\request::get('id'), $detail, $factor_list);
 
 		if(\lib\engine\process::status())
 		{

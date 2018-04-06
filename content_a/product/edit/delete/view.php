@@ -6,7 +6,7 @@ class view extends \content_a\main\view
 {
 	public function config()
 	{
-		$product = \lib\request::get('id');
+		$product = \dash\request::get('id');
 
 		if($product)
 		{

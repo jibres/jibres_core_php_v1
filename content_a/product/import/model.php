@@ -8,7 +8,7 @@ class model extends \content_a\main\model
 	{
 		$product_list = null;
 
-		if($file = \lib\request::files('product_list'))
+		if($file = \dash\request::files('product_list'))
 		{
 			if(isset($file['type']))
 			{

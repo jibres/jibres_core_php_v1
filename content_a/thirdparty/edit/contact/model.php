@@ -8,9 +8,9 @@ class model extends \content_a\main\model
 	{
 		$post =
 		[
-			'phone'  => \lib\request::post('phone'),
-			'mobile' => \lib\utility\filter::mobile(\lib\request::post('mobile')),
-			'email'  => \lib\request::post('email'),
+			'phone'  => \dash\request::post('phone'),
+			'mobile' => \lib\utility\filter::mobile(\dash\request::post('mobile')),
+			'email'  => \dash\request::post('email'),
 		];
 		return $post;
 	}
@@ -18,7 +18,7 @@ class model extends \content_a\main\model
 
 	public function post_contact($_args)
 	{
-		\lib\app\thirdparty::edit(self::getPost(), \lib\request::get('id'));
+		\lib\app\thirdparty::edit(self::getPost(), \dash\request::get('id'));
 
 		if(\lib\engine\process::status())
 		{

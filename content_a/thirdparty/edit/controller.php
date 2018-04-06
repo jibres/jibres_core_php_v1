@@ -6,9 +6,9 @@ class controller extends \content_a\main\controller
 {
 	public function ready()
 	{
-		if(\lib\request::get('id'))
+		if(\dash\request::get('id'))
 		{
-			\lib\redirect::to(\dash\url::here(). '/thirdparty/edit/general?id='.\lib\request::get('id'));
+			\lib\redirect::to(\dash\url::here(). '/thirdparty/edit/general?id='.\dash\request::get('id'));
 		}
 		else
 		{

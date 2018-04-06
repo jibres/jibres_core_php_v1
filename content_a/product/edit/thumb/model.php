@@ -6,7 +6,7 @@ class model extends \content_a\main\model
 {
 	public static function upload_thumb()
 	{
-		if(\lib\request::files('thumb'))
+		if(\dash\request::files('thumb'))
 		{
 			$uploaded_file = \lib\app\file::upload(['debug' => false, 'upload_name' => 'thumb']);
 
@@ -36,7 +36,7 @@ class model extends \content_a\main\model
 
 		$request          = [];
 		$request['thumb'] = $file_url;
-		$request['id']    = \lib\request::get('id');
+		$request['id']    = \dash\request::get('id');
 
 		\lib\app\product::edit($request);
 

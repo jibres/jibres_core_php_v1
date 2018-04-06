@@ -11,15 +11,15 @@ class model extends \content_a\main\model
 	 */
 	public static function getPostSaleProduct()
 	{
-		if(empty(array_filter(\lib\request::post())))
+		if(empty(array_filter(\dash\request::post())))
 		{
 			\lib\notif::warn(T_("No items have been added for sale"));
 			return false;
 		}
 
-		$product  = \lib\request::post('products');
-		$count    = \lib\request::post('count');
-		$discount = \lib\request::post('discount');
+		$product  = \dash\request::post('products');
+		$count    = \dash\request::post('count');
+		$discount = \dash\request::post('discount');
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
@@ -55,9 +55,9 @@ class model extends \content_a\main\model
 	public static function getPostSaleDetail()
 	{
 		$detail             = [];
-		$detail['customer'] = \lib\request::post('customer');
-		$detail['type']     = \lib\request::get('type');
-		$detail['desc']     = \lib\request::post('desc');
+		$detail['customer'] = \dash\request::post('customer');
+		$detail['type']     = \dash\request::get('type');
+		$detail['desc']     = \dash\request::post('desc');
 		return $detail;
 	}
 
