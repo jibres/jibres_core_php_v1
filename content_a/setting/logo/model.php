@@ -14,7 +14,7 @@ class model extends \content_a\main\model
 	{
 		if(\dash\request::files('logo'))
 		{
-			$uploaded_file = \lib\app\file::upload(['debug' => false, 'upload_name' => 'logo']);
+			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'logo']);
 
 			if(isset($uploaded_file['url']))
 			{

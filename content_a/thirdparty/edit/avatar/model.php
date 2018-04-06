@@ -8,7 +8,7 @@ class model extends \content_a\main\model
 	{
 		if(\dash\request::files('avatar'))
 		{
-			$uploaded_file = \lib\app\file::upload(['debug' => false, 'upload_name' => 'avatar']);
+			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'avatar']);
 
 			if(isset($uploaded_file['url']))
 			{

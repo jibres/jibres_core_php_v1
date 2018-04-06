@@ -82,7 +82,7 @@ trait add
 			}
 		}
 
-		$user_id = \lib\app\user::add($args, ['debug' => false, 'contact' => false]);
+		$user_id = \dash\app\user::add($args, ['debug' => false, 'contact' => false]);
 
 		if(!\lib\engine\process::status() || !isset($user_id['user_id']))
 		{
