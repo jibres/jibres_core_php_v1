@@ -8,11 +8,11 @@ class controller extends \content_a\main\controller
 	{
 		if(\lib\request::get('id'))
 		{
-			\lib\redirect::to(\lib\url::here(). '/thirdparty/edit/general?id='.\lib\request::get('id'));
+			\lib\redirect::to(\dash\url::here(). '/thirdparty/edit/general?id='.\lib\request::get('id'));
 		}
 		else
 		{
-			\lib\redirect::to(\lib\url::here(). '/thirdparty');
+			\lib\redirect::to(\dash\url::here(). '/thirdparty');
 		}
 
 		// \lib\header::status(404, T_("Invalid url"));

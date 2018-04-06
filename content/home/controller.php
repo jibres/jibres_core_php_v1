@@ -47,7 +47,7 @@ class controller
 	public static function routing()
 	{
 		// if on homepage return false
-		$url = \lib\url::directory();
+		$url = \dash\url::directory();
 		if(!$url)
 		{
 			return false;

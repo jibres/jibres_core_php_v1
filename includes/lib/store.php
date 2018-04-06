@@ -16,7 +16,7 @@ class store
 	 */
 	public static function clean()
 	{
-		\lib\session::set('store_detail_'. \lib\url::subdomain(), null);
+		\lib\session::set('store_detail_'. \dash\url::subdomain(), null);
 		self::$store = [];
 	}
 
@@ -31,13 +31,13 @@ class store
 			return;
 		}
 
-		if(\lib\session::get('store_detail_'. \lib\url::subdomain()))
+		if(\lib\session::get('store_detail_'. \dash\url::subdomain()))
 		{
-			self::$store = \lib\session::get('store_detail_'. \lib\url::subdomain());
+			self::$store = \lib\session::get('store_detail_'. \dash\url::subdomain());
 			return;
 		}
 
-		$store_detail = \lib\db\stores::get(['slug' => \lib\url::subdomain(), 'limit' => 1]);
+		$store_detail = \lib\db\stores::get(['slug' => \dash\url::subdomain(), 'limit' => 1]);
 
 		if(is_array($store_detail))
 		{
@@ -55,7 +55,7 @@ class store
 			}
 
 			self::$store = $store_detail;
-			\lib\session::set('store_detail_'. \lib\url::subdomain(), $store_detail);
+			\lib\session::set('store_detail_'. \dash\url::subdomain(), $store_detail);
 		}
 	}
 

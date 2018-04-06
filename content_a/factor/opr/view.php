@@ -9,7 +9,7 @@ class view extends \content_a\main\view
 		$this->data->page['title']         = T_('Pay factor');
 		$this->data->page['desc']          = T_('You can search in list of pays, and select one of pay');
 
-		$this->data->page['badge']['link'] = \lib\url::here(). '/factor';
+		$this->data->page['badge']['link'] = \dash\url::here(). '/factor';
 		$this->data->page['badge']['text'] = T_('Back to last sales');
 
 		$pay_detail                        = \lib\app\storetransaction::factor_pay_list(\lib\request::get('id'));

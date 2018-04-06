@@ -50,7 +50,7 @@ class model extends \content_a\main\model
 		{
 			// \lib\redirect::pwd();
 			// after save redirect to list of products
-			$url_of_product_list = \lib\url::here().'/product';
+			$url_of_product_list = \dash\url::here().'/product';
 			\lib\redirect::to($url_of_product_list);
 		}
 	}

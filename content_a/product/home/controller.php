@@ -12,7 +12,7 @@ class controller extends \content_a\main\controller
 		// redirect if query not exist
 		if(\lib\request::get('q') === '' && !\lib\request::get('page'))
 		{
-			$new_url = \lib\url::pwd();
+			$new_url = \dash\url::pwd();
 			$new_url = strtok($new_url,'?');
 			\lib\redirect::to($new_url);
 		}

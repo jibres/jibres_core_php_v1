@@ -8,7 +8,7 @@ class controller extends \mvc\controller
 	{
 		if(!\lib\user::login())
 		{
-			\lib\redirect::to(\lib\url::base(). '/enter');
+			\lib\redirect::to(\dash\url::base(). '/enter');
 			return;
 		}
 
@@ -16,9 +16,9 @@ class controller extends \mvc\controller
 		 * if we have domain in this content
 		 * redirect to whitout subdomain
 		 */
-		if(\lib\url::subdomain())
+		if(\dash\url::subdomain())
 		{
-			$url = \lib\url::site() . '/c';
+			$url = \dash\url::site() . '/c';
 			\lib\redirect::to($url);
 			return;
 		}

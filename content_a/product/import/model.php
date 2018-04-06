@@ -51,7 +51,7 @@ class model extends \content_a\main\model
 			\lib\app\product::clean_cache();
 
 			\lib\notif::ok(T_("Import product successfully complete"));
-			\lib\redirect::to(\lib\url::here(). '/product');
+			\lib\redirect::to(\dash\url::here(). '/product');
 		}
 
 	}

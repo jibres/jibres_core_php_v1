@@ -10,10 +10,10 @@ class view extends \content_a\main\view
 		$this->data->page['desc']  = T_('You can search in list of products, add new product and edit existing.');
 
 		// add back to product list link
-		$product_list_link =  '<a href="'. \lib\url::this() .'/summary" data-shortkey="121">'. T_('Products dashboard'). '</a>';
+		$product_list_link =  '<a href="'. \dash\url::this() .'/summary" data-shortkey="121">'. T_('Products dashboard'). '</a>';
 		$this->data->page['desc']  .= ' '. $product_list_link;
 
-		$this->data->page['badge']['link'] = \lib\url::this(). '/add';
+		$this->data->page['badge']['link'] = \dash\url::this(). '/add';
 		$this->data->page['badge']['text'] = T_('Add new product');
 
 		$args =
@@ -76,7 +76,7 @@ class view extends \content_a\main\view
 
 			if(isset($this->data->dataTable[0]['id']) && $barcode_is_scaned)
 			{
-				\lib\redirect::to(\lib\url::this().'/edit/general?id='. $this->data->dataTable[0]['id']);
+				\lib\redirect::to(\dash\url::this().'/edit/general?id='. $this->data->dataTable[0]['id']);
 				return;
 			}
 
@@ -102,7 +102,7 @@ class view extends \content_a\main\view
 			$this->data->barcode_scaned = '?barcode='. \lib\request::get('q');
 		}
 		$this->data->dataFilter = $this->createFilterMsg($args);
-		$this->data->sort_link = self::make_sort_link(\lib\app\product::$sort_field, \lib\url::here(). '/product');
+		$this->data->sort_link = self::make_sort_link(\lib\app\product::$sort_field, \dash\url::here(). '/product');
 
 		if(isset($this->controller->pagnation))
 		{

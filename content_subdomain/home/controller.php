@@ -5,7 +5,7 @@ class controller extends \mvc\controller
 {
 	public function ready()
 	{
-		if(in_array(\lib\url::subdomain(), \lib\app\store::$black_list_slug))
+		if(in_array(\dash\url::subdomain(), \lib\app\store::$black_list_slug))
 		{
 			// no thing
 		}

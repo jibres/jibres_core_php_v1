@@ -16,11 +16,11 @@ class model extends \content_a\main\model
 
 		$result            = \lib\app\storetransaction::add($post);
 
-		$new_url           = \lib\url::pwd();
+		$new_url           = \dash\url::pwd();
 
 		if(isset($result['complete']) && $result['complete'])
 		{
-			$new_url = \lib\url::here(). '/add?type=getthetypefromresult';
+			$new_url = \dash\url::here(). '/add?type=getthetypefromresult';
 		}
 
 		\lib\redirect::to($new_url);

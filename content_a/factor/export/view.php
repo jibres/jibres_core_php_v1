@@ -9,7 +9,7 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('Print factor');
 		$this->data->page['desc']  = T_('You can search in list of factors, add new factor and edit existing.');
 
-		$this->data->page['badge']['link'] = \lib\url::here(). '/factor';
+		$this->data->page['badge']['link'] = \dash\url::here(). '/factor';
 		$this->data->page['badge']['text'] = T_('Back to last sales');
 
 		$meta         = [];

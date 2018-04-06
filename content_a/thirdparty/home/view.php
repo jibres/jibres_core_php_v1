@@ -40,7 +40,7 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('List of third parties');
 		$this->data->page['desc']  = T_('All type of poeple or companies like customers, staffs and supplisers is known as third parties that work with your store is exist here');
 		// set badge
-		$this->data->page['badge']['link'] = \lib\url::this(). '/add';
+		$this->data->page['badge']['link'] = \dash\url::this(). '/add';
 		$this->data->page['badge']['text'] = T_('Add new third party');
 
 
@@ -49,10 +49,10 @@ class view extends \content_a\main\view
 		{
 			$this->data->page['title'] = T_('List of :type', ['type' => $this->data->moduleType.'s']);
 			$this->data->page['desc']  = T_('Search in list of :type, add and edit and manage them.', ['type' => $this->data->moduleType.'s']);
-			$this->data->page['desc']  .= ' <a href="'. \lib\url::this() .'" data-shortkey="121">'. T_('List of all third parties.'). '<kbd>f10</kbd></a>';
+			$this->data->page['desc']  .= ' <a href="'. \dash\url::this() .'" data-shortkey="121">'. T_('List of all third parties.'). '<kbd>f10</kbd></a>';
 
 
-			$this->data->page['badge']['link'] = \lib\url::this(). '/add?type='. $this->data->moduleType;
+			$this->data->page['badge']['link'] = \dash\url::this(). '/add?type='. $this->data->moduleType;
 			$this->data->page['badge']['text'] = T_('Add new :type', ['type' => $this->data->moduleType]);
 		}
 

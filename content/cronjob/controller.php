@@ -13,7 +13,7 @@ class controller extends \mvc\controller
 
 		// \lib\db\mysql\tools\log::log($_SERVER, time(), 'cronjob.log', 'json');
 
-		if(\lib\url::isLocal())
+		if(\dash\url::isLocal())
 		{
 			return;
 		}

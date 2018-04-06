@@ -23,11 +23,11 @@ class view extends \content_a\main\view
 		$this->data->page['desc']  = T_('Manage general setting of product like name, category, price and etc.') .' '. T_('You can change another setting by choose another type of setting.');
 
 		// add back to product list link
-		// $product_list_link =  '<a href="'. \lib\url::here() .'/product" data-shortkey="118">'. T_('Back to product list'). '</a>';
+		// $product_list_link =  '<a href="'. \dash\url::here() .'/product" data-shortkey="118">'. T_('Back to product list'). '</a>';
 		// $this->data->page['desc']  .= ' '. $product_list_link;
 
 
-		$this->data->page['badge']['link'] = \lib\url::here(). '/product';
+		$this->data->page['badge']['link'] = \dash\url::here(). '/product';
 		$this->data->page['badge']['text'] = T_('Back to product list');
 	}
 }

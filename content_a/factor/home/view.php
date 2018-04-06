@@ -31,7 +31,7 @@ class view extends \content_a\main\view
 
 		$this->data->dataTable = \lib\app\factor::list(\lib\request::get('q'), $args);
 		$this->data->dataFilter = $this->createFilterMsg($args);
-		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, \lib\url::here(). '/factor');
+		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, \dash\url::here(). '/factor');
 
 		if(isset($this->controller->pagnation))
 		{
@@ -50,7 +50,7 @@ class view extends \content_a\main\view
 		$this->data->page['title'] = T_('List of factors');
 		$this->data->page['desc']  = T_('You can search in list of factors, add new factor or edit existing.');
 		// set badge
-		$this->data->page['badge']['link'] = \lib\url::this(). '/summary';
+		$this->data->page['badge']['link'] = \dash\url::this(). '/summary';
 		$this->data->page['badge']['text'] = T_('Back to factors summary');
 
 
@@ -59,10 +59,10 @@ class view extends \content_a\main\view
 		{
 			$this->data->page['title'] = T_('List of :type', ['type' => $this->data->moduleType]);
 			$this->data->page['desc']  = T_('Search in list of :type factors, add or edit them.', ['type' => $this->data->moduleType]);
-			$this->data->page['desc']  .= ' <a href="'. \lib\url::this() .'" data-shortkey="121">'. T_('List of all factors.'). '<kbd>f10</kbd></a>';
+			$this->data->page['desc']  .= ' <a href="'. \dash\url::this() .'" data-shortkey="121">'. T_('List of all factors.'). '<kbd>f10</kbd></a>';
 
 
-			$this->data->page['badge']['link'] = \lib\url::this(). '/add?type='. $this->data->moduleType;
+			$this->data->page['badge']['link'] = \dash\url::this(). '/add?type='. $this->data->moduleType;
 			$this->data->page['badge']['text'] = T_('Add new :type', ['type' => $this->data->moduleType]);
 		}
 	}

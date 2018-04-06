@@ -6,9 +6,9 @@ class controller extends \mvc\controller
 {
 	public function repository()
 	{
-		if(!\lib\url::subdomain())
+		if(!\dash\url::subdomain())
 		{
-			\lib\redirect::to(\lib\url::base());
+			\lib\redirect::to(\dash\url::base());
 		}
 
 		if(!\lib\store::id())
@@ -18,7 +18,7 @@ class controller extends \mvc\controller
 
 		if(!\lib\user::login())
 		{
-			\lib\redirect::to(\lib\url::base(). '/enter');
+			\lib\redirect::to(\dash\url::base(). '/enter');
 			return;
 		}
 

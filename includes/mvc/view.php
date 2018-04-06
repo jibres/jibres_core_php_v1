@@ -25,7 +25,7 @@ class view
 		\lib\data::template_price('content/template/priceTable.html');
 		\lib\data::template_priceSchool('content/template/priceSchoolTable.html');
 
-		// if(\lib\url::content() === null)
+		// if(\dash\url::content() === null)
 		// {
 		// 	// get total uses
 		// 	$total_users                     = 10; // intval(\lib\db\userteams::total_userteam());
@@ -89,7 +89,7 @@ class view
 		unset($filter_array['sort']);
 		unset($filter_array['order']);
 
-		switch (\lib\url::module())
+		switch (\dash\url::module())
 		{
 			case 'factor':
 				if(isset($filter_array['customer']))

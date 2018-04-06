@@ -10,7 +10,7 @@ class view extends \content_a\main\view
 		$this->data->page['desc']  = '';
 		// $this->data->page['desc']  = T_('Sale your product via Jibres and enjoy using integrated web base platform.');
 
-		$this->data->page['badge']['link'] = \lib\url::here(). '/factor';
+		$this->data->page['badge']['link'] = \dash\url::here(). '/factor';
 		$this->data->page['badge']['text'] = T_('Back to last sales');
 
 		if(\lib\request::get('json') === 'true')

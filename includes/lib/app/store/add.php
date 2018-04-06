@@ -42,7 +42,7 @@ trait add
 		// check store count
 		$count_store = self::count_store_by_creator(\lib\user::id());
 
-		if(\lib\url::isLocal())
+		if(\dash\url::isLocal())
 		{
 			// no check in local
 		}
@@ -106,7 +106,7 @@ trait add
 
 		\lib\app\thirdparty::add($insert_userstore, ['debug' => false, 'store_id' => $store_id]);
 
-		if(\lib\url::isLocal())
+		if(\dash\url::isLocal())
 		{
 			// in local mode not set the subdomain
 		}

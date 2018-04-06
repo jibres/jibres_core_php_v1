@@ -81,7 +81,7 @@ trait barcode
 
 						if($product_id)
 						{
-							$link = \lib\url::base(). '/a/product/edit/general?id='. $product_id;
+							$link = \dash\url::base(). '/a/product/edit/general?id='. $product_id;
 							$msg = "<a href='$link'>". $msg. '</a>';
 						}
 

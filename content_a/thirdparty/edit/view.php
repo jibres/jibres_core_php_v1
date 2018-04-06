@@ -37,7 +37,7 @@ class view extends \content_a\main\view
 			$this->data->page['title'] = ' | '. $thirdparty['displayname'];
 		}
 
-		$this->data->page['badge']['link'] = \lib\url::here(). '/thirdparty/add';
+		$this->data->page['badge']['link'] = \dash\url::here(). '/thirdparty/add';
 		$this->data->page['badge']['text'] = T_('Add new thirdparty');
 	}
 

@@ -10,7 +10,7 @@ class model extends \mvc\model
 	public function post_cronjob($_args = null)
 	{
 
-		$url = \lib\url::dir(1);
+		$url = \dash\url::dir(1);
 
 		// \lib\db\mysql\tools\log::log($url, time(), 'cronjob.log', 'json');
 

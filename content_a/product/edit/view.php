@@ -28,7 +28,7 @@ class view extends \content_a\main\view
 
 		$this->data->page['desc']  = T_('You can have some edit on this product');
 
-		$this->data->page['badge']['link'] = \lib\url::here(). '/product';
+		$this->data->page['badge']['link'] = \dash\url::here(). '/product';
 		$this->data->page['badge']['text'] = T_('Back to product list');
 	}
 }
