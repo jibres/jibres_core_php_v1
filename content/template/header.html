@@ -13,12 +13,12 @@
     <a href="{{url.here}}/contact">{%trans "Contact"%}</a>
 {%if login.id%}
 {%if url.subdomain%}
-    <a href="{{url.here}}/a" data-direct class="btn">{%trans "Store Panel"%}</a>
+    <a href="{{url.base}}/a" data-direct class="btn">{%trans "Store Panel"%}</a>
 {%else%}
-    <a href="{{url.here}}/c" data-direct class="btn">{%trans "Admin Panel"%}</a>
+    <a href="{{url.base}}/c" data-direct class="btn">{%trans "Admin Panel"%}</a>
 {%endif%}
 {%else%}
-    <a href="{{url.here}}/enter" data-direct class="btn">{%trans "Enter"%}</a>
+    <a href="{{url.base}}/enter" data-direct class="btn">{%trans "Enter"%}</a>
 {%endif%}
    </nav>
   </div>
