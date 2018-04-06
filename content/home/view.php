@@ -6,14 +6,14 @@ class view
 {
 	public static function config()
 	{
-		\mvc\view::project();
+		// \mvc\view::project();
 
-		\lib\data::bodyclass('unselectable vflex');
+		\dash\data::bodyclass('unselectable vflex');
 		// $this->include->js     = false;
-		\lib\data::homepagenumber(\lib\utility\homepagenumber::get());
+		\dash\data::homepagenumber(\lib\utility\homepagenumber::get());
 
-		\lib\data::page(\lib\data::get('site', 'title'). ' - '. T_('Integrated Sales and Online Accounting'), 'title');
-		\lib\data::page(true, 'special');
+		\dash\data::page(\dash\data::get('site', 'title'). ' - '. T_('Integrated Sales and Online Accounting'), 'title');
+		\dash\data::page(true, 'special');
 	}
 }
 ?>

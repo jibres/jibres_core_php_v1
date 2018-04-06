@@ -6,8 +6,8 @@ class view
 {
 	public static function config()
 	{
-		\lib\data::page(T_('Jibres benefits'), 'title');
-		\lib\data::page(T_('What can you do with Jibres?'), 'desc');
+		\dash\data::page(T_('Jibres benefits'), 'title');
+		\dash\data::page(T_('What can you do with Jibres?'), 'desc');
 	}
 }
 ?>

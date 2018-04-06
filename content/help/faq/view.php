@@ -6,8 +6,8 @@ class view
 {
 	public static function config()
 	{
-		\lib\data::page(T_('Frequently Asked Questions'), 'title');
-		\lib\data::page(T_('This FAQ provides answers to basic questions about Jibres.'), 'desc');
+		\dash\data::page(T_('Frequently Asked Questions'), 'title');
+		\dash\data::page(T_('This FAQ provides answers to basic questions about Jibres.'), 'desc');
 	}
 }
 ?>

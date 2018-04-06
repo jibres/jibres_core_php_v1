@@ -8,22 +8,22 @@ class view
 		// define default value for global
 
 
-		\lib\data::site_title(T_("Jibres"));
-		\lib\data::site_desc(T_("Jibres is not just an online accounting software;"). ' '.  T_("We try to create the best financial platform that has everything you need to sale and manage your financial life."));
-		\lib\data::site_slogan(T_("Integrated Sales and Online Accounting"));
+		\dash\data::site_title(T_("Jibres"));
+		\dash\data::site_desc(T_("Jibres is not just an online accounting software;"). ' '.  T_("We try to create the best financial platform that has everything you need to sale and manage your financial life."));
+		\dash\data::site_slogan(T_("Integrated Sales and Online Accounting"));
 
-		\lib\data::page_desc(\lib\data::site_desc(). ' | '. \lib\data::site_slogan());
+		\dash\data::page_desc(\dash\data::site_desc(). ' | '. \dash\data::site_slogan());
 
-		\lib\data::bodyclass('unselectable');
+		\dash\data::bodyclass('unselectable');
 
 		// for pushstate of main page
-		\lib\data::template_xhr('content/main/layout-xhr.html');
+		\dash\data::template_xhr('content/main/layout-xhr.html');
 
-		\lib\data::display_admin('content_a/main/layout.html');
-		\lib\data::template_social('content/template/social.html');
-		\lib\data::template_share('content/template/share.html');
-		\lib\data::template_price('content/template/priceTable.html');
-		\lib\data::template_priceSchool('content/template/priceSchoolTable.html');
+		\dash\data::display_admin('content_a/main/layout.html');
+		\dash\data::template_social('content/template/social.html');
+		\dash\data::template_share('content/template/share.html');
+		\dash\data::template_price('content/template/priceTable.html');
+		\dash\data::template_priceSchool('content/template/priceSchoolTable.html');
 
 		// if(\dash\url::content() === null)
 		// {
