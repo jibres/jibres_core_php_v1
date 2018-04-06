@@ -9,7 +9,7 @@ class model extends \content_a\main\model
 		$post =
 		[
 			'phone'  => \dash\request::post('phone'),
-			'mobile' => \lib\utility\filter::mobile(\dash\request::post('mobile')),
+			'mobile' => \dash\utility\filter::mobile(\dash\request::post('mobile')),
 			'email'  => \dash\request::post('email'),
 		];
 		return $post;

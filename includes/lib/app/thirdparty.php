@@ -33,7 +33,7 @@ class thirdparty
 		$mobile = \lib\app::request('mobile');
 		$mobile = trim($mobile);
 
-		if($mobile && !\lib\utility\filter::mobile($mobile))
+		if($mobile && !\dash\utility\filter::mobile($mobile))
 		{
 			\lib\notif::error(T_("Invalid mobile"), 'mobile');
 			return false;
@@ -93,7 +93,7 @@ class thirdparty
 
 		$nationalcode = \lib\app::request('nationalcode');
 		$nationalcode = trim($nationalcode);
-		if($nationalcode && !\lib\utility\filter::nationalcode($nationalcode))
+		if($nationalcode && !\dash\utility\filter::nationalcode($nationalcode))
 		{
 			\lib\notif::error(T_("Invalid nationalcode"), 'nationalcode');
 			return false;
@@ -126,9 +126,9 @@ class thirdparty
 				return false;
 			}
 
-			if(\lib\utility\jdate::is_jalali($birthday))
+			if(\dash\utility\jdate::is_jalali($birthday))
 			{
-				$birthday = \lib\utility\jdate::to_gregorian($birthday, "Y-m-d");
+				$birthday = \dash\utility\jdate::to_gregorian($birthday, "Y-m-d");
 			}
 
 			$datetime1 = new \DateTime($birthday);
@@ -153,9 +153,9 @@ class thirdparty
 				return false;
 			}
 
-			if(\lib\utility\jdate::is_jalali($pasportdate))
+			if(\dash\utility\jdate::is_jalali($pasportdate))
 			{
-				$pasportdate = \lib\utility\jdate::to_gregorian($pasportdate, "Y-m-d");
+				$pasportdate = \dash\utility\jdate::to_gregorian($pasportdate, "Y-m-d");
 			}
 
 			$datetime1 = new \DateTime($pasportdate);
@@ -184,7 +184,7 @@ class thirdparty
 
 		$shcode = \lib\app::request('shcode');
 		$shcode = trim($shcode);
-		$shcode = \lib\utility\convert::to_en_number($shcode);
+		$shcode = \dash\utility\convert::to_en_number($shcode);
 		if($shcode && !is_numeric($shcode))
 		{
 			\lib\notif::error(T_("Invalid shcode"), 'shcode');
@@ -201,7 +201,7 @@ class thirdparty
 
 		$zipcode = \lib\app::request('zipcode');
 		$zipcode = trim($zipcode);
-		$zipcode = \lib\utility\convert::to_en_number($zipcode);
+		$zipcode = \dash\utility\convert::to_en_number($zipcode);
 		if($zipcode && !is_numeric($zipcode))
 		{
 			\lib\notif::error(T_("Invalid zipcode"), 'zipcode');

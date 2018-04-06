@@ -141,7 +141,7 @@ class view extends \content_a\main\view
 
 		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
-			$result['count'] = \lib\utility\human::fitNumber($_data['finalprice']);;
+			$result['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
 		}
 
 		if(isset($_data['barcode']))

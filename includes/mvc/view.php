@@ -30,7 +30,7 @@ class view
 		// 	// get total uses
 		// 	$total_users                     = 10; // intval(\lib\db\userteams::total_userteam());
 		// 	$total_users                     = number_format($total_users);
-		// 	$this->data->total_users         = \lib\utility\human::number($total_users);
+		// 	$this->data->total_users         = \dash\utility\human::number($total_users);
 		// 	$this->data->footer_stat         = T_("We help :count people to work beter!", ['count' => $this->data->total_users]);
 		// }
 
@@ -70,7 +70,7 @@ class view
 				}
 				if(is_numeric($value))
 				{
-					$value = \lib\utility\human::fitNumber($value);
+					$value = \dash\utility\human::fitNumber($value);
 				}
 				$result .= T_($key) . ' <b>'. T_(ucfirst($value)). '</b>';
 				$index++;

@@ -380,7 +380,7 @@ class storeplans
 		//       $notify_text = T_("You have new invoice for :store by amount :amount :unit",
 		// [
 		// 	'store'   => $this->store_details['name'],
-		// 	'amount' => \lib\utility\human::number(number_format($amount), \lib\language::current()),
+		// 	'amount' => \dash\utility\human::number(number_format($amount), \lib\language::current()),
 		// 	'unit'   => T_("toman"),
 		// ]);
 

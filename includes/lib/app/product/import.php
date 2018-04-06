@@ -55,7 +55,7 @@ trait import
 			return false;
 		}
 
-		$raw_data = \lib\utility\import::csv($_string);
+		$raw_data = \dash\utility\import::csv($_string);
 
 		$result = [];
 

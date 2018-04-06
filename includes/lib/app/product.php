@@ -143,7 +143,7 @@ class product
 
 
 		// $slug = \lib\app::request('slug');
-		$slug = \lib\utility\filter::slug($title, null, 'persian');
+		$slug = \dash\utility\filter::slug($title, null, 'persian');
 		$slug = substr($slug, 0, 199);
 
 
@@ -158,7 +158,7 @@ class product
 
 		// the short code
 		// $shotcode = null;
-		// $shortcode = \lib\utility\convert::to_en_number($shortcode);
+		// $shortcode = \dash\utility\convert::to_en_number($shortcode);
 		// if(!is_numeric($shortcode))
 		// {
 		// 	// \lib\app::log('api:product:company:not:numberic', \lib\user::id(), $log_meta);
@@ -185,7 +185,7 @@ class product
 		$barcode = \lib\app::request('barcode');
 		$barcode = trim($barcode);
 
-		$to_barcode = \lib\utility\convert::to_barcode($barcode);
+		$to_barcode = \dash\utility\convert::to_barcode($barcode);
 		if($barcode != $to_barcode)
 		{
 			// \lib\app::log('barcode:is:different:barcode2', \lib\user::id(), // \lib\app::log_meta(1, ['barcode' => $barcode, 'fixed' => $to_barcode]));
@@ -203,7 +203,7 @@ class product
 		$barcode2 = \lib\app::request('barcode2');
 		$barcode2 = trim($barcode2);
 
-		$to_barcode2 = \lib\utility\convert::to_barcode($barcode2);
+		$to_barcode2 = \dash\utility\convert::to_barcode($barcode2);
 		if($barcode2 != $to_barcode2)
 		{
 			\lib\app::log('barcode2:is:different:barcode2', \lib\user::id(), \lib\app::log_meta(1, ['barcode2' => $barcode2, 'fixed' => $to_barcode2]));
@@ -253,7 +253,7 @@ class product
 		}
 
 		$buyprice = \lib\app::request('buyprice');
-		$buyprice = \lib\utility\convert::to_en_number($buyprice);
+		$buyprice = \dash\utility\convert::to_en_number($buyprice);
 		if($buyprice && !is_numeric($buyprice))
 		{
 			// \lib\app::log('api:product:buyprice:is:nan', \lib\user::id(), $log_meta);
@@ -269,7 +269,7 @@ class product
 		}
 
 		$price = \lib\app::request('price');
-		$price = \lib\utility\convert::to_en_number($price);
+		$price = \dash\utility\convert::to_en_number($price);
 		if($price && !is_numeric($price))
 		{
 			// \lib\app::log('api:product:price:is:nan', \lib\user::id(), $log_meta);
@@ -285,7 +285,7 @@ class product
 		}
 
 		$discount = \lib\app::request('discount');
-		$discount = \lib\utility\convert::to_en_number($discount);
+		$discount = \dash\utility\convert::to_en_number($discount);
 		if($discount && !is_numeric($discount))
 		{
 			// \lib\app::log('api:product:discount:is:nan', \lib\user::id(), $log_meta);
@@ -307,7 +307,7 @@ class product
 		}
 
 		$initialbalance = \lib\app::request('initialbalance');
-		$initialbalance = \lib\utility\convert::to_en_number($initialbalance);
+		$initialbalance = \dash\utility\convert::to_en_number($initialbalance);
 		if($initialbalance && !is_numeric($initialbalance))
 		{
 			// \lib\app::log('api:product:initialbalance:is:nan', \lib\user::id(), $log_meta);
@@ -323,7 +323,7 @@ class product
 		}
 
 		$minstock = \lib\app::request('minstock');
-		$minstock = \lib\utility\convert::to_en_number($minstock);
+		$minstock = \dash\utility\convert::to_en_number($minstock);
 		if($minstock && !is_numeric($minstock))
 		{
 			// \lib\app::log('api:product:minstock:is:nan', \lib\user::id(), $log_meta);
@@ -339,7 +339,7 @@ class product
 		}
 
 		$maxstock = \lib\app::request('maxstock');
-		$maxstock = \lib\utility\convert::to_en_number($maxstock);
+		$maxstock = \dash\utility\convert::to_en_number($maxstock);
 		if($maxstock && !is_numeric($maxstock))
 		{
 			// \lib\app::log('api:product:maxstock:is:nan', \lib\user::id(), $log_meta);
@@ -373,7 +373,7 @@ class product
 		// }
 
 		$stock = \lib\app::request('stock');
-		$stock = \lib\utility\convert::to_en_number($stock);
+		$stock = \dash\utility\convert::to_en_number($stock);
 		if($stock && !is_numeric($stock))
 		{
 			// \lib\app::log('api:product:stock:is:nan', \lib\user::id(), $log_meta);
@@ -435,7 +435,7 @@ class product
 
 
 		$carton = \lib\app::request('carton');
-		$carton = \lib\utility\convert::to_en_number($carton);
+		$carton = \dash\utility\convert::to_en_number($carton);
 		if($carton && !is_numeric($carton))
 		{
 			// \lib\app::log('api:product:carton:is:nan', \lib\user::id(), $log_meta);

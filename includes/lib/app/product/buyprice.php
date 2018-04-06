@@ -81,7 +81,7 @@ trait buyprice
 			$update_old_record =
 			[
 				'enddate'       => date("Y-m-d H:i:s"),
-				'endshamsidate' => \lib\utility\jdate::date("Ymd", false, false),
+				'endshamsidate' => \dash\utility\jdate::date("Ymd", false, false),
 			];
 
 			\lib\db\productprices::update($update_old_record, $last_product_price['id']);
@@ -96,7 +96,7 @@ trait buyprice
 			$new_record['product_id']      = $_product_id;
 			$new_record['creator']         = \lib\user::id();
 			$new_record['startdate']       = date("Y-m-d H:i:s");
-			$new_record['startshamsidate'] = \lib\utility\jdate::date("Ymd", false, false);
+			$new_record['startshamsidate'] = \dash\utility\jdate::date("Ymd", false, false);
 
 			\lib\db\productprices::insert($new_record);
 		}

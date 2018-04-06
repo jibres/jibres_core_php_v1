@@ -34,7 +34,7 @@ class storetransaction
 
 		$plus = \lib\app::request('plus');
 		$plus = str_replace(',', '', $plus);
-		$plus = \lib\utility\convert::to_en_number($plus);
+		$plus = \dash\utility\convert::to_en_number($plus);
 		if($plus && !is_numeric($plus))
 		{
 			\lib\notif::error(T_("Amount must be a number"), 'plus');
@@ -55,7 +55,7 @@ class storetransaction
 
 		$minus = \lib\app::request('minus');
 		$minus = str_replace(',', '', $minus);
-		$minus = \lib\utility\convert::to_en_number($minus);
+		$minus = \dash\utility\convert::to_en_number($minus);
 		if($minus && !is_numeric($minus))
 		{
 			\lib\notif::error(T_("Amount must be a number"), 'minus');
@@ -160,7 +160,7 @@ class storetransaction
 
 			$amount = \lib\app::request('amount');
 			$amount = str_replace(',', '', $amount);
-			$amount = \lib\utility\convert::to_en_number($amount);
+			$amount = \dash\utility\convert::to_en_number($amount);
 
 			if(!$amount)
 			{

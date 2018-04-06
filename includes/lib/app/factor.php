@@ -110,7 +110,7 @@ class factor
 		$args['type']           = $type;
 		$args['seller']         = \lib\userstore::id();
 		$args['date']           = date("Y-m-d H:i:s");
-		$args['shamsidate']     = \lib\utility\jdate::date("Ymd", time(), false);
+		$args['shamsidate']     = \dash\utility\jdate::date("Ymd", time(), false);
 		$args['title']          = null;
 		$args['pre']            = null;
 		$args['transport']      = null;

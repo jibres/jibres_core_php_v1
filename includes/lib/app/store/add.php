@@ -112,7 +112,7 @@ trait add
 		}
 		else
 		{
-			\lib\utility\cloudflare::create_dns_record(['type' => 'CNAME', 'name' => $args['slug'], 'content' => 'jibres.com']);
+			\dash\utility\cloudflare::create_dns_record(['type' => 'CNAME', 'name' => $args['slug'], 'content' => 'jibres.com']);
 		}
 
 		$return['store_id'] = \lib\coding::encode($store_id);

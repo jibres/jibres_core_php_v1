@@ -94,7 +94,7 @@ trait add
 			'product_id'      => $product_id,
 			'creator'         => \lib\user::id(),
 			'startdate'       => date("Y-m-d H:i:s"),
-			'startshamsidate' => \lib\utility\jdate::date("Ymd", false, false),
+			'startshamsidate' => \dash\utility\jdate::date("Ymd", false, false),
 			'enddate'         => null,
 			'endshamsidate'   => null,
 			'buyprice'        => $args['buyprice'],

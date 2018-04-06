@@ -92,7 +92,7 @@ class store
 		if(!$slug && $name)
 		{
 			$slug = \lib\coding::encode((int) \lib\user::id() + (int) rand(10000,99999) * 10000);
-			// $slug = \lib\utility\filter::slug($name);
+			// $slug = \dash\utility\filter::slug($name);
 		}
 
 		// remove - from slug

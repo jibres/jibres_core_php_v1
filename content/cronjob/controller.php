@@ -36,7 +36,7 @@ class controller extends \mvc\controller
 		}
 		else
 		{
-			\lib\utility\telegram::sendMessage("@jibres_monitor", "#ERROR\n".  json_encode($_SERVER, JSON_UNESCAPED_UNICODE));
+			\dash\utility\telegram::sendMessage("@jibres_monitor", "#ERROR\n".  json_encode($_SERVER, JSON_UNESCAPED_UNICODE));
 			\lib\header::status(404);
 		}
 

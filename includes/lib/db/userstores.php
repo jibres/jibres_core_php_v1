@@ -95,7 +95,7 @@ class userstores
 			return null;
 		}
 
-		$_mobile = \lib\utility\filter::mobile($_mobile);
+		$_mobile = \dash\utility\filter::mobile($_mobile);
 		if(!$_mobile)
 		{
 			return false;

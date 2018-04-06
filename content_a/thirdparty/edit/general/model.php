@@ -22,7 +22,7 @@ class model extends \content_a\main\model
 		else
 		{
 			$post                 = [];
-			$post['mobile']       = \lib\utility\filter::mobile(\dash\request::post('mobile'));
+			$post['mobile']       = \dash\utility\filter::mobile(\dash\request::post('mobile'));
 			$post['type']         = \dash\request::get('type');
 			$post['firstname']    = \dash\request::post('name');
 			$post['lastname']     = \dash\request::post('lastName');

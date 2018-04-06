@@ -36,7 +36,7 @@ trait search
 	{
 		$field           = self::$public_show_field;
 		$barcode         = $_barcode;
-		$barcode_convert = \lib\utility\convert::to_barcode($barcode);
+		$barcode_convert = \dash\utility\convert::to_barcode($barcode);
 
 		if($barcode == $barcode_convert)
 		{
@@ -268,8 +268,8 @@ trait search
 			else
 			{
 				$_string   = trim($_string);
-				$barcode   = \lib\utility\convert::to_barcode($_string);
-				$en_number = \lib\utility\convert::to_en_number($_string);
+				$barcode   = \dash\utility\convert::to_barcode($_string);
+				$en_number = \dash\utility\convert::to_en_number($_string);
 			}
 
 			// search by +
@@ -340,7 +340,7 @@ trait search
 			$pagenation_query = "SELECT	COUNT(*) AS `count`	FROM `products` 	$where $search ";
 			$pagenation_query = \lib\db::get($pagenation_query, 'count', true);
 
-			// list($limit_start, $limit) = \lib\utility\pagination::get_query_limit((int) $pagenation_query, $_options['page'], $limit);
+			// list($limit_start, $limit) = \dash\utility\pagination::get_query_limit((int) $pagenation_query, $_options['page'], $limit);
 
 			list($limit_start, $limit) = \lib\db::pagnation((int) $pagenation_query, $limit);
 			$limit = " LIMIT $limit_start, $limit ";
@@ -365,7 +365,7 @@ trait search
 		if(!$only_one_value)
 		{
 			$result = \lib\db::get($query, null, false);
-			$result = \lib\utility\filter::meta_decode($result);
+			$result = \dash\utility\filter::meta_decode($result);
 		}
 		else
 		{
