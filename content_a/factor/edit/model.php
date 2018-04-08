@@ -80,7 +80,7 @@ class model extends \content_a\main\model
 
 		\lib\app\factor::edit(\dash\request::get('id'), $detail, $factor_list);
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\redirect::to(\dash\url::base(). '/a/factor');
 		}

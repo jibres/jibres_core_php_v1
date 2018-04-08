@@ -24,7 +24,7 @@ class model extends \content_a\main\model
 	{
 		\lib\app\store::edit(self::getPost());
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\redirect::pwd();
 		}

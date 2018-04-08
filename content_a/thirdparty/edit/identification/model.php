@@ -23,7 +23,7 @@ class model extends \content_a\main\model
 	{
 		\lib\app\thirdparty::edit(self::getPost(), \dash\request::get('id'));
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\redirect::pwd();
 		}

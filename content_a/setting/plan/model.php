@@ -93,7 +93,7 @@ class model extends \content_a\main\model
 		if($result)
 		{
 			\dash\notif::ok(T_("Your store plan was changed"));
-			if(\lib\engine\process::status())
+			if(\dash\engine\process::status())
 			{
 				\dash\redirect::pwd();
 			}

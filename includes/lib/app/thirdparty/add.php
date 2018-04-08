@@ -42,7 +42,7 @@ trait add
 		// check args
 		$args = self::check();
 
-		if($args === false || !\lib\engine\process::status())
+		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
@@ -84,7 +84,7 @@ trait add
 
 		$user_id = \dash\app\user::add($args, ['debug' => false, 'contact' => false]);
 
-		if(!\lib\engine\process::status() || !isset($user_id['user_id']))
+		if(!\dash\engine\process::status() || !isset($user_id['user_id']))
 		{
 			return false;
 		}
@@ -119,7 +119,7 @@ trait add
 
 		$return['thirdparty_id'] = \dash\coding::encode($userstore_id);
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("Thirdparty successfuly added"));
 			\lib\app\store::user_count('thirdparty', true);

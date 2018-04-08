@@ -27,7 +27,7 @@ trait edit
 
 		$args = self::check($id);
 
-		if($args === false || !\lib\engine\process::status())
+		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
@@ -101,7 +101,7 @@ trait edit
 		{
 			$update = \lib\db\userstores::update($args, $id);
 
-			if(\lib\engine\process::status())
+			if(\dash\engine\process::status())
 			{
 				\dash\notif::ok(T_("Thirdparty successfully updated"));
 			}

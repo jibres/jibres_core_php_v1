@@ -39,7 +39,7 @@ class model extends \content_a\main\model
 	{
 		\lib\app\product::add(self::getPost());
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\redirect::to(\dash\url::here(). '/product');
 		}

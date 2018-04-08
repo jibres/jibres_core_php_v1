@@ -8,7 +8,7 @@ class model
 	{
 		\lib\app\store::add(self::getPost());
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\redirect::to(\dash\url::here().'/store');
 		}

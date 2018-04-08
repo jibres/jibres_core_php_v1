@@ -11,7 +11,7 @@ class model extends \content_a\main\model
 
 		$exported = \lib\app\product::export($file_name);
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("Export product successfully complete"));
 			\dash\redirect::to(\dash\url::here(). '/product');

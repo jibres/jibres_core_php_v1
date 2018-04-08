@@ -35,7 +35,7 @@ trait add
 		// check args
 		$args = self::check();
 
-		if($args === false || !\lib\engine\process::status())
+		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
@@ -118,7 +118,7 @@ trait add
 		$return['store_id'] = \dash\coding::encode($store_id);
 		$return['slug']     = $args['slug'];
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("Store successfuly added"));
 		}

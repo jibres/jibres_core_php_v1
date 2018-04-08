@@ -46,7 +46,7 @@ class model extends \content_a\main\model
 
 		\lib\app\thirdparty::edit($request, \dash\request::get('id'));
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\redirect::pwd();
 		}

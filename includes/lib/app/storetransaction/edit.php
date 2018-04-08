@@ -65,7 +65,7 @@ trait edit
 
 		$return = \lib\app\storetransaction::add($_storetransaction, $_storetransaction_detail, ['storetransaction_id' => $load_storetransaction['id'], 'debug' => false]);
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("Your storetransaction successfully updated"));
 		}

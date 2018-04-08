@@ -112,7 +112,7 @@ class model extends \content_a\main\model
 
 		\lib\app\store::edit_meta(['factor' => $meta]);
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("Factor setting saved"));
 			\dash\redirect::pwd();

@@ -13,7 +13,7 @@ class model extends \content_a\main\model
 		{
 			\lib\app\product::delete($url_product);
 
-			if(\lib\engine\process::status())
+			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::here(). '/product');
 			}

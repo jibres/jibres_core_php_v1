@@ -60,7 +60,7 @@ trait add
 		$factor          = self::check_factor($_option);
 		$_option['type'] = $factor['type'];
 
-		if($factor === false || !\lib\engine\process::status())
+		if($factor === false || !\dash\engine\process::status())
 		{
 			\dash\db::rollback();
 			return false;
@@ -71,7 +71,7 @@ trait add
 		\dash\app::variable($_factor_detail);
 		$factor_detail = self::check_factor_detail($_option);
 
-		if($factor_detail === false || !\lib\engine\process::status())
+		if($factor_detail === false || !\dash\engine\process::status())
 		{
 			\dash\db::rollback();
 			return false;
@@ -127,7 +127,7 @@ trait add
 			\dash\db::rollback();
 		}
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\db::commit();
 			if($_option['debug']) \dash\notif::ok(T_("Factor successfuly added"));

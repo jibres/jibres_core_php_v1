@@ -54,7 +54,7 @@ trait add
 		// check args
 		$args = self::check($_option);
 
-		if($args === false || !\lib\engine\process::status())
+		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
@@ -107,7 +107,7 @@ trait add
 
 		$return['product_id'] = \dash\coding::encode($product_id);
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			if($_option['debug']) \dash\notif::ok(T_("Product successfuly added"));
 		}

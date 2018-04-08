@@ -15,7 +15,7 @@ class model extends \content_a\main\model
 				return $uploaded_file['url'];
 			}
 			// if in upload have error return
-			if(!\lib\engine\process::status())
+			if(!\dash\engine\process::status())
 			{
 				return false;
 			}
@@ -40,7 +40,7 @@ class model extends \content_a\main\model
 
 		\lib\app\product::edit($request);
 
-		if(\lib\engine\process::status())
+		if(\dash\engine\process::status())
 		{
 			\dash\redirect::pwd();
 		}
