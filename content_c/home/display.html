@@ -8,9 +8,11 @@
  <div class="c4 s12">{{block ("prDate")}}</div>
 </div>
 
+{%if list_store%}
+{%for key, value in list_store%}
 <h2 class="mT20">{%trans "List of your stores"%}</h2>
 <div class="f">
-{%for key, value in list_store%}
+  111
  <div class="c4 s12">
   <a class="dcard" href='{{value.url}}/a'>
    <div class="statistic">{{value.name}}
@@ -19,6 +21,10 @@
  </div>
 {%endfor%}
 </div>
+{%else%}
+<p class="msg success2 fs18 txtC"><a href='{{url.here}}/store/add'>{%trans "Lets start by add new store!"%}</a></p>
+{%endif%}
+
 {%endblock%}
 
 
