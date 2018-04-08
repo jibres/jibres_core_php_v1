@@ -2,14 +2,14 @@
 namespace content_c\store;
 
 
-class view extends \content_c\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title'] = T_("Stores");
-		$this->data->page['desc']  = T_("View list of stores and add new one easily just in seconds.");
+		\dash\data::page_title(T_("Stores"));
+		\dash\data::page_desc(T_("View list of stores and add new one easily just in seconds."));
 
-		$this->data->list_store    = \lib\app\store::list();
+		\dash\data::stores(\lib\app\store::list());
 	}
 }
 ?>
