@@ -19,12 +19,12 @@ class view
 		if(!$list_store)
 		{
 			// cache all data for 1 min in this page
-			$cache_time = 1;
+			$cache_time = 60;
 			$list_store = \lib\app\store::list(['pagenation' => false]);
 			\dash\session::set('get_list_store_dashboard_'. \dash\user::id(), $list_store, null, $cache_time);
 		}
-		\dash\data::list_store($list_store);
-		\dash\data::count_store_by_creator(count($list_store));
+		\dash\data::stores($list_store);
+		\dash\data::storesCount(count($list_store));
 	}
 }
 ?>

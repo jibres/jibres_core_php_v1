@@ -8,8 +8,8 @@
  <div class="c4 s12">{{block ("prDate")}}</div>
 </div>
 
-{%if list_store%}
-{%for key, value in list_store%}
+{%if stores%}
+{%for key, value in stores%}
 <h2 class="mT20">{%trans "List of your stores"%}</h2>
 <div class="f">
   111
@@ -64,7 +64,7 @@
 {%block storeCount%}
 <a class="dcard x2" href='{{url.here}}/store'>
  <div class="statistic gray">
-  <div class="value"><i class="sf-shopping-cart"></i><span>{{count_store_by_creator |number_format |fitNumber}}</span></div>
+  <div class="value"><i class="sf-shopping-cart"></i><span>{{storesCount | fitNumber}}</span></div>
   <div class="label">{%trans "Store"%}</div>
  </div>
 </a>
