@@ -1,5 +1,5 @@
 <?php
-namespace content\social_responsibility;
+namespace content\socialresponsibility;
 
 
 class view
