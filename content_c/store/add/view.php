@@ -2,12 +2,12 @@
 namespace content_c\store\add;
 
 
-class view extends \content_c\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title'] = T_("Add New Store");
-		$this->data->page['desc'] = T_("Add with simple detail and config more after adding new store.");
+		\dash\data::page_title(T_("Add New Store"));
+		\dash\data::page_desc(T_("Add with simple detail and config more after adding new store."));
 	}
 }
 ?>

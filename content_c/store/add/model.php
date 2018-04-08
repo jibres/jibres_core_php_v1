@@ -2,8 +2,19 @@
 namespace content_c\store\add;
 
 
-class model extends \content_c\main\model
+class model
 {
+	public static function post()
+	{
+		\lib\app\store::add(self::getPost());
+
+		if(\lib\engine\process::status())
+		{
+			\dash\redirect::to(\dash\url::here().'/store');
+		}
+	}
+
+
 	public static function getPost()
 	{
 		$post         = [];
@@ -12,17 +23,6 @@ class model extends \content_c\main\model
 		$post['desc'] = \dash\request::post('desc');
 
   		return $post;
-	}
-
-
-	public function post_add()
-	{
-		\lib\app\store::add(self::getPost());
-
-		if(\lib\engine\process::status())
-		{
-			\dash\redirect::to(\dash\url::here().'/store');
-		}
 	}
 }
 ?>
