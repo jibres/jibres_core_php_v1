@@ -9,7 +9,7 @@ class view
 		\dash\data::bodyclass('siftal');
 		\dash\data::include_chart(true);
 
-		\dash\data::display_jibresControlLayout('content_c/main/layout.html');
+		\dash\data::display_jibresControlLayout('content_c/layout.html');
 	}
 }
 ?>

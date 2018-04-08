@@ -1,10 +1,10 @@
 <?php
-namespace content_c\main;
+namespace content_c;
 
 
 class controller
 {
-	public function repository()
+	public static function routing()
 	{
 		if(!\dash\user::login())
 		{
