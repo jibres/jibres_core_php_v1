@@ -2,7 +2,7 @@
 namespace content_c\main;
 
 
-class controller extends \mvc\controller
+class controller
 {
 	public function repository()
 	{
