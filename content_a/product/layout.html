@@ -18,7 +18,7 @@
 {%block psidebar%}
 <div class="cbox normal">
 
-  <a class="vcard shadow {{cardColor}}" href='{{url.here}}/product/edit/thumb?id={{product.id}}'>
+  <a class="vcard shadow {{cardColor}}" href='{{url.this}}/thumb?id={{product.id}}'>
     <img src="{{product.thumb}}" alt="{{product.title}}" class="pA10-f">
     <div class="content">
       <div class="header">{{product.title}}</div>
@@ -26,8 +26,8 @@
     </div>
   </a>
 
- <a class="btn block mTB5" href='{{url.here}}/product/edit/general?id={{product.id}}'>{%trans "General Detail"%}</a>
- <a class="btn block mTB5" href='{{url.here}}/product/edit/delete?id={{product.id}}'>{%trans "Delete product"%}</a>
+ <a class="btn block mTB5" href='{{url.this}}/general?id={{product.id}}'>{%trans "General Detail"%}</a>
+ <a class="btn block mTB5" href='{{url.this}}/delete?id={{product.id}}'>{%trans "Delete product"%}</a>
 
 </div>
 {%endblock%}
