@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\edit\thumb;
+namespace content_a\product\thumb;
 
 
 class model
@@ -24,9 +24,9 @@ class model
 	}
 
 
-	public function post_thumb($_args)
+	public static function post()
 	{
-		$file_url     = self::upload_thumb();
+		$file_url = self::upload_thumb();
 
 		// we have an error in upload thumb
 		if($file_url === false)

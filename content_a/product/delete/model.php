@@ -15,7 +15,7 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::here(). '/product');
+				\dash\redirect::to(\dash\url::this());
 			}
 		}
 		else
