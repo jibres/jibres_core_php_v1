@@ -1,13 +1,13 @@
 <?php
-namespace content_a\thirdparty\edit\general;
+namespace content_a\thirdparty\general;
 
 
-class model extends \content_a\main\model
+class model
 {
 
 	public static function getPost()
 	{
-		$thirdparty             = \lib\app\thirdparty::get(\dash\request::get('id'));
+		$thirdparty = \lib\app\thirdparty::get(\dash\request::get('id'));
 
 		if(isset($thirdparty['supplier']) || (isset($thirdparty['type']) && $thirdparty['type'] === 'supplier'))
 		{
@@ -40,9 +40,9 @@ class model extends \content_a\main\model
 	}
 
 
-	public function post_general($_args)
+	public function post()
 	{
-		$request       = self::getPost();
+		$request = self::getPost();
 
 		\lib\app\thirdparty::edit($request, \dash\request::get('id'));
 
