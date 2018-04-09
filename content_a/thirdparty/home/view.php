@@ -2,9 +2,9 @@
 namespace content_a\thirdparty\home;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
 		self::set_best_title();
 
@@ -18,45 +18,50 @@ class view extends \content_a\main\view
 		}
 
 		$args['order'] = 'desc';
-		$this->data->dataTable = \lib\app\thirdparty::list(\dash\request::get('q'), $args);
+		\dash\data::dataTable(\lib\app\thirdparty::list(\dash\request::get('q'), $args));
 
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
+		\dash\data::dashboardData(\lib\app\store::dashboard_detail(\lib\store::id()));
 
-		$this->data->dashboard_detail = \lib\app\store::dashboard_detail(\lib\store::id());
 
-		if(isset($this->controller->pagnation))
-		{
-			$this->data->pagnation = $this->controller->pagnation_get();
-		}
+		// if(isset($this->controller->pagnation))
+		// {
+		// 	$this->data->pagnation = $this->controller->pagnation_get();
+		// }
 	}
 
 
 
-	private function set_best_title()
+	private static function set_best_title()
 	{
 		// set usable variable
-		$this->data->moduleType = \dash\request::get('type');
+		$moduleType  = \dash\request::get('type');
 
 		// set default title
-		$this->data->page['title'] = T_('List of third parties');
-		$this->data->page['desc']  = T_('All type of poeple or companies like customers, staffs and supplisers is known as third parties that work with your store is exist here');
+		$myTitle     = T_('List of third parties');
+		$myDesc      = T_('All type of poeple or companies like customers, staffs and supplisers is known as third parties that work with your store is exist here');
 		// set badge
-		$this->data->page['badge']['link'] = \dash\url::this(). '/add';
-		$this->data->page['badge']['text'] = T_('Add new third party');
+		$myBadgeLink = \dash\url::this(). '/add';
+		$myBadgeText = T_('Add new third party');
 
 
 		// for special condition
-		if($this->data->moduleType)
+		if($moduleType)
 		{
-			$this->data->page['title'] = T_('List of :type', ['type' => $this->data->moduleType.'s']);
-			$this->data->page['desc']  = T_('Search in list of :type, add and edit and manage them.', ['type' => $this->data->moduleType.'s']);
-			$this->data->page['desc']  .= ' <a href="'. \dash\url::this() .'" data-shortkey="121">'. T_('List of all third parties.'). '<kbd>f10</kbd></a>';
+			$myTitle     = T_('List of :type', ['type' => $moduleType.'s']);
+			$myDesc      = T_('Search in list of :type, add and edit and manage them.', ['type' => $moduleType.'s']);
+			$myDesc      .= ' <a href="'. \dash\url::this() .'" data-shortkey="121">'. T_('List of all third parties.'). '<kbd>f10</kbd></a>';
 
 
-			$this->data->page['badge']['link'] = \dash\url::this(). '/add?type='. $this->data->moduleType;
-			$this->data->page['badge']['text'] = T_('Add new :type', ['type' => $this->data->moduleType]);
+			$myBadgeLink = \dash\url::this(). '/add?type='. $moduleType;
+			$myBadgeText = T_('Add new :type', ['type' => $moduleType]);
 		}
 
+		\dash\data::page_title($myTitle);
+		\dash\data::page_desc($myDesc);
+
+		\dash\data::badge_text($myBadgeText);
+		\dash\data::badge_link($myBadgeLink);
 	}
 }
 ?>

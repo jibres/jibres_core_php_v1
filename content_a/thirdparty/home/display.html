@@ -76,7 +76,7 @@
 {%block stCustomer%}
 <a class="dcard {%if requestGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer' data-shortkey="49shift">
  <div class="statistic gray">
-  <div class="value"><i class="sf-user"></i><span>{{dashboard_detail.customer_count | fitNumber}}</span></div>
+  <div class="value"><i class="sf-user"></i><span>{{dashboardData.customer_count | fitNumber}}</span></div>
   <div class="label">{%trans "Customer"%} <kbd>Shift+1</kbd></div>
  </div>
 </a>
@@ -86,7 +86,7 @@
 {%block stStaff%}
 <a class="dcard {%if requestGET.type == 'staff'%}active{%endif%}" href='{{url.this}}?type=staff' data-shortkey="50shift">
  <div class="statistic orange">
-  <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.staff_count | fitNumber}}</span></div>
+  <div class="value"><i class="sf-user-4"></i><span>{{dashboardData.staff_count | fitNumber}}</span></div>
   <div class="label">{%trans "Staff"%} <kbd>Shift+2</kbd></div>
  </div>
 </a>
@@ -97,7 +97,7 @@
 {%block stSupplier%}
 <a class="dcard {%if requestGET.type == 'supplier'%}active{%endif%}" href='{{url.this}}?type=supplier' data-shortkey="51shift">
  <div class="statistic teal">
-  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboard_detail.supplier_count | fitNumber}}</span></div>
+  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboardData.supplier_count | fitNumber}}</span></div>
   <div class="label">{%trans "Supplier"%} <kbd>Shift+3</kbd></div>
  </div>
 </a>
