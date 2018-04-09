@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\edit\general;
+namespace content_a\product\general;
 
 
 class model
@@ -38,7 +38,7 @@ class model
 	}
 
 
-	public function post_general($_args)
+	public static function post()
 	{
 
 		$request         = self::getPost();
