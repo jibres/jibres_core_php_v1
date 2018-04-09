@@ -2,7 +2,7 @@
 namespace content_a\product\edit\delete;
 
 
-class view extends \content_a\main\view
+class view
 {
 	public function config()
 	{

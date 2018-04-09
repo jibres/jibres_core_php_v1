@@ -2,7 +2,7 @@
 namespace content_a\product\edit\thumb;
 
 
-class controller extends \content_a\main\controller
+class controller
 {
 	public function ready()
 	{

@@ -2,7 +2,7 @@
 namespace content_a\product\edit\delete;
 
 
-class model extends \content_a\main\model
+class model
 {
 	public function post_delete($_args)
 	{

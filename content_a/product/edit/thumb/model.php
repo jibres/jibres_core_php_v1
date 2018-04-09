@@ -2,7 +2,7 @@
 namespace content_a\product\edit\thumb;
 
 
-class model extends \content_a\main\model
+class model
 {
 	public static function upload_thumb()
 	{

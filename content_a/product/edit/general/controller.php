@@ -2,7 +2,7 @@
 namespace content_a\product\edit\general;
 
 
-class controller extends \content_a\main\controller
+class controller
 {
 	public function ready()
 	{
