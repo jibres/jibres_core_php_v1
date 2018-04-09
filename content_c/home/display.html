@@ -9,13 +9,12 @@
 </div>
 
 {%if stores%}
-{%for key, value in stores%}
 <h2 class="mT20">{%trans "List of your stores"%}</h2>
 <div class="f">
+{%for key, value in stores%}
  <div class="c4 s12">
   <a class="dcard" href='{{value.url}}/a'>
-   <div class="statistic">{{value.name}}
-   </div>
+   <div class="statistic">{{value.name}}</div>
   </a>
  </div>
 {%endfor%}
