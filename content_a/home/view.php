@@ -10,9 +10,6 @@ class view
 		\dash\data::page_desc(T_('Glance at your store summary and compare some important data together and enjoy Jibres!'). ' '. T_('Have a good day;)'));
 
 		\dash\data::dashboardData(\lib\app\store::dashboard_detail(\lib\store::id()));
-
-		// $this->data->dashboard_detail = ;
-
 	}
 }
 ?>
