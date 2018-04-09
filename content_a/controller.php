@@ -1,10 +1,10 @@
 <?php
-namespace content_a\main;
+namespace content_a;
 
 
-class controller extends \mvc\controller
+class controller
 {
-	public function repository()
+	public static function routing()
 	{
 		if(!\dash\url::subdomain())
 		{

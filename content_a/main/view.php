@@ -2,28 +2,8 @@
 namespace content_a\main;
 
 
-class view extends \mvc\view
+class view
 {
-	public function repository()
-	{
-		$this->data->bodyclass = 'siftal';
-		$this->include->chart  = true;
-
-		$this->data->display['admin'] = 'content_a/main/layout.html';
-		$this->data->site['title']    = \lib\store::name();
-		$this->data->store            = \lib\store::detail();
-
-
-		// set shortkey for all badges is this content
-		$this->data->page['badge']['shortkey'] = 120;
-
-		// set usable variable
-		$this->data->moduleType  = \dash\request::get('type');
-		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
-
-	}
-
-
 	public static function make_sort_link($_field, $_url)
 	{
 		$get = \dash\request::get();

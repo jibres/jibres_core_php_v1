@@ -21,7 +21,7 @@
  <div class="c3 s6">{{block ("prDate")}}</div>
 </div>
 
-{%if dashboard_detail.sale_time_chart == '[]'%}
+{%if dashboardData.sale_time_chart == '[]'%}
 {%else%}
 <div class="f">
   <div class="c9 s12">
@@ -52,7 +52,7 @@
   {%endif%}
   </div>
   <div class="f">
-   <div class="progress" data-percent='{{dashboard_detail.month_detail.left}}'>
+   <div class="progress" data-percent='{{dashboardData.month_detail.left}}'>
     <div class="bar"></div>
    </div>
   </div>
@@ -73,7 +73,7 @@
 {%block stProduct%}
 <a class="dcard x1" href='{{url.here}}/product'>
  <div class="statistic">
-  <div class="value"><span>{{dashboard_detail.product_count |number_format |fitNumber}}</span></div>
+  <div class="value"><span>{{dashboardData.product_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Product"%}</div>
  </div>
 </a>
@@ -115,7 +115,7 @@
 {%block stCustomer%}
 <a class="dcard" href='{{url.here}}/thirdparty?type=customer'>
  <div class="statistic gray">
-  <div class="value"><i class="sf-user"></i><span>{{dashboard_detail.customer_count |number_format |fitNumber}}</span></div>
+  <div class="value"><i class="sf-user"></i><span>{{dashboardData.customer_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Customer"%}</div>
  </div>
 </a>
@@ -125,7 +125,7 @@
 {%block stSupplier%}
 <a class="dcard" href='{{url.pwd}}/thirdparty?type=supplier'>
  <div class="statistic teal">
-  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboard_detail.supplier_count |number_format |fitNumber}}</span></div>
+  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboardData.supplier_count |number_format |fitNumber}}</span></div>
   <div class="label">{%trans "Supplier"%}</div>
  </div>
 </a>
@@ -135,7 +135,7 @@
 {%block stStaff%}
 <a class="dcard" href='{{url.pwd}}/thirdparty?type=staff'>
  <div class="statistic orange">
-  <div class="value"><i class="sf-user-4"></i><span>{{dashboard_detail.staff_count  | number_format  |fitNumber}}</span></div>
+  <div class="value"><i class="sf-user-4"></i><span>{{dashboardData.staff_count  | number_format  |fitNumber}}</span></div>
   <div class="label">{%trans "Staff"%}</div>
  </div>
 </a>
@@ -145,7 +145,7 @@
 
 {%block chart_primary%}
 <div class="dcard x3 pA0">
- <div class="chart" data-vals='{{dashboard_detail.sale_time_chart}}'>
+ <div class="chart" data-vals='{{dashboardData.sale_time_chart}}'>
  </div>
 </div>
 {%endblock%}
