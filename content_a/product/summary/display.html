@@ -7,7 +7,7 @@
  <div class="c2 s0">{{block ("stProductImport")}}</div>
 </div>
 
-{%if dashboard_detail.product_count > 0%}
+{%if dashboardData.product_count > 0%}
 <div class="f">
  <div class="c4 s12">{{block ("stProductCount")}}</div>
  <div class="c4 s0">{{block ("stProductWBarode1Count")}}</div>
@@ -103,7 +103,7 @@
 
 {%block chartProductPriceVariation%}
 <div class="dcard x3 pA0">
- <div class="chart" data-type2='line' data-vals='{{dashboard_detail.product_price_variation}}'>
+ <div class="chart" data-type2='line' data-vals='{{dashboardData.product_price_variation}}'>
  </div>
 </div>
 {%endblock%}
@@ -114,7 +114,7 @@
 {%block stProductCount%}
 <a class="dcard" href="{{url.this}}" title='{%trans "Check list of products"%}'>
  <div class="statistic teal">
-  <div class="value counter">{{dashboard_detail.product_count |number_format |fitNumber}}</div>
+  <div class="value counter">{{dashboardData.product_count |number_format |fitNumber}}</div>
   <div class="label">{%trans "Product Count"%}</div>
  </div>
 </a>
@@ -124,7 +124,7 @@
 {%block stProductWBarode1Count%}
 <a class="dcard">
  <div class="statistic gray">
-  <div class="value">{{dashboard_detail.product_with_barcode |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_with_barcode |number_format |fitNumber}}</div>
   <div class="label">{%trans "Product with barcode"%}</div>
  </div>
 </a>
@@ -134,7 +134,7 @@
 {%block stProductWBarode2Count%}
 <a class="dcard">
  <div class="statistic gray">
-  <div class="value">{{dashboard_detail.product_whit_barcode2 |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_whit_barcode2 |number_format |fitNumber}}</div>
   <div class="label">{%trans "Product with barcode2"%}</div>
  </div>
 </a>
@@ -235,7 +235,7 @@
 {%block stProductBuyPriceMin%}
 <a class="dcard" href="{{url.this}}?sort=buyprice&order=asc">
  <div class="statistic gray">
-  <div class="value">{{dashboard_detail.product_buyprice_min |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_buyprice_min |number_format |fitNumber}}</div>
 
  </div>
 </a>
@@ -245,7 +245,7 @@
 {%block stProductBuyPriceMax%}
 <a class="dcard" href="{{url.this}}?sort=buyprice&order=desc">
  <div class="statistic orange">
-  <div class="value">{{dashboard_detail.product_buyprice_max |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_buyprice_max |number_format |fitNumber}}</div>
  </div>
 </a>
 {%endblock%}
@@ -254,7 +254,7 @@
 {%block stProductBuyPriceAvg%}
 <a class="dcard">
  <div class="statistic green">
-  <div class="value">{{dashboard_detail.product_buyprice_avg |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_buyprice_avg |number_format |fitNumber}}</div>
  </div>
 </a>
 {%endblock%}
@@ -265,7 +265,7 @@
 {%block stProductPriceMin%}
 <a class="dcard" href="{{url.this}}?sort=price&order=asc">
  <div class="statistic gray">
-  <div class="value">{{dashboard_detail.product_price_min |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_price_min |number_format |fitNumber}}</div>
  </div>
 </a>
 {%endblock%}
@@ -274,7 +274,7 @@
 {%block stProductPriceMax%}
 <a class="dcard" href="{{url.this}}?sort=price&order=desc">
  <div class="statistic orange">
-  <div class="value">{{dashboard_detail.product_price_max |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_price_max |number_format |fitNumber}}</div>
  </div>
 </a>
 {%endblock%}
@@ -283,7 +283,7 @@
 {%block stProductPriceAvg%}
 <a class="dcard">
  <div class="statistic green">
-  <div class="value">{{dashboard_detail.product_price_avg |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_price_avg |number_format |fitNumber}}</div>
  </div>
 </a>
 {%endblock%}
@@ -294,7 +294,7 @@
 {%block stProductDiscountMin%}
 <a class="dcard" href="{{url.this}}?sort=discount&order=asc">
  <div class="statistic gray">
-  <div class="value">{{dashboard_detail.product_discount_min |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_discount_min |number_format |fitNumber}}</div>
  </div>
 </a>
 {%endblock%}
@@ -303,7 +303,7 @@
 {%block stProductDiscountMax%}
 <a class="dcard" href="{{url.this}}?sort=discount&order=desc">
  <div class="statistic orange">
-  <div class="value">{{dashboard_detail.product_discount_max |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_discount_max |number_format |fitNumber}}</div>
  </div>
 </a>
 {%endblock%}
@@ -312,7 +312,7 @@
 {%block stProductDiscountAvg%}
 <a class="dcard">
  <div class="statistic green">
-  <div class="value">{{dashboard_detail.product_discount_avg |number_format |fitNumber}}</div>
+  <div class="value">{{dashboardData.product_discount_avg |number_format |fitNumber}}</div>
  </div>
 </a>
 {%endblock%}
@@ -322,7 +322,7 @@
 
 {%block chartProductGbyUnit%}
 <div class="dcard x3 pA0">
- <div class="chart" data-type='line' data-vals='{{dashboard_detail.product_price_group_by_unit}}'>
+ <div class="chart" data-type='line' data-vals='{{dashboardData.product_price_group_by_unit}}'>
  </div>
 </div>
 {%endblock%}
@@ -330,7 +330,7 @@
 
 {%block chartProductGbyCat%}
 <div class="dcard x3 pA0">
- <div class="chart" data-vals='{{dashboard_detail.product_price_group_by_cat}}'>
+ <div class="chart" data-vals='{{dashboardData.product_price_group_by_cat}}'>
  </div>
 </div>
 {%endblock%}

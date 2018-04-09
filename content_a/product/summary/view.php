@@ -2,21 +2,17 @@
 namespace content_a\product\summary;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title'] = T_('Products Summary');
-		$this->data->page['desc']  = T_('Some detail about your product!');
+		\dash\data::page_title(T_('Products Summary'));
+		\dash\data::page_desc(T_('Some detail about your product!'));
 
-		// add back to product list link
-		// $product_list_link =  '<a href="'. \dash\url::here() .'/product" data-shortkey="118">'. T_('List of products'). '</a>';
-		// $this->data->page['desc']  .= ' '. $product_list_link;
+		\dash\data::page_badge_link( \dash\url::here().'/product');
+		\dash\data::page_badge_text(T_('List of products'));
 
-		$this->data->page['badge']['link'] = '/a/product';
-		$this->data->page['badge']['text'] = T_('List of products');
-
-		$this->data->dashboard_detail = \lib\app\product::dashboard();
+		\dash\data::dashboardData(\lib\app\product::dashboard());
 	}
 }
 ?>
