@@ -2,15 +2,15 @@
 namespace content_a\product\import;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title'] = T_('Import product from CSV');
-		$this->data->page['desc']  = T_('You can import more than one product in one request via CSV import process');
+		\dash\data::page_title(T_('Import product from CSV'));
+		\dash\data::page_desc(T_('You can import more than one product in one request via CSV import process'));
 
-		$this->data->page['badge']['link'] = \dash\url::here(). '/product/summary';
-		$this->data->page['badge']['text'] = T_('Back to product dashboard');
+		\dash\data::badge_text(T_('Back to product dashboard'));
+		\dash\data::badge_link(\dash\url::this(). '/summary');
 	}
 }
 ?>

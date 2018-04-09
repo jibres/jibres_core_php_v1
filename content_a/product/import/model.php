@@ -2,8 +2,31 @@
 namespace content_a\product\import;
 
 
-class model extends \content_a\main\model
+class model
 {
+	public static function post()
+	{
+		$list = self::getImportFile();
+
+		if($list === false)
+		{
+			\dash\notif::error(T_("Please upload a csv file"), 'product_list');
+			return false;
+		}
+
+		$imported = \lib\app\product::import($list);
+
+		if(\dash\engine\process::status())
+		{
+			// clean all cache
+			\lib\app\product::clean_cache();
+
+			\dash\notif::ok(T_("Import product successfully complete"));
+			\dash\redirect::to(\dash\url::here(). '/product');
+		}
+	}
+
+
 	public static function getImportFile()
 	{
 		$product_list = null;
@@ -26,34 +49,12 @@ class model extends \content_a\main\model
 			}
 			else
 			{
+				\dash\notif::error(T_("Please upload a csv file"), 'product_list');
 				return false;
 			}
 		}
 		\dash\notif::error(T_("No file was sended"));
 		return false;
-	}
-
-
-	public function post_import($_args)
-	{
-		$list = self::getImportFile();
-
-		if($list === false)
-		{
-			return false;
-		}
-
-		$imported = \lib\app\product::import($list);
-
-		if(\dash\engine\process::status())
-		{
-			// clean all cache
-			\lib\app\product::clean_cache();
-
-			\dash\notif::ok(T_("Import product successfully complete"));
-			\dash\redirect::to(\dash\url::here(). '/product');
-		}
-
 	}
 }
 ?>
