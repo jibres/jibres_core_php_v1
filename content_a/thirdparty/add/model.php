@@ -2,8 +2,29 @@
 namespace content_a\thirdparty\add;
 
 
-class model extends \content_a\main\model
+class model
 {
+	public static function post()
+	{
+		// ready request
+		$request = self::getPostthirdparty();
+
+		$result = \lib\app\thirdparty::add($request);
+
+		if(\dash\engine\process::status())
+		{
+			if(isset($result['thirdparty_id']))
+			{
+				\dash\redirect::to(\dash\url::base(). '/a/thirdparty/edit?id='. $result['thirdparty_id']);
+			}
+			else
+			{
+				\dash\redirect::to(\dash\url::base(). '/a/thirdparty');
+			}
+		}
+	}
+
+
 	public static function getPostthirdparty()
 	{
 		$post         = [];
@@ -39,27 +60,6 @@ class model extends \content_a\main\model
 		}
 
 		return $post;
-	}
-
-
-	public function post_thirdparty_add()
-	{
-		// ready request
-		$request = self::getPostthirdparty();
-
-		$result = \lib\app\thirdparty::add($request);
-
-		if(\dash\engine\process::status())
-		{
-			if(isset($result['thirdparty_id']))
-			{
-				\dash\redirect::to(\dash\url::base(). '/a/thirdparty/edit?id='. $result['thirdparty_id']);
-			}
-			else
-			{
-				\dash\redirect::to(\dash\url::base(). '/a/thirdparty');
-			}
-		}
 	}
 }
 ?>
