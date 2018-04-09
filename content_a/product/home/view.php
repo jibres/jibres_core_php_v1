@@ -13,12 +13,9 @@ class view
 		$pageDesc .= ' '. '<a href="'. \dash\url::this() .'/summary" data-shortkey="121">'. T_('Products dashboard'). '</a>';
 		\dash\data::page_desc($pageDesc);
 
+		\dash\data::badge_text(T_('Add new product'));
+		\dash\data::badge_link(\dash\url::this(). '/add');
 
-		return;
-
-
-		$this->data->page['badge']['link'] = \dash\url::this(). '/add';
-		$this->data->page['badge']['text'] = T_('Add new product');
 
 		$args =
 		[
@@ -56,62 +53,71 @@ class view
 			$args['unit'] = \dash\request::get('unit');
 		}
 
-		$search_string            = \dash\request::get('q');
+		$search_string = \dash\request::get('q');
 
 		if($search_string)
 		{
-			$this->data->page['title'] = T_('Search'). ' '.  $search_string;
+			\dash\data::page_title(T_('Search'). ' '.  $search_string);
 		}
 
-		$this->data->dataTable = \lib\app\product::list($search_string, $args);
-
-		if(is_array($this->data->dataTable) && count($this->data->dataTable) === 1)
+		// work with product list
+		$myProductList = \lib\app\product::list($search_string, $args);
+		\dash\data::dataTable($myProductList);
+		// redirect on barcode scan
+		if(is_array($myProductList) && count($myProductList) === 1)
 		{
 			$barcode_is_scaned = false;
-			if(isset($this->data->dataTable[0]['barcode']) && $this->data->dataTable[0]['barcode'] === $search_string)
+			if(isset($myProductList[0]['barcode']) && $myProductList[0]['barcode'] === $search_string)
 			{
 				$barcode_is_scaned = true;
 			}
 
-			if(isset($this->data->dataTable[0]['barcode2']) && $this->data->dataTable[0]['barcode2'] === $search_string)
+			if(isset($myProductList[0]['barcode2']) && $myProductList[0]['barcode2'] === $search_string)
 			{
 				$barcode_is_scaned = true;
 			}
 
-			if(isset($this->data->dataTable[0]['id']) && $barcode_is_scaned)
+			if(isset($myProductList[0]['id']) && $barcode_is_scaned)
 			{
-				\dash\redirect::to(\dash\url::this().'/edit/general?id='. $this->data->dataTable[0]['id']);
-				return;
+				\dash\redirect::to(\dash\url::this().'/edit/general?id='. $myProductList[0]['id']);
 			}
-
 		}
+
 
 		if(\dash\request::get('json') === 'true')
 		{
 			if(\dash\request::get('barcode'))
 			{
-				if(!$this->data->dataTable)
+				if(!$myProductList)
 				{
-					$this->data->dataTable = null;
+					$myProductList = null;
 				}
 			}
 
-			echo json_encode($this->data->dataTable, JSON_UNESCAPED_UNICODE);
+			echo json_encode($myProductList, JSON_UNESCAPED_UNICODE);
 			\dash\code::exit();
 		}
 
-		$this->data->barcode_scaned = null;
 		if(\dash\request::get('q') && ctype_digit(\dash\request::get('q')) && mb_strlen(\dash\request::get('q')) === 13)
 		{
-			$this->data->barcode_scaned = '?barcode='. \dash\request::get('q');
+			\dash\data::barcodeScaned('?barcode='. \dash\request::get('q'));
 		}
-		$this->data->dataFilter = $this->createFilterMsg($args);
-		$this->data->sort_link = self::make_sort_link(\lib\app\product::$sort_field, \dash\url::here(). '/product');
 
-		if(isset($this->controller->pagnation))
-		{
-			$this->data->pagnation = $this->controller->pagnation_get();
-		}
+		// \dash\data::filter_text($this->createFilterMsg($args));
+		// \dash\data::filter_link(self::make_sort_link(\lib\app\product::$sort_field, \dash\url::here(). '/product'));
+
+		// $this->data->dataFilter = ;
+		// $this->data->sort_link = ;
+
+
+
+
+
+		// @check ------------------------------------------------------------------------------------------------------------------------------
+		// if(isset($this->controller->pagnation))
+		// {
+		// 	$this->data->pagnation = $this->controller->pagnation_get();
+		// }
 	}
 }
 ?>
