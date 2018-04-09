@@ -1,10 +1,10 @@
 <?php
-namespace content_a\product\edit\delete;
+namespace content_a\product\delete;
 
 
 class model
 {
-	public function post_delete($_args)
+	public static function post()
 	{
 		$url_product  = \dash\request::get('id');
 		$post_product = \dash\request::post('delete');
