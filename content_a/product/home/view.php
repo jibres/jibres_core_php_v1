@@ -2,16 +2,20 @@
 namespace content_a\product\home;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title'] = T_('List of products');
-		$this->data->page['desc']  = T_('You can search in list of products, add new product and edit existing.');
+		\dash\data::page_title(T_('List of products'));
 
+		$pageDesc = T_('You can search in list of products, add new product and edit existing.');
 		// add back to product list link
-		$product_list_link =  '<a href="'. \dash\url::this() .'/summary" data-shortkey="121">'. T_('Products dashboard'). '</a>';
-		$this->data->page['desc']  .= ' '. $product_list_link;
+		$pageDesc .= ' '. '<a href="'. \dash\url::this() .'/summary" data-shortkey="121">'. T_('Products dashboard'). '</a>';
+		\dash\data::page_desc($pageDesc);
+
+
+		return;
+
 
 		$this->data->page['badge']['link'] = \dash\url::this(). '/add';
 		$this->data->page['badge']['text'] = T_('Add new product');
