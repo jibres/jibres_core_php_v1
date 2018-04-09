@@ -2,8 +2,20 @@
 namespace content_a\product\add;
 
 
-class model extends \content_a\main\model
+class model
 {
+	public static function post()
+	{
+		\lib\app\product::add(self::getPost());
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::to(\dash\url::here(). '/product');
+		}
+
+	}
+
+
 	public static function getPost()
 	{
 		$args =
@@ -32,18 +44,6 @@ class model extends \content_a\main\model
 		];
 
 		return $args;
-	}
-
-
-	public function post_add($_args)
-	{
-		\lib\app\product::add(self::getPost());
-
-		if(\dash\engine\process::status())
-		{
-			\dash\redirect::to(\dash\url::here(). '/product');
-		}
-
 	}
 }
 ?>

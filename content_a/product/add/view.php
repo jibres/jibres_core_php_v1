@@ -2,44 +2,45 @@
 namespace content_a\product\add;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title'] = T_('Add new product or goods');
-		$this->data->page['desc']  = T_('You can set main property of product and allow to assign some extra or edit it later.');
+		\dash\data::page_title(T_('Add new product or goods'));
+		\dash\data::page_desc(T_('You can set main property of product and allow to assign some extra or edit it later.'));
 
-		$this->data->page['badge']['link'] = \dash\url::here(). '/product';
-		$this->data->page['badge']['text'] = T_('Back to product list');
+		\dash\data::badge_text(T_('Back to product list'));
+		\dash\data::badge_link(\dash\url::this());
 
-		$this->data->cat_list     = \lib\app\product::cat_list(true);
-		$this->data->company_list = \lib\app\product::company_list(true);
-		$this->data->unit_list    = \lib\app\product::unit_list(true);
+		\dash\data::listCats(\lib\app\product::cat_list(true));
+		\dash\data::listCompanies(\lib\app\product::company_list(true));
+		\dash\data::listUnits(\lib\app\product::unit_list(true));
+
 
 		// get some value from get
 		if(\dash\request::get('barcode'))
 		{
-			$this->data->product['barcode'] = \dash\request::get('barcode');
+			\dash\data::product_barcode(\dash\request::get('barcode'));
 		}
 		if(\dash\request::get('barcode2'))
 		{
-			$this->data->product['barcode2'] = \dash\request::get('barcode2');
+			\dash\data::product_barcode2(\dash\request::get('barcode2'));
 		}
 		if(\dash\request::get('price'))
 		{
-			$this->data->product['price'] = \dash\request::get('price');
+			\dash\data::product_price(\dash\request::get('price'));
 		}
 		if(\dash\request::get('discount'))
 		{
-			$this->data->product['discount'] = \dash\request::get('discount');
+			\dash\data::product_discount(\dash\request::get('discount'));
 		}
 		if(\dash\request::get('buyprice'))
 		{
-			$this->data->product['buyprice'] = \dash\request::get('buyprice');
+			\dash\data::product_buyprice(\dash\request::get('buyprice'));
 		}
 		if(\dash\request::get('title'))
 		{
-			$this->data->product['title'] = \dash\request::get('title');
+			\dash\data::product_title(\dash\request::get('title'));
 		}
 	}
 }
