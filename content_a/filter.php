@@ -4,7 +4,7 @@ namespace content_a;
 
 class filter
 {
-	public function createFilterMsg($_args)
+	public static function createMsg($_args)
 	{
 		$result = null;
 		$searchText = \dash\request::get('q');
@@ -14,7 +14,7 @@ class filter
 			$result = T_('Search with keyword :search', ['search' => '<b>'. $searchText. '</b>']);
 		}
 
-		$filterArray = $this->filter_condition_msg($_args);
+		$filterArray = self::filter_condition_msg($_args);
 
 		if($filterArray)
 		{
@@ -48,7 +48,7 @@ class filter
 
 
 
-	public function filter_condition_msg($_args)
+	private static function filter_condition_msg($_args)
 	{
 		$filter_array = $_args;
 
@@ -60,9 +60,10 @@ class filter
 			case 'factor':
 				if(isset($filter_array['customer']))
 				{
-					if(is_array($this->data->dataTable))
+					$myDataTable = \lib\data::dataTable();
+					if(is_array($myDataTable))
 					{
-						$customer_displayname   = array_column($this->data->dataTable, 'customer_displayname', 'customer');
+						$customer_displayname   = array_column($myDataTable, 'customer_displayname', 'customer');
 					}
 
 					$temp = array_key_exists($filter_array['customer'], $customer_displayname) === false ? T_("Invalid") : $customer_displayname[$filter_array['customer']];
@@ -97,7 +98,7 @@ class filter
 	}
 
 
-	public static function make_sort_link($_field, $_url)
+	public static function current($_field, $_url)
 	{
 		$get = \dash\request::get();
 		if(!is_array($get))

@@ -19,7 +19,8 @@ class view extends \content_a\main\view
 
 		$args['order'] = 'desc';
 		$this->data->dataTable = \lib\app\thirdparty::list(\dash\request::get('q'), $args);
-		$this->data->dataFilter = $this->createFilterMsg($args);
+
+		\dash\data::filterBox(\content_a\filter::createMsg($args));
 
 		$this->data->dashboard_detail = \lib\app\store::dashboard_detail(\lib\store::id());
 

@@ -30,8 +30,10 @@ class view extends \content_a\main\view
 		}
 
 		$this->data->dataTable = \lib\app\factor::list(\dash\request::get('q'), $args);
-		$this->data->dataFilter = $this->createFilterMsg($args);
-		$this->data->sort_link = self::make_sort_link(\lib\app\factor::$sort_field, \dash\url::here(). '/factor');
+
+		\dash\data::myFilter(\content_a\filter::current(\lib\app\factor::$sort_field, \dash\url::this()));
+		\dash\data::filterBox(\content_a\filter::createMsg($args));
+
 
 		if(isset($this->controller->pagnation))
 		{

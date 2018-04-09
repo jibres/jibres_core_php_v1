@@ -103,13 +103,8 @@ class view
 			\dash\data::barcodeScaned('?barcode='. \dash\request::get('q'));
 		}
 
-		// \dash\data::filter_text($this->createFilterMsg($args));
-		// \dash\data::filter_link(self::make_sort_link(\lib\app\product::$sort_field, \dash\url::here(). '/product'));
-
-		// $this->data->dataFilter = ;
-		// $this->data->sort_link = ;
-
-
+		\dash\data::myFilter(\content_a\filter::current(\lib\app\product::$sort_field, \dash\url::this()));
+		\dash\data::filterBox(\content_a\filter::createMsg($args));
 
 
 
