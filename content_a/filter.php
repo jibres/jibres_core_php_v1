@@ -1,8 +1,8 @@
 <?php
-namespace content_a\main;
+namespace content_a;
 
 
-class view
+class filter
 {
 	public static function make_sort_link($_field, $_url)
 	{
