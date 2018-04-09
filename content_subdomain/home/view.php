@@ -1,13 +1,12 @@
 <?php
 namespace content_subdomain\home;
 
-class view extends \mvc\view
+class view
 {
-	function config()
+	public static function config()
 	{
-		$this->data->bodyclass = 'unselectable flex align-center justify-center txtc';
-
-		$this->include->js     = false;
+		\dash\data::bodyclass('unselectable flex align-center justify-center txtC');
+		\dash\data::include_js(false);
 	}
 }
 ?>

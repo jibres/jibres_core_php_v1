@@ -1,9 +1,9 @@
 <?php
 namespace content_subdomain\home;
 
-class controller extends \mvc\controller
+class controller
 {
-	public function ready()
+	public static function routing()
 	{
 		if(in_array(\dash\url::subdomain(), \lib\app\store::$black_list_slug))
 		{
