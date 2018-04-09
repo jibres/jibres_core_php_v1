@@ -73,7 +73,7 @@
 {%block stProduct%}
 <a class="dcard x1" href='{{url.here}}/product'>
  <div class="statistic">
-  <div class="value"><span>{{dashboardData.product_count |number_format |fitNumber}}</span></div>
+  <div class="value"><span>{{dashboardData.product_count |fitNumber}}</span></div>
   <div class="label">{%trans "Product"%}</div>
  </div>
 </a>
@@ -115,7 +115,7 @@
 {%block stCustomer%}
 <a class="dcard" href='{{url.here}}/thirdparty?type=customer'>
  <div class="statistic gray">
-  <div class="value"><i class="sf-user"></i><span>{{dashboardData.customer_count |number_format |fitNumber}}</span></div>
+  <div class="value"><i class="sf-user"></i><span>{{dashboardData.customer_count |fitNumber}}</span></div>
   <div class="label">{%trans "Customer"%}</div>
  </div>
 </a>
@@ -125,7 +125,7 @@
 {%block stSupplier%}
 <a class="dcard" href='{{url.here}}/thirdparty?type=supplier'>
  <div class="statistic teal">
-  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboardData.supplier_count |number_format |fitNumber}}</span></div>
+  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboardData.supplier_count |fitNumber}}</span></div>
   <div class="label">{%trans "Supplier"%}</div>
  </div>
 </a>
@@ -135,7 +135,7 @@
 {%block stStaff%}
 <a class="dcard" href='{{url.here}}/thirdparty?type=staff'>
  <div class="statistic orange">
-  <div class="value"><i class="sf-user-4"></i><span>{{dashboardData.staff_count  | number_format  |fitNumber}}</span></div>
+  <div class="value"><i class="sf-user-4"></i><span>{{dashboardData.staff_count |fitNumber}}</span></div>
   <div class="label">{%trans "Staff"%}</div>
  </div>
 </a>
