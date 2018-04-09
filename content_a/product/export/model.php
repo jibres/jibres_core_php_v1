@@ -2,10 +2,10 @@
 namespace content_a\product\export;
 
 
-class model extends \content_a\main\model
+class model
 {
 
-	public function post_export($_args)
+	public function post()
 	{
 		$file_name = \dash\url::subdomain(). '_products_'. \dash\utility\jdate::date("Ymd_Hi", time(), false);
 
