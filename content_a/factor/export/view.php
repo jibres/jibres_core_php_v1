@@ -2,21 +2,15 @@
 namespace content_a\factor\export;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title'] = T_('Print factor');
-		$this->data->page['desc']  = T_('You can search in list of factors, add new factor and edit existing.');
+		\dash\data::page_title(T_('Export factors'));
+		// \dash\data::page_desc('');
 
-		$this->data->page['badge']['link'] = \dash\url::here(). '/factor';
-		$this->data->page['badge']['text'] = T_('Back to last sales');
-
-		$meta         = [];
-
-		$this->data->factor_detail = \lib\app\factor::get(['id' => \dash\request::get('id')], $meta);
-
-		$this->data->pageSize = \dash\request::get('size');
+		\dash\data::badge_text(T_('Back to last sales'));
+		\dash\data::badge_link(\dash\url::this());
 	}
 }
 ?>
