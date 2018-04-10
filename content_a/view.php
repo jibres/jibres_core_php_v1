@@ -21,7 +21,6 @@ class view
 		\dash\data::store(\lib\store::detail());
 
 		// set shortkey for all badges is this content
-		// $this->data->page['badge']['shortkey'] = 120;
 		\dash\data::badge_shortkey(120);
 
 		// set usable variable
