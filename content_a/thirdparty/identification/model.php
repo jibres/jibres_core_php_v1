@@ -1,8 +1,8 @@
 <?php
-namespace content_a\thirdparty\edit\identification;
+namespace content_a\thirdparty\identification;
 
 
-class model extends \content_a\main\model
+class model
 {
 	public static function getPost()
 	{
@@ -19,7 +19,7 @@ class model extends \content_a\main\model
 	}
 
 
-	public function post_identification($_args)
+	public static function post()
 	{
 		\lib\app\thirdparty::edit(self::getPost(), \dash\request::get('id'));
 
