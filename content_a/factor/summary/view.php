@@ -2,18 +2,18 @@
 namespace content_a\factor\summary;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title'] = T_('Factors Summary');
-		$this->data->page['desc']  = T_('Some detail about your factors and choose specefic type to add new type of factor.');
+		\dash\data::page_title(T_('Factors Summary'));
+		\dash\data::page_desc(T_('Some detail about your factors and choose specefic type to add new type of factor.'));
 
-		$this->data->page['badge']['link'] = \dash\url::here(). '/factor/add';
-		$this->data->page['badge']['text'] = T_('Quick add new sale factor');
+		\dash\data::badge_text(T_('Quick add new sale factor'));
+		\dash\data::badge_link(\dash\url::this(). '/add');
 
-		$this->data->factor_dashboard_detail = \lib\app\factor::dashboard();
 
+		\dash\data::factorDashboardData(\lib\app\factor::dashboard());
 	}
 }
 ?>
