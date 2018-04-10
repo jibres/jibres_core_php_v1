@@ -2,8 +2,35 @@
 namespace content_a\factor\edit;
 
 
-class model extends \content_a\main\model
+class model
 {
+	public function post()
+	{
+		// ready factor_list
+		$factor_list = self::getPostSaleProduct();
+
+		if($factor_list === false)
+		{
+			return false;
+		}
+
+		// ready factor_list
+		$detail = self::getPostSaleDetail();
+
+		if($detail === false)
+		{
+			return false;
+		}
+
+		\lib\app\factor::edit(\dash\request::get('id'), $detail, $factor_list);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::to(\dash\url::base(). '/a/factor');
+		}
+	}
+
+
 	/**
 	 * Gets the post factor product.
 	 *
@@ -52,38 +79,6 @@ class model extends \content_a\main\model
 		$detail['customer'] = \dash\request::post('customer');
 		$detail['desc']     = \dash\request::post('desc');
 		return $detail;
-	}
-
-
-	/**
-	 * Posts a factor edit.
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	public function post_factor_edit()
-	{
-		// ready factor_list
-		$factor_list = self::getPostSaleProduct();
-
-		if($factor_list === false)
-		{
-			return false;
-		}
-
-		// ready factor_list
-		$detail = self::getPostSaleDetail();
-
-		if($detail === false)
-		{
-			return false;
-		}
-
-		\lib\app\factor::edit(\dash\request::get('id'), $detail, $factor_list);
-
-		if(\dash\engine\process::status())
-		{
-			\dash\redirect::to(\dash\url::base(). '/a/factor');
-		}
 	}
 }
 ?>

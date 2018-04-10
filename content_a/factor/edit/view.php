@@ -2,9 +2,9 @@
 namespace content_a\factor\edit;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config22222()
 	{
 		$this->data->page['title'] = T_('Sale invoicing');
 		$this->data->page['desc']  = '';
