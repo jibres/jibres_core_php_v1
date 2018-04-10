@@ -199,7 +199,7 @@
 {%block icountry%}
 <label for='country'>{%trans "Country"%}</label>
 <div class="input">
- <input type='text' class="autoList" name='country' id='country' data-minchars="1" data-autofirst data-list="{{listCountries}}" value="{{thirdparty.country}}" />
+ <input type='text' class="autoList" name='country' id='country' data-minchars="1" data-autofirst data-list="{{listCountries}}" value="{{thirdparty.country}}" autocomplete="off" />
 </div>
 {%endblock%}
 
@@ -208,7 +208,7 @@
 
 <label for='province'>{%trans "Province"%}</label>
 <div class="input">
- <input type='text' class="autoList" name='province' id='province' data-minchars="1" data-autofirst data-list="{{listProvices}}" value="{{thirdparty.province}}" />
+ <input type='text' class="autoList" name='province' id='province' data-minchars="1" data-autofirst data-list="{{listProvices}}" value="{{thirdparty.province}}" autocomplete="off"/>
 </div>
 {%endblock%}
 
@@ -216,7 +216,7 @@
 {%block icity%}
 <label for='city'>{%trans "City"%}</label>
 <div class="input">
- <input type='text' class="autoList" name='city' id='city' data-minchars="1" data-autofirst data-list="{{listCities}}" value="{{thirdparty.city}}" />
+ <input type='text' class="autoList" name='city' id='city' data-minchars="1" data-autofirst data-list="{{listCities}}" value="{{thirdparty.city}}" autocomplete="off"/>
 </div>
 {%endblock%}
 

@@ -1,8 +1,8 @@
 <?php
-namespace content_a\thirdparty\edit\address;
+namespace content_a\thirdparty\address;
 
 
-class model extends \content_a\main\model
+class model
 {
 	public static function getPost()
 	{
@@ -16,7 +16,7 @@ class model extends \content_a\main\model
 	}
 
 
-	public function post_address($_args)
+	public static function post()
 	{
 		\lib\app\thirdparty::edit(self::getPost(), \dash\request::get('id'));
 
