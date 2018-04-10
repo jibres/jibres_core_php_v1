@@ -2,8 +2,32 @@
 namespace content_a\setting\factor;
 
 
-class model extends \content_a\main\model
+class model
 {
+	public static function post()
+	{
+		$old_meta = \lib\store::detail('meta');
+
+		if(isset($old_meta['factor']))
+		{
+			$old_meta = $old_meta['factor'];
+		}
+		else
+		{
+			$old_meta = [];
+		}
+
+		$meta = self::getPost($old_meta);
+
+		\lib\app\store::edit_meta(['factor' => $meta]);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::ok(T_("Factor setting saved"));
+			\dash\redirect::pwd();
+		}
+	}
+
 
 	public static function getPost($_old_meta = [])
 	{
@@ -91,32 +115,6 @@ class model extends \content_a\main\model
 		}
 
 		return $meta;
-	}
-
-
-
-	public function post_factor()
-	{
-		$old_meta = \lib\store::detail('meta');
-
-		if(isset($old_meta['factor']))
-		{
-			$old_meta = $old_meta['factor'];
-		}
-		else
-		{
-			$old_meta = [];
-		}
-
-		$meta = self::getPost($old_meta);
-
-		\lib\app\store::edit_meta(['factor' => $meta]);
-
-		if(\dash\engine\process::status())
-		{
-			\dash\notif::ok(T_("Factor setting saved"));
-			\dash\redirect::pwd();
-		}
 	}
 }
 ?>
