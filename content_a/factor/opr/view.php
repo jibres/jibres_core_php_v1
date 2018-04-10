@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Pay factor'));
-		// \dash\data::page_desc(T_('You can search in list of pays, and select one of pay'));
+		\dash\data::page_desc(T_('You can search in list of pays, and select one of pay'));
 
 		\dash\data::badge_text(T_('Back to last sales'));
 		\dash\data::badge_link(\dash\url::this());

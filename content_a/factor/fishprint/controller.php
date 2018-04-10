@@ -2,16 +2,14 @@
 namespace content_a\factor\fishprint;
 
 
-class controller extends \content_a\main\controller
+class controller
 {
-	public function ready()
+	public static function routing()
 	{
 		if(!\dash\request::get('id'))
 		{
 			\dash\header::status(404, T_("Id not found"));
 		}
-
-		$this->get()->ALL();
 	}
 }
 ?>
