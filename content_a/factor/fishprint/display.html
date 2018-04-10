@@ -3,8 +3,8 @@
 
 {%block pageContent%}
 
-    {%if store_meta.factor.print_size%}
-    {%for key, value in store_meta.factor.print_size%}
+    {%if store.meta.factor.print_size%}
+    {%for key, value in store.meta.factor.print_size%}
         <button class="btn" type="submit" name="{{key}}">{{key}}</button>
       {%endfor%}
     {%endif%}
