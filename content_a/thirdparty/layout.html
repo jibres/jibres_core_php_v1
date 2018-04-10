@@ -49,7 +49,7 @@
 <div class="cbox normal">
 
  <div class="vcard">
-  <a href='{{url.here}}/thirdparty/edit/avatar?id={{requestGET.id}}'>
+  <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
   {%if thirdparty.avatar%}
     <img src="{{thirdparty.avatar}}">
   {%else%}
@@ -68,7 +68,7 @@
 
  </div>
 
- <a class="btn block mTB10" href='{{url.here}}/thirdparty/edit/general?id={{requestGET.id}}'>{%trans "General Detail"%}</a>
+ <a class="btn block mTB10" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General Detail"%}</a>
 </div>
 {%endblock%}
 
@@ -77,7 +77,7 @@
 <div class="cbox normal">
 
  <div class="vcard">
-  <a href='{{url.here}}/thirdparty/edit/avatar?id={{requestGET.id}}'>
+  <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
   {%if thirdparty.avatar%}
     <img src="{{thirdparty.avatar}}">
   {%else%}
@@ -96,11 +96,11 @@
   {%endif%}
  </div>
 
- <a class="btn block mTB10" href='{{url.here}}/thirdparty/edit/general?id={{requestGET.id}}'>{%trans "General Detail"%}</a>
- <!-- <a class="btn block mTB10" href='{{url.here}}/thirdparty/edit/thumb?id={{requestGET.id}}'>{%trans "Document Photo"%}</a> -->
- <a class="btn block mTB10" href='{{url.here}}/thirdparty/edit/contact?id={{requestGET.id}}'>{%trans "Contact information"%}</a>
- <a class="btn block mTB10" href='{{url.here}}/thirdparty/edit/identification?id={{requestGET.id}}'>{%trans "Identification detail"%}</a>
- <a class="btn block mTB10" href='{{url.here}}/thirdparty/edit/address?id={{requestGET.id}}'>{%trans "Location and address"%}</a>
+ <a class="btn block mTB10" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General Detail"%}</a>
+ <!-- <a class="btn block mTB10" href='{{url.this}}/thumb?id={{requestGET.id}}'>{%trans "Document Photo"%}</a> -->
+ <a class="btn block mTB10" href='{{url.this}}/contact?id={{requestGET.id}}'>{%trans "Contact information"%}</a>
+ <a class="btn block mTB10" href='{{url.this}}/identification?id={{requestGET.id}}'>{%trans "Identification detail"%}</a>
+ <a class="btn block mTB10" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Location and address"%}</a>
 </div>
 {%endblock%}
 
