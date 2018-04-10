@@ -2,9 +2,9 @@
 namespace content_a\factor\home;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
 		self::set_best_title();
 
@@ -29,44 +29,53 @@ class view extends \content_a\main\view
 			$args['customer'] = \dash\request::get('customer');
 		}
 
-		$this->data->dataTable = \lib\app\factor::list(\dash\request::get('q'), $args);
+		\dash\data::dataTable(\lib\app\factor::list(\dash\request::get('q'), $args));
 
 		\dash\data::myFilter(\content_a\filter::current(\lib\app\factor::$sort_field, \dash\url::this()));
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
 
 
-		if(isset($this->controller->pagnation))
-		{
-			$this->data->pagnation = $this->controller->pagnation_get();
-		}
+		// @check
+		// if(isset($this->controller->pagnation))
+		// {
+		// 	$this->data->pagnation = $this->controller->pagnation_get();
+		// }
 	}
 
 
-	private function set_best_title()
+	private static function set_best_title()
 	{
 		// set usable variable
-		$this->data->moduleType  = \dash\request::get('type');
-		$this->data->moduleTypeP = '?type='. $this->data->moduleType;
+		$moduleType = \dash\request::get('type');
+
+		\dash\data::moduleType($moduleType);
+		\dash\data::moduleTypeP('?type='.$moduleType);
+
 
 		// set default title
-		$this->data->page['title'] = T_('List of factors');
-		$this->data->page['desc']  = T_('You can search in list of factors, add new factor or edit existing.');
+		$myTitle     = T_('List of factors');
+		$myDesc      = T_('You can search in list of factors, add new factor or edit existing.');
 		// set badge
-		$this->data->page['badge']['link'] = \dash\url::this(). '/summary';
-		$this->data->page['badge']['text'] = T_('Back to factors summary');
+		$myBadgeLink = \dash\url::this(). '/summary';
+		$myBadgeText = T_('Back to factors summary');
 
 
 		// // for special condition
-		if($this->data->moduleType)
+		if($moduleType)
 		{
-			$this->data->page['title'] = T_('List of :type', ['type' => $this->data->moduleType]);
-			$this->data->page['desc']  = T_('Search in list of :type factors, add or edit them.', ['type' => $this->data->moduleType]);
-			$this->data->page['desc']  .= ' <a href="'. \dash\url::this() .'" data-shortkey="121">'. T_('List of all factors.'). '<kbd>f10</kbd></a>';
+			$myTitle     = T_('List of :type', ['type' => $moduleType]);
+			$myDesc      = T_('Search in list of :type factors, add or edit them.', ['type' => $moduleType]);
+			$myDesc      .= ' <a href="'. \dash\url::this() .'" data-shortkey="121">'. T_('List of all factors.'). '<kbd>f10</kbd></a>';
 
-
-			$this->data->page['badge']['link'] = \dash\url::this(). '/add?type='. $this->data->moduleType;
-			$this->data->page['badge']['text'] = T_('Add new :type', ['type' => $this->data->moduleType]);
+			$myBadgeLink = \dash\url::this(). '/add?type='. $moduleType;
+			$myBadgeText = T_('Add new :type', ['type' => $moduleType]);
 		}
+
+		\dash\data::page_title($myTitle);
+		\dash\data::page_desc($myDesc);
+
+		\dash\data::badge_text($myBadgeText);
+		\dash\data::badge_link($myBadgeLink);
 	}
 }
 ?>
