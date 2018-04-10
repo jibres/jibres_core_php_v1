@@ -2,8 +2,54 @@
 namespace content_a\factor\add;
 
 
-class model extends \content_a\main\model
+class model
 {
+	public static function post()
+	{
+		// ready factor_list
+		$factor_list = self::getPostSaleProduct();
+
+		if($factor_list === false)
+		{
+			return false;
+		}
+
+				// ready factor_list
+		$detail = self::getPostSaleDetail();
+
+		if($detail === false)
+		{
+			return false;
+		}
+
+		$factor_detail = \lib\app\factor::add($detail, $factor_list);
+
+		$query_data = [];
+
+		if(\dash\engine\process::status())
+		{
+			if(isset($factor_detail['factor_id']))
+			{
+				// $query_data['print'] = 'auto';
+				// $query_data['size']  = 'receipt8';
+				$query_data['id']    = $factor_detail['factor_id'];
+				$redirect_url        = \dash\url::base(). '/a/factor/opr';
+			}
+			else
+			{
+				$redirect_url = \dash\url::base(). '/a/factor';
+			}
+
+			if(!empty($query_data))
+			{
+				$redirect_url .= '?'. http_build_query($query_data);
+			}
+
+			\dash\redirect::to($redirect_url);
+		}
+	}
+
+
 	/**
 	 * Gets the post factor product.
 	 *
@@ -59,59 +105,6 @@ class model extends \content_a\main\model
 		$detail['type']     = \dash\request::get('type');
 		$detail['desc']     = \dash\request::post('desc');
 		return $detail;
-	}
-
-
-	/**
-	 * Posts a factor add.
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	public function post_factor_add()
-	{
-
-
-		// ready factor_list
-		$factor_list = self::getPostSaleProduct();
-
-		if($factor_list === false)
-		{
-			return false;
-		}
-
-				// ready factor_list
-		$detail = self::getPostSaleDetail();
-
-		if($detail === false)
-		{
-			return false;
-		}
-
-		$factor_detail = \lib\app\factor::add($detail, $factor_list);
-
-		$query_data = [];
-
-		if(\dash\engine\process::status())
-		{
-			if(isset($factor_detail['factor_id']))
-			{
-				// $query_data['print'] = 'auto';
-				// $query_data['size']  = 'receipt8';
-				$query_data['id']    = $factor_detail['factor_id'];
-				$redirect_url        = \dash\url::base(). '/a/factor/opr';
-			}
-			else
-			{
-				$redirect_url = \dash\url::base(). '/a/factor';
-			}
-
-			if(!empty($query_data))
-			{
-				$redirect_url .= '?'. http_build_query($query_data);
-			}
-
-			\dash\redirect::to($redirect_url);
-		}
 	}
 }
 ?>

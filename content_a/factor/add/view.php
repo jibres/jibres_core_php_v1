@@ -2,16 +2,16 @@
 namespace content_a\factor\add;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title'] = T_('Sale invoicing');
-		$this->data->page['desc']  = '';
-		// $this->data->page['desc']  = T_('Sale your product via Jibres and enjoy using integrated web base platform.');
+		\dash\data::page_title(T_('Sale invoicing'));
+		// \dash\data::page_desc(T_('Sale your product via Jibres and enjoy using integrated web base platform.'));
 
-		$this->data->page['badge']['link'] = \dash\url::here(). '/factor';
-		$this->data->page['badge']['text'] = T_('Back to last sales');
+		\dash\data::badge_text(T_('Back to last sales'));
+		\dash\data::badge_link(\dash\url::this());
+
 
 		if(\dash\request::get('json') === 'true')
 		{
@@ -22,7 +22,7 @@ class view extends \content_a\main\view
 					$meta                        = [];
 					$meta['userstores.supplier'] = ["IS", "NULL"];
 					$meta['sort_type']           = \dash\request::get('type');
-					$resultRaw        = \lib\app\thirdparty::list(\dash\request::get('q'), $meta);
+					$resultRaw                   = \lib\app\thirdparty::list(\dash\request::get('q'), $meta);
 
 					foreach ($resultRaw as $key => $value)
 					{
@@ -118,7 +118,8 @@ class view extends \content_a\main\view
 			}
 			\dash\notif::result(["list" => $result]);
 			// force show json
-			$this->_processor(['force_stop' => true, 'force_json' => true]);
+			// @check below line
+			// $this->_processor(['force_stop' => true, 'force_json' => true]);
 			// \dash\code::exit();
 		}
 
