@@ -22,12 +22,6 @@ class view
 
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
 		\dash\data::dashboardData(\lib\app\store::dashboard_detail(\lib\store::id()));
-
-
-		// if(isset($this->controller->pagnation))
-		// {
-		// 	$this->data->pagnation = $this->controller->pagnation_get();
-		// }
 	}
 
 
