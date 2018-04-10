@@ -4,7 +4,7 @@ namespace content_a\factor\edit;
 
 class model
 {
-	public function post()
+	public static function post()
 	{
 		// ready factor_list
 		$factor_list = self::getPostSaleProduct();

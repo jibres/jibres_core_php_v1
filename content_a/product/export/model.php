@@ -5,7 +5,7 @@ namespace content_a\product\export;
 class model
 {
 
-	public function post()
+	public static function post()
 	{
 		$file_name = \dash\url::subdomain(). '_products_'. \dash\utility\jdate::date("Ymd_Hi", time(), false);
 
