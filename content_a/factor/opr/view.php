@@ -65,8 +65,7 @@ class view
 		{
 			$store_factor_setting = $default_meta;
 		}
-
-		// $this->data->current_store['meta']['factor'] = $store_factor_setting;
+		\dash\data::factorSetting($store_factor_setting);
 
 		// add to factor main
 		\dash\data::pageSize('receipt8');
