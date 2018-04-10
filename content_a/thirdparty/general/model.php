@@ -4,6 +4,18 @@ namespace content_a\thirdparty\general;
 
 class model
 {
+	public static function post()
+	{
+		$request = self::getPost();
+
+		\lib\app\thirdparty::edit($request, \dash\request::get('id'));
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
+	}
+
 
 	public static function getPost()
 	{
@@ -37,19 +49,6 @@ class model
 		}
 
 		return $post;
-	}
-
-
-	public function post()
-	{
-		$request = self::getPost();
-
-		\lib\app\thirdparty::edit($request, \dash\request::get('id'));
-
-		if(\dash\engine\process::status())
-		{
-			\dash\redirect::pwd();
-		}
 	}
 }
 ?>
