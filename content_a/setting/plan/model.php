@@ -2,33 +2,12 @@
 namespace content_a\setting\plan;
 
 
-class model extends \content_a\main\model
+class model
 {
-/**
-	 * get plan data to show
-	 */
-	public function plan()
-	{
-		if(!\dash\user::login())
-		{
-			return false;
-		}
-
-		if(!\lib\store::id())
-		{
-			\dash\db\logs::set('plan:invalid:store', \dash\user::id());
-			\dash\notif::error(T_("Invalid store!"), 'store');
-			return false;
-		}
-
-		return \lib\db\storeplans::current(\lib\store::id());
-
-	}
-
 	/**
 	 * post data and update or insert plan data
 	 */
-	public function post_plan()
+	public static function post()
 	{
 		if(!\dash\user::login())
 		{
