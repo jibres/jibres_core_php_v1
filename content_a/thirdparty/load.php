@@ -1,5 +1,5 @@
 <?php
-namespace content_a\thirdparty\edit;
+namespace content_a\thirdparty;
 
 
 class load

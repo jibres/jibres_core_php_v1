@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\content_a\thirdparty\edit\load::memberDetail();
+		\content_a\thirdparty\load::memberDetail();
 
 		\dash\data::page_title(T_('Edit general information'). \dash\data::page_title());
 		\dash\data::page_desc(T_('you can edit general detail of thirdparty'));
