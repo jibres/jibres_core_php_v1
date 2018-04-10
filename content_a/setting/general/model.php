@@ -2,8 +2,18 @@
 namespace content_a\setting\general;
 
 
-class model extends \content_a\main\model
+class model
 {
+	public static function post()
+	{
+		\lib\app\store::edit(self::getPost());
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
+	}
+
 
 	public static function getPost()
 	{
@@ -17,17 +27,6 @@ class model extends \content_a\main\model
 			'phone'   => \dash\request::post('phone'),
 		];
 		return $args;
-	}
-
-
-	public function post_general($_args)
-	{
-		\lib\app\store::edit(self::getPost());
-
-		if(\dash\engine\process::status())
-		{
-			\dash\redirect::pwd();
-		}
 	}
 }
 ?>
