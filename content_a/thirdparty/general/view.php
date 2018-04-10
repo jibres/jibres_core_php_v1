@@ -1,15 +1,15 @@
 <?php
-namespace content_a\thirdparty\edit\general;
+namespace content_a\thirdparty\general;
 
 
 class view
 {
 	public static function config()
 	{
-		// self::load_thirdparty_detail();
+		\content_a\thirdparty\edit\load::memberDetail();
 
-		$this->data->page['title'] = T_('Edit general information'). $this->data->page['title'];
-		$this->data->page['desc']  = T_('you can edit general detail of thirdparty');
+		\dash\data::page_title(T_('Edit general information'). \dash\data::page_title());
+		\dash\data::page_desc(T_('you can edit general detail of thirdparty'));
 	}
 }
 ?>

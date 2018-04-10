@@ -9,7 +9,7 @@
 
 <div class="f">
  <div class="cauto s12 pA10">
-  {%if supplier_mode%}
+  {%if supplierMode%}
     {{block("psidebarSupplier")}}
   {%else%}
     {{block("psidebar")}}
@@ -190,7 +190,7 @@
 {%block ibirthcity%}
 <label for="birthcity">{%trans "Birth city"%}</label>
 <div class="input">
-  <input type='text' class="autoList" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{thirdparty.birthplace}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{city_list}}"/>
+  <input type='text' class="autoList" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{thirdparty.birthplace}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{listCities}}"/>
 
 </div>
 {%endblock%}
@@ -199,7 +199,7 @@
 {%block icountry%}
 <label for='country'>{%trans "Country"%}</label>
 <div class="input">
- <input type='text' class="autoList" name='country' id='country' data-minchars="1" data-autofirst data-list="{{country_list}}" value="{{thirdparty.country}}" />
+ <input type='text' class="autoList" name='country' id='country' data-minchars="1" data-autofirst data-list="{{listCountries}}" value="{{thirdparty.country}}" />
 </div>
 {%endblock%}
 
@@ -208,7 +208,7 @@
 
 <label for='province'>{%trans "Province"%}</label>
 <div class="input">
- <input type='text' class="autoList" name='province' id='province' data-minchars="1" data-autofirst data-list="{{provice_list}}" value="{{thirdparty.province}}" />
+ <input type='text' class="autoList" name='province' id='province' data-minchars="1" data-autofirst data-list="{{listProvices}}" value="{{thirdparty.province}}" />
 </div>
 {%endblock%}
 
@@ -216,7 +216,7 @@
 {%block icity%}
 <label for='city'>{%trans "City"%}</label>
 <div class="input">
- <input type='text' class="autoList" name='city' id='city' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{thirdparty.city}}" />
+ <input type='text' class="autoList" name='city' id='city' data-minchars="1" data-autofirst data-list="{{listCities}}" value="{{thirdparty.city}}" />
 </div>
 {%endblock%}
 
@@ -240,7 +240,7 @@
 {%block ibirthplace%}
 <label for='birthcity'>{%trans "Birth place"%}</label>
 <div class="input">
- <input type='text' class="autoList" name='birthcity' id='birthcity' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{thirdparty.birthcity}}" />
+ <input type='text' class="autoList" name='birthcity' id='birthcity' data-minchars="1" data-autofirst data-list="{{listCities}}" value="{{thirdparty.birthcity}}" />
 </div>
 {%endblock%}
 
@@ -248,7 +248,7 @@
 {%block iissueplace%}
 <label for='shfrom'>{%trans "Issue Place"%}</label>
 <div class="input">
- <input type='text' class="autoList" name='shfrom' id='shfrom' data-minchars="1" data-autofirst data-list="{{city_list}}" value="{{thirdparty.shfrom}}" />
+ <input type='text' class="autoList" name='shfrom' id='shfrom' data-minchars="1" data-autofirst data-list="{{listCities}}" value="{{thirdparty.shfrom}}" />
 </div>
 
 {%endblock%}
