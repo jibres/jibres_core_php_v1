@@ -2,9 +2,9 @@
 namespace content_a\factor\opr;
 
 
-class model extends \content_a\main\model
+class model
 {
-	public function post_opr()
+	public static function post()
 	{
 
 		$post              = [];
@@ -20,7 +20,7 @@ class model extends \content_a\main\model
 
 		if(isset($result['complete']) && $result['complete'])
 		{
-			$new_url = \dash\url::here(). '/add?type=getthetypefromresult';
+			$new_url = \dash\url::this(). '/add?type=getthetypefromresult';
 		}
 
 		\dash\redirect::to($new_url);

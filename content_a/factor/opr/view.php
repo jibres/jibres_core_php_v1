@@ -2,17 +2,17 @@
 namespace content_a\factor\opr;
 
 
-class view extends \content_a\main\view
+class view
 {
-	public function config()
+	public static function config()
 	{
-		$this->data->page['title']         = T_('Pay factor');
-		$this->data->page['desc']          = T_('You can search in list of pays, and select one of pay');
+		\dash\data::page_title(T_('Pay factor'));
+		// \dash\data::page_desc(T_('You can search in list of pays, and select one of pay'));
 
-		$this->data->page['badge']['link'] = \dash\url::here(). '/factor';
-		$this->data->page['badge']['text'] = T_('Back to last sales');
+		\dash\data::badge_text(T_('Back to last sales'));
+		\dash\data::badge_link(\dash\url::this());
 
-		$pay_detail                        = \lib\app\storetransaction::factor_pay_list(\dash\request::get('id'));
+		$pay_detail   = \lib\app\storetransaction::factor_pay_list(\dash\request::get('id'));
 		$saved_amount = 0;
 		if(is_array($pay_detail))
 		{
@@ -20,20 +20,18 @@ class view extends \content_a\main\view
 			$temp         = array_sum($temp);
 			$saved_amount = intval($temp);
 		}
+		\dash\data::payDetail($pay_detail);
 
-		$this->data->pay_detail            = $pay_detail;
-
-		$meta                              = [];
+		$meta          = [];
 		$factor_detail = \lib\app\factor::get(['id' => \dash\request::get('id')], $meta);
 
 		if(isset($factor_detail['factor']['sum']))
 		{
 			$factor_detail['factor']['sum_remain'] = intval($factor_detail['factor']['sum']) - $saved_amount;
 		}
+		\dash\data::factorDetail($factor_detail);
 
-		$this->data->factor_detail = $factor_detail;
-
-		$store_factor_setting              = \lib\store::detail('meta');
+		$store_factor_setting = \lib\store::detail('meta');
 
 		$default_meta =
 		[
@@ -68,11 +66,11 @@ class view extends \content_a\main\view
 			$store_factor_setting = $default_meta;
 		}
 
-		$this->data->current_store['meta']['factor'] = $store_factor_setting;
+		// $this->data->current_store['meta']['factor'] = $store_factor_setting;
 
 		// add to factor main
-		$this->data->template['fishprint'] = 'content_a/factor/fishprint/fishprint.html';
-		$this->data->pageSize = 'receipt8';
+		\dash\data::pageSize('receipt8');
+
 	}
 }
 ?>

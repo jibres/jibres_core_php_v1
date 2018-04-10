@@ -27,8 +27,8 @@
 {%block factorDetailArea%}
  <div class="f factorDetail">
   <div class="c">
-   <div class="datetime"><span class="date">{{factor_detail.factor.date | jdate('l j F Y')}}</span> | <span class="time">{{factor_detail.factor.date | jdate('G:i:s')}}</span></div>
-   <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factor_detail.factor.id}}'>{{factor_detail.factor.id}}</code></div>
+   <div class="datetime"><span class="date">{{factorDetail.factor.date | jdate('l j F Y')}}</span> | <span class="time">{{factorDetail.factor.date | jdate('G:i:s')}}</span></div>
+   <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factorDetail.factor.id}}'>{{factorDetail.factor.id}}</code></div>
   </div>
   <div class="cauto os">
    <svg class="barcodePrev" data-val="#barcode" data-height=20 data-hideValue></svg>
@@ -44,18 +44,18 @@
    <th>{%trans "Name"%}</th>
    <th>{%trans "Qty"%}</th>
    <th>{%trans "Price"%}</th>
-{%if factor_detail.factor.detaildiscount%}
+{%if factorDetail.factor.detaildiscount%}
    <th>{%trans "Discount"%}</th>
 {%endif%}
    <th>{%trans "Sum"%}</th>
   </thead>
   <tbody class="txtC">
- {%for key, datarow in factor_detail.factor_detail%}
+ {%for key, datarow in factorDetail.factorDetail%}
   <tr>
    <td>{{datarow.title}}</td>
    <td>{{datarow.factordetails_count  | fitNumber}}</td>
    <td>{{datarow.factordetails_price | number_format | fitNumber}}</td>
-{%if factor_detail.factor.detaildiscount%}
+{%if factorDetail.factor.detaildiscount%}
    <td>{{datarow.factordetails_discount | number_format | fitNumber}}</td>
 {%endif%}
    <td>{{datarow.factordetails_sum | number_format | fitNumber}}</td>
@@ -63,15 +63,15 @@
  {%endfor%}
   </tbody>
 
-{%if factor_detail.factor.item > 0%}
+{%if factorDetail.factor.item > 0%}
   <tfoot class="txtC">
-   <th>{{factor_detail.factor.item | number_format | fitNumber}}</th>
-   <th>{{factor_detail.factor.qty | fitNumber}}</th>
+   <th>{{factorDetail.factor.item | number_format | fitNumber}}</th>
+   <th>{{factorDetail.factor.qty | fitNumber}}</th>
    <th></th>
-{%if factor_detail.factor.detaildiscount%}
+{%if factorDetail.factor.detaildiscount%}
    <th></th>
 {%endif%}
-   <th>{{factor_detail.factor.sum | number_format | fitNumber}}</th>
+   <th>{{factorDetail.factor.sum | number_format | fitNumber}}</th>
   </tfoot>
 {%endif%}
 
@@ -83,19 +83,19 @@
 {%block factorResultArea%}
  <table class="tbl fs12 factorResult mB25">
   <tbody>
-{%if factor_detail.factor.detaildiscount%}
+{%if factorDetail.factor.detaildiscount%}
    <tr>
      <th class="txtRa">{%trans "Invoice amount"%}</th>
-     <td class="collapsing txtLa">{{factor_detail.factor.detailsum | number_format |fitNumber}}</td>
+     <td class="collapsing txtLa">{{factorDetail.factor.detailsum | number_format |fitNumber}}</td>
    </tr>
    <tr>
      <th class="txtRa">{%trans "Your total discount and profits"%}</th>
-     <td class="collapsing txtLa">{{factor_detail.factor.detaildiscount | number_format |fitNumber}}</td>
+     <td class="collapsing txtLa">{{factorDetail.factor.detaildiscount | number_format |fitNumber}}</td>
    </tr>
 {%endif%}
    <tr class="alert alert-info factorSum">
      <th class="txtRa">{%trans "Total payable"%}</th>
-     <td class="collapsing txtLa">{{factor_detail.factor.sum | number_format |fitNumber}}</td>
+     <td class="collapsing txtLa">{{factorDetail.factor.sum | number_format |fitNumber}}</td>
    </tr>
   </tbody>
 

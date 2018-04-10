@@ -6,7 +6,7 @@
 
 <div class="f">
   <div class="c5 x3 s12 pRa10 mB25">
-{%embed template.fishprint%}
+{%embed 'content_a/factor/fishprint/fishprint.html'%}
 
   {%block footerExtraArea%}
     {%if current_store.meta.factor.print_status%}
@@ -45,7 +45,7 @@
 {%block paymentAmount%}
 <div class="input xxl fs20 txtC">
   <label for="famount" class="addon">{%trans "Amount"%}</label>
-  <input type="tel" id="famount" name="amount" value="{{factor_detail.factor.sum_remain | number_format | fitNumber}}">
+  <input type="tel" id="famount" name="amount" value="{{factorDetail.factor.sum_remain | number_format | fitNumber}}">
   <label for="famount" class="addon">{%trans "Toman"%}</label>
 </div>
 {%endblock%}
@@ -312,7 +312,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for key, value in pay_detail %}
+    {% for key, value in payDetail %}
     <tr>
       <td>{{value.plus}}</td>
       <td>{{value.type}}</td>
