@@ -10,7 +10,7 @@
 
   {%block footerExtraArea%}
     {%if factorSetting.print_status%}
-    <a class="btn info block mB10" href="{{url.here}}factor/print?">{%trans "Print Status is active"%} <kbd>f8</kbd></a>
+    <a class="btn info block mB10" href="{{url.this}}/print?id={{requestGET.id}}">{%trans "Print Status is active"%} <kbd>f8</kbd></a>
     {%endif%}
   {%endblock%}
 
