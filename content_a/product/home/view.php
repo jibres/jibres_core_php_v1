@@ -105,14 +105,6 @@ class view
 
 		\dash\data::myFilter(\content_a\filter::current(\lib\app\product::$sort_field, \dash\url::this()));
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
-
-
-
-		// @check ------------------------------------------------------------------------------------------------------------------------------
-		// if(isset($this->controller->pagnation))
-		// {
-		// 	$this->data->pagnation = $this->controller->pagnation_get();
-		// }
 	}
 }
 ?>
