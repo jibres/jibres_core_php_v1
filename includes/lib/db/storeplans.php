@@ -371,7 +371,7 @@ class storeplans
 			'total'      => $amount,
 		];
 
-        $invoice = new \lib\db\invoices;
+        $invoice = new \dash\db\invoices;
         $invoice->add($new_invoice);
         $invoice->add_child($new_invoice_detail);
         $invoice_id = $invoice->save();
