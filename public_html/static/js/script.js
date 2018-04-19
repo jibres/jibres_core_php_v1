@@ -478,10 +478,17 @@ function searchForProduct(_key, _value)
   var pSearchURL = "/a/factor/add?json=true&list=product&" + _key + "=" + _value;
   $.get(pSearchURL, function(_productData)
   {
+    var myMsg;
     pData = clearJson(_productData);
-    if(_productData && _productData.title)
+    if(_productData && _productData.result && _productData.result.message)
     {
-      addFindedProduct(pData, _productData.title);
+      myMsg = _productData.result.message;
+    }
+
+    // if have error show error message
+    if(myMsg)
+    {
+      addFindedProduct(null, myMsg);
     }
     else
     {
