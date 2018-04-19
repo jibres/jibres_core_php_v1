@@ -29,8 +29,9 @@ class model
 		$file_url = self::upload_thumb();
 
 		// we have an error in upload thumb
-		if($file_url === false)
+		if(!$file_url)
 		{
+			\dash\notif::warn(T_("No file sended"));
 			return false;
 		}
 
