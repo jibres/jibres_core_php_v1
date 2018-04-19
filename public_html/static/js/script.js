@@ -526,6 +526,12 @@ function addFindedProduct(_product, _msg)
       sysBeep();
       beep(500);
     }
+    else
+    {
+      notif('warn', 'product is not detected', null, null, {position:'center'});
+      sysBeep();
+      beep(500);
+    }
   }
 }
 
