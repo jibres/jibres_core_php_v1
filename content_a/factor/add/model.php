@@ -14,7 +14,7 @@ class model
 			return false;
 		}
 
-				// ready factor_list
+		// ready factor_list
 		$detail = self::getPostSaleDetail();
 
 		if($detail === false)
@@ -28,16 +28,46 @@ class model
 
 		if(\dash\engine\process::status())
 		{
+			// @new
+			// if(isset($factor_detail['factor_id']))
+			// {
+			// 	// $query_data['print'] = 'auto';
+			// 	// $query_data['size']  = 'receipt8';
+			// 	$query_data['id']    = $factor_detail['factor_id'];
+			// 	$redirect_url        = \dash\url::this(). '/opr';
+			// }
+			// else
+			// {
+			// 	$redirect_url = \dash\url::this();
+			// }
+
+
 			if(isset($factor_detail['factor_id']))
 			{
-				// $query_data['print'] = 'auto';
-				// $query_data['size']  = 'receipt8';
-				$query_data['id']    = $factor_detail['factor_id'];
-				$redirect_url        = \dash\url::base(). '/a/factor/opr';
+
+				if(\dash\request::post('save_btn') === 'save_next')
+				{
+					$query_data['type']  = \dash\request::get('type');
+					$redirect_url        = \dash\url::this(). '/add';
+
+				}
+				elseif(\dash\request::post('save_btn') === 'save_print')
+				{
+					$query_data['id']    = $factor_detail['factor_id'];
+					$query_data['print'] = 'auto';
+					$query_data['size']  = 'receipt8';
+					$redirect_url        = \dash\url::this(). '/fishprint';
+
+				}
+				else
+				{
+					\dash\notif::error(T_("Dont!"));
+					return false;
+				}
 			}
 			else
 			{
-				$redirect_url = \dash\url::base(). '/a/factor';
+				$redirect_url = \dash\url::this();
 			}
 
 			if(!empty($query_data))
