@@ -15,6 +15,7 @@ class view
 
 		if(\dash\request::get('json') === 'true')
 		{
+			$notif_result = [];
 			$result = [];
 			switch (\dash\request::get('list'))
 			{
@@ -100,7 +101,7 @@ class view
 					}
 					if(!$result)
 					{
-						// \dash\notif::title($msg);
+						$notif_result['message'] = $msg;
 					}
 					break;
 
@@ -116,7 +117,8 @@ class view
 			{
 				$result = json_encode($result, JSON_UNESCAPED_UNICODE);
 			}
-			\dash\notif::result(["list" => $result]);
+			$notif_result['list'] = $result;
+			\dash\notif::result($notif_result);
 			// force show json
 			// @check below line
 			\dash\code::end();
