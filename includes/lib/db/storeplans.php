@@ -1,6 +1,5 @@
 <?php
 namespace lib\db;
-use \lib\db;
 
 class storeplans
 {
@@ -69,7 +68,7 @@ class storeplans
 	 */
 	public static function insert()
 	{
-		return db\config::public_insert('storeplans', ...func_get_args());
+		return \dash\db\config::public_insert('storeplans', ...func_get_args());
 	}
 
 
@@ -78,7 +77,7 @@ class storeplans
 	 */
 	public static function update()
 	{
-		return db\config::public_update('storeplans', ...func_get_args());
+		return \dash\db\config::public_update('storeplans', ...func_get_args());
 	}
 
 
