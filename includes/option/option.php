@@ -14,6 +14,13 @@ if(!defined('db_log_name'))
 }
 
 
+self::$url['tld']               = 'com';
+self::$url['protocol']          = 'https';
+
+self::$config['site']['title']  = "Jibres";
+self::$config['site']['desc']   = "Jibres is not just an online accounting software; We try to create the best financial platform that has everything you need to sale and manage your financial life.";
+self::$config['site']['slogan'] = "Integrated Sales and Online Accounting";
+
 
 /**
 @ In the name Of Allah
@@ -27,12 +34,12 @@ self::$language =
 /**
  * system default lanuage
  */
-self::$config['default_language']             = 'fa';
-self::$config['redirect_url']                 = 'https://jibres.com';
-self::$config['multi_domain']                 = true;
-self::$config['redirect_to_main']             = true;
-self::$config['https']                        = true;
-self::$config['default_tld']                  = 'com';
+// self::$config['default_language']             = 'fa';
+// self::$config['redirect_url']                 = 'https://jibres.com';
+// self::$config['multi_domain']                 = true;
+// self::$config['redirect_to_main']             = true;
+// self::$config['https']                        = true;
+// self::$config['default_tld']                  = 'com';
 self::$config['default_permission']           = null;
 self::$config['debug']                        = true;
 self::$config['coming']                       = false;
@@ -46,19 +53,19 @@ self::$config['default']                      = null;
 self::$config['redirect']                     = 'c';
 self::$config['register']                     = true;
 self::$config['recovery']                     = true;
-self::$config['fake_sub']                     = null;
-self::$config['real_sub']                     = true;
+// self::$config['fake_sub']                     = null;
+// self::$config['real_sub']                     = true;
 self::$config['force_short_url']              = null;
 self::$config['sms']                          = true;
 
-self::$config['account']                      = true;
-self::$config['main_account']                 = null;
-self::$config['account_status']               = true;
-self::$config['use_main_account']             = false;
+// self::$config['account']                      = true;
+// self::$config['main_account']                 = null;
+// self::$config['account_status']               = true;
+// self::$config['use_main_account']             = false;
 
-self::$config['domain_same']                  = true;
-self::$config['domain_name']                  = 'jibres';
-self::$config['main_site']                    = 'https://jibres.com';
+// self::$config['domain_same']                  = true;
+// self::$config['domain_name']                  = 'jibres';
+// self::$config['main_site']                    = 'https://jibres.com';
 
 self::$config['favicon']['version']           = null;
 
