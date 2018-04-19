@@ -15,7 +15,7 @@ class model
 		{
 			if(isset($result['thirdparty_id']))
 			{
-				\dash\redirect::to(\dash\url::base(). '/a/thirdparty/edit?id='. $result['thirdparty_id']);
+				\dash\redirect::to(\dash\url::base(). '/a/thirdparty/general?id='. $result['thirdparty_id']);
 			}
 			else
 			{
