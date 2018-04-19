@@ -161,7 +161,7 @@ trait dashboard
 
 			foreach ($chart as $key => $value)
 			{
-				$myGroup = floor((float) $key / 10000);
+				$myGroup = floor(floatval($key) / 10000);
 				if(!isset($chartGroup10[$myGroup]))
 				{
 					$chartGroup10[$myGroup] = +$value;
@@ -176,7 +176,7 @@ trait dashboard
 			foreach ($chart as $key => $value)
 			{
 
-				$myGroup = floor((float) $key / 10000);
+				$myGroup = floor(floatval($key) / 10000);
 				if($key === '')
 				{
 					$key = T_('unknown');
