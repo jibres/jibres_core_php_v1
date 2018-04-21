@@ -14,7 +14,6 @@ desktop.ini
 /includes/database/version
 /includes/log
 /dash
-dash/
 
 *sftp-config.json
 *.me.php
