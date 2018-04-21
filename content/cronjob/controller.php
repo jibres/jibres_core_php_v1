@@ -1,20 +1,18 @@
 <?php
 namespace content\cronjob;
-use \lib\saloos;
 
-class controller extends \mvc\controller
+class controller
 {
-	function ready()
+	public static function routing()
 	{
 		if(isset($_SERVER['REQUEST_METHOD']) && mb_strtolower($_SERVER['REQUEST_METHOD']) === 'get')
 		{
 			\dash\header::status(404);
 		}
 
-		// \lib\db\mysql\tools\log::log($_SERVER, time(), 'cronjob.log', 'json');
-
 		if(\dash\url::isLocal())
 		{
+			\dash\header::status(404, "Hi developer:))");
 			return;
 		}
 
@@ -28,15 +26,11 @@ class controller extends \mvc\controller
 			)
 		)
 		{
-			if(\dash\option::config('cronjob','status'))
-			{
-				$this->post("cronjob")->ALL("/.*/");
-				$this->display = false;
-			}
+			// no thing
 		}
 		else
 		{
-			\dash\utility\telegram::sendMessage("@jibres_monitor", "#ERROR\n".  json_encode($_SERVER, JSON_UNESCAPED_UNICODE));
+			// \dash\utility\telegram::sendMessage("@jibres_monitor", "#ERROR\n".  json_encode($_SERVER, JSON_UNESCAPED_UNICODE));
 			\dash\header::status(404);
 		}
 

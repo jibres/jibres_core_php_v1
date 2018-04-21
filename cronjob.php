@@ -31,8 +31,8 @@ class cronjob
 	public function requests()
 	{
 		$requests      = [];
-		$requests[]    = ['url' => 'https://jibres.com/en/cronjob/homepagenumber', 'header' => []];
-		// $requests[] = ['url' => 'http://jibres.local/cronjob/homepagenumber', 'header' => []];
+		$requests[]    = ['url' => 'https://jibres.com/en/cronjob?type=homepagenumber', 'header' => []];
+
 		return $requests;
 	}
 
