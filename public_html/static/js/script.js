@@ -279,52 +279,65 @@ function calcFooterValues(_table)
     calcDtDiscountPercent = (calcDtSumDiscount / calcDtSumPrice * 100).toFixed(2);
   }
 
-  // if(calcDtSumTotal > 0 )
+  // show or hide priceBox
+  if(calcDtCountRow > 0)
   {
     showWithFade($('.priceBox'));
-    $('.priceBox .final span').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
-    $(".priceBox .final").shrink(60);
-    $('.priceBox .desc').text(wordifyTomans(calcDtSumTotal));
-    $('.priceBox .item span').text(fitNumber(calcDtCountRow)).attr('data-val', calcDtCountRow);
-    $('.priceBox .count span').text(fitNumber(calcDtSumCount)).attr('data-val', calcDtSumCount);
-    $('.priceBox .sum span').text(fitNumber(calcDtSumPrice)).attr('data-val', calcDtSumPrice);
-    $('.priceBox .discountPercent span').text(fitNumber(calcDtDiscountPercent)+ "%").attr('data-val', calcDtDiscountPercent);
-    $('.priceBox .discount span').text(fitNumber(calcDtSumDiscount)).attr('data-val', calcDtSumDiscount);
+  }
+  else
+  {
+    setTimeout(function()
+    {
+      $('.priceBox').slideUp();
+    }, 500);
+  }
 
-    if(calcDtCountRow === calcDtSumCount)
+  $('.priceBox .final span').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
+  $(".priceBox .final").shrink(60);
+  $('.priceBox .desc').text(wordifyTomans(calcDtSumTotal));
+  $('.priceBox .item span').text(fitNumber(calcDtCountRow)).attr('data-val', calcDtCountRow);
+  $('.priceBox .count span').text(fitNumber(calcDtSumCount)).attr('data-val', calcDtSumCount);
+  $('.priceBox .sum span').text(fitNumber(calcDtSumPrice)).attr('data-val', calcDtSumPrice);
+  $('.priceBox .discountPercent span').text(fitNumber(calcDtDiscountPercent)+ "%").attr('data-val', calcDtDiscountPercent);
+  $('.priceBox .discount span').text(fitNumber(calcDtSumDiscount)).attr('data-val', calcDtSumDiscount);
+
+  if(calcDtCountRow === calcDtSumCount)
+  {
+    $('.priceBox .count').fadeOut();
+  }
+  else
+  {
+    $('.priceBox .count').fadeIn();
+  }
+  if(calcDtSumDiscount === 0)
+  {
+    if($('.priceBox .discount').attr('data-wodiscount') === undefined)
     {
-      $('.priceBox .count').fadeOut();
-    }
-    else
-    {
-      $('.priceBox .count').fadeIn();
-    }
-    if(calcDtSumDiscount === 0)
-    {
-      if($('.priceBox .discount').attr('data-wodiscount') === undefined)
-      {
-        $('.priceBox .discountPercent').fadeOut('fast');
-        $('.priceBox .discount').fadeOut('fast');
-      }
-      else
-      {
-        $('.priceBox .discountPercent').fadeIn();
-        $('.priceBox .discount').fadeIn();
-      }
+      $('.priceBox .discountPercent').fadeOut('fast');
+      $('.priceBox .discount').fadeOut('fast');
     }
     else
     {
       $('.priceBox .discountPercent').fadeIn();
       $('.priceBox .discount').fadeIn();
     }
-    // show fadein box
+  }
+  else
+  {
+    $('.priceBox .discountPercent').fadeIn();
+    $('.priceBox .discount').fadeIn();
+  }
+  // show fadein box
+  if(calcDtSumTotal > 0)
+  {
     showWithFade($('.NextBox'));
   }
-  // else
-  // {
-  //   $('.priceBox .final span').text('-');
-  //   // $('.priceBox').slideUp();
-  // }
+  else
+  {
+   $('.NextBox').fadeOut('fast');
+  }
+
+    // $('.priceBox .final span').text('-');
 }
 
 
@@ -794,7 +807,7 @@ function navigateonFactorAddInputs(_type)
   setTimeout(function()
   {
     nextRowInputEl.select();
-  },10);
+  }, 10);
 }
 
 

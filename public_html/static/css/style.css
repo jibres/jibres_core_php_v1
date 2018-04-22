@@ -214,6 +214,7 @@ body .pc .em{font-weight:bold;text-align:center;padding:1em 5%;background-color:
 .rtl .priceBox .detail span{float:left;}
 .priceBox .count{display:none;}
 .priceBox .discount{background-color:#50aacc;cursor:pointer;display:none;}
+.priceBox .discountPercent{display:none;}
 kbd{font-family:monospace;}
 
 
