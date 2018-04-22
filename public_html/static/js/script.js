@@ -289,7 +289,7 @@ function calcFooterValues(_table)
     setTimeout(function()
     {
       $('.priceBox').slideUp();
-    }, 500);
+    }, 700);
   }
 
   $('.priceBox .final span').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
@@ -301,34 +301,34 @@ function calcFooterValues(_table)
   $('.priceBox .discountPercent span').text(fitNumber(calcDtDiscountPercent)+ "%").attr('data-val', calcDtDiscountPercent);
   $('.priceBox .discount span').text(fitNumber(calcDtSumDiscount)).attr('data-val', calcDtSumDiscount);
 
-  if(calcDtCountRow === calcDtSumCount)
+  if(calcDtCountRow === calcDtSumCount || calcDtSumCount === 0)
   {
-    $('.priceBox .count').fadeOut();
+    $('.priceBox .count').slideUp();
   }
   else
   {
-    $('.priceBox .count').fadeIn();
+    $('.priceBox .count').slideDown();
   }
   if(calcDtSumDiscount === 0)
   {
     if($('.priceBox .discount').attr('data-wodiscount') === undefined)
     {
-      $('.priceBox .discountPercent').fadeOut('fast');
-      $('.priceBox .discount').fadeOut('fast');
+      $('.priceBox .discountPercent').slideUp('fast');
+      $('.priceBox .discount').slideUp('fast');
     }
     else
     {
-      $('.priceBox .discountPercent').fadeIn();
-      $('.priceBox .discount').fadeIn();
+      $('.priceBox .discountPercent').slideDown();
+      $('.priceBox .discount').slideDown();
     }
   }
   else
   {
-    $('.priceBox .discountPercent').fadeIn();
-    $('.priceBox .discount').fadeIn();
+    $('.priceBox .discountPercent').slideDown();
+    $('.priceBox .discount').slideDown();
   }
   // show fadein box
-  if(calcDtSumTotal > 0)
+  if(calcDtCountRow > 0)
   {
     showWithFade($('.NextBox'));
   }

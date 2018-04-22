@@ -202,7 +202,7 @@ body .pc .em{font-weight:bold;text-align:center;padding:1em 5%;background-color:
 .priceBox{font-size:1.4em;margin:0 auto 10px;padding:0;border-radius:0.25rem;background-color:#5bbbdb;color:#eee;text-align:center;max-width:400px;min-width:170px;transition:0.3s opacity;overflow:hidden;}
 .priceBox h3{font-size:1em;padding:1em;margin:0}
 .priceBox div span{font-weight:bold;color:#fff;display:inline-block;}
-.priceBox div{transition:0.3s;}
+.priceBox div{transition: color 0.3s;}
 .priceBox div:hover{color:#fff}
 .priceBox .final{padding:0;background-color:#50a0c0;color:#fff;font-size:2.5em;margin-bottom:10px;height:70px;}
 .priceBox .final span{line-height:70px;}
