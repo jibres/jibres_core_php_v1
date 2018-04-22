@@ -795,7 +795,7 @@ function navigateonFactorAddInputs(_type)
 }
 
 
-function navigationFactorAddSetSelected(_tr)
+function navigationFactorAddSetSelected(_tr, _focus)
 {
   if(!_tr)
   {
@@ -806,6 +806,10 @@ function navigationFactorAddSetSelected(_tr)
   $('#factorAdd .productList tbody tr').attr('data-selected', null);
   // add selected to specefic one
   _tr.attr('data-selected', '');
+  if(_focus === true)
+  {
+    _tr.find('.input.count').select();
+  }
 }
 
 
