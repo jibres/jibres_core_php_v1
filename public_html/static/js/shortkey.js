@@ -174,8 +174,9 @@ function event_corridor(_e, _self, _key)
         var selectedRowEl = getSelectedRow();
         if(selectedRowEl)
         {
+          var nextSelectedRow = selectedRowEl.prev();
           selectedRowEl.remove();
-          navigationFactorAddSetSelected(null, true);
+          navigationFactorAddSetSelected(nextSelectedRow, true);
           calcFooterValues();
         }
 

@@ -797,7 +797,7 @@ function navigateonFactorAddInputs(_type)
 
 function navigationFactorAddSetSelected(_tr, _focus)
 {
-  if(!_tr)
+  if(!_tr || _tr.length === 0)
   {
     _tr = $('#factorAdd .productList tbody tr:eq(0)');
   }
