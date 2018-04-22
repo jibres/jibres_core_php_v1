@@ -320,7 +320,7 @@ function calcFooterValues(_table)
   else
   {
     $('.priceBox .final span').text('-');
-    // $('.priceBox').fadeOut();
+    $('.priceBox').slideUp();
   }
 }
 
