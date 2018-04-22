@@ -273,7 +273,7 @@ function calcFooterValues(_table)
   // calc discount percent
   if(calcDtSumDiscount > 0)
   {
-    calcDtDiscountPercent = (calcDtSumPrice / calcDtSumDiscount).toFixed(2);
+    calcDtDiscountPercent = (calcDtSumDiscount / calcDtSumPrice * 100).toFixed(2);
   }
 
   if(calcDtSumTotal > 0 )
