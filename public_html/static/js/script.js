@@ -5,10 +5,13 @@ route('*', function()
 
 }).once(function()
 {
-  runRunner();
-  calcFooterValues();
-  recalcPricePercents();
-  simplePrint();
+  $(function()
+  {
+    runRunner();
+    calcFooterValues();
+    recalcPricePercents();
+    simplePrint();
+  });
 });
 
 $(function()
@@ -183,7 +186,7 @@ function calcFooterValues(_table)
     _table = $('.productList');
     if(_table.length < 1)
     {
-      return null;
+      // return null;
     }
   }
   var calcDtCountRow        = 0;
@@ -276,7 +279,7 @@ function calcFooterValues(_table)
     calcDtDiscountPercent = (calcDtSumDiscount / calcDtSumPrice * 100).toFixed(2);
   }
 
-  if(calcDtSumTotal > 0 )
+  // if(calcDtSumTotal > 0 )
   {
     showWithFade($('.priceBox'));
     $('.priceBox .final span').text(fitNumber(calcDtSumTotal)).attr('data-val', calcDtSumTotal);
@@ -317,11 +320,11 @@ function calcFooterValues(_table)
     // show fadein box
     showWithFade($('.NextBox'));
   }
-  else
-  {
-    $('.priceBox .final span').text('-');
-    $('.priceBox').slideUp();
-  }
+  // else
+  // {
+  //   $('.priceBox .final span').text('-');
+  //   // $('.priceBox').slideUp();
+  // }
 }
 
 
