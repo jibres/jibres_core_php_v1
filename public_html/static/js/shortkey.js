@@ -208,7 +208,7 @@ function event_corridor(_e, _self, _key)
           var RowCountEl = RowCountEl.find('input.count');
           RowCountEl.select();
         }
-          _e.preventDefault();
+          // _e.preventDefault();
       }
       break;
 

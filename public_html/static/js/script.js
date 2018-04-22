@@ -786,10 +786,12 @@ function navigateonFactorAddInputs(_type)
 
   var nextRowEl      = $('#factorAdd .productList tbody tr:eq('+ nextRow +')');
   var nextRowInputEl = nextRowEl.find('input.'+ nextField);
-
-  // select next element
-  nextRowInputEl.select();
   navigationFactorAddSetSelected(nextRowEl);
+
+  setTimeout(function()
+  {
+    nextRowInputEl.select();
+  },10);
 }
 
 
