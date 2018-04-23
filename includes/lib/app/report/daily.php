@@ -22,7 +22,7 @@ class daily
 			$_order = 'desc';
 		}
 
-		$result = \lib\db\report\daily::last_30_days($store_id, 'sell', $_days, $_sort, $_order);
+		$result = \lib\db\report\daily::last_30_days($store_id, 'sale', $_days, $_sort, $_order);
 
 
 		$return = [];
