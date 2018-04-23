@@ -305,6 +305,11 @@ kbd{font-family:monospace;}
   .pc{padding:2em 0;}
   .pc ul.list{margin: 2em 2%;}
 
+  #landing{min-height:350px;}
+  #landing .title{padding-top:50px;}
+  #landing .title .h2{font-size:4em;height:4em;}
+  #roadmap{display:none}
+
   .tbl.productList .product{min-width:auto;}
   .tbl .min80{width:auto;}
   .tbl .min100{width:auto;}
