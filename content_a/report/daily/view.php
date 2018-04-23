@@ -12,9 +12,17 @@ class view
 		\dash\data::badge_text(T_('Back to report list'));
 		\dash\data::badge_link(\dash\url::this());
 
-		$reportLast30Days = \lib\app\report\daily::last_30_days();
+		$result = \lib\app\report\daily::last_30_days();
+		if(isset($result['chart']))
+		{
+			\dash\data::ReportDailyChart($result['chart']);
+		}
 
-		\dash\data::reportLast30Days($reportLast30Days);
+		if(isset($result['table']))
+		{
+			\dash\data::ReportDailyTable($result['table']);
+		}
+
 	}
 }
 ?>

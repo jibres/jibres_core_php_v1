@@ -14,10 +14,17 @@ class daily
 
 		$result = \lib\db\report\daily::last_30_days($store_id, 'sell');
 		$result = array_reverse($result);
+
+		$return = [];
+
+		$return['table'] = $result;
+
 		$result = \lib\app\report::tdate_key($result, 'Y/m/d - D', true);
 		$result = \lib\app\report::key_value($result, true);
 
-		return $result;
+		$return['chart'] = $result;
+
+		return $return;
 	}
 }
 ?>

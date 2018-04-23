@@ -4,6 +4,7 @@
 {%block pageContent%}
 
 {{block('reportLast30Days')}}
+{{block('reportLast30DaysTable')}}
 
 {%endblock%}
 
@@ -11,11 +12,36 @@
 
 {%block reportLast30Days%}
 <div class="dcard x3 pA0">
- <div class="chart" data-vals='{{reportLast30Days}}'>
+ <div class="chart" data-vals='{{ReportDailyChart}}'>
  </div>
 </div>
   {%include display.pagination%}
 {%endblock%}
 
+
+
+{%block reportLast30DaysTable%}
+
+<div class="dcard x3 pA0">
+	<table class="tbl">
+		<thead>
+			<tr>
+				<th>{%trans "Date"%}</th>
+				<th>{%trans "Sum"%}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for key, value in ReportDailyTable%}
+				<tr>
+					<td>{{key | tdate}}</td>
+					<td>{{value | fitNumber}}</td>
+				</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+ </div>
+</div>
+
+{%endblock%}
 
 
