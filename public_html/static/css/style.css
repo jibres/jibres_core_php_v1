@@ -306,7 +306,7 @@ kbd{font-family:monospace;}
   .pc ul.list{margin: 2em 2%;}
 
   #landing{min-height:350px;height: 400px;}
-  #landing .title{padding-top:50px;position:relative;}
+  #landing .title{padding-top:20px;position:relative;}
   #landing .title .h2{font-size:4em;height:4em;}
   #roadmap{display:none}
 
