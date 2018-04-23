@@ -3,7 +3,7 @@ namespace lib\db\report;
 
 class daily
 {
-	public static function last_30_days($_store_id, $_type)
+	public static function last_30_days($_store_id, $_type, $_days, $_sort, $_order)
 	{
 		$date_now = date("Y-m-d");
 
@@ -26,7 +26,7 @@ class daily
 		";
 		$totla_rows = \dash\db::get($limit_query, 'totla_rows', true);
 
-		list($start_limit, $end_limit) = \dash\db::pagnation(intval($totla_rows), 30);
+		list($start_limit, $end_limit) = \dash\db::pagnation(intval($totla_rows), $_days);
 		if($start_limit > 0)
 		{
 			$date_start =  date("Y-m-d", strtotime("-$start_limit days"));
@@ -43,7 +43,7 @@ class daily
 			$page = 1;
 		}
 
-		$date_end = date("Y-m-d", strtotime("-". (string) ($page * 30)." days"));
+		$date_end = date("Y-m-d", strtotime("-". (string) ($page * $_days)." days"));
 
 		$query =
 		"
@@ -61,6 +61,7 @@ class daily
 
 				)
 			GROUP BY DATE(factors.date)
+			ORDER BY `$_sort` $_order
 		";
 
 		$result = \dash\db::get($query, ['date', 'sum']);

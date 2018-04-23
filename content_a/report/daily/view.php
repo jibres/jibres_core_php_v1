@@ -12,7 +12,12 @@ class view
 		\dash\data::badge_text(T_('Back to report list'));
 		\dash\data::badge_link(\dash\url::this());
 
-		$result = \lib\app\report\daily::last_30_days();
+
+		$result = \lib\app\report\daily::last_30_days(30, \dash\request::get('sort'), \dash\request::get('order'));
+
+		\dash\data::sortLink(\content_a\filter::current(['sum', 'date'], \dash\url::current()));
+
+
 		if(isset($result['chart']))
 		{
 			\dash\data::ReportDailyChart($result['chart']);
