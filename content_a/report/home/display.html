@@ -4,6 +4,7 @@
 {%block pageContent%}
 
 {{block('rDaily')}}
+{{block('rMonth')}}
 
 {%endblock%}
 
@@ -14,6 +15,17 @@
  <div class="statistic">
   <div class="value"><span>{{dashboardData.product_count |fitNumber}}</span></div>
   <div class="label">{%trans "Report daily"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block rMonth%}
+<a class="dcard x1" href='{{url.here}}/report/month'>
+ <div class="statistic">
+  <div class="value"><span>{{dashboardData.product_count |fitNumber}}</span></div>
+  <div class="label">{%trans "Report Month"%}</div>
  </div>
 </a>
 {%endblock%}
