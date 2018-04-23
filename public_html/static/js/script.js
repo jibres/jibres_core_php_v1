@@ -1030,7 +1030,6 @@ function typeTitles()
   {
     return;
   }
-
   var typed = new Typed('.typed',
   {
     stringsElement: '#typed-strings',
