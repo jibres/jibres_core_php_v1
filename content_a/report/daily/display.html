@@ -1,0 +1,21 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+
+{{block('reportLast30Days')}}
+
+{%endblock%}
+
+
+
+{%block reportLast30Days%}
+<div class="dcard x3 pA0">
+ <div class="chart" data-vals='{{reportLast30Days}}'>
+ </div>
+</div>
+  {%include display.pagination%}
+{%endblock%}
+
+
+

@@ -1,0 +1,19 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+
+{{block('rDaily')}}
+
+{%endblock%}
+
+
+
+{%block rDaily%}
+<a class="dcard x1" href='{{url.here}}/report/daily'>
+ <div class="statistic">
+  <div class="value"><span>{{dashboardData.product_count |fitNumber}}</span></div>
+  <div class="label">{%trans "Report daily"%}</div>
+ </div>
+</a>
+{%endblock%}
