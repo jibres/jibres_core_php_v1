@@ -80,23 +80,32 @@ class twigTransTerms
 	echo T_("The date you first select a paid plan will be the recurring billing date. For example: If you sign up for the first time on July 15, all future charges will be billed on the 15th of every month.");// Line 64
 
 	//-------------------------------------------------------content\home\display.html
-	echo T_("Integrated Sales and Online Accounting");                                // Line 26
-	echo T_("Simplest forever");                                                      // Line 37
-	echo T_("Keep it simple");                                                        // Line 37
-	echo T_("Simplicity is the ultimate sophistication");                             // Line 38
-	echo T_("No one can fullfill your e-commerce needs like us");                     // Line 39
-	echo T_("Of course Made with love 😍");                                            // Line 48
-	echo T_("Jibres has created for futuristic entrepreneurs");                       // Line 48
-	echo T_("Item");                                                                  // Line 51
+	echo T_("Invoice Software");                                                      // Line 30
+	echo T_("Easy Invoicing Software");                                               // Line 31
+	echo T_("Online Invoicing Software");                                             // Line 32
+	echo T_("Free Invoicing Software");                                               // Line 33
+	echo T_("Accounting Software");                                                   // Line 35
+	echo T_("Online Accounting Software");                                            // Line 36
+	echo T_("Sales");                                                                 // Line 38
+	echo T_("Sales Software");                                                        // Line 39
+	echo T_("Integrated Sales");                                                      // Line 40
+	echo T_("Integrated Sales and Online Accounting");                                // Line 54
+	echo T_("Simplest forever");                                                      // Line 65
+	echo T_("Keep it simple");                                                        // Line 65
+	echo T_("Simplicity is the ultimate sophistication");                             // Line 66
+	echo T_("No one can fullfill your e-commerce needs like us");                     // Line 67
+	echo T_("Of course Made with love 😍");                                            // Line 76
+	echo T_("Jibres has created for futuristic entrepreneurs");                       // Line 76
+	echo T_("Item");                                                                  // Line 79
 	echo T_("Products");                                                              // Line 10
 	echo T_("Qty");                                                                   // Line 112
 	echo T_("Factor");                                                                // Line 39
 	echo T_("Toman");                                                                 // Line 49
-	echo T_("Sold on Jibres");                                                        // Line 60
-	echo T_("Roadmap");                                                               // Line 71
-	echo T_("Amazing Financial Platform");                                            // Line 72
-	echo T_("With Jibres we take less time of our customers and this means modern customer orientation");// Line 102
-	echo T_("Majid Sadeghi, Sales Supervisor at SuperSaeed");                         // Line 103
+	echo T_("Sold on Jibres");                                                        // Line 88
+	echo T_("Roadmap");                                                               // Line 99
+	echo T_("Amazing Financial Platform");                                            // Line 100
+	echo T_("With Jibres we take less time of our customers and this means modern customer orientation");// Line 130
+	echo T_("Majid Sadeghi, Sales Supervisor at SuperSaeed");                         // Line 131
 
 	//-------------------------------------------------------content\logo\display.html
 
@@ -237,19 +246,19 @@ class twigTransTerms
 	echo T_("Discount percent");                                                      // Line 64
 	echo T_("Press f7 or click to toggle discount");                                  // Line 37
 	echo T_("Total discount");                                                        // Line 37
-	echo T_("Save Factor & Continue");                                                // Line 46
-	echo T_("Save & Next");                                                           // Line 56
-	echo T_("Save & Print");                                                          // Line 59
+	echo T_("Save Factor & Continue");                                                // Line 54
+	echo T_("Save & Print");                                                          // Line 71
+	echo T_("Save & Next");                                                           // Line 68
 	echo T_("Row");                                                                   // Line 57
 	echo T_("Product");                                                               // Line 77
 	echo T_("Count");                                                                 // Line 59
 	echo T_("Discount");                                                              // Line 228
 	echo T_("Total");                                                                 // Line 115
-	echo T_("Search in Customers");                                                   // Line 98
+	echo T_("Search in Customers");                                                   // Line 110
 	echo T_("Add");                                                                   // Line 394
-	echo T_("Search to add product");                                                 // Line 109
-	echo T_("Search in list to add product");                                         // Line 110
-	echo T_("Last scanned barcode");                                                  // Line 136
+	echo T_("Search to add product");                                                 // Line 121
+	echo T_("Search in list to add product");                                         // Line 122
+	echo T_("Last scanned barcode");                                                  // Line 148
 
 	//----------------------------------------------content_a\factor\edit\display.html
 	echo T_("Final Price");                                                           // Line 187

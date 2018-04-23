@@ -117,6 +117,15 @@ class twigTransTerms
 	echo T_("Use our logo to help spread the word.");                                 // Line 141
 	echo T_("Enter to Jibres");                                                       // Line 144
 
+	//-------------------------------------------addons\content_cp\backup\display.html
+	echo T_("Backup Project");                                                        // Line 6
+	echo T_("You can create backup now");                                             // Line 33
+	echo T_("Backup now");                                                            // Line 34
+	echo T_("Sise");                                                                  // Line 100
+	echo T_("Remove");                                                                // Line 101
+	echo T_("Download");                                                              // Line 102
+	echo T_("No backup was found");                                                   // Line 107
+
 	//----------------------------------------------addons\content_cp\cms\display.html
 	echo T_("Comments");                                                              // Line 98 Seperate
 	echo T_("Posts");                                                                 // Line 94 Seperate
@@ -146,10 +155,8 @@ class twigTransTerms
 	echo T_("Categries");                                                             // Line 11
 	echo T_("Pages");                                                                 // Line 95 Seperate
 	echo T_("Options");                                                               // Line 84 Seperate
-	echo T_("Last update on");                                                        // Line 22
-	echo T_("wait for next version!");                                                // Line 22
-	echo T_("Powered by");                                                            // Line 24
-	echo T_("Some right reserved");                                                   // Line 24
+	echo T_("Powered by");                                                            // Line 21
+	echo T_("Some right reserved");                                                   // Line 21
 	echo T_("Ermile");                                                                // Line 177 Seperate
 	echo T_("Version");                                                               // Line 108 Seperate
 
@@ -184,7 +191,6 @@ class twigTransTerms
 	echo T_("MP3");                                                                   // Line 175
 	echo T_("PDF");                                                                   // Line 177
 	echo T_("Without preview");                                                       // Line 179
-	echo T_("Remove");                                                                // Line 101
 
 	//--------------------------------------------addons\content_cp\terms\display.html
 	echo T_("Type");                                                                  // Line 92
@@ -285,14 +291,9 @@ class twigTransTerms
 	echo T_("File is empty");                                                         // Line 15
 	echo T_("Database info");                                                         // Line 25
 	echo T_("Show Auto backup log file");                                             // Line 30
-	echo T_("You can create backup now");                                             // Line 33
-	echo T_("Backup now");                                                            // Line 34
 	echo T_("You have another database for logs");                                    // Line 38
 	echo T_("Click for create backup from log database");                             // Line 38
 	echo T_("Auto backup");                                                           // Line 51
-	echo T_("Sise");                                                                  // Line 100
-	echo T_("Download");                                                              // Line 102
-	echo T_("No backup was found");                                                   // Line 107
 	echo T_("Start backup every");                                                    // Line 128
 	echo T_("Year");                                                                  // Line 130
 	echo T_("Month");                                                                 // Line 131
@@ -548,16 +549,16 @@ class twigTransTerms
 	echo T_("Last education degree");                                                 // Line 122
 
 	//------------------------------------------addons\includes\html\display-dash.html
-	echo T_("Edit your profile");                                                     // Line 49
-	echo T_("Avatar of you");                                                         // Line 51
-	echo T_("Default Avatar");                                                        // Line 53
-	echo T_("Hello");                                                                 // Line 59
-	echo T_("Click to toggle sidebar status");                                        // Line 69
-	echo T_("Show side menu");                                                        // Line 75
-	echo T_("View website");                                                          // Line 77
-	echo T_("Work in your language");                                                 // Line 81
+	echo T_("Edit your profile");                                                     // Line 47
+	echo T_("Avatar of you");                                                         // Line 49
+	echo T_("Default Avatar");                                                        // Line 51
+	echo T_("Hello");                                                                 // Line 57
+	echo T_("Click to toggle sidebar status");                                        // Line 67
+	echo T_("Show side menu");                                                        // Line 73
+	echo T_("View website");                                                          // Line 75
+	echo T_("Work in your language");                                                 // Line 79
 	echo T_("Logout");                                                                // Line 104 Seperate
-	echo T_("View your current location and navigate to parent of it");               // Line 98
+	echo T_("View your current location and navigate to parent of it");               // Line 96
 
 	//----------------------------------addons\includes\html\display-enter-blocks.html
 	echo T_("Please enter valid mobile number");                                      // Line 12
