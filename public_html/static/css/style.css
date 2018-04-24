@@ -245,7 +245,7 @@ kbd{font-family:monospace;}
 .tbl.productList .input.discountCn{min-width:100px;max-width:150px;margin:0 auto;}
 .tbl.productList .input.discountCn input.discount{padding:5px 0.5em;text-align:center;background-color:transparent;}
 .tbl.productList .input.discountCn .addon.small{min-width:40px;max-width:45px;text-align:center;transition:0.3s;opacity:1;line-height:24px;display:inline-block;}
-.tbl.productList .input.discountCn .addon.small:empty{min-width:0;width:0;opacity:0;border-width:none;padding:0}
+.tbl.productList .input.discountCn .addon.small:empty{min-width:0;width:0;opacity:0;border-width:0;padding:0}
 
 .tbl .min80{white-space:nowrap;width:80px}
 .tbl .min100{white-space:nowrap;width:100px}
@@ -259,17 +259,17 @@ kbd{font-family:monospace;}
 @media screen{
   .printArea{background: #fff;box-shadow: 0 0.5mm 2mm rgba(0,0,0,.3);margin:0 auto;overflow: hidden;position: relative;box-sizing: border-box;page-break-after: always;}
 
-  .printArea[data-size=A3]               { width: 297mm; height: 419mm }
-  .printArea[data-size=A3.landscape]     { width: 420mm; height: 296mm }
-  .printArea[data-size=A4]               { width: 210mm; height: 296mm }
-  .printArea[data-size=A4.landscape]     { width: 297mm; height: 209mm }
-  .printArea[data-size=A5]               { width: 148mm; height: 209mm }
-  .printArea[data-size=A5.landscape]     { width: 210mm; height: 147mm }
-  .printArea[data-size=letter]           { width: 216mm; height: 279mm }
-  .printArea[data-size=letter.landscape] { width: 280mm; height: 215mm }
-  .printArea[data-size=legal]            { width: 216mm; height: 356mm }
-  .printArea[data-size=legal.landscape]  { width: 357mm; height: 215mm }
-  .printArea[data-size=receipt8]         { width: 84mm;  padding:18mm 4mm 1mm }
+  .printArea[data-size='A3']               { width: 297mm; height: 419mm }
+  .printArea[data-size='A3.landscape']     { width: 420mm; height: 296mm }
+  .printArea[data-size='A4']               { width: 210mm; height: 296mm }
+  .printArea[data-size='A4.landscape']     { width: 297mm; height: 209mm }
+  .printArea[data-size='A5']               { width: 148mm; height: 209mm }
+  .printArea[data-size='A5.landscape']     { width: 210mm; height: 147mm }
+  .printArea[data-size='letter']           { width: 216mm; height: 279mm }
+  .printArea[data-size='letter.landscape'] { width: 280mm; height: 215mm }
+  .printArea[data-size='legal']            { width: 216mm; height: 356mm }
+  .printArea[data-size='legal.landscape']  { width: 357mm; height: 215mm }
+  .printArea[data-size='receipt8']         { width: 84mm;  padding:18mm 4mm 1mm }
 }
 
 .factor .storeDetail h1{font-weight: bold;font-size: 2em}
