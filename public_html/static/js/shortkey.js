@@ -10,34 +10,6 @@ function bindShortkey()
   // $('ul li', explorer).click(function(e)    { event_corridor(e, e.currentTarget, 'click');    });
 }
 
-
-/**
- * [shortkeyCallFunc description]
- * @return {[type]} [description]
- */
-function shortkeyCallFunc(_elShortkey, _e)
-{
-    var myFuncCall = _elShortkey.attr('data-shortkey-call');
-    // this shortkey has called function
-    if(myFuncCall !== undefined)
-    {
-      myFuncCall = 'shortkey_'+ myFuncCall;
-      // if function exist
-      if(callFunc(myFuncCall, null, true))
-      {
-        callFunc(myFuncCall, _e);
-        return true;
-      }
-      else
-      {
-        logy('shortkey func is not exist!');
-      }
-    }
-    return false;
-}
-
-
-
 /**
  * corridor of all events on keyboard and mouse
  * @param  {[type]} e     the element that event doing on that
@@ -58,43 +30,8 @@ function event_corridor(_e, _self, _key)
   var alt    = _e.altKey   ? 'alt'   : '';
   var mytxt  = String(_key) + ctrl + alt + shift;
   var keyp   = String.fromCharCode(_key);
-  var myFunc = 'shortkey_'+ mytxt;
 
   // logy(mytxt, 'info');
-
-  var elShortkey = $('[data-shortkey= '+ mytxt +']');
-  if(elShortkey.length == 1)
-  {
-    // this shortkey has called function
-    if(shortkeyCallFunc(elShortkey, _e))
-    {
-      // if yse prevent default changes
-      _e.preventDefault();
-    }
-    else
-    {
-      // else do some default event like click or set focus
-      if(elShortkey.is('a[href], a[href] *, button, input[type=submit]'))
-      {
-        elShortkey.trigger("click");
-        return;
-      }
-      else if(elShortkey.is('input, select, textarea'))
-      {
-        elShortkey.focus();
-      }
-      _e.preventDefault();
-    }
-
-  }
-  else if(shortkeyCallFunc(elShortkey, _e))
-  {
-    // if yse prevent default changes
-    _e.preventDefault();
-  }
-
-
-
   switch(mytxt)
   {
     // ---------------------------------------------------------- Enter
