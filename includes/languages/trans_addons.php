@@ -193,7 +193,7 @@ class twigTransTerms
 	echo T_("Without preview");                                                       // Line 179
 
 	//--------------------------------------------addons\content_cp\terms\display.html
-	echo T_("Type");                                                                  // Line 92
+	echo T_("Type");                                                                  // Line 158
 	echo T_("Add");                                                                   // Line 149 Seperate
 	echo T_("Edit");                                                                  // Line 150 Seperate
 	echo T_("Require");                                                               // Line 122
@@ -432,9 +432,9 @@ class twigTransTerms
 
 	//--------------------------------------------addons\content_su\tools\display.html
 	echo T_("You can use our tools");                                                 // Line 5
-	echo T_("If you dont know about this page, leave it!");                           // Line 20
+	echo T_("If you dont know about this page, leave it!");                           // Line 38
 	echo T_("Special tools");                                                         // Line 9
-	echo T_("Backup");                                                                // Line 95
+	echo T_("Backup");                                                                // Line 161
 	echo T_("Sitemap");                                                               // Line 12
 	echo T_("Server information");                                                    // Line 13
 	echo T_("Log");                                                                   // Line 14
@@ -491,22 +491,24 @@ class twigTransTerms
 	echo T_("Try to start with add new :transactions!");                              // Line 110
 
 	//-------------------------------------------addons\content_su\update\display.html
+	echo T_("Submit this form carefully");                                            // Line 40
 	echo T_("Dash");                                                                  // Line 7 Seperate
-	echo T_("Last update");                                                           // Line 53
-	echo T_("Current Version");                                                       // Line 63
-	echo T_("Dash Engine Location");                                                  // Line 73
-	echo T_("Upgrade Database");                                                      // Line 81
-	echo T_("Submit this form carefully");                                            // Line 82
+	echo T_("Press it if you are sure!");                                             // Line 63
+	echo T_("Update All");                                                            // Line 63
+	echo T_("Last update");                                                           // Line 113
+	echo T_("Current Version");                                                       // Line 82
+	echo T_("Commits");                                                               // Line 122
+	echo T_("Do it if you know it");                                                  // Line 124
+	echo T_("Update Dash Repository");                                                // Line 94
+	echo T_("Dash Engine Location");                                                  // Line 103
+	echo T_("Update Repository");                                                     // Line 124
+	echo T_("Project database");                                                      // Line 132
+	echo T_("Addon Database");                                                        // Line 141
 	echo T_("Username");                                                              // Line 27
 	echo T_("Password");                                                              // Line 169 Seperate
-	echo T_("Upgrade");                                                               // Line 94
-	echo T_("Backup by dump");                                                        // Line 96
+	echo T_("Upgrade");                                                               // Line 160
+	echo T_("Backup by dump");                                                        // Line 162
 	echo T_("Submit");                                                                // Line 202
-	echo T_("Update Git Repositories");                                               // Line 106
-	echo T_("Before update create a full backup from database and files");            // Line 107
-	echo T_("Current Project Repository");                                            // Line 110
-	echo T_("Dash Repository");                                                       // Line 113
-	echo T_("Dash + Current Poject Repository");                                      // Line 116
 
 	//----------------------------------------addons\content_su\users\add\display.html
 	echo T_("Add new user");                                                          // Line 6

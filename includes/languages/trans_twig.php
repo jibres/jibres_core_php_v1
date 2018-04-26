@@ -12,7 +12,7 @@ class twigTransTerms
 	echo T_("Soon");                                                                  // Line 251
 
 	//--------------------------------------------------content\changelog\display.html
-	echo T_("Date");                                                                  // Line 9
+	echo T_("Date");                                                                  // Line 29
 	echo T_("Description");                                                           // Line 38
 	echo T_("We are Developers, please wait!");                                       // Line 17
 	echo T_("Version 1 of Jibres will be released.");                                 // Line 22
@@ -110,10 +110,10 @@ class twigTransTerms
 	//-------------------------------------------------------content\logo\display.html
 
 	//--------------------------------------------------------content\main\layout.html
-	echo T_("Next →");                                                                // Line 30
-	echo T_("← Back");                                                                // Line 30
-	echo T_("Skip");                                                                  // Line 30
-	echo T_("Done");                                                                  // Line 30
+	echo T_("Next →");                                                                // Line 33
+	echo T_("← Back");                                                                // Line 33
+	echo T_("Skip");                                                                  // Line 33
+	echo T_("Done");                                                                  // Line 33
 
 	//----------------------------------------------------content\pricing\display.html
 	echo T_("only team admin");                                                       // Line 10
@@ -271,7 +271,7 @@ class twigTransTerms
 
 	//--------------------------------------------content_a\factor\export\display.html
 	echo T_("Sale Invoice");                                                          // Line 31
-	echo T_("Sum");                                                                   // Line 50
+	echo T_("Sum");                                                                   // Line 30
 	echo T_("Your total discount and profits");                                       // Line 92
 
 	//---------------------------------------content_a\factor\fishprint\fishprint.html
@@ -439,6 +439,14 @@ class twigTransTerms
 	echo T_("Max");                                                                   // Line 190
 	echo T_("Average");                                                               // Line 199
 	echo T_("Buy Price");                                                             // Line 210
+
+	//---------------------------------------------content_a\report\daily\display.html
+
+	//----------------------------------------------content_a\report\home\display.html
+	echo T_("Report daily");                                                          // Line 17
+	echo T_("Report Month");                                                          // Line 28
+
+	//---------------------------------------------content_a\report\month\display.html
 
 	//-------------------------------------------content_a\setting\factor\display.html
 	echo T_("Print status");                                                          // Line 8
