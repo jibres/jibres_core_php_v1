@@ -95,7 +95,7 @@ trait get
 
 			if($result)
 			{
-				if(\dash\permission::access('load:all:store', null, \dash\user::id()))
+				if(\dash\permission::check('load:all:store'))
 				{
 					$result = $result;
 				}
