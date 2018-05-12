@@ -197,6 +197,15 @@ trait search
 			$_string   = trim($_string);
 			$en_number = \dash\utility\convert::to_en_number($_string);
 
+			$string_decode = \dash\coding::decode($_string);
+			if(!$string_decode)
+			{
+				$string_decode = null;
+			}
+			else
+			{
+				$string_decode = " OR factors.id  = $string_decode ";
+			}
 			$search_in_id = null;
 
 			if(\dash\coding::is($_string))
@@ -214,6 +223,7 @@ trait search
 					factors.date       = '$en_number' OR
 					factors.shamsidate = '$en_number'
 				)
+				$string_decode
 				";
 
 			}
@@ -224,6 +234,7 @@ trait search
 				(
 					userstores.displayname  LIKE '%$_string%'
 				)
+				$string_decode
 				";
 			}
 
