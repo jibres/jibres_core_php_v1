@@ -11,7 +11,8 @@ class view
 		\dash\data::site_slogan(T_("Integrated Sales and Online Accounting"));
 
 
-		\dash\data::bodyclass('siftal');
+		\dash\data::include_siftal(true);
+		\dash\data::include_css(false);
 		\dash\data::include_chart(true);
 
 		\dash\data::display_jibresControlLayout('content_c/layout.html');
