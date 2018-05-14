@@ -11,7 +11,7 @@ class view
 		\dash\data::site_slogan(T_("Integrated Sales and Online Accounting"));
 
 
-		\dash\data::include_siftal(true);
+		\dash\data::include_adminPanel(true);
 		\dash\data::include_css(false);
 		\dash\data::include_chart(true);
 

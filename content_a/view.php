@@ -14,7 +14,7 @@ class view
 		// transfer to new location on root of content
 		\dash\data::display_admin('content_a/layout.html');
 
-		\dash\data::include_siftal(true);
+		\dash\data::include_adminPanel(true);
 		\dash\data::include_css(false);
 		\dash\data::include_chart(true);
 
