@@ -3,6 +3,18 @@
 
 
 {%block pageContent%}
+<div class="msg info2 f ">
+  <span class="c"><a href="{{url.this}}?duplicatetitle=1">{%trans "Duplicate title"%}</a></span>
+  <span class="c"><a href="{{url.this}}?hbarcode=1">{%trans "Have barcode"%}</a></span>
+  <span class="c"><a href="{{url.this}}?hnotbarcode=1">{%trans "Have not barcode"%}</a></span>
+  <span class="c"><a href="{{url.this}}?justcode=1">{%trans "Just code"%}</a></span>
+  <span class="c"><a href="{{url.this}}?wcodbarcode=1">{%trans "No barcode & code"%}</a></span>
+  <span class="c"><a href="{{url.this}}?wbuyprice=1">{%trans "Whitout buyprice"%}</a></span>
+  <span class="c"><a href="{{url.this}}?wprice=1">{%trans "Whitout price"%}</a></span>
+  <span class="c"><a href="{{url.this}}?wminstock=1">{%trans "Whitout min stock"%}</a></span>
+  <span class="c"><a href="{{url.this}}?wmaxstock=1">{%trans "Whitout max stock"%}</a></span>
+  <span class="c"><a href="{{url.this}}?wdiscount=1">{%trans "Whitout discount"%}</a></span>
+</div>
 
 {%if dataTable%}
  {%if filterBox%}

@@ -121,7 +121,65 @@ trait datalist
 			$option['order'] = 'DESC';
 		}
 
-		if (isset($_args['barcode']) && $_args['barcode'])
+
+		if(isset($option['duplicatetitle']) && $option['duplicatetitle'])
+		{
+			$duplicate_id = \lib\db\products::get_duplicate_id(\lib\store::id());
+			if(!$duplicate_id)
+			{
+				return [];
+			}
+			$duplicate_id = implode(',', $duplicate_id);
+			$field['id']  = ["IN", "($duplicate_id)"];
+			$result       = \lib\db\products::search($_string, $option, $field);
+
+		}
+		elseif (isset($option['hbarcode']) && $option['hbarcode'])
+		{
+			$field['barcode'] = [" IS NOT NULL ", " AND barcode2 IS NOT NULL"];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($option['hnotbarcode']) && $option['hnotbarcode'])
+		{
+			$field['barcode'] = [" IS NULL ", " AND barcode2 IS NULL"];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($option['justcode']) && $option['justcode'])
+		{
+			$field['code'] = [" IS NOT NULL ", " AND barcode2 IS NULL AND barcode IS NULL"];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($option['wcodbarcode']) && $option['wcodbarcode'])
+		{
+			$field['code'] = [" IS NULL ", " AND barcode2 IS NULL AND barcode IS NULL"];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($option['wbuyprice']) && $option['wbuyprice'])
+		{
+			$field['buyprice'] = [" IS ", " NULL "];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($option['wprice']) && $option['wprice'])
+		{
+			$field['price'] = [" IS ", " NULL "];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($option['wminstock']) && $option['wminstock'])
+		{
+			$field['minstock'] = [" IS ", " NULL "];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($option['wmaxstock']) && $option['wmaxstock'])
+		{
+			$field['maxstock'] = [" IS ", " NULL "];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($option['wdiscount']) && $option['wdiscount'])
+		{
+			$field['discount'] = [" IS ", " NULL "];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($_args['barcode']) && $_args['barcode'])
 		{
 			$result = \lib\db\products::search_barcode($_args['barcode'], \lib\store::id());
 			$multi_record = false;

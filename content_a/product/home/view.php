@@ -53,6 +53,17 @@ class view
 			$args['unit'] = \dash\request::get('unit');
 		}
 
+		if(\dash\request::get('duplicatetitle')) $args['duplicatetitle'] = true;
+		if(\dash\request::get('hbarcode')) $args['hbarcode'] = true;
+		if(\dash\request::get('hnotbarcode')) $args['hnotbarcode'] = true;
+		if(\dash\request::get('justcode')) $args['justcode'] = true;
+		if(\dash\request::get('wcodbarcode')) $args['wcodbarcode'] = true;
+		if(\dash\request::get('wbuyprice')) $args['wbuyprice'] = true;
+		if(\dash\request::get('wprice')) $args['wprice'] = true;
+		if(\dash\request::get('wminstock')) $args['wminstock'] = true;
+		if(\dash\request::get('wmaxstock')) $args['wmaxstock'] = true;
+		if(\dash\request::get('wdiscount')) $args['wdiscount'] = true;
+
 		$search_string = \dash\request::get('q');
 
 		if($search_string)

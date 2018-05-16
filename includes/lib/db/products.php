@@ -8,6 +8,37 @@ class products
 	use \lib\db\product\dashboard;
 
 
+	public static function get_duplicate_id($_store_id)
+	{
+		if(!$_store_id || !is_numeric($_store_id))
+		{
+			return false;
+		}
+
+		$query =
+		"
+			SELECT
+				products.id
+			FROM
+				products
+			INNER JOIN
+				(
+					SELECT
+						title
+					FROM
+						products
+					WHERE
+						products.store_id = $_store_id
+					GROUP BY title
+					HAVING COUNT(*) > 1
+				) dup
+			   ON products.title = dup.title
+		";
+		$result = \dash\db::get($query, 'id');
+
+		return $result;
+	}
+
 	public static function check_multi_product_id($_multi_id, $_store_id)
 	{
 		$ids = implode(',', $_multi_id);
