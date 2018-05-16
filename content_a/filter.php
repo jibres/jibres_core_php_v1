@@ -71,6 +71,58 @@ class filter
 					$filter_array[T_('Customer')] = $temp;
 				}
 				break;
+			case 'product':
+
+				if(isset($filter_array['duplicatetitle']))
+				{
+					unset($filter_array['duplicatetitle']);
+					$filter_array[T_("Duplicate title")] = '';
+				}
+				if(isset($filter_array['hbarcode']))
+				{
+					unset($filter_array['hbarcode']);
+					$filter_array[T_("Have barcode")] = '';
+				}
+				if(isset($filter_array['hnotbarcode']))
+				{
+					unset($filter_array['hnotbarcode']);
+					$filter_array[T_("Have not barcode")] = '';
+				}
+				if(isset($filter_array['justcode']))
+				{
+					unset($filter_array['justcode']);
+					$filter_array[T_("Just code")] = '';
+				}
+				if(isset($filter_array['wcodbarcode']))
+				{
+					unset($filter_array['wcodbarcode']);
+					$filter_array[T_("No barcode & code")] = '';
+				}
+				if(isset($filter_array['wbuyprice']))
+				{
+					unset($filter_array['wbuyprice']);
+					$filter_array[T_("Whitout buyprice")] = '';
+				}
+				if(isset($filter_array['wprice']))
+				{
+					unset($filter_array['wprice']);
+					$filter_array[T_("Whitout price")] = '';
+				}
+				if(isset($filter_array['wminstock']))
+				{
+					unset($filter_array['wminstock']);
+					$filter_array[T_("Whitout min stock")] = '';
+				}
+				if(isset($filter_array['wmaxstock']))
+				{
+					unset($filter_array['wmaxstock']);
+					$filter_array[T_("Whitout max stock")] = '';
+				}
+				if(isset($filter_array['wdiscount']))
+				{
+					unset($filter_array['wdiscount']);
+					$filter_array[T_("Whitout discount")] = '';
+				}
 
 			case 'thirdparty':
 				if(isset($filter_array['supplier']))
