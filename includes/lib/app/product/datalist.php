@@ -15,6 +15,7 @@ trait datalist
 		'stock',
 		'finalprice',
 		'datemodified',
+		'code',
 	];
 
 	public static $search_in =

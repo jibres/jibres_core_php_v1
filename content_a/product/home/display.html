@@ -77,6 +77,9 @@
         <th data-sort="{{myFilter.finalprice.order}}"><a href='{{myFilter.finalprice.link}}'>{%trans "Final price" %}</a></th>
         <th data-sort="{{myFilter.stock.order}}" class="s0"><a href='{{myFilter.stock.link}}'>{%trans "Stock" %}</a></th>
         <th data-sort="{{myFilter.datemodified.order}}" class="s0"><a href='{{myFilter.datemodified.link}}'>{%trans "Last modified" %}</a></th>
+        {%if requestGET.justcode == 1%}
+          <th data-sort="{{myFilter.code.order}}" class="s0"><a href='{{myFilter.code.link}}'>{%trans "Code" %}</a></th>
+        {%endif%}
       </tr>
     </thead>
 
@@ -92,6 +95,9 @@
         <td {%if value.buyprice > value.finalprice%} class='negative' title='{%trans "Final price is under buy price"%}'{%endif%}><a class="bold">{{(value.finalprice) | number_format | fitNumber}}</a></td>
         <td class="s0">{{value.stock | number_format | fitNumber}} <small><a href="{{url.here}}/product?unit={{value.unit}}">{{value.unit}}</a></small></td>
         <td class="s0" title="{{value.datemodified | tdate('Y/m/d H:i')}}"><small class="fc-mute">{%if value.datemodified%}{{value.datemodified | sdate}}{%else%}-{%endif%}</small></td>
+        {%if requestGET.justcode == 1%}
+          <td>{{value.code | persian}}</td>
+        {%endif%}
       </tr>
       {%endfor%}
     </tbody>
