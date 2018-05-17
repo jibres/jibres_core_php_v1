@@ -48,6 +48,12 @@ trait delete
 			return false;
 		}
 
+		$check_foreign = \lib\db\factors::get(['product_id' => $id, 'limit' => 1]);
+		if(isset($check_foreign['id']))
+		{
+			\dash\notif::error(T_("This product is exist in your factors list, can not remove it!"), 'product');
+			return false;
+		}
 
 		$result = \lib\db\productprices::delete_where(['product_id' => $id]);
 		if($result)
