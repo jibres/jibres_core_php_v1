@@ -242,6 +242,20 @@ class twigTransTerms
 	echo T_(" ");                                                                     // Line 11 Seperate
 	echo T_("money");                                                                 // Line 13 Seperate
 	echo T_("toman");                                                                 // Line 14 Seperate
+	echo T_("sell");                                                                  // Line 16 Seperate
+	echo T_("buy");                                                                   // Line 17 Seperate
+	echo T_("presell");                                                               // Line 18 Seperate
+	echo T_("lending");                                                               // Line 19 Seperate
+	echo T_("backbuy");                                                               // Line 20 Seperate
+	echo T_("backsell");                                                              // Line 21 Seperate
+	echo T_("waste");                                                                 // Line 22 Seperate
+	echo T_("Sell");                                                                  // Line 24 Seperate
+	echo T_("Buy");                                                                   // Line 150
+	echo T_("Presell");                                                               // Line 26 Seperate
+	echo T_("Lending");                                                               // Line 152
+	echo T_("Backbuy");                                                               // Line 153
+	echo T_("Backsell");                                                              // Line 29 Seperate
+	echo T_("Waste");                                                                 // Line 155
 
 	//------------------------------------------------content_c/store/add/display.html
 	echo T_("Enter a valid name");                                                    // Line 77
@@ -439,7 +453,6 @@ class twigTransTerms
 	echo T_("Search in products");                                                    // Line 58
 	echo T_("Title");                                                                 // Line 83
 	echo T_("Category");                                                              // Line 72
-	echo T_("Buy");                                                                   // Line 150
 	echo T_("Discount percent");                                                      // Line 36
 	echo T_("Final price");                                                           // Line 77
 	echo T_("Stock");                                                                 // Line 286
@@ -551,7 +564,6 @@ class twigTransTerms
 	//-------------------------------------------content_a/factor/summary/display.html
 	echo T_("Sale");                                                                  // Line 149
 	echo T_("Pre Sale");                                                              // Line 48
-	echo T_("Lending");                                                               // Line 152
 	echo T_("Back from buy");                                                         // Line 68
 	echo T_("Back from factor");                                                      // Line 78
 	echo T_("Waste product");                                                         // Line 89
@@ -566,9 +578,7 @@ class twigTransTerms
 	echo T_("Invoice Date");                                                          // Line 108
 	echo T_("Items");                                                                 // Line 111
 	echo T_("Prefactor");                                                             // Line 151
-	echo T_("Backbuy");                                                               // Line 153
 	echo T_("Backfactor");                                                            // Line 154
-	echo T_("Waste");                                                                 // Line 155
 	echo T_("Try to start with add new factor!");                                     // Line 177
 
 	//-----------------------------------------------------content_a/home/display.html

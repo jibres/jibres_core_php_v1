@@ -56,12 +56,12 @@ class view
 		// // for special condition
 		if($moduleType)
 		{
-			$myTitle     = T_('List of :type', ['type' => $moduleType]);
-			$myDesc      = T_('Search in list of :type factors, add or edit them.', ['type' => $moduleType]);
+			$myTitle     = T_('List of :type', ['type' => T_($moduleType)]);
+			$myDesc      = T_('Search in list of :type factors, add or edit them.', ['type' => T_($moduleType)]);
 			$myDesc      .= ' <a href="'. \dash\url::this() .'" data-shortkey="121">'. T_('List of all factors.'). '<kbd>f10</kbd></a>';
 
 			$myBadgeLink = \dash\url::this(). '/add?type='. $moduleType;
-			$myBadgeText = T_('Add new :type', ['type' => $moduleType]);
+			$myBadgeText = T_('Add new :type', ['type' => T_($moduleType)]);
 		}
 
 		\dash\data::page_title($myTitle);
