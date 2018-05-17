@@ -39,6 +39,12 @@ trait add
 			return false;
 		}
 
+		if(!\lib\userstore::in_store())
+		{
+			\dash\notif::error(T_("You are not in this store"), 'subdomain');
+			return false;
+		}
+
 		// check args
 		$args = self::check();
 

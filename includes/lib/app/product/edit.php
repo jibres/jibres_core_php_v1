@@ -53,6 +53,12 @@ trait edit
 			return false;
 		}
 
+		if(!\lib\userstore::in_store())
+		{
+			\dash\notif::error(T_("You are not in this store"), 'subdomain');
+			return false;
+		}
+
 		$load_product = \lib\db\products::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 
 		if(empty($load_product) || !$load_product || !isset($load_product['id']))

@@ -39,15 +39,21 @@ trait add
 
 		if(!\dash\user::id())
 		{
-			\dash\app::log('api:product:user_id:notfound', null, $log_meta);
+			\dash\app::log('api:product:user_id:notfound', \dash\user::id(), $log_meta);
 			if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\dash\app::log('api:product:store_id:notfound', null, $log_meta);
+			\dash\app::log('api:product:store_id:notfound', \dash\user::id(), $log_meta);
 			if($_option['debug']) \dash\notif::error(T_("Store not found"), 'subdomain');
+			return false;
+		}
+
+		if(!\lib\userstore::in_store())
+		{
+			\dash\notif::error(T_("You are not in this store"), 'subdomain');
 			return false;
 		}
 

@@ -52,6 +52,12 @@ trait edit
 			return false;
 		}
 
+		if(!\lib\userstore::in_store())
+		{
+			\dash\notif::error(T_("You are not in this store"), 'subdomain');
+			return false;
+		}
+
 		$load_storetransaction = \lib\db\storetransactions::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 
 		if(empty($load_storetransaction) || !$load_storetransaction || !isset($load_storetransaction['id']))

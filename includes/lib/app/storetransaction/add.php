@@ -42,7 +42,7 @@ trait add
 
 		if(!\dash\user::id())
 		{
-			\dash\app::log('api:storetransaction:user_id:notfound', null, $log_meta);
+			\dash\app::log('api:storetransaction:user_id:notfound', \dash\user::id(), $log_meta);
 			if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
 			\dash\db::rollback();
 			return false;
@@ -50,9 +50,15 @@ trait add
 
 		if(!\lib\store::id())
 		{
-			\dash\app::log('api:storetransaction:store_id:notfound', null, $log_meta);
+			\dash\app::log('api:storetransaction:store_id:notfound', \dash\user::id(), $log_meta);
 			if($_option['debug']) \dash\notif::error(T_("Store not found"), 'subdomain');
 			\dash\db::rollback();
+			return false;
+		}
+
+		if(!\lib\userstore::in_store())
+		{
+			\dash\notif::error(T_("You are not in this store"), 'subdomain');
 			return false;
 		}
 
