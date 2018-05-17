@@ -15,7 +15,7 @@ class view
 		\dash\data::display_admin('content_a/layout.html');
 
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_css(false);
+		\dash\data::include_css(true);
 		\dash\data::include_chart(true);
 
 		\dash\data::site_title(\lib\store::name());
