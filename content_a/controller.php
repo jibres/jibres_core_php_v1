@@ -22,7 +22,7 @@ class controller
 			return;
 		}
 
-		if(!\lib\userstore::in_store())
+		if(!\lib\userstore::in_store() && !\dash\permission::supervisor())
 		{
 			\dash\header::status(403, T_("Your are not in this store"));
 		}
