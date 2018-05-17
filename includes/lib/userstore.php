@@ -92,6 +92,10 @@ class userstore
 
 	public static function in_store()
 	{
+		if(\dash\url::isLocal())
+		{
+			return \dash\user::id();
+		}
 		return self::id();
 	}
 }
