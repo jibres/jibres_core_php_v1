@@ -50,6 +50,17 @@
     </ul>
 {%endif%}
   </li>
+
+  {%if url.tld == 'local' %}
+  <li>
+    <a href="{{url.base}}/logout?referer={{url.pwd}}"><i class="sf-refresh"></i>{%trans "Switch user"%}</a>
+    <ul>
+      <li><a href="{{url.base}}/logout?mobile=09109610612&referer={{url.pwd}}"><i class="sf-at"></i>{%trans "Reza Mohiti"%}</a></li>
+      <li><a href="{{url.base}}/logout?mobile=09357269759&referer={{url.pwd}}"><i class="sf-at"></i>{%trans "Javad Evazzadeh"%}</a></li>
+    </ul>
+  </li>
+  {%endif%}
+
 {%endblock%}
 
 
