@@ -27,6 +27,16 @@ class view
 		// set usable variable
 		\dash\data::moduleType(\dash\request::get('type'));
 		\dash\data::moduleTypeP('?type='. \dash\data::moduleType());
+
+		$cache_key = \lib\store::id(). '_staff_list';
+		$cache = \dash\session::get($cache_key);
+		if(!$cache)
+		{
+			$cache = \lib\app\thirdparty::list(null, ['staff' => 1]);
+			\dash\session::set($cache_key, $cache, null, (60*10));
+		}
+		\dash\data::staffList($cache);
+
 	}
 }
 ?>
