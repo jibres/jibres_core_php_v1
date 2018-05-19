@@ -57,7 +57,11 @@
     <ul>
 {%for key, value in staffList%}
 {%if value.mobile%}
+{%if value.mobile == login.mobile%}
+      <li title='{%trans "You are active user"%}'><a class='disabled' data-href="{{url.base}}/account/profile">{{value.firstname}} <b>{{value.lastname}}</b> <i class="floatRa mRa10 fc-green sf-check"></i></a></li>
+{%else%}
       <li><a href="{{url.base}}/logout?mobile={{value.mobile}}&referer={{url.pwd}}">{{value.firstname}} <b>{{value.lastname}}</b> <i class="floatRa mRa10 fc-mute sf-at"></i></a></li>
+{%endif%}
 {%endif%}
 {%endfor%}
     </ul>
