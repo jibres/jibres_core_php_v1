@@ -192,7 +192,8 @@ function event_corridor(_e, _self, _key)
         _e.preventDefault();
 
         // set factor url
-        var factorUrl = '/a/factor/add';
+        var myPage    = $('body').attr('data-page');
+        var factorUrl = '/a/factor/add?from='+ myPage;
         if($('html').attr('lang') !== undefined)
         {
           factorUrl = $('html').attr('lang')+ factorUrl;
@@ -209,12 +210,20 @@ function event_corridor(_e, _self, _key)
           }
           else
           {
-            window.open(factorUrl, '_blank');
+            window.open(factorUrl + '&extra=true', '_blank');
           }
         }
         else
         {
-          window.open(factorUrl, '_blank');
+          if(myPage === 'factor_fishprint')
+          {
+            Navigate({ url: factorUrl });
+            // location.replace(factorUrl);
+          }
+          else
+          {
+            window.open(factorUrl, '_blank');
+          }
         }
 
       break;
