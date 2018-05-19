@@ -38,6 +38,16 @@ trait edit
 			return false;
 		}
 
+		if(\dash\app::isset_request('mobile'))
+		{
+			$args['user_id'] = self::find_user_id($args, $id);
+
+			if($args['user_id'] === false || !\dash\engine\process::status())
+			{
+				return false;
+			}
+		}
+
 		if(isset($args['code']) && $args['code'])
 		{
 			$check_duplicate =

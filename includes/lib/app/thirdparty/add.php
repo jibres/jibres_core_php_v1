@@ -88,31 +88,21 @@ trait add
 			}
 		}
 
-		$user_id = \dash\app\user::add($args, ['debug' => false, 'contact' => false]);
+		$user_id = self::find_user_id($args, null);
 
-		if(!\dash\engine\process::status() || !isset($user_id['user_id']))
+		if($user_id === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		$user_id = \dash\coding::decode($user_id['user_id']);
+
+		if(!$user_id)
+		{
+			\dash\notif::error(T_("We can not signup new user"));
+			return false;
+		}
 
 		$args['user_id'] = $user_id;
-
-		$check_duplicate =
-		[
-			'user_id'  => $user_id,
-			'store_id' => \lib\store::id(),
-			'limit'    => 1,
-		];
-
-		$check_duplicate = \lib\db\userstores::get($check_duplicate);
-
-		if(isset($check_duplicate['id']))
-		{
-			\dash\notif::error(T_("Duplicate user in this store"), 'duplicate');
-			return false;
-		}
 
 		$userstore_id = \lib\db\userstores::insert($args);
 

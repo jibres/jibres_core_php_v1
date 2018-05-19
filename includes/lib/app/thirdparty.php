@@ -5,6 +5,7 @@ namespace lib\app;
 class thirdparty
 {
 
+	use \lib\app\thirdparty\user_id;
 	use \lib\app\thirdparty\add;
 	use \lib\app\thirdparty\datalist;
 	use \lib\app\thirdparty\edit;
