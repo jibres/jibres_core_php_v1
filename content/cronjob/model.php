@@ -9,7 +9,6 @@ class model
 	 */
 	public static function post()
 	{
-
 		if(!\dash\option::config('cronjob','status'))
 		{
 			return;
@@ -19,16 +18,17 @@ class model
 
 		// \lib\db\mysql\tools\log::log($url, time(), 'cronjob.log', 'json');
 
-		switch ($url)
-		{
-			case 'homepagenumber':
-				self::homepagenumber();
-				break;
+		self::homepagenumber();
 
-			default:
-				return;
-				break;
-		}
+		// switch ($url)
+		// {
+		// 	case 'homepagenumber':
+		// 		break;
+
+		// 	default:
+		// 		return;
+		// 		break;
+		// }
 	}
 
 
@@ -39,7 +39,8 @@ class model
 	{
 		$time_now    = date("i");
 		// every 10 minuts
-		if(is_string($time_now) && mb_strlen($time_now) === 2 && $time_now{1} == '0')
+
+		if((is_string($time_now) && mb_strlen($time_now) === 2 && $time_now{1} == '0') || \dash\permission::supervisor())
 		{
 			\lib\utility\homepagenumber::set();
 		}
