@@ -51,18 +51,18 @@
 {%endif%}
   </li>
 
-  {%if url.tld == 'local' %}
   <li>
-    <a href="{{url.base}}/logout?referer={{url.pwd}}"><i class="sf-refresh"></i>{%trans "Switch user"%}</a>
-    {%if staffList%}
+    <a href="{{url.base}}/logout?referer={{url.pwd}}"><i class="sf-refresh"></i>{%trans "Shift transformation"%}</a>
+{%if staffList%}
     <ul>
-      {%for key, value in staffList%}
-      <li><a href="{{url.base}}/logout?mobile={{value.mobile}}&referer={{url.pwd}}"><i class="sf-at"></i>{{value.firstname}} <b>{{value.lastname}}</b></a></li>
-      {%endfor%}
+{%for key, value in staffList%}
+{%if value.mobile%}
+      <li><a href="{{url.base}}/logout?mobile={{value.mobile}}&referer={{url.pwd}}">{{value.firstname}} <b>{{value.lastname}}</b> <i class="floatRa mRa10 fc-mute sf-at"></i></a></li>
+{%endif%}
+{%endfor%}
     </ul>
-    {%endif%}
+{%endif%}
   </li>
-  {%endif%}
 
 {%endblock%}
 
