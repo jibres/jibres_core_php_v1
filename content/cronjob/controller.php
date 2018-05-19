@@ -5,6 +5,12 @@ class controller
 {
 	public static function routing()
 	{
+		if(\dash\permission::supervisor())
+		{
+			\content\cronjob\model::post();
+			return true;
+		}
+
 		if(isset($_SERVER['REQUEST_METHOD']) && mb_strtolower($_SERVER['REQUEST_METHOD']) === 'get')
 		{
 			\dash\header::status(404);

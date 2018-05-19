@@ -31,6 +31,13 @@ class homepagenumber
 
 		$result ="$product\n$factor\n$sum_factor";
 
+		if(\dash\permission::supervisor())
+		{
+			var_dump($product);
+			var_dump($factor);
+			var_dump($sum_factor);
+		}
+
 		$url    = self::$dir;
 		if(!\dash\file::exists($url))
 		{
