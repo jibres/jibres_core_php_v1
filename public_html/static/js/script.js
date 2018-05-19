@@ -600,6 +600,10 @@ function beep(duration, frequency, volume, type, callback)
   {
     logy('close some tabs!');
   }
+
+  var audio = new Audio('/static/sounds/ProductNotExist.mp4');
+  audio.play();
+
 };
 
 function sysBeep()
