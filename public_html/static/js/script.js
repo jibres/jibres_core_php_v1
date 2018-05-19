@@ -560,15 +560,6 @@ function addFindedProduct(_product, _msg)
 }
 
 
-//if you have another AudioContext class use that one, as some browsers have a limit
-try
-{
-  var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
-}
-catch(err)
-{
-  logy(err.message);
-}
 
 
 //All arguments are optional:
@@ -580,6 +571,15 @@ catch(err)
 //callback to use on end of tone
 function beep(duration, frequency, volume, type, callback)
 {
+  //if you have another AudioContext class use that one, as some browsers have a limit
+  try
+  {
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+  }
+  catch(err)
+  {
+    logy(err.message);
+  }
   if(audioCtx)
   {
     var oscillator = audioCtx.createOscillator();
