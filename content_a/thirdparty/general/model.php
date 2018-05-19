@@ -45,6 +45,7 @@ class model
 			$post['address']      = \dash\request::post('address');
 			$post['phone']        = \dash\request::post('phone');
 			$post['desc']         = \dash\request::post('desc');
+			$post['staff']        = \dash\request::post('staff');
 
 		}
 

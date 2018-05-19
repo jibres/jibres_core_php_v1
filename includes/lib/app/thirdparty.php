@@ -304,6 +304,12 @@ class thirdparty
 			$args[$type]      = 1;
 		}
 
+		$staff            = \dash\app::request('staff') ? 1 : null;
+		$args['staff']    = $staff;
+
+		$args['customer'] = 1;
+
+
 		if($type === 'supplier')
 		{
 			$args['displayname'] = $displayname;

@@ -44,6 +44,7 @@
 		<div class="c">{{block("igender")}}</div>
 		<div class="c">{{block("icode")}}</div>
 	</div>
+	{{block('iMemType')}}
 	{{block("iDesc")}}
 
 
@@ -58,3 +59,20 @@
 </form>
 {%endblock%}
 
+
+
+{%block iMemType%}
+<div class="mT10">
+  <label for="type">{%trans "Type of thirdparty"%}</label>
+  <div class="f">
+
+  {%if perm('aStaffAdd')%}
+   <div class="check1">
+    <input type="checkbox" id="r-staff" name="staff" value="staff" {%if thirdparty.staff %}checked{%endif%}>
+    <label for="r-staff">{%trans "Staff"%}</label>
+   </div>
+  {%endif%}
+
+  </div>
+</div>
+{%endblock%}
