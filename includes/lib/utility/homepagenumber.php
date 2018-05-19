@@ -15,9 +15,19 @@ class homepagenumber
 	public static function set()
 	{
 		$product    = \lib\db\products::get_count();
-
 		$factor     = \lib\db\factors::get_count();
 		$sum_factor = \lib\db\factors::sum_all();
+
+		if(is_numeric($product) && is_numeric($factor) && is_numeric($sum_factor))
+		{
+			// no problem
+		}
+		else
+		{
+			\dash\db::log(json_encode($sum_factor, JSON_UNESCAPED_UNICODE), null, 'developer.log');
+			\dash\db::log(json_encode($result, null, 'developer.log'));
+			return;
+		}
 
 		$result ="$product\n$factor\n$sum_factor";
 
