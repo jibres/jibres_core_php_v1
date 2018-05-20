@@ -176,7 +176,7 @@ trait user_id
 				}
 				else
 				{
-					\dash\notif::error(T_("This user was already added to this school"), 'mobile');
+					\dash\notif::error(T_("This user was already added to this store"), 'mobile');
 					return false;
 				}
 
