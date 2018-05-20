@@ -2,5 +2,19 @@
   "admin": {
     "title": "Admin",
     "contain": []
+  },
+  "seller": {
+    "title": "Seller",
+    "contain": [
+      "aProductEdit",
+      "aProductAdd",
+      "aProductDelete",
+      "aProductReport",
+      "aProductList",
+      "aFactorFishPrint",
+      "aFactorAdd",
+      "aFactorExport",
+      "aFactorList"
+    ]
   }
 }

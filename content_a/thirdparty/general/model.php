@@ -50,7 +50,8 @@ class model
 
 			if(\dash\permission::check("aThirdPartyPermissionChange"))
 			{
-				$post['permission']= \dash\request::post('permission');
+				$post['permission'] = \dash\request::post('permission');
+				$post['permission'] = $post['permission'] === '0' ? null : $post['permission'];
 			}
 
 		}
