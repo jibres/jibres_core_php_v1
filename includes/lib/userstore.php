@@ -96,7 +96,13 @@ class userstore
 		{
 			return \dash\user::id();
 		}
-		return self::id();
+
+		if(self::detail('staff'))
+		{
+			return self::id();
+		}
+
+		return false;
 	}
 }
 ?>

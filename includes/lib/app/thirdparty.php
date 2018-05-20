@@ -408,7 +408,7 @@ class thirdparty
 			switch ($key)
 			{
 				case 'id':
-				case 'school_id':
+				case 'store_id':
 				case 'user_id':
 					if(isset($value))
 					{

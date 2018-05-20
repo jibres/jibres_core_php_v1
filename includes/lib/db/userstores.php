@@ -4,6 +4,56 @@ namespace lib\db;
 class userstores
 {
 
+	public static function permission_group()
+	{
+		$store_id = \lib\store::id();
+		if(!$store_id)
+		{
+			return [];
+		}
+
+		$query = "SELECT COUNT(*) AS `count`, userstores.permission AS `permission` FROM userstores WHERE userstores.store_id = $store_id GROUP BY userstores.permission ";
+		return \dash\db::get($query, ['permission', 'count']);
+	}
+
+
+	public static function where_i_am($_user_id)
+	{
+		if(!$_user_id || !is_numeric($_user_id))
+		{
+			return false;
+		}
+
+
+		$query =
+		"
+			SELECT
+				userstores.student,
+				userstores.teacher,
+				userstores.expert,
+				userstores.status AS `user_status`,
+				userstores.avatar,
+				(IF((SELECT stores.creator FROM stores WHERE stores.id = userstores.store_id LIMIT 1) = $_user_id, TRUE, FALSE)) AS `is_creator`,
+				(SELECT stores.creator FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `creator`,
+				(SELECT stores.plan FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `plan`,
+				(SELECT stores.startplan FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `startplan`,
+				(SELECT stores.expireplan FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `expireplan`,
+				(SELECT stores.slug FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `slug`,
+				(SELECT stores.name FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `name`,
+				(SELECT stores.status FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `status`,
+				(SELECT stores.ID FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `store_id`,
+				(SELECT stores.logo FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `logo`
+			FROM
+				userstores
+
+			WHERE
+				userstores.user_id = $_user_id
+			ORDER BY userstores.id DESC
+		";
+		$resutl = \dash\db::get($query);
+		return $resutl;
+	}
+
 	public static function search_customer($_search_name, $_store_id)
 	{
 		if(!$_search_name || !$_store_id || !is_numeric($_store_id))

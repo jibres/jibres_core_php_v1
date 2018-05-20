@@ -167,7 +167,7 @@
 
 {%block igender%}
 <div class="switch1 gender pA5">
- <input type="checkbox" name="gender" id="gender" {%if thirdparty.gender == 'female' or school_gender == 'female'%}checked{%endif%}>
+ <input type="checkbox" name="gender" id="gender" {%if thirdparty.gender == 'female' %}checked{%endif%}>
  <label for="gender"></label>
  <label for="gender">{%trans "Gender"%}</label>
 </div>
