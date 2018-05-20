@@ -74,3 +74,7 @@ CONSTRAINT `visitors_services` FOREIGN KEY (`service_id`) REFERENCES `services` 
 CONSTRAINT `visitors_urls` FOREIGN KEY (`url_id`) REFERENCES `urls` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `visitors_urls_referer` FOREIGN KEY (`url_idreferer`) REFERENCES `urls` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `jibres_log`.`urls` ADD `urlmd5` varchar(32) DEFAULT NULL;
+ALTER TABLE `jibres_log`.`urls` ADD `pwd` text DEFAULT NULL;
