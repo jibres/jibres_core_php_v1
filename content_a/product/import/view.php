@@ -6,6 +6,7 @@ class view
 {
 	public static function config()
 	{
+		\dash\permission::access('aProductImport');
 		\dash\data::page_title(T_('Import product from CSV'));
 		\dash\data::page_desc(T_('You can import more than one product in one request via CSV import process'));
 

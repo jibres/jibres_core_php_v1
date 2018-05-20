@@ -6,7 +6,7 @@ class model
 {
 	public static function post()
 	{
-		\dash\permission::access('mPermissionAddEdit');
+		\dash\permission::access('aPermissionAddEdit');
 
 		$update = true;
 		$name   = \dash\request::get('id');

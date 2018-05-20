@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('mPermissionAddEdit');
+		\dash\permission::access('aPermissionAddEdit');
 
 		\dash\data::page_title(T_("Add new permissions"));
 		\dash\data::page_desc(T_("Set and config permission group to categorize user access."));

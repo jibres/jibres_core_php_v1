@@ -40,7 +40,7 @@ class model
 
 	public static function post()
 	{
-
+		\dash\permission::access('aProductEdit');
 		$request         = self::getPost();
 		$request['id']   = \dash\request::get('id');
 

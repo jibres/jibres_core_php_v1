@@ -6,6 +6,7 @@ class view
 {
 	public static function config()
 	{
+		\dash\permission::access('aThirdPartyAdd');
 		// set usable variable
 		$moduleType = \dash\request::get('type');
 

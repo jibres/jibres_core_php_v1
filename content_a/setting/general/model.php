@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('aSettingEdit');
 		\lib\app\store::edit(self::getPost());
 
 		if(\dash\engine\process::status())

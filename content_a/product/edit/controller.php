@@ -6,6 +6,7 @@ class controller
 {
 	public static function routing()
 	{
+		\dash\permission::access('aProductEdit');
 		if(\dash\request::get('id'))
 		{
 			\dash\redirect::to(\dash\url::this(). '/general?id='. \dash\request::get('id'));

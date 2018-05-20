@@ -6,6 +6,8 @@ class view
 {
 	public static function config()
 	{
+		\dash\permission::access('aProductEdit');
+
 		$product_id          = \dash\request::get('id');
 		\dash\data::product(\lib\app\product::get(['id' => $product_id]));
 

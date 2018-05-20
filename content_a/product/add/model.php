@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('aProductAdd');
 		\lib\app\product::add(self::getPost());
 
 		if(\dash\engine\process::status())

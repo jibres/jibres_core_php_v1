@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('aThirdPartyEdit');
 		$request = self::getPost();
 
 		\lib\app\thirdparty::edit($request, \dash\request::get('id'));
@@ -47,7 +48,7 @@ class model
 			$post['desc']         = \dash\request::post('desc');
 			$post['staff']        = \dash\request::post('staff');
 
-			if(\dash\permission::check("mExpertPermissionChange"))
+			if(\dash\permission::check("aThirdPartyPermissionChange"))
 			{
 				$post['permission']= \dash\request::post('permission');
 			}

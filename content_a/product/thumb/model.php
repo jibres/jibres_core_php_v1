@@ -26,6 +26,7 @@ class model
 
 	public static function post()
 	{
+		\dash\permission::access('aProductEdit');
 		$file_url = self::upload_thumb();
 
 		// we have an error in upload thumb

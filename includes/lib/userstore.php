@@ -8,6 +8,12 @@ class userstore
 	private static $userstore = [];
 
 
+	public static function refresh()
+	{
+		self::clean();
+		self::init();
+	}
+
 	/**
 	 * clean chach to load detail again
 	 * user in edit userstore

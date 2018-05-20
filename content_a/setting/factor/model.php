@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('aSettingEdit');
 		$old_meta = \lib\store::detail('meta');
 
 		if(isset($old_meta['factor']))

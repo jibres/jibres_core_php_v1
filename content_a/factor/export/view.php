@@ -6,6 +6,8 @@ class view
 {
 	public static function config()
 	{
+		\dash\permission::access('aFactorExport');
+
 		\dash\data::page_title(T_('Export factors'));
 		// \dash\data::page_desc('');
 

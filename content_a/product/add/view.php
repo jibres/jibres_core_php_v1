@@ -6,6 +6,8 @@ class view
 {
 	public static function config()
 	{
+		\dash\permission::access('aProductAdd');
+
 		\dash\data::page_title(T_('Add new product or goods'));
 		\dash\data::page_desc(T_('You can set main property of product and allow to assign some extra or edit it later.'));
 

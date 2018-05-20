@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('aThirdPartyAdd');
 		// ready request
 		$request = self::getPostthirdparty();
 

@@ -21,16 +21,18 @@
  <div class="c3 s6">{{block ("prDate")}}</div>
 </div>
 
-{%if dashboardData.sale_time_chart == '[]'%}
-{%else%}
-<div class="f">
-  <div class="c9 s12">
-    {{block ("chart_primary")}}
+{%if perm('aReportView')%}
+  {%if dashboardData.sale_time_chart == '[]'%}
+  {%else%}
+  <div class="f">
+    <div class="c9 s12">
+      {{block ("chart_primary")}}
+    </div>
+    <div class="c3 s12">
+  {{block ("chart_primary_title")}}
+    </div>
   </div>
-  <div class="c3 s12">
-{{block ("chart_primary_title")}}
-  </div>
-</div>
+  {%endif%}
 {%endif%}
 
 

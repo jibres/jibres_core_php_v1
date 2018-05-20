@@ -6,6 +6,7 @@ class view
 {
 	public static function config()
 	{
+		\dash\permission::access('aThirdPartyView');
 		self::set_best_title();
 
 		$args = [];

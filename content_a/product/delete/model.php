@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('aProductDelete');
 		$url_product  = \dash\request::get('id');
 		$post_product = \dash\request::post('delete');
 

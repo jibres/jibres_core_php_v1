@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('aThirdPartyEdit');
 		\lib\app\thirdparty::edit(self::getPost(), \dash\request::get('id'));
 
 		if(\dash\engine\process::status())

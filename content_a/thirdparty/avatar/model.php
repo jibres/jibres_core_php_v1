@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('aThirdPartyEdit');
 		$file_url = self::upload_avatar();
 
 		// we have an error in upload avatar

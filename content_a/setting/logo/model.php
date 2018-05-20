@@ -6,6 +6,7 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('aSettingEdit');
 		$upload = self::upload_logo();
 
 		if($upload)

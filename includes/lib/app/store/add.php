@@ -97,11 +97,12 @@ trait add
 
 		$insert_userstore =
 		[
-			'mobile'    => \dash\user::detail('mobile'),
-			'firstname' => \dash\user::detail('displayname') ?  \dash\user::detail('displayname') : T_("You"),
-			'type'      => 'staff',
-			'gender'    => \dash\user::detail('gender'),
-			'postion'   => T_('Admin'),
+			'mobile'     => \dash\user::detail('mobile'),
+			'firstname'  => \dash\user::detail('displayname') ?  \dash\user::detail('displayname') : T_("You"),
+			'staff'      => 1,
+			'gender'     => \dash\user::detail('gender'),
+			'postion'    => T_('Admin'),
+			'permission' => 'admin',
 		];
 
 		\lib\app\thirdparty::add($insert_userstore, ['debug' => false, 'store_id' => $store_id]);
