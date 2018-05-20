@@ -28,9 +28,9 @@ class userstores
 		$query =
 		"
 			SELECT
-				userstores.student,
-				userstores.teacher,
-				userstores.expert,
+				userstores.staff,
+				userstores.supplier,
+				userstores.customer,
 				userstores.status AS `user_status`,
 				userstores.avatar,
 				(IF((SELECT stores.creator FROM stores WHERE stores.id = userstores.store_id LIMIT 1) = $_user_id, TRUE, FALSE)) AS `is_creator`,
@@ -41,7 +41,7 @@ class userstores
 				(SELECT stores.slug FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `slug`,
 				(SELECT stores.name FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `name`,
 				(SELECT stores.status FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `status`,
-				(SELECT stores.ID FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `store_id`,
+				(SELECT stores.id FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `store_id`,
 				(SELECT stores.logo FROM stores WHERE stores.id = userstores.store_id LIMIT 1) as `logo`
 			FROM
 				userstores

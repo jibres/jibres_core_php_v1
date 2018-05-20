@@ -25,6 +25,8 @@ class view
 		}
 		\dash\data::stores($list_store);
 		\dash\data::storesCount(count($list_store));
+
+		\dash\data::listStore(\lib\app\store::where_i_am());
 	}
 }
 ?>

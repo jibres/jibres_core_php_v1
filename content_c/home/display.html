@@ -8,20 +8,58 @@
  <div class="c4 s12">{{block ("prDate")}}</div>
 </div>
 
-{%if stores%}
-<h2 class="mT20">{%trans "List of your stores"%}</h2>
-<div class="f">
-{%for key, value in stores%}
- <div class="c4 s12">
-  <a class="dcard" href='{{value.url}}/a'>
-   <div class="statistic">{{value.name}}</div>
-  </a>
- </div>
+
+<div class="mB25">
+
+
+{%for key, value in listStore%}
+  <div class="cbox mA5 mB10">
+    <div class="f">
+      <div class="cauto s12 txtC f align-center">
+        <a href='{{value.url}}' class="block txtC">
+         <img src="{{value.logo}}" alt="{{value.name}}" class="w100">
+        </a>
+      </div>
+
+      <div class="c s12 txtC f align-center">
+        <div>
+          <h3><a class="value" href='{{value.url}}'>{{value.name}}</a></h3>
+        </div>
+      </div>
+
+      <div class="c s12 txtC f align-center">
+{%if value.is_creator%}
+        <div title='{%trans "Start from"%} {{value.startplan | tdate}}'>
+          <div class="mB10">{%trans "Current plan"%} <b>{%set myPlan = value.plan %}{%trans myPlan%}</b></div>
+{%if value.daysleft > 0%}
+          <div class="mB10 badge info">
+            <b>{{value.daysleft | fitNumber}}</b> {%trans "days left"%}
+          </div>
+{%else%}
+          <div class="mB10">
+            <b class="badge danger">{%trans "Expired"%}</b>
+          </div>
+{%endif%}
+        </div>
+{%endif%}
+      </div>
+
+      <div class="c3 s12 os f align-center">
+{%if value.staff%}
+        <a class="btn outline block success mB5" href="{{value.url}}/a">{%trans "Your staff panel"%}</a>
+{%endif%}
+
+      </div>
+
+    </div>
+
+  </div>
 {%endfor%}
 </div>
-{%else%}
-<p class="msg success2 fs18 txtC"><a href='{{url.here}}/store/add'>{%trans "Lets start by add new store!"%}</a></p>
-{%endif%}
+
+
+
+
 
 {%endblock%}
 
