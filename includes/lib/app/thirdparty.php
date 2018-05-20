@@ -326,6 +326,43 @@ class thirdparty
 				}
 			}
 
+
+			$permission = \dash\app::request('permission');
+			if(\dash\permission::check("aThirdPartyPermissionChange"))
+			{
+				if($permission && !in_array($permission, array_keys(\dash\permission::groups())))
+				{
+					if($permission === 'supervisor')
+					{
+						if(!\dash\url::isLocal() && !\dash\permission::supervisor())
+						{
+							\dash\notif::error("Permission is incorrect", 'permission');
+							return false;
+						}
+						else
+						{
+							// no problem
+							// supervisor make a new supervisor
+						}
+					}
+					else
+					{
+						\dash\app::log('addon:api:user:permission:max:lenght', \dash\user::id(), $log_meta);
+						\dash\notif::error(T_("Permission is incorrect"), 'permission');
+						return false;
+					}
+				}
+			}
+
+
+			$args['permission']          = $permission;
+
+			if(!\dash\permission::check("aThirdPartyPermissionChange") || !isset($args['staff']))
+			{
+				unset($args['permission']);
+			}
+
+
 			$args['displayname']  = $displayname;
 			$args['mobile']       = $mobile;
 			$args['code']         = $code;

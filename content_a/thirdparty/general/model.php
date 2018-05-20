@@ -47,6 +47,11 @@ class model
 			$post['desc']         = \dash\request::post('desc');
 			$post['staff']        = \dash\request::post('staff');
 
+			if(\dash\permission::check("mExpertPermissionChange"))
+			{
+				$post['permission']= \dash\request::post('permission');
+			}
+
 		}
 
 		return $post;

@@ -105,7 +105,7 @@ trait dashboard
 		$count = \dash\session::get($cache_key);
 		if($count === null)
 		{
-			$count = \lib\db\userstores::get_count(['type' => $_type, 'store_id' => \lib\store::id()]);
+			$count = \lib\db\userstores::get_count([$_type => 1, 'store_id' => \lib\store::id()]);
 			$count = intval($count);
 			\dash\session::set($cache_key, $count, null,  self::$life_time);
 		}
