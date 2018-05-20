@@ -168,10 +168,18 @@ trait user_id
 		if($check_not_duplicate_userstore)
 		{
 			$userstore_record = \lib\db\userstores::get(['user_id' => $master_user_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
-			if($userstore_record)
+			if(isset($userstore_record['id']))
 			{
-				\dash\notif::error(T_("This user was already added to this team"), 'mobile', 'arguments');
-				return false;
+				if(intval($userstore_record['id']) === intval($_id))
+				{
+					// no problem
+				}
+				else
+				{
+					\dash\notif::error(T_("This user was already added to this school"), 'mobile');
+					return false;
+				}
+
 			}
 		}
 

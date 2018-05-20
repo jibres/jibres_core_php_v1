@@ -9,6 +9,16 @@ class store
 
 	private static $store = [];
 
+	// clean session and init again store detail
+	public static function refresh()
+	{
+		$store_id = self::id();
+		if($store_id)
+		{
+			self::clean();
+			self::init();
+		}
+	}
 
 	/**
 	 * clean chach to load detail again
