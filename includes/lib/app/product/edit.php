@@ -125,22 +125,13 @@ trait edit
 			$args['barcode2'] = "$args[barcode2]";
 		}
 
+
 		if(!empty($args))
 		{
 			$update = \lib\db\products::update($args, $load_product['id']);
-
-			if(isset($args['slug']))
+			if(!$update)
 			{
-				if(!$update)
-				{
-					$args['slug'] = self::slug_fix($args);
-					$update = \lib\db\products::update($args, $load_product['id']);
-				}
-				// user change slug
-				if($load_product['slug'] != $args['slug'])
-				{
-					\dash\app::log('api:product:change:slug', \dash\user::id(), $log_meta);
-				}
+				\dash\notif::error(T_("Can not update product, try again"));
 			}
 		}
 
@@ -149,9 +140,8 @@ trait edit
 		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("Your product successfully updated"));
+			self::clean_cache('var');
 		}
-
-		self::clean_cache('var');
 
 		return $return;
 	}
