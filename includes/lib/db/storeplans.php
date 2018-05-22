@@ -335,10 +335,10 @@ class storeplans
         // get user budget
         $user_budget = \dash\db\transactions::budget(\lib\store::creator(), ['unit' => 'toman']);
 
-        if($user_budget && is_array($user_budget))
-        {
-        	$user_budget = array_sum($user_budget);
-        }
+        // if($user_budget && is_array($user_budget))
+        // {
+        // 	$user_budget = array_sum($user_budget);
+        // }
 
         if(intval($user_budget) < intval($amount))
         {

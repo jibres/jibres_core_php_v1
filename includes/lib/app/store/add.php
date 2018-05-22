@@ -51,10 +51,10 @@ trait add
 			if($count_store >= 1)
 			{
 				$user_budget = \dash\db\transactions::budget(\dash\user::id(), ['unit' => 'toman']);
-				if(is_array($user_budget))
-				{
-					$user_budget = array_sum($user_budget);
-				}
+				// if(is_array($user_budget))
+				// {
+				// 	$user_budget = array_sum($user_budget);
+				// }
 				$user_budget = floatval($user_budget);
 
 				if($user_budget < 10000)
