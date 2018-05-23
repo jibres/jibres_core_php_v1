@@ -100,6 +100,7 @@ trait add
 			'mobile'     => \dash\user::detail('mobile'),
 			'firstname'  => \dash\user::detail('displayname') ?  \dash\user::detail('displayname') : T_("You"),
 			'staff'      => 1,
+			'type'       => 'staff',
 			'gender'     => \dash\user::detail('gender'),
 			'postion'    => T_('Admin'),
 			'permission' => 'admin',
