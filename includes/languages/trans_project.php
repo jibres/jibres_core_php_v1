@@ -62,7 +62,7 @@ class twigTransTerms
 	echo T_("Pricing");                                                               // Line 24
 	echo T_("Contact");                                                               // Line 37
 	echo T_("Store Panel");                                                           // Line 12
-	echo T_("Admin Panel");                                                           // Line 60
+	echo T_("Admin Panel");                                                           // Line 18
 	echo T_("Enter");                                                                 // Line 14
 
 	//----------------------------------------------------content/template/footer.html
@@ -73,7 +73,7 @@ class twigTransTerms
 	echo T_("Social Responsibility");                                                 // Line 32
 	echo T_("FAQ");                                                                   // Line 38
 	echo T_("Enamad");                                                                // Line 16
-	echo T_("Jibres");                                                                // Line 7 Seperate
+	echo T_("Jibres");                                                                // Line 22
 	echo T_("Benefits");                                                              // Line 23
 	echo T_("Changelog");                                                             // Line 25
 	echo T_("Learn More");                                                            // Line 29
@@ -82,9 +82,6 @@ class twigTransTerms
 	echo T_("Support");                                                               // Line 171
 	echo T_("Logo");                                                                  // Line 39
 	echo T_("Proudly Made in IRAN");                                                  // Line 52
-	echo T_("Control Panel");                                                         // Line 59
-	echo T_("Exit Session");                                                          // Line 61
-	echo T_("Another Session");                                                       // Line 62
 
 	//-------------------------------------------------content/pricing/priceTable.html
 	echo T_("Free");                                                                  // Line 141
@@ -237,52 +234,6 @@ class twigTransTerms
 	echo T_("These services are presented in different time intervals and are aimed at costomer care mission and appreciation of your valuable presence.");// Line 24
 
 	//---------------------------------------------content_subdomain/home/display.html
-
-	//--------------------------------------------includes/languages/trans_static.html
-	echo T_(" ");                                                                     // Line 11 Seperate
-	echo T_("money");                                                                 // Line 13 Seperate
-	echo T_("toman");                                                                 // Line 14 Seperate
-	echo T_("sale");                                                                  // Line 16 Seperate
-	echo T_("buy");                                                                   // Line 17 Seperate
-	echo T_("presell");                                                               // Line 18 Seperate
-	echo T_("lending");                                                               // Line 19 Seperate
-	echo T_("backbuy");                                                               // Line 20 Seperate
-	echo T_("backsell");                                                              // Line 21 Seperate
-	echo T_("waste");                                                                 // Line 22 Seperate
-	echo T_("Sale");                                                                  // Line 149
-	echo T_("Buy");                                                                   // Line 150
-	echo T_("Presell");                                                               // Line 26 Seperate
-	echo T_("Lending");                                                               // Line 152
-	echo T_("Backbuy");                                                               // Line 153
-	echo T_("Backsell");                                                              // Line 29 Seperate
-	echo T_("Waste");                                                                 // Line 155
-	echo T_("aThirdPartyPermissionChange");                                           // Line 32 Seperate
-	echo T_("aReportDaily");                                                          // Line 33 Seperate
-	echo T_("aReportMonth");                                                          // Line 34 Seperate
-	echo T_("aReportView");                                                           // Line 35 Seperate
-	echo T_("aThirdPartyEdit");                                                       // Line 36 Seperate
-	echo T_("aThirdPartyAdd");                                                        // Line 37 Seperate
-	echo T_("aStaffAdd");                                                             // Line 38 Seperate
-	echo T_("aThirdPartyView");                                                       // Line 39 Seperate
-	echo T_("aPermissionAddEdit");                                                    // Line 40 Seperate
-	echo T_("aPermissionDelete");                                                     // Line 41 Seperate
-	echo T_("aPermissionView");                                                       // Line 42 Seperate
-	echo T_("aSettingEdit");                                                          // Line 43 Seperate
-	echo T_("aSettingView");                                                          // Line 44 Seperate
-	echo T_("aProductEdit");                                                          // Line 45 Seperate
-	echo T_("aProductAdd");                                                           // Line 46 Seperate
-	echo T_("aProductDelete");                                                        // Line 47 Seperate
-	echo T_("aProductExport");                                                        // Line 48 Seperate
-	echo T_("aProductImport");                                                        // Line 49 Seperate
-	echo T_("aProductReport");                                                        // Line 50 Seperate
-	echo T_("aProductList");                                                          // Line 51 Seperate
-	echo T_("aFactorFishPrint");                                                      // Line 52 Seperate
-	echo T_("aFactorAdd");                                                            // Line 53 Seperate
-	echo T_("aFactorExport");                                                         // Line 54 Seperate
-	echo T_("aFactorList");                                                           // Line 55 Seperate
-	echo T_("Third party");                                                           // Line 57 Seperate
-	echo T_("Store setting");                                                         // Line 58 Seperate
-	echo T_("Report");                                                                // Line 59 Seperate
 
 	//------------------------------------------------content_c/store/add/display.html
 	echo T_("Enter a valid name");                                                    // Line 77
@@ -508,6 +459,7 @@ class twigTransTerms
 	echo T_("Search in products");                                                    // Line 58
 	echo T_("Title");                                                                 // Line 83
 	echo T_("Category");                                                              // Line 72
+	echo T_("Buy");                                                                   // Line 150
 	echo T_("Discount percent");                                                      // Line 36
 	echo T_("Final price");                                                           // Line 77
 	echo T_("Stock");                                                                 // Line 286
@@ -617,7 +569,9 @@ class twigTransTerms
 	echo T_("Sum of final prices");                                                   // Line 95
 
 	//-------------------------------------------content_a/factor/summary/display.html
+	echo T_("Sale");                                                                  // Line 149
 	echo T_("Pre Sale");                                                              // Line 48
+	echo T_("Lending");                                                               // Line 152
 	echo T_("Back from buy");                                                         // Line 68
 	echo T_("Back from factor");                                                      // Line 78
 	echo T_("Waste product");                                                         // Line 89
@@ -632,7 +586,9 @@ class twigTransTerms
 	echo T_("Invoice Date");                                                          // Line 108
 	echo T_("Items");                                                                 // Line 111
 	echo T_("Prefactor");                                                             // Line 151
+	echo T_("Backbuy");                                                               // Line 153
 	echo T_("Backfactor");                                                            // Line 154
+	echo T_("Waste");                                                                 // Line 155
 	echo T_("Try to start with add new factor!");                                     // Line 177
 
 	//-----------------------------------------------------content_a/home/display.html
