@@ -45,10 +45,7 @@
 
 {%block foot_js%}
 <script>
-route('*', function ()
-{
-
-}).once(function()
+function pushStateFinal()
 {
   $('input[type=checkbox]').off('change');
   $('input[type=checkbox]').on('change', function()
@@ -67,10 +64,7 @@ route('*', function ()
       });
     }
   });
-});
-
-
-
+}
 </script>
 {%endblock%}
 

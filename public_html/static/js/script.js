@@ -1,19 +1,17 @@
 
 
-route('*', function()
+function pushState()
 {
+  // $(function()
+  // {
 
-}).once(function()
-{
-  $(function()
-  {
-    runRunner();
-    calcFooterValues();
-    recalcPricePercents();
-    simplePrint();
-    typeTitles();
-  });
-});
+  // });
+  runRunner();
+  calcFooterValues();
+  recalcPricePercents();
+  simplePrint();
+  typeTitles();
+}
 
 $(function()
 {
