@@ -337,7 +337,7 @@ kbd{font-family:monospace;}
 
 @media print {
   html{overflow: auto}
-  body{overflow: auto;}
+  body{overflow: auto;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   #main{overflow: auto;}
   #content{overflow: auto;}
   .siftal #content .tbox{display: none}
