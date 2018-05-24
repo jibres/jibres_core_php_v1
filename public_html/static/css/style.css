@@ -274,7 +274,7 @@ kbd{font-family:monospace;}
 .factor .tbl tfoot th{border-top:1px dotted #000;font-weight:bold}
 .factor .factorResult th{vertical-align: middle;}
 .factor .factorResult .collapsing{font-weight:bold;font-size: 1.2em;}
-.factor .factorResult .factorSum{font-size: 1.2em;}
+.factor .factorResult .factorSum{font-size: 1.2em;color:#000}
 
 
 
