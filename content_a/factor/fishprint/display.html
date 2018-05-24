@@ -3,11 +3,13 @@
 
 {%block pageContent%}
 
-    {%if store.meta.factor.print_size%}
-    {%for key, value in store.meta.factor.print_size%}
+{%if store.meta.factor.print_size%}
+    <div class="p0">
+{%for key, value in store.meta.factor.print_size%}
         <button class="btn" type="submit" name="{{key}}">{{key}}</button>
-      {%endfor%}
-    {%endif%}
+{%endfor%}
+    </div>
+{%endif%}
 
 
 {%embed 'content_a/factor/fishprint/fishprint.html'%}{%endembed%}
