@@ -106,10 +106,9 @@
 
 {%block iCustomer%}
 <div class="cbox">
-  <div class="input f" data-relative-f>
-   <input class="autoList" type="text" name="customer" id="customerSearch" placeholder='{%trans "Search in Customers"%}' value="{{product.customer}}" maxlength="100" data-find='customer' autocomplete="off">
-   <a class="addon btn secondary" href="{{url.here}}/thirdparty?type=customer" target='_blank'><small>{%trans "Add"%}</small></a>
-  </div>
+  <select name="customer" class="ui dropdown search" id="customerSearch" data-source='{{url.this}}/add?type=sale&json=true&list=customer&q={query}'>
+    <option value="" readonly>{%trans "Choose customer"%}</option>
+  </select>
 </div>
 {%endblock%}
 
@@ -117,10 +116,9 @@
 
 {%block addProducts%}
 <div class="cbox">
-  <div class="input f">
-   <label for="productSearch" class="addon cauto s0">{%trans "Search to add product"%}</label>
-   <input id="productSearch" class="autoList productName barCode" type="search" maxlength="100" placeholder='{%trans "Search in list to add product"%} +' data-find='product' data-default autofocus autocomplete="off">
-  </div>
+  <select name="customer" class="ui dropdown search" id="productSearch" autofocus data-source='{{url.this}}/add?type=sale&json=true&list=product&q={query}'>
+    <option value="" readonly>{%trans "Search in list to add product"%} +</option>
+  </select>
 </div>
 {%endblock%}
 
