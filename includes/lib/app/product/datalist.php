@@ -190,6 +190,26 @@ trait datalist
 			$result = \lib\db\products::search_id($id, \lib\store::id());
 			$multi_record = false;
 		}
+		elseif(substr($_string, 0, 1) === '+')
+		{
+			$search         = substr($_string, 1);
+			$search         = \dash\utility\convert::to_en_number($search);
+
+			$field['price'] = $search;
+			$field['barcode'] = [" IS NULL ", " AND barcode2 IS NULL"];
+			$option['sort'] = 'sold';
+			$option['order'] = 'desc';
+			$result         = \lib\db\products::search(null, $option, $field);
+		}
+		elseif(substr($_string, 0, 1) === '/')
+		{
+			$search         = substr($_string, 1);
+			$search         = \dash\utility\convert::to_en_number($search);
+
+			$field['code'] = $search;
+
+			$result         = \lib\db\products::search(null, $option, $field);
+		}
 		else
 		{
 			$result = \lib\db\products::search($_string, $option, $field);

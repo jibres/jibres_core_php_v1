@@ -257,68 +257,43 @@ trait search
 		$search = null;
 		if($_string !== null && !$_options['just_search_in_one_field'])
 		{
-			$search_in_code = false;
 
-			if(substr($_string, 0, 1) === '+')
-			{
-				$_string        = trim($_string);
-				$my_code        = substr($_string, 1);
-				$search_in_code = true;
-			}
-			else
-			{
-				$_string   = trim($_string);
-				$barcode   = \dash\utility\convert::to_barcode($_string);
-				$en_number = \dash\utility\convert::to_en_number($_string);
-			}
+			$_string   = trim($_string);
+			$barcode   = \dash\utility\convert::to_barcode($_string);
+			$en_number = \dash\utility\convert::to_en_number($_string);
 
-			// search by +
-			if($search_in_code)
+			if(is_numeric($_string))
 			{
-				$search =
+				$search_in_numeric_field =
 				"
-				(
-					products.code = '$my_code'
-				)
+					products.price    = '$en_number' 	OR
+					products.discount = '$en_number' 	OR
+					products.buyprice = '$en_number' 	OR
 				";
 			}
 			else
 			{
-				if(is_numeric($_string))
-				{
-					$search_in_numeric_field =
-					"
-						products.price    = '$en_number' 	OR
-						products.discount = '$en_number' 	OR
-						products.buyprice = '$en_number' 	OR
-					";
-				}
-				else
-				{
-					$search_in_numeric_field = null;
-				}
-
-				$search =
-				"
-				(
-					products.title 	  LIKE '%$_string%' OR
-
-					$search_in_code
-
-					products.cat 	  = '$_string' 		OR
-					products.unit 	  = '$_string' 		OR
-
-					$search_in_numeric_field
-
-					products.barcode  = '$_string' 		OR
-					products.barcode2 = '$_string' 		OR
-
-					products.barcode  = '$barcode' 		OR
-					products.barcode2 = '$barcode'
-				)
-				";
-
+				$search_in_numeric_field = null;
 			}
+
+			$search =
+			"
+			(
+				products.title 	  LIKE '%$_string%' OR
+
+				products.cat 	  = '$_string' 		OR
+				products.unit 	  = '$_string' 		OR
+
+				$search_in_numeric_field
+
+				products.barcode  = '$_string' 		OR
+				products.barcode2 = '$_string' 		OR
+
+				products.barcode  = '$barcode' 		OR
+				products.barcode2 = '$barcode'
+			)
+			";
+
 
 			if($where)
 			{

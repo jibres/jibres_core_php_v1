@@ -10,7 +10,6 @@ class view
 
 		\dash\data::page_title(T_('Sale invoicing'));
 		// \dash\data::page_desc(T_('Sale your product via Jibres and enjoy using integrated web base platform.'));
-
 		\dash\data::badge_text(T_('Back to last sales'));
 		\dash\data::badge_link(\dash\url::this());
 
@@ -76,7 +75,6 @@ class view
 					if(\dash\request::get('q'))
 					{
 						$resultRaw    = \lib\app\product::list(\dash\request::get('q'), $meta);
-
 						foreach ($resultRaw as $key => $value)
 						{
 							$result[$key] = self::getNeededField($value);
@@ -170,7 +168,12 @@ class view
 
 		if(isset($_data['code']))
 		{
-			$result['desc'] = T_("Code"). ' +'. $_data['code'];
+			$result['desc'] = T_("Code"). ' /'. $_data['code'];
+		}
+
+		if(isset($_data['price']))
+		{
+			$result['desc'] = T_("Price"). ' +'. $_data['price'];
 		}
 
 
