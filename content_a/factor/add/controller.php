@@ -130,6 +130,11 @@ class controller
 
 		if(isset($_data['title']))
 		{
+			$result['text'] = $_data['title'];
+		}
+
+		if(isset($_data['title']))
+		{
 			$result['name'] = $_data['title'];
 		}
 

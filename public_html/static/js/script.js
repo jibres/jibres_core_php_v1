@@ -11,6 +11,7 @@ function pushState()
   recalcPricePercents();
   simplePrint();
   typeTitles();
+  BindSearchSelector();
 }
 
 $(function()
@@ -385,27 +386,60 @@ function bindBtnOnFactor()
     recalcProductListPrices();
   });
 
-  $(document).on('awesomplete-select', "#productSearch", function(_e)
-  {
-    var datalist        = $(this).data('datalist');
-    var choosen         = $(this).attr('aria-activedescendant');
-    var productId       = _e.originalEvent.text.value;
-    var selectedProduct = [];
+  // $(document).on('awesomplete-select', "#productSearch", function(_e)
+  // {
+  //   var datalist        = $(this).data('datalist');
+  //   var choosen         = $(this).attr('aria-activedescendant');
+  //   var productId       = _e.originalEvent.text.value;
+  //   var selectedProduct = [];
 
-    if(datalist && datalist.length > 0)
+  //   if(datalist && datalist.length > 0)
+  //   {
+  //     $.each(datalist, function(index, value)
+  //     {
+  //       if(value.id === productId)
+  //       {
+  //         // this one is our target
+  //         selectedProduct = datalist[index];
+  //       }
+  //     });
+
+  //     if(selectedProduct)
+  //     {
+  //       addFindedProduct(selectedProduct);
+  //     }
+  //     else
+  //     {
+  //       logy('product not exist!');
+  //     }
+  //   }
+  //   else
+  //   {
+  //     logy('datalist is not exist');
+  //   }
+  // });
+
+  // $(document).on('awesomplete-selectcomplete', "#productSearch", function(_e)
+  // {
+  //   // clear product search value
+  //   $(this).val('');
+  // });
+}
+
+function BindSearchSelector()
+{
+  $('#productSearch').dropdown('setting', 'action', function(_text, _value, _el){
+    $(this).dropdown('hide');
+
+    console.log(_text);
+    console.log(_value);
+    if(_text)
     {
-      $.each(datalist, function(index, value)
+      // parse json
+      selectedProductDetail = JSON.parse(_text);
+      if(selectedProductDetail)
       {
-        if(value.id === productId)
-        {
-          // this one is our target
-          selectedProduct = datalist[index];
-        }
-      });
-
-      if(selectedProduct)
-      {
-        addFindedProduct(selectedProduct);
+        addFindedProduct(selectedProductDetail);
       }
       else
       {
@@ -414,17 +448,11 @@ function bindBtnOnFactor()
     }
     else
     {
-      logy('datalist is not exist');
+      logy('datalist is not exist!');
     }
   });
 
-  $(document).on('awesomplete-selectcomplete', "#productSearch", function(_e)
-  {
-    // clear product search value
-    $(this).val('');
-  });
 }
-
 
 
 

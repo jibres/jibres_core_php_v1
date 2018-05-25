@@ -106,7 +106,7 @@
 
 {%block iCustomer%}
 <div class="cbox">
-  <select name="customer" class="ui dropdown search" id="customerSearch" data-source='{{url.this}}/add?type=sale&json=true&list=customer&q={query}'>
+  <select name="customer" class="ui dropdown search selection" id="customerSearch" data-source='{{url.this}}/add?type=sale&json=true&list=customer&q={query}'>
     <option value="" readonly>{%trans "Choose customer"%}</option>
   </select>
 </div>
@@ -116,7 +116,7 @@
 
 {%block addProducts%}
 <div class="cbox">
-  <select name="customer" class="ui dropdown search" id="productSearch" autofocus data-source='{{url.this}}/add?type=sale&json=true&list=product&q={query}'>
+  <select name="customer" class="ui dropdown search selection" id="productSearch" autofocus data-source='{{url.this}}/add?type=sale&json=true&list=product&q={query}'>
     <option value="" readonly>{%trans "Search in list to add product"%} +</option>
   </select>
 </div>
