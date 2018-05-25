@@ -430,6 +430,7 @@ function BindSearchSelector()
 {
   $('#productSearch').dropdown('setting', 'action', function(_text, _value, _el){
     $(this).dropdown('hide');
+    $(this).dropdown('clear');
 
     console.log(_text);
     console.log(_value);
