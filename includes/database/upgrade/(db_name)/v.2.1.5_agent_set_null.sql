@@ -1,0 +1,1 @@
+ALTER TABLE `jibres_log`.`visitors` CHANGE `agent_id` `agent_id` int(10) UNSIGNED NULL DEFAULT NULL;
