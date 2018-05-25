@@ -122,71 +122,62 @@ class controller
 	private static function getNeededField($_data)
 	{
 		$result = [];
+		$id     = null;
+		$name   = null;
+		$text   = [];
 
 		if(isset($_data['id']))
 		{
-			$result['value'] = $_data['id'];
+			$id = $_data['id'];
 		}
 
 		if(isset($_data['title']))
 		{
-			$result['text'] = $_data['title'];
+			$name = $_data['title'];
+		}
+
+
+		if(isset($_data['finalprice']) && $_data['finalprice'])
+		{
+			$text['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
+		}
+
+		if(isset($_data['barcode']))
+		{
+			$text['barcode'] = $_data['barcode'];
+		}
+
+		if(isset($_data['barcode2']))
+		{
+			$text['barcode2'] = $_data['barcode2'];
+		}
+
+		if(isset($_data['price']))
+		{
+			$text['price'] = $_data['price'];
+		}
+
+		if(isset($_data['discount']))
+		{
+			$text['discount'] = $_data['discount'];
+		}
+
+		if(isset($_data['code']))
+		{
+			$text['desc'] = T_("Code"). ' +'. $_data['code'];
 		}
 
 		if(isset($_data['title']))
 		{
-			$result['name'] = $_data['title'];
+			$text['title'] = $_data['title'];
 		}
 
-
-
-
-
-
-
-
-		// if(isset($_data['id']))
-		// {
-		// 	$result['id'] = T_($_data['id']);
-		// 	$result['value'] = T_($_data['id']);
-		// }
-
-		// if(isset($_data['title']))
-		// {
-		// 	$result['title'] = $_data['title'];
-		// }
-
-		// if(isset($_data['finalprice']) && $_data['finalprice'])
-		// {
-		// 	$result['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
-		// }
-
-		// if(isset($_data['barcode']))
-		// {
-		// 	$result['barcode'] = $_data['barcode'];
-		// }
-
-		// if(isset($_data['barcode2']))
-		// {
-		// 	$result['barcode2'] = $_data['barcode2'];
-		// }
-
-		// if(isset($_data['price']))
-		// {
-		// 	$result['price'] = $_data['price'];
-		// }
-
-		// if(isset($_data['discount']))
-		// {
-		// 	$result['discount'] = $_data['discount'];
-		// }
-
-		// if(isset($_data['code']))
-		// {
-		// 	$result['desc'] = T_("Code"). ' +'. $_data['code'];
-		// }
-
-
+		$result =
+		[
+			'name'  => $name,
+			'value' => $id,
+			'text'  => json_encode($text, JSON_UNESCAPED_UNICODE),
+		];
 
 		// $all_field_we_have =
 		// [
