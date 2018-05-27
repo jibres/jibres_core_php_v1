@@ -386,7 +386,7 @@ function bindBtnOnFactor()
   });
 
   // add event to handle dropdown selected value
-  $('body').on('dropdown:selected', function(_e, _selectedProduct)
+  $('body').on('dropdown:selected:datalist', function(_e, _selectedProduct)
   {
     // console.log(_selectedProduct);
     if(_selectedProduct)
