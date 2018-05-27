@@ -96,6 +96,17 @@ class controller
 							$result = [];
 						}
 					}
+					else
+					{
+						$result['result'] =
+						[
+							[
+								"name"  => T_("No result founded!"),
+								"value" => null,
+								// "disabled"  => true
+							]
+						];
+					}
 					if(!$result)
 					{
 						$notif_result['message'] = $msg;
