@@ -3555,7 +3555,9 @@ img.mini {
   margin: 0 0.2em;
   min-width: 1.2em;
   text-align: center;
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+  transition-duration: 0.3s;
+  transition-property: opacity, background-color, color; }
 
 [data-icon]:before {
   font-family: "siftal", "tahoma" !important;
@@ -10278,10 +10280,13 @@ body:not(.tippy-touch) .tippy-popper[x-placement=left] .tippy-tooltip[data-anima
   z-index: 10; }
 
 select.ui.dropdown {
-  height: 38px;
+  height: 36px;
   padding: 0.5em;
+  padding: 5px 1em;
+  color: rgba(191, 191, 191, 0.87);
   border: 1px solid rgba(34, 36, 38, 0.15);
-  visibility: visible; }
+  visibility: visible;
+  -webkit-appearance: none; }
 
 .ui.selection.dropdown > .search.icon,
 .ui.selection.dropdown > .delete.icon,
@@ -10453,7 +10458,7 @@ select.ui.dropdown {
   position: relative;
   left: 1px;
   z-index: 3;
-  line-height: 25px; }
+  line-height: 24px; }
 
 /* Search Selection */
 .ui.search.selection.dropdown > input.search {
@@ -12665,7 +12670,8 @@ span.input {
   padding: 8px 1em;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+  transition-duration: 0.3s;
+  transition-property: opacity, background-color, color, border;
   border-radius: 0.25rem;
   outline: none;
   -ms-flex: 1 1 auto;
@@ -12993,6 +12999,9 @@ input[name="website"] {
 .rtl .check1 label::after {
   left: 0;
   right: 13px; }
+
+.check1.red input:checked + label::before {
+  background-color: #da4041; }
 
 .switch1 {
   overflow: hidden;
