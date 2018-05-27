@@ -174,9 +174,12 @@ class controller
 
 		$result =
 		[
+			// on list
 			'name'  => $name,
+			// after select
+			'text'  => $name,
+			// value for backend
 			'value' => $id,
-			'text'  => json_encode($text, JSON_UNESCAPED_UNICODE),
 		];
 
 		// $all_field_we_have =
