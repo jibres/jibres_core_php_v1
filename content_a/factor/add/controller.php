@@ -105,14 +105,7 @@ class controller
 					break;
 			}
 
-			if(!$result)
-			{
-				$result = null;
-			}
-			else
-			{
-				$result = json_encode($result, JSON_UNESCAPED_UNICODE);
-			}
+			$result = json_encode($result, JSON_UNESCAPED_UNICODE);
 			echo $result;
 			\dash\code::exit();
 		}
