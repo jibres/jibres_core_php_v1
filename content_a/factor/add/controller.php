@@ -124,62 +124,62 @@ class controller
 		$result = [];
 		$id     = null;
 		$name   = null;
-		$text   = [];
+		$datalist   = [];
 
 		if(isset($_data['id']))
 		{
-			$id = $_data['id'];
+			$id         = $_data['id'];
+			$datalist['id'] = $_data['id'];
 		}
 
 		if(isset($_data['title']))
 		{
-			$name = $_data['title'];
+			$name          = $_data['title'];
+			$datalist['title'] = $_data['title'];
 		}
 
 
 		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
-			$text['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
+			$datalist['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
 		}
 
 		if(isset($_data['barcode']))
 		{
-			$text['barcode'] = $_data['barcode'];
+			$datalist['barcode'] = $_data['barcode'];
 		}
 
 		if(isset($_data['barcode2']))
 		{
-			$text['barcode2'] = $_data['barcode2'];
+			$datalist['barcode2'] = $_data['barcode2'];
 		}
 
 		if(isset($_data['price']))
 		{
-			$text['price'] = $_data['price'];
+			$datalist['price'] = $_data['price'];
 		}
 
 		if(isset($_data['discount']))
 		{
-			$text['discount'] = $_data['discount'];
+			$datalist['discount'] = $_data['discount'];
 		}
 
 		if(isset($_data['code']))
 		{
-			$text['desc'] = T_("Code"). ' +'. $_data['code'];
+			$datalist['desc'] = T_("Code"). ' +'. $_data['code'];
 		}
 
-		if(isset($_data['title']))
-		{
-			$text['title'] = $_data['title'];
-		}
 
 		$result =
 		[
 			// on list
-			'name'  => $name,
+			'name'     => $name,
 			// after select
-			'text'  => $name,
+			'text'     => $name,
 			// value for backend
-			'value' => $id,
+			'value'    => $id,
+			// for extra use and remove double query
+			'datalist' => $datalist,
 		];
 
 		// $all_field_we_have =
