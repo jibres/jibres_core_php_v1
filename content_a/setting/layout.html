@@ -199,7 +199,7 @@
 
 {% block iPrintStatus %}
 <div>
-  <div class="switch1">
+  <div class="switch1 mB10">
    <input type="checkbox" name="printStatus" id="printStatus" {%if store.meta.factor.print_status or not store.meta.factor%} checked {%endif%}>
    <label for="printStatus"></label>
    <label for="printStatus">{%trans "Active print factor"%}</label>
@@ -213,19 +213,19 @@
   <div class="f sortable">
 
     <div class="c">
-      <div class="switch1">
+      <div class="switch1 mB10">
        <input type="checkbox" name="print_size[]" id="Fishprint" value="fishprint" {%if   store.meta.factor.print_size.fishprint or not store.meta.factor.print_size%} checked {%endif%}>
        <label for="Fishprint"></label>
        <label for="Fishprint">{%trans "Fish print"%}</label>
       </div>
 
-      <div class="switch1">
+      <div class="switch1 mB10">
        <input type="checkbox" name="print_size[]" id="A4Print" value="a4" {%if   store.meta.factor.print_size.a4 or not store.meta.factor.print_size%} checked {%endif%}>
        <label for="A4Print"></label>
        <label for="A4Print">{%trans "A4"%}</label>
       </div>
 
-      <div class="switch1">
+      <div class="switch1 mB10">
        <input type="checkbox" name="print_size[]" id="A5Print" value="a5" {%if   store.meta.factor.print_size.a5 or not store.meta.factor.print_size%} checked {%endif%}>
        <label for="A5Print"></label>
        <label for="A5Print">{%trans "A5"%}</label>
@@ -272,19 +272,19 @@
 <div class="f sortable">
 
   <div class="c">
-    <div class="switch1">
+    <div class="switch1 mB10">
      <input type="checkbox" name="pay[]" value="cash" id="f-waycash" {%if   store.meta.factor.pay.cash or not store.meta.factor.pay%} checked {%endif%}>
      <label for="f-waycash"></label>
      <label for="f-waycash">{%trans "Cash"%}</label>
     </div>
 
-    <div class="switch1">
+    <div class="switch1 mB10">
      <input type="checkbox" name="pay[]" value="pos" id="f-waypos" {%if   store.meta.factor.pay.pos or not store.meta.factor.pay%} checked {%endif%}>
      <label for="f-waypos"></label>
      <label for="f-waypos">{%trans "Pos"%}</label>
     </div>
 
-    <div class="switch1">
+    <div class="switch1 mB10">
      <input type="checkbox" name="pay[]" value="cheque" id="f-waychekc" {%if   store.meta.factor.pay.cheque or not store.meta.factor.pay%} checked {%endif%}>
      <label for="f-waychekc"></label>
      <label for="f-waychekc">{%trans "Check"%}</label>
