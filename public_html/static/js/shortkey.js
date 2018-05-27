@@ -154,7 +154,7 @@ function event_corridor(_e, _self, _key)
     case '187shift':        // plus +
       if(check_factor())
       {
-        if($(":focus").is('#productSearch'))
+        if($(":focus").parents('.dropdown').find('#productSearch'))
         {
           $('input[type=search]').select();
         }
@@ -176,7 +176,7 @@ function event_corridor(_e, _self, _key)
           var RowDiscountEl = RowDiscountEl.find('input.discount');
           RowDiscountEl.select();
         }
-        _e.preventDefault();
+        // _e.preventDefault();
       }
       break;
 
