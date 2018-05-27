@@ -83,16 +83,17 @@ class controller
 						if(!$result)
 						{
 							$msg .= '<a href="/a/product/add?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
-							$result = null;
+							\dash\notif::warn($msg);
+							\dash\code::end();
 						}
 					}
 					elseif(\dash\request::get('id'))
 					{
 						$result = \lib\app\product::list(null, ['id' => \dash\request::get('id')]);
-						$result = self::getNeededField($result);
+						$result = self::getNeededField_barcode($result);
 						if(!$result)
 						{
-							$result = null;
+							$result = [];
 						}
 					}
 					if(!$result)
@@ -186,5 +187,61 @@ class controller
 
 		return $result;
 	}
+
+
+	private static function getNeededField_barcode($_data)
+	{
+		$result = [];
+
+		if(isset($_data['id']))
+		{
+			$result['id'] = T_($_data['id']);
+			$result['value'] = T_($_data['id']);
+		}
+
+		if(isset($_data['title']))
+		{
+			$result['title'] = $_data['title'];
+		}
+
+		if(isset($_data['finalprice']) && $_data['finalprice'])
+		{
+			$result['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
+		}
+
+		if(isset($_data['barcode']))
+		{
+			$result['barcode'] = $_data['barcode'];
+		}
+
+		if(isset($_data['barcode2']))
+		{
+			$result['barcode2'] = $_data['barcode2'];
+		}
+
+		if(isset($_data['price']))
+		{
+			$result['price'] = $_data['price'];
+		}
+
+		if(isset($_data['discount']))
+		{
+			$result['discount'] = $_data['discount'];
+		}
+
+		if(isset($_data['code']))
+		{
+			$result['desc'] = T_("Code"). ' /'. $_data['code'];
+		}
+
+		if(isset($_data['price']))
+		{
+			$result['desc'] = T_("Price"). ' +'. $_data['price'];
+		}
+
+		return $result;
+
+	}
+
 }
 ?>
