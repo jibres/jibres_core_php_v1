@@ -11,7 +11,6 @@ function pushState()
   recalcPricePercents();
   simplePrint();
   typeTitles();
-  BindSearchSelector();
 }
 
 $(function()
@@ -389,9 +388,7 @@ function bindBtnOnFactor()
   // add event to handle dropdown selected value
   $('body').on('dropdown:selected', function(_e, _selectedProduct)
   {
-    console.log(_e);
-    console.log(_selectedProduct);
-
+    // console.log(_selectedProduct);
     if(_selectedProduct)
     {
       addFindedProduct(_selectedProduct);
@@ -401,32 +398,6 @@ function bindBtnOnFactor()
       logy('datalist is not exist');
     }
 
-  });
-}
-
-function BindSearchSelector()
-{
-  $('#productSearch').dropdown('setting', 'action', function(_text, _value, _el)
-  {
-    $(this).dropdown('hide');
-    $(this).dropdown('clear');
-
-    var serverResponse = $(this).prop('lastData');
-    if(serverResponse && serverResponse.result)
-    {
-      serverResponse = serverResponse.result;
-      $.each(serverResponse, function(index, responseVal)
-      {
-        if(responseVal && responseVal.datalist && responseVal.datalist.id)
-        {
-          if(_value === responseVal.datalist.id)
-          {
-            console.log(responseVal.datalist);
-            $("body").trigger("dropdown:selected", responseVal.datalist);
-          }
-        }
-      });
-    }
   });
 }
 
