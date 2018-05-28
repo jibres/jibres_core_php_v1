@@ -99,17 +99,27 @@
 
 {%block iManufacturer%}
 <label for='company'>{%trans "Manufacturer"%}</label>
-<div class="input">
- <input class="autoList" type="text" name="company" id="company" placeholder='{%trans "Product manufacturer"%}' value="{{product.company}}" maxlength="50" data-list="{{listCompanies}}">
-</div>
+
+<select name="company" class="select ui dropdown search addition"  id="company">
+  <option value="" readonly>{%trans "Product manufacturer"%}</option>
+  {%for key, value in listCompanies%}
+    <option value="{{value}}"{%if value == product.company %} selected{%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+
 {%endblock%}
 
 
 {%block iCat%}
+
 <label for='cat'>{%trans "Cat"%}</label>
-<div class="input">
- <input class="autoList" type="text" name="cat" id="cat" placeholder='{%trans "Organize by category"%}' value="{{product.cat}}" maxlength="50" data-list="{{listCats}}">
-</div>
+<select name="cat" class="select ui dropdown search addition"  id="cat">
+  <option value="" readonly>{%trans "Organize by category"%}</option>
+  {%for key, value in listCats%}
+    <option value="{{value}}"{%if value == product.cat %} selected{%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+
 {%endblock%}
 
 
@@ -131,10 +141,16 @@
 
 
 {%block iUnit%}
+
+
 <label for='unit'>{%trans "Unit"%}</label>
-<div class="input">
- <input class="autoList" name="unit" id="unit" placeholder='{%trans "like Qty, kg, etc"%}' value="{{product.unit}}" maxlength="50" data-list="{{listUnits}}">
-</div>
+<select name="cat" class="select ui dropdown search addition"  id="unit">
+  <option value="" readonly>{%trans "like Qty, kg, etc"%}</option>
+  {%for key, value in listUnits%}
+    <option value="{{value}}"{%if value == product.unit %} selected{%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+
 {%endblock%}
 
 
