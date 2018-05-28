@@ -1,9 +1,15 @@
 function chartDrawer()
 {
+  myChart1();
+}
+
+
+function myChart1()
+{
   am4core.useTheme(am4themes_animated);
 
-  var chart = am4core.create("chartdiv", am4charts.XYChart);
-  chart.data = {{dashboardData.sale_time_chart | raw}};
+  var chart = am4core.create("chartdiv1", am4charts.XYChart);
+  chart.data = {{dashboardData.product_price_variation | raw}};
 
   var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
   categoryAxis.renderer.grid.template.location = 0;
@@ -12,7 +18,7 @@ function chartDrawer()
 
 
   var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-  valueAxis.title.text = '{%trans "Count of factors"%}';
+  valueAxis.title.text = '{%trans "Count of products"%}';
 
   var series = chart.series.push(new am4charts.ColumnSeries());
   series.dataFields.categoryX = "key";
@@ -30,8 +36,7 @@ function chartDrawer()
   });
 
   var label = chart.plotContainer.createChild(am4core.Label);
-  label.text = '{%trans "Sales count group by hour"%}';
+  label.text = '{%trans "Price Variation"%}';
   label.x = 10;
   label.y = 10;
 }
-

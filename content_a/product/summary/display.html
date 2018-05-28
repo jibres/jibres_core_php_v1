@@ -14,16 +14,8 @@
  <div class="c4 s0">{{block ("stProductWBarode2Count")}}</div>
 </div>
 
+{{block ("chartProductPriceVariation")}}
 
-
-<div class="f">
-  <div class="c9 s12">
-    {{block ("chartProductPriceVariation")}}
-  </div>
-  <div class="c3 s0">
-{{block ("topProducts")}}
-  </div>
-</div>
 
 {{block ("PriceData")}}
 
@@ -103,9 +95,9 @@
 
 {%block chartProductPriceVariation%}
 <div class="dcard x3 pA0">
- <div class="chart" data-type2='line' data-vals='{{dashboardData.product_price_variation}}'>
- </div>
+ <div class="chart" id="chartdiv1"></div>
 </div>
+
 {%endblock%}
 
 
@@ -339,3 +331,8 @@
 
 
 
+{%block foot_js%}
+<script type="text/javascript">
+{%include 'content_a/product/summary/chart.js'%}
+</script>
+{%endblock%}
