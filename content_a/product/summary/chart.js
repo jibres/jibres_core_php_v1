@@ -1,8 +1,8 @@
 function chartDrawer()
 {
-  myChart1();
-  myChart2();
-  myChart3();
+  if($("#chartdiv2").length == 1){myChart2();}
+  if($("#chartdiv1").length == 1){myChart1();}
+  if($("#chartdiv3").length == 1){myChart3();}
 }
 
 

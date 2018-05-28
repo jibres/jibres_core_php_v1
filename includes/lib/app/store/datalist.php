@@ -25,7 +25,7 @@ trait datalist
 		}
 
 		$meta['creator'] = \dash\user::id();
-		$result          = \lib\db\stores::search(\dash\user::id(), $meta);
+		$result          = \lib\db\stores::search(null, $meta);
 		$temp            = [];
 		foreach ($result as $key => $value)
 		{

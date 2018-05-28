@@ -1,5 +1,10 @@
 function chartDrawer()
 {
+  if($("#chartdiv").length == 1){myChart();}
+}
+
+function myChart()
+{
   am4core.useTheme(am4themes_animated);
 
   var chart = am4core.create("chartdiv", am4charts.XYChart);
