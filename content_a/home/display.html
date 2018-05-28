@@ -24,14 +24,7 @@
 {%if perm('aReportView')%}
   {%if dashboardData.sale_time_chart == '[]'%}
   {%else%}
-  <div class="f">
-    <div class="c9 s12">
-      {{block ("chart_primary")}}
-    </div>
-    <div class="c3 s12">
-  {{block ("chart_primary_title")}}
-    </div>
-  </div>
+    {{block ("chart_primary")}}
   {%endif%}
 {%endif%}
 
@@ -147,7 +140,7 @@
 
 {%block chart_primary%}
 <div class="dcard x3 pA0">
- <div id="chartdiv" class="size-he300 block"></div>
+ <div id="chartdiv" class="chart"></div>
 </div>
 {%endblock%}
 

@@ -1988,11 +1988,12 @@ progress.xl, meter.xl {
   border-radius: 0.25rem;
   background-color: rgba(255, 255, 255, 0.8);
   color: #555;
-  padding: 1em 1.5em;
+  padding: 10px 1.5em;
   opacity: 0.8;
   transition-duration: 0.3s;
   transition-property: opacity, background-color;
-  min-height: 90px;
+  min-height: 100px;
+  max-height: 100px;
   border: 1px solid transparent;
   position: relative;
   display: -webkit-box;
@@ -2031,32 +2032,54 @@ progress.xl, meter.xl {
   vertical-align: baseline; }
 
 .dcard.x1 {
-  height: 90px;
+  height: 100px;
+  min-height: 100px;
+  max-height: 100px;
   overflow: hidden; }
 
 .dcard.x2 {
-  min-height: 190px;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
   overflow: hidden; }
 
 .dcard.x3 {
-  min-height: 290px;
+  height: 300px;
+  min-height: 300px;
+  max-height: 300px;
   overflow: hidden; }
 
 .dcard.x4 {
-  min-height: 390px;
+  height: 400px;
+  min-height: 400px;
+  max-height: 400px;
+  overflow: hidden; }
+
+.dcard.x5 {
+  height: 500px;
+  min-height: 500px;
+  max-height: 500px;
   overflow: hidden; }
 
 .dcard .chart {
-  height: 90px; }
+  height: 100px;
+  display: block;
+  width: 100%; }
 
 .dcard.x2 .chart {
-  height: 190px; }
+  height: 200px;
+  display: block;
+  width: 100%; }
 
 .dcard.x3 .chart {
-  height: 290px; }
+  height: 300px;
+  display: block;
+  width: 100%; }
 
 .dcard.x4 .chart {
-  height: 390px; }
+  height: 400px;
+  display: block;
+  width: 100%; }
 
 .dcard .progress {
   margin: 0; }
@@ -15480,6 +15503,21 @@ body .we500 {
 .max-w300 {
   max-width: 300px !important; }
 
+.size-we20 {
+  max-width: 20px !important;
+  min-width: 20px !important;
+  width: 20px !important; }
+
+.size-we25 {
+  max-width: 25px !important;
+  min-width: 25px !important;
+  width: 25px !important; }
+
+.size-we30 {
+  max-width: 30px !important;
+  min-width: 30px !important;
+  width: 30px !important; }
+
 .size-we40 {
   max-width: 40px !important;
   min-width: 40px !important;
@@ -15545,6 +15583,21 @@ body .we500 {
   min-width: 300px !important;
   width: 300px !important; }
 
+.size-he20 {
+  max-height: 20px !important;
+  min-height: 20px !important;
+  height: 20px !important; }
+
+.size-he25 {
+  max-height: 25px !important;
+  min-height: 25px !important;
+  height: 25px !important; }
+
+.size-he30 {
+  max-height: 30px !important;
+  min-height: 30px !important;
+  height: 30px !important; }
+
 .size-he40 {
   max-height: 40px !important;
   min-height: 40px !important;
@@ -15601,14 +15654,36 @@ body .we500 {
   height: 300px !important; }
 
 .size-he400 {
-  max-height: 300px !important;
-  min-height: 300px !important;
-  height: 300px !important; }
+  max-height: 400px !important;
+  min-height: 400px !important;
+  height: 400px !important; }
 
 .size-he500 {
-  max-height: 300px !important;
-  min-height: 300px !important;
-  height: 300px !important; }
+  max-height: 500px !important;
+  min-height: 500px !important;
+  height: 500px !important; }
+
+.size-he600 {
+  max-height: 600px !important;
+  min-height: 600px !important;
+  height: 600px !important; }
+
+.size-hauto {
+  max-height: 600px !important;
+  min-height: auto !important;
+  height: auto !important; }
+
+.size-h100 {
+  max-height: 600px !important;
+  min-height: auto !important;
+  height: 100% !important; }
+
+.chartBox {
+  max-height: 600px !important;
+  min-height: auto !important;
+  height: 100% !important;
+  width: 100%;
+  display: block; }
 
 .block {
   display: block;
