@@ -2,7 +2,6 @@ am4core.useTheme(am4themes_animated);
 
 var chart = am4core.create("chartdiv", am4charts.XYChart);
 chart.data = {{dashboardData.sale_time_chart   | raw}};
-chart.titles.text = 'sdfsdfdsf';
 
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
 categoryAxis.renderer.grid.template.location = 0;
@@ -11,7 +10,7 @@ categoryAxis.renderer.minGridDistance = 60;
 
 
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.title.text = '{%trans "Cout of factors"%}';
+valueAxis.title.text = '{%trans "Count of factors"%}';
 
 var series = chart.series.push(new am4charts.ColumnSeries());
 series.dataFields.categoryX = "key";
@@ -27,6 +26,10 @@ series.columns.template.adapter.add("fill", function (fill, target) {
 	return chart.colors.getIndex(target.dataItem.index);
 });
 
-
+var label = chart.plotContainer.createChild(am4core.Label);
+label.text = '{%trans "Sales count group by hour"%}';
+label.x = 10;
+label.bold = true;
+label.y = 10;
 
 
