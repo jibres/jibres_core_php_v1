@@ -130,10 +130,21 @@ class controller
 
 	private static function getNeededField($_data)
 	{
+
+		// $myName = '<img class="ui avatar image" src="'.  $value['avatar'] .'">';
+		// $myName .= '<span class="pRa10">'. \dash\utility\human::fitNumber($value['code'], false). '</span>';
+		// $myName .= '   '. $value['firstname']. ' <b>'. $value['lastname']. '</b> <small class="badge light mLa5">'. $value['father'].'</small>';
+		// $myName .= '<span class="description">'. \dash\utility\human::fitNumber($value['nationalcode'], false). '</span>';
+
 		$result = [];
 		$id     = null;
 		$name   = null;
 		$datalist   = [];
+
+		if(isset($_data['thumb']))
+		{
+			$name .= '<img class="ui avatar image" src="'.  $_data['thumb'] .'"/> ';
+		}
 
 		if(isset($_data['id']))
 		{
@@ -143,7 +154,8 @@ class controller
 
 		if(isset($_data['title']))
 		{
-			$name          = $_data['title'];
+			$name          .=  $_data['title'];
+
 			$datalist['title'] = $_data['title'];
 		}
 
@@ -151,6 +163,7 @@ class controller
 		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
 			$datalist['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
+			$name .= '<span class="badge success pRa10">'. $datalist['count']. '</span>';
 		}
 
 		if(isset($_data['barcode']))
@@ -166,11 +179,13 @@ class controller
 		if(isset($_data['price']))
 		{
 			$datalist['price'] = $_data['price'];
+			$name .= '<span class="pRa10">'. $datalist['price']. '</span>';
 		}
 
 		if(isset($_data['discount']))
 		{
 			$datalist['discount'] = $_data['discount'];
+			$name .= '<span class="description">'. $datalist['discount']. '</span>';
 		}
 
 		if(isset($_data['code']))
@@ -184,7 +199,7 @@ class controller
 			// on list
 			'name'     => $name,
 			// after select
-			'text'     => $name,
+			// 'text'     => $name,
 			// value for backend
 			'value'    => $id,
 			// for extra use and remove double query
