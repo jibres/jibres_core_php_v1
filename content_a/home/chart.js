@@ -2,8 +2,7 @@ am4core.useTheme(am4themes_animated);
 
 var chart = am4core.create("chartdiv", am4charts.XYChart);
 chart.data = {{dashboardData.sale_time_chart   | raw}};
-
-chart.padding(40, 40, 40, 40);
+chart.titles.text = 'sdfsdfdsf';
 
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
 categoryAxis.renderer.grid.template.location = 0;
