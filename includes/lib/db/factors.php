@@ -173,7 +173,7 @@ class factors
 
 	public static function sum_all()
 	{
-		$query = "SELECT SUM(factors.sum) AS `sum` FROM factors WHERE type = 'sale' ";
+		$query = "SELECT SUM(factors.sum) AS `sum` FROM factors WHERE type = 'sale' AND factors.sum < 10000000 ";
 		return \dash\db::get($query, 'sum', true);
 	}
 
