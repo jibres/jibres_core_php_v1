@@ -39,8 +39,18 @@
       <li><a href="{{url.here}}/factor"><i class="floatRa mRa10 fc-mute sf-list"></i>{%trans "List of all factors"%}</a></li>
     </ul>
 {%endif%}
-
   </li>
+
+<li>
+    <a href="{{url.here}}/report"><i class="sf-chart"></i>{%trans "Reports"%}</a>
+{%if url.module == "report"%}
+    <ul>
+      <li><a href="{{url.here}}/report/daily"><i class="floatRa mRa10 fc-mute sf-bar-chart"></i>{%trans "Daily report"%}</a></li>
+      <li><a href="{{url.here}}/report/month"><i class="floatRa mRa10 fc-mute sf-analytics-chart-graph"></i>{%trans "Monthly report"%}</a></li>
+    </ul>
+{%endif%}
+  </li>
+
   <li>
     <a href="{{url.here}}/setting/general"><i class="sf-cogs"></i>{%trans "Setting"%}</a>
 {%if url.module == "setting"%}
