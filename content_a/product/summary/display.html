@@ -19,28 +19,9 @@
 
 {{block ("PriceData")}}
 
-<div class="f mT25">
-  <div class="c9 s12">
-    {{block ("chartProductGbyUnit")}}
-  </div>
-  <div class="c3 s0">
-   <div class="dcard x3 txtC">
-    <h3>{%trans "Product GroupBy Unit"%}</h3>
-   </div>
-  </div>
-</div>
+{{block ("chartProductGbyUnit")}}
 
-
-<div class="f">
-  <div class="c3 s0">
-   <div class="dcard x3 txtC">
-    <h3>{%trans "Product GroupBy Category"%}</h3>
-   </div>
-  </div>
-  <div class="c9 s12">
-    {{block ("chartProductGbyCat")}}
-  </div>
-</div>
+{{block ("chartProductGbyCat")}}
 
 {%else%}
   <p class="msg info fs14">{%trans "You are not add product yet!"%} <a href="{{url.this}}/add">{%trans "Add some new product"%}</a></p>
@@ -314,16 +295,14 @@
 
 {%block chartProductGbyUnit%}
 <div class="dcard x3 pA0">
- <div class="chart" data-type='line' data-vals='{{dashboardData.product_price_group_by_unit}}'>
- </div>
+ <div class="chart" id="chartdiv2"></div>
 </div>
 {%endblock%}
 
 
 {%block chartProductGbyCat%}
 <div class="dcard x3 pA0">
- <div class="chart" data-vals='{{dashboardData.product_price_group_by_cat}}'>
- </div>
+ <div class="chart" id="chartdiv3"></div>
 </div>
 {%endblock%}
 
