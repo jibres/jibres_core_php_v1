@@ -79,13 +79,14 @@ class controller
 					elseif(\dash\request::get('barcode'))
 					{
 						$result = \lib\app\product::list(null, ['barcode' => \dash\request::get('barcode')]);
-						$result = self::getNeededField($result);
 						if(!$result)
 						{
 							$msg .= '<a href="/a/product/add?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
-							\dash\notif::warn($msg);
+							\dash\notif::result(['message' => $msg]);
 							\dash\code::end();
 						}
+
+						$result = self::getNeededField($result);
 					}
 					elseif(\dash\request::get('id'))
 					{
