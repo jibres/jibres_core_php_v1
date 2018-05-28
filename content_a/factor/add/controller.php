@@ -86,16 +86,19 @@ class controller
 							\dash\code::end();
 						}
 
-						$result = self::getNeededField($result);
+						$result = self::getNeededField_barcode($result);
+						\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
+						\dash\code::compile();
+						\dash\code::exit();
+
 					}
 					elseif(\dash\request::get('id'))
 					{
 						$result = \lib\app\product::list(null, ['id' => \dash\request::get('id')]);
 						$result = self::getNeededField_barcode($result);
-						if(!$result)
-						{
-							$result = [];
-						}
+						\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
+						\dash\code::compile();
+						\dash\code::exit();
 					}
 					else
 					{
