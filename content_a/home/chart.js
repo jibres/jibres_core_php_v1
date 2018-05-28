@@ -29,7 +29,6 @@ series.columns.template.adapter.add("fill", function (fill, target) {
 var label = chart.plotContainer.createChild(am4core.Label);
 label.text = '{%trans "Sales count group by hour"%}';
 label.x = 10;
-label.bold = true;
 label.y = 10;
 
 
