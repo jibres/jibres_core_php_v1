@@ -12,8 +12,7 @@
 
 {%block reportLast30Month%}
 <div class="dcard x3 pA0">
- <div class="chart" data-vals='{{ReportMonthlyChart}}'>
- </div>
+ <div class="chart" id="chartdiv"></div>
 </div>
   {%include display.pagination%}
 {%endblock%}
@@ -22,10 +21,10 @@
 
 {%block reportLast30MonthTable%}
 
-<div class="dcard x3 pA0">
+<div class="cbox fs12 pA0">
 	<table class="tbl">
 		<thead>
-			<tr>
+			<tr class="primary">
 				<th data-sort="{{sortLink.date.order}}"><a href="{{sortLink.date.link}}">{%trans "Date"%}</a></th>
 				<th data-sort="{{sortLink.sum.order}}"><a href="{{sortLink.sum.link}}">{%trans "Sum"%}</a></th>
 			</tr>
@@ -45,3 +44,9 @@
 {%endblock%}
 
 
+
+{%block foot_js%}
+<script type="text/javascript">
+{%include 'content_a/report/month/chart.js'%}
+</script>
+{%endblock%}
