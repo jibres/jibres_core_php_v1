@@ -1854,8 +1854,12 @@ progress.xl, meter.xl {
   opacity: 0.7;
   background-color: #f7f7f7;
   color: #444;
-  transition: opacity 0.3s;
+  transition-duration: 0.3s;
+  transition-property: opacity, background-color, box-shadow, border;
   user-select: none; }
+
+.tbox:hover {
+  border-color: #fff; }
 
 .rtl .tbox {
   padding: 1em 1.5em 1em 7em; }
@@ -1904,7 +1908,8 @@ progress.xl, meter.xl {
   background-color: #fff;
   color: #555;
   position: relative;
-  transition: opacity 0.3s; }
+  transition-duration: 0.3s;
+  transition-property: opacity, background-color, box-shadow, border; }
 
 .cbox .simple {
   border-bottom-color: transparent; }
@@ -12365,6 +12370,10 @@ body.enter.bg15 {
 .enter form .flex label:hover {
   background-color: rgba(0, 0, 0, 0.3); }
 
+.enter form .flex label i {
+  margin: 0;
+  display: block; }
+
 .enter form .flex input {
   padding: 0 1em;
   line-height: 50px;
@@ -12406,17 +12415,17 @@ body.enter.bg15 {
 
 /* custom style for some inputs*/
 .enter form #emobile label {
-  padding: 10px 0; }
-
-.enter form #eramz label, .enter form #eramzNew label {
   font-size: 2em;
-  line-height: 1.9em; }
+  line-height: 50px; }
 
-.enter form #eramz input[type="text"], .enter form #eramzNew input[type="text"] {
-  font-size: 0.5em; }
-
-.enter form #eusername label {
-  padding: 10px 0; }
+.enter form #eramz label,
+.enter form #eramzNew label,
+.enter form #displaynameBox label,
+.enter form #eramz input[type="text"],
+.enter form #eusername label,
+.enter form #eramzNew input[type="text"] {
+  font-size: 1.5em;
+  line-height: 50px; }
 
 .enter form #email, .enter form #emailNew {
   font-size: 0.8em; }
@@ -12487,13 +12496,13 @@ body.enter.bg15 {
 .enter #eMethods a:focus {
   opacity: 0.7; }
 
-.enter #eMethods a svg {
+.enter #eMethods a i {
   width: 40px;
   height: 40px;
   min-width: 40px;
   float: left;
-  margin-right: 1em;
-  padding: 5px; }
+  margin: 0 10px 0 0;
+  font-size: 2.5em; }
 
 .enter #eMethods a span {
   display: block;
@@ -12508,17 +12517,16 @@ body.enter.bg15 {
   background-color: rgba(0, 0, 0, 0.8);
   display: none; }
 
-.enter.rtl #eMethods a svg {
+.enter.rtl #eMethods a i {
   float: right;
-  margin-left: 1em;
-  margin-right: initial; }
+  margin: 0 0 0 10px; }
 
 .enter #eMethods #ebgoogle {
   min-width: 150px; }
 
-.enter #eMethods #ebgoogle svg {
-  background-color: #eee;
-  padding: 0; }
+.enter #eMethods #ebgoogle i {
+  background-color: #DD4B39;
+  padding-top: 3px; }
 
 .enter #eMethods #ebmobile {
   min-width: 150px; }
@@ -12536,7 +12544,7 @@ body.enter.bg15 {
   min-width: 120px; }
 
 .enter.rtl #eMethods #ebusername {
-  min-width: 130px; }
+  min-width: 160px; }
 
 /*langlist*/
 .enter .langlist {
