@@ -6,44 +6,14 @@ class load
 {
 	public static function memberDetail()
 	{
-		// \dash\data::listGrades(\lib\utility\grade::list());
-		// $parent_list =
-		// [
-		// 	"father"              => T_("Father"),
-		// 	"mother"              => T_("Mother"),
-		// 	"sister"              => T_("Sister"),
-		// 	"brother"             => T_("Brother"),
-		// 	"grandfather"         => T_("Grandfather"),
-		// 	"grandmother"         => T_("Grandmother"),
-		// 	"aunt"                => T_("Aunt"),
-		// 	"husband of the aunt" => T_("Husband of the aunt"),
-		// 	"uncle"               => T_("Uncle"),
-		// 	"boy"                 => T_("Boy"),
-		// 	"girl"                => T_("Girl"),
-		// 	"spouse"              => T_("Spouse"),
-		// 	"stepmother"          => T_("Stepmother"),
-		// 	"stepfather"          => T_("Stepfather"),
-		// 	"neighbor"            => T_("Neighbor"),
-		// 	"teacher"             => T_("Teacher"),
-		// 	"friend"              => T_("Friend"),
-		// 	"boss"                => T_("Boss"),
-		// 	"supervisor"          => T_("Supervisor"),
-		// 	"child"               => T_("Child"),
-		// 	"grandson"            => T_("Grandson"),
-		// ];
-		// \dash\data::listParents(implode(',' ,array_values($parent_list)));
+		$countryList = \dash\utility\location\countres::$data;
+		\dash\data::countryList($countryList);
 
-		$country_list = \dash\utility\location\countres::list('name', 'name - localname');
-		\dash\data::listCountries(implode(',', $country_list));
+		$cityList    = \dash\utility\location\cites::key_list('localname');
+		\dash\data::cityList($cityList);
 
-		$city_list    = \dash\utility\location\cites::list('localname');
-		$city_list    = array_unique($city_list);
-		\dash\data::listCities(implode(',', $city_list));
-
-		$provice_list = \dash\utility\location\provinces::list('localname');
-		$provice_list = array_unique($provice_list);
-		\dash\data::listProvices(implode(',', $provice_list));
-
+		$proviceList = \dash\utility\location\provinces::key_list('localname');
+		\dash\data::proviceList($proviceList);
 
 
 		$userstore_id = \dash\request::get('id');

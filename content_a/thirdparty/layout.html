@@ -196,29 +196,49 @@
 {%endblock%}
 
 
+
 {%block icountry%}
 <label for='country'>{%trans "Country"%}</label>
-<div class="input">
- <input type='text' class="autoList" name='country' id='country' data-minchars="1" data-autofirst data-list="{{listCountries}}" value="{{thirdparty.country}}" autocomplete="off" />
+ <div class="ui fluid search selection dropdown">
+      <input type="hidden" name="country" value="{{thirdparty.country}}">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Country</div>
+      <div class="menu">
+    {%for key, value in countryList%}
+      <div class="item" data-value="{{key}}">
+        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}
+        <small class="description">{{value.name | capitalize}}</small>
+    </div>
+    {%endfor%}
+  </div>
 </div>
 {%endblock%}
 
 
 {%block iprovince%}
-
 <label for='province'>{%trans "Province"%}</label>
-<div class="input">
- <input type='text' class="autoList" name='province' id='province' data-minchars="1" data-autofirst data-list="{{listProvices}}" value="{{thirdparty.province}}" autocomplete="off"/>
-</div>
+<select name="province" class="ui dropdown select search" id="province">
+  <option value="" readonly>{%trans "Select province"%}</option>
+  {%for key, value in proviceList%}
+    <option value="{{key}}" {% if thirdparty.province == key %} selected {%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
 {%endblock%}
 
 
 {%block icity%}
 <label for='city'>{%trans "City"%}</label>
-<div class="input">
- <input type='text' class="autoList" name='city' id='city' data-minchars="1" data-autofirst data-list="{{listCities}}" value="{{thirdparty.city}}" autocomplete="off"/>
-</div>
+<select name="city" class="ui dropdown select search" id="city">
+  <option value="" readonly>{%trans "Select city"%}</option>
+  {%for key, value in cityList%}
+    <option value="{{key}}" {% if thirdparty.city == key %} selected {%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
 {%endblock%}
+
+
+
+
 
 
 {%block izipcode%}
