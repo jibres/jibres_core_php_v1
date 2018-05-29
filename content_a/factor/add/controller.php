@@ -136,64 +136,70 @@ class controller
 		// $myName .= '   '. $value['firstname']. ' <b>'. $value['lastname']. '</b> <small class="badge light mLa5">'. $value['father'].'</small>';
 		// $myName .= '<span class="description">'. \dash\utility\human::fitNumber($value['nationalcode'], false). '</span>';
 
-		$result = [];
-		$id     = null;
-		$name   = null;
-		$datalist   = [];
+		$result   = [];
+		$id       = null;
+		$name     = null;
+		$datalist = [];
+		$priceTxt = '<span class="description ltr">';
 
 		if(isset($_data['thumb']))
 		{
-			$name .= '<img class="ui avatar image" src="'.  $_data['thumb'] .'"/> ';
+			$name .= '<img class="avatar image" src="'.  $_data['thumb'] .'"> ';
 		}
 
 		if(isset($_data['id']))
 		{
-			$id         = $_data['id'];
+			$id = $_data['id'];
 			$datalist['id'] = $_data['id'];
 		}
 
 		if(isset($_data['title']))
 		{
-			$name          .=  $_data['title'];
-
 			$datalist['title'] = $_data['title'];
-		}
-
-
-		if(isset($_data['finalprice']) && $_data['finalprice'])
-		{
-			$datalist['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
-			$name .= '<span class="badge success pRa10">'. $datalist['count']. '</span>';
+			$name .= '<span class="pRa10">'. $_data['title']. '</span>';
 		}
 
 		if(isset($_data['barcode']))
 		{
 			$datalist['barcode'] = $_data['barcode'];
+			$name .= '<span class="badge light mRa5"><i class="sf-thumbnails"></i> '. T_('Barcode'). '</span>';
 		}
 
 		if(isset($_data['barcode2']))
 		{
 			$datalist['barcode2'] = $_data['barcode2'];
-		}
-
-		if(isset($_data['price']))
-		{
-			$datalist['price'] = $_data['price'];
-			$name .= '<span class="pRa10">'. $datalist['price']. '</span>';
-		}
-
-		if(isset($_data['discount']))
-		{
-			$datalist['discount'] = $_data['discount'];
-			$name .= '<span class="description">'. $datalist['discount']. '</span>';
+			$name .= '<span class="badge light mRa5"><i class="sf-check"></i> '. T_('Iran barcode'). '</span>';
 		}
 
 		if(isset($_data['code']))
 		{
 			$datalist['desc'] = T_("Code"). ' +'. $_data['code'];
+			$name .= '<span class="badge light mRa5"><i class="sf-bookmark"></i> '. T_('Code'). $_data['code']. '</span>';
+		}
+
+		if(isset($_data['finalprice']) && $_data['finalprice'])
+		{
+			$datalist['finalprice'] = $_data['finalprice'];
+			$priceTxt .= '<span class="txtB">'. \dash\utility\human::fitNumber($datalist['finalprice']). '</span>';
+		}
+		if(isset($_data['price']))
+		{
+			$datalist['price'] = $_data['price'];
+			if(floatval($datalist['price']) !== floatval($datalist['finalprice']))
+			{
+				$priceTxt .= ' <span class="badge light mLR10"><i class="sf-bolt"></i> '. \dash\utility\human::fitNumber($datalist['price']);
+			}
+		}
+
+		if(isset($_data['discount']))
+		{
+			$datalist['discount'] = $_data['discount'];
+			$priceTxt .= ' - '. \dash\utility\human::fitNumber($datalist['discount']). '</span>';
 		}
 
 
+		// add price to name of item
+		$name   .= $priceTxt. '</span>';
 		$result =
 		[
 			// on list
@@ -236,7 +242,7 @@ class controller
 
 		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
-			$result['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
+			$result['count'] = \dash\utility\human::fitNumber($_data['finalprice']);
 		}
 
 		if(isset($_data['barcode']))
