@@ -3572,7 +3572,6 @@ img.mini {
   -webkit-print-color-adjust: exact; }
 
 [class^="sf-"] {
-  display: inline-block;
   margin: 0;
   min-width: 1.2em;
   text-align: center;
