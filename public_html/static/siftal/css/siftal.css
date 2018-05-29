@@ -7236,6 +7236,9 @@ li.sortable-placeholder {
 .chart * {
   font-family: IRANSans, Tahoma, sans-serif !important; }
 
+.chart .amcharts-chart-div > a {
+  display: none !important; }
+
 .rtl .chart {
   text-align: right; }
 
