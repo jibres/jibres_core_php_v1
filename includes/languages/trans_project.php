@@ -214,6 +214,7 @@ class twigTransTerms
 	echo T_("Proudly Made in IRAN");                                                  // Line 52
 
 	//----------------------------------------------------content\template\header.html
+	echo T_("Beta");                                                                  // Line 7
 	echo T_("Store Panel");                                                           // Line 12
 	echo T_("Admin Panel");                                                           // Line 18
 	echo T_("Enter");                                                                 // Line 14
