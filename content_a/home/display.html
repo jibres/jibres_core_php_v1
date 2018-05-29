@@ -21,7 +21,7 @@
  <div class="c3 s6">{{block ("prDate")}}</div>
 </div>
 
-{%if perm('aReportView') and false%}
+{%if perm('aReportView')%}
   {%if dashboardData.sale_time_chart == '[]'%}
   {%else%}
     {{block ("chart_primary")}}
@@ -140,7 +140,7 @@
 
 {%block chart_primary%}
 <div class="dcard x3 pA0">
- <div id="chartdiv" class="chart"></div>
+ <div id="chartdiv" class="chart" data-vals='{{dashboardData.sale_time_chart | raw}}'></div>
 </div>
 {%endblock%}
 
@@ -154,7 +154,7 @@
 </a>
 {%endblock%}
 
-{%block foot_js%}
+{%block foot_js2%}
 <script type="text/javascript">
 {%include 'content_a/home/chart.js'%}
 </script>

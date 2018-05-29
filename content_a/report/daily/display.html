@@ -12,7 +12,7 @@
 
 {%block reportLast30Days%}
 <div class="dcard x3 pA0">
-  <div id="chartdiv" class="chart"></div>
+  <div id="chartdiv" class="chart" data-vals='{{ReportDailyChart | raw}}'></div>
 </div>
   {%include display.pagination%}
 {%endblock%}
@@ -45,7 +45,7 @@
 
 
 
-{%block foot_js%}
+{%block foot_js2%}
 <script type="text/javascript">
 {%include 'content_a/report/daily/chart.js'%}
 </script>

@@ -94,7 +94,7 @@ function myChart3()
 
   var chart = am4core.create("chartdiv3", am4charts.XYChart);
 
-  chart.data = {{dashboardData.product_price_group_by_cat | raw}}
+  chart.data = {{dashboardData.product_price_group_by_cat | raw}};
 
   var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
   categoryAxis.renderer.grid.template.location = 0;

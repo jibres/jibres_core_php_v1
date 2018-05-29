@@ -16,7 +16,9 @@ class view
 
 		\dash\data::include_adminPanel(true);
 		\dash\data::include_css(true);
-		\dash\data::include_chart(true);
+		// \dash\data::include_chart(true);
+		// use old version of chart until new version is being stable
+		\dash\data::include_chart3(true);
 
 		\dash\data::site_title(\lib\store::name());
 		\dash\data::store(\lib\store::detail());

@@ -76,7 +76,7 @@
 
 {%block chartProductPriceVariation%}
 <div class="dcard x3 pA0">
- <div class="chart" id="chartdiv1"></div>
+ <div class="chart" id="chartdiv1" data-vals='{{dashboardData.product_price_variation | raw}}'></div>
 </div>
 
 {%endblock%}
@@ -295,14 +295,14 @@
 
 {%block chartProductGbyUnit%}
 <div class="dcard x3 pA0">
- <div class="chart" id="chartdiv2"></div>
+ <div class="chart" id="chartdiv2" data-vals='{{dashboardData.product_price_group_by_unit | raw}}'></div>
 </div>
 {%endblock%}
 
 
 {%block chartProductGbyCat%}
 <div class="dcard x3 pA0">
- <div class="chart" id="chartdiv3"></div>
+ <div class="chart" id="chartdiv3" data-vals='{{dashboardData.product_price_group_by_cat | raw}}'></div>
 </div>
 {%endblock%}
 
@@ -310,7 +310,7 @@
 
 
 
-{%block foot_js%}
+{%block foot_js2%}
 <script type="text/javascript">
 {%include 'content_a/product/summary/chart.js'%}
 </script>

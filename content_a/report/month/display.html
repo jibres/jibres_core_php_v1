@@ -12,7 +12,7 @@
 
 {%block reportLast30Month%}
 <div class="dcard x3 pA0">
- <div class="chart" id="chartdiv"></div>
+ <div class="chart" id="chartdiv" data-vals='{{ReportMonthlyChart | raw}}'></div>
 </div>
   {%include display.pagination%}
 {%endblock%}
@@ -45,7 +45,7 @@
 
 
 
-{%block foot_js%}
+{%block foot_js2%}
 <script type="text/javascript">
 {%include 'content_a/report/month/chart.js'%}
 </script>
