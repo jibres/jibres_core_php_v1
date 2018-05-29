@@ -111,9 +111,10 @@ function event_corridor(_e, _self, _key)
         var selectedRowEl = getSelectedRow();
         if(selectedRowEl)
         {
-          var nextSelectedRow = selectedRowEl.prev();
+          // var nextSelectedRow = selectedRowEl.prev();
           selectedRowEl.remove();
-          navigationFactorAddSetSelected(nextSelectedRow, true);
+          $('.dropdown.barCode input.search').select();
+          // navigationFactorAddSetSelected(nextSelectedRow, true);
           calcFooterValues();
         }
 
@@ -156,11 +157,11 @@ function event_corridor(_e, _self, _key)
       {
         if($(":focus").parents('.dropdown').find('#productSearch'))
         {
-          $('input[type=search]').select();
+          $('.dropdown.barCode input.search').select();
         }
         else
         {
-          $('input[type=search]').select();
+          $('.dropdown.barCode input.search').select();
           _e.preventDefault();
         }
       }
