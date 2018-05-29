@@ -478,7 +478,7 @@ function searchForProduct(_key, _value)
     // if have error show error message
     if(myMsg)
     {
-      addFindedProduct(null, myMsg);
+      addFindedProduct(null, myMsg, _value);
     }
     else
     {
@@ -493,7 +493,7 @@ function searchForProduct(_key, _value)
  * final function to add record of product
  * @param {[type]} _product [description]
  */
-function addFindedProduct(_product, _msg)
+function addFindedProduct(_product, _msg, _searchedValue)
 {
   if(_product)
   {
@@ -520,19 +520,22 @@ function addFindedProduct(_product, _msg)
     if(_msg)
     {
       notif('warn', _msg, null, null, {position:'center'});
-      sysBeep();
-      beep(500);
     }
     else
     {
       notif('warn', 'product is not detected', null, null, {position:'center'});
-      sysBeep();
-      beep(500);
     }
+
+    beep('ProductNotExist');
+    // show custom message if product not fount
+    // if(productNotExistList)
+    // productNotExistList.[_searchedValue] = 1;
+    // console.log(_searchedValue);
+    // console.log(productNotExistList);
   }
 }
 
-
+var productNotExistList;
 
 
 //All arguments are optional:
@@ -542,7 +545,7 @@ function addFindedProduct(_product, _msg)
 //volume of the tone. Default is 1, off is 0.
 //type of tone. Possible values are sine, square, sawtooth, triangle, and custom. Default is sine.
 //callback to use on end of tone
-function beep(duration, frequency, volume, type, callback)
+function beep(_msg, duration, frequency, volume, type, callback)
 {
   //if you have another AudioContext class use that one, as some browsers have a limit
   try
@@ -574,9 +577,12 @@ function beep(duration, frequency, volume, type, callback)
     logy('close some tabs!');
   }
 
-  var audio = new Audio('/static/sounds/ProductNotExist.mp4');
-  audio.play();
+  _msg =  '/static/sounds/'+ _msg +'.mp4';
 
+  var audio = new Audio(_msg);
+  audio.play();
+  // try to create sys beep
+  sysBeep();
 };
 
 function sysBeep()
