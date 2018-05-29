@@ -44,12 +44,13 @@ trait delete
 		if(!$result)
 		{
 			\dash\app::log('api:product:delete:access:denide', \dash\user::id(), $log_meta);
-			\dash\notif::error(T_("Can not access to delete this product"), 'product');
+			\dash\notif::error(T_("Product not found"), 'product');
 			return false;
 		}
 
-		$check_foreign = \lib\db\factors::get(['product_id' => $id, 'limit' => 1]);
-		if(isset($check_foreign['id']))
+		$check_foreign = \lib\db\factordetails::get(['product_id' => $id, 'limit' => 1]);
+
+		if($check_foreign)
 		{
 			\dash\notif::error(T_("This product is exist in your factors list, can not remove it!"), 'product');
 			return false;
