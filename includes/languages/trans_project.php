@@ -9,10 +9,10 @@ class twigTransTerms
 	echo T_("Jibres have a set of simple and practical tools on a regular basis for modern businesses.");// Line 48
 
 	//---------------------------------------------------content\benefits\display.html
-	echo T_("Soon");                                                                  // Line 251
+	echo T_("Soon");                                                                  // Line 267
 
 	//--------------------------------------------------content\changelog\display.html
-	echo T_("Date");                                                                  // Line 29
+	echo T_("Date");                                                                  // Line 28
 	echo T_("Description");                                                           // Line 38
 	echo T_("We are Developers, please wait!");                                       // Line 17
 	echo T_("Version 1 of Jibres will be released.");                                 // Line 22
@@ -36,9 +36,9 @@ class twigTransTerms
 	echo T_("We do our best to improve jibres's quality. So, knowing your valuable comments about bugs and problems and more importantly your precious offers will help us in this way.");// Line 8
 	echo T_("Name");                                                                  // Line 22
 	echo T_("Full Name");                                                             // Line 14
-	echo T_("Mobile");                                                                // Line 423
+	echo T_("Mobile");                                                                // Line 443
 	echo T_("Please enter valid mobile number. `:val` is incorrect");                 // Line 18
-	echo T_("Email");                                                                 // Line 354
+	echo T_("Email");                                                                 // Line 374
 	echo T_("Your Message");                                                          // Line 26
 	echo T_("Send");                                                                  // Line 29
 	echo T_("How to contact us");                                                     // Line 37
@@ -124,7 +124,7 @@ class twigTransTerms
 	echo T_("The easiest way to learn how to use Tejark is enter to it, which takes less than 3 minutes to setup your team.");// Line 74
 	echo T_("FREE");                                                                  // Line 109
 	echo T_("Standard");                                                              // Line 152
-	echo T_("Price");                                                                 // Line 219
+	echo T_("Price");                                                                 // Line 192
 	echo T_("per store / month");                                                     // Line 120
 	echo T_("Max number of products");                                                // Line 126
 	echo T_("Max number of third parties");                                           // Line 131
@@ -247,17 +247,17 @@ class twigTransTerms
 	echo T_("Save & Print");                                                          // Line 71
 	echo T_("Save & Next");                                                           // Line 68
 	echo T_("Row");                                                                   // Line 57
-	echo T_("Product");                                                               // Line 79
+	echo T_("Product");                                                               // Line 72
 	echo T_("Count");                                                                 // Line 59
-	echo T_("Discount");                                                              // Line 228
+	echo T_("Discount");                                                              // Line 201
 	echo T_("Total");                                                                 // Line 115
 	echo T_("Choose customer");                                                       // Line 110
 	echo T_("Search in list to add product");                                         // Line 120
 	echo T_("Last scanned barcode");                                                  // Line 146
 
 	//----------------------------------------------content_a\factor\edit\display.html
-	echo T_("Final Price");                                                           // Line 187
-	echo T_("Save");                                                                  // Line 398
+	echo T_("Final Price");                                                           // Line 203
+	echo T_("Save");                                                                  // Line 418
 	echo T_("Save & print");                                                          // Line 40
 	echo T_("Count of rows");                                                         // Line 90
 	echo T_("Sum of prices");                                                         // Line 93
@@ -266,7 +266,7 @@ class twigTransTerms
 
 	//--------------------------------------------content_a\factor\export\display.html
 	echo T_("Sale Invoice");                                                          // Line 31
-	echo T_("Sum");                                                                   // Line 30
+	echo T_("Sum");                                                                   // Line 29
 	echo T_("Your total discount and profits");                                       // Line 92
 
 	//---------------------------------------content_a\factor\fishprint\fishprint.html
@@ -310,13 +310,13 @@ class twigTransTerms
 	echo T_("Waste product");                                                         // Line 89
 
 	//-----------------------------------------------------content_a\home\display.html
-	echo T_("Products Summary");                                                      // Line 70
+	echo T_("Products Summary");                                                      // Line 63
 	echo T_("Add new Product");                                                       // Line 14
-	echo T_("Sale Invoicing");                                                        // Line 100
-	echo T_("Buy Invocing");                                                          // Line 110
+	echo T_("Sale Invoicing");                                                        // Line 93
+	echo T_("Buy Invocing");                                                          // Line 103
 	echo T_("Supplier");                                                              // Line 42
 	echo T_("Staff");                                                                 // Line 37
-	echo T_("Sales count group by hour");                                             // Line 160
+	echo T_("Sales count group by hour");                                             // Line 152
 
 	//-----------------------------------------------------------content_a\layout.html
 	echo T_("Dashboard");                                                             // Line 5
@@ -329,11 +329,14 @@ class twigTransTerms
 	echo T_("List of sales");                                                         // Line 37
 	echo T_("List of purchases");                                                     // Line 38
 	echo T_("List of all factors");                                                   // Line 39
-	echo T_("Setting");                                                               // Line 45
-	echo T_("Store plans");                                                           // Line 48
-	echo T_("Factor settings");                                                       // Line 49
-	echo T_("Shift transformation");                                                  // Line 55
-	echo T_("You are active user");                                                   // Line 61
+	echo T_("Reports");                                                               // Line 45
+	echo T_("Daily report");                                                          // Line 48
+	echo T_("Monthly report");                                                        // Line 49
+	echo T_("Setting");                                                               // Line 55
+	echo T_("Store plans");                                                           // Line 58
+	echo T_("Factor settings");                                                       // Line 59
+	echo T_("Shift transformation");                                                  // Line 65
+	echo T_("You are active user");                                                   // Line 71
 
 	//-------------------------------------------content_a\permission\add\display.html
 	echo T_("Require");                                                               // Line 28
@@ -362,7 +365,7 @@ class twigTransTerms
 
 	//-------------------------------------------content_a\product\export\display.html
 	echo T_("Please wait to complete export progress");                               // Line 11
-	echo T_("Export");                                                                // Line 89
+	echo T_("Export");                                                                // Line 62
 
 	//------------------------------------------content_a\product\general\display.html
 
@@ -381,9 +384,9 @@ class twigTransTerms
 	echo T_("Title");                                                                 // Line 83
 	echo T_("Category");                                                              // Line 72
 	echo T_("Final price");                                                           // Line 77
-	echo T_("Stock");                                                                 // Line 286
+	echo T_("Stock");                                                                 // Line 302
 	echo T_("Last modified");                                                         // Line 79
-	echo T_("Code");                                                                  // Line 118
+	echo T_("Code");                                                                  // Line 128
 	echo T_("stock count is less than zero!");                                        // Line 88
 	echo T_("Discount more than 50 percent!");                                        // Line 94
 	echo T_("Final price is under buy price");                                        // Line 95
@@ -398,7 +401,7 @@ class twigTransTerms
 	//---------------------------------------------------content_a\product\layout.html
 	echo T_("General Detail");                                                        // Line 99
 	echo T_("Delete product");                                                        // Line 46
-	echo T_("Add");                                                                   // Line 394
+	echo T_("Add");                                                                   // Line 414
 	echo T_("Insert");                                                                // Line 43
 	echo T_("Save All");                                                              // Line 66
 	echo T_("allowed extentions jpg, png (gif for bussiness plans). Max 500Kb");      // Line 73
@@ -408,67 +411,65 @@ class twigTransTerms
 	echo T_("Enter a valid team title");                                              // Line 85
 	echo T_("Slug");                                                                  // Line 94
 	echo T_("Manufacturer");                                                          // Line 101
-	echo T_("Product manufacturer");                                                  // Line 103
-	echo T_("Cat");                                                                   // Line 109
-	echo T_("Organize by category");                                                  // Line 111
-	echo T_("For quick access");                                                      // Line 120
-	echo T_("Short code");                                                            // Line 128
-	echo T_("Unit");                                                                  // Line 134
-	echo T_("like Qty, kg, etc");                                                     // Line 136
-	echo T_("Barcode");                                                               // Line 144
-	echo T_("Scan Barcode here...");                                                  // Line 146
-	echo T_("Barcode2");                                                              // Line 152
-	echo T_("Scan Barcode2 here...");                                                 // Line 154
-	echo T_("Buy price");                                                             // Line 171
-	echo T_("Sale Price");                                                            // Line 177
-	echo T_("Price for sale without discount");                                       // Line 179
-	echo T_("Impure Interest Rate");                                                  // Line 180
-	echo T_("Final Pure Price");                                                      // Line 189
-	echo T_("Pure Interest Rates");                                                   // Line 190
-	echo T_("Discount on sale");                                                      // Line 200
-	echo T_("Discount Percent");                                                      // Line 201
-	echo T_("Vat");                                                                   // Line 210
-	echo T_("This product is vat base");                                              // Line 210
-	echo T_("Initial Balance");                                                       // Line 218
-	echo T_("Min stock");                                                             // Line 226
-	echo T_("Max stock");                                                             // Line 235
-	echo T_("Status of product");                                                     // Line 242
-	echo T_("Avalible");                                                              // Line 246
-	echo T_("Normal status of product");                                              // Line 246
-	echo T_("maybe come in future and be available");                                 // Line 251
-	echo T_("Unavailable");                                                           // Line 256
-	echo T_("temporary does not exist in store");                                     // Line 256
-	echo T_("Discountinued");                                                         // Line 261
-	echo T_("does not exist for now and on the future");                              // Line 261
-	echo T_("Unset");                                                                 // Line 266
-	echo T_("Unknown status for product");                                            // Line 266
-	echo T_("Sold");                                                                  // Line 277
-	echo T_("Service");                                                               // Line 295
-	echo T_("This product is service base and not a real goods");                     // Line 295
-	echo T_("Sale Online");                                                           // Line 304
-	echo T_("This product is saleonline base");                                       // Line 304
-	echo T_("Sale in store");                                                         // Line 314
-	echo T_("This product is salestore base");                                        // Line 314
-	echo T_("Count in carton");                                                       // Line 322
-	echo T_("Count of product in carton");                                            // Line 324
+	echo T_("Product manufacturer");                                                  // Line 104
+	echo T_("Cat");                                                                   // Line 115
+	echo T_("Organize by category");                                                  // Line 117
+	echo T_("For quick access");                                                      // Line 130
+	echo T_("Short code");                                                            // Line 138
+	echo T_("Unit");                                                                  // Line 146
+	echo T_("like Qty, kg, etc");                                                     // Line 148
+	echo T_("Barcode");                                                               // Line 160
+	echo T_("Scan Barcode here...");                                                  // Line 162
+	echo T_("Barcode2");                                                              // Line 168
+	echo T_("Scan Barcode2 here...");                                                 // Line 170
+	echo T_("Buy price");                                                             // Line 187
+	echo T_("Sale Price");                                                            // Line 193
+	echo T_("Price for sale without discount");                                       // Line 195
+	echo T_("Impure Interest Rate");                                                  // Line 196
+	echo T_("Final Pure Price");                                                      // Line 205
+	echo T_("Pure Interest Rates");                                                   // Line 206
+	echo T_("Discount on sale");                                                      // Line 216
+	echo T_("Discount Percent");                                                      // Line 217
+	echo T_("Vat");                                                                   // Line 226
+	echo T_("This product is vat base");                                              // Line 226
+	echo T_("Initial Balance");                                                       // Line 234
+	echo T_("Min stock");                                                             // Line 242
+	echo T_("Max stock");                                                             // Line 251
+	echo T_("Status of product");                                                     // Line 258
+	echo T_("Avalible");                                                              // Line 262
+	echo T_("Normal status of product");                                              // Line 262
+	echo T_("maybe come in future and be available");                                 // Line 267
+	echo T_("Unavailable");                                                           // Line 272
+	echo T_("temporary does not exist in store");                                     // Line 272
+	echo T_("Discountinued");                                                         // Line 277
+	echo T_("does not exist for now and on the future");                              // Line 277
+	echo T_("Unset");                                                                 // Line 282
+	echo T_("Unknown status for product");                                            // Line 282
+	echo T_("Sold");                                                                  // Line 293
+	echo T_("Service");                                                               // Line 311
+	echo T_("This product is service base and not a real goods");                     // Line 311
+	echo T_("Sale Online");                                                           // Line 320
+	echo T_("This product is saleonline base");                                       // Line 320
+	echo T_("Sale in store");                                                         // Line 330
+	echo T_("This product is salestore base");                                        // Line 330
+	echo T_("Count in carton");                                                       // Line 338
+	echo T_("Count of product in carton");                                            // Line 340
 
 	//------------------------------------------content_a\product\summary\display.html
-	echo T_("Product GroupBy Unit");                                                  // Line 36
-	echo T_("Product GroupBy Category");                                              // Line 45
-	echo T_("You are not add product yet!");                                          // Line 54
-	echo T_("Add some new product");                                                  // Line 54
-	echo T_("Add new products");                                                      // Line 63
-	echo T_("List of products");                                                      // Line 72
-	echo T_("Import products");                                                       // Line 81
-	echo T_("Price Variation");                                                       // Line 99
-	echo T_("Check list of products");                                                // Line 115
-	echo T_("Product Count");                                                         // Line 118
-	echo T_("Product with barcode");                                                  // Line 128
-	echo T_("Product with barcode2");                                                 // Line 138
-	echo T_("Min");                                                                   // Line 181
-	echo T_("Max");                                                                   // Line 190
-	echo T_("Average");                                                               // Line 199
-	echo T_("Buy Price");                                                             // Line 210
+	echo T_("You are not add product yet!");                                          // Line 27
+	echo T_("Add some new product");                                                  // Line 27
+	echo T_("Add new products");                                                      // Line 36
+	echo T_("List of products");                                                      // Line 45
+	echo T_("Import products");                                                       // Line 54
+	echo T_("Price Variation");                                                       // Line 72
+	echo T_("Check list of products");                                                // Line 88
+	echo T_("Product Count");                                                         // Line 91
+	echo T_("Product with barcode");                                                  // Line 101
+	echo T_("Product with barcode2");                                                 // Line 111
+	echo T_("Min");                                                                   // Line 154
+	echo T_("Max");                                                                   // Line 163
+	echo T_("Average");                                                               // Line 172
+	echo T_("Buy Price");                                                             // Line 183
 
 	//---------------------------------------------content_a\report\daily\display.html
 
@@ -492,16 +493,16 @@ class twigTransTerms
 	echo T_("Store Plan");                                                            // Line 38
 	echo T_("Security and privacy");                                                  // Line 40
 	echo T_("Report Settings");                                                       // Line 41
-	echo T_("Enter a valid name from 3 to 40 character");                             // Line 408
+	echo T_("Enter a valid name from 3 to 40 character");                             // Line 428
 	echo T_("Team short name");                                                       // Line 91
 	echo T_("Used for url of board");                                                 // Line 91
 	echo T_("Slug of team for board url");                                            // Line 93
 	echo T_("Website");                                                               // Line 102
 	echo T_("Link your logo on board for visitors");                                  // Line 100
-	echo T_("Phone");                                                                 // Line 312
+	echo T_("Phone");                                                                 // Line 332
 	echo T_("For show in factors");                                                   // Line 130
 	echo T_("Used for description of board and show in social media links");          // Line 124
-	echo T_("Address");                                                               // Line 348
+	echo T_("Address");                                                               // Line 368
 	echo T_("Choose your plan");                                                      // Line 137
 	echo T_("All the basics for personal use.");                                      // Line 141
 	echo T_("Everything you need for a growing business.");                           // Line 147
@@ -558,7 +559,7 @@ class twigTransTerms
 	echo T_("Last name");                                                             // Line 120
 	echo T_("Grade");                                                                 // Line 126
 	echo T_("Select thirdparty grade");                                               // Line 128
-	echo T_("Like 09120123456");                                                      // Line 425
+	echo T_("Like 09120123456");                                                      // Line 445
 	echo T_("National code");                                                         // Line 145
 	echo T_("10 digit national code");                                                // Line 147
 	echo T_("Father name");                                                           // Line 155
@@ -567,26 +568,28 @@ class twigTransTerms
 	echo T_("Classroom");                                                             // Line 178
 	echo T_("Please select one classroom");                                           // Line 181
 	echo T_("Birth city");                                                            // Line 193
-	echo T_("Country");                                                               // Line 200
-	echo T_("Province");                                                              // Line 209
-	echo T_("City");                                                                  // Line 217
-	echo T_("Zip code");                                                              // Line 225
-	echo T_("Religion");                                                              // Line 233
-	echo T_("Birth place");                                                           // Line 241
-	echo T_("Issue Place");                                                           // Line 249
-	echo T_("Passport id");                                                           // Line 258
-	echo T_("Passport expire date");                                                  // Line 267
-	echo T_("Id number");                                                             // Line 276
-	echo T_("National Id");                                                           // Line 284
-	echo T_("Mobile of Staff");                                                       // Line 304
-	echo T_("Like");                                                                  // Line 356
-	echo T_("Mobile of father");                                                      // Line 321
-	echo T_("Mobile of mother");                                                      // Line 330
-	echo T_("Post code");                                                             // Line 340
-	echo T_("Company");                                                               // Line 408
-	echo T_("Visitor name");                                                          // Line 417
-	echo T_("Customer code");                                                         // Line 433
-	echo T_("Desctiption");                                                           // Line 441
+	echo T_("Country");                                                               // Line 201
+	echo T_("Province");                                                              // Line 219
+	echo T_("Select province");                                                       // Line 221
+	echo T_("City");                                                                  // Line 230
+	echo T_("Select city");                                                           // Line 232
+	echo T_("Zip code");                                                              // Line 245
+	echo T_("Religion");                                                              // Line 253
+	echo T_("Birth place");                                                           // Line 261
+	echo T_("Issue Place");                                                           // Line 269
+	echo T_("Passport id");                                                           // Line 278
+	echo T_("Passport expire date");                                                  // Line 287
+	echo T_("Id number");                                                             // Line 296
+	echo T_("National Id");                                                           // Line 304
+	echo T_("Mobile of Staff");                                                       // Line 324
+	echo T_("Like");                                                                  // Line 376
+	echo T_("Mobile of father");                                                      // Line 341
+	echo T_("Mobile of mother");                                                      // Line 350
+	echo T_("Post code");                                                             // Line 360
+	echo T_("Company");                                                               // Line 428
+	echo T_("Visitor name");                                                          // Line 437
+	echo T_("Customer code");                                                         // Line 453
+	echo T_("Desctiption");                                                           // Line 461
 
 	//-----------------------------------------------------content_c\home\display.html
 	echo T_("Start from");                                                            // Line 32
@@ -594,8 +597,9 @@ class twigTransTerms
 	echo T_("days left");                                                             // Line 36
 	echo T_("Expired");                                                               // Line 40
 	echo T_("Your staff panel");                                                      // Line 49
-	echo T_("Add new Store");                                                         // Line 94
-	echo T_("Store");                                                                 // Line 104
+	echo T_("Your are customer in this store");                                       // Line 51
+	echo T_("Add new Store");                                                         // Line 96
+	echo T_("Store");                                                                 // Line 106
 
 	//-----------------------------------------------------------content_c\layout.html
 	echo T_("Billing");                                                               // Line 6
