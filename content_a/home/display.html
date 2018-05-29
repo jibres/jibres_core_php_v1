@@ -21,7 +21,7 @@
  <div class="c3 s6">{{block ("prDate")}}</div>
 </div>
 
-{%if perm('aReportView')%}
+{%if perm('aReportView') and false%}
   {%if dashboardData.sale_time_chart == '[]'%}
   {%else%}
     {{block ("chart_primary")}}
