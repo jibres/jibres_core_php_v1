@@ -185,6 +185,22 @@ function event_corridor(_e, _self, _key)
     case '190':             // .
       break;
 
+    case '111':             // divider on numpad
+    case '191':             // divider
+      if(check_factor())
+      {
+        if($(":focus").parents('.dropdown').find('#productSearch'))
+        {
+          $('.dropdown.barCode input.search').select();
+        }
+        else
+        {
+          $('.dropdown.barCode input.search').select();
+          _e.preventDefault();
+        }
+      }
+      break;
+
     case '112':             // f1
       break;
 
