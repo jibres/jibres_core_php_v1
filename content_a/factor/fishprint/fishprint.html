@@ -63,7 +63,7 @@
  {%endfor%}
   </tbody>
 
-{%if factorDetail.factor.item > 0%}
+{%if factorDetail.factor.item > 0 and false%}
   <tfoot class="txtC">
    <th>{{factorDetail.factor.item | number_format | fitNumber}}</th>
    <th>{{factorDetail.factor.qty | fitNumber}}</th>
