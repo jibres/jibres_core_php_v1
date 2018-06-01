@@ -199,6 +199,37 @@
     "require": []
   },
 
+  "aFactorDashboard":
+  {
+    "title": "aFactorDashboard",
+    "cat": "Factors",
+    "require": []
+  },
+  "aFactorList":
+  {
+    "title": "aFactorList",
+    "cat": "Factors",
+    "require": []
+  },
+  "aFactorAdd":
+  {
+    "title": "aFactorAdd",
+    "cat": "Factors",
+    "require": []
+  },
+  "aFactorFishPrint":
+  {
+    "title": "aFactorFishPrint",
+    "cat": "Factors",
+    "require": []
+  },
+  "aFactorExport":
+  {
+    "title": "aFactorExport",
+    "cat": "Factors",
+    "require": []
+  },
+
 
   "aReportView":
   {
@@ -231,34 +262,6 @@
     "title": "aSettingEdit",
     "cat": "Store Setting",
     "require": []
-  },
-
-
-
-
-
-  "aFactorList":
-  {
-    "title": "aFactorList",
-    "cat": "Factors",
-    "require": []
-  },
-  "aFactorAdd":
-  {
-    "title": "aFactorAdd",
-    "cat": "Factors",
-    "require": []
-  },
-  "aFactorFishPrint":
-  {
-    "title": "aFactorFishPrint",
-    "cat": "Factors",
-    "require": []
-  },
-  "aFactorExport":
-  {
-    "title": "aFactorExport",
-    "cat": "Factors",
-    "require": []
   }
+
 }
