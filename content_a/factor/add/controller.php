@@ -24,45 +24,49 @@ class controller
 
 					foreach ($resultRaw as $key => $value)
 					{
+						$name = '<div class="f">';
+
 						if(isset($value['id']))
 						{
-							$result['result']['value'] = T_($value['id']);
+							$result['result'][$key]['value'] = $value['id'];
 						}
+
 						if(isset($value['displayname']))
 						{
-							$result['result']['title'] = $value['displayname'];
+							$name .='<span class="c"><b>'. $value['displayname'] . '</b></span>';
+
 						}
 						if(isset($value['mobile']))
 						{
-							$result['result']['count'] = $value['mobile'];
-						}
+							$name .= '<div class="cauto floatL mL5 ">'.\dash\utility\human::number($value['mobile']). '</div>';
 
-						$desc = null;
+						}
 
 						if(isset($value['staff']) && $value['staff'])
 						{
-							$desc .= T_("Staff");
+							$name .= '<small title="'. T_("Staff").'" class="cauto floatL mL5 badge success">'. T_("Staff") . '</small>';
 						}
 
 
 						if(isset($value['customer']) && $value['customer'])
 						{
-							$desc .= ' - '. T_("Customer");
+							$name .= '<small title="'. T_("Customer").'" class="cauto floatL mL5 badge primary">'. T_("Customer") . '</small>';
 						}
 
 
 						if(isset($value['supplier']) && $value['supplier'])
 						{
-							$desc .= ' - '. T_("Supplier");
+							$name .= '<small title="'. T_("Supplier").'" class="cauto floatL mL5 badge warn2">'. T_("Supplier") . '</small>';
 						}
 
-						$result['result']['desc'] = trim(trim($desc), '-');
+						// if(isset($value['code']))
+						// {
+						// 	$name .= '<span class="cauto badge light mRa5"><i class="sf-bookmark"></i> '. T_('Code'). $value['code']. '</span>';
+						// }
 
-						if(isset($value['code']))
-						{
-							$result['result']['desc2'] = T_('code') . ' '. $value['code'];
-						}
+						$result['result'][$key]['name'] = $name. '</div>';
 					}
+
 					break;
 
 				case 'product':

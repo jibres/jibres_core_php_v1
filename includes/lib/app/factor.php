@@ -56,7 +56,7 @@ class factor
 			$customer_id = \dash\coding::decode($customer);
 			if($customer_id)
 			{
-				$customer_detail = \lib\db\userstores::get(['id' => $customer, 'store_id' => \lib\store::id(), 'limit' => 1]);
+				$customer_detail = \lib\db\userstores::get(['id' => $customer_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 				if(!isset($customer_detail['id']))
 				{
 					\dash\notif::error(T_("Customer detail is invalid"), 'customer');
