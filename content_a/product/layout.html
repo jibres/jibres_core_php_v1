@@ -158,16 +158,18 @@
 
 {%block iBarcode%}
 <label for="barcode">{%trans "Barcode"%}</label>
-<div class="input ltr">
- <input type="text" name="barcode" id="barcode" placeholder='{%trans "Scan Barcode here..."%}' value="{{product.barcode}}" class="barCode txtC" data-lock autocomplete="off">
+<div class="input ">
+ <input type="text" name="barcode" id="barcode" placeholder='{%trans "Scan Barcode here..."%}' value="{{product.barcode}}" class="barCode txtC ltr" data-lock autocomplete="off">
+ <span class="addon country"><i></i></span>
 </div>
 {%endblock%}
 
 
 {%block iBarcode2%}
 <label for="barcode2">{%trans "Barcode2"%}</label>
-<div class="input ltr">
- <input type="text" name="barcode2" id="barcode2" placeholder='{%trans "Scan Barcode2 here..."%}' value="{{product.barcode2}}" class="barCode txtC" data-lock autocomplete="off">
+<div class="input">
+ <input type="text" name="barcode2" id="barcode2" placeholder='{%trans "Scan Barcode2 here..."%}' value="{{product.barcode2}}" class="barCode txtC ltr" data-lock autocomplete="off">
+ <span class="addon country"><i></i></span>
 </div>
 {%endblock%}
 
