@@ -274,7 +274,7 @@ kbd{font-family:monospace;}
 .factor .tbl tfoot th{border-top:1px dotted #000;font-weight:bold}
 .factor .factorResult th{vertical-align: middle;}
 .factor .factorResult .collapsing{font-weight:bold;font-size: 1.2em;}
-.factor .factorResult .factorSum{font-size: 1.2em;color:#000}
+.factor .factorResult .factorSum{font-size: 1.2em;color:#000!important;}
 
 
 
@@ -342,11 +342,11 @@ kbd{font-family:monospace;}
   #content{overflow: auto;}
   .siftal #content .tbox{display: none}
   .tbl{color:#000!important;font-size:1.2em}
-  .tbl thead{background-color:#aaa;}
+  .tbl thead{background-color:#ddd;color:#000}
   .tbl tfoot{background-color:#ddd;font-size:1.1em}
 
   body.siftal #main #content{padding:0;}
-  .factor.printArea{color:#000;}
+  .factor.printArea{color:#000!important;}
 
 }
 
