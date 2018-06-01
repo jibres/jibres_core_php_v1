@@ -52,13 +52,13 @@
   <tbody class="txtC">
  {%for key, datarow in factorDetail.factor_detail%}
   <tr>
-   <td>{{datarow.title}}</td>
-   <td>{{datarow.factordetails_count  | fitNumber}}</td>
-   <td>{{datarow.factordetails_price | number_format | fitNumber}}</td>
+   <td class="fs09">{{datarow.title}}</td>
+   <td>{{datarow.factordetails_count | fitNumber(false)}}</td>
+   <td>{{datarow.factordetails_price | fitNumber}}</td>
 {%if factorDetail.factor.detaildiscount%}
-   <td>{{datarow.factordetails_discount | number_format | fitNumber}}</td>
+   <td>{{datarow.factordetails_discount | fitNumber}}</td>
 {%endif%}
-   <td>{{datarow.factordetails_sum | number_format | fitNumber}}</td>
+   <td>{{datarow.factordetails_sum | fitNumber}}</td>
   </tr>
  {%endfor%}
   </tbody>
