@@ -5,6 +5,12 @@
     "cat": "Store Products",
     "require": []
   },
+  "aProductDashboard":
+  {
+    "title": "aProductDashboard",
+    "cat": "Store Products",
+    "require": []
+  },
   "aProductReport":
   {
     "title": "aProductReport",
@@ -17,9 +23,33 @@
     "cat": "Store Products",
     "require": []
   },
+  "aProductAddWarehouse":
+  {
+    "title": "aProductAdd",
+    "cat": "Store Products",
+    "require": []
+  },
   "aProductEdit":
   {
     "title": "aProductEdit",
+    "cat": "Store Products",
+    "require": []
+  },
+  "aProductEditStatus":
+  {
+    "title": "aProductEditStatus",
+    "cat": "Store Products",
+    "require": []
+  },
+  "aProductEditAvatar":
+  {
+    "title": "aProductEditStatus",
+    "cat": "Store Products",
+    "require": []
+  },
+  "aProductEditWarehouse":
+  {
+    "title": "aProductEditStatus",
     "cat": "Store Products",
     "require": []
   },
