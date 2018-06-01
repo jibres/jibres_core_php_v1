@@ -25,7 +25,7 @@
   },
   "aProductAddWarehouse":
   {
-    "title": "aProductAdd",
+    "title": "aProductAddWarehouse",
     "cat": "Store Products",
     "require": []
   },
@@ -43,13 +43,13 @@
   },
   "aProductEditAvatar":
   {
-    "title": "aProductEditStatus",
+    "title": "aProductEditAvatar",
     "cat": "Store Products",
     "require": []
   },
   "aProductEditWarehouse":
   {
-    "title": "aProductEditStatus",
+    "title": "aProductEditWarehouse",
     "cat": "Store Products",
     "require": []
   },
@@ -84,17 +84,90 @@
   {
     "title": "aThirdPartyAdd",
     "cat": "Store Users",
-    "require": []
-  },
-  "aStaffAdd":
-  {
-    "title": "aStaffAdd",
-    "cat": "Store Users",
+    "titleBefore": "ThirdParty",
     "require": []
   },
   "aThirdPartyEdit":
   {
     "title": "aThirdPartyEdit",
+    "cat": "Store Users",
+    "require": []
+  },
+
+  "aStaffAdd":
+  {
+    "title": "aStaffAdd",
+    "cat": "Store Users",
+    "titleBefore": "Staffs",
+    "require": []
+  },
+  "aStaffEdit":
+  {
+    "title": "aStaffEdit",
+    "cat": "Store Users",
+    "require": []
+  },
+  "aStaffEditStatus":
+  {
+    "title": "aStaffEditStatus",
+    "cat": "Store Users",
+    "require": []
+  },
+  "aStaffDelete":
+  {
+    "title": "aStaffDelete",
+    "cat": "Store Users",
+    "require": []
+  },
+
+  "aCustomerAdd":
+  {
+    "title": "aCustomerAdd",
+    "cat": "Store Users",
+    "titleBefore": "Customers",
+    "require": []
+  },
+  "aCustomerEdit":
+  {
+    "title": "aCustomerEdit",
+    "cat": "Store Users",
+    "require": []
+  },
+  "aCustomerEditStatus":
+  {
+    "title": "aCustomerEditStatus",
+    "cat": "Store Users",
+    "require": []
+  },
+  "aCustomerDelete":
+  {
+    "title": "aCustomerDelete",
+    "cat": "Store Users",
+    "require": []
+  },
+
+  "aSupplierAdd":
+  {
+    "title": "aSupplierAdd",
+    "cat": "Store Users",
+    "titleBefore": "Suppliers",
+    "require": []
+  },
+  "aSupplierEdit":
+  {
+    "title": "aSupplierEdit",
+    "cat": "Store Users",
+    "require": []
+  },
+  "aSupplierEditStatus":
+  {
+    "title": "aSupplierEditStatus",
+    "cat": "Store Users",
+    "require": []
+  },
+  "aSupplierDelete":
+  {
+    "title": "aSupplierDelete",
     "cat": "Store Users",
     "require": []
   },
