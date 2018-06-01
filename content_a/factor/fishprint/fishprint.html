@@ -53,7 +53,7 @@
  {%for key, datarow in factorDetail.factor_detail%}
   <tr>
    <td class="fs09">{{datarow.title}}</td>
-   <td>{{datarow.factordetails_count | fitNumber(false)}}</td>
+   <td>{{datarow.factordetails_count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
    <td>{{datarow.factordetails_price | fitNumber}}</td>
 {%if factorDetail.factor.detaildiscount%}
    <td>{{datarow.factordetails_discount | fitNumber}}</td>
