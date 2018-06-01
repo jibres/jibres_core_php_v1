@@ -43,24 +43,24 @@
 
         <div class="justify-start">
           {%if value.supplier%}
-            {%if value.visitormobile%}<span class="icon sf-mobile fs18"></span>
+            {%if value.visitormobile%}<span class="sf-mobile fs18"></span>
               {{value.visitormobile|fitNumber(false)}}
             {%endif%}
           {%else%}
-            {%if value.mobile%}<span class="icon sf-mobile fs18"></span>
+            {%if value.mobile%}<span class="sf-mobile fs18"></span>
               {{value.mobile|fitNumber(false)}}
             {%endif%}
           {%endif%}
         </div>
         <div>
             {%if value.customer%}
-              <a href="{{url.this}}?type={{value.type}}">{%trans "Customer"%}<i class="sf-users"></i></a>
+              <a href="{{url.this}}?type={{value.type}}">{%trans "Customer"%}<i class="mLR5 sf-users"></i></a>
             {%endif%}
             {%if value.staff%}
-              <a href="{{url.this}}?type={{value.type}}">{%trans "Staff"%}<i class="sf-user-4"></i></a>
+              <a href="{{url.this}}?type={{value.type}}">{%trans "Staff"%}<i class="mLR5 sf-user-4"></i></a>
             {%endif%}
             {%if value.supplier%}
-              <a href="{{url.this}}?type={{value.type}}">{%trans "Supplier"%}<i class="sf-network"></i></a>
+              <a href="{{url.this}}?type={{value.type}}">{%trans "Supplier"%}<i class="mLR5 sf-network"></i></a>
             {%endif%}
         </div>
       </div>
