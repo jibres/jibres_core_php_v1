@@ -1,20 +1,93 @@
 {
-  "admin": {
+  "admin":
+  {
     "title": "Admin",
     "contain": []
   },
-  "seller": {
-    "title": "Seller",
-    "contain": [
-      "aProductEdit",
-      "aProductAdd",
-      "aProductDelete",
-      "aProductReport",
+  "salesManager":
+  {
+    "title": "salesManager",
+    "contain":
+    [
       "aProductList",
-      "aFactorFishPrint",
+      "aProductDashboard",
+      "aProductReport",
+      "aProductAdd",
+      "aProductAddWarehouse",
+      "aProductEdit",
+      "aProductEditStatus",
+      "aProductEditAvatar",
+      "aProductEditWarehouse",
+      "aProductDelete",
+      "aProductImport",
+      "aProductExport",
+      "aThirdPartyView",
+      "aThirdPartyAdd",
+      "aThirdPartyEdit",
+      "aStaffAdd",
+      "aStaffEdit",
+      "aStaffEditStatus",
+      "aCustomerAdd",
+      "aCustomerEdit",
+      "aCustomerEditStatus",
+      "aCustomerDelete",
+      "aSupplierAdd",
+      "aSupplierEdit",
+      "aSupplierEditStatus",
+      "aSupplierDelete",
+      "aFactorDashboard",
+      "aFactorList",
       "aFactorAdd",
-      "aFactorExport",
-      "aFactorList"
+      "aFactorFishPrint",
+      "aFactorExport"
+    ]
+  },
+  "salesAssociate":
+  {
+    "title": "salesAssociate",
+    "contain":
+    [
+      "aProductList",
+      "aProductDashboard",
+      "aProductReport",
+      "aProductAdd",
+      "aProductAddWarehouse",
+      "aProductEdit",
+      "aProductEditStatus",
+      "aProductEditAvatar",
+      "aProductEditWarehouse",
+      "aProductDelete",
+      "aProductImport",
+      "aThirdPartyView",
+      "aThirdPartyAdd",
+      "aThirdPartyEdit",
+      "aCustomerAdd",
+      "aCustomerEdit",
+      "aSupplierAdd",
+      "aSupplierEdit",
+      "aFactorDashboard",
+      "aFactorList",
+      "aFactorAdd",
+      "aFactorFishPrint"
+    ]
+  },
+  "salesAssistant":
+  {
+    "title": "salesAssistant",
+    "contain":
+    [
+      "aProductList",
+      "aProductAdd",
+      "aProductEdit",
+      "aThirdPartyView",
+      "aThirdPartyAdd",
+      "aThirdPartyEdit",
+      "aCustomerAdd",
+      "aCustomerEdit",
+      "aFactorDashboard",
+      "aFactorList",
+      "aFactorAdd",
+      "aFactorFishPrint"
     ]
   }
 }
