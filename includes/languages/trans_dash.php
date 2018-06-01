@@ -241,7 +241,7 @@ class twigTransTerms
 	echo T_("Ermile");                                                                // Line 21
 	echo T_("Version");                                                               // Line 21
 
-	//-----------------------------------addons\content_cp\permission\add\display.html
+	//----------------------------------addons\content_cp\permission\add\permView.html
 	echo T_("The permission name should be unique and contain only alphanameric characters and underscores");// Line 14
 	echo T_("Name of your permission");                                               // Line 14
 	echo T_("Label");                                                                 // Line 17

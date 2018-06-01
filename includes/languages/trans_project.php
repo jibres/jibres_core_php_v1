@@ -339,15 +339,12 @@ class twigTransTerms
 	echo T_("Shift transformation");                                                  // Line 65
 	echo T_("You are active user");                                                   // Line 71
 
-	//-------------------------------------------content_a\permission\add\display.html
-	echo T_("Require");                                                               // Line 28
+	//----------------------------------------content_a\permission\delete\display.html
 	echo T_("The permission name should be unique and contain only alphanameric characters and underscores");// Line 14
 	echo T_("Name of your permission");                                               // Line 14
 	echo T_("Label");                                                                 // Line 17
 	echo T_("The permission label is used to represent your permission in user management");// Line 18
 	echo T_("Label of your permission");                                              // Line 18
-
-	//----------------------------------------content_a\permission\delete\display.html
 	echo T_("Remove");                                                                // Line 22
 
 	//-----------------------------------------------content_a\permission\display.html
@@ -553,6 +550,7 @@ class twigTransTerms
 	echo T_("Birth Detail");                                                          // Line 16
 
 	//------------------------------------------------content_a\thirdparty\layout.html
+	echo T_("Require");                                                               // Line 28
 	echo T_("Document Photo");                                                        // Line 100
 	echo T_("Contact information");                                                   // Line 101
 	echo T_("Identification detail");                                                 // Line 102
