@@ -108,7 +108,7 @@ class twigTransTerms
 	echo T_("Confirm password");                                                      // Line 292
 	echo T_("Require to change current password");                                    // Line 292
 	echo T_("Password was set, enter to change it!");                                 // Line 294
-	echo T_("Password not set, enter  to set it!");                                   // Line 294
+	echo T_("Password not set, enter to set it!");                                    // Line 294
 	echo T_("Add");                                                                   // Line 130
 	echo T_("Save");                                                                  // Line 46
 	echo T_("Save all");                                                              // Line 320
@@ -344,6 +344,7 @@ class twigTransTerms
 
 	//----------------------------------------addons\content_cp\users\set\display.html
 	echo T_("Enter to change pass");                                                  // Line 283
+	echo T_("Password not set, enter  to set it!");                                   // Line 294
 
 	//----------------------------------addons\content_enter\autoredirect\display.html
 	echo T_("Go");                                                                    // Line 144
