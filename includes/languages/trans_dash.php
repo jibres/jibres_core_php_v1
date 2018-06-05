@@ -48,7 +48,7 @@ class twigTransTerms
 	echo T_("Billing");                                                               // Line 8
 
 	//----------------------------------------------addons\content_account\layout.html
-	echo T_("Dashboard");                                                             // Line 68
+	echo T_("Dashboard");                                                             // Line 69
 
 	//-------------------------------------addons\content_account\profile\display.html
 	echo T_("Name and Global Details");                                               // Line 12
@@ -664,16 +664,16 @@ class twigTransTerms
 	echo T_("Last education degree");                                                 // Line 122
 
 	//------------------------------------------addons\includes\html\display-dash.html
-	echo T_("Edit your profile");                                                     // Line 52
-	echo T_("Avatar of you");                                                         // Line 54
-	echo T_("Default Avatar");                                                        // Line 56
-	echo T_("Hello");                                                                 // Line 62
-	echo T_("Click to toggle sidebar status");                                        // Line 72
-	echo T_("Show side menu");                                                        // Line 78
-	echo T_("View website");                                                          // Line 80
-	echo T_("Work in your language");                                                 // Line 84
-	echo T_("Logout");                                                                // Line 92
-	echo T_("View your current location and navigate to parent of it");               // Line 101
+	echo T_("Edit your profile");                                                     // Line 53
+	echo T_("Avatar of you");                                                         // Line 55
+	echo T_("Default Avatar");                                                        // Line 57
+	echo T_("Hello");                                                                 // Line 63
+	echo T_("Click to toggle sidebar status");                                        // Line 74
+	echo T_("Show side menu");                                                        // Line 90
+	echo T_("View website");                                                          // Line 92
+	echo T_("Work in your language");                                                 // Line 96
+	echo T_("Logout");                                                                // Line 104
+	echo T_("View your current location and navigate to parent of it");               // Line 113
 
 	//----------------------------------addons\includes\html\display-enter-blocks.html
 	echo T_("Please enter valid mobile number");                                      // Line 16

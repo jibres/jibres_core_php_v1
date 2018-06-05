@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-06-03 15:45+0430\n"
-"PO-Revision-Date: 2018-06-03 15:45+0430\n"
+"POT-Creation-Date: 2018-06-05 17:36+0430\n"
+"PO-Revision-Date: 2018-06-05 17:36+0430\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -2396,7 +2396,7 @@ msgstr "برخی از حقوق محفوظ است"
 
 #: dash/addons/includes/languages/trans_dash.php:258
 #: dash/addons/includes/languages/trans_static.php:58
-#: dash/addons/includes/languages/trans_static.php:175
+#: dash/addons/includes/languages/trans_static.php:175 dash/lib/engine/view.php:72
 #: jibres/includes/languages/trans_dash.php:241
 msgid "Ermile"
 msgstr "ارمایل"
@@ -5452,8 +5452,8 @@ msgid "cpCommentsView"
 msgstr "نمایش دیدگاه در کنترل پنل"
 
 #: dash/addons/includes/languages/trans_static.php:410
-msgid "cotentCp"
-msgstr "کنترل پنل"
+msgid "contentCp"
+msgstr "محتوای کنترل‌پنل"
 
 #: dash/addons/includes/languages/trans_static.php:411
 msgid "cpUsersView"
@@ -7533,7 +7533,7 @@ msgstr "کاربر یافت نشد."
 msgid "Invalid birthdate"
 msgstr "تاریخ تولد نامعتبر"
 
-#: dash/lib/date.php:40
+#: dash/lib/date.php:42
 msgid "Invalid birthdate, birthdate can not larger than date now!"
 msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد"
 
@@ -7593,6 +7593,18 @@ msgstr "واحد در‌تراکنش نمی‌تواند خالی باشد"
 #: dash/lib/db/transactions/set.php:168
 msgid "Transaction unit_id can not be null"
 msgstr "شناسه_واحد تراکنش نمی‌تواند خالی باشد"
+
+#: dash/lib/engine/view.php:73
+msgid "As easy as ABC is our slogan!"
+msgstr "کاری نداره شعار ماست!"
+
+#: dash/lib/engine/view.php:73
+msgid "If you are not finded a solution for your problem, call us."
+msgstr "اگر راه‌کاری مناسب برای مشکل خود نیافته‌اید، با ما تماس بگیرید."
+
+#: dash/lib/engine/view.php:74
+msgid "Software Solution Designer"
+msgstr "ارائه‌دهنده‌ی راه‌کارهای مدرن نرم‌افزاری"
 
 #: dash/lib/file.php:449
 msgid "File not exist"
@@ -8091,8 +8103,8 @@ msgid "Need HELP? Be patient..."
 msgstr "کمک نیاز دارید؟ صبور باشید..."
 
 #: jibres/content/home/view.php:12 jibres/content/view.php:13
-#: jibres/content_a/view.php:11 jibres/content_c/view.php:11
-#: jibres/content_subdomain/home/view.php:11
+#: jibres/content_a/view.php:11 jibres/content_a/view.php:15
+#: jibres/content_c/view.php:11 jibres/content_subdomain/home/view.php:11
 #: jibres/includes/languages/trans_project.php:92
 msgid "Integrated Sales and Online Accounting"
 msgstr "فروش یکپارچه و حسابداری آنلاین"
@@ -8158,19 +8170,22 @@ msgstr ""
 "چارچوب فعالیت می‌نماید."
 
 #: jibres/content/view.php:11 jibres/content_a/view.php:9
-#: jibres/content_c/view.php:9 jibres/content_subdomain/home/view.php:9
+#: jibres/content_a/view.php:13 jibres/content_c/view.php:9
+#: jibres/content_subdomain/home/view.php:9
 #: jibres/includes/languages/trans_project.php:205
 #: jibres/includes/languages/trans_static.php:7
 msgid "Jibres"
 msgstr "جیبرس"
 
 #: jibres/content/view.php:12 jibres/content_a/view.php:10
-#: jibres/content_c/view.php:10 jibres/content_subdomain/home/view.php:10
+#: jibres/content_a/view.php:14 jibres/content_c/view.php:10
+#: jibres/content_subdomain/home/view.php:10
 msgid "Jibres is not just an online accounting software;"
 msgstr "جیبرس تنها یک نرم افزار حسابداری آنلاین نیست؛"
 
 #: jibres/content/view.php:12 jibres/content_a/view.php:10
-#: jibres/content_c/view.php:10 jibres/content_subdomain/home/view.php:10
+#: jibres/content_a/view.php:14 jibres/content_c/view.php:10
+#: jibres/content_subdomain/home/view.php:10
 msgid ""
 "We try to create the best financial platform that has everything you need to sale "
 "and manage your financial life."
@@ -11695,6 +11710,9 @@ msgstr "اجازه مشاهده لاگ‌های سیستم"
 #: jibres/includes/permission/permission.php:104
 msgid "Allow to login by another session"
 msgstr "اجازه ورود با کاربر دیگر"
+
+#~ msgid "cotentCp"
+#~ msgstr "کنترل پنل"
 
 #~ msgid "cpTemplateSmsView"
 #~ msgstr "نمایش لیست الگوهای پیام کوتاه"
