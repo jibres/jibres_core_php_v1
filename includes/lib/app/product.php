@@ -29,9 +29,10 @@ class product
 	 */
 	private static function get_static_list($_type, $_implode = false)
 	{
-		if(\dash\session::get("product_static_list_". $_type))
+		$cache_key = "product_static_list_". $_type. \lib\store::id();
+		if(\dash\session::get($cache_key))
 		{
-			$static_list = \dash\session::get("product_static_list_". $_type);
+			$static_list = \dash\session::get($cache_key);
 		}
 		else
 		{
@@ -41,7 +42,7 @@ class product
 			{
 				$static_list = [];
 			}
-			\dash\session::set("product_static_list_". $_type, $static_list, null, (60 * 1));
+			\dash\session::set($cache_key, $static_list, null, (60 * 1));
 		}
 
 		$static_list = array_filter($static_list);
