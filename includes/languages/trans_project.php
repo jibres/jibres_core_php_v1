@@ -215,9 +215,9 @@ class twigTransTerms
 
 	//----------------------------------------------------content\template\header.html
 	echo T_("Beta");                                                                  // Line 7
-	echo T_("Store Panel");                                                           // Line 12
+	echo T_("Store Panel");                                                           // Line 28
 	echo T_("Admin Panel");                                                           // Line 18
-	echo T_("Enter");                                                                 // Line 14
+	echo T_("Enter");                                                                 // Line 30
 
 	//------------------------------------------------------content\terms\display.html
 	echo T_("Utilizing Jibres's services means the acceptance of and commitment to observing all the tenors of this agreement.");// Line 6
@@ -310,6 +310,10 @@ class twigTransTerms
 	echo T_("Back from factor");                                                      // Line 78
 	echo T_("Waste product");                                                         // Line 89
 
+	//---------------------------------------------------------content_a\home\chart.js
+	echo T_("Count of factors");                                                      // Line 20
+	echo T_("Sales count group by hour");                                             // Line 38
+
 	//-----------------------------------------------------content_a\home\display.html
 	echo T_("Products Summary");                                                      // Line 63
 	echo T_("Add new Product");                                                       // Line 14
@@ -317,7 +321,6 @@ class twigTransTerms
 	echo T_("Buy Invocing");                                                          // Line 103
 	echo T_("Supplier");                                                              // Line 42
 	echo T_("Staff");                                                                 // Line 37
-	echo T_("Sales count group by hour");                                             // Line 152
 
 	//-----------------------------------------------------------content_a\layout.html
 	echo T_("Dashboard");                                                             // Line 5
@@ -453,13 +456,18 @@ class twigTransTerms
 	echo T_("Count in carton");                                                       // Line 340
 	echo T_("Count of product in carton");                                            // Line 342
 
+	//----------------------------------------------content_a\product\summary\chart.js
+	echo T_("Count of products");                                                     // Line 106
+	echo T_("Price Variation");                                                       // Line 72
+	echo T_("Product GroupBy Unit");                                                  // Line 82
+	echo T_("Product GroupBy Category");                                              // Line 124
+
 	//------------------------------------------content_a\product\summary\display.html
 	echo T_("You are not add product yet!");                                          // Line 27
 	echo T_("Add some new product");                                                  // Line 27
 	echo T_("Add new products");                                                      // Line 36
 	echo T_("List of products");                                                      // Line 45
 	echo T_("Import products");                                                       // Line 54
-	echo T_("Price Variation");                                                       // Line 72
 	echo T_("Check list of products");                                                // Line 88
 	echo T_("Product Count");                                                         // Line 91
 	echo T_("Product with barcode");                                                  // Line 101
@@ -469,11 +477,16 @@ class twigTransTerms
 	echo T_("Average");                                                               // Line 172
 	echo T_("Buy Price");                                                             // Line 183
 
+	//-------------------------------------------------content_a\report\daily\chart.js
+	echo T_("Sum of factors");                                                        // Line 20
+
 	//---------------------------------------------content_a\report\daily\display.html
 
 	//----------------------------------------------content_a\report\home\display.html
 	echo T_("Report daily");                                                          // Line 17
 	echo T_("Report Month");                                                          // Line 28
+
+	//-------------------------------------------------content_a\report\month\chart.js
 
 	//---------------------------------------------content_a\report\month\display.html
 
@@ -615,8 +628,23 @@ class twigTransTerms
 	echo T_("Add new store");                                                         // Line 31
 
 	//---------------------------------------------content_subdomain\home\display.html
+	echo T_("Tel");                                                                   // Line 23
+
+	//--------------------------------------public_html\static\js\JsBarcode.all.min.js
+
+	//------------------------------------------public_html\static\js\particles.min.js
+
+	//-------------------------------------------------public_html\static\js\script.js
 
 	//---------------------public_html\static\siftal\fonts\siftal\icons-reference.html
+
+	//-----------------------------------public_html\static\siftal\js\amcharts3.min.js
+
+	//-----------------------------------public_html\static\siftal\js\amcharts4.min.js
+
+	//-----------------------------------public_html\static\siftal\js\highlight.min.js
+
+	//--------------------------------------public_html\static\siftal\js\siftal.min.js
 
  }
 }
