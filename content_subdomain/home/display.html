@@ -3,16 +3,33 @@
 
 {%block body%}
 
-<div class="wrapper">
- <div class="tbox txtC">
-  <h1>{{site.title}}</h1>
-  <h2>{{site.slogan}}</h2>
- </div>
- {%if login%}
- <a href="/a" data-direct class="btn block primary">{%trans "Store Panel"%}</a>
- {%else%}
- <a href="/enter" data-direct class="btn block secondary">{%trans "Enter"%}</a>
- {%endif%}
+<div class="cn">
+  <a href="{{service.url}}" id='ermileBadge' class="f" target="_blank" title='{{service.desc | raw}}' data-tippy-inertia="true" data-tippy-animation="perspective" data-tippy-duration="[600, 300]">
+   <div class="cauto pRa10">
+    <img src="{{service.logo}}" alt='{{service.title}}' class="cauto">
+   </div>
+   <div class="c">
+    <h2>{{service.title}}</h2>
+    <h3>{{service.slogan}}</h3>
+   </div>
+  </a>
+
+  <div class="cbox txtC">
+   <h1><a href="{{url.here}}" data-direct>{{store.name}}</a></h1>
+   <h2>{{store.desc}}</h2>
+{%if store.address%}
+   <address class="mB20">
+    <div class="street-address fs08 mB10">{{store.address}}</div>
+    <div class="tel ltr fs09">{%trans "Tel"%} <a href="tel:{{store.phone}}">{{store.phone | fitNumber(false)}}</a></div>
+   </address>
+{%endif%}
+
+{%if login%}
+    <a href="{{url.base}}/a" data-direct class="btn block primary">{%trans "Store Panel"%}</a>
+{%else%}
+    <a href="{{url.base}}/enter" data-direct class="btn block info">{%trans "Enter"%}</a>
+{%endif%}
+  </div>
 </div>
 
  <div id="nodes"></div>
