@@ -113,13 +113,11 @@ function event_corridor(_e, _self, _key)
         {
           // var nextSelectedRow = selectedRowEl.prev();
           selectedRowEl.remove();
-          $('.dropdown.barCode input.search').select();
+          $('.dropdown.barCode input.search').val('').focus();
           // navigationFactorAddSetSelected(nextSelectedRow, true);
           calcFooterValues();
+          _e.preventDefault();
         }
-
-        var aa = $('table.productList tbody tr').length;
-        _e.preventDefault();
       }
       break;
 
@@ -309,6 +307,7 @@ function getSelectedRow(_confirm)
         if(_confirm)
         {
           $('table.productList tbody tr:eq(0)').attr('data-selected', 'warn');
+          return false;
         }
         else
         {
