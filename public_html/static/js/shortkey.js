@@ -63,7 +63,6 @@ function event_corridor(_e, _self, _key)
 
     // ---------------------------------------------------------- Up
     case '38':              // up
-      logy('up');
       navigateonFactorAddInputs('up');
       break;
 
@@ -108,6 +107,8 @@ function event_corridor(_e, _self, _key)
     case '46':              // delete
       if(check_factor())
       {
+        clearDropdown($('.dropdown.barCode'));
+
         var selectedRowEl = getSelectedRow(true);
         if(selectedRowEl)
         {
