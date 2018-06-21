@@ -108,7 +108,7 @@ function event_corridor(_e, _self, _key)
     case '46':              // delete
       if(check_factor())
       {
-        var selectedRowEl = getSelectedRow();
+        var selectedRowEl = getSelectedRow(true);
         if(selectedRowEl)
         {
           // var nextSelectedRow = selectedRowEl.prev();
@@ -291,7 +291,7 @@ function event_corridor(_e, _self, _key)
 }
 
 
-function getSelectedRow()
+function getSelectedRow(_confirm)
 {
   if(check_factor())
   {
@@ -306,7 +306,14 @@ function getSelectedRow()
       }
       else
       {
-        selectedRowEl = $('table.productList tbody tr:eq(0)')
+        if(_confirm)
+        {
+          $('table.productList tbody tr:eq(0)').attr('data-selected', 'warn');
+        }
+        else
+        {
+          selectedRowEl = $('table.productList tbody tr:eq(0)')
+        }
       }
       return selectedRowEl;
     }
