@@ -355,6 +355,8 @@ function bindBtnOnFactor()
     }
     $('#productSearch').val('');
     productBarcodeFinded(_barcode)
+    // set focus to productSearch field
+    $('#productSearch').parent().find('input.search').val('').focus();
   })
   $(document).on('focus', '#factorAdd table input', function()
   {
