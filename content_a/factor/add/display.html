@@ -116,7 +116,7 @@
 
 {%block addProducts%}
 <div class="cbox">
-  <select name="product" class="ui dropdown search selection barCode" id="productSearch" autofocus data-search='{{url.this}}/add?type=sale&json=true&list=product&q={query}'>
+  <select name="product" class="ui dropdown search selection barCode" id="productSearch" autofocus data-default data-search='{{url.this}}/add?type=sale&json=true&list=product&q={query}'>
     <option value="" readonly>{%trans "Search in list to add product"%} +</option>
   </select>
 </div>
