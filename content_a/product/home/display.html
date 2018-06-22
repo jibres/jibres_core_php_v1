@@ -118,7 +118,7 @@
 
 
 {%block htmlFilterNoResult%}
-<p class="f fs14 alert alert-error">
+<p class="f fs14 msg warn2">
   <span class="c s12">{%trans "Result not found!"%} {%trans "Search with new keywords."%} </span>
 {%if barcodeScaned%}
   <a class="c" href="{{url.this}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
