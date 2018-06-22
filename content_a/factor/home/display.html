@@ -45,7 +45,7 @@
 
 {%elseif requestGET.q%}
 {{block('searchblock')}}
-<div class="fs14 alert alert-info pA25">
+<div class="fs14 msg warn2 pA25">
  {%trans "No factor founded."%} {%trans "Search with new keywords or barcode."%}
  <a class="badge primary pA10" href="{{url.this}}/add{{moduleTypeP}}" data-shortkey2="119">{%trans "Add new factor"%}</a>
 </div>
@@ -158,7 +158,7 @@
 
 
 {%block htmlFilter%}
-<p class="f fs14 alert alert-info">
+<p class="f fs14 msg warn2">
   <span class="c">{{filterBox | raw}}</span>
   <a class="cauto" href="{{url.this}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
 </p>
