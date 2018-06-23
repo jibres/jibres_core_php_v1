@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-06-23 15:39+0430\n"
-"PO-Revision-Date: 2018-06-23 15:40+0430\n"
+"POT-Creation-Date: 2018-06-24 00:08+0430\n"
+"PO-Revision-Date: 2018-06-24 00:13+0430\n"
 "Last-Translator: Reza <rm.biqarar@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-Basepath: ../../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -195,7 +195,7 @@ msgstr "وضعیت نامعتبر است"
 #: dash/addons/content_cp/contact/edit/model.php:33
 #: dash/addons/content_cp/contact/home/model.php:21
 msgid "Comment successfully updated"
-msgstr "اطلاعات نظر ثبت‌شده بروزرسانی شد."
+msgstr "اطلاعات نظر ثبت‌شده بروزرسانی شد"
 
 #: dash/addons/content_cp/comments/edit/view.php:20
 msgid "Edit comment"
@@ -317,7 +317,7 @@ msgstr "افزودن سطح دسترسی جدید"
 #: jibres/content_a/permission/add/view.php:12
 #: jibres/content_a/permission/delete/view.php:9
 msgid "Set and config permission group to categorize user access."
-msgstr "تنظیم و تغییر سطوح دسترسی برای دسته بندی مجوز کاربران"
+msgstr "تنظیم و تغییر سطوح دسترسی برای دسته بندی مجوز کاربران."
 
 #: dash/addons/content_cp/permission/add/view.php:15
 #: dash/addons/content_cp/permission/delete/view.php:17
@@ -434,7 +434,7 @@ msgstr ""
 
 #: dash/addons/content_cp/posts/home/view.php:24
 msgid "Also add or edit specefic post."
-msgstr "همچنین افزودن یا ویرایش پست خاص"
+msgstr "همچنین افزودن یا ویرایش پست خاص."
 
 #: dash/addons/content_cp/posts/home/view.php:33
 #: dash/addons/includes/languages/trans_dash.php:342
@@ -691,7 +691,7 @@ msgstr "به شرط"
 #: dash/addons/includes/languages/trans_static.php:39 dash/lib/app/sort.php:88
 #: jibres/content_a/filter.php:27
 msgid ", "
-msgstr " و "
+msgstr "، "
 
 #: dash/addons/content_enter/alert/view.php:9
 #: dash/addons/content_enter/alert/view.php:15
@@ -928,11 +928,11 @@ msgstr "زگهواره تا گور دانش بجوی"
 
 #: dash/addons/content_enter/pass/change/model.php:46
 msgid "You do not have any password!"
-msgstr "هیچ کلمه عبوری برای شما تنظیم نشده است"
+msgstr "هیچ کلمه عبوری برای شما تنظیم نشده است!"
 
 #: dash/addons/content_enter/pass/change/model.php:46
 msgid "Please logout and login again."
-msgstr "لطفا از سیستم خارج شده و مجددا وارد سیستم شوید"
+msgstr "لطفا از سیستم خارج شده و مجددا وارد سیستم شوید."
 
 #: dash/addons/content_enter/pass/model.php:12
 msgid "Please enter your password"
@@ -1252,7 +1252,7 @@ msgstr "داشبورد مدیر فنی سیستم"
 
 #: dash/addons/content_su/home/view.php:9
 msgid "Hey there!"
-msgstr "سلام رفیق"
+msgstr "سلام رفیق!"
 
 #: dash/addons/content_su/info/controller.php:29
 #: jibres/includes/languages/trans_dash.php:544
@@ -1376,7 +1376,7 @@ msgstr ""
 
 #: dash/addons/content_su/transactions/view.php:11
 msgid "Also add or edit specefic transactions."
-msgstr "همچنین تراکنش خاصی را بیافزایید یا آن را ویرایش کنید"
+msgstr "همچنین تراکنش خاصی را بیافزایید یا آن را ویرایش کنید."
 
 #: dash/addons/content_su/update/view.php:8
 #: dash/addons/includes/languages/trans_dash.php:135
@@ -1535,7 +1535,7 @@ msgstr "ارسال کد به رایانامه شما"
 #: dash/addons/includes/languages/trans_dash.php:58
 #: jibres/includes/languages/trans_dash.php:458
 msgid "You must set a mobile or email to continue"
-msgstr "برای ادامه شما باید تلفن‌همراه یا رایانامه را وارد کنید."
+msgstr "برای ادامه شما باید تلفن‌همراه یا رایانامه را وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:59
 #: jibres/includes/languages/trans_dash.php:459
@@ -2051,7 +2051,7 @@ msgstr "وبسایت معتبری بین ۳ و ۴۰ حرف وارد کنید"
 #: dash/addons/includes/languages/trans_dash.php:202
 #: jibres/includes/languages/trans_dash.php:65
 msgid "Instagram"
-msgstr " اینستاگرام"
+msgstr "اینستاگرام"
 
 #: dash/addons/includes/languages/trans_dash.php:203
 #: jibres/includes/languages/trans_dash.php:66
@@ -2103,7 +2103,7 @@ msgstr "مثل"
 #: dash/addons/includes/languages/trans_dash.php:212
 #: jibres/includes/languages/trans_dash.php:75
 msgid "Firstname"
-msgstr "نام "
+msgstr "نام"
 
 #: dash/addons/includes/languages/trans_dash.php:213
 #: jibres/includes/languages/trans_dash.php:76
@@ -2417,7 +2417,7 @@ msgstr "لطفا صبر کنید. این عملیات ممکن است چند د�
 #: dash/addons/includes/languages/trans_dash.php:280
 #: jibres/includes/languages/trans_dash.php:173
 msgid "Backup now"
-msgstr "هم اکنون فایل پشتیبانی تهیه کنید!"
+msgstr "هم اکنون فایل پشتیبانی تهیه کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:281
 #: jibres/includes/languages/trans_dash.php:175
@@ -2444,7 +2444,7 @@ msgstr "کنترل پنل"
 #: jibres/includes/languages/trans_dash.php:267
 msgid "First save as draft and do all checks, then publish."
 msgstr ""
-"ابتدا به صورت پیش نویس ذخیره کنید و پس از بررسی تمامی موارد آن را منتظر کنید"
+"ابتدا به صورت پیش نویس ذخیره کنید و پس از بررسی تمامی موارد آن را منتظر کنید."
 
 #: dash/addons/includes/languages/trans_dash.php:290
 #: jibres/includes/languages/trans_dash.php:268
@@ -2530,7 +2530,7 @@ msgstr "گزیده متن برای رسانه های اجتماعی و موتو�
 #: dash/addons/includes/languages/trans_dash.php:310
 #: jibres/includes/languages/trans_dash.php:290
 msgid "Url of this post."
-msgstr "آدرس این نوشته"
+msgstr "آدرس این نوشته."
 
 #: dash/addons/includes/languages/trans_dash.php:311
 #: jibres/includes/languages/trans_dash.php:291
@@ -2547,7 +2547,7 @@ msgstr "نامک برای استفاده در آدرس به کار می رود"
 #: dash/addons/includes/languages/trans_dash.php:313
 #: jibres/includes/languages/trans_dash.php:293
 msgid "Write post "
-msgstr "نوشتن پست"
+msgstr "نوشتن پست "
 
 #: dash/addons/includes/languages/trans_dash.php:314
 #: jibres/includes/languages/trans_dash.php:294
@@ -2616,7 +2616,7 @@ msgstr "تگ اضافه را به صورت دستی اضافه کنید تا م�
 #: dash/addons/includes/languages/trans_dash.php:327
 #: jibres/includes/languages/trans_dash.php:311
 msgid "Tag keywords..."
-msgstr "کلیدواژه‌های خود را تگ کنید"
+msgstr "کلیدواژه‌های خود را تگ کنید..."
 
 #: dash/addons/includes/languages/trans_dash.php:328
 #: jibres/includes/languages/trans_dash.php:312
@@ -2801,7 +2801,7 @@ msgstr ""
 #: dash/addons/includes/languages/trans_dash.php:368
 #: jibres/includes/languages/trans_dash.php:129
 msgid "You all get rewarded."
-msgstr "همه جایزه می‌گیرید.مثل برد برد!"
+msgstr "همه جایزه می‌گیرید.مثل برد برد."
 
 #: dash/addons/includes/languages/trans_dash.php:369
 #: jibres/includes/languages/trans_dash.php:130
@@ -3143,7 +3143,7 @@ msgstr "فاکتور"
 #: dash/addons/includes/languages/trans_dash.php:444
 #: jibres/includes/languages/trans_dash.php:38
 msgid "You are not have payment history yet!"
-msgstr "هیچ تراکنش مالی برای شما یافت نشد"
+msgstr "هیچ تراکنش مالی برای شما یافت نشد!"
 
 #: dash/addons/includes/languages/trans_dash.php:447
 #: jibres/includes/languages/trans_dash.php:14
@@ -3163,7 +3163,7 @@ msgstr "اعضاء‌ فعال"
 #: dash/addons/includes/languages/trans_dash.php:450
 #: jibres/includes/languages/trans_dash.php:18
 msgid "You are not have billing detail yet!"
-msgstr "هیچ تراکنش مالی برای شما یافت نشد"
+msgstr "هیچ تراکنش مالی برای شما یافت نشد!"
 
 #: dash/addons/includes/languages/trans_dash.php:455
 #: jibres/includes/languages/trans_dash.php:516
@@ -3292,7 +3292,7 @@ msgstr "خیر"
 #: dash/addons/includes/languages/trans_dash.php:492
 #: jibres/includes/languages/trans_dash.php:494
 msgid "Search in :dbtabless"
-msgstr "جستجو..."
+msgstr "جستجو در :dbtabless"
 
 #: dash/addons/includes/languages/trans_dash.php:493
 #: jibres/includes/languages/trans_dash.php:495
@@ -4480,11 +4480,11 @@ msgstr "قبل"
 
 #: dash/addons/includes/languages/trans_static.php:37
 msgid ","
-msgstr " و "
+msgstr "،"
 
 #: dash/addons/includes/languages/trans_static.php:38
 msgid " ,"
-msgstr " و "
+msgstr " ،"
 
 #: dash/addons/includes/languages/trans_static.php:40 dash/lib/utility/human.php:58
 msgid "s "
@@ -5592,7 +5592,7 @@ msgstr "ما به شماره موبایل نیاز داریم!"
 #: dash/addons/includes/languages/trans_static.php:397
 #: jibres/includes/languages/trans_static.php:10
 msgid " "
-msgstr "‌‌ "
+msgstr " "
 
 #: dash/addons/includes/languages/trans_static.php:399
 msgid "table"
@@ -5693,7 +5693,7 @@ msgstr "توییتر"
 
 #: dash/addons/includes/languages/trans_static.php:427
 msgid "instagram"
-msgstr " اینستاگرام"
+msgstr "اینستاگرام"
 
 #: dash/addons/includes/languages/trans_static.php:428
 msgid "linkedin"
@@ -7778,7 +7778,7 @@ msgstr "کلید مربوط به این مخاطب بیش از اندازه بز
 
 #: dash/lib/app/contact.php:111
 msgid "Contact value is too large."
-msgstr "مقدار وارد شده از حد مجاز بزرگتر است"
+msgstr "مقدار وارد شده از حد مجاز بزرگتر است."
 
 #: dash/lib/app/dbtables.php:27
 msgid ":dbtables id not set"
@@ -8105,7 +8105,7 @@ msgstr "عنوان باید کمتر از ۵۰ کاراکتر باشد"
 
 #: dash/lib/app/user.php:80
 msgid "Invalid parameter avatar"
-msgstr "پارامتر آواتار اشتباه است."
+msgstr "پارامتر آواتار اشتباه است"
 
 #: dash/lib/app/user.php:98
 msgid "Invalid gender field"
@@ -8220,7 +8220,7 @@ msgstr "تاریخ تولد نامعتبر"
 
 #: dash/lib/date.php:76
 msgid "Invalid birthdate, birthdate can not larger than date now!"
-msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد"
+msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد!"
 
 #: dash/lib/db/mysql/tools/connect.php:104
 msgid "we can't find database service!"
@@ -8303,7 +8303,7 @@ msgstr "اگر راه‌کاری مناسب برای مشکل خود نیافت�
 msgid "Software Solution Designer"
 msgstr "ارائه‌دهنده‌ی راه‌کارهای مدرن نرم‌افزاری"
 
-#: dash/lib/engine/view.php:174
+#: dash/lib/engine/view.php:179
 msgid "Latest news"
 msgstr "آخرین اخبار"
 
@@ -8321,11 +8321,11 @@ msgstr "عده ای در لیست این سطح دسترسی وجود دارند
 
 #: dash/lib/permission.php:128
 msgid "Can not remove it."
-msgstr "نمی توانید این مورد را حذف کنید"
+msgstr "نمی توانید این مورد را حذف کنید."
 
 #: dash/lib/permission.php:134
 msgid "Can not remove admin!"
-msgstr "اجازه حذف مدیر کل وجود ندارد"
+msgstr "اجازه حذف مدیر کل وجود ندارد!"
 
 #: dash/lib/permission.php:158
 msgid "Permission removed"
@@ -8345,7 +8345,7 @@ msgstr "امکان تغییر سطح دسترسی مدیر کل وجود ندا�
 
 #: dash/lib/permission.php:326
 msgid "This key was not found in your permission list!"
-msgstr "این آیتم در لیست سطوح دسترسی شما یافت نشد"
+msgstr "این آیتم در لیست سطوح دسترسی شما یافت نشد!"
 
 #: dash/lib/permission.php:333
 msgid "The title must include at least one alphabetical character"
@@ -8365,7 +8365,7 @@ msgstr "آیتم های پرمیژن اشتباه هستند"
 
 #: dash/lib/permission.php:362
 msgid "This item is not in your permission list!"
-msgstr "این گزینه در لیست سطوح دسترسی شما وجود ندارد"
+msgstr "این گزینه در لیست سطوح دسترسی شما وجود ندارد!"
 
 #: dash/lib/permission.php:386
 msgid "Permission saved"
@@ -8797,7 +8797,7 @@ msgstr "سوالات متداول"
 #: jibres/content/help/faq/view.php:10
 msgid "This FAQ provides answers to basic questions about Jibres."
 msgstr ""
-"احتمالا سوالات اولیه و ساده‌ی شما از جیبرس در این صفحه سوالات متداول یافت خواهد"
+"احتمالا سوالات اولیه و ساده‌ی شما از جیبرس در این صفحه سوالات متداول یافت خواهد."
 
 #: jibres/content/help/view.php:9
 msgid "Help Center"
@@ -8933,7 +8933,7 @@ msgstr "کالا یافت نشد."
 
 #: jibres/content_a/factor/add/controller.php:88
 msgid "add as new product"
-msgstr "به عنوان یک کالای جدید ثبت کنید."
+msgstr "به عنوان یک کالای جدید ثبت کنید"
 
 #: jibres/content_a/factor/add/controller.php:112
 msgid "No result founded!"
@@ -8951,7 +8951,7 @@ msgstr "ایران بارکد"
 #: jibres/content_a/factor/add/model.php:92
 #: jibres/content_a/factor/add/model.php:102
 msgid "No items have been added for sale"
-msgstr "هیچ محصولی برای فروش انتخاب نشده است!"
+msgstr "هیچ محصولی برای فروش انتخاب نشده است"
 
 #: jibres/content_a/factor/add/view.php:11 jibres/content_a/factor/edit/view.php:9
 msgid "Sale invoicing"
@@ -9007,11 +9007,11 @@ msgstr "لیست :type"
 
 #: jibres/content_a/factor/home/view.php:62
 msgid "Search in list of :type factors, add or edit them."
-msgstr "جستجو در لیست :type و افزودن یا ویرایش آنها"
+msgstr "جستجو در لیست :type و افزودن یا ویرایش آنها."
 
 #: jibres/content_a/factor/home/view.php:63
 msgid "List of all factors."
-msgstr "لیست تمامی فاکتور‌ها"
+msgstr "لیست تمامی فاکتور‌ها."
 
 #: jibres/content_a/factor/home/view.php:66
 #: jibres/content_a/thirdparty/add/view.php:25
@@ -9197,13 +9197,13 @@ msgstr "فایلی ارسال نشد"
 
 #: jibres/content_a/product/import/view.php:10
 msgid "Import product from CSV"
-msgstr "وارد کردن محصولات از طریق فایل سی اس وی "
+msgstr "وارد کردن محصولات از طریق فایل سی اس وی"
 
 #: jibres/content_a/product/import/view.php:11
 msgid "You can import more than one product in one request via CSV import process"
 msgstr ""
 "شما می‌توانید تمامی محصولات خود را از طریق وارد کردن فایل سی اس وی به یکباره در "
-"سیستم ثبت کنید."
+"سیستم ثبت کنید"
 
 #: jibres/content_a/product/summary/view.php:10
 #: jibres/includes/languages/trans_project.php:318
@@ -9221,7 +9221,7 @@ msgstr "فایلی ارسال نشد"
 
 #: jibres/content_a/product/thumb/view.php:14
 msgid "thumb product!"
-msgstr "تصویر محصول"
+msgstr "تصویر محصول!"
 
 #: jibres/content_a/product/thumb/view.php:19
 msgid "thumb :name"
@@ -9403,11 +9403,11 @@ msgstr ""
 
 #: jibres/content_a/thirdparty/home/view.php:47
 msgid "Search in list of :type, add and edit and manage them."
-msgstr "جستجو در لیست :type و افزودن یا ویرایش آنها"
+msgstr "جستجو در لیست :type و افزودن یا ویرایش آنها."
 
 #: jibres/content_a/thirdparty/home/view.php:48
 msgid "List of all third parties."
-msgstr "لیست تمامی طرف حساب ها"
+msgstr "لیست تمامی طرف حساب ها."
 
 #: jibres/content_a/thirdparty/identification/view.php:12
 msgid "Edit identification detail"
@@ -9451,7 +9451,7 @@ msgstr "فروشگاه‌ها"
 
 #: jibres/content_c/store/view.php:10
 msgid "View list of stores and add new one easily just in seconds."
-msgstr "مشاهده لیست فروشگاه‌ها و افزودن فروشگاه جدید در چند ثانیه"
+msgstr "مشاهده لیست فروشگاه‌ها و افزودن فروشگاه جدید در چند ثانیه."
 
 #: jibres/includes/database/jibres/translation.php:6
 #: jibres/includes/database/jibres/translation.php:135
@@ -10174,7 +10174,7 @@ msgid ""
 "<span class='bold'>unlimited period of time</span>."
 msgstr ""
 "تمام نیازهای اولیه برای استفاده شخصی و یا کسانی که می‌خواهند بصورت نامحدود در "
-"جیبرس کنکاش کنند"
+"جیبرس کنکاش کنند."
 
 #: jibres/includes/languages/trans_project.php:151
 msgid "per month"
@@ -10723,7 +10723,7 @@ msgstr "کل تخفیف و سود شما"
 
 #: jibres/includes/languages/trans_project.php:276
 msgid "No factor founded."
-msgstr "هیچ فاکتوری یافت نشد"
+msgstr "هیچ فاکتوری یافت نشد."
 
 #: jibres/includes/languages/trans_project.php:277
 msgid "Search with new keywords or barcode."
@@ -10832,11 +10832,11 @@ msgstr "افزودن محصول جدید"
 
 #: jibres/includes/languages/trans_project.php:320
 msgid "Sale Invoicing"
-msgstr " صدور فاکتور فروش"
+msgstr "صدور فاکتور فروش"
 
 #: jibres/includes/languages/trans_project.php:321
 msgid "Buy Invocing"
-msgstr " صدور فاکتور خرید"
+msgstr "صدور فاکتور خرید"
 
 #: jibres/includes/languages/trans_project.php:327
 msgid "Product List"
@@ -10908,7 +10908,7 @@ msgstr "انبار"
 
 #: jibres/includes/languages/trans_project.php:368
 msgid "Please wait to complete export progress"
-msgstr "لطفا تا تکمیل شدن فرآیند خروجی‌گرفتن تامل کنید."
+msgstr "لطفا تا تکمیل شدن فرآیند خروجی‌گرفتن تامل کنید"
 
 #: jibres/includes/languages/trans_project.php:369
 msgid "Export"
@@ -11858,7 +11858,7 @@ msgid ""
 "Your barcode have wrong character. we change it. please check your product again"
 msgstr ""
 "بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا بررسی "
-"نمایید."
+"نمایید"
 
 #: jibres/includes/lib/app/product.php:200
 msgid "String of product barcode is too large"
@@ -11869,7 +11869,7 @@ msgid ""
 "Your barcode2 have wrong character. we change it. please check your product again"
 msgstr ""
 "ایران بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا "
-"بررسی نمایید."
+"بررسی نمایید"
 
 #: jibres/includes/lib/app/product.php:218
 msgid "String of product barcode2 is too large"
@@ -11961,7 +11961,7 @@ msgstr "طول رشته توضیحات خارج از محدوده مجاز اس�
 
 #: jibres/includes/lib/app/product.php:467
 msgid "Final price is less than 0"
-msgstr "قیمت نهایی زیر صفر است!"
+msgstr "قیمت نهایی زیر صفر است"
 
 #: jibres/includes/lib/app/product.php:473
 msgid "Final price less than buyprice!"
@@ -11969,7 +11969,7 @@ msgstr "قیمت نهایی از قیمت خرید کمتر است!"
 
 #: jibres/includes/lib/app/product/add.php:92
 msgid "No way to insert product"
-msgstr "راهی برای ثبت محصول نیست! خطایی رخ داده است."
+msgstr "هیچ راهی برای ثبت محصول نیست"
 
 #: jibres/includes/lib/app/product/add.php:118
 msgid "Product successfuly added"
@@ -11978,7 +11978,7 @@ msgstr "محصول با موفقیت اضافه شد"
 #: jibres/includes/lib/app/product/barcode.php:68
 #: jibres/includes/lib/app/product/barcode.php:73
 msgid "This barcode used as barcode2 :title"
-msgstr "این بارکد پیش‌تر به‌عنوان ایران بارکد در :title استفاده شده است."
+msgstr "این بارکد پیش‌تر به‌عنوان ایران بارکد در :title استفاده شده است"
 
 #: jibres/includes/lib/app/product/barcode.php:96
 msgid "Undefined error was happend"
@@ -12002,11 +12002,11 @@ msgstr "این کالا در لیست فاکتور‌های شما وجود دا
 
 #: jibres/includes/lib/app/product/delete.php:68
 msgid "Product was deleted"
-msgstr "محصول حذف شد."
+msgstr "محصول حذف شد"
 
 #: jibres/includes/lib/app/product/delete.php:75
 msgid "We can not delete this product"
-msgstr "ما نمی توانیم این محصول را حذف کنیم."
+msgstr "ما نمی توانیم این محصول را حذف کنیم"
 
 #: jibres/includes/lib/app/product/edit.php:108
 msgid "Title of product can not be null"
@@ -12062,11 +12062,11 @@ msgstr "توضیحات فروشگاه باید کمتر از ۲۰۰ حرف با�
 
 #: jibres/includes/lib/app/store.php:144
 msgid "Store phone must be less than 50 character"
-msgstr "شماره فروشگاه باید کمتر از ۵۰ کاراکتر باشد!"
+msgstr "شماره فروشگاه باید کمتر از ۵۰ کاراکتر باشد"
 
 #: jibres/includes/lib/app/store.php:152
 msgid "Store mobile must be less than 50 character"
-msgstr "موبایل فروشگاه باید کمتر از ۵۰ کاراکتر باشد!"
+msgstr "موبایل فروشگاه باید کمتر از ۵۰ کاراکتر باشد"
 
 #: jibres/includes/lib/app/store.php:160
 msgid "Store address must be less than 1000 character"
@@ -12106,13 +12106,13 @@ msgid ""
 "on your account"
 msgstr ""
 "برای ثبت فروشگاه دوم و سوم خود، شما باید حداقل مبلغ ۱۰ هزار تومان موجودی در حساب "
-"خود داشته باشید."
+"خود داشته باشید"
 
 #: jibres/includes/lib/app/store/add.php:71
 msgid "You can not have more than three active stores. Contact support if needed"
 msgstr ""
 "شما نمی توانید بیشتر از ۳ فروشگاه فعال داشته باشید. اگه به فروشگاه های بیشتری "
-"نیاز دارید با پشتیبانی تماس بگیرید."
+"نیاز دارید با پشتیبانی تماس بگیرید"
 
 #: jibres/includes/lib/app/store/add.php:94
 msgid "No way to insert store"
@@ -12125,7 +12125,7 @@ msgstr "فروشگاه با موفقیت ثبت شد"
 #: jibres/includes/lib/app/store/edit.php:58
 #: jibres/includes/lib/app/store/edit.php:149
 msgid "Can not access to edit store"
-msgstr "شما دسترسی لازم برای ویرایش فروشگاه را ندارید."
+msgstr "شما دسترسی لازم برای ویرایش فروشگاه را ندارید"
 
 #: jibres/includes/lib/app/store/edit.php:124
 msgid "Your store successfully update"
@@ -12137,7 +12137,7 @@ msgstr "تغییری در لوگوی فروشگاه ایجاد نشد"
 
 #: jibres/includes/lib/app/store/edit.php:164
 msgid "The store logo updated"
-msgstr "لوگوی فروشگاه تغییر یافت."
+msgstr "لوگوی فروشگاه تغییر یافت"
 
 #: jibres/includes/lib/app/store/get.php:71
 msgid "Can not set store id and shortname together"
@@ -12145,7 +12145,7 @@ msgstr "شناسه و نام کوتاه نباید با یک دیگر استفا
 
 #: jibres/includes/lib/app/store/get.php:116
 msgid "Can not access to load this store details"
-msgstr "شما دسترسی لازم را برای مشاهده اطلاعات این فروشگاه ندارید."
+msgstr "شما دسترسی لازم را برای مشاهده اطلاعات این فروشگاه ندارید"
 
 #: jibres/includes/lib/app/storetransaction.php:28
 #: jibres/includes/lib/app/storetransaction.php:130
@@ -12262,7 +12262,7 @@ msgstr "تاریخ تولد اشتباه است"
 
 #: jibres/includes/lib/app/thirdparty.php:140
 msgid "Invalid birthday, birthday can not larger than date now!"
-msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد"
+msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد!"
 
 #: jibres/includes/lib/app/thirdparty.php:153
 msgid "Invalid pasportdate"
@@ -12270,7 +12270,7 @@ msgstr "تاریخ گذرنامه نامعتبر"
 
 #: jibres/includes/lib/app/thirdparty.php:167
 msgid "Invalid pasportdate, pasportdate can not larger than date now!"
-msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد"
+msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد!"
 
 #: jibres/includes/lib/app/thirdparty.php:175
 msgid "Invalid gender"
