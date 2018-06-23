@@ -642,6 +642,8 @@ class twigTransTerms
 
 	//-----------------------------------public_html\static\siftal\js\amcharts4.min.js
 
+	//--------------------------------------public_html\static\siftal\js\error_page.js
+
 	//-----------------------------------public_html\static\siftal\js\highlight.min.js
 
 	//--------------------------------------public_html\static\siftal\js\siftal.min.js

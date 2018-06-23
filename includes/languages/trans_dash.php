@@ -219,7 +219,7 @@ class twigTransTerms
 	echo T_("Send");                                                                  // Line 63
 
 	//---------------------------------------------addons\content_cp\home\display.html
-	echo T_("Control Panel");                                                         // Line 109
+	echo T_("Control Panel");                                                         // Line 107
 	echo T_("CMS");                                                                   // Line 59
 
 	//---------------------------------------------------addons\content_cp\layout.html
@@ -763,8 +763,8 @@ class twigTransTerms
 	echo T_("Enter a valid username!");                                               // Line 373
 
 	//-------------------------------------------addons\includes\html\display-mvc.html
-	echo T_("You are supervisor!");                                                   // Line 104
-	echo T_("Enter with another user");                                               // Line 111
+	echo T_("You are supervisor!");                                                   // Line 102
+	echo T_("Enter with another user");                                               // Line 109
 
 	//----------------------------------------addons\includes\html\inc_pagination.html
 

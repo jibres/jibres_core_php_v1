@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-06-24 00:08+0430\n"
+"POT-Creation-Date: 2018-06-24 00:13+0430\n"
 "PO-Revision-Date: 2018-06-24 00:13+0430\n"
 "Last-Translator: Reza <rm.biqarar@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
