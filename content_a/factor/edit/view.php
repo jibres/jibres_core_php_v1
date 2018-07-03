@@ -98,7 +98,7 @@ class view
 			\dash\notif::result(["list" => $result]);
 			// force show json
 			$this->_processor(['force_stop' => true, 'force_json' => true]);
-			// \dash\code::exit();
+			// \dash\code::boom();
 
 		}
 

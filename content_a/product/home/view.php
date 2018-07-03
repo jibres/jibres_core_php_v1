@@ -107,7 +107,7 @@ class view
 			}
 
 			echo json_encode($myProductList, JSON_UNESCAPED_UNICODE);
-			\dash\code::exit();
+			\dash\code::boom();
 		}
 
 		if(\dash\request::get('q') && ctype_digit(\dash\request::get('q')) && mb_strlen(\dash\request::get('q')) === 13)

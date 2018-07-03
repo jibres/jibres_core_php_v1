@@ -93,7 +93,7 @@ class controller
 						$result = self::getNeededField_barcode($result);
 						\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 						\dash\code::compile();
-						\dash\code::exit();
+						\dash\code::boom();
 
 					}
 					elseif(\dash\request::get('id'))
@@ -102,7 +102,7 @@ class controller
 						$result = self::getNeededField_barcode($result);
 						\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 						\dash\code::compile();
-						\dash\code::exit();
+						\dash\code::boom();
 					}
 					else
 					{
@@ -127,7 +127,7 @@ class controller
 
 			$result = json_encode($result, JSON_UNESCAPED_UNICODE);
 			echo $result;
-			\dash\code::exit();
+			\dash\code::boom();
 		}
 
 	}
