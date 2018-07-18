@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-07-03 10:19+0430\n"
-"PO-Revision-Date: 2018-07-03 10:19+0430\n"
+"POT-Creation-Date: 2018-07-18 17:19+0430\n"
+"PO-Revision-Date: 2018-07-18 17:20+0430\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -112,7 +112,7 @@ msgstr "حساب‌کاربری شما برای ویرایش اطلاعات پر
 
 #: dash/addons/content_account/profile/view.php:10
 #: dash/addons/includes/languages/trans_dash.php:692
-#: jibres/includes/languages/trans_dash.php:720
+#: jibres/includes/languages/trans_dash.php:760
 msgid "Edit your profile"
 msgstr "پروفایل خود را ویرایش کنید"
 
@@ -158,9 +158,9 @@ msgstr "فایل با موفقیت حذف شد"
 
 #: dash/addons/content_cp/backup/model.php:43
 #: dash/addons/content_cp/sms/verify/model.php:30
-#: dash/addons/content_enter/signup/model.php:29
+#: dash/addons/content_enter/signup/model.php:32
 #: dash/addons/content_enter/username/model.php:11
-#: dash/addons/content_enter/verify/model.php:41
+#: dash/addons/content_enter/verify/model.php:44
 #: dash/addons/content_su/backup/model.php:40
 #: jibres/content_a/factor/add/model.php:64
 msgid "Dont!"
@@ -180,11 +180,12 @@ msgstr "داشبورد سیستم مدیریت محتوا"
 #: dash/addons/content_cp/contact/edit/view.php:14
 #: dash/addons/content_cp/posts/edit/controller.php:12
 #: dash/addons/content_cp/posts/edit/view.php:31
+#: dash/addons/content_support/ticket/show/view.php:23
 msgid "Invalid id"
 msgstr "شناسه نامعتبر"
 
 #: dash/addons/content_cp/comments/edit/model.php:12
-#: dash/addons/content_cp/contact/edit/model.php:12 dash/lib/app/comment.php:223
+#: dash/addons/content_cp/contact/edit/model.php:12 dash/lib/app/comment.php:243
 #: jibres/includes/lib/app/storetransaction.php:122
 #: jibres/includes/lib/app/thirdparty.php:286
 msgid "Invalid status"
@@ -252,6 +253,7 @@ msgstr "بازگشت به داشبورد"
 #: dash/addons/content_cp/users/home/view.php:23
 #: dash/addons/content_su/dbtables/view.php:20
 #: dash/addons/content_su/transactions/view.php:22
+#: dash/addons/content_support/ticket/home/view.php:23
 msgid "Search for :search"
 msgstr "جستجوی :search"
 
@@ -694,19 +696,19 @@ msgid ", "
 msgstr "، "
 
 #: dash/addons/content_enter/alert/view.php:9
-#: dash/addons/content_enter/alert/view.php:15
+#: dash/addons/content_enter/alert/view.php:16
 msgid "Alert!"
 msgstr "هشدار!"
 
-#: dash/addons/content_enter/alert/view.php:15
-#: dash/addons/content_enter/verify/model.php:34 dash/lib/utility/enter.php:754
-#: dash/lib/utility/enter.php:765 dash/lib/utility/enter.php:772
+#: dash/addons/content_enter/alert/view.php:16
+#: dash/addons/content_enter/verify/model.php:36 dash/lib/utility/enter.php:756
+#: dash/lib/utility/enter.php:767 dash/lib/utility/enter.php:774
 #: jibres/content_a/factor/edit/model.php:47
 #: jibres/content_a/product/delete/model.php:24
 msgid "What are you doing?"
 msgstr "اینجا چیکار می‌کنی عزیز جان!؟"
 
-#: dash/addons/content_enter/alert/view.php:27
+#: dash/addons/content_enter/alert/view.php:28
 #: dash/addons/content_enter/callback/model.php:107
 #: dash/addons/includes/languages/trans_static.php:542
 msgid "OK"
@@ -781,15 +783,15 @@ msgstr "لطفا با رایانامه قبلی خود وارد شوید یا و
 msgid "Change google mail"
 msgstr "تغییر رایانامه گوگل"
 
-#: dash/addons/content_enter/email/change/model.php:14
+#: dash/addons/content_enter/email/change/model.php:16
 msgid "Your email was removed"
 msgstr "ایمیل شما حذف شد"
 
-#: dash/addons/content_enter/email/change/model.php:38
+#: dash/addons/content_enter/email/change/model.php:40
 msgid "Plese fill the new email"
 msgstr "ایمیل جدید را وارد کنید"
 
-#: dash/addons/content_enter/email/change/model.php:44
+#: dash/addons/content_enter/email/change/model.php:46
 msgid "Please select a different email"
 msgstr "لطفا یک ایمیل دیگر انتخاب کنید"
 
@@ -809,7 +811,7 @@ msgstr "ثبت رایانامه"
 msgid "Enter to :name with email"
 msgstr "با رایانامه وارد :name شوید"
 
-#: dash/addons/content_enter/google/model.php:133
+#: dash/addons/content_enter/google/model.php:137
 msgid "System error! try again"
 msgstr "خطای سیستم! دوباره امتحان کنید"
 
@@ -821,28 +823,28 @@ msgstr "با استفاده از گوگل وارد :name شوید"
 msgid "Mobile not found"
 msgstr "موبایل یافت نشد"
 
-#: dash/addons/content_enter/home/model.php:103
+#: dash/addons/content_enter/home/model.php:106
 msgid "You hit our maximum try limit."
 msgstr "شما حداکثر تلاش خود را انجام دادید."
 
-#: dash/addons/content_enter/home/model.php:103
+#: dash/addons/content_enter/home/model.php:106
 msgid "Try again later!"
 msgstr "بعدا مجددا تلاش کنید!"
 
-#: dash/addons/content_enter/home/model.php:118
+#: dash/addons/content_enter/home/model.php:122
 msgid "Please set the username or mobile or email"
 msgstr "لطفا نام‌کاربری یا موبایل یا رایانامه معتبری وارد کنید"
 
-#: dash/addons/content_enter/home/model.php:141
+#: dash/addons/content_enter/home/model.php:147
 #: dash/addons/content_enter/username/model.php:35
 msgid "Username not found"
 msgstr "نام کاربری یافت نشد"
 
-#: dash/addons/content_enter/home/model.php:181
+#: dash/addons/content_enter/home/model.php:191
 msgid "Opts!, Maybe your browser saved your password incorrectly."
 msgstr "اوه! امیدواریم مرورگر شما پسوردتون رو اشتباه ذخیره کرده باشه."
 
-#: dash/addons/content_enter/home/model.php:181
+#: dash/addons/content_enter/home/model.php:191
 msgid "Try again!"
 msgstr "مجددا تلاش کنید!"
 
@@ -851,12 +853,12 @@ msgid "Enter to :name with mobile"
 msgstr "ورود به :name با موبایل"
 
 #: dash/addons/content_enter/hook/model.php:19
-#: dash/addons/content_enter/hook/model.php:139
+#: dash/addons/content_enter/hook/model.php:141
 msgid "Telegram id not found"
 msgstr "آی‌دی تلگرام یافت نشد"
 
 #: dash/addons/content_enter/hook/model.php:25
-#: dash/addons/content_enter/hook/model.php:145
+#: dash/addons/content_enter/hook/model.php:147
 msgid "Invalid telegram id"
 msgstr "آی‌دی تلگرام نامعتبر است"
 
@@ -868,19 +870,19 @@ msgstr "مجوز یافت نشد"
 msgid "Invalid Authorization"
 msgstr "کد تایید نامعتبر است"
 
-#: dash/addons/content_enter/hook/model.php:133
+#: dash/addons/content_enter/hook/model.php:135
 msgid "Mobile is not set"
 msgstr "تلفن همراه تنظیم نشده است"
 
-#: dash/addons/content_enter/hook/model.php:210
+#: dash/addons/content_enter/hook/model.php:212
 msgid "System error 1"
 msgstr "خطای سیستمی‌۱"
 
-#: dash/addons/content_enter/hook/model.php:234
+#: dash/addons/content_enter/hook/model.php:236
 msgid "System error 2"
 msgstr "خطای سیستمی‌۲"
 
-#: dash/addons/content_enter/hook/model.php:251
+#: dash/addons/content_enter/hook/model.php:253
 msgid "System error 3"
 msgstr "خطای سیستمی‌۳"
 
@@ -900,7 +902,7 @@ msgid "Please set a different password!"
 msgstr "لطفا یک رمز عبور متفاوت وارد کنید!"
 
 #: dash/addons/content_enter/mobile/change/model.php:46
-#: dash/addons/content_enter/pass/change/model.php:55
+#: dash/addons/content_enter/pass/change/model.php:58
 msgid "Invalid old password"
 msgstr "گذرواژه قدیمی‌نامعتبر است"
 
@@ -909,8 +911,8 @@ msgid "change mobile number"
 msgstr "تغییر شماره‌ی تلفن همراه"
 
 #: dash/addons/content_enter/mobile/set/model.php:37
-#: dash/addons/content_enter/pass/set/model.php:38
-#: dash/addons/content_enter/pass/signup/model.php:37
+#: dash/addons/content_enter/pass/set/model.php:40
+#: dash/addons/content_enter/pass/signup/model.php:39
 msgid "No password was send"
 msgstr "گذرواژه‌ای ارسال نشد"
 
@@ -926,11 +928,11 @@ msgstr "آفرین!"
 msgid "Live and learn"
 msgstr "زگهواره تا گور دانش بجوی"
 
-#: dash/addons/content_enter/pass/change/model.php:46
+#: dash/addons/content_enter/pass/change/model.php:48
 msgid "You do not have any password!"
 msgstr "هیچ کلمه عبوری برای شما تنظیم نشده است!"
 
-#: dash/addons/content_enter/pass/change/model.php:46
+#: dash/addons/content_enter/pass/change/model.php:48
 msgid "Please logout and login again."
 msgstr "لطفا از سیستم خارج شده و مجددا وارد سیستم شوید."
 
@@ -938,22 +940,22 @@ msgstr "لطفا از سیستم خارج شده و مجددا وارد سیست
 msgid "Please enter your password"
 msgstr "لطفا گذرواژه خود را وارد کنید"
 
-#: dash/addons/content_enter/pass/model.php:33
+#: dash/addons/content_enter/pass/model.php:36
 msgid "Invalid password, try again"
 msgstr "گذرواژه‌ی اشتباه، دوباره تلاش کنید"
 
-#: dash/addons/content_enter/pass/recovery/model.php:25
+#: dash/addons/content_enter/pass/recovery/model.php:27
 msgid "Your new password is your old password"
 msgstr "کلمه‌عبور جدید شما همان قدیمی‌است"
 
-#: dash/addons/content_enter/pass/recovery/model.php:27
+#: dash/addons/content_enter/pass/recovery/model.php:29
 #: dash/addons/includes/languages/trans_dash.php:740
-#: jibres/includes/languages/trans_dash.php:762
+#: jibres/includes/languages/trans_dash.php:802
 #: jibres/includes/languages/trans_project.php:220
 msgid "Enter"
 msgstr "ورود"
 
-#: dash/addons/content_enter/pass/recovery/model.php:65
+#: dash/addons/content_enter/pass/recovery/model.php:68
 msgid "Invalid Password"
 msgstr "گذرواژه نامعتبر"
 
@@ -982,7 +984,7 @@ msgstr ""
 
 #: dash/addons/content_enter/pass/view.php:22
 #: dash/addons/includes/languages/trans_dash.php:738
-#: jibres/includes/languages/trans_dash.php:760
+#: jibres/includes/languages/trans_dash.php:800
 msgid "Set Password"
 msgstr "تنظیم گذرواژه"
 
@@ -1002,11 +1004,11 @@ msgstr "تغییر گذرواژه"
 msgid "Please set your old and new password to change it"
 msgstr "لطفا گذرواژه‌ی قبلی و جدید خود را برای تغییر وارد کنید"
 
-#: dash/addons/content_enter/payment/controller.php:30
+#: dash/addons/content_enter/payment/controller.php:31
 msgid "Invalid payment type"
 msgstr "خطای نوع درگاه"
 
-#: dash/addons/content_enter/sessions/model.php:20
+#: dash/addons/content_enter/sessions/model.php:21
 msgid "Session terminated"
 msgstr "این روش ورود مسدود شد"
 
@@ -1024,45 +1026,45 @@ msgstr "لینوکس"
 msgid "Active sessions"
 msgstr "ورودهای فعال"
 
-#: dash/addons/content_enter/signup/model.php:23
+#: dash/addons/content_enter/signup/model.php:25
 msgid "How are you?"
 msgstr "حال شما چطوره؟"
 
-#: dash/addons/content_enter/signup/model.php:36
+#: dash/addons/content_enter/signup/model.php:39
 msgid "Pleaes set mobile number"
 msgstr "لطفا شماره تلفن‌همراه را وارد کنید"
 
-#: dash/addons/content_enter/signup/model.php:43
+#: dash/addons/content_enter/signup/model.php:46
 msgid "Pleaes set a valid mobile number"
 msgstr "لطفا شماره تلفن‌همراه معتبری وارد کنید"
 
-#: dash/addons/content_enter/signup/model.php:52
+#: dash/addons/content_enter/signup/model.php:55
 msgid "Pleaes set a valid username"
 msgstr "لطفا نام‌کاربری معتبری وارد کنید"
 
-#: dash/addons/content_enter/signup/model.php:59
+#: dash/addons/content_enter/signup/model.php:63
 msgid "Username must in [A-Za-z0-9]"
 msgstr "نام کاربری تنها باید از بین حروف و انگلیسی باشد"
 
-#: dash/addons/content_enter/signup/model.php:66
+#: dash/addons/content_enter/signup/model.php:70
 msgid "Pleaes set a valid password"
 msgstr "لطفا گذرواژه‌ی معتبری تنظیم کنید"
 
-#: dash/addons/content_enter/signup/model.php:73
+#: dash/addons/content_enter/signup/model.php:77
 msgid "Invalid full name"
 msgstr "نام کامل اشتباه"
 
-#: dash/addons/content_enter/signup/model.php:82
+#: dash/addons/content_enter/signup/model.php:87
 msgid "This username is already taken."
 msgstr "این نام‌کاربری پیش از این گرفته شده است."
 
-#: dash/addons/content_enter/signup/model.php:90
+#: dash/addons/content_enter/signup/model.php:96
 msgid "This mobile is already signuped. You can login by this mobile"
 msgstr ""
 "این شماره تلفن‌همراه پیش از این ثبت‌نام کرده است. شما می‌توانید با این شماره وارد "
 "سیستم شوید"
 
-#: dash/addons/content_enter/signup/model.php:112
+#: dash/addons/content_enter/signup/model.php:119
 msgid "We can not signup you"
 msgstr "ما نمی‌توانیم شما را ثبت‌نام کنیم"
 
@@ -1086,8 +1088,8 @@ msgstr "شناسه‌ی کاربری جدید باید کمتر از ۵۵ کار
 msgid "Please select a different username"
 msgstr "لطفا یک نام کاربری متفاوت انتخاب کنید"
 
-#: dash/addons/content_enter/username/change/model.php:58
-#: dash/addons/content_enter/username/set/model.php:31
+#: dash/addons/content_enter/username/change/model.php:59
+#: dash/addons/content_enter/username/set/model.php:32
 msgid "This username alreay taked!"
 msgstr "این نام کاربری در حال حاضر گرفته شده است!"
 
@@ -1107,12 +1109,12 @@ msgstr "شناسه‌ی کاربری باید بزرگتر از ۵ کاراکت�
 msgid "You must set less than 50 character in username"
 msgstr "شناسه‌ی کاربری باید کمتر از ۵۵ کاراکتر باشد"
 
-#: dash/addons/content_enter/username/set/model.php:37
-#: dash/lib/utility/enter.php:927
+#: dash/addons/content_enter/username/set/model.php:41
+#: dash/lib/utility/enter.php:936
 msgid "Your username was set"
 msgstr "نام کاربری شما ثبت شد"
 
-#: dash/addons/content_enter/username/set/model.php:47
+#: dash/addons/content_enter/username/set/model.php:51
 msgid "Please enter the username"
 msgstr "لطفا نام کاربری را وارد کنید"
 
@@ -1124,7 +1126,7 @@ msgstr "ثبت نام کاربری"
 msgid "Enter to :name with username"
 msgstr "با نام کاربری وارد :name شوید"
 
-#: dash/addons/content_enter/verify/model.php:47
+#: dash/addons/content_enter/verify/model.php:50
 msgid "Verify code in local is :code"
 msgstr "کد اعتبارسنجی شما در سیستم محلی :code است"
 
@@ -1224,20 +1226,20 @@ msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 
 #: dash/addons/content_su/command/model.php:11
 msgid "Please fill the password"
-msgstr ""
+msgstr "لطفا گذرواژه را وارد کنید"
 
-#: dash/addons/content_su/command/model.php:49
+#: dash/addons/content_su/command/model.php:33
 msgid "Invalid command"
-msgstr ""
+msgstr "دستور نا معتبر است"
 
 #: dash/addons/content_su/command/view.php:8
 #: jibres/includes/languages/trans_dash.php:621
 msgid "Command"
-msgstr ""
+msgstr "دستور"
 
 #: dash/addons/content_su/command/view.php:9
 msgid "Run some command in server"
-msgstr ""
+msgstr "اجرای برخی دستورات در سرور"
 
 #: dash/addons/content_su/cronjob/model.php:11
 msgid "Your cronjob is actived"
@@ -1266,7 +1268,7 @@ msgstr "انتخاب جدول"
 #: dash/addons/content_su/gitstatus/model.php:12
 #: dash/addons/content_su/nano/model.php:12
 msgid "Please fill the file content"
-msgstr ""
+msgstr "لطفا باکس متن را پر کنید"
 
 #: dash/addons/content_su/gitstatus/model.php:19
 #: dash/addons/content_su/nano/model.php:19
@@ -1276,20 +1278,20 @@ msgstr "فایل اشتباه"
 #: dash/addons/content_su/gitstatus/model.php:25
 #: dash/addons/content_su/nano/model.php:25
 msgid "File successfuly update"
-msgstr ""
+msgstr "فایل با موفقیت به روز رسانی شد"
 
 #: dash/addons/content_su/gitstatus/model.php:29
 #: dash/addons/content_su/nano/model.php:29
 msgid "Can not write file"
-msgstr ""
+msgstr "ناتوان در نوشتن فایل"
 
 #: dash/addons/content_su/gitstatus/view.php:8
 msgid "Git Status"
-msgstr ""
+msgstr "وضعیت گیت"
 
 #: dash/addons/content_su/gitstatus/view.php:9
 msgid "Check file status on this project"
-msgstr ""
+msgstr "بررسی وضعیت فایل‌ها در این پروژه"
 
 #: dash/addons/content_su/home/view.php:8
 msgid "Supervisor dashboard"
@@ -1332,11 +1334,11 @@ msgstr "تمامی اتفاقات درون این سیستم"
 #: dash/addons/content_su/nano/view.php:8
 #: jibres/includes/languages/trans_dash.php:623
 msgid "Nano"
-msgstr ""
+msgstr "نانو"
 
 #: dash/addons/content_su/nano/view.php:9
 msgid "Edit some server file"
-msgstr ""
+msgstr "ویرایش برخی از فایل های سرور"
 
 #: dash/addons/content_su/permission/model.php:36
 msgid "Permission added to this user"
@@ -1344,11 +1346,11 @@ msgstr "سطح‌دسترسی برای اضافه‌کردن این‌ کارب�
 
 #: dash/addons/content_su/time/view.php:8
 msgid "Date and Time"
-msgstr ""
+msgstr "تاریخ و زمان"
 
 #: dash/addons/content_su/time/view.php:9
 msgid "Check server date and time"
-msgstr ""
+msgstr "بررسی زمان و تاریخ سرور"
 
 #: dash/addons/content_su/tools/log/controller.php:145
 msgid "Do you wanna something here!?"
@@ -1442,7 +1444,7 @@ msgstr "همچنین تراکنش خاصی را بیافزایید یا آن ر�
 
 #: dash/addons/content_su/update/model.php:11
 msgid "Please fill the git password"
-msgstr ""
+msgstr "لطفا گذرواژه را وارد کنید"
 
 #: dash/addons/content_su/update/view.php:21
 #: dash/addons/includes/languages/trans_dash.php:135
@@ -1466,6 +1468,93 @@ msgstr "سراسری"
 #: dash/addons/content_su/users/add/model.php:17
 msgid "User added"
 msgstr "کاربر اضافه شد"
+
+#: dash/addons/content_support/home/view.php:9
+msgid "Ticketing System"
+msgstr "سامانه پشتیبانی تیکت"
+
+#: dash/addons/content_support/home/view.php:10
+msgid ""
+"Easily manage your tickets and monitor or track them to get best answer until fix "
+"your problem"
+msgstr ""
+"به‌سادگی تیکت‌های خود را مدیریت کنید و با مونیتور و رهگیری آن‌ها به بهترین پاسخ برای "
+"رفع مشکل خود برسید"
+
+#: dash/addons/content_support/home/view.php:13
+#: dash/addons/content_support/ticket/home/view.php:9
+#: jibres/includes/languages/trans_dash.php:722
+msgid "Tickets"
+msgstr "تیکت‌ها"
+
+#: dash/addons/content_support/ticket/add/model.php:54
+#: dash/addons/content_support/ticket/show/model.php:133
+msgid "Your ticket was sended"
+msgstr "تیکت شما ارسال شد"
+
+#: dash/addons/content_support/ticket/add/view.php:9
+msgid "Add new ticket"
+msgstr "افزودن تیکت جدید"
+
+#: dash/addons/content_support/ticket/add/view.php:10
+msgid "Dot worry!"
+msgstr "نگران نباشید!"
+
+#: dash/addons/content_support/ticket/add/view.php:10
+msgid "Ask your question."
+msgstr "سوال خود را بپرسید"
+
+#: dash/addons/content_support/ticket/add/view.php:10
+msgid "We are here to answer your questions."
+msgstr "ما اینجاییم تا به سوالات شما پاسخ دهیم."
+
+#: dash/addons/content_support/ticket/add/view.php:13
+#: dash/addons/content_support/ticket/show/view.php:14
+msgid "Back to tickets list"
+msgstr "بازگشت به لیست تیکت‌ها"
+
+#: dash/addons/content_support/ticket/home/view.php:10
+msgid "See list of your tickets!"
+msgstr "مشاهده لیست تمام تیکت‌های شما!"
+
+#: dash/addons/content_support/ticket/home/view.php:14
+msgid "New ticket"
+msgstr "تیکت جدید"
+
+#: dash/addons/content_support/ticket/home/view.php:17
+msgid "Back to support panel"
+msgstr "بازگشت به پنل پشتیبانی"
+
+#: dash/addons/content_support/ticket/show/model.php:46
+msgid "Tag was saved"
+msgstr "کلیدواژه ذخیره شد"
+
+#: dash/addons/content_support/ticket/show/model.php:59
+msgid "Ticket status was changed"
+msgstr "وضعیت تیکت تغییر یافت"
+
+#: dash/addons/content_support/ticket/show/model.php:84
+#: dash/addons/content_support/ticket/show/model.php:91
+#: dash/addons/content_support/ticket/show/view.php:29
+#: dash/addons/content_support/ticket/show/view.php:39
+msgid "Ticket not found"
+msgstr "تیکتی یافت نشد"
+
+#: dash/addons/content_support/ticket/show/view.php:9
+msgid "View ticket"
+msgstr "نمایش تیکت"
+
+#: dash/addons/content_support/ticket/show/view.php:10
+msgid "Check detail of your ticket."
+msgstr "بررسی جزئیات تیکت شما"
+
+#: dash/addons/content_support/ticket/show/view.php:10
+msgid "We try to answer to you as soon as posibble."
+msgstr "ما سعی می کنیم تا در اسرع وقت به شما پاسخ دهیم."
+
+#: dash/addons/content_support/ticket/show/view.php:51
+msgid "This is not your ticket!"
+msgstr "این تیکت شما نیست!"
 
 #: dash/addons/includes/languages/trans_dash.php:8
 #: jibres/includes/languages/trans_dash.php:403
@@ -4171,110 +4260,110 @@ msgid "datemodified"
 msgstr "تاریخ ویرایش"
 
 #: dash/addons/includes/languages/trans_dash.php:693
-#: jibres/includes/languages/trans_dash.php:721
+#: jibres/includes/languages/trans_dash.php:761
 msgid "Avatar of you"
 msgstr "آواتار شما"
 
 #: dash/addons/includes/languages/trans_dash.php:694
-#: jibres/includes/languages/trans_dash.php:722
+#: jibres/includes/languages/trans_dash.php:762
 msgid "Default Avatar"
 msgstr "آواتار پیش‌فرض"
 
 #: dash/addons/includes/languages/trans_dash.php:695
-#: jibres/includes/languages/trans_dash.php:723
+#: jibres/includes/languages/trans_dash.php:763
 msgid "Hello"
 msgstr "سلام"
 
 #: dash/addons/includes/languages/trans_dash.php:696
-#: jibres/includes/languages/trans_dash.php:724
+#: jibres/includes/languages/trans_dash.php:764
 msgid "Click to toggle sidebar status"
 msgstr "برای تغییر وضعیت منوی کناری کلیک کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:697
-#: jibres/includes/languages/trans_dash.php:725
+#: jibres/includes/languages/trans_dash.php:765
 msgid "View website"
 msgstr "مشاهده وب‌سایت"
 
 #: dash/addons/includes/languages/trans_dash.php:698
-#: jibres/includes/languages/trans_dash.php:726
+#: jibres/includes/languages/trans_dash.php:766
 msgid "Work in your language"
 msgstr "به زبان خود کار کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:699
 #: dash/addons/includes/languages/trans_static.php:104
-#: jibres/includes/languages/trans_dash.php:727
+#: jibres/includes/languages/trans_dash.php:767
 msgid "Logout"
 msgstr "خروج از سیستم"
 
 #: dash/addons/includes/languages/trans_dash.php:700
-#: jibres/includes/languages/trans_dash.php:728
+#: jibres/includes/languages/trans_dash.php:768
 #: jibres/includes/languages/trans_project.php:194
 msgid "View your current location and navigate to parent of it"
 msgstr "مکان فعلی خود را دیده و به مکان‌های والد آن منتقل شوید"
 
 #: dash/addons/includes/languages/trans_dash.php:703
-#: jibres/includes/languages/trans_dash.php:778
+#: jibres/includes/languages/trans_dash.php:818
 msgid "You are supervisor!"
 msgstr "شما مدیر فنی سیستم هستید!"
 
 #: dash/addons/includes/languages/trans_dash.php:704
-#: jibres/includes/languages/trans_dash.php:779
+#: jibres/includes/languages/trans_dash.php:819
 msgid "Enter with another user"
 msgstr "ورود با کاربر دیگر"
 
 #: dash/addons/includes/languages/trans_dash.php:709
-#: jibres/includes/languages/trans_dash.php:731
+#: jibres/includes/languages/trans_dash.php:771
 msgid "Please enter valid mobile number"
 msgstr "لطفا شماره موبایل معتبری وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:710
-#: jibres/includes/languages/trans_dash.php:732
+#: jibres/includes/languages/trans_dash.php:772
 msgid "Enter correct iranian mobile from 10 to 14 character"
 msgstr "شماره موبایل صحیح ایران باید بین ۱۰ تا ۱۴ رقم باشد"
 
 #: dash/addons/includes/languages/trans_dash.php:711
-#: jibres/includes/languages/trans_dash.php:733
+#: jibres/includes/languages/trans_dash.php:773
 msgid "7 to 15 characters is allowed for mobile"
 msgstr "بین ۷ تا ۱۵ رقم برای موبایل مجاز است"
 
 #: dash/addons/includes/languages/trans_dash.php:712
-#: jibres/includes/languages/trans_dash.php:734
+#: jibres/includes/languages/trans_dash.php:774
 msgid "Username or Mobile or email"
 msgstr "نام‌کاربری یا موبایل یا رایانامه"
 
 #: dash/addons/includes/languages/trans_dash.php:713
-#: jibres/includes/languages/trans_dash.php:735
+#: jibres/includes/languages/trans_dash.php:775
 msgid "Username or Mobile or Email"
 msgstr "نام‌کاربری یا موبایل یا رایانامه"
 
 #: dash/addons/includes/languages/trans_dash.php:714
-#: jibres/includes/languages/trans_dash.php:736
+#: jibres/includes/languages/trans_dash.php:776
 msgid "Please enter valid mobile or username or email number"
 msgstr "لطفا نام‌کاربری یا موبایل یا رایانامه معتبری وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:715
-#: jibres/includes/languages/trans_dash.php:737
+#: jibres/includes/languages/trans_dash.php:777
 msgid "Enter a valid password from 6 to 40 character"
 msgstr "گذرواژه‌ای معتبر بین ۶ تا ۴۰ کاراکتر انتخاب کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:716
 #: dash/addons/includes/languages/trans_static.php:339
-#: jibres/includes/languages/trans_dash.php:738
+#: jibres/includes/languages/trans_dash.php:778
 msgid "New Password"
 msgstr "گذرواژه جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:717
-#: jibres/includes/languages/trans_dash.php:739
+#: jibres/includes/languages/trans_dash.php:779
 msgid "Password?"
 msgstr "کلمه عبور؟"
 
 #: dash/addons/includes/languages/trans_dash.php:718
-#: jibres/includes/languages/trans_dash.php:740
+#: jibres/includes/languages/trans_dash.php:780
 msgid "Verify Code"
 msgstr "کد اعتبارسنجی"
 
 #: dash/addons/includes/languages/trans_dash.php:719
-#: jibres/includes/languages/trans_dash.php:741
+#: jibres/includes/languages/trans_dash.php:781
 msgid "Enter a valid code!"
 msgstr "کد معتبر وارد کنید!"
 
@@ -4282,28 +4371,28 @@ msgstr "کد معتبر وارد کنید!"
 #: jibres/content_a/factor/add/controller.php:180
 #: jibres/content_a/factor/add/controller.php:181
 #: jibres/content_a/factor/add/controller.php:274
-#: jibres/includes/languages/trans_dash.php:742
+#: jibres/includes/languages/trans_dash.php:782
 #: jibres/includes/languages/trans_project.php:390
 msgid "Code"
 msgstr "کد"
 
 #: dash/addons/includes/languages/trans_dash.php:721
-#: jibres/includes/languages/trans_dash.php:743
+#: jibres/includes/languages/trans_dash.php:783
 msgid "Send this code to our number!"
 msgstr "این کد را به شماره‌ی ما پیامک کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:722
-#: jibres/includes/languages/trans_dash.php:744
+#: jibres/includes/languages/trans_dash.php:784
 msgid "send to this number"
 msgstr "به این شماره پیامک کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:723
-#: jibres/includes/languages/trans_dash.php:745
+#: jibres/includes/languages/trans_dash.php:785
 msgid "Send code to this number!"
 msgstr "کد را به این شماره ارسال کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:724
-#: jibres/includes/languages/trans_dash.php:746
+#: jibres/includes/languages/trans_dash.php:786
 msgid "Full name"
 msgstr "نام کامل"
 
@@ -4311,139 +4400,139 @@ msgstr "نام کامل"
 #: dash/addons/includes/languages/trans_static.php:408
 #: jibres/includes/database/jibres/translation.php:15
 #: jibres/includes/database/jibres/translation.php:145
-#: jibres/includes/languages/trans_dash.php:747
+#: jibres/includes/languages/trans_dash.php:787
 msgid "email"
 msgstr "رایانامه"
 
 #: dash/addons/includes/languages/trans_dash.php:726
-#: jibres/includes/languages/trans_dash.php:748
+#: jibres/includes/languages/trans_dash.php:788
 msgid "Enter a valid eamil!"
 msgstr "رایانامه‌ی معتبر را وارد کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:727
 #: dash/addons/includes/languages/trans_static.php:402
-#: jibres/includes/languages/trans_dash.php:749
+#: jibres/includes/languages/trans_dash.php:789
 msgid "username"
 msgstr "نام‌کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:728
-#: jibres/includes/languages/trans_dash.php:750
+#: jibres/includes/languages/trans_dash.php:790
 msgid "Enter a valid username from 4 to 50 character"
 msgstr "نام‌کاربری معتبری بین ۴ تا ۵۰ کاراکتر وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:729
-#: jibres/includes/languages/trans_dash.php:751
+#: jibres/includes/languages/trans_dash.php:791
 msgid "Delete Account"
 msgstr "حذف حساب کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:730
-#: jibres/includes/languages/trans_dash.php:752
+#: jibres/includes/languages/trans_dash.php:792
 msgid "Go and check it"
 msgstr "برو و چک کن"
 
 #: dash/addons/includes/languages/trans_dash.php:731
-#: jibres/includes/languages/trans_dash.php:753
+#: jibres/includes/languages/trans_dash.php:793
 msgid "Next"
 msgstr "بعدی"
 
 #: dash/addons/includes/languages/trans_dash.php:732
-#: jibres/includes/languages/trans_dash.php:754
+#: jibres/includes/languages/trans_dash.php:794
 msgid "Sign in instead"
 msgstr "یا وارد شوید"
 
 #: dash/addons/includes/languages/trans_dash.php:733
 #: dash/addons/includes/languages/trans_static.php:170
-#: jibres/includes/languages/trans_dash.php:755
+#: jibres/includes/languages/trans_dash.php:795
 msgid "Login"
 msgstr "ورود به سیستم"
 
 #: dash/addons/includes/languages/trans_dash.php:734
-#: jibres/includes/languages/trans_dash.php:756
+#: jibres/includes/languages/trans_dash.php:796
 msgid "No account?"
 msgstr "حساب کاربری ندارید؟"
 
 #: dash/addons/includes/languages/trans_dash.php:735
-#: jibres/includes/languages/trans_dash.php:757
+#: jibres/includes/languages/trans_dash.php:797
 msgid "Create for yourself"
 msgstr "حساب‌کاربری خود را بسازید"
 
 #: dash/addons/includes/languages/trans_dash.php:736
-#: jibres/includes/languages/trans_dash.php:758
+#: jibres/includes/languages/trans_dash.php:798
 msgid "Create Account"
 msgstr "ساخت حساب‌کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:737
-#: jibres/includes/languages/trans_dash.php:759
+#: jibres/includes/languages/trans_dash.php:799
 msgid "Signup"
 msgstr "ثبت‌نام"
 
 #: dash/addons/includes/languages/trans_dash.php:739
-#: jibres/includes/languages/trans_dash.php:761
+#: jibres/includes/languages/trans_dash.php:801
 msgid "Recovery password"
 msgstr "بازیابی گذرواژه"
 
 #: dash/addons/includes/languages/trans_dash.php:741
-#: jibres/includes/languages/trans_dash.php:763
+#: jibres/includes/languages/trans_dash.php:803
 msgid "Enter with another methods"
 msgstr "ورود با سایر روش‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:742
-#: jibres/includes/languages/trans_dash.php:764
+#: jibres/includes/languages/trans_dash.php:804
 msgid "Log in with mobile"
 msgstr "ورود با موبایل"
 
 #: dash/addons/includes/languages/trans_dash.php:743
-#: jibres/includes/languages/trans_dash.php:765
+#: jibres/includes/languages/trans_dash.php:805
 msgid "Enter with mobile"
 msgstr "ورود با موبایل"
 
 #: dash/addons/includes/languages/trans_dash.php:744
-#: jibres/includes/languages/trans_dash.php:766
+#: jibres/includes/languages/trans_dash.php:806
 msgid "Enter with Google"
 msgstr "ورود با گوگل"
 
 #: dash/addons/includes/languages/trans_dash.php:745
-#: jibres/includes/languages/trans_dash.php:767
+#: jibres/includes/languages/trans_dash.php:807
 msgid "Enter with email"
 msgstr "ورود با رایانامه"
 
 #: dash/addons/includes/languages/trans_dash.php:746
-#: jibres/includes/languages/trans_dash.php:768
+#: jibres/includes/languages/trans_dash.php:808
 msgid "Enter with username"
 msgstr "ورود با نام‌کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:747
-#: jibres/includes/languages/trans_dash.php:769
+#: jibres/includes/languages/trans_dash.php:809
 msgid "Resend code"
 msgstr "ارسال دوباره‌ی کد"
 
 #: dash/addons/includes/languages/trans_dash.php:748
-#: jibres/includes/languages/trans_dash.php:770
+#: jibres/includes/languages/trans_dash.php:810
 msgid "After end timer you can request code again"
 msgstr "پس از به‌اتمام رسیدن زمان، شما امکان درخواست مجدد کد را خواهید داشت"
 
 #: dash/addons/includes/languages/trans_dash.php:749
-#: jibres/includes/languages/trans_dash.php:771
+#: jibres/includes/languages/trans_dash.php:811
 msgid "Another way?"
 msgstr "روش دیگر؟"
 
 #: dash/addons/includes/languages/trans_dash.php:750
-#: jibres/includes/languages/trans_dash.php:772
+#: jibres/includes/languages/trans_dash.php:812
 msgid "Restart with new mobile"
 msgstr "شروع دوباره با موبایل جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:751
-#: jibres/includes/languages/trans_dash.php:773
+#: jibres/includes/languages/trans_dash.php:813
 msgid "New email"
 msgstr "رایانامه‌ی جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:752
-#: jibres/includes/languages/trans_dash.php:774
+#: jibres/includes/languages/trans_dash.php:814
 msgid "New username"
 msgstr "نام کاربری جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:753
-#: jibres/includes/languages/trans_dash.php:775
+#: jibres/includes/languages/trans_dash.php:815
 msgid "Enter a valid username!"
 msgstr "نام کاربری معتبر وارد کنید!"
 
@@ -7813,26 +7902,38 @@ msgstr "بازگشت"
 msgid "Please only use below keyboard."
 msgstr "لطفا تنها از منوی زیر استفاده کنید."
 
-#: dash/lib/app/comment.php:74
+#: dash/lib/app/comment.php:79
 msgid "Duplicate comment from you was received"
 msgstr "این دیدگاه قبلا توسط شما ثبت شده است"
 
-#: dash/lib/app/comment.php:99
+#: dash/lib/app/comment.php:91
+msgid "No way to add new data"
+msgstr "هیچ راهی برای افزودن اطلاعات وجود ندارد"
+
+#: dash/lib/app/comment.php:114
 msgid "Can not access to edit comment"
 msgstr "شما دسترسی لازم را برای ویرایش این نظر ندارید"
 
-#: dash/lib/app/comment.php:186
+#: dash/lib/app/comment.php:206
 msgid "Please fill the content box"
 msgstr "لطفا باکس متن را پر کنید"
 
-#: dash/lib/app/comment.php:233 dash/lib/app/comment.php:240
+#: dash/lib/app/comment.php:253 dash/lib/app/comment.php:260
 #: dash/lib/app/posts.php:20 dash/lib/app/posts.php:28
 msgid "Invalid post id"
 msgstr "شناسه پست اشتباه است"
 
-#: dash/lib/app/comment.php:246
+#: dash/lib/app/comment.php:266
 msgid "Comment of this post is closed!"
 msgstr "دیدگاه‌های این نوشته بسته است!"
+
+#: dash/lib/app/comment.php:278
+msgid "Title is out of range!"
+msgstr "عنوان خارج از محدوده است!"
+
+#: dash/lib/app/comment.php:287 dash/lib/app/term.php:164
+msgid "Invalid parent"
+msgstr "شناسه والد اشتباه است"
 
 #: dash/lib/app/contact.php:51 jibres/includes/lib/app/thirdparty/user_id.php:98
 msgid "User id not set"
@@ -8132,10 +8233,6 @@ msgstr "عبارات تکراری"
 #: dash/lib/app/term.php:157
 msgid "Please set the term excerpt less than 500 character"
 msgstr "لطفا چکیده عبارات را کمتر از ۵۰۰ حرف وارد کنید"
-
-#: dash/lib/app/term.php:164
-msgid "Invalid parent"
-msgstr "شناسه والد اشتباه است"
 
 #: dash/lib/app/term.php:180
 msgid "Parent not found"
@@ -8453,43 +8550,43 @@ msgstr "عملیات کلادفلر از طریق ای‌پی‌آی با موف
 msgid "The api Cloudflare opration faild"
 msgstr "عملیات کلادفلر از طریق ای‌پی‌آی با موفقیت ناموفق بود"
 
-#: dash/lib/utility/enter.php:695
+#: dash/lib/utility/enter.php:696
 msgid "Please fill the verification code"
 msgstr "لطفا کد اعتبارسنجی را وارد کنید"
 
-#: dash/lib/utility/enter.php:701
+#: dash/lib/utility/enter.php:703
 msgid "What happend? the code is number. you try to send string!?"
 msgstr "چی شده؟ کد باید عددی باشد. شما چطوری دارین متن وارد میکنید!؟"
 
-#: dash/lib/utility/enter.php:722
+#: dash/lib/utility/enter.php:724
 msgid "System error, try again"
 msgstr "خطای سیستم، دوباره تلاش کنید"
 
-#: dash/lib/utility/enter.php:746
+#: dash/lib/utility/enter.php:748
 msgid "Your sms not deliver to us!"
 msgstr "پیامک شما بدست ما نرسیده است!"
 
-#: dash/lib/utility/enter.php:789
+#: dash/lib/utility/enter.php:792
 msgid "Invalid code, try again"
 msgstr "کد اشتباه، دوباره تلاش کنید"
 
-#: dash/lib/utility/enter.php:844
+#: dash/lib/utility/enter.php:848
 msgid "Your username was removed"
 msgstr "نام کاربری شما حذف شد"
 
-#: dash/lib/utility/enter.php:931
+#: dash/lib/utility/enter.php:941
 msgid "Your username was change"
 msgstr "نام کاربری شما تغییر یافت"
 
-#: dash/lib/utility/enter.php:1021
+#: dash/lib/utility/enter.php:1033
 msgid "Your password was changed"
 msgstr "کلمه عبور شما تغییر یافت"
 
-#: dash/lib/utility/enter.php:1183
+#: dash/lib/utility/enter.php:1198
 msgid "You must set 6 character and large in password"
 msgstr "گذرواژه باید حداقل ۶ کاراکتر باشد"
 
-#: dash/lib/utility/enter.php:1193
+#: dash/lib/utility/enter.php:1208
 msgid "You must set less than 99 character in password"
 msgstr "گذرواژه باید کمتر از ۹۹ کاراکتر باشد"
 
@@ -8504,7 +8601,7 @@ msgstr "این مکان وجود ندارد!"
 
 #: dash/lib/utility/git.php:188 dash/lib/utility/git.php:237
 msgid "NO change!"
-msgstr ""
+msgstr "بدون تغییر!"
 
 #: dash/lib/utility/google.php:122
 msgid "Invalid access token"
@@ -9747,7 +9844,7 @@ msgstr ""
 
 #: jibres/includes/languages/trans_dash.php:491
 msgid "Server password"
-msgstr ""
+msgstr "کلمه عبور سرور"
 
 #: jibres/includes/languages/trans_dash.php:501
 msgid "CPU Usage"
@@ -9767,23 +9864,139 @@ msgstr "درصد"
 
 #: jibres/includes/languages/trans_dash.php:622
 msgid "Date and time"
-msgstr ""
+msgstr "تاریخ و زمان"
 
 #: jibres/includes/languages/trans_dash.php:624
 msgid "Git status"
-msgstr ""
+msgstr "وضعیت گیت"
 
 #: jibres/includes/languages/trans_dash.php:668
 msgid "If the git password is saved on your server"
-msgstr ""
+msgstr "اگر پسورد سرور گیت بر روی سیستم شما ذخیره است"
 
 #: jibres/includes/languages/trans_dash.php:671
 msgid "Git password"
-msgstr ""
+msgstr "پسورد گیت"
 
 #: jibres/includes/languages/trans_dash.php:672
 msgid "Enter git pass"
-msgstr ""
+msgstr "کلمه عبور گیت را وارد کنید"
+
+#: jibres/includes/languages/trans_dash.php:720
+msgid "Active tickets"
+msgstr "تیکت‌های فعال"
+
+#: jibres/includes/languages/trans_dash.php:721
+msgid "Open new ticket!"
+msgstr "باز کردن تیکت جدید!"
+
+#: jibres/includes/languages/trans_dash.php:723
+msgid "Replies"
+msgstr "پاسخ‌ها"
+
+#: jibres/includes/languages/trans_dash.php:724
+msgid "Archived"
+msgstr "بایگانی‌شده"
+
+#: jibres/includes/languages/trans_dash.php:725
+msgid "Avg. First Response"
+msgstr "میانگین اولین پاسخگویی"
+
+#: jibres/includes/languages/trans_dash.php:726
+msgid "Minute"
+msgstr "دقیقه"
+
+#: jibres/includes/languages/trans_dash.php:727
+msgid "Avg. Time to Archive"
+msgstr "میانگین زمان بایگانی‌شدن"
+
+#: jibres/includes/languages/trans_dash.php:728
+msgid "Hours"
+msgstr "ساعات"
+
+#: jibres/includes/languages/trans_dash.php:731
+msgid "Support Panel"
+msgstr "پنل پشتیبانی"
+
+#: jibres/includes/languages/trans_dash.php:732
+msgid "New Ticket"
+msgstr "تیکت جدید"
+
+#: jibres/includes/languages/trans_dash.php:733
+msgid "Unanswered"
+msgstr "بدون پاسخ"
+
+#: jibres/includes/languages/trans_dash.php:734
+msgid "Mine"
+msgstr "مال من"
+
+#: jibres/includes/languages/trans_dash.php:735
+msgid "All"
+msgstr "همه"
+
+#: jibres/includes/languages/trans_dash.php:736
+msgid "Labels"
+msgstr "برچسب‌ها"
+
+#: jibres/includes/languages/trans_dash.php:737
+msgid "Bug"
+msgstr "باگ"
+
+#: jibres/includes/languages/trans_dash.php:738
+msgid "Feature"
+msgstr "ویژگی"
+
+#: jibres/includes/languages/trans_dash.php:741
+msgid "Subject"
+msgstr "موضوع"
+
+#: jibres/includes/languages/trans_dash.php:742
+msgid "Subject of your ticket"
+msgstr "عنوان تیکت شما"
+
+#: jibres/includes/languages/trans_dash.php:743
+msgid "Set title will help us answer quickly"
+msgstr "نتظیم عنوان تیکت به ما کمک می کند تا سریع تر پاسخگو باشیم"
+
+#: jibres/includes/languages/trans_dash.php:744
+msgid "Attachment"
+msgstr "ضمیمه"
+
+#: jibres/includes/languages/trans_dash.php:747
+msgid "First response"
+msgstr "اولین پاسخ"
+
+#: jibres/includes/languages/trans_dash.php:750
+msgid "Ticket No"
+msgstr "شماره تیکت"
+
+#: jibres/includes/languages/trans_dash.php:751
+msgid "Create date"
+msgstr "تاریخ ایجاد"
+
+#: jibres/includes/languages/trans_dash.php:752
+msgid "Last activity"
+msgstr "آخرین فعالیت‌ها"
+
+#: jibres/includes/languages/trans_dash.php:753
+msgid "Submit as Solved"
+msgstr "تایید به عنوان حل شده"
+
+#: jibres/includes/languages/trans_dash.php:754
+msgid "Close ticket"
+msgstr "بستن تیکت"
+
+#: jibres/includes/languages/trans_dash.php:755
+msgid "Creator"
+msgstr "ایجاد کننده"
+
+#: jibres/includes/languages/trans_dash.php:756
+msgid "Save tag"
+msgstr "ذخیره کلیدواژه"
+
+#: jibres/includes/languages/trans_dash.php:757
+msgid "Add tag manually to link tickets togethers"
+msgstr "کلدواژه را به صورت دستی اضافه کنید تا تیکت‌ها را در کنار هم قرار دهید"
 
 #: jibres/includes/languages/trans_project.php:8
 msgid ""
