@@ -23,6 +23,21 @@
 {%endblock%}
 
 
+{%block customerDetailArea%}
+{%if customer or 1%}
+<hr>
+<div class="customerDetail fs14">
+  <div class="pA5">{%trans "Customer"%} <span class="txtB">جواد عوض زاده</span></div>
+  <div class="pA5">{%trans "Address"%} <span class="txtB">قم، یدان مطهری</span></div>
+  <div class="f pA5">
+    <div class="cauto pRa10">{%trans "Tel"%}</div>
+    <div class="c pRa10 txtB">09357269759</div>
+    <div class="c txtB">09357269759</div>
+  </div>
+
+</div>
+{%endif%}
+{%endblock%}
 
 {%block factorDetailArea%}
  <div class="f factorDetail">
