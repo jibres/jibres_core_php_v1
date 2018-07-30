@@ -60,7 +60,7 @@ class filter
 			case 'factor':
 				if(isset($filter_array['customer']))
 				{
-					$myDataTable = \lib\data::dataTable();
+					$myDataTable = \dash\data::dataTable();
 					if(is_array($myDataTable))
 					{
 						$customer_displayname   = array_column($myDataTable, 'customer_displayname', 'customer');
