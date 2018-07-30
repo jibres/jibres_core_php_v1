@@ -38,26 +38,26 @@ class controller
 						}
 						if(isset($value['mobile']))
 						{
-							$name .= '<div class="cauto floatL mL5 ">'.\dash\utility\human::number($value['mobile']). '</div>';
+							$name .= '<div class="cauto floatL mL5 badge">'.\dash\utility\human::number($value['mobile']). '</div>';
 
 						}
 
-						if(isset($value['staff']) && $value['staff'])
-						{
-							$name .= '<small title="'. T_("Staff").'" class="cauto floatL mL5 badge success">'. T_("Staff") . '</small>';
-						}
+						// if(isset($value['staff']) && $value['staff'])
+						// {
+						// 	$name .= '<small title="'. T_("Staff").'" class="cauto floatL mL5 badge success">'. T_("Staff") . '</small>';
+						// }
 
 
-						if(isset($value['customer']) && $value['customer'])
-						{
-							$name .= '<small title="'. T_("Customer").'" class="cauto floatL mL5 badge primary">'. T_("Customer") . '</small>';
-						}
+						// if(isset($value['customer']) && $value['customer'])
+						// {
+						// 	$name .= '<small title="'. T_("Customer").'" class="cauto floatL mL5 badge primary">'. T_("Customer") . '</small>';
+						// }
 
 
-						if(isset($value['supplier']) && $value['supplier'])
-						{
-							$name .= '<small title="'. T_("Supplier").'" class="cauto floatL mL5 badge warn2">'. T_("Supplier") . '</small>';
-						}
+						// if(isset($value['supplier']) && $value['supplier'])
+						// {
+						// 	$name .= '<small title="'. T_("Supplier").'" class="cauto floatL mL5 badge warn2">'. T_("Supplier") . '</small>';
+						// }
 
 						// if(isset($value['code']))
 						// {
