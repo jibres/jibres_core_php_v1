@@ -38,7 +38,7 @@
               {{value.firstname}} <b>{{value.lastname}}</b>
             {%endif%}
           </a>
-          <span>{{value.code}}</span>
+          <span title='{%trans "Code"%}'>{{value.code | fitNumber}}</span>
         </div>
 
         <div class="justify-start">
@@ -105,8 +105,10 @@
 
 
 {%block htmlFilter%}
+{%if filterBox%}
 <p class="f fs14 msg warn2">
   <span class="c">{{filterBox | raw}}</span>
   <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
 </p>
+{%endif%}
 {%endblock%}

@@ -3,6 +3,13 @@ namespace lib\db;
 
 class userstores
 {
+	public static function get_costomer_code()
+	{
+		$store_id = \lib\store::id();
+		$query    = "SELECT userstores.code AS `code` FROM userstores WHERE userstores.store_id = $store_id  ORDER BY userstores.code DESC LIMIT 1 ";
+		$result   = \dash\db::get($query, 'code', true);
+		return intval($result) + 1;
+	}
 
 	public static function permission_group()
 	{

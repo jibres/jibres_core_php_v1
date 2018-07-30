@@ -226,10 +226,20 @@ class thirdparty
 
 
 		$code = \dash\app::request('code');
-		if ($code && mb_strlen($code) > 100)
+		if ($code && !is_numeric($code))
 		{
 			\dash\notif::error(T_("Invalid code"), 'code');
 			return false;
+		}
+
+		if(\dash\app::isset_request('code') && !$code)
+		{
+			$code = \lib\db\userstores::get_costomer_code();
+		}
+
+		if($code && intval($code) > 1E+9)
+		{
+			$code = null;
 		}
 
 		$email = \dash\app::request('email');

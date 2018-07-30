@@ -1,0 +1,1 @@
+ALTER TABLE `userstores` CHANGE `code` `code` INT(10) UNSIGNED NULL DEFAULT NULL;

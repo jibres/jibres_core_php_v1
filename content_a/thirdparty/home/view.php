@@ -21,6 +21,8 @@ class view
 		$args['order'] = 'desc';
 		\dash\data::dataTable(\lib\app\thirdparty::list(\dash\request::get('q'), $args));
 
+		unset($args['order']);
+
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
 		\dash\data::dashboardData(\lib\app\store::dashboard_detail(\lib\store::id()));
 	}
