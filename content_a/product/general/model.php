@@ -33,7 +33,6 @@ class model
 			'salestore'      => \dash\request::post('salestore') === 'on' ? 1 : 0,
 			'carton'         => \dash\request::post('carton'),
 		];
-
 		return $args;
 	}
 

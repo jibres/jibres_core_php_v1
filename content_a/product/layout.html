@@ -144,7 +144,7 @@
 
 
 <label for='unit'>{%trans "Unit"%}</label>
-<select name="cat" class="select ui dropdown search addition"  id="unit">
+<select name="unit" class="select ui dropdown search addition"  id="unit">
   <option value="" readonly>{%trans "like Qty, kg, etc"%}</option>
   {%for key, value in listUnits%}
     <option value="{{value}}"{%if value == product.unit %} selected{%endif%}>{{value}}</option>
