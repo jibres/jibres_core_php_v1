@@ -130,9 +130,10 @@ trait datalist
 			{
 				return [];
 			}
-			$duplicate_id = implode(',', $duplicate_id);
-			$field['id']  = ["IN", "($duplicate_id)"];
-			$result       = \lib\db\products::search($_string, $option, $field);
+			$duplicate_id   = implode(',', $duplicate_id);
+			$field['id']    = ["IN", "($duplicate_id)"];
+			$option['sort'] = 'title';
+			$result         = \lib\db\products::search($_string, $option, $field);
 
 		}
 		elseif (isset($option['hbarcode']) && $option['hbarcode'])
