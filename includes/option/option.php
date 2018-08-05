@@ -14,6 +14,7 @@ if(!defined('db_log_name'))
 }
 
 
+self::$url['fix']               = false;
 // self::$url['tld']               = 'com';
 // self::$url['protocol']          = 'https';
 
