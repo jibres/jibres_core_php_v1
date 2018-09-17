@@ -6,7 +6,7 @@
  */
 function bindShortkey()
 {
-  $(document).keydown(function(_e) { event_corridor.call(this, _e)});
+  $(document).on("keydown", function(_e) { event_corridor.call(this, _e)});
   // $('ul li', explorer).click(function(e)    { event_corridor(e, e.currentTarget, 'click');    });
 }
 
