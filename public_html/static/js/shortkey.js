@@ -114,7 +114,7 @@ function event_corridor(_e, _self, _key)
         {
           // var nextSelectedRow = selectedRowEl.prev();
           selectedRowEl.remove();
-          $('.dropdown.barCode input.search').val('').focus();
+          $('.dropdown.barCode input.search').val('').trigger("focus");
           // navigationFactorAddSetSelected(nextSelectedRow, true);
           calcFooterValues();
           _e.preventDefault();
@@ -144,7 +144,7 @@ function event_corridor(_e, _self, _key)
         if(RowCountEl)
         {
           var RowCountEl = RowCountEl.find('input.count');
-          RowCountEl.select();
+          RowCountEl.trigger("select");
         }
           // _e.preventDefault();
       }
@@ -156,11 +156,11 @@ function event_corridor(_e, _self, _key)
       {
         if($(":focus").parents('.dropdown').find('#productSearch'))
         {
-          $('.dropdown.barCode input.search').select();
+          $('.dropdown.barCode input.search').trigger("select");
         }
         else
         {
-          $('.dropdown.barCode input.search').select();
+          $('.dropdown.barCode input.search').trigger("select");
           _e.preventDefault();
         }
       }
@@ -174,7 +174,7 @@ function event_corridor(_e, _self, _key)
         if(RowDiscountEl)
         {
           var RowDiscountEl = RowDiscountEl.find('input.discount');
-          RowDiscountEl.select();
+          RowDiscountEl.trigger("select");
         }
         // _e.preventDefault();
       }
@@ -190,11 +190,11 @@ function event_corridor(_e, _self, _key)
       {
         if($(":focus").parents('.dropdown').find('#productSearch'))
         {
-          $('.dropdown.barCode input.search').select();
+          $('.dropdown.barCode input.search').trigger("select");
         }
         else
         {
-          $('.dropdown.barCode input.search').select();
+          $('.dropdown.barCode input.search').trigger("select");
           _e.preventDefault();
         }
       }
@@ -250,7 +250,7 @@ function event_corridor(_e, _self, _key)
     case '70ctrl':          // f3 + ctrl
       if($('input[type=search]').length === 1)
       {
-        $('input[type=search]').focus();
+        $('input[type=search]').trigger("focus");
         _e.preventDefault();
       }
       break;
