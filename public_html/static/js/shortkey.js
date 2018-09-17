@@ -222,7 +222,7 @@ function event_corridor(_e, _self, _key)
           if(qtyFactorTableItems() == 0)
           {
             var msg = $('#factorAdd').attr('data-msgNewError');
-            notif('warn', msg);
+            notif('warn', msg, null, null, {"displayMode": 2});
           }
           else
           {
