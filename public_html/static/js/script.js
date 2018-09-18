@@ -272,12 +272,18 @@ function calcFooterValues(_table)
 
   });
 
+  // remove decimal value from total price
+  // in future get option from store setting to round this value
+  calcDtSumPrice    = Math.round(calcDtSumPrice);
+  calcDtSumDiscount = Math.round(calcDtSumDiscount);
+  calcDtSumTotal    = Math.round(calcDtSumTotal);
+
   // calc discount percent
   if(calcDtSumDiscount > 0)
   {
-    calcDtSumDiscount = Math.round(calcDtSumDiscount);
     calcDtDiscountPercent = (calcDtSumDiscount / calcDtSumPrice * 100).toFixed(2);
   }
+
 
   // show or hide priceBox
   if(calcDtCountRow > 0)
