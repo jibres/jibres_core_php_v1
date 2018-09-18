@@ -892,9 +892,11 @@ function simplePrint()
 var wordifyfa = function (num, level)
 {
   'use strict';
-    if (num === null) {
-        return "";
+  if (num === null)
+  {
+    return "";
   }
+  num = Math.round(num);
   // convert negative number to positive and get wordify value
   if (num<0) {
     num = num * -1;
@@ -916,9 +918,14 @@ var wordifyfa = function (num, level)
         result += " و ";
         level -= 1;
     }
-
-    if (num < 10) {
-        result += yekan[num - 1];
+    if (num < 10)
+    {
+        var myNum = yekan[Math.floor(num - 1)];
+        if(myNum)
+        {
+          result += yekan[Math.floor(num - 1)];
+        }
+        // result += yekan[num - 1];
     } else if (num < 20) {
         result += dah[num - 10];
     } else if (num < 100) {
