@@ -275,6 +275,7 @@ function calcFooterValues(_table)
   // calc discount percent
   if(calcDtSumDiscount > 0)
   {
+    calcDtSumDiscount = Math.round(calcDtSumDiscount);
     calcDtDiscountPercent = (calcDtSumDiscount / calcDtSumPrice * 100).toFixed(2);
   }
 
