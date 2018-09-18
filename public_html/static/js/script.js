@@ -522,11 +522,11 @@ function addFindedProduct(_product, _msg, _searchedValue)
   {
     if(_msg)
     {
-      notif('warn', _msg, null, null, {position:'center'});
+      notif('warn', _msg, null, null, {position:'center', displayMode: 1});
     }
     else
     {
-      notif('warn', 'product is not detected', null, null, {position:'center'});
+      notif('warn', 'product is not detected', null, null, {position:'center', displayMode: 2});
     }
 
     beep('ProductNotExist');
