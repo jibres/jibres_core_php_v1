@@ -64,8 +64,7 @@
 
 
 {%block htmlTable%}
- <div class="cbox fs12">
-  <table class="tbl">
+  <table class="tbl1 v1 cbox fs12">
     <thead class="">
       <tr>
         <th data-sort="{{myFilter.title.order}}"><a href='{{myFilter.title.link}}'>{%trans "Title"%}</a></th>
@@ -102,8 +101,8 @@
       {%endfor%}
     </tbody>
   </table>
+
   {%include display.pagination%}
- </div>
 {%endblock%}
 
 
