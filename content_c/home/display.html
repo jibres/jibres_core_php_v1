@@ -29,7 +29,7 @@
 
       <div class="c s12 txtC f align-center">
 {%if value.is_creator%}
-        <div title='{%trans "Start from"%} {{value.startplan | tdate}}'>
+        <div title='{%trans "Start from"%} {{value.startplan | dt(true)}}'>
           <div class="mB10">{%trans "Current plan"%} <b>{%set myPlan = value.plan %}{%trans myPlan%}</b></div>
 {%if value.daysleft > 0%}
           <div class="mB10 badge info">

@@ -32,7 +32,7 @@
 		<tbody>
 			{%for key, value in ReportDailyTable%}
 				<tr>
-					<td>{{key | tdate}}</td>
+					<td>{{key | dt}}</td>
 					<td>{{value | fitNumber}}</td>
 				</tr>
 			{%endfor%}
