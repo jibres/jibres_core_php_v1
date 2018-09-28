@@ -100,9 +100,7 @@
 
 
 {%block htmlTable%}
- <div class="cbox fs12">
-
-  <table class="tbl">
+  <table class="tbl1 v1 cbox fs12">
     <thead>
       <tr>
         <th data-sort="{{myFilter.date.order}}"><a href="{{myFilter.date.link}}">{%trans "Invoice Date"%}</a></th>
@@ -140,7 +138,6 @@
     </tbody>
   </table>
     {%include display.pagination%}
- </div>
 {%endblock%}
 
 
@@ -158,7 +155,7 @@
 
 
 {%block htmlFilter%}
-<p class="f fs14 msg warn2">
+<p class="f fs14 msg warn2 mT20">
   <span class="c">{{filterBox | raw}}</span>
   <a class="cauto" href="{{url.this}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
 </p>
