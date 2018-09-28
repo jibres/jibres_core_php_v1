@@ -119,7 +119,7 @@
     <tbody>
       {%for key, value in dataTable%}
         <tr>
-          <td class="ltr"><a href="{{url.this}}/fishprint?id={{value.id}}&size=receipt8">{{value.date|tdate("Y-m-d")}} <b>{{value.date|tdate("H:i:s")}}</b></a></td>
+          <td><a href="{{url.this}}/fishprint?id={{value.id}}&size=receipt8">{{value.date | dt(true, 'date')}} <b class="floatRa">{{value.date | dt(true, 'time')}}</b></a></td>
           <td>
           {%if value.customer%}
             <a href="{{url.this}}?customer={{value.customer}}">
