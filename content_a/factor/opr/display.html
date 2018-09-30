@@ -8,34 +8,10 @@
 
 
     <section class="cbox">
-      <h2>{%trans "Payment way"%}</h2>
-      <div class="f">
-        <div class="c radioType default">
-          <input type="radio" id="rf01" name="select" value="1" checked autofocus>
-          <label for="rf01">{%trans "Cash"%}</label>
-        </div>
-        <div class="c radioType">
-          <input type="radio" id="rf02" name="select" value="2">
-          <label for="rf02">کارت به کارت</label>
-        </div>
-        <div class="c radioType">
-          <input type="radio" id="rf03" name="select" value="3">
-          <label for="rf03">{%trans "Cheque"%}</label>
-        </div>
-        <div class="c radioType">
-          <input type="radio" id="rf04" name="select" value="4" disabled>
-          <label for="rf04" title='Disabled'>{%trans "Credit"%}</label>
-        </div>
-        <div class="c radioType">
-          <input type="radio" id="rf04" name="select" value="4">
-          <label for="rf04" title='Disabled'>{%trans "Credit"%}</label>
-        </div>
-        <div class="c radioType">
-          <input type="radio" id="rf04" name="select" value="4">
-          <label for="rf04" title='Disabled'>{%trans "Credit"%}</label>
-        </div>
-      </div>
+    {{block('payWay')}}
     </section>
+
+
 
 
   </div>
@@ -141,8 +117,35 @@
 
 
 
-
-
+{%block payWay%}
+  <h2>{%trans "Payment way"%}</h2>
+  <div class="f">
+    <div class="c radioType default">
+      <input type="radio" id="rf01" name="select" value="1" checked autofocus>
+      <label for="rf01">{%trans "Cash"%}</label>
+    </div>
+    <div class="c radioType">
+      <input type="radio" id="rf02" name="select" value="2">
+      <label for="rf02">کارت به کارت</label>
+    </div>
+    <div class="c radioType">
+      <input type="radio" id="rf03" name="select" value="3">
+      <label for="rf03">{%trans "Cheque"%}</label>
+    </div>
+    <div class="c radioType">
+      <input type="radio" id="rf04" name="select" value="4" disabled>
+      <label for="rf04" title='Disabled'>{%trans "Credit"%}</label>
+    </div>
+    <div class="c radioType">
+      <input type="radio" id="rf04" name="select" value="4">
+      <label for="rf04" title='Disabled'>{%trans "Credit"%}</label>
+    </div>
+    <div class="c radioType">
+      <input type="radio" id="rf04" name="select" value="4">
+      <label for="rf04" title='Disabled'>{%trans "Credit"%}</label>
+    </div>
+  </div>
+{%endblock%}
 
 
 
