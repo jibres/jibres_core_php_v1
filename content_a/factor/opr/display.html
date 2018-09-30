@@ -151,17 +151,17 @@
 
 {%block payCardDetail%}
 {%if factorSetting.pos_list%}
- <div data-response="type" data-response-where='pos'{%if factorSetting.default_pay == 'pos'%}{%else%} data-response-hide{%endif%} data-response-transition='drop' class="msg f">
-    <div class="cauto">
-      {%trans "Choose card reader"%}
-    </div>
-    <div class="c paymentDetails txtC">
-          {%for key, value in factorSetting.pos_list%}
-            <div class="radioGateway" title='{{value.name}}'>
-             <input type="radio" name="bank" value="{{key}}" id="p-{{key}}" {%if factorSetting.default_pos == key or loop.index==1%} checked {%endif%}>
-             <label for='p-{{key}}' class="spay-64-{{key}}"></label>
-            </div>
-          {%endfor%}
+ <div data-response="type" data-response-where='pos'{%if factorSetting.default_pay == 'pos'%}{%else%} data-response-hide{%endif%} data-response-transition='drop' class="msg">
+    <div class="f align-center">
+      <div class="cauto">{%trans "Choose card reader"%}</div>
+      <div class="c paymentDetails txtC">
+      {%for key, value in factorSetting.pos_list%}
+        <div class="radioGateway" title='{{value.name}}'>
+         <input type="radio" name="bank" value="{{key}}" id="p-{{key}}" {%if factorSetting.default_pos == key or loop.index==1%} checked {%endif%}>
+         <label for='p-{{key}}' class="spay-64-{{key}}"></label>
+        </div>
+      {%endfor%}
+      </div>
     </div>
  </div>
 {%endif%}
