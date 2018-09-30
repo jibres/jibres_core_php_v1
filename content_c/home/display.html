@@ -28,7 +28,7 @@
       </div>
 
       <div class="c s12 txtC f align-center">
-{%if value.is_creator%}
+{%if value.is_creator or perm_su()%}
         <div title='{%trans "Start from"%} {{value.startplan | dt(true)}}'>
           <div class="mB10">{%trans "Current plan"%} <b>{%set myPlan = value.plan %}{%trans myPlan%}</b></div>
 {%if value.daysleft > 0%}
@@ -49,6 +49,9 @@
         <a class="btn outline block success mB5" href="{{value.url}}/a">{%trans "Your staff panel"%}</a>
 {%else%}
         <div class="txtC outline block black mB5" >{%trans "Your are customer in this store"%}</div>
+        {%if perm_su()%}
+          <a class="btn outline block danger mB5" href="{{value.url}}/a">{%trans "Your staff panel"%}</a>
+        {%endif%}
 {%endif%}
 
       </div>

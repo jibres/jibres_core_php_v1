@@ -8,8 +8,6 @@ class controller
 	{
 		\dash\permission::access('aFactorAdd');
 
-
-
 		if(\dash\request::get('json') === 'true')
 		{
 			$notif_result = [];
@@ -123,6 +121,12 @@ class controller
 
 				default:
 					break;
+			}
+
+			if(!$result)
+			{
+				$result = [];
+				$result['result'][] = ['name' => T_("No result found!"), 'value' => null];
 			}
 
 			$result = json_encode($result, JSON_UNESCAPED_UNICODE);
