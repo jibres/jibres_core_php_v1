@@ -6,11 +6,13 @@
 <div class="f">
   <div class="c8 x9 s12 pRa10">
     <section class="cbox">
-      {{block('payType')}}
-      {{block("payCardDetail")}}
-      {{block("paymentAmount")}}
-
+      <form method="post">
+        {{block('payType')}}
+        {{block("payCardDetail")}}
+        {{block("paymentAmount")}}
+      </form>
     </section>
+    {{block('payTable')}}
   </div>
   <div class="c4 x3 s12">
     <div>
@@ -36,14 +38,8 @@
 
 
 <hr class="mT100">
-
-
-
-
 <div class="f">
   <div class="c4 x3 s12 pRa10 mB25">
-
-
   </div>
 
   <div class="c8 x9 s12">
@@ -127,7 +123,7 @@
 
 {%block payType%}
 {%if factorSetting.pay%}
-  <h2>{%trans "Payment way"%}</h2>
+  <h2>{%trans "Payment detail"%}</h2>
   <div class="f">
   {%for key, value in factorSetting.pay%}
     <div class="c radioType{%if factorSetting.default_pay == key%} default{%endif%}">
@@ -169,7 +165,28 @@
 {%endblock%}
 
 
-
+{%block payTable%}
+{%if payDetail%}
+<table class="tbl1 v1 cbox fs12">
+  <thead>
+    <tr>
+      <th>{%trans "Plus"%}</th>
+      <th>{%trans "Type"%}</th>
+      <th>{%trans "Bank"%}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for key, value in payDetail %}
+    <tr>
+      <td class="txtB">{{value.plus}}</td>
+      <td>{{value.type}}</td>
+      <td>{{value.subtitle}}</td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{%endif%}
+{%endblock%}
 
 
 
