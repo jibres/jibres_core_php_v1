@@ -105,6 +105,12 @@ class factor
 			$type = 'sale';
 		}
 
+		if(!\lib\userstore::id())
+		{
+			\dash\notif::error(T_("You are not in this store!"));
+			return false;
+		}
+
 		$args                   = [];
 		$args['customer']       = $customer;
 		$args['type']           = $type;
