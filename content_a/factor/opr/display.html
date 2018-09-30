@@ -8,6 +8,7 @@
     <section class="cbox">
       {{block('payType')}}
       {{block("payCardDetail")}}
+      {{block("paymentAmount")}}
 
     </section>
   </div>
@@ -68,15 +69,6 @@
 </form>
 {%endblock%}
 
-
-
-{%block paymentAmount%}
-<div class="input xxl fs20 txtC">
-  <label for="famount" class="addon">{%trans "Amount"%}</label>
-  <input type="tel" id="famount" name="amount" value="{{factorDetail.factor.sum_remain | number_format | fitNumber}}">
-  <label for="famount" class="addon">{%trans "Toman"%}</label>
-</div>
-{%endblock%}
 
 
 {%block paymentType%}
@@ -148,7 +140,6 @@
 {%endblock%}
 
 
-
 {%block payCardDetail%}
 {%if factorSetting.pos_list%}
  <div data-response="type" data-response-where='pos'{%if factorSetting.default_pay == 'pos'%}{%else%} data-response-hide{%endif%} data-response-transition='drop' class="msg">
@@ -168,7 +159,14 @@
 {%endblock%}
 
 
-
+{%block paymentAmount%}
+<div class="input lg txtC mTB10">
+  <label for="famount" class="addon fc-green">{%trans "Toman"%}</label>
+  <input type="number" id="famount" name="amount" value="{{factorDetail.factor.sum_remain}}" data-response-realtime>
+  <button type="submit" class="addon btn success">{%trans "Save Pay & continue"%} <kbd class="mLa5">f2</kbd></button>
+</div>
+<div class="msg info2" data-response='famount' data-response-call='wordifyResponse'></div>
+{%endblock%}
 
 
 
