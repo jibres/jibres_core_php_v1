@@ -4,16 +4,24 @@
 {%block pageContent%}
 
 <div class="f">
-  <div class="c8 pRa10">
+  <div class="c8 x9 s12 pRa10">
     <section class="cbox">
       {{block('payType')}}
       {{block("payCardDetail")}}
 
     </section>
   </div>
-  <div class="c4">
-    <div class="cbox">
+  <div class="c4 x3 s12">
+    <div>
+{%embed 'content_a/factor/fishprint/fishprint.html'%}
 
+  {%block footerExtraArea%}
+    {%if factorSetting.print_status%}
+    <a class="btn info block mB10" href="{{url.this}}/fishprint?size=receipt8&id={{requestGET.id}}">{%trans "Print Status is active"%} <kbd>f8</kbd></a>
+    {%endif%}
+  {%endblock%}
+
+{%endembed%}
     </div>
   </div>
 </div>
@@ -33,15 +41,7 @@
 
 <div class="f">
   <div class="c4 x3 s12 pRa10 mB25">
-{%embed 'content_a/factor/fishprint/fishprint.html'%}
 
-  {%block footerExtraArea%}
-    {%if factorSetting.print_status%}
-    <a class="btn info block mB10" href="{{url.this}}/fishprint?size=receipt8&id={{requestGET.id}}">{%trans "Print Status is active"%} <kbd>f8</kbd></a>
-    {%endif%}
-  {%endblock%}
-
-{%endembed%}
 
   </div>
 
