@@ -158,7 +158,7 @@
     <div class="c paymentDetails txtC">
           {%for key, value in factorSetting.pos_list%}
             <div class="radioGateway" title='{{value.name}}'>
-             <input type="radio" name="bank" value="{{key}}" id="p-{{key}}" {%if factorSetting.default_pos == key%} checked {%endif%}>
+             <input type="radio" name="bank" value="{{key}}" id="p-{{key}}" {%if factorSetting.default_pos == key or loop.index==1%} checked {%endif%}>
              <label for='p-{{key}}' class="spay-64-{{key}}"></label>
             </div>
           {%endfor%}
