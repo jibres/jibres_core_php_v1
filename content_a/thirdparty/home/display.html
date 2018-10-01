@@ -151,29 +151,29 @@
 {%endblock%}
 
 {%block stCustomer%}
-<a class="dcard {%if requestGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="52shift">
+<a class="dcard {%if requestGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="50shift">
  <div class="statistic teal">
   <div class="value"><i class="sf-user-4"></i><span class="fs08">{{dashboardData.customer_count | fitNumber}}</span></div>
-  <div class="label">{%trans "Customers"%} <kbd>Shift+4</kbd></div>
+  <div class="label">{%trans "Customers"%} <kbd>Shift+2</kbd></div>
  </div>
 </a>
 {%endblock%}
 
 {%block stStaff%}
-<a class="dcard {%if requestGET.type == 'staff'%}active{%endif%}" href='{{url.this}}?type=staff{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="50shift">
+<a class="dcard {%if requestGET.type == 'staff'%}active{%endif%}" href='{{url.this}}?type=staff{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="51shift">
  <div class="statistic gray">
   <div class="value"><i class="sf-user-md"></i><span>{{dashboardData.staff_count | fitNumber}}</span></div>
-  <div class="label">{%trans "Staffs"%} <kbd>Shift+2</kbd></div>
+  <div class="label">{%trans "Staffs"%} <kbd>Shift+3</kbd></div>
  </div>
 </a>
 {%endblock%}
 
 
 {%block stSupplier%}
-<a class="dcard {%if requestGET.type == 'supplier'%}active{%endif%}" href='{{url.this}}?type=supplier{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="51shift">
+<a class="dcard {%if requestGET.type == 'supplier'%}active{%endif%}" href='{{url.this}}?type=supplier{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="52shift">
  <div class="statistic orange">
   <div class="value"><i class="sf-network"></i><span>{{dashboardData.supplier_count | fitNumber}}</span></div>
-  <div class="label">{%trans "Suppliers"%} <kbd>Shift+3</kbd></div>
+  <div class="label">{%trans "Suppliers"%} <kbd>Shift+4</kbd></div>
  </div>
 </a>
 {%endblock%}
