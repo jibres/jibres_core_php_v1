@@ -57,13 +57,15 @@
 {%block factorTableArea%}
  <table class="tbl1 v1">
   <thead class="fs08">
-   <th>{%trans "Name"%}</th>
-   <th>{%trans "Qty"%}</th>
-   <th>{%trans "Price"%}</th>
+   <tr>
+    <th>{%trans "Name"%}</th>
+    <th>{%trans "Qty"%}</th>
+    <th>{%trans "Price"%}</th>
 {%if factorDetail.factor.detaildiscount%}
-   <th>{%trans "Discount"%}</th>
+    <th>{%trans "Discount"%}</th>
 {%endif%}
-   <th>{%trans "Sum"%}</th>
+    <th>{%trans "Sum"%}</th>
+   </tr>
   </thead>
   <tbody>
  {%for key, datarow in factorDetail.factor_detail%}
