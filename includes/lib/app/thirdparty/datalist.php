@@ -8,6 +8,12 @@ trait datalist
 	public static $sort_field =
 	[
 		'id',
+		'code',
+		'firstname',
+		'lastname',
+		'birthdate',
+		'mobile',
+		'gender',
 	];
 
 
@@ -48,10 +54,17 @@ trait datalist
 
 		$_args['store_id'] = \lib\store::id();
 
-		if(!$_args['type'])
+		if(!in_array($_args['type'], ['staff', 'customer', 'supplier']))
 		{
 			unset($_args['type']);
 		}
+
+		if(isset($_args['type']))
+		{
+			$_args[$_args['type']] = 1;
+			unset($_args['type']);
+		}
+
 
 		if($_args['sort_type'] && !$_args['sort'])
 		{

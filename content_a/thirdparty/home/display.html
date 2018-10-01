@@ -1,114 +1,182 @@
 {%extends display.admin%}
 
 
+
+
 {%block pageContent%}
 
-<div class="f mB25">
- <div class="c4 s6">{{block ("stCustomer")}}</div>
- <div class="c4 s6">{{block ("stStaff")}}</div>
- <div class="c4 s6">{{block ("stSupplier")}}</div>
+{{block ("stTypeSelector")}}
+
+
+{%if dataTable%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12">
+  <form method="get" action='{{url.here}}/thirdparty' data-action>
+    {%if requestGET.type%}
+      <input type="hidden" name="type" value="{{requestGET.type}}">
+    {%endif%}
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus  data-pass='submit' autocomplete='off' title='{%trans "Enter 2 space for search in firstname and lastname and father"%}'>
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
 </div>
-<div class="f justify-center fs12">
+{%endblock%}
 
-  <div class="c8 m8 s12">
 
-    <form method="get" data-action class="mB20">
-      <div class="input">
-        <input type="search" name="q" placeholder='{%trans "Search"%}' id="search" value="{{requestGET.q}}">
-        {%if requestGET.type%}
-          <input type="hidden" name="type" value="{{requestGET.type}}">
+{%block htmlTable%}
+
+  <table class="tbl1 v1 cbox fs12">
+    <thead>
+      <tr>
+        <th data-sort="{{sortLink.code.order}}"><a href='{{sortLink.code.link}}'>{%trans "Code"%}</a></th>
+        <th data-sort="{{sortLink.gender.order}}" class="s0 collapsing"><a href='{{sortLink.gender.link}}'>{%trans "Gender"%}</a></th>
+        <th data-sort="{{sortLink.firstname.order}}"><a href='{{sortLink.firstname.link}}'>{%trans "Name"%}</a></th>
+        <th data-sort="{{sortLink.lastname.order}}"><a href='{{sortLink.lastname.link}}'>{%trans "Last name"%}</a></th>
+
+        <th data-sort="{{sortLink.birthdate.order}}" class="s0"><a href='{{sortLink.birthdate.link}}'>{%trans "Birthdate"%}</a></th>
+
+        <th data-sort="{{sortLink.mobile.order}}" class="s0"><a href='{{sortLink.mobile.link}}'>{%trans "Mobile"%}</a></th>
+        {%if not requestGET.type %}
+          <th class="s0">{%trans "Type"%}</th>
         {%endif%}
-        <button class="addon btn ">{%trans "Search" %}</button>
-      </div>
-    </form>
+      </tr>
+    </thead>
+    <tbody>
+      {%for key, value in dataTable%}
+      <tr {%if value.status=='disable'%} class='negative'{%endif%}>
+        <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.code | fitNumber(false)}}</a></td>
+        <td class="s0">{%if value.gender == 'male'%}{%trans "Mr"%} {%elseif value.gender == 'female'%}{%trans "Mrs"%}{%else%}-{%endif%}</td>
+        <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.firstname}}</a></td>
+        <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.lastname}}</a></td>
 
-    {%for key, value in dataTable%}
+        <td class="s0">{{value.birthdate | dt(true)}}</td>
 
-      <div class="icard">
+        <td class="s0">{{value.mobile | fitNumber('mobile')}}</td>
 
-        <a class="size-we50 size-he50 pA2p5" href="{{url.this}}/general?id={{value.id}}">
-          <img src="{{value.avatar}}" alt="{{value.name}} {{value.lastname}}">
-        </a>
+        {%if not requestGET.type %}
+          <td class="s0 collapsing">
+          {%if value.staff and perm('mStaffView') %}<a href="{{url.this}}?type=staff"><span class="badge success">{%trans "Staff"%}</span></a>{%endif%}
+          {%if value.supplier and perm('mSupplierView') %}<a href="{{url.this}}?type=supplier"><span class="badge primary">{%trans "Supplier"%}</span></a>{%endif%}
+          {%if value.customer and perm('mCustomerView') %}<a href="{{url.this}}?type=customer"><span class="badge ">{%trans "Customer"%}</span></a>{%endif%}
+          </td>
+        {%endif%}
+        {%if requestGET.transaction %}
+        <td>
+          <a href="{{url.here}}/transaction/add?user={{value.id}}"><span class="badge ">+{%trans "transaction"%}</span></a>
+        </td>
+        {%endif%}
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  {%include display.pagination%}
 
-        <div class="f-column align-start fc-black">
-          <a href="{{url.this}}/general?id={{value.id}}">
-            {%if value.supplier%}
-              <b>{{value.displayname}}</b><small>{{value.visitorname}}</small>
-            {%else%}
-              {{value.firstname}} <b>{{value.lastname}}</b>
-            {%endif%}
-          </a>
-          <span title='{%trans "Code"%}'>{{value.code | fitNumber}}</span>
-        </div>
-
-        <div class="justify-start">
-          {%if value.supplier%}
-            {%if value.visitormobile%}<span class="sf-mobile fs18"></span>
-              {{value.visitormobile|fitNumber(false)}}
-            {%endif%}
-          {%else%}
-            {%if value.mobile%}<span class="sf-mobile fs18"></span>
-              {{value.mobile|fitNumber(false)}}
-            {%endif%}
-          {%endif%}
-        </div>
-        <div>
-            {%if value.customer%}
-              <a href="{{url.this}}?type={{value.type}}">{%trans "Customer"%}<i class="mLR5 sf-users"></i></a>
-            {%endif%}
-            {%if value.staff%}
-              <a href="{{url.this}}?type={{value.type}}">{%trans "Staff"%}<i class="mLR5 sf-user-4"></i></a>
-            {%endif%}
-            {%if value.supplier%}
-              <a href="{{url.this}}?type={{value.type}}">{%trans "Supplier"%}<i class="mLR5 sf-network"></i></a>
-            {%endif%}
-        </div>
-      </div>
-    {%endfor%}
-    {%include display.pagination%}
-{{block('htmlFilter')}}
-  </div>
-</div>
-
-{%endblock%}
-
-
-{%block stCustomer%}
-<a class="dcard {%if requestGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer' data-shortkey="49shift">
- <div class="statistic gray">
-  <div class="value"><i class="sf-user"></i><span>{{dashboardData.customer_count | fitNumber}}</span></div>
-  <div class="label">{%trans "Customer"%} <kbd>Shift+1</kbd></div>
- </div>
-</a>
-{%endblock%}
-
-
-{%block stStaff%}
-<a class="dcard {%if requestGET.type == 'staff'%}active{%endif%}" href='{{url.this}}?type=staff' data-shortkey="50shift">
- <div class="statistic orange">
-  <div class="value"><i class="sf-user-4"></i><span>{{dashboardData.staff_count | fitNumber}}</span></div>
-  <div class="label">{%trans "Staff"%} <kbd>Shift+2</kbd></div>
- </div>
-</a>
-{%endblock%}
-
-
-
-{%block stSupplier%}
-<a class="dcard {%if requestGET.type == 'supplier'%}active{%endif%}" href='{{url.this}}?type=supplier' data-shortkey="51shift">
- <div class="statistic teal">
-  <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboardData.supplier_count | fitNumber}}</span></div>
-  <div class="label">{%trans "Supplier"%} <kbd>Shift+3</kbd></div>
- </div>
-</a>
 {%endblock%}
 
 
 {%block htmlFilter%}
-{%if filterBox%}
-<p class="f fs14 msg warn2">
-  <span class="c">{{filterBox | raw}}</span>
-  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+<p class="f fs14 msg info2">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{url.here}}/thirdparty{%if requestGET.type%}?type={{requestGET.type}}{%endif%}">{%trans "Clear filters"%}</a>
 </p>
-{%endif%}
 {%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
+  <a class="cauto" href="{{url.here}}/thirdparty{%if requestGET.type%}?type={{requestGET.type}}{%endif%}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.here}}/thirdparty/add">{%trans "Try to start with add new member!"%}</a></p>
+{%endblock%}
+
+
+
+{%block stTypeSelector%}
+
+<div class="f mB10">
+ <div class="c">{{block ("stAll")}}</div>
+{%if perm('mCustomerView')%}<div class="c">{{block ("stCustomer")}}</div>{%endif%}
+{%if perm('mStaffView')%}<div class="c">{{block ("stStaff")}}</div>{%endif%}
+{%if perm('mSupplierView')%}<div class="c">{{block ("stSupplier")}}</div>{%endif%}
+</div>
+
+
+
+{%endblock%}
+
+{%block stAll%}
+
+<a class="dcard {%if requestGET.type%}{%else%}active{%endif%}" href='{{url.this}}{%if requestGET.q%}?q={{requestGET.q}}{%endif%}' data-shortkey="49shift">
+ <div class="statistic gray">
+  <div class="value"><i class="sf-users"></i><span>{{dashboardData.all_member | fitNumber}}</span></div>
+  <div class="label">{%trans "All Members"%} <kbd>Shift+1</kbd></div>
+ </div>
+</a>
+{%endblock%}
+
+{%block stCustomer%}
+<a class="dcard {%if requestGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="52shift">
+ <div class="statistic teal">
+  <div class="value"><i class="sf-user-4"></i><span class="fs08">{{dashboardData.customer_count | fitNumber}}</span></div>
+  <div class="label">{%trans "Customers"%} <kbd>Shift+4</kbd></div>
+ </div>
+</a>
+{%endblock%}
+
+{%block stStaff%}
+<a class="dcard {%if requestGET.type == 'staff'%}active{%endif%}" href='{{url.this}}?type=staff{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="50shift">
+ <div class="statistic gray">
+  <div class="value"><i class="sf-user-md"></i><span>{{dashboardData.staff_count | fitNumber}}</span></div>
+  <div class="label">{%trans "Staffs"%} <kbd>Shift+2</kbd></div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stSupplier%}
+<a class="dcard {%if requestGET.type == 'supplier'%}active{%endif%}" href='{{url.this}}?type=supplier{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="51shift">
+ <div class="statistic orange">
+  <div class="value"><i class="sf-network"></i><span>{{dashboardData.supplier_count | fitNumber}}</span></div>
+  <div class="label">{%trans "Suppliers"%} <kbd>Shift+3</kbd></div>
+ </div>
+</a>
+{%endblock%}
+
+
+

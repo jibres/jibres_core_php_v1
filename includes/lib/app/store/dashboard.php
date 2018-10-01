@@ -26,6 +26,7 @@ trait dashboard
 			$result['count_store'] = self::count_store_by_creator(\lib\store::detail('creator'));
 		}
 
+		$result['all_member']  = self::user_count();
 		$result['customer_count']  = self::user_count('customer');
 		$result['supplier_count']  = self::user_count('supplier');
 		$result['staff_count']     = self::user_count('staff');
@@ -92,7 +93,7 @@ trait dashboard
 	}
 
 
-	public static function user_count($_type, $_clean_cache = false)
+	public static function user_count($_type = null, $_clean_cache = false)
 	{
 		$cache_key = 'store_dashboard_'. $_type. '_'. \lib\store::id();
 
@@ -103,9 +104,18 @@ trait dashboard
 		}
 
 		$count = \dash\session::get($cache_key);
-		if($count === null)
+
+		if($count === null or true)
 		{
-			$count = \lib\db\userstores::get_count([$_type => 1, 'store_id' => \lib\store::id()]);
+			if($_type)
+			{
+				$count = \lib\db\userstores::get_count([$_type => 1, 'store_id' => \lib\store::id()]);
+			}
+			else
+			{
+				$count = \lib\db\userstores::get_count(['store_id' => \lib\store::id()]);
+			}
+
 			$count = intval($count);
 			\dash\session::set($cache_key, $count, null,  self::$life_time);
 		}
