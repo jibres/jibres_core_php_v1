@@ -26,12 +26,12 @@ trait dashboard
 			$result['count_store'] = self::count_store_by_creator(\lib\store::detail('creator'));
 		}
 
-		$result['all_member']  = self::user_count();
-		$result['customer_count']  = self::user_count('customer');
-		$result['supplier_count']  = self::user_count('supplier');
-		$result['staff_count']     = self::user_count('staff');
-		$result['product_count']   = \lib\app\product::product_count();
-		$result['sale_time_chart'] = self::sale_time_chart();
+		$result['all_member']     = self::user_count();
+		$result['customer_count'] = self::user_count('customer');
+		$result['supplier_count'] = self::user_count('supplier');
+		$result['staff_count']    = self::user_count('staff');
+		$result['product_count']  = \lib\app\product::product_count();
+		$result['chart']          = self::sale_time_chart();
 
 		return $result;
 	}
@@ -40,7 +40,7 @@ trait dashboard
 	public static function sale_time_chart()
 	{
 		$sale_time_chart = \dash\session::get('dashboard_sale_time_chart_'. \lib\store::id());
-		if($sale_time_chart === null)
+		if($sale_time_chart === null or true)
 		{
 			$sale_time_chart = \lib\db\factors::time_chart(\lib\store::id(), 'sale');
 			$temp = [];
@@ -48,10 +48,17 @@ trait dashboard
 			{
 				foreach ($sale_time_chart as $key => $value)
 				{
-					$temp[] = ['key' => $key, 'value' => $value];
+					$temp[] = ['key' => \dash\utility\human::fitNumber($value['key']), 'count' => intval($value['count']), 'sum' => intval($value['sum'])];
 				}
 			}
-			$sale_time_chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
+			$hi_chart = [];
+			$hi_chart['categories'] = json_encode(array_column($temp, 'key'), JSON_UNESCAPED_UNICODE);
+			$hi_chart['count']      = json_encode(array_column($temp, 'count'), JSON_UNESCAPED_UNICODE);
+			$hi_chart['sum']      = json_encode(array_column($temp, 'sum'), JSON_UNESCAPED_UNICODE);
+
+
+			$sale_time_chart = $hi_chart;
+			// $sale_time_chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
 
 			\dash\session::set('dashboard_sale_time_chart_'. \lib\store::id(), $sale_time_chart, null,  self::$life_time);
 		}

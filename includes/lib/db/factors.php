@@ -19,6 +19,7 @@ class factors
 	}
 
 
+
 	public static function time_chart($_store_id, $_type)
 	{
 		if(!$_store_id || !is_numeric($_store_id) || !$_type)
@@ -31,7 +32,8 @@ class factors
 		$query =
 		"
 			SELECT
-				COUNT(*) AS `value`,
+				COUNT(*) AS `count`,
+				SUM(factors.sum) AS `sum`,
 				hour(factors.date) AS `key`
 			FROM
 				factors
@@ -44,7 +46,8 @@ class factors
 			ORDER BY `key` ASC
 
 		";
-		$result = \dash\db::get($query, ['key', 'value']);
+		$result = \dash\db::get($query);
+
 		return $result;
 	}
 

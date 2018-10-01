@@ -13,7 +13,8 @@ class view
 
 		\dash\data::include_adminPanel(true);
 		\dash\data::include_css(false);
-		\dash\data::include_chart(true);
+		\dash\data::include_highcharts(true);
+
 
 		\dash\data::display_jibresControlLayout('content_c/layout.html');
 	}
