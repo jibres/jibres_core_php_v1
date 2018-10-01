@@ -55,8 +55,8 @@
 
 
 {%block factorTableArea%}
- <table class="tbl">
-  <thead class="primary fs08 txtC">
+ <table class="tbl1 v1">
+  <thead class="fs08">
    <th>{%trans "Name"%}</th>
    <th>{%trans "Qty"%}</th>
    <th>{%trans "Price"%}</th>
@@ -65,7 +65,7 @@
 {%endif%}
    <th>{%trans "Sum"%}</th>
   </thead>
-  <tbody class="txtC">
+  <tbody>
  {%for key, datarow in factorDetail.factor_detail%}
   <tr>
    <td class="fs09">{{datarow.title}}</td>
