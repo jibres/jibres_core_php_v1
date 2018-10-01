@@ -2,6 +2,8 @@
 
 {%block pageContent%}
 
+{{block ("pageSteps")}}
+
 {%if url.child == "add"%}
 {%block dataAdd%}{%endblock%}
 
@@ -461,3 +463,56 @@
   <textarea  name="desc" id="desc" placeholder='{%trans "Desctiption"%}' class="txt" rows="4">{{thirdparty.desc}}</textarea>
 </div>
 {%endblock%}
+
+
+
+{%block pageSteps%}
+<div class="f">
+{%if perm_su()%}
+  <div class="c">
+
+    <a class="dcard {%if url.child == 'general' %}active{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-user"></i></div>
+      <div class="label">{%trans "Profile"%} <kbd>Shift+1</kbd></div>
+     </div>
+    </a>
+
+  </div>
+  <div class="c">
+
+    <a class="dcard {%if requestGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="50shift">
+     <div class="statistic teal">
+      <div class="value"><i class="sf-folder-1"></i></div>
+      <div class="label">{%trans "Factors"%} <kbd>Shift+2</kbd></div>
+     </div>
+    </a>
+
+  </div>
+  {%endif%}
+<!--
+  <div class="c">
+
+    <a class="dcard {%if requestGET.type == 'staff'%}active{%endif%}" href='{{url.this}}?type=staff{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="51shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-user-md"></i></div>
+      <div class="label">{%trans "Staffs"%} <kbd>Shift+3</kbd></div>
+     </div>
+    </a>
+
+  </div>
+
+  <div class="c">
+
+    <a class="dcard {%if requestGET.type == 'supplier'%}active{%endif%}" href='{{url.this}}?type=supplier{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="52shift">
+     <div class="statistic orange">
+      <div class="value"><i class="sf-network"></i></div>
+      <div class="label">{%trans "Suppliers"%} <kbd>Shift+4</kbd></div>
+     </div>
+    </a>
+
+  </div> -->
+</div>
+{%endblock%}
+
+
