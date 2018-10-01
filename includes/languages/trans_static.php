@@ -6,6 +6,7 @@ class TransStatic
 
 	echo T_("Jibres");
 
+	echo T_("Set home page number");
 
 	echo T_(" ");
 
