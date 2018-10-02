@@ -119,7 +119,7 @@ class twigTransTerms
 	echo T_("Full Name");                                                             // Line 14
 	echo T_("Mobile");                                                                // Line 69
 	echo T_("Please enter valid mobile number. `:val` is incorrect");                 // Line 18
-	echo T_("Email");                                                                 // Line 376
+	echo T_("Email");                                                                 // Line 387
 	echo T_("Your Message");                                                          // Line 26
 	echo T_("Send");                                                                  // Line 29
 	echo T_("How to contact us");                                                     // Line 37
@@ -326,13 +326,13 @@ class twigTransTerms
 	echo T_("Save");                                                                  // Line 39
 	echo T_("Save All");                                                              // Line 59
 	echo T_("allowed extentions jpg, png (gif for bussiness plans). Max 500Kb");      // Line 66
-	echo T_("Enter a valid name from 3 to 40 character");                             // Line 430
+	echo T_("Enter a valid name from 3 to 40 character");                             // Line 441
 	echo T_("Team short name");                                                       // Line 91
 	echo T_("Used for url of board");                                                 // Line 91
 	echo T_("Slug of team for board url");                                            // Line 93
 	echo T_("Website");                                                               // Line 102
 	echo T_("Link your logo on board for visitors");                                  // Line 100
-	echo T_("Phone");                                                                 // Line 334
+	echo T_("Phone");                                                                 // Line 345
 	echo T_("For show in factors");                                                   // Line 130
 	echo T_("Used for description of board and show in social media links");          // Line 124
 	echo T_("Address");                                                               // Line 32
@@ -387,45 +387,48 @@ class twigTransTerms
 	echo T_("Last name");                                                             // Line 65
 	echo T_("Grade");                                                                 // Line 128
 	echo T_("Select thirdparty grade");                                               // Line 130
-	echo T_("Like 09120123456");                                                      // Line 447
+	echo T_("Like 09120123456");                                                      // Line 458
 	echo T_("National code");                                                         // Line 147
 	echo T_("10 digit national code");                                                // Line 149
 	echo T_("Father name");                                                           // Line 157
 	echo T_("Birthday");                                                              // Line 163
 	echo T_("Gender");                                                                // Line 63
-	echo T_("Classroom");                                                             // Line 180
-	echo T_("Please select one classroom");                                           // Line 183
-	echo T_("Birth city");                                                            // Line 195
-	echo T_("Country");                                                               // Line 203
-	echo T_("Province");                                                              // Line 221
-	echo T_("Select province");                                                       // Line 223
-	echo T_("City");                                                                  // Line 232
-	echo T_("Select city");                                                           // Line 234
-	echo T_("Zip code");                                                              // Line 247
-	echo T_("Religion");                                                              // Line 255
-	echo T_("Birth place");                                                           // Line 263
-	echo T_("Issue Place");                                                           // Line 271
-	echo T_("Passport id");                                                           // Line 280
-	echo T_("Passport expire date");                                                  // Line 289
-	echo T_("Id number");                                                             // Line 298
-	echo T_("National Id");                                                           // Line 306
-	echo T_("Mobile of Staff");                                                       // Line 326
-	echo T_("Like");                                                                  // Line 378
-	echo T_("Mobile of father");                                                      // Line 343
-	echo T_("Mobile of mother");                                                      // Line 352
-	echo T_("Post code");                                                             // Line 362
-	echo T_("Company");                                                               // Line 430
-	echo T_("Visitor name");                                                          // Line 439
-	echo T_("Customer code");                                                         // Line 455
-	echo T_("Desctiption");                                                           // Line 463
-	echo T_("Profile");                                                               // Line 477
-	echo T_("Factors");                                                               // Line 487
+	echo T_("Please select one itme");                                                // Line 174
+	echo T_("Male");                                                                  // Line 175
+	echo T_("Female");                                                                // Line 176
+	echo T_("Classroom");                                                             // Line 191
+	echo T_("Please select one classroom");                                           // Line 194
+	echo T_("Birth city");                                                            // Line 206
+	echo T_("Country");                                                               // Line 214
+	echo T_("Province");                                                              // Line 232
+	echo T_("Select province");                                                       // Line 234
+	echo T_("City");                                                                  // Line 243
+	echo T_("Select city");                                                           // Line 245
+	echo T_("Zip code");                                                              // Line 258
+	echo T_("Religion");                                                              // Line 266
+	echo T_("Birth place");                                                           // Line 274
+	echo T_("Issue Place");                                                           // Line 282
+	echo T_("Passport id");                                                           // Line 291
+	echo T_("Passport expire date");                                                  // Line 300
+	echo T_("Id number");                                                             // Line 309
+	echo T_("National Id");                                                           // Line 317
+	echo T_("Mobile of Staff");                                                       // Line 337
+	echo T_("Like");                                                                  // Line 389
+	echo T_("Mobile of father");                                                      // Line 354
+	echo T_("Mobile of mother");                                                      // Line 363
+	echo T_("Post code");                                                             // Line 373
+	echo T_("Company");                                                               // Line 441
+	echo T_("Visitor name");                                                          // Line 450
+	echo T_("Customer code");                                                         // Line 466
+	echo T_("Desctiption");                                                           // Line 474
+	echo T_("Profile");                                                               // Line 488
+	echo T_("Factors");                                                               // Line 498
 
 	//---------------------------------------content_a/thirdparty/contact/display.html
 
 	//-------------------------------------------content_a/thirdparty/add/display.html
-	echo T_("Add new customer");                                                      // Line 26
-	echo T_("Add new staff");                                                         // Line 27
+	echo T_("Add new customer");                                                      // Line 43
+	echo T_("Add new staff");                                                         // Line 61
 	echo T_("Add new supplier");                                                      // Line 28
 
 	//---------------------------------------content_a/thirdparty/general/display.html
@@ -446,7 +449,7 @@ class twigTransTerms
 	echo T_("Search with new keywords.");                                             // Line 167
 	echo T_("Hi!");                                                                   // Line 174
 	echo T_("Try to start with add new member!");                                     // Line 125
-	echo T_("All Members");                                                           // Line 148
+	echo T_("All thirdparty");                                                        // Line 148
 
 	//--------------------------------content_a/thirdparty/identification/display.html
 	echo T_("ID Cards");                                                              // Line 6

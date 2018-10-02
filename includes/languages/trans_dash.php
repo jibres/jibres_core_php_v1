@@ -116,7 +116,7 @@ class twigTransTerms
 	echo T_("Students");                                                              // Line 189
 
 	//---------------------------------------addons/content_cp/users/view/display.html
-	echo T_("Edit");                                                                  // Line 298
+	echo T_("Edit");                                                                  // Line 110
 	echo T_("Field");                                                                 // Line 14
 	echo T_("Value");                                                                 // Line 102
 	echo T_("Decode");                                                                // Line 28
@@ -305,8 +305,8 @@ class twigTransTerms
 	echo T_("Used in url for categorize addresses");                                  // Line 188
 	echo T_("Parent Category");                                                       // Line 196
 	echo T_("Please select one itme");                                                // Line 221
-	echo T_("Enable");                                                                // Line 222
-	echo T_("Disable");                                                               // Line 223
+	echo T_("Enable");                                                                // Line 261
+	echo T_("Disable");                                                               // Line 262
 	echo T_("Expired");                                                               // Line 224
 	echo T_("Filtered");                                                              // Line 226
 	echo T_("Blocked");                                                               // Line 227
@@ -324,8 +324,8 @@ class twigTransTerms
 	echo T_("Avg time");                                                              // Line 104
 	echo T_("Status code");                                                           // Line 116
 	echo T_("Method");                                                                // Line 114
-	echo T_("Country");                                                               // Line 119
-	echo T_("IP");                                                                    // Line 121
+	echo T_("Country");                                                               // Line 148
+	echo T_("IP");                                                                    // Line 118
 	echo T_("Domain");                                                                // Line 125
 	echo T_("Referer url");                                                           // Line 134
 	echo T_("All publish visitor");                                                   // Line 176
@@ -474,10 +474,6 @@ class twigTransTerms
 	echo T_("if you want you can come back to");                                      // Line 8
 	echo T_("join us");                                                               // Line 8
 	echo T_("Bye Bye :(");                                                            // Line 9
-
-	//--------------------------------------addons/content_enter/sessions/display.html
-	echo T_("Current session");                                                       // Line 11
-	echo T_("Terminate");                                                             // Line 14
 
 	//----------------------------------------addons/content_enter/delete/display.html
 	echo T_("Why you want to delete your account!?");                                 // Line 5
@@ -722,20 +718,43 @@ class twigTransTerms
 	echo T_("Profile");                                                               // Line 9
 
 	//----------------------------addons/content_account/profile/security/display.html
-	echo T_("Two step verification for your account is active");                      // Line 38
-	echo T_("To deactive it");                                                        // Line 41
+	echo T_("Two step verification for your account is active");                      // Line 39
+	echo T_("To deactive it");                                                        // Line 42
 	echo T_("Click here");                                                            // Line 253
-	echo T_("Two step verification for your account is not active!");                 // Line 47
-	echo T_("To active it");                                                          // Line 50
-	echo T_("Save remember session");                                                 // Line 63
-	echo T_("Show active sessions");                                                  // Line 281
+	echo T_("Two step verification for your account is not active!");                 // Line 48
+	echo T_("To active it");                                                          // Line 51
+	echo T_("Save remember session");                                                 // Line 64
 	echo T_("To change your password");                                               // Line 253
 	echo T_("Delete your account");                                                   // Line 258
 	echo T_("Password not set, enter to set it!");                                    // Line 267
+	echo T_("Active sessions");                                                       // Line 113
+	echo T_("Browser");                                                               // Line 116
+	echo T_("Operation System");                                                      // Line 117
+	echo T_("Date login");                                                            // Line 119
+	echo T_("Current session");                                                       // Line 121
+	echo T_("Terminate");                                                             // Line 123
 
 	//------------------------------addons/content_account/profile/social/display.html
 
 	//-------------------------------------addons/content_account/profile/display.html
+
+	//-----------------------------addons/content_account/profile/address/display.html
+	echo T_("Edit address");                                                          // Line 17
+	echo T_("Add new address");                                                       // Line 20
+	echo T_("Saved address");                                                         // Line 60
+	echo T_("Post code");                                                             // Line 182
+	echo T_("Phone");                                                                 // Line 200
+	echo T_("Fax");                                                                   // Line 208
+	echo T_("Choose your country");                                                   // Line 152
+	echo T_("City");                                                                  // Line 167
+	echo T_("Select city");                                                           // Line 169
+	echo T_("Address");                                                               // Line 51
+	echo T_("Address line 2");                                                        // Line 224
+	echo T_("Yes");                                                                   // Line 233
+	echo T_("No");                                                                    // Line 233
+	echo T_("Is this a company's address?");                                          // Line 234
+	echo T_("Company name");                                                          // Line 243
+	echo T_("Job title");                                                             // Line 252
 
 	//-------------------------------addons/content_account/profile/other/display.html
 
@@ -747,7 +766,7 @@ class twigTransTerms
 	echo T_("About you");                                                             // Line 13
 	echo T_("Security");                                                              // Line 23
 	echo T_("Social network");                                                        // Line 33
-	echo T_("Signature");                                                             // Line 53
+	echo T_("Signature");                                                             // Line 62
 
 	//--------------------------------------addons/content_account/appkey/display.html
 	echo T_("YOUR API KEY");                                                          // Line 8
