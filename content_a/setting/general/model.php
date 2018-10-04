@@ -23,9 +23,9 @@ class model
 			'name'    => \dash\request::post('name'),
 			'website' => \dash\request::post('website'),
 			'desc'    => \dash\request::post('desc'),
-			'mobile'  => \dash\request::post('mobile'),
-			'address' => \dash\request::post('address'),
-			'phone'   => \dash\request::post('phone'),
+			// 'mobile'  => \dash\request::post('mobile'),
+			// 'address' => \dash\request::post('address'),
+			// 'phone'   => \dash\request::post('phone'),
 		];
 		return $args;
 	}

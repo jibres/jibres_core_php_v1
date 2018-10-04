@@ -43,7 +43,7 @@ class model
 			$post['gender']       = \dash\request::post('gender') === 'on' ? 'female' : 'male';
 			$post['birthday']     = \dash\request::post('birthday');
 			$post['code']         = \dash\request::post('code');
-			$post['address']      = \dash\request::post('address');
+			// $post['address']      = \dash\request::post('address');
 			$post['phone']        = \dash\request::post('phone');
 			$post['desc']         = \dash\request::post('desc');
 			$post['staff']        = \dash\request::post('staff');

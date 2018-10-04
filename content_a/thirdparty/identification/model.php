@@ -11,7 +11,7 @@ class model
 		$post['birthcity']    = \dash\request::post('birthcity');
 		$post['shcode']       = \dash\request::post('shcode');
 		$post['pasportcode']  = \dash\request::post('pasportcode');
-		$post['pasportdate']  = \dash\request::post('pasportdate');
+		// $post['pasportdate']  = \dash\request::post('pasportdate');
 		$post['nationalcode'] = \dash\request::post('nationalcode');
 		$post['father']       = \dash\request::post('father');
 

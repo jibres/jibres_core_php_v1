@@ -36,9 +36,36 @@
 
 
 
-
-
 {%block iFormCustomer%}
+
+  {{block("imobile")}}
+  {{block("iname")}}
+  <button class="btn primary block mT20">{%trans "Add new customer"%}</button>
+
+
+{%endblock%}
+
+
+
+{%block iFormStaff%}
+  {{block("imobile")}}
+  <div class="f">
+    <div class="c">
+      {{block("iname")}}
+    </div>
+    <div class="c mLa5">
+      {{block("ifamily")}}
+    </div>
+  </div>
+  {{block("igender")}}
+  <button class="btn primary block mT20">{%trans "Add new staff"%}</button>
+
+{%endblock%}
+
+
+
+
+{%block iFormCustomer2_Hidden%}
   <div class="f">
         <div class="c pRa5">
 {{block("iname")}}
@@ -98,7 +125,7 @@
 
 
 
-{%block iFormStaff%}
+{%block iFormStaff2_Hidden%}
 
 <div class="f">
   <div class="c pRa5">

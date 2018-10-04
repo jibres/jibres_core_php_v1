@@ -7,11 +7,11 @@ class model
 	public static function getPost()
 	{
 		$post             = [];
-		$post['country']  = \dash\request::post('country');
-		$post['province'] = \dash\request::post('province');
-		$post['city']     = \dash\request::post('city');
-		$post['zipcode']  = \dash\request::post('zipcode');
-		$post['address']  = \dash\request::post('address');
+		// $post['country']  = \dash\request::post('country');
+		// $post['province'] = \dash\request::post('province');
+		// $post['city']     = \dash\request::post('city');
+		// $post['zipcode']  = \dash\request::post('zipcode');
+		// $post['address']  = \dash\request::post('address');
 		return $post;
 	}
 
