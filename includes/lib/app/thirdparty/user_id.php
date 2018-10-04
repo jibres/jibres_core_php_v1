@@ -19,8 +19,6 @@ trait user_id
 		$mobile_syntax    = null;
 		$check_user_exist = null;
 
-		$log_meta = \dash\app::log_meta();
-
 		$mobile           = \dash\app::request("mobile");
 		$mobile_syntax    = \dash\utility\filter::mobile($mobile);
 
@@ -46,7 +44,7 @@ trait user_id
 		 *
 		 * @var        <type>
 		 */
-		// post to add new member
+		// post to add new thirdparty
 		if(!$_id)
 		{
 			// mobile is set
@@ -168,6 +166,9 @@ trait user_id
 		if($check_not_duplicate_userstore)
 		{
 			$userstore_record = \lib\db\userstores::get(['user_id' => $master_user_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+
+			\dash\temp::set('userstore_record', $userstore_record);
+
 			if(isset($userstore_record['id']))
 			{
 				if(intval($userstore_record['id']) === intval($_id))
@@ -176,8 +177,15 @@ trait user_id
 				}
 				else
 				{
-					\dash\notif::error(T_("This user was already added to this store"), 'mobile');
+					$msg = T_("This user was already added to this store");
+					if(isset($userstore_record['mobile']))
+					{
+						$msg = "<a href='". \dash\url::kingdom(). '/a/thirdparty?q='. $userstore_record['mobile']. "'>$msg</a>";
+					}
+
+					\dash\notif::error($msg, 'mobile');
 					return false;
+
 				}
 
 			}
@@ -191,7 +199,7 @@ trait user_id
 	{
 		$master_reuest = \dash\app::request();
 
-		$user_id = \dash\app\user::add($_args);
+		$user_id = \dash\app\user::add($_args, ['debug' => false]);
 		\dash\app::variable($master_reuest);
 
 		if(isset($user_id['user_id']))

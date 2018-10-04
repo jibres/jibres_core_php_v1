@@ -7,6 +7,20 @@ class model
 	public static function post()
 	{
 		\dash\permission::access('aThirdPartyAdd');
+
+		$mobile = \dash\request::post('mobile');
+		$mobile = \dash\coding::decode($mobile);
+		if($mobile)
+		{
+			$check = \lib\db\userstores::get(['id' => $mobile, 'store_id' => \lib\store::id(), 'limit' => 1]);
+			if(isset($check['id']))
+			{
+				$url = \dash\url::this(). '/general?id='. \dash\coding::encode($check['id']);
+				\dash\redirect::to($url);
+				return;
+			}
+		}
+
 		// ready request
 		$request = self::getPostthirdparty();
 
@@ -40,7 +54,7 @@ class model
 		else
 		{
 
-			$post['mobile']       = \dash\utility\filter::mobile(\dash\request::post('mobile'));
+			$post['mobile']       = \dash\request::post('mobile');
 			$post['type']         = \dash\request::get('type');
 			$post['firstname']    = \dash\request::post('name');
 			$post['lastname']     = \dash\request::post('lastName');

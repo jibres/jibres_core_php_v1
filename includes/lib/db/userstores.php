@@ -270,6 +270,7 @@ class userstores
 	 */
 	public static function search($_string = null, $_option = [])
 	{
+
 		$default_option =
 		[
 			'search_field' =>
@@ -291,6 +292,11 @@ class userstores
 		}
 
 		$_option = array_merge($default_option, $_option);
+
+		if(array_key_exists('search_in_other', $_option) && $_option['search_in_other'] === false)
+		{
+			unset($_option['search_field']);
+		}
 
 		return \dash\db\config::public_search('userstores', $_string, $_option);
 	}

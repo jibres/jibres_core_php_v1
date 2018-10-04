@@ -74,7 +74,7 @@ trait add
 
 			$check_duplicate =
 			[
-				'code'  => $args['code'],
+				'code'     => $args['code'],
 				'store_id' => \lib\store::id(),
 				'limit'    => 1,
 			];
@@ -108,7 +108,7 @@ trait add
 
 		if(!$userstore_id)
 		{
-			\dash\app::log('api:thirdparty:no:way:to:insert:thirdparty', \dash\user::id(), \dash\app::log_meta());
+			\dash\app::log('dbErrorInsertUserstores', \dash\user::id(), \dash\app::log_meta());
 			\dash\notif::error(T_("No way to insert :thirdparty"), 'db', 'system');
 			return false;
 		}

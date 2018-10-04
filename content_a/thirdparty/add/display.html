@@ -38,8 +38,12 @@
 
 {%block iFormCustomer%}
 
-  {{block("imobile")}}
-  {{block("iname")}}
+  {{block("imobileSearch")}}
+  <div class="f">
+    <div class="c mRa5">{{block("inameFree")}}</div>
+    <div class="c">{{block("ifamily")}}</div>
+  </div>
+
   <button class="btn primary block mT20">{%trans "Add new customer"%}</button>
 
 

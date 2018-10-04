@@ -22,7 +22,6 @@ class thirdparty
 		$type = \dash\app::request('type');
 		if(!$_id)
 		{
-			$type = trim($type);
 			$type = mb_strtolower($type);
 			if(!in_array($type, ['staff', 'customer', 'supplier']))
 			{
@@ -32,16 +31,18 @@ class thirdparty
 		}
 
 		$mobile = \dash\app::request('mobile');
-		$mobile = trim($mobile);
-
 		if($mobile && !\dash\utility\filter::mobile($mobile))
 		{
 			\dash\notif::error(T_("Invalid mobile"), 'mobile');
 			return false;
 		}
 
+		if($mobile)
+		{
+			$mobile = \dash\utility\filter::mobile($mobile);
+		}
+
 		$firstname = \dash\app::request('firstname');
-		$firstname = trim($firstname);
 		if($firstname && mb_strlen($firstname) > 100)
 		{
 			\dash\notif::error(T_("Plese set firstname less than 100 character"), 'firstname');
@@ -49,7 +50,6 @@ class thirdparty
 		}
 
 		$lastname = \dash\app::request('lastname');
-		$lastname = trim($lastname);
 		if($lastname && mb_strlen($lastname) > 100)
 		{
 			\dash\notif::error(T_("Plese set firstname less than 100 character"), 'lastname');
@@ -68,20 +68,18 @@ class thirdparty
 		}
 		else
 		{
-			if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
-			{
-				if(!$firstname && !$lastname)
-				{
-					\dash\notif::error(T_("firstname or lastname is required"), ['firstname', 'lastname']);
-					return false;
-				}
-			}
-			$displayname = trim($firstname. ' '. $lastname);
+			// if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
+			// {
+			// 	if(!$firstname && !$lastname)
+			// 	{
+			// 		\dash\notif::error(T_("firstname or lastname is required"), ['firstname', 'lastname']);
+			// 		return false;
+			// 	}
+			// }
 
 		}
 
 		$father = \dash\app::request('father');
-		$father = trim($father);
 
 		if(\dash\app::isset_request('father'))
 		{
@@ -93,7 +91,6 @@ class thirdparty
 		}
 
 		$nationalcode = \dash\app::request('nationalcode');
-		$nationalcode = trim($nationalcode);
 		if($nationalcode && !\dash\utility\filter::nationalcode($nationalcode))
 		{
 			\dash\notif::error(T_("Invalid nationalcode"), 'nationalcode');
@@ -102,7 +99,6 @@ class thirdparty
 
 
 		$pasportcode = \dash\app::request('pasportcode');
-		$pasportcode = trim($pasportcode);
 		if($pasportcode && !is_numeric($pasportcode) )
 		{
 			\dash\notif::error(T_("Invalid pasportcode"), 'pasportcode');
@@ -143,32 +139,6 @@ class thirdparty
 
 		}
 
-
-		$pasportdate = \dash\app::request('pasportdate');
-		if($pasportdate)
-		{
-			$pasportdate = \dash\date::db($pasportdate);
-			if($pasportdate === false)
-			{
-				\dash\notif::error(T_("Invalid pasportdate"), 'pasportdate');
-				return false;
-			}
-
-			if(\dash\utility\jdate::is_jalali($pasportdate))
-			{
-				$pasportdate = \dash\utility\jdate::to_gregorian($pasportdate, "Y-m-d");
-			}
-
-			$datetime1 = new \DateTime($pasportdate);
-			$datetime2 = new \DateTime(date("Y-m-d"));
-
-			if($datetime1 >= $datetime2)
-			{
-				\dash\notif::error(T_("Invalid pasportdate, pasportdate can not larger than date now!"), 'pasportdate');
-				return false;
-			}
-		}
-
 		$gender = \dash\app::request('gender');
 		if($gender && !in_array($gender, ['male', 'female']))
 		{
@@ -184,7 +154,6 @@ class thirdparty
 		}
 
 		$shcode = \dash\app::request('shcode');
-		$shcode = trim($shcode);
 		$shcode = \dash\utility\convert::to_en_number($shcode);
 		if($shcode && !is_numeric($shcode))
 		{
@@ -193,7 +162,6 @@ class thirdparty
 		}
 
 		$birthcity = \dash\app::request('birthcity');
-		$birthcity = trim($birthcity);
 		if($birthcity && mb_strlen($birthcity) > 50)
 		{
 			\dash\notif::error(T_("Invalid birthcity"), 'birthcity');
@@ -201,7 +169,6 @@ class thirdparty
 		}
 
 		$zipcode = \dash\app::request('zipcode');
-		$zipcode = trim($zipcode);
 		$zipcode = \dash\utility\convert::to_en_number($zipcode);
 		if($zipcode && !is_numeric($zipcode))
 		{
@@ -249,40 +216,8 @@ class thirdparty
 			return false;
 		}
 
-		$city = \dash\app::request('city');
-		$city = trim($city);
-		if($city && mb_strlen($city) > 100)
-		{
-			\dash\notif::error(T_("Invalid city"), 'city');
-			return false;
-		}
-
-		$province = \dash\app::request('province');
-		$province = trim($province);
-		if($province && mb_strlen($province) > 100)
-		{
-			\dash\notif::error(T_("Invalid province"), 'province');
-			return false;
-		}
-
-		$country = \dash\app::request('country');
-		$country = trim($country);
-		if($country && mb_strlen($country) > 100)
-		{
-			\dash\notif::error(T_("Invalid country"), 'country');
-			return false;
-		}
-
-		$address = \dash\app::request('address');
-		$address = trim($address);
-		if($address && mb_strlen($address) > 500)
-		{
-			\dash\notif::error(T_("Invalid address"), 'address');
-			return false;
-		}
 
 		$phone = \dash\app::request('phone');
-		$phone = trim($phone);
 		if($phone && mb_strlen($phone) > 50)
 		{
 			\dash\notif::error(T_("Invalid phone"), 'phone');
@@ -290,7 +225,6 @@ class thirdparty
 		}
 
 		$status = \dash\app::request('status');
-		$status = trim($status);
 		if($status && !in_array($status, ['active','deactive','disable','filter','leave','delete','parent','suspended']))
 		{
 			\dash\notif::error(T_("Invalid status"), 'status');
@@ -298,7 +232,6 @@ class thirdparty
 		}
 
 		$desc = \dash\app::request('desc');
-		$desc = trim($desc);
 		if($desc && mb_strlen($desc) > 500)
 		{
 			\dash\notif::error(T_("Invalid desc"), 'desc');
@@ -306,7 +239,7 @@ class thirdparty
 		}
 
 		$args                 = [];
-		$args['type']         = $type;
+
 		$args['status']       = $status;
 
 		if($type)
@@ -319,7 +252,6 @@ class thirdparty
 
 		$args['customer'] = 1;
 
-
 		if($type === 'supplier')
 		{
 			$args['displayname'] = $displayname;
@@ -327,15 +259,15 @@ class thirdparty
 		}
 		else
 		{
-			if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
-			{
-				if(!$firstname && !$lastname)
-				{
-					\dash\notif::error(T_("Fill name or family is require!"), ['firstname', 'lastname']);
-					return false;
-				}
-			}
-
+			// if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
+			// {
+			// 	if(!$firstname && !$lastname)
+			// 	{
+			// 		\dash\notif::error(T_("Fill name or family is require!"), ['firstname', 'lastname']);
+			// 		return false;
+			// 	}
+			// }
+			$displayname = trim($firstname. ' '. $lastname);
 
 			$permission = \dash\app::request('permission');
 			if(\dash\permission::check("aThirdPartyPermissionChange"))
@@ -386,17 +318,11 @@ class thirdparty
 			$args['lastname']     = $lastname;
 			$args['father']       = $father;
 			$args['birthday']     = $birthday;
-			$args['pasportdate']  = $pasportdate;
 			$args['gender']       = $gender;
 			$args['marital']      = $marital;
 			$args['shcode']       = $shcode;
 			$args['birthcity']    = $birthcity;
-			$args['zipcode']      = $zipcode;
 			$args['avatar']       = $avatar;
-			$args['city']         = $city;
-			$args['province']     = $province;
-			$args['country']      = $country;
-			$args['address']      = $address;
 			$args['phone']        = $phone;
 			$args['desc']         = $desc;
 		}
