@@ -9,6 +9,10 @@ class model
 	 */
 	public static function post()
 	{
+		\dash\notif::warn(T_("Not ready!"));
+		return false;
+
+
 		if(!\dash\user::login())
 		{
 			return false;
