@@ -32,7 +32,7 @@ trait get
 			return false;
 		}
 
-		$get = \lib\db\userstores::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+		$get = \lib\db\inventory::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 
 		if(!$get)
 		{

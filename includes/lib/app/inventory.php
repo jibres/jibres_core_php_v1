@@ -44,6 +44,11 @@ class inventory
 			return false;
 		}
 
+		if($default)
+		{
+			\lib\db\inventory::unset_all_detault(\lib\store::id());
+		}
+
 		$args            = [];
 		$args['name']    = $name;
 		$args['status']  = $status;
