@@ -59,7 +59,7 @@ class model
 			$post['firstname']    = \dash\request::post('name');
 			$post['lastname']     = \dash\request::post('lastName');
 			$post['nationalcode'] = \dash\request::post('nationalcode');
-			$post['gender']       = \dash\request::post('gender') === 'on' ? 'female' : 'male';
+			$post['gender']       = \dash\request::post('gender');
 
 			if(\dash\request::get('type') === 'staff')
 			{

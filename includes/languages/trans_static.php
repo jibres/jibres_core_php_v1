@@ -57,6 +57,24 @@ class TransStatic
 	echo T_("Third party");
 	echo T_("Store setting");
 	echo T_("Report");
+
+	echo T_("Customer");
+	echo T_("Customers");
+	echo T_("customer");
+	echo T_("customers");
+	echo T_("Staff");
+	echo T_("Staffs");
+	echo T_("staff");
+	echo T_("staffs");
+	echo T_("Supplier");
+	echo T_("Suppliers");
+	echo T_("supplier");
+	echo T_("suppliers");
+	echo T_("Thirdparty");
+	echo T_("thirdparty");
+	echo T_("Thirdparties");
+	echo T_("thirdparties");
+
  }
 }
 ?>

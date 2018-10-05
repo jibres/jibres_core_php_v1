@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-10-02 15:34+0330\n"
-"PO-Revision-Date: 2018-10-02 15:35+0330\n"
+"POT-Creation-Date: 2018-10-05 12:35+0330\n"
+"PO-Revision-Date: 2018-10-05 12:35+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -18,6 +18,51 @@ msgstr ""
 "X-Poedit-SearchPath-1: dash/addons\n"
 "X-Poedit-SearchPath-2: jibres\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: dash/addons/content_account/address/controller.php:16
+msgid "Invalid address id"
+msgstr "شناسه آدرس نامعتبر است"
+
+#: dash/addons/content_account/address/controller.php:21
+msgid "This is not your address!"
+msgstr "این آدرس شما نیست!"
+
+#: dash/addons/content_account/address/model.php:38
+msgid "Address successfully edited"
+msgstr "آدرس با موفقیت به‌روزرسانی شد"
+
+#: dash/addons/content_account/address/model.php:47
+msgid "Address successfully added"
+msgstr "آدرس با موفقیت اضافه شد"
+
+#: dash/addons/content_account/address/view.php:10
+#: dash/addons/content_account/profile/other/view.php:10
+#: dash/addons/content_account/profile/security/view.php:10
+#: dash/addons/content_account/profile/signature/view.php:10
+#: dash/addons/content_account/profile/social/view.php:10
+#: dash/addons/content_account/profile/view.php:10
+#: dash/addons/includes/languages/trans_dash.php:896
+#: jibres/includes/languages/trans_dash.php:390
+msgid "Edit your profile"
+msgstr "پروفایل خود را ویرایش کنید"
+
+#: dash/addons/content_account/address/view.php:11
+#: dash/addons/content_account/profile/other/view.php:11
+#: dash/addons/content_account/profile/security/view.php:11
+#: dash/addons/content_account/profile/signature/view.php:11
+#: dash/addons/content_account/profile/social/view.php:11
+#: dash/addons/content_account/profile/view.php:11
+msgid "You can edit your profile."
+msgstr "شما می‌توانید پروفایل خود را ویرایش کنید."
+
+#: dash/addons/content_account/address/view.php:14
+#: dash/addons/content_account/profile/other/view.php:14
+#: dash/addons/content_account/profile/security/view.php:14
+#: dash/addons/content_account/profile/signature/view.php:14
+#: dash/addons/content_account/profile/social/view.php:14
+#: dash/addons/content_account/profile/view.php:14
+msgid "Back to dashbaord"
+msgstr "بازگشت به داشبورد"
 
 #: dash/addons/content_account/appkey/model.php:20
 #: dash/addons/content_account/notification/model.php:20
@@ -113,51 +158,6 @@ msgstr "داشبورد"
 msgid "Account of your user to change profile details or change billing information"
 msgstr "حساب‌کاربری شما برای ویرایش اطلاعات پروفایل یا بررسی و افزودن اعتبار مالی"
 
-#: dash/addons/content_account/profile/address/controller.php:16
-msgid "Invalid address id"
-msgstr "شناسه آدرس نامعتبر است"
-
-#: dash/addons/content_account/profile/address/controller.php:21
-msgid "This is not your address!"
-msgstr "این آدرس شما نیست!"
-
-#: dash/addons/content_account/profile/address/model.php:38
-msgid "Address successfully edited"
-msgstr "آدرس با موفقیت به‌روزرسانی شد"
-
-#: dash/addons/content_account/profile/address/model.php:47
-msgid "Address successfully added"
-msgstr "آدرس با موفقیت اضافه شد"
-
-#: dash/addons/content_account/profile/address/view.php:10
-#: dash/addons/content_account/profile/other/view.php:10
-#: dash/addons/content_account/profile/security/view.php:10
-#: dash/addons/content_account/profile/signature/view.php:10
-#: dash/addons/content_account/profile/social/view.php:10
-#: dash/addons/content_account/profile/view.php:10
-#: dash/addons/includes/languages/trans_dash.php:896
-#: jibres/includes/languages/trans_dash.php:390
-msgid "Edit your profile"
-msgstr "پروفایل خود را ویرایش کنید"
-
-#: dash/addons/content_account/profile/address/view.php:11
-#: dash/addons/content_account/profile/other/view.php:11
-#: dash/addons/content_account/profile/security/view.php:11
-#: dash/addons/content_account/profile/signature/view.php:11
-#: dash/addons/content_account/profile/social/view.php:11
-#: dash/addons/content_account/profile/view.php:11
-msgid "You can edit your profile."
-msgstr "شما می‌توانید پروفایل خود را ویرایش کنید."
-
-#: dash/addons/content_account/profile/address/view.php:14
-#: dash/addons/content_account/profile/other/view.php:14
-#: dash/addons/content_account/profile/security/view.php:14
-#: dash/addons/content_account/profile/signature/view.php:14
-#: dash/addons/content_account/profile/social/view.php:14
-#: dash/addons/content_account/profile/view.php:14
-msgid "Back to dashbaord"
-msgstr "بازگشت به داشبورد"
-
 #: dash/addons/content_account/profile/other/view.php:20
 #: dash/addons/content_account/profile/security/view.php:20
 #: dash/addons/content_account/profile/signature/view.php:20
@@ -165,8 +165,8 @@ msgstr "بازگشت به داشبورد"
 #: dash/addons/content_account/profile/view.php:20
 #: dash/addons/content_cp/users/set/view.php:29
 #: dash/addons/content_cp/users/view/view.php:26 dash/lib/app/user/edit.php:60
-#: jibres/includes/lib/app/thirdparty/user_id.php:82
-#: jibres/includes/lib/app/thirdparty/user_id.php:92
+#: jibres/includes/lib/app/thirdparty/user_id.php:80
+#: jibres/includes/lib/app/thirdparty/user_id.php:90
 msgid "Invalid user id"
 msgstr "شناسه کاربر نامعتبر است"
 
@@ -180,7 +180,7 @@ msgstr "شناسه کاربر نامعتبر است"
 #: jibres/includes/lib/app/factor/get.php:36
 #: jibres/includes/lib/app/product/get.php:49
 #: jibres/includes/lib/app/storetransaction/get.php:45
-#: jibres/includes/lib/app/thirdparty/user_id.php:164
+#: jibres/includes/lib/app/thirdparty/user_id.php:162
 msgid "User id not found"
 msgstr "شناسه کاربر یافت نشد"
 
@@ -238,10 +238,10 @@ msgstr "شناسه نامعتبر"
 
 #: dash/addons/content_cp/comments/edit/model.php:12
 #: dash/addons/content_cp/contact/edit/model.php:12
-#: dash/addons/content_support/ticket/show/model.php:95 dash/lib/app/address.php:171
+#: dash/addons/content_support/ticket/show/model.php:95 dash/lib/app/address.php:181
 #: dash/lib/app/comment.php:250 dash/lib/app/ticket.php:347
 #: jibres/includes/lib/app/storetransaction.php:122
-#: jibres/includes/lib/app/thirdparty.php:296
+#: jibres/includes/lib/app/thirdparty.php:230
 msgid "Invalid status"
 msgstr "وضعیت نامعتبر است"
 
@@ -596,7 +596,7 @@ msgid "Send every sms to every group users by mobile"
 msgstr "ارسال هر پیام کوتاهی به گروه‌های مختلف کاربران"
 
 #: dash/addons/content_cp/sms/send/model.php:40 dash/lib/app/parent/add.php:78
-#: jibres/includes/lib/app/thirdparty/user_id.php:29
+#: jibres/includes/lib/app/thirdparty/user_id.php:27
 msgid "Invalid mobile number"
 msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
@@ -768,7 +768,7 @@ msgstr "بازگشت به لیست کاربران"
 
 #: dash/addons/content_cp/users/set/view.php:42
 #: dash/addons/content_enter/home/model.php:45
-#: dash/addons/content_su/sendnotify/model.php:30 dash/lib/app/address.php:275
+#: dash/addons/content_su/sendnotify/model.php:30 dash/lib/app/address.php:301
 #: dash/lib/app/parent/add.php:50 dash/lib/app/parent/add.php:59
 #: dash/lib/app/parent/delete.php:35 dash/lib/app/parent/delete.php:114
 #: dash/lib/app/parent/get.php:35 dash/lib/app/parent/get.php:44
@@ -797,17 +797,17 @@ msgstr "جزئیات‌کاربران"
 msgid "You can check all details of this user."
 msgstr "شما می‌توانید تمامی اطلاعات این کاربر را بررسی کنید."
 
-#: dash/addons/content_cp/view.php:90 dash/addons/content_su/view.php:136
+#: dash/addons/content_cp/view.php:90 dash/addons/content_su/view.php:138
 #: dash/lib/app/sort.php:74 jibres/content_a/filter.php:14
 msgid "Search with keyword :search"
 msgstr "جستجو با کلیدواژه‌ی :search"
 
-#: dash/addons/content_cp/view.php:95 dash/addons/content_su/view.php:141
+#: dash/addons/content_cp/view.php:95 dash/addons/content_su/view.php:143
 #: dash/lib/app/sort.php:82 jibres/content_a/filter.php:21
 msgid "with condition"
 msgstr "به شرط"
 
-#: dash/addons/content_cp/view.php:101 dash/addons/content_su/view.php:147
+#: dash/addons/content_cp/view.php:101 dash/addons/content_su/view.php:149
 #: dash/addons/includes/languages/trans_static.php:39 dash/lib/app/sort.php:88
 #: jibres/content_a/filter.php:27
 msgid ", "
@@ -2475,6 +2475,7 @@ msgstr "کلمه عبور تنظیم نشده است، آن را تنظیم کن
 
 #: dash/addons/includes/languages/trans_dash.php:120
 #: dash/addons/includes/languages/trans_static.php:147
+#: jibres/content_a/thirdparty/home/controller.php:70
 #: jibres/includes/languages/trans_dash.php:93
 #: jibres/includes/languages/trans_project.php:325
 msgid "Add"
@@ -9539,51 +9540,59 @@ msgstr "لطفا عنوان شغلی را کمتر از ۱۰۰ حرف وارد �
 msgid "Please set country less than 100 character"
 msgstr "لطفا کشور را کمتر از ۱۰۰ حرف وارد کنید"
 
+#: dash/lib/app/address.php:104
+msgid "Invalid country"
+msgstr "کشور نامعتبر"
+
 #: dash/lib/app/address.php:111
 msgid "Please set province less than 100 character"
 msgstr "لطفا استان را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: dash/lib/app/address.php:123
+#: dash/lib/app/address.php:117
+msgid "Invalid province"
+msgstr "استان نامعتبر"
+
+#: dash/lib/app/address.php:124
 msgid "Please set city less than 100 character"
 msgstr "لطفا شهر را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: dash/lib/app/address.php:130
+#: dash/lib/app/address.php:140
 msgid "Please set address less than 300 character"
 msgstr "لطفا آدرس را کمتر از ۳۰۰ حرف وارد کنید"
 
-#: dash/lib/app/address.php:136
+#: dash/lib/app/address.php:146
 msgid "Please fill the address"
 msgstr "لطفا آدرس را وارد کنید"
 
-#: dash/lib/app/address.php:143
+#: dash/lib/app/address.php:153
 msgid "Please set address2 less than 300 character"
 msgstr "لطفا آدرس را کمتر از ۳۰۰ حرف وارد کنید"
 
-#: dash/lib/app/address.php:150
+#: dash/lib/app/address.php:160
 msgid "Please set postcode less than 50 character"
 msgstr "کدپستی باید کمتر از ۵۰ کاراکتر باشد"
 
-#: dash/lib/app/address.php:157
+#: dash/lib/app/address.php:167
 msgid "Please set phone less than 50 character"
 msgstr "تلفن باید کمتر از ۵۰ کاراکتر باشد"
 
-#: dash/lib/app/address.php:164
+#: dash/lib/app/address.php:174
 msgid "Please set fax less than 50 character"
 msgstr "فکس باید کمتر از ۵۰ کاراکتر باشد"
 
-#: dash/lib/app/address.php:305
+#: dash/lib/app/address.php:331
 msgid "No way to insert address"
 msgstr "هیچ راهی برای افزودن آدرس وجود ندارد"
 
-#: dash/lib/app/address.php:381
+#: dash/lib/app/address.php:407
 msgid "Can not access to edit address"
 msgstr "شما دسترسی لازم برای ویرایش این آدرس را ندارید"
 
-#: dash/lib/app/address.php:433 dash/lib/app/address.php:446
+#: dash/lib/app/address.php:458 dash/lib/app/address.php:471
 msgid "Can not access to remove this address"
 msgstr "شما دسترسی لازم برای حذف این آدرس را ندارید"
 
-#: dash/lib/app/address.php:451
+#: dash/lib/app/address.php:476
 msgid "Address removed"
 msgstr "آدرس حذف شد"
 
@@ -9620,18 +9629,6 @@ msgstr "عنوان خارج از محدوده است!"
 #: dash/lib/app/ticket.php:363
 msgid "Invalid parent"
 msgstr "شناسه والد اشتباه است"
-
-#: dash/lib/app/contact.php:51 jibres/includes/lib/app/thirdparty/user_id.php:98
-msgid "User id not set"
-msgstr "شناسه کاربری تعیین نشده است"
-
-#: dash/lib/app/contact.php:104
-msgid "Key of contact is too large"
-msgstr "کلید مربوط به این مخاطب بیش از اندازه بزرگ است"
-
-#: dash/lib/app/contact.php:111
-msgid "Contact value is too large."
-msgstr "مقدار وارد شده از حد مجاز بزرگتر است."
 
 #: dash/lib/app/dbtables.php:27
 msgid ":dbtables id not set"
@@ -9988,7 +9985,7 @@ msgstr "ایمیل نادرست است"
 msgid "Parent is incorrect"
 msgstr "والدین نادرست است"
 
-#: dash/lib/app/user.php:159 jibres/includes/lib/app/thirdparty.php:361
+#: dash/lib/app/user.php:159 jibres/includes/lib/app/thirdparty.php:293
 msgid "Permission is incorrect"
 msgstr "مجوز نادرست است"
 
@@ -10056,7 +10053,7 @@ msgstr "تلفن همراه تکراری"
 msgid "No way to insert user"
 msgstr "روشی برای افزودن کاربر نیست"
 
-#: dash/lib/app/user/add.php:104
+#: dash/lib/app/user/add.php:99
 msgid "User successfuly added"
 msgstr "کاربر با موفقیت اضافه شد"
 
@@ -11124,6 +11121,7 @@ msgstr "نامعتبر"
 
 #: jibres/content_a/filter.php:71 jibres/content_a/filter.php:140
 #: jibres/includes/languages/trans_project.php:380
+#: jibres/includes/languages/trans_static.php:61
 msgid "Customer"
 msgstr "مشتری"
 
@@ -11168,10 +11166,12 @@ msgid "Whitout discount"
 msgstr "بدون تخفیف"
 
 #: jibres/content_a/filter.php:130 jibres/includes/languages/trans_project.php:382
+#: jibres/includes/languages/trans_static.php:69
 msgid "Supplier"
 msgstr "تامین‌کنندگان"
 
 #: jibres/content_a/filter.php:135 jibres/includes/languages/trans_project.php:381
+#: jibres/includes/languages/trans_static.php:65
 msgid "Staff"
 msgstr "کارمند"
 
@@ -11391,23 +11391,27 @@ msgstr "عمومی"
 msgid "Logo"
 msgstr "لوگو"
 
-#: jibres/content_a/setting/plan/model.php:21
+#: jibres/content_a/setting/plan/model.php:12
+msgid "Not ready!"
+msgstr "آماده نیست!"
+
+#: jibres/content_a/setting/plan/model.php:25
 msgid "Please select one of plan"
 msgstr "لطفا یکی از پلن‌ها را انتخاب کنید"
 
-#: jibres/content_a/setting/plan/model.php:46
+#: jibres/content_a/setting/plan/model.php:50
 msgid "Invalid plan!"
 msgstr "پلن نامعتبر!"
 
-#: jibres/content_a/setting/plan/model.php:53
+#: jibres/content_a/setting/plan/model.php:57
 msgid "Invalid store!"
 msgstr "مشخصات فروشگاه نامعتبر است!"
 
-#: jibres/content_a/setting/plan/model.php:60
+#: jibres/content_a/setting/plan/model.php:64
 msgid "No access to change plan"
 msgstr "شما به تغییر پلن دسترسی ندارید"
 
-#: jibres/content_a/setting/plan/model.php:74
+#: jibres/content_a/setting/plan/model.php:78
 msgid "Your store plan was changed"
 msgstr "پلن فروشگاه شما تغییر یافت"
 
@@ -11489,13 +11493,6 @@ msgid "you can edit general detail of thirdparty"
 msgstr "شما می‌توانید اطلاعات این طرف حساب را ویرایش کنید"
 
 #: jibres/content_a/thirdparty/home/view.php:9
-#: jibres/content_a/thirdparty/home/view.php:11
-#: jibres/content_a/thirdparty/home/view.php:72
-#: jibres/content_a/thirdparty/main/view.php:37
-msgid "s"
-msgstr "‌"
-
-#: jibres/content_a/thirdparty/home/view.php:9
 msgid ":type list"
 msgstr "لیست :type"
 
@@ -11512,8 +11509,9 @@ msgid "Also add or edit specefic :type."
 msgstr "هم‌چنین افزودن یا ویرایش :type خاص."
 
 #: jibres/content_a/thirdparty/home/view.php:77
-msgid "Add new member"
-msgstr "افزودن عضو جدید"
+#: jibres/content_a/thirdparty/load.php:41
+msgid "Add new thirdparty"
+msgstr "افزودن طرف حساب جدید"
 
 #: jibres/content_a/thirdparty/home/view.php:129
 msgid "List of third parties"
@@ -11549,10 +11547,6 @@ msgstr "تنظیم جزئيات اطلاعات هویتی شخصی مثل تول
 msgid "Thirdparty id not found"
 msgstr "شناسه طرف حساب تنظیم نشده است"
 
-#: jibres/content_a/thirdparty/load.php:41
-msgid "Add new thirdparty"
-msgstr "افزودن طرف حساب جدید"
-
 #: jibres/content_a/thirdparty/main/controller.php:11
 msgid "Invalid member type"
 msgstr "نوع عضو اشتباه است"
@@ -11564,6 +11558,10 @@ msgstr "شناسه کاربر اشتباه است"
 #: jibres/content_a/thirdparty/main/view.php:31
 msgid ":member id not set"
 msgstr "شناسه :member تنظیم نشده است"
+
+#: jibres/content_a/thirdparty/main/view.php:37
+msgid "s"
+msgstr "‌"
 
 #: jibres/content_a/thirdparty/main/view.php:37
 msgid ":types list"
@@ -12957,14 +12955,17 @@ msgid "Third Parties"
 msgstr "طرف حساب‌ها"
 
 #: jibres/includes/languages/trans_project.php:288
+#: jibres/includes/languages/trans_static.php:62
 msgid "Customers"
 msgstr "مشتریان"
 
 #: jibres/includes/languages/trans_project.php:289
+#: jibres/includes/languages/trans_static.php:66
 msgid "Staffs"
 msgstr "کارمندان"
 
 #: jibres/includes/languages/trans_project.php:290
+#: jibres/includes/languages/trans_static.php:70
 msgid "Suppliers"
 msgstr "تامین‌کنندگان"
 
@@ -14055,6 +14056,46 @@ msgstr "تنظیمات فروشگاه"
 msgid "Report"
 msgstr "گزارش"
 
+#: jibres/includes/languages/trans_static.php:63
+msgid "customer"
+msgstr "مشتری"
+
+#: jibres/includes/languages/trans_static.php:64
+msgid "customers"
+msgstr "مشتریان"
+
+#: jibres/includes/languages/trans_static.php:67
+msgid "staff"
+msgstr "کارمند"
+
+#: jibres/includes/languages/trans_static.php:68
+msgid "staffs"
+msgstr "کارمندان"
+
+#: jibres/includes/languages/trans_static.php:71
+msgid "supplier"
+msgstr "تامین‌کننده"
+
+#: jibres/includes/languages/trans_static.php:72
+msgid "suppliers"
+msgstr "تامین‌کنندگان"
+
+#: jibres/includes/languages/trans_static.php:73
+msgid "Thirdparty"
+msgstr "طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:74
+msgid "thirdparty"
+msgstr "طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:75
+msgid "Thirdparties"
+msgstr "طرف‌حساب‌ها"
+
+#: jibres/includes/languages/trans_static.php:76
+msgid "thirdparties"
+msgstr "طرف‌حساب‌ها"
+
 #: jibres/includes/lib/app/factor.php:62
 msgid "Customer detail is invalid"
 msgstr "اطلاعات مشتری اشتباه است"
@@ -14533,115 +14574,83 @@ msgstr "تراکنش با موفقیت ذخیره شد"
 msgid "Your storetransaction successfully updated"
 msgstr "تراکنش با موفقیت به روز رسانی شد"
 
-#: jibres/includes/lib/app/thirdparty.php:29
+#: jibres/includes/lib/app/thirdparty.php:28
 msgid "Invalid thirdparty type"
 msgstr "نوع طرف حساب اشتباه است"
 
-#: jibres/includes/lib/app/thirdparty.php:39
+#: jibres/includes/lib/app/thirdparty.php:36
 msgid "Invalid mobile"
 msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
-#: jibres/includes/lib/app/thirdparty.php:47
+#: jibres/includes/lib/app/thirdparty.php:48
 #: jibres/includes/lib/app/thirdparty.php:55
 msgid "Plese set firstname less than 100 character"
 msgstr "طول رشته نام باید کمتر از ۱۰۰ کاراکتر باشد"
 
-#: jibres/includes/lib/app/thirdparty.php:75
-msgid "firstname or lastname is required"
-msgstr "نام و یا نام خانوادگی الزامی است"
-
-#: jibres/includes/lib/app/thirdparty.php:90
+#: jibres/includes/lib/app/thirdparty.php:88
 msgid "Invalid father"
 msgstr "نام پدر نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:99
+#: jibres/includes/lib/app/thirdparty.php:96
 msgid "Invalid nationalcode"
 msgstr "کدملی نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:108
-#: jibres/includes/lib/app/thirdparty.php:114
+#: jibres/includes/lib/app/thirdparty.php:104
+#: jibres/includes/lib/app/thirdparty.php:110
 msgid "Invalid pasportcode"
 msgstr "شماره گذرنامه نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:126
+#: jibres/includes/lib/app/thirdparty.php:122
 msgid "Invalid birthday"
 msgstr "تاریخ تولد اشتباه است"
 
-#: jibres/includes/lib/app/thirdparty.php:140
+#: jibres/includes/lib/app/thirdparty.php:136
 msgid "Invalid birthday, birthday can not larger than date now!"
 msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد!"
 
-#: jibres/includes/lib/app/thirdparty.php:153
-msgid "Invalid pasportdate"
-msgstr "تاریخ گذرنامه نامعتبر"
-
-#: jibres/includes/lib/app/thirdparty.php:167
-msgid "Invalid pasportdate, pasportdate can not larger than date now!"
-msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد!"
-
-#: jibres/includes/lib/app/thirdparty.php:175
+#: jibres/includes/lib/app/thirdparty.php:145
 msgid "Invalid gender"
 msgstr "جنسیت نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:182
+#: jibres/includes/lib/app/thirdparty.php:152
 msgid "Invalid marital"
 msgstr "وضعیت تاهل نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:191
+#: jibres/includes/lib/app/thirdparty.php:160
 msgid "Invalid shcode"
 msgstr "شماره شناسنامه نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:199
+#: jibres/includes/lib/app/thirdparty.php:167
 msgid "Invalid birthcity"
 msgstr "محل تولد نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:208
+#: jibres/includes/lib/app/thirdparty.php:175
 msgid "Invalid zipcode"
 msgstr "کدپستی نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:216
+#: jibres/includes/lib/app/thirdparty.php:183
 msgid "Invalid avatar"
 msgstr "آواتار نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:223
+#: jibres/includes/lib/app/thirdparty.php:190
 msgid "Invalid issue place"
 msgstr "محل صدور اشتباه"
 
-#: jibres/includes/lib/app/thirdparty.php:231
+#: jibres/includes/lib/app/thirdparty.php:198
 msgid "Invalid code"
 msgstr "کد اشتباه است"
 
-#: jibres/includes/lib/app/thirdparty.php:248
+#: jibres/includes/lib/app/thirdparty.php:215
 msgid "Invalid email"
 msgstr "رایانامه اشتباه"
 
-#: jibres/includes/lib/app/thirdparty.php:256
-msgid "Invalid city"
-msgstr "اطلاعات شهر اشتباه است"
-
-#: jibres/includes/lib/app/thirdparty.php:264
-msgid "Invalid province"
-msgstr "استان نامعتبر"
-
-#: jibres/includes/lib/app/thirdparty.php:272
-msgid "Invalid country"
-msgstr "کشور نامعتبر"
-
-#: jibres/includes/lib/app/thirdparty.php:280
-msgid "Invalid address"
-msgstr "آدرس نامعتبر"
-
-#: jibres/includes/lib/app/thirdparty.php:288
+#: jibres/includes/lib/app/thirdparty.php:223
 msgid "Invalid phone"
 msgstr "شماره تلفن‌همراه نامعتبر"
 
-#: jibres/includes/lib/app/thirdparty.php:304
+#: jibres/includes/lib/app/thirdparty.php:237
 msgid "Invalid desc"
 msgstr "توضیح نامعتبر"
-
-#: jibres/includes/lib/app/thirdparty.php:334
-msgid "Fill name or family is require!"
-msgstr "ورود نام یا نام‌خانوادگی الزامی است!"
 
 #: jibres/includes/lib/app/thirdparty/add.php:32
 msgid "user not found"
@@ -14684,7 +14693,11 @@ msgstr "فروشگاه یافت نشد"
 msgid "Invalid thirdparty id"
 msgstr "شناسه طرف حساب نامعتبر است"
 
-#: jibres/includes/lib/app/thirdparty/user_id.php:179
+#: jibres/includes/lib/app/thirdparty/user_id.php:96
+msgid "User id not set"
+msgstr "شناسه کاربری تعیین نشده است"
+
+#: jibres/includes/lib/app/thirdparty/user_id.php:180
 msgid "This user was already added to this store"
 msgstr "این کاربر قبلا به این فروشگاه اضافه شده است"
 
@@ -14736,6 +14749,33 @@ msgstr "اجازه مشاهده لاگ‌های سیستم"
 #: jibres/includes/permission/permission.php:104
 msgid "Allow to login by another session"
 msgstr "اجازه ورود با کاربر دیگر"
+
+#~ msgid "Add new member"
+#~ msgstr "افزودن عضو جدید"
+
+#~ msgid "Key of contact is too large"
+#~ msgstr "کلید مربوط به این مخاطب بیش از اندازه بزرگ است"
+
+#~ msgid "Contact value is too large."
+#~ msgstr "مقدار وارد شده از حد مجاز بزرگتر است."
+
+#~ msgid "firstname or lastname is required"
+#~ msgstr "نام و یا نام خانوادگی الزامی است"
+
+#~ msgid "Invalid pasportdate"
+#~ msgstr "تاریخ گذرنامه نامعتبر"
+
+#~ msgid "Invalid pasportdate, pasportdate can not larger than date now!"
+#~ msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد!"
+
+#~ msgid "Invalid city"
+#~ msgstr "اطلاعات شهر اشتباه است"
+
+#~ msgid "Invalid address"
+#~ msgstr "آدرس نامعتبر"
+
+#~ msgid "Fill name or family is require!"
+#~ msgstr "ورود نام یا نام‌خانوادگی الزامی است!"
 
 #~ msgid "Action"
 #~ msgstr "عملیات"

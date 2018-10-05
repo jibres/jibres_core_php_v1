@@ -106,15 +106,42 @@ class view
 	}
 
 
-	public static function typeTrans()
+	public static function typeTrans($_all = false)
 	{
 		$type = \dash\request::get('type');
 
 		if(!$type)
 		{
-			$type = 'member';
+			if($_all)
+			{
+				$type = 'thirdparties';
+			}
+			else
+			{
+				$type = 'thirdparty';
+			}
 		}
-
+		else
+		{
+			if(mb_strtolower($type) === 'thirdparty')
+			{
+				if($_all)
+				{
+					$type = 'thirdparties';
+				}
+				else
+				{
+					$type = 'thirdparty';
+				}
+			}
+			else
+			{
+				if($_all)
+				{
+					$type = $type. 's';
+				}
+			}
+		}
 
 		return $type;
 	}

@@ -22,12 +22,12 @@ class view
 		// for special condition
 		if($moduleType)
 		{
-			$myTitle = T_('Add new :type', ['type' => $moduleType.'s']);
-			$myDesc  = T_('Add new :type with minmal data and after that you can add extra detail.', ['type' => $moduleType]);
+			$myTitle = T_('Add new :type', ['type' => T_(ucfirst($moduleType))]);
+			$myDesc  = T_('Add new :type with minmal data and after that you can add extra detail.', ['type' => T_(ucfirst($moduleType))]);
 
 
 			$myBadgeLink = \dash\url::this(). '?type='. $moduleType;
-			$myBadgeText = T_('Back to :type', ['type' => $moduleType]);
+			$myBadgeText = T_('Back to :type', ['type' => T_(ucfirst($moduleType. 's'))]);
 		}
 
 		\dash\data::page_title($myTitle);
