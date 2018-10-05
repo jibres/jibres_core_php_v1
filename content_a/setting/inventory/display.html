@@ -22,6 +22,7 @@
     {{block('inventoryDefault')}}
     {{block('inventoryOnline')}}
     {{block('inventorySale')}}
+    {{block('addressDetail')}}
     {%if dataRow%}
       <div class="f">
         <div class="c">
@@ -81,6 +82,20 @@
 
 
 
+
+{%block addressDetail%}
+<div class="msg">
+{{block('iCountry')}}
+{{block('iCity')}}
+{{block('iAddress')}}
+{{block('iPhone')}}
+{{block('iFax')}}
+</div>
+
+{%endblock%}
+
+
+
 {%block htmlTable%}
 
   <table class="tbl1 v1 cbox fs12">
@@ -112,3 +127,75 @@
   </table>
 
 {%endblock%}
+
+
+
+
+
+
+{%block iCountry%}
+<div class="mB10">
+  <label for='country'>{%trans "Country"%}</label>
+  <div class="ui fluid search selection dropdown">
+    <input type="hidden" name="country" value="{%if dataRow.country%}{{dataRow.country}}{%else%}iran{%endif%}">
+    <i class="dropdown icon"></i>
+    <div class="default text">{%trans "Choose your country"%}</div>
+    <div class="menu">
+{%for key, value in countryList%}
+      <div class="item" data-value="{{key}}">
+        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}<small class="description">{{value.name | capitalize}}</small>
+      </div>
+{%endfor%}
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+{%block iCity%}
+<label for='city'>{%trans "City"%}</label>
+<select name="city" class="ui dropdown select search mB10" id="city">
+  <option value="" readonly>{%trans "Select city"%}</option>
+  {%for key, value in cityList%}
+    <option value="{{key}}" {% if dataRow.city == key %} selected {%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+{%endblock%}
+
+
+
+
+{%block iPostcode%}
+<label for="postcode">{%trans "Post code"%}</label>
+<div class="input ltr">
+  <input type="text" name="postcode" id="postcode" placeholder='{%trans "Post code"%}' value="{{dataRow.postcode}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+
+{%block iPhone%}
+<label for="iphone">{%trans "Phone"%}</label>
+<div class="input">
+  <input type="tel" name="phone" id="iphone" placeholder='{%trans "Phone"%}' value="{{dataRow.phone}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+{%block iFax%}
+<label for="ifax">{%trans "Fax"%}</label>
+<div class="input">
+  <input type="tel" name="fax" id="ifax" placeholder='{%trans "Fax"%}' value="{{dataRow.fax}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+
+
+
+{%block iAddress%}
+<label for="address">{%trans "Address"%}</label>
+<textarea class="txt mB20 pB25" name="address" placeholder='{%trans "Address"%}' required maxlength='300' rows="2">{{dataRow.address}}</textarea>
+{%endblock%}
+
