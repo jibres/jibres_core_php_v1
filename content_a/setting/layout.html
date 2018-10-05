@@ -37,7 +37,7 @@
   </div>
 
   <div class="c">
-    <a class="dcard {%if url.child == 'unit' %}active{%endif%}" href='{{url.this}}/unit' data-shortkey="50shift">
+    <a class="dcard {%if url.child == 'units' %}active{%endif%}" href='{{url.this}}/units' data-shortkey="50shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-balance-scale"></i></div>
       <div class="label">{%trans "Units"%} <kbd>Shift+2</kbd></div>
@@ -46,7 +46,7 @@
   </div>
 
   <div class="c">
-    <a class="dcard {%if url.child == 'cat' %}active{%endif%}" href='{{url.this}}/cat' data-shortkey="50shift">
+    <a class="dcard {%if url.child == 'cats' %}active{%endif%}" href='{{url.this}}/cats' data-shortkey="50shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-tags"></i></div>
       <div class="label">{%trans "Cats"%} <kbd>Shift+2</kbd></div>
@@ -59,6 +59,16 @@
      <div class="statistic gray">
       <div class="value"><i class="sf-interface-windows"></i></div>
       <div class="label">{%trans "Factor"%} <kbd>Shift+3</kbd></div>
+     </div>
+    </a>
+  </div>
+
+
+  <div class="c">
+    <a class="dcard {%if url.child == 'inventory' %}active{%endif%}" href='{{url.this}}/inventory' data-shortkey="51shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-building"></i></div>
+      <div class="label">{%trans "Inventory"%} <kbd>Shift+3</kbd></div>
      </div>
     </a>
   </div>
