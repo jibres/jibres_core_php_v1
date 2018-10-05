@@ -30,17 +30,17 @@
   <label for="type">{%trans "Type of thirdparty"%} <small class="fc-red">* {%trans "Require"%}</small></label>
   <div class="f">
    <div class="radio1">
-    <input type="radio" id="r-customer" name="type" value="customer" {%if thirdparty.type == 'customer' or not thirdparty.type%}checked{%endif%}>
+    <input type="radio" id="r-customer" name="type" value="customer" {%if dataRow.type == 'customer' or not dataRow.type%}checked{%endif%}>
     <label for="r-customer">{%trans "Customer"%}</label>
    </div>
 
    <div class="radio1">
-    <input type="radio" id="r-staff" name="type" value="staff" {%if thirdparty.type == 'staff' %}checked{%endif%}>
+    <input type="radio" id="r-staff" name="type" value="staff" {%if dataRow.type == 'staff' %}checked{%endif%}>
     <label for="r-staff">{%trans "Staff"%}</label>
    </div>
 
    <div class="radio1">
-    <input type="radio" id="r-supplier" name="type" value="supplier" {%if thirdparty.type == 'supplier' %}checked{%endif%}>
+    <input type="radio" id="r-supplier" name="type" value="supplier" {%if dataRow.type == 'supplier' %}checked{%endif%}>
     <label for="r-supplier">{%trans "Supplier"%}</label>
    </div>
   </div>
@@ -52,21 +52,21 @@
 
  <div class="vcard">
   <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
-  {%if thirdparty.avatar%}
-    <img src="{{thirdparty.avatar}}">
+  {%if dataRow.avatar%}
+    <img src="{{dataRow.avatar}}">
   {%else%}
     <img src="{{url.site}}/static/siftal/images/useful/user1.png">
   {%endif%}
   </a>
   <div class="content">
-    <div class="header"><b>{{thirdparty.displayname}}</b></div>
-    <div class="meta"><span>{{thirdparty.visitorname}}</span></div>
-    {%if thirdparty.visitormobile%}
-    <div class="desc"><i class="sf-mobile fs2"></i>{{thirdparty.visitormobile|fitNumber(false)}}</div>
+    <div class="header"><b>{{dataRow.displayname}}</b></div>
+    <div class="meta"><span>{{dataRow.visitorname}}</span></div>
+    {%if dataRow.visitormobile%}
+    <div class="desc"><i class="sf-mobile fs2"></i>{{dataRow.visitormobile|fitNumber(false)}}</div>
     {%endif%}
   </div>
 
-  <!-- <div class="footer">{{thirdparty.nationalcode|fitNumber(false)}}</div> -->
+  <!-- <div class="footer">{{dataRow.nationalcode|fitNumber(false)}}</div> -->
 
  </div>
 
@@ -82,21 +82,21 @@
 
  <div class="vcard">
   <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
-  {%if thirdparty.avatar%}
-    <img src="{{thirdparty.avatar}}">
+  {%if dataRow.avatar%}
+    <img src="{{dataRow.avatar}}">
   {%else%}
     <img src="{{url.site}}/static/siftal/images/useful/user1.png">
   {%endif%}
   </a>
   <div class="content">
-    <div class="header">{{thirdparty.firstname}} <b>{{thirdparty.lastname}}</b></div>
-    <div class="meta"><span>{{thirdparty.grade_title}}</span></div>
-    {%if thirdparty.mobile%}
-    <div class="desc"><i class="sf-mobile fs2"></i>{{thirdparty.mobile|fitNumber(false)}}</div>
+    <div class="header">{{dataRow.firstname}} <b>{{dataRow.lastname}}</b></div>
+    <div class="meta"><span>{{dataRow.grade_title}}</span></div>
+    {%if dataRow.mobile%}
+    <div class="desc"><i class="sf-mobile fs2"></i>{{dataRow.mobile|fitNumber(false)}}</div>
     {%endif%}
   </div>
-  {%if thirdparty.nationalcode%}
-  <div class="footer">{{thirdparty.nationalcode|fitNumber(false)}}</div>
+  {%if dataRow.nationalcode%}
+  <div class="footer">{{dataRow.nationalcode|fitNumber(false)}}</div>
   {%endif%}
  </div>
 
@@ -109,11 +109,20 @@
 {%endblock%}
 
 
+{%block idisplayname%}
+<label for="iname">{%trans "Display name"%}</label>
+<div class="input">
+  <input type="text" name="displayname" id="iname" placeholder='{%trans "Display name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+</div>
+{%endblock%}
+
+
+
 
 {%block iname%}
-<label for="name">{%trans "Name"%} <span class="fc-red">*</span></label>
+<label for="name">{%trans "Name"%}</label>
 <div class="input">
-  <input type="text" name="name" id="name" placeholder='{%trans "Name"%} *' value="{{thirdparty.firstname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{dataRow.firstname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
 </div>
 {%endblock%}
 
@@ -140,7 +149,7 @@
 {%block inameFree%}
 <label for="name">{%trans "Name"%}</label>
 <div class="input">
-  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{thirdparty.firstname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{dataRow.firstname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
 </div>
 {%endblock%}
 
@@ -148,7 +157,7 @@
 {%block ifamily%}
 <label for="lastName">{%trans "Last name"%}</label>
 <div class="input">
-  <input type="text" name="lastName" id="lastName" placeholder='{%trans "Last name"%}' value="{{thirdparty.lastname}}" maxlength='60'>
+  <input type="text" name="lastName" id="lastName" placeholder='{%trans "Last name"%}' value="{{dataRow.lastname}}" maxlength='60'>
 </div>
 {%endblock%}
 
@@ -158,7 +167,7 @@
 {%block imobile%}
 <label for="mobile">{%trans "Mobile"%}</label>
 <div class="input">
-  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like 09120123456"%}' autofocus value="{{thirdparty.mobile}}" maxlength='30'>
+  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like 09120123456"%}' autofocus value="{{dataRow.mobile}}" maxlength='30'>
 </div>
 {%endblock%}
 
@@ -166,7 +175,7 @@
 {%block incode%}
 <label for="nationalcode">{%trans "National code"%}</label>
 <div class="input">
-  <input type="number" name="nationalcode" id="nationalcode" placeholder='{%trans "10 digit national code"%}' value="{{thirdparty.nationalcode}}" min=0 max=9999999999>
+  <input type="number" name="nationalcode" id="nationalcode" placeholder='{%trans "10 digit national code"%}' value="{{dataRow.nationalcode}}" min=0 max=9999999999>
 </div>
 {%endblock%}
 
@@ -174,7 +183,7 @@
 {%block ifather%}
 <label for="father">{%trans "Father name"%}</label>
 <div class="input">
-  <input type="text" name="father" id="father" placeholder='{%trans "Father name"%}' value="{{thirdparty.father}}" maxlength='50'>
+  <input type="text" name="father" id="father" placeholder='{%trans "Father name"%}' value="{{dataRow.father}}" maxlength='50'>
 </div>
 {%endblock%}
 
@@ -182,13 +191,13 @@
 {%block ibirthday%}
 <label for="birthday">{%trans "Birthday"%}</label>
 <div class="input">
-  <input class="datepicker" type="text" name="birthday" id="birthday" placeholder='{{"1369/04/15" | fitNumber(false)}}' value="{{thirdparty.birthday}}" maxlength='20' data-format="YYYY/MM/DD" data-view="year">
+  <input class="datepicker" type="text" name="birthday" id="birthday" placeholder='{{"1369/04/15" | fitNumber(false)}}' value="{{dataRow.birthday}}" maxlength='20' data-format="YYYY/MM/DD" data-view="year">
 </div>
 {%endblock%}
 
 
 {%block igender%}
-<div class="">
+<div class="mRa5">
   <label for="gender">{%trans "Gender"%}</label>
   <select name="gender" class="ui dropdown select">
     <option value="" readonly>{%trans "Please select one itme"%}</option>
@@ -204,7 +213,7 @@
 {%block ibirthcity%}
 <label for="birthcity">{%trans "Birth city"%}</label>
 <div class="input">
-  <input type='text' class="autoList" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{thirdparty.birthplace}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{listCities}}"/>
+  <input type='text' class="autoList" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{dataRow.birthplace}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{listCities}}"/>
 
 </div>
 {%endblock%}
@@ -214,7 +223,7 @@
 {%block icountry%}
 <label for='country'>{%trans "Country"%}</label>
  <div class="ui fluid search selection dropdown">
-      <input type="hidden" name="country" value="{{thirdparty.country}}">
+      <input type="hidden" name="country" value="{{dataRow.country}}">
       <i class="dropdown icon"></i>
       <div class="default text">Select Country</div>
       <div class="menu">
@@ -234,7 +243,7 @@
 <select name="province" class="ui dropdown select search" id="province">
   <option value="" readonly>{%trans "Select province"%}</option>
   {%for key, value in proviceList%}
-    <option value="{{key}}" {% if thirdparty.province == key %} selected {%endif%}>{{value}}</option>
+    <option value="{{key}}" {% if dataRow.province == key %} selected {%endif%}>{{value}}</option>
   {%endfor%}
 </select>
 {%endblock%}
@@ -245,7 +254,7 @@
 <select name="city" class="ui dropdown select search" id="city">
   <option value="" readonly>{%trans "Select city"%}</option>
   {%for key, value in cityList%}
-    <option value="{{key}}" {% if thirdparty.city == key %} selected {%endif%}>{{value}}</option>
+    <option value="{{key}}" {% if dataRow.city == key %} selected {%endif%}>{{value}}</option>
   {%endfor%}
 </select>
 {%endblock%}
@@ -258,7 +267,7 @@
 {%block izipcode%}
 <label for='zipcode'>{%trans "Zip code"%}</label>
 <div class="input">
- <input type='number' name='zipcode' id='zipcode' min="0" value="{{thirdparty.zipcode}}"/>
+ <input type='number' name='zipcode' id='zipcode' min="0" value="{{dataRow.zipcode}}"/>
 </div>
 {%endblock%}
 
@@ -268,7 +277,7 @@
 {%block ipassport%}
 <label for='pasportcode'>{%trans "Passport id"%}</label>
 <div class="input ltr">
- <input name='pasportcode' id='pasportcode' value="{{thirdparty.pasportcode}}" />
+ <input name='pasportcode' id='pasportcode' value="{{dataRow.pasportcode}}" />
 
 </div>
 {%endblock%}
@@ -283,7 +292,7 @@
 {%block iPhone%}
 <label for="phone">{%trans "Phone"%}</label>
 <div class="input">
-  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} 025 3650 5281' value="{{thirdparty.phone}}" maxlength='50'>
+  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} 025 3650 5281' value="{{dataRow.phone}}" maxlength='50'>
 </div>
 {%endblock%}
 
@@ -291,7 +300,7 @@
 {%block iEmail%}
 <label for="email">{%trans "Email"%}</label>
 <div class="input">
-  <input type="email" name="email" id="email" placeholder='{%trans "Like"%} abc@example.com' value="{{thirdparty.email}}" maxlength='50'>
+  <input type="email" name="email" id="email" placeholder='{%trans "Like"%} abc@example.com' value="{{dataRow.email}}" maxlength='50'>
 </div>
 {%endblock%}
 
@@ -300,7 +309,7 @@
 <div class="input preview">
  <input type="file" accept="image/gif, image/jpeg, image/png" name="avatar" id="avatar1" data-preview data-max="500">
  <label for="avatar1" title="Simple Title">
-    {%if thirdparty.avatar%}<img src="{{thirdparty.avatar}}">{%endif%}
+    {%if dataRow.avatar%}<img src="{{dataRow.avatar}}">{%endif%}
  </label>
 </div>
 {%endblock%}
@@ -310,7 +319,7 @@
 <div class="input preview">
  <input type="file" accept="image/gif, image/jpeg, image/png" name="nationalthumb" id="nationalthumb" data-preview data-max="500">
  <label for="nationalthumb" title="Simple Title">
-    {%if thirdparty.nationalthumb%}<img src="{{thirdparty.nationalthumb}}">{%endif%}
+    {%if dataRow.nationalthumb%}<img src="{{dataRow.nationalthumb}}">{%endif%}
  </label>
 </div>
 {%endblock%}
@@ -320,7 +329,7 @@
 <div class="input preview">
  <input type="file" accept="image/gif, image/jpeg, image/png" name="shthumb" id="shthumb" data-preview data-max="500">
  <label for="shthumb" title="Simple Title">
-    {%if thirdparty.shthumb%}<img src="{{thirdparty.shthumb}}">{%endif%}
+    {%if dataRow.shthumb%}<img src="{{dataRow.shthumb}}">{%endif%}
  </label>
 </div>
 {%endblock%}
@@ -340,7 +349,7 @@
 {%block icompanyname%}
 <label for="icompanyname">{%trans "Company"%}</label>
 <div class="input">
-  <input type="text" name="companyname" id="icompanyname" placeholder='{%trans "Company"%}' value="{{thirdparty.companyname}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+  <input type="text" name="companyname" id="icompanyname" placeholder='{%trans "Company"%}' value="{{dataRow.companyname}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
 </div>
 {%endblock%}
 
@@ -349,7 +358,7 @@
 {%block inamevisitor%}
 <label for="visitorname">{%trans "Visitor name"%}</label>
 <div class="input">
-  <input type="text" name="visitorname" id="visitorname" placeholder='{%trans "Visitor name"%}' value="{{thirdparty.visitorname}}" maxlength='60'>
+  <input type="text" name="visitorname" id="visitorname" placeholder='{%trans "Visitor name"%}' value="{{dataRow.visitorname}}" maxlength='60'>
 </div>
 {%endblock%}
 
@@ -358,7 +367,7 @@
 {%block icode%}
 <label for="code">{%trans "Customer code"%}</label>
 <div class="input">
-  <input type="number" name="code" id="code" placeholder='{%trans "Customer code"%}' value="{{thirdparty.code}}" min=0 max=9999999999>
+  <input type="number" name="code" id="code" placeholder='{%trans "Customer code"%}' value="{{dataRow.code}}" min=0 max=9999999999>
 </div>
 {%endblock%}
 
@@ -366,7 +375,7 @@
 {%block iDesc%}
 <label for="desc">{%trans "Desctiption"%}</label>
 <div class="input">
-  <textarea  name="desc" id="desc" placeholder='{%trans "Desctiption"%}' class="txt" rows="4">{{thirdparty.desc}}</textarea>
+  <textarea  name="desc" id="desc" placeholder='{%trans "Desctiption"%}' class="txt" rows="4">{{dataRow.desc}}</textarea>
 </div>
 {%endblock%}
 
