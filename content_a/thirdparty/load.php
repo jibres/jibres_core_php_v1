@@ -4,49 +4,6 @@ namespace content_a\thirdparty;
 
 class load
 {
-	public static function memberDetail()
-	{
-		$countryList = \dash\utility\location\countres::$data;
-		\dash\data::countryList($countryList);
-
-		$cityList    = \dash\utility\location\cites::key_list('localname');
-		\dash\data::cityList($cityList);
-
-		$proviceList = \dash\utility\location\provinces::key_list('localname');
-		\dash\data::proviceList($proviceList);
-
-
-		$userstore_id = \dash\request::get('id');
-		$userstore_id = \dash\coding::decode($userstore_id);
-
-		if(!$userstore_id)
-		{
-			\dash\header::status(404, T_("Thirdparty id not found"));
-		}
-
-		$thirdparty = \lib\app\thirdparty::get(\dash\request::get('id'));
-
-		if(isset($thirdparty['supplier']) || (isset($thirdparty['type']) && $thirdparty['type'] === 'supplier'))
-		{
-			\dash\data::supplierMode(true);
-		}
-
-		\dash\data::thirdparty($thirdparty);
-
-		if(isset($thirdparty['displayname']))
-		{
-			\dash\data::page_title(' | '. $thirdparty['displayname']);
-		}
-
-
-		$myBadgeLink = \dash\url::this(). '?type='. self::typeTrans();
-		$myBadgeText = T_('Back to :type', ['type' => T_(ucfirst(self::typeTrans(true)))]);
-
-		\dash\data::badge_text($myBadgeText);
-		\dash\data::badge_link($myBadgeLink);
-
-	}
-
 
 	/**
 	 * load user data
@@ -61,18 +18,17 @@ class load
 			$result = \lib\app\thirdparty::get($id);
 			if(!$result)
 			{
-				\dash\header::status(404, T_("Invalid member id"));
+				\dash\header::status(404, T_("Invalid thirdparty id"));
 			}
 			\dash\data::dataRow($result);
 		}
 		else
 		{
-			\dash\header::status(404, T_(":member id not set"));
+			\dash\header::status(404, T_("Thirdparty id not set"));
 		}
 
 		// add back level to summary link
-		$dashboard_link = \dash\url::this();
-		\dash\data::badge_link($dashboard_link);
+		\dash\data::badge_link(\dash\url::this(). '?type='. self::typeTrans());
 		\dash\data::badge_text(T_(':types list', ['types' => T_(self::typeTrans(true))]));
 
 		if(isset($result['user_id']))
@@ -149,7 +105,44 @@ class load
 	{
 		if(\dash\data::dataRow())
 		{
-			var_dump(\dash\data::dataRow());exit();
+			$customer = intval(\dash\data::dataRow_customer());
+			$supplier = intval(\dash\data::dataRow_supplier());
+			$staff    = intval(\dash\data::dataRow_staff());
+			if(($supplier + $customer + $staff ) === 1)
+			{
+				if($supplier)
+				{
+					$type = 'supplier';
+				}
+
+				if($customer)
+				{
+					$type = 'customer';
+				}
+
+				if($staff)
+				{
+					$type = 'staff';
+				}
+
+			}
+			elseif(($supplier + $customer + $staff ) === 2)
+			{
+				if($supplier)
+				{
+					$type = 'supplier';
+				}
+
+				if($staff)
+				{
+					$type = 'staff';
+				}
+			}
+			else
+			{
+				$type = 'thirdparty';
+			}
+
 		}
 		else
 		{
