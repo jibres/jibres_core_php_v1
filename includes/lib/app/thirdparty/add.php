@@ -88,6 +88,8 @@ trait add
 			}
 		}
 
+		$supplier_id = null;
+
 		if(isset($args['supplier']) && $args['supplier'])
 		{
 			$supplier                = [];
@@ -147,7 +149,7 @@ trait add
 			return false;
 		}
 
-		$return['thirdparty_id'] = \dash\coding::encode($userstore_id);
+		$return['thirdparty_id'] = \dash\coding::encode($supplier_id ? $supplier_id : $userstore_id);
 
 		if(\dash\engine\process::status())
 		{

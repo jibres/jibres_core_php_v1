@@ -253,12 +253,19 @@ class thirdparty
 			}
 		}
 
-		if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname') || \dash\app::isset_request('mobile'))
+		if(isset($args['supplier']) && $args['supplier'])
 		{
-			if(!$firstname && !$lastname && !$mobile)
+			// no check
+		}
+		else
+		{
+			if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname') || \dash\app::isset_request('mobile'))
 			{
-				\dash\notif::error(T_("Fill mobile or name or family is require!"), ['firstname', 'lastname', 'mobile']);
-				return false;
+				if(!$firstname && !$lastname && !$mobile)
+				{
+					\dash\notif::error(T_("Fill mobile or name or family is require!"), ['firstname', 'lastname', 'mobile']);
+					return false;
+				}
 			}
 		}
 
