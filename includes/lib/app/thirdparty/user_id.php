@@ -195,11 +195,12 @@ trait user_id
 	}
 
 
-	private static function signup($_args)
+	public static function signup($_args)
 	{
 		$master_reuest = \dash\app::request();
 
 		$user_id = \dash\app\user::add($_args, ['debug' => false]);
+
 		\dash\app::variable($master_reuest);
 
 		if(isset($user_id['user_id']))

@@ -108,6 +108,11 @@ class userstore
 			return self::id();
 		}
 
+		if(\dash\permission::supervisor())
+		{
+			return \dash\user::id();
+		}
+
 		return false;
 	}
 }

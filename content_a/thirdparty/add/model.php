@@ -12,7 +12,7 @@ class model
 		$mobile = \dash\coding::decode($mobile);
 		if($mobile)
 		{
-			$check = \lib\db\userstores::get(['id' => $mobile, 'store_id' => \lib\store::id(), 'limit' => 1]);
+			$check = \lib\db\userstores::get(['id' => intval($mobile), 'store_id' => \lib\store::id(), 'limit' => 1]);
 			if(isset($check['id']))
 			{
 				$url = \dash\url::this(). '/general?id='. \dash\coding::encode($check['id']);
@@ -51,7 +51,8 @@ class model
 
 		if(\dash\request::get('type') === 'supplier')
 		{
-			$post['companyname']   = \dash\request::post('companyname');
+			$post['companyname'] = \dash\request::post('companyname');
+			$post['displayname'] = \dash\request::post('companyname');
 		}
 
 		return $post;

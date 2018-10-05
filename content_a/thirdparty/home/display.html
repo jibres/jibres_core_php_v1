@@ -75,9 +75,9 @@
       <tr {%if value.status=='disable'%} class='negative'{%endif%}>
         <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.code | fitNumber(false)}}</a></td>
         <td class="s0">{%if value.gender == 'male'%}{%trans "Mr"%} {%elseif value.gender == 'female'%}{%trans "Mrs"%}{%else%}-{%endif%}</td>
-<!--         <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.firstname}}</a></td>
+<!--    <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.firstname}}</a></td>
         <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.lastname}}</a></td>
-      -->
+-->
         <td>
           <a href="{{url.here}}/thirdparty/general?id={{value.id}}">
             {%if value.displayname%}

@@ -55,7 +55,7 @@ trait add
 
 		$return = [];
 
-		if($_option['store_id'])
+		if($_option['store_id'] && is_numeric($_option['store_id']))
 		{
 			$args['store_id'] = $_option['store_id'];
 		}
@@ -88,13 +88,46 @@ trait add
 			}
 		}
 
+		if(isset($args['supplier']) && $args['supplier'])
+		{
+			$supplier                = [];
+			$supplier['supplier']    = 1;
+			$supplier['status']      = 'active';
+			$supplier['displayname'] = $args['displayname'];
+			$supplier['companyname'] = $args['displayname'];
+			$supplier['user_id']     = self::signup(['displayname' => $args['displayname']]);
+			if($_option['store_id'] && is_numeric($_option['store_id']))
+			{
+				$supplier['store_id'] = $_option['store_id'];
+			}
+			else
+			{
+				$supplier['store_id'] = \lib\store::id();
+			}
+
+			$supplier_id             = \lib\db\userstores::insert($supplier);
+
+			if(!$supplier_id)
+			{
+				\dash\log::set('dbErrorInsertSupplier');
+				\dash\notif::error(T_("No way to insert supplier"));
+				return false;
+			}
+
+			unset($args['supplier']);
+			unset($args['companyname']);
+
+			$args['visitor']     = $supplier_id;
+			$args['displayname'] = trim($args['firstname']. ' '. $args['lastname']);
+			$args['customer']    = 1;
+		}
+
 		$user_id = self::find_user_id($args, null);
 
 		if($user_id === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
-
 
 		if(!$user_id)
 		{
@@ -104,12 +137,13 @@ trait add
 
 		$args['user_id'] = $user_id;
 
+
 		$userstore_id = \lib\db\userstores::insert($args);
 
 		if(!$userstore_id)
 		{
-			\dash\app::log('dbErrorInsertUserstores', \dash\user::id(), \dash\app::log_meta());
-			\dash\notif::error(T_("No way to insert :thirdparty"), 'db', 'system');
+			\dash\log::set('dbErrorInsertUserstores');
+			\dash\notif::error(T_("No way to insert thirdparty"), 'db', 'system');
 			return false;
 		}
 

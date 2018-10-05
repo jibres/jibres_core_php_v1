@@ -67,28 +67,7 @@ class thirdparty
 		$companynationalid     = \dash\app::request('companynationalid');
 		$companyregisternumber = \dash\app::request('companyregisternumber');
 
-
-		$detail = null;
-
-		// if($type === 'supplier')
-		// {
-		// 	$displayname             = \dash\app::request('company');
-		// 	$detail                  = [];
-		// 	$detail['visitorname']   = \dash\app::request('visitorname');
-		// 	$detail['visitormobile'] = \dash\app::request('visitormobile');
-		// 	$detail                  = json_encode($detail, JSON_UNESCAPED_UNICODE);
-		// }
-		// else
-		// {
-		// 	if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
-		// 	{
-		// 		if(!$firstname && !$lastname)
-		// 		{
-		// 			\dash\notif::error(T_("firstname or lastname is required"), ['firstname', 'lastname']);
-		// 			return false;
-		// 		}
-		// 	}
-		// }
+		$displayname             = \dash\app::request('displayname');
 
 		$father = \dash\app::request('father');
 
@@ -249,11 +228,14 @@ class thirdparty
 			return false;
 		}
 
-		$args                 = [];
-		$args['status']       = $status;
+		$args             = [];
+		$args['status']   = $status;
 
 		$staff            = \dash\app::request('staff') ? 1 : null;
 		$args['staff']    = $staff;
+
+		$supplier         = \dash\app::request('supplier') ? 1 : null;
+		$args['supplier'] = $supplier;
 
 		if($type)
 		{
@@ -279,7 +261,11 @@ class thirdparty
 				return false;
 			}
 		}
-		$displayname = trim($firstname. ' '. $lastname);
+
+		if(!$displayname && ($firstname || $lastname))
+		{
+			$displayname = trim($firstname. ' '. $lastname);
+		}
 
 		$permission = \dash\app::request('permission');
 		if(\dash\permission::check("aThirdPartyPermissionChange"))
