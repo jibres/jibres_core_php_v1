@@ -239,16 +239,15 @@ class thirdparty
 		}
 
 		$args                 = [];
-
 		$args['status']       = $status;
+
+		$staff            = \dash\app::request('staff') ? 1 : null;
+		$args['staff']    = $staff;
 
 		if($type)
 		{
 			$args[$type]      = 1;
 		}
-
-		$staff            = \dash\app::request('staff') ? 1 : null;
-		$args['staff']    = $staff;
 
 		$args['customer'] = 1;
 
@@ -259,14 +258,23 @@ class thirdparty
 		}
 		else
 		{
-			// if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
-			// {
-			// 	if(!$firstname && !$lastname)
-			// 	{
-			// 		\dash\notif::error(T_("Fill name or family is require!"), ['firstname', 'lastname']);
-			// 		return false;
-			// 	}
-			// }
+			if($args['staff'])
+			{
+				if(!$mobile)
+				{
+					\dash\notif::error(T_("Fill mobile for staff is required!"), ['mobile']);
+					return false;
+				}
+			}
+
+			if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname') || \dash\app::isset_request('mobile'))
+			{
+				if(!$firstname && !$lastname && !$mobile)
+				{
+					\dash\notif::error(T_("Fill mobile or name or family is require!"), ['firstname', 'lastname', 'mobile']);
+					return false;
+				}
+			}
 			$displayname = trim($firstname. ' '. $lastname);
 
 			$permission = \dash\app::request('permission');

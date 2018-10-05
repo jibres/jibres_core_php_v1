@@ -72,6 +72,17 @@ class controller
 				];
 			}
 
+			if(!\dash\utility\filter::mobile($query_string))
+			{
+				$result['result'] =
+				[
+					[
+						'name'  => '<span class="badge txtC danger2">'. T_("Invalid moible"). '</span>',
+						'value' => 'error',
+					]
+				];
+			}
+
 			$result = json_encode($result, JSON_UNESCAPED_UNICODE);
 			echo $result;
 			\dash\code::boom();

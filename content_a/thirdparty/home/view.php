@@ -6,10 +6,10 @@ class view
 
 	public static function config()
 	{
-		\dash\data::page_title(T_(':type list', ['type' => T_(\content_a\thirdparty\main\view::typeTrans(true))]));
-		\dash\data::page_desc(T_('Some detail about your :type!', ['type' => T_(\content_a\thirdparty\main\view::typeTrans())]));
-		\dash\data::page_desc(T_('Check list of :types and search or filter in them to find your :type.', ['types' => T_(\content_a\thirdparty\main\view::typeTrans(true)), 'type' => T_(\content_a\thirdparty\main\view::typeTrans())]));
-		\dash\data::page_desc(\dash\data::page_desc(). ' '. T_('Also add or edit specefic :type.', ['type' => T_(\content_a\thirdparty\main\view::typeTrans())]));
+		\dash\data::page_title(T_(':type list', ['type' => T_(\content_a\thirdparty\load::typeTrans(true))]));
+		\dash\data::page_desc(T_('Some detail about your :type!', ['type' => T_(\content_a\thirdparty\load::typeTrans())]));
+		\dash\data::page_desc(T_('Check list of :types and search or filter in them to find your :type.', ['types' => T_(\content_a\thirdparty\load::typeTrans(true)), 'type' => T_(\content_a\thirdparty\load::typeTrans())]));
+		\dash\data::page_desc(\dash\data::page_desc(). ' '. T_('Also add or edit specefic :type.', ['type' => T_(\content_a\thirdparty\load::typeTrans())]));
 
 		\dash\data::page_pictogram('users');
 
@@ -69,7 +69,7 @@ class view
 			{
 				\dash\data::badge_link(\dash\data::badge_link(). '?type='.$type);
 			}
-			\dash\data::badge_text(T_('Add new :type', ['type' => T_(\content_a\thirdparty\main\view::typeTrans())]));
+			\dash\data::badge_text(T_('Add new :type', ['type' => T_(\content_a\thirdparty\load::typeTrans())]));
 		}
 		else
 		{

@@ -58,20 +58,7 @@ class model
 			$post['type']         = \dash\request::get('type');
 			$post['firstname']    = \dash\request::post('name');
 			$post['lastname']     = \dash\request::post('lastName');
-			$post['nationalcode'] = \dash\request::post('nationalcode');
 			$post['gender']       = \dash\request::post('gender');
-
-			if(\dash\request::get('type') === 'staff')
-			{
-				$post['birthday']  = \dash\request::post('birthday');
-			}
-			else
-			{
-				$post['code']    = \dash\request::post('code');
-				$post['address'] = \dash\request::post('address');
-				$post['phone']   = \dash\request::post('phone');
-				$post['desc']    = \dash\request::post('desc');
-			}
 		}
 
 		return $post;

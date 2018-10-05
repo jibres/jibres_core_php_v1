@@ -53,56 +53,20 @@
 
 
 {%block iFormStaff%}
-  {{block("imobile")}}
-  <div class="f">
-    <div class="c">
-      {{block("iname")}}
-    </div>
-    <div class="c mLa5">
-      {{block("ifamily")}}
-    </div>
+
+  {{block("imobileSearch")}}
+  <div class="f mT10">
+    <div class="c mRa5">{{block("inameFree")}}</div>
+    <div class="c">{{block("ifamily")}}</div>
   </div>
   {{block("igender")}}
+
   <button class="btn primary block mT20">{%trans "Add new staff"%}</button>
 
 {%endblock%}
 
 
 
-
-{%block iFormCustomer2_Hidden%}
-  <div class="f">
-        <div class="c pRa5">
-{{block("iname")}}
-        </div>
-        <div class="c">
-{{block("ifamily")}}
-        </div>
-      </div>
-
-      <div class="f">
-        <div class="c pRa5">
-{{block("iPhone")}}
-        </div>
-        <div class="c">
-{{block("imobile")}}
-        </div>
-      </div>
-      <div class="f">
-        <div class="c">
-{{block("igender")}}
-        </div>
-        <div class="c">
-{{block("icode")}}
-        </div>
-      </div>
-{{block("iAddress")}}
-
-{{block("iDesc")}}
-
-{{block("iadd")}}
-
-{%endblock%}
 
 
 
@@ -113,45 +77,15 @@
 {{block("inamecompany")}}
 <div class="f">
   <div class="c pRa5">
-    {{block("inamevisitor")}}
+    {{block("imobileSearch")}}
   </div>
   <div class="c">
-    {{block("imobilevisitor")}}
+    {{block("inamevisitor")}}
   </div>
 </div>
 {{block("igender")}}
-
-
-{{block("iadd")}}
-
-{%endblock%}
-
-
-
-
-
-{%block iFormStaff2_Hidden%}
-
-<div class="f">
-  <div class="c pRa5">
-    {{block("iname")}}
-  </div>
-  <div class="c">
-    {{block("ifamily")}}
-  </div>
-</div>
-<div class="f">
-  <div class="c pRa5">
-    {{block("ibirthday")}}
-  </div>
-  <div class="c">
-    {{block("incode")}}
-  </div>
-</div>
-  {{block("imobile")}}
-  {{block("igender")}}
-
-{{block("iadd")}}
+<button class="btn primary block mT20">{%trans "Add new supplier"%}</button>
 
 
 {%endblock%}
+
