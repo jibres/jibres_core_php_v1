@@ -128,6 +128,15 @@
 
 
 
+{%block imobileSearchvisitor%}
+<label for="mobile">{%trans "Enter visitor mobile"%}</label>
+<select name="mobile" class="ui dropdown search" id="mobile" data-source='{{url.here}}/thirdparty?list=mobile&q={query}'>
+  <option value="" readonly>{%trans "Enter visitor mobile"%}</option>
+</select>
+{%endblock%}
+
+
+
 {%block inameFree%}
 <label for="name">{%trans "Name"%}</label>
 <div class="input">
@@ -179,7 +188,7 @@
 
 
 {%block igender%}
-<div class="mT10">
+<div class="">
   <label for="gender">{%trans "Gender"%}</label>
   <select name="gender" class="ui dropdown select">
     <option value="" readonly>{%trans "Please select one itme"%}</option>
@@ -328,17 +337,17 @@
 {%endblock%}
 
 
-{%block inamecompany%}
-<label for="company">{%trans "Company"%} <span class="fc-red">*</span></label>
+{%block icompanyname%}
+<label for="icompanyname">{%trans "Company"%}</label>
 <div class="input">
-  <input type="text" name="company" id="company" placeholder='{%trans "Company"%}' value="{{thirdparty.displayname}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+  <input type="text" name="companyname" id="icompanyname" placeholder='{%trans "Company"%}' value="{{thirdparty.companyname}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
 </div>
 {%endblock%}
 
 
 
 {%block inamevisitor%}
-<label for="visitorname">{%trans "Name"%}</label>
+<label for="visitorname">{%trans "Visitor name"%}</label>
 <div class="input">
   <input type="text" name="visitorname" id="visitorname" placeholder='{%trans "Visitor name"%}' value="{{thirdparty.visitorname}}" maxlength='60'>
 </div>

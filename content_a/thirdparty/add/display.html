@@ -74,16 +74,19 @@
 
 {%block iFormSupllier%}
 
-{{block("inamecompany")}}
-<div class="f">
-  <div class="c pRa5">
-    {{block("imobileSearch")}}
+{{block("icompanyname")}}
+<div class="msg mT10">
+  <h6 class="txtB">{%trans "Company Visitor"%}</h6>
+
+  {{block("imobileSearchvisitor")}}
+
+  <div class="f mT10">
+    <div class="c pRa5">{{block("inameFree")}}</div>
+    <div class="c">{{block("ifamily")}}</div>
   </div>
-  <div class="c">
-    {{block("inamevisitor")}}
-  </div>
+  {{block("igender")}}
+
 </div>
-{{block("igender")}}
 <button class="btn primary block mT20">{%trans "Add new supplier"%}</button>
 
 

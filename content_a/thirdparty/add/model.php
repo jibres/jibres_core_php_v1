@@ -42,23 +42,16 @@ class model
 
 	public static function getPostthirdparty()
 	{
-		$post         = [];
-		$post['type'] = \dash\request::get('type');
+		$post              = [];
+		$post['type']      = \dash\request::get('type');
+		$post['mobile']    = \dash\request::post('mobile');
+		$post['gender']    = \dash\request::post('gender');
+		$post['firstname'] = \dash\request::post('name');
+		$post['lastname']  = \dash\request::post('lastName');
 
 		if(\dash\request::get('type') === 'supplier')
 		{
-			$post['visitorname']   = \dash\request::post('visitorname');
-			$post['visitormobile'] = \dash\request::post('visitormobile');
-			$post['company']       = \dash\request::post('company');
-		}
-		else
-		{
-
-			$post['mobile']       = \dash\request::post('mobile');
-			$post['type']         = \dash\request::get('type');
-			$post['firstname']    = \dash\request::post('name');
-			$post['lastname']     = \dash\request::post('lastName');
-			$post['gender']       = \dash\request::post('gender');
+			$post['companyname']   = \dash\request::post('companyname');
 		}
 
 		return $post;

@@ -56,28 +56,39 @@ class thirdparty
 			return false;
 		}
 
+		$visitor               = \dash\app::request('visitor');
+		$visitor2              = \dash\app::request('visitor2');
+
+		$taxexempt             = \dash\app::request('taxexempt') ? 1 : null;
+		$marketing             = \dash\app::request('marketing') ? 1 : null;
+
+		$companyname           = \dash\app::request('companyname');
+		$companyeconomiccode   = \dash\app::request('companyeconomiccode');
+		$companynationalid     = \dash\app::request('companynationalid');
+		$companyregisternumber = \dash\app::request('companyregisternumber');
+
+
 		$detail = null;
 
-		if($type === 'supplier')
-		{
-			$displayname             = \dash\app::request('company');
-			$detail                  = [];
-			$detail['visitorname']   = \dash\app::request('visitorname');
-			$detail['visitormobile'] = \dash\app::request('visitormobile');
-			$detail                  = json_encode($detail, JSON_UNESCAPED_UNICODE);
-		}
-		else
-		{
-			// if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
-			// {
-			// 	if(!$firstname && !$lastname)
-			// 	{
-			// 		\dash\notif::error(T_("firstname or lastname is required"), ['firstname', 'lastname']);
-			// 		return false;
-			// 	}
-			// }
-
-		}
+		// if($type === 'supplier')
+		// {
+		// 	$displayname             = \dash\app::request('company');
+		// 	$detail                  = [];
+		// 	$detail['visitorname']   = \dash\app::request('visitorname');
+		// 	$detail['visitormobile'] = \dash\app::request('visitormobile');
+		// 	$detail                  = json_encode($detail, JSON_UNESCAPED_UNICODE);
+		// }
+		// else
+		// {
+		// 	if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname'))
+		// 	{
+		// 		if(!$firstname && !$lastname)
+		// 		{
+		// 			\dash\notif::error(T_("firstname or lastname is required"), ['firstname', 'lastname']);
+		// 			return false;
+		// 		}
+		// 	}
+		// }
 
 		$father = \dash\app::request('father');
 
@@ -251,89 +262,90 @@ class thirdparty
 
 		$args['customer'] = 1;
 
-		if($type === 'supplier')
+		if($args['staff'])
 		{
-			$args['displayname'] = $displayname;
-			$args['desc']        = $detail;
+			if(\dash\app::isset_request('mobile') && !$mobile)
+			{
+				\dash\notif::error(T_("Fill mobile for staff is required!"), ['mobile']);
+				return false;
+			}
 		}
-		else
+
+		if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname') || \dash\app::isset_request('mobile'))
 		{
-			if($args['staff'])
+			if(!$firstname && !$lastname && !$mobile)
 			{
-				if(!$mobile)
-				{
-					\dash\notif::error(T_("Fill mobile for staff is required!"), ['mobile']);
-					return false;
-				}
+				\dash\notif::error(T_("Fill mobile or name or family is require!"), ['firstname', 'lastname', 'mobile']);
+				return false;
 			}
+		}
+		$displayname = trim($firstname. ' '. $lastname);
 
-			if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname') || \dash\app::isset_request('mobile'))
+		$permission = \dash\app::request('permission');
+		if(\dash\permission::check("aThirdPartyPermissionChange"))
+		{
+			if($permission && !in_array($permission, array_keys(\dash\permission::groups())))
 			{
-				if(!$firstname && !$lastname && !$mobile)
+				if($permission === 'supervisor')
 				{
-					\dash\notif::error(T_("Fill mobile or name or family is require!"), ['firstname', 'lastname', 'mobile']);
-					return false;
-				}
-			}
-			$displayname = trim($firstname. ' '. $lastname);
-
-			$permission = \dash\app::request('permission');
-			if(\dash\permission::check("aThirdPartyPermissionChange"))
-			{
-				if($permission && !in_array($permission, array_keys(\dash\permission::groups())))
-				{
-					if($permission === 'supervisor')
+					if(!\dash\url::isLocal() && !\dash\permission::supervisor())
 					{
-						if(!\dash\url::isLocal() && !\dash\permission::supervisor())
-						{
-							\dash\notif::error("Permission is incorrect", 'permission');
-							return false;
-						}
-						else
-						{
-							// no problem
-							// supervisor make a new supervisor
-						}
+						\dash\notif::error("Permission is incorrect", 'permission');
+						return false;
 					}
 					else
 					{
-						\dash\app::log('addon:api:user:permission:max:lenght', \dash\user::id(), $log_meta);
-						\dash\notif::error(T_("Permission is incorrect"), 'permission');
-						return false;
+						// no problem
+						// supervisor make a new supervisor
 					}
 				}
+				else
+				{
+					\dash\app::log('thirdpartyInvalidPermissionTryToSet', \dash\user::id(), $log_meta);
+					\dash\notif::error(T_("Permission is incorrect"), 'permission');
+					return false;
+				}
 			}
-
-
-			$args['permission']          = $permission;
-
-			if(!\dash\permission::check("aThirdPartyPermissionChange") || !isset($args['staff']))
-			{
-				unset($args['permission']);
-			}
-
-
-			$args['displayname']  = $displayname;
-			$args['mobile']       = $mobile;
-			$args['code']         = $code;
-			$args['email']        = $email;
-			$args['shfrom']       = $shfrom;
-			$args['nationalcode'] = $nationalcode;
-			$args['pasportcode']  = $pasportcode;
-			$args['nationalcode'] = $nationalcode;
-			$args['pasportcode']  = $pasportcode;
-			$args['firstname']    = $firstname;
-			$args['lastname']     = $lastname;
-			$args['father']       = $father;
-			$args['birthday']     = $birthday;
-			$args['gender']       = $gender;
-			$args['marital']      = $marital;
-			$args['shcode']       = $shcode;
-			$args['birthcity']    = $birthcity;
-			$args['avatar']       = $avatar;
-			$args['phone']        = $phone;
-			$args['desc']         = $desc;
 		}
+
+
+		$args['permission']          = $permission;
+
+		if(!\dash\permission::check("aThirdPartyPermissionChange") || !isset($args['staff']))
+		{
+			unset($args['permission']);
+		}
+
+
+		$args['displayname']           = $displayname;
+		$args['mobile']                = $mobile;
+		$args['code']                  = $code;
+		$args['email']                 = $email;
+		$args['shfrom']                = $shfrom;
+		$args['nationalcode']          = $nationalcode;
+		$args['pasportcode']           = $pasportcode;
+		$args['nationalcode']          = $nationalcode;
+		$args['pasportcode']           = $pasportcode;
+		$args['firstname']             = $firstname;
+		$args['lastname']              = $lastname;
+		$args['father']                = $father;
+		$args['birthday']              = $birthday;
+		$args['gender']                = $gender;
+		$args['marital']               = $marital;
+		$args['shcode']                = $shcode;
+		$args['birthcity']             = $birthcity;
+		$args['avatar']                = $avatar;
+		$args['phone']                 = $phone;
+		$args['desc']                  = $desc;
+		$args['visitor']               = $visitor;
+		$args['visitor2']              = $visitor2;
+		$args['taxexempt']             = $taxexempt;
+		$args['marketing']             = $marketing;
+		$args['companyname']           = $companyname;
+		$args['companyeconomiccode']   = $companyeconomiccode;
+		$args['companynationalid']     = $companynationalid;
+		$args['companyregisternumber'] = $companyregisternumber;
+
 
 		return $args;
 	}

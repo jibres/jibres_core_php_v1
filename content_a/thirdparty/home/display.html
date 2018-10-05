@@ -61,11 +61,9 @@
       <tr>
         <th data-sort="{{sortLink.code.order}}"><a href='{{sortLink.code.link}}'>{%trans "Code"%}</a></th>
         <th data-sort="{{sortLink.gender.order}}" class="s0 collapsing"><a href='{{sortLink.gender.link}}'>{%trans "Gender"%}</a></th>
-        <th data-sort="{{sortLink.firstname.order}}"><a href='{{sortLink.firstname.link}}'>{%trans "Name"%}</a></th>
-        <th data-sort="{{sortLink.lastname.order}}"><a href='{{sortLink.lastname.link}}'>{%trans "Last name"%}</a></th>
-
-        <th data-sort="{{sortLink.birthdate.order}}" class="s0"><a href='{{sortLink.birthdate.link}}'>{%trans "Birthdate"%}</a></th>
-
+        <!-- <th data-sort="{{sortLink.firstname.order}}"><a href='{{sortLink.firstname.link}}'>{%trans "Name"%}</a></th> -->
+        <!-- <th data-sort="{{sortLink.lastname.order}}"><a href='{{sortLink.lastname.link}}'>{%trans "Last name"%}</a></th> -->
+        <th data-sort="{{sortLink.displayname.order}}"><a href='{{sortLink.displayname.link}}'>{%trans "Name"%}</a></th>
         <th data-sort="{{sortLink.mobile.order}}" class="s0"><a href='{{sortLink.mobile.link}}'>{%trans "Mobile"%}</a></th>
         {%if not requestGET.type %}
           <th class="s0">{%trans "Type"%}</th>
@@ -77,12 +75,26 @@
       <tr {%if value.status=='disable'%} class='negative'{%endif%}>
         <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.code | fitNumber(false)}}</a></td>
         <td class="s0">{%if value.gender == 'male'%}{%trans "Mr"%} {%elseif value.gender == 'female'%}{%trans "Mrs"%}{%else%}-{%endif%}</td>
-        <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.firstname}}</a></td>
+<!--         <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.firstname}}</a></td>
         <td><a href="{{url.here}}/thirdparty/general?id={{value.id}}">{{value.lastname}}</a></td>
+      -->
+        <td>
+          <a href="{{url.here}}/thirdparty/general?id={{value.id}}">
+            {%if value.displayname%}
+            {{value.displayname}}
+            {%else%}
+            <small class="fc-mute">{%trans "Whitout name"%}</small>
+            {%endif%}
+          </a>
+        </td>
 
-        <td class="s0">{{value.birthdate | dt(true)}}</td>
-
-        <td class="s0">{{value.mobile | fitNumber('mobile')}}</td>
+        <td class="s0">
+            {%if value.mobile%}
+              {{value.mobile | fitNumber('mobile')}}
+            {%else%}
+              <small class="fc-mute">{%trans "Whitout mobile"%}</small>
+            {%endif%}
+        </td>
 
         {%if not requestGET.type %}
           <td class="s0 collapsing">

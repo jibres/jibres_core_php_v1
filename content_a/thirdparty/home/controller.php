@@ -39,22 +39,12 @@ class controller
 			foreach ($thirdpartyList as $key => $value)
 			{
 				$myName = '<img class="ui avatar image" src="'.  $value['avatar'] .'">';
-				// $myName .= '<span class="pRa10">'. \dash\utility\human::fitNumber($value['mobile'], false). '</span>';
 				$myName .= '   '. $value['firstname']. ' <b>'. $value['lastname'];
-
-				// $nationalcode = $value['nationalcode'];
-				// if(!$value['nationalcode'] && $value['pasportcode'])
-				// {
-				// 	$nationalcode = $value['pasportcode'];
-				// }
-
-				// $myName .= '<span class="badge mLa10 info2">'. \dash\utility\human::fitNumber($nationalcode, false). '</span>';
 
 				if($value['mobile'])
 				{
-					$myName .= '<span class="description ">'. \dash\utility\human::fitNumber($value['mobile'], 'mobile'). '</span>';
+					$myName .= '<span class="description ">'. \dash\utility\human::fitNumber($value['mobile'], false). '</span>';
 				}
-
 
 				$result['result'][] =
 				[
@@ -77,7 +67,7 @@ class controller
 				$result['result'] =
 				[
 					[
-						'name'  => '<span class="badge txtC danger2">'. T_("Invalid moible"). '</span>',
+						'name'  => '<span class="badge txtC danger2">'. T_("Invalid mobile"). '</span>',
 						'value' => 'error',
 					]
 				];
