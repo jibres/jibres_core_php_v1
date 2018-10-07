@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-10-07 15:57+0330\n"
-"PO-Revision-Date: 2018-10-07 16:00+0330\n"
+"POT-Creation-Date: 2018-10-07 17:12+0330\n"
+"PO-Revision-Date: 2018-10-07 17:14+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -913,6 +913,14 @@ msgstr "ثبت نام شما کامل شد"
 #: dash/addons/content_enter/callback/model.php:175
 msgid "User signup by sms"
 msgstr "کاربر با ارسال پیامک ثبت نام شد"
+
+#: dash/addons/content_enter/controller.php:22
+msgid "Your cookies may have been blocked"
+msgstr "احتمالا کوکی‌های شما بلاک شده است"
+
+#: dash/addons/content_enter/controller.php:22
+msgid "You need to enable cookie for usign this service"
+msgstr "برای استفاده از این سرویس شما به کوکی نیاز دارید"
 
 #: dash/addons/content_enter/delete/request/view.php:9
 msgid "Request delete account"
