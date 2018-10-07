@@ -7,7 +7,7 @@ class twigTransTerms
 	//-----------------------------------------------------------content_c/layout.html
 	echo T_("Dashboard");                                                             // Line 7
 	echo T_("Billing");                                                               // Line 6
-	echo T_("Support");                                                               // Line 80
+	echo T_("Support");                                                               // Line 82
 
 	//----------------------------------------------------content_c/store/display.html
 	echo T_("Total sale");                                                            // Line 14
@@ -40,13 +40,9 @@ class twigTransTerms
 
 	//-----------------------public_html/static/siftal/js/highcharts/highcharts.min.js
 
-	//-----------------------------------public_html/static/siftal/js/amcharts3.min.js
-
 	//-----------------------------------public_html/static/siftal/js/highlight.min.js
 
 	//--------------------------------------public_html/static/siftal/js/error_page.js
-
-	//-----------------------------------public_html/static/siftal/js/amcharts4.min.js
 
 	//--------------------------------------public_html/static/js/JsBarcode.all.min.js
 
@@ -117,9 +113,9 @@ class twigTransTerms
 	echo T_("Thank you for choosing us.");                                            // Line 8
 	echo T_("We do our best to improve jibres's quality. So, knowing your valuable comments about bugs and problems and more importantly your precious offers will help us in this way.");// Line 8
 	echo T_("Full Name");                                                             // Line 14
-	echo T_("Mobile");                                                                // Line 69
+	echo T_("Mobile");                                                                // Line 67
 	echo T_("Please enter valid mobile number. `:val` is incorrect");                 // Line 18
-	echo T_("Email");                                                                 // Line 292
+	echo T_("Email");                                                                 // Line 301
 	echo T_("Your Message");                                                          // Line 26
 	echo T_("Send");                                                                  // Line 29
 	echo T_("How to contact us");                                                     // Line 37
@@ -132,10 +128,10 @@ class twigTransTerms
 	echo T_("Our location on map");                                                   // Line 60
 
 	//-------------------------------------------------content/pricing/priceTable.html
-	echo T_("Free");                                                                  // Line 194
+	echo T_("Free");                                                                  // Line 204
 	echo T_("forever");                                                               // Line 11
 	echo T_("All the basics for personal use and anyone who wants to explore Jibres for an <span class='bold'>unlimited period of time</span>.");// Line 13
-	echo T_("Standard");                                                              // Line 205
+	echo T_("Standard");                                                              // Line 215
 	echo T_("per month");                                                             // Line 27
 	echo T_("2 month discount on year");                                              // Line 28
 	echo T_("For someones ready to use Jibres as hero.");                             // Line 30
@@ -214,7 +210,7 @@ class twigTransTerms
 	echo T_("Item");                                                                  // Line 79
 	echo T_("Products");                                                              // Line 10
 	echo T_("Qty");                                                                   // Line 39
-	echo T_("Factor");                                                                // Line 92
+	echo T_("Factor");                                                                // Line 102
 	echo T_("Sold on Jibres");                                                        // Line 88
 	echo T_("Roadmap");                                                               // Line 99
 	echo T_("Amazing Financial Platform");                                            // Line 100
@@ -285,9 +281,9 @@ class twigTransTerms
 	echo T_("Product List");                                                          // Line 13
 	echo T_("Add new Product");                                                       // Line 79
 	echo T_("Third Parties");                                                         // Line 21
-	echo T_("Customers");                                                             // Line 157
-	echo T_("Staffs");                                                                // Line 166
-	echo T_("Suppliers");                                                             // Line 176
+	echo T_("Customers");                                                             // Line 169
+	echo T_("Staffs");                                                                // Line 178
+	echo T_("Suppliers");                                                             // Line 188
 	echo T_("register new sale factor");                                              // Line 36
 	echo T_("List of sales");                                                         // Line 37
 	echo T_("List of purchases");                                                     // Line 38
@@ -320,58 +316,86 @@ class twigTransTerms
 	echo T_("Plan");                                                                  // Line 34
 	echo T_("Units");                                                                 // Line 43
 	echo T_("Cats");                                                                  // Line 52
-	echo T_("Without traffic");                                                       // Line 82
-	echo T_("Last traffic");                                                          // Line 84
+	echo T_("Inventory");                                                             // Line 71
+	echo T_("Without traffic");                                                       // Line 92
+	echo T_("Last traffic");                                                          // Line 94
 	echo T_("General Detail");                                                        // Line 29
-	echo T_("Store Plan");                                                            // Line 91
-	echo T_("Security and privacy");                                                  // Line 93
-	echo T_("Report Settings");                                                       // Line 94
+	echo T_("Store Plan");                                                            // Line 101
+	echo T_("Security and privacy");                                                  // Line 103
+	echo T_("Report Settings");                                                       // Line 104
 	echo T_("Add");                                                                   // Line 43
 	echo T_("Save");                                                                  // Line 39
 	echo T_("Save All");                                                              // Line 59
 	echo T_("allowed extentions jpg, png (gif for bussiness plans). Max 500Kb");      // Line 66
-	echo T_("Enter a valid name from 3 to 40 character");                             // Line 343
-	echo T_("Team short name");                                                       // Line 144
-	echo T_("Used for url of board");                                                 // Line 144
-	echo T_("Slug of team for board url");                                            // Line 146
-	echo T_("Website");                                                               // Line 155
-	echo T_("Link your logo on board for visitors");                                  // Line 153
-	echo T_("Phone");                                                                 // Line 284
-	echo T_("For show in factors");                                                   // Line 183
-	echo T_("Used for description of board and show in social media links");          // Line 177
+	echo T_("Enter a valid name from 3 to 40 character");                             // Line 352
+	echo T_("Team short name");                                                       // Line 154
+	echo T_("Used for url of board");                                                 // Line 154
+	echo T_("Slug of team for board url");                                            // Line 156
+	echo T_("Website");                                                               // Line 165
+	echo T_("Link your logo on board for visitors");                                  // Line 163
+	echo T_("Phone");                                                                 // Line 293
+	echo T_("For show in factors");                                                   // Line 193
+	echo T_("Used for description of board and show in social media links");          // Line 187
 	echo T_("Address");                                                               // Line 32
-	echo T_("Choose your plan");                                                      // Line 190
-	echo T_("All the basics for personal use.");                                      // Line 194
-	echo T_("Everything you need for a growing business.");                           // Line 200
-	echo T_("Yearly");                                                                // Line 205
-	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 212
-	echo T_("Simple");                                                                // Line 212
-	echo T_("Full");                                                                  // Line 216
-	echo T_("For big companies that need fix price per month.");                      // Line 216
-	echo T_("Force show in specefic language");                                       // Line 225
-	echo T_("Please select one language");                                            // Line 227
-	echo T_("Persian");                                                               // Line 228
-	echo T_("English");                                                               // Line 229
-	echo T_("Report Header");                                                         // Line 239
-	echo T_("Report Footer");                                                         // Line 247
-	echo T_("Active print factor");                                                   // Line 258
-	echo T_("Fish print");                                                            // Line 302
-	echo T_("A4");                                                                    // Line 306
-	echo T_("A5");                                                                    // Line 310
-	echo T_("Default print_size");                                                    // Line 296
-	echo T_("No default");                                                            // Line 556
-	echo T_("Cash");                                                                  // Line 365
-	echo T_("Pos");                                                                   // Line 369
-	echo T_("Check");                                                                 // Line 343
-	echo T_("Default pay");                                                           // Line 553
-	echo T_("Cheque");                                                                // Line 361
+	echo T_("Choose your plan");                                                      // Line 200
+	echo T_("All the basics for personal use.");                                      // Line 204
+	echo T_("Everything you need for a growing business.");                           // Line 210
+	echo T_("Yearly");                                                                // Line 215
+	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 222
+	echo T_("Simple");                                                                // Line 222
+	echo T_("Full");                                                                  // Line 226
+	echo T_("For big companies that need fix price per month.");                      // Line 226
+	echo T_("Force show in specefic language");                                       // Line 235
+	echo T_("Please select one language");                                            // Line 237
+	echo T_("Persian");                                                               // Line 238
+	echo T_("English");                                                               // Line 239
+	echo T_("Report Header");                                                         // Line 249
+	echo T_("Report Footer");                                                         // Line 257
+	echo T_("Active print factor");                                                   // Line 268
+	echo T_("Fish print");                                                            // Line 312
+	echo T_("A4");                                                                    // Line 316
+	echo T_("A5");                                                                    // Line 320
+	echo T_("Default print_size");                                                    // Line 306
+	echo T_("No default");                                                            // Line 566
+	echo T_("Cash");                                                                  // Line 375
+	echo T_("Pos");                                                                   // Line 379
+	echo T_("Check");                                                                 // Line 353
+	echo T_("Default pay");                                                           // Line 563
+	echo T_("Cheque");                                                                // Line 371
 
 	//---------------------------------------------content_a/setting/home/display.html
 	echo T_("Hi");                                                                    // Line 6
 
+	//----------------------------------------content_a/setting/inventory/display.html
+	echo T_("Add new inventory");                                                     // Line 19
+	echo T_("Edit");                                                                  // Line 122
+	echo T_("Disable");                                                               // Line 33
+	echo T_("Enable");                                                                // Line 35
+	echo T_("Is default inventory?");                                                 // Line 52
+	echo T_("Is sale online from this inventory?");                                   // Line 61
+	echo T_("Sale from this inventory?");                                             // Line 70
+	echo T_("Inventory name");                                                        // Line 79
+	echo T_("Inventory Name");                                                        // Line 104
+	echo T_("Status");                                                                // Line 105
+	echo T_("Detail");                                                                // Line 106
+	echo T_("Action");                                                                // Line 107
+	echo T_("Is default inventory");                                                  // Line 117
+	echo T_("Sale from this inventory");                                              // Line 118
+	echo T_("Sale online");                                                           // Line 119
+	echo T_("Country");                                                               // Line 224
+	echo T_("Choose your country");                                                   // Line 142
+	echo T_("City");                                                                  // Line 253
+	echo T_("Select city");                                                           // Line 255
+	echo T_("Post code");                                                             // Line 172
+	echo T_("Fax");                                                                   // Line 189
+
 	//---------------------------------------------content_a/setting/plan/display.html
 	echo T_("Current Plan");                                                          // Line 7
 	echo T_("Activate on");                                                           // Line 8
+
+	//--------------------------------------------content_a/setting/units/display.html
+
+	//---------------------------------------------content_a/setting/cats/display.html
 
 	//-------------------------------------------content_a/setting/factor/display.html
 	echo T_("Print status");                                                          // Line 8
@@ -379,8 +403,8 @@ class twigTransTerms
 	echo T_("Pos setting");                                                           // Line 21
 
 	//------------------------------------------------content_a/thirdparty/layout.html
-	echo T_("Type of thirdparty");                                                    // Line 91
-	echo T_("Require");                                                               // Line 123
+	echo T_("Type of thirdparty");                                                    // Line 77
+	echo T_("Require");                                                               // Line 132
 	echo T_("Customer");                                                              // Line 31
 	echo T_("Staff");                                                                 // Line 131
 	echo T_("Supplier");                                                              // Line 121
@@ -388,33 +412,31 @@ class twigTransTerms
 	echo T_("Contact information");                                                   // Line 105
 	echo T_("Identification detail");                                                 // Line 106
 	echo T_("Location and address");                                                  // Line 107
-	echo T_("Enter mobile");                                                          // Line 125
-	echo T_("Enter visitor mobile");                                                  // Line 134
+	echo T_("Display name");                                                          // Line 115
+	echo T_("Enter mobile");                                                          // Line 134
+	echo T_("Enter visitor mobile");                                                  // Line 143
 	echo T_("Last name");                                                             // Line 65
-	echo T_("Like 09120123456");                                                      // Line 161
-	echo T_("National code");                                                         // Line 167
-	echo T_("10 digit national code");                                                // Line 169
-	echo T_("Father name");                                                           // Line 177
-	echo T_("Birthday");                                                              // Line 183
+	echo T_("Like 09120123456");                                                      // Line 170
+	echo T_("National code");                                                         // Line 176
+	echo T_("10 digit national code");                                                // Line 178
+	echo T_("Father name");                                                           // Line 186
+	echo T_("Birthday");                                                              // Line 192
 	echo T_("Gender");                                                                // Line 63
-	echo T_("Please select one itme");                                                // Line 194
-	echo T_("Male");                                                                  // Line 195
-	echo T_("Female");                                                                // Line 196
-	echo T_("Birth city");                                                            // Line 207
-	echo T_("Country");                                                               // Line 215
-	echo T_("Province");                                                              // Line 233
-	echo T_("Select province");                                                       // Line 235
-	echo T_("City");                                                                  // Line 244
-	echo T_("Select city");                                                           // Line 246
-	echo T_("Zip code");                                                              // Line 259
-	echo T_("Passport id");                                                           // Line 269
-	echo T_("Like");                                                                  // Line 294
-	echo T_("Company");                                                               // Line 343
-	echo T_("Visitor name");                                                          // Line 352
-	echo T_("Customer code");                                                         // Line 361
-	echo T_("Desctiption");                                                           // Line 369
-	echo T_("Profile");                                                               // Line 382
-	echo T_("Factors");                                                               // Line 391
+	echo T_("Please select one itme");                                                // Line 203
+	echo T_("Male");                                                                  // Line 204
+	echo T_("Female");                                                                // Line 205
+	echo T_("Birth city");                                                            // Line 216
+	echo T_("Province");                                                              // Line 242
+	echo T_("Select province");                                                       // Line 244
+	echo T_("Zip code");                                                              // Line 268
+	echo T_("Passport id");                                                           // Line 278
+	echo T_("Like");                                                                  // Line 303
+	echo T_("Company");                                                               // Line 352
+	echo T_("Visitor name");                                                          // Line 361
+	echo T_("Customer code");                                                         // Line 370
+	echo T_("Desctiption");                                                           // Line 378
+	echo T_("Profile");                                                               // Line 391
+	echo T_("Factors");                                                               // Line 400
 
 	//---------------------------------------content_a/thirdparty/contact/display.html
 
@@ -425,24 +447,25 @@ class twigTransTerms
 	echo T_("Company Visitor");                                                       // Line 79
 
 	//---------------------------------------content_a/thirdparty/general/display.html
-	echo T_("Permission");                                                            // Line 76
-	echo T_("No permission");                                                         // Line 78
+	echo T_("Permission");                                                            // Line 62
+	echo T_("No permission");                                                         // Line 64
 
 	//------------------------------------------content_a/thirdparty/home/display.html
 	echo T_("Search");                                                                // Line 95
 	echo T_("Enter 2 space for search in firstname and lastname and father");         // Line 49
 	echo T_("Code");                                                                  // Line 80
-	echo T_("Birthdate");                                                             // Line 67
 	echo T_("Type");                                                                  // Line 108
-	echo T_("Mr");                                                                    // Line 79
-	echo T_("Mrs");                                                                   // Line 79
-	echo T_("transaction");                                                           // Line 96
+	echo T_("Mr");                                                                    // Line 77
+	echo T_("Mrs");                                                                   // Line 77
+	echo T_("Whitout name");                                                          // Line 86
+	echo T_("Whitout mobile");                                                        // Line 95
+	echo T_("transaction");                                                           // Line 108
 	echo T_("Clear filters");                                                         // Line 168
 	echo T_("Result not found!");                                                     // Line 167
 	echo T_("Search with new keywords.");                                             // Line 167
 	echo T_("Hi!");                                                                   // Line 174
-	echo T_("Try to start with add new member!");                                     // Line 125
-	echo T_("All thirdparty");                                                        // Line 148
+	echo T_("Try to start with add new member!");                                     // Line 137
+	echo T_("All thirdparty");                                                        // Line 160
 
 	//--------------------------------content_a/thirdparty/identification/display.html
 	echo T_("ID Cards");                                                              // Line 6
