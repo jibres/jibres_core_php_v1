@@ -74,37 +74,6 @@ class product
 		return self::get_static_list('unit', $_implode);
 	}
 
-
-	public static function save_offline_store_cat_field()
-	{
-		$cat_list_count = \lib\db\products::field_group_count('cat', \lib\store::id());
-
-		if(!is_array($cat_list_count))
-		{
-			$cat_list_count = [];
-		}
-
-		$json = \lib\store::detail('cat');
-		if(!is_array($json))
-		{
-			$json = [];
-		}
-
-		$new  = array_merge($cat_list_count, $json);
-		$temp = [];
-		foreach ($new as $key => $value)
-		{
-			$temp[$key] = ['title' => $key];
-		}
-
-		if(!empty($temp))
-		{
-			$temp = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\lib\db\stores::update(['cat' => $temp], \lib\store::id());
-			\lib\store::refresh();
-		}
-	}
-
 	public static function add_new_cat($_new_cat)
 	{
 		if(!$_new_cat && $_new_cat !== '0')
@@ -113,16 +82,7 @@ class product
 			return false;
 		}
 
-		$json = \lib\store::detail('cat');
-		if(is_string($json))
-		{
-			$json = json_decode($json, true);
-		}
-
-		if(!is_array($json))
-		{
-			$json = [];
-		}
+		$json = self::cat_list_count();
 
 		if(isset($json[$_new_cat]))
 		{
@@ -144,16 +104,7 @@ class product
 
 	public static function remove_old_cat($_old_cat)
 	{
-		$json = \lib\store::detail('cat');
-		if(is_string($json))
-		{
-			$json = json_decode($json, true);
-		}
-
-		if(!is_array($json))
-		{
-			$json = [];
-		}
+		$json = self::cat_list_count();
 
 		if(!isset($json[$_old_cat]))
 		{
@@ -189,22 +140,7 @@ class product
 			return true;
 		}
 
-		$json = \lib\store::detail('cat');
-		if(is_string($json))
-		{
-			$json = json_decode($json, true);
-		}
-
-		if(!is_array($json))
-		{
-			$json = [];
-		}
-
-		if(!isset($json[$_old_cat]))
-		{
-			\dash\notif::error(T_("Category not found in your store!"), 'cat');
-			return false;
-		}
+		$json = self::cat_list_count();
 
 		if(!isset($json[$_old_cat]))
 		{
@@ -223,7 +159,7 @@ class product
 		$count = \lib\db\products::get_count(['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
 		if($count)
 		{
-			\lib\db\products::update_where(['store_id' => \lib\store::id(), 'cat' => $_new_cat], ['cat' => $_old_cat]);
+			\lib\db\products::update_where(['cat' => $_new_cat], ['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
 		}
 
 		\dash\notif::ok(T_("All product by category :old updated to :new", ['old' => $_old_cat, 'new' => $_new_cat]));
