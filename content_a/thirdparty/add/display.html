@@ -50,12 +50,13 @@
 
 {%block iFormStaff%}
 
-  {{block("imobileSearch")}}
-  <div class="f mT10">
-    <div class="c mRa5">{{block("inameFree")}}</div>
-    <div class="c">{{block("ifamily")}}</div>
-  </div>
   {{block("igender")}}
+  <div class="f mT10">
+    <div class="c5 s12 pRa5">{{block("inameFree")}}</div>
+    <div class="c7 s12">{{block("ifamily")}}</div>
+  </div>
+  {{block("imobile")}}
+
 
   <button class="btn primary block mT20">{%trans "Add new staff"%}</button>
 
