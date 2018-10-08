@@ -13,7 +13,7 @@ class model
 		// remove category
 		if(\dash\request::post('type') === 'remove')
 		{
-			\lib\app\product::remove_old_cat(\dash\request::post('removecat'));
+			\lib\app\product\cat::remove(\dash\request::post('removecat'));
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::this(). '/cats');
@@ -24,7 +24,7 @@ class model
 		// add new category
 		if(!\dash\data::editMode())
 		{
-			$result = \lib\app\product::add_new_cat($new_cat);
+			$result = \lib\app\product\cat::add($new_cat);
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::this(). '/cats');
@@ -39,7 +39,7 @@ class model
 			return false;
 		}
 
-		$result = \lib\app\product::update_cat($old_cat, $new_cat);
+		$result = \lib\app\product\cat::update($old_cat, $new_cat);
 
 		if(\dash\engine\process::status())
 		{
