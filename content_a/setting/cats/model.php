@@ -43,12 +43,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-
 			\dash\redirect::to(\dash\url::this(). '/cats');
-		}
-		else
-		{
-			\dash\notif::error(T_("Can not update you category"));
 		}
 
 	}

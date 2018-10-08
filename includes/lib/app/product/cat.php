@@ -13,6 +13,12 @@ class cat
 			return false;
 		}
 
+		if(mb_strlen($_new_cat) > 100)
+		{
+			\dash\notif::error(T_("Category name is too large!"), 'cat');
+			return false;
+		}
+
 		$json = self::list();
 
 		if(isset($json[$_new_cat]))
@@ -69,6 +75,12 @@ class cat
 		{
 			\dash\notif::error(T_("Please fill the category"));
 			return true;
+		}
+
+		if(mb_strlen($_new_cat) > 100)
+		{
+			\dash\notif::error(T_("Category name is too large!"), 'cat');
+			return false;
 		}
 
 		$json = self::list();
