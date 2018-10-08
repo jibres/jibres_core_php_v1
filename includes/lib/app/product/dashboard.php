@@ -70,16 +70,16 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\dash\session::set('dashboard_product_count_'. \lib\store::id(), null);
+			\dash\session::clean('dashboard_product_count_'. \lib\store::id(), 'jibres_store');
 			return null;
 		}
 
-		$count = \dash\session::get('dashboard_product_count_'. \lib\store::id());
+		$count = \dash\session::get('dashboard_product_count_'. \lib\store::id(), 'jibres_store');
 		if($count === null)
 		{
 			$count = \lib\db\products::product_count(\lib\store::id());
 			$count = intval($count);
-			\dash\session::set('dashboard_product_count_'. \lib\store::id(), $count, null,  self::$life_time);
+			\dash\session::set('dashboard_product_count_'. \lib\store::id(), $count, 'jibres_store',  self::$life_time);
 		}
 		return $count;
 	}
@@ -89,16 +89,16 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\dash\session::set('dashboard_product_with_barcode_'. \lib\store::id(), null);
+			\dash\session::clean('dashboard_product_with_barcode_'. \lib\store::id(), 'jibres_store');
 			return null;
 		}
 
-		$count = \dash\session::get('dashboard_product_with_barcode_'. \lib\store::id());
+		$count = \dash\session::get('dashboard_product_with_barcode_'. \lib\store::id(), 'jibres_store');
 		if($count === null)
 		{
 			$count = \lib\db\products::product_with_barcode(\lib\store::id());
 			$count = intval($count);
-			\dash\session::set('dashboard_product_with_barcode_'. \lib\store::id(), $count, null,  self::$life_time);
+			\dash\session::set('dashboard_product_with_barcode_'. \lib\store::id(), $count, 'jibres_store',  self::$life_time);
 		}
 		return $count;
 	}
@@ -108,16 +108,16 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\dash\session::set('dashboard_product_with_barcode2_'. \lib\store::id(), null);
+			\dash\session::clean('dashboard_product_with_barcode2_'. \lib\store::id(), 'jibres_store');
 			return null;
 		}
 
-		$count = \dash\session::get('dashboard_product_with_barcode2_'. \lib\store::id());
+		$count = \dash\session::get('dashboard_product_with_barcode2_'. \lib\store::id(), 'jibres_store');
 		if($count === null)
 		{
 			$count = \lib\db\products::product_with_barcode2(\lib\store::id());
 			$count = intval($count);
-			\dash\session::set('dashboard_product_with_barcode2_'. \lib\store::id(), $count, null,  self::$life_time);
+			\dash\session::set('dashboard_product_with_barcode2_'. \lib\store::id(), $count, 'jibres_store',  self::$life_time);
 		}
 		return $count;
 	}
@@ -128,16 +128,16 @@ trait dashboard
 		$key = "dashboard_product_". $_type. "_". $_field. "_". \lib\store::id();
 		if($_clean_cache)
 		{
-			\dash\session::set($key, null);
+			\dash\session::clean($key, 'jibres_store');
 			return null;
 		}
 
-		$value = \dash\session::get($key);
+		$value = \dash\session::get($key, 'jibres_store');
 		if($value === null)
 		{
 			$value = \lib\db\products::max_min_avg_field(\lib\store::id(), $_type, $_field);
 			$value = floatval($value);
-			\dash\session::set($key, $value,  null, self::$life_time);
+			\dash\session::set($key, $value,  'jibres_store', self::$life_time);
 		}
 		return $value;
 	}
@@ -147,11 +147,11 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\dash\session::set('dashboard_price_variation_'. \lib\store::id(), null);
+			\dash\session::clean('dashboard_price_variation_'. \lib\store::id(), 'jibres_store');
 			return null;
 		}
 
-		$chart = \dash\session::get('dashboard_price_variation_'. \lib\store::id());
+		$chart = \dash\session::get('dashboard_price_variation_'. \lib\store::id(), 'jibres_store');
 		if($chart === null)
 		{
 			$chart        = \lib\db\products::price_variation(\lib\store::id());
@@ -196,7 +196,7 @@ trait dashboard
 			}
 
 			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\dash\session::set('dashboard_price_variation_'. \lib\store::id(), $chart, null,  self::$life_time);
+			\dash\session::set('dashboard_price_variation_'. \lib\store::id(), $chart, 'jibres_store',  self::$life_time);
 		}
 
 		return $chart;
@@ -207,10 +207,10 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\dash\session::set('dashboard_price_group_by_unit_'. \lib\store::id(), null);
+			\dash\session::clean('dashboard_price_group_by_unit_'. \lib\store::id(), 'jibres_store');
 			return null;
 		}
-		$chart = \dash\session::get('dashboard_price_group_by_unit_'. \lib\store::id());
+		$chart = \dash\session::get('dashboard_price_group_by_unit_'. \lib\store::id(), 'jibres_store');
 		if($chart === null)
 		{
 			$chart = \lib\db\products::price_group_by_unit(\lib\store::id());
@@ -220,7 +220,7 @@ trait dashboard
 				$temp[] = ["key" => $key, "value" => $value];
 			}
 			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\dash\session::set('dashboard_price_group_by_unit_'. \lib\store::id(), $chart, null,  self::$life_time);
+			\dash\session::set('dashboard_price_group_by_unit_'. \lib\store::id(), $chart, 'jibres_store',  self::$life_time);
 		}
 
 		return $chart;
@@ -231,11 +231,11 @@ trait dashboard
 	{
 		if($_clean_cache)
 		{
-			\dash\session::set('dashboard_price_group_by_cat_'. \lib\store::id(), null);
+			\dash\session::clean('dashboard_price_group_by_cat_'. \lib\store::id(), 'jibres_store');
 			return null;
 		}
 
-		$chart = \dash\session::get('dashboard_price_group_by_cat_'. \lib\store::id());
+		$chart = \dash\session::get('dashboard_price_group_by_cat_'. \lib\store::id(), 'jibres_store');
 		if($chart === null)
 		{
 			$chart = \lib\db\products::price_group_by_cat(\lib\store::id());
@@ -245,7 +245,7 @@ trait dashboard
 				$temp[] = ["key" => $key, "value" => $value];
 			}
 			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\dash\session::set('dashboard_price_group_by_cat_'. \lib\store::id(), $chart, null,  self::$life_time);
+			\dash\session::set('dashboard_price_group_by_cat_'. \lib\store::id(), $chart, 'jibres_store',  self::$life_time);
 		}
 
 		return $chart;

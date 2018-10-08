@@ -15,13 +15,13 @@ class view
 
 		// get list of store of this user
 		// cache this number for 1 min
-		$list_store = \dash\session::get('get_list_store_dashboard_'. \dash\user::id());
+		$list_store = \dash\session::get('user_master_dashboard_'. \dash\user::id(), 'jibres_store');
 		if(!$list_store)
 		{
 			// cache all data for 1 min in this page
 			$cache_time = 60;
 			$list_store = \lib\app\store::list(['pagenation' => false]);
-			\dash\session::set('get_list_store_dashboard_'. \dash\user::id(), $list_store, null, $cache_time);
+			\dash\session::set('user_master_dashboard_'. \dash\user::id(), $list_store, 'jibres_store', $cache_time);
 		}
 		\dash\data::stores($list_store);
 		\dash\data::storesCount(count($list_store));

@@ -30,9 +30,9 @@ class product
 	private static function get_static_list($_type, $_implode = false)
 	{
 		$cache_key = "product_static_list_". $_type. \lib\store::id();
-		if(\dash\session::get($cache_key))
+		if(\dash\session::get($cache_key, 'jibres_store'))
 		{
-			$static_list = \dash\session::get($cache_key);
+			$static_list = \dash\session::get($cache_key, 'jibres_store');
 		}
 		else
 		{
@@ -42,7 +42,7 @@ class product
 			{
 				$static_list = [];
 			}
-			\dash\session::set($cache_key, $static_list, null, (60 * 1));
+			\dash\session::set($cache_key, $static_list, 'jibres_store', (60 * 1));
 		}
 
 		$static_list = array_filter($static_list);
@@ -74,12 +74,6 @@ class product
 		return self::get_static_list('unit', $_implode);
 	}
 
-
-	public static function update_cat($_old_cat, $_new_cat)
-	{
-		$result = \lib\db\products::update_where(['cat' => $_new_cat], ['cat' => $_old_cat]);
-		return $result;
-	}
 
 	public static function save_offline_store_cat_field()
 	{
@@ -113,6 +107,12 @@ class product
 
 	public static function add_new_cat($_new_cat)
 	{
+		if(!$_new_cat && $_new_cat !== '0')
+		{
+			\dash\notif::error(T_("Plese fill the category name"), 'cat');
+			return false;
+		}
+
 		$json = \lib\store::detail('cat');
 		if(is_string($json))
 		{
@@ -126,7 +126,7 @@ class product
 
 		if(isset($json[$_new_cat]))
 		{
-			\dash\notif::error(T_("Duplicate category founded"));
+			\dash\notif::error(T_("Duplicate category founded"), 'cat');
 			return false;
 		}
 
@@ -157,7 +157,7 @@ class product
 
 		if(!isset($json[$_old_cat]))
 		{
-			\dash\notif::error(T_("Category not found in your store!"));
+			\dash\notif::error(T_("Category not found in your store!"), 'cat');
 			return false;
 		}
 
@@ -167,6 +167,67 @@ class product
 		\lib\db\stores::update(['cat' => $json], \lib\store::id());
 
 		\dash\notif::warn(T_("Category successfully removed"));
+		\lib\store::refresh();
+
+		return true;
+
+	}
+
+
+	public static function update_cat($_old_cat, $_new_cat)
+	{
+
+		if($_old_cat == $_new_cat)
+		{
+			\dash\notif::info(T_("No change"));
+			return true;
+		}
+
+		if(!$_new_cat)
+		{
+			\dash\notif::error(T_("Please fill the category"));
+			return true;
+		}
+
+		$json = \lib\store::detail('cat');
+		if(is_string($json))
+		{
+			$json = json_decode($json, true);
+		}
+
+		if(!is_array($json))
+		{
+			$json = [];
+		}
+
+		if(!isset($json[$_old_cat]))
+		{
+			\dash\notif::error(T_("Category not found in your store!"), 'cat');
+			return false;
+		}
+
+		if(!isset($json[$_old_cat]))
+		{
+			\dash\notif::error(T_("Category not found in your store!"), 'cat');
+			return false;
+		}
+
+		unset($json[$_old_cat]);
+
+		$json[$_new_cat] = ['title' => $_new_cat];
+
+		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
+		\lib\db\stores::update(['cat' => $json], \lib\store::id());
+
+		// update products
+		$count = \lib\db\products::get_count(['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
+		if($count)
+		{
+			\lib\db\products::update_where(['store_id' => \lib\store::id(), 'cat' => $_new_cat], ['cat' => $_old_cat]);
+		}
+
+		\dash\notif::ok(T_("All product by category :old updated to :new", ['old' => $_old_cat, 'new' => $_new_cat]));
+
 		\lib\store::refresh();
 
 		return true;
@@ -210,7 +271,7 @@ class product
 				$result[$key] = $value;
 			}
 		}
-
+		krsort($result);
 		return $result;
 	}
 

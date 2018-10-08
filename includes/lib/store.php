@@ -6,6 +6,7 @@ namespace lib;
  */
 class store
 {
+	private static $life_time = 60 * 3;
 
 	private static $store = [];
 
@@ -17,6 +18,24 @@ class store
 		{
 			self::clean();
 			self::init();
+		}
+	}
+
+
+	public static function clean_session($_slug)
+	{
+		$key = 'store_slug_checker';
+		$old_session_key = \dash\session::get($key);
+
+		if($old_session_key !== $_slug)
+		{
+			\dash\session::clean('store_detail_'. $old_session_key);
+			\dash\session::clean('staff_list_'. $old_session_key);
+			\dash\session::clean_cat('jibres_store');
+
+			self::$store        = [];
+
+			\dash\session::set($key, $_slug);
 		}
 	}
 
@@ -46,6 +65,8 @@ class store
 			self::$store = \dash\session::get('store_detail_'. \dash\url::subdomain());
 			return;
 		}
+
+		self::clean_session(\dash\url::subdomain());
 
 		$store_detail = \lib\db\stores::get(['slug' => \dash\url::subdomain(), 'limit' => 1]);
 

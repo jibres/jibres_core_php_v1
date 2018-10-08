@@ -36,12 +36,23 @@ class view
 		\dash\data::moduleType(\dash\request::get('type'));
 		\dash\data::moduleTypeP('?type='. \dash\data::moduleType());
 
-		$cache_key = \lib\store::id(). '_staff_list';
-		$cache = \dash\session::get($cache_key);
+		$cache_key = 'staff_list_'.\dash\url::subdomain();
+		$cache = \dash\session::get($cache_key, 'jibres_store');
 		if(!$cache)
 		{
 			$cache = \lib\app\thirdparty::list(null, ['staff' => 1]);
-			\dash\session::set($cache_key, $cache, null, (60*10));
+			$new = [];
+			foreach ($cache as $key => $value)
+			{
+				$new[] =
+				[
+					'id'        => isset($value['id']) ? $value['id'] : null,
+					'firstname' => isset($value['firstname']) ? $value['firstname'] : null,
+					'lastname'  => isset($value['lastname']) ? $value['lastname'] : null,
+					'mobile'    => isset($value['mobile']) ? $value['mobile'] : null,
+				];
+			}
+			\dash\session::set($cache_key, $new, 'jibres_store', (60*10));
 		}
 		\dash\data::staffList($cache);
 
