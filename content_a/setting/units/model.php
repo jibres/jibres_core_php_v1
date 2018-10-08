@@ -1,91 +1,51 @@
 <?php
-namespace content_a\setting\plan;
+namespace content_a\setting\units;
 
 
 class model
 {
-	/**
-	 * post data and update or insert plan data
-	 */
 	public static function post()
 	{
-		\dash\notif::warn(T_("Not ready!"));
-		return false;
+		$old_unit = \dash\request::post('oldunit');
+		$new_unit = \dash\request::post('unit');
+		$get_unit = \dash\request::get('edit');
 
-
-		if(!\dash\user::login())
+		// remove unitegory
+		if(\dash\request::post('type') === 'remove')
 		{
-			return false;
-		}
-
-		$plan = \dash\request::post('plan');
-		if(!$plan)
-		{
-			\dash\db\logs::set('plan:plan:not:set', \dash\user::id());
-			\dash\notif::error(T_("Please select one of plan"), 'plan');
-			return false;
-		}
-
-
-		/**
-		 * list of active plan
-		 *
-		 * @var        array
-		 */
-		$all_plan_list =
-		[
-			// 'free',
-			// 'pro',
-			// 'business'
-			'free',
-			// 'simple',
-			'standard',
-			'standard_year',
-			// 'full'
-		];
-
-		if(!in_array($plan, $all_plan_list))
-		{
-			\dash\db\logs::set('plan:invalid:plan', \dash\user::id());
-			\dash\notif::error(T_("Invalid plan!"), 'plan');
-			return false;
-		}
-
-		if(!\lib\store::id())
-		{
-			\dash\db\logs::set('plan:invalid:store', \dash\user::id());
-			\dash\notif::error(T_("Invalid store!"), 'store');
-			return false;
-		}
-
-		if(!\lib\store::is_creator())
-		{
-			\dash\db\logs::set('plan:no:access:to:change:plan', \dash\user::id());
-			\dash\notif::error(T_("No access to change plan"), 'store');
-			return false;
-		}
-
-		$args =
-		[
-			'store_id' => \lib\store::id(),
-			'plan'     => $plan,
-			'creator'  => \dash\user::id(),
-		];
-		$result = \lib\db\storeplans::set($args);
-
-		if($result)
-		{
-			\dash\notif::ok(T_("Your store plan was changed"));
+			\lib\app\product\unit::remove(\dash\request::post('removeunit'));
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::this(). '/units');
 			}
+			return;
 		}
-		else
+
+		// add new unitegory
+		if(!\dash\data::editMode())
 		{
-			// \dash\notif::error(T_("Can not save this plan of your store"));
+			$result = \lib\app\product\unit::add($new_unit);
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this(). '/units');
+			}
+			return;
+		}
+
+		// update unitegory
+		if($old_unit != $get_unit)
+		{
+			\dash\notif::error(T_("Invalid name and old name!"));
 			return false;
 		}
+
+		$result = \lib\app\product\unit::update($old_unit, $new_unit);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::to(\dash\url::this(). '/units');
+		}
+
 	}
 }
 ?>

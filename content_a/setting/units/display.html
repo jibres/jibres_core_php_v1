@@ -1,16 +1,92 @@
 {%extends "content_a/setting/layout.html"%}
 
 
-{%block data%}
-<div class="cbox">
-{% set myCurrentPlan = currentPlan.plan_name |capitalize %}
-  <h3><small>{%trans "Current Plan"%}</small> <b>{%trans myCurrentPlan%}</b></h3>
-  <small title="{{currentPlan.start | dt(true)}}">{%trans "Activate on"%} {{currentPlan.start | dt('human')}}</small>
+{%block pageContent%}
+{{block('pageSteps')}}
+<div class="f">
+  <div class="c5">
+    {{block('addNewUnit')}}
+  </div>
+  <div class="c mLa10">
+    {{block('htmlTable')}}
+  </div>
 </div>
 
-<form method="post" class="cbox">
-  {{block ("iplan")}}
-
-  {{block ("isave")}}
-</form>
 {%endblock%}
+
+{%block addNewUnit%}
+<div class="cbox">
+
+	{%if editMode%}
+		<h3>{%trans "Edit unit"%}: <span class="fc-green txtB">{{requestGET.edit}}</span></h3>
+	{%else%}
+		<h3>{%trans "Add new unit"%}</h3>
+	{%endif%}
+
+  <form method="post" autocomplete="off">
+    {{block('unitName')}}
+    {{block('unitDefault_hidden')}}
+
+    {%if editMode%}
+    	{%if productCount.count > 10%}
+			<div class="msg danger">{%trans "All product by this unit changed to new value"%} <span class="txtB">{%trans "Count"%} {{productCount.count | fitNumber}} {%trans "Product"%}</span></div>
+    	{%elseif productCount.count%}
+      <div class="msg warn2">{%trans "All product by this unit changed to new value"%} <span class="txtB">{%trans "Count"%} {{productCount.count | fitNumber}} {%trans "Product"%}</span></div>
+      {%else%}
+			<div class="msg info2">{%trans "No product in this unit"%} <span class="txtB">{%trans "You can delete it now!"%}</span><a href="{{url.pwd}}" data-ajaxify data-data='{"removeunit" : "{{productCount.title}}", "type" : "remove"}' data-method='post' class="badge danger floatL">{%trans "Remove"%}</a></div>
+    	{%endif%}
+       <button class="btn primary block mT20">{%trans "Edit"%}</button>
+    {%else%}
+       <button class="btn primary block mT20">{%trans "Add"%}</button>
+    {%endif%}
+  </form>
+</div>
+{%endblock%}
+
+
+
+
+
+{%block unitName%}
+<label for="iunitname">{%trans "Unit name"%}</label>
+<div class="input">
+	<input type="hidden" name="oldunit" value="{{requestGET.edit}}">
+  <input type="text" name="unit" id="iunitname" placeholder='{%trans "Unit name"%}' value="{{requestGET.edit}}" autofocus maxlength='50' minlength="1"  required>
+</div>
+{%endblock%}
+
+
+
+{%block htmlTable%}
+
+  <table class="tbl1 v1 cbox fs12">
+    <thead class="">
+      <tr>
+        <th>{%trans "Unit"%}</th>
+        <th>{%trans "Count product"%}</th>
+        <th>{%trans "Action"%}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {%for key, value in dataTable%}
+      <tr class="{%if value.status == 'disable'%} negative{%else%} positive{%endif%}">
+        <td>{%if not value.title and value.title != '0' %}<small class="fc-mute">{%trans "Without Unit"%}</small>{%else%}{{value.title}}{%endif%}</td>
+        <td><a href="{{url.here}}/product?unit={{value.title}}">{{value.count | fitNumber}}</a></td>
+
+        <td>
+          <a href="{{url.this}}/units?edit={{value.title}}" class="badge primary">{%trans "Edit"%}</a>
+          <a href="{{url.here}}/product?unit={{value.title}}" class="badge success">{%trans "Products"%}</a>
+          {%if not value.count%}
+          <a href="{{url.pwd}}" data-ajaxify data-data='{"removeunit" : "{{value.title}}", "type" : "remove"}' data-method='post' class="badge danger">{%trans "Remove"%}</a>
+          {%endif%}
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+{%endblock%}
+
+
+
