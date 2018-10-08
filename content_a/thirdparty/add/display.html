@@ -37,53 +37,35 @@
 
 
 {%block iFormCustomer%}
-
   {{block("imobile")}}
   {{block("idisplayname")}}
-
   <button class="btn primary block mT20">{%trans "Add new customer"%}</button>
-
-
 {%endblock%}
 
 
 
 {%block iFormStaff%}
-
   {{block("igender")}}
   <div class="f mT10">
     <div class="c5 s12 pRa5">{{block("inameFree")}}</div>
     <div class="c7 s12">{{block("ifamily")}}</div>
   </div>
   {{block("imobile")}}
-
-
   <button class="btn primary block mT20">{%trans "Add new staff"%}</button>
-
 {%endblock%}
 
 
 
-
-
-
-
-
 {%block iFormSupllier%}
-
 {{block("icompanyname")}}
-<div class="msg mT10">
-  <h6 class="txtB">{%trans "Company Visitor"%}</h6>
 
-  {{block("imobileSearchvisitor")}}
-
-  <div class="f mT10">
-    <div class="c pRa5">{{block("inameFree")}}</div>
-    <div class="c">{{block("ifamily")}}</div>
-  </div>
-  {{block("igender")}}
+<div class="msg">
+  <h3 class="txtB mB10-f">{%trans "Salesman detail"%}</h3>
+  {{block("imobile")}}
+  {{block("iVisitorDisplayName")}}
 
 </div>
+
 <button class="btn primary block mT20">{%trans "Add new supplier"%}</button>
 
 

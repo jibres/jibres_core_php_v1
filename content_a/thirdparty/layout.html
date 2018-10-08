@@ -110,12 +110,22 @@
 
 
 {%block idisplayname%}
-<label for="iname">{%trans "Display name"%}</label>
+<label for="iname">{%trans "Name"%}</label>
 <div class="input">
   <input type="text" name="displayname" id="iname" placeholder='{%trans "Display name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
 </div>
 {%endblock%}
 
+
+
+{%block iVisitorDisplayName%}
+<div data-response='mobile' data-response-hide data-response-effect="slide">
+ <label for="iname">{%trans "Salesman Name"%}</label>
+ <div class="input">
+  <input type="text" name="displayname" id="iname" placeholder='{%trans "Display name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1">
+ </div>
+</div>
+{%endblock%}
 
 
 
@@ -167,7 +177,7 @@
 {%block imobile%}
 <label for="mobile">{%trans "Mobile"%}</label>
 <div class="input">
-  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like 09120123456"%}' autofocus value="{{dataRow.mobile}}" maxlength='30'>
+  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like 09120123456"%}' autofocus value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
 </div>
 {%endblock%}
 
@@ -347,9 +357,9 @@
 
 
 {%block icompanyname%}
-<label for="icompanyname">{%trans "Company"%}</label>
+<label for="icompanyname">{%trans "Company name"%}</label>
 <div class="input">
-  <input type="text" name="companyname" id="icompanyname" placeholder='{%trans "Company"%}' value="{{dataRow.companyname}}" autofocus maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+  <input type="text" name="companyname" id="icompanyname" placeholder='{%trans "Enter company name"%}' value="{{dataRow.companyname}}" autofocus maxlength='40' minlength="1" data-response-realtime>
 </div>
 {%endblock%}
 
