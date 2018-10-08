@@ -81,11 +81,137 @@ class product
 		return $result;
 	}
 
+	public static function save_offline_store_cat_field()
+	{
+		$cat_list_count = \lib\db\products::field_group_count('cat', \lib\store::id());
+
+		if(!is_array($cat_list_count))
+		{
+			$cat_list_count = [];
+		}
+
+		$json = \lib\store::detail('cat');
+		if(!is_array($json))
+		{
+			$json = [];
+		}
+
+		$new  = array_merge($cat_list_count, $json);
+		$temp = [];
+		foreach ($new as $key => $value)
+		{
+			$temp[$key] = ['title' => $key];
+		}
+
+		if(!empty($temp))
+		{
+			$temp = json_encode($temp, JSON_UNESCAPED_UNICODE);
+			\lib\db\stores::update(['cat' => $temp], \lib\store::id());
+			\lib\store::refresh();
+		}
+	}
+
+	public static function add_new_cat($_new_cat)
+	{
+		$json = \lib\store::detail('cat');
+		if(is_string($json))
+		{
+			$json = json_decode($json, true);
+		}
+
+		if(!is_array($json))
+		{
+			$json = [];
+		}
+
+		if(isset($json[$_new_cat]))
+		{
+			\dash\notif::error(T_("Duplicate category founded"));
+			return false;
+		}
+
+		$json[$_new_cat] = ['title' => $_new_cat];
+
+		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
+		\lib\db\stores::update(['cat' => $json], \lib\store::id());
+
+		\dash\notif::ok(T_("Category successfully added"));
+		\lib\store::refresh();
+
+		return true;
+
+	}
+
+	public static function remove_old_cat($_old_cat)
+	{
+		$json = \lib\store::detail('cat');
+		if(is_string($json))
+		{
+			$json = json_decode($json, true);
+		}
+
+		if(!is_array($json))
+		{
+			$json = [];
+		}
+
+		if(!isset($json[$_old_cat]))
+		{
+			\dash\notif::error(T_("Category not found in your store!"));
+			return false;
+		}
+
+		unset($json[$_old_cat]);
+
+		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
+		\lib\db\stores::update(['cat' => $json], \lib\store::id());
+
+		\dash\notif::warn(T_("Category successfully removed"));
+		\lib\store::refresh();
+
+		return true;
+
+	}
+
 
 	public static function cat_list_count()
 	{
 		$cat_list_count = \lib\db\products::field_group_count('cat', \lib\store::id());
-		return $cat_list_count;
+
+		$json = \lib\store::detail('cat');
+		if(is_string($json))
+		{
+			$json = json_decode($json, true);
+		}
+
+		if(!is_array($json))
+		{
+			$json = [];
+		}
+
+		$result = [];
+
+		foreach ($cat_list_count as $key => $value)
+		{
+			if(isset($json[$key]))
+			{
+				$result[$key] = array_merge($json[$key], ['count' => $value]);
+			}
+			else
+			{
+				$result[$key] = array_merge(['title' => $key], ['count' => $value]);
+			}
+		}
+
+		foreach ($json as $key => $value)
+		{
+			if(!isset($result[$key]))
+			{
+				$result[$key] = $value;
+			}
+		}
+
+		return $result;
 	}
 
 

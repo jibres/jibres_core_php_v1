@@ -10,6 +10,12 @@ class products
 
 	public static function field_group_count($_field, $_store_id)
 	{
+		$catch = \dash\db\cache::get_cache('products', func_get_args());
+		if($catch)
+		{
+			return $catch;
+		}
+
 		if(!$_store_id || !is_numeric($_store_id))
 		{
 			return false;
@@ -17,6 +23,7 @@ class products
 
 		$query = "SELECT COUNT(*) AS `count`, products.$_field AS `$_field` FROM products WHERE products.store_id = $_store_id GROUP BY products.$_field ORDER BY count(*) DESC";
 		$result = \dash\db::get($query, [$_field, 'count']);
+		\dash\db\cache::set_cache('products', func_get_args(), $result);
 		return $result;
 	}
 

@@ -28,10 +28,10 @@
     {{block('catDefault_hidden')}}
 
     {%if editMode%}
-    	{%if productCount > 10%}
-			<div class="msg danger">{%trans "All product by this category changed to new value"%} <span class="txtB">{%trans "Count"%} {{productCount | fitNumber}} {%trans "Product"%}</span></div>
+    	{%if productCount.count > 10%}
+			<div class="msg danger">{%trans "All product by this category changed to new value"%} <span class="txtB">{%trans "Count"%} {{productCount.count | fitNumber}} {%trans "Product"%}</span></div>
     	{%else%}
-			<div class="msg warn2">{%trans "All product by this category changed to new value"%} <span class="txtB">{%trans "Count"%} {{productCount | fitNumber}} {%trans "Product"%}</span></div>
+			<div class="msg warn2">{%trans "All product by this category changed to new value"%} <span class="txtB">{%trans "Count"%} {{productCount.count | fitNumber}} {%trans "Product"%}</span></div>
     	{%endif%}
        <button class="btn primary block mT20">{%trans "Edit"%}</button>
     {%else%}
@@ -77,14 +77,14 @@
     <tbody>
       {%for key, value in dataTable%}
       <tr class="{%if value.status == 'disable'%} negative{%else%} positive{%endif%}">
-        <td>{%if not key%}<small class="fc-mute">{%trans "Without Cat"%}</small>{%else%}{{key}}{%endif%}</td>
-        <td><a href="{{url.here}}/product?cat={{key}}">{{value | fitNumber}}</a></td>
+        <td>{%if not value.title%}<small class="fc-mute">{%trans "Without Cat"%}</small>{%else%}{{value.title}}{%endif%}</td>
+        <td><a href="{{url.here}}/product?cat={{value.title}}">{{value.count | fitNumber}}</a></td>
 
         <td>
-          <a href="{{url.this}}/cats?edit={{key}}" class="badge primary">{%trans "Edit"%}</a>
-          <a href="{{url.here}}/product?cat={{key}}" class="badge success">{%trans "Products"%}</a>
-          {%if not value%}
-          <a href="{{url.pwd}}" data-ajaxify data-data='{"cat" : {{key}}, "type" : "remove"}' data-method='post' class="badge danger">{%trans "Remove"%}</a>
+          <a href="{{url.this}}/cats?edit={{value.title}}" class="badge primary">{%trans "Edit"%}</a>
+          <a href="{{url.here}}/product?cat={{value.title}}" class="badge success">{%trans "Products"%}</a>
+          {%if not value.count%}
+          <a href="{{url.pwd}}" data-ajaxify data-data='{"cat" : "{{value.title}}", "type" : "remove"}' data-method='post' class="badge danger">{%trans "Remove"%}</a>
           {%endif%}
         </td>
       </tr>

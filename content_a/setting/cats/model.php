@@ -10,10 +10,18 @@ class model
 		$new_cat = \dash\request::post('name');
 		$get_cat = \dash\request::get('edit');
 
+		if(\dash\request::post('type') === 'remove')
+		{
+			\lib\app\product::remove_old_cat(\dash\request::post('cat'));
+			\dash\redirect::pwd();
+			return;
+		}
+
 		if(!\dash\data::editMode())
 		{
-			\dash\notif::warn(T_("Not now"));
-			return ;
+			$result = \lib\app\product::add_new_cat($new_cat);
+			\dash\redirect::pwd();
+			return true;
 		}
 
 		if($oldcat != $get_cat)
