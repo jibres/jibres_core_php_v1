@@ -180,7 +180,7 @@ trait user_id
 					$msg = T_("This user was already added to this store");
 					if(isset($userstore_record['mobile']))
 					{
-						$msg = "<a href='". \dash\url::kingdom(). '/a/thirdparty?q='. $userstore_record['mobile']. "'>$msg</a>";
+						$msg = "<a href='". \dash\url::here(). '/thirdparty?q='. $userstore_record['mobile']. "'>$msg</a>";
 					}
 
 					\dash\notif::error($msg, 'mobile');

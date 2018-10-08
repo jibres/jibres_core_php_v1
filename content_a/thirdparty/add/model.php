@@ -30,11 +30,11 @@ class model
 		{
 			if(isset($result['thirdparty_id']))
 			{
-				\dash\redirect::to(\dash\url::base(). '/a/thirdparty/general?id='. $result['thirdparty_id']);
+				\dash\redirect::to(\dash\url::this(). '/general?id='. $result['thirdparty_id']);
 			}
 			else
 			{
-				\dash\redirect::to(\dash\url::base(). '/a/thirdparty');
+				\dash\redirect::to(\dash\url::this());
 			}
 		}
 	}

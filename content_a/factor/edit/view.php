@@ -64,7 +64,7 @@ class view
 						$result = self::getNeededField($result);
 						if(!$result)
 						{
-							$msg .= '<a href="/a/product/edit?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('edit as new product'). '</a>';
+							$msg .= '<a href="{{url.here}}/product/edit?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('edit as new product'). '</a>';
 							$result = null;
 						}
 					}

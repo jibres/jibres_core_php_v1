@@ -26,7 +26,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::base(). '/a/factor');
+			\dash\redirect::to(\dash\url::this());
 		}
 	}
 
