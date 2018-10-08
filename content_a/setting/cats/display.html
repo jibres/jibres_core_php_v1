@@ -1,16 +1,98 @@
 {%extends "content_a/setting/layout.html"%}
 
 
-{%block data%}
-<div class="cbox">
-{% set myCurrentPlan = currentPlan.plan_name |capitalize %}
-  <h3><small>{%trans "Current Plan"%}</small> <b>{%trans myCurrentPlan%}</b></h3>
-  <small title="{{currentPlan.start | dt(true)}}">{%trans "Activate on"%} {{currentPlan.start | dt('human')}}</small>
+{%block pageContent%}
+{{block('pageSteps')}}
+<div class="f">
+  <div class="c5">
+    {{block('addNewCat')}}
+  </div>
+  <div class="c mLa10">
+    {{block('htmlTable')}}
+  </div>
 </div>
 
-<form method="post" class="cbox">
-  {{block ("iplan")}}
-
-  {{block ("isave")}}
-</form>
 {%endblock%}
+
+{%block addNewCat%}
+<div class="cbox">
+
+	{%if editMode%}
+		<h3>{%trans "Edit category"%}: <span class="fc-green txtB">{{requestGET.edit}}</span></h3>
+	{%else%}
+		<h3>{%trans "Add new cat"%}</h3>
+	{%endif%}
+
+  <form method="post" autocomplete="off">
+    {{block('catName')}}
+    {{block('catDefault_hidden')}}
+
+    {%if editMode%}
+    	{%if productCount > 10%}
+			<div class="msg danger">{%trans "All product by this category changed to new value"%} <span class="txtB">{%trans "Count"%} {{productCount | fitNumber}} {%trans "Product"%}</span></div>
+    	{%else%}
+			<div class="msg warn2">{%trans "All product by this category changed to new value"%} <span class="txtB">{%trans "Count"%} {{productCount | fitNumber}} {%trans "Product"%}</span></div>
+    	{%endif%}
+       <button class="btn primary block mT20">{%trans "Edit"%}</button>
+    {%else%}
+       <button class="btn primary block mT20">{%trans "Add"%}</button>
+    {%endif%}
+  </form>
+</div>
+{%endblock%}
+
+
+
+{% block catDefault %}
+  <div class="switch1 mB10">
+   <input type="checkbox" name="catdefault" id="catdefault" {%if requestGET.edit.default%} checked {%endif%}>
+   <label for="catdefault"></label>
+   <label for="catdefault">{%trans "Is default cat?"%}</label>
+  </div>
+{%endblock%}
+
+
+
+{%block catName%}
+<label for="iname">{%trans "Cat name"%}</label>
+<div class="input">
+	<input type="hidden" name="oldcat" value="{{requestGET.edit}}">
+  <input type="text" name="name" id="iname" placeholder='{%trans "Cat name"%}' value="{{requestGET.edit}}" autofocus maxlength='50' minlength="1"  required>
+</div>
+{%endblock%}
+
+
+
+{%block htmlTable%}
+
+  <table class="tbl1 v1 cbox fs12">
+    <thead class="">
+      <tr>
+        <th>{%trans "Cat"%}</th>
+        <th>{%trans "Count product"%}</th>
+        <th>{%trans "Action"%}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {%for key, value in dataTable%}
+      <tr class="{%if value.status == 'disable'%} negative{%else%} positive{%endif%}">
+        <td>{%if not key%}<small class="fc-mute">{%trans "Without Cat"%}</small>{%else%}{{key}}{%endif%}</td>
+        <td><a href="{{url.here}}/product?cat={{key}}">{{value | fitNumber}}</a></td>
+
+        <td>
+          <a href="{{url.this}}/cats?edit={{key}}" class="badge primary">{%trans "Edit"%}</a>
+          <a href="{{url.here}}/product?cat={{key}}" class="badge success">{%trans "Products"%}</a>
+          {%if not value%}
+          <a href="{{url.pwd}}" data-ajaxify data-data='{"cat" : {{key}}, "type" : "remove"}' data-method='post' class="badge danger">{%trans "Remove"%}</a>
+          {%endif%}
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+{%endblock%}
+
+
+

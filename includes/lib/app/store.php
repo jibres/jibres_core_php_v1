@@ -278,6 +278,19 @@ class store
 					}
 					break;
 
+				// JSON TO ARRAY
+				case 'cat':
+				case 'unit':
+					if($value && is_string($value))
+					{
+						$result[$key] = json_decode($value, true);
+					}
+					else
+					{
+						$result[$key] = $value;
+					}
+					break;
+
 				case 'slug':
 					$result[$key] = isset($value) ? (string) $value : null;
 					$result['url'] = isset($value) ? \dash\url::protocol(). '://'. $value. '.jibres.'. \dash\url::tld() : null;

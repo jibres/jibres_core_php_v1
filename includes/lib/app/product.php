@@ -75,6 +75,20 @@ class product
 	}
 
 
+	public static function update_cat($_old_cat, $_new_cat)
+	{
+		$result = \lib\db\products::update_where(['cat' => $_new_cat], ['cat' => $_old_cat]);
+		return $result;
+	}
+
+
+	public static function cat_list_count()
+	{
+		$cat_list_count = \lib\db\products::field_group_count('cat', \lib\store::id());
+		return $cat_list_count;
+	}
+
+
 	/**
 	 * check args
 	 *

@@ -8,6 +8,18 @@ class products
 	use \lib\db\product\dashboard;
 
 
+	public static function field_group_count($_field, $_store_id)
+	{
+		if(!$_store_id || !is_numeric($_store_id))
+		{
+			return false;
+		}
+
+		$query = "SELECT COUNT(*) AS `count`, products.$_field AS `$_field` FROM products WHERE products.store_id = $_store_id GROUP BY products.$_field ORDER BY count(*) DESC";
+		$result = \dash\db::get($query, [$_field, 'count']);
+		return $result;
+	}
+
 	public static function get_duplicate_id($_store_id)
 	{
 		if(!$_store_id || !is_numeric($_store_id))
@@ -87,6 +99,11 @@ class products
 	public static function update()
 	{
 		return \dash\db\config::public_update('products', ...func_get_args());
+	}
+
+	public static function update_where()
+	{
+		return \dash\db\config::public_update_where('products', ...func_get_args());
 	}
 
 

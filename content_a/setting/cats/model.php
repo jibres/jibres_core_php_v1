@@ -1,91 +1,51 @@
 <?php
-namespace content_a\setting\plan;
+namespace content_a\setting\cats;
 
 
 class model
 {
-	/**
-	 * post data and update or insert plan data
-	 */
 	public static function post()
 	{
-		\dash\notif::warn(T_("Not ready!"));
-		return false;
+		$oldcat  = \dash\request::post('oldcat');
+		$new_cat = \dash\request::post('name');
+		$get_cat = \dash\request::get('edit');
 
-
-		if(!\dash\user::login())
+		if(!\dash\data::editMode())
 		{
+			\dash\notif::warn(T_("Not now"));
+			return ;
+		}
+
+		if($oldcat != $get_cat)
+		{
+			\dash\notif::error(T_("Invalid name and old name!"));
 			return false;
 		}
 
-		$plan = \dash\request::post('plan');
-		if(!$plan)
+		if($oldcat == $new_cat)
 		{
-			\dash\db\logs::set('plan:plan:not:set', \dash\user::id());
-			\dash\notif::error(T_("Please select one of plan"), 'plan');
-			return false;
+			\dash\notif::info(T_("No change"));
+			return true;
 		}
 
-
-		/**
-		 * list of active plan
-		 *
-		 * @var        array
-		 */
-		$all_plan_list =
-		[
-			// 'free',
-			// 'pro',
-			// 'business'
-			'free',
-			// 'simple',
-			'standard',
-			'standard_year',
-			// 'full'
-		];
-
-		if(!in_array($plan, $all_plan_list))
+		if(!$new_cat)
 		{
-			\dash\db\logs::set('plan:invalid:plan', \dash\user::id());
-			\dash\notif::error(T_("Invalid plan!"), 'plan');
-			return false;
+			\dash\notif::error(T_("Please fill the category"));
+			return true;
 		}
 
-		if(!\lib\store::id())
-		{
-			\dash\db\logs::set('plan:invalid:store', \dash\user::id());
-			\dash\notif::error(T_("Invalid store!"), 'store');
-			return false;
-		}
-
-		if(!\lib\store::is_creator())
-		{
-			\dash\db\logs::set('plan:no:access:to:change:plan', \dash\user::id());
-			\dash\notif::error(T_("No access to change plan"), 'store');
-			return false;
-		}
-
-		$args =
-		[
-			'store_id' => \lib\store::id(),
-			'plan'     => $plan,
-			'creator'  => \dash\user::id(),
-		];
-		$result = \lib\db\storeplans::set($args);
+		$result = \lib\app\product::update_cat($oldcat, $new_cat);
 
 		if($result)
 		{
-			\dash\notif::ok(T_("Your store plan was changed"));
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::pwd();
-			}
+			\dash\notif::ok(T_("All product by category :old updated to :new", ['old' => $oldcat, 'new' => $new_cat]));
 		}
 		else
 		{
-			// \dash\notif::error(T_("Can not save this plan of your store"));
-			return false;
+			\dash\notif::error(T_("Can not update you category"));
 		}
+
+		\dash\redirect::to(\dash\url::this(). '/cats');
 	}
 }
 ?>

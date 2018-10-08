@@ -395,8 +395,6 @@ class twigTransTerms
 
 	//--------------------------------------------content_a/setting/units/display.html
 
-	//---------------------------------------------content_a/setting/cats/display.html
-
 	//-------------------------------------------content_a/setting/factor/display.html
 	echo T_("Print status");                                                          // Line 8
 	echo T_("Pay setting");                                                           // Line 15
