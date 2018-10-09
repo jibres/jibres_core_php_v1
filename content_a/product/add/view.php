@@ -14,9 +14,9 @@ class view
 		\dash\data::badge_text(T_('Back to product list'));
 		\dash\data::badge_link(\dash\url::this());
 
-		\dash\data::listCats(\lib\app\product::cat_list(false));
+		\dash\data::listCats(\lib\app\product\cat::list());
 		\dash\data::listCompanies(\lib\app\product::company_list(false));
-		\dash\data::listUnits(\lib\app\product::unit_list(false));
+		\dash\data::listUnits(\lib\app\product\unit::list());
 
 
 		// get some value from get

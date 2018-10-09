@@ -11,9 +11,9 @@ class view
 		$myProduct = \lib\app\product::get(['id' => \dash\request::get('id')]);
 		\dash\data::product($myProduct);
 
-		\dash\data::listCats(\lib\app\product::cat_list());
+		\dash\data::listCats(\lib\app\product\cat::list());
 		\dash\data::listCompanies(\lib\app\product::company_list());
-		\dash\data::listUnits(\lib\app\product::unit_list());
+		\dash\data::listUnits(\lib\app\product\unit::list());
 
 		$productTitle = '';
 		if(isset($myProduct['title']))

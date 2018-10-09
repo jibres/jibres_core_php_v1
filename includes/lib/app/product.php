@@ -55,21 +55,9 @@ class product
 	}
 
 
-	public static function cat_list($_implode = false)
-	{
-		return self::get_static_list('cat', $_implode);
-	}
-
-
 	public static function company_list($_implode = false)
 	{
 		return self::get_static_list('company', $_implode);
-	}
-
-
-	public static function unit_list($_implode = false)
-	{
-		return self::get_static_list('unit', $_implode);
 	}
 
 
@@ -475,7 +463,7 @@ class product
 
 		$args                    = [];
 		$args['title']           = $title;
-		$args['name']            = $name;
+		// $args['name']            = $name;
 		$args['cat']             = $cat;
 		$args['slug']            = $slug;
 		$args['company']         = $company;
@@ -483,7 +471,7 @@ class product
 		$args['unit']            = $unit;
 		$args['barcode']         = $barcode;
 		$args['barcode2']        = $barcode2;
-		$args['code']            = $code;
+		$args['quickcode']       = $code;
 		$args['buyprice']        = $buyprice;
 		$args['price']           = $price;
 		$args['discount']        = $discount;
