@@ -6,8 +6,6 @@ class model
 {
 	public static function post()
 	{
-		\dash\permission::access('aThirdPartyAdd');
-
 		$mobile = \dash\request::post('mobile');
 		$mobile = \dash\coding::decode($mobile);
 		if($mobile)

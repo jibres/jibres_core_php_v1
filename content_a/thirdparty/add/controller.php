@@ -1,81 +1,30 @@
 <?php
-namespace content_a\thirdparty\home;
+namespace content_a\thirdparty\add;
 
 class controller
 {
 
 	public static function routing()
 	{
-		if(in_array(\dash\request::get('list'), ['mobile']))
+		$type = \dash\request::get('type');
+		switch ($type)
 		{
-			$query_string = \dash\request::get('q');
-			if(!$query_string)
-			{
-				$query_string = null;
-			}
+			case 'staff':
+				\dash\permission::access('aStaffAdd');
+				break;
+			case 'customer':
+				\dash\permission::access('aCustomerAdd');
+				break;
+			case 'supplier':
+				\dash\permission::access('aSupplierAdd');
+				break;
 
-			$args                    = [];
-			$args['order']           = 'desc';
-			$args['search_in_other'] = false;
-
-			$query_string = \dash\utility\convert::to_en_number($query_string);
-
-			if(substr($query_string, 0, 1) === '0')
-			{
-				$new_q = '98'. substr($query_string, 1);
-
-				$args['1.1'] = ["= 1.1 ", " AND (userstores.mobile LIKE '%$query_string%' OR userstores.mobile LIKE '$new_q%' )"];
-			}
-			else
-			{
-				$args['1.1'] = ["= 1.1 ", " AND userstores.mobile LIKE '%$query_string%' "];
-			}
-
-			$thirdpartyList       = \lib\app\thirdparty::list($query_string, $args);
-			$result            = [];
-			$result['success'] = true;
-			$result['result']  = [];
-
-			foreach ($thirdpartyList as $key => $value)
-			{
-				$myName = '<img class="ui avatar image" src="'.  $value['avatar'] .'">';
-				$myName .= '   '. $value['firstname']. ' <b>'. $value['lastname'];
-
-				if($value['mobile'])
+			default:
+				if(!\dash\permission::check('aStaffAdd') && !\dash\permission::check('aCustomerAdd') && !\dash\permission::check('aSupplierAdd'))
 				{
-					$myName .= '<span class="description ">'. \dash\utility\human::fitNumber($value['mobile'], false). '</span>';
+					\dash\header::status(403, T_("You have not permission to add any thirdparty!"));
 				}
-
-				$result['result'][] =
-				[
-					'name'  => $myName,
-					'value' => $value['id'],
-				];
-			}
-
-			if(!$result['result'])
-			{
-				$result['result'][] =
-				[
-					'name'  => '<span class="badge warn">'. T_("Add"). '</span> <span class="badge mLa10 pain">' . $query_string. '</span>',
-					'value' => $query_string,
-				];
-			}
-
-			if(!\dash\utility\filter::mobile($query_string))
-			{
-				$result['result'] =
-				[
-					[
-						'name'  => '<span class="badge txtC danger2">'. T_("Invalid mobile"). '</span>',
-						'value' => 'error',
-					]
-				];
-			}
-
-			$result = json_encode($result, JSON_UNESCAPED_UNICODE);
-			echo $result;
-			\dash\code::boom();
+				break;
 		}
 	}
 }
