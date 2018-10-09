@@ -400,21 +400,57 @@
 
 {%block pageSteps%}
 <div class="f">
-
   <div class="c">
-    <a class="dcard {%if url.child == 'general' %}active{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}' data-shortkey="49shift">
+    <a class="dcard {%if url.child == 'glance' %}active{%endif%}" href='{{url.this}}/glance?id={{requestGET.id}}' data-shortkey="49shift">
      <div class="statistic gray">
-      <div class="value"><i class="sf-user"></i></div>
-      <div class="label">{%trans "Profile"%} <kbd>Shift+1</kbd></div>
+      <div class="value"><i class="sf-broadcast"></i></div>
+      <div class="label">{%trans "Glance"%} <kbd>T+1</kbd></div>
      </div>
     </a>
   </div>
 
   <div class="c">
-    <a class="dcard {%if requestGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="50shift">
+    <a class="dcard {%if url.child == 'profile' %}active{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-user"></i></div>
+      <div class="label">{%trans "Profile"%} <kbd>T+2</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c">
+    <a class="dcard {%if url.child == 'bought' %}active{%endif%}" href='{{url.this}}/bought?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-basket"></i></div>
+      <div class="label">{%trans "Has bought"%} <kbd>T+3</kbd></div>
+     </div>
+    </a>
+  </div>
+
+
+  <div class="c">
+    <a class="dcard {%if url.child == 'sold' %}active{%endif%}" href='{{url.this}}/sold?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-archive"></i></div>
+      <div class="label">{%trans "Sold"%} <kbd>T+4</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c">
+    <a class="dcard {%if url.child == 'factors'%}active{%endif%}" href='{{url.this}}/factors?id={{requestGET.id}}' data-shortkey="50shift">
      <div class="statistic teal">
       <div class="value"><i class="sf-folder-1"></i></div>
-      <div class="label">{%trans "Factors"%} <kbd>Shift+2</kbd></div>
+      <div class="label">{%trans "Factors"%} <kbd>T+5</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c">
+    <a class="dcard {%if url.child == 'log'%}active{%endif%}" href='{{url.this}}/log?id={{requestGET.id}}' data-shortkey="50shift">
+     <div class="statistic orange">
+      <div class="value"><i class="sf-load-a"></i></div>
+      <div class="label">{%trans "Logs"%} <kbd>T+6</kbd></div>
      </div>
     </a>
   </div>
