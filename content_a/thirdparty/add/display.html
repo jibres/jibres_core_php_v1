@@ -2,32 +2,33 @@
 
 {%block dataAdd%}
 
+  {%if requestGET.type == 'customer' %}
+    {{block('iFormCustomer')}}
+
+  {%elseif requestGET.type == 'staff'%}
+    {{block('iFormStaff')}}
+
+  {%elseif requestGET.type == 'supplier'%}
+    {{block('iFormSupllier')}}
+
+  {%else%}
+    {{block('iFormAddSelector')}}
+
+  {%endif%}
+
+{%endblock%}
+
+
+
+
+{%block iFormCustomer%}
 <form method="post" enctype="multipart/form-data" autocomplete="off">
-
-<div class="f justify-center">
-
+  <div class="f justify-center">
     <div class="c6 s12">
       <div class="cbox">
-
-        {%if requestGET.type == 'customer' %}
-
-          {{block('iFormCustomer')}}
-
-        {%elseif requestGET.type == 'staff'%}
-
-          {{block('iFormStaff')}}
-
-        {%elseif requestGET.type == 'supplier'%}
-
-          {{block('iFormSupllier')}}
-
-        {%else%}
-
-          <a class="btn block mB10 info" href="{{url.here}}/thirdparty/add?type=customer">{%trans "Add new customer"%}</a>
-          <a class="btn block mB10 info" href="{{url.here}}/thirdparty/add?type=staff">{%trans "Add new staff"%}</a>
-          <a class="btn block mB10 info" href="{{url.here}}/thirdparty/add?type=supplier">{%trans "Add new supplier"%}</a>
-
-        {%endif%}
+        {{block("imobile")}}
+        {{block("idisplayname")}}
+        <button class="btn primary block mT20">{%trans "Add new customer"%}</button>
       </div>
     </div>
   </div>
@@ -36,38 +37,89 @@
 
 
 
-{%block iFormCustomer%}
-  {{block("imobile")}}
-  {{block("idisplayname")}}
-  <button class="btn primary block mT20">{%trans "Add new customer"%}</button>
-{%endblock%}
-
-
-
 {%block iFormStaff%}
-  {{block("igender")}}
-  <div class="f mT10">
-    <div class="c5 s12 pRa5">{{block("inameFree")}}</div>
-    <div class="c7 s12">{{block("ifamily")}}</div>
+<form method="post" enctype="multipart/form-data" autocomplete="off">
+  <div class="f justify-center">
+    <div class="c6 s12">
+      <div class="cbox">
+        {{block("igender")}}
+        <div class="f mT10">
+          <div class="c5 s12 pRa5">{{block("inameFree")}}</div>
+          <div class="c7 s12">{{block("ifamily")}}</div>
+        </div>
+        {{block("imobile")}}
+        <button class="btn primary block mT20">{%trans "Add new staff"%}</button>
+      </div>
+    </div>
   </div>
-  {{block("imobile")}}
-  <button class="btn primary block mT20">{%trans "Add new staff"%}</button>
+</form>
 {%endblock%}
 
 
 
 {%block iFormSupllier%}
-{{block("icompanyname")}}
+<form method="post" enctype="multipart/form-data" autocomplete="off">
+  <div class="f justify-center">
+    <div class="c6 s12">
+      <div class="cbox">
+        {{block("icompanyname")}}
+        <div class="msg">
+          <h3 class="txtB mB10-f">{%trans "Salesman detail"%}</h3>
+          {{block("imobile")}}
+          {{block("iVisitorDisplayName")}}
+        </div>
+        <button class="btn primary block mT20">{%trans "Add new supplier"%}</button>
+      </div>
+    </div>
+  </div>
+</form>
+{%endblock%}
 
-<div class="msg">
-  <h3 class="txtB mB10-f">{%trans "Salesman detail"%}</h3>
-  {{block("imobile")}}
-  {{block("iVisitorDisplayName")}}
-
-</div>
-
-<button class="btn primary block mT20">{%trans "Add new supplier"%}</button>
 
 
+{%block iFormAddSelector%}
+<form method="post" enctype="multipart/form-data" autocomplete="off">
+  <div class="f justify-center">
+    <div class="c9 s12">
+        <p class="msg">{%trans "Please choose type of third party you want to add."%}</p>
+        <div class="f mB10">
+        {%if perm('mCustomerView')%}<div class="c s12">{{block ("stCustomer")}}</div>{%endif%}
+        {%if perm('mStaffView')%}<div class="c s12">{{block ("stStaff")}}</div>{%endif%}
+        {%if perm('mSupplierView')%}<div class="c s12">{{block ("stSupplier")}}</div>{%endif%}
+        </div>
+    </div>
+  </div>
+</form>
+{%endblock%}
+
+
+
+{%block stCustomer%}
+<a class="dcard" href='{{url.this}}?type=customer/add?type=customer'>
+ <div class="statistic teal">
+  <div class="value"><i class="sf-user-4"></i></div>
+  <div class="label">{%trans "Customer"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stStaff%}
+<a class="dcard" href='{{url.this}}?type=customer/add?type=staff'>
+ <div class="statistic gray">
+  <div class="value"><i class="sf-user-md"></i></div>
+  <div class="label">{%trans "Staff"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stSupplier%}
+<a class="dcard" href='{{url.this}}?type=customer/add?type=supplier'>
+ <div class="statistic orange">
+  <div class="value"><i class="sf-user-md"></i></div>
+  <div class="label">{%trans "Suppliers"%}</div>
+ </div>
+</a>
 {%endblock%}
 
