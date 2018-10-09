@@ -175,9 +175,13 @@ class unit
 	}
 
 
-	public static function list()
+	public static function list($_get_query = false)
 	{
-		$list = \lib\db\products::field_group_count('unit', \lib\store::id());
+		$list = [];
+		if($_get_query)
+		{
+			$list = \lib\db\products::field_group_count('unit', \lib\store::id());
+		}
 
 		$json = \lib\store::detail('unit');
 		if(is_string($json))

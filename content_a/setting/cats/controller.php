@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		$catList = \lib\app\product\cat::list();
+		$catList = \lib\app\product\cat::list(true);
 		\dash\data::dataTable($catList);
 
 		$edit = \dash\request::get('edit');

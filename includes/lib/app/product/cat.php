@@ -174,9 +174,13 @@ class cat
 	}
 
 
-	public static function list()
+	public static function list($_get_query = false)
 	{
-		$list = \lib\db\products::field_group_count('cat', \lib\store::id());
+		$list = [];
+		if($_get_query)
+		{
+			$list = \lib\db\products::field_group_count('cat', \lib\store::id());
+		}
 
 		$json = \lib\store::detail('cat');
 		if(is_string($json))
