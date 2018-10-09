@@ -143,14 +143,25 @@ class unit
 			}
 		}
 
-		foreach ($json as $key => $value)
+			foreach ($json as $key => $value)
 		{
 			if(!isset($result[$key]))
 			{
-				$result[$key] = $value;
+				if(!isset($value['count']))
+				{
+					$result[$key] = array_merge($value, ['count' => 0]);
+				}
+				else
+				{
+					$result[$key] = $value;
+				}
 			}
 		}
-		krsort($result);
+
+		$sort = array_column($result, 'count');
+		$sort = array_map('intval', $sort);
+		array_multisort($result, SORT_DESC, SORT_NUMERIC, $sort, SORT_DESC);
+
 		return $result;
 	}
 
