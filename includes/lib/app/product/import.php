@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\product;
 
-trait import
+class import
 {
 
 	/**
@@ -37,7 +37,7 @@ trait import
 	 *
 	 * @return     <type>  The product.
 	 */
-	public static function import($_string)
+	public static function csv($_string)
 	{
 
 		if(!\dash\user::id())

@@ -15,7 +15,7 @@ class model
 			return false;
 		}
 
-		$imported = \lib\app\product::import($list);
+		$imported = \lib\app\product\import::csv($list);
 
 		if(\dash\engine\process::status())
 		{

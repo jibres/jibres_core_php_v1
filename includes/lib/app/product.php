@@ -10,7 +10,6 @@ class product
 	use \lib\app\product\datalist;
 	use \lib\app\product\get;
 	use \lib\app\product\buyprice;
-	use \lib\app\product\import;
 	use \lib\app\product\delete;
 	use \lib\app\product\barcode;
 	use \lib\app\product\dashboard;
