@@ -460,6 +460,9 @@ class product
 			\dash\notif::warn(T_("Final price less than buyprice!"));
 		}
 
+		// check to add new cat or unit
+		\lib\app\product\cat::check_add($cat);
+		\lib\app\product\unit::check_add($unit);
 
 		$args                    = [];
 		$args['title']           = $title;

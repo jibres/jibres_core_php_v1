@@ -4,6 +4,23 @@ namespace lib\app\product;
 
 class cat
 {
+
+	public static function check_add($_cat)
+	{
+		if(!$_cat && $_cat !== '0')
+		{
+			return;
+		}
+
+		$list = self::list();
+		if(!array_key_exists($_cat, $list))
+		{
+			self::add(['title' => $_cat]);
+		}
+		return;
+	}
+
+
 	private static function check()
 	{
 		$title = \dash\app::request('title');

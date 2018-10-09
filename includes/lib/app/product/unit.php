@@ -4,6 +4,16 @@ namespace lib\app\product;
 
 class unit
 {
+	public static function check_add($_unit)
+	{
+		$list = self::list();
+		if(!array_key_exists($_unit, $list))
+		{
+			self::add(['title' => $_unit]);
+		}
+		return;
+	}
+
 	private static function check()
 	{
 		$title = \dash\app::request('title');
