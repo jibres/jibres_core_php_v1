@@ -1,0 +1,24 @@
+{%extends "content_a/thirdparty/layout.html"%}
+
+{%block pageContent%}
+{{block ("pageSteps")}}
+{{block ("pageStepsProfile")}}
+
+
+<div class="f">
+ <div class="cauto s12 pA10">
+  {%if supplierMode%}
+    {{block("psidebarSupplier")}}
+  {%else%}
+    {{block("psidebar")}}
+  {%endif%}
+ </div>
+ <div class="c s12 pA10">
+ 	123
+ </div>
+</div>
+
+
+{%endblock%}
+
+

@@ -1,28 +1,6 @@
 {%extends display.admin%}
 
-{%block pageContent%}
-{%if url.child != "add"%}
-{{block ("pageSteps")}}
-{%endif%}
-{%if url.child == "add"%}
-{%block dataAdd%}{%endblock%}
 
-{%else%}
-
-<div class="f">
- <div class="cauto s12 pA10">
-  {%if supplierMode%}
-    {{block("psidebarSupplier")}}
-  {%else%}
-    {{block("psidebar")}}
-  {%endif%}
- </div>
- <div class="c s12 pA10">
-{%block data%}{%endblock%}
- </div>
-</div>
-{%endif%}
-{%endblock%}
 
 
 {%block iType%}
@@ -46,6 +24,8 @@
   </div>
 </div>
 {%endblock%}
+
+
 
 {%block psidebarSupplier%}
 <div class="cbox normal">
@@ -438,7 +418,7 @@
   </div>
 
   <div class="c">
-    <a class="dcard {%if url.child == 'factors'%}active{%endif%}" href='{{url.this}}/factors?id={{requestGET.id}}' data-shortkey="50shift">
+    <a class="dcard {%if url.child == 'factors'%}active{%endif%}" href='{{url.this}}/factor?id={{requestGET.id}}' data-shortkey="50shift">
      <div class="statistic teal">
       <div class="value"><i class="sf-folder-1"></i></div>
       <div class="label">{%trans "Factors"%} <kbd>T+5</kbd></div>
@@ -453,6 +433,36 @@
       <div class="label">{%trans "Logs"%} <kbd>T+6</kbd></div>
      </div>
     </a>
+  </div>
+
+</div>
+{%endblock%}
+
+
+
+
+{%block pageStepsProfile%}
+<div class="f mLR5 msg secondary2">
+  <div class="c pB5 pRa10">
+    <a class="btn light block {%if url.child=='general'%} primary{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General"%}</a>
+  </div>
+  <div class="c pB5 pRa10">
+    <a class="btn light block {%if url.child=='contact'%} primary{%endif%}" href='{{url.this}}/contact?id={{requestGET.id}}'>{%trans "Contact"%}</a>
+  </div>
+  <div class="c pB5 pRa10">
+    <a class="btn light block {%if url.child=='address'%} primary{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Address"%}</a>
+  </div>
+  <div class="c pB5 pRa10">
+    <a class="btn light block {%if url.child=='identify'%} primary{%endif%}" href='{{url.this}}/identify?id={{requestGET.id}}'>{%trans "Identify"%}</a>
+  </div>
+  <div class="c pB5 pRa10">
+    <a class="btn light block {%if url.child=='avatar'%} primary{%endif%}" href='{{url.this}}/avatar?id={{requestGET.id}}'>{%trans "avatar"%}</a>
+  </div>
+  <div class="c pB5 pRa10">
+    <a class="btn light block {%if url.child=='company'%} primary{%endif%}" href='{{url.this}}/company?id={{requestGET.id}}'>{%trans "Company Detail"%}</a>
+  </div>
+  <div class="c pB5">
+    <a class="btn light block {%if url.child=='manage'%} primary{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>
   </div>
 
 </div>
