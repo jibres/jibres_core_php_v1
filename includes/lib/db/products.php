@@ -242,7 +242,6 @@ class products
 		"
 			SELECT
 				products.title          AS `title`,
-				products.name           AS `name`,
 				products.cat            AS `cat`,
 				products.slug           AS `slug`,
 				products.company        AS `company`,
@@ -250,7 +249,7 @@ class products
 				products.unit           AS `unit`,
 				products.barcode        AS `barcode`,
 				products.barcode2       AS `barcode2`,
-				products.code           AS `code`,
+				products.quickcode           AS `quickcode`,
 				products.buyprice       AS `buyprice`,
 				products.price          AS `price`,
 				products.discount       AS `discount`,

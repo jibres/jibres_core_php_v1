@@ -11,7 +11,7 @@ class model
 
 		$file_name = \dash\url::subdomain(). '_products_'. \dash\utility\jdate::date("Ymd_Hi", time(), false);
 
-		$exported = \lib\app\product::export($file_name);
+		$exported = \lib\app\product\export::all($file_name);
 
 		if(\dash\engine\process::status())
 		{
