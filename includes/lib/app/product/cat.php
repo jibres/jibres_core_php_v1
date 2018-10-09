@@ -4,30 +4,86 @@ namespace lib\app\product;
 
 class cat
 {
-
-	public static function add($_new_cat)
+	private static function check()
 	{
-		if(!$_new_cat && $_new_cat !== '0')
+		$title = \dash\app::request('title');
+		if(!$title && $title !== '0')
 		{
-			\dash\notif::error(T_("Plese fill the category name"), 'cat');
+			\dash\notif::error(T_("Plese fill the cat name"), 'cat');
 			return false;
 		}
 
-		if(mb_strlen($_new_cat) > 100)
+		if(mb_strlen($title) > 100)
 		{
 			\dash\notif::error(T_("Category name is too large!"), 'cat');
 			return false;
 		}
 
-		$json = self::list();
-
-		if(isset($json[$_new_cat]))
+		$type = \dash\app::request('type');
+		if($type && !in_array($type, ['decimal', 'integer']))
 		{
-			\dash\notif::error(T_("Duplicate category founded"), 'cat');
+			\dash\notif::error(T_("Invalid type of cat"), 'type');
 			return false;
 		}
 
-		$json[$_new_cat] = ['title' => $_new_cat];
+		$default = \dash\app::request('catdefault') ? true : false;
+
+		$maxsale = \dash\app::request('maxsale');
+		if($maxsale && !is_numeric($maxsale))
+		{
+			\dash\notif::error(T_("Plese set the max sale as a number"), 'maxsale');
+			return false;
+		}
+
+		if($maxsale)
+		{
+			$maxsale = abs(intval($maxsale));
+			if($maxsale > 1E+9)
+			{
+				\dash\notif::error(T_("Max sale is out of range"), 'maxsale');
+				return false;
+			}
+		}
+
+		$args            = [];
+		$args['title']   = $title;
+		$args['type']    = $type;
+		$args['default'] = $default;
+		$args['maxsale'] = $maxsale;
+		return $args;
+
+	}
+
+
+	public static function add($_args)
+	{
+		\dash\app::variable($_args);
+
+		$args = self::check();
+
+		if($args === false || !\dash\engine\process::status())
+		{
+			return false;
+		}
+
+		$json = self::list();
+
+		if(isset($json[$args['title']]))
+		{
+			\dash\notif::error(T_("Duplicate cat founded"), 'cat');
+			return false;
+		}
+
+		if($args['default'])
+		{
+			foreach ($json as $key => $value)
+			{
+				$json[$key]['default'] = false;
+			}
+		}
+
+		$json[$args['title']] = $args;
+
 
 		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
 		\lib\db\stores::update(['cat' => $json], \lib\store::id());
@@ -62,24 +118,15 @@ class cat
 	}
 
 
-	public static function update($_old_cat, $_new_cat)
+	public static function update($_old_cat, $_new_cat, $_args = [])
 	{
 
-		if($_old_cat == $_new_cat)
-		{
-			\dash\notif::info(T_("No change"));
-			return true;
-		}
+		\dash\app::variable($_args);
 
-		if(!$_new_cat)
-		{
-			\dash\notif::error(T_("Please fill the category"));
-			return true;
-		}
+		$args = self::check();
 
-		if(mb_strlen($_new_cat) > 100)
+		if($args === false || !\dash\engine\process::status())
 		{
-			\dash\notif::error(T_("Category name is too large!"), 'cat');
 			return false;
 		}
 
@@ -93,19 +140,32 @@ class cat
 
 		unset($json[$_old_cat]);
 
-		$json[$_new_cat] = ['title' => $_new_cat];
+		if($args['default'])
+		{
+			foreach ($json as $key => $value)
+			{
+				$json[$key]['default'] = false;
+			}
+		}
+
+		$json[$args['title']] = $args;
 
 		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
 		\lib\db\stores::update(['cat' => $json], \lib\store::id());
 
-		// update products
-		$count = \lib\db\products::get_count(['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
-		if($count)
+		$msg = T_("Category successfully updated");
+		if($_old_cat != $_new_cat)
 		{
-			\lib\db\products::update_where(['cat' => $_new_cat], ['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
+			// update products
+			$count = \lib\db\products::get_count(['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
+			if($count)
+			{
+				\lib\db\products::update_where(['cat' => $_new_cat], ['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
+				$msg = T_("All product by category :old updated to :new", ['old' => $_old_cat, 'new' => $_new_cat]);
+			}
 		}
 
-		\dash\notif::ok(T_("All product by category :old updated to :new", ['old' => $_old_cat, 'new' => $_new_cat]));
+		\dash\notif::ok($msg);
 
 		\lib\store::refresh();
 

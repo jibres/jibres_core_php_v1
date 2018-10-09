@@ -21,10 +21,16 @@ class model
 			return;
 		}
 
+		$args                = [];
+		$args['type']        = \dash\request::post('type');
+		$args['catdefault'] = \dash\request::post('catdefault');
+		$args['maxsale']     = \dash\request::post('maxsale');
+		$args['title']       = \dash\request::post('cat');
+
 		// add new category
 		if(!\dash\data::editMode())
 		{
-			$result = \lib\app\product\cat::add($new_cat);
+			$result = \lib\app\product\cat::add($args);
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::this(). '/cats');
@@ -39,7 +45,7 @@ class model
 			return false;
 		}
 
-		$result = \lib\app\product\cat::update($old_cat, $new_cat);
+		$result = \lib\app\product\cat::update($old_cat, $new_cat, $args);
 
 		if(\dash\engine\process::status())
 		{
