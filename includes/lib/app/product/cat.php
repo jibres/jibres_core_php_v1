@@ -161,7 +161,7 @@ class cat
 			if($count)
 			{
 				\lib\db\products::update_where(['cat' => $_new_cat], ['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
-				$msg = T_("All product by category :old updated to :new", ['old' => $_old_cat, 'new' => $_new_cat]);
+				$msg = T_("All products by category :old updated to :new", ['old' => $_old_cat, 'new' => $_new_cat]);
 			}
 		}
 

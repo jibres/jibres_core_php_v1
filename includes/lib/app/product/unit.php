@@ -162,7 +162,7 @@ class unit
 			if($count)
 			{
 				\lib\db\products::update_where(['unit' => $_new_unit], ['store_id' => \lib\store::id(), 'unit' => $_old_unit]);
-				$msg = T_("All product by unit :old updated to :new", ['old' => $_old_unit, 'new' => $_new_unit]);
+				$msg = T_("All products by unit :old updated to :new", ['old' => $_old_unit, 'new' => $_new_unit]);
 			}
 		}
 
