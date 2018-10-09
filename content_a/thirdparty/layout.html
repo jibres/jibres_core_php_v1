@@ -58,9 +58,9 @@
 
 
 {%block psidebar%}
-<div class="cbox normal">
+<div class="cbox">
 
- <div class="vcard">
+ <div class="vcard txtC">
   <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
   {%if dataRow.avatar%}
     <img src="{{dataRow.avatar}}">
@@ -70,7 +70,7 @@
   </a>
   <div class="content">
     <div class="header">{{dataRow.firstname}} <b>{{dataRow.lastname}}</b></div>
-    <div class="meta"><span>{{dataRow.grade_title}}</span></div>
+    <div class="meta"><span>{{dataRow.displayname}}</span></div>
     {%if dataRow.mobile%}
     <div class="desc"><i class="sf-mobile fs2"></i>{{dataRow.mobile|fitNumber(false)}}</div>
     {%endif%}
@@ -79,13 +79,26 @@
   <div class="footer">{{dataRow.nationalcode|fitNumber(false)}}</div>
   {%endif%}
  </div>
+</div>
 
+<div class="cbox">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+<div class="cbox">
  <a class="btn block mTB10" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General Detail"%}</a>
  <!-- <a class="btn block mTB10" href='{{url.this}}/thumb?id={{requestGET.id}}'>{%trans "Document Photo"%}</a> -->
  <a class="btn block mTB10" href='{{url.this}}/contact?id={{requestGET.id}}'>{%trans "Contact information"%}</a>
  <a class="btn block mTB10" href='{{url.this}}/identification?id={{requestGET.id}}'>{%trans "Identification detail"%}</a>
  <a class="btn block mTB10" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Location and address"%}</a>
 </div>
+
+
 {%endblock%}
 
 
@@ -442,26 +455,26 @@
 
 
 {%block pageStepsProfile%}
-<div class="f mLR5 msg secondary2">
-  <div class="c pB5 pRa10">
+<div class="f msg pB0 secondary2">
+  <div class="c pB10 pRa10">
     <a class="btn light block {%if url.child=='general'%} primary{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General"%}</a>
   </div>
-  <div class="c pB5 pRa10">
+  <div class="c pB10 pRa10">
     <a class="btn light block {%if url.child=='contact'%} primary{%endif%}" href='{{url.this}}/contact?id={{requestGET.id}}'>{%trans "Contact"%}</a>
   </div>
-  <div class="c pB5 pRa10">
+  <div class="c pB10 pRa10">
     <a class="btn light block {%if url.child=='address'%} primary{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Address"%}</a>
   </div>
-  <div class="c pB5 pRa10">
+  <div class="c pB10 pRa10">
     <a class="btn light block {%if url.child=='identify'%} primary{%endif%}" href='{{url.this}}/identify?id={{requestGET.id}}'>{%trans "Identify"%}</a>
   </div>
-  <div class="c pB5 pRa10">
+  <div class="c pB10 pRa10">
     <a class="btn light block {%if url.child=='avatar'%} primary{%endif%}" href='{{url.this}}/avatar?id={{requestGET.id}}'>{%trans "avatar"%}</a>
   </div>
-  <div class="c pB5 pRa10">
+  <div class="c pB10 pRa10">
     <a class="btn light block {%if url.child=='company'%} primary{%endif%}" href='{{url.this}}/company?id={{requestGET.id}}'>{%trans "Company Detail"%}</a>
   </div>
-  <div class="c pB5">
+  <div class="c pB10">
     <a class="btn light block {%if url.child=='manage'%} primary{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>
   </div>
 
