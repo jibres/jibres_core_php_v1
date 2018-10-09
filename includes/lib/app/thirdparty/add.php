@@ -92,12 +92,14 @@ trait add
 
 		if(isset($args['supplier']) && $args['supplier'])
 		{
+			if(!$args['companyname'])
+			{
+				\dash\notif::error(T_("Plese fill the company name"), 'companyname');
+				return false;
+			}
+
 			$supplier                = [];
-			$supplier['supplier']    = 1;
-			$supplier['status']      = 'active';
-			$supplier['displayname'] = $args['displayname'];
-			$supplier['companyname'] = $args['displayname'];
-			$supplier['user_id']     = self::signup(['displayname' => $args['displayname']]);
+
 			if($_option['store_id'] && is_numeric($_option['store_id']))
 			{
 				$supplier['store_id'] = $_option['store_id'];
@@ -106,6 +108,29 @@ trait add
 			{
 				$supplier['store_id'] = \lib\store::id();
 			}
+
+			$check                = [];
+			$check['store_id']    = $supplier['store_id'];
+			$check['supplier']    = 1;
+			$check['companyname'] = $args['companyname'];
+			$check['limit']       = 1;
+
+			$check_query = \lib\db\userstores::get($check);
+
+			if(isset($check_query['id']))
+			{
+				$msg = T_("Company :companyname was already added to this store", ['companyname' => $args['companyname']]);
+				$msg = "<a href='". \dash\url::here(). '/thirdparty/general?id='. \dash\coding::encode($check_query['id']). "'>$msg</a>";
+				\dash\notif::error($msg, 'companyname');
+				return false;
+			}
+
+
+			$supplier['supplier']    = 1;
+			$supplier['status']      = 'active';
+			$supplier['displayname'] = $args['companyname'];
+			$supplier['companyname'] = $args['companyname'];
+			$supplier['user_id']     = self::signup(['displayname' => $args['companyname']]);
 
 			$supplier_id             = \lib\db\userstores::insert($supplier);
 
@@ -120,7 +145,6 @@ trait add
 			unset($args['companyname']);
 
 			$args['visitor']     = $supplier_id;
-			$args['displayname'] = trim($args['firstname']. ' '. $args['lastname']);
 			$args['customer']    = 1;
 		}
 
