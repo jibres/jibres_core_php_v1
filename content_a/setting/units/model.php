@@ -21,10 +21,16 @@ class model
 			return;
 		}
 
+		$args                = [];
+		$args['type']        = \dash\request::post('type');
+		$args['unitdefault'] = \dash\request::post('unitdefault');
+		$args['maxsale']     = \dash\request::post('maxsale');
+		$args['title']       = \dash\request::post('unit');
+
 		// add new unitegory
 		if(!\dash\data::editMode())
 		{
-			$result = \lib\app\product\unit::add($new_unit);
+			$result = \lib\app\product\unit::add($args);
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::this(). '/units');
@@ -39,7 +45,7 @@ class model
 			return false;
 		}
 
-		$result = \lib\app\product\unit::update($old_unit, $new_unit);
+		$result = \lib\app\product\unit::update($old_unit, $new_unit, $args);
 
 		if(\dash\engine\process::status())
 		{

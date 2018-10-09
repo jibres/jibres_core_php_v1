@@ -4,35 +4,91 @@ namespace lib\app\product;
 
 class unit
 {
-
-	public static function add($_new_unit)
+	private static function check()
 	{
-		if(!$_new_unit && $_new_unit !== '0')
+		$title = \dash\app::request('title');
+		if(!$title && $title !== '0')
 		{
 			\dash\notif::error(T_("Plese fill the unit name"), 'unit');
 			return false;
 		}
 
-		if(mb_strlen($_new_unit) > 100)
+		if(mb_strlen($title) > 100)
 		{
-			\dash\notif::error(T_("Category name is too large!"), 'unit');
+			\dash\notif::error(T_("Unit name is too large!"), 'unit');
+			return false;
+		}
+
+		$type = \dash\app::request('type');
+		if($type && !in_array($type, ['decimal', 'integer']))
+		{
+			\dash\notif::error(T_("Invalid type of unit"), 'type');
+			return false;
+		}
+
+		$default = \dash\app::request('unitdefault') ? true : false;
+
+		$maxsale = \dash\app::request('maxsale');
+		if($maxsale && !is_numeric($maxsale))
+		{
+			\dash\notif::error(T_("Plese set the max sale as a number"), 'maxsale');
+			return false;
+		}
+
+		if($maxsale)
+		{
+			$maxsale = abs(intval($maxsale));
+			if($maxsale > 1E+9)
+			{
+				\dash\notif::error(T_("Max sale is out of range"), 'maxsale');
+				return false;
+			}
+		}
+
+		$args            = [];
+		$args['title']   = $title;
+		$args['type']    = $type;
+		$args['default'] = $default;
+		$args['maxsale'] = $maxsale;
+		return $args;
+
+	}
+
+
+	public static function add($_args)
+	{
+		\dash\app::variable($_args);
+
+		$args = self::check();
+
+		if($args === false || !\dash\engine\process::status())
+		{
 			return false;
 		}
 
 		$json = self::list();
 
-		if(isset($json[$_new_unit]))
+		if(isset($json[$args['title']]))
 		{
-			\dash\notif::error(T_("Dupliunite unit founded"), 'unit');
+			\dash\notif::error(T_("Duplicate unit founded"), 'unit');
 			return false;
 		}
 
-		$json[$_new_unit] = ['title' => $_new_unit];
+		if($args['default'])
+		{
+			foreach ($json as $key => $value)
+			{
+				$json[$key]['default'] = false;
+			}
+		}
+
+		$json[$args['title']] = $args;
+
 
 		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
 		\lib\db\stores::update(['unit' => $json], \lib\store::id());
 
-		\dash\notif::ok(T_("Category successfully added"));
+		\dash\notif::ok(T_("Unit successfully added"));
 		\lib\store::refresh();
 
 		return true;
@@ -45,7 +101,7 @@ class unit
 
 		if(!isset($json[$_old_unit]))
 		{
-			\dash\notif::error(T_("Category not found in your store!"), 'unit');
+			\dash\notif::error(T_("Unit not found in your store!"), 'unit');
 			return false;
 		}
 
@@ -54,7 +110,7 @@ class unit
 		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
 		\lib\db\stores::update(['unit' => $json], \lib\store::id());
 
-		\dash\notif::warn(T_("Category successfully removed"));
+		\dash\notif::warn(T_("Unit successfully removed"));
 		\lib\store::refresh();
 
 		return true;
@@ -62,24 +118,15 @@ class unit
 	}
 
 
-	public static function update($_old_unit, $_new_unit)
+	public static function update($_old_unit, $_new_unit, $_args = [])
 	{
 
-		if($_old_unit == $_new_unit)
-		{
-			\dash\notif::info(T_("No change"));
-			return true;
-		}
+		\dash\app::variable($_args);
 
-		if(!$_new_unit)
-		{
-			\dash\notif::error(T_("Please fill the unit"));
-			return true;
-		}
+		$args = self::check();
 
-		if(mb_strlen($_new_unit) > 100)
+		if($args === false || !\dash\engine\process::status())
 		{
-			\dash\notif::error(T_("Category name is too large!"), 'unit');
 			return false;
 		}
 
@@ -87,22 +134,33 @@ class unit
 
 		if(!isset($json[$_old_unit]))
 		{
-			\dash\notif::error(T_("Category not found in your store!"), 'unit');
+			\dash\notif::error(T_("Unit not found in your store!"), 'unit');
 			return false;
 		}
 
 		unset($json[$_old_unit]);
 
-		$json[$_new_unit] = ['title' => $_new_unit];
+		if($args['default'])
+		{
+			foreach ($json as $key => $value)
+			{
+				$json[$key]['default'] = false;
+			}
+		}
+
+		$json[$args['title']] = $args;
 
 		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
 		\lib\db\stores::update(['unit' => $json], \lib\store::id());
 
-		// update products
-		$count = \lib\db\products::get_count(['store_id' => \lib\store::id(), 'unit' => $_old_unit]);
-		if($count)
+		if($_old_unit != $_new_unit)
 		{
-			\lib\db\products::update_where(['unit' => $_new_unit], ['store_id' => \lib\store::id(), 'unit' => $_old_unit]);
+			// update products
+			$count = \lib\db\products::get_count(['store_id' => \lib\store::id(), 'unit' => $_old_unit]);
+			if($count)
+			{
+				\lib\db\products::update_where(['unit' => $_new_unit], ['store_id' => \lib\store::id(), 'unit' => $_old_unit]);
+			}
 		}
 
 		\dash\notif::ok(T_("All product by unit :old updated to :new", ['old' => $_old_unit, 'new' => $_new_unit]));
@@ -143,7 +201,7 @@ class unit
 			}
 		}
 
-			foreach ($json as $key => $value)
+		foreach ($json as $key => $value)
 		{
 			if(!isset($result[$key]))
 			{
