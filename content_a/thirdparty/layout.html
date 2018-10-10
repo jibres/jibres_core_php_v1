@@ -137,22 +137,6 @@
 
 
 
-{%block imobileSearch%}
-<label for="mobile">{%trans "Enter mobile"%} <small class="fc-red">* {%trans "Require"%}</small></label>
-<select name="mobile" class="ui dropdown search mB10" autofocus id="mobile" data-source='{{url.here}}/thirdparty?list=mobile&q={query}'>
-  <option value="" readonly>{%trans "Enter mobile"%} *</option>
-</select>
-{%endblock%}
-
-
-
-{%block imobileSearchvisitor%}
-<label for="mobile">{%trans "Enter visitor mobile"%}</label>
-<select name="mobile" class="ui dropdown search" id="mobile" data-source='{{url.here}}/thirdparty?list=mobile&q={query}'>
-  <option value="" readonly>{%trans "Enter visitor mobile"%}</option>
-</select>
-{%endblock%}
-
 
 
 {%block inameFree%}
@@ -206,7 +190,7 @@
 
 {%block ibirthday%}
 <label for="birthday">{%trans "Birthday"%}</label>
-<div class="input">
+<div class="input ltr">
   <input class="datepicker" type="text" name="birthday" id="birthday" placeholder='{{"1369/04/15" | fitNumber(false)}}' value="{{dataRow.birthday}}" maxlength='20' data-format="YYYY/MM/DD" data-view="year">
 </div>
 {%endblock%}
@@ -237,56 +221,7 @@
 
 
 
-{%block icountry%}
-<label for='country'>{%trans "Country"%}</label>
- <div class="ui fluid search selection dropdown">
-      <input type="hidden" name="country" value="{{dataRow.country}}">
-      <i class="dropdown icon"></i>
-      <div class="default text">Select Country</div>
-      <div class="menu">
-    {%for key, value in countryList%}
-      <div class="item" data-value="{{key}}">
-        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}
-        <small class="description">{{value.name | capitalize}}</small>
-    </div>
-    {%endfor%}
-  </div>
-</div>
-{%endblock%}
 
-
-{%block iprovince%}
-<label for='province'>{%trans "Province"%}</label>
-<select name="province" class="ui dropdown select search" id="province">
-  <option value="" readonly>{%trans "Select province"%}</option>
-  {%for key, value in proviceList%}
-    <option value="{{key}}" {% if dataRow.province == key %} selected {%endif%}>{{value}}</option>
-  {%endfor%}
-</select>
-{%endblock%}
-
-
-{%block icity%}
-<label for='city'>{%trans "City"%}</label>
-<select name="city" class="ui dropdown select search" id="city">
-  <option value="" readonly>{%trans "Select city"%}</option>
-  {%for key, value in cityList%}
-    <option value="{{key}}" {% if dataRow.city == key %} selected {%endif%}>{{value}}</option>
-  {%endfor%}
-</select>
-{%endblock%}
-
-
-
-
-
-
-{%block izipcode%}
-<label for='zipcode'>{%trans "Zip code"%}</label>
-<div class="input">
- <input type='number' name='zipcode' id='zipcode' min="0" value="{{dataRow.zipcode}}"/>
-</div>
-{%endblock%}
 
 
 
@@ -340,26 +275,64 @@
 {%endblock%}
 
 
-{%block iNationalthumb%}
-<div class="input preview">
- <input type="file" accept="image/gif, image/jpeg, image/png" name="nationalthumb" id="nationalthumb" data-preview data-max="500">
- <label for="nationalthumb" title="Simple Title">
-    {%if dataRow.nationalthumb%}<img src="{{dataRow.nationalthumb}}">{%endif%}
- </label>
+
+
+{%block inationality%}
+<div class="mB10">
+  <label for='nationality'>{%trans "Nationality"%}</label>
+  <div class="ui fluid search selection dropdown">
+    <input type="hidden" name="nationality" value="{%if dataRow.nationality%}{{dataRow.nationality}}{%else%}IR{%endif%}">
+    <i class="dropdown icon"></i>
+    <div class="default text">{%trans "Choose your nationality"%}</div>
+    <div class="menu">
+{%for key, value in countryList%}
+      <div class="item" data-value="{{key}}">
+        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}<small class="description">{{value.name | capitalize}}</small>
+      </div>
+{%endfor%}
+    </div>
+  </div>
 </div>
 {%endblock%}
+
+
+{%block iNationalthumb%}
+<div class="input">
+<label for="nationalthumb">{%trans "National card photo"%}</label>
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="nationalthumb" id="nationalthumb"  data-max="500">
+</div>
+{%endblock%}
+
 
 
 {%block iShthumb%}
-<div class="input preview">
- <input type="file" accept="image/gif, image/jpeg, image/png" name="shthumb" id="shthumb" data-preview data-max="500">
- <label for="shthumb" title="Simple Title">
-    {%if dataRow.shthumb%}<img src="{{dataRow.shthumb}}">{%endif%}
- </label>
+<div class="input">
+  <label for="shthumb">{%trans "ID card image"%}</label>
+  <input type="file" accept="image/gif, image/jpeg, image/png" name="shthumb" id="shthumb"  data-max="500">
 </div>
 {%endblock%}
 
 
+
+{%block iPassportThumb%}
+<div class="input">
+  <label for="passportthumb">{%trans "Passport card image"%}</label>
+  <input type="file" accept="image/gif, image/jpeg, image/png" name="passportthumb" id="passportthumb"  data-max="500">
+</div>
+{%endblock%}
+
+
+
+{%block imarital%}
+
+  <label for="marital">{%trans "Marital"%}</label>
+  <select name="marital" class="ui dropdown select">
+    <option value="" readonly>{%trans "Please select one itme"%}</option>
+    <option value="single" {%if dataRow.marital == 'single' %}selected {%endif%}>{%trans "Single"%}</option>
+    <option value="married" {%if dataRow.marital == 'married' %}selected{%endif%}>{%trans "Married"%}</option>
+  </select>
+
+{%endblock%}
 
 
 {%block iadd%}
@@ -388,6 +361,13 @@
 {%endblock%}
 
 
+
+{%block ishcode%}
+<label for="shcode">{%trans "Identify code"%}</label>
+<div class="input">
+  <input type="number" name="shcode" id="shcode" placeholder='{%trans "Identify code"%}' value="{{dataRow.shcode}}" min=0 max=9999999999>
+</div>
+{%endblock%}
 
 {%block icode%}
 <label for="code">{%trans "Customer code"%}</label>

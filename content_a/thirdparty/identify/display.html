@@ -1,25 +1,69 @@
 {%extends "content_a/thirdparty/layout.html"%}
 
-{%block data%}
-<form class="cbox" method="post">
+{%block pageContent%}
+{{block ("pageSteps")}}
+{{block ("pageStepsProfile")}}
 
-<h4 class="pT15">{%trans "ID Cards"%}</h4>
-<div class="f">
- <div class="c s12 pRa5">{{block("iid")}}</div>
- <div class="c s12 pRa5">{{block("inid")}}</div>
-</div>
-<div class="f">
- <div class="c s12 pRa5">{{block("ipassport")}}</div>
- <div class="c s12 pRa5">{{block("ipassportexpire")}}</div>
-</div>
 
-<h4 class="pT15">{%trans "Birth Detail"%}</h4>
 <div class="f">
- <div class="c s12 pRa5">{{block("ibirthplace")}}</div>
- <div class="c s12 pRa5">{{block("iissueplace")}}</div>
+ <div class="c3 s12 x2 pRa10">
+    {{block("psidebar")}}
+ </div>
+ <div class="c9 x10 s12">
+ 	<div class="cbox">
+ 		{{block('iformData')}}
+ 	</div>
+ </div>
 </div>
 
-{{block("ifather")}}
+
+{%endblock%}
+
+
+
+
+{%block iformData%}
+
+<form method="post" autocomplete="off">
+
+<div class="f">
+	<div class="cauto mRa5">{{block('igender')}}</div>
+	<div class="c">{{block('idisplayname')}}</div>
+</div>
+<div class="f">
+	<div class="c mRa5">{{block('iname')}}</div>
+	<div class="c">{{block('ifamily')}}</div>
+</div>
+
+
+<div class="f">
+	<div class="c mRa5">{{block('ifather')}}</div>
+	<div class="c">{{block('ibirthday')}}</div>
+</div>
+
+<div class="f">
+	<div class="c mRa5">{{block('inationality')}}</div>
+	<div class="c">{{block('incode')}}</div>
+</div>
+
+
+<div class="f">
+	<div class="c mRa5">{{block('imarital')}}</div>
+	<div class="c">{{block('ishcode')}}</div>
+</div>
+
+<div class="f">
+	<div class="c mRa5">{{block('ibirthcity')}}</div>
+	<div class="c">{{block('ipassport')}}</div>
+</div>
+
+
+<div class="f">
+	<div class="c mRa10">{{block('iNationalthumb')}}</div>
+	<div class="c mRa10">{{block('iShthumb')}}</div>
+	<div class="c">{{block('iPassportThumb')}}</div>
+</div>
+
 
 {{block("isave")}}
 

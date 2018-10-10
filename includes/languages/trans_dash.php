@@ -727,7 +727,7 @@ class twigTransTerms
 	echo T_("Two step verification for your account is active");                      // Line 39
 	echo T_("To deactive it");                                                        // Line 42
 	echo T_("Click here");                                                            // Line 253
-	echo T_("Two step verification for your account is not active!");                 // Line 48
+	echo T_("Two step verification for your account is not active!");                 // Line 49
 	echo T_("To active it");                                                          // Line 51
 	echo T_("Save remember session");                                                 // Line 64
 	echo T_("To change your password");                                               // Line 253
