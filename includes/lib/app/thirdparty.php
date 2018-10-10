@@ -136,6 +136,12 @@ class thirdparty
 			return false;
 		}
 
+		// to remove 0 if not selected gender
+		if(!$gender)
+		{
+			$gender = null;
+		}
+
 		$marital = \dash\app::request('marital');
 		if($marital && !in_array($marital, ['single', 'married']))
 		{
@@ -248,8 +254,18 @@ class thirdparty
 		{
 			if(\dash\app::isset_request('mobile') && !$mobile)
 			{
-				\dash\notif::error(T_("Fill mobile for staff is required!"), ['mobile']);
+				\dash\notif::error(T_("Fill mobile for staff is required!"), 'mobile');
 				return false;
+			}
+
+
+			if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname') || \dash\app::isset_request('displayname'))
+			{
+				if(!$firstname && !$lastname && !$displayname)
+				{
+					\dash\notif::error(T_("Fill name of staff is required"), ['element' => ['name', 'lastName', 'displayname']]);
+					return false;
+				}
 			}
 		}
 
@@ -259,11 +275,11 @@ class thirdparty
 		}
 		else
 		{
-			if(\dash\app::isset_request('firstname') || \dash\app::isset_request('lastname') || \dash\app::isset_request('mobile'))
+			if(\dash\app::isset_request('displayname') || \dash\app::isset_request('mobile'))
 			{
-				if(!$firstname && !$lastname && !$mobile)
+				if(!$displayname && !$mobile)
 				{
-					\dash\notif::error(T_("Fill mobile or name or family is require!"), ['firstname', 'lastname', 'mobile']);
+					\dash\notif::error(T_("Fill mobile or name is require!"), ['element' => ['displayname', 'mobile']]);
 					return false;
 				}
 			}
