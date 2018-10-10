@@ -1,5 +1,5 @@
 <?php
-namespace content_a\thirdparty\glance;
+namespace content_a\thirdparty\company;
 
 
 class view

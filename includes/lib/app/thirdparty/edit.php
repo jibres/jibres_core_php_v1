@@ -102,6 +102,10 @@ trait edit
 		if(!\dash\app::isset_request('phone'))       unset($args['phone']);
 		if(!\dash\app::isset_request('fax'))         unset($args['fax']);
 		if(!\dash\app::isset_request('nationality')) unset($args['nationality']);
+		if(!\dash\app::isset_request('companyname')) 		unset($args['companyname']);
+		if(!\dash\app::isset_request('companyeconomiccode')) unset($args['companyeconomiccode']);
+		if(!\dash\app::isset_request('companynationalid')) 	unset($args['companynationalid']);
+		if(!\dash\app::isset_request('companyregisternumber')) unset($args['companyregisternumber']);
 
 		unset($args['type']);
 

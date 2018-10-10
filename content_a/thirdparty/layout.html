@@ -356,6 +356,37 @@
 
 
 
+
+
+
+{%block icompanyeconomiccode%}
+<label for="icompanyeconomiccode">{%trans "Economic code"%}</label>
+<div class="input">
+  <input type="text" name="companyeconomiccode" id="icompanyeconomiccode" placeholder='{%trans "Enter economic code"%}' value="{{dataRow.companyeconomiccode}}" autofocus maxlength='40' minlength="1" data-response-realtime>
+</div>
+{%endblock%}
+
+
+{%block icompanynationalid%}
+<label for="icompanynationalid">{%trans "Company national id"%}</label>
+<div class="input">
+  <input type="text" name="companynationalid" id="icompanynationalid" placeholder='{%trans "Enter company national id"%}' value="{{dataRow.companynationalid}}" autofocus maxlength='40' minlength="1" data-response-realtime>
+</div>
+{%endblock%}
+
+
+
+{%block icompanyregisternumber%}
+<label for="icompanyregisternumber">{%trans "Company register number"%}</label>
+<div class="input">
+  <input type="text" name="companyregisternumber" id="icompanyregisternumber" placeholder='{%trans "Enter register number"%}' value="{{dataRow.companyregisternumber}}" autofocus maxlength='40' minlength="1" data-response-realtime>
+</div>
+{%endblock%}
+
+
+
+
+
 {%block inamevisitor%}
 <label for="visitorname">{%trans "Visitor name"%}</label>
 <div class="input">
