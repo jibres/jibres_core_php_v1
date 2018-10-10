@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-10-09 09:52+0330\n"
-"PO-Revision-Date: 2018-10-09 10:05+0330\n"
+"POT-Creation-Date: 2018-10-10 11:17+0330\n"
+"PO-Revision-Date: 2018-10-10 11:17+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -2485,7 +2485,16 @@ msgstr "کلمه عبور تنظیم نشده است، آن را تنظیم کن
 
 #: dash/addons/includes/languages/trans_dash.php:120
 #: dash/addons/includes/languages/trans_static.php:147
+#: jibres/content_a/thirdparty/bought/controller.php:60
+#: jibres/content_a/thirdparty/company/controller.php:60
+#: jibres/content_a/thirdparty/factor/controller.php:60
+#: jibres/content_a/thirdparty/glance/controller.php:60
 #: jibres/content_a/thirdparty/home/controller.php:60
+#: jibres/content_a/thirdparty/identify/controller.php:60
+#: jibres/content_a/thirdparty/log/controller.php:60
+#: jibres/content_a/thirdparty/manage/controller.php:60
+#: jibres/content_a/thirdparty/profile/controller.php:60
+#: jibres/content_a/thirdparty/sold/controller.php:60
 #: jibres/includes/languages/trans_dash.php:89
 #: jibres/includes/languages/trans_project.php:326
 msgid "Add"
@@ -11108,7 +11117,7 @@ msgid "List of all factors."
 msgstr "لیست تمامی فاکتور‌ها."
 
 #: jibres/content_a/factor/home/view.php:66
-#: jibres/content_a/thirdparty/add/view.php:25
+#: jibres/content_a/thirdparty/add/view.php:24
 #: jibres/content_a/thirdparty/home/view.php:72
 #: jibres/content_a/thirdparty/home/view.php:145
 msgid "Add new :type"
@@ -11188,7 +11197,7 @@ msgstr "بدون تخفیف"
 #: jibres/content_a/filter.php:130 jibres/includes/languages/trans_project.php:440
 #: jibres/includes/languages/trans_static.php:69
 msgid "Supplier"
-msgstr "تامین‌کنندگان"
+msgstr "تامین‌کننده"
 
 #: jibres/content_a/filter.php:135 jibres/includes/languages/trans_project.php:439
 #: jibres/includes/languages/trans_static.php:65
@@ -11496,12 +11505,16 @@ msgstr "واحد نامعتبر‌است"
 msgid "Units Setting"
 msgstr "نتظیمات واحد"
 
-#: jibres/content_a/thirdparty/add/view.php:14
+#: jibres/content_a/thirdparty/add/controller.php:25
+msgid "You have not permission to add any thirdparty!"
+msgstr ""
+
+#: jibres/content_a/thirdparty/add/view.php:13
 #: jibres/content_a/thirdparty/home/view.php:133
 msgid "Add new third party"
 msgstr "افزودن طرف حساب جدید"
 
-#: jibres/content_a/thirdparty/add/view.php:15
+#: jibres/content_a/thirdparty/add/view.php:14
 msgid ""
 "You can add new third party and after add with minimal data, we allow you to add "
 "extra detail."
@@ -11509,17 +11522,17 @@ msgstr ""
 "در این صفحه عضو جدید را با حداقل داده‌ها اضافه کرده و پس از افزودن، داده‌های اضافی "
 "مثل عکس و جزئیات تماس و ... آن طرف حساب را وارد کنید."
 
-#: jibres/content_a/thirdparty/add/view.php:19
+#: jibres/content_a/thirdparty/add/view.php:18
 msgid "Back to third parties list"
 msgstr "بازگشت به لیست تمامی طرف حساب ها"
 
-#: jibres/content_a/thirdparty/add/view.php:26
+#: jibres/content_a/thirdparty/add/view.php:25
 msgid "Add new :type with minmal data and after that you can add extra detail."
 msgstr ""
 "افزودن :type جدید با اطلاعات کم و پس از آن شما می توانید اطلاعات بیشتری را "
 "بیافزایید."
 
-#: jibres/content_a/thirdparty/add/view.php:30
+#: jibres/content_a/thirdparty/add/view.php:29
 msgid "Back to :type"
 msgstr "بازگشت به لیست :type"
 
@@ -11540,6 +11553,43 @@ msgstr "ویرایش آواتار"
 msgid "Allow to set and change avatar of thirdparty"
 msgstr "اجازه تنظیم یا تغییر آواتار طرف حساب‌ها"
 
+#: jibres/content_a/thirdparty/bought/controller.php:70
+#: jibres/content_a/thirdparty/company/controller.php:70
+#: jibres/content_a/thirdparty/factor/controller.php:70
+#: jibres/content_a/thirdparty/glance/controller.php:70
+#: jibres/content_a/thirdparty/home/controller.php:70
+#: jibres/content_a/thirdparty/identify/controller.php:70
+#: jibres/content_a/thirdparty/log/controller.php:70
+#: jibres/content_a/thirdparty/manage/controller.php:70
+#: jibres/content_a/thirdparty/profile/controller.php:70
+#: jibres/content_a/thirdparty/sold/controller.php:70
+#: jibres/includes/lib/app/thirdparty.php:36
+msgid "Invalid mobile"
+msgstr "شماره‌ی تلفن همراه نامعتبر است"
+
+#: jibres/content_a/thirdparty/bought/view.php:12
+#: jibres/content_a/thirdparty/company/view.php:12
+#: jibres/content_a/thirdparty/factor/view.php:12
+#: jibres/content_a/thirdparty/glance/view.php:12
+#: jibres/content_a/thirdparty/log/view.php:12
+#: jibres/content_a/thirdparty/manage/view.php:12
+#: jibres/content_a/thirdparty/profile/view.php:12
+#: jibres/content_a/thirdparty/sold/view.php:12
+msgid "Glance user detail"
+msgstr ""
+
+#: jibres/content_a/thirdparty/bought/view.php:13
+#: jibres/content_a/thirdparty/company/view.php:13
+#: jibres/content_a/thirdparty/factor/view.php:13
+#: jibres/content_a/thirdparty/general/view.php:13
+#: jibres/content_a/thirdparty/glance/view.php:13
+#: jibres/content_a/thirdparty/log/view.php:13
+#: jibres/content_a/thirdparty/manage/view.php:13
+#: jibres/content_a/thirdparty/profile/view.php:13
+#: jibres/content_a/thirdparty/sold/view.php:13
+msgid "you can edit general detail of thirdparty"
+msgstr "شما می‌توانید اطلاعات این طرف حساب را ویرایش کنید"
+
 #: jibres/content_a/thirdparty/contact/view.php:12
 msgid "Edit contact information"
 msgstr "ویرایش اطلاعات تماس"
@@ -11551,15 +11601,6 @@ msgstr "تغییر شماره تلفن همراه طرف حساب، ایمیل �
 #: jibres/content_a/thirdparty/general/view.php:12
 msgid "Edit general information"
 msgstr "ویرایش اطلاعات عمومی"
-
-#: jibres/content_a/thirdparty/general/view.php:13
-msgid "you can edit general detail of thirdparty"
-msgstr "شما می‌توانید اطلاعات این طرف حساب را ویرایش کنید"
-
-#: jibres/content_a/thirdparty/home/controller.php:70
-#: jibres/includes/lib/app/thirdparty.php:36
-msgid "Invalid mobile"
-msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
 #: jibres/content_a/thirdparty/home/view.php:9
 msgid ":type list"
@@ -11601,11 +11642,11 @@ msgstr "جستجو در لیست :type و افزودن یا ویرایش آنه�
 msgid "List of all third parties."
 msgstr "لیست تمامی طرف حساب ها."
 
-#: jibres/content_a/thirdparty/identification/view.php:12
+#: jibres/content_a/thirdparty/identify/view.php:12
 msgid "Edit identification detail"
 msgstr "ویرایش اطلاعات هویتی"
 
-#: jibres/content_a/thirdparty/identification/view.php:13
+#: jibres/content_a/thirdparty/identify/view.php:13
 msgid ""
 "set personal and birth identification detail and some other id detail like "
 "passport and etc"
@@ -14422,143 +14463,143 @@ msgstr "هیچ راهی برای افزودن انبار نیست"
 msgid ":store not found"
 msgstr "فروشگاه یافت نشد"
 
-#: jibres/includes/lib/app/product.php:115
+#: jibres/includes/lib/app/product.php:101
 #: jibres/includes/lib/app/product/add.php:79
 #: jibres/includes/lib/app/product/delete.php:37
 msgid "Product title can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: jibres/includes/lib/app/product.php:122
+#: jibres/includes/lib/app/product.php:108
 msgid "Product title must be less than 500 character"
 msgstr "عنوان محصول باید کمتر از ۵۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/product.php:133
+#: jibres/includes/lib/app/product.php:119
 msgid "Product name must be less than 500 character"
 msgstr "نام محصول باید کمتر از ۵۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/product.php:142
+#: jibres/includes/lib/app/product.php:128
 msgid "Product cat must be less than 200 character"
 msgstr "دسته بندی محصول باید کمتر از ۲۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/product.php:157
+#: jibres/includes/lib/app/product.php:143
 msgid "String of product company is too large"
 msgstr "متن عنوان شرکت سازنده از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:183
+#: jibres/includes/lib/app/product.php:169
 msgid "String of product unit is too large"
 msgstr "متن واحد شمارش کالای این محصول از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:194
+#: jibres/includes/lib/app/product.php:180
 msgid ""
 "Your barcode have wrong character. we change it. please check your product again"
 msgstr ""
 "بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا بررسی "
 "نمایید"
 
-#: jibres/includes/lib/app/product.php:201
+#: jibres/includes/lib/app/product.php:187
 msgid "String of product barcode is too large"
 msgstr "متن بارکد این محصول از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:212
+#: jibres/includes/lib/app/product.php:198
 msgid ""
 "Your barcode2 have wrong character. we change it. please check your product again"
 msgstr ""
 "ایران بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا "
 "بررسی نمایید"
 
-#: jibres/includes/lib/app/product.php:219
+#: jibres/includes/lib/app/product.php:205
 msgid "String of product barcode2 is too large"
 msgstr "متن بارکد ۲ این محصول از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:226
+#: jibres/includes/lib/app/product.php:212
 msgid "Duplicate barcode in one product"
 msgstr "بارکد تکراری در یک محصول"
 
-#: jibres/includes/lib/app/product.php:253
+#: jibres/includes/lib/app/product.php:239
 msgid "String of product code is too large"
 msgstr "متن کد این محصول از حد مجاز بزرگتر است"
 
-#: jibres/includes/lib/app/product.php:262
+#: jibres/includes/lib/app/product.php:248
 msgid "Value of buyprice muset be a number"
 msgstr "قیمت خرید باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:269
+#: jibres/includes/lib/app/product.php:255
 msgid "Value of buyprice is out of rage"
 msgstr "قیمت خرید خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:278
+#: jibres/includes/lib/app/product.php:264
 msgid "Value of price muset be a number"
 msgstr "قیمت باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:285
+#: jibres/includes/lib/app/product.php:271
 msgid "Value of price is out of rage"
 msgstr "قیمت خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:294
+#: jibres/includes/lib/app/product.php:280
 msgid "Value of discount muset be a number"
 msgstr "تخفیف باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:301
+#: jibres/includes/lib/app/product.php:287
 msgid "Value of discount is out of rage"
 msgstr "تخفیف خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:316
+#: jibres/includes/lib/app/product.php:302
 msgid "Value of initialbalance muset be a number"
 msgstr "موجودی اولیه باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:323
+#: jibres/includes/lib/app/product.php:309
 msgid "Value of initialbalance is out of rage"
 msgstr "موجودی اولیه خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:332
+#: jibres/includes/lib/app/product.php:318
 msgid "Value of minstock muset be a number"
 msgstr "حداقل موجودی باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:339
+#: jibres/includes/lib/app/product.php:325
 msgid "Value of minstock is out of rage"
 msgstr "حداقل موجودی خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:348
+#: jibres/includes/lib/app/product.php:334
 msgid "Value of maxstock muset be a number"
 msgstr "حداکثر موجودی باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:355
+#: jibres/includes/lib/app/product.php:341
 msgid "Value of maxstock is out of rage"
 msgstr "حداکثر موجودی خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:365
+#: jibres/includes/lib/app/product.php:351
 msgid "Product status is incorrect"
 msgstr "وضعیت محصول اشتباه است"
 
-#: jibres/includes/lib/app/product.php:382
+#: jibres/includes/lib/app/product.php:368
 msgid "Value of stock muset be a number"
 msgstr "تعداد فروخته شده باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:389
+#: jibres/includes/lib/app/product.php:375
 msgid "Value of stock is out of rage"
 msgstr "تعداد فروخته شده خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:397
+#: jibres/includes/lib/app/product.php:383
 msgid "Value of thumb is out of rage"
 msgstr "آدرس تصویر محصول خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:444
+#: jibres/includes/lib/app/product.php:430
 msgid "Value of carton muset be a number"
 msgstr "تعداد در کارتون باید به صورت عددی وارد شود"
 
-#: jibres/includes/lib/app/product.php:451
+#: jibres/includes/lib/app/product.php:437
 msgid "Value of carton is out of rage"
 msgstr "تعداد در کارتون خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:460
+#: jibres/includes/lib/app/product.php:446
 msgid "Value of desc is out of rage"
 msgstr "طول رشته توضیحات خارج از محدوده مجاز است"
 
-#: jibres/includes/lib/app/product.php:468
+#: jibres/includes/lib/app/product.php:454
 msgid "Final price is less than 0"
 msgstr "قیمت نهایی زیر صفر است"
 
-#: jibres/includes/lib/app/product.php:474
+#: jibres/includes/lib/app/product.php:460
 msgid "Final price less than buyprice!"
 msgstr "قیمت نهایی از قیمت خرید کمتر است!"
 
@@ -14583,50 +14624,50 @@ msgstr "خطای ناشناخته رخ داده است"
 msgid "More than 2 products saved by this barcode"
 msgstr "بیش از دو محصول با این بارکد به ثبت رسیده اند"
 
-#: jibres/includes/lib/app/product/cat.php:12
+#: jibres/includes/lib/app/product/cat.php:29
 msgid "Plese fill the cat name"
 msgstr "لطفا نام دسته‌بندی را وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:18
+#: jibres/includes/lib/app/product/cat.php:35
 msgid "Category name is too large!"
 msgstr "عنوان دسته‌بندی بسیار طولانی است"
 
-#: jibres/includes/lib/app/product/cat.php:25
+#: jibres/includes/lib/app/product/cat.php:42
 msgid "Invalid type of cat"
 msgstr "نوع دسته‌بندی نامعتبر است"
 
-#: jibres/includes/lib/app/product/cat.php:34
-#: jibres/includes/lib/app/product/unit.php:34
+#: jibres/includes/lib/app/product/cat.php:51
+#: jibres/includes/lib/app/product/unit.php:44
 msgid "Plese set the max sale as a number"
 msgstr "لطفا حداکثر فروش را به صورت عددی وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:43
-#: jibres/includes/lib/app/product/unit.php:43
+#: jibres/includes/lib/app/product/cat.php:60
+#: jibres/includes/lib/app/product/unit.php:53
 msgid "Max sale is out of range"
 msgstr "حداکثر فروش خارج از محدوده است"
 
-#: jibres/includes/lib/app/product/cat.php:73
+#: jibres/includes/lib/app/product/cat.php:90
 msgid "Duplicate cat founded"
 msgstr "دسته‌بندی تکراری است"
 
-#: jibres/includes/lib/app/product/cat.php:91
+#: jibres/includes/lib/app/product/cat.php:108
 msgid "Category successfully added"
 msgstr "دسته‌بندی با موفقیت اضافه شد"
 
-#: jibres/includes/lib/app/product/cat.php:104
-#: jibres/includes/lib/app/product/cat.php:137
+#: jibres/includes/lib/app/product/cat.php:121
+#: jibres/includes/lib/app/product/cat.php:154
 msgid "Category not found in your store!"
 msgstr "این دسته‌بندی در فروشگاه شما یافت نشد!"
 
-#: jibres/includes/lib/app/product/cat.php:113
+#: jibres/includes/lib/app/product/cat.php:130
 msgid "Category successfully removed"
 msgstr "دسته‌بندی با موفقیت حذف شد"
 
-#: jibres/includes/lib/app/product/cat.php:156
+#: jibres/includes/lib/app/product/cat.php:173
 msgid "Category successfully updated"
 msgstr "دسته‌بندی با موفقیت به‌روزرسانی شد"
 
-#: jibres/includes/lib/app/product/cat.php:164
+#: jibres/includes/lib/app/product/cat.php:181
 msgid "All products by category :old updated to :new"
 msgstr "تمامی محصولات با دسته‌بندی :old به :new تغییر کرد"
 
@@ -14666,40 +14707,40 @@ msgstr "محصول با موفقیت به روز رسانی شد"
 msgid "Can not access to load this product details"
 msgstr "دسترسی لازم برای مشاهده اطلاعات این محصول وجود ندارد"
 
-#: jibres/includes/lib/app/product/unit.php:12
+#: jibres/includes/lib/app/product/unit.php:22
 msgid "Plese fill the unit name"
 msgstr "لطفا نام واحد را وارد کنید"
 
-#: jibres/includes/lib/app/product/unit.php:18
+#: jibres/includes/lib/app/product/unit.php:28
 msgid "Unit name is too large!"
 msgstr "عنوان واحد بسیار طولانی است!"
 
-#: jibres/includes/lib/app/product/unit.php:25
+#: jibres/includes/lib/app/product/unit.php:35
 msgid "Invalid type of unit"
 msgstr "نوع واحد اشتباه است"
 
-#: jibres/includes/lib/app/product/unit.php:73
+#: jibres/includes/lib/app/product/unit.php:83
 msgid "Duplicate unit founded"
 msgstr "واحد تکراری است"
 
-#: jibres/includes/lib/app/product/unit.php:91
+#: jibres/includes/lib/app/product/unit.php:101
 msgid "Unit successfully added"
 msgstr "واحد با موفقیت اضافه شد"
 
-#: jibres/includes/lib/app/product/unit.php:104
-#: jibres/includes/lib/app/product/unit.php:137
+#: jibres/includes/lib/app/product/unit.php:114
+#: jibres/includes/lib/app/product/unit.php:147
 msgid "Unit not found in your store!"
 msgstr "این واحد در فروشگاه شما یافت نشد!"
 
-#: jibres/includes/lib/app/product/unit.php:113
+#: jibres/includes/lib/app/product/unit.php:123
 msgid "Unit successfully removed"
 msgstr "واحد با موفقیت حذف شد"
 
-#: jibres/includes/lib/app/product/unit.php:157
+#: jibres/includes/lib/app/product/unit.php:167
 msgid "Unit successfully updated"
 msgstr "واحد با موفقیت به‌روز‌رسانی شد"
 
-#: jibres/includes/lib/app/product/unit.php:165
+#: jibres/includes/lib/app/product/unit.php:175
 msgid "All products by unit :old updated to :new"
 msgstr "تمامی محصولات با واحد :old به :new تغییر کرد"
 
@@ -14992,19 +15033,27 @@ msgstr "ورود موبایل نام یا نام‌خانوادگی الزامی
 msgid "Duplicate customer code in this store"
 msgstr "این کد مشتری در فروشگاه شما تکراری است"
 
-#: jibres/includes/lib/app/thirdparty/add.php:115
+#: jibres/includes/lib/app/thirdparty/add.php:97
+msgid "Plese fill the company name"
+msgstr ""
+
+#: jibres/includes/lib/app/thirdparty/add.php:122
+msgid "Company :companyname was already added to this store"
+msgstr ""
+
+#: jibres/includes/lib/app/thirdparty/add.php:140
 msgid "No way to insert supplier"
 msgstr "هیچ راهی برای افزودن تامین کننده وجود ندارد"
 
-#: jibres/includes/lib/app/thirdparty/add.php:136
+#: jibres/includes/lib/app/thirdparty/add.php:160
 msgid "We can not signup new user"
 msgstr "ما نمی توانیم کاربری را اضافه کنیم"
 
-#: jibres/includes/lib/app/thirdparty/add.php:148
+#: jibres/includes/lib/app/thirdparty/add.php:172
 msgid "No way to insert thirdparty"
 msgstr "هیچ راهی برای ثبت طرف حساب وجود ندارد"
 
-#: jibres/includes/lib/app/thirdparty/add.php:156
+#: jibres/includes/lib/app/thirdparty/add.php:180
 msgid "Thirdparty successfuly added"
 msgstr "طرف حساب با موفقیت اضافه شد"
 

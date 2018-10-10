@@ -78,6 +78,11 @@
   {%if dataRow.nationalcode%}
   <div class="footer">{{dataRow.nationalcode|fitNumber(false)}}</div>
   {%endif%}
+  <div class="footer">
+    {%if dataRow.staff%}<div class="badge success">{%trans "Staff"%}</div>{%endif%}
+    {%if dataRow.supplier%}<div class="badge primary">{%trans "Supplier"%}</div>{%endif%}
+    {%if dataRow.customer%}<div class="badge">{%trans "Customer"%}</div>{%endif%}
+  </div>
  </div>
 </div>
 
