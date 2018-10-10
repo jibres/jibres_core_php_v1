@@ -214,7 +214,7 @@
 {%block ibirthcity%}
 <label for="birthcity">{%trans "Birth city"%}</label>
 <div class="input">
-  <input type='text' class="autoList" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{dataRow.birthplace}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{listCities}}"/>
+  <input type='text' class="autoList" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{dataRow.birthcity}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{listCities}}"/>
 
 </div>
 {%endblock%}
@@ -301,6 +301,7 @@
 <label for="nationalthumb">{%trans "National card photo"%}</label>
  <input type="file" accept="image/gif, image/jpeg, image/png" name="nationalthumb" id="nationalthumb"  data-max="500">
 </div>
+{%if dataRow.file_array.nationalthumb%}<a href="{{dataRow.file_array.nationalthumb}}" target="_blank"><img class="size-we200 block mLRa" src="{{dataRow.file_array.nationalthumb}}"></a>{%endif%}
 {%endblock%}
 
 
@@ -310,6 +311,7 @@
   <label for="shthumb">{%trans "ID card image"%}</label>
   <input type="file" accept="image/gif, image/jpeg, image/png" name="shthumb" id="shthumb"  data-max="500">
 </div>
+{%if dataRow.file_array.shthumb%}<a href="{{dataRow.file_array.shthumb}}" target="_blank"><img class="size-we200 block mLRa" src="{{dataRow.file_array.shthumb}}"></a>{%endif%}
 {%endblock%}
 
 
@@ -319,6 +321,7 @@
   <label for="passportthumb">{%trans "Passport card image"%}</label>
   <input type="file" accept="image/gif, image/jpeg, image/png" name="passportthumb" id="passportthumb"  data-max="500">
 </div>
+{%if dataRow.file_array.passportthumb%}<a href="{{dataRow.file_array.passportthumb}}" target="_blank"><img class="size-we200 block mLRa" src="{{dataRow.file_array.passportthumb}}"></a>{%endif%}
 {%endblock%}
 
 

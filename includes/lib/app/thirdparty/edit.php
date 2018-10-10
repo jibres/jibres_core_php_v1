@@ -101,16 +101,7 @@ trait edit
 		if(!\dash\app::isset_request('address'))     unset($args['address']);
 		if(!\dash\app::isset_request('phone'))       unset($args['phone']);
 		if(!\dash\app::isset_request('fax'))         unset($args['fax']);
-
-		// if($args['type'] === 'supplier')
-		// {
-		// 	// no thing
-		// }
-		// else
-		// {
-		// 	if(!\dash\app::isset_request('desc'))           unset($args['desc']);
-		// 	if(!\dash\app::isset_request('displayname'))    unset($args['displayname']);
-		// }
+		if(!\dash\app::isset_request('nationality')) unset($args['nationality']);
 
 		unset($args['type']);
 

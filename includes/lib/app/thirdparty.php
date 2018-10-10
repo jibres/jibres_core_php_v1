@@ -241,6 +241,13 @@ class thirdparty
 			return false;
 		}
 
+		$nationality = \dash\app::request('nationality');
+		if($nationality && !\dash\utility\location\countres::check($nationality))
+		{
+			\dash\notif::error(T_("Invalid nationality"), 'nationality');
+			return false;
+		}
+
 		$args             = [];
 		$args['status']   = $status;
 
@@ -332,6 +339,25 @@ class thirdparty
 			unset($args['permission']);
 		}
 
+		$file = [];
+
+		if(\dash\app::isset_request('nationalthumb') && \dash\app::request('nationalthumb'))
+		{
+			$file['nationalthumb'] = \dash\app::request('nationalthumb');
+		}
+		if(\dash\app::isset_request('shthumb') && \dash\app::request('shthumb'))
+		{
+			$file['shthumb'] = \dash\app::request('shthumb');
+		}
+		if(\dash\app::isset_request('passportthumb') && \dash\app::request('passportthumb'))
+		{
+			$file['passportthumb'] = \dash\app::request('passportthumb');
+		}
+
+		if(!empty($file))
+		{
+			$args['file'] = json_encode($file, JSON_UNESCAPED_UNICODE);
+		}
 
 		$args['displayname']           = $displayname;
 		$args['mobile']                = $mobile;
@@ -339,8 +365,7 @@ class thirdparty
 		$args['email']                 = $email;
 		$args['shfrom']                = $shfrom;
 		$args['nationalcode']          = $nationalcode;
-		$args['pasportcode']           = $pasportcode;
-		$args['nationalcode']          = $nationalcode;
+		$args['nationality']           = $nationality;
 		$args['pasportcode']           = $pasportcode;
 		$args['firstname']             = $firstname;
 		$args['lastname']              = $lastname;
@@ -390,6 +415,14 @@ class thirdparty
 					else
 					{
 						$result[$key] = null;
+					}
+					break;
+
+				case 'file':
+					$result[$key] = $value;
+					if(is_string($value))
+					{
+						$result['file_array'] = json_decode($value, true);
 					}
 					break;
 
