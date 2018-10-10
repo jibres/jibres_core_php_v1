@@ -13,7 +13,7 @@ class view
 
 		\dash\data::page_pictogram('users');
 
-		$type           = \dash\request::get('type');
+		$type           = \content_a\thirdparty\load::typeTrans();
 
 		$args =
 		[

@@ -182,6 +182,18 @@ class load
 			}
 		}
 
+		if(!in_array($type, ['supplier', 'suppliers', 'customer', 'customers', 'staff', 'staffs', 'thirdparty', 'thirdparties']))
+		{
+			if($_all)
+			{
+				$type = 'thirdparties';
+			}
+			else
+			{
+				$type = 'thirdparty';
+			}
+		}
+
 		return $type;
 	}
 }
