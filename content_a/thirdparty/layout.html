@@ -5,23 +5,26 @@
 
 {%block iType%}
 <div class="mT10">
-  <label for="type">{%trans "Type of thirdparty"%} <small class="fc-red">* {%trans "Require"%}</small></label>
+
+  <label for="type">{%trans "Type of thirdparty"%}</label>
+
   <div class="f">
-   <div class="radio1">
-    <input type="radio" id="r-customer" name="type" value="customer" {%if dataRow.type == 'customer' or not dataRow.type%}checked{%endif%}>
+   <div class="check1">
+    <input type="checkbox" id="r-customer" name="customer" value="customer" {%if dataRow.customer %}checked{%endif%}>
     <label for="r-customer">{%trans "Customer"%}</label>
    </div>
 
-   <div class="radio1">
-    <input type="radio" id="r-staff" name="type" value="staff" {%if dataRow.type == 'staff' %}checked{%endif%}>
+   <div class="check1">
+    <input type="checkbox" id="r-staff" name="staff" value="staff" {%if dataRow.staff %}checked{%endif%}>
     <label for="r-staff">{%trans "Staff"%}</label>
    </div>
 
-   <div class="radio1">
-    <input type="radio" id="r-supplier" name="type" value="supplier" {%if dataRow.type == 'supplier' %}checked{%endif%}>
+   <div class="check1">
+    <input type="checkbox" id="r-supplier" name="supplier" value="supplier" {%if dataRow.supplier %}checked{%endif%}>
     <label for="r-supplier">{%trans "Supplier"%}</label>
    </div>
   </div>
+
 </div>
 {%endblock%}
 

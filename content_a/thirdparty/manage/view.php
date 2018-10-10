@@ -1,5 +1,5 @@
 <?php
-namespace content_a\thirdparty\glance;
+namespace content_a\thirdparty\manage;
 
 
 class view
@@ -12,11 +12,12 @@ class view
 		\dash\data::page_title(T_('Glance user detail'));
 		\dash\data::page_desc(T_('you can edit general detail of thirdparty'));
 
-		if(\dash\permission::check("aThirdPartyPermissionChange"))
+		if(\dash\permission::check("mExpertPermissionChange"))
 		{
 			$perm_list = \dash\permission::groups();
-			\dash\data::permGroup(array_keys($perm_list));
+			\dash\data::permGroup($perm_list);
 		}
+
 	}
 }
 ?>

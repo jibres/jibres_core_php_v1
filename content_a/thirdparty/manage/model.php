@@ -1,5 +1,5 @@
 <?php
-namespace content_a\thirdparty\address;
+namespace content_a\thirdparty\manage;
 
 
 class model
@@ -7,11 +7,11 @@ class model
 	public static function getPost()
 	{
 		$post             = [];
-		// $post['country']  = \dash\request::post('country');
-		// $post['province'] = \dash\request::post('province');
-		// $post['city']     = \dash\request::post('city');
-		// $post['zipcode']  = \dash\request::post('zipcode');
-		// $post['address']  = \dash\request::post('address');
+		$post['staff']    = \dash\request::post('staff');
+		$post['customer'] = \dash\request::post('customer');
+		$post['supplier'] = \dash\request::post('supplier');
+		$post['permission'] = \dash\request::post('permission');
+
 		return $post;
 	}
 
@@ -19,6 +19,7 @@ class model
 	public static function post()
 	{
 		\dash\permission::access('aThirdPartyEdit');
+
 		\lib\app\thirdparty::edit(self::getPost(), \dash\request::get('id'));
 
 		if(\dash\engine\process::status())

@@ -75,39 +75,50 @@ trait edit
 
 		// no change type of user for every!
 
-		if(!\dash\app::isset_request('status'))      unset($args['status']);
-		if(!\dash\app::isset_request('mobile'))      unset($args['mobile']);
-		if(!\dash\app::isset_request('code'))        unset($args['code']);
-		if(!\dash\app::isset_request('email'))       unset($args['email']);
-		if(!\dash\app::isset_request('shfrom'))      unset($args['shfrom']);
-		if(!\dash\app::isset_request('nationalcode'))unset($args['nationalcode']);
-		if(!\dash\app::isset_request('pasportcode')) unset($args['pasportcode']);
-		if(!\dash\app::isset_request('nationalcode'))unset($args['nationalcode']);
-		if(!\dash\app::isset_request('pasportcode')) unset($args['pasportcode']);
-		if(!\dash\app::isset_request('firstname'))   unset($args['firstname']);
-		if(!\dash\app::isset_request('lastname'))    unset($args['lastname']);
-		if(!\dash\app::isset_request('father'))      unset($args['father']);
-		if(!\dash\app::isset_request('birthday'))    unset($args['birthday']);
-		if(!\dash\app::isset_request('pasportdate')) unset($args['pasportdate']);
-		if(!\dash\app::isset_request('gender'))      unset($args['gender']);
-		if(!\dash\app::isset_request('marital'))     unset($args['marital']);
-		if(!\dash\app::isset_request('shcode'))      unset($args['shcode']);
-		if(!\dash\app::isset_request('birthcity'))   unset($args['birthcity']);
-		if(!\dash\app::isset_request('zipcode'))     unset($args['zipcode']);
-		if(!\dash\app::isset_request('avatar'))      unset($args['avatar']);
-		if(!\dash\app::isset_request('city'))        unset($args['city']);
-		if(!\dash\app::isset_request('province'))    unset($args['province']);
-		if(!\dash\app::isset_request('country'))     unset($args['country']);
-		if(!\dash\app::isset_request('address'))     unset($args['address']);
-		if(!\dash\app::isset_request('phone'))       unset($args['phone']);
-		if(!\dash\app::isset_request('fax'))         unset($args['fax']);
-		if(!\dash\app::isset_request('nationality')) unset($args['nationality']);
-		if(!\dash\app::isset_request('companyname')) 		unset($args['companyname']);
-		if(!\dash\app::isset_request('companyeconomiccode')) unset($args['companyeconomiccode']);
-		if(!\dash\app::isset_request('companynationalid')) 	unset($args['companynationalid']);
-		if(!\dash\app::isset_request('companyregisternumber')) unset($args['companyregisternumber']);
+		if(!\dash\app::isset_request('status'))      			unset($args['status']);
+		if(!\dash\app::isset_request('mobile'))      			unset($args['mobile']);
+		if(!\dash\app::isset_request('code'))        			unset($args['code']);
+		if(!\dash\app::isset_request('email'))       			unset($args['email']);
+		if(!\dash\app::isset_request('shfrom'))      			unset($args['shfrom']);
+		if(!\dash\app::isset_request('nationalcode'))			unset($args['nationalcode']);
+		if(!\dash\app::isset_request('pasportcode')) 			unset($args['pasportcode']);
+		if(!\dash\app::isset_request('nationalcode'))			unset($args['nationalcode']);
+		if(!\dash\app::isset_request('pasportcode')) 			unset($args['pasportcode']);
+		if(!\dash\app::isset_request('firstname'))   			unset($args['firstname']);
+		if(!\dash\app::isset_request('lastname'))    			unset($args['lastname']);
+		if(!\dash\app::isset_request('father'))      			unset($args['father']);
+		if(!\dash\app::isset_request('birthday'))    			unset($args['birthday']);
+		if(!\dash\app::isset_request('pasportdate')) 			unset($args['pasportdate']);
+		if(!\dash\app::isset_request('gender'))      			unset($args['gender']);
+		if(!\dash\app::isset_request('marital'))     			unset($args['marital']);
+		if(!\dash\app::isset_request('shcode'))      			unset($args['shcode']);
+		if(!\dash\app::isset_request('birthcity'))   			unset($args['birthcity']);
+		if(!\dash\app::isset_request('zipcode'))     			unset($args['zipcode']);
+		if(!\dash\app::isset_request('avatar'))      			unset($args['avatar']);
+		if(!\dash\app::isset_request('city'))        			unset($args['city']);
+		if(!\dash\app::isset_request('province'))    			unset($args['province']);
+		if(!\dash\app::isset_request('country'))     			unset($args['country']);
+		if(!\dash\app::isset_request('address'))     			unset($args['address']);
+		if(!\dash\app::isset_request('phone'))       			unset($args['phone']);
+		if(!\dash\app::isset_request('fax'))         			unset($args['fax']);
+		if(!\dash\app::isset_request('nationality')) 			unset($args['nationality']);
+		if(!\dash\app::isset_request('companyname')) 			unset($args['companyname']);
+		if(!\dash\app::isset_request('companyeconomiccode')) 	unset($args['companyeconomiccode']);
+		if(!\dash\app::isset_request('companynationalid')) 		unset($args['companynationalid']);
+		if(!\dash\app::isset_request('companyregisternumber')) 	unset($args['companyregisternumber']);
+		if(!\dash\app::isset_request('permission')) 			unset($args['permission']);
+		if(!\dash\app::isset_request('displayname')) 			unset($args['displayname']);
+		if(!\dash\app::isset_request('desc')) 					unset($args['desc']);
+		if(!\dash\app::isset_request('visitor')) 				unset($args['visitor']);
+		if(!\dash\app::isset_request('visitor2')) 				unset($args['visitor2']);
+		if(!\dash\app::isset_request('taxexempt')) 				unset($args['taxexempt']);
+		if(!\dash\app::isset_request('marketing')) 				unset($args['marketing']);
+		if(!\dash\app::isset_request('staff'))	  				unset($args['staff']);
+		if(!\dash\app::isset_request('supplier')) 				unset($args['supplier']);
+		if(!\dash\app::isset_request('customer')) 				unset($args['customer']);
 
 		unset($args['type']);
+
 
 		if(!empty($args))
 		{

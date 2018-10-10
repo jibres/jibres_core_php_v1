@@ -257,12 +257,14 @@ class thirdparty
 		$supplier         = \dash\app::request('supplier') ? 1 : null;
 		$args['supplier'] = $supplier;
 
+		$customer         = \dash\app::request('customer') ? 1 : null;
+		$args['customer'] = $customer;
+
 		if($type)
 		{
 			$args[$type]      = 1;
 		}
 
-		$args['customer'] = 1;
 
 		if($args['staff'])
 		{

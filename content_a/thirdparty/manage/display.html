@@ -11,12 +11,7 @@
  </div>
  <div class="c9 s12">
  	<div class="cbox">
- 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
- 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ 	{{block('iformData')}}
  	</div>
  </div>
 </div>
@@ -25,3 +20,38 @@
 {%endblock%}
 
 
+
+{%block iformData%}
+
+<form method="post" autocomplete="off">
+{{block('iType')}}
+
+{%if dataRow.staff%}
+{{block('iPermission')}}
+{%endif%}
+
+
+{{block("isave")}}
+
+</form>
+{%endblock%}
+
+
+
+
+{%block iPermission%}
+{%if permGroup%}
+<div data-response='staff' data-response-effect='slide' {%if dataRow.staff %}{%else%} data-response-hide {%endif%}>
+	<div class="mT10">
+	  <label for="permission">{%trans "Permission"%}</label>
+	  <select name="permission" class="ui dropdown" id="permission">
+	    <option value="" readonly>{%trans "No permission"%}</option>
+	    <option value="0" readonly>{%trans "No permission"%}</option>
+	    {%for key, value in permGroup%}
+	      <option value="{{key}}" {%if dataRow.permission == key%} selected {%endif%} >{%set myValue = value.title%}{%trans myValue%}</option>
+	    {%endfor%}
+	  </select>
+	</div>
+</div>
+{%endif%}
+{%endblock%}
