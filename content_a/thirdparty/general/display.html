@@ -6,10 +6,10 @@
 
 
 <div class="f">
- <div class="c3 s12 pRa10">
+ <div class="c3 s12 x2 pRa10">
     {{block("psidebar")}}
  </div>
- <div class="c9 s12">
+ <div class="c9 x10 s12">
  	<div class="cbox">
  		{{block('iformData')}}
  	</div>
@@ -29,7 +29,11 @@
 
 
 	{{block('imobile')}}
-	{{block('idisplayname')}}
+
+	<div class="f">
+	 <div class="cauto pRa5">{{block("igender")}}</div>
+	 <div class="c">{{block('idisplayname')}}</div>
+	</div>
 
 	{%if isStaff%}
 		 <div class="f">
@@ -51,13 +55,6 @@
 		 </div>
 	 {%endif%}
 
-
-	<div class="f">
-		<div class="c">{{block("igender")}}</div>
-		<div class="c">{{block("icode")}}</div>
-	</div>
-
-	{{block("iDesc")}}
 
 
 

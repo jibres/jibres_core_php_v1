@@ -105,7 +105,7 @@
 {%block idisplayname%}
 <label for="iname">{%trans "Name"%}</label>
 <div class="input">
-  <input type="text" name="displayname" id="iname" placeholder='{%trans "Display name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+  <input type="text" name="displayname" id="iname" placeholder='{%trans "Name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
 </div>
 {%endblock%}
 
@@ -113,9 +113,10 @@
 
 {%block iVisitorDisplayName%}
 <div data-response='mobile' data-response-hide data-response-effect="slide">
+  {{block('igender')}}
  <label for="iname">{%trans "Salesman Name"%}</label>
  <div class="input">
-  <input type="text" name="displayname" id="iname" placeholder='{%trans "Display name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1">
+  <input type="text" name="displayname" id="iname" placeholder='{%trans "Name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1">
  </div>
 </div>
 {%endblock%}
@@ -207,14 +208,15 @@
 
 
 {%block igender%}
-<div class="mRa5">
+
   <label for="gender">{%trans "Gender"%}</label>
   <select name="gender" id="gender" class="ui dropdown select">
     <option value="" disabled>{%trans "Gender"%}</option>
-    <option value="male" {%if dataRow.gender == 'male' %}selected {%endif%}>{%trans "Male"%}</option>
-    <option value="female" {%if dataRow.gender == 'female' %}selected{%endif%}>{%trans "Female"%}</option>
+    <option value="0">&nbsp;</option>
+    <option value="male" {%if dataRow.gender == 'male' %}selected {%endif%}>{%trans "Mr"%}</option>
+    <option value="female" {%if dataRow.gender == 'female' %}selected{%endif%}>{%trans "Mrs"%}</option>
   </select>
-</div>
+
 {%endblock%}
 
 

@@ -24,10 +24,12 @@
 {%block iFormCustomer%}
 <form method="post" enctype="multipart/form-data" autocomplete="off">
   <div class="f justify-center">
-    <div class="c6 s12">
+    <div class="c4 m6 s10">
       <div class="cbox">
         {{block("imobile")}}
+        {{block("igender")}}
         {{block("idisplayname")}}
+
         <button class="btn primary block mT20">{%trans "Add new customer"%}</button>
       </div>
     </div>
@@ -40,14 +42,13 @@
 {%block iFormStaff%}
 <form method="post" enctype="multipart/form-data" autocomplete="off">
   <div class="f justify-center">
-    <div class="c6 s12">
+    <div class="c4 s12">
       <div class="cbox">
         {{block("imobile")}}
         {{block("igender")}}
-        <div class="f mT10">
-          <div class="c5 s12 pRa5">{{block("inameFree")}}</div>
-          <div class="c7 s12">{{block("ifamily")}}</div>
-        </div>
+        {{block("inameFree")}}
+        {{block("ifamily")}}
+
         <button class="btn primary block mT20">{%trans "Add new staff"%}</button>
       </div>
     </div>
@@ -60,7 +61,7 @@
 {%block iFormSupllier%}
 <form method="post" enctype="multipart/form-data" autocomplete="off">
   <div class="f justify-center">
-    <div class="c6 s12">
+    <div class="c4 m10  s10">
       <div class="cbox">
         {{block("icompanyname")}}
         <div class="msg">
