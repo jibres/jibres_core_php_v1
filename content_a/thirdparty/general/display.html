@@ -2,46 +2,61 @@
 
 {%block pageContent%}
 {{block ("pageSteps")}}
+{{block ("pageStepsProfile")}}
 
-<form class="cbox" method="post" autocomplete="off">
+
+<div class="f">
+ <div class="c3 s12 pRa10">
+    {{block("psidebar")}}
+ </div>
+ <div class="c9 s12">
+ 	<div class="cbox">
+ 		{{block('iformData')}}
+ 	</div>
+ </div>
+</div>
+
+
+{%endblock%}
+
+
+
+
+{%block iformData%}
+
+
+<form method="post" autocomplete="off">
 
 
 	{{block('imobile')}}
 	{{block('idisplayname')}}
 
+	{%if isStaff%}
+		 <div class="f">
+		   <div class="c pRa5">
+				{{block("iname")}}
+		   </div>
+		   <div class="c">
+				{{block("ifamily")}}
+		   </div>
+		 </div>
 
-	 <div class="f">
-	   <div class="c pRa5">
-	{{block("iname")}}
-	   </div>
-	   <div class="c">
-	{{block("ifamily")}}
-	   </div>
-	 </div>
-
-	 <div class="f">
-	   <div class="c pRa5">
-	{{block("ibirthday")}}
-	   </div>
-	   <div class="c">
-	{{block("incode")}}
-	   </div>
-	 </div>
-
+		 <div class="f">
+		   <div class="c pRa5">
+				{{block("ibirthday")}}
+		   </div>
+		   <div class="c">
+				{{block("incode")}}
+		   </div>
+		 </div>
+	 {%endif%}
 
 
 	<div class="f">
 		<div class="c">{{block("igender")}}</div>
 		<div class="c">{{block("icode")}}</div>
 	</div>
-	<div class="f">
-		<div class="c">
-			{{block('iMemType')}}
-		</div>
-		<div class="c">
-			{{block('iPermission')}}
-		</div>
-	</div>
+
 	{{block("iDesc")}}
 
 

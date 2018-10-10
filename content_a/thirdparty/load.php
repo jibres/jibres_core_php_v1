@@ -194,6 +194,22 @@ class load
 			}
 		}
 
+
+		if(in_array($type, ['customer', 'customers']))
+		{
+			\dash\data::isCustomer(true);
+		}
+
+		if(in_array($type, ['staff', 'staffs']))
+		{
+			\dash\data::isStaff(true);
+		}
+
+		if(in_array($type, ['supplier', 'suppliers']))
+		{
+			\dash\data::isSupplier(true);
+		}
+
 		return $type;
 	}
 }
