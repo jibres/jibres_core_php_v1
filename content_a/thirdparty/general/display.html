@@ -27,7 +27,6 @@
 
 <form method="post" autocomplete="off">
 
-
 	{{block('imobile')}}
 
 	<div class="f">
@@ -35,35 +34,19 @@
 	 <div class="c">{{block('idisplayname')}}</div>
 	</div>
 
-	{%if isStaff%}
-		 <div class="f">
-		   <div class="c pRa5">
-				{{block("iname")}}
-		   </div>
-		   <div class="c">
-				{{block("ifamily")}}
-		   </div>
-		 </div>
-
-		 <div class="f">
-		   <div class="c pRa5">
-				{{block("ibirthday")}}
-		   </div>
-		   <div class="c">
-				{{block("incode")}}
-		   </div>
-		 </div>
-	 {%endif%}
+	<h3>{%trans "Contact detail"%}</h3>
+	<div class="f">
+	 <div class="c pRa5">{{block('iPhone')}}</div>
+	 <div class="c">{{block('iFax')}}</div>
+	</div>
 
 
+	{{block('iEmail')}}
 
 
-
-
-
- <div class="f pA5 pT20">
-{{block("isave")}}
- </div>
+	<div class="f pA5 pT20">
+		{{block("isave")}}
+	</div>
 </form>
 {%endblock%}
 

@@ -100,6 +100,7 @@ trait edit
 		if(!\dash\app::isset_request('country'))     unset($args['country']);
 		if(!\dash\app::isset_request('address'))     unset($args['address']);
 		if(!\dash\app::isset_request('phone'))       unset($args['phone']);
+		if(!\dash\app::isset_request('fax'))         unset($args['fax']);
 
 		// if($args['type'] === 'supplier')
 		// {

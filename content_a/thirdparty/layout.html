@@ -176,14 +176,14 @@
 {%block imobile%}
 <label for="mobile">{%trans "Mobile"%}</label>
 <div class="input">
-  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like 09120123456"%}' autofocus value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
+  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like"%} {{"09120123456" | fitNumber("mobile")}}' autofocus value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
 </div>
 {%endblock%}
 
 {%block imobileVisitor%}
 <label for="mobile">{%trans "Mobile"%}</label>
 <div class="input">
-  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like 09120123456"%}' value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
+  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like"%} {{"09120123456" | fitNumber("mobile")}}' value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
 </div>
 {%endblock%}
 
@@ -304,12 +304,20 @@
 
 
 
+{%block iFax%}
+<label for="fax">{%trans "Fax"%}</label>
+<div class="input">
+  <input type="tel" name="fax" id="fax" placeholder='{%trans "Like"%} {{"02536505460" | fitNumber(false)}}' value="{{dataRow.fax}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
 
 
 {%block iPhone%}
 <label for="phone">{%trans "Phone"%}</label>
 <div class="input">
-  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} 025 3650 5281' value="{{dataRow.phone}}" maxlength='50'>
+  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} {{"02536505281" | fitNumber(false)}}' value="{{dataRow.phone}}" maxlength='50'>
 </div>
 {%endblock%}
 

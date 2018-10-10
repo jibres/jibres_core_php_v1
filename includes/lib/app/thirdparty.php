@@ -220,6 +220,13 @@ class thirdparty
 			return false;
 		}
 
+		$fax = \dash\app::request('fax');
+		if($fax && mb_strlen($fax) > 50)
+		{
+			\dash\notif::error(T_("Invalid fax"), 'fax');
+			return false;
+		}
+
 		$status = \dash\app::request('status');
 		if($status && !in_array($status, ['active','deactive','disable','filter','leave','delete','parent','suspended']))
 		{
@@ -345,6 +352,7 @@ class thirdparty
 		$args['birthcity']             = $birthcity;
 		$args['avatar']                = $avatar;
 		$args['phone']                 = $phone;
+		$args['fax']                   = $fax;
 		$args['desc']                  = $desc;
 		$args['visitor']               = $visitor;
 		$args['visitor2']              = $visitor2;
