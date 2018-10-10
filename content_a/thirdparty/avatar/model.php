@@ -7,17 +7,24 @@ class model
 	public static function post()
 	{
 		\dash\permission::access('aThirdPartyEdit');
-		$file_url = self::upload_avatar();
-
-		// we have an error in upload avatar
-		if(!$file_url)
-		{
-			\dash\notif::warn(T_("No file sended"));
-			return false;
-		}
-
 		$request           = [];
-		$request['avatar'] = $file_url;
+		if(\dash\request::post('remove') === 'avatar')
+		{
+			$request['avatar'] = null;
+		}
+		else
+		{
+			$file_url = self::upload_avatar();
+
+			// we have an error in upload avatar
+			if(!$file_url)
+			{
+				\dash\notif::warn(T_("No file sended"));
+				return false;
+			}
+
+			$request['avatar'] = $file_url;
+		}
 
 		\lib\app\thirdparty::edit($request, \dash\request::get('id'));
 
