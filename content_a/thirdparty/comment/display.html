@@ -2,21 +2,11 @@
 
 {%block pageContent%}
 {{block ("pageSteps")}}
-{{block ("pageStepsProfile")}}
 
-
-<div class="f">
- <div class="c3 s12 pRa10">
-    {{block("psidebar")}}
- </div>
- <div class="c9 s12">
-    {{block("timeline")}}
- </div>
-</div>
+{{block("timeline")}}
 
 
 {%endblock%}
-
 
 
 {%block timeline%}
@@ -26,32 +16,25 @@
     <div class="box">
       <form method="post" autocomplete="off" action="{{url.this}}/comment?id={{requestGET.id}}">
         <h2>{%trans "Add note"%}</h2>
+        <input type="hidden" name="redirecturl" value="{{url.pwd}}">
         <textarea class="txt " name="note" rows="3" placeholder='{%trans "Add every thin"%}'></textarea>
         <button class="btn secondary2 block mT5">{%trans "Add"%}</button>
       </form>
-  	</div>
+    </div>
   </div>
+  {%for key, value in logDetail%}
 
   <div class="event" data-done>
     <div class="box">
-      <h2>Title of section 2</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+      <h2>{{value.title}}</h2>
+      <div class="detail f">
+          <div><i class="sf-certificate" aria-hidden="true"></i>{{value.displayname}}</div>
+          <div><i class="sf-calendar-o" aria-hidden="true"></i>{{value.datecreated | dt}}</div>
+        </div>
+      <p>{{value.data}}</p>
     </div>
   </div>
-
-  <div class="event" data-done>
-    <div class="box">
-      <h2>Title of section 3</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
-    </div>
-  </div>
-
-  <div class="event" data-done>
-    <div class="box">
-      <h2>Final Section</h2>
-      <p>This is the content of the last section</p>
-    </div>
-  </div>
+  {%endfor%}
 
 </section>
 {%endblock%}
