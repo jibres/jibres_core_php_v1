@@ -285,6 +285,11 @@ class thirdparty
 			}
 		}
 
+		if(!$displayname && ($firstname || $lastname))
+		{
+			$displayname = trim($firstname. ' '. $lastname);
+		}
+
 		if(isset($args['supplier']) && $args['supplier'])
 		{
 			// no check
@@ -299,11 +304,6 @@ class thirdparty
 					return false;
 				}
 			}
-		}
-
-		if(!$displayname && ($firstname || $lastname))
-		{
-			$displayname = trim($firstname. ' '. $lastname);
 		}
 
 		$permission = \dash\app::request('permission');
