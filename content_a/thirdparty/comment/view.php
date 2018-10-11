@@ -1,5 +1,5 @@
 <?php
-namespace content_a\thirdparty\glance;
+namespace content_a\thirdparty\comment;
 
 
 class view
@@ -11,10 +11,6 @@ class view
 
 		\dash\data::page_title(T_('Glance user detail'));
 		\dash\data::page_desc(T_('you can edit general detail of thirdparty'));
-
-		$log = \lib\app\thirdparty\comment::list(\dash\request::get('id'));
-		$log = array_reverse($log);
-		\dash\data::logDetail($log);
 
 
 	}

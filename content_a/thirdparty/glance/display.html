@@ -21,37 +21,30 @@
 
 {%block timeline%}
 <section class="sTimeline">
-    <div class="event" data-done>
-      <div class="box">
-		    <h2>Penta Consulting</h2>
-		    <div class="detail f">
-		      <div><i class="sf-certificate" aria-hidden="true"></i> Front End Developer</div>
-		      <div><i class="sf-calendar-o" aria-hidden="true"></i> June 2016 - Present</div>
-		    </div>
-		    <p>Working alongside the designer team implementing the designs, also developing custom solutions to address team necessities.</p>
-	  	</div>
-    </div>
 
-    <div class="event" data-done>
-      <div class="box">
-        <h2>Title of section 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
-      </div>
-    </div>
+  <div class="event" >
+    <div class="box">
+      <form method="post" autocomplete="off" action="{{url.this}}/comment?id={{requestGET.id}}">
+        <h2>{%trans "Add note"%}</h2>
+        <textarea class="txt " name="note" rows="3" placeholder='{%trans "Add every thin"%}'></textarea>
+        <button class="btn secondary2 block mT5">{%trans "Add"%}</button>
+      </form>
+  	</div>
+  </div>
+  {%for key, value in logDetail%}
 
-    <div class="event">
-      <div class="box">
-        <h2>Title of section 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
-      </div>
+  <div class="event" data-done>
+    <div class="box">
+      <h2>{{value.title}}</h2>
+      <div class="detail f">
+          <div><i class="sf-certificate" aria-hidden="true"></i>{{value.displayname}}</div>
+          <div><i class="sf-calendar-o" aria-hidden="true"></i>{{value.datecreated | dt}}</div>
+        </div>
+      <p>{{value.data}}</p>
     </div>
+  </div>
+  {%endfor%}
 
-    <div class="event">
-      <div class="box">
-        <h2>Final Section</h2>
-        <p>This is the content of the last section</p>
-      </div>
-    </div>
 </section>
 {%endblock%}
 
