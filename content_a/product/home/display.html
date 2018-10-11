@@ -95,7 +95,7 @@
         <td class="s0">{{value.stock | number_format | fitNumber}} <small><a href="{{url.here}}/product?unit={{value.unit}}">{{value.unit}}</a></small></td>
         <td class="s0 ltr txtL pRa10 collapsing" title="{{value.datemodified | dt(true)}}"><small class="fc-mute">{%if value.datemodified%}{{value.datemodified | dt('human')}}{%else%}-{%endif%}</small></td>
         {%if requestGET.justcode == 1%}
-          <td>{{value.code | persian}}</td>
+          <td>{{value.code | fitNumber(false)}}</td>
         {%endif%}
       </tr>
       {%endfor%}
