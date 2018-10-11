@@ -23,6 +23,10 @@ class model
 
 		\lib\app\thirdparty\comment::add(\dash\request::post('note'), \dash\request::get('id'));
 
+		if(\dash\request::post('redirecturl'))
+		{
+			\dash\redirect::to($_POST['redirecturl']);
+		}
 	}
 }
 ?>
