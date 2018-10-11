@@ -90,12 +90,7 @@
 </div>
 
 <div class="cbox">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  {{block('iTag')}}
 </div>
 
 <div class="cbox">
@@ -106,6 +101,41 @@
  <a class="btn block mTB10" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Location and address"%}</a>
 </div>
 
+
+{%endblock%}
+
+
+
+{%block iTag%}
+
+<form method="post">
+
+
+  <div class="tagDetector">
+
+  {%set myID = requestGET.id | coding('encode')%}
+  {%set postTag = tags({"post_id" : myID , "title" : true, "format" : 'csv', "type" : "support_tag", "related" : "comments"}) %}
+
+    <div class="input mB10 hide">
+      <input type="text" class="input tagVals" name="tag"  value="{{postTag}}" id="tagValues" placeholder='{%trans "Tag"%}'>
+    </div>
+
+    <datalist id="taglist">
+      {%for key, value in tagList%}
+        <option value="{{value.title}}">
+      {%endfor%}
+    </datalist>
+
+    <div class="input" title='{%trans "Add tag manually to link tickets togethers"%}'>
+      <input type="text" list="taglist" class="tagInput" placeholder='{%trans "Tag keywords..."%}'>
+      <button class="addon tagAdd">+</button>
+    </div>
+    <div class="tagBox"></div>
+  </div>
+
+  {{block("iTag")}}
+  <button class="btn block mTB10 primary"  name="TicketFormType" value="tag">{%trans "Save tag"%}</button>
+</form>
 
 {%endblock%}
 
