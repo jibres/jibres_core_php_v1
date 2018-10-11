@@ -8,7 +8,7 @@ class controller
 	{
 		if(!\dash\url::subdomain())
 		{
-			\dash\redirect::to(\dash\url::base());
+			\dash\redirect::to(\dash\url::kingdom());
 		}
 
 		if(!\lib\store::id())
@@ -18,7 +18,7 @@ class controller
 
 		if(!\dash\user::login())
 		{
-			\dash\redirect::to(\dash\url::base(). '/enter');
+			\dash\redirect::to(\dash\url::kingdom(). '/enter');
 			return;
 		}
 

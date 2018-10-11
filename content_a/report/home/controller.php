@@ -36,7 +36,7 @@ class controller
 
 		if($redirect_enter)
 		{
-			\dash\redirect::to(\dash\url::base(). '/logout?mobile='. \dash\user::detail('mobile'). '&referer='. \dash\url::pwd());
+			\dash\redirect::to(\dash\url::kingdom(). '/logout?mobile='. \dash\user::detail('mobile'). '&referer='. \dash\url::pwd());
 		}
 	}
 }

@@ -26,7 +26,7 @@ class alias
 		// 	return false;
 		// }
 
-		// if(!\lib\store::detail('alias') === \dash\url::base())
+		// if(!\lib\store::detail('alias') === \dash\url::kingdom())
 		// {
 		// 	return true;
 		// }
