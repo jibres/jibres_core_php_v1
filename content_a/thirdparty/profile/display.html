@@ -27,8 +27,8 @@
       <form method="post" autocomplete="off" action="{{url.this}}/comment?id={{requestGET.id}}">
         <h2>{%trans "Add note"%}</h2>
         <input type="hidden" name="redirecturl" value="{{url.pwd}}">
-        <textarea class="txt " name="note" rows="3" placeholder='{%trans "Add every thing"%}'></textarea>
-        <button class="btn secondary2 block mT5">{%trans "Add"%}</button>
+        <textarea class="txt " name="note" rows="3" placeholder='{%trans "Write your note about user."%} {%trans "Something like calls, favorites, hobbits, special approach or something else."%}'></textarea>
+        <button class="btn secondary2 block mT5">{%trans "Add new note"%}</button>
       </form>
   	</div>
   </div>
@@ -38,10 +38,10 @@
     <div class="box">
       <h2>{{value.title}}</h2>
       <div class="detail f">
-          <div><i class="sf-certificate" aria-hidden="true"></i>{{value.displayname}}</div>
-          <div><i class="sf-calendar-o" aria-hidden="true"></i>{{value.datecreated | dt}}</div>
+          <div class="cauto"><i class="sf-certificate"></i>{{value.displayname}}</div>
+          <div class="cauto os"><i class="sf-calendar-o pRa5"></i>{{value.datecreated | dt(true)}}</div>
         </div>
-      <p>{{value.data}}</p>
+      <p>{{value.data | raw}}</p>
     </div>
   </div>
   {%endfor%}

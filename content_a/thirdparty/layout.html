@@ -488,23 +488,26 @@
 {%block pageStepsProfile%}
 <div class="f msg pB0 secondary2">
   <div class="c pB10 pRa10">
-    <a class="btn light block {%if url.child=='general'%} primary{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General"%}</a>
+    <a class="btn block {%if url.child=='profile'%} primary{%else%} light{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}'>{%trans "Notes"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='general'%} primary{%else%} light{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General"%}</a>
   </div>
 
   <div class="c pB10 pRa10">
-    <a class="btn light block {%if url.child=='address'%} primary{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Address"%}</a>
+    <a class="btn block {%if url.child=='address'%} primary{%else%} light{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Address"%}</a>
   </div>
   <div class="c pB10 pRa10">
-    <a class="btn light block {%if url.child=='identify'%} primary{%endif%}" href='{{url.this}}/identify?id={{requestGET.id}}'>{%trans "Identify"%}</a>
+    <a class="btn block {%if url.child=='identify'%} primary{%else%} light{%endif%}" href='{{url.this}}/identify?id={{requestGET.id}}'>{%trans "Identify"%}</a>
   </div>
   <div class="c pB10 pRa10">
-    <a class="btn light block {%if url.child=='avatar'%} primary{%endif%}" href='{{url.this}}/avatar?id={{requestGET.id}}'>{%trans "avatar"%}</a>
+    <a class="btn block {%if url.child=='avatar'%} primary{%else%} light{%endif%}" href='{{url.this}}/avatar?id={{requestGET.id}}'>{%trans "avatar"%}</a>
   </div>
   <div class="c pB10 pRa10">
-    <a class="btn light block {%if url.child=='company'%} primary{%endif%}" href='{{url.this}}/company?id={{requestGET.id}}'>{%trans "Company Detail"%}</a>
+    <a class="btn block {%if url.child=='company'%} primary{%else%} light{%endif%}" href='{{url.this}}/company?id={{requestGET.id}}'>{%trans "Company Detail"%}</a>
   </div>
   <div class="c pB10">
-    <a class="btn light block {%if url.child=='manage'%} primary{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>
+    <a class="btn block {%if url.child=='manage'%} primary{%else%} light{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>
   </div>
 
 </div>
