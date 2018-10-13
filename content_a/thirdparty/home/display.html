@@ -67,7 +67,7 @@
         {%if not requestGET.type or requestGET.type == "customer"%}
         <th class="txtC" data-sort="{{sortLink.customerSpend.order}}"><a href='{{sortLink.customerSpend.link}}'>{%trans "Customer total spend"%}</a></th>
         {%endif%}
-        {%if not requestGET.type or requestGET.type == "customer"%}
+        {%if requestGET.type == "customer"%}
         <th class="txtC" data-sort="{{sortLink.customerCredit.order}}"><a href='{{sortLink.customerCredit.link}}'>{%trans "Customer credit"%}</a></th>
         {%endif%}
 
@@ -85,6 +85,8 @@
         <th class="txtC" data-sort="{{sortLink.staffSale.order}}"><a href='{{sortLink.staffSale.link}}'>{%trans "Staff total sales"%}</a></th>
         {%endif%}
 
+
+        <th class="txtC" data-sort="{{sortLink.customerBalance.order}}"><a href='{{sortLink.customerBalance.link}}'>{%trans "Balance"%}</a></th>
         <th class="txtC" data-sort="{{sortLink.activity.order}}"><a href='{{sortLink.activity.link}}'>{%trans "Last activity"%}</a></th>
       </tr>
     </thead>
@@ -139,7 +141,7 @@
         {%if not requestGET.type or requestGET.type == "customer"%}
         <td class="txtC pRa10">{%if value.customer%}{{250000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
-        {%if not requestGET.type or requestGET.type == "customer"%}
+        {%if requestGET.type == "customer"%}
         <td class="txtC pRa10">{%if value.customer%}{{135000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
@@ -157,6 +159,7 @@
         <td class="txtC pRa10">{%if value.staff%}{{450000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
+        <td class="txtC pRa10">{{20 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
         <td class="txtC pRa10 fs08 fc-mute">{{"Now" | dt('human')}}</td>
       </tr>
       {%endfor%}
