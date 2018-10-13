@@ -489,8 +489,8 @@ class twigTransTerms
 	echo T_("Manage");                                                                // Line 540
 
 	//---------------------------------------content_a/thirdparty/comment/display.html
-	echo T_("Add note");                                                              // Line 28
-	echo T_("Add every thing");                                                       // Line 30
+	echo T_("Add note");                                                              // Line 27
+	echo T_("Add every thing");                                                       // Line 29
 
 	//----------------------------------------content_a/thirdparty/manage/display.html
 	echo T_("Permission");                                                            // Line 59

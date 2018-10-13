@@ -1,267 +1,132 @@
 {
-  "aProductList":
-  {
-    "title": "aProductList",
-    "cat": "Store Products",
+  "cpThirdpartyTagAdd": {
+    "title": "cpThirdpartyTagAdd",
+    "cat": "Thirdparty",
+    "require": ["contentCp"]
+  },
+  "staffAccess": {
+    "title": "staffAccess",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductDashboard":
-  {
-    "title": "aProductDashboard",
-    "cat": "Store Products",
+  "supplierAccess": {
+    "title": "supplierAccess",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductReport":
-  {
-    "title": "aProductReport",
-    "cat": "Store Products",
+  "customerAccess": {
+    "title": "customerAccess",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductAdd":
-  {
-    "title": "aProductAdd",
-    "cat": "Store Products",
+  "thirdpartyNoteView": {
+    "title": "thirdpartyNoteView",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductAddWarehouse":
-  {
-    "title": "aProductAddWarehouse",
-    "cat": "Store Products",
+  "thirdpartyNoteAdd": {
+    "title": "thirdpartyNoteAdd",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductEdit":
-  {
-    "title": "aProductEdit",
-    "cat": "Store Products",
+  "thirdpartyAssignTag": {
+    "title": "thirdpartyAssignTag",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductEditStatus":
-  {
-    "title": "aProductEditStatus",
-    "cat": "Store Products",
+  "thirdpartyProfileView": {
+    "title": "thirdpartyProfileView",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductEditAvatar":
-  {
-    "title": "aProductEditAvatar",
-    "cat": "Store Products",
+  "thirdpartyMobileEdit": {
+    "title": "thirdpartyMobileEdit",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductEditWarehouse":
-  {
-    "title": "aProductEditWarehouse",
-    "cat": "Store Products",
+  "thirdpartyContactEdit": {
+    "title": "thirdpartyContactEdit",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductDelete":
-  {
-    "title": "aProductDelete",
-    "cat": "Store Products",
+  "thirdpartyIdentifyEdit": {
+    "title": "thirdpartyIdentifyEdit",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductImport":
-  {
-    "title": "aProductImport",
-    "cat": "Store Products",
+  "thirdpartyElectronicDocumentEdit": {
+    "title": "thirdpartyElectronicDocumentEdit",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aProductExport":
-  {
-    "title": "aProductExport",
-    "cat": "Store Products",
+  "thirdpartyAddressView": {
+    "title": "thirdpartyAddressView",
+    "cat": "Thirdparty",
     "require": []
   },
-
-
-  "aThirdPartyView":
-  {
-    "title": "aThirdPartyView",
-    "cat": "Store Users",
-    "titleBefore": "Users",
+  "thirdpartyAddressAdd": {
+    "title": "thirdpartyAddressAdd",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aThirdPartyAdd":
-  {
-    "title": "aThirdPartyAdd",
-    "cat": "Store Users",
-    "titleBefore": "ThirdParty",
+  "thirdpartyAddressEdit": {
+    "title": "thirdpartyAddressEdit",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aThirdPartyEdit":
-  {
-    "title": "aThirdPartyEdit",
-    "cat": "Store Users",
+  "thirdpartyAddressDelete": {
+    "title": "thirdpartyAddressDelete",
+    "cat": "Thirdparty",
     "require": []
   },
-
-  "aStaffAdd":
-  {
-    "title": "aStaffAdd",
-    "cat": "Store Users",
-    "titleBefore": "Staffs",
+  "thirdpartyAvatarSet": {
+    "title": "thirdpartyAvatarSet",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aStaffEdit":
-  {
-    "title": "aStaffEdit",
-    "cat": "Store Users",
+  "thirdpartyAvatarDelete": {
+    "title": "thirdpartyAvatarDelete",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aStaffEditStatus":
-  {
-    "title": "aStaffEditStatus",
-    "cat": "Store Users",
+  "thirdpartyCompanyDetailEdit": {
+    "title": "thirdpartyCompanyDetailEdit",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aStaffDelete":
-  {
-    "title": "aStaffDelete",
-    "cat": "Store Users",
+  "thirdpartyManageView": {
+    "title": "thirdpartyManageView",
+    "cat": "Thirdparty",
     "require": []
   },
-
-  "aCustomerAdd":
-  {
-    "title": "aCustomerAdd",
-    "cat": "Store Users",
-    "titleBefore": "Customers",
+  "thirdpartyTypeEdit": {
+    "title": "thirdpartyTypeEdit",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aCustomerEdit":
-  {
-    "title": "aCustomerEdit",
-    "cat": "Store Users",
+  "thirdpartyPermissionEdit": {
+    "title": "thirdpartyPermissionEdit",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aCustomerEditStatus":
-  {
-    "title": "aCustomerEditStatus",
-    "cat": "Store Users",
+  "thirdpartyBoughtView": {
+    "title": "thirdpartyBoughtView",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aCustomerDelete":
-  {
-    "title": "aCustomerDelete",
-    "cat": "Store Users",
+  "thirdpartySoldView": {
+    "title": "thirdpartySoldView",
+    "cat": "Thirdparty",
     "require": []
   },
-
-  "aSupplierAdd":
-  {
-    "title": "aSupplierAdd",
-    "cat": "Store Users",
-    "titleBefore": "Suppliers",
+  "thirdpartyFactorView": {
+    "title": "thirdpartyFactorView",
+    "cat": "Thirdparty",
     "require": []
   },
-  "aSupplierEdit":
-  {
-    "title": "aSupplierEdit",
-    "cat": "Store Users",
-    "require": []
-  },
-  "aSupplierEditStatus":
-  {
-    "title": "aSupplierEditStatus",
-    "cat": "Store Users",
-    "require": []
-  },
-  "aSupplierDelete":
-  {
-    "title": "aSupplierDelete",
-    "cat": "Store Users",
-    "require": []
-  },
-
-  "aPermissionView":
-  {
-    "title": "aPermissionView",
-    "cat": "Store Users",
-    "titleBefore": "Permissions",
-    "require": []
-  },
-  "aPermissionAddEdit":
-  {
-    "title": "aPermissionAddEdit",
-    "cat": "Store Users",
-    "require": []
-  },
-  "aPermissionDelete":
-  {
-    "title": "aPermissionDelete",
-    "cat": "Store Users",
-    "require": []
-  },
-
-  "aThirdPartyPermissionChange":
-  {
-    "title": "aThirdPartyPermissionChange",
-    "cat": "Store Users",
-    "require": []
-  },
-
-  "aFactorDashboard":
-  {
-    "title": "aFactorDashboard",
-    "cat": "Factors",
-    "require": []
-  },
-  "aFactorList":
-  {
-    "title": "aFactorList",
-    "cat": "Factors",
-    "require": []
-  },
-  "aFactorAdd":
-  {
-    "title": "aFactorAdd",
-    "cat": "Factors",
-    "require": []
-  },
-  "aFactorFishPrint":
-  {
-    "title": "aFactorFishPrint",
-    "cat": "Factors",
-    "require": []
-  },
-  "aFactorExport":
-  {
-    "title": "aFactorExport",
-    "cat": "Factors",
-    "require": []
-  },
-
-
-  "aReportView":
-  {
-    "title": "aReportView",
-    "cat": "Store Reports",
-    "require": []
-  },
-  "aReportDaily":
-  {
-    "title": "aReportDaily",
-    "cat": "Store Reports",
-    "require": []
-  },
-  "aReportMonth":
-  {
-    "title": "aReportMonth",
-    "cat": "Store Reports",
-    "require": []
-  },
-
-
-  "aSettingView":
-  {
-    "title": "aSettingView",
-    "cat": "Store Setting",
-    "require": []
-  },
-  "aSettingEdit":
-  {
-    "title": "aSettingEdit",
-    "cat": "Store Setting",
+  "thirdpartyLogView": {
+    "title": "thirdpartyLogView",
+    "cat": "Thirdparty",
     "require": []
   }
-
 }

@@ -75,6 +75,33 @@ class TransStatic
 	echo T_("Thirdparties");
 	echo T_("thirdparties");
 
+	echo T_("cpThirdpartyTagAdd");
+	echo T_("staffAccess");
+	echo T_("supplierAccess");
+	echo T_("customerAccess");
+	echo T_("thirdpartyNoteView");
+	echo T_("thirdpartyNoteAdd");
+	echo T_("thirdpartyAssignTag");
+	echo T_("thirdpartyProfileView");
+	echo T_("thirdpartyMobileEdit");
+	echo T_("thirdpartyContactEdit");
+	echo T_("thirdpartyIdentifyEdit");
+	echo T_("thirdpartyElectronicDocumentEdit");
+	echo T_("thirdpartyAddressView");
+	echo T_("thirdpartyAddressAdd");
+	echo T_("thirdpartyAddressEdit");
+	echo T_("thirdpartyAddressDelete");
+	echo T_("thirdpartyAvatarSet");
+	echo T_("thirdpartyAvatarDelete");
+	echo T_("thirdpartyCompanyDetailEdit");
+	echo T_("thirdpartyManageView");
+	echo T_("thirdpartyTypeEdit");
+	echo T_("thirdpartyPermissionEdit");
+	echo T_("thirdpartyBoughtView");
+	echo T_("thirdpartySoldView");
+	echo T_("thirdpartyFactorView");
+	echo T_("thirdpartyLogView");
+
  }
 }
 ?>
