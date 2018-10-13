@@ -10,7 +10,7 @@ class view
 
 		\dash\data::page_title(T_('The user at a glance'));
 		\dash\data::page_desc(T_('Check all detail of user in dashboard just in a second.'));
-		\dash\data::page_pictogram('monitor');
+		\dash\data::page_pictogram('broadcast');
 
 		\content_a\thirdparty\load::fixTitle();
 	}

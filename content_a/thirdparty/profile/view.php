@@ -8,12 +8,15 @@ class view
 	{
 		\content_a\thirdparty\load::dataRow();
 
-		\dash\data::page_title(T_('Glance user detail'));
-		\dash\data::page_desc(T_('you can edit general detail of thirdparty'));
+		\dash\data::page_title(T_('User profile'));
+		\dash\data::page_desc(T_('Add and check note of user and access to other part of profile detail.'));
+		\dash\data::page_pictogram('user');
 
 		$log = \lib\app\thirdparty\comment::list(\dash\request::get('id'));
 		$log = array_reverse($log);
 		\dash\data::logDetail($log);
+
+		\content_a\thirdparty\load::fixTitle();
 	}
 }
 ?>
