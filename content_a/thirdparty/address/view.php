@@ -43,7 +43,6 @@ class view
 
 		}
 
-
 		\content_a\thirdparty\load::fixTitle();
 	}
 }
