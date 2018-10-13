@@ -6,6 +6,8 @@ class model
 {
 	public static function getPost()
 	{
+		\dash\permission::access('thirdpartyCompanyDetailEdit');
+
 		$post                          = [];
 		$post['companyname']           = \dash\request::post('companyname');
 		$post['companyeconomiccode']   = \dash\request::post('companyeconomiccode');

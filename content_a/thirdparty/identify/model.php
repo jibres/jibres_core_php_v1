@@ -6,6 +6,8 @@ class model
 {
 	public static function getPost()
 	{
+		\dash\permission::access('thirdpartyIdentifyEdit');
+
 		$post                 = [];
 		$post['gender']       = \dash\request::post('gender');
 		$post['displayname']  = \dash\request::post('displayname');
@@ -20,22 +22,25 @@ class model
 		$post['birthcity']    = \dash\request::post('birthcity');
 		$post['pasportcode']  = \dash\request::post('pasportcode');
 
-		$nationalthumb = \dash\app\file::upload_quick('nationalthumb');
-		if($nationalthumb)
+		if(\dash\permission::check('thirdpartyElectronicDocumentEdit'))
 		{
-			$post['nationalthumb'] = $nationalthumb;
-		}
+			$nationalthumb = \dash\app\file::upload_quick('nationalthumb');
+			if($nationalthumb)
+			{
+				$post['nationalthumb'] = $nationalthumb;
+			}
 
-		$shthumb = \dash\app\file::upload_quick('shthumb');
-		if($shthumb)
-		{
-			$post['shthumb'] = $shthumb;
-		}
+			$shthumb = \dash\app\file::upload_quick('shthumb');
+			if($shthumb)
+			{
+				$post['shthumb'] = $shthumb;
+			}
 
-		$passportthumb = \dash\app\file::upload_quick('passportthumb');
-		if($passportthumb)
-		{
-			$post['passportthumb'] = $passportthumb;
+			$passportthumb = \dash\app\file::upload_quick('passportthumb');
+			if($passportthumb)
+			{
+				$post['passportthumb'] = $passportthumb;
+			}
 		}
 
 		return $post;

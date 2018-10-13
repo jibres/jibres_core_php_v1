@@ -7,12 +7,21 @@ class model
 	public static function getPost()
 	{
 		$post                = [];
-		$post['mobile']      = \dash\request::post('mobile');
+
+		if(\dash\permission::check('thirdpartyMobileEdit'))
+		{
+			$post['mobile']      = \dash\request::post('mobile');
+		}
+
 		$post['displayname'] = \dash\request::post('displayname');
 		$post['gender']      = \dash\request::post('gender');
-		$post['phone']       = \dash\request::post('phone');
-		$post['fax']         = \dash\request::post('fax');
-		$post['email']       = \dash\request::post('email');
+
+		if(\dash\permission::access('thirdpartyContactEdit'))
+		{
+			$post['phone']       = \dash\request::post('phone');
+			$post['fax']         = \dash\request::post('fax');
+			$post['email']       = \dash\request::post('email');
+		}
 		return $post;
 	}
 

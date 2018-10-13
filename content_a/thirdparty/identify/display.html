@@ -57,13 +57,13 @@
 	<div class="c">{{block('ipassport')}}</div>
 </div>
 
-
+{%if perm('thirdpartyElectronicDocumentEdit')%}
 <div class="f">
 	<div class="c mRa10">{{block('iNationalthumb')}}</div>
 	<div class="c mRa10">{{block('iShthumb')}}</div>
 	<div class="c">{{block('iPassportThumb')}}</div>
 </div>
-
+{%endif%}
 
 {{block("isave")}}
 

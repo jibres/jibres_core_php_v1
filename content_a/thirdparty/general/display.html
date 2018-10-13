@@ -27,22 +27,25 @@
 
 <form method="post" autocomplete="off">
 
-	{{block('imobile')}}
+	{%if perm('thirdpartyMobileEdit')%}
+		{{block('imobile')}}
+	{%endif%}
 
 	<div class="f">
 	 <div class="cauto pRa5">{{block("igender")}}</div>
 	 <div class="c">{{block('idisplayname')}}</div>
 	</div>
 
-	<h3>{%trans "Contact detail"%}</h3>
-	<div class="f">
-	 <div class="c pRa5">{{block('iPhone')}}</div>
-	 <div class="c">{{block('iFax')}}</div>
-	</div>
+	{%if perm('thirdpartyContactEdit')%}
+		<h3>{%trans "Contact detail"%}</h3>
+		<div class="f">
+		 <div class="c pRa5">{{block('iPhone')}}</div>
+		 <div class="c">{{block('iFax')}}</div>
+		</div>
 
+		{{block('iEmail')}}
 
-	{{block('iEmail')}}
-
+	{%endif%}
 
 	<div class="f pA5 pT20">
 		{{block("isave")}}

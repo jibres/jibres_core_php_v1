@@ -66,10 +66,17 @@
     "cat": "Thirdparty",
     "require": []
   },
+  "thirdpartyIdentifyView": {
+    "title": "thirdpartyIdentifyView",
+    "cat": "Thirdparty",
+    "require": []
+  },
   "thirdpartyIdentifyEdit": {
     "title": "thirdpartyIdentifyEdit",
     "cat": "Thirdparty",
-    "require": []
+    "require": [
+      "thirdpartyIdentifyView"
+    ]
   },
   "thirdpartyElectronicDocumentEdit": {
     "title": "thirdpartyElectronicDocumentEdit",

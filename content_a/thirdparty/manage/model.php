@@ -7,10 +7,18 @@ class model
 	public static function getPost()
 	{
 		$post             = [];
-		$post['staff']    = \dash\request::post('staff');
-		$post['customer'] = \dash\request::post('customer');
-		$post['supplier'] = \dash\request::post('supplier');
-		$post['permission'] = \dash\request::post('permission');
+
+		if(\dash\permission::check('thirdpartyTypeEdit'))
+		{
+			$post['staff']    = \dash\request::post('staff');
+			$post['customer'] = \dash\request::post('customer');
+			$post['supplier'] = \dash\request::post('supplier');
+		}
+
+		if(\dash\permission::check('thirdpartyPermissionEdit'))
+		{
+			$post['permission'] = \dash\request::post('permission');
+		}
 
 		return $post;
 	}
@@ -18,7 +26,6 @@ class model
 
 	public static function post()
 	{
-		\dash\permission::access('aThirdPartyEdit');
 
 		\lib\app\thirdparty::edit(self::getPost(), \dash\request::get('id'));
 
