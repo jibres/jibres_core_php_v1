@@ -428,6 +428,19 @@ class thirdparty
 					}
 					break;
 
+				case 'gender':
+					$result[$key] = $value;
+
+					if($value === 'male')
+					{
+						$result['gender_string'] = 'Mr';
+					}
+					elseif($value === 'female')
+					{
+						$result['gender_string'] = 'Mrs';
+					}
+					break;
+
 				case 'desc':
 					if(is_string($value) && $value && substr($value, 0, 1) === '{')
 					{
