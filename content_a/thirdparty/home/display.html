@@ -134,21 +134,21 @@
         <td class="txtC">{{60 | fitNumber}}</td>
         {%endif%}
         {%if not requestGET.type or requestGET.type == "customer"%}
-        <td class="txtC pRa10">{{250000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
+        <td class="txtC pRa10">{%if value.customer%}{{250000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
         {%if requestGET.type == "supplier"%}
         <td class="txtC">{{70 | fitNumber}}</td>
         {%endif%}
         {%if not requestGET.type or requestGET.type == "supplier"%}
-        <td class="txtC pRa10">{{350000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
+        <td class="txtC pRa10">{%if value.supplier%}{{350000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
         {%if requestGET.type == "staff"%}
         <td class="txtC">{{80 | fitNumber}}</td>
         {%endif%}
         {%if not requestGET.type or requestGET.type == "staff"%}
-        <td class="txtC pRa10">{{450000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
+        <td class="txtC pRa10">{%if value.staff%}{{450000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
         <td class="txtC pRa10 fs08 fc-mute">{{"Now" | dt('human')}}</td>
