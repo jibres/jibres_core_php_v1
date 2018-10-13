@@ -27,6 +27,25 @@ class load
 			\dash\header::status(404, T_("Thirdparty id not set"));
 		}
 
+		$accessType = self::typeTrans();
+
+		// check permission
+		if(\dash\data::isStaff())
+		{
+			\dash\permission::access('staffAccess');
+		}
+
+		if(\dash\data::isSupplier())
+		{
+			\dash\permission::access('supplierAccess');
+		}
+
+		if(\dash\data::isCustomer())
+		{
+			\dash\permission::access('customerAccess');
+		}
+
+
 		// add back level to summary link
 		\dash\data::badge_link(\dash\url::this(). '?type='. self::typeTrans());
 		\dash\data::badge_text(T_(':types list', ['types' => T_(self::typeTrans(true))]));
@@ -113,16 +132,19 @@ class load
 				if($supplier)
 				{
 					$type = 'supplier';
+					\dash\data::isSupplier(true);
 				}
 
 				if($customer)
 				{
 					$type = 'customer';
+					\dash\data::isCustomer(true);
 				}
 
 				if($staff)
 				{
 					$type = 'staff';
+					\dash\data::isStaff(true);
 				}
 
 			}
@@ -131,11 +153,13 @@ class load
 				if($supplier)
 				{
 					$type = 'supplier';
+					\dash\data::isSupplier(true);
 				}
 
 				if($staff)
 				{
 					$type = 'staff';
+					\dash\data::isStaff(true);
 				}
 			}
 			else
