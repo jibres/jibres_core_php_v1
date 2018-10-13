@@ -9,6 +9,10 @@
     {{block("psidebar")}}
  </div>
  <div class="c9 s12">
+ 	<div class="msg info2 f fs12" >
+ 		<div class="cauto" title='{{"Yesterday" | dt(true)}}'>{%trans "Joined to store at"%} {{"Yesterday" | dt("human", "year")}}</div>
+ 		<div class="cauto os" title='{{"Now" | dt(true)}}'>{%trans "Last activity"%} {{"Now" | dt("human", "year")}}</div>
+ 	</div>
  	<div class="f">
  		<div class="c">{{block("dCustomerSpend")}}</div>
  		<div class="c">{{block("dCustomerOrder")}}</div>
