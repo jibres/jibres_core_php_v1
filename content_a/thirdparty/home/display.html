@@ -60,13 +60,18 @@
     <thead>
       <tr class="fs08">
         <th data-sort="{{sortLink.code.order}}" colspan="2"><a href='{{sortLink.code.link}}'>{%trans "Member"%}</a></th>
-        <th data-sort="{{sortLink.customerSpend.order}}"><a href='{{sortLink.customerSpend.link}}'>{%trans "Customer total spend"%}</a></th>
-        <th data-sort="{{sortLink.customerOrder.order}}"><a href='{{sortLink.customerOrder.link}}'>{%trans "Customer total order"%}</a></th>
-        <th data-sort="{{sortLink.supplierPurchased.order}}"><a href='{{sortLink.supplierPurchased.link}}'>{%trans "Supplier total purchased"%}</a></th>
-        <th data-sort="{{sortLink.supplierOrder.order}}"><a href='{{sortLink.supplierOrder.link}}'>{%trans "Supplier total purchased order"%}</a></th>
-        <th data-sort="{{sortLink.staffSale.order}}"><a href='{{sortLink.staffSale.link}}'>{%trans "Staff total sales"%}</a></th>
-        <th data-sort="{{sortLink.staffOrder.order}}"><a href='{{sortLink.staffOrder.link}}'>{%trans "Staff total sales order"%}</a></th>
-
+        {%if not requestGET.type or requestGET.type == "customer"%}
+        <th class="txtC" data-sort="{{sortLink.customerOrder.order}}"><a href='{{sortLink.customerOrder.link}}'>{%trans "Customer total order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.customerSpend.order}}"><a href='{{sortLink.customerSpend.link}}'>{%trans "Customer total spend"%}</a></th>
+        {%endif%}
+        {%if not requestGET.type or requestGET.type == "supplier"%}
+        <th class="txtC" data-sort="{{sortLink.supplierOrder.order}}"><a href='{{sortLink.supplierOrder.link}}'>{%trans "Supplier total purchased order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.supplierPurchased.order}}"><a href='{{sortLink.supplierPurchased.link}}'>{%trans "Supplier total purchased"%}</a></th>
+        {%endif%}
+        {%if not requestGET.type or requestGET.type == "staff"%}
+        <th class="txtC" data-sort="{{sortLink.staffOrder.order}}"><a href='{{sortLink.staffOrder.link}}'>{%trans "Staff total sales order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.staffSale.order}}"><a href='{{sortLink.staffSale.link}}'>{%trans "Staff total sales"%}</a></th>
+        {%endif%}
       </tr>
     </thead>
     <tbody>
@@ -77,7 +82,7 @@
             <img src="{{value.avatar}}" alt='{{value.displayname}}' class="avatar fs15 mRa10">
           </a>
         </td>
-        <td class="collapsing pRa10">
+        <td class="pRa10">
           <a href="{{url.this}}/glance?id={{value.id}}" class="block">
             <div class="mB5 name">
             {{value.genderString}}
@@ -113,24 +118,18 @@
         {%endif%}
           </div>
         </td>
-        <td>
-          {{250000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>
-        </td>
-        <td class="collapsing">
-          {{60 | fitNumber}}
-        </td>
-        <td>
-          {{350000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>
-        </td>
-        <td class="collapsing">
-          {{70 | fitNumber}}
-        </td>
-        <td>
-          {{450000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>
-        </td>
-        <td class="collapsing">
-          {{80 | fitNumber}}
-        </td>
+        {%if not requestGET.type or requestGET.type == "customer"%}
+        <td class="collapsing txtC">{{60 | fitNumber}}</td>
+        <td class="txtC pRa10">{{250000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
+        {%endif%}
+        {%if not requestGET.type or requestGET.type == "supplier"%}
+        <td class="collapsing txtC">{{70 | fitNumber}}</td>
+        <td class="txtC pRa10">{{350000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
+        {%endif%}
+        {%if not requestGET.type or requestGET.type == "staff"%}
+        <td class="collapsing txtC">{{80 | fitNumber}}</td>
+        <td class="txtC pRa10">{{450000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
+        {%endif%}
       </tr>
       {%endfor%}
     </tbody>
