@@ -22,6 +22,24 @@ class view
 		$dataTable          = \dash\app\address::list(null, $args);
 
 		\dash\data::dataTable($dataTable);
+
+		$id = \dash\request::get('addressid');
+		if($id)
+		{
+			$dataRow = \dash\app\address::get($id);
+			if(!isset($dataRow['user_id']))
+			{
+				\dash\header::status(404, T_("Invalid address id"));
+			}
+
+			if(intval(\dash\coding::decode($dataRow['user_id'])) !== intval(\lib\userstore::user_id()))
+			{
+				\dash\header::status(403, T_("This is not your address!"));
+			}
+
+			\dash\data::addressDataRow($dataRow);
+
+		}
 	}
 }
 ?>

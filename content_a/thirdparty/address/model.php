@@ -10,7 +10,7 @@ class model
 		if(\dash\request::post('type') === 'remove' && \dash\request::post('addressid'))
 		{
 			\dash\app\address::remove(\dash\request::post('addressid'));
-			\dash\redirect::pwd();
+			\dash\redirect::to(\dash\url::this(). '/address?id='. \dash\request::get('id'));
 			return;
 		}
 
