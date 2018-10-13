@@ -6,7 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('aThirdPartyEdit');
 		\content_a\thirdparty\load::dataRow();
 
 		\dash\data::page_title(T_('Edit address'). \dash\data::page_title());
@@ -36,6 +35,8 @@ class view
 			{
 				\dash\header::status(403, T_("This is not your address!"));
 			}
+
+			\dash\permission::access('thirdpartyAddressEdit');
 
 			\dash\data::addressDataRow($dataRow);
 

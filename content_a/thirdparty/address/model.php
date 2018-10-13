@@ -9,6 +9,8 @@ class model
 	{
 		if(\dash\request::post('type') === 'remove' && \dash\request::post('addressid'))
 		{
+			\dash\permission::access('thirdpartyAddressDelete');
+
 			\dash\app\address::remove(\dash\request::post('addressid'));
 			\dash\redirect::to(\dash\url::this(). '/address?id='. \dash\request::get('id'));
 			return;
@@ -32,6 +34,7 @@ class model
 
 		if(\dash\request::get('addressid'))
 		{
+			\dash\permission::access('thirdpartyAddressEdit');
 			$result = \dash\app\address::edit($post, \dash\request::get('addressid'));
 			if(\dash\engine\process::status())
 			{
@@ -41,6 +44,7 @@ class model
 		}
 		else
 		{
+			\dash\permission::access('thirdpartyAddressAdd');
 			$result = \dash\app\address::add($post);
 			if(\dash\engine\process::status())
 			{

@@ -84,17 +84,24 @@
   "thirdpartyAddressAdd": {
     "title": "thirdpartyAddressAdd",
     "cat": "Thirdparty",
-    "require": []
+    "require": [
+      "thirdpartyAddressView"
+    ]
   },
   "thirdpartyAddressEdit": {
     "title": "thirdpartyAddressEdit",
     "cat": "Thirdparty",
-    "require": []
+    "require": [
+      "thirdpartyAddressView"
+    ]
   },
   "thirdpartyAddressDelete": {
     "title": "thirdpartyAddressDelete",
     "cat": "Thirdparty",
-    "require": []
+    "require": [
+      "thirdpartyAddressView",
+      "thirdpartyAddressEdit"
+    ]
   },
   "thirdpartyAvatarSet": {
     "title": "thirdpartyAvatarSet",
