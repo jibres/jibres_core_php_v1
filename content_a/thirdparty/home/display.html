@@ -60,16 +60,25 @@
     <thead>
       <tr class="fs08">
         <th data-sort="{{sortLink.code.order}}" colspan="2"><a href='{{sortLink.code.link}}'>{%trans "Member"%}</a></th>
-        {%if not requestGET.type or requestGET.type == "customer"%}
+
+        {%if requestGET.type == "customer"%}
         <th class="txtC" data-sort="{{sortLink.customerOrder.order}}"><a href='{{sortLink.customerOrder.link}}'>{%trans "Customer total order"%}</a></th>
+        {%endif%}
+        {%if not requestGET.type or requestGET.type == "customer"%}
         <th class="txtC" data-sort="{{sortLink.customerSpend.order}}"><a href='{{sortLink.customerSpend.link}}'>{%trans "Customer total spend"%}</a></th>
         {%endif%}
-        {%if not requestGET.type or requestGET.type == "supplier"%}
+
+        {%if requestGET.type == "supplier"%}
         <th class="txtC" data-sort="{{sortLink.supplierOrder.order}}"><a href='{{sortLink.supplierOrder.link}}'>{%trans "Supplier total purchased order"%}</a></th>
+        {%endif%}
+        {%if not requestGET.type or requestGET.type == "supplier"%}
         <th class="txtC" data-sort="{{sortLink.supplierPurchased.order}}"><a href='{{sortLink.supplierPurchased.link}}'>{%trans "Supplier total purchased"%}</a></th>
         {%endif%}
-        {%if not requestGET.type or requestGET.type == "staff"%}
+
+        {%if requestGET.type == "staff"%}
         <th class="txtC" data-sort="{{sortLink.staffOrder.order}}"><a href='{{sortLink.staffOrder.link}}'>{%trans "Staff total sales order"%}</a></th>
+        {%endif%}
+        {%if not requestGET.type or requestGET.type == "staff"%}
         <th class="txtC" data-sort="{{sortLink.staffSale.order}}"><a href='{{sortLink.staffSale.link}}'>{%trans "Staff total sales"%}</a></th>
         {%endif%}
       </tr>
@@ -118,16 +127,22 @@
         {%endif%}
           </div>
         </td>
+        {%if requestGET.type == "customer"%}
+        <td class="txtC">{{60 | fitNumber}}</td>
+        {%endif%}
         {%if not requestGET.type or requestGET.type == "customer"%}
-        <td class="collapsing txtC">{{60 | fitNumber}}</td>
         <td class="txtC pRa10">{{250000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
         {%endif%}
+        {%if requestGET.type == "supplier"%}
+        <td class="txtC">{{70 | fitNumber}}</td>
+        {%endif%}
         {%if not requestGET.type or requestGET.type == "supplier"%}
-        <td class="collapsing txtC">{{70 | fitNumber}}</td>
         <td class="txtC pRa10">{{350000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
         {%endif%}
+        {%if requestGET.type == "staff"%}
+        <td class="txtC">{{80 | fitNumber}}</td>
+        {%endif%}
         {%if not requestGET.type or requestGET.type == "staff"%}
-        <td class="collapsing txtC">{{80 | fitNumber}}</td>
         <td class="txtC pRa10">{{450000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
         {%endif%}
       </tr>
@@ -166,8 +181,8 @@
 <div class="f mB10">
  <div class="c">{{block ("stAll")}}</div>
 {%if perm('mCustomerView')%}<div class="c">{{block ("stCustomer")}}</div>{%endif%}
-{%if perm('mStaffView')%}<div class="c">{{block ("stStaff")}}</div>{%endif%}
 {%if perm('mSupplierView')%}<div class="c">{{block ("stSupplier")}}</div>{%endif%}
+{%if perm('mStaffView')%}<div class="c">{{block ("stStaff")}}</div>{%endif%}
 </div>
 
 
