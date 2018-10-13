@@ -98,9 +98,9 @@
 
         {%if not requestGET.type %}
           <td class="s0 collapsing">
-          {%if value.staff and perm('mStaffView') %}<a href="{{url.this}}?type=staff"><span class="badge success">{%trans "Staff"%}</span></a>{%endif%}
-          {%if value.supplier and perm('mSupplierView') %}<a href="{{url.this}}?type=supplier"><span class="badge primary">{%trans "Supplier"%}</span></a>{%endif%}
-          {%if value.customer and perm('mCustomerView') %}<a href="{{url.this}}?type=customer"><span class="badge ">{%trans "Customer"%}</span></a>{%endif%}
+          {%if value.staff and perm('staffAccess') %}<a href="{{url.this}}?type=staff"><span class="badge success">{%trans "Staff"%}</span></a>{%endif%}
+          {%if value.supplier and perm('supplierAccess') %}<a href="{{url.this}}?type=supplier"><span class="badge primary">{%trans "Supplier"%}</span></a>{%endif%}
+          {%if value.customer and perm('customerAccess') %}<a href="{{url.this}}?type=customer"><span class="badge ">{%trans "Customer"%}</span></a>{%endif%}
           </td>
         {%endif%}
         {%if requestGET.transaction %}

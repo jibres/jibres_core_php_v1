@@ -6,6 +6,7 @@ class view
 
 	public static function config()
 	{
+
 		\dash\data::page_title(T_(':type list', ['type' => T_(\content_a\thirdparty\load::typeTrans(true))]));
 		\dash\data::page_desc(T_('Some detail about your :type!', ['type' => T_(\content_a\thirdparty\load::typeTrans())]));
 		\dash\data::page_desc(T_('Check list of :types and search or filter in them to find your :type.', ['types' => T_(\content_a\thirdparty\load::typeTrans(true)), 'type' => T_(\content_a\thirdparty\load::typeTrans())]));
@@ -21,30 +22,31 @@ class view
 			'order' => \dash\request::get('order'),
 		];
 
-		if($type)
+
+		if($type && \dash\request::get('type'))
 		{
 			$type_uc   = ucfirst(mb_strtolower($type));
-			$caller    = "m{$type_uc}View";
-			$callerAdd = "m{$type_uc}Add";
+			$caller    = "{$type_uc}Access";
+			$callerAdd = "{$type_uc}Add";
 			\dash\permission::access($caller);
 		}
 		else
 		{
 
-			if(\dash\permission::check("mCustomerView") || \dash\permission::check("mSupplierView") || \dash\permission::check("mStaffView"))
+			if(\dash\permission::check("customerAccess") || \dash\permission::check("supplierAccess") || \dash\permission::check("staffAccess"))
 			{
 				$perm_query = [];
 
-				if(\dash\permission::check("mCustomerView"))
+				if(\dash\permission::check("customerAccess"))
 				{
 					$perm_query[] = ' userstores.customer = 1 ';
 				}
-				if(\dash\permission::check("mSupplierView"))
+				if(\dash\permission::check("supplierAccess"))
 				{
 					$perm_query[] = ' userstores.supplier = 1 ';
 				}
 
-				if(\dash\permission::check("mStaffView"))
+				if(\dash\permission::check("staffAccess"))
 				{
 					$perm_query[] = ' userstores.staff = 1 ';
 				}
@@ -62,19 +64,25 @@ class view
 		}
 
 
-		if($type)
+		if($type && \dash\request::get('type'))
 		{
-			\dash\data::badge_link(\dash\url::this(). '/add');
-			if($type)
+			if(\dash\permission::check($callerAdd))
 			{
-				\dash\data::badge_link(\dash\data::badge_link(). '?type='.$type);
+				\dash\data::badge_link(\dash\url::this(). '/add');
+				if($type)
+				{
+					\dash\data::badge_link(\dash\data::badge_link(). '?type='.$type);
+				}
+				\dash\data::badge_text(T_('Add new :type', ['type' => T_(\content_a\thirdparty\load::typeTrans())]));
 			}
-			\dash\data::badge_text(T_('Add new :type', ['type' => T_(\content_a\thirdparty\load::typeTrans())]));
 		}
 		else
 		{
-			\dash\data::badge_link(\dash\url::this(). '/add');
-			\dash\data::badge_text(T_("Add new thirdparty"));
+			if(\dash\permission::check("customerAdd") || \dash\permission::check("supplierAdd") || \dash\permission::check("staffAdd"))
+			{
+				\dash\data::badge_link(\dash\url::this(). '/add');
+				\dash\data::badge_text(T_("Add new thirdparty"));
+			}
 		}
 
 		$search_string            = \dash\request::get('q');
