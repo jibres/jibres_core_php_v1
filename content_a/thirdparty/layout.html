@@ -261,8 +261,8 @@
 {%block iAvatar%}
 <div class="input preview">
  <input type="file" accept="image/gif, image/jpeg, image/png" name="avatar" id="avatar1" data-preview data-max="500">
- <label for="avatar1" title="Simple Title">
-    {%if dataRow.avatar%}<img src="{{dataRow.avatar}}">{%endif%}
+ <label for="avatar1" title='{%trans "Click to choose new image as avatar"%}'>
+    {%if dataRow.avatar%}<img src="{{dataRow.avatar}}" alt='{%trans "Avatar"%}'>{%endif%}
  </label>
 </div>
 {%endblock%}

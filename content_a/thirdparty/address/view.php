@@ -8,7 +8,7 @@ class view
 	{
 		\content_a\thirdparty\load::dataRow();
 
-		\dash\data::page_title(T_('Addresses'). \dash\data::page_title());
+		\dash\data::page_title(T_('Addresses'));
 		\dash\data::page_desc(T_('Check addresses and add new one or edit existing address.'));
 		\dash\data::page_pictogram('map-marker');
 

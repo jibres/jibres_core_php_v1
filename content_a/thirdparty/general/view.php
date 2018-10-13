@@ -8,7 +8,7 @@ class view
 	{
 		\content_a\thirdparty\load::dataRow();
 
-		\dash\data::page_title(T_('Edit general information'). \dash\data::page_title());
+		\dash\data::page_title(T_('Edit general information'));
 		\dash\data::page_desc(T_('Edit general detail of this thirdparty.'));
 		\dash\data::page_pictogram('user');
 
