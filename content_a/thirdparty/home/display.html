@@ -129,25 +129,29 @@
         {%endif%}
           </div>
         </td>
+
         {%if requestGET.type == "customer"%}
         <td class="txtC">{{60 | fitNumber}}</td>
         {%endif%}
         {%if not requestGET.type or requestGET.type == "customer"%}
         <td class="txtC pRa10">{{250000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
         {%endif%}
+
         {%if requestGET.type == "supplier"%}
         <td class="txtC">{{70 | fitNumber}}</td>
         {%endif%}
         {%if not requestGET.type or requestGET.type == "supplier"%}
         <td class="txtC pRa10">{{350000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
         {%endif%}
+
         {%if requestGET.type == "staff"%}
         <td class="txtC">{{80 | fitNumber}}</td>
         {%endif%}
         {%if not requestGET.type or requestGET.type == "staff"%}
         <td class="txtC pRa10">{{450000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
         {%endif%}
-        <td class="txtC pRa10 fs08">{{"Now" | dt('human')}}</td>
+
+        <td class="txtC pRa10 fs08 fc-mute">{{"Now" | dt('human')}}</td>
       </tr>
       {%endfor%}
     </tbody>
