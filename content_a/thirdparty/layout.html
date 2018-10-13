@@ -103,7 +103,7 @@
 {%block idisplayname%}
 <label for="iname">{%trans "Name"%}</label>
 <div class="input">
-  <input type="text" name="displayname" id="iname" placeholder='{%trans "Name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+  <input type="text" name="displayname" id="iname" placeholder='{%trans "Name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1">
 </div>
 {%endblock%}
 
@@ -235,7 +235,7 @@
 {%block iFax%}
 <label for="fax">{%trans "Fax"%}</label>
 <div class="input">
-  <input type="tel" name="fax" id="fax" placeholder='{%trans "Like"%} {{"02536505460" | fitNumber(false)}}' value="{{dataRow.fax}}" maxlength='50'>
+  <input type="tel" name="fax" id="fax" placeholder='{%trans "Like"%} {{"02536505460" | fitNumber(false)}}' value="{{dataRow.fax}}" maxlength='15'>
 </div>
 {%endblock%}
 
@@ -245,7 +245,7 @@
 {%block iPhone%}
 <label for="phone">{%trans "Phone"%}</label>
 <div class="input">
-  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} {{"02536505281" | fitNumber(false)}}' value="{{dataRow.phone}}" maxlength='50'>
+  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} {{"02536505281" | fitNumber(false)}}' value="{{dataRow.phone}}" maxlength='15'>
 </div>
 {%endblock%}
 
