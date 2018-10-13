@@ -10,14 +10,7 @@
     {{block("psidebar")}}
  </div>
  <div class="c9 s12">
- 	<div class="cbox">
- 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
- 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
- 	</div>
+	{{block("timeline")}}
  </div>
 </div>
 
@@ -25,3 +18,34 @@
 {%endblock%}
 
 
+{%block timeline%}
+{%if perm('thirdpartyNoteAdd') or logDetail%}
+<section class="sTimeline">
+
+  <div class="event" >
+    <div class="box">
+      <form method="post" autocomplete="off" action="{{url.this}}/comment?id={{requestGET.id}}">
+        <h2>{%trans "Add note"%}</h2>
+        <input type="hidden" name="redirecturl" value="{{url.pwd}}">
+        <textarea class="txt " name="note" rows="3" placeholder='{%trans "Add every thing"%}'></textarea>
+        <button class="btn secondary2 block mT5">{%trans "Add"%}</button>
+      </form>
+  	</div>
+  </div>
+  {%for key, value in logDetail%}
+
+  <div class="event" data-done>
+    <div class="box">
+      <h2>{{value.title}}</h2>
+      <div class="detail f">
+          <div><i class="sf-certificate" aria-hidden="true"></i>{{value.displayname}}</div>
+          <div><i class="sf-calendar-o" aria-hidden="true"></i>{{value.datecreated | dt}}</div>
+        </div>
+      <p>{{value.data}}</p>
+    </div>
+  </div>
+  {%endfor%}
+
+</section>
+{%endif%}
+{%endblock%}
