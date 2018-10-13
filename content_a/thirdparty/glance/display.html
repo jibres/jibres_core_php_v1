@@ -13,6 +13,12 @@
  		<div class="cauto" title='{{"Yesterday" | dt(true)}}'>{%trans "Joined to store at"%} {{"Yesterday" | dt("human", "year")}}</div>
  		<div class="cauto os" title='{{"Now" | dt(true)}}'>{%trans "Last activity"%} {{"Now" | dt("human", "year")}}</div>
  	</div>
+
+ 	<div class="f">
+ 		<div class="c">{{block("dBudget")}}</div>
+ 		<div class="c">{{block("dCredit")}}</div>
+ 	</div>
+
  	<div class="f">
  		<div class="c">{{block("dCustomerSpend")}}</div>
  		<div class="c">{{block("dCustomerOrder")}}</div>
@@ -38,10 +44,30 @@
 
 
 
+{%block dBudget%}
+<a class="dcard x2" href='{{url.this}}/transaction?id={{requestGET.id}}'>
+ <div class="statistic blue">
+  <div class="label mB5"><i class="fs20 mRa5 sf-folder-1"></i> {%trans "Budget"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block dCredit%}
+<a class="dcard x2" href='{{url.this}}/credit?id={{requestGET.id}}'>
+ <div class="statistic orange">
+  <div class="label mB5"><i class="fs20 mRa5 sf-bag"></i> {%trans "Credit"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
 
 {%block dCustomerOrder%}
 <a class="dcard" href='{{url.this}}/bought?id={{requestGET.id}}'>
- <div class="statistic sm teal">
+ <div class="statistic sm">
   <div class="label mB5"><i class="fs20 mRa5 sf-list-ul"></i> {%trans "Customer total order"%}</div>
   <div class="value">{{dashboardDetail.member |fitNumber}}</div>
  </div>
@@ -51,7 +77,7 @@
 
 {%block dCustomerSpend%}
 <a class="dcard" href='{{url.this}}/bought?id={{requestGET.id}}'>
- <div class="statistic sm teal">
+ <div class="statistic sm">
   <div class="label mB5"><i class="fs20 mRa5 sf-basket"></i> {%trans "Customer total spend"%}</div>
   <div class="value">{{dashboardDetail.member |fitNumber}}</div>
  </div>
@@ -61,7 +87,7 @@
 
 {%block dCustomerLastSpend%}
 <a class="dcard" href='{{url.this}}/bought?id={{requestGET.id}}'>
- <div class="statistic sm teal">
+ <div class="statistic sm">
   <div class="label mB5"><i class="fs20 mRa5 sf-credit-card"></i> {%trans "Customer last spend"%}</div>
   <div class="value">{{dashboardDetail.member |fitNumber}}</div>
  </div>
@@ -72,7 +98,7 @@
 
 {%block dSupplierOrder%}
 <a class="dcard" href='{{url.this}}/sold?id={{requestGET.id}}'>
- <div class="statistic sm teal">
+ <div class="statistic sm">
   <div class="label mB5"><i class="fs20 mRa5 sf-list-ul"></i> {%trans "Supplier total purchased order"%}</div>
   <div class="value">{{dashboardDetail.member |fitNumber}}</div>
  </div>
@@ -82,7 +108,7 @@
 
 {%block dSupplierPurchased%}
 <a class="dcard" href='{{url.this}}/sold?id={{requestGET.id}}'>
- <div class="statistic sm teal">
+ <div class="statistic sm">
   <div class="label mB5"><i class="fs20 mRa5 sf-archive"></i> {%trans "Supplier total purchased"%}</div>
   <div class="value">{{dashboardDetail.member |fitNumber}}</div>
  </div>
@@ -93,7 +119,7 @@
 
 {%block dStaffOrder%}
 <a class="dcard" href='{{url.this}}/factor?id={{requestGET.id}}'>
- <div class="statistic sm teal">
+ <div class="statistic sm">
   <div class="label mB5"><i class="fs20 mRa5 sf-list-ul"></i> {%trans "Staff total sale order"%}</div>
   <div class="value">{{dashboardDetail.member |fitNumber}}</div>
  </div>
@@ -103,7 +129,7 @@
 
 {%block dStaffSale%}
 <a class="dcard" href='{{url.this}}/factor?id={{requestGET.id}}'>
- <div class="statistic sm teal">
+ <div class="statistic sm">
   <div class="label mB5"><i class="fs20 mRa5 sf-folder-1"></i> {%trans "Staff total sale"%}</div>
   <div class="value">{{dashboardDetail.member |fitNumber}}</div>
  </div>
@@ -113,12 +139,15 @@
 
 {%block dStaffLastSale%}
 <a class="dcard" href='{{url.this}}/factor?id={{requestGET.id}}'>
- <div class="statistic sm teal">
+ <div class="statistic sm">
   <div class="label mB5"><i class="fs20 mRa5 sf-bag"></i> {%trans "Staff last sale"%}</div>
   <div class="value">{{dashboardDetail.member |fitNumber}}</div>
  </div>
 </a>
 {%endblock%}
+
+
+
 
 
 
