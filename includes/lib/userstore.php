@@ -74,6 +74,18 @@ class userstore
 	}
 
 
+	public static function user_id()
+	{
+		self::init();
+
+		if(isset(self::$userstore['user_id']))
+		{
+			return intval(self::$userstore['user_id']);
+		}
+		return null;
+	}
+
+
 	/**
 	 * get userstore detail
 	 */

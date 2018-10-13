@@ -10,9 +10,9 @@
     {{block("psidebar")}}
  </div>
  <div class="c9 s12">
- 	<div class="cbox">
+
  		{{block('iformData')}}
- 	</div>
+
  </div>
 </div>
 
@@ -22,21 +22,277 @@
 
 
 
+
 {%block iformData%}
-<form method="post">
 
-<div class="f">
- <div class="c12 s12 pRa5">{{block("icountry")}}</div>
- <div class="c s12 pRa5">{{block("iprovince")}}</div>
- <div class="c s12">{{block("icity")}}</div>
-</div>
-<div class="f">
- <div class="c8 s12 pRa5">{{block("iaddrress")}}</div>
- <div class="c4 s12">{{block("izipcode")}}</div>
-</div>
 
-{{block("isave")}}
+<form method="post" enctype="multipart/form-data" autocomplete="off">
+  <div class="f {%if not dataTable%} justify-center {%endif%}">
+    <div class="c6 s12">
+      <div class="cbox">
+        {%if addressDataRow%}
+          {%if addressDataRow.title%}
+            <h3 class="txtC">{%trans "Edit address"%} <span class="txtB">{{addressDataRow.title}}</span></h3>
+          {%else%}
+            <h3 class="txtC">{%trans "Edit address"%}</h3>
+          {%endif%}
+        {%else%}
+          <h3 class="txtC">{%trans "Add new address"%}</h3>
+        {%endif%}
+        <div class="f">
+          <div class="c mRa5">{{block('iFirstname')}}</div>
+          <div class="c">{{block('iLastname')}}</div>
+        </div>
 
+        {{block('iCountry')}}
+
+        <div class="f">
+          <div class="c mRa5">{{block('iCity')}}</div>
+          <div class="c">{{block('iPostcode')}}</div>
+        </div>
+
+        <div class="f">
+          <div class="c mRa5">{{block('iPhone')}}</div>
+          <div class="c">{{block('iFax')}}</div>
+        </div>
+
+        {{block('iAddress')}}
+        {{block('iTitle')}}
+
+        {{block('iCompany')}}
+        <div data-response='company' {%if not addressDataRow.company%} data-response-hide {%endif%}>
+          <div class="f">
+            <div class="c mRa5">{{block('iCompanyname')}}</div>
+            <div class="c">{{block('iJobtitle')}}</div>
+          </div>
+        </div>
+        {%if addressDataRow%}
+          {{block('isave')}}
+        {%else%}
+          {{block('iadd')}}
+        {%endif%}
+      </div>
+    </div>
+    {%if dataTable%}
+    <div class="c6 pLa10">
+        <table class="tbl1 v1 cbox fs12">
+          <thead>
+            <th colspan="4" class="collapsing">{%trans "Saved address"%}</th>
+
+          </thead>
+          <tbody>
+            {%for key, value in dataTable%}
+              <tr {%if requestGET.id == value.id%} class="negative" {%endif%}>
+                <td class="collapsing txtC">
+                  {%if requestGET.id == value.id%} {%set editClass = ' fc-red'%} {%else%} {%set editClass = null %} {%endif%}
+                  {%if value.company%}
+                    <i class="sf-building fs16{{editClass}}"></i>
+
+                  {%else%}
+                    <i class="sf-pin fs16{{editClass}}"></i>
+                  {%endif%}
+
+                </td>
+
+                <td class="pA5">
+                  {%if value.title%}<div class="txtB">{{value.title}}</div>{%endif%}
+                  {%if value.firstname or value.lastname%}
+                  <div class="badge light">{{value.firstname}} {{value.lastname}}</div>
+                  {%endif%}
+                  {%if value.country%}
+                    <div class="badge primary">{{value.country_name}}</div>
+                    <div class="badge primary">{{value.province_name}}</div>
+                  {%endif%}
+
+                  {%if value.city%}
+                    <div class="badge info2">{{value.city_name}}</div>
+                  {%endif%}
+                  <div class="">{{value.address}}</div>
+                  {%if value.companyname%}
+                    <div class="badge primary">{{value.companyname}}</div>
+                  {%endif%}
+                </td>
+
+                <td>
+                  {%if value.postcode%}
+                    <div title='{%trans "Post code"%}'><i class="sf-broadcast"></i> {{value.postcode | fitNumber(false)}}</div>
+                  {%endif%}
+                  {%if value.phone%}
+                    <br>
+                    <div title='{%trans "Phone"%}'><i class="sf-phone"></i> {{value.phone | fitNumber(false)}}</div>
+                  {%endif%}
+                  {%if value.fax%}
+                    <br>
+                    <div title='{%trans "Fax"%}'><i class="sf-fax"></i> {{value.fax | fitNumber(false)}}</div>
+                  {%endif%}
+                </td>
+
+                <td class="collapsing txtL">
+                  <a class="" href="{{url.this}}?id={{value.id}}" title='{%trans "Edit"%}' ><i class="sf-pencil-square-o fs16"></i></a>
+                  <br>
+                  <a class="mT20" title='{%trans "Remove"%}' href="{{url.pwd}}" data-ajaxify data-method="post" data-data='{"id" : "{{value.id}}", "type": "remove" }' tabindex='-1'><i class="sf-trash fc-red"></i></a>
+
+                </td>
+              </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+    </div>
+    {%endif%}
+  </div>
 </form>
+{%endblock%}
+
+
+
+
+{%block iFirstname%}
+<label for="firstname">{%trans "Firstname"%}</label>
+<div class="input">
+  <input type="text" name="firstname" id="firstname" placeholder='{%trans "Firstname"%}' value="{{addressDataRow.firstname}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+
+{%block iLastname%}
+<label for="lastname">{%trans "Lastname"%}</label>
+<div class="input">
+  <input type="text" name="lastname" id="lastname" placeholder='{%trans "Lastname"%}' value="{{addressDataRow.lastname}}" maxlength='40' minlength="1" pattern=".{1,40}"  >
+</div>
+{%endblock%}
+
+
+
+{%block iCountry%}
+<div class="mB10">
+  <label for='country'>{%trans "Country"%}</label>
+  <div class="ui fluid search selection dropdown">
+    <input type="hidden" name="country" value="{%if addressDataRow.country%}{{addressDataRow.country}}{%else%}iran{%endif%}">
+    <i class="dropdown icon"></i>
+    <div class="default text">{%trans "Choose your country"%}</div>
+    <div class="menu">
+{%for key, value in countryList%}
+      <div class="item" data-value="{{key}}">
+        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}<small class="description">{{value.name | capitalize}}</small>
+      </div>
+{%endfor%}
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+{%block iCity%}
+<label for='city'>{%trans "City"%}</label>
+<select name="city" class="ui dropdown select search mB10" id="city">
+  <option value="" readonly>{%trans "Select city"%}</option>
+  {%for key, value in cityList%}
+    <option value="{{key}}" {% if addressDataRow.city == key %} selected {%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+{%endblock%}
+
+
+
+
+{%block iPostcode%}
+<label for="postcode">{%trans "Post code"%}</label>
+<div class="input ltr">
+  <input type="text" name="postcode" id="postcode" placeholder='{%trans "Post code"%}' value="{{addressDataRow.postcode}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+
+{%block iTitle%}
+<label for="title">{%trans "Title"%}</label>
+<div class="input">
+  <input type="text" name="title" id="title" placeholder='{%trans "Title"%}' value="{{addressDataRow.title}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+
+{%block iPhone%}
+<label for="iphone">{%trans "Phone"%}</label>
+<div class="input">
+  <input type="tel" name="phone" id="iphone" placeholder='{%trans "Phone"%}' value="{{addressDataRow.phone}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+{%block iFax%}
+<label for="ifax">{%trans "Fax"%}</label>
+<div class="input">
+  <input type="tel" name="fax" id="ifax" placeholder='{%trans "Fax"%}' value="{{addressDataRow.fax}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+
+
+
+{%block iAddress%}
+<label for="address">{%trans "Address"%} <small class="fc-red">{%trans "Require"%}</small></label>
+<textarea class="txt mB20 pB25" name="address" placeholder='{%trans "Address"%} *' required maxlength='300' rows="2">{{addressDataRow.address}}</textarea>
+{%endblock%}
+
+
+
+{%block iAddress2%}
+<label for="address2">{%trans "Address line 2"%}</label>
+<textarea class="txt mB20 pB25" name="address2" placeholder='{%trans "Address"%}' maxlength='300' rows="2">{{addressDataRow.address2}}</textarea>
+{%endblock%}
+
+
+
+{%block iCompany%}
+<div class="switch1 mB20 mT20">
+ <input type="checkbox" name="company" id="company" {%if addressDataRow.company  %}checked{%endif%}>
+ <label for="company" data-on='{%trans "Yes"%}' data-off='{%trans "No"%}'></label>
+ <label for="company" >{%trans "Is this a company's address?"%}</label>
+</div>
+{%endblock%}
+
+
+
+{%block iCompanyname%}
+<label for="companyname">{%trans "Company name"%}</label>
+<div class="input">
+  <input type="text" name="companyname" id="companyname" placeholder='{%trans "Company name"%}' value="{{addressDataRow.companyname}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+
+{%block iJobtitle%}
+<label for="jobtitle">{%trans "Job title"%}</label>
+<div class="input">
+  <input type="text" name="jobtitle" id="jobtitle" placeholder='{%trans "Job title"%}' value="{{addressDataRow.jobtitle}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+{%block iStatus%}
+<div class="mT10">
+  <label for="status">{%trans "Status"%}</label>
+  <select name="status" class="ui dropdown" id="status">
+    <option value="" readonly>{%trans "Select one item"%} *</option>
+    <option value="enable" {% if addressDataRow.status == 'enable' %} selected {%endif%}>{%trans "Enable"%}</option>
+    <option value="disable" {% if addressDataRow.status == 'disable' %} selected {%endif%}>{%trans "Disable"%}</option>
+    <option value="delete" {% if addressDataRow.status == 'delete' %} selected {%endif%}>{%trans "Removed"%}</option>
+  </select>
+</div>
+{%endblock%}
+
+
+
+{%block iadd%}
+<button class="btn primary block mT20">{%trans "Add"%}</button>
+{%endblock%}
+
+{%block isave%}
+<button class="btn primary block mT20">{%trans "Save"%}</button>
 {%endblock%}
 
