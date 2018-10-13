@@ -10,17 +10,17 @@ class controller
 		switch ($type)
 		{
 			case 'staff':
-				\dash\permission::access('aStaffAdd');
+				\dash\permission::access('staffAdd');
 				break;
 			case 'customer':
-				\dash\permission::access('aCustomerAdd');
+				\dash\permission::access('customerAdd');
 				break;
 			case 'supplier':
-				\dash\permission::access('aSupplierAdd');
+				\dash\permission::access('supplierAdd');
 				break;
 
 			default:
-				if(!\dash\permission::check('aStaffAdd') && !\dash\permission::check('aCustomerAdd') && !\dash\permission::check('aSupplierAdd'))
+				if(!\dash\permission::check('staffAdd') && !\dash\permission::check('customerAdd') && !\dash\permission::check('supplierAdd'))
 				{
 					\dash\header::status(403, T_("You have not permission to add any thirdparty!"));
 				}

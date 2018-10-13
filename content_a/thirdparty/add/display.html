@@ -84,9 +84,9 @@
     <div class="c9 s12">
         <p class="msg">{%trans "Please choose type of third party you want to add."%}</p>
         <div class="f mB10">
-        {%if perm('mCustomerView')%}<div class="c s12">{{block ("stCustomer")}}</div>{%endif%}
-        {%if perm('mStaffView')%}<div class="c s12">{{block ("stStaff")}}</div>{%endif%}
-        {%if perm('mSupplierView')%}<div class="c s12">{{block ("stSupplier")}}</div>{%endif%}
+        {%if perm('customerAdd')%}<div class="c s12">{{block ("stCustomer")}}</div>{%endif%}
+        {%if perm('staffAdd')%}<div class="c s12">{{block ("stStaff")}}</div>{%endif%}
+        {%if perm('supplierAdd')%}<div class="c s12">{{block ("stSupplier")}}</div>{%endif%}
         </div>
     </div>
   </div>
