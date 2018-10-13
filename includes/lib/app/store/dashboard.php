@@ -5,6 +5,31 @@ trait dashboard
 {
 	private static $life_time = 60 * 1;
 
+
+	/**
+	 * dashboard detail
+	 *
+	 * @param      <type>         $_store_id  The store identifier
+	 *
+	 * @return     array|boolean  ( description_of_the_return_value )
+	 */
+	public static function dashboard_detail_thirdparty($_store_id)
+	{
+		if(!$_store_id || !is_numeric($_store_id))
+		{
+			return false;
+		}
+
+		$result                   = [];
+		$result['all_member']     = self::user_count();
+		$result['customer_count'] = self::user_count('customer');
+		$result['supplier_count'] = self::user_count('supplier');
+		$result['staff_count']    = self::user_count('staff');
+
+		return $result;
+	}
+
+
 	/**
 	 * dashboard detail
 	 *
@@ -40,7 +65,7 @@ trait dashboard
 	public static function sale_time_chart()
 	{
 		$sale_time_chart = \dash\session::get('dashboard_sale_time_chart_'. \lib\store::id(), 'jibres_store');
-		if($sale_time_chart === null or true)
+		if($sale_time_chart === null)
 		{
 			$sale_time_chart = \lib\db\factors::time_chart(\lib\store::id(), 'sale');
 			$temp = [];
@@ -112,7 +137,7 @@ trait dashboard
 
 		$count = \dash\session::get($cache_key, 'jibres_store');
 
-		if($count === null or true)
+		if($count === null)
 		{
 			if($_type)
 			{

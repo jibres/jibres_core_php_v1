@@ -16,14 +16,17 @@ class view
 		switch ($type)
 		{
 			case 'customer':
+			case 'customers':
 				\dash\data::page_pictogram('user-4');
 				break;
 
 			case 'staff':
+			case 'staffs':
 				\dash\data::page_pictogram('user-md');
 				break;
 
 			case 'supplier':
+			case 'suppliers':
 				\dash\data::page_pictogram('network');
 				break;
 
@@ -47,7 +50,6 @@ class view
 		}
 		else
 		{
-
 			if(\dash\permission::check("customerAccess") || \dash\permission::check("supplierAccess") || \dash\permission::check("staffAccess"))
 			{
 				$perm_query = [];
@@ -138,7 +140,7 @@ class view
 		$dataFilter = \dash\app\sort::createFilterMsg($search_string, $check_empty_datatable);
 		\dash\data::dataFilter($dataFilter);
 
-		$dashboardData = \lib\app\store::dashboard_detail(\lib\store::id());
+		$dashboardData = \lib\app\store::dashboard_detail_thirdparty(\lib\store::id());
 		\dash\data::dashboardData($dashboardData);
 	}
 
