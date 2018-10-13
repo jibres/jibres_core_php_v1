@@ -18,7 +18,7 @@ class view
 		$args['user_id']    = \lib\userstore::user_id();
 		$args['pagenation'] = false;
 		$args['status']     = 'enable';
-		// $args['subdomain']  = \dash\url::subdomain();
+		$args['subdomain']  = \dash\url::subdomain();
 		$dataTable          = \dash\app\address::list(null, $args);
 
 		\dash\data::dataTable($dataTable);
