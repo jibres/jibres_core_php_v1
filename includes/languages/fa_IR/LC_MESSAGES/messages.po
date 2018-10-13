@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-10-13 10:50+0330\n"
-"PO-Revision-Date: 2018-10-13 10:51+0330\n"
+"POT-Creation-Date: 2018-10-13 15:08+0330\n"
+"PO-Revision-Date: 2018-10-13 15:09+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -20,22 +20,22 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: dash/addons/content_account/address/controller.php:16
-#: jibres/content_a/thirdparty/address/view.php:32
+#: jibres/content_a/thirdparty/address/view.php:31
 msgid "Invalid address id"
 msgstr "شناسه آدرس نامعتبر است"
 
 #: dash/addons/content_account/address/controller.php:21
-#: jibres/content_a/thirdparty/address/view.php:37
+#: jibres/content_a/thirdparty/address/view.php:36
 msgid "This is not your address!"
 msgstr "این آدرس شما نیست!"
 
 #: dash/addons/content_account/address/model.php:38
-#: jibres/content_a/thirdparty/address/model.php:38
+#: jibres/content_a/thirdparty/address/model.php:41
 msgid "Address successfully edited"
 msgstr "آدرس با موفقیت به‌روزرسانی شد"
 
 #: dash/addons/content_account/address/model.php:47
-#: jibres/content_a/thirdparty/address/model.php:47
+#: jibres/content_a/thirdparty/address/model.php:51
 msgid "Address successfully added"
 msgstr "آدرس با موفقیت اضافه شد"
 
@@ -308,7 +308,7 @@ msgstr "بازگشت به داشبورد"
 #: dash/addons/content_su/dbtables/view.php:22
 #: dash/addons/content_su/tg/log/view.php:22
 #: dash/addons/content_su/transactions/view.php:22
-#: jibres/content_a/thirdparty/home/view.php:84
+#: jibres/content_a/thirdparty/home/view.php:107
 msgid "Search for :search"
 msgstr "جستجوی :search"
 
@@ -1984,7 +1984,7 @@ msgid "Invalid access in url"
 msgstr "دسترسی نادرست در آدرس"
 
 #: dash/addons/includes/languages/trans_dash.php:8
-#: jibres/content_a/thirdparty/address/view.php:12
+#: jibres/content_a/thirdparty/address/view.php:11
 #: jibres/includes/languages/trans_dash.php:760
 #: jibres/includes/languages/trans_project.php:530
 msgid "Edit address"
@@ -2150,7 +2150,6 @@ msgstr "حذف شده"
 
 #: dash/addons/includes/languages/trans_dash.php:36
 #: dash/addons/includes/languages/trans_static.php:147
-#: jibres/content_a/thirdparty/company/controller.php:60
 #: jibres/content_a/thirdparty/home/controller.php:60
 #: jibres/includes/languages/trans_dash.php:89
 #: jibres/includes/languages/trans_project.php:326
@@ -10407,7 +10406,7 @@ msgstr "این گزینه در لیست سطوح دسترسی شما وجود ن
 msgid "Permission saved"
 msgstr "سطح دسترسی ذخیره شد"
 
-#: dash/lib/permission.php:555 jibres/content_a/thirdparty/home/view.php:60
+#: dash/lib/permission.php:596 jibres/content_a/thirdparty/home/view.php:77
 msgid "Permission denied"
 msgstr "دسترسی غیر مجاز"
 
@@ -11252,7 +11251,7 @@ msgid "Back to factors summary"
 msgstr "بازگشت به خلاصه وضعیت فاکتور‌ها"
 
 #: jibres/content_a/factor/home/view.php:61
-#: jibres/content_a/thirdparty/home/view.php:139
+#: jibres/content_a/thirdparty/home/view.php:162
 msgid "List of :type"
 msgstr "لیست :type"
 
@@ -11266,8 +11265,8 @@ msgstr "لیست تمامی فاکتور‌ها."
 
 #: jibres/content_a/factor/home/view.php:66
 #: jibres/content_a/thirdparty/add/view.php:24
-#: jibres/content_a/thirdparty/home/view.php:72
-#: jibres/content_a/thirdparty/home/view.php:145
+#: jibres/content_a/thirdparty/home/view.php:91
+#: jibres/content_a/thirdparty/home/view.php:168
 msgid "Add new :type"
 msgstr "افزودن :type جدید"
 
@@ -11487,7 +11486,7 @@ msgid "Some detail about your product!"
 msgstr "یک سری جزئیات درباره محصولات شما!"
 
 #: jibres/content_a/product/thumb/model.php:35
-#: jibres/content_a/thirdparty/avatar/model.php:22
+#: jibres/content_a/thirdparty/avatar/model.php:23
 msgid "No file sended"
 msgstr "فایلی ارسال نشد"
 
@@ -11660,7 +11659,7 @@ msgid "You have not permission to add any thirdparty!"
 msgstr "شما دسترسی لازم برای افزودن طرف‌حساب را ندارید!"
 
 #: jibres/content_a/thirdparty/add/view.php:13
-#: jibres/content_a/thirdparty/home/view.php:133
+#: jibres/content_a/thirdparty/home/view.php:156
 msgid "Add new third party"
 msgstr "افزودن طرف حساب جدید"
 
@@ -11686,15 +11685,15 @@ msgstr ""
 msgid "Back to :type"
 msgstr "بازگشت به لیست :type"
 
-#: jibres/content_a/thirdparty/address/view.php:13
+#: jibres/content_a/thirdparty/address/view.php:12
 msgid "set current location and full address"
 msgstr "تنظیم آدرس و جزئیات موقعیت فعلی دانش‌آموز"
 
-#: jibres/content_a/thirdparty/avatar/view.php:13
+#: jibres/content_a/thirdparty/avatar/view.php:11
 msgid "Edit avatar"
 msgstr "ویرایش آواتار"
 
-#: jibres/content_a/thirdparty/avatar/view.php:14
+#: jibres/content_a/thirdparty/avatar/view.php:12
 msgid "Allow to set and change avatar of thirdparty"
 msgstr "اجازه تنظیم یا تغییر آواتار طرف حساب‌ها"
 
@@ -11702,9 +11701,9 @@ msgstr "اجازه تنظیم یا تغییر آواتار طرف حساب‌ه�
 #: jibres/content_a/thirdparty/comment/view.php:12
 #: jibres/content_a/thirdparty/company/view.php:12
 #: jibres/content_a/thirdparty/factor/view.php:11
-#: jibres/content_a/thirdparty/glance/view.php:12
+#: jibres/content_a/thirdparty/glance/view.php:11
 #: jibres/content_a/thirdparty/log/view.php:11
-#: jibres/content_a/thirdparty/manage/view.php:12
+#: jibres/content_a/thirdparty/manage/view.php:11
 #: jibres/content_a/thirdparty/profile/view.php:11
 #: jibres/content_a/thirdparty/sold/view.php:11
 msgid "Glance user detail"
@@ -11714,10 +11713,10 @@ msgstr "نگاه اجمالی به جزئیات کاربر"
 #: jibres/content_a/thirdparty/comment/view.php:13
 #: jibres/content_a/thirdparty/company/view.php:13
 #: jibres/content_a/thirdparty/factor/view.php:12
-#: jibres/content_a/thirdparty/general/view.php:13
-#: jibres/content_a/thirdparty/glance/view.php:13
+#: jibres/content_a/thirdparty/general/view.php:12
+#: jibres/content_a/thirdparty/glance/view.php:12
 #: jibres/content_a/thirdparty/log/view.php:12
-#: jibres/content_a/thirdparty/manage/view.php:13
+#: jibres/content_a/thirdparty/manage/view.php:12
 #: jibres/content_a/thirdparty/profile/view.php:12
 #: jibres/content_a/thirdparty/sold/view.php:12
 #: jibres/content_a/thirdparty/tag/view.php:12
@@ -11728,41 +11727,36 @@ msgstr "شما می‌توانید اطلاعات این طرف حساب را و
 msgid "Please fill the note box"
 msgstr "لطفا باکس متن را پر کنید"
 
-#: jibres/content_a/thirdparty/company/controller.php:70
+#: jibres/content_a/thirdparty/general/view.php:11
+msgid "Edit general information"
+msgstr "ویرایش اطلاعات عمومی"
+
 #: jibres/content_a/thirdparty/home/controller.php:70
 #: jibres/includes/lib/app/thirdparty.php:36
 msgid "Invalid mobile"
 msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
-#: jibres/content_a/thirdparty/general/view.php:12
-msgid "Edit general information"
-msgstr "ویرایش اطلاعات عمومی"
-
-#: jibres/content_a/thirdparty/home/view.php:9
+#: jibres/content_a/thirdparty/home/view.php:8
 msgid ":type list"
 msgstr "لیست :type"
 
-#: jibres/content_a/thirdparty/home/view.php:10
-msgid "Some detail about your :type!"
-msgstr "یک سری جزئیات درباره :type شما!"
-
-#: jibres/content_a/thirdparty/home/view.php:11
+#: jibres/content_a/thirdparty/home/view.php:9
 msgid "Check list of :types and search or filter in them to find your :type."
 msgstr "بررسی لیست :types و جستجو یا فیلتر کردن آنان برای یافتن :type موردنظر."
 
-#: jibres/content_a/thirdparty/home/view.php:12
+#: jibres/content_a/thirdparty/home/view.php:10
 msgid "Also add or edit specefic :type."
 msgstr "هم‌چنین افزودن یا ویرایش :type خاص."
 
-#: jibres/content_a/thirdparty/home/view.php:77
+#: jibres/content_a/thirdparty/home/view.php:99
 msgid "Add new thirdparty"
 msgstr "افزودن طرف حساب جدید"
 
-#: jibres/content_a/thirdparty/home/view.php:129
+#: jibres/content_a/thirdparty/home/view.php:152
 msgid "List of third parties"
 msgstr "لیست طرف حساب ها"
 
-#: jibres/content_a/thirdparty/home/view.php:130
+#: jibres/content_a/thirdparty/home/view.php:153
 msgid ""
 "All type of poeple or companies like customers, staffs and supplisers is known "
 "as third parties that work with your store is exist here"
@@ -11770,19 +11764,19 @@ msgstr ""
 "همه نوع افراد یا شرکت هایی مانند مشتریان، کارکنان و تامین کنندگان به عنوان اشخاص "
 "ثالث شناخته می شوند که با فروشگاه شما کار می کنند در اینجا وجود دارد"
 
-#: jibres/content_a/thirdparty/home/view.php:140
+#: jibres/content_a/thirdparty/home/view.php:163
 msgid "Search in list of :type, add and edit and manage them."
 msgstr "جستجو در لیست :type و افزودن یا ویرایش آنها."
 
-#: jibres/content_a/thirdparty/home/view.php:141
+#: jibres/content_a/thirdparty/home/view.php:164
 msgid "List of all third parties."
 msgstr "لیست تمامی طرف حساب ها."
 
-#: jibres/content_a/thirdparty/identify/view.php:13
+#: jibres/content_a/thirdparty/identify/view.php:12
 msgid "Edit identification detail"
 msgstr "ویرایش اطلاعات هویتی"
 
-#: jibres/content_a/thirdparty/identify/view.php:14
+#: jibres/content_a/thirdparty/identify/view.php:13
 msgid ""
 "set personal and birth identification detail and some other id detail like "
 "passport and etc"
@@ -14461,93 +14455,117 @@ msgstr "دسترسی به تامین‌کنندگان"
 msgid "customerAccess"
 msgstr "دسترسی به مشتریان"
 
-#: jibres/includes/languages/trans_static.php:82
+#: jibres/includes/languages/trans_static.php:83
+msgid "staffAdd"
+msgstr "افزودن کارمند"
+
+#: jibres/includes/languages/trans_static.php:84
+msgid "supplierAdd"
+msgstr "افزودن تامین‌کننده"
+
+#: jibres/includes/languages/trans_static.php:85
+msgid "customerAdd"
+msgstr "افزودن مشتری"
+
+#: jibres/includes/languages/trans_static.php:87
 msgid "thirdpartyNoteView"
 msgstr "نمایش یادداشت طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:83
+#: jibres/includes/languages/trans_static.php:88
 msgid "thirdpartyNoteAdd"
 msgstr "افزودن یادداشت به طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:84
+#: jibres/includes/languages/trans_static.php:89
 msgid "thirdpartyAssignTag"
 msgstr "افزودن تگ به طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:85
+#: jibres/includes/languages/trans_static.php:90
 msgid "thirdpartyProfileView"
 msgstr "نمایش پروفایل طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:86
+#: jibres/includes/languages/trans_static.php:91
 msgid "thirdpartyMobileEdit"
 msgstr "ویرایش موبایل طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:87
+#: jibres/includes/languages/trans_static.php:92
 msgid "thirdpartyContactEdit"
 msgstr "ویرایش پل‌های ارتباطی طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:88
+#: jibres/includes/languages/trans_static.php:93
 msgid "thirdpartyIdentifyEdit"
 msgstr "ویرایش اطلاعات هویتی طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:89
+#: jibres/includes/languages/trans_static.php:94
 msgid "thirdpartyElectronicDocumentEdit"
 msgstr "ویرایش اسناد الکترونیکی طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:90
+#: jibres/includes/languages/trans_static.php:95
 msgid "thirdpartyAddressView"
 msgstr "نمایش آدرس طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:91
+#: jibres/includes/languages/trans_static.php:96
 msgid "thirdpartyAddressAdd"
 msgstr "افزودن آدرس طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:92
+#: jibres/includes/languages/trans_static.php:97
 msgid "thirdpartyAddressEdit"
 msgstr "ویرایش آدرس طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:93
+#: jibres/includes/languages/trans_static.php:98
 msgid "thirdpartyAddressDelete"
 msgstr "حذف آدرس طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:94
+#: jibres/includes/languages/trans_static.php:99
 msgid "thirdpartyAvatarSet"
 msgstr "تنظیم آواتار طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:95
+#: jibres/includes/languages/trans_static.php:100
 msgid "thirdpartyAvatarDelete"
 msgstr "حذف آواتار طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:96
+#: jibres/includes/languages/trans_static.php:101
 msgid "thirdpartyCompanyDetailEdit"
 msgstr "ویرایش اطلاعات حقوقی طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:97
+#: jibres/includes/languages/trans_static.php:102
 msgid "thirdpartyManageView"
 msgstr "نمایش مدیریت طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:98
+#: jibres/includes/languages/trans_static.php:103
 msgid "thirdpartyTypeEdit"
 msgstr "ویرایش نوع طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:99
+#: jibres/includes/languages/trans_static.php:104
 msgid "thirdpartyPermissionEdit"
 msgstr "ویرایش سطح دسترسی طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:100
+#: jibres/includes/languages/trans_static.php:105
 msgid "thirdpartyBoughtView"
 msgstr "نمایش خرید‌های طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:101
+#: jibres/includes/languages/trans_static.php:106
 msgid "thirdpartySoldView"
 msgstr "نمایش فروش‌های طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:102
+#: jibres/includes/languages/trans_static.php:107
 msgid "thirdpartyFactorView"
 msgstr "نمایش فاکتورهای طرف‌حساب"
 
-#: jibres/includes/languages/trans_static.php:103
+#: jibres/includes/languages/trans_static.php:108
 msgid "thirdpartyLogView"
 msgstr "نمایش لاگ طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:109
+msgid "thirdpartyTagView"
+msgstr "نمایش تگ‌های طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:110
+msgid "thirdpartyIdentifyView"
+msgstr "نمایش اطلاعات هویتی طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:111
+msgid "thirdpartyCompanyDetailView"
+msgstr "نمایش اطلاعات حقوقی طرف‌حساب"
 
 #: jibres/includes/lib/app/factor.php:62
 msgid "Customer detail is invalid"
@@ -15323,6 +15341,9 @@ msgstr "اجازه مشاهده لاگ‌های سیستم"
 #: jibres/includes/permission/permission.php:104
 msgid "Allow to login by another session"
 msgstr "اجازه ورود با کاربر دیگر"
+
+#~ msgid "Some detail about your :type!"
+#~ msgstr "یک سری جزئیات درباره :type شما!"
 
 #~ msgid "staffView"
 #~ msgstr "نمایش کارمندان"

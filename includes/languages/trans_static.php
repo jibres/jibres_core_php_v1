@@ -106,6 +106,9 @@ class TransStatic
 	echo T_("thirdpartySoldView");
 	echo T_("thirdpartyFactorView");
 	echo T_("thirdpartyLogView");
+	echo T_("thirdpartyTagView");
+	echo T_("thirdpartyIdentifyView");
+	echo T_("thirdpartyCompanyDetailView");
 
  }
 }
