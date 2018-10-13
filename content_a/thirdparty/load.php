@@ -48,7 +48,7 @@ class load
 
 		// add back level to summary link
 		\dash\data::badge_link(\dash\url::this(). '?type='. self::typeTrans());
-		\dash\data::badge_text(T_(':types list', ['types' => T_(self::typeTrans(true))]));
+		\dash\data::badge_text(T_('Return to :types list', ['types' => T_(self::typeTrans(true))]));
 
 		if(isset($result['user_id']))
 		{
@@ -236,5 +236,18 @@ class load
 
 		return $type;
 	}
+
+
+
+	public static function fixTitle()
+	{
+		$myName = \dash\data::dataRow_displayname();
+		if($myName)
+		{
+			$myName = \dash\data::page_title(). ' | '. $myName;
+			\dash\data::page_title($myName);
+		}
+	}
+
 }
 ?>
