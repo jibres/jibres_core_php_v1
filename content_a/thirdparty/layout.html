@@ -434,10 +434,19 @@
   </div>
 
   <div class="c">
+    <a class="dcard {%if url.child in ['billing', 'transaction'] %}active{%endif%}" href='{{url.this}}/billing?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-card"></i></div>
+      <div class="label">{%trans "Billing"%} <kbd>T+3</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c">
     <a class="dcard {%if url.child == 'bought' %}active{%endif%}" href='{{url.this}}/bought?id={{requestGET.id}}' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-basket"></i></div>
-      <div class="label">{%trans "Has bought"%} <kbd>T+3</kbd></div>
+      <div class="label">{%trans "Has bought"%} <kbd>T+4</kbd></div>
      </div>
     </a>
   </div>
@@ -447,7 +456,7 @@
     <a class="dcard {%if url.child == 'sold' %}active{%endif%}" href='{{url.this}}/sold?id={{requestGET.id}}' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-archive"></i></div>
-      <div class="label">{%trans "Sold"%} <kbd>T+4</kbd></div>
+      <div class="label">{%trans "Sold"%} <kbd>T+5</kbd></div>
      </div>
     </a>
   </div>
@@ -456,7 +465,7 @@
     <a class="dcard {%if url.child == 'factor'%}active{%endif%}" href='{{url.this}}/factor?id={{requestGET.id}}' data-shortkey="50shift">
      <div class="statistic teal">
       <div class="value"><i class="sf-folder-1"></i></div>
-      <div class="label">{%trans "Factors"%} <kbd>T+5</kbd></div>
+      <div class="label">{%trans "Factors"%} <kbd>T+6</kbd></div>
      </div>
     </a>
   </div>
@@ -465,7 +474,7 @@
     <a class="dcard {%if url.child == 'log'%}active{%endif%}" href='{{url.this}}/log?id={{requestGET.id}}' data-shortkey="50shift">
      <div class="statistic orange">
       <div class="value"><i class="sf-load-a"></i></div>
-      <div class="label">{%trans "Logs"%} <kbd>T+6</kbd></div>
+      <div class="label">{%trans "Logs"%} <kbd>T+7</kbd></div>
      </div>
     </a>
   </div>
