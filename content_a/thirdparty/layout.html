@@ -30,61 +30,27 @@
 
 
 
-{%block psidebarSupplier%}
-<div class="cbox normal">
-
- <div class="vcard">
-  <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
-  {%if dataRow.avatar%}
-    <img src="{{dataRow.avatar}}">
-  {%else%}
-    <img src="{{url.site}}/static/siftal/images/useful/user1.png">
-  {%endif%}
-  </a>
-  <div class="content">
-    <div class="header"><b>{{dataRow.displayname}}</b></div>
-    <div class="meta"><span>{{dataRow.visitorname}}</span></div>
-    {%if dataRow.visitormobile%}
-    <div class="desc"><i class="sf-mobile fs2"></i>{{dataRow.visitormobile|fitNumber(false)}}</div>
-    {%endif%}
-  </div>
-
-  <!-- <div class="footer">{{dataRow.nationalcode|fitNumber(false)}}</div> -->
-
- </div>
-
- <a class="btn block mTB10" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General Detail"%}</a>
-</div>
-{%endblock%}
-
-
-
-
 {%block psidebar%}
 <div class="cbox">
 
  <div class="vcard txtC">
   <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
-  {%if dataRow.avatar%}
-    <img src="{{dataRow.avatar}}">
-  {%else%}
-    <img src="{{url.site}}/static/siftal/images/useful/user1.png">
-  {%endif%}
+    <img src="{{dataRow.avatar}}" alt="{{dataRow.displayname}}">
   </a>
   <div class="content">
-    <div class="header">{{dataRow.firstname}} <b>{{dataRow.lastname}}</b></div>
-    <div class="meta"><span>{{dataRow.displayname}}</span></div>
-    {%if dataRow.mobile%}
-    <div class="desc"><i class="sf-mobile fs2"></i>{{dataRow.mobile|fitNumber(false)}}</div>
-    {%endif%}
+    <div class="header"><a href='{{url.this}}/general?id={{requestGET.id}}'><small>{{dataRow.genderString}}</small> {{dataRow.displayname}}</a></div>
+    <div class="meta mT5">
+      <a href='{{url.this}}/manage?id={{requestGET.id}}'>
+        {%if dataRow.staff%}<div class="badge success">{%trans "Staff"%}</div>{%endif%}
+        {%if dataRow.supplier%}<div class="badge primary">{%trans "Supplier"%}</div>{%endif%}
+        {%if dataRow.customer%}<div class="badge">{%trans "Customer"%}</div>{%endif%}
+      </a>
+    </div>
   </div>
-  {%if dataRow.nationalcode%}
-  <div class="footer">{{dataRow.nationalcode|fitNumber(false)}}</div>
-  {%endif%}
   <div class="footer">
-    {%if dataRow.staff%}<div class="badge success">{%trans "Staff"%}</div>{%endif%}
-    {%if dataRow.supplier%}<div class="badge primary">{%trans "Supplier"%}</div>{%endif%}
-    {%if dataRow.customer%}<div class="badge">{%trans "Customer"%}</div>{%endif%}
+    {%if dataRow.mobile%}
+    <div><i class="sf-mobile fs2"></i>{{dataRow.mobile|fitNumber('mobile')}}</div>
+    {%endif%}
   </div>
  </div>
 </div>
