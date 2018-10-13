@@ -6,12 +6,20 @@ class comment
 
 	public static function add($_note, $_id)
 	{
-		\dash\log::set('thirdpartyNote', ['code' => $_id, 'data' => $_note]);
+		if(\dash\permission::check('thirdpartyNoteAdd'))
+		{
+			\dash\log::set('thirdpartyNote', ['code' => $_id, 'data' => $_note]);
+		}
 	}
 
 
 	public static function list($_id, $_limit = 100)
 	{
+		if(!\dash\permission::check('thirdpartyNoteView'))
+		{
+			return null;
+		}
+
 		$get_log =
 		[
 			'caller' => 'thirdpartyNote',

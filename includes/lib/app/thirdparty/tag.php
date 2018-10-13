@@ -6,7 +6,7 @@ class tag
 
 	public static function add($_tag, $_id)
 	{
-		\dash\permission::access('aThirdpartyAssignTag');
+		\dash\permission::access('thirdpartyAssignTag');
 
 		$id = \dash\coding::decode($_id);
 
@@ -44,21 +44,5 @@ class tag
 		return true;
 
 	}
-
-
-	public static function list($_id, $_limit = 100)
-	{
-		$get_log =
-		[
-			'caller' => 'thirdpartyNote',
-			'code'   => $_id,
-			'limit'  => $_limit
-		];
-
-		$get_log = \dash\db\logs::get($get_log, ['join_user' => true]);
-		return $get_log;
-
-	}
-
 }
 ?>

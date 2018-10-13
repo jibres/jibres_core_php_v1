@@ -19,6 +19,7 @@
 
 
 {%block timeline%}
+{%if perm('thirdpartyNoteAdd') or logDetail%}
 <section class="sTimeline">
 
   <div class="event" >
@@ -46,6 +47,7 @@
   {%endfor%}
 
 </section>
+{%endif%}
 {%endblock%}
 
 
