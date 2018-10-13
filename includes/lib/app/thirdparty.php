@@ -433,11 +433,11 @@ class thirdparty
 
 					if($value === 'male')
 					{
-						$result['gender_string'] = 'Mr';
+						$result['genderString'] = T_('Mr');
 					}
 					elseif($value === 'female')
 					{
-						$result['gender_string'] = 'Mrs';
+						$result['genderString'] = T_('Mrs');
 					}
 					break;
 

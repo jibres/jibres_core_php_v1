@@ -41,13 +41,13 @@
 
 {%block htmlSearchBox%}
 <div class="cbox fs12">
-  <form method="get" action='{{url.here}}/thirdparty' data-action>
+  <form method="get" action='{{url.here}}/thirdparty' >
     {%if requestGET.type%}
       <input type="hidden" name="type" value="{{requestGET.type}}">
     {%endif%}
     <div class="input">
-      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus  data-pass='submit' autocomplete='off' title='{%trans "Enter 2 space for search in firstname and lastname and father"%}'>
-      <button class="addon btn ">{%trans "Search" %}</button>
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus  data-pass='submit' autocomplete='off' >
+      <button class="addon btn">{%trans "Search" %}</button>
     </div>
   </form>
 </div>
@@ -64,9 +64,11 @@
         {%if requestGET.type == "customer"%}
         <th class="txtC" data-sort="{{sortLink.customerOrder.order}}"><a href='{{sortLink.customerOrder.link}}'>{%trans "Customer total order"%}</a></th>
         {%endif%}
+
         {%if not requestGET.type or requestGET.type == "customer"%}
         <th class="txtC" data-sort="{{sortLink.customerSpend.order}}"><a href='{{sortLink.customerSpend.link}}'>{%trans "Customer total spend"%}</a></th>
         {%endif%}
+
         {%if requestGET.type == "customer"%}
         <th class="txtC" data-sort="{{sortLink.customerCredit.order}}"><a href='{{sortLink.customerCredit.link}}'>{%trans "Customer credit"%}</a></th>
         {%endif%}
@@ -74,6 +76,7 @@
         {%if requestGET.type == "supplier"%}
         <th class="txtC" data-sort="{{sortLink.supplierOrder.order}}"><a href='{{sortLink.supplierOrder.link}}'>{%trans "Supplier total purchased order"%}</a></th>
         {%endif%}
+
         {%if not requestGET.type or requestGET.type == "supplier"%}
         <th class="txtC" data-sort="{{sortLink.supplierPurchased.order}}"><a href='{{sortLink.supplierPurchased.link}}'>{%trans "Supplier total purchased"%}</a></th>
         {%endif%}
@@ -81,6 +84,7 @@
         {%if requestGET.type == "staff"%}
         <th class="txtC" data-sort="{{sortLink.staffOrder.order}}"><a href='{{sortLink.staffOrder.link}}'>{%trans "Staff total sales order"%}</a></th>
         {%endif%}
+
         {%if not requestGET.type or requestGET.type == "staff"%}
         <th class="txtC" data-sort="{{sortLink.staffSale.order}}"><a href='{{sortLink.staffSale.link}}'>{%trans "Staff total sales"%}</a></th>
         {%endif%}
@@ -138,9 +142,11 @@
         {%if requestGET.type == "customer"%}
         <td class="txtC">{{60 | fitNumber}}</td>
         {%endif%}
+
         {%if not requestGET.type or requestGET.type == "customer"%}
         <td class="txtC pRa10">{%if value.customer%}{{250000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
+
         {%if requestGET.type == "customer"%}
         <td class="txtC pRa10">{%if value.customer%}{{135000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
@@ -148,6 +154,7 @@
         {%if requestGET.type == "supplier"%}
         <td class="txtC">{{70 | fitNumber}}</td>
         {%endif%}
+
         {%if not requestGET.type or requestGET.type == "supplier"%}
         <td class="txtC pRa10">{%if value.supplier%}{{350000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
@@ -155,6 +162,7 @@
         {%if requestGET.type == "staff"%}
         <td class="txtC">{{80 | fitNumber}}</td>
         {%endif%}
+
         {%if not requestGET.type or requestGET.type == "staff"%}
         <td class="txtC pRa10">{%if value.staff%}{{450000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
