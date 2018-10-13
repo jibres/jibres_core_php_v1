@@ -3,18 +3,33 @@ namespace content_a\thirdparty\home;
 
 class view
 {
-
 	public static function config()
 	{
-
 		\dash\data::page_title(T_(':type list', ['type' => T_(\content_a\thirdparty\load::typeTrans(true))]));
-		\dash\data::page_desc(T_('Some detail about your :type!', ['type' => T_(\content_a\thirdparty\load::typeTrans())]));
 		\dash\data::page_desc(T_('Check list of :types and search or filter in them to find your :type.', ['types' => T_(\content_a\thirdparty\load::typeTrans(true)), 'type' => T_(\content_a\thirdparty\load::typeTrans())]));
 		\dash\data::page_desc(\dash\data::page_desc(). ' '. T_('Also add or edit specefic :type.', ['type' => T_(\content_a\thirdparty\load::typeTrans())]));
 
 		\dash\data::page_pictogram('users');
 
-		$type           = \content_a\thirdparty\load::typeTrans();
+		$type = \content_a\thirdparty\load::typeTrans();
+		// set pictogram
+		switch ($type)
+		{
+			case 'customer':
+				\dash\data::page_pictogram('user-4');
+				break;
+
+			case 'staff':
+				\dash\data::page_pictogram('user-md');
+				break;
+
+			case 'supplier':
+				\dash\data::page_pictogram('network');
+				break;
+
+			default:
+				break;
+		}
 
 		$args =
 		[
