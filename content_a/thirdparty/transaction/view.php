@@ -1,5 +1,5 @@
 <?php
-namespace content_a\thirdparty\log;
+namespace content_a\thirdparty\transaction;
 
 
 class view
