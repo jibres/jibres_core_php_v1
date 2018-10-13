@@ -8,8 +8,9 @@ class view
 	{
 		\content_a\thirdparty\load::dataRow();
 
-		\dash\data::page_title(T_('Edit address'). \dash\data::page_title());
-		\dash\data::page_desc(T_('set current location and full address'));
+		\dash\data::page_title(T_('Addresses'). \dash\data::page_title());
+		\dash\data::page_desc(T_('Check addresses and add new one or edit existing address.'));
+		\dash\data::page_pictogram('map-marker');
 
 		\dash\utility\location\cites::html_data();
 
@@ -41,6 +42,9 @@ class view
 			\dash\data::addressDataRow($dataRow);
 
 		}
+
+
+		\content_a\thirdparty\load::fixTitle();
 	}
 }
 ?>
