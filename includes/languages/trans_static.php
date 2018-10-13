@@ -79,6 +79,11 @@ class TransStatic
 	echo T_("staffAccess");
 	echo T_("supplierAccess");
 	echo T_("customerAccess");
+
+	echo T_("staffAdd");
+	echo T_("supplierAdd");
+	echo T_("customerAdd");
+
 	echo T_("thirdpartyNoteView");
 	echo T_("thirdpartyNoteAdd");
 	echo T_("thirdpartyAssignTag");

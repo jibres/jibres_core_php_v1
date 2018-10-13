@@ -2,7 +2,9 @@
   "cpThirdpartyTagAdd": {
     "title": "cpThirdpartyTagAdd",
     "cat": "Thirdparty",
-    "require": ["contentCp"]
+    "require": [
+      "contentCp"
+    ]
   },
   "staffAccess": {
     "title": "staffAccess",
@@ -16,6 +18,21 @@
   },
   "customerAccess": {
     "title": "customerAccess",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "staffAdd": {
+    "title": "staffAdd",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "supplierAdd": {
+    "title": "supplierAdd",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "customerAdd": {
+    "title": "customerAdd",
     "cat": "Thirdparty",
     "require": []
   },
