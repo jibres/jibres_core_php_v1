@@ -111,7 +111,9 @@
   "thirdpartyAvatarDelete": {
     "title": "thirdpartyAvatarDelete",
     "cat": "Thirdparty",
-    "require": []
+    "require": [
+      "thirdpartyAvatarSet"
+    ]
   },
   "thirdpartyCompanyDetailEdit": {
     "title": "thirdpartyCompanyDetailEdit",

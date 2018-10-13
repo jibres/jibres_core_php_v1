@@ -6,10 +6,11 @@ class model
 {
 	public static function post()
 	{
-		\dash\permission::access('aThirdPartyEdit');
 		$request           = [];
 		if(\dash\request::post('remove') === 'avatar')
 		{
+			\dash\permission::access('thirdpartyAvatarDelete');
+
 			$request['avatar'] = null;
 		}
 		else
