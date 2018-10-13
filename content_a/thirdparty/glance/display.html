@@ -15,18 +15,24 @@
  		<div class="c">{{block("dCustomerLastSpend")}}</div>
  	</div>
 
+ 	<div class="f">
+ 		<div class="c">{{block("dSupplierPurchased")}}</div>
+ 		<div class="c">{{block("dSupplierOrder")}}</div>
+ 	</div>
+
+ 	<div class="f">
+ 		<div class="c">{{block("dStaffSale")}}</div>
+ 		<div class="c">{{block("dStaffOrder")}}</div>
+ 		<div class="c">{{block("dStaffLastSale")}}</div>
+ 	</div>
+
 
  </div>
 </div>
-
-
 {%endblock%}
 
 
 
-{%block detail%}
-
-{%endblock%}
 
 
 {%block dCustomerOrder%}
@@ -57,5 +63,61 @@
  </div>
 </a>
 {%endblock%}
+
+
+
+{%block dSupplierOrder%}
+<a class="dcard" href='{{url.this}}/sold?id={{requestGET.id}}'>
+ <div class="statistic sm teal">
+  <div class="label mB5"><i class="fs20 mRa5 sf-list-ul"></i> {%trans "Supplier total purchased order"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block dSupplierPurchased%}
+<a class="dcard" href='{{url.this}}/sold?id={{requestGET.id}}'>
+ <div class="statistic sm teal">
+  <div class="label mB5"><i class="fs20 mRa5 sf-archive"></i> {%trans "Supplier total purchased"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block dStaffOrder%}
+<a class="dcard" href='{{url.this}}/factor?id={{requestGET.id}}'>
+ <div class="statistic sm teal">
+  <div class="label mB5"><i class="fs20 mRa5 sf-list-ul"></i> {%trans "Staff total sale order"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block dStaffSale%}
+<a class="dcard" href='{{url.this}}/factor?id={{requestGET.id}}'>
+ <div class="statistic sm teal">
+  <div class="label mB5"><i class="fs20 mRa5 sf-folder-1"></i> {%trans "Staff total sale"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block dStaffLastSale%}
+<a class="dcard" href='{{url.this}}/factor?id={{requestGET.id}}'>
+ <div class="statistic sm teal">
+  <div class="label mB5"><i class="fs20 mRa5 sf-bag"></i> {%trans "Staff last sale"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+
 
 
