@@ -258,6 +258,30 @@
 {%endblock%}
 
 
+{%block iEmailMarketing%}
+<div class="check1">
+  <input type="checkbox" id="r-emailmarketing" name="emailmarketing" value="emailmarketing" {%if dataRow.emailmarketing %}checked{%endif%}>
+  <label for="r-emailmarketing">{%trans "No problem with email marketing"%}</label>
+</div>
+{%endblock%}
+
+
+{%block iSmsMarketing%}
+<div class="check1">
+  <input type="checkbox" id="r-smsmarketing" name="smsmarketing" value="smsmarketing" {%if dataRow.smsmarketing %}checked{%endif%}>
+  <label for="r-smsmarketing">{%trans "No problem with sms marketing"%}</label>
+</div>
+{%endblock%}
+
+
+{%block iTaxExempt%}
+<div class="check1">
+  <input type="checkbox" id="r-taxexempt" name="taxexempt" value="taxexempt" {%if dataRow.taxexempt %}checked{%endif%}>
+  <label for="r-taxexempt">{%trans "Customer is tax exempt"%}</label>
+</div>
+{%endblock%}
+
+
 {%block iAvatar%}
 <div class="input preview">
  <input type="file" accept="image/gif, image/jpeg, image/png" name="avatar" id="avatar1" data-preview data-max="500">
