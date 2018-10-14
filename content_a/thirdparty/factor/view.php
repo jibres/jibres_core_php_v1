@@ -8,9 +8,11 @@ class view
 	{
 		\content_a\thirdparty\load::dataRow();
 
-		\dash\data::page_title(T_('Glance user detail'));
-		\dash\data::page_desc(T_('you can edit general detail of thirdparty'));
+		\dash\data::page_title(T_('Seller factors'));
+		\dash\data::page_desc(T_('List of factors of this user as seller.'));
+		\dash\data::page_pictogram('folder-1');
 
+		\content_a\thirdparty\load::fixTitle();
 	}
 }
 ?>

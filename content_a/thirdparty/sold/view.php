@@ -8,8 +8,11 @@ class view
 	{
 		\content_a\thirdparty\load::dataRow();
 
-		\dash\data::page_title(T_('Glance user detail'));
-		\dash\data::page_desc(T_('you can edit general detail of thirdparty'));
+		\dash\data::page_title(T_('Supplier sold'));
+		\dash\data::page_desc(T_('Total purchased items from this supplier.'));
+		\dash\data::page_pictogram('archive');
+
+		\content_a\thirdparty\load::fixTitle();
 	}
 }
 ?>
