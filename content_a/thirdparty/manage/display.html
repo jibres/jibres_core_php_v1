@@ -33,6 +33,9 @@
 {{block('iStatus')}}
 
 
+{{block('iDeleteAccount')}}
+
+
 {{block("isave")}}
 
 </form>
@@ -93,3 +96,15 @@
  </div>
 </div>
 {%endblock%}
+
+
+{%block iDeleteAccount%}
+{%if dataRow.status == 'delete' or 1%}
+<div class="f">
+	<div class="cauto os">
+		<a class="btn danger" href="{{url.this}}/delete">{%trans "Delete account"%}</a>
+	</div>
+</div>
+{%endif%}
+{%endblock%}
+
