@@ -30,6 +30,8 @@
 {{block('iPermission')}}
 {%endif%}
 
+{{block('iStatus')}}
+
 
 {{block("isave")}}
 
@@ -54,4 +56,40 @@
 	</div>
 </div>
 {%endif%}
+{%endblock%}
+
+
+
+
+
+
+{%block iStatus%}
+<div>
+ <label >{%trans "Status"%}</label>
+
+ <div class="radio1 green">
+  <input type="radio" id="r-active" name="status" value="active" {%if dataRow.status == 'active' or not dataRow.status %} checked{%endif%}>
+  <label for="r-active">{%trans "Active"%}</label>
+ </div>
+
+ <div class="radio1 black">
+  <input type="radio" id="r-deactive" name="status" value="deactive" {%if dataRow.status == 'deactive'%} checked{%endif%} >
+  <label for="r-deactive">{%trans "Deactive"%}</label>
+ </div>
+
+ <div class="radio1 red">
+  <input type="radio" id="r-blocked" name="status" value="blocked" {%if dataRow.status == 'blocked' %} checked{%endif%}>
+  <label for="r-blocked">{%trans "Blocked"%}</label>
+ </div>
+
+ <div class="radio1 yellow">
+  <input type="radio" id="r-delete" name="status" value="delete" {%if dataRow.status == 'delete' %} checked{%endif%}>
+  <label for="r-delete">{%trans "Delete"%}</label>
+ </div>
+
+ <div class="radio1 red">
+  <input type="radio" id="r-spam" name="status" value="spam" {%if dataRow.status == 'spam' %} checked{%endif%}>
+  <label for="r-spam">{%trans "Spam"%}</label>
+ </div>
+</div>
 {%endblock%}
