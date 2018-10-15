@@ -270,18 +270,25 @@ class userstores
 	 */
 	public static function search($_string = null, $_option = [])
 	{
+		$number = \dash\utility\convert::to_en_number($_string);
+		$new_number = null;
+		if(is_numeric($number) && substr($number, 0, 2) === '09')
+		{
+			$new_number = "98". substr($number, 1);
+			$new_number = " userstores.mobile LIKE '$new_number%' OR ";
+		}
 
 		$default_option =
 		[
 			'search_field' =>
 			"
 				(
+					$new_number
+					userstores.displayname LIKE '%__string__%' OR
 					userstores.firstname LIKE '%__string__%' OR
 					userstores.lastname LIKE '%__string__%' OR
 					userstores.mobile LIKE '%__string__%' OR
-					userstores.nationalcode LIKE '%__string__%' OR
-					userstores.father LIKE '%__string__%' OR
-					userstores.birthday LIKE '%__string__%'
+					userstores.email LIKE '%__string__%'
 				)
 			",
 		];
