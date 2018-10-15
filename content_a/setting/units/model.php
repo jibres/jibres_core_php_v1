@@ -22,7 +22,7 @@ class model
 		}
 
 		$args                = [];
-		$args['type']        = \dash\request::post('type');
+		$args['decimal']     = \dash\request::post('decimal');
 		$args['unitdefault'] = \dash\request::post('unitdefault');
 		$args['maxsale']     = \dash\request::post('maxsale');
 		$args['title']       = \dash\request::post('unit');

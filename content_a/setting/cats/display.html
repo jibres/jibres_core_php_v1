@@ -26,7 +26,6 @@
   <form method="post" autocomplete="off">
     {{block('catName')}}
 
-    {{block('iMaxSale')}}
     {{block('catDefault')}}
 
     {%if editMode%}
@@ -99,8 +98,7 @@
         <th>{%trans "Cat"%}</th>
         <th>{%trans "Count product"%}</th>
 
-        <th>{%trans "Type"%}</th>
-        <th>{%trans "Max sale"%}</th>
+
         <th>{%trans "Action"%}</th>
       </tr>
     </thead>
@@ -113,8 +111,6 @@
           {%if not value.title and value.title != '0' %}<small class="fc-mute">{%trans "Without Cat"%}</small>{%else%}{{value.title}}{%endif%}</td>
         <td><a href="{{url.here}}/product?cat={{value.title}}">{{value.count | fitNumber}}</a></td>
 
-        <td>{%set myType = value.type | capitalize%}{%trans myType%}</td>
-        <td>{{value.maxsale | fitNumber}}</td>
 
         <td>
           <a href="{{url.this}}/cats?edit={{value.title}}" class="badge primary">{%trans "Edit"%}</a>

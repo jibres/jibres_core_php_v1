@@ -29,12 +29,8 @@ class unit
 			return false;
 		}
 
-		$type = \dash\app::request('type');
-		if($type && !in_array($type, ['decimal', 'integer']))
-		{
-			\dash\notif::error(T_("Invalid type of unit"), 'type');
-			return false;
-		}
+		$decimal = \dash\app::request('decimal') ? true : false;
+
 
 		$default = \dash\app::request('unitdefault') ? true : false;
 
@@ -57,7 +53,7 @@ class unit
 
 		$args            = [];
 		$args['title']   = $title;
-		$args['type']    = $type;
+		$args['decimal'] = $decimal;
 		$args['default'] = $default;
 		$args['maxsale'] = $maxsale;
 		return $args;
