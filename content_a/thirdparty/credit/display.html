@@ -11,18 +11,72 @@
     {{block("psidebar")}}
  </div>
  <div class="c9 s12">
- 	<div class="cbox">
- 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
- 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
- 	</div>
+ 	{{block('creditBox')}}
+ 	{{block('updateCredit')}}
  </div>
 </div>
 
 
 {%endblock%}
+
+
+
+
+{%block creditBox%}
+    <section class="cbox fs10">
+      <h3>{%trans "Thirdparty credit"%}<i class="sf-diamond floatRa"></i></h3>
+      <div class="statistics mT10">
+        <a class="statistic sm {%if memberBudget > 0%}green{%else%}orange{%endif%}" title='{%trans "Toman"%}' href="{{url.this}}/billing?id={{requestGET.id}}&action=list">
+          <div class="value">{{memberBudget | fitNumber}}</div>
+          <div class="label">{%trans "Financial balance"%}</div>
+        </a>
+
+
+        <a class="statistic sm blue" title='{%trans "Toman"%}' href="{{url.this}}/billing?id={{requestGET.id}}&action=credit">
+          <div class="value">{%if dataRow.credit%}{{dataRow.credit | fitNumber}}{%else%}-{%endif%}</div>
+          <div class="label">{%trans "Max credit"%}</div>
+        </a>
+
+        <div class="statistic sm brown" title='{%trans "Toman"%}'>
+          <div class="value">{{ (dataRow.credit + memberBudget) | fitNumber}}</div>
+          <div class="label">{%trans "Remain credit"%}</div>
+        </div>
+      </div>
+    </section>
+{%endblock%}
+
+
+
+{%block updateCredit%}
+    <section class="cbox">
+      <h3>{%trans "Increase or decrease thirdparty credit"%}<i class="sf-plus-circle floatRa"></i> <i class="sf-minus-circle floatRa"></i></h3>
+      <p class="msg">{%trans "thirdparties can take unit with this credit until max value of set for each thirdparty."%} {%trans "Here you can increase or decrease max value of thirdparty credit."%}</p>
+
+      <div class="mT20">
+        <div class="cauto"></div>
+        <div class="cauto">
+        <form method="post" autocomplete="off">
+          <input type="hidden" name="formType" value="credit">
+          {{block('iCredit')}}
+        </form>
+        </div>
+      </div>
+    </section>
+{%endblock%}
+
+
+
+
+{% block iCredit %}
+<label for="credit">{%trans "New Credit"%} <small class="fc-red">* {%trans "Require"%}</small></label>
+<div class="input">
+  <input type="number" name="credit" id="credit" placeholder='{%trans "New credit of thirdparty"%} *' value="{{dataRow.credit}}" required max='9999999999999' min="0"  title='{%trans "Toman"%}' data-response-realtime>
+  <button class="addon btn primary">{%trans "Save"%}</button>
+</div>
+{%if lang.current == 'fa'%}
+<div class="msg info2 txtB" data-response='credit' data-response-call='wordifyResponse'></div>
+{%endif%}
+{% endblock %}
+
 
 

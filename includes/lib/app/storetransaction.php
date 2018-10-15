@@ -11,6 +11,7 @@ class storetransaction
 	use \lib\app\storetransaction\add;
 	use \lib\app\storetransaction\edit;
 	use \lib\app\storetransaction\get;
+	use \lib\app\storetransaction\datalist;
 
 
 	/**

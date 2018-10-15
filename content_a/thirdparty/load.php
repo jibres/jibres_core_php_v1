@@ -5,13 +5,8 @@ namespace content_a\thirdparty;
 class load
 {
 
-	/**
-	 * load user data
-	 */
-	public static function dataRow()
+	public static function check_access()
 	{
-		$result = null;
-
 		$id = \dash\request::get('id');
 		if($id)
 		{
@@ -25,6 +20,32 @@ class load
 		else
 		{
 			\dash\header::status(404, T_("Thirdparty id not set"));
+		}
+	}
+
+
+	/**
+	 * load user data
+	 */
+	public static function dataRow()
+	{
+		$result = \dash\data::dataRow();
+		if(!$result)
+		{
+			$id = \dash\request::get('id');
+			if($id)
+			{
+				$result = \lib\app\thirdparty::get($id);
+				if(!$result)
+				{
+					\dash\header::status(404, T_("Invalid thirdparty id"));
+				}
+				\dash\data::dataRow($result);
+			}
+			else
+			{
+				\dash\header::status(404, T_("Thirdparty id not set"));
+			}
 		}
 
 		$accessType = self::typeTrans();
