@@ -459,42 +459,42 @@
 
 {%block pageSteps%}
 <div class="f">
+
   <div class="c s6">
-    <a class="dcard {%if url.child == 'glance' %}active{%endif%}" href='{{url.this}}/glance?id={{requestGET.id}}' data-shortkey="49shift">
+    <a class="dcard {%if url.child in ['general', 'glance'] %}active{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}' data-shortkey="49shift">
      <div class="statistic gray">
-      <div class="value"><i class="sf-broadcast"></i></div>
-      <div class="label">{%trans "Glance"%} <kbd>T+1</kbd></div>
+      <div class="value"><i class="sf-list"></i></div>
+      <div class="label">{%trans "Detail"%} <kbd>T+1</kbd></div>
      </div>
     </a>
   </div>
 
   <div class="c s6">
-    <a class="dcard {%if url.child in ['profile', 'general', 'address', 'identify', 'avatar', 'company', 'manage'] %}active{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}' data-shortkey="49shift">
+    <a class="dcard {%if url.child in ['gallery', 'desc', 'comment', 'property'] %}active{%endif%}" href='{{url.this}}/site?id={{requestGET.id}}' data-shortkey="49shift">
      <div class="statistic gray">
-      <div class="value"><i class="sf-user"></i></div>
-      <div class="label">{%trans "Profile"%} <kbd>T+2</kbd></div>
+      <div class="value"><i class="sf-mouse-pointer"></i></div>
+      <div class="label">{%trans "Site"%} <kbd>T+2</kbd></div>
      </div>
     </a>
   </div>
 
   <div class="c">
-    <a class="dcard {%if url.child in ['billing', 'transaction', 'credit', 'factor', 'bought', 'sold' ] %}active{%endif%}" href='{{url.this}}/transaction?id={{requestGET.id}}' data-shortkey="49shift">
+    <a class="dcard {%if url.child in ['factor', 'buy', 'sale' ] %}active{%endif%}" href='{{url.this}}/factor?id={{requestGET.id}}' data-shortkey="49shift">
      <div class="statistic gray">
-      <div class="value"><i class="sf-card"></i></div>
-      <div class="label">{%trans "Billing"%} <kbd>T+3</kbd></div>
+      <div class="value"><i class="sf-basket"></i></div>
+      <div class="label">{%trans "Factor"%} <kbd>T+3</kbd></div>
      </div>
     </a>
   </div>
-{%if false%}
+
   <div class="c">
-    <a class="dcard {%if url.child == 'log'%}active{%endif%}" href='{{url.this}}/log?id={{requestGET.id}}' data-shortkey="50shift">
-     <div class="statistic orange">
-      <div class="value"><i class="sf-load-a"></i></div>
-      <div class="label">{%trans "Logs"%} <kbd>T+7</kbd></div>
+    <a class="dcard {%if url.child in ['log', 'report' ] %}active{%endif%}" href='{{url.this}}/report?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-graph"></i></div>
+      <div class="label">{%trans "Report"%} <kbd>T+3</kbd></div>
      </div>
     </a>
   </div>
-{%endif%}
 
 </div>
 {%endblock%}
@@ -502,26 +502,22 @@
 
 
 
-{%block pageStepsProfile%}
+{%block pageStepsGeneral%}
 <div class="f msg pB0 secondary2">
-  <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='profile'%} primary{%else%} light{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}'>{%trans "Notes"%}</a>
-  </div>
+
   <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='general'%} primary{%else%} light{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General"%}</a>
   </div>
 
   <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='address'%} primary{%else%} light{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Address"%}</a>
+    <a class="btn block {%if url.child=='warehouse'%} primary{%else%} light{%endif%}" href='{{url.this}}/warehouse?id={{requestGET.id}}'>{%trans "Warehous"%}</a>
   </div>
   <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='identify'%} primary{%else%} light{%endif%}" href='{{url.this}}/identify?id={{requestGET.id}}'>{%trans "Identify"%}</a>
+    <a class="btn block {%if url.child=='stock'%} primary{%else%} light{%endif%}" href='{{url.this}}/stock?id={{requestGET.id}}'>{%trans "Stock"%}</a>
   </div>
+
   <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='avatar'%} primary{%else%} light{%endif%}" href='{{url.this}}/avatar?id={{requestGET.id}}'>{%trans "avatar"%}</a>
-  </div>
-  <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='company'%} primary{%else%} light{%endif%}" href='{{url.this}}/company?id={{requestGET.id}}'>{%trans "Company Detail"%}</a>
+    <a class="btn block {%if url.child=='maker'%} primary{%else%} light{%endif%}" href='{{url.this}}/maker?id={{requestGET.id}}'>{%trans "Company maker"%}</a>
   </div>
   <div class="c pB10">
     <a class="btn block {%if url.child=='manage'%} primary{%else%} light{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>

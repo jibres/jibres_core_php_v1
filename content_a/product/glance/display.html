@@ -8,12 +8,18 @@
 {{block("psidebar")}}
  </div>
  <div class="c s12 pA10">
-
-<form class="cbox" method="post">
- <input type="hidden" name="delete" value="{{product.id}}">
-
-	<button class="btn danger block mT20">{%trans "Delete product"%}</button>
-</form>
+ 	{{block('iDataForm')}}
  </div>
 </div>
+{%endblock%}
+
+
+{%block iDataForm%}
+
+
+<div class="cbox">
+HI
+
+</div>
+
 {%endblock%}
