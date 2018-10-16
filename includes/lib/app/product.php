@@ -383,8 +383,15 @@ class product
 		}
 
 		// check to add new cat or unit
-		\lib\app\product\cat::check_add($cat);
-		\lib\app\product\unit::check_add($unit);
+		if($cat)
+		{
+			\lib\app\product\cat::check_add($cat);
+		}
+
+		if($unit)
+		{
+			\lib\app\product\unit::check_add($unit);
+		}
 
 		$args                    = [];
 		$args['title']           = $title;
