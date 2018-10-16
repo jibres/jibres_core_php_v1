@@ -453,6 +453,7 @@ class product
 					break;
 
 				case 'thumb':
+					$result['thumb_raw'] = $value;
 					if($value)
 					{
 						$result[$key] = $value;
