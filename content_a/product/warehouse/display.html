@@ -1,7 +1,17 @@
 {%extends "content_a/product/layout.html"%}
 
+{%block pageContent%}
+<div class="f">
+ <div class="cauto s12 pA10">
+{{block("psidebar")}}
+ </div>
+ <div class="c s12 pA10">
+ 	{{block('iDataForm')}}
+ </div>
+</div>
+{%endblock%}
 
-{%block data%}
+{%block iDataForm%}
 <form method="post" autocomplete="off">
 
 <div class="cbox">

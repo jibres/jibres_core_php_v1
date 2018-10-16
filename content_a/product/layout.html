@@ -1,15 +1,5 @@
 {%extends display.admin%}
 
-{%block pageContent%}
-<div class="f">
- <div class="cauto s12 pA10">
-{{block("psidebar")}}
- </div>
- <div class="c s12 pA10">
-{%block data%}{%endblock%}
- </div>
-</div>
-{%endblock%}
 
 
 
@@ -36,16 +26,11 @@
 
 
 
-
-
-
 {%block iadd%}
 <button class="btn primary block mT25">{%trans "Add"%}</button>
 {%endblock%}
 
-{%block iDelete%}
-<button class="btn danger block mT20">{%trans "Delete product"%}</button>
-{%endblock%}
+
 
 {%block isave%}
 <button class="btn primary block mT25">{%trans "Save"%}</button>
@@ -59,17 +44,6 @@
 <button class="btn primary block mT20">{%trans "Save All"%}</button>
 {%endblock%}
 
-
-{%block iAvatar%}
- <div class="input preview">
- <input type="file" accept="image/gif, image/jpeg, image/png" name="thumb" id="avatar1" data-preview data-max="500">
- <label for="avatar1" title='{%trans "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"%}'>
-{%if product.thumb%}
-   <img src="{{product.thumb}}" alt="{{product.name}}" id="avatarPreview">
-{%endif%}
- </label>
-</div>
-{%endblock%}
 
 
 {%block iName%}
@@ -346,3 +320,216 @@
  <input type="number" name="carton" id="carton" placeholder='{%trans "Count of product in carton"%}' value="{{product.carton}}" maxlength="50">
 </div>
 {%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%block psidebarProduct%}
+<div class="cbox max-w300">
+
+ <div class="vcard txtC">
+  <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
+    <img src="{{dataRow.avatar}}" alt="{{dataRow.displayname}}">
+  </a>
+  <div class="content">
+    <div class="header"><a href='{{url.this}}/general?id={{requestGET.id}}'><small>{{dataRow.genderString}}</small> {{dataRow.displayname}}</a></div>
+    <div class="meta mT5">
+      <a href='{{url.this}}/manage?id={{requestGET.id}}'>
+        {%if dataRow.staff%}<div class="badge success">{%trans "Staff"%}</div>{%endif%}
+        {%if dataRow.supplier%}<div class="badge primary">{%trans "Supplier"%}</div>{%endif%}
+        {%if dataRow.customer%}<div class="badge">{%trans "Customer"%}</div>{%endif%}
+      </a>
+    </div>
+  </div>
+  <div class="footer">
+    {%if dataRow.mobile%}
+    <div><i class="sf-mobile fs2"></i>{{dataRow.mobile|fitNumber('mobile')}}</div>
+    {%endif%}
+  </div>
+ </div>
+</div>
+
+{{block('iTag')}}
+
+{%endblock%}
+
+
+
+{%block iTag%}
+
+{%if perm('thirdpartyAssignTag')%}
+<div class="cbox">
+
+  <div class="tagDetector">
+    {%set myID = requestGET.id %}
+    {%set postTag = tags({"post_id" : myID , "title" : true, "format" : 'csv', "type" : "thirdparty_tag", "related" : "userstores"}) %}
+    <form method="post"  action="{{url.this}}/tag?id={{requestGET.id}}">
+
+    <div class="input mB10 hide">
+      <input type="text" class="input tagVals" name="tag"  value="{{postTag}}" id="tagValues" placeholder='{%trans "Tag"%}'>
+    </div>
+
+      <input type="hidden" name="redirecturl" value="{{url.pwd}}">
+      <datalist id="taglist">
+        {%for key, value in tagList%}
+          <option value="{{value.title}}">
+        {%endfor%}
+      </datalist>
+
+      <div class="input" title='{%trans "Add tag manually to link thirdparty togethers"%}'>
+        <input type="text" list="taglist" class="tagInput" placeholder='{%trans "Tag keywords..."%}'>
+        <button class="addon tagAdd">+</button>
+      </div>
+
+      <div class="tagBox"></div>
+
+      <button class="btn block mTB10 primary"  name="TicketFormType" value="tag">{%trans "Save tag"%}</button>
+
+    </form>
+
+  </div>
+</div>
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block pageSteps%}
+<div class="f">
+  <div class="c s6">
+    <a class="dcard {%if url.child == 'glance' %}active{%endif%}" href='{{url.this}}/glance?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-broadcast"></i></div>
+      <div class="label">{%trans "Glance"%} <kbd>T+1</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c s6">
+    <a class="dcard {%if url.child in ['profile', 'general', 'address', 'identify', 'avatar', 'company', 'manage'] %}active{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-user"></i></div>
+      <div class="label">{%trans "Profile"%} <kbd>T+2</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c">
+    <a class="dcard {%if url.child in ['billing', 'transaction', 'credit', 'factor', 'bought', 'sold' ] %}active{%endif%}" href='{{url.this}}/transaction?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-card"></i></div>
+      <div class="label">{%trans "Billing"%} <kbd>T+3</kbd></div>
+     </div>
+    </a>
+  </div>
+{%if false%}
+  <div class="c">
+    <a class="dcard {%if url.child == 'log'%}active{%endif%}" href='{{url.this}}/log?id={{requestGET.id}}' data-shortkey="50shift">
+     <div class="statistic orange">
+      <div class="value"><i class="sf-load-a"></i></div>
+      <div class="label">{%trans "Logs"%} <kbd>T+7</kbd></div>
+     </div>
+    </a>
+  </div>
+{%endif%}
+
+</div>
+{%endblock%}
+
+
+
+
+{%block pageStepsProfile%}
+<div class="f msg pB0 secondary2">
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='profile'%} primary{%else%} light{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}'>{%trans "Notes"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='general'%} primary{%else%} light{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='address'%} primary{%else%} light{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Address"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='identify'%} primary{%else%} light{%endif%}" href='{{url.this}}/identify?id={{requestGET.id}}'>{%trans "Identify"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='avatar'%} primary{%else%} light{%endif%}" href='{{url.this}}/avatar?id={{requestGET.id}}'>{%trans "avatar"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='company'%} primary{%else%} light{%endif%}" href='{{url.this}}/company?id={{requestGET.id}}'>{%trans "Company Detail"%}</a>
+  </div>
+  <div class="c pB10">
+    <a class="btn block {%if url.child=='manage'%} primary{%else%} light{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>
+  </div>
+
+</div>
+{%endblock%}
+
+
+
+
