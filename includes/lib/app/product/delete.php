@@ -23,27 +23,17 @@ trait delete
 			return false;
 		}
 
-		$log_meta =
-		[
-			'data' => $_id,
-			'meta' =>
-			[],
-		];
-
 		$id = \dash\coding::decode($_id);
 		if(!$id)
 		{
-			\dash\app::log('api:product:title:not:set', \dash\user::id(), $log_meta);
-			\dash\notif::error(T_("Product title can not be null"), 'title');
+			\dash\notif::error(T_("Invalid product"), 'title');
 			return false;
 		}
 
 		$result = \lib\db\products::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
-		$log_meta['meta']['deleted_rows'] = $result;
 
 		if(!$result)
 		{
-			\dash\app::log('api:product:delete:access:denide', \dash\user::id(), $log_meta);
 			\dash\notif::error(T_("Product not found"), 'product');
 			return false;
 		}
@@ -64,14 +54,12 @@ trait delete
 
 		if($result)
 		{
-			\dash\app::log('api:product:deleted', \dash\user::id(), $log_meta);
+			\dash\log::set('productDeleted');
 			\dash\notif::ok(T_("Product was deleted"));
 			return true;
 		}
 		else
 		{
-			$log_meta['meta']['mysql_error'] = \dash\db::error();
-			\dash\app::log('api:product:can:not:deleted', \dash\user::id(), $log_meta);
 			\dash\notif::error(T_("We can not delete this product"));
 			return false;
 		}
