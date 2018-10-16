@@ -10,16 +10,14 @@
  <div class="c s12 pA10">
 
 <form class="cbox" method="post">
- <input type="hidden" name="delete" value="{{dataRow.id}}">
- 	{{block ('iStatus') }}
- 	<div class="f">
- 		<div class="c pRa5">
-			<button class="btn primary block mT20">{%trans "Save"%}</button>
- 		</div>
- 		<div class="cauto">
-			<button class="btn danger block mT20">{%trans "Delete product"%}</button>
- 		</div>
- 	</div>
+
+
+	<div class="f">
+		<div class="c pRa5">{{block ('iManufacturer') }}</div>
+		<div class="c">{{block ('iCarton') }}</div>
+	</div>
+	<button class="btn primary block mT20">{%trans "Save"%}</button>
+
 </form>
  </div>
 </div>

@@ -6,10 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		if(!\dash\request::get('id'))
-		{
-			\dash\header::status(428);
-		}
+		\content_a\product\load::product();
 	}
 }
 ?>

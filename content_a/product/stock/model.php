@@ -1,28 +1,38 @@
 <?php
-namespace content_a\product\manage;
+namespace content_a\product\stock;
 
 
 class model
 {
+	public static function getPost()
+	{
+		$args =
+		[
+			'initialbalance' => \dash\request::post('initialbalance'),
+			'minstock'       => \dash\request::post('minstock'),
+			'maxstock'       => \dash\request::post('maxstock'),
+		];
+
+		return $args;
+	}
+
+
 	public static function post()
 	{
-		\dash\permission::access('aProductDelete');
-		$url_product  = \dash\request::get('id');
-		$post_product = \dash\request::post('delete');
+		$request         = self::getPost();
 
-		if($url_product === $post_product)
-		{
-			\lib\app\product::delete($url_product);
+		\lib\app\product::edit($request, \dash\request::get('id'));
 
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::to(\dash\url::this());
-			}
-		}
-		else
+		if(\dash\engine\process::status())
 		{
-			\dash\notif::error(T_("What are you doing?"));
+			// @check
+			\dash\redirect::pwd();
+
+			// after save redirect to list of products
+			$url_of_product_list = \dash\url::here().'/product';
+			\dash\redirect::to($url_of_product_list);
 		}
 	}
+
 }
 ?>

@@ -4,25 +4,47 @@ namespace content_a\product\manage;
 
 class model
 {
+	public static function getPost()
+	{
+		$args =
+		[
+			'status' => \dash\request::post('status'),
+		];
+
+		return $args;
+	}
+
+
 	public static function post()
 	{
-		\dash\permission::access('aProductDelete');
-		$url_product  = \dash\request::get('id');
-		$post_product = \dash\request::post('delete');
-
-		if($url_product === $post_product)
+		if(\dash\request::post('delete') === 'product')
 		{
-			\lib\app\product::delete($url_product);
+			\lib\app\product::delete(\dash\request::get('id'));
 
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::this());
 			}
+
 		}
 		else
 		{
-			\dash\notif::error(T_("What are you doing?"));
+
+			$request         = self::getPost();
+
+			\lib\app\product::edit($request, \dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				// @check
+				\dash\redirect::pwd();
+
+				// after save redirect to list of products
+				$url_of_product_list = \dash\url::here().'/product';
+				\dash\redirect::to($url_of_product_list);
+			}
 		}
 	}
+
 }
 ?>
