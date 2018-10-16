@@ -38,9 +38,8 @@ class model
 
 		$request          = [];
 		$request['thumb'] = $file_url;
-		$request['id']    = \dash\request::get('id');
 
-		\lib\app\product::edit($request);
+		\lib\app\product::edit($request, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{

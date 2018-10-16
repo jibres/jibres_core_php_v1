@@ -6,19 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('aProductEdit');
-
-		$product_id          = \dash\request::get('id');
-		\dash\data::product(\lib\app\product::get($product_id));
-
-		\dash\data::page_title(T_('thumb product!'));
-
-
-		if(isset($product['displayname']))
-		{
-			\dash\data::page_title(T_('thumb :name', ['name' => $product['displayname']]));
-		}
-
+		\dash\data::page_title(T_('thumb product!'). ' | '. \dash\data::dataRow_title());
 
 		\dash\data::badge_text(T_('Back to product list'));
 		\dash\data::badge_link(\dash\url::this());
