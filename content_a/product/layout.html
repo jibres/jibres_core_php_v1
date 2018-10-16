@@ -208,6 +208,9 @@
   <input type="number" id="finalprice" placeholder='{%trans "Final Pure Price"%}' value="{{product.finalprice}}" readonly>
   <span class="addon" title='{%trans "Pure Interest Rates"%}'>{{ product.intrestrate | fitNumber}} %</span>
  </div>
+{%if lang.current == 'fa'%}
+<div class="msg info2 txtB finalPriceToman"></div>
+{%endif%}
 </div>
 {%endblock%}
 
@@ -216,7 +219,7 @@
 {%block iDiscount%}
 <label for='discount'>{%trans "Discount"%}</label>
 <div class="input">
- <input type="number" name="discount" id="discount" placeholder='{%trans "Discount on sale"%}' value="{{product.discount}}" maxlength="50" data-run-input='recalcPricePercents'>
+ <input type="number" name="discount" id="discount" placeholder='{%trans "Discount on sale"%}' value="{{product.discount}}" max="10000000000" data-run-input='recalcPricePercents'>
  <span class="addon" title='{%trans "Discount Percent"%}'>{{ product.discountpercent | fitNumber}} %</span>
 </div>
 {%endblock%}
