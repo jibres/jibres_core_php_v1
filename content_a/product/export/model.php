@@ -7,8 +7,6 @@ class model
 
 	public static function post()
 	{
-		\dash\permission::access('aProductExport');
-
 		$file_name = \dash\url::subdomain(). '_products_'. \dash\utility\jdate::date("Ymd_Hi", time(), false);
 
 		$exported = \lib\app\product\export::all($file_name);

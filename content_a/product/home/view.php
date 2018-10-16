@@ -6,7 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('aProductList');
 		\dash\data::page_title(T_('List of products'));
 
 		$pageDesc = T_('You can search in list of products, add new product and edit existing.');
@@ -16,7 +15,6 @@ class view
 
 		\dash\data::badge_text(T_('Add new product'));
 		\dash\data::badge_link(\dash\url::this(). '/add');
-
 
 		$args =
 		[
@@ -94,7 +92,6 @@ class view
 				\dash\redirect::to(\dash\url::this().'/glance?id='. $myProductList[0]['id']);
 			}
 		}
-
 
 		if(\dash\request::get('json') === 'true')
 		{

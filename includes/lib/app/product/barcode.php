@@ -79,7 +79,7 @@ trait barcode
 
 						if($product_id)
 						{
-							$link = \dash\url::this(). '/edit/general?id='. $product_id;
+							$link = \dash\url::this(). '/glance?id='. $product_id;
 							$msg = "<a href='$link'>". $msg. '</a>';
 						}
 
