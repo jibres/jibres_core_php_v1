@@ -13,13 +13,13 @@
     <div class="content">
       <div class="header">{{dataRow.title}}</div>
         <div class="meta"><span>{{dataRow.name}}</span></div>
+        <hr>
+        <div class="meta mB10">{%trans "Price"%}: <span>{{dataRow.price | fitNumber}}</span></div>
+
+        <div class="meta">{%trans "Stock"%}: <span>{{dataRow.stock | fitNumber}}</span></div>
     </div>
   </a>
-{%if false%}
- <!-- <a class="btn block mTB5" href='{{url.this}}/general?id={{dataRow.id}}'>{%trans "General Detail"%}</a>
- <a class="btn block mTB5" href='{{url.this}}/warehouse?id={{dataRow.id}}'>{%trans "Warehouse"%}</a>
- <a class="btn block mTB5" href='{{url.this}}/delete?id={{dataRow.id}}'>{%trans "Delete product"%}</a> -->
-{%endif%}
+
 </div>
 {%endblock%}
 
