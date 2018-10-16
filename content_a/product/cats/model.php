@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\cats;
+namespace content_a\product\cats;
 
 
 class model

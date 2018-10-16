@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\units;
+namespace content_a\product\units;
 
 
 class model

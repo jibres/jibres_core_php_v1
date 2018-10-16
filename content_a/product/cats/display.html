@@ -1,8 +1,9 @@
-{%extends "content_a/setting/layout.html"%}
+{%extends display.admin%}
+
 
 
 {%block pageContent%}
-{{block('pageSteps')}}
+
 <div class="f">
   <div class="c5">
     {{block('addNewCat')}}
@@ -115,9 +116,7 @@
         <td>
           <a href="{{url.this}}/cats?edit={{value.title}}" class="badge primary">{%trans "Edit"%}</a>
           <a href="{{url.here}}/product?cat={{value.title}}" class="badge success">{%trans "Products"%}</a>
-          {%if not value.count%}
-          <a href="{{url.pwd}}" data-ajaxify data-data='{"removecat" : "{{value.title}}", "type" : "remove"}' data-method='post' class="badge danger">{%trans "Remove"%}</a>
-          {%endif%}
+
         </td>
       </tr>
       {%endfor%}
