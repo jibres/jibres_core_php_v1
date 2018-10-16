@@ -187,8 +187,8 @@ class product
 			}
 		}
 
-		$code = \dash\app::request('code');
-		if($code && mb_strlen($code) >= 200)
+		$quickcode = \dash\app::request('quickcode');
+		if($quickcode && mb_strlen($quickcode) >= 200)
 		{
 			\dash\notif::error(T_("String of product code is too large"), 'code');
 			return false;
@@ -394,7 +394,7 @@ class product
 		$args['unit']            = $unit;
 		$args['barcode']         = $barcode;
 		$args['barcode2']        = $barcode2;
-		$args['quickcode']       = $code;
+		$args['quickcode']       = $quickcode;
 		$args['buyprice']        = $buyprice;
 		$args['price']           = $price;
 		$args['discount']        = $discount;
