@@ -140,7 +140,7 @@ class view
 		$dataFilter = \dash\app\sort::createFilterMsg($search_string, $check_empty_datatable);
 		\dash\data::dataFilter($dataFilter);
 
-		$dashboardData = \lib\app\store::dashboard_detail_thirdparty(\lib\store::id());
+		$dashboardData = \lib\app\store::dashboard_detail_thirdparty();
 		\dash\data::dashboardData($dashboardData);
 	}
 

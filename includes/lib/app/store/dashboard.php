@@ -13,9 +13,9 @@ trait dashboard
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function dashboard_detail_thirdparty($_store_id)
+	public static function dashboard_detail_thirdparty()
 	{
-		if(!$_store_id || !is_numeric($_store_id))
+		if(!\lib\store::id())
 		{
 			return false;
 		}
@@ -37,9 +37,9 @@ trait dashboard
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function dashboard_detail($_store_id)
+	public static function dashboard_detail()
 	{
-		if(!$_store_id || !is_numeric($_store_id))
+		if(!\lib\store::id())
 		{
 			return false;
 		}
