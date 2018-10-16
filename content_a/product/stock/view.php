@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\delete;
+namespace content_a\product\stock;
 
 
 class view

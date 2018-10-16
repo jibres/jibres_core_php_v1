@@ -11,8 +11,15 @@
 
 <form class="cbox" method="post">
  <input type="hidden" name="delete" value="{{product.id}}">
-
-	<button class="btn danger block mT20">{%trans "Delete product"%}</button>
+ 	{{block ('iStatus') }}
+ 	<div class="f">
+ 		<div class="c pRa5">
+			<button class="btn primary block mT20">{%trans "Save"%}</button>
+ 		</div>
+ 		<div class="cauto">
+			<button class="btn danger block mT20">{%trans "Delete product"%}</button>
+ 		</div>
+ 	</div>
 </form>
  </div>
 </div>
