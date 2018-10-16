@@ -8,17 +8,17 @@
 {%block psidebar%}
 <div class="cbox normal">
 
-  <a class="vcard shadow {{cardColor}}" href='{{url.this}}/thumb?id={{product.id}}'>
-    <img src="{{product.thumb}}" alt="{{product.title}}" class="pA10-f">
+  <a class="vcard shadow {{cardColor}}" href='{{url.this}}/thumb?id={{dataRow.id}}'>
+    <img src="{{dataRow.thumb}}" alt="{{dataRow.title}}" class="pA10-f">
     <div class="content">
-      <div class="header">{{product.title}}</div>
-        <div class="meta"><span>{{product.name}}</span></div>
+      <div class="header">{{dataRow.title}}</div>
+        <div class="meta"><span>{{dataRow.name}}</span></div>
     </div>
   </a>
 {%if false%}
- <!-- <a class="btn block mTB5" href='{{url.this}}/general?id={{product.id}}'>{%trans "General Detail"%}</a>
- <a class="btn block mTB5" href='{{url.this}}/warehouse?id={{product.id}}'>{%trans "Warehouse"%}</a>
- <a class="btn block mTB5" href='{{url.this}}/delete?id={{product.id}}'>{%trans "Delete product"%}</a> -->
+ <!-- <a class="btn block mTB5" href='{{url.this}}/general?id={{dataRow.id}}'>{%trans "General Detail"%}</a>
+ <a class="btn block mTB5" href='{{url.this}}/warehouse?id={{dataRow.id}}'>{%trans "Warehouse"%}</a>
+ <a class="btn block mTB5" href='{{url.this}}/delete?id={{dataRow.id}}'>{%trans "Delete product"%}</a> -->
 {%endif%}
 </div>
 {%endblock%}
@@ -49,7 +49,7 @@
 {%block iName%}
 <label for='fname'>{%trans "Name"%}</label>
 <div class="input">
- <input type="text" name="name" placeholder='{%trans "Name of product"%}' value="{{product.name}}" required autofocus maxlength='50' minlength="1" pattern=".{1,50}" title='{%trans "Enter a valid name"%}' id='fname'>
+ <input type="text" name="name" placeholder='{%trans "Name of product"%}' value="{{dataRow.name}}" required autofocus maxlength='50' minlength="1" pattern=".{1,50}" title='{%trans "Enter a valid name"%}' id='fname'>
 </div>
 {%endblock%}
 
@@ -57,7 +57,7 @@
 {%block iTitle%}
 <label for="title">{%trans "Title"%}<span class="fc-red">*</span></label>
 <div class="input">
- <input type="text" name="title" id="title" placeholder='{%trans "Set short and best title for your product" %} *' value="{{product.title}}" maxlength='50' pattern=".{1,50}" title='{%trans "Enter a valid team title"%}' autofocus>
+ <input type="text" name="title" id="title" placeholder='{%trans "Set short and best title for your product" %} *' value="{{dataRow.title}}" maxlength='50' pattern=".{1,50}" title='{%trans "Enter a valid team title"%}' autofocus>
 </div>
 {%endblock%}
 
@@ -66,7 +66,7 @@
 {%block iSlug%}
 <label for='slug'>{%trans "Slug"%}</label>
 <div class="input">
- <input type="text" name="slug" id="slug" placeholder='{%trans "Slug"%}' value="{{product.slug}}" maxlength="50">
+ <input type="text" name="slug" id="slug" placeholder='{%trans "Slug"%}' value="{{dataRow.slug}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -78,7 +78,7 @@
 <select name="company" class="select ui dropdown search addition"  id="company">
   <option value="" readonly>{%trans "Product manufacturer"%}</option>
   {%for key, value in listCompanies%}
-    <option value="{{value}}"{%if value == product.company %} selected{%endif%}>{{value}}</option>
+    <option value="{{value}}"{%if value == dataRow.company %} selected{%endif%}>{{value}}</option>
   {%endfor%}
 </select>
 
@@ -91,7 +91,7 @@
 <select name="cat" class="select ui dropdown search addition"  id="cat">
   <option value="" readonly>{%trans "Organize by category"%}</option>
   {%for key, value in listCats%}
-    <option value="{{value.title}}"{%if value.title == product.cat %} selected{%endif%}>{{value.title}}</option>
+    <option value="{{value.title}}"{%if value.title == dataRow.cat %} selected{%endif%}>{{value.title}}</option>
   {%endfor%}
 </select>
 
@@ -102,7 +102,7 @@
 {%block iCode%}
 <label for='code'>{%trans "Code"%}</label>
 <div class="input">
- <input type="text" name="code" id="code" placeholder='{%trans "For quick access"%}' value="{{product.code}}" maxlength="50" class="txtC">
+ <input type="text" name="code" id="code" placeholder='{%trans "For quick access"%}' value="{{dataRow.code}}" maxlength="50" class="txtC">
 </div>
 {%endblock%}
 
@@ -110,7 +110,7 @@
 {%block iShortcode%}
 <label for='shortcode'>{%trans "Short code"%}</label>
 <div class="input">
- <input type="text" name="shortcode" id="shortcode" placeholder='{%trans "Short code"%}' value="{{product.shortcode}}" maxlength="50">
+ <input type="text" name="shortcode" id="shortcode" placeholder='{%trans "Short code"%}' value="{{dataRow.shortcode}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -122,7 +122,7 @@
 <select name="unit" class="select ui dropdown search addition"  id="unit">
   <option value="" readonly>{%trans "like Qty, kg, etc"%}</option>
   {%for key, value in listUnits%}
-    <option value="{{value.title}}"{%if value.title == product.unit %} selected{%endif%}>{{value.title}}</option>
+    <option value="{{value.title}}"{%if value.title == dataRow.unit %} selected{%endif%}>{{value.title}}</option>
   {%endfor%}
 </select>
 
@@ -134,7 +134,7 @@
 {%block iBarcode%}
 <label for="barcode">{%trans "Barcode"%}</label>
 <div class="input ">
- <input type="text" name="barcode" id="barcode" placeholder='{%trans "Scan Barcode here..."%}' value="{{product.barcode}}" class="barCode txtC ltr" data-lock autocomplete="off" maxlength="30">
+ <input type="text" name="barcode" id="barcode" placeholder='{%trans "Scan Barcode here..."%}' value="{{dataRow.barcode}}" class="barCode txtC ltr" data-lock autocomplete="off" maxlength="30">
  <span class="addon country"><i></i></span>
 </div>
 {%endblock%}
@@ -143,7 +143,7 @@
 {%block iBarcode2%}
 <label for="barcode2">{%trans "Barcode2"%}</label>
 <div class="input">
- <input type="text" name="barcode2" id="barcode2" placeholder='{%trans "Scan Barcode2 here..."%}' value="{{product.barcode2}}" class="barCode txtC ltr" data-lock autocomplete="off" maxlength="30">
+ <input type="text" name="barcode2" id="barcode2" placeholder='{%trans "Scan Barcode2 here..."%}' value="{{dataRow.barcode2}}" class="barCode txtC ltr" data-lock autocomplete="off" maxlength="30">
  <span class="addon country"><i></i></span>
 </div>
 {%endblock%}
@@ -161,7 +161,7 @@
 {%block iBuyprice%}
 <label for='buyprice'>{%trans "Buy price"%}</label>
 <div class="input">
- <input type="number" name="buyprice" id="buyprice" placeholder='{%trans "Buy price"%}' value="{{product.buyprice}}" min='0' max="100000000000" data-run-input='recalcPricePercents'>
+ <input type="number" name="buyprice" id="buyprice" placeholder='{%trans "Buy price"%}' value="{{dataRow.buyprice}}" min='0' max="100000000000" data-run-input='recalcPricePercents'>
 </div>
 {%endblock%}
 
@@ -169,18 +169,18 @@
 {%block iPrice%}
 <label for='price'>{%trans "Sale Price"%}</label>
 <div class="input">
- <input type="number" name="price" id="price" placeholder='{%trans "Price for sale without discount"%}' value="{{product.price}}" min='0' max="100000000000" data-run-input='recalcPricePercents'>
- <span class="addon" title='{%trans "Impure Interest Rate"%}'>{{ product.intrestrate_impure | fitNumber}} %</span>
+ <input type="number" name="price" id="price" placeholder='{%trans "Price for sale without discount"%}' value="{{dataRow.price}}" min='0' max="100000000000" data-run-input='recalcPricePercents'>
+ <span class="addon" title='{%trans "Impure Interest Rate"%}'>{{ dataRow.intrestrate_impure | fitNumber}} %</span>
 </div>
 {%endblock%}
 
 
 {%block iFinalPrice%}
-<div {%if not product.finalprice%} class="hide"{%endif%}>
+<div {%if not dataRow.finalprice%} class="hide"{%endif%}>
  <label for='finalprice'>{%trans "Final Price"%}</label>
  <div class="input disabled">
-  <input type="number" id="finalprice" placeholder='{%trans "Final Pure Price"%}' value="{{product.finalprice}}" readonly>
-  <span class="addon" title='{%trans "Pure Interest Rates"%}'>{{ product.intrestrate | fitNumber}} %</span>
+  <input type="number" id="finalprice" placeholder='{%trans "Final Pure Price"%}' value="{{dataRow.finalprice}}" readonly>
+  <span class="addon" title='{%trans "Pure Interest Rates"%}'>{{ dataRow.intrestrate | fitNumber}} %</span>
  </div>
 {%if lang.current == 'fa'%}
 <div class="msg info2 txtB finalPriceToman"></div>
@@ -193,15 +193,15 @@
 {%block iDiscount%}
 <label for='discount'>{%trans "Discount"%}</label>
 <div class="input">
- <input type="number" name="discount" id="discount" placeholder='{%trans "Discount on sale"%}' value="{{product.discount}}" max="10000000000" data-run-input='recalcPricePercents'>
- <span class="addon" title='{%trans "Discount Percent"%}'>{{ product.discountpercent | fitNumber}} %</span>
+ <input type="number" name="discount" id="discount" placeholder='{%trans "Discount on sale"%}' value="{{dataRow.discount}}" max="10000000000" data-run-input='recalcPricePercents'>
+ <span class="addon" title='{%trans "Discount Percent"%}'>{{ dataRow.discountpercent | fitNumber}} %</span>
 </div>
 {%endblock%}
 
 
 {%block iVat%}
 <div class="switch1">
- <input type="checkbox" name="vat" id="vat" {% if product.vat%} checked{%endif%}>
+ <input type="checkbox" name="vat" id="vat" {% if dataRow.vat%} checked{%endif%}>
  <label for="vat"></label>
  <label for="vat">{%trans "Vat"%} <small>{%trans "This product is vat base"%}</small></label>
 </div>
@@ -211,7 +211,7 @@
 {%block iInitialBalance%}
 <label for='initialbalance'>{%trans "Initial Balance"%}</label>
 <div class="input">
- <input type="number" name="initialbalance" id="initialbalance" placeholder='{%trans "Initial Balance"%}' value="{{product.initialbalance}}" maxlength="50">
+ <input type="number" name="initialbalance" id="initialbalance" placeholder='{%trans "Initial Balance"%}' value="{{dataRow.initialbalance}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -219,7 +219,7 @@
 {%block iMinstock%}
 <label for='minstock'>{%trans "Min stock"%}</label>
 <div class="input">
- <input type="number" name="minstock" id="minstock" placeholder='{%trans "Min stock"%}' value="{{product.minstock}}" maxlength="50">
+ <input type="number" name="minstock" id="minstock" placeholder='{%trans "Min stock"%}' value="{{dataRow.minstock}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -228,7 +228,7 @@
 {%block iMaxstock%}
 <label for='maxstock'>{%trans "Max stock"%}</label>
 <div class="input">
- <input type="number" name="maxstock" id="maxstock" placeholder='{%trans "Max stock"%}' value="{{product.maxstock}}" maxlength="50">
+ <input type="number" name="maxstock" id="maxstock" placeholder='{%trans "Max stock"%}' value="{{dataRow.maxstock}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -238,27 +238,27 @@
  <label >{%trans "Status of product"%}</label>
 
  <div class="radio1 green">
-  <input type="radio" id="r-available" name="status" value="available" {%if product.status == 'available' or not product.status %} checked{%endif%}>
+  <input type="radio" id="r-available" name="status" value="available" {%if dataRow.status == 'available' or not dataRow.status %} checked{%endif%}>
   <label for="r-available">{%trans "Avalible"%} <small>{%trans "Normal status of product"%}</small></label>
  </div>
 
  <div class="radio1 blue">
-  <input type="radio" id="r-soon" name="status" value="soon" {%if product.status == 'soon' %} checked{%endif%}>
+  <input type="radio" id="r-soon" name="status" value="soon" {%if dataRow.status == 'soon' %} checked{%endif%}>
   <label for="r-soon">{%trans "Soon"%} <small>{%trans "maybe come in future and be available"%}</small></label>
  </div>
 
  <div class="radio1 yellow">
-  <input type="radio" id="r-unavailable" name="status" value="unavailable" {%if product.status == 'unavailable' %} checked{%endif%}>
+  <input type="radio" id="r-unavailable" name="status" value="unavailable" {%if dataRow.status == 'unavailable' %} checked{%endif%}>
   <label for="r-unavailable">{%trans "Unavailable"%} <small>{%trans "temporary does not exist in store"%}</small></label>
  </div>
 
  <div class="radio1 red">
-  <input type="radio" id="r-discountinued" name="status" value="discountinued" {%if product.status == 'discountinued' %} checked{%endif%}>
+  <input type="radio" id="r-discountinued" name="status" value="discountinued" {%if dataRow.status == 'discountinued' %} checked{%endif%}>
   <label for="r-discountinued">{%trans "Discountinued"%} <small>{%trans "does not exist for now and on the future"%}</small></label>
  </div>
 
  <div class="radio1 black mB25">
-  <input type="radio" id="r-unset" name="status" value="unset" {%if product.status == 'unset'%} checked{%endif%} >
+  <input type="radio" id="r-unset" name="status" value="unset" {%if dataRow.status == 'unset'%} checked{%endif%} >
   <label for="r-unset">{%trans "Unset"%} <small>{%trans "Unknown status for product"%}</small></label>
  </div>
 </div>
@@ -270,7 +270,7 @@
 {%block iSold%}
 <label for='sold'>{%trans "Sold"%}</label>
 <div class="input">
- <input type="text" name="sold" id="sold" placeholder='{%trans "Sold"%}' value="{{product.sold}}" maxlength="50">
+ <input type="text" name="sold" id="sold" placeholder='{%trans "Sold"%}' value="{{dataRow.sold}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -279,14 +279,14 @@
 {%block iStock%}
 <label for='stock'>{%trans "Stock"%}</label>
 <div class="input">
- <input type="text" name="stock" id="stock" placeholder='{%trans "Stock"%}' value="{{product.stock}}" maxlength="50">
+ <input type="text" name="stock" id="stock" placeholder='{%trans "Stock"%}' value="{{dataRow.stock}}" maxlength="50">
 </div>
 {%endblock%}
 
 
 {%block iServiec%}
 <div class="switch1">
- <input type="checkbox" name="service" id="service" {% if product.service%} checked{%endif%}>
+ <input type="checkbox" name="service" id="service" {% if dataRow.service%} checked{%endif%}>
  <label for="service"></label>
  <label for="service">{%trans "Service"%} <small>{%trans "This product is service base and not a real goods"%}</small></label>
 </div>
@@ -295,7 +295,7 @@
 
 {%block iSaleonline%}
 <div class="switch1">
- <input type="checkbox" name="saleonline" id="saleonline" {% if product.saleonline%} checked{%endif%}>
+ <input type="checkbox" name="saleonline" id="saleonline" {% if dataRow.saleonline%} checked{%endif%}>
  <label for="saleonline"></label>
  <label for="saleonline">{%trans "Sale Online"%} <small>{%trans "This product is saleonline base"%}</small></label>
 </div>
@@ -305,7 +305,7 @@
 
 {%block iSalestore%}
 <div class="switch1">
- <input type="checkbox" name="salestore" id="salestore" {% if product.salestore%} checked{%endif%}>
+ <input type="checkbox" name="salestore" id="salestore" {% if dataRow.salestore%} checked{%endif%}>
  <label for="salestore"></label>
  <label for="salestore">{%trans "Sale in store"%} <small>{%trans "This product is salestore base"%}</small></label>
 </div>
@@ -317,7 +317,7 @@
 {%block iCarton%}
 <label for='carton'>{%trans "Count in carton"%}</label>
 <div class="input">
- <input type="number" name="carton" id="carton" placeholder='{%trans "Count of product in carton"%}' value="{{product.carton}}" maxlength="50">
+ <input type="number" name="carton" id="carton" placeholder='{%trans "Count of product in carton"%}' value="{{dataRow.carton}}" maxlength="50">
 </div>
 {%endblock%}
 

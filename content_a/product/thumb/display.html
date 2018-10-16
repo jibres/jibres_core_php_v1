@@ -31,8 +31,8 @@
  <div class="input preview">
  <input type="file" accept="image/gif, image/jpeg, image/png" name="thumb" id="avatar1" data-preview data-max="500">
  <label for="avatar1" title='{%trans "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"%}'>
-{%if product.thumb%}
-   <img src="{{product.thumb}}" alt="{{product.name}}" id="avatarPreview">
+{%if dataRow.thumb%}
+   <img src="{{dataRow.thumb}}" alt="{{dataRow.name}}" id="avatarPreview">
 {%endif%}
  </label>
 </div>

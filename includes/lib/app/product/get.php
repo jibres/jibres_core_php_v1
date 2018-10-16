@@ -13,9 +13,8 @@ trait get
 	 *
 	 * @return     <type>  The product.
 	 */
-	public static function get($_args, $_option = [])
+	public static function get($_id, $_option = [])
 	{
-		\dash\app::variable($_args);
 
 		$default_option =
 		[
@@ -29,42 +28,24 @@ trait get
 
 		$_option = array_merge($default_option, $_option);
 
-		if($_option['debug'])
-		{
-			// \dash\notif::title(T_("Operation Faild"));
-		}
-
-		$log_meta =
-		[
-			'data' => null,
-			'meta' =>
-			[
-				'input' => \dash\app::request(),
-			]
-		];
-
 		if(!\dash\user::id())
 		{
-			\dash\app::log('api:product:user:id:not:found', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("User id not found"));
+			\dash\notif::error(T_("User id not found"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\dash\app::log('api:product:store:id:not:found', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Store id not found"));
+			\dash\notif::error(T_("Store id not found"));
 			return false;
 		}
 
 
-		$id = \dash\app::request("id");
+		$id = $_id;
 		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
-
-			\dash\app::log('api:product:id:shortname:not:set', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Store id or shortname not set"), 'id', 'arguments');
+			\dash\notif::error(T_("Store id or shortname not set"));
 			return false;
 		}
 
@@ -72,8 +53,7 @@ trait get
 
 		if(!$result)
 		{
-			\dash\app::log('api:product:access:denide', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Can not access to load this product details"), 'product');
+			\dash\notif::error(T_("Can not access to load this product details"));
 			return false;
 		}
 

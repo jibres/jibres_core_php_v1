@@ -11,7 +11,7 @@ trait edit
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function edit($_args, $_option = [])
+	public static function edit($_args, $_id, $_option = [])
 	{
 		$default_option =
 		[
@@ -27,29 +27,17 @@ trait edit
 
 		\dash\app::variable($_args);
 
-		$log_meta =
-		[
-			'data' => null,
-			'meta' =>
-			[
-				'input' => \dash\app::request(),
-			]
-		];
-
-		$id = \dash\app::request('id');
-		$id = \dash\coding::decode($id);
+		$id = \dash\coding::decode($_id);
 
 		if(!$id || !is_numeric($id))
 		{
-			\dash\app::log('api:product:method:put:id:not:set', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Id not set"));
+			\dash\notif::error(T_("Id not set"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			\dash\app::log('api:product:edit:store:id:not:set', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Id not set"));
+			\dash\notif::error(T_("Id not set"));
 			return false;
 		}
 
@@ -63,12 +51,11 @@ trait edit
 
 		if(empty($load_product) || !$load_product || !isset($load_product['id']))
 		{
-			\dash\app::log('api:product:edit:product:not:found', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Can not access to edit it"), 'product', 'permission');
+			\dash\notif::error(T_("Can not access to edit it"), 'product', 'permission');
 			return false;
 		}
 
-		$args = self::check($_option);
+		$args = self::check($id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -104,8 +91,7 @@ trait edit
 
 		if(array_key_exists('title', $args) && !$args['title'])
 		{
-			\dash\app::log('api:product:title:not:set:edit', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Title of product can not be null"), 'title');
+			\dash\notif::error(T_("Title of product can not be null"), 'title');
 			return false;
 		}
 

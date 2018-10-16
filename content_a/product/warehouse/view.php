@@ -8,7 +8,7 @@ class view
 	{
 		\dash\permission::access('aProductEdit');
 
-		$myProduct = \lib\app\product::get(['id' => \dash\request::get('id')]);
+		$myProduct = \lib\app\product::get(\dash\request::get('id'));
 		\dash\data::product($myProduct);
 
 		\dash\data::listCats(\lib\app\product\cat::list());

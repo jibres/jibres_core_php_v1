@@ -10,7 +10,7 @@ trait barcode
 	 *
 	 * @return     <type>  The product.
 	 */
-	public static function check_unique_barcode($_barcode, $_option = [])
+	public static function check_unique_barcode($_barcode, $_id, $_option = [])
 	{
 		$default_option =
 		[
@@ -46,9 +46,7 @@ trait barcode
 			{
 				if(isset($check_exist[0]['id']))
 				{
-					$product_id = \dash\app::request('id');
-					$product_id = \dash\coding::decode($product_id);
-					if($product_id && intval($product_id) === intval($check_exist[0]['id']))
+					if($_id && intval($_id) === intval($check_exist[0]['id']))
 					{
 						// update product by old barcode
 						return true;

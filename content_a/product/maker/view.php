@@ -10,7 +10,7 @@ class view
 
 		if($product)
 		{
-			\dash\data::product(\lib\app\product::get(['id' => $product]));
+			\dash\data::product(\lib\app\product::get($product));
 		}
 
 		\dash\data::page_title(T_('Delete Product'));
