@@ -464,6 +464,11 @@ class product
 					}
 					break;
 
+				case 'gallery':
+					$result['gallery'] = $value;
+					$result['gallery_array'] = json_decode($value, true);
+					break;
+
 				case 'finalprice':
 				case 'intrestrate':
 				case 'intrestrate_impure':
