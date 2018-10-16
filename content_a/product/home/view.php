@@ -91,7 +91,7 @@ class view
 
 			if(isset($myProductList[0]['id']) && $barcode_is_scaned)
 			{
-				\dash\redirect::to(\dash\url::this().'/edit/general?id='. $myProductList[0]['id']);
+				\dash\redirect::to(\dash\url::this().'/glance?id='. $myProductList[0]['id']);
 			}
 		}
 
