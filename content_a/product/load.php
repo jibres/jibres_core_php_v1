@@ -21,5 +21,20 @@ class load
 
 		\dash\data::dataRow($result);
 	}
+
+
+
+	public static function fixTitle()
+	{
+		$myName = \dash\data::dataRow_title();
+		if($myName)
+		{
+			$myName = \dash\data::page_title(). ' | '. $myName;
+			\dash\data::page_title($myName);
+		}
+
+		\dash\data::badge_text(T_('Back to product list'));
+		\dash\data::badge_link(\dash\url::this());
+	}
 }
 ?>
