@@ -19,7 +19,7 @@ class storetransaction
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	private static function check($_option = [])
+	public static function check($_option = [])
 	{
 
 		$userstore_id = \dash\app::request('userstore_id');

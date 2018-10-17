@@ -499,6 +499,14 @@
   </div>
 
   <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='plustransaction'%} primary{%else%} light{%endif%}" href='{{url.this}}/plustransaction?id={{requestGET.id}}'>{%trans "Charge account"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='minustransaction'%} primary{%else%} light{%endif%}" href='{{url.this}}/minustransaction?id={{requestGET.id}}'>{%trans "Uncharge account"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='credit'%} primary{%else%} light{%endif%}" href='{{url.this}}/credit?id={{requestGET.id}}'>{%trans "Credit"%}</a>
   </div>
   <div class="c pB10 pRa10">
