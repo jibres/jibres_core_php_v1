@@ -8,7 +8,33 @@
 {{block("psidebar")}}
  </div>
  <div class="c s12">
- 	{{block('iDataForm')}}
+ 	<div class="msg info2 f fs12" >
+ 		<div class="cauto" title='{{"Yesterday" | dt(true)}}'>{%trans "Added to store at"%} {{"Yesterday" | dt("human", "year")}}</div>
+ 		<div class="cauto os" title='{{"Now" | dt(true)}}'>{%trans "Last update"%} {{"Now" | dt("human", "year")}}</div>
+ 	</div>
+
+ 	<div class="f">
+ 		<div class="c">{{block("dLastBuy")}}</div>
+ 		<div class="c">{{block("dLastSale")}}</div>
+ 	</div>
+
+ 	<div class="f">
+ 		<div class="c">{{block("dMinPrice")}}</div>
+ 		<div class="c">{{block("dMaxPrice")}}</div>
+ 	</div>
+
+ 	<div class="f">
+ 		<div class="c">{{block("dBuyPrice")}}</div>
+ 		<div class="c">{{block("dSalePrice")}}</div>
+ 		<div class="c">{{block("dOffPrice")}}</div>
+ 	</div>
+
+ 	<div class="f">
+ 		<div class="c">{{block("dDiscountPrice")}}</div>
+ 		<div class="c">{{block("dDiscountPercent")}}</div>
+ 	</div>
+
+
  </div>
 </div>
 {%endblock%}
@@ -16,11 +42,100 @@
 
 
 
-{%block iDataForm%}
-<div class="cbox">
-HI
-
-</div>
+{%block dLastBuy%}
+<a class="dcard" href='{{url.this}}/aa?id={{requestGET.id}}'>
+ <div class="statistic blue">
+  <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of Last buy"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
 {%endblock%}
+
+
+{%block dLastSale%}
+<a class="dcard" href='{{url.this}}/aa?id={{requestGET.id}}'>
+ <div class="statistic orange">
+  <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of last sale"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block dMinPrice%}
+<a class="dcard" href='{{url.this}}/aa?id={{requestGET.id}}'>
+ <div class="statistic blue">
+  <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of minimum sale price"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block dMaxPrice%}
+<a class="dcard" href='{{url.this}}/aa?id={{requestGET.id}}'>
+ <div class="statistic orange">
+  <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of maximum sale price"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block dBuyPrice%}
+<a class="dcard" href='{{url.this}}/aa?id={{requestGET.id}}'>
+ <div class="statistic blue">
+  <div class="label mB5"><i class="fs20 mRa5 sf-bag"></i> {%trans "Buy price"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block dSalePrice%}
+<a class="dcard" href='{{url.this}}/aa?id={{requestGET.id}}'>
+ <div class="statistic orange">
+  <div class="label mB5"><i class="fs20 mRa5 sf-basket"></i> {%trans "Sale price"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block dOffPrice%}
+<a class="dcard" href='{{url.this}}/aa?id={{requestGET.id}}'>
+ <div class="statistic orange">
+  <div class="label mB5"><i class="fs20 mRa5 sf-sell-sign"></i> {%trans "Off price"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block dDiscountPrice%}
+<a class="dcard" href='{{url.this}}/aa?id={{requestGET.id}}'>
+ <div class="statistic orange">
+  <div class="label mB5"><i class="fs20 mRa5 sf-hand-peace-o"></i> {%trans "Discount"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block dDiscountPercent%}
+<a class="dcard" href='{{url.this}}/aa?id={{requestGET.id}}'>
+ <div class="statistic orange">
+  <div class="label mB5"><i class="fs20 mRa5 sf-check-1"></i> {%trans "Discount Percent"%}</div>
+  <div class="value">{{dashboardDetail.member |fitNumber}}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+
 
 
