@@ -279,6 +279,7 @@ class store
 					break;
 
 				// JSON TO ARRAY
+				case 'pos':
 				case 'cat':
 				case 'unit':
 					if($value && is_string($value))

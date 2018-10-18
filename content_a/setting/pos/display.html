@@ -1,0 +1,87 @@
+{%extends "content_a/setting/layout.html"%}
+
+
+{%block data%}
+  <div class="cbox">
+ <form method="post" autocomplete="off">
+
+	{{block('iPcPosIrankhis')}}
+	{{block('iPcPosAsanpardakht')}}
+
+
+	<button class="btn block primary mT10">{%trans "Save"%}</button>
+ </form>
+</div>
+
+
+
+{%endblock%}
+
+
+
+
+
+{%block iPcPosIrankhis%}
+<div class="switch1">
+ <input type="checkbox" name="irankish" id="irankish" {%if currentStore.pos.irankish.status %}checked{%endif%}>
+ <label for="irankish"></label>
+ <label for="irankish">{%trans "Enable irankish PC POS"%}</label>
+</div>
+
+<div class="f mT10" data-response='irankish' data-response-effect='slide' {%if currentStore.pos.irankish.status%}{%else%} data-response-hide {%endif%}>
+	<div class="c4 pLa5">
+		<label for="serial">{%trans "Serial"%}</label>
+		<div class="input">
+		  <input type="number" name="serial" id="serial" placeholder='{%trans "Serial"%}' value="{{currentStore.pos.irankish.serial}}"  min="1" max="99999999999999999999999">
+		</div>
+	</div>
+
+	<div class="c4 pLa5">
+		<label for="terminal">{%trans "Terminal"%}</label>
+		<div class="input">
+		  <input type="number" name="terminal" id="terminal" placeholder='{%trans "Terminal"%}' value="{{currentStore.pos.irankish.terminal}}"  min="1" max="99999999999999999999999">
+		</div>
+	</div>
+
+	<div class="c4 pLa5">
+		<label for="receiver">{%trans "Receiver"%}</label>
+		<div class="input">
+		  <input type="number" name="receiver" id="receiver" placeholder='{%trans "Receiver"%}' value="{{currentStore.pos.irankish.receiver}}"  min="1" max="99999999999999999999999">
+		</div>
+	</div>
+</div>
+
+{%endblock%}
+
+
+
+
+
+
+{%block iPcPosAsanpardakht%}
+<div class="switch1">
+ <input type="checkbox" name="asanpardakht" id="asanpardakht" {%if currentStore.pos.asanpardakht.status %}checked{%endif%}>
+ <label for="asanpardakht"></label>
+ <label for="asanpardakht">{%trans "Enable asanpardakht PC POS"%}</label>
+</div>
+
+<div class="f mT10" data-response='asanpardakht' data-response-effect='slide' {%if currentStore.pos.asanpardakht.status%}{%else%} data-response-hide {%endif%}>
+	<div class="c6 pLa5">
+		<label for="ip">{%trans "IP"%}</label>
+		<div class="input">
+		  <input type="text" name="ip" id="ip" placeholder='{%trans "IP"%}' value="{{currentStore.pos.asanpardakht.ip}}" maxlength='15'>
+		</div>
+	</div>
+
+	{%if currentStore.pos.asanpardakht.port%}
+	<div class="c6 pLa5">
+		<label for="port">{%trans "Port"%}</label>
+		<div class="input">
+		  <input type="text" name="iport" id="port" placeholder='{%trans "Port"%}' value="{{currentStore.pos.asanpardakht.port}}" maxlength='500' disabled>
+		</div>
+	</div>
+	{%endif%}
+</div>
+
+{%endblock%}
+
