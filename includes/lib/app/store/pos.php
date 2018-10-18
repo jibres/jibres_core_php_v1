@@ -6,6 +6,11 @@ class pos
 {
 	public static function set($_args)
 	{
+		if(!\lib\store::id())
+		{
+			return false;
+		}
+
 		\dash\app::variable($_args);
 
 		$new_setting = [];
@@ -29,7 +34,6 @@ class pos
 		}
 
 		$new_setting['asanpardakht'] = $asanpardakht;
-
 
 		// save setting in json
 		$pos = \lib\store::detail('pos');
@@ -185,11 +189,9 @@ class pos
 			'status' => $asanpardakht,
 			'ip'     => $ip,
 			'port'   => $port,
-
 		];
 
 		return $asanpardakht;
-
 	}
 }
 ?>
