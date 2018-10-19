@@ -40,9 +40,39 @@ class fund
 			return false;
 		}
 
+		$pos = \dash\app::request('pos');
+		$new_pos = null;
+		if($pos)
+		{
+			$pos = explode(',', $pos);
+			if(is_array($pos))
+			{
+				$new_pos = [];
+				foreach ($pos as $key => $value)
+				{
+					$check = \lib\app\store\pos::check($value);
+					if(!$check)
+					{
+						\dash\notif::error(T_("Pos :pos not found in your active store pos", ['pos' => $value]), 'pos');
+						return false;
+					}
+					else
+					{
+						$new_pos[$value] = ['status' => true];
+					}
+				}
+
+				if(!empty($new_pos))
+				{
+					$new_pos = json_encode($new_pos, JSON_UNESCAPED_UNICODE);
+				}
+			}
+		}
+
 		$args           = [];
 		$args['title']  = $title;
 		$args['status'] = $status;
+		$args['pos']    = $new_pos;
 
 
 		return $args;
@@ -72,6 +102,17 @@ class fund
 					else
 					{
 						$result[$key] = null;
+					}
+					break;
+
+				case 'pos':
+					if($value && is_string($value))
+					{
+						$result[$key] = json_decode($value, true);
+					}
+					else
+					{
+						$result[$key] = $value;
 					}
 					break;
 

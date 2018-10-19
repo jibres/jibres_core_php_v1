@@ -15,6 +15,9 @@ class view
 
 		\dash\data::dataTable($fund_list);
 
+		$pos_list = \lib\app\store\pos::list();
+		\dash\data::posList($pos_list);
+
 		self::static_var();
 	}
 

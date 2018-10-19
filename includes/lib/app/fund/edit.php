@@ -37,7 +37,9 @@ trait edit
 			unset($args['status']);
 		}
 
+		if(!\dash\app::isset_request('title')) unset($args['title']);
 		if(!\dash\app::isset_request('status')) unset($args['status']);
+		if(!\dash\app::isset_request('pos')) unset($args['pos']);
 
 		if(!empty($args))
 		{

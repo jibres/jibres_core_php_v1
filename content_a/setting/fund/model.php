@@ -7,10 +7,10 @@ class model
 
 	public static function post()
 	{
-		$post            = [];
-		$post['title']    = \dash\request::post('title');
-		$post['status']    = \dash\request::post('status');
-
+		$post           = [];
+		$post['title']  = \dash\request::post('title');
+		$post['status'] = \dash\request::post('status');
+		$post['pos']    = \dash\request::post('pos');
 
 		if(\dash\data::dataRow())
 		{

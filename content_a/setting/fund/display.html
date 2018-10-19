@@ -19,6 +19,7 @@
   <h3>{%trans "Add new fund"%}</h3>
   <form method="post" autocomplete="off">
     {{block('fundTitle')}}
+    {{block('blPosList')}}
 
     {%if dataRow%}
       <div class="f">
@@ -108,7 +109,12 @@
     <tbody>
       {%for key, value in dataTable%}
       <tr  class="{%if value.status == 'disable'%} negative{%else%} positive{%endif%}">
-        <td><a href="{{url.here}}/product/general?id={{value.id}}">{{value.title}}</a></td>
+        <td>
+          <a href="{{url.here}}/product/general?id={{value.id}}">{{value.title}}</a>
+          {%for k, v in value.pos%}
+            <span class="badge warn">{%trans k%}</span>
+          {%endfor%}
+        </td>
         <td><a href="{{url.here}}/product/general?id={{value.id}}">{%set myStatus = value.status | capitalize%}{%trans myStatus%}</a></td>
 
         <td>
@@ -140,6 +146,21 @@
       </div>
 {%endfor%}
     </div>
+  </div>
+</div>
+{%endblock%}
+
+
+{%block blPosList%}
+<div class="ui sub header">{%trans "Pos"%}</div>
+<div class="ui fluid multiple search selection dropdown">
+  <input name="pos" type="hidden" value="{{dataRow.pos | keys | join(',')}}">
+  <i class="dropdown icon"></i>
+  <div class="default text">{%trans "Select pos"%}</div>
+  <div class="menu">
+     {%for key, value in posList%}
+        <div class="item" data-value="{{key}}{{i}}">{%set myTitle = value.title%}{%trans myTitle%}</div>
+     {%endfor%}
   </div>
 </div>
 {%endblock%}

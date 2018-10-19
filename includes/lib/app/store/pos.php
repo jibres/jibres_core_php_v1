@@ -4,6 +4,53 @@ namespace lib\app\store;
 
 class pos
 {
+	public static function check($_pos, $_all = false)
+	{
+		$list = self::list($_all);
+
+		if(isset($list[$_pos]['status']) && $list[$_pos]['status'])
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
+	public static function list($_all = false)
+	{
+		$pos = \lib\store::detail('pos');
+
+		if(is_string($pos))
+		{
+			$pos = json_decode($pos, true);
+		}
+
+		if(!is_array($pos))
+		{
+			$pos = [];
+		}
+
+		if($_all)
+		{
+			return $pos;
+		}
+		else
+		{
+			$new = [];
+			foreach ($pos as $key => $value)
+			{
+				if(isset($value['status']) && $value['status'])
+				{
+					$new[$key] = $value;
+				}
+			}
+			return $new;
+		}
+
+	}
+
+
 	public static function set($_args)
 	{
 		if(!\lib\store::id())
@@ -36,17 +83,7 @@ class pos
 		$new_setting['asanpardakht'] = $asanpardakht;
 
 		// save setting in json
-		$pos = \lib\store::detail('pos');
-
-		if(is_string($pos))
-		{
-			$pos = json_decode($pos, true);
-		}
-
-		if(!is_array($pos))
-		{
-			$pos = [];
-		}
+		$pos = self::list(true);
 
 		$pos = array_merge($pos, $new_setting);
 
@@ -133,6 +170,7 @@ class pos
 		$irankish =
 		[
 			'status'   => $irankish,
+			'title'    => "irankish pc pos",
 			'serial'   => $serial,
 			'terminal' => $terminal,
 			'receiver' => $receiver,
@@ -187,6 +225,7 @@ class pos
 		$asanpardakht =
 		[
 			'status' => $asanpardakht,
+			'title'  => "asanpardakht pc pos",
 			'ip'     => $ip,
 			'port'   => $port,
 		];
