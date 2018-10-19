@@ -7,13 +7,20 @@ class pos
 	public static function check($_pos, $_all = false)
 	{
 		$list = self::list($_all);
+		if(!array_key_exists($_pos, $list))
+		{
+			// not set or invalid
+			return false;
+		}
 
 		if(isset($list[$_pos]['status']) && $list[$_pos]['status'])
 		{
-			return true;
+			// is ok
+			return $list[$_pos];
 		}
 
-		return false;
+		// just disable
+		return null;
 	}
 
 

@@ -50,14 +50,19 @@ class fund
 				$new_pos = [];
 				foreach ($pos as $key => $value)
 				{
-					$check = \lib\app\store\pos::check($value);
-					if(!$check)
+					$check = \lib\app\store\pos::check($value, true);
+					if($check === false)
 					{
 						\dash\notif::error(T_("Pos :pos not found in your active store pos", ['pos' => $value]), 'pos');
 						return false;
 					}
 					else
 					{
+						if($check === null)
+						{
+							$warn_mgs_disable_pos = true;
+						}
+
 						$new_pos[$value] = ['status' => true];
 					}
 				}
@@ -67,6 +72,11 @@ class fund
 					$new_pos = json_encode($new_pos, JSON_UNESCAPED_UNICODE);
 				}
 			}
+		}
+
+		if(isset($warn_mgs_disable_pos) && $warn_mgs_disable_pos)
+		{
+			\dash\notif::warn(T_("Some pos is deactive in your store"));
 		}
 
 		$args           = [];
