@@ -43,7 +43,7 @@
 {%block factorDetailArea%}
  <div class="f factorDetail">
   <div class="c">
-   <div class="datetime"><span class="date">{{factorDetail.factor.date | jdate('l j F Y')}}</span> | <span class="time">{{factorDetail.factor.date | jdate('G:i:s')}}</span></div>
+   <div class="datetime">{{factorDetail.factor.date | dt(true) }}</div>
    <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factorDetail.factor.id}}'>{{factorDetail.factor.id}}</code></div>
   </div>
   <div class="cauto os">
