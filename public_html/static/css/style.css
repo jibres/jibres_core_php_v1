@@ -342,9 +342,9 @@ kbd{font-family:monospace;}
   #main{overflow: auto;}
   #content{overflow: auto;}
   .siftal #content .tbox{display: none}
-  .tbl{color:#000!important;font-size:1.2em}
-  .tbl thead{background-color:#ddd;color:#000}
-  .tbl tfoot{background-color:#ddd;font-size:1.1em}
+  .tbl1{color:#000!important;font-size:1.2em}
+  .tbl1 thead{background-color:#ddd;color:#000}
+  .tbl1 tfoot{background-color:#ddd;font-size:1.1em}
 
   body.siftal #main #content{padding:0;}
   .factor.printArea{color:#000!important;}
