@@ -24,7 +24,7 @@
 
  <div class="f factorDetail">
   <div class="c">
-   <div class="datetime"><span class="date">{{factor_detail.factor.date | jdate('l j F Y')}}</span> | <span class="time">{{factor_detail.factor.date | jdate('G:i:s')}}</span></div>
+   <div class="datetime">{{factor_detail.factor.date | dt(true)}}</div>
    <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factor_detail.factor.id}}'>{{factor_detail.factor.id}}</code></div>
   </div>
   <div class="cauto os">
