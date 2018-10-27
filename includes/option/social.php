@@ -20,9 +20,8 @@ self::$social['list']['aparat']               = 'jibres';
 */
 self::$social['telegram']['status']           = true;
 self::$social['telegram']['bot']        = 'JibresBot';
-self::$social['telegram']['token']      = '731332936:AAECREdVLCAJqzwTtCJnst_v293LtDSaiKc';
 self::$social['telegram']['hookFolder'] = 'Halllooooo';
-self::$social['telegram']['hook']       = null;
+self::$social['telegram']['token']      = '731332936:AAECREdVLCAJqzwTtCJnst_v293LtDSaiKc';
 self::$social['telegram']['debug']      = true;
 
 
