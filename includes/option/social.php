@@ -19,14 +19,12 @@ self::$social['list']['aparat']               = 'jibres';
 * t.me
 */
 self::$social['telegram']['status']           = true;
-self::$social['telegram']['name']             = null;
-self::$social['telegram']['key']              = null;
-self::$social['telegram']['bot']              = '339018788:AAFg-KYxZ8yI-yU74qt1tq0DFNtLfT4Puv8';
-self::$social['telegram']['hookFolder']       = null;
-self::$social['telegram']['hook']             = null;
-self::$social['telegram']['debug']            = true;
-self::$social['telegram']['channel']          = null;
-self::$social['telegram']['botan']            = null;
+self::$social['telegram']['bot']        = 'JibresBot';
+self::$social['telegram']['token']      = '731332936:AAECREdVLCAJqzwTtCJnst_v293LtDSaiKc';
+self::$social['telegram']['hookFolder'] = 'Halllooooo';
+self::$social['telegram']['hook']       = null;
+self::$social['telegram']['debug']      = true;
+
 
 /**
 * FACEBOOK
