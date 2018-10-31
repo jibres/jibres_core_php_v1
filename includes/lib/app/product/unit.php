@@ -6,7 +6,7 @@ class unit
 {
 	public static function check_add($_unit)
 	{
-		$list = self::list();
+		$list = self::list(true);
 		if(!array_key_exists($_unit, $list))
 		{
 			self::add(['title' => $_unit]);
@@ -72,7 +72,7 @@ class unit
 			return false;
 		}
 
-		$json = self::list();
+		$json = self::list(true);
 
 		if(isset($json[$args['title']]))
 		{
@@ -103,7 +103,7 @@ class unit
 
 	public static function remove($_old_unit)
 	{
-		$json = self::list();
+		$json = self::list(true);
 
 		if(!isset($json[$_old_unit]))
 		{
@@ -136,7 +136,7 @@ class unit
 			return false;
 		}
 
-		$json = self::list();
+		$json = self::list(true);
 
 		if(!isset($json[$_old_unit]))
 		{
