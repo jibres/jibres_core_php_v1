@@ -132,7 +132,7 @@ class model
 	{
 		$detail             = [];
 		$detail['customer'] = \dash\request::post('customer');
-		$detail['type']     = \dash\request::get('type');
+		$detail['type']     = 'buy';
 		$detail['desc']     = \dash\request::post('desc');
 		return $detail;
 	}
