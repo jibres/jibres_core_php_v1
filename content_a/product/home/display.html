@@ -3,17 +3,17 @@
 
 
 {%block pageContent%}
-<div class="msg info2 f ">
-  <span class="c"><a href="{{url.this}}?duplicatetitle=1">{%trans "Duplicate title"%}</a></span>
-  <span class="c"><a href="{{url.this}}?hbarcode=1">{%trans "Have barcode"%}</a></span>
-  <span class="c"><a href="{{url.this}}?hnotbarcode=1">{%trans "Have not barcode"%}</a></span>
-  <span class="c"><a href="{{url.this}}?justcode=1">{%trans "Just code"%}</a></span>
-  <span class="c"><a href="{{url.this}}?wcodbarcode=1">{%trans "No barcode & code"%}</a></span>
-  <span class="c"><a href="{{url.this}}?wbuyprice=1">{%trans "Whitout buyprice"%}</a></span>
-  <span class="c"><a href="{{url.this}}?wprice=1">{%trans "Whitout price"%}</a></span>
-  <span class="c"><a href="{{url.this}}?wminstock=1">{%trans "Whitout min stock"%}</a></span>
-  <span class="c"><a href="{{url.this}}?wmaxstock=1">{%trans "Whitout max stock"%}</a></span>
-  <span class="c"><a href="{{url.this}}?wdiscount=1">{%trans "Whitout discount"%}</a></span>
+<div class="msg info2 f p0">
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?duplicatetitle=1">{%trans "Duplicate title"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?hbarcode=1">{%trans "Have barcode"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?hnotbarcode=1">{%trans "Have not barcode"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?justcode=1">{%trans "Just code"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wcodbarcode=1">{%trans "No barcode & code"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wbuyprice=1">{%trans "Whitout buyprice"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wprice=1">{%trans "Whitout price"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wminstock=1">{%trans "Whitout min stock"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wmaxstock=1">{%trans "Whitout max stock"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wdiscount=1">{%trans "Whitout discount"%}</a></span>
 </div>
 
 {%if dataTable%}
@@ -52,7 +52,7 @@
 
 
 {%block htmlSearchBox%}
-<div class="cbox fs12">
+<div class="cbox fs12 p0">
   <form method="get" action='{{url.here}}/product'>
     <div class="input">
       <input type="search" name="q" placeholder='{%trans "Search in products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" autofocus class="barCode" data-default data-pass='submit' autocomplete='off'>
@@ -65,8 +65,8 @@
 
 {%block htmlTable%}
   <table class="tbl1 v1 cbox fs12">
-    <thead class="">
-      <tr>
+    <thead>
+      <tr class="fs08">
         <th data-sort="{{myFilter.title.order}}"><a href='{{myFilter.title.link}}'>{%trans "Title"%}</a></th>
         <th data-sort="{{myFilter.cat.order}}" class="s0"><a href='{{myFilter.cat.link}}'>{%trans "Category"%}</a></th>
         <th data-sort="{{myFilter.buyprice.order}}"><a href='{{myFilter.buyprice.link}}'>{%trans "Buy" %}</a></th>

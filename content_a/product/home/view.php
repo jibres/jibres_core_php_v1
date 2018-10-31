@@ -12,6 +12,8 @@ class view
 		// add back to product list link
 		$pageDesc .= ' '. '<a href="'. \dash\url::this() .'/summary" data-shortkey="121">'. T_('Products dashboard'). '</a>';
 		\dash\data::page_desc($pageDesc);
+		\dash\data::page_pictogram('box');
+
 
 		\dash\data::badge_text(T_('Add new product'));
 		\dash\data::badge_link(\dash\url::this(). '/add');
