@@ -62,9 +62,18 @@ class view
 			$myDesc      = T_('Search in list of :type factors, add or edit them.', ['type' => T_($moduleType)]);
 			$myDesc      .= ' <a href="'. \dash\url::this() .'" data-shortkey="121">'. T_('List of all factors.'). '<kbd>f10</kbd></a>';
 
-			// @check
-			$myBadgeLink = \dash\url::this();
-			$myBadgeText = T_('Add new :type', ['type' => T_($moduleType)]);
+			switch ($moduleType)
+			{
+				case 'buy':
+				case 'sale':
+					$myBadgeLink = \dash\url::here(). '/'. $moduleType;
+					$myBadgeText = T_('Add new :type', ['type' => T_($moduleType)]);
+					break;
+
+				default:
+					# code...
+					break;
+			}
 		}
 
 		\dash\data::page_title($myTitle);
