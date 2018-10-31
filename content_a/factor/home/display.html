@@ -2,6 +2,7 @@
 
 
 {%block pageContent%}
+{{block('pageSteps')}}
 
 {%if dataTable%}
  {%if filterBox%}
@@ -47,13 +48,15 @@
 {{block('searchblock')}}
 <div class="fs14 msg warn2 pA25">
  {%trans "No factor founded."%} {%trans "Search with new keywords or barcode."%}
- <a class="badge primary pA10" href="{{url.this}}/add{{moduleTypeP}}" data-shortkey2="119">{%trans "Add new factor"%}</a>
+ <a class="badge primary pA10" href="{{url.here}}/sale" data-shortkey2="119">{%trans "Add new sale"%}</a>
+ <a class="badge primary pA10" href="{{url.here}}/buy" data-shortkey2="119">{%trans "Add new buy"%}</a>
 </div>
 
 {%else%}
 <div class="cbox fs12">
  <h3>{%trans "You are not have factor yet! add new one."%}</h3>
- <a class="btn primary mT10 pLR50" href="{{url.this}}/add{{moduleTypeP}}">{%trans "Add new factor"%}</a>
+ <a class="btn primary mT10 pLR50" href="{{url.here}}/sale">{%trans "Add new sale"%}</a>
+ <a class="btn primary mT10 pLR50" href="{{url.here}}/buy">{%trans "Add new buy"%}</a>
 </div>
 {%endif%}
 
@@ -70,15 +73,16 @@
         <button class="addon btn ">{%trans "Search" %}</button>
       </div>
     </form>
-
-
-
+  </div>
 
 {%else%}
-<p class="msg info2">{%trans "You are not register any factor yet!"%} <a href="{{url.this}}/add{{moduleTypeP}}">{%trans "Add new factor"%}</a></p>
+
+<p class="msg info2">{%trans "You are not register any factor yet!"%}
+  <a href="{{url.here}}/sale">{%trans "Add new sale"%}</a>
+  <a href="{{url.here}}/buy">{%trans "Add new buy"%}</a>
+</p>
+
 {%endif%}
-    <a href="{{url.this}}/add" class="btn primary block">{%trans "Add new factor"%}</a>
-  </div>
 
 {%endblock%}
 
@@ -117,7 +121,7 @@
     <tbody>
       {%for key, value in dataTable%}
         <tr>
-          <td><a href="{{url.this}}/fishprint?id={{value.id}}&size=receipt8">{{value.date | dt(true, 'date')}} <b class="floatRa">{{value.date | dt(true, 'time')}}</b></a></td>
+          <td><a href="{{url.this}}/chap/receipt?id={{value.id}}&size=receipt8">{{value.date | dt(true, 'date')}} <b class="floatRa">{{value.date | dt(true, 'time')}}</b></a></td>
           <td>
           {%if value.customer%}
             <a href="{{url.this}}?customer={{value.customer}}">
@@ -157,7 +161,7 @@
 {%block htmlFilter%}
 <p class="f fs14 msg warn2 mT20">
   <span class="c">{{filterBox | raw}}</span>
-  <a class="cauto" href="{{url.this}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
@@ -165,11 +169,54 @@
 {%block htmlFilterNoResult%}
 <p class="f fs14 msg warn2">
   <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
-  <a class="cauto" href="{{url.this}}{{moduleTypeP}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
 
 {%block htmlStartAddNew%}
-<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.this}}/add{{moduleTypeP}}">{%trans "Try to start with add new factor!"%}</a></p>
+<p class="fs14 msg success2 pTB20">{%trans "Hi!"%}
+  <a href="{{url.here}}/sale">{%trans "Try to start with add new sale!"%}</a>
+  <a href="{{url.here}}/buy">{%trans "Try to start with add new buy!"%}</a>
+</p>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+{%block pageSteps%}
+<div class="f">
+  <div class="c s6">
+    <a class="dcard {%if not requestGET.type %}active{%endif%}" href='{{url.this}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-shop"></i></div>
+      <div class="label">{%trans "All"%} <kbd>T+1</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c s6">
+    <a class="dcard {%if requestGET.type == 'sale' %}active{%endif%}" href='{{url.this}}?type=sale' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-cloud-upload"></i></div>
+      <div class="label">{%trans "Sale"%} <kbd>T+2</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c">
+    <a class="dcard {%if requestGET.type == 'buy' %}active{%endif%}" href='{{url.this}}?type=buy' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-cloud-download"></i></div>
+      <div class="label">{%trans "Buy"%} <kbd>T+3</kbd></div>
+     </div>
+    </a>
+  </div>
+
+</div>
 {%endblock%}
