@@ -39,25 +39,6 @@ CONSTRAINT `inventory_store_id` FOREIGN KEY (`store_id`) REFERENCES `stores` (`i
 
 
 
--- INSERT INTO `inventory`
--- (
--- 	`store_id`,
--- 	`name`,
--- 	`default`,
--- 	`sale`,
--- 	`online`,
--- 	`status`
--- )
--- SELECT
--- 	stores.id,
--- 	stores.name,
--- 	1,
--- 	1,
--- 	1,
--- 	'enable'
--- FROM stores;
-
-
 
 CREATE TABLE `productinventory` (
 `id`           bigint(10) 	UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -72,19 +53,3 @@ CONSTRAINT `productinventory_product_id` FOREIGN KEY (`product_id`) REFERENCES `
 CONSTRAINT `prudoctinventory_store_id` FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
--- INSERT INTO `productinventory`
--- (
--- 	`product_id`,
--- 	`store_id`,
--- 	`inventory_id`,
--- 	`stock`,
--- 	`sold`
--- )
--- SELECT
--- 	products.id,
--- 	products.store_id,
--- 	(SELECT inventory.id FROM inventory WHERE inventory.store_id = products.store_id LIMIT 1),
--- 	products.stock,
--- 	products.sold
--- FROM products;
