@@ -1,0 +1,149 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+
+<form method="post" class="f" id='factorAdd' disallowEnter data-msgNewError='{%trans "You can add new empty tab if current tab is filled!"%}' {%if requestGET.extra == 'true'%}data-autoClose=2000{%endif%}>
+  <div class="c9 x10 s12 pRa10">
+
+    {{block("addProducts")}}
+    {{block("listOfProducts")}}
+
+
+  </div>
+  <div class="c3 x2 s12">
+
+    {{block("iCustomer")}}
+    {{block("totalPriceDetail")}}
+    {{block("btnNextTemp")}}
+
+  </div>
+</form>
+{%endblock%}
+
+
+
+
+
+{%block totalPriceDetail%}
+<div class="priceBox hide">
+  <h3>{%trans "Factor Price Detail"%}</h3>
+  <div class="final" title='{%trans "Total payable"%}'><span>0</span><abbr>{%trans "Toman"%}</abbr></div>
+  <div class="desc">-</div>
+  <div class="detail item"><abbr>{%trans "Count of items"%}</abbr> <span>-</span></div>
+  <div class="detail count"><abbr>{%trans "Sum of counts"%}</abbr> <span>-</span></div>
+  <div class="detail sum"><abbr>{%trans "Invoice amount"%}</abbr> <span>-</span></div>
+  <div class="detail discountPercent"><abbr>{%trans "Discount percent"%}</abbr> <span>-</span></div>
+  <div class="detail discount" title='{%trans "Press f7 or click to toggle discount"%}'><abbr>{%trans "Total discount"%} <kbd>f7</kbd></abbr> <span>-</span></div>
+</div>
+{%endblock%}
+
+
+
+
+{%block btnNext%}
+<div class="cbox NextBox hide">
+  <button class="cauto btn success block factor_save_btn" type="submit" name="save_btn" value="save_next" id='save_next' data-shortkey='115'>{%trans "Save Factor & Continue"%} <kbd>f4</kbd></button>
+</div>
+{%endblock%}
+
+
+
+{%block btnNextTemp%}
+<div class="cbox NextBox hide">
+  <button class="cauto btn success block factor_save_btn" type="submit" name="save_btn" value="save_next" id='save_next' data-shortkey='115'>{%trans "Save Factor & Continue"%} <kbd>f4</kbd></button>
+
+  <button class="cauto btn secondary block factor_save_btn mT10" type="submit" name="save_btn" value="save_print" id='save_next' data-shortkey='119'>{%trans "Save & Print"%} <kbd>f8</kbd></button>
+</div>
+{%endblock%}
+
+
+
+
+{%block btns%}
+ <div class="cbox">
+  <div class="f txtC">
+    <div class="c6 mB5">
+      <input type="hidden" id="factor_clicked_btn" name="btn_type" value="">
+      <button class="cauto btn primary factor_save_btn" type="submit" name="save_btn" value="save_next" id='save_next' data-shortkey='115'>{%trans "Save & Next"%}</button>
+    </div>
+    <div class="c6 mB5">
+      <button class="cauto btn primary factor_save_btn" type="submit" name="save_btn" value="save_print" id='save_print' data-shortkey='119' data-shortkey-call='print'>{%trans "Save & Print"%}</button>
+    </div>
+  </div>
+ </div>
+{%endblock%}
+
+
+
+{%block listOfProducts%}
+ <div class="cbox hide">
+  <table class="tbl productList txtC">
+   <thead class="fs08">
+    <tr>
+     <th class="collapsing">{%trans "Row"%}</th>
+     <th class="product">{%trans "Product"%}</th>
+     <th class="min120">{%trans "Count"%}</th>
+     <th class="min100">{%trans "Price"%}</th>
+     <th class="min100">{%trans "Discount"%}</th>
+     <th class="min100">{%trans "Total"%}</th>
+    </tr>
+   </thead>
+   <tbody>
+
+   </tbody>
+  </table>
+ </div>
+{%endblock%}
+
+
+
+
+{%block pageHeader2%}
+{%endblock%}
+
+
+
+{%block iCustomer%}
+<div class="cbox">
+  <select name="customer" class="ui dropdown search selection" id="customerSearch" data-source='{{url.this}}/add?type=sale&json=true&list=customer&q={query}'>
+    <option value="" readonly>{%trans "Choose customer"%}</option>
+  </select>
+</div>
+{%endblock%}
+
+
+
+{%block addProducts%}
+<div class="cbox">
+  <select name="product" class="ui dropdown search selection barCode" id="productSearch" autofocus data-default data-search='{{url.this}}/add?type=sale&json=true&list=product&q={query}'>
+    <option value="" readonly>{%trans "Search in list to add product"%} +</option>
+  </select>
+</div>
+{%endblock%}
+
+
+{%block iCount%}
+ <input class="input count" type="number" name="count[]" min='0' max="10000000000" step="any" value="{{product.count1}}" >
+{%endblock%}
+
+
+{%block iDiscount%}
+ <div class="input discountCn">
+  <input class="discount" type="tel" name="discount[]" min='0' max="10000000000" value="{{product.discount1}}" value=''>
+  <span class="addon small">0%</span>
+ </div>
+{%endblock%}
+
+
+{%block iDesc%}
+<textarea  name="desc" class="txt" rows='2' placeholder='{%trans "Description"%}' value='{{product.desc}}'></textarea>
+{%endblock%}
+
+{%block iBarcode%}
+<label for='ibarcode'>{%trans "Last scanned barcode"%}</label>
+<div class="input">
+ <input class="barCode" type="text" placeholder='{%trans "Last scanned barcode"%}' data-lock data-default>
+</div>
+{%endblock%}
+
