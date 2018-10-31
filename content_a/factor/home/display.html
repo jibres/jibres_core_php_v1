@@ -4,6 +4,11 @@
 {%block pageContent%}
 {{block('pageSteps')}}
 
+{%if requestGET.type in ['prefactor','lending','backbuy','backfactor','waste', 'other'] %}
+  {{block('pageStepsSite')}}
+{%endif%}
+
+
 {%if dataTable%}
  {%if filterBox%}
 
@@ -222,5 +227,43 @@
     </a>
   </div>
 
+   <div class="cauto">
+    <a class="dcard {%if requestGET.type in ['prefactor','lending','backbuy','backfactor','waste', 'other'] %}active{%endif%}" href='{{url.this}}?type=other' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-list"></i></div>
+      <div class="label">{%trans "Other"%} <kbd>T+3</kbd></div>
+     </div>
+    </a>
+  </div>
+
 </div>
 {%endblock%}
+
+
+
+{%block pageStepsSite%}
+<div class="f msg pB0 secondary2">
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='prefactor'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=prefactor' data-shortkey="49shift">{%trans "Prefactor"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='backbuy'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=backbuy' data-shortkey="49shift">{%trans "Back buy"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='backfactor'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=backfactor' data-shortkey="49shift">{%trans "Back factor"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='lending'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=lending' data-shortkey="49shift">{%trans "Lending"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='waste'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=waste' data-shortkey="49shift">{%trans "waste"%}</a>
+  </div>
+
+</div>
+{%endblock%}
+
