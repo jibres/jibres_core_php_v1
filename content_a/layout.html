@@ -86,6 +86,11 @@
 {%endblock%}
 
 
+{%block head_css%}
+ <link rel="stylesheet"       href="http://jibres.local/static/{{'css/storePanel.css' | filemtime(true)}}"/>
+{%endblock%}
+
+
 {%block js%}
 
  <script src="{{url.site}}/static/{{'js/JsBarcode.all.min.js' | filemtime(true)}}"></script>

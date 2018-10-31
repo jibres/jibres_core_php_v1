@@ -202,81 +202,6 @@ body .pc .em{font-weight:bold;text-align:center;padding:1em 5%;background-color:
 [data-page="homepage"] #tfooter .link_home{display:none;}
 
 
-#factorAdd .cbox{margin-bottom:10px;padding:0.5em}
-#factorAdd .tbl{margin:0;max-width:100%;overflow:auto;}
-
-/*final price*/
-.priceBox{font-size:1.4em;margin:0 auto 10px;padding:0;border-radius:0.25rem;background-color:#5bbbdb;color:#eee;text-align:center;max-width:400px;min-width:170px;transition:0.3s opacity;overflow:hidden;}
-.priceBox h3{font-size:1em;padding:1em;margin:0}
-.priceBox div span{font-weight:bold;color:#fff;display:inline-block;}
-.priceBox div{transition: color 0.3s;}
-.priceBox div:hover{color:#fff}
-.priceBox .final{padding:0;background-color:#50a0c0;color:#fff;font-size:2.5em;margin-bottom:10px;height:70px;}
-.priceBox .final span{line-height:70px;}
-.priceBox .final abbr{font-size:1rem;display:inline-block;transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);vertical-align:middle;}
-.priceBox .desc{padding:0.4em 0.2em;color:#fff;font-size:1.1rem;font-weight:100;height:30px;line-height:1.2}
-.ltr .priceBox .desc{display:none;}
-.priceBox .detail{padding:0.5em;text-align:initial;}
-.priceBox .detail span{float:right;font-size:1.2em;}
-.rtl .priceBox .detail span{float:left;}
-.priceBox .count{display:none;}
-.priceBox .discount{background-color:#50aacc;cursor:pointer;display:none;}
-.priceBox .discountPercent{display:none;}
-kbd{font-family:monospace;}
-
-
-.cbox:hover, .cbox:active, .priceBox:hover, .priceBox:active
-{
--webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.2), 0 0 30px rgba(0, 0, 0, 0.07) inset;
-   -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.2), 0 0 30px rgba(0, 0, 0, 0.07) inset;
-        box-shadow:0 1px 4px rgba(0, 0, 0, 0.2), 0 0 30px rgba(0, 0, 0, 0.07) inset;
-}
-
-
-
-.tbl.productList th{vertical-align: middle;text-align: center;}
-.tbl.productList td{vertical-align: middle;text-align: center;padding:0.25em}
-.tbl.productList tr[data-selected]{background-color:#fcfff5!important;color:#2c662d!important}
-.tbl.productList tr[data-selected="warn"]{background-color:#fffaf3!important;color:#573a08!important}
-.tbl.productList tr td:nth-child(1){font-size: 0.8em;}
-.tbl.productList tr td:nth-child(2){font-size: 0.9em;}
-.tbl.productList .product{white-space:nowrap;min-width:100px;}
-.tbl.productList input.count{white-space:nowrap;min-width:70px;max-width:100px;padding:5px 0.5em;text-align:center;background-color:transparent;}
-
-.tbl.productList .input.discountCn{min-width:100px;max-width:150px;margin:0 auto;}
-.tbl.productList .input.discountCn input.discount{padding:5px 0.5em;text-align:center;background-color:transparent;}
-.tbl.productList .input.discountCn .addon.small{min-width:40px;max-width:45px;text-align:center;transition:0.3s;opacity:1;line-height:24px;display:inline-block;}
-.tbl.productList .input.discountCn .addon.small:empty{min-width:0;width:0;opacity:0;border-width:0;padding:0}
-
-.tbl .min80{white-space:nowrap;width:80px}
-.tbl .min100{white-space:nowrap;width:100px}
-.tbl .min120{white-space:nowrap;width:120px}
-.tbl .min150{white-space:nowrap;width:150px}
-
-.finalPriceVal span{font-size: 2em;font-weight:bold;}
-
-
-
-
-.factor .storeDetail h1{font-weight: bold;font-size: 2em}
-.factor .storeDetail address{font-style: normal;font-weight: 300;line-height: 1.5em;}
-.factor .storeDetail address .phone{font-weight:bold}
-.factor .storeDetail .logo img{width: 80px;height:auto;max-width:80px;max-height:80px;border-radius:3px;overflow:hidden;}
-.factor .storeDetail .desc{line-height:1.5em}
-
-.factor .factorDetail{padding-top:1em;border-top:2px solid #333}
-.factor .factorDetail .datetime .time{font-weight:700}
-.factor .factorDetail code{font-size: 1.5em;background-color:#eee;border-radius:3px;padding:3px 5px;min-width:50px;text-align:center;}
-.factor .factorDetail .barcodePrev{height: 40px;width:140px;}
-.factor .tbl{color:#000}
-.factor .tbl thead th{border-bottom-color: #000;padding-top:1em;padding-bottom:1em; }
-.factor .tbl tbody td{line-height:1.4em;}
-.factor .tbl td{vertical-align: middle;}
-.factor .tbl tfoot th{border-top:1px dotted #000;font-weight:bold}
-.factor .factorResult th{vertical-align: middle;}
-.factor .factorResult .collapsing{font-weight:bold;font-size: 1.2em;}
-.factor .factorResult .factorSum{font-size: 1.2em;color:#000!important;}
-
 
 
 
@@ -296,18 +221,6 @@ kbd{font-family:monospace;}
   #landing .title{padding-top:20px;position:relative;}
   #landing .title .h2{font-size:4em;height:4em;}
   #roadmap{display:none}
-
-  .tbl.productList .product{min-width:auto;}
-  .tbl .min80{width:auto;}
-  .tbl .min100{width:auto;}
-  .tbl .min120{width:auto;}
-  .tbl .min150{width:auto;}
-
-  #factorAdd .tbl tr td:first-child, #factorAdd .tbl tr th:first-child{display: none;}
-  #factorAdd .tbl tr td:last-child, #factorAdd .tbl tr th:last-child{display: none;}
-  #factorAdd .tbl.productList input.count{width:50px;}
-  #factorAdd .tbl.productList .input.discountCn{width:60px;}
-  #factorAdd .tbl.productList .input.discountCn .addon.small{display:none!important}
 }
 
 

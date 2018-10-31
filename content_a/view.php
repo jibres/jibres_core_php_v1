@@ -20,7 +20,7 @@ class view
 		\dash\data::display_admin('content_a/layout.html');
 
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_css(true);
+		\dash\data::include_css(false);
 		\dash\data::include_js(false);
 
 		// use old version of chart until new version is being stable
