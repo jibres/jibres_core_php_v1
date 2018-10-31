@@ -1,19 +1,17 @@
 {%extends display.admin%}
 
 
-
 {%block pageContent%}
-
 <div class="f">
-  <div class="x4 c5 s12">
+  <div class="x4 c5 s12 pRa10">
     {{block('addNewCat')}}
   </div>
-  <div class="c s12 mLa10">
+  <div class="c s12">
     {{block('htmlTable')}}
   </div>
 </div>
-
 {%endblock%}
+
 
 {%block addNewCat%}
 <div class="cbox">
@@ -30,13 +28,15 @@
 
     {%if editMode%}
       {%if productCount.count%}
-        <div class="msg mT10 {%if productCount.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this category all product will be update to new value."%} <a class="badge" href='{{url.this}}?cat={{requestGET.edit}}' title='{%trans "Click to check list of this product"%}'>{{productCount.count | fitNumber}} {%trans "Product"%}</a></div>
+        <p class="msg mT10 {%if productCount.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this category all product will be update to new value."%} <a class="badge" href='{{url.this}}?cat={{requestGET.edit}}' title='{%trans "Click to check list of this product"%}'>{{productCount.count | fitNumber}} {%trans "Product"%}</a></p>
       {%else%}
-        <div class="msg mT10 info2">{%trans "No product in this category"%} <div class="txtB mT10">{%trans "You can delete it now!"%}</div><a href="{{url.pwd}}" data-ajaxify data-data='{"removecat" : "{{productCount.title}}", "type" : "remove"}' data-method='post' class="badge danger floatL">{%trans "Remove"%}</a></div>
+        <p class="msg mT10 info2">{%trans "No product in this category"%}
+          <span class="txtB mT10">{%trans "You can delete it now!"%}</span>
+          <a href="{{url.pwd}}" data-ajaxify data-data='{"removecat" : "{{productCount.title}}", "type" : "remove"}' data-method='post' class="badge danger mLa5">{%trans "Remove"%}</a>
+        </p>
       {%endif%}
 
-
-       <div class="f  mT20">
+       <div class="f mT20">
           <div class="c pRa10">
             <button class="btn outline warn block">{%trans "Edit"%}</button>
           </div>
@@ -91,7 +91,7 @@
 <label for="icatname">{%trans "Title"%}</label>
 <div class="input">
   <input type="hidden" name="oldcat" value="{{requestGET.edit}}">
-  <input type="text" name="cat" id="icatname" placeholder='{%trans "Category name"%}' value="{{requestGET.edit}}" autofocus maxlength='50' minlength="1"  required>
+  <input type="text" name="cat" id="icatname" placeholder='{%trans "Category name"%}' value="{{requestGET.edit}}" autofocus maxlength='50' minlength="1" required>
 </div>
 {%endblock%}
 
@@ -100,8 +100,8 @@
 {%block htmlTable%}
 
   <table class="tbl1 v1 cbox fs12">
-    <thead class="">
-      <tr>
+    <thead>
+      <tr class="fs09">
         <th>{%trans "Category"%}</th>
         <th class="txtC">{%trans "Count product"%}</th>
         <th class="txtC">{%trans "Action"%}</th>

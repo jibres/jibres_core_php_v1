@@ -2,23 +2,22 @@
 
 
 {%block pageContent%}
-
 <div class="f">
-  <div class="c5">
+  <div class="x4 c5 s12 pRa10">
     {{block('addNewUnit')}}
   </div>
-  <div class="c mLa10">
+  <div class="c s12 ">
     {{block('htmlTable')}}
   </div>
 </div>
-
 {%endblock%}
+
 
 {%block addNewUnit%}
 <div class="cbox">
 
 	{%if editMode%}
-		<h3>{%trans "Edit unit"%}: <span class="fc-green txtB">{{requestGET.edit}}</span></h3>
+		<h3>{%trans "Edit unit"%} <span class="fc-green txtB">{{requestGET.edit}}</span></h3>
 	{%else%}
 		<h3>{%trans "Add new unit"%}</h3>
 	{%endif%}
@@ -27,17 +26,26 @@
     {{block('unitName')}}
     {{block('iNumberType')}}
 
-    {{block('unitDefault')}}
 
     {%if editMode%}
-    	{%if dataRow.count > 10%}
-			<div class="msg mT10 danger">{%trans "All product by this unit changed to new value"%} <span class="txtB">{%trans "Count"%} {{dataRow.count | fitNumber}} {%trans "Product"%}</span></div>
-    	{%elseif dataRow.count%}
-      <div class="msg mT10 warn2">{%trans "All product by this unit changed to new value"%} <span class="txtB">{%trans "Count"%} {{dataRow.count | fitNumber}} {%trans "Product"%}</span></div>
+
+      {%if dataRow.count%}
+        <p class="msg mT10 {%if dataRow.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this unit all product will be update to new value."%} <a class="badge" href='{{url.this}}?cat={{requestGET.edit}}' title='{%trans "Click to check list of this product"%}'>{{dataRow.count | fitNumber}} {%trans "Product"%}</a></p>
       {%else%}
-			<div class="msg mT10 info2">{%trans "No product in this unit"%} <span class="txtB">{%trans "You can delete it now!"%}</span><a href="{{url.pwd}}" data-ajaxify data-data='{"removeunit" : "{{dataRow.title}}", "type" : "remove"}' data-method='post' class="badge danger floatL">{%trans "Remove"%}</a></div>
-    	{%endif%}
-       <button class="btn primary block mT20">{%trans "Edit"%}</button>
+        <p class="msg mT10 info2">{%trans "No product in this unit"%}
+          <span class="txtB">{%trans "You can delete it now!"%}</span>
+          <a href="{{url.pwd}}" data-ajaxify data-data='{"removeunit" : "{{dataRow.title}}", "type" : "remove"}' data-method='post' class="badge danger mLa5">{%trans "Remove"%}</a>
+        </p>
+      {%endif%}
+
+       <div class="f mT20">
+          <div class="c pRa10">
+            <button class="btn outline warn block">{%trans "Edit"%}</button>
+          </div>
+          <div class="cauto">
+            <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+          </div>
+       </div>
     {%else%}
        <button class="btn primary block mT20">{%trans "Add"%}</button>
     {%endif%}
@@ -59,10 +67,14 @@
 
 
 {%block iNumberType%}
+  <div class="msg">
+
+  <small>{%trans "Sometimes employees sell some product with decimal unit and if you are force this unit to give integer value, we are not allow them to enter invalid value"%}</small>
   <div class="switch1 mT10">
-   <input type="checkbox" name="decimal" id="decimal" {%if dataRow.decimal%} checked {%endif%}>
-   <label for="decimal"></label>
-   <label for="decimal">{%trans "Is decimal unit?"%}</label>
+   <input type="checkbox" name="int" id="int" {%if dataRow.int%} checked {%endif%}>
+   <label for="int"></label>
+   <label for="int">{%trans "Only accept integer value?"%}</label>
+  </div>
   </div>
 {%endblock%}
 
@@ -79,10 +91,10 @@
 
 
 {%block unitName%}
-<label for="iunitname">{%trans "Unit name"%}</label>
+<label for="iunitname">{%trans "Title"%}</label>
 <div class="input">
 	<input type="hidden" name="oldunit" value="{{requestGET.edit}}">
-  <input type="text" name="unit" id="iunitname" placeholder='{%trans "Unit name"%}' value="{{requestGET.edit}}" autofocus maxlength='50' minlength="1"  required>
+  <input type="text" name="unit" id="iunitname" placeholder='{%trans "Unit name"%}' value="{{requestGET.edit}}" autofocus maxlength='50' minlength="1" required>
 </div>
 {%endblock%}
 
@@ -91,14 +103,12 @@
 {%block htmlTable%}
 
   <table class="tbl1 v1 cbox fs12">
-    <thead class="">
-      <tr>
+    <thead>
+      <tr class="fs09">
         <th>{%trans "Unit"%}</th>
-        <th>{%trans "Count product"%}</th>
-
-        <th>{%trans "Decimal"%}</th>
-
-        <th>{%trans "Action"%}</th>
+        <th class="txtC">{%trans "Force integer value"%}</th>
+        <th class="txtC">{%trans "Count product"%}</th>
+        <th class="txtC">{%trans "Action"%}</th>
       </tr>
     </thead>
 
@@ -107,16 +117,15 @@
       <tr class="{%if value.status == 'disable'%} negative{%else%} positive{%endif%}" {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
         <td>
           {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
-          {%if not value.title and value.title != '0' %}<small class="fc-mute">{%trans "Without Unit"%}</small>{%else%}{{value.title}}{%endif%}</td>
-        <td><a href="{{url.here}}/product?unit={{value.title}}">{{value.count | fitNumber}}</a></td>
-
-        <td>{%if value.decimal%}<i class="sf-check fc-green"></i>{%endif%}</td>
-
-
-        <td>
+          {%if not value.title and value.title != '0' %}<small class="fc-mute">{%trans "Without Unit"%}</small>{%else%}{{value.title}}{%endif%}
+        </td>
+        <td class="txtC">{%if value.int%}<i class="sf-check fc-green"></i>{%else%}-{%endif%}</td>
+        <td class="txtC">
+          <a href="{{url.here}}/product?unit={{value.title}}">{{value.count | fitNumber}}</a>
+        </td>
+        <td class="collapsing">
           <a href="{{url.this}}/units?edit={{value.title}}" class="badge primary">{%trans "Edit"%}</a>
-          <a href="{{url.here}}/product?unit={{value.title}}" class="badge success">{%trans "Products"%}</a>
-
+          <a href="{{url.here}}/product?unit={{value.title}}" class="badge success">{%trans "Check Products"%}</a>
         </td>
       </tr>
       {%endfor%}
