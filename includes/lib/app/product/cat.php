@@ -83,7 +83,7 @@ class cat
 			return false;
 		}
 
-		$json = self::list();
+		$json = self::list(true);
 
 		if(isset($json[$args['title']]))
 		{
@@ -114,7 +114,7 @@ class cat
 
 	public static function remove($_old_cat)
 	{
-		$json = self::list();
+		$json = self::list(true);
 
 		if(!isset($json[$_old_cat]))
 		{
@@ -147,7 +147,7 @@ class cat
 			return false;
 		}
 
-		$json = self::list();
+		$json = self::list(true);
 
 		if(!isset($json[$_old_cat]))
 		{
