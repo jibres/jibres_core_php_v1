@@ -1,5 +1,5 @@
 <?php
-namespace content_a\factor\add;
+namespace content_a\sale;
 
 
 class model
