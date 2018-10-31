@@ -209,7 +209,7 @@ function event_corridor(_e, _self, _key)
 
         // set factor url
         var myPage    = $('body').attr('data-page');
-        var factorUrl = '/a/factor/add?from='+ myPage;
+        var factorUrl = '/a/sale?from='+ myPage;
         if($('html').attr('lang') !== undefined)
         {
           factorUrl = $('html').attr('lang')+ factorUrl;
