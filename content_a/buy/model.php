@@ -79,6 +79,17 @@ class model
 	}
 
 
+	private static function temp_array($_count)
+	{
+		$temp = [];
+		for ($i = 0; $i < $_count ; $i++)
+		{
+			$temp[] = rand(3000, 300000);
+		}
+		return $temp;
+	}
+
+
 	/**
 	 * Gets the post factor product.
 	 *
@@ -96,7 +107,14 @@ class model
 		$count    = \dash\request::post('count');
 		$discount = \dash\request::post('discount');
 
-		if(!is_array($product) || !is_array($count) || !is_array($discount))
+		$buyprice = \dash\request::post('buyprice');
+		$price    = \dash\request::post('price');
+
+		// need to fix after fix html and js
+		$buyprice = self::temp_array(count($product));
+		$price    = self::temp_array(count($product));
+
+		if(!is_array($product) || !is_array($count) || !is_array($discount) || !is_array($buyprice) || !is_array($price))
 		{
 			\dash\notif::warn(T_("No items have been added for sale"));
 			return false;
@@ -105,6 +123,9 @@ class model
 		$product  = array_values($product);
 		$count    = array_values($count);
 		$discount = array_values($discount);
+
+		$buyprice = array_values($buyprice);
+		$price    = array_values($price);
 
 		$factor_list = [];
 
@@ -115,6 +136,8 @@ class model
 				'product'  => $value,
 				'count'    => array_key_exists($key, $count) ? $count[$key] : null,
 				'discount' => array_key_exists($key, $discount) ? $discount[$key] : null,
+				'buyprice' => array_key_exists($key, $buyprice) ? $buyprice[$key] : null,
+				'price'    => array_key_exists($key, $price) ? $price[$key] : null,
 			];
 		}
 

@@ -35,14 +35,11 @@ class factor
 
 		$_option = array_merge($default_option, $_option);
 
-		$log_meta =
-		[
-			'data' => null,
-			'meta' =>
-			[
-				'input' => \dash\app::request(),
-			]
-		];
+		if(!\lib\userstore::id())
+		{
+			\dash\notif::error(T_("You are not in this store!"));
+			return false;
+		}
 
 		$customer = \dash\app::request('customer');
 		$customer = trim($customer);
@@ -105,11 +102,6 @@ class factor
 			$type = 'sale';
 		}
 
-		if(!\lib\userstore::id())
-		{
-			\dash\notif::error(T_("You are not in this store!"));
-			return false;
-		}
 
 		$args                   = [];
 		$args['customer']       = $customer;
@@ -133,9 +125,7 @@ class factor
 		$args['desc']           = $desc;
 
 		return $args;
-
 	}
-
 
 
 
@@ -254,7 +244,7 @@ class factor
 
 					$price_change['discountpercent'] = $discountpercent;
 
-					\lib\app\product::buyprice_check($product_id, $price_change);
+					\lib\app\product\buyprice::check($product_id, $price_change);
 
 					self::stock_plus($product_id, floatval($value['count']), true);
 					break;
@@ -299,10 +289,6 @@ class factor
 			$allproduct_id[]              = $product_id;
 		}
 
-		// run the multi query to change every change in var static
-		// for example in sold and stock
-		self::change_var_static_multi_query();
-
 		if(count($allproduct_id) <> count(array_unique($allproduct_id)))
 		{
 			\dash\notif::error(T_("Duplicate product in one factor founded"));
@@ -316,6 +302,10 @@ class factor
 			\dash\notif::error(T_("No valid products found in your list"));
 			return false;
 		}
+
+		// run the multi query to change every change in var static
+		// for example in sold and stock
+		self::change_var_static_multi_query();
 
 		if(!empty($have_warn))
 		{

@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\product;
 
-trait buyprice
+class buyprice
 {
 	/**
 	 * Gets the product.
@@ -10,7 +10,7 @@ trait buyprice
 	 *
 	 * @return     <type>  The product.
 	 */
-	public static function buyprice_check($_product_id, $_args)
+	public static function check($_product_id, $_args)
 	{
 		$changed    = false;
 		$new_record = [];
