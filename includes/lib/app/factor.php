@@ -12,7 +12,6 @@ class factor
 	use \lib\app\factor\edit;
 	use \lib\app\factor\datalist;
 	use \lib\app\factor\get;
-	use \lib\app\factor\dashboard;
 	use \lib\app\factor\balance;
 
 

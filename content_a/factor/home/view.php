@@ -35,6 +35,10 @@ class view
 
 		\dash\data::myFilter(\content_a\filter::current(\lib\app\factor::$sort_field, \dash\url::this()));
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
+
+		$dashboard_detail = \lib\app\factor\dashboard::detail();
+		\dash\data::dashboardDetail($dashboard_detail);
+
 	}
 
 

@@ -204,7 +204,7 @@
     <a class="dcard {%if not requestGET.type %}active{%endif%}" href='{{url.this}}' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-shop"></i></div>
-      <div class="label">{%trans "All"%} <kbd>T+1</kbd></div>
+      <div class="label">{%trans "All"%} {{dashboardDetail.all | fitNumber}}<kbd>T+1</kbd></div>
      </div>
     </a>
   </div>
@@ -213,7 +213,7 @@
     <a class="dcard {%if requestGET.type == 'sale' %}active{%endif%}" href='{{url.this}}?type=sale' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-cloud-upload"></i></div>
-      <div class="label">{%trans "Sale"%} <kbd>T+2</kbd></div>
+      <div class="label">{%trans "Sale"%} {{dashboardDetail.sale | fitNumber}}<kbd>T+2</kbd></div>
      </div>
     </a>
   </div>
@@ -222,19 +222,20 @@
     <a class="dcard {%if requestGET.type == 'buy' %}active{%endif%}" href='{{url.this}}?type=buy' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-cloud-download"></i></div>
-      <div class="label">{%trans "Buy"%} <kbd>T+3</kbd></div>
+      <div class="label">{%trans "Buy"%} {{dashboardDetail.buy | fitNumber}}<kbd>T+3</kbd></div>
      </div>
     </a>
   </div>
-
+  {%if dashboardDetail.have_other%}
    <div class="cauto">
     <a class="dcard {%if requestGET.type in ['prefactor','lending','backbuy','backfactor','waste', 'other'] %}active{%endif%}" href='{{url.this}}?type=other' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-list"></i></div>
-      <div class="label">{%trans "Other"%} <kbd>T+3</kbd></div>
+      <div class="label">{%trans "Other"%} {{dashboardDetail.all_other | fitNumber}}<kbd>T+3</kbd></div>
      </div>
     </a>
   </div>
+  {%endif%}
 
 </div>
 {%endblock%}
@@ -242,28 +243,30 @@
 
 
 {%block pageStepsSite%}
+{%if dashboardDetail.have_other%}
 <div class="f msg pB0 secondary2">
 
   <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='prefactor'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=prefactor' data-shortkey="49shift">{%trans "Prefactor"%}</a>
+    <a class="btn block {%if url.child=='prefactor'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=prefactor' data-shortkey="49shift">{%trans "Prefactor"%} {{dashboardDetail.prefactor | fitNumber}}</a>
   </div>
 
   <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='backbuy'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=backbuy' data-shortkey="49shift">{%trans "Back buy"%}</a>
+    <a class="btn block {%if url.child=='backbuy'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=backbuy' data-shortkey="49shift">{%trans "Back buy"%} {{dashboardDetail.backbuy | fitNumber}}</a>
   </div>
 
   <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='backfactor'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=backfactor' data-shortkey="49shift">{%trans "Back factor"%}</a>
+    <a class="btn block {%if url.child=='backfactor'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=backfactor' data-shortkey="49shift">{%trans "Back factor"%} {{dashboardDetail.backfactor | fitNumber}}</a>
   </div>
 
   <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='lending'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=lending' data-shortkey="49shift">{%trans "Lending"%}</a>
+    <a class="btn block {%if url.child=='lending'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=lending' data-shortkey="49shift">{%trans "Lending"%} {{dashboardDetail.lending | fitNumber}}</a>
   </div>
 
   <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='waste'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=waste' data-shortkey="49shift">{%trans "waste"%}</a>
+    <a class="btn block {%if url.child=='waste'%} primary{%else%} light{%endif%}" href='{{url.this}}?type=waste' data-shortkey="49shift">{%trans "waste"%} {{dashboardDetail.waste | fitNumber}}</a>
   </div>
 
 </div>
+{%endif%}
 {%endblock%}
 
