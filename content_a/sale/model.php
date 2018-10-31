@@ -48,7 +48,7 @@ class model
 				if(\dash\request::post('save_btn') === 'save_next')
 				{
 					$query_data['type']  = \dash\request::get('type');
-					$redirect_url        = \dash\url::this(). '/add';
+					$redirect_url        = \dash\url::this();
 
 				}
 				elseif(\dash\request::post('save_btn') === 'save_print')
@@ -56,7 +56,7 @@ class model
 					$query_data['id']    = $factor_detail['factor_id'];
 					$query_data['print'] = 'auto';
 					$query_data['size']  = 'receipt8';
-					$redirect_url        = \dash\url::this(). '/fishprint';
+					$redirect_url        = \dash\url::here(). '/print';
 
 				}
 				else
