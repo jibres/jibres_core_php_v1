@@ -21,6 +21,7 @@ class view
 
 		\dash\data::include_adminPanel(true);
 		\dash\data::include_css(true);
+		\dash\data::include_js(false);
 
 		// use old version of chart until new version is being stable
 		\dash\data::include_highcharts(true);
