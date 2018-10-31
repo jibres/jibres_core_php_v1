@@ -85,7 +85,7 @@
     <tbody>
       {%for key, value in dataTable%}
       <tr {%if value.stock < 0%} class='warning' title='{%trans "stock count is less than zero!"%}'{%endif%}>
-        <td><a href="{{url.here}}/product/general?id={{value.id}}">{{value.title}}</a></td>
+        <td><a href="{{url.here}}/product/general?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
         <td class="s0"><small><a href="{{url.here}}/product?cat={{value.cat}}">{{value.cat}}</a></small></td>
         <td><a href="{{url.here}}/product?buyprice={{value.buyprice}}">{{value.buyprice | number_format | fitNumber}}</a></td>
         <td class="s0"><a href="{{url.here}}/product?price={{value.price}}">{{value.price | number_format | fitNumber}}</a></td>

@@ -8,6 +8,8 @@ class view
 	{
 		\dash\data::page_title(T_('Add new product or goods'));
 		\dash\data::page_desc(T_('You can set main property of product and allow to assign some extra or edit it later.'));
+		\dash\data::page_pictogram('plus');
+
 
 		\dash\data::badge_text(T_('Back to product list'));
 		\dash\data::badge_link(\dash\url::this());
