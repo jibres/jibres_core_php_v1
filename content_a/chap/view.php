@@ -1,5 +1,5 @@
 <?php
-namespace content_a\factor\fishprint;
+namespace content_a\chap;
 
 
 class view
