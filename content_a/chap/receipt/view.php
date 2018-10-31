@@ -1,5 +1,5 @@
 <?php
-namespace content_a\chap;
+namespace content_a\chap\receipt;
 
 
 class view

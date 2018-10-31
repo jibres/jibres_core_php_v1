@@ -55,8 +55,7 @@ class model
 				{
 					$query_data['id']    = $factor_detail['factor_id'];
 					$query_data['print'] = 'auto';
-					$query_data['size']  = 'receipt8';
-					$redirect_url        = \dash\url::here(). '/chap';
+					$redirect_url        = \dash\url::here(). '/chap/receipt';
 
 				}
 				else
