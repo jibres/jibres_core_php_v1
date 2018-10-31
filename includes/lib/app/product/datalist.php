@@ -148,12 +148,12 @@ trait datalist
 		}
 		elseif (isset($option['justcode']) && $option['justcode'])
 		{
-			$field['code'] = [" IS NOT NULL ", " AND barcode2 IS NULL AND barcode IS NULL"];
+			$field['quickcode'] = [" IS NOT NULL ", " AND barcode2 IS NULL AND barcode IS NULL"];
 			$result = \lib\db\products::search($_string, $option, $field);
 		}
 		elseif (isset($option['wcodbarcode']) && $option['wcodbarcode'])
 		{
-			$field['code'] = [" IS NULL ", " AND barcode2 IS NULL AND barcode IS NULL"];
+			$field['quickcode'] = [" IS NULL ", " AND barcode2 IS NULL AND barcode IS NULL"];
 			$result = \lib\db\products::search($_string, $option, $field);
 		}
 		elseif (isset($option['wbuyprice']) && $option['wbuyprice'])
