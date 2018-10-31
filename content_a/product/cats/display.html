@@ -110,17 +110,16 @@
 
     <tbody>
       {%for key, value in dataTable%}
-      <tr class="{%if value.status == 'disable'%} negative{%else%} positive{%endif%}" {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
+
+      <tr {%if (requestGET.edit) == value.title %} class="positive"{%endif%} {%if value.default%} title='{%trans "Is default"%}'{%endif%}>
         <td>
           {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
-          {%if not value.title and value.title != '0' %}<small class="fc-mute">{%trans "Without Category"%}</small>{%else%}{{value.title}}{%endif%}</td>
+          {%if not value.title and value.title != '0' %}<small class="fc-red">{%trans "Without Category"%}</small>{%else%}{{value.title}}{%endif%}</td>
         <td class="txtC">
-          <a href="{{url.here}}/product?cat={{value.title}}">{{value.count | fitNumber}}</a>
+          <a href="{{url.here}}/product?cat={{value.title | url_encode}}" title='{%trans "Click to check products in this category"%}'>{{value.count | fitNumber}}</a>
         </td>
         <td class="collapsing">
           <a href="{{url.this}}/cats?edit={{value.title | url_encode }}" class="badge primary">{%trans "Edit"%}</a>
-          <a href="{{url.here}}/product?cat={{value.title | url_encode }}" class="badge success">{%trans "Check Products"%}</a>
-
         </td>
       </tr>
       {%endfor%}

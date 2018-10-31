@@ -114,18 +114,17 @@
 
     <tbody>
       {%for key, value in dataTable%}
-      <tr class="{%if value.status == 'disable'%} negative{%else%} positive{%endif%}" {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
+      <tr {%if (requestGET.edit) == value.title %} class="positive"{%endif%} {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
         <td>
           {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
-          {%if not value.title and value.title != '0' %}<small class="fc-mute">{%trans "Without Unit"%}</small>{%else%}{{value.title}}{%endif%}
+          {%if not value.title and value.title != '0' %}<small class="fc-red">{%trans "Without Unit"%}</small>{%else%}{{value.title}}{%endif%}
         </td>
         <td class="txtC">{%if value.int%}<i class="sf-check fc-green"></i>{%else%}-{%endif%}</td>
         <td class="txtC">
-          <a href="{{url.here}}/product?unit={{value.title}}">{{value.count | fitNumber}}</a>
+          <a href="{{url.here}}/product?unit={{value.title | url_encode}}" title='{%trans "Click to check products in this category"%}'>{{value.count | fitNumber}}</a>
         </td>
         <td class="collapsing">
-          <a href="{{url.this}}/units?edit={{value.title}}" class="badge primary">{%trans "Edit"%}</a>
-          <a href="{{url.here}}/product?unit={{value.title}}" class="badge success">{%trans "Check Products"%}</a>
+          <a href="{{url.this}}/units?edit={{value.title | url_encode}}" class="badge primary">{%trans "Edit"%}</a>
         </td>
       </tr>
       {%endfor%}
