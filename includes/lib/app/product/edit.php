@@ -74,6 +74,7 @@ trait edit
 		if(!\dash\app::isset_request('buyprice'))       unset($args['buyprice']);
 		if(!\dash\app::isset_request('price'))          unset($args['price']);
 		if(!\dash\app::isset_request('discount'))       unset($args['discount']);
+		if(!\dash\app::isset_request('discount'))       unset($args['discountpercent']);
 		if(!\dash\app::isset_request('vat') )           unset($args['vat']);
 		if(!\dash\app::isset_request('initialbalance')) unset($args['initialbalance']);
 		if(!\dash\app::isset_request('minstock'))       unset($args['minstock']);
@@ -85,9 +86,13 @@ trait edit
 		if(!\dash\app::isset_request('saleonline'))     unset($args['saleonline']);
 		if(!\dash\app::isset_request('salestore'))      unset($args['salestore']);
 		if(!\dash\app::isset_request('carton'))         unset($args['carton']);
-		if(!\dash\app::isset_request('code'))           unset($args['code']);
+		if(!\dash\app::isset_request('quickcode'))      unset($args['quickcode']);
 		if(!\dash\app::isset_request('checkstock'))     unset($args['checkstock']);
 		if(!\dash\app::isset_request('desc'))           unset($args['desc']);
+		if(!\dash\app::isset_request('thumb'))          unset($args['thumb']);
+
+
+
 
 		if(array_key_exists('title', $args) && !$args['title'])
 		{

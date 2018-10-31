@@ -243,7 +243,7 @@ class factor
 
 					$price_change['discountpercent'] = $discountpercent;
 
-					\lib\app\product\buyprice::check($product_id, $price_change);
+					\lib\app\product\buyprice::check($product_id, $price_change, true);
 
 					self::stock_plus($product_id, floatval($value['count']), true);
 					break;
