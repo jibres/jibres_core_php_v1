@@ -58,7 +58,6 @@ class factors
 			SELECT
 				factors.*,
 				userstores.firstname AS `customer_firstname`,
-				userstores.address AS `customer_address`,
 				userstores.phone AS `customer_phone`,
 				userstores.displayname AS `customer_displayname`,
 				userstores.lastname AS `customer_lastname`,
