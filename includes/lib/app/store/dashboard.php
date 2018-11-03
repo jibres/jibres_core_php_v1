@@ -55,7 +55,7 @@ trait dashboard
 		$result['customer_count'] = self::user_count('customer');
 		$result['supplier_count'] = self::user_count('supplier');
 		$result['staff_count']    = self::user_count('staff');
-		$result['product_count']  = \lib\app\product::product_count();
+		$result['product_count']  = \lib\app\product\dashboard::product_count();
 		$result['chart']          = self::sale_time_chart();
 
 		return $result;

@@ -11,6 +11,9 @@ class view
 		\dash\data::page_pictogram('diamond');
 
 		\content_a\product\load::fixTitle();
+
+
+		$dashboard = \lib\app\productprice\dashboard::glance(\dash\request::get('id'));
 	}
 }
 ?>

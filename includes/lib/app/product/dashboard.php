@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\product;
 
-trait dashboard
+class dashboard
 {
 	private static $life_time = 60 * 10;
 
@@ -31,13 +31,13 @@ trait dashboard
 				break;
 
 			default:
-				self::dashboard(true);
+				self::detail(true);
 				break;
 		}
 	}
 
 
-	public static function dashboard($_clean_cache = false)
+	public static function detail($_clean_cache = false)
 	{
 		$store_id = \lib\store::id();
 		if(!$store_id)

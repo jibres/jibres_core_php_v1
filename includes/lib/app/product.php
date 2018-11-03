@@ -11,7 +11,6 @@ class product
 	use \lib\app\product\get;
 	use \lib\app\product\delete;
 	use \lib\app\product\barcode;
-	use \lib\app\product\dashboard;
 
 	/**
 	 * Gets the static list.

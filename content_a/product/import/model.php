@@ -20,7 +20,7 @@ class model
 		if(\dash\engine\process::status())
 		{
 			// clean all cache
-			\lib\app\product::clean_cache();
+			\lib\app\product\dashboard::clean_cache();
 
 			\dash\notif::ok(T_("Import product successfully complete"));
 			\dash\redirect::to(\dash\url::here(). '/product');
