@@ -1,5 +1,5 @@
 <?php
-namespace content_a\factor\opr;
+namespace content_a\pay;
 
 
 class view

@@ -16,7 +16,7 @@
   </div>
   <div class="c4 x3 s12">
     <div>
-{%embed 'content_a/factor/fishprint/fishprint.html'%}
+{%embed 'content_a/chap/receipt/fishprint.html'%}
 
   {%block footerExtraArea%}
     {%if factorSetting.print_status%}
@@ -84,7 +84,7 @@
 <table class="tbl1 v1 cbox fs12">
   <thead>
     <tr>
-      <th>{%trans "Plus"%}</th>
+      <th>{%trans "Amount"%}</th>
       <th>{%trans "Type"%}</th>
       <th>{%trans "Bank"%}</th>
     </tr>
@@ -92,9 +92,9 @@
   <tbody>
     {% for key, value in payDetail %}
     <tr>
-      <td class="txtB">{{value.plus}}</td>
-      <td>{{value.type}}</td>
-      <td>{{value.subtitle}}</td>
+      <td class="txtB">{%if value.plus%}{{value.plus | fitNumber}}{%elseif value.minus%}{{value.minus | fitNumber}}{%endif%}</td>
+      <td>{%set my_type = value.type | capitalize%}{%trans my_type%}</td>
+      <td>{%set my_subtitle = value.subtitle | capitalize%}{%trans my_subtitle%}</td>
     </tr>
     {%endfor%}
   </tbody>

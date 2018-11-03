@@ -58,6 +58,12 @@ class model
 					$redirect_url        = \dash\url::here(). '/chap/receipt';
 
 				}
+				elseif(\dash\request::post('save_btn') === 'save_pay')
+				{
+					$query_data['id']    = $factor_detail['factor_id'];
+					$redirect_url        = \dash\url::here(). '/pay';
+
+				}
 				else
 				{
 					\dash\notif::error(T_("Dont!"));
