@@ -41,7 +41,7 @@
 {%endblock%}
 
 {%block factorDetailArea%}
- <div class="f factorDetail fs12">
+ <div class="f factorDetail fs12 mB5">
   <div class="c">
    <div class="datetime">{{factorDetail.factor.date | dt(true) }}</div>
    <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factorDetail.factor.id}}'>{{factorDetail.factor.id}}</code></div>
