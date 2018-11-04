@@ -231,7 +231,7 @@ function event_corridor(_e, _self, _key)
         }
         else
         {
-          if(myPage === 'factor_fishprint')
+          if(myPage === 'chap_receipt')
           {
             Navigate({ url: factorUrl });
             // location.replace(factorUrl);
