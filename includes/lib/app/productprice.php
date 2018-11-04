@@ -12,20 +12,23 @@ class productprice
 			return false;
 		}
 
-		$chart = \lib\db\productprices::get(['product_id' => $id]);
+		$chart = \lib\db\productprices::get(['product_id' => $id],['order' => 'ORDER BY productprices.id ASC']);
 
-		$result   = [];
-		$buyprice = [];
-		$price    = [];
-		$discount = [];
+		$data     = [];
+		$buyprice   = [];
+		$categories = [];
+		$price      = [];
+		$discount   = [];
+
 		foreach ($chart as $key => $value)
 		{
+			array_push($categories, \dash\datetime::fit($value['startdate'], null, 'date'));
 			array_push($buyprice, floatval($value['buyprice']));
 			array_push($price, floatval($value['price']));
 			array_push($discount, floatval($value['discount']));
 		}
 
-		$result =
+		$data =
 		[
 			[
 				'name' => 'price',
@@ -41,7 +44,11 @@ class productprice
 			],
 		];
 
-		return json_encode($result, JSON_UNESCAPED_UNICODE);
+		$result               = [];
+		$result['categories'] = json_encode($categories, JSON_UNESCAPED_UNICODE);
+		$result['data']       = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+		return $result;
 	}
 }
 ?>
