@@ -4,7 +4,7 @@
 {%block headerArea%}{%endblock%}
 
 {%block storeDetailArea%}
- <div class="f storeDetail">
+ <div class="f storeDetail fs11">
   <div class="c8">
    <h1>{{store.name}}</h1>
    <address>
@@ -41,7 +41,7 @@
 {%endblock%}
 
 {%block factorDetailArea%}
- <div class="f factorDetail">
+ <div class="f factorDetail fs12">
   <div class="c">
    <div class="datetime">{{factorDetail.factor.date | dt(true) }}</div>
    <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factorDetail.factor.id}}'>{{factorDetail.factor.id}}</code></div>
@@ -55,9 +55,9 @@
 
 
 {%block factorTableArea%}
- <table class="tbl1 v1">
-  <thead class="fs08">
-   <tr>
+ <table class="tbl1 v1 fs11 txtC">
+  <thead>
+   <tr class="fs08">
     <th>{%trans "Name"%}</th>
     <th>{%trans "Qty"%}</th>
     <th>{%trans "Price"%}</th>
@@ -70,7 +70,7 @@
   <tbody>
  {%for key, datarow in factorDetail.factor_detail%}
   <tr>
-   <td class="fs09">{{datarow.title}}</td>
+   <td class="fs09 txtLa">{{datarow.title}}</td>
    <td>{{datarow.factordetails_count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
    <td>{{datarow.factordetails_price | fitNumber}}</td>
 {%if factorDetail.factor.detaildiscount%}
