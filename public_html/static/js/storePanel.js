@@ -718,3 +718,27 @@ function shortkey_print(_el)
 }
 
 
+function prevFactor(_type, _all)
+{
+  if(_type === undefined)
+  {
+    _type = 'sale';
+  }
+  var lastFactorUrl = '/a/' + _type + '/prev';
+  // add id if exist
+  if(check_factor() && urlParam('id'))
+  {
+    lastFactorUrl += '/'+ urlParam('id');
+  }
+  // add lang if exist
+  if($('html').attr('lang') !== undefined)
+  {
+    lastFactorUrl = $('html').attr('lang')+ lastFactorUrl;
+  }
+  if(_all)
+  {
+    lastFactorUrl += '?in=all';
+  }
+  Navigate({ url: lastFactorUrl });
+}
+

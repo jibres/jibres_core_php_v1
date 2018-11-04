@@ -244,16 +244,11 @@ function event_corridor(_e, _self, _key)
       break;
 
     case '113shift':        // shift+f2
-      var lastFactorUrl = '/a/sale/prev';
-      if(urlParam('id'))
-      {
-        lastFactorUrl += '/'+ urlParam('id');
-      }
-      if($('html').attr('lang') !== undefined)
-      {
-        lastFactorUrl = $('html').attr('lang')+ lastFactorUrl;
-      }
-      Navigate({ url: lastFactorUrl });
+      prevFactor();
+      break;
+
+    case '113ctrlshift':        // shift+f2
+      prevFactor(undefined, true);
       break;
 
 
