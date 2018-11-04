@@ -17,14 +17,6 @@ $(function()
 
 
 
-
-
-function recalcProductListPrices(_this)
-{
-  calcFooterValues();
-}
-
-
 function calcFooterValues(_table)
 {
   if(!_table)
@@ -213,7 +205,8 @@ function bindBtnOnFactor()
     productBarcodeFinded(_barcode)
     // set focus to productSearch field
     $('#productSearch').parent().find('input.search').val('').trigger("focus");
-  })
+  });
+
   $(document).on('focus', '#factorAdd table input', function()
   {
     var myTr = $(this).parents('tr');
@@ -230,7 +223,7 @@ function bindBtnOnFactor()
 
   $(document).on('input', '.count', function()
   {
-    recalcProductListPrices();
+    calcFooterValues();
   });
 
   $(document).on('click', '.priceBox .discount', function()
@@ -240,7 +233,7 @@ function bindBtnOnFactor()
 
   $(document).on('input', '.discount', function()
   {
-    recalcProductListPrices();
+    calcFooterValues();
   });
 
   // add event to handle dropdown selected value
