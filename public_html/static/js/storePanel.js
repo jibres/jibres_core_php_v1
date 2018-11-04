@@ -76,13 +76,13 @@ function calcFooterValues(_table)
     tmpDiscountPercent = (tmpDiscount * 100 / tmpPrice).toFixed(2);
     if($.isNumeric(tmpDiscountPercent) && tmpDiscountPercent>0 )
     {
-      $(this).find('td:eq(4) .addon').text(fitNumber(tmpDiscountPercent) + '%');
+      // $(this).find('td:eq(4) .addon').text(fitNumber(tmpDiscountPercent) + '%');
       $(this).find('td:eq(4) input').attr('title', fitNumber(tmpDiscountPercent) + ' %');
     }
     else
     {
       $(this).find('td:eq(4) input').attr('title', '00');
-      $(this).find('td:eq(4) .addon').text('');
+      // $(this).find('td:eq(4) .addon').text('');
     }
 
     // set final price
@@ -512,7 +512,7 @@ function addNewRecord_ProductList(_table, _product, _append)
       htmlPDiscount += ' data-discount="' + _product.discount + '"';
     }
     htmlPDiscount    += '>';
-    htmlPDiscount    += '<span class="addon small">0%</span>'+ '</div>';
+    // htmlPDiscount    += '<span class="addon small">0%</span>'+ '</div>';
 
     // fill with product details
     // logy(_product);
