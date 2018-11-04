@@ -14,38 +14,78 @@ class productprice
 
 		$chart = \lib\db\productprices::get(['product_id' => $id],['order' => 'ORDER BY productprices.id ASC']);
 
-		$data     = [];
-		$buyprice   = [];
-		$categories = [];
-		$price      = [];
-		$discount   = [];
+		$data             = [];
+		$buyprice_array   = [];
+		$categories_array = [];
+		$price_array      = [];
+		$discount_array   = [];
+		$finalprice_array = [];
+		$profit_array     = [];
 
 		foreach ($chart as $key => $value)
 		{
-			array_push($categories, \dash\datetime::fit($value['startdate'], null, 'date'));
-			array_push($buyprice, floatval($value['buyprice']));
-			array_push($price, floatval($value['price']));
-			array_push($discount, floatval($value['discount']));
+			array_push($categories_array, \dash\datetime::fit($value['startdate'], null, 'date'));
+
+			$buyprice = null;
+			if($value['buyprice'])
+			{
+				$buyprice = floatval($value['buyprice']);
+			}
+
+			$price = null;
+			if($value['price'])
+			{
+				$price = floatval($value['price']);
+			}
+
+			$discount = null;
+			if($value['discount'])
+			{
+				$discount = floatval($value['discount']);
+			}
+
+			$finalprice = floatval($price) - floatval($discount);
+			$profit = null;
+			if($buyprice)
+			{
+				$profit     = $finalprice - floatval($buyprice);
+			}
+
+			array_push($buyprice_array, $buyprice);
+			array_push($price_array, $price);
+			array_push($discount_array, $discount);
+			array_push($finalprice_array, $finalprice);
+			array_push($profit_array, $profit);
 		}
 
 		$data =
 		[
 			[
-				'name' => 'price',
-				'data' => $price,
+				'name' => T_('Price'),
+				'data' => $price_array,
 			],
 			[
-				'name' => 'buyprice',
-				'data' => $buyprice,
+				'name' => T_('Buyprice'),
+				'data' => $buyprice_array,
 			],
 			[
-				'name' => 'discount',
-				'data' => $discount,
+				'name' => T_('Discount'),
+				'data' => $discount_array,
+			],
+
+			[
+				'name' => T_('Final price'),
+				'data' => $finalprice_array,
+			],
+
+			[
+				'name' => T_('Profit'),
+				'data' => $profit_array,
 			],
 		];
 
 		$result               = [];
-		$result['categories'] = json_encode($categories, JSON_UNESCAPED_UNICODE);
+		$result['categories'] = json_encode($categories_array, JSON_UNESCAPED_UNICODE);
 		$result['data']       = json_encode($data, JSON_UNESCAPED_UNICODE);
 
 		return $result;
