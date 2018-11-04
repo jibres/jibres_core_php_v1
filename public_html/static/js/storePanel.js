@@ -8,7 +8,6 @@ function pushState()
   // });
   runRunner();
   calcFooterValues();
-  simplePrint();
 }
 
 $(function()
@@ -749,47 +748,5 @@ function shortkey_print(_el)
   }
   logy('printing...');
 }
-
-
-function simplePrint()
-{
-    printTimeout = setTimeout(function()
-    {
-      if (window.location.href.indexOf("print=auto") > -1)
-      {
-        window.print();
-        logy('open print...');
-      }
-
-    }, 50);
-}
-
-
-
-
-(function($) {
-    $.fn.shrink = function(maxFontSize)
-    {
-        maxFontSize = parseInt(maxFontSize, 10);
-        return this.each(function()
-        {
-            var ourText = $("span", this),
-                parent = ourText.parent(),
-                maxHeight = parent.height(),
-                maxWidth = parent.width()-20,
-                fontSize = parseInt(ourText.css("fontSize"), 10),
-                // multiplier = maxWidth/(ourText.width()-15),
-                multiplier = maxWidth/ourText.width(),
-                newSize = (fontSize*(multiplier-0.1));
-            ourText.css(
-                "fontSize",
-                (maxFontSize > 0 && newSize > maxFontSize) ?
-                    maxFontSize :
-                    newSize
-            );
-        });
-    };
-})(jQuery);
-
 
 
