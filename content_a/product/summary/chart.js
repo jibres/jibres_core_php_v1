@@ -1,88 +1,91 @@
-function chartDrawer()
-{
-  if($("#chartdiv2").length == 1){myChart2();}
-  if($("#chartdiv1").length == 1){myChart1();}
-  if($("#chartdiv3").length == 1){myChart3();}
-}
+if($("#chartdiv1").length == 1){myChart1();}
+if($("#chartdiv2").length == 1){myChart2();}
+if($("#chartdiv3").length == 1){myChart3();}
+
+
+
+
 
 
 //-------------------------------------------------------------------------------------------------------
 function myChart1()
 {
-  am4core.useTheme(am4themes_animated);
-
-  var chart = am4core.create("chartdiv1", am4charts.XYChart);
-  chart.data = {{dashboardData.product_price_variation | raw}};
-
-  var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-  categoryAxis.renderer.grid.template.location = 0;
-  categoryAxis.dataFields.category = "key";
-  categoryAxis.renderer.minGridDistance = 60;
 
 
-  var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-  valueAxis.title.text = '{%trans "Count of products"%}';
+Highcharts.chart('chartdiv1', {
+  chart: {
+    type: 'line'
+  },
+  title: {
+    text: '{%trans "Count product group by price"%}'
+  },
 
-  var series = chart.series.push(new am4charts.ColumnSeries());
-  series.dataFields.categoryX = "key";
-  series.dataFields.valueY = "value";
-  series.tooltipText = "{valueY.value}"
-  series.columns.template.strokeOpacity = 0;
+  xAxis: {
+    categories: {{dashboardData.product_price_variation.categories | raw}}
+  },
+  yAxis: {
+    title: {
+      text: '{%trans "Count"%}'
+    }
+  },
+  plotOptions: {
+    line: {
+      dataLabels: {
+        enabled: true
+      },
+      enableMouseTracking: false
+    }
+  },
+  series: [{
+    name: '{%trans "Price"%}',
+    data: {{dashboardData.product_price_variation.data | raw}},
+  }]
+});
 
-
-  chart.cursor = new am4charts.XYCursor();
-
-  // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
-  series.columns.template.adapter.add("fill", function (fill, target)
-  {
-    return chart.colors.getIndex(target.dataItem.index);
-  });
-
-  var label = chart.plotContainer.createChild(am4core.Label);
-  label.text = '{%trans "Price Variation"%}';
-  label.x = 10;
-  label.y = 10;
 }
+
 
 
 
 //-------------------------------------------------------------------------------------------------------
 function myChart2()
 {
-  am4core.useTheme(am4themes_animated);
 
-  var chart = am4core.create("chartdiv2", am4charts.XYChart);
-  chart.data = {{dashboardData.product_price_group_by_unit | raw}};
+Highcharts.chart('chartdiv2', {
+  chart: {
+    type: 'line'
+  },
+  title: {
+    text: '{%trans "Count product group by unit"%}'
+  },
 
-  var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-  categoryAxis.renderer.grid.template.location = 0;
-  categoryAxis.dataFields.category = "key";
-  categoryAxis.renderer.minGridDistance = 60;
+  xAxis: {
+    categories: {{dashboardData.product_price_group_by_unit.categories | raw}}
+  },
+  yAxis: {
+    title: {
+      text: '{%trans "Count"%}'
+    }
+  },
+  plotOptions: {
+    line: {
+      dataLabels: {
+        enabled: true
+      },
+      enableMouseTracking: false
+    }
+  },
+  series: [{
+    name: '{%trans "Unit"%}',
+    data: {{dashboardData.product_price_group_by_unit.data | raw}},
+  }]
+});
 
-
-  var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-  valueAxis.title.text = '{%trans "Count of products"%}';
-
-  var series = chart.series.push(new am4charts.ColumnSeries());
-  series.dataFields.categoryX = "key";
-  series.dataFields.valueY = "value";
-  series.tooltipText = "{valueY.value}"
-  series.columns.template.strokeOpacity = 0;
-
-
-  chart.cursor = new am4charts.XYCursor();
-
-  // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
-  series.columns.template.adapter.add("fill", function (fill, target)
-  {
-    return chart.colors.getIndex(target.dataItem.index);
-  });
-
-  var label = chart.plotContainer.createChild(am4core.Label);
-  label.text = '{%trans "Product GroupBy Unit"%}';
-  label.x = 10;
-  label.y = 10;
 }
+
+
+
+
 
 
 
@@ -90,38 +93,35 @@ function myChart2()
 function myChart3()
 {
 
-  am4core.useTheme(am4themes_animated);
+Highcharts.chart('chartdiv3', {
+  chart: {
+    type: 'line'
+  },
+  title: {
+    text: '{%trans "Count product group by category"%}'
+  },
 
-  var chart = am4core.create("chartdiv3", am4charts.XYChart);
+  xAxis: {
+    categories: {{dashboardData.product_price_group_by_cat.categories | raw}}
+  },
+  yAxis: {
+    title: {
+      text: '{%trans "Count"%}'
+    }
+  },
+  plotOptions: {
+    line: {
+      dataLabels: {
+        enabled: true
+      },
+      enableMouseTracking: false
+    }
+  },
+  series: [{
+    name: '{%trans "Category"%}',
+    data: {{dashboardData.product_price_group_by_cat.data | raw}},
+  }]
+});
 
-  chart.data = {{dashboardData.product_price_group_by_cat | raw}};
-
-  var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-  categoryAxis.renderer.grid.template.location = 0;
-  categoryAxis.dataFields.category = "key";
-  categoryAxis.renderer.minGridDistance = 60;
-
-
-  var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-  valueAxis.title.text = '{%trans "Count of products"%}';
-
-  var series = chart.series.push(new am4charts.ColumnSeries());
-  series.dataFields.categoryX = "key";
-  series.dataFields.valueY = "value";
-  series.tooltipText = "{valueY.value}"
-  series.columns.template.strokeOpacity = 0;
-
-
-  chart.cursor = new am4charts.XYCursor();
-
-  // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
-  series.columns.template.adapter.add("fill", function (fill, target)
-  {
-    return chart.colors.getIndex(target.dataItem.index);
-  });
-
-  var label = chart.plotContainer.createChild(am4core.Label);
-  label.text = '{%trans "Product GroupBy Category"%}';
-  label.x = 10;
-  label.y = 10;
 }
+

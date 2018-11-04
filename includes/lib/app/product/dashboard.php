@@ -151,8 +151,8 @@ class dashboard
 			return null;
 		}
 
-		$chart = \dash\session::get('dashboard_price_variation_'. \lib\store::id(), 'jibres_store');
-		if($chart === null)
+		$hi_chart = \dash\session::get('dashboard_price_variation_'. \lib\store::id(), 'jibres_store');
+		if($hi_chart === null )
 		{
 			$chart        = \lib\db\products::price_variation(\lib\store::id());
 			$temp         = [];
@@ -185,21 +185,28 @@ class dashboard
 				{
 					if((float) $chartTotal / (float) $chartGroup10[$myGroup] > 10)
 					{
-						$temp[] = ["key" => ($myGroup* 10000).'+' , "value" => $chartGroup10[$myGroup]];
+						$temp[] = ["key" => ($myGroup* 10000).'+' , "value" => floatval($chartGroup10[$myGroup])];
 						$chartGroup10[$myGroup] = null;
 					}
 					else
 					{
-						$temp[] = ["key" => $key, "value" => $value];
+						$temp[] = ["key" => $key, "value" => floatval($value)];
 					}
 				}
 			}
 
-			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\dash\session::set('dashboard_price_variation_'. \lib\store::id(), $chart, 'jibres_store',  self::$life_time);
+			// $chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
+			$hi_chart = [];
+			$hi_chart['categories'] = array_column($temp, 'key');
+			$hi_chart['categories'] = json_encode($hi_chart['categories'], JSON_UNESCAPED_UNICODE);
+
+			$hi_chart['data'] = array_column($temp, 'value');
+			$hi_chart['data'] = json_encode($hi_chart['data'], JSON_UNESCAPED_UNICODE);
+
+			\dash\session::set('dashboard_price_variation_'. \lib\store::id(), $hi_chart, 'jibres_store',  self::$life_time);
 		}
 
-		return $chart;
+		return $hi_chart;
 	}
 
 
@@ -210,20 +217,27 @@ class dashboard
 			\dash\session::clean('dashboard_price_group_by_unit_'. \lib\store::id(), 'jibres_store');
 			return null;
 		}
-		$chart = \dash\session::get('dashboard_price_group_by_unit_'. \lib\store::id(), 'jibres_store');
-		if($chart === null)
+		$hi_chart = \dash\session::get('dashboard_price_group_by_unit_'. \lib\store::id(), 'jibres_store');
+		if($hi_chart === null)
 		{
 			$chart = \lib\db\products::price_group_by_unit(\lib\store::id());
 			$temp = [];
 			foreach ($chart as $key => $value)
 			{
-				$temp[] = ["key" => $key, "value" => $value];
+				$temp[] = ["key" => $key, "value" => floatval($value)];
 			}
-			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\dash\session::set('dashboard_price_group_by_unit_'. \lib\store::id(), $chart, 'jibres_store',  self::$life_time);
+			// $chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
+			$hi_chart = [];
+			$hi_chart['categories'] = array_column($temp, 'key');
+			$hi_chart['categories'] = json_encode($hi_chart['categories'], JSON_UNESCAPED_UNICODE);
+
+			$hi_chart['data'] = array_column($temp, 'value');
+			$hi_chart['data'] = json_encode($hi_chart['data'], JSON_UNESCAPED_UNICODE);
+
+			\dash\session::set('dashboard_price_group_by_unit_'. \lib\store::id(), $hi_chart, 'jibres_store',  self::$life_time);
 		}
 
-		return $chart;
+		return $hi_chart;
 	}
 
 
@@ -235,20 +249,27 @@ class dashboard
 			return null;
 		}
 
-		$chart = \dash\session::get('dashboard_price_group_by_cat_'. \lib\store::id(), 'jibres_store');
-		if($chart === null)
+		$hi_chart = \dash\session::get('dashboard_price_group_by_cat_'. \lib\store::id(), 'jibres_store');
+		if($hi_chart === null)
 		{
 			$chart = \lib\db\products::price_group_by_cat(\lib\store::id());
 			$temp = [];
 			foreach ($chart as $key => $value)
 			{
-				$temp[] = ["key" => $key, "value" => $value];
+				$temp[] = ["key" => $key, "value" => floatval($value)];
 			}
-			$chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
-			\dash\session::set('dashboard_price_group_by_cat_'. \lib\store::id(), $chart, 'jibres_store',  self::$life_time);
+			// $chart = json_encode($temp, JSON_UNESCAPED_UNICODE);
+			$hi_chart = [];
+			$hi_chart['categories'] = array_column($temp, 'key');
+			$hi_chart['categories'] = json_encode($hi_chart['categories'], JSON_UNESCAPED_UNICODE);
+
+			$hi_chart['data'] = array_column($temp, 'value');
+			$hi_chart['data'] = json_encode($hi_chart['data'], JSON_UNESCAPED_UNICODE);
+
+			\dash\session::set('dashboard_price_group_by_cat_'. \lib\store::id(), $hi_chart, 'jibres_store',  self::$life_time);
 		}
 
-		return $chart;
+		return $hi_chart;
 	}
 }
 ?>

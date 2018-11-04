@@ -13,7 +13,8 @@ class view
 		\dash\data::badge_text(T_('List of products'));
 		\dash\data::badge_link( \dash\url::here().'/product');
 
-		\dash\data::dashboardData(\lib\app\product\dashboard::detail());
+		$detail = \lib\app\product\dashboard::detail();
+		\dash\data::dashboardData($detail);
 	}
 }
 ?>
