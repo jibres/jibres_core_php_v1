@@ -2,11 +2,6 @@
 
 function pushState()
 {
-  // $(function()
-  // {
-
-  // });
-  runRunner();
   calcFooterValues();
 }
 
@@ -21,27 +16,7 @@ $(function()
 
 
 
-function runRunner()
-{
-  $('[data-run-input]').each(function()
-  {
-    $(this).off('input');
-    $(this).on('input', function(_e)
-    {
-      callFunc($(this).attr('data-run-input'), $(this));
-    });
-  });
 
-  $('[data-run-change]').each(function()
-  {
-
-    $(this).off('change');
-    $(this).on('change', function(_e)
-    {
-      callFunc($(this).attr('data-run-change'), $(this));
-    });
-  });
-}
 
 
 function recalcProductListPrices(_this)
@@ -608,7 +583,7 @@ function navigateonFactorAddInputs(_type, _e)
   // check focus
   var $focus = $(":focus");
 
-  if(($focus.parents('.productList ').length !== 1))
+  if(($focus.parents('.productList').length !== 1))
   {
     // outside of table
     return false;
