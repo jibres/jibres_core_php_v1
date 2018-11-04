@@ -179,6 +179,8 @@ function calcFooterValues(_table)
   $('.priceBox .sum span').text(fitNumber(calcDtSumPrice)).attr('data-val', calcDtSumPrice);
   $('.priceBox .discountPercent span').text(fitNumber(calcDtDiscountPercent)+ "%").attr('data-val', calcDtDiscountPercent);
   $('.priceBox .discount span').text(fitNumber(calcDtSumDiscount)).attr('data-val', calcDtSumDiscount);
+  // update count of item in table
+  _table.attr('data-item', calcDtCountRow);
 
   if(calcDtCountRow === calcDtSumCount || calcDtSumCount === 0)
   {
@@ -512,7 +514,6 @@ function addNewRecord_ProductList(_table, _product, _append)
       return null;
     }
   }
-  showWithFade(_table);
 
 
   var trEmpty   = '<tr>';
