@@ -600,7 +600,7 @@ function showWithFade(_el)
 }
 
 
-function navigateonFactorAddInputs(_type)
+function navigateonFactorAddInputs(_type, _e)
 {
   if(!check_factor())
   {
@@ -637,10 +637,12 @@ function navigateonFactorAddInputs(_type)
   {
     case 'up':
       nextRow -= 1;
+      _e.preventDefault();
       break;
 
     case 'down':
       nextRow += 1;
+      _e.preventDefault();
       break;
 
     case 'left':

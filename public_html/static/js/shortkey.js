@@ -63,7 +63,7 @@ function event_corridor(_e, _self, _key)
 
     // ---------------------------------------------------------- Up
     case '38':              // up
-      navigateonFactorAddInputs('up');
+      navigateonFactorAddInputs('up', _e);
       break;
 
 
@@ -74,7 +74,7 @@ function event_corridor(_e, _self, _key)
 
     // ---------------------------------------------------------- Down
     case '40':              // down
-      navigateonFactorAddInputs('down');
+      navigateonFactorAddInputs('down', _e);
       break;
 
 
