@@ -90,7 +90,7 @@ function calcFooterValues(_table)
     }
     if(tmpPrice < tmpDiscount)
     {
-      $(this).find('.discount').val(0);
+      $(this).find('.discount').val('');
       tmpDiscount = 0;
     }
 
