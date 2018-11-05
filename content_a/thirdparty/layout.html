@@ -509,6 +509,7 @@
   <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='credit'%} primary{%else%} light{%endif%}" href='{{url.this}}/credit?id={{requestGET.id}}'>{%trans "Credit"%}</a>
   </div>
+  {%if false%}
   <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='factor'%} primary{%else%} light{%endif%}" href='{{url.this}}/factor?id={{requestGET.id}}'>{%trans "Factor"%}</a>
   </div>
@@ -518,7 +519,7 @@
   <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='sold'%} primary{%else%} light{%endif%}" href='{{url.this}}/sold?id={{requestGET.id}}'>{%trans "Sold"%}</a>
   </div>
-
+  {%endif%}
 
 </div>
 {%endblock%}

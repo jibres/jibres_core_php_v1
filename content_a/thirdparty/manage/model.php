@@ -11,6 +11,7 @@ class model
 		if(\dash\permission::check('thirdpartyTypeEdit'))
 		{
 			$post['staff']    = \dash\request::post('staff');
+			$post['status']   = \dash\request::post('status');
 			$post['customer'] = \dash\request::post('customer');
 			$post['supplier'] = \dash\request::post('supplier');
 		}

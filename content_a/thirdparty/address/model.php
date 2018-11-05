@@ -7,31 +7,31 @@ class model
 
 	public static function post()
 	{
-		if(\dash\request::post('type') === 'remove' && \dash\request::post('addressid'))
+		if(\dash\request::post('btnremove') === 'delete' && \dash\request::get('addressid'))
 		{
 			\dash\permission::access('thirdpartyAddressDelete');
 
-			\dash\app\address::remove(\dash\request::post('addressid'));
+			\dash\app\address::remove(\dash\request::get('addressid'));
 			\dash\redirect::to(\dash\url::this(). '/address?id='. \dash\request::get('id'));
 			return;
 		}
 
 		$post                = [];
 		$post['title']       = \dash\request::post('title');
-		$post['firstname']   = \dash\request::post('firstname');
-		$post['lastname']    = \dash\request::post('lastname');
+		$post['name']        = \dash\request::post('name');
 		$post['country']     = \dash\request::post('country');
 		$post['city']        = \dash\request::post('city');
 		$post['postcode']    = \dash\request::post('postcode');
 		$post['phone']       = \dash\request::post('phone');
 		$post['subdomain']   = \dash\url::subdomain();
 		$post['province']    = null;
-		$post['fax']         = \dash\request::post('fax');
+		$post['mobile']      = \dash\request::post('mobile');
 		$post['address']     = \dash\request::post('address');
 		$post['address2']    = \dash\request::post('address2');
 		$post['company']     = \dash\request::post('company');
 		$post['companyname'] = \dash\request::post('companyname');
 		$post['jobtitle']    = \dash\request::post('jobtitle');
+
 
 		if(\dash\request::get('addressid'))
 		{
@@ -40,7 +40,7 @@ class model
 			if(\dash\engine\process::status())
 			{
 				\dash\notif::ok(T_("Address successfully edited"));
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::this(). '/address?id='. \dash\request::get('id'));
 			}
 		}
 		else
