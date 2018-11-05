@@ -17,6 +17,11 @@ class model
 			self::remove_gallery();
 			return false;
 		}
+
+		if(\dash\request::post('formType') === 'thumb')
+		{
+			self::postThumb();
+		}
 	}
 
 
@@ -61,8 +66,6 @@ class model
 	}
 
 
-	// @reza
-	// check
 	public static function postThumb()
 	{
 		if(\dash\request::post('delete') === 'thumb')

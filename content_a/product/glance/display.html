@@ -14,24 +14,30 @@
  	</div>
 
  	<div class="f">
- 		<div class="c">{{block("dLastBuy")}}</div>
- 		<div class="c">{{block("dLastSale")}}</div>
+ 		{%if dashboardData.last_buy%}<div class="c">{{block("dLastBuy")}}</div>{%endif%}
+ 		{%if dashboardData.last_sale%}<div class="c">{{block("dLastSale")}}</div>{%endif%}
+ 	</div>
+
+
+
+
+ 	<div class="f">
+ 		{%if dashboardData.low_sale_price %}<div class="c">{{block("dMinPrice")}}</div>{%endif%}
+ 		{%if dashboardData.top_sale_price %}<div class="c">{{block("dMaxPrice")}}</div>{%endif%}
  	</div>
 
  	<div class="f">
- 		<div class="c">{{block("dMinPrice")}}</div>
- 		<div class="c">{{block("dMaxPrice")}}</div>
+ 		{%if dataRow.buyprice%}<div class="c">{{block("dBuyPrice")}}</div>{%endif%}
+ 		{%if dataRow.price%}<div class="c">{{block("dSalePrice")}}</div>{%endif%}
+ 		{%if (dataRow.price - dataRow.discount)%}<div class="c">{{block("dOffPrice")}}</div>{%endif%}
  	</div>
 
- 	<div class="f">
- 		<div class="c">{{block("dBuyPrice")}}</div>
- 		<div class="c">{{block("dSalePrice")}}</div>
- 		<div class="c">{{block("dOffPrice")}}</div>
- 	</div>
+
+
 
  	<div class="f">
- 		<div class="c">{{block("dDiscountPrice")}}</div>
- 		<div class="c">{{block("dDiscountPercent")}}</div>
+ 		{%if dataRow.discount%}<div class="c">{{block("dDiscountPrice")}}</div>{%endif%}
+ 		{%if dataRow.discountpercent%}<div class="c">{{block("dDiscountPercent")}}</div>{%endif%}
  	</div>
 
 

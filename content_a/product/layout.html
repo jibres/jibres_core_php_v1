@@ -13,10 +13,12 @@
     <div class="content">
       <div class="header">{{dataRow.title}}</div>
         <div class="meta"><span>{{dataRow.name}}</span></div>
+        {%if dataRow.stock or dataRow.price%}
         <hr>
-        <div class="meta mB10">{%trans "Price"%}: <span>{{dataRow.price | fitNumber}}</span></div>
+        {%endif%}
+        {%if dataRow.price%}<div class="meta mB10">{%trans "Price"%}: <span>{{dataRow.price | fitNumber}}</span></div>{%endif%}
 
-        <div class="meta">{%trans "Stock"%}: <span>{{dataRow.stock | fitNumber}}</span></div>
+        {% if dataRow.stock%}<div class="meta">{%trans "Stock"%}: <span>{{dataRow.stock | fitNumber}}</span></div>{%endif%}
     </div>
   </a>
 
