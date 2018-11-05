@@ -67,6 +67,8 @@ class thirdparty
 		$companynationalid     = \dash\app::request('companynationalid');
 		$companyregisternumber = \dash\app::request('companyregisternumber');
 
+		$companytel            = \dash\app::request('companytel');
+
 		$displayname             = \dash\app::request('displayname');
 
 		$father = \dash\app::request('father');
@@ -389,6 +391,7 @@ class thirdparty
 		$args['companyeconomiccode']   = $companyeconomiccode;
 		$args['companynationalid']     = $companynationalid;
 		$args['companyregisternumber'] = $companyregisternumber;
+		$args['companytel'] 		   = $companytel;
 
 
 		return $args;

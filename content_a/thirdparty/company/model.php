@@ -13,6 +13,7 @@ class model
 		$post['companyeconomiccode']   = \dash\request::post('companyeconomiccode');
 		$post['companynationalid']     = \dash\request::post('companynationalid');
 		$post['companyregisternumber'] = \dash\request::post('companyregisternumber');
+		$post['companytel']            = \dash\request::post('companytel');
 		return $post;
 	}
 

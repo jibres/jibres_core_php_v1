@@ -116,6 +116,7 @@ trait edit
 		if(!\dash\app::isset_request('staff'))	  				unset($args['staff']);
 		if(!\dash\app::isset_request('supplier')) 				unset($args['supplier']);
 		if(!\dash\app::isset_request('customer')) 				unset($args['customer']);
+		if(!\dash\app::isset_request('companytel'))      		unset($args['companytel']);
 
 		unset($args['type']);
 
