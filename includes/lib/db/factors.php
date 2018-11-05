@@ -16,7 +16,7 @@ class factors
 		$query =
 		"
 			SELECT
-				factors.datecreated AS `datecreated`
+				factors.*
 			FROM
 				factors
 			INNER JOIN factordetails ON factordetails.factor_id = factors.id
@@ -28,7 +28,7 @@ class factors
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, 'datecreated', true);
+		$result = \dash\db::get($query, null, true);
 
 		return $result ? $result : null;
 
