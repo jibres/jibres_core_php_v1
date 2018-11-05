@@ -118,7 +118,7 @@ trait add
 			if($_option['debug']) \dash\notif::ok(T_("Product successfuly added"));
 		}
 
-		self::clean_cache('var');
+		\lib\app\product\dashboard::clean_cache('var');
 
 		return $return;
 	}

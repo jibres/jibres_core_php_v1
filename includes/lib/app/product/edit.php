@@ -131,7 +131,7 @@ trait edit
 		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("Your product successfully updated"));
-			self::clean_cache('var');
+			\lib\app\product\dashboard::clean_cache('var');
 		}
 
 		return $return;
