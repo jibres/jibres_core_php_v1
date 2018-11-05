@@ -9,9 +9,53 @@ class dashboard
 		if(\dash\permission::supervisor() && \dash\request::get('fix'))
 		{
 			self::fix_price();
-
 		}
+
+		$product_id = \dash\coding::decode($_product_id);
+		if(!$product_id)
+		{
+			return false;
+		}
+
+		$result                   = [];
+
+		$last_buy = \lib\db\factors::product_last_factor_date($product_id, 'buy');
+		if($last_buy)
+		{
+			$last_buy = \dash\datetime::fit($last_buy, true);
+		}
+
+		$last_sale = \lib\db\factors::product_last_factor_date($product_id, 'sale');
+		if($last_sale)
+		{
+			$last_sale = \dash\datetime::fit($last_sale, true);
+		}
+
+		$low_sale_price = \lib\db\productprices::price_history_date($product_id, 'asc');
+		if($low_sale_price)
+		{
+			$low_sale_price = \dash\datetime::fit($low_sale_price, true);
+		}
+
+
+		$top_sale_price = \lib\db\productprices::price_history_date($product_id, 'desc');
+		if($top_sale_price)
+		{
+			$top_sale_price = \dash\datetime::fit($top_sale_price, true);
+		}
+
+		$result['low_sale_price'] = $low_sale_price;
+		$result['last_buy']       = $last_buy;
+		$result['last_sale']      = $last_sale;
+		$result['top_sale_price'] = $top_sale_price;
+
+
+
+		return $result;
 	}
+
+
+
 
 
 	private static function fix_price()

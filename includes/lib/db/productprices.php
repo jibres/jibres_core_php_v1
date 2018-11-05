@@ -3,6 +3,18 @@ namespace lib\db;
 
 class productprices
 {
+	public static function price_history_date($_product_id, $_order)
+	{
+		if(!$_product_id || !is_numeric($_product_id))
+		{
+			return false;
+		}
+
+		$query  = "SELECT productprices.datecreated AS `datecreated` FROM productprices WHERE `product_id` = $_product_id ORDER BY `price` $_order LIMIT 1";
+		$result = \dash\db::get($query, 'datecreated', true);
+		return $result;
+	}
+
 	/**
 	 * get last of product id
 	 *

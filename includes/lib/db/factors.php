@@ -6,6 +6,34 @@ class factors
 
 	use \lib\db\factor\search;
 
+	public static function product_last_factor_date($_product_id, $_type)
+	{
+		if(!$_product_id || !is_numeric($_product_id))
+		{
+			return false;
+		}
+
+		$query =
+		"
+			SELECT
+				factors.datecreated AS `datecreated`
+			FROM
+				factors
+			INNER JOIN factordetails ON factordetails.factor_id = factors.id
+			WHERE
+				factordetails.product_id = $_product_id 	AND
+				factors.type             = '$_type' 		AND
+				factors.pre IS NULL
+			ORDER BY factors.id DESC
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, 'datecreated', true);
+
+		return $result ? $result : null;
+
+	}
+
 	public static function get_count_group_by($_store_id)
 	{
 		if(!$_store_id || !is_numeric($_store_id))
