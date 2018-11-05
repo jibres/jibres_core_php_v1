@@ -27,7 +27,7 @@
       <form method="post" autocomplete="off" action="{{url.this}}/comment?id={{requestGET.id}}">
         <h2>{%trans "Add note"%}</h2>
         <input type="hidden" name="redirecturl" value="{{url.pwd}}">
-        <textarea class="txt " name="note" rows="3" placeholder='{%trans "Write your note about user."%} {%trans "Something like calls, favorites, hobbits, special approach or something else."%}'></textarea>
+        <textarea class="txt " name="note" rows="3" autofocus placeholder='{%trans "Write your note about user."%} {%trans "Something like calls, favorites, hobbits, special approach or something else."%}'></textarea>
         <button class="btn secondary2 block mT5">{%trans "Add new note"%}</button>
       </form>
   	</div>

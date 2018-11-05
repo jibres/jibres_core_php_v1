@@ -69,7 +69,7 @@ trait user_id
 		}
 		elseif($_id)
 		{
-			$userstore_detail = \lib\db\userstores::get(['id' => $_id, 'limit' => 1]);
+			$userstore_detail = \lib\db\userstores::get(['id' => $_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 
 			if(isset($userstore_detail['user_id']))
 			{
@@ -199,7 +199,7 @@ trait user_id
 	{
 		$master_reuest = \dash\app::request();
 
-		$user_id = \dash\app\user::add($_args, ['debug' => false]);
+		$user_id = \dash\app\user::add($_args, ['debug' => false, 'check_mobile' => false]);
 
 		\dash\app::variable($master_reuest);
 
