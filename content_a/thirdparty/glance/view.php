@@ -13,6 +13,7 @@ class view
 		\dash\data::page_pictogram('broadcast');
 
 		\content_a\thirdparty\load::fixTitle();
+
 	}
 }
 ?>

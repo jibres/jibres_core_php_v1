@@ -88,9 +88,12 @@ class model
 	private static function temp_array($_count)
 	{
 		$temp = [];
-		for ($i = 0; $i < $_count ; $i++)
+		if(\dash\url::isLocal())
 		{
-			$temp[] = rand(3000, 300000);
+			for ($i = 0; $i < $_count ; $i++)
+			{
+				$temp[] = rand(3000, 300000);
+			}
 		}
 		return $temp;
 	}

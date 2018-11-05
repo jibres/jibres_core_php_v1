@@ -42,7 +42,7 @@
 
 
 {%block btnNext%}
-<div class="cbox NextBox hide">
+<div class="cbox NextBox p0 hide">
   <button class="cauto btn success block factor_save_btn" type="submit" name="save_btn" value="save_next" id='save_next' data-shortkey='115'>{%trans "Save Factor & Continue"%} <kbd>f4</kbd></button>
 </div>
 {%endblock%}
@@ -50,15 +50,10 @@
 
 
 {%block btnNextTemp%}
-<div class="cbox NextBox hide">
+<div class="cbox NextBox p0 hide">
   <button class="cauto btn success block factor_save_btn" type="submit" name="save_btn" value="save_next" id='save_next' data-shortkey='115'>{%trans "Save Factor & Continue"%} <kbd>f4</kbd></button>
 
   <button class="cauto btn secondary block factor_save_btn mT10" type="submit" name="save_btn" value="save_print" id='save_next' data-shortkey='119'>{%trans "Save & Print"%} <kbd>f8</kbd></button>
-
-
-  <button class="cauto btn danger block factor_save_btn mT10" type="submit" name="save_btn" value="save_pay" id='save_pay' data-shortkey='119'>{%trans "Save & Pay"%} <kbd>f8</kbd></button>
-
-
 </div>
 {%endblock%}
 
@@ -66,7 +61,7 @@
 
 
 {%block btns%}
- <div class="cbox">
+ <div class="cbox p0">
   <div class="f txtC">
     <div class="c6 mB5">
       <input type="hidden" id="factor_clicked_btn" name="btn_type" value="">
@@ -82,15 +77,14 @@
 
 
 {%block listOfProducts%}
- <div class="cbox hide">
-  <table class="tbl productList txtC">
-   <thead class="fs08">
-    <tr>
+  <table class="tbl1 v4 txtC fs13 productList" data-item='0'>
+   <thead>
+    <tr class="fs08">
      <th class="collapsing">{%trans "Row"%}</th>
      <th class="product">{%trans "Product"%}</th>
-     <th class="min120">{%trans "Count"%}</th>
+     <th class="collapsing">{%trans "Count"%}</th>
      <th class="min100">{%trans "Price"%}</th>
-     <th class="min100">{%trans "Discount"%}</th>
+     <th class="collapsing">{%trans "Discount"%}</th>
      <th class="min100">{%trans "Total"%}</th>
     </tr>
    </thead>
@@ -98,7 +92,6 @@
 
    </tbody>
   </table>
- </div>
 {%endblock%}
 
 
@@ -110,7 +103,7 @@
 
 
 {%block iCustomer%}
-<div class="cbox">
+<div class="cbox p0">
   <select name="customer" class="ui dropdown search selection" id="customerSearch" data-source='{{url.here}}/thirdparty?json=true&list=customer&q={query}'>
     <option value="" readonly>{%trans "Choose customer"%}</option>
   </select>
@@ -120,7 +113,7 @@
 
 
 {%block addProducts%}
-<div class="cbox">
+<div class="cbox p0">
   <select name="product" class="ui dropdown search selection barCode" id="productSearch" autofocus data-default data-search='{{url.here}}/product?json=true&q={query}'>
     <option value="" readonly>{%trans "Search in list to add product"%} +</option>
   </select>

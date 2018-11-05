@@ -1,11 +1,11 @@
-if($("#chartdiv").length == 1){myChart();}
+if($("#chartdiv").length == 1){myChartProductPrice();}
 
 
 
 
 
 //-------------------------------------------------------------------------------------------------------
-function myChart()
+function myChartProductPrice()
 {
 
 Highcharts.chart('chartdiv', {
