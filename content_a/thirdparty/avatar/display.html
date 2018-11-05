@@ -33,7 +33,7 @@
 	<div class="c mRa10">
 		<button class="btn primary block mT20">{%trans "Save"%}</button>
 	</div>
-	{%if perm('thirdpartyAvatarDelete')%}
+	{%if perm('thirdpartyAvatarDelete') and dataRow.avatar_raw%}
 	<div class="cauto">
 		<button name="remove" value="avatar" class="btn danger block mT20">{%trans "Remove"%}</button>
 	</div>

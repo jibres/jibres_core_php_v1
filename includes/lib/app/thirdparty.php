@@ -453,6 +453,7 @@ class thirdparty
 
 				case 'avatar':
 					$result['avatar'] = $value ? $value : \dash\app::static_avatar_url();
+					$result['avatar_raw'] = $value;
 					break;
 
 				default:
