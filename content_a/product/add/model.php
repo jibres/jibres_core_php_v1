@@ -24,11 +24,18 @@ class model
 
 	public static function post()
 	{
-		\lib\app\product::add(self::getPost());
+		$result = \lib\app\product::add(self::getPost());
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::here(). '/product');
+			if(isset($result['product_id']))
+			{
+				\dash\redirect::to(\dash\url::this(). '/general?id='. $result['product_id']);
+			}
+			else
+			{
+				\dash\redirect::to(\dash\url::here(). '/product');
+			}
 		}
 	}
 }
