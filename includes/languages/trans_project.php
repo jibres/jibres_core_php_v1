@@ -10,9 +10,12 @@ class twigTransTerms
 	echo T_("Support");                                                               // Line 85
 
 	//----------------------------------------------------content_c/store/display.html
-	echo T_("Total sale");                                                            // Line 14
-	echo T_("Owner of store");                                                        // Line 15
-	echo T_("Add new store");                                                         // Line 31
+	echo T_("Total sale");                                                            // Line 23
+	echo T_("Owner of store");                                                        // Line 24
+	echo T_("Add new store");                                                         // Line 39
+	echo T_("My store");                                                              // Line 51
+	echo T_("All Store");                                                             // Line 59
+	echo T_("Search");                                                                // Line 104
 
 	//------------------------------------------------content_c/store/add/display.html
 	echo T_("Name");                                                                  // Line 13
@@ -425,7 +428,7 @@ class twigTransTerms
 	echo T_("Count of items");                                                        // Line 33
 	echo T_("Sum of counts");                                                         // Line 92
 	echo T_("Invoice amount");                                                        // Line 106
-	echo T_("Discount percent");                                                      // Line 75
+	echo T_("Discount percent");                                                      // Line 77
 	echo T_("Press f7 or click to toggle discount");                                  // Line 37
 	echo T_("Total discount");                                                        // Line 37
 	echo T_("Save Factor & Continue");                                                // Line 54
@@ -577,7 +580,6 @@ class twigTransTerms
 	echo T_("Increase amount of budget");                                             // Line 53
 
 	//------------------------------------------content_a/thirdparty/home/display.html
-	echo T_("Search");                                                                // Line 104
 	echo T_("Member");                                                                // Line 62
 	echo T_("Customer total order");                                                  // Line 71
 	echo T_("Customer total spend");                                                  // Line 81
@@ -664,7 +666,7 @@ class twigTransTerms
 	//---------------------------------------------content_a/product/desc/display.html
 
 	//---------------------------------------------------content_a/product/layout.html
-	echo T_("Stock");                                                                 // Line 77
+	echo T_("Stock");                                                                 // Line 80
 	echo T_("Name of product");                                                       // Line 54
 	echo T_("Set short and best title for your product");                             // Line 62
 	echo T_("Slug");                                                                  // Line 71
@@ -672,7 +674,7 @@ class twigTransTerms
 	echo T_("Product manufacturer");                                                  // Line 81
 	echo T_("Cat");                                                                   // Line 92
 	echo T_("Organize by category");                                                  // Line 94
-	echo T_("Code");                                                                  // Line 80
+	echo T_("Code");                                                                  // Line 83
 	echo T_("For quick access");                                                      // Line 107
 	echo T_("Short code");                                                            // Line 115
 	echo T_("Unit");                                                                  // Line 108
@@ -729,11 +731,11 @@ class twigTransTerms
 	echo T_("PDF");                                                                   // Line 70
 	echo T_("Without preview");                                                       // Line 72
 
+	//-----------------------------------------content_a/product/pricehistory/chart.js
+	echo T_("Price change in time line");                                             // Line 26
+
 	//-------------------------------------------content_a/product/manage/display.html
 	echo T_("Delete product");                                                        // Line 20
-
-	//------------------------------------------content_a/product/pricechange/chart.js
-	echo T_("Price change in time line");                                             // Line 14
 
 	//------------------------------------------content_a/product/summary/display.html
 	echo T_("You are not add product yet!");                                          // Line 27
@@ -753,9 +755,9 @@ class twigTransTerms
 	echo T_("Buy Price");                                                             // Line 183
 
 	//----------------------------------------------content_a/product/summary/chart.js
-	echo T_("Count product group by price");                                          // Line 20
-	echo T_("Count product group by unit");                                           // Line 59
-	echo T_("Count product group by category");                                       // Line 101
+	echo T_("Count product group by price");                                          // Line 26
+	echo T_("Count product group by unit");                                           // Line 125
+	echo T_("Count product group by category");                                       // Line 206
 	echo T_("Category");                                                              // Line 105
 
 	//---------------------------------------------content_a/product/home/display.html
@@ -769,15 +771,17 @@ class twigTransTerms
 	echo T_("Whitout min stock");                                                     // Line 14
 	echo T_("Whitout max stock");                                                     // Line 15
 	echo T_("Whitout discount");                                                      // Line 16
-	echo T_("Search in products");                                                    // Line 58
+	echo T_("Negative profit");                                                       // Line 17
+	echo T_("Search in products");                                                    // Line 60
 	echo T_("Buy");                                                                   // Line 225
-	echo T_("Final price");                                                           // Line 76
-	echo T_("Last modified");                                                         // Line 78
-	echo T_("stock count is less than zero!");                                        // Line 87
-	echo T_("Discount more than 50 percent!");                                        // Line 93
-	echo T_("Final price is under buy price");                                        // Line 94
-	echo T_("Add new product");                                                       // Line 123
-	echo T_("Try to start with add new product!");                                    // Line 131
+	echo T_("Final price");                                                           // Line 78
+	echo T_("Profit");                                                                // Line 79
+	echo T_("Last modified");                                                         // Line 81
+	echo T_("stock count is less than zero!");                                        // Line 90
+	echo T_("Discount more than 50 percent!");                                        // Line 96
+	echo T_("Final price is under buy price");                                        // Line 97
+	echo T_("Add new product");                                                       // Line 127
+	echo T_("Try to start with add new product!");                                    // Line 135
 
 	//-------------------------------------------content_a/product/glance/display.html
 	echo T_("Added to store at");                                                     // Line 12

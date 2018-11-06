@@ -64,6 +64,8 @@ class view
 		if(\dash\request::get('wminstock')) $args['wminstock'] = true;
 		if(\dash\request::get('wmaxstock')) $args['wmaxstock'] = true;
 		if(\dash\request::get('wdiscount')) $args['wdiscount'] = true;
+		if(\dash\request::get('negativeprofit')) $args['negativeprofit'] = true;
+
 
 		$search_string = \dash\request::get('q');
 

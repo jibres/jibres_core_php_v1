@@ -16,6 +16,7 @@ trait datalist
 		'finalprice',
 		'datemodified',
 		'code',
+		'profit',
 	];
 
 	public static $search_in =
@@ -139,6 +140,11 @@ trait datalist
 		elseif (isset($option['hbarcode']) && $option['hbarcode'])
 		{
 			$field['barcode'] = [" IS NOT NULL ", " AND barcode2 IS NOT NULL"];
+			$result = \lib\db\products::search($_string, $option, $field);
+		}
+		elseif (isset($option['negativeprofit']) && $option['negativeprofit'])
+		{
+			$field['1.1'] = [" = 1.1 AND ", " IF(products.buyprice AND products.price, (IFNULL(products.price, 0) - (IFNULL(products.buyprice, 0) - IFNULL(products.discount, 0))), NULL) < 0 "];
 			$result = \lib\db\products::search($_string, $option, $field);
 		}
 		elseif (isset($option['hnotbarcode']) && $option['hnotbarcode'])

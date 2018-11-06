@@ -14,6 +14,8 @@
   <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wminstock=1">{%trans "Whitout min stock"%}</a></span>
   <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wmaxstock=1">{%trans "Whitout max stock"%}</a></span>
   <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wdiscount=1">{%trans "Whitout discount"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?negativeprofit=1">{%trans "Negative profit"%}</a></span>
+
 </div>
 
 {%if dataTable%}
@@ -74,6 +76,7 @@
         <th data-sort="{{myFilter.discount.order}}"><a href='{{myFilter.discount.link}}'>{%trans "Discount" %}</a></th>
         <th data-sort="{{myFilter.discountpercent.order}}" class="s0"><a href='{{myFilter.discountpercent.link}}'>{%trans "Discount percent"%}</a></th>
         <th data-sort="{{myFilter.finalprice.order}}"><a href='{{myFilter.finalprice.link}}'>{%trans "Final price" %}</a></th>
+        <th data-sort="{{myFilter.profit.order}}"><a href='{{myFilter.profit.link}}'>{%trans "Profit" %}</a></th>
         <th data-sort="{{myFilter.stock.order}}" class="s0"><a href='{{myFilter.stock.link}}'>{%trans "Stock" %}</a></th>
         <th data-sort="{{myFilter.datemodified.order}}" class="s0"><a href='{{myFilter.datemodified.link}}'>{%trans "Last modified" %}</a></th>
         {%if requestGET.justcode == 1%}
@@ -92,6 +95,7 @@
         <td><a href="{{url.here}}/product?discount={{value.discount}}">{{value.discount | number_format | fitNumber}}</a></td>
         <td {%if value.discountpercent > 50%} class='s0 ltr txtC warning' title='{%trans "Discount more than 50 percent!"%}'{%else%} class="s0 ltr txtC"{%endif%}>{{value.discountpercent | number_format | fitNumber}} <small>%</small></td>
         <td {%if value.buyprice > value.finalprice%} class='negative' title='{%trans "Final price is under buy price"%}'{%endif%}><a class="bold">{{(value.finalprice) | number_format | fitNumber}}</a></td>
+        <td><a class="bold">{%if value.profit%}{{(value.profit) | number_format | fitNumber}}</a>{%else%}-{%endif%}</td>
         <td class="s0">{{value.stock | number_format | fitNumber}} <small><a href="{{url.here}}/product?unit={{value.unit}}">{{value.unit}}</a></small></td>
         <td class="s0 ltr txtL pRa10 collapsing" title="{{value.datemodified | dt(true)}}"><small class="fc-mute">{%if value.datemodified%}{{value.datemodified | dt('human')}}{%else%}-{%endif%}</small></td>
         {%if requestGET.justcode == 1%}
