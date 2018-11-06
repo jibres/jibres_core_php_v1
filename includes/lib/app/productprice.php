@@ -44,7 +44,12 @@ class productprice
 				$discount = floatval($value['discount']);
 			}
 
-			$finalprice = floatval($price) - floatval($discount);
+			$finalprice = null;
+			if($price || $discount)
+			{
+				$finalprice = floatval($price) - floatval($discount);
+			}
+
 			$profit = null;
 			if($buyprice)
 			{
