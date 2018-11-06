@@ -9,7 +9,19 @@ class view
 		\dash\data::page_title(T_("Stores"));
 		\dash\data::page_desc(T_("View list of stores and add new one easily just in seconds."));
 
-		\dash\data::stores(\lib\app\store::list());
+		$args = [];
+
+		if(\dash\permission::supervisor() && \dash\request::get('all'))
+		{
+			$args['limit'] = 12;
+			// no thing
+		}
+		else
+		{
+			$args['creator'] = \dash\user::id();
+		}
+		$dataTable = \lib\app\store::list(\dash\request::get('q'), $args);
+		\dash\data::stores($dataTable);
 	}
 }
 ?>

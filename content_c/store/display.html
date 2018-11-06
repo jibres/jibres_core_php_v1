@@ -2,7 +2,16 @@
 
 
 {%block pageContent%}
+{%if perm_su() and requestGET.all%}
+  {{block("htmlSearchBox")}}
+{%endif%}
 <div class='middle normal f justify-center'>
+
+{%if perm_su()%}
+  {{block("allStoreList")}}
+{%endif%}
+
+{{block("NewStoreCard")}}
 
 {%for key, value in stores%}
   <a class="vcard mA10 shadow" href='{{value.url}}/a'>
@@ -16,8 +25,7 @@
    </div>
   </a>
 {%endfor%}
-
-{{block("NewStoreCard")}}
+{%include display.pagination%}
 </div>
 {%endblock%}
 
@@ -33,3 +41,41 @@
   </div>
 {%endblock%}
 
+
+{%block allStoreList%}
+{%if requestGET.all%}
+<div class="vcard mA10">
+    <img src="{{url.site}}/static/images/logo.png" alt="add new store">
+    <div class="content"></div>
+    <div class="footer pAn">
+     <a class="btn block info" href="{{url.this}}">{%trans "My store"%}</a>
+    </div>
+  </div>
+{%else%}
+  <div class="vcard mA10">
+    <img src="{{url.site}}/static/images/logo.png" alt="add new store">
+    <div class="content"></div>
+    <div class="footer pAn">
+     <a class="btn block warn" href="{{url.this}}?all=true">{%trans "All Store"%}</a>
+    </div>
+  </div>
+{%endif%}
+{%endblock%}
+
+
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12">
+  <form method="get" action='{{url.this}}' data-action>
+    {%if requestGET.all%}<input type="hidden" name="all" value="true">{%endif%}
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus autocomplete='off'>
+
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}

@@ -59,9 +59,26 @@ class stores
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function search()
+	public static function search($_string = null, $_option = [])
 	{
-		return \dash\db\config::public_search('stores', ...func_get_args());
+		$default_option =
+		[
+			'search_field' =>
+			"
+				(
+					stores.name LIKE '%__string__%'
+				)
+			",
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
+		return \dash\db\config::public_search('stores', $_string, $_option);
 	}
 
 

@@ -20,7 +20,7 @@ class view
 		{
 			// cache all data for 1 min in this page
 			$cache_time = 60;
-			$list_store = \lib\app\store::list(['pagenation' => false]);
+			$list_store = \lib\app\store::list(null, ['pagenation' => false, 'creator' => \dash\user::id()]);
 			\dash\session::set('user_master_dashboard_'. \dash\user::id(), $list_store, 'jibres_store', $cache_time);
 		}
 		\dash\data::stores($list_store);

@@ -3,6 +3,7 @@ namespace lib\app\store;
 
 trait datalist
 {
+
 	/**
 	 * Gets the store.
 	 *
@@ -10,22 +11,14 @@ trait datalist
 	 *
 	 * @return     <type>  The store.
 	 */
-	public static function list($_args = [])
+	public static function list($_string = null, $_args = [])
 	{
 		if(!\dash\user::id())
 		{
 			return false;
 		}
 
-		$meta            = [];
-		if(array_key_exists('pagenation', $_args))
-		{
-			$meta['pagenation'] = $_args['pagenation'];
-			unset($_args['pagenation']);
-		}
-
-		$meta['creator'] = \dash\user::id();
-		$result          = \lib\db\stores::search(null, $meta);
+		$result          = \lib\db\stores::search($_string, $_args);
 		$temp            = [];
 		foreach ($result as $key => $value)
 		{
