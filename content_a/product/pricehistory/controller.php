@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\pricechange;
+namespace content_a\product\pricehistory;
 
 
 class controller

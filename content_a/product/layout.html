@@ -501,7 +501,7 @@
 
 {%endif%}
   <div class="c">
-    <a class="dcard {%if url.child in ['log', 'report', 'pricechange' ] %}active{%endif%}" href='{{url.this}}/pricechange?id={{requestGET.id}}' data-shortkey="49shift">
+    <a class="dcard {%if url.child in ['log', 'report', 'pricehistory' ] %}active{%endif%}" href='{{url.this}}/pricehistory?id={{requestGET.id}}' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-graph"></i></div>
       <div class="label">{%trans "Report"%} <kbd>T+3</kbd></div>
@@ -519,7 +519,7 @@
 
 
   <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='pricechange'%} primary{%else%} light{%endif%}" href='{{url.this}}/pricechange?id={{requestGET.id}}'>{%trans "Price change"%}</a>
+    <a class="btn block {%if url.child=='pricehistory'%} primary{%else%} light{%endif%}" href='{{url.this}}/pricehistory?id={{requestGET.id}}'>{%trans "Price change"%}</a>
   </div>
   <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='gallery'%} primary{%else%} light{%endif%}" href='{{url.this}}/gallery?id={{requestGET.id}}'>{%trans "Gallery"%}</a>

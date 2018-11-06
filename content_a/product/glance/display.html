@@ -73,7 +73,7 @@
 
 
 {%block dMinPrice%}
-<a class="dcard" href='{{url.this}}/pricechange?id={{requestGET.id}}'>
+<a class="dcard" href='{{url.this}}/pricehistory?id={{requestGET.id}}'>
  <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of minimum sale price"%}</div>
   <div class="label">{{dashboardData.low_sale_price}}</div>
@@ -83,7 +83,7 @@
 
 
 {%block dMaxPrice%}
-<a class="dcard" href='{{url.this}}/pricechange?id={{requestGET.id}}'>
+<a class="dcard" href='{{url.this}}/pricehistory?id={{requestGET.id}}'>
  <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of maximum sale price"%}</div>
   <div class="label">{{dashboardData.top_sale_price}}</div>
