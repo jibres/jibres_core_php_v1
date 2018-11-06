@@ -217,13 +217,12 @@ trait search
 			{
 				$search =
 				"
-				(
-					$search_in_id
-					userstores.displayname  LIKE '%$_string%' OR
-					factors.date       = '$en_number' OR
-					factors.shamsidate = '$en_number'
-				)
-				$string_decode
+					(
+						$search_in_id
+						userstores.displayname  LIKE '%$_string%' OR
+						factors.date       = '$en_number'
+					)
+					$string_decode
 				";
 
 			}

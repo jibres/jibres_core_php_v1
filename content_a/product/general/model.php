@@ -31,9 +31,6 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			// @check
-			\dash\redirect::pwd();
-
 			// after save redirect to list of products
 			$url_of_product_list = \dash\url::here().'/product';
 			\dash\redirect::to($url_of_product_list);
