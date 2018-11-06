@@ -10,7 +10,7 @@
  <div class="c s12">
  	<div class="msg info2 f fs12" >
  		<div class="cauto" title='{{dataRow.datecreated | dt(true)}}'>{%trans "Added to store at"%} {{dataRow.datecreated | dt("human", "year")}}</div>
- 		<div class="cauto os" title='{{dataRow.datemodified | dt(true)}}'>{%trans "Last update"%} {{dataRow.datemodified | dt("human", "year")}}</div>
+ 		{%if dataRow.datemodified%}<div class="cauto os" title='{{dataRow.datemodified | dt(true)}}'>{%trans "Last update"%} {{dataRow.datemodified | dt("human", "year")}}</div>{%endif%}
  	</div>
 
  	<div class="f">
