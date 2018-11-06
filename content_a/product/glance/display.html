@@ -53,7 +53,7 @@
 
 {%block dLastBuy%}
 <a class="dcard" {%if dashboardData.last_buy_id%} href='{{url.here}}/factor?q={{dashboardData.last_buy_id}}' {%endif%}>
- <div class="statistic blue">
+ <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of Last buy"%}</div>
   <div class="value"><small>{{dashboardData.last_buy}}</small></div>
  </div>
@@ -63,7 +63,7 @@
 
 {%block dLastSale%}
 <a class="dcard" {%if dashboardData.last_sale_id%} href='{{url.here}}/factor?q={{dashboardData.last_sale_id}}' {%endif%}>
- <div class="statistic orange">
+ <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of last sale"%}</div>
   <div class="value"><small>{{dashboardData.last_sale}}</small></div>
  </div>
@@ -74,9 +74,9 @@
 
 {%block dMinPrice%}
 <a class="dcard" href='{{url.this}}/pricechange?id={{requestGET.id}}'>
- <div class="statistic blue">
+ <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of minimum sale price"%}</div>
-  <div class="value"><small>{{dashboardData.low_sale_price}}</small></div>
+  <div class="label">{{dashboardData.low_sale_price}}</div>
  </div>
 </a>
 {%endblock%}
@@ -84,9 +84,9 @@
 
 {%block dMaxPrice%}
 <a class="dcard" href='{{url.this}}/pricechange?id={{requestGET.id}}'>
- <div class="statistic orange">
+ <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-calendar"></i> {%trans "Date of maximum sale price"%}</div>
-  <div class="value"><small>{{dashboardData.top_sale_price}}</small></div>
+  <div class="label">{{dashboardData.top_sale_price}}</div>
  </div>
 </a>
 {%endblock%}
@@ -95,7 +95,7 @@
 
 {%block dBuyPrice%}
 <a class="dcard" href='{{url.this}}/general?id={{requestGET.id}}'>
- <div class="statistic blue">
+ <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-bag"></i> {%trans "Buy price"%}</div>
   <div class="value"><small>{{dataRow.buyprice |fitNumber}}</small></div>
  </div>
@@ -105,7 +105,7 @@
 
 {%block dSalePrice%}
 <a class="dcard" href='{{url.this}}/general?id={{requestGET.id}}'>
- <div class="statistic orange">
+ <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-basket"></i> {%trans "Sale price"%}</div>
   <div class="value"><small>{{dataRow.price |fitNumber}}</small></div>
  </div>
@@ -115,7 +115,7 @@
 
 {%block dOffPrice%}
 <a class="dcard" href='{{url.this}}/general?id={{requestGET.id}}'>
- <div class="statistic orange">
+ <div class="statistic blue">
   <div class="label mB5"><i class="fs20 mRa5 sf-sell-sign"></i> {%trans "Off price"%}</div>
   <div class="value"><small>{{(dataRow.price - dataRow.discount) |fitNumber}}</small></div>
  </div>
@@ -126,7 +126,7 @@
 
 {%block dDiscountPrice%}
 <a class="dcard" href='{{url.this}}/general?id={{requestGET.id}}'>
- <div class="statistic orange">
+ <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-hand-peace-o"></i> {%trans "Discount"%}</div>
   <div class="value"><small>{{dataRow.discount |fitNumber}}</small></div>
  </div>
@@ -136,7 +136,7 @@
 
 {%block dDiscountPercent%}
 <a class="dcard" href='{{url.this}}/general?id={{requestGET.id}}'>
- <div class="statistic orange">
+ <div class="statistic">
   <div class="label mB5"><i class="fs20 mRa5 sf-check-1"></i> {%trans "Discount Percent"%}</div>
   <div class="value"><small>{{dataRow.discountpercent |fitNumber(false)}} {%trans "%"%}</small></div>
  </div>
