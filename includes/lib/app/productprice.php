@@ -63,6 +63,17 @@ class productprice
 			array_push($profit_array, $profit);
 		}
 
+		if(
+			empty(array_filter($buyprice_array)) &&
+			empty(array_filter($price_array)) &&
+			empty(array_filter($discount_array)) &&
+			empty(array_filter($finalprice_array)) &&
+			empty(array_filter($profit_array))
+		  )
+		{
+			return null;
+		}
+
 		$data =
 		[
 			[
