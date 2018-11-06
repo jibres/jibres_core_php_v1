@@ -71,7 +71,7 @@ class productprice
 			empty(array_filter($profit_array))
 		  )
 		{
-			return null;
+			return ['categories' => '[]',  'data' => '[]'];
 		}
 
 		$data =
