@@ -117,6 +117,13 @@ class view
 		}
 
 		\dash\data::myFilter(\content_a\filter::current(\lib\app\product::$sort_field, \dash\url::this()));
+
+		if(isset($args['negativeprofit']))
+		{
+			$args['Negative profit'] = '';
+			unset($args['negativeprofit']);
+		}
+
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
 	}
 }
