@@ -12,7 +12,7 @@ class view
 
 		\content_a\product\load::fixTitle();
 
-		$dashboard = \lib\app\productprice\dashboard::glance(\dash\request::get('id'));
+		$dashboard = \lib\app\productprice::dashboard(\dash\request::get('id'));
 
 		\dash\data::dashboardData($dashboard);
 	}
