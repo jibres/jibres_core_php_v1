@@ -126,23 +126,21 @@ class productprice
 		$data =
 		[
 			[
-				'name' => T_('Price'),
-				'data' => $price_array,
-			],
-			[
 				'name' => T_('Buyprice'),
 				'data' => $buyprice_array,
+			],
+			[
+				'name' => T_('Price'),
+				'data' => $price_array,
 			],
 			[
 				'name' => T_('Discount'),
 				'data' => $discount_array,
 			],
-
 			[
 				'name' => T_('Final price'),
 				'data' => $finalprice_array,
 			],
-
 			[
 				'name' => T_('Profit'),
 				'data' => $profit_array,
