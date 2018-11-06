@@ -13,20 +13,42 @@ function myChart1()
 
 
   Highcharts.chart('chartdiv1', {
-    chart: {
-      type: 'line'
+    chart:
+    {
+      type: 'line',
+      zoomType: 'x',
+      style:
+      {
+        fontFamily: 'IRANSans, Tahoma, sans-serif'
+      }
     },
     title: {
       text: '{%trans "Count product group by price"%}'
     },
 
     xAxis: {
-      categories: {{dashboardData.product_price_variation.categories | raw}}
+      categories: {{dashboardData.product_price_variation.categories | raw}},
+      crosshair: true
     },
-    yAxis: {
+    yAxis: [{ // Primary yAxis
+      labels: {
+        format: '{value}',
+        style: {
+          color: Highcharts.getOptions().colors[0]
+        }
+      },
       title: {
-        text: '{%trans "Count"%}'
+        text: '{%trans "Count"%}',
+        useHTML: Highcharts.hasBidiBug,
+        style: {
+          color: Highcharts.getOptions().colors[0]
+        }
       }
+    }],
+    tooltip: {
+      useHTML: true,
+      borderWidth: 0,
+      shared: true
     },
     plotOptions: {
       line: {
@@ -85,8 +107,19 @@ function myChart2()
 {
 
   Highcharts.chart('chartdiv2', {
-    chart: {
-      type: 'line'
+    chart:
+    {
+      type: 'area',
+      zoomType: 'x',
+      style:
+      {
+        fontFamily: 'IRANSans, Tahoma, sans-serif'
+      }
+    },
+    tooltip: {
+      useHTML: true,
+      borderWidth: 0,
+      shared: true
     },
     title: {
       text: '{%trans "Count product group by unit"%}'
@@ -160,8 +193,14 @@ function myChart3()
 {
 
   Highcharts.chart('chartdiv3', {
-    chart: {
-      type: 'line'
+    chart:
+    {
+      type: 'line',
+      zoomType: 'x',
+      style:
+      {
+        fontFamily: 'IRANSans, Tahoma, sans-serif'
+      }
     },
     title: {
       text: '{%trans "Count product group by category"%}'
