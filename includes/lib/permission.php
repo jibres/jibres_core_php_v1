@@ -125,7 +125,6 @@ class permission
 		{
 			$jibres_group     = \dash\permission::read_file(root.'/includes/permission/group.json');
 
-
 			if(is_array($jibres_group) && is_array($store_group))
 			{
 				$all_group = array_merge($jibres_group, $store_group);
@@ -158,11 +157,7 @@ class permission
 			return null;
 		}
 
-		// @check plan
-		return true;
-
 		self::load_all_plans();
-
 		$store_plan = \lib\store::detail('plan');
 
 		if(isset(self::$plan[$store_plan]) && isset(self::$plan[$store_plan]['contain']))

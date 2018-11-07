@@ -9,7 +9,7 @@ $plan = [];
 // ----------------------------------------------- SIMPLE -------------------------------------------- //
 $simple   = $master;
 
-$simple[] = "mPermissionAdd";
+// $simple[] = "mPermissionAdd";
 
 $plan['simple'] =
 [
@@ -26,7 +26,7 @@ $plan['simple'] =
 
 // ----------------------------------------------- STANDARD ------------------------------------------ //
 $standard   = $master;
-$standard[] = 'mGroupView';
+// $standard[] = "mPermissionAdd";
 
 
 $plan['standard'] =
