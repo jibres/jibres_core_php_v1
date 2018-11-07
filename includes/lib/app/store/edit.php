@@ -83,6 +83,7 @@ trait edit
 		if(!\dash\app::isset_request('phone'))   unset($args['phone']);
 		if(!\dash\app::isset_request('mobile'))  unset($args['mobile']);
 		if(!\dash\app::isset_request('logo'))    unset($args['logo']);
+		if(!\dash\app::isset_request('plan'))    unset($args['plan']);
 
 		if(array_key_exists('name', $args) && !$args['name'])
 		{

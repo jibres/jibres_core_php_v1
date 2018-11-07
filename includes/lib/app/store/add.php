@@ -5,6 +5,299 @@ namespace lib\app\store;
 trait add
 {
 
+	private static $plan_price =
+	[
+		'simple_1m'    => 100000,
+		'simple_12m'   => 1000000,
+
+		'standard_1m'  => 500000,
+		'standard_12m' => 5000000,
+	];
+
+
+
+	private static function check_promo($_price)
+	{
+		// $promo = \dash\app::request('promo');
+		// if($promo === 'JibresTestStandard')
+		// {
+		// 	if(intval($_price) === 500000)
+		// 	{
+		// 		return true;
+		// 	}
+		// }
+
+		// if($promo === 'JibresTestSimple')
+		// {
+		// 	if(intval($_price) === 100000)
+		// 	{
+		// 		return true;
+		// 	}
+		// }
+
+		return false;
+
+	}
+
+
+	public static function before_add($_args)
+	{
+		\dash\app::variable($_args);
+
+		$bank   = \dash\app::request('bank');
+		$plan   = \dash\app::request('plan');
+		$period = \dash\app::request('period');
+
+		if(!in_array($plan, ['standard', 'simple', 'free']))
+		{
+			\dash\notif::error(T_("Invalid plan"), 'plan');
+			return false;
+		}
+
+		if($plan === 'free')
+		{
+			// create new store by free plan
+			// just check count of free plan store
+			// check store count
+			$count_store_free = \lib\db\stores::get_count(['creator' => \dash\user::id(), 'plan' => ["IN", "('free', 'trial')"]]);
+
+			if($count_store_free >= 2)
+			{
+				\dash\notif::error(T_("You can not have more than two free or trial stores."));
+				return false;
+			}
+
+			return self::add($_args);
+		}
+
+
+		$check = self::add($_args, true);
+		if(!$check)
+		{
+			return false;
+		}
+
+		if(!$bank)
+		{
+			\dash\notif::error(T_("Please select one of payment to pay"), 'bank');
+			return false;
+		}
+
+		$allow_bank = ['irkish', 'parsian', 'zarinpal'];
+
+		if(\dash\url::isLocal())
+		{
+			array_push($allow_bank, 'payir');
+		}
+
+		if(!in_array($bank, $allow_bank))
+		{
+			\dash\notif::error(T_("Invalid payment"), 'bank');
+			return false;
+		}
+
+		if(!$plan)
+		{
+			\dash\notif::error(T_("Please select one of plan"), 'plan');
+			return false;
+		}
+
+
+
+		if(!$period)
+		{
+			\dash\notif::error(T_("Please select one of period"), 'period');
+			return false;
+		}
+
+		if(!in_array($period, ['1m', '12m']))
+		{
+			\dash\notif::error(T_("Invalid period"), 'period');
+			return false;
+		}
+
+		$price = self::$plan_price[$plan. '_'. $period];
+
+		$key = 'beforeAddStore_'. $plan. '_'. $period;
+
+		\dash\session::set($key, $check);
+
+		// check store count
+		$user_budget = \dash\db\transactions::budget(\dash\user::id(), ['unit' => 'toman']);
+		// if(is_array($user_budget))
+		// {
+		// 	$user_budget = array_sum($user_budget);
+		// }
+
+		$user_budget = floatval($user_budget);
+		if(self::check_promo($price))
+		{
+			\dash\log::set('usePromoToAddStore');
+			// set similar pay
+			\dash\session::set('payment_verify_amount', $price);
+			\dash\session::set('payment_verify_status', 'ok');
+			\dash\session::set('payment_request_start', true);
+			self::after_pay();
+		}
+		elseif($user_budget >= $price)
+		{
+			// set similar pay
+			\dash\session::set('payment_verify_amount', $price);
+			\dash\session::set('payment_verify_status', 'ok');
+			\dash\session::set('payment_request_start', true);
+			self::after_pay();
+		}
+		else
+		{
+			$meta = ['turn_back' => \dash\url::pwd()];
+
+			\dash\utility\payment\pay::start(\dash\user::id(), $bank, $price, $meta);
+		}
+	}
+
+
+	public static function after_pay()
+	{
+		$status      = \dash\session::get('payment_verify_status');
+		$price_payed = \dash\session::get('payment_verify_amount');
+
+		\dash\session::set('payment_verify_amount', null);
+		\dash\session::set('payment_verify_status', null);
+		\dash\session::set('payment_request_start', null);
+
+		if($status !== 'ok')
+		{
+			\dash\notif::error(T_("Transaction unsuccessful. Store registration operation canceled"));
+			return false;
+		}
+
+		\dash\notif::ok(T_("Transaction successful."));
+
+		$price_payed = intval($price_payed);
+
+		if(!$price_payed || $price_payed < 0)
+		{
+			\dash\notif::error(T_("The amount entered is incorrect"));
+			return false;
+		}
+
+		$plan_price = array_flip(self::$plan_price);
+
+		if(!isset($plan_price[$price_payed]))
+		{
+			\dash\notif::error(T_("The amount charged is inconsistent with the payment structure"));
+			return false;
+		}
+
+		$key = 'beforeAddStore_'. $plan_price[$price_payed];
+
+		$store = \dash\session::get($key);
+
+		if(!$store)
+		{
+			\dash\notif::error(T_("Your store information was not found. Please try again"));
+			return false;
+		}
+
+		$plan   = null;
+		$period = null;
+		$split  = explode('_', $key);
+
+		if(isset($split[1]))
+		{
+			$plan = $split[1];
+		}
+
+		if(isset($split[2]))
+		{
+			$period = $split[2];
+		}
+
+		$insert = self::add($store);
+
+		if(isset($insert['slug']))
+		{
+			// save factor
+			// minus the value from user account
+			// the user use largen than one month of the plan
+
+			$invoice_title        = T_("Create :store :name - plan :plan - period  :period ", ['plan' => $plan, 'period' => $period, 'name' => $insert['name']]);
+			$invoice_detail_title = T_("Create :store :name", ['name' => $insert['name']]);
+			$transaction_title    = T_("Create :store :name", ['name' => $insert['name']]);
+
+		    $new_invoice =
+			[
+				'date'         => date("Y-m-d H:i:s"),
+				'user_id'      => \dash\user::id(),
+				'title'        => $invoice_title,
+				'total'        => $price_payed,
+				'count_detail' => 1,
+			];
+
+			$invoice = new \dash\db\invoices;
+	        $invoice->add($new_invoice);
+
+			$new_invoice_detail =
+			[
+				'title'      => $invoice_detail_title,
+				'price'      => $price_payed,
+				'count'      => 1,
+				'total'      => $price_payed,
+			];
+
+	        $invoice->add_child($new_invoice_detail);
+
+	        $invoice_id = $invoice->save();
+
+			$transaction_set =
+	        [
+				'caller'         => 'invoice:store',
+				'title'          => $transaction_title,
+				'user_id'        => \dash\user::id(),
+				'invoice_id'     => $invoice_id,
+				'minus'          => $price_payed,
+				'payment'        => null,
+				'verify'         => 1,
+				'dateverify'     => time(),
+				'type'           => 'money',
+				'unit'           => 'toman',
+				'date'           => date("Y-m-d H:i:s"),
+	        ];
+
+	        \dash\db\transactions::set($transaction_set);
+
+	        $store_id = $insert['store_id'];
+	        $store_id = \dash\coding::decode($store_id);
+
+	        $day = 0;
+
+	        if($period == '1m')
+	        {
+	        	$day = 31;
+	        }
+	        elseif($period == '12m')
+	        {
+	        	$day = 365;
+	        }
+
+	        $update =
+	        [
+				'plan'       => $plan,
+				'startplan'  => date("Y-m-d H:i:s"),
+				'expireplan' => date("Y-m-d H:i:s", strtotime("+$day days")),
+	        ];
+
+	        \lib\db\academies::update($update, $store_id);
+
+			$new_url = \dash\url::protocol(). '://'. $insert['slug']. '.'. \dash\url::domain();
+
+			\dash\redirect::to($new_url);
+		}
+		else
+		{
+			return false;
+		}
+	}
 	/**
 	 * add new store
 	 *
@@ -12,7 +305,7 @@ trait add
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function add($_args = [])
+	public static function add($_args = [], $_just_check = false)
 	{
 		\dash\app::variable($_args);
 
@@ -71,6 +364,11 @@ trait add
 				\dash\notif::error(T_("You can not have more than three active stores. Contact support if needed"));
 				return false;
 			}
+		}
+
+		if($_just_check)
+		{
+			return $args;
 		}
 
 		$return = [];

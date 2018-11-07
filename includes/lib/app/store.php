@@ -232,6 +232,14 @@ class store
 			return false;
 		}
 
+
+		$plan = \dash\app::request('plan');
+		if($plan && !in_array($plan, ['free', 'standard', 'simple']))
+		{
+			\dash\notif::error(T_("Invalid plan of stores", 'plan'));
+			return false;
+		}
+
 		$args             = [];
 		$args['name']     = $name;
 		$args['slug']     = $slug;
@@ -247,6 +255,7 @@ class store
 		$args['address']  = $address;
 		$args['phone']    = $phone;
 		$args['mobile']   = $mobile;
+		$args['plan']   = $plan;
 
 		return $args;
 	}

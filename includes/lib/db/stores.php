@@ -43,6 +43,12 @@ class stores
 	}
 
 
+	public static function get_count()
+	{
+		return \dash\db\config::public_get_count('stores', ...func_get_args());
+	}
+
+
 	/**
 	 * get store detail
 	 *

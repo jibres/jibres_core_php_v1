@@ -16,6 +16,7 @@ trait add
 		$default_option =
 		[
 			'store_id' => null,
+			'debug'    => true,
 		];
 
 		if(!is_array($_option))
@@ -29,19 +30,28 @@ trait add
 
 		if(!\dash\user::id())
 		{
-			\dash\notif::error(T_("user not found"), 'user');
+			if($_option['debug'])
+			{
+				\dash\notif::error(T_("user not found"), 'user');
+			}
 			return false;
 		}
 
 		if(!\lib\store::id() && !$_option['store_id'])
 		{
-			\dash\notif::error(T_("store not found"), 'store');
+			if($_option['debug'])
+			{
+				\dash\notif::error(T_("store not found"), 'store');
+			}
 			return false;
 		}
 
 		if(!\lib\userstore::in_store())
 		{
-			\dash\notif::error(T_("You are not in this store"), 'subdomain');
+			if($_option['debug'])
+			{
+				\dash\notif::error(T_("You are not in this store"), 'subdomain');
+			}
 			return false;
 		}
 
@@ -83,7 +93,10 @@ trait add
 
 			if(isset($check_duplicate['id']))
 			{
-				\dash\notif::error(T_("Duplicate customer code in this store"), 'code');
+				if($_option['debug'])
+				{
+					\dash\notif::error(T_("Duplicate customer code in this store"), 'code');
+				}
 				return false;
 			}
 		}
@@ -94,7 +107,10 @@ trait add
 		{
 			if(!$args['companyname'])
 			{
-				\dash\notif::error(T_("Plese fill the company name"), 'companyname');
+				if($_option['debug'])
+				{
+					\dash\notif::error(T_("Plese fill the company name"), 'companyname');
+				}
 				return false;
 			}
 
@@ -121,7 +137,10 @@ trait add
 			{
 				$msg = T_("Company :companyname was already added to this store", ['companyname' => $args['companyname']]);
 				$msg = "<a href='". \dash\url::here(). '/thirdparty/general?id='. \dash\coding::encode($check_query['id']). "'>$msg</a>";
-				\dash\notif::error($msg, 'companyname');
+				if($_option['debug'])
+				{
+					\dash\notif::error($msg, 'companyname');
+				}
 				return false;
 			}
 
@@ -137,7 +156,10 @@ trait add
 			if(!$supplier_id)
 			{
 				\dash\log::set('dbErrorInsertSupplier');
-				\dash\notif::error(T_("No way to insert supplier"));
+				if($_option['debug'])
+				{
+					\dash\notif::error(T_("No way to insert supplier"));
+				}
 				return false;
 			}
 
@@ -157,7 +179,10 @@ trait add
 
 		if(!$user_id)
 		{
-			\dash\notif::error(T_("We can not signup new user"));
+			if($_option['debug'])
+			{
+				\dash\notif::error(T_("We can not signup new user"));
+			}
 			return false;
 		}
 
@@ -169,7 +194,10 @@ trait add
 		if(!$userstore_id)
 		{
 			\dash\log::set('dbErrorInsertUserstores');
-			\dash\notif::error(T_("No way to insert thirdparty"), 'db', 'system');
+			if($_option['debug'])
+			{
+				\dash\notif::error(T_("No way to insert thirdparty"), 'db', 'system');
+			}
 			return false;
 		}
 
@@ -177,7 +205,10 @@ trait add
 
 		if(\dash\engine\process::status())
 		{
-			\dash\notif::ok(T_("Thirdparty successfuly added"));
+			if($_option['debug'])
+			{
+				\dash\notif::ok(T_("Thirdparty successfuly added"));
+			}
 			\lib\app\store::user_count('thirdparty', true);
 		}
 
