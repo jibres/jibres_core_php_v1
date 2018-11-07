@@ -15,3 +15,26 @@ CREATE TABLE `planhistory` (
 PRIMARY KEY (`id`),
 CONSTRAINT `planhistory_store_id` FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+UPDATE stores SET stores.plan = 'free', stores.datemodified = stores.datemodified, stores.startplan = stores.datecreated WHERE stores.plan is NULL;
+
+INSERT INTO planhistory
+(
+	`store_id`,
+	`creator`,
+	`plan`,
+	`start`,
+	`end`,
+	`status`
+)
+SELECT
+stores.id,
+stores.creator,
+stores.plan,
+stores.startplan,
+null,
+'enable'
+FROM
+stores
+WHERE stores.id NOT IN (SELECT pH.store_id FROM planhistory AS `pH`);
