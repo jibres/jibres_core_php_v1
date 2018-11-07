@@ -67,7 +67,9 @@ trait add
 
 			if($period === 'trial')
 			{
-				$_args['plan'] = 'trial';
+				$_args['startplan']  = date("Y-m-d H:i:s");
+				$_args['expireplan'] = date("Y-m-d H:i:s", strtotime("+14 days"));
+				$_args['plan']       = 'trial';
 			}
 
 			return self::add($_args);
@@ -131,7 +133,9 @@ trait add
 		{
 			// NEVER SHOW THIS SHOW
 			\dash\log::set('storeHavePlanAndPriceIS0');
-			$_args['plan'] = 'trial';
+			$_args['startplan']  = date("Y-m-d H:i:s");
+			$_args['expireplan'] = date("Y-m-d H:i:s", strtotime("+14 days"));
+			$_args['plan']       = 'trial';
 			return self::add($_args);
 		}
 
@@ -239,6 +243,12 @@ trait add
 		{
 			$period = $split[2];
 		}
+
+		$day = $period === '12m' ? 365 : 30;
+
+		$_args['startplan']  = date("Y-m-d H:i:s");
+		$_args['expireplan'] = date("Y-m-d H:i:s", strtotime("+$day days"));
+		$_args['plan']       = $plan;
 
 		$insert = self::add($store);
 
@@ -407,6 +417,16 @@ trait add
 		{
 			\dash\notif::error(T_("Please choose plan of store"), 'plan');
 			return false;
+		}
+
+		if(isset($_args['startplan']))
+		{
+			$args['startplan'] = $_args['startplan'];
+		}
+
+		if(isset($_args['expireplan']))
+		{
+			$args['expireplan'] = $_args['expireplan'];
 		}
 
 		$args['creator'] = \dash\user::id();
