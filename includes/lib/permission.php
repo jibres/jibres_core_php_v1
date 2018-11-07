@@ -7,6 +7,31 @@ class permission
 	private static $plan = [];
 
 
+	public static function plan_setting($_key = null, $_plan = null)
+	{
+		self::load_all_plans();
+
+		if(array_key_exists($_plan, self::$plan))
+		{
+			$my_plan = self::$plan[$_plan];
+			if(!$_key)
+			{
+				return $my_plan;
+			}
+			else
+			{
+				if(array_key_exists($_key, $my_plan))
+				{
+					return $my_plan[$_key];
+				}
+				return null;
+			}
+		}
+
+		return false;
+	}
+
+
 	// load user in userstore
 	public static function load_user($_user_id = null, $_force = false)
 	{

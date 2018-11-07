@@ -15,8 +15,8 @@ $plan['simple'] =
 [
   'title'              => 'simple',
   'public'             => true,
-  'monthly'            => 100000,
-  'yearly'             => 1000000,
+  'monthly'            => 10000,
+  'yearly'             => 100000,
   'teacher_permission' => null,
   'contain'            => $simple,
 ];
@@ -33,8 +33,8 @@ $plan['standard'] =
 [
   'title'              => 'standard',
   'public'             => true,
-  'monthly'            => 500000,
-  'yearly'             => 5000000,
+  'monthly'            => 50000,
+  'yearly'             => 500000,
   'teacher_permission' => null,
   'contain'            => $standard,
 ];

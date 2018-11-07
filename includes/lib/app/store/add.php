@@ -5,17 +5,6 @@ namespace lib\app\store;
 trait add
 {
 
-	private static $plan_price =
-	[
-		'simple_1m'    => 100000,
-		'simple_12m'   => 1000000,
-
-		'standard_1m'  => 500000,
-		'standard_12m' => 5000000,
-	];
-
-
-
 	private static function check_promo($_price)
 	{
 		// $promo = \dash\app::request('promo');
@@ -54,7 +43,7 @@ trait add
 			return false;
 		}
 
-		if($plan === 'free')
+		if($plan === 'free' || $period === 'trial')
 		{
 			// create new store by free plan
 			// just check count of free plan store
@@ -76,9 +65,31 @@ trait add
 				}
 			}
 
+			if($period === 'trial')
+			{
+				$_args['plan'] = 'trial';
+			}
+
 			return self::add($_args);
 		}
 
+		if(!$plan)
+		{
+			\dash\notif::error(T_("Please select one of plan"), 'plan');
+			return false;
+		}
+
+		if(!$period)
+		{
+			\dash\notif::error(T_("Please select one of period"), 'period');
+			return false;
+		}
+
+		if(!in_array($period, ['1m', '12m']))
+		{
+			\dash\notif::error(T_("Invalid period"), 'period');
+			return false;
+		}
 
 		$check = self::add($_args, true);
 		if(!$check)
@@ -105,25 +116,24 @@ trait add
 			return false;
 		}
 
-		if(!$plan)
+		if($period === '1m')
 		{
-			\dash\notif::error(T_("Please select one of plan"), 'plan');
-			return false;
+			$pay_key_period = 'monthly';
+		}
+		else
+		{
+			$pay_key_period = 'yearly';
 		}
 
-		if(!$period)
-		{
-			\dash\notif::error(T_("Please select one of period"), 'period');
-			return false;
-		}
+		$price = \lib\permission::plan_setting($pay_key_period, $plan);
 
-		if(!in_array($period, ['1m', '12m']))
+		if(!is_numeric($price) || intval($price) <= 0)
 		{
-			\dash\notif::error(T_("Invalid period"), 'period');
-			return false;
+			// NEVER SHOW THIS SHOW
+			\dash\log::set('storeHavePlanAndPriceIS0');
+			$_args['plan'] = 'trial';
+			return self::add($_args);
 		}
-
-		$price = self::$plan_price[$plan. '_'. $period];
 
 		$key = 'beforeAddStore_'. $plan. '_'. $period;
 
@@ -137,6 +147,7 @@ trait add
 		// }
 
 		$user_budget = floatval($user_budget);
+
 		if(self::check_promo($price))
 		{
 			\dash\log::set('usePromoToAddStore');
@@ -188,7 +199,16 @@ trait add
 			return false;
 		}
 
-		$plan_price = array_flip(self::$plan_price);
+		$plan_price =
+		[
+			'simple_1m'    => \lib\permission::plan_setting('monthly', 'simple'),
+			'simple_12m'   => \lib\permission::plan_setting('yearly', 'simple'),
+
+			'standard_1m'  => \lib\permission::plan_setting('monthly', 'standard'),
+			'standard_12m' => \lib\permission::plan_setting('yearly', 'standard'),
+		];
+
+		$plan_price = array_flip($plan_price);
 
 		if(!isset($plan_price[$price_payed]))
 		{
@@ -294,9 +314,13 @@ trait add
 				'expireplan' => date("Y-m-d H:i:s", strtotime("+$day days")),
 	        ];
 
-	        \lib\db\academies::update($update, $store_id);
+	        \lib\db\stores::update($update, $store_id);
 
-			$new_url = \dash\url::protocol(). '://'. $insert['slug']. '.'. \dash\url::domain();
+	        // if jibres in cloudflare we can not see the site for afew minutes
+	        // so redirect to list of store
+			// $new_url = \dash\url::protocol(). '://'. $insert['slug']. '.'. \dash\url::domain();
+			// to show list of store
+			$new_url = \dash\url::here(). '/store';
 
 			\dash\redirect::to($new_url);
 		}
@@ -445,6 +469,7 @@ trait add
 
 		$return['store_id'] = \dash\coding::encode($store_id);
 		$return['slug']     = $args['slug'];
+		$return['name']     = $args['name'];
 
 		if(\dash\engine\process::status())
 		{

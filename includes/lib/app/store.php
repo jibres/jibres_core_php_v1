@@ -234,7 +234,7 @@ class store
 
 
 		$plan = \dash\app::request('plan');
-		if($plan && !in_array($plan, ['free', 'standard', 'simple']))
+		if($plan && !in_array($plan, ['free', 'standard', 'simple', 'trial']))
 		{
 			\dash\notif::error(T_("Invalid plan of stores", 'plan'));
 			return false;
