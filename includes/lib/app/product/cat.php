@@ -4,6 +4,8 @@ namespace lib\app\product;
 
 class cat
 {
+	public static $debug = true;
+
 
 	public static function check_add($_cat)
 	{
@@ -26,20 +28,20 @@ class cat
 		$title = \dash\app::request('title');
 		if(!$title && $title !== '0')
 		{
-			\dash\notif::error(T_("Plese fill the cat name"), 'cat');
+			if(self::$debug) \dash\notif::error(T_("Plese fill the cat name"), 'cat');
 			return false;
 		}
 
 		if(mb_strlen($title) > 100)
 		{
-			\dash\notif::error(T_("Category name is too large!"), 'cat');
+			if(self::$debug) \dash\notif::error(T_("Category name is too large!"), 'cat');
 			return false;
 		}
 
 		$type = \dash\app::request('type');
 		if($type && !in_array($type, ['decimal', 'integer']))
 		{
-			\dash\notif::error(T_("Invalid type of cat"), 'type');
+			if(self::$debug) \dash\notif::error(T_("Invalid type of cat"), 'type');
 			return false;
 		}
 
@@ -48,7 +50,7 @@ class cat
 		$maxsale = \dash\app::request('maxsale');
 		if($maxsale && !is_numeric($maxsale))
 		{
-			\dash\notif::error(T_("Plese set the max sale as a number"), 'maxsale');
+			if(self::$debug) \dash\notif::error(T_("Plese set the max sale as a number"), 'maxsale');
 			return false;
 		}
 
@@ -57,7 +59,7 @@ class cat
 			$maxsale = abs(intval($maxsale));
 			if($maxsale > 1E+9)
 			{
-				\dash\notif::error(T_("Max sale is out of range"), 'maxsale');
+				if(self::$debug) \dash\notif::error(T_("Max sale is out of range"), 'maxsale');
 				return false;
 			}
 		}
@@ -87,7 +89,7 @@ class cat
 
 		if(isset($json[$args['title']]))
 		{
-			\dash\notif::error(T_("Duplicate cat founded"), 'cat');
+			if(self::$debug) \dash\notif::error(T_("Duplicate cat founded"), 'cat');
 			return false;
 		}
 
@@ -105,7 +107,7 @@ class cat
 		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
 		\lib\db\stores::update(['cat' => $json], \lib\store::id());
 
-		\dash\notif::ok(T_("Category successfully added"));
+		if(self::$debug) \dash\notif::ok(T_("Category successfully added"));
 		\lib\store::refresh();
 
 		return true;
@@ -118,7 +120,7 @@ class cat
 
 		if(!isset($json[$_old_cat]))
 		{
-			\dash\notif::error(T_("Category not found in your store!"), 'cat');
+			if(self::$debug) \dash\notif::error(T_("Category not found in your store!"), 'cat');
 			return false;
 		}
 
@@ -127,7 +129,7 @@ class cat
 		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
 		\lib\db\stores::update(['cat' => $json], \lib\store::id());
 
-		\dash\notif::warn(T_("Category successfully removed"));
+		if(self::$debug) \dash\notif::warn(T_("Category successfully removed"));
 		\lib\store::refresh();
 
 		return true;
@@ -151,7 +153,7 @@ class cat
 
 		if(!isset($json[$_old_cat]))
 		{
-			\dash\notif::error(T_("Category not found in your store!"), 'cat');
+			if(self::$debug) \dash\notif::error(T_("Category not found in your store!"), 'cat');
 			return false;
 		}
 
@@ -182,7 +184,7 @@ class cat
 			}
 		}
 
-		\dash\notif::ok($msg);
+		if(self::$debug) \dash\notif::ok($msg);
 
 		\lib\store::refresh();
 

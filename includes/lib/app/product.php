@@ -380,16 +380,21 @@ class product
 			\dash\notif::warn(T_("Final price less than buyprice!"));
 		}
 
+		$master_args = \dash\app::request();
 		// check to add new cat or unit
 		if($cat)
 		{
+			\lib\app\product\cat::$debug = false;
 			\lib\app\product\cat::check_add($cat);
 		}
 
 		if($unit)
 		{
+			\lib\app\product\unit::$debug = false;
 			\lib\app\product\unit::check_add($unit);
 		}
+
+		\dash\app::request_set($master_args);
 
 		$args                    = [];
 		$args['title']           = $title;
