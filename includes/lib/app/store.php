@@ -225,7 +225,7 @@ class store
 
 
 		$status = \dash\app::request('status');
-		if($status && !in_array($status, ['enable', 'disable']))
+		if($status && !in_array($status, ['enable', 'disable', 'close']))
 		{
 			// \dash\app::log('api:store:add:status:invalid', \dash\user::id(), $log_meta);
 			\dash\notif::error(T_("Invalid status of stores", 'status', 'arguments'));

@@ -10,10 +10,31 @@
   {{block ("iwebsite")}}
   {{block ("idesc")}}
 
+  <div class="msg {%if store.status == 'enable'%}success2{%elseif store.status == 'close' %}danger2{%endif%}">
+    {{block ("istatus")}}
+  </div>
   {{block ("iSaveAll")}}
  </form>
 </div>
 
+
+
+{%endblock%}
+
+
+
+
+{%block istatus%}
+
+<div class="radio1">
+  <input type="radio" name="status" id="r-enable" value="status" {%if store.status =='enable'%}checked{%endif%}>
+  <label for="r-status">{%trans "Enable"%}</label>
+</div>
+
+<div class="radio1">
+  <input type="radio" name="status" id="r-close" value="close" {%if store.status =='close'%}checked{%endif%}>
+  <label for="r-close">{%trans "Closed"%}</label>
+</div>
 
 
 {%endblock%}

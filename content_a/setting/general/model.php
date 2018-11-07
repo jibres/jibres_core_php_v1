@@ -23,7 +23,7 @@ class model
 			'name'    => \dash\request::post('name'),
 			'website' => \dash\request::post('website'),
 			'desc'    => \dash\request::post('desc'),
-			// 'mobile'  => \dash\request::post('mobile'),
+			'status'  => \dash\request::post('status'),
 			// 'address' => \dash\request::post('address'),
 			// 'phone'   => \dash\request::post('phone'),
 		];
