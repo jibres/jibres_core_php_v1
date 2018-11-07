@@ -45,6 +45,7 @@
       </div>
 
       <div class="c3 s12 os f align-center">
+
 {%if value.staff%}
         <a class="btn outline block success mB5" href="{{value.url}}/a">{%trans "Your staff panel"%}</a>
 {%else%}
@@ -54,6 +55,9 @@
         {%endif%}
 {%endif%}
 
+      {%if value.creator%}
+        <a class="btn outline block pain mB5" href="{{value.url}}/a/setting">{%trans "Settings"%}</a>
+      {%endif%}
       </div>
 
     </div>
