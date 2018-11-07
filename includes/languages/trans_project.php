@@ -37,9 +37,9 @@ class twigTransTerms
 	echo T_("Subdomain for your store");                                              // Line 89
 	echo T_("Set it carefully, you can not change it later");                         // Line 89
 	echo T_("Choose your start plan");                                                // Line 97
-	echo T_("Free");                                                                  // Line 208
-	echo T_("Simple");                                                                // Line 226
-	echo T_("Standard");                                                              // Line 219
+	echo T_("Free");                                                                  // Line 43
+	echo T_("Simple");                                                                // Line 48
+	echo T_("Standard");                                                              // Line 53
 	echo T_("Choose your start plan period");                                         // Line 119
 	echo T_("Trial");                                                                 // Line 123
 	echo T_("Pay monthly");                                                           // Line 128
@@ -51,10 +51,11 @@ class twigTransTerms
 	echo T_("Current plan");                                                          // Line 33
 	echo T_("days left");                                                             // Line 36
 	echo T_("Expired");                                                               // Line 40
-	echo T_("Your staff panel");                                                      // Line 53
-	echo T_("Your are customer in this store");                                       // Line 51
-	echo T_("Add new Store");                                                         // Line 99
-	echo T_("Store");                                                                 // Line 109
+	echo T_("Your staff panel");                                                      // Line 54
+	echo T_("Your are customer in this store");                                       // Line 52
+	echo T_("Settings");                                                              // Line 59
+	echo T_("Add new Store");                                                         // Line 103
+	echo T_("Store");                                                                 // Line 113
 
 	//---------------------public_html/static/siftal/fonts/siftal/icons-reference.html
 
@@ -379,7 +380,7 @@ class twigTransTerms
 	echo T_("Link your logo on board for visitors");                                  // Line 167
 	echo T_("For show in factors");                                                   // Line 197
 	echo T_("Used for description of board and show in social media links");          // Line 191
-	echo T_("Choose your plan");                                                      // Line 204
+	echo T_("Choose your plan");                                                      // Line 38
 	echo T_("All the basics for personal use.");                                      // Line 208
 	echo T_("Everything you need for a growing business.");                           // Line 214
 	echo T_("Yearly");                                                                // Line 219
@@ -412,6 +413,9 @@ class twigTransTerms
 	echo T_("IP");                                                                    // Line 72
 	echo T_("Port");                                                                  // Line 80
 
+	//------------------------------------------content_a/setting/general/display.html
+	echo T_("Closed");                                                                // Line 36
+
 	//---------------------------------------------content_a/setting/home/display.html
 	echo T_("Hi");                                                                    // Line 6
 
@@ -428,8 +432,12 @@ class twigTransTerms
 	echo T_("Sale online");                                                           // Line 119
 
 	//---------------------------------------------content_a/setting/plan/display.html
-	echo T_("Current Plan");                                                          // Line 7
-	echo T_("Activate on");                                                           // Line 8
+	echo T_("Current Plan");                                                          // Line 11
+	echo T_("Expire on");                                                             // Line 12
+	echo T_("Just supervisor see this form");                                         // Line 16
+	echo T_("Plan expire date");                                                      // Line 29
+	echo T_("Require");                                                               // Line 243
+	echo T_("Store status");                                                          // Line 62
 
 	//-------------------------------------------content_a/setting/factor/display.html
 	echo T_("Print status");                                                          // Line 8
@@ -452,6 +460,7 @@ class twigTransTerms
 	echo T_("Row");                                                                   // Line 57
 	echo T_("Product");                                                               // Line 58
 	echo T_("Count");                                                                 // Line 59
+	echo T_("Buy price");                                                             // Line 99
 	echo T_("Discount");                                                              // Line 61
 	echo T_("Total");                                                                 // Line 62
 	echo T_("Choose customer");                                                       // Line 108
@@ -539,7 +548,6 @@ class twigTransTerms
 	echo T_("Decrease from budget");                                                  // Line 50
 	echo T_("Minus amount of budget");                                                // Line 53
 	echo T_("Title");                                                                 // Line 91
-	echo T_("Require");                                                               // Line 243
 	echo T_("Title of transaction");                                                  // Line 67
 	echo T_("Enter a valid title");                                                   // Line 67
 	echo T_("Price of transaction");                                                  // Line 76
@@ -698,7 +706,6 @@ class twigTransTerms
 	echo T_("Scan Barcode here...");                                                  // Line 143
 	echo T_("Barcode2");                                                              // Line 150
 	echo T_("Scan Barcode2 here...");                                                 // Line 152
-	echo T_("Buy price");                                                             // Line 99
 	echo T_("Sale Price");                                                            // Line 176
 	echo T_("Price for sale without discount");                                       // Line 178
 	echo T_("Impure Interest Rate");                                                  // Line 179
