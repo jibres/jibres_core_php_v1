@@ -17,25 +17,29 @@
       {{block ("iperiod")}}
       </div>
 
-      <div data-response='period' data-response-hide data-response-effect='slide' data-response-where="1m|12m">
-        {{block('iPromo')}}
-        <div class="msg info2 mT20 f" id='price'>
-          <div class="c">{%trans "Your bill total"%}</div>
-          <div class="cauto">
-            <span class="txtB"></span>
-            <small>{%trans "Toman"%}</small>
+      <div data-response='plan' data-response-hide data-response-effect='slide' data-response-where="simple|standard">
+        <div data-response='period' data-response-hide data-response-effect='slide' data-response-where="1m|12m">
+          {{block('iPromo')}}
+          <div class="msg info2 mT20 f" id='price'>
+            <div class="c">{%trans "Your bill total"%}</div>
+            <div class="cauto">
+              <span class="txtB"></span>
+              <small>{%trans "Toman"%}</small>
+            </div>
           </div>
+        {{block('iPay')}}
+          <button class="btn primary block mT20">{%trans "Register store and pay"%}</button>
         </div>
-      {{block('iPay')}}
-        <button class="btn primary block mT20">{%trans "Register store and pay"%}</button>
       </div>
 
       <div data-response='plan' data-response-hide data-response-where="free">
         <button class="btn primary block mT20">{%trans "Create you free store"%}</button>
       </div>
 
-      <div data-response='period' data-response-hide data-response-effect='slide' data-response-where="trial">
-        <button class="btn primary block mT20">{%trans "Try Jibres for 14 days"%}</button>
+      <div data-response='plan' data-response-hide data-response-effect='slide' data-response-where="simple|standard">
+        <div data-response='period' data-response-hide data-response-effect='slide' data-response-where="trial">
+          <button class="btn primary block mT20">{%trans "Try Jibres for 14 days"%}</button>
+        </div>
       </div>
     </form>
   </div>
@@ -74,7 +78,7 @@
 {%block iPromo%}
 <label for="promo" class="mT10">{%trans "Promo code"%}</label>
 <div class="input">
-  <input type="text" name="promo" id="promo" placeholder='{%trans "Promo code"%}' maxlength='30' pattern=".{1,30}" title='{%trans "If you have promo code, enter it to give some discount!"%}' data-check='{{url.this}}/add?check=promo'>
+  <input type="text" name="promo" id="promo" placeholder='{%trans "Promo code"%}' maxlength='30' pattern=".{1,30}" title='{%trans "If you have promo code, enter it to give some discount!"%}' needREVIEW-data-check='{{url.this}}/add?check=promo'>
 </div>
 {%endblock%}
 
@@ -82,7 +86,7 @@
 {%block islug%}
 <label for="slug">{%trans "store short name"%} <small>{%trans "Used for url of store as subdomain"%}</small> <span class="fc-red">*</span></label>
 <div class="input fix">
-  <input type="text" name="slug" id="slug" placeholder='{%trans "Subdomain for your store"%} *' maxlength='40' class="ltr" required title='{%trans "Set it carefully, you can not change it later"%}' autocomplete="off" data-check='{{url.this}}/add'>
+  <input type="text" name="slug" id="slug" placeholder='{%trans "Subdomain for your store"%} *' maxlength='40' class="ltr" required title='{%trans "Set it carefully, you can not change it later"%}' autocomplete="off" needREVIEW-data-check='{{url.this}}/add'>
   <label class="addon ltr" for="slug">.{{url.domain | capitalize}}</label>
 </div>
 {%endblock%}
