@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-11-06 21:52+0330\n"
-"PO-Revision-Date: 2018-11-06 21:53+0330\n"
+"POT-Creation-Date: 2018-11-07 09:35+0330\n"
+"PO-Revision-Date: 2018-11-07 09:46+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -307,7 +307,7 @@ msgstr "همچنین نظر خاص را اضافه یا ویرایش کنید."
 #: dash/addons/content_cp/terms/view.php:61
 #: dash/addons/content_su/tg/log/view.php:14
 #: jibres/content_a/chap/receipt/view.php:12
-#: jibres/content_a/factor/home/view.php:59
+#: jibres/content_a/factor/home/view.php:58
 msgid "Back to dashboard"
 msgstr "بازگشت به داشبورد"
 
@@ -746,7 +746,7 @@ msgid "Search"
 msgstr "جستجو"
 
 #: dash/addons/content_cp/terms/view.php:128
-#: jibres/content_a/chap/receipt/controller.php:13
+#: jibres/content_a/chap/receipt/controller.php:12
 #: jibres/content_a/factor/edit/controller.php:11
 #: jibres/content_a/pay/controller.php:11
 msgid "Id not found"
@@ -4998,7 +4998,7 @@ msgstr "جایزه"
 
 #: dash/addons/includes/languages/trans_dash.php:783
 #: jibres/includes/languages/trans_dash.php:824
-#: jibres/includes/languages/trans_project.php:680
+#: jibres/includes/languages/trans_project.php:677
 msgid "Unit"
 msgstr "واحد"
 
@@ -5629,7 +5629,7 @@ msgstr "کد معتبر وارد کنید!"
 #: jibres/content_a/product/home/controller.php:124
 #: jibres/content_a/product/home/controller.php:217
 #: jibres/includes/languages/trans_dash.php:424
-#: jibres/includes/languages/trans_project.php:677
+#: jibres/includes/languages/trans_project.php:679
 msgid "Code"
 msgstr "کد"
 
@@ -10528,83 +10528,83 @@ msgstr "چند سالتونه؟"
 
 #: dash/lib/social/telegram/answer.php:110
 msgid "A mother is the truest friend we have"
-msgstr ""
+msgstr "رفیق بی‌کلک مادر"
 
 #: dash/lib/social/telegram/answer.php:111
 msgid "We have a lot of in common"
-msgstr ""
+msgstr "ما باهم تفاهم داریم"
 
 #: dash/lib/social/telegram/answer.php:112 dash/lib/social/telegram/answer.php:114
 msgid "You heard me"
-msgstr ""
+msgstr "درست شنیدی"
 
 #: dash/lib/social/telegram/answer.php:113
 msgid "You were sublime"
-msgstr ""
+msgstr "کارت حرف نداشت"
 
 #: dash/lib/social/telegram/answer.php:115
 msgid "A Younger idler, an old beggar"
-msgstr ""
+msgstr "جوان بیکار امروز، گدای پیر فرداست"
 
 #: dash/lib/social/telegram/answer.php:116
 msgid "You can't put the clock back"
-msgstr ""
+msgstr "گذشته‌ها گذشته است"
 
 #: dash/lib/social/telegram/answer.php:117
 msgid "Years teach us more than books"
-msgstr ""
+msgstr "سال‌ها بیشتر از کتابها به ما درس می‌دهند"
 
 #: dash/lib/social/telegram/answer.php:118
 msgid "You can't keep a good man down"
-msgstr ""
+msgstr "خواستن توانستن است"
 
 #: dash/lib/social/telegram/answer.php:119
 msgid "As easy as ABC"
-msgstr ""
+msgstr "به سادگی آب خوردن"
 
 #: dash/lib/social/telegram/answer.php:120
 msgid "You saw nothing, you heard nothing"
-msgstr ""
+msgstr "شتر دیدی ندیدی"
 
 #: dash/lib/social/telegram/answer.php:121
 msgid "You took the words out of my mouth"
-msgstr ""
+msgstr "جانا سخن از زبان ما می‌گویی"
 
 #: dash/lib/social/telegram/answer.php:122
 msgid "You can educate a fool, but you can not make him think"
-msgstr ""
+msgstr "آدم احمق را می‌توان تربیت کرد، اما نمی‌توان به تفکر واداشت"
 
 #: dash/lib/social/telegram/answer.php:123
 msgid "You can't have your cake and eat it too"
-msgstr ""
+msgstr "هم خدارو می‌خواد هم خرمارو"
 
 #: dash/lib/social/telegram/answer.php:124
 msgid "You can't take it with you when you die"
-msgstr ""
+msgstr "ثروت را به هنگام مرگ با خود به گور نتوان برد"
 
 #: dash/lib/social/telegram/answer.php:125
 msgid "You can not put out a fire with oil"
-msgstr ""
+msgstr "آتش را با آتش خاموش نتوان کرد"
 
 #: dash/lib/social/telegram/answer.php:126
 msgid "You must lie on the bed you have made"
-msgstr ""
+msgstr "خود کرده را تدبیر نیست"
 
 #: dash/lib/social/telegram/answer.php:127
 msgid "You can't mend a broken egg"
-msgstr ""
+msgstr "آب رفته به جوی بر نمی‌گردد"
 
 #: dash/lib/social/telegram/answer.php:128
 msgid "You can not get blood out of stone"
-msgstr ""
+msgstr "از آب کره نتوان گرفت"
 
 #: dash/lib/social/telegram/answer.php:129
 msgid "You must grin and bear it"
-msgstr ""
+msgstr "باید بسوزی و بسازی"
 
 #: dash/lib/social/telegram/answer.php:130
 msgid "You can't please everyone"
-msgstr ""
+msgstr "همه را نمی‌توان از خود راضی  نگه داشت"
 
 #: dash/lib/social/telegram/commands/conversation.php:56
 msgid "Test <b>:name</b> bot on :site"
@@ -10688,7 +10688,7 @@ msgstr "همگام‌سازی"
 
 #: dash/lib/social/telegram/commands/ermile.php:92
 msgid "connect"
-msgstr ""
+msgstr "اتصال"
 
 #: dash/lib/social/telegram/commands/ermile.php:145
 #: dash/lib/social/telegram/commands/ermile.php:418
@@ -10940,11 +10940,11 @@ msgstr "بیشتر و بیشتر"
 
 #: dash/lib/social/telegram/commands/utility.php:67
 msgid "Wow"
-msgstr ""
+msgstr "وای"
 
 #: dash/lib/social/telegram/commands/utility.php:74
 msgid "You cannot delete your account from Telegram!"
-msgstr ""
+msgstr "شما نمی‌توانید حساب خود را از طریق تلگرام پاک کنید!"
 
 #: dash/lib/social/telegram/commands/utility.php:83
 msgid "Booom"
@@ -11012,11 +11012,11 @@ msgstr "چرا نام خانوادگی شما متفاوت است!"
 
 #: dash/lib/social/telegram/user.php:185
 msgid "Enter in :val website"
-msgstr ""
+msgstr "ورود به وب‌سایت :val"
 
 #: dash/lib/social/telegram/user.php:194
 msgid "Your phone number registered successfully"
-msgstr ""
+msgstr "شماره موبایل شما با موفقیت ثبت شد"
 
 #: dash/lib/social/telegram/user.php:194 dash/lib/social/telegram/user.php:199
 msgid "Thank you."
@@ -11024,7 +11024,7 @@ msgstr "سپاسگذاریم."
 
 #: dash/lib/social/telegram/user.php:199
 msgid "We have your mobile before this!"
-msgstr ""
+msgstr "ما شماره موبایل شما را پیش از این داشتیم!"
 
 #: dash/lib/social/telegram/user.php:203
 msgid "Registration failed!"
@@ -11768,17 +11768,17 @@ msgstr ""
 msgid "No items have been added for sale"
 msgstr "هیچ محصولی برای فروش انتخاب نشده است"
 
-#: jibres/content_a/buy/view.php:11
+#: jibres/content_a/buy/view.php:10
 msgid "Buy invoicing"
 msgstr ""
 
-#: jibres/content_a/buy/view.php:12
+#: jibres/content_a/buy/view.php:11
 msgid ""
 "Add buy from supplier will update stock and price of products automatically."
 msgstr ""
 
-#: jibres/content_a/buy/view.php:15 jibres/content_a/chap/receipt/view.php:31
-#: jibres/content_a/pay/view.php:12 jibres/content_a/sale/view.php:15
+#: jibres/content_a/buy/view.php:14 jibres/content_a/chap/receipt/view.php:31
+#: jibres/content_a/pay/view.php:12 jibres/content_a/sale/view.php:14
 msgid "Back to last sales"
 msgstr "بازگشت به آخرین فروش‌ها"
 
@@ -11810,7 +11810,7 @@ msgstr "فروشگاه یافت نشد"
 msgid "Your are not in this store"
 msgstr "شما در این فروشگاه نیستید"
 
-#: jibres/content_a/factor/edit/view.php:9 jibres/content_a/sale/view.php:11
+#: jibres/content_a/factor/edit/view.php:9 jibres/content_a/sale/view.php:10
 msgid "Sale invoicing"
 msgstr "صدور فاکتور فروش"
 
@@ -11827,30 +11827,30 @@ msgstr "کالا یافت نشد."
 msgid "edit as new product"
 msgstr "ویرایش به‌عنوان محصول جدید"
 
-#: jibres/content_a/factor/home/view.php:55
+#: jibres/content_a/factor/home/view.php:54
 msgid "List of factors"
 msgstr "لیست تمامی فاکتور‌ها"
 
-#: jibres/content_a/factor/home/view.php:56
+#: jibres/content_a/factor/home/view.php:55
 msgid "You can search in list of factors, add new factor or edit existing."
 msgstr ""
 "شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا "
 "ویرایش کنید."
 
-#: jibres/content_a/factor/home/view.php:65
+#: jibres/content_a/factor/home/view.php:64
 #: jibres/content_a/thirdparty/home/view.php:164
 msgid "List of :type"
 msgstr "لیست :type"
 
-#: jibres/content_a/factor/home/view.php:66
+#: jibres/content_a/factor/home/view.php:65
 msgid "Search in list of :type factors, add or edit them."
 msgstr "جستجو در لیست :type و افزودن یا ویرایش آنها."
 
-#: jibres/content_a/factor/home/view.php:67
+#: jibres/content_a/factor/home/view.php:66
 msgid "List of all factors."
 msgstr "لیست تمامی فاکتور‌ها."
 
-#: jibres/content_a/factor/home/view.php:74
+#: jibres/content_a/factor/home/view.php:73
 #: jibres/content_a/thirdparty/add/view.php:24
 #: jibres/content_a/thirdparty/home/view.php:93
 #: jibres/content_a/thirdparty/home/view.php:170
@@ -12074,7 +12074,7 @@ msgid "Iran barcode"
 msgstr "ایران بارکد"
 
 #: jibres/content_a/product/home/view.php:9
-#: jibres/content_a/product/summary/view.php:13
+#: jibres/content_a/product/summary/view.php:12
 #: jibres/includes/languages/trans_project.php:744
 msgid "List of products"
 msgstr "لیست محصولات"
@@ -12158,12 +12158,12 @@ msgid ""
 msgstr ""
 "مدیریت تنظیمات انبار این محصول مثل تعداد در هر انبار و برخی از تنظیمات اضافی."
 
-#: jibres/content_a/product/summary/view.php:10
+#: jibres/content_a/product/summary/view.php:9
 #: jibres/includes/languages/trans_project.php:284
 msgid "Products Summary"
 msgstr "خلاصه وضعیت محصولات"
 
-#: jibres/content_a/product/summary/view.php:11
+#: jibres/content_a/product/summary/view.php:10
 msgid "Some detail about your product!"
 msgstr "یک سری جزئیات درباره محصولات شما!"
 
@@ -12404,20 +12404,20 @@ msgstr "لیست خریدهای این مشتری از فروشگاه."
 msgid "Please fill the note box"
 msgstr "لطفا باکس متن را پر کنید"
 
-#: jibres/content_a/thirdparty/comment/view.php:12
+#: jibres/content_a/thirdparty/comment/view.php:11
 #: jibres/includes/languages/trans_project.php:506
 msgid "Notes"
 msgstr "یادداشت‌ها"
 
-#: jibres/content_a/thirdparty/comment/view.php:13
+#: jibres/content_a/thirdparty/comment/view.php:12
 msgid "Add some note for user to archive them and read later."
 msgstr "افزودن یادداشت برای این شخص در جهت آرشیو شدن و بررسی در آینده."
 
-#: jibres/content_a/thirdparty/company/view.php:12
+#: jibres/content_a/thirdparty/company/view.php:11
 msgid "Company detail"
 msgstr "جزئیات شرکت"
 
-#: jibres/content_a/thirdparty/company/view.php:13
+#: jibres/content_a/thirdparty/company/view.php:12
 msgid "Set and check company detail for legal account."
 msgstr "تنظیم و بررسی اطلاعات شرکت برای حساب کاربری حقوقی."
 
@@ -14886,16 +14886,16 @@ msgid "Organize by category"
 msgstr "دسته برای طبقه‌بندی"
 
 #: jibres/includes/languages/trans_project.php:678
+msgid "like Qty, kg, etc"
+msgstr "مثل عدد، کیلوگرم یا ..."
+
+#: jibres/includes/languages/trans_project.php:680
 msgid "For quick access"
 msgstr "برای دسترسی سریع"
 
-#: jibres/includes/languages/trans_project.php:679
+#: jibres/includes/languages/trans_project.php:681
 msgid "Short code"
 msgstr "کد کوتاه"
-
-#: jibres/includes/languages/trans_project.php:681
-msgid "like Qty, kg, etc"
-msgstr "مثل عدد، کیلوگرم یا ..."
 
 #: jibres/includes/languages/trans_project.php:683
 msgid "Scan Barcode here..."
@@ -15473,15 +15473,18 @@ msgid "aThirdPartyPermissionChange"
 msgstr "تغییر سطح دسترسی طرف حساب"
 
 #: jibres/includes/languages/trans_static.php:33
-msgid "aReportDaily"
-msgstr "نمایش گزارش روزانه فروش"
+#: jibres/includes/languages/trans_static.php:198
+msgid "reportDaily"
+msgstr "نمایش گزارش روزانه"
 
 #: jibres/includes/languages/trans_static.php:34
-msgid "aReportMonth"
-msgstr "نمایش گزارش ماهانه فروش"
+#: jibres/includes/languages/trans_static.php:199
+msgid "reportMonth"
+msgstr "نمایش گزارش ماهیانه"
 
 #: jibres/includes/languages/trans_static.php:35
-msgid "aReportView"
+#: jibres/includes/languages/trans_static.php:200
+msgid "reportView"
 msgstr "نمایش گزارش‌ها"
 
 #: jibres/includes/languages/trans_static.php:36
@@ -15513,11 +15516,13 @@ msgid "aPermissionView"
 msgstr "نمایش سطح دسترسی"
 
 #: jibres/includes/languages/trans_static.php:43
-msgid "aSettingEdit"
+#: jibres/includes/languages/trans_static.php:196
+msgid "settingEdit"
 msgstr "ویرایش تنظیمات فروشگاه"
 
 #: jibres/includes/languages/trans_static.php:44
-msgid "aSettingView"
+#: jibres/includes/languages/trans_static.php:197
+msgid "settingView"
 msgstr "نمایش تنظیمات فروشگاه"
 
 #: jibres/includes/languages/trans_static.php:45
@@ -15609,42 +15614,52 @@ msgid "thirdparties"
 msgstr "طرف‌حساب‌ها"
 
 #: jibres/includes/languages/trans_static.php:78
+#: jibres/includes/languages/trans_static.php:195
 msgid "cpThirdpartyTagAdd"
 msgstr "افزودن تگ جدید طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:79
+#: jibres/includes/languages/trans_static.php:155
 msgid "staffAccess"
 msgstr "دسترسی به کارمند"
 
 #: jibres/includes/languages/trans_static.php:80
+#: jibres/includes/languages/trans_static.php:156
 msgid "supplierAccess"
 msgstr "دسترسی به تامین‌کنندگان"
 
 #: jibres/includes/languages/trans_static.php:81
+#: jibres/includes/languages/trans_static.php:157
 msgid "customerAccess"
 msgstr "دسترسی به مشتریان"
 
 #: jibres/includes/languages/trans_static.php:83
+#: jibres/includes/languages/trans_static.php:160
 msgid "staffAdd"
 msgstr "افزودن کارمند"
 
 #: jibres/includes/languages/trans_static.php:84
+#: jibres/includes/languages/trans_static.php:159
 msgid "supplierAdd"
 msgstr "افزودن تامین‌کننده"
 
 #: jibres/includes/languages/trans_static.php:85
+#: jibres/includes/languages/trans_static.php:158
 msgid "customerAdd"
 msgstr "افزودن مشتری"
 
 #: jibres/includes/languages/trans_static.php:87
+#: jibres/includes/languages/trans_static.php:167
 msgid "thirdpartyNoteView"
 msgstr "نمایش یادداشت طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:88
+#: jibres/includes/languages/trans_static.php:166
 msgid "thirdpartyNoteAdd"
 msgstr "افزودن یادداشت به طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:89
+#: jibres/includes/languages/trans_static.php:165
 msgid "thirdpartyAssignTag"
 msgstr "افزودن تگ به طرف‌حساب"
 
@@ -15653,58 +15668,72 @@ msgid "thirdpartyProfileView"
 msgstr "نمایش پروفایل طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:91
+#: jibres/includes/languages/trans_static.php:173
 msgid "thirdpartyMobileEdit"
 msgstr "ویرایش موبایل طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:92
+#: jibres/includes/languages/trans_static.php:174
 msgid "thirdpartyContactEdit"
 msgstr "ویرایش پل‌های ارتباطی طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:93
+#: jibres/includes/languages/trans_static.php:183
 msgid "thirdpartyIdentifyEdit"
 msgstr "ویرایش اطلاعات هویتی طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:94
+#: jibres/includes/languages/trans_static.php:181
 msgid "thirdpartyElectronicDocumentEdit"
 msgstr "ویرایش اسناد الکترونیکی طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:95
+#: jibres/includes/languages/trans_static.php:178
 msgid "thirdpartyAddressView"
 msgstr "نمایش آدرس طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:96
+#: jibres/includes/languages/trans_static.php:180
 msgid "thirdpartyAddressAdd"
 msgstr "افزودن آدرس طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:97
+#: jibres/includes/languages/trans_static.php:177
 msgid "thirdpartyAddressEdit"
 msgstr "ویرایش آدرس طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:98
+#: jibres/includes/languages/trans_static.php:179
 msgid "thirdpartyAddressDelete"
 msgstr "حذف آدرس طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:99
+#: jibres/includes/languages/trans_static.php:172
 msgid "thirdpartyAvatarSet"
 msgstr "تنظیم آواتار طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:100
+#: jibres/includes/languages/trans_static.php:171
 msgid "thirdpartyAvatarDelete"
 msgstr "حذف آواتار طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:101
+#: jibres/includes/languages/trans_static.php:176
 msgid "thirdpartyCompanyDetailEdit"
 msgstr "ویرایش اطلاعات حقوقی طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:102
+#: jibres/includes/languages/trans_static.php:169
 msgid "thirdpartyManageView"
 msgstr "نمایش مدیریت طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:103
+#: jibres/includes/languages/trans_static.php:170
 msgid "thirdpartyTypeEdit"
 msgstr "ویرایش نوع طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:104
+#: jibres/includes/languages/trans_static.php:168
 msgid "thirdpartyPermissionEdit"
 msgstr "ویرایش سطح دسترسی طرف‌حساب"
 
@@ -15725,16 +15754,243 @@ msgid "thirdpartyLogView"
 msgstr "نمایش لاگ طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:109
+#: jibres/includes/languages/trans_static.php:184
 msgid "thirdpartyTagView"
 msgstr "نمایش تگ‌های طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:110
+#: jibres/includes/languages/trans_static.php:182
 msgid "thirdpartyIdentifyView"
 msgstr "نمایش اطلاعات هویتی طرف‌حساب"
 
 #: jibres/includes/languages/trans_static.php:111
+#: jibres/includes/languages/trans_static.php:175
 msgid "thirdpartyCompanyDetailView"
 msgstr "نمایش اطلاعات حقوقی طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:113
+msgid "factorSaleView"
+msgstr "نمایش فاکتور‌های فروش"
+
+#: jibres/includes/languages/trans_static.php:114
+msgid "factorMySaleView"
+msgstr "فقط نمایش فاکتور‌های فروش خود"
+
+#: jibres/includes/languages/trans_static.php:115
+msgid "factorSaleAdd"
+msgstr "افزودن فاکتور فروش"
+
+#: jibres/includes/languages/trans_static.php:116
+msgid "factorSaleViewDetail"
+msgstr "نمایش جزئیات فاکتور فروش"
+
+#: jibres/includes/languages/trans_static.php:117
+msgid "factorBuyList"
+msgstr "نمایش فاکتور خرید"
+
+#: jibres/includes/languages/trans_static.php:118
+msgid "factorMyBuyList"
+msgstr "فقط نمایش فاکتور خرید خود"
+
+#: jibres/includes/languages/trans_static.php:119
+msgid "factorBuyAdd"
+msgstr "افزودن فاکتور خرید"
+
+#: jibres/includes/languages/trans_static.php:120
+msgid "factorBuyViewDetail"
+msgstr "نمایش جزئیات فاکتور خرید"
+
+#: jibres/includes/languages/trans_static.php:121
+msgid "productAdd"
+msgstr "افزودن محصول"
+
+#: jibres/includes/languages/trans_static.php:122
+msgid "productList"
+msgstr "نمایش لیست محصولات"
+
+#: jibres/includes/languages/trans_static.php:123
+msgid "productSummary"
+msgstr "نمایش خلاصه وضعیت محصولات"
+
+#: jibres/includes/languages/trans_static.php:124
+msgid "productAdvanceSearchView"
+msgstr "قابلیت فیلتر کردن محصولات با جستجوی پیشرفته"
+
+#: jibres/includes/languages/trans_static.php:125
+msgid "productPriceAccess"
+msgstr "دسترسی به قیمت محصول"
+
+#: jibres/includes/languages/trans_static.php:126
+msgid "productFinalpriceAccess"
+msgstr "دسترسی به قیمت نهایی محصول"
+
+#: jibres/includes/languages/trans_static.php:127
+msgid "productDatemodifiedAccess"
+msgstr "دسترسی به تاریخ ویرایش محصول"
+
+#: jibres/includes/languages/trans_static.php:128
+msgid "productBuypriceAccess"
+msgstr "دسترسی به قیمت خرید محصول"
+
+#: jibres/includes/languages/trans_static.php:129
+msgid "productDiscountAccess"
+msgstr "دسترسی به تخفیف محصول"
+
+#: jibres/includes/languages/trans_static.php:130
+msgid "productProfitAccess"
+msgstr "دسترسی به میزان سود محصول"
+
+#: jibres/includes/languages/trans_static.php:131
+msgid "productStockAccess"
+msgstr "دسترسی به موجودی محصول"
+
+#: jibres/includes/languages/trans_static.php:132
+msgid "productInitialbalanceEdit"
+msgstr "ویرایش موجودی اولیه محصول"
+
+#: jibres/includes/languages/trans_static.php:133
+msgid "productEditGeneral"
+msgstr "ویرایش عمومی محصول"
+
+#: jibres/includes/languages/trans_static.php:134
+msgid "productManagementView"
+msgstr "نمایش بخش مدیریت محصول"
+
+#: jibres/includes/languages/trans_static.php:135
+msgid "productStatusEdit"
+msgstr "ویرایش وضعیت محصول"
+
+#: jibres/includes/languages/trans_static.php:136
+msgid "productDelete"
+msgstr "حذف محصول"
+
+#: jibres/includes/languages/trans_static.php:137
+msgid "productGlance"
+msgstr "نمایش نگاه اجمالی محصول"
+
+#: jibres/includes/languages/trans_static.php:138
+msgid "productSite"
+msgstr "نمایش بخش سایت محصول"
+
+#: jibres/includes/languages/trans_static.php:139
+msgid "productThumbEdit"
+msgstr "ویرایش تصویر شاخص محصول"
+
+#: jibres/includes/languages/trans_static.php:140
+msgid "productGalleryEdit"
+msgstr "ویرایش گالری تصاویر محصول"
+
+#: jibres/includes/languages/trans_static.php:141
+msgid "productDescriptionEdit"
+msgstr "ویرایش توضیحات محصول"
+
+#: jibres/includes/languages/trans_static.php:142
+msgid "productPriceHistoryView"
+msgstr "نمایش نمودار تغییر قیمت محصول"
+
+#: jibres/includes/languages/trans_static.php:143
+msgid "productImport"
+msgstr "وارد کردن دسته محصولات"
+
+#: jibres/includes/languages/trans_static.php:144
+msgid "productExport"
+msgstr "خروجی از محصول"
+
+#: jibres/includes/languages/trans_static.php:145
+msgid "productCategoryListView"
+msgstr "نمایش لیست دسته‌بندی‌های محصولات"
+
+#: jibres/includes/languages/trans_static.php:146
+msgid "productCategoryListAdd"
+msgstr "افزودن دسته‌بندی محصول"
+
+#: jibres/includes/languages/trans_static.php:147
+msgid "productCategoryListEdit"
+msgstr "ویرایش دسته‌بندی محصول"
+
+#: jibres/includes/languages/trans_static.php:148
+msgid "productUnitListView"
+msgstr "نمایش لیست واحد‌های محصولات"
+
+#: jibres/includes/languages/trans_static.php:149
+msgid "productUnitListAdd"
+msgstr "افزودن واحد محصول"
+
+#: jibres/includes/languages/trans_static.php:150
+msgid "productUnitListEdit"
+msgstr "ویرایش واحد محصول"
+
+#: jibres/includes/languages/trans_static.php:151
+msgid "reportListChartHours"
+msgstr "نمایش گزارش فروش به تفکیک ساعت"
+
+#: jibres/includes/languages/trans_static.php:152
+msgid "permissionList"
+msgstr "نمایش لیست سطح دسترسی"
+
+#: jibres/includes/languages/trans_static.php:153
+msgid "permissionAddEdit"
+msgstr "افزودن و ویرایش سطح دسترسی"
+
+#: jibres/includes/languages/trans_static.php:154
+msgid "permissionDelete"
+msgstr "حذف سطح دسترسی"
+
+#: jibres/includes/languages/trans_static.php:161
+msgid "staffExport"
+msgstr "خروجی از کارمندان"
+
+#: jibres/includes/languages/trans_static.php:162
+msgid "customerExport"
+msgstr "خروجی از مشتریان"
+
+#: jibres/includes/languages/trans_static.php:163
+msgid "supplierExport"
+msgstr "خروجی از طرف حساب‌ها"
+
+#: jibres/includes/languages/trans_static.php:164
+msgid "thirdPartyPermissionChange"
+msgstr "ویرایش سطح دسترسی طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:185
+msgid "thirdpartyGlance"
+msgstr "نمایش نگاه اجمال طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:186
+msgid "thirdpartyBudgetView"
+msgstr "نمایش بودجه طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:187
+msgid "thirdpartyCreditView"
+msgstr "نمایش اعتبار طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:188
+msgid "thirdpartyDashboardVariableView"
+msgstr "نمایش مقادیر داشبورد طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:189
+msgid "thirdpartyTransactionView"
+msgstr "نمایش تراکنش‌های طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:190
+msgid "thirdpartyTransactionPlus"
+msgstr "افزودن تراکنش برای طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:191
+msgid "thirdpartyTransactionMinus"
+msgstr "کاهش تراکنش برای طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:192
+msgid "thirdpartyTransactionCreditView"
+msgstr "نمایش اعتبار طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:193
+msgid "thirdpartyTransactionCreditEdit"
+msgstr "ویرایش اعتبار طرف‌حساب"
+
+#: jibres/includes/languages/trans_static.php:194
+msgid "thirdpartyMobileView"
+msgstr "نمایش موبایل طرف‌حساب"
 
 #: jibres/includes/lib/app/factor.php:39
 msgid "You are not in this store!"
@@ -16573,29 +16829,38 @@ msgstr "فعال سازی پلن برای :store"
 msgid "Change plan of :store"
 msgstr "تغییر پلن :store"
 
-#: jibres/includes/permission/permission.php:19
-msgid "Can view the admin page"
-msgstr "شما می‌توانید صفحه‌ی مدیریت را ببینید"
+#~ msgid "aReportDaily"
+#~ msgstr "نمایش گزارش روزانه فروش"
 
-#: jibres/includes/permission/permission.php:27
-msgid "Can add hourse for all users in admin page"
-msgstr "شما می‌توانید ساعات همه‌ی کاربران را در صفحه مدیریت وارد کنید"
+#~ msgid "aReportMonth"
+#~ msgstr "نمایش گزارش ماهانه فروش"
 
-#: jibres/includes/permission/permission.php:86
-msgid "Allow to show transaction list"
-msgstr "اجازه نمایش لیست تراکنش‌ها"
+#~ msgid "aReportView"
+#~ msgstr "نمایش گزارش‌ها"
 
-#: jibres/includes/permission/permission.php:92
-msgid "Allow to add new transaction list manualy"
-msgstr "اجازه افزودن دستی تراکنش جدید"
+#~ msgid "aSettingEdit"
+#~ msgstr "ویرایش تنظیمات فروشگاه"
 
-#: jibres/includes/permission/permission.php:98
-msgid "Allow to show system logs"
-msgstr "اجازه مشاهده لاگ‌های سیستم"
+#~ msgid "aSettingView"
+#~ msgstr "نمایش تنظیمات فروشگاه"
 
-#: jibres/includes/permission/permission.php:104
-msgid "Allow to login by another session"
-msgstr "اجازه ورود با کاربر دیگر"
+#~ msgid "Can view the admin page"
+#~ msgstr "شما می‌توانید صفحه‌ی مدیریت را ببینید"
+
+#~ msgid "Can add hourse for all users in admin page"
+#~ msgstr "شما می‌توانید ساعات همه‌ی کاربران را در صفحه مدیریت وارد کنید"
+
+#~ msgid "Allow to show transaction list"
+#~ msgstr "اجازه نمایش لیست تراکنش‌ها"
+
+#~ msgid "Allow to add new transaction list manualy"
+#~ msgstr "اجازه افزودن دستی تراکنش جدید"
+
+#~ msgid "Allow to show system logs"
+#~ msgstr "اجازه مشاهده لاگ‌های سیستم"
+
+#~ msgid "Allow to login by another session"
+#~ msgstr "اجازه ورود با کاربر دیگر"
 
 #~ msgid "Haloo"
 #~ msgstr "سلووو"
