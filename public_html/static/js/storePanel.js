@@ -39,7 +39,7 @@ function calcFooterValues(_table)
   {
     // variables
     var tmpCount           = parseFloat($(this).find('.count').val().toEnglish());
-    var tmpPrice           = parseInt($(this).find('td:eq(3)').attr('data-val'));
+    var tmpPrice           = parseInt($(this).find('td.cellPrice').attr('data-val'));
     var tmpDiscount        = parseInt($(this).find('.discount').val().toEnglish());
     var tmpDiscountPercent = 0;
     // check NaN values
@@ -77,37 +77,37 @@ function calcFooterValues(_table)
     tmpDiscountPercent = (tmpDiscount * 100 / tmpPrice).toFixed(2);
     if($.isNumeric(tmpDiscountPercent) && tmpDiscountPercent>0 )
     {
-      // $(this).find('td:eq(4) .addon').text(fitNumber(tmpDiscountPercent) + '%');
-      $(this).find('td:eq(4) input').attr('title', fitNumber(tmpDiscountPercent) + ' %');
+      // $(this).find('td.cellDiscount .addon').text(fitNumber(tmpDiscountPercent) + '%');
+      $(this).find('td.cellDiscount input').attr('title', fitNumber(tmpDiscountPercent) + ' %');
     }
     else
     {
-      $(this).find('td:eq(4) input').attr('title', '00');
-      // $(this).find('td:eq(4) .addon').text('');
+      $(this).find('td.cellDiscount input').attr('title', '00');
+      // $(this).find('td.cellDiscount .addon').text('');
     }
 
     // set final price
     if(tmpFinalCol === 0 && !tmpPrice)
     {
-      $(this).find('td:eq(5)').text('');
+      $(this).find('td.cellTotal').text('');
     }
     else
     {
-      $(this).find('td:eq(5)').text(fitNumber(tmpFinalCol));
+      $(this).find('td.cellTotal').text(fitNumber(tmpFinalCol));
     }
 
     // some conditional formating
     if(tmpPrice < tmpDiscount)
     {
       $(this).find('.discount').addClass('negative');
-      $(this).find('td:eq(4)').addClass('negative');
-      $(this).find('td:eq(5)').addClass('negative');
+      $(this).find('td.cellDiscount').addClass('negative');
+      $(this).find('td.cellTotal').addClass('negative');
     }
     else
     {
       $(this).find('.discount').removeClass('negative');
-      $(this).find('td:eq(4)').removeClass('negative');
-      $(this).find('td:eq(5)').removeClass('negative');
+      $(this).find('td.cellDiscount').removeClass('negative');
+      $(this).find('td.cellTotal').removeClass('negative');
     }
 
   });
@@ -485,17 +485,17 @@ function addNewRecord_ProductList(_table, _product, _append)
 
 
   var trEmpty   = '<tr>';
-  trEmpty       += '<td></td>';
-  trEmpty       += '<td></td>';
-  trEmpty       += '<td></td>';
-  trEmpty       += '<td></td>';
-  trEmpty       += '<td></td>';
-  trEmpty       += '<td></td>';
+  trEmpty       += '<td class="cellIndex"></td>';
+  trEmpty       += '<td class="cellTitle"></td>';
+  trEmpty       += '<td class="cellCount"></td>';
+  trEmpty       += '<td class="cellPrice"></td>';
+  trEmpty       += '<td class="cellDiscount"></td>';
+  trEmpty       += '<td class="cellTotal"></td>';
   trEmpty       += '</tr>';
   var newRecord = $(trEmpty);
   var cuRow     = _table.find('tr').length;
   // set row number
-  newRecord.find('td:eq(0)').text(fitNumber(cuRow));
+  newRecord.find('td.cellIndex').text(fitNumber(cuRow));
   if(_product)
   {
     var htmlPName     = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
@@ -520,18 +520,18 @@ function addNewRecord_ProductList(_table, _product, _append)
     newRecord.attr('data-id', _product.id);
     newRecord.attr('data-barcode', _product.barcode);
     newRecord.attr('data-barcode2', _product.barcode2);
-    newRecord.find('td:eq(1)').html(htmlPName);
-    newRecord.find('td:eq(2)').html(htmlPCount);
-    newRecord.find('td:eq(3)').text(fitNumber(_product.price)).attr('data-val', _product.price);
-    newRecord.find('td:eq(4)').html(htmlPDiscount);
-    newRecord.find('td:eq(5)').text(fitNumber(_product.finalprice)).attr('data-val', _product.finalprice);
+    newRecord.find('td.cellTitle').html(htmlPName);
+    newRecord.find('td.cellCount').html(htmlPCount);
+    newRecord.find('td.cellPrice').text(fitNumber(_product.price)).attr('data-val', _product.price);
+    newRecord.find('td.cellDiscount').html(htmlPDiscount);
+    newRecord.find('td.cellTotal').text(fitNumber(_product.finalprice)).attr('data-val', _product.finalprice);
   }
   else
   {
     // empty all inputs
     newRecord.find("input").val('');
-    newRecord.find('td:eq(3)').text('');
-    newRecord.find('td:eq(5)').text('');
+    newRecord.find('td.cellPrice').text('');
+    newRecord.find('td.cellTotal').text('');
   }
 
   if(_append)
@@ -652,7 +652,7 @@ function navigationFactorAddSetSelected(_tr, _focus)
 {
   if(!_tr || _tr.length === 0)
   {
-    _tr = $('#factorAdd .productList tbody tr:eq(0)');
+    _tr = $('#factorAdd .productList tbody tr.cellIndex');
   }
 
   // remove other selecred
