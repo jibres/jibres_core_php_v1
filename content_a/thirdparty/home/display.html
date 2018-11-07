@@ -204,9 +204,9 @@
 
 <div class="f mB10">
  <div class="c">{{block ("stAll")}}</div>
-{%if perm('mCustomerView')%}<div class="c">{{block ("stCustomer")}}</div>{%endif%}
-{%if perm('mSupplierView')%}<div class="c">{{block ("stSupplier")}}</div>{%endif%}
-{%if perm('mStaffView')%}<div class="c">{{block ("stStaff")}}</div>{%endif%}
+{%if perm('customerAccess')%}<div class="c">{{block ("stCustomer")}}</div>{%endif%}
+{%if perm('supplierAccess')%}<div class="c">{{block ("stSupplier")}}</div>{%endif%}
+{%if perm('staffAccess')%}<div class="c">{{block ("stStaff")}}</div>{%endif%}
 </div>
 
 

@@ -1,10 +1,208 @@
 {
-  "cpThirdpartyTagAdd": {
-    "title": "cpThirdpartyTagAdd",
-    "cat": "Thirdparty",
-    "require": [
-      "contentCp"
-    ]
+  "factorSaleView": {
+    "title": "factorSaleView",
+    "cat": "Factor",
+    "require": []
+  },
+  "factorMySaleView": {
+    "title": "factorMySaleView",
+    "cat": "Factor",
+    "require": []
+  },
+  "factorSaleAdd": {
+    "title": "factorSaleAdd",
+    "cat": "Factor",
+    "require": []
+  },
+  "factorSaleViewDetail": {
+    "title": "factorSaleViewDetail",
+    "cat": "Factor",
+    "require": []
+  },
+  "factorBuyList": {
+    "title": "factorBuyList",
+    "cat": "Factor",
+    "require": []
+  },
+  "factorMyBuyList": {
+    "title": "factorMyBuyList",
+    "cat": "Factor",
+    "require": []
+  },
+  "factorBuyAdd": {
+    "title": "factorBuyAdd",
+    "cat": "Factor",
+    "require": []
+  },
+  "factorBuyViewDetail": {
+    "title": "factorBuyViewDetail",
+    "cat": "Factor",
+    "require": []
+  },
+  "productAdd": {
+    "title": "productAdd",
+    "cat": "Product",
+    "require": []
+  },
+  "productList": {
+    "title": "productList",
+    "cat": "Product",
+    "require": []
+  },
+  "productSummary": {
+    "title": "productSummary",
+    "cat": "Product",
+    "require": []
+  },
+  "productAdvanceSearchView": {
+    "title": "productAdvanceSearchView",
+    "cat": "Product",
+    "require": []
+  },
+  "productPriceAccess": {
+    "title": "productPriceAccess",
+    "cat": "Product",
+    "require": []
+  },
+  "productFinalpriceAccess": {
+    "title": "productFinalpriceAccess",
+    "cat": "Product",
+    "require": []
+  },
+  "productDatemodifiedAccess": {
+    "title": "productDatemodifiedAccess",
+    "cat": "Product",
+    "require": []
+  },
+  "productBuypriceAccess": {
+    "title": "productBuypriceAccess",
+    "cat": "Product",
+    "require": []
+  },
+  "productDiscountAccess": {
+    "title": "productDiscountAccess",
+    "cat": "Product",
+    "require": []
+  },
+  "productProfitAccess": {
+    "title": "productProfitAccess",
+    "cat": "Product",
+    "require": []
+  },
+  "productStockAccess": {
+    "title": "productStockAccess",
+    "cat": "Product",
+    "require": []
+  },
+  "productInitialbalanceEdit": {
+    "title": "productInitialbalanceEdit",
+    "cat": "Product",
+    "require": []
+  },
+  "productEditGeneral": {
+    "title": "productEditGeneral",
+    "cat": "Product",
+    "require": []
+  },
+  "productManagementView": {
+    "title": "productManagementView",
+    "cat": "Product",
+    "require": []
+  },
+  "productStatusEdit": {
+    "title": "productStatusEdit",
+    "cat": "Product",
+    "require": []
+  },
+  "productDelete": {
+    "title": "productDelete",
+    "cat": "Product",
+    "require": []
+  },
+  "productGlance": {
+    "title": "productGlance",
+    "cat": "Product",
+    "require": []
+  },
+  "productSite": {
+    "title": "productSite",
+    "cat": "Product",
+    "require": []
+  },
+  "productThumbEdit": {
+    "title": "productThumbEdit",
+    "cat": "Product",
+    "require": []
+  },
+  "productGalleryEdit": {
+    "title": "productGalleryEdit",
+    "cat": "Product",
+    "require": []
+  },
+  "productDescriptionEdit": {
+    "title": "productDescriptionEdit",
+    "cat": "Product",
+    "require": []
+  },
+  "productPriceHistoryView": {
+    "title": "productPriceHistoryView",
+    "cat": "Product",
+    "require": []
+  },
+  "productImport": {
+    "title": "productImport",
+    "cat": "Product",
+    "require": []
+  },
+  "productExport": {
+    "title": "productExport",
+    "cat": "Product",
+    "require": []
+  },
+  "productCategoryListView": {
+    "title": "productCategoryListView",
+    "cat": "Product",
+    "require": []
+  },
+  "productCategoryListAdd": {
+    "title": "productCategoryListAdd",
+    "cat": "Product",
+    "require": []
+  },
+  "productCategoryListEdit": {
+    "title": "productCategoryListEdit",
+    "cat": "Product",
+    "require": []
+  },
+  "productUnitListView": {
+    "title": "productUnitListView",
+    "cat": "Product",
+    "require": []
+  },
+  "productUnitListAdd": {
+    "title": "productUnitListAdd",
+    "cat": "Product",
+    "require": []
+  },
+  "productUnitListEdit": {
+    "title": "productUnitListEdit",
+    "cat": "Product",
+    "require": []
+  },
+  "permissionList": {
+    "title": "permissionList",
+    "cat": "Permission",
+    "require": []
+  },
+  "permissionAddEdit": {
+    "title": "permissionAddEdit",
+    "cat": "Permission",
+    "require": []
+  },
+  "permissionDelete": {
+    "title": "permissionDelete",
+    "cat": "Permission",
+    "require": []
   },
   "staffAccess": {
     "title": "staffAccess",
@@ -21,8 +219,8 @@
     "cat": "Thirdparty",
     "require": []
   },
-  "staffAdd": {
-    "title": "staffAdd",
+  "customerAdd": {
+    "title": "customerAdd",
     "cat": "Thirdparty",
     "require": []
   },
@@ -31,25 +229,28 @@
     "cat": "Thirdparty",
     "require": []
   },
-  "customerAdd": {
-    "title": "customerAdd",
+  "staffAdd": {
+    "title": "staffAdd",
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartyNoteView": {
-    "title": "thirdpartyNoteView",
+  "staffExport": {
+    "title": "staffExport",
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartyNoteAdd": {
-    "title": "thirdpartyNoteAdd",
+  "customerExport": {
+    "title": "customerExport",
     "cat": "Thirdparty",
-    "require": [
-      "thirdpartyNoteView"
-    ]
+    "require": []
   },
-  "thirdpartyTagView": {
-    "title": "thirdpartyTagView",
+  "supplierExport": {
+    "title": "supplierExport",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdPartyPermissionChange": {
+    "title": "thirdPartyPermissionChange",
     "cat": "Thirdparty",
     "require": []
   },
@@ -58,84 +259,18 @@
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartyProfileView": {
-    "title": "thirdpartyProfileView",
+  "thirdpartyNoteAdd": {
+    "title": "thirdpartyNoteAdd",
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartyMobileEdit": {
-    "title": "thirdpartyMobileEdit",
+  "thirdpartyNoteView": {
+    "title": "thirdpartyNoteView",
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartyContactEdit": {
-    "title": "thirdpartyContactEdit",
-    "cat": "Thirdparty",
-    "require": []
-  },
-  "thirdpartyIdentifyView": {
-    "title": "thirdpartyIdentifyView",
-    "cat": "Thirdparty",
-    "require": []
-  },
-  "thirdpartyIdentifyEdit": {
-    "title": "thirdpartyIdentifyEdit",
-    "cat": "Thirdparty",
-    "require": [
-      "thirdpartyIdentifyView"
-    ]
-  },
-  "thirdpartyElectronicDocumentEdit": {
-    "title": "thirdpartyElectronicDocumentEdit",
-    "cat": "Thirdparty",
-    "require": []
-  },
-  "thirdpartyAddressView": {
-    "title": "thirdpartyAddressView",
-    "cat": "Thirdparty",
-    "require": []
-  },
-  "thirdpartyAddressAdd": {
-    "title": "thirdpartyAddressAdd",
-    "cat": "Thirdparty",
-    "require": [
-      "thirdpartyAddressView"
-    ]
-  },
-  "thirdpartyAddressEdit": {
-    "title": "thirdpartyAddressEdit",
-    "cat": "Thirdparty",
-    "require": [
-      "thirdpartyAddressView"
-    ]
-  },
-  "thirdpartyAddressDelete": {
-    "title": "thirdpartyAddressDelete",
-    "cat": "Thirdparty",
-    "require": [
-      "thirdpartyAddressView",
-      "thirdpartyAddressEdit"
-    ]
-  },
-  "thirdpartyAvatarSet": {
-    "title": "thirdpartyAvatarSet",
-    "cat": "Thirdparty",
-    "require": []
-  },
-  "thirdpartyAvatarDelete": {
-    "title": "thirdpartyAvatarDelete",
-    "cat": "Thirdparty",
-    "require": [
-      "thirdpartyAvatarSet"
-    ]
-  },
-  "thirdpartyCompanyDetailView": {
-    "title": "thirdpartyCompanyDetailView",
-    "cat": "Thirdparty",
-    "require": []
-  },
-  "thirdpartyCompanyDetailEdit": {
-    "title": "thirdpartyCompanyDetailEdit",
+  "thirdpartyPermissionEdit": {
+    "title": "thirdpartyPermissionEdit",
     "cat": "Thirdparty",
     "require": []
   },
@@ -149,29 +284,159 @@
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartyPermissionEdit": {
-    "title": "thirdpartyPermissionEdit",
+  "thirdpartyAvatarDelete": {
+    "title": "thirdpartyAvatarDelete",
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartyBoughtView": {
-    "title": "thirdpartyBoughtView",
+  "thirdpartyAvatarSet": {
+    "title": "thirdpartyAvatarSet",
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartySoldView": {
-    "title": "thirdpartySoldView",
+  "thirdpartyMobileEdit": {
+    "title": "thirdpartyMobileEdit",
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartyFactorView": {
-    "title": "thirdpartyFactorView",
+  "thirdpartyContactEdit": {
+    "title": "thirdpartyContactEdit",
     "cat": "Thirdparty",
     "require": []
   },
-  "thirdpartyLogView": {
-    "title": "thirdpartyLogView",
+  "thirdpartyCompanyDetailView": {
+    "title": "thirdpartyCompanyDetailView",
     "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyCompanyDetailEdit": {
+    "title": "thirdpartyCompanyDetailEdit",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyAddressEdit": {
+    "title": "thirdpartyAddressEdit",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyAddressView": {
+    "title": "thirdpartyAddressView",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyAddressDelete": {
+    "title": "thirdpartyAddressDelete",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyAddressAdd": {
+    "title": "thirdpartyAddressAdd",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyElectronicDocumentEdit": {
+    "title": "thirdpartyElectronicDocumentEdit",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyIdentifyView": {
+    "title": "thirdpartyIdentifyView",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyIdentifyEdit": {
+    "title": "thirdpartyIdentifyEdit",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyTagView": {
+    "title": "thirdpartyTagView",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyGlance": {
+    "title": "thirdpartyGlance",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyBudgetView": {
+    "title": "thirdpartyBudgetView",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyCreditView": {
+    "title": "thirdpartyCreditView",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyDashboardVariableView": {
+    "title": "thirdpartyDashboardVariableView",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyTransactionView": {
+    "title": "thirdpartyTransactionView",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyTransactionPlus": {
+    "title": "thirdpartyTransactionPlus",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyTransactionMinus": {
+    "title": "thirdpartyTransactionMinus",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyTransactionCreditView": {
+    "title": "thirdpartyTransactionCreditView",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyTransactionCreditEdit": {
+    "title": "thirdpartyTransactionCreditEdit",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "thirdpartyMobileView": {
+    "title": "thirdpartyMobileView",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "cpThirdpartyTagAdd": {
+    "title": "cpThirdpartyTagAdd",
+    "cat": "Thirdparty",
+    "require": []
+  },
+  "settingEdit": {
+    "title": "settingEdit",
+    "cat": "Store setting",
+    "require": []
+  },
+  "settingView": {
+    "title": "settingView",
+    "cat": "Store setting",
+    "require": []
+  },
+  "reportListChartHours": {
+    "title": "reportListChartHours",
+    "cat": "Report",
+    "require": []
+  },
+  "reportDaily": {
+    "title": "reportDaily",
+    "cat": "Report",
+    "require": []
+  },
+  "reportMonth": {
+    "title": "reportMonth",
+    "cat": "Report",
+    "require": []
+  },
+  "reportView": {
+    "title": "reportView",
+    "cat": "Report",
     "require": []
   }
 }

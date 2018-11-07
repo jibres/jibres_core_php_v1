@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('aReportView');
+		\dash\permission::access('reportView');
 
 		$redirect_enter = false;
 		if(\dash\user::detail('logintime'))

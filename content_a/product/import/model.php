@@ -6,7 +6,7 @@ class model
 {
 	public static function post()
 	{
-		\dash\permission::access('aProductImport');
+		\dash\permission::access('productImport');
 		$list = self::getImportFile();
 
 		if($list === false)

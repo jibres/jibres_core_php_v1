@@ -81,7 +81,7 @@
   <label for="type">{%trans "Type of thirdparty"%}</label>
   <div class="f">
 
-  {%if perm('aStaffAdd')%}
+  {%if perm('staffAdd')%}
    <div class="check1">
     <input type="checkbox" id="r-staff" name="staff" value="staff" {%if thirdparty.staff %}checked{%endif%}>
     <label for="r-staff">{%trans "Staff"%}</label>

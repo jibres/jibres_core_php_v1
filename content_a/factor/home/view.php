@@ -6,7 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('aFactorList');
 
 		self::set_best_title();
 

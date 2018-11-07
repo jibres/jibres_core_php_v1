@@ -1,9 +1,13 @@
 <?php
+require_once ('master.php');
+
 // make plan array
 $plan = [];
 
+
+
 // ----------------------------------------------- SIMPLE -------------------------------------------- //
-$simple   = [];
+$simple   = $master;
 
 $simple[] = "mPermissionAdd";
 
@@ -21,10 +25,8 @@ $plan['simple'] =
 
 
 // ----------------------------------------------- STANDARD ------------------------------------------ //
-
-$standard   = [];
+$standard   = $master;
 $standard[] = 'mGroupView';
-
 
 
 $plan['standard'] =

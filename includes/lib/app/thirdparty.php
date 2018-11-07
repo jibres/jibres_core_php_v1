@@ -309,7 +309,7 @@ class thirdparty
 		}
 
 		$permission = \dash\app::request('permission');
-		if(\dash\permission::check("aThirdPartyPermissionChange"))
+		if(\dash\permission::check("thirdPartyPermissionChange"))
 		{
 			if($permission && !in_array($permission, array_keys(\dash\permission::groups())))
 			{
@@ -338,7 +338,7 @@ class thirdparty
 
 		$args['permission']          = $permission;
 
-		if(!\dash\permission::check("aThirdPartyPermissionChange") || !isset($args['staff']))
+		if(!\dash\permission::check("thirdPartyPermissionChange") || !isset($args['staff']))
 		{
 			unset($args['permission']);
 		}

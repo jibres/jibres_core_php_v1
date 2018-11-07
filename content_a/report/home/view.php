@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('aReportView');
+		\dash\permission::access('reportView');
 
 		\dash\data::page_title(T_('Report list'));
 		\dash\data::page_desc(T_('Show and analyze best report in this platform.'));
