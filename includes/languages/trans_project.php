@@ -20,31 +20,31 @@ class twigTransTerms
 	//------------------------------------------------content_c/store/add/display.html
 	echo T_("With this form you can add your store and start using Jibres.");         // Line 9
 	echo T_("Need help to choose plan? Check our pricing or call us");                // Line 14
-	echo T_("Your bill total");                                                       // Line 23
+	echo T_("Your bill total");                                                       // Line 24
 	echo T_("Toman");                                                                 // Line 107
-	echo T_("Register store and pay");                                                // Line 30
-	echo T_("Create you free store");                                                 // Line 34
-	echo T_("Try Jibres for 14 days");                                                // Line 38
+	echo T_("Register store and pay");                                                // Line 31
+	echo T_("Create you free store");                                                 // Line 36
+	echo T_("Try Jibres for 14 days");                                                // Line 41
 	echo T_("Name");                                                                  // Line 13
 	echo T_("Enter a valid name");                                                    // Line 54
 	echo T_("Description");                                                           // Line 555
-	echo T_("Used for description of store and show in social media links");          // Line 58
+	echo T_("Used for description of store and show in social media links");          // Line 62
 	echo T_("Insert");                                                                // Line 42
-	echo T_("Promo code");                                                            // Line 77
-	echo T_("If you have promo code, enter it to give some discount!");               // Line 77
-	echo T_("store short name");                                                      // Line 83
-	echo T_("Used for url of store as subdomain");                                    // Line 83
-	echo T_("Subdomain for your store");                                              // Line 85
-	echo T_("Set it carefully, you can not change it later");                         // Line 85
-	echo T_("Choose your start plan");                                                // Line 93
+	echo T_("Promo code");                                                            // Line 81
+	echo T_("If you have promo code, enter it to give some discount!");               // Line 81
+	echo T_("store short name");                                                      // Line 87
+	echo T_("Used for url of store as subdomain");                                    // Line 87
+	echo T_("Subdomain for your store");                                              // Line 89
+	echo T_("Set it carefully, you can not change it later");                         // Line 89
+	echo T_("Choose your start plan");                                                // Line 97
 	echo T_("Free");                                                                  // Line 208
 	echo T_("Simple");                                                                // Line 226
 	echo T_("Standard");                                                              // Line 219
-	echo T_("Choose your start plan period");                                         // Line 115
-	echo T_("Trial");                                                                 // Line 119
-	echo T_("Pay monthly");                                                           // Line 124
-	echo T_("Pay yearly");                                                            // Line 130
-	echo T_("two month is free");                                                     // Line 130
+	echo T_("Choose your start plan period");                                         // Line 119
+	echo T_("Trial");                                                                 // Line 123
+	echo T_("Pay monthly");                                                           // Line 128
+	echo T_("Pay yearly");                                                            // Line 134
+	echo T_("two month is free");                                                     // Line 134
 
 	//-----------------------------------------------------content_c/home/display.html
 	echo T_("Start from");                                                            // Line 32
@@ -305,7 +305,7 @@ class twigTransTerms
 	echo T_("Customers");                                                             // Line 27
 	echo T_("Suppliers");                                                             // Line 49
 	echo T_("Staffs");                                                                // Line 38
-	echo T_("register new sale factor");                                              // Line 39
+	echo T_("register new sale factor");                                              // Line 38
 	echo T_("List of sales");                                                         // Line 40
 	echo T_("List of purchases");                                                     // Line 41
 	echo T_("List of all factors");                                                   // Line 42

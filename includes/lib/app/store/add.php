@@ -248,9 +248,9 @@ trait add
 			// minus the value from user account
 			// the user use largen than one month of the plan
 
-			$invoice_title        = T_("Create :store :name - plan :plan - period  :period ", ['plan' => $plan, 'period' => $period, 'name' => $insert['name']]);
-			$invoice_detail_title = T_("Create :store :name", ['name' => $insert['name']]);
-			$transaction_title    = T_("Create :store :name", ['name' => $insert['name']]);
+			$invoice_title        = T_("Create store :name - plan :plan - period  :period ", ['plan' => $plan, 'period' => $period, 'name' => $insert['name']]);
+			$invoice_detail_title = T_("Create store :name", ['name' => $insert['name']]);
+			$transaction_title    = T_("Create store :name", ['name' => $insert['name']]);
 
 		    $new_invoice =
 			[
@@ -278,7 +278,7 @@ trait add
 
 			$transaction_set =
 	        [
-				'caller'         => 'invoice:store',
+				'caller'         => 'invoicestore',
 				'title'          => $transaction_title,
 				'user_id'        => \dash\user::id(),
 				'invoice_id'     => $invoice_id,
@@ -351,7 +351,6 @@ trait add
 
 		if(!\dash\user::id())
 		{
-			\dash\app::log('api:store:user_id:notfound', \dash\user::id(), $log_meta);
 			\dash\notif::error(T_("User not found"), 'user');
 			return false;
 		}
@@ -383,7 +382,6 @@ trait add
 
 				if($user_budget < 10000)
 				{
-					\dash\app::log('api:store:user_id:try:add:store2:budget:10000', \dash\user::id(), $log_meta);
 					\dash\notif::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
 					return false;
 				}
@@ -391,7 +389,6 @@ trait add
 
 			if($count_store >= 3)
 			{
-				\dash\app::log('api:store:try:add:store3:and:>3', \dash\user::id(), $log_meta);
 				\dash\notif::error(T_("You can not have more than three active stores. Contact support if needed"));
 				return false;
 			}
@@ -425,7 +422,6 @@ trait add
 
 		if(!$store_id)
 		{
-			\dash\app::log('api:store:no:way:to:insert:store', \dash\user::id(), $log_meta);
 			\dash\notif::error(T_("No way to insert store"), 'db', 'system');
 			return false;
 		}

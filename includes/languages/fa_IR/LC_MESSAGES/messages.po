@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2018-11-07 10:58+0330\n"
-"PO-Revision-Date: 2018-11-07 10:59+0330\n"
+"POT-Creation-Date: 2018-11-07 14:37+0330\n"
+"PO-Revision-Date: 2018-11-07 14:41+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -440,7 +440,7 @@ msgstr "حذف سطح دسترسی"
 #: jibres/includes/lib/app/product/edit.php:34
 #: jibres/includes/lib/app/product/edit.php:40
 #: jibres/includes/lib/app/store/edit.php:50
-#: jibres/includes/lib/app/store/edit.php:141
+#: jibres/includes/lib/app/store/edit.php:142
 #: jibres/includes/lib/app/storetransaction/edit.php:44
 #: jibres/includes/lib/app/storetransaction/edit.php:51
 msgid "Id not set"
@@ -805,7 +805,7 @@ msgstr "بازگشت به لیست کاربران"
 #: dash/lib/app/posts/add.php:37 dash/lib/app/term.php:338
 #: dash/lib/app/user/add.php:54 jibres/includes/lib/app/factor/add.php:45
 #: jibres/includes/lib/app/product/add.php:43
-#: jibres/includes/lib/app/store/add.php:31
+#: jibres/includes/lib/app/store/add.php:354
 #: jibres/includes/lib/app/storetransaction/account.php:34
 #: jibres/includes/lib/app/storetransaction/add.php:46
 msgid "User not found"
@@ -4333,7 +4333,7 @@ msgstr "تغییر نده"
 
 #: dash/addons/includes/languages/trans_dash.php:581
 #: jibres/includes/languages/trans_dash.php:511
-#: jibres/includes/lib/app/store/add.php:101
+#: jibres/includes/lib/app/store/add.php:446
 msgid "You"
 msgstr "شما"
 
@@ -6293,7 +6293,7 @@ msgstr "ویراستار"
 
 #: dash/addons/includes/languages/trans_static.php:154
 #: dash/addons/includes/languages/trans_static.php:468
-#: jibres/includes/lib/app/store/add.php:105
+#: jibres/includes/lib/app/store/add.php:450
 msgid "Admin"
 msgstr "مدیریت"
 
@@ -11955,12 +11955,12 @@ msgstr ""
 
 #: jibres/content_a/product/add/view.php:14
 #: jibres/content_a/product/cats/view.php:12
-#: jibres/content_a/product/desc/view.php:11
+#: jibres/content_a/product/desc/view.php:13
 #: jibres/content_a/product/factor/view.php:11
 #: jibres/content_a/product/gallery/view.php:14
 #: jibres/content_a/product/general/view.php:13
 #: jibres/content_a/product/load.php:36 jibres/content_a/product/manage/view.php:12
-#: jibres/content_a/product/pricehistory/view.php:11
+#: jibres/content_a/product/pricehistory/view.php:13
 #: jibres/content_a/product/report/view.php:11
 #: jibres/content_a/product/site/view.php:11
 #: jibres/content_a/product/stock/view.php:13
@@ -11993,6 +11993,10 @@ msgstr ""
 #: jibres/content_a/product/desc/view.php:9
 msgid "Description product!"
 msgstr "توضیحات محصول"
+
+#: jibres/content_a/product/desc/view.php:10
+msgid "This description is show on the website page of this product"
+msgstr ""
 
 #: jibres/content_a/product/export/model.php:16
 msgid "Export product successfully complete"
@@ -12139,6 +12143,10 @@ msgstr "شما می‌توانید محصول را به راحتی از طریق
 #: jibres/content_a/product/pricehistory/view.php:9
 msgid "Price change chart!"
 msgstr "نمودار تغییر قیمت محصول"
+
+#: jibres/content_a/product/pricehistory/view.php:10
+msgid "Check price change of this product like buy, sale and profit."
+msgstr ""
 
 #: jibres/content_a/product/report/view.php:9
 msgid "report product!"
@@ -12295,6 +12303,7 @@ msgid "Not ready!"
 msgstr "آماده نیست!"
 
 #: jibres/content_a/setting/plan/model.php:25
+#: jibres/includes/lib/app/store/add.php:78
 msgid "Please select one of plan"
 msgstr "لطفا یکی از پلن‌ها را انتخاب کنید"
 
@@ -12683,11 +12692,11 @@ msgstr "داشبورد جیبرس"
 msgid "Glance at your stores and quickly navigate to stores."
 msgstr "نگاهی مختصر به فروشگاه‌ها و دسترسی سریع به آنان."
 
-#: jibres/content_c/store/add/view.php:9
+#: jibres/content_c/store/add/view.php:15
 msgid "Add New Store"
 msgstr "افزودن فروشگاه جدید"
 
-#: jibres/content_c/store/add/view.php:10
+#: jibres/content_c/store/add/view.php:16
 msgid "Add with simple detail and config more after adding new store."
 msgstr ""
 "با اطلاعات اولیه فروشگاه خود را بسازید و در ادامه پس از افزودن آن تنظیمات بیشتر "
@@ -13007,6 +13016,8 @@ msgstr "همه فروشگاه‌ها"
 #: jibres/includes/languages/trans_project.php:21
 msgid "With this form you can add your store and start using Jibres."
 msgstr ""
+"با پرکردن این فرم شما می‌توانید فروشگاه خود را ساخته و شروع به استفاده از جبیرس "
+"کنید."
 
 #: jibres/includes/languages/trans_project.php:22
 msgid "Need help to choose plan? Check our pricing or call us"
@@ -13023,11 +13034,11 @@ msgstr "ثبت فروشگاه و پرداخت"
 
 #: jibres/includes/languages/trans_project.php:26
 msgid "Create you free store"
-msgstr ""
+msgstr "فروشگاه رایگان خود را بسازید"
 
 #: jibres/includes/languages/trans_project.php:27
 msgid "Try Jibres for 14 days"
-msgstr ""
+msgstr "جیبرس را به مدت ۱۴ روز آزمایش کنید"
 
 #: jibres/includes/languages/trans_project.php:29
 msgid "Enter a valid name"
@@ -13084,7 +13095,7 @@ msgstr "بازه زمانی پلن خود را انتخاب کنید"
 
 #: jibres/includes/languages/trans_project.php:44
 msgid "Trial"
-msgstr ""
+msgstr "آزمایشی"
 
 #: jibres/includes/languages/trans_project.php:45
 msgid "Pay monthly"
@@ -16097,7 +16108,7 @@ msgstr "خطا در کالای :key در فاکتور"
 #: jibres/includes/lib/app/storetransaction/account.php:46
 #: jibres/includes/lib/app/storetransaction/add.php:61
 #: jibres/includes/lib/app/storetransaction/edit.php:57
-#: jibres/includes/lib/app/thirdparty/add.php:44
+#: jibres/includes/lib/app/thirdparty/add.php:53
 #: jibres/includes/lib/app/thirdparty/edit.php:19
 msgid "You are not in this store"
 msgstr "شما در این فروشگاه نیستید"
@@ -16151,13 +16162,13 @@ msgstr "برخی از دستگاه‌های پوز در فروشگاه شما غ
 
 #: jibres/includes/lib/app/fund/add.php:32
 #: jibres/includes/lib/app/inventory/add.php:32
-#: jibres/includes/lib/app/thirdparty/add.php:32
+#: jibres/includes/lib/app/thirdparty/add.php:35
 msgid "user not found"
 msgstr "کاربر یافت نشد"
 
 #: jibres/includes/lib/app/fund/add.php:38
 #: jibres/includes/lib/app/inventory/add.php:38
-#: jibres/includes/lib/app/thirdparty/add.php:38
+#: jibres/includes/lib/app/thirdparty/add.php:44
 msgid "store not found"
 msgstr "فروشگاه یافت نشد"
 
@@ -16472,7 +16483,7 @@ msgstr "تمامی محصولات با واحد :old به :new تغییر کرد
 msgid "Buyprice"
 msgstr "قیمت خرید"
 
-#: jibres/includes/lib/app/store.php:61 jibres/includes/lib/app/store/edit.php:90
+#: jibres/includes/lib/app/store.php:61 jibres/includes/lib/app/store/edit.php:91
 msgid "Name of store can not be null"
 msgstr "نام فروشگاه نمی تواند خالی باشد"
 
@@ -16484,7 +16495,7 @@ msgstr "نام فروشگاه باید کمتر از ۱۰۰ حرف باشد"
 msgid "Store website must be less than 200 character"
 msgstr "آدرس وبسایت فروشگاه باید کمتر از ۲۰۰ حرف باشد"
 
-#: jibres/includes/lib/app/store.php:87 jibres/includes/lib/app/store/edit.php:97
+#: jibres/includes/lib/app/store.php:87 jibres/includes/lib/app/store/edit.php:98
 msgid "slug of store can not be null"
 msgstr "نام کوتاه فروشگاه نمی تواند خالی باشد"
 
@@ -16548,7 +16559,70 @@ msgstr "شهر باید کمتر از ۵۰ کاراکتر باشد"
 msgid "Invalid status of stores"
 msgstr "وضعیت نادرست برای فروشگاه‌ها"
 
-#: jibres/includes/lib/app/store/add.php:63
+#: jibres/includes/lib/app/store.php:239
+msgid "Invalid plan of stores"
+msgstr "پلن فروشگاه نادرست است"
+
+#: jibres/includes/lib/app/store/add.php:42
+msgid "Invalid plan"
+msgstr "پلن انتخابی اشتباه است"
+
+#: jibres/includes/lib/app/store/add.php:55
+msgid "You can not have more than two free or trial stores."
+msgstr "شما نمی‌توانید بیش از دو فروشگاه رایگان داشته باشید."
+
+#: jibres/includes/lib/app/store/add.php:59
+msgid "This msg in local is warn and in site is error :)"
+msgstr ""
+"این پیام در حالت لوکال به صورت هشدار است و در حالت سایت به صورت خطا نمایش داده "
+"می‌شود :)"
+
+#: jibres/includes/lib/app/store/add.php:84
+msgid "Please select one of period"
+msgstr "لطفا یکی از بازه‌های زمانی را انتخاب کنید"
+
+#: jibres/includes/lib/app/store/add.php:90
+msgid "Invalid period"
+msgstr "بازه زمانی نامعتبر است"
+
+#: jibres/includes/lib/app/store/add.php:102
+msgid "Please select one of payment to pay"
+msgstr "لطفا برای پرداخت یکی از روش‌های پرداخت را انتخاب کنید"
+
+#: jibres/includes/lib/app/store/add.php:115
+msgid "Invalid payment"
+msgstr "خطای درگاه"
+
+#: jibres/includes/lib/app/store/add.php:188
+msgid "Transaction unsuccessful. Store registration operation canceled"
+msgstr "تراکنش ناموفق بود. ثبت فروشگاه لغو شد"
+
+#: jibres/includes/lib/app/store/add.php:192
+msgid "Transaction successful."
+msgstr "عملیات موفق بود."
+
+#: jibres/includes/lib/app/store/add.php:198
+msgid "The amount entered is incorrect"
+msgstr "مبلغ وارد شده اشتباه است"
+
+#: jibres/includes/lib/app/store/add.php:215
+msgid "The amount charged is inconsistent with the payment structure"
+msgstr "مبلغ شارژ شده با ساختار پرداخت سیستم تناقض دارد"
+
+#: jibres/includes/lib/app/store/add.php:225
+msgid "Your store information was not found. Please try again"
+msgstr "اطلاعات فروشگاه شما یافت نشد. لطفا دوباره تلاش کنید"
+
+#: jibres/includes/lib/app/store/add.php:251
+msgid "Create store :name - plan :plan - period  :period "
+msgstr "ساخت :فروشگاه :name - با پلن :plan  - بازه :period "
+
+#: jibres/includes/lib/app/store/add.php:252
+#: jibres/includes/lib/app/store/add.php:253
+msgid "Create store :name"
+msgstr "ساخت فروشگاه :name"
+
+#: jibres/includes/lib/app/store/add.php:385
 msgid ""
 "To register a second store, you need to have at least 10,000 toman in inventory "
 "on your account"
@@ -16556,34 +16630,38 @@ msgstr ""
 "برای ثبت فروشگاه دوم و سوم خود، شما باید حداقل مبلغ ۱۰ هزار تومان موجودی در حساب "
 "خود داشته باشید"
 
-#: jibres/includes/lib/app/store/add.php:71
+#: jibres/includes/lib/app/store/add.php:392
 msgid "You can not have more than three active stores. Contact support if needed"
 msgstr ""
 "شما نمی توانید بیشتر از ۳ فروشگاه فعال داشته باشید. اگه به فروشگاه های بیشتری "
 "نیاز دارید با پشتیبانی تماس بگیرید"
 
-#: jibres/includes/lib/app/store/add.php:94
+#: jibres/includes/lib/app/store/add.php:408
+msgid "Please choose plan of store"
+msgstr "لطفا پلن فروشگاه خود را انتخاب کنید"
+
+#: jibres/includes/lib/app/store/add.php:425
 msgid "No way to insert store"
 msgstr "روشی برای افزودن فروشگاه نیست"
 
-#: jibres/includes/lib/app/store/add.php:125
+#: jibres/includes/lib/app/store/add.php:472
 msgid "Store successfuly added"
 msgstr "فروشگاه با موفقیت ثبت شد"
 
 #: jibres/includes/lib/app/store/edit.php:58
-#: jibres/includes/lib/app/store/edit.php:149
+#: jibres/includes/lib/app/store/edit.php:150
 msgid "Can not access to edit store"
 msgstr "شما دسترسی لازم برای ویرایش فروشگاه را ندارید"
 
-#: jibres/includes/lib/app/store/edit.php:124
+#: jibres/includes/lib/app/store/edit.php:125
 msgid "Your store successfully update"
 msgstr "فروشگاه شما با موفقیت به روز رسانی شد"
 
-#: jibres/includes/lib/app/store/edit.php:155
+#: jibres/includes/lib/app/store/edit.php:156
 msgid "No change in store logo"
 msgstr "تغییری در لوگوی فروشگاه ایجاد نشد"
 
-#: jibres/includes/lib/app/store/edit.php:164
+#: jibres/includes/lib/app/store/edit.php:165
 msgid "The store logo updated"
 msgstr "لوگوی فروشگاه تغییر یافت"
 
@@ -16805,32 +16883,32 @@ msgstr "پرکردن نام کارمند الزامی است"
 msgid "Fill mobile or name is require!"
 msgstr "پر کردن موبایل یا نام الزامی است!"
 
-#: jibres/includes/lib/app/thirdparty/add.php:86
+#: jibres/includes/lib/app/thirdparty/add.php:98
 #: jibres/includes/lib/app/thirdparty/edit.php:70
 msgid "Duplicate customer code in this store"
 msgstr "این کد مشتری در فروشگاه شما تکراری است"
 
-#: jibres/includes/lib/app/thirdparty/add.php:97
+#: jibres/includes/lib/app/thirdparty/add.php:112
 msgid "Plese fill the company name"
 msgstr "لطفا نام شرکت را وارد کنید"
 
-#: jibres/includes/lib/app/thirdparty/add.php:122
+#: jibres/includes/lib/app/thirdparty/add.php:138
 msgid "Company :companyname was already added to this store"
 msgstr "شرکت :companyname قبلا به فروشگاه شما اضافه شده است"
 
-#: jibres/includes/lib/app/thirdparty/add.php:140
+#: jibres/includes/lib/app/thirdparty/add.php:161
 msgid "No way to insert supplier"
 msgstr "هیچ راهی برای افزودن تامین کننده وجود ندارد"
 
-#: jibres/includes/lib/app/thirdparty/add.php:160
+#: jibres/includes/lib/app/thirdparty/add.php:184
 msgid "We can not signup new user"
 msgstr "ما نمی توانیم کاربری را اضافه کنیم"
 
-#: jibres/includes/lib/app/thirdparty/add.php:172
+#: jibres/includes/lib/app/thirdparty/add.php:199
 msgid "No way to insert thirdparty"
 msgstr "هیچ راهی برای ثبت طرف حساب وجود ندارد"
 
-#: jibres/includes/lib/app/thirdparty/add.php:180
+#: jibres/includes/lib/app/thirdparty/add.php:210
 msgid "Thirdparty successfuly added"
 msgstr "طرف حساب با موفقیت اضافه شد"
 
