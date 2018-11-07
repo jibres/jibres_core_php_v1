@@ -63,8 +63,17 @@ trait add
 
 			if($count_store_free >= 2)
 			{
-				\dash\notif::error(T_("You can not have more than two free or trial stores."));
-				return false;
+				$msg = T_("You can not have more than two free or trial stores.");
+
+				if(\dash\url::isLocal())
+				{
+					\dash\notif::warn($msg. "\n". T_("This msg in local is warn and in site is error :)"));
+				}
+				else
+				{
+					\dash\notif::error($msg);
+					return false;
+				}
 			}
 
 			return self::add($_args);
@@ -101,8 +110,6 @@ trait add
 			\dash\notif::error(T_("Please select one of plan"), 'plan');
 			return false;
 		}
-
-
 
 		if(!$period)
 		{
@@ -375,6 +382,12 @@ trait add
 
 		\dash\temp::set('last_store_added', isset($args['slug'])? $args['slug'] : null);
 
+		if(!isset($args['plan']))
+		{
+			\dash\notif::error(T_("Please choose plan of store"), 'plan');
+			return false;
+		}
+
 		$args['creator'] = \dash\user::id();
 		$args['status']  = 'enable';
 
@@ -393,6 +406,20 @@ trait add
 			return false;
 		}
 
+		// add planhistory
+		$insert_planhistory =
+		[
+			'store_id' => $store_id,
+			'plan'     => $args['plan'],
+			'start'    => date("Y-m-d H:i:s"),
+			'end'      => null,
+			'creator'  => \dash\user::id(),
+			'status'   => 'enable',
+		];
+
+		\lib\db\planhistory::insert($insert_planhistory);
+
+
 		$insert_userstore =
 		[
 			'mobile'     => \dash\user::detail('mobile'),
@@ -405,6 +432,7 @@ trait add
 		];
 
 		\lib\app\thirdparty::add($insert_userstore, ['debug' => false, 'store_id' => $store_id]);
+
 
 		if(\dash\url::isLocal())
 		{
