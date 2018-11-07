@@ -483,11 +483,17 @@ function addNewRecord_ProductList(_table, _product, _append)
     }
   }
 
+  var factorType = $('body').attr('data-page');
 
   var trEmpty   = '<tr>';
   trEmpty       += '<td class="cellIndex"></td>';
   trEmpty       += '<td class="cellTitle"></td>';
   trEmpty       += '<td class="cellCount"></td>';
+  if(factorType === 'buy')
+  {
+    trEmpty       += '<td class="cellBuy"></td>';
+  }
+  console.log(factorType);
   trEmpty       += '<td class="cellPrice"></td>';
   trEmpty       += '<td class="cellDiscount"></td>';
   trEmpty       += '<td class="cellTotal"></td>';
@@ -500,6 +506,7 @@ function addNewRecord_ProductList(_table, _product, _append)
   {
     var htmlPName     = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
     var htmlPCount    = '<input class="input count" type="number" name="count[]" autocomplete="off" min="0" max="1000000000" step="any" value=1>';
+    var htmlPBuy      = '<input class="input buy" type="number" name="buy[]" autocomplete="off" min="0" max="1000000000">';
     var htmlPDiscount = '<div class="input discountCn">';
     htmlPDiscount    += '<input class="discount" type="number" name="discount[]" autocomplete="off" title="%" min="0" max="1000000000"';
     if(_product.discount)
@@ -522,6 +529,11 @@ function addNewRecord_ProductList(_table, _product, _append)
     newRecord.attr('data-barcode2', _product.barcode2);
     newRecord.find('td.cellTitle').html(htmlPName);
     newRecord.find('td.cellCount').html(htmlPCount);
+    if(factorType === 'buy')
+    {
+      newRecord.find('td.cellBuy').html(htmlPBuy);
+    }
+
     newRecord.find('td.cellPrice').text(fitNumber(_product.price)).attr('data-val', _product.price);
     newRecord.find('td.cellDiscount').html(htmlPDiscount);
     newRecord.find('td.cellTotal').text(fitNumber(_product.finalprice)).attr('data-val', _product.finalprice);
