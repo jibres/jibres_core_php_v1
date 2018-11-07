@@ -673,12 +673,12 @@ function shortkey_toggleDiscount(_status)
   if(removeDiscount)
   {
     priceDiscountEl.attr('data-woDiscount', '');
-    $('.productList thead th:eq(4)').addClass('negative').attr('data-woDiscount', '');
+    $('.productList th.headDiscount').addClass('negative').attr('data-woDiscount', '');
   }
   else
   {
     priceDiscountEl.attr('data-woDiscount', null);
-    $('.productList thead th:eq(4)').removeClass('negative').attr('data-woDiscount', null);
+    $('.productList th.headDiscount').removeClass('negative').attr('data-woDiscount', null);
   }
 
   $('.productList input.discount').each(function()

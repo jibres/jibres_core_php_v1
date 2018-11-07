@@ -24,7 +24,7 @@ kbd{font-family:monospace;}
 
 
 .tbl1.productList[data-item='0']{display:none}
-.tbl1.productList .product{white-space:nowrap;min-width:100px;}
+.tbl1.productList .headProduct{white-space:nowrap;min-width:100px;}
 .tbl1.productList input.count{white-space:nowrap;min-width:50px;max-width:60px;padding:5px 0.1em;text-align:center;background-color:transparent;}
 
 .tbl1.productList .input.discountCn{min-width:70px;max-width:120px;margin:0 auto;}
@@ -67,7 +67,7 @@ kbd{font-family:monospace;}
 
 
 @media (max-width: 767px) {
-  .tbl1.productList .product{min-width:auto;}
+  .tbl1.productList .headProduct{min-width:auto;}
   .tbl1 .min80{width:auto;}
   .tbl1 .min100{width:auto;}
   .tbl1 .min120{width:auto;}
