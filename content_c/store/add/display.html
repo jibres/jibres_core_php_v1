@@ -4,11 +4,39 @@
 {%block pageContent%}
 <div class="f justify-center">
   <div class="c6 s12">
-    <form method="post" class="cbox">
+    <form method="post" class="cbox pB20" autocomplete="off">
+      <div class="msg txtC txtB">
+        {%trans "With this form you can add your store and start using Jibres."%}
+      </div>
     {{block ("iname")}}
     {{block ("islug")}}
-    {{block ("idesc")}}
-    {{block ("iInsert")}}
+
+     <a class="msg success2 block txtC mT20" href="{{url.site}}/pricing" data-direct>{%trans "Need help to choose plan? Check our pricing or call us"%}</a>
+      {{block ("iplan")}}
+      <div data-response='plan' data-response-hide data-response-where="simple|standard">
+      {{block ("iperiod")}}
+      </div>
+
+      <div data-response='period' data-response-hide data-response-effect='slide' data-response-where="1m|12m">
+        {{block('iPromo')}}
+        <div class="msg info2 mT20 f" id='price'>
+          <div class="c">{%trans "Your bill total"%}</div>
+          <div class="cauto">
+            <span class="txtB"></span>
+            <small>{%trans "Toman"%}</small>
+          </div>
+        </div>
+      {{block('iPay')}}
+        <button class="btn primary block mT20">{%trans "Register store and pay"%}</button>
+      </div>
+
+      <div data-response='plan' data-response-hide data-response-where="free">
+        <button class="btn primary block mT20">{%trans "Create you free store"%}</button>
+      </div>
+
+      <div data-response='period' data-response-hide data-response-effect='slide' data-response-where="trial">
+        <button class="btn primary block mT20">{%trans "Try Jibres for 14 days"%}</button>
+      </div>
     </form>
   </div>
 </div>
@@ -24,13 +52,6 @@
 {%endblock%}
 
 
-{%block islug%}
-<label for="slug">{%trans "Store short name"%} <small>{%trans "Used for url of store as subdomain"%}</small></label>
-<div class="input fix">
-  <input type="text" name="slug" id="slug" placeholder='{%trans "subdomain for your store"%}' maxlength='40' class="ltr">
-  <label class="addon ltr" for="slug">.Jibres.com</label>
-</div>
-{%endblock%}
 
 
 {%block idesc%}
@@ -41,5 +62,135 @@
 
 {%block iInsert%}
 <button class="btn primary block mT20">{%trans "Insert"%}</button>
+{%endblock%}
+
+
+
+
+
+
+
+
+{%block iPromo%}
+<label for="promo" class="mT10">{%trans "Promo code"%}</label>
+<div class="input">
+  <input type="text" name="promo" id="promo" placeholder='{%trans "Promo code"%}' maxlength='30' pattern=".{1,30}" title='{%trans "If you have promo code, enter it to give some discount!"%}' data-check='{{url.this}}/add?check=promo'>
+</div>
+{%endblock%}
+
+
+{%block islug%}
+<label for="slug">{%trans "store short name"%} <small>{%trans "Used for url of store as subdomain"%}</small> <span class="fc-red">*</span></label>
+<div class="input fix">
+  <input type="text" name="slug" id="slug" placeholder='{%trans "Subdomain for your store"%} *' maxlength='40' class="ltr" required title='{%trans "Set it carefully, you can not change it later"%}' autocomplete="off" data-check='{{url.this}}/add'>
+  <label class="addon ltr" for="slug">.{{url.domain | capitalize}}</label>
+</div>
+{%endblock%}
+
+
+
+{%block iplan%}
+ <p class="mT10">{%trans "Choose your start plan"%} <span class="fc-red">*</span></p>
+
+    <div class="radio1">
+      <input type="radio" id="plan-free" name="plan" value="free">
+      <label for="plan-free">{%trans "Free"%}</label>
+    </div>
+
+    <div class="radio1">
+      <input type="radio" id="plan-simple" name="plan" value="simple" data-1m='100000' data-12m='1000000'>
+      <label for="plan-simple">{%trans "Simple"%}</label>
+    </div>
+
+
+    <div class="radio1">
+      <input type="radio" id="plan-12m" name="plan" value="standard" data-1m='500000' data-12m='5000000'>
+      <label for="plan-12m">{%trans "Standard"%}</label>
+    </div>
+
+{%endblock%}
+
+
+{%block iperiod%}
+    <p class="mT10">{%trans "Choose your start plan period"%} <span class="fc-red">*</span></p>
+
+    <div class="radio1">
+      <input type="radio" id="period-trial" name="period" value="trial">
+      <label for="period-trial">{%trans "Trial"%}</label>
+    </div>
+
+    <div class="radio1">
+      <input type="radio" id="period-1m" name="period" value="1m">
+      <label for="period-1m">{%trans "Pay monthly"%}</label>
+    </div>
+
+
+    <div class="radio1">
+      <input type="radio" id="period-12m" name="period" value="12m">
+      <label for="period-12m">{%trans "Pay yearly"%} - {%trans "two month is free"%}</label>
+    </div>
+
+
+{%endblock%}
+
+
+{%block foot_js%}
+<script type="text/javascript">
+  function pushStateFinal()
+  {
+    $('#plan').off('change');
+    $('#period').off('change');
+    $('#plan').on('change', function(){ calcTotalPlanPrice(); });
+    $('#period').on('change', function(){ calcTotalPlanPrice(); });
+  }
+
+
+  function calcTotalPlanPrice()
+  {
+    var myPlanRow = $('#plan option[value="' + $('#plan').val() + '"]');
+    var myPeriod  = $('#period').val();
+    var myPrice   = fitNumber(1000);
+
+    var myPrice = myPlanRow.attr('data-'+ myPeriod);
+    if(!myPrice)
+    {
+      myPrice = '-';
+    }
+    $('#price span').text(fitNumber(myPrice));
+
+    return myPrice;
+  }
+</script>
+{%endblock%}
+
+
+
+
+
+{%block iPay%}
+
+  <div class="radioGateway">
+   <input type="radio" name="bank" value="parsian" id="parsian" checked>
+   <label for='parsian' class="spay-64-parsian"></label>
+  </div>
+
+  <div class="radioGateway">
+   <input type="radio" name="bank" value="irkish" id="irkish">
+   <label for='irkish' class="spay-64-irkish"></label>
+  </div>
+
+  <div class="radioGateway">
+   <input type="radio" name="bank" value="zarinpal" id="ZarinPal">
+   <label for='ZarinPal' class="spay-64-zarinpal"></label>
+  </div>
+
+
+{%if url.tld == 'local' %}
+  <div class="radioGateway">
+   <input type="radio" name="bank" value="payir" id="payir">
+   <label for='payir' class="spay-64-payir"></label>
+  </div>
+{%endif%}
+
 {%endblock%}
 

@@ -18,14 +18,33 @@ class twigTransTerms
 	echo T_("Search");                                                                // Line 104
 
 	//------------------------------------------------content_c/store/add/display.html
+	echo T_("With this form you can add your store and start using Jibres.");         // Line 9
+	echo T_("Need help to choose plan? Check our pricing or call us");                // Line 14
+	echo T_("Your bill total");                                                       // Line 23
+	echo T_("Toman");                                                                 // Line 107
+	echo T_("Register store and pay");                                                // Line 30
+	echo T_("Create you free store");                                                 // Line 34
+	echo T_("Try Jibres for 14 days");                                                // Line 38
 	echo T_("Name");                                                                  // Line 13
 	echo T_("Enter a valid name");                                                    // Line 54
-	echo T_("Store short name");                                                      // Line 28
-	echo T_("Used for url of store as subdomain");                                    // Line 28
-	echo T_("subdomain for your store");                                              // Line 30
 	echo T_("Description");                                                           // Line 555
-	echo T_("Used for description of store and show in social media links");          // Line 37
+	echo T_("Used for description of store and show in social media links");          // Line 58
 	echo T_("Insert");                                                                // Line 42
+	echo T_("Promo code");                                                            // Line 77
+	echo T_("If you have promo code, enter it to give some discount!");               // Line 77
+	echo T_("store short name");                                                      // Line 83
+	echo T_("Used for url of store as subdomain");                                    // Line 83
+	echo T_("Subdomain for your store");                                              // Line 85
+	echo T_("Set it carefully, you can not change it later");                         // Line 85
+	echo T_("Choose your start plan");                                                // Line 93
+	echo T_("Free");                                                                  // Line 208
+	echo T_("Simple");                                                                // Line 226
+	echo T_("Standard");                                                              // Line 219
+	echo T_("Choose your start plan period");                                         // Line 115
+	echo T_("Trial");                                                                 // Line 119
+	echo T_("Pay monthly");                                                           // Line 124
+	echo T_("Pay yearly");                                                            // Line 130
+	echo T_("two month is free");                                                     // Line 130
 
 	//-----------------------------------------------------content_c/home/display.html
 	echo T_("Start from");                                                            // Line 32
@@ -131,10 +150,8 @@ class twigTransTerms
 	echo T_("Our location on map");                                                   // Line 61
 
 	//-------------------------------------------------content/pricing/priceTable.html
-	echo T_("Free");                                                                  // Line 208
 	echo T_("forever");                                                               // Line 11
 	echo T_("All the basics for personal use and anyone who wants to explore Jibres for an <span class='bold'>unlimited period of time</span>.");// Line 13
-	echo T_("Standard");                                                              // Line 219
 	echo T_("per month");                                                             // Line 27
 	echo T_("2 month discount on year");                                              // Line 28
 	echo T_("For someones ready to use Jibres as hero.");                             // Line 30
@@ -170,7 +187,6 @@ class twigTransTerms
 	echo T_("No! Jibres includes secure, unlimited hosting on all plans with free bandwith.");// Line 28
 	echo T_("FREE");                                                                  // Line 109
 	echo T_("Price");                                                                 // Line 60
-	echo T_("Toman");                                                                 // Line 107
 	echo T_("per store / month");                                                     // Line 120
 	echo T_("Max number of products");                                                // Line 126
 	echo T_("Max number of third parties");                                           // Line 131
@@ -368,7 +384,6 @@ class twigTransTerms
 	echo T_("Everything you need for a growing business.");                           // Line 214
 	echo T_("Yearly");                                                                // Line 219
 	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 226
-	echo T_("Simple");                                                                // Line 226
 	echo T_("Full");                                                                  // Line 230
 	echo T_("For big companies that need fix price per month.");                      // Line 230
 	echo T_("Force show in specefic language");                                       // Line 239
