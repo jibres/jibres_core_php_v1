@@ -50,6 +50,26 @@ trait add
 			// check store count
 			$count_store_free = \lib\db\stores::get_count(['creator' => \dash\user::id(), 'plan' => ["IN", "('free', 'trial')"]]);
 
+			if($count_store_free >= 1)
+			{
+				$user_budget = \dash\db\transactions::budget(\dash\user::id(), ['unit' => 'toman']);
+
+				$user_budget = floatval($user_budget);
+
+				if($user_budget < 10000)
+				{
+					if(\dash\permission::supervisor())
+					{
+						\dash\notif::warn(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+					}
+					else
+					{
+						\dash\notif::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+						return false;
+					}
+				}
+			}
+
 			if($count_store_free >= 2)
 			{
 				$msg = T_("You can not have more than two free or trial stores.");
