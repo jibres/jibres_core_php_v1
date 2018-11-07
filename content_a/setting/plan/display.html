@@ -1,16 +1,79 @@
 {%extends "content_a/setting/layout.html"%}
 
 
+
+
 {%block data%}
-<div class="cbox">
-{% set myCurrentPlan = currentPlan.plan_name |capitalize %}
-  <h3><small>{%trans "Current Plan"%}</small> <b>{%trans myCurrentPlan%}</b></h3>
-  <small title="{{currentPlan.start | dt(true)}}">{%trans "Activate on"%} {{currentPlan.start | dt('human')}}</small>
+
+
+<div class="cbox mLR5">
+	<h3>
+		<small>{%trans "Current Plan"%}</small> <b>{%set myPlan = store.plan | capitalize%}{%trans myPlan%}</b>
+		{%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt(true)}}'>{%trans "Expire on"%} {{store.expireplan | dt}}</small>{%endif%}
+	</h3>
+
+  {%if perm_su()%}
+    <div class="msg warn">{%trans "Just supervisor see this form"%}</div>
+    <form method="post" class="mLR5">
+      {{block ("iplan")}}
+      {{block ("iexpireplan")}}
+      {{block ("isave")}}
+    </form>
+  {%endif%}
+</div>
+{%endblock%}
+
+
+
+{%block iexpireplan%}
+<label for="expireplan">{%trans "Plan expire date"%}  <small class="fc-red">* {%trans "Require"%}</small></label>
+<div class="input">
+  <input class="datepicker" type="text" name="expireplan" id="expireplan" placeholder='{{"1369/04/15" | fitNumber}} *' value="{{store.expireplan}}" data-view="year" autocomplete='off'>
+</div>
+{%endblock%}
+
+
+
+{%block iplan%}
+<label>{%trans "Choose your plan"%}</label>
+
+
+<div class="radio1">
+  <input type="radio" name="plan" id="r-free" value="free" {%if store.plan =='free'%}checked{%endif%}>
+  <label for="r-free">{%trans "Free"%}</label>
 </div>
 
-<form method="post" class="cbox">
-  {{block ("iplan")}}
+<div class="radio1">
+  <input type="radio" name="plan" id="r-simple" value="simple" {%if store.plan =='simple'%}checked{%endif%}>
+  <label for="r-simple">{%trans "Simple"%}</label>
+</div>
 
-  {{block ("isave")}}
-</form>
+<div class="radio1">
+  <input type="radio" name="plan" id="r-standard" value="standard" {%if store.plan =='standard'%}checked{%endif%}>
+  <label for="r-standard">{%trans "Standard"%}</label>
+</div>
+
 {%endblock%}
+
+
+
+
+{%block istatus%}
+<label>{%trans "Store status"%}</label>
+
+
+<div class="radio1 green">
+  <input type="radio" name="status" id="r-enable" value="enable" {%if store.status =='enable'%}checked{%endif%}>
+  <label for="r-enable">{%trans "Enable"%}</label>
+</div>
+
+<div class="radio1 red">
+  <input type="radio" name="status" id="r-disable" value="disable" {%if store.status =='disable'%}checked{%endif%}>
+  <label for="r-disable">{%trans "Disable"%}</label>
+</div>
+
+
+
+{%endblock%}
+
+
