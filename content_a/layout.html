@@ -34,14 +34,14 @@
   <li>
     <a href="{{url.here}}/factor"><i class="sf-print"></i>{%trans "Factor"%}</a>
 
-{%if url.module == "factor"%}
     <ul>
       <li><a href="{{url.here}}/sale"><i class="floatRa mRa10 fc-mute sf-cart-plus"></i>{%trans "register new sale factor"%} <kbd class="light">F2</kbd> </a></li>
+{%if url.module == "factor" or url.module == "sale" or url.module == "buy"%}
       <li><a href="{{url.here}}/factor?type=sale"><i class="floatRa mRa10 fc-mute sf-basket"></i>{%trans "List of sales"%}</a></li>
       <li><a href="{{url.here}}/factor?type=buy"><i class="floatRa mRa10 fc-mute sf-bag"></i>{%trans "List of purchases"%}</a></li>
       <li><a href="{{url.here}}/factor"><i class="floatRa mRa10 fc-mute sf-list"></i>{%trans "List of all factors"%}</a></li>
-    </ul>
 {%endif%}
+    </ul>
   </li>
 
 <li>
