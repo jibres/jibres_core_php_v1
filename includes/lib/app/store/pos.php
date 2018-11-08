@@ -4,23 +4,150 @@ namespace lib\app\store;
 
 class pos
 {
-	public static function check($_pos, $_all = false)
+	public static function add($_args)
 	{
-		$list = self::list($_all);
-		if(!array_key_exists($_pos, $list))
+		if(!\lib\store::id())
 		{
-			// not set or invalid
 			return false;
 		}
 
-		if(isset($list[$_pos]['status']) && $list[$_pos]['status'])
+		\dash\app::variable($_args);
+
+		$pos = \dash\app::request('pos');
+
+		if(!$pos)
 		{
-			// is ok
-			return $list[$_pos];
+			\dash\notif::error(T_("Please choose your pos"), 'pos');
+			return false;
 		}
 
-		// just disable
-		return null;
+		$title = \dash\app::request('title');
+
+		if($title && mb_strlen($title) > 100 )
+		{
+			\dash\notif::error(T_("Please set your title less than 100 character"), 'title');
+			return false;
+		}
+
+		$allow_pos =
+		[
+			'saderat', 'mellat', 'tejarat', 'melli', 'sepah', 'keshavarzi',
+			'parsian', 'maskan', 'refah', 'novin', 'ansar', 'pasargad',
+			'saman', 'sina', 'post', 'ghavamin', 'taavon', 'shahr', 'ayande',
+			'sarmayeh', 'day', 'hekmat', 'iranzamin', 'karafarin', 'gardeshgari',
+			'madan', 'tsaderat', 'khavarmiyane', 'ivbb', 'irkish', 'asanpardakht',
+			'zarinpal', 'payir',
+		];
+
+		if(!in_array($pos, $allow_pos))
+		{
+			\dash\notif::error(T_("Invalid pos"), 'pos');
+			return false;
+		}
+
+		$old = self::list(true);
+
+		$default = false;
+		if(count($old) === 0)
+		{
+			$default = true;
+		}
+
+		$pc_pos = null;
+		if($pos === 'irkish')
+		{
+			// irankish setting get
+			$pc_pos = self::irankish();
+
+			if(!$pc_pos || !is_array($pc_pos))
+			{
+				return false;
+			}
+		}
+
+		if($pos === 'asanpardakht')
+		{
+			// asanpardakht setting get
+			$pc_pos = self::asanpardakht();
+
+			if(!$pc_pos || !is_array($pc_pos))
+			{
+				return false;
+			}
+		}
+
+		$old[] =
+		[
+			'title'   => $title,
+			'name'    => $pos,
+			'class'   => $pos,
+			'pc_pos'  => $pc_pos,
+			'default' => $default,
+		];
+
+		$pos = json_encode($old, JSON_UNESCAPED_UNICODE);
+
+		$result = \lib\db\stores::update(['pos' => $pos], \lib\store::id());
+
+		\lib\store::refresh();
+
+		return true;
+	}
+
+
+	public static function remove($_key)
+	{
+		$old = self::list(true);
+
+		if(!array_key_exists($_key, $old))
+		{
+			\dash\notif::error(T_("This pos not found in your store"));
+			return false;
+		}
+
+		unset($old[$_key]);
+
+		$pos = json_encode($old, JSON_UNESCAPED_UNICODE);
+
+		$result = \lib\db\stores::update(['pos' => $pos], \lib\store::id());
+
+		\lib\store::refresh();
+
+		return true;
+
+	}
+
+
+	public static function default($_key)
+	{
+		$old = self::list(true);
+
+		if(!array_key_exists($_key, $old))
+		{
+			\dash\notif::error(T_("This pos not found in your store"));
+			return false;
+		}
+
+		foreach ($old as $key => $value)
+		{
+			if($key == $_key)
+			{
+				$old[$key]['default'] = true;
+			}
+			else
+			{
+				$old[$key]['default'] = false;
+			}
+		}
+
+		$pos = json_encode($old, JSON_UNESCAPED_UNICODE);
+
+		$result = \lib\db\stores::update(['pos' => $pos], \lib\store::id());
+
+		\lib\store::refresh();
+
+		return true;
+
 	}
 
 
@@ -54,54 +181,9 @@ class pos
 			}
 			return $new;
 		}
-
 	}
 
 
-	public static function set($_args)
-	{
-		if(!\lib\store::id())
-		{
-			return false;
-		}
-
-		\dash\app::variable($_args);
-
-		$new_setting = [];
-
-		// irankish setting get
-		$irankish = self::irankish();
-
-		if(!$irankish || !is_array($irankish))
-		{
-			return false;
-		}
-
-		$new_setting['irankish'] = $irankish;
-
-		// asanpardakht setting get
-		$asanpardakht = self::asanpardakht();
-
-		if(!$asanpardakht || !is_array($irankish))
-		{
-			return false;
-		}
-
-		$new_setting['asanpardakht'] = $asanpardakht;
-
-		// save setting in json
-		$pos = self::list(true);
-
-		$pos = array_merge($pos, $new_setting);
-
-		$pos = json_encode($pos, JSON_UNESCAPED_UNICODE);
-
-		$result = \lib\db\stores::update(['pos' => $pos], \lib\store::id());
-
-		\lib\store::refresh();
-
-		return true;
-	}
 
 
 	private static function irankish()

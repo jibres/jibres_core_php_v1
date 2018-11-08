@@ -1,21 +1,99 @@
 {%extends "content_a/setting/layout.html"%}
 
 
-{%block data%}
-  <div class="cbox">
- <form method="post" autocomplete="off">
-
-	{{block('iPcPosIrankhis')}}
-	{{block('iPcPosAsanpardakht')}}
 
 
-	<button class="btn block primary mT10">{%trans "Save"%}</button>
- </form>
+{%block pageContent%}
+{{block('pageSteps')}}
+<div class="f">
+  <div class="c5">
+    {{block('addNewPos')}}
+  </div>
+  {%if dataTable%}
+  <div class="c mLa10">
+    {{block('htmlTable')}}
+  </div>
+  {%endif%}
 </div>
 
+{%endblock%}
 
+
+{%block addNewPos%}
+
+<div class="cbox">
+ <form method="post" autocomplete="off">
+ 	<h2>{%trans "Add new pos to you store"%}</h2>
+
+ 	<label for="pos">{%trans "Pos"%}</label>
+	{%include display.spay%}
+
+ 	<label for="title">{%trans "Title"%}</label>
+	<div class="input">
+	  <input type="text" name="title" id="title" placeholder='{%trans "Title"%}'   minlength="1" maxlength="100">
+	</div>
+
+
+	<div data-response='pos' data-response-where='irkish' data-response-hide>
+		{{block('iPcPosIrankhis')}}
+	</div>
+
+	<div data-response='pos' data-response-where='asanpardakht' data-response-hide>
+		{{block('iPcPosAsanpardakht')}}
+	</div>
+
+
+	<button class="btn block primary mT10">{%trans "Add pos"%}</button>
+ </form>
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+{%block htmlTable%}
+
+  <table class="tbl1 v1 cbox fs12">
+    <thead>
+      <tr class="fs09">
+        <th>{%trans "Name"%}</th>
+        <th class="txtC">{%trans "Bank"%}</th>
+        <th class="txtC">{%trans "Action"%}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {%for key, value in dataTable%}
+      <tr {%if value.default%} title='{%trans "Is default"%}'{%endif%}>
+        <td>
+          {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
+          {%if value.title %}{{value.title}}{%endif%}
+          <span class="txtB">{{value.name}}</span>
+      	</td>
+        <td class="txtC">
+          <span class="spay-32-{{value.class}}"></span>
+        </td>
+        <td class="collapsing">
+        	{%if not value.default%}
+          		<a href="{{url.pwd}}" class="badge warn" data-ajaxify data-method='post' data-data='{"key" : "{{key}}", "type" : "default"}'>{%trans "Set as default"%}</a>
+        	{%else%}
+          		<a class="badge success"> {%trans "Is default"%}</a>
+          	{%endif%}
+          <a href="{{url.pwd}}" class="badge danger " data-ajaxify data-method='post' data-data='{"key" : "{{key}}", "type" : "remove"}'>{%trans "Remove"%}</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
 
 {%endblock%}
+
+
+
+
 
 
 
@@ -84,4 +162,6 @@
 </div>
 
 {%endblock%}
+
+
 
