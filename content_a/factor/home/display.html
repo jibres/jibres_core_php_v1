@@ -185,8 +185,8 @@
 
 {%block htmlStartAddNew%}
 <p class="fs14 msg success2 pTB20">{%trans "Hi!"%}
-  <a href="{{url.here}}/sale">{%trans "Try to start with add new sale!"%}</a>
-  <a href="{{url.here}}/buy">{%trans "Try to start with add new buy!"%}</a>
+  {%if perm('factorSaleAdd')%}<a href="{{url.here}}/sale">{%trans "Try to start with add new sale!"%}</a>{%endif%}
+  {%if perm('factorBuyAdd')%}<a href="{{url.here}}/buy">{%trans "Try to start with add new buy!"%}</a>{%endif%}
 </p>
 {%endblock%}
 
@@ -200,6 +200,7 @@
 
 {%block pageSteps%}
 <div class="f">
+  {%if perm('factorAccess')%}
   <div class="c s6">
     <a class="dcard {%if not requestGET.type %}active{%endif%}" href='{{url.this}}' data-shortkey="49shift">
      <div class="statistic gray">
@@ -208,7 +209,8 @@
      </div>
     </a>
   </div>
-
+  {%endif%}
+  {%if perm('factorSaleList')%}
   <div class="c s6">
     <a class="dcard {%if requestGET.type == 'sale' %}active{%endif%}" href='{{url.this}}?type=sale' data-shortkey="49shift">
      <div class="statistic gray">
@@ -217,7 +219,9 @@
      </div>
     </a>
   </div>
+  {%endif%}
 
+  {%if perm('factorBuyList')%}
   <div class="c">
     <a class="dcard {%if requestGET.type == 'buy' %}active{%endif%}" href='{{url.this}}?type=buy' data-shortkey="49shift">
      <div class="statistic gray">
@@ -226,6 +230,8 @@
      </div>
     </a>
   </div>
+  {%endif%}
+
   {%if dashboardDetail.have_other%}
    <div class="cauto">
     <a class="dcard {%if requestGET.type in ['prefactor','lending','backbuy','backfactor','waste', 'other'] %}active{%endif%}" href='{{url.this}}?type=other' data-shortkey="49shift">

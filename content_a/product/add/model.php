@@ -29,14 +29,6 @@ class model
 		if(\dash\engine\process::status())
 		{
 			\dash\redirect::to(\dash\url::here(). '/product');
-			// if(isset($result['product_id']))
-			// {
-			// 	\dash\redirect::to(\dash\url::this(). '/general?id='. $result['product_id']);
-			// }
-			// else
-			// {
-			// 	\dash\redirect::to(\dash\url::here(). '/product');
-			// }
 		}
 	}
 }

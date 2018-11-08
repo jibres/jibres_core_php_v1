@@ -77,6 +77,55 @@ trait datalist
 			$field['factors.type']     = $_option['type'];
 		}
 
+		if(!\dash\permission::check('factorAccess'))
+		{
+			return [];
+		}
+
+		if($_option['type'])
+		{
+			switch ($_option['type'])
+			{
+				case 'buy':
+					if(!\dash\permission::check('factorBuyList'))
+					{
+						return [];
+					}
+					break;
+
+				case 'sale':
+					if(!\dash\permission::check('factorSaleList'))
+					{
+						return [];
+					}
+					break;
+			}
+		}
+		else
+		{
+			$just_in  = [];
+
+			if(\dash\permission::check('factorBuyList'))
+			{
+				array_push($just_in, "'buy'");
+			}
+
+			if(\dash\permission::check('factorSaleList'))
+			{
+				array_push($just_in, "'sale'");
+			}
+
+			if(!empty($just_in))
+			{
+				$just_in               = implode(',', $just_in);
+				$field['factors.type'] = [" IN ", "($just_in)"];
+			}
+			else
+			{
+				return [];
+			}
+		}
+
 		if($_option['customer'])
 		{
 			$customer_id = \dash\coding::decode($_option['customer']);

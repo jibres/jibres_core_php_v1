@@ -10,9 +10,11 @@ class view
 		\dash\data::page_desc(T_('You can set main property of product and allow to assign some extra or edit it later.'));
 		\dash\data::page_pictogram('plus');
 
-
-		\dash\data::badge_text(T_('Back to product list'));
-		\dash\data::badge_link(\dash\url::this());
+		if(\dash\permission::check('productList'))
+		{
+			\dash\data::badge_text(T_('Back to product list'));
+			\dash\data::badge_link(\dash\url::this());
+		}
 
 		\dash\data::listCats(\lib\app\product\cat::list());
 		\dash\data::listCompanies(\lib\app\product::company_list(false));
