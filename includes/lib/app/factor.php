@@ -190,7 +190,7 @@ class factor
 			switch ($_option['type'])
 			{
 				case 'sale':
-					if(isset($value['discount']) &&  !is_numeric($value['discount']))
+					if(isset($value['discount']) && $value['discount'] &&  !is_numeric($value['discount']))
 					{
 						$have_warn[] = $key + 1;
 						continue;
