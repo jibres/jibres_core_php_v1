@@ -4,24 +4,24 @@
 {%block pageContent%}
 
 <div class="f">
- <div class="c6 s6">{{block ("stSaleAdd")}}</div>
- <div class="c6 s6">{{block ("stBuyAdd")}}</div>
+ {%if perm('factorSaleAdd')%}<div class="c6 s6">{{block ("stSaleAdd")}}</div>{%endif%}
+ {%if perm('factorBuyAdd')%}<div class="c6 s6">{{block ("stBuyAdd")}}</div>{%endif%}
 </div>
 
 <div class="f">
- <div class="c4 s0">{{block ("stProductDashboard")}}</div>
- <div class="c4 s6">{{block ("stProduct")}}</div>
- <div class="c4 s6">{{block ("stProductAdd")}}</div>
+ {%if perm('productSummary')%}<div class="c4 s0">{{block ("stProductDashboard")}}</div>{%endif%}
+ {%if perm('productList')%}<div class="c4 s6">{{block ("stProduct")}}</div>{%endif%}
+ {%if perm('productAdd')%}<div class="c4 s6">{{block ("stProductAdd")}}</div>{%endif%}
 </div>
 
 <div class="f">
- <div class="c3 s6">{{block ("stCustomer")}}</div>
- <div class="c3 s6">{{block ("stStaff")}}</div>
- <div class="c3 s6">{{block ("stSupplier")}}</div>
+ {%if perm('customerAccess')%}<div class="c3 s6">{{block ("stCustomer")}}</div>{%endif%}
+ {%if perm('staffAccess')%}<div class="c3 s6">{{block ("stStaff")}}</div>{%endif%}
+ {%if perm('supplierAccess')%}<div class="c3 s6">{{block ("stSupplier")}}</div>{%endif%}
  <div class="c3 s6">{{block ("prDate")}}</div>
 </div>
 
-{%if perm('reportView')%}
+{%if perm('reportListChartHours')%}
   {{block ("chart_primary")}}
 {%endif%}
 

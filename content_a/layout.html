@@ -7,13 +7,13 @@
   <li><a href="{{url.here}}"><i class='sf-gauge'></i> <span>{% trans "Dashboard" %}</span></a></li>
 
   <li>
-    <a href="{{url.here}}/product"><i class="sf-box"></i>{%trans "Products"%}</a>
+    {%if perm('productList')%}<a href="{{url.here}}/product"><i class="sf-box"></i>{%trans "Products"%}</a>{%endif%}
   {%if url.module == "product"%}
     <ul>
-        <li><a href="{{url.here}}/product/summary"><i class="floatRa mRa10 fc-mute sf-list"></i>{%trans "Products Summary"%}</a></li>
-        <li><a href="{{url.here}}/product/add"><i class="floatRa mRa10 fc-mute sf-plus"></i>{%trans "Add new Product"%}</a></li>
-        <li><a href="{{url.here}}/product/cats"><i class="floatRa mRa10 fc-mute sf-grid-1"></i>{%trans "Categories of Product"%}</a></li>
-        <li><a href="{{url.here}}/product/units"><i class="floatRa mRa10 fc-mute sf-eye-galsses"></i>{%trans "Product Units"%}</a></li>
+        {%if perm('productSummary')%}<li><a href="{{url.here}}/product/summary"><i class="floatRa mRa10 fc-mute sf-list"></i>{%trans "Products Summary"%}</a></li>{%endif%}
+        {%if perm('productAdd')%}<li><a href="{{url.here}}/product/add"><i class="floatRa mRa10 fc-mute sf-plus"></i>{%trans "Add new Product"%}</a></li>{%endif%}
+        {%if perm('productCategoryListView')%}<li><a href="{{url.here}}/product/cats"><i class="floatRa mRa10 fc-mute sf-grid-1"></i>{%trans "Categories of Product"%}</a></li>{%endif%}
+        {%if perm('productUnitListView')%}<li><a href="{{url.here}}/product/units"><i class="floatRa mRa10 fc-mute sf-eye-galsses"></i>{%trans "Product Units"%}</a></li>{%endif%}
 
     </ul>
   {%endif%}
@@ -21,45 +21,45 @@
 
 
   <li>
-    <a href="{{url.here}}/thirdparty"><i class="sf-users"></i>{%trans "Third Parties"%}</a>
+    {%if perm('staffAccess') or perm('supplierAccess') or perm('customerAccess')%}<a href="{{url.here}}/thirdparty"><i class="sf-users"></i>{%trans "Third Parties"%}</a>{%endif%}
 {%if url.module == "thirdparty"%}
     <ul>
-      <li><a href="{{url.here}}/thirdparty?type=customer"><i class="floatRa mRa10 fc-mute sf-user"></i>{%trans "Customers"%}</a></li>
-      <li><a href="{{url.here}}/thirdparty?type=supplier"><i class="floatRa mRa10 fc-mute sf-network"></i>{%trans "Suppliers"%}</a></li>
-      <li><a href="{{url.here}}/thirdparty?type=staff"><i class="floatRa mRa10 fc-mute sf-user-4"></i>{%trans "Staffs"%}</a></li>
+      {%if perm('customerAccess')%}<li><a href="{{url.here}}/thirdparty?type=customer"><i class="floatRa mRa10 fc-mute sf-user"></i>{%trans "Customers"%}</a></li>{%endif%}
+      {%if perm('supplierAccess')%}<li><a href="{{url.here}}/thirdparty?type=supplier"><i class="floatRa mRa10 fc-mute sf-network"></i>{%trans "Suppliers"%}</a></li>{%endif%}
+      {%if perm('staffAccess')%}<li><a href="{{url.here}}/thirdparty?type=staff"><i class="floatRa mRa10 fc-mute sf-user-4"></i>{%trans "Staffs"%}</a></li>{%endif%}
     </ul>
 {%endif%}
   </li>
 
   <li>
-    <a href="{{url.here}}/factor"><i class="sf-print"></i>{%trans "Factor"%}</a>
+    {%if perm('factorAccess')%}<a href="{{url.here}}/factor"><i class="sf-print"></i>{%trans "Factor"%}</a>{%endif%}
 
     <ul>
-      <li><a href="{{url.here}}/sale"><i class="floatRa mRa10 fc-mute sf-cart-plus"></i>{%trans "register new sale factor"%} <kbd class="light">F2</kbd> </a></li>
+      {%if perm('factorSaleAdd')%}<li><a href="{{url.here}}/sale"><i class="floatRa mRa10 fc-mute sf-cart-plus"></i>{%trans "register new sale factor"%} <kbd class="light">F2</kbd> </a></li>{%endif%}
 {%if url.module == "factor" or url.module == "sale" or url.module == "buy"%}
-      <li><a href="{{url.here}}/factor?type=sale"><i class="floatRa mRa10 fc-mute sf-basket"></i>{%trans "List of sales"%}</a></li>
-      <li><a href="{{url.here}}/factor?type=buy"><i class="floatRa mRa10 fc-mute sf-bag"></i>{%trans "List of purchases"%}</a></li>
-      <li><a href="{{url.here}}/factor"><i class="floatRa mRa10 fc-mute sf-list"></i>{%trans "List of all factors"%}</a></li>
+      {%if perm('factorSaleList')%}<li><a href="{{url.here}}/factor?type=sale"><i class="floatRa mRa10 fc-mute sf-basket"></i>{%trans "List of sales"%}</a></li>{%endif%}
+      {%if perm('factorBuyList')%}<li><a href="{{url.here}}/factor?type=buy"><i class="floatRa mRa10 fc-mute sf-bag"></i>{%trans "List of purchases"%}</a></li>{%endif%}
+      {%if perm('factorAccess')%}<li><a href="{{url.here}}/factor"><i class="floatRa mRa10 fc-mute sf-list"></i>{%trans "List of all factors"%}</a></li>{%endif%}
 {%endif%}
     </ul>
   </li>
 
 <li>
-    <a href="{{url.here}}/report"><i class="sf-chart"></i>{%trans "Reports"%}</a>
+    {%if perm('reportView')%}<a href="{{url.here}}/report"><i class="sf-chart"></i>{%trans "Reports"%}</a>{%endif%}
 {%if url.module == "report"%}
     <ul>
-      <li><a href="{{url.here}}/report/daily"><i class="floatRa mRa10 fc-mute sf-bar-chart"></i>{%trans "Daily report"%}</a></li>
-      <li><a href="{{url.here}}/report/month"><i class="floatRa mRa10 fc-mute sf-analytics-chart-graph"></i>{%trans "Monthly report"%}</a></li>
+      {%if perm('reportDaily')%}<li><a href="{{url.here}}/report/daily"><i class="floatRa mRa10 fc-mute sf-bar-chart"></i>{%trans "Daily report"%}</a></li>{%endif%}
+      {%if perm('reportMonth')%}<li><a href="{{url.here}}/report/month"><i class="floatRa mRa10 fc-mute sf-analytics-chart-graph"></i>{%trans "Monthly report"%}</a></li>{%endif%}
     </ul>
 {%endif%}
   </li>
 
   <li>
-    <a href="{{url.here}}/setting/general"><i class="sf-cogs"></i>{%trans "Setting"%}</a>
+    {%if perm('settingView')%}<a href="{{url.here}}/setting/general"><i class="sf-cogs"></i>{%trans "Setting"%}</a>{%endif%}
 {%if url.module == "setting"%}
     <ul>
-      <li><a href="{{url.here}}/setting/plan"><i class="floatRa mRa10 fc-mute sf-lamp"></i>{%trans "Store plans"%}</a></li>
-      <li><a href="{{url.here}}/setting/factor"><i class="floatRa mRa10 fc-mute sf-sliders"></i>{%trans "Factor settings"%}</a></li>
+      {%if perm('settingEditPlan')%}<li><a href="{{url.here}}/setting/plan"><i class="floatRa mRa10 fc-mute sf-lamp"></i>{%trans "Store plans"%}</a></li>{%endif%}
+      {%if perm('settingEditFactor')%}<li><a href="{{url.here}}/setting/factor"><i class="floatRa mRa10 fc-mute sf-sliders"></i>{%trans "Factor settings"%}</a></li>{%endif%}
     </ul>
 {%endif%}
   </li>
