@@ -26,6 +26,7 @@ kbd{font-family:monospace;}
 .tbl1.productList[data-item='0']{display:none}
 .tbl1.productList .headProduct{white-space:nowrap;min-width:100px;}
 .tbl1.productList input.count{white-space:nowrap;min-width:50px;max-width:60px;padding:5px 0.1em;text-align:center;background-color:transparent;}
+.tbl1.productList input.buy{white-space:nowrap;min-width:60px;max-width:80px;padding:5px 0.1em;text-align:center;background-color:transparent;}
 
 .tbl1.productList .input.discountCn{min-width:70px;max-width:120px;margin:0 auto;}
 .tbl1.productList .input.discountCn input.discount{padding:5px 0.1em;text-align:center;background-color:transparent;}
