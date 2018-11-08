@@ -21,6 +21,8 @@ class model
 			return false;
 		}
 
+		\dash\permission::access('thirdpartyNoteAdd');
+
 		\lib\app\thirdparty\comment::add(\dash\request::post('note'), \dash\request::get('id'));
 
 		if(\dash\request::post('redirecturl'))

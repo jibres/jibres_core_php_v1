@@ -1,8 +1,11 @@
 <?php
 $master   = [];
 
-$master[] = 'factorSaleView';
-$master[] = 'factorMySaleView';
+$master[] = 'factorAccess';
+$master[] = 'factorEditAccess';
+
+$master[] = 'factorSaleList';
+$master[] = 'factorMySaleList';
 $master[] = 'factorSaleAdd';
 $master[] = 'factorSaleViewDetail';
 
@@ -18,6 +21,7 @@ $master[] = 'productAdd';
 $master[] = 'productList';
 $master[] = 'productSummary';
 $master[] = 'productAdvanceSearchView';
+
 $master[] = 'productPriceAccess';
 $master[] = 'productFinalpriceAccess';
 $master[] = 'productDatemodifiedAccess';
@@ -26,6 +30,7 @@ $master[] = 'productDiscountAccess';
 $master[] = 'productProfitAccess';
 $master[] = 'productStockAccess';
 
+
 $master[] = 'productInitialbalanceEdit';
 $master[] = 'productEditGeneral';
 $master[] = 'productManagementView';
@@ -33,6 +38,9 @@ $master[] = 'productStatusEdit';
 $master[] = 'productDelete';
 $master[] = 'productGlance';
 $master[] = 'productSite';
+$master[] = 'productStock';
+$master[] = 'productReport';
+$master[] = 'productFactor';
 $master[] = 'productThumbEdit';
 $master[] = 'productGalleryEdit';
 $master[] = 'productDescriptionEdit';
@@ -42,16 +50,17 @@ $master[] = 'productExport';
 
 $master[] = 'productCategoryListView';
 $master[] = 'productCategoryListAdd';
+$master[] = 'productCategoryListDelete';
 $master[] = 'productCategoryListEdit';
 
 $master[] = 'productUnitListView';
 $master[] = 'productUnitListAdd';
+$master[] = 'productUnitListDelete';
 $master[] = 'productUnitListEdit';
 
 
 
 
-$master[] = 'reportListChartHours';
 
 $master[] = 'permissionList';
 $master[] = 'permissionAddEdit';
@@ -101,17 +110,25 @@ $master[] = 'thirdpartyTransactionPlus';
 $master[] = 'thirdpartyTransactionMinus';
 $master[] = 'thirdpartyTransactionCreditView';
 $master[] = 'thirdpartyTransactionCreditEdit';
+$master[] = 'thirdpartyBillingView';
 $master[] = 'thirdpartyMobileView';
 $master[] = 'cpThirdpartyTagAdd';
 
 
 $master[] = 'settingEdit';
 $master[] = 'settingView';
+$master[] = 'settingEditPlan';
+$master[] = 'settingEditPos';
+$master[] = 'settingEditFactor';
+$master[] = 'settingEditFund';
+$master[] = 'settingEditInventory';
+$master[] = 'settingEditLogo';
 
 
+$master[] = 'reportView';
+$master[] = 'reportListChartHours';
 $master[] = 'reportDaily';
 $master[] = 'reportMonth';
-$master[] = 'reportView';
 
 
 
