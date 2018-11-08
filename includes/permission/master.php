@@ -103,6 +103,7 @@ $master[] = 'thirdpartyIdentifyEdit';
 $master[] = 'thirdpartyTagView';
 $master[] = 'thirdpartyGlance';
 $master[] = 'thirdpartyBudgetView';
+$master[] = 'thirdpartyFactorView';
 $master[] = 'thirdpartyCreditView';
 $master[] = 'thirdpartyDashboardVariableView';
 $master[] = 'thirdpartyTransactionView';

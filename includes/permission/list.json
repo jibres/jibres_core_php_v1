@@ -1,11 +1,21 @@
 {
-  "factorSaleView": {
-    "title": "factorSaleView",
+  "factorAccess": {
+    "title": "factorAccess",
     "cat": "Factor",
     "require": []
   },
-  "factorMySaleView": {
-    "title": "factorMySaleView",
+  "factorEditAccess": {
+    "title": "factorEditAccess",
+    "cat": "Factor",
+    "require": []
+  },
+  "factorSaleList": {
+    "title": "factorSaleList",
+    "cat": "Factor",
+    "require": []
+  },
+  "factorMySaleList": {
+    "title": "factorMySaleList",
     "cat": "Factor",
     "require": []
   },
@@ -189,6 +199,31 @@
     "cat": "Product",
     "require": []
   },
+  "productStock": {
+    "title": "productStock",
+    "cat": "Product",
+    "require": []
+  },
+  "productReport": {
+    "title": "productReport",
+    "cat": "Product",
+    "require": []
+  },
+  "productFactor": {
+    "title": "productFactor",
+    "cat": "Product",
+    "require": []
+  },
+  "productCategoryListDelete": {
+    "title": "productCategoryListDelete",
+    "cat": "Product",
+    "require": []
+  },
+  "productUnitListDelete": {
+    "title": "productUnitListDelete",
+    "cat": "Product",
+    "require": []
+  },
   "permissionList": {
     "title": "permissionList",
     "cat": "Permission",
@@ -364,6 +399,11 @@
     "cat": "Thirdparty",
     "require": []
   },
+  "thirdpartyBillingView": {
+    "title": "thirdpartyBillingView",
+    "cat": "Thirdparty",
+    "require": []
+  },
   "thirdpartyCreditView": {
     "title": "thirdpartyCreditView",
     "cat": "Thirdparty",
@@ -416,6 +456,36 @@
   },
   "settingView": {
     "title": "settingView",
+    "cat": "Store setting",
+    "require": []
+  },
+  "settingEditPlan": {
+    "title": "settingEditPlan",
+    "cat": "Store setting",
+    "require": []
+  },
+  "settingEditPos": {
+    "title": "settingEditPos",
+    "cat": "Store setting",
+    "require": []
+  },
+  "settingEditFactor": {
+    "title": "settingEditFactor",
+    "cat": "Store setting",
+    "require": []
+  },
+  "settingEditFund": {
+    "title": "settingEditFund",
+    "cat": "Store setting",
+    "require": []
+  },
+  "settingEditInventory": {
+    "title": "settingEditInventory",
+    "cat": "Store setting",
+    "require": []
+  },
+  "settingEditLogo": {
+    "title": "settingEditLogo",
     "cat": "Store setting",
     "require": []
   },

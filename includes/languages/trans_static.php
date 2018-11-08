@@ -75,36 +75,7 @@ class TransStatic
 	echo T_("Thirdparties");
 	echo T_("thirdparties");
 
-	echo T_("cpThirdpartyTagAdd");
-	echo T_("staffAccess");
-	echo T_("supplierAccess");
-	echo T_("customerAccess");
 
-	echo T_("staffAdd");
-	echo T_("supplierAdd");
-	echo T_("customerAdd");
-
-	echo T_("thirdpartyNoteView");
-	echo T_("thirdpartyNoteAdd");
-	echo T_("thirdpartyAssignTag");
-	echo T_("thirdpartyProfileView");
-	echo T_("thirdpartyMobileEdit");
-	echo T_("thirdpartyContactEdit");
-	echo T_("thirdpartyIdentifyEdit");
-	echo T_("thirdpartyElectronicDocumentEdit");
-	echo T_("thirdpartyAddressView");
-	echo T_("thirdpartyAddressAdd");
-	echo T_("thirdpartyAddressEdit");
-	echo T_("thirdpartyAddressDelete");
-	echo T_("thirdpartyAvatarSet");
-	echo T_("thirdpartyAvatarDelete");
-	echo T_("thirdpartyCompanyDetailEdit");
-	echo T_("thirdpartyManageView");
-	echo T_("thirdpartyTypeEdit");
-	echo T_("thirdpartyPermissionEdit");
-	echo T_("thirdpartyBoughtView");
-	echo T_("thirdpartySoldView");
-	echo T_("thirdpartyFactorView");
 	echo T_("thirdpartyLogView");
 	echo T_("thirdpartyTagView");
 	echo T_("thirdpartyIdentifyView");
@@ -198,6 +169,25 @@ class TransStatic
 	echo T_("reportDaily");
 	echo T_("reportMonth");
 	echo T_("reportView");
+
+	echo T_("factorAccess");
+	echo T_("factorEditAccess");
+	echo T_("factorSaleList");
+	echo T_("factorMySaleList");
+	echo T_("productStock");
+	echo T_("productReport");
+	echo T_("productFactor");
+	echo T_("productExport");
+	echo T_("productCategoryListDelete");
+	echo T_("productUnitListDelete");
+	echo T_("thirdpartyBillingView");
+	echo T_("settingEditPlan");
+	echo T_("settingEditPos");
+	echo T_("settingEditFactor");
+	echo T_("settingEditFund");
+	echo T_("settingEditInventory");
+	echo T_("settingEditLogo");
+
 
  }
 }
