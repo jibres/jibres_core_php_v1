@@ -27,6 +27,7 @@
     </a>
   </div>
 
+  {%if perm('settingEditPlan')%}
   <div class="c">
     <a class="dcard {%if url.child == 'plan' %}active{%endif%}" href='{{url.this}}/plan' data-shortkey="51shift">
      <div class="statistic gray">
@@ -35,7 +36,9 @@
      </div>
     </a>
   </div>
+  {%endif%}
 
+  {%if perm('settingEditFactor')%}
   <div class="c">
     <a class="dcard {%if url.child == 'factor' %}active{%endif%}" href='{{url.this}}/factor' data-shortkey="51shift">
      <div class="statistic gray">
@@ -44,8 +47,10 @@
      </div>
     </a>
   </div>
+  {%endif%}
 
 {%if false%}
+  {%if perm('settingEditInventory')%}
   <div class="c">
     <a class="dcard {%if url.child == 'inventory' %}active{%endif%}" href='{{url.this}}/inventory' data-shortkey="51shift">
      <div class="statistic gray">
@@ -54,7 +59,9 @@
      </div>
     </a>
   </div>
+  {%endif%}
 
+    {%if perm('settingEditFund')%}
     <div class="c">
     <a class="dcard {%if url.child == 'fund' %}active{%endif%}" href='{{url.this}}/fund' data-shortkey="51shift">
      <div class="statistic gray">
@@ -63,9 +70,11 @@
      </div>
     </a>
   </div>
+  {%endif%}
 {%endif%}
 
 
+  {%if perm('settingEditPos')%}
   <div class="c">
     <a class="dcard {%if url.child == 'pos' %}active{%endif%}" href='{{url.this}}/pos' data-shortkey="51shift">
      <div class="statistic gray">
@@ -74,6 +83,7 @@
      </div>
     </a>
   </div>
+  {%endif%}
 
 
 
@@ -86,7 +96,7 @@
 <div class="cbox normal">
 
 
-  <a class="vcard mA10 shadow {{cardColor}}" href='{{url.this}}/logo'>
+  <a class="vcard mA10 shadow {{cardColor}}" {%if perm('settingEditLogo')%} href='{{url.this}}/logo' {%endif%}>
     <img src="{{store.logo}}" alt="{{store.name}}" class="pA10-f">
     <div class="content">
       <div class="header">{{store.name}}</div>

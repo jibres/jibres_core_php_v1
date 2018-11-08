@@ -6,7 +6,6 @@ class model
 {
 	public static function post()
 	{
-		\dash\permission::access('settingEdit');
 		\lib\app\store::edit(self::getPost());
 
 		if(\dash\engine\process::status())
@@ -24,8 +23,6 @@ class model
 			'website' => \dash\request::post('website'),
 			'desc'    => \dash\request::post('desc'),
 			'status'  => \dash\request::post('status'),
-			// 'address' => \dash\request::post('address'),
-			// 'phone'   => \dash\request::post('phone'),
 		];
 		return $args;
 	}

@@ -5,6 +5,8 @@ class controller
 {
 	public static function routing()
 	{
+		\dash\permission::access('settingEditInventory');
+
 		if(\dash\request::get('inventory'))
 		{
 			$dataRow = \lib\app\inventory::get(\dash\request::get('inventory'));

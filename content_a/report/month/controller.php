@@ -1,5 +1,5 @@
 <?php
-namespace content_a\report\daily;
+namespace content_a\report\month;
 
 
 class controller
