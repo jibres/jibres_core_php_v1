@@ -6,6 +6,30 @@ trait balance
 	// save this query in this var to run multiquery
 	private static $CHANGE_STATIC_QUERY = [];
 
+	public static function product_change_value($_product_id, $_field, $_value)
+	{
+		if(!$_product_id || !is_numeric($_product_id))
+		{
+			return false;
+		}
+
+		self::$CHANGE_STATIC_QUERY[] = "UPDATE products SET products.$_field  = '$_value' WHERE products.id = $_product_id LIMIT 1";
+
+		return true;
+	}
+
+
+	public static function stock_plus_and_buyprice($_product_id, $_plus = 1, $_multi_query = false, $_buyprice = 0)
+	{
+		if(!$_product_id || !is_numeric($_product_id))
+		{
+			return false;
+		}
+
+		$_plus = floatval($_plus);
+
+		return self::change_var_static($_product_id, 'stock', 'plus', $_plus, $_multi_query, " ,products.buyprice = '$_buyprice' ");
+	}
 
 
 	public static function stock_plus($_product_id, $_plus = 1, $_multi_query = false)
@@ -70,16 +94,16 @@ trait balance
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	private static function change_var_static($_product_id, $_field, $_type, $_count, $_multi_query)
+	private static function change_var_static($_product_id, $_field, $_type, $_count, $_multi_query, $_raw = null)
 	{
 
 		if($_type === 'plus')
 		{
-			$query = "UPDATE products SET products.$_field = IF(products.$_field = '' OR products.$_field IS NULL , $_count, products.$_field + $_count) WHERE products.id = $_product_id LIMIT 1";
+			$query = "UPDATE products SET products.$_field = IF(products.$_field = '' OR products.$_field IS NULL , $_count, products.$_field + $_count) $_raw WHERE products.id = $_product_id LIMIT 1";
 		}
 		elseif($_type === 'minus')
 		{
-			$query = "UPDATE products SET products.$_field = IF(products.$_field = '' OR products.$_field IS NULL , -$_count, products.$_field - $_count) WHERE products.id = $_product_id LIMIT 1";
+			$query = "UPDATE products SET products.$_field = IF(products.$_field = '' OR products.$_field IS NULL , -$_count, products.$_field - $_count) $_raw WHERE products.id = $_product_id LIMIT 1";
 		}
 		else
 		{

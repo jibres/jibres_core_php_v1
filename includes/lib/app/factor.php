@@ -168,7 +168,7 @@ class factor
 				continue;
 			}
 
-			if(!array_key_exists('count', $value) || !array_key_exists('discount', $value))
+			if(!array_key_exists('count', $value))
 			{
 				$have_warn[] = $key + 1;
 				continue;
@@ -186,34 +186,34 @@ class factor
 				continue;
 			}
 
-			if($value['discount'] &&  !is_numeric($value['discount']))
-			{
-				$have_warn[] = $key + 1;
-				continue;
-			}
 
 			switch ($_option['type'])
 			{
 				case 'sale':
+					if(isset($value['discount']) &&  !is_numeric($value['discount']))
+					{
+						$have_warn[] = $key + 1;
+						continue;
+					}
 					// save query of sold plus and minus stock in cache to run multi query after this foreach
 					self::sold_plus($product_id, floatval($value['count']), true);
 					self::stock_minus($product_id, floatval($value['count']), true);
 					break;
 
 				case 'buy':
-					if(!array_key_exists('price', $value))
-					{
-						$have_warn[] = $key + 1;
-						continue;
-					}
+					// if(!array_key_exists('price', $value))
+					// {
+					// 	$have_warn[] = $key + 1;
+					// 	continue;
+					// }
 
-					if($value['price'] &&  !is_numeric($value['price']))
-					{
-						$have_warn[] = $key + 1;
-						continue;
-					}
+					// if($value['price'] &&  !is_numeric($value['price']))
+					// {
+					// 	$have_warn[] = $key + 1;
+					// 	continue;
+					// }
 
-					$new_price      = floatval($value['price']);
+					// $new_price      = floatval($value['price']);
 
 					if(!array_key_exists('buyprice', $value))
 					{
@@ -230,21 +230,22 @@ class factor
 					$new_buyprice      = floatval($value['buyprice']);
 
 					$price_change                    = [];
-					$price_change['price']           = $new_price;
-					$price_change['discount']        = $value['discount'];
+					// $price_change['price']           = $new_price;
+					// $price_change['discount']        = $value['discount'];
 					$price_change['buyprice']        = $new_buyprice;
 
-					$discountpercent = null;
-					if(floatval($new_price) != 0)
-					{
-						$discountpercent = round((floatval($value['discount']) * 100) / floatval($new_price), 3);
-					}
+					// $discountpercent = null;
+					// if(floatval($new_price) != 0)
+					// {
+					// 	$discountpercent = round((floatval($value['discount']) * 100) / floatval($new_price), 3);
+					// }
 
-					$price_change['discountpercent'] = $discountpercent;
+					// $price_change['discountpercent'] = $discountpercent;
 
 					\lib\app\product\buyprice::check($product_id, $price_change, true);
 
-					self::stock_plus($product_id, floatval($value['count']), true);
+					self::stock_plus_and_buyprice($product_id, floatval($value['count']), true, $new_buyprice);
+
 					break;
 
 					// -------------------- prefactor
@@ -281,7 +282,7 @@ class factor
 			}
 
 			$new_list[$key]['count']      = floatval($value['count']);
-			$new_list[$key]['discount']   = intval($value['discount']);
+			$new_list[$key]['discount']   = (isset($value['discount'])) ? intval($value['discount']) : null;
 			$new_list[$key]['product_id'] = $product_id;
 
 			$allproduct_id[]              = $product_id;
@@ -326,28 +327,58 @@ class factor
 				return false;
 			}
 
-			if(!array_key_exists('discount', $check_true_product[$value['product_id']]))
-			{
-				\dash\notif::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
-				return false;
-			}
-
 			$this_proudct = $check_true_product[$value['product_id']];
 
-			if(!array_key_exists('price', $this_proudct))
+			$price = 0;
+
+			switch ($_option['type'])
 			{
-				$price = 0;
-			}
-			else
-			{
-				$price = intval($this_proudct['price']);
+				case 'sale':
+					if(!array_key_exists('discount', $check_true_product[$value['product_id']]))
+					{
+						\dash\notif::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
+						return false;
+					}
+
+					if(!array_key_exists('price', $this_proudct))
+					{
+						$price = 0;
+					}
+					else
+					{
+						$price = intval($this_proudct['price']);
+					}
+
+					$temp['discount']   = $value['discount'] === null ? $check_true_product[$value['product_id']]['discount'] : $value['discount'];
+					$temp['sum']        = (floatval($price) - floatval($value['discount'])) * floatval($value['count']);
+
+					break;
+
+				case 'buy':
+					if(!array_key_exists('buyprice', $this_proudct))
+					{
+						$price = 0;
+					}
+					else
+					{
+						$price = intval($this_proudct['buyprice']);
+					}
+
+					$temp['sum'] = floatval($price) * floatval($value['count']);
+					break;
+
+				case 'prefactor':
+				case 'lending':
+				case 'backbuy':
+				case 'backfactor':
+				case 'waste':
+
+					break;
 			}
 
 			$temp['product_id'] = $value['product_id'];
 			$temp['price']      = $price;
 			$temp['count']      = $value['count'] === null ? 1 : $value['count'];
-			$temp['discount']   = $value['discount'] === null ? $check_true_product[$value['product_id']]['discount'] : $value['discount'];
-			$temp['sum']        = (floatval($price) - floatval($value['discount'])) * floatval($value['count']);
 
 			$factor_detail[] = $temp;
 		}

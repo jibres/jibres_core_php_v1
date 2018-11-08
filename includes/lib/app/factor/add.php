@@ -89,7 +89,13 @@ trait add
 		foreach ($factor_detail as $key => $value)
 		{
 			$sum                      = (floatval($value['price']) * floatval($value['count']));
-			$discount                 = (floatval($value['discount']) * floatval($value['count']));
+			$discount = 0;
+
+			if(isset($value['discount']))
+			{
+				$discount                 = (floatval($value['discount']) * floatval($value['count']));
+			}
+
 			$factor['detailsum']      += $sum;
 			$factor['detaildiscount'] += $discount;
 			$factor['detailtotalsum'] += $sum - $discount;
