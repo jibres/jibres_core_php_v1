@@ -5,6 +5,36 @@ require_once ('master.php');
 $plan = [];
 
 
+// ----------------------------------------------- TRIAL -------------------------------------------- //
+$trial   = $master;
+
+// $trial[] = "mPermissionAdd";
+
+$plan['trial'] =
+[
+  'title'              => 'trial',
+  'public'             => true,
+  'monthly'            => 0,
+  'yearly'             => 0,
+  'teacher_permission' => null,
+  'contain'            => $trial,
+];
+
+// ----------------------------------------------- FREE -------------------------------------------- //
+$free   = $master;
+
+// $free[] = "mPermissionAdd";
+
+$plan['free'] =
+[
+  'title'              => 'free',
+  'public'             => true,
+  'monthly'            => 0,
+  'yearly'             => 0,
+  'teacher_permission' => null,
+  'contain'            => $free,
+];
+
 
 // ----------------------------------------------- SIMPLE -------------------------------------------- //
 $simple   = $master;
