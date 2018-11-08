@@ -131,9 +131,15 @@ class controller
 			$datalist['finalprice'] = $_data['finalprice'];
 			$priceTxt .= '<span class="txtB">'. \dash\utility\human::fitNumber($datalist['finalprice']). '</span>';
 		}
+
+		if(isset($_data['buyprice']))
+		{
+			$datalist['buyprice'] = floatval($_data['buyprice']);
+		}
+
 		if(isset($_data['price']))
 		{
-			$datalist['price'] = $_data['price'];
+			$datalist['price'] = floatval($_data['price']);
 			if(floatval($datalist['price']) !== floatval($datalist['finalprice']))
 			{
 				$priceTxt .= ' <span class="badge light mLR10"><i class="sf-bolt"></i> '. \dash\utility\human::fitNumber($datalist['price']);
@@ -207,6 +213,11 @@ class controller
 		if(isset($_data['price']))
 		{
 			$result['price'] = $_data['price'];
+		}
+
+		if(isset($_data['buyprice']))
+		{
+			$result['buyprice'] = $_data['buyprice'];
 		}
 
 		if(isset($_data['discount']))
