@@ -6,11 +6,11 @@
 {%block pageContent%}
 {{block('pageSteps')}}
 <div class="f">
-  <div class="c5 pRa10">
+  <div class="c5 s12 pRa10">
     {{block('addNewPos')}}
   </div>
   {%if dataTable%}
-  <div class="c">
+  <div class="c s12">
     {{block('htmlTable')}}
   </div>
   {%endif%}
@@ -59,7 +59,7 @@
   <table class="tbl1 v1 txtC cbox fs12">
     <thead>
       <tr class="fs09">
-        <th class="collapsing" colspan="2">{%trans "Bank"%}</th>
+        <th colspan="2">{%trans "Bank"%}</th>
         <th>{%trans "Name"%}</th>
         <th>{%trans "Default"%}</th>
         <th>{%trans "Action"%}</th>
@@ -69,9 +69,9 @@
     <tbody>
       {%for key, value in dataTable%}
       <tr {%if value.default%} title='{%trans "Is default"%}' class="positive"{%endif%}>
-        <td><span class="spay-32-{{value.class}} mRa10"></span></td>
-        <td class="txtLa">
-          <span class="txtB">{{value.name}}</span>
+        <td class="collapsing"><span class="spay-32-{{value.class}}"></span></td>
+        <td class="collapsing txtLa">
+          <span class="txtB">{%set bankName = value.name | capitalize%}{%trans bankName%}</span>
           {%if value.pc_pos%}
 	      <span class="badge primary">{%trans "PcPos"%}</span>
           <div class="mT10">
@@ -90,7 +90,7 @@
           		<a href="{{url.pwd}}" class="badge" data-ajaxify data-method='post' data-data='{"key" : "{{key}}", "type" : "default"}'>{%trans "Set as default"%}</a>
           	{%endif%}
         </td>
-        <td>
+        <td class="collapsing">
           <div class="badge danger" data-confirm data-data='{"key":"{{key}}", "type":"remove"}'>{%trans "Remove"%}</div>
         </td>
       </tr>

@@ -256,9 +256,17 @@ function event_corridor(_e, _self, _key)
     case '114':             // f3
     case '114ctrl':         // f3 + ctrl
     case '70ctrl':          // f3 + ctrl
+logy($('input.search'));
+logy($('input.search').length);
+
       if($('input[type=search]').length === 1)
       {
         $('input[type=search]').trigger("focus");
+        _e.preventDefault();
+      }
+      else if($('select input.search').length === 2)
+      {
+        $('input.search').trigger("focus");
         _e.preventDefault();
       }
       break;
