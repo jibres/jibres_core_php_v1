@@ -2,9 +2,9 @@
 
 {%block pageContent%}
 <div class="f">
- <div class="c5 s12">{{block ("stListOfProducts")}}</div>
- <div class="c5 s12">{{block ("stAddProduct")}}</div>
- <div class="c2 s0">{{block ("stProductImport")}}</div>
+ {%if perm('productList')%}<div class="c5 s12">{{block ("stListOfProducts")}}</div>{%endif%}
+ {%if perm('productAdd')%}<div class="c5 s12">{{block ("stAddProduct")}}</div>{%endif%}
+ {%if perm('productImport')%}<div class="c2 s0">{{block ("stProductImport")}}</div>{%endif%}
 </div>
 
 {%if dashboardData.product_count > 0%}
@@ -57,11 +57,19 @@
 {%endblock%}
 
 {%block stProductExport%}
+{%if perm('productExport')%}
 <a class="dcard" href="{{url.this}}/export">
  <div class="statistic gray">
   <div class="label">{%trans "Export"%}</div>
  </div>
 </a>
+{%else%}
+<a class="dcard" >
+ <div class="statistic gray">
+  <div class="label"></div>
+ </div>
+</a>
+{%endif%}
 {%endblock%}
 
 
