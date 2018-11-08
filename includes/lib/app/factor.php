@@ -334,34 +334,25 @@ class factor
 			switch ($_option['type'])
 			{
 				case 'sale':
-					if(!array_key_exists('discount', $check_true_product[$value['product_id']]))
+					if(!array_key_exists('discount', $this_proudct))
 					{
 						\dash\notif::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
 						return false;
 					}
 
-					if(!array_key_exists('price', $this_proudct))
+					if(array_key_exists('price', $this_proudct))
 					{
-						$price = 0;
-					}
-					else
-					{
-						$price = intval($this_proudct['price']);
+						$price = floatval($this_proudct['price']);
 					}
 
-					$temp['discount']   = $value['discount'] === null ? $check_true_product[$value['product_id']]['discount'] : $value['discount'];
+					$temp['discount']   = $value['discount'] === null ? $this_proudct['discount'] : $value['discount'];
 					$temp['sum']        = (floatval($price) - floatval($value['discount'])) * floatval($value['count']);
-
 					break;
 
 				case 'buy':
-					if(!array_key_exists('buyprice', $this_proudct))
+					if(array_key_exists('buyprice', $this_proudct))
 					{
-						$price = 0;
-					}
-					else
-					{
-						$price = intval($this_proudct['buyprice']);
+						$price = floatval($this_proudct['buyprice']);
 					}
 
 					$temp['sum'] = floatval($price) * floatval($value['count']);
