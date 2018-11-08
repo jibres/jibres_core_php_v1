@@ -208,15 +208,16 @@ function event_corridor(_e, _self, _key)
         _e.preventDefault();
 
         // set factor url
-        var myPage    = $('body').attr('data-page');
-        var factorUrl = '/a/sale?from='+ myPage;
+        var myPage     = $('body').attr('data-page');
+        var factorUrl  = '/a/sale?from='+ myPage;
+        var factorType = $('body').attr('data-page');
         if($('html').attr('lang') !== undefined)
         {
           factorUrl = $('html').attr('lang')+ factorUrl;
         }
         // navigate to add new factor page
         // Navigate({ url: factorUrl });
-        if(check_factor())
+        if(factorType === 'sale' && check_factor())
         {
           // if we are in check url, first check this one is empty or not
           if(qtyFactorTableItems() == 0)
