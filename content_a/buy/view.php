@@ -6,7 +6,6 @@ class view
 {
 	public static function config()
 	{
-
 		\dash\data::page_title(T_('Buy invoicing'));
 		\dash\data::page_desc(T_('Add buy from supplier will update stock and price of products automatically.'));
 		\dash\data::page_pictogram('buy-sign');
