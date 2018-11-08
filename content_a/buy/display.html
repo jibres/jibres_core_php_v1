@@ -3,7 +3,7 @@
 
 {%block pageContent%}
 
-<form method="post" class="f" id='factorAdd' disallowEnter data-msgNewError='{%trans "You can add new empty tab if current tab is filled!"%}' {%if requestGET.extra == 'true'%}data-autoClose=2000{%endif%}>
+<form method="post" class="f" id='factorAdd' data-disallowEnter data-msgNewError='{%trans "You can add new empty tab if current tab is filled!"%}' {%if requestGET.extra == 'true'%}data-autoClose=2000{%endif%}>
   <div class="c9 s12 pRa10">
 
     {{block("addProducts")}}
@@ -84,7 +84,6 @@
      <th class="headProduct">{%trans "Product"%}</th>
      <th class="headCount collapsing">{%trans "Count"%}</th>
      <th class="headBuy min100">{%trans "Buy price"%}</th>
-     <th class="headPrice min100">{%trans "Price"%}</th>
      <th class="headDiscount collapsing">{%trans "Discount"%}</th>
      <th class="headTotal min100">{%trans "Total"%}</th>
     </tr>
