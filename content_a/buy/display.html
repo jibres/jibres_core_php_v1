@@ -105,7 +105,7 @@
 {%block iCustomer%}
 <div class="cbox p0">
   <select name="customer" class="ui dropdown search selection" id="customerSearch" data-source='{{url.here}}/thirdparty?json=true&list=customer&q={query}'>
-    <option value="" readonly>{%trans "Choose customer"%}</option>
+    <option value="">{%trans "Choose customer"%}</option>
   </select>
 </div>
 {%endblock%}
@@ -115,7 +115,7 @@
 {%block addProducts%}
 <div class="cbox p0">
   <select name="product" class="ui dropdown search selection barCode" id="productSearch" autofocus data-default data-search='{{url.here}}/product?json=true&q={query}'>
-    <option value="" readonly>{%trans "Search in list to add product"%} +</option>
+    <option value="">{%trans "Search in list to add product"%} +</option>
   </select>
 </div>
 {%endblock%}
