@@ -6,8 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('reportDaily');
-
 		\dash\data::page_title(T_('Report daily'));
 		// \dash\data::page_desc(T_('Sale your product via Jibres and enjoy using integrated web base platform.'));
 
