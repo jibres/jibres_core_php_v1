@@ -9,7 +9,7 @@
 .priceBox div{transition: color 0.3s;}
 .priceBox div:hover{color:#fff}
 .priceBox .final{padding:0;background-color:#50a0c0;color:#fff;font-size:2.5em;margin-bottom:10px;height:70px;}
-.priceBox .final span{line-height:70px;}
+.priceBox .final span{line-height:75px;height:70px;}
 .priceBox .final abbr{font-size:1rem;display:inline-block;transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);vertical-align:middle;}
 .priceBox .desc{padding:0.4em 0.2em;color:#fff;font-size:1.1rem;font-weight:100;min-height:30px;line-height:1.4}
 .ltr .priceBox .desc{display:none;}
@@ -19,6 +19,9 @@
 .priceBox .count{display:none;}
 .priceBox .discount{background-color:#50aacc;cursor:pointer;display:none;}
 .priceBox .discountPercent{display:none;}
+body[data-page="buy"] .priceBox{background-color:#a03030}
+body[data-page="buy"] .priceBox .final{background-color:#702020;}
+body[data-page="buy"] .priceBox .discount{background-color:#703030;}
 kbd{font-family:monospace;}
 
 
