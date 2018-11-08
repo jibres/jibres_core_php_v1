@@ -61,7 +61,7 @@
       <tr class="fs09">
         <th colspan="2">{%trans "Bank"%}</th>
         <th>{%trans "Name"%}</th>
-        <th>{%trans "Default"%}</th>
+        <th class="s0">{%trans "Default"%}</th>
         <th>{%trans "Action"%}</th>
       </tr>
     </thead>
@@ -83,7 +83,7 @@
           {%endif%}
       	</td>
         <td>{%if value.title %}{{value.title}}{%else%}-{%endif%}</td>
-        <td class="collapsing">
+        <td class="collapsing s0">
         	{%if value.default%}
           		<a class="badge success"> {%trans "Is default"%}</a>
         	{%else%}
