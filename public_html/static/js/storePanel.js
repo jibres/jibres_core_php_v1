@@ -533,6 +533,10 @@ function addNewRecord_ProductList(_table, _product, _append)
     {
       newRecord.find('td.cellBuy').html(htmlPBuy);
     }
+    else
+    {
+
+    }
 
     newRecord.find('td.cellPrice').text(fitNumber(_product.price)).attr('data-val', _product.price);
     newRecord.find('td.cellDiscount').html(htmlPDiscount);
