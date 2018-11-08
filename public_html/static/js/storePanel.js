@@ -44,7 +44,7 @@ function calcFooterValues(_table)
     {
       tmpCount = parseFloat(tmpCount.toEnglish());
     }
-    var tmpBuy = $(this).find('td.cellBuy').val();
+    var tmpBuy = $(this).find('td.cellBuy input').val();
     if(tmpBuy)
     {
       tmpBuy = parseInt(tmpBuy.toEnglish());
@@ -83,7 +83,7 @@ function calcFooterValues(_table)
       $(this).find('.discount').val('');
       tmpDiscount = 0;
     }
-logy(tmpPrice);
+
     var tmpPriceCol    = tmpCount * tmpPrice;
     var tmpDiscountCol = tmpCount * tmpDiscount;
     var tmpFinalCol    = tmpCount * (tmpPrice - tmpDiscount);
@@ -245,17 +245,23 @@ function bindBtnOnFactor()
     $(this).parents('tr').attr('data-selected', null);
   });
 
-  $(document).on('input', '.count', function()
+  $(document).on('input', 'input.count', function()
   {
     calcFooterValues();
   });
+
+  $(document).on('input', 'input.buy', function()
+  {
+    calcFooterValues();
+  });
+
 
   $(document).on('click', '.priceBox .discount', function()
   {
     shortkey_toggleDiscount();
   });
 
-  $(document).on('input', '.discount', function()
+  $(document).on('input', 'input.discount', function()
   {
     calcFooterValues();
   });
@@ -531,10 +537,10 @@ function addNewRecord_ProductList(_table, _product, _append)
   {
     console.log(_product);
     var htmlPName     = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
-    var htmlPCount    = '<input class="input count" type="number" name="count[]" autocomplete="off" min="0" max="1000000000" step="any" value="1">';
+    var htmlPCount    = '<input class="input count" type="number" name="count[]" autocomplete="off" min="0" max="1000000000" step="any" placeholder="-" value="1">';
     if(factorType === 'buy')
     {
-      htmlPCount = '<input class="input count" type="number" name="count[]" autocomplete="off" min="0" max="1000000000" step="any" placeholder="1">';
+      htmlPCount = '<input class="input count" type="number" name="count[]" autocomplete="off" min="0" max="1000000000" step="any" placeholder="-" >';
     }
 
     var htmlPBuy      = '<input class="input buy" type="number" name="buy[]" autocomplete="off" min="0" max="1000000000" value="' + _product.buyprice +'">';
