@@ -105,7 +105,27 @@ class pos
 			return false;
 		}
 
-		unset($old[$_key]);
+		if(isset($old[$_key]['default']) && $old[$_key]['default'])
+		{
+			unset($old[$_key]);
+			$old = array_values($old);
+
+			foreach ($old as $key => $value)
+			{
+				if($key == 0)
+				{
+					$old[$key]['default'] = true;
+				}
+				else
+				{
+					$old[$key]['default'] = false;
+				}
+			}
+		}
+		else
+		{
+			unset($old[$_key]);
+		}
 
 		$pos = json_encode($old, JSON_UNESCAPED_UNICODE);
 
