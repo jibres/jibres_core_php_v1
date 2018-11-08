@@ -278,8 +278,6 @@ class pos
 
 		$irankish =
 		[
-			'status'   => $irankish,
-			'title'    => "irankish pc pos",
 			'serial'   => $serial,
 			'terminal' => $terminal,
 			'receiver' => $receiver,
@@ -333,8 +331,6 @@ class pos
 
 		$asanpardakht =
 		[
-			'status' => $asanpardakht,
-			'title'  => "asanpardakht pc pos",
 			'ip'     => $ip,
 			'port'   => $port,
 		];

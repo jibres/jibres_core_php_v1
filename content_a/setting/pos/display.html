@@ -72,6 +72,12 @@
           {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
           {%if value.title %}{{value.title}}{%endif%}
           <span class="txtB">{{value.name}}</span>
+          {%if value.pc_pos%}
+          <span class="badge primary">{%trans "PcPos"%}</span>
+			{%for k, v in value.pc_pos%}
+          		<span class="badge ligth">{%trans k%} {{v}}</span>
+			{%endfor%}
+          {%endif%}
       	</td>
         <td class="txtC">
           <span class="spay-32-{{value.class}}"></span>
