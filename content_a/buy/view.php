@@ -10,8 +10,11 @@ class view
 		\dash\data::page_desc(T_('Add buy from supplier will update stock and price of products automatically.'));
 		\dash\data::page_pictogram('buy-sign');
 
-		\dash\data::badge_text(T_('Back to last sales'));
-		\dash\data::badge_link(\dash\url::here(). '/factor?type=buy');
+		if(\dash\permission::check('factorBuyList'))
+		{
+			\dash\data::badge_text(T_('Back to last sales'));
+			\dash\data::badge_link(\dash\url::here(). '/factor?type=buy');
+		}
 	}
 }
 ?>
