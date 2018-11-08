@@ -73,6 +73,8 @@ class controller
 			\dash\code::boom();
 		}
 
+		\dash\permission::access('productList');
+
 	}
 
 	private static function getNeededField($_data)

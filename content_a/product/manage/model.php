@@ -19,6 +19,8 @@ class model
 	{
 		if(\dash\request::post('delete') === 'product')
 		{
+			\dash\permission::access('productDelete');
+
 			\lib\app\product::delete(\dash\request::get('id'));
 
 			if(\dash\engine\process::status())
@@ -29,6 +31,7 @@ class model
 		}
 		else
 		{
+			\dash\permission::access('productStatusEdit');
 
 			$request         = self::getPost();
 

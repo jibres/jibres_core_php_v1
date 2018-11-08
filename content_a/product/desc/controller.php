@@ -6,6 +6,7 @@ class controller
 {
 	public static function routing()
 	{
+		\dash\permission::access('productDescriptionEdit');
 		\content_a\product\load::product();
 	}
 }

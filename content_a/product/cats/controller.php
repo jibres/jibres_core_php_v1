@@ -5,6 +5,8 @@ class controller
 {
 	public static function routing()
 	{
+		\dash\permission::access('productCategoryListView');
+
 		$catList = \lib\app\product\cat::list(true);
 		\dash\data::dataTable($catList);
 
@@ -21,6 +23,7 @@ class controller
 
 		if(is_array($_GET) && array_key_exists('edit', $_GET))
 		{
+			\dash\permission::access('productCategoryListEdit');
 			\dash\data::editMode(true);
 		}
 	}

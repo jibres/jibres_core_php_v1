@@ -5,6 +5,8 @@ class controller
 {
 	public static function routing()
 	{
+		\dash\permission::access('productUnitListView');
+
 		$unitList = \lib\app\product\unit::list(true);
 		\dash\data::dataTable($unitList);
 
@@ -21,6 +23,7 @@ class controller
 
 		if(is_array($_GET) && array_key_exists('edit', $_GET))
 		{
+			\dash\permission::access('productUnitListEdit');
 			\dash\data::editMode(true);
 		}
 	}

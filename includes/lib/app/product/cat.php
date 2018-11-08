@@ -76,6 +76,11 @@ class cat
 
 	public static function add($_args)
 	{
+		if(!\dash\permission::check('productCategoryListAdd'))
+		{
+			return false;
+		}
+
 		\dash\app::variable($_args);
 
 		$args = self::check();
@@ -116,6 +121,11 @@ class cat
 
 	public static function remove($_old_cat)
 	{
+		if(!\dash\permission::check('productCategoryListDelete'))
+		{
+			return false;
+		}
+
 		$json = self::list(true);
 
 		if(!isset($json[$_old_cat]))
@@ -139,6 +149,10 @@ class cat
 
 	public static function update($_old_cat, $_new_cat, $_args = [])
 	{
+		if(!\dash\permission::check('productCategoryListEdit'))
+		{
+			return false;
+		}
 
 		\dash\app::variable($_args);
 

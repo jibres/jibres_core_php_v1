@@ -65,6 +65,11 @@ class unit
 
 	public static function add($_args)
 	{
+		if(!\dash\permission::check('productUnitListAdd'))
+		{
+			return false;
+		}
+
 		\dash\app::variable($_args);
 
 		$args = self::check();
@@ -105,6 +110,11 @@ class unit
 
 	public static function remove($_old_unit)
 	{
+		if(!\dash\permission::check('productUnitListDelete'))
+		{
+			return false;
+		}
+
 		$json = self::list(true);
 
 		if(!isset($json[$_old_unit]))
@@ -128,6 +138,10 @@ class unit
 
 	public static function update($_old_unit, $_new_unit, $_args = [])
 	{
+		if(!\dash\permission::check('productUnitListEdit'))
+		{
+			return false;
+		}
 
 		\dash\app::variable($_args);
 

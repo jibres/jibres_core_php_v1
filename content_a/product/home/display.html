@@ -3,6 +3,7 @@
 
 
 {%block pageContent%}
+{%if perm('productAdvanceSearchView')%}
 <div class="msg info2 f p0">
   <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?duplicatetitle=1">{%trans "Duplicate title"%}</a></span>
   <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?hbarcode=1">{%trans "Have barcode"%}</a></span>
@@ -15,8 +16,8 @@
   <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wmaxstock=1">{%trans "Whitout max stock"%}</a></span>
   <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wdiscount=1">{%trans "Whitout discount"%}</a></span>
   <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?negativeprofit=1">{%trans "Negative profit"%}</a></span>
-
 </div>
+{%endif%}
 
 {%if dataTable%}
  {%if filterBox%}
