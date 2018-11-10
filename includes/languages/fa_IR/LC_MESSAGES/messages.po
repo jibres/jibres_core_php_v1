@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2018-11-09 15:11+0330\n"
-"PO-Revision-Date: 2018-11-09 15:22+0330\n"
+"PO-Revision-Date: 2018-11-10 19:24+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-Basepath: ../../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -132,8 +132,7 @@ msgstr "بالانس مالی خود را بررسی کنید، حساب خود 
 #: dash/addons/content_account/home/view.php:9
 #: dash/addons/content_cp/email/home/view.php:16
 #: dash/addons/content_cp/email/send/view.php:16
-#: dash/addons/content_cp/sms/group/view.php:16
-#: dash/addons/content_cp/sms/home/view.php:16
+#: dash/addons/content_cp/sms/group/view.php:16 dash/addons/content_cp/sms/home/view.php:16
 #: dash/addons/content_cp/sms/send/view.php:16
 #: dash/addons/content_cp/sms/verify/view.php:15
 #: dash/addons/content_cp/visitor/log/view.php:16
@@ -184,8 +183,8 @@ msgstr "شناسه کاربر اشتباه است"
 #: dash/addons/content_account/profile/social/view.php:27
 #: dash/addons/content_account/profile/view.php:27
 #: dash/addons/content_cp/users/set/view.php:35
-#: dash/addons/content_cp/users/view/view.php:32
-#: jibres/includes/lib/app/factor/get.php:36 jibres/includes/lib/app/product/get.php:33
+#: dash/addons/content_cp/users/view/view.php:32 jibres/includes/lib/app/factor/get.php:36
+#: jibres/includes/lib/app/product/get.php:33
 #: jibres/includes/lib/app/storetransaction/get.php:45
 #: jibres/includes/lib/app/thirdparty/user_id.php:162
 msgid "User id not found"
@@ -209,19 +208,17 @@ msgstr "لینوکس"
 msgid "Your change was saved"
 msgstr "تغییرات شما ذخیره شد"
 
-#: dash/addons/content_cp/backup/model.php:28
-#: dash/addons/content_cp/backup/model.php:80
+#: dash/addons/content_cp/backup/model.php:28 dash/addons/content_cp/backup/model.php:80
 msgid "Can not create backup"
 msgstr "نمی توانیم فایل پشتیبان را بسازیم"
 
-#: dash/addons/content_cp/backup/model.php:37
-#: dash/addons/content_su/backup/model.php:38
+#: dash/addons/content_cp/backup/model.php:37 dash/addons/content_su/backup/model.php:38
 msgid "File successfully deleted"
 msgstr "فایل با موفقیت حذف شد"
 
-#: dash/addons/content_cp/backup/model.php:44
-#: dash/addons/content_su/backup/model.php:45 jibres/content_a/buy/model.php:69
-#: jibres/content_a/sale/model.php:63 jibres/content_a/thirdparty/export/model.php:13
+#: dash/addons/content_cp/backup/model.php:44 dash/addons/content_su/backup/model.php:45
+#: jibres/content_a/buy/model.php:69 jibres/content_a/sale/model.php:63
+#: jibres/content_a/thirdparty/export/model.php:13
 msgid "Dont!"
 msgstr "نکن عزیزم!"
 
@@ -297,9 +294,9 @@ msgstr "همچنین نظر خاص را اضافه یا ویرایش کنید."
 #: dash/addons/content_cp/log/caller/view.php:13
 #: dash/addons/content_cp/log/home/view.php:13
 #: dash/addons/content_cp/posts/home/view.php:58
-#: dash/addons/content_cp/sms/template/view.php:15
-#: dash/addons/content_cp/terms/view.php:61 dash/addons/content_su/tg/log/view.php:14
-#: jibres/content_a/chap/receipt/view.php:12 jibres/content_a/factor/home/view.php:58
+#: dash/addons/content_cp/sms/template/view.php:15 dash/addons/content_cp/terms/view.php:61
+#: dash/addons/content_su/tg/log/view.php:14 jibres/content_a/chap/receipt/view.php:12
+#: jibres/content_a/factor/home/view.php:58
 msgid "Back to dashboard"
 msgstr "بازگشت به داشبورد"
 
@@ -308,8 +305,7 @@ msgstr "بازگشت به داشبورد"
 #: dash/addons/content_cp/posts/home/view.php:71
 #: dash/addons/content_cp/users/home/view.php:23
 #: dash/addons/content_cp/visitor/log/view.php:23
-#: dash/addons/content_su/dbtables/view.php:22
-#: dash/addons/content_su/tg/log/view.php:22
+#: dash/addons/content_su/dbtables/view.php:22 dash/addons/content_su/tg/log/view.php:22
 #: dash/addons/content_su/transactions/view.php:22
 #: jibres/content_a/thirdparty/home/view.php:109
 msgid "Search for :search"
@@ -362,11 +358,9 @@ msgstr "تمام جزئیات وب‌سایت خود را در یک نگاه ب�
 #: dash/addons/content_cp/home/view.php:15
 msgid "You can manage all parts of site from cms and news until user and logs."
 msgstr ""
-"شما می‌توانید تمام بخش‌ها را از مدیریت محتوا و اخبار گرفته تا کاربران و لاگ را مدیریت "
-"کنید."
+"شما می‌توانید تمام بخش‌ها را از مدیریت محتوا و اخبار گرفته تا کاربران و لاگ را مدیریت کنید."
 
-#: dash/addons/content_cp/log/caller/view.php:9
-#: dash/addons/content_cp/log/home/view.php:9
+#: dash/addons/content_cp/log/caller/view.php:9 dash/addons/content_cp/log/home/view.php:9
 #: dash/addons/includes/languages/trans_dash.php:694
 #: jibres/includes/languages/trans_dash.php:697
 msgid "Log"
@@ -375,15 +369,13 @@ msgstr "لاگ"
 #: dash/addons/content_cp/log/caller/view.php:10
 #: dash/addons/content_cp/log/home/view.php:10
 msgid "Check list of log and search or filter in them to find your logs."
-msgstr ""
-"بررسی لیست لاگ‌ها و جستجو یا فیلتر کردن بعضی از آنان جهت پیدا کردن لاگ مورد نظر."
+msgstr "بررسی لیست لاگ‌ها و جستجو یا فیلتر کردن بعضی از آنان جهت پیدا کردن لاگ مورد نظر."
 
 #: dash/addons/content_cp/log/home/view.php:20
 msgid "Show log caller"
 msgstr "نمایش عناوین لاگ‌ها"
 
-#: dash/addons/content_cp/mycontact/view.php:9
-#: dash/addons/content_cp/mycontact/view.php:10
+#: dash/addons/content_cp/mycontact/view.php:9 dash/addons/content_cp/mycontact/view.php:10
 msgid "Comment Dashboard"
 msgstr "داشبورد دیدگاه‌ها"
 
@@ -427,10 +419,8 @@ msgstr "حذف سطح دسترسی"
 
 #: dash/addons/content_cp/permission/delete/view.php:34
 #: jibres/content_a/permission/delete/view.php:29
-#: jibres/includes/lib/app/factor/edit.php:44
-#: jibres/includes/lib/app/factor/edit.php:51
-#: jibres/includes/lib/app/product/edit.php:34
-#: jibres/includes/lib/app/product/edit.php:40
+#: jibres/includes/lib/app/factor/edit.php:44 jibres/includes/lib/app/factor/edit.php:51
+#: jibres/includes/lib/app/product/edit.php:34 jibres/includes/lib/app/product/edit.php:40
 #: jibres/includes/lib/app/store/edit.php:50 jibres/includes/lib/app/store/edit.php:142
 #: jibres/includes/lib/app/storetransaction/edit.php:44
 #: jibres/includes/lib/app/storetransaction/edit.php:51
@@ -445,13 +435,11 @@ msgstr "شناسه تنظیم نشده است"
 msgid "Permissions"
 msgstr "سطوح‌دسترسی"
 
-#: dash/addons/content_cp/permission/view.php:12
-#: jibres/content_a/permission/view.php:12
+#: dash/addons/content_cp/permission/view.php:12 jibres/content_a/permission/view.php:12
 msgid "Set and config permission of users and allow them to do something."
 msgstr "سطح دسترسی کاربران را تنظیم کنید و به آنها اجازه دهید تا کار کنند."
 
-#: dash/addons/content_cp/permission/view.php:17
-#: jibres/content_a/permission/view.php:16
+#: dash/addons/content_cp/permission/view.php:17 jibres/content_a/permission/view.php:16
 msgid "Add new permission"
 msgstr "افزودن سطح دسترسی جدید"
 
@@ -504,8 +492,8 @@ msgstr "ویرایش نوشته"
 #: dash/addons/content_cp/posts/edit/view.php:35
 msgid "You can change everything, change url and add gallery or some other change"
 msgstr ""
-"شما می توانید همه چیز را تغییر دهید، تغییر آدرس و اضافه کردن گالری و یا برخی از "
-"تغییرات دیگر"
+"شما می توانید همه چیز را تغییر دهید، تغییر آدرس و اضافه کردن گالری و یا برخی از تغییرات "
+"دیگر"
 
 #: dash/addons/content_cp/posts/edit/view.php:49
 msgid "Edit page"
@@ -517,8 +505,7 @@ msgstr "ویرایش مرکز راهنمایی"
 
 #: dash/addons/content_cp/posts/edit/view.php:62
 msgid "Helps can contain keyword and category with title and descriptions."
-msgstr ""
-"مقالات مرکز راهنمایی می‌توانند شامل کلیدواژه و دسته‌بندی همراه با عنوان و شرح باشند."
+msgstr "مقالات مرکز راهنمایی می‌توانند شامل کلیدواژه و دسته‌بندی همراه با عنوان و شرح باشند."
 
 #: dash/addons/content_cp/posts/home/view.php:23
 #: dash/addons/includes/languages/trans_dash.php:240
@@ -725,16 +712,14 @@ msgstr "برچسب ها را بررسی کنید و برخی از برچسب ه�
 #: dash/addons/content_cp/terms/view.php:110
 #: dash/addons/includes/languages/trans_dash.php:257
 #: dash/addons/includes/languages/trans_static.php:112
-#: jibres/content_a/product/home/view.php:74
-#: jibres/includes/languages/trans_dash.php:261
+#: jibres/content_a/product/home/view.php:74 jibres/includes/languages/trans_dash.php:261
 #: jibres/includes/languages/trans_project.php:284
 msgid "Search"
 msgstr "جستجو"
 
 #: dash/addons/content_cp/terms/view.php:128
 #: jibres/content_a/chap/receipt/controller.php:13
-#: jibres/content_a/factor/edit/controller.php:12
-#: jibres/content_a/pay/controller.php:11
+#: jibres/content_a/factor/edit/controller.php:12 jibres/content_a/pay/controller.php:11
 msgid "Id not found"
 msgstr "کد یافت نشد"
 
@@ -771,19 +756,18 @@ msgstr "تکرار کلمه عبور با کلمه عبور برابر نیست"
 
 #: dash/addons/content_cp/users/set/view.php:13
 msgid ""
-"You can add new user and after add with minimal data, we allow you to add extra "
-"detail of user."
+"You can add new user and after add with minimal data, we allow you to add extra detail "
+"of user."
 msgstr ""
-"شما می توانید کاربر جدید را اضافه کنید و پس از اضافه کردن اطلاعات کم، به شما اجازه "
-"می دهیم جزئیات بیشتری از کاربر اضافه کنید."
+"شما می توانید کاربر جدید را اضافه کنید و پس از اضافه کردن اطلاعات کم، به شما اجازه می "
+"دهیم جزئیات بیشتری از کاربر اضافه کنید."
 
 #: dash/addons/content_cp/users/set/view.php:18
 #: dash/addons/content_cp/users/view/view.php:18
 msgid "Back to list of users"
 msgstr "بازگشت به لیست کاربران"
 
-#: dash/addons/content_cp/users/set/view.php:42
-#: dash/addons/content_enter/home/model.php:45
+#: dash/addons/content_cp/users/set/view.php:42 dash/addons/content_enter/home/model.php:45
 #: dash/addons/content_su/sendnotify/model.php:30 dash/lib/app/address.php:316
 #: dash/lib/app/parent/add.php:50 dash/lib/app/parent/add.php:59
 #: dash/lib/app/parent/delete.php:35 dash/lib/app/parent/delete.php:114
@@ -802,8 +786,7 @@ msgstr "ویرایش پروفایل :val"
 
 #: dash/addons/content_cp/users/set/view.php:50
 msgid "Edit user detail and change all fields of this user, be careful!"
-msgstr ""
-"ویرایش اطلاعات کاربر و تغییر مقادیر این کاربر، در تغییر دقت لازم را به خرج دهید!"
+msgstr "ویرایش اطلاعات کاربر و تغییر مقادیر این کاربر، در تغییر دقت لازم را به خرج دهید!"
 
 #: dash/addons/content_cp/users/view/view.php:13
 msgid "User detail"
@@ -847,8 +830,7 @@ msgstr ""
 msgid "Visitor"
 msgstr "بازدیدکننده"
 
-#: dash/addons/content_enter/alert/view.php:9
-#: dash/addons/content_enter/alert/view.php:16
+#: dash/addons/content_enter/alert/view.php:9 dash/addons/content_enter/alert/view.php:16
 msgid "Alert!"
 msgstr "هشدار!"
 
@@ -1099,8 +1081,8 @@ msgid ""
 "If forget your password, Please enter new password. after pass verification your new "
 "password is usable."
 msgstr ""
-"اگر گذرواژه‌ی خود را فراموش کرده‌اید، مقدار جدیدی را وارد کنید. پس از تکمیل "
-"اعتبارسنجی، این گذرواژه قابل استفاده خواهد بود."
+"اگر گذرواژه‌ی خود را فراموش کرده‌اید، مقدار جدیدی را وارد کنید. پس از تکمیل اعتبارسنجی، "
+"این گذرواژه قابل استفاده خواهد بود."
 
 #: dash/addons/content_enter/pass/view.php:22
 #: dash/addons/includes/languages/trans_dash.php:961
@@ -1155,8 +1137,7 @@ msgstr "لطفا گذرواژه‌ی معتبری تنظیم کنید"
 
 #: dash/addons/content_enter/signup/model.php:79
 msgid "Please do not use your username as password. Never Ever!"
-msgstr ""
-"لطفا از نام‌کاربری خود به‌عنوان گذرواژه استفاده نکنید. نه اینجا و نه هیچ‌کجای دیگر!"
+msgstr "لطفا از نام‌کاربری خود به‌عنوان گذرواژه استفاده نکنید. نه اینجا و نه هیچ‌کجای دیگر!"
 
 #: dash/addons/content_enter/signup/model.php:85
 msgid "Please do not use your mobile in password!"
@@ -1172,8 +1153,7 @@ msgstr "این نام‌کاربری پیش از این گرفته شده است
 
 #: dash/addons/content_enter/signup/model.php:111
 msgid "This mobile is already signuped. You can login by this mobile"
-msgstr ""
-"این شماره موبایل قبلا ثبت نام کرده است. شما می‌توانید با این موبایل وارد سیستم شود"
+msgstr "این شماره موبایل قبلا ثبت نام کرده است. شما می‌توانید با این موبایل وارد سیستم شود"
 
 #: dash/addons/content_enter/signup/view.php:10
 msgid "Signup in :name"
@@ -1310,8 +1290,8 @@ msgstr "لطفا هویت خود را تایید کنید."
 #: dash/addons/content_enter/verify/view.php:37
 msgid "We've sent the code via Telegram. Please enter the code below."
 msgstr ""
-"ما کد اعتبارسنجی را از طریق تلگرام برای شما ارسال کردیم. لطفا کد را در باکس پایین "
-"وارد کنید."
+"ما کد اعتبارسنجی را از طریق تلگرام برای شما ارسال کردیم. لطفا کد را در باکس پایین وارد "
+"کنید."
 
 #: dash/addons/content_enter/verify/view.php:41
 msgid "We trying to call you. be patient..."
@@ -1449,8 +1429,7 @@ msgstr "وضعیت گیت"
 msgid "Check file status on this project"
 msgstr "بررسی وضعیت فایل‌ها در این پروژه"
 
-#: dash/addons/content_su/home/view.php:8
-#: dash/addons/includes/languages/trans_dash.php:681
+#: dash/addons/content_su/home/view.php:8 dash/addons/includes/languages/trans_dash.php:681
 #: jibres/includes/languages/trans_dash.php:684
 msgid "Supervisor dashboard"
 msgstr "داشبورد مدیر فنی سیستم"
@@ -1491,8 +1470,7 @@ msgstr "فایل با موفقیت به روز رسانی شد"
 msgid "Can not write file"
 msgstr "ناتوان در نوشتن فایل"
 
-#: dash/addons/content_su/nano/view.php:8
-#: dash/addons/includes/languages/trans_dash.php:692
+#: dash/addons/content_su/nano/view.php:8 dash/addons/includes/languages/trans_dash.php:692
 #: jibres/includes/languages/trans_dash.php:695
 msgid "Nano"
 msgstr "نانو"
@@ -1519,13 +1497,11 @@ msgstr "بررسی ردپاها"
 msgid "Back to supervisor dashboard"
 msgstr "بازگشت به داشبورد مدیر فنی سیستم"
 
-#: dash/addons/content_su/tg/log/view.php:9
-#: dash/addons/content_su/tg/logshow/view.php:9
+#: dash/addons/content_su/tg/log/view.php:9 dash/addons/content_su/tg/logshow/view.php:9
 msgid "Telegram log"
 msgstr "ردپای تلگرام"
 
-#: dash/addons/content_su/tg/log/view.php:10
-#: dash/addons/content_su/tg/logshow/view.php:10
+#: dash/addons/content_su/tg/log/view.php:10 dash/addons/content_su/tg/logshow/view.php:10
 msgid "Check list of telegram and search or filter in them to find your telegram."
 msgstr "بررسی لیست تلگرام و جستجو و فیلتر در آنان."
 
@@ -1645,11 +1621,10 @@ msgid "Transactions list"
 msgstr "لیست تراکنش‌ها"
 
 #: dash/addons/content_su/transactions/view.php:11
-msgid ""
-"Check list of Transactions and search or filter in them to find your transactions."
+msgid "Check list of Transactions and search or filter in them to find your transactions."
 msgstr ""
-"لیست تراکنش‌ها را بررسی کنید و آنها را جستجو کنید یا فیلتر کنید تا پیوست های خود را "
-"پیدا کنید."
+"لیست تراکنش‌ها را بررسی کنید و آنها را جستجو کنید یا فیلتر کنید تا پیوست های خود را پیدا "
+"کنید."
 
 #: dash/addons/content_su/transactions/view.php:11
 msgid "Also add or edit specefic transactions."
@@ -1689,14 +1664,13 @@ msgstr "توکن دسترسی نامعتبر است!"
 msgid "Help center"
 msgstr "مرکز راهنمایی"
 
-#: dash/addons/content_support/home/view.php:10
-#: dash/addons/content_support/tag/view.php:11
+#: dash/addons/content_support/home/view.php:10 dash/addons/content_support/tag/view.php:11
 msgid ""
-"Easily manage your tickets and monitor or track them to get best answer until fix "
-"your problem"
+"Easily manage your tickets and monitor or track them to get best answer until fix your "
+"problem"
 msgstr ""
-"به‌سادگی تیکت‌های خود را مدیریت کنید و با مونیتور و رهگیری آن‌ها به بهترین پاسخ برای "
-"رفع مشکل خود برسید"
+"به‌سادگی تیکت‌های خود را مدیریت کنید و با مونیتور و رهگیری آن‌ها به بهترین پاسخ برای رفع "
+"مشکل خود برسید"
 
 #: dash/addons/content_support/home/view.php:13
 #: dash/addons/content_support/message/view.php:35
@@ -1754,8 +1728,8 @@ msgstr "سامانه پشتیبانی تیکت"
 
 #: dash/addons/content_support/message/view.php:11
 msgid ""
-"Easily manage your message and monitor or track them to get best answer until fix "
-"your problem"
+"Easily manage your message and monitor or track them to get best answer until fix your "
+"problem"
 msgstr ""
 "به‌سادگی پیام‌های تیکت‌های خود را مدیریت کنید و با مونیتور و رهگیری آن‌ها به بهترین پاسخ "
 "برای رفع مشکل خود برسید"
@@ -1777,8 +1751,8 @@ msgid "Your ticket was sended"
 msgstr "تیکت شما ارسال شد"
 
 #: dash/addons/content_support/ticket/add/view.php:9
-#: dash/addons/includes/languages/trans_static.php:1091
-#: dash/lib/app/log/msg/support.php:60 dash/lib/social/telegram/commands/ermile.php:314
+#: dash/addons/includes/languages/trans_static.php:1091 dash/lib/app/log/msg/support.php:60
+#: dash/lib/social/telegram/commands/ermile.php:314
 msgid "Add new ticket"
 msgstr "افزودن تیکت جدید"
 
@@ -1927,8 +1901,7 @@ msgstr "این تیکت حل شده و به‌صورت خودکار در :time �
 msgid "If it's okay you can close it manually."
 msgstr "اگر مشکلی وجود ندارد شما می‌توانید آن را به‌صورت دستی ببندید."
 
-#: dash/addons/content_support/view.php:45
-#: dash/addons/includes/languages/trans_dash.php:82
+#: dash/addons/content_support/view.php:45 dash/addons/includes/languages/trans_dash.php:82
 #: jibres/includes/languages/trans_dash.php:85
 #: jibres/includes/languages/trans_project.php:139
 msgid "Support"
@@ -2740,8 +2713,8 @@ msgstr "دوستان خود را از طریق شبکه‌های اجتماعی 
 #: jibres/includes/languages/trans_dash.php:186
 msgid "Share the referral rewards program with friends on Facebook, Twitter, or Email."
 msgstr ""
-"برنامه معرفی را با دوستان خود در توئیتر، فیس‌بوک، تلگرام یا سایر شبکه‌های اجتماعی و "
-"ایمیل به اشتراک بگذارید."
+"برنامه معرفی را با دوستان خود در توئیتر، فیس‌بوک، تلگرام یا سایر شبکه‌های اجتماعی و ایمیل "
+"به اشتراک بگذارید."
 
 #: dash/addons/includes/languages/trans_dash.php:183
 #: jibres/includes/languages/trans_dash.php:187
@@ -2755,8 +2728,8 @@ msgid ""
 "If someone forget to use your link, we allow to set your ref code as promo code in "
 "billing page!"
 msgstr ""
-"اگر هنگام ورود به سایت کسی فراموش کرد که از لینک شما استفاده کند، ما اجازه‌ی تنظیم کد "
-"شما را به عنوان کدتخفیف در صفحه مالی می‌دهیم!"
+"اگر هنگام ورود به سایت کسی فراموش کرد که از لینک شما استفاده کند، ما اجازه‌ی تنظیم کد شما "
+"را به عنوان کدتخفیف در صفحه مالی می‌دهیم!"
 
 #: dash/addons/includes/languages/trans_dash.php:185
 #: jibres/includes/languages/trans_dash.php:189
@@ -2771,8 +2744,8 @@ msgstr "دوستان شما وارد جیبرس شده و ۱۰.۰۰۰ تومان
 #: dash/addons/includes/languages/trans_dash.php:187
 #: jibres/includes/languages/trans_dash.php:191
 msgid ""
-"Anyone you refer to Jibres that enter using your unique referral link or your promo "
-"code will receive $5 in credit."
+"Anyone you refer to Jibres that enter using your unique referral link or your promo code "
+"will receive $5 in credit."
 msgstr ""
 "هرکسی که با کد منحصربفرد شما سایت را مشاده کرده و وارد جیبرس شود و یا کسانی که از کد "
 "تخفیف شما استفاده کنند، ۱۰.۰۰۰ تومان اعتبار هدیه برای کار با جیبرس دریافت خواهند کرد."
@@ -2790,8 +2763,8 @@ msgstr "جوایز جیبرس حداکثر ۷ روز کاری پس از تایی
 #: dash/addons/includes/languages/trans_dash.php:190
 #: jibres/includes/languages/trans_dash.php:194
 msgid ""
-"Amount of charge is depended on your friend total pay and after automatic "
-"calculation, system set your gift."
+"Amount of charge is depended on your friend total pay and after automatic calculation, "
+"system set your gift."
 msgstr ""
 "میزان شارژ بسته به مجموع پرداختی دوستان شما متفاوت بوده و پس از محاسبه خودکار، سیستم "
 "هدیه شما را منظور خواهد کرد."
@@ -2799,12 +2772,12 @@ msgstr ""
 #: dash/addons/includes/languages/trans_dash.php:191
 #: jibres/includes/languages/trans_dash.php:195
 msgid ""
-"We calculate your percentage until 6 month of your friend registration. Because of "
-"that it was your chance to convinced your friend to charge more!"
+"We calculate your percentage until 6 month of your friend registration. Because of that "
+"it was your chance to convinced your friend to charge more!"
 msgstr ""
-"شما ۶ ماه فرصت دارید تا مجموع پرداختی هر دوست معرفی شده را افزایش دهید. به‌همین دلیل، "
-"شما این زمان را خواهید داشت تا پس از اطمینان دوستان از کیفیت سیستم، آنان را برای "
-"شارژ بیشتر متقاعد کنید!"
+"شما ۶ ماه فرصت دارید تا مجموع پرداختی هر دوست معرفی شده را افزایش دهید. به‌همین دلیل، شما "
+"این زمان را خواهید داشت تا پس از اطمینان دوستان از کیفیت سیستم، آنان را برای شارژ بیشتر "
+"متقاعد کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:192
 #: jibres/includes/languages/trans_dash.php:196
@@ -2815,8 +2788,7 @@ msgstr "لینک خود را به اشتراک بگذارید"
 #: jibres/includes/languages/trans_dash.php:197
 msgid "Copy your personal referral link and share it with your friends and followers."
 msgstr ""
-"لینک معرفی شخصی خود را کپی کنید و آن را با دوستان و دنبال‌کنندگان خود به اشتراک "
-"بگذارید."
+"لینک معرفی شخصی خود را کپی کنید و آن را با دوستان و دنبال‌کنندگان خود به اشتراک بگذارید."
 
 #: dash/addons/includes/languages/trans_dash.php:194
 #: jibres/includes/languages/trans_dash.php:198
@@ -3178,8 +3150,7 @@ msgid "Users"
 msgstr "کاربران"
 
 #: dash/addons/includes/languages/trans_dash.php:293
-#: jibres/content_a/thirdparty/log/view.php:11
-#: jibres/includes/languages/trans_dash.php:297
+#: jibres/content_a/thirdparty/log/view.php:11 jibres/includes/languages/trans_dash.php:297
 #: jibres/includes/languages/trans_project.php:805
 msgid "Logs"
 msgstr "لاگ"
@@ -3351,8 +3322,7 @@ msgstr "نامک"
 msgid ""
 "The permission name should be unique and contain only alphanameric characters and "
 "underscores"
-msgstr ""
-"نام سطح دسترسی باید منحصر به فرد باشد و فقط شامل کاراکتر‌های الفبا و زیر خط باشد"
+msgstr "نام سطح دسترسی باید منحصر به فرد باشد و فقط شامل کاراکتر‌های الفبا و زیر خط باشد"
 
 #: dash/addons/includes/languages/trans_dash.php:335
 #: jibres/includes/languages/trans_dash.php:339
@@ -3493,8 +3463,8 @@ msgstr "زیرنویس را اینجا وارد کنید"
 #: jibres/includes/languages/trans_dash.php:376
 msgid "Subtitle show under title and used on press websites"
 msgstr ""
-"زیرعنوان یا سوتیتر معمولا در زیر عنوان اصلی نمایش داده شده و برای سایت‌های خبری "
-"کاربرد دارد"
+"زیرعنوان یا سوتیتر معمولا در زیر عنوان اصلی نمایش داده شده و برای سایت‌های خبری کاربرد "
+"دارد"
 
 #: dash/addons/includes/languages/trans_dash.php:373
 #: jibres/includes/languages/trans_dash.php:377
@@ -3515,8 +3485,8 @@ msgstr "آدرس این نوشته."
 #: jibres/includes/languages/trans_dash.php:380
 msgid "You can change by set slug and category or parent for this post"
 msgstr ""
-"شما می‌توانید با تنظیم نامک بخش آخر آدرس و با تغییر دسته‌بندی در اخبار یا والد در "
-"صفحات آن را برای این صفحه سفارشی کنید"
+"شما می‌توانید با تنظیم نامک بخش آخر آدرس و با تغییر دسته‌بندی در اخبار یا والد در صفحات آن "
+"را برای این صفحه سفارشی کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:377
 #: jibres/includes/languages/trans_dash.php:381
@@ -3601,8 +3571,8 @@ msgstr "بدون والد"
 msgid ""
 "Choose category for posts is fix url of post relative and help people find it better."
 msgstr ""
-"انتخاب دسته‌بندی برای نوشته منجر به تصحیح آدرس نوشته و ساختارمند کردن آن برای یافتن "
-"بهتر می‌گردد."
+"انتخاب دسته‌بندی برای نوشته منجر به تصحیح آدرس نوشته و ساختارمند کردن آن برای یافتن بهتر "
+"می‌گردد."
 
 #: dash/addons/includes/languages/trans_dash.php:393
 #: jibres/includes/languages/trans_dash.php:397
@@ -4300,8 +4270,7 @@ msgid "Don't change"
 msgstr "تغییر نده"
 
 #: dash/addons/includes/languages/trans_dash.php:581
-#: jibres/includes/languages/trans_dash.php:580
-#: jibres/includes/lib/app/store/add.php:486
+#: jibres/includes/languages/trans_dash.php:580 jibres/includes/lib/app/store/add.php:486
 msgid "You"
 msgstr "شما"
 
@@ -4831,8 +4800,8 @@ msgstr "کد گفتگو یا نام‌کاربری"
 #: dash/addons/includes/languages/trans_dash.php:748
 #: jibres/includes/languages/trans_dash.php:750
 msgid ""
-"Unique identifier for the target chat or username of the target channel (in the "
-"format @channelusername)"
+"Unique identifier for the target chat or username of the target channel (in the format "
+"@channelusername)"
 msgstr "شناسه منحصربه‌فرد برای ارسال پیام به شخص یا کانال در فرمت @نام_کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:749
@@ -5322,8 +5291,7 @@ msgid ""
 "If your problem is solved or do not need to track, please close this ticket by press "
 "below bottom."
 msgstr ""
-"اگر مشکل شما حل شده و یا نیازی به رهگیری آن نیست، لطفا تیکت را با فشردن دکمه زیر "
-"ببندید."
+"اگر مشکل شما حل شده و یا نیازی به رهگیری آن نیست، لطفا تیکت را با فشردن دکمه زیر ببندید."
 
 #: dash/addons/includes/languages/trans_dash.php:880
 #: jibres/includes/languages/trans_dash.php:885
@@ -5363,8 +5331,7 @@ msgstr "این تیکت حذف شده است."
 #: dash/addons/includes/languages/trans_dash.php:887
 #: jibres/includes/languages/trans_dash.php:892
 msgid "You can change it to close condition if need to save it in history!"
-msgstr ""
-"شما می‌توانید برای نگهداری این تیکت در تاریخچه وضعیت آن را به بسته‌شده تغییر دهید!"
+msgstr "شما می‌توانید برای نگهداری این تیکت در تاریخچه وضعیت آن را به بسته‌شده تغییر دهید!"
 
 #: dash/addons/includes/languages/trans_dash.php:888
 #: jibres/includes/languages/trans_dash.php:893
@@ -5483,8 +5450,8 @@ msgstr "آواتار شما"
 msgid "Default Avatar"
 msgstr "تصویر پیشفرض"
 
-#: dash/addons/includes/languages/trans_dash.php:919
-#: dash/lib/social/telegram/answer.php:54 jibres/includes/languages/trans_dash.php:928
+#: dash/addons/includes/languages/trans_dash.php:919 dash/lib/social/telegram/answer.php:54
+#: jibres/includes/languages/trans_dash.php:928
 msgid "Hello"
 msgstr "سلام"
 
@@ -5621,8 +5588,7 @@ msgstr "نام کامل"
 #: dash/addons/includes/languages/trans_static.php:409
 #: dash/lib/social/telegram/commands/ermile.php:66
 #: dash/lib/social/telegram/commands/ermileInline.php:43
-#: dash/lib/social/telegram/step.php:323
-#: jibres/includes/database/jibres/translation.php:15
+#: dash/lib/social/telegram/step.php:323 jibres/includes/database/jibres/translation.php:15
 #: jibres/includes/database/jibres/translation.php:145
 #: jibres/includes/languages/trans_dash.php:959
 msgid "email"
@@ -5987,8 +5953,7 @@ msgid "sign in"
 msgstr "ورود"
 
 #: dash/addons/includes/languages/trans_static.php:70
-#: dash/lib/social/telegram/commands/ermile.php:99
-#: dash/lib/social/telegram/step.php:325
+#: dash/lib/social/telegram/commands/ermile.php:99 dash/lib/social/telegram/step.php:325
 msgid "signup"
 msgstr "ثبت نام"
 
@@ -5997,8 +5962,7 @@ msgid "sign up"
 msgstr "ثبت نام"
 
 #: dash/addons/includes/languages/trans_static.php:72
-#: dash/lib/social/telegram/commands/ermile.php:98
-#: dash/lib/social/telegram/step.php:324
+#: dash/lib/social/telegram/commands/ermile.php:98 dash/lib/social/telegram/step.php:324
 msgid "register"
 msgstr "ثبت نام"
 
@@ -6006,8 +5970,8 @@ msgstr "ثبت نام"
 msgid "home"
 msgstr "خانه"
 
-#: dash/addons/includes/languages/trans_static.php:74
-#: dash/lib/engine/twigAddons.php:356 jibres/includes/languages/trans_project.php:198
+#: dash/addons/includes/languages/trans_static.php:74 dash/lib/engine/twigAddons.php:356
+#: jibres/includes/languages/trans_project.php:198
 msgid "Home"
 msgstr "صفحه نخست"
 
@@ -6015,8 +5979,7 @@ msgstr "صفحه نخست"
 msgid "homepage"
 msgstr "صفحه نخست"
 
-#: dash/addons/includes/languages/trans_static.php:76
-#: dash/lib/engine/twigAddons.php:341
+#: dash/addons/includes/languages/trans_static.php:76 dash/lib/engine/twigAddons.php:341
 msgid "Homepage"
 msgstr "صفحه نخست"
 
@@ -6174,8 +6137,7 @@ msgstr "برای بارگزاری فایل‌های شما"
 #: dash/addons/includes/languages/trans_static.php:133
 msgid "If you want to change password enter it, else leave it blank"
 msgstr ""
-"در صورت تمایل به تغییر گذرواژه آن را وارد کنید،‌ در غیر این ‌صورت این فیلد را خالی "
-"بگذارید"
+"در صورت تمایل به تغییر گذرواژه آن را وارد کنید،‌ در غیر این ‌صورت این فیلد را خالی بگذارید"
 
 #: dash/addons/includes/languages/trans_static.php:134
 msgid "Enter password within 5 to 40 character"
@@ -6353,13 +6315,11 @@ msgstr "خطا در انتقال فایل"
 msgid "Error"
 msgstr "خطا"
 
-#: dash/addons/includes/languages/trans_static.php:187
-#: dash/lib/utility/upload/check.php:20
+#: dash/addons/includes/languages/trans_static.php:187 dash/lib/utility/upload/check.php:20
 msgid "Invalid parameters"
 msgstr "پارامتر اشتباه"
 
-#: dash/addons/includes/languages/trans_static.php:188
-#: dash/lib/utility/upload/check.php:32
+#: dash/addons/includes/languages/trans_static.php:188 dash/lib/utility/upload/check.php:32
 msgid "No file sent"
 msgstr "فایلی ارسال نشده"
 
@@ -6368,8 +6328,7 @@ msgstr "فایلی ارسال نشده"
 msgid "Exceeded filesize limit"
 msgstr "ظرفیت فایل بیش از حد مجاز"
 
-#: dash/addons/includes/languages/trans_static.php:190
-#: dash/lib/utility/upload/check.php:43
+#: dash/addons/includes/languages/trans_static.php:190 dash/lib/utility/upload/check.php:43
 msgid "Unknown errors"
 msgstr "خطای نامشخص"
 
@@ -6494,8 +6453,7 @@ msgid "disable"
 msgstr "غیرفعال"
 
 #: dash/addons/includes/languages/trans_static.php:231
-#: dash/lib/social/telegram/commands/ermile.php:124
-#: dash/lib/social/telegram/step.php:327
+#: dash/lib/social/telegram/commands/ermile.php:124 dash/lib/social/telegram/step.php:327
 msgid "help"
 msgstr "کمک"
 
@@ -7092,8 +7050,7 @@ msgid "unit_id"
 msgstr "کد واحد مالی"
 
 #: dash/addons/includes/languages/trans_static.php:423
-#: dash/lib/social/telegram/commands/ermile.php:29
-#: dash/lib/social/telegram/step.php:313
+#: dash/lib/social/telegram/commands/ermile.php:29 dash/lib/social/telegram/step.php:313
 #: jibres/includes/database/jibres/translation.php:102
 #: jibres/includes/database/jibres/translation.php:119
 msgid "language"
@@ -8699,7 +8656,7 @@ msgstr "جزایر جزر و مدی کوچک"
 
 #: dash/addons/includes/languages/trans_static.php:837
 msgid "uganda"
-msgstr "گوگولا"
+msgstr "اوگاندا"
 
 #: dash/addons/includes/languages/trans_static.php:838
 msgid "ukraine"
@@ -9321,13 +9278,13 @@ msgstr "ما یک ورودی جدید را مشاهده کردیم :displayname"
 #: dash/addons/includes/languages/trans_static.php:1016
 #: dash/addons/includes/languages/trans_static.php:1087
 msgid ""
-"If this was you, you can safely disregard this message. If you didn't do this, "
-"please change your password to help secure your account. Learn more about keeping "
-"your account secure."
+"If this was you, you can safely disregard this message. If you didn't do this, please "
+"change your password to help secure your account. Learn more about keeping your account "
+"secure."
 msgstr ""
 "اگر این شما هستید، می توانید با خیال راحت این پیام را نادیده بگیرید. اگر این کار را "
-"نکردید، لطفا گذرواژه خود را تغییر دهید تا امنیت حسابتان را تضمین کنید. درباره حفظ "
-"امنیت حساب کاربری بیشتر بدانید."
+"نکردید، لطفا گذرواژه خود را تغییر دهید تا امنیت حسابتان را تضمین کنید. درباره حفظ امنیت "
+"حساب کاربری بیشتر بدانید."
 
 #: dash/addons/includes/languages/trans_static.php:1018
 #: dash/addons/includes/languages/trans_static.php:1078
@@ -9572,8 +9529,7 @@ msgstr ""
 
 #: dash/addons/includes/languages/trans_static.php:1083
 msgid "Add transaction :title whit :plus plus and :minus minus to :user_id"
-msgstr ""
-"افزایش تراکنش دستی با عنوان :title با افزودن :plus و کاهش :minus برای  :user_id"
+msgstr "افزایش تراکنش دستی با عنوان :title با افزودن :plus و کاهش :minus برای  :user_id"
 
 #: dash/addons/includes/languages/trans_static.php:1084
 msgid "The :user content"
@@ -9830,14 +9786,12 @@ msgid "Visit in site"
 msgstr "مشاهده در سایت"
 
 #: dash/lib/app/log/msg/support.php:113 dash/lib/app/log/msg/support.php:198
-#: dash/lib/app/log/msg/support.php:283
-#: dash/lib/social/telegram/commands/ticket.php:114
+#: dash/lib/app/log/msg/support.php:283 dash/lib/social/telegram/commands/ticket.php:114
 msgid "Check ticket"
 msgstr "بررسی تیکت"
 
 #: dash/lib/app/log/msg/support.php:119 dash/lib/app/log/msg/support.php:204
-#: dash/lib/app/log/msg/support.php:289
-#: dash/lib/social/telegram/commands/ticket.php:101
+#: dash/lib/app/log/msg/support.php:289 dash/lib/social/telegram/commands/ticket.php:101
 msgid "Answer"
 msgstr "پاسخ"
 
@@ -9896,8 +9850,7 @@ msgstr "عنوان دلخواه نمی‌تواند بیشتر از ۵۰ کار�
 #: dash/lib/app/parent/add.php:176
 msgid "Your request was sended to user, wait for answer user"
 msgstr ""
-"درخواست شما به کاربر ارسال شده است. منتظر بمانید تا جواب کاربر به درخواست شما مشخص "
-"شود"
+"درخواست شما به کاربر ارسال شده است. منتظر بمانید تا جواب کاربر به درخواست شما مشخص شود"
 
 #: dash/lib/app/parent/add.php:203
 msgid "Are you :title of this user?"
@@ -10593,24 +10546,20 @@ msgstr "همه را نمی‌توان از خود راضی  نگه داشت"
 msgid "Test <b>:name</b> bot on :site"
 msgstr "تست بات <b>:name</b> در :site"
 
-#: dash/lib/social/telegram/commands/ermile.php:22
-#: dash/lib/social/telegram/step.php:312
+#: dash/lib/social/telegram/commands/ermile.php:22 dash/lib/social/telegram/step.php:312
 #: jibres/includes/database/jibres/translation.php:39
 msgid "start"
 msgstr "شروع"
 
-#: dash/lib/social/telegram/commands/ermile.php:35
-#: dash/lib/social/telegram/step.php:328
+#: dash/lib/social/telegram/commands/ermile.php:35 dash/lib/social/telegram/step.php:328
 msgid "menu"
 msgstr "منو"
 
-#: dash/lib/social/telegram/commands/ermile.php:37
-#: dash/lib/social/telegram/step.php:329
+#: dash/lib/social/telegram/commands/ermile.php:37 dash/lib/social/telegram/step.php:329
 msgid "mainmenu"
 msgstr "منوی‌اصلی"
 
-#: dash/lib/social/telegram/commands/ermile.php:39
-#: dash/lib/social/telegram/step.php:330
+#: dash/lib/social/telegram/commands/ermile.php:39 dash/lib/social/telegram/step.php:330
 msgid "return"
 msgstr "بازگشت"
 
@@ -10625,8 +10574,7 @@ msgstr "درباره"
 msgid "detail"
 msgstr "جزئیات"
 
-#: dash/lib/social/telegram/commands/ermile.php:53
-#: dash/lib/social/telegram/step.php:315
+#: dash/lib/social/telegram/commands/ermile.php:53 dash/lib/social/telegram/step.php:315
 msgid "me"
 msgstr "من"
 
@@ -10664,8 +10612,7 @@ msgstr "تلفن"
 msgid "phone"
 msgstr "تلفن"
 
-#: dash/lib/social/telegram/commands/ermile.php:100
-#: dash/lib/social/telegram/step.php:326
+#: dash/lib/social/telegram/commands/ermile.php:100 dash/lib/social/telegram/step.php:326
 msgid "sync"
 msgstr "همگام‌سازی"
 
@@ -10812,11 +10759,11 @@ msgstr "همگام‌سازی حساب‌کاربری"
 
 #: dash/lib/social/telegram/commands/ermile.php:404
 msgid ""
-"You can connect complete your registeration on :val from telegram by share your "
-"mobile number."
+"You can connect complete your registeration on :val from telegram by share your mobile "
+"number."
 msgstr ""
-"شما می‌توانید با به‌اشتراک‌گذاری شماره موبایل خود از طریق تلگرام ثبت‌نام خودتان را در :"
-"val کامل کنید."
+"شما می‌توانید با به‌اشتراک‌گذاری شماره موبایل خود از طریق تلگرام ثبت‌نام خودتان را در :val "
+"کامل کنید."
 
 #: dash/lib/social/telegram/commands/ermile.php:405
 msgid ""
@@ -10824,9 +10771,8 @@ msgid ""
 "your account is synced."
 msgstr ""
 "با فشردن دکمه به‌اشتراک‌گذاری مخاطب خودتان،‌ تلگرام شماره موبایل شما را پس از کسب اجازه "
-"برای ما ارسال می‌کند و بدین ترتیب ما می‌توانیم حساب کاربری شما را همگام‌سازی کرده و "
-"اتصال آن را با وب‌سایت برقرار کنیم تا شما درآینده بتوانید با موبایل خود در ‌وب‌سایت هم "
-"وارد شوید."
+"برای ما ارسال می‌کند و بدین ترتیب ما می‌توانیم حساب کاربری شما را همگام‌سازی کرده و اتصال "
+"آن را با وب‌سایت برقرار کنیم تا شما درآینده بتوانید با موبایل خود در ‌وب‌سایت هم وارد شوید."
 
 #: dash/lib/social/telegram/commands/ermile.php:406
 msgid "Also you can do it anytime you need with /register command."
@@ -10881,8 +10827,8 @@ msgid ""
 "Knowing your valuable comments about bugs and problems and more importantly your "
 "precious offers will help us in this way."
 msgstr ""
-"دانستن نظرات ارزشمند شما درباره‌ی مشکلات و نواقص و صدالبته پیشنهادات گرانبهایتان از "
-"طریق فرم زیر سبب کمک به ما برای این مهم خواهد شد."
+"دانستن نظرات ارزشمند شما درباره‌ی مشکلات و نواقص و صدالبته پیشنهادات گرانبهایتان از طریق "
+"فرم زیر سبب کمک به ما برای این مهم خواهد شد."
 
 #: dash/lib/social/telegram/commands/step_ticketCreate.php:37
 msgid "Please wrote about your problem and describe it."
@@ -11084,8 +11030,8 @@ msgstr "گذرواژه باید کمتر از ۹۹ کاراکتر باشد"
 msgid "Not Work!"
 msgstr "کار نمیکند!"
 
-#: dash/lib/utility/git.php:139 dash/lib/utility/git.php:198
-#: dash/lib/utility/git.php:249 dash/lib/utility/git.php:299
+#: dash/lib/utility/git.php:139 dash/lib/utility/git.php:198 dash/lib/utility/git.php:249
+#: dash/lib/utility/git.php:299
 msgid "This location is not exist!"
 msgstr "این مکان وجود ندارد!"
 
@@ -11137,18 +11083,15 @@ msgid "Redirect to asanpardakht payment"
 msgstr "در حال انتقال به درگاه آسان پرداخت"
 
 #: dash/lib/utility/payment/pay/asanpardakht.php:136
-#: dash/lib/utility/payment/pay/irkish.php:125
-#: dash/lib/utility/payment/pay/mellat.php:134
+#: dash/lib/utility/payment/pay/irkish.php:125 dash/lib/utility/payment/pay/mellat.php:134
 msgid "Redirect"
 msgstr "انتقال"
 
-#: dash/lib/utility/payment/pay/irkish.php:33
-#: dash/lib/utility/payment/verify/irkish.php:30
+#: dash/lib/utility/payment/pay/irkish.php:33 dash/lib/utility/payment/verify/irkish.php:30
 msgid "The irkish payment on this service is locked"
 msgstr "درگاه پرداخت ایران کیش در این سیستم تعریف نشده است"
 
-#: dash/lib/utility/payment/pay/irkish.php:40
-#: dash/lib/utility/payment/verify/irkish.php:37
+#: dash/lib/utility/payment/pay/irkish.php:40 dash/lib/utility/payment/verify/irkish.php:37
 msgid "The irkish payment merchantId not set"
 msgstr "شناسه مشتری درگاه پرداخت ایران کیش تنظیم نشده است"
 
@@ -11160,18 +11103,15 @@ msgstr "پرداخت با درگاه پرداخت ایران کیش"
 msgid "Redirect to iran kish payment"
 msgstr "در حال انتقال به درگاه پرداخت ایران کیش"
 
-#: dash/lib/utility/payment/pay/mellat.php:33
-#: dash/lib/utility/payment/verify/mellat.php:30
+#: dash/lib/utility/payment/pay/mellat.php:33 dash/lib/utility/payment/verify/mellat.php:30
 msgid "The mellat payment on this service is locked"
 msgstr "درگاه پرداخت ملت در این سیستم تعریف نشده است"
 
-#: dash/lib/utility/payment/pay/mellat.php:40
-#: dash/lib/utility/payment/verify/mellat.php:37
+#: dash/lib/utility/payment/pay/mellat.php:40 dash/lib/utility/payment/verify/mellat.php:37
 msgid "The mellat payment TerminalId not set"
 msgstr "شناسه ترمینال درگاه پرداخت ملت تنظیم نشده است"
 
-#: dash/lib/utility/payment/pay/mellat.php:47
-#: dash/lib/utility/payment/verify/mellat.php:44
+#: dash/lib/utility/payment/pay/mellat.php:47 dash/lib/utility/payment/verify/mellat.php:44
 msgid "The mellat payment UserName not set"
 msgstr "نام کاربری درگاه پرداخت ملت تنظیم نشده است"
 
@@ -11202,13 +11142,11 @@ msgstr "پرداخت با پارسیان"
 msgid "The parsian payment Token not set"
 msgstr "توکن برای پرداخت با پارسیان تنظیم نشده است"
 
-#: dash/lib/utility/payment/pay/payir.php:33
-#: dash/lib/utility/payment/verify/payir.php:30
+#: dash/lib/utility/payment/pay/payir.php:33 dash/lib/utility/payment/verify/payir.php:30
 msgid "The payir payment on this service is locked"
 msgstr "درگاه پی.آی‌آر در سرویس شما قفل شده است"
 
-#: dash/lib/utility/payment/pay/payir.php:40
-#: dash/lib/utility/payment/verify/payir.php:37
+#: dash/lib/utility/payment/pay/payir.php:40 dash/lib/utility/payment/verify/payir.php:37
 msgid "The payir payment api not set"
 msgstr "کلید اتصال به درگاه پرداخت یافت نشد"
 
@@ -11529,8 +11467,8 @@ msgstr "عملیات با موفقیت انجام شد"
 
 #: dash/lib/utility/payment/payment/zarinpal.php:145
 msgid ""
-"Payment operation was successfull and PatmentVerification of the transaction has "
-"already done"
+"Payment operation was successfull and PatmentVerification of the transaction has already "
+"done"
 msgstr "عملیات پرداخت موفقیت آمیز بوده است و تأیید پرداخت قبلا انجام شده است"
 
 #: dash/lib/utility/payment/verify/asanpardakht.php:68
@@ -11645,17 +11583,15 @@ msgstr "سردرد دارید؟ ما راه‌حل‌هایی برای شما د
 
 #: jibres/content/help/faq/view.php:10
 msgid "This FAQ provides answers to basic questions about Jibres."
-msgstr ""
-"احتمالا سوالات اولیه و ساده‌ی شما از جیبرس در این صفحه سوالات متداول یافت خواهد."
+msgstr "احتمالا سوالات اولیه و ساده‌ی شما از جیبرس در این صفحه سوالات متداول یافت خواهد."
 
 #: jibres/content/help/view.php:10
 msgid "Need HELP? Be patient..."
 msgstr "کمک نیاز دارید؟ صبور باشید..."
 
-#: jibres/content/home/view.php:12 jibres/content/view.php:13
-#: jibres/content_a/view.php:11 jibres/content_a/view.php:15
-#: jibres/content_c/view.php:11 jibres/content_subdomain/home/view.php:21
-#: jibres/includes/languages/trans_project.php:92
+#: jibres/content/home/view.php:12 jibres/content/view.php:13 jibres/content_a/view.php:11
+#: jibres/content_a/view.php:15 jibres/content_c/view.php:11
+#: jibres/content_subdomain/home/view.php:21 jibres/includes/languages/trans_project.php:92
 msgid "Integrated Sales and Online Accounting"
 msgstr "فروش یکپارچه و حسابداری آنلاین"
 
@@ -11687,11 +11623,11 @@ msgstr "حریم خصوصی"
 
 #: jibres/content/privacy/view.php:10
 msgid ""
-"We wish to assure you that our main concern is to secure your privacy and protect "
-"your information against impermissible access."
+"We wish to assure you that our main concern is to secure your privacy and protect your "
+"information against impermissible access."
 msgstr ""
-"ما این اطمینان را به شما می‌دهیم که دغدغه‌ی ما، حفظ حریم‌خصوصی و محافظت از اطلاعات شما "
-"در برابر دسترسی‌های غیرمجاز هست."
+"ما این اطمینان را به شما می‌دهیم که دغدغه‌ی ما، حفظ حریم‌خصوصی و محافظت از اطلاعات شما در "
+"برابر دسترسی‌های غیرمجاز هست."
 
 #: jibres/content/socialresponsibility/view.php:9
 msgid "Jibres Social Responsibility"
@@ -11700,12 +11636,12 @@ msgstr "مسئولیت اجتماعی جیبرس"
 #: jibres/content/socialresponsibility/view.php:10
 #: jibres/includes/languages/trans_project.php:176
 msgid ""
-"Social responsibility refers to our role in maintaining, caring about and helping "
-"our society, while having set as its goal a responsibility-centered enterprise along "
-"with wealth production."
+"Social responsibility refers to our role in maintaining, caring about and helping our "
+"society, while having set as its goal a responsibility-centered enterprise along with "
+"wealth production."
 msgstr ""
-"مسئولیت اجتماعی به نقش ما در جهت حفظ، مراقبت و کمک به جامعه‌ای که در آن هستیم اشاره "
-"می‌کند و هدف آن کسب‌وکار مسئولانه‌ی همراه با تولید ثروت است."
+"مسئولیت اجتماعی به نقش ما در جهت حفظ، مراقبت و کمک به جامعه‌ای که در آن هستیم اشاره می‌کند "
+"و هدف آن کسب‌وکار مسئولانه‌ی همراه با تولید ثروت است."
 
 #: jibres/content/terms/view.php:9
 msgid "Terms of Service Agreement"
@@ -11713,11 +11649,11 @@ msgstr "توافق‌نامه استفاده از سرویس"
 
 #: jibres/content/terms/view.php:10
 msgid ""
-"Jibres acts upon international rules, depends on the countries receiving its "
-"services and renders its activities within this framework."
+"Jibres acts upon international rules, depends on the countries receiving its services "
+"and renders its activities within this framework."
 msgstr ""
-"جیبرس مطابق قوانین بین‌الملل و وابسته به کشورهای دریافت‌کننده خدمات بوده و در این "
-"چارچوب فعالیت می‌نماید."
+"جیبرس مطابق قوانین بین‌الملل و وابسته به کشورهای دریافت‌کننده خدمات بوده و در این چارچوب "
+"فعالیت می‌نماید."
 
 #: jibres/content/view.php:11 jibres/content_a/view.php:9 jibres/content_a/view.php:13
 #: jibres/content_c/view.php:9 jibres/content_subdomain/home/view.php:19
@@ -11734,11 +11670,11 @@ msgstr "جیبرس تنها یک نرم افزار حسابداری آنلاین
 #: jibres/content/view.php:12 jibres/content_a/view.php:10 jibres/content_a/view.php:14
 #: jibres/content_c/view.php:10 jibres/content_subdomain/home/view.php:20
 msgid ""
-"We try to create the best financial platform that has everything you need to sale "
-"and manage your financial life."
+"We try to create the best financial platform that has everything you need to sale and "
+"manage your financial life."
 msgstr ""
-"ما در حال توسعه برای ساخت بهترین پلتفرم مالی هستیم تا تمام نیازهای فروش و مدیریت "
-"مالی زندگی شما را پوشش دهیم."
+"ما در حال توسعه برای ساخت بهترین پلتفرم مالی هستیم تا تمام نیازهای فروش و مدیریت مالی "
+"زندگی شما را پوشش دهیم."
 
 #: jibres/content_a/buy/model.php:111 jibres/content_a/buy/model.php:125
 #: jibres/content_a/sale/model.php:91 jibres/content_a/sale/model.php:101
@@ -11766,8 +11702,8 @@ msgstr "چاپ فاکتور"
 #: jibres/content_a/chap/receipt/view.php:10
 msgid "You can search in list of factors, add new factor and edit existing."
 msgstr ""
-"شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا "
-"ویرایش کنید."
+"شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا ویرایش "
+"کنید."
 
 #: jibres/content_a/chap/receipt/view.php:28
 msgid "Back to last buy"
@@ -11793,8 +11729,7 @@ msgstr "صدور فاکتور فروش"
 msgid "code"
 msgstr "کد"
 
-#: jibres/content_a/factor/edit/view.php:51
-#: jibres/content_a/product/home/controller.php:14
+#: jibres/content_a/factor/edit/view.php:51 jibres/content_a/product/home/controller.php:14
 msgid "Product not found."
 msgstr "کالا یافت نشد."
 
@@ -11809,11 +11744,10 @@ msgstr "لیست تمامی فاکتور‌ها"
 #: jibres/content_a/factor/home/view.php:55
 msgid "You can search in list of factors, add new factor or edit existing."
 msgstr ""
-"شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا "
-"ویرایش کنید."
+"شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا ویرایش "
+"کنید."
 
-#: jibres/content_a/factor/home/view.php:64
-#: jibres/content_a/thirdparty/home/view.php:164
+#: jibres/content_a/factor/home/view.php:64 jibres/content_a/thirdparty/home/view.php:164
 msgid "List of :type"
 msgstr "لیست :type"
 
@@ -11826,8 +11760,7 @@ msgid "List of all factors."
 msgstr "لیست تمامی فاکتور‌ها."
 
 #: jibres/content_a/factor/home/view.php:73 jibres/content_a/factor/home/view.php:79
-#: jibres/content_a/thirdparty/add/view.php:24
-#: jibres/content_a/thirdparty/home/view.php:93
+#: jibres/content_a/thirdparty/add/view.php:24 jibres/content_a/thirdparty/home/view.php:93
 #: jibres/content_a/thirdparty/home/view.php:170
 msgid "Add new :type"
 msgstr "افزودن :type جدید"
@@ -11898,8 +11831,7 @@ msgstr "داشبورد فروشگاه شما"
 
 #: jibres/content_a/home/view.php:10
 msgid ""
-"Glance at your store summary and compare some important data together and enjoy "
-"Jibres!"
+"Glance at your store summary and compare some important data together and enjoy Jibres!"
 msgstr "نگاهی سریع به فروشگاه و مقایسه داده‌های مهم با یکدیگر را با جیبرس تجربه کنید!"
 
 #: jibres/content_a/home/view.php:10
@@ -11922,19 +11854,17 @@ msgstr "افزودن محصول یا کالای جدید"
 msgid ""
 "You can set main property of product and allow to assign some extra or edit it later."
 msgstr ""
-"شما می‌توانید ویژگی اصلی محصول را تنظیم کنید و نیز برخی ویژگی های اضافی را تنظیم کنید "
-"یا بعدا ویرایش کنید."
+"شما می‌توانید ویژگی اصلی محصول را تنظیم کنید و نیز برخی ویژگی های اضافی را تنظیم کنید یا "
+"بعدا ویرایش کنید."
 
 #: jibres/content_a/product/add/view.php:15 jibres/content_a/product/cats/view.php:14
-#: jibres/content_a/product/desc/view.php:13
-#: jibres/content_a/product/factor/view.php:11
+#: jibres/content_a/product/desc/view.php:13 jibres/content_a/product/factor/view.php:11
 #: jibres/content_a/product/gallery/view.php:14
 #: jibres/content_a/product/general/view.php:13 jibres/content_a/product/load.php:36
 #: jibres/content_a/product/manage/view.php:12
 #: jibres/content_a/product/pricehistory/view.php:13
-#: jibres/content_a/product/report/view.php:11
-#: jibres/content_a/product/site/view.php:11 jibres/content_a/product/stock/view.php:13
-#: jibres/content_a/product/units/view.php:12
+#: jibres/content_a/product/report/view.php:11 jibres/content_a/product/site/view.php:11
+#: jibres/content_a/product/stock/view.php:13 jibres/content_a/product/units/view.php:12
 msgid "Back to product list"
 msgstr "بازگشت به لیست محصولات"
 
@@ -11942,8 +11872,7 @@ msgstr "بازگشت به لیست محصولات"
 msgid "Invalid cat"
 msgstr "دسته‌بندی اشتباه است"
 
-#: jibres/content_a/product/cats/model.php:44
-#: jibres/content_a/product/units/model.php:44
+#: jibres/content_a/product/cats/model.php:44 jibres/content_a/product/units/model.php:44
 msgid "Invalid name and old name!"
 msgstr "نام و جزئیات اشتباه است!"
 
@@ -11957,8 +11886,7 @@ msgstr "شما می‌توانید دسته‌بندی‌های خود را دس
 
 #: jibres/content_a/product/cats/view.php:9
 msgid "Don't worry! we are add categories automatically on add new product"
-msgstr ""
-"نگران نباشید! ما به‌صورت خودکار هنگام افزودن محصول جدید دسته آن را اضافه می‌کنیم."
+msgstr "نگران نباشید! ما به‌صورت خودکار هنگام افزودن محصول جدید دسته آن را اضافه می‌کنیم."
 
 #: jibres/content_a/product/desc/view.php:9
 msgid "Description product!"
@@ -11980,8 +11908,7 @@ msgstr "خروجی از محصولات در فرمت سی‌اس‌وی"
 msgid "You can export all product to CSV file"
 msgstr "شما می‌توانید از محصولات و کالاهای خود در فرمت سی‌اس‌وی خروجی بگیرید"
 
-#: jibres/content_a/product/export/view.php:12
-#: jibres/content_a/product/import/view.php:13
+#: jibres/content_a/product/export/view.php:12 jibres/content_a/product/import/view.php:13
 msgid "Back to product dashboard"
 msgstr "بازگشت به داشبورد محصولات"
 
@@ -12004,8 +11931,8 @@ msgstr "گالری محصول"
 
 #: jibres/content_a/product/gallery/view.php:10
 msgid ""
-"Set image of product to show as gallery also you can set main photo for this product "
-"as thumbnail."
+"Set image of product to show as gallery also you can set main photo for this product as "
+"thumbnail."
 msgstr ""
 "شما می‌توانید عکس محصول برای نمایش در گالری و هم‌چنین عکس اصلی آن را به‌عنوان تصویر "
 "بندانگشتی را تنظیم کنید."
@@ -12048,8 +11975,7 @@ msgstr "بارکد"
 msgid "Iran barcode"
 msgstr "ایران بارکد"
 
-#: jibres/content_a/product/home/view.php:9
-#: jibres/content_a/product/summary/view.php:15
+#: jibres/content_a/product/home/view.php:9 jibres/content_a/product/summary/view.php:15
 #: jibres/includes/languages/trans_project.php:534
 msgid "List of products"
 msgstr "لیست محصولات"
@@ -12057,8 +11983,8 @@ msgstr "لیست محصولات"
 #: jibres/content_a/product/home/view.php:11
 msgid "You can search in list of products, add new product and edit existing."
 msgstr ""
-"شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا "
-"ویرایش کنید."
+"شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا ویرایش "
+"کنید."
 
 #: jibres/content_a/product/home/view.php:13
 msgid "Products dashboard"
@@ -12079,8 +12005,7 @@ msgstr "لطفا فایل سی‌اس‌وی را بارگذاری کنید"
 msgid "Import product successfully complete"
 msgstr "فرآیند ورود داده‌های اولیه‌ی کالاها با موفقیت به انجام رسید"
 
-#: jibres/content_a/product/import/model.php:57
-#: jibres/content_a/setting/logo/model.php:17
+#: jibres/content_a/product/import/model.php:57 jibres/content_a/setting/logo/model.php:17
 msgid "No file was sended"
 msgstr "فایلی ارسال نشد"
 
@@ -12091,8 +12016,8 @@ msgstr "وارد کردن محصولات از طریق فایل سی اس وی"
 #: jibres/content_a/product/import/view.php:11
 msgid "You can import more than one product in one request via CSV import process"
 msgstr ""
-"شما می‌توانید تمامی محصولات خود را از طریق وارد کردن فایل سی اس وی به یکباره در سیستم "
-"ثبت کنید"
+"شما می‌توانید تمامی محصولات خود را از طریق وارد کردن فایل سی اس وی به یکباره در سیستم ثبت "
+"کنید"
 
 #: jibres/content_a/product/load.php:11
 msgid "Product id not set"
@@ -12162,8 +12087,7 @@ msgid "Don't worry! we are add units automatically on add new product"
 msgstr ""
 "نگران نباشید! ما به‌صورت خودکار هنگام افزودن محصول جدید واحد شمارش آن را اضافه می‌کنیم."
 
-#: jibres/content_a/report/daily/view.php:9
-#: jibres/includes/languages/trans_project.php:564
+#: jibres/content_a/report/daily/view.php:9 jibres/includes/languages/trans_project.php:564
 msgid "Report daily"
 msgstr "گزارش روزانه"
 
@@ -12191,10 +12115,9 @@ msgstr "گزارش به تفکیک ماه"
 msgid "Factor setting saved"
 msgstr "تنظیمات فاکتور ذخیره شد"
 
-#: jibres/content_a/setting/factor/view.php:8
-#: jibres/content_a/setting/general/view.php:8 jibres/content_a/setting/home/view.php:9
-#: jibres/content_a/setting/logo/view.php:8 jibres/content_a/setting/pos/view.php:8
-#: jibres/includes/languages/trans_project.php:336
+#: jibres/content_a/setting/factor/view.php:8 jibres/content_a/setting/general/view.php:8
+#: jibres/content_a/setting/home/view.php:9 jibres/content_a/setting/logo/view.php:8
+#: jibres/content_a/setting/pos/view.php:8 jibres/includes/languages/trans_project.php:336
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -12203,16 +12126,13 @@ msgstr "تنظیمات"
 msgid "Factor"
 msgstr "فاکتور"
 
-#: jibres/content_a/setting/factor/view.php:9
-#: jibres/content_a/setting/general/view.php:9
+#: jibres/content_a/setting/factor/view.php:9 jibres/content_a/setting/general/view.php:9
 #: jibres/content_a/setting/home/view.php:10 jibres/content_a/setting/logo/view.php:9
 #: jibres/content_a/setting/pos/view.php:9
-msgid ""
-"Change all settings of team and edit them to customize and have a good experience."
+msgid "Change all settings of team and edit them to customize and have a good experience."
 msgstr "تمام تنظیمات تیم را تغییر دهید و آنها را ویرایش کنید و تجربه خوبی داشته باشید."
 
-#: jibres/content_a/setting/fund/controller.php:14
-#: jibres/includes/lib/app/fund/get.php:39
+#: jibres/content_a/setting/fund/controller.php:14 jibres/includes/lib/app/fund/get.php:39
 msgid "Invalid fund id"
 msgstr "شناسه باجه فروش نامعتبر است"
 
@@ -12251,8 +12171,7 @@ msgstr "انبار با موفقیت اضافه شد"
 msgid "Inventory detail"
 msgstr "جزئیات انبار"
 
-#: jibres/content_a/setting/logo/view.php:8
-#: jibres/includes/languages/trans_project.php:213
+#: jibres/content_a/setting/logo/view.php:8 jibres/includes/languages/trans_project.php:213
 msgid "Logo"
 msgstr "لوگو"
 
@@ -12290,12 +12209,12 @@ msgstr "تغییر پلن :name"
 
 #: jibres/content_a/setting/plan/view.php:9
 msgid ""
-"By choose new plan, we generate your invoice until now and next invoice is created "
-"one month later exactly at this time and you can pay it from billing."
+"By choose new plan, we generate your invoice until now and next invoice is created one "
+"month later exactly at this time and you can pay it from billing."
 msgstr ""
-"با انتخاب پلن جدید، ما فاکتور شما را برای پلن قبلی تا به این لحظه محاسبه و صادر "
-"می‌کنیم و فاکتور بعدی شما ماه آینده دقیقا در همین لحظه صادر خواهد شد. پرداخت این "
-"فاکتورها از طریق بخش مالی امکان‌پذیر است."
+"با انتخاب پلن جدید، ما فاکتور شما را برای پلن قبلی تا به این لحظه محاسبه و صادر می‌کنیم و "
+"فاکتور بعدی شما ماه آینده دقیقا در همین لحظه صادر خواهد شد. پرداخت این فاکتورها از طریق "
+"بخش مالی امکان‌پذیر است."
 
 #: jibres/content_a/setting/pos/model.php:24
 msgid "Pos removed"
@@ -12305,8 +12224,7 @@ msgstr "دستگاه کارتخوان حذف شد"
 msgid "Pos setting saved"
 msgstr "تنظیمات کارتخوان ذخیره شد"
 
-#: jibres/content_a/setting/pos/view.php:8
-#: jibres/includes/languages/trans_project.php:590
+#: jibres/content_a/setting/pos/view.php:8 jibres/includes/languages/trans_project.php:590
 msgid "Pos"
 msgstr "کارتخوان"
 
@@ -12322,11 +12240,11 @@ msgstr "افزودن طرف حساب جدید"
 
 #: jibres/content_a/thirdparty/add/view.php:14
 msgid ""
-"You can add new third party and after add with minimal data, we allow you to add "
-"extra detail."
+"You can add new third party and after add with minimal data, we allow you to add extra "
+"detail."
 msgstr ""
-"در این صفحه عضو جدید را با حداقل داده‌ها اضافه کرده و پس از افزودن، داده‌های اضافی مثل "
-"عکس و جزئیات تماس و ... آن طرف حساب را وارد کنید."
+"در این صفحه عضو جدید را با حداقل داده‌ها اضافه کرده و پس از افزودن، داده‌های اضافی مثل عکس "
+"و جزئیات تماس و ... آن طرف حساب را وارد کنید."
 
 #: jibres/content_a/thirdparty/add/view.php:18
 #: jibres/content_a/thirdparty/export/view.php:18
@@ -12466,11 +12384,11 @@ msgstr "لیست طرف حساب ها"
 
 #: jibres/content_a/thirdparty/home/view.php:155
 msgid ""
-"All type of poeple or companies like customers, staffs and supplisers is known as "
-"third parties that work with your store is exist here"
+"All type of poeple or companies like customers, staffs and supplisers is known as third "
+"parties that work with your store is exist here"
 msgstr ""
-"همه نوع افراد یا شرکت هایی مانند مشتریان، کارکنان و تامین کنندگان به عنوان اشخاص "
-"ثالث شناخته می شوند که با فروشگاه شما کار می کنند در اینجا وجود دارد"
+"همه نوع افراد یا شرکت هایی مانند مشتریان، کارکنان و تامین کنندگان به عنوان اشخاص ثالث "
+"شناخته می شوند که با فروشگاه شما کار می کنند در اینجا وجود دارد"
 
 #: jibres/content_a/thirdparty/home/view.php:165
 msgid "Search in list of :type, add and edit and manage them."
@@ -12486,8 +12404,8 @@ msgstr "جزئیات شناسنامه‌ای"
 
 #: jibres/content_a/thirdparty/identify/view.php:13
 msgid ""
-"set personal and birth identification detail and some other id detail like passport "
-"and etc for your this employee."
+"set personal and birth identification detail and some other id detail like passport and "
+"etc for your this employee."
 msgstr ""
 "تنظیم جزئيات اطلاعات هویتی شخصی مثل تاریخ تولد، پاسپورت، کدملی،‌ شناسنامه و غیره برای "
 "کارمند خود."
@@ -12569,8 +12487,7 @@ msgstr "پدر خوانده"
 msgid "Neighbor"
 msgstr "همسایه"
 
-#: jibres/content_a/thirdparty/load.php:105
-#: jibres/includes/languages/trans_project.php:761
+#: jibres/content_a/thirdparty/load.php:105 jibres/includes/languages/trans_project.php:761
 msgid "Member"
 msgstr "عضو"
 
@@ -12603,8 +12520,7 @@ msgid "Manage user"
 msgstr "مدیریت کاربر"
 
 #: jibres/content_a/thirdparty/manage/view.php:12
-msgid ""
-"Control user permission depending on type of thirdparty and change status of them."
+msgid "Control user permission depending on type of thirdparty and change status of them."
 msgstr "کنترل کردن سطوح دسترسی شخص بسته به نوع طرف حساب و تغییر وضعیت آنان."
 
 #: jibres/content_a/thirdparty/minustransaction/model.php:24
@@ -12657,8 +12573,8 @@ msgstr "افزودن فروشگاه جدید"
 #: jibres/content_c/store/add/view.php:16
 msgid "Add with simple detail and config more after adding new store."
 msgstr ""
-"با اطلاعات اولیه فروشگاه خود را بسازید و در ادامه پس از افزودن آن تنظیمات بیشتر را "
-"انجام دهید."
+"با اطلاعات اولیه فروشگاه خود را بسازید و در ادامه پس از افزودن آن تنظیمات بیشتر را انجام "
+"دهید."
 
 #: jibres/content_c/store/view.php:9
 msgid "Stores"
@@ -12974,19 +12890,18 @@ msgstr "بانک دی"
 
 #: jibres/includes/languages/trans_project.php:8
 msgid ""
-"Advancement of technology and development of Web-based business Cause Need new tools "
-"to resolve the daily needs and that’s the goal of making Jibres."
+"Advancement of technology and development of Web-based business Cause Need new tools to "
+"resolve the daily needs and that’s the goal of making Jibres."
 msgstr ""
-"با پیشرفت روزافزون تکنولوژی و گسترش کسب و کارهای مدرن مبتنی بر وب، احتیاج به "
-"ابزارهایی مدرن برای رفع نیازهای روزمره، جرقه‌ای برای تولد جیبرس بود."
+"با پیشرفت روزافزون تکنولوژی و گسترش کسب و کارهای مدرن مبتنی بر وب، احتیاج به ابزارهایی "
+"مدرن برای رفع نیازهای روزمره، جرقه‌ای برای تولد جیبرس بود."
 
 #: jibres/includes/languages/trans_project.php:9
 msgid ""
-"Jibres have a set of simple and practical tools on a regular basis for modern "
-"businesses."
+"Jibres have a set of simple and practical tools on a regular basis for modern businesses."
 msgstr ""
-"جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار کسب و کارهای مدرن "
-"و همینطور تجارت‌های سنتی مایل به حرکت به‌سوی تکنولوژی قرار می‌دهد."
+"جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار کسب و کارهای مدرن و "
+"همینطور تجارت‌های سنتی مایل به حرکت به‌سوی تکنولوژی قرار می‌دهد."
 
 #: jibres/includes/languages/trans_project.php:12
 msgid "Soon"
@@ -13027,8 +12942,8 @@ msgstr "برنامه‌ریزی جدیدی برای ارائه جیبرس توس
 #: jibres/includes/languages/trans_project.php:26
 msgid ""
 "The name of project selected as Jibres and <a href='https://Jibres.ir' "
-"target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> "
-"domains are registered."
+"target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> domains "
+"are registered."
 msgstr ""
 "جیبرس به‌عنوان نام این پروژه انتخاب و دامنه‌های <a href='https://Jibres.ir' "
 "target='_blank'>Jibres.ir</a> و <a href='https://Jibres.com'>Jibres.com</a> ثبت شدند."
@@ -13058,9 +12973,8 @@ msgid ""
 "We do our best to improve jibres's quality. So, knowing your valuable comments about "
 "bugs and problems and more importantly your precious offers will help us in this way."
 msgstr ""
-"تمام تلاش ما بر افزایش کیفیت جیبرس است. دانستن نظرات ارزشمند شما درباره‌ی مشکلات و "
-"نواقص و صدالبته پیشنهادات گرانبهایتان از طریق فرم زیر سبب کمک به ما برای این مهم "
-"خواهد شد."
+"تمام تلاش ما بر افزایش کیفیت جیبرس است. دانستن نظرات ارزشمند شما درباره‌ی مشکلات و نواقص "
+"و صدالبته پیشنهادات گرانبهایتان از طریق فرم زیر سبب کمک به ما برای این مهم خواهد شد."
 
 #: jibres/includes/languages/trans_project.php:44
 msgid "How to contact us"
@@ -13080,8 +12994,8 @@ msgstr "موقعیت ما در نقشه"
 
 #: jibres/includes/languages/trans_project.php:54
 msgid ""
-"Big companies simply don’t work like small companies, and they don’t use Jibres the "
-"same way either. That’s why there’s Enterprise."
+"Big companies simply don’t work like small companies, and they don’t use Jibres the same "
+"way either. That’s why there’s Enterprise."
 msgstr ""
 "شرکت‌های بزرگ به آسانی شرکت‌های کوچک کار نمی‌کنند و از جیبرس نیز به همان شکل استفاده "
 "نمی‌کنند. این دلیل راه‌اندازی بخش سازمانی ماست."
@@ -13099,8 +13013,8 @@ msgid ""
 "The easiest way to learn how to use Jibres is enter to it, which takes less than 3 "
 "minutes to setup your team."
 msgstr ""
-"آسان‌ترین راه برای یادگیری نحوه‌ی کارکرد جیبرس ورود به آن است که کمتر از ۳ دقیقه از "
-"زمان شما را برای راه‌اندازی اولیه و شروع به‌کار می‌گیرد."
+"آسان‌ترین راه برای یادگیری نحوه‌ی کارکرد جیبرس ورود به آن است که کمتر از ۳ دقیقه از زمان "
+"شما را برای راه‌اندازی اولیه و شروع به‌کار می‌گیرد."
 
 #: jibres/includes/languages/trans_project.php:62
 msgid "What is your privacy and security policy?"
@@ -13125,8 +13039,8 @@ msgstr "تعرفه‌ی پهنای باند شما چقدر است؟"
 #: jibres/includes/languages/trans_project.php:67
 msgid "There are none. All Jibres plans include unlimited bandwidth for free."
 msgstr ""
-"هیچ! تمامی پلن‌های جیبرس شامل پهنای‌باند نامحدود رایگان هستند و شما هزینه‌ای برای "
-"پهنای‌باند پرداخت نمی‌کنید."
+"هیچ! تمامی پلن‌های جیبرس شامل پهنای‌باند نامحدود رایگان هستند و شما هزینه‌ای برای پهنای‌باند "
+"پرداخت نمی‌کنید."
 
 #: jibres/includes/languages/trans_project.php:68
 msgid "Do I need a web host?"
@@ -13135,8 +13049,8 @@ msgstr "آیا برای استفاده از ازویر نیاز به هاست د
 #: jibres/includes/languages/trans_project.php:69
 msgid "No! Jibres includes secure, unlimited hosting on all plans with free bandwith."
 msgstr ""
-"خیر! جیبرس به‌همراه هاست نامحدود و امن شده بر روی تمامی پلن‌ها به همراه پهنای باند "
-"نامحدود برای شما قابل استفاده است."
+"خیر! جیبرس به‌همراه هاست نامحدود و امن شده بر روی تمامی پلن‌ها به همراه پهنای باند نامحدود "
+"برای شما قابل استفاده است."
 
 #: jibres/includes/languages/trans_project.php:70
 msgid "Billing & Invoicing"
@@ -13156,8 +13070,8 @@ msgstr "آیا می‌توانم حساب کاربری خودم را هر زما
 
 #: jibres/includes/languages/trans_project.php:74
 msgid ""
-"Yes. If you ever decide that Jibres isn’t the best platform for your business, "
-"simply cancel your account."
+"Yes. If you ever decide that Jibres isn’t the best platform for your business, simply "
+"cancel your account."
 msgstr ""
 "بله. اگر هر زمانی تصمیم گرفتید که جیبرس بهترین خدمات موجود را به کسب و کار شما ارائه "
 "نمی‌دهد، به‌راحتی اکانت خود را لغو کنید."
@@ -13186,9 +13100,9 @@ msgstr "موعد پرداخت هزینه‌های مالی من چه‌زمان�
 
 #: jibres/includes/languages/trans_project.php:80
 msgid ""
-"The date you first select a paid plan will be the recurring billing date. For "
-"example: If you sign up for the first time on July 15, all future charges will be "
-"billed on the 15th of every month."
+"The date you first select a paid plan will be the recurring billing date. For example: "
+"If you sign up for the first time on July 15, all future charges will be billed on the "
+"15th of every month."
 msgstr ""
 "اولین روزی که پلن مالی را انتخاب کردید به‌عنوان روز شروع تعیین شده و در دوره‌های زمانی "
 "تکرار می‌شود. به‌طور مثال اگر شما اولین بار در تاریخ ۱۷ خرداد پلن خود را انتخاب کردید، "
@@ -13280,8 +13194,7 @@ msgstr "بهترین پلتفرم مالی"
 
 #: jibres/includes/languages/trans_project.php:107
 msgid ""
-"With Jibres we take less time of our customers and this means modern customer "
-"orientation"
+"With Jibres we take less time of our customers and this means modern customer orientation"
 msgstr ""
 "با جیبرس وقت کمتری از مشتری که سهم بیشتری از فروشگاه را دارد گرفته می‌شود و این یعنی "
 "مشتری مداری مدرن"
@@ -13331,8 +13244,8 @@ msgid ""
 "The easiest way to learn how to use Tejark is enter to it, which takes less than 3 "
 "minutes to setup your team."
 msgstr ""
-"آسان‌ترین راه برای یادگیری نحوه‌ی کارکرد ازویر ورود به آن است که کمتر از ۳ دقیقه از "
-"زمان شما را برای راه‌اندازی اولیه و شروع به‌کار می‌گیرد."
+"آسان‌ترین راه برای یادگیری نحوه‌ی کارکرد ازویر ورود به آن است که کمتر از ۳ دقیقه از زمان "
+"شما را برای راه‌اندازی اولیه و شروع به‌کار می‌گیرد."
 
 #: jibres/includes/languages/trans_project.php:125
 msgid "FREE"
@@ -13423,8 +13336,8 @@ msgid ""
 "All the basics for personal use and anyone who wants to explore Jibres for an <span "
 "class='bold'>unlimited period of time</span>."
 msgstr ""
-"تمام نیازهای اولیه برای استفاده شخصی و یا کسانی که می‌خواهند بصورت نامحدود در جیبرس "
-"کنکاش کنند."
+"تمام نیازهای اولیه برای استفاده شخصی و یا کسانی که می‌خواهند بصورت نامحدود در جیبرس کنکاش "
+"کنند."
 
 #: jibres/includes/languages/trans_project.php:151
 msgid "per month"
@@ -13448,19 +13361,19 @@ msgstr "حریم‌خصوصی چیست؟"
 
 #: jibres/includes/languages/trans_project.php:158
 msgid ""
-"Privacy means that any individual is entitled to choose the information related to "
-"them, and selectively, share it with others."
+"Privacy means that any individual is entitled to choose the information related to them, "
+"and selectively, share it with others."
 msgstr ""
-"حریم‌خصوصی یعنی شخص بتواند اطلاعات مربوط به خود را مجزا کرده و به انتخاب خویش، در "
-"برابر دیگران آشکار کند."
+"حریم‌خصوصی یعنی شخص بتواند اطلاعات مربوط به خود را مجزا کرده و به انتخاب خویش، در برابر "
+"دیگران آشکار کند."
 
 #: jibres/includes/languages/trans_project.php:159
 msgid ""
 "privacy is so important for mental peace as well as a peaceful personality that some "
 "experts have considered invasion of privacy disrespectful to human dignity."
 msgstr ""
-"حریم‌خصوصی برای آرامش روانی و شخصیتی، بسیار مهم است تا جایی‌که بعضی از صاحب‌نظران نقض "
-"آن را به عنوان یک اقدام توهین‌آمیز نسبت به شرافت بشری قلمداد کرده‌اند."
+"حریم‌خصوصی برای آرامش روانی و شخصیتی، بسیار مهم است تا جایی‌که بعضی از صاحب‌نظران نقض آن را "
+"به عنوان یک اقدام توهین‌آمیز نسبت به شرافت بشری قلمداد کرده‌اند."
 
 #: jibres/includes/languages/trans_project.php:160
 msgid "Controversies over the Invasion of Privacy"
@@ -13468,15 +13381,14 @@ msgstr "جنجال‌های نقض حریم‌خصوصی"
 
 #: jibres/includes/languages/trans_project.php:161
 msgid ""
-"Within e-commerce, privacy has always been from among the most controversial topics "
-"and continues to be."
-msgstr ""
-"حریم‌خصوصی در کسب‌و‌کارهای الکترونیکی همیشه یکی از بحث‌برانگیزترین موضوعات بوده و هست."
+"Within e-commerce, privacy has always been from among the most controversial topics and "
+"continues to be."
+msgstr "حریم‌خصوصی در کسب‌و‌کارهای الکترونیکی همیشه یکی از بحث‌برانگیزترین موضوعات بوده و هست."
 
 #: jibres/includes/languages/trans_project.php:162
 msgid ""
-"Accordingly, formulating privacy policies is regarded as one of the crucial concerns "
-"of technology companies."
+"Accordingly, formulating privacy policies is regarded as one of the crucial concerns of "
+"technology companies."
 msgstr ""
 "به همین دلیل، تعیین سیاست‌های حریم‌خصوصی جزء دغدغه‌های بسیار مهم شرکت‌های فناورانه محسوب "
 "می‌شود."
@@ -13487,9 +13399,9 @@ msgid ""
 "commerce so that, occasionally, the regulations have to be revised to eliminate the "
 "existing weaknesses."
 msgstr ""
-"در این میان جنجال‌هایی گسترده به‌خاطر نقض حریم‌خصوصی از کسب‌وکارهای الکترونیکی صورت "
-"گرفته است؛ به‌گونه‌ای که هرچند وقت یک‌بار مجبور هستند قوانین را بازبینی نموده تا "
-"حفره‌های موجود را رفع نمایند."
+"در این میان جنجال‌هایی گسترده به‌خاطر نقض حریم‌خصوصی از کسب‌وکارهای الکترونیکی صورت گرفته "
+"است؛ به‌گونه‌ای که هرچند وقت یک‌بار مجبور هستند قوانین را بازبینی نموده تا حفره‌های موجود را "
+"رفع نمایند."
 
 #: jibres/includes/languages/trans_project.php:164
 msgid "Privacy from Our Point of View"
@@ -13497,19 +13409,18 @@ msgstr "حریم‌خصوصی از دیدگاه ما"
 
 #: jibres/includes/languages/trans_project.php:165
 msgid ""
-"Let us be straightforward! Cyberspace is not a safe location for personal "
-"information."
+"Let us be straightforward! Cyberspace is not a safe location for personal information."
 msgstr "رو راست باشیم، فضای مجازی محل امنی برای اطلاعات خصوصی نیست."
 
 #: jibres/includes/languages/trans_project.php:166
 msgid ""
-"For that reason, Jibres makes no request for important information of yours and "
-"allow to save some general information including age, gender, education, interests, "
-"etc is only for private use of your team or company."
+"For that reason, Jibres makes no request for important information of yours and allow to "
+"save some general information including age, gender, education, interests, etc is only "
+"for private use of your team or company."
 msgstr ""
 "به‌همین دلیل، جیبرس درخواستی برای ثبت اطلاعات مهم شده نداشته و تنها اجازه ثبت برخی از "
-"اطلاعات عمومی شامل سن، جنسیت، مدرک تحصیلی، علاقمندی‌ها و ... را برای استفاده خصوصی در "
-"تیم یا شرکت شما می‌دهد."
+"اطلاعات عمومی شامل سن، جنسیت، مدرک تحصیلی، علاقمندی‌ها و ... را برای استفاده خصوصی در تیم "
+"یا شرکت شما می‌دهد."
 
 #: jibres/includes/languages/trans_project.php:167
 msgid ""
@@ -13518,53 +13429,52 @@ msgstr "لازم به توضیح است که ثبت موارد ذکرشده نی
 
 #: jibres/includes/languages/trans_project.php:168
 msgid ""
-"However, taking the nature of cyberspace into account, we should remember that "
-"offering an absolute assurance might not be possible."
+"However, taking the nature of cyberspace into account, we should remember that offering "
+"an absolute assurance might not be possible."
 msgstr ""
-"این را در نظر داشته باشید که با توجه به ماهیت فضای مجازی، ارائه تضمین صددرصدی به‌طور "
-"کل ممکن نیست."
+"این را در نظر داشته باشید که با توجه به ماهیت فضای مجازی، ارائه تضمین صددرصدی به‌طور کل "
+"ممکن نیست."
 
 #: jibres/includes/languages/trans_project.php:169
 msgid ""
-"Assuring privacy and security, with that ideal concept we bear in mind, does not "
-"exist; and if somebody gives you an assurance of securing your privacy, he has "
-"certainly abused your trust."
+"Assuring privacy and security, with that ideal concept we bear in mind, does not exist; "
+"and if somebody gives you an assurance of securing your privacy, he has certainly abused "
+"your trust."
 msgstr ""
-"تضمین امنیت و حریم خصوصی به آن معنای آرمانی که ما در ذهن خود داریم وجود ندارد، و اگر "
-"کسی در دنیای مجازی، تضمین امنیت حریم‌خصوصی شما را بدهد قطعا از اعتماد شما سوءاستفاده "
-"کرده است."
+"تضمین امنیت و حریم خصوصی به آن معنای آرمانی که ما در ذهن خود داریم وجود ندارد، و اگر کسی "
+"در دنیای مجازی، تضمین امنیت حریم‌خصوصی شما را بدهد قطعا از اعتماد شما سوءاستفاده کرده است."
 
 #: jibres/includes/languages/trans_project.php:170
 msgid ""
-"Upon buying any digital or the so-called smart device, you have invaded your own "
-"privacy yourself."
+"Upon buying any digital or the so-called smart device, you have invaded your own privacy "
+"yourself."
 msgstr ""
 "شما با خرید هر دستگاه دیجیتالی یا به اصطلاح هوشمند، با دست خود حریم‌خصوصی‌تان را نقض "
 "کرده‌اید."
 
 #: jibres/includes/languages/trans_project.php:171
 msgid ""
-"If you want your privacy not to be invaded, you should depart from technology and "
-"say goodbye to any digital and smart device."
+"If you want your privacy not to be invaded, you should depart from technology and say "
+"goodbye to any digital and smart device."
 msgstr ""
-"اگر می‌خواهید این حریم‌خصوصی نقض نشود باید به‌طور کل از دنیای تکنولوژی فاصله بگیرید و "
-"با هر دستگاه دیجیتالی و هوشمندی خداحافظی کنید."
+"اگر می‌خواهید این حریم‌خصوصی نقض نشود باید به‌طور کل از دنیای تکنولوژی فاصله بگیرید و با هر "
+"دستگاه دیجیتالی و هوشمندی خداحافظی کنید."
 
 #: jibres/includes/languages/trans_project.php:172
 msgid ""
-"In fact, we have employed all updated technologies of the world to provide you with "
-"the maximum security."
+"In fact, we have employed all updated technologies of the world to provide you with the "
+"maximum security."
 msgstr ""
-"ما به‌لحاظ فنی تمام تکنولوژی‌های روز دنیا را به‌کار برده‌ایم تا امنیت حداکثری را برای "
-"شما به ارمغان بیاوریم."
+"ما به‌لحاظ فنی تمام تکنولوژی‌های روز دنیا را به‌کار برده‌ایم تا امنیت حداکثری را برای شما به "
+"ارمغان بیاوریم."
 
 #: jibres/includes/languages/trans_project.php:173
 msgid ""
 "As the final remark, we wish to assure you that our main concern is to secure your "
 "privacy and protect your information against impermissible access."
 msgstr ""
-"در پایان، این اطمینان را به شما می‌دهیم که دغدغه‌ی ما، حفظ حریم‌خصوصی و محافظت از "
-"اطلاعات شما در برابر دسترسی‌های غیرمجاز هست."
+"در پایان، این اطمینان را به شما می‌دهیم که دغدغه‌ی ما، حفظ حریم‌خصوصی و محافظت از اطلاعات "
+"شما در برابر دسترسی‌های غیرمجاز هست."
 
 #: jibres/includes/languages/trans_project.php:177
 msgid ""
@@ -13576,23 +13486,22 @@ msgstr ""
 
 #: jibres/includes/languages/trans_project.php:178
 msgid ""
-"The social responsibility of organizations relates to the organization's "
-"responsibility towards society, human beings and the environment in which they are "
-"active."
+"The social responsibility of organizations relates to the organization's responsibility "
+"towards society, human beings and the environment in which they are active."
 msgstr ""
-"مسئولیت اجتماعی سازمان‌ها مرتبط با مسئولیت سازمان در برابر جامعه، انسان‌ها و محیطی است "
-"که در آن فعالیت می‌کند. این مسئولیت فراتر از قوانین مرسوم و منافع مالی سازمان بوده و "
-"پیشرفت منافع اجتماعی را دنبال می‌کند."
+"مسئولیت اجتماعی سازمان‌ها مرتبط با مسئولیت سازمان در برابر جامعه، انسان‌ها و محیطی است که "
+"در آن فعالیت می‌کند. این مسئولیت فراتر از قوانین مرسوم و منافع مالی سازمان بوده و پیشرفت "
+"منافع اجتماعی را دنبال می‌کند."
 
 #: jibres/includes/languages/trans_project.php:179
 msgid ""
 "Based on the mentioned definitions of social responsibility, Jibres considers itself "
-"committed to society. Accordingly, besides attempting to offer creative and "
-"effective services, Jibres has invariably had social responsibility as one of its "
-"most important missions and, God willing, will continue to do so."
+"committed to society. Accordingly, besides attempting to offer creative and effective "
+"services, Jibres has invariably had social responsibility as one of its most important "
+"missions and, God willing, will continue to do so."
 msgstr ""
-"براساس تعاریفی که از مسئولیت اجتماعی شد، جیبرس نیز خود را در قبال جامعه متعهد دانسته "
-"و در کنار تلاش جهت ارائه خدمات خلاقانه و اثربخش، همواره مسئولیت اجتماعی از مهم‌ترین "
+"براساس تعاریفی که از مسئولیت اجتماعی شد، جیبرس نیز خود را در قبال جامعه متعهد دانسته و "
+"در کنار تلاش جهت ارائه خدمات خلاقانه و اثربخش، همواره مسئولیت اجتماعی از مهم‌ترین "
 "ماموریت‌های جیبرس بوده و به‌امیدخدا خواهد بود."
 
 #: jibres/includes/languages/trans_project.php:180
@@ -13601,14 +13510,13 @@ msgstr "دوست‌دار محیط‌زیست"
 
 #: jibres/includes/languages/trans_project.php:181
 msgid ""
-"In spite of technological advancements, paper usage is unfortunately preferred to "
-"modern ways. One of Jibres's objectives is trying to change this habit and "
-"contribute to the elimination of paper from the routine life and, therefore, to save "
-"the environment."
+"In spite of technological advancements, paper usage is unfortunately preferred to modern "
+"ways. One of Jibres's objectives is trying to change this habit and contribute to the "
+"elimination of paper from the routine life and, therefore, to save the environment."
 msgstr ""
-"با وجود پیشرفت تکنولوژی، متاسفانه همچنان علاقه به استفاده از کاغذ قابل پذیرش‌تر از "
-"روش‌های مدرن است؛ یکی از اهداف جیبرس تلاش برای تغییر این عادت و کمک به حذف کاغذ از "
-"زندگی روزمره و درنتیجه حفظ محیط‌زیست است."
+"با وجود پیشرفت تکنولوژی، متاسفانه همچنان علاقه به استفاده از کاغذ قابل پذیرش‌تر از روش‌های "
+"مدرن است؛ یکی از اهداف جیبرس تلاش برای تغییر این عادت و کمک به حذف کاغذ از زندگی روزمره "
+"و درنتیجه حفظ محیط‌زیست است."
 
 #: jibres/includes/languages/trans_project.php:182
 msgid "Philanthropist Activities"
@@ -13616,9 +13524,9 @@ msgstr "فعالیت‌های خیرخواهانه"
 
 #: jibres/includes/languages/trans_project.php:183
 msgid ""
-"One of the most valuable resources of charity organizations is the voluntary and "
-"active participation of the individuals who, without any expectations, provide them "
-"with their skillfulness and capital."
+"One of the most valuable resources of charity organizations is the voluntary and active "
+"participation of the individuals who, without any expectations, provide them with their "
+"skillfulness and capital."
 msgstr ""
 "یکی از ارزشمندترین سرمایه‌‌ی سازمان‌های خیریه، فعالیت و مشارکت داوطلبانه افرادی است که "
 "مهارت و سرمایه خود را بدون هیچ چشم‌داشتی در اختیار آن‌ها قرار می‌دهند."
@@ -13626,13 +13534,12 @@ msgstr ""
 #: jibres/includes/languages/trans_project.php:184
 msgid ""
 "Jibres as well, with regard to its contribution to philanthropist activities, will "
-"honorably provide them with its services free of charge. To make use of these "
-"services, send your identity documents along with your request to Jibres's support "
-"center."
+"honorably provide them with its services free of charge. To make use of these services, "
+"send your identity documents along with your request to Jibres's support center."
 msgstr ""
-"جیبرس نیز با توجه به ماموریت خود در راستای کمک به فعالیت‌های خیرخواهانه، خدمات خود را "
-"با افتخار و به‌صورت رایگان دراختیار آنان قرار می‌دهد. برای استفاده از این خدمات، "
-"درخواست خود را همراه با مدارک احراز هویت به مرکز پشتیبانی جیبرس ارسال نمایید."
+"جیبرس نیز با توجه به ماموریت خود در راستای کمک به فعالیت‌های خیرخواهانه، خدمات خود را با "
+"افتخار و به‌صورت رایگان دراختیار آنان قرار می‌دهد. برای استفاده از این خدمات، درخواست خود "
+"را همراه با مدارک احراز هویت به مرکز پشتیبانی جیبرس ارسال نمایید."
 
 #: jibres/includes/languages/trans_project.php:185
 msgid "Recruiting Motivated Staff"
@@ -13643,13 +13550,13 @@ msgid ""
 "An outstanding characteristic of any organization is its specialized and highly "
 "motivated staff, playing a vital role in growth and development."
 msgstr ""
-"ویژگی چشم‌گیر و بارز هر سازمانی وجود نیروی‌ انسانی باانگیزه و متخصص است که نقشی "
-"بنیادین در رشد و توسعه دارند."
+"ویژگی چشم‌گیر و بارز هر سازمانی وجود نیروی‌ انسانی باانگیزه و متخصص است که نقشی بنیادین در "
+"رشد و توسعه دارند."
 
 #: jibres/includes/languages/trans_project.php:187
 msgid ""
-"By the same token, we are always looking for creative and motivated Iranian youths "
-"in order to make the best and be effective in cooperation with them."
+"By the same token, we are always looking for creative and motivated Iranian youths in "
+"order to make the best and be effective in cooperation with them."
 msgstr ""
 "ما هم در این راستا و برای خدمت به سرزمین‌مان، به دنبال جوانان ایرانی خلاق و باانگیزه "
 "هستیم تا با کمک هم برترین‌ها را بسازیم و اثرگذار باشیم."
@@ -13664,20 +13571,20 @@ msgstr "مشتری‌مداری و کسب رضایت کامل"
 
 #: jibres/includes/languages/trans_project.php:190
 msgid ""
-"Attracting people's participation as well as having their valuable presence has "
-"always been a great honor for Jibres and to appreciate your support, in return, "
-"Jibres presents services to promote customer satisfaction."
+"Attracting people's participation as well as having their valuable presence has always "
+"been a great honor for Jibres and to appreciate your support, in return, Jibres presents "
+"services to promote customer satisfaction."
 msgstr ""
-"جلب مشارکت مردم و حضور ارزشمند آنان در جیبرس باعث افتخار ما بوده و به‌منظور قدردانی "
-"از این حمایت، جیبرس نیز خدمات متقابلی را برای افزایش رضایت مشتریان خود ارائه می‌کند."
+"جلب مشارکت مردم و حضور ارزشمند آنان در جیبرس باعث افتخار ما بوده و به‌منظور قدردانی از "
+"این حمایت، جیبرس نیز خدمات متقابلی را برای افزایش رضایت مشتریان خود ارائه می‌کند."
 
 #: jibres/includes/languages/trans_project.php:191
 msgid ""
-"These services are presented in different time intervals and are aimed at costomer "
-"care mission and appreciation of your valuable presence."
+"These services are presented in different time intervals and are aimed at costomer care "
+"mission and appreciation of your valuable presence."
 msgstr ""
-"این خدمات در بازه‌های زمانی متفاوت ارائه‌شده و در راستای ماموریت مشتری‌مداری و ارج "
-"نهادن به این حضور گرانبها می‌باشد."
+"این خدمات در بازه‌های زمانی متفاوت ارائه‌شده و در راستای ماموریت مشتری‌مداری و ارج نهادن به "
+"این حضور گرانبها می‌باشد."
 
 #: jibres/includes/languages/trans_project.php:195
 msgid "Some right reserved!"
@@ -13741,81 +13648,79 @@ msgstr "پنل مدیریت"
 
 #: jibres/includes/languages/trans_project.php:223
 msgid ""
-"Utilizing Jibres's services means the acceptance of and commitment to observing all "
-"the tenors of this agreement."
+"Utilizing Jibres's services means the acceptance of and commitment to observing all the "
+"tenors of this agreement."
 msgstr ""
-"استفاده از خدمات جیبرس به منزله‌ پذیرش و تعهد به رعایت تمام مفاد مندرج در این "
-"توافق‌نامه است."
+"استفاده از خدمات جیبرس به منزله‌ پذیرش و تعهد به رعایت تمام مفاد مندرج در این توافق‌نامه "
+"است."
 
 #: jibres/includes/languages/trans_project.php:224
 msgid ""
-"It is worth mentioning that due to the insecurity of cyberspace, you should never "
-"post your vital information on either Jibres or any other services!"
+"It is worth mentioning that due to the insecurity of cyberspace, you should never post "
+"your vital information on either Jibres or any other services!"
 msgstr ""
 "لازم به یادآوری‌ست که با توجه به ناامن بودن فضای ‌مجازی، نه تنها در جیبرس بلکه در هیچ "
 "سرویس دیگری، اطلاعات حیاتی خود را منتشر نکنید!"
 
 #: jibres/includes/languages/trans_project.php:225
 msgid ""
-"User's personal information is strictly confidential in our service. Jibres "
-"preserves the information as encoded and will not under any conditions transfer it "
-"to another person."
+"User's personal information is strictly confidential in our service. Jibres preserves "
+"the information as encoded and will not under any conditions transfer it to another "
+"person."
 msgstr ""
-"اطلاعات شخصی کاربران در این سرویس به‌صورت کاملا محرمانه می‌باشد و جیبرس این اطلاعات را "
-"به صورت کدشده نگه‌داری کرده و تحت هیچ شرایطی آن‌را به غیر واگذار نخواهد کرد."
+"اطلاعات شخصی کاربران در این سرویس به‌صورت کاملا محرمانه می‌باشد و جیبرس این اطلاعات را به "
+"صورت کدشده نگه‌داری کرده و تحت هیچ شرایطی آن‌را به غیر واگذار نخواهد کرد."
 
 #: jibres/includes/languages/trans_project.php:226
 msgid ""
 "In case there is a request for receiving user's information by the competent "
-"authorities, according to the country the user lives in, Jibres will cooperate with "
-"them only upon receiving the judicial order issued by the country submitting the "
-"request."
+"authorities, according to the country the user lives in, Jibres will cooperate with them "
+"only upon receiving the judicial order issued by the country submitting the request."
 msgstr ""
 "با توجه به کشور محل سکونت کاربر، درصورت درخواست مراجع دارای صلاحیت به دریافت "
-"اطلاعات‌کاربری، جیبرس تنها پس از دریافت حکم قضایی کشور درخواست کننده، توانایی همکاری "
-"با آنان را خواهد داشت."
+"اطلاعات‌کاربری، جیبرس تنها پس از دریافت حکم قضایی کشور درخواست کننده، توانایی همکاری با "
+"آنان را خواهد داشت."
 
 #: jibres/includes/languages/trans_project.php:227
 msgid ""
 "Jibres will not offer any guarantee as to the quality of the products or services "
 "presented by the teams and will not accept any responsibility in this regard!"
 msgstr ""
-"جیبرس هیچگونه ضمانتی در مورد کیفیت محصولات یا خدمات ارائه شده توسط تیم‌ها را نمی‌پذیرد "
-"و مسئولیتی در قبال آن ندارد!"
+"جیبرس هیچگونه ضمانتی در مورد کیفیت محصولات یا خدمات ارائه شده توسط تیم‌ها را نمی‌پذیرد و "
+"مسئولیتی در قبال آن ندارد!"
 
 #: jibres/includes/languages/trans_project.php:228
 msgid ""
-"Users should assume responsibility for any harm, both material and immaterial, "
-"caused by direct, indirect or penal factors and due to their utilization of this "
-"service; and, Jibres bears no responsibility accordingly."
+"Users should assume responsibility for any harm, both material and immaterial, caused by "
+"direct, indirect or penal factors and due to their utilization of this service; and, "
+"Jibres bears no responsibility accordingly."
 msgstr ""
-"خسارت‌های‌ مادی و معنوی ناشی از عوامل مستقیم، غیرمستقیم و کیفری، در قبال استفاده از "
-"این سرویس برعهده کاربران بوده و جیبرس هیچ‌گونه مسئولیتی دراین‌باره ندارد."
+"خسارت‌های‌ مادی و معنوی ناشی از عوامل مستقیم، غیرمستقیم و کیفری، در قبال استفاده از این "
+"سرویس برعهده کاربران بوده و جیبرس هیچ‌گونه مسئولیتی دراین‌باره ندارد."
 
 #: jibres/includes/languages/trans_project.php:229
 msgid ""
-"Jibres accepts no responsibility, under any conditions, for the harms caused by "
-"users' mutual trust in each other or by the disclosure of information by users."
+"Jibres accepts no responsibility, under any conditions, for the harms caused by users' "
+"mutual trust in each other or by the disclosure of information by users."
 msgstr ""
 "تحت هیچ شرایطی جیبرس مسئولیت خسارت‌های وارده در اثر اعتماد و اتکاء اعضاء به یکدیگر و "
 "فاش‌شدن اطلاعات توسط کاربر را نمی‌پذیرد."
 
 #: jibres/includes/languages/trans_project.php:230
 msgid ""
-"Jibres will do its best to protect both the users' information and the service; "
-"however, regarding the lack of certainty within the cyberspace, it will not assume "
-"any responsibility for the loss of the information entered on the service."
+"Jibres will do its best to protect both the users' information and the service; however, "
+"regarding the lack of certainty within the cyberspace, it will not assume any "
+"responsibility for the loss of the information entered on the service."
 msgstr ""
-"جیبرس تمام تلاش خود را برای محافظت از اطلاعات کاربران و سرویس می‌نماید؛ ولی با توجه "
-"به عدم قطعیت در فضای مجازی، مسئولیتی در مورد از بين رفتن اطلاعات قرارگرفته بر روی "
-"سرویس نخواهد پذیرفت."
+"جیبرس تمام تلاش خود را برای محافظت از اطلاعات کاربران و سرویس می‌نماید؛ ولی با توجه به "
+"عدم قطعیت در فضای مجازی، مسئولیتی در مورد از بين رفتن اطلاعات قرارگرفته بر روی سرویس "
+"نخواهد پذیرفت."
 
 #: jibres/includes/languages/trans_project.php:231
 msgid ""
 "We will publicize our information and news only via Jibres's formal website. "
-"Accordingly, those who publicize any attributed news and claims, within social media "
-"and networks, must assume the responsibility and Jibres will not assume any "
-"responsibility."
+"Accordingly, those who publicize any attributed news and claims, within social media and "
+"networks, must assume the responsibility and Jibres will not assume any responsibility."
 msgstr ""
 "اخبار و اطلاعات ما تنها از طریق وب‌سایت رسمی جیبرس منتشر می‌شود. مسئولیت هرگونه خبر و "
 "ادعای نسبت‌داده‌شده در رسانه‌ها و شبکه‌های اجتماعی به عهده منتشرکننده آن بوده و جیبرس "
@@ -13827,35 +13732,34 @@ msgid ""
 "those indicating winning a lottery, and all our information dissemination will be "
 "through the ways of Jibres's contact with users."
 msgstr ""
-"جیبرس هیچ مسئولیتی در مقابل پیام‌های ارسالی مبنی بر برنده‌شدن در قرعه‌کشی یا هر پیام "
-"دیگری نداشته و تمام اطلاع‌رسانی‌های ما از طریق روش‌های برقراری ارتباط کاربر با جیبرس "
-"خواهد بود."
+"جیبرس هیچ مسئولیتی در مقابل پیام‌های ارسالی مبنی بر برنده‌شدن در قرعه‌کشی یا هر پیام دیگری "
+"نداشته و تمام اطلاع‌رسانی‌های ما از طریق روش‌های برقراری ارتباط کاربر با جیبرس خواهد بود."
 
 #: jibres/includes/languages/trans_project.php:233
 msgid ""
-"Any misuse of Jibres's trade name is prohibited and will be suable by making a "
-"complaint to the legal competent authorities."
+"Any misuse of Jibres's trade name is prohibited and will be suable by making a complaint "
+"to the legal competent authorities."
 msgstr ""
-"هرگونه سوءاستفاده از نام تجاری جیبرس ممنوع بوده و از طریق شکایت به مراجع قانونی "
-"دارای صلاحیت، قابل پیگرد خواهد بود."
+"هرگونه سوءاستفاده از نام تجاری جیبرس ممنوع بوده و از طریق شکایت به مراجع قانونی دارای "
+"صلاحیت، قابل پیگرد خواهد بود."
 
 #: jibres/includes/languages/trans_project.php:234
 msgid ""
-"Furthermore, this agreement, under the name Terms and Conditions, will be available "
-"and observable, in all pages of the website. Users will be responsible for a lack of "
+"Furthermore, this agreement, under the name Terms and Conditions, will be available and "
+"observable, in all pages of the website. Users will be responsible for a lack of "
 "information on the most recent changes."
 msgstr ""
-"هم‌چنین این توافق‌نامه در تمام صفحات وب‌سایت با عنوان شرایط و قوانین موجود و قابل "
-"مشاهده است. مسئولیت عدم کسب اطلاع از آخرین تغییرات برعهده کاربر خواهد بود."
+"هم‌چنین این توافق‌نامه در تمام صفحات وب‌سایت با عنوان شرایط و قوانین موجود و قابل مشاهده "
+"است. مسئولیت عدم کسب اطلاع از آخرین تغییرات برعهده کاربر خواهد بود."
 
 #: jibres/includes/languages/trans_project.php:235
 msgid ""
 "It should be mentioned that in case there would be any modifications in the above-"
-"mentioned tenors, an updated version will be available for the public, and as well, "
-"all the users will be informed."
+"mentioned tenors, an updated version will be available for the public, and as well, all "
+"the users will be informed."
 msgstr ""
-"لازم به ذکر است که درصورت هرگونه تغییر در مفاد ذکر شده، نسخه به‌روزشده آن در دسترس "
-"عموم قرار خواهد گرفت و به اطلاع تمام کاربران خواهد رسید."
+"لازم به ذکر است که درصورت هرگونه تغییر در مفاد ذکر شده، نسخه به‌روزشده آن در دسترس عموم "
+"قرار خواهد گرفت و به اطلاع تمام کاربران خواهد رسید."
 
 #: jibres/includes/languages/trans_project.php:238
 msgid "You can add new empty tab if current tab is filled!"
@@ -14186,8 +14090,8 @@ msgstr "ویرایش دسته‌‌بندی"
 #: jibres/includes/languages/trans_project.php:372
 msgid "By update name of this category all product will be update to new value."
 msgstr ""
-"با بروزرسانی نام، این دسته‌بندی در تمامی کالاهایی که مورد استفاده قرار گرفته‌است هم "
-"بروز می‌شود."
+"با بروزرسانی نام، این دسته‌بندی در تمامی کالاهایی که مورد استفاده قرار گرفته‌است هم بروز "
+"می‌شود."
 
 #: jibres/includes/languages/trans_project.php:373
 msgid "Click to check list of this product"
@@ -14259,8 +14163,7 @@ msgstr "خروجی"
 
 #: jibres/includes/languages/trans_project.php:401
 msgid "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"
-msgstr ""
-"پسوندهای مجاز jpg و png هستند‌(‌gif برای پلن‌های تجاری). حداکثر حجم مجاز ۵۰۰ کیلوبایت"
+msgstr "پسوندهای مجاز jpg و png هستند‌(‌gif برای پلن‌های تجاری). حداکثر حجم مجاز ۵۰۰ کیلوبایت"
 
 #: jibres/includes/languages/trans_project.php:405
 msgid "To add image gallery drop file here or click here"
@@ -14636,8 +14539,8 @@ msgstr "افزودن واحد جدید"
 #: jibres/includes/languages/trans_project.php:549
 msgid "By update name of this unit all product will be update to new value."
 msgstr ""
-"با بروزرسانی نام، این واحد شمارش در تمامی کالاهایی که مورد استفاده قرار گرفته‌است هم "
-"بروز می‌شود."
+"با بروزرسانی نام، این واحد شمارش در تمامی کالاهایی که مورد استفاده قرار گرفته‌است هم بروز "
+"می‌شود."
 
 #: jibres/includes/languages/trans_project.php:550
 msgid "No product in this unit"
@@ -14649,12 +14552,12 @@ msgstr "واحد پیش‌فرض است؟"
 
 #: jibres/includes/languages/trans_project.php:552
 msgid ""
-"Sometimes employees sell some product with decimal unit and if you are force this "
-"unit to give integer value, we are not allow them to enter invalid value"
+"Sometimes employees sell some product with decimal unit and if you are force this unit "
+"to give integer value, we are not allow them to enter invalid value"
 msgstr ""
-"برخی اوقات ممکن است کارکنان به اشتباه کالایی را با واحد شمارش اعشاری به فروش "
-"برسانند. اگر مایل به اجبار به دریافت مقدار صحیح برای این واحد شمارش هستید، آن را "
-"تنظیم کنید و ما نیز جلوی ورود داده اشتباه را خواهیم گرفت"
+"برخی اوقات ممکن است کارکنان به اشتباه کالایی را با واحد شمارش اعشاری به فروش برسانند. "
+"اگر مایل به اجبار به دریافت مقدار صحیح برای این واحد شمارش هستید، آن را تنظیم کنید و ما "
+"نیز جلوی ورود داده اشتباه را خواهیم گرفت"
 
 #: jibres/includes/languages/trans_project.php:553
 msgid "Only accept integer value?"
@@ -15070,8 +14973,7 @@ msgstr "افزایش یا کاهش سقف اعتبار طرف‌حساب"
 
 #: jibres/includes/languages/trans_project.php:730
 msgid ""
-"thirdparties can take unit with this credit until max value of set for each "
-"thirdparty."
+"thirdparties can take unit with this credit until max value of set for each thirdparty."
 msgstr "طرف‌حساب‌ها می‌توانند تا سقف تعیین شده در اعتبارشان انتخاب واحد کنند."
 
 #: jibres/includes/languages/trans_project.php:731
@@ -16105,8 +16007,7 @@ msgstr "طول متن توضیحات فاکتور خارج از محدوده ا�
 msgid "Invalid type of factor"
 msgstr "نوع فاکتور نامعتبر است"
 
-#: jibres/includes/lib/app/factor.php:279
-#: jibres/includes/lib/app/storetransaction.php:251
+#: jibres/includes/lib/app/factor.php:279 jibres/includes/lib/app/storetransaction.php:251
 msgid "Invalid factor type"
 msgstr "نوع فاکتور نامعتبر است"
 
@@ -16129,8 +16030,7 @@ msgstr "خطا در کالای :key در فاکتور"
 #: jibres/includes/lib/app/factor/add.php:60 jibres/includes/lib/app/factor/edit.php:57
 #: jibres/includes/lib/app/fund/add.php:44 jibres/includes/lib/app/fund/edit.php:19
 #: jibres/includes/lib/app/inventory/add.php:44
-#: jibres/includes/lib/app/inventory/edit.php:19
-#: jibres/includes/lib/app/product/add.php:56
+#: jibres/includes/lib/app/inventory/edit.php:19 jibres/includes/lib/app/product/add.php:56
 #: jibres/includes/lib/app/product/edit.php:46
 #: jibres/includes/lib/app/storetransaction/account.php:46
 #: jibres/includes/lib/app/storetransaction/add.php:61
@@ -16148,8 +16048,7 @@ msgstr "هیچ راهی برای ثبت کالا وجود ندارد"
 msgid "Factor successfuly added"
 msgstr "فاکتور با موفقیت اضافه شد"
 
-#: jibres/includes/lib/app/factor/edit.php:66
-#: jibres/includes/lib/app/product/edit.php:54
+#: jibres/includes/lib/app/factor/edit.php:66 jibres/includes/lib/app/product/edit.php:54
 #: jibres/includes/lib/app/storetransaction/edit.php:66
 msgid "Can not access to edit it"
 msgstr "دسترسی لازم برای ویرایش را ندارید"
@@ -16241,8 +16140,7 @@ msgid "String of product unit is too large"
 msgstr "متن واحد شمارش کالای این محصول از حد مجاز بزرگتر است"
 
 #: jibres/includes/lib/app/product.php:138
-msgid ""
-"Your barcode have wrong character. we change it. please check your product again"
+msgid "Your barcode have wrong character. we change it. please check your product again"
 msgstr ""
 "بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا بررسی نمایید"
 
@@ -16251,8 +16149,7 @@ msgid "String of product barcode is too large"
 msgstr "متن بارکد این محصول از حد مجاز بزرگتر است"
 
 #: jibres/includes/lib/app/product.php:154
-msgid ""
-"Your barcode2 have wrong character. we change it. please check your product again"
+msgid "Your barcode2 have wrong character. we change it. please check your product again"
 msgstr ""
 "ایران بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا بررسی "
 "نمایید"
@@ -16386,13 +16283,11 @@ msgstr "عنوان دسته‌بندی بسیار طولانی است"
 msgid "Invalid type of cat"
 msgstr "نوع دسته‌بندی نامعتبر است"
 
-#: jibres/includes/lib/app/product/cat.php:53
-#: jibres/includes/lib/app/product/unit.php:42
+#: jibres/includes/lib/app/product/cat.php:53 jibres/includes/lib/app/product/unit.php:42
 msgid "Plese set the max sale as a number"
 msgstr "لطفا حداکثر فروش را به صورت عددی وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:62
-#: jibres/includes/lib/app/product/unit.php:51
+#: jibres/includes/lib/app/product/cat.php:62 jibres/includes/lib/app/product/unit.php:51
 msgid "Max sale is out of range"
 msgstr "حداکثر فروش خارج از محدوده است"
 
@@ -16404,8 +16299,7 @@ msgstr "دسته‌بندی تکراری است"
 msgid "Category successfully added"
 msgstr "دسته‌بندی با موفقیت اضافه شد"
 
-#: jibres/includes/lib/app/product/cat.php:133
-#: jibres/includes/lib/app/product/cat.php:170
+#: jibres/includes/lib/app/product/cat.php:133 jibres/includes/lib/app/product/cat.php:170
 msgid "Category not found in your store!"
 msgstr "این دسته‌بندی در فروشگاه شما یافت نشد!"
 
@@ -16590,8 +16484,8 @@ msgstr "پلن انتخابی اشتباه است"
 #: jibres/includes/lib/app/store/add.php:63 jibres/includes/lib/app/store/add.php:67
 #: jibres/includes/lib/app/store/add.php:415
 msgid ""
-"To register a second store, you need to have at least 10,000 toman in inventory on "
-"your account"
+"To register a second store, you need to have at least 10,000 toman in inventory on your "
+"account"
 msgstr ""
 "برای ثبت فروشگاه دوم و سوم خود، شما باید حداقل مبلغ ۱۰ هزار تومان موجودی در حساب خود "
 "داشته باشید"
@@ -16603,8 +16497,7 @@ msgstr "شما نمی‌توانید بیش از دو فروشگاه رایگا�
 #: jibres/includes/lib/app/store/add.php:79
 msgid "This msg in local is warn and in site is error :)"
 msgstr ""
-"این پیام در حالت لوکال به صورت هشدار است و در حالت سایت به صورت خطا نمایش داده "
-"می‌شود :)"
+"این پیام در حالت لوکال به صورت هشدار است و در حالت سایت به صورت خطا نمایش داده می‌شود :)"
 
 #: jibres/includes/lib/app/store/add.php:106
 msgid "Please select one of period"
@@ -16653,8 +16546,8 @@ msgstr "ساخت فروشگاه :name"
 #: jibres/includes/lib/app/store/add.php:422
 msgid "You can not have more than three active stores. Contact support if needed"
 msgstr ""
-"شما نمی توانید بیشتر از ۳ فروشگاه فعال داشته باشید. اگه به فروشگاه های بیشتری نیاز "
-"دارید با پشتیبانی تماس بگیرید"
+"شما نمی توانید بیشتر از ۳ فروشگاه فعال داشته باشید. اگه به فروشگاه های بیشتری نیاز دارید "
+"با پشتیبانی تماس بگیرید"
 
 #: jibres/includes/lib/app/store/add.php:438
 msgid "Please choose plan of store"
@@ -17192,8 +17085,7 @@ msgstr "تغییر پلن :store"
 
 #~ msgid "You can connect your telegram with your mobile number in our service."
 #~ msgstr ""
-#~ "شما می‌توانید در سرویس ما تلگرام خود را به حساب کاربری روی شماره موبایل خود متصل "
-#~ "کنید."
+#~ "شما می‌توانید در سرویس ما تلگرام خود را به حساب کاربری روی شماره موبایل خود متصل کنید."
 
 #~ msgid "Feedback"
 #~ msgstr "بازخورد"
@@ -17310,8 +17202,8 @@ msgstr "تغییر پلن :store"
 #~ msgstr "ویرایش اطلاعات هویتی"
 
 #~ msgid ""
-#~ "set personal and birth identification detail and some other id detail like "
-#~ "passport and etc"
+#~ "set personal and birth identification detail and some other id detail like passport "
+#~ "and etc"
 #~ msgstr "تنظیم جزئيات اطلاعات هویتی شخصی مثل تولد، پاسپورت، کدملی،‌ شناسنامه و غیره"
 
 #~ msgid ":types list"
@@ -17324,8 +17216,7 @@ msgstr "تغییر پلن :store"
 #~ msgstr "فاکتورها"
 
 #~ msgid "Enter 2 space for search in firstname and lastname and father"
-#~ msgstr ""
-#~ "با وارد سازی دو فاصله در بین کلمات در نام و نام خانوادگی و نام پدر جستجو کنید"
+#~ msgstr "با وارد سازی دو فاصله در بین کلمات در نام و نام خانوادگی و نام پدر جستجو کنید"
 
 #~ msgid "Whitout name"
 #~ msgstr "بدون نام"
