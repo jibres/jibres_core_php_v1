@@ -22,6 +22,9 @@ self::$config['site']['desc']   = "Jibres is not just an online accounting softw
 self::$config['site']['slogan'] = "Integrated Sales and Online Accounting";
 
 
+
+self::$config['botscout']                 = 'hIenwLNiGpPOoSk';
+
 /**
 @ In the name Of Allah
 * The base configurations of the jibres.
