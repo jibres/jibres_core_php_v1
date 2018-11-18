@@ -4,13 +4,13 @@
    <h1 class="cauto logo">
     <a class="flex" href='{{url.here}}' tabindex='1'>
      <img src='{{url.site}}/static/images/logo/jibres.svg' alt='{{site.title}} | {{site.desc}}'>
-     <span>{{site.title}}</span> <small class="fs05 pLa5">{%trans "Beta"%}</small>
+     <span>{{site.title}}</span> <small class="fs05 pLa5 s0">{%trans "Beta"%}</small>
     </a>
    </h1>
 
    <nav class="cauto os">
-    <a href="{{url.here}}/pricing">{%trans "Pricing"%}</a>
-    <a href="{{url.here}}/contact">{%trans "Contact"%}</a>
+    <a class="s0" href="{{url.here}}/pricing">{%trans "Pricing"%}</a>
+    <a class="s0" href="{{url.here}}/contact">{%trans "Contact"%}</a>
 {%if login.id%}
 {%if url.subdomain%}
     <a href="{{url.base}}/a" data-direct class="btn">{%trans "Store Panel"%}</a>
