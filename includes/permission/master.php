@@ -69,8 +69,13 @@ $master[] = 'permissionDelete';
 
 
 $master[] = 'staffAccess';
+$master[] = 'StaffAccess';
+
 $master[] = 'supplierAccess';
+$master[] = 'SupplierAccess';
+
 $master[] = 'customerAccess';
+$master[] = 'CustomerAccess';
 
 $master[] = 'customerAdd';
 $master[] = 'supplierAdd';

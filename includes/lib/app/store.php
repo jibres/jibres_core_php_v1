@@ -123,6 +123,11 @@ class store
 			return false;
 		}
 
+		if($slug)
+		{
+			$slug = mb_strtolower($slug);
+		}
+
 		if($slug && in_array($slug, self::$black_list_slug))
 		{
 			\dash\notif::error(T_("You can not choose this slug"), 'slug', 'arguments');
