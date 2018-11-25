@@ -110,11 +110,6 @@ class userstore
 
 	public static function in_store()
 	{
-		if(\dash\url::isLocal())
-		{
-			return \dash\user::id();
-		}
-
 		if(self::detail('staff'))
 		{
 			return self::id();

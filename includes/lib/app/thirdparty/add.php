@@ -46,7 +46,7 @@ trait add
 			return false;
 		}
 
-		if(!\lib\userstore::in_store())
+		if(!\lib\userstore::in_store() && !$_option['store_id'])
 		{
 			if($_option['debug'])
 			{
@@ -85,7 +85,7 @@ trait add
 			$check_duplicate =
 			[
 				'code'     => $args['code'],
-				'store_id' => \lib\store::id(),
+				'store_id' => $args['store_id'],
 				'limit'    => 1,
 			];
 
