@@ -40,7 +40,7 @@
 
 
 {%block head_css%}
- <link rel="stylesheet"       href="{{url.static}}/{{'css/subdomain.css' | filemtime(true)}}"/>
+ <link rel="stylesheet"       href="{{url.static}}{{'/css/subdomain.css' | filemtime(true)}}"/>
 {%endblock%}
 
 
