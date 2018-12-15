@@ -33,7 +33,7 @@
 
 {%block NewStoreCard%}
   <div class="vcard mA10">
-    <img src="{{url.site}}/static/siftal/images/useful/plus1.png" alt="add new store">
+    <img src="{{url.static}}/siftal/images/useful/plus1.png" alt="add new store">
     <div class="content"></div>
     <div class="footer pAn">
      <a class="btn block primary" href="{{url.here}}/store/add">{%trans "Add new store"%}</a>
@@ -45,7 +45,7 @@
 {%block allStoreList%}
 {%if requestGET.all%}
 <div class="vcard mA10">
-    <img src="{{url.site}}/static/images/logo.png" alt="add new store">
+    <img src="{{url.static}}/images/logo.png" alt="add new store">
     <div class="content"></div>
     <div class="footer pAn">
      <a class="btn block info" href="{{url.this}}">{%trans "My store"%}</a>
@@ -53,7 +53,7 @@
   </div>
 {%else%}
   <div class="vcard mA10">
-    <img src="{{url.site}}/static/images/logo.png" alt="add new store">
+    <img src="{{url.static}}/images/logo.png" alt="add new store">
     <div class="content"></div>
     <div class="footer pAn">
      <a class="btn block warn" href="{{url.this}}?all=true">{%trans "All Store"%}</a>

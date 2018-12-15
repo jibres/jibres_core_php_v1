@@ -40,12 +40,12 @@
 
 
 {%block head_css%}
- <link rel="stylesheet"       href="{{url.site}}/static/{{'css/subdomain.css' | filemtime(true)}}"/>
+ <link rel="stylesheet"       href="{{url.static}}/{{'css/subdomain.css' | filemtime(true)}}"/>
 {%endblock%}
 
 
 {%block foot_js%}
 
-<script src="{{url.site}}/static/js/particles.min.js"></script>
+<script src="{{url.static}}/js/particles.min.js"></script>
 {%endblock%}
 
