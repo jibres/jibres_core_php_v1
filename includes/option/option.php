@@ -42,7 +42,7 @@ self::$language =
 
 self::$config['redirect']                     = 'c';
 
-self::$config['visitor'] = true;
+// self::$config['visitor'] = true;
 
 self::$config['favicon']['version']           = null;
 
