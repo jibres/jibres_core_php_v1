@@ -186,8 +186,8 @@ class controller
 
 		if(isset($_data['id']))
 		{
-			$result['id'] = T_($_data['id']);
-			$result['value'] = T_($_data['id']);
+			$result['id'] = $_data['id'];
+			$result['value'] = $_data['id'];
 		}
 
 		if(isset($_data['title']))
