@@ -32,18 +32,17 @@ class controller
 				}
 
 				$result = self::getNeededField_barcode($result);
-				\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
-				\dash\code::compile();
-				\dash\code::boom();
 
+				\dash\notif::result(['list' => $result]);
+				\dash\code::jsonBoom(\dash\notif::json());
 			}
 			elseif(\dash\request::get('id'))
 			{
 				$result = \lib\app\product::list(null, ['id' => \dash\request::get('id')]);
 				$result = self::getNeededField_barcode($result);
-				\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
-				\dash\code::compile();
-				\dash\code::boom();
+
+				\dash\notif::result(['list' => $result]);
+				\dash\code::jsonBoom(\dash\notif::json());
 			}
 			else
 			{
@@ -68,9 +67,7 @@ class controller
 				$result['result'][] = ['name' => T_("No result found!"), 'value' => null];
 			}
 
-			$result = json_encode($result, JSON_UNESCAPED_UNICODE);
-			echo $result;
-			\dash\code::boom();
+			\dash\code::jsonBoom($result);
 		}
 
 		\dash\permission::access('productList');
