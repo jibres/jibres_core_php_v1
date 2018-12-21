@@ -213,7 +213,7 @@ trait datalist
 			$search         = substr($_string, 1);
 			$search         = \dash\utility\convert::to_en_number($search);
 
-			$field['code'] = $search;
+			$field['quickcode'] = $search;
 
 			$result         = \lib\db\products::search(null, $option, $field);
 		}

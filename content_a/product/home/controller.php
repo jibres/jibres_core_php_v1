@@ -117,10 +117,10 @@ class controller
 			$name .= '<span class="badge light mRa5"><i class="sf-check"></i> '. T_('Iran barcode'). '</span>';
 		}
 
-		if(isset($_data['code']))
+		if(isset($_data['quickcode']))
 		{
-			$datalist['desc'] = T_("Code"). ' +'. $_data['code'];
-			$name .= '<span class="badge light mRa5"><i class="sf-bookmark"></i> '. T_('Code'). $_data['code']. '</span>';
+			$datalist['desc'] = T_("Code"). ' +'. $_data['quickcode'];
+			$name .= '<span class="badge light mRa5"><i class="sf-bookmark"></i> '. T_('Code'). $_data['quickcode']. '</span>';
 		}
 
 		if(isset($_data['finalprice']) && $_data['finalprice'])
