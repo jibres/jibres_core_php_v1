@@ -33,8 +33,12 @@ class controller
 
 				$result = self::getNeededField_barcode($result);
 
-				\dash\notif::result(['list' => $result]);
-				\dash\code::jsonBoom(\dash\notif::json());
+				\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
+				\dash\code::compile();
+				\dash\code::boom();
+
+				// \dash\notif::result(['list' => $result]);
+				// \dash\code::jsonBoom(\dash\notif::json());
 			}
 			elseif(\dash\request::get('id'))
 			{
