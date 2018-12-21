@@ -193,7 +193,7 @@ class factor
 					if(isset($value['discount']) && $value['discount'] &&  !is_numeric($value['discount']))
 					{
 						$have_warn[] = $key + 1;
-						continue;
+						break;
 					}
 					// save query of sold plus and minus stock in cache to run multi query after this foreach
 					self::sold_plus($product_id, floatval($value['count']), true);
@@ -218,13 +218,13 @@ class factor
 					if(!array_key_exists('buyprice', $value))
 					{
 						$have_warn[] = $key + 1;
-						continue;
+						break;
 					}
 
 					if($value['buyprice'] &&  !is_numeric($value['buyprice']))
 					{
 						$have_warn[] = $key + 1;
-						continue;
+						break;
 					}
 
 					$new_buyprice      = floatval($value['buyprice']);
@@ -409,7 +409,7 @@ class factor
 
 				case 'datecreated':
 				case 'datemodified':
-					continue;
+
 					break;
 
 				default:

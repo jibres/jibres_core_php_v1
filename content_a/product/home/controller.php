@@ -32,21 +32,18 @@ class controller
 				}
 
 				$result = self::getNeededField_barcode($result);
-
 				\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 				\dash\code::compile();
 				\dash\code::boom();
 
-				// \dash\notif::result(['list' => $result]);
-				// \dash\code::jsonBoom(\dash\notif::json());
 			}
 			elseif(\dash\request::get('id'))
 			{
 				$result = \lib\app\product::list(null, ['id' => \dash\request::get('id')]);
 				$result = self::getNeededField_barcode($result);
-
-				\dash\notif::result(['list' => $result]);
-				\dash\code::jsonBoom(\dash\notif::json());
+				\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
+				\dash\code::compile();
+				\dash\code::boom();
 			}
 			else
 			{
@@ -71,7 +68,9 @@ class controller
 				$result['result'][] = ['name' => T_("No result found!"), 'value' => null];
 			}
 
-			\dash\code::jsonBoom($result);
+			$result = json_encode($result, JSON_UNESCAPED_UNICODE);
+			echo $result;
+			\dash\code::boom();
 		}
 
 		\dash\permission::access('productList');
@@ -121,10 +120,10 @@ class controller
 			$name .= '<span class="badge light mRa5"><i class="sf-check"></i> '. T_('Iran barcode'). '</span>';
 		}
 
-		if(isset($_data['quickcode']))
+		if(isset($_data['code']))
 		{
-			$datalist['desc'] = T_("Code"). ' +'. $_data['quickcode'];
-			$name .= '<span class="badge light mRa5"><i class="sf-bookmark"></i> '. T_('Code'). $_data['quickcode']. '</span>';
+			$datalist['desc'] = T_("Code"). ' +'. $_data['code'];
+			$name .= '<span class="badge light mRa5"><i class="sf-bookmark"></i> '. T_('Code'). $_data['code']. '</span>';
 		}
 
 		if(isset($_data['finalprice']) && $_data['finalprice'])
