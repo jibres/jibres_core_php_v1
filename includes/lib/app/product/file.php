@@ -82,7 +82,7 @@ class file
 		}
 
 		$gallery = json_encode($gallery, JSON_UNESCAPED_UNICODE);
-		\dash\log::set('addProductGallery', ['data' => $product_id, 'datalink' => \dash\coding::encode($product_id)]);
+		\dash\log::set('addProductGallery', ['code' => $product_id, 'datalink' => \dash\coding::encode($product_id)]);
 		\lib\db\products::update(['gallery' => $gallery], $product_id);
 		return true;
 
