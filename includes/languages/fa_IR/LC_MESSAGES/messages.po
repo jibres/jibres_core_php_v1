@@ -15389,7 +15389,7 @@ msgstr "پیش‌فرض"
 
 #: jibres/includes/languages/trans_project.php:672
 msgid "PcPos"
-msgstr "پی‌سی پوز"
+msgstr "پی‌سی‌پوز"
 
 #: jibres/includes/languages/trans_project.php:673
 msgid "Set as default"
@@ -17492,7 +17492,7 @@ msgstr "تغییر پلن :store"
 #~ msgstr "تیکت از طریق تلگرام"
 
 #~ msgid "Pos setting"
-#~ msgstr "تنظیمات پوز"
+#~ msgstr "تنظیمات کارتخوان"
 
 #~ msgid "thirdpartyProfileView"
 #~ msgstr "نمایش پروفایل طرف‌حساب"
