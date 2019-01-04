@@ -27,7 +27,7 @@
               <small>{%trans "Toman"%}</small>
             </div>
           </div>
-        {{block('iPay')}}
+
           <button class="btn primary block mT20">{%trans "Register store and pay"%}</button>
         </div>
       </div>
@@ -169,32 +169,4 @@
 
 
 
-
-
-{%block iPay%}
-
-  <div class="radioGateway">
-   <input type="radio" name="bank" value="parsian" id="parsian" checked>
-   <label for='parsian' class="spay-64-parsian"></label>
-  </div>
-
-  <div class="radioGateway">
-   <input type="radio" name="bank" value="irkish" id="irkish">
-   <label for='irkish' class="spay-64-irkish"></label>
-  </div>
-
-  <div class="radioGateway">
-   <input type="radio" name="bank" value="zarinpal" id="ZarinPal">
-   <label for='ZarinPal' class="spay-64-zarinpal"></label>
-  </div>
-
-
-{%if url.tld == 'local' %}
-  <div class="radioGateway">
-   <input type="radio" name="bank" value="payir" id="payir">
-   <label for='payir' class="spay-64-payir"></label>
-  </div>
-{%endif%}
-
-{%endblock%}
 

@@ -37,11 +37,7 @@ trait add
 		$plan   = \dash\app::request('plan');
 		$period = \dash\app::request('period');
 
-		if(!in_array($plan, ['standard', 'simple', 'free']))
-		{
-			\dash\notif::error(T_("Invalid plan"), 'plan');
-			return false;
-		}
+
 
 		if($plan === 'free' || $period === 'trial')
 		{
@@ -119,24 +115,6 @@ trait add
 			return false;
 		}
 
-		if(!$bank)
-		{
-			\dash\notif::error(T_("Please select one of payment to pay"), 'bank');
-			return false;
-		}
-
-		$allow_bank = ['irkish', 'parsian', 'zarinpal'];
-
-		if(\dash\url::isLocal())
-		{
-			array_push($allow_bank, 'payir');
-		}
-
-		if(!in_array($bank, $allow_bank))
-		{
-			\dash\notif::error(T_("Invalid payment"), 'bank');
-			return false;
-		}
 
 		if($period === '1m')
 		{
@@ -179,7 +157,7 @@ trait add
 			\dash\session::set('payment_verify_amount', $price);
 			\dash\session::set('payment_verify_status', 'ok');
 			\dash\session::set('payment_request_start', true);
-			self::after_pay();
+			self::after_pay($price);
 		}
 		elseif($user_budget >= $price)
 		{
@@ -187,35 +165,32 @@ trait add
 			\dash\session::set('payment_verify_amount', $price);
 			\dash\session::set('payment_verify_status', 'ok');
 			\dash\session::set('payment_request_start', true);
-			self::after_pay();
+			self::after_pay($price);
 		}
 		else
 		{
-			$meta = ['turn_back' => \dash\url::pwd()];
+			$meta =
+			[
+				'msg_go'        => null,
+				'turn_back'     => \dash\url::pwd(),
+				'user_id'       => \dash\user::id(),
+				'amount'        => $price,
+				'final_fn'      => ['\\\lib\\\app\\\store', 'after_pay'],
+				'final_fn_args' => $price,
+			];
 
-			\dash\utility\payment\pay::start(\dash\user::id(), $bank, $price, $meta);
+			\dash\utility\pay\start::site($meta);
+
 		}
 	}
 
 
-	public static function after_pay()
+	public static function after_pay($_price)
 	{
-		$status      = \dash\session::get('payment_verify_status');
-		$price_payed = \dash\session::get('payment_verify_amount');
-
-		\dash\session::set('payment_verify_amount', null);
-		\dash\session::set('payment_verify_status', null);
-		\dash\session::set('payment_request_start', null);
-
-		if($status !== 'ok')
-		{
-			\dash\notif::error(T_("Transaction unsuccessful. Store registration operation canceled"));
-			return false;
-		}
 
 		\dash\notif::ok(T_("Transaction successful."));
 
-		$price_payed = intval($price_payed);
+		$price_payed = intval($_price);
 
 		if(!$price_payed || $price_payed < 0)
 		{
@@ -350,9 +325,9 @@ trait add
 	        // so redirect to list of store
 			// $new_url = \dash\url::protocol(). '://'. $insert['slug']. '.'. \dash\url::domain();
 			// to show list of store
-			$new_url = \dash\url::here(). '/store';
+			// $new_url = \dash\url::here(). '/store';
 
-			\dash\redirect::to($new_url);
+			// \dash\redirect::to($new_url);
 		}
 		else
 		{
