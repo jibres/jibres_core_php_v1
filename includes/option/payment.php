@@ -5,7 +5,7 @@
 * cofig of zarinpal payment
 */
 self::$config['zarinpal']['status']      = true;
-self::$config['zarinpal']['MerchantID']  = "c2bf5bee-4d2a-11e7-93bb-000c295eb8fc";
+self::$config['zarinpal']['MerchantID']  = "325ffbdc-664a-11e8-acce-005056a205be";
 self::$config['zarinpal']['Description'] = "Jibres";
 // set the call back is null to redirecto to default dash callback payment
 self::$config['zarinpal']['CallbackURL'] = null;

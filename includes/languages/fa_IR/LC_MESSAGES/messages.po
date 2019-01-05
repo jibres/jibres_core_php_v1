@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-01-04 21:52+0330\n"
-"PO-Revision-Date: 2019-01-04 21:52+0330\n"
+"POT-Creation-Date: 2019-01-05 12:16+0330\n"
+"PO-Revision-Date: 2019-01-05 12:16+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -336,6 +336,7 @@ msgstr "همچنین نظر خاص را اضافه یا ویرایش کنید."
 #: dash/addons/content_crm/log/caller/view.php:13
 #: dash/addons/content_crm/log/home/view.php:13
 #: dash/addons/content_crm/sms/template/view.php:15
+#: dash/addons/content_su/android/view.php:11
 #: dash/addons/content_su/tg/log/view.php:14
 #: jibres/content_a/chap/receipt/view.php:12
 #: jibres/content_a/factor/home/view.php:58
@@ -678,7 +679,7 @@ msgstr "ارسال هر پیامی به کاربر توسط ایمیل"
 #: dash/addons/content_crm/log/caller/view.php:9
 #: dash/addons/content_crm/log/home/view.php:9
 #: dash/addons/includes/languages/trans_dash.php:972
-#: jibres/includes/languages/trans_dash.php:970
+#: jibres/includes/languages/trans_dash.php:968
 msgid "Log"
 msgstr "لاگ"
 
@@ -695,7 +696,7 @@ msgstr "نمایش عناوین لاگ‌ها"
 #: dash/addons/content_crm/member/add/view.php:10
 #: dash/addons/content_crm/member/home/view.php:28
 #: dash/addons/includes/languages/trans_dash.php:560
-#: jibres/includes/languages/trans_dash.php:568
+#: jibres/includes/languages/trans_dash.php:566
 msgid "Add new user"
 msgstr "اضافه‌کردن کاربر جدید"
 
@@ -741,7 +742,7 @@ msgstr "اجازه تنظیم یا تغییر نماد اعضا"
 #: dash/addons/content_crm/member/billing/view.php:9
 #: dash/addons/includes/languages/trans_dash.php:592 dash/lib/engine/view.php:284
 #: jibres/content_a/thirdparty/billing/view.php:11
-#: jibres/includes/languages/trans_dash.php:601
+#: jibres/includes/languages/trans_dash.php:599
 #: jibres/includes/languages/trans_project.php:9
 msgid "Billing"
 msgstr "مالی"
@@ -1457,7 +1458,7 @@ msgstr "ورود دو مرحله ای هم اکنون برای حساب کارب
 
 #: dash/addons/content_enter/twostep/view.php:14
 #: dash/addons/includes/languages/trans_dash.php:687
-#: jibres/includes/languages/trans_dash.php:631
+#: jibres/includes/languages/trans_dash.php:629
 msgid "Two step verification"
 msgstr "ورود دو مرحله ای"
 
@@ -1623,7 +1624,7 @@ msgstr "این درخواست برای تغییر گذرواژه است."
 
 #: dash/addons/content_enter/verify/view.php:118
 #: dash/addons/includes/languages/trans_dash.php:938
-#: jibres/includes/languages/trans_dash.php:843
+#: jibres/includes/languages/trans_dash.php:841
 msgid "Verify"
 msgstr "اعتبارسنجی"
 
@@ -1639,32 +1640,38 @@ msgstr "اعتبارسنجی با تلگرام"
 msgid "verify with SMS"
 msgstr "تایید با پیامک"
 
-#: dash/addons/content_hook/autoredirect/view.php:9
-#: dash/addons/content_hook/pay/redirect/view.php:9
-msgid "redirecting..."
-msgstr "در حال انتقال..."
-
-#: dash/addons/content_hook/autoredirect/view.php:10
-#: dash/addons/content_hook/pay/redirect/view.php:10
-msgid "in redirect process..."
-msgstr "در فرآیند انتقال ..."
-
 #: dash/addons/content_hook/pay/home/view.php:9
 msgid "Pay detail"
 msgstr "جزئیات پرداخت"
 
 #: dash/addons/content_hook/pay/home/view.php:10
-#: jibres/includes/languages/trans_dash.php:376
+#: jibres/includes/languages/trans_dash.php:374
 msgid "Pay"
 msgstr "پرداخت"
 
-#: dash/addons/content_hook/payment/controller.php:36
-msgid "Invalid payment type"
-msgstr "خطای نوع درگاه"
+#: dash/addons/content_hook/pay/redirect/view.php:9
+msgid "redirecting..."
+msgstr "در حال انتقال..."
+
+#: dash/addons/content_hook/pay/redirect/view.php:10
+msgid "in redirect process..."
+msgstr "در فرآیند انتقال ..."
 
 #: dash/addons/content_hook/smile/controller.php:51
 msgid "You have new message!"
 msgstr "شما پیام جدیدی دارید!"
+
+#: dash/addons/content_su/android/model.php:11
+msgid "Android token revoked"
+msgstr "کلید ارتباط با اندروید تغییر یافت"
+
+#: dash/addons/content_su/android/view.php:8
+msgid "Android application token"
+msgstr "کلید ارتباط با اندروید"
+
+#: dash/addons/content_su/android/view.php:9
+msgid "Show android application token information"
+msgstr "نمایش جزئیات کلید ارتباط با اندروید"
 
 #: dash/addons/content_su/backup/model.php:23
 msgid "Database of logs dose not exists"
@@ -1728,7 +1735,7 @@ msgstr "بررسی وضعیت فایل‌ها در این پروژه"
 
 #: dash/addons/content_su/home/view.php:8
 #: dash/addons/includes/languages/trans_dash.php:960
-#: jibres/includes/languages/trans_dash.php:958
+#: jibres/includes/languages/trans_dash.php:956
 msgid "Supervisor dashboard"
 msgstr "داشبورد مدیر فنی سیستم"
 
@@ -1738,13 +1745,13 @@ msgstr "سلام رفیق!"
 
 #: dash/addons/content_su/info/controller.php:29
 #: dash/addons/includes/languages/trans_dash.php:922
-#: jibres/includes/languages/trans_dash.php:921
+#: jibres/includes/languages/trans_dash.php:919
 msgid "First you need to enable COM on windows"
 msgstr "در ابتدا شما باید ویژگی Com را در ویندوز فعال کنید"
 
 #: dash/addons/content_su/info/controller.php:30
 #: dash/addons/includes/languages/trans_dash.php:923
-#: jibres/includes/languages/trans_dash.php:922
+#: jibres/includes/languages/trans_dash.php:920
 msgid "Read More"
 msgstr "بیشتر بخوانید"
 
@@ -1786,7 +1793,7 @@ msgstr "ناتوان در نوشتن فایل"
 
 #: dash/addons/content_su/nano/view.php:8
 #: dash/addons/includes/languages/trans_dash.php:970
-#: jibres/includes/languages/trans_dash.php:968
+#: jibres/includes/languages/trans_dash.php:966
 msgid "Nano"
 msgstr "نانو"
 
@@ -1796,7 +1803,7 @@ msgstr "ویرایش برخی از فایل های سرور"
 
 #: dash/addons/content_su/tg/home/view.php:8
 #: dash/addons/includes/languages/trans_dash.php:506
-#: jibres/includes/languages/trans_dash.php:512
+#: jibres/includes/languages/trans_dash.php:510
 msgid "Telegram"
 msgstr "تلگرام"
 
@@ -1828,7 +1835,7 @@ msgstr "بازگشت به لیست ردپاها"
 
 #: dash/addons/content_su/tg/sendmessage/view.php:8
 #: dash/addons/includes/languages/trans_dash.php:1065
-#: jibres/includes/languages/trans_dash.php:1063
+#: jibres/includes/languages/trans_dash.php:1061
 msgid "Send message"
 msgstr "ارسال پیام"
 
@@ -1848,7 +1855,7 @@ msgstr "لطفا آدرس را وارد کرده و یا فایلی انتخاب
 
 #: dash/addons/content_su/tg/sendphoto/view.php:8
 #: dash/addons/includes/languages/trans_dash.php:1066
-#: jibres/includes/languages/trans_dash.php:1064
+#: jibres/includes/languages/trans_dash.php:1062
 msgid "Send photo"
 msgstr "ارسال عکس"
 
@@ -2088,7 +2095,7 @@ msgstr "نمی‌توانید دو لینک را در یک پیام ارسال �
 #: dash/addons/content_support/ticket/add/view.php:9
 #: dash/addons/includes/languages/trans_static.php:1091
 #: dash/lib/social/telegram/commands/ermile.php:334
-#: jibres/includes/languages/trans_dash.php:526
+#: jibres/includes/languages/trans_dash.php:524
 msgid "Add new ticket"
 msgstr "افزودن تیکت جدید"
 
@@ -2142,7 +2149,7 @@ msgstr "بازگشت به پنل پشتیبانی"
 
 #: dash/addons/content_support/ticket/home/view.php:85
 #: dash/addons/includes/languages/trans_dash.php:459
-#: jibres/includes/languages/trans_dash.php:469
+#: jibres/includes/languages/trans_dash.php:467
 msgid "Open tickets"
 msgstr "تیکت‌های باز"
 
@@ -2156,7 +2163,7 @@ msgstr "تیکت‌های حل نشده"
 
 #: dash/addons/content_support/ticket/home/view.php:101
 #: dash/addons/includes/languages/trans_dash.php:490
-#: jibres/includes/languages/trans_dash.php:500
+#: jibres/includes/languages/trans_dash.php:498
 msgid "Solved ticket"
 msgstr "ثبت به عنوان حل شده"
 
@@ -2275,7 +2282,7 @@ msgstr "داشبورد پشتیبانی"
 
 #: dash/addons/content_support/view.php:61
 #: dash/addons/includes/languages/trans_dash.php:593
-#: jibres/includes/languages/trans_dash.php:602
+#: jibres/includes/languages/trans_dash.php:600
 msgid "Ticket"
 msgstr "تیکت"
 
@@ -3864,335 +3871,335 @@ msgid "Total"
 msgstr "مجموع"
 
 #: dash/addons/includes/languages/trans_dash.php:370
-#: jibres/includes/languages/trans_dash.php:380
+#: jibres/includes/languages/trans_dash.php:378
 msgid "You are blocked becauese of some reason!"
 msgstr "شما به دلایلی بلاک شده‌اید!"
 
 #: dash/addons/includes/languages/trans_dash.php:371
-#: jibres/includes/languages/trans_dash.php:381
+#: jibres/includes/languages/trans_dash.php:379
 msgid "If have problem"
 msgstr "در صورت بروز مشکل"
 
 #: dash/addons/includes/languages/trans_dash.php:372
 #: dash/lib/social/telegram/commands/ermile.php:333
-#: jibres/includes/languages/trans_dash.php:382
+#: jibres/includes/languages/trans_dash.php:380
 msgid "Contact us"
 msgstr "با ما تماس بگیرید"
 
 #: dash/addons/includes/languages/trans_dash.php:375
-#: jibres/includes/languages/trans_dash.php:385
+#: jibres/includes/languages/trans_dash.php:383
 #: jibres/includes/languages/trans_project.php:430
 msgid "Hi"
 msgstr "سلام"
 
 #: dash/addons/includes/languages/trans_dash.php:376
-#: jibres/includes/languages/trans_dash.php:386
+#: jibres/includes/languages/trans_dash.php:384
 msgid "You must not be here!"
 msgstr "شما نباید اینجا باشید!"
 
 #: dash/addons/includes/languages/trans_dash.php:379
-#: jibres/includes/languages/trans_dash.php:389
+#: jibres/includes/languages/trans_dash.php:387
 msgid "Remove username"
 msgstr "حذف نام کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:382
-#: jibres/includes/languages/trans_dash.php:392
+#: jibres/includes/languages/trans_dash.php:390
 msgid "We are so sorry for losing you!"
 msgstr "ما برای از دست دادن شما خیلی متاسفیم!"
 
 #: dash/addons/includes/languages/trans_dash.php:383
-#: jibres/includes/languages/trans_dash.php:393
+#: jibres/includes/languages/trans_dash.php:391
 msgid "if you want you can come back to"
 msgstr "در صورتی که بخواهید می‌توانید برگردید"
 
 #: dash/addons/includes/languages/trans_dash.php:384
-#: jibres/includes/languages/trans_dash.php:394
+#: jibres/includes/languages/trans_dash.php:392
 msgid "join us"
 msgstr "به ما ملحق شوید"
 
 #: dash/addons/includes/languages/trans_dash.php:385
-#: jibres/includes/languages/trans_dash.php:395
+#: jibres/includes/languages/trans_dash.php:393
 msgid "Bye Bye :("
 msgstr "خداحافط :("
 
 #: dash/addons/includes/languages/trans_dash.php:388
-#: jibres/includes/languages/trans_dash.php:398
+#: jibres/includes/languages/trans_dash.php:396
 msgid "Why you want to delete your account!?"
 msgstr "چرا می‌خواهید حساب کاربری خود را حذف کنید!؟"
 
 #: dash/addons/includes/languages/trans_dash.php:391
-#: jibres/includes/languages/trans_dash.php:401
+#: jibres/includes/languages/trans_dash.php:399
 msgid "We detected two accout for you"
 msgstr "ما متوجه وجود دو حساب کاربری برای شما شدیم"
 
 #: dash/addons/includes/languages/trans_dash.php:392
-#: jibres/includes/languages/trans_dash.php:402
+#: jibres/includes/languages/trans_dash.php:400
 msgid "Please remove one of them and"
 msgstr "لطفا یکی را حذف کنید و"
 
 #: dash/addons/includes/languages/trans_dash.php:393
-#: jibres/includes/languages/trans_dash.php:403
+#: jibres/includes/languages/trans_dash.php:401
 msgid "if you want to delete this account"
 msgstr "اگر می‌خواهید این حساب کاربری را حذف کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:394
-#: jibres/includes/languages/trans_dash.php:404
+#: jibres/includes/languages/trans_dash.php:402
 msgid "click here"
 msgstr "اینجا کلیک کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:397
-#: jibres/includes/languages/trans_dash.php:407
+#: jibres/includes/languages/trans_dash.php:405
 msgid "What are you doing!"
 msgstr "چیکار میکنی!"
 
 #: dash/addons/includes/languages/trans_dash.php:398
-#: jibres/includes/languages/trans_dash.php:408
+#: jibres/includes/languages/trans_dash.php:406
 msgid "If you are bot, be easy and call your mom"
 msgstr "اگر شما بات هستید، آرام باشید و با مامان جونتون تماس بگیرید"
 
 #: dash/addons/includes/languages/trans_dash.php:399
-#: jibres/includes/languages/trans_dash.php:409
+#: jibres/includes/languages/trans_dash.php:407
 msgid "If you are human being, what are you doing here! be personable..."
 msgstr "اگر انسان هستید، اینجا چیکار میکنید! با شخصیت باشید..."
 
 #: dash/addons/includes/languages/trans_dash.php:402
-#: jibres/includes/languages/trans_dash.php:412
+#: jibres/includes/languages/trans_dash.php:410
 msgid "Remove my email address"
 msgstr "بازیابی ایمیل"
 
 #: dash/addons/includes/languages/trans_dash.php:405
-#: jibres/includes/languages/trans_dash.php:415
+#: jibres/includes/languages/trans_dash.php:413
 msgid "We found your Google Mail that is different from your current google mail"
 msgstr "رایانامه گوگل وارد شده با رایانامه فعلی شما مطابقت ندارد"
 
 #: dash/addons/includes/languages/trans_dash.php:406
-#: jibres/includes/languages/trans_dash.php:416
+#: jibres/includes/languages/trans_dash.php:414
 msgid "Would you like to change your old google mail?"
 msgstr "آیا مایلید رایانامه گوگل قدیمی‌خود را تغییر دهید؟"
 
 #: dash/addons/includes/languages/trans_dash.php:407
-#: jibres/includes/languages/trans_dash.php:417
+#: jibres/includes/languages/trans_dash.php:415
 msgid "Change to"
 msgstr "تغییر به"
 
 #: dash/addons/includes/languages/trans_dash.php:408
-#: jibres/includes/languages/trans_dash.php:418
+#: jibres/includes/languages/trans_dash.php:416
 msgid "Update google mail"
 msgstr "به‌روزرسانی رایانامه گوگل"
 
 #: dash/addons/includes/languages/trans_dash.php:409
-#: jibres/includes/languages/trans_dash.php:419
+#: jibres/includes/languages/trans_dash.php:417
 msgid "Don't change"
 msgstr "تغییر نده"
 
 #: dash/addons/includes/languages/trans_dash.php:412
-#: jibres/includes/languages/trans_dash.php:422
+#: jibres/includes/languages/trans_dash.php:420
 #: jibres/includes/lib/app/store/add.php:461
 msgid "You"
 msgstr "شما"
 
 #: dash/addons/includes/languages/trans_dash.php:415
-#: jibres/includes/languages/trans_dash.php:425
+#: jibres/includes/languages/trans_dash.php:423
 msgid "Two-step login is now active for you."
 msgstr "ورود دو مرحله ای برای حساب کاربری شما فعال است"
 
 #: dash/addons/includes/languages/trans_dash.php:416
-#: jibres/includes/languages/trans_dash.php:426
+#: jibres/includes/languages/trans_dash.php:424
 msgid "Deactive two-step"
 msgstr "غیرفعال‌سازی ورود دومرحله‌ای"
 
 #: dash/addons/includes/languages/trans_dash.php:417
-#: jibres/includes/languages/trans_dash.php:427
+#: jibres/includes/languages/trans_dash.php:425
 msgid "Two-step login is now deactive for you."
 msgstr "ورود دو مرحله ای برای حساب کاربری شما غیر فعال است"
 
 #: dash/addons/includes/languages/trans_dash.php:418
-#: jibres/includes/languages/trans_dash.php:428
+#: jibres/includes/languages/trans_dash.php:426
 msgid "Active two-step"
 msgstr "فعال‌سازی ورود دو مرحله‌ای"
 
 #: dash/addons/includes/languages/trans_dash.php:421
-#: jibres/includes/languages/trans_dash.php:431
+#: jibres/includes/languages/trans_dash.php:429
 msgid "You are logined ;)"
 msgstr "شما وارد سیستم شدید;)"
 
 #: dash/addons/includes/languages/trans_dash.php:422
-#: jibres/includes/languages/trans_dash.php:432
+#: jibres/includes/languages/trans_dash.php:430
 msgid "Be patient or"
 msgstr "صبور باشید یا"
 
 #: dash/addons/includes/languages/trans_dash.php:423
-#: jibres/includes/languages/trans_dash.php:433
+#: jibres/includes/languages/trans_dash.php:431
 msgid "click here!"
 msgstr "اینجا کلیک کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:426
-#: jibres/includes/languages/trans_dash.php:436
+#: jibres/includes/languages/trans_dash.php:434
 msgid "Remembered your password?"
 msgstr "کلمه عبور خود را به خاطر آوردید!؟"
 
 #: dash/addons/includes/languages/trans_dash.php:429
-#: jibres/includes/languages/trans_dash.php:439
+#: jibres/includes/languages/trans_dash.php:437
 msgid "Can't access your account?"
 msgstr "نمی‌توانید به حساب خود وارد شوید؟"
 
 #: dash/addons/includes/languages/trans_dash.php:432
-#: jibres/includes/languages/trans_dash.php:442
+#: jibres/includes/languages/trans_dash.php:440
 msgid "You must confirm your mobile in the future"
 msgstr "شما باید اکانت خود را در آینده تایید کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:433
-#: jibres/includes/languages/trans_dash.php:443
+#: jibres/includes/languages/trans_dash.php:441
 msgid "Verify now"
 msgstr "هم اکنون تایید می‌کنم"
 
 #: dash/addons/includes/languages/trans_dash.php:434
-#: jibres/includes/languages/trans_dash.php:444
+#: jibres/includes/languages/trans_dash.php:442
 msgid "Verify later"
 msgstr "بعدا تایید می‌کنم"
 
 #: dash/addons/includes/languages/trans_dash.php:437
-#: jibres/includes/languages/trans_dash.php:447
+#: jibres/includes/languages/trans_dash.php:445
 msgid "Send code in your Telegram"
 msgstr "ارسال کد در تلگرام شما"
 
 #: dash/addons/includes/languages/trans_dash.php:438
-#: jibres/includes/languages/trans_dash.php:448
+#: jibres/includes/languages/trans_dash.php:446
 msgid "Send code as sms to your phone"
 msgstr "ارسال کد از طریق پیامک به تلفن‌همراه شما"
 
 #: dash/addons/includes/languages/trans_dash.php:439
-#: jibres/includes/languages/trans_dash.php:449
+#: jibres/includes/languages/trans_dash.php:447
 msgid "Call you to send code"
 msgstr "تماس با شما برای ارسال کد"
 
 #: dash/addons/includes/languages/trans_dash.php:440
-#: jibres/includes/languages/trans_dash.php:450
+#: jibres/includes/languages/trans_dash.php:448
 msgid "You send code to us and we check it"
 msgstr "شما کد را برای ما ارسال کنید و ما چک کنیم"
 
 #: dash/addons/includes/languages/trans_dash.php:441
-#: jibres/includes/languages/trans_dash.php:451
+#: jibres/includes/languages/trans_dash.php:449
 msgid "Send code in your email"
 msgstr "ارسال کد به رایانامه شما"
 
 #: dash/addons/includes/languages/trans_dash.php:444
-#: jibres/includes/languages/trans_dash.php:454
+#: jibres/includes/languages/trans_dash.php:452
 msgid "We can not find any way to send verification code to you!"
 msgstr "ما راهی برای ارسال کد به شما نیافتیم!"
 
 #: dash/addons/includes/languages/trans_dash.php:447
-#: jibres/includes/languages/trans_dash.php:457
+#: jibres/includes/languages/trans_dash.php:455
 msgid "You must set a mobile or email to continue"
 msgstr "برای ادامه شما باید تلفن‌همراه یا رایانامه را وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:452
-#: jibres/includes/languages/trans_dash.php:462
+#: jibres/includes/languages/trans_dash.php:460
 msgid "Support Dashboard"
 msgstr "داشبورد پشتیبانی"
 
 #: dash/addons/includes/languages/trans_dash.php:453
 #: dash/addons/includes/languages/trans_static.php:1110
-#: jibres/includes/languages/trans_dash.php:463
+#: jibres/includes/languages/trans_dash.php:461
 msgid "New Ticket"
 msgstr "تیکت جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:454
-#: jibres/includes/languages/trans_dash.php:464
+#: jibres/includes/languages/trans_dash.php:462
 #: jibres/includes/languages/trans_project.php:881
 msgid "All"
 msgstr "همه"
 
 #: dash/addons/includes/languages/trans_dash.php:455
-#: jibres/includes/languages/trans_dash.php:465
+#: jibres/includes/languages/trans_dash.php:463
 msgid "Awaiting answer"
 msgstr "در انتظار پاسخ"
 
 #: dash/addons/includes/languages/trans_dash.php:456
 #: dash/addons/includes/languages/trans_static.php:993
-#: jibres/includes/languages/trans_dash.php:466
+#: jibres/includes/languages/trans_dash.php:464
 msgid "Answered"
 msgstr "پاسخ داده شده"
 
 #: dash/addons/includes/languages/trans_dash.php:457
-#: jibres/includes/languages/trans_dash.php:467
+#: jibres/includes/languages/trans_dash.php:465
 msgid "Unsolved"
 msgstr "حل نشده"
 
 #: dash/addons/includes/languages/trans_dash.php:458
 #: dash/addons/includes/languages/trans_static.php:1114
-#: jibres/includes/languages/trans_dash.php:468
+#: jibres/includes/languages/trans_dash.php:466
 msgid "Solved"
 msgstr "حل شده"
 
 #: dash/addons/includes/languages/trans_dash.php:460
-#: jibres/includes/languages/trans_dash.php:470
+#: jibres/includes/languages/trans_dash.php:468
 msgid "Archived"
 msgstr "بایگانی شده"
 
 #: dash/addons/includes/languages/trans_dash.php:463
-#: jibres/includes/languages/trans_dash.php:473
+#: jibres/includes/languages/trans_dash.php:471
 msgid "Ticket Subject"
 msgstr "موضوع تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:464
-#: jibres/includes/languages/trans_dash.php:474
+#: jibres/includes/languages/trans_dash.php:472
 msgid "Subject of your ticket"
 msgstr "عنوان تیکت شما"
 
 #: dash/addons/includes/languages/trans_dash.php:465
-#: jibres/includes/languages/trans_dash.php:475
+#: jibres/includes/languages/trans_dash.php:473
 msgid "Set title will help us answer quickly"
 msgstr "نتظیم عنوان تیکت به ما کمک می کند تا سریع تر پاسخگو باشیم"
 
 #: dash/addons/includes/languages/trans_dash.php:466
-#: jibres/includes/languages/trans_dash.php:476
+#: jibres/includes/languages/trans_dash.php:474
 msgid "Please write your message"
 msgstr "لطفا پیام خود را بنویسید"
 
 #: dash/addons/includes/languages/trans_dash.php:467
-#: jibres/includes/languages/trans_dash.php:477
+#: jibres/includes/languages/trans_dash.php:475
 msgid "Attachment"
 msgstr "ضمیمه"
 
 #: dash/addons/includes/languages/trans_dash.php:468
-#: jibres/includes/languages/trans_dash.php:478
+#: jibres/includes/languages/trans_dash.php:476
 msgid "Max size"
 msgstr "حداکثر اندازه"
 
 #: dash/addons/includes/languages/trans_dash.php:469
-#: jibres/includes/languages/trans_dash.php:479
+#: jibres/includes/languages/trans_dash.php:477
 msgid "Send notify about your answer to creator of ticket"
 msgstr "سازنده تیکت را در جریان پاسخ شما قرار دهیم"
 
 #: dash/addons/includes/languages/trans_dash.php:470
-#: jibres/includes/languages/trans_dash.php:480
+#: jibres/includes/languages/trans_dash.php:478
 msgid "Via sms to"
 msgstr "با ارسال پیامک به"
 
 #: dash/addons/includes/languages/trans_dash.php:471
-#: jibres/includes/languages/trans_dash.php:481
+#: jibres/includes/languages/trans_dash.php:479
 msgid "Via telegram"
 msgstr "با تلگرام"
 
 #: dash/addons/includes/languages/trans_dash.php:472
-#: jibres/includes/languages/trans_dash.php:482
+#: jibres/includes/languages/trans_dash.php:480
 msgid "Submit a ticket"
 msgstr "ارسال تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:473
-#: jibres/includes/languages/trans_dash.php:483
+#: jibres/includes/languages/trans_dash.php:481
 msgid "Send new message"
 msgstr "ارسال پیام جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:474
-#: jibres/includes/languages/trans_dash.php:484
+#: jibres/includes/languages/trans_dash.php:482
 #: jibres/includes/languages/trans_project.php:552
 msgid "Add note"
 msgstr "افزودن یادداشت"
 
 #: dash/addons/includes/languages/trans_dash.php:477
-#: jibres/includes/languages/trans_dash.php:487
+#: jibres/includes/languages/trans_dash.php:485
 msgid ""
 "If your problem is solved or do not need to track, please close this ticket by "
 "press below bottom."
@@ -4201,70 +4208,70 @@ msgstr ""
 "ببندید."
 
 #: dash/addons/includes/languages/trans_dash.php:478
-#: jibres/includes/languages/trans_dash.php:488
+#: jibres/includes/languages/trans_dash.php:486
 msgid "You can open it anytime you need."
 msgstr "شما می‌توانید تیکت را هر زمانی که مایل بودید مجدد باز کنید."
 
 #: dash/addons/includes/languages/trans_dash.php:479
-#: jibres/includes/languages/trans_dash.php:489
+#: jibres/includes/languages/trans_dash.php:487
 msgid "Close ticket"
 msgstr "بستن تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:480
-#: jibres/includes/languages/trans_dash.php:490
+#: jibres/includes/languages/trans_dash.php:488
 msgid "This ticket is closed."
 msgstr "این تیکت بسته شده است."
 
 #: dash/addons/includes/languages/trans_dash.php:481
-#: jibres/includes/languages/trans_dash.php:491
+#: jibres/includes/languages/trans_dash.php:489
 msgid "Also you can delete it if you do not need it."
 msgstr "هم‌چنین در صورت عدم نیاز می‌توانید آن را حذف کنید."
 
 #: dash/addons/includes/languages/trans_dash.php:482
 #: dash/lib/app/log/caller/ticket/ticket_setDeleteTicket.php:8
-#: jibres/includes/languages/trans_dash.php:492
+#: jibres/includes/languages/trans_dash.php:490
 msgid "Delete ticket"
 msgstr "حذف تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:483
-#: jibres/includes/languages/trans_dash.php:493
+#: jibres/includes/languages/trans_dash.php:491
 msgid "Open it again"
 msgstr "دوباره بازش کن"
 
 #: dash/addons/includes/languages/trans_dash.php:484
-#: jibres/includes/languages/trans_dash.php:494
+#: jibres/includes/languages/trans_dash.php:492
 msgid "This is deleted ticket."
 msgstr "این تیکت حذف شده است."
 
 #: dash/addons/includes/languages/trans_dash.php:485
-#: jibres/includes/languages/trans_dash.php:495
+#: jibres/includes/languages/trans_dash.php:493
 msgid "You can change it to close condition if need to save it in history!"
 msgstr ""
 "شما می‌توانید برای نگهداری این تیکت در تاریخچه وضعیت آن را به بسته‌شده تغییر دهید!"
 
 #: dash/addons/includes/languages/trans_dash.php:486
-#: jibres/includes/languages/trans_dash.php:496
+#: jibres/includes/languages/trans_dash.php:494
 msgid "Not spam"
 msgstr "جفنگ نیست"
 
 #: dash/addons/includes/languages/trans_dash.php:487
-#: jibres/includes/languages/trans_dash.php:497
+#: jibres/includes/languages/trans_dash.php:495
 msgid "If your problem is not solved yet, please set this ticket as unsolved"
 msgstr ""
 "اگر مشکل مطرح شده همچنان باقی است، لطفا این تیکت را در حالت حل نشده قرار دهید"
 
 #: dash/addons/includes/languages/trans_dash.php:488
-#: jibres/includes/languages/trans_dash.php:498
+#: jibres/includes/languages/trans_dash.php:496
 msgid "Un Solved ticket"
 msgstr "ثبت به عنوان حل نشده"
 
 #: dash/addons/includes/languages/trans_dash.php:489
-#: jibres/includes/languages/trans_dash.php:499
+#: jibres/includes/languages/trans_dash.php:497
 msgid "If your problem is solved, please set this ticket as solved"
 msgstr "اگر مشکل مطرح حل شده است، لطفا این تیکت را در حالت حل شده قرار دهید"
 
 #: dash/addons/includes/languages/trans_dash.php:491
-#: jibres/includes/languages/trans_dash.php:501
+#: jibres/includes/languages/trans_dash.php:499
 #: jibres/includes/languages/trans_project.php:502
 msgid "Save tag"
 msgstr "ذخیره کلیدواژه"
@@ -4274,33 +4281,33 @@ msgid "Show log"
 msgstr "نمایش ردپا"
 
 #: dash/addons/includes/languages/trans_dash.php:493
-#: jibres/includes/languages/trans_dash.php:502
+#: jibres/includes/languages/trans_dash.php:500
 msgid "Last seen"
 msgstr "آخرین بازدید"
 
 #: dash/addons/includes/languages/trans_dash.php:494
-#: jibres/includes/languages/trans_dash.php:503
+#: jibres/includes/languages/trans_dash.php:501
 msgid "Ticket No"
 msgstr "شماره تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:495
-#: jibres/includes/languages/trans_dash.php:504
+#: jibres/includes/languages/trans_dash.php:502
 #: jibres/includes/languages/trans_project.php:621
 msgid "Last activity"
 msgstr "آخرین فعالیت"
 
 #: dash/addons/includes/languages/trans_dash.php:496
-#: jibres/includes/languages/trans_dash.php:505
+#: jibres/includes/languages/trans_dash.php:503
 msgid "Subject of ticket"
 msgstr "عنوان تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:497
-#: jibres/includes/languages/trans_dash.php:506
+#: jibres/includes/languages/trans_dash.php:504
 msgid "Set the title to get faster"
 msgstr "برای دسترسی سریع‌تر عنوان را تنظیم کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:498
-#: jibres/includes/languages/trans_dash.php:507
+#: jibres/includes/languages/trans_dash.php:505
 msgid "User tickets"
 msgstr "تیکت‌های کاربر"
 
@@ -4309,7 +4316,7 @@ msgid "This visit detail"
 msgstr "جزئیات این بازدید"
 
 #: dash/addons/includes/languages/trans_dash.php:500
-#: jibres/includes/languages/trans_dash.php:1045
+#: jibres/includes/languages/trans_dash.php:1043
 msgid "User last visits"
 msgstr "آخرین بازدیدهای کاربر"
 
@@ -4318,633 +4325,633 @@ msgid "Before create ticket"
 msgstr "پیش از ایجاد تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:502
-#: jibres/includes/languages/trans_dash.php:508
+#: jibres/includes/languages/trans_dash.php:506
 msgid "View attachment"
 msgstr "مشاهده ضمیمه"
 
 #: dash/addons/includes/languages/trans_dash.php:503
-#: jibres/includes/languages/trans_dash.php:509
+#: jibres/includes/languages/trans_dash.php:507
 msgid "Add tag manually to link tickets togethers"
 msgstr "کلدواژه را به صورت دستی اضافه کنید تا تیکت‌ها را در کنار هم قرار دهید"
 
 #: dash/addons/includes/languages/trans_dash.php:504
-#: jibres/includes/languages/trans_dash.php:510
+#: jibres/includes/languages/trans_dash.php:508
 msgid "Current Time"
 msgstr "زمان فعلی"
 
 #: dash/addons/includes/languages/trans_dash.php:505
-#: jibres/includes/languages/trans_dash.php:511
+#: jibres/includes/languages/trans_dash.php:509
 msgid "Notification procedures"
 msgstr "روش‌های اطلاع‌رسانی"
 
 #: dash/addons/includes/languages/trans_dash.php:507
-#: jibres/includes/languages/trans_dash.php:513
+#: jibres/includes/languages/trans_dash.php:511
 msgid "Do you know you can connect your account with our Telegram bot"
 msgstr "<b>آیا می‌دانید</b> می‌توانید حساب کاربری خود را به ربات تلگرام ما وصل کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:508
-#: jibres/includes/languages/trans_dash.php:514
+#: jibres/includes/languages/trans_dash.php:512
 msgid "Just need to start bot in Telegram and sync your account via /sync."
 msgstr ""
 "تنها کافی‌است ربات را شروع کرده و حساب خود را از طریق دستور /sync به وب‌سایت متصل "
 "کنید."
 
 #: dash/addons/includes/languages/trans_dash.php:511
-#: jibres/includes/languages/trans_dash.php:517
+#: jibres/includes/languages/trans_dash.php:515
 msgid "Please log in if you need to store this ticket and track it in the future"
 msgstr "لطفا برای ذخیره و پیگیری‌های بعدی این تیکت وارد سیستم شوید"
 
 #: dash/addons/includes/languages/trans_dash.php:514
-#: jibres/includes/languages/trans_dash.php:520
+#: jibres/includes/languages/trans_dash.php:518
 msgid "My tickets"
 msgstr "تیکت‌های من"
 
 #: dash/addons/includes/languages/trans_dash.php:515
-#: jibres/includes/languages/trans_dash.php:521
+#: jibres/includes/languages/trans_dash.php:519
 msgid "Manage tickets"
 msgstr "مدیریت تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:516
-#: jibres/includes/languages/trans_dash.php:522
+#: jibres/includes/languages/trans_dash.php:520
 msgid "Manage all tickets"
 msgstr "مدیریت تمامی تیکت‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:519
-#: jibres/includes/languages/trans_dash.php:527
+#: jibres/includes/languages/trans_dash.php:525
 msgid "Active tickets"
 msgstr "تیکت‌های فعال"
 
 #: dash/addons/includes/languages/trans_dash.php:520
-#: jibres/includes/languages/trans_dash.php:528
+#: jibres/includes/languages/trans_dash.php:526
 msgid "Replies"
 msgstr "پاسخ‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:521
-#: jibres/includes/languages/trans_dash.php:529
+#: jibres/includes/languages/trans_dash.php:527
 msgid "Avg. First Response"
 msgstr "میانگین اولین پاسخگویی"
 
 #: dash/addons/includes/languages/trans_dash.php:522
-#: jibres/includes/languages/trans_dash.php:530
+#: jibres/includes/languages/trans_dash.php:528
 msgid "Minute"
 msgstr "دقیقه"
 
 #: dash/addons/includes/languages/trans_dash.php:523
-#: jibres/includes/languages/trans_dash.php:531
+#: jibres/includes/languages/trans_dash.php:529
 msgid "Avg. Time to Archive"
 msgstr "میانگین زمان بایگانی‌شدن"
 
 #: dash/addons/includes/languages/trans_dash.php:524
-#: jibres/includes/languages/trans_dash.php:532
+#: jibres/includes/languages/trans_dash.php:530
 msgid "Hours"
 msgstr "ساعات"
 
 #: dash/addons/includes/languages/trans_dash.php:527
-#: jibres/includes/languages/trans_dash.php:535
+#: jibres/includes/languages/trans_dash.php:533
 msgid "Last active tickets"
 msgstr "آخرین تیکت‌های فعال"
 
 #: dash/addons/includes/languages/trans_dash.php:528
-#: jibres/includes/languages/trans_dash.php:536
+#: jibres/includes/languages/trans_dash.php:534
 msgid "All Tickets"
 msgstr "همه تیکت‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:529
-#: jibres/includes/languages/trans_dash.php:537
+#: jibres/includes/languages/trans_dash.php:535
 msgid "Last modified on"
 msgstr "آخرین به‌روزرسانی در"
 
 #: dash/addons/includes/languages/trans_dash.php:530
-#: jibres/includes/languages/trans_dash.php:538
+#: jibres/includes/languages/trans_dash.php:536
 msgid "Active in this ticket"
 msgstr "فعال در این تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:533
-#: jibres/includes/languages/trans_dash.php:541
+#: jibres/includes/languages/trans_dash.php:539
 msgid "Search result"
 msgstr "نتیجه جستجو"
 
 #: dash/addons/includes/languages/trans_dash.php:534
 #: jibres/content_a/product/home/controller.php:70
 #: jibres/content_a/thirdparty/home/controller.php:45
-#: jibres/includes/languages/trans_dash.php:542
+#: jibres/includes/languages/trans_dash.php:540
 msgid "No result found!"
 msgstr "نتیجه‌ای یافت نشد!"
 
 #: dash/addons/includes/languages/trans_dash.php:535
-#: jibres/includes/languages/trans_dash.php:543
+#: jibres/includes/languages/trans_dash.php:541
 msgid "Search our knowledge base..."
 msgstr "جستجو در پایگاه دانش ما..."
 
 #: dash/addons/includes/languages/trans_dash.php:536
-#: jibres/content/help/faq/view.php:9 jibres/includes/languages/trans_dash.php:544
+#: jibres/content/help/faq/view.php:9 jibres/includes/languages/trans_dash.php:542
 msgid "Frequently Asked Questions"
 msgstr "سوالات متداول"
 
 #: dash/addons/includes/languages/trans_dash.php:537
-#: jibres/includes/languages/trans_dash.php:545
+#: jibres/includes/languages/trans_dash.php:543
 msgid "Random Articles"
 msgstr "مقالات تصادفی"
 
 #: dash/addons/includes/languages/trans_dash.php:538
-#: jibres/includes/languages/trans_dash.php:546
+#: jibres/includes/languages/trans_dash.php:544
 msgid "Can't find what you're looking for?"
 msgstr "نمی‌توانید آنچه را به‌دنبالش هستید بیابید؟"
 
 #: dash/addons/includes/languages/trans_dash.php:539
-#: jibres/includes/languages/trans_dash.php:547
+#: jibres/includes/languages/trans_dash.php:545
 msgid "Contact the legendary support team right now."
 msgstr "همین الان با تیم پشتیبانی افسانه‌ای ما تماس بگیرید"
 
 #: dash/addons/includes/languages/trans_dash.php:542
-#: jibres/includes/languages/trans_dash.php:550
+#: jibres/includes/languages/trans_dash.php:548
 msgid "In this section"
 msgstr "در این بخش"
 
 #: dash/addons/includes/languages/trans_dash.php:543
-#: jibres/includes/languages/trans_dash.php:551
+#: jibres/includes/languages/trans_dash.php:549
 msgid "For share via social networks"
 msgstr "جهت انتشار در شبکه‌های اجتماعی"
 
 #: dash/addons/includes/languages/trans_dash.php:544
-#: jibres/includes/languages/trans_dash.php:552
+#: jibres/includes/languages/trans_dash.php:550
 msgid "Short link"
 msgstr "لینک کوتاه"
 
 #: dash/addons/includes/languages/trans_dash.php:545
-#: jibres/includes/languages/trans_dash.php:553
+#: jibres/includes/languages/trans_dash.php:551
 #: jibres/includes/languages/trans_project.php:138
 msgid "Full Name"
 msgstr "نام کامل"
 
 #: dash/addons/includes/languages/trans_dash.php:546
-#: jibres/includes/languages/trans_dash.php:554
+#: jibres/includes/languages/trans_dash.php:552
 #: jibres/includes/languages/trans_project.php:140
 msgid "Please enter valid mobile number. `:val` is incorrect"
 msgstr "لطفا شماره موبایل معتبری وارد کنید. :val اشتباه است"
 
 #: dash/addons/includes/languages/trans_dash.php:547
-#: jibres/includes/languages/trans_dash.php:555
+#: jibres/includes/languages/trans_dash.php:553
 #: jibres/includes/languages/trans_project.php:142
 msgid "Your Message"
 msgstr "پیام شما"
 
 #: dash/addons/includes/languages/trans_dash.php:548
-#: jibres/includes/languages/trans_dash.php:556
+#: jibres/includes/languages/trans_dash.php:554
 #: jibres/includes/languages/trans_project.php:143
 msgid "Send"
 msgstr "ارسال"
 
 #: dash/addons/includes/languages/trans_dash.php:551
-#: jibres/includes/languages/trans_dash.php:559
+#: jibres/includes/languages/trans_dash.php:557
 msgid "Open new ticket!"
 msgstr "باز کردن تیکت جدید!"
 
 #: dash/addons/includes/languages/trans_dash.php:554
-#: jibres/includes/languages/trans_dash.php:562
+#: jibres/includes/languages/trans_dash.php:560
 msgid "Content"
 msgstr "محتوا"
 
 #: dash/addons/includes/languages/trans_dash.php:559
 #: dash/addons/includes/languages/trans_static.php:1120
-#: jibres/includes/languages/trans_dash.php:567
+#: jibres/includes/languages/trans_dash.php:565
 msgid "CP"
 msgstr "کنترل‌پنل"
 
 #: dash/addons/includes/languages/trans_dash.php:561
 #: dash/addons/includes/languages/trans_static.php:944
 #: dash/addons/includes/languages/trans_static.php:986
-#: jibres/includes/languages/trans_dash.php:569
+#: jibres/includes/languages/trans_dash.php:567
 msgid "SMS"
 msgstr "پیام کوتاه"
 
 #: dash/addons/includes/languages/trans_dash.php:562
-#: jibres/includes/languages/trans_dash.php:570
+#: jibres/includes/languages/trans_dash.php:568
 msgid "Quick send"
 msgstr "ارسال سریع"
 
 #: dash/addons/includes/languages/trans_dash.php:565
-#: jibres/includes/languages/trans_dash.php:573
+#: jibres/includes/languages/trans_dash.php:571
 #: jibres/includes/languages/trans_project.php:650
 msgid "Write your note about user."
 msgstr "یادداشت خود را درباره کاربر بنویسید."
 
 #: dash/addons/includes/languages/trans_dash.php:566
-#: jibres/includes/languages/trans_dash.php:574
+#: jibres/includes/languages/trans_dash.php:572
 #: jibres/includes/languages/trans_project.php:651
 msgid ""
 "Something like calls, favorites, hobbits, special approach or something else."
 msgstr "هرچیزی مثل تماس‌ها، علاقمندی‌ها، سلایق، برخوردهای خاص یا هر چیز دیگری."
 
 #: dash/addons/includes/languages/trans_dash.php:567
-#: jibres/includes/languages/trans_dash.php:575
+#: jibres/includes/languages/trans_dash.php:573
 #: jibres/includes/languages/trans_project.php:652
 msgid "Add new note"
 msgstr "افزودن یادداشت جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:570
-#: jibres/includes/languages/trans_dash.php:578
+#: jibres/includes/languages/trans_dash.php:576
 #: jibres/includes/languages/trans_project.php:369
 msgid "General Detail"
 msgstr "جزئیات عمومی"
 
 #: dash/addons/includes/languages/trans_dash.php:571
 #: jibres/content_a/thirdparty/identify/view.php:12
-#: jibres/includes/languages/trans_dash.php:579
+#: jibres/includes/languages/trans_dash.php:577
 msgid "Identification detail"
 msgstr "جزئیات شناسنامه‌ای"
 
 #: dash/addons/includes/languages/trans_dash.php:572
-#: jibres/includes/languages/trans_dash.php:580
+#: jibres/includes/languages/trans_dash.php:578
 msgid "Contact information"
 msgstr "اطلاعات تماس"
 
 #: dash/addons/includes/languages/trans_dash.php:573
-#: jibres/includes/languages/trans_dash.php:581
+#: jibres/includes/languages/trans_dash.php:579
 msgid "Education"
 msgstr "تحصیلات"
 
 #: dash/addons/includes/languages/trans_dash.php:574
-#: jibres/includes/languages/trans_dash.php:582
+#: jibres/includes/languages/trans_dash.php:580
 msgid "Social network"
 msgstr "شبکه‌های اجتماعی"
 
 #: dash/addons/includes/languages/trans_dash.php:575
-#: jibres/includes/languages/trans_dash.php:583
+#: jibres/includes/languages/trans_dash.php:581
 msgid "Message"
 msgstr "پیام"
 
 #: dash/addons/includes/languages/trans_dash.php:576
-#: jibres/includes/languages/trans_dash.php:584
+#: jibres/includes/languages/trans_dash.php:582
 msgid "Like 09120123456"
 msgstr "مثل 09120123456"
 
 #: dash/addons/includes/languages/trans_dash.php:577
-#: jibres/includes/languages/trans_dash.php:585
+#: jibres/includes/languages/trans_dash.php:583
 msgid "Like abc@example.com"
 msgstr "مثل abc@example.com"
 
 #: dash/addons/includes/languages/trans_dash.php:578
-#: jibres/includes/languages/trans_dash.php:586
+#: jibres/includes/languages/trans_dash.php:584
 #: jibres/includes/languages/trans_project.php:520
 msgid "Nationality"
 msgstr "ملیت"
 
 #: dash/addons/includes/languages/trans_dash.php:579
-#: jibres/includes/languages/trans_dash.php:587
+#: jibres/includes/languages/trans_dash.php:585
 #: jibres/includes/languages/trans_project.php:521
 msgid "Choose your nationality"
 msgstr "ملیت را انتخاب کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:580
-#: jibres/includes/languages/trans_dash.php:588
+#: jibres/includes/languages/trans_dash.php:586
 #: jibres/includes/languages/trans_project.php:514
 msgid "Passport id"
 msgstr "شماره گذرنامه"
 
 #: dash/addons/includes/languages/trans_dash.php:581
-#: jibres/includes/languages/trans_dash.php:589
+#: jibres/includes/languages/trans_dash.php:587
 msgid "Passport expire date"
 msgstr "تاریخ انقضای گذرنامه"
 
 #: dash/addons/includes/languages/trans_dash.php:582
-#: jibres/includes/languages/trans_dash.php:590
+#: jibres/includes/languages/trans_dash.php:588
 msgid "Id number"
 msgstr "شماره شناسنامه"
 
 #: dash/addons/includes/languages/trans_dash.php:583
-#: jibres/includes/languages/trans_dash.php:591
+#: jibres/includes/languages/trans_dash.php:589
 msgid "National Id"
 msgstr "کد ملی"
 
 #: dash/addons/includes/languages/trans_dash.php:584
-#: jibres/includes/languages/trans_dash.php:592
+#: jibres/includes/languages/trans_dash.php:590
 #: jibres/includes/languages/trans_project.php:507
 msgid "10 digit national code"
 msgstr "کدملی ده رقمی"
 
 #: dash/addons/includes/languages/trans_dash.php:585
-#: jibres/includes/languages/trans_dash.php:593
+#: jibres/includes/languages/trans_dash.php:591
 #: jibres/includes/languages/trans_project.php:357
 msgid "Phone"
 msgstr "شماره تلفن"
 
 #: dash/addons/includes/languages/trans_dash.php:586
-#: jibres/includes/languages/trans_dash.php:594
+#: jibres/includes/languages/trans_dash.php:592
 #: jibres/includes/languages/trans_project.php:505
 msgid "Like"
 msgstr "مثل"
 
 #: dash/addons/includes/languages/trans_dash.php:587
-#: jibres/includes/languages/trans_dash.php:595
+#: jibres/includes/languages/trans_dash.php:593
 #: jibres/includes/languages/trans_project.php:816
 msgid "Last update"
 msgstr "آخرین به‌روزرسانی"
 
 #: dash/addons/includes/languages/trans_dash.php:588
-#: jibres/includes/languages/trans_dash.php:596
+#: jibres/includes/languages/trans_dash.php:594
 msgid "Joined to serivce on"
 msgstr "پیوستن به سامانه در"
 
 #: dash/addons/includes/languages/trans_dash.php:589
-#: jibres/includes/languages/trans_dash.php:597
+#: jibres/includes/languages/trans_dash.php:595
 msgid "The user was blocked"
 msgstr "کاربر مسدود شده است"
 
 #: dash/addons/includes/languages/trans_dash.php:590
-#: jibres/includes/languages/trans_dash.php:598
+#: jibres/includes/languages/trans_dash.php:596
 msgid "The user was removed"
 msgstr "کاربر حذف شده است!"
 
 #: dash/addons/includes/languages/trans_dash.php:591
 #: dash/addons/includes/languages/trans_static.php:102
 #: dash/addons/includes/languages/trans_static.php:385 dash/lib/engine/view.php:282
-#: jibres/includes/languages/trans_dash.php:600
+#: jibres/includes/languages/trans_dash.php:598
 #: jibres/includes/languages/trans_project.php:536
 msgid "Profile"
 msgstr "پروفایل"
 
 #: dash/addons/includes/languages/trans_dash.php:594
-#: jibres/includes/languages/trans_dash.php:603
+#: jibres/includes/languages/trans_dash.php:601
 msgid "Security"
 msgstr "امنیتی"
 
 #: dash/addons/includes/languages/trans_dash.php:595
-#: jibres/includes/languages/trans_dash.php:604
+#: jibres/includes/languages/trans_dash.php:602
 #: jibres/includes/languages/trans_project.php:359
 msgid "Address"
 msgstr "آدرس"
 
 #: dash/addons/includes/languages/trans_dash.php:598
-#: jibres/includes/languages/trans_dash.php:607
+#: jibres/includes/languages/trans_dash.php:605
 msgid "Education detail"
 msgstr "تحصیلات"
 
 #: dash/addons/includes/languages/trans_dash.php:599
-#: jibres/includes/languages/trans_dash.php:608
+#: jibres/includes/languages/trans_dash.php:606
 msgid "Education Course"
 msgstr "رشته تحصیلی"
 
 #: dash/addons/includes/languages/trans_dash.php:602
-#: jibres/includes/languages/trans_dash.php:872
+#: jibres/includes/languages/trans_dash.php:870
 msgid "Security and Enter"
 msgstr "امنیت و ورود"
 
 #: dash/addons/includes/languages/trans_dash.php:603
-#: jibres/includes/languages/trans_dash.php:614
+#: jibres/includes/languages/trans_dash.php:612
 #: jibres/includes/languages/trans_project.php:667
 msgid "Select one item"
 msgstr "یکی از موارد را انتخاب کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:604
-#: jibres/includes/languages/trans_dash.php:625
+#: jibres/includes/languages/trans_dash.php:623
 #: jibres/includes/languages/trans_project.php:581
 msgid "Active"
 msgstr "فعال"
 
 #: dash/addons/includes/languages/trans_dash.php:605
-#: jibres/includes/languages/trans_dash.php:626
+#: jibres/includes/languages/trans_dash.php:624
 #: jibres/includes/languages/trans_project.php:582
 msgid "Deactive"
 msgstr "غیر فعال"
 
 #: dash/addons/includes/languages/trans_dash.php:606
-#: jibres/includes/languages/trans_dash.php:627
+#: jibres/includes/languages/trans_dash.php:625
 #: jibres/includes/languages/trans_project.php:668
 msgid "Removed"
 msgstr "حذف شده"
 
 #: dash/addons/includes/languages/trans_dash.php:607
-#: jibres/includes/languages/trans_dash.php:628
+#: jibres/includes/languages/trans_dash.php:626
 #: jibres/includes/languages/trans_project.php:584
 msgid "Filter"
 msgstr "مسدود شده"
 
 #: dash/addons/includes/languages/trans_dash.php:608
-#: jibres/includes/languages/trans_dash.php:629
+#: jibres/includes/languages/trans_dash.php:627
 msgid "Unreachable"
 msgstr "غیر قابل دسترسی"
 
 #: dash/addons/includes/languages/trans_dash.php:609
-#: jibres/includes/languages/trans_dash.php:630
+#: jibres/includes/languages/trans_dash.php:628
 msgid "Save remember session"
 msgstr "ورود من را به خاطر بسپار"
 
 #: dash/addons/includes/languages/trans_dash.php:610
-#: jibres/includes/languages/trans_dash.php:632
+#: jibres/includes/languages/trans_dash.php:630
 msgid "Active sessions"
 msgstr "ورودهای فعال"
 
 #: dash/addons/includes/languages/trans_dash.php:611
-#: jibres/includes/languages/trans_dash.php:633
+#: jibres/includes/languages/trans_dash.php:631
 msgid "Browser"
 msgstr "مرورگر"
 
 #: dash/addons/includes/languages/trans_dash.php:612
-#: jibres/includes/languages/trans_dash.php:634
+#: jibres/includes/languages/trans_dash.php:632
 msgid "Operation System"
 msgstr "سیستم‌عامل"
 
 #: dash/addons/includes/languages/trans_dash.php:613
-#: jibres/includes/languages/trans_dash.php:635
+#: jibres/includes/languages/trans_dash.php:633
 msgid "Date login"
 msgstr "تاریخ ورود به سیستم"
 
 #: dash/addons/includes/languages/trans_dash.php:614
-#: jibres/includes/languages/trans_dash.php:636
+#: jibres/includes/languages/trans_dash.php:634
 msgid "Current session"
 msgstr "نشست فعلی"
 
 #: dash/addons/includes/languages/trans_dash.php:615
-#: jibres/includes/languages/trans_dash.php:637
+#: jibres/includes/languages/trans_dash.php:635
 msgid "Terminate"
 msgstr "مسدودسازی"
 
 #: dash/addons/includes/languages/trans_dash.php:618
-#: jibres/includes/languages/trans_dash.php:640
+#: jibres/includes/languages/trans_dash.php:638
 msgid "Billing History"
 msgstr "تاریخچه پرداخت‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:619
 #: dash/addons/includes/languages/trans_static.php:116
-#: jibres/includes/languages/trans_dash.php:641
+#: jibres/includes/languages/trans_dash.php:639
 msgid "Value"
 msgstr "مقدار"
 
 #: dash/addons/includes/languages/trans_dash.php:620
-#: jibres/includes/languages/trans_dash.php:642
+#: jibres/includes/languages/trans_dash.php:640
 #: jibres/includes/languages/trans_project.php:674
 msgid "Budget After"
 msgstr "بودجه"
 
 #: dash/addons/includes/languages/trans_dash.php:621
-#: jibres/includes/languages/trans_dash.php:643
+#: jibres/includes/languages/trans_dash.php:641
 msgid "Invoice"
 msgstr "فاکتور"
 
 #: dash/addons/includes/languages/trans_dash.php:622
-#: jibres/includes/languages/trans_dash.php:644
+#: jibres/includes/languages/trans_dash.php:642
 msgid "The user have not payment history yet!"
 msgstr "هیچ تراکنش مالی برای کاربر یافت نشد!"
 
 #: dash/addons/includes/languages/trans_dash.php:625
-#: jibres/includes/languages/trans_dash.php:647
+#: jibres/includes/languages/trans_dash.php:645
 msgid "Email and Social Networks"
 msgstr "رایانامه و شبکه‌های اجتماعی"
 
 #: dash/addons/includes/languages/trans_dash.php:626
-#: jibres/includes/languages/trans_dash.php:648
+#: jibres/includes/languages/trans_dash.php:646
 msgid "like"
 msgstr "مثل"
 
 #: dash/addons/includes/languages/trans_dash.php:627
-#: jibres/includes/languages/trans_dash.php:649
+#: jibres/includes/languages/trans_dash.php:647
 msgid "Enter a valid website from 3 to 40 character"
 msgstr "وب‌سایت معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:628
-#: jibres/includes/languages/trans_dash.php:650
+#: jibres/includes/languages/trans_dash.php:648
 msgid "Instagram"
 msgstr "اینستاگرام"
 
 #: dash/addons/includes/languages/trans_dash.php:629
-#: jibres/includes/languages/trans_dash.php:651
+#: jibres/includes/languages/trans_dash.php:649
 msgid "Enter a valid instagram from 3 to 40 character"
 msgstr "شناسه اینستاگرام معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:630
-#: jibres/includes/languages/trans_dash.php:652
+#: jibres/includes/languages/trans_dash.php:650
 msgid "Facebook"
 msgstr "فیس‌بوک"
 
 #: dash/addons/includes/languages/trans_dash.php:631
-#: jibres/includes/languages/trans_dash.php:653
+#: jibres/includes/languages/trans_dash.php:651
 msgid "Enter a valid facebook from 3 to 40 character"
 msgstr "شناسه فیس‌بوک معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:632
-#: jibres/includes/languages/trans_dash.php:654
+#: jibres/includes/languages/trans_dash.php:652
 msgid "Twitter"
 msgstr "تویتر"
 
 #: dash/addons/includes/languages/trans_dash.php:633
-#: jibres/includes/languages/trans_dash.php:655
+#: jibres/includes/languages/trans_dash.php:653
 msgid "Enter a valid twitter from 3 to 40 character"
 msgstr "شناسه تویتر معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:634
 #: dash/addons/includes/languages/trans_static.php:255
-#: jibres/includes/languages/trans_dash.php:656
+#: jibres/includes/languages/trans_dash.php:654
 msgid "Linkedin"
 msgstr "لینکدین"
 
 #: dash/addons/includes/languages/trans_dash.php:635
-#: jibres/includes/languages/trans_dash.php:657
+#: jibres/includes/languages/trans_dash.php:655
 msgid "Enter a valid linkedin from 3 to 40 character"
 msgstr "شناسه لینکدین معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:636
-#: jibres/includes/languages/trans_dash.php:658
+#: jibres/includes/languages/trans_dash.php:656
 msgid "Bio"
 msgstr "زندگی‌نامه"
 
 #: dash/addons/includes/languages/trans_dash.php:639
-#: jibres/includes/languages/trans_dash.php:661
+#: jibres/includes/languages/trans_dash.php:659
 msgid "User ticket"
 msgstr "تیکت‌های کاربر"
 
 #: dash/addons/includes/languages/trans_dash.php:644
-#: jibres/includes/languages/trans_dash.php:666
+#: jibres/includes/languages/trans_dash.php:664
 msgid "Set your avatar"
 msgstr "تصویر پروفایل خود را تنظیم کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:647
-#: jibres/includes/languages/trans_dash.php:615
+#: jibres/includes/languages/trans_dash.php:613
 #: jibres/includes/languages/trans_project.php:579
 msgid "Permission"
 msgstr "سطح‌دسترسی"
 
 #: dash/addons/includes/languages/trans_dash.php:648
-#: jibres/includes/languages/trans_dash.php:616
+#: jibres/includes/languages/trans_dash.php:614
 #: jibres/includes/languages/trans_project.php:580
 msgid "No permission"
 msgstr "بدون سطح دسترسی"
 
 #: dash/addons/includes/languages/trans_dash.php:649
-#: jibres/includes/languages/trans_dash.php:671
+#: jibres/includes/languages/trans_dash.php:669
 #: jibres/includes/languages/trans_project.php:504
 msgid "Last name"
 msgstr "نام‌خانوادگی"
 
 #: dash/addons/includes/languages/trans_dash.php:650
-#: jibres/includes/languages/trans_dash.php:672
+#: jibres/includes/languages/trans_dash.php:670
 #: jibres/includes/languages/trans_project.php:508
 msgid "Father name"
 msgstr "نام پدر"
 
 #: dash/addons/includes/languages/trans_dash.php:651
-#: jibres/includes/languages/trans_dash.php:673
+#: jibres/includes/languages/trans_dash.php:671
 #: jibres/includes/languages/trans_project.php:509
 msgid "Birthday"
 msgstr "تاریخ تولد"
 
 #: dash/addons/includes/languages/trans_dash.php:652
-#: jibres/includes/languages/trans_dash.php:674
+#: jibres/includes/languages/trans_dash.php:672
 #: jibres/includes/languages/trans_project.php:510
 msgid "Gender"
 msgstr "جنسیت"
 
 #: dash/addons/includes/languages/trans_dash.php:653
-#: jibres/includes/languages/trans_dash.php:675
+#: jibres/includes/languages/trans_dash.php:673
 msgid "Male"
 msgstr "مرد"
 
 #: dash/addons/includes/languages/trans_dash.php:654
-#: jibres/includes/languages/trans_dash.php:676
+#: jibres/includes/languages/trans_dash.php:674
 msgid "Female"
 msgstr "زن"
 
 #: dash/addons/includes/languages/trans_dash.php:655
-#: jibres/includes/languages/trans_dash.php:677
+#: jibres/includes/languages/trans_dash.php:675
 #: jibres/includes/languages/trans_project.php:525
 msgid "Marital"
 msgstr "وضعیت تاهل"
 
 #: dash/addons/includes/languages/trans_dash.php:656
-#: jibres/includes/languages/trans_dash.php:678
+#: jibres/includes/languages/trans_dash.php:676
 #: jibres/includes/languages/trans_project.php:527
 msgid "Single"
 msgstr "مجرد"
 
 #: dash/addons/includes/languages/trans_dash.php:657
-#: jibres/includes/languages/trans_dash.php:679
+#: jibres/includes/languages/trans_dash.php:677
 #: jibres/includes/languages/trans_project.php:528
 msgid "Married"
 msgstr "متاهل"
 
 #: dash/addons/includes/languages/trans_dash.php:660
-#: jibres/includes/languages/trans_dash.php:617
+#: jibres/includes/languages/trans_dash.php:615
 msgid "Username"
 msgstr "نام‌کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:661
-#: jibres/includes/languages/trans_dash.php:682
+#: jibres/includes/languages/trans_dash.php:680
 msgid "Display Name"
 msgstr "نام نمایشی"
 
 #: dash/addons/includes/languages/trans_dash.php:662
-#: jibres/includes/languages/trans_dash.php:683
+#: jibres/includes/languages/trans_dash.php:681
 msgid "Created date"
 msgstr "تاریخ ایجاد"
 
 #: dash/addons/includes/languages/trans_dash.php:663
-#: jibres/includes/languages/trans_dash.php:684
+#: jibres/includes/languages/trans_dash.php:682
 msgid "Last Modified"
 msgstr "آخرین به‌روز رسانی"
 
 #: dash/addons/includes/languages/trans_dash.php:664 dash/lib/app.php:359
 #: dash/lib/app.php:360 dash/lib/app/user.php:38 dash/lib/user.php:185
-#: jibres/includes/languages/trans_dash.php:685
+#: jibres/includes/languages/trans_dash.php:683
 #: jibres/includes/languages/trans_project.php:511
 #: jibres/includes/lib/app/thirdparty.php:439
 msgid "Mr"
@@ -4952,143 +4959,143 @@ msgstr "آقای"
 
 #: dash/addons/includes/languages/trans_dash.php:665 dash/lib/app.php:364
 #: dash/lib/app.php:365 dash/lib/app/user.php:42 dash/lib/user.php:189
-#: jibres/includes/languages/trans_dash.php:686
+#: jibres/includes/languages/trans_dash.php:684
 #: jibres/includes/languages/trans_project.php:512
 #: jibres/includes/lib/app/thirdparty.php:443
 msgid "Mrs"
 msgstr "خانم"
 
 #: dash/addons/includes/languages/trans_dash.php:666
-#: jibres/includes/languages/trans_dash.php:687
+#: jibres/includes/languages/trans_dash.php:685
 msgid "Password is set"
 msgstr "کلمه عبور تنظیم شده است"
 
 #: dash/addons/includes/languages/trans_dash.php:667
-#: jibres/includes/languages/trans_dash.php:688
+#: jibres/includes/languages/trans_dash.php:686
 msgid "Password is not set!"
 msgstr "کلمه عبور تنظیم نشده است!"
 
 #: dash/addons/includes/languages/trans_dash.php:668
-#: jibres/includes/languages/trans_dash.php:689
+#: jibres/includes/languages/trans_dash.php:687
 msgid "Two step verification in enabled"
 msgstr "ورود دو مرحله ای فعال است"
 
 #: dash/addons/includes/languages/trans_dash.php:669
-#: jibres/includes/languages/trans_dash.php:690
+#: jibres/includes/languages/trans_dash.php:688
 msgid "Two step verification in disable"
 msgstr "ورود دو مرحله ای غیر فعال است"
 
 #: dash/addons/includes/languages/trans_dash.php:670
-#: jibres/includes/languages/trans_dash.php:691
+#: jibres/includes/languages/trans_dash.php:689
 msgid "Try to start with add new user!"
 msgstr "با افزودن کاربر جدید تلاشی برای شروع داشته باشید!"
 
 #: dash/addons/includes/languages/trans_dash.php:673
-#: jibres/includes/languages/trans_dash.php:894
+#: jibres/includes/languages/trans_dash.php:892
 msgid "Improve User Experience"
 msgstr "بهبود تجربه کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:674
-#: jibres/includes/languages/trans_dash.php:624
+#: jibres/includes/languages/trans_dash.php:622
 msgid "Show sidebar"
 msgstr "نمایش نوار کناری"
 
 #: dash/addons/includes/languages/trans_dash.php:675
-#: jibres/includes/languages/trans_dash.php:613
+#: jibres/includes/languages/trans_dash.php:611
 msgid "Default language"
 msgstr "زبان پیشفرض"
 
 #: dash/addons/includes/languages/trans_dash.php:676
-#: jibres/includes/languages/trans_dash.php:897
+#: jibres/includes/languages/trans_dash.php:895
 msgid "Your avatar"
 msgstr "تصویر شما"
 
 #: dash/addons/includes/languages/trans_dash.php:677
-#: jibres/includes/languages/trans_dash.php:890
+#: jibres/includes/languages/trans_dash.php:888
 msgid "Save all"
 msgstr "ذخیره همه"
 
 #: dash/addons/includes/languages/trans_dash.php:680
-#: jibres/includes/languages/trans_dash.php:699
+#: jibres/includes/languages/trans_dash.php:697
 msgid "ID Cards"
 msgstr "کارت‌های شناسایی"
 
 #: dash/addons/includes/languages/trans_dash.php:681
-#: jibres/includes/languages/trans_dash.php:700
+#: jibres/includes/languages/trans_dash.php:698
 msgid "Thumb"
 msgstr "تصویر"
 
 #: dash/addons/includes/languages/trans_dash.php:682
-#: jibres/includes/languages/trans_dash.php:701
+#: jibres/includes/languages/trans_dash.php:699
 #: jibres/includes/languages/trans_project.php:523
 msgid "ID card image"
 msgstr "تصویر کارت شناسایی"
 
 #: dash/addons/includes/languages/trans_dash.php:683
-#: jibres/includes/languages/trans_dash.php:702
+#: jibres/includes/languages/trans_dash.php:700
 #: jibres/includes/languages/trans_project.php:522
 msgid "National card photo"
 msgstr "تصویر کارت ملی"
 
 #: dash/addons/includes/languages/trans_dash.php:686
-#: jibres/includes/languages/trans_dash.php:893
+#: jibres/includes/languages/trans_dash.php:891
 msgid "Name and Global Details"
 msgstr "نام و جزئیات عمومی"
 
 #: dash/addons/includes/languages/trans_dash.php:688
-#: jibres/includes/languages/trans_dash.php:884
+#: jibres/includes/languages/trans_dash.php:882
 msgid "Gmail"
 msgstr "جیمیل"
 
 #: dash/addons/includes/languages/trans_dash.php:689
-#: jibres/includes/languages/trans_dash.php:855
+#: jibres/includes/languages/trans_dash.php:853
 #: jibres/includes/languages/trans_project.php:660
 msgid "Firstname"
 msgstr "نام"
 
 #: dash/addons/includes/languages/trans_dash.php:690
-#: jibres/includes/languages/trans_dash.php:885
+#: jibres/includes/languages/trans_dash.php:883
 msgid "Enter a valid firstname from 3 to 40 character"
 msgstr "نام معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:691
-#: jibres/includes/languages/trans_dash.php:856
+#: jibres/includes/languages/trans_dash.php:854
 #: jibres/includes/languages/trans_project.php:661
 msgid "Lastname"
 msgstr "نام خانوادگی"
 
 #: dash/addons/includes/languages/trans_dash.php:692
-#: jibres/includes/languages/trans_dash.php:886
+#: jibres/includes/languages/trans_dash.php:884
 msgid "Enter a valid lastname from 3 to 40 character"
 msgstr "نام خانوادگی معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:693
-#: jibres/includes/languages/trans_dash.php:618
+#: jibres/includes/languages/trans_dash.php:616
 msgid "Enter a valid username from 3 to 40 character"
 msgstr "نام کاربری معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:694
-#: jibres/includes/languages/trans_dash.php:669
+#: jibres/includes/languages/trans_dash.php:667
 msgid "Nick name"
 msgstr "لقب"
 
 #: dash/addons/includes/languages/trans_dash.php:695
-#: jibres/includes/languages/trans_dash.php:887
+#: jibres/includes/languages/trans_dash.php:885
 msgid "Enter a valid title from 3 to 40 character"
 msgstr "لطفا عنوانی صحیح بین ۳ تا ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:696
-#: jibres/includes/languages/trans_dash.php:888
+#: jibres/includes/languages/trans_dash.php:886
 msgid "Enter a valid type from 3 to 40 character"
 msgstr "نوع معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:697
-#: jibres/includes/languages/trans_dash.php:670
+#: jibres/includes/languages/trans_dash.php:668
 msgid "Display name"
 msgstr "نام برای نمایش"
 
 #: dash/addons/includes/languages/trans_dash.php:698
-#: jibres/includes/languages/trans_dash.php:889
+#: jibres/includes/languages/trans_dash.php:887
 msgid "Enter a valid displayname from 3 to 40 character"
 msgstr "نام نمایشی معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
@@ -5097,27 +5104,27 @@ msgid "This user is supervisor!"
 msgstr "این کاربر مدیر فنی سیستم است!"
 
 #: dash/addons/includes/languages/trans_dash.php:700
-#: jibres/includes/languages/trans_dash.php:619
+#: jibres/includes/languages/trans_dash.php:617
 msgid "Enter to change pass"
 msgstr "برای تغییر کلمه عبور آن را وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:701
-#: jibres/includes/languages/trans_dash.php:620
+#: jibres/includes/languages/trans_dash.php:618
 msgid "Password was set, enter to change it!"
 msgstr "کلمه عبور تنظیم شده است، برای تغییر آن کلمه عبور را وارد کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:702
-#: jibres/includes/languages/trans_dash.php:621
+#: jibres/includes/languages/trans_dash.php:619
 msgid "Password not set, enter  to set it!"
 msgstr "کلمه عبور تنظیم نشده است، آن را تنظیم کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:703
-#: jibres/includes/languages/trans_dash.php:622
+#: jibres/includes/languages/trans_dash.php:620
 msgid "Confirm password"
 msgstr "تایید رمز عبور"
 
 #: dash/addons/includes/languages/trans_dash.php:704
-#: jibres/includes/languages/trans_dash.php:623
+#: jibres/includes/languages/trans_dash.php:621
 msgid "Require to change current password"
 msgstr "برای تغییر کلمه عبور فعلی الزامی است"
 
@@ -5138,160 +5145,160 @@ msgid "Students"
 msgstr "دانش‌آموزان"
 
 #: dash/addons/includes/languages/trans_dash.php:713
-#: jibres/includes/languages/trans_dash.php:694
+#: jibres/includes/languages/trans_dash.php:692
 msgid "Field"
 msgstr "فیلد"
 
 #: dash/addons/includes/languages/trans_dash.php:714
-#: jibres/includes/languages/trans_dash.php:695
+#: jibres/includes/languages/trans_dash.php:693
 msgid "Decode"
 msgstr "رمزگشایی"
 
 #: dash/addons/includes/languages/trans_dash.php:715
-#: jibres/includes/languages/trans_dash.php:696
+#: jibres/includes/languages/trans_dash.php:694
 msgid "Send SMS"
 msgstr "ارسال پیامک به کاربر"
 
 #: dash/addons/includes/languages/trans_dash.php:718
-#: jibres/includes/languages/trans_dash.php:705
+#: jibres/includes/languages/trans_dash.php:703
 msgid "Subdomain"
 msgstr "زیردامنه"
 
 #: dash/addons/includes/languages/trans_dash.php:719
-#: jibres/includes/languages/trans_dash.php:706
+#: jibres/includes/languages/trans_dash.php:704
 msgid "Notification"
 msgstr "آگاهسازی"
 
 #: dash/addons/includes/languages/trans_dash.php:720
-#: jibres/includes/languages/trans_dash.php:707
+#: jibres/includes/languages/trans_dash.php:705
 msgid "Url"
 msgstr "نشانی اینترنتی"
 
 #: dash/addons/includes/languages/trans_dash.php:721
-#: jibres/includes/languages/trans_dash.php:708
+#: jibres/includes/languages/trans_dash.php:706
 msgid "Send to"
 msgstr "ارسال به"
 
 #: dash/addons/includes/languages/trans_dash.php:722
-#: jibres/includes/languages/trans_dash.php:709
+#: jibres/includes/languages/trans_dash.php:707
 msgid "Date created"
 msgstr "تاریخ ثبت"
 
 #: dash/addons/includes/languages/trans_dash.php:723
-#: jibres/includes/languages/trans_dash.php:710
+#: jibres/includes/languages/trans_dash.php:708
 msgid "Date modified"
 msgstr "تاریخ ویرایش"
 
 #: dash/addons/includes/languages/trans_dash.php:724
-#: jibres/includes/languages/trans_dash.php:711
+#: jibres/includes/languages/trans_dash.php:709
 msgid "All publish log"
 msgstr "تمامی بازدیدکنندگان پیش‌نویس"
 
 #: dash/addons/includes/languages/trans_dash.php:725
-#: jibres/includes/languages/trans_dash.php:712
+#: jibres/includes/languages/trans_dash.php:710
 msgid "All draft log"
 msgstr "تمامی بازدیدکنندگان پیش‌نویس"
 
 #: dash/addons/includes/languages/trans_dash.php:726
-#: jibres/includes/languages/trans_dash.php:713
+#: jibres/includes/languages/trans_dash.php:711
 msgid "All trash log"
 msgstr "تمامی بازدیدکنندگان حذف شده"
 
 #: dash/addons/includes/languages/trans_dash.php:729
-#: jibres/includes/languages/trans_dash.php:716
+#: jibres/includes/languages/trans_dash.php:714
 msgid "What do you want to send to this user?"
 msgstr "مایل به ارسال چه چیزی به این کاربر هستید؟"
 
 #: dash/addons/includes/languages/trans_dash.php:730
-#: jibres/includes/languages/trans_dash.php:717
+#: jibres/includes/languages/trans_dash.php:715
 msgid "Template"
 msgstr "قالب"
 
 #: dash/addons/includes/languages/trans_dash.php:731
-#: jibres/includes/languages/trans_dash.php:718
+#: jibres/includes/languages/trans_dash.php:716
 msgid "No template"
 msgstr "بدون الگو"
 
 #: dash/addons/includes/languages/trans_dash.php:732
-#: jibres/includes/languages/trans_dash.php:719
+#: jibres/includes/languages/trans_dash.php:717
 msgid "Show"
 msgstr "نمایش"
 
 #: dash/addons/includes/languages/trans_dash.php:735
-#: jibres/includes/languages/trans_dash.php:722
+#: jibres/includes/languages/trans_dash.php:720
 msgid "List of template sms"
 msgstr "لیست الگوهای پیامک"
 
 #: dash/addons/includes/languages/trans_dash.php:736
-#: jibres/includes/languages/trans_dash.php:723
+#: jibres/includes/languages/trans_dash.php:721
 msgid "Template text"
 msgstr "متن الگو"
 
 #: dash/addons/includes/languages/trans_dash.php:737
 #: dash/addons/includes/languages/trans_static.php:92
-#: jibres/includes/languages/trans_dash.php:724
+#: jibres/includes/languages/trans_dash.php:722
 #: jibres/includes/languages/trans_project.php:585
 msgid "Delete"
 msgstr "حذف"
 
 #: dash/addons/includes/languages/trans_dash.php:738
-#: jibres/includes/languages/trans_dash.php:725
+#: jibres/includes/languages/trans_dash.php:723
 msgid "Template name"
 msgstr "نام الگو"
 
 #: dash/addons/includes/languages/trans_dash.php:739
-#: jibres/includes/languages/trans_dash.php:726
+#: jibres/includes/languages/trans_dash.php:724
 msgid "Template Name"
 msgstr "نام الگو"
 
 #: dash/addons/includes/languages/trans_dash.php:740
-#: jibres/includes/languages/trans_dash.php:727
+#: jibres/includes/languages/trans_dash.php:725
 msgid "Template Text"
 msgstr "متن الگو"
 
 #: dash/addons/includes/languages/trans_dash.php:743
-#: jibres/includes/languages/trans_dash.php:730
+#: jibres/includes/languages/trans_dash.php:728
 msgid "Users mobile"
 msgstr "تلفن همراه کاربر"
 
 #: dash/addons/includes/languages/trans_dash.php:744
-#: jibres/includes/languages/trans_dash.php:731
+#: jibres/includes/languages/trans_dash.php:729
 msgid "Every mobile in one line"
 msgstr "هر شماره همراه در یک خط"
 
 #: dash/addons/includes/languages/trans_dash.php:745
-#: jibres/includes/languages/trans_dash.php:732
+#: jibres/includes/languages/trans_dash.php:730
 msgid "What do you want to send to this users?"
 msgstr "چه پیامی را میخواهید به این کاربران ارسال کنید؟"
 
 #: dash/addons/includes/languages/trans_dash.php:746
-#: jibres/includes/languages/trans_dash.php:733
+#: jibres/includes/languages/trans_dash.php:731
 msgid "Group"
 msgstr "گروه"
 
 #: dash/addons/includes/languages/trans_dash.php:747
-#: jibres/includes/languages/trans_dash.php:734
+#: jibres/includes/languages/trans_dash.php:732
 msgid "No group"
 msgstr "بدون گروه"
 
 #: dash/addons/includes/languages/trans_dash.php:750
-#: jibres/includes/languages/trans_dash.php:737
+#: jibres/includes/languages/trans_dash.php:735
 msgid "Your sms panel balance"
 msgstr "بالانس مالی پنل پیامک شما"
 
 #: dash/addons/includes/languages/trans_dash.php:751
-#: jibres/includes/languages/trans_dash.php:372
+#: jibres/includes/languages/trans_dash.php:370
 #: jibres/includes/languages/trans_project.php:24
 msgid "Toman"
 msgstr "تومان"
 
 #: dash/addons/includes/languages/trans_dash.php:752
-#: jibres/includes/languages/trans_dash.php:738
+#: jibres/includes/languages/trans_dash.php:736
 msgid "Send quick"
 msgstr "ارسال سریع"
 
 #: dash/addons/includes/languages/trans_dash.php:753
-#: jibres/includes/languages/trans_dash.php:739
+#: jibres/includes/languages/trans_dash.php:737
 msgid "Group send"
 msgstr "ارسال گروهی"
 
@@ -5303,61 +5310,61 @@ msgstr "ارسال گروهی"
 #: dash/lib/social/telegram/commands/step_ticketCreate.php:85
 #: dash/lib/social/telegram/step.php:212 dash/lib/social/telegram/step.php:367
 #: dash/lib/social/telegram/step.php:382
-#: jibres/includes/languages/trans_dash.php:742
+#: jibres/includes/languages/trans_dash.php:740
 #: jibres/includes/languages/trans_project.php:656
 msgid "Cancel"
 msgstr "انصراف"
 
 #: dash/addons/includes/languages/trans_dash.php:767
-#: jibres/includes/languages/trans_dash.php:753
+#: jibres/includes/languages/trans_dash.php:751
 #: jibres/includes/languages/trans_project.php:895
 msgid "Permission title"
 msgstr "عنوان سطح‌دسترسی"
 
 #: dash/addons/includes/languages/trans_dash.php:768
-#: jibres/includes/languages/trans_dash.php:754
+#: jibres/includes/languages/trans_dash.php:752
 #: jibres/includes/languages/trans_project.php:896
 msgid "Customized"
 msgstr "سفارشی سازی شده"
 
 #: dash/addons/includes/languages/trans_dash.php:769
-#: jibres/includes/languages/trans_dash.php:755
+#: jibres/includes/languages/trans_dash.php:753
 #: jibres/includes/languages/trans_project.php:899
 msgid "Count of user in permission"
 msgstr "تعداد کاربران با این سطح دسترسی"
 
 #: dash/addons/includes/languages/trans_dash.php:770
-#: jibres/includes/languages/trans_dash.php:756
+#: jibres/includes/languages/trans_dash.php:754
 #: jibres/includes/languages/trans_project.php:900
 msgid "Remove this permission if not need"
 msgstr "اگر به این سطح دسترسی نیازی نداری آن را حذف کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:771
-#: jibres/includes/languages/trans_dash.php:757
+#: jibres/includes/languages/trans_dash.php:755
 #: jibres/includes/languages/trans_project.php:901
 msgid "No user"
 msgstr "بدون کاربر"
 
 #: dash/addons/includes/languages/trans_dash.php:772
-#: jibres/includes/languages/trans_dash.php:758
+#: jibres/includes/languages/trans_dash.php:756
 #: jibres/includes/languages/trans_project.php:902
 msgid "Click to show list of user by this permission"
 msgstr "برای مشاهده لیست کاربران با این سطح دسترسی کلیک کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:773
-#: jibres/includes/languages/trans_dash.php:759
+#: jibres/includes/languages/trans_dash.php:757
 #: jibres/includes/languages/trans_project.php:897
 msgid "Need double check permission for some sensitive permissions"
 msgstr "نیازمند بررسی دوگانه برای برخی از سطوح دسترسی حساس"
 
 #: dash/addons/includes/languages/trans_dash.php:774
-#: jibres/includes/languages/trans_dash.php:760
+#: jibres/includes/languages/trans_dash.php:758
 #: jibres/includes/languages/trans_project.php:898
 msgid "Do hard check and need to enter again"
 msgstr "بررسی سخت و نیاز به ورود مجدد به سیستم"
 
 #: dash/addons/includes/languages/trans_dash.php:777
-#: jibres/includes/languages/trans_dash.php:763
+#: jibres/includes/languages/trans_dash.php:761
 #: jibres/includes/languages/trans_project.php:906
 msgid ""
 "The permission name should be unique and contain only alphanameric characters "
@@ -5366,32 +5373,32 @@ msgstr ""
 "نام سطح دسترسی باید منحصر به فرد باشد و فقط شامل کاراکتر‌های الفبا و زیر خط باشد"
 
 #: dash/addons/includes/languages/trans_dash.php:778
-#: jibres/includes/languages/trans_dash.php:764
+#: jibres/includes/languages/trans_dash.php:762
 #: jibres/includes/languages/trans_project.php:907
 msgid "Name of your permission"
 msgstr "نام سطح دسترسی شما"
 
 #: dash/addons/includes/languages/trans_dash.php:779
-#: jibres/includes/languages/trans_dash.php:765
+#: jibres/includes/languages/trans_dash.php:763
 #: jibres/includes/languages/trans_project.php:909
 msgid ""
 "The permission label is used to represent your permission in user management"
 msgstr "برچسب سطح دسترسی برای نشان دادن آن در بخش مدیریت استفاده می‌شود"
 
 #: dash/addons/includes/languages/trans_dash.php:780
-#: jibres/includes/languages/trans_dash.php:766
+#: jibres/includes/languages/trans_dash.php:764
 #: jibres/includes/languages/trans_project.php:910
 msgid "Label of your permission"
 msgstr "برچسب سطح دسترسی شما"
 
 #: dash/addons/includes/languages/trans_dash.php:783
-#: jibres/includes/languages/trans_dash.php:769
+#: jibres/includes/languages/trans_dash.php:767
 #: jibres/includes/languages/trans_project.php:908
 msgid "Label"
 msgstr "برچسب"
 
 #: dash/addons/includes/languages/trans_dash.php:786
-#: jibres/includes/languages/trans_dash.php:772
+#: jibres/includes/languages/trans_dash.php:770
 msgid "Referral Program"
 msgstr "برنامه معرفی"
 
@@ -5400,27 +5407,27 @@ msgid "Nobody can tell the Jibres story better than our customers."
 msgstr "هیچ‌کس بهتر از شما نمی‌تواند جیبرس را برای مشتریان ما توضیح دهد."
 
 #: dash/addons/includes/languages/trans_dash.php:788
-#: jibres/includes/languages/trans_dash.php:773
+#: jibres/includes/languages/trans_dash.php:771
 msgid "Nobody can tell the Jibres story better than you;)"
 msgstr "هیچ‌کس بهتر از شما نمی‌تواند جیبرس را برای مشتریان ما توضیح دهد;)"
 
 #: dash/addons/includes/languages/trans_dash.php:789
-#: jibres/includes/languages/trans_dash.php:774
+#: jibres/includes/languages/trans_dash.php:772
 msgid "How it works?"
 msgstr "چطور کار می‌کند؟"
 
 #: dash/addons/includes/languages/trans_dash.php:790
-#: jibres/includes/languages/trans_dash.php:775
+#: jibres/includes/languages/trans_dash.php:773
 msgid "Tell your friends about the Jibres story."
 msgstr "به دوستان خود در مورد داستان جیبرس بگویید."
 
 #: dash/addons/includes/languages/trans_dash.php:791
-#: jibres/includes/languages/trans_dash.php:776
+#: jibres/includes/languages/trans_dash.php:774
 msgid "Refer your friends through Social Media or Email."
 msgstr "دوستان خود را از طریق شبکه‌های اجتماعی و ایمیل ارجاع دهید."
 
 #: dash/addons/includes/languages/trans_dash.php:792
-#: jibres/includes/languages/trans_dash.php:777
+#: jibres/includes/languages/trans_dash.php:775
 msgid ""
 "Share the referral rewards program with friends on Facebook, Twitter, or Email."
 msgstr ""
@@ -5428,14 +5435,14 @@ msgstr ""
 "و ایمیل به اشتراک بگذارید."
 
 #: dash/addons/includes/languages/trans_dash.php:793
-#: jibres/includes/languages/trans_dash.php:778
+#: jibres/includes/languages/trans_dash.php:776
 msgid "When they click on your post, we’ll know it was you who referred them."
 msgstr ""
 "زمانی که آن‌ها روی مطلب شما کلیک کردند، ما متوجه می‌شویم که شما آن‌ها را معرفی "
 "کرده‌اید."
 
 #: dash/addons/includes/languages/trans_dash.php:794
-#: jibres/includes/languages/trans_dash.php:779
+#: jibres/includes/languages/trans_dash.php:777
 msgid ""
 "If someone forget to use your link, we allow to set your ref code as promo code "
 "in billing page!"
@@ -5444,17 +5451,17 @@ msgstr ""
 "تنظیم کد شما را به عنوان کدتخفیف در صفحه مالی می‌دهیم!"
 
 #: dash/addons/includes/languages/trans_dash.php:795
-#: jibres/includes/languages/trans_dash.php:780
+#: jibres/includes/languages/trans_dash.php:778
 msgid "Your friend enter to Jibres and receives credit."
 msgstr "دوستان شما وارد جیبرس شده و اعتبار دریافت می‌کنند."
 
 #: dash/addons/includes/languages/trans_dash.php:796
-#: jibres/includes/languages/trans_dash.php:781
+#: jibres/includes/languages/trans_dash.php:779
 msgid "Your friend enter and receives $5 account credit."
 msgstr "دوستان شما وارد جیبرس شده و ۱۰.۰۰۰ تومان اعتبار هدیه دریافت می‌کنند."
 
 #: dash/addons/includes/languages/trans_dash.php:797
-#: jibres/includes/languages/trans_dash.php:782
+#: jibres/includes/languages/trans_dash.php:780
 msgid ""
 "Anyone you refer to Jibres that enter using your unique referral link or your "
 "promo code will receive $5 in credit."
@@ -5464,18 +5471,18 @@ msgstr ""
 "خواهند کرد."
 
 #: dash/addons/includes/languages/trans_dash.php:798
-#: jibres/includes/languages/trans_dash.php:783
+#: jibres/includes/languages/trans_dash.php:781
 msgid "You all get rewarded."
 msgstr "همه جایزه می‌گیرید! مثل برد برد."
 
 #: dash/addons/includes/languages/trans_dash.php:799
-#: jibres/includes/languages/trans_dash.php:784
+#: jibres/includes/languages/trans_dash.php:782
 msgid ""
 "Jibres rewards are charge in your account after 7 work days of confirmation."
 msgstr "جوایز جیبرس حداکثر ۷ روز کاری پس از تایید در حساب شما شارژ می‌شود."
 
 #: dash/addons/includes/languages/trans_dash.php:800
-#: jibres/includes/languages/trans_dash.php:785
+#: jibres/includes/languages/trans_dash.php:783
 msgid ""
 "Amount of charge is depended on your friend total pay and after automatic "
 "calculation, system set your gift."
@@ -5484,7 +5491,7 @@ msgstr ""
 "سیستم هدیه شما را منظور خواهد کرد."
 
 #: dash/addons/includes/languages/trans_dash.php:801
-#: jibres/includes/languages/trans_dash.php:786
+#: jibres/includes/languages/trans_dash.php:784
 msgid ""
 "We calculate your percentage until 6 month of your friend registration. Because "
 "of that it was your chance to convinced your friend to charge more!"
@@ -5494,12 +5501,12 @@ msgstr ""
 "را برای شارژ بیشتر متقاعد کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:802
-#: jibres/includes/languages/trans_dash.php:787
+#: jibres/includes/languages/trans_dash.php:785
 msgid "Share your link"
 msgstr "لینک خود را به اشتراک بگذارید"
 
 #: dash/addons/includes/languages/trans_dash.php:803
-#: jibres/includes/languages/trans_dash.php:788
+#: jibres/includes/languages/trans_dash.php:786
 msgid ""
 "Copy your personal referral link and share it with your friends and followers."
 msgstr ""
@@ -5507,203 +5514,203 @@ msgstr ""
 "بگذارید."
 
 #: dash/addons/includes/languages/trans_dash.php:804
-#: jibres/includes/languages/trans_dash.php:789
+#: jibres/includes/languages/trans_dash.php:787
 msgid "Link"
 msgstr "لینک"
 
 #: dash/addons/includes/languages/trans_dash.php:805
-#: jibres/includes/languages/trans_dash.php:790
+#: jibres/includes/languages/trans_dash.php:788
 #: jibres/includes/languages/trans_project.php:33
 msgid "Promo code"
 msgstr "کد تخفیف"
 
 #: dash/addons/includes/languages/trans_dash.php:806
-#: jibres/includes/languages/trans_dash.php:791
+#: jibres/includes/languages/trans_dash.php:789
 msgid "Referral stats"
 msgstr "وضعیت معرفی"
 
 #: dash/addons/includes/languages/trans_dash.php:807
-#: jibres/includes/languages/trans_dash.php:792
+#: jibres/includes/languages/trans_dash.php:790
 msgid "CLICKS"
 msgstr "کلیک"
 
 #: dash/addons/includes/languages/trans_dash.php:808
-#: jibres/includes/languages/trans_dash.php:793
+#: jibres/includes/languages/trans_dash.php:791
 msgid "Number of times your link has been opened."
 msgstr "تعداد دفعات باز شدن لینک شما."
 
 #: dash/addons/includes/languages/trans_dash.php:809
-#: jibres/includes/languages/trans_dash.php:794
+#: jibres/includes/languages/trans_dash.php:792
 msgid "REFERRALS"
 msgstr "معرفی شدگان"
 
 #: dash/addons/includes/languages/trans_dash.php:810
-#: jibres/includes/languages/trans_dash.php:795
+#: jibres/includes/languages/trans_dash.php:793
 msgid "People who enter to Jibres using your link."
 msgstr "نفراتی که با لینک شما وارد جیبرس شدند."
 
 #: dash/addons/includes/languages/trans_dash.php:811
-#: jibres/includes/languages/trans_dash.php:796
+#: jibres/includes/languages/trans_dash.php:794
 msgid "Promo Code"
 msgstr "کد تخفیف"
 
 #: dash/addons/includes/languages/trans_dash.php:812
-#: jibres/includes/languages/trans_dash.php:797
+#: jibres/includes/languages/trans_dash.php:795
 msgid "People who connected to you with promo code."
 msgstr "تعداد نفراتی که از طریق کدتخفیف به شما متصل شده‌اند."
 
 #: dash/addons/includes/languages/trans_dash.php:813
-#: jibres/includes/languages/trans_dash.php:798
+#: jibres/includes/languages/trans_dash.php:796
 msgid "Total you refed"
 msgstr "جمع معرفی‌شدگان"
 
 #: dash/addons/includes/languages/trans_dash.php:814
-#: jibres/includes/languages/trans_dash.php:799
+#: jibres/includes/languages/trans_dash.php:797
 msgid "Sum of people referred from you."
 msgstr "جمع تعداد نفراتی که شما معرفی کردید."
 
 #: dash/addons/includes/languages/trans_dash.php:815
-#: jibres/includes/languages/trans_dash.php:800
+#: jibres/includes/languages/trans_dash.php:798
 msgid "Active users"
 msgstr "کاربران فعال"
 
 #: dash/addons/includes/languages/trans_dash.php:816
-#: jibres/includes/languages/trans_dash.php:801
+#: jibres/includes/languages/trans_dash.php:799
 msgid "People who work with their account."
 msgstr "کسانی که حساب کاربری فعال دارند."
 
 #: dash/addons/includes/languages/trans_dash.php:817
-#: jibres/includes/languages/trans_dash.php:802
+#: jibres/includes/languages/trans_dash.php:800
 msgid "You earned"
 msgstr "شما بدست آوردید"
 
 #: dash/addons/includes/languages/trans_dash.php:818
-#: jibres/includes/languages/trans_dash.php:803
+#: jibres/includes/languages/trans_dash.php:801
 msgid "Percentage"
 msgstr "درصد"
 
 #: dash/addons/includes/languages/trans_dash.php:819
-#: jibres/includes/languages/trans_dash.php:804
+#: jibres/includes/languages/trans_dash.php:802
 msgid "Level 1"
 msgstr "مرحله ۱"
 
 #: dash/addons/includes/languages/trans_dash.php:820
-#: jibres/includes/languages/trans_dash.php:805
+#: jibres/includes/languages/trans_dash.php:803
 msgid "People who pay more than 25$."
 msgstr "کسانی که بیشتر از ۵۰ هزار تومان شارژ کرده‌اند."
 
 #: dash/addons/includes/languages/trans_dash.php:821
-#: jibres/includes/languages/trans_dash.php:806
+#: jibres/includes/languages/trans_dash.php:804
 msgid "Level 2"
 msgstr "سطح دو"
 
 #: dash/addons/includes/languages/trans_dash.php:822
-#: jibres/includes/languages/trans_dash.php:807
+#: jibres/includes/languages/trans_dash.php:805
 msgid "People who pay more than 50$."
 msgstr "کسانی که بیشتر از ۱۰۰ هزار تومان شارژ کرده‌اند."
 
 #: dash/addons/includes/languages/trans_dash.php:823
-#: jibres/includes/languages/trans_dash.php:808
+#: jibres/includes/languages/trans_dash.php:806
 msgid "Level 3"
 msgstr "سطح سه"
 
 #: dash/addons/includes/languages/trans_dash.php:824
-#: jibres/includes/languages/trans_dash.php:809
+#: jibres/includes/languages/trans_dash.php:807
 msgid "People who pay more than 500$."
 msgstr "کسانی که بیشتر از یک میلیون تومان شارژ کرده‌اند."
 
 #: dash/addons/includes/languages/trans_dash.php:825
-#: jibres/includes/languages/trans_dash.php:810
+#: jibres/includes/languages/trans_dash.php:808
 msgid "Level 4"
 msgstr "سطح چهار"
 
 #: dash/addons/includes/languages/trans_dash.php:826
-#: jibres/includes/languages/trans_dash.php:811
+#: jibres/includes/languages/trans_dash.php:809
 msgid "People who pay more than 5000$."
 msgstr "کسانی که بیشتر از ده میلیون تومان شارژ کرده‌اند."
 
 #: dash/addons/includes/languages/trans_dash.php:827
-#: jibres/includes/languages/trans_dash.php:812
+#: jibres/includes/languages/trans_dash.php:810
 msgid "Sum of your credit earned from refs."
 msgstr "جمع اعتبار بدست آمده از طریق معرفی‌شدگان."
 
 #: dash/addons/includes/languages/trans_dash.php:828
-#: jibres/includes/languages/trans_dash.php:813
+#: jibres/includes/languages/trans_dash.php:811
 msgid "Confirm earned"
 msgstr "اعتبار تاییدشده"
 
 #: dash/addons/includes/languages/trans_dash.php:829
-#: jibres/includes/languages/trans_dash.php:814
+#: jibres/includes/languages/trans_dash.php:812
 msgid "Sum of confirmed credit earned from refs."
 msgstr "جمع اعتبارات تاییدشده از معرفی‌شدگان."
 
 #: dash/addons/includes/languages/trans_dash.php:830
-#: jibres/includes/languages/trans_dash.php:815
+#: jibres/includes/languages/trans_dash.php:813
 msgid "Enter to get a unique referral link."
 msgstr "برادی دریافت کد معرفی منحصر به فرد خود، وارد شوید."
 
 #: dash/addons/includes/languages/trans_dash.php:831
-#: jibres/includes/languages/trans_dash.php:816
+#: jibres/includes/languages/trans_dash.php:814
 msgid "Use our logo to help spread the word."
 msgstr "برای گسترش معرفی خود از لوگوی ما استفاده کنید."
 
 #: dash/addons/includes/languages/trans_dash.php:832
-#: jibres/includes/languages/trans_dash.php:817
+#: jibres/includes/languages/trans_dash.php:815
 msgid "Enter to Jibres"
 msgstr "ورود به جیبرس"
 
 #: dash/addons/includes/languages/trans_dash.php:837
-#: jibres/includes/languages/trans_dash.php:822
+#: jibres/includes/languages/trans_dash.php:820
 msgid "Subject"
 msgstr "موضوع"
 
 #: dash/addons/includes/languages/trans_dash.php:838
-#: jibres/includes/languages/trans_dash.php:823
+#: jibres/includes/languages/trans_dash.php:821
 msgid "New"
 msgstr "جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:839
-#: jibres/includes/languages/trans_dash.php:824
+#: jibres/includes/languages/trans_dash.php:822
 msgid "Sended via SMS"
 msgstr "از طریق پیامک  هم ارسال شده"
 
 #: dash/addons/includes/languages/trans_dash.php:840
-#: jibres/includes/languages/trans_dash.php:825
+#: jibres/includes/languages/trans_dash.php:823
 msgid "Sended via Telegram"
 msgstr "از طریق تلگرام هم ارسال شده"
 
 #: dash/addons/includes/languages/trans_dash.php:841
-#: jibres/includes/languages/trans_dash.php:826
+#: jibres/includes/languages/trans_dash.php:824
 msgid "No notifications found"
 msgstr "هیچ پیامی یافت نشد"
 
 #: dash/addons/includes/languages/trans_dash.php:844
-#: jibres/includes/languages/trans_dash.php:829
+#: jibres/includes/languages/trans_dash.php:827
 msgid "plan"
 msgstr "پلن"
 
 #: dash/addons/includes/languages/trans_dash.php:845
-#: jibres/includes/languages/trans_dash.php:830
+#: jibres/includes/languages/trans_dash.php:828
 msgid "Start plan"
 msgstr "زمان شروع پلن"
 
 #: dash/addons/includes/languages/trans_dash.php:846
-#: jibres/includes/languages/trans_dash.php:831
+#: jibres/includes/languages/trans_dash.php:829
 msgid "Active member"
 msgstr "اعضاء‌ فعال"
 
 #: dash/addons/includes/languages/trans_dash.php:847
-#: jibres/includes/languages/trans_dash.php:832
+#: jibres/includes/languages/trans_dash.php:830
 msgid "Usage"
 msgstr "میزان مصرف"
 
 #: dash/addons/includes/languages/trans_dash.php:848
-#: jibres/includes/languages/trans_dash.php:833
+#: jibres/includes/languages/trans_dash.php:831
 msgid "You are not have billing detail yet!"
 msgstr "هیچ تراکنش مالی برای شما یافت نشد!"
 
 #: dash/addons/includes/languages/trans_dash.php:851
-#: jibres/includes/languages/trans_dash.php:836
+#: jibres/includes/languages/trans_dash.php:834
 msgid "Charge your account"
 msgstr "شارژ حساب کاربری"
 
@@ -5712,111 +5719,111 @@ msgid "Choose a gateway and enter an amount to charge your account"
 msgstr "درگاه پرداخت خود را انتخاب کنید و میزان شارژ حساب کاربری خود را وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:853
-#: jibres/includes/languages/trans_dash.php:838
+#: jibres/includes/languages/trans_dash.php:836
 #: jibres/includes/languages/trans_project.php:483
 msgid "Amount"
 msgstr "مقدار"
 
 #: dash/addons/includes/languages/trans_dash.php:854
-#: jibres/includes/languages/trans_dash.php:839
+#: jibres/includes/languages/trans_dash.php:837
 msgid "Checkout"
 msgstr "پرداخت"
 
 #: dash/addons/includes/languages/trans_dash.php:855
-#: jibres/includes/languages/trans_dash.php:840
+#: jibres/includes/languages/trans_dash.php:838
 msgid "If you have a promo code, please enter it below to receive your credit."
 msgstr "اگر کد تخفیف دارید، برای دریافت اعتبار در کادر زیر وارد کنید."
 
 #: dash/addons/includes/languages/trans_dash.php:856
-#: jibres/includes/languages/trans_dash.php:841
+#: jibres/includes/languages/trans_dash.php:839
 msgid "Apply Code"
 msgstr "اعمال کد"
 
 #: dash/addons/includes/languages/trans_dash.php:857
-#: jibres/includes/languages/trans_dash.php:842
+#: jibres/includes/languages/trans_dash.php:840
 msgid "Your credit"
 msgstr "اعتبار شما"
 
 #: dash/addons/includes/languages/trans_dash.php:858
-#: jibres/includes/languages/trans_dash.php:844
+#: jibres/includes/languages/trans_dash.php:842
 msgid "You are not have payment history yet!"
 msgstr "هیچ تراکنش مالی برای شما یافت نشد!"
 
 #: dash/addons/includes/languages/trans_dash.php:861
-#: jibres/includes/languages/trans_dash.php:847
+#: jibres/includes/languages/trans_dash.php:845
 msgid "Factor of team"
 msgstr "فاکتور تیم"
 
 #: dash/addons/includes/languages/trans_dash.php:862
 #: jibres/content_a/product/home/controller.php:238
-#: jibres/includes/languages/trans_dash.php:848
+#: jibres/includes/languages/trans_dash.php:846
 #: jibres/includes/languages/trans_project.php:190
 #: jibres/includes/lib/app/productprice.php:133
 msgid "Price"
 msgstr "قیمت"
 
 #: dash/addons/includes/languages/trans_dash.php:865
-#: jibres/includes/languages/trans_dash.php:851
+#: jibres/includes/languages/trans_dash.php:849
 #: jibres/includes/languages/trans_project.php:655
 msgid "Edit address"
 msgstr "ویرایش آدرس"
 
 #: dash/addons/includes/languages/trans_dash.php:866
-#: jibres/includes/languages/trans_dash.php:852
+#: jibres/includes/languages/trans_dash.php:850
 #: jibres/includes/languages/trans_project.php:657
 msgid "Add new address"
 msgstr "افزودن آدرس جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:867
-#: jibres/includes/languages/trans_dash.php:853
+#: jibres/includes/languages/trans_dash.php:851
 #: jibres/includes/languages/trans_project.php:658
 msgid "Saved address"
 msgstr "آدرس‌های ذخیره شده"
 
 #: dash/addons/includes/languages/trans_dash.php:868
-#: jibres/includes/languages/trans_dash.php:854
+#: jibres/includes/languages/trans_dash.php:852
 #: jibres/includes/languages/trans_project.php:659
 msgid "Postal code"
 msgstr "کد پستی"
 
 #: dash/addons/includes/languages/trans_dash.php:869
-#: jibres/includes/languages/trans_dash.php:857
+#: jibres/includes/languages/trans_dash.php:855
 #: jibres/includes/languages/trans_project.php:662
 msgid "Name of person in this address"
 msgstr "نام شخصی که در این آدرس حضور دارد"
 
 #: dash/addons/includes/languages/trans_dash.php:870
-#: jibres/includes/languages/trans_dash.php:858
+#: jibres/includes/languages/trans_dash.php:856
 #: jibres/includes/languages/trans_project.php:351
 msgid "Choose your country"
 msgstr "کشور خود را انتخاب کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:871
-#: jibres/includes/languages/trans_dash.php:859
+#: jibres/includes/languages/trans_dash.php:857
 #: jibres/includes/languages/trans_project.php:354
 msgid "City"
 msgstr "شهر"
 
 #: dash/addons/includes/languages/trans_dash.php:872
-#: jibres/includes/languages/trans_dash.php:860
+#: jibres/includes/languages/trans_dash.php:858
 #: jibres/includes/languages/trans_project.php:355
 msgid "Select city"
 msgstr "شهر را انتخاب کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:873
-#: jibres/includes/languages/trans_dash.php:861
+#: jibres/includes/languages/trans_dash.php:859
 #: jibres/includes/languages/trans_project.php:356
 msgid "Post code"
 msgstr "کدپستی"
 
 #: dash/addons/includes/languages/trans_dash.php:874
-#: jibres/includes/languages/trans_dash.php:862
+#: jibres/includes/languages/trans_dash.php:860
 #: jibres/includes/languages/trans_project.php:663
 msgid "Title of address"
 msgstr "عنوان آدرس"
 
 #: dash/addons/includes/languages/trans_dash.php:875
-#: jibres/includes/languages/trans_dash.php:863
+#: jibres/includes/languages/trans_dash.php:861
 #: jibres/includes/languages/trans_project.php:358
 msgid "Fax"
 msgstr "فکس"
@@ -5826,7 +5833,7 @@ msgstr "فکس"
 #: dash/lib/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/lib/social/telegram/commands/step_ticketCreate.php:85
 #: dash/lib/social/telegram/commands/step_ticketCreate.php:111
-#: jibres/includes/languages/trans_dash.php:864
+#: jibres/includes/languages/trans_dash.php:862
 #: jibres/includes/languages/trans_project.php:664
 #: jibres/includes/lib/app/thirdparty/export.php:65
 #: jibres/includes/lib/app/thirdparty/export.php:66
@@ -5837,7 +5844,7 @@ msgid "Yes"
 msgstr "بلی"
 
 #: dash/addons/includes/languages/trans_dash.php:877
-#: jibres/includes/languages/trans_dash.php:865
+#: jibres/includes/languages/trans_dash.php:863
 #: jibres/includes/languages/trans_project.php:665
 #: jibres/includes/lib/app/thirdparty/export.php:65
 #: jibres/includes/lib/app/thirdparty/export.php:66
@@ -5848,172 +5855,172 @@ msgid "No"
 msgstr "خیر"
 
 #: dash/addons/includes/languages/trans_dash.php:878
-#: jibres/includes/languages/trans_dash.php:866
+#: jibres/includes/languages/trans_dash.php:864
 #: jibres/includes/languages/trans_project.php:666
 msgid "Is this a company's address?"
 msgstr "این آدرس شرکت است؟"
 
 #: dash/addons/includes/languages/trans_dash.php:879
-#: jibres/includes/languages/trans_dash.php:867
+#: jibres/includes/languages/trans_dash.php:865
 #: jibres/includes/languages/trans_project.php:529
 msgid "Company name"
 msgstr "نام شرکت"
 
 #: dash/addons/includes/languages/trans_dash.php:884
-#: jibres/includes/languages/trans_dash.php:873
+#: jibres/includes/languages/trans_dash.php:871
 msgid "Two step verification for your account is active"
 msgstr "ورود دو مرحله ای برای حساب کاربری شما فعال است"
 
 #: dash/addons/includes/languages/trans_dash.php:885
-#: jibres/includes/languages/trans_dash.php:874
+#: jibres/includes/languages/trans_dash.php:872
 msgid "To deactive it"
 msgstr "برای غیرفعال‌سازی آن"
 
 #: dash/addons/includes/languages/trans_dash.php:886
-#: jibres/includes/languages/trans_dash.php:875
+#: jibres/includes/languages/trans_dash.php:873
 msgid "Click here"
 msgstr "اینجا کلیک کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:887
-#: jibres/includes/languages/trans_dash.php:876
+#: jibres/includes/languages/trans_dash.php:874
 msgid "Two step verification for your account is not active!"
 msgstr "ورود دو مرحله ای برای حساب کاربری شما غیرفعال است"
 
 #: dash/addons/includes/languages/trans_dash.php:888
-#: jibres/includes/languages/trans_dash.php:877
+#: jibres/includes/languages/trans_dash.php:875
 msgid "To active it"
 msgstr "برای فعال‌سازی آن"
 
 #: dash/addons/includes/languages/trans_dash.php:889
-#: jibres/includes/languages/trans_dash.php:878
+#: jibres/includes/languages/trans_dash.php:876
 msgid "To change your password"
 msgstr "برای تغییر کلمه عبور خود"
 
 #: dash/addons/includes/languages/trans_dash.php:890
-#: jibres/includes/languages/trans_dash.php:879
+#: jibres/includes/languages/trans_dash.php:877
 msgid "Delete your account"
 msgstr "حذف حساب کاربری خود"
 
 #: dash/addons/includes/languages/trans_dash.php:891
-#: jibres/includes/languages/trans_dash.php:880
+#: jibres/includes/languages/trans_dash.php:878
 msgid "Password not set, enter to set it!"
 msgstr "کلمه عبور تنظیم نشده است، آن را تنظیم کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:892
-#: jibres/includes/languages/trans_dash.php:881
+#: jibres/includes/languages/trans_dash.php:879
 msgid "Terminate all other sessions"
 msgstr "مسدودسازی تمام دسترسی‌های دیگر"
 
 #: dash/addons/includes/languages/trans_dash.php:901
-#: jibres/includes/languages/trans_dash.php:900
+#: jibres/includes/languages/trans_dash.php:898
 msgid "Your signature"
 msgstr "امضا شما"
 
 #: dash/addons/includes/languages/trans_dash.php:902
-#: jibres/includes/languages/trans_dash.php:901
+#: jibres/includes/languages/trans_dash.php:899
 msgid "Write signature"
 msgstr "نوشتن امضا"
 
 #: dash/addons/includes/languages/trans_dash.php:905
-#: jibres/includes/languages/trans_dash.php:904
+#: jibres/includes/languages/trans_dash.php:902
 msgid "About you"
 msgstr "درباره شما"
 
 #: dash/addons/includes/languages/trans_dash.php:906
-#: jibres/includes/languages/trans_dash.php:905
+#: jibres/includes/languages/trans_dash.php:903
 msgid "Signature"
 msgstr "امضا"
 
 #: dash/addons/includes/languages/trans_dash.php:909
-#: jibres/includes/languages/trans_dash.php:908
+#: jibres/includes/languages/trans_dash.php:906
 msgid "YOUR API KEY"
 msgstr "کلید اتصال شما"
 
 #: dash/addons/includes/languages/trans_dash.php:910
-#: jibres/includes/languages/trans_dash.php:909
+#: jibres/includes/languages/trans_dash.php:907
 msgid "GENERATE NEW API KEY"
 msgstr "ساخت کلید اتصال جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:911
-#: jibres/includes/languages/trans_dash.php:910
+#: jibres/includes/languages/trans_dash.php:908
 msgid "Get new API KEY"
 msgstr "دریافت کلید اتصال جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:914
-#: jibres/includes/languages/trans_dash.php:913
+#: jibres/includes/languages/trans_dash.php:911
 msgid "Toggle side bar"
 msgstr "تغییر وضعیت نوار کناری"
 
 #: dash/addons/includes/languages/trans_dash.php:915
-#: jibres/includes/languages/trans_dash.php:914
+#: jibres/includes/languages/trans_dash.php:912
 msgid "You can save side bar status"
 msgstr "شما می‌توانید وضعیت نوار کناری را تغییر دهید"
 
 #: dash/addons/includes/languages/trans_dash.php:916
-#: jibres/includes/languages/trans_dash.php:915
+#: jibres/includes/languages/trans_dash.php:913
 msgid "Are your need side bar?"
 msgstr "شما نیاز به نمایش نوار کناری دارید؟"
 
 #: dash/addons/includes/languages/trans_dash.php:919
-#: jibres/includes/languages/trans_dash.php:918
+#: jibres/includes/languages/trans_dash.php:916
 msgid "Server password"
 msgstr "کلمه عبور سرور"
 
 #: dash/addons/includes/languages/trans_dash.php:926
-#: jibres/includes/languages/trans_dash.php:925
+#: jibres/includes/languages/trans_dash.php:923
 msgid "Test coding function"
 msgstr "بررسی تابع کدینگ"
 
 #: dash/addons/includes/languages/trans_dash.php:927
-#: jibres/includes/languages/trans_dash.php:926
+#: jibres/includes/languages/trans_dash.php:924
 msgid "String or Number"
 msgstr "رشته یا شماره"
 
 #: dash/addons/includes/languages/trans_dash.php:928
-#: jibres/includes/languages/trans_dash.php:927
+#: jibres/includes/languages/trans_dash.php:925
 msgid "Run"
 msgstr "اجرا"
 
 #: dash/addons/includes/languages/trans_dash.php:929
-#: jibres/includes/languages/trans_dash.php:928
+#: jibres/includes/languages/trans_dash.php:926
 msgid "Encode"
 msgstr "رمزگذاری"
 
 #: dash/addons/includes/languages/trans_dash.php:932
-#: jibres/includes/languages/trans_dash.php:931
+#: jibres/includes/languages/trans_dash.php:929
 msgid "Search in :transactionss"
 msgstr "جستجو در تراکنش‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:933
-#: jibres/includes/languages/trans_dash.php:932
+#: jibres/includes/languages/trans_dash.php:930
 #: jibres/includes/languages/trans_project.php:672
 msgid "Plus"
 msgstr "افزایش"
 
 #: dash/addons/includes/languages/trans_dash.php:934
-#: jibres/includes/languages/trans_dash.php:933
+#: jibres/includes/languages/trans_dash.php:931
 #: jibres/includes/languages/trans_project.php:673
 msgid "Minus"
 msgstr "کاهش"
 
 #: dash/addons/includes/languages/trans_dash.php:935
-#: jibres/includes/languages/trans_dash.php:934
+#: jibres/includes/languages/trans_dash.php:932
 msgid "Budget before"
 msgstr "بودجه قبل"
 
 #: dash/addons/includes/languages/trans_dash.php:936
-#: jibres/includes/languages/trans_dash.php:935
+#: jibres/includes/languages/trans_dash.php:933
 #: jibres/includes/languages/trans_project.php:633
 msgid "Budget"
 msgstr "بودجه"
 
 #: dash/addons/includes/languages/trans_dash.php:937
-#: jibres/includes/languages/trans_dash.php:936
+#: jibres/includes/languages/trans_dash.php:934
 msgid "Condition"
 msgstr "قانون"
 
 #: dash/addons/includes/languages/trans_dash.php:939
-#: jibres/includes/languages/trans_dash.php:937
+#: jibres/includes/languages/trans_dash.php:935
 msgid "Try to start with add new :transactions!"
 msgstr "با افزودن رکورد جدید تلاشی برای شروع داشته باشید!"
 
@@ -6022,218 +6029,218 @@ msgstr "با افزودن رکورد جدید تلاشی برای شروع دا�
 #: jibres/includes/database/jibres/translation.php:44
 #: jibres/includes/database/jibres/translation.php:108
 #: jibres/includes/database/jibres/translation.php:120
-#: jibres/includes/languages/trans_dash.php:940
+#: jibres/includes/languages/trans_dash.php:938
 msgid "type"
 msgstr "نوع"
 
 #: dash/addons/includes/languages/trans_dash.php:943
-#: jibres/includes/languages/trans_dash.php:941
+#: jibres/includes/languages/trans_dash.php:939
 msgid "Money"
 msgstr "پول"
 
 #: dash/addons/includes/languages/trans_dash.php:944
-#: jibres/includes/languages/trans_dash.php:942
+#: jibres/includes/languages/trans_dash.php:940
 #: jibres/includes/languages/trans_project.php:565
 msgid "Gift"
 msgstr "هدیه"
 
 #: dash/addons/includes/languages/trans_dash.php:945
-#: jibres/includes/languages/trans_dash.php:943
+#: jibres/includes/languages/trans_dash.php:941
 msgid "Transfer"
 msgstr "انتقال"
 
 #: dash/addons/includes/languages/trans_dash.php:946
-#: jibres/includes/languages/trans_dash.php:944
+#: jibres/includes/languages/trans_dash.php:942
 msgid "Prize"
 msgstr "جایزه"
 
 #: dash/addons/includes/languages/trans_dash.php:947
-#: jibres/includes/languages/trans_dash.php:945
+#: jibres/includes/languages/trans_dash.php:943
 #: jibres/includes/languages/trans_project.php:706
 msgid "Unit"
 msgstr "واحد"
 
 #: dash/addons/includes/languages/trans_dash.php:948
-#: jibres/includes/languages/trans_dash.php:946
+#: jibres/includes/languages/trans_dash.php:944
 msgid "$"
 msgstr "دلار"
 
 #: dash/addons/includes/languages/trans_dash.php:951
-#: jibres/includes/languages/trans_dash.php:949
+#: jibres/includes/languages/trans_dash.php:947
 msgid "Time zone"
 msgstr "منطقه زمانی"
 
 #: dash/addons/includes/languages/trans_dash.php:952
-#: jibres/includes/languages/trans_dash.php:950
+#: jibres/includes/languages/trans_dash.php:948
 msgid "Automatic"
 msgstr "خودکار "
 
 #: dash/addons/includes/languages/trans_dash.php:953
-#: jibres/includes/languages/trans_dash.php:951
+#: jibres/includes/languages/trans_dash.php:949
 msgid "DateTime"
 msgstr "تاریخ و زمان"
 
 #: dash/addons/includes/languages/trans_dash.php:954
-#: jibres/includes/languages/trans_dash.php:952
+#: jibres/includes/languages/trans_dash.php:950
 msgid "Time"
 msgstr "زمان"
 
 #: dash/addons/includes/languages/trans_dash.php:955
-#: jibres/includes/languages/trans_dash.php:953
+#: jibres/includes/languages/trans_dash.php:951
 msgid "Force English"
 msgstr "اجبار به انگلیسی"
 
 #: dash/addons/includes/languages/trans_dash.php:956
-#: jibres/includes/languages/trans_dash.php:954
+#: jibres/includes/languages/trans_dash.php:952
 msgid "Force Persian"
 msgstr "اجبار به فارسی"
 
 #: dash/addons/includes/languages/trans_dash.php:957
-#: jibres/includes/languages/trans_dash.php:955
+#: jibres/includes/languages/trans_dash.php:953
 msgid "Human Timing"
 msgstr "زمان بندی انسانی"
 
 #: dash/addons/includes/languages/trans_dash.php:961
-#: jibres/includes/languages/trans_dash.php:959
+#: jibres/includes/languages/trans_dash.php:957
 msgid "Database"
 msgstr "پایگاه‌داده"
 
 #: dash/addons/includes/languages/trans_dash.php:962
 #: dash/addons/includes/languages/trans_static.php:983
-#: jibres/includes/languages/trans_dash.php:960
+#: jibres/includes/languages/trans_dash.php:958
 msgid "Backup"
 msgstr "پشتیبان‌گیری"
 
 #: dash/addons/includes/languages/trans_dash.php:963
-#: jibres/includes/languages/trans_dash.php:961
+#: jibres/includes/languages/trans_dash.php:959
 msgid "Raw table"
 msgstr "جدول‌های خام"
 
 #: dash/addons/includes/languages/trans_dash.php:964
-#: jibres/includes/languages/trans_dash.php:962
+#: jibres/includes/languages/trans_dash.php:960
 msgid "Server"
 msgstr "سرور"
 
 #: dash/addons/includes/languages/trans_dash.php:965
-#: jibres/includes/languages/trans_dash.php:963
+#: jibres/includes/languages/trans_dash.php:961
 msgid "Date and time"
 msgstr "تاریخ و زمان"
 
 #: dash/addons/includes/languages/trans_dash.php:966
-#: jibres/includes/languages/trans_dash.php:964
+#: jibres/includes/languages/trans_dash.php:962
 msgid "Server information"
 msgstr "اطلاعات سرور"
 
 #: dash/addons/includes/languages/trans_dash.php:967
-#: jibres/includes/languages/trans_dash.php:965
+#: jibres/includes/languages/trans_dash.php:963
 msgid "Cronjob"
 msgstr "کرون جاب"
 
 #: dash/addons/includes/languages/trans_dash.php:968
-#: jibres/includes/languages/trans_dash.php:966
+#: jibres/includes/languages/trans_dash.php:964
 msgid "Git"
 msgstr "گیت"
 
 #: dash/addons/includes/languages/trans_dash.php:969
-#: jibres/includes/languages/trans_dash.php:967
+#: jibres/includes/languages/trans_dash.php:965
 msgid "Git status"
 msgstr "وضعیت گیت"
 
 #: dash/addons/includes/languages/trans_dash.php:971
 #: dash/addons/includes/languages/trans_static.php:160
-#: jibres/includes/languages/trans_dash.php:969
+#: jibres/includes/languages/trans_dash.php:967
 msgid "Tools"
 msgstr "ابزارها"
 
 #: dash/addons/includes/languages/trans_dash.php:973
-#: jibres/includes/languages/trans_dash.php:971
+#: jibres/includes/languages/trans_dash.php:969
 msgid "Translation tools"
 msgstr "ابزارهای ترجمه"
 
 #: dash/addons/includes/languages/trans_dash.php:976
-#: jibres/includes/languages/trans_dash.php:974
+#: jibres/includes/languages/trans_dash.php:972
 msgid "Run cronjob for this service"
 msgstr "اجرای کرون جاب برای این سرویس"
 
 #: dash/addons/includes/languages/trans_dash.php:979
-#: jibres/includes/languages/trans_dash.php:977
+#: jibres/includes/languages/trans_dash.php:975
 msgid "Show server info"
 msgstr "نمایش اطلاعات سرور"
 
 #: dash/addons/includes/languages/trans_dash.php:980
-#: jibres/includes/languages/trans_dash.php:978
+#: jibres/includes/languages/trans_dash.php:976
 msgid "Show PHP info"
 msgstr "نمایش اطلاعات پی‌اچ‌پی"
 
 #: dash/addons/includes/languages/trans_dash.php:983
-#: jibres/includes/languages/trans_dash.php:981
+#: jibres/includes/languages/trans_dash.php:979
 msgid "Backup database"
 msgstr "پشتیبان گیری پایگاه داده"
 
 #: dash/addons/includes/languages/trans_dash.php:984
-#: jibres/includes/languages/trans_dash.php:377
+#: jibres/includes/languages/trans_dash.php:375
 msgid "Back"
 msgstr "بازگشت"
 
 #: dash/addons/includes/languages/trans_dash.php:985
-#: jibres/includes/languages/trans_dash.php:982
+#: jibres/includes/languages/trans_dash.php:980
 msgid "File is empty"
 msgstr "فایل خالی است"
 
 #: dash/addons/includes/languages/trans_dash.php:986
-#: jibres/includes/languages/trans_dash.php:983
+#: jibres/includes/languages/trans_dash.php:981
 msgid "Database info"
 msgstr "اطلاعات دیتابیس"
 
 #: dash/addons/includes/languages/trans_dash.php:987
-#: jibres/includes/languages/trans_dash.php:984
+#: jibres/includes/languages/trans_dash.php:982
 msgid "Show Auto backup log file"
 msgstr "نمایش لاگ پشتیبان گیری‌های خودکار"
 
 #: dash/addons/includes/languages/trans_dash.php:988
-#: jibres/includes/languages/trans_dash.php:985
+#: jibres/includes/languages/trans_dash.php:983
 msgid "You have another database for logs"
 msgstr "شما یک دیتابیس دیگر هم برای لاگ‌ها دارید"
 
 #: dash/addons/includes/languages/trans_dash.php:989
-#: jibres/includes/languages/trans_dash.php:986
+#: jibres/includes/languages/trans_dash.php:984
 msgid "Click for create backup from log database"
 msgstr "برای پشتیبان‌گیری از دیتابیس لاگ‌ها کلیک کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:990
-#: jibres/includes/languages/trans_dash.php:987
+#: jibres/includes/languages/trans_dash.php:985
 msgid "Auto backup"
 msgstr "پشتیبان گیری خودکار"
 
 #: dash/addons/includes/languages/trans_dash.php:991
 #: dash/addons/includes/languages/trans_static.php:49
-#: dash/lib/utility/upload.php:92 jibres/includes/languages/trans_dash.php:988
+#: dash/lib/utility/upload.php:92 jibres/includes/languages/trans_dash.php:986
 msgid "MB"
 msgstr "مگابایت"
 
 #: dash/addons/includes/languages/trans_dash.php:992
-#: jibres/includes/languages/trans_dash.php:989
+#: jibres/includes/languages/trans_dash.php:987
 msgid "Start backup every"
 msgstr "شروع عملیات پشتیبان گیری هر"
 
 #: dash/addons/includes/languages/trans_dash.php:993
-#: jibres/includes/languages/trans_dash.php:990
+#: jibres/includes/languages/trans_dash.php:988
 msgid "Year"
 msgstr "سال"
 
 #: dash/addons/includes/languages/trans_dash.php:994
-#: jibres/includes/languages/trans_dash.php:991
+#: jibres/includes/languages/trans_dash.php:989
 msgid "Month"
 msgstr "ماه"
 
 #: dash/addons/includes/languages/trans_dash.php:995
-#: jibres/includes/languages/trans_dash.php:992
+#: jibres/includes/languages/trans_dash.php:990
 msgid "Week"
 msgstr "هفته"
 
 #: dash/addons/includes/languages/trans_dash.php:996
 #: dash/addons/includes/languages/trans_static.php:528
-#: jibres/includes/languages/trans_dash.php:993
+#: jibres/includes/languages/trans_dash.php:991
 msgid "Day"
 msgstr "روز"
 
@@ -6241,424 +6248,424 @@ msgstr "روز"
 #: dash/addons/includes/languages/trans_static.php:33 dash/lib/utility/human.php:31
 #: dash/lib/utility/human.php:118
 #: jibres/includes/database/jibres/translation.php:27
-#: jibres/includes/languages/trans_dash.php:994
+#: jibres/includes/languages/trans_dash.php:992
 msgid "hour"
 msgstr "ساعت"
 
 #: dash/addons/includes/languages/trans_dash.php:998
-#: jibres/includes/languages/trans_dash.php:995
+#: jibres/includes/languages/trans_dash.php:993
 msgid "Start backup at time"
 msgstr "شروع عملیات پشتیبان گیری در ساعت"
 
 #: dash/addons/includes/languages/trans_dash.php:999
-#: jibres/includes/languages/trans_dash.php:996
+#: jibres/includes/languages/trans_dash.php:994
 msgid "Life time of old backup"
 msgstr "طل عمر فایل های پشتیبان گیری قبلی"
 
 #: dash/addons/includes/languages/trans_dash.php:1000
-#: jibres/includes/languages/trans_dash.php:997
+#: jibres/includes/languages/trans_dash.php:995
 msgid "2 years"
 msgstr "دو سال"
 
 #: dash/addons/includes/languages/trans_dash.php:1001
-#: jibres/includes/languages/trans_dash.php:998
+#: jibres/includes/languages/trans_dash.php:996
 msgid "one year"
 msgstr "یک سال"
 
 #: dash/addons/includes/languages/trans_dash.php:1002
-#: jibres/includes/languages/trans_dash.php:999
+#: jibres/includes/languages/trans_dash.php:997
 msgid "6 months"
 msgstr "شش ماه"
 
 #: dash/addons/includes/languages/trans_dash.php:1003
-#: jibres/includes/languages/trans_dash.php:1000
+#: jibres/includes/languages/trans_dash.php:998
 msgid "3 months"
 msgstr "سه ماه"
 
 #: dash/addons/includes/languages/trans_dash.php:1004
-#: jibres/includes/languages/trans_dash.php:1001
+#: jibres/includes/languages/trans_dash.php:999
 msgid "2 months"
 msgstr "دو ماه"
 
 #: dash/addons/includes/languages/trans_dash.php:1005
-#: jibres/includes/languages/trans_dash.php:1002
+#: jibres/includes/languages/trans_dash.php:1000
 msgid "one month"
 msgstr "یک ماه"
 
 #: dash/addons/includes/languages/trans_dash.php:1006
-#: jibres/includes/languages/trans_dash.php:1003
+#: jibres/includes/languages/trans_dash.php:1001
 msgid "one week"
 msgstr "یک هفته"
 
 #: dash/addons/includes/languages/trans_dash.php:1007
-#: jibres/includes/languages/trans_dash.php:1004
+#: jibres/includes/languages/trans_dash.php:1002
 msgid "2 weeks"
 msgstr "۲ هفته"
 
 #: dash/addons/includes/languages/trans_dash.php:1008
-#: jibres/includes/languages/trans_dash.php:1005
+#: jibres/includes/languages/trans_dash.php:1003
 msgid "one day"
 msgstr "یک روز"
 
 #: dash/addons/includes/languages/trans_dash.php:1009
-#: jibres/includes/languages/trans_dash.php:1006
+#: jibres/includes/languages/trans_dash.php:1004
 msgid "3 days"
 msgstr "۳ روز"
 
 #: dash/addons/includes/languages/trans_dash.php:1010
-#: jibres/includes/languages/trans_dash.php:1007
+#: jibres/includes/languages/trans_dash.php:1005
 msgid "5 days"
 msgstr "۵ روز"
 
 #: dash/addons/includes/languages/trans_dash.php:1013
-#: jibres/includes/languages/trans_dash.php:1010
+#: jibres/includes/languages/trans_dash.php:1008
 msgid "Show archived"
 msgstr "نمایش بایگانی شده"
 
 #: dash/addons/includes/languages/trans_dash.php:1019
-#: jibres/includes/languages/trans_dash.php:1016
+#: jibres/includes/languages/trans_dash.php:1014
 msgid "Send every notification from every way to user"
 msgstr "ارسال هر پیامی از هر روشی به کاربر"
 
 #: dash/addons/includes/languages/trans_dash.php:1020
-#: jibres/includes/languages/trans_dash.php:1017
+#: jibres/includes/languages/trans_dash.php:1015
 msgid "Mobile or user_id"
 msgstr "موبایل یا کد کاربر"
 
 #: dash/addons/includes/languages/trans_dash.php:1021
-#: jibres/includes/languages/trans_dash.php:1018
+#: jibres/includes/languages/trans_dash.php:1016
 msgid "Find Connection way"
 msgstr "یافتن روش ارتباط"
 
 #: dash/addons/includes/languages/trans_dash.php:1022
-#: jibres/includes/languages/trans_dash.php:1019
+#: jibres/includes/languages/trans_dash.php:1017
 msgid "Inner system notification"
 msgstr "پیام داخل سیستمی"
 
 #: dash/addons/includes/languages/trans_dash.php:1025
-#: jibres/includes/languages/trans_dash.php:1022
+#: jibres/includes/languages/trans_dash.php:1020
 msgid "Translate"
 msgstr "ترجمه"
 
 #: dash/addons/includes/languages/trans_dash.php:1026
-#: jibres/includes/languages/trans_dash.php:1023
+#: jibres/includes/languages/trans_dash.php:1021
 msgid "Extract All trans func"
 msgstr "استخراج توابع ترجمه در دش و پروژه جاری"
 
 #: dash/addons/includes/languages/trans_dash.php:1027
-#: jibres/includes/languages/trans_dash.php:1024
+#: jibres/includes/languages/trans_dash.php:1022
 msgid "Extract twig trans func in current project"
 msgstr "بیرون کشیدن متن‌های قابل ترجمه توئیگ از پروژه جاری"
 
 #: dash/addons/includes/languages/trans_dash.php:1028
-#: jibres/includes/languages/trans_dash.php:1025
+#: jibres/includes/languages/trans_dash.php:1023
 msgid "Extract twig trans func in dash addons"
 msgstr "استخراج توابع ترجمه توییگ در دش"
 
 #: dash/addons/includes/languages/trans_dash.php:1029
-#: jibres/includes/languages/trans_dash.php:1026
+#: jibres/includes/languages/trans_dash.php:1024
 msgid "Extract twig trans func in dash addons and update on dash addons"
 msgstr "استخراج توابع ترجمه توییگ در دش به‌همراه بروزرسانی آن در هسته"
 
 #: dash/addons/includes/languages/trans_dash.php:1032
-#: jibres/includes/languages/trans_dash.php:1029
+#: jibres/includes/languages/trans_dash.php:1027
 msgid "Chat id or username"
 msgstr "کد گفتگو یا نام‌کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:1033
-#: jibres/includes/languages/trans_dash.php:1030
+#: jibres/includes/languages/trans_dash.php:1028
 msgid ""
 "Unique identifier for the target chat or username of the target channel (in the "
 "format @channelusername)"
 msgstr "شناسه منحصربه‌فرد برای ارسال پیام به شخص یا کانال در فرمت @نام_کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:1034
-#: jibres/includes/languages/trans_dash.php:1031
+#: jibres/includes/languages/trans_dash.php:1029
 msgid "File URL"
 msgstr "آدرس فایل"
 
 #: dash/addons/includes/languages/trans_dash.php:1035
-#: jibres/includes/languages/trans_dash.php:1032
+#: jibres/includes/languages/trans_dash.php:1030
 msgid "pass an HTTP URL as a String for Telegram to get a photo from the Internet"
 msgstr ""
 "برای دریافت یک عکس از اینترنت یک نشانی اینترنتی HTTP را به عنوان یک رشته برای "
 "تلگرام منتقل کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:1036
-#: jibres/includes/languages/trans_dash.php:1033
+#: jibres/includes/languages/trans_dash.php:1031
 msgid "Caption"
 msgstr "برچسب"
 
 #: dash/addons/includes/languages/trans_dash.php:1037
-#: jibres/includes/languages/trans_dash.php:1034
+#: jibres/includes/languages/trans_dash.php:1032
 msgid "Text of the message to be sent"
 msgstr "متن پیام ارسالی"
 
 #: dash/addons/includes/languages/trans_dash.php:1038
-#: jibres/includes/languages/trans_dash.php:1035
+#: jibres/includes/languages/trans_dash.php:1033
 msgid "Last request"
 msgstr "آخرین درخواست"
 
 #: dash/addons/includes/languages/trans_dash.php:1041
-#: jibres/includes/languages/trans_dash.php:1038
+#: jibres/includes/languages/trans_dash.php:1036
 msgid "User Detail"
 msgstr "جزئیات‌کاربر"
 
 #: dash/addons/includes/languages/trans_dash.php:1042
-#: jibres/includes/languages/trans_dash.php:1039
+#: jibres/includes/languages/trans_dash.php:1037
 msgid "Hook"
 msgstr "هوک"
 
 #: dash/addons/includes/languages/trans_dash.php:1043
-#: jibres/includes/languages/trans_dash.php:1040
+#: jibres/includes/languages/trans_dash.php:1038
 msgid "Step"
 msgstr "مرحله"
 
 #: dash/addons/includes/languages/trans_dash.php:1044
-#: jibres/includes/languages/trans_dash.php:1041
+#: jibres/includes/languages/trans_dash.php:1039
 msgid "Sended message"
 msgstr "پیام ارسال شده"
 
 #: dash/addons/includes/languages/trans_dash.php:1045
-#: jibres/includes/languages/trans_dash.php:1042
+#: jibres/includes/languages/trans_dash.php:1040
 msgid "Meta"
 msgstr "متا"
 
 #: dash/addons/includes/languages/trans_dash.php:1046
-#: jibres/includes/languages/trans_dash.php:1043
+#: jibres/includes/languages/trans_dash.php:1041
 msgid "ID"
 msgstr "شناسه"
 
 #: dash/addons/includes/languages/trans_dash.php:1047
-#: jibres/includes/languages/trans_dash.php:1044
+#: jibres/includes/languages/trans_dash.php:1042
 msgid "Telegram chatid"
 msgstr "شناسه چت تلگرام"
 
 #: dash/addons/includes/languages/trans_dash.php:1048
-#: jibres/includes/languages/trans_dash.php:1046
+#: jibres/includes/languages/trans_dash.php:1044
 msgid "Without hook"
 msgstr "بدون هوک"
 
 #: dash/addons/includes/languages/trans_dash.php:1049
-#: jibres/includes/languages/trans_dash.php:1047
+#: jibres/includes/languages/trans_dash.php:1045
 msgid "With keyboard"
 msgstr "با کیبورد"
 
 #: dash/addons/includes/languages/trans_dash.php:1050
-#: jibres/includes/languages/trans_dash.php:1048
+#: jibres/includes/languages/trans_dash.php:1046
 msgid "Without keyboard"
 msgstr "بدون کیبورد"
 
 #: dash/addons/includes/languages/trans_dash.php:1051
-#: jibres/includes/languages/trans_dash.php:1049
+#: jibres/includes/languages/trans_dash.php:1047
 msgid "Message id"
 msgstr "شناسه پیام"
 
 #: dash/addons/includes/languages/trans_dash.php:1052
-#: jibres/includes/languages/trans_dash.php:1050
+#: jibres/includes/languages/trans_dash.php:1048
 msgid "Check more detail"
 msgstr "بررسی جزئیات بیشتر"
 
 #: dash/addons/includes/languages/trans_dash.php:1053
-#: jibres/includes/languages/trans_dash.php:1051
+#: jibres/includes/languages/trans_dash.php:1049
 msgid "Without response"
 msgstr "بدون پاسخ"
 
 #: dash/addons/includes/languages/trans_dash.php:1054
-#: jibres/includes/languages/trans_dash.php:1052
+#: jibres/includes/languages/trans_dash.php:1050
 msgid "Without meta"
 msgstr "بدون متا"
 
 #: dash/addons/includes/languages/trans_dash.php:1055
-#: jibres/includes/languages/trans_dash.php:1053
+#: jibres/includes/languages/trans_dash.php:1051
 msgid "You are not starting yet!"
 msgstr "شما هنوز شروع نکردید!"
 
 #: dash/addons/includes/languages/trans_dash.php:1058
-#: jibres/includes/languages/trans_dash.php:1056
+#: jibres/includes/languages/trans_dash.php:1054
 msgid ""
 "HTTPS url to send updates to. Use an empty string to remove webhook integration"
 msgstr ""
 "آدرسی را برای به روزرسانی بفرستید. با فرستادن آدرس خالی وبهوک شما حذف خواهد شد"
 
 #: dash/addons/includes/languages/trans_dash.php:1059
-#: jibres/includes/languages/trans_dash.php:1057
+#: jibres/includes/languages/trans_dash.php:1055
 msgid "Max Connections"
 msgstr "حداکثر اتصالات"
 
 #: dash/addons/includes/languages/trans_dash.php:1060
-#: jibres/includes/languages/trans_dash.php:1058
+#: jibres/includes/languages/trans_dash.php:1056
 msgid "Defaults to 40"
 msgstr "پیش فرض ۴۰ است"
 
 #: dash/addons/includes/languages/trans_dash.php:1061
-#: jibres/includes/languages/trans_dash.php:1059
+#: jibres/includes/languages/trans_dash.php:1057
 msgid "Set Webhook"
 msgstr "تنظیم وب‌هوک"
 
 #: dash/addons/includes/languages/trans_dash.php:1064
-#: jibres/includes/languages/trans_dash.php:1062
+#: jibres/includes/languages/trans_dash.php:1060
 msgid "Webhook"
 msgstr "وب هوک"
 
 #: dash/addons/includes/languages/trans_dash.php:1071
-#: jibres/includes/languages/trans_dash.php:1069
+#: jibres/includes/languages/trans_dash.php:1067
 msgid "Add data to this file"
 msgstr "افزودن اطلاعات به این فایل"
 
 #: dash/addons/includes/languages/trans_dash.php:1078
-#: jibres/includes/languages/trans_dash.php:1076
+#: jibres/includes/languages/trans_dash.php:1074
 msgid "You can use our tools"
 msgstr "شما می‌توانید از ابزارهای ما استفاده کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:1079
-#: jibres/includes/languages/trans_dash.php:1077
+#: jibres/includes/languages/trans_dash.php:1075
 msgid "If you dont know about this page, leave it!"
 msgstr "اگر چیزی در مورد این صفحه نمی‌دانید، آن را ترک کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:1082
-#: jibres/includes/languages/trans_dash.php:1080
+#: jibres/includes/languages/trans_dash.php:1078
 msgid "Some code was changed!!!"
 msgstr "بخشی از کد ها دستگاری شده!!!"
 
 #: dash/addons/includes/languages/trans_dash.php:1083
 #: dash/addons/includes/languages/trans_static.php:7
-#: jibres/includes/languages/trans_dash.php:1081
+#: jibres/includes/languages/trans_dash.php:1079
 msgid "Dash"
 msgstr "دش"
 
 #: dash/addons/includes/languages/trans_dash.php:1084
-#: jibres/includes/languages/trans_dash.php:1082
+#: jibres/includes/languages/trans_dash.php:1080
 msgid "Uptime"
 msgstr "آپ‌تایم"
 
 #: dash/addons/includes/languages/trans_dash.php:1085
-#: jibres/includes/languages/trans_dash.php:1083
+#: jibres/includes/languages/trans_dash.php:1081
 msgid "Ram"
 msgstr "حافظه"
 
 #: dash/addons/includes/languages/trans_dash.php:1086
-#: jibres/includes/languages/trans_dash.php:1084
+#: jibres/includes/languages/trans_dash.php:1082
 msgid "Disk space"
 msgstr "مصرف دیسک"
 
 #: dash/addons/includes/languages/trans_dash.php:1087
-#: jibres/includes/languages/trans_dash.php:1085
+#: jibres/includes/languages/trans_dash.php:1083
 msgid "Disk Free space"
 msgstr "فضای خالی دیسک"
 
 #: dash/addons/includes/languages/trans_dash.php:1090
-#: jibres/includes/languages/trans_dash.php:1088
+#: jibres/includes/languages/trans_dash.php:1086
 msgid "Server live resource usage"
 msgstr "نمودار زنده از منابع مورد استفاده سرور"
 
 #: dash/addons/includes/languages/trans_dash.php:1091
-#: jibres/includes/languages/trans_dash.php:1089
+#: jibres/includes/languages/trans_dash.php:1087
 msgid "percentage"
 msgstr "درصد"
 
 #: dash/addons/includes/languages/trans_dash.php:1092
-#: jibres/includes/languages/trans_dash.php:1090
+#: jibres/includes/languages/trans_dash.php:1088
 msgid "Disk usage"
 msgstr "مصرف دیسک"
 
 #: dash/addons/includes/languages/trans_dash.php:1093
-#: jibres/includes/languages/trans_dash.php:1091
+#: jibres/includes/languages/trans_dash.php:1089
 msgid "CPU Usage"
 msgstr "مصرف پردازنده"
 
 #: dash/addons/includes/languages/trans_dash.php:1094
-#: jibres/includes/languages/trans_dash.php:1092
+#: jibres/includes/languages/trans_dash.php:1090
 msgid "Memory"
 msgstr "حافظه"
 
 #: dash/addons/includes/languages/trans_dash.php:1097
-#: jibres/includes/languages/trans_dash.php:1095
+#: jibres/includes/languages/trans_dash.php:1093
 msgid "Search in :dbtabless"
 msgstr "جستجو در :dbtabless"
 
 #: dash/addons/includes/languages/trans_dash.php:1098
-#: jibres/includes/languages/trans_dash.php:1096
+#: jibres/includes/languages/trans_dash.php:1094
 msgid "Try to start with add new :dbtables!"
 msgstr "با افزودن رکورد جدید تلاشی برای شروع داشته باشید!"
 
 #: dash/addons/includes/languages/trans_dash.php:1101
-#: jibres/includes/languages/trans_dash.php:1099
+#: jibres/includes/languages/trans_dash.php:1097
 msgid "Submit this form carefully"
 msgstr "این را با احتیاط بفشارید"
 
 #: dash/addons/includes/languages/trans_dash.php:1102
-#: jibres/includes/languages/trans_dash.php:1100
+#: jibres/includes/languages/trans_dash.php:1098
 msgid "If the git password is saved on your server"
 msgstr "اگر پسورد سرور گیت بر روی سیستم شما ذخیره است"
 
 #: dash/addons/includes/languages/trans_dash.php:1103
-#: jibres/includes/languages/trans_dash.php:1101
+#: jibres/includes/languages/trans_dash.php:1099
 msgid "Press it if you are sure!"
 msgstr "اگر مطمئن هستید، بفشارید!"
 
 #: dash/addons/includes/languages/trans_dash.php:1104
-#: jibres/includes/languages/trans_dash.php:1102
+#: jibres/includes/languages/trans_dash.php:1100
 msgid "Update All"
 msgstr "بروزرسانی همه"
 
 #: dash/addons/includes/languages/trans_dash.php:1105
-#: jibres/includes/languages/trans_dash.php:1103
+#: jibres/includes/languages/trans_dash.php:1101
 msgid "Git password"
 msgstr "پسورد گیت"
 
 #: dash/addons/includes/languages/trans_dash.php:1106
-#: jibres/includes/languages/trans_dash.php:1104
+#: jibres/includes/languages/trans_dash.php:1102
 msgid "Enter git pass"
 msgstr "کلمه عبور گیت را وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:1107
-#: jibres/includes/languages/trans_dash.php:1105
+#: jibres/includes/languages/trans_dash.php:1103
 msgid "Current Version"
 msgstr "نسخه فعلی"
 
 #: dash/addons/includes/languages/trans_dash.php:1108
-#: jibres/includes/languages/trans_dash.php:1106
+#: jibres/includes/languages/trans_dash.php:1104
 msgid "Commits"
 msgstr "کامیت‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:1109
-#: jibres/includes/languages/trans_dash.php:1107
+#: jibres/includes/languages/trans_dash.php:1105
 msgid "Do it if you know it"
 msgstr "اگر می‌دانید انجامش دهید"
 
 #: dash/addons/includes/languages/trans_dash.php:1110
-#: jibres/includes/languages/trans_dash.php:1108
+#: jibres/includes/languages/trans_dash.php:1106
 msgid "Update Dash Repository"
 msgstr "بروزرسانی مخزن دش"
 
 #: dash/addons/includes/languages/trans_dash.php:1111
-#: jibres/includes/languages/trans_dash.php:1109
+#: jibres/includes/languages/trans_dash.php:1107
 msgid "Dash Engine Location"
 msgstr "محل قرارگیری موتور دش"
 
 #: dash/addons/includes/languages/trans_dash.php:1112
-#: jibres/includes/languages/trans_dash.php:1110
+#: jibres/includes/languages/trans_dash.php:1108
 msgid "Update Repository"
 msgstr "بروزرسانی مخزن"
 
 #: dash/addons/includes/languages/trans_dash.php:1113
-#: jibres/includes/languages/trans_dash.php:1111
+#: jibres/includes/languages/trans_dash.php:1109
 msgid "Project database"
 msgstr "دیتابیس پروژه"
 
 #: dash/addons/includes/languages/trans_dash.php:1114
-#: jibres/includes/languages/trans_dash.php:1112
+#: jibres/includes/languages/trans_dash.php:1110
 msgid "Addon Database"
 msgstr "دیتابیس افزونه"
 
 #: dash/addons/includes/languages/trans_dash.php:1115
-#: jibres/includes/languages/trans_dash.php:1113
+#: jibres/includes/languages/trans_dash.php:1111
 msgid "Upgrade"
 msgstr "ارتقا"
 
 #: dash/addons/includes/languages/trans_dash.php:1116
-#: jibres/includes/languages/trans_dash.php:1114
+#: jibres/includes/languages/trans_dash.php:1112
 msgid "Backup by dump"
 msgstr "پشتیبان با دامپ"
 
@@ -12039,610 +12046,6 @@ msgstr "جزئیات بیشتر"
 msgid "This password is very simple and guessable, please use stronger password!"
 msgstr "این رمز عبور بسیار ساده و قابل حدس است، لطفا از رمز عبور قوی استفاده کنید!"
 
-#: dash/lib/utility/--payment/pay.php:43 dash/lib/utility/pay/start.php:169
-msgid "Invalid amount"
-msgstr "مقدار نامعتبر"
-
-#: dash/lib/utility/--payment/pay.php:51
-msgid "Please select a bank port"
-msgstr "لطفا پورت بانک را انتخاب کنید"
-
-#: dash/lib/utility/--payment/pay.php:71 dash/lib/utility/pay/start.php:71
-msgid "This payment is not supported in this system"
-msgstr "این درگاه پرداخت در این سرویس پشتیبانی نمی‌شود"
-
-#: dash/lib/utility/--payment/pay/asanpardakht.php:33
-#: dash/lib/utility/--payment/pay/asanpardakht.php:40
-#: dash/lib/utility/--payment/verify/asanpardakht.php:29
-#: dash/lib/utility/--payment/verify/asanpardakht.php:36
-#: dash/lib/utility/pay/api/asanpardakht/back.php:19
-#: dash/lib/utility/pay/api/asanpardakht/back.php:26
-#: dash/lib/utility/pay/api/asanpardakht/go.php:13
-#: dash/lib/utility/pay/api/asanpardakht/go.php:20
-msgid "The asanpardakht payment on this service is locked"
-msgstr "درگاه آسان پرداخت در سرویس شما قفل شده است"
-
-#: dash/lib/utility/--payment/pay/asanpardakht.php:66
-msgid "Pay by asanpardakht payment"
-msgstr "پرداخت با درگاه آسان پرداخت"
-
-#: dash/lib/utility/--payment/pay/asanpardakht.php:134
-#: dash/lib/utility/pay/api/asanpardakht/go.php:78
-msgid "Redirect to asanpardakht payment"
-msgstr "در حال انتقال به درگاه آسان پرداخت"
-
-#: dash/lib/utility/--payment/pay/asanpardakht.php:135
-#: dash/lib/utility/--payment/pay/irkish.php:124
-#: dash/lib/utility/--payment/pay/mellat.php:133
-#: dash/lib/utility/pay/api/asanpardakht/go.php:79
-#: dash/lib/utility/pay/api/irkish/go.php:74
-#: dash/lib/utility/pay/api/mellat/go.php:89
-msgid "Redirect"
-msgstr "انتقال"
-
-#: dash/lib/utility/--payment/pay/irkish.php:32
-#: dash/lib/utility/--payment/verify/irkish.php:29
-#: dash/lib/utility/pay/api/irkish/back.php:13
-#: dash/lib/utility/pay/api/irkish/go.php:13
-msgid "The irkish payment on this service is locked"
-msgstr "درگاه پرداخت ایران کیش در این سیستم تعریف نشده است"
-
-#: dash/lib/utility/--payment/pay/irkish.php:39
-#: dash/lib/utility/--payment/verify/irkish.php:36
-#: dash/lib/utility/pay/api/irkish/back.php:20
-#: dash/lib/utility/pay/api/irkish/go.php:20
-msgid "The irkish payment merchantId not set"
-msgstr "شناسه مشتری درگاه پرداخت ایران کیش تنظیم نشده است"
-
-#: dash/lib/utility/--payment/pay/irkish.php:68
-msgid "Pay by irkish payment"
-msgstr "پرداخت با درگاه پرداخت ایران کیش"
-
-#: dash/lib/utility/--payment/pay/irkish.php:123
-#: dash/lib/utility/pay/api/irkish/go.php:73
-msgid "Redirect to iran kish payment"
-msgstr "در حال انتقال به درگاه پرداخت ایران کیش"
-
-#: dash/lib/utility/--payment/pay/mellat.php:32
-#: dash/lib/utility/--payment/verify/mellat.php:29
-#: dash/lib/utility/pay/api/mellat/back.php:13
-#: dash/lib/utility/pay/api/mellat/go.php:13
-msgid "The mellat payment on this service is locked"
-msgstr "درگاه پرداخت ملت در این سیستم تعریف نشده است"
-
-#: dash/lib/utility/--payment/pay/mellat.php:39
-#: dash/lib/utility/--payment/verify/mellat.php:36
-#: dash/lib/utility/pay/api/mellat/back.php:20
-#: dash/lib/utility/pay/api/mellat/go.php:20
-msgid "The mellat payment TerminalId not set"
-msgstr "شناسه ترمینال درگاه پرداخت ملت تنظیم نشده است"
-
-#: dash/lib/utility/--payment/pay/mellat.php:46
-#: dash/lib/utility/--payment/verify/mellat.php:43
-#: dash/lib/utility/pay/api/mellat/back.php:27
-#: dash/lib/utility/pay/api/mellat/go.php:27
-msgid "The mellat payment UserName not set"
-msgstr "نام کاربری درگاه پرداخت ملت تنظیم نشده است"
-
-#: dash/lib/utility/--payment/pay/mellat.php:77
-msgid "Pay by mellat payment"
-msgstr "پرداخت با درگاه بانک ملت"
-
-#: dash/lib/utility/--payment/pay/mellat.php:132
-#: dash/lib/utility/pay/api/mellat/go.php:88
-msgid "Redirect to mellat payment"
-msgstr "در حال انتقال به درگاه پرداخت ملت"
-
-#: dash/lib/utility/--payment/pay/parsian.php:33
-#: dash/lib/utility/--payment/verify/parsian.php:29
-#: dash/lib/utility/pay/api/parsian/back.php:13
-#: dash/lib/utility/pay/api/parsian/go.php:13
-msgid "The parsian payment on this service is locked"
-msgstr "پرداخت با پارسیان در حال حاضر قفل است"
-
-#: dash/lib/utility/--payment/pay/parsian.php:40
-#: dash/lib/utility/--payment/verify/parsian.php:36
-#: dash/lib/utility/pay/api/parsian/back.php:20
-#: dash/lib/utility/pay/api/parsian/go.php:20
-msgid "The parsian payment LoginAccount not set"
-msgstr "حساب کاربری لاگین برای پرداخت با پارسیان تنظیم نشده است"
-
-#: dash/lib/utility/--payment/pay/parsian.php:64
-msgid "Pay by parsian payment"
-msgstr "پرداخت با پارسیان"
-
-#: dash/lib/utility/--payment/pay/parsian.php:120
-#: dash/lib/utility/--payment/verify/parsian.php:52
-#: dash/lib/utility/pay/api/parsian/back.php:37
-#: dash/lib/utility/pay/api/parsian/go.php:80
-msgid "The parsian payment Token not set"
-msgstr "توکن برای پرداخت با پارسیان تنظیم نشده است"
-
-#: dash/lib/utility/--payment/pay/payir.php:32
-#: dash/lib/utility/--payment/verify/payir.php:29
-#: dash/lib/utility/pay/api/payir/back.php:13
-#: dash/lib/utility/pay/api/payir/go.php:13
-msgid "The payir payment on this service is locked"
-msgstr "درگاه پی.آی‌آر در سرویس شما قفل شده است"
-
-#: dash/lib/utility/--payment/pay/payir.php:39
-#: dash/lib/utility/--payment/verify/payir.php:36
-#: dash/lib/utility/pay/api/payir/back.php:20
-#: dash/lib/utility/pay/api/payir/go.php:20
-msgid "The payir payment api not set"
-msgstr "کلید اتصال به درگاه پرداخت یافت نشد"
-
-#: dash/lib/utility/--payment/pay/payir.php:63
-msgid "Pay by payir payment"
-msgstr "پرداخت با پی.آی‌آر"
-
-#: dash/lib/utility/--payment/pay/zarinpal.php:32
-#: dash/lib/utility/--payment/verify/zarinpal.php:35
-#: dash/lib/utility/pay/api/zarinpal/back.php:18
-#: dash/lib/utility/pay/api/zarinpal/go.php:13
-msgid "The zarinpal payment on this service is locked"
-msgstr "پرداخت با زرین پال در حال حاضر قفل است"
-
-#: dash/lib/utility/--payment/pay/zarinpal.php:39
-#: dash/lib/utility/--payment/verify/zarinpal.php:42
-#: dash/lib/utility/pay/api/zarinpal/back.php:25
-#: dash/lib/utility/pay/api/zarinpal/go.php:20
-msgid "The zarinpal payment MerchantID not set"
-msgstr "کد مرچنت برای پرداخت با زرین پال تنظیم نشده است"
-
-#: dash/lib/utility/--payment/pay/zarinpal.php:76
-msgid "Pay by zarinpal payment"
-msgstr "پرداخت با زرین‌پال"
-
-#: dash/lib/utility/--payment/pay/zarinpal.php:133
-#: dash/lib/utility/pay/api/zarinpal/go.php:85
-msgid "Zarinpal payment Authority not found"
-msgstr "اعتبارسنجی برای پرداخت با زرین پال یافت نشد"
-
-#: dash/lib/utility/--payment/payment/asanpardakht.php:54
-#: dash/lib/utility/pay/api/asanpardakht/bank.php:34
-msgid "Can not connect to asanpardakht gateway. Install it!"
-msgstr "نمی توانیم به درگاه آسان پرداخت متصل شویم. آن را نصب کنید!"
-
-#: dash/lib/utility/--payment/payment/asanpardakht.php:96
-#: dash/lib/utility/pay/api/asanpardakht/bank.php:75
-msgid "Error in payment code :result"
-msgstr "خطا در درگاه پرداخت با کد :result"
-
-#: dash/lib/utility/--payment/payment/asanpardakht.php:104
-#: dash/lib/utility/pay/api/asanpardakht/bank.php:83
-msgid "Error in payment (have not result)"
-msgstr "خطا در درگاه پرداخت - هیچ پاسخی گرفته نشد"
-
-#: dash/lib/utility/--payment/payment/asanpardakht.php:111
-#: dash/lib/utility/--payment/payment/irkish.php:75
-#: dash/lib/utility/--payment/payment/irkish.php:137
-#: dash/lib/utility/--payment/payment/mellat.php:78
-#: dash/lib/utility/--payment/payment/mellat.php:136
-#: dash/lib/utility/--payment/payment/parsian.php:82
-#: dash/lib/utility/--payment/payment/parsian.php:146
-#: dash/lib/utility/--payment/payment/parsian.php:199
-#: dash/lib/utility/--payment/payment/zarinpal.php:63
-#: dash/lib/utility/--payment/payment/zarinpal.php:113
-#: dash/lib/utility/pay/api/asanpardakht/bank.php:90
-#: dash/lib/utility/pay/api/irkish/bank.php:57
-#: dash/lib/utility/pay/api/irkish/bank.php:110
-#: dash/lib/utility/pay/api/mellat/bank.php:56
-#: dash/lib/utility/pay/api/mellat/bank.php:108
-#: dash/lib/utility/pay/api/parsian/bank.php:55
-#: dash/lib/utility/pay/api/parsian/bank.php:100
-#: dash/lib/utility/pay/api/parsian/bank.php:143
-#: dash/lib/utility/pay/api/zarinpal/bank.php:51
-#: dash/lib/utility/pay/api/zarinpal/bank.php:91
-msgid "Error in load web services"
-msgstr "خطا در بارگذاری وب سرویس‌ها"
-
-#: dash/lib/utility/--payment/payment/irkish.php:42
-#: dash/lib/utility/pay/api/irkish/bank.php:22
-msgid "Can not connect to irkish gateway. Install it!"
-msgstr "نمی‌توانیم به درگاه پرداخت ایران کیش متصل شویم. آن را نصب کنید!"
-
-#: dash/lib/utility/--payment/payment/irkish.php:68
-#: dash/lib/utility/pay/api/irkish/bank.php:50
-msgid "Error in connecting to bank service"
-msgstr "خطا در برقراری ارتباط با سرویس دهنده بانک"
-
-#: dash/lib/utility/--payment/payment/irkish.php:190
-#: dash/lib/utility/--payment/payment/irkish.php:194
-#: dash/lib/utility/--payment/payment/mellat.php:204
-#: dash/lib/utility/--payment/payment/parsian.php:325
-#: dash/lib/utility/--payment/payment/parsian.php:330
-#: dash/lib/utility/pay/api/irkish/bank.php:163
-#: dash/lib/utility/pay/api/irkish/bank.php:167
-#: dash/lib/utility/pay/api/mellat/bank.php:176
-#: dash/lib/utility/pay/api/parsian/bank.php:269
-#: dash/lib/utility/pay/api/parsian/bank.php:274
-msgid "Unkown payment error"
-msgstr "خطای ناشناس در پرداخت"
-
-#: dash/lib/utility/--payment/payment/mellat.php:42
-#: dash/lib/utility/pay/api/mellat/bank.php:18
-msgid "Can not connect to mellat gateway. Install it!"
-msgstr "نمی‌توانیم به درگاه پرداخت ملت متصل شویم. آن را نصب کنید!"
-
-#: dash/lib/utility/--payment/payment/mellat.php:151
-#: dash/lib/utility/pay/api/mellat/bank.php:123
-msgid "Transaction Approved"
-msgstr "تراکنش تایید شده است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:152
-#: dash/lib/utility/pay/api/mellat/bank.php:124
-msgid "Invalid Card Number"
-msgstr "شماره کارت نامعتبر است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:153
-#: dash/lib/utility/pay/api/mellat/bank.php:125
-msgid "No Sufficient Funds"
-msgstr "بدون پول کافی"
-
-#: dash/lib/utility/--payment/payment/mellat.php:154
-#: dash/lib/utility/pay/api/mellat/bank.php:126
-msgid "Incorrect Pin"
-msgstr "پین نادرست"
-
-#: dash/lib/utility/--payment/payment/mellat.php:155
-#: dash/lib/utility/pay/api/mellat/bank.php:127
-msgid "Allowable Number Of Pin Tries Exceeded"
-msgstr "تعداد قابل قبولی از پین تلاش می کند بیش از"
-
-#: dash/lib/utility/--payment/payment/mellat.php:156
-#: dash/lib/utility/pay/api/mellat/bank.php:128
-msgid "Card Not Effective"
-msgstr "کارت موثر نیست"
-
-#: dash/lib/utility/--payment/payment/mellat.php:157
-#: dash/lib/utility/pay/api/mellat/bank.php:129
-msgid "Exceeds Withdrawal Frequency Limit"
-msgstr "بیش از حد فرکانس خروج"
-
-#: dash/lib/utility/--payment/payment/mellat.php:158
-#: dash/lib/utility/pay/api/mellat/bank.php:130
-msgid "Customer Cancellation"
-msgstr "لغو مشتری"
-
-#: dash/lib/utility/--payment/payment/mellat.php:159
-#: dash/lib/utility/pay/api/mellat/bank.php:131
-msgid "Expired Card"
-msgstr "کارت خاتمه یافته"
-
-#: dash/lib/utility/--payment/payment/mellat.php:160
-#: dash/lib/utility/pay/api/mellat/bank.php:132
-msgid "Exceeds Withdrawal Amount Limit"
-msgstr "حد مجاز بازپرداخت بیشتر است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:161
-#: dash/lib/utility/pay/api/mellat/bank.php:133
-msgid "No Such Issuer"
-msgstr "چنین صادر کننده ای وجود ندارد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:162
-#: dash/lib/utility/pay/api/mellat/bank.php:134
-msgid "Card Switch Internal Error"
-msgstr "کارت سوئیچ داخلی خطا"
-
-#: dash/lib/utility/--payment/payment/mellat.php:163
-#: dash/lib/utility/pay/api/mellat/bank.php:135
-msgid "Issuer Or Switch Is Inoperative"
-msgstr "صادر کننده یا سوئیچ نامناسب است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:164
-#: dash/lib/utility/pay/api/mellat/bank.php:136
-msgid "Transaction Not Permitted To Card Holder"
-msgstr "تراکنش به دارنده کارت مجاز نمی باشد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:165
-#: dash/lib/utility/pay/api/mellat/bank.php:137
-msgid "Invalid Merchant"
-msgstr "Merchant نامعتبر است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:166
-#: dash/lib/utility/pay/api/mellat/bank.php:138
-msgid "Security Violation"
-msgstr "نقض امنیتی"
-
-#: dash/lib/utility/--payment/payment/mellat.php:167
-#: dash/lib/utility/pay/api/mellat/bank.php:139
-msgid "Invalid User Or Password"
-msgstr "کاربر یا گذرواژه نامعتبر است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:168
-#: dash/lib/utility/pay/api/mellat/bank.php:140
-msgid "Invalid Amount"
-msgstr "مقدار نامعتبر"
-
-#: dash/lib/utility/--payment/payment/mellat.php:169
-#: dash/lib/utility/pay/api/mellat/bank.php:141
-msgid "Invalid Response"
-msgstr "پاسخ نامعتبر"
-
-#: dash/lib/utility/--payment/payment/mellat.php:170
-#: dash/lib/utility/pay/api/mellat/bank.php:142
-msgid "Format Error"
-msgstr "خطای قالب"
-
-#: dash/lib/utility/--payment/payment/mellat.php:171
-#: dash/lib/utility/pay/api/mellat/bank.php:143
-msgid "No Investment Account"
-msgstr "حساب سرمایه گذاری ندارد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:172
-#: dash/lib/utility/pay/api/mellat/bank.php:144
-msgid "System Internal Error"
-msgstr "خطای داخلی سیستم"
-
-#: dash/lib/utility/--payment/payment/mellat.php:173
-#: dash/lib/utility/pay/api/mellat/bank.php:145
-msgid "Invalid Business Date"
-msgstr "تاریخ کسب و کار نامعتبر است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:174
-#: dash/lib/utility/pay/api/mellat/bank.php:146
-msgid "Duplicate Order Id"
-msgstr "شناسه سفارش تکراری"
-
-#: dash/lib/utility/--payment/payment/mellat.php:175
-#: dash/lib/utility/pay/api/mellat/bank.php:147
-msgid "Sale Transaction Not Found"
-msgstr "معامله فروش یافت نشد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:176
-#: dash/lib/utility/pay/api/mellat/bank.php:148
-msgid "Duplicate Verify"
-msgstr "تکثیر تأیید"
-
-#: dash/lib/utility/--payment/payment/mellat.php:177
-#: dash/lib/utility/pay/api/mellat/bank.php:149
-msgid "Verify Transaction Not Found"
-msgstr "تأیید معامله یافت نشد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:178
-#: dash/lib/utility/pay/api/mellat/bank.php:150
-msgid "Transaction Has Been Settled"
-msgstr "معامله صورت گرفته است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:179
-#: dash/lib/utility/pay/api/mellat/bank.php:151
-msgid "Transaction Has Not Been Settled"
-msgstr "معامله انجام نشده است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:180
-#: dash/lib/utility/pay/api/mellat/bank.php:152
-msgid "Settle Transaction Not Found"
-msgstr "معامله معامله پیدا نشد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:181
-#: dash/lib/utility/pay/api/mellat/bank.php:153
-msgid "Transaction Has Been Reversed"
-msgstr "معامله معکوس شده است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:182
-#: dash/lib/utility/pay/api/mellat/bank.php:154
-msgid "Refund Transaction Not Found"
-msgstr "معامله بازپرداخت یافت نشد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:183
-#: dash/lib/utility/pay/api/mellat/bank.php:155
-msgid "Bill Digit Incorrect"
-msgstr "بیل سیگنال اشتباه است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:184
-#: dash/lib/utility/pay/api/mellat/bank.php:156
-msgid "Payment Digit Incorrect"
-msgstr "سیگنال پرداخت اشتباه است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:185
-#: dash/lib/utility/pay/api/mellat/bank.php:157
-msgid "Bill Organization Not Valid"
-msgstr "سازمان بیل معتبر نیست"
-
-#: dash/lib/utility/--payment/payment/mellat.php:186
-#: dash/lib/utility/pay/api/mellat/bank.php:158
-msgid "Session Timeout"
-msgstr "مدت زمان جلسه"
-
-#: dash/lib/utility/--payment/payment/mellat.php:187
-#: dash/lib/utility/pay/api/mellat/bank.php:159
-msgid "Data Access Exception"
-msgstr "استثناء دسترسی به داده ها"
-
-#: dash/lib/utility/--payment/payment/mellat.php:188
-#: dash/lib/utility/pay/api/mellat/bank.php:160
-msgid "Payer Id Is Invalid"
-msgstr "شناسه پرداخت نامعتبر است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:189
-#: dash/lib/utility/pay/api/mellat/bank.php:161
-msgid "Customer Not Found"
-msgstr "مشتری یافت نشد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:190
-#: dash/lib/utility/pay/api/mellat/bank.php:162
-msgid "Try Count Exceeded"
-msgstr "سعی کنید تعداد بیش از حد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:191
-#: dash/lib/utility/pay/api/mellat/bank.php:163
-msgid "Invalid IP"
-msgstr "IP نامعتبر است"
-
-#: dash/lib/utility/--payment/payment/mellat.php:192
-#: dash/lib/utility/pay/api/mellat/bank.php:164
-msgid "Duplicate Transmission"
-msgstr "انتقال تکراری"
-
-#: dash/lib/utility/--payment/payment/mellat.php:193
-#: dash/lib/utility/pay/api/mellat/bank.php:165
-msgid "Original Transaction Not Found"
-msgstr "معامله اصلی یافت نشد"
-
-#: dash/lib/utility/--payment/payment/mellat.php:194
-#: dash/lib/utility/pay/api/mellat/bank.php:166
-msgid "Invalid Transaction"
-msgstr "معامله نامعتبر"
-
-#: dash/lib/utility/--payment/payment/mellat.php:195
-#: dash/lib/utility/pay/api/mellat/bank.php:167
-msgid "Error In Settle"
-msgstr "خطا در حل و فصل"
-
-#: dash/lib/utility/--payment/payment/parsian.php:42
-#: dash/lib/utility/pay/api/parsian/bank.php:16
-msgid "Can not connect to parsian gateway. Install it!"
-msgstr "امکان اتصال به درگاه بانک پارسیان نیست. نصبش کنید!"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:31
-#: dash/lib/utility/pay/api/zarinpal/bank.php:19
-msgid "Can not connect to zarinpal gateway. Install it!"
-msgstr "ناتوان در اتصال به درگاه زرین پال. نصبش کنید!"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:131
-#: dash/lib/utility/pay/api/zarinpal/bank.php:109
-msgid "The submited inforamation are incomplete."
-msgstr "اطلاعات وارد شده ناقص است."
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:132
-#: dash/lib/utility/pay/api/zarinpal/bank.php:110
-msgid "IP or merchant code of the host is incorrect"
-msgstr "آی پی یا کد مرچنت میزبان اشتباه است"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:133
-#: dash/lib/utility/pay/api/zarinpal/bank.php:111
-msgid "Due to Shaparak's limitations, It's impossible to pay the specified amount"
-msgstr "به دلیل محدودیت‌های شاپرک، امکان پرداخت این مقدار وجود ندارد"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:134
-#: dash/lib/utility/pay/api/zarinpal/bank.php:112
-msgid "The host level is below silver level"
-msgstr "سطح میزبان پایین‌تر از سطح نقره‌ای است"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:135
-#: dash/lib/utility/pay/api/zarinpal/bank.php:113
-msgid "Nothing found for the specified request"
-msgstr "برای درخواست مورد نظر چیزی یافت نشد"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:136
-#: dash/lib/utility/pay/api/zarinpal/bank.php:114
-msgid "It's impossible to edit the request"
-msgstr "ویرایش درخواست امکان پذیر نیست"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:137
-#: dash/lib/utility/pay/api/zarinpal/bank.php:115
-msgid "No financial operation found for this transaction"
-msgstr "هیچ عملیات مالی برای این تراکنش یافت نشد"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:138
-#: dash/lib/utility/pay/api/zarinpal/bank.php:116
-msgid "Transaction faild"
-msgstr "تراکنش با خطا مواجه شد"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:139
-#: dash/lib/utility/pay/api/zarinpal/bank.php:117
-msgid "The specified transaction amount does not match with the payed amount"
-msgstr "میزان تراکنش مشخص شده با مقدار پرداخت شده یکسان نیست"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:140
-#: dash/lib/utility/pay/api/zarinpal/bank.php:118
-msgid "Highest amount of transaction is passed as a result of number or amount"
-msgstr "در نتیجه مقدار یا تعداد، بالاترین میزان تراکنش رد شده است"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:141
-#: dash/lib/utility/pay/api/zarinpal/bank.php:119
-msgid "Access unavilable to method"
-msgstr "دسترسی به متد امکان‌پذیر نیست"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:142
-#: dash/lib/utility/pay/api/zarinpal/bank.php:120
-msgid "Invalid information is sent for AdditionalData"
-msgstr "اطلاعات نامعتبری برای AdditionalData ارسال شده است"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:143
-#: dash/lib/utility/pay/api/zarinpal/bank.php:121
-msgid "Valid lifespan of ID must be between 30 minutes to 45 days"
-msgstr "طول عمر شناسه باید بین ۳۰ دقیقه تا ۴۵ روز باشد"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:144
-#: dash/lib/utility/pay/api/zarinpal/bank.php:122
-msgid "The request is archived"
-msgstr "درخواست بایگانی شد"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:145
-#: dash/lib/utility/pay/api/zarinpal/bank.php:123
-msgid "Operation was successfully done"
-msgstr "عملیات با موفقیت انجام شد"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:146
-#: dash/lib/utility/pay/api/zarinpal/bank.php:124
-msgid ""
-"Payment operation was successfull and PatmentVerification of the transaction has "
-"already done"
-msgstr "عملیات پرداخت موفقیت آمیز بوده است و تأیید پرداخت قبلا انجام شده است"
-
-#: dash/lib/utility/--payment/payment/zarinpal.php:147
-#: dash/lib/utility/pay/api/zarinpal/bank.php:125
-msgid "The error code is :code"
-msgstr "خطا در درگاه پرداخت با کد :code"
-
-#: dash/lib/utility/--payment/verify/asanpardakht.php:67
-#: dash/lib/utility/--payment/verify/irkish.php:70
-#: dash/lib/utility/--payment/verify/mellat.php:75
-#: dash/lib/utility/--payment/verify/parsian.php:63
-#: dash/lib/utility/--payment/verify/payir.php:62
-#: dash/lib/utility/--payment/verify/zarinpal.php:59
-#: dash/lib/utility/pay/api/asanpardakht/back.php:56
-#: dash/lib/utility/pay/api/irkish/back.php:55
-#: dash/lib/utility/pay/api/mellat/back.php:59
-#: dash/lib/utility/pay/api/parsian/back.php:48
-#: dash/lib/utility/pay/api/payir/back.php:49
-#: dash/lib/utility/pay/api/zarinpal/back.php:40
-msgid "Your session is lost! We can not find your transaction"
-msgstr "اطلاعات سشن از دست رفته است! ما نمی‌توانیم تراکنش شما را بیابیم"
-
-#: dash/lib/utility/--payment/verify/asanpardakht.php:93
-#: dash/lib/utility/--payment/verify/asanpardakht.php:100
-#: dash/lib/utility/--payment/verify/irkish.php:90
-#: dash/lib/utility/--payment/verify/irkish.php:97
-#: dash/lib/utility/--payment/verify/mellat.php:98
-#: dash/lib/utility/--payment/verify/parsian.php:90
-#: dash/lib/utility/--payment/verify/parsian.php:97
-#: dash/lib/utility/--payment/verify/payir.php:79
-#: dash/lib/utility/--payment/verify/payir.php:139
-#: dash/lib/utility/--payment/verify/zarinpal.php:81
-#: dash/lib/utility/pay/api/asanpardakht/back.php:70
-#: dash/lib/utility/pay/api/asanpardakht/back.php:77
-#: dash/lib/utility/pay/api/irkish/back.php:71
-#: dash/lib/utility/pay/api/mellat/back.php:78
-#: dash/lib/utility/pay/api/parsian/back.php:65
-#: dash/lib/utility/pay/api/parsian/back.php:72
-#: dash/lib/utility/pay/api/payir/back.php:67
-#: dash/lib/utility/pay/api/payir/back.php:96
-msgid "Your session is lost! We can not find amount"
-msgstr "اطلاعات سشن از دست رفته است! ما نمی‌توانیم مبلغ تراکنش شما را بیابیم"
-
-#: dash/lib/utility/--payment/verify/irkish.php:52
-#: dash/lib/utility/pay/api/irkish/back.php:37
-msgid "The irkish payment token not set"
-msgstr "کد احراز هویت ایران کیش یافت نشد"
-
-#: dash/lib/utility/--payment/verify/irkish.php:59
-#: dash/lib/utility/pay/api/irkish/back.php:44
-msgid "The irkish payment resultCode not set"
-msgstr "شماره کد احراز هویت ایران کیش یافت نشد"
-
-#: dash/lib/utility/--payment/verify/mellat.php:64
-#: dash/lib/utility/pay/api/mellat/back.php:48
-msgid "The mellat payment RefId not set"
-msgstr "ارجاع دهنده درگاه پرداخت ملت تنظیم نشده است"
-
-#: dash/lib/utility/--payment/verify/payir.php:51
-#: dash/lib/utility/pay/api/payir/back.php:36
-msgid "The payir payment transId not set"
-msgstr "خطا در درگاه پرداخت - شناسه تراکنش یافت نشد"
-
 #: dash/lib/utility/cloudflare.php:236
 msgid "The api Cloudflare opration success"
 msgstr "عملیات کلادفلر از طریق ای‌پی‌آی با موفقیت به انجام رسید"
@@ -12748,6 +12151,434 @@ msgstr "صفحه :current از :total"
 msgid "Show record :min to :max of :total"
 msgstr "نمایش رکورد :min تا :max از :total"
 
+#: dash/lib/utility/pay/api/asanpardakht/back.php:19
+#: dash/lib/utility/pay/api/asanpardakht/back.php:26
+#: dash/lib/utility/pay/api/asanpardakht/go.php:13
+#: dash/lib/utility/pay/api/asanpardakht/go.php:20
+msgid "The asanpardakht payment on this service is locked"
+msgstr "درگاه آسان پرداخت در سرویس شما قفل شده است"
+
+#: dash/lib/utility/pay/api/asanpardakht/back.php:56
+#: dash/lib/utility/pay/api/irkish/back.php:55
+#: dash/lib/utility/pay/api/mellat/back.php:59
+#: dash/lib/utility/pay/api/parsian/back.php:48
+#: dash/lib/utility/pay/api/payir/back.php:49
+#: dash/lib/utility/pay/api/zarinpal/back.php:40
+msgid "Your session is lost! We can not find your transaction"
+msgstr "اطلاعات سشن از دست رفته است! ما نمی‌توانیم تراکنش شما را بیابیم"
+
+#: dash/lib/utility/pay/api/asanpardakht/back.php:70
+#: dash/lib/utility/pay/api/asanpardakht/back.php:77
+#: dash/lib/utility/pay/api/irkish/back.php:71
+#: dash/lib/utility/pay/api/mellat/back.php:78
+#: dash/lib/utility/pay/api/parsian/back.php:65
+#: dash/lib/utility/pay/api/parsian/back.php:72
+#: dash/lib/utility/pay/api/payir/back.php:67
+#: dash/lib/utility/pay/api/payir/back.php:96
+msgid "Your session is lost! We can not find amount"
+msgstr "اطلاعات سشن از دست رفته است! ما نمی‌توانیم مبلغ تراکنش شما را بیابیم"
+
+#: dash/lib/utility/pay/api/asanpardakht/bank.php:34
+msgid "Can not connect to asanpardakht gateway. Install it!"
+msgstr "نمی توانیم به درگاه آسان پرداخت متصل شویم. آن را نصب کنید!"
+
+#: dash/lib/utility/pay/api/asanpardakht/bank.php:75
+msgid "Error in payment code :result"
+msgstr "خطا در درگاه پرداخت با کد :result"
+
+#: dash/lib/utility/pay/api/asanpardakht/bank.php:83
+msgid "Error in payment (have not result)"
+msgstr "خطا در درگاه پرداخت - هیچ پاسخی گرفته نشد"
+
+#: dash/lib/utility/pay/api/asanpardakht/bank.php:90
+#: dash/lib/utility/pay/api/irkish/bank.php:57
+#: dash/lib/utility/pay/api/irkish/bank.php:110
+#: dash/lib/utility/pay/api/mellat/bank.php:56
+#: dash/lib/utility/pay/api/mellat/bank.php:108
+#: dash/lib/utility/pay/api/parsian/bank.php:55
+#: dash/lib/utility/pay/api/parsian/bank.php:100
+#: dash/lib/utility/pay/api/parsian/bank.php:143
+#: dash/lib/utility/pay/api/zarinpal/bank.php:51
+#: dash/lib/utility/pay/api/zarinpal/bank.php:91
+msgid "Error in load web services"
+msgstr "خطا در بارگذاری وب سرویس‌ها"
+
+#: dash/lib/utility/pay/api/asanpardakht/go.php:78
+msgid "Redirect to asanpardakht payment"
+msgstr "در حال انتقال به درگاه آسان پرداخت"
+
+#: dash/lib/utility/pay/api/asanpardakht/go.php:79
+#: dash/lib/utility/pay/api/irkish/go.php:74
+#: dash/lib/utility/pay/api/mellat/go.php:89
+msgid "Redirect"
+msgstr "انتقال"
+
+#: dash/lib/utility/pay/api/irkish/back.php:13
+#: dash/lib/utility/pay/api/irkish/go.php:13
+msgid "The irkish payment on this service is locked"
+msgstr "درگاه پرداخت ایران کیش در این سیستم تعریف نشده است"
+
+#: dash/lib/utility/pay/api/irkish/back.php:20
+#: dash/lib/utility/pay/api/irkish/go.php:20
+msgid "The irkish payment merchantId not set"
+msgstr "شناسه مشتری درگاه پرداخت ایران کیش تنظیم نشده است"
+
+#: dash/lib/utility/pay/api/irkish/back.php:37
+msgid "The irkish payment token not set"
+msgstr "کد احراز هویت ایران کیش یافت نشد"
+
+#: dash/lib/utility/pay/api/irkish/back.php:44
+msgid "The irkish payment resultCode not set"
+msgstr "شماره کد احراز هویت ایران کیش یافت نشد"
+
+#: dash/lib/utility/pay/api/irkish/bank.php:22
+msgid "Can not connect to irkish gateway. Install it!"
+msgstr "نمی‌توانیم به درگاه پرداخت ایران کیش متصل شویم. آن را نصب کنید!"
+
+#: dash/lib/utility/pay/api/irkish/bank.php:50
+msgid "Error in connecting to bank service"
+msgstr "خطا در برقراری ارتباط با سرویس دهنده بانک"
+
+#: dash/lib/utility/pay/api/irkish/bank.php:163
+#: dash/lib/utility/pay/api/irkish/bank.php:167
+#: dash/lib/utility/pay/api/mellat/bank.php:176
+#: dash/lib/utility/pay/api/parsian/bank.php:269
+#: dash/lib/utility/pay/api/parsian/bank.php:274
+msgid "Unkown payment error"
+msgstr "خطای ناشناس در پرداخت"
+
+#: dash/lib/utility/pay/api/irkish/go.php:73
+msgid "Redirect to iran kish payment"
+msgstr "در حال انتقال به درگاه پرداخت ایران کیش"
+
+#: dash/lib/utility/pay/api/mellat/back.php:13
+#: dash/lib/utility/pay/api/mellat/go.php:13
+msgid "The mellat payment on this service is locked"
+msgstr "درگاه پرداخت ملت در این سیستم تعریف نشده است"
+
+#: dash/lib/utility/pay/api/mellat/back.php:20
+#: dash/lib/utility/pay/api/mellat/go.php:20
+msgid "The mellat payment TerminalId not set"
+msgstr "شناسه ترمینال درگاه پرداخت ملت تنظیم نشده است"
+
+#: dash/lib/utility/pay/api/mellat/back.php:27
+#: dash/lib/utility/pay/api/mellat/go.php:27
+msgid "The mellat payment UserName not set"
+msgstr "نام کاربری درگاه پرداخت ملت تنظیم نشده است"
+
+#: dash/lib/utility/pay/api/mellat/back.php:48
+msgid "The mellat payment RefId not set"
+msgstr "ارجاع دهنده درگاه پرداخت ملت تنظیم نشده است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:18
+msgid "Can not connect to mellat gateway. Install it!"
+msgstr "نمی‌توانیم به درگاه پرداخت ملت متصل شویم. آن را نصب کنید!"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:123
+msgid "Transaction Approved"
+msgstr "تراکنش تایید شده است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:124
+msgid "Invalid Card Number"
+msgstr "شماره کارت نامعتبر است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:125
+msgid "No Sufficient Funds"
+msgstr "بدون پول کافی"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:126
+msgid "Incorrect Pin"
+msgstr "پین نادرست"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:127
+msgid "Allowable Number Of Pin Tries Exceeded"
+msgstr "تعداد قابل قبولی از پین تلاش می کند بیش از"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:128
+msgid "Card Not Effective"
+msgstr "کارت موثر نیست"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:129
+msgid "Exceeds Withdrawal Frequency Limit"
+msgstr "بیش از حد فرکانس خروج"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:130
+msgid "Customer Cancellation"
+msgstr "لغو مشتری"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:131
+msgid "Expired Card"
+msgstr "کارت خاتمه یافته"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:132
+msgid "Exceeds Withdrawal Amount Limit"
+msgstr "حد مجاز بازپرداخت بیشتر است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:133
+msgid "No Such Issuer"
+msgstr "چنین صادر کننده ای وجود ندارد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:134
+msgid "Card Switch Internal Error"
+msgstr "کارت سوئیچ داخلی خطا"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:135
+msgid "Issuer Or Switch Is Inoperative"
+msgstr "صادر کننده یا سوئیچ نامناسب است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:136
+msgid "Transaction Not Permitted To Card Holder"
+msgstr "تراکنش به دارنده کارت مجاز نمی باشد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:137
+msgid "Invalid Merchant"
+msgstr "Merchant نامعتبر است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:138
+msgid "Security Violation"
+msgstr "نقض امنیتی"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:139
+msgid "Invalid User Or Password"
+msgstr "کاربر یا گذرواژه نامعتبر است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:140
+msgid "Invalid Amount"
+msgstr "مقدار نامعتبر"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:141
+msgid "Invalid Response"
+msgstr "پاسخ نامعتبر"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:142
+msgid "Format Error"
+msgstr "خطای قالب"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:143
+msgid "No Investment Account"
+msgstr "حساب سرمایه گذاری ندارد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:144
+msgid "System Internal Error"
+msgstr "خطای داخلی سیستم"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:145
+msgid "Invalid Business Date"
+msgstr "تاریخ کسب و کار نامعتبر است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:146
+msgid "Duplicate Order Id"
+msgstr "شناسه سفارش تکراری"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:147
+msgid "Sale Transaction Not Found"
+msgstr "معامله فروش یافت نشد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:148
+msgid "Duplicate Verify"
+msgstr "تکثیر تأیید"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:149
+msgid "Verify Transaction Not Found"
+msgstr "تأیید معامله یافت نشد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:150
+msgid "Transaction Has Been Settled"
+msgstr "معامله صورت گرفته است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:151
+msgid "Transaction Has Not Been Settled"
+msgstr "معامله انجام نشده است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:152
+msgid "Settle Transaction Not Found"
+msgstr "معامله معامله پیدا نشد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:153
+msgid "Transaction Has Been Reversed"
+msgstr "معامله معکوس شده است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:154
+msgid "Refund Transaction Not Found"
+msgstr "معامله بازپرداخت یافت نشد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:155
+msgid "Bill Digit Incorrect"
+msgstr "بیل سیگنال اشتباه است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:156
+msgid "Payment Digit Incorrect"
+msgstr "سیگنال پرداخت اشتباه است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:157
+msgid "Bill Organization Not Valid"
+msgstr "سازمان بیل معتبر نیست"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:158
+msgid "Session Timeout"
+msgstr "مدت زمان جلسه"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:159
+msgid "Data Access Exception"
+msgstr "استثناء دسترسی به داده ها"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:160
+msgid "Payer Id Is Invalid"
+msgstr "شناسه پرداخت نامعتبر است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:161
+msgid "Customer Not Found"
+msgstr "مشتری یافت نشد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:162
+msgid "Try Count Exceeded"
+msgstr "سعی کنید تعداد بیش از حد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:163
+msgid "Invalid IP"
+msgstr "IP نامعتبر است"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:164
+msgid "Duplicate Transmission"
+msgstr "انتقال تکراری"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:165
+msgid "Original Transaction Not Found"
+msgstr "معامله اصلی یافت نشد"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:166
+msgid "Invalid Transaction"
+msgstr "معامله نامعتبر"
+
+#: dash/lib/utility/pay/api/mellat/bank.php:167
+msgid "Error In Settle"
+msgstr "خطا در حل و فصل"
+
+#: dash/lib/utility/pay/api/mellat/go.php:88
+msgid "Redirect to mellat payment"
+msgstr "در حال انتقال به درگاه پرداخت ملت"
+
+#: dash/lib/utility/pay/api/parsian/back.php:13
+#: dash/lib/utility/pay/api/parsian/go.php:13
+msgid "The parsian payment on this service is locked"
+msgstr "پرداخت با پارسیان در حال حاضر قفل است"
+
+#: dash/lib/utility/pay/api/parsian/back.php:20
+#: dash/lib/utility/pay/api/parsian/go.php:20
+msgid "The parsian payment LoginAccount not set"
+msgstr "حساب کاربری لاگین برای پرداخت با پارسیان تنظیم نشده است"
+
+#: dash/lib/utility/pay/api/parsian/back.php:37
+#: dash/lib/utility/pay/api/parsian/go.php:80
+msgid "The parsian payment Token not set"
+msgstr "توکن برای پرداخت با پارسیان تنظیم نشده است"
+
+#: dash/lib/utility/pay/api/parsian/bank.php:16
+msgid "Can not connect to parsian gateway. Install it!"
+msgstr "امکان اتصال به درگاه بانک پارسیان نیست. نصبش کنید!"
+
+#: dash/lib/utility/pay/api/payir/back.php:13
+#: dash/lib/utility/pay/api/payir/go.php:13
+msgid "The payir payment on this service is locked"
+msgstr "درگاه پی.آی‌آر در سرویس شما قفل شده است"
+
+#: dash/lib/utility/pay/api/payir/back.php:20
+#: dash/lib/utility/pay/api/payir/go.php:20
+msgid "The payir payment api not set"
+msgstr "کلید اتصال به درگاه پرداخت یافت نشد"
+
+#: dash/lib/utility/pay/api/payir/back.php:36
+msgid "The payir payment transId not set"
+msgstr "خطا در درگاه پرداخت - شناسه تراکنش یافت نشد"
+
+#: dash/lib/utility/pay/api/zarinpal/back.php:18
+#: dash/lib/utility/pay/api/zarinpal/go.php:13
+msgid "The zarinpal payment on this service is locked"
+msgstr "پرداخت با زرین پال در حال حاضر قفل است"
+
+#: dash/lib/utility/pay/api/zarinpal/back.php:25
+#: dash/lib/utility/pay/api/zarinpal/go.php:20
+msgid "The zarinpal payment MerchantID not set"
+msgstr "کد مرچنت برای پرداخت با زرین پال تنظیم نشده است"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:19
+msgid "Can not connect to zarinpal gateway. Install it!"
+msgstr "ناتوان در اتصال به درگاه زرین پال. نصبش کنید!"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:109
+msgid "The submited inforamation are incomplete."
+msgstr "اطلاعات وارد شده ناقص است."
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:110
+msgid "IP or merchant code of the host is incorrect"
+msgstr "آی پی یا کد مرچنت میزبان اشتباه است"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:111
+msgid "Due to Shaparak's limitations, It's impossible to pay the specified amount"
+msgstr "به دلیل محدودیت‌های شاپرک، امکان پرداخت این مقدار وجود ندارد"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:112
+msgid "The host level is below silver level"
+msgstr "سطح میزبان پایین‌تر از سطح نقره‌ای است"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:113
+msgid "Nothing found for the specified request"
+msgstr "برای درخواست مورد نظر چیزی یافت نشد"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:114
+msgid "It's impossible to edit the request"
+msgstr "ویرایش درخواست امکان پذیر نیست"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:115
+msgid "No financial operation found for this transaction"
+msgstr "هیچ عملیات مالی برای این تراکنش یافت نشد"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:116
+msgid "Transaction faild"
+msgstr "تراکنش با خطا مواجه شد"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:117
+msgid "The specified transaction amount does not match with the payed amount"
+msgstr "میزان تراکنش مشخص شده با مقدار پرداخت شده یکسان نیست"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:118
+msgid "Highest amount of transaction is passed as a result of number or amount"
+msgstr "در نتیجه مقدار یا تعداد، بالاترین میزان تراکنش رد شده است"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:119
+msgid "Access unavilable to method"
+msgstr "دسترسی به متد امکان‌پذیر نیست"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:120
+msgid "Invalid information is sent for AdditionalData"
+msgstr "اطلاعات نامعتبری برای AdditionalData ارسال شده است"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:121
+msgid "Valid lifespan of ID must be between 30 minutes to 45 days"
+msgstr "طول عمر شناسه باید بین ۳۰ دقیقه تا ۴۵ روز باشد"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:122
+msgid "The request is archived"
+msgstr "درخواست بایگانی شد"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:123
+msgid "Operation was successfully done"
+msgstr "عملیات با موفقیت انجام شد"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:124
+msgid ""
+"Payment operation was successfull and PatmentVerification of the transaction has "
+"already done"
+msgstr "عملیات پرداخت موفقیت آمیز بوده است و تأیید پرداخت قبلا انجام شده است"
+
+#: dash/lib/utility/pay/api/zarinpal/bank.php:125
+msgid "The error code is :code"
+msgstr "خطا در درگاه پرداخت با کد :code"
+
+#: dash/lib/utility/pay/api/zarinpal/go.php:85
+msgid "Zarinpal payment Authority not found"
+msgstr "اعتبارسنجی برای پرداخت با زرین پال یافت نشد"
+
 #: dash/lib/utility/pay/start.php:25
 msgid "Invalid token"
 msgstr "توکن نامعتبر"
@@ -12768,9 +12599,17 @@ msgstr "این تراکنش به سمت بانک هدایت شده است"
 msgid "Pay whit :bank"
 msgstr "پرداخت توسط :bank"
 
+#: dash/lib/utility/pay/start.php:71
+msgid "This payment is not supported in this system"
+msgstr "این درگاه پرداخت در این سرویس پشتیبانی نمی‌شود"
+
 #: dash/lib/utility/pay/start.php:158
 msgid "Invalid user"
 msgstr "کاربر نامعتبر"
+
+#: dash/lib/utility/pay/start.php:169
+msgid "Invalid amount"
+msgstr "مقدار نامعتبر"
 
 #: dash/lib/utility/pay/start.php:213
 msgid "Pay whith :bank"
@@ -13242,7 +13081,7 @@ msgid "You can change another setting by choose another type of setting."
 msgstr "شما می‌توانید سایر تنظیمات را از طریق دسترسی به بخش‌های مختلف تنظیم کنید."
 
 #: jibres/content_a/product/glance/view.php:9
-#: jibres/includes/languages/trans_dash.php:599
+#: jibres/includes/languages/trans_dash.php:597
 #: jibres/includes/languages/trans_project.php:535
 msgid "Glance"
 msgstr "نگاه اجمالی"
@@ -14034,33 +13873,41 @@ msgstr "کلیدخارجی"
 msgid "pass"
 msgstr "گذرواژه"
 
-#: jibres/includes/languages/trans_dash.php:373
+#: jibres/includes/languages/trans_dash.php:371
 msgid "Payed"
 msgstr "پرداخت شده"
 
-#: jibres/includes/languages/trans_dash.php:374
+#: jibres/includes/languages/trans_dash.php:372
 msgid "Canceled"
 msgstr "لغو شده"
 
-#: jibres/includes/languages/trans_dash.php:375
+#: jibres/includes/languages/trans_dash.php:373
 msgid "Choose a gateway"
 msgstr "درگاه پرداخت را انتخاب کنید"
 
-#: jibres/includes/languages/trans_dash.php:525
+#: jibres/includes/languages/trans_dash.php:523
 msgid "No ticket was found"
 msgstr "تیکتی یافت نشد"
 
-#: jibres/includes/languages/trans_dash.php:611
+#: jibres/includes/languages/trans_dash.php:609
 msgid "User have chatid"
 msgstr "کاربر دارای شناسه تلگرام است"
 
-#: jibres/includes/languages/trans_dash.php:612
+#: jibres/includes/languages/trans_dash.php:610
 msgid "Remove chatid"
 msgstr "حذف شناسه تلگرام"
 
-#: jibres/includes/languages/trans_dash.php:837
+#: jibres/includes/languages/trans_dash.php:835
 msgid "Enter an amount to charge your account"
 msgstr "میزان شارژ حساب کاربری خود را وارد کنید"
+
+#: jibres/includes/languages/trans_dash.php:1115
+msgid "Token"
+msgstr "توکن"
+
+#: jibres/includes/languages/trans_dash.php:1116
+msgid "Revoke"
+msgstr "تنظیم مجدد"
 
 #: jibres/includes/languages/trans_project.php:13
 msgid "Total sale"
@@ -17990,6 +17837,30 @@ msgstr "فعال سازی پلن برای :store"
 #: jibres/includes/lib/db/storeplans.php:400
 msgid "Change plan of :store"
 msgstr "تغییر پلن :store"
+
+#~ msgid "Invalid payment type"
+#~ msgstr "خطای نوع درگاه"
+
+#~ msgid "Please select a bank port"
+#~ msgstr "لطفا پورت بانک را انتخاب کنید"
+
+#~ msgid "Pay by asanpardakht payment"
+#~ msgstr "پرداخت با درگاه آسان پرداخت"
+
+#~ msgid "Pay by irkish payment"
+#~ msgstr "پرداخت با درگاه پرداخت ایران کیش"
+
+#~ msgid "Pay by mellat payment"
+#~ msgstr "پرداخت با درگاه بانک ملت"
+
+#~ msgid "Pay by parsian payment"
+#~ msgstr "پرداخت با پارسیان"
+
+#~ msgid "Pay by payir payment"
+#~ msgstr "پرداخت با پی.آی‌آر"
+
+#~ msgid "Pay by zarinpal payment"
+#~ msgstr "پرداخت با زرین‌پال"
 
 #~ msgid "Check list of users and search or filter in them to find your user."
 #~ msgstr "بررسی لیست کاربران و جستجو یا فیلتر کردن آنها برای یافتن کاربر خاص."
