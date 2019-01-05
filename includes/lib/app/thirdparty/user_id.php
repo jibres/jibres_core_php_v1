@@ -198,7 +198,7 @@ trait user_id
 	public static function signup($_args)
 	{
 		$master_reuest = \dash\app::request();
-
+		$_args['force_add'] = true;
 		$user_id = \dash\app\user::add($_args, ['debug' => false, 'check_mobile' => false]);
 
 		\dash\app::variable($master_reuest);
