@@ -175,7 +175,7 @@ trait add
 				'turn_back'     => \dash\url::pwd(),
 				'user_id'       => \dash\user::id(),
 				'amount'        => $price,
-				'final_fn'      => ['\\\lib\\\app\\\store', 'after_pay'],
+				'final_fn'      => ['/lib/app/store', 'after_pay'],
 				'final_fn_args' => $price,
 			];
 
