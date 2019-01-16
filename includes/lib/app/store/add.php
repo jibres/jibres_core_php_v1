@@ -172,7 +172,7 @@ trait add
 			$meta =
 			[
 				'msg_go'        => null,
-				'turn_back'     => \dash\url::pwd(),
+				'turn_back'     => \dash\url::kingdom(). '/c/store',
 				'user_id'       => \dash\user::id(),
 				'amount'        => $price,
 				'final_fn'      => ['/lib/app/store', 'after_pay'],
