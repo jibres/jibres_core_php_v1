@@ -374,6 +374,10 @@
     "cat": "Thirdparty",
     "require": []
   },
+  "thirdpartyFactorView": {
+    "title": "thirdpartyFactorView",
+    "cat": "Thirdparty"
+  },
   "thirdpartyIdentifyView": {
     "title": "thirdpartyIdentifyView",
     "cat": "Thirdparty",
@@ -508,5 +512,17 @@
     "title": "reportView",
     "cat": "Report",
     "require": []
+  },
+  "aPermissionView": {
+    "title": "aPermissionView",
+    "cat": "Thirdparty"
+  },
+  "aPermissionAddEdit": {
+    "title": "aPermissionAddEdit",
+    "cat": "Thirdparty"
+  },
+  "aPermissionDelete": {
+    "title": "aPermissionDelete",
+    "cat": "Thirdparty"
   }
 }

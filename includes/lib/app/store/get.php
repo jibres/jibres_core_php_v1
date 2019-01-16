@@ -95,7 +95,7 @@ trait get
 
 			if($result)
 			{
-				if(\dash\permission::check('load:all:store'))
+				if(\dash\permission::supervisor())
 				{
 					$result = $result;
 				}
