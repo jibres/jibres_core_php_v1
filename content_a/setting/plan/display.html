@@ -11,19 +11,56 @@
 		<small>{%trans "Current Plan"%}</small> <b>{%set myPlan = store.plan | capitalize%}{%trans myPlan%}</b>
 		{%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt(true)}}'>{%trans "Expire on"%} {{store.expireplan | dt}}</small>{%endif%}
 	</h3>
+</div>
 
+{{block('planHistoryTable')}}
+
+{{block('iSuSettingPlan')}}
+{%endblock%}
+
+
+
+{%block planHistoryTable%}
+
+
+  <table class="tbl1 v6 fs12">
+    <thead class="">
+      <tr>
+        <th>{%trans "Plan"%}</th>
+        <th>{%trans "Start"%}</th>
+        <th>{%trans "End"%}</th>
+        <th>{%trans "Status"%}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {%for key, value in dataTable%}
+      <tr >
+        <td>{%set my_plan = value.plan | capitalize%}{%trans my_plan%}</td>
+        <td>{{value.start | dt(true)}}</td>
+        <td>{{value.end | dt(true)}}</td>
+        <td>{%set my_status = value.status | capitalize%}{%trans my_status%}</td>
+
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+
+{%endblock%}
+
+{%block iSuSettingPlan%}
   {%if perm_su()%}
-    <div class="msg warn">{%trans "Just supervisor see this form"%}</div>
+  <div class="cbox">
+    <div class="msg warn2">{%trans "Just supervisor see this form"%}</div>
     <form method="post" class="mLR5">
       {{block ("iplan")}}
       {{block ("iexpireplan")}}
       {{block ("isave")}}
     </form>
+  </div>
   {%endif%}
-</div>
 {%endblock%}
-
-
 
 {%block iexpireplan%}
 <label for="expireplan">{%trans "Plan expire date"%}  <small class="fc-red">* {%trans "Require"%}</small></label>
