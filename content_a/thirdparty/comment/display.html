@@ -10,6 +10,7 @@
 
 
 {%block timeline%}
+{%if perm('thirdpartyNoteAdd') or dataTable%}
 <section class="sTimeline">
 
   <div class="event" >
@@ -17,26 +18,33 @@
       <form method="post" autocomplete="off" action="{{url.this}}/comment?id={{requestGET.id}}">
         <h2>{%trans "Add note"%}</h2>
         <input type="hidden" name="redirecturl" value="{{url.pwd}}">
-        <textarea class="txt " name="note" rows="3" placeholder='{%trans "Add every thing"%}'></textarea>
-        <button class="btn secondary2 block mT5">{%trans "Add"%}</button>
+        <textarea class="txt " name="note" rows="3" autofocus placeholder='{%trans "Write your note about user."%} {%trans "Something like calls, favorites, hobbits, special approach or something else."%}'></textarea>
+        <button class="btn secondary2 block mT5">{%trans "Add new note"%}</button>
       </form>
     </div>
   </div>
-  {%for key, value in logDetail%}
+  {%for key, value in dataTable%}
 
   <div class="event" data-done>
-    <div class="box">
-      <h2>{{value.title}}</h2>
-      <div class="detail f">
-          <div><i class="sf-certificate" aria-hidden="true"></i>{{value.displayname}}</div>
-          <div><i class="sf-calendar-o" aria-hidden="true"></i>{{value.datecreated | dt}}</div>
+        <div class="box">
+
+          <div class="detail f">
+              <div class="cauto"><i class="sf-certificate"></i>{{value.firstname}} <b>{{value.lastname}}</b></div>
+              {%if perm('thirdpartyNoteDelete')%}
+              <div class="cauto os">
+                <div class="btn danger2 xs" data-confirm data-data='{"id" : "{{value.id}}", "type" : "remove"}'>{%trans "Remove"%}</div>
+              </div>
+              {%endif%}
+              <div class="cauto os"><i class="sf-calendar-o pRa5"></i>{{value.datecreated | dt(true)}}</div>
+            </div>
+          <p>{{value.text | raw}}</p>
         </div>
-      <p>{{value.data}}</p>
-    </div>
-  </div>
+      </div>
   {%endfor%}
 
 </section>
+{%include display.pagination%}
+{%endif%}
 {%endblock%}
 
 

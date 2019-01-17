@@ -13,8 +13,7 @@ class view
 		\dash\data::page_pictogram('pencil-square-o');
 
 		$log = \lib\app\thirdparty\comment::list(\dash\request::get('id'));
-		$log = array_reverse($log);
-		\dash\data::logDetail($log);
+		\dash\data::dataTable($log);
 
 		\content_a\thirdparty\load::fixTitle();
 	}

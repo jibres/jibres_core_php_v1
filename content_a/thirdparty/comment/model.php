@@ -4,24 +4,17 @@ namespace content_a\thirdparty\comment;
 
 class model
 {
-	public static function getPost()
-	{
-		$post         = [];
-		$post['note'] = \dash\request::post('note');
-
-		return $post;
-	}
-
-
 	public static function post()
 	{
-		if(!\dash\request::post('note'))
+		if(\dash\request::post('type') === 'remove' && \dash\request::post('id'))
 		{
-			\dash\notif::error(T_("Please fill the note box"), 'note');
-			return false;
-		}
+			\lib\app\thirdparty\comment::remove(\dash\request::post('id'), \dash\request::get('id'));
 
-		\dash\permission::access('thirdpartyNoteAdd');
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
 
 		\lib\app\thirdparty\comment::add(\dash\request::post('note'), \dash\request::get('id'));
 
