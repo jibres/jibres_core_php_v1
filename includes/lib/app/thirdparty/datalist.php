@@ -24,6 +24,8 @@ trait datalist
 		'lastactivity',
 		'customercredit',
 		'balance',
+		'sumbuystaff',
+		'countorderbuystaff',
 	];
 
 

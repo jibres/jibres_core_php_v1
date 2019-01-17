@@ -498,7 +498,7 @@ class twigTransTerms
 	//------------------------------------------------content_a/thirdparty/layout.html
 	echo T_("Type of thirdparty");                                                    // Line 81
 	echo T_("Staff");                                                                 // Line 405
-	echo T_("Supplier");                                                              // Line 406
+	echo T_("Supplier");                                                              // Line 116
 	echo T_("Tag");                                                                   // Line 436
 	echo T_("Add tag manually to link thirdparty togethers");                         // Line 446
 	echo T_("Tag keywords...");                                                       // Line 447
@@ -618,18 +618,20 @@ class twigTransTerms
 	echo T_("Customer credit");                                                       // Line 77
 	echo T_("Supplier total purchased order");                                        // Line 102
 	echo T_("Supplier total purchased");                                              // Line 112
-	echo T_("Staff total sales order");                                               // Line 89
-	echo T_("Staff total sales");                                                     // Line 93
-	echo T_("Balance");                                                               // Line 97
+	echo T_("Staff total sales");                                                     // Line 89
+	echo T_("Staff total buy order");                                                 // Line 93
+	echo T_("Staff count buy order");                                                 // Line 94
+	echo T_("Staff total sales order");                                               // Line 95
+	echo T_("Balance");                                                               // Line 98
 	echo T_("Last activity");                                                         // Line 14
-	echo T_("Without name");                                                          // Line 116
-	echo T_("Without mobile");                                                        // Line 127
-	echo T_("Clear filters");                                                         // Line 181
-	echo T_("Result not found!");                                                     // Line 180
-	echo T_("Search with new keywords.");                                             // Line 180
-	echo T_("Hi!");                                                                   // Line 187
-	echo T_("Try to start with add new member!");                                     // Line 202
-	echo T_("All thirdparty");                                                        // Line 225
+	echo T_("Without name");                                                          // Line 117
+	echo T_("Without mobile");                                                        // Line 128
+	echo T_("Clear filters");                                                         // Line 187
+	echo T_("Result not found!");                                                     // Line 186
+	echo T_("Search with new keywords.");                                             // Line 186
+	echo T_("Hi!");                                                                   // Line 193
+	echo T_("Try to start with add new member!");                                     // Line 205
+	echo T_("All thirdparty");                                                        // Line 228
 
 	//----------------------------------------content_a/thirdparty/glance/display.html
 	echo T_("Joined to store at");                                                    // Line 13
@@ -804,7 +806,7 @@ class twigTransTerms
 	echo T_("Whitout discount");                                                      // Line 17
 	echo T_("Negative profit");                                                       // Line 18
 	echo T_("Search in products");                                                    // Line 61
-	echo T_("Buy");                                                                   // Line 229
+	echo T_("Buy");                                                                   // Line 235
 	echo T_("Final price");                                                           // Line 79
 	echo T_("Profit");                                                                // Line 80
 	echo T_("Last modified");                                                         // Line 82
@@ -873,19 +875,20 @@ class twigTransTerms
 	echo T_("You are not register any factor yet!");                                  // Line 85
 	echo T_("Invoice Date");                                                          // Line 115
 	echo T_("Items");                                                                 // Line 117
-	echo T_("Sale");                                                                  // Line 218
-	echo T_("Prefactor");                                                             // Line 256
-	echo T_("Lending");                                                               // Line 268
-	echo T_("Backbuy");                                                               // Line 163
-	echo T_("Backfactor");                                                            // Line 164
-	echo T_("Waste");                                                                 // Line 165
-	echo T_("Try to start with add new sale!");                                       // Line 188
-	echo T_("Try to start with add new buy!");                                        // Line 189
-	echo T_("All");                                                                   // Line 208
-	echo T_("Other");                                                                 // Line 240
-	echo T_("Back buy");                                                              // Line 260
-	echo T_("Back factor");                                                           // Line 264
-	echo T_("waste");                                                                 // Line 272
+	echo T_("Whitout name");                                                          // Line 140
+	echo T_("Sale");                                                                  // Line 224
+	echo T_("Prefactor");                                                             // Line 262
+	echo T_("Lending");                                                               // Line 274
+	echo T_("Backbuy");                                                               // Line 169
+	echo T_("Backfactor");                                                            // Line 170
+	echo T_("Waste");                                                                 // Line 171
+	echo T_("Try to start with add new sale!");                                       // Line 194
+	echo T_("Try to start with add new buy!");                                        // Line 195
+	echo T_("All");                                                                   // Line 214
+	echo T_("Other");                                                                 // Line 246
+	echo T_("Back buy");                                                              // Line 266
+	echo T_("Back factor");                                                           // Line 270
+	echo T_("waste");                                                                 // Line 278
 
 	//----------------------------------------------content_a/factor/edit/display.html
 	echo T_("Save & print");                                                          // Line 40

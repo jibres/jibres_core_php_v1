@@ -85,14 +85,15 @@
         <th class="txtC" data-sort="{{sortLink.sumpaysupplier.order}}"><a href='{{sortLink.sumpaysupplier.link}}'>{%trans "Supplier total purchased"%}</a></th>
         {%endif%}
 
-        {%if requestGET.type == "staff"%}
-        <th class="txtC" data-sort="{{sortLink.countorderstaff.order}}"><a href='{{sortLink.countorderstaff.link}}'>{%trans "Staff total sales order"%}</a></th>
-        {%endif%}
-
         {%if not requestGET.type or requestGET.type == "staff"%}
         <th class="txtC" data-sort="{{sortLink.sumsalestaff.order}}"><a href='{{sortLink.sumsalestaff.link}}'>{%trans "Staff total sales"%}</a></th>
         {%endif%}
 
+        {%if requestGET.type == "staff"%}
+        <th class="txtC" data-sort="{{sortLink.sumbuystaff.order}}"><a href='{{sortLink.sumbuystaff.link}}'>{%trans "Staff total buy order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.countorderbuystaff.order}}"><a href='{{sortLink.countorderbuystaff.link}}'>{%trans "Staff count buy order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.countorderstaff.order}}"><a href='{{sortLink.countorderstaff.link}}'>{%trans "Staff total sales order"%}</a></th>
+        {%endif%}
 
         <th class="txtC" data-sort="{{sortLink.balance.order}}"><a href='{{sortLink.balance.link}}'>{%trans "Balance"%}</a></th>
         <th class="txtC" data-sort="{{sortLink.lastactivity.order}}"><a href='{{sortLink.lastactivity.link}}'>{%trans "Last activity"%}</a></th>
@@ -163,16 +164,18 @@
         <td class="txtC pRa10">{%if value.supplier and value.sumpaysupplier%}{{value.sumpaysupplier | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
-        {%if requestGET.type == "staff"%}
-        <td class="txtC">{%if value.countorderstaff%}{{value.countorderstaff | fitNumber}}{%else%}-{%endif%}</td>
-        {%endif%}
-
         {%if not requestGET.type or requestGET.type == "staff"%}
         <td class="txtC pRa10">{%if value.staff and value.sumsalestaff%}{{value.sumsalestaff | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
+        {%if requestGET.type == "staff"%}
+        <td class="txtC">{%if value.sumbuystaff%}{{value.sumbuystaff | fitNumber}}{%else%}-{%endif%}</td>
+        <td class="txtC">{%if value.countorderbuystaff%}{{value.countorderbuystaff | fitNumber}}{%else%}-{%endif%}</td>
+        <td class="txtC">{%if value.countorderstaff%}{{value.countorderstaff | fitNumber}}{%else%}-{%endif%}</td>
+        {%endif%}
+
         <td class="txtC pRa10">{%if value.balance%}{{value.balance | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
-        <td class="txtC pRa10 fs08 fc-mute">{%if value.lastactivity%}{{value.lastactivity | dt('human')}}{%else%}-{%endif%}</td>
+        <td class="txtC pRa10 fs08 fc-mute">{%if value.lastactivity%}{{value.lastactivity | dt('human')}}<br>{{value.lastactivity | dt('human', 'year')}}{%else%}-{%endif%}</td>
       </tr>
       {%endfor%}
     </tbody>
