@@ -6,51 +6,61 @@
 {%block data%}
 <div class="cbox">
   {{block('currentPlan')}}
-</div>
-
-{%if url.tld == 'local'%}
+  <div class="msg warn2">
+    <a data-direct target="_blank" href="{{url.site}}/pricing">{%trans "Pricing"%}</a>
+  </div>
 
   {%if store.plan == 'free'%}
-  {{block('iFreePlan')}}
+    {{block('iFreePlan')}}
+  {%elseif store.plan == 'trial'%}
+    {{block('iTrialPlan')}}
+  {%elseif store.plan == 'standard'%}
+    {{block('iStandardPlan')}}
+  {%elseif store.plan == 'simpla'%}
+    {{block('iSimplePlan')}}
   {%endif%}
-
-{%endif%}
-
+</div>
 {%endblock%}
 
 
 
 
 {%block iFreePlan%}
-<div class="cbox">
-
-  {{block('currentPlan')}}
-
-  <div class="msg pain outline">
-    از مزایای شگفت انگیز جیبرس بهره مند شوید!
-  </div>
-
-  <div class="msg warn2">
-    <a data-direct target="_blank" href="{{url.site}}/pricing">از امکانات پلن ها مطلع شوید</a>
-
-  </div>
-  <div class="f txtC">
-    <div class="c pRa5"><div data-ajaxify data-method='post' data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Upgrade to"%} <b>{%trans "Simple"%}</b></div></div>
-    <div class="c"><div data-ajaxify data-method='post' data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Upgrade to"%} <b>{%trans "Standard"%}</b></div></div></div>
-  </div>
+<div class="f txtC">
+  <div class="c pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Upgrade to"%} <b>{%trans "Simple"%}</b></div></div>
+  <div class="c"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Upgrade to"%} <b>{%trans "Standard"%}</b></div></div></div>
 </div>
 {%endblock%}
 
 
 
+{%block iTrialPlan%}
+<div class="f txtC">
+  <div class="c pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Simple"%}</b></div></div>
+  <div class="c"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Standard"%}</b></div></div></div>
+</div>
+{%endblock%}
+
+{%block iStandardPlan%}
+<div class="f txtC">
+  <div class="c pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Simple"%}</b></div></div>
+  <div class="c"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Standard"%}</b></div></div></div>
+</div>
+{%endblock%}
+
+{%block iSimplePlan%}
+<div class="f txtC">
+  <div class="c pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Simple"%}</b></div></div>
+  <div class="c"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Standard"%}</b></div></div></div>
+</div>
+{%endblock%}
+
 
 {%block currentPlan%}
-
   <h3>
     <small>{%trans "Current Plan"%}</small> <b>{%set myPlan = store.plan | capitalize%}{%trans myPlan%}</b>
     {%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt(true)}}'>{%trans "Expire on"%} {{store.expireplan | dt}}</small>{%endif%}
   </h3>
-
 {%endblock%}
 
 
