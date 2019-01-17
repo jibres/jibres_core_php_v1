@@ -40,6 +40,27 @@ class factor
 			return false;
 		}
 
+
+		$desc = \dash\app::request('desc');
+		if($desc && mb_strlen($desc) > 1000)
+		{
+			\dash\notif::error(T_("Description of factor out of range"), 'desc');
+			return false;
+		}
+
+
+		$type = \dash\app::request('type');
+		if($type && !in_array($type, ['buy','sale','prefactor','lending','backbuy','backfactor','waste']))
+		{
+			\dash\notif::error(T_("Invalid type of factor"), 'type');
+			return false;
+		}
+
+		if(!$type)
+		{
+			$type = 'sale';
+		}
+
 		$customer = \dash\app::request('customer');
 		if(!$customer || $customer === '')
 		{
@@ -75,32 +96,16 @@ class factor
 					$customer = null;
 				}
 			}
-			// everyone sell one time, is customer
-			if(isset($customer_detail['id']) && !isset($customer_detail['customer']))
+
+			if($type === 'sale')
 			{
-				\lib\db\userstores::update(['customer' => 1], $customer_detail['id']);
+				// everyone sell one time, is customer
+				if(isset($customer_detail['id']) && !isset($customer_detail['customer']))
+				{
+					\lib\db\userstores::update(['customer' => 1], $customer_detail['id']);
+				}
 			}
 		}
-
-		$desc = \dash\app::request('desc');
-		if($desc && mb_strlen($desc) > 1000)
-		{
-			\dash\notif::error(T_("Description of factor out of range"), 'desc');
-			return false;
-		}
-
-		$type = \dash\app::request('type');
-		if($type && !in_array($type, ['buy','sale','prefactor','lending','backbuy','backfactor','waste']))
-		{
-			\dash\notif::error(T_("Invalid type of factor"), 'type');
-			return false;
-		}
-
-		if(!$type)
-		{
-			$type = 'sale';
-		}
-
 
 		$args                   = [];
 		$args['customer']       = $customer;

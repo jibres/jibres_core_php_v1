@@ -113,7 +113,7 @@
     <thead>
       <tr>
         <th data-sort="{{myFilter.date.order}}"><a href="{{myFilter.date.link}}">{%trans "Invoice Date"%}</a></th>
-        <th data-sort="{{myFilter.customer.order}}"><a href="{{myFilter.customer.link}}">{%trans "Customer"%}</a></th>
+        <th data-sort="{{myFilter.customer.order}}"><a href="{{myFilter.customer.link}}">{%if not requestGET.type or requestGET.type != 'buy'%}{%trans "Customer"%}{%else%}{%trans "Supplier"%}{%endif%}</a></th>
         <th data-sort="{{myFilter.item.order}}"><a href="{{myFilter.item.link}}">{%trans "Items"%}</a></th>
         <th data-sort="{{myFilter.qty.order}}"><a href="{{myFilter.qty.link}}">{%trans "Qty"%}</a></th>
         <th data-sort="{{myFilter.detailsum.order}}"><a href="{{myFilter.detailsum.link}}">{%trans "Price"%}</a></th>
@@ -128,11 +128,17 @@
     <tbody>
       {%for key, value in dataTable%}
         <tr>
-          <td><a href="{{url.here}}/chap/receipt?id={{value.id}}&size=receipt8">{{value.date | dt(true, 'date')}} <b class="floatRa">{{value.date | dt(true, 'time')}}</b></a></td>
+          <td><a href="{{url.here}}/chap/receipt?id={{value.id}}&size=receipt8">{{value.date | dt(true, 'date')}} <b class="pLa5">{{value.date | dt(true, 'time')}}</b></a></td>
           <td>
           {%if value.customer%}
             <a href="{{url.this}}?customer={{value.customer}}">
+            {%if value.customer_firstname or value.customer_lastname%}
               {{value.customer_firstname}} <b>{{value.customer_lastname}}</b>
+            {%elseif value.customer_displayname%}
+               <b>{{value.customer_displayname}}</b>
+            {%else%}
+              <small>{%trans "Whitout name"%}</small>
+            {%endif%}
             </a>
           {%else%}
             <i class="disabled">-</i>

@@ -61,6 +61,7 @@ class userstores
 		return $resutl;
 	}
 
+
 	public static function search_customer($_search_name, $_store_id)
 	{
 		if(!$_search_name || !$_store_id || !is_numeric($_store_id))

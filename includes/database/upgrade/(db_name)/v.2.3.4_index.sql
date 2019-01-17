@@ -48,3 +48,7 @@ ALTER TABLE `productterms` ADD CONSTRAINT `productterms_store_id` FOREIGN KEY (`
 ALTER TABLE `storetransactions` ADD `finalmsg` bit(1) DEFAULT NULL;
 
 ALTER TABLE `userstores` ADD `balance` float(20) NULL DEFAULT NULL;
+
+
+ALTER TABLE `userstores` ADD `sumbuystaff` float(20) NULL DEFAULT NULL;
+ALTER TABLE `userstores` ADD `countorderbuystaff` int(10) UNSIGNED NULL DEFAULT NULL;

@@ -141,10 +141,30 @@ trait add
 			return false;
 		}
 
+		// calc and save metafield
 		if(isset($factor['customer']) && $factor['customer'] && is_numeric($factor['customer']))
 		{
-			// \lib\db\userstores::customer_field($customer)
+			if($factor['type'] === 'sale')
+			{
+				\lib\app\thirdparty\metafield::customer($factor['customer']);
+			}
+			elseif($factor['type'] === 'buy')
+			{
+				\lib\app\thirdparty\metafield::supplier($factor['customer']);
+			}
+			else
+			{
+				// ??
+			}
 		}
+
+		if(isset($factor['seller']) && $factor['seller'] && is_numeric($factor['seller']))
+		{
+			\lib\app\thirdparty\metafield::staff($factor['seller'], $factor['type']);
+		}
+
+		\lib\app\thirdparty\metafield::save();
+
 
 		if(\dash\engine\process::status())
 		{
