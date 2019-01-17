@@ -144,35 +144,35 @@
         </td>
 
         {%if requestGET.type == "customer"%}
-        <td class="txtC">{{60 | fitNumber}}</td>
+        <td class="txtC">{%if value.countordercustomer%}{{value.countordercustomer | fitNumber}}{%else%}-{%endif%}</td>
         {%endif%}
 
         {%if not requestGET.type or requestGET.type == "customer"%}
-        <td class="txtC pRa10">{%if value.customer%}{{250000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        <td class="txtC pRa10">{%if value.customer and value.sumpaycustomer%}{{value.sumpaycustomer | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
         {%if requestGET.type == "customer"%}
-        <td class="txtC pRa10">{%if value.customer%}{{135000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        <td class="txtC pRa10">{%if value.customer and value.customercredit%}{{value.customercredit | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
         {%if requestGET.type == "supplier"%}
-        <td class="txtC">{{70 | fitNumber}}</td>
+        <td class="txtC">{%if value.countordersupplier%}{{value.countordersupplier | fitNumber}}{%else%}-{%endif%}</td>
         {%endif%}
 
         {%if not requestGET.type or requestGET.type == "supplier"%}
-        <td class="txtC pRa10">{%if value.supplier%}{{350000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        <td class="txtC pRa10">{%if value.supplier and value.sumpaysupplier%}{{value.sumpaysupplier | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
         {%if requestGET.type == "staff"%}
-        <td class="txtC">{{80 | fitNumber}}</td>
+        <td class="txtC">{%if value.countorderstaff%}{{value.countorderstaff | fitNumber}}{%else%}-{%endif%}</td>
         {%endif%}
 
         {%if not requestGET.type or requestGET.type == "staff"%}
-        <td class="txtC pRa10">{%if value.staff%}{{450000 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        <td class="txtC pRa10">{%if value.staff and value.sumsalestaff%}{{value.sumsalestaff | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
         {%endif%}
 
-        <td class="txtC pRa10">{{20 | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small></td>
-        <td class="txtC pRa10 fs08 fc-mute">{{"Now" | dt('human')}}</td>
+        <td class="txtC pRa10">{%if value.balance%}{{value.balance | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        <td class="txtC pRa10 fs08 fc-mute">{%if value.lastactivity%}{{value.lastactivity | dt('human')}}{%else%}-{%endif%}</td>
       </tr>
       {%endfor%}
     </tbody>
