@@ -142,7 +142,7 @@ class productprice
 				'data' => $finalprice_array,
 			],
 			[
-				'name' => T_('Profit'),
+				'name' => T_('Gross profit'),
 				'data' => $profit_array,
 			],
 		];
