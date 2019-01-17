@@ -16,7 +16,10 @@ class model
 			return;
 		}
 
+		\content_a\thirdparty\load::dataRow();
+
 		$post                = [];
+		$post['user_id']     = \dash\coding::decode(\dash\data::dataRow_user_id());
 		$post['title']       = \dash\request::post('title');
 		$post['name']        = \dash\request::post('name');
 		$post['country']     = \dash\request::post('country');
