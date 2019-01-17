@@ -104,7 +104,7 @@
 
 {%block iCustomer%}
 <div class="cbox p0">
-  <select name="customer" class="ui dropdown search selection" id="customerSearch" data-source='{{url.here}}/thirdparty?json=true&list=customer&q={query}'>
+  <select name="customer" class="ui dropdown search selection" id="customerSearch" data-source='{{url.here}}/thirdparty?type=sale&json=true&list=customer&q={query}'>
     <option value="">{%trans "Choose customer"%}</option>
   </select>
 </div>

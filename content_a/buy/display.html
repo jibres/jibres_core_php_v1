@@ -13,7 +13,7 @@
   </div>
   <div class="c3 s12">
 
-    {{block("iCustomer")}}
+    {{block("iSupplier")}}
     {{block("totalPriceDetail")}}
     {{block("btnNextTemp")}}
 
@@ -101,10 +101,10 @@
 
 
 
-{%block iCustomer%}
+{%block iSupplier%}
 <div class="cbox p0">
-  <select name="customer" class="ui dropdown search selection" id="customerSearch" data-source='{{url.here}}/thirdparty?json=true&list=customer&q={query}'>
-    <option value="">{%trans "Choose customer"%}</option>
+  <select name="supplier" class="ui dropdown search selection" id="supplierSearch" data-source='{{url.here}}/thirdparty?type=buy&json=true&list=supplier&q={query}'>
+    <option value="">{%trans "Choose supplier"%}</option>
   </select>
 </div>
 {%endblock%}
