@@ -4,10 +4,16 @@
 
 
 {%block data%}
+<div class="cbox">
+  {{block('currentPlan')}}
+</div>
 
+{%if url.tld == 'local'%}
 
-{%if store.plan == 'free'%}
-{{block('iFreePlan')}}
+  {%if store.plan == 'free'%}
+  {{block('iFreePlan')}}
+  {%endif%}
+
 {%endif%}
 
 {%endblock%}
