@@ -136,7 +136,7 @@ class twigTransTerms
 	echo T_("Thank you for choosing us.");                                            // Line 8
 	echo T_("We do our best to improve jibres's quality. So, knowing your valuable comments about bugs and problems and more importantly your precious offers will help us in this way.");// Line 8
 	echo T_("Full Name");                                                             // Line 15
-	echo T_("Mobile");                                                                // Line 233
+	echo T_("Mobile");                                                                // Line 161
 	echo T_("Please enter valid mobile number. `:val` is incorrect");                 // Line 19
 	echo T_("Email");                                                                 // Line 254
 	echo T_("Your Message");                                                          // Line 27
@@ -336,8 +336,8 @@ class twigTransTerms
 	//---------------------------------------------content_a/setting/fund/display.html
 	echo T_("Add new fund");                                                          // Line 19
 	echo T_("Edit");                                                                  // Line 122
-	echo T_("Disable");                                                               // Line 274
-	echo T_("Enable");                                                                // Line 273
+	echo T_("Disable");                                                               // Line 109
+	echo T_("Enable");                                                                // Line 104
 	echo T_("Add");                                                                   // Line 48
 	echo T_("Is default fund?");                                                      // Line 50
 	echo T_("Is sale online from this fund?");                                        // Line 59
@@ -345,18 +345,18 @@ class twigTransTerms
 	echo T_("Fund name");                                                             // Line 75
 	echo T_("Fund title");                                                            // Line 102
 	echo T_("Enter a valid name from 3 to 40 character");                             // Line 138
-	echo T_("Status");                                                                // Line 270
+	echo T_("Status");                                                                // Line 71
 	echo T_("Action");                                                                // Line 107
-	echo T_("Country");                                                               // Line 164
-	echo T_("Choose your country");                                                   // Line 168
+	echo T_("Country");                                                               // Line 138
+	echo T_("Choose your country");                                                   // Line 142
 	echo T_("Pos");                                                                   // Line 393
 	echo T_("Select pos");                                                            // Line 159
-	echo T_("City");                                                                  // Line 185
-	echo T_("Select city");                                                           // Line 187
-	echo T_("Post code");                                                             // Line 199
-	echo T_("Phone");                                                                 // Line 217
-	echo T_("Fax");                                                                   // Line 225
-	echo T_("Address");                                                               // Line 243
+	echo T_("City");                                                                  // Line 157
+	echo T_("Select city");                                                           // Line 159
+	echo T_("Post code");                                                             // Line 172
+	echo T_("Phone");                                                                 // Line 246
+	echo T_("Fax");                                                                   // Line 236
+	echo T_("Address");                                                               // Line 472
 
 	//---------------------------------------------------content_a/setting/layout.html
 	echo T_("Public");                                                                // Line 25
@@ -448,7 +448,7 @@ class twigTransTerms
 	echo T_("End");                                                                   // Line 31
 	echo T_("Just supervisor see this form");                                         // Line 55
 	echo T_("Plan expire date");                                                      // Line 66
-	echo T_("Require");                                                               // Line 243
+	echo T_("Require");                                                               // Line 90
 	echo T_("Store status");                                                          // Line 99
 
 	//-------------------------------------------content_a/setting/factor/display.html
@@ -529,7 +529,7 @@ class twigTransTerms
 	echo T_("Please select one itme");                                                // Line 350
 	echo T_("Single");                                                                // Line 351
 	echo T_("Married");                                                               // Line 352
-	echo T_("Company name");                                                          // Line 259
+	echo T_("Company name");                                                          // Line 368
 	echo T_("Enter company name");                                                    // Line 370
 	echo T_("Visitor name");                                                          // Line 387
 	echo T_("Identify code");                                                         // Line 396
@@ -585,7 +585,7 @@ class twigTransTerms
 	echo T_("Deactive");                                                              // Line 80
 	echo T_("Suspended");                                                             // Line 85
 	echo T_("Filter");                                                                // Line 90
-	echo T_("Delete");                                                                // Line 292
+	echo T_("Delete");                                                                // Line 95
 	echo T_("Leave");                                                                 // Line 100
 	echo T_("Delete account");                                                        // Line 113
 
@@ -655,22 +655,6 @@ class twigTransTerms
 	echo T_("Write your note about user.");                                           // Line 30
 	echo T_("Something like calls, favorites, hobbits, special approach or something else.");// Line 30
 	echo T_("Add new note");                                                          // Line 31
-
-	//---------------------------------------content_a/thirdparty/address/display.html
-	echo T_("Edit address");                                                          // Line 47
-	echo T_("Cancel");                                                                // Line 44
-	echo T_("Add new address");                                                       // Line 50
-	echo T_("Saved address");                                                         // Line 87
-	echo T_("Postal code");                                                           // Line 110
-	echo T_("Firstname");                                                             // Line 137
-	echo T_("Lastname");                                                              // Line 146
-	echo T_("Name of person in this address");                                        // Line 156
-	echo T_("Title of address");                                                      // Line 208
-	echo T_("Yes");                                                                   // Line 251
-	echo T_("No");                                                                    // Line 251
-	echo T_("Is this a company's address?");                                          // Line 252
-	echo T_("Select one item");                                                       // Line 272
-	echo T_("Removed");                                                               // Line 275
 
 	//-----------------------------------content_a/thirdparty/transaction/display.html
 	echo T_("Search in transactions");                                                // Line 66
@@ -808,7 +792,7 @@ class twigTransTerms
 	echo T_("Search in products");                                                    // Line 61
 	echo T_("Buy");                                                                   // Line 235
 	echo T_("Final price");                                                           // Line 79
-	echo T_("Profit");                                                                // Line 80
+	echo T_("Gross profit");                                                          // Line 80
 	echo T_("Last modified");                                                         // Line 82
 	echo T_("stock count is less than zero!");                                        // Line 91
 	echo T_("Discount more than 50 percent!");                                        // Line 97
@@ -834,6 +818,7 @@ class twigTransTerms
 	echo T_("Click to check list of this product");                                   // Line 31
 	echo T_("No product in this unit");                                               // Line 35
 	echo T_("You can delete it now!");                                                // Line 34
+	echo T_("Cancel");                                                                // Line 44
 	echo T_("Is default unit?");                                                      // Line 63
 	echo T_("Sometimes employees sell some product with decimal unit and if you are force this unit to give integer value, we are not allow them to enter invalid value");// Line 72
 	echo T_("Only accept integer value?");                                            // Line 76
