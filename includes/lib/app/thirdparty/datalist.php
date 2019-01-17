@@ -14,6 +14,15 @@ trait datalist
 		'birthdate',
 		'mobile',
 		'gender',
+		'sumpaysupplier',
+		'sumpaycustomer',
+		'sumsalestaff',
+		'countordercustomer',
+		'countordersupplier',
+		'countorderstaff',
+		'lastpaycustomer',
+		'lastactivity',
+		'customercredit',
 	];
 
 

@@ -56,42 +56,46 @@
 
 {%block htmlTable%}
 
+
+{%if false%} This field is exist but not have in html `lastpaycustomer` {%endif%}
+
+
   <table class="tbl1 v1 cbox fs12">
     <thead>
       <tr class="fs08">
         <th data-sort="{{sortLink.id.order}}" colspan="2"><a href='{{sortLink.id.link}}'>{%trans "Member"%}</a></th>
 
         {%if requestGET.type == "customer"%}
-        <th class="txtC" data-sort="{{sortLink.customerOrder.order}}"><a href='{{sortLink.customerOrder.link}}'>{%trans "Customer total order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.countordercustomer.order}}"><a href='{{sortLink.countordercustomer.link}}'>{%trans "Customer total order"%}</a></th>
         {%endif%}
 
         {%if not requestGET.type or requestGET.type == "customer"%}
-        <th class="txtC" data-sort="{{sortLink.customerSpend.order}}"><a href='{{sortLink.customerSpend.link}}'>{%trans "Customer total spend"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.sumpaycustomer.order}}"><a href='{{sortLink.sumpaycustomer.link}}'>{%trans "Customer total spend"%}</a></th>
         {%endif%}
 
         {%if requestGET.type == "customer"%}
-        <th class="txtC" data-sort="{{sortLink.customerCredit.order}}"><a href='{{sortLink.customerCredit.link}}'>{%trans "Customer credit"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.customercredit.order}}"><a href='{{sortLink.customercredit.link}}'>{%trans "Customer credit"%}</a></th>
         {%endif%}
 
         {%if requestGET.type == "supplier"%}
-        <th class="txtC" data-sort="{{sortLink.supplierOrder.order}}"><a href='{{sortLink.supplierOrder.link}}'>{%trans "Supplier total purchased order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.countordersupplier.order}}"><a href='{{sortLink.countordersupplier.link}}'>{%trans "Supplier total purchased order"%}</a></th>
         {%endif%}
 
         {%if not requestGET.type or requestGET.type == "supplier"%}
-        <th class="txtC" data-sort="{{sortLink.supplierPurchased.order}}"><a href='{{sortLink.supplierPurchased.link}}'>{%trans "Supplier total purchased"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.sumpaysupplier.order}}"><a href='{{sortLink.sumpaysupplier.link}}'>{%trans "Supplier total purchased"%}</a></th>
         {%endif%}
 
         {%if requestGET.type == "staff"%}
-        <th class="txtC" data-sort="{{sortLink.staffOrder.order}}"><a href='{{sortLink.staffOrder.link}}'>{%trans "Staff total sales order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.countorderstaff.order}}"><a href='{{sortLink.countorderstaff.link}}'>{%trans "Staff total sales order"%}</a></th>
         {%endif%}
 
         {%if not requestGET.type or requestGET.type == "staff"%}
-        <th class="txtC" data-sort="{{sortLink.staffSale.order}}"><a href='{{sortLink.staffSale.link}}'>{%trans "Staff total sales"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.sumsalestaff.order}}"><a href='{{sortLink.sumsalestaff.link}}'>{%trans "Staff total sales"%}</a></th>
         {%endif%}
 
 
         <th class="txtC" data-sort="{{sortLink.customerBalance.order}}"><a href='{{sortLink.customerBalance.link}}'>{%trans "Balance"%}</a></th>
-        <th class="txtC" data-sort="{{sortLink.activity.order}}"><a href='{{sortLink.activity.link}}'>{%trans "Last activity"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.lastactivity.order}}"><a href='{{sortLink.lastactivity.link}}'>{%trans "Last activity"%}</a></th>
       </tr>
     </thead>
     <tbody>
