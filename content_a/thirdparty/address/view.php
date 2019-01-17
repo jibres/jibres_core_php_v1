@@ -12,6 +12,8 @@ class view
 		\dash\data::page_desc(T_('Check addresses and add new one or edit existing address.'));
 		\dash\data::page_pictogram('map-marker');
 
+		\dash\data::dataRowMember(\dash\data::dataRow());
+
 		\dash\utility\location\cites::html_data();
 
 		$args               = [];
@@ -39,7 +41,7 @@ class view
 
 			\dash\permission::access('thirdpartyAddressEdit');
 
-			\dash\data::addressDataRow($dataRow);
+			\dash\data::dataRowAddress($dataRow);
 
 		}
 
