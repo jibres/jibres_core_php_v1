@@ -6,48 +6,76 @@
 {%block data%}
 
 
-<div class="cbox mLR5">
-	<h3>
-		<small>{%trans "Current Plan"%}</small> <b>{%set myPlan = store.plan | capitalize%}{%trans myPlan%}</b>
-		{%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt(true)}}'>{%trans "Expire on"%} {{store.expireplan | dt}}</small>{%endif%}
-	</h3>
-</div>
+{%if store.plan == 'free'%}
+{{block('iFreePlan')}}
+{%endif%}
 
-{{block('planHistoryTable')}}
-
-{{block('iSuSettingPlan')}}
 {%endblock%}
 
+
+
+
+{%block iFreePlan%}
+<div class="cbox">
+
+  {{block('currentPlan')}}
+
+  <div class="msg pain outline">
+    از مزایای شگفت انگیز جیبرس بهره مند شوید!
+  </div>
+
+  <div class="msg warn2">
+    <a data-direct target="_blank" href="{{url.site}}/pricing">از امکانات پل ها مطلع شوید</a>
+
+  </div>
+  <div class="f txtC">
+    <div class="c pRa5"><div class="msg success">{%trans "Upgrade to"%} <b>{%trans "Simple"%}</b></div></div>
+    <div class="c"><div class="msg success">{%trans "Upgrade to"%} <b>{%trans "Standard"%}</b></div></div></div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+
+{%block currentPlan%}
+
+  <h3>
+    <small>{%trans "Current Plan"%}</small> <b>{%set myPlan = store.plan | capitalize%}{%trans myPlan%}</b>
+    {%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt(true)}}'>{%trans "Expire on"%} {{store.expireplan | dt}}</small>{%endif%}
+  </h3>
+
+{%endblock%}
 
 
 {%block planHistoryTable%}
+<table class="tbl1 v6 fs12">
+  <thead class="">
+    <tr>
+      <th>{%trans "Plan"%}</th>
+      <th>{%trans "Start"%}</th>
+      <th>{%trans "End"%}</th>
+      <th>{%trans "Status"%}</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    {%for key, value in dataTable%}
+    <tr >
+      <td>{%set my_plan = value.plan | capitalize%}{%trans my_plan%}</td>
+      <td>{{value.start | dt(true)}}</td>
+      <td>{{value.end | dt(true)}}</td>
+      <td>{%set my_status = value.status | capitalize%}{%trans my_status%}</td>
 
-  <table class="tbl1 v6 fs12">
-    <thead class="">
-      <tr>
-        <th>{%trans "Plan"%}</th>
-        <th>{%trans "Start"%}</th>
-        <th>{%trans "End"%}</th>
-        <th>{%trans "Status"%}</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      {%for key, value in dataTable%}
-      <tr >
-        <td>{%set my_plan = value.plan | capitalize%}{%trans my_plan%}</td>
-        <td>{{value.start | dt(true)}}</td>
-        <td>{{value.end | dt(true)}}</td>
-        <td>{%set my_status = value.status | capitalize%}{%trans my_status%}</td>
-
-      </tr>
-      {%endfor%}
-    </tbody>
-  </table>
-
-
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
 {%endblock%}
+
+
+
+
 
 {%block iSuSettingPlan%}
   {%if perm_su()%}
@@ -114,3 +142,33 @@
 {%endblock%}
 
 
+
+
+
+{%block pageSteps2%}
+<div class="f msg pB0 secondary2">
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='profile'%} primary{%else%} light{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}'>{%trans "Notes"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='general'%} primary{%else%} light{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='address'%} primary{%else%} light{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Address"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='identify'%} primary{%else%} light{%endif%}" href='{{url.this}}/identify?id={{requestGET.id}}'>{%trans "Identify"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='avatar'%} primary{%else%} light{%endif%}" href='{{url.this}}/avatar?id={{requestGET.id}}'>{%trans "avatar"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='company'%} primary{%else%} light{%endif%}" href='{{url.this}}/company?id={{requestGET.id}}'>{%trans "Company Detail"%}</a>
+  </div>
+  <div class="c pB10">
+    <a class="btn block {%if url.child=='manage'%} primary{%else%} light{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>
+  </div>
+
+</div>
+{%endblock%}
