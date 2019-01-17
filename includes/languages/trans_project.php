@@ -37,9 +37,9 @@ class twigTransTerms
 	echo T_("Subdomain for your store");                                              // Line 89
 	echo T_("Set it carefully, you can not change it later");                         // Line 89
 	echo T_("Choose your start plan");                                                // Line 97
-	echo T_("Free");                                                                  // Line 43
-	echo T_("Simple");                                                                // Line 48
-	echo T_("Standard");                                                              // Line 53
+	echo T_("Free");                                                                  // Line 80
+	echo T_("Simple");                                                                // Line 85
+	echo T_("Standard");                                                              // Line 90
 	echo T_("Choose your start plan period");                                         // Line 119
 	echo T_("Trial");                                                                 // Line 123
 	echo T_("Pay monthly");                                                           // Line 128
@@ -360,7 +360,7 @@ class twigTransTerms
 
 	//---------------------------------------------------content_a/setting/layout.html
 	echo T_("Public");                                                                // Line 25
-	echo T_("Plan");                                                                  // Line 35
+	echo T_("Plan");                                                                  // Line 29
 	echo T_("Inventory");                                                             // Line 58
 	echo T_("Fund");                                                                  // Line 69
 	echo T_("POS");                                                                   // Line 93
@@ -380,7 +380,7 @@ class twigTransTerms
 	echo T_("Link your logo on board for visitors");                                  // Line 177
 	echo T_("For show in factors");                                                   // Line 207
 	echo T_("Used for description of board and show in social media links");          // Line 201
-	echo T_("Choose your plan");                                                      // Line 38
+	echo T_("Choose your plan");                                                      // Line 75
 	echo T_("All the basics for personal use.");                                      // Line 218
 	echo T_("Everything you need for a growing business.");                           // Line 224
 	echo T_("Yearly");                                                                // Line 229
@@ -444,10 +444,12 @@ class twigTransTerms
 	//---------------------------------------------content_a/setting/plan/display.html
 	echo T_("Current Plan");                                                          // Line 11
 	echo T_("Expire on");                                                             // Line 12
-	echo T_("Just supervisor see this form");                                         // Line 16
-	echo T_("Plan expire date");                                                      // Line 29
+	echo T_("Start");                                                                 // Line 30
+	echo T_("End");                                                                   // Line 31
+	echo T_("Just supervisor see this form");                                         // Line 55
+	echo T_("Plan expire date");                                                      // Line 66
 	echo T_("Require");                                                               // Line 243
-	echo T_("Store status");                                                          // Line 62
+	echo T_("Store status");                                                          // Line 99
 
 	//-------------------------------------------content_a/setting/factor/display.html
 	echo T_("Print status");                                                          // Line 8
@@ -471,7 +473,7 @@ class twigTransTerms
 	echo T_("Count");                                                                 // Line 59
 	echo T_("Buy price");                                                             // Line 99
 	echo T_("Total");                                                                 // Line 62
-	echo T_("Choose customer");                                                       // Line 108
+	echo T_("Choose supplier");                                                       // Line 107
 	echo T_("Search in list to add product");                                         // Line 118
 	echo T_("Last scanned barcode");                                                  // Line 144
 
@@ -485,6 +487,7 @@ class twigTransTerms
 
 	//-----------------------------------------------------content_a/sale/display.html
 	echo T_("Discount");                                                              // Line 61
+	echo T_("Choose customer");                                                       // Line 108
 
 	//-------------------------------------------content_a/chap/receipt/fishprint.html
 	echo T_("Customer");                                                              // Line 116
@@ -609,24 +612,24 @@ class twigTransTerms
 	echo T_("Increase amount of budget");                                             // Line 53
 
 	//------------------------------------------content_a/thirdparty/home/display.html
-	echo T_("Member");                                                                // Line 62
+	echo T_("Member");                                                                // Line 66
 	echo T_("Customer total order");                                                  // Line 71
 	echo T_("Customer total spend");                                                  // Line 81
-	echo T_("Customer credit");                                                       // Line 73
+	echo T_("Customer credit");                                                       // Line 77
 	echo T_("Supplier total purchased order");                                        // Line 102
 	echo T_("Supplier total purchased");                                              // Line 112
-	echo T_("Staff total sales order");                                               // Line 85
-	echo T_("Staff total sales");                                                     // Line 89
-	echo T_("Balance");                                                               // Line 93
+	echo T_("Staff total sales order");                                               // Line 89
+	echo T_("Staff total sales");                                                     // Line 93
+	echo T_("Balance");                                                               // Line 97
 	echo T_("Last activity");                                                         // Line 14
-	echo T_("Without name");                                                          // Line 112
-	echo T_("Without mobile");                                                        // Line 123
+	echo T_("Without name");                                                          // Line 116
+	echo T_("Without mobile");                                                        // Line 127
 	echo T_("Clear filters");                                                         // Line 181
 	echo T_("Result not found!");                                                     // Line 180
 	echo T_("Search with new keywords.");                                             // Line 180
 	echo T_("Hi!");                                                                   // Line 187
-	echo T_("Try to start with add new member!");                                     // Line 198
-	echo T_("All thirdparty");                                                        // Line 221
+	echo T_("Try to start with add new member!");                                     // Line 202
+	echo T_("All thirdparty");                                                        // Line 225
 
 	//----------------------------------------content_a/thirdparty/glance/display.html
 	echo T_("Joined to store at");                                                    // Line 13

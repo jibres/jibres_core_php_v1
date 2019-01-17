@@ -12,8 +12,15 @@ class controller
 			$result       = [];
 
 			$meta              = [];
-			// $list              = \dash\request::get('list'); // staff, customer, supplier
-			$meta['sort_type'] = \dash\request::get('type'); // buy, sale
+			// $list           = \dash\request::get('list'); // staff, customer, supplier
+			$type              = \dash\request::get('type'); // buy, sale
+			$meta['sort_type'] = $type;
+
+			if($type === 'sale')
+			{
+				$meta['userstores.supplier'] = ["IS", "NULL"];
+			}
+
 			$resultRaw         = \lib\app\thirdparty::list(\dash\request::get('q'), $meta);
 
 			foreach ($resultRaw as $key => $value)
