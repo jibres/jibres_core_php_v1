@@ -23,6 +23,7 @@ trait datalist
 		'lastpaycustomer',
 		'lastactivity',
 		'customercredit',
+		'balance',
 	];
 
 

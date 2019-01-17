@@ -45,3 +45,5 @@ ALTER TABLE `userstores` ADD INDEX `index_search_status` (`status`);
 
 ALTER TABLE `productterms` ADD CONSTRAINT `productterms_store_id` FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`) ON UPDATE CASCADE;
 ALTER TABLE `storetransactions` ADD `finalmsg` bit(1) DEFAULT NULL;
+
+ALTER TABLE `userstores` ADD `balance` float(20) NULL DEFAULT NULL;
