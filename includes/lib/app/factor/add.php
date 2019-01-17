@@ -138,6 +138,12 @@ trait add
 		if(!$add_detail)
 		{
 			\dash\db::rollback();
+			return false;
+		}
+
+		if(isset($factor['customer']) && $factor['customer'] && is_numeric($factor['customer']))
+		{
+			// \lib\db\userstores::customer_field($customer)
 		}
 
 		if(\dash\engine\process::status())

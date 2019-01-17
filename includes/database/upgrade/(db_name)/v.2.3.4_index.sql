@@ -1,5 +1,6 @@
 ALTER TABLE `factors` ADD CONSTRAINT `factors_store_id` FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`) ON UPDATE CASCADE;
 
+ALTER TABLE `factors` ADD INDEX `index_search_seller` (`seller`);
 ALTER TABLE `factors` ADD INDEX `index_search_store_id` (`store_id`);
 ALTER TABLE `factors` ADD INDEX `index_search_detailsum` (`detailsum`);
 ALTER TABLE `factors` ADD INDEX `index_search_detaildiscount` (`detaildiscount`);

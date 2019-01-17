@@ -159,7 +159,7 @@ class model
 	public static function getPostSaleDetail()
 	{
 		$detail             = [];
-		$detail['customer'] = \dash\request::post('customer');
+		$detail['customer'] = \dash\request::post('supplier');
 		$detail['type']     = 'buy';
 		$detail['desc']     = \dash\request::post('desc');
 		return $detail;

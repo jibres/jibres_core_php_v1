@@ -41,7 +41,6 @@ class factor
 		}
 
 		$customer = \dash\app::request('customer');
-		$customer = trim($customer);
 		if(!$customer || $customer === '')
 		{
 			$customer = null;
@@ -65,6 +64,7 @@ class factor
 			}
 			else
 			{
+				// search in displayname of userstore
 				$customer_detail = \lib\db\userstores::search_customer($customer, \lib\store::id());
 				if(isset($customer_detail['id']))
 				{
@@ -75,7 +75,7 @@ class factor
 					$customer = null;
 				}
 			}
-			// every one sale one more time set this is a customer
+			// everyone sell one time, is customer
 			if(isset($customer_detail['id']) && !isset($customer_detail['customer']))
 			{
 				\lib\db\userstores::update(['customer' => 1], $customer_detail['id']);
@@ -186,6 +186,7 @@ class factor
 				continue;
 			}
 
+			$continue = false;
 
 			switch ($_option['type'])
 			{
@@ -193,6 +194,7 @@ class factor
 					if(isset($value['discount']) && $value['discount'] &&  !is_numeric($value['discount']))
 					{
 						$have_warn[] = $key + 1;
+						$continue    = true;
 						break;
 					}
 					// save query of sold plus and minus stock in cache to run multi query after this foreach
@@ -218,12 +220,14 @@ class factor
 					if(!array_key_exists('buyprice', $value))
 					{
 						$have_warn[] = $key + 1;
+						$continue = true;
 						break;
 					}
 
 					if($value['buyprice'] &&  !is_numeric($value['buyprice']))
 					{
 						$have_warn[] = $key + 1;
+						$continue = true;
 						break;
 					}
 
@@ -279,6 +283,11 @@ class factor
 						\dash\notif::error(T_("Invalid factor type"), 'type');
 						return false;
 					break;
+			}
+
+			if($continue)
+			{
+				continue;
 			}
 
 			$new_list[$key]['count']      = floatval($value['count']);
