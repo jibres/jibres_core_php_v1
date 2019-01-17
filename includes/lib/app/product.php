@@ -466,7 +466,7 @@ class product
 					$result['thumb_raw'] = $value;
 					if($value)
 					{
-						$result[$key] = $value;
+						$result[$key] = \lib\filepath::fix($value);
 					}
 					else
 					{

@@ -315,7 +315,7 @@ class store
 				case 'logo':
 					if($value)
 					{
-						$result['logo'] = $value;
+						$result['logo'] = \lib\filepath::fix($value);
 					}
 					else
 					{
