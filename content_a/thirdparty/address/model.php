@@ -11,7 +11,7 @@ class model
 		{
 			\dash\permission::access('thirdpartyAddressDelete');
 
-			\dash\app\address::remove(\dash\request::get('addressid'));
+			\dash\app\address::remove_admin(\dash\request::get('addressid'));
 			\dash\redirect::to(\dash\url::this(). '/address?id='. \dash\request::get('id'));
 			return;
 		}
