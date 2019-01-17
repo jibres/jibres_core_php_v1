@@ -1,10 +1,7 @@
 <?php
 namespace lib\utility;
-/**
- * Class for plan.
- * check plan feachers
- *
- */
+
+
 class homepagenumber
 {
 	private static $dir      = root. 'public_html/files/data/';

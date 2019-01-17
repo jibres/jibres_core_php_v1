@@ -153,18 +153,10 @@ trait add
 		if(self::check_promo($price))
 		{
 			\dash\log::set('usePromoToAddStore');
-			// set similar pay
-			\dash\session::set('payment_verify_amount', $price);
-			\dash\session::set('payment_verify_status', 'ok');
-			\dash\session::set('payment_request_start', true);
 			self::after_pay($price);
 		}
 		elseif($user_budget >= $price)
 		{
-			// set similar pay
-			\dash\session::set('payment_verify_amount', $price);
-			\dash\session::set('payment_verify_status', 'ok');
-			\dash\session::set('payment_request_start', true);
 			self::after_pay($price);
 		}
 		else

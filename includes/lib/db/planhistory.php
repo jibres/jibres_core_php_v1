@@ -16,6 +16,11 @@ class planhistory
 		return \dash\db\config::public_update('planhistory', ...func_get_args());
 	}
 
+	public static function update_where()
+	{
+		return \dash\db\config::public_update_where('planhistory', ...func_get_args());
+	}
+
 
 	public static function get_count()
 	{

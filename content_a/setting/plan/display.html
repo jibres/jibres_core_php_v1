@@ -31,12 +31,12 @@
   </div>
 
   <div class="msg warn2">
-    <a data-direct target="_blank" href="{{url.site}}/pricing">از امکانات پل ها مطلع شوید</a>
+    <a data-direct target="_blank" href="{{url.site}}/pricing">از امکانات پلن ها مطلع شوید</a>
 
   </div>
   <div class="f txtC">
-    <div class="c pRa5"><div class="msg success">{%trans "Upgrade to"%} <b>{%trans "Simple"%}</b></div></div>
-    <div class="c"><div class="msg success">{%trans "Upgrade to"%} <b>{%trans "Standard"%}</b></div></div></div>
+    <div class="c pRa5"><div data-ajaxify data-method='post' data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Upgrade to"%} <b>{%trans "Simple"%}</b></div></div>
+    <div class="c"><div data-ajaxify data-method='post' data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Upgrade to"%} <b>{%trans "Standard"%}</b></div></div></div>
   </div>
 </div>
 {%endblock%}
