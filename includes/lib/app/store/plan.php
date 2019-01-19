@@ -25,9 +25,24 @@ class plan
 	}
 
 
-	public static function set($_plan, $_period = null, $_meta = [])
+	public static function set($_plan, $_meta = [])
 	{
 		\dash\permission::access('settingEditPlan');
+
+		$default =
+		[
+			'period'       => null,
+			'continuation' => null,
+		];
+
+		if(!is_array($_meta))
+		{
+			$_meta = [];
+		}
+
+		$_meta = array_merge($default, $_meta);
+
+		extract($_meta);
 
 		self::load();
 
@@ -51,23 +66,39 @@ class plan
 			return false;
 		}
 
+		if($current_plan === 'free' && $_plan === 'free')
+		{
+			\dash\notif::error(T_("Your plan is free, can not continuation it!"));
+			return false;
+		}
+
+		if($_plan === $current_plan)
+		{
+			if(!$continuation)
+			{
+				\dash\notif::error(T_("This is your current plan"));
+				return false;
+			}
+		}
+
+
 		$price = 0;
 
 		if($_plan !== 'free')
 		{
-			if(!$_period)
+			if(!$period)
 			{
 				\dash\notif::error(T_("Invalid period of plan"));
 				return false;
 			}
 
-			if(!array_key_exists($_period, self::$plan[$_plan]))
+			if(!array_key_exists($period, self::$plan[$_plan]))
 			{
 				\dash\notif::error(T_("Invalid period of plan"));
 				return false;
 			}
 
-			$price = self::$plan[$_plan][$_period];
+			$price = self::$plan[$_plan][$period];
 		}
 
 
@@ -196,6 +227,8 @@ class plan
         \lib\db\stores::update($update, $store_id);
 
         \lib\store::refresh();
+
+        \dash\notif::ok(T_("Your plan was changed"));
 	}
 }
 ?>

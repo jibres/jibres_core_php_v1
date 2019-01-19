@@ -11,12 +11,23 @@
 {%if perm_su()%}
 <div class="cbox">
   <div class="f txtC">
-    <div class="c3 pRa5">
-      <div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">simple monthly</div></div>
-    <div class="c3 pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "yearly"}' class="msg success">simple yearly</div></div>
-    <div class="c3 pRa5"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">standard monthly</div></div>
-    <div class="c3 pRa5"><div data-confirm  data-data='{"plan" : "standard", "period" : "yearly"}' class="msg success">standard yearly</div></div>
-    <div class="c3 pRa5"><div data-confirm  data-data='{"plan" : "free"}' class="msg success">free</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "free"}' class="msg pain">free</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "free", "continuation":"1"}' class="msg danger">free</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "free", "period":"1"}' class="msg danger">free</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">BUY simple monthly</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "simple", "period" : "yearly"}' class="msg success">BUY simple yearly</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">BUY standard monthly</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "standard", "period" : "yearly"}' class="msg success">BUY standard yearly</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "simple", "continuation":"1"}' class="msg primary">simple continuation 1 month</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "simple", "continuation":"3"}' class="msg primary">simple continuation 3 month</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "simple", "continuation":"6"}' class="msg primary">simple continuation 6 month</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "simple", "continuation":"12"}' class="msg primary">simple continuation 12 month</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "simple", "continuation":"24"}' class="msg primary">simple continuation 24 month</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "standard", "continuation":"1"}' class="msg warn">standard continuation 1 month</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "standard", "continuation":"3"}' class="msg warn">standard continuation 3 month</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "standard", "continuation":"6"}' class="msg warn">standard continuation 6 month</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "standard", "continuation":"12"}' class="msg warn">standard continuation 12 month</div></div>
+    <div class="c3 pRa5"><div data-confirm2 data-ajaxify data-method='post' data-data='{"plan" : "standard", "continuation":"24"}' class="msg warn">standard continuation 24 month</div></div>
   </div>
 </div>
 {%endif%}

@@ -9,11 +9,15 @@ class model
 	 */
 	public static function post()
 	{
-		$plan   = \dash\request::post('plan');
-		$period = \dash\request::post('period');
+		$plan         = \dash\request::post('plan');
 
-		\lib\app\store\plan::set($plan, $period);
+		$meta =
+		[
+			'period'       => \dash\request::post('period'),
+			'continuation' => \dash\request::post('continuation'),
+		];
 
+		\lib\app\store\plan::set($plan, $meta);
 	}
 }
 ?>
