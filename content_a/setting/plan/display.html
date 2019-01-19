@@ -6,54 +6,92 @@
 {%block data%}
 <div class="cbox">
   {{block('currentPlan')}}
-  <div class="msg warn2">
-    <a data-direct target="_blank" href="{{url.site}}/pricing">{%trans "Pricing"%}</a>
+</div>
+
+{%if perm_su()%}
+<div class="cbox">
+  <div class="f txtC">
+    <div class="c3 pRa5">
+      <div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">simple monthly</div></div>
+    <div class="c3 pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "yearly"}' class="msg success">simple yearly</div></div>
+    <div class="c3 pRa5"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">standard monthly</div></div>
+    <div class="c3 pRa5"><div data-confirm  data-data='{"plan" : "standard", "period" : "yearly"}' class="msg success">standard yearly</div></div>
+    <div class="c3 pRa5"><div data-confirm  data-data='{"plan" : "free"}' class="msg success">free</div></div>
   </div>
+</div>
+{%endif%}
+<form method="post">
 
-  {%if store.plan == 'free'%}
-    {{block('iFreePlan')}}
-  {%elseif store.plan == 'trial'%}
-    {{block('iTrialPlan')}}
-  {%elseif store.plan == 'standard'%}
-    {{block('iStandardPlan')}}
-  {%elseif store.plan == 'simpla'%}
-    {{block('iSimplePlan')}}
-  {%endif%}
+{{block('iChangePlan')}}
+</form>
+
+
+
+{%endblock%}
+
+
+{%block iChangePlan%}
+<div class="cbox">
+   <a class="msg success2 block txtC mT20" href="{{url.site}}/pricing" data-direct target="_blank">{%trans "Need help to choose plan? Check our pricing or call us"%}</a>
+    {{block ("iplan")}}
+    <div data-response='plan' data-response-hide data-response-where="simple|standard">
+    {{block ("iperiod")}}
+    </div>
+
+    <div data-response='plan' data-response-hide data-response-effect='slide' data-response-where="simple|standard">
+      <div data-response='period' data-response-hide data-response-effect='slide' data-response-where="1m|12m">
+        {{block('iPromo')}}
+        <div class="msg info2 mT20 f" id='price'>
+          <div class="c">{%trans "Your bill total"%}</div>
+          <div class="cauto">
+            <span class="txtB"></span>
+            <small>{%trans "Toman"%}</small>
+          </div>
+        </div>
+
+        <button class="btn primary block mT20">{%trans "Register store and pay"%}</button>
+      </div>
+    </div>
+
+    <div data-response='plan' data-response-hide data-response-where="free">
+      <button class="btn primary block mT20">{%trans "Change your store to free plan"%}</button>
+    </div>
+</div>
+{%endblock%}
+
+
+{%block iBuyPlan%}
+<div class="cbox">
+   <a class="msg success2 block txtC mT20" href="{{url.site}}/pricing" data-direct target="_blank">{%trans "Need help to choose plan? Check our pricing or call us"%}</a>
+    {{block ("iplan")}}
+    <div data-response='plan' data-response-hide data-response-where="simple|standard">
+    {{block ("iperiod")}}
+    </div>
+
+    <div data-response='plan' data-response-hide data-response-effect='slide' data-response-where="simple|standard">
+      <div data-response='period' data-response-hide data-response-effect='slide' data-response-where="1m|12m">
+        {{block('iPromo')}}
+        <div class="msg info2 mT20 f" id='price'>
+          <div class="c">{%trans "Your bill total"%}</div>
+          <div class="cauto">
+            <span class="txtB"></span>
+            <small>{%trans "Toman"%}</small>
+          </div>
+        </div>
+
+        <button class="btn primary block mT20">{%trans "Register store and pay"%}</button>
+      </div>
+    </div>
+
+    <div data-response='plan' data-response-hide data-response-where="free">
+      <button class="btn primary block mT20">{%trans "Change your store to free plan"%}</button>
+    </div>
 </div>
 {%endblock%}
 
 
 
 
-{%block iFreePlan%}
-<div class="f txtC">
-  <div class="c pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Upgrade to"%} <b>{%trans "Simple"%}</b></div></div>
-  <div class="c"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Upgrade to"%} <b>{%trans "Standard"%}</b></div></div></div>
-</div>
-{%endblock%}
-
-
-
-{%block iTrialPlan%}
-<div class="f txtC">
-  <div class="c pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Simple"%}</b></div></div>
-  <div class="c"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Standard"%}</b></div></div></div>
-</div>
-{%endblock%}
-
-{%block iStandardPlan%}
-<div class="f txtC">
-  <div class="c pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Simple"%}</b></div></div>
-  <div class="c"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Standard"%}</b></div></div></div>
-</div>
-{%endblock%}
-
-{%block iSimplePlan%}
-<div class="f txtC">
-  <div class="c pRa5"><div data-confirm  data-data='{"plan" : "simple", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Simple"%}</b></div></div>
-  <div class="c"><div data-confirm  data-data='{"plan" : "standard", "period" : "monthly"}' class="msg success">{%trans "Buy plan"%} <b>{%trans "Standard"%}</b></div></div></div>
-</div>
-{%endblock%}
 
 
 {%block currentPlan%}
@@ -91,21 +129,6 @@
 
 
 
-
-
-{%block iSuSettingPlan%}
-  {%if perm_su()%}
-  <div class="cbox">
-    <div class="msg warn2">{%trans "Just supervisor see this form"%}</div>
-    <form method="post" class="mLR5">
-      {{block ("iplan")}}
-      {{block ("iexpireplan")}}
-      {{block ("isave")}}
-    </form>
-  </div>
-  {%endif%}
-{%endblock%}
-
 {%block iexpireplan%}
 <label for="expireplan">{%trans "Plan expire date"%}  <small class="fc-red">* {%trans "Require"%}</small></label>
 <div class="input">
@@ -115,76 +138,97 @@
 
 
 
+
+
+
+
+
+
+
+{%block iPromo%}
+<label for="promo" class="mT10">{%trans "Promo code"%}</label>
+<div class="input">
+  <input type="text" name="promo" id="promo" placeholder='{%trans "Promo code"%}' maxlength='30' pattern=".{1,30}" title='{%trans "If you have promo code, enter it to give some discount!"%}' needREVIEW-data-check='{{url.this}}/add?check=promo'>
+</div>
+{%endblock%}
+
+
+
+
 {%block iplan%}
-<label>{%trans "Choose your plan"%}</label>
+ <p class="mT10">{%trans "Choose your plan"%} <span class="fc-red">*</span></p>
+  {%if store.plan != 'free'%}
+    <div class="radio1">
+      <input type="radio" id="plan-free" name="plan" value="free">
+      <label for="plan-free">{%trans "Free"%}</label>
+    </div>
+  {%endif%}
+
+  {%if store.plan != 'simple'%}
+    <div class="radio1">
+      <input type="radio" id="plan-simple" name="plan" value="simple" data-1m='100000' data-12m='1000000'>
+      <label for="plan-simple">{%trans "Simple"%}</label>
+    </div>
+  {%endif%}
 
 
-<div class="radio1">
-  <input type="radio" name="plan" id="r-free" value="free" {%if store.plan =='free'%}checked{%endif%}>
-  <label for="r-free">{%trans "Free"%}</label>
-</div>
+  {%if store.plan != 'standard'%}
+    <div class="radio1">
+      <input type="radio" id="plan-12m" name="plan" value="standard" data-1m='500000' data-12m='5000000'>
+      <label for="plan-12m">{%trans "Standard"%}</label>
+    </div>
+  {%endif%}
 
-<div class="radio1">
-  <input type="radio" name="plan" id="r-simple" value="simple" {%if store.plan =='simple'%}checked{%endif%}>
-  <label for="r-simple">{%trans "Simple"%}</label>
-</div>
+{%endblock%}
 
-<div class="radio1">
-  <input type="radio" name="plan" id="r-standard" value="standard" {%if store.plan =='standard'%}checked{%endif%}>
-  <label for="r-standard">{%trans "Standard"%}</label>
-</div>
 
+{%block iperiod%}
+    <p class="mT10">{%trans "Choose your plan period"%} <span class="fc-red">*</span></p>
+
+    <div class="radio1">
+      <input type="radio" id="period-1m" name="period" value="1m">
+      <label for="period-1m">{%trans "Pay monthly"%}</label>
+    </div>
+
+
+    <div class="radio1">
+      <input type="radio" id="period-12m" name="period" value="12m">
+      <label for="period-12m">{%trans "Pay yearly"%} - {%trans "two month is free"%}</label>
+    </div>
+
+
+{%endblock%}
+
+
+{%block foot_js%}
+<script type="text/javascript">
+  function pushStateFinal()
+  {
+    $('#plan').off('change');
+    $('#period').off('change');
+    $('#plan').on('change', function(){ calcTotalPlanPrice(); });
+    $('#period').on('change', function(){ calcTotalPlanPrice(); });
+  }
+
+
+  function calcTotalPlanPrice()
+  {
+    var myPlanRow = $('#plan option[value="' + $('#plan').val() + '"]');
+    var myPeriod  = $('#period').val();
+    var myPrice   = fitNumber(1000);
+
+    var myPrice = myPlanRow.attr('data-'+ myPeriod);
+    if(!myPrice)
+    {
+      myPrice = '-';
+    }
+    $('#price span').text(fitNumber(myPrice));
+
+    return myPrice;
+  }
+</script>
 {%endblock%}
 
 
 
 
-{%block istatus%}
-<label>{%trans "Store status"%}</label>
-
-
-<div class="radio1 green">
-  <input type="radio" name="status" id="r-enable" value="enable" {%if store.status =='enable'%}checked{%endif%}>
-  <label for="r-enable">{%trans "Enable"%}</label>
-</div>
-
-<div class="radio1 red">
-  <input type="radio" name="status" id="r-disable" value="disable" {%if store.status =='disable'%}checked{%endif%}>
-  <label for="r-disable">{%trans "Disable"%}</label>
-</div>
-
-
-
-{%endblock%}
-
-
-
-
-
-{%block pageSteps2%}
-<div class="f msg pB0 secondary2">
-  <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='profile'%} primary{%else%} light{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}'>{%trans "Notes"%}</a>
-  </div>
-  <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='general'%} primary{%else%} light{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General"%}</a>
-  </div>
-
-  <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='address'%} primary{%else%} light{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Address"%}</a>
-  </div>
-  <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='identify'%} primary{%else%} light{%endif%}" href='{{url.this}}/identify?id={{requestGET.id}}'>{%trans "Identify"%}</a>
-  </div>
-  <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='avatar'%} primary{%else%} light{%endif%}" href='{{url.this}}/avatar?id={{requestGET.id}}'>{%trans "avatar"%}</a>
-  </div>
-  <div class="c pB10 pRa10">
-    <a class="btn block {%if url.child=='company'%} primary{%else%} light{%endif%}" href='{{url.this}}/company?id={{requestGET.id}}'>{%trans "Company Detail"%}</a>
-  </div>
-  <div class="c pB10">
-    <a class="btn block {%if url.child=='manage'%} primary{%else%} light{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>
-  </div>
-
-</div>
-{%endblock%}
