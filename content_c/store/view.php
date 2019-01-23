@@ -13,6 +13,10 @@ class view
 
 		if(\dash\permission::supervisor() && \dash\request::get('all'))
 		{
+			if(\dash\request::get('creator'))
+			{
+				$args['creator'] = \dash\request::get('creator');
+			}
 			$args['limit'] = 12;
 			// no thing
 		}

@@ -12,7 +12,7 @@ class user
 		$result['stores']     =
 		[
 			'count'  => \lib\db\stores::get_count(['creator' => $_user_id]),
-			'link'   => null,
+			'link'   => \dash\url::kingdom(). '/c/store?all=true&creator=',
 			'encode' => false,
 		];
 
