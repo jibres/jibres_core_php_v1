@@ -7,7 +7,6 @@ class twigTransTerms
 	//-----------------------------------------------------------content_c/layout.html
 	echo T_("Dashboard");                                                             // Line 7
 	echo T_("Billing");                                                               // Line 441
-	echo T_("Support");                                                               // Line 85
 
 	//----------------------------------------------------content_c/store/display.html
 	echo T_("Total sale");                                                            // Line 23
@@ -91,6 +90,7 @@ class twigTransTerms
 	echo T_("Learn More");                                                            // Line 29
 	echo T_("Terms of Service");                                                      // Line 30
 	echo T_("Privacy Policy");                                                        // Line 31
+	echo T_("Support");                                                               // Line 171
 	echo T_("Contact");                                                               // Line 13
 	echo T_("Logo");                                                                  // Line 39
 	echo T_("Proudly Made in IRAN");                                                  // Line 52
