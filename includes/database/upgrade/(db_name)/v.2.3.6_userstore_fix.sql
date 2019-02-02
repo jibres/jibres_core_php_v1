@@ -1,0 +1,1 @@
+UPDATE userstores SET userstores.permission = 'admin' WHERE userstores.user_id IN (SELECT stores.creator FROM stores) AND userstores.permission IS NULL
