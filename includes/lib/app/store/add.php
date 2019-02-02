@@ -458,7 +458,7 @@ trait add
 			'permission' => 'admin',
 		];
 
-		\lib\app\thirdparty::add($insert_userstore, ['debug' => false, 'store_id' => $store_id]);
+		\lib\app\thirdparty::add($insert_userstore, ['debug' => false, 'store_id' => $store_id, 'add_new_store' => true]);
 
 
 		if(\dash\url::isLocal())

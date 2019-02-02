@@ -17,7 +17,7 @@ class thirdparty
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	private static function check($_id = null)
+	private static function check($_id = null, $_option = [])
 	{
 		$type = \dash\app::request('type');
 		if(!$_id)
@@ -338,9 +338,16 @@ class thirdparty
 
 		$args['permission']          = $permission;
 
-		if(!\dash\permission::check("thirdPartyPermissionChange") || !isset($args['staff']))
+		if(isset($_option['add_new_store']) && $_option['add_new_store'])
 		{
-			unset($args['permission']);
+			// fix new store permission
+		}
+		else
+		{
+			if(!\dash\permission::check("thirdPartyPermissionChange") || !isset($args['staff']))
+			{
+				unset($args['permission']);
+			}
 		}
 
 		$file = [];

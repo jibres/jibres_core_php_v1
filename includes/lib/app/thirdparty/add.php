@@ -56,7 +56,7 @@ trait add
 		}
 
 		// check args
-		$args = self::check();
+		$args = self::check(null, $_option);
 
 		if($args === false || !\dash\engine\process::status())
 		{
