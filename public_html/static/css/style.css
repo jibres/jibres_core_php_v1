@@ -140,7 +140,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 /* footer-links*/
 #tfooter .middle{font-size:1.2em;border-bottom:1px solid #4070c0;padding:2em 0}
 #tfooter .middle h4{font-weight:500;color:#ccc;margin-bottom:5px;font-size:1.1em}
-#tfooter .middle nav a{display:block;padding:0.5em}
+#tfooter .middle nav a{display:block;padding:1rem 0.5rem}
 #tfooter .middle .enamad{min-width:150px;padding:1em 0}
 #tfooter .middle .enamad a{display:block;max-width:90px;padding:0;position:relative;}
 #tfooter .middle .enamad a:focus{background-color:#ccc}
@@ -156,7 +156,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 #tfooter .bottom .love a:hover,#tfooter .bottom .love a:focus{color:#fff}
 #tfooter .bottom .counter{font-weight:700;text-align:center;text-transform:uppercase}
 #tfooter .bottom{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-moz-box-orient:horizontal;-moz-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
-#tfooter .bottom .counter,#tfooter .bottom .love{padding:1em 0}
+#tfooter .bottom .counter,#tfooter .bottom .love a{display:block;padding:1em 0}
 .rtl #tfooter .bottom .love{text-align:left}
 /* xaccess*/
 #tfooter #xaccess{position:fixed;left:0;bottom:17%;z-index:3;}
