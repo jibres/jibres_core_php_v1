@@ -14,7 +14,7 @@ class controller
 
 		/**
 		 * if we have domain in this content
-		 * redirect to whitout subdomain
+		 * redirect to Whithout subdomain
 		 */
 		if(\dash\url::subdomain())
 		{

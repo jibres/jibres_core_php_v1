@@ -782,11 +782,11 @@ class twigTransTerms
 	echo T_("Have not barcode");                                                      // Line 10
 	echo T_("Just code");                                                             // Line 11
 	echo T_("No barcode & code");                                                     // Line 12
-	echo T_("Whitout buyprice");                                                      // Line 13
-	echo T_("Whitout price");                                                         // Line 14
-	echo T_("Whitout min stock");                                                     // Line 15
-	echo T_("Whitout max stock");                                                     // Line 16
-	echo T_("Whitout discount");                                                      // Line 17
+	echo T_("Whithout buyprice");                                                      // Line 13
+	echo T_("Whithout price");                                                         // Line 14
+	echo T_("Whithout min stock");                                                     // Line 15
+	echo T_("Whithout max stock");                                                     // Line 16
+	echo T_("Whithout discount");                                                      // Line 17
 	echo T_("Negative profit");                                                       // Line 18
 	echo T_("Search in products");                                                    // Line 61
 	echo T_("Buy");                                                                   // Line 235
@@ -859,7 +859,7 @@ class twigTransTerms
 	echo T_("You are not register any factor yet!");                                  // Line 85
 	echo T_("Invoice Date");                                                          // Line 115
 	echo T_("Items");                                                                 // Line 117
-	echo T_("Whitout name");                                                          // Line 140
+	echo T_("Whithout name");                                                          // Line 140
 	echo T_("Sale");                                                                  // Line 224
 	echo T_("Prefactor");                                                             // Line 262
 	echo T_("Lending");                                                               // Line 274

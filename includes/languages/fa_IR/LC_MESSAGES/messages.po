@@ -13208,23 +13208,23 @@ msgid "No barcode & code"
 msgstr "بدون بارکد و کد"
 
 #: jibres/content_a/filter.php:104 jibres/includes/languages/trans_project.php:785
-msgid "Whitout buyprice"
+msgid "Whithout buyprice"
 msgstr "بدون قیمت خرید"
 
 #: jibres/content_a/filter.php:109 jibres/includes/languages/trans_project.php:786
-msgid "Whitout price"
+msgid "Whithout price"
 msgstr "بدون قیمت"
 
 #: jibres/content_a/filter.php:114 jibres/includes/languages/trans_project.php:787
-msgid "Whitout min stock"
+msgid "Whithout min stock"
 msgstr "بدون حداقل موجودی"
 
 #: jibres/content_a/filter.php:119 jibres/includes/languages/trans_project.php:788
-msgid "Whitout max stock"
+msgid "Whithout max stock"
 msgstr "بدون حداکثر موجودی"
 
 #: jibres/content_a/filter.php:124 jibres/includes/languages/trans_project.php:789
-msgid "Whitout discount"
+msgid "Whithout discount"
 msgstr "بدون تخفیف"
 
 #: jibres/content_a/filter.php:130 jibres/includes/languages/trans_project.php:501
@@ -16768,7 +16768,7 @@ msgid "Items"
 msgstr "آیتم‌ها"
 
 #: jibres/includes/languages/trans_project.php:862
-msgid "Whitout name"
+msgid "Whithout name"
 msgstr "بدون نام"
 
 #: jibres/includes/languages/trans_project.php:863
@@ -18905,7 +18905,7 @@ msgstr "این کاربر قبلا به این فروشگاه اضافه شده 
 #~ msgstr ""
 #~ "با وارد سازی دو فاصله در بین کلمات در نام و نام خانوادگی و نام پدر جستجو کنید"
 
-#~ msgid "Whitout mobile"
+#~ msgid "Whithout mobile"
 #~ msgstr "بدون موبایل"
 
 #~ msgid "transaction"

@@ -101,27 +101,27 @@ class filter
 				if(isset($filter_array['wbuyprice']))
 				{
 					unset($filter_array['wbuyprice']);
-					$filter_array[T_("Whitout buyprice")] = '';
+					$filter_array[T_("Whithout buyprice")] = '';
 				}
 				if(isset($filter_array['wprice']))
 				{
 					unset($filter_array['wprice']);
-					$filter_array[T_("Whitout price")] = '';
+					$filter_array[T_("Whithout price")] = '';
 				}
 				if(isset($filter_array['wminstock']))
 				{
 					unset($filter_array['wminstock']);
-					$filter_array[T_("Whitout min stock")] = '';
+					$filter_array[T_("Whithout min stock")] = '';
 				}
 				if(isset($filter_array['wmaxstock']))
 				{
 					unset($filter_array['wmaxstock']);
-					$filter_array[T_("Whitout max stock")] = '';
+					$filter_array[T_("Whithout max stock")] = '';
 				}
 				if(isset($filter_array['wdiscount']))
 				{
 					unset($filter_array['wdiscount']);
-					$filter_array[T_("Whitout discount")] = '';
+					$filter_array[T_("Whithout discount")] = '';
 				}
 
 			case 'thirdparty':
