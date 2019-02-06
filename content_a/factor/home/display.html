@@ -128,7 +128,12 @@
     <tbody>
       {%for key, value in dataTable%}
         <tr>
-          <td><a href="{{url.here}}/chap/receipt?id={{value.id}}&size=receipt8">{{value.date | dt(true, 'date')}} <b class="pLa5">{{value.date | dt(true, 'time')}}</b></a></td>
+          <td>
+            <a href="{{url.here}}/chap/receipt?id={{value.id}}&size=receipt8" class="f">
+              <div class="c">{{value.date | dt(true, 'date')}}
+              <div class="cauto os txtB">{{value.date | dt(true, 'time')}}</div>
+            </a>
+          </td>
           <td>
           {%if value.customer%}
             <a href="{{url.this}}?customer={{value.customer}}">
