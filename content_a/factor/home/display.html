@@ -109,18 +109,19 @@
 
 
 {%block htmlTable%}
-  <table class="tbl1 v6 fs12">
+  <table class="tbl1 v6 fs12 txtC">
     <thead>
       <tr>
-        <th data-sort="{{myFilter.date.order}}"><a href="{{myFilter.date.link}}">{%trans "Invoice Date"%}</a></th>
         <th data-sort="{{myFilter.customer.order}}"><a href="{{myFilter.customer.link}}">{%if not requestGET.type or requestGET.type != 'buy'%}{%trans "Customer"%}{%else%}{%trans "Supplier"%}{%endif%}</a></th>
         <th data-sort="{{myFilter.item.order}}"><a href="{{myFilter.item.link}}">{%trans "Items"%}</a></th>
         <th data-sort="{{myFilter.qty.order}}"><a href="{{myFilter.qty.link}}">{%trans "Qty"%}</a></th>
         <th data-sort="{{myFilter.detailsum.order}}"><a href="{{myFilter.detailsum.link}}">{%trans "Price"%}</a></th>
         <th data-sort="{{myFilter.detaildiscount.order}}"><a href="{{myFilter.detaildiscount.link}}">{%trans "Discount"%}</a></th>
         <th data-sort="{{myFilter.detailtotalsum.order}}"><a href="{{myFilter.detailtotalsum.link}}">{%trans "Total"%}</a></th>
+        <th data-sort="{{myFilter.date.order}}"><a href="{{myFilter.date.link}}">{%trans "Invoice Date"%}</a></th>
         {%if not requestGET.type%}
         <th data-sort="{{myFilter.type.order}}"><a href="{{myFilter.type.link}}">{%trans "Type"%}</a></th>
+        <th>{%trans "Operation"%}</th>
         {%endif%}
       </tr>
 
@@ -128,12 +129,6 @@
     <tbody>
       {%for key, value in dataTable%}
         <tr>
-          <td>
-            <a href="{{url.here}}/chap/receipt?id={{value.id}}&size=receipt8" class="f">
-              <div class="c">{{value.date | dt(true, 'date')}}
-              <div class="cauto os txtB">{{value.date | dt(true, 'time')}}</div>
-            </a>
-          </td>
           <td>
           {%if value.customer%}
             <a href="{{url.this}}?customer={{value.customer}}">
@@ -146,7 +141,9 @@
             {%endif%}
             </a>
           {%else%}
-            <i class="disabled">-</i>
+            <a href="{{url.this}}?customer=-quick">
+              <small class="disabled">{%trans "Quick"%}</small>
+            </a>
           {%endif%}
           </td>
           <td>{{value.item| number_format | fitNumber}}</td>
@@ -154,9 +151,18 @@
           <td>{{value.detailsum| number_format | fitNumber}}</td>
           <td>{{value.detaildiscount| number_format | fitNumber}}</td>
           <td>{{value.detailtotalsum| number_format | fitNumber}}</td>
+          <td class="collapsing">
+            <div class="f">
+              <div class="c">{{value.date | dt(true, 'date')}}
+              <div class="cauto os txtB pRa10">{{value.date | dt(true, 'time')}}</div>
+            </div>
+          </td>
           {%if not requestGET.type%}
           <td>{%set myType = value.type | capitalize%}<a class="badge" href="{{url.this}}?type={{value.type}}">{%trans myType%}</a></td>
           {%endif%}
+          <td>
+            <a href="{{url.here}}/chap/receipt?id={{value.id}}&size=receipt8" class="btn primary outline sm">{%trans "View"%}</a>
+          </td>
         </tr>
       {%endfor%}
     </tbody>
