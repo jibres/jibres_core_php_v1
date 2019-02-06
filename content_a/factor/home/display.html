@@ -210,8 +210,8 @@
   <div class="c s6">
     <a class="dcard {%if not requestGET.type %}active{%endif%}" href='{{url.this}}' data-shortkey="49shift">
      <div class="statistic gray">
-      <div class="value"><i class="sf-shop"></i></div>
-      <div class="label">{%trans "All"%} {{dashboardDetail.all | fitNumber}}<kbd>T+1</kbd></div>
+      <div class="value">{{dashboardDetail.all | fitNumber}}</div>
+      <div class="label"><i class="fs16 mRa5 sf-shop"></i> {%trans "All"%}</div>
      </div>
     </a>
   </div>
@@ -220,8 +220,8 @@
   <div class="c s6">
     <a class="dcard {%if requestGET.type == 'sale' %}active{%endif%}" href='{{url.this}}?type=sale' data-shortkey="49shift">
      <div class="statistic gray">
-      <div class="value"><i class="sf-cloud-upload"></i></div>
-      <div class="label">{%trans "Sale"%} {{dashboardDetail.sale | fitNumber}}<kbd>T+2</kbd></div>
+      <div class="value">{{dashboardDetail.sale | fitNumber}}</div>
+      <div class="label"><i class="fs16 mRa5 sf-cloud-upload"></i> {%trans "Sale"%}</div>
      </div>
     </a>
   </div>
@@ -231,8 +231,8 @@
   <div class="c">
     <a class="dcard {%if requestGET.type == 'buy' %}active{%endif%}" href='{{url.this}}?type=buy' data-shortkey="49shift">
      <div class="statistic gray">
-      <div class="value"><i class="sf-cloud-download"></i></div>
-      <div class="label">{%trans "Buy"%} {{dashboardDetail.buy | fitNumber}}<kbd>T+3</kbd></div>
+      <div class="value">{{dashboardDetail.buy | fitNumber}}</div>
+      <div class="label"><i class="fs16 mRa5 sf-cloud-download"></i> {%trans "Buy"%}</div>
      </div>
     </a>
   </div>
