@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-02-07 10:24+0330\n"
-"PO-Revision-Date: 2019-02-07 10:26+0330\n"
+"POT-Creation-Date: 2019-02-07 10:32+0330\n"
+"PO-Revision-Date: 2019-02-07 10:34+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -10640,6 +10640,30 @@ msgstr "پنل"
 msgid "panel"
 msgstr "پنل"
 
+#: dash/addons/includes/languages/trans_static.php:1133
+msgid "activeuser"
+msgstr "کاربران فعال"
+
+#: dash/addons/includes/languages/trans_static.php:1134
+msgid "deactiveuser"
+msgstr "کاربران غیرفعال"
+
+#: dash/addons/includes/languages/trans_static.php:1135
+msgid "user_awaiting"
+msgstr "کاربران درانتظار"
+
+#: dash/addons/includes/languages/trans_static.php:1136
+msgid "user_removed"
+msgstr "کاربران حذف شده"
+
+#: dash/addons/includes/languages/trans_static.php:1137
+msgid "user_filter"
+msgstr "کاربران فیلترشده"
+
+#: dash/addons/includes/languages/trans_static.php:1138
+msgid "news"
+msgstr "اخبار"
+
 #: dash/lib/app/address.php:58
 msgid "Please set title less than 100 character"
 msgstr "لطفا عنوان را کمتر از ۱۰۰ حرف وارد کنید"
@@ -14445,7 +14469,7 @@ msgstr "عضو"
 
 #: jibres/includes/languages/trans_dash.php:839
 msgid "Special user report"
-msgstr ""
+msgstr "گزارش کاربران خاص"
 
 #: jibres/includes/languages/trans_dash.php:1128
 msgid "Chatid"
@@ -16433,11 +16457,11 @@ msgstr "ایران بارکد را اسکن کنید..."
 
 #: jibres/includes/languages/trans_project.php:703
 msgid "Code on scale"
-msgstr ""
+msgstr "کد تعریف شده روی ترازو"
 
 #: jibres/includes/languages/trans_project.php:704
 msgid "Enter product code on scale"
-msgstr ""
+msgstr "کد تعریف‌شده این کالا در ترازو را وارد کنید"
 
 #: jibres/includes/languages/trans_project.php:705
 msgid "Sale Price"
