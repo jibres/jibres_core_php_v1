@@ -3,7 +3,7 @@
 
 {%block pageContent%}
 <div class="f justify-center">
-  <div class="c6 s12">
+  <div class="c8 s12">
     <form method="post" class="cbox pB20" autocomplete="off">
       <div class="msg txtC txtB">
         {%trans "With this form you can add your store and start using Jibres."%}
@@ -11,7 +11,7 @@
     {{block ("iname")}}
     {{block ("islug")}}
 
-     <a class="msg success2 block txtC mT20" href="{{url.site}}/pricing" data-direct>{%trans "Need help to choose plan? Check our pricing or call us"%}</a>
+     <a class="msg success2 block txtC mT20" href="{{url.site}}/pricing" target="_blank"><span class="txtB">{%trans "Need help to choose plan?"%}</span> {%trans "Check our pricing or call us"%}</a>
       {{block ("iplan")}}
       <div data-response='plan' data-response-hide data-response-where="simple|standard">
       {{block ("iperiod")}}
