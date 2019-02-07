@@ -380,6 +380,25 @@ class product
 			\dash\notif::warn(T_("Final price less than buyprice!"));
 		}
 
+		$scalecode = \dash\app::request('scalecode');
+		if($scalecode)
+		{
+			$scalecode = \dash\utility\convert::to_en_number($scalecode);
+			if(!is_numeric($scalecode))
+			{
+				\dash\notif::error(T_("Plase set scale code as a number"), 'scalecode');
+				return false;
+			}
+
+			$scalecode = intval($scalecode);
+			if($scalecode < 10000 || $scalecode > 99999 )
+			{
+				\dash\notif::error(T_("Please enter the scale code as a five digit number"), 'scalecode');
+				return false;
+			}
+		}
+
+
 		$master_args = \dash\app::request();
 		// check to add new cat or unit
 		if($cat)
@@ -422,6 +441,7 @@ class product
 		$args['salestore']       = $salestore;
 		$args['carton']          = $carton;
 		$args['desc']            = $desc;
+		$args['scalecode']       = $scalecode;
 
 		return $args;
 	}

@@ -89,6 +89,7 @@ trait edit
 		if(!\dash\app::isset_request('quickcode'))      unset($args['quickcode']);
 		if(!\dash\app::isset_request('checkstock'))     unset($args['checkstock']);
 		if(!\dash\app::isset_request('desc'))           unset($args['desc']);
+		if(!\dash\app::isset_request('scalecode'))      unset($args['scalecode']);
 		if(!\dash\app::isset_request('thumb'))          unset($args['thumb']);
 
 

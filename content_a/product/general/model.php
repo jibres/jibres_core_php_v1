@@ -17,6 +17,7 @@ class model
 			'buyprice'  => \dash\request::post('buyprice'),
 			'price'     => \dash\request::post('price'),
 			'discount'  => \dash\request::post('discount'),
+			'scalecode' => \dash\request::post('scalecode'),
 		];
 
 		return $args;
