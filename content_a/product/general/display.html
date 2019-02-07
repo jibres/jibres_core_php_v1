@@ -8,7 +8,7 @@
 {{block("psidebar")}}
  </div>
  <div class="c s12 pA10">
- 	{{block('iDataForm')}}
+  {{block('iDataForm')}}
  </div>
 </div>
 {%endblock%}
@@ -25,20 +25,16 @@
  <div class="c s6">{{block ('iCode') }}</div>
 </div>
 
-<div class="mB10">
-	<h4 data-kerkere="#kBarcode" data-kerkere-single data-kerkere-icon='open'>{%trans "Barcode"%}</h4>
-	<div data-kerkere-content id='kBarcode'>
-		<div class="f">
-		 <div class="c s12 pRa5">{{block ('iBarcode') }}</div>
-		 <div class="c s12">{{block ('iBarcode2') }}</div>
-		</div>
-		{{block ('iBarcodePrev') }}
-	</div>
-	<h4 data-kerkere="#kScaleCode" data-kerkere-single data-kerkere-icon='close'>{%trans "Code on scale"%}</h4>
-	<div data-kerkere-content='hide' id='kScaleCode'>
-		{{block ('iCodeOnScale') }}
-	</div>
+
+{{block ('iCodeOnScale') }}
+
+
+<div class="f">
+ <div class="c s12 pRa5">{{block ('iBarcode') }}</div>
+ <div class="c s12">{{block ('iBarcode2') }}</div>
 </div>
+{{block ('iBarcodePrev') }}
+
 
 
 
