@@ -166,9 +166,32 @@
         </tr>
         <tr>
           <td colspan="{%if not requestGET.type%}9{%else%}8{%endif%}" class="pTB0-f txtLa">
+            {%set needMore = false%}
+            {%set openKerkere = false%}
+            {%set counterI = 0%}
+
             {%for myKey, myValue in value.productInFactor%}
-              <a class="badge secondary outline" href="{{url.here}}/product/glance?id={{myValue.id}}">{{myValue.title}} <span class="mLR5">{{myValue.count | fitNumber(false)}}</span></a>
+
+              {%set counterI = counterI + 1%}
+
+              {%if counterI == 7 %}
+                {%set needMore = true%}
+                <a data-kerkere='.openDetailFactor_{{value.id}}' class="badge primary outline">{%trans "More"%} ... <span class="mLR5">+{{(value.item - 6) | fitNumber(false)}}</span></a>
+              {%endif%}
+
+              {%if needMore%}
+                {%set openKerkere = true%}
+                {%set needMore = false%}
+                <div class="openDetailFactor_{{value.id}}" data-kerkere-content='hide'>
+              {%endif%}
+
+                <a class="badge secondary outline" href="{{url.here}}/product/glance?id={{myValue.id}}">{{myValue.title}} <span class="mLR5">{{myValue.count | fitNumber(false)}}</span></a>
+
             {%endfor%}
+
+            {%if openKerkere%}
+              </div>
+            {%endif%}
 
           </td>
         </tr>

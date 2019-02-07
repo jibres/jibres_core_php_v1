@@ -206,10 +206,7 @@ trait datalist
 
 			$temp['count'] = $value['count'];
 			$temp['id']    = \dash\coding::encode($value['product_id']);
-			if(count($factor_product[$value['factor_id']]) >= 10)
-			{
-				continue;
-			}
+
 
 			$factor_product[$value['factor_id']][] = $temp;
 		}
