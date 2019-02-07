@@ -16,6 +16,7 @@ class view
 			'load_product' => true,
 		];
 
+		$filterArgs = [];
 		if(!$args['order'])
 		{
 			$args['order'] = 'DESC';
@@ -23,19 +24,48 @@ class view
 
 		if(\dash\request::get('type'))
 		{
-			$args['type'] = \dash\request::get('type');
+			$args['factors.type']       = \dash\request::get('type');
+			$filterArgs['type'] = \dash\request::get('type');
 		}
 
 		if(\dash\request::get('customer'))
 		{
-			$args['customer'] = \dash\request::get('customer');
+			$args['factors.customer'] = \dash\request::get('customer');
 		}
+
+		if(isset($args['factors.customer']) && $args['factors.customer'] === '-quick')
+		{
+			$args['factors.customer'] = null;
+		}
+
 
 		$dataTable = \lib\app\factor::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
 
+		if(isset($args['factors.customer']))
+		{
+			$customer_name = '';
+			if(isset($dataTable[0]['customer_firstname']))
+			{
+				$customer_name .= $dataTable[0]['customer_firstname'];
+			}
+
+			if(isset($dataTable[0]['customer_lastname']))
+			{
+				$customer_name .=  ' '. $dataTable[0]['customer_lastname'];
+			}
+
+			if(isset($dataTable[0]['customer_displayname']))
+			{
+				$customer_name .= ' '. $dataTable[0]['customer_displayname'];
+			}
+
+			$filterArgs['customer'] = $customer_name;
+		}
+
 		\dash\data::myFilter(\content_a\filter::current(\lib\app\factor::$sort_field, \dash\url::this()));
-		\dash\data::filterBox(\content_a\filter::createMsg($args));
+
+		\dash\data::filterBox(\dash\app\sort::createFilterMsg(\dash\request::get('q'), $filterArgs));
 
 		$dashboard_detail = \lib\app\factor\dashboard::detail();
 		\dash\data::dashboardDetail($dashboard_detail);

@@ -42,8 +42,8 @@ trait datalist
 		[
 			'order'        => null,
 			'sort'         => null,
-			'type'         => null,
-			'customer'     => null,
+
+
 			'load_product' => false,
 		];
 
@@ -70,12 +70,11 @@ trait datalist
 			}
 		}
 
-		$field             = [];
-		$field['factors.store_id'] = \lib\store::id();
+		$_option['factors.store_id'] = \lib\store::id();
 
-		if($_option['type'])
+		if(isset($_option['factors.type']))
 		{
-			$field['factors.type']     = $_option['type'];
+			$_option['factors.type']     = $_option['factors.type'];
 		}
 
 		if(!\dash\permission::check('factorAccess'))
@@ -83,9 +82,9 @@ trait datalist
 			return [];
 		}
 
-		if($_option['type'])
+		if(isset($_option['factors.type']))
 		{
-			switch ($_option['type'])
+			switch ($_option['factors.type'])
 			{
 				case 'buy':
 					if(!\dash\permission::check('factorBuyList'))
@@ -119,7 +118,7 @@ trait datalist
 			if(!empty($just_in))
 			{
 				$just_in               = implode(',', $just_in);
-				$field['factors.type'] = [" IN ", "($just_in)"];
+				$_option['factors.type'] = [" IN ", "($just_in)"];
 			}
 			else
 			{
@@ -127,16 +126,16 @@ trait datalist
 			}
 		}
 
-		if($_option['customer'])
+		if(isset($_option['customer']))
 		{
 			$customer_id = \dash\coding::decode($_option['customer']);
 			if($customer_id)
 			{
-				$field['factors.customer']     = $customer_id;
+				$_option['factors.customer']     = $customer_id;
 			}
 		}
 
-		$result            = \lib\db\factors::search($_string, $_option, $field);
+		$result            = \lib\db\factors::search($_string, $_option);
 		$temp              = [];
 
 		if(isset($_option['load_product']) && $_option['load_product'] && is_array($result))
