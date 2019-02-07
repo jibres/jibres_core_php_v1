@@ -26,7 +26,7 @@ class controller
 				$result = \lib\app\product\find::barcode(\dash\request::get('barcode'));
 				if(!$result)
 				{
-					$msg .= '<a href="{{url.here}}/product/add?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
+					$msg .= '<a href="'. \dash\url::here(). '/product/add?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
 					\dash\notif::result(['message' => $msg]);
 					\dash\code::end();
 				}
