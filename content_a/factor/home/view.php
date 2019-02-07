@@ -11,8 +11,9 @@ class view
 
 		$args =
 		[
-			'order' => \dash\request::get('order'),
-			'sort'  => \dash\request::get('sort'),
+			'order'        => \dash\request::get('order'),
+			'sort'         => \dash\request::get('sort'),
+			'load_product' => true,
 		];
 
 		if(!$args['order'])
@@ -30,13 +31,15 @@ class view
 			$args['customer'] = \dash\request::get('customer');
 		}
 
-		\dash\data::dataTable(\lib\app\factor::list(\dash\request::get('q'), $args));
+		$dataTable = \lib\app\factor::list(\dash\request::get('q'), $args);
+		\dash\data::dataTable($dataTable);
 
 		\dash\data::myFilter(\content_a\filter::current(\lib\app\factor::$sort_field, \dash\url::this()));
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
 
 		$dashboard_detail = \lib\app\factor\dashboard::detail();
 		\dash\data::dashboardDetail($dashboard_detail);
+
 
 	}
 

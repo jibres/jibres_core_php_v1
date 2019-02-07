@@ -166,15 +166,10 @@
         </tr>
         <tr>
           <td colspan="{%if not requestGET.type%}9{%else%}8{%endif%}" class="pTB0-f txtLa">
-            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
-            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
-            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
-            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
-            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
-            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
-            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
-            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
-            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+            {%for myKey, myValue in value.productInFactor%}
+              <a class="badge secondary outline" href="{{url.here}}/product/glance?id={{myValue.id}}">{{myValue.title}} <span class="mLR5">{{myValue.count | fitNumber(false)}}</span></a>
+            {%endfor%}
+
           </td>
         </tr>
       {%endfor%}
