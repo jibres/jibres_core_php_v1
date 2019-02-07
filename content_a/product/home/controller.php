@@ -26,7 +26,17 @@ class controller
 				$result = \lib\app\product\find::barcode(\dash\request::get('barcode'));
 				if(!$result)
 				{
-					$msg .= '<a href="'. \dash\url::here(). '/product/add?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
+					$msg .= '<a href="'. \dash\url::here(). '/product/add';
+					if(mb_strlen(\dash\request::get('barcode')) === 5)
+					{
+						// do nothing
+					}
+					else
+					{
+						$msg .= '?barcode='. \dash\request::get('barcode');
+					}
+					$msg .=  '" target="_blank">'. T_('add as new product'). '</a>';
+
 					\dash\notif::result(['message' => $msg]);
 					\dash\code::end();
 				}
