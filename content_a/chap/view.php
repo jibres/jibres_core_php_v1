@@ -20,20 +20,21 @@ class view
 		$printType = \dash\url::child();
 		switch ($printType)
 		{
+			case 'receipt':
 			case 'fishprint':
-				\dash\data::printFileUrl('content_a/chap/receipt/fishprint.html');
+				\dash\data::printFileUrl('content_a/chap/display-receipt.html');
 				break;
 
 			case 'a4':
-				\dash\data::printFileUrl('content_a/chap/receipt/fishprint.html');
+				\dash\data::printFileUrl('content_a/chap/display-receipt.html');
 				break;
 
 			case 'a5':
-				\dash\data::printFileUrl('content_a/chap/receipt/fishprint.html');
+				\dash\data::printFileUrl('content_a/chap/display-receipt.html');
 				break;
 
 			default:
-				\dash\data::printFileUrl('content_a/chap/receipt/fishprint.html');
+				// \dash\data::printFileUrl('content_a/chap/display-receipt.html');
 				break;
 		}
 

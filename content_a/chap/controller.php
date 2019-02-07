@@ -14,7 +14,7 @@ class controller
 		\dash\permission::access('factorAccess');
 
 		$child = \dash\url::child();
-		if(in_array($child, ['fishprint', 'a4', 'a5']))
+		if(in_array($child, ['receipt', 'fishprint', 'a4', 'a5']))
 		{
 			\dash\open::get();
 		}

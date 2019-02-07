@@ -15,7 +15,11 @@
 {%endif%}
 
 
+{%if printFileUrl%}
 {%embed printFileUrl%}{%endembed%}
-
+{%else%}
+<div class="msg warn2 txtC fs20">{%trans "Please choose one format to print factor"%}
+</div>
+{%endif%}
 
 {%endblock%}
