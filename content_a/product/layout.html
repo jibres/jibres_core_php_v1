@@ -155,6 +155,14 @@
 {%endblock%}
 
 
+{%block iCodeOnScale%}
+<label for="codeOnScale">{%trans "Code on scale"%}</label>
+<div class="input ">
+ <input type="number" name="codeOnScale" id="codeOnScale" placeholder='{%trans "Enter product code on scale"%}' value="{{dataRow.codeOnScale}}" class="barCode txtC ltr" autocomplete="off" min="10000" max="99999">
+</div>
+{%endblock%}
+
+
 {%block iBarcodePrev%}
 <div class="f txtC s0">
  <div class="c6 pRa5"><svg class="barcodePrev" data-val="#barcode"></svg></div>
