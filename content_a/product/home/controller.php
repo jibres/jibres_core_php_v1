@@ -238,6 +238,10 @@ class controller
 			$result['desc'] = T_("Price"). ' +'. $_data['price'];
 		}
 
+		// $result['plus']    = true;
+		// if scale turn plus off
+		$result['quantity'] = 1;
+
 		return $result;
 
 	}
