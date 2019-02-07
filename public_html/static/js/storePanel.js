@@ -535,9 +535,15 @@ function addNewRecord_ProductList(_table, _product, _append)
   newRecord.find('td.cellIndex').text(fitNumber(cuRow));
   if(_product)
   {
+
     console.log(_product);
+    var myQuantity = _product.quantity;
+    if(!myQuantity)
+    {
+      myQuantity = 1;
+    }
     var htmlPName     = _product.title + '<input type="hidden" name="products[]" class="hidden" value="' + _product.id + '">';
-    var htmlPCount    = '<input class="input count" type="number" name="count[]" autocomplete="off" min="0" max="1000000000" step="any" placeholder="-" value="'+ _product.quantity +'">';
+    var htmlPCount    = '<input class="input count" type="number" name="count[]" autocomplete="off" min="0" max="1000000000" step="any" placeholder="-" value="'+ myQuantity +'">';
     if(factorType === 'buy')
     {
       htmlPCount = '<input class="input count" type="number" name="count[]" autocomplete="off" min="0" max="1000000000" step="any" placeholder="-" >';
