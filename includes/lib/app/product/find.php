@@ -33,6 +33,7 @@ class find
 				$result = \lib\db\products::get($get_product);
 				if($result)
 				{
+					$result['scale']    = true;
 					$result['quantity'] = intval($quantity);
 					return $result;
 				}

@@ -231,7 +231,12 @@ class controller
 			$result['desc'] = T_("Price"). ' +'. $_data['price'];
 		}
 
-		// $result['plus']    = true;
+		// set scale as true if exist
+		if(isset($_data['scale']) && $_data['scale'] === true)
+		{
+			$result['scale'] = true;
+		}
+
 		// if scale turn plus off
 		if(!isset($_data['quantity']))
 		{
