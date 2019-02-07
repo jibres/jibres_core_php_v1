@@ -23,7 +23,9 @@ class controller
 			}
 			elseif(\dash\request::get('barcode'))
 			{
-				$result = \lib\app\product::list(null, ['barcode' => \dash\request::get('barcode')]);
+				$result = \lib\app\product\find::barcode(\dash\request::get('barcode'));
+
+				// $result = \lib\app\product::list(null, ['barcode' => \dash\request::get('barcode')]);
 				if(!$result)
 				{
 					$msg .= '<a href="{{url.here}}/product/add?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
@@ -240,7 +242,14 @@ class controller
 
 		// $result['plus']    = true;
 		// if scale turn plus off
-		$result['quantity'] = 1;
+		if(!isset($_data['quantity']))
+		{
+			$result['quantity'] = 1;
+		}
+		else
+		{
+			$result['quantity'] = $_data['quantity'];
+		}
 
 		return $result;
 
