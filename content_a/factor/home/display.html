@@ -164,6 +164,19 @@
             <a href="{{url.here}}/chap/receipt?id={{value.id}}&size=receipt8" class="btn primary outline sm">{%trans "View"%}</a>
           </td>
         </tr>
+        <tr>
+          <td colspan="{%if not requestGET.type%}9{%else%}8{%endif%}" class="pTB0-f txtLa">
+            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+            <div class="badge secondary outline">Product <span class="mLR5">{{4 | fitNumber(false)}}</span></div>
+          </td>
+        </tr>
       {%endfor%}
     </tbody>
   </table>
