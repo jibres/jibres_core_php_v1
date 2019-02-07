@@ -269,7 +269,6 @@ function bindBtnOnFactor()
   // add event to handle dropdown selected value
   $('body').on('dropdown:selected:datalist', function(_e, _selectedProduct)
   {
-    // console.log(_selectedProduct);
     if(_selectedProduct)
     {
       addFindedProduct(_selectedProduct);
@@ -411,8 +410,6 @@ function addFindedProduct(_product, _msg, _searchedValue)
     // show custom message if product not fount
     // if(productNotExistList)
     // productNotExistList.[_searchedValue] = 1;
-    // console.log(_searchedValue);
-    // console.log(productNotExistList);
   }
 }
 
@@ -535,8 +532,6 @@ function addNewRecord_ProductList(_table, _product, _append)
   newRecord.find('td.cellIndex').text(fitNumber(cuRow));
   if(_product)
   {
-
-    console.log(_product);
     var myQuantity = _product.quantity;
     if(!myQuantity)
     {
