@@ -24,8 +24,6 @@ class controller
 			elseif(\dash\request::get('barcode'))
 			{
 				$result = \lib\app\product\find::barcode(\dash\request::get('barcode'));
-
-				// $result = \lib\app\product::list(null, ['barcode' => \dash\request::get('barcode')]);
 				if(!$result)
 				{
 					$msg .= '<a href="{{url.here}}/product/add?barcode='. \dash\request::get('barcode'). '" target="_blank">'. T_('add as new product'). '</a>';
@@ -36,8 +34,6 @@ class controller
 				$result = self::getNeededField_barcode($result);
 				\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 				\dash\code::jsonBoom(\dash\notif::get());
-				// \dash\code::compile();
-				// \dash\code::boom();
 
 			}
 			elseif(\dash\request::get('id'))
@@ -46,8 +42,6 @@ class controller
 				$result = self::getNeededField_barcode($result);
 				\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 				\dash\code::jsonBoom(\dash\notif::get());
-				// \dash\code::compile();
-				// \dash\code::boom();
 			}
 			else
 			{
@@ -73,9 +67,6 @@ class controller
 			}
 
 			\dash\code::jsonBoom($result);
-			// $result = json_encode($result, JSON_UNESCAPED_UNICODE);
-			// echo $result;
-			// \dash\code::boom();
 		}
 
 		\dash\permission::access('productList');

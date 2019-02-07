@@ -1,0 +1,21 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+
+{%if store.meta.factor.print_size%}
+  <div class="msg info2 f align-center p0">
+    <div class="cauto pRa10">{%trans "Another print formats"%}</div>
+    <div class="c">
+{%for key, value in store.meta.factor.print_size%}
+      <a class="btn primary outline mRa5" href="{{url.this}}/{{key}}?id={{factorDetail.factor.id}}">{{key}}</a>
+{%endfor%}
+    </div>
+  </div>
+{%endif%}
+
+
+{%embed printFileUrl%}{%endembed%}
+
+
+{%endblock%}
