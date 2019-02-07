@@ -324,6 +324,8 @@ function checkProductExist(_key, _value)
 function productBarcodeFinded(_barcode)
 {
   var existRecord = checkProductExist('barcode', _barcode);
+  // for simple product we find that barcode
+  // but for scale we dont find it and try to add new record
   if(existRecord)
   {
     updateRecord_ProductList(existRecord, 'count');
@@ -382,7 +384,14 @@ function addFindedProduct(_product, _msg, _searchedValue)
       var existRecord = checkProductExist('id', _product.id);
       if(existRecord)
       {
-        updateRecord_ProductList(existRecord, 'count');
+        if(_product.scale)
+        {
+          alerty('salam');
+        }
+        else
+        {
+          updateRecord_ProductList(existRecord, 'count', _product.quantity);
+        }
       }
       else
       {
@@ -391,8 +400,11 @@ function addFindedProduct(_product, _msg, _searchedValue)
     }
     else
     {
-      var msg = 'error in products.';
-      notif('error', msg);
+      say(
+      {
+        type: 'error',
+        text: 'Error in products!',
+      });
     }
   }
   else
@@ -403,7 +415,11 @@ function addFindedProduct(_product, _msg, _searchedValue)
     }
     else
     {
-      notif('warn', 'product is not detected', null, null, {position:'center', displayMode: 2});
+      say(
+      {
+        type: 'error',
+        text: 'Product is not detected!',
+      });
     }
 
     beep('ProductNotExist');
@@ -413,7 +429,7 @@ function addFindedProduct(_product, _msg, _searchedValue)
   }
 }
 
-var productNotExistList;
+// var productNotExistList;
 
 
 //All arguments are optional:
@@ -483,7 +499,12 @@ function updateRecord_ProductList(_row, _key, _value)
   {
     case 'count':
       var currentCounter = _row.find('.count');
-      currentCounter.val(parseFloat(currentCounter.val())+1);
+      console.log(_value);
+      if(!_value)
+      {
+        _value = 1;
+      }
+      currentCounter.val(parseFloat(currentCounter.val()) + _value);
       break;
   }
 
