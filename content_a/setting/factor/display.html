@@ -18,10 +18,21 @@
 	 	<div class="c">{{block ("iPayDefault")}}</div>
 	</div>
 
+	{{block ("iFactorDesc")}}
 	{{block ("iSaveAll")}}
  </form>
 </div>
 
 
 
+{%endblock%}
+
+
+
+{%block iFactorDesc%}
+<label for="desc">{%trans "Header"%} <small>{%trans "Used when printing factor"%}</small></label>
+<textarea class="txt mB10" name="factorheader" placeholder='{%trans "Factor header"%}' maxlength='300' rows="3">{{store.factorheader}}</textarea>
+
+<label for="desc">{%trans "Footer"%} <small>{%trans "Used when printing factor"%}</small></label>
+<textarea class="txt mB10" name="factorfooter" placeholder='{%trans "Factor footer"%}' maxlength='300' rows="3">{{store.factorfooter}}</textarea>
 {%endblock%}

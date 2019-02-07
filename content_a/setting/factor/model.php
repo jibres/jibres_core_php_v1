@@ -22,8 +22,15 @@ class model
 
 		\lib\app\store::edit_meta(['factor' => $meta]);
 
+		$post                 = [];
+		$post['factorheader'] = \dash\request::post('factorheader');
+		$post['factorfooter'] = \dash\request::post('factorfooter');
+
+		\lib\app\store::edit($post);
+
 		if(\dash\engine\process::status())
 		{
+			\dash\notif::clean();
 			\dash\notif::ok(T_("Factor setting saved"));
 			\dash\redirect::pwd();
 		}

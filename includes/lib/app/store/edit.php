@@ -16,11 +16,6 @@ trait edit
 
 		$result = \lib\db\stores::update(['meta' => $meta], \lib\store::id());
 
-		if($result)
-		{
-			\lib\store::clean();
-		}
-
 		return  $result;
 	}
 
@@ -84,6 +79,8 @@ trait edit
 		if(!\dash\app::isset_request('mobile'))  unset($args['mobile']);
 		if(!\dash\app::isset_request('logo'))    unset($args['logo']);
 		if(!\dash\app::isset_request('plan'))    unset($args['plan']);
+		if(!\dash\app::isset_request('factorheader'))    unset($args['factorheader']);
+		if(!\dash\app::isset_request('factorfooter'))    unset($args['factorfooter']);
 
 		if(array_key_exists('name', $args) && !$args['name'])
 		{
