@@ -117,6 +117,15 @@
       <tr>
         <th colspan="5" class="txtRa">{%trans "Basic Features"%}</th>
       </tr>
+{%if lang.current == 'fa'%}
+      <tr>
+        <th>{%trans "Each SMS cost"%} <span class="badge lg">{%trans "Optional"%}</span></th>
+        <td class="txtB">{{"100" | fitNumber}} <small>{%trans "Toman"%}</small></td>
+        <td class="txtB">{{"75" | fitNumber}} <small>{%trans "Toman"%}</small></td>
+        <td class="txtB">{{"40" | fitNumber}} <small>{%trans "Toman"%}</small></td>
+        <td class="txtB">{{"30" | fitNumber}} <small>{%trans "Toman"%}</small></td>
+      </tr>
+{%endif%}
       <tr>
         <th>{%trans "Integrated Sales"%}</th>
         <td>✔️</td>
