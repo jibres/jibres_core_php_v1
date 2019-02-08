@@ -38,6 +38,40 @@ class store
 	];
 
 
+	public static function get_my_store($_field = null)
+	{
+		return self::get_store(\lib\store::id(), $_field);
+	}
+
+
+	public static function get_store($_id, $_field = null)
+	{
+		if(!$_id || !is_numeric($_id))
+		{
+			return false;
+		}
+
+		$load = \lib\db\stores::get(['id' => $_id, 'limit' => 1]);
+		$load = self::ready($load);
+
+		if($_field)
+		{
+			if(array_key_exists($_field, $load))
+			{
+				return $load[$_field];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return $load;
+		}
+
+	}
+
 	/**
 	 * check args
 	 *
@@ -288,6 +322,7 @@ class store
 				case 'pos':
 				case 'cat':
 				case 'unit':
+				case 'setting':
 					if($value && is_string($value))
 					{
 						$result[$key] = json_decode($value, true);
