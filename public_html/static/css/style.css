@@ -330,6 +330,7 @@ body[data-page="pricing"] .page-title h2{
 
 @media all and (min-width: 768px) and (max-width: 959px) {
   .page-title{padding:7em 0;}
+  .pricingQuick .col2{border: none!important;}
 }
 
 
@@ -350,6 +351,12 @@ body[data-page="pricing"] .page-title h2{
     border: none!important;
     border-bottom: 1px solid #e0f0ff!important;
     padding: 2em 0;
+  }
+  .pricingQuick h3{
+    min-height: initial;
+  }
+  .pricingQuick ul{
+    margin: 0;
   }
 
 }
