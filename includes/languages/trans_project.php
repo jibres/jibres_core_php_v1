@@ -151,28 +151,33 @@ class twigTransTerms
 	echo T_("Also <span class='txtB'>sell on social networks</span> with easy online payment.");// Line 8
 	echo T_("Free Invoicing");                                                        // Line 11
 	echo T_("Online Accounting");                                                     // Line 12
+	echo T_("Signup");                                                                // Line 15
 	echo T_("Starter Plan");                                                          // Line 19
 	echo T_("Starter");                                                               // Line 20
 	echo T_("Special choice for starting a new business.");                           // Line 21
 	echo T_("vCard Website");                                                         // Line 23
 	echo T_("Staff Accounts");                                                        // Line 24
 	echo T_("Increase Basic Limits");                                                 // Line 25
-	echo T_("Simple Plan");                                                           // Line 32
+	echo T_("Monthly");                                                               // Line 88
+	echo T_("Annually");                                                              // Line 98
+	echo T_("First Year");                                                            // Line 98
+	echo T_("Simple Plan");                                                           // Line 47
 	echo T_("Simple");                                                                // Line 106
-	echo T_("For who want try to change!");                                           // Line 34
-	echo T_("Enjoy modern era.");                                                     // Line 34
-	echo T_("Advance Reports");                                                       // Line 36
-	echo T_("All Invoice Types");                                                     // Line 37
-	echo T_("Product Intro Website");                                                 // Line 38
-	echo T_("Without Limit");                                                         // Line 39
-	echo T_("Standard Plan");                                                         // Line 46
+	echo T_("For who want try to change!");                                           // Line 49
+	echo T_("Enjoy modern era.");                                                     // Line 49
+	echo T_("Advance Reports");                                                       // Line 51
+	echo T_("All Invoice Types");                                                     // Line 52
+	echo T_("Product Intro Website");                                                 // Line 53
+	echo T_("Without Limit");                                                         // Line 54
+	echo T_("Standard Plan");                                                         // Line 76
 	echo T_("For someones ready to use Jibres as hero.");                             // Line 30
 	echo T_("<span class='bold'>Everything you need</span> for a growing business."); // Line 30
-	echo T_("Online Store");                                                          // Line 50
-	echo T_("News website");                                                          // Line 51
-	echo T_("Shop with Your Domain");                                                 // Line 52
-	echo T_("Full Permission Control");                                               // Line 53
-	echo T_("Search Engine Optimized");                                               // Line 54
+	echo T_("Online Store");                                                          // Line 80
+	echo T_("News website");                                                          // Line 81
+	echo T_("Shop with Your Domain");                                                 // Line 82
+	echo T_("Full Permission Control");                                               // Line 83
+	echo T_("Search Engine Optimized");                                               // Line 84
+	echo T_("Start your free trial");                                                 // Line 103
 
 	//---------------------------------------------------content\pricing1\display.html
 
