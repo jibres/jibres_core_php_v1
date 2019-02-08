@@ -35,6 +35,7 @@ class store
 		'files',		'static',					'subdomain',
 		'private',		'public',					'protected',
 		'dollar',		'android',					'ubuntu',
+		'wwww',			'wwwww',					'wwwwww',
 	];
 
 

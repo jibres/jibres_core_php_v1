@@ -121,7 +121,7 @@ class twigTransTerms
 	echo T_("Ready to use Jibres Enterprise?");                                       // Line 28
 	echo T_("Get started with our Enterprise plan.");                                 // Line 29
 	echo T_("Get in Touch");                                                          // Line 32
-	echo T_("The easiest way to learn how to use Tejark is enter to it, which takes less than 3 minutes to setup your team.");// Line 74
+	echo T_("The easiest way to learn how to use Jibres is enter to it, which takes less than 3 minutes to setup your team.");// Line 74
 	echo T_("FREE");                                                                  // Line 109
 	echo T_("Standard");                                                              // Line 112
 	echo T_("Price");                                                                 // Line 74
