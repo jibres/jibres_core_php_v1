@@ -191,6 +191,14 @@ class factor
 				continue;
 			}
 
+			$maxproductcount = \lib\store::setting('maxproductcount');
+
+			if($maxproductcount && floatval($value['count']) > floatval($maxproductcount))
+			{
+				\dash\notif::error(T_("The maximum count product in factor in your store is :val", ['val' => \dash\utility\human::fitNumber($maxproductcount)]), $key + 1);
+				return false;
+			}
+
 			$continue = false;
 
 			switch ($_option['type'])
