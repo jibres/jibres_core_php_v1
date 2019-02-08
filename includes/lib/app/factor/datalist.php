@@ -40,11 +40,10 @@ trait datalist
 
 		$default_option =
 		[
-			'order'        => null,
-			'sort'         => null,
-
-
-			'load_product' => false,
+			'order'              => null,
+			'sort'               => null,
+			'join_factordetails' => false,
+			'load_product'       => false,
 		];
 
 		if(!is_array($_option))
@@ -134,6 +133,31 @@ trait datalist
 				$_option['factors.customer']     = $customer_id;
 			}
 		}
+
+		$_option['public_show_field'] =
+		"
+			factors.*,
+			userstores.firstname AS `customer_firstname`,
+			userstores.lastname AS `customer_lastname`,
+			userstores.displayname AS `customer_displayname`,
+			userstores.mobile AS `customer_mobile`,
+			userstores.gender AS `customer_gender`
+		";
+
+		if($_option['join_factordetails'])
+		{
+			$_option['master_join'] =
+			"
+				INNER JOIN factordetails ON factordetails.factor_id = factors.id
+				LEFT JOIN userstores ON userstores.id = factors.customer
+			";
+		}
+		else
+		{
+			$_option['master_join'] = " LEFT JOIN userstores ON userstores.id = factors.customer ";
+		}
+
+		unset($_option['join_factordetails']);
 
 		$result            = \lib\db\factors::search($_string, $_option);
 		$temp              = [];

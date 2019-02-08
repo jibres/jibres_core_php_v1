@@ -3,31 +3,10 @@ namespace lib\db\factor;
 
 trait search
 {
-	private static $public_show_field =
-	"
-		factors.*,
-		userstores.firstname AS `customer_firstname`,
-		userstores.lastname AS `customer_lastname`,
-		userstores.displayname AS `customer_displayname`,
-		userstores.mobile AS `customer_mobile`,
-		userstores.gender AS `customer_gender`
-	";
 
-	private static $master_join = " LEFT JOIN userstores ON userstores.id = factors.customer ";
-
-	/**
-	 * Searches for the first match.
-	 *
-	 * @param      <type>  $_string   The string
-	 * @param      array   $_options  The options
-	 */
 	public static function search($_string = null, $_options = [])
 	{
-
 		$default_option = [];
-
-		$default_option['public_show_field'] = self::$public_show_field;
-		$default_option['master_join'] = self::$master_join;
 
 		if($_string !== null && $_string)
 		{

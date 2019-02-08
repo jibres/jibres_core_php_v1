@@ -38,6 +38,17 @@ class view
 			$args['factors.customer'] = null;
 		}
 
+		$product = \dash\request::get('product');
+		if($product)
+		{
+			$product = \dash\coding::decode($product);
+			if($product)
+			{
+				$args['factordetails.product_id'] = $product;
+				$args['join_factordetails']    = true;
+			}
+		}
+
 
 		$dataTable = \lib\app\factor::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);

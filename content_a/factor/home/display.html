@@ -185,7 +185,7 @@
                 <div class="openDetailFactor_{{value.id}}" data-kerkere-content='hide'>
               {%endif%}
 
-                <a class="badge secondary outline" href="{{url.here}}/product/glance?id={{myValue.id}}">{{myValue.title}} <span class="mLR5">{{myValue.count | fitNumber(false)}}</span></a>
+                <a class="badge {%if requestGET.product == myValue.id%}primary{%else%}secondary outline{%endif%} " href="{{url.this}}?product={{myValue.id}}">{{myValue.title}} <span class="mLR5">{{myValue.count | fitNumber(false)}}</span></a>
 
             {%endfor%}
 
