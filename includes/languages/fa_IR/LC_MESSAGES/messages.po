@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-02-08 10:37+0330\n"
-"PO-Revision-Date: 2019-02-08 10:45+0330\n"
+"POT-Creation-Date: 2019-02-08 10:47+0330\n"
+"PO-Revision-Date: 2019-02-08 10:47+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -15908,15 +15908,15 @@ msgstr "چک"
 
 #: jibres/includes/languages/trans_project.php:437
 msgid "Maximum buyprice"
-msgstr "حد اکثر قیمت خرید"
+msgstr "حداکثر قیمت خرید"
 
 #: jibres/includes/languages/trans_project.php:438
 msgid "Maximum price"
-msgstr "حد اکثر قیمت فروش"
+msgstr "حداکثر قیمت فروش"
 
 #: jibres/includes/languages/trans_project.php:439
 msgid "Maximum discount"
-msgstr "حد اکثر تخفیف"
+msgstr "حداکثر تخفیف"
 
 #: jibres/includes/languages/trans_project.php:440
 msgid "Maximum product count in factor"
