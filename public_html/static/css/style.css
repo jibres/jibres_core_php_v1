@@ -213,19 +213,13 @@ body[data-page="pricing"] .page-title h2{
   text-align: center;
   text-transform: uppercase;
 }
-.pricingQuick .box > .c4{
-    padding: 2em 4em;
+.pricingQuick .box > .c3{
+    padding: 2em 2em;
 }
-.ltr .pricingQuick .col1{
+.ltr .pricingQuick .col1, .ltr .pricingQuick .col2, .ltr .pricingQuick .col3{
     border-right: 1px solid #e0f0ff;
 }
-.ltr .pricingQuick .col2{
-    border-right: 1px solid #e0f0ff;
-}
-.rtl .pricingQuick .col1{
-    border-left: 1px solid #e0f0ff;
-}
-.rtl .pricingQuick .col2{
+.rtl .pricingQuick .col1, .rtl .pricingQuick .col2, .rtl .pricingQuick .col3{
     border-left: 1px solid #e0f0ff;
 }
 .pricingQuick img{
@@ -238,6 +232,14 @@ body[data-page="pricing"] .page-title h2{
   font-weight: 700;
   letter-spacing: 1px;
 }
+.pricingQuick h3{
+  color: #9a9a9a !important;
+  font-weight: 100;
+  font-size: 1.4em;
+  line-height: 1.8em;
+  min-height: 100px;
+}
+
 .pricingQuick ul {
   color: #016FF9;
   font-weight: 600;
