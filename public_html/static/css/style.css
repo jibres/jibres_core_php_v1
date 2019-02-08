@@ -254,38 +254,35 @@ body[data-page="pricing"] .page-title h2{
 }
 .pricingQuick .price {
   color: #016FF9;
-  font-size: 32px;
+  font-size: 3em;
   font-weight: 700;
 }
 .pricingQuick .price span{
   font-size: 1rem;
 }
-
-
-
-.pricing-button {
+.pricingQuick a {
   border: 1px solid #9dd1ff;
-  border-radius: 10px;
+  border-radius: 1em;
   color: #348EFE;
   display: inline-block;
-  margin: 25px 0;
-  padding: 15px 35px;
+  margin: 2em 0;
+  padding: 1.5em 3em;
   text-decoration: none;
   transition: all 150ms ease-in-out;
 }
 
-.pricing-button:hover,
-.pricing-button:focus {
+.pricingQuick a:hover,
+.pricingQuick a:focus {
   background-color: #e0f0ff;
 }
 
-.pricing-button.is-featured {
+.pricingQuick a.trial {
   background-color: #48aaff;
   color: #fff;
 }
 
-.pricing-button.is-featured:hover,
-.pricing-button.is-featured:active {
+.pricingQuick a.trial:hover,
+.pricingQuick a.trial:active {
   background-color: #269aff;
 }
 
