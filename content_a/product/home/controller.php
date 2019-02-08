@@ -257,6 +257,11 @@ class controller
 			$result['quantity'] = $_data['quantity'];
 		}
 
+		if(isset($_data['scaleDuplicate']))
+		{
+			$result['scaleDuplicate'] = $_data['scaleDuplicate'];
+		}
+
 		return $result;
 
 	}
