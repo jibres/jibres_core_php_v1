@@ -11,8 +11,8 @@
           <li>{%trans "Free Invoicing"%}</li>
           <li>{%trans "Online Accounting"%}</li>
         </ul>
-        <span class="pricing-price">{%trans "Free"%}</span>
-        <a href="#/" class="pricing-button">Sign up</a>
+        <div class="price">{%trans "Free"%}</div>
+        <a href="#/">Sign up</a>
       </div>
 
       <div class="c3 s12 col2">
@@ -24,17 +24,17 @@
           <li>{%trans "Staff Accounts"%}</li>
           <li>{%trans "Increase Basic Limits"%}</li>
         </ul>
-        <span class="pricing-price">$14</span>
+        <div class="price">{{14 | fitNumber}}<span> {%trans "Toman"%}</span></div>
         <a href="#/" class="pricing-button">Sign up</a>
       </div>
 
       <div class="c3 s12 col3">
         <img src="{{url.static}}/images/pricing/plan3-simple.png" alt='{{site.title}} {%trans "Simple Plan"%}'>
         <h2>{%trans "Simple"%}</h2>
-        <h3>{%trans "For who want try to change!"%}<br>{%trans "Enjoy modern era."%}</h3>
+        <h3>{%trans "For who want try to change!"%}<br><span class="txtB">{%trans "Enjoy modern era."%}</span></h3>
         <ul>
           <li>{%trans "Advance Reports"%}</li>
-          <li>{%trans "ALl Invoice Types"%}</li>
+          <li>{%trans "All Invoice Types"%}</li>
           <li>{%trans "Product Intro Website"%}</li>
           <li>{%trans "Without Limit"%}</li>
         </ul>
