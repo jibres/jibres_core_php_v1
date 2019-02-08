@@ -34,7 +34,7 @@ class find
 				if($result)
 				{
 					$result['scale']    = true;
-					// $result['quantity'] = intval($quantity);
+					$result['scaleDuplicate'] = T_("This barcode is scanned before");
 					$result['quantity'] = intval($quantity) / 1000;
 					return $result;
 				}
