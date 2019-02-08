@@ -308,7 +308,19 @@ body[data-page="pricing"] .page-title h2{
 .pricingQuick a.trial:active {
   background-color: #269aff;
 }
-
+/* pricingTable*/
+.pricingTable{
+  font-size: 1.2em;
+}
+.tbl1.pricingTable th, .tbl1.pricingTable td{
+  text-align: center;
+}
+.ltr .pricingTable td:first-child{
+  text-align: left;
+}
+.rtl .pricingTable td:first-child{
+  text-align: right;
+}
 
 
 
