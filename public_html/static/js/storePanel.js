@@ -386,7 +386,17 @@ function addFindedProduct(_product, _msg, _searchedValue)
       {
         if(_product.scale)
         {
-          alerty('salam');
+          var duplicateMsg = _product.scaleDuplicate;
+          if(!duplicateMsg)
+          {
+            duplicateMsg = 'Duplicate';
+          }
+
+          say(
+          {
+            type: 'warning',
+            text: duplicateMsg,
+          });
         }
         else
         {
