@@ -344,7 +344,6 @@
   not requestGET.customer   and
   not requestGET.startdate  and
   not requestGET.enddate    and
-  not requestGET.sumprice   and
   not requestGET.count      and
   not requestGET.discount   and
   not requestGET.type       and
@@ -380,23 +379,21 @@
     <div class="showFilterBystartenddate" {%if not requestGET.startdate and not requestGET.enddate%} data-kerkere-content='hide' {%endif%}>
       {{block('iFilterstartenddate')}}
     </div>
-    <!-- --------------------------------------------------------------- -->
-
-    <h6 data-kerkere=".showFilterBysumprice" data-kerkere-icon>{%trans "Filter by sumprice"%}</h6>
-    <div class="showFilterBysumprice" {%if not requestGET.sumprice%} data-kerkere-content='hide' {%endif%}>
-      {{block('iFiltersumprice')}}
-    </div>
 
     <h6 data-kerkere=".showFilterByprice" data-kerkere-icon>{%trans "Filter by price"%}</h6>
-    <div class="showFilterByprice" {%if not requestGET.price%} data-kerkere-content='hide' {%endif%}>
+    <div class="showFilterByprice" {%if not requestGET.pricelarger and not requestGET.priceless and not requestGET.priceequal%} data-kerkere-content='hide' {%endif%}>
       {{block('iFilterprice')}}
     </div>
 
 
     <h6 data-kerkere=".showFilterByitem" data-kerkere-icon>{%trans "Filter by item"%}</h6>
-    <div class="showFilterByitem" {%if not requestGET.item%} data-kerkere-content='hide' {%endif%}>
+    <div class="showFilterByitem" {%if not requestGET.itemlarger and not requestGET.itemless and not requestGET.itemequal%} data-kerkere-content='hide' {%endif%}>
       {{block('iFilteritem')}}
     </div>
+
+
+
+    <!-- --------------------------------------------------------------- -->
 
 
     <h6 data-kerkere=".showFilterBycount" data-kerkere-icon>{%trans "Filter by count"%}</h6>
@@ -538,6 +535,60 @@
         </div>
       </div>
 
+    </div>
+{%endblock%}
+
+
+
+
+{%block iFilterprice%}
+
+    <div class="f">
+
+      <div class="c s12 mB5 pRa5">
+        <div class="input ltr">
+          <input  type="number" name="pricelarger" placeholder='{%trans "Sum price is greater than ..."%}'  value="{{requestGET.pricelarger}}" min="0" max="9999999999999999">
+        </div>
+      </div>
+
+      <div class="c s12 mB5 pRa5">
+        <div class="input ltr">
+          <input  type="number" name="priceless" placeholder='{%trans "Sum price less than ..."%}'  value="{{requestGET.priceless}}" min="0" max="9999999999999999">
+        </div>
+      </div>
+
+      <div class="c s12 mB5 pRa5">
+        <div class="input ltr">
+          <input  type="number" name="priceequal" placeholder='{%trans "Price is equal to ..."%}'  value="{{requestGET.priceequal}}" min="0" max="9999999999999999">
+        </div>
+      </div>
+    </div>
+{%endblock%}
+
+
+
+
+{%block iFilteritem%}
+
+    <div class="f">
+
+      <div class="c s12 mB5 pRa5">
+        <div class="input ltr">
+          <input  type="number" name="itemlarger" placeholder='{%trans "Item is greater than ..."%}'  value="{{requestGET.itemlarger}}" min="0" max="9999999999999999">
+        </div>
+      </div>
+
+      <div class="c s12 mB5 pRa5">
+        <div class="input ltr">
+          <input  type="number" name="itemless" placeholder='{%trans "Item less than ..."%}'  value="{{requestGET.itemless}}" min="0" max="9999999999999999">
+        </div>
+      </div>
+
+      <div class="c s12 mB5 pRa5">
+        <div class="input ltr">
+          <input  type="number" name="itemequal" placeholder='{%trans "Item is equal to ..."%}'  value="{{requestGET.itemequal}}" min="0" max="9999999999999999">
+        </div>
+      </div>
     </div>
 {%endblock%}
 

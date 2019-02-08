@@ -150,6 +150,71 @@ class view
 			$args['3.3'] = [" = 3.3 AND", " DAYNAME(factors.datecreated) = '$weekday' "];
 		}
 
+		$pricelarger = \dash\request::get('pricelarger');
+		if($pricelarger)
+		{
+			$pricelarger = \dash\utility\convert::to_en_number($pricelarger);
+			if($pricelarger && is_numeric($pricelarger))
+			{
+				$args['factors.detailtotalsum'] = [" > ", " '$pricelarger' "];
+				$filterArgs['price larger than'] = $pricelarger;
+			}
+		}
+
+		$priceless = \dash\request::get('priceless');
+		if($priceless)
+		{
+			$priceless = \dash\utility\convert::to_en_number($priceless);
+			if($priceless && is_numeric($priceless))
+			{
+				$args['factors.detailtotalsum'] = [" < ", " '$priceless' "];
+				$filterArgs['price less than'] = $priceless;
+			}
+		}
+
+		$priceequal = \dash\request::get('priceequal');
+		if($priceequal)
+		{
+			$priceequal = \dash\utility\convert::to_en_number($priceequal);
+			if($priceequal && is_numeric($priceequal))
+			{
+				$args['factors.detailtotalsum'] = [" = ", " '$priceequal' "];
+				$filterArgs['price equal'] = $priceequal;
+			}
+		}
+
+		$itemlarger = \dash\request::get('itemlarger');
+		if($itemlarger)
+		{
+			$itemlarger = \dash\utility\convert::to_en_number($itemlarger);
+			if($itemlarger && is_numeric($itemlarger))
+			{
+				$args['factors.qty'] = [" > ", " '$itemlarger' "];
+				$filterArgs['item larger than'] = $itemlarger;
+			}
+		}
+
+		$itemless = \dash\request::get('itemless');
+		if($itemless)
+		{
+			$itemless = \dash\utility\convert::to_en_number($itemless);
+			if($itemless && is_numeric($itemless))
+			{
+				$args['factors.qty'] = [" < ", " '$itemless' "];
+				$filterArgs['item less than'] = $itemless;
+			}
+		}
+
+		$itemequal = \dash\request::get('itemequal');
+		if($itemequal)
+		{
+			$itemequal = \dash\utility\convert::to_en_number($itemequal);
+			if($itemequal && is_numeric($itemequal))
+			{
+				$args['factors.qty'] = [" = ", " '$itemequal' "];
+				$filterArgs['item equal'] = $itemequal;
+			}
+		}
 
 		$dataTable = \lib\app\factor::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
