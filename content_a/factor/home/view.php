@@ -150,36 +150,36 @@ class view
 			$args['3.3'] = [" = 3.3 AND", " DAYNAME(factors.datecreated) = '$weekday' "];
 		}
 
-		$pricelarger = \dash\request::get('pricelarger');
-		if($pricelarger)
+		$detailsumlarger = \dash\request::get('detailsumlarger');
+		if($detailsumlarger)
 		{
-			$pricelarger = \dash\utility\convert::to_en_number($pricelarger);
-			if($pricelarger && is_numeric($pricelarger))
+			$detailsumlarger = \dash\utility\convert::to_en_number($detailsumlarger);
+			if($detailsumlarger && is_numeric($detailsumlarger))
 			{
-				$args['factors.detailtotalsum'] = [" > ", " '$pricelarger' "];
-				$filterArgs['price larger than'] = $pricelarger;
+				$args['factors.detailsum'] = [" > ", " '$detailsumlarger' "];
+				$filterArgs['detailsum larger than'] = $detailsumlarger;
 			}
 		}
 
-		$priceless = \dash\request::get('priceless');
-		if($priceless)
+		$detailsumless = \dash\request::get('detailsumless');
+		if($detailsumless)
 		{
-			$priceless = \dash\utility\convert::to_en_number($priceless);
-			if($priceless && is_numeric($priceless))
+			$detailsumless = \dash\utility\convert::to_en_number($detailsumless);
+			if($detailsumless && is_numeric($detailsumless))
 			{
-				$args['factors.detailtotalsum'] = [" < ", " '$priceless' "];
-				$filterArgs['price less than'] = $priceless;
+				$args['factors.detailsum'] = [" < ", " '$detailsumless' "];
+				$filterArgs['detailsum less than'] = $detailsumless;
 			}
 		}
 
-		$priceequal = \dash\request::get('priceequal');
-		if($priceequal)
+		$detailsumequal = \dash\request::get('detailsumequal');
+		if($detailsumequal)
 		{
-			$priceequal = \dash\utility\convert::to_en_number($priceequal);
-			if($priceequal && is_numeric($priceequal))
+			$detailsumequal = \dash\utility\convert::to_en_number($detailsumequal);
+			if($detailsumequal && is_numeric($detailsumequal))
 			{
-				$args['factors.detailtotalsum'] = [" = ", " '$priceequal' "];
-				$filterArgs['price equal'] = $priceequal;
+				$args['factors.detailsum'] = [" = ", " '$detailsumequal' "];
+				$filterArgs['detailsum equal'] = $detailsumequal;
 			}
 		}
 
@@ -189,7 +189,7 @@ class view
 			$itemlarger = \dash\utility\convert::to_en_number($itemlarger);
 			if($itemlarger && is_numeric($itemlarger))
 			{
-				$args['factors.qty'] = [" > ", " '$itemlarger' "];
+				$args['factors.item'] = [" > ", " '$itemlarger' "];
 				$filterArgs['item larger than'] = $itemlarger;
 			}
 		}
@@ -200,7 +200,7 @@ class view
 			$itemless = \dash\utility\convert::to_en_number($itemless);
 			if($itemless && is_numeric($itemless))
 			{
-				$args['factors.qty'] = [" < ", " '$itemless' "];
+				$args['factors.item'] = [" < ", " '$itemless' "];
 				$filterArgs['item less than'] = $itemless;
 			}
 		}
@@ -211,8 +211,119 @@ class view
 			$itemequal = \dash\utility\convert::to_en_number($itemequal);
 			if($itemequal && is_numeric($itemequal))
 			{
-				$args['factors.qty'] = [" = ", " '$itemequal' "];
+				$args['factors.item'] = [" = ", " '$itemequal' "];
 				$filterArgs['item equal'] = $itemequal;
+			}
+		}
+
+		$qtylarger = \dash\request::get('qtylarger');
+		if($qtylarger)
+		{
+			$qtylarger = \dash\utility\convert::to_en_number($qtylarger);
+			if($qtylarger && is_numeric($qtylarger))
+			{
+				$args['factors.qty'] = [" > ", " '$qtylarger' "];
+				$filterArgs['qty larger than'] = $qtylarger;
+			}
+		}
+
+		$qtyless = \dash\request::get('qtyless');
+		if($qtyless)
+		{
+			$qtyless = \dash\utility\convert::to_en_number($qtyless);
+			if($qtyless && is_numeric($qtyless))
+			{
+				$args['factors.qty'] = [" < ", " '$qtyless' "];
+				$filterArgs['qty less than'] = $qtyless;
+			}
+		}
+
+		$qtyequal = \dash\request::get('qtyequal');
+		if($qtyequal)
+		{
+			$qtyequal = \dash\utility\convert::to_en_number($qtyequal);
+			if($qtyequal && is_numeric($qtyequal))
+			{
+				$args['factors.qty'] = [" = ", " '$qtyequal' "];
+				$filterArgs['qty equal'] = $qtyequal;
+			}
+		}
+
+		$detailtotalsumlarger = \dash\request::get('detailtotalsumlarger');
+		if($detailtotalsumlarger)
+		{
+			$detailtotalsumlarger = \dash\utility\convert::to_en_number($detailtotalsumlarger);
+			if($detailtotalsumlarger && is_numeric($detailtotalsumlarger))
+			{
+				$args['factors.detailtotalsum'] = [" > ", " '$detailtotalsumlarger' "];
+				$filterArgs['detailtotalsum larger than'] = $detailtotalsumlarger;
+			}
+		}
+
+		$detailtotalsumless = \dash\request::get('detailtotalsumless');
+		if($detailtotalsumless)
+		{
+			$detailtotalsumless = \dash\utility\convert::to_en_number($detailtotalsumless);
+			if($detailtotalsumless && is_numeric($detailtotalsumless))
+			{
+				$args['factors.detailtotalsum'] = [" < ", " '$detailtotalsumless' "];
+				$filterArgs['detailtotalsum less than'] = $detailtotalsumless;
+			}
+		}
+
+		$detailtotalsumequal = \dash\request::get('detailtotalsumequal');
+		if($detailtotalsumequal)
+		{
+			$detailtotalsumequal = \dash\utility\convert::to_en_number($detailtotalsumequal);
+			if($detailtotalsumequal && is_numeric($detailtotalsumequal))
+			{
+				$args['factors.detailtotalsum'] = [" = ", " '$detailtotalsumequal' "];
+				$filterArgs['detailtotalsum equal'] = $detailtotalsumequal;
+			}
+		}
+
+
+		$detaildiscountlarger = \dash\request::get('detaildiscountlarger');
+		if($detaildiscountlarger)
+		{
+			$detaildiscountlarger = \dash\utility\convert::to_en_number($detaildiscountlarger);
+			if($detaildiscountlarger && is_numeric($detaildiscountlarger))
+			{
+				$args['factors.detaildiscount'] = [" > ", " '$detaildiscountlarger' "];
+				$filterArgs['detaildiscount larger than'] = $detaildiscountlarger;
+			}
+		}
+
+		$detaildiscountless = \dash\request::get('detaildiscountless');
+		if($detaildiscountless)
+		{
+			$detaildiscountless = \dash\utility\convert::to_en_number($detaildiscountless);
+			if($detaildiscountless && is_numeric($detaildiscountless))
+			{
+				$args['factors.detaildiscount'] = [" < ", " '$detaildiscountless' "];
+				$filterArgs['detaildiscount less than'] = $detaildiscountless;
+			}
+		}
+
+		$detaildiscountequal = \dash\request::get('detaildiscountequal');
+		if($detaildiscountequal)
+		{
+			$detaildiscountequal = \dash\utility\convert::to_en_number($detaildiscountequal);
+			if($detaildiscountequal && is_numeric($detaildiscountequal))
+			{
+				$args['factors.detaildiscount'] = [" = ", " '$detaildiscountequal' "];
+				$filterArgs['detaildiscount equal'] = $detaildiscountequal;
+			}
+		}
+
+		$detailtotalsum = \dash\request::get('detailtotalsum');
+		if($detailtotalsum)
+		{
+			$detailtotalsum = \dash\utility\convert::to_en_number($detailtotalsum);
+			if($detailtotalsum && is_numeric($detailtotalsum))
+			{
+				$args['factors.detailtotalsum'] = [" = ", " '$detailtotalsum' "];
+				$filterArgs['detaildiscount equal'] = $detailtotalsum;
 			}
 		}
 
