@@ -173,9 +173,10 @@
 
 
 {%block iBuyprice%}
+
 <label for='buyprice'>{%trans "Buy price"%}</label>
 <div class="input">
- <input type="number" name="buyprice" id="buyprice" placeholder='{%trans "Buy price"%}' value="{{dataRow.buyprice}}" min='0' max="100000000000" data-run-input='recalcPricePercents'>
+ <input type="number" name="buyprice" id="buyprice" placeholder='{%trans "Buy price"%}' value="{{dataRow.buyprice}}" min='0' max="{%if currentStore.setting.maxbuyprice%}{{currentStore.setting.maxbuyprice}}{%else%}100000000000{%endif%}" data-run-input='recalcPricePercents'>
 </div>
 {%endblock%}
 
@@ -183,7 +184,7 @@
 {%block iPrice%}
 <label for='price'>{%trans "Sale Price"%}</label>
 <div class="input">
- <input type="number" name="price" id="price" placeholder='{%trans "Price for sale without discount"%}' value="{{dataRow.price}}" min='0' max="100000000000" data-run-input='recalcPricePercents'>
+ <input type="number" name="price" id="price" placeholder='{%trans "Price for sale without discount"%}' value="{{dataRow.price}}" min='0' max="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}100000000000{%endif%}" data-run-input='recalcPricePercents'>
  <span class="addon" title='{%trans "Impure Interest Rate"%}'>{{ dataRow.intrestrate_impure | fitNumber}} %</span>
 </div>
 {%endblock%}
