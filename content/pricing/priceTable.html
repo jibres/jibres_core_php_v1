@@ -1,34 +1,40 @@
-    <div class="f justify-center">
-     <div class="c5 m6 s12">
-      <div class="prBox free">
-       <h3>{%trans "Free"%}</h3>
-       <div class="price">
-{%if lang.current == 'fa'%}
-        <span>{{0 | fitNumber}}<sub>تومان</sub></span>
-{%else%}
-        <span><sup>$</sup>{{0 | fitNumber}}</span>
-{%endif%}
-        <abbr>{%trans "forever"%}</abbr>
-       </div>
-       <p>{%trans "All the basics for personal use and anyone who wants to explore Jibres for an <span class='bold'>unlimited period of time</span>."%}</p>
-      </div>
-     </div>
+<div class="background">
+  <div class="container">
+    <div class="panel pricing-table">
 
-
-     <div class="c5 m6 s12">
-      <div class="prBox standard">
-       <h3>{%trans "Standard"%}</h3>
-       <div class="price">
-{%if lang.current == 'fa'%}
-        <span>{{70 | fitNumber}}<sub>هزار تومان</sub></span>
-{%else%}
-        <span><sup>$</sup>{{70 | fitNumber}}</span>
-{%endif%}
-        <abbr>{%trans "per month"%}</abbr>
-        <abbr class="bold">{%trans "2 month discount on year"%}</abbr>
-       </div>
-       <p>{%trans "For someones ready to use Jibres as hero."%} {%trans "<span class='bold'>Everything you need</span> for a growing business."%}</p>
+      <div class="pricing-plan">
+        <img src="https://s22.postimg.cc/8mv5gn7w1/paper-plane.png" alt="" class="pricing-img">
+        <h2 class="pricing-header">Personal</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">Custom domains</li>
+          <li class="pricing-features-item">Sleeps after 30 mins of inactivity</li>
+        </ul>
+        <span class="pricing-price">Free</span>
+        <a href="#/" class="pricing-button">Sign up</a>
       </div>
-     </div>
+
+      <div class="pricing-plan">
+        <img src="https://s28.postimg.cc/ju5bnc3x9/plane.png" alt="" class="pricing-img">
+        <h2 class="pricing-header">Small team</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">Never sleeps</li>
+          <li class="pricing-features-item">Multiple workers for more powerful apps</li>
+        </ul>
+        <span class="pricing-price">$150</span>
+        <a href="#/" class="pricing-button is-featured">Free trial</a>
+      </div>
+
+      <div class="pricing-plan">
+        <img src="https://s21.postimg.cc/tpm0cge4n/space-ship.png" alt="" class="pricing-img">
+        <h2 class="pricing-header">Enterprise</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">Dedicated</li>
+          <li class="pricing-features-item">Simple horizontal scalability</li>
+        </ul>
+        <span class="pricing-price">$400</span>
+        <a href="#/" class="pricing-button">Free trial</a>
+      </div>
 
     </div>
+  </div>
+</div>
