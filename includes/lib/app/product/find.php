@@ -34,7 +34,8 @@ class find
 				if($result)
 				{
 					$result['scale']    = true;
-					$result['quantity'] = intval($quantity);
+					// $result['quantity'] = intval($quantity);
+					$result['quantity'] = intval($quantity) / 1000;
 					return $result;
 				}
 			}
