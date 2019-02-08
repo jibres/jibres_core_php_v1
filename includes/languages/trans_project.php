@@ -162,7 +162,7 @@ class twigTransTerms
 	echo T_("For who want try to change!");                                           // Line 34
 	echo T_("Enjoy modern era.");                                                     // Line 34
 	echo T_("Advance Reports");                                                       // Line 36
-	echo T_("ALl Invoice Types");                                                     // Line 37
+	echo T_("All Invoice Types");                                                     // Line 37
 	echo T_("Product Intro Website");                                                 // Line 38
 	echo T_("Without Limit");                                                         // Line 39
 	echo T_("Standard Plan");                                                         // Line 46
@@ -346,37 +346,45 @@ class twigTransTerms
 	echo T_("Back buy");                                                              // Line 310
 	echo T_("Back factor");                                                           // Line 314
 	echo T_("waste");                                                                 // Line 322
-	echo T_("Filter by product");                                                     // Line 353
-	echo T_("Filter by customer");                                                    // Line 358
-	echo T_("Filter by weekday");                                                     // Line 363
-	echo T_("Filter by date");                                                        // Line 368
-	echo T_("Filter by time");                                                        // Line 373
-	echo T_("Filter by start and end date");                                          // Line 378
-	echo T_("Filter by price");                                                       // Line 383
-	echo T_("Filter by item");                                                        // Line 389
-	echo T_("Filter by count");                                                       // Line 399
-	echo T_("Filter by discount");                                                    // Line 405
-	echo T_("Filter by type");                                                        // Line 411
-	echo T_("Clear filter");                                                          // Line 419
-	echo T_("Apply");                                                                 // Line 420
-	echo T_("Please choose product");                                                 // Line 440
-	echo T_("saturday");                                                              // Line 450
-	echo T_("sunday");                                                                // Line 457
-	echo T_("monday");                                                                // Line 465
-	echo T_("tuesday");                                                               // Line 474
-	echo T_("wednesday");                                                             // Line 482
-	echo T_("thursday");                                                              // Line 490
-	echo T_("friday");                                                                // Line 498
-	echo T_("Special date");                                                          // Line 510
-	echo T_("Time");                                                                  // Line 516
-	echo T_("Start date");                                                            // Line 528
-	echo T_("End date");                                                              // Line 534
-	echo T_("Sum price is greater than ...");                                         // Line 550
-	echo T_("Sum price less than ...");                                               // Line 556
-	echo T_("Price is equal to ...");                                                 // Line 562
-	echo T_("Item is greater than ...");                                              // Line 577
-	echo T_("Item less than ...");                                                    // Line 583
-	echo T_("Item is equal to ...");                                                  // Line 589
+	echo T_("Filter by product");                                                     // Line 372
+	echo T_("Filter by customer");                                                    // Line 377
+	echo T_("Filter by weekday");                                                     // Line 382
+	echo T_("Filter by date");                                                        // Line 387
+	echo T_("Filter by time");                                                        // Line 392
+	echo T_("Filter by start and end date");                                          // Line 397
+	echo T_("Filter by price");                                                       // Line 402
+	echo T_("Filter by item");                                                        // Line 408
+	echo T_("Filter by discount");                                                    // Line 413
+	echo T_("Filter by count");                                                       // Line 418
+	echo T_("Filter by type");                                                        // Line 423
+	echo T_("Clear filter");                                                          // Line 431
+	echo T_("Apply");                                                                 // Line 432
+	echo T_("Please choose product");                                                 // Line 452
+	echo T_("saturday");                                                              // Line 462
+	echo T_("sunday");                                                                // Line 469
+	echo T_("monday");                                                                // Line 477
+	echo T_("tuesday");                                                               // Line 486
+	echo T_("wednesday");                                                             // Line 494
+	echo T_("thursday");                                                              // Line 502
+	echo T_("friday");                                                                // Line 510
+	echo T_("Special date");                                                          // Line 522
+	echo T_("Time");                                                                  // Line 528
+	echo T_("Start date");                                                            // Line 540
+	echo T_("End date");                                                              // Line 546
+	echo T_("Sum price is greater than ...");                                         // Line 562
+	echo T_("Sum price less than ...");                                               // Line 568
+	echo T_("Price is equal to ...");                                                 // Line 574
+	echo T_("Item is greater than ...");                                              // Line 589
+	echo T_("Item less than ...");                                                    // Line 595
+	echo T_("Item is equal to ...");                                                  // Line 601
+	echo T_("Sum is greater than ...");                                               // Line 614
+	echo T_("Sum less than ...");                                                     // Line 620
+	echo T_("Sum is equal to ...");                                                   // Line 626
+	echo T_("Discount is greater than ...");                                          // Line 640
+	echo T_("Discount less than ...");                                                // Line 646
+	echo T_("Discount is equal to ...");                                              // Line 652
+	echo T_("sale");                                                                  // Line 665
+	echo T_("buy");                                                                   // Line 672
 
 	//---------------------------------------------------------content_a\home\chart.js
 	echo T_("Sum factor price and count of it group by hours");                       // Line 20

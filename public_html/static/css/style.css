@@ -230,7 +230,6 @@ body[data-page="pricing"] .page-title h2{
 .pricingQuick h2{
   color: #777;
   font-weight: 700;
-  letter-spacing: 1px;
 }
 .pricingQuick h3{
   color: #9a9a9a !important;
@@ -242,7 +241,6 @@ body[data-page="pricing"] .page-title h2{
 .pricingQuick ul {
   color: #016FF9;
   font-weight: 600;
-  letter-spacing: 1px;
   margin: 50px 0 25px;
 }
 .pricingQuick ul li {
