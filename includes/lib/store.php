@@ -178,5 +178,36 @@ class store
 	{
 		return intval(self::detail('creator'));
 	}
+
+
+	public static function setting($_key = null)
+	{
+		$setting = self::detail('setting');
+		if(is_string($setting))
+		{
+			$setting = json_decode($setting, true);
+		}
+
+		if(!is_array($setting))
+		{
+			$setting = [];
+		}
+
+		if($_key)
+		{
+			if(array_key_exists($_key, $setting))
+			{
+				return $setting[$_key];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return $setting;
+		}
+	}
 }
 ?>
