@@ -341,6 +341,13 @@
   not requestGET.date       and
   not requestGET.time       and
   not requestGET.price      and
+  not requestGET.customer   and
+  not requestGET.startdate  and
+  not requestGET.enddate    and
+  not requestGET.sumprice   and
+  not requestGET.count      and
+  not requestGET.discount   and
+  not requestGET.type       and
   not requestGET.item
 %}  data-kerkere-content='hide' {%endif%}>
 
@@ -349,53 +356,65 @@
       {{block('iFilterproduct')}}
     </div>
 
+    <h6 data-kerkere=".showFilterBycustomer" data-kerkere-icon>{%trans "Filter by customer"%}</h6>
+    <div class="showFilterBycustomer" {%if not requestGET.customer%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFiltercustomer')}}
+    </div>
 
     <h6 data-kerkere=".showFilterByweekday" data-kerkere-icon>{%trans "Filter by weekday"%}</h6>
     <div class="showFilterByweekday" {%if not requestGET.weekday%} data-kerkere-content='hide' {%endif%}>
       {{block('iFilterweekday')}}
     </div>
 
-    <h6 data-kerkere=".showFilterBychatid" data-kerkere-icon>{%trans "Filter by chatid"%}</h6>
-    <div class="showFilterBychatid" {%if not requestGET.chatid%} data-kerkere-content='hide' {%endif%}>
-      {{block('iFilterchatid')}}
+    <h6 data-kerkere=".showFilterBydate" data-kerkere-icon>{%trans "Filter by date"%}</h6>
+    <div class="showFilterBydate" {%if not requestGET.date%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterdate')}}
+    </div>
+    <!-- --------------------------------------------------------------- -->
+
+    <h6 data-kerkere=".showFilterBytime" data-kerkere-icon>{%trans "Filter by time"%}</h6>
+    <div class="showFilterBytime" {%if not requestGET.time%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFiltertime')}}
     </div>
 
-    <h6 data-kerkere=".showFilterByandroid" data-kerkere-icon>{%trans "Filter by android_uniquecode"%}</h6>
-    <div class="showFilterByandroid" {%if not requestGET.android_uniquecode%} data-kerkere-content='hide' {%endif%}>
-      {{block('iFilterandroid')}}
+    <h6 data-kerkere=".showFilterBystartenddate" data-kerkere-icon>{%trans "Filter by start and end date"%}</h6>
+    <div class="showFilterBystartenddate" {%if not requestGET.startenddate%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterstartenddate')}}
     </div>
 
-    <h6 data-kerkere=".showFilterByavatar" data-kerkere-icon>{%trans "Filter by avatar"%}</h6>
-    <div class="showFilterByavatar" {%if not requestGET.avatar%} data-kerkere-content='hide' {%endif%}>
-      {{block('iFilteravatar')}}
+    <h6 data-kerkere=".showFilterBysumprice" data-kerkere-icon>{%trans "Filter by sumprice"%}</h6>
+    <div class="showFilterBysumprice" {%if not requestGET.sumprice%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFiltersumprice')}}
     </div>
 
-    <h6 data-kerkere=".showFilterBydisplayname" data-kerkere-icon>{%trans "Filter by displayname"%}</h6>
-    <div class="showFilterBydisplayname" {%if not requestGET.displayname%} data-kerkere-content='hide' {%endif%}>
-      {{block('iFilterdisplayname')}}
+    <h6 data-kerkere=".showFilterByprice" data-kerkere-icon>{%trans "Filter by price"%}</h6>
+    <div class="showFilterByprice" {%if not requestGET.price%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterprice')}}
     </div>
 
-    <h6 data-kerkere=".showFilterBypassword" data-kerkere-icon>{%trans "Filter by password"%}</h6>
-    <div class="showFilterBypassword" {%if not requestGET.password%} data-kerkere-content='hide' {%endif%}>
-      {{block('iFilterpassword')}}
+
+    <h6 data-kerkere=".showFilterByitem" data-kerkere-icon>{%trans "Filter by item"%}</h6>
+    <div class="showFilterByitem" {%if not requestGET.item%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilteritem')}}
     </div>
 
-    <h6 data-kerkere=".showFilterBytwostep" data-kerkere-icon>{%trans "Filter by twostep"%}</h6>
-    <div class="showFilterBytwostep" {%if not requestGET.twostep%} data-kerkere-content='hide' {%endif%}>
-      {{block('iFiltertwostep')}}
+
+    <h6 data-kerkere=".showFilterBycount" data-kerkere-icon>{%trans "Filter by count"%}</h6>
+    <div class="showFilterBycount" {%if not requestGET.count%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFiltercount')}}
     </div>
 
-    <h6 data-kerkere=".showFilterBypermission" data-kerkere-icon>{%trans "Filter by permission"%}</h6>
-    <div class="showFilterBypermission" {%if not requestGET.permission%} data-kerkere-content='hide' {%endif%}>
-      {{block('iFilterpermission')}}
+
+    <h6 data-kerkere=".showFilterBydiscount" data-kerkere-icon>{%trans "Filter by discount"%}</h6>
+    <div class="showFilterBydiscount" {%if not requestGET.discount%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterdiscount')}}
     </div>
 
-    {%if perm_su()%}
-    <h6 data-kerkere=".showFilterByduplicate" data-kerkere-icon>{%trans "Filter by duplicate"%}</h6>
-    <div class="showFilterByduplicate" {%if not requestGET.duplicate%} data-kerkere-content='hide' {%endif%}>
-      {{block('iFilterduplicate')}}
+
+    <h6 data-kerkere=".showFilterBytype" data-kerkere-icon>{%trans "Filter by type"%}</h6>
+    <div class="showFilterBytype" {%if not requestGET.type%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFiltertype')}}
     </div>
-    {%endif%}
 
 
 
@@ -412,15 +431,18 @@
 
 
 {%block iFilterproduct%}
-
 <select name="product" class="ui dropdown search" id="product" data-source='{{url.here}}/product?json=true&q={query}'>
   <option value="" readonly>{%trans "Please choose product"%}</option>
-<!--   {%if requestGET.product%}
-    <option value="{{requestGET.product}}" class="addition">{{requestGET.product}}</option>
-  {%endif%} -->
 </select>
 {%endblock%}
 
+
+
+{%block iFiltercustomer%}
+<select name="customer" class="ui dropdown search" id="customer" data-source='{{url.here}}/thirdparty?json=true&q={query}'>
+  <option value="" readonly>{%trans "Please choose product"%}</option>
+</select>
+{%endblock%}
 
 
 {% block iFilterweekday %}
@@ -481,7 +503,41 @@
   </div>
 
 
-
-
 </div>
 {% endblock %}
+
+
+
+{%block iFilterdate%}
+<div class="input ltr">
+  <input class="datepicker" type="text" name="date" title='{%trans "Date"%}' placeholder='{%trans "Special date"%}' id="date"  value="{{dateEn}}" maxlength='20' data-format="YYYYMMDD"data-view="month">
+</div>
+{%endblock%}
+
+{%block iFiltertime%}
+<div class="input clockpicker" data-placement="top" data-align="left">
+  <input type="text" name="time" id="time" placeholder='{%trans "Time"%}' autocomplete="off">
+</div>
+
+{%endblock%}
+
+
+{%block iFilterstartenddate%}
+
+    <div class="f">
+
+      <div class="c3 s12 mB5 pRa5">
+        <div class="input ltr">
+          <input class="datepicker" type="text" name="startdate" title='{%trans "Start date"%}' placeholder='{%trans "Start date"%}' id="startdate"  value="{{startdateEn}}" maxlength='20' data-format="YYYYMMDD"data-view="month">
+        </div>
+      </div>
+
+      <div class="c3 s12 mB5 pRa5">
+        <div class="input ltr">
+          <input class="datepicker" type="text" name="enddate" title='{%trans "End date"%}' placeholder='{%trans "End date"%}' id="enddate"  value="{{enddateEn}}" maxlength='20' data-format="YYYYMMDD"data-view="month">
+        </div>
+      </div>
+
+    </div>
+{%endblock%}
+

@@ -28,9 +28,14 @@ class view
 			$filterArgs['type'] = \dash\request::get('type');
 		}
 
-		if(\dash\request::get('customer'))
+		$customer = \dash\request::get('customer');
+		if($customer)
 		{
-			$args['factors.customer'] = \dash\request::get('customer');
+			$customer = \dash\coding::decode($customer);
+			if($customer)
+			{
+				$args['factors.customer'] = $customer;
+			}
 		}
 
 		if(isset($args['factors.customer']) && $args['factors.customer'] === '-quick')
@@ -48,6 +53,90 @@ class view
 				$args['join_factordetails']    = true;
 			}
 		}
+
+
+		$startdate    = null;
+		$enddate      = null;
+
+
+		if(\dash\request::get('startdate'))
+		{
+			$startdate                 = \dash\request::get('startdate');
+			$get_date_url['startdate'] = $startdate;
+			$filterArgs['start'] = \dash\request::get('startdate');
+			$startdate                 = \dash\utility\convert::to_en_number($startdate);
+
+			if(\dash\utility\jdate::is_jalali($startdate))
+			{
+				$startdate = \dash\utility\jdate::to_gregorian($startdate);
+			}
+			\dash\data::startdateEn($startdate);
+		}
+
+
+		if(\dash\request::get('enddate'))
+		{
+			$enddate                 = \dash\request::get('enddate');
+			$get_date_url['enddate'] = $enddate;
+			$filterArgs['End'] = \dash\request::get('enddate');
+			$enddate                 = \dash\utility\convert::to_en_number($enddate);
+			if(\dash\utility\jdate::is_jalali($enddate))
+			{
+				$enddate = \dash\utility\jdate::to_gregorian($enddate);
+			}
+			\dash\data::enddateEn($enddate);
+		}
+
+
+		if($startdate && $enddate)
+		{
+			$args['1.1'] = [" = 1.1 ", " AND DATE(academytransactions.datecreated) >= '$startdate' AND DATE(academytransactions.datecreated) <= '$enddate'  "];
+
+		}
+		elseif($startdate)
+		{
+			$args['DATE(academytransactions.datecreated)'] = [">=", " '$startdate' "];
+		}
+		elseif($enddate)
+		{
+			$args['DATE(academytransactions.datecreated)'] = ["<=", " '$enddate' "];
+		}
+
+
+		if(\dash\request::get('date'))
+		{
+			$date                 = \dash\request::get('date');
+			$get_date_url['date'] = $date;
+			$filterArgs['start'] = \dash\request::get('date');
+			$date                 = \dash\utility\convert::to_en_number($date);
+			$date = \dash\date::db($date);
+			if($date)
+			{
+				if(\dash\utility\jdate::is_jalali($date))
+				{
+					$date = \dash\utility\jdate::to_gregorian($date);
+				}
+				\dash\data::dateEn($date);
+
+				$args['DATE(factors.datecreated)'] = ["=", " '$date' "];
+			}
+
+		}
+
+		if(\dash\request::get('time'))
+		{
+			$time                 = \dash\request::get('time');
+			$get_time_url['time'] = $time;
+			$filterArgs['start'] = \dash\request::get('time');
+			$time                 = \dash\utility\convert::to_en_number($time);
+			$time = \dash\date::make_time($time);
+			if($time)
+			{
+				$args['HOUR(factors.datecreated)'] = ["=", " HOUR('$time') AND MINUTE(factors.datecreated) = MINUTE('$time')"];
+			}
+
+		}
+
 
 
 		$weekday = \dash\request::get('weekday');
