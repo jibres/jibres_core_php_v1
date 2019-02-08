@@ -97,12 +97,14 @@
 <div class="cbox fs12">
   <form method="get" action="{{url.this}}">
     <div class="input">
+      <label for="q" data-kerkere=".ShowFilterResult" data-kerkere-icon class="addon">{%trans "Advance result"%}</label>
       <input type="search" name="q" placeholder='{%trans "Search in factors list"%}' id="q" value="{{requestGET.q}}" autofocus class="barCode" data-default data-pass='submit' autocomplete='off'>
       {%if requestGET.type%}
         <input type="hidden" name="type" value="{{requestGET.type}}">
       {%endif%}
       <button class="addon btn ">{%trans "Search" %}</button>
     </div>
+    {{block('iKerkere')}}
   </form>
 </div>
 {%endblock%}
@@ -324,3 +326,162 @@
 {%endif%}
 {%endblock%}
 
+
+
+
+
+{%block iKerkere%}
+
+
+
+<div class="ShowFilterResult"
+{%if
+  not requestGET.product    and
+  not requestGET.weekday    and
+  not requestGET.date       and
+  not requestGET.time       and
+  not requestGET.price      and
+  not requestGET.item
+%}  data-kerkere-content='hide' {%endif%}>
+
+    <h6 data-kerkere=".showFilterByproduct" data-kerkere-icon>{%trans "Filter by product"%}</h6>
+    <div class="showFilterByproduct" {%if not requestGET.product%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterproduct')}}
+    </div>
+
+
+    <h6 data-kerkere=".showFilterByweekday" data-kerkere-icon>{%trans "Filter by weekday"%}</h6>
+    <div class="showFilterByweekday" {%if not requestGET.weekday%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterweekday')}}
+    </div>
+
+    <h6 data-kerkere=".showFilterBychatid" data-kerkere-icon>{%trans "Filter by chatid"%}</h6>
+    <div class="showFilterBychatid" {%if not requestGET.chatid%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterchatid')}}
+    </div>
+
+    <h6 data-kerkere=".showFilterByandroid" data-kerkere-icon>{%trans "Filter by android_uniquecode"%}</h6>
+    <div class="showFilterByandroid" {%if not requestGET.android_uniquecode%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterandroid')}}
+    </div>
+
+    <h6 data-kerkere=".showFilterByavatar" data-kerkere-icon>{%trans "Filter by avatar"%}</h6>
+    <div class="showFilterByavatar" {%if not requestGET.avatar%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilteravatar')}}
+    </div>
+
+    <h6 data-kerkere=".showFilterBydisplayname" data-kerkere-icon>{%trans "Filter by displayname"%}</h6>
+    <div class="showFilterBydisplayname" {%if not requestGET.displayname%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterdisplayname')}}
+    </div>
+
+    <h6 data-kerkere=".showFilterBypassword" data-kerkere-icon>{%trans "Filter by password"%}</h6>
+    <div class="showFilterBypassword" {%if not requestGET.password%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterpassword')}}
+    </div>
+
+    <h6 data-kerkere=".showFilterBytwostep" data-kerkere-icon>{%trans "Filter by twostep"%}</h6>
+    <div class="showFilterBytwostep" {%if not requestGET.twostep%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFiltertwostep')}}
+    </div>
+
+    <h6 data-kerkere=".showFilterBypermission" data-kerkere-icon>{%trans "Filter by permission"%}</h6>
+    <div class="showFilterBypermission" {%if not requestGET.permission%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterpermission')}}
+    </div>
+
+    {%if perm_su()%}
+    <h6 data-kerkere=".showFilterByduplicate" data-kerkere-icon>{%trans "Filter by duplicate"%}</h6>
+    <div class="showFilterByduplicate" {%if not requestGET.duplicate%} data-kerkere-content='hide' {%endif%}>
+      {{block('iFilterduplicate')}}
+    </div>
+    {%endif%}
+
+
+
+    <div class="mT10">
+      <a href="{{url.this}}" class="btn ">{%trans "Clear filter"%}</a>
+      <button class="btn primary">{%trans "Apply"%}</button>
+    </div>
+
+</div>
+
+{%endblock%}
+
+
+
+
+{%block iFilterproduct%}
+
+<select name="product" class="ui dropdown search" id="product" data-source='{{url.here}}/product?json=true&q={query}'>
+  <option value="" readonly>{%trans "Please choose product"%}</option>
+<!--   {%if requestGET.product%}
+    <option value="{{requestGET.product}}" class="addition">{{requestGET.product}}</option>
+  {%endif%} -->
+</select>
+{%endblock%}
+
+
+
+{% block iFilterweekday %}
+<div class="f">
+  <div class="c">
+    <div class="radio3">
+      <input type="radio" name="weekday" value="saturday" id="weekdaysaturday" {%if requestGET.weekday == 'saturday'  %} checked {%endif%}>
+      <label for="weekdaysaturday">{%trans "saturday"%}</label>
+    </div>
+  </div>
+
+  <div class="c">
+    <div class="radio3">
+      <input type="radio" name="weekday" value="sunday" id="weekdaysunday" {%if requestGET.weekday == 'sunday'  %} checked {%endif%}>
+      <label for="weekdaysunday">{%trans "sunday"%}</label>
+    </div>
+  </div>
+
+
+  <div class="c">
+    <div class="radio3">
+      <input type="radio" name="weekday" value="monday" id="weekdaymonday" {%if requestGET.weekday == 'monday'  %} checked {%endif%}>
+      <label for="weekdaymonday">{%trans "monday"%}</label>
+    </div>
+  </div>
+
+
+
+  <div class="c">
+    <div class="radio3">
+      <input type="radio" name="weekday" value="tuesday" id="weekdaytuesday" {%if requestGET.weekday == 'tuesday'  %} checked {%endif%}>
+      <label for="weekdaytuesday">{%trans "tuesday"%}</label>
+    </div>
+  </div>
+
+
+  <div class="c">
+    <div class="radio3">
+      <input type="radio" name="weekday" value="wednesday" id="weekdaywednesday" {%if requestGET.weekday == 'wednesday'  %} checked {%endif%}>
+      <label for="weekdaywednesday">{%trans "wednesday"%}</label>
+    </div>
+  </div>
+
+
+  <div class="c">
+    <div class="radio3">
+      <input type="radio" name="weekday" value="thursday" id="weekdaythursday" {%if requestGET.weekday == 'thursday'  %} checked {%endif%}>
+      <label for="weekdaythursday">{%trans "thursday"%}</label>
+    </div>
+  </div>
+
+
+  <div class="c">
+    <div class="radio3">
+      <input type="radio" name="weekday" value="friday" id="weekdayfriday" {%if requestGET.weekday == 'friday'  %} checked {%endif%}>
+      <label for="weekdayfriday">{%trans "friday"%}</label>
+    </div>
+  </div>
+
+
+
+
+</div>
+{% endblock %}

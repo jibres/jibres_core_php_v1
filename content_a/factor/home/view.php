@@ -50,6 +50,13 @@ class view
 		}
 
 
+		$weekday = \dash\request::get('weekday');
+		if($weekday && in_array($weekday, ['saturday', 'sunday','monday','tuesday','wednesday','thursday','friday']))
+		{
+			$args['3.3'] = [" = 3.3 AND", " DAYNAME(factors.datecreated) = '$weekday' "];
+		}
+
+
 		$dataTable = \lib\app\factor::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
 
