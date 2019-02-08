@@ -315,10 +315,10 @@ body[data-page="pricing"] .page-title h2{
 .tbl1.pricingTable th, .tbl1.pricingTable td{
   text-align: center;
 }
-.ltr .pricingTable td:first-child{
+.ltr .pricingTable tr > *:first-child{
   text-align: left;
 }
-.rtl .pricingTable td:first-child{
+.rtl .pricingTable tr > *:first-child{
   text-align: right;
 }
 

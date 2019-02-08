@@ -36,7 +36,7 @@
   </thead>
   <tbody>
       <tr class="fs14">
-        <td class="txtB">{%trans "Price"%} <small>{%trans "Pay monthly"%}</small></td>
+        <th class="txtB">{%trans "Price"%} <small>{%trans "Pay monthly"%}</small></th>
         <td class="txtB" rowspan="3">{%trans "FREE"%}</td>
 {%if lang.current == 'fa'%}
         <td class="txtB">{{"14000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
@@ -50,9 +50,9 @@
       </tr>
 
       <tr class="fs14">
-        <td class="txtB">{%trans "Price"%} <small>{%trans "Pay yearly"%}</small>
+        <th class="txtB">{%trans "Price"%} <small>{%trans "Pay yearly"%}</small>
           <span class="badge sm mLa10">{%trans "Two month free"%}</span>
-        </td>
+        </th>
 {%if lang.current == 'fa'%}
         <td class="txtB">{{"140000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
         <td class="txtB">{{"300000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
@@ -64,11 +64,11 @@
 {%endif%}
       </tr>
 
-      <tr class="fs14 active">
-        <td class="txtB">{%trans "Price"%} <small>{%trans "Pay yearly"%}</small>
+      <tr class="fs14">
+        <th class="txtB">{%trans "Price"%} <small>{%trans "Pay yearly"%}</small>
           <span class="badge success sm mLa10">{%trans "First Year"%}</span>
           <span class="badge sm mLa10">{%trans "More than 50% off"%}</span>
-        </td>
+        </th>
 {%if lang.current == 'fa'%}
         <td class="txtB">{{"50000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
         <td class="txtB">{{"150000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
@@ -79,6 +79,172 @@
         <td>750<small>$</small></td>
 {%endif%}
       </tr>
+
+
+      <tr>
+        <th colspan="5">{%trans "Data max limit"%}</th>
+      </tr>
+      <tr>
+        <th>{%trans "Max product"%}</th>
+        <td>{{"100" | fitNumber}}</td>
+        <td>{{"1000" | fitNumber}}</td>
+        <td>{%trans "Unlimited"%}</td>
+        <td>{%trans "Unlimited"%}</td>
+      </tr>
+      <tr>
+        <th>{%trans "Max third party"%}</th>
+        <td>{{"100" | fitNumber}}</td>
+        <td>{{"1000" | fitNumber}}</td>
+        <td>{%trans "Unlimited"%}</td>
+        <td>{%trans "Unlimited"%}</td>
+      </tr>
+      <tr>
+        <th>{%trans "Max invoice each day"%}</th>
+        <td>{{"100" | fitNumber}}</td>
+        <td>{{"1000" | fitNumber}}</td>
+        <td>{%trans "Unlimited"%}</td>
+        <td>{%trans "Unlimited"%}</td>
+      </tr>
+      <tr>
+        <th>{%trans "Max item in each invoice"%}</th>
+        <td>{{"10" | fitNumber}}</td>
+        <td>{{"100" | fitNumber}}</td>
+        <td>{%trans "Unlimited"%}</td>
+        <td>{%trans "Unlimited"%}</td>
+      </tr>
+
+
+      <tr>
+        <th colspan="5" class="txtRa">{%trans "Basic Features"%}</th>
+      </tr>
+      <tr>
+        <th>{%trans "Integrated Sales"%}</th>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "Free Invoicing"%}</th>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "Online Accounting"%}</th>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "Sale on social networks"%}</th>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+
+      <tr>
+        <th colspan="5" class="txtRa">{%trans "Starter Features"%}</th>
+      </tr>
+      <tr>
+        <th>{%trans "vCard Website"%}</th>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "Staff Accounts"%}</th>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "vCard Website"%}</th>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+
+
+      <tr>
+        <th colspan="5" class="txtRa">{%trans "Simple Features"%}</th>
+      </tr>
+      <tr>
+        <th>{%trans "Advance Reports"%}</th>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "All Invoice Types"%}</th>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "Product Intro Website"%}</th>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "Advance Settings"%}</th>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+
+
+      <tr>
+        <th colspan="5" class="txtRa">{%trans "Standard Features"%}</th>
+      </tr>
+      <tr>
+        <th>{%trans "Online Store"%}</th>
+        <td>❌</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "News website"%}</th>
+        <td>❌</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "Online Shop with Your Domain"%}</th>
+        <td>❌</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "Full Permission Control"%}</th>
+        <td>❌</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <th>{%trans "Search Engine Optimized"%}</th>
+        <td>❌</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+      </tr>
+
+
 
   </tbody>
 </table>
