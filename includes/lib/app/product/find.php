@@ -26,7 +26,7 @@ class find
 				$get_product =
 				[
 					'store_id'  => \lib\store::id(),
-					'scalecode' => $code,
+					'scalecode' => intval($code),
 					'limit'     => 1,
 				];
 

@@ -412,12 +412,14 @@ class product
 				return false;
 			}
 
-			$scalecode = intval($scalecode);
-			if($scalecode < 10000 || $scalecode > 99999 )
+			if(intval($scalecode) < 0 || intval($scalecode) > 99999 )
 			{
 				\dash\notif::error(T_("Please enter the scale code as a five digit number"), 'scalecode');
 				return false;
 			}
+
+			$scalecode = intval($scalecode);
+
 		}
 
 
