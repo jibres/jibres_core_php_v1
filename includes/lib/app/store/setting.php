@@ -23,7 +23,7 @@ class setting
 			return false;
 		}
 
-		if(intval($maxbuyprice) > 1E+9 || intval($maxbuyprice) < 0)
+		if(intval($maxbuyprice) > 1E+20 || intval($maxbuyprice) < 0)
 		{
 			\dash\notif::error(T_("maxbuyprice is out of range"), 'maxbuyprice');
 			return false;
@@ -39,7 +39,7 @@ class setting
 			return false;
 		}
 
-		if(intval($maxprice) > 1E+9 || intval($maxprice) < 0)
+		if(intval($maxprice) > 1E+20 || intval($maxprice) < 0)
 		{
 			\dash\notif::error(T_("maxprice is out of range"), 'maxprice');
 			return false;
@@ -71,7 +71,7 @@ class setting
 			return false;
 		}
 
-		if(intval($maxproductcount) > 1E+9 || intval($maxproductcount) < 0)
+		if(intval($maxproductcount) > 1E+20 || intval($maxproductcount) < 0)
 		{
 			\dash\notif::error(T_("maxproductcount is out of range"), 'maxproductcount');
 			return false;
