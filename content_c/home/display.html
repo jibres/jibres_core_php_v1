@@ -47,7 +47,16 @@
           </div>
 {%endif%}
         </div>
-        <div class="footer txtC">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
+        <div class="footer txtC f">
+          <div class="c txtB txtLa">
+{%if value.is_creator%}
+<span class="badge success fs10">{%trans "Owner"%}</span>
+{%elseif value.staff%}
+<span class="badge">{%trans "Staff"%}</span>
+{%endif%}
+          </div>
+          <div class="cauto os">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
+        </div>
       </a>
 
     {%endfor%}
