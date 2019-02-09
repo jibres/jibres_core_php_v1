@@ -55,7 +55,8 @@
 <span class="badge">{%trans "Staff"%}</span>
 {%endif%}
           </div>
-          <div class="cauto os">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
+          <div class="cauto os hide">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
+          <div class="cauto os">{{value.slug | capitalize}}</div>
         </div>
       </a>
 
