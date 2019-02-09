@@ -16,21 +16,22 @@ class twigTransTerms
 	echo T_("Description");                                                           // Line 85
 	echo T_("We are Developers, please wait!");                                       // Line 18
 	echo T_("Version 1 of Jibres will be released.");                                 // Line 24
-	echo T_("We reach 1B+ Toman sold on Jibres.");                                    // Line 30
-	echo T_("We reach 100M+ Toman sold on Jibres.");                                  // Line 36
-	echo T_("We reach 10000 factor records.");                                        // Line 42
-	echo T_("First factor of first store is generated.");                             // Line 48
-	echo T_("Our first store on web is created and start add product to store.");     // Line 54
-	echo T_("Beta version is released.");                                             // Line 60
-	echo T_("Alfa version is released.");                                             // Line 66
-	echo T_("We restart plans to run Jibres at Ermile.");                             // Line 72
-	echo T_("The name of project selected as Jibres and <a href='https://Jibres.ir' target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> domains are registered.");// Line 78
-	echo T_("Create git repository and first commit is pushed.");                     // Line 84
-	echo T_("Database is completely designed and implementated.");                    // Line 90
-	echo T_("02:00 AM");                                                              // Line 95
-	echo T_("Start database analysis of Jibres.");                                    // Line 96
-	echo T_("We were born to do Best!");                                              // Line 102
-	echo T_("Be patient...");                                                         // Line 108
+	echo T_("add support of digital scale barcode and get weight of product automatically.");// Line 30
+	echo T_("We reach 1B+ Toman sold on Jibres.");                                    // Line 36
+	echo T_("We reach 100M+ Toman sold on Jibres.");                                  // Line 42
+	echo T_("We reach 10000 factor records.");                                        // Line 48
+	echo T_("First factor of first store is generated.");                             // Line 54
+	echo T_("Our first store on web is created and start add product to store.");     // Line 60
+	echo T_("Beta version is released.");                                             // Line 66
+	echo T_("Alfa version is released.");                                             // Line 72
+	echo T_("We restart plans to run Jibres at Ermile.");                             // Line 78
+	echo T_("The name of project selected as Jibres and <a href='https://Jibres.ir' target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> domains are registered.");// Line 84
+	echo T_("Create git repository and first commit is pushed.");                     // Line 90
+	echo T_("Database is completely designed and implementated.");                    // Line 96
+	echo T_("02:00 AM");                                                              // Line 101
+	echo T_("Start database analysis of Jibres.");                                    // Line 102
+	echo T_("We were born to do Best!");                                              // Line 108
+	echo T_("Be patient...");                                                         // Line 114
 
 	//----------------------------------------------------content\contact\display.html
 	echo T_("Thank you for choosing us.");                                            // Line 8
