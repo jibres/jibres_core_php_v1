@@ -4,6 +4,9 @@
 {%block pageContent%}
 
 {{block('myStores')}}
+
+{{block('supplierInStore')}}
+
 {{block('customerInStore')}}
 
 {%endblock%}
@@ -66,32 +69,73 @@
 {%endblock%}
 
 
+{%block supplierInStore%}
+<div class="cbox fs12">
+  <h2 data-kerkere='[data-as-supplier]' data-kerkere-icon='open'>{%trans "You are supplier in this stores"%}</h2>
+  <div data-kerkere-content data-as-supplier>
+    <table class="tbl1 v1">
+      <thead>
+        <tr>
+          <th>{%trans "Store"%}</th>
+          <th>{%trans "Buy count"%}</th>
+          <th>{%trans "Total buy price"%}</th>
+          <th>{%trans "Average buy price"%}</th>
+        </tr>
+      </thead>
+      <tbody>
+    {%if listStore and 0%}
+        {%for key, store in listStore if user.supplier == true%}
+        <tr>
+          <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
+          <td>{{store.buyCount | fitNumber}}</td>
+          <td>{{store.buyTotal | fitNumber}}</td>
+          <td>{{store.buyAvg | fitNumber}}</td>
+        </tr>
+        {%endfor%}
+    {%else%}
+      <tr>
+        <td colspan="4">{%trans "You are not buy something from stores yet!"%}</td>
+      </tr>
+    {%endif%}
+      </tbody>
+    </table>
+  </div>
+</div>
+{%endblock%}
+
+
+
 
 {%block customerInStore%}
-<table class="tbl1 v1 fs12">
-  <thead>
-    <tr>
-      <th>{%trans "Store"%}</th>
-      <th>{%trans "Buy count"%}</th>
-      <th>{%trans "Total buy price"%}</th>
-      <th>{%trans "Average buy price"%}</th>
-    </tr>
-  </thead>
-  <tbody>
-{%if listStore and 0%}
-    {%for key, store in listStore if user.customer == true%}
-    <tr>
-      <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
-      <td>{{store.buyCount | fitNumber}}</td>
-      <td>{{store.buyTotal | fitNumber}}</td>
-      <td>{{store.buyAvg | fitNumber}}</td>
-    </tr>
-    {%endfor%}
-{%else%}
-  <tr>
-    <td colspan="4">{%trans "You are not buy something from stores yet!"%}</td>
-  </tr>
-{%endif%}
-  </tbody>
-</table>
+<div class="cbox fs12">
+  <h2 data-kerkere='[data-as-customer]' data-kerkere-icon='open'>{%trans "You are customer in this stores"%}</h2>
+  <div data-kerkere-content data-as-customer>
+    <table class="tbl1 v1">
+      <thead>
+        <tr>
+          <th>{%trans "Store"%}</th>
+          <th>{%trans "Buy count"%}</th>
+          <th>{%trans "Total buy price"%}</th>
+          <th>{%trans "Average buy price"%}</th>
+        </tr>
+      </thead>
+      <tbody>
+    {%if listStore and 0%}
+        {%for key, store in listStore if user.customer == true%}
+        <tr>
+          <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
+          <td>{{store.buyCount | fitNumber}}</td>
+          <td>{{store.buyTotal | fitNumber}}</td>
+          <td>{{store.buyAvg | fitNumber}}</td>
+        </tr>
+        {%endfor%}
+    {%else%}
+      <tr>
+        <td colspan="4">{%trans "You are not buy something from stores yet!"%}</td>
+      </tr>
+    {%endif%}
+      </tbody>
+    </table>
+  </div>
+</div>
 {%endblock%}
