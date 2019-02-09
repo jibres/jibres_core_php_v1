@@ -70,20 +70,21 @@
 
 
 {%block supplierInStore%}
+{%if listStore%}
 <div class="cbox fs12">
-  <h2 data-kerkere='[data-as-supplier]' data-kerkere-icon='open'>{%trans "You are supplier in this stores"%}</h2>
+  <h2 data-kerkere='[data-as-supplier]' data-kerkere-icon='open'>{%trans "As supplier"%} - <small>{%trans "You are sell to this stores"%}</small></h2>
   <div data-kerkere-content data-as-supplier>
     <table class="tbl1 v1">
       <thead>
         <tr>
           <th>{%trans "Store"%}</th>
-          <th>{%trans "Buy count"%}</th>
-          <th>{%trans "Total buy price"%}</th>
-          <th>{%trans "Average buy price"%}</th>
+          <th>{%trans "Sell count"%}</th>
+          <th>{%trans "Total sell price"%}</th>
+          <th>{%trans "Average sell price"%}</th>
         </tr>
       </thead>
+    {%if listStore%}
       <tbody>
-    {%if listStore and 0%}
         {%for key, store in listStore if user.supplier == true%}
         <tr>
           <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
@@ -94,13 +95,14 @@
         {%endfor%}
     {%else%}
       <tr>
-        <td colspan="4">{%trans "You are not buy something from stores yet!"%}</td>
+        <td colspan="4">{%trans "You are not sell something to any stores yet!"%}</td>
       </tr>
     {%endif%}
       </tbody>
     </table>
   </div>
 </div>
+{%endif%}
 {%endblock%}
 
 
@@ -108,7 +110,7 @@
 
 {%block customerInStore%}
 <div class="cbox fs12">
-  <h2 data-kerkere='[data-as-customer]' data-kerkere-icon='open'>{%trans "You are customer in this stores"%}</h2>
+  <h2 data-kerkere='[data-as-customer]' data-kerkere-icon='open'>{%trans "As customer"%} - <small>{%trans "You are buy from this stores"%}</small></h2>
   <div data-kerkere-content data-as-customer>
     <table class="tbl1 v1">
       <thead>
@@ -120,7 +122,7 @@
         </tr>
       </thead>
       <tbody>
-    {%if listStore and 0%}
+    {%if listStore%}
         {%for key, store in listStore if user.customer == true%}
         <tr>
           <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
