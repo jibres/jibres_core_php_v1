@@ -86,10 +86,10 @@
   <tbody>
     {%for key, store in listStore  if user.customer == true%}
     <tr>
-      <td><a href='{{value.url}}'>{{value.name}}</a></td>
-      <td>{{value.buyCount | fitNumber}}</td>
-      <td>{{value.buyTotal | fitNumber}}</td>
-      <td>{{value.buyAvg | fitNumber}}</td>
+      <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
+      <td>{{store.buyCount | fitNumber}}</td>
+      <td>{{store.buyTotal | fitNumber}}</td>
+      <td>{{store.buyAvg | fitNumber}}</td>
     </tr>
     {%endfor%}
   </tbody>
