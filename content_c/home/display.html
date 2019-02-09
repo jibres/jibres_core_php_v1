@@ -13,22 +13,16 @@
 
 {%block myStores%}
 <div class="cbox fs12">
-  <h2 data-kerkere="[data-storeList]" data-kerkere-icon='open'> {%trans "Your Stores"%}<span class="floatRa badge rounded">{{storesCount | fitNumber}}</span></h2>
+  <h2 data-kerkere="[data-storeList]" data-kerkere-icon='open'> {%trans "Your Stores"%}
+  {%if perm_su()%}
+     <a class="btn sm warn floatRa" href="{{url.here}}/store?all=true">{%trans "List of all stores"%}</a>
+  {%endif%}
+  </h2>
   <div data-kerkere-content data-storeList>
     <div class='middle normal live f justify-center'>
 
-      {%if perm_su()%}
-      <div class="vcard mA10" data-live='none'>
-        <img src="{{url.static}}/siftal/images/useful/gate.png" alt="all stores">
-        <div class="content"></div>
-        <div class="footer pAn">
-         <a class="btn block warn" href="{{url.here}}/store?all=true">{%trans "List of all stores"%}</a>
-        </div>
-      </div>
-      {%endif%}
-
 {%if listStore%}
-    {%for key, value in listStore%}
+    {%for key, value in listStore if value.staff == true%}
 
       <a href='{{value.url}}' class="vcard shadow blue mA10 c3 s6" data-live="{%if value.user_status == 'active'%}on{%elseif value.user_status == 'draft'%}half{%else%}off{%endif%}" >
         <img src="{{value.logo}}" alt="{{value.name}}">
@@ -84,7 +78,8 @@
     </tr>
   </thead>
   <tbody>
-    {%for key, store in listStore  if user.customer == true%}
+{%if listStore and 0%}
+    {%for key, store in listStore if user.customer == true%}
     <tr>
       <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
       <td>{{store.buyCount | fitNumber}}</td>
@@ -92,6 +87,11 @@
       <td>{{store.buyAvg | fitNumber}}</td>
     </tr>
     {%endfor%}
+{%else%}
+  <tr>
+    <td colspan="4">{%trans "You are not buy something from stores yet!"%}</td>
+  </tr>
+{%endif%}
   </tbody>
 </table>
 {%endblock%}
