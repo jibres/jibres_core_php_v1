@@ -1155,7 +1155,7 @@ class twigTransTerms
 	echo T_("No account?");                                                           // Line 172
 	echo T_("Create for yourself");                                                   // Line 172
 	echo T_("Create Account");                                                        // Line 174
-	echo T_("Signup");                                                                // Line 181
+	echo T_("Sign Up");                                                               // Line 181
 	echo T_("Set Password");                                                          // Line 188
 	echo T_("Recovery password");                                                     // Line 195
 	echo T_("Enter with another methods");                                            // Line 228
