@@ -276,7 +276,7 @@ class twigTransTerms
 	echo T_("It is worth mentioning that due to the insecurity of cyberspace, you should never post your vital information on either Jibres or any other services!");// Line 9
 	echo T_("User's personal information is strictly confidential in our service. Jibres preserves the information as encoded and will not under any conditions transfer it to another person.");// Line 10
 	echo T_("In case there is a request for receiving user's information by the competent authorities, according to the country the user lives in, Jibres will cooperate with them only upon receiving the judicial order issued by the country submitting the request.");// Line 11
-	echo T_("Jibres will not offer any guarantee as to the quality of the products or services presented by the teams and will not accept any responsibility in this regard!");// Line 12
+	echo T_("Jibres will not offer any guarantee as to the quality of the products or services presented by the stores and will not accept any responsibility in this regard!");// Line 12
 	echo T_("Users should assume responsibility for any harm, both material and immaterial, caused by direct, indirect or penal factors and due to their utilization of this service; and, Jibres bears no responsibility accordingly.");// Line 13
 	echo T_("Jibres accepts no responsibility, under any conditions, for the harms caused by users' mutual trust in each other or by the disclosure of information by users.");// Line 14
 	echo T_("Jibres will do its best to protect both the users' information and the service; however, regarding the lack of certainty within the cyberspace, it will not assume any responsibility for the loss of the information entered on the service.");// Line 15
