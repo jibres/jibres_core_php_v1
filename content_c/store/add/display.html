@@ -16,7 +16,9 @@
     {{block ("islug")}}
       <img class="block" src="{{url.static}}/images/help/choose-subdomain.png" alt='{{site.title}} {%trans "subdomain select"%}'>
 
-      <button class="btn success block mT20">{%trans "Create you free store"%}</button>
+      <div class="msg mT10">{{termOfService | raw}}</div>
+
+      <button class="btn success block mT10">{%trans "Create my store now"%}</button>
     </form>
 
 {%if 1%}
