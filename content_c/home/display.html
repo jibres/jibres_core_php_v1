@@ -2,64 +2,8 @@
 
 
 {%block pageContent%}
-<div class="mB25">
-{%for key, value in listStore%}
-  <div class="cbox mA5 mB10">
-    <div class="f">
-      <div class="cauto s12 txtC f align-center">
-        <a href='{{value.url}}' class="block txtC">
-         <img src="{{value.logo}}" alt="{{value.name}}" class="w100">
-        </a>
-      </div>
 
-      <div class="c s12 txtC f align-center">
-        <div>
-          <h3><a class="value" href='{{value.url}}'>{{value.name}}</a></h3>
-        </div>
-      </div>
-
-      <div class="c s12 txtC f align-center">
-{%if value.is_creator or perm_su()%}
-        <div title='{%trans "Start from"%} {{value.startplan | dt(true)}}'>
-          <div class="mB10">{%trans "Current plan"%} <b>{%set myPlan = value.plan | capitalize %}{%trans myPlan%}</b></div>
-{%if value.daysleft > 0%}
-          <div class="mB10 badge info">
-            <b>{{value.daysleft | fitNumber}}</b> {%trans "days left"%}
-          </div>
-{%elseif value.expireplan%}
-          <div class="mB10">
-            <b class="badge danger">{%trans "Expired"%}</b>
-          </div>
-{%endif%}
-        </div>
-{%endif%}
-      </div>
-
-      <div class="c3 s12 os f align-center">
-
-{%if value.staff%}
-        <a class="btn outline block success mB5" href="{{value.url}}/a">{%trans "Your staff panel"%}</a>
-{%else%}
-        <div class="txtC outline block black mB5" >{%trans "Your are customer in this store"%}</div>
-        {%if perm_su()%}
-          <a class="btn outline block danger mB5" href="{{value.url}}/a">{%trans "Your staff panel"%}</a>
-        {%endif%}
-{%endif%}
-
-      {%if value.is_creator%}
-        <a class="btn outline block pain mB5" href="{{value.url}}/a/setting">{%trans "Settings"%}</a>
-      {%endif%}
-      </div>
-
-    </div>
-
-  </div>
-{%endfor%}
-</div>
-
-
-
-
+{{block('myStores')}}
 
 {%endblock%}
 
@@ -101,3 +45,64 @@
 </a>
 {%endblock%}
 
+
+
+{%block myStores%}
+<div class="cbox fs12">
+  <h2 data-kerkere="[data-storeList]" data-kerkere-icon='open'> {%trans "Your Stores"%}</h2>
+  <div data-kerkere-content data-storeList>
+    <div class='middle normal live f justify-center'>
+
+      {%if perm_su()%}
+      <div class="vcard mA10" data-live='none'>
+        <img src="{{url.static}}/siftal/images/useful/gate.png" alt="all stores">
+        <div class="content"></div>
+        <div class="footer pAn">
+         <a class="btn block warn" href="{{url.here}}/store?all=true">{%trans "List of all stores"%}</a>
+        </div>
+      </div>
+      {%endif%}
+
+{%if listStore%}
+    {%for key, value in listStore%}
+
+      <a href='{{value.url}}' class="vcard shadow blue mA10 c3 s6" data-live="{%if value.user_status == 'active'%}on{%elseif value.user_status == 'draft'%}half{%else%}off{%endif%}" >
+        <img src="{{value.logo}}" alt="{{value.name}}">
+        <div class="content">
+          <div class="header">{{value.name}}</div>
+
+{%if value.is_creator%}
+          <div class="desc mT10" title='{%trans "Start from"%} {{value.startplan | dt(true)}}'>
+            <div class="mB10">{%trans "Current plan"%} <b>{%set myPlan = value.plan | capitalize %}{%trans myPlan%}</b></div>
+{%if value.daysleft > 0%}
+            <div class="mB10 badge info">
+              <b>{{value.daysleft | fitNumber}}</b> {%trans "days left"%}
+            </div>
+{%elseif value.expireplan%}
+            <div class="mB10">
+              <b class="badge danger">{%trans "Expired"%}</b>
+            </div>
+{%endif%}
+          </div>
+{%endif%}
+        </div>
+        <div class="footer txtC">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
+      </a>
+
+    {%endfor%}
+{%else%}
+      <div class="vcard mA10" data-live='none'>
+        <img src="{{url.static}}/siftal/images/useful/plus1.png" alt="add new survey">
+        <div class="content"></div>
+        <div class="footer pAn">
+         <a class="btn block primary" href="{{url.here}}/survey/add">{%trans "Add store as free trial"%}</a>
+        </div>
+      </div>
+      <div class="msg info2 mA10 fs20 txtC">{%trans "You are not have your own store!"%}<br><a href="{{url.here}}/store/add">{%trans "Try Jibres free trial for 14 days"%}</a>
+      </div>
+
+{%endif%}
+    </div>
+  </div>
+</div>
+{%endblock%}
