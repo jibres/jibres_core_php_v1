@@ -16,9 +16,9 @@
 
 {%block myStores%}
 <div class="cbox fs12">
-  <h2 data-kerkere="[data-storeList]" data-kerkere-icon='open'> {%trans "Your Stores"%}
+  <h2 class="ovh" data-kerkere="[data-storeList]" data-kerkere-icon='open'> {%trans "Your Stores"%}
   {%if perm_su()%}
-     <a class="btn sm warn floatRa" href="{{url.here}}/store?all=true">{%trans "List of all stores"%}</a>
+     <a class="btn xs warn floatRa" href="{{url.here}}/store?all=true">{%trans "List of all stores"%}</a>
   {%endif%}
   </h2>
   <div data-kerkere-content data-storeList>
