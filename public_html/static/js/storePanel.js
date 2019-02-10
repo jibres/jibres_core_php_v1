@@ -36,8 +36,12 @@ function calcFooterValues(_table)
   var calcDtSumTotal        = 0;
   var factorType            = $('body').attr('data-page');
   // calc total of column
-  _table.find('tbody tr').each(function()
+  _table.find('tbody tr').each(function(index)
   {
+    // reset row index
+    $(this).find('td.cellIndex').text(fitNumber(index + 1));
+
+
     // variables
     var tmpCount = $(this).find('.count').val();
     if(tmpCount)
