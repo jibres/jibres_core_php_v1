@@ -17,15 +17,12 @@ class view
 			{
 				$args['creator'] = \dash\request::get('creator');
 			}
-			$args['limit'] = 12;
-			// no thing
 		}
-		else
-		{
-			$args['creator'] = \dash\user::id();
-		}
+
 		$dataTable = \lib\app\store::list(\dash\request::get('q'), $args);
-		\dash\data::stores($dataTable);
+		\dash\data::dataTable($dataTable);
+
+		\content_c\home\view::storeList();
 	}
 }
 ?>

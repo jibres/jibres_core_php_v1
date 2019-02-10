@@ -12,11 +12,20 @@ class view
 
 		\dash\data::dateDetail(\dash\date::month_precent());
 
+		self::storeList();
+
+		$where_i_am = \lib\app\store::where_i_am();
+		\dash\data::listStore($where_i_am);
+	}
+
+
+	public static function storeList()
+	{
 
 		// get list of store of this user
 		// cache this number for 1 min
 		$list_store = \dash\session::get('user_master_dashboard_'. \dash\user::id(), 'jibres_store');
-		if(!$list_store || true)
+		if(!$list_store)
 		{
 			// cache all data for 1 min in this page
 			$cache_time = 60;
@@ -31,9 +40,6 @@ class view
 
 		\dash\data::stores($list_store);
 		\dash\data::storesCount(count($list_store));
-
-		$where_i_am = \lib\app\store::where_i_am();
-		\dash\data::listStore($where_i_am);
 	}
 }
 ?>

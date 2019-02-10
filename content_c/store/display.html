@@ -2,12 +2,12 @@
 
 
 {%block pageContent%}
-{%if perm_su() and requestGET.all%}
+
   {{block("htmlSearchBox")}}
-{%endif%}
 
 
-<table class="tbl1 v10 fs11 txtC">
+
+<table class="tbl1 v6 fs11 txtC">
   <thead>
     <tr>
       <th>#</th>
@@ -28,14 +28,14 @@
     </tr>
   </thead>
   <tbody>
-{%for key, store in stores%}
+{%for key, store in dataTable%}
     <tr>
       <td>{{store.id | fitNumber}}</td>
       <td>
         <div>{{store.name}}</div>
         <div class="fs08">{{store.desc}}</div>
       </td>
-      <td><a href="{{store.url}}" class="fc-white"><i class="sf-share pRa10"></i> {{store.slug}}</a></td>
+      <td><a href="{{store.url}}" class="fc-blue"><i class="sf-share pRa10"></i> {{store.slug}}</a></td>
       <td>{{store.plan}}</td>
       <td>{{store.startplan | dt(false)}}</td>
       <td>{{store.expireplan | dt(false)}}</td>
@@ -47,71 +47,15 @@
 
       <td>{{store.datecreated | dt(false)}}</td>
       <td>{{store.datemodified | dt(false)}}</td>
-      <td>{{store.creator}}</td>
+      <td>{{store.creator}}<a href="{{url.kingdom}}/enter?userid={{store.creator|coding('decode')}}"><i class="sf-log-in"></i></a></td>
     </tr>
 {%endfor%}
   </tbody>
 </table>
 
 
-
-
-
-<div class='middle normal f justify-center'>
-
-{%if perm_su()%}
-  {{block("allStoreList")}}
-{%endif%}
-
-{{block("NewStoreCard")}}
-
-{%for key, value in stores%}
-  <a class="vcard mA10 shadow" href='{{value.url}}/a'>
-   <img src="{{value.logo}}" alt="{{value.name}}" class="pA10-f">
-   <div class="content">
-    <div class="header">{{value.name}}</div>
-   </div>
-   <div class="footer">
-    <i class="sf-money"></i> {%trans "Total sale"%} {{value.stats.member_count | number_format | fitNumber}}
-    {%if value.rule=='admin'%} <i class="sf-star fc-gold" title='{%trans "Owner of store"%}'></i>{%endif%}
-   </div>
-  </a>
-{%endfor%}
 {%include display.pagination%}
-</div>
-{%endblock%}
 
-
-
-{%block NewStoreCard%}
-  <div class="vcard mA10">
-    <img src="{{url.static}}/siftal/images/useful/plus1.png" alt="add new store">
-    <div class="content"></div>
-    <div class="footer pAn">
-     <a class="btn block primary" href="{{url.here}}/store/add">{%trans "Add new store"%}</a>
-    </div>
-  </div>
-{%endblock%}
-
-
-{%block allStoreList%}
-{%if requestGET.all%}
-<div class="vcard mA10">
-    <img src="{{url.static}}/images/logo.png" alt="add new store">
-    <div class="content"></div>
-    <div class="footer pAn">
-     <a class="btn block info" href="{{url.this}}">{%trans "My store"%}</a>
-    </div>
-  </div>
-{%else%}
-  <div class="vcard mA10">
-    <img src="{{url.static}}/images/logo.png" alt="add new store">
-    <div class="content"></div>
-    <div class="footer pAn">
-     <a class="btn block warn" href="{{url.this}}?all=true">{%trans "All Store"%}</a>
-    </div>
-  </div>
-{%endif%}
 {%endblock%}
 
 
