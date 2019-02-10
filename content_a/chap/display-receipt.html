@@ -28,13 +28,20 @@
 {%if factorDetail.factor.customer %}
 <hr>
 <div class="customerDetail fs14">
-  <div class="pA5">{%trans "Customer"%} <span class="txtB">{{factorDetail.factor.customer_displayname}}</span></div>
+  <div class="fs14">{%trans "Customer Detail"%}</div>
+{%if factorDetail.factor.customer_displayname%}
+  <div class="pA5"><span class="txtB">{{factorDetail.factor.customer_displayname}}</span></div>
+{%endif%}
+{%if factorDetail.factor.customer_address%}
   <div class="pA5">{%trans "Address"%} <span class="txtB">{{factorDetail.factor.customer_address}}</span></div>
+{%endif%}
+{%if factorDetail.factor.customer_mobile or factorDetail.factor.customer_phone%}
   <div class="f pA5">
     <div class="cauto pRa10">{%trans "Tel"%}</div>
     <div class="c pRa10 txtB">{{factorDetail.factor.customer_phone | fitNumber(false)}}</div>
     <div class="c txtB">{{factorDetail.factor.customer_mobile | fitNumber('mobile')}}</div>
   </div>
+{%endif%}
 
 </div>
 {%endif%}
