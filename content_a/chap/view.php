@@ -30,7 +30,7 @@ class view
 				break;
 
 			case 'a5':
-				\dash\data::printFileUrl('content_a/chap/display-receipt.html');
+				\dash\data::printFileUrl('content_a/chap/display-receipt-long.html');
 				break;
 
 			default:
