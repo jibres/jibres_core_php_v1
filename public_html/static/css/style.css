@@ -337,13 +337,14 @@ body[data-page="pricing"] .page-title h2{
   font-size: 1.4em;
 }
 .guaranteeBox .text{
-  padding-top: 100px;
+  padding-top: 80px;
 }
 .guaranteeBox .text h2{
-  font-size: 3em;
+  font-size: 4em;
   font-weight: 700;
 }
 .guaranteeBox .text h3{
+  font-size: 1.5em;
   margin-bottom: 1em;
 }
 .guaranteeBox .preview{
