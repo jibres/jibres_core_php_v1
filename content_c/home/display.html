@@ -25,7 +25,7 @@
     <div class='middle normal live f justify-center'>
 {%if stores or listStore.staff%}
 {{block('iAmCreator')}}
-{{block('iAmStaff')}}
+{{block('staffInStore')}}
 {%else%}
       <div class="vcard mA10" data-live='none'>
         <img src="{{url.static}}/siftal/images/useful/plus1.png" alt="add new survey">
@@ -63,9 +63,9 @@
         {%for key, store in listStore.supplier %}
         <tr>
           <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
-          <td>{{store.buyCount | fitNumber}}</td>
-          <td>{{store.buyTotal | fitNumber}}</td>
-          <td>{{store.buyAvg | fitNumber}}</td>
+          <td>{%if store.countordersupplier%}{{store.countordersupplier | fitNumber}}{%else%}-{%endif%}</td>
+          <td>{%if store.sumpaysupplier%}{{store.sumpaysupplier | fitNumber}}{%else%}-{%endif%}</td>
+          <td>{%if store.countordersupplier%}{{(store.sumpaysupplier / store.countordersupplier) | round(2) | fitNumber}}{%else%}-{%endif%}</td>
         </tr>
         {%endfor%}
     {%else%}
@@ -116,7 +116,7 @@
 {%endif%}
 {%endblock%}
 
-{%block iAmStaff%}
+{%block staffInStore%}
 {%if listStore.staff%}
     {%for key, value in listStore.staff%}
     {%if value.store_id in storeCreatorId%}
@@ -160,9 +160,9 @@
         {%for key, store in listStore.customer %}
         <tr>
           <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
-          <td>{{store.buyCount | fitNumber}}</td>
-          <td>{{store.buyTotal | fitNumber}}</td>
-          <td>{{store.buyAvg | fitNumber}}</td>
+          <td>{%if store.countordercustomer%}{{store.countordercustomer | fitNumber}}{%else%}-{%endif%}</td>
+          <td>{%if store.sumpaycustomer%}{{store.sumpaycustomer | fitNumber}}{%else%}-{%endif%}</td>
+          <td>{%if store.countordercustomer%}{{(store.sumpaycustomer / store.countordercustomer) | round(2) | fitNumber}}{%else%}-{%endif%}</td>
         </tr>
         {%endfor%}
     {%else%}

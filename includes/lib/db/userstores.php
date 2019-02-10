@@ -35,6 +35,7 @@ class userstores
 		$query =
 		"
 			SELECT
+				userstores.*,
 				userstores.staff,
 				userstores.supplier,
 				userstores.customer,
