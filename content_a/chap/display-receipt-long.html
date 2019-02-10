@@ -79,8 +79,10 @@
 {%block factorTableArea%}
  <table class="tbl1 v1 fs18 txtC">
   <thead>
-   <tr class="fs08">
-    <th>{%trans "Name"%}</th>
+   <tr class="fs06">
+    <th colspan="3">{%trans "Name"%}</th>
+   </tr>
+   <tr class="fs06">
     <th>{%trans "Qty"%}</th>
     <th>{%trans "Price"%}</th>
 {%if factorDetail.factor.detaildiscount%}
@@ -91,8 +93,10 @@
   </thead>
   <tbody>
  {%for key, datarow in factorDetail.factor_detail%}
-  <tr>
-   <td class="fs09 txtLa">{{datarow.title}}</td>
+  <tr class="fs14 txtLa">
+   <td colspan="3">{{datarow.title}}</td>
+  </tr>
+  <tr class="fs12">
    <td>{{datarow.factordetails_count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
    <td>{{datarow.factordetails_price | fitNumber}}</td>
 {%if factorDetail.factor.detaildiscount%}
