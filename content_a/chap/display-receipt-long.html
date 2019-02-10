@@ -10,7 +10,7 @@
   </div>
 {%endif%}
 
- <div class="f storeDetail fs15 txtC">
+ <div class="f storeDetail fs20 txtC">
   <div class="c">
    <h1>{{currentStore.name}}</h1>
    <address>
@@ -77,7 +77,7 @@
 
 
 {%block factorTableArea%}
- <table class="tbl1 v1 fs14 txtC">
+ <table class="tbl1 v1 fs18 txtC">
   <thead>
    <tr class="fs08">
     <th>{%trans "Name"%}</th>
@@ -121,7 +121,7 @@
 
 
 {%block factorResultArea%}
- <table class="tbl fs14 factorResult mB25">
+ <table class="tbl fs16 factorResult mB25">
   <tbody>
 {%if factorDetail.factor.detaildiscount%}
    <tr>
@@ -135,7 +135,7 @@
 {%endif%}
    <tr class="msg info2 factorSum">
      <th class="txtRa fs08">{%trans "Total payable"%}</th>
-     <td class="collapsing txtLa">{{factorDetail.factor.sum | number_format |fitNumber}} <small class="fs07">{%trans "Toman"%}</small></td>
+     <td class="collapsing txtLa">{{factorDetail.factor.sum | number_format |fitNumber}} <small class="fs05">{%trans "Toman"%}</small></td>
    </tr>
   </tbody>
 
