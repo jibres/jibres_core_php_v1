@@ -476,7 +476,7 @@ trait add
 
 		if(\dash\engine\process::status())
 		{
-			\dash\notif::ok(T_("Store successfuly added"));
+			\dash\notif::ok(T_("Store successfuly added"), ['alerty' => true]);
 		}
 
 		return $return;
