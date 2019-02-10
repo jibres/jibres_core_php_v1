@@ -37,16 +37,30 @@
       </td>
       <td><a href="{{store.url}}" class="fc-blue"><i class="sf-share pRa10"></i> {{store.slug}}</a></td>
       <td>{{store.plan}}</td>
-      <td>{{store.startplan | dt(false)}}</td>
+      <td>
+        {{store.startplan | dt(false)}}
+        <br>
+        {{store.startplan | dt('human', 'year')}}
+      </td>
       <td>{{store.expireplan | dt(false)}}</td>
-      <td>{{store.dayleft}}</td>
+      <td>{{store.daysleft | fitNumber}}</td>
 
       <td>{{store.countProduct}}</td>
       <td>{{store.countThirdParty}}</td>
       <td>{{store.countFactor}}</td>
 
-      <td>{{store.datecreated | dt(false)}}</td>
-      <td>{{store.datemodified | dt(false)}}</td>
+      <td>
+        {{store.datecreated | dt(false)}}
+        <br>
+        {{store.datecreated | dt('human', 'year')}}
+      </td>
+      <td>
+        {%if store.datemodified%}
+          {{store.datemodified | dt(false)}}
+        <br>
+          {{store.datemodified | dt('human', 'year')}}
+        {%endif%}
+      </td>
       <td>{{store.creator}}<a href="{{url.kingdom}}/enter?userid={{store.creator|coding('decode')}}"><i class="sf-log-in"></i></a></td>
     </tr>
 {%endfor%}

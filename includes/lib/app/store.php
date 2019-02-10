@@ -300,6 +300,8 @@ class store
 	 */
 	public static function ready($_data)
 	{
+		$start = null;
+		$end   = null;
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
@@ -329,6 +331,16 @@ class store
 							$result['is_creator'] = false;
 						}
 					}
+					break;
+
+				case 'startplan':
+					$start        = $value;
+					$result[$key] = $value;
+					break;
+
+				case 'expireplan':
+					$end          = $value;
+					$result[$key] = $value;
 					break;
 
 				// JSON TO ARRAY
@@ -366,6 +378,31 @@ class store
 					$result[$key] = $value;
 					break;
 			}
+		}
+
+		if($end)
+		{
+			$daysleft = null;
+
+			if($end)
+			{
+				$date1    = date_create(date("Y-m-d"));
+				$date2    = date_create($end);
+				$diff     = date_diff($date1,$date2);
+
+				$daysleft = $diff->format("%r%a");
+
+				if(intval($daysleft) < 0)
+				{
+					$daysleft = 0;
+				}
+
+				$daysleft = abs(intval($daysleft));
+			}
+
+			$result['url']      = \dash\url::protocol(). '://'. $value['slug']. '.'. \dash\url::domain();
+			$result['daysleft'] = $daysleft;
+
 		}
 
 		return $result;

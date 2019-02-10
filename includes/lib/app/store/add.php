@@ -39,7 +39,7 @@ trait add
 
 
 
-		if($plan === 'free' || $period === 'trial')
+		if($plan === 'free' || $plan === 'trial')
 		{
 			// create new store by free plan
 			// just check count of free plan store
@@ -81,7 +81,7 @@ trait add
 				}
 			}
 
-			if($period === 'trial')
+			if($plan === 'trial')
 			{
 				$_args['startplan']  = date("Y-m-d H:i:s");
 				$_args['expireplan'] = date("Y-m-d H:i:s", strtotime("+14 days"));

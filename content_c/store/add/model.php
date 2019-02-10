@@ -9,10 +9,10 @@ class model
 		$post           = [];
 		$post['name']   = \dash\request::post('name');
 		$post['slug']   = \dash\request::post('slug');
-		$post['plan']   = \dash\request::post('plan');
-		$post['period'] = \dash\request::post('period');
-		$post['bank']   = \dash\request::post('bank');
-		$post['promo']  = \dash\request::post('promo');
+		$post['plan']   = 'trial';
+		// $post['period'] = \dash\request::post('period');
+		// $post['bank']   = \dash\request::post('bank');
+		// $post['promo']  = \dash\request::post('promo');
 
   		return $post;
 	}

@@ -11,6 +11,10 @@ class view
 
 		$termLink = '<a href="'. \dash\url::kingdom(). '/terms" target="_blank">'. T_('Terms of Service') .'</a>';
 		\dash\data::termOfService(T_("By press Create button, you're agreeing to our :term.", ['term' => $termLink]));
+
+		$list_store = \lib\app\store::list(null, ['pagenation' => false, 'creator' => \dash\user::id()]);
+		$countStore = is_array($list_store) ? count($list_store) : 0;
+		\dash\data::countStore($countStore);
 	}
 }
 ?>
