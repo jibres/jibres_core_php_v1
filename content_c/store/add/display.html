@@ -5,6 +5,18 @@
 <div class="f justify-center">
   <div class="c8 s12">
 
+{%if countStore%}
+    <div class="msg warn txtC fs18">
+      <h2 class="txtB">{%trans "You are reach your store limit!"%}</h2>
+      <div>{%trans "If you want to add a new store, you must say to us via ticket, then we check and increase your max store limit."%}
+      </div>
+      <div class="mT25">
+        <a class="btn light lg" href="{{url.kingdom}}/support/ticket/add?title=storeLimit">{%trans "Submit a ticket"%}</a>
+      </div>
+    </div>
+
+{%else%}
+
     <div class="msg primary txtC fs18">
       <h2 class="txtB">{%trans "Easily set up your store"%}</h2>
       <div>{%trans "Try Jibres free for 14 days."%} {%trans "Then if you want, pick a plan!"%}</div>
@@ -21,15 +33,6 @@
       <button class="btn success block mT10">{%trans "Create my store now"%}</button>
     </form>
 
-{%if countStore%}
-    <div class="msg warn txtC fs18">
-      <h2 class="txtB">{%trans "You are reach your store limit!"%}</h2>
-      <div>{%trans "If you want to add a new store, you must say to us via ticket, then we check and increase your max store limit."%}
-      </div>
-      <div class="mT25">
-        <a class="btn light lg" href="{{url.kingdom}}/support/ticket/add?title=storeLimit">{%trans "Submit a ticket"%}</a>
-      </div>
-    </div>
 {%endif%}
 
   </div>
