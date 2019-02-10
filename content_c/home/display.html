@@ -34,7 +34,7 @@
          <a class="btn block primary" href="{{url.here}}/store/add">{%trans "Add store as free trial"%}</a>
         </div>
       </div>
-      <div class="msg info2 mA10 fs20 txtC">{%trans "You are not have your own store!"%}<br><a href="{{url.here}}/store/add">{%trans "Try Jibres free trial for 14 days"%}</a>
+      <div class="msg info2 mA10 fs20 txtC">{%trans "You have not created your own store yet!"%}<br><a href="{{url.here}}/store/add">{%trans "Try Jibres free trial for 14 days"%}</a>
       </div>
 
 {%endif%}
@@ -47,7 +47,7 @@
 {%block supplierInStore%}
 {%if listStore.supplier%}
 <div class="cbox fs12">
-  <h2 data-kerkere='[data-as-supplier]' data-kerkere-icon='open'>{%trans "As supplier"%} - <small>{%trans "You are sell to this stores"%}</small></h2>
+  <h2 data-kerkere='[data-as-supplier]' data-kerkere-icon='open'>{%trans "As supplier"%} <small>{%trans "You are sell to this stores"%}</small></h2>
   <div data-kerkere-content data-as-supplier>
     <table class="tbl1 v1">
       <thead>
@@ -144,7 +144,7 @@
 {%block customerInStore%}
 {%if listStore.customer%}
 <div class="cbox fs12">
-  <h2 data-kerkere='[data-as-customer]' data-kerkere-icon='open'>{%trans "As customer"%} - <small>{%trans "You are buy from this stores"%}</small></h2>
+  <h2 data-kerkere='[data-as-customer]' data-kerkere-icon='open'>{%trans "As customer"%} <small>{%trans "You are buy from this stores"%}</small></h2>
   <div data-kerkere-content data-as-customer>
     <table class="tbl1 v1">
       <thead>
