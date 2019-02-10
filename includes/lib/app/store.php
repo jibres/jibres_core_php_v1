@@ -112,17 +112,20 @@ class store
 			return false;
 		}
 
-		$slug = \dash\app::request('slug');
-		$slug = trim($slug);
-
-		if(\dash\app::isset_request('slug') || \dash\app::isset_request('name'))
+		if(\dash\app::isset_request('name'))
 		{
 			if(!$name)
 			{
 				\dash\notif::error(T_("Name of store can not be null"), 'name', 'arguments');
 				return false;
 			}
+		}
 
+		$slug = \dash\app::request('slug');
+		$slug = trim($slug);
+
+		if(\dash\app::isset_request('slug'))
+		{
 			if(!$slug)
 			{
 				\dash\notif::error(T_("slug of store can not be null"), 'slug', 'arguments');
