@@ -23,44 +23,9 @@
   </h2>
   <div data-kerkere-content data-storeList>
     <div class='middle normal live f justify-center'>
-
-{%if listStore%}
-    {%for key, value in listStore if value.staff == true%}
-
-      <a href='{{value.url}}' class="vcard shadow blue mA10 c3 s6" data-live="{%if value.user_status == 'active'%}on{%elseif value.user_status == 'draft'%}half{%else%}off{%endif%}" >
-        <img src="{{value.logo}}" alt="{{value.name}}">
-        <div class="content">
-          <div class="header">{{value.name}}</div>
-
-{%if value.is_creator%}
-          <div class="desc mT10" title='{%trans "Start from"%} {{value.startplan | dt(true)}}'>
-            <div class="mB10">{%trans "Current plan"%} <b>{%set myPlan = value.plan | capitalize %}{%trans myPlan%}</b></div>
-{%if value.daysleft > 0%}
-            <div class="mB10 badge info">
-              <b>{{value.daysleft | fitNumber}}</b> {%trans "days left"%}
-            </div>
-{%elseif value.expireplan%}
-            <div class="mB10">
-              <b class="badge danger">{%trans "Expired"%}</b>
-            </div>
-{%endif%}
-          </div>
-{%endif%}
-        </div>
-        <div class="footer txtC f">
-          <div class="c txtB txtLa">
-{%if value.is_creator%}
-<span class="badge success fs10">{%trans "Owner"%}</span>
-{%elseif value.staff%}
-<span class="badge">{%trans "Staff"%}</span>
-{%endif%}
-          </div>
-          <div class="cauto os hide">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
-          <div class="cauto os">{{value.slug | capitalize}}</div>
-        </div>
-      </a>
-
-    {%endfor%}
+{%if stores or listStore.staff%}
+{{block('iAmCreator')}}
+{{block('iAmStaff')}}
 {%else%}
       <div class="vcard mA10" data-live='none'>
         <img src="{{url.static}}/siftal/images/useful/plus1.png" alt="add new survey">
@@ -80,7 +45,7 @@
 
 
 {%block supplierInStore%}
-{%if listStore%}
+{%if listStore.supplier%}
 <div class="cbox fs12">
   <h2 data-kerkere='[data-as-supplier]' data-kerkere-icon='open'>{%trans "As supplier"%} - <small>{%trans "You are sell to this stores"%}</small></h2>
   <div data-kerkere-content data-as-supplier>
@@ -93,9 +58,9 @@
           <th>{%trans "Average sell price"%}</th>
         </tr>
       </thead>
-    {%if listStore%}
+    {%if listStore.supplier%}
       <tbody>
-        {%for key, store in listStore if user.supplier == true%}
+        {%for key, store in listStore.supplier %}
         <tr>
           <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
           <td>{{store.buyCount | fitNumber}}</td>
@@ -115,10 +80,69 @@
 {%endif%}
 {%endblock%}
 
+{%block iAmCreator%}
+{%if stores%}
+    {%for key, value in stores%}
+
+      <a href='{{value.url}}' class="vcard shadow blue mA10 c3 s6" data-live="on" >
+        <img src="{{value.logo}}" alt="{{value.name}}">
+        <div class="content">
+          <div class="header">{{value.name}}</div>
+
+          <div class="desc mT10" title='{%trans "Start from"%} {{value.startplan | dt(true)}}'>
+            <div class="mB10">{%trans "Current plan"%} <b>{%set myPlan = value.plan | capitalize %}{%trans myPlan%}</b></div>
+{%if value.daysleft > 0%}
+            <div class="mB10 badge info">
+              <b>{{value.daysleft | fitNumber}}</b> {%trans "days left"%}
+            </div>
+{%elseif value.expireplan%}
+            <div class="mB10">
+              <b class="badge danger">{%trans "Expired"%}</b>
+            </div>
+{%endif%}
+          </div>
+
+        </div>
+        <div class="footer txtC f">
+          <div class="c txtB txtLa">
+            <span class="badge success fs10">{%trans "Owner"%}</span>
+          </div>
+          <div class="cauto os hide">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
+          <div class="cauto os">{{value.slug | capitalize}}</div>
+        </div>
+      </a>
+
+    {%endfor%}
+{%endif%}
+{%endblock%}
+
+{%block iAmStaff%}
+{%if listStore.staff%}
+    {%for key, value in listStore.staff%}
+    {%if value.store_id in storeCreatorId%}
+    {%else%}
+      <a href='{{value.url}}' class="vcard shadow blue mA10 c3 s6" data-live="{%if value.user_status == 'active'%}on{%elseif value.user_status == 'draft'%}half{%else%}off{%endif%}" >
+        <img src="{{value.logo}}" alt="{{value.name}}">
+        <div class="content">
+          <div class="header">{{value.name}}</div>
+        </div>
+        <div class="footer txtC f">
+          <div class="c txtB txtLa">
+            <span class="badge">{%trans "Staff"%}</span>
+          </div>
+          <div class="cauto os hide">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
+          <div class="cauto os">{{value.slug | capitalize}}</div>
+        </div>
+      </a>
+      {%endif%}
+    {%endfor%}
+{%endif%}
+{%endblock%}
 
 
 
 {%block customerInStore%}
+{%if listStore.customer%}
 <div class="cbox fs12">
   <h2 data-kerkere='[data-as-customer]' data-kerkere-icon='open'>{%trans "As customer"%} - <small>{%trans "You are buy from this stores"%}</small></h2>
   <div data-kerkere-content data-as-customer>
@@ -132,8 +156,8 @@
         </tr>
       </thead>
       <tbody>
-    {%if listStore%}
-        {%for key, store in listStore if user.customer == true%}
+    {%if listStore.customer%}
+        {%for key, store in listStore.customer %}
         <tr>
           <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
           <td>{{store.buyCount | fitNumber}}</td>
@@ -150,4 +174,5 @@
     </table>
   </div>
 </div>
+{%endif%}
 {%endblock%}

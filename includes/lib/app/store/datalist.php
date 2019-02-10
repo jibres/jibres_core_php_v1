@@ -37,7 +37,11 @@ trait datalist
 	{
 		$user_id = \dash\user::id();
 		$list    = \lib\db\userstores::where_i_am($user_id);
-		$temp    = [];
+
+		$temp             = [];
+		$temp['staff']    = [];
+		$temp['supplier'] = [];
+		$temp['customer'] = [];
 
 		if(is_array($list))
 		{
@@ -65,7 +69,6 @@ trait datalist
 					}
 
 					$daysleft = abs(intval($daysleft));
-
 				}
 
 				$t =
@@ -78,7 +81,20 @@ trait datalist
 					'daysleft'    => $daysleft,
 				];
 
-				$temp[] = array_merge($value, $t);
+				if($value['staff'])
+				{
+					$temp['staff'][] = array_merge($value, $t);
+				}
+
+				if($value['supplier'])
+				{
+					$temp['supplier'][] = array_merge($value, $t);
+				}
+
+				if($value['customer'])
+				{
+					$temp['customer'][] = array_merge($value, $t);
+				}
 			}
 		}
 

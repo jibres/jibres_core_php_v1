@@ -317,6 +317,18 @@ class store
 					{
 						$result[$key] = null;
 					}
+
+					if($key === 'creator')
+					{
+						if(intval($value) === intval(\dash\user::id()))
+						{
+							$result['is_creator'] = true;
+						}
+						else
+						{
+							$result['is_creator'] = false;
+						}
+					}
 					break;
 
 				// JSON TO ARRAY
