@@ -10,6 +10,10 @@ class controller
 		{
 			\dash\redirect::to(\dash\url::here());
 		}
+		elseif(\dash\url::child() === null)
+		{
+			\dash\redirect::to(\dash\url::this(). '/receipt?id='. \dash\request::get('id'));
+		}
 
 		\dash\permission::access('factorAccess');
 
