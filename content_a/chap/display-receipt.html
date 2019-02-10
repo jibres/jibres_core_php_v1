@@ -5,7 +5,7 @@
 
 {%block storeDetailArea%}
  <div class="f storeDetail fs11">
-  <div class="c8">
+  <div class="c">
    <h1>{{store.name}}</h1>
    <address>
     <div class="address">{{store.address}}</div>
@@ -16,9 +16,11 @@
    </address>
    <div class="desc">{{store.desc}}</div>
   </div>
+{%if store.logo_raw %}
   <div class="c4 logo txtRa">
    <img src="{{store.logo}}" alt="{{store.name}}">
   </div>
+{%endif%}
  </div>
 {%endblock%}
 
