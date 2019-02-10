@@ -20,7 +20,7 @@
      <div class="website">{{currentStore.website}}</div>
     </div>
    </address>
-   <div class="desc">{{currentStore.desc}}</div>
+   <div class="desc mB10">{{currentStore.desc}}</div>
   </div>
  </div>
 {%endblock%}
@@ -69,7 +69,7 @@
    <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factorDetail.factor.id}}'>{{factorDetail.factor.id}}</code></div>
   </div>
   <div class="c12">
-   <svg class="barcodePrev" data-val="#barcode" data-height=50 data-hideValue></svg>
+   <svg class="barcodePrev wide" data-val="#barcode" data-height=50 data-hideValue></svg>
   </div>
  </div>
 {%endblock%}
