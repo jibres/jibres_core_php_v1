@@ -438,10 +438,10 @@ class store
 				$daysleft = abs(intval($daysleft));
 			}
 
-			$result['url']      = \dash\url::protocol(). '://'. $value['slug']. '.'. \dash\url::domain();
 			$result['daysleft'] = $daysleft;
 
 		}
+
 
 		return $result;
 	}
