@@ -28,10 +28,10 @@
 {{block('staffInStore')}}
 {%else%}
       <div class="vcard mA10" data-live='none'>
-        <img src="{{url.static}}/siftal/images/useful/plus1.png" alt="add new survey">
+        <img src="{{url.static}}/siftal/images/useful/plus1.png" alt='{%trans "Add new store"%}'>
         <div class="content"></div>
         <div class="footer pAn">
-         <a class="btn block primary" href="{{url.here}}/survey/add">{%trans "Add store as free trial"%}</a>
+         <a class="btn block primary" href="{{url.here}}/store/add">{%trans "Add store as free trial"%}</a>
         </div>
       </div>
       <div class="msg info2 mA10 fs20 txtC">{%trans "You are not have your own store!"%}<br><a href="{{url.here}}/store/add">{%trans "Try Jibres free trial for 14 days"%}</a>

@@ -117,54 +117,89 @@ class store
 
 		if(\dash\app::isset_request('slug') || \dash\app::isset_request('name'))
 		{
-			if(!$slug && !$name)
+			if(!$name)
+			{
+				\dash\notif::error(T_("Name of store can not be null"), 'name', 'arguments');
+				return false;
+			}
+
+			if(!$slug)
 			{
 				\dash\notif::error(T_("slug of store can not be null"), 'slug', 'arguments');
 				return false;
 			}
 		}
 
-		// get slug of name in slug if the slug is not set
-		if(!$slug && $name)
-		{
-			$slug = \dash\coding::encode((int) \dash\user::id() + (int) rand(10000,99999) * 10000);
-			// $slug = \dash\utility\filter::slug($name);
-		}
+		// // get slug of name in slug if the slug is not set
+		// if(!$slug && $name)
+		// {
+		// 	$slug = \dash\coding::encode((int) \dash\user::id() + (int) rand(10000,99999) * 10000);
+		// 	// $slug = \dash\utility\filter::slug($name);
+		// }
 
 		// remove - from slug
 		// if the name is persian and slug not set
 		// we change the slug as slug of name
 		// in the slug we have some '-' in return
-		$slug = str_replace('-', '', $slug);
-
-		if($slug && mb_strlen($slug) < 5)
-		{
-			\dash\notif::error(T_("Store slug must be larger than 5 character"), 'slug', 'arguments');
-			return false;
-		}
-
-		if($slug && !preg_match("/^[A-Za-z0-9]+$/", $slug))
-		{
-			\dash\notif::error(T_("Only [A-Za-z0-9] can use in store slug"), 'slug', 'arguments');
-			return false;
-		}
-
-		// check slug
-		if($slug && mb_strlen($slug) >= 50)
-		{
-			\dash\notif::error(T_("Store slug must be less than 50 character"), 'slug', 'arguments');
-			return false;
-		}
+		// $slug = str_replace('-', '', $slug);
 
 		if($slug)
 		{
-			$slug = mb_strtolower($slug);
-		}
+			$slug = \dash\utility\convert::to_en_number($slug);
 
-		if($slug && in_array($slug, self::$black_list_slug))
-		{
-			\dash\notif::error(T_("You can not choose this slug"), 'slug', 'arguments');
-			return false;
+			$slug = preg_replace("/\_{2,}/", "_", $slug);
+			$slug = preg_replace("/\-{2,}/", "-", $slug);
+
+			if(mb_strlen($slug) < 5)
+			{
+				\dash\notif::error(T_("Slug must have at least 5 character"), 'slug');
+				return false;
+			}
+
+			if(mb_strlen($slug) > 50)
+			{
+				\dash\notif::error(T_("Please set the slug less than 50 character"), 'slug');
+				return false;
+			}
+
+			if(!preg_match("/^[A-Za-z0-9\-]+$/", $slug))
+			{
+				\dash\notif::error(T_("Only [A-Za-z0-9-] can use in slug"), 'slug');
+				return false;
+			}
+
+			if(!preg_match("/[A-Za-z]+/", $slug))
+			{
+				\dash\notif::error(T_("You must use a one character from [A-Za-z] in the slug"), 'slug');
+				return false;
+			}
+
+			if(is_numeric($slug))
+			{
+				\dash\notif::error(T_("Slug should contain a Latin letter"),'slug');
+				return false;
+			}
+
+			if(is_numeric(substr($slug, 0, 1)))
+			{
+				\dash\notif::error(T_("The slug must begin with latin letters"),'slug');
+				return false;
+			}
+
+			$slug = mb_strtolower($slug);
+
+			if(in_array($slug, self::$black_list_slug))
+			{
+				\dash\notif::error(T_("You can not choose this slug"), 'slug', 'arguments');
+				return false;
+			}
+
+			if(substr_count($slug, '-') > 1)
+			{
+				\dash\notif::error(T_("The slug must have one separator"),'slug');
+				return false;
+			}
+
 		}
 
 		$desc = \dash\app::request('desc');
@@ -364,6 +399,9 @@ class store
 					break;
 
 				case 'logo':
+
+					$result['logo_raw'] = $value;
+
 					if($value)
 					{
 						$result['logo'] = \lib\filepath::fix($value);
