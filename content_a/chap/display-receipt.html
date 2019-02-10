@@ -23,6 +23,15 @@
 {%endblock%}
 
 
+{%block factorHeader%}
+{%if currentStore.factorheader%}
+<hr>
+<p class="factorHeader fs11">
+{{currentStore.factorheader | raw | nl2br}}
+</p>
+{%endif%}
+{%endblock%}
+
 {%block customerDetailArea%}
 
 {%if factorDetail.factor.customer %}
@@ -126,6 +135,17 @@
 
  </table>
 {%endblock%}
+
+
+{%block factorFooter%}
+{% if currentStore.factorfooter%}
+<hr>
+<p class="factorFooter fs11">
+{{currentStore.factorfooter | raw | nl2br}}
+</p>
+{%endif%}
+{%endblock%}
+
 
 {%block footerArea%}{%endblock%}
 {%block footerExtraArea%}{%endblock%}
