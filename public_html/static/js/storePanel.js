@@ -736,7 +736,7 @@ function navigationFactorAddSetSelected(_tr, _focus)
 {
   if(!_tr || _tr.length === 0)
   {
-    _tr = $('#factorAdd .productList tbody tr.cellIndex');
+    _tr = $('#factorAdd .productList tbody tr:first-child');
   }
 
   // remove other selecred
