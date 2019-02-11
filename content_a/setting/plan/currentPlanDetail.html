@@ -75,7 +75,9 @@
       <th>{%trans "Plan"%}</th>
       <th>{%trans "Start"%}</th>
       <th>{%trans "End"%}</th>
+      <th>{%trans "Expire"%}</th>
       <th>{%trans "Type"%}</th>
+      <th>{%trans "Period"%}</th>
       <th>{%trans "Status"%}</th>
     </tr>
   </thead>
@@ -86,7 +88,9 @@
       <td>{%set my_plan = value.plan | capitalize%}{%trans my_plan%}</td>
       <td>{{value.start | dt(true)}}</td>
       <td>{{value.end | dt(true)}}</td>
+      <td>{{value.expireplan | dt(true)}}</td>
       <td>{{value.type}}</td>
+      <td>{{value.period}}</td>
       <td>{%set my_status = value.status | capitalize%}{%trans my_status%}</td>
 
     </tr>

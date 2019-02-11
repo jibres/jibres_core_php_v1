@@ -184,7 +184,8 @@ class plan
 		}
 		elseif($period === 'monthly')
 		{
-			$expireplan = date("Y-m-d H:i:s", strtotime("+1 month"));
+			// $expireplan = date("Y-m-d H:i:s", strtotime("+1 month"));
+			$expireplan = date("Y-m-d H:i:s", strtotime("+30 days"));
 
 			if($day_remain)
 			{
@@ -202,6 +203,7 @@ class plan
 		[
 			'plan'     => $_plan,
 			'type'     => $type,
+			'period'   => $period,
 			'expire'   => $expireplan,
 			'store_id' => \lib\store::id(),
 			'user_id'  => \dash\user::id(),
@@ -286,7 +288,6 @@ class plan
 
         $set =
 		[
-			'type'   => $type,
 			'status' => 'disable',
 			'end'    => date("Y-m-d H:i:s"),
 		];
@@ -300,14 +301,16 @@ class plan
 
 		\lib\db\planhistory::update_where($set, $where);
 
-		$set_new             = [];
-		$set_new['store_id'] = $store_id;
-		$set_new['plan']     = $plan;
-		$set_new['creator']  = $user_id;
-		$set_new['price']    = $price;
-		$set_new['status']   = 'enable';
-		$set_new['type']     = $type;
-		$set_new['start']    = date("Y-m-d H:i:s");
+		$set_new               = [];
+		$set_new['store_id']   = $store_id;
+		$set_new['plan']       = $plan;
+		$set_new['creator']    = $user_id;
+		$set_new['price']      = $price;
+		$set_new['period']     = $period;
+		$set_new['expireplan'] = $expire;
+		$set_new['status']     = 'enable';
+		$set_new['type']       = $type;
+		$set_new['start']      = date("Y-m-d H:i:s");
 
 		\lib\db\planhistory::insert($set_new);
 
