@@ -1,4 +1,8 @@
 {
+  "jibresplan": {
+    "title": "Check stores plan",
+    "url": "jibresplan"
+  },
   "homepagenumber": {
     "title": "Set home page number",
     "url": "homepagenumber"

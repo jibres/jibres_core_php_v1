@@ -4,6 +4,13 @@ namespace lib\db;
 class stores
 {
 
+	public static function list_expired()
+	{
+		$date = date("Y-m-d H:i:s");
+		$query = "SELECT * FROM stores WHERE stores.expireplan IS NOT NULL AND stores.expireplan < '$date' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 
 	/**
 	 * Gets the similar slug.

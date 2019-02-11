@@ -365,5 +365,76 @@ class plan
 		}
 		return $is_first_year;
 	}
+
+
+	public static function expire_plan()
+	{
+		$store_expired = \lib\db\stores::list_expired();
+		if(!$store_expired || !is_array($store_expired))
+		{
+			return null;
+		}
+
+		foreach ($store_expired as $key => $value)
+		{
+			$store_id = $value['id'];
+			$creator = $value['creator'];
+
+			$log =
+			[
+				'code'        => $store_id,
+				'to'          => $creator,
+				'storename'   => $value['name'],
+				'currentplan' => $value['plan'],
+			];
+
+			\dash\log::set('AutoExpirePlanToFree', $log);
+
+			$update_store =
+			[
+				'plan'       => 'free',
+				'expireplan' => null,
+			];
+
+			\lib\db\stores::update($update_store, $store_id);
+
+
+			$set =
+			[
+				'status' => 'disable',
+				'end'    => date("Y-m-d H:i:s"),
+			];
+
+			$where =
+			[
+				'store_id' => $store_id,
+				'status'   => 'enable',
+				'end'      => null,
+			];
+
+			\lib\db\planhistory::update_where($set, $where);
+
+			$set_new               = [];
+			$set_new['store_id']   = $store_id;
+			$set_new['plan']       = 'free';
+			$set_new['creator']    = null;
+			$set_new['price']      = 0;
+			$set_new['period']     = null;
+			$set_new['expireplan'] = null;
+			$set_new['status']     = 'enable';
+			$set_new['type']       = 'auto';
+			$set_new['start']      = date("Y-m-d H:i:s");
+
+			\lib\db\planhistory::insert($set_new);
+
+		}
+
+	}
+
+
+	public static function set_notif()
+	{
+
+	}
 }
 ?>
