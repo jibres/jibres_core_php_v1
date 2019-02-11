@@ -89,8 +89,8 @@
       <td>{{value.start | dt(true)}}</td>
       <td>{{value.end | dt(true)}}</td>
       <td>{{value.expireplan | dt(true)}}</td>
-      <td>{{value.type}}</td>
-      <td>{{value.period}}</td>
+      <td>{%set my_type = value.type%}{%trans my_type%}</td>
+      <td>{%set my_period = value.period%}{%trans my_period%}</td>
       <td>{%set my_status = value.status | capitalize%}{%trans my_status%}</td>
 
     </tr>
