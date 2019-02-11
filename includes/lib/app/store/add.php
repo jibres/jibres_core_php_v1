@@ -440,6 +440,7 @@ trait add
 			'plan'     => $args['plan'],
 			'start'    => date("Y-m-d H:i:s"),
 			'end'      => null,
+			'type'     => 'set',
 			'creator'  => \dash\user::id(),
 			'status'   => 'enable',
 		];

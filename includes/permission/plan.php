@@ -12,12 +12,12 @@ $trial   = $master;
 
 $plan['trial'] =
 [
-  'title'              => 'trial',
-  'public'             => true,
-  'monthly'            => 0,
-  'yearly'             => 0,
-  'teacher_permission' => null,
-  'contain'            => $trial,
+  'title'      => 'trial',
+  'public'     => true,
+  'monthly'    => 0,
+  'yearly'     => 0,
+  'first_year' => 0,
+  'contain'    => $trial,
 ];
 
 // ----------------------------------------------- FREE -------------------------------------------- //
@@ -27,13 +27,31 @@ $free   = $master;
 
 $plan['free'] =
 [
-  'title'              => 'free',
-  'public'             => true,
-  'monthly'            => 0,
-  'yearly'             => 0,
-  'teacher_permission' => null,
-  'contain'            => $free,
+  'title'      => 'free',
+  'public'     => true,
+  'monthly'    => 0,
+  'yearly'     => 0,
+  'first_year' => 0,
+  'contain'    => $free,
 ];
+
+
+
+// ----------------------------------------------- SIMPLE -------------------------------------------- //
+$start   = $master;
+
+// $start[] = "mPermissionAdd";
+
+$plan['start'] =
+[
+  'title'      => 'start',
+  'public'     => true,
+  'monthly'    => 14000,
+  'yearly'     => 140000,
+  'first_year' => 50000,
+  'contain'    => $start,
+];
+
 
 
 // ----------------------------------------------- SIMPLE -------------------------------------------- //
@@ -43,12 +61,12 @@ $simple   = $master;
 
 $plan['simple'] =
 [
-  'title'              => 'simple',
-  'public'             => true,
-  'monthly'            => 10000,
-  'yearly'             => 100000,
-  'teacher_permission' => null,
-  'contain'            => $simple,
+  'title'      => 'simple',
+  'public'     => true,
+  'monthly'    => 30000,
+  'yearly'     => 300000,
+  'first_year' => 150000,
+  'contain'    => $simple,
 ];
 
 
@@ -61,12 +79,12 @@ $standard   = $master;
 
 $plan['standard'] =
 [
-  'title'              => 'standard',
-  'public'             => true,
-  'monthly'            => 50000,
-  'yearly'             => 500000,
-  'teacher_permission' => null,
-  'contain'            => $standard,
+  'title'      => 'standard',
+  'public'     => true,
+  'monthly'    => 75000,
+  'yearly'     => 750000,
+  'first_year' => 300000,
+  'contain'    => $standard,
 ];
 
 

@@ -14,7 +14,6 @@ class model
 		$meta =
 		[
 			'period'       => \dash\request::post('period'),
-			'continuation' => \dash\request::post('continuation'),
 		];
 
 		\lib\app\store\plan::set($plan, $meta);

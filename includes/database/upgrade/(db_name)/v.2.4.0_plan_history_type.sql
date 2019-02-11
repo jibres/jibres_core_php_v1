@@ -1,0 +1,1 @@
+ALTER TABLE `planhistory` ADD  `type` enum('change','continuation','upgrade','downgrade','first_year', 'set') NULL DEFAULT NULL;

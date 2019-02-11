@@ -50,6 +50,16 @@
       <small class="badge floatRa">{%trans "Forever"%}</small>
     {%else%}
       {%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt}}'>{%trans "Expire on"%} {{store.expireplan | dt(true)}}</small>{%endif%}
+      <div class="floatRa mRa5">
+      {%if currentStore.daysleft > 0%}
+        <small class=" badge info">
+          <b>{{currentStore.daysleft | fitNumber}}</b> {%trans "days left"%}
+        </small>
+      {%else%}
+          <b class="badge danger">{%trans "Expired"%}</b>
+      {%endif%}
+      </div>
+
     {%endif%}
   </h3>
 {%endblock%}
@@ -65,6 +75,7 @@
       <th>{%trans "Plan"%}</th>
       <th>{%trans "Start"%}</th>
       <th>{%trans "End"%}</th>
+      <th>{%trans "Type"%}</th>
       <th>{%trans "Status"%}</th>
     </tr>
   </thead>
@@ -75,6 +86,7 @@
       <td>{%set my_plan = value.plan | capitalize%}{%trans my_plan%}</td>
       <td>{{value.start | dt(true)}}</td>
       <td>{{value.end | dt(true)}}</td>
+      <td>{{value.type}}</td>
       <td>{%set my_status = value.status | capitalize%}{%trans my_status%}</td>
 
     </tr>

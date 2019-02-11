@@ -32,7 +32,6 @@ class plan
 		$default =
 		[
 			'period'       => null,
-			'continuation' => null,
 		];
 
 		if(!is_array($_meta))
@@ -58,7 +57,7 @@ class plan
 			return false;
 		}
 
-		$current_plan = \lib\store::detail('plan');
+		$_plan = mb_strtolower($_plan);
 
 		if($_plan === 'trial')
 		{
@@ -66,39 +65,131 @@ class plan
 			return false;
 		}
 
-		if($current_plan === 'free' && $_plan === 'free')
+		if($_plan === 'free')
 		{
-			\dash\notif::error(T_("Your plan is free, can not continuation it!"));
+			\dash\notif::error(T_("After trial version your store plan changed to free automatically!"));
 			return false;
 		}
 
+		if(!$period)
+		{
+			\dash\notif::error(T_("Invalid period of plan"));
+			return false;
+		}
+
+		if(!in_array($period, ['yearly', 'monthly']))
+		{
+			\dash\notif::error(T_("Invalid period of plan"));
+			return false;
+		}
+
+		$current_plan  = \lib\store::detail('plan');
+
+		$curent_expire = \lib\store::detail('expireplan');
+
+		$type       = null;
+		$expireplan = null;
+		$day_remain = 0;
+
 		if($_plan === $current_plan)
 		{
-			if(!$continuation)
+			$type = 'continuation';
+			$date1    = date_create(date("Y-m-d"));
+			$date2    = date_create($curent_expire);
+			$diff     = date_diff($date1,$date2);
+
+			$day_remain = $diff->format("%r%a");
+
+			if(intval($day_remain) < 0)
 			{
-				\dash\notif::error(T_("This is your current plan"));
-				return false;
+				$day_remain = 0;
+			}
+
+			$day_remain = abs(intval($day_remain));
+		}
+		else
+		{
+			switch ($current_plan)
+			{
+				case 'free':
+				case 'trial':
+					switch ($_plan)
+					{
+						case 'start':
+						case 'simple':
+						case 'standard':
+							$type = 'upgrade';
+							break;
+					}
+					break;
+
+				case 'start':
+					switch ($_plan)
+					{
+						case 'simple':
+						case 'standard':
+							$type = 'upgrade';
+							break;
+					}
+					break;
+
+				case 'simple':
+					switch ($_plan)
+					{
+						case 'start':
+							$type = 'downgrade';
+							break;
+
+						case 'standard':
+							$type = 'upgrade';
+							break;
+					}
+					break;
+
+				case 'standard':
+					switch ($_plan)
+					{
+						case 'start':
+						case 'simple':
+							$type = 'downgrade';
+							break;
+					}
+					break;
 			}
 		}
 
-
 		$price = 0;
 
-		if($_plan !== 'free')
+		// check this store is first year plan
+		$check_first_year = \lib\db\planhistory::get(['store_id' => \lib\store::id(), 'type' => 'first_year', 'limit' => 1]);
+
+		$is_first_year = $check_first_year ? false : true;
+
+		if($period === 'yearly' && $is_first_year && isset(self::$plan['$_plan']['first_year']))
 		{
-			if(!$period)
-			{
-				\dash\notif::error(T_("Invalid period of plan"));
-				return false;
-			}
-
-			if(!array_key_exists($period, self::$plan[$_plan]))
-			{
-				\dash\notif::error(T_("Invalid period of plan"));
-				return false;
-			}
-
+			$type = 'first_year';
+			$price = self::$plan[$_plan]['first_year'];
+		}
+		else
+		{
 			$price = self::$plan[$_plan][$period];
+		}
+
+
+		if($period === 'yearly')
+		{
+			$day = 365 + $day_remain;
+
+			$expireplan = date("Y-m-d H:i:s", strtotime("+$day days"));
+		}
+		elseif($period === 'monthly')
+		{
+			$expireplan = date("Y-m-d H:i:s", strtotime("+1 month"));
+
+			if($day_remain)
+			{
+				$expireplan = date("Y-m-d H:i:s", (strtotime($expireplan) + (60*60*24*$day_remain)));
+			}
 		}
 
 
@@ -110,7 +201,8 @@ class plan
 		$final_fn_args =
 		[
 			'plan'     => $_plan,
-			'expire'   => date("Y-m-d H:i:s", strtotime("+19 days")),
+			'type'     => $type,
+			'expire'   => $expireplan,
 			'store_id' => \lib\store::id(),
 			'user_id'  => \dash\user::id(),
 			'price'    => $price,
@@ -194,6 +286,7 @@ class plan
 
         $set =
 		[
+			'type'   => $type,
 			'status' => 'disable',
 			'end'    => date("Y-m-d H:i:s"),
 		];
@@ -213,6 +306,7 @@ class plan
 		$set_new['creator']  = $user_id;
 		$set_new['price']    = $price;
 		$set_new['status']   = 'enable';
+		$set_new['type']     = $type;
 		$set_new['start']    = date("Y-m-d H:i:s");
 
 		\lib\db\planhistory::insert($set_new);
