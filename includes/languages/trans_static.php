@@ -188,6 +188,17 @@ class TransStatic
 	echo T_("settingEditInventory");
 	echo T_("settingEditLogo");
 
+	echo T_("trial");
+	echo T_("Trial");
+	echo T_("change");
+	echo T_("continuation");
+	echo T_("upgrade");
+	echo T_("downgrade");
+	echo T_("first_year");
+	echo T_("set");
+	echo T_("monthly");
+	echo T_("yearly");
+
 
  }
 }
