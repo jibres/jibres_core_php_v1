@@ -369,7 +369,8 @@ class plan
 
 	public static function expire_plan()
 	{
-		$store_expired = \lib\db\stores::list_expired();
+		$date = date("Y-m-d H:i:s");
+		$store_expired = \lib\db\stores::list_expired($date);
 		if(!$store_expired || !is_array($store_expired))
 		{
 			return null;
@@ -434,7 +435,41 @@ class plan
 
 	public static function set_notif()
 	{
+		self::one_day();
+	}
 
+
+	public static function one_day()
+	{
+		$date = date("Y-m-d H:i:s", strtotime("+1 days"));
+
+		$store_expired = \lib\db\stores::list_expired($date);
+		if(!$store_expired || !is_array($store_expired))
+		{
+			return null;
+		}
+
+		foreach ($store_expired as $key => $value)
+		{
+			$store_id = $value['id'];
+			$creator = $value['creator'];
+
+			$log =
+			[
+				'code'        => $store_id,
+				'to'          => $creator,
+				'storename'   => $value['name'],
+				'currentplan' => $value['plan'],
+			];
+
+			$check = ['code' => $store_id, 'to' => $creator, 'caller' => 'OneDayLeftExpirePlanToFree', 'limit' => 1];
+
+			if(!\dash\db\logs::get($check))
+			{
+				\dash\log::set('OneDayLeftExpirePlanToFree', $log);
+			}
+
+		}
 	}
 }
 ?>

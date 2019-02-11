@@ -4,10 +4,9 @@ namespace lib\db;
 class stores
 {
 
-	public static function list_expired()
+	public static function list_expired($_date)
 	{
-		$date = date("Y-m-d H:i:s");
-		$query = "SELECT * FROM stores WHERE stores.expireplan IS NOT NULL AND stores.expireplan < '$date' ";
+		$query = "SELECT * FROM stores WHERE stores.expireplan IS NOT NULL AND stores.expireplan < '$_date' ";
 		$result = \dash\db::get($query);
 		return $result;
 	}
