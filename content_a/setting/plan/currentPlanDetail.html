@@ -7,13 +7,29 @@
 <div class="cbox">
   {{block('currentPlan')}}
 
-  {%if store.plan == 'free' %}
+  {%if store.plan == 'free' or store.plan == 'trial'  %}
   <a href="{{url.this}}/plan/choose">
     <div class="msg success txtC txtB">
       {%trans "Upgrade"%}
     </div>
   </a>
   {%else%}
+    <div class="f">
+      <div class="c mRa5">
+          <a href="{{url.this}}/plan/{{store.plan}}">
+            <div class="msg success">
+              {%trans "Continuation"%}
+            </div>
+          </a>
+      </div>
+      <div class="c">
+          <a href="{{url.this}}/plan/choose">
+            <div class="msg warn">
+              {%trans "Change plan"%}
+            </div>
+          </a>
+      </div>
+    </div>
   {%endif%}
 </div>
 
@@ -33,7 +49,7 @@
     {%if store.plan == 'free' %}
       <small class="badge floatRa">{%trans "Forever"%}</small>
     {%else%}
-      {%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt(true)}}'>{%trans "Expire on"%} {{store.expireplan | dt}}</small>{%endif%}
+      {%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt}}'>{%trans "Expire on"%} {{store.expireplan | dt(true)}}</small>{%endif%}
     {%endif%}
   </h3>
 {%endblock%}
