@@ -14,8 +14,6 @@ trait add
 	 */
 	public static function add($_factor, $_factor_detail, $_option = [])
 	{
-		// start transaction of db
-		\dash\db::transaction();
 
 		$default_option =
 		[
@@ -43,7 +41,6 @@ trait add
 		{
 			\dash\app::log('api:factor:user_id:notfound', \dash\user::id(), $log_meta);
 			if($_option['debug']) \dash\notif::error(T_("User not found"), 'user');
-			\dash\db::rollback();
 			return false;
 		}
 
@@ -51,16 +48,16 @@ trait add
 		{
 			\dash\app::log('api:factor:store_id:notfound', \dash\user::id(), $log_meta);
 			if($_option['debug']) \dash\notif::error(T_("Store not found"), 'subdomain');
-			\dash\db::rollback();
 			return false;
 		}
 
 		if(!\lib\userstore::in_store())
 		{
 			\dash\notif::error(T_("You are not in this store"), 'subdomain');
-			\dash\db::rollback();
 			return false;
 		}
+		// start transaction of db
+		\dash\db::transaction();
 
 		\dash\app::variable($_factor);
 		// check args
@@ -76,6 +73,7 @@ trait add
 		$factor['store_id'] = \lib\store::id();
 
 		\dash\app::variable($_factor_detail);
+
 		$factor_detail = self::check_factor_detail($_option);
 
 		if($factor_detail === false || !\dash\engine\process::status())
@@ -85,6 +83,8 @@ trait add
 		}
 
 		$return = [];
+
+		$qty_sum = 0;
 
 		foreach ($factor_detail as $key => $value)
 		{
@@ -96,12 +96,18 @@ trait add
 				$discount                 = (floatval($value['discount']) * floatval($value['count']));
 			}
 
+			if(isset($value['count']))
+			{
+				$qty_sum                 += floatval($value['count']);
+			}
+
 			$factor['detailsum']      += $sum;
 			$factor['detaildiscount'] += $discount;
 			$factor['detailtotalsum'] += $sum - $discount;
 		}
 
-		$factor['qty']      = array_sum(array_column($factor_detail, 'count'));
+		// $factor['qty']      = array_sum(array_column($factor_detail, 'count'));
+		$factor['qty']      = $qty_sum;
 		$factor['item']     = count($factor_detail);
 		$factor['vat']      = null;
 		$factor['discount'] = null;
