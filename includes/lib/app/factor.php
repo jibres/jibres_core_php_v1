@@ -107,6 +107,90 @@ class factor
 			}
 		}
 
+		if(!$customer)
+		{
+			$mobile      = \dash\app::request('mobile');
+			if($mobile)
+			{
+				$mobile = \dash\utility\filter::mobile($mobile);
+				if(!$mobile)
+				{
+					\dash\notif::error(T_("Invalid mobile"), 'mobile');
+					return false;
+				}
+			}
+
+			$gender      = \dash\app::request('gender');
+
+			if($gender && !in_array($gender, ['male', 'female']))
+			{
+				\dash\notif::error(T_("Invalid gender"), 'gender');
+				return false;
+			}
+
+			$displayname = \dash\app::request('displayname');
+
+			if($mobile)
+			{
+				$customer_user_id = \dash\db\users::signup(['mobile' => $mobile, 'gender' => $gender, 'displayname' => $displayname]);
+				if($customer_user_id)
+				{
+					$check_in_store = \lib\db\userstores::get(['store_id' => \lib\store::id(), 'user_id' => $customer_user_id, 'limit' => 1]);
+					if(isset($check_in_store['id']))
+					{
+						$customer = $check_in_store['id'];
+					}
+					else
+					{
+						$insert_new_user_store =
+						[
+							'store_id'    => \lib\store::id(),
+							'user_id'     => $customer_user_id,
+							'gender'      => $gender,
+							'displayname' => $displayname,
+						];
+
+						if($type === 'sale')
+						{
+							$insert_new_user_store['customer'] = 1;
+						}
+
+						$customer = \lib\db\userstores::insert($insert_new_user_store);
+					}
+				}
+			}
+			else
+			{
+				if($displayname)
+				{
+					$check_exist_displayname = \lib\db\userstores::get(['displayname' => $displayname, 'mobile' => null, 'limit' => 1]);
+					if(isset($check_exist_displayname['id']))
+					{
+						\dash\notif::error(T_("This thirdparyt already added to your store. plase set her mobile or change the name"), 'displayname');
+					}
+					else
+					{
+						$customer_user_id = \dash\db\users::signup(['mobile' => null, 'gender' => $gender, 'displayname' => $displayname]);
+
+						$insert_new_user_store =
+						[
+							'store_id'    => \lib\store::id(),
+							'user_id'     => $customer_user_id,
+							'gender'      => $gender,
+							'displayname' => $displayname,
+						];
+
+						if($type === 'sale')
+						{
+							$insert_new_user_store['customer'] = 1;
+						}
+
+						$customer = \lib\db\userstores::insert($insert_new_user_store);
+					}
+				}
+			}
+		}
+
 		$args                   = [];
 		$args['customer']       = $customer;
 		$args['type']           = $type;

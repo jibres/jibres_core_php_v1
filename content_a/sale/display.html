@@ -3,7 +3,7 @@
 
 {%block pageContent%}
 
-<form method="post" class="f" id='factorAdd' data-disallowEnter data-msgNewError='{%trans "You can add new empty tab if current tab is filled!"%}' {%if requestGET.extra == 'true'%}data-autoClose=2000{%endif%}>
+<form method="post" autocomplete="off" class="f" id='factorAdd' data-disallowEnter data-msgNewError='{%trans "You can add new empty tab if current tab is filled!"%}' {%if requestGET.extra == 'true'%}data-autoClose=2000{%endif%}>
   <div class="c9 s12 pRa10">
 
     {{block("addProducts")}}
@@ -104,11 +104,55 @@
 
 {%block iCustomer%}
 <div class="cbox p0">
-  <select name="customer" class="ui dropdown search selection" id="customerSearch" data-source='{{url.here}}/thirdparty?type=sale&json=true&list=customer&q={query}'>
-    <option value="">{%trans "Choose customer"%}</option>
-  </select>
+  <div class="f">
+    <div class="c">
+      <select name="customer" class="ui dropdown search selection" id="customerSearch" data-source='{{url.here}}/thirdparty?type=sale&json=true&list=customer&q={query}'>
+        <option value="">{%trans "Choose customer"%}</option>
+      </select>
+    </div>
+    <div class="cauto"><i data-kerkere='.addNewCustomer' class="sf-plus btn outline mLa5"></i></div>
+  </div>
+  <div class="addNewCustomer" data-kerkere-content='hide'>
+      {{block('imobile')}}
+      <div class="f">
+        <div class="cauto pRa5">{{block('igender')}}</div>
+        <div class="c s12">{{block('idisplayname')}}</div>
+      </div>
+
+
+  </div>
 </div>
 {%endblock%}
+
+
+
+{%block imobile%}
+<div class="input mT5">
+  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Mobile"%} {%trans "Like"%} {{"09120123456" | fitNumber("mobile")}}' autofocus value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
+</div>
+{%endblock%}
+
+
+{%block igender%}
+
+
+  <select name="gender" id="gender" class="ui dropdown select mT5">
+    <option value="" disabled>{%trans "Gender"%}</option>
+    <option value="0">&nbsp;</option>
+    <option value="male" {%if dataRow.gender == 'male' %}selected {%endif%}>{%trans "Mr"%}</option>
+    <option value="female" {%if dataRow.gender == 'female' %}selected{%endif%}>{%trans "Mrs"%}</option>
+  </select>
+
+{%endblock%}
+
+
+{%block idisplayname%}
+
+<div class="input mT5">
+  <input type="text" name="displayname" id="iname" placeholder='{%trans "Name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1">
+</div>
+{%endblock%}
+
 
 
 
