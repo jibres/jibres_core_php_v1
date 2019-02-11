@@ -17,7 +17,7 @@ class plan
 
 			if(is_file($plan_file))
 			{
-				include_once($plan_file);
+				include($plan_file);
 			}
 
 			self::$load_plan = true;
@@ -27,6 +27,8 @@ class plan
 
 	public static function set($_plan, $_meta = [])
 	{
+		self::load();
+
 		\dash\permission::access('settingEditPlan');
 
 		$default =
@@ -43,7 +45,6 @@ class plan
 
 		extract($_meta);
 
-		self::load();
 
 		if(!\lib\store::id())
 		{

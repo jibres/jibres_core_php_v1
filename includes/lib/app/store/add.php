@@ -419,6 +419,15 @@ trait add
 		$args['creator'] = \dash\user::id();
 		$args['status']  = 'enable';
 
+		$slug = $args['slug'];
+		$check_slug = \lib\db\stores::get(['slug' => $args['slug'], 'limit' => 1]);
+
+		if(isset($check_slug['id']))
+		{
+			\dash\notif::error(T_("This slug is already taken, try another"), 'slug');
+			return false;
+		}
+
 		$store_id = \lib\db\stores::insert($args);
 
 		if(!$store_id)
@@ -436,13 +445,14 @@ trait add
 		// add planhistory
 		$insert_planhistory =
 		[
-			'store_id' => $store_id,
-			'plan'     => $args['plan'],
-			'start'    => date("Y-m-d H:i:s"),
-			'end'      => null,
-			'type'     => 'set',
-			'creator'  => \dash\user::id(),
-			'status'   => 'enable',
+			'store_id'   => $store_id,
+			'plan'       => $args['plan'],
+			'start'      => date("Y-m-d H:i:s"),
+			'end'        => null,
+			'type'       => 'set',
+			'expireplan' => isset($args['expireplan']) ? $args['expireplan'] : null,
+			'creator'    => \dash\user::id(),
+			'status'     => 'enable',
 		];
 
 		\lib\db\planhistory::insert($insert_planhistory);
