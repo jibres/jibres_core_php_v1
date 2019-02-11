@@ -3,6 +3,12 @@ namespace lib\db;
 
 class planhistory
 {
+	public static function first_record($_store_id)
+	{
+		$query = "SELECT * FROM planhistory WHERE planhistory.store_id = $_store_id ORDER BY planhistory.id ASC LIMIT 5";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 
 	public static function insert()
 	{

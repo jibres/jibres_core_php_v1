@@ -18,6 +18,7 @@ class view
 			case 'start':
 			case 'standard':
 			case 'simple':
+				\dash\data::isFirstYear(\lib\app\store\plan::is_first_year());
 				\dash\data::myPlanDisplay('content_a/setting/plan/choosePeriod.html');
 				break;
 

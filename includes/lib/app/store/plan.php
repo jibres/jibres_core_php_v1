@@ -162,9 +162,7 @@ class plan
 		$price = 0;
 
 		// check this store is first year plan
-		$check_first_year = \lib\db\planhistory::get(['store_id' => \lib\store::id(), 'type' => 'first_year', 'limit' => 1]);
-
-		$is_first_year = $check_first_year ? false : true;
+		$is_first_year = self::is_first_year();
 
 		if($period === 'yearly' && $is_first_year && isset(self::$plan['$_plan']['first_year']))
 		{
@@ -327,6 +325,45 @@ class plan
         \lib\store::refresh();
 
         \dash\notif::ok(T_("Your plan was changed"));
+	}
+
+	public static function is_first_year()
+	{
+		if(!\lib\store::id())
+		{
+			return false;
+		}
+
+		$is_first_year = false;
+
+		$first_record = \lib\db\planhistory::first_record(\lib\store::id());
+
+		if(!$first_record || !is_array($first_record))
+		{
+			$is_first_year = true;
+		}
+		elseif(count($first_record) === 1)
+		{
+			$is_first_year = true;
+		}
+		elseif(count($first_record) === 2)
+		{
+			$plan = array_column($first_record, 'plan');
+
+			if(in_array('trial', $plan) && in_array('free', $plan))
+			{
+				$is_first_year = true;
+			}
+			else
+			{
+				$is_first_year = false;
+			}
+		}
+		else
+		{
+			$is_first_year = false;
+		}
+		return $is_first_year;
 	}
 }
 ?>
