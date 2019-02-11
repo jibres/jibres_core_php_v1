@@ -5,6 +5,7 @@
 
 {%block data%}
 <div class="cbox">
+  <a href="{{url.this}}/plan" class="btn mA10">{%trans "Back"%}</a>
   {%if store.plan != 'free' and store.plan != 'trial' and currentStore.daysleft > 2%}
   <div class="msg danger txtB txtC">
     {%trans "Your plan have some days!"%}
