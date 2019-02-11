@@ -551,8 +551,8 @@ class twigTransTerms
 	echo T_("Buy price");                                                             // Line 99
 	echo T_("Total");                                                                 // Line 62
 	echo T_("Choose supplier");                                                       // Line 107
-	echo T_("Search in list to add product");                                         // Line 118
-	echo T_("Last scanned barcode");                                                  // Line 144
+	echo T_("Search in list to add product");                                         // Line 162
+	echo T_("Last scanned barcode");                                                  // Line 188
 
 	//------------------------------------------------------content_a/pay/display.html
 	echo T_("Print Status is active");                                                // Line 23
@@ -563,7 +563,11 @@ class twigTransTerms
 
 	//-----------------------------------------------------content_a/sale/display.html
 	echo T_("Discount");                                                              // Line 61
-	echo T_("Choose customer");                                                       // Line 108
+	echo T_("Choose customer");                                                       // Line 110
+	echo T_("Like");                                                                  // Line 256
+	echo T_("Gender");                                                                // Line 196
+	echo T_("Mr");                                                                    // Line 198
+	echo T_("Mrs");                                                                   // Line 199
 
 	//------------------------------------------content_a/chap/receipt2/fishprint.html
 	echo T_("Customer");                                                              // Line 117
@@ -589,14 +593,10 @@ class twigTransTerms
 	echo T_("Save tag");                                                              // Line 462
 	echo T_("Salesman Name");                                                         // Line 115
 	echo T_("Last name");                                                             // Line 146
-	echo T_("Like");                                                                  // Line 256
 	echo T_("National code");                                                         // Line 169
 	echo T_("10 digit national code");                                                // Line 171
 	echo T_("Father name");                                                           // Line 179
 	echo T_("Birthday");                                                              // Line 185
-	echo T_("Gender");                                                                // Line 196
-	echo T_("Mr");                                                                    // Line 198
-	echo T_("Mrs");                                                                   // Line 199
 	echo T_("Birth city");                                                            // Line 210
 	echo T_("Passport id");                                                           // Line 223
 	echo T_("No problem with email marketing");                                       // Line 264

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-02-11 19:38+0330\n"
-"PO-Revision-Date: 2019-02-11 19:38+0330\n"
+"POT-Creation-Date: 2019-02-11 20:54+0330\n"
+"PO-Revision-Date: 2019-02-11 20:55+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -304,7 +304,8 @@ msgstr "موبایل تنظیم نشده است"
 
 #: dash/addons/content_api/v5/enter/controller.php:331
 #: dash/addons/content_enter/app/model.php:23 dash/lib/app/address.php:161
-#: dash/lib/app/user.php:271 jibres/includes/lib/app/thirdparty.php:36
+#: dash/lib/app/user.php:271 jibres/includes/lib/app/factor.php:118
+#: jibres/includes/lib/app/thirdparty.php:36
 msgid "Invalid mobile"
 msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
@@ -3023,7 +3024,7 @@ msgstr "جیمیل"
 
 #: dash/addons/includes/languages/trans_dash.php:119
 #: jibres/includes/languages/trans_dash.php:612
-#: jibres/includes/languages/trans_project.php:592
+#: jibres/includes/languages/trans_project.php:567
 msgid "Like"
 msgstr "مثل"
 
@@ -3070,7 +3071,7 @@ msgstr "نوع معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:128
 #: jibres/includes/languages/trans_dash.php:698
-#: jibres/includes/languages/trans_project.php:596
+#: jibres/includes/languages/trans_project.php:599
 msgid "Birthday"
 msgstr "تاریخ تولد"
 
@@ -3096,7 +3097,7 @@ msgstr "مثل 09120123456"
 
 #: dash/addons/includes/languages/trans_dash.php:133
 #: jibres/includes/languages/trans_dash.php:699
-#: jibres/includes/languages/trans_project.php:597
+#: jibres/includes/languages/trans_project.php:568
 msgid "Gender"
 msgstr "جنسیت"
 
@@ -3782,7 +3783,7 @@ msgstr "بسته به طراحی وب‌سایت با کلیک روی کلیدو
 
 #: dash/addons/includes/languages/trans_dash.php:281
 #: jibres/includes/languages/trans_dash.php:59
-#: jibres/includes/languages/trans_project.php:586
+#: jibres/includes/languages/trans_project.php:590
 msgid "Tag"
 msgstr "کلیدواژه"
 
@@ -3793,7 +3794,7 @@ msgstr "کلدواژه را به صورت دستی اضافه کنید تا مق
 
 #: dash/addons/includes/languages/trans_dash.php:283
 #: jibres/includes/languages/trans_dash.php:61
-#: jibres/includes/languages/trans_project.php:588
+#: jibres/includes/languages/trans_project.php:592
 msgid "Tag keywords..."
 msgstr "کلیدواژه‌های خود را تگ کنید..."
 
@@ -4556,13 +4557,13 @@ msgstr "رشته تحصیلی"
 
 #: dash/addons/includes/languages/trans_dash.php:507
 #: jibres/includes/languages/trans_dash.php:696
-#: jibres/includes/languages/trans_project.php:591
+#: jibres/includes/languages/trans_project.php:595
 msgid "Last name"
 msgstr "نام‌خانوادگی"
 
 #: dash/addons/includes/languages/trans_dash.php:508
 #: jibres/includes/languages/trans_dash.php:697
-#: jibres/includes/languages/trans_project.php:595
+#: jibres/includes/languages/trans_project.php:598
 msgid "Father name"
 msgstr "نام پدر"
 
@@ -4617,7 +4618,7 @@ msgstr "آخرین به‌روز رسانی"
 #: dash/addons/includes/languages/trans_dash.php:524 dash/lib/app.php:359
 #: dash/lib/app.php:360 dash/lib/app/user.php:192 dash/lib/user.php:198
 #: jibres/includes/languages/trans_dash.php:712
-#: jibres/includes/languages/trans_project.php:598
+#: jibres/includes/languages/trans_project.php:569
 #: jibres/includes/lib/app/thirdparty.php:446
 msgid "Mr"
 msgstr "آقای"
@@ -4625,7 +4626,7 @@ msgstr "آقای"
 #: dash/addons/includes/languages/trans_dash.php:525 dash/lib/app.php:364
 #: dash/lib/app.php:365 dash/lib/app/user.php:196 dash/lib/user.php:202
 #: jibres/includes/languages/trans_dash.php:713
-#: jibres/includes/languages/trans_project.php:599
+#: jibres/includes/languages/trans_project.php:570
 #: jibres/includes/lib/app/thirdparty.php:450
 msgid "Mrs"
 msgstr "خانم"
@@ -4739,7 +4740,7 @@ msgstr "کد ملی"
 
 #: dash/addons/includes/languages/trans_dash.php:550
 #: jibres/includes/languages/trans_dash.php:610
-#: jibres/includes/languages/trans_project.php:594
+#: jibres/includes/languages/trans_project.php:597
 msgid "10 digit national code"
 msgstr "کدملی ده رقمی"
 
@@ -6237,7 +6238,7 @@ msgstr "اگر مشکل مطرح حل شده است، لطفا این تیکت �
 
 #: dash/addons/includes/languages/trans_dash.php:992
 #: jibres/includes/languages/trans_dash.php:515
-#: jibres/includes/languages/trans_project.php:589
+#: jibres/includes/languages/trans_project.php:593
 msgid "Save tag"
 msgstr "ذخیره کلیدواژه"
 
@@ -11436,7 +11437,8 @@ msgstr "شماره گذرنامه نامعتبر"
 msgid "Invalid pasportdate"
 msgstr "تاریخ گذرنامه نامعتبر"
 
-#: dash/lib/app/user.php:361 jibres/includes/lib/app/thirdparty.php:137
+#: dash/lib/app/user.php:361 jibres/includes/lib/app/factor.php:127
+#: jibres/includes/lib/app/thirdparty.php:137
 msgid "Invalid gender"
 msgstr "جنسیت نامعتبر"
 
@@ -13272,7 +13274,7 @@ msgid "Invalid"
 msgstr "نامعتبر"
 
 #: jibres/content_a/filter.php:71 jibres/content_a/filter.php:140
-#: jibres/includes/languages/trans_project.php:569
+#: jibres/includes/languages/trans_project.php:573
 #: jibres/includes/languages/trans_static.php:61
 msgid "Customer"
 msgstr "مشتری"
@@ -13317,7 +13319,7 @@ msgstr "بدون حداکثر موجودی"
 msgid "Whithout discount"
 msgstr "بدون تخفیف"
 
-#: jibres/content_a/filter.php:130 jibres/includes/languages/trans_project.php:585
+#: jibres/content_a/filter.php:130 jibres/includes/languages/trans_project.php:589
 #: jibres/includes/languages/trans_static.php:69
 msgid "Supplier"
 msgstr "تامین‌کننده"
@@ -16345,43 +16347,43 @@ msgstr "تخفیف"
 msgid "Choose customer"
 msgstr "انتخاب مشتری"
 
-#: jibres/includes/languages/trans_project.php:570
+#: jibres/includes/languages/trans_project.php:574
 msgid "Tel"
 msgstr "تلفن"
 
-#: jibres/includes/languages/trans_project.php:571
+#: jibres/includes/languages/trans_project.php:575
 msgid "Sale Invoice"
 msgstr "فاکتور فروش"
 
-#: jibres/includes/languages/trans_project.php:572
+#: jibres/includes/languages/trans_project.php:576
 msgid "Your total discount and profits"
 msgstr "کل تخفیف و سود شما"
 
-#: jibres/includes/languages/trans_project.php:575
+#: jibres/includes/languages/trans_project.php:579
 msgid "Another print formats"
 msgstr "سایر فرمت‌های چاپ"
 
-#: jibres/includes/languages/trans_project.php:576
+#: jibres/includes/languages/trans_project.php:580
 msgid "Please choose one format to print factor"
 msgstr "لطفا یک فرمت را برای چاپ انتخاب کنید"
 
-#: jibres/includes/languages/trans_project.php:579
+#: jibres/includes/languages/trans_project.php:583
 msgid "Customer Detail"
 msgstr "جزئیات مشتری"
 
-#: jibres/includes/languages/trans_project.php:584
+#: jibres/includes/languages/trans_project.php:588
 msgid "Type of thirdparty"
 msgstr "نوع طرف حساب"
 
-#: jibres/includes/languages/trans_project.php:587
+#: jibres/includes/languages/trans_project.php:591
 msgid "Add tag manually to link thirdparty togethers"
 msgstr "کلدواژه را به صورت دستی اضافه کنید تا کاربران را در کنار هم قرار دهید"
 
-#: jibres/includes/languages/trans_project.php:590
+#: jibres/includes/languages/trans_project.php:594
 msgid "Salesman Name"
 msgstr "نام ویزیتور"
 
-#: jibres/includes/languages/trans_project.php:593
+#: jibres/includes/languages/trans_project.php:596
 msgid "National code"
 msgstr "کد ملی"
 
@@ -18078,28 +18080,34 @@ msgstr "نوع فاکتور نامعتبر است"
 msgid "Customer detail is invalid"
 msgstr "اطلاعات مشتری اشتباه است"
 
-#: jibres/includes/lib/app/factor.php:198
+#: jibres/includes/lib/app/factor.php:169
+msgid ""
+"This thirdparyt already added to your store. plase set her mobile or change the "
+"name"
+msgstr "این مشتری قبلا به فروشگاه شما اضافه شده است."
+
+#: jibres/includes/lib/app/factor.php:282
 msgid "The maximum count product in factor in your store is :val"
 msgstr "حداکثر تعداد کالا در فاکتور در فروشگاه شما :val است"
 
-#: jibres/includes/lib/app/factor.php:296
+#: jibres/includes/lib/app/factor.php:380
 #: jibres/includes/lib/app/storetransaction.php:251
 msgid "Invalid factor type"
 msgstr "نوع فاکتور نامعتبر است"
 
-#: jibres/includes/lib/app/factor.php:315
+#: jibres/includes/lib/app/factor.php:399
 msgid "Duplicate product in one factor founded"
 msgstr "کالای تکراری در یک فاکتور نمی‌تواند ثبت شود"
 
-#: jibres/includes/lib/app/factor.php:323
+#: jibres/includes/lib/app/factor.php:407
 msgid "No valid products found in your list"
 msgstr "هیچ کالای معتبری در لیست این فاکتور پیدا نشد"
 
-#: jibres/includes/lib/app/factor.php:333
+#: jibres/includes/lib/app/factor.php:417
 msgid "Invalid product detail in some record of this factor, [:key]"
 msgstr "در بعضی از ردیف‌های این فاکتور کالا با جزئیات غلط پیدا شد [:key]"
 
-#: jibres/includes/lib/app/factor.php:348 jibres/includes/lib/app/factor.php:361
+#: jibres/includes/lib/app/factor.php:432 jibres/includes/lib/app/factor.php:445
 msgid "Invalid proudct in factor :key"
 msgstr "خطا در کالای :key در فاکتور"
 

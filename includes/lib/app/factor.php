@@ -139,6 +139,23 @@ class factor
 					if(isset($check_in_store['id']))
 					{
 						$customer = $check_in_store['id'];
+
+						$update_current_customer = [];
+
+						if(array_key_exists('displayname', $check_in_store) && !$check_in_store['displayname'] && $displayname)
+						{
+							$update_current_customer['displayname'] = $displayname;
+						}
+
+						if(array_key_exists('gender', $check_in_store) && !$check_in_store['gender'] && $gender)
+						{
+							$update_current_customer['gender'] = $gender;
+						}
+
+						if(!empty($update_current_customer))
+						{
+							\lib\db\userstores::update($update_current_customer, $customer);
+						}
 					}
 					else
 					{
@@ -147,6 +164,7 @@ class factor
 							'store_id'    => \lib\store::id(),
 							'user_id'     => $customer_user_id,
 							'gender'      => $gender,
+							'mobile'      => $mobile,
 							'displayname' => $displayname,
 						];
 
