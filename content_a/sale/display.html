@@ -114,12 +114,8 @@
   </div>
   <div class="addNewCustomer" data-kerkere-content='hide'>
       {{block('imobile')}}
-      <div class="f">
-        <div class="cauto pRa5">{{block('igender')}}</div>
-        <div class="c s12">{{block('idisplayname')}}</div>
-      </div>
-
-
+      {{block('igender')}}
+      {{block('idisplayname')}}
   </div>
 </div>
 {%endblock%}
@@ -128,7 +124,7 @@
 
 {%block imobile%}
 <div class="input mT5">
-  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Mobile"%} {%trans "Like"%} {{"09120123456" | fitNumber("mobile")}}' autofocus value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
+  <input type="tel" name="memberTl" id="memberTl" placeholder='{%trans "Mobile"%} {%trans "Like"%} {{"09120123456" | fitNumber("mobile")}}' autofocus value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
 </div>
 {%endblock%}
 
@@ -136,9 +132,9 @@
 {%block igender%}
 
 
-  <select name="gender" id="gender" class="ui dropdown select mT5">
+  <select name="memberGender" id="memberGender" class="ui dropdown select mT5">
     <option value="" disabled>{%trans "Gender"%}</option>
-    <option value="0">&nbsp;</option>
+    <option value="0">-</option>
     <option value="male" {%if dataRow.gender == 'male' %}selected {%endif%}>{%trans "Mr"%}</option>
     <option value="female" {%if dataRow.gender == 'female' %}selected{%endif%}>{%trans "Mrs"%}</option>
   </select>
@@ -149,7 +145,7 @@
 {%block idisplayname%}
 
 <div class="input mT5">
-  <input type="text" name="displayname" id="iname" placeholder='{%trans "Name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1">
+  <input type="text" name="memberN" id="memberN" placeholder='{%trans "Name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1">
 </div>
 {%endblock%}
 
