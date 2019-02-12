@@ -39,7 +39,7 @@ class controller
 				}
 				if(isset($value['mobile']))
 				{
-					$name .= '<div class="cauto floatL mL5 badge">'.\dash\utility\human::number($value['mobile']). '</div>';
+					$name .= '<div class="cauto pLa5"><div class="badge">'.\dash\utility\human::number($value['mobile']). '</div></div>';
 
 				}
 
