@@ -16,6 +16,7 @@ body{
 body[data-page="homepage"] >.site-header{background-color:rgba(51, 51, 51, 1);}
 .site-header .logo{transition:0.3s;padding:0;margin:0;}
 .site-header .logo a{padding:0 1em;color:#fff;font-weight:700;display:inline-block;line-height:60px;}
+.site-header .logo a span{font-weight:900;}
 .site-header .logo h1{display:inline-block;margin:0;line-height:60px;}
 .site-header .logo img{margin-top:5px;height:50px;width:50px;padding:5px 5px;transition:0.1s;-webkit-animation-duration:0.5s;animation-duration:0.5s;-webkit-animation-timing-function:cubic-bezier(.43, .84, .61, .14);animation-timing-function:cubic-bezier(.43, .84, .61, .14);-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;}
 .site-header .logo:hover{opacity:0.8}
@@ -82,6 +83,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 #landing .title h3{line-height:2em;padding:0 2%;font-weight:100}*/
 #landing .title{position:absolute;top:70px;bottom:0;left:0;right:0;padding-top:200px;min-width:280px;width:70%;margin:0 auto}
 #landing .title .h2{font-size:5em;line-height:2em;}
+#landing .title .h2 span{font-weight:900;}
 #landing .title h3{line-height:2em;font-weight:100;font-size: 1.2em}
 .typed-cursor{opacity: 1;font-weight: 100;animation: blink 0.7s infinite;}
 @keyframes blink{ 0% { opacity:1; } 50% { opacity:0.3; } 100% { opacity:1; } }
@@ -110,7 +112,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 
 #keepitsimple{background:#3850cc;background:-webkit-linear-gradient(left,#3230a0, #4895ff 70%,#aabbff);background:linear-gradient(90deg,#3230a0, #4895ff 70%,#aabbff);color:#fff;position:relative;}
 #keepitsimple .title{font-size:2em;text-align:center;padding:7em 5px;}
-#keepitsimple .title h2{font-weight:400;font-size:3em;margin-bottom:0;position:relative;margin-bottom:1em;}
+#keepitsimple .title h2{font-weight:900;font-size:3em;margin-bottom:0;position:relative;margin-bottom:1em;}
 #keepitsimple .title h2:after{content:"";position:absolute;bottom:0;right:0;left:0;width:50px;height:1px;margin:0 auto;background-color:#ddd;transition:0.3s;}
 #keepitsimple:hover .title h2:after{background-color:#fff;width:100px;}
 #keepitsimple .title h3{font-weight:100;font-size:1em;color:#eee;}
@@ -119,6 +121,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 
 
 #statistic{padding:7em 0;background-color:#333;color:#eee}
+#statistic .statistic{margin-bottom: 2em;}
 #statistic .value{color:#fff}
 #statistic h2 span{opacity:0;transition:0.3s}
 #statistic:hover h2 span{opacity:1}
