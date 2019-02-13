@@ -306,6 +306,12 @@
       </div>
 
       <div class="switch1 mB10">
+       <input type="checkbox" name="print_size[]" id="Fishprintshort" value="fishprintshort" {%if   store.meta.factor.print_size.fishprintshort or not store.meta.factor.print_size%} checked {%endif%}>
+       <label for="Fishprintshort"></label>
+       <label for="Fishprintshort">{%trans "Fish print"%} - {%trans "Short"%}</label>
+      </div>
+
+      <div class="switch1 mB10">
        <input type="checkbox" name="print_size[]" id="A4Print" value="a4" {%if   store.meta.factor.print_size.a4 or not store.meta.factor.print_size%} checked {%endif%}>
        <label for="A4Print"></label>
        <label for="A4Print">{%trans "A4"%}</label>
@@ -325,7 +331,8 @@
 
 {% block iPrintDefault %}
 <div data-response='printStatus'  {%if store.meta.factor.print_status or not store.meta.factor%} {%else%} data-response-hide {%endif%}>
-  {%if store.meta.factor.print_size.fishprint or store.meta.factor.print_size.a4 or store.meta.factor.print_size.a5%}
+  {%if store.meta.factor.print_size.fishprint or store.meta.factor.print_size.fishprintshort or store.meta.factor.print_size.a4 or
+  store.meta.factor.print_size.a5%}
   <label for="idefaultPrint">{%trans "Default print_size"%}</label>
   <div class="input">
     <select name="defaultPrint" class="select" id="idefaultPrint">
@@ -333,6 +340,11 @@
 
       {%if store.meta.factor.print_size.fishprint %}
         <option value="fishprint" {%if store.meta.factor.default_print == 'fishprint' %} selected {%endif%}>{%trans "Fish print"%}</option>
+      {%endif%}
+
+
+      {%if store.meta.factor.print_size.fishprintshort %}
+        <option value="fishprintshort" {%if store.meta.factor.default_print == 'fishprintshort' %} selected {%endif%}>{%trans "Fish print"%}</option>
       {%endif%}
 
       {%if store.meta.factor.print_size.a4 %}

@@ -47,9 +47,10 @@ class model
 			'print_status'  => false,
 			'print_size'    =>
 			[
-				'fishprint' => false,
-				'a4'        => false,
-				'a5'        => false,
+				'fishprint'      => false,
+				'fishprintshort' => false,
+				'a4'             => false,
+				'a5'             => false,
 			],
 			'default_print' => 'fishprint',
 
@@ -76,6 +77,7 @@ class model
 		if(\dash\request::post('print_size') && is_array(\dash\request::post('print_size')))
 		{
 			$meta['print_size']['fishprint'] = in_array('fishprint', \dash\request::post('print_size')) ? true : false;
+			$meta['print_size']['fishprintshort'] = in_array('fishprintshort', \dash\request::post('print_size')) ? true : false;
 			$meta['print_size']['a4']        = in_array('a4', \dash\request::post('print_size')) ? true : false;
 			$meta['print_size']['a5']        = in_array('a5', \dash\request::post('print_size')) ? true : false;
 		}
