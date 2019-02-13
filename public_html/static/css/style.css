@@ -35,7 +35,8 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 /* static pages design*/
 .page-title{padding:15em 0;text-align:center;overflow:hidden;background-color:#222;}
 .page-title h1{font-weight:700;line-height:2em;font-size:3em;color:#fff;}
-.page-title .h1{font-weight:700;line-height:2em;font-size:3em;color:#fff;height:2em;}
+.page-title .h1{font-weight:700;line-height:2em;font-size:3em;color:#fff;min-height:2em;}
+.page-title .h1 span{font-weight:700}
 .page-title h2{font-weight:100;line-height:2em;color:#aaa;padding:0 10%;}
 .pc{color:#333;background-color:#f2f2f2;font-size:1.4em;padding:4em 0;}
 .pc .em{font-weight:bold;text-align:center;padding:1em 5%;background-color:#ddd;}
@@ -138,7 +139,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 #tfooter nav a:hover{color:#eee}
 #tfooter nav a:focus{color:#fff}
 /* footer top nav*/
-#tfooter .top{border-bottom:1px solid #4070c0;font-size:1.3em;font-weight:900;position:relative}
+#tfooter .top{border-bottom:1px solid #4070c0;font-size:1.2em;font-weight:900;position:relative}
 #tfooter .top a{display:inline-block;padding:1.2em .5em;color:#aaa;margin-right:1.5em;}
 .rtl #tfooter .top a{margin-right:0;margin-left:1.5em}
 /* footer-links*/
@@ -146,7 +147,7 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 #tfooter .middle h4{font-weight:500;color:#ccc;margin-bottom:5px;font-size:1.1em}
 #tfooter .middle nav a{display:block;padding:1rem 0.5rem}
 #tfooter .middle .enamad{min-width:150px;padding:1em 0}
-#tfooter .middle .enamad a{display:block;max-width:90px;padding:0;position:relative;}
+#tfooter .middle .enamad a{display:block;max-width:90px;padding:0;position:relative;margin:0 auto;}
 #tfooter .middle .enamad a:focus{background-color:#ccc}
 #tfooter .middle .enamad img{display:block;max-width:100%;background-color:#eee;padding:0.5em 0}
 #tfooter .middle .enamad a:before{content:"";position:absolute;top:-4px;right:0;left:0;height:4px;background-image:url(../images/cert/footer-box.svg);background-repeat:repeat-x;}
@@ -394,7 +395,8 @@ body[data-page="pricing"] .page-title h2{
   #landing .title .h2{font-size:4em;height:4em;}
   #roadmap{display:none}
   #quote .title{right: 0;left: 0;font-size: 1.5em}
-
+  #tfooter .middle nav a{display:inline-block;background-color:rgba(0,0,0,0.1);border-radius:0.25rem;margin: 0 0 5px;padding: 1rem 1em}
+  #tfooter .top a{display:inline-block;background-color:rgba(0,0,0,0.1);border-radius:0.25rem;margin: 0 2px 5px!important;padding: 1rem 1em}
 
   .pricingQuick .box > .c3{
     border: none!important;
