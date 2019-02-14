@@ -10,15 +10,18 @@ const gp_sourcemaps = require('gulp-sourcemaps');
 function storePanelJS()
 {
   return src('src/storePanel/*.js')
+    // create uncompressed file
     .pipe(gp_sourcemaps.init())
     .pipe(gp_concat('storePanel.uncompressed.js'))
     .pipe(dest('dist'))
 
+    // compress it
     .pipe(gp_rename('storePanel.js'))
     .pipe(gp_uglify())
     .pipe(gp_sourcemaps.write('./'))
     .pipe(dest('dist'))
 
+    // copy to js folder
     .pipe(dest('../'))
 
     // .pipe(gp_sourcemaps.init())
