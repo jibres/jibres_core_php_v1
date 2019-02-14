@@ -392,7 +392,7 @@ body[data-page="pricing"] .page-title h2{
 
   #landing{min-height:350px;height: 400px;}
   #landing .title{padding-top:20px;position:relative;}
-  #landing .title .h2{font-size:4em;height:4em;}
+  #landing .title .h2{font-size:3em;min-height:3em;}
   #roadmap{display:none}
   #quote .title{right: 0;left: 0;font-size: 1.5em}
   #tfooter .middle nav a{display:inline-block;background-color:rgba(0,0,0,0.1);border-radius:0.25rem;margin: 0 0 5px;padding: 1rem 1em}
