@@ -19,7 +19,7 @@ function storePanelJS()
     .pipe(gp_sourcemaps.write('./'))
     .pipe(dest('dist'))
 
-    .pipe(dest('./'))
+    .pipe(dest('../'))
 
     // .pipe(gp_sourcemaps.init())
     // .pipe(gp_concat('concat.js'))
