@@ -7,12 +7,12 @@ const gp_uglify     = require('gulp-uglify');
 const gp_sourcemaps = require('gulp-sourcemaps');
 
 
-function js()
+function storePanelJS()
 {
-  return src('src/*.js', { sourcemaps: true })
-    .pipe(gp_concat('script.src.js'))
+  return src('src/storePanel/*.js', { sourcemaps: true })
+    .pipe(gp_concat('storePanel.src.js'))
     .pipe(dest('dist', { sourcemaps: true }))
-    .pipe(gp_rename('script.js'))
+    .pipe(gp_rename('storePanel.js'))
     .pipe(gp_uglify())
     .pipe(dest('dist'))
 
@@ -26,7 +26,7 @@ function js()
 }
 
 
-exports.js = js;
+exports.js = storePanelJS;
 
-exports.default = parallel(js);
+exports.default = parallel(storePanelJS);
 
