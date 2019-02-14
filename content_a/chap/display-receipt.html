@@ -4,7 +4,13 @@
 {%block headerArea%}{%endblock%}
 
 {%block storeDetailArea%}
- <div class="f storeDetail fs11">
+{%if currentStore.logo_raw %}
+  <div class="logo txtC">
+   <img src="{{currentStore.logo}}" alt="{{currentStore.name}}">
+  </div>
+{%endif%}
+
+ <div class="f storeDetail fs20 txtC">
   <div class="c">
    <h1>{{currentStore.name}}</h1>
    <address>
@@ -14,13 +20,8 @@
      <div class="website">{{currentStore.website}}</div>
     </div>
    </address>
-   <div class="desc">{{currentStore.desc}}</div>
+   <div class="desc mB10">{{currentStore.desc}}</div>
   </div>
-{%if currentStore.logo_raw %}
-  <div class="c4 logo txtRa">
-   <img src="{{currentStore.logo}}" alt="{{currentStore.name}}">
-  </div>
-{%endif%}
  </div>
 {%endblock%}
 
@@ -28,7 +29,7 @@
 {%block factorHeader%}
 {%if currentStore.factorheader%}
 <hr>
-<p class="factorHeader fs11">
+<p class="factorHeader fs14 txtC">
 {{currentStore.factorheader | raw | nl2br}}
 </p>
 {%endif%}
@@ -38,34 +39,37 @@
 
 {%if factorDetail.factor.customer %}
 <hr>
-<div class="customerDetail fs14">
+<div class="customerDetail fs16 txtC">
   <div class="fs14">{%trans "Customer Detail"%}</div>
 {%if factorDetail.factor.customer_displayname%}
-  <div class="pA5"><span class="txtB">{{factorDetail.factor.customer_displayname}}</span></div>
+  <div class="pA10"><span class="txtB">{{factorDetail.factor.customer_displayname}}</span></div>
 {%endif%}
+
 {%if factorDetail.factor.customer_address%}
-  <div class="pA5">{%trans "Address"%} <span class="txtB">{{factorDetail.factor.customer_address}}</span></div>
+  <div class="pA10">{%trans "Address"%} <span class="txtB">{{factorDetail.factor.customer_address}}</span></div>
 {%endif%}
-{%if factorDetail.factor.customer_mobile or factorDetail.factor.customer_phone%}
-  <div class="f pA5">
-    <div class="cauto pRa10">{%trans "Tel"%}</div>
-    <div class="c pRa10 txtB">{{factorDetail.factor.customer_phone | fitNumber(false)}}</div>
-    <div class="c txtB">{{factorDetail.factor.customer_mobile | fitNumber('mobile')}}</div>
-  </div>
+
+{%if factorDetail.factor.customer_phone%}
+  <div class="pA10">{%trans "Tel"%} <span class="txtB ltr compact">{{factorDetail.factor.customer_phone | fitNumber('false')}}</span></div>
 {%endif%}
+
+{%if factorDetail.factor.customer_mobile%}
+  <div class="pA10">{%trans "Mobile"%} <span class="txtB ltr compact">{{factorDetail.factor.customer_mobile | fitNumber('mobile')}}</span></div>
+{%endif%}
+
 
 </div>
 {%endif%}
 {%endblock%}
 
 {%block factorDetailArea%}
- <div class="f factorDetail fs12 mB5">
-  <div class="c">
+ <div class="f factorDetail fs16 mB5 txtC">
+  <div class="c12">
    <div class="datetime">{{factorDetail.factor.date | dt(true) }}</div>
    <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factorDetail.factor.id}}'>{{factorDetail.factor.id}}</code></div>
   </div>
-  <div class="cauto os">
-   <svg class="barcodePrev" data-val="#barcode" data-height=20 data-hideValue></svg>
+  <div class="c12">
+   <svg class="barcodePrev wide" data-val="#barcode" data-height=50 data-hideValue></svg>
   </div>
  </div>
 {%endblock%}
@@ -73,10 +77,15 @@
 
 
 {%block factorTableArea%}
- <table class="tbl1 v1 fs11 txtC">
+{%set colCount%}
+{%if factorDetail.factor.detaildiscount%}4{%else%}3{%endif%}
+{%endset%}
+ <table class="tbl1 v1 fs18 txtC">
   <thead>
-   <tr class="fs08">
-    <th>{%trans "Name"%}</th>
+   <tr class="fs06">
+    <th colspan="{{colCount}}">{%trans "Name"%}</th>
+   </tr>
+   <tr class="fs06">
     <th>{%trans "Qty"%}</th>
     <th>{%trans "Price"%}</th>
 {%if factorDetail.factor.detaildiscount%}
@@ -87,8 +96,10 @@
   </thead>
   <tbody>
  {%for key, datarow in factorDetail.factor_detail%}
-  <tr>
-   <td class="fs09 txtLa">{{datarow.title}}</td>
+  <tr class="fs14 txtLa">
+   <td colspan="{{colCount}}">{{datarow.title}}</td>
+  </tr>
+  <tr class="fs12">
    <td>{{datarow.factordetails_count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
    <td>{{datarow.factordetails_price | fitNumber}}</td>
 {%if factorDetail.factor.detaildiscount%}
@@ -117,21 +128,21 @@
 
 
 {%block factorResultArea%}
- <table class="tbl fs12 factorResult mB25">
+ <table class="tbl fs16 factorResult mB25">
   <tbody>
 {%if factorDetail.factor.detaildiscount%}
    <tr>
-     <th class="txtRa">{%trans "Invoice amount"%}</th>
+     <th class="txtRa fs08">{%trans "Invoice amount"%}</th>
      <td class="collapsing txtLa">{{factorDetail.factor.detailsum | number_format |fitNumber}}</td>
    </tr>
    <tr>
-     <th class="txtRa">{%trans "Your total discount and profits"%}</th>
+     <th class="txtRa fs08">{%trans "Your total discount and profits"%}</th>
      <td class="collapsing txtLa">{{factorDetail.factor.detaildiscount | number_format |fitNumber}}</td>
    </tr>
 {%endif%}
    <tr class="msg info2 factorSum">
-     <th class="txtRa">{%trans "Total payable"%}</th>
-     <td class="collapsing txtLa">{{factorDetail.factor.sum | number_format |fitNumber}} <small class="fs07">{%trans "Toman"%}</small></td>
+     <th class="txtRa fs08">{%trans "Total payable"%}</th>
+     <td class="collapsing txtLa">{{factorDetail.factor.sum | number_format |fitNumber}} <small class="fs05">{%trans "Toman"%}</small></td>
    </tr>
   </tbody>
 
@@ -142,7 +153,7 @@
 {%block factorFooter%}
 {% if currentStore.factorfooter%}
 <hr>
-<p class="factorFooter fs11">
+<p class="factorFooter fs14 txtC">
 {{currentStore.factorfooter | raw | nl2br}}
 </p>
 {%endif%}
