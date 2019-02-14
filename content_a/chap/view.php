@@ -26,21 +26,21 @@ class view
 				switch ($printModel)
 				{
 					case 'long':
-						\dash\data::printFileUrl('content_a/chap/receipt/receipt-long.html');
+						\dash\data::printFileUrl('content_a/chap/size-receipt/receipt-long.html');
 						break;
 
 					case 'short':
-						\dash\data::printFileUrl('content_a/chap/receipt/receipt-short.html');
+						\dash\data::printFileUrl('content_a/chap/size-receipt/receipt-short.html');
 						break;
 
 					default:
-						\dash\data::printFileUrl('content_a/chap/receipt/receipt.html');
+						\dash\data::printFileUrl('content_a/chap/size-receipt/receipt.html');
 						break;
 				}
 				break;
 
 			case 'a4':
-				\dash\data::printFileUrl('content_a/chap/display-a4.html');
+				\dash\data::printFileUrl('content_a/chap/size-a4/a4.html');
 				break;
 
 			case 'a5':
@@ -48,7 +48,7 @@ class view
 				break;
 
 			default:
-				// \dash\data::printFileUrl('content_a/chap/receipt/receipt.html');
+				// \dash\data::printFileUrl('content_a/chap/size-receipt/receipt.html');
 				break;
 		}
 
