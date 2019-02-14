@@ -68,10 +68,8 @@
    <div class="datetime">{{factorDetail.factor.date | dt(true) }}</div>
    <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factorDetail.factor.id}}'>{{factorDetail.factor.id}}</code></div>
   </div>
-  <div class="c12">
-   <svg class="barcodePrev wide" data-val="#barcode" data-height=50 data-hideValue></svg>
-  </div>
  </div>
+
 {%endblock%}
 
 
@@ -149,6 +147,9 @@
  </table>
 {%endblock%}
 
+<div class="barcodeBox">
+  <svg class="barcodePrev wide" data-val="#barcode" data-height=50 data-hideValue></svg>
+</div>
 
 {%block factorFooter%}
 {% if currentStore.factorfooter%}

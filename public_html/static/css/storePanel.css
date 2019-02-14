@@ -53,8 +53,8 @@ kbd{font-family:monospace;}
 .factor .factorDetail{padding-top:1em;border-top:2px solid #333}
 .factor .factorDetail .datetime .time{font-weight:700}
 .factor .factorDetail code{font-size: 1.5em;background-color:#eee;border-radius:3px;padding:3px 5px;min-width:50px;text-align:center;}
-.factor .factorDetail .barcodePrev{height: 40px;width:140px;}
-.factor .factorDetail .barcodePrev.wide{height: auto;width:100%;}
+.factor .barcodePrev{height: 40px;width:140px;}
+.factor .barcodePrev.wide{height: auto;width:100%;}
 .factor .tbl1{color:#000}
 .factor .tbl1 thead th{border-bottom-color: #000;padding-top:1em;padding-bottom:1em; }
 .factor .tbl1 tbody td{line-height:1.4em;}
