@@ -26,7 +26,8 @@ class view
 				break;
 
 			case 'a4':
-				\dash\data::printFileUrl('content_a/chap/display-a4.html');
+				// \dash\data::printFileUrl('content_a/chap/display-a4.html');
+				\dash\data::printFileUrl('content_a/chap/display-receipt-long.html');
 				break;
 
 			case 'a5':
