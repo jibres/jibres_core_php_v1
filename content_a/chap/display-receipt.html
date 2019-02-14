@@ -5,7 +5,7 @@
 
 {%block storeDetailArea%}
 {%if currentStore.logo_raw %}
-  <div class="logo txtC">
+  <div class="logo txtC midSize">
    <img src="{{currentStore.logo}}" alt="{{currentStore.name}}">
   </div>
 {%endif%}
@@ -75,29 +75,22 @@
 
 
 {%block factorTableArea%}
-{%set colCount%}
-{%if factorDetail.factor.detaildiscount%}4{%else%}3{%endif%}
-{%endset%}
  <table class="tbl1 v1 fs12 txtC">
   <thead>
-   <tr class="fs08">
-    <th class="pTB5-f" colspan="{{colCount}}">{%trans "Name"%}</th>
-   </tr>
    <tr class="fs07">
-    <th class="pTB5-f">{%trans "Qty"%}</th>
-    <th class="pTB5-f">{%trans "Price"%}</th>
+    <th>{%trans "Name"%}</th>
+    <th>{%trans "Qty"%}</th>
+    <th>{%trans "Price"%}</th>
 {%if factorDetail.factor.detaildiscount%}
-    <th class="pTB5-f">{%trans "Discount"%}</th>
+    <th>{%trans "Discount"%}</th>
 {%endif%}
-    <th class="pTB5-f">{%trans "Sum"%}</th>
+    <th>{%trans "Sum"%}</th>
    </tr>
   </thead>
   <tbody>
  {%for key, datarow in factorDetail.factor_detail%}
-  <tr class="fs08 txtLa">
-   <td colspan="{{colCount}}">{{datarow.title}}</td>
-  </tr>
   <tr>
+   <td class="fs09 txtLa">{{datarow.title}}</td>
    <td>{{datarow.factordetails_count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
    <td>{{datarow.factordetails_price | fitNumber}}</td>
 {%if factorDetail.factor.detaildiscount%}
@@ -126,7 +119,7 @@
 
 
 {%block factorResultArea%}
- <table class="tbl fs16 factorResult mB10">
+ <table class="tbl fs14 factorResult mB10">
   <tbody>
 {%if factorDetail.factor.detaildiscount%}
    <tr>
