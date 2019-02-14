@@ -10,7 +10,7 @@
   </div>
 {%endif%}
 
- <div class="f storeDetail fs20 txtC">
+ <div class="f storeDetail fs16 txtC">
   <div class="c">
    <h1>{{currentStore.name}}</h1>
    <address>
@@ -20,7 +20,7 @@
      <div class="website">{{currentStore.website}}</div>
     </div>
    </address>
-   <div class="desc mB10">{{currentStore.desc}}</div>
+   <div class="desc mB5">{{currentStore.desc}}</div>
   </div>
  </div>
 {%endblock%}
@@ -39,7 +39,7 @@
 
 {%if factorDetail.factor.customer %}
 <hr>
-<div class="customerDetail fs16 txtC">
+<div class="customerDetail fs14 txtC">
   <div class="fs14">{%trans "Customer Detail"%}</div>
 {%if factorDetail.factor.customer_displayname%}
   <div class="pA10"><span class="txtB">{{factorDetail.factor.customer_displayname}}</span></div>
@@ -63,7 +63,7 @@
 {%endblock%}
 
 {%block factorDetailArea%}
- <div class="f factorDetail fs16 mB20 txtC">
+ <div class="f factorDetail fs14 mB10 txtC">
   <div class="c12">
    <div class="datetime">{{factorDetail.factor.date | dt(true) }}</div>
    <div>{%trans "Sale Invoice"%} <code id='barcode' data-val='{{factorDetail.factor.id}}'>{{factorDetail.factor.id}}</code></div>
@@ -78,7 +78,7 @@
 {%set colCount%}
 {%if factorDetail.factor.detaildiscount%}4{%else%}3{%endif%}
 {%endset%}
- <table class="tbl1 v1 fs18 txtC">
+ <table class="tbl1 v1 fs12 txtC">
   <thead>
    <tr class="fs06">
     <th colspan="{{colCount}}">{%trans "Name"%}</th>
