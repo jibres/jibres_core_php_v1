@@ -17,25 +17,38 @@ class view
 		\dash\data::factorDetail($factorDetail);
 
 
-		$printType = \dash\url::child();
-		switch ($printType)
+		$printSize  = \dash\url::child();
+		$printModel = \dash\request::get('model');
+		switch ($printSize)
 		{
 			case 'receipt':
 			case 'fishprint':
-				\dash\data::printFileUrl('content_a/chap/display-receipt.html');
+				switch ($printModel)
+				{
+					case 'long':
+						\dash\data::printFileUrl('content_a/chap/receipt/receipt-long.html');
+						break;
+
+					case 'short':
+						\dash\data::printFileUrl('content_a/chap/receipt/receipt-short.html');
+						break;
+
+					default:
+						\dash\data::printFileUrl('content_a/chap/receipt/receipt.html');
+						break;
+				}
 				break;
 
 			case 'a4':
-				// \dash\data::printFileUrl('content_a/chap/display-a4.html');
-				\dash\data::printFileUrl('content_a/chap/display-receipt-long.html');
+				\dash\data::printFileUrl('content_a/chap/display-a4.html');
 				break;
 
 			case 'a5':
-				\dash\data::printFileUrl('content_a/chap/display-receipt-short.html');
+				\dash\data::printFileUrl('content_a/chap/display-a4.html');
 				break;
 
 			default:
-				// \dash\data::printFileUrl('content_a/chap/display-receipt.html');
+				// \dash\data::printFileUrl('content_a/chap/receipt/receipt.html');
 				break;
 		}
 
