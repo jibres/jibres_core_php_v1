@@ -10,9 +10,9 @@ const gp_sourcemaps = require('gulp-sourcemaps');
 function js()
 {
   return src('src/*.js', { sourcemaps: true })
-    .pipe(gp_concat('app.min.js'))
-    .pipe(dest('build/js', { sourcemaps: true }))
-    .pipe(gp_rename('uglify.js'))
+    .pipe(gp_concat('script.src.js'))
+    .pipe(dest('dist', { sourcemaps: true }))
+    .pipe(gp_rename('script.js'))
     .pipe(gp_uglify())
     .pipe(dest('dist'))
 
