@@ -15,7 +15,7 @@
 .priceBox .detail span{float:right;font-size:1.2em;}
 .rtl .priceBox .detail span{float:left;}
 .priceBox .count{display:none;}
-.priceBox .discount{background-color:#50aacc;cursor:pointer;display:none;}
+.priceBox .discount{background-color:#50aacc;cursor:pointer;display:none;overflow:hidden;}
 .priceBox .discountPercent{display:none;}
 body[data-page="buy"] .priceBox{background-color:#a03030}
 body[data-page="buy"] .priceBox .final{background-color:#702020;}
