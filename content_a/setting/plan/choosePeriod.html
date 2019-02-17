@@ -10,10 +10,10 @@
 
 <div class="f">
   <div class="c mRa10">
-    <div data-confirm data-data='{"plan" : "start", "period" : "monthly"}' class="msg primary">{%trans "Price"%} {{14000 | fitNumber}}</div>
+    <div data-confirm data-data='{"plan" : "start", "period" : "monthly"}' class="msg primary">{%trans "Monthly"%}<br>{{14000 | fitNumber}} {%trans "Toman"%}</div>
   </div>
   <div class="c">
-    <div data-confirm data-data='{"plan" : "start", "period" : "yearly"}' class="msg primary">{%trans "Price"%} <u>{{140000 | fitNumber}}</u> {%if isFirstYear%}<b>{{50000 | fitNumber}}</b>{%endif%}</div>
+    <div data-confirm data-data='{"plan" : "start", "period" : "yearly"}' class="msg primary">{%trans "Yearly"%}<br>{{140000 | fitNumber}} {%trans "Toman"%} {%if isFirstYear%}<b>{{50000 | fitNumber}}</b> {%trans "Toman"%}{%endif%}</div>
   </div>
 </div>
 
@@ -21,19 +21,19 @@
 {%elseif url.subchild == 'simple'%}
 <div class="f">
   <div class="c mRa10">
-    <div data-confirm data-data='{"plan" : "simple", "period" : "monthly"}' class="msg primary">{%trans "Price"%} {{30000 | fitNumber}}</div>
+    <div data-confirm data-data='{"plan" : "simple", "period" : "monthly"}' class="msg primary">{%trans "Monthly"%} {{30000 | fitNumber}} {%trans "Toman"%}</div>
   </div>
   <div class="c">
-    <div data-confirm data-data='{"plan" : "simple", "period" : "yearly"}' class="msg primary">{%trans "Price"%} <u>{{300000 | fitNumber}}</u> {%if isFirstYear%}<b>{{150000 | fitNumber}}</b>{%endif%}</div>
+    <div data-confirm data-data='{"plan" : "simple", "period" : "yearly"}' class="msg primary">{%trans "Yearly"%} <u>{{300000 | fitNumber}}</u> {%trans "Toman"%} {%if isFirstYear%}<b>{{150000 | fitNumber}}</b> {%trans "Toman"%}{%endif%}</div>
   </div>
 </div>
 {%elseif url.subchild == 'standard'%}
 <div class="f">
   <div class="c mRa10">
-    <div data-confirm data-data='{"plan" : "standard", "period" : "monthly"}' class="msg primary">{%trans "Price"%} {{75000 | fitNumber}}</div>
+    <div data-confirm data-data='{"plan" : "standard", "period" : "monthly"}' class="msg primary">{%trans "Monthly"%} {{75000 | fitNumber}} {%trans "Toman"%}</div>
   </div>
   <div class="c">
-    <div data-confirm data-data='{"plan" : "standard", "period" : "yearly"}' class="msg primary">{%trans "Price"%} <u>{{750000 | fitNumber}}</u> {%if isFirstYear%}<b>{{300000 | fitNumber}}</b>{%endif%}</div>
+    <div data-confirm data-data='{"plan" : "standard", "period" : "yearly"}' class="msg primary">{%trans "Yearly"%} <u>{{750000 | fitNumber}}</u> {%trans "Toman"%} {%if isFirstYear%}<b>{{300000 | fitNumber}} {%trans "Toman"%}</b>{%endif%}</div>
   </div>
 </div>
 {%endif%}
