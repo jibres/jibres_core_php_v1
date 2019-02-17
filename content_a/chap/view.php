@@ -44,7 +44,7 @@ class view
 				break;
 
 			case 'a5':
-				\dash\data::printFileUrl('content_a/chap/display-a4.html');
+				\dash\data::printFileUrl('content_a/chap/size-a4/a4.html');
 				break;
 
 			default:

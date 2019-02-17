@@ -77,11 +77,17 @@ class twigTransTerms
 
 	//--------------------------------------public_html/static/siftal/js/error_page.js
 
-	//--------------------------------------public_html/static/js/JsBarcode.all.min.js
-
 	//------------------------------------------public_html/static/js/particles.min.js
 
+	//------------------public_html/static/js/gulp/src/storePanel/JsBarcode.all.min.js
+
+	//-----------------------------------public_html/static/js/gulp/dist/storePanel.js
+
+	//----------------------public_html/static/js/gulp/dist/storePanel.uncompressed.js
+
 	//-------------------------------------------------public_html/static/js/script.js
+
+	//---------------------------------------------public_html/static/js/storePanel.js
 
 	//---------------------------------------------------content/benefits/display.html
 	echo T_("Soon");                                                                  // Line 262
@@ -169,64 +175,64 @@ class twigTransTerms
 	echo T_("Also <span class='txtB'>sell on social networks</span> with easy online payment.");// Line 8
 	echo T_("Beta Version");                                                          // Line 9
 	echo T_("Integrated Sales");                                                      // Line 40
-	echo T_("Free Invoicing");                                                        // Line 141
-	echo T_("Online Accounting");                                                     // Line 148
+	echo T_("Free Invoicing");                                                        // Line 143
+	echo T_("Online Accounting");                                                     // Line 150
 	echo T_("Signup");                                                                // Line 21
 	echo T_("Starter Plan");                                                          // Line 25
-	echo T_("Starter");                                                               // Line 36
+	echo T_("Starter");                                                               // Line 38
 	echo T_("Special choice for starting a new business.");                           // Line 27
-	echo T_("vCard Website");                                                         // Line 188
-	echo T_("Staff Accounts");                                                        // Line 181
+	echo T_("vCard Website");                                                         // Line 190
+	echo T_("Staff Accounts");                                                        // Line 183
 	echo T_("Increase Basic Limits");                                                 // Line 32
 	echo T_("Monthly");                                                               // Line 97
 	echo T_("Toman");                                                                 // Line 107
 	echo T_("Annually");                                                              // Line 107
-	echo T_("First Year");                                                            // Line 73
+	echo T_("First Year");                                                            // Line 75
 	echo T_("Simple Plan");                                                           // Line 54
 	echo T_("Simple");                                                                // Line 143
 	echo T_("For who want try to change!");                                           // Line 56
 	echo T_("Enjoy modern era.");                                                     // Line 56
-	echo T_("Advance Reports");                                                       // Line 200
-	echo T_("All Invoice Types");                                                     // Line 207
-	echo T_("Product Intro Website");                                                 // Line 214
+	echo T_("Advance Reports");                                                       // Line 202
+	echo T_("All Invoice Types");                                                     // Line 209
+	echo T_("Product Intro Website");                                                 // Line 216
 	echo T_("Without Limit");                                                         // Line 62
 	echo T_("Standard Plan");                                                         // Line 84
 	echo T_("Standard");                                                              // Line 151
 	echo T_("For someones ready to use Jibres as hero.");                             // Line 86
 	echo T_("<span class='bold'>Everything you need</span> for a growing business."); // Line 86
-	echo T_("Online Store");                                                          // Line 233
-	echo T_("News website");                                                          // Line 240
+	echo T_("Online Store");                                                          // Line 235
+	echo T_("News website");                                                          // Line 242
 	echo T_("Shop with Your Domain");                                                 // Line 91
-	echo T_("Full Permission Control");                                               // Line 254
-	echo T_("Search Engine Optimized");                                               // Line 162
+	echo T_("Full Permission Control");                                               // Line 256
+	echo T_("Search Engine Optimized");                                               // Line 164
 	echo T_("Start your free trial");                                                 // Line 112
 
 	//----------------------------------------------------content/pricing/display.html
 	echo T_("only team admin");                                                       // Line 10
-	echo T_("Unlimited");                                                             // Line 117
+	echo T_("Unlimited");                                                             // Line 119
 	echo T_("Price");                                                                 // Line 60
 	echo T_("Pay monthly");                                                           // Line 163
-	echo T_("FREE");                                                                  // Line 44
+	echo T_("FREE");                                                                  // Line 46
 	echo T_("Pay yearly");                                                            // Line 169
-	echo T_("Two month free");                                                        // Line 58
-	echo T_("More than 50 percent off");                                              // Line 74
-	echo T_("Data max limit");                                                        // Line 89
-	echo T_("Max product");                                                           // Line 92
-	echo T_("Max third party");                                                       // Line 99
-	echo T_("Max invoice each day");                                                  // Line 106
-	echo T_("Max item in each invoice");                                              // Line 113
-	echo T_("Basic Features");                                                        // Line 122
-	echo T_("Each SMS cost");                                                         // Line 126
-	echo T_("Optional");                                                              // Line 126
-	echo T_("Sale on social networks");                                               // Line 155
-	echo T_("Starter Features");                                                      // Line 171
-	echo T_("Simple Features");                                                       // Line 197
-	echo T_("Advance Settings");                                                      // Line 221
-	echo T_("Standard Features");                                                     // Line 230
-	echo T_("Online Shop with Your Domain");                                          // Line 247
-	echo T_("Ready to use Jibres Enterprise?");                                       // Line 276
-	echo T_("Get started with our Enterprise plan.");                                 // Line 277
-	echo T_("Get in Touch");                                                          // Line 280
+	echo T_("Two month free");                                                        // Line 60
+	echo T_("More than 50 percent off");                                              // Line 76
+	echo T_("Data max limit");                                                        // Line 91
+	echo T_("Max product");                                                           // Line 94
+	echo T_("Max third party");                                                       // Line 101
+	echo T_("Max invoice each day");                                                  // Line 108
+	echo T_("Max item in each invoice");                                              // Line 115
+	echo T_("Basic Features");                                                        // Line 124
+	echo T_("Each SMS cost");                                                         // Line 128
+	echo T_("Optional");                                                              // Line 128
+	echo T_("Sale on social networks");                                               // Line 157
+	echo T_("Starter Features");                                                      // Line 173
+	echo T_("Simple Features");                                                       // Line 199
+	echo T_("Advance Settings");                                                      // Line 223
+	echo T_("Standard Features");                                                     // Line 232
+	echo T_("Online Shop with Your Domain");                                          // Line 249
+	echo T_("Ready to use Jibres Enterprise?");                                       // Line 280
+	echo T_("Get started with our Enterprise plan.");                                 // Line 281
+	echo T_("Get in Touch");                                                          // Line 284
 	echo T_("Billing & Invoicing");                                                   // Line 33
 	echo T_("Is there a setup fee?");                                                 // Line 36
 	echo T_("No. There are no setup fees on any of our plans!");                      // Line 37
@@ -249,12 +255,12 @@ class twigTransTerms
 	echo T_("There are none. All Jibres plans include unlimited bandwidth for free.");// Line 24
 	echo T_("Do I need a web host?");                                                 // Line 27
 	echo T_("No! Jibres includes secure, unlimited hosting on all plans with free bandwith.");// Line 28
-	echo T_("30 day satisfaction guarantee");                                         // Line 356
-	echo T_("no questions asked!");                                                   // Line 357
-	echo T_("We stand behind our service and we mean it!");                           // Line 358
-	echo T_("Despite our offer 14 days free trial to start use Jibres,");             // Line 358
-	echo T_("if at any time within the first 30 days period you are not happy with Jibres, you can request money back and we will refund it.");// Line 358
-	echo T_("30 day Guarantee");                                                      // Line 363
+	echo T_("30 day satisfaction guarantee");                                         // Line 360
+	echo T_("no questions asked!");                                                   // Line 361
+	echo T_("We stand behind our service and we mean it!");                           // Line 362
+	echo T_("Despite our offer 14 days free trial to start use Jibres,");             // Line 362
+	echo T_("if at any time within the first 30 days period you are not happy with Jibres, you can request money back and we will refund it.");// Line 362
+	echo T_("30 day Guarantee");                                                      // Line 367
 
 	//------------------------------------------------------content/about/display.html
 	echo T_("Advancement of technology and development of Web-based business Cause Need new tools to resolve the daily needs and that’s the goal of making Jibres.");// Line 48
@@ -276,14 +282,14 @@ class twigTransTerms
 	echo T_("No one can fullfill your e-commerce needs like us");                     // Line 67
 	echo T_("Of course Made with love 😍");                                            // Line 76
 	echo T_("Jibres has created for futuristic entrepreneurs");                       // Line 76
-	echo T_("Item");                                                                  // Line 79
+	echo T_("Item");                                                                  // Line 80
 	echo T_("Products");                                                              // Line 10
 	echo T_("Qty");                                                                   // Line 119
-	echo T_("Sold on Jibres");                                                        // Line 88
-	echo T_("Roadmap");                                                               // Line 99
-	echo T_("Amazing Financial Platform");                                            // Line 100
-	echo T_("With Jibres we take less time of our customers and this means modern customer orientation");// Line 130
-	echo T_("Majid Sadeghi, Sales Supervisor at SuperSaeed");                         // Line 131
+	echo T_("Sold on Jibres");                                                        // Line 93
+	echo T_("Roadmap");                                                               // Line 105
+	echo T_("Amazing Financial Platform");                                            // Line 106
+	echo T_("With Jibres we take less time of our customers and this means modern customer orientation");// Line 136
+	echo T_("Majid Sadeghi, Sales Supervisor at SuperSaeed");                         // Line 137
 
 	//------------------------------------------------------content/terms/display.html
 	echo T_("Utilizing Jibres's services means the acceptance of and commitment to observing all the tenors of this agreement.");// Line 6
@@ -370,7 +376,7 @@ class twigTransTerms
 	echo T_("You are active user");                                                   // Line 74
 
 	//---------------------------------------------content_a/report/daily/display.html
-	echo T_("Sum");                                                                   // Line 94
+	echo T_("Sum");                                                                   // Line 85
 
 	//-------------------------------------------------content_a/report/daily/chart.js
 	echo T_("Sum price");                                                             // Line 103
@@ -399,7 +405,7 @@ class twigTransTerms
 	echo T_("Action");                                                                // Line 107
 	echo T_("Country");                                                               // Line 138
 	echo T_("Choose your country");                                                   // Line 142
-	echo T_("Pos");                                                                   // Line 402
+	echo T_("Pos");                                                                   // Line 414
 	echo T_("Select pos");                                                            // Line 159
 	echo T_("City");                                                                  // Line 157
 	echo T_("Select city");                                                           // Line 159
@@ -444,15 +450,16 @@ class twigTransTerms
 	echo T_("Report Header");                                                         // Line 272
 	echo T_("Report Footer");                                                         // Line 280
 	echo T_("Active print factor");                                                   // Line 291
-	echo T_("Fish print");                                                            // Line 335
-	echo T_("A4");                                                                    // Line 339
-	echo T_("A5");                                                                    // Line 343
-	echo T_("Default print_size");                                                    // Line 329
-	echo T_("No default");                                                            // Line 391
+	echo T_("Fish print");                                                            // Line 347
+	echo T_("Short");                                                                 // Line 311
+	echo T_("A4");                                                                    // Line 351
+	echo T_("A5");                                                                    // Line 355
+	echo T_("Default print_size");                                                    // Line 336
+	echo T_("No default");                                                            // Line 403
 	echo T_("Cash");                                                                  // Line 96
-	echo T_("Check");                                                                 // Line 376
-	echo T_("Default pay");                                                           // Line 388
-	echo T_("Cheque");                                                                // Line 394
+	echo T_("Check");                                                                 // Line 388
+	echo T_("Default pay");                                                           // Line 400
+	echo T_("Cheque");                                                                // Line 406
 
 	//------------------------------------------content_a/setting/maximum/display.html
 	echo T_("Maximum buyprice");                                                      // Line 34
@@ -536,10 +543,10 @@ class twigTransTerms
 	//------------------------------------------------------content_a/buy/display.html
 	echo T_("You can add new empty tab if current tab is filled!");                   // Line 6
 	echo T_("Factor Price Detail");                                                   // Line 30
-	echo T_("Total payable");                                                         // Line 144
+	echo T_("Total payable");                                                         // Line 133
 	echo T_("Count of items");                                                        // Line 33
 	echo T_("Sum of counts");                                                         // Line 92
-	echo T_("Invoice amount");                                                        // Line 135
+	echo T_("Invoice amount");                                                        // Line 124
 	echo T_("Discount percent");                                                      // Line 78
 	echo T_("Press f7 or click to toggle discount");                                  // Line 37
 	echo T_("Total discount");                                                        // Line 37
@@ -551,8 +558,8 @@ class twigTransTerms
 	echo T_("Buy price");                                                             // Line 99
 	echo T_("Total");                                                                 // Line 62
 	echo T_("Choose supplier");                                                       // Line 107
-	echo T_("Search in list to add product");                                         // Line 162
-	echo T_("Last scanned barcode");                                                  // Line 188
+	echo T_("Search in list to add product");                                         // Line 159
+	echo T_("Last scanned barcode");                                                  // Line 185
 
 	//------------------------------------------------------content_a/pay/display.html
 	echo T_("Print Status is active");                                                // Line 23
@@ -564,28 +571,33 @@ class twigTransTerms
 	//-----------------------------------------------------content_a/sale/display.html
 	echo T_("Discount");                                                              // Line 61
 	echo T_("Choose customer");                                                       // Line 110
+	echo T_("Quickly add customer");                                                  // Line 116
 	echo T_("Like");                                                                  // Line 256
 	echo T_("Gender");                                                                // Line 196
 	echo T_("Mr");                                                                    // Line 198
 	echo T_("Mrs");                                                                   // Line 199
+	echo T_("Customer Name");                                                         // Line 149
 
-	//------------------------------------------content_a/chap/receipt2/fishprint.html
-	echo T_("Customer");                                                              // Line 117
+	//--------------------------------------------------content_a/chap/size-a4/a4.html
+	echo T_("Buyer Detail");                                                          // Line 42
 	echo T_("Tel");                                                                   // Line 23
-	echo T_("Sale Invoice");                                                          // Line 69
-	echo T_("Your total discount and profits");                                       // Line 139
+	echo T_("Sale Invoice");                                                          // Line 65
+	echo T_("Your total discount and profits");                                       // Line 128
 
 	//-----------------------------------------------------content_a/chap/display.html
 	echo T_("Another print formats");                                                 // Line 8
 	echo T_("Please choose one format to print factor");                              // Line 21
 
-	//---------------------------------------------content_a/chap/display-receipt.html
-	echo T_("Customer Detail");                                                       // Line 43
+	//----------------------------------------content_a/chap/size-receipt/receipt.html
+	echo T_("Customer Detail");                                                       // Line 42
 
-	//----------------------------------------content_a/chap/display-receipt-long.html
+	//-----------------------------------content_a/chap/size-receipt/receipt-long.html
+
+	//----------------------------------content_a/chap/size-receipt/receipt-short.html
 
 	//------------------------------------------------content_a/thirdparty/layout.html
 	echo T_("Type of thirdparty");                                                    // Line 81
+	echo T_("Customer");                                                              // Line 117
 	echo T_("Supplier");                                                              // Line 117
 	echo T_("Tag");                                                                   // Line 445
 	echo T_("Add tag manually to link thirdparty togethers");                         // Line 455
