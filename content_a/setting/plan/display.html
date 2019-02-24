@@ -8,6 +8,20 @@
   <p class="msg info2 fs14">{%trans "By choose new plan, we generate your invoice until now and next invoice is created one month later exactly at this time and you can pay it from billing."%}</p>
 {%endif%}
 
+{%if url.dir.2 %}
+<a href="{{url.this}}/plan" class="btn block secondary mB10">{%trans "Cancel plan change process"%}</a>
+
+{%if store.plan != 'free' and store.plan != 'trial' and currentStore.daysleft > 2%}
+<div class="msg danger txtB txtC">
+  {%trans "Your plan have some days!"%}<br>
+  {%trans "Are you sure to change your plan?"%}
+</div>
+{%endif%}
+
+{%endif%}
+
+
+
 
 <div class="tblBox fs14">
   <table class="tbl1 v10">
