@@ -12,9 +12,12 @@
 
    <div class="f middle">
 {%if lang.current =='fa'%}
+{%if url.tld == 'ir'%}
+{%else%}
     <nav class="cauto s12 enamad">
      <a href="#enamad"><img src="{{url.static}}/images/cert/enamad2.png" alt='{%trans "Enamad"%}' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=77836&p=JOoynuxYPaV1q5Zq", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")'></a>
     </nav>
+{%endif%}
 {%endif%}
 
 
