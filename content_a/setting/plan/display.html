@@ -3,13 +3,14 @@
 
 {%block data%}
 
-{%if store.plan == 'free' or store.plan == 'trial' %}
-{%else%}
-  <p class="msg info2 fs14">{%trans "By choose new plan, we generate your invoice until now and next invoice is created one month later exactly at this time and you can pay it from billing."%}</p>
-{%endif%}
 
 {%if url.subchild %}
 <div class="fs14">
+
+  {%if store.plan == 'free' or store.plan == 'trial' %}
+  {%else%}
+    <p class="msg info2">{%trans "By choose new plan, we generate your invoice until now and next invoice is created one month later exactly at this time and you can pay it from billing."%}</p>
+  {%endif%}
 
   <a href="{{url.this}}/plan" class="btn block secondary mB10">{%trans "Cancel plan change process"%}</a>
 
@@ -27,7 +28,20 @@
   <table class="tbl1 v10">
     <tbody>
 
-      <tr {%if url.subchild %}{%if url.subchild != 'FREE' %}class='disabled'{%endif%}{%endif%}>
+      {%if store.plan == 'trial' %}
+      <tr {%if url.subchild %}{%if url.subchild != 'trial' %}class='disabled'{%endif%}{%endif%}>
+        <td>
+          <div class="txtB fs16">{%trans "Trial"%}</div>
+          {%if store.plan == 'free' %}
+            <div class="badge">{%trans "Forever"%}</div>
+          {%endif%}
+        </td>
+        <td colspan="3">{%trans "14 days free trial"%}</td>
+      </tr>
+      {%endif%}
+
+
+      <tr {%if url.subchild %}{%if url.subchild != 'free' %}class='disabled'{%endif%}{%endif%}>
         <td>
           <div class="txtB fs16">{%trans "FREE"%}</div>
           {%if store.plan == 'free' %}
@@ -46,7 +60,7 @@
           {%if store.plan == 'free' %}
             <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
-            <a class="btn outline light" href="">{%trans "Choose plan"%}</a>
+
           {%endif%}
         </td>
       </tr>
