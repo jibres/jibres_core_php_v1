@@ -9,6 +9,8 @@
 {%endif%}
 
 {%if url.subchild %}
+<div class="fs14">
+
   <a href="{{url.this}}/plan" class="btn block secondary mB10">{%trans "Cancel plan change process"%}</a>
 
   {%if store.plan != 'free' and store.plan != 'trial' and currentStore.daysleft > 2%}
@@ -17,7 +19,7 @@
     {%trans "Are you sure to change your plan?"%}
   </p>
   {%endif%}
-
+</div>
 {%endif%}
 
 
