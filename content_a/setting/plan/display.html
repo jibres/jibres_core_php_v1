@@ -224,14 +224,13 @@
       </tr>
       {%endif%}{%endif%}
 
-
-
-
-
     </tbody>
   </table>
-
 </div>
+
+{%if perm_su()%}
+{{block('planHistoryTable')}}
+{%endif%}
 
 {%endblock%}
 
@@ -254,5 +253,40 @@
   </div>
 {%endblock%}
 
+
+{%block planHistoryTable%}
+<h5 data-kerkere='.planHistoryTable' class="msg">{%trans "History"%}</h5>
+<div class="planHistoryTable" data-kerkere-content='hide'>
+
+<table class="tbl1 v6 fs12">
+  <thead class="">
+    <tr>
+      <th>{%trans "Plan"%}</th>
+      <th>{%trans "Start"%}</th>
+      <th>{%trans "End"%}</th>
+      <th>{%trans "Expire"%}</th>
+      <th>{%trans "Type"%}</th>
+      <th>{%trans "Period"%}</th>
+      <th>{%trans "Status"%}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {%for key, value in dataTable%}
+    <tr >
+      <td>{%set my_plan = value.plan | capitalize%}{%trans my_plan%}</td>
+      <td>{{value.start | dt(true)}}</td>
+      <td>{{value.end | dt(true)}}</td>
+      <td>{{value.expireplan | dt(true)}}</td>
+      <td>{%set my_type = value.type%}{%trans my_type%}</td>
+      <td>{%set my_period = value.period%}{%trans my_period%}</td>
+      <td>{%set my_status = value.status | capitalize%}{%trans my_status%}</td>
+
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+</div>
+{%endblock%}
 
 
