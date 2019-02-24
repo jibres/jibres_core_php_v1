@@ -21,12 +21,11 @@
 {%endif%}
 
 
-
-
 <div class="tblBox fs14">
   <table class="tbl1 v10">
     <tbody>
-      <tr{%if url.subchild and url.subchild != 'FREE"%}' %} class='disabled'{%endif%}>
+
+      <tr {%if url.subchild %}{%if url.subchild != 'FREE' %}class='disabled'{%endif%}{%endif%}>
         <td>
           <div class="txtB fs16">{%trans "FREE"%}</div>
           {%if store.plan == 'free' %}
@@ -50,7 +49,8 @@
         </td>
       </tr>
 
-      <tr{%if url.subchild and url.subchild != 'start' %} class='disabled'{%endif%}>
+
+      <tr {%if url.subchild %}{%if url.subchild != 'start'%}class='disabled'{%endif%}{%endif%}>
         <td>
           <span class="txtB fs16">{%trans "Starter"%}</span>
           {%if store.plan == 'starter' %}
@@ -92,7 +92,17 @@
         </td>
       </tr>
 
-      <tr{%if url.subchild and url.subchild != 'simple' %} class='disabled'{%endif%}>
+      {%if url.subchild %}{%if url.subchild == 'start'%}
+      <tr class="active">
+        <td colspan="4">
+          <div data-confirm data-data='{"plan" : "start", "period" : "monthly"}' class="btn primary pLR25">{%trans "Monthly"%} {{14000 | fitNumber}} {%trans "Toman"%}</div>
+          <div data-confirm data-data='{"plan" : "start", "period" : "yearly"}' class="btn success pLR25">{%trans "Yearly"%} {%if isFirstYear%}{{50000 | fitNumber}}{%else%}{{140000 | fitNumber}}{%endif%} {%trans "Toman"%}</div>
+        </td>
+      </tr>
+      {%endif%}{%endif%}
+
+
+      <tr {%if url.subchild %}{%if url.subchild != 'simple' %}class='disabled'{%endif%}{%endif%}>
         <td>
           <span class="txtB fs16">{%trans "Simple"%}</span>
           {%if store.plan == 'simple' %}
@@ -135,7 +145,18 @@
         </td>
       </tr>
 
-      <tr{%if url.subchild and url.subchild != 'standard' %} class='disabled'{%endif%}>
+
+      {%if url.subchild %}{%if url.subchild == 'simple'%}
+      <tr class="active">
+        <td colspan="4">
+          <div data-confirm data-data='{"plan" : "simple", "period" : "monthly"}' class="btn primary">{%trans "Monthly"%} {{30000 | fitNumber}} {%trans "Toman"%}</div>
+          <div data-confirm data-data='{"plan" : "simple", "period" : "yearly"}' class="btn success">{%trans "Yearly"%} {%if isFirstYear%}{{300000 | fitNumber}}{%else%}{{150000 | fitNumber}}{%endif%} {%trans "Toman"%}</div>
+        </td>
+      </tr>
+      {%endif%}{%endif%}
+
+
+      <tr {%if url.subchild %}{%if url.subchild != 'standard' %}class='disabled'{%endif%}{%endif%}>
         <td>
           <span class="txtB fs16">{%trans "Standard"%}</span>
           {%if store.plan == 'standard' %}
@@ -178,6 +199,7 @@
           {%endif%}
         </td>
       </tr>
+
 
     </tbody>
   </table>
