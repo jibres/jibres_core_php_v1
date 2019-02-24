@@ -103,7 +103,11 @@
           {%if store.plan == 'start' %}
             <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
-            <a class="btn outline light" href="{{url.this}}/plan/start">{%trans "Choose plan"%}</a>
+            {%if store.plan == 'free' or store.plan == 'trial' %}
+              <a class="btn outline light" href="{{url.this}}/plan/start">{%trans "Upgrade"%}</a>
+            {%else%}
+              <a class="btn outline light" href="{{url.this}}/plan/start">{%trans "Choose plan"%}</a>
+            {%endif%}
           {%endif%}
         </td>
       </tr>
@@ -156,7 +160,11 @@
           {%if store.plan == 'simple' %}
             <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
-            <a class="btn outline light" href="{{url.this}}/plan/simple">{%trans "Choose plan"%}</a>
+            {%if store.plan == 'free' or store.plan == 'trial' %}
+              <a class="btn outline light" href="{{url.this}}/plan/simple">{%trans "Upgrade"%}</a>
+            {%else%}
+              <a class="btn outline light" href="{{url.this}}/plan/simple">{%trans "Choose plan"%}</a>
+            {%endif%}
           {%endif%}
         </td>
       </tr>
@@ -210,7 +218,11 @@
           {%if store.plan == 'standard' %}
             <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
-            <a class="btn outline light" href="{{url.this}}/plan/standard">{%trans "Choose plan"%}</a>
+            {%if store.plan == 'free' or store.plan == 'trial' %}
+              <a class="btn outline light" href="{{url.this}}/plan/standard">{%trans "Upgrade"%}</a>
+            {%else%}
+              <a class="btn outline light" href="{{url.this}}/plan/standard">{%trans "Choose plan"%}</a>
+            {%endif%}
           {%endif%}
         </td>
       </tr>
