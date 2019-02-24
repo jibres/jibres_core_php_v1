@@ -8,15 +8,15 @@
   <p class="msg info2 fs14">{%trans "By choose new plan, we generate your invoice until now and next invoice is created one month later exactly at this time and you can pay it from billing."%}</p>
 {%endif%}
 
-{%if url.dir.2 %}
-<a href="{{url.this}}/plan" class="btn block secondary mB10">{%trans "Cancel plan change process"%}</a>
+{%if url.subchild %}
+  <a href="{{url.this}}/plan" class="btn block secondary mB10">{%trans "Cancel plan change process"%}</a>
 
-{%if store.plan != 'free' and store.plan != 'trial' and currentStore.daysleft > 2%}
-<div class="msg danger txtB txtC">
-  {%trans "Your plan have some days!"%}<br>
-  {%trans "Are you sure to change your plan?"%}
-</div>
-{%endif%}
+  {%if store.plan != 'free' and store.plan != 'trial' and currentStore.daysleft > 2%}
+  <p class="msg danger txtB txtC">
+    {%trans "Your plan have some days!"%}<br>
+    {%trans "Are you sure to change your plan?"%}
+  </p>
+  {%endif%}
 
 {%endif%}
 
@@ -26,7 +26,7 @@
 <div class="tblBox fs14">
   <table class="tbl1 v10">
     <tbody>
-      <tr>
+      <tr{%if url.subchild and url.subchild != 'FREE"%}' %} class='disabled'{%endif%}>
         <td>
           <div class="txtB fs16">{%trans "FREE"%}</div>
           {%if store.plan == 'free' %}
@@ -50,7 +50,7 @@
         </td>
       </tr>
 
-      <tr>
+      <tr{%if url.subchild and url.subchild != 'start' %} class='disabled'{%endif%}>
         <td>
           <span class="txtB fs16">{%trans "Starter"%}</span>
           {%if store.plan == 'starter' %}
@@ -92,7 +92,7 @@
         </td>
       </tr>
 
-      <tr>
+      <tr{%if url.subchild and url.subchild != 'simple' %} class='disabled'{%endif%}>
         <td>
           <span class="txtB fs16">{%trans "Simple"%}</span>
           {%if store.plan == 'simple' %}
@@ -135,7 +135,7 @@
         </td>
       </tr>
 
-      <tr>
+      <tr{%if url.subchild and url.subchild != 'standard' %} class='disabled'{%endif%}>
         <td>
           <span class="txtB fs16">{%trans "Standard"%}</span>
           {%if store.plan == 'standard' %}
