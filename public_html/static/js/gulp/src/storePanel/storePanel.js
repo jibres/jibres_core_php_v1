@@ -2,8 +2,11 @@
 
 function pushState()
 {
-  calcFooterValues();
-  recalcPricePercents();
+  if($('body').attr('data-in') === 'a')
+  {
+    calcFooterValues();
+    recalcPricePercents();
+  }
 }
 
 $(function()
