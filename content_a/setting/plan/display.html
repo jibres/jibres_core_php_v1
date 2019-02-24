@@ -14,12 +14,12 @@
     <tbody>
       <tr>
         <td>
-          <span class="txtB fs16">{%trans "FREE"%}</span>
+          <div class="txtB fs16">{%trans "FREE"%}</div>
           {%if store.plan == 'free' %}
-            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+            <div class="badge">{%trans "Forever"%}</div>
           {%endif%}
         </td>
-        <td>{%trans "Free Forever"%}</td>
+        <td>{%trans "Totaly Free"%}</td>
         <td>
           <ul class="fs09">
             <li>{%trans "Integrated Sales"%}</li>
@@ -29,7 +29,7 @@
         </td>
         <td>
           {%if store.plan == 'free' %}
-            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
             <a class="btn outline light" href="">{%trans "Choose plan"%}</a>
           {%endif%}
@@ -40,7 +40,7 @@
         <td>
           <span class="txtB fs16">{%trans "Starter"%}</span>
           {%if store.plan == 'starter' %}
-            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%endif%}
         </td>
         <td>
@@ -71,7 +71,7 @@
         </td>
         <td>
           {%if store.plan == 'starter' %}
-            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
             <a class="btn outline light" href="{{url.this}}/plan/start">{%trans "Choose plan"%}</a>
           {%endif%}
@@ -82,7 +82,7 @@
         <td>
           <span class="txtB fs16">{%trans "Simple"%}</span>
           {%if store.plan == 'simple' %}
-            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%endif%}
         </td>
         <td>
@@ -114,7 +114,7 @@
         </td>
         <td>
           {%if store.plan == 'simple' %}
-            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
             <a class="btn outline light" href="{{url.this}}/plan/simple">{%trans "Choose plan"%}</a>
           {%endif%}
@@ -125,7 +125,7 @@
         <td>
           <span class="txtB fs16">{%trans "Standard"%}</span>
           {%if store.plan == 'standard' %}
-            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%endif%}
         </td>
         <td>
@@ -158,7 +158,7 @@
         </td>
         <td>
           {%if store.plan == 'standard' %}
-            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
             <a class="btn outline light" href="{{url.this}}/plan/standard">{%trans "Choose plan"%}</a>
           {%endif%}
@@ -171,3 +171,21 @@
 </div>
 
 {%endblock%}
+
+
+{%block expireDate%}
+
+  {%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt}}'>{%trans "Expire on"%} {{store.expireplan | dt(true)}}</small>{%endif%}
+  <div class="floatRa mRa5">
+  {%if currentStore.daysleft > 0%}
+    <small class=" badge info">
+      <b>{{currentStore.daysleft | fitNumber}}</b> {%trans "days left"%}
+    </small>
+  {%else%}
+      <b class="badge danger">{%trans "Expired"%}</b>
+  {%endif%}
+  </div>
+{%endblock%}
+
+
+
