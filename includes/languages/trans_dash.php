@@ -306,7 +306,12 @@ class twigTransTerms
 	//-----------------------------------------addons/content_api/v6/doc/55-notif.html
 	echo T_("Get notification list");                                                 // Line 5
 	echo T_("Get list of your notification");                                         // Line 8
+	echo T_("Your apikey");                                                           // Line 32
 	echo T_("Get from your account profile");                                         // Line 38
+	echo T_("Parameters");                                                            // Line 47
+	echo T_("If you want to set all notif of this user as read notif set this parameters as true");// Line 66
+	echo T_("Optional");                                                              // Line 210
+	echo T_("If user not read this notif, this response is null else see read date of this notif");// Line 106
 
 	//------------------------------------------addons/content_api/v6/doc/display.html
 	echo T_("API");                                                                   // Line 29
@@ -320,7 +325,7 @@ class twigTransTerms
 	echo T_("Get mission");                                                           // Line 49
 	echo T_("Get vision");                                                            // Line 51
 	echo T_("Get contact");                                                           // Line 53
-	echo T_("Get smile");                                                             // Line 55
+	echo T_("Get detail");                                                            // Line 55
 	echo T_("Get notif");                                                             // Line 57
 
 	//---------------------------------------addons/content_api/v6/doc/33-contact.html
@@ -366,7 +371,6 @@ class twigTransTerms
 
 	//--------------------------------------addons/content_api/v6/doc/20-user-add.html
 	echo T_("Add new user to service");                                               // Line 8
-	echo T_("Optional");                                                              // Line 210
 
 	//-------------------------------------addons/content_api/v6/doc/04-responses.html
 	echo T_("Each response is a JSON object.");                                       // Line 6
@@ -1108,9 +1112,9 @@ class twigTransTerms
 	echo T_("Company name");                                                          // Line 220
 
 	//-----------------------------------------addons/content_account/api/display.html
-	echo T_("YOUR API KEY");                                                          // Line 8
-	echo T_("GENERATE NEW API KEY");                                                  // Line 9
-	echo T_("Get new API KEY");                                                       // Line 15
+	echo T_("YOUR API KEY");                                                          // Line 11
+	echo T_("GENERATE NEW API KEY");                                                  // Line 12
+	echo T_("Get new API KEY");                                                       // Line 18
 
 	//----------------------------------------addons/content_account/home/display.html
 
