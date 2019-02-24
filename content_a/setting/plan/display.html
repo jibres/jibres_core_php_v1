@@ -1,2 +1,173 @@
-{%extends myPlanDisplay%}
+{%extends "content_a/setting/layout.html"%}
 
+
+{%block data%}
+
+{%if store.plan == 'free' or store.plan == 'trial' %}
+{%else%}
+  <p class="msg info2 fs14">{%trans "By choose new plan, we generate your invoice until now and next invoice is created one month later exactly at this time and you can pay it from billing."%}</p>
+{%endif%}
+
+
+<div class="tblBox fs14">
+  <table class="tbl1 v10">
+    <tbody>
+      <tr>
+        <td>
+          <span class="txtB fs16">{%trans "FREE"%}</span>
+          {%if store.plan == 'free' %}
+            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+          {%endif%}
+        </td>
+        <td>{%trans "Free Forever"%}</td>
+        <td>
+          <ul class="fs09">
+            <li>{%trans "Integrated Sales"%}</li>
+            <li>{%trans "Free Invoicing"%}</li>
+            <li>{%trans "Online Accounting"%}</li>
+          </ul>
+        </td>
+        <td>
+          {%if store.plan == 'free' %}
+            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+          {%else%}
+            <a class="btn outline light" href="">{%trans "Choose plan"%}</a>
+          {%endif%}
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span class="txtB fs16">{%trans "Starter"%}</span>
+          {%if store.plan == 'starter' %}
+            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+          {%endif%}
+        </td>
+        <td>
+          <div class="priceBox2">
+            <div class="f align-center monthly">
+              <div class="cauto price pRa5">{{14 | fitNumber}}</div>
+              <div class="c unit">{%trans "Toman"%}</div>
+              <div class="c pRa10 txtLa period">{%trans "Monthly"%}</div>
+            </div>
+            <div class="f align-center annually">
+              <div class="cauto price pRa5">{{140 | fitNumber}}</div>
+              <div class="c unit">{%trans "Toman"%}</div>
+              <div class="c pRa10 txtLa period">{%trans "Annually"%}</div>
+            </div>
+            <div class="f align-center annually1">
+              <div class="cauto price pRa5">{{50 | fitNumber}}</div>
+              <div class="c unit">{%trans "Toman"%}</div>
+              <div class="c pRa10 txtLa period">{%trans "Annually"%} <span class="badge success">{%trans "First Year"%}</span></div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <ul class="fs09">
+            <li>{%trans "vCard Website"%}</li>
+            <li>{%trans "Staff Accounts"%}</li>
+            <li>{%trans "Increase Basic Limits"%}</li>
+          </ul>
+        </td>
+        <td>
+          {%if store.plan == 'starter' %}
+            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+          {%else%}
+            <a class="btn outline light" href="{{url.this}}/plan/start">{%trans "Choose plan"%}</a>
+          {%endif%}
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span class="txtB fs16">{%trans "Simple"%}</span>
+          {%if store.plan == 'simple' %}
+            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+          {%endif%}
+        </td>
+        <td>
+          <div class="priceBox2">
+            <div class="f align-center monthly">
+              <div class="cauto price pRa5">{{30 | fitNumber}}</div>
+              <div class="c unit">{%trans "Toman"%}</div>
+              <div class="c pRa10 txtLa period">{%trans "Monthly"%}</div>
+            </div>
+            <div class="f align-center annually">
+              <div class="cauto price pRa5">{{300 | fitNumber}}</div>
+              <div class="c unit">{%trans "Toman"%}</div>
+              <div class="c pRa10 txtLa period">{%trans "Annually"%}</div>
+            </div>
+            <div class="f align-center annually1">
+              <div class="cauto price pRa5">{{150 | fitNumber}}</div>
+              <div class="c unit">{%trans "Toman"%}</div>
+              <div class="c pRa10 txtLa period">{%trans "Annually"%} <span class="badge success">{%trans "First Year"%}</span></div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <ul class="fs09">
+            <li>{%trans "Advance Reports"%}</li>
+            <li>{%trans "All Invoice Types"%}</li>
+            <li>{%trans "Product Intro Website"%}</li>
+            <li>{%trans "Without Limit"%}</li>
+          </ul>
+        </td>
+        <td>
+          {%if store.plan == 'simple' %}
+            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+          {%else%}
+            <a class="btn outline light" href="{{url.this}}/plan/simple">{%trans "Choose plan"%}</a>
+          {%endif%}
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span class="txtB fs16">{%trans "Standard"%}</span>
+          {%if store.plan == 'standard' %}
+            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+          {%endif%}
+        </td>
+        <td>
+          <div class="priceBox2">
+            <div class="f align-center monthly">
+              <div class="cauto price pRa5">{{75 | fitNumber}}</div>
+              <div class="c unit">{%trans "Toman"%}</div>
+              <div class="c pRa10 txtLa period">{%trans "Monthly"%}</div>
+            </div>
+            <div class="f align-center annually">
+              <div class="cauto price pRa5">{{750 | fitNumber}}</div>
+              <div class="c unit">{%trans "Toman"%}</div>
+              <div class="c pRa10 txtLa period">{%trans "Annually"%}</div>
+            </div>
+            <div class="f align-center annually1">
+              <div class="cauto price pRa5">{{300 | fitNumber}}</div>
+              <div class="c unit">{%trans "Toman"%}</div>
+              <div class="c pRa10 txtLa period">{%trans "Annually"%} <span class="badge success">{%trans "First Year"%}</span></div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <ul class="fs09">
+            <li>{%trans "Online Store"%}</li>
+            <li>{%trans "News website"%}</li>
+            <li>{%trans "Shop with Your Domain"%}</li>
+            <li>{%trans "Full Permission Control"%}</li>
+            <li>{%trans "Search Engine Optimized"%}</li>
+          </ul>
+        </td>
+        <td>
+          {%if store.plan == 'standard' %}
+            <span class="badge dark mLa10 pA10-f">{%trans "Current Plan"%}</span>
+          {%else%}
+            <a class="btn outline light" href="{{url.this}}/plan/standard">{%trans "Choose plan"%}</a>
+          {%endif%}
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+{%endblock%}
