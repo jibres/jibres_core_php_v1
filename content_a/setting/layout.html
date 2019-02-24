@@ -2,14 +2,8 @@
 
 {%block pageContent%}
 {{block('pageSteps')}}
-<div class="f">
- <div class="cauto s12 pA10">
-{{block("psidebar")}}
- </div>
- <div class="c s12 pA10">
+
 {%block data%}{%endblock%}
- </div>
-</div>
 {%endblock%}
 
 
@@ -122,9 +116,6 @@
 
  <a class="btn block mTB5" href='{{url.this}}/general'>{%trans "General Detail"%}</a>
  <a class="btn block mTB5" href='{{url.this}}/plan'>{%trans "Store Plan"%}</a>
-  <a class="btn block mTB5" href='{{url.this}}/factor'>{%trans "Factor"%}</a>
-  <!-- <a class="btn block mTB5" href='{{url.this}}/security'>{%trans "Security and privacy"%}</a> -->
- <!-- <a class="btn block mTB5" href='{{url.this}}/report'>{%trans "Report Settings"%}</a> -->
 
 </div>
 {%endblock%}

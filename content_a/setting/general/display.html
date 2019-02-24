@@ -2,20 +2,30 @@
 
 
 {%block data%}
+<div class="f">
+ <div class="cauto s12 pA10">
+{{block("psidebar")}}
+ </div>
+ <div class="c s12 pA10">
   <div class="cbox">
- <form method="post">
-  <input type="hidden" name="formType" value="public">
-  {{block ("iname")}}
-  {{block ("islug")}}
-  {{block ("iwebsite")}}
-  {{block ("idesc")}}
+   <form method="post">
+    <input type="hidden" name="formType" value="public">
+    {{block ("iname")}}
+    {{block ("islug")}}
+    {{block ("iwebsite")}}
+    {{block ("idesc")}}
 
-  <div class="msg {%if store.status == 'enable'%}success2{%elseif store.status == 'close' %}danger2{%endif%}">
-    {{block ("istatus")}}
+    <div class="msg {%if store.status == 'enable'%}success2{%elseif store.status == 'close' %}danger2{%endif%}">
+      {{block ("istatus")}}
+    </div>
+    {{block ("iSaveAll")}}
+   </form>
   </div>
-  {{block ("iSaveAll")}}
- </form>
+
+
+ </div>
 </div>
+
 
 
 
