@@ -21,7 +21,7 @@
 {%endif%}
 
 
-<div class="tblBox fs14">
+<div class="tblBox fs14 mB25">
   <table class="tbl1 v10">
     <tbody>
 
@@ -145,7 +145,6 @@
         </td>
       </tr>
 
-
       {%if url.subchild %}{%if url.subchild == 'simple'%}
       <tr class="active">
         <td colspan="4">
@@ -199,6 +198,18 @@
           {%endif%}
         </td>
       </tr>
+
+      {%if url.subchild %}{%if url.subchild == 'standard'%}
+      <tr class="active">
+        <td colspan="4">
+          <div data-confirm data-data='{"plan" : "standard", "period" : "monthly"}' class="btn primary">{%trans "Monthly"%} {{75000 | fitNumber}} {%trans "Toman"%}</div>
+          <div data-confirm data-data='{"plan" : "standard", "period" : "yearly"}' class="btn success">{%trans "Yearly"%} {%if isFirstYear%}{{750000 | fitNumber}}{%else%}{{300000 | fitNumber}}{%endif%} {%trans "Toman"%}</div>
+        </td>
+      </tr>
+      {%endif%}{%endif%}
+
+
+
 
 
     </tbody>
