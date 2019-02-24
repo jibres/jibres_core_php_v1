@@ -325,6 +325,9 @@ class plan
         \lib\store::refresh();
 
         \dash\notif::ok(T_("Your plan was changed"));
+
+        // redirect to plan list
+        \dash\redirect::to(\dash\url::that());
 	}
 
 	public static function is_first_year()
