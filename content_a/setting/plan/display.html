@@ -58,7 +58,7 @@
         </td>
         <td>
           {%if store.plan == 'free' %}
-            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
+            <span class="badge dark pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
 
           {%endif%}
@@ -101,7 +101,7 @@
         </td>
         <td>
           {%if store.plan == 'start' %}
-            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
+            <span class="badge dark pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
             {%if store.plan == 'free' or store.plan == 'trial' %}
               <a class="btn outline light" href="{{url.this}}/plan/start">{%trans "Upgrade"%}</a>
@@ -156,9 +156,10 @@
             <li>{%trans "Without Limit"%}</li>
           </ul>
         </td>
-        <td>
+        <td class="txtC">
           {%if store.plan == 'simple' %}
-            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
+            <div class="badge dark pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</div>
+            <div><a class="btn outline light mT10 pLR20" href="{{url.this}}/plan/simple">{%trans "Renew"%}</a></div>
           {%else%}
             {%if store.plan == 'free' or store.plan == 'trial' %}
               <a class="btn outline light" href="{{url.this}}/plan/simple">{%trans "Upgrade"%}</a>
@@ -216,7 +217,7 @@
         </td>
         <td>
           {%if store.plan == 'standard' %}
-            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
+            <span class="badge dark pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
             {%if store.plan == 'free' or store.plan == 'trial' %}
               <a class="btn outline light" href="{{url.this}}/plan/standard">{%trans "Upgrade"%}</a>
