@@ -304,8 +304,8 @@ class twigTransTerms
 	echo T_("Response");                                                              // Line 238
 
 	//-----------------------------------------addons/content_api/v6/doc/55-notif.html
-	echo T_("Get notification count");                                                // Line 5
-	echo T_("To get this user have notification or no");                              // Line 8
+	echo T_("Get notification list");                                                 // Line 5
+	echo T_("Get list of your notification");                                         // Line 8
 	echo T_("Get from your account profile");                                         // Line 38
 
 	//------------------------------------------addons/content_api/v6/doc/display.html
@@ -346,6 +346,8 @@ class twigTransTerms
 	echo T_("Get mission text");                                                      // Line 5
 
 	//-----------------------------------------addons/content_api/v6/doc/50-smile.html
+	echo T_("Get notification count");                                                // Line 5
+	echo T_("To get this user have notification or no");                              // Line 8
 	echo T_("Get from your account");                                                 // Line 38
 
 	//----------------------------------------addons/content_api/v6/doc/32-vision.html
@@ -1105,6 +1107,11 @@ class twigTransTerms
 	echo T_("Is this a company's address?");                                          // Line 213
 	echo T_("Company name");                                                          // Line 220
 
+	//-----------------------------------------addons/content_account/api/display.html
+	echo T_("YOUR API KEY");                                                          // Line 8
+	echo T_("GENERATE NEW API KEY");                                                  // Line 9
+	echo T_("Get new API KEY");                                                       // Line 15
+
 	//----------------------------------------addons/content_account/home/display.html
 
 	//----------------------------addons/content_account/profile/security/display.html
@@ -1142,11 +1149,6 @@ class twigTransTerms
 	//------------------------------------addons/content_account/profile/pagestep.html
 	echo T_("About you");                                                             // Line 13
 	echo T_("Signature");                                                             // Line 62
-
-	//--------------------------------------addons/content_account/appkey/display.html
-	echo T_("YOUR API KEY");                                                          // Line 8
-	echo T_("GENERATE NEW API KEY");                                                  // Line 9
-	echo T_("Get new API KEY");                                                       // Line 11
 
 	//----------------------------------------addons/content_account/view/display.html
 	echo T_("Toggle side bar");                                                       // Line 10
