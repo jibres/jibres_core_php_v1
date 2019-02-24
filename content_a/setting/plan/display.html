@@ -52,9 +52,9 @@
 
       <tr {%if url.subchild %}{%if url.subchild != 'start'%}class='disabled'{%endif%}{%endif%}>
         <td>
-          <span class="txtB fs16">{%trans "Starter"%}</span>
-          {%if store.plan == 'starter' %}
-            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
+          <div class="txtB fs16">{%trans "Starter"%}</div>
+          {%if store.plan == 'start'%}
+            {{block('expireDate')}}
           {%endif%}
         </td>
         <td>
@@ -84,7 +84,7 @@
           </ul>
         </td>
         <td>
-          {%if store.plan == 'starter' %}
+          {%if store.plan == 'start' %}
             <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
           {%else%}
             <a class="btn outline light" href="{{url.this}}/plan/start">{%trans "Choose plan"%}</a>
@@ -104,9 +104,9 @@
 
       <tr {%if url.subchild %}{%if url.subchild != 'simple' %}class='disabled'{%endif%}{%endif%}>
         <td>
-          <span class="txtB fs16">{%trans "Simple"%}</span>
-          {%if store.plan == 'simple' %}
-            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
+          <div class="txtB fs16">{%trans "Simple"%}</div>
+          {%if store.plan == 'simple'%}
+            {{block('expireDate')}}
           {%endif%}
         </td>
         <td>
@@ -157,9 +157,9 @@
 
       <tr {%if url.subchild %}{%if url.subchild != 'standard' %}class='disabled'{%endif%}{%endif%}>
         <td>
-          <span class="txtB fs16">{%trans "Standard"%}</span>
-          {%if store.plan == 'standard' %}
-            <span class="badge dark mLa10 pA10-f"><i class="sf-check compact pRa10"></i>{%trans "Current Plan"%}</span>
+          <div class="txtB fs16">{%trans "Standard"%}</div>
+          {%if store.plan == 'standard'%}
+            {{block('expireDate')}}
           {%endif%}
         </td>
         <td>
@@ -220,17 +220,21 @@
 {%endblock%}
 
 
+
 {%block expireDate%}
 
-  {%if store.expireplan %}<small class="badge floatRa" title='{{store.expireplan | dt}}'>{%trans "Expire on"%} {{store.expireplan | dt(true)}}</small>{%endif%}
-  <div class="floatRa mRa5">
-  {%if currentStore.daysleft > 0%}
-    <small class=" badge info">
-      <b>{{currentStore.daysleft | fitNumber}}</b> {%trans "days left"%}
-    </small>
-  {%else%}
-      <b class="badge danger">{%trans "Expired"%}</b>
-  {%endif%}
+  <div class="expirePlanDate">
+    <div>
+      {%if currentStore.daysleft > 0%}
+        <div class="badge pA10-f"><b>{{currentStore.daysleft | fitNumber}}</b> {%trans "days left"%}</div>
+      {%else%}
+        <div class="badge pA5-f danger">{%trans "Expired"%}</div>
+      {%endif%}
+    </div>
+
+    {%if store.expireplan %}
+      <div class="badge pA5-f" title='{{store.expireplan | dt}}'>{%trans "Expire on"%} {{store.expireplan | dt(true)}}</div>
+    {%endif%}
   </div>
 {%endblock%}
 
