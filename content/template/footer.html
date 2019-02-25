@@ -39,8 +39,13 @@
 {%endif%}
 
 
+
+   </div>
+
+   <div class="f bottom align-center">
+    <div class="c s12">{{langList({'html':true}) | raw}}</div>
 {%if lang.current =='fa'%}
-      <nav class="c12 s12 txtC">
+      <nav class="c s12 txtC">
         <div class="certification">
 {%if url.tld == 'ir'%}
 {%else%}
@@ -50,11 +55,7 @@
      </nav>
 {%endif%}
 
-   </div>
-
-   <div class="f bottom">
-    <div class="c s6">{{langList({'html':true}) | raw}}</div>
-    <div class="c s6 love"><a href="{%if lang.current =='fa'%}https://ermile.com/fa{%else%}https://ermile.com{%endif%}" target="_blank">{%trans "Proudly Made in IRAN"%}</a></div>
+    <div class="c s12 love"><a href="{%if lang.current =='fa'%}https://ermile.com/fa{%else%}https://ermile.com{%endif%}" target="_blank">{%trans "Proudly Made in IRAN"%}</a></div>
    </div>
 
   </div>
