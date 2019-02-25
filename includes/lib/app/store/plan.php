@@ -327,7 +327,7 @@ class plan
         \dash\notif::ok(T_("Your plan was changed"));
 
         // redirect to plan list
-        \dash\redirect::to(\dash\url::that());
+        \dash\redirect::to(\dash\url::kingdom(). '/a/setting/plan');
 	}
 
 	public static function is_first_year()
