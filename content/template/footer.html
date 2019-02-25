@@ -14,8 +14,9 @@
 {%if lang.current =='fa'%}
 {%if url.tld == 'ir'%}
 {%else%}
-    <nav class="cauto s12 enamad">
-     <a href="#enamad"><img src="{{url.static}}/images/cert/enamad2.png" alt='{%trans "Enamad"%}' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=77836&p=JOoynuxYPaV1q5Zq", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")'></a>
+    <nav class="cauto s12 certification">
+     <div><img src="{{url.static}}/images/cert/enamad2.png" alt='{%trans "Enamad"%} {{site.title}}' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=77836&p=JOoynuxYPaV1q5Zq", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")'></div>
+     <div><img src="{{url.static}}/images/cert/samandehi-review.png" alt='{%trans "Samandehi"%} {{site.title}}' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=110459&p=rfthrfthobpdaodsdshwpfvl", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'></div>
     </nav>
 {%endif%}
 {%endif%}
