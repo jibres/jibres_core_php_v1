@@ -145,13 +145,13 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 /* footer-links*/
 #tfooter .middle{font-size:1.2em;border-bottom:1px solid #4070c0;padding:2em 0}
 #tfooter .middle h4{font-weight:500;color:#ccc;margin-bottom:5px;font-size:1.1em}
-#tfooter .middle nav a{display:block;padding:1rem 0.5rem}
-#tfooter .middle .certification{min-width:150px;padding:0}
-#tfooter .middle .certification div{display:block;max-width:90px;padding:0;position:relative;margin:0 auto;}
-#tfooter .middle .certification div:focus{background-color:#ccc}
-#tfooter .middle .certification img{display:block;max-width:100%;background-color:#eee;padding:0.5em 0;cursor:pointer;}
-#tfooter .middle .certification div:before{content:"";position:absolute;top:-4px;right:0;left:0;height:4px;background-image:url(../images/cert/footer-box.svg);background-repeat:repeat-x;}
-#tfooter .middle .certification div:after{content:"";position:absolute;bottom:-4px;right:0;left:0;height:4px;background-image:url(../images/cert/footer-box.svg);background-repeat:repeat-x;-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+#tfooter .middle nav a{display:block;padding:1rem 0.5rem; margin-top: 1em;}
+#tfooter .middle .certification{padding:0 1em;height: 120px;background-color:#eee;display: inline-block;position:relative;margin-top:2em;}
+#tfooter .middle .certification div{display:inline-block;height:100%;padding:0;position:relative;margin:0 auto;}
+#tfooter .middle .certification img{display:block;max-width:100%;max-height:100%;padding:5px 10px;cursor:pointer;transition:0.3s;}
+#tfooter .middle .certification img:hover{background-color:rgba(0,0,0,0.05);}
+#tfooter .middle .certification:before{content:"";position:absolute;top:58px;left:-62px;height:4px;width:120px;background-image:url(../images/cert/footer-box.svg);background-repeat:repeat-x;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}
+#tfooter .middle .certification:after{content:"";position:absolute;top:58px;right:-62px;height:4px;width:120px;background-image:url(../images/cert/footer-box.svg);background-repeat:repeat-x;-webkit-transform:rotate(90deg);transform:rotate(90deg)}
 /* footer-note*/
 #tfooter .bottom{padding:2em 0;color:#aaa}
 #tfooter .bottom .langlist{display:inline-block}
