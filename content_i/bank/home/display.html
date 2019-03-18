@@ -60,7 +60,7 @@
         <th>{%trans "Detail"%}</th>
         <th class="" data-sort="{{sortLink.branch.order}}"><a href="{{sortLink.branch.link}}">{%trans "Branch"%}</a></th>
         <th class="" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
-        <th class="" data-sort="{{sortLink.desc.order}}"><a href="{{sortLink.desc.link}}">{%trans "Description"%}</a></th>
+        <th class="" >{%trans "Description"%}</th>
         <th class="" data-sort="{{sortLink.datecreated.order}}"><a href="{{sortLink.datecreated.link}}">{%trans "Date created"%}</a></th>
       </tr>
     </thead>
@@ -74,7 +74,7 @@
         <td class="">{{value.nameoncard}}</td>
         <td class="">
 
-          <div><i class="{{value.country | lower}} flag"></i> {%set myBank = value.bank | capitalize%}{%trans myBank%}</div>
+          <div><i class="{{value.country | lower}} flag"></i> {%set myBank = value.bank | capitalize%}<a href="{{url.this}}?bank={{value.bank}}">{%trans myBank%}</a></div>
           {%if value.accountnumber%}<div><span class="badge light">{%trans "Account number"%}</span> <span>{{value.accountnumber | fitNumber(false)}}</span></div>{%endif%}
           {%if value.shaba%}<div><span class="badge light">{%trans "Shaba"%}</span> <span>IR-{{value.shaba | fitNumber(false)}}</span></div>{%endif%}
           {%if value.card%}<div><span class="badge light">{%trans "Card"%}</span> <span>{{value.card | fitNumber(false)}}</span></div>{%endif%}
@@ -89,7 +89,7 @@
           {{value.branch}}
           <div>{{value.branchcode | fitNumber(false)}}</div>
         </td>
-        <td class="">{%set myStatus = value.status%}{%trans myStatus%}</td>
+        <td class="">{%set myStatus = value.status%}<a href="{{url.this}}?status={{value.status}}">{%trans myStatus%}</a></td>
         <td class="">{{value.desc}}</td>
         <td class="collapsing"  title="{{value.datecreated | dt}}">
           <div>{{value.datecreated | dt('human','year')}}</div>

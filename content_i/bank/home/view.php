@@ -9,11 +9,10 @@ class view
 
 		\dash\data::page_title(T_("Bank account list"));
 
-
 		\dash\data::page_pictogram('list');
 
 		\dash\data::badge_link(\dash\url::this(). '/add');
-		\dash\data::badge_text(T_('Add new accoutn'));
+		\dash\data::badge_text(T_('Add new bank account'));
 
 		$search_string            = \dash\request::get('q');
 		if($search_string)
@@ -42,56 +41,18 @@ class view
 
 		if(\dash\request::get('status'))
 		{
-			$args['bank.status'] = \dash\request::get('status');
+			$args['i_banks.status'] = \dash\request::get('status');
+			$filterArgs['Status'] = T_(ucfirst(\dash\request::get('status')));
 		}
 
-		if(\dash\request::get('title'))
+
+
+		if(\dash\request::get('bank'))
 		{
-			$args['bank.title'] = \dash\request::get('title');
+			$args['i_banks.bank'] = \dash\request::get('bank');
+			$filterArgs['Bank'] = T_(ucfirst(\dash\request::get('bank')));
 		}
 
-		if(\dash\request::get('subtitle'))
-		{
-			$args['bank.subtitle'] = \dash\request::get('subtitle');
-		}
-
-		if(\dash\request::get('cat'))
-		{
-			$args['bank.cat'] = \dash\request::get('cat');
-		}
-
-		if(\dash\request::get('cat2'))
-		{
-			$args['bank.cat2'] = \dash\request::get('cat2');
-		}
-
-		if(\dash\request::get('user'))
-		{
-			$args['bank.user_id'] = \dash\request::get('user');
-		}
-
-		if(\dash\request::get('size'))
-		{
-			$args['bank.size'] = \dash\request::get('size');
-		}
-
-		if(\dash\request::get('date'))
-		{
-			$mydate = date("Y-m-d", strtotime(\dash\request::get('date')));
-			$args['1.1'] = [' = 1.1  AND', "date(bank.datetime) = date('$mydate') "];
-		}
-
-		if(\dash\user::id())
-		{
-			if(intval(\dash\user::id()) === 1)
-			{
-				// i can see all and other user can see me and if login can see only self list
-			}
-			else
-			{
-				$args['user_id'] = \dash\user::id();
-			}
-		}
 		$sortLink  = \dash\app\sort::make_sortLink(\lib\app\bank::$sort_field, \dash\url::this());
 		$dataTable = \lib\app\bank::list(\dash\request::get('q'), $args);
 
