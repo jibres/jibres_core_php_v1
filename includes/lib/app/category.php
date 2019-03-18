@@ -35,6 +35,12 @@ class category
 	}
 
 
+	public static function parent_list()
+	{
+		$list = self::list(null, ['parent2' => ['IS', 'NULL']]);
+		return $list;
+	}
+
 	/**
 	 * check args
 	 *
@@ -52,7 +58,7 @@ class category
 
 		if(mb_strlen($title) > 150)
 		{
-			\dash\noitf::error(T_("Pleas set title name less than 150 character"), 'title');
+			\dash\notif::error(T_("Pleas set title name less than 150 character"), 'title');
 			return false;
 		}
 
@@ -72,12 +78,37 @@ class category
 			return false;
 		}
 
+		$parent1 = \dash\app::request('parent');
+		if($parent1)
+		{
+			$parent1 = \dash\coding::decode($parent1);
+			if(!$parent1)
+			{
+				\dash\notif::error(T_("Invalid parent"), 'parent');
+				return false;
+			}
 
-		$args           = [];
-		$args['title']  = $title;
-		$args['in']     = $in;
-		$args['type']   = $type;
-		$args['status'] = $status;
+			$check = \lib\db\category::get(['user_id' => \dash\user::id(), 'id' => $parent1, 'limit' => 1]);
+			if(!isset($check['id']))
+			{
+				\dash\notif::error(T_("Invalid parent"), 'parent');
+				return false;
+			}
+
+			if(isset($check['parent1']) && $check['parent1'])
+			{
+				\dash\notif::error(T_("Can not choose this record as parent of another record"), 'parent');
+				return false;
+			}
+		}
+
+
+		$args            = [];
+		$args['title']   = $title;
+		$args['in']      = $in;
+		$args['type']    = $type;
+		$args['status']  = $status;
+		$args['parent1'] = $parent1;
 
 		return $args;
 
@@ -101,6 +132,7 @@ class category
 			switch ($key)
 			{
 				case 'id':
+				case 'parent1':
 					$result[$key] = \dash\coding::encode($value);
 					break;
 

@@ -35,24 +35,22 @@ class category
 	}
 
 
-	public static function search($_string = null, $_option = [])
+	public static function search($_string = null, $_args = [])
 	{
 		$default =
 		[
-			'search_field' =>
-			"
-				i_cat.title LIKE ('%__string__%')
-			",
+			'search_field' => " ( title LIKE '%__string__%') ",
+			'public_show_field' => "i_cat.*, (SELECT myCat.title from i_cat AS `myCat` WHERE myCat.id = i_cat.parent1 LIMIT 1 ) AS `parent_title`",
 		];
 
-		if(!is_array($_option))
+		if(!is_array($_args))
 		{
-			$_option = [];
+			$_args = [];
 		}
 
-		$_option = array_merge($default, $_option);
+		$_args = array_merge($default, $_args);
 
-		$result = \dash\db\config::public_search('i_cat', $_string, $_option);
+		$result = \dash\db\config::public_search('i_cat', $_string, $_args);
 		return $result;
 	}
 

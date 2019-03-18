@@ -8,21 +8,11 @@ class model
 	{
 
 		$post                  = [];
-		$post['country']       = \dash\request::post('country');
-		$post['category']          = \dash\request::post('pos');
-		$post['title']         = \dash\request::post('title');
-		$post['accountnumber'] = \dash\request::post('accountnumber');
-		$post['shaba']         = \dash\request::post('shaba');
-		$post['card']          = \dash\request::post('card');
-		$post['iban']          = \dash\request::post('iban');
-		$post['swift']         = \dash\request::post('swift');
-		$post['branch']        = \dash\request::post('branch');
-		$post['branchcode']    = \dash\request::post('branchcode');
-		$post['owner']         = \dash\request::post('owner');
-		$post['nameoncard']    = \dash\request::post('nameoncard');
-		$post['expire']        = \dash\request::post('expire');
-		$post['cvv2']          = \dash\request::post('cvv2');
-		$post['desc']          = \dash\request::post('desc');
+		$post['title']  = \dash\request::post('title');
+		$post['parent'] = \dash\request::post('parent');
+		$post['in']     = \dash\request::post('in');
+		$post['type']   = 'cat';
+
 
 		\lib\app\category::edit($post, \dash\request::get('id'));
 

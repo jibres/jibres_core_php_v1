@@ -33,6 +33,10 @@ class view
 		$countryList = \dash\utility\location\countres::$data;
 		\dash\data::countryList($countryList);
 
+
+		\dash\data::parentList(\lib\app\category::parent_list());
+		\dash\data::myList(\lib\app\category::list());
+
 	}
 }
 ?>

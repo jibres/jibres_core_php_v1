@@ -8,14 +8,15 @@ class view
 		$countryList = \dash\utility\location\countres::$data;
 		\dash\data::countryList($countryList);
 
-		\dash\data::page_title(T_("Add new category account detail"));
-		\dash\data::page_desc(T_("Add new account detail"));
-		\dash\data::page_pictogram('new-sign');
+		\dash\data::page_title(T_("Add new category"));
+		\dash\data::page_desc(T_("Add new category to set on transaction"));
+		\dash\data::page_pictogram('tag');
 
 		\dash\data::badge_link(\dash\url::this());
 		\dash\data::badge_text(T_('Back'));
 
-
+		\dash\data::parentList(\lib\app\category::parent_list());
+		\dash\data::myList(\lib\app\category::list());
 	}
 }
 ?>

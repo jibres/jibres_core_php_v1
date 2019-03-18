@@ -54,7 +54,9 @@
       <tr>
 
         <th class="">#</th>
+        <th class="" data-sort="{{sortLink.parent.order}}"><a href="{{sortLink.parent.link}}">{%trans "Parent"%}</a></th>
         <th class="" data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "Title"%}</a></th>
+        <th class="" data-sort="{{sortLink.in.order}}"><a href="{{sortLink.in.link}}">{%trans "Use in incoming"%}</a></th>
 
         <th class="" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
 
@@ -66,8 +68,9 @@
       {%for key, value in dataTable%}
       <tr>
         <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
-        <td class="">{{value.title | fitNumber(false)}}</td>
-
+        <td class="">{{value.parent_title}}</td>
+        <td class="">{{value.title}}</td>
+        <td class="">{%if value.in%}<i class="sf-check fc-green"></i>{%else%}<i class="sf-times fc-red"></i>{%endif%}</td>
         <td class="">{%set myStatus = value.status%}{%trans myStatus%}</td>
 
         <td class="collapsing"  title="{{value.datecreated | dt}}">
