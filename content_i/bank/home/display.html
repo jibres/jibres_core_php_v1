@@ -54,49 +54,49 @@
       <tr>
 
         <th class="">#</th>
-        <th class="" data-sort="{{sortLink.country.order}}"><a href="{{sortLink.country.link}}">{%trans "country"%}</a></th>
-        <th class="" data-sort="{{sortLink.bank.order}}"><a href="{{sortLink.bank.link}}">{%trans "bank"%}</a></th>
-        <th class="" data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "title"%}</a></th>
-        <th class="" data-sort="{{sortLink.accountnumber.order}}"><a href="{{sortLink.accountnumber.link}}">{%trans "accountnumber"%}</a></th>
-        <th class="" data-sort="{{sortLink.shaba.order}}"><a href="{{sortLink.shaba.link}}">{%trans "shaba"%}</a></th>
-        <th class="" data-sort="{{sortLink.card.order}}"><a href="{{sortLink.card.link}}">{%trans "card"%}</a></th>
-        <th class="" data-sort="{{sortLink.branch.order}}"><a href="{{sortLink.branch.link}}">{%trans "branch"%}</a></th>
-        <th class="" data-sort="{{sortLink.branchcode.order}}"><a href="{{sortLink.branchcode.link}}">{%trans "branchcode"%}</a></th>
-        <th class="" data-sort="{{sortLink.owner.order}}"><a href="{{sortLink.owner.link}}">{%trans "owner"%}</a></th>
-        <th class="" data-sort="{{sortLink.iban.order}}"><a href="{{sortLink.iban.link}}">{%trans "iban"%}</a></th>
-        <th class="" data-sort="{{sortLink.nameoncard.order}}"><a href="{{sortLink.nameoncard.link}}">{%trans "nameoncard"%}</a></th>
-        <th class="" data-sort="{{sortLink.swift.order}}"><a href="{{sortLink.swift.link}}">{%trans "swift"%}</a></th>
-        <th class="" data-sort="{{sortLink.expire.order}}"><a href="{{sortLink.expire.link}}">{%trans "expire"%}</a></th>
-        <th class="" data-sort="{{sortLink.cvv2.order}}"><a href="{{sortLink.cvv2.link}}">{%trans "cvv2"%}</a></th>
-        <th class="" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "status"%}</a></th>
-        <th class="" data-sort="{{sortLink.desc.order}}"><a href="{{sortLink.desc.link}}">{%trans "desc"%}</a></th>
+        <th class="" data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "Title"%}</a></th>
+        <th class="" data-sort="{{sortLink.owner.order}}"><a href="{{sortLink.owner.link}}">{%trans "Owner"%}</a></th>
+        <th class="" data-sort="{{sortLink.nameoncard.order}}"><a href="{{sortLink.nameoncard.link}}">{%trans "Name on card"%}</a></th>
+        <th>{%trans "Detail"%}</th>
+        <th class="" data-sort="{{sortLink.branch.order}}"><a href="{{sortLink.branch.link}}">{%trans "Branch"%}</a></th>
+        <th class="" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
+        <th class="" data-sort="{{sortLink.desc.order}}"><a href="{{sortLink.desc.link}}">{%trans "Description"%}</a></th>
         <th class="" data-sort="{{sortLink.datecreated.order}}"><a href="{{sortLink.datecreated.link}}">{%trans "Date created"%}</a></th>
-
       </tr>
     </thead>
 
     <tbody>
       {%for key, value in dataTable%}
       <tr>
-        <td class="" ><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
-
-        <td class=""><i class="{{value.country | lower}} flag"></i></td>
-        <td class="">{%set myBank = value.bank | capitalize%}{%trans myBank%} <i class="spay-32-{{value.bank}}"></i></td>
+        <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
         <td class="">{{value.title | fitNumber(false)}}</td>
-        <td class="">{{value.accountnumber | fitNumber(false)}}</td>
-        <td class="">{{value.shaba | fitNumber(false)}}</td>
-        <td class="">{{value.card | fitNumber(false)}}</td>
-        <td class="">{{value.branch | fitNumber(false)}}</td>
-        <td class="">{{value.branchcode | fitNumber(false)}}</td>
-        <td class="">{{value.owner | fitNumber(false)}}</td>
-        <td class="">{{value.iban | fitNumber(false)}}</td>
-        <td class="">{{value.nameoncard | fitNumber(false)}}</td>
-        <td class="">{{value.swift | fitNumber(false)}}</td>
-        <td class="">{{value.expire | fitNumber(false)}}</td>
-        <td class="">{{value.cvv2 | fitNumber(false)}}</td>
-        <td class="">{{value.status | fitNumber(false)}}</td>
-        <td class="">{{value.desc | fitNumber(false)}}</td>
-        <td class=""  title="{{value.datetime | dt}}">{{value.datetime | dt('human','year')}} <br> <a href="{{url.this}}?date={{value.datetime | date('Y-m-d')}}">{{value.datetime | dt(true)}}</a></td>
+        <td class="">{{value.owner}}</td>
+        <td class="">{{value.nameoncard}}</td>
+        <td class="">
+
+          <div><i class="{{value.country | lower}} flag"></i> {%set myBank = value.bank | capitalize%}{%trans myBank%}</div>
+          {%if value.accountnumber%}<div><span class="badge light">{%trans "Account number"%}</span> <span>{{value.accountnumber | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.shaba%}<div><span class="badge light">{%trans "Shaba"%}</span> <span>IR-{{value.shaba | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.card%}<div><span class="badge light">{%trans "Card"%}</span> <span>{{value.card | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.expire%}<div><span class="badge light">{%trans "Expire"%}</span> <span>{{value.expire | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.cvv2%}<div><span class="badge light">{%trans "CVV2"%}</span> <span>{{value.cvv2 | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.iban%}<div><span class="badge light">{%trans "IBAN"%}</span> <span>{{value.iban | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.swift%}<div><span class="badge light">{%trans "Swift"%}</span> <span>{{value.swift | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.card%}<div><span class="badge light">{%trans "Card"%}</span> <span>{{value.card | fitNumber(false)}}</span></div>{%endif%}
+        </td>
+
+        <td class="">
+          {{value.branch}}
+          <div>{{value.branchcode | fitNumber(false)}}</div>
+        </td>
+        <td class="">{%set myStatus = value.status%}{%trans myStatus%}</td>
+        <td class="">{{value.desc}}</td>
+        <td class="collapsing"  title="{{value.datecreated | dt}}">
+          <div>{{value.datecreated | dt('human','year')}}</div>
+          <div>{{value.datecreated | dt(true)}}</div>
+          {%if value.datemodified%}<div class="badge warn2">{%trans "Edit on"%}{{value.datemodified | dt('human','year')}}  {{value.datecreated | dt(true)}}</div>{%endif%}
+
+        </td>
       </tr>
       {%endfor%}
     </tbody>
