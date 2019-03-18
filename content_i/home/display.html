@@ -1,0 +1,23 @@
+{%extends display.dash%}
+
+
+
+{%block pageContent%}
+  <div class="f">
+
+    <div class="c12 s12">{{block('bBanks')}}</div>
+
+
+  </div>
+{%endblock%}
+
+
+
+{%block bBanks%}
+<a class="dcard x2" href='{{url.here}}/bank'>
+ <div class="statistic red">
+  <div class="value mB10"><i class="sf-building"></i></div>
+  <div class="label">{%trans "Bank"%}</div>
+ </div>
+</a>
+{%endblock%}

@@ -1,0 +1,113 @@
+{%extends display.dash%}
+
+
+
+{%block sidenav%}
+  <li><a href="{{url.here}}"><i class='sf-group-full'></i> <span>{% trans "Manage" %}</span></a></li>
+
+{%endblock%}
+
+
+{%block idesc%}
+<label for="desc">{%trans "Description"%}</label>
+<textarea class="txt mB10" id='desc' name="desc"  maxlength='500' rows="5">{{dataRow.desc}}</textarea>
+{%endblock%}
+
+
+{%block idate %}
+<label for="date">{%trans "Date"%}</label>
+<div class="input">
+  <input class="datepicker" type="text" name="date" id="date" placeholder='{{"now" | dt}}' value="{{dataRow.datetime}}" maxlength='15' data-format="YYYY/MM/DD" data-view="day">
+</div>
+{% endblock %}
+
+
+{%block itime %}
+<label for="time">{%trans "Time"%}</label>
+<div class="input clockpicker ltr">
+  <input type="text" name="time" id="time" value='{{dataRow.datetime | date("H:i")}}' autocomplete="off">
+</div>
+{% endblock %}
+
+{%block ititle%}
+<label for='title'>{%trans "title"%}</label>
+<select name="title" class="select ui dropdown search addition" id="title">
+  <option value="">{%trans "Add or select"%}</option>
+  <option value="0">{%trans "Non"%}</option>
+  {%for key, value in myList.title%}
+    <option value="{{value}}" {%if value == dataRow.title %} selected{%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+{%endblock%}
+
+{%block isubtitle%}
+<label for='subtitle'>{%trans "subtitle"%}</label>
+<select name="subtitle" class="select ui dropdown search addition" id="subtitle">
+  <option value="">{%trans "Add or select"%}</option>
+  <option value="0">{%trans "Non"%}</option>
+  {%for key, value in myList.subtitle%}
+    <option value="{{value}}"{%if value == dataRow.subtitle %} selected{%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+{%endblock%}
+
+
+{%block icat%}
+<label for='cat'>{%trans "cat"%}</label>
+<select name="cat" class="select ui dropdown search addition" id="cat">
+  <option value="">{%trans "Add or select"%}</option>
+  <option value="0">{%trans "Non"%}</option>
+  {%for key, value in myList.cat%}
+
+    <option value="{{value}}" {%if value == dataRow.cat %} selected{%endif%}>{{value}}</option>
+
+  {%endfor%}
+</select>
+{%endblock%}
+
+{%block icat2%}
+<label for='cat2'>{%trans "cat2"%}</label>
+<select name="cat2" class="select ui dropdown search addition" id="cat2">
+  <option value="">{%trans "Add or select"%}</option>
+  <option value="0">{%trans "Non"%}</option>
+  {%for key, value in myList.cat2%}
+
+    <option value="{{value}}" {%if value == dataRow.cat2 %} selected{%endif%}>{{value}}</option>
+
+  {%endfor%}
+</select>
+{%endblock%}
+
+{%block isize%}
+<label for='size'>{%trans "size"%}</label>
+<select name="size" class="select ui dropdown search addition" id="size">
+  <option value="">{%trans "Add or select"%}</option>
+  <option value="0">{%trans "Non"%}</option>
+  {%for key, value in myList.size%}
+
+    <option value="{{value}}" {%if value == dataRow.size %} selected{%endif%}>{{value}}</option>
+
+  {%endfor%}
+</select>
+{%endblock%}
+
+
+{% block iimage %}
+<div class="input preview">
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="image" id="image1" data-preview data-max="500">
+ <label for="image1" title='{%trans "Avatar"%}'>
+    {%if dataRow.image%}<img src="{{dataRow.image}}">{%endif%}
+ </label>
+</div>
+{%endblock%}
+
+
+{%block iadd%}
+<button class="btn primary block mT20">{%trans "Add"%}</button>
+{%endblock%}
+
+{%block isave%}
+<button class="btn primary block mT20">{%trans "Save"%}</button>
+{%endblock%}
+
+
