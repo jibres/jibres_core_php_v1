@@ -1,0 +1,128 @@
+{%extends 'content_i/inout/layout.html'%}
+
+
+
+{%block pageContent%}
+
+{%if dataTable%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12">
+  <form method="get" action='{{url.this}}'>
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus  data-pass='submit' autocomplete='off'>
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+{%block htmlTable%}
+
+  <table class="tbl1 v1 cbox fs12">
+    <thead>
+      <tr>
+
+        <th class="">#</th>
+        <th class="" data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "Title"%}</a></th>
+        <th class="" data-sort="{{sortLink.owner.order}}"><a href="{{sortLink.owner.link}}">{%trans "Owner"%}</a></th>
+        <th class="" data-sort="{{sortLink.nameoncard.order}}"><a href="{{sortLink.nameoncard.link}}">{%trans "Name on card"%}</a></th>
+        <th>{%trans "Detail"%}</th>
+        <th class="" data-sort="{{sortLink.branch.order}}"><a href="{{sortLink.branch.link}}">{%trans "Branch"%}</a></th>
+        <th class="" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
+        <th class="" data-sort="{{sortLink.desc.order}}"><a href="{{sortLink.desc.link}}">{%trans "Description"%}</a></th>
+        <th class="" data-sort="{{sortLink.datecreated.order}}"><a href="{{sortLink.datecreated.link}}">{%trans "Date created"%}</a></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {%for key, value in dataTable%}
+      <tr>
+        <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
+        <td class="">{{value.title | fitNumber(false)}}</td>
+        <td class="">{{value.owner}}</td>
+        <td class="">{{value.nameoncard}}</td>
+        <td class="">
+
+          <div><i class="{{value.country | lower}} flag"></i> {%set myBank = value.inout | capitalize%}{%trans myBank%}</div>
+          {%if value.accountnumber%}<div><span class="badge light">{%trans "Account number"%}</span> <span>{{value.accountnumber | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.shaba%}<div><span class="badge light">{%trans "Shaba"%}</span> <span>IR-{{value.shaba | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.card%}<div><span class="badge light">{%trans "Card"%}</span> <span>{{value.card | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.expire%}<div><span class="badge light">{%trans "Expire"%}</span> <span>{{value.expire | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.cvv2%}<div><span class="badge light">{%trans "CVV2"%}</span> <span>{{value.cvv2 | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.iban%}<div><span class="badge light">{%trans "IBAN"%}</span> <span>{{value.iban | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.swift%}<div><span class="badge light">{%trans "Swift"%}</span> <span>{{value.swift | fitNumber(false)}}</span></div>{%endif%}
+          {%if value.card%}<div><span class="badge light">{%trans "Card"%}</span> <span>{{value.card | fitNumber(false)}}</span></div>{%endif%}
+        </td>
+
+        <td class="">
+          {{value.branch}}
+          <div>{{value.branchcode | fitNumber(false)}}</div>
+        </td>
+        <td class="">{%set myStatus = value.status%}{%trans myStatus%}</td>
+        <td class="">{{value.desc}}</td>
+        <td class="collapsing"  title="{{value.datecreated | dt}}">
+          <div>{{value.datecreated | dt('human','year')}}</div>
+          <div>{{value.datecreated | dt(true)}}</div>
+          {%if value.datemodified%}<div class="badge warn2">{%trans "Edit on"%} {{value.datemodified | dt('human','year')}}  {{value.datecreated | dt(true)}}</div>{%endif%}
+
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  {%include display.pagination%}
+
+{%endblock%}
+
+
+{%block htmlFilter%}
+<p class="f fs14 msg info2">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.this}}/add">{%trans "Add"%}</a></p>
+{%endblock%}
+

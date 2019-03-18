@@ -5,7 +5,8 @@
 {%block pageContent%}
   <div class="f">
 
-    <div class="c12 s12">{{block('bJib')}}</div>
+    <div class="c6 s12">{{block('bInOut')}}</div>
+    <div class="c6 s12">{{block('bJib')}}</div>
     <div class="c6 s12">{{block('bBanks')}}</div>
     <div class="c6 s12">{{block('bCategory')}}</div>
 
@@ -45,6 +46,17 @@
  <div class="statistic green">
   <div class="value mB10"><i class="sf-star"></i></div>
   <div class="label">{%trans "Jib"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block bInOut%}
+<a class="dcard x2" href='{{url.here}}/inout'>
+ <div class="statistic yellow">
+  <div class="value mB10"><i class="sf-exchange"></i></div>
+  <div class="label">{%trans "In out"%}</div>
  </div>
 </a>
 {%endblock%}

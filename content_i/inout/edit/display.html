@@ -1,0 +1,38 @@
+{%extends 'content_i/inout/layout.html'%}
+
+{%block pageContent%}
+<form method="post" enctype="multipart/form-data" autocomplete="off">
+<div class="f justify-center">
+  <div class="c4 s12">
+    <div class="cbox">
+
+        {{block('icountry')}}
+        {{block('iinout')}}
+        {{block('ititle')}}
+        {{block('iaccountnumber')}}
+        {{block('ishaba')}}
+        {{block('icard')}}
+        {{block('iiban')}}
+        {{block('iswift')}}
+        {{block('ibranch')}}
+        {{block('ibranchcode')}}
+        {{block('iowner')}}
+        {{block('inameoncard')}}
+        {{block('iexpire')}}
+        {{block('icvv2')}}
+        {{block('idesc')}}
+        {{block('isave')}}
+    </div>
+  </div>
+</div>
+</form>
+{%endblock%}
+
+
+
+
+
+
+
+
+
