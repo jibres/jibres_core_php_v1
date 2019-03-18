@@ -2,11 +2,23 @@
 
 
 
-{%block sidenav%}
-  <li><a href="{{url.here}}"><i class='sf-group-full'></i> <span>{% trans "Manage" %}</span></a></li>
-
+{%block icountry%}
+<div class="mB10">
+  <label for='country'>{%trans "Country"%}</label>
+  <div class="ui fluid search selection dropdown">
+    <input type="hidden" name="country" value="{%if dataRow.country%}{{dataRow.country}}{%else%}IR{%endif%}">
+    <i class="dropdown icon"></i>
+    <div class="default text">{%trans "Choose your country"%}</div>
+    <div class="menu">
+{%for key, value in countryList%}
+      <div class="item" data-value="{{key}}">
+        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}<small class="description">{{value.name | capitalize}}</small>
+      </div>
+{%endfor%}
+    </div>
+  </div>
+</div>
 {%endblock%}
-
 
 {%block idesc%}
 <label for="desc">{%trans "Description"%}</label>
@@ -14,31 +26,136 @@
 {%endblock%}
 
 
-{%block idate %}
-<label for="date">{%trans "Date"%}</label>
+{%block ibank %}
+<div data-response='country' data-response-where='IR'>
+  <label for="pos">{%trans "Please choose bank"%}</label>
+  {%include display.spay%}
+</div>
+
+<div data-response='country' data-response-where-not='IR' data-response-hide>
+  <label for="bank">{%trans "Bank"%}</label>
+  <div class="input">
+    <input type="text" name="bank" id="bank"  value="{{dataRow.bank}}" maxlength='150'>
+  </div>
+</div>
+{% endblock %}
+
+
+
+{%block ititle %}
+<label for="title">{%trans "Title"%}</label>
 <div class="input">
-  <input class="datepicker" type="text" name="date" id="date" placeholder='{{"now" | dt}}' value="{{dataRow.datetime}}" maxlength='15' data-format="YYYY/MM/DD" data-view="day">
+  <input type="text" name="title" id="title"  value="{{dataRow.title}}" maxlength='150'>
 </div>
 {% endblock %}
 
 
-{%block itime %}
-<label for="time">{%trans "Time"%}</label>
-<div class="input clockpicker ltr">
-  <input type="text" name="time" id="time" value='{{dataRow.datetime | date("H:i")}}' autocomplete="off">
+{%block iaccountnumber %}
+<label for="accountnumber">{%trans "Account number"%}</label>
+<div class="input">
+  <input type="number" name="accountnumber" id="accountnumber"  value="{{dataRow.accountnumber}}" max='99999999999999999999999'>
 </div>
 {% endblock %}
 
-{%block ititle%}
-<label for='title'>{%trans "title"%}</label>
-<select name="title" class="select ui dropdown search addition" id="title">
-  <option value="">{%trans "Add or select"%}</option>
-  <option value="0">{%trans "Non"%}</option>
-  {%for key, value in myList.title%}
-    <option value="{{value}}" {%if value == dataRow.title %} selected{%endif%}>{{value}}</option>
-  {%endfor%}
-</select>
-{%endblock%}
+
+{%block ishaba %}
+<label for="shaba">{%trans "Shaba"%}</label>
+<div class="input">
+  <input type="number" name="shaba" id="shaba"  value="{{dataRow.shaba}}" max='999999999999999999999999999999'>
+  <label for="shaba" class="addon ltr">IR-</label>
+</div>
+{% endblock %}
+
+
+{%block icard %}
+<label for="card">{%trans "Card"%}</label>
+<div class="input">
+  <input type="number" name="card" id="card"  value="{{dataRow.card}}" max='99999999999999999999'>
+</div>
+{% endblock %}
+
+
+{%block ibranch %}
+<label for="branch">{%trans "Branch"%}</label>
+<div class="input">
+  <input type="text" name="branch" id="branch"  value="{{dataRow.branch}}" maxlength='150'>
+</div>
+{% endblock %}
+
+
+{%block ibranchcode %}
+<label for="branchcode">{%trans "Branch code"%}</label>
+<div class="input">
+  <input type="text" name="branchcode" id="branchcode"  value="{{dataRow.branchcode}}" maxlength='150'>
+</div>
+{% endblock %}
+
+
+{%block iowner %}
+<label for="owner">{%trans "Owneer"%}</label>
+<div class="input">
+  <input type="text" name="owner" id="owner"  value="{{dataRow.owner}}" maxlength='150'>
+</div>
+{% endblock %}
+
+
+{%block iiban %}
+<div data-response='country' data-response-where-not='IR' {%if dataRow.country == 'IR' or not dataRow.country %}data-response-hide{%endif%}>
+  <label for="iban">{%trans "IBAN"%}</label>
+  <div class="input">
+    <input type="text" name="iban" id="iban"  value="{{dataRow.iban}}" maxlength='150'>
+  </div>
+</div>
+{% endblock %}
+
+
+{%block iswift %}
+<div data-response='country' data-response-where-not='IR' {%if dataRow.country == 'IR' or not dataRow.country %}data-response-hide{%endif%}>
+  <label for="swift">{%trans "SWIFT"%}</label>
+  <div class="input">
+    <input type="text" name="swift" id="swift"  value="{{dataRow.swift}}" maxlength='150'>
+  </div>
+</div>
+{% endblock %}
+
+
+{%block inameoncard %}
+<label for="nameoncard">{%trans "Name on card"%}</label>
+<div class="input">
+  <input type="text" name="nameoncard" id="nameoncard"  value="{{dataRow.nameoncard}}" maxlength='150'>
+</div>
+{% endblock %}
+
+
+
+
+{%block iexpire %}
+<label for="expire">{%trans "Expire"%}</label>
+<div class="input">
+  <input type="text" name="expire" id="expire"  value="{{dataRow.expire}}" maxlength='7'>
+</div>
+{% endblock %}
+
+
+{%block icvv2 %}
+<label for="cvv2">{%trans "CVV2"%}</label>
+<div class="input">
+  <input type="text" name="cvv2" id="cvv2"  value="{{dataRow.cvv2}}" maxlength='8'>
+</div>
+{% endblock %}
+
+
+
+{%block istatus %}
+<label for="status">{%trans "Status"%}</label>
+<div class="input">
+  <input type="text" name="status" id="status"  value="{{dataRow.status}}" maxlength='150'>
+</div>
+{% endblock %}
+
+
+
+
 
 {%block isubtitle%}
 <label for='subtitle'>{%trans "subtitle"%}</label>
@@ -63,42 +180,6 @@
 
   {%endfor%}
 </select>
-{%endblock%}
-
-{%block icat2%}
-<label for='cat2'>{%trans "cat2"%}</label>
-<select name="cat2" class="select ui dropdown search addition" id="cat2">
-  <option value="">{%trans "Add or select"%}</option>
-  <option value="0">{%trans "Non"%}</option>
-  {%for key, value in myList.cat2%}
-
-    <option value="{{value}}" {%if value == dataRow.cat2 %} selected{%endif%}>{{value}}</option>
-
-  {%endfor%}
-</select>
-{%endblock%}
-
-{%block isize%}
-<label for='size'>{%trans "size"%}</label>
-<select name="size" class="select ui dropdown search addition" id="size">
-  <option value="">{%trans "Add or select"%}</option>
-  <option value="0">{%trans "Non"%}</option>
-  {%for key, value in myList.size%}
-
-    <option value="{{value}}" {%if value == dataRow.size %} selected{%endif%}>{{value}}</option>
-
-  {%endfor%}
-</select>
-{%endblock%}
-
-
-{% block iimage %}
-<div class="input preview">
- <input type="file" accept="image/gif, image/jpeg, image/png" name="image" id="image1" data-preview data-max="500">
- <label for="image1" title='{%trans "Avatar"%}'>
-    {%if dataRow.image%}<img src="{{dataRow.image}}">{%endif%}
- </label>
-</div>
 {%endblock%}
 
 

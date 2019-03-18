@@ -44,149 +44,146 @@ class bank
 	public static function check($_id = null)
 	{
 
-		$title    = \dash\app::request('title');
-		if($title && mb_strlen($title) > 100)
+		$country       = \dash\app::request('country');
+		if($country && !\dash\utility\location\countres::check($country))
 		{
-			\dash\notif::error(T_("Ops!"), 'request');
-			return false;
-		}
-
-		if(!$title)
-		{
-			\dash\notif::error(T_("Ops!"), 'request');
-			return false;
-		}
-
-		$subtitle = \dash\app::request('subtitle');
-		if($subtitle && mb_strlen($subtitle) > 100)
-		{
-			\dash\notif::error(T_("Ops!"), 'request');
-			return false;
-		}
-
-		$cat      = \dash\app::request('cat');
-		if($cat && mb_strlen($cat) > 100)
-		{
-			\dash\notif::error(T_("Ops!"), 'request');
-			return false;
-		}
-
-		$cat2     = \dash\app::request('cat2');
-		if($cat2 && mb_strlen($cat2) > 100)
-		{
-			\dash\notif::error(T_("Ops!"), 'request');
-			return false;
-		}
-
-		$size     = \dash\app::request('size');
-		if($size && mb_strlen($size) > 100)
-		{
-			\dash\notif::error(T_("Ops!"), 'request');
-			return false;
-		}
-
-		$desc     = \dash\app::request('desc');
-		if($desc && mb_strlen($desc) > 1000)
-		{
-			\dash\notif::error(T_("Ops!"), 'request');
-			return false;
-		}
-
-		$image    = \dash\app::request('image');
-		if($image && mb_strlen($image) > 1000)
-		{
-			\dash\notif::error(T_("Ops!"), 'request');
-			return false;
-		}
-
-		$status   = \dash\app::request('status');
-		if($status && mb_strlen($status) > 100)
-		{
-			\dash\notif::error(T_("Ops!"), 'request');
+			\dash\notif::error(T_("Invalid country"), 'country');
 			return false;
 		}
 
 
-		$date     = \dash\app::request('date');
-		if(!$date)
+
+		$bank          = \dash\app::request('bank');
+		if(!$bank)
 		{
-			$date = date("Y-m-d");
-		}
-		else
-		{
-			$date = \dash\date::db($date);
-			if($date === false)
-			{
-				\dash\notif::error(T_("Ops!"), 'date');
-				return false;
-			}
-			$date = \dash\date::force_gregorian($date);
-			$date = \dash\date::db($date);
+			\dash\notif::error(T_("Plese set bank name"), 'bank');
+			return false;
 		}
 
-		$time     = \dash\app::request('time');
-
-		if(!$time)
+		if(mb_strlen($bank) > 150)
 		{
-			$time = date("H:i:s");
-		}
-		else
-		{
-			$time = \dash\date::make_time($time);
-			if($time === false)
-			{
-				\dash\notif::error(T_("Ops!"), 'time');
-				return false;
-			}
+			\dash\noitf::error(T_("Pleas set bank name less than 150 character"), 'bank');
+			return false;
 		}
 
-		if(!$image && $title)
+		$title         = \dash\app::request('title');
+		if($title && mb_strlen($title) > 150)
 		{
-			$get = \lib\db\bank::get(['title' => $title, 'image' => [' IS NOT ', ' NULL'], 'user_id' => \dash\user::id(), 'limit' => 1]);
-			if(isset($get['image']))
-			{
-				\dash\temp::set('imageLoaded', true);
-				$image = $get['image'];
-			}
+			\dash\notif::error(T_("Please set title less than 150 character"), 'title');
+			return false;
 		}
 
-		$args             = [];
-		$args['image']   = $image;
-		$args['datetime'] = $date .' '. $time;
-		$args['title']    = $title ? $title : null;
-		$args['subtitle'] = $subtitle ? $subtitle : null;
-		$args['cat']      = $cat ? $cat : null;
-		$args['cat2']     = $cat2 ? $cat2 : null;
-		$args['size']     = $size ? $size : null;
-		$args['desc']     = $desc ? $desc : null;
+		$accountnumber = \dash\app::request('accountnumber');
+		if($accountnumber && mb_strlen($accountnumber) > 150)
+		{
+			\dash\notif::error(T_("Please set accountnumber less than 150 character"), 'accountnumber');
+			return false;
+		}
 
-		// $args['status']   = $status;
+		$shaba         = \dash\app::request('shaba');
+		if($shaba && mb_strlen($shaba) > 150)
+		{
+			\dash\notif::error(T_("Please set shaba less than 150 character"), 'shaba');
+			return false;
+		}
+
+		$card          = \dash\app::request('card');
+		if($card && mb_strlen($card) > 150)
+		{
+			\dash\notif::error(T_("Please set card less than 150 character"), 'card');
+			return false;
+		}
+
+		$branch        = \dash\app::request('branch');
+		if($branch && mb_strlen($branch) > 150)
+		{
+			\dash\notif::error(T_("Please set branch less than 150 character"), 'branch');
+			return false;
+		}
+
+		$branchcode    = \dash\app::request('branchcode');
+		if($branchcode && mb_strlen($branchcode) > 150)
+		{
+			\dash\notif::error(T_("Please set branchcode less than 150 character"), 'branchcode');
+			return false;
+		}
+
+		$owner         = \dash\app::request('owner');
+		if($owner && mb_strlen($owner) > 150)
+		{
+			\dash\notif::error(T_("Please set owner less than 150 character"), 'owner');
+			return false;
+		}
+
+		$iban          = \dash\app::request('iban');
+		if($iban && mb_strlen($iban) > 150)
+		{
+			\dash\notif::error(T_("Please set iban less than 150 character"), 'iban');
+			return false;
+		}
+
+		$nameoncard    = \dash\app::request('nameoncard');
+		if($nameoncard && mb_strlen($nameoncard) > 150)
+		{
+			\dash\notif::error(T_("Please set nameoncard less than 150 character"), 'nameoncard');
+			return false;
+		}
+
+		$swift         = \dash\app::request('swift');
+		if($swift && mb_strlen($swift) > 150)
+		{
+			\dash\notif::error(T_("Please set swift less than 150 character"), 'swift');
+			return false;
+		}
+
+
+		$expire        = \dash\app::request('expire');
+		if($expire && mb_strlen($expire) > 7)
+		{
+			\dash\notif::error(T_("Please set swift less than 7 character"), 'expire');
+			return false;
+		}
+
+		$cvv2          = \dash\app::request('cvv2'); // ` varchar(10)CHARACTER SET utf8mb4 NULL DEFAULT NULL,
+		if($cvv2 && mb_strlen($cvv2) > 8)
+		{
+			\dash\notif::error(T_("Please set swift less than 8 character"), 'cvv2');
+			return false;
+		}
+
+		$status        = \dash\app::request('status');
+		if($status && !in_array($status, ['enable', 'disable', 'deleted', 'expire', 'lost','useless']))
+		{
+			\dash\notif::error(T_("Invalid status"), 'status');
+			return false;
+		}
+
+		$desc          = \dash\app::request('desc');
+
+		$args                  = [];
+
+		$args['country']       = $country;
+		$args['bank']          = $bank;
+		$args['title']         = $title;
+		$args['accountnumber'] = $accountnumber;
+		$args['shaba']         = $shaba;
+		$args['card']          = $card;
+		$args['branch']        = $branch;
+		$args['branchcode']    = $branchcode;
+		$args['owner']         = $owner;
+		$args['iban']          = $iban;
+		$args['nameoncard']    = $nameoncard;
+		$args['swift']         = $swift;
+		$args['expire']        = $expire;
+		$args['cvv2']          = $cvv2;
+		$args['status']        = $status;
+		$args['desc']          = $desc;
+
 
 		return $args;
 
 	}
 
-
-	public static function myList()
-	{
-		if(!\dash\user::id())
-		{
-			return null;
-		}
-
-		$get  = \lib\db\bank::myList(\dash\user::id());
-		$list = [];
-
-		if(is_array($get))
-		{
-			foreach ($get as $key => $value)
-			{
-				$list[$key] = explode(',', $value);
-			}
-		}
-
-		return $list;
-	}
 
 
 	/**
@@ -282,22 +279,23 @@ class bank
 
 		$return  = [];
 
-		if(!isset($args['status']))
+		if(!$args['status'])
 		{
 			$args['status'] = 'enable';
 		}
+
 		$args['user_id'] = \dash\user::id();
 
 		$bank = \lib\db\bank::insert($args);
 
 		if(!$bank)
 		{
-			\dash\log::set('noWayToAddbank');
+			\dash\log::set('noWayToAddBank');
 			\dash\notif::error(T_("No way to insert bank"));
 			return false;
 		}
 
-		\dash\log::set('addbank', ['code' => $bank]);
+		\dash\log::set('iAddBank', ['code' => $bank]);
 
 		return $return;
 	}
@@ -306,7 +304,11 @@ class bank
 	public static function list($_string = null, $_args = [])
 	{
 
-
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("User not found"), 'user');
+			return false;
+		}
 
 		$default_args =
 		[
@@ -338,9 +340,10 @@ class bank
 			}
 		}
 
-		$field             = [];
 
-		$result = \lib\db\bank::search($_string, $option, $field);
+		$option['user_id'] = \dash\user::id();
+
+		$result = \lib\db\bank::search($_string, $option);
 
 		$temp            = [];
 
@@ -383,34 +386,31 @@ class bank
 			return false;
 		}
 
-		if(!\dash\app::isset_request('avatar')) unset($args['avatar']);
-		if(!\dash\app::isset_request('date')) unset($args['date']);
-		if(!\dash\app::isset_request('time')) unset($args['time']);
+		if(!\dash\app::isset_request('country')) unset($args['country']);
+		if(!\dash\app::isset_request('bank')) unset($args['bank']);
 		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('subtitle')) unset($args['subtitle']);
-		if(!\dash\app::isset_request('cat')) unset($args['cat']);
-		if(!\dash\app::isset_request('cat2')) unset($args['cat2']);
-		if(!\dash\app::isset_request('size')) unset($args['size']);
+		if(!\dash\app::isset_request('accountnumber')) unset($args['accountnumber']);
+		if(!\dash\app::isset_request('shaba')) unset($args['shaba']);
+		if(!\dash\app::isset_request('card')) unset($args['card']);
+		if(!\dash\app::isset_request('branch')) unset($args['branch']);
+		if(!\dash\app::isset_request('branchcode')) unset($args['branchcode']);
+		if(!\dash\app::isset_request('owner')) unset($args['owner']);
+		if(!\dash\app::isset_request('iban')) unset($args['iban']);
+		if(!\dash\app::isset_request('nameoncard')) unset($args['nameoncard']);
+		if(!\dash\app::isset_request('swift')) unset($args['swift']);
+		if(!\dash\app::isset_request('expire')) unset($args['expire']);
+		if(!\dash\app::isset_request('cvv2')) unset($args['cvv2']);
+		if(!\dash\app::isset_request('status')) unset($args['status']);
 		if(!\dash\app::isset_request('desc')) unset($args['desc']);
-
-		if(!\dash\temp::get('imageLoaded'))
-		{
-			if(!\dash\app::isset_request('image')) unset($args['image']);
-		}
-		// if(!\dash\app::isset_request('status')) unset($args['status']);
-
 
 
 		if(!empty($args))
 		{
 			\lib\db\bank::update($args, $id);
-			\dash\log::set('editbank', ['code' => $id]);
+			\dash\log::set('iEditBank', ['code' => $id]);
 		}
 
 		return true;
 	}
-
-
-
 }
 ?>

@@ -52,16 +52,26 @@
   <table class="tbl1 v1 cbox fs12">
     <thead>
       <tr>
+
         <th class="">#</th>
-        <th class="">{%trans "User"%}</th>
-        <th class="s0" data-sort="{{sortLink.image.order}}"><a href="{{sortLink.image.link}}">{%trans "image"%}</a></th>
+        <th class="" data-sort="{{sortLink.country.order}}"><a href="{{sortLink.country.link}}">{%trans "country"%}</a></th>
+        <th class="" data-sort="{{sortLink.bank.order}}"><a href="{{sortLink.bank.link}}">{%trans "bank"%}</a></th>
         <th class="" data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "title"%}</a></th>
-        <th class="hide s0" data-sort="{{sortLink.subtitle.order}}"><a href="{{sortLink.subtitle.link}}">{%trans "subtitle"%}</a></th>
-        <th class="hide " data-sort="{{sortLink.cat.order}}"><a href="{{sortLink.cat.link}}">{%trans "cat"%}</a></th>
-        <th class="hide s0" data-sort="{{sortLink.cat2.order}}"><a href="{{sortLink.cat2.link}}">{%trans "cat2"%}</a></th>
-        <th class="" data-sort="{{sortLink.size.order}}"><a href="{{sortLink.size.link}}">{%trans "size"%}</a></th>
-        <th class="s0" data-sort="{{sortLink.desc.order}}"><a href="{{sortLink.desc.link}}">{%trans "desc"%}</a></th>
-        <th class="" data-sort="{{sortLink.datetime.order}}"><a href="{{sortLink.datetime.link}}">{%trans "datetime"%}</a></th>
+        <th class="" data-sort="{{sortLink.accountnumber.order}}"><a href="{{sortLink.accountnumber.link}}">{%trans "accountnumber"%}</a></th>
+        <th class="" data-sort="{{sortLink.shaba.order}}"><a href="{{sortLink.shaba.link}}">{%trans "shaba"%}</a></th>
+        <th class="" data-sort="{{sortLink.card.order}}"><a href="{{sortLink.card.link}}">{%trans "card"%}</a></th>
+        <th class="" data-sort="{{sortLink.branch.order}}"><a href="{{sortLink.branch.link}}">{%trans "branch"%}</a></th>
+        <th class="" data-sort="{{sortLink.branchcode.order}}"><a href="{{sortLink.branchcode.link}}">{%trans "branchcode"%}</a></th>
+        <th class="" data-sort="{{sortLink.owner.order}}"><a href="{{sortLink.owner.link}}">{%trans "owner"%}</a></th>
+        <th class="" data-sort="{{sortLink.iban.order}}"><a href="{{sortLink.iban.link}}">{%trans "iban"%}</a></th>
+        <th class="" data-sort="{{sortLink.nameoncard.order}}"><a href="{{sortLink.nameoncard.link}}">{%trans "nameoncard"%}</a></th>
+        <th class="" data-sort="{{sortLink.swift.order}}"><a href="{{sortLink.swift.link}}">{%trans "swift"%}</a></th>
+        <th class="" data-sort="{{sortLink.expire.order}}"><a href="{{sortLink.expire.link}}">{%trans "expire"%}</a></th>
+        <th class="" data-sort="{{sortLink.cvv2.order}}"><a href="{{sortLink.cvv2.link}}">{%trans "cvv2"%}</a></th>
+        <th class="" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "status"%}</a></th>
+        <th class="" data-sort="{{sortLink.desc.order}}"><a href="{{sortLink.desc.link}}">{%trans "desc"%}</a></th>
+        <th class="" data-sort="{{sortLink.datecreated.order}}"><a href="{{sortLink.datecreated.link}}">{%trans "Date created"%}</a></th>
+
       </tr>
     </thead>
 
@@ -69,14 +79,23 @@
       {%for key, value in dataTable%}
       <tr>
         <td class="" ><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
-        <td class="" >{%if value.avatar%}<img alt="Avatart" src="{{value.avatar}}" class="avatar">{%endif%} <b><a href="{{url.this}}?user={{value.user_id}}">{{value.displayname}}</a></b></td>
-        <td class="s0" >{%if value.image%}<a href="{{value.image}}" data-direct target="_blank"><img alt="bank" src="{{value.image}}" class="avatar"></a>{%endif%}</td>
-        <td class="" ><a href="{{url.this}}?title={{value.title}}">{{value.title}}</a></td>
-        <td class="hide s0" ><a href="{{url.this}}?subtitle={{value.subtitle}}">{{value.subtitle}}</a></td>
-        <td class="hide " ><a href="{{url.this}}?cat={{value.cat}}">{{value.cat}}</a></td>
-        <td class="hide s0" ><a href="{{url.this}}?cat2={{value.cat2}}">{{value.cat2}}</a></td>
-        <td class="" ><a href="{{url.this}}?size={{value.size}}">{{value.size}}</a></td>
-        <td class="s0" >{{value.desc}}</td>
+
+        <td class=""><i class="{{value.country | lower}} flag"></i></td>
+        <td class="">{%set myBank = value.bank | capitalize%}{%trans myBank%} <i class="spay-32-{{value.bank}}"></i></td>
+        <td class="">{{value.title | fitNumber(false)}}</td>
+        <td class="">{{value.accountnumber | fitNumber(false)}}</td>
+        <td class="">{{value.shaba | fitNumber(false)}}</td>
+        <td class="">{{value.card | fitNumber(false)}}</td>
+        <td class="">{{value.branch | fitNumber(false)}}</td>
+        <td class="">{{value.branchcode | fitNumber(false)}}</td>
+        <td class="">{{value.owner | fitNumber(false)}}</td>
+        <td class="">{{value.iban | fitNumber(false)}}</td>
+        <td class="">{{value.nameoncard | fitNumber(false)}}</td>
+        <td class="">{{value.swift | fitNumber(false)}}</td>
+        <td class="">{{value.expire | fitNumber(false)}}</td>
+        <td class="">{{value.cvv2 | fitNumber(false)}}</td>
+        <td class="">{{value.status | fitNumber(false)}}</td>
+        <td class="">{{value.desc | fitNumber(false)}}</td>
         <td class=""  title="{{value.datetime | dt}}">{{value.datetime | dt('human','year')}} <br> <a href="{{url.this}}?date={{value.datetime | date('Y-m-d')}}">{{value.datetime | dt(true)}}</a></td>
       </tr>
       {%endfor%}

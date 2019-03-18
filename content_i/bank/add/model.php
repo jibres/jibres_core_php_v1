@@ -5,26 +5,29 @@ class model
 {
 	public static function post()
 	{
-		$post             = [];
-		$post['desc']     = \dash\request::post('desc');
-		$post['date']     = \dash\request::post('date');
-		$post['time']     = \dash\request::post('time');
-		$post['title']    = \dash\request::post('title');
-		$post['subtitle'] = \dash\request::post('subtitle');
-		$post['cat']      = \dash\request::post('cat');
-		$post['cat2']     = \dash\request::post('cat2');
-		$post['size']     = \dash\request::post('size');
-
-
-		$file = \dash\app\file::upload_quick('image');
-
-		if($file)
-		{
-			$post['image'] = $file;
-		}
+		$post                  = [];
+		$post['country']       = \dash\request::post('country');
+		$post['bank']          = \dash\request::post('pos');
+		$post['title']         = \dash\request::post('title');
+		$post['accountnumber'] = \dash\request::post('accountnumber');
+		$post['shaba']         = \dash\request::post('shaba');
+		$post['card']          = \dash\request::post('card');
+		$post['iban']          = \dash\request::post('iban');
+		$post['swift']         = \dash\request::post('swift');
+		$post['branch']        = \dash\request::post('branch');
+		$post['branchcode']    = \dash\request::post('branchcode');
+		$post['owner']         = \dash\request::post('owner');
+		$post['nameoncard']    = \dash\request::post('nameoncard');
+		$post['expire']        = \dash\request::post('expire');
+		$post['cvv2']          = \dash\request::post('cvv2');
+		$post['desc']          = \dash\request::post('desc');
 
 		\lib\app\bank::add($post);
-		\dash\redirect::to(\dash\url::this());
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::to(\dash\url::this());
+		}
 	}
 }
 ?>
