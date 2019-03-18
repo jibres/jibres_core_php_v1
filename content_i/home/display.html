@@ -5,6 +5,7 @@
 {%block pageContent%}
   <div class="f">
 
+    <div class="c12 s12">{{block('bJib')}}</div>
     <div class="c6 s12">{{block('bBanks')}}</div>
     <div class="c6 s12">{{block('bCategory')}}</div>
 
@@ -32,6 +33,18 @@
  <div class="statistic blue">
   <div class="value mB10"><i class="sf-tags-1"></i></div>
   <div class="label">{%trans "Category"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+
+{%block bJib%}
+<a class="dcard x2" href='{{url.here}}/jib'>
+ <div class="statistic green">
+  <div class="value mB10"><i class="sf-star"></i></div>
+  <div class="label">{%trans "Jib"%}</div>
  </div>
 </a>
 {%endblock%}
