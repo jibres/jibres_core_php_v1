@@ -8,13 +8,23 @@ class bank
 {
 	public static $sort_field =
 	[
-		'qari',
-		'avatar',
-		'type',
-		'readtype',
-		'filetype',
 		'country',
-		'quality',
+		'bank',
+		'title',
+		'accountnumber',
+		'shaba',
+		'card',
+		'branch',
+		'branchcode',
+		'owner',
+		'iban',
+		'nameoncard',
+		'swift',
+		'expire',
+		'cvv2',
+		'status',
+		'datecreated',
+		'datemodified',
 	];
 
 
