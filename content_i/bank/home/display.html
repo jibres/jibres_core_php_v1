@@ -68,7 +68,7 @@
     <tbody>
       {%for key, value in dataTable%}
       <tr>
-        <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
+        <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id}}</a></td>
         <td class="">{{value.title | fitNumber(false)}}</td>
         <td class="">{{value.owner}}</td>
         <td class="">{{value.nameoncard}}</td>

@@ -30,6 +30,12 @@ class view
 
 		\dash\data::dataRow($result);
 
+		if(\dash\data::dataRow_bank())
+		{
+			\dash\data::dataRow_pos(\dash\data::dataRow_bank());
+		}
+
+
 		$countryList = \dash\utility\location\countres::$data;
 		\dash\data::countryList($countryList);
 
