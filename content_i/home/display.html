@@ -9,11 +9,34 @@
     <div class="c6 s12">{{block('bJib')}}</div>
     <div class="c6 s12">{{block('bBanks')}}</div>
     <div class="c6 s12">{{block('bCategory')}}</div>
+    <hr>
+    <div class="c6 s12">{{block('bChequebook')}}</div>
+    <div class="c6 s12">{{block('bCheque')}}</div>
+
 
 
   </div>
 {%endblock%}
 
+
+
+{%block bChequebook%}
+<a class="dcard x2" href='{{url.here}}/chequebook'>
+ <div class="statistic red">
+  <div class="value mB10"><i class="sf-book"></i></div>
+  <div class="label">{%trans "Cheque book"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+{%block bCheque%}
+<a class="dcard x2" href='{{url.here}}/cheque'>
+ <div class="statistic red">
+  <div class="value mB10"><i class="sf-money"></i></div>
+  <div class="label">{%trans "Cheque"%}</div>
+ </div>
+</a>
+{%endblock%}
 
 
 {%block bBanks%}

@@ -1,4 +1,4 @@
-{%extends 'content_i/jib/layout.html'%}
+{%extends 'content_i/chequebook/layout.html'%}
 
 
 
@@ -53,13 +53,18 @@
     <thead>
       <tr>
 
-        <th class="">#</th>
-        <th class="" data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "Title"%}</a></th>
-        <th class="" data-sort="{{sortLink.bank_id.order}}"><a href="{{sortLink.bank_id.link}}">{%trans "Bank"%}</a></th>
 
-        <th class="" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
+        <th class="">#</th>
+        <th class="" data-sort="{{sortLink.bank_id.order}}"><a href="{{sortLink.bank_id.link}}">{%trans "Bank"%}</a></th>
+        <th class="" data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "Title"%}</a></th>
+
+        <th class="" data-sort="{{sortLink.firstserial.order}}"><a href="{{sortLink.firstserial.link}}">{%trans "First serial"%}</a></th>
+        <th class="" data-sort="{{sortLink.number.order}}"><a href="{{sortLink.number.link}}">{%trans "Number"%}</a></th>
+        <th class="" data-sort="{{sortLink.pagecount.order}}"><a href="{{sortLink.pagecount.link}}">{%trans "Page count"%}</a></th>
         <th class="">{%trans "Description"%}</th>
-        <th class="" data-sort="{{sortLink.datecreated.order}}"><a href="{{sortLink.datecreated.link}}">{%trans "Date created"%}</a></th>
+
+        <th class="" data-sort="{{sortLink.datecreated.order}}"><a href="{{sortLink.datecreated.link}}">{%trans "Datetime"%}</a></th>
+
       </tr>
     </thead>
 
@@ -67,16 +72,16 @@
       {%for key, value in dataTable%}
       <tr>
         <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"><i class="sf-edit"></i> {{value.id}}</a></td>
-        <td class="">{%if value.isdefault%}<i title='{%trans "Default jib"%}' class="sf-check fc-green"></i>{%endif%} {{value.title}}</td>
         <td class=""><a href="{{url.this}}?bank={{value.bank_id}}">{{value.bank_title}}</a></td>
-
-        <td class=""><a href="{{url.this}}?status={{value.status}}">{%set myStatus = value.status%}{%trans myStatus%}</a></td>
+        <td class=""><a href="{{url.this}}?title={{value.title}}">{{value.title}}</a></td>
+        <td class=""><a href="{{url.this}}?firstserial={{value.firstserial}}">{{value.firstserial | fitNumber(false)}}</a></td>
+        <td class=""><a href="{{url.this}}?number={{value.number}}">{{value.number | fitNumber(false)}}</a></td>
+        <td class=""><a href="{{url.this}}?pagecount={{value.pagecount}}">{{value.pagecount | fitNumber(false)}}</a></td>
         <td class="">{{value.desc}}</td>
+
         <td class="collapsing"  title="{{value.datecreated | dt}}">
           <div>{{value.datecreated | dt('human','year')}}</div>
           <div>{{value.datecreated | dt(true)}}</div>
-          {%if value.datemodified%}<div class="badge warn2">{%trans "Edit on"%} {{value.datemodified | dt('human','year')}}  {{value.datecreated | dt(true)}}</div>{%endif%}
-
         </td>
       </tr>
       {%endfor%}

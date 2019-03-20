@@ -1,0 +1,62 @@
+{%extends 'content_i/layout.html'%}
+
+
+
+{%block ibank%}
+<label for='bank'>{%trans "bank"%}</label>
+<select name="bank" class="select ui dropdown search addition" id="bank">
+  <option value="">{%trans "Add or select"%}</option>
+  {%for key, value in bankList%}
+    <option value="{{value.id}}" {%if value.id == dataRow.bank_id %} selected{%endif%}>{{value.title}}</option>
+  {%endfor%}
+</select>
+{%endblock%}
+
+
+{%block idesc%}
+<label for="desc">{%trans "Description"%}</label>
+<textarea class="txt mB10" id='desc' name="desc"  maxlength='500' rows="5">{{dataRow.desc}}</textarea>
+{%endblock%}
+
+
+{%block ititle %}
+<label for="title">{%trans "Title"%}</label>
+<div class="input">
+  <input type="text" name="title" id="title"  value="{{dataRow.title}}" maxlength='150'>
+</div>
+{% endblock %}
+
+
+
+{%block ifirstserial %}
+<label for="firstserial">{%trans "First serial"%}</label>
+<div class="input">
+  <input type="number" name="firstserial" id="firstserial"  value="{{dataRow.firstserial}}" max='999999999999999999999999999'>
+</div>
+{% endblock %}
+
+
+{%block ipagecount %}
+<label for="pagecount">{%trans "Page count"%}</label>
+<div class="input">
+  <input type="number" name="pagecount" id="pagecount"  value="{{dataRow.pagecount}}" max='99999'>
+</div>
+{% endblock %}
+
+{%block inumber %}
+<label for="number">{%trans "Cheque number"%}</label>
+<div class="input">
+  <input type="number" name="number" id="number"  value="{{dataRow.number}}" max='999999999999999999999999999'>
+</div>
+{% endblock %}
+
+
+
+
+{%block iadd%}
+<button class="btn primary block mT20">{%trans "Add"%}</button>
+{%endblock%}
+
+{%block isave%}
+<button class="btn primary block mT20">{%trans "Save"%}</button>
+{%endblock%}

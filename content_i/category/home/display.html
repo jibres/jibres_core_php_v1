@@ -65,7 +65,7 @@
     <tbody>
       {%for key, value in dataTable%}
       <tr>
-        <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
+        <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"><i class="sf-edit"></i> {{value.id}}</a></td>
         <td class="">
             {%if value.parent1%}
               <a href="{{url.this}}?parent={{value.parent1}}">{{value.parent_title}}</a>

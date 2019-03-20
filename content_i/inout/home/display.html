@@ -69,7 +69,7 @@
     <tbody>
       {%for key, value in dataTable%}
       <tr>
-        <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
+        <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"><i class="sf-edit"></i> {{value.id}}</a></td>
         <td class=""><a href="{{url.this}}?jib={{value.jib_id}}">{{value.jib_title}}</a></td>
         <td class=""><a href="{{url.this}}?cat={{value.cat_id}}">{{value.cat_title}}</a></td>
         <td class=""><a href="{{url.this}}?plus={{value.plus}}">{%if value.plus%}+{{value.plus | fitNumber}}{%endif%}</a></td>
