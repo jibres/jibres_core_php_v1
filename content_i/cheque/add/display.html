@@ -1,0 +1,39 @@
+{%extends 'content_i/cheque/layout.html'%}
+
+{%block pageContent%}
+<form method="post" enctype="multipart/form-data" autocomplete="off">
+<div class="f justify-center">
+  <div class="c4 s12">
+    <div class="cbox">
+
+		{{block('ichequebook_id')}}
+		{{block('ibank_id')}}
+		{{block('ibank')}}
+		{{block('idesc')}}
+		{{block('igetdate')}}
+		{{block('idate')}}
+		{{block('ibranch')}}
+		{{block('ivajh')}}
+		{{block('iowner')}}
+		{{block('ibabat')}}
+		{{block('inumber')}}
+		{{block('ithirdparty')}}
+		{{block('iamount')}}
+		{{block('itype')}}
+		{{block('iadd')}}
+
+
+      </div>
+    </div>
+  </div>
+</form>
+{%endblock%}
+
+
+
+
+
+
+
+
+

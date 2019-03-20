@@ -161,7 +161,7 @@
 {%block isubtitle%}
 <label for='subtitle'>{%trans "subtitle"%}</label>
 <select name="subtitle" class="select ui dropdown search addition" id="subtitle">
-  <option value="">{%trans "Add or select"%}</option>
+  <option value="">{%trans "Please select one itme"%}</option>
   <option value="0">{%trans "Non"%}</option>
   {%for key, value in myList.subtitle%}
     <option value="{{value}}"{%if value == dataRow.subtitle %} selected{%endif%}>{{value}}</option>
@@ -173,7 +173,7 @@
 {%block icat%}
 <label for='cat'>{%trans "cat"%}</label>
 <select name="cat" class="select ui dropdown search addition" id="cat">
-  <option value="">{%trans "Add or select"%}</option>
+  <option value="">{%trans "Please select one itme"%}</option>
   <option value="0">{%trans "Non"%}</option>
   {%for key, value in myList.cat%}
 

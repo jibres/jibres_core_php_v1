@@ -5,7 +5,7 @@
 {%block ibank%}
 <label for='bank'>{%trans "bank"%}</label>
 <select name="bank" class="select ui dropdown search addition" id="bank">
-  <option value="">{%trans "Add or select"%}</option>
+  <option value="">{%trans "Please select one itme"%}</option>
   {%for key, value in bankList%}
     <option value="{{value.id}}" {%if value.id == dataRow.bank_id %} selected{%endif%}>{{value.title}}</option>
   {%endfor%}

@@ -1,0 +1,131 @@
+{%extends 'content_i/cheque/layout.html'%}
+
+
+
+{%block pageContent%}
+
+{%if dataTable%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12">
+  <form method="get" action='{{url.this}}'>
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus  data-pass='submit' autocomplete='off'>
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+{%block htmlTable%}
+
+  <table class="tbl1 v1 cbox fs12">
+    <thead>
+      <tr>
+
+
+        <th class="">#</th>
+        <th class="" data-sort="{{sortLink.bank_id.order}}"><a href="{{sortLink.bank_id.link}}">{%trans "Bank"%}</a></th>
+        <th class="" data-sort="{{sortLink.chequebook_id.order}}"><a href="{{sortLink.chequebook_id.link}}">{%trans "Cheque book"%}</a></th>
+        <th class="" data-sort="{{sortLink.bank.order}}"><a href="{{sortLink.bank.link}}">{%trans "Bank"%}</a></th>
+        <th class="" data-sort="{{sortLink.date.order}}"><a href="{{sortLink.date.link}}">{%trans "Date"%}</a></th>
+        <th class="" data-sort="{{sortLink.branch.order}}"><a href="{{sortLink.branch.link}}">{%trans "branch"%}</a></th>
+        <th class="" data-sort="{{sortLink.vajh.order}}"><a href="{{sortLink.vajh.link}}">{%trans "vajh"%}</a></th>
+        <th class="" data-sort="{{sortLink.owner.order}}"><a href="{{sortLink.owner.link}}">{%trans "owner"%}</a></th>
+        <th class="" data-sort="{{sortLink.babat.order}}"><a href="{{sortLink.babat.link}}">{%trans "babat"%}</a></th>
+        <th class="" data-sort="{{sortLink.thirdparty.order}}"><a href="{{sortLink.thirdparty.link}}">{%trans "thirdparty"%}</a></th>
+        <th class="" data-sort="{{sortLink.amount.order}}"><a href="{{sortLink.amount.link}}">{%trans "amount"%}</a></th>
+        <th class="" data-sort="{{sortLink.number.order}}"><a href="{{sortLink.number.link}}">{%trans "number"%}</a></th>
+        <th class="" data-sort="{{sortLink.type.order}}"><a href="{{sortLink.type.link}}">{%trans "type"%}</a></th>
+        <th class="" data-sort="{{sortLink.getdate.order}}"><a href="{{sortLink.getdate.link}}">{%trans "getdate"%}</a></th>
+
+        <th class="">{%trans "Description"%}</th>
+
+        <th class="" data-sort="{{sortLink.datecreated.order}}"><a href="{{sortLink.datecreated.link}}">{%trans "Datetime"%}</a></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      {%for key, value in dataTable%}
+      <tr>
+        <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"><i class="sf-edit"></i> {{value.id}}</a></td>
+        <td>{{value.bank_title}}</td>
+        <td>{{value.chequebook_title}}</td>
+        <td>{{value.bank}}</td>
+        <td>{{value.date | dt(null ,'date')}}</td>
+        <td>{{value.branch}}</td>
+        <td>{{value.vajh}}</td>
+        <td>{{value.owner}}</td>
+        <td>{{value.babat}}</td>
+        <td>{{value.thirdparty}}</td>
+        <td>{{value.amount | fitNumber}}</td>
+        <td>{{value.number | fitNumber(false)}}</td>
+        <td>{{value.type}}</td>
+        <td>{{value.getdate | dt(null ,'date')}}</td>
+
+        <td class="">{{value.desc}}</td>
+
+        <td class="collapsing"  title="{{value.datecreated | dt}}">
+          <div>{{value.datecreated | dt('human','year')}}</div>
+          <div>{{value.datecreated | dt(true)}}</div>
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  {%include display.pagination%}
+
+{%endblock%}
+
+
+{%block htmlFilter%}
+<p class="f fs14 msg info2">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.this}}/add">{%trans "Add"%}</a></p>
+{%endblock%}
+
