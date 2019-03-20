@@ -150,14 +150,14 @@ class bank
 		$expire        = \dash\app::request('expire');
 		if($expire && mb_strlen($expire) > 7)
 		{
-			\dash\notif::error(T_("Please set swift less than 7 character"), 'expire');
+			\dash\notif::error(T_("Please set expire less than 7 character"), 'expire');
 			return false;
 		}
 
 		$cvv2          = \dash\app::request('cvv2'); // ` varchar(10)CHARACTER SET utf8mb4 NULL DEFAULT NULL,
 		if($cvv2 && mb_strlen($cvv2) > 8)
 		{
-			\dash\notif::error(T_("Please set swift less than 8 character"), 'cvv2');
+			\dash\notif::error(T_("Please set cvv2 less than 8 character"), 'cvv2');
 			return false;
 		}
 

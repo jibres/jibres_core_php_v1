@@ -53,7 +53,7 @@ class category
 		$title          = \dash\app::request('title');
 		if(!$title)
 		{
-			\dash\notif::error(T_("Plese set title name"), 'title');
+			\dash\notif::error(T_("Plese set title"), 'title');
 			return false;
 		}
 

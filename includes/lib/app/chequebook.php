@@ -50,7 +50,7 @@ class chequebook
 		$title          = \dash\app::request('title');
 		if(!$title)
 		{
-			\dash\notif::error(T_("Plese set title name"), 'title');
+			\dash\notif::error(T_("Plese set title"), 'title');
 			return false;
 		}
 
@@ -137,7 +137,7 @@ class chequebook
 
 		if($pagecount && !is_numeric($pagecount))
 		{
-			\dash\notif::error(T_("Please set pagecount as a pagecount"), 'pagecount');
+			\dash\notif::error(T_("Please set pagecount as a number"), 'pagecount');
 			return false;
 		}
 
