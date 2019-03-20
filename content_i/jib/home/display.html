@@ -58,7 +58,7 @@
         <th class="" data-sort="{{sortLink.bank_id.order}}"><a href="{{sortLink.bank_id.link}}">{%trans "Bank"%}</a></th>
 
         <th class="" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
-        <th class="" data-sort="{{sortLink.desc.order}}"><a href="{{sortLink.desc.link}}">{%trans "Description"%}</a></th>
+        <th class="">{%trans "Description"%}</th>
         <th class="" data-sort="{{sortLink.datecreated.order}}"><a href="{{sortLink.datecreated.link}}">{%trans "Date created"%}</a></th>
       </tr>
     </thead>
@@ -68,9 +68,9 @@
       <tr>
         <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
         <td class="">{{value.title}}</td>
-        <td class="">{{value.bank_title}}</td>
+        <td class=""><a href="{{url.this}}?bank={{value.bank_id}}">{{value.bank_title}}</a></td>
 
-        <td class="">{%set myStatus = value.status%}{%trans myStatus%}</td>
+        <td class=""><a href="{{url.this}}?status={{value.status}}">{%set myStatus = value.status%}{%trans myStatus%}</a></td>
         <td class="">{{value.desc}}</td>
         <td class="collapsing"  title="{{value.datecreated | dt}}">
           <div>{{value.datecreated | dt('human','year')}}</div>

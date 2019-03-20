@@ -8,9 +8,8 @@ class jib
 {
 	public static $sort_field =
 	[
-
 		'title',
-		'bank',
+		'bank_id',
 		'status',
 		'datecreated',
 		'datemodified',
