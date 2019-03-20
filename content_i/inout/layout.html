@@ -29,46 +29,101 @@
 
 
 
-{%block idate %}
-<label for="date">{%trans "Date"%}</label>
-<div class="input ltr">
-  <input class="datepicker" type="text" name="date" id="date" placeholder='{{"now" | dt(null, "date")}}' value="{{dataRow.datetime}}" maxlength='15' data-format="YYYY/MM/DD" data-view="day">
+{%block idatetime %}
+<div class="f">
+  <div class="c s12">
+      <label for="date">{%trans "Date"%}</label>
+      <div class="input ltr">
+        <input class="datepicker" type="text" name="date" id="date" placeholder='{{"now" | dt(null, "date")}}' value="{{dataRow.datetime}}" maxlength='15' data-format="YYYY/MM/DD" data-view="day">
+      </div>
+  </div>
+  <div class="c s12 pLa5">
+    <label for="time">{%trans "Time"%}</label>
+    <div class="input clockpicker ltr">
+      <input type="text" name="time" id="time" placeholder='{{dataRow.datetime | date("H:i") | fitNumber}}' autocomplete="off">
+    </div>
+  </div>
 </div>
 {% endblock %}
 
 
 {%block itime %}
-<label for="time">{%trans "Time"%}</label>
-<div class="input clockpicker ltr">
-  <input type="text" name="time" id="time" placeholder='{{dataRow.datetime | date("H:i") | fitNumber}}' autocomplete="off">
-</div>
 {% endblock %}
 
 
 
 {%block ijib%}
 <label for='jib'>{%trans "Jib"%}</label>
-<select name="jib" class="select ui dropdown search addition" id="jib">
+<select name="jib" class="select ui dropdown search" id="jib">
   <option value="">{%trans "Please choose one item"%}</option>
 
   {%for key, value in jibList%}
 
-    <option value="{{value.id}}" {%if value.id == dataRow.jib_id %} selected{%endif%}>{{value.title}}</option>
+    <option value="{{value.id}}" {%if value.id == dataRow.jib_id or (not dataRow.jib and value.isdefault) %} selected{%endif%}>{{value.title}}</option>
   {%endfor%}
 </select>
 {%endblock%}
 
 
 {%block icat%}
-<label for='cat'>{%trans "Category"%}</label>
-<select name="cat" class="select ui dropdown search addition" id="cat">
-  <option value="">{%trans "Please choose one item"%}</option>
-  {%for key, value in catList%}
-    <option value="{{value.id}}" {%if value.id == dataRow.cat_id %} selected{%endif%}>{{value.title}}</option>
+<div class="f">
+  <div class="c">
+    <label for='cat'>{%trans "Category"%}</label>
+    <select name="cat" class="select ui dropdown search" id="cat">
+      <option value="">{%trans "Please choose one item"%}</option>
+      {%for key, value in catList%}
+        <option value="{{value.id}}" {%if value.id == dataRow.cat_id %} selected{%endif%}>{{value.title}}</option>
+      {%endfor%}
+    </select>
+  </div>
+  <div class="cauto">
+    <span class="btn outline mR5 mT20" data-kerkere='.addNewCat'>+</span>
+  </div>
+</div>
+<div class="addNewCat" data-kerkere-content='hide'>
+  <div class="msg">
+    <h4 class="txtC txtB">{%trans "Add new category"%}</h4>
+  <div class="f">
+    <div class="c s12">{{block('iParent')}}</div>
+    <div class="c s12 pLa5">{{block('ititle')}}</div>
+  </div>
+  </div>
+</div>
+
+{%endblock%}
+
+
+
+{%block iParent %}
+
+{%if parentList%}
+
+  <label for="parent">{%trans "Parent"%}</label>
+  <select name="parent" class="ui dropdown select search">
+    <option value="0" >{%trans "Without parent"%}</option>
+    {%for key, value in parentList%}
+
+      <option value="{{value.id}}" >{{value.title}}</option>
+
+    {%endfor%}
+  </select>
+
+{%endif%}
+
+{%endblock%}
+
+{%block ititle%}
+<label for='title'>{%trans "Title"%}</label>
+<select name="title" class="select ui dropdown search addition" id="title">
+  <option value="">{%trans "Add or select"%}</option>
+
+  {%for key, value in myList%}
+
+    <option value="{{value.title}}" >{{value.title}}</option>
+
   {%endfor%}
 </select>
 {%endblock%}
-
 
 {%block iadd%}
 <button class="btn primary block mT20">{%trans "Add"%}</button>

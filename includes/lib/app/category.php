@@ -103,6 +103,28 @@ class category
 			}
 		}
 
+		$check_duplicate =
+		[
+			'title'   => $title,
+			'parent1' => $parent1,
+			'user_id' => \dash\user::id(),
+			'limit'   => 1,
+		];
+		$check_duplicate = \lib\db\category::get($check_duplicate);
+
+		if(isset($check_duplicate['id']))
+		{
+			if(intval($check_duplicate['id']) === intval($_id))
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\notif::error(T_("Duplicate category title"), 'title');
+				return false;
+			}
+		}
+
 
 		$args            = [];
 		$args['title']   = $title;
@@ -227,8 +249,9 @@ class category
 			return false;
 		}
 
-		\dash\log::set('iAddCategory', ['code' => $category]);
+		$return['cat_id'] = $category;
 
+		\dash\log::set('iAddCategory', ['code' => $category]);
 		return $return;
 	}
 

@@ -14,6 +14,9 @@ class view
 
 		\dash\data::catList(\lib\app\category::list());
 		\dash\data::jibList(\lib\app\jib::my_list());
+
+		\dash\data::parentList(\lib\app\category::parent_list());
+		\dash\data::myList(\lib\app\category::my_list());
 	}
 }
 ?>

@@ -17,6 +17,9 @@ class model
 		$post['price']      = \dash\request::post('price');
 		$post['discount']   = \dash\request::post('discount');
 
+		$post['parent']     = \dash\request::post('parent');
+		$post['title']      = \dash\request::post('title');
+
 		\lib\app\inout::add($post);
 
 		if(\dash\engine\process::status())

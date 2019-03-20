@@ -180,10 +180,30 @@ class inout
 		}
 		else
 		{
-			\dash\notif::error(T_("Please choose category"), 'category');
-			return false;
+			$parent = \dash\app::request('parent');
+			$title  = \dash\app::request('title');
+			if(!$parent && !$title)
+			{
+				\dash\notif::error(T_("Please choose category"), 'category');
+				return false;
+			}
+			else
+			{
+				$master_request = \dash\app::request();
+				$new_request    = ['parent' => $parent, 'title' => $title, 'type' => 'cat'];
+				$new_cat        = \lib\app\category::add($new_request);
+				if(isset($new_cat['cat_id']))
+				{
+					$cat = $new_cat['cat_id'];
+					\dash\notif::clean();
+					\dash\app::variable($master_request);
+				}
+				else
+				{
+					return false;
+				}
+			}
 		}
-
 
 
 		$status        = \dash\app::request('status');
