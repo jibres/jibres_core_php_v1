@@ -27,18 +27,10 @@
 
 
 {%block ibank %}
-
-<div data-response='country' data-response-where='IR'>
-  <label for="pos">{%trans "Please choose bank"%}</label>
-  {%include display.spay%}
-</div>
-
-<div data-response='country' data-response-where-not='IR' data-response-hide>
   <label for="bank">{%trans "Bank"%}</label>
   <div class="input">
     <input type="text" name="bank" id="bank"  value="{{dataRow.bank}}" maxlength='150'>
   </div>
-</div>
 {% endblock %}
 
 

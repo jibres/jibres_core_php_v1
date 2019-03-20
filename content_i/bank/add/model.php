@@ -7,7 +7,7 @@ class model
 	{
 		$post                  = [];
 		$post['country']       = \dash\request::post('country');
-		$post['bank']          = \dash\request::post('pos');
+		$post['bank']          = \dash\request::post('bank');
 		$post['title']         = \dash\request::post('title');
 		$post['accountnumber'] = \dash\request::post('accountnumber');
 		$post['shaba']         = \dash\request::post('shaba');
