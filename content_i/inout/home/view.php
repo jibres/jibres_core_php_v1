@@ -81,22 +81,13 @@ class view
 			$args['1.1'] = [' = 1.1  AND', "date(inout.datetime) = date('$mydate') "];
 		}
 
-		if(\dash\user::id())
-		{
-			if(intval(\dash\user::id()) === 1)
-			{
-				// i can see all and other user can see me and if login can see only self list
-			}
-			else
-			{
-				$args['user_id'] = \dash\user::id();
-			}
-		}
+
 		$sortLink  = \dash\app\sort::make_sortLink(\lib\app\inout::$sort_field, \dash\url::this());
 		$dataTable = \lib\app\inout::list(\dash\request::get('q'), $args);
 
 		\dash\data::sortLink($sortLink);
 		\dash\data::dataTable($dataTable);
+
 
 
 		// set dataFilter

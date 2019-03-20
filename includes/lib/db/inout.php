@@ -47,6 +47,17 @@ class inout
 				i_inout.shaba LIKE ('%__string__%') OR
 				i_inout.branch LIKE ('%__string__%')
 			",
+			'public_show_field' =>
+			"
+				i_inout.*,
+				i_jib.title AS `jib_title`,
+				i_cat.title AS `cat_title`
+			",
+			"master_join" =>
+			"
+				INNER JOIN i_jib ON i_jib.id = i_inout.jib_id
+				INNER JOIN i_cat ON i_cat.id = i_inout.cat_id
+			",
 
 		];
 

@@ -8,20 +8,11 @@ class inout
 {
 	public static $sort_field =
 	[
-		'country',
-		'inout',
-		'title',
-		'accountnumber',
-		'shaba',
-		'card',
-		'branch',
-		'branchcode',
-		'owner',
-		'iban',
-		'nameoncard',
-		'swift',
-		'expire',
-		'cvv2',
+		'cat_id',
+		'datetime',
+		'jib_id',
+		'discount',
+		'thirdparty',
 		'status',
 		'datecreated',
 		'datemodified',
@@ -54,112 +45,144 @@ class inout
 	public static function check($_id = null)
 	{
 
-		$country       = \dash\app::request('country');
-		if($country && !\dash\utility\location\countres::check($country))
+
+
+		$date = \dash\app::request('date');
+
+		if($date)
 		{
-			\dash\notif::error(T_("Invalid country"), 'country');
+			$date = \dash\date::db($date);
+			if($date === false)
+			{
+				\dash\notif::error(T_("Invalid date"), 'date');
+				return false;
+			}
+
+			if(\dash\utility\jdate::is_jalali($date))
+			{
+				$date = \dash\utility\jdate::to_gregorian($date);
+			}
+		}
+
+		if(!$date)
+		{
+			$date = date("Y-m-d");
+		}
+
+		$time = \dash\app::request('time');
+		if($time)
+		{
+			$time = \dash\date::make_time($time);
+			if($time === false)
+			{
+				\dash\notif::error(T_("Invalid time"), 'time');
+				return false;
+			}
+		}
+
+		if(!$time)
+		{
+			$time = date("H:i:s");
+		}
+
+		$thirdparty = \dash\app::request('thirdparty');
+		if($thirdparty && mb_strlen($thirdparty) > 150)
+		{
+			\dash\notif::error(T_("Please set thirdparty less than 150 character"), 'thirdparty');
+			return false;
+		}
+
+		$isplus = \dash\app::request('isplus') ? true : false;
+
+
+		$price = \dash\app::request('price');
+		$price = \dash\utility\convert::to_en_number($price);
+		if(!$price)
+		{
+			\dash\notif::error(T_("Please set price"), 'price');
+			return false;
+		}
+
+		if(!is_numeric($price))
+		{
+			\dash\notif::error(T_("Please set price as a number"), 'price');
+			return false;
+		}
+
+		$price = intval($price);
+		if($price > 1E+9)
+		{
+			\dash\notif::error(T_("Price is out of range"), 'price');
+			return false;
+		}
+
+		$discount = \dash\app::request('discount');
+		$discount = \dash\utility\convert::to_en_number($discount);
+
+		if($discount && !is_numeric($discount))
+		{
+			\dash\notif::error(T_("Please set discount as a number"), 'discount');
+			return false;
+		}
+
+		if($discount)
+		{
+			$discount = intval($discount);
+			if($discount > 1E+9)
+			{
+				\dash\notif::error(T_("Discount is out of range"), 'discount');
+				return false;
+			}
+		}
+
+		$jib = \dash\app::request('jib');
+		if($jib)
+		{
+			$jib = \dash\coding::decode($jib);
+			if(!$jib)
+			{
+				\dash\notif::error(T_("Invalid jib"), 'jib');
+				return false;
+			}
+
+			$check = \lib\db\jib::get(['user_id' => \dash\user::id(), 'id' => $jib, 'limit' => 1]);
+			if(!isset($check['id']))
+			{
+				\dash\notif::error(T_("Invalid jib"), 'jib');
+				return false;
+			}
+		}
+		else
+		{
+			\dash\notif::error(T_("Please choose jib"), 'jib');
 			return false;
 		}
 
 
-
-		$inout          = \dash\app::request('inout');
-		if(!$inout)
+		$cat = \dash\app::request('cat');
+		if($cat)
 		{
-			\dash\notif::error(T_("Plese set inout name"), 'inout');
-			return false;
+			$cat = \dash\coding::decode($cat);
+			if(!$cat)
+			{
+				\dash\notif::error(T_("Invalid cat"), 'cat');
+				return false;
+			}
+
+			$check = \lib\db\category::get(['user_id' => \dash\user::id(), 'id' => $cat, 'limit' => 1]);
+			if(!isset($check['id']))
+			{
+				\dash\notif::error(T_("Invalid cat"), 'cat');
+				return false;
+			}
 		}
-
-		if(mb_strlen($inout) > 150)
+		else
 		{
-			\dash\noitf::error(T_("Pleas set inout name less than 150 character"), 'inout');
-			return false;
-		}
-
-		$title         = \dash\app::request('title');
-		if($title && mb_strlen($title) > 150)
-		{
-			\dash\notif::error(T_("Please set title less than 150 character"), 'title');
-			return false;
-		}
-
-		$accountnumber = \dash\app::request('accountnumber');
-		if($accountnumber && mb_strlen($accountnumber) > 150)
-		{
-			\dash\notif::error(T_("Please set accountnumber less than 150 character"), 'accountnumber');
-			return false;
-		}
-
-		$shaba         = \dash\app::request('shaba');
-		if($shaba && mb_strlen($shaba) > 150)
-		{
-			\dash\notif::error(T_("Please set shaba less than 150 character"), 'shaba');
-			return false;
-		}
-
-		$card          = \dash\app::request('card');
-		if($card && mb_strlen($card) > 150)
-		{
-			\dash\notif::error(T_("Please set card less than 150 character"), 'card');
-			return false;
-		}
-
-		$branch        = \dash\app::request('branch');
-		if($branch && mb_strlen($branch) > 150)
-		{
-			\dash\notif::error(T_("Please set branch less than 150 character"), 'branch');
-			return false;
-		}
-
-		$branchcode    = \dash\app::request('branchcode');
-		if($branchcode && mb_strlen($branchcode) > 150)
-		{
-			\dash\notif::error(T_("Please set branchcode less than 150 character"), 'branchcode');
-			return false;
-		}
-
-		$owner         = \dash\app::request('owner');
-		if($owner && mb_strlen($owner) > 150)
-		{
-			\dash\notif::error(T_("Please set owner less than 150 character"), 'owner');
-			return false;
-		}
-
-		$iban          = \dash\app::request('iban');
-		if($iban && mb_strlen($iban) > 150)
-		{
-			\dash\notif::error(T_("Please set iban less than 150 character"), 'iban');
-			return false;
-		}
-
-		$nameoncard    = \dash\app::request('nameoncard');
-		if($nameoncard && mb_strlen($nameoncard) > 150)
-		{
-			\dash\notif::error(T_("Please set nameoncard less than 150 character"), 'nameoncard');
-			return false;
-		}
-
-		$swift         = \dash\app::request('swift');
-		if($swift && mb_strlen($swift) > 150)
-		{
-			\dash\notif::error(T_("Please set swift less than 150 character"), 'swift');
+			\dash\notif::error(T_("Please choose category"), 'category');
 			return false;
 		}
 
 
-		$expire        = \dash\app::request('expire');
-		if($expire && mb_strlen($expire) > 7)
-		{
-			\dash\notif::error(T_("Please set swift less than 7 character"), 'expire');
-			return false;
-		}
-
-		$cvv2          = \dash\app::request('cvv2'); // ` varchar(10)CHARACTER SET utf8mb4 NULL DEFAULT NULL,
-		if($cvv2 && mb_strlen($cvv2) > 8)
-		{
-			\dash\notif::error(T_("Please set swift less than 8 character"), 'cvv2');
-			return false;
-		}
 
 		$status        = \dash\app::request('status');
 		if($status && !in_array($status, ['enable', 'disable', 'deleted', 'expire', 'lost','useless']))
@@ -170,25 +193,29 @@ class inout
 
 		$desc          = \dash\app::request('desc');
 
-		$args                  = [];
+		$args               = [];
 
-		$args['country']       = $country;
-		$args['inout']          = $inout;
-		$args['title']         = $title;
-		$args['accountnumber'] = $accountnumber;
-		$args['shaba']         = $shaba;
-		$args['card']          = $card;
-		$args['branch']        = $branch;
-		$args['branchcode']    = $branchcode;
-		$args['owner']         = $owner;
-		$args['iban']          = $iban;
-		$args['nameoncard']    = $nameoncard;
-		$args['swift']         = $swift;
-		$args['expire']        = $expire;
-		$args['cvv2']          = $cvv2;
-		$args['status']        = $status;
-		$args['desc']          = $desc;
+		$args['datetime']   = $date .' '. $time;
 
+		$args['thirdparty'] = $thirdparty;
+
+		if($isplus)
+		{
+			$args['plus']  = $price;
+			$args['minus'] = null;
+		}
+		else
+		{
+			$args['minus'] = $price;
+			$args['plus']  = null;
+		}
+
+		$args['discount']   = $discount;
+
+		$args['jib_id']     = $jib;
+		$args['cat_id']     = $cat;
+		$args['status']     = $status;
+		$args['desc']       = $desc;
 
 		return $args;
 
@@ -203,58 +230,31 @@ class inout
 	 */
 	public static function ready($_data)
 	{
-		$_data = \dash\app::fix_avatar($_data);
+
 		$result = [];
-		$result['location_string'] = [];
+
 		foreach ($_data as $key => $value)
 		{
 
 			switch ($key)
 			{
 				case 'id':
+				case 'jib_id':
+				case 'cat_id':
 					$result[$key] = \dash\coding::encode($value);
 					break;
-
-				case 'country':
-					$result[$key] = $value;
-					$result['country_name'] = \dash\utility\location\countres::get_localname($value, true);
-					$result['location_string'][1] = $result['country_name'];
-					break;
-
-
-				case 'province':
-					$result[$key] = $value;
-					$result['province_name'] = \dash\utility\location\provinces::get_localname($value);
-					$result['location_string'][2] = $result['province_name'];
-					break;
-
-				case 'city':
-					$result[$key] = $value;
-					$result['city_name'] = \dash\utility\location\cites::get_localname($value);
-					$result['location_string'][3] = $result['city_name'];
-					break;
-
 
 				default:
 					$result[$key] = $value;
 					break;
 			}
 		}
-		ksort($result['location_string']);
-		$result['location_string'] = array_filter($result['location_string']);
-		$result['location_string'] = implode(T_(","). " ", $result['location_string']);
 
 		return $result;
 	}
 
 
-	/**
-	 * add new user
-	 *
-	 * @param      array          $_args  The arguments
-	 *
-	 * @return     array|boolean  ( description_of_the_return_value )
-	 */
+
 	public static function add($_args, $_option = [])
 	{
 		\dash\app::variable($_args);
@@ -351,7 +351,7 @@ class inout
 		}
 
 
-		$option['user_id'] = \dash\user::id();
+		$option['i_inout.user_id'] = \dash\user::id();
 
 		$result = \lib\db\inout::search($_string, $option);
 
@@ -396,20 +396,14 @@ class inout
 			return false;
 		}
 
-		if(!\dash\app::isset_request('country')) unset($args['country']);
-		if(!\dash\app::isset_request('inout')) unset($args['inout']);
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('accountnumber')) unset($args['accountnumber']);
-		if(!\dash\app::isset_request('shaba')) unset($args['shaba']);
-		if(!\dash\app::isset_request('card')) unset($args['card']);
-		if(!\dash\app::isset_request('branch')) unset($args['branch']);
-		if(!\dash\app::isset_request('branchcode')) unset($args['branchcode']);
-		if(!\dash\app::isset_request('owner')) unset($args['owner']);
-		if(!\dash\app::isset_request('iban')) unset($args['iban']);
-		if(!\dash\app::isset_request('nameoncard')) unset($args['nameoncard']);
-		if(!\dash\app::isset_request('swift')) unset($args['swift']);
-		if(!\dash\app::isset_request('expire')) unset($args['expire']);
-		if(!\dash\app::isset_request('cvv2')) unset($args['cvv2']);
+		if(!\dash\app::isset_request('date')) unset($args['datetime']);
+		if(!\dash\app::isset_request('time')) unset($args['datetime']);
+		if(!\dash\app::isset_request('thirdparty')) unset($args['thirdparty']);
+		if(!\dash\app::isset_request('price')) unset($args['plus']);
+		if(!\dash\app::isset_request('price')) unset($args['minus']);
+		if(!\dash\app::isset_request('discount')) unset($args['discount']);
+		if(!\dash\app::isset_request('jib')) unset($args['jib_id']);
+		if(!\dash\app::isset_request('cat')) unset($args['cat_id']);
 		if(!\dash\app::isset_request('status')) unset($args['status']);
 		if(!\dash\app::isset_request('desc')) unset($args['desc']);
 

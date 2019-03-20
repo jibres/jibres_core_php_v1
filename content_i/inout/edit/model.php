@@ -14,7 +14,9 @@ class model
 		$post['jib']        = \dash\request::post('jib');
 		$post['thirdparty'] = \dash\request::post('thirdparty');
 		$post['time']       = \dash\request::post('time');
-		$post['title']      = \dash\request::post('title');
+		$post['isplus']     = \dash\request::post('isplus');
+		$post['price']      = \dash\request::post('price');
+		$post['discount']   = \dash\request::post('discount');
 
 		\lib\app\inout::edit($post, \dash\request::get('id'));
 
