@@ -105,7 +105,10 @@ class jib
 
 	}
 
-
+	public static function my_list()
+	{
+		return self::list();
+	}
 
 	/**
 	 * ready data of user to load in api
