@@ -58,7 +58,7 @@
         <th class="" data-sort="{{sortLink.cat_id.order}}"><a href="{{sortLink.cat_id.link}}">{%trans "Category"%}</a></th>
         <th class="" data-sort="{{sortLink.plus.order}}"><a href="{{sortLink.plus.link}}">{%trans "Plus"%}</a></th>
         <th class="" data-sort="{{sortLink.minus.order}}"><a href="{{sortLink.minus.link}}">{%trans "Minus"%}</a></th>
-        <th class="" data-sort="{{sortLink.desc.order}}"><a href="{{sortLink.desc.link}}">{%trans "Description"%}</a></th>
+        <th class="">{%trans "Description"%}</th>
         <th class="" data-sort="{{sortLink.discount.order}}"><a href="{{sortLink.discount.link}}">{%trans "Discount"%}</a></th>
         <th class="" data-sort="{{sortLink.thirdparty.order}}"><a href="{{sortLink.thirdparty.link}}">{%trans "Thirdparty"%}</a></th>
         <th class="" data-sort="{{sortLink.datetime.order}}"><a href="{{sortLink.datetime.link}}">{%trans "Datetime"%}</a></th>
@@ -70,13 +70,13 @@
       {%for key, value in dataTable%}
       <tr>
         <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
-        <td class="">{{value.jib_title}}</td>
-        <td class="">{{value.cat_title}}</td>
-        <td class="">{%if value.plus%}+{{value.plus | fitNumber}}{%endif%}</td>
-        <td class="">{%if value.minus%}-{{value.minus | fitNumber}}{%endif%}</td>
+        <td class=""><a href="{{url.this}}?jib={{value.jib_id}}">{{value.jib_title}}</a></td>
+        <td class=""><a href="{{url.this}}?cat={{value.cat_id}}">{{value.cat_title}}</a></td>
+        <td class=""><a href="{{url.this}}?plus={{value.plus}}">{%if value.plus%}+{{value.plus | fitNumber}}{%endif%}</a></td>
+        <td class=""><a href="{{url.this}}?minus={{value.minus}}">{%if value.minus%}-{{value.minus | fitNumber}}{%endif%}</a></td>
         <td class="">{{value.desc}}</td>
-        <td class="">{{value.discount | fitNumber}}</td>
-        <td class="">{{value.thirdparty}}</td>
+        <td class=""><a href="{{url.this}}?discount={{value.discount}}">{{value.discount | fitNumber}}</a></td>
+        <td class=""><a href="{{url.this}}?thirdparty={{value.thirdparty}}">{{value.thirdparty}}</a></td>
         <td class="collapsing"  title="{{value.datetime | dt}}">
           <div>{{value.datetime | dt('human','year')}}</div>
           <div>{{value.datetime | dt(true)}}</div>

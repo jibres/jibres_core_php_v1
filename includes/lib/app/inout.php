@@ -11,6 +11,8 @@ class inout
 		'cat_id',
 		'datetime',
 		'jib_id',
+		'minus',
+		'plus',
 		'discount',
 		'thirdparty',
 		'status',

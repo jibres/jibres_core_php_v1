@@ -7,13 +7,13 @@ class view
 	public static function config()
 	{
 
-		\dash\data::page_title(T_("Bank account list"));
+		\dash\data::page_title(T_("In out list"));
 
 
 		\dash\data::page_pictogram('list');
 
 		\dash\data::badge_link(\dash\url::this(). '/add');
-		\dash\data::badge_text(T_('Add new accoutn'));
+		\dash\data::badge_text(T_('Add new transaction'));
 
 		$search_string            = \dash\request::get('q');
 		if($search_string)
@@ -45,40 +45,46 @@ class view
 			$args['inout.status'] = \dash\request::get('status');
 		}
 
-		if(\dash\request::get('title'))
+		if(\dash\request::get('jib'))
 		{
-			$args['inout.title'] = \dash\request::get('title');
-		}
-
-		if(\dash\request::get('subtitle'))
-		{
-			$args['inout.subtitle'] = \dash\request::get('subtitle');
+			$jib = \dash\request::get('jib');
+			$jib = \dash\coding::decode($jib);
+			if($jib)
+			{
+				$args['i_inout.jib_id'] = $jib;
+			}
 		}
 
 		if(\dash\request::get('cat'))
 		{
-			$args['inout.cat'] = \dash\request::get('cat');
+			$cat = \dash\request::get('cat');
+			$cat = \dash\coding::decode($cat);
+			if($cat)
+			{
+				$args['i_inout.cat_id'] = $cat;
+			}
 		}
 
-		if(\dash\request::get('cat2'))
-		{
-			$args['inout.cat2'] = \dash\request::get('cat2');
-		}
 
-		if(\dash\request::get('user'))
+		if(\dash\request::get('plus'))
 		{
-			$args['inout.user_id'] = \dash\request::get('user');
+			$args['i_inout.plus'] = \dash\request::get('plus');
+			$filterArgs['plus']   = \dash\request::get('plus');
 		}
-
-		if(\dash\request::get('size'))
+		if(\dash\request::get('minus'))
 		{
-			$args['inout.size'] = \dash\request::get('size');
+			$args['i_inout.minus'] = \dash\request::get('minus');
+			$filterArgs['minus']   = \dash\request::get('minus');
 		}
-
-		if(\dash\request::get('date'))
+		if(\dash\request::get('discount'))
 		{
-			$mydate = date("Y-m-d", strtotime(\dash\request::get('date')));
-			$args['1.1'] = [' = 1.1  AND', "date(inout.datetime) = date('$mydate') "];
+			$args['i_inout.discount'] = \dash\request::get('discount');
+			$filterArgs['discount']   = \dash\request::get('discount');
+		}
+		if(\dash\request::get('thirdparty'))
+		{
+			$args['i_inout.thirdparty'] = \dash\request::get('thirdparty');
+			$filterArgs['thirdparty']   = \dash\request::get('thirdparty');
 		}
 
 
@@ -88,6 +94,15 @@ class view
 		\dash\data::sortLink($sortLink);
 		\dash\data::dataTable($dataTable);
 
+		if(isset($args['i_inout.jib_id']) && isset($dataTable[0]['jib_title']))
+		{
+			$filterArgs['jib'] = $dataTable[0]['jib_title'];
+		}
+
+		if(isset($args['i_inout.cat_id']) && isset($dataTable[0]['cat_title']))
+		{
+			$filterArgs['category'] = $dataTable[0]['cat_title'];
+		}
 
 
 		// set dataFilter
