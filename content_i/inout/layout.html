@@ -59,7 +59,7 @@
 
   {%for key, value in jibList%}
 
-    <option value="{{value.id}}" {%if value.id == dataRow.jib_id or (not dataRow.jib and value.isdefault) %} selected{%endif%}>{{value.title}}</option>
+    <option value="{{value.id}}" {%if value.id == dataRow.jib_id or (not dataRow.jib_id and value.isdefault) %} selected{%endif%}>{{value.title}}</option>
   {%endfor%}
 </select>
 {%endblock%}
