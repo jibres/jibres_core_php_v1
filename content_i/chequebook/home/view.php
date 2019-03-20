@@ -7,13 +7,13 @@ class view
 	public static function config()
 	{
 
-		\dash\data::page_title(T_("In out list"));
+		\dash\data::page_title(T_("chequebook list"));
 
 
 		\dash\data::page_pictogram('list');
 
 		\dash\data::badge_link(\dash\url::this(). '/add');
-		\dash\data::badge_text(T_('Add new transaction'));
+		\dash\data::badge_text(T_('Add new chequebook'));
 
 		$search_string            = \dash\request::get('q');
 		if($search_string)
