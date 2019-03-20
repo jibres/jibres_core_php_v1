@@ -12,7 +12,7 @@ class view
 		\dash\data::badge_link(\dash\url::this());
 		\dash\data::badge_text(T_('Back'));
 
-		\dash\data::bankList(\lib\app\bank::list());
+		\dash\data::bankList(\lib\app\bank::list(null, ['pagenation' => false]));
 
 	}
 }

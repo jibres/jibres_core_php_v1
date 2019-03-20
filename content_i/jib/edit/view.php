@@ -30,7 +30,7 @@ class view
 
 		\dash\data::dataRow($result);
 
-		\dash\data::bankList(\lib\app\bank::list());
+		\dash\data::bankList(\lib\app\bank::list(null, ['pagenation' => false]));
 
 	}
 }

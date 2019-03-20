@@ -30,7 +30,7 @@ class view
 
 		\dash\data::dataRow($result);
 
-		\dash\data::catList(\lib\app\category::list());
+		\dash\data::catList(\lib\app\category::list(null, ['pagenation' => false]));
 		\dash\data::jibList(\lib\app\jib::my_list());
 
 	}

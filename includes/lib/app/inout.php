@@ -190,7 +190,14 @@ class inout
 			else
 			{
 				$master_request = \dash\app::request();
-				$new_request    = ['parent' => $parent, 'title' => $title, 'type' => 'cat'];
+				$new_request    =
+				[
+					'parent' => $parent,
+					'title'  => $title,
+					'type'   => 'cat',
+					'in'     => $isplus ? 1 : null,
+				];
+
 				$new_cat        = \lib\app\category::add($new_request);
 				if(isset($new_cat['cat_id']))
 				{

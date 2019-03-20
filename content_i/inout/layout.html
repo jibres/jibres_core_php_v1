@@ -72,7 +72,7 @@
     <select name="cat" class="select ui dropdown search" id="cat">
       <option value="">{%trans "Please choose one item"%}</option>
       {%for key, value in catList%}
-        <option value="{{value.id}}" {%if value.id == dataRow.cat_id %} selected{%endif%}>{{value.title}}</option>
+        <option value="{{value.id}}" {%if value.id == dataRow.cat_id %} selected{%endif%}>{%if value.parent_title%}{{value.parent_title}} - {%endif%}{{value.title}}</option>
       {%endfor%}
     </select>
   </div>

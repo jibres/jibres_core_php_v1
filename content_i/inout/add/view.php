@@ -12,7 +12,7 @@ class view
 		\dash\data::badge_link(\dash\url::this());
 		\dash\data::badge_text(T_('Back'));
 
-		\dash\data::catList(\lib\app\category::list());
+		\dash\data::catList(\lib\app\category::list(null, ['pagenation' => false]));
 		\dash\data::jibList(\lib\app\jib::my_list());
 
 		\dash\data::parentList(\lib\app\category::parent_list());

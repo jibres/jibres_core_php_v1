@@ -38,7 +38,7 @@ class category
 
 	public static function parent_list()
 	{
-		$list = self::list(null, ['parent1' => ['IS', 'NULL']]);
+		$list = self::list(null, ['parent1' => ['IS', 'NULL'], 'pagenation' => false]);
 		return $list;
 	}
 
@@ -258,7 +258,7 @@ class category
 
 	public static function my_list()
 	{
-		return self::list(null, ['parent1' => ['IS NOT', 'NULL']]);
+		return self::list(null, ['parent1' => ['IS NOT', 'NULL'], 'pagenation' => false]);
 	}
 
 	public static function list($_string = null, $_args = [])
