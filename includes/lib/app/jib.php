@@ -81,8 +81,6 @@ class jib
 			return false;
 		}
 
-
-
 		$status        = \dash\app::request('status');
 		if($status && !in_array($status, ['enable', 'disable', 'deleted', 'expire', 'lost','useless']))
 		{
@@ -90,15 +88,22 @@ class jib
 			return false;
 		}
 
-		$desc          = \dash\app::request('desc');
+		$desc      = \dash\app::request('desc');
+		$isdefault = \dash\app::request('isdefault') ? 1 : null;
 
-		$args                  = [];
+		if($isdefault)
+		{
+			\lib\db\jib::update_where(['isdefault' => null], ['user_id' => \dash\user::id(), 'isdefault' => 1]);
+		}
+
+		$args              = [];
 
 
-		$args['title']         = $title;
-		$args['bank_id']       = $bank;
-		$args['status']        = $status;
-		$args['desc']          = $desc;
+		$args['title']     = $title;
+		$args['bank_id']   = $bank;
+		$args['status']    = $status;
+		$args['isdefault'] = $isdefault;
+		$args['desc']      = $desc;
 
 
 		return $args;
@@ -291,6 +296,7 @@ class jib
 
 
 		if(!\dash\app::isset_request('bank')) unset($args['bank_id']);
+		if(!\dash\app::isset_request('isdefault')) unset($args['isdefault']);
 		if(!\dash\app::isset_request('title')) unset($args['title']);
 		if(!\dash\app::isset_request('status')) unset($args['status']);
 		if(!\dash\app::isset_request('desc')) unset($args['desc']);

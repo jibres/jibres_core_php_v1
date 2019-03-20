@@ -5,11 +5,12 @@ class model
 {
 	public static function post()
 	{
-		$post                  = [];
+		$post              = [];
 
-		$post['bank']          = \dash\request::post('bank');
-		$post['title']         = \dash\request::post('title');
-		$post['desc']          = \dash\request::post('desc');
+		$post['bank']      = \dash\request::post('bank');
+		$post['title']     = \dash\request::post('title');
+		$post['isdefault'] = \dash\request::post('isdefault');
+		$post['desc']      = \dash\request::post('desc');
 
 		\lib\app\jib::add($post);
 

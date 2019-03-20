@@ -23,6 +23,11 @@ class jib
 		return \dash\db\config::public_update('i_jib', ...func_get_args());
 	}
 
+	public static function update_where()
+	{
+		return \dash\db\config::public_update_where('i_jib', ...func_get_args());
+	}
+
 
 	public static function get()
 	{

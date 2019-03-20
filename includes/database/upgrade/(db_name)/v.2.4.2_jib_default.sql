@@ -1,0 +1,1 @@
+ALTER TABLE `i_jib` ADD  `isdefault` bit(1) NULL DEFAULT NULL;

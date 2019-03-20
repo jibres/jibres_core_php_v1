@@ -67,7 +67,7 @@
       {%for key, value in dataTable%}
       <tr>
         <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
-        <td class="">{{value.title}}</td>
+        <td class="">{%if value.isdefault%}<i title='{%trans "Default jib"%}' class="sf-check fc-green"></i>{%endif%} {{value.title}}</td>
         <td class=""><a href="{{url.this}}?bank={{value.bank_id}}">{{value.bank_title}}</a></td>
 
         <td class=""><a href="{{url.this}}?status={{value.status}}">{%set myStatus = value.status%}{%trans myStatus%}</a></td>
