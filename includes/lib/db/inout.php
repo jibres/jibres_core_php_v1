@@ -37,15 +37,21 @@ class inout
 
 	public static function search($_string = null, $_option = [])
 	{
+		$number = '';
+		if(is_numeric($_string))
+		{
+			$number = " OR i_inout.plus = '__string__' OR i_inout.minus = '__string__' OR i_inout.discount = '__string__' ";
+		}
 		$default =
 		[
 			'search_field' =>
 			"
-				i_inout.title LIKE ('%__string__%') OR
-				i_inout.card LIKE ('%__string__%') OR
-				i_inout.accountnumber LIKE ('%__string__%') OR
-				i_inout.shaba LIKE ('%__string__%') OR
-				i_inout.branch LIKE ('%__string__%')
+				i_inout.desc LIKE ('%__string__%') OR
+				i_inout.thirdparty LIKE ('%__string__%') OR
+				i_jib.title LIKE ('%__string__%') OR
+				i_cat.title LIKE ('%__string__%')
+				$number
+
 			",
 			'public_show_field' =>
 			"

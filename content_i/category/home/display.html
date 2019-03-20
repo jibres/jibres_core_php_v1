@@ -48,18 +48,16 @@
 
 
 {%block htmlTable%}
+<div class="tblbox">
 
-  <table class="tbl1 v1 cbox fs12">
+  <table class="tbl1 v1 cbox fs12 ">
     <thead>
       <tr>
-
         <th class="">#</th>
         <th class="" data-sort="{{sortLink.parent1.order}}"><a href="{{sortLink.parent1.link}}">{%trans "Parent"%}</a></th>
         <th class="" data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "Title"%}</a></th>
         <th class="" data-sort="{{sortLink.in.order}}"><a href="{{sortLink.in.link}}">{%trans "Use in incoming"%}</a></th>
-
         <th class="" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
-
         <th class="" data-sort="{{sortLink.datecreated.order}}"><a href="{{sortLink.datecreated.link}}">{%trans "Date created"%}</a></th>
       </tr>
     </thead>
@@ -89,6 +87,7 @@
       {%endfor%}
     </tbody>
   </table>
+</div>
   {%include display.pagination%}
 
 {%endblock%}

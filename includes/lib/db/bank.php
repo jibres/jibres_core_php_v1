@@ -45,6 +45,8 @@ class bank
 				i_banks.card LIKE ('%__string__%') OR
 				i_banks.accountnumber LIKE ('%__string__%') OR
 				i_banks.shaba LIKE ('%__string__%') OR
+				i_banks.nameoncard LIKE ('%__string__%') OR
+				i_banks.owner LIKE ('%__string__%') OR
 				i_banks.branch LIKE ('%__string__%')
 			",
 

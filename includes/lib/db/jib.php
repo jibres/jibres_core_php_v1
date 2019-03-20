@@ -41,11 +41,9 @@ class jib
 		[
 			'search_field' =>
 			"
-				i_jib.title LIKE ('%__string__%') OR
-				i_jib.card LIKE ('%__string__%') OR
-				i_jib.accountnumber LIKE ('%__string__%') OR
-				i_jib.shaba LIKE ('%__string__%') OR
-				i_jib.branch LIKE ('%__string__%')
+				i_banks.title LIKE ('%__string__%') OR
+				i_jib.title LIKE ('%__string__%')
+
 			",
 			'public_show_field' => "i_jib.*, i_banks.title AS `bank_title`",
 			'master_join' => "LEFT JOIN i_banks ON i_jib.bank_id = i_banks.id"
