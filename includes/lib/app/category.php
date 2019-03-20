@@ -11,6 +11,7 @@ class category
 		'title',
 		'in',
 		'type',
+		'parent1',
 		'status',
 		'datecreated',
 		'datemodified',
@@ -37,7 +38,7 @@ class category
 
 	public static function parent_list()
 	{
-		$list = self::list(null, ['parent2' => ['IS', 'NULL']]);
+		$list = self::list(null, ['parent1' => ['IS', 'NULL']]);
 		return $list;
 	}
 
@@ -108,7 +109,7 @@ class category
 		$args['in']      = $in;
 		$args['type']    = $type;
 		$args['status']  = $status;
-		$args['parent1'] = $parent1;
+		$args['parent1'] = $parent1 ? $parent1 : null;
 
 		return $args;
 
@@ -231,6 +232,11 @@ class category
 		return $return;
 	}
 
+
+	public static function my_list()
+	{
+		return self::list(null, ['parent1' => ['IS NOT', 'NULL']]);
+	}
 
 	public static function list($_string = null, $_args = [])
 	{

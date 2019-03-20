@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Edit category account detail"));
+		\dash\data::page_title(T_("Edit category"));
 		\dash\data::page_desc(' ');
 		\dash\data::page_pictogram('edit');
 
@@ -35,7 +35,7 @@ class view
 
 
 		\dash\data::parentList(\lib\app\category::parent_list());
-		\dash\data::myList(\lib\app\category::list());
+		\dash\data::myList(\lib\app\category::my_list());
 
 	}
 }

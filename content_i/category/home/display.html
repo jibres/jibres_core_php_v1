@@ -54,7 +54,7 @@
       <tr>
 
         <th class="">#</th>
-        <th class="" data-sort="{{sortLink.parent.order}}"><a href="{{sortLink.parent.link}}">{%trans "Parent"%}</a></th>
+        <th class="" data-sort="{{sortLink.parent1.order}}"><a href="{{sortLink.parent1.link}}">{%trans "Parent"%}</a></th>
         <th class="" data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "Title"%}</a></th>
         <th class="" data-sort="{{sortLink.in.order}}"><a href="{{sortLink.in.link}}">{%trans "Use in incoming"%}</a></th>
 
@@ -68,10 +68,16 @@
       {%for key, value in dataTable%}
       <tr>
         <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"> <i class="sf-edit"></i> {{value.id | fitNumber}}</a></td>
-        <td class="">{{value.parent_title}}</td>
-        <td class="">{{value.title}}</td>
-        <td class="">{%if value.in%}<i class="sf-check fc-green"></i>{%else%}<i class="sf-times fc-red"></i>{%endif%}</td>
-        <td class="">{%set myStatus = value.status%}{%trans myStatus%}</td>
+        <td class="">
+            {%if value.parent1%}
+              <a href="{{url.this}}?parent={{value.parent1}}">{{value.parent_title}}</a>
+            {%else%}
+              <a href="{{url.this}}?parent=0"><i class="fc-mute fs08">{%trans "Without parent"%}</i></a>
+            {%endif%}
+        </td>
+        <td class=""><a href="{{url.this}}?title={{value.title}}">{{value.title}}</a></td>
+        <td class=""><a href="{{url.this}}?in={{value.in}}">{%if value.in%}<i class="sf-check fc-green"></i>{%else%}<i class="sf-times fc-red"></i>{%endif%}</a></td>
+        <td class=""><a href="{{url.this}}?status={{value.status}}">{%set myStatus = value.status%}{%trans myStatus%}</a></td>
 
         <td class="collapsing"  title="{{value.datecreated | dt}}">
           <div>{{value.datecreated | dt('human','year')}}</div>

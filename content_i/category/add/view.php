@@ -16,7 +16,7 @@ class view
 		\dash\data::badge_text(T_('Back'));
 
 		\dash\data::parentList(\lib\app\category::parent_list());
-		\dash\data::myList(\lib\app\category::list());
+		\dash\data::myList(\lib\app\category::my_list());
 	}
 }
 ?>
