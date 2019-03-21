@@ -40,7 +40,7 @@
   <div class="c s12 pLa5">
     <label for="time">{%trans "Time"%}</label>
     <div class="input clockpicker ltr">
-      <input type="text" name="time" id="time" placeholder='{{dataRow.datetime | date("H:i") | fitNumber}}' autocomplete="off">
+      <input type="text" name="time" id="time" placeholder='{{"now" | date("H:i") | fitNumber}}' value='{{dataRow.datetime | date("H:i") | fitNumber}}' autocomplete="off">
     </div>
   </div>
 </div>
