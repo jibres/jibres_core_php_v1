@@ -1,0 +1,116 @@
+{%extends display.dash%}
+
+
+
+{%block pageContent%}
+
+{%if dataTable%}
+ {%if filterBox%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if filterBox%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12 p0">
+  <form method="get" action='{{url.here}}/product'>
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search in products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" autofocus class="barCode" data-default data-pass='submit' autocomplete='off'>
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+{%block htmlTable%}
+  <table class="tbl1 v1 cbox fs12">
+    <thead>
+      <tr class="fs08">
+        <th data-sort="{{myFilter.title.order}}"><a href='{{myFilter.title.link}}'>{%trans "Title"%}</a></th>
+        <th data-sort="{{myFilter.cat.order}}" class="s0"><a href='{{myFilter.cat.link}}'>{%trans "Category"%}</a></th>
+
+
+        <th data-sort="{{myFilter.discount.order}}"><a href='{{myFilter.discount.link}}'>{%trans "Discount" %}</a></th>
+        <th data-sort="{{myFilter.finalprice.order}}"><a href='{{myFilter.finalprice.link}}'>{%trans "Final price" %}</a></th>
+
+
+
+      </tr>
+    </thead>
+
+    <tbody>
+      {%for key, value in dataTable%}
+      <tr {%if value.stock < 0%} class='warning' title='{%trans "stock count is less than zero!"%}'{%endif%}>
+        <td><a href="{{url.here}}/product/general?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
+        <td class="s0"><small><a href="{{url.here}}/product?cat={{value.cat}}">{{value.cat}}</a></small></td>
+
+        <td><a href="{{url.here}}/product?discount={{value.discount}}">{{value.discount | number_format | fitNumber}}</a></td>
+        <td class="s0"><a href="{{url.here}}/product?finalprice={{value.finalprice}}">{{value.finalprice | number_format | fitNumber}}</a></td>
+
+
+
+
+
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+  {%include display.pagination%}
+{%endblock%}
+
+
+
+
+{%block htmlFilter%}
+<p class="f fs14 msg warn2">
+  <span class="c">{{filterBox | raw}}</span>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c s12">{%trans "Result not found!"%} {%trans "Search with new keywords."%} </span>
+{%if barcodeScaned%}
+  <a class="c" href="{{url.this}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
+{%endif%}
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.this}}/add">{%trans "Try to start with add new product!"%}</a></p>
+{%endblock%}
+
