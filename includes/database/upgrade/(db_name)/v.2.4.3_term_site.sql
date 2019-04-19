@@ -1,0 +1,1 @@
+ALTER TABLE `productterms` ADD `site` ENUM('yes','no') NOT NULL DEFAULT 'yes' AFTER `count`;
