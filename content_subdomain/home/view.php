@@ -31,8 +31,15 @@ class view
 			\dash\data::include_js(true);
 			\dash\data::include_highcharts(true);
 
-			$site_cat = \lib\app\product\cat::list();
-			\dash\data::siteDetail_cat($site_cat);
+			$siteDetail                  = [];
+			$siteDetail['cat']           = \lib\app\product\cat::list();
+			$siteDetail['last']          = \lib\app\product\site::last();
+			$siteDetail['love']          = \lib\app\product\site::love();
+			$siteDetail['amazing']       = \lib\app\product\site::by_cat('آدامس');
+			$siteDetail['discount_1000'] = \lib\app\product\site::by_discount(1000);
+			$siteDetail['discount']      = \lib\app\product\site::by_discount();
+			j($siteDetail);
+			\dash\data::siteDetail($siteDetail);
 
 			\dash\data::display_storesubdomain('content_subdomain/home/site.html');
 		}
