@@ -38,7 +38,7 @@ class view
 			$siteDetail['amazing']       = \lib\app\product\site::by_cat('آدامس');
 			$siteDetail['discount_1000'] = \lib\app\product\site::by_discount(1000);
 			$siteDetail['discount']      = \lib\app\product\site::by_discount();
-			j($siteDetail);
+
 			\dash\data::siteDetail($siteDetail);
 
 			\dash\data::display_storesubdomain('content_subdomain/home/site.html');
