@@ -14,7 +14,7 @@
 
   <a href="{{url.this}}/plan" class="btn block secondary mB10">{%trans "Cancel plan change process"%}</a>
 
-  {%if store.plan != 'free' and store.plan != 'trial' and currentStore.daysleft > 2%}
+  {%if store.plan != 'free' and store.plan != 'trial' and currentStore.daysleft > 2 and store.plan != url.subchild%}
   <p class="msg danger txtB txtC">
     {%trans "Your plan have some days!"%}<br>
     {%trans "Are you sure to change your plan?"%}
