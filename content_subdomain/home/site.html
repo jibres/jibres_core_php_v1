@@ -1,0 +1,25 @@
+{%extends display.dash%}
+
+
+{%block pageContent%}
+<div class="cbox ">
+	<div class="f">
+	  {%for key, value in siteDetail.cat%}
+	  {%if loop.index < 10 and value.title%}
+	  <div class="c2">
+	  	<a href="#">
+	  		<div class="msg">{{value.title}} <span class="badge">{{value.count | fitNumber}}</span></div>
+	  	</a>
+	  </div>
+	  {%endif%}
+	  {%endfor%}
+
+	</div>
+
+</div>
+{%endblock%}
+
+
+
+
+

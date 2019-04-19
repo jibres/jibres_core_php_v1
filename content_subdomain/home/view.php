@@ -22,6 +22,21 @@ class view
 		\dash\data::service_logo(\dash\url::static(). '/siftal/images/logo/jibres.png');
 		\dash\data::service_url('https://jibres.com');
 
+		\dash\data::display_storesubdomain('content_subdomain/home/visitcard.html');
+		// if the plan have site
+		if(\dash\permission::supervisor())
+		{
+			\dash\data::include_adminPanel(true);
+			\dash\data::include_css(true);
+			\dash\data::include_js(true);
+			\dash\data::include_highcharts(true);
+
+			$site_cat = \lib\app\product\cat::list();
+			\dash\data::siteDetail_cat($site_cat);
+
+			\dash\data::display_storesubdomain('content_subdomain/home/site.html');
+		}
+
 	}
 }
 ?>
