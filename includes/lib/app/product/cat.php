@@ -6,6 +6,16 @@ class cat
 {
 	public static $debug = true;
 
+	public static $sort_field =
+	[
+		'title',
+		'type',
+		'slug',
+		'url',
+
+	];
+
+
 
 	public static function check_add($_cat)
 	{
@@ -38,14 +48,40 @@ class cat
 			return false;
 		}
 
-		$type = \dash\app::request('type');
-		if($type && !in_array($type, ['decimal', 'integer']))
+		$slug = \dash\app::request('slug');
+		if(!$slug)
 		{
-			if(self::$debug) \dash\notif::error(T_("Invalid type of cat"), 'type');
+			$slug = \dash\utility\filter::slug($title);
+			if(mb_strlen($slug) > 100)
+			{
+				\dash\notif::error(T_("Please set the title or slug less than 100 character"), ['element' => ['slug', 'title']]);
+				return false;
+			}
+		}
+
+		$url = \dash\app::request('url');
+		if($url && mb_strlen($url) > 1000)
+		{
+			\dash\notif::error(T_("Please set the url less than 1000 character"), 'url');
 			return false;
 		}
 
-		$default = \dash\app::request('catdefault') ? true : false;
+		// $order = \dash\app::request('order');
+		// $count = \dash\app::request('count');
+		// $parent = \dash\app::request('parent');
+
+		$desc = \dash\app::request('desc');
+		$file = \dash\app::request('file');
+		$site = \dash\app::request('site') ? 'yes' : 'no';
+		$isdefault = \dash\app::request('isdefault') ? 1 : null;
+
+
+		$valuetype = \dash\app::request('valuetype');
+		if($valuetype && !in_array($valuetype, ['decimal', 'integer']))
+		{
+			if(self::$debug) \dash\notif::error(T_("Invalid valuetype of cat"), 'valuetype');
+			return false;
+		}
 
 		$maxsale = \dash\app::request('maxsale');
 		if($maxsale && !is_numeric($maxsale))
@@ -64,13 +100,82 @@ class cat
 			}
 		}
 
-		$args            = [];
-		$args['title']   = $title;
-		$args['type']    = $type;
-		$args['default'] = $default;
-		$args['maxsale'] = $maxsale;
+		$args              = [];
+		$meta              = [];
+		$meta['maxsale']   = $maxsale;
+
+		if($meta)
+		{
+			$meta              = json_encode($meta, JSON_UNESCAPED_UNICODE);
+			$args['meta']      = $meta;
+		}
+
+		$args['slug']      = $slug;
+		$args['type']      = 'cat';
+		$args['title']     = $title;
+		$args['file']      = $file;
+		$args['valuetype'] = $valuetype;
+		$args['isdefault'] = $isdefault;
+
 		return $args;
 
+	}
+
+
+		/**
+	 * Gets the product.
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  The product.
+	 */
+	public static function get($_id, $_option = [])
+	{
+
+		$default_option =
+		[
+			'debug' => true,
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("User id not found"));
+			return false;
+		}
+
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store id not found"));
+			return false;
+		}
+
+
+		$id = $_id;
+		$id = \dash\coding::decode($id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Id not set"));
+			return false;
+		}
+
+		$result = \lib\db\productterms::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+
+		if(!$result)
+		{
+			\dash\notif::error(T_("Can not access to load this term details"));
+			return false;
+		}
+
+		$result = self::ready($result);
+
+		return $result;
 	}
 
 
@@ -90,32 +195,45 @@ class cat
 			return false;
 		}
 
-		$json = self::list(true);
+		$args['creator'] = \dash\user::id();
+		$args['store_id'] = \lib\store::id();
 
-		if(isset($json[$args['title']]))
+		$check =
+		[
+			'title'    => $args['title'],
+			'type'     => $args['type'],
+			'store_id' => \lib\store::id(),
+			'limit'    => 1,
+		];
+
+		$check_duplicate = \lib\db\productterms::get($check);
+
+		if(isset($check_duplicate['id']))
 		{
 			if(self::$debug) \dash\notif::error(T_("Duplicate cat founded"), 'cat');
 			return false;
 		}
 
-		if($args['default'])
+		if(isset($args['default']) && $args['default'])
 		{
-			foreach ($json as $key => $value)
-			{
-				$json[$key]['default'] = false;
-			}
+			\lib\db\productterms::update_where(['default' => null], ['store_id' => \lib\store::id(), 'type' => 'cat']);
 		}
 
-		$json[$args['title']] = $args;
+		$result = \lib\db\productterms::insert($args);
 
+		if($result)
+		{
+			$return['id'] = \dash\coding::encode($result);
+			\dash\log::set('AddCategory', ['code' => $result]);
 
-		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
-		\lib\db\stores::update(['cat' => $json], \lib\store::id());
-
-		if(self::$debug) \dash\notif::ok(T_("Category successfully added"));
-		\lib\store::refresh();
-
-		return true;
+			if(self::$debug) \dash\notif::ok(T_("Category successfully added"));
+			return $return;
+		}
+		else
+		{
+			if(self::$debug) \dash\notif::error(T_("Can not insert new cat"));
+			return false;
+		}
 
 	}
 
@@ -147,120 +265,169 @@ class cat
 	}
 
 
-	public static function update($_old_cat, $_new_cat, $_args = [])
+
+	public static function edit($_args, $_id)
 	{
-		if(!\dash\permission::check('productCategoryListEdit'))
+		\dash\app::variable($_args);
+
+		$id = \dash\coding::decode($_id);
+
+		if(!$id)
+		{
+			\dash\notif::error(T_("Can not access to edit category"), 'category');
+			return false;
+		}
+
+		if(!\dash\user::id())
 		{
 			return false;
 		}
 
-		\dash\app::variable($_args);
-
-		$args = self::check();
+		// check args
+		$args = self::check($id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		$json = self::list(true);
 
-		if(!isset($json[$_old_cat]))
+		if(!\dash\app::isset_request('slug')) unset($args['slug']);
+		if(!\dash\app::isset_request('type')) unset($args['type']);
+		if(!\dash\app::isset_request('title')) unset($args['title']);
+		if(!\dash\app::isset_request('file')) unset($args['file']);
+		if(!\dash\app::isset_request('valuetype')) unset($args['valuetype']);
+		if(!\dash\app::isset_request('isdefault')) unset($args['isdefault']);
+
+
+		if(!empty($args))
 		{
-			if(self::$debug) \dash\notif::error(T_("Category not found in your store!"), 'cat');
+			\lib\db\productterms::update($args, $id);
+			\dash\log::set('EditCategory', ['code' => $id]);
+		}
+
+		return true;
+	}
+
+
+
+
+	/**
+	 * Gets the product.
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  The product.
+	 */
+	public static function list($_string = null, $_args = [])
+	{
+		if(!\dash\user::id())
+		{
 			return false;
 		}
 
-		unset($json[$_old_cat]);
-
-		if($args['default'])
+		if(!\lib\store::id())
 		{
-			foreach ($json as $key => $value)
+			return false;
+		}
+
+		$default_args =
+		[
+			'order'    => null,
+			'sort'     => null,
+
+		];
+
+		if(!is_array($_args))
+		{
+			$_args = [];
+		}
+
+		$option             = [];
+		$option             = array_merge($default_args, $_args);
+
+		if($option['order'])
+		{
+			if(!in_array($option['order'], ['asc', 'desc']))
 			{
-				$json[$key]['default'] = false;
+				unset($option['order']);
 			}
 		}
 
-		$json[$args['title']] = $args;
-
-		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
-		\lib\db\stores::update(['cat' => $json], \lib\store::id());
-
-		$msg = T_("Category successfully updated");
-		if($_old_cat != $_new_cat)
+		if($option['sort'])
 		{
-			// update products
-			$count = \lib\db\products::get_count(['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
-			if($count)
+			if(!in_array($option['sort'], self::$sort_field))
 			{
-				\lib\db\products::update_where(['cat' => $_new_cat], ['store_id' => \lib\store::id(), 'cat' => $_old_cat]);
-				$msg = T_("All products by category :old updated to :new", ['old' => $_old_cat, 'new' => $_new_cat]);
+				unset($option['sort']);
 			}
 		}
 
-		if(self::$debug) \dash\notif::ok($msg);
+		$result = \lib\db\productterms::search($_string, $option);
 
-		\lib\store::refresh();
+		$temp             = [];
 
-		return true;
+		foreach ($result as $key => $value)
+		{
+			$check = self::ready($value);
+			if($check)
+			{
+				$temp[] = $check;
+			}
+		}
 
+		return $temp;
 	}
 
 
-	public static function list($_get_query = false)
+	/**
+	 * ready data of product to load in api
+	 *
+	 * @param      <type>  $_data  The data
+	 */
+	public static function ready($_data)
 	{
-		$list = [];
-		if($_get_query)
-		{
-			$list = \lib\db\products::field_group_count('cat', \lib\store::id());
-		}
-
-		$json = \lib\store::detail('cat');
-		if(is_string($json))
-		{
-			$json = json_decode($json, true);
-		}
-
-		if(!is_array($json))
-		{
-			$json = [];
-		}
-
 		$result = [];
 
-		foreach ($list as $key => $value)
+		if(!is_array($_data))
 		{
-			if(isset($json[$key]))
-			{
-				$result[$key] = array_merge($json[$key], ['count' => $value]);
-			}
-			else
-			{
-				$result[$key] = array_merge(['title' => $key], ['count' => $value]);
-			}
+			return null;
 		}
 
-		foreach ($json as $key => $value)
+		foreach ($_data as $key => $value)
 		{
-			if(!isset($result[$key]))
+
+			switch ($key)
 			{
-				if(!isset($value['count']))
-				{
-					$result[$key] = array_merge($value, ['count' => 0]);
-				}
-				else
-				{
+				case 'id':
+				case 'creator':
+					if(isset($value))
+					{
+						$result[$key] = \dash\coding::encode($value);
+					}
+					else
+					{
+						$result[$key] = null;
+					}
+					break;
+
+				case 'slug':
+					$result[$key] = isset($value) ? (string) $value : null;
+					break;
+
+				case 'meta':
+					if(is_string($value))
+					{
+						$result[$key] = json_decode($value, true);
+					}
+					break;
+
+
+				default:
 					$result[$key] = $value;
-				}
+					break;
 			}
 		}
-
-		$sort = array_column($result, 'count');
-		$sort = array_map('intval', $sort);
-		array_multisort($result, SORT_DESC, SORT_NUMERIC, $sort, SORT_DESC);
-
 		return $result;
 	}
-
 }
 ?>
