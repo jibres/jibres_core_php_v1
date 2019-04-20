@@ -58,6 +58,8 @@ class cat
 		'type',
 		'slug',
 		'url',
+		'count',
+		'valuetype',
 
 	];
 
@@ -116,6 +118,10 @@ class cat
 		$site = \dash\app::request('site') ? 'yes' : 'no';
 		$isdefault = \dash\app::request('isdefault') ? 1 : null;
 
+		if($isdefault)
+		{
+			\lib\db\productterms::update_where(['isdefault' => null], ['store_id' => \lib\store::id(), 'isdefault' => 1]);
+		}
 
 		$valuetype = \dash\app::request('valuetype');
 		if($valuetype && !in_array($valuetype, ['decimal', 'integer']))

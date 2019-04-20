@@ -18,6 +18,12 @@ class productterms
 	}
 
 
+	public static function update_where()
+	{
+		return \dash\db\config::public_update_where('productterms', ...func_get_args());
+	}
+
+
 	public static function update()
 	{
 		return \dash\db\config::public_update('productterms', ...func_get_args());
