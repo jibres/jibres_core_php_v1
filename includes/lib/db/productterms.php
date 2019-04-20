@@ -35,6 +35,31 @@ class productterms
 	}
 
 
+	public static function update_count($_store_id, $_where)
+	{
+		$where = \dash\db\config::make_where($_where);
+		if($where)
+		{
+			$where = "AND $where";
+		}
+
+		$query =
+		"
+			UPDATE
+				productterms
+			SET
+				productterms.count =
+					(
+						SELECT COUNT(*) FROM products WHERE products.cat_id = productterms.id
+					)
+			WHERE
+				productterms.store_id = $_store_id
+				$where";
+
+		\dash\db::query($query);
+	}
+
+
 	public static function search($_string = null, $_option = [])
 	{
 		$default =

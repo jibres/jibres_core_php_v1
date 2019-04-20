@@ -25,7 +25,7 @@ class cat
 		}
 
 		self::add(['title' => $_cat]);
-
+		\lib\db\productterms::update_count(\lib\store::id(), ['type' => 'cat']);
 		return;
 	}
 
