@@ -8,7 +8,8 @@
 
         {%if dataRow.count%}
 
-          <div class="msg {%if dataRow.count < 10%} warn {%else%} danger {%endif%}">
+          <div class="msg {%if dataRow.count < 10%} warn2 {%else%} danger2 {%endif%}">
+            <div class="msg  txtC txtB">{{dataRow.title}}</div>
             <p>
               <b>{{dataRow.count | fitNumber}}</b>  {%trans "Product found in this category"%}
               <br>
@@ -17,7 +18,7 @@
           </div>
 
           <div class="msg info2 txtC txtB">
-            <a href="{{url.here}}/product?catid={{dataRow.id}}">{%trans "Show product list"%}</a>
+            <a href="{{url.here}}/product?catid={{dataRow.id}}">{%trans "Show product list"%} {{dataRow.title}}</a>
           </div>
 
           <form method="post">
