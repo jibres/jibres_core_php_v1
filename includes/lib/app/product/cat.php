@@ -4,6 +4,52 @@ namespace lib\app\product;
 
 class cat
 {
+
+	public static function fix()
+	{
+		$all = \dash\db::get("SELECT stores.cat, stores.id, stores.creator FROM stores WHERE stores.cat IS NOT NULL");
+
+		if(!is_array($all) || !$all)
+		{
+			return;
+		}
+
+		$result = [];
+		foreach ($all as $value)
+		{
+			$cat = json_decode($value['cat'], true);
+
+
+			foreach ($cat as  $title)
+			{
+				if($title['title'])
+				{
+					\dash\engine\process::continue();
+					$new_cat = self::add(['title' => $title['title']], $value['id'], $value['creator']);
+
+					if(isset($new_cat['title']) && isset($new_cat['id_raw']))
+					{
+						\lib\db\products::update_where(
+						[
+							'cat'    => $new_cat['title'],
+							'cat_id' => $new_cat['id_raw'],
+						],
+						[
+							'store_id' => $value['id'],
+							'cat'      => $title['title'],
+						]);
+					}
+				}
+
+			}
+
+			\lib\db\productterms::update_count($value['id'], ['type' => 'cat']);
+		}
+		j('ok');
+
+
+	}
+
 	public static $debug = true;
 
 	public static $sort_field =
@@ -33,7 +79,7 @@ class cat
 		$title = \dash\app::request('title');
 		if(!$title && $title !== '0')
 		{
-			if(self::$debug) \dash\notif::error(T_("Plese fill the cat name"), 'cat');
+			if(self::$debug) \dash\notif::error(T_("Plese fill the cat name"), 'title');
 			return false;
 		}
 
@@ -179,7 +225,7 @@ class cat
 	}
 
 
-	public static function add($_args)
+	public static function add($_args, $_store_id = null, $_creator = null)
 	{
 		if(!\dash\permission::check('productCategoryListAdd'))
 		{
@@ -195,14 +241,14 @@ class cat
 			return false;
 		}
 
-		$args['creator'] = \dash\user::id();
-		$args['store_id'] = \lib\store::id();
+		$args['creator'] =  $_creator ? $_creator : \dash\user::id();
+		$args['store_id'] =  $_store_id ? $_store_id : \lib\store::id();
 
 		$check =
 		[
 			'title'    => $args['title'],
 			'type'     => $args['type'],
-			'store_id' => \lib\store::id(),
+			'store_id' => $args['store_id'],
 			'limit'    => 1,
 		];
 
@@ -235,7 +281,8 @@ class cat
 			$return['id_raw'] = $result;
 			$return['title']  = $args['title'];
 
-			\dash\log::set('AddCategory', ['code' => $result]);
+			// \dash\log::set('AddCategory', ['code' => $result]);
+
 
 			if(self::$debug) \dash\notif::ok(T_("Category successfully added"));
 
