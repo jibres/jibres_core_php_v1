@@ -7,7 +7,13 @@ class controller
 	{
 		\dash\permission::access('productCategoryListEdit');
 
+		$dataRow = \lib\app\product\cat::get(\dash\request::get('id'));
+		\dash\data::dataRow($dataRow);
 
+		if(!$dataRow)
+		{
+			\dash\header::status(404);
+		}
 
 	}
 }

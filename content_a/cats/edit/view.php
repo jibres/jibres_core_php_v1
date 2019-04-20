@@ -15,12 +15,9 @@ class view
 			\dash\data::badge_link(\dash\url::this());
 		}
 
-		$dataRow = \lib\app\product\cat::get(\dash\request::get('id'));
-		\dash\data::dataRow($dataRow);
-
-		if(isset($dataRow['title']))
+		if(\dash\data::dataRow_title())
 		{
-			\dash\data::page_title(T_('Edit category'). ' | '. $dataRow['title']);
+			\dash\data::page_title(T_('Edit category'). ' | '. \dash\data::dataRow_title());
 		}
 	}
 }

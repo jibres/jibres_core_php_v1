@@ -509,6 +509,8 @@ class cat
 			}
 		}
 
+		$option['store_id'] = \lib\store::id();
+
 		$result = \lib\db\productterms::search($_string, $option);
 
 		$temp             = [];
