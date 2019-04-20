@@ -56,6 +56,7 @@ trait datalist
 			'price'    => null,
 			'discount' => null,
 			'unit'     => null,
+			'cat_id'   => null,
 		];
 
 		if(!is_array($_args))
@@ -86,6 +87,12 @@ trait datalist
 		$field             = [];
 		$field['store_id'] = \lib\store::id();
 		$multi_record      = true;
+
+		// search in current field
+		if($option['cat_id'])
+		{
+			$field['cat_id'] = $option['cat_id'];
+		}
 
 		// search in current field
 		if($option['price'])

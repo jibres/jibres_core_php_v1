@@ -44,6 +44,11 @@ class view
 			$args['cat'] = \dash\request::get('cat');
 		}
 
+		if(\dash\request::get('catid'))
+		{
+			$args['cat_id'] = \dash\coding::decode(\dash\request::get('catid'));
+		}
+
 		if(\dash\request::get('discount'))
 		{
 			$args['discount'] = \dash\request::get('discount');
@@ -122,6 +127,12 @@ class view
 		{
 			$args['Negative profit'] = '';
 			unset($args['negativeprofit']);
+		}
+
+		if(isset($args['cat_id']))
+		{
+			$args['Category'] = isset($myProductList[0]['cat']) ? $myProductList[0]['cat'] : null;
+			unset($args['cat_id']);
 		}
 
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
