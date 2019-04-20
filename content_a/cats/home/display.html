@@ -56,16 +56,22 @@
   <table class="tbl1 v1 cbox fs12">
     <thead>
       <tr class="fs08">
+        <th>&nbsp;</th>
         <th data-sort="{{myFilter.title.order}}"><a href='{{myFilter.title.link}}'>{%trans "Title"%}</a></th>
-        <th data-sort="{{myFilter.type.order}}" class="s0"><a href='{{myFilter.type.link}}'>{%trans "Type"%}</a></th>
+        <th data-sort="{{myFilter.slug.order}}" class="s0"><a href='{{myFilter.slug.link}}'>{%trans "Slug"%}</a></th>
+        <th data-sort="{{myFilter.desc.order}}" class="s0"><a href='{{myFilter.desc.link}}'>{%trans "Description"%}</a></th>
+        <th data-sort="{{myFilter.valuetype.order}}" class="s0"><a href='{{myFilter.valuetype.link}}'>{%trans "Value type"%}</a></th>
       </tr>
     </thead>
 
     <tbody>
       {%for key, value in dataTable%}
-      <tr >
+      <tr>
+        <td class="collapsing">{%if value.file%}<img src="{{value.file}}" class="avatar">{%endif%}</td>
         <td><a href="{{url.here}}/cats/edit?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
-        <td class="s0"><small><a href="{{url.here}}/cats?type={{value.type}}">{{value.type}}</a></small></td>
+        <td><a href="{{url.here}}/cats?slug={{value.slug}}">{{value.slug}}</a></td>
+        <td><a href="{{url.here}}/cats?desc={{value.desc}}">{{value.desc}}</a></td>
+        <td><a href="{{url.here}}/cats?valuetype={{value.valuetype}}">{{value.valuetype}}</a></td>
       </tr>
       {%endfor%}
     </tbody>
