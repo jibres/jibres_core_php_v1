@@ -1,0 +1,91 @@
+{%extends "content_a/product/layout.html"%}
+
+
+{%block pageContent%}
+{{block('pageSteps')}}
+{{block('pageStepsSite')}}
+<div class="f">
+ <div class="c4 s12 pA10">
+ 	{{block('iDataForm')}}
+ </div>
+ <div class="c8 s12 pA10">
+ 	{{block('iDataList')}}
+ </div>
+</div>
+{%endblock%}
+
+
+
+{%block iDataList%}
+<div class="cbox">
+	<table class="tbl1 v5">
+		<tbody>
+			<tr>
+				<td>حجم</td>
+				<td>ابعاد</td>
+				<td>15</td>
+				<td>الکی مثلا</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+{%endblock%}
+
+
+
+
+{%block iDataForm%}
+<div class="cbox">
+<form method="post" autocomplete="off">
+	<div class="f">
+		<div class="c s12 mLa5">{{block('icat')}}</div>
+		<div class="c s12 mLa5">{{block('ikey')}}</div>
+	</div>
+	<div class="">{{block('ivalue')}}</div>
+	<textarea name="desc" class="txt mB20" rows="10" placeholder='{%trans "Description"%}'>{{dataRow.desc}}</textarea>
+	<div class="">{{block('ibtn')}}</div>
+</form>
+</div>
+{%endblock%}
+
+{%block ibtn%}
+
+<button class="btn mT20 primary block">{%trans "Add"%}</button>
+{%endblock%}
+
+
+
+
+{%block icat%}
+
+<label for='cat'>{%trans "cat"%}</label>
+<select name="cat"  class="select ui dropdown search addition" id="cat">
+  <option value="">{%trans "Add or select"%}</option>
+
+  {%for key, value in myList.cat%}
+    <option value="{{value}}" {%if value == dataRow.cat %} selected{%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+{%endblock%}
+
+
+
+{%block ikey%}
+<label for='key'>{%trans "key"%}</label>
+<select name="key"  class="select ui dropdown search addition" id="key">
+  <option value="">{%trans "Add or select"%}</option>
+
+  {%for key, value in myList.key%}
+    <option value="{{value}}" {%if value == dataRow.key %} selected{%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+{%endblock%}
+
+
+
+{%block ivalue%}
+<label for='ivalue'>{%trans "Value"%}</label>
+<div class="input">
+ <input type="text" name="value"  value="{{dataRow.value}}" required  maxlength='200' minlength="1" pattern=".{1,200}"  id='ivalue'>
+</div>
+{%endblock%}

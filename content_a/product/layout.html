@@ -556,19 +556,20 @@
 {%block pageStepsSite%}
 <div class="f msg pB0 secondary2">
 
+
   <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='gallery'%} primary{%else%} light{%endif%}" href='{{url.this}}/gallery?id={{requestGET.id}}'>{%trans "Gallery"%}</a>
+  </div>
+
+  <div class="c pB10">
+    <a class="btn block {%if url.child=='property'%} primary{%else%} light{%endif%}" href='{{url.this}}/property?id={{requestGET.id}}'>{%trans "Property"%}</a>
   </div>
 
   <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='desc'%} primary{%else%} light{%endif%}" href='{{url.this}}/desc?id={{requestGET.id}}'>{%trans "Description"%}</a>
   </div>
 
-  {%if false%}
-  <div class="c pB10">
-    <a class="btn block {%if url.child=='property'%} primary{%else%} light{%endif%}" href='{{url.this}}/property?id={{requestGET.id}}'>{%trans "Property"%}</a>
-  </div>
-  {%endif%}
+
 
 </div>
 {%endblock%}
