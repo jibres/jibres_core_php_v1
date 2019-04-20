@@ -24,9 +24,7 @@ class cat
 			return;
 		}
 
-		self::add(['title' => $_cat]);
-		\lib\db\productterms::update_count(\lib\store::id(), ['type' => 'cat']);
-		return;
+		return self::add(['title' => $_cat]);
 	}
 
 
@@ -213,7 +211,15 @@ class cat
 		if(isset($check_duplicate['id']))
 		{
 			if(self::$debug) \dash\notif::error(T_("Duplicate cat founded"), 'cat');
-			return false;
+
+			$return =
+			[
+				'id'     => \dash\coding::encode($check_duplicate['id']),
+				'id_raw' => $check_duplicate['id'],
+				'title'  => $check_duplicate['title'],
+			];
+
+			return $return;
 		}
 
 		if(isset($args['default']) && $args['default'])
@@ -225,10 +231,14 @@ class cat
 
 		if($result)
 		{
-			$return['id'] = \dash\coding::encode($result);
+			$return['id']     = \dash\coding::encode($result);
+			$return['id_raw'] = $result;
+			$return['title']  = $args['title'];
+
 			\dash\log::set('AddCategory', ['code' => $result]);
 
 			if(self::$debug) \dash\notif::ok(T_("Category successfully added"));
+
 			return $return;
 		}
 		else

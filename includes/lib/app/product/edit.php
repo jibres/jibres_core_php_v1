@@ -64,7 +64,13 @@ trait edit
 
 		if(!\dash\app::isset_request('title'))          unset($args['title']);
 		if(!\dash\app::isset_request('name'))           unset($args['name']);
-		if(!\dash\app::isset_request('cat'))            unset($args['cat']);
+
+		if(!\dash\app::isset_request('cat'))
+		{
+		    unset($args['cat']);
+		    unset($args['cat_id']);
+		}
+
 		if(!\dash\app::isset_request('slug'))           unset($args['slug']);
 		if(!\dash\app::isset_request('company'))        unset($args['company']);
 		if(!\dash\app::isset_request('shortcode'))      unset($args['shortcode']);

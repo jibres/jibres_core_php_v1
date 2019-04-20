@@ -74,27 +74,13 @@ class products
 	 */
 	public static function insert($_args)
 	{
-		$set = [];
-		foreach ($_args as $key => $value)
+		\dash\db\config::public_insert('products', ...func_get_args());
+		$id = \dash\db::insert_id();
+		if($id && isset($_args['cat_id']))
 		{
-			if($value)
-			{
-				$set[] = "products.$key = '$value' ";
-			}
+			\lib\db\productterms::update_count(\lib\store::id(), ['type' => 'cat']);
 		}
-
-		if(empty($set))
-		{
-			return null;
-		}
-
-		$set = implode(',', $set);
-
-		$query = "INSERT INTO products SET $set";
-
-		\dash\db::query($query);
-
-		return \dash\db::insert_id();
+		return $id;
 	}
 
 
@@ -103,9 +89,16 @@ class products
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function update()
+	public static function update($_args, $_id)
 	{
-		return \dash\db\config::public_update('products', ...func_get_args());
+		$result = \dash\db\config::public_update('products', ...func_get_args());
+
+		if(isset($_args['cat_id']))
+		{
+			\lib\db\productterms::update_count(\lib\store::id(), ['type' => 'cat']);
+		}
+
+		return $result;
 	}
 
 	public static function update_where()

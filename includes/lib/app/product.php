@@ -67,6 +67,9 @@ class product
 	 */
 	private static function check($_id, $_option = [])
 	{
+
+		$args                    = [];
+
 		$default_option =
 		[
 			'debug' => true,
@@ -104,12 +107,6 @@ class product
 			return false;
 		}
 
-		$cat = \dash\app::request('cat');
-		if($cat && mb_strlen($cat) >= 200)
-		{
-			\dash\notif::error(T_("Product cat must be less than 200 character"), 'cat');
-			return false;
-		}
 
 		// $slug = \dash\app::request('slug');
 		$slug = \dash\utility\filter::slug($title, null, 'persian');
@@ -423,12 +420,29 @@ class product
 		}
 
 
+		$cat = \dash\app::request('cat');
+		if($cat && mb_strlen($cat) >= 200)
+		{
+			\dash\notif::error(T_("Product cat must be less than 200 character"), 'cat');
+			return false;
+		}
+
 		$master_args = \dash\app::request();
 		// check to add new cat or unit
 		if($cat)
 		{
 			\lib\app\product\cat::$debug = false;
-			\lib\app\product\cat::check_add($cat);
+			$add_cat = \lib\app\product\cat::check_add($cat);
+
+			if(isset($add_cat['id_raw']))
+			{
+				$args['cat_id'] = $add_cat['id_raw'];
+			}
+
+			if(isset($add_cat['title']))
+			{
+				$args['cat'] = $add_cat['title'];
+			}
 		}
 
 		if($unit)
@@ -439,9 +453,7 @@ class product
 
 		\dash\app::request_set($master_args);
 
-		$args                    = [];
 		$args['title']           = $title;
-		$args['cat']             = $cat;
 		$args['slug']            = $slug;
 		$args['company']         = $company;
 		$args['unit']            = $unit;
