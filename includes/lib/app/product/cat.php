@@ -24,11 +24,8 @@ class cat
 			return;
 		}
 
-		$list = self::list();
-		if(!array_key_exists($_cat, $list))
-		{
-			self::add(['title' => $_cat]);
-		}
+		self::add(['title' => $_cat]);
+
 		return;
 	}
 
