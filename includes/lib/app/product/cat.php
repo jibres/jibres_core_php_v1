@@ -249,28 +249,85 @@ class cat
 
 	}
 
-	public static function remove($_old_cat)
+
+	public static function remove($_args, $_id)
 	{
 		if(!\dash\permission::check('productCategoryListDelete'))
 		{
 			return false;
 		}
 
-		$json = self::list(true);
+		$load = self::get($_id);
 
-		if(!isset($json[$_old_cat]))
+		if(!isset($load['id']))
 		{
-			if(self::$debug) \dash\notif::error(T_("Category not found in your store!"), 'cat');
+			\dash\notif::error(T_("Invalid category"));
 			return false;
 		}
 
-		unset($json[$_old_cat]);
+		\dash\app::variable($_args);
 
-		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
-		\lib\db\stores::update(['cat' => $json], \lib\store::id());
+		if(isset($load['count']) && $load['count'])
+		{
+			$whattodo = \dash\app::request('whattodo');
+			if(!in_array($whattodo, ['non-cat','new-cat']))
+			{
+				\dash\notif::error(T_("Dont!"));
+				return false;
+			}
 
-		if(self::$debug) \dash\notif::warn(T_("Category successfully removed"));
-		\lib\store::refresh();
+			$check = null;
+
+			$cat = \dash\app::request('cat');
+			if($cat)
+			{
+				$check = self::get($cat);
+				if(!$cat)
+				{
+					\dash\notif::error(T_("Dont!"));
+					return false;
+				}
+			}
+
+			if($whattodo === 'new-cat' && !isset($check['id']))
+			{
+				\dash\notif::error(T_("Please select one category"), 'cat');
+				return false;
+			}
+
+			if($whattodo === 'new-cat')
+			{
+				$new_cat_id = \dash\coding::decode($check['id']);
+				$new_cat_title = $check['title'];
+
+				\lib\db\products::update_where(
+				[
+					'cat'    => $new_cat_title,
+					'cat_id' => $new_cat_id,
+				],
+				[
+					'store_id' => \lib\store::id(),
+					'cat_id'   => \dash\coding::decode($_id),
+				]);
+
+				\lib\db\productterms::update_count(\lib\store::id(), ['type' => 'cat']);
+
+			}
+			else
+			{
+				\lib\db\products::update_where(
+				[
+					'cat'    => null,
+					'cat_id' => null,
+				],
+				[
+					'store_id' => \lib\store::id(),
+					'cat_id'   => \dash\coding::decode($_id),
+				]);
+			}
+		}
+
+		\lib\db\productterms::delete(\dash\coding::decode($_id));
 
 		return true;
 

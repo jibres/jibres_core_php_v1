@@ -1,0 +1,91 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+<div class="f justify-center">
+  <div class="x6 c5 s12 pRa10">
+    <dvi class="cbox">
+
+        {%if dataRow.count%}
+
+          <div class="msg {%if dataRow.count < 10%} warn {%else%} danger {%endif%}">
+            <p>
+              <b>{{dataRow.count | fitNumber}}</b>  {%trans "Product found in this category"%}
+              <br>
+              {%trans "To remove this category you must set all products by this category as a non product category or set another category for this products"%}
+            </p>
+          </div>
+
+          <div class="msg info2 txtC txtB">
+            <a href="{{url.here}}/product?catid={{dataRow.id}}">{%trans "Show product list"%}</a>
+          </div>
+
+          <form method="post">
+
+            {{block('iWhatToDo')}}
+            {{block('iAllCat')}}
+              <div data-response='whattodo' data-response-where='new-cat|non-cat' data-response-hide>
+                <button class="btn danger block mT20" type="submit">{%trans "Save and remove category"%}</button>
+              </div>
+          </form>
+
+        {%else%}
+
+          <div class="msg info">
+            <p>
+              {%trans "Non product found by this category"%}
+              <br>
+              {%trans "You can delete this category now"%}
+            </p>
+          </div>
+
+          <div data-confirm data-data='{"deletecat": 1}' class="btn danger block mT20" type="submit">{%trans "Remove category"%}</div>
+
+
+        {%endif%}
+
+    </dvi>
+  </div>
+</div>
+{%endblock%}
+
+
+{%block iWhatToDo%}
+<div class="f mB10">
+  <h4>{%trans "What do you want to do?"%}</h4>
+        <div class="c">
+          <div class="radio3 mB5">
+            <input type="radio" name="whattodo" value="non-cat" id="whattodo-non" >
+            <label for="whattodo-non">{%trans "Set all products as a non product category"%}</label>
+          </div>
+        </div>
+
+        <div class="c">
+          <div class="radio3 mB5">
+            <input type="radio" name="whattodo" value="new-cat" id="whattodo-new" >
+            <label for="whattodo-new">{%trans "Select new category"%}</label>
+          </div>
+        </div>
+
+      </div>
+{%endblock%}
+
+
+
+{%block iAllCat%}
+<div data-response='whattodo' data-response-where='new-cat' data-response-hide>
+
+<label for='cat'>{%trans "New category"%}</label>
+<select name="cat" class="select ui dropdown search" id="cat">
+  <option value="">{%trans "Select new category to update all product category"%}</option>
+  {%for key, value in allCat%}
+    {%if value.title%}
+    {%if value.id != requestGET.id%}
+      <option value="{{value.id}}">{{value.title}}</option>
+    {%endif%}
+    {%endif%}
+  {%endfor%}
+</select>
+</div>
+
+{%endblock%}
