@@ -16,6 +16,21 @@ class property
 		'valuetype',
 	];
 
+	public static function product($_id)
+	{
+		$id = \dash\coding::decode($_id);
+		if($id)
+		{
+			$args =
+			[
+				'store_id' => \lib\store::id(),
+				'product_id' => $id,
+			];
+
+			$result = \lib\db\productproperties::get($args);
+			return $result;
+		}
+	}
 
 	private static function check()
 	{

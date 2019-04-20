@@ -20,12 +20,14 @@
 <div class="cbox">
 	<table class="tbl1 v5">
 		<tbody>
+			{%for key, value in peropertyList%}
 			<tr>
-				<td>حجم</td>
-				<td>ابعاد</td>
-				<td>15</td>
-				<td>الکی مثلا</td>
+				<td>{{value.cat}}</td>
+				<td>{{value.key}}</td>
+				<td>{{value.value}}</td>
+				<td>{{value.desc}}</td>
 			</tr>
+			{%endfor%}
 		</tbody>
 	</table>
 </div>
