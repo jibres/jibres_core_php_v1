@@ -113,7 +113,12 @@ class cat
 		$args['slug']      = $slug;
 		$args['type']      = 'cat';
 		$args['title']     = $title;
-		$args['file']      = $file;
+
+		if($file)
+		{
+			$args['file']      = $file;
+		}
+		$args['desc']      = $desc;
 		$args['valuetype'] = $valuetype;
 		$args['isdefault'] = $isdefault;
 
@@ -263,10 +268,22 @@ class cat
 		return true;
 
 	}
+	public static function remove_file($_id)
+	{
+		$check = self::edit([], $_id, true);
+		if(!$check)
+		{
+			return false;
+		}
+
+		$id = \dash\coding::decode($_id);
+
+		\lib\db\productterms::update(['file' => null], $id);
+		return true;
+	}
 
 
-
-	public static function edit($_args, $_id)
+	public static function edit($_args, $_id, $_remove_file = false)
 	{
 		\dash\app::variable($_args);
 
@@ -283,6 +300,19 @@ class cat
 			return false;
 		}
 
+		$get = ['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1];
+		$get = \lib\db\productterms::get($get);
+		if(!isset($get['id']))
+		{
+			\dash\notif::error(T_("This is not your category"));
+			return false;
+		}
+
+		if($_remove_file)
+		{
+			return true;
+		}
+
 		// check args
 		$args = self::check($id);
 
@@ -293,9 +323,9 @@ class cat
 
 
 		if(!\dash\app::isset_request('slug')) unset($args['slug']);
+		if(!\dash\app::isset_request('desc')) unset($args['desc']);
 		if(!\dash\app::isset_request('type')) unset($args['type']);
 		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('file')) unset($args['file']);
 		if(!\dash\app::isset_request('valuetype')) unset($args['valuetype']);
 		if(!\dash\app::isset_request('isdefault')) unset($args['isdefault']);
 

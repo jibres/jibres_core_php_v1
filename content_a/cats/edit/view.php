@@ -17,6 +17,11 @@ class view
 
 		$dataRow = \lib\app\product\cat::get(\dash\request::get('id'));
 		\dash\data::dataRow($dataRow);
+
+		if(isset($dataRow['title']))
+		{
+			\dash\data::page_title(T_('Edit category'). ' | '. $dataRow['title']);
+		}
 	}
 }
 ?>

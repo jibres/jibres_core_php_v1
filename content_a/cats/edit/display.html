@@ -11,6 +11,8 @@
           {{block('iSite')}}
           {{block('iNumberType')}}
           {{block('iMaxSale')}}
+          {{block('idesc')}}
+          {{block('ifile')}}
           <button class="btn primary block mT20" type="submit">{%trans "Save"%}</button>
       </form>
     </dvi>
@@ -18,6 +20,50 @@
 </div>
 {%endblock%}
 
+
+
+
+
+{%block idesc%}
+<label for="desc">{%trans "Description"%}</label>
+<textarea data-editor class="txt mB10" id='desc' name="desc" placeholder='{%trans "Description"%}' maxlength='500' rows="5">{{dataRow.desc}}</textarea>
+{%endblock%}
+
+
+
+{%block ifile%}
+{%if dataRow.file%}
+   <div class="mediaBox mB20">
+
+{% set myExt = dataRow.file[(dataRow.file | length)-3:3] %}
+
+ {%if myExt == 'mp4' %}
+    <video class="block" controls>
+     <source src="{{dataRow.file}}" type="video/mp4">
+    </video>
+ {%elseif myExt == 'mp3' %}
+    <audio class="block" controls>
+     <source src="{{dataRow.file}}" type="audio/mp3">
+    </audio>
+ {%elseif myExt == 'png' or myExt == 'jpg' or myExt == 'jpeg' or myExt == 'gif'%}
+    <img src="{{dataRow.file}}" alt="{{myTitle.title}}">
+ {%elseif myExt == 'pdf' %}
+    <a class="btn primary outline block" href="{{dataRow.file}}">{%trans "Download PDF"%}</a>
+ {%else%}
+    <a class="btn primary outline block" href="{{dataRow.file}}">{%trans "Download File"%}</a>
+ {%endif%}
+   </div>
+   <dir data-confirm data-data='{"deletefile" : 1}' class="btn xs danger floatL">{%trans "Delete file"%}</dir>
+{%endif%}
+
+
+<label for="file1" class="block">{%trans "Category image"%}</label>
+<div class="input" title='{%trans "Max 1Mb"%}'>
+ <input type="file" name="file1" id="file1" data-max="1000">
+ </label>
+</div>
+
+{%endblock%}
 
 
 
