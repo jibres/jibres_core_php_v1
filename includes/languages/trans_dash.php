@@ -83,10 +83,10 @@ class twigTransTerms
 	echo T_("Search with new keywords.");                                             // Line 105
 	echo T_("Hi!");                                                                   // Line 112
 	echo T_("Try to start with add new record!");                                     // Line 131
-	echo T_("All publish posts");                                                     // Line 112
+	echo T_("All publish posts");                                                     // Line 129
 	echo T_("Published");                                                             // Line 65
-	echo T_("All draft posts");                                                       // Line 121
-	echo T_("All trash posts");                                                       // Line 130
+	echo T_("All draft posts");                                                       // Line 138
+	echo T_("All trash posts");                                                       // Line 147
 
 	//---------------------------------------addons/content_cp/posts/edit/display.html
 	echo T_("Icon");                                                                  // Line 45
@@ -248,6 +248,11 @@ class twigTransTerms
 	echo T_("Add file");                                                              // Line 10
 
 	//----------------------------------addons/content_cp/attachment/home/display.html
+	echo T_("File Name");                                                             // Line 59
+	echo T_("Size");                                                                  // Line 61
+	echo T_("View");                                                                  // Line 82
+	echo T_("Delete");                                                                // Line 253
+	echo T_("Block");                                                                 // Line 86
 
 	//----------------------------------------addons/content_cp/mycontact/display.html
 	echo T_("Contact");                                                               // Line 14
@@ -794,7 +799,6 @@ class twigTransTerms
 	//---------------------------------addons/content_crm/member/security/display.html
 	echo T_("Delete user");                                                           // Line 35
 	echo T_("Are you sure to delete this user?");                                     // Line 141
-	echo T_("Delete");                                                                // Line 253
 	echo T_("User have chatid");                                                      // Line 52
 	echo T_("Remove chatid");                                                         // Line 56
 	echo T_("chatid");                                                                // Line 64

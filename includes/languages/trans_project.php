@@ -8,27 +8,27 @@ class twigTransTerms
 	echo T_("Manage");                                                                // Line 592
 
 	//--------------------------------------------------content_i/category/layout.html
-	echo T_("Parent");                                                                // Line 101
-	echo T_("Without parent");                                                        // Line 103
-	echo T_("Title");                                                                 // Line 91
+	echo T_("Parent");                                                                // Line 123
+	echo T_("Without parent");                                                        // Line 125
+	echo T_("Title");                                                                 // Line 58
 	echo T_("Please select one itme");                                                // Line 350
 	echo T_("Use in incoming record?");                                               // Line 40
-	echo T_("Add");                                                                   // Line 48
+	echo T_("Add");                                                                   // Line 10
 	echo T_("Save");                                                                  // Line 39
 
 	//--------------------------------------------content_i/category/home/display.html
-	echo T_("Search");                                                                // Line 105
+	echo T_("Search");                                                                // Line 47
 	echo T_("Use in incoming");                                                       // Line 59
 	echo T_("Status");                                                                // Line 71
 	echo T_("Date created");                                                          // Line 65
 	echo T_("Edit on");                                                               // Line 98
-	echo T_("Clear filters");                                                         // Line 231
-	echo T_("Result not found!");                                                     // Line 230
-	echo T_("Search with new keywords.");                                             // Line 230
-	echo T_("Hi!");                                                                   // Line 237
+	echo T_("Clear filters");                                                         // Line 108
+	echo T_("Result not found!");                                                     // Line 104
+	echo T_("Search with new keywords.");                                             // Line 104
+	echo T_("Hi!");                                                                   // Line 114
 
 	//-------------------------------------------------------content_i/jib/layout.html
-	echo T_("Description");                                                           // Line 564
+	echo T_("Description");                                                           // Line 29
 	echo T_("bank");                                                                  // Line 6
 	echo T_("Is default?");                                                           // Line 45
 
@@ -39,21 +39,20 @@ class twigTransTerms
 	//------------------------------------------------------content_i/bank/layout.html
 	echo T_("Country");                                                               // Line 138
 	echo T_("Choose your country");                                                   // Line 142
-	echo T_("Please choose bank");                                                    // Line 32
 	echo T_("Account number");                                                        // Line 79
 	echo T_("Shaba");                                                                 // Line 80
 	echo T_("Card");                                                                  // Line 86
 	echo T_("Branch");                                                                // Line 62
-	echo T_("Branch code");                                                           // Line 88
+	echo T_("Branch code");                                                           // Line 80
 	echo T_("Owner");                                                                 // Line 108
 	echo T_("IBAN");                                                                  // Line 84
-	echo T_("SWIFT");                                                                 // Line 115
+	echo T_("SWIFT");                                                                 // Line 107
 	echo T_("Name on card");                                                          // Line 60
 	echo T_("Expire");                                                                // Line 78
 	echo T_("CVV2");                                                                  // Line 83
-	echo T_("subtitle");                                                              // Line 162
-	echo T_("Non");                                                                   // Line 177
-	echo T_("cat");                                                                   // Line 174
+	echo T_("subtitle");                                                              // Line 154
+	echo T_("Non");                                                                   // Line 169
+	echo T_("cat");                                                                   // Line 166
 
 	//------------------------------------------------content_i/bank/home/display.html
 	echo T_("Detail");                                                                // Line 491
@@ -97,10 +96,10 @@ class twigTransTerms
 	echo T_("Is plus?");                                                              // Line 25
 	echo T_("Time");                                                                  // Line 528
 	echo T_("Jib");                                                                   // Line 71
-	echo T_("Please choose one item");                                                // Line 73
-	echo T_("Category");                                                              // Line 105
-	echo T_("Add new category");                                                      // Line 22
-	echo T_("Discount");                                                              // Line 61
+	echo T_("Please choose one item");                                                // Line 89
+	echo T_("Category");                                                              // Line 59
+	echo T_("Add new category");                                                      // Line 112
+	echo T_("Discount");                                                              // Line 62
 
 	//-----------------------------------------------content_i/inout/home/display.html
 	echo T_("Plus");                                                                  // Line 81
@@ -172,8 +171,6 @@ class twigTransTerms
 	echo T_("You are not buy something from stores yet!");                            // Line 170
 
 	//---------------------public_html/static/siftal/fonts/siftal/icons-reference.html
-
-	//--------------------------------------public_html/static/siftal/js/siftal.min.js
 
 	//-----------------------public_html/static/siftal/js/highcharts/highcharts.min.js
 
@@ -388,7 +385,7 @@ class twigTransTerms
 	echo T_("Of course Made with love 😍");                                            // Line 76
 	echo T_("Jibres has created for futuristic entrepreneurs");                       // Line 76
 	echo T_("Item");                                                                  // Line 80
-	echo T_("Products");                                                              // Line 10
+	echo T_("Products");                                                              // Line 6
 	echo T_("Qty");                                                                   // Line 119
 	echo T_("Sold on Jibres");                                                        // Line 93
 	echo T_("Roadmap");                                                               // Line 105
@@ -494,7 +491,7 @@ class twigTransTerms
 
 	//---------------------------------------------content_a/setting/fund/display.html
 	echo T_("Add new fund");                                                          // Line 19
-	echo T_("Edit");                                                                  // Line 122
+	echo T_("Edit");                                                                  // Line 86
 	echo T_("Disable");                                                               // Line 33
 	echo T_("Enable");                                                                // Line 35
 	echo T_("Is default fund?");                                                      // Line 50
@@ -503,7 +500,7 @@ class twigTransTerms
 	echo T_("Fund name");                                                             // Line 75
 	echo T_("Fund title");                                                            // Line 102
 	echo T_("Enter a valid name from 3 to 40 character");                             // Line 138
-	echo T_("Action");                                                                // Line 107
+	echo T_("Action");                                                                // Line 65
 	echo T_("Pos");                                                                   // Line 405
 	echo T_("Select pos");                                                            // Line 159
 	echo T_("City");                                                                  // Line 157
@@ -567,7 +564,7 @@ class twigTransTerms
 	echo T_("Pos issuer bank");                                                       // Line 28
 	echo T_("Add pos");                                                               // Line 46
 	echo T_("Default");                                                               // Line 64
-	echo T_("Is default");                                                            // Line 114
+	echo T_("Is default");                                                            // Line 117
 	echo T_("PcPos");                                                                 // Line 76
 	echo T_("Set as default");                                                        // Line 90
 	echo T_("Remove");                                                                // Line 22
@@ -872,7 +869,7 @@ class twigTransTerms
 	echo T_("Name of product");                                                       // Line 54
 	echo T_("Enter a valid name");                                                    // Line 54
 	echo T_("Set short and best title for your product");                             // Line 62
-	echo T_("Slug");                                                                  // Line 71
+	echo T_("Slug");                                                                  // Line 61
 	echo T_("Manufacturer");                                                          // Line 78
 	echo T_("Product manufacturer");                                                  // Line 81
 	echo T_("Cat");                                                                   // Line 94
@@ -974,16 +971,16 @@ class twigTransTerms
 	echo T_("Whithout max stock");                                                    // Line 16
 	echo T_("Whithout discount");                                                     // Line 17
 	echo T_("Negative profit");                                                       // Line 18
-	echo T_("Search in products");                                                    // Line 61
+	echo T_("Search in products");                                                    // Line 46
 	echo T_("Buy");                                                                   // Line 279
-	echo T_("Final price");                                                           // Line 79
+	echo T_("Final price");                                                           // Line 63
 	echo T_("Gross profit");                                                          // Line 80
 	echo T_("Last modified");                                                         // Line 82
 	echo T_("stock count is less than zero!");                                        // Line 91
 	echo T_("Discount more than 50 percent!");                                        // Line 97
 	echo T_("Final price is under buy price");                                        // Line 98
-	echo T_("Add new product");                                                       // Line 128
-	echo T_("Try to start with add new product!");                                    // Line 136
+	echo T_("Add new product");                                                       // Line 106
+	echo T_("Try to start with add new product!");                                    // Line 114
 
 	//-------------------------------------------content_a/product/glance/display.html
 	echo T_("Added to store at");                                                     // Line 12
@@ -1000,32 +997,20 @@ class twigTransTerms
 	echo T_("Edit unit");                                                             // Line 20
 	echo T_("Add new unit");                                                          // Line 22
 	echo T_("By update name of this unit all product will be update to new value.");  // Line 33
-	echo T_("Click to check list of this product");                                   // Line 31
+	echo T_("Click to check list of this product");                                   // Line 33
 	echo T_("No product in this unit");                                               // Line 35
-	echo T_("You can delete it now!");                                                // Line 34
-	echo T_("Cancel");                                                                // Line 44
+	echo T_("You can delete it now!");                                                // Line 36
+	echo T_("Cancel");                                                                // Line 46
 	echo T_("Is default unit?");                                                      // Line 63
 	echo T_("Sometimes employees sell some product with decimal unit and if you are force this unit to give integer value, we are not allow them to enter invalid value");// Line 72
 	echo T_("Only accept integer value?");                                            // Line 76
 	echo T_("Max sale from this unit");                                               // Line 84
-	echo T_("For example 100");                                                       // Line 83
+	echo T_("For example 100");                                                       // Line 108
 	echo T_("Unit name");                                                             // Line 97
 	echo T_("Force integer value");                                                   // Line 109
-	echo T_("Count product");                                                         // Line 106
+	echo T_("Count product");                                                         // Line 110
 	echo T_("Without Unit");                                                          // Line 120
-	echo T_("Click to check products in this category");                              // Line 119
-
-	//---------------------------------------------content_a/product/cats/display.html
-	echo T_("Edit category");                                                         // Line 20
-	echo T_("By update name of this category all product will be update to new value.");// Line 31
-	echo T_("No product in this category");                                           // Line 33
-	echo T_("Is default category?");                                                  // Line 61
-	echo T_("Decimal or Integer");                                                    // Line 71
-	echo T_("Decimal");                                                               // Line 72
-	echo T_("Integer");                                                               // Line 73
-	echo T_("Max sale from this cat");                                                // Line 81
-	echo T_("Category name");                                                         // Line 94
-	echo T_("Without Category");                                                      // Line 117
+	echo T_("Click to check products in this category");                              // Line 124
 
 	//-------------------------------------------content_a/product/export/display.html
 	echo T_("Please wait to complete export progress");                               // Line 11
@@ -1033,6 +1018,44 @@ class twigTransTerms
 	//-------------------------------------------content_a/product/factor/display.html
 
 	//--------------------------------------------content_a/product/stock/display.html
+
+	//----------------------------------------------content_a/cats/remove/display.html
+	echo T_("Product found in this category");                                        // Line 13
+	echo T_("To remove this category you must set all products by this category as a non product category or set another category for this products");// Line 15
+	echo T_("Show product list");                                                     // Line 20
+	echo T_("Save and remove category");                                              // Line 28
+	echo T_("Non product found by this category");                                    // Line 36
+	echo T_("You can delete this category now");                                      // Line 38
+	echo T_("Remove category");                                                       // Line 42
+	echo T_("What do you want to do?");                                               // Line 55
+	echo T_("Set all products as a non product category");                            // Line 59
+	echo T_("Select new category");                                                   // Line 66
+	echo T_("New category");                                                          // Line 78
+	echo T_("Select new category to update all product category");                    // Line 80
+
+	//-------------------------------------------------content_a/cats/add/display.html
+	echo T_("Category name");                                                         // Line 118
+
+	//------------------------------------------------content_a/cats/home/display.html
+	echo T_("Value type");                                                            // Line 64
+	echo T_("Is a default category");                                                 // Line 71
+	echo T_("Try to start with add new category!");                                   // Line 120
+
+	//------------------------------------------------content_a/cats/edit/display.html
+	echo T_("Download PDF");                                                          // Line 51
+	echo T_("Download File");                                                         // Line 53
+	echo T_("Delete file");                                                           // Line 56
+	echo T_("Category image");                                                        // Line 60
+	echo T_("Max 1Mb");                                                               // Line 61
+	echo T_("Is default category?");                                                  // Line 74
+	echo T_("Not show in site");                                                      // Line 82
+	echo T_("Show in website");                                                       // Line 84
+	echo T_("Yes");                                                                   // Line 85
+	echo T_("No");                                                                    // Line 86
+	echo T_("Decimal or Integer");                                                    // Line 96
+	echo T_("Decimal");                                                               // Line 97
+	echo T_("Integer");                                                               // Line 98
+	echo T_("Max sale from this cat");                                                // Line 106
 
 	//----------------------------------------------content_a/factor/home/display.html
 	echo T_("No factor founded.");                                                    // Line 55
@@ -1127,7 +1150,11 @@ class twigTransTerms
 	echo T_("The permission label is used to represent your permission in user management");// Line 18
 	echo T_("Label of your permission");                                              // Line 18
 
-	//---------------------------------------------content_subdomain/home/display.html
+	//-----------------------------------------content_subdomain/products/display.html
+
+	//-------------------------------------------content_subdomain/home/visitcard.html
+
+	//------------------------------------------------content_subdomain/home/site.html
 
  }
 }

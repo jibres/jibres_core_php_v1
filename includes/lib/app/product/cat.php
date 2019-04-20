@@ -561,6 +561,11 @@ class cat
 					$result[$key] = isset($value) ? (string) $value : null;
 					break;
 
+				case 'valuetype':
+					$result[$key] = $value;
+					$result['t_'. $key] = T_(ucfirst($value));
+					break;
+
 				case 'meta':
 					if(is_string($value))
 					{
