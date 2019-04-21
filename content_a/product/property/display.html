@@ -26,6 +26,7 @@
 				<td>{{value.key}}</td>
 				<td>{{value.value}}</td>
 				<td>{{value.desc}}</td>
+				<td class="collapsing"><div class="btn danger xs" data-confirm data-data='{"id" : "{{value.id}}", "type" : "remove"}'>{%trans "Remove"%}</div></td>
 			</tr>
 			{%endfor%}
 		</tbody>
@@ -44,7 +45,7 @@
 		<div class="c s12 mLa5">{{block('ikey')}}</div>
 	</div>
 	<div class="">{{block('ivalue')}}</div>
-	<textarea name="desc" class="txt mB20" rows="10" placeholder='{%trans "Description"%}'>{{dataRow.desc}}</textarea>
+	<textarea name="desc" class="txt mB20" rows="10" placeholder='{%trans "Description"%}'></textarea>
 	<div class="">{{block('ibtn')}}</div>
 </form>
 </div>

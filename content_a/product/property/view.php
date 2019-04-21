@@ -14,6 +14,7 @@ class view
 		\dash\data::badge_link(\dash\url::this());
 
 		$peropertyList = \lib\app\property::product(\dash\request::get('id'));
+
 		\dash\data::peropertyList($peropertyList);
 	}
 }

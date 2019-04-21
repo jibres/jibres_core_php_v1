@@ -28,6 +28,10 @@ class property
 			];
 
 			$result = \lib\db\productproperties::get($args);
+			if(is_array($result))
+			{
+				$result = array_map(["self", "ready"], $result);
+			}
 			return $result;
 		}
 	}
@@ -35,28 +39,45 @@ class property
 	private static function check()
 	{
 		$cat = \dash\app::request('cat');
-		if($cat && mb_strlen($cat) > 100)
+		if(!$cat)
+		{
+			\dash\notif::error(T_("Please fill the category"), 'cat');
+			return false;
+		}
+
+		if(mb_strlen($cat) > 100)
 		{
 			\dash\notif::error(T_("Please set the cat less than 100 character"), 'cat');
 			return false;
 		}
 
 		$key = \dash\app::request('key');
-		if($key && mb_strlen($key) > 200)
+		if(!$key)
+		{
+			\dash\notif::error(T_("Please fill the key"), 'key');
+			return false;
+		}
+
+		if(mb_strlen($key) > 200)
 		{
 			\dash\notif::error(T_("Please set the key less than 200 character"), 'key');
 			return false;
 		}
 
 		$value = \dash\app::request('value');
-		if($value && mb_strlen($value) > 1000)
+		if(!$value && $value !== '0')
+		{
+			\dash\notif::error(T_("Please fill the value"), 'value');
+			return false;
+		}
+
+		if(mb_strlen($value) > 1000)
 		{
 			\dash\notif::error(T_("Please set the value less than 1000 character"), 'value');
 			return false;
 		}
 
 		$desc = \dash\app::request('desc');
-
 
 		$product_id = \dash\app::request('product_id');
 		$load = \lib\app\product::get($product_id);

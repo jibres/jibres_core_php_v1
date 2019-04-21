@@ -63,5 +63,16 @@ class productproperties
 		return $result;
 	}
 
+	public static function delete($_id)
+	{
+		if(!$_id || !is_numeric($_id))
+		{
+			return false;
+		}
+
+		$query = "DELETE FROM productproperties WHERE id = $_id LIMIT 1";
+		return \dash\db::query($query);
+	}
+
 }
 ?>
