@@ -16,18 +16,32 @@ class property
 		'valuetype',
 	];
 
+
+	public static function autoList()
+	{
+		$cat = \lib\db\productproperties::get_auto_list(\lib\store::id(), 'cat');
+		$key = \lib\db\productproperties::get_auto_list(\lib\store::id(), 'key');
+		$result = [];
+		$result['cat'] = array_values($cat);
+		$result['key'] = array_values($key);
+
+		return $result;
+	}
+
 	public static function product($_id)
 	{
 		$id = \dash\coding::decode($_id);
+
 		if($id)
 		{
 			$args =
 			[
-				'store_id' => \lib\store::id(),
+				'store_id'   => \lib\store::id(),
 				'product_id' => $id,
 			];
 
-			$result = \lib\db\productproperties::get($args);
+			$result = \lib\db\productproperties::get($args, ['order' => 'ORDER BY productproperties.cat, productproperties.key']);
+
 			if(is_array($result))
 			{
 				$result = array_map(["self", "ready"], $result);
@@ -256,10 +270,6 @@ class property
 			return false;
 		}
 
-		if($_remove_file)
-		{
-			return true;
-		}
 
 		// check args
 		$args = self::check($id);

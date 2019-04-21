@@ -16,6 +16,15 @@ class view
 		$peropertyList = \lib\app\property::product(\dash\request::get('id'));
 
 		\dash\data::peropertyList($peropertyList);
+
+		$autoList = \lib\app\property::autoList();
+		\dash\data::autoList($autoList);
+
+		if(\dash\request::get('pid'))
+		{
+			$load = \lib\app\property::get(\dash\request::get('pid'));
+			\dash\data::pDataRow($load);
+		}
 	}
 }
 ?>

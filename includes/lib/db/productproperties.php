@@ -35,6 +35,12 @@ class productproperties
 	}
 
 
+	public static function get_auto_list($_store_id, $_field)
+	{
+		$query = "SELECT DISTINCT productproperties.$_field FROM productproperties WHERE productproperties.store_id = $_store_id GROUP BY productproperties.$_field";
+		return \dash\db::get($query, $_field);
+	}
+
 	public static function search($_string = null, $_option = [])
 	{
 		$default =

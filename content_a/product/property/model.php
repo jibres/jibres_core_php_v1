@@ -28,19 +28,33 @@ class model
 			if(\dash\engine\process::status())
 			{
 				\dash\notif::ok(T_("Property successfully removed"));
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::that(). '?id='. \dash\request::get('id'));
+
 			}
 			return;
 		}
 
 		$request         = self::getPost();
 
-		\lib\app\property::add($request);
-
-		if(\dash\engine\process::status())
+		if(\dash\request::get('pid'))
 		{
-			\dash\notif::ok(T_("Property successfully added"));
-			\dash\redirect::pwd();
+			\lib\app\property::edit($request, \dash\request::get('pid'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::ok(T_("Property successfully updated"));
+				\dash\redirect::to(\dash\url::that(). '?id='. \dash\request::get('id'));
+			}
+		}
+		else
+		{
+			\lib\app\property::add($request);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::ok(T_("Property successfully added"));
+				\dash\redirect::pwd();
+			}
 		}
 	}
 }

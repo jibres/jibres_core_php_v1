@@ -21,11 +21,12 @@
 	<table class="tbl1 v5">
 		<tbody>
 			{%for key, value in peropertyList%}
-			<tr>
+			<tr {%if requestGET.pid == value.id%} class="negative" {%endif%}>
 				<td>{{value.cat}}</td>
 				<td>{{value.key}}</td>
 				<td>{{value.value}}</td>
 				<td>{{value.desc}}</td>
+				<td class="collapsing"><a href="{{url.that}}?id={{requestGET.id}}&pid={{value.id}}" class="btn primary xs">{%trans "Edit"%}</a></td>
 				<td class="collapsing"><div class="btn danger xs" data-confirm data-data='{"id" : "{{value.id}}", "type" : "remove"}'>{%trans "Remove"%}</div></td>
 			</tr>
 			{%endfor%}
@@ -45,7 +46,7 @@
 		<div class="c s12 mLa5">{{block('ikey')}}</div>
 	</div>
 	<div class="">{{block('ivalue')}}</div>
-	<textarea name="desc" class="txt mB20" rows="10" placeholder='{%trans "Description"%}'></textarea>
+	<textarea name="desc" class="txt mB20" rows="10" placeholder='{%trans "Description"%}'>{{pDataRow.desc}}</textarea>
 	<div class="">{{block('ibtn')}}</div>
 </form>
 </div>
@@ -65,8 +66,8 @@
 <select name="cat"  class="select ui dropdown search addition" id="cat">
   <option value="">{%trans "Add or select"%}</option>
 
-  {%for key, value in myList.cat%}
-    <option value="{{value}}" {%if value == dataRow.cat %} selected{%endif%}>{{value}}</option>
+  {%for key, value in autoList.cat%}
+    <option value="{{value}}" {%if value == pDataRow.cat %} selected{%endif%}>{{value}}</option>
   {%endfor%}
 </select>
 {%endblock%}
@@ -78,8 +79,8 @@
 <select name="key"  class="select ui dropdown search addition" id="key">
   <option value="">{%trans "Add or select"%}</option>
 
-  {%for key, value in myList.key%}
-    <option value="{{value}}" {%if value == dataRow.key %} selected{%endif%}>{{value}}</option>
+  {%for key, value in autoList.key%}
+    <option value="{{value}}" {%if value == pDataRow.key %} selected{%endif%}>{{value}}</option>
   {%endfor%}
 </select>
 {%endblock%}
@@ -89,6 +90,6 @@
 {%block ivalue%}
 <label for='ivalue'>{%trans "Value"%}</label>
 <div class="input">
- <input type="text" name="value"  value="{{dataRow.value}}" required  maxlength='200' minlength="1" pattern=".{1,200}"  id='ivalue'>
+ <input type="text" name="value"  value="{{pDataRow.value}}" required  maxlength='200' minlength="1" pattern=".{1,200}"  id='ivalue'>
 </div>
 {%endblock%}
