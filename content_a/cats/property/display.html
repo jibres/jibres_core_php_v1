@@ -5,18 +5,40 @@
 {{block('pageSteps')}}
 <div class="f justify-center">
   <div class="x6 c5 s12 pRa10">
-    <dvi class="cbox">
-      <form method="post">
-          {{block('catName')}}
-          {{block('catDefault')}}
-          {{block('iSite')}}
-          {{block('iNumberType')}}
-          {{block('iMaxSale')}}
-          {{block('idesc')}}
-          {{block('ifile')}}
-          <button class="btn primary block mT20" type="submit">{%trans "Save"%}</button>
+    <div class="cbox">
+      <h3>{%trans "Default property of this category"%}</h3>
+
+      <form method="post" autocomplete="off">
+        <div class="f">
+          <div class="c s12 mLa5">{{block('icat')}}</div>
+          <div class="c s12 mLa5">{{block('ikey')}}</div>
+          <input type="hidden" name="operation" value="set">
+          <div class="cauto s12 mLa5">{{block('ibtn')}}</div>
+        </div>
+
       </form>
-    </dvi>
+      {%if dataRow.defaultproperty%}
+      <hr>
+      <table class="tbl1 v4">
+        <thead>
+          <tr>
+            <th>{%trans "Cat"%}</th>
+            <th>{%trans "Key"%}</th>
+            <th>{%trans "Remove"%}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i, j in dataRow.defaultproperty%}
+          <tr>
+            <td>{{j.cat}}</td>
+            <td>{{j.key}}</td>
+            <td class="collapsing"><div class="btn xs danger" data-confirm data-data='{"operation" : "remove", "cat" : "{{j.cat}}", "key": "{{j.key}}"}'>{%trans "Remove"%}</div></td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+      {%endif%}
+    </div>
   </div>
 </div>
 {%endblock%}
@@ -25,98 +47,43 @@
 
 
 
-{%block idesc%}
-<label for="desc">{%trans "Description"%}</label>
-<textarea data-editor class="txt mB10" id='desc' name="desc" placeholder='{%trans "Description"%}' maxlength='500' rows="5">{{dataRow.desc}}</textarea>
+{%block ibtn%}
+<button class="btn mT20 primary block">{%trans "Add"%}</button>
 {%endblock%}
 
 
 
-{%block ifile%}
-{%if dataRow.file%}
-   <div class="mediaBox mB20">
 
-{% set myExt = dataRow.file[(dataRow.file | length)-3:3] %}
+{%block icat%}
 
- {%if myExt == 'mp4' %}
-    <video class="block" controls>
-     <source src="{{dataRow.file}}" type="video/mp4">
-    </video>
- {%elseif myExt == 'mp3' %}
-    <audio class="block" controls>
-     <source src="{{dataRow.file}}" type="audio/mp3">
-    </audio>
- {%elseif myExt == 'png' or myExt == 'jpg' or myExt == 'jpeg' or myExt == 'gif'%}
-    <img src="{{dataRow.file}}" alt="{{myTitle.title}}">
- {%elseif myExt == 'pdf' %}
-    <a class="btn primary outline block" href="{{dataRow.file}}">{%trans "Download PDF"%}</a>
- {%else%}
-    <a class="btn primary outline block" href="{{dataRow.file}}">{%trans "Download File"%}</a>
- {%endif%}
-   </div>
-   <dir data-confirm data-data='{"deletefile" : 1}' class="btn xs danger floatL">{%trans "Delete file"%}</dir>
-{%endif%}
+<label for='cat'>{%trans "cat"%}</label>
+<select name="cat"  class="select ui dropdown search addition" id="cat">
+  <option value="">{%trans "Add or select"%}</option>
 
-
-<label for="file1" class="block">{%trans "Category image"%}</label>
-<div class="input" title='{%trans "Max 1Mb"%}'>
- <input type="file" name="file1" id="file1" data-max="1000">
- </label>
-</div>
-
+  {%for key, value in autoList.cat%}
+    <option value="{{value}}" {%if value == pDataRow.cat %} selected{%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
 {%endblock%}
 
 
 
-{% block catDefault %}
-  <div class="switch1 mT10">
-   <input type="checkbox" name="isdefault" id="isdefault" {%if dataRow.isdefault%} checked {%endif%}>
-   <label for="isdefault"></label>
-   <label for="isdefault">{%trans "Is default category?"%}</label>
-  </div>
+{%block ikey%}
+<label for='key'>{%trans "key"%}</label>
+<select name="key"  class="select ui dropdown search addition" id="key">
+  <option value="">{%trans "Add or select"%}</option>
+
+  {%for key, value in autoList.key%}
+    <option value="{{value}}" {%if value == pDataRow.key %} selected{%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
 {%endblock%}
 
 
 
-{%block iSite%}
-<div class="mT20">
-  <label for="site">{%trans "Not show in site"%}</label>
-  <select name="site" class="ui dropdown select">
-    <option value="" readonly>{%trans "Show in website"%}</option>
-    <option value="yes" {%if dataRow.site == 'yes' %}selected {%endif%}>{%trans "Yes"%}</option>
-    <option value="no" {%if dataRow.site == 'no' %}selected{%endif%}>{%trans "No"%}</option>
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iNumberType%}
-<div class="mT20">
-  <label for="valuetype">{%trans "Decimal or Integer"%}</label>
-  <select name="valuetype" class="ui dropdown select">
-    <option value="" readonly>{%trans "Decimal or Integer"%}</option>
-    <option value="decimal" {%if dataRow.valuetype == 'decimal' %}selected {%endif%}>{%trans "Decimal"%}</option>
-    <option value="integer" {%if dataRow.valuetype == 'integer' %}selected{%endif%}>{%trans "Integer"%}</option>
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iMaxSale%}
-<div class="mT10">
-  <label for="imaxsale">{%trans "Max sale from this cat"%}</label>
-  <div class="input">
-     <input type="number" name="maxsale" id="imaxsale" placeholder='{%trans "For example 100"%}' value="{{dataRow.meta.maxsale}}" autofocus maxlength='50' minlength="1"  >
-  </div>
-</div>
-{%endblock%}
-
-
-
-{%block catName%}
-<label for="icatname">{%trans "Title"%}</label>
+{%block ivalue%}
+<label for='ivalue'>{%trans "Value"%}</label>
 <div class="input">
-  <input type="text" name="title" id="icatname" placeholder='{%trans "Category name"%}' value="{{dataRow.title}}" autofocus maxlength='50' minlength="1" required>
+ <input type="text" name="value"  value="{{pDataRow.value}}" required  maxlength='200' minlength="1" pattern=".{1,200}"  id='ivalue'>
 </div>
 {%endblock%}
-

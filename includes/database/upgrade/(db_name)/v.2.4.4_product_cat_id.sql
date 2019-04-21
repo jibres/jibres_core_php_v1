@@ -6,3 +6,6 @@ ALTER TABLE `productproperties` ADD INDEX `productproperties_key_search_index` (
 ALTER TABLE `productproperties` ADD INDEX `productproperties_value_search_index` (`value`);
 ALTER TABLE `productproperties` ADD INDEX `productproperties_product_id_search_index` (`product_id`);
 ALTER TABLE `productproperties` ADD INDEX `productproperties_store_id_search_index` (`store_id`);
+
+ALTER TABLE `productterms` ADD `defaultproperty` text CHARACTER SET utf8mb4;
+

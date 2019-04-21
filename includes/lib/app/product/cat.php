@@ -64,6 +64,114 @@ class cat
 	];
 
 
+	public static function property($_args, $_cat_id, $_action)
+	{
+
+		if(!$_cat_id || !$_action)
+		{
+			return false;
+		}
+
+		if(!in_array($_action, ['set', 'remove']))
+		{
+			\dash\notif::error(T_("Invalid action"));
+			return false;
+		}
+
+		\dash\app::variable($_args);
+
+		$cat = \dash\app::request('cat');
+		if(!$cat)
+		{
+			\dash\notif::error(T_("Please set the category"), 'cat');
+			return false;
+		}
+
+		if(mb_strlen($cat) > 100)
+		{
+			\dash\notif::error(T_("Please set the category less than 100 character"), 'cat');
+			return false;
+		}
+
+
+		$key = \dash\app::request('key');
+		if(!$key)
+		{
+			\dash\notif::error(T_("Please set the key"), 'key');
+			return false;
+		}
+
+		if(mb_strlen($key) > 100)
+		{
+			\dash\notif::error(T_("Please set the key less than 100 character"), 'key');
+			return false;
+		}
+
+		$get = self::get($_cat_id);
+		if(!isset($get['id']))
+		{
+			\dash\notif::error(T_("Invalid category"));
+			return false;
+		}
+
+		$defaultproperty = isset($get['defaultproperty']) ? $get['defaultproperty'] : null;
+		if(is_string($defaultproperty))
+		{
+			$defaultproperty = json_decode($defaultproperty, true);
+		}
+
+		if(!is_array($defaultproperty))
+		{
+			$defaultproperty = [];
+		}
+
+		if($_action === 'set')
+		{
+			foreach ($defaultproperty as  $value)
+			{
+				if(isset($value['cat']) && isset($value['key']))
+				{
+					if($value['cat'] === $cat && $value['key'] === $key)
+					{
+						\dash\notif::error(T_("Duplicate property founded"));
+						return false;
+					}
+				}
+			}
+
+			$defaultproperty[] = ['cat' => $cat, 'key' => $key];
+
+			$defaultproperty = json_encode($defaultproperty, JSON_UNESCAPED_UNICODE);
+
+			\lib\db\productterms::update(['defaultproperty' => $defaultproperty], \dash\coding::decode($_cat_id));
+
+			\dash\notif::ok(T_("Default property successfully added"));
+		}
+		else
+		{
+			foreach ($defaultproperty as $index => $value)
+			{
+				if(isset($value['cat']) && isset($value['key']))
+				{
+					if($value['cat'] == $cat && $value['key'] == $key)
+					{
+						unset($defaultproperty[$index]);
+						break;
+					}
+				}
+			}
+
+			$defaultproperty = json_encode($defaultproperty, JSON_UNESCAPED_UNICODE);
+
+			\lib\db\productterms::update(['defaultproperty' => $defaultproperty], \dash\coding::decode($_cat_id));
+			\dash\notif::ok(T_("Default property successfully removed"));
+
+		}
+
+		return true;
+
+	}
+
 
 	public static function check_add($_cat)
 	{
@@ -569,6 +677,7 @@ class cat
 					break;
 
 				case 'meta':
+				case 'defaultproperty':
 					if(is_string($value))
 					{
 						$result[$key] = json_decode($value, true);
