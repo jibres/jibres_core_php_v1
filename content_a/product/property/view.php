@@ -13,6 +13,18 @@ class view
 		\dash\data::badge_text(T_('Back to product list'));
 		\dash\data::badge_link(\dash\url::this());
 
+		$dataRow = \dash\data::dataRow();
+
+		if(isset($dataRow['cat_id']))
+		{
+			$cat_id = $dataRow['cat_id'];
+			$cat = \lib\app\product\cat::get($cat_id);
+
+			if(isset($cat['defaultproperty']))
+			{
+				\dash\data::defaultproperty($cat['defaultproperty']);
+			}
+		}
 		$peropertyList = \lib\app\property::product(\dash\request::get('id'));
 
 		\dash\data::peropertyList($peropertyList);

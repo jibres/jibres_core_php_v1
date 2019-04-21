@@ -18,6 +18,11 @@
 
 {%block iDataList%}
 <div class="cbox">
+	{%if defaultproperty%}
+	{%for i,j in defaultproperty%}
+	<div class="msg">{{j.cat}}, {{j.key}}</div>
+	{%endfor%}
+	{%endif%}
 	<table class="tbl1 v5">
 		<tbody>
 			{%for key, value in peropertyList%}
