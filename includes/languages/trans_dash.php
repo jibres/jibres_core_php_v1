@@ -256,7 +256,7 @@ class twigTransTerms
 
 	//----------------------------------------addons/content_cp/mycontact/display.html
 	echo T_("Contact");                                                               // Line 14
-	echo T_("Admin Contact");                                                         // Line 29
+	echo T_("Admin Contact");                                                         // Line 26
 
 	//---------------------------------------addons/content_api/v6/doc/60-android.html
 	echo T_("Get android detail");                                                    // Line 71

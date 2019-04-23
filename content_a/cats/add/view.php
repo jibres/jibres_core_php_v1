@@ -9,7 +9,7 @@ class view
 		\dash\data::page_desc(T_('You can add new category.'));
 		\dash\data::page_pictogram('plus');
 
-		if(\dash\permission::check('productCategoryListView'))
+		if(\dash\permission::check('categoryView'))
 		{
 			\dash\data::badge_text(T_('Category list'));
 			\dash\data::badge_link(\dash\url::this());

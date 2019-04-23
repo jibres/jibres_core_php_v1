@@ -170,7 +170,7 @@ class property
 
 	public static function add($_args)
 	{
-		if(!\dash\permission::check('productPeropertyListAdd'))
+		if(!\dash\permission::check('propertyAdd'))
 		{
 			return false;
 		}
@@ -226,7 +226,7 @@ class property
 
 	public static function remove($_id)
 	{
-		if(!\dash\permission::check('productPeropertyListDelete'))
+		if(!\dash\permission::check('propertyDelete'))
 		{
 			return false;
 		}

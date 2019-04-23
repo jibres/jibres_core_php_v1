@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('productCategoryListProperty');
+		\dash\permission::access('categoryPropertyAddEdit');
 
 		$dataRow = \lib\app\product\cat::get(\dash\request::get('id'));
 		\dash\data::dataRow($dataRow);

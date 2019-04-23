@@ -199,6 +199,21 @@ class TransStatic
 	echo T_("monthly");
 	echo T_("yearly");
 
+	echo T_("propertyAdd");
+	echo T_("propertyDelete");
+	echo T_("thirdpartyNoteDelete");
+	echo T_("thirdpartySold");
+	echo T_("thirdpartyLogView");
+	echo T_("thirdpartyProfile");
+	echo T_("thirdpartyTransaction");
+	echo T_("productPropertyEdit");
+	echo T_("productView");
+	echo T_("categoryView");
+	echo T_("categoryPropertyAddEdit");
+	echo T_("categoryRemove");
+	echo T_("categoryAdd");
+	echo T_("categoryEdit");
+
 
  }
 }

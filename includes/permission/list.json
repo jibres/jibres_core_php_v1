@@ -524,5 +524,61 @@
   "aPermissionDelete": {
     "title": "aPermissionDelete",
     "cat": "Thirdparty"
+  },
+  "propertyAdd": {
+    "title": "propertyAdd",
+    "cat": "Property"
+  },
+  "propertyDelete": {
+    "title": "propertyDelete",
+    "cat": "Property"
+  },
+  "thirdpartyNoteDelete": {
+    "title": "thirdpartyNoteDelete",
+    "cat": "Thirdparty"
+  },
+  "thirdpartySold": {
+    "title": "thirdpartySold",
+    "cat": "Thirdparty"
+  },
+  "thirdpartyLogView": {
+    "title": "thirdpartyLogView",
+    "cat": "Thirdparty"
+  },
+  "thirdpartyProfile": {
+    "title": "thirdpartyProfile",
+    "cat": "Thirdparty"
+  },
+  "thirdpartyTransaction": {
+    "title": "thirdpartyTransaction",
+    "cat": "Thirdparty"
+  },
+  "productPropertyEdit": {
+    "title": "productPropertyEdit",
+    "cat": "Product"
+  },
+  "productView": {
+    "title": "productView",
+    "cat": "Product"
+  },
+  "categoryView": {
+    "title": "categoryView",
+    "cat": "Category"
+  },
+  "categoryPropertyAddEdit": {
+    "title": "categoryPropertyAddEdit",
+    "cat": "Category"
+  },
+  "categoryRemove": {
+    "title": "categoryRemove",
+    "cat": "Category"
+  },
+  "categoryAdd": {
+    "title": "categoryAdd",
+    "cat": "Category"
+  },
+  "categoryEdit": {
+    "title": "categoryEdit",
+    "cat": "Category"
   }
 }

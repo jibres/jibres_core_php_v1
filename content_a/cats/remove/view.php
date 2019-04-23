@@ -9,7 +9,7 @@ class view
 		\dash\data::page_desc(T_('You can remove your categories manually.'));
 		\dash\data::page_pictogram('trash');
 
-		if(\dash\permission::check('productCategoryListView'))
+		if(\dash\permission::check('categoryView'))
 		{
 			\dash\data::badge_text(T_('Category list'));
 			\dash\data::badge_link(\dash\url::this());

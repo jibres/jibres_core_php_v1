@@ -52,7 +52,7 @@ class twigTransTerms
 	echo T_("CVV2");                                                                  // Line 83
 	echo T_("subtitle");                                                              // Line 154
 	echo T_("Non");                                                                   // Line 169
-	echo T_("cat");                                                                   // Line 59
+	echo T_("cat");                                                                   // Line 65
 
 	//------------------------------------------------content_i/bank/home/display.html
 	echo T_("Detail");                                                                // Line 491
@@ -933,9 +933,9 @@ class twigTransTerms
 
 	//-----------------------------------------content_a/product/property/display.html
 	echo T_("This property loaded from default property of category");                // Line 42
-	echo T_("Add or select");                                                         // Line 74
-	echo T_("key");                                                                   // Line 72
-	echo T_("Value");                                                                 // Line 85
+	echo T_("Add or select");                                                         // Line 67
+	echo T_("key");                                                                   // Line 103
+	echo T_("Value");                                                                 // Line 87
 
 	//-----------------------------------------content_a/product/pricehistory/chart.js
 	echo T_("Price change in time line");                                             // Line 26
@@ -1029,7 +1029,7 @@ class twigTransTerms
 
 	//--------------------------------------------content_a/cats/property/display.html
 	echo T_("Default property of this category");                                     // Line 9
-	echo T_("Key");                                                                   // Line 26
+	echo T_("Key");                                                                   // Line 78
 
 	//----------------------------------------------content_a/cats/remove/display.html
 	echo T_("Product found in this category");                                        // Line 14

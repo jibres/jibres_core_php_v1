@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('productCategoryListAdd');
+		\dash\permission::access('categoryAdd');
 
 
 	}
