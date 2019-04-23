@@ -52,6 +52,15 @@
     </a>
   </div>
 
+  <div class="c">
+    <a class="dcard {%if url.child == 'sms' %}active{%endif%}" href='{{url.this}}/sms' data-shortkey="55shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-mail"></i></div>
+      <div class="label">{%trans "Sms"%} <kbd>Shift+4</kbd></div>
+     </div>
+    </a>
+  </div>
+
 {%if false%}
   {%if perm('settingEditInventory')%}
   <div class="c">
