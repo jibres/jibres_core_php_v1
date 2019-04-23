@@ -139,7 +139,7 @@ class cat
 				}
 			}
 
-			$defaultproperty[] = ['cat' => $cat, 'key' => $key];
+			$defaultproperty[] = ['cat' => $cat, 'key' => $key, 'checker' => $cat. '_'. $key];
 
 			$defaultproperty = json_encode($defaultproperty, JSON_UNESCAPED_UNICODE);
 

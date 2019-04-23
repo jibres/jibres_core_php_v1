@@ -27,6 +27,10 @@ class view
 		}
 		$peropertyList = \lib\app\property::product(\dash\request::get('id'));
 
+		if(is_array($peropertyList))
+		{
+			\dash\data::peropertyListChecker(array_column($peropertyList, 'checker'));
+		}
 		\dash\data::peropertyList($peropertyList);
 
 		$autoList = \lib\app\property::autoList();

@@ -18,11 +18,6 @@
 
 {%block iDataList%}
 <div class="cbox">
-	{%if defaultproperty%}
-	{%for i,j in defaultproperty%}
-	<div class="msg">{{j.cat}}, {{j.key}}</div>
-	{%endfor%}
-	{%endif%}
 	<table class="tbl1 v5">
 		<tbody>
 			{%for key, value in peropertyList%}
@@ -37,6 +32,27 @@
 			{%endfor%}
 		</tbody>
 	</table>
+	{%if defaultproperty%}
+
+	{%for i,j in defaultproperty%}
+	{%if j.checker in peropertyListChecker%}
+	{%else%}
+		<div class="msg">
+		<div class="txtB">{{j.cat}}, {{j.key}}
+			<small>{%trans "This property loaded from default property of category"%}</small>
+		</div>
+		<form method="post" autocomplete="off">
+			<input type="hidden" name="cat" value="{{j.cat}}">
+			<input type="hidden" name="key" value="{{j.key}}">
+			<div class="">{{block('ivalue')}}</div>
+			<div class="">{{block('idesc')}}</div>
+			{{block('ibtn')}}
+		</form>
+		</div>
+	{%endif%}
+
+	{%endfor%}
+	{%endif%}
 </div>
 {%endblock%}
 
@@ -51,7 +67,7 @@
 		<div class="c s12 mLa5">{{block('ikey')}}</div>
 	</div>
 	<div class="">{{block('ivalue')}}</div>
-	<textarea name="desc" class="txt mB20" rows="10" placeholder='{%trans "Description"%}'>{{pDataRow.desc}}</textarea>
+	<div class="">{{block('idesc')}}</div>
 	<div class="">{{block('ibtn')}}</div>
 </form>
 </div>
@@ -62,6 +78,10 @@
 <button class="btn mT20 primary block">{%trans "Add"%}</button>
 {%endblock%}
 
+
+{%block idesc%}
+<textarea name="desc" class="txt mB20" rows="3" placeholder='{%trans "Description"%}'>{{pDataRow.desc}}</textarea>
+{%endblock%}
 
 
 

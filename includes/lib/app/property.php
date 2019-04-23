@@ -392,6 +392,8 @@ class property
 					}
 					break;
 
+
+
 				case 'slug':
 					$result[$key] = isset($value) ? (string) $value : null;
 					break;
@@ -414,6 +416,12 @@ class property
 					break;
 			}
 		}
+
+		if(isset($result['cat']) && isset($result['key']))
+		{
+			$result['checker'] = $result['cat']. '_'. $result['key'];
+		}
+
 		return $result;
 	}
 }
