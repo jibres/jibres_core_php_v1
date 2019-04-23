@@ -55,7 +55,13 @@
 
 
 {%block icat%}
+<label for='icat'>{%trans "Category"%}</label>
+<div class="input">
+ <input type="text" name="cat"   required  maxlength='200' minlength="1" pattern=".{1,200}"  id='icat'>
+</div>
+{%endblock%}
 
+{%block icat2%}
 <label for='cat'>{%trans "cat"%}</label>
 <select name="cat"  class="select ui dropdown search addition" id="cat">
   <option value="">{%trans "Add or select"%}</option>
@@ -69,14 +75,10 @@
 
 
 {%block ikey%}
-<label for='key'>{%trans "key"%}</label>
-<select name="key"  class="select ui dropdown search addition" id="key">
-  <option value="">{%trans "Add or select"%}</option>
-
-  {%for key, value in autoList.key%}
-    <option value="{{value}}" {%if value == pDataRow.key %} selected{%endif%}>{{value}}</option>
-  {%endfor%}
-</select>
+<label for='ikey'>{%trans "Key"%}</label>
+<div class="input">
+ <input type="text" name="key"   required  maxlength='200' minlength="1" pattern=".{1,200}"  id='ikey'>
+</div>
 {%endblock%}
 
 

@@ -20,8 +20,6 @@ class view
 			\dash\data::page_title(T_('Category property'). ' | '. \dash\data::dataRow_title());
 		}
 
-		$autoList = \lib\app\property::autoList();
-		\dash\data::autoList($autoList);
 	}
 }
 ?>
