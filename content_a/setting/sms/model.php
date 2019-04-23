@@ -42,6 +42,8 @@ class model
 
 		$new_balance = intval($amount) + $smsbalance;
 
+		\dash\log::set('chargeSmsBalance', ['amount' => $amount]);
+
 		\lib\db\stores::update(['smsbalance' => $new_balance], \lib\store::id());
 
 		\lib\store::refresh();
