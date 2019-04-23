@@ -137,7 +137,25 @@ $master[] = 'reportListChartHours';
 $master[] = 'reportDaily';
 $master[] = 'reportMonth';
 
+$master[] = "propertyAdd";
+$master[] = "propertyDelete";
+$master[] = "thirdpartyNoteDelete";
+$master[] = "thirdpartySold";
+$master[] = "thirdpartyLogView";
+$master[] = "thirdpartyProfile";
+$master[] = "thirdpartyTransaction";
+$master[] = "productPropertyEdit";
 
+$master[] = "categoryView";
+$master[] = "categoryPropertyAddEdit";
+$master[] = "categoryRemove";
+$master[] = "categoryAdd";
+$master[] = "categoryEdit";
+
+
+$master[] = "aPermissionView";
+$master[] = "aPermissionAddEdit";
+$master[] = "aPermissionDelete";
 
 
 
