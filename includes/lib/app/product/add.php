@@ -83,6 +83,10 @@ trait add
 		$return = [];
 
 		// \dash\temp::set('last_product_added', isset($args['slug'])? $args['slug'] : null);
+		if(!\lib\app\plan_limit::check('product'))
+		{
+			return false;
+		}
 
 		$product_id = \lib\db\products::insert($args);
 

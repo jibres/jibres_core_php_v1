@@ -158,6 +158,20 @@ $master[] = "aPermissionAddEdit";
 $master[] = "aPermissionDelete";
 
 
+$master[] = "ultimateFactor";
+$master[] = "factorCount1000";
+$master[] = "factorCount100";
+$master[] = "ultimateProduct";
+$master[] = "productCount1000";
+$master[] = "productCount100";
+$master[] = "ultimateThirdparty";
+$master[] = "thirdpartyCount1000";
+$master[] = "thirdpartyCount100";
+$master[] = "ultimateFactorDetail";
+$master[] = "factordetailCount100";
+$master[] = "factordetailCount10";
+
+
 
 // make plan array
 $plan = [];

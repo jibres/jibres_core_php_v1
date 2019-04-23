@@ -580,5 +580,53 @@
   "categoryEdit": {
     "title": "categoryEdit",
     "cat": "Category"
+  },
+  "ultimateFactor": {
+    "title": "ultimateFactor",
+    "cat": "Limitations"
+  },
+  "factorCount1000": {
+    "title": "factorCount1000",
+    "cat": "Limitations"
+  },
+  "factorCount100": {
+    "title": "factorCount100",
+    "cat": "Limitations"
+  },
+  "ultimateProduct": {
+    "title": "ultimateProduct",
+    "cat": "Limitations"
+  },
+  "productCount1000": {
+    "title": "productCount1000",
+    "cat": "Limitations"
+  },
+  "productCount100": {
+    "title": "productCount100",
+    "cat": "Limitations"
+  },
+  "ultimateThirdparty": {
+    "title": "ultimateThirdparty",
+    "cat": "Limitations"
+  },
+  "thirdpartyCount1000": {
+    "title": "thirdpartyCount1000",
+    "cat": "Limitations"
+  },
+  "thirdpartyCount100": {
+    "title": "thirdpartyCount100",
+    "cat": "Limitations"
+  },
+  "ultimateFactorDetail": {
+    "title": "ultimateFactorDetail",
+    "cat": "Limitations"
+  },
+  "factordetailCount100": {
+    "title": "factordetailCount100",
+    "cat": "Limitations"
+  },
+  "factordetailCount10": {
+    "title": "factordetailCount10",
+    "cat": "Limitations"
   }
 }

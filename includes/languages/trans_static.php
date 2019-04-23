@@ -214,7 +214,19 @@ class TransStatic
 	echo T_("categoryAdd");
 	echo T_("categoryEdit");
 
-
+	echo T_("ultimateFactor");
+	echo T_("factorCount1000");
+	echo T_("factorCount100");
+	echo T_("ultimateProduct");
+	echo T_("productCount1000");
+	echo T_("productCount100");
+	echo T_("ultimateThirdparty");
+	echo T_("thirdpartyCount1000");
+	echo T_("thirdpartyCount100");
+	echo T_("ultimateFactorDetail");
+	echo T_("factordetailCount100");
+	echo T_("factordetailCount10");
+	echo T_("Limitations");
  }
 }
 ?>

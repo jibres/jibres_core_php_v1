@@ -63,15 +63,25 @@ trait add
 			return false;
 		}
 
-		$return = [];
 
+		$return = [];
+		$check_plan_limit = true;
 		if($_option['store_id'] && is_numeric($_option['store_id']))
 		{
 			$args['store_id'] = $_option['store_id'];
+			$check_plan_limit = false;
 		}
 		else
 		{
 			$args['store_id'] = \lib\store::id();
+		}
+
+		if($check_plan_limit)
+		{
+			if(!\lib\app\plan_limit::check('thirdparty'))
+			{
+				return false;
+			}
 		}
 
 		if(!$args['status'])
@@ -169,6 +179,8 @@ trait add
 			$args['visitor']     = $supplier_id;
 			$args['customer']    = 1;
 		}
+
+
 
 		$user_id = self::find_user_id($args, null);
 

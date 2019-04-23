@@ -56,6 +56,12 @@ trait add
 			\dash\notif::error(T_("You are not in this store"), 'subdomain');
 			return false;
 		}
+
+		if(!\lib\app\plan_limit::check('factor'))
+		{
+			return false;
+		}
+
 		// start transaction of db
 		\dash\db::transaction();
 
@@ -81,6 +87,12 @@ trait add
 			\dash\db::rollback();
 			return false;
 		}
+
+		if(!\lib\app\plan_limit::check('factordetail', count($factor_detail)))
+		{
+			return false;
+		}
+
 
 		$return = [];
 
