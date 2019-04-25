@@ -3,6 +3,7 @@ desktop.ini
 *sitemap.xml
 *Thumbs.db
 ~*.docx
+~*.tmp
 *tg.json
 *.me.*
 
