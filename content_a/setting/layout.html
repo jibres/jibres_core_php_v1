@@ -98,6 +98,18 @@
   {%endif%}
 
 
+  {%if perm('settingEditSocialNetwork')%}
+  <div class="c">
+    <a class="dcard {%if url.child == 'social' %}active{%endif%}" href='{{url.this}}/social' data-shortkey="55shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-network"></i></div>
+      <div class="label">{%trans "Social Network"%} <kbd>Shift+6</kbd></div>
+     </div>
+    </a>
+  </div>
+  {%endif%}
+
+
 
 
 </div>

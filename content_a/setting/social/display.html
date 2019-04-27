@@ -1,0 +1,126 @@
+{%extends "content_a/setting/layout.html"%}
+
+{%block data%}
+
+
+<div class="f justify-center">
+	<div class="c8">
+		<div class="cbox">
+			<form method="post" autocomplete="off">
+				{{block('iemail')}}
+				{{block('isorosh')}}
+				{{block('ieitaa')}}
+				{{block('iaparat')}}
+				{{block('itelegram')}}
+				{{block('ifacebook')}}
+				{{block('itwitter')}}
+				{{block('iinstagram')}}
+				{{block('ilinkedin')}}
+				<button class="btn block primary">{%trans "Save"%}</button>
+			</form>
+		</div>
+	</div>
+</div>
+{%endblock%}
+
+
+
+
+{%block iemail %}
+<label for="email">{%trans "Email"%}</label>
+<div class="input">
+  <input type="email" name="email" id="email" placeholder='{%trans "email"%} *' value="{{dataRow.email}}" >
+  <label class="addon" for="email">Email</label>
+</div>
+{% endblock %}
+
+
+{%block isms %}
+<label for="sms">{%trans "SMS Service number"%}</label>
+<div class="input">
+  <input type="number" name="sms" id="sms" placeholder='{%trans "sms"%} *' value="{{dataRow.sms}}"   >
+  <label class="addon ltr" for="sms">SMS</label>
+</div>
+{% endblock %}
+
+
+{%block itelegram%}
+<label for="telegram">{%trans "Telegram"%}</label>
+<div class="input">
+  <input type="text" name="telegram" class="ltr" id="telegram" placeholder='{%trans "telegram"%}' value="{{dataRow.telegram}}" maxlength="200" minlength="1" >
+  <label class="addon ltr" for="telegram">https://t.me/</label>
+</div>
+{%endblock%}
+
+
+{%block ifacebook%}
+<label for="facebook">{%trans "Facebook"%}</label>
+<div class="input">
+	<input type="text" name="facebook" class="ltr" id="facebook" placeholder='{%trans "facebook"%}' value="{{dataRow.facebook}}" maxlength="200" minlength="1" >
+  <label class="addon ltr" for="facebook">https://fb.com/</label>
+</div>
+{%endblock%}
+
+
+{%block itwitter%}
+<label for="twitter">{%trans "Twitter"%}</label>
+<div class="input">
+  <input type="text" name="twitter" class="ltr" id="twitter" placeholder='{%trans "twitter"%}' value="{{dataRow.twitter}}" maxlength="200" minlength="1" >
+  <label class="addon ltr" for="twitter">https://twitter.com/</label>
+</div>
+{%endblock%}
+
+
+{%block iinstagram%}
+<label for="instagram">{%trans "Instagram"%}</label>
+<div class="input">
+  <input type="text" name="instagram" class="ltr" id="instagram" placeholder='{%trans "instagram id"%}' value="{{dataRow.instagram}}" maxlength="200" minlength="1" >
+  <label class="addon ltr" for="instagram">https://instagram.com/</label>
+</div>
+{%endblock%}
+
+
+{%block ilinkedin%}
+<label for="linkedin">{%trans "Linkedin"%}</label>
+<div class="input">
+  <input type="text" name="linkedin" class="ltr" id="linkedin" placeholder='{%trans "linkedin"%}' value="{{dataRow.linkedin}}" maxlength="200" minlength="1" >
+  <label class="addon ltr" for="linkedin">https://linkedin.com/</label>
+</div>
+{%endblock%}
+
+
+
+{%block isorosh%}
+<label for="sapp">{%trans "Sorosh app"%}</label>
+<div class="input">
+  <input type="text" name="sapp" class="ltr" id="sapp" placeholder='{%trans "sapp"%}' value="{{dataRow.sapp}}" maxlength="200" minlength="1" >
+  <label class="addon ltr" for="sapp">https://sapp.ir/</label>
+</div>
+{%endblock%}
+
+{%block ieitaa%}
+<label for="eitaa">{%trans "Eitaa"%}</label>
+<div class="input">
+  <input type="text" name="eitaa" class="ltr" id="eitaa" placeholder='{%trans "eitaa"%}' value="{{dataRow.eitaa}}" maxlength="200" minlength="1" >
+  <label class="addon ltr" for="eitaa">https://eitaa.com/</label>
+</div>
+{%endblock%}
+
+
+{%block iaparat%}
+<label for="aparat">{%trans "Aparat"%}</label>
+<div class="input">
+  <input type="text" name="aparat" class="ltr" id="aparat" placeholder='{%trans "aparat"%}' value="{{dataRow.aparat}}" maxlength="200" minlength="1" >
+  <label class="addon ltr" for="aparat">https://aparat.com/</label>
+</div>
+{%endblock%}
+
+
+{%block iwebsite%}
+<label for="website">{%trans "Website"%}</label>
+<div class="input">
+  <input type="url" name="website" id="website" placeholder='{%trans "Festival website like http://example.com"%}' value="{{dataRow.website}}" maxlength="200" minlength="1" >
+  <label class="addon ltr" for="website">URL</label>
+</div>
+{%endblock%}
+
