@@ -438,15 +438,18 @@ class plan
 
 	public static function set_notif()
 	{
-		self::one_day();
+		self::to_expire(1);
+		self::to_expire(3);
+		self::to_expire(7);
 	}
 
 
-	public static function one_day()
+	private static function to_expire($_day)
 	{
-		$date = date("Y-m-d H:i:s", strtotime("+1 days"));
+		$date = date("Y-m-d H:i:s", strtotime("+$_day days"));
 
 		$store_expired = \lib\db\stores::list_expired($date);
+
 		if(!$store_expired || !is_array($store_expired))
 		{
 			return null;
@@ -455,21 +458,31 @@ class plan
 		foreach ($store_expired as $key => $value)
 		{
 			$store_id = $value['id'];
-			$creator = $value['creator'];
+			$creator  = $value['creator'];
+
+			$myKey    = $_day. '_'. $store_id;
 
 			$log =
 			[
-				'code'        => $store_id,
+				'code'        => $myKey,
 				'to'          => $creator,
+				'storeid'     => $store_id,
 				'storename'   => $value['name'],
+				'dayleft'     => $_day,
 				'currentplan' => $value['plan'],
 			];
 
-			$check = ['code' => $store_id, 'to' => $creator, 'caller' => 'OneDayLeftExpirePlanToFree', 'limit' => 1];
+			$check =
+			[
+				'caller' => 'DayLeftExpirePlanToFree',
+				'code'   => $myKey,
+				'to'     => $creator,
+				'limit'  => 1,
+			];
 
 			if(!\dash\db\logs::get($check))
 			{
-				\dash\log::set('OneDayLeftExpirePlanToFree', $log);
+				\dash\log::set('DayLeftExpirePlanToFree', $log);
 			}
 
 		}

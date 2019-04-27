@@ -1,12 +1,13 @@
 <?php
 namespace lib\app\log\caller;
 
-class OneDayLeftExpirePlanToFree
+class DayLeftExpirePlanToFree
 {
 	public static function site($_args = [])
 	{
 		$storename   = isset($_args['data']['storename']) ? $_args['data']['storename'] : null;
 		$currentplan = isset($_args['data']['currentplan']) ? $_args['data']['currentplan'] : null;
+		$dayleft     = isset($_args['data']['dayleft']) ? $_args['data']['dayleft'] : null;
 
 		$result              = [];
 		$result['title']     = T_("Expire plan");
@@ -15,7 +16,7 @@ class OneDayLeftExpirePlanToFree
 		$result['iconClass'] = 'fc-blue';
 
 
-		$excerpt = T_("One day left to expir plan of :storename", ['storename' => $storename]);
+		$excerpt = T_(":day day left to expir plan of :storename", ['storename' => $storename, 'day' => \dash\utility\human::fitNumber($dayleft)]);
 		$excerpt .= ' ';
 		$excerpt .=	'<a href="'.\dash\url::kingdom(). '/a/setting/plan">';
 		$excerpt .= T_("Upgrade");
