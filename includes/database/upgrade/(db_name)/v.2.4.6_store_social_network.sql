@@ -1,1 +1,11 @@
 ALTER TABLE `stores` ADD `socialnetwork` text CHARACTER SET utf8mb4;
+ALTER TABLE `products` ADD `salesite` bit(1) NULL DEFAULT b'1';
+ALTER TABLE `products` ADD `saletelegram` bit(1) NULL DEFAULT b'1';
+ALTER TABLE `products` ADD `saleapp` bit(1) NULL DEFAULT b'1';
+ALTER TABLE `products` ADD `salephysical` bit(1) NULL DEFAULT b'1';
+
+ALTER TABLE `products` ADD INDEX `products_salesite_search_index` (`salesite`);
+ALTER TABLE `products` ADD INDEX `products_saletelegram_search_index` (`saletelegram`);
+ALTER TABLE `products` ADD INDEX `products_saleapp_search_index` (`saleapp`);
+ALTER TABLE `products` ADD INDEX `products_salephysical_search_index` (`salephysical`);
+

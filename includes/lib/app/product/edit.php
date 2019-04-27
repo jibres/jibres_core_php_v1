@@ -97,6 +97,10 @@ trait edit
 		if(!\dash\app::isset_request('desc'))           unset($args['desc']);
 		if(!\dash\app::isset_request('scalecode'))      unset($args['scalecode']);
 		if(!\dash\app::isset_request('thumb'))          unset($args['thumb']);
+		if(!\dash\app::isset_request('salesite')) 		unset($args['salesite']);
+		if(!\dash\app::isset_request('saletelegram')) 	unset($args['saletelegram']);
+		if(!\dash\app::isset_request('saleapp')) 		unset($args['saleapp']);
+		if(!\dash\app::isset_request('salephysical')) 	unset($args['salephysical']);
 
 
 

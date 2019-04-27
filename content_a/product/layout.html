@@ -485,7 +485,7 @@
   </div>
 
   <div class="c s6">
-    <a class="dcard {%if url.child in ['general', 'warehouse', 'stock', 'maker', 'manage'] %}active{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}' data-shortkey="49shift">
+    <a class="dcard {%if url.child in ['general', 'warehouse', 'stock', 'maker', 'manage', 'sale'] %}active{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-list"></i></div>
       <div class="label">{%trans "Detail"%} <kbd>T+1</kbd></div>
@@ -589,9 +589,15 @@
     <a class="btn block {%if url.child=='stock'%} primary{%else%} light{%endif%}" href='{{url.this}}/stock?id={{requestGET.id}}'>{%trans "Stock"%}</a>
   </div>
 
-  <div class="c pB10">
+  <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='manage'%} primary{%else%} light{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>
   </div>
+  {%if perm('productManageSaleGateway')%}
+  <div class="c pB10">
+    <a class="btn block {%if url.child=='sale'%} primary{%else%} light{%endif%}" href='{{url.this}}/sale?id={{requestGET.id}}'>{%trans "Sale gateway"%}</a>
+  </div>
+  {%endif%}
+
 
 </div>
 {%endblock%}

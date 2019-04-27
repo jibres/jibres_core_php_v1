@@ -386,6 +386,11 @@ class product
 			return false;
 		}
 
+		$salesite     = \dash\app::request('salesite') ? 1 : null;
+		$saletelegram = \dash\app::request('saletelegram') ? 1 : null;
+		$saleapp      = \dash\app::request('saleapp') ? 1 : null;
+		$salephysical = \dash\app::request('salephysical') ? 1 : null;
+
 		// prosess finalprice
 		$finalprice = floatval($price) - floatval($discount);
 		if($finalprice < 0)
@@ -478,6 +483,10 @@ class product
 		$args['carton']          = $carton;
 		$args['desc']            = $desc;
 		$args['scalecode']       = $scalecode;
+		$args['salesite']        = $salesite;
+		$args['saletelegram']    = $saletelegram;
+		$args['saleapp']         = $saleapp;
+		$args['salephysical']    = $salephysical;
 
 		return $args;
 	}
