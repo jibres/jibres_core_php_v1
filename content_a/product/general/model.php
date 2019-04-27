@@ -18,6 +18,7 @@ class model
 			'price'     => \dash\request::post('price'),
 			'discount'  => \dash\request::post('discount'),
 			'scalecode' => \dash\request::post('scalecode'),
+			'weight'    => \dash\request::post('weight'),
 		];
 
 		return $args;

@@ -287,6 +287,21 @@ class product
 			return false;
 		}
 
+		$weight = \dash\app::request('weight');
+		$weight = \dash\utility\convert::to_en_number($weight);
+		if($weight && !is_numeric($weight))
+		{
+			\dash\notif::error(T_("Value of weight muset be a number"), 'weight');
+			return false;
+		}
+
+		if(floatval($weight) >= 1E+10 || floatval($weight) < 0)
+		{
+			\dash\notif::error(T_("Value of weight is out of rage"), 'weight');
+			return false;
+		}
+
+
 		$maxstock = \dash\app::request('maxstock');
 		$maxstock = \dash\utility\convert::to_en_number($maxstock);
 		if($maxstock && !is_numeric($maxstock))
@@ -487,6 +502,7 @@ class product
 		$args['saletelegram']    = $saletelegram;
 		$args['saleapp']         = $saleapp;
 		$args['salephysical']    = $salephysical;
+		$args['weight']   		 = $weight;
 
 		return $args;
 	}

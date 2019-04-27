@@ -163,6 +163,15 @@
 {%endblock%}
 
 
+
+{%block iWeight%}
+<label for="iweight">{%trans "Weight"%}</label>
+<div class="input ">
+ <input type="number" name="weight" id="iweight" placeholder='{%trans "Enter product weight"%}' value="{{dataRow.weight}}"  autocomplete="off" min="0" max="99999999">
+</div>
+{%endblock%}
+
+
 {%block iBarcodePrev%}
 <div class="f txtC s0">
  <div class="c6 pRa5"><svg class="barcodePrev" data-val="#barcode"></svg></div>
