@@ -36,6 +36,8 @@ class store
 		'private',		'public',					'protected',
 		'dollar',		'android',					'ubuntu',
 		'wwww',			'wwwww',					'wwwwww',
+		'api',  		'application',				'domain',
+		'server',		'download',
 	];
 
 

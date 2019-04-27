@@ -15,8 +15,8 @@
       </div>
     </div>
 
-{%else%}
-
+{%endif%}
+{%if not countStore or perm_su()%}
     <div class="msg primary txtC fs18">
       <h2 class="txtB">{%trans "Easily set up your store"%}</h2>
       <div>{%trans "Try Jibres free for 14 days."%} {%trans "Then if you want, pick a plan!"%}</div>
