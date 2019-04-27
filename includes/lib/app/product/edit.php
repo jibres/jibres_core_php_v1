@@ -102,6 +102,7 @@ trait edit
 		if(!\dash\app::isset_request('saleapp')) 		unset($args['saleapp']);
 		if(!\dash\app::isset_request('salephysical')) 	unset($args['salephysical']);
 		if(!\dash\app::isset_request('weight'))		 	unset($args['weight']);
+		if(!\dash\app::isset_request('infinite'))		 	unset($args['infinite']);
 
 
 

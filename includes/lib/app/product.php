@@ -405,6 +405,8 @@ class product
 		$saletelegram = \dash\app::request('saletelegram') ? 1 : null;
 		$saleapp      = \dash\app::request('saleapp') ? 1 : null;
 		$salephysical = \dash\app::request('salephysical') ? 1 : null;
+		$infinite = \dash\app::request('infinite') ? 1 : null;
+
 
 		// prosess finalprice
 		$finalprice = floatval($price) - floatval($discount);
@@ -503,6 +505,8 @@ class product
 		$args['saleapp']         = $saleapp;
 		$args['salephysical']    = $salephysical;
 		$args['weight']   		 = $weight;
+		$args['infinite']   		 = $infinite;
+
 
 		return $args;
 	}

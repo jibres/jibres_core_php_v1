@@ -9,3 +9,4 @@ ALTER TABLE `products` ADD INDEX `products_saletelegram_search_index` (`saletele
 ALTER TABLE `products` ADD INDEX `products_saleapp_search_index` (`saleapp`);
 ALTER TABLE `products` ADD INDEX `products_salephysical_search_index` (`salephysical`);
 
+ALTER TABLE `products` ADD `infinite` bit(1) NULL DEFAULT NULL;

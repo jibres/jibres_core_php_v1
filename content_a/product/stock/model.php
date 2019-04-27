@@ -11,6 +11,7 @@ class model
 			'initialbalance' => \dash\request::post('initialbalance'),
 			'minstock'       => \dash\request::post('minstock'),
 			'maxstock'       => \dash\request::post('maxstock'),
+			'infinite'       => \dash\request::post('infinite'),
 		];
 
 		return $args;
