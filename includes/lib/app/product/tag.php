@@ -186,7 +186,7 @@ class tag
 			$must_remove = implode(',', $must_remove);
 
 			\dash\log::set('removePostTerm', ['code' => $_type, 'datalink' => \dash\coding::encode($_post_id)]);
-			\lib\db\producttermusages::hard_delete(['related_id' => $_post_id, 'term_id' => ["IN", "($must_remove)"]]);
+			\lib\db\producttermusages::hard_delete([ 'productterm_id' => ["IN", "($must_remove)"]]);
 		}
 
 

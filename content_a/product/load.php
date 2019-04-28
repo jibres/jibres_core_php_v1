@@ -20,6 +20,15 @@ class load
 		}
 
 		\dash\data::dataRow($result);
+
+
+		$tag = \lib\db\producttermusages::usage(\dash\coding::decode($id));
+
+		if($tag && is_array($tag))
+		{
+			\dash\data::tagRow($tag);
+			\dash\data::tagValue(implode(',', array_column($tag, 'title')));
+		}
 	}
 
 
