@@ -65,13 +65,21 @@
   </li>
 
   <li class="s0">
-    <a href="{{url.base}}/logout?referer={{url.pwd}}"><i class="sf-refresh"></i>{%trans "Shift transformation"%}</a>
+    <a data-kerkere='.slideShifTransformation' data-kerkere-icon><i class="sf-refresh"></i>{%trans "Shift transformation"%}</a>
+    <div class="slideShifTransformation" data-kerkere-content='hide'>
+
 {%if staffList%}
     <ul>
+      <li>
+        <a href="{{url.base}}/logout?referer={{url.pwd}}"><i class="sf-log-out"></i>{%trans "Logout"%}</a>
+      </li>
+
 {%for key, value in staffList%}
 {%if value.mobile%}
 {%if value.mobile == login.mobile%}
+    {%if false%}
       <li title='{%trans "You are active user"%}'><a class='disabled' data-href="{{url.base}}/account/profile">{{value.firstname}} <b>{{value.lastname}}</b> <i class="floatRa mRa10 fc-green sf-check"></i></a></li>
+      {%endif%}
 {%else%}
       <li><a href="{{url.base}}/logout?mobile={{value.mobile}}&referer={{url.pwd}}">{{value.firstname}} <b>{{value.lastname}}</b> <i class="floatRa mRa10 fc-mute sf-at"></i></a></li>
 {%endif%}
@@ -80,6 +88,7 @@
     </ul>
 {%endif%}
   </li>
+    </div>
 
 {%endblock%}
 
