@@ -16,3 +16,10 @@ ALTER TABLE `products` ADD `infinite` bit(1) NULL DEFAULT NULL;
 
 ALTER TABLE `stores` ADD `fav` VARCHAR(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL AFTER `logo`;
 ALTER TABLE `stores` ADD `payment` text CHARACTER SET utf8mb4;
+
+
+ALTER TABLE `termusages` ADD INDEX `termusages_term_id_search_index` (`term_id`);
+ALTER TABLE `termusages` ADD INDEX `termusages_related_id_search_index` (`related_id`);
+ALTER TABLE `termusages` ADD INDEX `termusages_related_search_index` (`related`);
+ALTER TABLE `termusages` ADD INDEX `termusages_type_search_index` (`type`);
+
