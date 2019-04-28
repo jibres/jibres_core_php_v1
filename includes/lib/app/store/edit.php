@@ -81,6 +81,7 @@ trait edit
 		if(!\dash\app::isset_request('plan'))    unset($args['plan']);
 		if(!\dash\app::isset_request('factorheader'))    unset($args['factorheader']);
 		if(!\dash\app::isset_request('factorfooter'))    unset($args['factorfooter']);
+		if(!\dash\app::isset_request('payment'))    unset($args['payment']);
 
 		if(array_key_exists('name', $args) && !$args['name'])
 		{

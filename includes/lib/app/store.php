@@ -235,6 +235,11 @@ class store
 			return false;
 		}
 
+		$payment = \dash\app::request('payment');
+		if($payment && is_array($payment))
+		{
+			$payment = json_encode($payment, JSON_UNESCAPED_UNICODE);
+		}
 
 		$logo_url = \dash\app::request('logo');
 		if($logo_url && !is_string($logo_url))
@@ -328,6 +333,7 @@ class store
 		$args['plan']         = $plan;
 		$args['factorheader'] = $factorheader;
 		$args['factorfooter'] = $factorfooter;
+		$args['payment']      = $payment;
 
 		return $args;
 	}
@@ -388,6 +394,7 @@ class store
 				case 'cat':
 				case 'unit':
 				case 'setting':
+				case 'payment':
 					if($value && is_string($value))
 					{
 						$result[$key] = json_decode($value, true);

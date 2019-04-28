@@ -110,6 +110,19 @@
   {%endif%}
 
 
+  {%if perm('storeSettingPayment')%}
+  <div class="c">
+    <a class="dcard {%if url.child == 'payment' %}active{%endif%}" href='{{url.this}}/payment' data-shortkey="55shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-cardiac-pulse"></i></div>
+      <div class="label">{%trans "Payment"%} <kbd>Shift+6</kbd></div>
+     </div>
+    </a>
+  </div>
+  {%endif%}
+
+
+
 
 
 </div>
