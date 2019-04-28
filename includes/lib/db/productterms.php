@@ -103,7 +103,7 @@ class productterms
 	}
 
 
-	public static function get_mulit_term_title($_titles, $_type)
+	public static function get_mulit_term_title($_titles, $_type, $_store_id)
 	{
 		if(!is_array($_titles) || !$_type || !$_titles)
 		{
@@ -118,7 +118,8 @@ class productterms
 			FROM productterms
 			WHERE
 				productterms.title IN ('$_titles') AND
-				productterms.type = '$_type'
+				productterms.type = '$_type' AND
+				productterms.store_id = $_store_id
 		";
 		$result = \dash\db::get($query);
 

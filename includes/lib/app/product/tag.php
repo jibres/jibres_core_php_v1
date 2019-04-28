@@ -18,7 +18,7 @@ class tag
 
 		if(!\dash\permission::check('cpThirdpartyTagAdd'))
 		{
-			$current_tag = \lib\db\productterms::get(['type' => 'product_tag']);
+			$current_tag = \lib\db\productterms::get(['type' => 'tag', 'store_id' => \lib\store::id()]);
 			if(is_array($current_tag))
 			{
 				$tag_titles = array_column($current_tag, 'title');
@@ -68,7 +68,7 @@ class tag
 			$tag = array_filter($tag);
 			$tag = array_unique($tag);
 
-			$check_exist_tag = \lib\db\productterms::get_mulit_term_title($tag, $_type);
+			$check_exist_tag = \lib\db\productterms::get_mulit_term_title($tag, $_type, \lib\store::id());
 
 			$all_tags_id = [];
 
