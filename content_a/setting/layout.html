@@ -165,7 +165,24 @@
 {%endblock%}
 
 
+
+
+
+{%block iFavIcon%}
+<label for="fav1">{%trans "Faveicon"%}</label>
+<div class="input preview mT20">
+ <input type="file" accept="image/jpeg, image/png, image/ico" name="fav" id="fav1" data-preview data-max="500">
+ <label for="fav1" title='{%trans "allowed extentions jpg, png, ico. Max 500Kb"%}'>
+{%if store.fav%}
+  <img src="{{store.fav}}" alt="{{store.name}}" id="logoPreview">
+{%endif%}
+ </label>
+</div>
+{%endblock%}
+
+
 {%block iLogo%}
+<label for="logo1">{%trans "Logo"%}</label>
 <div class="input preview">
  <input type="file" accept="image/gif, image/jpeg, image/png" name="logo" id="logo1" data-preview data-max="500">
  <label for="logo1" title='{%trans "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"%}'>

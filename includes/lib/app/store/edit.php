@@ -125,12 +125,19 @@ trait edit
 
 
 
-	public static function edit_logo($_logo_url)
+	public static function edit_logo($_logo_url, $_type = 'logo')
 	{
 		if(!$_logo_url || !is_string($_logo_url))
 		{
 			return false;
 		}
+
+		$myLogoName = $_type;
+		if($_type === 'fav')
+		{
+			$myLogoName = T_("faveicon");
+		}
+
 		// check below line
 		$log_meta = null;
 		if(!\lib\store::id())
@@ -148,18 +155,18 @@ trait edit
 			return false;
 		}
 
-		if(\lib\store::detail('logo') === $_logo_url)
+		if(\lib\store::detail($_type) === $_logo_url)
 		{
-			\dash\notif::warn(T_("No change in store logo"));
+			\dash\notif::warn(T_("No change in store :logo", ['logo' => $myLogoName]));
 			return null;
 		}
 
-		$update = \lib\db\stores::update(['logo' => $_logo_url], \lib\store::id());
+		$update = \lib\db\stores::update([$_type => $_logo_url], \lib\store::id());
 
 		if($update)
 		{
 			\lib\store::clean();
-			\dash\notif::ok(T_("The store logo updated"));
+			\dash\notif::ok(T_("The store :logo updated", ['logo' => $myLogoName]));
 			return true;
 		}
 

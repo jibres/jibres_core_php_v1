@@ -6,16 +6,25 @@ class model
 {
 	public static function post()
 	{
-		$upload = self::upload_logo();
+		$result = null;
 
-		if($upload)
+		$logo = self::upload_logo('logo');
+
+		if($logo)
 		{
-			\lib\app\store::edit_logo($upload);
+			$result = \lib\app\store::edit_logo($logo, 'logo');
 		}
-		else
+
+		$fav = self::upload_logo('fav');
+
+		if($fav)
 		{
-			\dash\notif::error(T_("No file was sended"), 'logo');
-			return false;
+			$result = \lib\app\store::edit_logo($fav, 'fav');
+		}
+
+		if(!$result)
+		{
+			\dash\notif::warn(T_("No file was sended"));
 		}
 
 		if(\dash\engine\process::status())
@@ -25,11 +34,11 @@ class model
 	}
 
 
-	public static function upload_logo()
+	public static function upload_logo($_name)
 	{
-		if(\dash\request::files('logo'))
+		if(\dash\request::files($_name))
 		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'logo']);
+			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => $_name]);
 
 			if(isset($uploaded_file['url']))
 			{
