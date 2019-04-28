@@ -102,5 +102,61 @@ class productterms
 		return $result;
 	}
 
+
+	public static function get_mulit_term_title($_titles, $_type)
+	{
+		if(!is_array($_titles) || !$_type || !$_titles)
+		{
+			return false;
+		}
+
+		$_titles = implode("','", $_titles);
+
+		$query =
+		"
+			SELECT *
+			FROM productterms
+			WHERE
+				productterms.title IN ('$_titles') AND
+				productterms.type = '$_type'
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+	public static function hard_delete($_where)
+	{
+		$where = \dash\db\config::make_where($_where);
+		if($where)
+		{
+			$query = "DELETE FROM productterms WHERE $where ";
+			return \dash\db::query($query);
+		}
+	}
+
+	public static function check_multi_id($_ids, $_type)
+	{
+		if(!is_array($_ids) || !$_type || !$_ids || !$_ids)
+		{
+			return false;
+		}
+
+		$_ids = implode(',', $_ids);
+
+		$query =
+		"
+			SELECT *
+			FROM productterms
+			WHERE
+				productterms.id IN ($_ids) AND
+				productterms.type = '$_type'
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+
+	}
+
 }
 ?>

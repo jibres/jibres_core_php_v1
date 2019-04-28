@@ -21,7 +21,7 @@
         {% if dataRow.stock%}<div class="meta">{%trans "Stock"%}: <span>{{dataRow.stock | fitNumber}}</span></div>{%endif%}
     </div>
   </a>
-
+{{block('iTag')}}
 </div>
 {%endblock%}
 
@@ -443,7 +443,7 @@
 {%block iTag%}
 
 {%if perm('thirdpartyAssignTag')%}
-<div class="cbox">
+<div class="mT20">
 
   <div class="tagDetector">
     {%set myID = requestGET.id %}
