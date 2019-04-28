@@ -136,7 +136,7 @@ trait edit
 		$myLogoName = $_type;
 		if($_type === 'fav')
 		{
-			$myLogoName = T_("faveicon");
+			$myLogoName = T_("favicon");
 		}
 
 		// check below line
