@@ -18,3 +18,9 @@ ALTER TABLE `stores` ADD `fav` VARCHAR(2000) CHARACTER SET utf8 COLLATE utf8_gen
 ALTER TABLE `stores` ADD `payment` text CHARACTER SET utf8mb4;
 
 
+ALTER TABLE `producttermusages` ADD INDEX `producttermusages_product_id_search_index` (`product_id`);
+ALTER TABLE `producttermusages` ADD INDEX `producttermusages_pruductterm_id_search_index` (`pruductterm_id`);
+
+ALTER TABLE `productterms` ADD INDEX `terms_type_search_index` (`type`);
+ALTER TABLE `productterms` ADD INDEX `terms_store_id_search_index` (`store_id`);
+
