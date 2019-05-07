@@ -392,6 +392,15 @@ body[data-page="pricing"] .page-title h2{
   display: block;
   margin:0 auto;
 }
+.logoEffect:after{
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
 
 
 
@@ -444,6 +453,19 @@ body[data-page="pricing"] .page-title h2{
     margin: 0;
   }
   .guaranteeBox .text{text-align: center;padding-top:50px;}
+  /*fix logo on mobile*/
+  .logoEffect{
+    height: 300px;
+  }
+  .logoEffect .shadow{
+    height: 162px;
+    width: 163px;
+  }
+  .logoEffect .logo{
+    height: 160px;
+    width: 160px;
+    top: 72px;
+  }
 
 }
 
