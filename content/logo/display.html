@@ -1,9 +1,34 @@
 {%extends display.main%}
 
 
-{%block page%}
-
-{%trans "Soon"%}
+{%block content%}
+{{block('logoEffect')}}
+{{block('more')}}
 
 {%endblock%}
 
+
+
+{%block logoEffect%}
+<div class="logoEffect">
+  <img alt="Shadow of Jibres logo" class="shadow" src="{{url.static}}/images/logo/bg-logo-shadow.png">
+  <img alt='{%trans "Jibres logo"%}' class="logo" src="{{url.static}}/images/logo/jibres.svg">
+  <video loop muted playsinline autoplay>
+      <source type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' src="{{url.static}}/video/bg-logo.mp4"/>
+  </video>
+</div>
+{%endblock%}
+
+
+
+{%block more%}
+  <div class="page-title">
+   <div class="cn">
+    <div id="typed-strings" class="hide">
+      <h1>{{page.title}}</h1>
+    </div>
+    <div class="h1"><span class="typed"></span></div>
+    <h2>{{page.desc}}</h2>
+   </div>
+  </div>
+{%endblock%}
