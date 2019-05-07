@@ -404,6 +404,31 @@ body[data-page="pricing"] .page-title h2{
 
 
 
+.pc .postPreview{}
+.pc .postPreview img.thumb{width:300px;height:auto;display:inline-block;margin:0 auto;padding:0;margin:0.5em;border:1px solid transparent;transition:0.3s}
+.pc .postPreview img.thumb:hover{border-color:#333}
+.pc .postMainContent{overflow: hidden;}
+.pc #lightgallery{text-align:center; margin:2em 0;clear: both;}
+.pc #lightgallery a{display: inline-block;max-width:45%;width:100px;margin:0 10px;}
+.pc #lightgallery img{margin:0 auto;border:1px solid #ddd;transition:0.3s}
+.pc #lightgallery img:hover{border-color:#777}
+.pc #lightgallery video{width:200px;max-width:45%; margin:0 auto;}
+.pc #lightgallery audio{width:200px;max-width:45%; margin:0 auto;}
+
+.pc .gallery2{text-align:center;}
+.pc .gallery2 video{width:500px;max-width:90%;margin:1em auto;display:inline-block;}
+.pc .gallery2 audio{width:250px;max-width:90%;margin:1em auto;display:inline-block;}
+
+.pc .postListPreview{font-size: 0.8em;}
+.pc .postListPreview .vcard{min-height: 500px;}
+.pc .postListPreview img{max-height: 200px;}
+
+
+.tagBox a{padding:0.5em 0.5em;margin:0.5em 0.5em;background-color:#eee;border-radius:3px;transition:0.3s;display:inline-block;}
+.tagBox a:hover{background-color:rgba(0,0,0,0.1);}
+.tagBox a:focus{background-color:rgba(0,0,0,0.2);}
+
+
 /*vcard*/
 .vcard{font-style:normal;}
 .vcard .adr{padding:1em 0}
