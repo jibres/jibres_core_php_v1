@@ -5,51 +5,6 @@ namespace lib\app\product;
 class cat
 {
 
-	public static function fix()
-	{
-		$all = \dash\db::get("SELECT stores.cat, stores.id, stores.creator FROM stores WHERE stores.cat IS NOT NULL");
-
-		if(!is_array($all) || !$all)
-		{
-			return;
-		}
-
-		$result = [];
-		foreach ($all as $value)
-		{
-			$cat = json_decode($value['cat'], true);
-
-
-			foreach ($cat as  $title)
-			{
-				if($title['title'])
-				{
-					\dash\engine\process::continue();
-					$new_cat = self::add(['title' => $title['title']], $value['id'], $value['creator']);
-
-					if(isset($new_cat['title']) && isset($new_cat['id_raw']))
-					{
-						\lib\db\products::update_where(
-						[
-							'cat'    => $new_cat['title'],
-							'cat_id' => $new_cat['id_raw'],
-						],
-						[
-							'store_id' => $value['id'],
-							'cat'      => $title['title'],
-						]);
-					}
-				}
-
-			}
-
-			\lib\db\productterms::update_count($value['id'], ['type' => 'cat']);
-		}
-		j('ok');
-
-
-	}
-
 	public static $debug = true;
 
 	public static $sort_field =
