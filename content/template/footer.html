@@ -43,21 +43,25 @@
    </div>
 
    <div class="f bottom align-center">
-    <div class="c s12">{{langList({'html':true}) | raw}}</div>
+    <div class="cauto s12">{{langList({'html':true}) | raw}}</div>
+
 {%if lang.current =='fa'%}
       <nav class="c s12 txtC">
         <div class="certification">
 {%if url.tld == 'ir'%}
-      <div><img src="{{url.static}}/images/cert/enamad2.png" alt='{%trans "Enamad"%} {{site.title}}' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=118387&amp;p=ZXabMoTvlxGEFbR7", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")'></div>
+          <div><img src="{{url.static}}/images/cert/enamad2.png" alt='{%trans "Enamad"%} {{site.title}}' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=118387&amp;p=ZXabMoTvlxGEFbR7", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")'></div>
 {%else%}
-      <div><img src="{{url.static}}/images/cert/enamad2.png" alt='{%trans "Enamad"%} {{site.title}}' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=77836&p=JOoynuxYPaV1q5Zq", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")'></div>
+          <div><img src="{{url.static}}/images/cert/enamad2.png" alt='{%trans "Enamad"%} {{site.title}}' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=77836&p=JOoynuxYPaV1q5Zq", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")'></div>
 {%endif%}
-       <div><img src="{{url.static}}/images/cert/samandehi.png" alt='{%trans "Samandehi"%} {{site.title}}' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=110459&p=rfthrfthobpdaodsdshwpfvl", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'></div>
-       </div>
+          <div><img src="{{url.static}}/images/cert/samandehi.png" alt='{%trans "Samandehi"%} {{site.title}}' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=110459&p=rfthrfthobpdaodsdshwpfvl", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'></div>
+
+          <div><img src="{{url.static}}/images/cert/shamad.png" alt='{%trans "Shamad"%} {{site.title}}' onclick='window.open("https://logo.saramad.ir/verify.aspx?CodeShamad=1-2-709257-65-2-3", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=500, height=700, top=0")'></div>
+
+        </div>
      </nav>
 {%endif%}
 
-    <div class="c s12 love"><a href="{%if lang.current =='fa'%}https://ermile.com/fa{%else%}https://ermile.com{%endif%}" target="_blank">{%trans "Proudly Made in IRAN"%}</a></div>
+    <div class="cauto s12 love"><a href="{%if lang.current =='fa'%}https://ermile.com/fa{%else%}https://ermile.com{%endif%}" target="_blank">{%trans "Proudly Made in IRAN"%}</a></div>
    </div>
 
   </div>
