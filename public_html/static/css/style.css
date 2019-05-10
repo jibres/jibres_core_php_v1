@@ -449,6 +449,7 @@ body[data-page="pricing"] .page-title h2{
 @media all and (min-width: 768px) and (max-width: 959px) {
   .page-title{padding:7em 0;}
   .pricingQuick .col2{border: none!important;}
+  #landing .title .h2{font-size:4em;min-height:2em;}
 }
 
 
@@ -461,7 +462,8 @@ body[data-page="pricing"] .page-title h2{
 
   #landing{min-height:350px;height: 400px;}
   #landing .title{padding-top:20px;position:relative;}
-  #landing .title .h2{font-size:3em;min-height:3em;}
+  #landing .title .h2{font-size:2em;min-height:2em;margin-bottom:1em;}
+  #keepitsimple .title h2{font-size:2em;}
   #roadmap{display:none}
   #quote .title{right: 0;left: 0;font-size: 1.5em}
   #tfooter .middle nav a{display:inline-block;background-color:rgba(0,0,0,0.1);border-radius:0.25rem;margin: 0 0 5px;padding: 1rem 1em}
