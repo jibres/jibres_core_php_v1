@@ -23,6 +23,7 @@ self::$social['telegram']['bot']        = 'JibresBot';
 self::$social['telegram']['hookFolder'] = 'Halllooooo';
 self::$social['telegram']['token']      = '731332936:AAECREdVLCAJqzwTtCJnst_v293LtDSaiKc';
 self::$social['telegram']['debug']      = true;
+self::$social['telegram']['tunnel']     = true;
 
 
 /**
