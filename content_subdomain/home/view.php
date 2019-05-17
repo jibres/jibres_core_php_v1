@@ -22,7 +22,7 @@ class view
 		\dash\data::service_logo(\dash\url::static(). '/siftal/images/logo/jibres.png');
 		\dash\data::service_url('https://jibres.com');
 
-		\dash\data::display_storesubdomain('content_subdomain/home/visitcard.html');
+		\dash\data::display_storesubdomain('content_subdomain/main/visitcard.html');
 		// if the plan have site
 		if(\dash\permission::supervisor())
 		{
