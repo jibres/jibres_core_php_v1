@@ -20,7 +20,7 @@
 <div class="cbox">
 
 {%if editMode%}
-		<h3>{%trans "Edit unit"%} <span class="fc-green txtB">{{requestGET.edit}}</span></h3>
+		<h3>{%trans "Edit unit"%} <span class="fc-green txtB">{{dataRow.title}}</span></h3>
 	{%else%}
 		<h3>{%trans "Add new unit"%}</h3>
 	{%endif%}
@@ -33,7 +33,7 @@
     {%if editMode%}
 
       {%if dataRow.count%}
-        <p class="msg mT10 {%if dataRow.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this unit all product will be update to new value."%} <a class="badge" href='{{url.this}}?cat={{requestGET.edit}}' title='{%trans "Click to check list of this product"%}'>{{dataRow.count | fitNumber}} {%trans "Product"%}</a></p>
+        <p class="msg mT10 {%if dataRow.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this unit all product will be update to new value."%} <a class="badge" href='{{url.this}}?cat={{dataRow.title}}' title='{%trans "Click to check list of this product"%}'>{{dataRow.count | fitNumber}} {%trans "Product"%}</a></p>
       {%else%}
         <p class="msg mT10 info2">{%trans "No product in this unit"%}
           <span class="txtB">{%trans "You can delete it now!"%}</span>
@@ -61,7 +61,7 @@
 
 {% block unitDefault %}
   <div class="switch1 mT10">
-   <input type="checkbox" name="unitdefault" id="unitdefault" {%if requestGET.edit.default%} checked {%endif%}>
+   <input type="checkbox" name="unitdefault" id="unitdefault" {%if dataRow.title.default%} checked {%endif%}>
    <label for="unitdefault"></label>
    <label for="unitdefault">{%trans "Is default unit?"%}</label>
   </div>
@@ -86,7 +86,7 @@
 <div class="mT10">
   <label for="imaxsale">{%trans "Max sale from this unit"%}</label>
   <div class="input">
-     <input type="number" name="maxsale" id="imaxsale" placeholder='{%trans "For example 100"%}' value="{{requestGET.edit}}" autofocus maxlength='50' minlength="1"  >
+     <input type="number" name="maxsale" id="imaxsale" placeholder='{%trans "For example 100"%}' value="{{dataRow.title}}" autofocus maxlength='50' minlength="1"  >
   </div>
 </div>
 {%endblock%}
@@ -96,8 +96,8 @@
 {%block unitName%}
 <label for="iunitname">{%trans "Title"%}</label>
 <div class="input">
-	<input type="hidden" name="oldunit" value="{{requestGET.edit}}">
-  <input type="text" name="unit" id="iunitname" placeholder='{%trans "Unit name"%}' value="{{requestGET.edit}}" autofocus maxlength='50' minlength="1" required>
+	<input type="hidden" name="oldunit" value="{{dataRow.title}}">
+  <input type="text" name="unit" id="iunitname" placeholder='{%trans "Unit name"%}' value="{{dataRow.title}}" autofocus maxlength='50' minlength="1" required>
 </div>
 {%endblock%}
 

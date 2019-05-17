@@ -9,7 +9,7 @@ class view
 		\dash\data::page_desc(T_('You can manage your units manually.'). ' '. T_("Don't worry! we are add units automatically on add new product"));
 		\dash\data::page_pictogram('eye-galsses');
 
-		if(is_array($_GET) && array_key_exists('edit', $_GET))
+		if(is_array($_GET) && array_key_exists('id', $_GET))
 		{
 			\dash\data::page_title(T_('Edit product unit'));
 		}

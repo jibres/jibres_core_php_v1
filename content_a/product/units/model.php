@@ -27,25 +27,7 @@ class model
 		$args['maxsale']     = \dash\request::post('maxsale');
 		$args['title']       = \dash\request::post('unit');
 
-		// add new unit
-		if(!\dash\data::editMode())
-		{
-			$result = \lib\app\product\unit::add($args);
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::to(\dash\url::this(). '/units');
-			}
-			return;
-		}
-
-		// update unit
-		if($old_unit != $get_unit)
-		{
-			\dash\notif::error(T_("Invalid name and old name!"));
-			return false;
-		}
-
-		$result = \lib\app\product\unit::update($old_unit, $new_unit, $args);
+		$result = \lib\app\product\unit::edit($args, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{

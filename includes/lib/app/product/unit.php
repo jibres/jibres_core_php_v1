@@ -8,7 +8,7 @@ class unit
 
 	public static function check_add($_unit)
 	{
-		$get_unit_title = \lib\db\productunit::get_by_title($_unit);
+		$get_unit_title = \lib\db\productunit::get_by_title(\lib\store::id(), $_unit);
 		if(isset($get_unit_title['id']))
 		{
 			return $get_unit_title;
@@ -52,9 +52,9 @@ class unit
 			return false;
 		}
 
-		$decimal = \dash\app::request('decimal') ? true : false;
+		$decimal = \dash\app::request('decimal') ? 1 : null;
 
-		$default = \dash\app::request('unitdefault') ? true : false;
+		$default = \dash\app::request('unitdefault') ? 1 : null;
 
 		$maxsale = \dash\app::request('maxsale');
 		if($maxsale && !is_numeric($maxsale))
@@ -309,22 +309,39 @@ class unit
 
 		if(!empty($args))
 		{
-			foreach ($get_one as $field => $value)
+			foreach ($get_unit as $field => $value)
 			{
-				if(isset($args[$key]) && $args[$key] == $value)
+				if(array_key_exists($field, $args) && $args[$field] == $value)
 				{
-					unset($args[$key]);
+					unset($args[$field]);
 				}
 			}
 
 			if(empty($args))
 			{
-				\dash\notif::info(T_("No change"));
+				\dash\notif::info(T_("No change in your product unit"));
+				return null;
 			}
 			else
 			{
 				$update = \lib\db\productunit::update($args, $id);
+				if($update)
+				{
+					\dash\notif::ok(T_("The unit successfully updated"));
+					return true;
+				}
+				else
+				{
+					\dash\log::set('productunitDbCannotUpdate');
+					\dash\notif::error(T_("Can not update your product unit"));
+					return false;
+				}
 			}
+		}
+		else
+		{
+			\dash\notif::error(T_("No data received!"));
+			return false;
 		}
 	}
 

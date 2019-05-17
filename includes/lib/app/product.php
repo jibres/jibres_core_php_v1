@@ -470,7 +470,16 @@ class product
 		if($unit)
 		{
 			\lib\app\product\unit::$debug = false;
-			\lib\app\product\unit::check_add($unit);
+			$add_unit                     = \lib\app\product\unit::check_add($unit);
+			if(isset($add_unit['id']))
+			{
+				$args['unit_id'] = $add_unit['id'];
+			}
+
+			if(isset($add_unit['title']))
+			{
+				$args['unit'] = $add_unit['title'];
+			}
 		}
 
 		\dash\app::request_set($master_args);
@@ -478,7 +487,6 @@ class product
 		$args['title']           = $title;
 		$args['slug']            = $slug;
 		$args['company']         = $company;
-		$args['unit']            = $unit;
 		$args['barcode']         = $barcode;
 		$args['barcode2']        = $barcode2;
 		$args['quickcode']       = $quickcode;
