@@ -20,11 +20,11 @@ body{
 .rtl .header .topNav nav.langlist{float: left}
 
 /*mainNav*/
-.header .mainNav {height: 60px;margin-bottom: 100px;}
-.header .mainNav .logo {height: 60px;display: block}
-.header .mainNav .logo img{max-height: 100%;vertical-align: middle;padding: 5px;}
-.header .mainNav .logo h1{display:inline-block;margin:0;vertical-align: middle;font-weight:900;line-height: 60px;color: #333}
-.header .mainNav .search {padding: 4px 10px 0;}
+.header .mainNav {height: 70px;margin-bottom: 100px;}
+.header .mainNav .logo {height: 70px;display: block}
+.header .mainNav .logo img{height:70px;vertical-align: middle;padding: 5px;}
+.header .mainNav .logo h1{display:inline-block;margin:0;vertical-align: middle;font-weight:900;line-height: 70px;color: #333}
+.header .mainNav .search {padding: 14px 10px 0;}
 .header .mainNav .search input{background-color: rgba(255,255,255,0.5);}
 .header .mainNav .search input:focus{background-color:#fff}
 .header .mainNav .search nav{line-height: 12px;padding:4px 0}
