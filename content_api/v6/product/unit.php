@@ -19,7 +19,8 @@ class unit
 
 	private static function get_unit_list()
 	{
-		j('fsdfd');
+		$list = \lib\app\product\unit::list();
+		return $list;
 	}
 }
 ?>

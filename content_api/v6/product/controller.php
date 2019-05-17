@@ -6,6 +6,8 @@ class controller
 {
 	public static function routing()
 	{
+		\content_api\v6\access::check();
+
 		$detail    = [];
 
 		$directory = \dash\url::directory();

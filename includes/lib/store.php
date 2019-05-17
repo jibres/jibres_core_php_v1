@@ -6,9 +6,12 @@ namespace lib;
  */
 class store
 {
-	private static $life_time = 60 * 3;
+	private static $life_time  = 60 * 3;
 
-	private static $store = [];
+	private static $store      = [];
+
+	private static $store_slug = null;
+
 
 	// clean session and init again store detail
 	public static function refresh()
@@ -45,8 +48,28 @@ class store
 	 */
 	public static function clean()
 	{
-		\dash\session::set('store_detail_'. \dash\url::subdomain(), null);
+		\dash\session::set('store_detail_'. self::store_slug(), null);
 		self::$store = [];
+	}
+
+
+	// set slug of store in api and load it
+	public static function set_store_slug($_slug)
+	{
+		self::$store_slug = $_slug;
+	}
+
+	// in api no user can set subdomain
+	private static function store_slug()
+	{
+		if(\dash\url::subdomain())
+		{
+			return \dash\url::subdomain();
+		}
+		elseif(self::$store_slug)
+		{
+			return self::$store_slug;
+		}
 	}
 
 
@@ -60,15 +83,15 @@ class store
 			return;
 		}
 
-		if(\dash\session::get('store_detail_'. \dash\url::subdomain()))
+		if(\dash\session::get('store_detail_'. self::store_slug()))
 		{
-			self::$store = \dash\session::get('store_detail_'. \dash\url::subdomain());
+			self::$store = \dash\session::get('store_detail_'. self::store_slug());
 			return;
 		}
 
-		self::clean_session(\dash\url::subdomain());
+		self::clean_session(self::store_slug());
 
-		$store_detail = \lib\db\stores::get(['slug' => \dash\url::subdomain(), 'limit' => 1]);
+		$store_detail = \lib\db\stores::get(['slug' => self::store_slug(), 'limit' => 1]);
 
 		if(is_array($store_detail))
 		{
@@ -86,7 +109,7 @@ class store
 			}
 
 			self::$store = $store_detail;
-			\dash\session::set('store_detail_'. \dash\url::subdomain(), $store_detail);
+			\dash\session::set('store_detail_'. self::store_slug(), $store_detail);
 		}
 	}
 
