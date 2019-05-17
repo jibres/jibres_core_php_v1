@@ -342,7 +342,7 @@ class unit
 			return false;
 		}
 
-		$get_unit = \lib\db\productunit::get_one(\lib\store::id(), $args['title']);
+		$get_unit = \lib\db\productunit::get_one(\lib\store::id(), $id);
 
 		if(isset($get_unit['id']))
 		{
@@ -385,6 +385,13 @@ class unit
 			else
 			{
 				$update = \lib\db\productunit::update($args, $id);
+
+				if(array_key_exists('title', $args))
+				{
+					// update all product by this unit
+					\lib\db\products::update_all_product_unit_title(\lib\store::id(), $id, $args['title']);
+				}
+
 				if($update)
 				{
 					\dash\notif::ok(T_("The unit successfully updated"));
@@ -445,7 +452,7 @@ class unit
 				unset($option['sort']);
 			}
 		}
-
+		$option['pagenation'] = false;
 		$option['store_id'] = \lib\store::id();
 
 		$result = \lib\db\productunit::search($_string, $option);

@@ -5,7 +5,6 @@
 {%if editMode%}
 <div class="f justify-center">
   <div class="c5 s12">
-
     {{block('addNewUnit')}}
   </div>
 </div>
@@ -17,6 +16,8 @@
 {%endif%}
 
 {%endblock%}
+
+
 
 
 {%block addNewUnit%}
@@ -36,7 +37,7 @@
     {%if editMode%}
 
       {%if dataRow.count%}
-        <p class="msg mT10 {%if dataRow.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this unit all product will be update to new value."%} <a class="badge" href='{{url.this}}?unit={{dataRow.title}}' title='{%trans "Click to check list of this product"%}'>{{dataRow.count | fitNumber}} {%trans "Product"%}</a></p>
+        <p class="msg mT10 {%if dataRow.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this unit all product will be update to new value."%} <a class="badge" href='{{url.this}}?unitid={{dataRow.id}}' title='{%trans "Click to check list of this product"%}'>{{dataRow.count | fitNumber}} {%trans "Product"%}</a></p>
       {%else%}
         <p class="msg mT10 info2">{%trans "No product in this unit"%}
           <span class="txtB">{%trans "You can delete it now!"%}</span>

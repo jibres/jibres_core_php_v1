@@ -34,9 +34,9 @@ class productunit
 	}
 
 	// get one record of product unit
-	public static function get_one($_id)
+	public static function get_one($_store_id, $_id)
 	{
-		$query  = "SELECT * FROM productunit WHERE productunit.id = $_id LIMIT 1";
+		$query  = "SELECT * FROM productunit WHERE  productunit.store_id = $_store_id AND productunit.id = $_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
