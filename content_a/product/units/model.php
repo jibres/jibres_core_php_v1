@@ -10,7 +10,7 @@ class model
 		$new_unit = \dash\request::post('unit');
 		$get_unit = \dash\request::get('edit');
 
-		// remove unitegory
+		// remove unit
 		if(\dash\request::post('type') === 'remove')
 		{
 			\lib\app\product\unit::remove(\dash\request::post('removeunit'));
@@ -27,7 +27,7 @@ class model
 		$args['maxsale']     = \dash\request::post('maxsale');
 		$args['title']       = \dash\request::post('unit');
 
-		// add new unitegory
+		// add new unit
 		if(!\dash\data::editMode())
 		{
 			$result = \lib\app\product\unit::add($args);
@@ -38,7 +38,7 @@ class model
 			return;
 		}
 
-		// update unitegory
+		// update unit
 		if($old_unit != $get_unit)
 		{
 			\dash\notif::error(T_("Invalid name and old name!"));

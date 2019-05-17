@@ -2,21 +2,24 @@
 
 
 {%block pageContent%}
-<div class="f">
-  <div class="x4 c5 s12 pRa10">
+{%if editMode%}
+<div class="f justify-center">
+  <div class="c5 s12">
+
     {{block('addNewUnit')}}
   </div>
-  <div class="c s12 ">
-    {{block('htmlTable')}}
-  </div>
 </div>
+{%else%}
+    {{block('htmlTable')}}
+{%endif%}
+
 {%endblock%}
 
 
 {%block addNewUnit%}
 <div class="cbox">
 
-	{%if editMode%}
+{%if editMode%}
 		<h3>{%trans "Edit unit"%} <span class="fc-green txtB">{{requestGET.edit}}</span></h3>
 	{%else%}
 		<h3>{%trans "Add new unit"%}</h3>
