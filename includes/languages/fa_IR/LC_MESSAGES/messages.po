@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-05-05 16:37+0430\n"
-"PO-Revision-Date: 2019-05-05 16:38+0430\n"
+"POT-Creation-Date: 2019-05-17 14:37+0430\n"
+"PO-Revision-Date: 2019-05-17 14:38+0430\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-Basepath: ../../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -241,7 +241,7 @@ msgstr "شناسه کاربر اشتباه است"
 #: dash/addons/content_account/profile/social/view.php:27
 #: dash/addons/content_account/profile/view.php:27
 #: jibres/includes/lib/app/factor/get.php:36
-#: jibres/includes/lib/app/product/cat.php:309
+#: jibres/includes/lib/app/product/cat.php:264
 #: jibres/includes/lib/app/product/get.php:33
 #: jibres/includes/lib/app/property.php:139
 #: jibres/includes/lib/app/storetransaction/get.php:45
@@ -275,53 +275,53 @@ msgstr "لینوکس"
 msgid "Your change was saved"
 msgstr "تغییرات شما ذخیره شد"
 
-#: dash/addons/content_api/v5.php:25
+#: dash/addons/content_api/v5.php:27
 msgid "No result"
 msgstr "بدون نتیجه"
 
-#: dash/addons/content_api/v5.php:38
+#: dash/addons/content_api/v5.php:41
 msgid "Authorization not set"
 msgstr "مجوز تنظیم نشده است"
 
-#: dash/addons/content_api/v5.php:47
+#: dash/addons/content_api/v5.php:50
 msgid "x-app-request not found"
 msgstr "کد شناسایی دستگاه تنظیم نشده است"
 
-#: dash/addons/content_api/v5.php:56
+#: dash/addons/content_api/v5.php:62
 msgid "Token not found"
 msgstr "توکن یافت نشد"
 
-#: dash/addons/content_api/v5.php:61 dash/addons/content_api/v6.php:44
-#: dash/addons/content_api/v6.php:60 dash/lib/utility/pay/start.php:25
+#: dash/addons/content_api/v5.php:67 dash/addons/content_api/v6.php:48
+#: dash/addons/content_api/v6.php:64 dash/lib/utility/pay/start.php:25
 msgid "Invalid token"
 msgstr "توکن نامعتبر"
 
-#: dash/addons/content_api/v5.php:77 dash/addons/content_api/v5.php:93
+#: dash/addons/content_api/v5.php:83 dash/addons/content_api/v5.php:99
 msgid "Invalid auth2"
 msgstr "کد اعتبارسنجی نامعتبر است"
 
-#: dash/addons/content_api/v5.php:103
+#: dash/addons/content_api/v5.php:109
 msgid "Auth2 is expire"
 msgstr "کد اعتبارسنجی منقضی شده است"
 
-#: dash/addons/content_api/v5.php:119 dash/addons/content_api/v5.php:149
+#: dash/addons/content_api/v5.php:125 dash/addons/content_api/v5.php:155
 msgid "Invalid auth3"
 msgstr "کد اعتبارسنجی نامعتبر است"
 
-#: dash/addons/content_api/v5.php:125
+#: dash/addons/content_api/v5.php:131
 #: dash/addons/content_api/v5/enter/controller.php:361
 msgid "Invalid usertoken"
 msgstr "توکن کاربر نامعتبر است"
 
-#: dash/addons/content_api/v5.php:132
+#: dash/addons/content_api/v5.php:138
 msgid "Invaid user_code"
 msgstr "کد کاربر نامعتبر است"
 
-#: dash/addons/content_api/v5.php:169
+#: dash/addons/content_api/v5.php:175
 msgid "Invalid user_code and usertoken"
 msgstr "کد کاربر و توکن کاربر باهم همخوانی ندارد"
 
-#: dash/addons/content_api/v5.php:174
+#: dash/addons/content_api/v5.php:180
 #: dash/addons/content_api/v5/enter/controller.php:271
 msgid "This method was not supported"
 msgstr "این متود پشتیبانی نمی‌شود"
@@ -425,27 +425,27 @@ msgstr "کد شناسایی دستگاه نامعتبر است"
 msgid "Empty input values"
 msgstr "مقادیر ورودی خالی هستند"
 
-#: dash/addons/content_api/v6.php:15
+#: dash/addons/content_api/v6.php:17
 msgid "Appkey not set"
 msgstr "کلید برنامه تنظیم نشده است"
 
-#: dash/addons/content_api/v6.php:28
+#: dash/addons/content_api/v6.php:30
 msgid "Invalid app key"
 msgstr "کلید برنامه نامعتبر است"
 
-#: dash/addons/content_api/v6.php:39
+#: dash/addons/content_api/v6.php:43
 msgid "token not set"
 msgstr "توکن تنظیم نشده است"
 
-#: dash/addons/content_api/v6.php:70
+#: dash/addons/content_api/v6.php:74
 msgid "Token is expire"
 msgstr "توکن منقضی شده است"
 
-#: dash/addons/content_api/v6.php:86
+#: dash/addons/content_api/v6.php:91
 msgid "apikey not set"
 msgstr "کلید ای‌پی‌آی تنظیم نشده است"
 
-#: dash/addons/content_api/v6.php:91 dash/addons/content_api/v6.php:107
+#: dash/addons/content_api/v6.php:96 dash/addons/content_api/v6.php:112
 msgid "Invalid apikey"
 msgstr "کلید ای‌پی‌آی نامعتبر است"
 
@@ -659,6 +659,7 @@ msgstr "بازگشت به لیست مرکز راهنمایی"
 #: dash/addons/content_crm/log/show/view.php:13
 #: dash/addons/content_crm/sms/template/view.php:15
 #: dash/addons/content_su/android/view.php:11
+#: dash/addons/content_su/apilog/home/view.php:13
 #: dash/addons/content_su/tg/log/view.php:14
 #: dash/addons/content_su/tg/system/view.php:14
 #: dash/addons/content_su/tg/users/view.php:14 jibres/content_a/chap/view.php:12
@@ -678,6 +679,7 @@ msgstr "افزودن :val جدید"
 #: dash/addons/content_crm/android/home/view.php:24
 #: dash/addons/content_crm/log/home/view.php:34
 #: dash/addons/content_crm/member/home/view.php:24
+#: dash/addons/content_su/apilog/home/view.php:32
 #: dash/addons/content_su/dbtables/view.php:22
 #: dash/addons/content_su/tg/log/view.php:22
 #: dash/addons/content_su/tg/system/view.php:22
@@ -713,8 +715,8 @@ msgstr "فایل با موفقیت حذف شد"
 #: dash/addons/content_su/backup/model.php:45 dash/lib/utility/pay/verify.php:40
 #: jibres/content_a/buy/model.php:69 jibres/content_a/sale/model.php:64
 #: jibres/content_a/thirdparty/export/model.php:13
-#: jibres/includes/lib/app/product/cat.php:436
-#: jibres/includes/lib/app/product/cat.php:448
+#: jibres/includes/lib/app/product/cat.php:391
+#: jibres/includes/lib/app/product/cat.php:403
 msgid "Dont!"
 msgstr "نکن عزیزم!"
 
@@ -1106,6 +1108,7 @@ msgstr "ارسال هر پیامی به کاربر توسط ایمیل"
 #: dash/addons/content_crm/log/caller/view.php:9
 #: dash/addons/content_crm/log/home/view.php:9
 #: dash/addons/content_crm/log/show/view.php:9
+#: dash/addons/content_su/apilog/home/view.php:9
 #: dash/addons/includes/languages/trans_dash.php:785
 #: jibres/includes/languages/trans_dash.php:713
 msgid "Log"
@@ -1114,6 +1117,7 @@ msgstr "لاگ"
 #: dash/addons/content_crm/log/caller/view.php:10
 #: dash/addons/content_crm/log/home/view.php:10
 #: dash/addons/content_crm/log/show/view.php:10
+#: dash/addons/content_su/apilog/home/view.php:10
 msgid "Check list of log and search or filter in them to find your logs."
 msgstr ""
 "بررسی لیست لاگ‌ها و جستجو یا فیلتر کردن بعضی از آنان جهت پیدا کردن لاگ مورد نظر."
@@ -1447,7 +1451,7 @@ msgstr "حذف سطح دسترسی"
 #: jibres/content_a/permission/delete/view.php:29
 #: jibres/includes/lib/app/factor/edit.php:44
 #: jibres/includes/lib/app/factor/edit.php:51
-#: jibres/includes/lib/app/product/cat.php:324
+#: jibres/includes/lib/app/product/cat.php:279
 #: jibres/includes/lib/app/product/edit.php:34
 #: jibres/includes/lib/app/product/edit.php:40
 #: jibres/includes/lib/app/property.php:153
@@ -1929,7 +1933,7 @@ msgid "Please login to continue"
 msgstr "لطفا برای ادامه مراحل وارد سیستم شوید"
 
 #: dash/addons/content_enter/twostep/model.php:18
-#: jibres/includes/lib/app/product/cat.php:77
+#: jibres/includes/lib/app/product/cat.php:32
 msgid "Invalid action"
 msgstr "رویداد‌ نامعتبر‌است"
 
@@ -2156,6 +2160,15 @@ msgstr "کلید ارتباط با اندروید"
 msgid "Show android application token information"
 msgstr "نمایش جزئیات کلید ارتباط با اندروید"
 
+#: dash/addons/content_su/apilog/view/view.php:9
+msgid "View api log"
+msgstr "نمایش لاگ ای‌پی‌آی"
+
+#: dash/addons/content_su/apilog/view/view.php:15
+#: dash/addons/content_su/tg/logshow/view.php:15
+msgid "Back to log list"
+msgstr "بازگشت به لیست ردپاها"
+
 #: dash/addons/content_su/backup/model.php:23
 msgid "Database of logs dose not exists"
 msgstr "پایگاه داده برای لاگ‌ها وجود ندارد"
@@ -2316,10 +2329,6 @@ msgstr "ردپای تلگرام"
 #: dash/addons/content_su/tg/users/view.php:10
 msgid "Check list of telegram and search or filter in them to find your telegram."
 msgstr "بررسی لیست تلگرام و جستجو و فیلتر در آنان."
-
-#: dash/addons/content_su/tg/logshow/view.php:15
-msgid "Back to log list"
-msgstr "بازگشت به لیست ردپاها"
 
 #: dash/addons/content_su/tg/sendmessage/view.php:8
 #: dash/addons/includes/languages/trans_dash.php:1324
@@ -13120,16 +13129,16 @@ msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید 
 msgid "we can't find database service!"
 msgstr "ما نمی‌توانیم سرویس دیتابیس را بیابیم!"
 
-#: dash/lib/db/mysql/tools/connect.php:104 dash/lib/db/mysql/tools/connect.php:116
-#: dash/lib/db/mysql/tools/connect.php:161
+#: dash/lib/db/mysql/tools/connect.php:104 dash/lib/db/mysql/tools/connect.php:120
+#: dash/lib/db/mysql/tools/connect.php:170
 msgid "Please contact administrator!"
 msgstr "لطفا با مدیر سامانه تماس بگیرید!"
 
-#: dash/lib/db/mysql/tools/connect.php:116
+#: dash/lib/db/mysql/tools/connect.php:120
 msgid "We can't connect to database service!"
 msgstr "ما نمی‌توانیم به سرویس دیتابیس متصل شویم!"
 
-#: dash/lib/db/mysql/tools/connect.php:161
+#: dash/lib/db/mysql/tools/connect.php:170
 msgid "We can't connect to correct database!"
 msgstr "ما نمی‌توانیم به دیتابیس صحیح متصل شویم!"
 
@@ -14899,7 +14908,7 @@ msgstr ""
 #: jibres/content_a/product/site/view.php:11
 #: jibres/content_a/product/stock/view.php:13
 #: jibres/content_a/product/tag/view.php:13
-#: jibres/content_a/product/units/view.php:12
+#: jibres/content_a/product/units/view.php:17
 #: jibres/content_subdomain/product/view.php:19
 msgid "Back to product list"
 msgstr "بازگشت به لیست محصولات"
@@ -15141,6 +15150,10 @@ msgid "Don't worry! we are add units automatically on add new product"
 msgstr ""
 "نگران نباشید! ما به‌صورت خودکار هنگام افزودن محصول جدید واحد شمارش آن را اضافه "
 "می‌کنیم"
+
+#: jibres/content_a/product/units/view.php:14
+msgid "Edit product unit"
+msgstr "ویرایش واحد شمارش محصول"
 
 #: jibres/content_a/report/daily/view.php:9
 #: jibres/includes/languages/trans_project.php:709
@@ -20033,7 +20046,7 @@ msgid "No way to insert category"
 msgstr "هیچ راهی برای ثبت دسته‌بندی نیست"
 
 #: jibres/includes/lib/app/category.php:330
-#: jibres/includes/lib/app/product/cat.php:519
+#: jibres/includes/lib/app/product/cat.php:474
 msgid "Can not access to edit category"
 msgstr "شما دسترسی لازم برای ویرایش این دسته‌بندی را ندارید"
 
@@ -20210,7 +20223,7 @@ msgid "Your factor successfully updated"
 msgstr "فاکتور با موفقیت ویرایش شد"
 
 #: jibres/includes/lib/app/factor/get.php:43
-#: jibres/includes/lib/app/product/cat.php:315
+#: jibres/includes/lib/app/product/cat.php:270
 #: jibres/includes/lib/app/product/get.php:39
 #: jibres/includes/lib/app/property.php:145
 #: jibres/includes/lib/app/storetransaction/get.php:52
@@ -20573,93 +20586,93 @@ msgstr "خطای ناشناخته رخ داده است"
 msgid "More than 2 products saved by this barcode"
 msgstr "بیش از دو محصول با این بارکد به ثبت رسیده اند"
 
-#: jibres/includes/lib/app/product/cat.php:86
+#: jibres/includes/lib/app/product/cat.php:41
 msgid "Please set the category"
 msgstr "لطفا دسته‌بندی را وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:92
+#: jibres/includes/lib/app/product/cat.php:47
 msgid "Please set the category less than 100 character"
 msgstr "لطفا دسته‌بندی را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:100
+#: jibres/includes/lib/app/product/cat.php:55
 msgid "Please set the key"
 msgstr "لطفا مقدار کلید را وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:106
+#: jibres/includes/lib/app/product/cat.php:61
 msgid "Please set the key less than 100 character"
 msgstr "لطفا کلید را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:113
-#: jibres/includes/lib/app/product/cat.php:425
+#: jibres/includes/lib/app/product/cat.php:68
+#: jibres/includes/lib/app/product/cat.php:380
 msgid "Invalid category"
 msgstr "دسته‌بندی نادرست"
 
-#: jibres/includes/lib/app/product/cat.php:136
+#: jibres/includes/lib/app/product/cat.php:91
 #: jibres/includes/lib/app/property.php:202
 msgid "Duplicate property founded"
 msgstr "این خصیصه تکراری است"
 
-#: jibres/includes/lib/app/product/cat.php:148
+#: jibres/includes/lib/app/product/cat.php:103
 msgid "Default property successfully added"
 msgstr "خصیصه‌ پیش‌فرض با موفقیت  اضافه شد"
 
-#: jibres/includes/lib/app/product/cat.php:167
+#: jibres/includes/lib/app/product/cat.php:122
 msgid "Default property successfully removed"
 msgstr "خصیصه‌ پیش‌فرض با موفقیت حذف شد"
 
-#: jibres/includes/lib/app/product/cat.php:192
+#: jibres/includes/lib/app/product/cat.php:147
 msgid "Plese fill the cat name"
 msgstr "لطفا نام دسته‌بندی را وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:198
+#: jibres/includes/lib/app/product/cat.php:153
 msgid "Category name is too large!"
 msgstr "عنوان دسته‌بندی بسیار طولانی است!"
 
-#: jibres/includes/lib/app/product/cat.php:208
+#: jibres/includes/lib/app/product/cat.php:163
 msgid "Please set the title or slug less than 100 character"
 msgstr "لطفا عنوان را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:216
+#: jibres/includes/lib/app/product/cat.php:171
 msgid "Please set the url less than 1000 character"
 msgstr "لطفا آدرس را کمتر از ۱۰۰۰ حرف وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:237
+#: jibres/includes/lib/app/product/cat.php:192
 msgid "Invalid valuetype of cat"
 msgstr "مقدار نوع دسته‌بندی اشتباه است"
 
-#: jibres/includes/lib/app/product/cat.php:244
+#: jibres/includes/lib/app/product/cat.php:199
 #: jibres/includes/lib/app/product/unit.php:42
 msgid "Plese set the max sale as a number"
 msgstr "لطفا حداکثر فروش را به صورت عددی وارد کنید"
 
-#: jibres/includes/lib/app/product/cat.php:253
+#: jibres/includes/lib/app/product/cat.php:208
 #: jibres/includes/lib/app/product/unit.php:51
 msgid "Max sale is out of range"
 msgstr "حداکثر فروش خارج از محدوده است"
 
-#: jibres/includes/lib/app/product/cat.php:332
+#: jibres/includes/lib/app/product/cat.php:287
 #: jibres/includes/lib/app/property.php:161
 msgid "Can not access to load this term details"
 msgstr "شما دسترسی لازم را برای دیدن جزئیات این دسته‌بندی ندارید"
 
-#: jibres/includes/lib/app/product/cat.php:373
+#: jibres/includes/lib/app/product/cat.php:328
 msgid "Duplicate cat founded"
 msgstr "دسته‌بندی تکراری است"
 
-#: jibres/includes/lib/app/product/cat.php:401
+#: jibres/includes/lib/app/product/cat.php:356
 msgid "Category successfully added"
 msgstr "دسته‌بندی با موفقیت اضافه شد"
 
-#: jibres/includes/lib/app/product/cat.php:407
+#: jibres/includes/lib/app/product/cat.php:362
 #: jibres/includes/lib/app/property.php:220
 msgid "Can not insert new cat"
 msgstr "نمی‌توانید دسته‌ جدید اضافه کنید"
 
-#: jibres/includes/lib/app/product/cat.php:455
+#: jibres/includes/lib/app/product/cat.php:410
 msgid "Please select one category"
 msgstr "لطفا یک دسته را انتخاب کنید"
 
-#: jibres/includes/lib/app/product/cat.php:532
+#: jibres/includes/lib/app/product/cat.php:487
 msgid "This is not your category"
 msgstr "این دسته‌بندی متعلق به شما نیست"
 
