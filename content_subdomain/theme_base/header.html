@@ -1,29 +1,49 @@
 <header class="header">
- <div class="banner">{%trans "Your custom message"%}</div>
+ <a class="banner" href="{{url.kingdom}}#banner">{%trans "Your custom message"%}</a>
  <div class="topNav">
-  <nav>
-   <a href="{{url.kingdom}}">{%trans "Home page"%}</a>
-   <a href="{{url.kingdom}}/about">{%trans "About"%}</a>
-   <a href="{{url.kingdom}}/help">{%trans "Help Center"%}</a>
-  </nav>
-  {{langList({'html':true}) | raw}}
- </div>
-
- <div class="f mainNav">
-  <div class="c2">
-   <a href='{{url.kingdom}}'>
-    <img class="logo" src="{{url.static}}/images/logo/jibres.png" alt='{{site.title}}'>
-    <h1>{{site.title}}</h1>
-   </a>
-  </div>
-  <div class="c8">
-   <div class="input">
-    <input type="text" name="search" autocomplete="off">
+  <div class="cn">
+   <div class="f">
+    <nav class="c">
+     <a href="{{url.kingdom}}">{%trans "Home page"%}</a>
+     <a href="{{url.kingdom}}/about">{%trans "About"%}</a>
+     <a href="{{url.kingdom}}/help">{%trans "Help Center"%}</a>
+    </nav>
+    <div class="cauto os">
+     {{langList({'html':true}) | raw}}
+    </div>
    </div>
   </div>
-  <div class="c2">
-   <a class="cartLink" href="{{url.kingdom}}/cart">{%trans "Cart"%}</a>
-   <a class="enterLink" href="{{url.kingdom}}/enter">{%trans "Enter"%}</a>
+ </div>
+
+ <div class="mainNav">
+  <div class="cn">
+   <div class="f">
+
+    <div class="cauto">
+     <a class="logo" href='{{url.kingdom}}'>
+      <img src="{{url.static}}/images/logo/jibres.png" alt='{{site.title}}'>
+      <h1>{{site.title}}</h1>
+     </a>
+    </div>
+
+    <div class="c search">
+     <div class="input">
+      <input type="text" name="search" autocomplete="off" placeholder='{%trans "Im shopping for..."%}' maxlength="40">
+     </div>
+     <nav class="recommend">
+      <a href="{{url.kingdom}}">LG</a>
+      <a href="{{url.kingdom}}">Monitor</a>
+      <a href="{{url.kingdom}}">Microsoft</a>
+     </nav>
+    </div>
+    <div class="c1">
+     <a class="cartLink" href="{{url.kingdom}}/cart">{%trans "Cart"%}</a>
+    </div>
+    <div class="c1">
+     <a class="enterLink" href="{{url.kingdom}}/enter">{%trans "Enter"%}</a>
+    </div>
+
+   </div>
   </div>
  </div>
 
