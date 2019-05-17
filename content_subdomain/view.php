@@ -8,6 +8,8 @@ class view
 	{
 		\dash\data::display_eStore("content_subdomain/theme_base/layout.html");
 
+		\dash\data::include_js(false);
+		\dash\data::include_css(false);
 	}
 }
 ?>

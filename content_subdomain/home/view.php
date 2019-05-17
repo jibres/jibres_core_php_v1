@@ -12,9 +12,6 @@ class view
 		\dash\data::site_desc(\dash\data::store_desc());
 
 
-
-		\dash\data::include_js(false);
-
 		\dash\data::service_title(T_("Jibres"));
 		\dash\data::service_desc(T_("Jibres is not just an online accounting software;"). ' <br> '.  T_("We try to create the best financial platform that has everything you need to sale and manage your financial life."));
 		\dash\data::service_slogan(T_("Integrated Sales and Online Accounting"));
@@ -25,11 +22,6 @@ class view
 		// if the plan have site
 		if(\dash\permission::supervisor())
 		{
-			\dash\data::include_adminPanel(true);
-			\dash\data::include_css(true);
-			\dash\data::include_js(true);
-			\dash\data::include_highcharts(true);
-
 			$siteDetail                  = [];
 			$siteDetail['cat']           = \lib\app\product\cat::list();
 			$siteDetail['last']          = \lib\app\product\site::last();
