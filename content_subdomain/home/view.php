@@ -23,7 +23,7 @@ class view
 		if(\dash\permission::supervisor())
 		{
 			$siteDetail                  = [];
-			$siteDetail['cat']           = \lib\app\product\cat::list();
+			$siteDetail['cat']           = \lib\app\product\cat::all_list();
 			$siteDetail['last']          = \lib\app\product\site::last();
 			$siteDetail['love']          = \lib\app\product\site::love();
 			$siteDetail['amazing']       = \lib\app\product\site::by_cat('آدامس');

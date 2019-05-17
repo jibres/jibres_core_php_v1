@@ -520,7 +520,10 @@ class cat
 	}
 
 
-
+	public static function all_list()
+	{
+		return self::list(null, ['pagenation' => false]);
+	}
 
 	/**
 	 * Gets the product.
