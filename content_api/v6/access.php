@@ -9,10 +9,14 @@ class access
 		// not send api to subdomain
 		self::check_subdomain();
 
-
 		// check stoe id
 		self::check_store();
+	}
 
+
+	public static function user()
+	{
+		\content_api\v6::check_apikey();
 	}
 
 

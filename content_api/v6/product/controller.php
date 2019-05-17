@@ -8,6 +8,8 @@ class controller
 	{
 		\content_api\v6\access::check();
 
+		\content_api\v6\access::user();
+
 		$detail    = [];
 
 		$directory = \dash\url::directory();
