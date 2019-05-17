@@ -174,12 +174,28 @@
             <input type="hidden" name="type" value="remove">
             {%if  allUnit | length == 1%}
                 <input type="hidden" name="whattodo" value="non-unit">
-                <button class="btn danger block mT20 hauto" type="submit">{%trans "Set all products by this unit as a non product unit and remove this unit"%}</button>
+
+                <div class="f mT20">
+                  <div class="c pRa10">
+                    <button class="btn danger block hauto" type="submit">{%trans "Set all products by this unit as a non product unit and remove this unit"%}</button>
+                  </div>
+                  <div class="cauto">
+                    <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+                  </div>
+               </div>
             {%else%}
               {{block('iWhatToDo')}}
               {{block('iAllUnit')}}
               <div data-response='whattodo' data-response-where='new-unit|non-unit' data-response-hide>
-                <button class="btn danger block mT20" type="submit">{%trans "Save and remove unit"%}</button>
+
+                <div class="f mT20">
+                  <div class="c pRa10">
+                    <button class="btn danger block" type="submit">{%trans "Save and remove unit"%}</button>
+                  </div>
+                  <div class="cauto">
+                    <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+                  </div>
+               </div>
               </div>
             {%endif%}
           </form>
@@ -194,7 +210,8 @@
             </p>
           </div>
 
-          <div data-confirm data-data='{"deleteunit": 1}' class="btn danger block mT20" type="submit">{%trans "Remove unit"%}</div>
+          <div data-confirm data-data='{"type": "remove"}' class="btn danger block mT20" type="submit">{%trans "Remove unit"%}</div>
+
 
 
         {%endif%}

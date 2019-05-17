@@ -256,7 +256,7 @@ class unit
 			}
 		}
 
-		\lib\db\productunit::delete($old_unit_id);
+		\lib\db\productunit::delete($id);
 
 		return true;
 	}
