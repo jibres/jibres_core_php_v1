@@ -17,6 +17,12 @@ class view
 		$where_i_am = \lib\app\store::where_i_am();
 		\dash\data::listStore($where_i_am);
 
+
+		if(\dash\request::get('fixunit'))
+		{
+			\lib\app\product\unit::fix();
+		}
+
 	}
 
 

@@ -6,6 +6,63 @@ class unit
 {
 	public static $debug = true;
 
+
+	public static function fix()
+	{
+
+		$all = \dash\db::get("SELECT stores.unit, stores.id FROM stores WHERE stores.unit IS NOT NULL");
+
+		if(!is_array($all) || !$all)
+		{
+			return;
+		}
+
+		$result = [];
+		foreach ($all as $value)
+		{
+			$unit = json_decode($value['unit'], true);
+
+			foreach ($unit as  $title)
+			{
+				if($title['title'])
+				{
+					$new_insert =
+					[
+						'store_id' => $value['id'],
+						'title' => $title['title'],
+					];
+					$get_unit_title = \lib\db\productunit::get_by_title($value['id'], $title['title']);
+
+					if(isset($get_unit_title['id']))
+					{
+						$new_unit = $get_unit_title['id'];
+					}
+					else
+					{
+						$new_unit = \lib\db\productunit::insert($new_insert);
+
+					}
+
+
+					if($new_unit)
+					{
+						\lib\db\products::update_where(
+						[
+							'unit'    => $title['title'],
+							'unit_id' => $new_unit,
+						],
+						[
+							'store_id' => $value['id'],
+							'unit'      => $title['title'],
+						]);
+					}
+				}
+			}
+		}
+		var_dump("OK");
+	}
+
+
 	public static function check_add($_unit)
 	{
 		$get_unit_title = \lib\db\productunit::get_by_title(\lib\store::id(), $_unit);
