@@ -20,8 +20,8 @@ class controller
 		}
 		else
 		{
-			$unitList = \lib\app\product\unit::list(true);
-			\dash\data::dataTable($unitList);1
+			$unitList = \lib\app\product\unit::list();
+			\dash\data::dataTable($unitList);
 		}
 
 

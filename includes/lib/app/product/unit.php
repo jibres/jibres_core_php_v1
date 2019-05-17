@@ -141,7 +141,7 @@ class unit
 			return false;
 		}
 
-		$load = self::inline_get($_id)
+		$load = self::inline_get($_id);
 
 		if(!isset($load['id']))
 		{
@@ -369,9 +369,9 @@ class unit
 			}
 		}
 
-		$field             = [];
+		$option['store_id'] = \lib\store::id();
 
-		$result = \lib\db\productunit::search($_string, $option, $field);
+		$result = \lib\db\productunit::search($_string, $option);
 
 		$temp            = [];
 
