@@ -1,1 +1,25 @@
-header
+<header>
+	<div>
+		<nav>
+			<a href="{{url.kingdom}}">{%trans "Home page"%}</a>
+			<a href="{{url.kingdom}}/about">{%trans "About"%}</a>
+			<a href="{{url.kingdom}}/help">{%trans "Help Center"%}</a>
+		</nav>
+		{{langList({'html':true}) | raw}}
+	</div>
+	<div class="f">
+		<div class="c2">
+			<a href='{{url.kingdom}}'><img class="logo" src="{{url.static}}/images/logo/jibres.png" alt='{{site.title}}'></a>
+		</div>
+		<div class="c8">
+			<div class="input">
+				<input type="text" name="search">
+			</div>
+		</div>
+		<div class="c2">
+
+		</div>
+
+	</div>
+
+</header>

@@ -13,7 +13,6 @@ class view
 
 
 
-		\dash\data::bodyclass('unselectable flex align-center justify-center txtC');
 		\dash\data::include_js(false);
 
 		\dash\data::service_title(T_("Jibres"));
