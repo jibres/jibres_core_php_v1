@@ -41,7 +41,7 @@
       {%else%}
         <p class="msg mT10 info2">{%trans "No product in this unit"%}
           <span class="txtB">{%trans "You can delete it now!"%}</span>
-          <a href="{{url.pwd}}" data-ajaxify data-data='{"removeunit" : "{{dataRow.id}}", "type" : "remove"}' data-method='post' class="badge danger mLa5">{%trans "Remove"%}</a>
+          <a href="{{url.that}}/remove?id={{requestGET.id}}" class="badge danger mLa5">{%trans "Remove"%}</a>
         </p>
       {%endif%}
 
@@ -109,36 +109,41 @@
 
 {%block htmlTable%}
 {%if dataTable%}
-  <table class="tbl1 v1 cbox fs12">
-    <thead>
-      <tr class="fs09">
-        <th>{%trans "Unit"%}</th>
-        <th class="txtC">{%trans "Force integer value"%}</th>
-        <th class="txtC">{%trans "Count product"%}</th>
-        <th class="txtC">{%trans "Action"%}</th>
-      </tr>
-    </thead>
+<div class="f justify-center">
+  <div class="c8 s12">
 
-    <tbody>
-      {%for key, value in dataTable%}
-      <tr {%if (requestGET.id) == value.id %} class="positive"{%endif%} {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
-        <td>
-          {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
-          {%if not value.title and value.title != '0' %}<small class="fc-red">{%trans "Without Unit"%}</small>{%else%}{{value.title}}{%endif%}
-        </td>
-        <td class="txtC">{%if value.int%}<i class="sf-check fc-green"></i>{%else%}-{%endif%}</td>
-        <td class="txtC">
-          <a href="{{url.here}}/product?unitid={{value.id}}" title='{%trans "Click to check products in this unit"%}'>{{value.count | fitNumber}}</a>
-        </td>
-        <td class="collapsing">
-          <a class="block" href="{{url.this}}/units?id={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>
-          <a class="block" href="{{url.this}}/units/remove?id={{value.id}}"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm">{%trans "Remove"%}</span></a>
+    <table class="tbl1 v1 cbox fs12">
+      <thead>
+        <tr class="fs09">
+          <th>{%trans "Unit"%}</th>
+          <th class="txtC">{%trans "Force integer value"%}</th>
+          <th class="txtC">{%trans "Count product"%}</th>
+          <th class="txtC">{%trans "Action"%}</th>
+        </tr>
+      </thead>
 
-        </td>
-      </tr>
-      {%endfor%}
-    </tbody>
-  </table>
+      <tbody>
+        {%for key, value in dataTable%}
+        <tr {%if (requestGET.id) == value.id %} class="positive"{%endif%} {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
+          <td>
+            {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
+            {%if not value.title and value.title != '0' %}<small class="fc-red">{%trans "Without Unit"%}</small>{%else%}{{value.title}}{%endif%}
+          </td>
+          <td class="txtC">{%if value.int%}<i class="sf-check fc-green"></i>{%else%}-{%endif%}</td>
+          <td class="txtC">
+            <a href="{{url.here}}/product?unitid={{value.id}}" title='{%trans "Click to check products in this unit"%}'>{{value.count | fitNumber}}</a>
+          </td>
+          <td class="collapsing">
+            <a class="block" href="{{url.this}}/units?id={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>
+            <a class="block" href="{{url.this}}/units/remove?id={{value.id}}"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm">{%trans "Remove"%}</span></a>
+
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</div>
 {%else%}
 <div class="msg info2 fs12 txtB">
 
@@ -221,11 +226,10 @@
               {%trans "You can delete this unit now"%}
             </p>
           </div>
-
-          <div data-confirm data-data='{"type": "remove"}' class="btn danger outline block mT20" type="submit">{%trans "Remove unit"%}</div>
-
-
-
+          <form method="post">
+            <input type="hidden" name="type" value="remove">
+            <button  class="btn danger outline block mT20" type="submit">{%trans "Remove unit"%}</button>
+          </form>
         {%endif%}
 
     </dvi>

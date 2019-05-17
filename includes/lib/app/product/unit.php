@@ -185,6 +185,11 @@ class unit
 			return false;
 		}
 
+		if(self::$debug)
+		{
+			\dash\notif::ok(T_("Unit successfully added"));
+		}
+
 		$result       = [];
 		$result['id'] = \dash\coding::encode($id);
 		return $result;
@@ -257,7 +262,10 @@ class unit
 		}
 
 		\lib\db\productunit::delete($id);
-
+		if(self::$debug)
+		{
+			\dash\notif::ok(T_("Unit successfully removed"));
+		}
 		return true;
 	}
 
