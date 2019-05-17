@@ -54,18 +54,11 @@ class view
 			$args['discount'] = \dash\request::get('discount');
 		}
 
-		if(is_array($_GET) && array_key_exists('unit', $_GET))
+		if(\dash\request::get('unitid'))
 		{
-			if(\dash\request::get('unit'))
-			{
-				$args['unit'] = \dash\request::get('unit');
-			}
-			else
-			{
-				$args['unit'] = ['IS', 'null'];
-			}
-
+			$args['unit_id'] = \dash\coding::decode(\dash\request::get('unitid'));
 		}
+
 
 		if(\dash\request::get('duplicatetitle')) $args['duplicatetitle'] = true;
 		if(\dash\request::get('hbarcode')) $args['hbarcode'] = true;
@@ -143,10 +136,11 @@ class view
 			unset($args['cat_id']);
 		}
 
-		if(isset($args['unit']))
+
+		if(isset($args['unit_id']))
 		{
 			$args['Unit'] = isset($myProductList[0]['unit']) ? $myProductList[0]['unit'] : null;
-			unset($args['unit']);
+			unset($args['unit_id']);
 		}
 
 		\dash\data::filterBox(\content_a\filter::createMsg($args));

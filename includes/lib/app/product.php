@@ -542,6 +542,7 @@ class product
 				case 'id':
 				case 'creator':
 				case 'cat_id':
+				case 'unit_id':
 					if(isset($value))
 					{
 						$result[$key] = \dash\coding::encode($value);

@@ -97,7 +97,7 @@
         <td {%if value.discountpercent > 50%} class='s0 ltr txtC warning' title='{%trans "Discount more than 50 percent!"%}'{%else%} class="s0 ltr txtC"{%endif%}>{{value.discountpercent | number_format | fitNumber}} <small>%</small></td>
         <td {%if value.buyprice > value.finalprice%} class='negative' title='{%trans "Final price is under buy price"%}'{%endif%}><a class="bold">{{(value.finalprice) | number_format | fitNumber}}</a></td>
         <td><a class="bold">{%if value.profit%}{{(value.profit) | number_format | fitNumber}}</a>{%else%}-{%endif%}</td>
-        <td class="s0">{{value.stock | number_format | fitNumber}} <small><a href="{{url.here}}/product?unit={{value.unit}}">{{value.unit}}</a></small></td>
+        <td class="s0">{{value.stock | number_format | fitNumber}} <small><a href="{{url.here}}/product?unitid={{value.unit_id}}">{{value.unit}}</a></small></td>
         <td class="s0 ltr txtL pRa10 collapsing" title="{{value.datemodified | dt(true)}}"><small class="fc-mute">{%if value.datemodified%}{{value.datemodified | dt('human')}}{%else%}-{%endif%}</small></td>
         {%if requestGET.justcode == 1%}
           <td>{{value.code | fitNumber(false)}}</td>
