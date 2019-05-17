@@ -109,7 +109,7 @@ class unit
 			return false;
 		}
 
-		$decimal = \dash\app::request('decimal') ? 1 : null;
+		$int = \dash\app::request('int') ? 1 : null;
 
 		$default = \dash\app::request('unitdefault') ? 1 : null;
 
@@ -132,7 +132,7 @@ class unit
 
 		$args            = [];
 		$args['title']   = $title;
-		$args['decimal'] = $decimal;
+		$args['int'] = $int;
 		$args['default'] = $default;
 		$args['maxsale'] = $maxsale;
 		return $args;
@@ -363,7 +363,7 @@ class unit
 		}
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('decimal')) unset($args['decimal']);
+		if(!\dash\app::isset_request('int')) unset($args['int']);
 		if(!\dash\app::isset_request('default')) unset($args['default']);
 		if(!\dash\app::isset_request('maxsale')) unset($args['maxsale']);
 

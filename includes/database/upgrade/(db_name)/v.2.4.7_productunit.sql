@@ -2,7 +2,7 @@ CREATE TABLE `productunit` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `store_id` int(10) UNSIGNED NOT NULL,
 `title` varchar(100)CHARACTER SET utf8mb4 NULL DEFAULT NULL,
-`decimal` bit(1) NULL DEFAULT NULL,
+`int` bit(1) NULL DEFAULT NULL,
 `isdefault` bit(1) NULL DEFAULT NULL,
 `maxsale` int(10) UNSIGNED NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
