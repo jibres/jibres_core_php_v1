@@ -128,7 +128,7 @@
         </td>
         <td class="txtC">{%if value.int%}<i class="sf-check fc-green"></i>{%else%}-{%endif%}</td>
         <td class="txtC">
-          <a href="{{url.here}}/product?unit={{value.title | url_encode}}" title='{%trans "Click to check products in this unit"%}'>{{value.count | fitNumber}}</a>
+          <a href="{{url.here}}/product?unitid={{value.id}}" title='{%trans "Click to check products in this unit"%}'>{{value.count | fitNumber}}</a>
         </td>
         <td class="collapsing">
           <a class="block" href="{{url.this}}/units?id={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>

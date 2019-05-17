@@ -423,39 +423,8 @@ class unit
 
 		\dash\permission::access('productUnitListView');
 
-		$default_args =
-		[
-			'order' => null,
-			'sort'  => null,
-		];
 
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
-
-		$option = [];
-		$option = array_merge($default_args, $_args);
-
-		if($option['order'])
-		{
-			if(!in_array($option['order'], ['asc', 'desc']))
-			{
-				unset($option['order']);
-			}
-		}
-
-		if($option['sort'])
-		{
-			if(!in_array($option['sort'], self::$sort_field))
-			{
-				unset($option['sort']);
-			}
-		}
-		$option['pagenation'] = false;
-		$option['store_id'] = \lib\store::id();
-
-		$result = \lib\db\productunit::search($_string, $option);
+		$result = \lib\db\productunit::get_list(\lib\store::id());
 
 		$temp            = [];
 

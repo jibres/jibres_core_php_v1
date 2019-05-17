@@ -23,9 +23,27 @@ class productunit
 		return \dash\db\config::public_get('productunit', ...func_get_args());
 	}
 
-	public static function search()
+
+	public static function get_list($_store_id)
 	{
-		return \dash\db\config::public_search('productunit', ...func_get_args());
+		$query =
+		"
+			SELECT
+				productunit.id,
+				productunit.title,
+				productunit.decimal,
+				productunit.maxsale,
+				(SELECT COUNT(*) FROM products WHERE products.unit_id = productunit.id) AS `count`
+			FROM
+				productunit
+			WHERE
+				productunit.store_id = $_store_id
+			ORDER BY
+				count DESC
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
 	}
 
 	public static function get_count()
