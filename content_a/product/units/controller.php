@@ -5,27 +5,26 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('productUnitListView');
-
-		$unitList = \lib\app\product\unit::list(true);
-		\dash\data::dataTable($unitList);
-
-		$edit = \dash\request::get('edit');
-		if($edit && !array_key_exists($edit, $unitList))
+		if(\dash\request::get('id'))
 		{
-			\dash\header::status(403, T_("Invalid unit"));
-		}
-
-		if(isset($unitList[$edit]))
-		{
-			\dash\data::dataRow($unitList[$edit]);
-		}
-
-		if(is_array($_GET) && array_key_exists('edit', $_GET))
-		{
-			\dash\permission::access('productUnitListEdit');
 			\dash\data::editMode(true);
+			$id      = \dash\request::get('id');
+			$dataRow = \lib\app\product\unit::get($id);
+
+			if(!$dataRow)
+			{
+				\dash\header::status(404, T_("Invalid product unit id"));
+			}
+
+			\dash\data::dataRow($dataRow);
 		}
+		else
+		{
+			$unitList = \lib\app\product\unit::list(true);
+			\dash\data::dataTable($unitList);1
+		}
+
+
 	}
 }
 ?>

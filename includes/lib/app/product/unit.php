@@ -8,15 +8,36 @@ class unit
 
 	public static function check_add($_unit)
 	{
-		$list = self::list(true);
-		if(!array_key_exists($_unit, $list))
+		$get_unit_title = \lib\db\productunit::get_by_title($_unit);
+		if(isset($get_unit_title['id']))
 		{
-			self::add(['title' => $_unit]);
+			return $get_unit_title;
 		}
-		return;
+
+		$args =
+		[
+			'title' => $_unit,
+			'store_id' => \lib\store::id(),
+		];
+
+		$id = \lib\db\productunit::insert($args);
+
+		if(!$id)
+		{
+			\dash\log::set('productUnitDbErrorInsert');
+			\dash\notif::error(T_("No way to insert data"));
+			return false;
+		}
+
+		$result          = [];
+		$result['id']    = $id;
+		$result['title'] = $_unit;
+
+		return $result;
 	}
 
-	private static function check()
+
+	private static function check($_id = null)
 	{
 		$title = \dash\app::request('title');
 		if(!$title && $title !== '0')
@@ -32,7 +53,6 @@ class unit
 		}
 
 		$decimal = \dash\app::request('decimal') ? true : false;
-
 
 		$default = \dash\app::request('unitdefault') ? true : false;
 
@@ -65,6 +85,12 @@ class unit
 
 	public static function add($_args)
 	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
 		if(!\dash\permission::check('productUnitListAdd'))
 		{
 			return false;
@@ -79,9 +105,9 @@ class unit
 			return false;
 		}
 
-		$json = self::list(true);
+		$get_unit_title = \lib\db\productunit::get_by_title(\lib\store::id(), $args['title']);
 
-		if(isset($json[$args['title']]))
+		if(isset($get_unit_title['id']))
 		{
 			if(self::$debug) \dash\notif::error(T_("Duplicate unit founded"), 'unit');
 			return false;
@@ -89,55 +115,152 @@ class unit
 
 		if($args['default'])
 		{
-			foreach ($json as $key => $value)
-			{
-				$json[$key]['default'] = false;
-			}
+			$get_unit_title = \lib\db\productunit::set_all_default_as_null(\lib\store::id());
 		}
 
-		$json[$args['title']] = $args;
+		$args['store_id'] = \lib\store::id();
 
+		$id = \lib\db\productunit::insert($args);
+		if(!$id)
+		{
+			\dash\log::set('productUnitDbErrorInsert');
+			\dash\notif::error(T_("No way to insert data"));
+			return false;
+		}
 
-		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
-		\lib\db\stores::update(['unit' => $json], \lib\store::id());
-
-		if(self::$debug) \dash\notif::ok(T_("Unit successfully added"));
-		\lib\store::refresh();
-
-		return true;
-
+		$result       = [];
+		$result['id'] = \dash\coding::encode($id);
+		return $result;
 	}
 
-	public static function remove($_old_unit)
+
+	public static function remove($_id)
 	{
 		if(!\dash\permission::check('productUnitListDelete'))
 		{
 			return false;
 		}
 
-		$json = self::list(true);
+		$load = self::inline_get($_id)
 
-		if(!isset($json[$_old_unit]))
+		if(!isset($load['id']))
 		{
-			if(self::$debug) \dash\notif::error(T_("Unit not found in your store!"), 'unit');
+			\dash\notif::error(T_("Invalid unit id"));
 			return false;
 		}
 
-		unset($json[$_old_unit]);
+		$id = \dash\coding::decode($_id);
 
-		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
-		\lib\db\stores::update(['unit' => $json], \lib\store::id());
+		$count_product = \lib\db\products::get_count_unit(\lib\store::id(), $id);
+		$count_product = intval($count_product);
 
-		if(self::$debug) \dash\notif::warn(T_("Unit successfully removed"));
-		\lib\store::refresh();
+		if($count_product > 0)
+		{
+			$whattodo = \dash\app::request('whattodo');
+			if(!in_array($whattodo, ['non-unit','new-unit']))
+			{
+				\dash\notif::error(T_("What to do for old unit?"));
+				return false;
+			}
+
+			$check = null;
+
+			$unit = \dash\app::request('unit');
+			if($unit)
+			{
+				$check = self::get($unit);
+				if(!$check)
+				{
+					\dash\notif::error(T_("Invalid new unit id!"));
+					return false;
+				}
+			}
+
+			if($whattodo === 'new-unit' && !isset($check['id']))
+			{
+				\dash\notif::error(T_("Please select one unit"), 'unit');
+				return false;
+			}
+
+			$old_unit_id    = \dash\coding::decode($_id);
+
+			if($whattodo === 'new-unit')
+			{
+				$new_unit_id    = \dash\coding::decode($check['id']);
+				$new_unit_title = $check['title'];
+
+				\lib\db\productunit::update_all_product_by_unit(\lib\store::id(), $new_unit_id, $new_unit_title, $old_unit_id);
+			}
+			else
+			{
+				\lib\db\productunit::update_all_product_by_unit(\lib\store::id(), null, null, $old_unit_id);
+			}
+		}
+
+		\lib\db\productunit::delete($old_unit_id);
 
 		return true;
-
 	}
 
 
-	public static function update($_old_unit, $_new_unit, $_args = [])
+	public static function inline_get($_id)
 	{
+		$id = \dash\coding::decode($_id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid unit id"));
+			return false;
+		}
+
+		$load = \lib\db\productunit::get_one(\lib\store::id(), $id);
+		if(!$load)
+		{
+			\dash\notif::error(T_("Invalid unit id"));
+			return false;
+		}
+
+		return $load;
+	}
+
+
+	public static function get($_id)
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		\dash\permission::access('productUnitListView');
+
+		$id = \dash\coding::decode($_id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid unit id"));
+			return false;
+		}
+
+		$load = \lib\db\productunit::get_one(\lib\store::id(), $id);
+		if(!$load)
+		{
+			\dash\notif::error(T_("Invalid unit id"));
+			return false;
+		}
+
+		$load = self::ready($load);
+		return $load;
+	}
+
+
+
+	public static function edit($_args, $_id)
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
 		if(!\dash\permission::check('productUnitListEdit'))
 		{
 			return false;
@@ -145,109 +268,148 @@ class unit
 
 		\dash\app::variable($_args);
 
-		$args = self::check();
+		$id = \dash\coding::decode($_id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid unit id"));
+			return false;
+		}
+
+		$args = self::check($id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		$json = self::list(true);
+		$get_unit = \lib\db\productunit::get_one(\lib\store::id(), $args['title']);
 
-		if(!isset($json[$_old_unit]))
+		if(isset($get_unit['id']))
 		{
-			if(self::$debug) \dash\notif::error(T_("Unit not found in your store!"), 'unit');
-			return false;
-		}
-
-		unset($json[$_old_unit]);
-
-		if($args['default'])
-		{
-			foreach ($json as $key => $value)
+			if(intval($get_unit['id']) === intval($id))
 			{
-				$json[$key]['default'] = false;
-			}
-		}
-
-		$json[$args['title']] = $args;
-
-		$json = json_encode($json, JSON_UNESCAPED_UNICODE);
-		\lib\db\stores::update(['unit' => $json], \lib\store::id());
-
-
-		$msg = T_("Unit successfully updated");
-		if($_old_unit != $_new_unit)
-		{
-			// update products
-			$count = \lib\db\products::get_count(['store_id' => \lib\store::id(), 'unit' => $_old_unit]);
-			if($count)
-			{
-				\lib\db\products::update_where(['unit' => $_new_unit], ['store_id' => \lib\store::id(), 'unit' => $_old_unit]);
-				$msg = T_("All products by unit :old updated to :new", ['old' => $_old_unit, 'new' => $_new_unit]);
-			}
-		}
-
-		if(self::$debug) \dash\notif::ok($msg);
-
-		\lib\store::refresh();
-
-		return true;
-
-	}
-
-
-	public static function list($_get_query = false)
-	{
-		$list = [];
-		if($_get_query)
-		{
-			$list = \lib\db\products::field_group_count('unit', \lib\store::id());
-		}
-
-		$json = \lib\store::detail('unit');
-		if(is_string($json))
-		{
-			$json = json_decode($json, true);
-		}
-
-		if(!is_array($json))
-		{
-			$json = [];
-		}
-
-		$result = [];
-
-		foreach ($list as $key => $value)
-		{
-			if(isset($json[$key]))
-			{
-				$result[$key] = array_merge($json[$key], ['count' => $value]);
+				// nothing
 			}
 			else
 			{
-				$result[$key] = array_merge(['title' => $key], ['count' => $value]);
+				if(self::$debug) \dash\notif::error(T_("Duplicate unit founded"), 'unit');
+				return false;
 			}
 		}
 
-		foreach ($json as $key => $value)
+		if($args['default'])
 		{
-			if(!isset($result[$key]))
+			\lib\db\productunit::set_all_default_as_null(\lib\store::id());
+		}
+
+		if(!\dash\app::isset_request('title')) unset($args['title']);
+		if(!\dash\app::isset_request('decimal')) unset($args['decimal']);
+		if(!\dash\app::isset_request('default')) unset($args['default']);
+		if(!\dash\app::isset_request('maxsale')) unset($args['maxsale']);
+
+		if(!empty($args))
+		{
+			foreach ($get_one as $field => $value)
 			{
-				if(!isset($value['count']))
+				if(isset($args[$key]) && $args[$key] == $value)
 				{
-					$result[$key] = array_merge($value, ['count' => 0]);
+					unset($args[$key]);
 				}
-				else
-				{
-					$result[$key] = $value;
-				}
+			}
+
+			if(empty($args))
+			{
+				\dash\notif::info(T_("No change"));
+			}
+			else
+			{
+				$update = \lib\db\productunit::update($args, $id);
+			}
+		}
+	}
+
+
+	public static function list($_string = null, $_args = [])
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		\dash\permission::access('productUnitListView');
+
+		$default_args =
+		[
+			'order' => null,
+			'sort'  => null,
+		];
+
+		if(!is_array($_args))
+		{
+			$_args = [];
+		}
+
+		$option = [];
+		$option = array_merge($default_args, $_args);
+
+		if($option['order'])
+		{
+			if(!in_array($option['order'], ['asc', 'desc']))
+			{
+				unset($option['order']);
 			}
 		}
 
-		$sort = array_column($result, 'count');
-		$sort = array_map('intval', $sort);
-		array_multisort($result, SORT_DESC, SORT_NUMERIC, $sort, SORT_DESC);
+		if($option['sort'])
+		{
+			if(!in_array($option['sort'], self::$sort_field))
+			{
+				unset($option['sort']);
+			}
+		}
+
+		$field             = [];
+
+		$result = \lib\db\productunit::search($_string, $option, $field);
+
+		$temp            = [];
+
+
+		foreach ($result as $key => $value)
+		{
+			$check = self::ready($value);
+			if($check)
+			{
+				$temp[] = $check;
+			}
+		}
+
+		return $temp;
+	}
+
+
+	private static function ready($_data)
+	{
+		if(!is_array($_data))
+		{
+			return false;
+		}
+
+		$result = [];
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'id':
+					$result[$key] = \dash\coding::encode($value);
+					break;
+
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
 
 		return $result;
 	}

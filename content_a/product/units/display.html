@@ -37,7 +37,7 @@
       {%else%}
         <p class="msg mT10 info2">{%trans "No product in this unit"%}
           <span class="txtB">{%trans "You can delete it now!"%}</span>
-          <a href="{{url.pwd}}" data-ajaxify data-data='{"removeunit" : "{{dataRow.title}}", "type" : "remove"}' data-method='post' class="badge danger mLa5">{%trans "Remove"%}</a>
+          <a href="{{url.pwd}}" data-ajaxify data-data='{"removeunit" : "{{dataRow.id}}", "type" : "remove"}' data-method='post' class="badge danger mLa5">{%trans "Remove"%}</a>
         </p>
       {%endif%}
 
@@ -117,7 +117,7 @@
 
     <tbody>
       {%for key, value in dataTable%}
-      <tr {%if (requestGET.edit) == value.title %} class="positive"{%endif%} {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
+      <tr {%if (requestGET.id) == value.id %} class="positive"{%endif%} {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
         <td>
           {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
           {%if not value.title and value.title != '0' %}<small class="fc-red">{%trans "Without Unit"%}</small>{%else%}{{value.title}}{%endif%}
@@ -127,7 +127,7 @@
           <a href="{{url.here}}/product?unit={{value.title | url_encode}}" title='{%trans "Click to check products in this category"%}'>{{value.count | fitNumber}}</a>
         </td>
         <td class="collapsing">
-          <a href="{{url.this}}/units?edit={{value.title | url_encode}}" class="badge primary">{%trans "Edit"%}</a>
+          <a href="{{url.this}}/units?id={{value.id}}" class="badge primary">{%trans "Edit"%}</a>
         </td>
       </tr>
       {%endfor%}
