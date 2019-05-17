@@ -132,11 +132,21 @@ trait edit
 
 		if(!empty($args))
 		{
+
 			$update = \lib\db\products::update($args, $load_product['id']);
 			if(!$update)
 			{
 				\dash\notif::error(T_("Can not update product, try again"));
+				return false;
 			}
+
+			if(isset($args['unit']) && isset($load_product['unit_id']))
+			{
+				// remove useless unit
+				// @check @javad
+				// \lib\db\productunit::remove_if_useless(\lib\store::id(), $load_product['unit_id']);
+			}
+
 		}
 
 		$return = [];

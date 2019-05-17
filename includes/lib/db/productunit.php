@@ -24,6 +24,18 @@ class productunit
 	}
 
 
+	public static function remove_if_useless($_store_id, $_unit_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM products WHERE products.unit_id = $_unit_id";
+		$result = \dash\db::get($query, 'count', true);
+
+		if(is_string($result) && (string) $result === '0')
+		{
+			self::delete($_unit_id);
+		}
+	}
+
+
 	public static function get_list($_store_id)
 	{
 		$query =

@@ -108,7 +108,7 @@
 
 
 {%block htmlTable%}
-
+{%if dataTable%}
   <table class="tbl1 v1 cbox fs12">
     <thead>
       <tr class="fs09">
@@ -139,6 +139,18 @@
       {%endfor%}
     </tbody>
   </table>
+{%else%}
+<div class="msg info2 fs12 txtB">
+
+    {%trans "Hi!"%}
+    <br>
+    {%trans "You have not product unit yet!"%}
+    <br>
+    {%trans "To add a product unit you must set unit when registering or editing a product"%}
+    <a href="{{url.this}}" class="btn secondary xs">{%trans "Product list"%}</a>
+
+</div>
+{%endif%}
 
 {%endblock%}
 
@@ -177,7 +189,7 @@
 
                 <div class="f mT20">
                   <div class="c pRa10">
-                    <button class="btn danger block hauto" type="submit">{%trans "Set all products by this unit as a non product unit and remove this unit"%}</button>
+                    <button class="btn danger outline block hauto" type="submit">{%trans "Set all products by this unit as a non product unit and remove this unit"%}</button>
                   </div>
                   <div class="cauto">
                     <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
@@ -190,7 +202,7 @@
 
                 <div class="f mT20">
                   <div class="c pRa10">
-                    <button class="btn danger block" type="submit">{%trans "Save and remove unit"%}</button>
+                    <button class="btn danger outline block" type="submit">{%trans "Save and remove unit"%}</button>
                   </div>
                   <div class="cauto">
                     <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
@@ -210,7 +222,7 @@
             </p>
           </div>
 
-          <div data-confirm data-data='{"type": "remove"}' class="btn danger block mT20" type="submit">{%trans "Remove unit"%}</div>
+          <div data-confirm data-data='{"type": "remove"}' class="btn danger outline block mT20" type="submit">{%trans "Remove unit"%}</div>
 
 
 
