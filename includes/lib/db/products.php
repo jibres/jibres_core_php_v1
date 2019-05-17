@@ -59,13 +59,13 @@ class products
 		$query =
 		"
 			UPDATE
-				product
+				products
 			SET
-				product.unit    = $_new_unit_title
-				product.unit_id = $_new_unit_id
+				products.unit    = $_new_unit_title,
+				products.unit_id = $_new_unit_id
 			WHERE
-				product.store_id = $_store_id AND
-				product.unit_id  = $_old_unit_id
+				products.store_id = $_store_id AND
+				products.unit_id  = $_old_unit_id
 		";
 
 		$result = \dash\db::query($query);

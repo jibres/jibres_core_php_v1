@@ -9,13 +9,27 @@ class view
 		\dash\data::page_desc(T_('You can manage your units manually.'). ' '. T_("Don't worry! we are add units automatically on add new product"));
 		\dash\data::page_pictogram('eye-galsses');
 
-		if(is_array($_GET) && array_key_exists('id', $_GET))
-		{
-			\dash\data::page_title(T_('Edit product unit'));
-		}
-
 		\dash\data::badge_text(T_('Back to product list'));
 		\dash\data::badge_link(\dash\url::this());
+
+		if(\dash\data::editMode())
+		{
+			\dash\data::page_title(T_('Edit product unit'));
+
+		}
+
+		if(\dash\data::removeMode())
+		{
+			$allUnit = \lib\app\product\unit::list(null, ['pagenation' => false]);
+			\dash\data::allUnit($allUnit);
+		}
+
+		if(\dash\data::removeMode() || \dash\data::editMode())
+		{
+			\dash\data::badge_text(T_('Back to product unit list'));
+			\dash\data::badge_link(\dash\url::that());
+		}
+
 	}
 }
 ?>

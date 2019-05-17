@@ -11,9 +11,14 @@ class model
 		$get_unit = \dash\request::get('edit');
 
 		// remove unit
-		if(\dash\request::post('type') === 'remove')
+		if(\dash\request::post('type') === 'remove' && \dash\data::removeMode())
 		{
-			\lib\app\product\unit::remove(\dash\request::post('removeunit'));
+			$args             = [];
+			$args['whattodo'] = \dash\request::post('whattodo');
+			$args['unit']     = \dash\request::post('unit');
+
+			\lib\app\product\unit::remove($args, \dash\request::get('id'));
+
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::this(). '/units');

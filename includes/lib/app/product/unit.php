@@ -134,12 +134,14 @@ class unit
 	}
 
 
-	public static function remove($_id)
+	public static function remove($_args, $_id)
 	{
 		if(!\dash\permission::check('productUnitListDelete'))
 		{
 			return false;
 		}
+
+		\dash\app::variable($_args);
 
 		$load = self::inline_get($_id);
 
@@ -168,7 +170,7 @@ class unit
 			$unit = \dash\app::request('unit');
 			if($unit)
 			{
-				$check = self::get($unit);
+				$check = self::inline_get($unit);
 				if(!$check)
 				{
 					\dash\notif::error(T_("Invalid new unit id!"));
@@ -186,14 +188,14 @@ class unit
 
 			if($whattodo === 'new-unit')
 			{
-				$new_unit_id    = \dash\coding::decode($check['id']);
+				$new_unit_id    = $check['id'];
 				$new_unit_title = $check['title'];
 
-				\lib\db\productunit::update_all_product_by_unit(\lib\store::id(), $new_unit_id, $new_unit_title, $old_unit_id);
+				\lib\db\products::update_all_product_by_unit(\lib\store::id(), $new_unit_id, $new_unit_title, $old_unit_id);
 			}
 			else
 			{
-				\lib\db\productunit::update_all_product_by_unit(\lib\store::id(), null, null, $old_unit_id);
+				\lib\db\products::update_all_product_by_unit(\lib\store::id(), null, null, $old_unit_id);
 			}
 		}
 
@@ -247,6 +249,7 @@ class unit
 			return false;
 		}
 
+		$load['count'] = \lib\db\products::get_count_unit(\lib\store::id(), $id);
 		$load = self::ready($load);
 		return $load;
 	}
