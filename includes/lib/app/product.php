@@ -482,11 +482,25 @@ class product
 			}
 		}
 
+		if($company)
+		{
+			\lib\app\product\company::$debug = false;
+			$add_company                     = \lib\app\product\company::check_add($company);
+			if(isset($add_company['id']))
+			{
+				$args['company_id'] = $add_company['id'];
+			}
+
+			if(isset($add_company['title']))
+			{
+				$args['company'] = $add_company['title'];
+			}
+		}
+
 		\dash\app::request_set($master_args);
 
 		$args['title']           = $title;
 		$args['slug']            = $slug;
-		$args['company']         = $company;
 		$args['barcode']         = $barcode;
 		$args['barcode2']        = $barcode2;
 		$args['quickcode']       = $quickcode;

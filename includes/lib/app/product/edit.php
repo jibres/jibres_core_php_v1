@@ -72,9 +72,9 @@ trait edit
 		}
 
 		if(!\dash\app::isset_request('slug'))           unset($args['slug']);
-		if(!\dash\app::isset_request('company'))        unset($args['company']);
+		// if(!\dash\app::isset_request('company'))        unset($args['company']);
 		if(!\dash\app::isset_request('shortcode'))      unset($args['shortcode']);
-		if(!\dash\app::isset_request('unit'))           unset($args['unit']);
+		// if(!\dash\app::isset_request('unit'))           unset($args['unit']);
 		if(!\dash\app::isset_request('barcode'))        unset($args['barcode']);
 		if(!\dash\app::isset_request('barcode2'))       unset($args['barcode2']);
 		if(!\dash\app::isset_request('buyprice'))       unset($args['buyprice']);

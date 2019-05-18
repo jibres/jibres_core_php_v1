@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\product;
+namespace lib\db\products;
 
 trait dashboard
 {
