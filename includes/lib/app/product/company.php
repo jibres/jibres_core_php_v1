@@ -330,10 +330,6 @@ class company
 			}
 		}
 
-		if($args['default'])
-		{
-			\lib\db\productcompany::set_all_default_as_null(\lib\store::id());
-		}
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
 
