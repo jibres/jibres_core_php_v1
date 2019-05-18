@@ -188,8 +188,14 @@ class twigTransTerms
 	echo T_("Response");                                                              // Line 30
 	echo T_("Example");                                                               // Line 30
 
+	//--------------------------------content_api/v6/doc/301-product-company-list.html
+	echo T_("Get list of product company");                                           // Line 6
+	echo T_("See the product company ");                                              // Line 9
+	echo T_("To add a new company, you must add a product with the same company");    // Line 10
+
 	//-------------------------------------------------content_api/v6/doc/sidebar.html
 	echo T_("Product unit list");                                                     // Line 2
+	echo T_("Product company list");                                                  // Line 3
 
 	//---------------------public_html/static/siftal/fonts/siftal/icons-reference.html
 
@@ -340,7 +346,7 @@ class twigTransTerms
 
 	//----------------------------------------------------content/pricing/display.html
 	echo T_("only team admin");                                                       // Line 10
-	echo T_("Unlimited");                                                             // Line 32
+	echo T_("Unlimited");                                                             // Line 35
 	echo T_("Price");                                                                 // Line 60
 	echo T_("Pay monthly");                                                           // Line 163
 	echo T_("FREE");                                                                  // Line 46
@@ -492,23 +498,24 @@ class twigTransTerms
 	echo T_("Add new Product");                                                       // Line 74
 	echo T_("Categories of Product");                                                 // Line 15
 	echo T_("Product Units");                                                         // Line 16
-	echo T_("Third Parties");                                                         // Line 24
+	echo T_("Product Compnay");                                                       // Line 17
+	echo T_("Third Parties");                                                         // Line 25
 	echo T_("Customers");                                                             // Line 27
 	echo T_("Suppliers");                                                             // Line 49
 	echo T_("Staffs");                                                                // Line 38
-	echo T_("register new sale factor");                                              // Line 38
-	echo T_("List of sales");                                                         // Line 40
-	echo T_("List of purchases");                                                     // Line 41
-	echo T_("List of all factors");                                                   // Line 42
-	echo T_("Reports");                                                               // Line 48
+	echo T_("register new sale factor");                                              // Line 39
+	echo T_("List of sales");                                                         // Line 41
+	echo T_("List of purchases");                                                     // Line 42
+	echo T_("List of all factors");                                                   // Line 43
+	echo T_("Reports");                                                               // Line 49
 	echo T_("Daily report");                                                          // Line 20
 	echo T_("Monthly report");                                                        // Line 20
 	echo T_("Setting");                                                               // Line 13
-	echo T_("Store plans");                                                           // Line 61
-	echo T_("Factor settings");                                                       // Line 62
-	echo T_("Shift transformation");                                                  // Line 68
-	echo T_("Logout");                                                                // Line 74
-	echo T_("You are active user");                                                   // Line 81
+	echo T_("Store plans");                                                           // Line 62
+	echo T_("Factor settings");                                                       // Line 63
+	echo T_("Shift transformation");                                                  // Line 69
+	echo T_("Logout");                                                                // Line 75
+	echo T_("You are active user");                                                   // Line 82
 
 	//---------------------------------------------content_a/report/daily/display.html
 	echo T_("Sum");                                                                   // Line 85
@@ -793,7 +800,7 @@ class twigTransTerms
 	echo T_("Marital");                                                               // Line 348
 	echo T_("Single");                                                                // Line 351
 	echo T_("Married");                                                               // Line 352
-	echo T_("Company name");                                                          // Line 368
+	echo T_("Company name");                                                          // Line 73
 	echo T_("Enter company name");                                                    // Line 370
 	echo T_("Visitor name");                                                          // Line 387
 	echo T_("Identify code");                                                         // Line 396
@@ -1082,36 +1089,60 @@ class twigTransTerms
 	echo T_("Off price");                                                             // Line 119
 	echo T_("%");                                                                     // Line 141
 
+	//------------------------------------------content_a/product/company/display.html
+	echo T_("Edit company");                                                          // Line 27
+	echo T_("Add new company");                                                       // Line 29
+	echo T_("By update name of this company all product will be update to new value.");// Line 40
+	echo T_("Click to check list of this product");                                   // Line 40
+	echo T_("No product in this company");                                            // Line 42
+	echo T_("You can delete it now!");                                                // Line 43
+	echo T_("Cancel");                                                                // Line 213
+	echo T_("Company");                                                               // Line 100
+	echo T_("Force integer value");                                                   // Line 119
+	echo T_("Count product");                                                         // Line 120
+	echo T_("Without Company");                                                       // Line 112
+	echo T_("Click to check products in this company");                               // Line 116
+	echo T_("No result founded!");                                                    // Line 135
+	echo T_("You have not product company yet!");                                     // Line 150
+	echo T_("To add a product company you must set company when registering or editing a product");// Line 152
+	echo T_("Product list");                                                          // Line 155
+	echo T_("Product found in this company");                                         // Line 187
+	echo T_("To remove this company you must set all products by this company as a non product company or set another company for this products");// Line 189
+	echo T_("Show product list");                                                     // Line 21
+	echo T_("Set all products by this company as a non product company and remove this company");// Line 204
+	echo T_("Save and remove company");                                               // Line 217
+	echo T_("Non product found by this company");                                     // Line 231
+	echo T_("You can delete this company now");                                       // Line 233
+	echo T_("Remove company");                                                        // Line 238
+	echo T_("What do you want to do?");                                               // Line 56
+	echo T_("Set all products as a non product company");                             // Line 254
+	echo T_("Select new company");                                                    // Line 261
+	echo T_("You have not other company!");                                           // Line 261
+	echo T_("New company");                                                           // Line 273
+	echo T_("Select new company to update all product company");                      // Line 275
+
 	//--------------------------------------------content_a/product/units/display.html
 	echo T_("Edit unit");                                                             // Line 27
 	echo T_("Add new unit");                                                          // Line 29
 	echo T_("By update name of this unit all product will be update to new value.");  // Line 40
-	echo T_("Click to check list of this product");                                   // Line 40
 	echo T_("No product in this unit");                                               // Line 42
-	echo T_("You can delete it now!");                                                // Line 43
-	echo T_("Cancel");                                                                // Line 213
 	echo T_("Is default unit?");                                                      // Line 70
 	echo T_("Sometimes employees sell some product with decimal unit and if you are force this unit to give integer value, we are not allow them to enter invalid value");// Line 79
 	echo T_("Only accept integer value?");                                            // Line 83
 	echo T_("Max sale from this unit");                                               // Line 91
 	echo T_("For example 100");                                                       // Line 109
 	echo T_("Unit name");                                                             // Line 104
-	echo T_("Force integer value");                                                   // Line 119
-	echo T_("Count product");                                                         // Line 120
 	echo T_("Without Unit");                                                          // Line 130
 	echo T_("Click to check products in this unit");                                  // Line 134
 	echo T_("You have not product unit yet!");                                        // Line 152
 	echo T_("To add a product unit you must set unit when registering or editing a product");// Line 154
-	echo T_("Product list");                                                          // Line 155
 	echo T_("Product found in this unit");                                            // Line 180
 	echo T_("To remove this unit you must set all products by this unit as a non product unit or set another unit for this products");// Line 182
-	echo T_("Show product list");                                                     // Line 21
 	echo T_("Set all products by this unit as a non product unit and remove this unit");// Line 197
 	echo T_("Save and remove unit");                                                  // Line 210
 	echo T_("Non product found by this unit");                                        // Line 224
 	echo T_("You can delete this unit now");                                          // Line 226
 	echo T_("Remove unit");                                                           // Line 231
-	echo T_("What do you want to do?");                                               // Line 56
 	echo T_("Set all products as a non product unit");                                // Line 247
 	echo T_("Select new unit");                                                       // Line 254
 	echo T_("You have not other unit!");                                              // Line 254
@@ -1124,7 +1155,7 @@ class twigTransTerms
 	//-------------------------------------------content_a/product/factor/display.html
 
 	//--------------------------------------------content_a/product/stock/display.html
-	echo T_("Infinit");                                                               // Line 32
+	echo T_("Infinit");                                                               // Line 35
 
 	//------------------------------------------------------content_a/cats/layout.html
 
