@@ -8,21 +8,29 @@ class access
 	{
 		// not send api to subdomain
 		self::check_subdomain();
+		// check have appkey
+		self::check_appkey();
+	}
+
+
+	public static function check_appkey()
+	{
+		\content_api\v6::check_appkey();
+	}
+
+
+	public static function check_subdomain()
+	{
+		if(\dash\url::subdomain())
+		{
+			\content_api\v6::no(404);
+		}
 	}
 
 
 	public static function user()
 	{
 		\content_api\v6::check_apikey();
-	}
-
-
-	private static function check_subdomain()
-	{
-		if(\dash\url::subdomain())
-		{
-			\content_api\v6::no(404);
-		}
 	}
 
 
@@ -41,7 +49,5 @@ class access
 			\content_api\v6::no(404);
 		}
 	}
-
-
 }
 ?>
