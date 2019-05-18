@@ -7,55 +7,6 @@ class guarantee
 	public static $debug = true;
 
 
-	public static function fix()
-	{
-
-		$all = \dash\db::get("SELECT products.guarantee, products.store_id FROM products WHERE products.guarantee IS NOT NULL GROUP BY products.guarantee, products.store_id");
-
-		if(!is_array($all) || !$all)
-		{
-			return;
-		}
-
-		$result = [];
-		foreach ($all as $value)
-		{
-
-			$new_insert =
-			[
-				'store_id' => $value['store_id'],
-				'title' => $value['guarantee'],
-			];
-			$get_guarantee_title = \lib\db\productguarantee::get_by_title($value['store_id'], $value['guarantee']);
-
-			if(isset($get_guarantee_title['id']))
-			{
-				$new_guarantee = $get_guarantee_title['id'];
-			}
-			else
-			{
-				$new_guarantee = \lib\db\productguarantee::insert($new_insert);
-
-			}
-
-
-			if($new_guarantee)
-			{
-				\lib\db\products::update_where(
-				[
-					'guarantee'    => $value['guarantee'],
-					'guarantee_id' => $new_guarantee,
-				],
-				[
-					'store_id' => $value['store_id'],
-					'guarantee'      => $value['guarantee'],
-				]);
-			}
-		}
-		var_dump("OK");
-	}
-
-
 	public static function check_add($_guarantee)
 	{
 		$get_guarantee_title = \lib\db\productguarantee::get_by_title(\lib\store::id(), $_guarantee);
