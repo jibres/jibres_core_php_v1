@@ -102,32 +102,9 @@ class company
 			return false;
 		}
 
-		$int = \dash\app::request('int') ? 1 : null;
-
-		$default = \dash\app::request('companydefault') ? 1 : null;
-
-		$maxsale = \dash\app::request('maxsale');
-		if($maxsale && !is_numeric($maxsale))
-		{
-			if(self::$debug) \dash\notif::error(T_("Plese set the max sale as a number"), 'maxsale');
-			return false;
-		}
-
-		if($maxsale)
-		{
-			$maxsale = abs(intval($maxsale));
-			if($maxsale > 1E+9)
-			{
-				if(self::$debug) \dash\notif::error(T_("Max sale is out of range"), 'maxsale');
-				return false;
-			}
-		}
-
 		$args            = [];
 		$args['title']   = $title;
-		$args['int'] = $int;
-		$args['default'] = $default;
-		$args['maxsale'] = $maxsale;
+
 		return $args;
 
 	}
@@ -161,11 +138,6 @@ class company
 		{
 			if(self::$debug) \dash\notif::error(T_("Duplicate company founded"), 'company');
 			return false;
-		}
-
-		if($args['default'])
-		{
-			$get_company_title = \lib\db\productcompany::set_all_default_as_null(\lib\store::id());
 		}
 
 		$args['store_id'] = \lib\store::id();
@@ -364,9 +336,7 @@ class company
 		}
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('int')) unset($args['int']);
-		if(!\dash\app::isset_request('default')) unset($args['default']);
-		if(!\dash\app::isset_request('maxsale')) unset($args['maxsale']);
+
 
 		if(!empty($args))
 		{
