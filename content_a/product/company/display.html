@@ -76,11 +76,24 @@
 
 
 
+{%block htmlSearchBox%}
+<div class="cbox fs12 p0">
+  <form method="get" action='{{url.that}}'>
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}"  autocomplete='off'>
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
 {%block htmlTable%}
-{%if dataTable%}
+{%if dataTable or requestGET.q%}
 <div class="f justify-center">
   <div class="c8 s12">
-
+  {{block('htmlSearchBox')}}
+  {%if dataTable%}
     <table class="tbl1 v1 cbox fs12">
       <thead>
         <tr class="fs09">
@@ -111,6 +124,22 @@
         {%endfor%}
       </tbody>
     </table>
+
+    {%include display.pagination%}
+
+    {{block('htmlFilterNoResult')}}
+
+    {%else%}
+
+      <p class="f fs14 msg warn2">
+        <spna class="c">{%trans "No result founded!"%}</spna>
+
+
+        <a class="cauto floatL" href="{{url.that}}">{%trans "Clear filters"%}</a>
+
+      </p>
+
+    {%endif%}
   </div>
 </div>
 {%else%}
@@ -129,6 +158,15 @@
 {%endblock%}
 
 
+
+
+{%block htmlFilterNoResult%}
+{%if requestGET.q%}
+<p class="f fs14 msg warn2">
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
+</p>
+{%endif%}
+{%endblock%}
 
 
 

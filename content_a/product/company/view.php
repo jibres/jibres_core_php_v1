@@ -20,7 +20,7 @@ class view
 
 		if(\dash\data::removeMode())
 		{
-			$allCompany = \lib\app\product\company::list(null, ['pagenation' => false]);
+			$allCompany = \lib\app\product\company::list();
 			\dash\data::allCompany($allCompany);
 		}
 

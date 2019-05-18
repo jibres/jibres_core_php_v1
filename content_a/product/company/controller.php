@@ -30,7 +30,7 @@ class controller
 		}
 		else
 		{
-			$companyList = \lib\app\product\company::list();
+			$companyList = \lib\app\product\company::page_list(\dash\request::get('q'));
 			\dash\data::dataTable($companyList);
 		}
 

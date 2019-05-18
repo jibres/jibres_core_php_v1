@@ -413,6 +413,33 @@ class company
 		}
 	}
 
+	public static function page_list($_string = null, $_args = [])
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		\dash\permission::access('productCompanyListView');
+
+
+		$result = \lib\db\productcompany::get_page_list(\lib\store::id(), $_string);
+
+		$temp            = [];
+
+
+		foreach ($result as $key => $value)
+		{
+			$check = self::ready($value);
+			if($check)
+			{
+				$temp[] = $check;
+			}
+		}
+
+		return $temp;
+	}
 
 	public static function list($_string = null, $_args = [])
 	{

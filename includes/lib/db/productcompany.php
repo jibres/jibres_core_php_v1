@@ -24,6 +24,48 @@ class productcompany
 	}
 
 
+	public static function get_page_list($_store_id, $_string = null)
+	{
+		$q = null;
+		if(isset($_string))
+		{
+			$_string = \dash\db\safe::value($_string);
+			$q       = "AND productcompany.title LIKE '%$_string%' ";
+		}
+
+		$pagination_query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				productcompany
+			WHERE
+				productcompany.store_id = $_store_id
+				$q
+		";
+
+		$limit = \dash\db::pagination_query($pagination_query);
+
+		$query =
+		"
+			SELECT
+				productcompany.id,
+				productcompany.title,
+				(SELECT COUNT(*) FROM products WHERE products.company_id = productcompany.id) AS `count`
+			FROM
+				productcompany
+			WHERE
+				productcompany.store_id = $_store_id
+				$q
+			ORDER BY
+				count DESC
+			$limit
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
 
 
 	public static function get_list($_store_id)
