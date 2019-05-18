@@ -8,9 +8,6 @@ class access
 	{
 		// not send api to subdomain
 		self::check_subdomain();
-
-		// check stoe id
-		self::check_store();
 	}
 
 
@@ -29,7 +26,7 @@ class access
 	}
 
 
-	private static function check_store()
+	public static function store()
 	{
 		$store = \dash\header::get('store');
 		if(!$store || is_numeric($store))

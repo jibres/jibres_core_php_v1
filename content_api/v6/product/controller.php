@@ -8,7 +8,10 @@ class controller
 	{
 		\content_api\v6\access::check();
 
+		\content_api\v6\access::store();
+
 		\content_api\v6\access::user();
+
 
 		$detail    = [];
 
