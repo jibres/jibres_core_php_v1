@@ -226,6 +226,8 @@ class company
 			}
 		}
 
+		\dash\log::set('productCompanyDeleted', ['old' => $load]);
+
 		\lib\db\productcompany::delete($id);
 		if(self::$debug)
 		{
@@ -353,14 +355,16 @@ class company
 			{
 				$update = \lib\db\productcompany::update($args, $id);
 
-				if(array_key_exists('title', $args))
-				{
-					// update all product by this company
-					\lib\db\products\company::update_all_product_company_title(\lib\store::id(), $id, $args['title']);
-				}
-
 				if($update)
 				{
+					\dash\log::set('productCompanyUpdated', ['old' => $get_company, 'change' => $args]);
+
+					if(array_key_exists('title', $args))
+					{
+						// update all product by this company
+						\lib\db\products\company::update_all_product_company_title(\lib\store::id(), $id, $args['title']);
+					}
+
 					\dash\notif::ok(T_("The company successfully updated"));
 					return true;
 				}

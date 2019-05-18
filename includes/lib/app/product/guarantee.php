@@ -226,6 +226,8 @@ class guarantee
 			}
 		}
 
+		\dash\log::set('productGuaranteeDeleted', ['old' => $load]);
+
 		\lib\db\productguarantee::delete($id);
 		if(self::$debug)
 		{
@@ -353,14 +355,16 @@ class guarantee
 			{
 				$update = \lib\db\productguarantee::update($args, $id);
 
-				if(array_key_exists('title', $args))
-				{
-					// update all product by this guarantee
-					\lib\db\products\guarantee::update_all_product_guarantee_title(\lib\store::id(), $id, $args['title']);
-				}
-
 				if($update)
 				{
+					\dash\log::set('productGuaranteeUpdated', ['old' => $get_guarantee, 'change' => $args]);
+
+					if(array_key_exists('title', $args))
+					{
+						// update all product by this guarantee
+						\lib\db\products\guarantee::update_all_product_guarantee_title(\lib\store::id(), $id, $args['title']);
+					}
+
 					\dash\notif::ok(T_("The guarantee successfully updated"));
 					return true;
 				}

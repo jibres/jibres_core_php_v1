@@ -262,6 +262,8 @@ class unit
 			}
 		}
 
+		\dash\log::set('productUnitDeleted', ['old' => $load]);
+
 		\lib\db\productunit::delete($id);
 		if(self::$debug)
 		{
@@ -395,14 +397,17 @@ class unit
 			{
 				$update = \lib\db\productunit::update($args, $id);
 
-				if(array_key_exists('title', $args))
-				{
-					// update all product by this unit
-					\lib\db\products\unit::update_all_product_unit_title(\lib\store::id(), $id, $args['title']);
-				}
-
 				if($update)
 				{
+
+					\dash\log::set('productUnitUpdated', ['old' => $get_unit, 'change' => $args]);
+
+					if(array_key_exists('title', $args))
+					{
+						// update all product by this unit
+						\lib\db\products\unit::update_all_product_unit_title(\lib\store::id(), $id, $args['title']);
+					}
+
 					\dash\notif::ok(T_("The unit successfully updated"));
 					return true;
 				}
