@@ -59,6 +59,11 @@ class view
 			$args['unit_id'] = \dash\coding::decode(\dash\request::get('unitid'));
 		}
 
+		if(\dash\request::get('companyid'))
+		{
+			$args['company_id'] = \dash\coding::decode(\dash\request::get('companyid'));
+		}
+
 
 		if(\dash\request::get('duplicatetitle')) $args['duplicatetitle'] = true;
 		if(\dash\request::get('hbarcode')) $args['hbarcode'] = true;
@@ -141,6 +146,13 @@ class view
 		{
 			$args['Unit'] = isset($myProductList[0]['unit']) ? $myProductList[0]['unit'] : null;
 			unset($args['unit_id']);
+		}
+
+
+		if(isset($args['company_id']))
+		{
+			$args['Company'] = isset($myProductList[0]['company']) ? $myProductList[0]['company'] : null;
+			unset($args['company_id']);
 		}
 
 		\dash\data::filterBox(\content_a\filter::createMsg($args));

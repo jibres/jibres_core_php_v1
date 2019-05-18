@@ -58,6 +58,7 @@ trait datalist
 			'unit'     => null,
 			'cat_id'   => null,
 			'unit_id'   => null,
+			'company_id'   => null,
 		];
 
 		if(!is_array($_args))
@@ -99,6 +100,12 @@ trait datalist
 		if($option['unit_id'])
 		{
 			$field['unit_id'] = $option['unit_id'];
+		}
+
+		// search in current field
+		if($option['company_id'])
+		{
+			$field['company_id'] = $option['company_id'];
 		}
 
 		// search in current field
