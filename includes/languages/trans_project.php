@@ -188,6 +188,11 @@ class twigTransTerms
 	echo T_("Response");                                                              // Line 30
 	echo T_("Example");                                                               // Line 30
 
+	//------------------------------content_api/v6/doc/302-product-guarantee-list.html
+	echo T_("Get list of product guarantee");                                         // Line 6
+	echo T_("See the product guarantee ");                                            // Line 9
+	echo T_("To add a new guarantee, you must add a product with the same guarantee");// Line 10
+
 	//--------------------------------content_api/v6/doc/301-product-company-list.html
 	echo T_("Get list of product company");                                           // Line 6
 	echo T_("See the product company ");                                              // Line 9
