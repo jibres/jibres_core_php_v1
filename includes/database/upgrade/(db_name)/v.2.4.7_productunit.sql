@@ -33,3 +33,23 @@ ALTER TABLE `productunit` ADD INDEX `productunit_store_id_search_index` (`store_
 ALTER TABLE `productcompany` ADD INDEX `productcompany_store_id_search_index` (`store_id`);
 ALTER TABLE `products` ADD INDEX `products_unit_id_search_index` (`unit_id`);
 ALTER TABLE `products` ADD INDEX `products_company_id_search_index` (`company_id`);
+
+
+
+
+CREATE TABLE `productguarantee` (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`store_id` int(10) UNSIGNED NOT NULL,
+`title` varchar(100)CHARACTER SET utf8mb4 NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `productguarantee_store_id` FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+ALTER TABLE `products` ADD `guarantee` varchar(100) CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `company_id`;
+ALTER TABLE `products` ADD `guarantee_id` INT(10) UNSIGNED NULL DEFAULT NULL AFTER `guarantee`;
+
+ALTER TABLE `products` ADD CONSTRAINT `products_guarantee_id` FOREIGN KEY (`guarantee_id`) REFERENCES `productguarantee` (`id`) ON UPDATE CASCADE;
+ALTER TABLE `products` ADD INDEX `products_guarantee_id_search_index` (`guarantee_id`);
+
