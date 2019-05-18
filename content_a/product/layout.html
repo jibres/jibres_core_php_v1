@@ -81,7 +81,7 @@
   <option value="">{%trans "Product manufacturer"%}</option>
   {%for key, value in listCompanies%}
     {%if value.title%}
-    <option value="{{value}}"{%if value == dataRow.company %} selected{%endif%}>{{value}}</option>
+    <option value="{{value.title}}"{%if value.title == dataRow.company %} selected{%endif%}>{{value.title}}</option>
     {%endif%}
   {%endfor%}
 </select>

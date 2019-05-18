@@ -12,7 +12,7 @@ class view
 
 		\dash\data::badge_text(T_('Back to product list'));
 		\dash\data::badge_link(\dash\url::this());
-		\dash\data::listCompanies(\lib\app\product::company_list());
+		\dash\data::listCompanies(\lib\app\product\company::list());
 
 	}
 }

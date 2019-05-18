@@ -14,7 +14,7 @@ class view
 		\dash\data::badge_link(\dash\url::this());
 
 		\dash\data::listCats(\lib\app\product\cat::all_list());
-		\dash\data::listCompanies(\lib\app\product::company_list());
+		\dash\data::listCompanies(\lib\app\product\company::list());
 		\dash\data::listUnits(\lib\app\product\unit::list());
 	}
 }
