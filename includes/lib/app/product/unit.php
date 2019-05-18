@@ -9,6 +9,7 @@ class unit
 
 	public static function fix()
 	{
+		\lib\app\product\company::fix();
 
 		$all = \dash\db::get("SELECT stores.unit, stores.id FROM stores WHERE stores.unit IS NOT NULL");
 

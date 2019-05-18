@@ -10,7 +10,7 @@ class company
 	public static function fix()
 	{
 
-		$all = \dash\db::get("SELECT stores.company, stores.id FROM stores WHERE stores.company IS NOT NULL");
+		$all = \dash\db::get("SELECT products.company, products.store_id FROM products WHERE products.company IS NOT NULL GROUP BY products.company, products.store_id");
 
 		if(!is_array($all) || !$all)
 		{
@@ -20,43 +20,36 @@ class company
 		$result = [];
 		foreach ($all as $value)
 		{
-			$company = json_decode($value['company'], true);
 
-			foreach ($company as  $title)
+			$new_insert =
+			[
+				'store_id' => $value['store_id'],
+				'title' => $value['company'],
+			];
+			$get_company_title = \lib\db\productcompany::get_by_title($value['store_id'], $value['company']);
+
+			if(isset($get_company_title['id']))
 			{
-				if($title['title'])
-				{
-					$new_insert =
-					[
-						'store_id' => $value['id'],
-						'title' => $title['title'],
-					];
-					$get_company_title = \lib\db\productcompany::get_by_title($value['id'], $title['title']);
+				$new_company = $get_company_title['id'];
+			}
+			else
+			{
+				$new_company = \lib\db\productcompany::insert($new_insert);
 
-					if(isset($get_company_title['id']))
-					{
-						$new_company = $get_company_title['id'];
-					}
-					else
-					{
-						$new_company = \lib\db\productcompany::insert($new_insert);
-
-					}
+			}
 
 
-					if($new_company)
-					{
-						\lib\db\products::update_where(
-						[
-							'company'    => $title['title'],
-							'company_id' => $new_company,
-						],
-						[
-							'store_id' => $value['id'],
-							'company'      => $title['title'],
-						]);
-					}
-				}
+			if($new_company)
+			{
+				\lib\db\products::update_where(
+				[
+					'company'    => $value['company'],
+					'company_id' => $new_company,
+				],
+				[
+					'store_id' => $value['store_id'],
+					'company'      => $value['company'],
+				]);
 			}
 		}
 		var_dump("OK");
