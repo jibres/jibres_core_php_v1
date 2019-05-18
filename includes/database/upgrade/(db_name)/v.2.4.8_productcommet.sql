@@ -1,7 +1,7 @@
 CREATE TABLE `productcomment` (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `store_id` int(10) UNSIGNED NOT NULL,
-`product_id` int(10) UNSIGNED DEFAULT NULL,
+`product_id` int(10) UNSIGNED NOT NULL,
 `userstore_id` bigint(20) UNSIGNED NULL,
 `content` mediumtext CHARACTER SET utf8mb4 NOT NULL,
 `parent` bigint(20) UNSIGNED DEFAULT NULL,
