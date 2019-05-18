@@ -15,6 +15,7 @@
         {%if perm('productCategoryListView')%}<li><a href="{{url.here}}/cats"><i class="floatRa mRa10 fc-mute sf-grid-1"></i>{%trans "Categories of Product"%}</a></li>{%endif%}
         {%if perm('productUnitListView')%}<li><a href="{{url.here}}/product/units"><i class="floatRa mRa10 fc-mute sf-eye-galsses"></i>{%trans "Product Units"%}</a></li>{%endif%}
         {%if perm('productCompanyListView')%}<li><a href="{{url.here}}/product/company"><i class="floatRa mRa10 fc-mute sf-eye-galsses"></i>{%trans "Product Compnay"%}</a></li>{%endif%}
+        {%if perm('productGuaranteeListView')%}<li><a href="{{url.here}}/product/guarantee"><i class="floatRa mRa10 fc-mute sf-eye-galsses"></i>{%trans "Product Guarantee"%}</a></li>{%endif%}
 
     </ul>
   {%endif%}

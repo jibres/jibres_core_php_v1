@@ -1,0 +1,284 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+{%if editMode%}
+<div class="f justify-center">
+  <div class="c5 s12">
+    {{block('addNewGuarantee')}}
+  </div>
+</div>
+{%elseif removeMode%}
+    {{block('removeGuarantee')}}
+{%else%}
+
+    {{block('htmlTable')}}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block addNewGuarantee%}
+<div class="cbox">
+
+{%if editMode%}
+		<h3>{%trans "Edit guarantee"%} <span class="fc-green txtB">{{dataRow.title}}</span></h3>
+	{%else%}
+		<h3>{%trans "Add new guarantee"%}</h3>
+	{%endif%}
+
+  <form method="post" autocomplete="off">
+    {{block('guaranteeName')}}
+
+    {%if editMode%}
+
+      {%if dataRow.count%}
+        <p class="msg mT10 {%if dataRow.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this guarantee all product will be update to new value."%} <a class="badge" href='{{url.this}}?guaranteeid={{dataRow.id}}' title='{%trans "Click to check list of this product"%}'>{{dataRow.count | fitNumber}} {%trans "Product"%}</a></p>
+      {%else%}
+        <p class="msg mT10 info2">{%trans "No product in this guarantee"%}
+          <span class="txtB">{%trans "You can delete it now!"%}</span>
+          <a href="{{url.that}}/remove?id={{requestGET.id}}" class="badge danger mLa5">{%trans "Remove"%}</a>
+        </p>
+      {%endif%}
+
+       <div class="f mT20">
+          <div class="c pRa10">
+            <button class="btn outline warn block">{%trans "Edit"%}</button>
+          </div>
+          <div class="cauto">
+            <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+          </div>
+       </div>
+    {%else%}
+       <button class="btn primary block mT20">{%trans "Add"%}</button>
+    {%endif%}
+  </form>
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+{%block guaranteeName%}
+<label for="iguaranteename">{%trans "Title"%}</label>
+<div class="input">
+	<input type="hidden" name="oldguarantee" value="{{dataRow.title}}">
+  <input type="text" name="guarantee" id="iguaranteename" placeholder='{%trans "Guarantee name"%}' value="{{dataRow.title}}" autofocus maxlength='50' minlength="1" required>
+</div>
+{%endblock%}
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12 p0">
+  <form method="get" action='{{url.that}}'>
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}"  autocomplete='off'>
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+{%block htmlTable%}
+{%if dataTable or requestGET.q%}
+<div class="f justify-center">
+  <div class="c8 s12">
+  {{block('htmlSearchBox')}}
+  {%if dataTable%}
+    <table class="tbl1 v1 cbox fs12">
+      <thead>
+        <tr class="fs09">
+          <th>{%trans "Guarantee"%}</th>
+          <th class="txtC">{%trans "Force integer value"%}</th>
+          <th class="txtC">{%trans "Count product"%}</th>
+          <th class="txtC">{%trans "Action"%}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {%for key, value in dataTable%}
+        <tr {%if (requestGET.id) == value.id %} class="positive"{%endif%} {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
+          <td>
+            {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
+            {%if not value.title and value.title != '0' %}<small class="fc-red">{%trans "Without Guarantee"%}</small>{%else%}{{value.title}}{%endif%}
+          </td>
+          <td class="txtC">{%if value.int%}<i class="sf-check fc-green"></i>{%else%}-{%endif%}</td>
+          <td class="txtC">
+            <a href="{{url.here}}/product?guaranteeid={{value.id}}" title='{%trans "Click to check products in this guarantee"%}'>{{value.count | fitNumber}}</a>
+          </td>
+          <td class="collapsing">
+            <a class="block" href="{{url.this}}/guarantee?id={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>
+            <a class="block" href="{{url.this}}/guarantee/remove?id={{value.id}}"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm">{%trans "Remove"%}</span></a>
+
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+
+    {%include display.pagination%}
+
+    {{block('htmlFilterNoResult')}}
+
+    {%else%}
+
+      <p class="f fs14 msg warn2">
+        <spna class="c">{%trans "No result founded!"%}</spna>
+
+
+        <a class="cauto floatL" href="{{url.that}}">{%trans "Clear filters"%}</a>
+
+      </p>
+
+    {%endif%}
+  </div>
+</div>
+{%else%}
+<div class="msg info2 fs12 txtB">
+
+    {%trans "Hi!"%}
+    <br>
+    {%trans "You have not product guarantee yet!"%}
+    <br>
+    {%trans "To add a product guarantee you must set guarantee when registering or editing a product"%}
+    <a href="{{url.this}}" class="btn secondary xs">{%trans "Product list"%}</a>
+
+</div>
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block htmlFilterNoResult%}
+{%if requestGET.q%}
+<p class="f fs14 msg warn2">
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
+</p>
+{%endif%}
+{%endblock%}
+
+
+
+
+
+
+
+{%block removeGuarantee%}
+<div class="f justify-center">
+  <div class="x6 c5 m8 s12 pRa10">
+    <dvi class="cbox">
+
+        {%if dataRow.count%}
+
+          <div class="msg {%if dataRow.count < 10%} warn2 {%else%} danger2 {%endif%}">
+            <div class="msg  txtC txtB">{{dataRow.title}}</div>
+            <p>
+              <b>{{dataRow.count | fitNumber}}</b>  {%trans "Product found in this guarantee"%}
+              <br>
+              {%trans "To remove this guarantee you must set all products by this guarantee as a non product guarantee or set another guarantee for this products"%}
+            </p>
+          </div>
+
+          <div class="msg info2 txtC txtB">
+            <a href="{{url.here}}/product?guaranteeid={{dataRow.id}}">{%trans "Show product list"%} {{dataRow.title}}</a>
+          </div>
+
+          <form method="post">
+            <input type="hidden" name="type" value="remove">
+            {%if  allGuarantee | length == 1%}
+                <input type="hidden" name="whattodo" value="non-guarantee">
+
+                <div class="f mT20">
+                  <div class="c pRa10">
+                    <button class="btn danger outline block hauto" type="submit">{%trans "Set all products by this guarantee as a non product guarantee and remove this guarantee"%}</button>
+                  </div>
+                  <div class="cauto">
+                    <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+                  </div>
+               </div>
+            {%else%}
+              {{block('iWhatToDo')}}
+              {{block('iAllGuarantee')}}
+              <div data-response='whattodo' data-response-where='new-guarantee|non-guarantee' data-response-hide>
+
+                <div class="f mT20">
+                  <div class="c pRa10">
+                    <button class="btn danger outline block" type="submit">{%trans "Save and remove guarantee"%}</button>
+                  </div>
+                  <div class="cauto">
+                    <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+                  </div>
+               </div>
+              </div>
+            {%endif%}
+          </form>
+
+        {%else%}
+
+          <div class="msg info">
+            <p>
+              {%trans "Non product found by this guarantee"%}
+              <br>
+              {%trans "You can delete this guarantee now"%}
+            </p>
+          </div>
+          <form method="post">
+            <input type="hidden" name="type" value="remove">
+            <button  class="btn danger outline block mT20" type="submit">{%trans "Remove guarantee"%}</button>
+          </form>
+        {%endif%}
+
+    </dvi>
+  </div>
+</div>
+{%endblock%}
+
+
+{%block iWhatToDo%}
+<div class="f mB10">
+  <h4>{%trans "What do you want to do?"%}</h4>
+        <div class="c">
+          <div class="radio3 mB5">
+            <input type="radio" name="whattodo" value="non-guarantee" id="whattodo-non" {%if  allGuarantee | length == 1%} checked {%endif%} >
+            <label for="whattodo-non">{%trans "Set all products as a non product guarantee"%}</label>
+          </div>
+        </div>
+
+        <div class="c">
+          <div class="radio3 mB5">
+            <input type="radio" name="whattodo" value="new-guarantee" id="whattodo-new" {%if  allGuarantee | length == 1%} disabled {%endif%}>
+            <label for="whattodo-new">{%trans "Select new guarantee"%}{%if  allGuarantee | length == 1%} <small>{%trans "You have not other guarantee!"%}</small> {%endif%}</label>
+          </div>
+        </div>
+
+      </div>
+{%endblock%}
+
+
+
+{%block iAllGuarantee%}
+<div data-response='whattodo' data-response-where='new-guarantee' data-response-hide>
+
+<label for='guarantee'>{%trans "New guarantee"%}</label>
+<select name="guarantee" class="select ui dropdown search" id="guarantee">
+  <option value="">{%trans "Select new guarantee to update all product guarantee"%}</option>
+  {%for key, value in allGuarantee%}
+    {%if value.title%}
+    {%if value.id != requestGET.id%}
+      <option value="{{value.id}}">{{value.title}}</option>
+    {%endif%}
+    {%endif%}
+  {%endfor%}
+</select>
+</div>
+
+{%endblock%}

@@ -64,6 +64,11 @@ class view
 			$args['company_id'] = \dash\coding::decode(\dash\request::get('companyid'));
 		}
 
+		if(\dash\request::get('guaranteeid'))
+		{
+			$args['guarantee_id'] = \dash\coding::decode(\dash\request::get('guaranteeid'));
+		}
+
 
 		if(\dash\request::get('duplicatetitle')) $args['duplicatetitle'] = true;
 		if(\dash\request::get('hbarcode')) $args['hbarcode'] = true;
@@ -153,6 +158,12 @@ class view
 		{
 			$args['Company'] = isset($myProductList[0]['company']) ? $myProductList[0]['company'] : null;
 			unset($args['company_id']);
+		}
+
+		if(isset($args['guarantee_id']))
+		{
+			$args['Guarantee'] = isset($myProductList[0]['guarantee']) ? $myProductList[0]['guarantee'] : null;
+			unset($args['guarantee_id']);
 		}
 
 		\dash\data::filterBox(\content_a\filter::createMsg($args));

@@ -12,7 +12,8 @@ class model
 			'minstock'       => \dash\request::post('minstock'),
 			'maxstock'       => \dash\request::post('maxstock'),
 			'infinite'       => \dash\request::post('infinite'),
-			'company'       => \dash\request::post('company'),
+			'company'        => \dash\request::post('company'),
+			'guarantee'      => \dash\request::post('guarantee'),
 		];
 
 		return $args;

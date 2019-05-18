@@ -113,8 +113,15 @@ class product
 		$slug = substr($slug, 0, 199);
 
 
+		$guarantee = \dash\app::request('guarantee');
+		if($guarantee && mb_strlen($guarantee) >= 100)
+		{
+			\dash\notif::error(T_("String of product guarantee is too large"), 'guarantee');
+			return false;
+		}
+
 		$company = \dash\app::request('company');
-		if($company && mb_strlen($company) >= 200)
+		if($company && mb_strlen($company) >= 100)
 		{
 			\dash\notif::error(T_("String of product company is too large"), 'company');
 			return false;
@@ -494,6 +501,22 @@ class product
 			if(isset($add_company['title']))
 			{
 				$args['company'] = $add_company['title'];
+			}
+		}
+
+
+		if($guarantee)
+		{
+			\lib\app\product\guarantee::$debug = false;
+			$add_guarantee                     = \lib\app\product\guarantee::check_add($guarantee);
+			if(isset($add_guarantee['id']))
+			{
+				$args['guarantee_id'] = $add_guarantee['id'];
+			}
+
+			if(isset($add_guarantee['title']))
+			{
+				$args['guarantee'] = $add_guarantee['title'];
 			}
 		}
 

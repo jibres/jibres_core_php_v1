@@ -74,6 +74,21 @@
 
 
 
+{%block iGuarantee%}
+<label for='guarantee'>{%trans "Guarantee"%}</label>
+
+<select name="guarantee" class="select ui dropdown search addition" id="guarantee">
+  <option value="">{%trans "Product guarantee"%}</option>
+  {%for key, value in listGuarantee%}
+    {%if value.title%}
+    <option value="{{value.title}}"{%if value.title == dataRow.guarantee %} selected{%endif%}>{{value.title}}</option>
+    {%endif%}
+  {%endfor%}
+</select>
+
+{%endblock%}
+
+
 {%block iManufacturer%}
 <label for='company'>{%trans "Manufacturer"%}</label>
 

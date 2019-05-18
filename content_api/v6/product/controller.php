@@ -25,6 +25,10 @@ class controller
 		{
 			$detail = \content_api\v6\product\company::route();
 		}
+		elseif($directory === 'v6/product/guarantee')
+		{
+			$detail = \content_api\v6\product\guarantee::route();
+		}
 		else
 		{
 			\content_api\v6::no(404);
