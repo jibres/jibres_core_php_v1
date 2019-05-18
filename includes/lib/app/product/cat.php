@@ -368,7 +368,7 @@ class cat
 
 	public static function remove($_args, $_id)
 	{
-		if(!\dash\permission::check('productCategoryListDelete'))
+		if(!\dash\permission::check('productCategoryDelete'))
 		{
 			return false;
 		}

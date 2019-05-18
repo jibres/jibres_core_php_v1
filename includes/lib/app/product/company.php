@@ -163,7 +163,7 @@ class company
 
 	public static function remove($_args, $_id)
 	{
-		if(!\dash\permission::check('productCompanyListDelete'))
+		if(!\dash\permission::check('productCompanyDelete'))
 		{
 			return false;
 		}
@@ -319,7 +319,7 @@ class company
 
 		$get_company = \lib\db\productcompany::get_one(\lib\store::id(), $id);
 
-		if(isset($get_company['id']))
+		if(isset($get_company['id']) && isset($get_company['title']) && $get_company['title'] == $args['title'])
 		{
 			if(intval($get_company['id']) === intval($id))
 			{

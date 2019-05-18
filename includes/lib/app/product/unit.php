@@ -199,7 +199,7 @@ class unit
 
 	public static function remove($_args, $_id)
 	{
-		if(!\dash\permission::check('productUnitListDelete'))
+		if(!\dash\permission::check('productUnitDelete'))
 		{
 			return false;
 		}
@@ -355,7 +355,7 @@ class unit
 
 		$get_unit = \lib\db\productunit::get_one(\lib\store::id(), $id);
 
-		if(isset($get_unit['id']))
+		if(isset($get_unit['id']) && isset($get_unit['title']) && $get_unit['title'] == $args['title'])
 		{
 			if(intval($get_unit['id']) === intval($id))
 			{

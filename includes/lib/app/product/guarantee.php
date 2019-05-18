@@ -114,7 +114,7 @@ class guarantee
 
 	public static function remove($_args, $_id)
 	{
-		if(!\dash\permission::check('productGuaranteeListDelete'))
+		if(!\dash\permission::check('productGuaranteeDelete'))
 		{
 			return false;
 		}
@@ -270,7 +270,7 @@ class guarantee
 
 		$get_guarantee = \lib\db\productguarantee::get_one(\lib\store::id(), $id);
 
-		if(isset($get_guarantee['id']))
+		if(isset($get_guarantee['id']) && isset($get_guarantee['title']) && $get_guarantee['title'] == $args['title'])
 		{
 			if(intval($get_guarantee['id']) === intval($id))
 			{
