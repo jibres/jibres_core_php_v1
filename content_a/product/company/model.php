@@ -21,7 +21,7 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::this(). '/companys');
+				\dash\redirect::to(\dash\url::this(). '/company');
 			}
 			return;
 		}
@@ -34,7 +34,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this(). '/companys');
+			\dash\redirect::to(\dash\url::this(). '/company');
 		}
 
 	}

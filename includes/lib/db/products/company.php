@@ -1,6 +1,7 @@
 <?php
 namespace lib\db\products;
 
+
 class company
 {
 	// get count of produc by one company

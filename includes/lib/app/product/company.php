@@ -215,7 +215,7 @@ class company
 
 		$id = \dash\coding::decode($_id);
 
-		$count_product = \lib\db\products::get_count_company(\lib\store::id(), $id);
+		$count_product = \lib\db\products\company::get_count_company(\lib\store::id(), $id);
 		$count_product = intval($count_product);
 
 		if($count_product > 0)
@@ -253,11 +253,11 @@ class company
 				$new_company_id    = $check['id'];
 				$new_company_title = $check['title'];
 
-				\lib\db\products::update_all_product_by_company(\lib\store::id(), $new_company_id, $new_company_title, $old_company_id);
+				\lib\db\products\company::update_all_product_by_company(\lib\store::id(), $new_company_id, $new_company_title, $old_company_id);
 			}
 			else
 			{
-				\lib\db\products::update_all_product_by_company(\lib\store::id(), null, null, $old_company_id);
+				\lib\db\products\company::update_all_product_by_company(\lib\store::id(), null, null, $old_company_id);
 			}
 		}
 
@@ -314,7 +314,7 @@ class company
 			return false;
 		}
 
-		$load['count'] = \lib\db\products::get_count_company(\lib\store::id(), $id);
+		$load['count'] = \lib\db\products\company::get_count_company(\lib\store::id(), $id);
 		$load = self::ready($load);
 		return $load;
 	}
@@ -397,7 +397,7 @@ class company
 				if(array_key_exists('title', $args))
 				{
 					// update all product by this company
-					\lib\db\products::update_all_product_company_title(\lib\store::id(), $id, $args['title']);
+					\lib\db\products\company::update_all_product_company_title(\lib\store::id(), $id, $args['title']);
 				}
 
 				if($update)
