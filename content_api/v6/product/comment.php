@@ -11,13 +11,13 @@ class comment
 			$product_id = \dash\request::get('product');
 			if(!$product_id)
 			{
-				\dash\notif::error(T_("Product id not set"));
+				\dash\notif::error(T_("Product id not set"), ['code' => 1, 'element' => 'product']);
 				return false;
 			}
 
 			if(!\dash\coding::decode($product_id))
 			{
-				\dash\notif::error(T_("Invalid product id"));
+				\dash\notif::error(T_("Invalid product id"), ['code' => 2, 'element' => 'product']);
 				return false;
 			}
 
