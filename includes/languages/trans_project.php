@@ -5,7 +5,7 @@ class twigTransTerms
  {
 
 	//-----------------------------------------------------------content_i/layout.html
-	echo T_("Manage");                                                                // Line 618
+	echo T_("Manage");                                                                // Line 623
 
 	//--------------------------------------------------content_i/category/layout.html
 	echo T_("Parent");                                                                // Line 123
@@ -19,7 +19,7 @@ class twigTransTerms
 	//--------------------------------------------content_i/category/home/display.html
 	echo T_("Search");                                                                // Line 47
 	echo T_("Use in incoming");                                                       // Line 59
-	echo T_("Status");                                                                // Line 71
+	echo T_("Status");                                                                // Line 47
 	echo T_("Date created");                                                          // Line 65
 	echo T_("Edit on");                                                               // Line 98
 	echo T_("Clear filters");                                                         // Line 108
@@ -176,9 +176,10 @@ class twigTransTerms
 	echo T_("example");                                                               // Line 22
 	echo T_("Constraints");                                                           // Line 8
 	echo T_("Your store subdomain");                                                  // Line 19
-	echo T_("Required");                                                              // Line 39
-	echo T_("Get from your account");                                                 // Line 34
-	echo T_("Click here to get your apikey");                                         // Line 35
+	echo T_("Required");                                                              // Line 55
+	echo T_("Get from your account");                                                 // Line 50
+	echo T_("Click here to get your appkey");                                         // Line 35
+	echo T_("Click here to get your apikey");                                         // Line 51
 
 	//-----------------------------------content_api/v6/doc/300-product-unit-list.html
 	echo T_("Get list of product units");                                             // Line 6
@@ -258,7 +259,7 @@ class twigTransTerms
 	echo T_("News Code");                                                             // Line 42
 	echo T_("Download");                                                              // Line 79
 	echo T_("PDF");                                                                   // Line 70
-	echo T_("Comment");                                                               // Line 125
+	echo T_("Comment");                                                               // Line 45
 	echo T_("Full Name");                                                             // Line 15
 	echo T_("Mobile");                                                                // Line 161
 	echo T_("Please enter valid mobile number. `:val` is incorrect");                 // Line 19
@@ -817,7 +818,7 @@ class twigTransTerms
 	echo T_("Profile");                                                               // Line 432
 	echo T_("Logs");                                                                  // Line 450
 	echo T_("Notes");                                                                 // Line 465
-	echo T_("General");                                                               // Line 610
+	echo T_("General");                                                               // Line 615
 	echo T_("Identify");                                                              // Line 475
 	echo T_("avatar");                                                                // Line 478
 	echo T_("Company Detail");                                                        // Line 481
@@ -1013,7 +1014,7 @@ class twigTransTerms
 	echo T_("Price change");                                                          // Line 560
 	echo T_("Gallery");                                                               // Line 49
 	echo T_("Property");                                                              // Line 22
-	echo T_("Sale gateway");                                                          // Line 622
+	echo T_("Sale gateway");                                                          // Line 627
 
 	//------------------------------------------content_a/product/gallery/display.html
 	echo T_("Add to gallery");                                                        // Line 31
@@ -1029,6 +1030,23 @@ class twigTransTerms
 	echo T_("Add or select");                                                         // Line 67
 	echo T_("key");                                                                   // Line 103
 	echo T_("Value");                                                                 // Line 87
+
+	//------------------------------------------content_a/product/comment/display.html
+	echo T_("Star");                                                                  // Line 46
+	echo T_("No result founded!");                                                    // Line 133
+	echo T_("No comment added for this product!");                                    // Line 99
+	echo T_("Remove comment");                                                        // Line 154
+	echo T_("Cancel");                                                                // Line 218
+	echo T_("Status of comment");                                                     // Line 173
+	echo T_("Approved");                                                              // Line 177
+	echo T_("Show in website");                                                       // Line 85
+	echo T_("Awaiting");                                                              // Line 182
+	echo T_("Waiting to check");                                                      // Line 182
+	echo T_("Unapproved");                                                            // Line 187
+	echo T_("Dont show in website");                                                  // Line 187
+	echo T_("Spam");                                                                  // Line 192
+	echo T_("Your rate");                                                             // Line 37
+	echo T_("Write your comment...");                                                 // Line 57
 
 	//-----------------------------------------content_a/product/pricehistory/chart.js
 	echo T_("Price change in time line");                                             // Line 26
@@ -1105,13 +1123,11 @@ class twigTransTerms
 	echo T_("Click to check list of this product");                                   // Line 38
 	echo T_("No product in this company");                                            // Line 40
 	echo T_("You can delete it now!");                                                // Line 41
-	echo T_("Cancel");                                                                // Line 218
 	echo T_("Company");                                                               // Line 98
 	echo T_("Force integer value");                                                   // Line 99
 	echo T_("Count product");                                                         // Line 100
 	echo T_("Without Company");                                                       // Line 110
 	echo T_("Click to check products in this company");                               // Line 114
-	echo T_("No result founded!");                                                    // Line 133
 	echo T_("You have not product company yet!");                                     // Line 148
 	echo T_("To add a product company you must set company when registering or editing a product");// Line 150
 	echo T_("Product list");                                                          // Line 151
@@ -1223,7 +1239,6 @@ class twigTransTerms
 	echo T_("Max 1Mb");                                                               // Line 62
 	echo T_("Is default category?");                                                  // Line 75
 	echo T_("Not show in site");                                                      // Line 83
-	echo T_("Show in website");                                                       // Line 85
 	echo T_("Yes");                                                                   // Line 86
 	echo T_("No");                                                                    // Line 87
 	echo T_("Decimal or Integer");                                                    // Line 97
@@ -1336,6 +1351,9 @@ class twigTransTerms
 	echo T_("Cart");                                                                  // Line 40
 
 	//------------------------------------------------content_subdomain/home/site.html
+
+	//------------------------------------------content_subdomain/product/display.html
+	echo T_("Submit");                                                                // Line 29
 
  }
 }
