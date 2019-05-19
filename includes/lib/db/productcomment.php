@@ -62,5 +62,54 @@ class productcomment
 		return $result;
 	}
 
+
+	public static function get_page_list($_store_id, $_string = null, $product_id = null)
+	{
+		$q = null;
+		if(isset($_string))
+		{
+			$_string = \dash\db\safe::value($_string);
+			$q       = "AND productcomment.content LIKE '%$_string%' ";
+		}
+
+		$product_id = null;
+		if(isset($_product_id) && is_numeric($_product_id))
+		{
+			$product_id = "AND productcomment.product_id = $_product_id ";
+		}
+
+		$pagination_query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				productcomment
+			WHERE
+				productcomment.store_id = $_store_id
+				$q $product_id
+		";
+
+		$limit = \dash\db::pagination_query($pagination_query);
+
+		$query =
+		"
+			SELECT
+				productcomment.id,
+				productcomment.content,
+				productcomment.star,
+				productcomment.datecreated
+			FROM
+				productcomment
+			WHERE
+				productcomment.store_id = $_store_id
+				$q $product_id
+			ORDER BY
+				productcomment.datecreated DESC
+			$limit
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
 }
 ?>

@@ -1,0 +1,132 @@
+{%extends "content_a/product/layout.html"%}
+
+
+{%block pageContent%}
+{{block('pageSteps')}}
+{{block('pageStepsSite')}}
+<div class="f">
+ <div class="cauto s12 pA10">
+{{block("psidebar")}}
+ </div>
+ <div class="c s12 pA10">
+  {{block('iFormThumb')}}
+  {{block('iDataForm')}}
+ </div>
+</div>
+{%endblock%}
+
+{%block iDataForm%}
+
+{{block('htmlTable')}}
+
+
+{%endblock%}
+
+
+
+
+
+
+{%block htmlTable%}
+{%if dataTable or requestGET.q%}
+<div class="f justify-center">
+  <div class="c12 s12">
+  {{block('htmlSearchBox')}}
+  {%if dataTable%}
+    <table class="tbl1 v1  fs12">
+      <thead>
+        <tr class="fs09">
+
+          <th class="">{%trans "Comment"%}</th>
+          <th class="txtC">{%trans "Star"%}</th>
+          <th class="txtC">{%trans "Date"%}</th>
+          <th class="txtC">{%trans "Action"%}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {%for key, value in dataTable%}
+        <tr {%if (requestGET.id) == value.id %} class="positive"{%endif%}>
+          <td>
+            {{value.content}}
+          </td>
+          <td class="collapsing">
+            {{value.star | fitNumber}}
+          </td>
+          <td class="collapsing">
+            {{value.datecreated | dt(true)}}
+            <small class="block">
+              {{value.datecreated | dt('human', 'year')}}
+            </small>
+          </td>
+
+          <td class="collapsing">
+            <a class="block" href="{{url.that}}?id={{requestGET.id}}&commentid={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>
+            <a class="block" href="{{url.that}}/remove?id={{requestGET.id}}&commentid={{value.id}}"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm">{%trans "Remove"%}</span></a>
+
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+
+    {%include display.pagination%}
+
+    {{block('htmlFilterNoResult')}}
+
+    {%else%}
+
+      <p class="f fs14 msg warn2">
+        <spna class="c">{%trans "No result founded!"%}</spna>
+
+
+        <a class="cauto floatL" href="{{url.that}}?id={{requestGET.id}}">{%trans "Clear filters"%}</a>
+
+      </p>
+
+    {%endif%}
+  </div>
+</div>
+{%else%}
+<div class="msg info2 fs12 txtB">
+
+    {%trans "Hi!"%}
+    <br>
+    {%trans "No comment added for this product!"%}
+    <br>
+
+
+</div>
+{%endif%}
+
+{%endblock%}
+
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12 p0">
+  <form method="get" action='{{url.that}}'>
+    <input type="hidden" name="id" value="{{requestGET.id}}">
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}"  autocomplete='off'>
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+{%if requestGET.q%}
+<p class="f fs14 msg warn2">
+  <a class="cauto" href="{{url.that}}?id={{requestGET.id}}">{%trans "Clear filters"%}</a>
+</p>
+{%endif%}
+{%endblock%}
+
+
+
+
+

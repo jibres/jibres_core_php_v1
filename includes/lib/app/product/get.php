@@ -4,6 +4,38 @@ namespace lib\app\product;
 
 trait get
 {
+		/**
+	 * Gets the product.
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  The product.
+	 */
+	public static function inline_get($_id)
+	{
+
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store id not found"));
+			return false;
+		}
+
+		$id = \dash\coding::decode($_id);
+
+		if(!$id)
+		{
+			return false;
+		}
+
+		$result = \lib\db\products::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		return $result;
+	}
 
 
 	/**

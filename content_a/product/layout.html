@@ -519,7 +519,7 @@
   </div>
 
   <div class="c s6">
-    <a class="dcard {%if url.child in ['gallery', 'site', 'thumb', 'desc', 'comment', 'property'] %}active{%endif%}" href='{{url.this}}/gallery?id={{requestGET.id}}' data-shortkey="49shift">
+    <a class="dcard {%if url.child in ['gallery', 'site', 'thumb', 'desc', 'comment', 'property', 'comment'] %}active{%endif%}" href='{{url.this}}/gallery?id={{requestGET.id}}' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><i class="sf-mouse-pointer"></i></div>
       <div class="label">{%trans "Site"%} <kbd>T+2</kbd></div>
@@ -592,6 +592,11 @@
 
   <div class="c pB10 pRa10">
     <a class="btn block {%if url.child=='desc'%} primary{%else%} light{%endif%}" href='{{url.this}}/desc?id={{requestGET.id}}'>{%trans "Description"%}</a>
+  </div>
+
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='comment'%} primary{%else%} light{%endif%}" href='{{url.this}}/comment?id={{requestGET.id}}'>{%trans "Comment"%}</a>
   </div>
 
 
