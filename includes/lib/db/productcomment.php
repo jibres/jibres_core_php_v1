@@ -98,9 +98,14 @@ class productcomment
 				productcomment.content,
 				productcomment.star,
 				productcomment.status,
-				productcomment.datecreated
+				productcomment.datecreated,
+				productcomment.userstore_id,
+				userstores.avatar,
+				userstores.displayname,
+				userstores.gender
 			FROM
 				productcomment
+			INNER JOIN userstores ON userstores.id = productcomment.userstore_id
 			WHERE
 				productcomment.store_id = $_store_id
 				$q $product_id

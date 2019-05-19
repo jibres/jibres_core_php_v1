@@ -385,6 +385,8 @@ class comment
 			return false;
 		}
 
+		$gender = isset($_data['gender']) ? $_data['gender'] : null;
+
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
@@ -395,11 +397,30 @@ class comment
 					$result[$key] = \dash\coding::encode($value);
 					break;
 
+				case 'userstore_id':
+					$result['user'] = \dash\coding::encode($value);
+					break;
+
 				case 'status':
 					$result[$key]      = $value;
 					$result['tstatus'] = T_($value);
 					break;
 
+				case 'displayname':
+					if(!$value)
+					{
+						$value = T_("Whitout name");
+					}
+					$result[$key] = $value;
+					break;
+
+				case 'avatar':
+					if(!$value)
+					{
+						$value = \dash\app::static_avatar_url($gender);
+					}
+					$result[$key] = $value;
+					break;
 
 				default:
 					$result[$key] = $value;

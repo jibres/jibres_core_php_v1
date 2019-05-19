@@ -42,6 +42,7 @@
       <thead>
         <tr class="fs09">
 
+          <th class="">{%trans "User"%}</th>
           <th class="">{%trans "Comment"%}</th>
           <th class="txtC">{%trans "Star"%}</th>
           <th class="txtC">{%trans "Status"%}</th>
@@ -53,6 +54,13 @@
       <tbody>
         {%for key, value in dataTable%}
         <tr {%if (requestGET.id) == value.id %} class="positive"{%endif%}>
+          <td class="collapsing">
+            <a href="{{url.here}}/thirdparty/general?id={{value.user}}">
+              <img src="{{value.avatar}}" class="avatar mRa5" alt="{{value.displayname}}">
+              <span class="txtB s0 fs08">{{value.displayname}}</span>
+            </a>
+          </td>
+
           <td>
             {{value.content}}
           </td>
@@ -174,7 +182,7 @@
 
  <div class="radio1 green">
   <input type="radio" id="r-approved" name="status" value="approved" {%if commentDataRow.status == 'approved' or not commentDataRow.status %} checked{%endif%}>
-  <label for="r-approved">{%trans "Approved"%} <small>{%trans "Show in website"%}</small></label>
+  <label for="r-approved">{%trans "Approved"%} <small>{%trans "For show in website"%}</small></label>
  </div>
 
  <div class="radio1 blue">

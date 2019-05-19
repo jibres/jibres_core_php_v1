@@ -84,11 +84,14 @@ class userstore
 
 				$insert_userstore =
 				[
-					'store_id'  => \lib\store::id(),
-					'user_id'   => \dash\user::id(),
-					'mobile'    => \dash\user::detail('mobile'),
-					'firstname' => \dash\user::detail('displayname') ?  \dash\user::detail('displayname') : null,
-					'gender'    => \dash\user::detail('gender'),
+					'store_id'    => \lib\store::id(),
+					'user_id'     => \dash\user::id(),
+					'mobile'      => \dash\user::detail('mobile'),
+					'displayname' => \dash\user::detail('displayname') ?  \dash\user::detail('displayname') : null,
+					'firstname'   => \dash\user::detail('firstname') ?  \dash\user::detail('firstname') : null,
+					'lastname'    => \dash\user::detail('lastname') ?  \dash\user::detail('lastname') : null,
+					'avatar'      => \dash\user::detail('avatar') ?  \dash\user::detail('avatar') : null,
+					'gender'      => \dash\user::detail('gender'),
 				];
 
 				$id = \lib\db\userstores::insert($insert_userstore);
