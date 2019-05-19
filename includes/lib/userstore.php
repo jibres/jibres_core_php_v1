@@ -57,9 +57,46 @@ class userstore
 	}
 
 
-	public static function force_set($_store_id, $_user_id)
+	public static function force_id()
 	{
+		if(!\lib\store::id() || !\dash\user::id())
+		{
+			return false;
+		}
 
+		if(self::id())
+		{
+			return self::id();
+		}
+		else
+		{
+			$get = ['store_id' => \lib\store::id(), 'user_id' => \dash\user::id(), 'limit' => 1];
+
+			$userstore_detail = \lib\db\userstores::get($get);
+
+			if(isset($userstore_detail['id']))
+			{
+				return $userstore_detail['id'];
+			}
+			else
+			{
+
+
+				$insert_userstore =
+				[
+					'store_id'  => \lib\store::id(),
+					'user_id'   => \dash\user::id(),
+					'mobile'    => \dash\user::detail('mobile'),
+					'firstname' => \dash\user::detail('displayname') ?  \dash\user::detail('displayname') : null,
+					'gender'    => \dash\user::detail('gender'),
+				];
+
+				$id = \lib\db\userstores::insert($insert_userstore);
+
+				return $id;
+			}
+
+		}
 	}
 
 

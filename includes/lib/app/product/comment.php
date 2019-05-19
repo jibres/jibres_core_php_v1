@@ -16,7 +16,7 @@ class comment
 		}
 
 		$star = \dash\app::request('star');
-		if(\dash\app::isset_request('star') && !in_array((string) $star, ['1','2','3','4','5']))
+		if($star && !in_array((string) $star, ['1','2','3','4','5']))
 		{
 			\dash\notif::error(T_("Invalid star number"));
 			return false;
@@ -71,6 +71,12 @@ class comment
 			return false;
 		}
 
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Plese login to continue"));
+			return false;
+		}
+
 		// user must be login
 		// and if not have record in userstore
 		// first add this user to userstore and then get userstore id to save in comment
@@ -86,7 +92,7 @@ class comment
 		}
 
 		$args['store_id']     = \lib\store::id();
-		$args['userstore_id'] = \lib\userstore::id();
+		$args['userstore_id'] = \lib\userstore::force_id(\lib\store::id(), \dash\user::id());
 		$args['ip']           = \dash\server::ip(true);
 
 		if(!$args['status'])
