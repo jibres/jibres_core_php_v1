@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Company of products'));
+		\dash\data::page_title(T_('Comment of product'));
 		\dash\data::page_desc(T_('You can manage your comment manually.'));
 		\dash\data::page_pictogram('eye-galsses');
 
