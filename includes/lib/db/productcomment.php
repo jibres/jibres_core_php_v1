@@ -89,7 +89,7 @@ class productcomment
 	}
 
 
-	public static function get_page_list($_store_id, $_string = null, $product_id = null)
+	public static function get_page_list($_store_id, $_string = null, $_product_id = null)
 	{
 		$q = null;
 		if(isset($_string))
