@@ -97,6 +97,7 @@ class productcomment
 				productcomment.id,
 				productcomment.content,
 				productcomment.star,
+				productcomment.status,
 				productcomment.datecreated
 			FROM
 				productcomment

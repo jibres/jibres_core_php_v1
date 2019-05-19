@@ -7,6 +7,7 @@ class comment
 
 	private static function check($_id = null)
 	{
+		$args               = [];
 		$content = \dash\app::request('content');
 
 		if(mb_strlen($content) > 5000)
@@ -28,12 +29,24 @@ class comment
 			return false;
 		}
 
-		$product = \dash\app::request('product');
-		$product = \dash\coding::decode($product);
-		if(!$product)
+		if(\dash\app::isset_request('product'))
 		{
-			\dash\notif::error(T_("Invalid product id"));
-			return false;
+
+			$product = \dash\app::request('product');
+			$product = \dash\coding::decode($product);
+			if(!$product)
+			{
+				\dash\notif::error(T_("Invalid product id"));
+				return false;
+			}
+			$load_product = \lib\db\products::get_one(\lib\store::id(), $product);
+			if(!isset($load_product['id']))
+			{
+				\dash\notif::error(T_("Product not found"));
+				return false;
+			}
+
+			$args['product_id'] = $load_product['id'];
 		}
 
 		$status = \dash\app::request('status');
@@ -43,20 +56,9 @@ class comment
 			return false;
 		}
 
-		$load_product = \lib\db\products::get_one(\lib\store::id(), $product);
-		if(!isset($load_product['id']))
-		{
-			\dash\notif::error(T_("Product not found"));
-			return false;
-		}
-
-
-
-		$args               = [];
-		$args['content']    = $content;
-		$args['star']       = $star;
-		$args['status']       = $status;
-		$args['product_id'] = $load_product['id'];
+		$args['content'] = $content;
+		$args['star']    = $star;
+		$args['status']  = $status;
 
 		return $args;
 
@@ -111,6 +113,12 @@ class comment
 
 		if($args === false || !\dash\engine\process::status())
 		{
+			return false;
+		}
+
+		if(!isset($args['product_id']))
+		{
+			\dash\notif::error(T_("Invalid product id"));
 			return false;
 		}
 
@@ -202,7 +210,7 @@ class comment
 
 		\dash\log::set('productCommentDeleted', ['old' => $load]);
 
-		\lib\db\productcomment::delete($id);
+		\lib\db\productcomment::delete($load['id']);
 
 		\dash\notif::ok(T_("Comment successfully removed"));
 
@@ -290,8 +298,6 @@ class comment
 		}
 
 		$get_comment = \lib\db\productcomment::get_one(\lib\store::id(), $id);
-
-
 
 
 		if(!\dash\app::isset_request('content')) unset($args['content']);
@@ -388,6 +394,12 @@ class comment
 				case 'product_id':
 					$result[$key] = \dash\coding::encode($value);
 					break;
+
+				case 'status':
+					$result[$key]      = $value;
+					$result['tstatus'] = T_($value);
+					break;
+
 
 				default:
 					$result[$key] = $value;

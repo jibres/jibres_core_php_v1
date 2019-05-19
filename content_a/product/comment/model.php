@@ -8,30 +8,29 @@ class model
 	{
 
 		// remove comment
-		if(\dash\request::post('type') === 'remove' && \dash\data::removeMode())
+		if(\dash\request::post('type') === 'remove' && \dash\data::editMode())
 		{
-			$args             = [];
-			$args['whattodo'] = \dash\request::post('whattodo');
-			$args['comment']  = \dash\request::post('comment');
 
-			\lib\app\product\comment::remove($args, \dash\request::get('id'));
+			\lib\app\product\comment::remove(\dash\request::post('commentid'));
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::this(). '/comment');
+				\dash\redirect::to(\dash\url::that(). '?id='. \dash\request::get('id'));
 			}
 			return;
 		}
 
-		$args                = [];
+		$args            = [];
+		$args['star']    = \dash\request::post('star');
+		$args['content'] = \dash\request::post('content');
+		$args['status']  = \dash\request::post('status');
 
-		$args['title']       = \dash\request::post('comment');
+		$result = \lib\app\product\comment::edit($args, \dash\request::get('commentid'));
 
-		$result = \lib\app\product\comment::edit($args, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this(). '/comment');
+			\dash\redirect::to(\dash\url::that(). '?id='. \dash\request::get('id'));
 		}
 
 	}

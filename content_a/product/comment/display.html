@@ -17,7 +17,12 @@
 
 {%block iDataForm%}
 
+{%if requestGET.commentid%}
+{{block('iCommentForm')}}
+
+{%else%}
 {{block('htmlTable')}}
+{%endif%}
 
 
 {%endblock%}
@@ -39,6 +44,7 @@
 
           <th class="">{%trans "Comment"%}</th>
           <th class="txtC">{%trans "Star"%}</th>
+          <th class="txtC">{%trans "Status"%}</th>
           <th class="txtC">{%trans "Date"%}</th>
           <th class="txtC">{%trans "Action"%}</th>
         </tr>
@@ -54,6 +60,9 @@
             {{value.star | fitNumber}}
           </td>
           <td class="collapsing">
+            {{value.tstatus}}
+          </td>
+          <td class="collapsing">
             {{value.datecreated | dt(true)}}
             <small class="block">
               {{value.datecreated | dt('human', 'year')}}
@@ -62,8 +71,6 @@
 
           <td class="collapsing">
             <a class="block" href="{{url.that}}?id={{requestGET.id}}&commentid={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>
-            <a class="block" href="{{url.that}}/remove?id={{requestGET.id}}&commentid={{value.id}}"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm">{%trans "Remove"%}</span></a>
-
           </td>
         </tr>
         {%endfor%}
@@ -78,10 +85,7 @@
 
       <p class="f fs14 msg warn2">
         <spna class="c">{%trans "No result founded!"%}</spna>
-
-
-        <a class="cauto floatL" href="{{url.that}}?id={{requestGET.id}}">{%trans "Clear filters"%}</a>
-
+         <a class="cauto floatL" href="{{url.that}}?id={{requestGET.id}}">{%trans "Clear filters"%}</a>
       </p>
 
     {%endif%}
@@ -130,3 +134,88 @@
 
 
 
+
+
+
+
+{%block iCommentForm%}
+<div class="cbox">
+
+  <form method="post" >
+
+    {{block('iRadioRating')}}
+    {{block('iComment')}}
+    {{block('iStatus')}}
+    <div class="f">
+      <div class="c">
+        <button class="btn primary block mT20">{%trans "Edit"%}</button>
+      </div>
+      <div class="cauto mLa5">
+        <button data-confirm data-data='{"commentid" : "{{requestGET.commentid}}", "type" : "remove"}' class="btn danger outline block mT20">{%trans "Remove comment"%}</button>
+      </div>
+      <div class="cauto mLa5">
+        <a href="{{url.that}}?id={{requestGET.id}}" class="btn secondary outline mT20">{%trans "Cancel"%}</a>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+{%endblock%}
+
+
+
+
+
+
+{%block iStatus%}
+<div class="mT15">
+ <label >{%trans "Status of comment"%}</label>
+
+ <div class="radio1 green">
+  <input type="radio" id="r-approved" name="status" value="approved" {%if commentDataRow.status == 'approved' or not commentDataRow.status %} checked{%endif%}>
+  <label for="r-approved">{%trans "Approved"%} <small>{%trans "Show in website"%}</small></label>
+ </div>
+
+ <div class="radio1 blue">
+  <input type="radio" id="r-awaiting" name="status" value="awaiting" {%if commentDataRow.status == 'awaiting' %} checked{%endif%}>
+  <label for="r-awaiting">{%trans "Awaiting"%} <small>{%trans "Waiting to check"%}</small></label>
+ </div>
+
+ <div class="radio1 yellow">
+  <input type="radio" id="r-unapproved" name="status" value="unapproved" {%if commentDataRow.status == 'unapproved' %} checked{%endif%}>
+  <label for="r-unapproved">{%trans "Unapproved"%} <small>{%trans "Dont show in website"%}</small></label>
+ </div>
+
+ <div class="radio1 red">
+  <input type="radio" id="r-spam" name="status" value="spam" {%if commentDataRow.status == 'spam' %} checked{%endif%}>
+  <label for="r-spam">{%trans "Spam"%} </label>
+ </div>
+</div>
+{%endblock%}
+
+
+{%block iRadioRating%}
+<label>{%trans "Your rate"%}</label>
+<div class="radioRating togglable">
+  <div class="rateBox">
+    <input type="radio" name="star" id="star-1" value="1" {%if commentDataRow.star == '1'%} checked {%endif%}>
+    <label for="star-1"></label>
+    <input type="radio" name="star" id="star-2" value="2" {%if commentDataRow.star == '2'%} checked {%endif%}>
+    <label for="star-2"></label>
+    <input type="radio" name="star" id="star-3" value="3" {%if commentDataRow.star == '3'%} checked {%endif%}>
+    <label for="star-3"></label>
+    <input type="radio" name="star" id="star-4" value="4" {%if commentDataRow.star == '4'%} checked {%endif%}>
+    <label for="star-4"></label>
+    <input type="radio" name="star" id="star-5" value="5" {%if commentDataRow.star == '5'%} checked {%endif%}>
+    <label for="star-5"></label>
+  </div>
+</div>
+{%endblock%}
+
+{%block iComment%}
+<div class="input">
+
+  <textarea name="content" class="txt" rows="5" placeholder='{%trans "Write your comment..."%}'>{{commentDataRow.content}}</textarea>
+</div>
+{%endblock%}

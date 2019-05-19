@@ -7,28 +7,21 @@ class controller
 	{
 		\content_a\product\load::product();
 
-		if(\dash\url::subchild() === 'remove' && \dash\request::get('commentid'))
-		{
-			\dash\open::get();
-			\dash\open::post();
-			\dash\data::removeMode(true);
-		}
 
 		if(\dash\request::get('commentid'))
 		{
-			if(!\dash\data::removeMode())
-			{
-				\dash\data::editMode(true);
-			}
-			$id      = \dash\request::get('commentid');
-			$dataRow = \lib\app\product\comment::get($id);
 
-			if(!$dataRow)
+			\dash\data::editMode(true);
+
+			$id      = \dash\request::get('commentid');
+			$commentDataRow = \lib\app\product\comment::get($id);
+
+			if(!$commentDataRow)
 			{
 				\dash\header::status(404, T_("Invalid product comment id"));
 			}
 
-			\dash\data::dataRow($dataRow);
+			\dash\data::commentDataRow($commentDataRow);
 		}
 		else
 		{
