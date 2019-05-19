@@ -89,13 +89,19 @@ class productcomment
 	}
 
 
-	public static function get_page_list($_store_id, $_string = null, $_product_id = null)
+	public static function get_page_list($_store_id, $_string = null, $_product_id = null, $_status = null)
 	{
 		$q = null;
 		if(isset($_string))
 		{
 			$_string = \dash\db\safe::value($_string);
 			$q       = "AND productcomment.content LIKE '%$_string%' ";
+		}
+
+		$status = null;
+		if(isset($_status))
+		{
+			$status = "AND productcomment.status = '$_status' ";
 		}
 
 		$product_id = null;
@@ -112,7 +118,7 @@ class productcomment
 				productcomment
 			WHERE
 				productcomment.store_id = $_store_id
-				$q $product_id
+				$q $product_id $status
 		";
 
 		$limit = \dash\db::pagination_query($pagination_query);
@@ -134,7 +140,7 @@ class productcomment
 			INNER JOIN userstores ON userstores.id = productcomment.userstore_id
 			WHERE
 				productcomment.store_id = $_store_id
-				$q $product_id
+				$q $product_id $status
 			ORDER BY
 				productcomment.datecreated DESC
 			$limit

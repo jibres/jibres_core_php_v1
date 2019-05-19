@@ -10,7 +10,6 @@ class controller
 
 		\content_api\v6\access::store();
 
-		\content_api\v6\access::user();
 
 
 		$detail    = [];
@@ -19,15 +18,23 @@ class controller
 
 		if($directory === 'v6/product/unit')
 		{
+			\content_api\v6\access::user();
 			$detail = \content_api\v6\product\unit::route();
 		}
 		elseif($directory === 'v6/product/company')
 		{
+			\content_api\v6\access::user();
 			$detail = \content_api\v6\product\company::route();
 		}
 		elseif($directory === 'v6/product/guarantee')
 		{
+			\content_api\v6\access::user();
 			$detail = \content_api\v6\product\guarantee::route();
+		}
+		elseif($directory === 'v6/product/comment')
+		{
+			// need less to check user
+			$detail = \content_api\v6\product\comment::route();
 		}
 		else
 		{

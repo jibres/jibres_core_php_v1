@@ -53,7 +53,7 @@
 
       <tbody>
         {%for key, value in dataTable%}
-        <tr {%if (requestGET.id) == value.id %} class="positive"{%endif%}>
+        <tr {%if value.status == 'approved' %} class="positive"{%endif%}>
           <td class="collapsing">
             <a href="{{url.here}}/thirdparty/general?id={{value.user}}">
               <img src="{{value.avatar}}" class="avatar mRa5" alt="{{value.displayname}}">

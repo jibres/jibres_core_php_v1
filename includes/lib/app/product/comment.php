@@ -64,6 +64,28 @@ class comment
 
 	}
 
+	public static function approved_of_product($_product_id, $_string = null)
+	{
+		$product_id = \dash\coding::decode($_product_id);
+		if(!$product_id)
+		{
+			\dash\notif::error(T_("Invalid product id"));
+			return false;
+		}
+
+		$list = \lib\db\productcomment::get_page_list(\lib\store::id(), $_string, $product_id, 'approved');
+
+		if(is_array($list))
+		{
+			$list = array_map(['self', 'ready'], $list);
+		}
+		else
+		{
+			$list = [];
+		}
+		return $list;
+	}
+
 
 	public static function of_product($_product_id, $_string = null)
 	{
