@@ -255,7 +255,7 @@ class comment
 			return false;
 		}
 
-		$load = \lib\db\productcomment::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productcomment::get_one_by_detail(\lib\store::id(), $id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid comment id"));

@@ -45,6 +45,32 @@ class productcomment
 		return $result;
 	}
 
+	// get one record of product comment
+	public static function get_one_by_detail($_store_id, $_id)
+	{
+		$query  =
+		"
+			SELECT
+				productcomment.id,
+				productcomment.content,
+				productcomment.star,
+				productcomment.status,
+				productcomment.datecreated,
+				productcomment.userstore_id,
+				userstores.avatar,
+				userstores.displayname,
+				userstores.gender
+			FROM
+				productcomment
+			INNER JOIN userstores ON userstores.id = productcomment.userstore_id
+			WHERE
+				productcomment.store_id = $_store_id AND
+				productcomment.id = $_id
+			LIMIT 1
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
 
 	// get one record of product comment
 	public static function get_one($_store_id, $_id)

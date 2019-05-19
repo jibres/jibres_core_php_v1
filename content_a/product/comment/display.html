@@ -148,7 +148,12 @@
 
 {%block iCommentForm%}
 <div class="cbox">
-
+  <div class="msg">
+    <a href="{{url.here}}/thirdparty/general?id={{commentDataRow.user}}">
+      <img src="{{commentDataRow.avatar}}" class="avatar mRa5" alt="{{commentDataRow.displayname}}">
+      <span class="txtB s0 fs08">{{commentDataRow.displayname}}</span>
+    </a>
+  </div>
   <form method="post" >
 
     {{block('iRadioRating')}}
@@ -204,7 +209,7 @@
 
 
 {%block iRadioRating%}
-<label>{%trans "Your rate"%}</label>
+<label>{%trans "Rate"%}</label>
 <div class="radioRating togglable">
   <div class="rateBox">
     <input type="radio" name="star" id="star-1" value="1" {%if commentDataRow.star == '1'%} checked {%endif%}>
