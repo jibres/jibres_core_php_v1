@@ -20,7 +20,7 @@ class userstore
 	 */
 	public static function clean()
 	{
-		\dash\session::set('userstore_detail_'. \dash\url::subdomain(). '_'. \dash\user::id(), null);
+		\dash\session::set('userstore_detail_'. \lib\store::store_slug(). '_'. \dash\user::id(), null);
 		self::$userstore = [];
 	}
 
@@ -35,9 +35,9 @@ class userstore
 			return;
 		}
 
-		if(\dash\session::get('userstore_detail_'. \dash\url::subdomain(). '_'. \dash\user::id()))
+		if(\dash\session::get('userstore_detail_'. \lib\store::store_slug(). '_'. \dash\user::id()))
 		{
-			self::$userstore = \dash\session::get('userstore_detail_'. \dash\url::subdomain(). '_'. \dash\user::id());
+			self::$userstore = \dash\session::get('userstore_detail_'. \lib\store::store_slug(). '_'. \dash\user::id());
 			return;
 		}
 
@@ -52,8 +52,14 @@ class userstore
 		if(is_array($userstore_detail))
 		{
 			self::$userstore = $userstore_detail;
-			\dash\session::set('userstore_detail_'. \dash\url::subdomain(). '_'. \dash\user::id(), $userstore_detail);
+			\dash\session::set('userstore_detail_'. \lib\store::store_slug(). '_'. \dash\user::id(), $userstore_detail);
 		}
+	}
+
+
+	public static function force_set($_store_id, $_user_id)
+	{
+
 	}
 
 

@@ -3,7 +3,7 @@ CREATE TABLE `productcomment` (
 `store_id` int(10) UNSIGNED NOT NULL,
 `product_id` int(10) UNSIGNED NOT NULL,
 `userstore_id` bigint(20) UNSIGNED NULL,
-`content` mediumtext CHARACTER SET utf8mb4 NOT NULL,
+`content` mediumtext CHARACTER SET utf8mb4 NULL DEFAULT NULL,
 `parent` bigint(20) UNSIGNED DEFAULT NULL,
 `star` smallint(5) UNSIGNED DEFAULT NULL,
 `status` enum('approved','awaiting','unapproved','spam','deleted','filter','close','answered') NOT NULL DEFAULT 'awaiting',

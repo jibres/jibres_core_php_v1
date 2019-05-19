@@ -8,6 +8,14 @@ class products
 	use \lib\db\products\dashboard;
 
 
+	public static function get_one($_store_id, $_id)
+	{
+		$query  = "SELECT * FROM products WHERE products.id = $_id AND products.store_id = $_store_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function field_group_count($_field, $_store_id)
 	{
 		$catch = \dash\db\cache::get_cache('products', func_get_args());

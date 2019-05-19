@@ -1,12 +1,59 @@
 {%extends display.dash%}
 
 {%block pageContent%}
-<pre>
+<div class="f justify-center">
+	<div class="c5">
+		<div class="txtC msg info txtB fs20">
+			{{dataRow.title}}
+		</div>
+	</div>
+</div>
 
-{{dataRow |dump}}
-</pre>
+{{block('iCommentForm')}}
+
 
 {%endblock%}
 
 
 
+
+
+
+{%block iCommentForm%}
+<div class="f justify-center">
+	<div class="c5">
+		<form method="post" action="{{url.kingdom}}/comment">
+			<input type="hidden" name="product" value="{{dataRow.id}}">
+			{{block('iRadioRating')}}
+			{{block('iComment')}}
+			<button class="btn primary block mT20">{%trans "Submit"%}</button>
+		</form>
+	</div>
+</div>
+{%endblock%}
+
+
+{%block iRadioRating%}
+<label>{%trans "Your rate"%}</label>
+<div class="radioRating togglable">
+	<div class="rateBox">
+		<input type="radio" name="star" id="star-1" value="1">
+		<label for="star-1"></label>
+		<input type="radio" name="star" id="star-2" value="2">
+		<label for="star-2"></label>
+		<input type="radio" name="star" id="star-3" value="3">
+		<label for="star-3"></label>
+		<input type="radio" name="star" id="star-4" value="4">
+		<label for="star-4"></label>
+		<input type="radio" name="star" id="star-5" value="5">
+		<label for="star-5"></label>
+	</div>
+</div>
+{%endblock%}
+
+{%block iComment%}
+<div class="input">
+
+	<textarea name="content" class="txt" rows="5" placeholder='{%trans "Write your comment..."%}'></textarea>
+</div>
+{%endblock%}

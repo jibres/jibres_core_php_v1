@@ -7,21 +7,56 @@ class comment
 
 	private static function check($_id = null)
 	{
-		$title = \dash\app::request('title');
-		if(!$title && $title !== '0')
-		{
-			\dash\notif::error(T_("Plese fill the comment name"), 'comment');
-			return false;
-		}
+		$content = \dash\app::request('content');
 
-		if(mb_strlen($title) > 100)
+		if(mb_strlen($content) > 5000)
 		{
 			\dash\notif::error(T_("Comment name is too large!"), 'comment');
 			return false;
 		}
 
-		$args            = [];
-		$args['title']   = $title;
+		$star = \dash\app::request('star');
+		if(\dash\app::isset_request('star') && !in_array((string) $star, ['1','2','3','4','5']))
+		{
+			\dash\notif::error(T_("Invalid star number"));
+			return false;
+		}
+
+		if(!$content && !$star)
+		{
+			\dash\notif::error(T_("Plese fill the comment text or set your rate"), 'comment');
+			return false;
+		}
+
+		$product = \dash\app::request('product');
+		$product = \dash\coding::decode($product);
+		if(!$product)
+		{
+			\dash\notif::error(T_("Invalid product id"));
+			return false;
+		}
+
+		$status = \dash\app::request('status');
+		if($status && !in_array($status, ['approved','awaiting','unapproved','spam','deleted','filter','close','answered']))
+		{
+			\dash\notif::error(T_("Invalid status"));
+			return false;
+		}
+
+		$load_product = \lib\db\products::get_one(\lib\store::id(), $product);
+		if(!isset($load_product['id']))
+		{
+			\dash\notif::error(T_("Product not found"));
+			return false;
+		}
+
+
+
+		$args               = [];
+		$args['content']    = $content;
+		$args['star']       = $star;
+		$args['status']       = $status;
+		$args['product_id'] = $load_product['id'];
 
 		return $args;
 
@@ -50,19 +85,70 @@ class comment
 			return false;
 		}
 
-		$args['store_id'] = \lib\store::id();
+		$args['store_id']     = \lib\store::id();
+		$args['userstore_id'] = \lib\userstore::id();
+		$args['ip']           = \dash\server::ip(true);
 
-		$id = \lib\db\productcomment::insert($args);
-		if(!$id)
+		if(!$args['status'])
 		{
-			\dash\log::set('productCommentDbErrorInsert');
-			\dash\notif::error(T_("No way to insert data"));
-			return false;
+			$args['status'] = 'awaiting';
 		}
 
+		// check duplicate
+		$check_duplicate = \lib\db\productcomment::check_duplicate(\lib\store::id(), \lib\userstore::id(), $args['product_id']);
+		if(isset($check_duplicate['id']))
+		{
+			$id = $check_duplicate['id'];
+			$update = [];
+			if($check_duplicate['content'] != $args['content'])
+			{
+				$update['content'] = $args['content'];
+			}
+
+			if($check_duplicate['star'] != $args['star'])
+			{
+				$update['star'] = $args['star'];
+			}
+
+			if(empty($update))
+			{
+				\dash\notif::info(T_("No change in your product comment"));
+			}
+			else
+			{
+				$update = \lib\db\productcomment::update($update, $id);
+
+				if($update)
 				{
-			\dash\notif::ok(T_("Comment successfully added"));
+					\dash\log::set('productCommentUpdated', ['old' => $check_duplicate, 'change' => $args]);
+
+					\dash\notif::ok(T_("The comment successfully updated"));
+
+				}
+				else
+				{
+					\dash\log::set('productcommentDbCannotUpdate');
+					\dash\notif::error(T_("Can not update your product comment"));
+					return false;
+				}
+			}
+
 		}
+		else
+		{
+
+			$id = \lib\db\productcomment::insert($args);
+			if(!$id)
+			{
+				\dash\log::set('productCommentDbErrorInsert');
+				\dash\notif::error(T_("No way to insert data"));
+				return false;
+			}
+
+			\dash\notif::ok(T_("Comment successfully added"));
+
+		}
+
 
 		$result       = [];
 		$result['id'] = \dash\coding::encode($id);
@@ -177,13 +263,11 @@ class comment
 		$get_comment = \lib\db\productcomment::get_one(\lib\store::id(), $id);
 
 
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('title')) unset($args['title']);
+
+
+		if(!\dash\app::isset_request('content')) unset($args['content']);
+		if(!\dash\app::isset_request('star')) unset($args['star']);
+		if(!\dash\app::isset_request('status')) unset($args['status']);
 
 
 		if(!empty($args))
@@ -209,11 +293,6 @@ class comment
 				{
 					\dash\log::set('productCommentUpdated', ['old' => $get_comment, 'change' => $args]);
 
-					if(array_key_exists('title', $args))
-					{
-						// update all product by this comment
-						\lib\db\products\comment::update_all_product_comment_title(\lib\store::id(), $id, $args['title']);
-					}
 
 					\dash\notif::ok(T_("The comment successfully updated"));
 					return true;
@@ -277,6 +356,7 @@ class comment
 			switch ($key)
 			{
 				case 'id':
+				case 'product_id':
 					$result[$key] = \dash\coding::encode($value);
 					break;
 

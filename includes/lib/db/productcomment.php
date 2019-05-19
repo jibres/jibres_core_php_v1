@@ -24,6 +24,28 @@ class productcomment
 	}
 
 
+	// get product comment for one user and product to check not duplicate
+	public static function check_duplicate($_store_id, $_userstore_id, $_product_id)
+	{
+		$query =
+		"
+			SELECT
+				productcomment.id,
+				productcomment.content,
+				productcomment.star
+			FROM
+				productcomment
+			WHERE
+				productcomment.store_id     = $_store_id AND
+				productcomment.userstore_id = $_userstore_id AND
+				productcomment.product_id   = $_product_id
+			LIMIT 1
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	// get one record of product comment
 	public static function get_one($_store_id, $_id)
 	{
