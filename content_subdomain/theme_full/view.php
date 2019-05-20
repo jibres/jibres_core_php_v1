@@ -1,5 +1,5 @@
 <?php
-namespace content_subdomain\theme_base;
+namespace content_subdomain\theme_full;
 
 
 class view
