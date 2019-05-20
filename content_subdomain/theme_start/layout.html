@@ -32,3 +32,18 @@
 {%block head_css%}
  <link rel="stylesheet"       href="{{url.static}}{{'/css/theme_start.css' | filemtime(true)}}"/>
 {%endblock%}
+
+{%block foot_js%}
+ <script src="{{url.static}}{{'/js/slider1.js' | filemtime(true)}}"></script>
+ <script>
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      loop:true,
+      margin:0,
+      stagePadding: 0,
+      rtl: false,
+      items:1
+    });
+  });
+ </script>
+{%endblock%}
