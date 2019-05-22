@@ -628,5 +628,77 @@
   "factordetailCount10": {
     "title": "factordetailCount10",
     "cat": "Limitations"
+  },
+  "productCompanyListView": {
+    "title": "productCompanyListView",
+    "cat": "ProductTag"
+  },
+  "productGuaranteeListView": {
+    "title": "productGuaranteeListView",
+    "cat": "ProductTag"
+  },
+  "productManageSaleGateway": {
+    "title": "productManageSaleGateway",
+    "cat": "ProductTag"
+  },
+  "productTag": {
+    "title": "productTag",
+    "cat": "ProductTag"
+  },
+  "settingEditSocialNetwork": {
+    "title": "settingEditSocialNetwork",
+    "cat": "ProductTag"
+  },
+  "storeSettingPayment": {
+    "title": "storeSettingPayment",
+    "cat": "ProductTag"
+  },
+  "productGuaranteeListAdd": {
+    "title": "productGuaranteeListAdd",
+    "cat": "ProductTag"
+  },
+  "productGuaranteeDelete": {
+    "title": "productGuaranteeDelete",
+    "cat": "ProductTag"
+  },
+  "productGuaranteeListEdit": {
+    "title": "productGuaranteeListEdit",
+    "cat": "ProductTag"
+  },
+  "productUnitDelete": {
+    "title": "productUnitDelete",
+    "cat": "ProductTag"
+  },
+  "productCategoryDelete": {
+    "title": "productCategoryDelete",
+    "cat": "ProductTag"
+  },
+  "productAssignTag": {
+    "title": "productAssignTag",
+    "cat": "ProductTag"
+  },
+  "productCompanyListAdd": {
+    "title": "productCompanyListAdd",
+    "cat": "ProductTag"
+  },
+  "productCompanyDelete": {
+    "title": "productCompanyDelete",
+    "cat": "ProductTag"
+  },
+  "productCompanyListEdit": {
+    "title": "productCompanyListEdit",
+    "cat": "ProductTag"
+  },
+  "productCommentDelete": {
+    "title": "productCommentDelete",
+    "cat": "ProductTag"
+  },
+  "productCommentListView": {
+    "title": "productCommentListView",
+    "cat": "ProductTag"
+  },
+  "productCommentListEdit": {
+    "title": "productCommentListEdit",
+    "cat": "ProductTag"
   }
 }

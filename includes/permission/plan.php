@@ -173,6 +173,25 @@ $master[] = "factordetailCount10";
 
 
 
+$master[] = "productCompanyListView";
+$master[] = "productGuaranteeListView";
+$master[] = "productManageSaleGateway";
+$master[] = "productTag";
+$master[] = "settingEditSocialNetwork";
+$master[] = "storeSettingPayment";
+$master[] = "productGuaranteeListAdd";
+$master[] = "productGuaranteeDelete";
+$master[] = "productGuaranteeListEdit";
+$master[] = "productUnitDelete";
+$master[] = "productCategoryDelete";
+$master[] = "productAssignTag";
+$master[] = "productCompanyListAdd";
+$master[] = "productCompanyDelete";
+$master[] = "productCompanyListEdit";
+$master[] = "productCommentDelete";
+$master[] = "productCommentListView";
+$master[] = "productCommentListEdit";
+
 // make plan array
 $plan = [];
 
