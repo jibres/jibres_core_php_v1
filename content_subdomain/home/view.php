@@ -34,7 +34,10 @@ class view
 
 			\dash\data::display_storesubdomain('content_subdomain/home/site.html');
 		}
-
+		else
+		{
+			\dash\data::bodyclass('unselectable flex align-center justify-center txtC');
+		}
 	}
 }
 ?>
