@@ -16,6 +16,13 @@ class model
 			'period'       => \dash\request::post('period'),
 		];
 
+		if(\dash\permission::supervisor())
+		{
+			$meta['manual']       = \dash\request::post('manualPlanChange');
+			$meta['manualplan']   = \dash\request::post('manualplan');
+			$meta['manualexpire'] = \dash\request::post('expireplan');
+		}
+
 		\lib\app\store\plan::set($plan, $meta);
 	}
 }

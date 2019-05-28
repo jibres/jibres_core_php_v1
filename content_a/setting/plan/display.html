@@ -244,10 +244,59 @@
 
 {%if perm_su()%}
 {{block('planHistoryTable')}}
+<h5 class="msg info" data-kerkere='.manualPlanChange'>{%trans "Change plan manual"%}</h5>
+<div class="manualPlanChange" data-kerkere-content='hide'>
+  <div class="cbox">
+
+  <form method="post">
+    <input type="hidden" name="manualPlanChange" value="1">
+    {{block('iplan')}}
+    {{block('iexpireplan')}}
+    <button class="btn block success">{%trans "Save"%}</button>
+  </form>
+  </div>
+</div>
 {%endif%}
 
 {%endblock%}
 
+
+
+{%block iplan%}
+<label>{%trans "Choose your plan"%}</label>
+<div class="radio1">
+  <input type="radio" name="manualplan" id="r-trial" value="trial" {%if store.plan =='trial'%}checked{%endif%}>
+  <label for="r-trial">{%trans "Trial"%}</label>
+</div>
+
+<div class="radio1">
+  <input type="radio" name="manualplan" id="r-free" value="free" {%if store.plan =='free'%}checked{%endif%}>
+  <label for="r-free">{%trans "Free"%}</label>
+</div>
+
+<div class="radio1">
+  <input type="radio" name="manualplan" id="r-start" value="start" {%if store.plan =='start'%}checked{%endif%}>
+  <label for="r-start">{%trans "Start"%}</label>
+</div>
+
+<div class="radio1">
+  <input type="radio" name="manualplan" id="r-simple" value="simple" {%if store.plan =='simple'%}checked{%endif%}>
+  <label for="r-simple">{%trans "Simple"%}</label>
+</div>
+
+<div class="radio1">
+  <input type="radio" name="manualplan" id="r-standard" value="standard" {%if store.plan =='standard'%}checked{%endif%}>
+  <label for="r-standard">{%trans "Standard"%}</label>
+</div>
+
+{%endblock%}
+
+{%block iexpireplan%}
+<label for="expireplan">{%trans "Plan expire date"%}  <small class="fc-red">* {%trans "Require"%}</small></label>
+<div class="input">
+  <input class="datepicker" type="text" name="expireplan" id="expireplan" placeholder='{{"1369/04/15" | fitNumber}} *' value="{{store.expireplan}}" data-view="year" autocomplete='off'>
+</div>
+{%endblock%}
 
 
 {%block expireDate%}

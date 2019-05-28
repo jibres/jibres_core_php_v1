@@ -52,6 +52,30 @@ class plan
 			return false;
 		}
 
+		// supervisor can change plan manually
+		if(\dash\permission::supervisor())
+		{
+			if(isset($manual) && isset($manualplan) && isset($manualexpire))
+			{
+				$manualexpire = \dash\date::db($manualexpire);
+				$manualexpire = \dash\date::force_gregorian($manualexpire);
+				$final_fn_args =
+				[
+					'plan'     => $manualplan,
+					'type'     => null,
+					'period'   => null,
+					'expire'   => $manualexpire,
+					'store_id' => \lib\store::id(),
+					'user_id'  => \lib\store::detail('creator'),
+					'price'    => 0,
+				];
+
+				self::after_pay($final_fn_args);
+				\dash\notif::ok(T_("Plan manually changed"));
+				return;
+			}
+		}
+
 		if(!array_key_exists($_plan, self::$plan))
 		{
 			\dash\notif::error(T_("Invalid plan"));
