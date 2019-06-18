@@ -221,6 +221,8 @@ class twigTransTerms
 
 	//------------------------------------------public_html/static/js/particles.min.js
 
+	//------------------------------------------------public_html/static/js/slider1.js
+
 	//------------------public_html/static/js/gulp/src/storePanel/JsBarcode.all.min.js
 
 	//-----------------------------------public_html/static/js/gulp/dist/storePanel.js
@@ -251,15 +253,16 @@ class twigTransTerms
 	echo T_("Support");                                                               // Line 29
 	echo T_("Contact");                                                               // Line 13
 	echo T_("Logo");                                                                  // Line 198
-	echo T_("Iran NSR Certification");                                                // Line 52
-	echo T_("Iran NSR");                                                              // Line 52
-	echo T_("Enamad Certification");                                                  // Line 56
-	echo T_("Enamad");                                                                // Line 56
-	echo T_("Samandehi Certification");                                               // Line 58
-	echo T_("Samandehi");                                                             // Line 58
-	echo T_("Shamad Certification");                                                  // Line 60
-	echo T_("Shamad");                                                                // Line 60
-	echo T_("Proudly Made in IRAN");                                                  // Line 67
+	echo T_("System Status");                                                         // Line 33
+	echo T_("Iran NSR Certification");                                                // Line 53
+	echo T_("Iran NSR");                                                              // Line 53
+	echo T_("Enamad Certification");                                                  // Line 57
+	echo T_("Enamad");                                                                // Line 57
+	echo T_("Samandehi Certification");                                               // Line 59
+	echo T_("Samandehi");                                                             // Line 59
+	echo T_("Shamad Certification");                                                  // Line 61
+	echo T_("Shamad");                                                                // Line 61
+	echo T_("Proudly Made in IRAN");                                                  // Line 68
 
 	//---------------------------------------------------content/template/dafault.html
 	echo T_("For share via social networks");                                         // Line 42
@@ -277,7 +280,7 @@ class twigTransTerms
 	echo T_("Beta");                                                                  // Line 7
 	echo T_("Store Panel");                                                           // Line 28
 	echo T_("Admin Panel");                                                           // Line 18
-	echo T_("Enter");                                                                 // Line 43
+	echo T_("Enter");                                                                 // Line 30
 
 	//--------------------------------------------------------content/main/layout.html
 	echo T_("Next →");                                                                // Line 33
@@ -695,7 +698,7 @@ class twigTransTerms
 	echo T_("Cancel plan change process");                                            // Line 15
 	echo T_("Your plan have some days!");                                             // Line 11
 	echo T_("Are you sure to change your plan?");                                     // Line 13
-	echo T_("Trial");                                                                 // Line 34
+	echo T_("Trial");                                                                 // Line 269
 	echo T_("Forever");                                                               // Line 50
 	echo T_("14 days free trial");                                                    // Line 39
 	echo T_("Totaly Free");                                                           // Line 51
@@ -703,9 +706,12 @@ class twigTransTerms
 	echo T_("Renew");                                                                 // Line 221
 	echo T_("Upgrade");                                                               // Line 13
 	echo T_("Choose plan");                                                           // Line 226
+	echo T_("Change plan manual");                                                    // Line 247
+	echo T_("Start");                                                                 // Line 76
+	echo T_("Plan expire date");                                                      // Line 106
+	echo T_("Require");                                                               // Line 90
 	echo T_("Expire on");                                                             // Line 52
 	echo T_("History");                                                               // Line 69
-	echo T_("Start");                                                                 // Line 76
 	echo T_("End");                                                                   // Line 77
 	echo T_("Period");                                                                // Line 80
 
@@ -717,8 +723,6 @@ class twigTransTerms
 	//-----------------------------------content_a/setting/plan/currentPlanDetail.html
 	echo T_("Continuation");                                                          // Line 21
 	echo T_("Change plan");                                                           // Line 28
-	echo T_("Plan expire date");                                                      // Line 106
-	echo T_("Require");                                                               // Line 90
 	echo T_("Promo code");                                                            // Line 124
 	echo T_("If you have promo code, enter it to give some discount!");               // Line 124
 	echo T_("Choose your plan period");                                               // Line 159
@@ -1347,16 +1351,18 @@ class twigTransTerms
 	echo T_("The permission label is used to represent your permission in user management");// Line 18
 	echo T_("Label of your permission");                                              // Line 18
 
-	//-------------------------------------------content_subdomain/main/visitcard.html
-
-	//-----------------------------------------content_subdomain/products/display.html
-
-	//----------------------------------------content_subdomain/theme_base/header.html
+	//----------------------------------------content_subdomain/theme_full/header.html
 	echo T_("Your custom message");                                                   // Line 2
 	echo T_("Home page");                                                             // Line 7
 	echo T_("Help Center");                                                           // Line 9
 	echo T_("Im shopping for...");                                                    // Line 31
-	echo T_("Cart");                                                                  // Line 40
+	echo T_("Cart");                                                                  // Line 19
+
+	//---------------------------------------content_subdomain/theme_start/header.html
+
+	//-------------------------------------------content_subdomain/main/visitcard.html
+
+	//-----------------------------------------content_subdomain/products/display.html
 
 	//------------------------------------------------content_subdomain/home/site.html
 
