@@ -5,7 +5,7 @@ class twigTransTerms
  {
 
 	//-----------------------------------addons/content_api/v6/doc/21-get-profile.html
-	echo T_("Get profile detail");                                                    // Line 55
+	echo T_("Get profile detail");                                                    // Line 56
 	echo T_("Required parameters");                                                   // Line 45
 	echo T_("on header");                                                             // Line 15
 	echo T_("Name");                                                                  // Line 55
@@ -20,11 +20,11 @@ class twigTransTerms
 	echo T_("Response");                                                              // Line 238
 
 	//---------------------------------------addons/content_api/v6/doc/60-android.html
-	echo T_("Get android detail");                                                    // Line 79
+	echo T_("Get android detail");                                                    // Line 80
 	echo T_("Get details like pages, language list, translations, and more.");        // Line 10
 
 	//--------------------------------------addons/content_api/v6/doc/03-requests.html
-	echo T_("Requests");                                                              // Line 47
+	echo T_("Requests");                                                              // Line 48
 	echo T_("Any tool that is fluent in HTTP can communicate with the API simply by requesting the correct URI.");// Line 6
 	echo T_("Requests should be made using the HTTPS protocol so that traffic is encrypted.");// Line 6
 	echo T_("The interface responds to different methods depending on the action required.");// Line 6
@@ -54,7 +54,7 @@ class twigTransTerms
 	echo T_("It also contains metrics about the total number of objects found, pagination information, and the total content length.");// Line 69
 
 	//------------------------------------addons/content_api/v6/doc/40-user-login.html
-	echo T_("Login user");                                                            // Line 61
+	echo T_("Login user");                                                            // Line 62
 	echo T_("Login user and get new apikey for this user");                           // Line 8
 	echo T_("Your temporary token");                                                  // Line 31
 	echo T_("To get this token see");                                                 // Line 37
@@ -65,7 +65,7 @@ class twigTransTerms
 	echo T_("Min length");                                                            // Line 84
 
 	//-----------------------------------------addons/content_api/v6/doc/55-notif.html
-	echo T_("Get notification list");                                                 // Line 77
+	echo T_("Get notification list");                                                 // Line 78
 	echo T_("Get list of your notification");                                         // Line 8
 	echo T_("Get from your account profile");                                         // Line 38
 	echo T_("Parameters");                                                            // Line 45
@@ -79,21 +79,22 @@ class twigTransTerms
 	echo T_("You file location to upload");                                           // Line 60
 
 	//------------------------------------------addons/content_api/v6/doc/display.html
-	echo T_("API");                                                                   // Line 41
-	echo T_("Introduction");                                                          // Line 43
+	echo T_("API");                                                                   // Line 42
+	echo T_("Introduction");                                                          // Line 44
 	echo T_("Endpoints");                                                             // Line 3
 	echo T_("Responses");                                                             // Line 3
 	echo T_("Token");                                                                 // Line 8
 	echo T_("Sign Up User");                                                          // Line 5
-	echo T_("Update profile");                                                        // Line 57
-	echo T_("Upload avatar");                                                         // Line 59
+	echo T_("Update profile");                                                        // Line 58
+	echo T_("Upload avatar");                                                         // Line 60
 	echo T_("Verify user");                                                           // Line 5
 	echo T_("Get language list");                                                     // Line 5
-	echo T_("Get about");                                                             // Line 67
-	echo T_("Get mission");                                                           // Line 69
-	echo T_("Get vision");                                                            // Line 71
-	echo T_("Get contact");                                                           // Line 73
-	echo T_("Check new notification");                                                // Line 75
+	echo T_("Get about");                                                             // Line 68
+	echo T_("Get mission");                                                           // Line 70
+	echo T_("Get vision");                                                            // Line 72
+	echo T_("Get contact");                                                           // Line 74
+	echo T_("Check new notification");                                                // Line 76
+	echo T_("Get app detail");                                                        // Line 81
 
 	//---------------------------------------addons/content_api/v6/doc/33-contact.html
 	echo T_("Get contact text");                                                      // Line 5
@@ -124,6 +125,9 @@ class twigTransTerms
 	echo T_("linkedin");                                                              // Line 191
 	echo T_("facebook");                                                              // Line 203
 	echo T_("twitter");                                                               // Line 215
+
+	//------------------------------------addons/content_api/v6/doc/61-app-detail.html
+	echo T_("Get application detail");                                                // Line 5
 
 	//---------------------------------------addons/content_api/v6/doc/31-mission.html
 	echo T_("Get mission text");                                                      // Line 5
