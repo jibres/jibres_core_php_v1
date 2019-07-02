@@ -252,7 +252,18 @@ function bindBtnOnFactor()
     $(this).parents('tr').attr('data-selected', null);
   });
 
+
+  $(document).on('focus', '#productSearch', function()
+  {
+    calcFooterValues();
+  });
+
   $(document).on('input', 'input.count', function()
+  {
+    calcFooterValues();
+  });
+
+  $(document).on('blur', 'input.count', function()
   {
     calcFooterValues();
   });
@@ -262,6 +273,10 @@ function bindBtnOnFactor()
     calcFooterValues();
   });
 
+  $(document).on('blur', 'input.buy', function()
+  {
+    calcFooterValues();
+  });
 
   $(document).on('click', '.priceBox .discount', function()
   {
@@ -269,6 +284,11 @@ function bindBtnOnFactor()
   });
 
   $(document).on('input', 'input.discount', function()
+  {
+    calcFooterValues();
+  });
+
+  $(document).on('blur', 'input.discount', function()
   {
     calcFooterValues();
   });
