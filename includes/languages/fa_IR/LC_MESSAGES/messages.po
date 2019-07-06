@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-06-19 14:21+0430\n"
-"PO-Revision-Date: 2019-06-19 14:26+0430\n"
+"POT-Creation-Date: 2019-07-06 21:13+0430\n"
+"PO-Revision-Date: 2019-07-06 21:14+0430\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-Basepath: ../../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -504,7 +504,7 @@ msgid "manufacturer"
 msgstr "کارخانه سازنده محصول"
 
 #: dash/addons/content_api/v6/android/user/add.php:114
-#: dash/addons/content_api/v6/app/controller.php:109
+#: dash/addons/content_api/v6/app/controller.php:133
 #: dash/addons/includes/languages/trans_dash.php:928
 #: dash/addons/includes/languages/trans_static.php:108
 #: jibres/includes/languages/trans_dash.php:976
@@ -552,28 +552,28 @@ msgstr "دستگاه"
 msgid "brand"
 msgstr "نام تجاری"
 
-#: dash/addons/content_api/v6/app/controller.php:99
+#: dash/addons/content_api/v6/app/controller.php:123
 msgid "This version is deprecated"
 msgstr "این نسخه منقضی شده است"
 
-#: dash/addons/content_api/v6/app/controller.php:100
-#: dash/addons/content_api/v6/app/controller.php:102
+#: dash/addons/content_api/v6/app/controller.php:124
+#: dash/addons/content_api/v6/app/controller.php:126
 msgid "To download new version of this app click blow link"
 msgstr "برای دانلود نسخه جدید بر روی لینک زیر کلیک کنید"
 
-#: dash/addons/content_api/v6/app/controller.php:101
+#: dash/addons/content_api/v6/app/controller.php:125
 msgid "New version is released"
 msgstr "نسخه جدید منتشر شده است"
 
-#: dash/addons/content_api/v6/app/controller.php:110
+#: dash/addons/content_api/v6/app/controller.php:134
 msgid "Change language"
 msgstr "تغییر زبان"
 
-#: dash/addons/content_api/v6/app/controller.php:111
+#: dash/addons/content_api/v6/app/controller.php:135
 msgid "Close"
 msgstr "بستن"
 
-#: dash/addons/content_api/v6/app/controller.php:112
+#: dash/addons/content_api/v6/app/controller.php:136
 #: dash/addons/includes/languages/trans_dash.php:540
 #: jibres/content_i/bank/add/view.php:16 jibres/content_i/bank/edit/view.php:14
 #: jibres/content_i/category/add/view.php:16
@@ -589,13 +589,13 @@ msgstr "بستن"
 msgid "Back"
 msgstr "بازگشت"
 
-#: dash/addons/content_api/v6/app/controller.php:113
+#: dash/addons/content_api/v6/app/controller.php:137
 #: dash/addons/includes/languages/trans_dash.php:498
 #: jibres/includes/languages/trans_dash.php:293
 msgid "Go"
 msgstr "برو"
 
-#: dash/addons/content_api/v6/app/controller.php:114
+#: dash/addons/content_api/v6/app/controller.php:138
 #: dash/addons/content_enter/pass/recovery/model.php:29
 #: dash/addons/includes/languages/trans_dash.php:511
 #: dash/lib/app/log/caller/enter/enter_VerificationCode.php:16
@@ -605,7 +605,7 @@ msgstr "برو"
 msgid "Enter"
 msgstr "ورود"
 
-#: dash/addons/content_api/v6/app/controller.php:129
+#: dash/addons/content_api/v6/app/controller.php:153
 #: dash/lib/social/telegram/commands/ermile.php:332
 #: dash/lib/social/telegram/commands/ermile.php:528
 #: dash/lib/social/telegram/commands/ermileInline.php:76
@@ -613,42 +613,45 @@ msgstr "ورود"
 msgid "About"
 msgstr "درباره"
 
-#: dash/addons/content_api/v6/app/controller.php:136
+#: dash/addons/content_api/v6/app/controller.php:160
 msgid "About this version"
 msgstr "دریاره این نسخه"
 
-#: dash/addons/content_api/v6/app/controller.php:142
+#: dash/addons/content_api/v6/app/controller.php:166
 msgid "About us"
 msgstr "درباره ما"
 
-#: dash/addons/content_api/v6/app/controller.php:148
+#: dash/addons/content_api/v6/app/controller.php:172
 msgid "Privacy"
 msgstr "حریم خصوصی"
 
-#: dash/addons/content_api/v6/app/controller.php:154
+#: dash/addons/content_api/v6/app/controller.php:178
 #: dash/addons/content_cms/terms/view.php:10
 #: dash/addons/includes/languages/trans_static.php:96
 msgid "Terms"
 msgstr "عبارات"
 
-#: dash/addons/content_api/v6/app/controller.php:164
+#: dash/addons/content_api/v6/app/controller.php:188
 #: dash/addons/includes/languages/trans_dash.php:253
+#: dash/lib/engine/static_files.php:26 dash/lib/engine/static_files.php:35
+#: dash/lib/engine/static_files.php:45 dash/lib/engine/static_files.php:52
 #: dash/lib/social/telegram/commands/ermile.php:528
 #: jibres/includes/languages/trans_dash.php:589
 #: jibres/includes/languages/trans_project.php:254
 msgid "Contact"
 msgstr "تماس"
 
-#: dash/addons/content_api/v6/app/controller.php:173
+#: dash/addons/content_api/v6/app/controller.php:197
 msgid "Vision"
 msgstr "چشم‌انداز"
 
-#: dash/addons/content_api/v6/app/controller.php:182
+#: dash/addons/content_api/v6/app/controller.php:206
 msgid "Mission"
 msgstr "ماموریت"
 
-#: dash/addons/content_api/v6/app/controller.php:191
+#: dash/addons/content_api/v6/app/controller.php:215
 #: dash/addons/includes/languages/trans_dash.php:127
+#: dash/lib/engine/static_files.php:25 dash/lib/engine/static_files.php:34
 #: dash/lib/social/telegram/commands/ermile.php:346
 #: dash/lib/social/telegram/commands/ermile.php:533
 #: jibres/includes/languages/trans_dash.php:458
@@ -656,7 +659,7 @@ msgstr "ماموریت"
 msgid "Website"
 msgstr "وب‌سایت"
 
-#: dash/addons/content_api/v6/app/controller.php:210
+#: dash/addons/content_api/v6/app/controller.php:234
 #: jibres/content_a/setting/factor/view.php:8
 #: jibres/content_a/setting/general/view.php:8
 #: jibres/content_a/setting/home/view.php:9 jibres/content_a/setting/logo/view.php:8
@@ -668,56 +671,56 @@ msgstr "وب‌سایت"
 msgid "Setting"
 msgstr "تنظیمات"
 
-#: dash/addons/content_api/v6/app/controller.php:218
+#: dash/addons/content_api/v6/app/controller.php:242
 #: jibres/includes/languages/trans_project.php:1277
 msgid "More"
 msgstr "بیشتر"
 
-#: dash/addons/content_api/v6/app/controller.php:226
+#: dash/addons/content_api/v6/app/controller.php:250
 #: dash/addons/includes/languages/trans_static.php:74
 #: dash/lib/engine/twigAddons.php:236
 #: jibres/includes/languages/trans_project.php:240
 msgid "Home"
 msgstr "صفحه نخست"
 
-#: dash/addons/content_api/v6/app/controller.php:252
-#: dash/addons/content_api/v6/app/controller.php:274
-#: dash/addons/content_api/v6/app/controller.php:296
+#: dash/addons/content_api/v6/app/controller.php:276
+#: dash/addons/content_api/v6/app/controller.php:298
+#: dash/addons/content_api/v6/app/controller.php:320
 #: dash/addons/includes/languages/trans_dash.php:501
 #: jibres/includes/languages/trans_dash.php:296
 msgid "Next"
 msgstr "بعدی"
 
-#: dash/addons/content_api/v6/app/controller.php:260
+#: dash/addons/content_api/v6/app/controller.php:284
 msgid "Easy"
 msgstr "آسان"
 
-#: dash/addons/content_api/v6/app/controller.php:261
+#: dash/addons/content_api/v6/app/controller.php:285
 msgid "Easy to use"
 msgstr "به سادگی قابل استفاده است"
 
-#: dash/addons/content_api/v6/app/controller.php:270
-#: dash/addons/content_api/v6/app/controller.php:292
+#: dash/addons/content_api/v6/app/controller.php:294
+#: dash/addons/content_api/v6/app/controller.php:316
 msgid "Prev"
 msgstr "قبلی"
 
-#: dash/addons/content_api/v6/app/controller.php:282
+#: dash/addons/content_api/v6/app/controller.php:306
 msgid "Powerful"
 msgstr "پرقدرت"
 
-#: dash/addons/content_api/v6/app/controller.php:283
+#: dash/addons/content_api/v6/app/controller.php:307
 msgid "Best application"
 msgstr "بهترین برنامه"
 
-#: dash/addons/content_api/v6/app/controller.php:304
+#: dash/addons/content_api/v6/app/controller.php:328
 msgid "Enjoy"
 msgstr "لذت ببرید"
 
-#: dash/addons/content_api/v6/app/controller.php:305
+#: dash/addons/content_api/v6/app/controller.php:329
 msgid "Welcome to our collection"
 msgstr "به جمع ما خوش‌آمدید"
 
-#: dash/addons/content_api/v6/app/controller.php:314
+#: dash/addons/content_api/v6/app/controller.php:338
 #: jibres/includes/languages/trans_project.php:710
 msgid "Start"
 msgstr "شروع"
@@ -811,7 +814,7 @@ msgid "Also add or edit specefic post."
 msgstr "هم‌چنین افزودن یا ویرایش پست خاص."
 
 #: dash/addons/content_cms/attachment/home/view.php:29
-#: dash/addons/content_cms/posts/home/view.php:33
+#: dash/addons/content_cms/posts/home/view.php:32
 #: dash/addons/includes/languages/trans_dash.php:17
 #: dash/addons/includes/languages/trans_static.php:95
 #: dash/addons/includes/languages/trans_static.php:980
@@ -820,17 +823,17 @@ msgid "Pages"
 msgstr "صفحات"
 
 #: dash/addons/content_cms/attachment/home/view.php:30
-#: dash/addons/content_cms/posts/home/view.php:34
+#: dash/addons/content_cms/posts/home/view.php:33
 msgid "Check list of pages and to find your pages."
 msgstr "چک کردن لیست صفحات و پیدا کردن صفحات شما."
 
 #: dash/addons/content_cms/attachment/home/view.php:30
-#: dash/addons/content_cms/posts/home/view.php:34
+#: dash/addons/content_cms/posts/home/view.php:33
 msgid "Also add or edit specefic static page."
 msgstr "هم‌چنین اضافه کنید یا ویرایش صفحه خاص استاتیک."
 
 #: dash/addons/content_cms/attachment/home/view.php:36
-#: dash/addons/content_cms/posts/home/view.php:40
+#: dash/addons/content_cms/posts/home/view.php:39
 #: dash/addons/includes/languages/trans_dash.php:427 jibres/content/help/view.php:9
 #: jibres/includes/languages/trans_dash.php:219
 #: jibres/includes/languages/trans_project.php:1357
@@ -838,27 +841,27 @@ msgid "Help Center"
 msgstr "مرکز راهنمایی"
 
 #: dash/addons/content_cms/attachment/home/view.php:37
-#: dash/addons/content_cms/posts/home/view.php:41
+#: dash/addons/content_cms/posts/home/view.php:40
 msgid "Check list of article in help center."
 msgstr "بررسی لیست مقالات موجود در مرکز راهنمایی."
 
 #: dash/addons/content_cms/attachment/home/view.php:37
-#: dash/addons/content_cms/posts/home/view.php:41
-#: dash/addons/content_cms/posts/home/view.php:49
+#: dash/addons/content_cms/posts/home/view.php:40
+#: dash/addons/content_cms/posts/home/view.php:48
 msgid "Also add or edit specefic article."
 msgstr "هم‌چنین افزودن یا ویرایش مقاله خاص."
 
 #: dash/addons/content_cms/attachment/home/view.php:38
-#: dash/addons/content_cms/posts/add/view.php:51
+#: dash/addons/content_cms/posts/add/view.php:45
 #: dash/addons/content_cms/posts/edit/view.php:61
-#: dash/addons/content_cms/posts/home/view.php:42
+#: dash/addons/content_cms/posts/home/view.php:41
 msgid "Back to list of helps"
 msgstr "بازگشت به لیست مرکز راهنمایی"
 
 #: dash/addons/content_cms/attachment/home/view.php:54
 #: dash/addons/content_cms/comments/home/view.php:16
 #: dash/addons/content_cms/dayevent/view.php:13
-#: dash/addons/content_cms/posts/home/view.php:73
+#: dash/addons/content_cms/posts/home/view.php:87
 #: dash/addons/content_cms/terms/view.php:61
 #: dash/addons/content_crm/log/caller/view.php:13
 #: dash/addons/content_crm/log/home/view.php:13
@@ -874,13 +877,12 @@ msgid "Back to dashboard"
 msgstr "بازگشت به داشبورد"
 
 #: dash/addons/content_cms/attachment/home/view.php:60
-#: dash/addons/content_cms/posts/home/view.php:70
 msgid "Add new :val"
 msgstr "افزودن :val جدید"
 
 #: dash/addons/content_cms/attachment/home/view.php:67
 #: dash/addons/content_cms/comments/home/view.php:23
-#: dash/addons/content_cms/posts/home/view.php:80
+#: dash/addons/content_cms/posts/home/view.php:94
 #: dash/addons/content_cms/visitor/log/view.php:23
 #: dash/addons/content_crm/android/home/view.php:24
 #: dash/addons/content_crm/log/home/view.php:34
@@ -900,7 +902,7 @@ msgid "Search for :search"
 msgstr "جستجوی :search"
 
 #: dash/addons/content_cms/attachment/home/view.php:121
-#: dash/addons/content_cms/posts/home/view.php:150
+#: dash/addons/content_cms/posts/home/view.php:164
 #: dash/addons/includes/languages/trans_dash.php:43
 #: jibres/includes/languages/trans_dash.php:181
 #: jibres/includes/languages/trans_project.php:22
@@ -1046,7 +1048,13 @@ msgstr ""
 msgid "Comment Dashboard"
 msgstr "داشبورد دیدگاه‌ها"
 
+#: dash/addons/content_cms/posts/add/controller.php:25
+#: dash/addons/content_cms/posts/home/controller.php:28
+msgid "The magazine manager for this system is not enable"
+msgstr ""
+
 #: dash/addons/content_cms/posts/add/view.php:22
+#: dash/addons/content_cms/posts/home/view.php:55
 msgid "Add new post"
 msgstr "افزودن نوشته جدید"
 
@@ -1060,36 +1068,37 @@ msgstr "پست‌ها می‌توانند شامل کلیدی و دسته‌بن
 msgid "Back to list of posts"
 msgstr "بازگشت به لیست نوشته‌ها"
 
-#: dash/addons/content_cms/posts/add/view.php:37
+#: dash/addons/content_cms/posts/add/view.php:34
+#: dash/addons/content_cms/posts/home/view.php:35
 msgid "Add new page"
 msgstr "افزودن برگه جدید"
 
-#: dash/addons/content_cms/posts/add/view.php:38
+#: dash/addons/content_cms/posts/add/view.php:35
 msgid "Add new static page like about or honors"
 msgstr "اضافه کردن صفحه استاتیک جدید مانند درباره ما یا افتخارات"
 
-#: dash/addons/content_cms/posts/add/view.php:40
+#: dash/addons/content_cms/posts/add/view.php:36
 #: dash/addons/content_cms/posts/edit/view.php:50
 msgid "Back to list of pages"
 msgstr "بازگشت به لیست برگه‌ها"
 
-#: dash/addons/content_cms/posts/add/view.php:49
+#: dash/addons/content_cms/posts/add/view.php:43
 msgid "Add new help"
 msgstr "افزودن راهنمایی جدید"
 
-#: dash/addons/content_cms/posts/add/view.php:50
+#: dash/addons/content_cms/posts/add/view.php:44
 msgid "Add new article to help center or new faq."
 msgstr "افزودن سوال متداول یا مقاله‌ای جدید به مرکز راهنمایی."
 
-#: dash/addons/content_cms/posts/add/view.php:61
+#: dash/addons/content_cms/posts/add/view.php:52
 msgid "Add new maganize"
 msgstr "افزودن مجله"
 
-#: dash/addons/content_cms/posts/add/view.php:62
+#: dash/addons/content_cms/posts/add/view.php:53
 msgid "Add new article maganize."
 msgstr "افزودن مجله"
 
-#: dash/addons/content_cms/posts/add/view.php:63
+#: dash/addons/content_cms/posts/add/view.php:54
 msgid "Back to list of maganizes"
 msgstr "بازگشت به لیست مجلات"
 
@@ -1129,17 +1138,26 @@ msgstr "بازگشت به لیست مجلات"
 msgid "Magazine can contain keyword and category with title and descriptions."
 msgstr "مجله‌ها می‌توانند شامل کلیدی و دسته بندی با عنوان و شرح باشند."
 
-#: dash/addons/content_cms/posts/home/view.php:48
+#: dash/addons/content_cms/posts/home/view.php:43
+msgid "Add new help center article"
+msgstr ""
+
+#: dash/addons/content_cms/posts/home/view.php:47
+#: dash/addons/content_mag/home/view.php:24 dash/addons/content_mag/view.php:9
 msgid "Magazine"
 msgstr "مجله"
 
-#: dash/addons/content_cms/posts/home/view.php:49
+#: dash/addons/content_cms/posts/home/view.php:48
 msgid "Check list of article in magazine."
 msgstr "بررسی لیست مقالات در مجله"
 
-#: dash/addons/content_cms/posts/home/view.php:50
+#: dash/addons/content_cms/posts/home/view.php:49
 msgid "Back to list of magazines"
 msgstr "بازگشت به لیست مجلات"
+
+#: dash/addons/content_cms/posts/home/view.php:51
+msgid "Add new magazine"
+msgstr "افزودن مجله جدید"
 
 #: dash/addons/content_cms/sitemap/model.php:12
 msgid "Sitemap successfully created"
@@ -1907,7 +1925,7 @@ msgstr "موبایل یافت نشد"
 #: dash/lib/app/parent/add.php:50 dash/lib/app/parent/add.php:59
 #: dash/lib/app/parent/delete.php:35 dash/lib/app/parent/delete.php:114
 #: dash/lib/app/parent/get.php:35 dash/lib/app/parent/get.php:44
-#: dash/lib/app/posts/add.php:37 dash/lib/app/term.php:357
+#: dash/lib/app/posts/add.php:37 dash/lib/app/term.php:367
 #: dash/lib/app/user/add.php:55 jibres/includes/lib/app/bank.php:278
 #: jibres/includes/lib/app/bank.php:319 jibres/includes/lib/app/category.php:222
 #: jibres/includes/lib/app/category.php:269 jibres/includes/lib/app/cheque.php:335
@@ -2323,6 +2341,10 @@ msgstr "شما پیام جدیدی دارید!"
 #: dash/addons/content_hook/smile/controller.php:62
 msgid "Goodbye"
 msgstr "خدانگهدار"
+
+#: dash/addons/content_mag/home/view.php:43
+msgid "Return to magazine list"
+msgstr "بازگشت به لیست مجلات"
 
 #: dash/addons/content_pay/home/view.php:9
 msgid "Pay detail"
@@ -6406,7 +6428,8 @@ msgid "Enter a valid facebook from 3 to 40 character"
 msgstr "شناسه فیس‌بوک معتبری بین ۳ و ۴۰ حرف وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:840
-#: jibres/includes/languages/trans_dash.php:888
+#: dash/lib/engine/static_files.php:27 dash/lib/engine/static_files.php:36
+#: dash/lib/engine/static_files.php:46 jibres/includes/languages/trans_dash.php:888
 #: jibres/includes/languages/trans_project.php:636
 msgid "Twitter"
 msgstr "تویتر"
@@ -7988,7 +8011,7 @@ msgstr "پشتیبان گیری خودکار"
 
 #: dash/addons/includes/languages/trans_dash.php:1243
 #: dash/addons/includes/languages/trans_static.php:49 dash/lib/utility/human.php:104
-#: dash/lib/utility/upload.php:92 jibres/includes/languages/trans_dash.php:1292
+#: dash/lib/utility/upload.php:93 jibres/includes/languages/trans_dash.php:1292
 msgid "MB"
 msgstr "مگابایت"
 
@@ -8020,7 +8043,7 @@ msgstr "روز"
 
 #: dash/addons/includes/languages/trans_dash.php:1249
 #: dash/addons/includes/languages/trans_static.php:33 dash/lib/utility/human.php:31
-#: dash/lib/utility/human.php:145 jibres/includes/database/jibres/translation.php:27
+#: dash/lib/utility/human.php:149 jibres/includes/database/jibres/translation.php:27
 #: jibres/includes/languages/trans_dash.php:1298
 msgid "hour"
 msgstr "ساعت"
@@ -8489,6 +8512,7 @@ msgid "Ahmad Karimi"
 msgstr "احمد کریمی"
 
 #: dash/addons/includes/languages/trans_static.php:13
+#: dash/lib/engine/static_files.php:33
 msgid "Reza Mohiti"
 msgstr "رضا محیطی"
 
@@ -8553,7 +8577,7 @@ msgid "day"
 msgstr "روز"
 
 #: dash/addons/includes/languages/trans_static.php:34 dash/lib/utility/human.php:32
-#: dash/lib/utility/human.php:153
+#: dash/lib/utility/human.php:157
 msgid "minute"
 msgstr "دقیقه"
 
@@ -8584,7 +8608,7 @@ msgid "A few seconds ago"
 msgstr "چندثانیه پیش"
 
 #: dash/addons/includes/languages/trans_static.php:44
-#: dash/lib/utility/upload.php:113
+#: dash/lib/utility/upload.php:114
 msgid "item"
 msgstr "آیتم"
 
@@ -8593,29 +8617,29 @@ msgid "empty"
 msgstr "خالی"
 
 #: dash/addons/includes/languages/trans_static.php:46
-#: dash/lib/utility/upload.php:118
+#: dash/lib/utility/upload.php:119
 msgid "NaN"
 msgstr "-"
 
-#: dash/addons/includes/languages/trans_static.php:47 dash/lib/utility/upload.php:92
+#: dash/addons/includes/languages/trans_static.php:47 dash/lib/utility/upload.php:93
 msgid "Byte"
 msgstr "بایت"
 
 #: dash/addons/includes/languages/trans_static.php:48 dash/lib/utility/human.php:103
-#: dash/lib/utility/upload.php:92
+#: dash/lib/utility/upload.php:93
 msgid "KB"
 msgstr "کیلوبایت"
 
 #: dash/addons/includes/languages/trans_static.php:50 dash/lib/utility/human.php:105
-#: dash/lib/utility/upload.php:92
+#: dash/lib/utility/upload.php:93
 msgid "GB"
 msgstr "گیگابایت"
 
-#: dash/addons/includes/languages/trans_static.php:51 dash/lib/utility/upload.php:92
+#: dash/addons/includes/languages/trans_static.php:51 dash/lib/utility/upload.php:93
 msgid "TB"
 msgstr "ترابایت"
 
-#: dash/addons/includes/languages/trans_static.php:52 dash/lib/utility/upload.php:92
+#: dash/addons/includes/languages/trans_static.php:52 dash/lib/utility/upload.php:93
 msgid "PB"
 msgstr "پترابایت"
 
@@ -9037,7 +9061,7 @@ msgid "Duplicate - File exist"
 msgstr "تکراری - فایل وجود دارد"
 
 #: dash/addons/includes/languages/trans_static.php:185
-#: dash/lib/utility/upload.php:500
+#: dash/lib/utility/upload.php:501
 msgid "Fail on tranfering file"
 msgstr "خطا در انتقال فایل"
 
@@ -9260,6 +9284,7 @@ msgid "apikey"
 msgstr "کلید ای‌پی‌آی"
 
 #: dash/addons/includes/languages/trans_static.php:254
+#: dash/lib/engine/static_files.php:28
 msgid "Github"
 msgstr "گیت‌هاب"
 
@@ -12423,7 +12448,7 @@ msgstr "دیدگاه‌های این نوشته بسته است!"
 msgid "Title is out of range!"
 msgstr "عنوان خارج از محدوده است!"
 
-#: dash/lib/app/comment.php:303 dash/lib/app/term.php:187
+#: dash/lib/app/comment.php:303 dash/lib/app/term.php:197
 #: dash/lib/app/ticket.php:530 jibres/includes/lib/app/category.php:88
 #: jibres/includes/lib/app/category.php:95 jibres/includes/lib/app/unit.php:88
 #: jibres/includes/lib/app/unit.php:95
@@ -12899,15 +12924,23 @@ msgstr "تنظیم دسته‌بندی برای دسترسی مناسب‌تر �
 msgid "Invalid slug"
 msgstr "نامک اشتباه است"
 
-#: dash/lib/app/posts.php:798 jibres/includes/lib/app/product/tag.php:139
+#: dash/lib/app/posts.php:804 jibres/includes/lib/app/product/tag.php:139
 msgid "Some :type is wrong"
 msgstr "برخی از :type اشتباه هستند"
+
+#: dash/lib/app/posts.php:1066
+msgid "Post not found"
+msgstr ""
+
+#: dash/lib/app/posts.php:1091
+msgid "The Featured Image removed"
+msgstr ""
 
 #: dash/lib/app/posts/add.php:78
 msgid "No way to insert post"
 msgstr "هیچ راهی برای افزودن پست وجود ندارد"
 
-#: dash/lib/app/posts/add.php:129
+#: dash/lib/app/posts/add.php:138
 msgid "Post successfuly added"
 msgstr "پست با موفقیت اضافه شد"
 
@@ -12919,7 +12952,7 @@ msgstr "شما دسترسی لازم را برای ویرایش این پست ن
 msgid "Invalid posts id"
 msgstr "شناسه پست اشتباه است"
 
-#: dash/lib/app/posts/edit.php:141
+#: dash/lib/app/posts/edit.php:148
 msgid "Post successfully updated"
 msgstr "پست با موفقیت به روز رسانی شد"
 
@@ -12975,39 +13008,39 @@ msgstr "لطفا نامک ترم را کمتر از ۱۵۰ حرف وارد کن�
 msgid "Please set the term desc less than 500 character"
 msgstr "لطفا توضیحات ترم را کمتر از ۱۵۰ حرف وارد کنید"
 
-#: dash/lib/app/term.php:146
-msgid "Please set the term type"
-msgstr "لطفا نوع ترم را مشخص کنید"
+#: dash/lib/app/term.php:150 dash/lib/app/term.php:156
+msgid "Invalid term type"
+msgstr ""
 
-#: dash/lib/app/term.php:155
+#: dash/lib/app/term.php:165
 msgid "Invalid status of term"
 msgstr "وضعیت ترم اشتباه است"
 
-#: dash/lib/app/term.php:172
+#: dash/lib/app/term.php:182
 msgid "Duplicate term"
 msgstr "عبارات تکراری"
 
-#: dash/lib/app/term.php:180
+#: dash/lib/app/term.php:190
 msgid "Please set the term excerpt less than 500 character"
 msgstr "لطفا چکیده عبارات را کمتر از ۵۰۰ حرف وارد کنید"
 
-#: dash/lib/app/term.php:203
+#: dash/lib/app/term.php:213
 msgid "Parent not found"
 msgstr "والد یافت نشد"
 
-#: dash/lib/app/term.php:209
+#: dash/lib/app/term.php:219
 msgid "Can not set the parent as yourself"
 msgstr "یک شیء‌ نمی تواند والد خودش باشد"
 
-#: dash/lib/app/term.php:214
+#: dash/lib/app/term.php:224
 msgid "The parent is not a :type"
 msgstr "والد یک :type نیست"
 
-#: dash/lib/app/term.php:381
+#: dash/lib/app/term.php:391
 msgid "No way to insert term"
 msgstr "هیچ راهی برای ثبت ترم وجود ندارد"
 
-#: dash/lib/app/term.php:471
+#: dash/lib/app/term.php:481
 msgid "Can not access to edit term"
 msgstr "دسترسی لازم برای ویرایش ترم وجود ندارد"
 
@@ -13353,6 +13386,55 @@ msgstr "سلام، مستندات را بخوان و پروژه خودتو شر�
 #: dash/lib/engine/mvc.php:217
 msgid "We can't find the page you're looking for!"
 msgstr "ما صفحه‌ای که به‌دنبال آن هستید را نمی‌یابیم!"
+
+#: dash/lib/engine/static_files.php:12
+msgid "In The name of Allah"
+msgstr "به نام خدا"
+
+#: dash/lib/engine/static_files.php:14
+msgid "Proudly made in IRAN, powered by Dash."
+msgstr "با افتخار ساخت ایران، قدرت گرفته از دش."
+
+#: dash/lib/engine/static_files.php:17
+msgid ""
+"Ermile is built by a creative team of engineers, designers, researchers and "
+"others in many different sites across the globe. It is updated continuously, and "
+"built with more tools and technologies than we can shake a stick at. If you'd "
+"like to help us out, see ermile.com/careers."
+msgstr ""
+"ارمایل توسط تیمی خلاق از مهندسان، طراحان، محققان و سایرین ساخته شده است که روی "
+"سایت‌های مختلفی در سراسر دنیا کار می‌کنند. ما به‌صورت مداوم در حال بروزرسانی هستیم و "
+"از ابزارها و تکنولوژی‌های روز بهره می‌بریم. اگر مایل به کمک به ما هستید می‌توانید "
+"نگاهی به فرصت‌های شغلی ما در ermile.com/careers بیاندازید."
+
+#: dash/lib/engine/static_files.php:21
+msgid "TEAM"
+msgstr "تیم"
+
+#: dash/lib/engine/static_files.php:24
+msgid "Javad Evazzadeh Kakroudi"
+msgstr "جواد عوض‌زاده کاکرودی"
+
+#: dash/lib/engine/static_files.php:29 dash/lib/engine/static_files.php:37
+#: dash/lib/engine/static_files.php:47 dash/lib/engine/static_files.php:53
+msgid "Location"
+msgstr "موقعیت"
+
+#: dash/lib/engine/static_files.php:41
+msgid "THANKS"
+msgstr "سپاس‌گزاریم"
+
+#: dash/lib/engine/static_files.php:44
+msgid "Mohammad Hasan Salehi HajiAbadi"
+msgstr "محمد حسن صالحی حاجی آبادی"
+
+#: dash/lib/engine/static_files.php:51
+msgid "Saman Soltani"
+msgstr "سامان سلطانی"
+
+#: dash/lib/engine/static_files.php:57
+msgid "SITE"
+msgstr "سایت"
 
 #: dash/lib/engine/view.php:96
 msgid "As easy as ABC is our slogan!"
@@ -14150,7 +14232,7 @@ msgstr "در آینده"
 msgid "bytes"
 msgstr "بایت"
 
-#: dash/lib/utility/human.php:148
+#: dash/lib/utility/human.php:152
 msgid ", :min minute"
 msgstr " و :min دقیقه"
 
@@ -14635,35 +14717,35 @@ msgstr "فایل حذف شد"
 msgid "Link created"
 msgstr "لینک ساخته شد"
 
-#: dash/lib/utility/upload.php:262
+#: dash/lib/utility/upload.php:263
 msgid "file successful uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
-#: dash/lib/utility/upload.php:267
+#: dash/lib/utility/upload.php:268
 msgid "Failed to transfer file while moving to temp"
 msgstr "خطا در انتقال فایل در زمان جابجایی به پوشه موقت"
 
-#: dash/lib/utility/upload.php:363
+#: dash/lib/utility/upload.php:364
 msgid "upload name not found"
 msgstr "نام آپلود یافت نشد"
 
-#: dash/lib/utility/upload.php:370
+#: dash/lib/utility/upload.php:371
 msgid "folder prefix not found"
 msgstr "پیشوند پوشه یافت نشد"
 
-#: dash/lib/utility/upload.php:377
+#: dash/lib/utility/upload.php:378
 msgid "user id not set"
 msgstr "کدکاربر ثبت نشد است"
 
-#: dash/lib/utility/upload.php:431
+#: dash/lib/utility/upload.php:432
 msgid "The size of file is larger than the upload space you have"
 msgstr "اندازه فایل بزرگتر از فضای آپلود شما است"
 
-#: dash/lib/utility/upload.php:476
+#: dash/lib/utility/upload.php:477
 msgid "File successful uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
-#: dash/lib/utility/upload.php:486
+#: dash/lib/utility/upload.php:487
 msgid "Fail on tranfering file, upload from path"
 msgstr "خطا در انتقال فایل، آپلود از آدرس"
 
@@ -16851,11 +16933,11 @@ msgstr "وضعیت سیستم"
 
 #: jibres/includes/languages/trans_project.php:257
 msgid "Iran NSR Certification"
-msgstr "گواهی سازمان نظام نصفی رایانه‌ای ایران"
+msgstr "گواهی سازمان نظام صنفی رایانه‌ای ایران"
 
 #: jibres/includes/languages/trans_project.php:258
 msgid "Iran NSR"
-msgstr "سازمان نظام نصفی رایانه‌ای ایران"
+msgstr "سازمان نظام صنفی رایانه‌ای ایران"
 
 #: jibres/includes/languages/trans_project.php:259
 msgid "Enamad Certification"
@@ -20066,7 +20148,7 @@ msgstr ""
 
 #: jibres/includes/languages/trans_project.php:1359
 msgid "Cart"
-msgstr ""
+msgstr "سبد خرید"
 
 #: jibres/includes/languages/trans_project.php:1371
 msgid "Your rate"
@@ -22342,6 +22424,9 @@ msgstr "راهی برای ثبت واحد جدید وجود ندارد"
 #: jibres/includes/lib/app/unit.php:330
 msgid "Can not access to edit unit"
 msgstr "شما دسترسی لازم را برای ویرایش این واحد ندارید"
+
+#~ msgid "Please set the term type"
+#~ msgstr "لطفا نوع ترم را مشخص کنید"
 
 #~ msgid "Travel to Karbala"
 #~ msgstr "تشرف به کربلای معلی"
