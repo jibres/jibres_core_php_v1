@@ -82,10 +82,10 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 /*#landing .title{position:absolute;top:70px;bottom:0;left:0;right:0;text-align:center;padding-top:200px;min-width:280px;width:70%;margin:0 auto}
 #landing .title h2{font-size:5em;line-height:2em}
 #landing .title h3{line-height:2em;padding:0 2%;font-weight:100}*/
-#landing .title{position:absolute;top:70px;bottom:0;left:0;right:0;padding-top:200px;min-width:280px;width:70%;margin:0 auto}
-#landing .title .h2{font-size:5em;line-height:2em;}
+#landing .title{position:absolute;top:70px;bottom:0;left:0;right:0;padding-top:160px;min-width:280px;width:70%;margin:0 auto}
+#landing .title .h2{font-size:8em;line-height:1.5em;min-height:3em;}
 #landing .title .h2 span{font-weight:900;}
-#landing .title h3{line-height:2em;font-weight:100;font-size: 1.2em}
+#landing .title h3{line-height:2em;font-weight:100;font-size: 1.6em}
 .typed-cursor{opacity: 1;font-weight: 100;animation: blink 0.7s infinite;}
 @keyframes blink{ 0% { opacity:1; } 50% { opacity:0.3; } 100% { opacity:1; } }
 
@@ -105,11 +105,11 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 @keyframes pulse { 0%{opacity:.2} 50%{opacity:.7} 100%{opacity:.2}}
 
 
-#quote{background-image:url(/static/images/homepage/quote-supersaeed-sadeghi.jpg);min-height:500px;background-position:top left;background-repeat:no-repeat;background-size:cover;position:relative;color:#fff}
-#quote .title{position:absolute;top:0;bottom:0;width:40%;min-width:300px;max-width:400px;margin:0 auto;right:10%;font-size:1.7em;text-align:center;background-color:rgba(255,255,255,0.1);padding:5em 1em 0;transition:0.3s;}
+#quote{background-image:url(/static/images/homepage/quote-supersaeed-sadeghi.jpg);min-height:500px;background-position:top left;background-repeat:no-repeat;background-size:cover;position:relative;color:#fff;overflow: hidden;}
+#quote .title{position:absolute;top:0;bottom:0;width:40%;min-width:280px;max-width:400px;margin:0 auto;right:10%;font-size:1.7em;text-align:center;background-color:rgba(255,255,255,0.1);padding:5em 1em 0;transition:0.3s;}
 #quote:hover .title{text-shadow: 0 0 5px #fff}
-#quote .title h4{font-weight:400;line-height:1.6em}
-#quote .title h5{font-weight:400;font-size:0.8em;color:#ddd;margin-top:3em}
+#quote .title h4{font-weight:400;line-height:1.6em;margin-bottom:2em}
+#quote .title h5{font-weight:400;font-size:1.1em;color:#ddd;}
 
 
 #keepitsimple{background:#3850cc;background:-webkit-linear-gradient(left,#3230a0, #4895ff 70%,#aabbff);background:linear-gradient(90deg,#3230a0, #4895ff 70%,#aabbff);color:#fff;position:relative;}
@@ -450,7 +450,7 @@ body[data-page="pricing"] .page-title h2{
 @media all and (min-width: 768px) and (max-width: 959px) {
   .page-title{padding:7em 0;}
   .pricingQuick .col2{border: none!important;}
-  #landing .title .h2{font-size:4em;min-height:2em;}
+  #landing .title .h2{font-size:4em;}
 }
 
 
@@ -462,11 +462,13 @@ body[data-page="pricing"] .page-title h2{
   .pc ul.list{margin: 2em 2%;}
 
   #landing{min-height:350px;height: 400px;}
-  #landing .title{padding-top:20px;position:relative;}
-  #landing .title .h2{font-size:2em;min-height:2em;margin-bottom:1em;}
+  #landing .title{padding-top:10px;position:relative;}
+  #landing .title .h2{font-size:3em;}
+  #landing .title h3{font-size: 1.4em}
   #keepitsimple .title h2{font-size:2em;}
   #roadmap{display:none}
-  #quote .title{right: 0;left: 0;font-size: 1.5em}
+  #quote{min-height: 300px;}
+  #quote .title{right: 0;left: 0;font-size: 1.5em;position: relative;padding:2em 0}
   #tfooter .middle nav a{display:inline-block;background-color:rgba(0,0,0,0.1);border-radius:0.25rem;margin: 0 0 5px;padding: 1rem 1em}
   #tfooter .top a{display:inline-block;background-color:rgba(0,0,0,0.1);border-radius:0.25rem;margin: 0 2px 5px!important;padding: 1rem 1em}
 
