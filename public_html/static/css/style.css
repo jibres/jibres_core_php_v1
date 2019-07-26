@@ -423,7 +423,7 @@ body[data-page="pricing"] .page-title h2{
 
 .pc .postListPreview{font-size: 0.8em;}
 .pc .postListPreview .vcard{min-height: 500px;}
-.pc .postListPreview img{max-height: 200px;}
+.pc .postListPreview img{max-height: 250px;}
 
 
 .tagBox a{padding:0.5em 0.5em;margin:0.5em 0.5em;background-color:#eee;border-radius:3px;transition:0.3s;display:inline-block;}
