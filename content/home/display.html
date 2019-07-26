@@ -74,24 +74,18 @@
 <section id='statistic'>
   <div class="cn">
     <h2 class="txtC txtB mB100 fs30" title='{%trans "Of course Made with love 😍"%}'>{%trans "Jibres has created for futuristic entrepreneurs"%}<span>❤️</span></h2>
-    <div class="f">
-      <div class="c s12 pRa10">
-        <div class="statistic xl">
-          <div class="value" title='{%trans "Item"%}'>{{homepagenumber.product | number_format | fitNumber}}+</div>
-          <h5 class="label">{%trans "Products"%}</h5>
-        </div>
+    <div class="f txtC">
+      <div class="c s12 pA10">
+          <div class="fs40" title='{%trans "Item"%}'>{{homepagenumber.product | number_format | fitNumber}}+</div>
+          <h5>{%trans "Products"%}</h5>
       </div>
-      <div class="c s12 pRa10">
-        <div class="statistic xl" title='{%trans "Qty"%}'>
-          <div class="value">{{homepagenumber.factor | number_format | fitNumber}}+</div>
-          <h5 class="label">{%trans "Factor"%}</h5>
-        </div>
+      <div class="c s12 pA10">
+          <div class="fs40" title='{%trans "Qty"%}'>{{homepagenumber.factor | number_format | fitNumber}}+</div>
+          <h5>{%trans "Factor"%}</h5>
       </div>
-      <div class="c s12">
-        <div class="statistic lg">
-          <div class="value" title='{%trans "Toman"%}'>{{homepagenumber.sum_factor | number_format | fitNumber}}+</div>
-          <h5 class="label">{%trans "Sold on Jibres"%}</h5>
-        </div>
+      <div class="c s12 pA10">
+          <div class="fs30" title='{%trans "Toman"%}'>{{homepagenumber.sum_factor | number_format | fitNumber}}+</div>
+          <h5>{%trans "Sold on Jibres"%}</h5>
       </div>
     </div>
   </div>
