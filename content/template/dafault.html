@@ -1,16 +1,13 @@
 {%extends display.main%}
 
 
-{%block pageData%}
-
-<div class="cn">
+{%block page%}
 
 {%if datarow.type == 'post' or datarow.type == 'page'%}
   {{block('posts')}}
 {%else%}
   {{block('terms')}}
 {%endif%}
-</div>
 
 {%endblock%}
 
