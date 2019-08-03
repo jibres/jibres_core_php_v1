@@ -50,8 +50,8 @@
 
 
 {%block btnNextTemp%}
-{{block("iPcPos")}}
 <div class="cbox NextBox p0 hide">
+{{block("iPcPos")}}
 
 
   <button class="cauto btn success block factor_save_btn" type="submit" name="save_btn" value="save_next" id='save_next' data-shortkey='115'>{%trans "Save Factor & Continue"%} <kbd class="floatRa mT5">f4</kbd></button>
@@ -190,10 +190,8 @@
 
 {%block iPcPos%}
 {%if pcPosLink%}
-<div class="cbox p0">
-  <div class="f">
+  <div class="f mB10">
     <div class="btn pcPos" data-link='{{pcPosLink}}' data-shortkey='121'>{{posSetting.title}} <kbd>f10</kbd></div>
   </div>
-</div>
 {%endif%}
 {%endblock%}
