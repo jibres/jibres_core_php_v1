@@ -15,6 +15,35 @@ class view
 			\dash\data::badge_text(T_('Back to last sales'));
 			\dash\data::badge_link(\dash\url::here(). '/factor?type=sale');
 		}
+
+		// @check need to check default pc-pos
+		// just for test and supersaeed
+		// {
+		// 	"ok": true,
+		// 	"result": {
+		// 	    "title": "کارتخوان ایران کیش",
+		// 	    "name": "irkish",
+		// 	    "class": "irkish",
+		// 	    "pc_pos": {
+		// 	        "serial": 11,
+		// 	        "terminal": 22,
+		// 	        "receiver": 33
+		// 	    },
+		// 	    "default": true
+		// 	}
+		// }
+
+		$pos = \lib\store::detail('pos');
+		if(is_string($pos))
+		{
+			$pos = json_decode($pos, true);
+			if(isset($pos[0]))
+			{
+				$pos = $pos[0];
+				\dash\data::posSetting($pos);
+			}
+		}
+
 	}
 }
 ?>
