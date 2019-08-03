@@ -1809,6 +1809,7 @@ function sendToPcPos()
         {
             type: "GET",
             url: myLink,
+            dataType: 'jsonp',
             success: function (_data)
             {
               notif('info', 'مبلغ ' + lastPrice + ' به پی‌سی‌پوز ارسال شد.');
@@ -1817,7 +1818,7 @@ function sendToPcPos()
             },
             error: function (_e)
             {
-              notif('error', 'خطا در اتصال اولیه به پی‌سی‌پوز');
+              // notif('error', 'خطا در اتصال اولیه به پی‌سی‌پوز');
               console.log('error on pcpos');
               console.log(JSON.stringify(_e));
             }
