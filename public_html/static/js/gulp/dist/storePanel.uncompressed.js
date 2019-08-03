@@ -1811,11 +1811,13 @@ function sendToPcPos()
             url: myLink,
             success: function (_data)
             {
+              notif('info', 'مبلغ ' + lastPrice + ' به پی‌سی‌پوز ارسال شد.');
               console.log('success calling pcpos');
               console.log(_data);
             },
             error: function (_e)
             {
+              notif('error', 'خطا در اتصال اولیه به پی‌سی‌پوز');
               console.log('error on pcpos');
               console.log(JSON.stringify(_e));
             }
