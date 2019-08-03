@@ -45,4 +45,15 @@ self::$config['irkish']['sha1']        = '22338240992352910814917221751200141041
 
 
 
+self::$config['asanpardakht']['status']           = true;
+self::$config['asanpardakht']['MerchantID']       = '3833817';
+self::$config['asanpardakht']['MerchantConfigID'] = '4358';
+self::$config['asanpardakht']['Username']         = 'jibrs3833817';
+self::$config['asanpardakht']['Password']         = 'TFIHOc7';
+self::$config['asanpardakht']['EncryptionKey']    = 'fkAD0Ebq8P2fvqpIkULhAuLJ12Av5GnXpJXxMRTTXIk=';
+self::$config['asanpardakht']['EncryptionVector'] = 'G4TOobPmmVp/P6U5VuRs+tERgFoA9gm3MbcFxXMhDg8=';
+self::$config['asanpardakht']['MerchantIP']       = '138.68.96.140';
+self::$config['asanpardakht']['MerchantName']     = 'JIBRES';
+
+
 ?>
