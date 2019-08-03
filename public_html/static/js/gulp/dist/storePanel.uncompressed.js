@@ -734,6 +734,13 @@ logy($('input.search').length);
 
       break;
 
+   case '121':              // f10
+      if(check_factor())
+      {
+        $('.pcPos').trigger('click');
+      }
+      break;
+
    case '122shift':         // f11 + shift
       break;
 
@@ -1090,6 +1097,8 @@ function bindBtnOnFactor()
   {
     calcFooterValues();
   });
+
+  sendToPcPos();
 
   // add event to handle dropdown selected value
   $('body').on('dropdown:selected:datalist', function(_e, _selectedProduct)
@@ -1785,6 +1794,39 @@ function recalcPricePercents()
   }
 }
 
+function sendToPcPos()
+{
+  $(document).on('click', '.pcPos', function()
+  {
+    var myLink    = $(this).attr('data-link');
+    var lastPrice = $('.priceBox .final span').attr('data-val');;
+    if(lastPrice > 0)
+    {
+      // replace last price
+      myLink = myLink.replace("$", lastPrice);
+      console.log('send price to pcpos ' + lastPrice);
+        $.ajax(
+        {
+            type: "GET",
+            url: myLink,
+            success: function (_data)
+            {
+              console.log('success calling pcpos');
+              console.log(_data);
+            },
+            error: function (_e)
+            {
+              console.log('error on pcpos');
+              console.log(JSON.stringify(_e));
+            }
+        });
+    }
+    else
+    {
+      console.log('Price is not valid to send to pcpos ' + lastPrice);
+    }
+  });
+}
 
 
 
