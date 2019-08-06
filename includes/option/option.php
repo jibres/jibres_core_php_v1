@@ -22,7 +22,8 @@ self::$config['site']['desc']            = "Jibres is not just an online account
 self::$config['site']['slogan']          = "Integrated Sales and Online Accounting";
 self::$config['site']['googleAnalytics'] = "UA-130946685-1";
 
-
+self::$config['billing_page'] = true;
+self::$config['address_page'] = true;
 
 self::$config['botscout']                 = 'hIenwLNiGpPOoSk';
 
