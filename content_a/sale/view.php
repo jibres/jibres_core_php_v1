@@ -62,7 +62,7 @@ class view
 					$link .= '&serial='. $serial;
 					$link .= '&terminal='. $terminal;
 					$link .= '&acceptor='. $receiver;
-					$link .= '&port=&sum=$';
+					$link .= '&sum=$';
 					\dash\data::pcPosLink($link);
 				}
 			}
