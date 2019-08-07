@@ -35,6 +35,6 @@ function storePanelJS()
 
 
 exports.js = storePanelJS;
+// exports.default = parallel(storePanelJS);
 
-exports.default = parallel(storePanelJS);
-
+exports.default = storePanelJS;

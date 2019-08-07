@@ -1799,7 +1799,9 @@ function sendToPcPos()
   $(document).on('click', '.pcPos', function()
   {
     var myLink    = $(this).attr('data-link');
-    var lastPrice = $('.priceBox .final span').attr('data-val');;
+    var lastPrice = $('.priceBox .final span').attr('data-val');
+    lastPrice += "0";
+
     if(lastPrice > 0)
     {
       // replace last price
