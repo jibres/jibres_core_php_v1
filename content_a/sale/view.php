@@ -82,7 +82,10 @@ class view
 					$link  = 'http://localhost:9759/jibres/?type=PcPosAsanpardakht';
 					$link .= '&ip='. $ip;
 					$link .= '&invoice='. time();
-					$link .= '&port='. $port;
+					if($port)
+					{
+						$link .= '&port='. $port;
+					}
 					$link .= '&amount=$';
 
 					\dash\data::pcPosLink1($link);
