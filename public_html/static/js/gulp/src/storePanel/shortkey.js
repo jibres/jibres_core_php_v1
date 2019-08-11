@@ -288,10 +288,10 @@ logy($('input.search').length);
       break;
 
    case '121':              // f10
-      if(check_factor())
-      {
-        $('.pcPos').trigger('click');
-      }
+      // if(check_factor())
+      // {
+      //   $('.pcPos').trigger('click');
+      // }
       break;
 
    case '122shift':         // f11 + shift
