@@ -43,13 +43,14 @@ class view
 		// }
 		// http://localhost:9759/jibres/?type=PcPosKiccc&serial=11&terminal=22&acceptor=33&port=&sum=1200
 
-		$pos = \lib\store::detail('pos');
-		if(is_string($pos))
+		$pos_detail = \lib\store::detail('pos');
+		if(is_string($pos_detail))
 		{
-			$pos = json_decode($pos, true);
-			if(isset($pos[0]))
+			$pos_detail = json_decode($pos_detail, true);
+
+			if(isset($pos_detail[0]))
 			{
-				$pos = $pos[0];
+				$pos = $pos_detail[0];
 
 				\dash\data::posSetting($pos);
 				if(isset($pos['pc_pos']))
@@ -64,6 +65,27 @@ class view
 					$link .= '&acceptor='. $receiver;
 					$link .= '&sum=$';
 					\dash\data::pcPosLink($link);
+				}
+			}
+
+			if(isset($pos_detail[1]))
+			{
+				$pos = $pos_detail[1];
+
+				\dash\data::posSetting1($pos);
+
+				if(isset($pos['pc_pos']))
+				{
+					$pc_pos   = $pos['pc_pos'];
+					$ip   = isset($pc_pos['ip']) ? $pc_pos['ip'] : null;
+					$port = isset($pc_pos['port']) ? $pc_pos['port'] : null;
+					$link  = 'http://localhost:9759/jibres/?type=PcPosAsanpardakht';
+					$link .= '&ip='. $ip;
+					$link .= '&invoice='. time();
+					$link .= '&port='. $port;
+					$link .= '&amount=$';
+
+					\dash\data::pcPosLink1($link);
 				}
 			}
 		}
