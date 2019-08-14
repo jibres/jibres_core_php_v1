@@ -1015,7 +1015,7 @@ function sendToPcPos()
             },
             error: function (_e)
             {
-              notif('error', 'خطا در اتصال اولیه به پی‌سی‌پوز '+ lastPrice);
+              notif('warning', 'اتصال اولیه به پی‌سی‌پوز '+ lastPrice);
               console.log('error on pcpos');
               console.log(JSON.stringify(_e));
             }
