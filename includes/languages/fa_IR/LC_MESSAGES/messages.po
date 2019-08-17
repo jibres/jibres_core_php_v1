@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-08-17 13:12+0430\n"
-"PO-Revision-Date: 2019-08-17 13:13+0430\n"
+"POT-Creation-Date: 2019-08-17 13:18+0430\n"
+"PO-Revision-Date: 2019-08-17 13:19+0430\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -120,7 +120,6 @@ msgid "Billing information"
 msgstr "اطلاعات مالی"
 
 #: dash/addons/content_account/billing/view.php:11
-#: jibres/includes/languages/trans_dash.php:110
 msgid "Check your balance, charge your account, and bill your invoices!"
 msgstr ""
 "بالانس مالی خود را بررسی کنید، حساب خود را بپردازید و صورتحساب خود را بفروشید!"
@@ -16372,7 +16371,7 @@ msgstr "تنظیمات و پیشنهاداتی برای کمک به شما تا 
 
 #: jibres/includes/languages/trans_dash.php:101
 msgid "Keep your account protected"
-msgstr "حساب کاربری خود را امن نگه‌دارید"
+msgstr "حساب کاربری خود را امن نگه دارید"
 
 #: jibres/includes/languages/trans_dash.php:105
 msgid "Manage profile"
@@ -16387,6 +16386,12 @@ msgstr ""
 #: jibres/includes/languages/trans_dash.php:108
 msgid "Get help"
 msgstr "کمک بگیرید"
+
+#: jibres/includes/languages/trans_dash.php:110
+msgid "Check your account balance, charge your account, and bill your invoices!"
+msgstr ""
+"موجودی حساب کاربری خود را بررسی کنید، حساب کاربری خود را شارژ کنید و صورتحساب‌ها "
+"را بپردازید!"
 
 #: jibres/includes/languages/trans_dash.php:111
 #: jibres/includes/languages/trans_project.php:920

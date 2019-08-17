@@ -107,7 +107,7 @@ class twigTransTerms
 	echo T_("Get expert answers and advice on our service or contact our legendary support team");// Line 112
 	echo T_("Get help");                                                              // Line 120
 	echo T_("Billing");                                                               // Line 217
-	echo T_("Check your balance, charge your account, and bill your invoices!");      // Line 132
+	echo T_("Check your account balance, charge your account, and bill your invoices!");// Line 132
 	echo T_("Check");                                                                 // Line 140
 	echo T_("Notifications");                                                         // Line 9
 	echo T_("Check your last messages.");                                             // Line 152
