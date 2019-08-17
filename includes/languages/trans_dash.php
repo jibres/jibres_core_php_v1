@@ -104,7 +104,7 @@ class twigTransTerms
 	echo T_("profile");                                                               // Line 96
 	echo T_("Manage profile");                                                        // Line 101
 	echo T_("Support");                                                               // Line 33
-	echo T_("Get expert answers and advice on our service");                          // Line 112
+	echo T_("Get expert answers and advice on our service or contact our legendary support team");// Line 112
 	echo T_("Get help");                                                              // Line 120
 	echo T_("Billing");                                                               // Line 217
 	echo T_("Check your balance, charge your account, and bill your invoices!");      // Line 132
@@ -118,7 +118,7 @@ class twigTransTerms
 	echo T_("Account Dashboard");                                                     // Line 7
 	echo T_("Avatar");                                                                // Line 91
 	echo T_("Profile");                                                               // Line 208
-	echo T_("Social Networds");                                                       // Line 17
+	echo T_("Social Networks");                                                       // Line 141
 	echo T_("Active Sessions");                                                       // Line 110
 
 	//-----------------------------------addons\content_account\my\avatar\display.html
@@ -139,7 +139,6 @@ class twigTransTerms
 	echo T_("Bio");                                                                   // Line 82
 	echo T_("Social networks");                                                       // Line 137
 	echo T_("Website, Email and Social Networks");                                    // Line 138
-	echo T_("Social Networks");                                                       // Line 141
 	echo T_("Website");                                                               // Line 38
 	echo T_("Email");                                                                 // Line 117
 	echo T_("Instagram");                                                             // Line 48
@@ -256,7 +255,7 @@ class twigTransTerms
 	//------------------------------------addons\content_account\security\display.html
 	echo T_("Ways we can verify it's you");                                           // Line 44
 	echo T_("These can be used to make sure it's really you signing in or to reach you if there's suspicious activity in your account");// Line 45
-	echo T_("Recovery Acount");                                                       // Line 48
+	echo T_("Recovery Account");                                                      // Line 48
 	echo T_("Recovery email");                                                        // Line 54
 	echo T_("Recovery phone");                                                        // Line 59
 	echo T_("Signing in to");                                                         // Line 74
