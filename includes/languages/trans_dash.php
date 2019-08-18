@@ -97,10 +97,10 @@ class twigTransTerms
 	echo T_("See the data in your account and choose what activity is saved to personalize your experience");// Line 55
 	echo T_("Manage your data & personalization");                                    // Line 63
 	echo T_("Security");                                                              // Line 235
-	echo T_("Settings and recommendations to help you keep your account secure");     // Line 10
+	echo T_("Settings and recommendations to help you keep your account secure");     // Line 74
 	echo T_("Keep your account protected");                                           // Line 82
 	echo T_("Personal info");                                                         // Line 8
-	echo T_("Basic info, like your name and photo, that you use on our services");    // Line 14
+	echo T_("Basic info, like your name and photo, that you use on our services");    // Line 93
 	echo T_("profile");                                                               // Line 96
 	echo T_("Manage profile");                                                        // Line 101
 	echo T_("Support");                                                               // Line 33
@@ -109,7 +109,7 @@ class twigTransTerms
 	echo T_("Billing");                                                               // Line 217
 	echo T_("Check your account balance, charge your account, and bill your invoices!");// Line 132
 	echo T_("Check");                                                                 // Line 140
-	echo T_("Notifications");                                                         // Line 9
+	echo T_("Notifications");                                                         // Line 159
 	echo T_("Check your last messages.");                                             // Line 152
 	echo T_("Maybe some messages need your action!");                                 // Line 152
 	echo T_("Read your messages");                                                    // Line 160
@@ -204,6 +204,15 @@ class twigTransTerms
 	echo T_("Search with new keywords.");                                             // Line 246
 	echo T_("Hi!");                                                                   // Line 253
 	echo T_("No notifications found");                                                // Line 115
+
+	//-----------------------------addons\content_account\personalization\display.html
+	echo T_("General preferences for the web");                                       // Line 28
+	echo T_("Manage settings for yourself");                                          // Line 29
+	echo T_("Language");                                                              // Line 259
+	echo T_("Sidebar");                                                               // Line 40
+	echo T_("Show");                                                                  // Line 9
+	echo T_("Hide");                                                                  // Line 41
+	echo T_("Theme");                                                                 // Line 45
 
 	//-----------------------------------------addons\content_account\ref\display.html
 	echo T_("Referral Program");                                                      // Line 6
@@ -524,7 +533,6 @@ class twigTransTerms
 	echo T_("Publish");                                                               // Line 280
 	echo T_("Comment");                                                               // Line 142
 	echo T_("You can publish in another language");                                   // Line 310
-	echo T_("Language");                                                              // Line 259
 	echo T_("Choose parent for this page to create related url as tree");             // Line 388
 	echo T_("Parent");                                                                // Line 388
 	echo T_("Choose Parent");                                                         // Line 390
@@ -755,7 +763,6 @@ class twigTransTerms
 
 	//------------------------------------addons\content_crm\android\home\display.html
 	echo T_("Advance result");                                                        // Line 48
-	echo T_("Show");                                                                  // Line 9
 	echo T_("Try to start with add new user!");                                       // Line 196
 
 	//--------------------------------------addons\content_crm\email\home\display.html
@@ -1455,9 +1462,6 @@ class twigTransTerms
 	echo T_("Hello ");                                                                // Line 86
 	echo T_("dear GUEST!");                                                           // Line 86
 	echo T_("Click to toggle sidebar status");                                        // Line 130
-	echo T_("View website");                                                          // Line 148
-	echo T_("Your notifications");                                                    // Line 159
-	echo T_("Click to check your profile");                                           // Line 161
 	echo T_("You really want to go?");                                                // Line 166
 	echo T_("We are waiting for you to come back:)");                                 // Line 167
 	echo T_("Enter to have better experience");                                       // Line 178
