@@ -292,7 +292,7 @@ class twigTransTerms
 	echo T_("username");                                                              // Line 128
 	echo T_("Enter a valid username from 4 to 50 character");                         // Line 128
 	echo T_("Go");                                                                    // Line 18
-	echo T_("Delete Account");                                                        // Line 147
+	echo T_("Delete Account");                                                        // Line 175
 	echo T_("Go and check it");                                                       // Line 146
 	echo T_("Next");                                                                  // Line 161
 	echo T_("Sign in instead");                                                       // Line 167
@@ -634,7 +634,7 @@ class twigTransTerms
 	//-----------------------------------------addons/content_enter/block/display.html
 	echo T_("You are blocked becauese of some reason!");                              // Line 7
 	echo T_("If have problem");                                                       // Line 8
-	echo T_("Contact us");                                                            // Line 8
+	echo T_("Contact us");                                                            // Line 28
 
 	//--------------------------------------addons/content_enter/callback/display.html
 	echo T_("Hi");                                                                    // Line 7
@@ -1191,7 +1191,7 @@ class twigTransTerms
 	echo T_("Personal info");                                                         // Line 92
 	echo T_("Avatar");                                                                // Line 98
 	echo T_("Social Networks");                                                       // Line 148
-	echo T_("Active Sessions");                                                       // Line 110
+	echo T_("Active Sessions");                                                       // Line 115
 	echo T_("Personalization");                                                       // Line 58
 
 	//--------------------------------addons/content_account/notification/display.html
@@ -1203,8 +1203,8 @@ class twigTransTerms
 	//-------------------------addons/content_account/security/rememberme/display.html
 
 	//---------------------------addons/content_account/security/sessions/display.html
-	echo T_("Sessions");                                                              // Line 116
-	echo T_("Devices that have been active on your account in the last month, or are currently signed in.");// Line 111
+	echo T_("Sessions");                                                              // Line 142
+	echo T_("Devices that have been active on your account in the last month, or are currently signed in.");// Line 116
 	echo T_("Don't recognize a device?");                                             // Line 19
 	echo T_("Terminate all other sessions");                                          // Line 21
 	echo T_("No active session found");                                               // Line 26
@@ -1212,27 +1212,32 @@ class twigTransTerms
 	echo T_("Check ip address");                                                      // Line 49
 
 	//------------------------------------addons/content_account/security/display.html
-	echo T_("Ways we can verify it's you");                                           // Line 44
-	echo T_("These can be used to make sure it's really you signing in or to reach you if there's suspicious activity in your account");// Line 45
-	echo T_("Recovery Account");                                                      // Line 48
-	echo T_("Recovery email");                                                        // Line 54
-	echo T_("Recovery phone");                                                        // Line 59
-	echo T_("Signing in to");                                                         // Line 74
-	echo T_("Signing to account");                                                    // Line 77
-	echo T_("2-Step Verification");                                                   // Line 88
-	echo T_("On");                                                                    // Line 96
-	echo T_("Off");                                                                   // Line 96
-	echo T_("Remember me");                                                           // Line 95
-	echo T_("All of your history about signing in to you account is here and you can check them.");// Line 112
-	echo T_("If there’s a device you don’t recognize, someone else may have your password.");// Line 112
-	echo T_("Change your password to protect your Account.");                         // Line 112
-	echo T_("Check all active sessions");                                             // Line 113
-	echo T_("Recent security events");                                                // Line 129
-	echo T_("No activity in the last month.");                                        // Line 130
-	echo T_("You'll be notified if unusual security activity is detected, like a sign-in from a new device or if a sensitive setting is changed in your account.");// Line 130
-	echo T_("Security Event");                                                        // Line 152
-	echo T_("You can permanently delete your Account and all your data.");            // Line 148
-	echo T_("Delete my Account");                                                     // Line 149
+	echo T_("Ways we can verify it's you");                                           // Line 49
+	echo T_("These can be used to make sure it's really you signing in or to reach you if there's suspicious activity in your account");// Line 50
+	echo T_("Recovery Account");                                                      // Line 53
+	echo T_("Recovery email");                                                        // Line 59
+	echo T_("Recovery phone");                                                        // Line 64
+	echo T_("Signing in to");                                                         // Line 79
+	echo T_("Signing to account");                                                    // Line 82
+	echo T_("2-Step Verification");                                                   // Line 93
+	echo T_("On");                                                                    // Line 101
+	echo T_("Off");                                                                   // Line 101
+	echo T_("Remember me");                                                           // Line 100
+	echo T_("All of your history about signing in to you account is here and you can check them.");// Line 117
+	echo T_("If there’s a device you don’t recognize, someone else may have your password.");// Line 117
+	echo T_("Change your password to protect your Account.");                         // Line 117
+	echo T_("Check all active sessions");                                             // Line 118
+	echo T_("API key and Application key");                                           // Line 135
+	echo T_("Protect this key like a password!");                                     // Line 15
+	echo T_("Keys used to access APIs in");                                           // Line 137
+	echo T_("API key");                                                               // Line 138
+	echo T_("Application key");                                                       // Line 139
+	echo T_("Recent security events");                                                // Line 157
+	echo T_("No activity in the last month.");                                        // Line 158
+	echo T_("You'll be notified if unusual security activity is detected, like a sign-in from a new device or if a sensitive setting is changed in your account.");// Line 158
+	echo T_("Security Event");                                                        // Line 180
+	echo T_("You can permanently delete your Account and all your data.");            // Line 176
+	echo T_("Delete my Account");                                                     // Line 177
 
 	//------------------------------addons/content_account/billing/detail/display.html
 	echo T_("plan");                                                                  // Line 12
@@ -1292,9 +1297,10 @@ class twigTransTerms
 	echo T_("Hide");                                                                  // Line 41
 
 	//-----------------------------------------addons/content_account/api/display.html
-	echo T_("YOUR API KEY");                                                          // Line 11
-	echo T_("GENERATE NEW API KEY");                                                  // Line 12
-	echo T_("Get new API KEY");                                                       // Line 18
+	echo T_("By this key you can access to your account");                            // Line 11
+	echo T_("YOUR API KEY");                                                          // Line 17
+	echo T_("GENERATE NEW API KEY");                                                  // Line 18
+	echo T_("Get new API KEY");                                                       // Line 24
 
 	//---------------------------------addons/content_account/my/username/display.html
 	echo T_("You can choose a username");                                             // Line 10
@@ -1359,10 +1365,12 @@ class twigTransTerms
 	echo T_("Read your messages");                                                    // Line 160
 
 	//--------------------------------------addons/content_account/appkey/display.html
-	echo T_("To make your appkey you must verify your mobile");                       // Line 8
-	echo T_("YOUR APPKEY");                                                           // Line 15
-	echo T_("GENERATE YOUR APPKEY");                                                  // Line 16
-	echo T_("Make appkey");                                                           // Line 23
+	echo T_("To make your appkey you must verify your mobile");                       // Line 11
+	echo T_("By this code you can build new application to manage your account and manage other customer");// Line 16
+	echo T_("YOUR APPKEY");                                                           // Line 22
+	echo T_("GENERATE YOUR APPKEY");                                                  // Line 23
+	echo T_("If you want to revoke or remove this appkey");                           // Line 28
+	echo T_("Make appkey");                                                           // Line 32
 
 	//------------------------------------------addons/content_su/command/display.html
 	echo T_("Server password");                                                       // Line 8
