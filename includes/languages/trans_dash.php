@@ -535,7 +535,7 @@ class twigTransTerms
 	echo T_("Pain");                                                                  // Line 89
 	echo T_("Type");                                                                  // Line 164
 	echo T_("Used");                                                                  // Line 117
-	echo T_("Require");                                                               // Line 63
+	echo T_("Require");                                                               // Line 367
 	echo T_("Title is used to show on website");                                      // Line 162
 	echo T_("Used for url");                                                          // Line 168
 	echo T_("Used in url for categorize addresses");                                  // Line 170
@@ -865,7 +865,7 @@ class twigTransTerms
 	echo T_("Group");                                                                 // Line 60
 	echo T_("Sender");                                                                // Line 34
 	echo T_("Large icon");                                                            // Line 39
-	echo T_("Select one item");                                                       // Line 42
+	echo T_("Select one item");                                                       // Line 387
 	echo T_("On click");                                                              // Line 63
 	echo T_("Link");                                                                  // Line 33
 	echo T_("External");                                                              // Line 85
@@ -917,7 +917,7 @@ class twigTransTerms
 	echo T_("Remove chatid");                                                         // Line 56
 	echo T_("chatid");                                                                // Line 64
 	echo T_("User have android");                                                     // Line 76
-	echo T_("Default language");                                                      // Line 40
+	echo T_("Default language");                                                      // Line 219
 	echo T_("Permission");                                                            // Line 96
 	echo T_("No permission");                                                         // Line 403
 	echo T_("Username");                                                              // Line 156
@@ -927,7 +927,7 @@ class twigTransTerms
 	echo T_("Password not set, enter  to set it!");                                   // Line 150
 	echo T_("Confirm password");                                                      // Line 432
 	echo T_("Require to change current password");                                    // Line 432
-	echo T_("Show sidebar");                                                          // Line 30
+	echo T_("Show sidebar");                                                          // Line 209
 	echo T_("Active");                                                                // Line 388
 	echo T_("Deactive");                                                              // Line 390
 	echo T_("Removed");                                                               // Line 391
@@ -976,10 +976,10 @@ class twigTransTerms
 	echo T_("Display name");                                                          // Line 87
 	echo T_("Last name");                                                             // Line 57
 	echo T_("Father name");                                                           // Line 128
-	echo T_("Birthday");                                                              // Line 52
-	echo T_("Gender");                                                                // Line 63
-	echo T_("Male");                                                                  // Line 67
-	echo T_("Female");                                                                // Line 72
+	echo T_("Birthday");                                                              // Line 68
+	echo T_("Gender");                                                                // Line 97
+	echo T_("Male");                                                                  // Line 100
+	echo T_("Female");                                                                // Line 101
 	echo T_("Marital");                                                               // Line 156
 	echo T_("Single");                                                                // Line 159
 	echo T_("Married");                                                               // Line 160
@@ -1273,6 +1273,9 @@ class twigTransTerms
 	echo T_("Company name");                                                          // Line 220
 
 	//---------------------addons/content_account/personalization/sidebar/display.html
+	echo T_("Toggle side bar");                                                       // Line 14
+	echo T_("You can save side bar status");                                          // Line 15
+	echo T_("Are your need side bar?");                                               // Line 41
 
 	//--------------------addons/content_account/personalization/language/display.html
 	echo T_("Please select one language");                                            // Line 32
@@ -1302,7 +1305,7 @@ class twigTransTerms
 	echo T_("Gmail");                                                                 // Line 277
 
 	//-----------------------------------addons/content_account/my/avatar/display.html
-	echo T_("Your avatar");                                                           // Line 85
+	echo T_("Your avatar");                                                           // Line 20
 
 	//------------------------------------addons/content_account/my/email/display.html
 
@@ -1324,12 +1327,11 @@ class twigTransTerms
 	echo T_("Click here");                                                            // Line 420
 	echo T_("Delete your account");                                                   // Line 425
 	echo T_("Password not set, enter to set it!");                                    // Line 434
-	echo T_("Save all");                                                              // Line 99
+	echo T_("Save all");                                                              // Line 460
 
 	//----------------------------------addons/content_account/my/profile/display.html
-
-	//------------------------------------addons/content_account/my/other/display.html
-	echo T_("Improve User Experience");                                               // Line 14
+	echo T_("Company");                                                               // Line 102
+	echo T_("Rather not say");                                                        // Line 103
 
 	//--------------------------------addons/content_account/my/signature/display.html
 	echo T_("Your signature");                                                        // Line 11
@@ -1361,11 +1363,6 @@ class twigTransTerms
 	echo T_("YOUR APPKEY");                                                           // Line 15
 	echo T_("GENERATE YOUR APPKEY");                                                  // Line 16
 	echo T_("Make appkey");                                                           // Line 23
-
-	//----------------------------------------addons/content_account/view/display.html
-	echo T_("Toggle side bar");                                                       // Line 10
-	echo T_("You can save side bar status");                                          // Line 11
-	echo T_("Are your need side bar?");                                               // Line 18
 
 	//------------------------------------------addons/content_su/command/display.html
 	echo T_("Server password");                                                       // Line 8
