@@ -6,20 +6,10 @@ class cronjob
 
 	public static function run()
 	{
-		switch (\dash\request::get('type'))
-		{
-			case 'homepagenumber':
-				self::homepagenumber();
-				break;
+		self::homepagenumber();
 
-			case 'jibresplan':
-				self::jibresplan();
-				break;
+		self::jibresplan();
 
-			default:
-				# code...
-				break;
-		}
 	}
 
 
