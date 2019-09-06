@@ -4,7 +4,7 @@
   "description": "Financial Platform",
   "homepage": "https://Jibres.com",
   "dependencies": {
-    "dash": "^18.0.0",
+    "@ermile/dash": "^20.0.0",
     "jibres": "file:public_html/static/js/gulp",
     "siftal": "^6.9.0"
   }
