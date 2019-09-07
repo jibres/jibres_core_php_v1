@@ -478,7 +478,7 @@ trait add
 		}
 		else
 		{
-			\dash\utility\cloudflare::create_dns_record(['type' => 'CNAME', 'name' => $args['slug'], 'content' => 'jibres.com']);
+			// \dash\utility\cloudflare::create_dns_record(['type' => 'CNAME', 'name' => $args['slug'], 'content' => 'jibres.com']);
 		}
 
 		$return['store_id'] = \dash\coding::encode($store_id);
