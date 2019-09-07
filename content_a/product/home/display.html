@@ -1,23 +1,27 @@
 {%extends display.admin%}
 
 
-
-{%block pageContent%}
+{%block filterProductLink%}
 {%if perm('productAdvanceSearchView')%}
-<div class="msg info2 f p0">
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?duplicatetitle=1">{%trans "Duplicate title"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?hbarcode=1">{%trans "Have barcode"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?hnotbarcode=1">{%trans "Have not barcode"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?justcode=1">{%trans "Just code"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wcodbarcode=1">{%trans "No barcode & code"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wbuyprice=1">{%trans "Whithout buyprice"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wprice=1">{%trans "Whithout price"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wminstock=1">{%trans "Whithout min stock"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wmaxstock=1">{%trans "Whithout max stock"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?wdiscount=1">{%trans "Whithout discount"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?negativeprofit=1">{%trans "Negative profit"%}</a></span>
+<div class="msg info2 f mA5">
+  <div class="fc-mute">{%trans "Product whit filter"%}</div>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&duplicatetitle=1">{%trans "Duplicate title"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&hbarcode=1">{%trans "Have barcode"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&hnotbarcode=1">{%trans "Have not barcode"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&justcode=1">{%trans "Just code"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wcodbarcode=1">{%trans "No barcode & code"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wbuyprice=1">{%trans "Whithout buyprice"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wprice=1">{%trans "Whithout price"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wminstock=1">{%trans "Whithout min stock"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wmaxstock=1">{%trans "Whithout max stock"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wdiscount=1">{%trans "Whithout discount"%}</a></span>
+  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&negativeprofit=1">{%trans "Negative profit"%}</a></span>
 </div>
 {%endif%}
+{%endblock%}
+
+
+{%block pageContent%}
 
 {%if dataTable%}
  {%if filterBox%}
@@ -48,7 +52,11 @@
 {%endblock%}
 
 
-
+{%block showAdvanceSearch%}
+<div class="showAdvanceSearch" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
+  {{block('filterProductLink')}}
+</div>
+{%endblock%}
 
 
 
@@ -58,9 +66,11 @@
 <div class="cbox fs12 p0">
   <form method="get" action='{{url.here}}/product'>
     <div class="input">
+      <label class="addon" data-kerkere-icon data-kerkere='.showAdvanceSearch'>{%trans "Advance search"%}</label>
       <input type="search" name="q" placeholder='{%trans "Search in products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" autofocus class="barCode" data-default data-pass='submit' autocomplete='off'>
       <button class="addon btn ">{%trans "Search" %}</button>
     </div>
+    {{block('showAdvanceSearch')}}
   </form>
 </div>
 {%endblock%}
