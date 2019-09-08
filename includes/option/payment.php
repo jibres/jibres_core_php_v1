@@ -56,4 +56,9 @@ self::$config['asanpardakht']['MerchantIP']       = '138.68.96.140';
 self::$config['asanpardakht']['MerchantName']     = 'JIBRES';
 
 
+
+
+self::$config['sep']['status']   = true;
+self::$config['sep']['MID']      = 31064728;
+self::$config['sep']['Password'] = 8473172;
 ?>
