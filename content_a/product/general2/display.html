@@ -1,0 +1,57 @@
+{%extends "content_a/product/layout.html"%}
+
+{%block pageContent%}
+
+{{block('iDataForm')}}
+
+{%endblock%}
+
+
+{%block iDataForm%}
+<form method="post" autocomplete="off">
+<div class="cbox">
+{{block ('iTitle') }}
+
+<div class="f">
+ <div class="c s12 pRa5">{{block ('iCat') }}</div>
+ <div class="c s6 pRa5">{{block ('iUnit') }}</div>
+ <div class="c s6">{{block ('iCode') }}</div>
+</div>
+
+
+<div class="f">
+ <div class="c s12 pRa5">{{block ('iCodeOnScale') }}</div>
+ <div class="c s12 ">{{block ('iWeight') }}</div>
+
+</div>
+
+
+
+
+<div class="f">
+ <div class="c s12 pRa5">{{block ('iBarcode') }}</div>
+ <div class="c s12">{{block ('iBarcode2') }}</div>
+</div>
+{{block ('iBarcodePrev') }}
+
+
+
+
+{{block ('iBuyprice') }}
+
+<div class="f">
+ <div class="c s12 pRa5">{{block ('iPrice') }}</div>
+ <div class="c s12">{{block ('iDiscount') }}</div>
+</div>
+
+{{block ('iFinalPrice') }}
+
+
+
+{{block("iSaveAll")}}
+</div>
+</form>
+{%endblock%}
+
+
+
