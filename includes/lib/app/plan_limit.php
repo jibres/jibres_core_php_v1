@@ -116,7 +116,7 @@ class plan_limit
 		}
 		else
 		{
-			\dash\notif::error(T_("Can not add any product!"));
+			\dash\notif::error(T_("Can not add any product! Because your plan limit is full"));
 			return false;
 		}
 	}

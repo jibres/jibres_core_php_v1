@@ -6,11 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v6\access::check();
-
-		\content_api\v6\access::store();
-
-
+		\content_api\v6\access::full_access_check();
 
 		$detail    = [];
 
@@ -35,6 +31,11 @@ class controller
 		{
 			// need less to check user
 			$detail = \content_api\v6\product\comment::route();
+		}
+		elseif($directory === 'v6/product/add')
+		{
+			// need less to check user
+			$detail = \content_api\v6\product\add::route();
 		}
 		else
 		{

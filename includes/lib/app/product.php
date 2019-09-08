@@ -539,7 +539,7 @@ class product
 		$args['stock']           = $stock;
 		$args['thumb']           = $thumb;
 		$args['service']         = $service;
-		$args['checkstock']      = $checkstock;
+		// $args['checkstock']      = $checkstock;
 		$args['saleonline']      = $saleonline;
 		$args['salestore']       = $salestore;
 		$args['carton']          = $carton;

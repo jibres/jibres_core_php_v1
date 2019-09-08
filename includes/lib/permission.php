@@ -35,7 +35,7 @@ class permission
 	// load user in userstore
 	public static function load_user($_user_id = null, $_force = false)
 	{
-		if(!\dash\url::subdomain())
+		if(!\lib\store::loaded())
 		{
 			return null;
 		}
@@ -50,7 +50,7 @@ class permission
 	// get user count group by permission
 	public static function usercount()
 	{
-		if(!\dash\url::subdomain())
+		if(!\lib\store::loaded())
 		{
 			return null;
 		}
@@ -70,7 +70,7 @@ class permission
 	// get list of permission by check plan
 	public static function perm_list($_master_contain, $_postion)
 	{
-		if(!\dash\url::subdomain())
+		if(!\lib\store::loaded())
 		{
 			return $_master_contain;
 		}
@@ -114,7 +114,7 @@ class permission
 	// get permisison group list from store permission field
 	public static function group_list($_master_groups, $_postion)
 	{
-		if(!\dash\url::subdomain())
+		if(!\lib\store::loaded())
 		{
 			return $_master_groups;
 		}
@@ -152,7 +152,7 @@ class permission
 	// check the caller is exist in plan
 	public static function plan($_caller)
 	{
-		if(!\dash\url::subdomain())
+		if(!\lib\store::loaded())
 		{
 			return null;
 		}
@@ -175,7 +175,7 @@ class permission
 	// check permission by check userstores permission field
 	public static function check($_caller)
 	{
-		if(!\dash\url::subdomain())
+		if(!\lib\store::loaded())
 		{
 			return null;
 		}

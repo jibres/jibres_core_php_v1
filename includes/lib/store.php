@@ -114,6 +114,18 @@ class store
 	}
 
 
+	public static function loaded()
+	{
+		if(self::id())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	/**
 	 * get id of store
 	 *

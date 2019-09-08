@@ -4,6 +4,15 @@ namespace content_api\v6;
 
 class access
 {
+
+	public static function full_access_check()
+	{
+		self::check();
+		self::store();
+		self::user();
+	}
+
+
 	public static function check()
 	{
 		// not send api to subdomain
