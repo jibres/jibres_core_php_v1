@@ -1,0 +1,80 @@
+{%extends "content_a/product/layout.html"%}
+
+{%block pageContent%}
+{{block('pageSteps')}}
+{{block('pageStepsGeneral')}}
+<div class="f">
+	<div class="cauto s12 pA10">
+		{{block("psidebar")}}
+	</div>
+	<div class="c s12 pA10">
+
+		<form class="cbox" method="post">
+			<div class="example">
+
+				<div class="f">
+					<div class="cauto">{{block('optionName1')}}</div>
+					<div class="c pLa5">{{block('optionValue1')}}</div>
+				</div>
+
+				<div class="f">
+					<div class="cauto">{{block('optionName2')}}</div>
+					<div class="c pLa5">{{block('optionValue2')}}</div>
+				</div>
+
+				<div class="f">
+					<div class="cauto">{{block('optionName3')}}</div>
+					<div class="c pLa5">{{block('optionValue3')}}</div>
+				</div>
+
+				<button class="btn primary block mT20">{%trans "Make"%}</button>
+			</div>
+		</form>
+	</div>
+</div>
+{%endblock%}
+
+
+
+{%block optionName1%}
+<div class="input mA5">
+	<input type="text" name="optionname1" placeholder='{%trans "Size"%}' value="Size">
+</div>
+{%endblock%}
+
+
+{%block optionName2%}
+<div class="input mA5">
+	<input type="text" name="optionname2" placeholder='{%trans "Color"%}' value="Color">
+</div>
+{%endblock%}
+
+
+{%block optionName3%}
+<div class="input mA5">
+	<input type="text" name="optionname3" placeholder='{%trans "Material"%}' value="Material">
+</div>
+{%endblock%}
+
+
+
+
+{%block optionValue1%}
+<div class="input mA5">
+	<input type="text" name="optionvalue1" placeholder='{%trans "Separate options with a comma"%}' value="xl,xxl,m,s">
+</div>
+{%endblock%}
+
+
+{%block optionValue2%}
+<div class="input mA5">
+	<input type="text" name="optionvalue2" placeholder='{%trans "Separate options with a comma"%}' value="red,green,blue">
+</div>
+{%endblock%}
+
+
+{%block optionValue3%}
+<div class="input mA5">
+	<input type="text" name="optionvalue3" placeholder='{%trans "Separate options with a comma"%}' value="coton,poliestrit,metan,fe,u">
+</div>
+{%endblock%}
