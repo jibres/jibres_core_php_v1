@@ -13,6 +13,8 @@ class view
 		\dash\data::badge_text(T_('Back to product list'));
 		\dash\data::badge_link(\dash\url::this());
 
+		$variants_list = \lib\app\product\variants::get(\dash\request::get('id'));
+		\dash\data::variantsList($variants_list);
 
 	}
 }

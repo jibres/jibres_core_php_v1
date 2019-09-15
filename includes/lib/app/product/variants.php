@@ -4,6 +4,65 @@ namespace lib\app\product;
 
 class variants
 {
+	public static function get($_id)
+	{
+		// load main product detail
+		$product_detail = \lib\app\product::inline_get($_id);
+		if(!$product_detail)
+		{
+			return false;
+		}
+
+		$variants = [];
+		if(isset($product_detail['variants']) && $product_detail['variants'] && is_string($product_detail['variants']))
+		{
+			$variants = json_decode($product_detail['variants'], true);
+		}
+
+		if(!is_array($variants))
+		{
+			$variants = [];
+		}
+		if(isset($variants['variants']) && is_array($variants['variants']))
+		{
+			$myVariants = $variants['variants'];
+			$temp_product = [];
+
+			if(isset($myVariants['option1']['value']) && is_array($myVariants['option1']['value']))
+			{
+				foreach ($myVariants['option1']['value'] as $optionname1)
+				{
+					if(isset($myVariants['option2']['value']) && is_array($myVariants['option2']['value']))
+					{
+						foreach ($myVariants['option2']['value'] as $optionname2)
+						{
+							if(isset($myVariants['option3']['value']) && is_array($myVariants['option3']['value']))
+							{
+								foreach ($myVariants['option3']['value'] as $optionname3)
+								{
+									$temp_product[] = [$myVariants['option1']['name'] => $optionname1, $myVariants['option2']['name'] => $optionname2, $myVariants['option3']['name'] => $optionname3];
+								}
+							}
+							else
+							{
+								$temp_product[] = [$myVariants['option1']['name'] => $optionname1, $myVariants['option2']['name'] => $optionname2];
+							}
+						}
+					}
+					else
+					{
+						$temp_product[] = [$myVariants['option1']['name'] => $optionname1];
+					}
+				}
+			}
+
+			$variants['temp_product'] = $temp_product;
+		}
+
+		return $variants;
+
+	}
+
 
 	public static function set($_variants, $_id)
 	{
@@ -85,19 +144,19 @@ class variants
 		$count = 1;
 		if($optionname1 && $optionvalue1)
 		{
-			$variants['variants'][$optionname1] = $optionvalue1;
+			$variants['variants']['option1'] = ['name' => $optionname1, 'value' => $optionvalue1];
 			$count *= count($optionvalue1);
 		}
 
 		if($optionname2 && $optionvalue2)
 		{
-			$variants['variants'][$optionname2] = $optionvalue2;
+			$variants['variants']['option2'] = ['name' => $optionname2, 'value' => $optionvalue2];
 			$count *= count($optionvalue2);
 		}
 
 		if($optionname3 && $optionvalue3)
 		{
-			$variants['variants'][$optionname3] = $optionvalue3;
+			$variants['variants']['option3'] = ['name' => $optionname3, 'value' => $optionvalue3];
 			$count *= count($optionvalue3);
 		}
 
