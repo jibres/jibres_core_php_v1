@@ -112,19 +112,19 @@ class variants
 			return false;
 		}
 
-		if($optionname1 === $optionname2)
+		if(($optionname1 || $optionname2) && $optionname1 === $optionname2)
 		{
 			\dash\notif::error(T_("Duplicate option name"), ['element' => ['optionname1', 'optionname2']]);
 			return false;
 		}
 
-		if($optionname3 === $optionname2)
+		if(($optionname3 || $optionname2) && $optionname3 === $optionname2)
 		{
 			\dash\notif::error(T_("Duplicate option name"), ['element' => ['optionname3', 'optionname2']]);
 			return false;
 		}
 
-		if($optionname3 === $optionname1)
+		if(($optionname3 || $optionname1) && $optionname3 === $optionname1)
 		{
 			\dash\notif::error(T_("Duplicate option name"), ['element' => ['optionname3', 'optionname1']]);
 			return false;
@@ -140,23 +140,26 @@ class variants
 		}
 
 		$variants = [];
-
-		$count = 1;
+		$number   = 0;
+		$count    = 1;
 		if($optionname1 && $optionvalue1)
 		{
-			$variants['variants']['option1'] = ['name' => $optionname1, 'value' => $optionvalue1];
+			$number++;
+			$variants['variants']['option'. $number] = ['name' => $optionname1, 'value' => $optionvalue1];
 			$count *= count($optionvalue1);
 		}
 
 		if($optionname2 && $optionvalue2)
 		{
-			$variants['variants']['option2'] = ['name' => $optionname2, 'value' => $optionvalue2];
+			$number++;
+			$variants['variants']['option'. $number] = ['name' => $optionname2, 'value' => $optionvalue2];
 			$count *= count($optionvalue2);
 		}
 
 		if($optionname3 && $optionvalue3)
 		{
-			$variants['variants']['option3'] = ['name' => $optionname3, 'value' => $optionvalue3];
+			$number++;
+			$variants['variants']['option'. $number] = ['name' => $optionname3, 'value' => $optionvalue3];
 			$count *= count($optionvalue3);
 		}
 
@@ -203,6 +206,7 @@ class variants
 					\dash\notif::error(T_("Please set option value less than 100 characters"), $_option_value);
 					return false;
 				}
+				$optionvalue[$key] = \dash\safe::safe($value);
 			}
 		}
 

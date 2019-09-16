@@ -143,17 +143,49 @@
 
 {%block productTempList%}
 	{%if variantsList.temp_product%}
-	{%set myCount = 1%}
-		<div class="cbox">
-			{%for key, value in variantsList.temp_product%}
-				<div class="f">
-					<div class="cauto">{{myCount}} - </div>
+	{%set myCount = 0%}
+		<div class="tblBox">
+			<table class="tbl1 v1 fs12">
+				<thead>
+					<tr>
+						<th class="collapsing">#</th>
+						<th class="collapsing">{{variantsList.variants.option1.name}}</th>
+						{%if variantsList.variants.option2.value%}<th class="collapsing">{{variantsList.variants.option2.name}}</th>{%endif%}
+						{%if variantsList.variants.option3.value%}<th class="collapsing">{{variantsList.variants.option3.name}}</th>{%endif%}
+						<th>{%trans "Stock"%}</th>
+						<th>{%trans "Price"%}</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{%for key, value in variantsList.temp_product%}
 					{%set myCount = myCount + 1%}
-					{%for k, v in value%}
-						<div class="c">{{k}} - <b>{{v}}</b></div>
+						<tr>
+							<td class="collapsing">
+								<div class="check1">
+					              <input type="checkbox" id="sChk{{myCount}}" checked>
+					              <label for="sChk{{myCount}}">{{myCount | fitNumber}}</label>
+					            </div>
+							</td>
+
+							{%for k, v in value%}
+								<td class="collapsing">{{v}}</td>
+							{%endfor%}
+							<td>
+								<div class="input">
+									<input type="number" name="stock" placeholder='{%trans "Stock"%}'>
+								</div>
+							</td>
+
+							<td>
+								<div class="input">
+									<input type="number" name="price" placeholder='{%trans "Price"%}' value="{{dataRow.price}}">
+								</div>
+							</td>
+						</tr>
 					{%endfor%}
-				</div>
-			{%endfor%}
+				</tbody>
+			</table>
 		</div>
 	{%endif%}
 {%endblock%}
