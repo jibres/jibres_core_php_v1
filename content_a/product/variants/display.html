@@ -30,10 +30,10 @@
 				<button class="btn primary block mT20">{%trans "Make"%}</button>
 			</div>
 		</form>
-		{{block('productTempList')}}
 
 	</div>
 </div>
+		{{block('productTempList')}}
 {%endblock%}
 
 
@@ -144,48 +144,77 @@
 {%block productTempList%}
 	{%if variantsList.temp_product%}
 	{%set myCount = 0%}
-		<div class="tblBox">
-			<table class="tbl1 v1 fs12">
-				<thead>
-					<tr>
-						<th class="collapsing">#</th>
-						<th class="collapsing">{{variantsList.variants.option1.name}}</th>
-						{%if variantsList.variants.option2.value%}<th class="collapsing">{{variantsList.variants.option2.name}}</th>{%endif%}
-						{%if variantsList.variants.option3.value%}<th class="collapsing">{{variantsList.variants.option3.name}}</th>{%endif%}
-						<th>{%trans "Stock"%}</th>
-						<th>{%trans "Price"%}</th>
-
-					</tr>
-				</thead>
-				<tbody>
-					{%for key, value in variantsList.temp_product%}
-					{%set myCount = myCount + 1%}
+		<form method="post" autocomplete="off">
+			<input type="hidden" name="setvariants" value="1">
+			<div class="tblBox">
+				<table class="tbl1 v1 fs12">
+					<thead>
 						<tr>
-							<td class="collapsing">
-								<div class="check1">
-					              <input type="checkbox" id="sChk{{myCount}}" checked>
-					              <label for="sChk{{myCount}}">{{myCount | fitNumber}}</label>
-					            </div>
-							</td>
+							<th class="collapsing">{%trans "Avalible?"%}</th>
+							<th class="collapsing">{{variantsList.variants.option1.name}}</th>
+							{%if variantsList.variants.option2.value%}<th class="collapsing">{{variantsList.variants.option2.name}}</th>{%endif%}
+							{%if variantsList.variants.option3.value%}<th class="collapsing">{{variantsList.variants.option3.name}}</th>{%endif%}
+							<th>{%trans "Stock"%}</th>
+							<th>{%trans "Price"%}</th>
+							<th>{%trans "SKU"%}</th>
+							<th>{%trans "Barcode"%}</th>
 
-							{%for k, v in value%}
-								<td class="collapsing">{{v}}</td>
-							{%endfor%}
-							<td>
-								<div class="input">
-									<input type="number" name="stock" placeholder='{%trans "Stock"%}'>
-								</div>
-							</td>
-
-							<td>
-								<div class="input">
-									<input type="number" name="price" placeholder='{%trans "Price"%}' value="{{dataRow.price}}">
-								</div>
-							</td>
 						</tr>
-					{%endfor%}
-				</tbody>
-			</table>
-		</div>
+					</thead>
+					<tbody>
+						{%for key, value in variantsList.temp_product%}
+						{%set myCount = myCount + 1%}
+							<tr>
+								<td class="collapsing">
+									<div class="check1">
+						              <input type="checkbox" name="avalible_{{myCount}}" value="1" id="sChk{{myCount}}" checked>
+						              <label for="sChk{{myCount}}">{{myCount | fitNumber}}</label>
+						            </div>
+								</td>
+								{%set myOptionKey = 0%}
+								{%for k, v in value%}
+									{%set myOptionKey = myOptionKey + 1%}
+									<td class="collapsing">
+										<input type="hidden" name="option{{myOptionKey}}_{{myCount}}" value="{{v}}">
+										{{v}}
+									</td>
+								{%endfor%}
+								<td>
+									<div class="input">
+										<input type="number" name="stock_{{myCount}}" placeholder='{%trans "Stock"%}'>
+									</div>
+								</td>
+
+								<td>
+									<div class="input">
+										<input type="number" name="price_{{myCount}}" placeholder='{%trans "Price"%}' value="{{dataRow.price}}">
+									</div>
+								</td>
+
+								<td>
+									<div class="input">
+										<input type="text" name="sku_{{myCount}}" placeholder='{%trans "SKU"%}'>
+									</div>
+								</td>
+
+								<td>
+									<div class="input">
+										<input type="text" name="barcode_{{myCount}}" placeholder='{%trans "Barcode"%}'>
+									</div>
+								</td>
+							</tr>
+						{%endfor%}
+					</tbody>
+				</table>
+			</div>
+			<div class="cbox">
+				<p>
+					{%trans "Only product by check the need box and set price and stock can add to your product list!"%}
+				</p>
+				<div class="txtRa fs12">
+					<button class="btn success">{%trans "Save"%}</button>
+				</div>
+			</div>
+		</form>
 	{%endif%}
 {%endblock%}
