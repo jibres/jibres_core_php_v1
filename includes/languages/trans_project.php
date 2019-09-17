@@ -5,7 +5,7 @@ class twigTransTerms
  {
 
 	//-----------------------------------------------------------content_i/layout.html
-	echo T_("Manage");                                                                // Line 623
+	echo T_("Manage");                                                                // Line 627
 
 	//--------------------------------------------------content_i/category/layout.html
 	echo T_("Parent");                                                                // Line 123
@@ -116,7 +116,7 @@ class twigTransTerms
 	echo T_("Billing");                                                               // Line 441
 
 	//----------------------------------------------------content_c/store/display.html
-	echo T_("Code");                                                                  // Line 84
+	echo T_("Code");                                                                  // Line 79
 	echo T_("Store title");                                                           // Line 45
 	echo T_("Plan");                                                                  // Line 75
 	echo T_("Start Plan");                                                            // Line 17
@@ -748,7 +748,7 @@ class twigTransTerms
 	echo T_("Count of items");                                                        // Line 33
 	echo T_("Sum of counts");                                                         // Line 92
 	echo T_("Invoice amount");                                                        // Line 124
-	echo T_("Discount percent");                                                      // Line 78
+	echo T_("Discount percent");                                                      // Line 73
 	echo T_("Press f7 or click to toggle discount");                                  // Line 37
 	echo T_("Total discount");                                                        // Line 37
 	echo T_("Save Factor & Continue");                                                // Line 57
@@ -794,11 +794,39 @@ class twigTransTerms
 
 	//----------------------------------content_a/chap/size-receipt/receipt-short.html
 
+	//--------------------------------------------------content_a/products/filter.html
+	echo T_("Product whit filter");                                                   // Line 3
+	echo T_("Duplicate title");                                                       // Line 4
+	echo T_("Have barcode");                                                          // Line 5
+	echo T_("Have not barcode");                                                      // Line 6
+	echo T_("Just code");                                                             // Line 7
+	echo T_("No barcode & code");                                                     // Line 8
+	echo T_("Whithout buyprice");                                                     // Line 9
+	echo T_("Whithout price");                                                        // Line 10
+	echo T_("Whithout min stock");                                                    // Line 11
+	echo T_("Whithout max stock");                                                    // Line 12
+	echo T_("Whithout discount");                                                     // Line 13
+	echo T_("Negative profit");                                                       // Line 14
+
+	//--------------------------------------------content_a/products/home/display.html
+	echo T_("Advance search");                                                        // Line 54
+	echo T_("Search in products");                                                    // Line 46
+	echo T_("Buy");                                                                   // Line 279
+	echo T_("Final price");                                                           // Line 63
+	echo T_("Gross profit");                                                          // Line 75
+	echo T_("Stock");                                                                 // Line 176
+	echo T_("Last modified");                                                         // Line 77
+	echo T_("stock count is less than zero!");                                        // Line 86
+	echo T_("Discount more than 50 percent!");                                        // Line 92
+	echo T_("Final price is under buy price");                                        // Line 93
+	echo T_("Add new product");                                                       // Line 106
+	echo T_("Try to start with add new product!");                                    // Line 114
+
 	//------------------------------------------------content_a/thirdparty/layout.html
 	echo T_("Type of thirdparty");                                                    // Line 81
 	echo T_("Customer");                                                              // Line 117
 	echo T_("Supplier");                                                              // Line 117
-	echo T_("Tag");                                                                   // Line 468
+	echo T_("Tag");                                                                   // Line 123
 	echo T_("Add tag manually to link thirdparty togethers");                         // Line 478
 	echo T_("Tag keywords...");                                                       // Line 479
 	echo T_("Save tag");                                                              // Line 487
@@ -970,7 +998,6 @@ class twigTransTerms
 	//---------------------------------------------content_a/product/desc/display.html
 
 	//---------------------------------------------------content_a/product/layout.html
-	echo T_("Stock");                                                                 // Line 81
 	echo T_("Name of product");                                                       // Line 54
 	echo T_("Enter a valid name");                                                    // Line 54
 	echo T_("Set short and best title for your product");                             // Line 62
@@ -1030,7 +1057,8 @@ class twigTransTerms
 	echo T_("Gallery");                                                               // Line 49
 	echo T_("Property");                                                              // Line 22
 	echo T_("Comment");                                                               // Line 46
-	echo T_("Sale gateway");                                                          // Line 627
+	echo T_("Variants");                                                              // Line 619
+	echo T_("Sale gateway");                                                          // Line 632
 
 	//------------------------------------------content_a/product/gallery/display.html
 	echo T_("Add to gallery");                                                        // Line 31
@@ -1040,6 +1068,8 @@ class twigTransTerms
 	echo T_("Video");                                                                 // Line 62
 	echo T_("MP3");                                                                   // Line 68
 	echo T_("Without preview");                                                       // Line 72
+
+	//---------------------------------------------------content_a/product/filter.html
 
 	//-----------------------------------------content_a/product/property/display.html
 	echo T_("This property loaded from default property of category");                // Line 42
@@ -1067,6 +1097,8 @@ class twigTransTerms
 
 	//-----------------------------------------content_a/product/pricehistory/chart.js
 	echo T_("Price change in time line");                                             // Line 26
+
+	//-------------------------------------------content_a/product/lstock/display.html
 
 	//-------------------------------------------content_a/product/manage/display.html
 	echo T_("Delete product");                                                        // Line 20
@@ -1100,27 +1132,6 @@ class twigTransTerms
 	echo T_("Sale in physical");                                                      // Line 57
 
 	//---------------------------------------------content_a/product/home/display.html
-	echo T_("Duplicate title");                                                       // Line 8
-	echo T_("Have barcode");                                                          // Line 9
-	echo T_("Have not barcode");                                                      // Line 10
-	echo T_("Just code");                                                             // Line 11
-	echo T_("No barcode & code");                                                     // Line 12
-	echo T_("Whithout buyprice");                                                     // Line 13
-	echo T_("Whithout price");                                                        // Line 14
-	echo T_("Whithout min stock");                                                    // Line 15
-	echo T_("Whithout max stock");                                                    // Line 16
-	echo T_("Whithout discount");                                                     // Line 17
-	echo T_("Negative profit");                                                       // Line 18
-	echo T_("Search in products");                                                    // Line 46
-	echo T_("Buy");                                                                   // Line 279
-	echo T_("Final price");                                                           // Line 63
-	echo T_("Gross profit");                                                          // Line 80
-	echo T_("Last modified");                                                         // Line 82
-	echo T_("stock count is less than zero!");                                        // Line 91
-	echo T_("Discount more than 50 percent!");                                        // Line 97
-	echo T_("Final price is under buy price");                                        // Line 98
-	echo T_("Add new product");                                                       // Line 106
-	echo T_("Try to start with add new product!");                                    // Line 114
 
 	//-------------------------------------------content_a/product/glance/display.html
 	echo T_("Added to store at");                                                     // Line 12
@@ -1132,6 +1143,8 @@ class twigTransTerms
 	echo T_("Sale price");                                                            // Line 109
 	echo T_("Off price");                                                             // Line 119
 	echo T_("%");                                                                     // Line 141
+
+	//-------------------------------------------content_a/product/lprice/display.html
 
 	//------------------------------------------content_a/product/company/display.html
 	echo T_("Edit company");                                                          // Line 27
@@ -1190,6 +1203,13 @@ class twigTransTerms
 	echo T_("You have not other unit!");                                              // Line 254
 	echo T_("New unit");                                                              // Line 266
 	echo T_("Select new unit to update all product unit");                            // Line 268
+
+	//-----------------------------------------content_a/product/variants/display.html
+	echo T_("Make");                                                                  // Line 30
+	echo T_("Size");                                                                  // Line 43
+	echo T_("Color");                                                                 // Line 50
+	echo T_("Material");                                                              // Line 57
+	echo T_("Separate options with a comma");                                         // Line 127
 
 	//-------------------------------------------content_a/product/export/display.html
 	echo T_("Please wait to complete export progress");                               // Line 11
