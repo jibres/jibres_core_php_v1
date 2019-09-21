@@ -11,7 +11,7 @@ class search
 	}
 
 
-	private static function products_list($_query_string, $_args)
+	private static function products_list($_query_string, $_args, $_where)
 	{
 		$default_args =
 		[
@@ -32,6 +32,11 @@ class search
 		if(!is_array($_args))
 		{
 			$_args = [];
+		}
+
+		if(!is_array($_where))
+		{
+			$_where = [];
 		}
 
 		$_args = array_merge($default_args, $_args);
@@ -134,13 +139,19 @@ class search
 			$or['products.price'] = ["LIKE", "'%$query_string'"];
 		}
 
-		$list = \lib\db\products\datalist::list($and, $or, $order_sort);
+		$and = array_merge($and, $_where);
 
+		$list = \lib\db\products\datalist::list($and, $or, $order_sort);
 
 		if(is_array($list))
 		{
 			$list = array_map(['\\lib\\app\\product', 'ready'], $list);
 		}
+		else
+		{
+			$list = [];
+		}
+
 		$filter_args_data = [];
 
 		foreach ($filter_args as $key => $value)
@@ -159,7 +170,48 @@ class search
 
 	public static function variant_list($_query_string, $_args)
 	{
-		return self::products_list($_query_string, $_args);
+		$where['parent'] = [' IS ', ' NULL '];
+
+		$list        = self::products_list($_query_string, $_args, $where);
+
+		foreach ($list as $key => $value)
+		{
+			$list[$key]['variants_detail'] = [];
+		}
+
+		$product_ids = array_column($list, 'id');
+
+		$product_ids = array_map(['\\dash\\coding', 'decode'], $product_ids);
+
+		$product_ids = array_filter($product_ids);
+
+		$product_ids = array_unique($product_ids);
+
+		if($product_ids)
+		{
+			$load_child = \lib\db\products\variants::load_child_count(implode(',', $product_ids));
+
+			if($load_child && is_array($load_child))
+			{
+				$variants = [];
+				foreach ($load_child as $key => $value)
+				{
+					$temp = $value;
+					unset($temp['parent']);
+					$variants[\dash\coding::encode($value['parent'])] = $temp;
+				}
+
+				foreach ($list as $key => $value)
+				{
+					if(isset($variants[$value['id']]))
+					{
+						$list[$key]['variants_detail'] = $variants[$value['id']];
+					}
+				}
+			}
+		}
+
+		return $list;
 	}
 }
 ?>
