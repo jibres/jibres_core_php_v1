@@ -5,6 +5,27 @@ namespace lib\app\product;
 trait add
 {
 
+	public static function multi_add($_args)
+	{
+		\dash\db::transaction();
+
+		foreach ($_args as $key => $value)
+		{
+			$result = self::add($value, ['debug' => false, 'multi_add' => true]);
+			if(!\dash\engine\process::status())
+			{
+				\dash\db::rollback();
+				return false;
+			}
+		}
+
+		\lib\app\product\dashboard::clean_cache('var');
+
+		\dash\db::commit();
+
+		return true;
+	}
+
 	/**
 	 * add new product
 	 *
@@ -16,7 +37,8 @@ trait add
 	{
 		$default_option =
 		[
-			'debug' => true,
+			'debug'     => true,
+			'multi_add' => false,
 		];
 
 		if(!is_array($_option))
@@ -58,7 +80,7 @@ trait add
 		}
 
 		// check args
-		$args = self::check($_option);
+		$args = self::check(null, $_option);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -73,11 +95,14 @@ trait add
 			$args['status']  = 'available';
 		}
 
-		if(!isset($args['title']) || (isset($args['title']) && !$args['title']))
+		if(!$_option['multi_add'])
 		{
-			\dash\app::log('api:product:title:not:set', \dash\user::id(), $log_meta);
-			if($_option['debug']) \dash\notif::error(T_("Product title can not be null"), 'title');
-			return false;
+			if(!isset($args['title']) || (isset($args['title']) && !$args['title']))
+			{
+				\dash\app::log('api:product:title:not:set', \dash\user::id(), $log_meta);
+				if($_option['debug']) \dash\notif::error(T_("Product title can not be null"), 'title');
+				return false;
+			}
 		}
 
 		$return = [];
@@ -120,7 +145,10 @@ trait add
 			if($_option['debug']) \dash\notif::ok(T_("Product successfuly added"));
 		}
 
-		\lib\app\product\dashboard::clean_cache('var');
+		if(!$_option['multi_add'])
+		{
+			\lib\app\product\dashboard::clean_cache('var');
+		}
 
 		return $return;
 	}

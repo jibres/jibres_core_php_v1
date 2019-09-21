@@ -8,6 +8,7 @@ ALTER TABLE `products` ADD `optionvalue2` varchar(100) CHARACTER SET utf8mb4 NUL
 ALTER TABLE `products` ADD `optionvalue3` varchar(100) CHARACTER SET utf8mb4 NULL DEFAULT NULL;
 
 ALTER TABLE `products` ADD `parent` int(10) unsigned NULL DEFAULT NULL;
+ALTER TABLE `products` ADD `sku` varchar(20) NULL DEFAULT NULL;
 
 
 ALTER TABLE `products` ADD INDEX `products_optionname1_search_index` (`optionname1`);
@@ -18,3 +19,8 @@ ALTER TABLE `products` ADD INDEX `products_optionvalue2_search_index` (`optionva
 ALTER TABLE `products` ADD INDEX `products_optionvalue3_search_index` (`optionvalue3`);
 
 ALTER TABLE `products` ADD INDEX `products_parent_search_index` (`parent`);
+
+ALTER TABLE `products` ADD INDEX `products_sku_search_index` (`sku`);
+
+
+ALTER TABLE `products` CHANGE `title` `title` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;

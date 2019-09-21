@@ -216,5 +216,101 @@ class variants
 		return $optionvalue;
 	}
 
+
+
+	public static function set_product($_variants, $_product_id)
+	{
+		$load_product = \lib\app\product::inline_get($_product_id);
+		if(!$load_product || !isset($load_product['id']))
+		{
+			// product not found
+			return false;
+		}
+
+		$load_option_name = isset($load_product['variants']) ? $load_product['variants'] : null;
+		if(!$load_option_name)
+		{
+			\dash\notif::error(T_("This product not ready to set variants"));
+			return false;
+		}
+
+		if(is_string($load_option_name))
+		{
+			$load_option_name = json_decode($load_option_name, true);
+		}
+
+		if(!is_array($load_option_name) || !isset($load_option_name['variants']))
+		{
+			\dash\notif::error(T_("Variants of product not found"));
+			\dash\log::set('ProductVariantsJsonNotFound');
+			return false;
+		}
+
+		$load_child = \lib\db\products\variants::have_child($load_product['id']);
+		if($load_child)
+		{
+			\dash\notif::error(T_("This product have some child and can not set variants"));
+			return false;
+		}
+
+		$option1_name = isset($load_option_name['variants']['option1']['name']) ? $load_option_name['variants']['option1']['name'] : null;
+		$option2_name = isset($load_option_name['variants']['option2']['name']) ? $load_option_name['variants']['option2']['name'] : null;
+		$option3_name = isset($load_option_name['variants']['option3']['name']) ? $load_option_name['variants']['option3']['name'] : null;
+
+		$multi_product = [];
+
+		foreach ($_variants as $key => $value)
+		{
+			$temp =
+			[
+				'parent'       => $load_product['id'],
+				'optionname1'  => $option1_name,
+				'optionvalue1' => array_key_exists('option1', $value) ? $value['option1'] : null,
+				'optionname2'  => $option2_name,
+				'optionvalue2' => array_key_exists('option2', $value) ? $value['option2'] : null,
+				'optionname3'  => $option3_name,
+				'optionvalue3' => array_key_exists('option3', $value) ? $value['option3'] : null,
+				'stock'        => array_key_exists('stock', $value) ? $value['stock'] : null,
+				'barcode'      => array_key_exists('barcode', $value) ? $value['barcode'] : null,
+				'price'        => array_key_exists('price', $value) ? $value['price'] : null,
+				'sku'          => array_key_exists('sku', $value) ? $value['sku'] : null,
+			];
+
+
+			if(!$temp['stock'] || !is_numeric($temp['stock']))
+			{
+				\dash\notif::error(T_("Zero stock!"));
+				return false;
+			}
+
+
+			if(!$temp['price'] || !is_numeric($temp['price']))
+			{
+				\dash\notif::error(T_("Zero price!"));
+				return false;
+			}
+
+			$multi_product[] = $temp;
+		}
+
+		if(empty($multi_product))
+		{
+			\dash\notif::error(T_("No avalible product to insert"));
+			return false;
+		}
+
+		$result = \lib\app\product::multi_add($multi_product);
+		if($result)
+		{
+			\dash\notif::ok(T_("Your products was inserted"));
+			return true;
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not add product"));
+			return false;
+		}
+	}
+
 }
 ?>

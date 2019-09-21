@@ -71,10 +71,11 @@ trait edit
 		    unset($args['cat_id']);
 		}
 
+		// if(!\dash\app::isset_request('unit'))        unset($args['unit']);
+		// if(!\dash\app::isset_request('company'))     unset($args['company']);
+
 		if(!\dash\app::isset_request('slug'))           unset($args['slug']);
-		// if(!\dash\app::isset_request('company'))        unset($args['company']);
 		if(!\dash\app::isset_request('shortcode'))      unset($args['shortcode']);
-		// if(!\dash\app::isset_request('unit'))           unset($args['unit']);
 		if(!\dash\app::isset_request('barcode'))        unset($args['barcode']);
 		if(!\dash\app::isset_request('barcode2'))       unset($args['barcode2']);
 		if(!\dash\app::isset_request('buyprice'))       unset($args['buyprice']);
@@ -102,10 +103,15 @@ trait edit
 		if(!\dash\app::isset_request('saleapp')) 		unset($args['saleapp']);
 		if(!\dash\app::isset_request('salephysical')) 	unset($args['salephysical']);
 		if(!\dash\app::isset_request('weight'))		 	unset($args['weight']);
-		if(!\dash\app::isset_request('infinite'))		 	unset($args['infinite']);
-
-
-
+		if(!\dash\app::isset_request('infinite'))		unset($args['infinite']);
+		if(!\dash\app::isset_request('parent'))		 	unset($args['parent']);
+		if(!\dash\app::isset_request('optionname1'))    unset($args['optionname1']);
+		if(!\dash\app::isset_request('optionvalue1'))   unset($args['optionvalue1']);
+		if(!\dash\app::isset_request('optionname2'))    unset($args['optionname2']);
+		if(!\dash\app::isset_request('optionvalue2'))   unset($args['optionvalue2']);
+		if(!\dash\app::isset_request('optionname3'))    unset($args['optionname3']);
+		if(!\dash\app::isset_request('optionvalue3'))   unset($args['optionvalue3']);
+		if(!\dash\app::isset_request('sku'))            unset($args['sku']);
 
 		if(array_key_exists('title', $args) && !$args['title'])
 		{

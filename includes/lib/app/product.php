@@ -62,10 +62,11 @@ class product
 
 	/**
 	 * check args
-	 *
+	 * call in add or edit product
+	 * also call in variants function to add multi product
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	private static function check($_id, $_option = [])
+	public static function check($_id = null, $_option = [])
 	{
 
 		$args                    = [];
@@ -414,6 +415,7 @@ class product
 		$salephysical = \dash\app::request('salephysical') ? 1 : null;
 		$infinite = \dash\app::request('infinite') ? 1 : null;
 
+		$parent = \dash\app::request('parent');
 
 		// prosess finalprice
 		$finalprice = floatval($price) - floatval($discount);
@@ -455,6 +457,58 @@ class product
 			\dash\notif::error(T_("Product cat must be less than 200 character"), 'cat');
 			return false;
 		}
+
+
+		$optionname1  = \dash\app::request('optionname1');
+		if($optionname1 && mb_strlen($optionname1) > 100)
+		{
+			\dash\notif::error(T_("optionname1 is out of range"), 'optionname1');
+			return false;
+		}
+
+		$optionvalue1 = \dash\app::request('optionvalue1');
+		if($optionvalue1 && mb_strlen($optionvalue1) > 100)
+		{
+			\dash\notif::error(T_("optionvalue1 is out of range"), 'optionvalue1');
+			return false;
+		}
+
+		$optionname2  = \dash\app::request('optionname2');
+		if($optionname2 && mb_strlen($optionname2) > 100)
+		{
+			\dash\notif::error(T_("optionname2 is out of range"), 'optionname2');
+			return false;
+		}
+
+		$optionvalue2 = \dash\app::request('optionvalue2');
+		if($optionvalue2 && mb_strlen($optionvalue2) > 100)
+		{
+			\dash\notif::error(T_("optionvalue2 is out of range"), 'optionvalue2');
+			return false;
+		}
+
+		$optionname3  = \dash\app::request('optionname3');
+		if($optionname3 && mb_strlen($optionname3) > 100)
+		{
+			\dash\notif::error(T_("optionname3 is out of range"), 'optionname3');
+			return false;
+		}
+
+		$optionvalue3 = \dash\app::request('optionvalue3');
+		if($optionvalue3 && mb_strlen($optionvalue3) > 100)
+		{
+			\dash\notif::error(T_("optionvalue3 is out of range"), 'optionvalue3');
+			return false;
+		}
+
+		$sku          = \dash\app::request('sku');
+		if($sku && mb_strlen($sku) > 20)
+		{
+			\dash\notif::error(T_("sku is out of range"), 'sku');
+			return false;
+		}
+
+
 
 		$master_args = \dash\app::request();
 		// check to add new cat or unit
@@ -539,7 +593,8 @@ class product
 		$args['stock']           = $stock;
 		$args['thumb']           = $thumb;
 		$args['service']         = $service;
-		// $args['checkstock']      = $checkstock;
+		// $args['checkstock']   = $checkstock;
+		$args['parent']          = $parent;
 		$args['saleonline']      = $saleonline;
 		$args['salestore']       = $salestore;
 		$args['carton']          = $carton;
@@ -549,8 +604,16 @@ class product
 		$args['saletelegram']    = $saletelegram;
 		$args['saleapp']         = $saleapp;
 		$args['salephysical']    = $salephysical;
-		$args['weight']   		 = $weight;
-		$args['infinite']   		 = $infinite;
+		$args['weight']          = $weight;
+		$args['infinite']        = $infinite;
+
+		$args['optionname1']     = $optionname1;
+		$args['optionvalue1']    = $optionvalue1;
+		$args['optionname2']     = $optionname2;
+		$args['optionvalue2']    = $optionvalue2;
+		$args['optionname3']     = $optionname3;
+		$args['optionvalue3']    = $optionvalue3;
+		$args['sku']             = $sku;
 
 
 		return $args;

@@ -94,6 +94,13 @@ class products
 	}
 
 
+	public static function multi_insert($_args)
+	{
+		$result = \dash\db\config::public_multi_insert('products', ...func_get_args());
+		return $result;
+	}
+
+
 	/**
 	 * update product
 	 *
