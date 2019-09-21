@@ -11,7 +11,7 @@ class search
 	}
 
 
-	private static function products_list($_query_string, $_args, $_where)
+	private static function products_list($_type, $_query_string, $_args, $_where = [])
 	{
 		$default_args =
 		[
@@ -141,7 +141,16 @@ class search
 
 		$and = array_merge($and, $_where);
 
-		$list = \lib\db\products\datalist::list($and, $or, $order_sort);
+		switch ($_type)
+		{
+			case 'price':
+				$list = \lib\db\products\datalist::all_list($and, $or, $order_sort);
+				break;
+
+			default:
+				$list = \lib\db\products\datalist::list($and, $or, $order_sort);
+				break;
+		}
 
 		if(is_array($list))
 		{
@@ -172,7 +181,7 @@ class search
 	{
 		$where['parent'] = [' IS ', ' NULL '];
 
-		$list        = self::products_list($_query_string, $_args, $where);
+		$list        = self::products_list('variants', $_query_string, $_args, $where);
 
 		foreach ($list as $key => $value)
 		{
@@ -211,6 +220,13 @@ class search
 			}
 		}
 
+		return $list;
+	}
+
+
+	public static function price_list($_query_string, $_args)
+	{
+		$list        = self::products_list('price', $_query_string, $_args);
 		return $list;
 	}
 }
