@@ -66,10 +66,9 @@ CREATE TABLE `products2` (
 `infinite` enum('yes') DEFAULT NULL,
 `oversale` enum('yes') DEFAULT NULL,
 
-`service` enum('yes') DEFAULT NULL,
-`locksaleonline` enum('yes') DEFAULT NULL,
-`locksaletelegram` enum('yes') DEFAULT NULL,
-`locksaleapp` enum('yes') DEFAULT NULL,
+`saleonline` enum('no') DEFAULT NULL,
+`saletelegram` enum('no') DEFAULT NULL,
+`saleapp` enum('no') DEFAULT NULL,
 
 
 `variants` mediumtext CHARACTER SET utf8mb4,
