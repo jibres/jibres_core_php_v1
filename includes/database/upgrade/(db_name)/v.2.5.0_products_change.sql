@@ -24,6 +24,12 @@ ALTER TABLE `productcategory` ADD INDEX `productcategory_parent_search_index` (`
 
 
 
+ALTER TABLE `productcompany` CHANGE `store_id` `store_id` int(10) UNSIGNED NULL DEFAULT NULL;
+
+ALTER TABLE `productunit` CHANGE `store_id` `store_id` int(10) UNSIGNED NULL DEFAULT NULL;
+ALTER TABLE `productunit` DROP `isdefault`;
+ALTER TABLE `productunit` DROP `maxsale`;
+
 
 CREATE TABLE `products2` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
