@@ -6,6 +6,13 @@
 
   <li><a href="{{url.here}}"><i class='sf-gauge'></i> <span>{% trans "Dashboard" %}</span></a></li>
 
+  {%if perm_su()%}
+  <li>
+    <a href="{{url.here}}/products"><i class="sf-box"></i>{%trans "Products"%} ***</a>
+  </li>
+
+  {%endif%}
+
   <li>
     {%if perm('productList')%}<a href="{{url.here}}/product"><i class="sf-box"></i>{%trans "Products"%}</a>{%endif%}
   {%if url.module == "product" or url.module == 'cats'%}
