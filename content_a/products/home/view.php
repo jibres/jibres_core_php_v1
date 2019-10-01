@@ -7,26 +7,34 @@ class view
 	public static function config()
 	{
 
-		\dash\data::page_title(T_('محصولات'));
+		\dash\data::page_title(T_('Products'));
 		\dash\data::page_desc(T_('You can search in list of products, add new product and edit existing.'));
 
 		// enable tbox2
 		\dash\data::page_tbox2(true);
-		// btn
-		\dash\data::page_btnText(T_('Add product'));
-		\dash\data::page_btnLink(\dash\url::this(). '/add');
-		// nav
-		// \dash\data::page_next('disabled');
-		// \dash\data::page_prev(\dash\url::this(). '/prev');
-		// back
-		// \dash\data::page_backText(T_('منوی اصلی'));
-		// \dash\data::page_backLink(\dash\url::here());
-		// operations
-		\dash\data::page_import(\dash\url::here());
-		\dash\data::page_export(\dash\url::here());
-		// \dash\data::page_duplicate(\dash\url::here());
-		// \dash\data::page_view(\dash\url::here());
-		// \dash\data::page_help(\dash\url::kingdom().'/support/test');
+
+		if(\dash\request::get('inside'))
+		{
+			// nav
+			\dash\data::page_next('disabled');
+			\dash\data::page_prev(\dash\url::this(). '/prev');
+			// back
+			\dash\data::page_backText(T_('Dashboard'));
+			\dash\data::page_backLink(\dash\url::here());
+			\dash\data::page_duplicate(\dash\url::here());
+			\dash\data::page_view(\dash\url::here());
+			\dash\data::page_help(\dash\url::kingdom().'/support/test');
+		}
+		else
+		{
+			// btn
+			\dash\data::page_btnText(T_('Add product'));
+			\dash\data::page_btnLink(\dash\url::this(). '/add');
+			// operations
+			\dash\data::page_import(\dash\url::here());
+			\dash\data::page_export(\dash\url::here());
+		}
+
 
 
 
