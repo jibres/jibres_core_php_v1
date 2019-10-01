@@ -84,7 +84,7 @@
 {%if stores%}
     {%for key, value in stores%}
 
-      <a href='{{value.url}}' class="vcard shadow blue mA10 c3 s6" data-live="on" >
+      <a href='{{value.url}}/a' class="vcard shadow blue mA10 c3 s6" data-live="on" >
         <img src="{{value.logo}}" alt="{{value.name}}">
         <div class="content">
           <div class="header">{{value.name}}</div>
@@ -121,7 +121,7 @@
     {%for key, value in listStore.staff%}
     {%if value.store_id in storeCreatorId%}
     {%else%}
-      <a href='{{value.url}}' class="vcard shadow blue mA10 c3 s6" data-live="{%if value.user_status == 'active'%}on{%elseif value.user_status == 'draft'%}half{%else%}off{%endif%}" >
+      <a href='{{value.url}}/a' class="vcard shadow blue mA10 c3 s6" data-live="{%if value.user_status == 'active'%}on{%elseif value.user_status == 'draft'%}half{%else%}off{%endif%}" >
         <img src="{{value.logo}}" alt="{{value.name}}">
         <div class="content">
           <div class="header">{{value.name}}</div>
