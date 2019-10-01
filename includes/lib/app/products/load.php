@@ -26,5 +26,26 @@ class load
 		}
 	}
 
+
+	// load one product by id in query string url
+	public static function one()
+	{
+		// get id from url
+		$id = \dash\request::get('id');
+
+		// load detail
+		$detail = \lib\app\product::get($id);
+		if(!$detail)
+		{
+			// access denied or invalid id
+			return false;
+		}
+
+		// sed dataRow to load detail in html
+		\dash\data::productDataRow($detail);
+
+		return $detail;
+	}
+
 }
 ?>
