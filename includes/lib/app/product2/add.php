@@ -49,7 +49,7 @@ class add
 
 		$_option = array_merge($default_option, $_option);
 
-		\dash\app::variable($_args);
+		\dash\app::variable($_args, \lib\app\product2\check::variable_args());
 
 
 		if(!\dash\user::id())

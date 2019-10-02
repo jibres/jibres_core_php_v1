@@ -4,11 +4,12 @@ namespace content_a\products\edit;
 
 class model
 {
-	public static function post()
+
+	public static function get_post()
 	{
 		$post                    = [];
 		$post['title']           = \dash\request::post('title');
-		$post['desc']            = \dash\request::post('desc');
+		$post['desc']            = \dash\request::post('desc') ? $_POST['desc'] : null;
 		$post['buyprice']        = \dash\request::post('buyprice');
 		$post['price']           = \dash\request::post('price');
 		$post['discount']        = \dash\request::post('discount');
@@ -39,6 +40,14 @@ class model
 		$post['company']         = \dash\request::post('company');
 		$post['scalecode']       = \dash\request::post('scalecode');
 		$post['status']          = \dash\request::post('status');
+
+		return $post;
+	}
+
+
+	public static function post()
+	{
+		$post = self::get_post();
 
 		$id = \dash\request::post('id');
 

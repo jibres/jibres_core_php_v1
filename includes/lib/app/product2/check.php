@@ -5,6 +5,17 @@ namespace lib\app\product2;
 class check
 {
 
+	public static function variable_args()
+	{
+		$variable_args =
+		[
+			'raw_field' => ['desc'],
+		];
+		return $variable_args;
+	}
+
+
+
 	public static function variable($_id = null, $_option = [])
 	{
 		$default_option =
@@ -240,7 +251,7 @@ class check
 		}
 
 		$desc = \dash\app::request('desc');
-		if($desc && mb_strlen($desc) > 9999)
+		if($desc && mb_strlen($desc) > 60000)
 		{
 			\dash\notif::error(T_("Value of desc is out of rage"), 'desc');
 			return false;

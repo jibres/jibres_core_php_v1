@@ -4,7 +4,7 @@
 <label for="title">{%trans "Title"%}<span class="fc-red">*</span></label>
 <div class="input">
  <input type="text" name="title" id="title" placeholder='{%trans "Set short and best title for your product" %} *' value="{{productDataRow.title}}" maxlength='200' autofocus>
- <span class="addon" data-kerkere='.showDescProduct' data-kerkere-icon='close'>{%trans "Description"%}</span>
+ <span class="addon btn {%if productDataRow.desc%} primary2 {%endif%}" data-kerkere='.showDescProduct' data-kerkere-icon='close'>{%trans "Description"%}</span>
 </div>
 {%endblock%}
 
@@ -17,21 +17,6 @@
 </div>
 {%endblock%}
 
-
-
-{%block iGuarantee%}
-<label for='guarantee'>{%trans "Guarantee"%}</label>
-
-<select name="guarantee" class="select ui dropdown search addition" id="guarantee">
-  <option value="">{%trans "Product guarantee"%}</option>
-  {%for key, value in listGuarantee%}
-    {%if value.title%}
-    <option value="{{value.title}}"{%if value.title == productDataRow.guarantee %} selected{%endif%}>{{value.title}}</option>
-    {%endif%}
-  {%endfor%}
-</select>
-
-{%endblock%}
 
 
 {%block iManufacturer%}
@@ -104,7 +89,7 @@
 
 
 {%block iDesc%}
-<textarea name="desc" data-editor class="txt mB20" rows="10" placeholder='{%trans "Description"%}'>{{productDataRow.desc}}</textarea>
+<textarea name="desc" data-editor class="txt mB20" rows="10" placeholder='{%trans "Description"%}'>{{productDataRow.desc | raw}}</textarea>
 {%endblock%}
 
 
