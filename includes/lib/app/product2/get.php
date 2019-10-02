@@ -37,7 +37,7 @@ class get
 	}
 
 
-	public static function by_code($_code)
+	public static function by_code_inline($_code)
 	{
 		if(!\lib\store::id())
 		{
@@ -66,11 +66,20 @@ class get
 			return false;
 		}
 
-		$result = \lib\app\product2\ready::row($result);
 
 		return $result;
 	}
 
+
+	public static function by_code($_code)
+	{
+		$result = self::by_code_inline($_code);
+		if($result)
+		{
+			$result = \lib\app\product2\ready::row($result);
+		}
+		return $result;
+	}
 
 
 	public static function get($_id)

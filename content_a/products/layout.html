@@ -312,8 +312,6 @@
 
   <div class="tagDetector">
 
-    <form method="post"  action="{{url.this}}/tag?id={{requestGET.id}}">
-
     <div class="input mB10 hide">
       <input type="text" class="input tagVals" name="tag"  value="{{tagValue}}" id="tagValues" placeholder='{%trans "Tag"%}'>
     </div>
@@ -335,7 +333,6 @@
       </div>
 
 
-    </form>
 
   </div>
 </div>
@@ -499,8 +496,6 @@
 {%block variantHTML%}
 
 
-  <div class="example">
-
     <div class="f">
       <div class="cauto">{{block('optionName1')}}</div>
       <div class="c pLa5">{{block('optionValueTag1')}}</div>
@@ -516,8 +511,8 @@
       <div class="c pLa5">{{block('optionValueTag3')}}</div>
     </div>
 
-    <button class="btn primary block mT20">{%trans "Make"%}</button>
-  </div>
+    <button class="btn primary block mT20" name="makevariants" value="1">{%trans "Make"%}</button>
+
 
     {{block('productTempList')}}
 
@@ -553,7 +548,7 @@
   <div class="tagDetector">
 
     <div class="input mB10 hide">
-      <input type="text" class="input tagVals" name="optionvalue3"  value="{{variantsList.variants.option3.value | join(',')}}" id="tagValues" placeholder='{%trans "Tag"%}'>
+      <input type="text" class="input tagVals" name="optionvalue3"  value="{{variantsList.variants.option3.value | join(',')}}" id="" placeholder='{%trans "Tag"%}'>
     </div>
 
     <div class="input">
@@ -580,7 +575,7 @@
   <div class="tagDetector">
 
     <div class="input mB10 hide">
-      <input type="text" class="input tagVals" name="optionvalue2"  value="{{variantsList.variants.option2.value | join(',')}}" id="tagValues" placeholder='{%trans "Tag"%}'>
+      <input type="text" class="input tagVals" name="optionvalue2"  value="{{variantsList.variants.option2.value | join(',')}}" id="" placeholder='{%trans "Tag"%}'>
     </div>
 
     <div class="input">
@@ -607,7 +602,7 @@
   <div class="tagDetector">
 
     <div class="input mB10 hide">
-      <input type="text" class="input tagVals" name="optionvalue1"  value="{{variantsList.variants.option1.value | join(',')}}" id="tagValues" placeholder='{%trans "Tag"%}'>
+      <input type="text" class="input tagVals" name="optionvalue1"  value="{{variantsList.variants.option1.value | join(',')}}" id="" placeholder='{%trans "Tag"%}'>
     </div>
 
     <div class="input">
@@ -633,8 +628,8 @@
   {%set myCount = 0%}
 
       <input type="hidden" name="setvariants" value="1">
-      <div class="tblBox">
-        <table class="tbl1 v1 fs12">
+      <div class="tblBox mT10">
+        <table class="tbl1 v1 fs08">
           <thead>
             <tr>
               <th class="collapsing">{%trans "Avalible?"%}</th>
@@ -694,14 +689,14 @@
           </tbody>
         </table>
       </div>
-      <div class="cbox">
+
         <p>
           {%trans "Only product by check the need box and set price and stock can add to your product list!"%}
         </p>
-        <div class="txtRa fs12">
-          <button class="btn success">{%trans "Save"%}</button>
+        <div class="txtRa">
+          <button class="btn success" name="saveproductvariants" value="1">{%trans "Save"%}</button>
         </div>
-      </div>
+
 
   {%endif%}
 {%endblock%}

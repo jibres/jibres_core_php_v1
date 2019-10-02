@@ -19,8 +19,6 @@ class add
 			}
 		}
 
-		\lib\app\product\dashboard::clean_cache('var');
-
 		\dash\db::commit();
 
 		return true;
