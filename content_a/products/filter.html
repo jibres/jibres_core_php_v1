@@ -1,16 +1,17 @@
 {%if perm('productAdvanceSearchView')%}
-<div class="msg info2 f mA5">
+<div>
   <div class="fc-mute">{%trans "Product whit filter"%}</div>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&duplicatetitle=1">{%trans "Duplicate title"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&hbarcode=1">{%trans "Have barcode"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&hnotbarcode=1">{%trans "Have not barcode"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&justcode=1">{%trans "Just code"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wcodbarcode=1">{%trans "No barcode & code"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wbuyprice=1">{%trans "Whithout buyprice"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wprice=1">{%trans "Whithout price"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wminstock=1">{%trans "Whithout min stock"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wmaxstock=1">{%trans "Whithout max stock"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&wdiscount=1">{%trans "Whithout discount"%}</a></span>
-  <span class="c m3 s4"><a class='mB5 compact' href="{{url.this}}?customfilter=1&negativeprofit=1">{%trans "Negative profit"%}</a></span>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&duplicatetitle=1">{%trans "Duplicate title"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&hbarcode=1">{%trans "Have barcode"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&hnotbarcode=1">{%trans "Have not barcode"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&justcode=1">{%trans "Just code"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&wcodbarcode=1">{%trans "No barcode & code"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&wbuyprice=1">{%trans "Whithout buyprice"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&wprice=1">{%trans "Whithout price"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&wminstock=1">{%trans "Whithout min stock"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&wmaxstock=1">{%trans "Whithout max stock"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&wdiscount=1">{%trans "Whithout discount"%}</a>
+    <a class='btn light mB5' href="{{url.this}}?customfilter=1&negativeprofit=1">{%trans "Negative profit"%}</a>
+
 </div>
 {%endif%}

@@ -36,21 +36,13 @@
 {%endblock%}
 
 
-{%block showAdvanceSearch%}
-<div>
-  {{block('filterProductLink')}}
-</div>
-{%endblock%}
-
-
-
 
 
 {%block htmlSearchBox%}
 <div class="searchBox">
   <div class="f">
     <div class="cauto pRa10">
-      <a href="#" class="btn light3 apply" data-kerkere-icon="close" data-kerkere='.showAdvanceSearch'>{%trans "Filter"%}</a>
+      <a class="btn light3 apply" data-kerkere-icon="close" data-kerkere='.filterBox'>{%trans "Filter"%}</a>
     </div>
     <div class="c pRa10">
       <div>
@@ -73,24 +65,11 @@
       </div>
     </div>
 
-    <div class="c12 showAdvanceSearch" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
-      <div>
-        {{block('showAdvanceSearch')}}
-      </div>
-    </div>
   </div>
 </div>
 
-
-<div class="cbox fs12 p0 hide">
-  <form method="get" action='{{url.this}}'>
-    <div class="input">
-      <label class="addon" data-kerkere-icon="close" data-kerkere='.showAdvanceSearch'>{%trans "Filter"%}</label>
-      <input type="search" name="q" placeholder='{%trans "Search products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" class="barCode" data-default data-pass='submit' autocomplete='off'>
-      <button class="addon btn ">{%trans "Search" %}</button>
-    </div>
-    {{block('showAdvanceSearch')}}
-  </form>
+<div class="filterBox" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
+    {{block('filterProductLink')}}
 </div>
 {%endblock%}
 
