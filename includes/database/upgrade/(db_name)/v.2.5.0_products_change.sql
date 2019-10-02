@@ -63,7 +63,7 @@ CREATE TABLE `products2` (
 `weightunit` enum('lb','oz','kg','g') DEFAULT NULL,
 
 `type` enum('product','file','service') NOT NULL DEFAULT 'product',
-`status` enum('unset','available','unavailable','soon','discountinued') DEFAULT NULL,
+`status` enum('unset','available','unavailable','soon','discountinued', 'deleted') DEFAULT NULL,
 
 `thumbid` int(10) UNSIGNED DEFAULT NULL,
 `gallery` text,

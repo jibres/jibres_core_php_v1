@@ -7,8 +7,6 @@ class check
 
 	public static function variable($_id = null, $_option = [])
 	{
-
-
 		$default_option =
 		[
 			'debug' => true,
@@ -43,15 +41,20 @@ class check
 		if(!$slug)
 		{
 			$slug = \dash\utility\filter::slug($title, null, 'persian');
+		}
+
+		if($slug)
+		{
+			$slug = \dash\utility\filter::slug($slug, null, 'persian');
 			$slug = substr($slug, 0, 199);
 		}
 
 
 		$barcode = \dash\app::request('barcode');
-
 		$to_barcode = \dash\utility\convert::to_barcode($barcode);
 		if($barcode != $to_barcode)
 		{
+			\dash\log::set('barcode:is:different:barcode', ['barcode' => $barcode, 'fixed' => $to_barcode]);
 			\dash\notif::warn(T_("Your barcode have wrong character. we change it. please check your product again"), 'barcode');
 			$barcode = $to_barcode;
 		}
@@ -67,7 +70,7 @@ class check
 		$to_barcode2 = \dash\utility\convert::to_barcode($barcode2);
 		if($barcode2 != $to_barcode2)
 		{
-			\dash\app::log('barcode2:is:different:barcode2', \dash\user::id(), \dash\app::log_meta(1, ['barcode2' => $barcode2, 'fixed' => $to_barcode2]));
+			\dash\log::set('barcode2:is:different:barcode2', ['barcode2' => $barcode2, 'fixed' => $to_barcode2]);
 			\dash\notif::warn(T_("Your barcode2 have wrong character. we change it. please check your product again"), 'barcode2');
 			$barcode2 = $to_barcode2;
 		}
@@ -86,7 +89,7 @@ class check
 
 		if($barcode)
 		{
-			$check_unique_barcode = \lib\app\product2\barcode::check_unique_barcode($barcode, $_id, \lib\store::id());
+			$check_unique_barcode = self::check_unique_barcode($barcode, $_id, \lib\store::id());
 			if(!$check_unique_barcode || !\dash\engine\process::status())
 			{
 				return false;
@@ -95,101 +98,11 @@ class check
 
 		if($barcode2)
 		{
-			$check_unique_barcode = \lib\app\product2\barcode::check_unique_barcode($barcode2, $_id, \lib\store::id());
+			$check_unique_barcode = self::check_unique_barcode($barcode2, $_id, \lib\store::id());
 			if(!$check_unique_barcode || !\dash\engine\process::status())
 			{
 				return false;
 			}
-		}
-
-
-		$buyprice = \dash\app::request('buyprice');
-		$buyprice = \dash\utility\convert::to_en_number($buyprice);
-		if($buyprice && !is_numeric($buyprice))
-		{
-			\dash\notif::error(T_("Value of buyprice muset be a number"), 'buyprice');
-			return false;
-		}
-
-		if(\dash\utility\filter::max_number($buyprice, 999999999999999999))
-		{
-			\dash\notif::error(T_("Value of buyprice is out of rage"), 'buyprice');
-			return false;
-		}
-
-		if(intval($buyprice) < 0)
-		{
-			\dash\notif::error(T_("Value of buyprice is out of rage"), 'buyprice');
-			return false;
-		}
-
-		$store_max_buyprice = \lib\store::setting('maxbuyprice');
-		if($buyprice && $store_max_buyprice && intval($buyprice) > intval($store_max_buyprice))
-		{
-			\dash\notif::error(T_("The maximum buyprice in your store is :val", ['val' => \dash\utility\human::fitNumber($store_max_buyprice)]), 'buyprice');
-			return false;
-		}
-
-		$price = \dash\app::request('price');
-		$price = \dash\utility\convert::to_en_number($price);
-		if($price && !is_numeric($price))
-		{
-			\dash\notif::error(T_("Value of price muset be a number"), 'price');
-			return false;
-		}
-
-		if(\dash\utility\filter::max_number($price, 999999999999999999))
-		{
-			\dash\notif::error(T_("Value of price is out of rage"), 'price');
-			return false;
-		}
-
-		if(intval($price) < 0)
-		{
-			\dash\notif::error(T_("Value of price is out of rage"), 'price');
-			return false;
-		}
-
-		$store_max_price = \lib\store::setting('maxprice');
-		if($price && $store_max_price && intval($price) > intval($store_max_price))
-		{
-			\dash\notif::error(T_("The maximum price in your store is :val", ['val' => \dash\utility\human::fitNumber($store_max_price)]), 'price');
-			return false;
-		}
-
-
-		$discount = \dash\app::request('discount');
-		$discount = \dash\utility\convert::to_en_number($discount);
-		if($discount && !is_numeric($discount))
-		{
-			\dash\notif::error(T_("Value of discount muset be a number"), 'discount');
-			return false;
-		}
-
-		if($discount && \dash\utility\filter::max_number($discount, 999999999999999999))
-		{
-			\dash\notif::error(T_("Value of discount is out of rage"), 'discount');
-			return false;
-		}
-
-		if($discount && intval($discount) < 0)
-		{
-			\dash\notif::error(T_("Value of discount is out of rage"), 'discount');
-			return false;
-		}
-
-
-		$discountpercent = null;
-		if($discount && $price && intval($price) !== 0)
-		{
-			$discountpercent = round((intval($discount) * 100) / intval($price), 3);
-		}
-
-		$store_max_discount = \lib\store::setting('maxdiscount');
-		if($discountpercent && $store_max_discount && intval($discountpercent) > intval($store_max_discount))
-		{
-			\dash\notif::error(T_("The maximum discount in your store is :val", ['val' => \dash\utility\human::fitNumber($store_max_discount)]), 'discount');
-			return false;
 		}
 
 
@@ -254,18 +167,40 @@ class check
 			return false;
 		}
 
+		$weightunit = \dash\app::request('weightunit');
+		if($weightunit && !in_array($weightunit, ['lb','oz','kg','g']))
+		{
+			\dash\notif::error(T_("Invalid weight unit"), 'weightunit');
+			return false;
+		}
 
 
 		$status = \dash\app::request('status');
-		if($status && !in_array($status, ['unset','available','unavailable','soon','discountinued']))
+		if($status && !in_array($status, ['unset','available','unavailable','soon','discountinued', 'deleted']))
 		{
 			\dash\notif::error(T_("Product status is incorrect"), 'status');
 			return false;
 		}
 
+		$type = \dash\app::request('type');
+		if($type && !in_array($type, ['product','file','service']))
+		{
+			\dash\notif::error(T_("Invalid type of product"), 'type');
+			return false;
+		}
 
-		$thumb = \dash\app::request('thumb');
-		// app must be upload or not ???
+		$thumbid = \dash\app::request('thumbid');
+		if($thumbid)
+		{
+			$load_file_detail = \dash\app\file::get_inline($thumbid);
+			if(!$load_file_detail || !isset($load_file_detail['id']))
+			{
+				return false;
+			}
+
+			$thumbid = $load_file_detail['id'];
+		}
+		$gallery = \dash\app::request('gallery');
 
 
 		$vat = null;
@@ -311,13 +246,85 @@ class check
 			return false;
 		}
 
+		$salestep = \dash\app::request('salestep');
+		$salestep = \dash\utility\convert::to_en_number($salestep);
+		if($salestep && !is_numeric($salestep))
+		{
+			\dash\notif::error(T_("Value of salestep muset be a number"), 'salestep');
+			return false;
+		}
 
+		if(\dash\utility\filter::max_number($salestep, 999999999))
+		{
+			\dash\notif::error(T_("Value of salestep is out of rage"), 'salestep');
+			return false;
+		}
+
+		if(intval($salestep) < 0)
+		{
+			\dash\notif::error(T_("Value of salestep is out of rage"), 'salestep');
+			return false;
+		}
+
+		$minsale = \dash\app::request('minsale');
+		$minsale = \dash\utility\convert::to_en_number($minsale);
+		if($minsale && !is_numeric($minsale))
+		{
+			\dash\notif::error(T_("Value of minsale muset be a number"), 'minsale');
+			return false;
+		}
+
+		if(\dash\utility\filter::max_number($minsale, 999999999))
+		{
+			\dash\notif::error(T_("Value of minsale is out of rage"), 'minsale');
+			return false;
+		}
+
+		if(intval($minsale) < 0)
+		{
+			\dash\notif::error(T_("Value of minsale is out of rage"), 'minsale');
+			return false;
+		}
+
+		$maxsale = \dash\app::request('maxsale');
+		$maxsale = \dash\utility\convert::to_en_number($maxsale);
+		if($maxsale && !is_numeric($maxsale))
+		{
+			\dash\notif::error(T_("Value of maxsale muset be a number"), 'maxsale');
+			return false;
+		}
+
+		if(\dash\utility\filter::max_number($maxsale, 999999999))
+		{
+			\dash\notif::error(T_("Value of maxsale is out of rage"), 'maxsale');
+			return false;
+		}
+
+		if(intval($maxsale) < 0)
+		{
+			\dash\notif::error(T_("Value of maxsale is out of rage"), 'maxsale');
+			return false;
+		}
+
+
+		$oversale     = \dash\app::request('oversale') ? 'yes' : null;
 		$saletelegram = \dash\app::request('saletelegram') ? null : 'no';
 		$saleapp      = \dash\app::request('saleapp') ? null : 'no';
 		$infinite     = \dash\app::request('infinite') ? 'yes' : null;
 
-		// @check parent
+
 		$parent = \dash\app::request('parent');
+		if($parent)
+		{
+			$parent_detail = \lib\app\product2\get::get_inline($parent);
+			if(!$parent_detail || !isset($parent_detail['id']))
+			{
+				\dash\notif::error(T_("Ivalid parent id"));
+				return  false;
+			}
+
+			$parent = $parent_detail['id'];
+		}
 
 
 		$scalecode = \dash\app::request('scalecode');
@@ -396,34 +403,138 @@ class check
 			return false;
 		}
 
-		$args                    = [];
-		$args['title']           = $title;
-		$args['slug']            = $slug;
-		$args['barcode']         = $barcode;
-		$args['barcode2']        = $barcode2;
-		$args['vat']             = $vat;
-		$args['minstock']        = $minstock;
-		$args['maxstock']        = $maxstock;
-		$args['status']          = $status;
-		$args['parent']          = $parent;
-		$args['saleonline']      = $saleonline;
-		$args['carton']          = $carton;
-		$args['desc']            = $desc;
-		$args['scalecode']       = $scalecode;
-		$args['saletelegram']    = $saletelegram;
-		$args['saleapp']         = $saleapp;
-		$args['weight']          = $weight;
-		$args['infinite']        = $infinite;
-		$args['optionname1']     = $optionname1;
-		$args['optionvalue1']    = $optionvalue1;
-		$args['optionname2']     = $optionname2;
-		$args['optionvalue2']    = $optionvalue2;
-		$args['optionname3']     = $optionname3;
-		$args['optionvalue3']    = $optionvalue3;
-		$args['sku']             = $sku;
+// cat_id
+// unit_id
+// company_id
+// code
 
+		$seotitle = \dash\app::request('seotitle');
+		if($seotitle && mb_strlen($seotitle) >= 300)
+		{
+			\dash\notif::error(T_("Seo title is out of range"), 'seotitle');
+			return false;
+		}
+
+		$seodesc = \dash\app::request('seodesc');
+		if($seodesc && mb_strlen($seodesc) >= 500)
+		{
+			\dash\notif::error(T_("Seo description is out of range"), 'seodesc');
+			return false;
+		}
+
+		$args                 = [];
+		$args['title']        = $title;
+		$args['slug']         = $slug;
+		$args['barcode']      = $barcode;
+		$args['barcode2']     = $barcode2;
+		$args['minstock']     = $minstock;
+		$args['maxstock']     = $maxstock;
+		$args['weight']       = $weight;
+		$args['status']       = $status;
+		$args['thumbid']      = $thumbid;
+		$args['vat']          = $vat;
+		$args['saleonline']   = $saleonline;
+		$args['carton']       = $carton;
+		$args['desc']         = $desc;
+		$args['saletelegram'] = $saletelegram;
+		$args['saleapp']      = $saleapp;
+		$args['infinite']     = $infinite;
+		$args['parent']       = $parent;
+		$args['scalecode']    = $scalecode;
+		$args['optionname1']  = $optionname1;
+		$args['optionvalue1'] = $optionvalue1;
+		$args['optionname2']  = $optionname2;
+		$args['optionvalue2'] = $optionvalue2;
+		$args['optionname3']  = $optionname3;
+		$args['optionvalue3'] = $optionvalue3;
+		$args['sku']          = $sku;
+		$args['seotitle']     = $seotitle;
+		$args['seodesc']      = $seodesc;
+		$args['salestep']     = $salestep;
+		$args['minsale']      = $minsale;
+		$args['maxsale']      = $maxsale;
+		$args['weightunit']   = $weightunit;
+		$args['type']         = $type;
+		$args['gallery']      = $gallery;
+		$args['oversale']     = $oversale;
 
 		return $args;
+	}
+
+
+
+	private static function check_unique_barcode($_barcode, $_id, $_store_id)
+	{
+
+		$check_exist  = \lib\db\products2::get_barcode($_barcode, $_store_id);
+
+		if(!$check_exist)
+		{
+			return true;
+		}
+		else
+		{
+			if(count($check_exist) === 1)
+			{
+				if(isset($check_exist[0]['id']))
+				{
+					if($_id && intval($_id) === intval($check_exist[0]['id']))
+					{
+						// update product by old barcode
+						return true;
+					}
+					else
+					{
+
+
+						$product_title = '';
+						if(isset($check_exist[0]['title']))
+						{
+							$product_title = $check_exist[0]['title'];
+						}
+
+						if(isset($check_exist[0]['barcode']) && $_barcode === $check_exist[0]['barcode'])
+						{
+							$msg = T_("This barcode used as barcode :title", ['title' => $product_title]);
+						}
+
+						if(isset($check_exist[0]['barcode2']) && $_barcode === $check_exist[0]['barcode2'])
+						{
+							$msg = T_("This barcode used as barcode2 :title", ['title' => $product_title]);
+						}
+
+						$product_id = null;
+						if(isset($check_exist[0]['id']))
+						{
+							$product_id = \dash\coding::encode($check_exist[0]['id']);
+						}
+
+						if($product_id)
+						{
+							$link = \dash\url::this(). '/general?id='. $product_id;
+							$msg = "<a href='$link'>". $msg. '</a>';
+						}
+
+						\dash\log::set('app:product:barcode:is:duplicate');
+						\dash\notif::error($msg);
+						return false;
+					}
+				}
+				else
+				{
+					\dash\log::set('app:product:barcode:1:record:havenot:id:error');
+					\dash\notif::error(T_("Undefined error was happend"));
+					return false;
+				}
+			}
+			else
+			{
+				\dash\log::set('more:than:2:product:save:by:one:barcode');
+				\dash\notif::error(T_("More than 2 products saved by this barcode"));
+				return false;
+			}
+		}
+
 	}
 
 }
