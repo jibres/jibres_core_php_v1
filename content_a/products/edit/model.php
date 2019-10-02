@@ -21,6 +21,7 @@ class model
 		$post['infinite']        = \dash\request::post('infinite');
 		$post['gallery']         = \dash\request::post('gallery');
 		$post['weight']          = \dash\request::post('weight');
+		$post['weightunit']      = \dash\request::post('weightunit');
 		$post['variants']        = \dash\request::post('variants');
 		$post['optionname1']     = \dash\request::post('optionname1');
 		$post['optionvalue1']    = \dash\request::post('optionvalue1');
@@ -30,6 +31,7 @@ class model
 		$post['optionvalue3']    = \dash\request::post('optionvalue3');
 		$post['seotitle']        = \dash\request::post('seotitle');
 		$post['slug']            = \dash\request::post('slug');
+		$post['type']            = \dash\request::post('type');
 		$post['excerpt']         = \dash\request::post('excerpt');
 		$post['saleonline']      = \dash\request::post('saleonline');
 		$post['saletelegram']    = \dash\request::post('saletelegram');

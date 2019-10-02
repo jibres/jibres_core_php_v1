@@ -64,6 +64,17 @@
 
 
 
+{%block iType%}
+<label for='type'>{%trans "Type"%}</label>
+<select name="type" class="select ui dropdown search addition" id="type">
+  <option value="product" {%if productDataRow.type == 'product' %} selected {%endif%}>{%trans "Product"%}</option>
+  <option value="service" {%if productDataRow.type == 'service' %} selected {%endif%}>{%trans "Service"%}</option>
+  <option value="file" {%if productDataRow.type == 'file' %} selected {%endif%}>{%trans "File"%}</option>
+</select>
+{%endblock%}
+
+
+
 {%block iInfinite%}
 <div class="switch1">
   <input type="checkbox" name="infinite" id="iinfinite" {%if productDataRow.infinite%} checked {%endif%}>
@@ -137,6 +148,19 @@
  <input type="number" name="weight" id="iweight" placeholder='{%trans "Enter product weight"%}' value="{{productDataRow.weight}}"  autocomplete="off" min="0" max="99999999">
 </div>
 {%endblock%}
+
+
+{%block iWeightunit%}
+<label for='weightunit'>{%trans "Weight unit"%}</label>
+<select name="weightunit" class="select ui dropdown search addition" id="weightunit">
+  <option value="" {%if not productDataRow.weightunit  %} selected {%endif%}>{%trans "Please select one item"%}</option>
+  <option value="lb" {%if productDataRow.weightunit == 'lb' %} selected {%endif%}>{%trans "lb"%}</option>
+  <option value="oz" {%if productDataRow.weightunit == 'oz' %} selected {%endif%}>{%trans "oz"%}</option>
+  <option value="kg" {%if productDataRow.weightunit == 'kg' %} selected {%endif%}>{%trans "kg"%}</option>
+  <option value="g" {%if productDataRow.weightunit == 'g' %} selected {%endif%}>{%trans "g"%}</option>
+</select>
+{%endblock%}
+
 
 
 {%block iBarcodePrev%}
