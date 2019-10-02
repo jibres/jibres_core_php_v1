@@ -84,6 +84,12 @@ class add
 			return false;
 		}
 
+		$args_price = \lib\app\product2\check::price(null, $_option);
+		if($args_price === false || !\dash\engine\process::status())
+		{
+			return false;
+		}
+
 		$args['store_id']    = \lib\store::id();
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
@@ -104,7 +110,7 @@ class add
 			}
 		}
 
-
+		// check plan limitation
 		if(!\lib\app\plan_limit::check('product'))
 		{
 			return false;
@@ -115,6 +121,7 @@ class add
 		{
 			\dash\db::transaction();
 		}
+
 
 		$product_id = \lib\db\products2\db::insert($args, \lib\store::id());
 
@@ -134,34 +141,58 @@ class add
 			return false;
 		}
 
+		if(array_filter($args_price))
+		{
+			// the product was inserted
+			// set the productprice record
+			$insert_productprices =
+			[
+				'last'            => 'yes',
+				'product_id'      => $product_id,
+				'creator'         => \dash\user::id(),
+				'startdate'       => date("Y-m-d H:i:s"),
+				'enddate'         => null,
+				'buyprice'        => $args_price['buyprice'],
+				'price'           => $args_price['price'],
+				'discount'        => $args_price['discount'],
+				'discountpercent' => $args_price['discountpercent'],
+			];
 
-		// the product was inserted
-		// set the productprice record
-		$insert_productprices =
-		[
-			'product_id'      => $product_id,
-			'creator'         => \dash\user::id(),
-			'startdate'       => date("Y-m-d H:i:s"),
-			'enddate'         => null,
-			'buyprice'        => $args['buyprice'],
-			'price'           => $args['price'],
-			'discount'        => $args['discount'],
-			'discountpercent' => $args['discountpercent'],
-		];
+			$productprices_id = \lib\db\productprices::insert($insert_productprices);
 
-		\lib\db\productprices::insert($insert_productprices);
+			if(!$productprices_id)
+			{
+				\dash\log::set('productprice:no:way:to:insert');
+				if($_option['debug'])
+				{
+					\dash\notif::error(T_("No way to insert product price"));
+				}
 
-		$return = [];
+				if(!$_option['transaction'])
+				{
+					\dash\db::rollback();
+				}
 
-		$return['product_id'] = \dash\coding::encode($product_id);
+				return false;
+			}
+		}
+
+
+		$return     = [];
+		$args['ok'] = true;
 
 		if(\dash\engine\process::status())
 		{
-			if($_option['debug']) \dash\notif::ok(T_("Product successfuly added"));
+			if($_option['debug'])
+			{
+				\dash\notif::ok(T_("Product successfuly added"));
+			}
 		}
 
 		if(!$_option['multi_add'])
 		{
+			$return['product_id'] = \dash\coding::encode($product_id);
+			$return['code']       = \lib\db\products2\db::get_one_field($product_id, 'code');
 			\lib\app\product\dashboard::clean_cache('var');
 		}
 

@@ -25,13 +25,48 @@ class get
 			return false;
 		}
 
-		$result = \lib\db\products::get(['id' => $id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+		$result = \lib\db\products2::get_by_id($id, \lib\store::id());
 
 		if(!$result)
 		{
 			\dash\notif::error(T_("Detail not found"));
 			return false;
 		}
+
+		return $result;
+	}
+
+
+	public static function by_code($_code)
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		if(!$_code)
+		{
+			\dash\notif::error(T_("Code not set"));
+			return false;
+		}
+
+
+		if(!is_numeric($_code))
+		{
+			\dash\notif::error(T_("Invalid code"));
+			return false;
+		}
+
+		$result = \lib\db\products2\db::get_by_code($_code, \lib\store::id());
+
+		if(!$result)
+		{
+			\dash\notif::error(T_("Detail not found"));
+			return false;
+		}
+
+		$result = \lib\app\product2\ready::row($result);
 
 		return $result;
 	}
@@ -44,7 +79,7 @@ class get
 
 		if($result)
 		{
-			$result = self::ready($result);
+			$result = \lib\app\product2\ready::row($result);
 		}
 
 		return $result;

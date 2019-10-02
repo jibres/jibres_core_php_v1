@@ -23,6 +23,7 @@ CONSTRAINT `productcategory_file_id` FOREIGN KEY (`file_id`) REFERENCES `files` 
 ALTER TABLE `productcategory` ADD INDEX `productcategory_parent_search_index` (`parent`);
 
 
+ALTER TABLE `productprices` ADD `last` enum('yes') NULL DEFAULT NULL AFTER `product_id`;
 
 ALTER TABLE `productcompany` CHANGE `store_id` `store_id` int(10) UNSIGNED NULL DEFAULT NULL;
 

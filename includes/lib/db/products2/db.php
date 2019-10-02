@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\product2;
+namespace lib\db\products2;
 
 class db
 {
@@ -39,11 +39,45 @@ class db
 				products2.code = (SELECT IFNULL(MAX(myProd.code), 0) FROM products2 AS `myProd` WHERE myProd.store_id = $_store_id ) + 1
 			";
 
-			$id = \dash\db::insert_id();
-			return $id;
+			if(\dash\db::query($query))
+			{
+				$id = \dash\db::insert_id();
+				return $id;
+			}
+			else
+			{
+				return false;
+			}
 		}
+		else
+		{
+			return false;
+		}
+	}
 
-		return false;
+
+
+	public static function get_one_field($_id, $_field)
+	{
+		$query  = "SELECT products2.$_field FROM products2 WHERE products2.id = $_id  LIMIT 1";
+		$result = \dash\db::get($query, $_field, true);
+		return $result;
+	}
+
+
+	public static function get_by_id($_id, $_store_id)
+	{
+		$query  = "SELECT * FROM products2 WHERE products2.id = $_id AND products2.store_id = $_store_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+	public static function get_by_code($_code, $_store_id)
+	{
+		$query  = "SELECT * FROM products2 WHERE products2.store_id = $_store_id AND products2.code = $_code  LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
 	}
 
 
