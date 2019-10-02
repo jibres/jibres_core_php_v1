@@ -156,6 +156,7 @@ class add
 				'price'           => $args_price['price'],
 				'discount'        => $args_price['discount'],
 				'discountpercent' => $args_price['discountpercent'],
+				'finalprice'      => floatval($args_price['price']) - floatval($args_price['discount']),
 			];
 
 			$productprices_id = \lib\db\productprices::insert($insert_productprices);

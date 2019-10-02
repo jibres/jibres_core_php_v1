@@ -486,7 +486,7 @@ class check
 	private static function check_unique_barcode($_barcode, $_id, $_store_id)
 	{
 
-		$check_exist  = \lib\db\products2::get_barcode($_barcode, $_store_id);
+		$check_exist  = \lib\db\products2\db::get_barcode($_barcode, $_store_id);
 
 		if(!$check_exist)
 		{
@@ -523,15 +523,15 @@ class check
 							$msg = T_("This barcode used as barcode2 :title", ['title' => $product_title]);
 						}
 
-						$product_id = null;
-						if(isset($check_exist[0]['id']))
+						$product_code = null;
+						if(isset($check_exist[0]['code']))
 						{
-							$product_id = \dash\coding::encode($check_exist[0]['id']);
+							$product_code = $check_exist[0]['code'];
 						}
 
-						if($product_id)
+						if($product_code)
 						{
-							$link = \dash\url::this(). '/general?id='. $product_id;
+							$link = \dash\url::this(). '/edit?code='. $product_code;
 							$msg = "<a href='$link'>". $msg. '</a>';
 						}
 

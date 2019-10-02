@@ -48,6 +48,10 @@ class updateprice
 			$new_record['discount']        = array_key_exists('discount', $_args) ? $_args['discount'] : null;
 			$new_record['buyprice']        = array_key_exists('buyprice', $_args) ? $_args['buyprice'] : null;
 			$new_record['discountpercent'] = array_key_exists('discountpercent', $_args) ? $_args['discountpercent'] : null;
+			if(isset($new_record['price']) || isset($new_record['discount']))
+			{
+				$new_record['finalprice'] = floatval($new_record['price']) - floatval($new_record['discount']);
+			}
 		}
 
 		if($changed && isset($last_product_price['id']))

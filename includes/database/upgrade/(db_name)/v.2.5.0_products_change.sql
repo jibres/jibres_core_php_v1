@@ -24,6 +24,7 @@ ALTER TABLE `productcategory` ADD INDEX `productcategory_parent_search_index` (`
 
 
 ALTER TABLE `productprices` ADD `last` enum('yes') NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE `productprices` ADD `finalprice` bigint(20) NULL DEFAULT NULL AFTER `discountpercent`;
 ALTER TABLE `productprices` ADD INDEX `productprices_last_search_index` (`last`);
 
 ALTER TABLE `productcompany` CHANGE `store_id` `store_id` int(10) UNSIGNED NULL DEFAULT NULL;

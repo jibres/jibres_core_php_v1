@@ -12,6 +12,7 @@ class db
 		"
 			SELECT
 				`id`,
+				`code`,
 				`title`,
 				`barcode`,
 				`barcode2`
@@ -82,7 +83,23 @@ class db
 
 	public static function get_by_id($_id, $_store_id)
 	{
-		$query  = "SELECT * FROM products2 WHERE products2.id = $_id AND products2.store_id = $_store_id LIMIT 1";
+		$query  =
+		"
+			SELECT
+				products2.*,
+				productprices.price,
+				productprices.buyprice,
+				productprices.discount,
+				productprices.discountpercent,
+				productprices.finalprice
+			FROM
+				products2
+			LEFT JOIN productprices ON productprices.product_id = products2.id AND productprices.last = 'yes'
+			WHERE
+				products2.id = $_id AND
+				products2.store_id = $_store_id
+			LIMIT 1
+		";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
@@ -90,8 +107,25 @@ class db
 
 	public static function get_by_code($_code, $_store_id)
 	{
-		$query  = "SELECT * FROM products2 WHERE products2.store_id = $_store_id AND products2.code = $_code  LIMIT 1";
+		$query  =
+		"
+			SELECT
+				products2.*,
+				productprices.price,
+				productprices.buyprice,
+				productprices.discount,
+				productprices.discountpercent,
+				productprices.finalprice
+			FROM
+				products2
+			LEFT JOIN productprices ON productprices.product_id = products2.id AND productprices.last = 'yes'
+			WHERE
+				products2.store_id = $_store_id AND
+				products2.code = $_code
+			LIMIT 1
+		";
 		$result = \dash\db::get($query, null, true);
+
 		return $result;
 	}
 
