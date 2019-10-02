@@ -60,6 +60,35 @@ class ready
 					$result[$key] = isset($value) ? (float) $value : null;
 					break;
 
+				case 'vat':
+				case 'infinite':
+				case 'oversale':
+					if(!$value)
+					{
+						$value = false;
+					}
+					else
+					{
+						$value = true;
+					}
+
+					$result[$key] = $value;
+					break;
+
+				case 'saleonline':
+				case 'saletelegram':
+				case 'saleapp':
+					if(!$value)
+					{
+						$value = true;
+					}
+					else
+					{
+						$value = false;
+					}
+					$result[$key] = $value;
+					break;
+
 				case 'country':
 				case 'city':
 				case 'province':

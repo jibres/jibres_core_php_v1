@@ -282,49 +282,16 @@
 
 
 
-{%block iSold%}
-<label for='sold'>{%trans "Sold"%}</label>
-<div class="input">
- <input type="text" name="sold" id="sold" placeholder='{%trans "Sold"%}' value="{{productDataRow.sold}}" maxlength="50">
-</div>
-{%endblock%}
-
-
-
-{%block iStock%}
-<label for='stock'>{%trans "Stock"%}</label>
-<div class="input">
- <input type="text" name="stock" id="stock" placeholder='{%trans "Stock"%}' value="{{productDataRow.stock}}" maxlength="50">
-</div>
-{%endblock%}
-
-
-{%block iServiec%}
-<div class="switch1">
- <input type="checkbox" name="service" id="service" value="1" {% if productDataRow.service%} checked{%endif%}>
- <label for="service"></label>
- <label for="service">{%trans "Service"%} <small>{%trans "This product is service base and not a real goods"%}</small></label>
-</div>
-{%endblock%}
-
 
 {%block iSaleonline%}
-<div class="switch1">
+<div class="check1">
  <input type="checkbox" name="saleonline" id="saleonline" {% if productDataRow.saleonline%} checked{%endif%}>
- <label for="saleonline"></label>
  <label for="saleonline">{%trans "Sale Online"%} <small>{%trans "This product is saleonline base"%}</small></label>
 </div>
 {%endblock%}
 
 
 
-{%block iSalestore%}
-<div class="switch1">
- <input type="checkbox" name="salestore" id="salestore" {% if productDataRow.salestore%} checked{%endif%}>
- <label for="salestore"></label>
- <label for="salestore">{%trans "Sale in store"%} <small>{%trans "This product is salestore base"%}</small></label>
-</div>
-{%endblock%}
 
 
 
@@ -379,15 +346,6 @@
 
 
 
-
-{%block iSalesite%}
-<div class="check1">
-  <input type="checkbox" name="salesite" id="isalesite" {%if productDataRow.salesite%} checked {%endif%}>
-  <label for="isalesite">{%trans "Sale in site"%}</label>
-</div>
-{%endblock%}
-
-
 {%block iSaletelegram%}
 <div class="check1">
   <input type="checkbox" name="saletelegram" id="isaletelegram" {%if productDataRow.saletelegram%} checked {%endif%}>
@@ -404,12 +362,6 @@
 {%endblock%}
 
 
-{%block iSalephysical%}
-<div class="check1">
-  <input type="checkbox" name="salephysical" id="isalephysical" {%if productDataRow.salephysical%} checked {%endif%}>
-  <label for="isalephysical">{%trans "Sale in physical"%}</label>
-</div>
-{%endblock%}
 
 
 
