@@ -32,7 +32,7 @@ class model
 		$post['seotitle']        = \dash\request::post('seotitle');
 		$post['slug']            = \dash\request::post('slug');
 		$post['type']            = \dash\request::post('type');
-		$post['excerpt']         = \dash\request::post('excerpt');
+		$post['seodesc']         = \dash\request::post('seodesc');
 		$post['saleonline']      = \dash\request::post('saleonline');
 		$post['saletelegram']    = \dash\request::post('saletelegram');
 		$post['saleapp']         = \dash\request::post('saleapp');
