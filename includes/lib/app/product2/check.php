@@ -408,10 +408,13 @@ class check
 		}
 
 		$sku = \dash\app::request('sku');
-		if($sku && !self::check_sku($sku))
+		if($sku)
 		{
-			\dash\notif::error(T_("sku is out of range"), 'sku');
-			return false;
+			$sku = self::check_sku($sku);
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
 		}
 
 		$seotitle = \dash\app::request('seotitle');
@@ -468,18 +471,27 @@ class check
 	}
 
 
-	// @check need to check SKU format
-	// https://www.shopify.com/encyclopedia/stock-keeping-unit-sku
+
 	private static function check_sku($_sku)
 	{
-		if(mb_strlen($_sku) > 20)
+		$_sku = \dash\utility\convert::to_en_number($_sku);
+
+		$_sku = preg_replace("/\_{2,}/", "_", $_sku);
+		$_sku = preg_replace("/\-{2,}/", "-", $_sku);
+
+		if(mb_strlen($_sku) > 16)
 		{
+			\dash\notif::error(T_("Please set the sku less than 16 character"), 'sku');
 			return false;
 		}
-		else
+
+		if(!preg_match("/^[A-Za-z0-9_\-]+$/", $_sku))
 		{
-			return true;
+			\dash\notif::error(T_("Only [A-Za-z0-9_-] can use in sku"), 'sku');
+			return false;
 		}
+
+		return $_sku;
 	}
 
 
