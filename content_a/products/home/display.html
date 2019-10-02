@@ -37,7 +37,7 @@
 
 
 {%block showAdvanceSearch%}
-<div class="showAdvanceSearch" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
+<div>
   {{block('filterProductLink')}}
 </div>
 {%endblock%}
@@ -47,11 +47,46 @@
 
 
 {%block htmlSearchBox%}
-<div class="cbox fs12 p0">
+<div class="searchBox">
+  <div class="f">
+    <div class="cauto pRa10">
+      <a href="#" class="btn light3 apply" data-kerkere-icon="close" data-kerkere='.showAdvanceSearch'>{%trans "Filter"%}</a>
+    </div>
+    <div class="c pRa10">
+      <div>
+        <div class="input search apply">
+          <input type="search" name="q" placeholder='{%trans "Search products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" class="barCode" data-default data-pass='submit' autocomplete='off'>
+          <button class="addon btn light3 s0"><i class="sf-search"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="cauto">
+      <div class="ui floating dropdown">
+        <div class="btn light3"><i class="sf-sort mRa5"></i><span class="text">{%trans "Sort"%}</span></div>
+        <div class="menu">
+          <div class="header">{%trans "You can sort your list"%}</div>
+            <a class="item" href="{{value.url}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>Sort by price DESC</span></a>
+  {%for key, value in fontStyleList%}
+            <a class="item" href="{{value.url}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.name}}</span></a>
+  {%endfor%}
+        </div>
+      </div>
+    </div>
+
+    <div class="c12 showAdvanceSearch" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
+      <div>
+        {{block('showAdvanceSearch')}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="cbox fs12 p0 hide">
   <form method="get" action='{{url.this}}'>
     <div class="input">
-      <label class="addon" data-kerkere-icon data-kerkere='.showAdvanceSearch'>{%trans "Advance search"%}</label>
-      <input type="search" name="q" placeholder='{%trans "Search in products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" autofocus class="barCode" data-default data-pass='submit' autocomplete='off'>
+      <label class="addon" data-kerkere-icon="close" data-kerkere='.showAdvanceSearch'>{%trans "Filter"%}</label>
+      <input type="search" name="q" placeholder='{%trans "Search products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" class="barCode" data-default data-pass='submit' autocomplete='off'>
       <button class="addon btn ">{%trans "Search" %}</button>
     </div>
     {{block('showAdvanceSearch')}}
@@ -75,7 +110,7 @@
     <tbody>
       {%for key, value in dataTable%}
       <tr>
-        <td class="collapsing"><img src="{{value.thumb}}" class="avatar"></td>
+        <td class="collapsing"><img src="{{value.thumb}}" class="avatar" alt="{{value.title}}"></td>
         <td><a href="{{url.this}}/general?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
         <td>
           {%if value.variants_detail.stock %}

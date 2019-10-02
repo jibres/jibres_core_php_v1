@@ -10,8 +10,8 @@ class view
 		\dash\data::page_title(T_('Products'));
 		\dash\data::page_desc(T_('You can search in list of products, add new product and edit existing.'));
 
-		// enable tbox2
-		\dash\data::page_tbox2(true);
+		// enable titleBox
+		\dash\data::page_titleBox(true);
 
 		if(\dash\request::get('inside'))
 		{
