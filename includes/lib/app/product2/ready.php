@@ -1,0 +1,80 @@
+<?php
+namespace lib\app\product2;
+
+
+class ready
+{
+
+	public static function row($_data)
+	{
+		$result = [];
+
+		if(!is_array($_data))
+		{
+			return null;
+		}
+
+		foreach ($_data as $key => $value)
+		{
+
+			switch ($key)
+			{
+				case 'id':
+				case 'creator':
+				case 'cat_id':
+				case 'unit_id':
+					if(isset($value))
+					{
+						$result[$key] = \dash\coding::encode($value);
+					}
+					else
+					{
+						$result[$key] = null;
+					}
+					break;
+
+				case 'slug':
+					$result[$key] = isset($value) ? (string) $value : null;
+					break;
+
+				case 'thumb':
+					$result['thumb_raw'] = $value;
+					if($value)
+					{
+						$result[$key] = \lib\filepath::fix($value);
+					}
+					else
+					{
+						$result[$key] = \dash\app::static_image_url();
+					}
+					break;
+
+				case 'gallery':
+					$result['gallery'] = $value;
+					$result['gallery_array'] = json_decode($value, true);
+					break;
+
+				case 'finalprice':
+				case 'intrestrate':
+				case 'intrestrate_impure':
+					$result[$key] = isset($value) ? (float) $value : null;
+					break;
+
+				case 'country':
+				case 'city':
+				case 'province':
+				case 'zipcode':
+				case 'name':
+				case 'title':
+				case 'desc':
+				case 'alias':
+				case 'status':
+				default:
+					$result[$key] = isset($value) ? (string) $value : null;
+					break;
+			}
+		}
+		return $result;
+	}
+}
+?>

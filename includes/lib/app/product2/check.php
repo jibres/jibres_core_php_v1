@@ -1,14 +1,13 @@
 <?php
-namespace lib\app;
+namespace lib\app\product2;
 
 
-class product2
+class check
 {
 
-
-	public static function check($_id = null, $_option = [])
+	public static function variable($_id = null, $_option = [])
 	{
-		$args                    = [];
+
 
 		$default_option =
 		[
@@ -397,92 +396,24 @@ class product2
 			return false;
 		}
 
-
-
-		$master_args = \dash\app::request();
-		// check to add new cat or unit
-		if($cat)
-		{
-			\lib\app\product\cat::$debug = false;
-			$add_cat = \lib\app\product\cat::check_add($cat);
-
-			if(isset($add_cat['id_raw']))
-			{
-				$args['cat_id'] = $add_cat['id_raw'];
-			}
-
-			if(isset($add_cat['title']))
-			{
-				$args['cat'] = $add_cat['title'];
-			}
-		}
-
-		if($unit)
-		{
-			\lib\app\product\unit::$debug = false;
-			$add_unit                     = \lib\app\product\unit::check_add($unit);
-			if(isset($add_unit['id']))
-			{
-				$args['unit_id'] = $add_unit['id'];
-			}
-
-			if(isset($add_unit['title']))
-			{
-				$args['unit'] = $add_unit['title'];
-			}
-		}
-
-		if($company)
-		{
-			\lib\app\product\company::$debug = false;
-			$add_company                     = \lib\app\product\company::check_add($company);
-			if(isset($add_company['id']))
-			{
-				$args['company_id'] = $add_company['id'];
-			}
-
-			if(isset($add_company['title']))
-			{
-				$args['company'] = $add_company['title'];
-			}
-		}
-
-
-
-
-		\dash\app::request_set($master_args);
-
+		$args                    = [];
 		$args['title']           = $title;
 		$args['slug']            = $slug;
 		$args['barcode']         = $barcode;
 		$args['barcode2']        = $barcode2;
-		$args['quickcode']       = $quickcode;
-		$args['buyprice']        = $buyprice;
-		$args['price']           = $price;
-		$args['discount']        = $discount;
-		$args['discountpercent'] = $discountpercent;
 		$args['vat']             = $vat;
-		$args['initialbalance']  = $initialbalance;
 		$args['minstock']        = $minstock;
 		$args['maxstock']        = $maxstock;
 		$args['status']          = $status;
-		$args['stock']           = $stock;
-		$args['thumb']           = $thumb;
-		$args['service']         = $service;
-		// $args['checkstock']   = $checkstock;
 		$args['parent']          = $parent;
 		$args['saleonline']      = $saleonline;
-		$args['salestore']       = $salestore;
 		$args['carton']          = $carton;
 		$args['desc']            = $desc;
 		$args['scalecode']       = $scalecode;
-		$args['salesite']        = $salesite;
 		$args['saletelegram']    = $saletelegram;
 		$args['saleapp']         = $saleapp;
-		$args['salephysical']    = $salephysical;
 		$args['weight']          = $weight;
 		$args['infinite']        = $infinite;
-
 		$args['optionname1']     = $optionname1;
 		$args['optionvalue1']    = $optionvalue1;
 		$args['optionname2']     = $optionname2;
@@ -495,82 +426,5 @@ class product2
 		return $args;
 	}
 
-
-	/**
-	 * ready data of product to load in api
-	 *
-	 * @param      <type>  $_data  The data
-	 */
-	public static function ready($_data)
-	{
-		$result = [];
-
-		if(!is_array($_data))
-		{
-			return null;
-		}
-
-		foreach ($_data as $key => $value)
-		{
-
-			switch ($key)
-			{
-				case 'id':
-				case 'creator':
-				case 'cat_id':
-				case 'unit_id':
-					if(isset($value))
-					{
-						$result[$key] = \dash\coding::encode($value);
-					}
-					else
-					{
-						$result[$key] = null;
-					}
-					break;
-
-				case 'slug':
-					$result[$key] = isset($value) ? (string) $value : null;
-					break;
-
-				case 'thumb':
-					$result['thumb_raw'] = $value;
-					if($value)
-					{
-						$result[$key] = \lib\filepath::fix($value);
-					}
-					else
-					{
-						$result[$key] = \dash\app::static_image_url();
-					}
-					break;
-
-				case 'gallery':
-					$result['gallery'] = $value;
-					$result['gallery_array'] = json_decode($value, true);
-					break;
-
-				case 'finalprice':
-				case 'intrestrate':
-				case 'intrestrate_impure':
-					$result[$key] = isset($value) ? (float) $value : null;
-					break;
-
-				case 'country':
-				case 'city':
-				case 'province':
-				case 'zipcode':
-				case 'name':
-				case 'title':
-				case 'desc':
-				case 'alias':
-				case 'status':
-				default:
-					$result[$key] = isset($value) ? (string) $value : null;
-					break;
-			}
-		}
-		return $result;
-	}
 }
 ?>
