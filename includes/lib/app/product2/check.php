@@ -114,7 +114,7 @@ class check
 			return false;
 		}
 
-		if(\dash\utility\filter::max_number($minstock, 999999999))
+		if(\dash\utility\filter::is_larger($minstock, 999999999))
 		{
 			\dash\notif::error(T_("Value of minstock is out of rage"), 'minstock');
 			return false;
@@ -134,7 +134,7 @@ class check
 			return false;
 		}
 
-		if(\dash\utility\filter::max_number($maxstock, 999999999))
+		if(\dash\utility\filter::is_larger($maxstock, 999999999))
 		{
 			\dash\notif::error(T_("Value of maxstock is out of rage"), 'maxstock');
 			return false;
@@ -155,7 +155,7 @@ class check
 			return false;
 		}
 
-		if(\dash\utility\filter::max_number($weight, 999999999))
+		if(\dash\utility\filter::is_larger($weight, 999999999))
 		{
 			\dash\notif::error(T_("Value of weight is out of rage"), 'weight');
 			return false;
@@ -227,7 +227,7 @@ class check
 			return false;
 		}
 
-		if(\dash\utility\filter::max_number($carton, 999999999))
+		if(\dash\utility\filter::is_larger($carton, 999999999))
 		{
 			\dash\notif::error(T_("Value of carton is out of rage"), 'carton');
 			return false;
@@ -254,7 +254,7 @@ class check
 			return false;
 		}
 
-		if(\dash\utility\filter::max_number($salestep, 999999999))
+		if(\dash\utility\filter::is_larger($salestep, 999999999))
 		{
 			\dash\notif::error(T_("Value of salestep is out of rage"), 'salestep');
 			return false;
@@ -274,7 +274,7 @@ class check
 			return false;
 		}
 
-		if(\dash\utility\filter::max_number($minsale, 999999999))
+		if(\dash\utility\filter::is_larger($minsale, 999999999))
 		{
 			\dash\notif::error(T_("Value of minsale is out of rage"), 'minsale');
 			return false;
@@ -294,7 +294,7 @@ class check
 			return false;
 		}
 
-		if(\dash\utility\filter::max_number($maxsale, 999999999))
+		if(\dash\utility\filter::is_larger($maxsale, 999999999))
 		{
 			\dash\notif::error(T_("Value of maxsale is out of rage"), 'maxsale');
 			return false;
@@ -337,7 +337,7 @@ class check
 				return false;
 			}
 
-			if(\dash\utility\filter::max_number($scalecode, 999999999))
+			if(\dash\utility\filter::is_larger($scalecode, 999999999))
 			{
 				\dash\notif::error(T_("Please enter the scale code as a five digit number"), 'scalecode');
 				return false;
@@ -569,7 +569,7 @@ class check
 			return false;
 		}
 
-		if(\dash\utility\filter::max_number($buyprice, 999999999999999999))
+		if(\dash\utility\filter::is_larger($buyprice, 999999999999999999))
 		{
 			\dash\notif::error(T_("Value of buyprice is out of rage"), 'buyprice');
 			return false;
@@ -596,7 +596,7 @@ class check
 			return false;
 		}
 
-		if(\dash\utility\filter::max_number($price, 999999999999999999))
+		if(\dash\utility\filter::is_larger($price, 999999999999999999))
 		{
 			\dash\notif::error(T_("Value of price is out of rage"), 'price');
 			return false;
@@ -624,7 +624,7 @@ class check
 			return false;
 		}
 
-		if($discount && \dash\utility\filter::max_number($discount, 999999999999999999))
+		if($discount && \dash\utility\filter::is_larger($discount, 999999999999999999))
 		{
 			\dash\notif::error(T_("Value of discount is out of rage"), 'discount');
 			return false;
