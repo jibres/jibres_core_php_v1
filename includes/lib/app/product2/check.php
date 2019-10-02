@@ -23,7 +23,7 @@ class check
 		if(\dash\app::isset_request('title'))
 		{
 			$title = \dash\app::request('title');
-			if(!$title)
+			if(!$title && $title !== '0')
 			{
 				\dash\notif::error(T_("Please fill your product title"), 'title');
 				return false;
@@ -396,17 +396,12 @@ class check
 			return false;
 		}
 
-		$sku          = \dash\app::request('sku');
-		if($sku && mb_strlen($sku) > 20)
+		$sku = \dash\app::request('sku');
+		if($sku && !self::check_sku($sku))
 		{
 			\dash\notif::error(T_("sku is out of range"), 'sku');
 			return false;
 		}
-
-// cat_id
-// unit_id
-// company_id
-// code
 
 		$seotitle = \dash\app::request('seotitle');
 		if($seotitle && mb_strlen($seotitle) >= 300)
@@ -425,8 +420,8 @@ class check
 		$args                 = [];
 		$args['title']        = $title;
 		$args['slug']         = $slug;
-		$args['barcode']      = $barcode;
-		$args['barcode2']     = $barcode2;
+		$args['barcode']      = (string) $barcode;
+		$args['barcode2']     = (string) $barcode2;
 		$args['minstock']     = $minstock;
 		$args['maxstock']     = $maxstock;
 		$args['weight']       = $weight;
@@ -461,6 +456,20 @@ class check
 		return $args;
 	}
 
+
+	// @check need to check SKU format
+	// https://www.shopify.com/encyclopedia/stock-keeping-unit-sku
+	private static function check_sku($_sku)
+	{
+		if(mb_strlen($_sku) > 20)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
 
 
 	private static function check_unique_barcode($_barcode, $_id, $_store_id)

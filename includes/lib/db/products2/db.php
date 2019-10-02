@@ -56,6 +56,21 @@ class db
 	}
 
 
+	public static function update($_args, $_id)
+	{
+		$set = \dash\db\config::make_set($_args, ['type' => 'update']);
+		if($set)
+		{
+			$query = " UPDATE `products2` SET $set WHERE products2.id = $_id LIMIT 1";
+			$result = \dash\db::query($query);
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 
 	public static function get_one_field($_id, $_field)
 	{
@@ -184,17 +199,7 @@ class db
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function update($_args, $_id)
-	{
-		$result = \dash\db\config::public_update('products', ...func_get_args());
 
-		if(isset($_args['cat_id']))
-		{
-			\lib\db\productterms::update_count(\lib\store::id(), ['type' => 'cat']);
-		}
-
-		return $result;
-	}
 
 	public static function update_where()
 	{

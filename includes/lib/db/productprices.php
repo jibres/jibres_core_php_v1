@@ -15,11 +15,7 @@ class productprices
 		return $result;
 	}
 
-	/**
-	 * get last of product id
-	 *
-	 * @param      <type>  $_product_id  The product identifier
-	 */
+
 	public static function last($_product_id)
 	{
 		if(!$_product_id || !is_numeric($_product_id))
@@ -31,6 +27,17 @@ class productprices
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
+
+
+	public static function last_active($_product_id)
+	{
+		$query  = "SELECT * FROM productprices WHERE `product_id` = $_product_id AND `last` = 'yes' AND `enddate` IS NULL ORDER BY `id` DESC LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
 
 
 
