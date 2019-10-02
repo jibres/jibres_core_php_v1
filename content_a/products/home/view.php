@@ -76,7 +76,7 @@ class view
 
 		$myProductList = \lib\app\products\search::variant_list($search_string, $args);
 
-		\lib\app\products\load::barcode_is_scaned($myProductList, $search_string);
+		\lib\app\product2\load::barcode_is_scaned($myProductList, $search_string);
 
 		\dash\data::dataTable($myProductList);
 
