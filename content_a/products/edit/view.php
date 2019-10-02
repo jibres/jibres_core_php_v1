@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\general;
+namespace content_a\products\edit;
 
 
 class view
@@ -14,8 +14,6 @@ class view
 		}
 
 		\dash\data::page_title($title);
-
-		\dash\data::page_pictogram('tag-2');
 
 		// back to list of product
 		\dash\data::badge_text(T_('Back'));

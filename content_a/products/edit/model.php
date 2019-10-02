@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\add;
+namespace content_a\products\edit;
 
 
 class model
@@ -40,20 +40,15 @@ class model
 		$post['scalecode']       = \dash\request::post('scalecode');
 		$post['status']          = \dash\request::post('status');
 
-		$result = \lib\app\product2\add::add($post);
+		$id = \dash\request::post('id');
+
+		$result = \lib\app\product2\edit::edit($post, $id);
 		if(!$result)
 		{
 			return false;
 		}
 
-		if(isset($result['code']))
-		{
-			\dash\redirect::to(\dash\url::this(). '/edit?code='. $result['code']);
-		}
-		else
-		{
-			\dash\redirect::to(\dash\url::this());
-		}
+		\dash\redirect::pwd();
 	}
 }
 ?>
