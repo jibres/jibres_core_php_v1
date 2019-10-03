@@ -90,12 +90,6 @@
 </div>
 {%endblock%}
 
-{%block iCode%}
-<label for='code'>{%trans "Code"%}</label>
-<div class="input">
- <input type="text" name="code" id="code" placeholder='{%trans "For quick access"%}' value="{{productDataRow.quickcode}}" maxlength="50" class="txtC">
-</div>
-{%endblock%}
 
 
 
@@ -104,13 +98,6 @@
 {%endblock%}
 
 
-
-{%block iShortcode%}
-<label for='shortcode'>{%trans "Short code"%}</label>
-<div class="input">
- <input type="text" name="shortcode" id="shortcode" placeholder='{%trans "Short code"%}' value="{{productDataRow.shortcode}}" maxlength="50">
-</div>
-{%endblock%}
 
 
 
@@ -223,10 +210,28 @@
 {%endblock%}
 
 
-{%block iInitialBalance%}
-<label for='initialbalance'>{%trans "Initial Balance"%}</label>
+
+
+{%block iMinsale%}
+<label for='minsale'>{%trans "Min sale"%}</label>
 <div class="input">
- <input type="number" name="initialbalance" id="initialbalance" placeholder='{%trans "Initial Balance"%}' value="{{productDataRow.initialbalance}}" maxlength="50">
+ <input type="number" name="minsale" id="minsale" placeholder='{%trans "Min sale"%}' value="{{productDataRow.minsale}}" maxlength="50">
+</div>
+{%endblock%}
+
+
+
+{%block iMaxsale%}
+<label for='maxsale'>{%trans "Max sale"%}</label>
+<div class="input">
+ <input type="number" name="maxsale" id="maxsale" placeholder='{%trans "Max sale"%}' value="{{productDataRow.maxsale}}" maxlength="50">
+</div>
+{%endblock%}
+
+{%block iSalestep%}
+<label for='salestep'>{%trans "Sale step"%}</label>
+<div class="input">
+ <input type="number" name="salestep" id="salestep" placeholder='{%trans "Sale ste"%}' value="{{productDataRow.salestep}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -279,6 +284,17 @@
 </div>
 {%endblock%}
 
+
+
+
+
+{%block iOwersale%}
+<div class="switch1">
+ <input type="checkbox" name="oversale" id="oversale" {% if productDataRow.oversale%} checked{%endif%}>
+ <label for="oversale"></label>
+ <label for="oversale">{%trans "Owersale"%}</label>
+</div>
+{%endblock%}
 
 
 

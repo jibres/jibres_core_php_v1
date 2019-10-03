@@ -35,6 +35,10 @@ class model
 		$post['company']         = \dash\request::post('company');
 		$post['scalecode']       = \dash\request::post('scalecode');
 		$post['status']          = \dash\request::post('status');
+		$post['minsale']         = \dash\request::post('minsale');
+		$post['maxsale']         = \dash\request::post('maxsale');
+		$post['salestep']        = \dash\request::post('salestep');
+		$post['oversale']        = \dash\request::post('oversale');
 
 		return $post;
 	}

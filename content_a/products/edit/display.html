@@ -55,6 +55,7 @@
 
 
 
+
 {%block Box_title %}
    {{block('iTitle')}}
    <div class="showDescProduct" data-kerkere-content='hide'>
@@ -103,6 +104,8 @@
   </div>
   {{block ('iBarcodePrev') }}
 {{block('iInfinite')}}
+{{block('iOwersale')}}
+
 
 {%endblock%}
 
@@ -113,6 +116,12 @@
 
 {%block Box_shopping %}
 <h3>{%trans "Shopping"%}</h3>
+<div class="f">
+ <div class="c s12 pRa5">{{block ('iMinsale') }}</div>
+ <div class="c s12 pRa5">{{block ('iMaxsale') }}</div>
+ <div class="c s12">{{block ('iSalestep') }}</div>
+</div>
+
 {{block('iType')}}
 <div data-response='type' data-response-where='product' {%if productDataRow.type != 'product'%} data-response-hide {%endif%}>
   <div class="f">
@@ -120,6 +129,7 @@
    <div class="c s12">{{block('iWeightunit')}}</div>
   </div>
 </div>
+
 {%endblock%}
 
 
