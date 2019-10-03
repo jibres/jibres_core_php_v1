@@ -71,24 +71,24 @@ class get
 	}
 
 
-	public static function by_code($_code)
+	public static function by_code($_code, $_options = [])
 	{
 		$result = self::by_code_inline($_code);
 		if($result)
 		{
-			$result = \lib\app\product2\ready::row($result);
+			$result = \lib\app\product2\ready::row($result, $_options);
 		}
 		return $result;
 	}
 
 
-	public static function get($_id)
+	public static function get($_id, $_options = [])
 	{
 		$result = self::inline_get($_id);
 
 		if($result)
 		{
-			$result = \lib\app\product2\ready::row($result);
+			$result = \lib\app\product2\ready::row($result, $_options);
 		}
 
 		return $result;

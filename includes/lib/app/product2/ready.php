@@ -5,8 +5,20 @@ namespace lib\app\product2;
 class ready
 {
 
-	public static function row($_data)
+	public static function row($_data, $_option = [])
 	{
+		$default_option =
+		[
+			'load_gallery' => false,
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+
 		$result = [];
 
 		if(!is_array($_data))
@@ -52,6 +64,10 @@ class ready
 				case 'gallery':
 					$result['gallery'] = $value;
 					$result['gallery_array'] = json_decode($value, true);
+					if($_option['load_gallery'] && is_array($result['gallery_array']) && $result['gallery_array'])
+					{
+						$result['gallery_array'] = \lib\app\product2\gallery::load_detail($result['gallery_array']);
+					}
 					break;
 
 				case 'finalprice':

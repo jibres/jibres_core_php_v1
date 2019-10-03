@@ -46,13 +46,28 @@ class model
 
 	public static function post()
 	{
-		$post = self::get_post();
-
 		$id = \dash\request::post('id');
+
+		$code = \dash\request::get('code');
+
+		if(self::upload_gallery($code))
+		{
+			return false;
+		}
+
+		if(\dash\request::post('gallerytype') === 'remove_gallery')
+		{
+			self::remove_gallery($code);
+			return false;
+		}
+
+		self::set_variant($id);
+
+
+		$post = self::get_post();
 
 		$result = \lib\app\product2\edit::edit($post, $id);
 
-		self::set_variant($id);
 
 		if(!$result)
 		{
@@ -61,6 +76,50 @@ class model
 
 		\dash\redirect::pwd();
 	}
+
+
+
+
+	public static function upload_gallery($_id)
+	{
+		if(\dash\request::files('gallery'))
+		{
+			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'gallery']);
+
+			if(isset($uploaded_file['id']))
+			{
+				// save uploaded file
+				\lib\app\product2\gallery::gallery($_id, $uploaded_file, 'add');
+			}
+
+			if(!\dash\engine\process::status())
+			{
+				\dash\notif::error(T_("Can not upload file"));
+			}
+			else
+			{
+				\dash\notif::ok(T_("File successfully uploaded"));
+			}
+
+			return true;
+		}
+		return false;
+
+	}
+
+
+	public static function remove_gallery($_id)
+	{
+		$id = \dash\request::post('filekey');
+		if(!is_numeric($id))
+		{
+			return false;
+		}
+
+		\lib\app\product\gallery::gallery($_id, $id, 'remove');
+		\dash\redirect::pwd();
+	}
+
 
 
 	private static function getPostVariant()

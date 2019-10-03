@@ -424,6 +424,18 @@
 
 {%block galleryImporter %}
 
+{%if productDataRow.gallery_array%}
+
+<div class="f">
+  {%for key, value in productDataRow.gallery_array%}
+    <span class="cauto" data-ajaxify data-method='post' data-data='{"setthumb": true, "fileid" : "{{value.id}}"}'>
+      <img src="{{value.url}}" class="w100 fs50 mA5">
+    </span>
+  {%endfor%}
+</div>
+
+{%endif%}
+
   <div class="dropzone">
     <h4>{%trans "Add to gallery"%}</h4>
     <label for='gallery' class="btn light">{%trans "Choose or Drop file here"%}</label>
@@ -435,7 +447,6 @@
     <small>{%trans "Maximum file size"%} <b>{{maxUploadSize}}</b></small>
   </div>
 {% endblock %}
-
 
 
 

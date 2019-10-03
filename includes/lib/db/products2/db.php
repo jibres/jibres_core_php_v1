@@ -131,7 +131,20 @@ class db
 
 
 
+	public static function update_thumb($_thumb, $_id)
+	{
+		$query  = "UPDATE products2 SET products2.thumbid = '$_thumb' WHERE products2.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
 
+
+	public static function update_gallery($_gallery, $_id)
+	{
+		$query  = "UPDATE products2 SET products2.gallery = '$_gallery' WHERE products2.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
 
 
 
