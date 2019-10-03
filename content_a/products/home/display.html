@@ -58,7 +58,7 @@
         <div class="menu">
           <div class="header">{%trans "You can sort your list"%}</div>
             <a class="item" href="{{value.url}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>Sort by price DESC</span></a>
-  {%for key, value in fontStyleList%}
+  {%for key, value in sortAvailable%}
             <a class="item" href="{{value.url}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.name}}</span></a>
   {%endfor%}
         </div>
@@ -66,6 +66,13 @@
     </div>
 
   </div>
+</div>
+
+<div class="applyFilters">
+  <a class="btn danger2 sm mRa5" href="#"><span>Filter1</span><i class="fc-red pLa10 sf-times"></i></a>
+  <a class="btn danger2 sm mRa5" href="#"><span>Filter2</span><i class="fc-red pLa10 sf-times"></i></a>
+  <a class="btn danger2 sm mRa5" href="#"><span>Filter3</span><i class="fc-red pLa10 sf-times"></i></a>
+  <a class="btn dark outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Remove all filters</span><i class="pLa10 sf-eraser"></i></a>
 </div>
 
 <div class="filterBox" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
