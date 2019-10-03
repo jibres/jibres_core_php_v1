@@ -428,9 +428,27 @@
 
 <div class="f">
   {%for key, value in productDataRow.gallery_array%}
-    <span class="cauto" data-ajaxify data-method='post' data-data='{"setthumb": true, "fileid" : "{{value.id}}"}'>
-      <img src="{{value.url}}" class="w100 fs50 mA5">
+    {%if value.id == productDataRow.thumbid%}
+    <span class="cauto">
+      <div class="w300 mA5">
+        <img src="{{value.url}}">
+        <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
+        <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "{{value.id}}"}'><i class="sf-monitor-screen-1"></i></a>
+      </div>
     </span>
+    {%endif%}
+  {%endfor%}
+
+  {%for key, value in productDataRow.gallery_array%}
+    {%if value.id != productDataRow.thumbid%}
+      <span class="cauto">
+        <div class="w100 mA5">
+          <img src="{{value.url}}">
+          <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
+          <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "{{value.id}}"}'><i class="sf-monitor-screen-1"></i></a>
+        </div>
+      </span>
+    {%endif%}
   {%endfor%}
 </div>
 

@@ -55,9 +55,15 @@ class model
 			return false;
 		}
 
-		if(\dash\request::post('gallerytype') === 'remove_gallery')
+		if(\dash\request::post('fileaction') === 'remove')
 		{
 			self::remove_gallery($code);
+			return false;
+		}
+
+		if(\dash\request::post('fileaction') === 'setthumb')
+		{
+			self::setthumb($code);
 			return false;
 		}
 
@@ -80,7 +86,7 @@ class model
 
 
 
-	public static function upload_gallery($_id)
+	public static function upload_gallery($_code)
 	{
 		if(\dash\request::files('gallery'))
 		{
@@ -89,7 +95,7 @@ class model
 			if(isset($uploaded_file['id']))
 			{
 				// save uploaded file
-				\lib\app\product2\gallery::gallery($_id, $uploaded_file, 'add');
+				\lib\app\product2\gallery::gallery($_code, $uploaded_file, 'add');
 			}
 
 			if(!\dash\engine\process::status())
@@ -108,18 +114,20 @@ class model
 	}
 
 
-	public static function remove_gallery($_id)
+	public static function remove_gallery($_code)
 	{
-		$id = \dash\request::post('filekey');
-		if(!is_numeric($id))
-		{
-			return false;
-		}
-
-		\lib\app\product\gallery::gallery($_id, $id, 'remove');
+		$fileid = \dash\request::post('fileid');
+		\lib\app\product2\gallery::gallery($_code, $fileid, 'remove');
 		\dash\redirect::pwd();
 	}
 
+
+	public static function setthumb($_code)
+	{
+		$fileid = \dash\request::post('fileid');
+		\lib\app\product2\gallery::setthumb($_code, $fileid);
+		\dash\redirect::pwd();
+	}
 
 
 	private static function getPostVariant()

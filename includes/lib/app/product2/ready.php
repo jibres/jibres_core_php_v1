@@ -35,6 +35,7 @@ class ready
 				case 'creator':
 				case 'cat_id':
 				case 'unit_id':
+				case 'thumbid':
 					if(isset($value))
 					{
 						$result[$key] = \dash\coding::encode($value);
@@ -49,17 +50,7 @@ class ready
 					$result[$key] = isset($value) ? (string) $value : null;
 					break;
 
-				case 'thumb':
-					$result['thumb_raw'] = $value;
-					if($value)
-					{
-						$result[$key] = \lib\filepath::fix($value);
-					}
-					else
-					{
-						$result[$key] = \dash\app::static_image_url();
-					}
-					break;
+
 
 				case 'gallery':
 					$result['gallery'] = $value;
@@ -119,6 +110,7 @@ class ready
 					break;
 			}
 		}
+
 		return $result;
 	}
 }
