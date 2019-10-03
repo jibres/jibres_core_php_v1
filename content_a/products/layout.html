@@ -379,49 +379,6 @@
 
 
 
-{%block iPublishdate %}
-
-<section class="pbox">
-  <header data-kerkere='.publishDatePanel' data-kerkere-icon='open'>{%trans "Publish Date"%}</header>
-  <div class="body publishDatePanel" >
-
-    {%if not productDataRow.publishdate %}
-
-      <div class="radio3 mB5">
-        <input type="radio" name="publishdatetype" value="now" id="publishdatetypenow" {%if not productDataRow.publishdate %} checked {%endif%}>
-        <label for="publishdatetypenow">{%trans "When published"%}</label>
-      </div>
-
-      <div class="radio3 mB5">
-        <input type="radio" name="publishdatetype" value="bydate" id="publishdatetypebydate" {%if productDataRow.publishdate %} checked {%endif%}>
-        <label for="publishdatetypebydate">{%trans "At special date"%}</label>
-      </div>
-
-    {%endif%}
-
-    <div data-response='publishdatetype' data-response-where='bydate'  {%if productDataRow.publishdate %} {%else%} data-response-hide {%endif%} data-response-effect='slide'>
-
-      <div>
-        <label for="publishdate">{%trans "Publish date"%}</label>
-        <div class="input ltr">
-          <input class="datepicker" type="text" name="publishdate" id="publishdate" placeholder='{%trans "Default is now"%}' value="{{productDataRow.publishdate}}" maxlength='15' data-format="YYYY/MM/DD" data-initialValue='false' data-view="year">
-        </div>
-      </div>
-      <div>
-        <label for="publishtime">{%trans "Publish time"%}</label>
-        <div class="input clockpicker ltr">
-          <input type="text" name="publishtime" id="publishtime" placeholder='{%trans "Publish time"%}' autocomplete="off" {%if productDataRow.publishdate %} value="{{productDataRow.publishdate | date('H:i')}}" {%endif%}>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-{% endblock %}
-
-
-
 {%block galleryImporter %}
 
 {%if productDataRow.gallery_array%}
