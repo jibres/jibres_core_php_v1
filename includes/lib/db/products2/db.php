@@ -4,8 +4,6 @@ namespace lib\db\products2;
 class db
 {
 
-	// @check @javad
-	// need to check in not deleted product?
 	public static function get_barcode($_barcode, $_store_id)
 	{
 		$query =
@@ -150,6 +148,14 @@ class db
 	{
 		$query  = "UPDATE products2 SET products2.gallery = '$_gallery' WHERE products2.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+	public static function check_unique_sku($_sku, $_store_id)
+	{
+		$query = "SELECT `id`, `sku` FROM products2 WHERE products2.store_id = $_store_id AND products2.sku = '$_sku' AND products2.status  != 'deleted' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 

@@ -410,7 +410,7 @@ class check
 		$sku = \dash\app::request('sku');
 		if($sku)
 		{
-			$sku = self::check_sku($sku);
+			$sku = self::check_sku($sku, $_id, \lib\store::id());
 			if(!\dash\engine\process::status())
 			{
 				return false;
@@ -472,7 +472,7 @@ class check
 
 
 
-	private static function check_sku($_sku)
+	private static function check_sku($_sku, $_id, $_store_id)
 	{
 		$_sku = \dash\utility\convert::to_en_number($_sku);
 
@@ -489,6 +489,20 @@ class check
 		{
 			\dash\notif::error(T_("Only [A-Za-z0-9_-] can use in sku"), 'sku');
 			return false;
+		}
+
+		$check_unique_sku = \lib\db\products2\db::check_unique_sku($_sku, $_store_id);
+		if(isset($check_unique_sku['id']))
+		{
+			if(intval($check_unique_sku['id']) === intval($_id))
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\notif::error(T_("Duplicate sku code"), 'sku');
+				return false;
+			}
 		}
 
 		return $_sku;
