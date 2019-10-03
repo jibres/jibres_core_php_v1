@@ -62,7 +62,14 @@ class gallery
 			$gallery = [];
 		}
 
-		return ['gallery' => $gallery, 'id' => $load_product_gallery['id']];
+		$result =
+		[
+			'gallery' => $gallery,
+			'detail'  => $load_product_gallery,
+			'id'      => $load_product_gallery['id'],
+		];
+
+		return $result;
 	}
 
 
@@ -108,10 +115,9 @@ class gallery
 			return false;
 		}
 
-		$gallery    = $load_gallery['gallery'];
-		$product_id = $load_gallery['id'];
-
-
+		$gallery        = $load_gallery['gallery'];
+		$product_id     = $load_gallery['id'];
+		$product_detail = $load_gallery['detail'];
 
 		if($_type === 'add')
 		{
@@ -137,6 +143,16 @@ class gallery
 			{
 				$gallery['gallery'] = [$file_id];
 			}
+
+			if(isset($product_detail['thumbid']) && !in_array($product_detail['thumbid'], $gallery['gallery']))
+			{
+				unset($product_detail['thumbid']);
+			}
+
+			if(array_key_exists('thumbid', $product_detail) && !$product_detail['thumbid'])
+			{
+				\lib\db\products2\db::update_thumb($file_id, $product_id);
+			}
 		}
 		else
 		{
@@ -155,7 +171,36 @@ class gallery
 					\dash\notif::error(T_("Invalid gallery id"));
 					return false;
 				}
+
+				if(isset($product_detail['thumbid']) && !in_array($product_detail['thumbid'], $gallery['gallery']))
+				{
+					unset($product_detail['thumbid']);
+				}
+
 				unset($gallery['gallery'][array_search($file_id, $gallery['gallery'])]);
+
+				$next_image = null;
+				foreach ($gallery['gallery'] as $key => $value)
+				{
+					$next_image = $value;
+					break;
+				}
+
+				if((!isset($product_detail['thumbid']) || (array_key_exists('thumbid', $product_detail) && !$product_detail['thumbid'])) && $next_image)
+				{
+					\lib\db\products2\db::update_thumb($next_image, $product_id);
+				}
+
+				if(isset($product_detail['thumbid']) && intval($product_detail['thumbid']) === intval($file_id) && $next_image)
+				{
+					\lib\db\products2\db::update_thumb($next_image, $product_id);
+				}
+
+				if(!$next_image)
+				{
+					\lib\db\products2\db::update_thumb(null, $product_id);
+				}
+
 			}
 
 		}
