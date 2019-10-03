@@ -1,9 +1,5 @@
 {%extends display.admin%}
 
-{%block filterProductLink%}
-{%include 'content_a/products/filter.html'%}
-{%endblock%}
-
 
 {%block pageContent%}
 
@@ -72,12 +68,15 @@
   <a class="btn danger2 sm mRa5" href="#"><span>Filter1</span><i class="fc-red pLa10 sf-times"></i></a>
   <a class="btn danger2 sm mRa5" href="#"><span>Filter2</span><i class="fc-red pLa10 sf-times"></i></a>
   <a class="btn danger2 sm mRa5" href="#"><span>Filter3</span><i class="fc-red pLa10 sf-times"></i></a>
-  <a class="btn dark outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Remove all filters</span><i class="pLa10 sf-eraser"></i></a>
+  <a class="btn primary outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>
 </div>
 
+{%if perm('productAdvanceSearchView')%}
 <div class="filterBox" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
-    {{block('filterProductLink')}}
+    {%include 'content_a/products/filter.html'%}
 </div>
+{%endif%}
+
 {%endblock%}
 
 
