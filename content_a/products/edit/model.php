@@ -39,7 +39,7 @@ class model
 		$post['maxsale']         = \dash\request::post('maxsale');
 		$post['salestep']        = \dash\request::post('salestep');
 		$post['oversale']        = \dash\request::post('oversale');
-		$post['cat']             = \dash\request::post('cat');
+		$post['company']         = \dash\request::post('company');
 		$post['unit']            = \dash\request::post('unit');
 
 		return $post;

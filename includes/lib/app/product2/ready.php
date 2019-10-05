@@ -35,6 +35,7 @@ class ready
 				case 'creator':
 				case 'cat_id':
 				case 'unit_id':
+				case 'company_id':
 				case 'thumbid':
 					if(isset($value))
 					{
