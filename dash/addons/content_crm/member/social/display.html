@@ -1,0 +1,101 @@
+{%extends 'content_crm/member/layout.html'%}
+
+
+{%block pageContent%}
+
+
+{{block('pageSteps')}}
+<div class="f">
+ <div class="cauto s12 pA5">
+{{block("psidebar")}}
+ </div>
+ <div class="c s12 pA5">
+
+  <form class="cbox" method="post" autocomplete="off">
+
+
+        <h3 class="txtC">{%trans "Email and Social Networks"%}</h3>
+{{block("iWebsite")}}
+{{block("iEmail")}}
+{{block("iGmail")}}
+{{block("iInstagram")}}
+{{block("iFacebook")}}
+{{block("iTwitter")}}
+{{block("iLinkedin")}}
+
+
+  {{block("isave")}}
+
+  </form>
+ </div>
+</div>
+{%endblock%}
+
+
+{%block iWebsite%}
+<label for="website">{%trans "Website"%}</label>
+<div class="input ltr">
+  <input type="url" name="website" id="website" placeholder='{%trans "Website"%} {%trans "like"%} https://ermile.com' value="{{dataRowMember.website}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid website from 3 to 40 character"%}' >
+</div>
+{%endblock%}
+
+
+
+{%block iInstagram%}
+<label for="instagram">{%trans "Instagram"%}</label>
+<div class="input ltr">
+  <span class="addon"><i class="sf-instagram"></i> instagram.com/</span>
+  <input type="text" name="instagram" id="instagram" placeholder='{%trans "Instagram"%}' value="{{dataRowMember.instagram}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid instagram from 3 to 40 character"%}' >
+</div>
+{%endblock%}
+
+{%block iFacebook%}
+<label for="facebook">{%trans "Facebook"%}</label>
+<div class="input ltr">
+  <span class="addon"><i class="sf-facebook-official"></i> facebook.com/</span>
+  <input type="text" name="facebook" id="facebook" placeholder='{%trans "Facebook"%}' value="{{dataRowMember.facebook}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid facebook from 3 to 40 character"%}' >
+</div>
+{%endblock%}
+
+
+{%block iTwitter%}
+<label for="twitter">{%trans "Twitter"%}</label>
+<div class="input ltr">
+  <span class="addon"><i class="sf-twitter"></i> twitter.com/</span>
+  <input type="text" name="twitter" id="twitter" placeholder='{%trans "Twitter"%}' value="{{dataRowMember.twitter}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid twitter from 3 to 40 character"%}' >
+</div>
+{%endblock%}
+
+
+{%block iLinkedin%}
+<label for="linkedin">{%trans "Linkedin"%}</label>
+<div class="input ltr">
+  <span class="addon"><i class="sf-linkedin"></i> linkedin.com/</span>
+  <input type="text" name="linkedin" id="linkedin" placeholder='{%trans "Linkedin"%}' value="{{dataRowMember.linkedin}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid linkedin from 3 to 40 character"%}' >
+</div>
+{%endblock%}
+
+
+
+{%block iBio%}
+<label for="bio">{%trans "Bio"%}</label>
+<textarea class="txt mB20 pB25" name="bio" placeholder='{%trans "Bio"%}' maxlength='300' rows="3">{{dataRowMember.bio}}</textarea>
+{%endblock%}
+
+
+
+{%block iEmail%}
+<label for="email">{%trans "Email"%}</label>
+<div class="input">
+  <input type="email" name="email" id="email" placeholder='{%trans "Like"%} abc@example.com' value="{{dataRowMember.detail.email}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+
+

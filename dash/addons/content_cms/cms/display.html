@@ -1,0 +1,90 @@
+{%extends display.cmsMain%}
+
+
+{%block pageContent%}
+<div class="f">
+ {%if perm('cpPostsView') %}<div class="c4 s12">{{block ("iPost")}}</div>{%endif%}
+ {%if perm('cpPageView') %}<div class="c4 s12">{{block ("iPage")}}</div>{%endif%}
+ {%if perm('cpPostsView') %}<div class="c4 s12">{{block ("iAttachment")}}</div>{%endif%}
+ {%if perm('cpHelpCenterView') %}<div class="c4 s12">{{block ("iHelp")}}</div>{%endif%}
+ {%if perm('cpCategoryView') %}<div class="c4 s12">{{block ("iTermCat")}}</div>{%endif%}
+ {%if perm('cpTagView') %}<div class="c4 s12">{{block ("iTermTag")}}</div>{%endif%}
+ {%if perm('cpCommentsView') %}<div class="c4 s12">{{block ("iComment")}}</div>{%endif%}
+</div>
+{%endblock%}
+
+
+
+{%block iAttachment%}
+<a class="dcard x1" href='{{url.here}}/attachment'>
+ <div class="statistic">
+  <div class="value"><i class="sf-file-o"></i></div>
+  <div class="label">{%trans "Attachment"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block iComment%}
+<a class="dcard x1" href='{{url.here}}/comments'>
+ <div class="statistic">
+  <div class="value"><i class="sf-coffee"></i></div>
+  <div class="label">{%trans "Comments"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block iHelp%}
+<a class="dcard x1" href='{{url.here}}/posts?type=help'>
+ <div class="statistic">
+  <div class="value"><i class="sf-user-md"></i></div>
+  <div class="label">{%trans "Help center"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block iPost%}
+<a class="dcard x1" href='{{url.here}}/posts?type=post'>
+ <div class="statistic">
+  <div class="value"><i class="sf-file-text-o"></i></div>
+  <div class="label">{%trans "Posts"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block iPage%}
+<a class="dcard x1" href='{{url.here}}/posts?type=page'>
+ <div class="statistic">
+  <div class="value"><i class="sf-monitor"></i></div>
+  <div class="label">{%trans "Page"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block iTermCat%}
+<a class="dcard x1" href='{{url.here}}/terms?type=cat'>
+ <div class="statistic">
+  <div class="value"><i class="sf-bookmark"></i></div>
+  <div class="label">{%trans "Category"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block iTermTag%}
+<a class="dcard x1" href='{{url.here}}/terms?type=tag'>
+ <div class="statistic">
+  <div class="value"><i class="sf-tag-1"></i></div>
+  <div class="label">{%trans "Tags"%}</div>
+ </div>
+</a>
+{%endblock%}

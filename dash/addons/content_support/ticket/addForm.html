@@ -1,0 +1,67 @@
+
+<div class="cbox">
+  <form method="post" enctype="multipart/form-data" autocomplete="off" action="{{url.pwd}}">
+
+    {%include display.hive%}
+
+{%if url.child == 'add'%}
+  {%if false%}
+    <label for="title">{%trans "Ticket Subject"%}</label>
+    <div class="input">
+      <input type="text" name="title" id="title" placeholder='{%trans "Subject of your ticket"%}' value="{{dataRow.title}}" autofocus maxlength='150' minlength="1" title='{%trans "Set title will help us answer quickly"%}'>
+    </div>
+  {%endif%}
+{%endif%}
+
+{%if url.child == 'add'%}
+    <label for="icontent">{%trans "Please write your message"%} <small class="fc-red">{%trans "Require"%} *</small></label>
+{%else%}
+    <label for="icontent">{%trans "Description"%} <small class="fc-red">{%trans "Require"%} *</small></label>
+{%endif%}
+    {%if perm('supportTicketSignature')%}
+      <textarea class="txt mB10" data-editor id='icontent' name="content"  maxlength='100000' >{%if user.signature%}{{user.signature|raw}}{%endif%}</textarea>
+    {%else%}
+      <textarea class="txt mB10" id='icontent' name="content" placeholder='' maxlength='1000' rows="5">{{dataRow.desc}}</textarea>
+    {%endif%}
+
+    <label for="file1">{%trans "Attachment"%} <small class="fc-mute">{%trans "Max size"%} {{5 | fitNumber}} {%trans "MB"%}</small></label>
+    <div class="input">
+     <input type="file" name="file" id="file1" data-max="5000">
+    </div>
+
+{%if perm('supportTicketAnswer') and url.child != 'add'%}
+  {%if masterTicketDetail.user_id%}
+    <div class="check1 pLa5">
+     <input type="checkbox" name="sendmessage" id="sendmessage" checked>
+     <label for="sendmessage">{%trans "Send notify about your answer to creator of ticket"%}
+      {%if masterTicketDetail.mobile%}
+        <i title='{%trans "Via sms to"%} {{masterTicketDetail.mobile | fitNumber("mobile12")}}' class="sf-mobile fs14"></i>
+      {%endif%}
+
+      {%if masterTicketDetail.chatid %}
+        <i title='{%trans "Via telegram"%}' class="sf-paper-plane fs12"></i>
+      {%endif%}
+     </label>
+    </div>
+{%endif%}
+{%endif%}
+
+{%if url.child == 'add'%}
+    <button class="btn primary block mT20">{%trans "Submit a ticket"%}</button>
+{%else%}
+{%if perm('supportTicketAddNote') %}
+<div class="f">
+  <div class="c9 s12">
+    <button class="btn primary block mT20">{%trans "Send new message"%}</button>
+  </div>
+  <div class="c s12">
+    <button class="btn secondary outline mLa5 block mT20" name="addnote" value="note">{%trans "Add note"%}</button>
+  </div>
+</div>
+{%else%}
+    <button class="btn primary block mT20">{%trans "Send new message"%}</button>
+{%endif%}
+
+{%endif%}
+  </form>
+</div>

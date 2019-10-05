@@ -1,0 +1,163 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+
+<div class="txtC fs14 mTB10">
+  <div class="avatar">
+    <a href="{{url.here}}/my/avatar" class="compact">
+{%if login.avatar%}
+      <img class="box100 circle" src="{{login.avatar}}" alt='{%trans "Avatar of you"%} {{login.displayname}}'>
+{%elseif login%}
+      <img class="box100 circle" src="{{url.static}}/siftal/images/default/avatar.png" alt='{%trans "Default Avatar"%}'>
+{%endif%}
+    </a>
+  </div>
+  <h2>{%trans "Welcome"%}{%trans ","%} {{user.fullname}}</h2>
+  <p>{%trans "Manage your info, privacy, and security to make us work better for you"%}</p>
+</div>
+
+<div class="f fs14">
+  <div class="c6 x4 s12 pA10">
+    {{block ('profile')}}
+  </div>
+  <div class="c6 x4 s12 pA10">
+    {{block ('security')}}
+  </div>
+  <div class="c6 x4 s12 pA10">
+    {{block ('personalization')}}
+  </div>
+  <div class="c6 x4 s12 pA10">
+    {{block ('notification')}}
+  </div>
+  <div class="c6 x4 s12 pA10">
+    {{block ('support')}}
+  </div>
+{%if options.billing_page%}
+  <div class="c6 x4 s12 pA10">
+    {{block ('billing')}}
+  </div>
+{%endif%}
+</div>
+
+<div class="txtC fs14 mT5 pLR10">
+  <div class="msg mB0">{%trans "Only you can see your settings."%} {%trans "We are committed to protecting your privacy and security."%} <a href="{{url.kingdom}}/privacy" target="_blank">{%trans "Learn more"%}</a></div>
+</div>
+{%endblock%}
+
+
+
+{%block personalization%}
+<div class="panel">
+  <div class="body pad f">
+    <div class="c9 s12">
+      <h3>{%trans "Personalization"%}</h3>
+      <p>{%trans "See the data in your account and choose what activity is saved to personalize your experience"%}</p>
+    </div>
+    <div class="c3 s12">
+      <img class="box100" src="{{url.siftal}}/images/account/personalization.png" alt='{%trans "Personalization"%}'>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <a class="special pad" href="{{url.here}}/personalization">{%trans "Manage your data & personalization"%}</a>
+  </footer>
+</div>
+{%endblock%}
+
+
+{%block security%}
+<div class="panel">
+  <div class="body pad f">
+    <div class="c9 s12">
+      <h3>{%trans "Security"%}</h3>
+      <p>{%trans "Settings and recommendations to help you keep your account secure"%}</p>
+    </div>
+    <div class="c3 s12">
+      <img class="box100" src="{{url.siftal}}/images/account/security.png" alt='{%trans "Security"%}'>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <a class="special pad" href="{{url.here}}/security">{%trans "Keep your account protected"%}</a>
+  </footer>
+</div>
+{%endblock%}
+
+
+{%block profile%}
+<div class="panel">
+  <div class="body pad f">
+    <div class="c9 s12">
+      <h3>{%trans "Personal info"%}</h3>
+      <p>{%trans "Basic info, like your name and photo, that you use on our services"%}</p>
+    </div>
+    <div class="c3 s12">
+      <img class="box100" src="{{url.siftal}}/images/account/profile.png" alt='{%trans "profile"%}'>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <a class="special pad" href="{{url.here}}/my">{%trans "Manage profile"%}</a>
+  </footer>
+</div>
+{%endblock%}
+
+
+{%block support%}
+<div class="panel">
+  <div class="body pad f">
+    <div class="c9 s12">
+      <h3>{%trans "Support"%}</h3>
+      <p>{%trans "Get expert answers and advice on our service or contact our legendary support team"%}</p>
+    </div>
+    <div class="c3 s12">
+      <img class="box100" src="{{url.siftal}}/images/account/support.png" alt='{%trans "Support"%}'>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <a class="special pad" href="{{url.kingdom}}/support">{%trans "Get help"%}</a>
+  </footer>
+</div>
+{%endblock%}
+
+
+
+{%block billing%}
+<div class="panel">
+  <div class="body pad f">
+    <div class="c9 s12">
+      <h3>{%trans "Billing"%}</h3>
+      <p>{%trans "Check your account balance, charge your account, and bill your invoices!"%}</p>
+    </div>
+    <div class="c3 s12">
+      <img class="box100" src="{{url.siftal}}/images/account/billing.png" alt='{%trans "Billing"%}'>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <a class="special pad" href="{{url.here}}/billing">{%trans "Check"%}</a>
+  </footer>
+</div>
+{%endblock%}
+
+
+
+{%block notification%}
+<div class="panel">
+  <div class="body pad f">
+    <div class="c9 s12">
+      <h3>{%trans "Notifications"%}</h3>
+      <p>{%trans "Check your last messages."%} {%trans "Maybe some messages need your action!"%}</p>
+    </div>
+    <div class="c3 s12">
+      <img class="box100" src="{{url.siftal}}/images/account/notification.png" alt='{%trans "Notifications"%}'>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <a class="special pad" href="{{url.here}}/notification">{%trans "Read your messages"%}</a>
+  </footer>
+</div>
+{%endblock%}

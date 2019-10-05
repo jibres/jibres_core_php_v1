@@ -1,0 +1,65 @@
+
+<div class="msg pain special f align-center fs14">
+  <div class="c"><span class="txtB">{%if url.module == "ticket"%}{{page.title}}{%else%}{%trans "Last active tickets"%}{%endif%}</span> <span class="badge rounded pA5-f mLa5">{%if requestGET.status%}{{attribute(sidebarDetail, requestGET.status) | fitNumber}}{%else%}{{sidebarDetail.all | fitNumber}}{%endif%}</span></div>
+  <div class="cauto os"><a {%if value.openNewTab%} target="_blank" data-direct {%endif%} href="{{value.myTicketUrl}}{{accessGet}}" class="btn dark sm">{%trans "All Tickets"%}</a></div>
+</div>
+
+<table class="tbl1 v1 cbox fs12" data-scroll>
+  <tbody>
+{%for key, value in dataTable%}
+    <tr class="{{value.rowColor}}">
+      <td class="collapsing txtB">
+        {%if value.parent%}
+        <a data-direct {%if value.openNewTab%} target="_blank" data-direct {%endif%} href="{{value.myTicketUrl}}/show?id={{value.parent}}{{accessGetAnd}}#{{value.id}}{%if not login.id %}&guest={{value.code}}{%endif%}"><span class="badge light mRa5">{{value.parent | fitNumber(false)}}</span> </a>
+        {%else%}
+        <a {%if value.openNewTab%} target="_blank" data-direct {%endif%} href="{{value.myTicketUrl}}/show?id={{value.id}}{{accessGetAnd}}{%if not login.id %}&guest={{value.code}}{%endif%}"><span class="badge light mRa5">{{value.id | fitNumber(false)}}</span> {{value.title | slice(0, 40)}}</a>
+        {%endif%}
+{%if value.tag%}
+        <div class="mT5 fs12">
+{%for Tkey, Tvalue in value.tag%}
+          <a class="badge" {%if value.openNewTab%} target="_blank" data-direct {%endif%} href="{{value.myTicketUrl}}?tag={{Tvalue | url_encode}}">{{Tvalue}}</a>
+{%endfor%}
+        </div>
+{%endif%}
+      </td>
+
+      <td class="s0 m0 pRa10"><a {%if value.openNewTab%} target="_blank" data-direct {%endif%} href="{{value.myTicketUrl}}/show?id={{value.id}}{{accessGetAnd}}{%if not login.id %}&guest={{value.code}}{%endif%}">{{value.content | slice(0, 60) | striptags}}</a>
+      </td>
+
+{%if haveSubdomain%}
+    <td class="collapsing fs08 s0 ltr">
+{%if value.subdomain%}
+      <a {%if value.openNewTab%} target="_blank" data-direct {%endif%} href="{{value.myTicketUrl}}?access=all&subdomain={{value.subdomain}}">{{value.subdomain | capitalize}}</a>
+{%endif%}
+    </td>
+{%endif%}
+
+      <td class="collapsing s0">{%if value.solved%}<div class="badge success">{%trans "Solved"%} <i class="compact sf-check"></i></div>{%endif%}</td>
+
+      <td class="collapsing s0">{%if value.plus%}{{value.plus | fitNumber}} <i class="compact sf-chat-alt-fill"></i>{%else%}{%endif%}</td>
+
+      <td class="collapsing fs08"><span title='{%trans "Created on"%} {{value.datecreated | dt(true)}}{%if value.datemodified%}<br>{%trans "Last modified on"%} {{value.datemodified | dt(true)}}{%endif%}'>{%if value.datemodified%}{{value.datemodified | dt("human", "year")}}{%else%}{{value.datecreated | dt("human", "year")}}{%endif%}</span></td>
+
+      <td class="collapsing fs08 s0 m0">{%set myStatus = value.status%}{%if value.status != 'awaiting'%}<i class="compact mRa5 sf-spin-alt fc-green"></i>{%else%}<i class="compact mRa5 sf-asterisk spiny fc-red"></i>{%endif%}{%trans myStatus%}</td>
+
+{%if accessMode != 'mine'%}
+      <td class="collapsing fs08 txtRa s0">
+        <a {%if value.openNewTab%} target="_blank" data-direct {%endif%} href="{{value.myTicketUrl}}?user={{value.user_id}}{{accessGetAnd}}">
+        <span class="txtB s0">{{value.displayname}}</span>
+        <img src="{{value.avatar}}" class="avatar mLa10" alt="{{value.displayname}}" {%if value.displayname %} title="{{value.displayname}}" {%endif%}>
+        </a>
+      </td>
+{%endif%}
+
+    <td class="collapsing fs08 s0" title2='{%trans "Active in this ticket"%}'>
+      {%for mykey, myvalue in value.user_in_ticket_detail%}
+          <img src="{{myvalue.avatar}}" class="avatar mRa5" alt="{{myvalue.displayname}}" {%if myvalue.displayname %} title="{{myvalue.displayname}}" {%endif%}>
+        {%endfor%}
+      </td>
+    </tr>
+
+{%endfor%}
+  </tbody>
+</table>
+
+{%include display.pagination%}

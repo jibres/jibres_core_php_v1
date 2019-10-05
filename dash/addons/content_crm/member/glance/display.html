@@ -1,0 +1,211 @@
+{%extends 'content_crm/member/layout.html'%}
+
+
+{%block pageContent%}
+<div class="f justify-center">
+  <div class="c6 s12">
+    <div class="cbox">
+      {%if perm('cpUsersEdit') %}
+        <div class="f">
+          <div class="c">
+              <a class="btn danger outline block mB20" href="{{url.this}}/general?id={{requestGET.id}}">{%trans "Edit"%}</a>
+          </div>
+
+        {%if perm_su() %}
+          <div class="cauto">
+            <a class="btn mLa5 danger  mB20" href="{{url.this}}/glance?id={{requestGET.id}}&showlog=1">{%trans "Log"%}</a>
+          </div>
+        {%endif%}
+
+        </div>
+
+      {%endif%}
+      <table class="tbl">
+        <thead>
+          <tr class="primary">
+            <th>{%trans "Field"%}</th>
+            <th>{%trans "Value"%}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for key, value in dataRowMember%}
+{%if value%}
+            {%if key in ['password', 'unit_id', 'detail', 'avatar_raw', 'meta'] %}
+            {%elseif key == 'id'%}
+                <tr>
+                  <th>{%trans key%}</th>
+                  <td class="ltr">
+                    {{value}}
+                    {%if perm_su()%}
+                      <div title='{%trans "Decode"%}' class="badge mLR10">{{value | coding("decode") | fitNumber(false)}}</div>
+                      <a class="btn" href="{{url.kingdom}}/enter?userid={{value| coding('decode')}}" data-direct><i class="sf-user"></i> {%trans "Enter"%}</a>
+                    {%endif%}
+                  </td>
+                </tr>
+            {%elseif key == 'mobile'%}
+              <tr class="f-{{key}} positive">
+                <th>{%trans key%}</th>
+                <td class="ltr">
+                  {%if false%}
+                  <div class="hide">
+                    <input type="text" id="copymobile" class="ltr" value="{{value}}" readonly>
+                  </div>
+                  {%endif%}
+
+                  <a href="tel:{{value}}">
+                    <i class="sf-mobile"></i>
+                    {{value | fitNumber('mobile12')}}
+                  {%if false%}
+                    <span title='{%trans "Copy mobile"%}' data-copy='#copymobile' class="sf-link pRa5"></span>
+                  {%endif%}
+                  </a>
+
+      {%if perm('cpSmsSend') %}
+                  <br>
+                  <a class="btn" href="{{url.here}}/sms/send?mobile={{value}}"><i class="sf-envelope"></i> {%trans "Send SMS"%}</a>
+      {%endif%}
+      {%if perm_su() %}
+                  <a class="btn" href="{{url.kingdom}}/enter?mobile={{value}}" data-direct><i class="sf-user"></i> {%trans "Enter"%}</a>
+      {%endif%}
+                </td>
+              </tr>
+            {%else%}
+              <tr class="f-{{key}} {%if key == 'username' or key == 'mobile'%}positive{%endif%}">
+                {%if key == 'android_meta' and perm_su() %}
+                  <th class="collapsing">{%trans key%}</th>
+                {%else%}
+                  <th class="collapsing">{%trans key%}</th>
+                {%endif%}
+                <td>{%set myValue = value | capitalize | fitNumber(false)%}
+                {%if key == 'birthday' or 'date' in key %}
+                  {%if key in ['datecreated', 'datemodified']%}
+                  <a href="{{url.here}}/log?datecreated={{value}}">
+                    <span class="block ltr" title="{{value}}"><i class="sf-calendar"></i> {{value | dt(true)}}</span>
+                  </a>
+                  {%else%}
+                  <span class="block ltr" title="{{value}}"><i class="sf-calendar"></i> {{value | dt(true)}}</span>
+                  {%endif%}
+                {%elseif 'code' in key or 'id' in key or key == 'phone'%}
+                  <span class="block ltr">{{myValue}}</span>
+                {%elseif key == 'website'%}
+                  <a class="block ltr" href="{{value}}">{{value}}</a>
+                {%elseif key == 'facebook'%}
+                  <a class="block ltr" href="https://facebook.com/{{value}}">{{value}}</a>
+                {%elseif key == 'twitter'%}
+                  <a class="block ltr" href="https://twitter.com/{{value}}">{{value}}</a>
+                {%elseif key == 'instagram'%}
+                  <a class="block ltr" href="https://instagram.com/{{value}}">{{value}}</a>
+                {%elseif key == 'linkedin'%}
+                  <a class="block ltr" href="https://linkedin.com/in/{{value}}">{{value}}</a>
+                {%elseif key == 'email' or key == 'gmail'%}
+                  <a class="block ltr" href="mailto:{{value}}">{{value}}</a>
+                {%elseif key == 'avatar' %}
+                  <img src="{{value}}" class="size-we80">
+                {%elseif key == 'android_meta' and perm_su() %}
+                  <pre>
+                    {{myValue}}
+                  </pre>
+                {%else%}
+                  {%trans myValue%}
+                {%endif%}
+                </td>
+              </tr>
+            {%endif%}
+{%endif%}
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+      {{block('telegramAndroidDetail')}}
+  </div>
+  {%if perm_su()%}
+  {%if requestGET.showlog%}
+  <div class="c3">
+    <div class="cbox mLa5">
+      <a class="btn danger2 block mB10" href="{{url.this}}/security?id={{requestGET.id}}">{%trans "Security"%}</a>
+      {%set myCountI = 0%}
+      {%for key, value in showUserLog%}
+      {%set myCountI = myCountI + value.count%}
+
+      {%if value.link%}
+        <a href="{{value.link}}{%if value.encode%}{{requestGET.id}}{%else%}{{requestGET.id | coding('decode')}}{%endif%}">
+      {%endif%}
+
+        <div class="msg {%if value.link%} primary outline {%endif%}">
+          <span>{%set myKey = key | capitalize%}{%trans myKey%}</span>
+          <span class="floatL txtB">{{value.count | fitNumber}}</span>
+        </div>
+
+      {%if value.link%}
+      </a>
+      {%endif%}
+
+      {%endfor%}
+
+      {%if not myCountI%}
+        <div class="msg danger">
+          {%trans "Are you sure to delete this user?"%}
+          <span data-confirm data-data='{"deleteuser" : "DeleteUserYN"}' class="badge warn floatL">{%trans "Delete"%}</span>
+        </div>
+      {%endif%}
+    </div>
+  </div>
+  {%endif%}
+  {%endif%}
+</div>
+{%endblock%}
+
+
+{%block telegramAndroidDetail %}
+{%if userTelegram%}
+<table class="tbl1 v6 fs12">
+  <thead>
+    <tr>
+      <th>{%trans "Telegrams"%}</th>
+      <th>{%trans "Username"%}</th>
+      <th>{%trans "Join at"%}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for key, value in userTelegram%}
+      <tr>
+        <td><a href="{{url.this}}/security?id={{requestGET.id}}">{{value.chatid | fitNumber(false)}}</a></td>
+        <td>{{value.username}}</td>
+        <td>{{value.datecreated | dt('human', 'year')}}</td>
+      </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{%endif%}
+
+{%if userAndroid%}
+<table class="tbl1 v6 fs12">
+  <thead>
+    <tr>
+      <th>{%trans "Android"%}</th>
+      <th>{%trans "Version"%}</th>
+      <th>{%trans "Manufacturer"%}</th>
+      <th>{%trans "Serial"%}</th>
+      <th>{%trans "Join at"%}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for key, value in userAndroid%}
+      <tr>
+        <td><a href="{{url.this}}/security?id={{requestGET.id}}">{{value.model}}</a></td>
+        <td>{{value.version}}</td>
+        <td>{{value.manufacturer}}</td>
+        <td>{{value.serial}}</td>
+        <td>{{value.datecreated | dt('human', 'year')}}</td>
+      </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{%endif%}
+
+
+
+{%endblock%}
+
+
+

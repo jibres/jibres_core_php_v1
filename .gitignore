@@ -19,9 +19,16 @@ node_modules
 /includes/database/log
 /includes/database/version
 /includes/log
-/dash
 *crontab.txt
 
 *sftp-config.json
 *.me.php
 *crontab.txt
+*crontab.json
+
+
+
+package-lock.json
+/dash/lib/engine/cronjob/crontab.txt
+
+

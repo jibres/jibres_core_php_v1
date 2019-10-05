@@ -1,0 +1,70 @@
+{%extends display.cmsMain%}
+
+{%block pageContent%}
+
+ <div class="cbox">
+  <h2>{%trans "Create sitemap automatically by click on this page"%}</h2>
+
+  {%if siteMapFile.base%}
+  	 <a class="btn" target="_blank" href="{{url.base}}/sitemap.xml">{%trans "Base Sitemap"%}</a>
+  {%endif%}
+
+  {%if siteMapFile.sitemap%}
+   <a class="btn" target="_blank" href="{{url.base}}/sitemap">{%trans "Sitemap Directory"%}</a>
+  {%endif%}
+
+  {%if not siteMapFile.sitemap and not siteMapFile.base%}
+   <a class="btn txtC xl success" href="{{url.this}}?run=yes">{%trans "Create sitemap now!"%} </a>
+  {%else%}
+   <div data-confirm data-data='{"run" : "yes"}' class="btn floatRa secondary" >{%trans "Create it Again"%}</div>
+  {%endif%}
+
+  {%if siteMapFile.base%}
+   <p data-kerkere='.removeSiteMapFile' class="mT10 fc-red fs08">{%trans "Remove all  sitemap files"%}</p>
+   <div data-kerkere-content='hide' class="removeSiteMapFile">
+    <div class="btn danger" data-confirm data-data='{"remove": "remove"}'>{%trans "Remove all  sitemap files"%}</div>
+   </div>
+  {%endif%}
+
+ </div>
+
+
+{%if sitemapData%}
+<div class="f justify-center">
+	<div class="c6 s12">
+		 <div class="cbox">
+
+		   <h3>{%trans "Sitemap Result"%}</h3>
+		   {%for key, value in sitemapData%}
+       {%if value%}
+		   <div class="msg">
+        <div class="f">
+          <div class="c">{{key}}</div>
+          <div class="c">
+            <span class="floatL txtB txtC">{{value | fitNumber}} <small>{%trans "Item"%}</small></span>
+          </div>
+        </div>
+        </div>
+        {%endif%}
+		   {%endfor%}
+
+       {%for key, value in sitemapData%}
+       {%if not value%}
+       <div class="badge">
+        <div class="f">
+          <div class="c">{{key}}</div>
+          <div class="c mLa10">
+            <span class="floatL txtB txtC">{{value | fitNumber}} <small>{%trans "Item"%}</small></span>
+          </div>
+        </div>
+        </div>
+        {%endif%}
+       {%endfor%}
+
+
+		 </div>
+	</div>
+</div>
+{%endif%}
+
+{%endblock%}

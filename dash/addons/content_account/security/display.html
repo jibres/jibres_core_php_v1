@@ -1,0 +1,187 @@
+{%extends display.admin%}
+
+{%set arrow%}sf-chevron-{%if isLtr%}right{%else%}left{%endif%}{%endset%}
+
+{%block pageContent%}
+
+<div class="txtC fs14 mTB25">
+  <img class="box700 mB20-f" src="{{url.siftal}}/images/account/security-cover.png" alt='{%trans "Personal info"%}'>
+  <h2>{{page.title}}</h2>
+  <p>{{page.desc}}</p>
+</div>
+
+<div class="fs14">
+  <section class="mB20">
+  {{block('account')}}
+  </section>
+
+  <section class="mB20">
+  {{block('signingin')}}
+  </section>
+
+  <section class="mB20">
+  {{block('activeSessions')}}
+  </section>
+
+  <section class="mB20">
+  {{block('recent')}}
+  </section>
+
+  <section class="mB20">
+  {{block('appandapikey')}}
+  </section>
+
+
+  <section class="mB20">
+  {{block('deleteAccountPanel')}}
+  </section>
+</div>
+{%endblock%}
+
+
+
+
+{%block signingin%}
+<div class="panel">
+  <div class="body pad">
+    <div class="f">
+      <div class="c">
+        <h3>{%trans "Ways we can verify it's you"%}</h3>
+        <p>{%trans "These can be used to make sure it's really you signing in or to reach you if there's suspicious activity in your account"%}</p>
+      </div>
+      <div class="cauto os">
+        <img class="box300" src="{{url.siftal}}/images/account/security-recovery.png" alt='{%trans "Recovery Account"%}'>
+      </div>
+    </div>
+  </div>
+  <table class="tbl1 v4 responsive mB0">
+    <tr>
+      <th>{%trans "Recovery email"%}</th>
+      <td>{{dataRow.email}}</td>
+      <td class="collapsing txtRa"><a href="{{url.here}}/my/email" class="block {{arrow}}"></a></td>
+    </tr>
+    <tr>
+      <th>{%trans "Recovery phone"%}</th>
+      <td>{{dataRow.mobile | fitNumber('mobile')}}</td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+{%endblock%}
+
+
+
+{%block account%}
+<div class="panel">
+  <div class="body pad">
+    <div class="f">
+      <div class="c">
+        <h3>{%trans "Signing in to"%} {{site.title}}</h3>
+      </div>
+      <div class="cauto os">
+        <img class="box300" src="{{url.siftal}}/images/account/security-signin.png" alt='{%trans "Signing to account"%}'>
+      </div>
+    </div>
+  </div>
+  <table class="tbl1 v4 responsive mB0">
+    <tr>
+      <th>{%trans "Password"%}</th>
+      <td></td>
+      <td class="collapsing txtRa"><a href="{{url.kingdom}}/enter/pass/change" target="_blank" class="block {{arrow}}"></a></td>
+    </tr>
+    <tr>
+      <th>{%trans "2-Step Verification"%}</th>
+      <td>{%if dataRow.twostep%}<span class="badge fs11 success"><i class="sf-check vltop"></i> {%trans "On"%}</span>{%else%}<span class="badge fs11 danger"><i class="sf-times vltop"></i> {%trans "Off"%}</span>{%endif%}</td>
+      <td class="collapsing txtRa">
+        <a href="{{url.kingdom}}/enter/twostep" target="_blank" class="block {{arrow}}"></a>
+      </td>
+    </tr>
+    <tr>
+      <th>{%trans "Remember me"%}</th>
+      <td>{%if dataRow.forceremember%}<span class="badge fs11 warn"><i class="sf-check vltop"></i> {%trans "On"%}</span>{%else%}<span class="badge fs11"><i class="sf-times vltop"></i> {%trans "Off"%}</span>{%endif%}</td>
+      <td class="collapsing txtRa"><a href="{{url.this}}/rememberme"class="block {{arrow}}"></a></td>
+    </tr>
+  </table>
+</div>
+{%endblock%}
+
+
+
+{%block activeSessions%}
+<div class="panel">
+  <div class="body pad">
+    <div class="f">
+      <div class="c">
+        <h3>{%trans "Active Sessions"%}</h3>
+        <p>{%trans "Devices that have been active on your account in the last month, or are currently signed in."%}</p>
+        <p>{%trans "All of your history about signing in to you account is here and you can check them."%} {%trans "If there’s a device you don’t recognize, someone else may have your password."%} {%trans "Change your password to protect your Account."%}</p>
+        <a href="{{url.this}}/sessions" class="btn primary outline">{%trans "Check all active sessions"%} <span class="badge primary">{{sessionsList | length | fitNumber}}</span></a>
+      </div>
+      <div class="cauto os">
+        <img class="box300" src="{{url.siftal}}/images/account/privacy-checkup.png" alt='{%trans "Sessions"%}'>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+{%block appandapikey%}
+<div class="panel">
+  <div class="body pad">
+    <div class="f">
+      <div class="c">
+        <h3>{%trans "API key and Application key"%}</h3>
+        <p>{%trans "Protect this key like a password!"%}</p>
+        <p>{%trans "Keys used to access APIs in"%} {{site.title}}</p>
+        <a href="{{url.here}}/api" class="btn primary outline">{%trans "API key"%}</a>
+        <a href="{{url.here}}/appkey" class="btn primary outline">{%trans "Application key"%}</a>
+      </div>
+      <div class="cauto os">
+        <img class="box300" src="{{url.siftal}}/images/account/data-collected.svg" alt='{%trans "Sessions"%}'>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+
+{%block recent%}
+<div class="panel">
+  <div class="body pad">
+    <div class="f">
+      <div class="c">
+        <h3>{%trans "Recent security events"%}</h3>
+        <p>{%trans "No activity in the last month."%} {%trans "You'll be notified if unusual security activity is detected, like a sign-in from a new device or if a sensitive setting is changed in your account."%}</p>
+      </div>
+      <div class="cauto os">
+        <img class="box300" src="{{url.siftal}}/images/account/security-event.svg" alt='{%trans "Security Event"%}'>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+{%block deleteAccountPanel%}
+<div class="panel">
+  <div class="body pad">
+    <div class="f">
+      <div class="c">
+        <h3>{%trans "Delete Account"%}</h3>
+        <p>{%trans "You can permanently delete your Account and all your data."%}</p>
+        <a class="btn danger outline sm" href="{{url.kingdom}}/enter/delete" data-direct target="_blank">{%trans "Delete my Account"%}</a>
+      </div>
+      <div class="cauto os">
+        <img class="box100" src="{{url.siftal}}/images/account/account-delete.png" alt='{%trans "Security Event"%}'>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+

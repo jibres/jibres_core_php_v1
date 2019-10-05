@@ -1,0 +1,319 @@
+{%extends display.payMain%}
+
+
+{%block pageContent%}
+
+<div class="f justify-center">
+	<div class="c6 s12">
+		{{block('bPayTicket')}}
+		{{block('bPayTicketDetail')}}
+	</div>
+</div>
+
+{%endblock%}
+
+
+
+
+{%block bPayTicket%}
+
+
+{%set ticketClass = 'active'%}
+{%set ticketIcon  = 'sf-plus-circle'%}
+{%set ticekMsg    = 'Pay'%}
+
+{%if dataRow.banktoken%}
+
+	{%if dataRow.condition == 'ok'%}
+
+		{%set ticketClass = 'positive'%}
+		{%set ticketIcon  = 'sf-check-circle'%}
+		{%set ticekMsg    = 'Successfull'%}
+
+	{%elseif dataRow.condition == 'error' or dataRow.condition == 'verify_error'%}
+
+		{%set ticketClass = 'negative'%}
+		{%set ticketIcon  = 'sf-times-circle'%}
+		{%set ticekMsg    = 'Error'%}
+
+	{%else%}
+
+		{%set ticketClass = 'warning'%}
+		{%set ticketIcon  = 'sf-info-circle'%}
+
+		{%if dataRow.condition == 'cancel'%}
+
+			{%set ticekMsg    = 'Cancel'%}
+
+		{%else%}
+
+			{%set ticekMsg    = ''%}
+
+		{%endif%}
+
+	{%endif%}
+
+{%endif%}
+
+
+<div class="payTicket {{ticketClass}}">
+	<div class="f fix topBox">
+		<div class="c8">
+			<div class="payPriceBox">
+				<span class="price">{{dataRow.plus | fitNumber}}</span>
+				<abbr class="unit">{%trans "Toman"%}</abbr>
+			</div>
+		</div>
+		<div class="cauto">
+			<div class="breakLine"><i></i></div>
+		</div>
+		<div class="c status">
+			<span class="myStatus {{ticketIcon}}"></span>
+			<abbr class="statusDesc">{%trans ticekMsg%}</abbr>
+		</div>
+	</div>
+</div>
+{%endblock%}
+
+
+{%block bPayTicketDetail%}
+
+{%set myTurnBackUrl = payDetail.turn_back%}
+
+{%if payDetail.final_msg%}
+	{%set myTurnBackUrl = payDetail.turn_back ~ '?token=' ~ dataRow.token%}
+{%endif%}
+
+		<div class="payTicketDetail">
+			{%if dataRow.banktoken%}
+
+			{%else%}
+				{%if payDetail.msg_go%}
+					<div class="msg info2">{{payDetail.msg_go}}</div>
+				{%endif%}
+			{%endif%}
+
+			{{block('ipayTable')}}
+
+			<form method="post">
+
+		    	{%if dataRow.condition == 'request' or dataRow.condition == 'redirect'%}
+
+					<div class="msg pTB5 mB5">{%trans "Choose a gateway"%}</div>
+					<div class="msg pA5">
+						{{block('ipayBank')}}
+					</div>
+
+					<input type="hidden" name="ok" value="1">
+
+					<button class="btn primary block">{%trans "Pay"%}</button>
+
+					{%if payDetail.turn_back%}
+					<div class="f mT5">
+						<a data-direct href="{{myTurnBackUrl}}" class="cauto os btn light sm">{%trans "Cancel"%}</a>
+					</div>
+					{%endif%}
+
+				{%else%}
+
+					{%if payDetail.turn_back%}
+					<a data-direct class="btn success block mT10" href="{{myTurnBackUrl}}">{%trans "Back"%}</a>
+					{%endif%}
+
+				{%endif%}
+			</form>
+		</div>
+
+	{{block('suDetail')}}
+{%endblock%}
+
+
+
+
+{%block ipayTable%}
+
+{%if dataRow.banktoken%}
+<table class="tbl1 txtC">
+	<tbody>
+		<tr>
+			<th>{%trans "Track id"%}</th>
+			<td>{{dataRow.id | coding('encode')}}</td>
+		</tr>
+		<tr>
+			<th>{%trans "Date"%}</th>
+			<td>{{value.dateverify | date | dt(true)}}</td>
+		</tr>
+		<tr>
+			<th>{%trans "Payment"%}</th>
+			<td>{%set myPaymeny = dataRow.payment | capitalize%}{%trans myPaymeny%}</td>
+		</tr>
+	</tbody>
+</table>
+{%endif%}
+
+{%endblock%}
+
+
+{%block ipayBank%}
+
+	{%if options.parsian.status%}
+	<div class="radioGateway" title='{%trans "Parsian"%}'>
+	<input type="radio" name="bank" value="parsian" id="parsian"  {%if options.default_payment == 'parsian'%} checked {%endif%}>
+	<label for='parsian' class="spay-64-parsian"></label>
+	</div>
+	{%endif%}
+
+	{%if options.asanpardakht.status%}
+	<div class="radioGateway">
+	<input type="radio" name="bank" value="asanpardakht" id="asanpardakht" {%if options.default_payment == 'asanpardakht'%} checked {%endif%}>
+	<label for='asanpardakht' class="spay-64-asanpardakht"></label>
+	</div>
+	{%endif%}
+
+	{%if options.irkish.status%}
+	<div class="radioGateway">
+	<input type="radio" name="bank" value="irKish" id="irKish" {%if options.default_payment == 'irkish'%} checked {%endif%}>
+	<label for='irKish' class="spay-64-irkish"></label>
+	</div>
+	{%endif%}
+
+	{%if options.zarinpal.status%}
+	<div class="radioGateway">
+	<input type="radio" name="bank" value="ZarinPal" id="ZarinPal" {%if options.default_payment == 'zarinpal'%} checked {%endif%}>
+	<label for='ZarinPal' class="spay-64-zarinpal"></label>
+	</div>
+	{%endif%}
+
+	{%if options.payir.status%}
+	<div class="radioGateway">
+	<input type="radio" name="bank" value="payir" id="payir" {%if options.default_payment == 'payir'%} checked {%endif%}>
+	<label for='payir' class="spay-64-payir"></label>
+	</div>
+	{%endif%}
+
+	{%if options.mellat.status%}
+	<div class="radioGateway">
+	<input type="radio" name="bank" value="mellat" id="mellat" {%if options.default_payment == 'mellat'%} checked {%endif%}>
+	<label for='mellat' class="spay-64-mellat"></label>
+	</div>
+	{%endif%}
+
+	{%if options.sep.status%}
+	<div class="radioGateway">
+	<input type="radio" name="bank" value="sep" id="sep" {%if options.default_payment == 'sep'%} checked {%endif%}>
+	<label for='sep' class="spay-64-sepah"></label>
+	</div>
+	{%endif%}
+
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%block suDetail%}
+{%if perm_su() %}
+<h3 data-kerkere='.iDetailKerkere' class="msg mT10" data-kerkere-icon='close'>{%trans "Detail"%}</h3>
+<div class="iDetailKerkere ltr" data-kerkere-content='hide'>
+	<div class="cbox">
+		<div class="f">
+			<h3 data-kerkere-icon='close' data-kerkere='.kerkereDetail1'>Payment response <small>Setting</small></h3>
+			{{block('iPaymentDetail')}}
+			<h3 data-kerkere-icon='close' data-kerkere='.kerkereDetail2'>Payment response1 <small>Bank token</small></h3>
+			{{block('iPaymentDetail1')}}
+			<h3 data-kerkere-icon='close' data-kerkere='.kerkereDetail3'>Payment response2 <small>Bank back</small></h3>
+			{{block('iPaymentDetail2')}}
+			<h3 data-kerkere-icon='close' data-kerkere='.kerkereDetail4'>Payment response3 <small>Bank verify</small></h3>
+			{{block('iPaymentDetail3')}}
+			<h3 data-kerkere-icon='close' data-kerkere='.kerkereDetail5'>Payment record <small>DB</small></h3>
+			{{block('iTransactionRecord')}}
+		</div>
+	</div>
+</div>
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block iPaymentDetail%}
+	<div class="c s12 kerkereDetail1" data-kerkere-content='hide'>
+			{%for key, value in dataRow.payment_response%}
+			{% if value is iterable%}
+				<div class="msg"><code>{{key}}</code> <pre class="floatR">{{value | json_encode()}}</pre></div>
+			{%else%}
+				<div class="msg"><code>{{key}}</code> <code class="floatR">{{value}}</code></div>
+			{%endif%}
+			{%endfor%}
+	</div>
+{%endblock%}
+
+
+{%block iPaymentDetail1%}
+	<div class="c s12 kerkereDetail2" data-kerkere-content='hide'>
+
+
+			{%for key, value in dataRow.payment_response1%}
+				<div class="msg"><code>{{key}}</code> <code class="floatR">{{value}}</code></div>
+			{%endfor%}
+	</div>
+{%endblock%}
+
+
+{%block iPaymentDetail2%}
+	<div class="c s12 kerkereDetail3" data-kerkere-content='hide'>
+
+
+			{%for key, value in dataRow.payment_response2%}
+				<div class="msg"><code>{{key}}</code> <code class="floatR">{{value}}</code></div>
+			{%endfor%}
+	</div>
+{%endblock%}
+
+
+{%block iPaymentDetail3%}
+	<div class="c s12 kerkereDetail4" data-kerkere-content='hide'>
+
+
+			{%for key, value in dataRow.payment_response3%}
+				<div class="msg"><code>{{key}}</code> <code class="floatR">{{value}}</code></div>
+			{%endfor%}
+	</div>
+{%endblock%}
+
+
+{%block iTransactionRecord%}
+	<div class="c s12 kerkereDetail5" data-kerkere-content='hide'>
+
+
+			{%for key, value in dataRow%}
+			{% if value is iterable%}
+				<div class="msg"><code>{{key}}</code> <pre class="floatR">{{value | json_encode()}}</pre></div>
+			{%else%}
+				<div class="msg"><code>{{key}}</code> <code class="floatR">{{value}}</code></div>
+			{%endif%}
+			{%endfor%}
+	</div>
+{%endblock%}
+

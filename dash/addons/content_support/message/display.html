@@ -1,0 +1,35 @@
+{%extends display.admin%}
+
+
+
+{%block pageContent%}
+{%include "content_support/ticket/ticketTypes.html"%}
+
+{%if dataTable%}
+
+{{block('htmlTable')}}
+
+{%else%}
+{{block('htmlStartAddNew')}}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+
+
+
+{%block htmlTable%}
+{%include "content_support/ticket/ticketTable.html"%}
+{%endblock%}
+
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.here}}/ticket/add">{%trans "Open new ticket!"%}</a></p>
+{%endblock%}
+
+
+

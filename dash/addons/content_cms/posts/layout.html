@@ -1,0 +1,622 @@
+
+{%block iTitle %}
+<div class="input mB10">
+  <input type="text" name="title" id="title" placeholder='{%trans "Enter title here"%} *' value="{{dataRow.title}}" autofocus required maxlength='200' minlength="1" pattern=".{1,200}">
+{%if dataRow.type == 'post'%}
+  <span class="addon" data-kerkere='.subTitle' {%if dataRow.subtitle%}data-kerkere-icon='open' {%else%} data-kerkere-icon {%endif%}>{%trans "Add Subtitle"%}</span>
+{%endif%}
+</div>
+
+{%if dataRow.type == 'post'%}
+<div class="subTitle" data-kerkere-content='{%if dataRow.subtitle%}show{%else%}hide{%endif%}'>
+  <label>{%trans "Subtitle"%} <small>{%trans "Subtitle show under title and used on press websites"%}</small></label>
+  <div class="input">
+    <input type="text" name="subtitle" id="subtitle" placeholder='{%trans "Enter subtitle here"%}' value="{{dataRow.subtitle}}" maxlength='300' minlength="1" pattern=".{1,300}">
+  </div>
+</div>
+{%endif%}
+{% endblock %}
+
+
+
+{%block iContent%}
+<textarea class="txt mB10" data-editor id='descInput' name="content" placeholder='{%trans "Write post "%}' maxlength='100000' rows="15">{{dataRow.content}}</textarea>
+{%endblock%}
+
+
+
+{%block iThumb%}
+<section class="pbox">
+  <header data-kerkere='.thumbPanel' data-kerkere-icon='open' data-kerkere-status="open">{%trans "Featured Image"%}{%if dataRow.meta.thumb%}<span class="floatRa sf-check fc-green"></span>{%else%}<span class="floatRa sf-times fc-red"></span>{%endif%}</header>
+  <div class="body thumbPanel" data-kerkere-content='show'>
+{%if dataRow.meta.thumb%}
+   <div class="mB20">
+    <div class="mediaBox">
+      <img src="{{dataRow.meta.thumb}}" alt="{{dataRow.title}}">
+    </div>
+    <div class="floatRa badge danger mT5" data-confirm data-data='{"deleteThumb": 1}'>{%trans "Remove"%}</div>
+   </div>
+{%endif%}
+
+  <div>
+    <label for="fthumb" class="block">{%trans "Featured Image"%}</label>
+    <div class="input" >
+     <input type="file" accept="image/gif, image/jpeg, image/png" name="thumb" id="fthumb" data-max="1000">
+     </label>
+    </div>
+  </div>
+
+  </div>
+</section>
+{%endblock%}
+
+
+
+{%block iSpecialList%}
+{%if listSpecial%}
+<section class="pbox">
+    <header data-kerkere='.specialPanel' data-kerkere-icon='close'>{%trans "Special mode"%}</header>
+    <div class="body specialPanel" data-kerkere-content='hide'>
+      <label for="special">{%trans "Use Special mode"%}</label>
+
+      <select name="special" class="ui dropdown select">
+        <option value=""><i>{%trans "Please select one item"%}</i></option>
+
+        {%if dataRow.special%}
+          <option value="{{0}}" >{%trans "Non"%}</option>
+        {%endif%}
+
+        {%for key, value in listSpecial%}
+          <option value="{{key}}" {%if dataRow.special == key %} selected {%endif%}>{{value}}</option>
+        {%endfor%}
+
+      </select>
+    </div>
+  </section>
+{%endif%}
+{%endblock%}
+
+
+
+{%block iCreator%}
+{%if perm('cpChangePostCreator')%}
+<section class="pbox">
+    <header data-kerkere='.creatorPanel' data-kerkere-icon='close'>{%trans "Writer"%} <span class="floatRa"><img title="{{userAuthorPost.displayname}}" class="avatar fs08" src="{{userAuthorPost.avatar}}"></span></header>
+    <div class="body creatorPanel" data-kerkere-content='hide'>
+        {%if userAuthorPost.id not in allUserAuthorId%}
+        <div>
+          <img class="ui mini avatar image" src="{{userAuthorPost.avatar}}">
+          {{userAuthorPost.displayname}} <small>{{userAuthorPost.mobile}}</small>
+        </div>
+      {%endif%}
+      <label>{%trans "Change post writer"%}</label>
+      <div class="ui fluid selection dropdown">
+        <div class="default text">{%trans "Choose new post writer"%}</div>
+        <input type="hidden" name="creator" value="{{dataRow.user_id}}">
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          {%for key, value in postAdder%}
+            <div class="item {%if dataRow.user_id == value.id%} active selected {%endif%}" data-value="{{value.id}}">
+              <img class="ui mini avatar image" src="{{value.avatar}}">
+              {{value.displayname}} <small class="floatRa">{{value.mobile}}</small>
+            </div>
+          {%endfor%}
+        </div>
+      </div>
+    </div>
+  </section>
+{%else%}
+<section class="pbox">
+    <header data-kerkere='.creatorPanel' data-kerkere-icon='close'>{%trans "Writer"%}</header>
+    <div class="body creatorPanel" data-kerkere-content='hide'>
+      <div>
+        <img class="ui mini avatar image" src="{{userAuthorPost.displayname}}">
+        {{userAuthorPost.displayname}}
+      </div>
+    </div>
+  </section>
+{%endif%}
+
+{%endblock%}
+
+
+
+{%block iCat%}
+{%if dataRow.type == 'post'%}
+
+{%set postCat = category({"post_id" : dataRow.id, "id" : true, "type" : "cat" })%}
+
+  <section class="pbox">
+    <header data-kerkere='.catPanel' data-kerkere-icon='close'>{%trans "Category"%}<span class="badge floatRa">{{postCat | length | fitNumber}}</span></header>
+    <div class="body catPanel" data-kerkere-content='hide'>
+      <label>{%trans "Choose category for posts is fix url of post relative and help people find it better."%}</label>
+      {%if listCats%}
+      <div>
+        <div>
+      {%for key, value in listCats%}
+          <div class="check1">
+            <input type="checkbox" name="cat_{{value.id}}" value="{{value.title}}" id="cat_{{value.id}}" {%if value.id in postCat %} checked {%endif%}>
+            <label for="cat_{{value.id}}">{{value.title}}</label>
+          </div>
+      {%endfor%}
+        </div>
+      </div>
+      {%else%}
+      <div class="msg warn2 mB0"><a href="{{url.here}}/terms?type={%if myDataType == 'help'%}help{%else%}cat{%endif%}">{%trans "Add new category"%}</a></div>
+      {%endif%}
+    </div>
+
+  </section>
+{%endif%}
+{%endblock%}
+
+
+
+{%block iTag%}
+{%if dataRow.type == 'page'%}
+{%else%}
+  {%if dataRow.type == 'help'%}
+    {%set myTagType = 'help_tag'%}
+  {%else%}
+    {%set myTagType = 'tag'%}
+  {%endif%}
+
+  {%set postTag = tags({"post_id" : requestGET.id , "title" : true, "format" : 'csv', "type" : myTagType}) %}
+
+  {%set tagCount = 0%}
+
+  {%if postTag %}
+    {%set tagCount = postTag |split(',') | length%}
+  {%endif%}
+
+<section class="pbox">
+  <header data-kerkere='.tagPanel' data-kerkere-icon='close'>{%trans "Keywords"%}<span class="badge floatRa">{{tagCount | fitNumber}}</span></header>
+  <div class="body tagPanel" data-kerkere-content='hide'>
+    <div class="tagDetector">
+
+    {%if options.tagSpecial and requestGET.type == 'post' %}
+      <label>{%trans "Click on special tags to use this depending on your website design"%}</label>
+      <div class="specialTags mB5">
+        {%for key, value in options.tagSpecial%}
+          <span class="badge {%if key in postTag%} success{%endif%}" href="#" title="{%trans value%}" data-val='{{key}}'>{%if key in postTag%}<i class="sf-check compact"></i> {%endif%}{{key}}</span>
+        {%endfor%}
+      </div>
+    {%endif%}
+
+      <div class="input mB10 hide">
+        <input type="text" class="input tagVals" name="tag" value="{{postTag}}" id="tagValues" placeholder='{%trans "Tag"%}'>
+      </div>
+      <label>{%trans "Add tag to link articles"%}</label>
+      <div class="input">
+        <input type="text" class="tagInput" placeholder='{%trans "Keywords"%}...'>
+        <button class="addon tagAdd">{%trans "Add"%}</button>
+      </div>
+      <div class="tagBox"></div>
+    </div>
+  </div>
+
+</section>
+{%endif%}
+{%endblock%}
+
+
+
+{%block iComment%}
+{%if dataRow.type != 'page'%}
+<section class="pbox">
+  <header data-kerkere='.commentPanel' data-kerkere-icon='close'>{%trans "Comments"%}{%if dataRow.comment == 'open' %}<span class="floatRa sf-check fc-green"></span>{%endif%}</header>
+  <div class="body commentPanel" data-kerkere-content='hide'>
+    <div class="switch1">
+     <input type="checkbox" name="comment" id="comment" {%if dataRow.comment == 'open' %} checked {%endif%}>
+     <label for="comment"></label>
+     <label for="comment">{%trans "Allow Comments"%}</label>
+    </div>
+  </div>
+</section>
+{%endif%}
+{%endblock%}
+
+
+{%block iSubType%}
+{%if dataRow.type == 'post'%}
+{%if dataRow.subtype == 'image'%}
+  {%set subtypIcon = 'picture-o' %}
+{%elseif dataRow.subtype == 'gallery'%}
+  {%set subtypIcon = 'picture' %}
+{%elseif dataRow.subtype == 'video'%}
+  {%set subtypIcon = 'movie' %}
+{%elseif dataRow.subtype == 'audio'%}
+  {%set subtypIcon = 'volume-up' %}
+{%else%}
+  {%set subtypIcon = 'list' %}
+{%endif%}
+
+<section class="pbox">
+  <header data-kerkere='.subTypeBlock' data-kerkere-icon='close'>{%trans "Theme"%} <span class="floatRa"><i class="sf-{{subtypIcon}}"></i></span></header>
+  <div class="body subTypeBlock" data-kerkere-content='hide'>
+
+    <label>{%trans "Adjust the display style of your post"%}</label>
+    <div class="ui fluid selection dropdown">
+      <input type="hidden" name="subtype" value="{{dataRow.subtype}}">
+      <i class="dropdown icon"></i>
+      <div class="default text">{%trans "Select one item"%}</div>
+      <div class="menu">
+        <div class="item" data-value="standard"><i class="sf-list"></i> {%trans "Standard" %}</div>
+        <div class="item" data-value="image"><i class="sf-picture-o"></i> {%trans "Image"%}</div>
+        <div class="item" data-value="gallery"><i class="sf-picture"></i> {%trans "Gallery"%}</div>
+        <div class="item" data-value="video"><i class="sf-movie"></i> {%trans "Video"%}</div>
+        <div class="item" data-value="audio"><i class="sf-volume-up"></i> {%trans "Audio"%}</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{%endif%}
+{%endblock%}
+
+
+
+
+{%block iDownload%}
+{%if dataRow.type == 'post'%}
+<section class="pbox">
+  <header data-kerkere='.downloadBlock' data-kerkere-icon='close'>{%trans "Download"%}
+    {%if dataRow.meta.download.url%}
+    <span class="floatRa">
+      <a {%if dataRow.meta.download.title%} title="{{dataRow.meta.download.title}}" {%endif%} href="{{dataRow.meta.download.url | raw}}" class="badge {{dataRow.meta.download.color}}"  target="_blank" >
+        <i class="sf-ellipsis-h"></i></a>
+    </span>
+    {%endif%}
+  </header>
+  <div class="body downloadBlock" data-kerkere-content='hide'>
+
+    <label for="ibtntitle">{%trans "Button title"%}</label>
+    <div class="input">
+      <input type="text" name="btntitle" maxlength="5000" id="ibtntitle" value="{{dataRow.meta.download.title}}">
+    </div>
+
+    <label for="ibtnurl">{%trans "URL"%}</label>
+    <div class="input">
+      <input type="url" name="btnurl" maxlength="5000" id="ibtnurl" value="{{dataRow.meta.download.url | raw}}">
+    </div>
+
+    <div class="check1">
+       <input type="checkbox" name="btntarget" id="ibtntarget" {%if dataRow.meta.download.target %} checked {%endif%}>
+      <label for="ibtntarget">{%trans "Open in new tab"%}</label>
+    </div>
+
+    <label>{%trans "Button color"%}</label>
+    <div class="ui fluid selection dropdown">
+      <input type="hidden" name="btncolor" value="{{dataRow.meta.download.color}}">
+      <i class="dropdown icon"></i>
+      <div class="default text">{%trans "Select button color"%}</div>
+      <div class="menu">
+
+        <div class="item" data-value="">{%trans "Non"%}</div>
+        <div class="item" data-value="primary"><span class="mA3 badge rounded primary">&nbsp;</span> {%trans "Primary" %}</div>
+        <div class="item" data-value="primary2"><span class="mA3 badge rounded primary2">&nbsp;</span> {%trans "Primary" %} {{2 | fitNumber}}</div>
+        <div class="item" data-value="secondary"><span class="mA3 badge rounded secondary">&nbsp;</span> {%trans "Secondary" %}</div>
+        <div class="item" data-value="secondary2"><span class="mA3 badge rounded secondary2">&nbsp;</span> {%trans "Secondary" %} {{2 | fitNumber}}</div>
+        <div class="item" data-value="success"><span class="mA3 badge rounded success">&nbsp;</span> {%trans "Success" %}</div>
+        <div class="item" data-value="success2"><span class="mA3 badge rounded success2">&nbsp;</span> {%trans "Success" %} {{2 | fitNumber}}</div>
+        <div class="item" data-value="danger"><span class="mA3 badge rounded danger">&nbsp;</span> {%trans "Danger" %}</div>
+        <div class="item" data-value="danger2"><span class="mA3 badge rounded danger2">&nbsp;</span> {%trans "Danger" %} {{2 | fitNumber}}</div>
+        <div class="item" data-value="warning"><span class="mA3 badge rounded warning">&nbsp;</span> {%trans "Warning" %}</div>
+        <div class="item" data-value="warning2"><span class="mA3 badge rounded warning2">&nbsp;</span> {%trans "Warning" %} {{2 | fitNumber}}</div>
+        <div class="item" data-value="info"><span class="mA3 badge rounded info">&nbsp;</span> {%trans "Info" %}</div>
+        <div class="item" data-value="info2"><span class="mA3 badge rounded info2">&nbsp;</span> {%trans "Info" %} {{2 | fitNumber}}</div>
+        <div class="item" data-value="light"><span class="mA3 badge rounded light">&nbsp;</span> {%trans "Light" %}</div>
+        <div class="item" data-value="dark"><span class="mA3 badge rounded dark">&nbsp;</span> {%trans "Dark" %}</div>
+        <div class="item" data-value="pain"><span class="mA3 badge rounded pain">&nbsp;</span> {%trans "Pain" %}</div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+{%endif%}
+{%endblock%}
+
+
+
+
+{%block iSource%}
+{%if dataRow.type == 'post'%}
+<section class="pbox">
+  <header data-kerkere='.sourceBlock' data-kerkere-icon='close'>{%trans "Sourse"%}
+    {%if dataRow.meta.source.url%}
+    <span class="floatRa">
+      <a {%if dataRow.meta.source.title%} title="{{dataRow.meta.source.title}}"  {%endif%} target="_blank" href="{{dataRow.meta.source.url | raw}}" class="badge primary">
+        <i class="sf-check"></i></a>
+    </span>
+    {%endif%}
+  </header>
+  <div class="body sourceBlock" data-kerkere-content='hide'>
+
+     <label for="isrctitle">{%trans "Sourse title"%}</label>
+    <div class="input">
+      <input type="text" name="srctitle" maxlength="5000" id="isrctitle" value="{{dataRow.meta.source.title}}">
+    </div>
+
+    <label for="isrcurl">{%trans "Sourse URL"%}</label>
+    <div class="input">
+      <input type="url" name="srcurl" maxlength="5000" id="isrcurl" value="{{dataRow.meta.source.url | raw}}">
+    </div>
+
+  </div>
+</section>
+{%endif%}
+{%endblock%}
+
+
+
+{%block iRedirect%}
+{%if dataRow.type == 'post'%}
+<section class="pbox">
+  <header data-kerkere='.redirectorBlock' data-kerkere-icon='close'>{%trans "Redirect"%}
+    {%if dataRow.meta.redirect%}
+    <span class="floatRa">
+        <i class="sf-check"></i>
+    </span>
+    {%endif%}
+  </header>
+  <div class="body redirectorBlock" data-kerkere-content='hide'>
+
+     <label for="iredirecturl">{%trans "Set post redirect"%}</label>
+    <div class="input">
+      <input type="url" name="redirecturl" maxlength="5000" id="iredirecturl" value="{{dataRow.meta.redirect | raw}}">
+    </div>
+
+
+  </div>
+</section>
+{%endif%}
+{%endblock%}
+
+
+
+
+
+{%block iPublishdate %}
+{%if dataRow.type == 'post'%}
+<section class="pbox">
+  <header data-kerkere='.publishDatePanel' data-kerkere-icon='close'>{%trans "Publish Date"%}</header>
+  <div class="body publishDatePanel" data-kerkere-content='hide'>
+
+    {%if not dataRow.publishdate %}
+
+      <div class="radio3 mB5">
+        <input type="radio" name="publishdatetype" value="now" id="publishdatetypenow" {%if not dataRow.publishdate %} checked {%endif%}>
+        <label for="publishdatetypenow">{%trans "When published"%}</label>
+      </div>
+
+      <div class="radio3 mB5">
+        <input type="radio" name="publishdatetype" value="bydate" id="publishdatetypebydate" {%if dataRow.publishdate %} checked {%endif%}>
+        <label for="publishdatetypebydate">{%trans "At special date"%}</label>
+      </div>
+
+    {%endif%}
+
+    <div data-response='publishdatetype' data-response-where='bydate'  {%if dataRow.publishdate %} {%else%} data-response-hide {%endif%} data-response-effect='slide'>
+
+      <div>
+        <label for="publishdate">{%trans "Publish date"%}</label>
+        <div class="input ltr">
+          <input class="datepicker" type="text" name="publishdate" id="publishdate" placeholder='{%trans "Default is now"%}' value="{{dataRow.publishdate}}" maxlength='15' data-format="YYYY/MM/DD" data-initialValue='false' data-view="year">
+        </div>
+      </div>
+      <div>
+        <label for="publishtime">{%trans "Publish time"%}</label>
+        <div class="input clockpicker ltr">
+          <input type="text" name="publishtime" id="publishtime" placeholder='{%trans "Publish time"%}' autocomplete="off" {%if dataRow.publishdate %} value="{{dataRow.publishdate | date('H:i')}}" {%endif%}>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{%endif%}
+{% endblock %}
+
+
+
+{%block iStatus%}
+{%set canEditPostStatus = true %}
+
+{%if myDataType == 'post'%}
+  {%set canEditPostStatus = perm('cpPostsEditStatus')%}
+{%elseif myDataType == 'help' %}
+  {%set canEditPostStatus = perm('cpHelpCenterEditStatus')%}
+{%endif%}
+
+
+{%if canEditPostStatus%}
+<section class="pbox">
+  <header data-kerkere='.statusPanel' data-kerkere-icon='close'>{%trans "Status"%}{%if dataRow.status == 'publish'%}<span class="floatRa sf-publish fc-green"></span>{%elseif dataRow.status == 'draft'%}<span class="floatRa sf-edit fc-orange"></span>{%elseif dataRow.status == 'deleted'%}<span class="floatRa sf-trash fc-red"></span>{%endif%}</header>
+  <div class="body statusPanel" data-kerkere-content='hide'>
+    <div class="radio1 green">
+      <input type="radio" id="r-publish" name="status" value="publish" {%if dataRow.status == 'publish' or not dataRow.status%} checked{%endif%}>
+      <label for="r-publish">{%trans "Publish"%}</label>
+    </div>
+
+    <div class="radio1 black">
+      <input type="radio" id="r-draft" name="status" value="draft" {%if dataRow.status == 'draft'%} checked{%endif%} >
+      <label for="r-draft">{%trans "Draft"%}</label>
+    </div>
+
+    {%if
+      (myDataType == 'post' and perm('cpPostsDelete')) or
+      (myDataType == 'help' and perm('cpHelpCenterDelete')) or
+      (myDataType == 'page' and perm('cpPageDelete'))
+    %}
+    <div class="radio1 red">
+      <input type="radio" id="r-deleted" name="status" value="deleted" {%if dataRow.status == 'deleted'  %} checked{%endif%}>
+      <label for="r-deleted">{%trans "Deleted"%}</label>
+    </div>
+    {%endif%}
+
+  </div>
+</section>
+{%endif%}
+{%endblock%}
+
+
+
+{%block iLanguage%}
+<section class="pbox">
+  <header data-kerkere='.languagePanel' data-kerkere-icon='close'>{%trans "Language"%}</header>
+  <div class="body languagePanel" data-kerkere-content='hide'>
+    <label for="language">{%trans "You can publish in another language"%}</label>
+    <select name="language" class="ui dropdown select">
+      <option value=""><i>{%trans "Please select one item"%}</i></option>
+      {%for key, value in lang.list%}
+        {%if key | length == 2%}
+        <option value="{{key}}" {%if dataRow.language == key or (not dataRow.lang and lang.current == key)  %} selected {%endif%}>{{value}}</option>
+        {%endif%}
+      {%endfor%}
+    </select>
+  </div>
+</section>
+{%endblock%}
+
+
+
+{%block galleryImporter %}
+<section class="pbox">
+  <header data-kerkere='.addGalleryPanel' data-kerkere-icon='close'>{%trans "Add to gallery"%}</header>
+  <div class="body addGalleryPanel" data-kerkere-content='hide'>
+    <div class="dropzone">
+      <h4>{%trans "Add to gallery"%}</h4>
+      <label for='gallery' class="btn light">{%trans "Choose or Drop file here"%}</label>
+      <input id="gallery" type="file" name="gallery" multiple>
+      <div class="progress shadow" data-percent='30'>
+        <div class="bar"></div>
+        <div class="detail"></div>
+      </div>
+      <small>{%trans "Maximum file size"%} <b>{{maxUploadSize}}</b></small>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
+
+
+
+
+
+{%block iSEO%}
+{%if dataRow.type == 'help'%}
+  {%set myFirstURL = 'support/'%}
+{%endif%}
+  <section class="cbox">
+    <div class="seoPreview">
+      <a target="_blank" href="{{url.kingdom}}/{{myFirstURL}}{{dataRow.url}}">
+        <h3>{%if dataRow.seotitle%}{{dataRow.seotitle}}{%else%}{{dataRow.title}}{%endif%} | {{site.title}}</h3>
+        <cite><span>{{url.kingdom}}/{{myFirstURL}}</span>{{dataRow.url}}</cite>
+      </a>
+      <div class="f">
+        <div class="c s12">
+          <div class="desc">
+            {%if dataRow.type == 'post'%}
+            <time class="publishdate" datetime="{{dataRow.publishdate}}">{{dataRow.publishdate | dt('d F Y')}}</time> -
+            {%endif%}
+            <p>{{dataRow.excerpt}}</p>
+          </div>
+        </div>
+        <div class="cauto os s12">
+          <img src="{{url.siftal}}/images/logo/google.png" alt='{%trans "Google"%}'>
+        </div>
+      </div>
+    </div>
+    <div class="txtL">
+      <div class="btn white" data-kerkere='.seoData'>{%trans "Customize for SEO"%}</div>
+    </div>
+
+    <div class="seoData" data-kerkere-content='hide'>
+      <div class="mT10">
+        <div>
+          <label for='seoTitle'>{%trans "SEO Title"%} <small>{%trans "Recommended being more than 40 character and appear at the beginning of page content"%}</small></label>
+          <div class="input">
+            <input type="text" name="seotitle" id="seoTitle" placeholder='{%if not dataRow.seotitle%}{{dataRow.title}}{%endif%}' value="{{dataRow.seotitle}}"  maxlength='200' minlength="1" pattern=".{1,200}">
+            <label class="addon"> | {{site.title}}</label>
+          </div>
+        </div>
+
+{%if dataRow.type == 'page' or dataRow.type == 'help'%}
+        <div>
+          <label for="parent">{%trans "Parent"%} <small>{%trans "Choose parent for this page to create related url as tree"%}</small></label>
+          <select name="parent" class="select ui dropdown search">
+            <option value=""><i>{%trans "Choose Parent"%}</i></option>
+            <option value="0"><i>{%trans "Without Parent"%}</i></option>
+        {%for key, value in pageList%}
+        {%if value.id == dataRow.id%}
+        {%else%}
+              <option value="{{value.id}}" {%if dataRow.parent == value.id %} selected {%endif%}>{{value.title | slice(0, 50)}}</option>
+        {%endif%}
+        {%endfor%}
+          </select>
+        </div>
+{%endif%}
+
+
+        <div>
+          <label for="seoSlug">{%trans "Slug"%} <small>{%trans "End part of your post url."%}</small></label>
+          <div class="input ltr mB10">
+            <input type="text" name="slug" id="seoSlug" placeholder='{%trans "Slug"%}' value="{{dataRow.slug_raw}}" maxlength='100' minlength="1" pattern=".{1,100}">
+          </div>
+        </div>
+
+        <div>
+          <label for='seoDesc'>{%trans "SEO Description"%} <small>{%trans "If leave it empty we are generate it automatically"%}</small></label>
+          <textarea class="txt mB10" name="excerpt" id="seoDesc" placeholder='{%trans "Excerpt used for social media and search engines"%} *' maxlength='300' minlength="1" rows='3'>{{dataRow.excerpt}}</textarea>
+        </div>
+      </div>
+    </div>
+
+  </section>
+{%endblock%}
+
+
+
+
+{%block iGalleryShow%}
+
+{%if dataRow.meta.gallery%}
+<div class="cbox">
+  <h2>{%trans "Gallery"%}</h2>
+  <div class="normal f">
+
+    {% for key, myUrl in dataRow.meta.gallery%}
+      <div class="vcard mA10">
+
+        {%if myUrl ends with '.jpg' or myUrl ends with '.png' or myUrl ends with '.gif'%}
+        <img src="{{myUrl}}">
+        <div class="content"></div>
+        {%elseif myUrl ends with '.mp4' %}
+        <video>
+          <source src="{{myUrl}}" type="video/mp4">
+        </video>
+        <div class="content"><a href="{{myUrl}}" title='{%trans "Click to download"%}'>{%trans "Video"%}</a></div>
+        <div class="content"></div>
+        {%elseif myUrl ends with '.mp3' %}
+        <audio controls>
+          <source src="{{myUrl}}" type="audio/mpeg">
+        </audio>
+        <div class="content"><a href="{{myUrl}}" title='{%trans "Click to download"%}'>{%trans "MP3"%}</a></div>
+        {%elseif myUrl ends with '.pdf' %}
+          <div class="content title"><a href="{{myUrl}}" title='{%trans "Click to download"%}'>{%trans "PDF"%}</a></div>
+        {%else%}
+        <div class="content title"><a href="{{myUrl}}" title='{%trans "Click to download"%}'>{%trans "Without preview"%}</a></div>
+        {%endif%}
+        <div class="footer f">
+          <button class="btn block secondary" data-ajaxify data-data='{"type" : "remove_gallery", "id": "{{key}}"}' data-method='post'>{%trans "Remove"%}</button>
+        </div>
+      </div>
+    {%endfor%}
+  </div>
+</div>
+{%endif%}
+
+{%endblock%}
+
+

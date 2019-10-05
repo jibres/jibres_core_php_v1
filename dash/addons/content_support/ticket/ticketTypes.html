@@ -1,0 +1,34 @@
+{%if perm('supportTicketManageSubdomain') or perm('supportTicketManage') %}
+<div class="f">
+  <div class="c">
+    <a class="dcard {%if accessMode == 'mine'%} active{%endif%}" href='{{url.this}}?access=mine'>
+     <div class="statistic{%if accessMode == 'mine'%} blue{%else%} brown{%endif%}">
+      <div class="value mB10"><i class="sf-user"></i></div>
+      <div class="label">{%trans "My tickets"%}</div>
+     </div>
+    </a>
+  </div>
+  {%if perm('supportTicketManage')%}
+  <div class="c">
+    <a class="dcard {%if accessMode == 'manage'%} active{%endif%}" href='{{url.this}}?access=manage'>
+     <div class="statistic{%if accessMode == 'manage'%} blue{%else%} brown{%endif%}">
+      <div class="value mB10"><i class="sf-users"></i></div>
+      <div class="label">{%trans "Manage tickets"%}</div>
+     </div>
+    </a>
+  </div>
+  {%endif%}
+  {%if not options.no_subdomain%}
+  {%if perm('supportTicketManageSubdomain')%}
+  <div class="c">
+    <a class="dcard {%if accessMode == 'all'%} active{%endif%}" href='{{url.this}}?access=all'>
+     <div class="statistic{%if accessMode == 'all'%} blue{%else%} brown{%endif%}">
+      <div class="value mB10"><i class="sf-user-secret"></i></div>
+      <div class="label">{%trans "Manage all tickets"%}</div>
+     </div>
+    </a>
+  </div>
+  {%endif%}
+  {%endif%}
+</div>
+{%endif%}

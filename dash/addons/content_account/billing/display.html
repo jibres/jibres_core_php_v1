@@ -1,0 +1,125 @@
+{%extends display.admin%}
+
+{%block pageContent%}
+{%if options.billing_charge%}
+  {%if options.parsian.status or options.zarinpal.status or options.irkish.status or options.payir.status or options.asanpardakht.status or options.mellat.status%}
+    {% set HaveOnePayment = true%}
+  {%endif%}
+{%endif%}
+<div class="f">
+
+    <div class="c8 s12 pA10">
+    {%if HaveOnePayment %}
+      <div class="cbox">
+        <h2>{%trans "Charge your account"%}</h2>
+        <p>{%trans "Enter an amount to charge your account"%}</p>
+
+        <form method="post" autocomplete="off">
+
+
+         <div class="input pA5">
+          <label class="addon" for="amount-number">{%trans userUnit%}</label>
+          <input id="amount-number" type="number" name="amount" value="{{amount}}" placeholder='{%trans "Amount"%}' required min=0 max="9999999999">
+          <button class="addon btn primary">{%trans "Checkout"%}</button>
+         </div>
+        </form>
+      </div>
+    {%endif%}
+
+    {%if options.billing_promo %}
+       <div class="cbox">
+        <h2>{%trans "Promo code"%}</h2>
+        <p>{%trans "If you have a promo code, please enter it below to receive your credit."%}</p>
+
+        <form method="post" autocomplete="off">
+         <input type="hidden" name="type" value="promo">
+         <div class="input pA5">
+          <input id="promo-number" type="text" name="promo" placeholder='{%trans "Promo Code"%}' required spellcheck="false">
+          <button class="addon btn primary">{%trans "Apply Code"%}</button>
+         </div>
+        </form>
+
+       </div>
+       {%endif%}
+
+    </div>
+
+    <div class="c s12 pA10">
+      <div class="cbox">
+       <div class="statistic blue">
+        <div class="value">
+          <i class="sf-credit-card"></i>
+          <span>{{userCash|number_format| fitNumber}}</span>
+        </div>
+        <div class="label">{%trans "Your credit"%} <small>{%trans userUnit%}</small></div>
+       </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+{%if history%}
+
+    <h3 id="billing-history" class="pA10">{%trans "Billing History"%}</h3>
+    <table class="tbl1 v6 fs14">
+      <thead class="primary">
+        <tr>
+          <th class="s0">{%trans "Title" %}</th>
+          <th>{%trans "Date" %}</th>
+          <th>{%trans "Value" %}</th>
+          <th>{%trans "Budget After" %}</th>
+          <th>{%trans "Invoice" %}</th>
+          {%if perm_su()%}
+            <th>{%trans "Date" %}</th>
+            <th>{%trans "Verify" %}</th>
+            <th>{%trans "Detail" %}</th>
+          {%endif%}
+        </tr>
+      </thead>
+      <tbody>
+
+{% for key, value in history %}
+{%set my_unit = value.unit%}
+{%set my_title = value.title%}
+
+         <tr>
+          <td class="s0">{%trans my_title%}</td>
+
+  <td title='{{value.date | dt(true)}}'>{{value.date|dt('human', 'month')}}</td>
+
+
+          <td>
+{%if value.plus%}
++ {{value.plus|number_format|fitNumber}}
+{%else%}
+- {{value.minus|number_format|fitNumber}}
+{%endif%}{%trans my_unit%}
+          </td>
+          <td>{{value.budget|number_format|fitNumber}} {%trans my_unit%}</td>
+          <td>
+{%if value.invoice_id%}
+            <a href="{{url.here}}/billing/invoice?id={{value.invoice_id}}"><i class="sf-file-text"></i></a>
+{%else%}
+            <i>-</i>
+{%endif%}
+          </td>
+          {%if perm_su()%}
+            <td title="{{value.datecreated | dt(true)}}">{{value.datecreated | dt('human', 'year')}}</td>
+            <td>{%if value.verify%}<i class="sf-check fc-green"></i>{%else%}<i class="sf-times fc-red"></i>{%endif%}</td>
+            <td><a title="{{value.token}}" class="btn xs warn" href="{{url.kingdom}}/pay/{{value.token}}">{%trans "Detail"%}</a></td>
+          {%endif%}
+         </tr>
+{%endfor%}
+
+      </tbody>
+    </table>
+    {%include display.pagination%}
+
+{%else%}
+<p class="msg info2 txtC fs14">{%trans "You are not have payment history yet!"%}</p>
+{%endif%}
+
+{%endblock%}
+

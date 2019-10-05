@@ -1,0 +1,636 @@
+
+{
+  "contentCrm":
+  {
+    "title": "contentCrm",
+    "cat": "Customer relationship management",
+    "breakAfter": true,
+    "require": ["contentCrm"]
+  },
+
+  "contentCp":
+  {
+    "title": "contentCp",
+    "cat": "Control Panel CMS",
+    "breakAfter": true,
+    "require": ["contentCp"]
+  },
+
+
+
+
+
+
+
+  "cpPostsView":
+  {
+    "title": "cpPostsView",
+    "cat": "Control Panel CMS",
+    "titleBefore": "Posts",
+    "require": ["contentCp"]
+  },
+  "cpPostsViewAll":
+  {
+    "title": "cpPostsViewAll",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPostsView"]
+  },
+  "cpPostsAdd":
+  {
+    "title": "cpPostsAdd",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPostsView"]
+  },
+  "cpPostsEdit":
+  {
+    "title": "cpPostsEdit",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPostsView"]
+  },
+  "cpPostsEditStatus":
+  {
+    "title": "cpPostsEditStatus",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPostsView", "cpPostsEdit"]
+  },
+  "cpPostsEditPublished":
+  {
+    "title": "cpPostsEditPublished",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPostsView", "cpPostsEdit"]
+  },
+  "cpPostsEditForOthers":
+  {
+    "title": "cpPostsEditForOthers",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPostsView", "cpPostsViewAll", "cpPostsEdit"]
+  },
+  "cpPostsDelete":
+  {
+    "title": "cpPostsDelete",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPostsView", "cpPostsEdit"]
+  },
+  "cpPostsDeleteForOthers":
+  {
+    "title": "cpPostsDeleteForOthers",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPostsView", "cpPostsViewAll", "cpPostsEdit", "cpPostsEditForOthers", "cpPostsDelete"]
+  },
+
+
+  "cpDayEvent":
+  {
+    "title" : "cpDayEvent",
+    "cat" :"Report",
+    "require" : ["contentCp"]
+  },
+  "cpContactView":
+  {
+    "title" : "cpContactView",
+    "cat" :"Contact",
+    "require" : ["contentCp"]
+  },
+
+
+  "cpTagView":
+  {
+    "title": "cpTagView",
+    "cat": "Control Panel CMS",
+    "titleBefore": "Tags",
+    "require": ["contentCp"]
+  },
+  "cpTagAdd":
+  {
+    "title": "cpTagAdd",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpTagView"]
+  },
+  "cpTagEdit":
+  {
+    "title": "cpTagEdit",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpTagView"]
+  },
+  "cpTagDelete":
+  {
+    "title": "cpTagDelete",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpTagView", "cpTagEdit"],
+    "breakAfter": true
+
+  },
+
+
+
+  "cpTagHelpView":
+  {
+    "title": "cpTagHelpView",
+    "cat": "Control Panel CMS",
+    "titleBefore": "Help Tags",
+    "require": ["contentCp"]
+  },
+  "cpTagHelpAdd":
+  {
+    "title": "cpTagHelpAdd",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpTagHelpView"]
+  },
+  "cpTagHelpEdit":
+  {
+    "title": "cpTagHelpEdit",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpTagHelpView"]
+  },
+  "cpTagHelpDelete":
+  {
+    "title": "cpTagHelpDelete",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpTagHelpView", "cpTagHelpEdit"]
+
+  },
+
+  "cpTagSupportView":
+  {
+    "title": "cpTagSupportView",
+    "cat": "Control Panel CMS",
+    "titleBefore": "Support Tags",
+    "require": ["contentCp"]
+  },
+  "cpTagSupportAdd":
+  {
+    "title": "cpTagSupportAdd",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpTagSupportView"]
+  },
+  "cpTagSupportEdit":
+  {
+    "title": "cpTagSupportEdit",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpTagSupportView"]
+  },
+  "cpTagSupportDelete":
+  {
+    "title": "cpTagSupportDelete",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpTagSupportView", "cpTagSupportEdit"]
+  },
+
+
+
+  "cpHelpCenterView":
+  {
+    "title": "cpHelpCenterView",
+    "cat": "Help center",
+    "titleBefore": "Article",
+    "require": ["contentCp"]
+  },
+  "cpHelpCenterViewAll":
+  {
+    "title": "cpHelpCenterViewAll",
+    "cat": "Help center",
+    "require": ["contentCp", "cpHelpCenterView"]
+  },
+  "cpHelpCenterAdd":
+  {
+    "title": "cpHelpCenterAdd",
+    "cat": "Help center",
+    "require": ["contentCp", "cpHelpCenterView"]
+  },
+  "cpHelpCenterEdit":
+  {
+    "title": "cpHelpCenterEdit",
+    "cat": "Help center",
+    "require": ["contentCp", "cpHelpCenterView"]
+  },
+  "cpHelpCenterEditStatus":
+  {
+    "title": "cpHelpCenterEditStatus",
+    "cat": "Help center",
+    "require": ["contentCp", "cpHelpCenterView", "cpHelpCenterEdit"]
+  },
+  "cpHelpCenterEditPublished":
+  {
+    "title": "cpHelpCenterEditPublished",
+    "cat": "Help center",
+    "require": ["contentCp", "cpHelpCenterView", "cpHelpCenterEdit"]
+  },
+  "cpHelpCenterEditForOthers":
+  {
+    "title": "cpHelpCenterEditForOthers",
+    "cat": "Help center",
+    "require": ["contentCp", "cpHelpCenterView", "cpHelpCenterViewAll", "cpHelpCenterEdit"]
+  },
+  "cpHelpCenterDelete":
+  {
+    "title": "cpHelpCenterDelete",
+    "cat": "Help center",
+    "require": ["contentCp", "cpHelpCenterView", "cpHelpCenterEdit"]
+  },
+  "cpHelpCenterDeleteForOthers":
+  {
+    "title": "cpHelpCenterDeleteForOthers",
+    "cat": "Help center",
+    "require": ["contentCp", "cpHelpCenterView", "cpHelpCenterViewAll", "cpHelpCenterEdit", "cpHelpCenterEditForOthers", "cpHelpCenterDelete"],
+    "breakAfter": true
+  },
+
+
+
+  "cpCategoryView":
+  {
+    "title": "cpCategoryView",
+    "cat": "Control Panel CMS",
+    "titleBefore": "Categories",
+    "require": ["contentCp"]
+  },
+  "cpCategoryAdd":
+  {
+    "title": "cpCategoryAdd",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpCategoryView"]
+  },
+  "cpCategoryEdit":
+  {
+    "title": "cpCategoryEdit",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpCategoryView"]
+  },
+  "cpCategoryDelete":
+  {
+    "title": "cpCategoryDelete",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpCategoryView", "cpCategoryEdit"]
+  },
+
+
+
+  "cpPageView":
+  {
+    "title": "cpPageView",
+    "cat": "Control Panel CMS",
+    "titleBefore": "Pages",
+    "require": ["contentCp"]
+  },
+  "cpPageAdd":
+  {
+    "title": "cpPageAdd",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPageView"]
+  },
+  "cpPageEdit":
+  {
+    "title": "cpPageEdit",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPageView"]
+  },
+  "cpPageDelete":
+  {
+    "title": "cpPageDelete",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpPageView", "cpPageEdit"]
+  },
+
+  "cpChangePostCreator":
+  {
+    "title" : "cpChangePostCreator",
+    "cat" : "Control Panel CMS",
+    "require" : ["contentCp"]
+  },
+
+  "cpAttachmentView":
+  {
+    "title": "cpAttachmentView",
+    "cat": "Control Panel CMS",
+    "titleBefore": "Attachments",
+    "require": ["contentCp"]
+  },
+  "cpAttachmentAdd":
+  {
+    "title": "cpAttachmentAdd",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpAttachmentView"]
+  },
+  "cpAttachmentEdit":
+  {
+    "title": "cpAttachmentEdit",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpAttachmentView"]
+  },
+  "cpAttachmentDelete":
+  {
+    "title": "cpAttachmentDelete",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpAttachmentView", "cpAttachmentEdit"]
+  },
+
+
+
+  "cpCommentsView":
+  {
+    "title": "cpCommentsView",
+    "cat": "Control Panel CMS",
+    "titleBefore": "Comments",
+    "require": ["contentCp"]
+  },
+  "cpCommentsEdit":
+  {
+    "title": "cpCommentsEdit",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpCommentsView"]
+  },
+  "cpCommentsDelete":
+  {
+    "title": "cpCommentsDelete",
+    "cat": "Control Panel CMS",
+    "require": ["contentCp", "cpCommentsView", "cpCommentsEdit"]
+  },
+
+
+
+  "cpUsersView":
+  {
+    "title": "cpUsersView",
+    "cat": "Customer relationship management",
+    "titleBefore": "Users",
+    "require": ["contentCrm"]
+  },
+  "cpUsersAdd":
+  {
+    "title": "cpUsersAdd",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpUsersView"]
+  },
+  "cpUsersEdit":
+  {
+    "title": "cpUsersEdit",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpUsersView"]
+  },
+  "cpUsersPermission":
+  {
+    "title": "cpUsersPermission",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpUsersView", "cpUsersEdit"]
+  },
+  "cpUsersPasswordChange":
+  {
+    "title": "cpUsersPasswordChange",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpUsersView", "cpUsersEdit"]
+  },
+  "cpUsersDelete":
+  {
+    "title": "cpUsersDelete",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpUsersView", "cpUsersEdit"]
+  },
+
+
+
+  "cpPermissionView":
+  {
+    "title": "cpPermissionView",
+    "cat": "Customer relationship management",
+    "titleBefore": "Permissions",
+    "require": ["contentCrm"]
+  },
+  "cpPermissionAdd":
+  {
+    "title": "cpPermissionAdd",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpPermissionView"]
+  },
+  "cpPermissionEdit":
+  {
+    "title": "cpPermissionEdit",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpPermissionView"]
+  },
+  "cpPermissionDelete":
+  {
+    "title": "cpPermissionDelete",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpPermissionView", "cpPermissionEdit"]
+  },
+
+
+
+  "cpSMS":
+  {
+    "title": "cpSMS",
+    "cat": "Customer relationship management",
+    "titleBefore": "SMS",
+    "require": ["contentCrm"]
+  },
+  "cpSmsSend":
+  {
+    "title": "cpSmsSend",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpSMS"]
+  },
+  "cpSmsSendGroup":
+  {
+    "title": "cpSmsSendGroup",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpSMS", "cpSmsSend"]
+  },
+  "cpSmsTemplateView":
+  {
+    "title": "cpSmsTemplateView",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpSMS"]
+  },
+  "cpSmsTemplateEdit":
+  {
+    "title": "cpSmsTemplateEdit",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpSMS", "cpSmsTemplateView"]
+  },
+  "cpSmsTemplateDelete":
+  {
+    "title": "cpSmsTemplateDelete",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpSMS", "cpSmsTemplateView", "cpSmsTemplateEdit"]
+  },
+
+
+
+  "cpEmail":
+  {
+    "title": "cpEmail",
+    "cat": "Customer relationship management",
+    "titleBefore": "Email",
+    "require": ["contentCrm"]
+  },
+  "cpEmailSend":
+  {
+    "title": "cpEmailSend",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpEmail"]
+  },
+  "cpEmailTemplateView":
+  {
+    "title": "cpEmailTemplateView",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpEmail"]
+  },
+  "cpEmailTemplateEdit":
+  {
+    "title": "cpEmailTemplateEdit",
+    "cat": "Customer relationship management",
+    "require": ["contentCrm", "cpSMS", "cpSmsTemplateView"]
+  },
+
+
+
+
+
+
+ "supportTicketTrash":
+  {
+    "title": "supportTicketTrash",
+    "cat": "Support Panel",
+    "require": []
+  },
+
+"cpSupportTagAdd":
+  {
+    "title": "cpSupportTagAdd",
+    "cat": "Support Panel",
+    "require": []
+  },
+
+
+
+
+
+
+  "supportTicketReport":
+  {
+    "title": "supportTicketReport",
+    "cat": "Support Panel",
+    "require": []
+  },
+  "supportTicketShowLog":
+  {
+    "title": "supportTicketShowLog",
+    "cat": "Support Panel",
+    "require": [],
+    "breakAfter" : true
+  },
+  "supportTicketManage":
+  {
+    "title": "supportTicketManage",
+    "cat": "Support Panel",
+    "require": []
+  },
+  "supportTicketManageSubdomain":
+  {
+    "title": "supportTicketManageSubdomain",
+    "cat": "Support Panel",
+    "breakAfter" : true,
+    "require": []
+  },
+  "supportTicketAnswer":
+  {
+    "title": "supportTicketAnswer",
+    "cat": "Support Panel",
+
+    "require": []
+  },
+
+  "supportEditMessage":
+  {
+    "title": "supportEditMessage",
+    "cat": "Support Panel",
+    "require": []
+  },
+  "supportDeleteMessage":
+  {
+    "title": "supportDeleteMessage",
+    "cat": "Support Panel",
+    "require": []
+  },
+  "supportTicketShowMobile":
+  {
+    "title": "supportTicketShowMobile",
+    "cat": "Support Panel",
+    "require": []
+  },
+
+  "supportTicketAssignTag":
+  {
+    "title": "supportTicketAssignTag",
+    "cat": "Support Panel",
+    "require": []
+  },
+
+  "supportTicketAddNote":
+  {
+    "title": "supportTicketAddNote",
+    "cat": "Support Panel",
+    "require": []
+  },
+
+
+  "supportTicketSignature":
+  {
+    "title": "supportTicketSignature",
+    "cat": "Support Panel",
+    "require": []
+  },
+
+  "supportTicketClose":
+  {
+    "title": "supportTicketClose",
+    "cat": "Support Panel",
+    "require": []
+  },
+  "supportTicketReOpen":
+  {
+    "title": "supportTicketReOpen",
+    "cat": "Support Panel",
+    "require": []
+  },
+  "supportTicketDelete":
+  {
+    "title": "supportTicketDelete",
+    "cat": "Support Panel",
+    "require": []
+  },
+
+  "supportTicketShowLastVisitor":
+  {
+    "title": "supportTicketShowLastVisitor",
+    "cat": "Support Panel",
+    "require": []
+  },
+
+  "cpTransaction" :
+  {
+    "title" : "cpTransaction",
+    "cat" : "Customer relationship management",
+    "require" : []
+  },
+  "cpTransactionAdd" :
+  {
+    "title" : "cpTransactionAdd",
+    "cat" : "Customer relationship management",
+    "require" : []
+  },
+
+  "cpVisitorView":
+  {
+    "title": "cpVisitorView",
+    "cat": "Visitors",
+    "require": []
+  },
+  "EnterByAnother":
+  {
+    "title" : "EnterByAnother",
+    "cat" : "Enter",
+    "require" : []
+  }
+
+}

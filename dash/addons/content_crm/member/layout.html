@@ -1,0 +1,280 @@
+{%extends display.crmMain%}
+
+{%block sideBarAvatar%}
+
+ <div class="vcard">
+  <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
+  {%if dataRowMember.avatar%}
+    <img src="{{dataRowMember.avatar}}">
+  {%else%}
+    <img src="{{url.static}}/siftal/images/useful/user1.png">
+  {%endif%}
+  </a>
+  <div class="content">
+    <div class="header">{{dataRowMember.firstname}} <b>{{dataRowMember.lastname}}</b></div>
+    <div class="meta"><span>{{dataRowMember.father }}</span></div>
+    {%if dataRowMember.mobile%}
+    <div class="desc"><i class="sf-mobile fs2"></i><a href="{{url.this}}/contact?id={{requestGET.id}}">{{dataRowMember.mobile|fitNumber('mobile')}}</a></div>
+    {%endif%}
+  </div>
+
+ </div>
+{%endblock%}
+
+
+{%block psidebar%}
+<div class="cbox normal">
+  {{block('sideBarAvatar')}}
+   <a class="btn block mTB10" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General Detail"%}</a>
+   <a class="btn block mTB10" href='{{url.this}}/identification?id={{requestGET.id}}'>{%trans "Identification detail"%}</a>
+   <a class="btn block mTB10" href='{{url.this}}/contact?id={{requestGET.id}}'>{%trans "Contact information"%}</a>
+   <a class="btn block mTB10" href='{{url.this}}/education?id={{requestGET.id}}'>{%trans "Education"%}</a>
+   <a class="btn block mTB10" href='{{url.this}}/social?id={{requestGET.id}}'>{%trans "Social network"%}</a>
+
+
+</div>
+{%endblock%}
+
+
+{%block psidebarTicket%}
+<div class="cbox normal">
+  {{block('sideBarAvatar')}}
+   <a class="btn block mTB10" href='{{url.this}}/ticket?id={{requestGET.id}}'>{%trans "Tickets"%}</a>
+   <a class="btn block mTB10" href='{{url.this}}/ticket?id={{requestGET.id}}&type=message'>{%trans "Message"%}</a>
+</div>
+
+{%endblock%}
+
+
+
+{%block imobile%}
+<label for="mobile">{%trans "Mobile"%}</label>
+<div class="input">
+  <input type="tel" name="mobile" id="mobile" placeholder='{%trans "Like 09120123456"%}' value="{{dataRowMember.mobile}}" maxlength='30'>
+</div>
+{%endblock%}
+
+
+
+
+
+{%block iemail2%}
+<label for="email">{%trans "Email"%}</label>
+<div class="input">
+  <input type="text" name="email" id="email" placeholder='{%trans "Like abc@example.com"%}' value="{{dataRowMember.detail.email}}" maxlength='30'>
+</div>
+{%endblock%}
+
+
+
+
+
+{%block nationalityAndDetail%}
+  {{block("icountry_nationality")}}
+  <div class="f" data-response='nationality' data-response-where='IR' data-response-effect='slide' {%if dataRowMember.nationality is not empty and dataRowMember.nationality != "IR"%}data-response-hide{%endif%}>
+   <div class="c s12 pRa5">{{block("iid")}}</div>
+   <div class="c s12 pRa5">{{block("inationalcode")}}</div>
+  </div>
+  <div class="f" data-response='nationality' data-response-where-not='IR' data-response-effect='slide' {%if dataRowMember.nationality is empty or dataRowMember.nationality == "IR"%}data-response-hide{%endif%}>
+   <div class="c s12 pRa5">{{block("ipassport")}}</div>
+   <div class="c s12 pRa5">{{block("ipassportdate")}}</div>
+  </div>
+{%endblock%}
+
+
+{%block icountry_nationality%}
+<div class="mB10">
+  <label for='nationality'>{%trans "Nationality"%}</label>
+  <div class="ui fluid search selection dropdown">
+    <input type="hidden" name="nationality" value="{%if dataRowMember.nationality%}{{dataRowMember.nationality}}{%else%}IR{%endif%}">
+    <i class="dropdown icon"></i>
+    <div class="default text">{%trans "Choose your nationality"%}</div>
+    <div class="menu">
+{%for key, value in countryList%}
+      <div class="item" data-value="{{key}}">
+        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}<small class="description">{{value.name | capitalize}}</small>
+      </div>
+{%endfor%}
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+{%block ipassport%}
+<label for='passport'>{%trans "Passport id"%} <small class="fc-red">* {%trans "Require"%}</small></label>
+<div class="input ltr">
+ <input name='pasportcode' id='passport' value="{{dataRowMember.pasportcode}}" placeholder='{%trans "Passport id"%} *'   />
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+{%block ipassportdate%}
+<label for='passportdate'>{%trans "Passport expire date"%} <small class="fc-red">* {%trans "Require"%}</small></label>
+<div class="input ltr">
+   <input class="datepicker" type="text" name="passportdate" id="passportdate" placeholder='{{"1369/04/15" | fitNumber}} *' value="{{dataRowMember.pasportdate}}" maxlength='20' autocomplete='off' >
+</div>
+
+{%endblock%}
+
+
+{%block iid%}
+<label for='id'>{%trans "Id number"%}</label>
+<div class="input">
+ <input type="tel" name='shcode' id='id' value="{{dataRowMember.detail.shcode}}" placeholder='{%trans "Id number"%}' />
+</div>
+{%endblock%}
+
+
+{%block inationalcode%}
+<label for='nationalcode'>{%trans "National Id"%}</label>
+<div class="input">
+ <input type="tel" name='nationalcode' id='nationalcode' value="{{dataRowMember.nationalcode}}" placeholder='{%trans "10 digit national code"%}'  />
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+{%block iPhone%}
+<label for="phone">{%trans "Phone"%}</label>
+<div class="input">
+  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} 02536505281' value="{{dataRowMember.phone}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+
+
+{%block icreateDate%}
+ <div class="msg" {%if dataRowMember.datemodified%} title='{%trans "Last update"%} {{dataRowMember.datemodified | dt(true)}}' {%endif%}>{%trans "Joined to serivce on"%} <span class="txtB">{{dataRowMember.datecreated | dt(true)}}</span></div>
+{%endblock%}
+
+
+
+{%block iadd%}
+<button class="btn primary block mT20">{%trans "Add"%}</button>
+{%endblock%}
+
+{%block isave%}
+<button class="btn primary block mT20">{%trans "Save"%}</button>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+{%block pageSteps%}
+{%if dataRowMember.status == 'filter'%}
+<div class="msg warn txtC txtB fs14">{%trans "The user was blocked"%}</div>
+{%elseif dataRowMember.status == 'removed'%}
+<div class="msg danger txtC txtB fs14">{%trans "The user was removed"%}</div>
+{%endif%}
+
+  <div class="f">
+
+   <div class="c s6">
+    <a class="dcard {%if url.child == 'glance' %}active{%endif%}" href='{{url.this}}/glance?id={{requestGET.id}}' data-shortkey="49ctrlshift">
+     <div class="statistic">
+      <div class="value"><i class="sf-rocket"></i></div>
+      <div class="label">{%trans "Glance"%} <kbd class=" hide mT5">Shift+1</kbd></div>
+     </div>
+    </a>
+   </div>
+
+   <div class="c s6">
+    <a class="dcard {%if url.child == 'general' or url.child == 'avatar' or url.child == 'social' or url.child == 'contact' or url.child == 'identification' or url.child == 'education'%}active{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}' data-shortkey="50ctrlshift">
+     <div class="statistic">
+      <div class="value"><i class="sf-user fc-blue"></i></div>
+      <div class="label">{%trans "Profile"%} <kbd class=" hide mT5">Shift+2</kbd></div>
+     </div>
+    </a>
+   </div>
+
+   <div class="c s6">
+    <a class="dcard {%if url.child == 'billing'%}active{%endif%}" href='{{url.this}}/billing?id={{requestGET.id}}&action=list' data-shortkey="51ctrlshift" >
+     <div class="statistic">
+      <div class="value"><i class="sf-credit-card fc-orange"></i></div>
+      <div class="label">{%trans "Billing"%} <kbd class=" hide mT5">Shift+3</kbd></div>
+     </div>
+    </a>
+   </div>
+
+   <div class="c s6">
+    <a class="dcard {%if url.child == 'ticket'%}active{%endif%}" href='{{url.this}}/ticket?id={{requestGET.id}}' data-shortkey="52ctrlshift" >
+     <div class="statistic">
+      <div class="value"><i class="sf-life-ring fc-green"></i></div>
+      <div class="label">{%trans "Ticket"%} <kbd class=" hide mT5">Shift+4</kbd></div>
+     </div>
+    </a>
+   </div>
+
+   <div class="c s6">
+    <a class="dcard {%if url.child == 'security'%}active{%endif%}" href='{{url.this}}/security?id={{requestGET.id}}' data-shortkey="53ctrlshift" >
+     <div class="statistic tail">
+      <div class="value"><i class="sf-lock fc-red"></i></div>
+      <div class="label">{%trans "Security"%} <kbd class=" hide mT5">Shift+5</kbd></div>
+     </div>
+    </a>
+   </div>
+
+      <div class="c s6">
+    <a class="dcard {%if url.child == 'address'%}active{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}' data-shortkey="54ctrlshift" >
+     <div class="statistic tail">
+      <div class="value"><i class="sf-pin"></i></div>
+      <div class="label">{%trans "Address"%} <kbd class=" hide mT5">Shift+6</kbd></div>
+     </div>
+    </a>
+   </div>
+
+   <div class="c s6">
+    <a class="dcard {%if url.child == 'description'%}active{%endif%}" href='{{url.this}}/description?id={{requestGET.id}}' data-shortkey="55ctrlshift" >
+     <div class="statistic tail">
+      <div class="value"><i class="sf-list"></i></div>
+      <div class="label">{%trans "Description"%} <kbd class=" hide mT5">Shift+7</kbd></div>
+     </div>
+    </a>
+   </div>
+
+  <div class="c s6">
+    <a class="dcard {%if url.child == 'log'%}active{%endif%}" href='{{url.this}}/log?id={{requestGET.id}}' data-shortkey="56ctrlshift" >
+     <div class="statistic tail">
+      <div class="value"><i class="sf-camera-surveillance-1"></i></div>
+      <div class="label">{%trans "Log"%} <kbd class=" hide mT5">Shift+8</kbd></div>
+     </div>
+    </a>
+   </div>
+
+   <div class="c s6">
+    <a class="dcard {%if url.child == 'notif'%}active{%endif%}" href='{{url.this}}/notif?id={{requestGET.id}}' data-shortkey="57ctrlshift" >
+     <div class="statistic tail">
+      <div class="value"><i class="sf-bullhorn"></i></div>
+      <div class="label">{%trans "Notification"%} <kbd class=" hide mT5">Shift+9</kbd></div>
+     </div>
+    </a>
+   </div>
+
+
+
+
+  </div>
+{%endblock%}

@@ -1,0 +1,50 @@
+{%extends display.dash%}
+
+
+
+{%block sidenav%}
+    <li><a href="{{url.here}}"><i class='sf-heartbeat'></i> <span>{% trans "Supervisor dashboard" %}</span></a></li>
+
+    <li class="title" data-kerkere='[data-sidebar-dbLinks]'><i class='sf-database floatRa fc-mute'></i><span>{% trans "Database" %}</span></li>
+    <li data-kerkere-content='hide' data-sidebar-dbLinks>
+    	<ul>
+    		<li><a href="{{url.here}}/backup">{% trans "Backup" %}</a></li>
+    		<li><a href="{{url.here}}/dbtables">{% trans "Raw table" %}</a></li>
+    	</ul>
+    </li>
+
+    <li class="title" data-kerkere='[data-sidebar-serverLinks]'><i class='sf-server floatRa fc-mute'></i><span>{% trans "Server" %}</span></li>
+    <li  data-kerkere-content='hide' data-sidebar-serverLinks>
+    	<ul>
+    		<li><a href="{{url.here}}/time">{% trans "Date and time" %}</a></li>
+    		<li><a href="{{url.here}}/info">{% trans "Server information" %}</a></li>
+            <li><a href="{{url.here}}/cronjob">{% trans "Cronjob" %}</a></li>
+    		<li><a href="{{url.here}}/ip">{% trans "IP" %}</a></li>
+    	</ul>
+    </li>
+
+    <li class="title"  data-kerkere='[data-sidebar-gitLinks]'><i class='sf-git floatRa fc-mute'></i><span>{% trans "Git" %}</span></li>
+    <li  data-kerkere-content='hide' data-sidebar-gitLinks>
+    	<ul>
+    		<li><a href="{{url.here}}/gitstatus">{% trans "Git status" %}</a></li>
+    		<li><a href="{{url.here}}/nano">{% trans "Nano" %}</a></li>
+    		<li><a href="{{url.here}}/update" data-shortkey="85+80" data-shortkey-timeout='500'>{% trans "Update" %}<kbd class="floatRa fs08">up</kbd></a></li>
+    	</ul>
+    </li>
+
+    <li class="title"  data-kerkere='[data-sidebar-toolsLinks]'><i class='sf-wrench floatRa fc-mute'></i><span>{% trans "Tools" %}</span></li>
+    <li  data-kerkere-content='hide' data-sidebar-toolsLinks>
+    	<ul>
+            <li><a href="{{url.here}}/log">{% trans "Log" %}</a></li>
+            <li><a href="{{url.here}}/apilog">{% trans "Api Log" %}</a></li>
+            <li><a href="{{url.here}}/smsclient">{% trans "Sms client" %}</a></li>
+  {%if url.tld == 'local'%}
+    		<li><a href="{{url.here}}/permission">{% trans "Permission" %}</a></li>
+    		<li><a href="{{url.here}}/translation">{% trans "Translation tools" %}</a></li>
+  {%endif%}
+            <li><a href="{{url.here}}/tg" data-shortkey="84+71" data-shortkey-timeout='500'>{% trans "Telegram" %}<kbd class="floatRa fs08">tg</kbd></a></li>
+    	</ul>
+    </li>
+
+{%endblock%}
+

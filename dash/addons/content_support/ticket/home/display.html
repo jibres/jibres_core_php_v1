@@ -1,0 +1,145 @@
+{%extends display.admin%}
+
+
+
+{%block pageContent%}
+{%include "content_support/ticket/ticketTypes.html"%}
+
+{%if dataTable%}
+ {%if dataFilter%}
+
+  {{block('detailCards')}}
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('detailCards')}}
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if dataFilter or requestGET.q%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block htmlSearchBox%}
+{%if login.id%}
+<div class="cbox fs12">
+  <form method="get" action='{{url.this}}{{moduleType}}' data-action>
+    <div class="input">
+      {%for key, value in requestGET%}
+        <input type="hidden" name="{{key}}" value="{{value}}">
+      {%endfor%}
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus autocomplete='off'>
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endif%}
+{%endblock%}
+
+
+{%block htmlTable%}
+{%include "content_support/ticket/ticketTable.html"%}
+{%endblock%}
+
+
+{%block htmlFilter%}
+<p class="f fs14 msg info2">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{url.here}}/{{url.module}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
+  <a class="cauto" href="{{url.this}}{{accessGet}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg success2 pTB20">{%trans "No ticket was found"%} <a class="txtB" href="{{url.this}}/add">{%trans "Add new ticket"%}</a></p>
+{%endblock%}
+
+
+
+
+{%block detailCards%}
+
+{%if login.id%}
+<div class="f mB10">
+    <div class="s12 m4">
+      <a class="dcard" href="{{url.here}}/ticket?status=open{{accessGetAnd}}">
+        <div class="statistic sm teal">
+          <div class="label mB10"><i class="fs20 mRa5 sf-life-ring"></i> {%trans "Active tickets"%}</div>
+          <div class="value counter">{{sidebarDetail.open |fitNumber}}</div>
+        </div>
+      </a>
+    </div>
+    <div class="s6 m4">
+      <a class="dcard" href="{{url.here}}/ticket{{accessGet}}">
+        <div class="statistic sm ">
+          <div class="label mB10"><i class="fs20 mRa5 sf-question-circle"></i> {%trans "Tickets"%}</div>
+          <div class="value">{{sidebarDetail.all |fitNumber}}</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="s6 m4">
+      <a class="dcard" href="{{url.here}}/message{{accessGet}}">
+        <div class="statistic sm">
+          <div class="label mB10"><i class="fs20 mRa5 sf-chat"></i> {%trans "Replies"%}</div>
+          <div class="value">{{sidebarDetail.message |fitNumber}}</div>
+        </div>
+      </a>
+    </div>
+
+
+  {%if perm('supportTicketReport')%}
+    <div class="c3 m6 s12">
+      <a class="dcard" href="{{url.here}}/ticket/report">
+        <div class="statistic sm">
+          <div class="label mB10"><i class="fs20 mRa5 sf-clock-o"></i> {%trans "Avg. First Response"%} <small>{%trans "Last month"%}</small></div>
+          <div class="value">{{sidebarDetail.avgfirst |fitNumber}} <small class="fs05">{%trans "Minute"%}</small></div>
+        </div>
+      </a>
+    </div>
+  {%endif%}
+
+  {%if perm('supportTicketReport')%}
+    <div class="c3 m6 s12">
+      <a class="dcard" href="{{url.here}}/ticket/report">
+        <div class="statistic sm">
+          <div class="label mB10"><i class="fs20 mRa5 sf-calendar-check-o"></i> {%trans "Avg. Time to Archive"%} <small>{%trans "Last month"%}</small></div>
+          <div class="value">{{sidebarDetail.avgarchive |fitNumber}} <small class="fs05">{%trans "Hours"%}</small></div>
+        </div>
+      </a>
+    </div>
+  {%endif%}
+
+  </div>
+{%else%}
+
+
+
+{%endif%}
+{%endblock%}
+

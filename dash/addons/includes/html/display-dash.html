@@ -1,0 +1,248 @@
+{%extends display.mvc%}
+
+
+
+
+
+{%block body%}
+
+{%block sideBox%} <aside id='sidebar' data-xhr='sidebar'>{{block ('aside')}} </aside>{%endblock%}
+
+ <main id='main' data-scroll>
+{%block headerBox%}
+{%if not page.removeHeader%}
+  <header class='dashHead f' data-cloner='120'>{{block ('header')}}  </header>
+{%endif%}
+{%endblock%}
+{%block contentBox%}
+  <div id='content' class='scr' data-xhr='content'>
+{%block content%}
+
+{%block pageHeader%}
+{%if page.titleBox%}
+<div class="titleBox">
+  <div class="f align-center">
+{%if page.backText and page.backLink%}
+    <div class="cauto pRa10">
+      <a class="btn master back" href="{{page.backLink}}"><i class="pRa5 sf-chevron-{%if global.direction == 'rtl'%}right{%else%}left{%endif%}"></i><span class="s0">{{page.backText}}</span></a>
+    </div>
+{%endif%}
+
+    <div class="c s10 pRa10 pageTitle">
+      <h2>{{page.title | raw}}</h2>
+    </div>
+    <nav class="cauto actions">
+{%if page.import%}
+      <a class="btn light" href="{{page.import}}"><i class="pRa5 compact sf-in"></i><span>{%trans "Import"%}</span></a>
+{%endif%}
+{%if page.export%}
+      <a class="btn light" href="{{page.export}}"><i class="pRa5 compact sf-out"></i><span>{%trans "Export"%}</span></a>
+{%endif%}
+{%if page.duplicate%}
+      <a class="btn light" href="{{page.duplicate}}"><i class="pRa5 compact sf-files-o"></i><span>{%trans "Duplicate"%}</span></a>
+{%endif%}
+{%if page.view%}
+      <a class="btn light" href="{{page.view}}" target="_blank"><i class="pRa5 compact sf-eye"></i><span>{%trans "View"%}</span></a>
+{%endif%}
+{%if page.help%}
+      <a class="btn light" href="{{page.help}}" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span>{%trans "Help"%}</span></a>
+{%endif%}
+    </nav>
+
+{%if page.prev or page.next%}
+    <nav class="cauto os pLa10 nav">
+       <a class="btn{%if page.prev == 'disabled'%} disabled{%endif%}" {%if page.prev == 'disabled'%}{%else%}href="{{page.prev}}"{%endif%} title='{%trans "Previous item"%}'><i class="sf-arrow-{%if global.direction == 'rtl'%}right{%else%}left{%endif%}"></i></a>
+       <a class="btn{%if page.next == 'disabled'%} disabled{%endif%}" {%if page.next == 'disabled'%}{%else%}href="{{page.next}}"{%endif%} title='{%trans "Next item"%}'><i class="sf-arrow-{%if global.direction == 'rtl'%}left{%else%}right{%endif%}"></i></a>
+    </nav>
+{%endif%}
+
+{%if page.btnText and page.btnLink%}
+    <nav class="cauto os pLa10">
+       <a class="btn master" href="{{page.btnLink}}" data-shortkey="120"><span>{{page.btnText}}</span> <kbd>F9</kbd></a>
+    </nav>
+{%endif%}
+  </div>
+
+{%if page.breadcrumb%}
+  <nav class="breadcrumb">
+{%for key, value in page.breadcrumb%}
+   <a{%if value.link%} href="{{value.link}}"{%endif%}{%if value.title%} title="{{value.title}}"{%endif%}{%if value.attr%} {{value.attr}}{%endif%}>{%if value.icon%}<span class="sf-{{value.icon}} mRa5"></span>{%endif%}{{value.text}}</a>
+{%endfor%}
+  </nav>
+{%endif%}
+</div>
+
+
+{%elseif page.tbox is null and (page.title or page.desc)%}
+<div class="tbox{%if page.pictogram%} pictogram{%endif%}">
+  <div class="f align-center">
+    <div class="c">
+      <h2>{{page.title | raw}} {%if page.desc%}<i class="compact sf-info-circle mLR5" title='{{page.desc | raw}}'></i>{%endif%}</h2>
+      {%if badge.text%} <a {%if badge.link%} href="{{badge.link}}"{%endif%} class="badge primary" {%if badge.shortkey%} data-shortkey="{{badge.shortkey}}"{%endif%}>{{badge.text}} {%if badge.shortkey == 120%}<kbd>f9</kbd>{%endif%}</a>{%endif%}
+    </div>
+    <div class="cauto os">{%if badge2.text and badge2.link and badge2.shortkey%} <a href="{{badge2.link}}" class="badge light" data-shortkey="{{badge2.shortkey}}">{{badge2.text}} {%if badge2.shortkey == 121%}<kbd>f10</kbd>{%endif%}</a>{%endif%}</div>
+  </div>
+
+{%if page.breadcrumb%}
+  <nav class="breadcrumb">
+{%for key, value in page.breadcrumb%}
+   <a{%if value.link%} href="{{value.link}}"{%endif%}{%if value.title%} title="{{value.title}}"{%endif%}{%if value.attr%} {{value.attr}}{%endif%}>{%if value.icon%}<span class="sf-{{value.icon}} mRa5"></span>{%endif%}{{value.text}}</a>
+{%endfor%}
+  </nav>
+{%endif%}
+  {%if page.pictogram%}
+  <span class="sf-{{page.pictogram}}"></span>
+  {%endif%}
+</div>
+{%endif%}
+{%endblock%}
+
+{%block pageContent%}
+  <div class="f justify-center">
+{%block pageCenter%}{%endblock%}
+  </div>
+{%endblock%}
+
+
+{%endblock%}
+  </div>
+{%endblock%}
+
+{%block footerBox%}  <footer id='footer' class='f'>{{block ('footer')}}  </footer>{%endblock%}
+
+ </main>
+{%endblock%}
+
+
+
+
+{%block aside%}
+ <div class="scr">
+{%block avatar%}
+  <figure>
+{%set avatarLink%}{%if dash.avatarLink is empty%}{{url.kingdom}}/account{%else%}{{dash.avatarLink}}{%endif%}{%endset%}
+{%if login%}
+   <a href="{{avatarLink}}" title='{%trans "Edit your profile"%}' class="avatar" data-direct>
+{%else%}
+   <a href="{{url.kingdom}}/enter?referer={{url.pwd}}" title='{%trans "Please login to save anything"%}' class="avatar" data-direct>
+{%endif%}
+{%if login.avatar%}
+     <img src="{{login.avatar}}" alt='{%trans "Avatar of you"%} {{login.displayname}}'>
+{%elseif login%}
+     <img src="{{url.static}}/siftal/images/default/avatar.png" alt='{%trans "Default Avatar"%}'>
+{%else%}
+     <img src="{{url.static}}/siftal/images/avatar/guest.png" alt='{%trans "Default Avatar"%}'>
+{%endif%}
+   </a>
+{%if login%}
+   <figcaption>{%trans "Hello"%} <b>{{login.displayname}}</b></figcaption>
+{%else%}
+   <figcaption>{%trans "Hello "%} <b>{%trans "dear GUEST!"%}</b></figcaption>
+{%endif%}
+  </figure>
+{%endblock%}
+  <div class="menu">
+   <ul class="sidenav" data-xhr='sidenav'>
+{%block sidenav%}
+    <li><a href="{{url.here}}"><i class='sf-tachometer'></i> <span>{% trans "Dashboard" %}</span></a></li>
+{%endblock%}
+
+    <li class="hr"></li>
+    <li class="title" data-kerkere="[data-sidebarService]" data-kerkere-icon>{%trans "Quick Access"%}</li>
+   </ul>
+
+{%block sidebarService%}
+   <ul class="sidenavService" data-xhr='sidenavService' data-sidebarService data-kerkere-content='hide'>
+{%block sidebarServiceTop%}{%endblock%}
+
+{%include 'includes/html/sidebarServiceTop.html' ignore missing %}
+
+{%if perm('contentCp')%}
+        <li><a href="{{url.kingdom}}/cms" {%if url.content == "cms"%} class="activeContent"{%endif%} data-shortkey="67+77" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} cm' data-tippy-placement='right'><i class='sf-align-left'></i> {% trans "CMS" %}</a></li>
+{%endif%}
+
+{%if perm('contentCrm')%}
+        <li><a href="{{url.kingdom}}/crm" {%if url.content == "crm"%} class="activeContent"{%endif%} data-shortkey="77+85" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} mu' data-tippy-placement='right'><i class='sf-group-full'></i> {% trans "CRM Panel" %}</a></li>
+{%endif%}
+
+{%if perm_su()%}
+        <li><a href="{{url.kingdom}}/su" {%if url.content == "su"%} class="activeContent"{%endif%} data-shortkey="83+85" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} su' data-tippy-placement='right'><i class='sf-heartbeat'></i> <span>{% trans "Supervisor Panel" %}</span></a></li>
+{%endif%}
+
+{%if login%}
+        <li><a href="{{url.kingdom}}/account" {%if url.content == "account"%} class="activeContent"{%endif%} data-shortkey="77+69" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} me' data-tippy-placement='right'><i class='sf-user'></i> <span>{% trans "My Account" %}</span></a></li>
+{%endif%}
+
+        <li><a href="{{url.kingdom}}/support" {%if url.content == "support"%} class="activeContent"{%endif%} data-shortkey="112" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} f1' data-tippy-placement='right'><i class='sf-life-ring'></i> <span>{% trans "Help Center" %}</span></a></li>
+
+        <li class="hr"></li>
+   </ul>
+{%endblock%}
+
+  </div>
+ </div>
+  <abbr class="toggleClean" title='{%trans "Click to toggle sidebar status"%}'><span class="sf-arrows-out"></span></abbr>
+
+  <a href="{{service.url}}" id='ermileBadge' class="f" target="_blank" title='{{service.desc | raw}}' data-tippy-inertia="true">
+   <div class="cauto pRa10">
+    <img src="{{service.logo}}" alt='{{service.title}}' class="cauto">
+   </div>
+   <div class="c">
+    <h2>{{service.title}}</h2>
+    <h3>{{service.slogan}}</h3>
+   </div>
+  </a>
+{%endblock%}
+
+
+
+{%block header%}
+   <div class="sidenavHandler c0 sauto mauto"><i class="sf-ellipsis-v"></i></div>
+
+   {%block headerTitle%}
+   <a class="cauto logo" href="{{url.kingdom}}" data-direct ><img src="{{site.logo}}" alt='{{site.title}}'></a>
+   <h1 class='c'><a href="{{url.kingdom}}" data-direct>{{site.title}}</a></h1>
+   {%endblock%}
+
+{%block headerMenu%}{%endblock%}
+   <div class='hm right flex cauto os'>
+{%block headerRight%}
+    <a href="{{url.kingdom}}/support" data-tippy-animation="perspective" title='{%trans "Help Center"%}' class="support s0"><i class="sf-life-ring"></i></a>
+
+{%if user.id%}
+    <a href="{{url.kingdom}}/account/notification" data-tippy-animation="perspective" title='{%trans "Notifications"%}' class="notification"><i class="sf-bell"></i></a>
+
+    <div class="profileShow" data-tippy-animation="perspective" title='{{site.title}}<br>{{userBadge.desc | raw}}'
+    data-desc='{{userBadge.desc | raw}}'
+    data-footer='{{userBadge.footer | raw}}'
+    data-confirmTxt='{%trans "Account"%} <i class="sf-user"></i>' data-confirmLink='{{url.kingdom}}/account'
+    data-cancelTxt='{%trans "Logout"%} <i class="sf-out mLa10"></i>'
+    data-logoutConfirmTxt='{%trans "You really want to go?"%}'
+    data-logoutTxt='{%trans "We are waiting for you to come back:)"%} ☺️'
+    data-logoutUrl='{{url.kingdom}}/logout'>
+{%if login.avatar%}
+     <img src="{{login.avatar}}" alt='{%trans "Avatar of you"%} {{login.displayname}}'>
+{%elseif login%}
+     <img src="{{url.static}}/siftal/images/default/avatar.png" alt='{%trans "Default Avatar"%}'>
+{%else%}
+     <img src="{{url.static}}/siftal/images/avatar/guest.png" alt='{%trans "Default Avatar"%}'>
+{%endif%}
+    </div>
+{%else%}
+    <a href="{{url.kingdom}}/enter?referer={{url.pwd}}" data-direct data-tippy-animation="perspective" title='{%trans "Enter to have better experience"%}'><i class="sf-hand-stop"></i></a>
+
+{%endif%}
+{%endblock%}
+   </div>
+{%endblock%}
+
+
+
+{%block footerDel%}
+
+   <div class="c8 s0" tabindex='-1' data-step='4' data-intro='{%trans "View your current location and navigate to parent of it"%}' data-position='top'><nav data-xhr="breadcrumb" class="breadcrumb">{{breadcrumb() | raw}}</nav></div>
+   <div class="cauto os s12" id='copyright'>
+{%block copyright%}{%endblock%}
+   </div>
+{%endblock%}
+

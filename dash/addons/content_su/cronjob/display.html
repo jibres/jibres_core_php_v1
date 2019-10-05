@@ -1,0 +1,81 @@
+{%extends display.suMain%}
+
+{%block pageContent%}
+
+
+<div class="f justify-center">
+
+  <div class="c7 m8 s12">
+    <div class="cbox">
+      <form method="post">
+
+        <div class="switch1">
+         <input type="checkbox" name="active" id="active" {%if cronjob%} checked {%endif%}>
+         <label for="active"></label>
+         <label for="active">{%trans "Run cronjob for this service"%}
+         </label>
+        </div>
+        {%if false%}
+        <div data-response='active' {%if cronjob%}{%else%}data-response-hide{%endif%}>
+            <pre class="ltr msg mB50 pTB20">{{cronjobPHP}}</pre>
+
+        {%for key, value in activeList%}
+          <div class="msg f align-center {%if value.active%} success2 {%endif%}">
+            <div class="c mB5 pRa10">
+                {%set my_title = value.title%}{%trans my_title%}
+                <small>{%set my_desc = value.desc%}{%trans my_desc%}</small>
+                {%if value.saved_url%}
+                <div class="mT10 ltr">
+                    <a href="{{value.saved_url}}" class="badge warn">{{value.saved_url}}</a>
+                </div>
+                {%endif%}
+            </div>
+            <div class="switch1 cauto os">
+             <input type="checkbox" name="{{key}}" id="{{key}}" {%if value.active %} checked {%endif%}>
+             <label for="{{key}}"></label>
+            </div>
+          </div>
+        {%endfor%}
+        </div>
+        {%endif%}
+
+        <button class="btn primary block">{%trans "Save"%}</button>
+    </form>
+
+
+      <div class="txtRa">
+        <a class="btn mT20 danger" target="_blank" href="{{url.site}}/hook/cronjob/exec">{%trans "Manual execute"%}</a>
+        <a class="btn mT20 danger" target="_blank" href="{{url.this}}/execcurl">Execeute cURL</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class="f justify-center">
+
+  <div class="c7 m8 s12">
+    <div class="cbox ltr">
+      <h3><code>Master URL</code></h3>
+      {{masterurl | nl2br | raw}}
+
+      <h3><code>UNIX crontab</code></h3>
+        {{unixcrontab | nl2br | raw}}
+
+    </div>
+  </div>
+
+</div>
+
+{%endblock%}
+
+
+
+
+
+
+
+

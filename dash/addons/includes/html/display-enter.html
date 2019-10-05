@@ -1,0 +1,45 @@
+{%extends display.mvc%}
+
+{% use "includes/html/display-enter-blocks.html" %}
+
+
+{%block body%}
+ <div id='enter'>
+{%block card%}
+
+{%block header%}
+  <h1 class='logo'><a href='{%if xAppRequest%}{{url.kingdom}}/enter{%else%}{{url.kingdom}}{%endif%}' tabindex='1' data-direct>
+{%if options.enterprise%}
+    <img src='{{url.site}}/enterprise/{{options.enterprise}}/images/logo.png' alt='{{site.title}}'>
+{%else%}
+    <img src='{{url.static}}/images/logo.png' alt='{{site.title}}'>
+{%endif%}
+    <span>{{site.title}}</span>
+  </a></h1>
+{%endblock%}
+
+  <div data-xhr='enter'>
+{%block content%}
+{%block contentTitle%}
+{%if url.module == ""%}
+   <h2 class='flex justify-center align-center'>{{page.title}}</h2>
+{%else%}
+   <h2 class='flex justify-center align-center'>{{page.desc|raw}}</h2>
+{%endif%}
+{%endblock%}
+{%block contentBody%}
+   <form method="post" autocomplete="off">
+{%block contentForm%}{%endblock%}
+   </form>
+{%endblock%}
+{%block contentFooter%}
+   <footer class='f'>{{block('ereset')}}</footer>
+{%endblock%}
+{%endblock%}
+  </div>
+{%endblock%}
+ </div>
+
+{%block footer%} {{langList({'html':true}) | raw}}{%endblock%}
+{%endblock%}
+

@@ -1,0 +1,43 @@
+{%extends display.dash%}
+
+
+
+{%block sidenav%}
+
+<li><a href="{{url.here}}"><i class="sf-user"></i>{%trans "Account Dashboard"%}</a></li>
+
+<li><a href="{{url.here}}/notification"><i class="sf-bell"></i>{%trans "Notifications"%}</a></li>
+
+<li><a href="{{url.here}}/my"><i class="sf-user-close-settings"></i>{%trans "Personal info"%}</a></li>
+{%if url.module == "my"%}
+<li>
+	<ul>
+		<li><a href="{{url.here}}/my/avatar"><i class="sf-odnoklassniki"></i>{%trans "Avatar"%}</a></li>
+		<li><a href="{{url.here}}/my/profile"><i class="sf-user-profile"></i>{%trans "Profile"%}</a></li>
+		<li><a href="{{url.here}}/my/social"><i class="sf-internet"></i>{%trans "Social Networks"%}</a></li>
+{%if options.address_page%}
+		<li><a href="{{url.here}}/my/address"><i class="sf-pin"></i>{%trans "Address"%}</a></li>
+{%endif%}
+	</ul>
+</li>
+{%endif%}
+
+<li><a href="{{url.here}}/security"><i class="sf-lock"></i>{%trans "Security"%}</a></li>
+{%if url.module == "security"%}
+<li>
+	<ul>
+		<li><a href="{{url.here}}/security/sessions"><i class="sf-campfire"></i>{%trans "Active Sessions"%}</a></li>
+	</ul>
+</li>
+{%endif%}
+
+<li><a href="{{url.here}}/personalization"><i class="sf-toggle-filled"></i>{%trans "Personalization"%}</a></li>
+
+{%if options.billing_page%}
+<li><a href="{{url.here}}/billing"><i class="sf-credit-card"></i>{%trans "Billing"%}</a></li>
+{%endif%}
+
+
+{%endblock%}
+
+

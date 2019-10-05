@@ -1,0 +1,54 @@
+{%extends display.suMain%}
+
+{%block pageContent%}
+<div class="f mB25">
+  <div class="c3 s12">
+    {{block('iOverview')}}
+  </div>
+  <div class="c s12">
+    {{block('iSendMessage')}}
+    {{block('iSample')}}
+
+  </div>
+  <div class="c s12">
+    {{block('iSendPhoto')}}
+    {{block('iSample')}}
+  </div>
+</div>
+
+{%endblock%}
+
+
+{%block iOverview%}
+<div class="dcard x4 mB10 {%if tg.info.status%} success{%else%}warn{%endif%}">
+  <h2><a href="https://t.me/{{tg.info.bot}}" target="_blank">{{tg.info.bot}}</a></h2>
+  <pre class="mT25">{{tg.info.token}}</pre>
+  <a class="btn dark outline mT25" href="{{url.this}}/log">{%trans "Logs"%}</a>
+  <a class="btn dark outline mT25" href="{{url.this}}/users">{%trans "Users"%}</a>
+  <a class="btn dark outline mT25" href="{{url.this}}/system">{%trans "System"%}</a>
+{%if user.id == 1%}
+  <a class="btn danger outline mT10" href="{{url.this}}/webhook">{%trans "Webhook"%}</a>
+{%endif%}
+</div>
+{%endblock%}
+
+{%block iSendMessage%}
+<div class="dcard x2 mB10">
+  <a class="btn primary" href="{{url.this}}/sendmessage">{%trans "Send message"%}</a>
+</div>
+{%endblock%}
+
+{%block iSendPhoto%}
+<div class="dcard x2 mB10">
+  <a class="btn" href="{{url.this}}/sendphoto">{%trans "Send photo"%}</a>
+</div>
+{%endblock%}
+
+
+{%block iSample%}
+<div class="dcard x2 mB10">
+  salam
+</div>
+{%endblock%}
+
+

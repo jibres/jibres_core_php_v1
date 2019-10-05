@@ -1,0 +1,22 @@
+{%extends display.admin%}
+{%use 'content_account/address.html'%}
+
+
+
+{%block pageContent%}
+
+
+{{block('bAddressList')}}
+
+
+<form method="post" enctype="multipart/form-data" autocomplete="off">
+  <div class="f justify-center">
+    <div class="x5 c6 m8 s10">
+{{block('bAddressAdd')}}
+    </div>
+  </div>
+</form>
+{%endblock%}
+
+
+

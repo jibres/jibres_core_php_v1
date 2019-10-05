@@ -1,0 +1,21 @@
+{
+    "name": "ermile/dash",
+    "description": "dash php framework",
+    "license": "MIT",
+    "type": "project",
+    "keywords": [
+        "php",
+        "framework"
+    ],
+    "authors": [
+        {
+            "name": "ermile",
+            "email": "info@ermile.com"
+        }
+    ],
+    "homepage": "https://dash.ermile.com",
+    "require": {
+        "php": ">=7.0",
+        "siftal": ">=4.2"
+    }
+}

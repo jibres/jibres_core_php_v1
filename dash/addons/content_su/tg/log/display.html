@@ -1,0 +1,172 @@
+{%extends display.suMain%}
+
+
+
+{%block pageContent%}
+
+{%if dataTable%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12">
+  <form method="get" action='{{url.this}}' data-action>
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus autocomplete='off'>
+      {%if requestGET.type%}
+      <input type="hidden" name="type" value="{{requestGET.type}}">
+      {%endif%}
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+{%block htmlTable%}
+
+
+<table class="tbl1 v3 cbox fs12">
+  <thead>
+    <tr>
+      <th>{%trans "User Detail"%}</th>
+      <th>{%trans "Hook"%}</th>
+      <th>{%trans "Step"%}</th>
+      <th>{%trans "Sended message"%}</th>
+      <th>{%trans "Meta"%}</th>
+      <th>{%trans "ID"%}</th>
+    </tr>
+  </thead>
+  <tbody>
+{%for key, value in dataTable%}
+    <tr>
+      <td class="collapsing">
+        <a href="{{url.that}}?user_id={{value.user_id}}">
+          <img src="{{value.avatar}}" class="avatar mRa5" alt="{{value.displayname}}">
+          <span class="txtB s0 fs08">{{value.displayname}}</span>
+        </a>
+        <div class="txtRa fs08">
+          <a  title='{%trans "Mobile"%}'>{{value.mobile | fitNumber('mobile12')}}</a>
+          <a href="{{url.that}}?user_id={{value.user_id}}" class="badge" title='{%trans "User id"%}'>{{value.user_id | fitNumber(false)}}</a>
+        </div>
+        <div class="txtRa fs08" data-tippy-placement='left' title='{%trans "Telegram chatid"%}'>
+          <a href="{{url.that}}?chatid={{value.chatid}}">{{value.chatid | fitNumber(false)}}</a>
+        </div>
+        <nav class="txtRa">
+          <a href="{{url.that}}?user_id={{value.user_id}}" title='{%trans "User logs"%}'><i class="sf-briefcase"></i></a>
+          <a href="{{url.kingdom}}/crm/member/glance?id={{value.user_id | coding('encode')}}" title='{%trans "User Profile"%}'><i class="sf-user-md"></i></a>
+
+        </nav>
+      </td>
+
+      <td>
+{%if value.hook%}
+        <div class="mB10">
+          <a href="{{url.that}}?hooktext={{value.hooktext}}">{{value.hooktext | raw}}</a>
+        </div>
+        <div class="f fs09">
+          <a href="{{url.this}}/logshow?id={{value.id}}#hook" class="cauto mRa5"><i class="sf-save-1"></i></a>
+          <a href="{{url.that}}?hookdate={{value.hookdate}}" title='{{value.hookdate}}' class="cauto">{{value.hookdate | dt(true, 'time')}}</a>
+          <div class="cauto">
+            {%if value.hookmessageid%}
+            <a href="{{url.this}}/logshow?id={{value.id}}#hookmessageid" class="badge mLa5" title='hook messageid'>{{value.hookmessageid}}</a>
+            {%else%}
+            <i class="sf-times"></i>
+            {%endif%}
+          </div>
+        </div>
+{%else%}
+        <i class="sf-times fc-yellow" title='{%trans "Without hook"%}'></i>
+{%endif%}
+      </td>
+
+      <td class="collapsing"><a href="{{url.that}}?step={{value.step}}">{{value.step}}</a></td>
+
+      <td>
+        <div class="ltr txtL txtB mB5">
+          <a href="{{url.that}}?sendmethod={{value.sendmethod}}" title='{%trans "Method"%}'>{{value.sendmethod}}</a>
+          <a href="{{url.this}}/logshow?id={{value.id}}#sendkeyboard">{%if value.sendkeyboard%}<i class="sf-thumbnails fc-green" title='{%trans "With keyboard"%}'></i>{%else%}<i class="sf-file-text fc-mute" title='{%trans "Without keyboard"%}'></i>{%endif%}</a>
+          {%if value.sendmesageid%}
+          <a href="{{url.this}}/logshow?id={{value.id}}#sendmesageid" class="badge" title='{%trans "Message id"%}'>{{value.sendmesageid}}</a>{%endif%}
+        </div>
+        <div class="mB10">
+          <a href="{{url.that}}?sendtext={{value.sendtext}}">{{value.sendtext | raw}}</a>
+        </div>
+        <div class="f fs09">
+          <a href="{{url.this}}/logshow?id={{value.id}}#send" class="cauto mRa5" title='{%trans "Check more detail"%}'><i class="sf-save-1"></i></a>
+          <a href="{{url.that}}?senddate={{value.senddate}}" title='{{value.senddate}}' class="c txtB">{{value.senddate | dt(true, 'time')}}</a>
+        </div>
+{%if value.response%}
+        <div class="f fs09">
+          <a href="{{url.this}}/logshow?id={{value.id}}#response" class="cauto mRa5" title='{%trans "Check more detail"%}'><i class="sf-save-1"></i></a>
+          <a href="{{url.that}}?responsedate={{value.responsedate}}" title='{{value.responsedate}}' class="c txtB">{{value.responsedate | dt(true, 'time')}}</a>
+        </div>
+{%else%}
+        <i class="sf-chain-broken fc-red" title='{%trans "Without response"%}'></i>
+{%endif%}
+      </td>
+
+      <td class="collapsing">
+        <a href="{{url.this}}/logshow?id={{value.id}}#meta">{%if value.meta%}<i class="sf-folder-1 fc-green"></i>{%else%}<i class="sf-folder fc-mute" title='{%trans "Without meta"%}'></i>{%endif%}</a>
+      </td>
+
+      <td class="collapsing">
+        <a href="{{url.this}}/logshow?id={{value.id}}" class="badge dark pA5" title='{%trans "ID"%}'>{{value.id}}</a>
+        <br>
+        <a href="{{url.that}}?status={{value.status}}">{{value.status}}</a>
+      </td>
+    </tr>
+{%endfor%}
+  </tbody>
+</table>
+  {%include display.pagination%}
+{%endblock%}
+
+
+{%block htmlFilter%}
+<p class="f fs14 msg info2">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg dark2 pTB20">{%trans "Hi!"%} {%trans "You are not starting yet!"%}</p>
+{%endblock%}
+
