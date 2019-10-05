@@ -42,6 +42,7 @@ class model
 		$post['company']         = \dash\request::post('company');
 		$post['unit']            = \dash\request::post('unit');
 		$post['category']        = \dash\request::post('cat');
+		$post['tag']             = \dash\request::post('tag');
 
 		return $post;
 	}

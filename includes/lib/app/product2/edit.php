@@ -155,6 +155,17 @@ class edit
 		}
 
 
+		$tag = \dash\app::request('tag');
+		if($tag)
+		{
+			\lib\app\product2\tag::add($tag, $id, \lib\store::id());
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+		}
+
+
 		if(!empty($args))
 		{
 			foreach ($args as $key => $value)
