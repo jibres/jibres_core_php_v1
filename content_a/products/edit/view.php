@@ -22,6 +22,12 @@ class view
 		$variants_list = \lib\app\product2\variants::get(\dash\request::get('code'));
 		\dash\data::variantsList($variants_list);
 
+		$company_list = \lib\app\product2\company::list();
+		\dash\data::listCompanies($company_list);
+
+		$unit_list = \lib\app\product2\unit::list();
+		\dash\data::listUnits($unit_list);
+
 	}
 }
 ?>

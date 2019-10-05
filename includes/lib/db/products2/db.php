@@ -78,12 +78,10 @@ class db
 		return $result;
 	}
 
-
-	public static function get_by_id($_id, $_store_id)
+	private static function get_product_query_string()
 	{
-		$query  =
+		$query =
 		"
-			SELECT
 				products2.*,
 				productprices.price,
 				productprices.buyprice,
@@ -93,6 +91,20 @@ class db
 			FROM
 				products2
 			LEFT JOIN productprices ON productprices.product_id = products2.id AND productprices.last = 'yes'
+		";
+
+		return $query;
+	}
+
+
+
+	public static function get_by_id($_id, $_store_id)
+	{
+		$public_query = self::get_product_query_string();
+		$query  =
+		"
+			SELECT
+				$public_query
 			WHERE
 				products2.id = $_id AND
 				products2.store_id = $_store_id
@@ -105,18 +117,11 @@ class db
 
 	public static function get_by_code($_code, $_store_id)
 	{
+		$public_query = self::get_product_query_string();
 		$query  =
 		"
 			SELECT
-				products2.*,
-				productprices.price,
-				productprices.buyprice,
-				productprices.discount,
-				productprices.discountpercent,
-				productprices.finalprice
-			FROM
-				products2
-			LEFT JOIN productprices ON productprices.product_id = products2.id AND productprices.last = 'yes'
+				$public_query
 			WHERE
 				products2.store_id = $_store_id AND
 				products2.code = $_code

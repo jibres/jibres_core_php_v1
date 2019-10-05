@@ -44,7 +44,6 @@ class productunit
 				productunit.id,
 				productunit.title,
 				productunit.int,
-				productunit.maxsale,
 				(SELECT COUNT(*) FROM products WHERE products.unit_id = productunit.id) AS `count`
 			FROM
 				productunit

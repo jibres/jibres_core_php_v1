@@ -121,6 +121,31 @@ class add
 		}
 
 
+		$unit = \dash\app::request('unit');
+		if($unit)
+		{
+			\lib\app\product\unit::$debug = false;
+			$add_unit                     = \lib\app\product2\unit::check_add($unit);
+			if(isset($add_unit['id']))
+			{
+				$args['unit_id'] = $add_unit['id'];
+			}
+
+		}
+
+		$company = \dash\app::request('company');
+		if($company)
+		{
+			\lib\app\product\company::$debug = false;
+			$add_company                     = \lib\app\product2\company::check_add($company);
+			if(isset($add_company['id']))
+			{
+				$args['company_id'] = $add_company['id'];
+			}
+		}
+
+
+
 		$product_id = \lib\db\products2\db::insert($args, \lib\store::id());
 
 		if(!$product_id)
@@ -175,6 +200,7 @@ class add
 				return false;
 			}
 		}
+
 
 
 		$return     = [];
