@@ -41,6 +41,7 @@ class model
 		$post['oversale']        = \dash\request::post('oversale');
 		$post['company']         = \dash\request::post('company');
 		$post['unit']            = \dash\request::post('unit');
+		$post['category']        = \dash\request::post('cat');
 
 		return $post;
 	}

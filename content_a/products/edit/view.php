@@ -28,6 +28,10 @@ class view
 		$unit_list = \lib\app\product2\unit::list();
 		\dash\data::listUnits($unit_list);
 
+		$category_list = \lib\app\product2\category::list();
+
+		\dash\data::listCategory($category_list);
+
 	}
 }
 ?>

@@ -123,7 +123,7 @@ class edit
 		$unit = \dash\app::request('unit');
 		if($unit)
 		{
-			\lib\app\product\unit::$debug = false;
+			\lib\app\product2\unit::$debug = false;
 			$add_unit                     = \lib\app\product2\unit::check_add($unit);
 			if(isset($add_unit['id']))
 			{
@@ -135,11 +135,22 @@ class edit
 		$company = \dash\app::request('company');
 		if($company)
 		{
-			\lib\app\product\company::$debug = false;
+			\lib\app\product2\company::$debug = false;
 			$add_company                     = \lib\app\product2\company::check_add($company);
 			if(isset($add_company['id']))
 			{
 				$args['company_id'] = $add_company['id'];
+			}
+		}
+
+		$category = \dash\app::request('category');
+		if($category)
+		{
+			\lib\app\product2\category::$debug = false;
+			$add_category                     = \lib\app\product2\category::check_add($category);
+			if(isset($add_category['id']))
+			{
+				$args['cat_id'] = $add_category['id'];
 			}
 		}
 
