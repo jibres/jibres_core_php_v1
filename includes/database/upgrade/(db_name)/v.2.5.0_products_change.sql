@@ -2,7 +2,6 @@
 CREATE TABLE `productcategory` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `store_id` int(10) UNSIGNED NOT NULL,
-`product_id` int(10) UNSIGNED NOT NULL,
 `title` varchar(500) DEFAULT NULL,
 `slug` varchar(200) DEFAULT NULL,
 `language` char(2) DEFAULT NULL,
@@ -16,7 +15,6 @@ CREATE TABLE `productcategory` (
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
 CONSTRAINT `productcategory_store_id` FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`) ON UPDATE CASCADE,
-CONSTRAINT `productcategory_product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `productcategory_file_id` FOREIGN KEY (`file_id`) REFERENCES `files` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
