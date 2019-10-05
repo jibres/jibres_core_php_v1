@@ -20,7 +20,6 @@ class controller
 			}
 		}
 
-		\content_api\v5\git\model::save_detail(false);
 
 		\dash\code::boom();
 	}
