@@ -6,11 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		if(!\dash\user::login())
-		{
-			\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='.\dash\url::pwd());
-			return;
-		}
+		// \dash\redirect::to_login();
 
 		/**
 		 * if we have domain in this content
