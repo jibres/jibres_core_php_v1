@@ -37,16 +37,6 @@ class autoload
 			{
 				self::$required[$_class_name] = true;
 			}
-			else
-			{
-				$addr = addons. $_class_name;
-				$addr = self::fix_os_path($addr);
-
-				if(self::open($addr))
-				{
-					self::$required[$_class_name] = true;
-				}
-			}
 		}
 		elseif(substr($_class_name, 0, 3) === 'lib')
 		{
