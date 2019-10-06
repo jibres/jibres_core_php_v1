@@ -1,0 +1,69 @@
+
+{%block XAction%}
+<table class="tbl1 v4">
+	<tbody>
+		<tr class="positive">
+			<td>#</td>
+			<td>-</td>
+			<td>بررسی اطلاعات</td>
+			<td class="collapsing"><span data-ajaxify data-method='post' data-data='{"xtype":"run", "RequestType": "fetch", "id" : "{{dataRowCustomer.id}}"}' class="btn block info mA5">ارسال درخواست بررسی</span></td>
+		</tr>
+
+		<tr>
+			<td>#{{1| fitNumber}}</td>
+			<td>نوع درخواست {{13 | fitNumber}}</td>
+			<td>سرویس تعریف مشتری و فروشگاه	</td>
+			<td class="collapsing"><span data-ajaxify data-method='post' data-data='{"xtype":"run", "RequestType": 13, "id" : "{{dataRowCustomer.id}}"}' class="btn block primary2 mA5">ارسال درخواست</span></td>
+		</tr>
+
+		<tr>
+			<td>#{{2| fitNumber}}</td>
+			<td>نوع درخواست {{5 | fitNumber}}</td>
+			<td>سرویس تعریف پذیرندگی - تعریف پایانه جدید	</td>
+			<td class="collapsing"><span data-ajaxify data-method='post' data-data='{"xtype":"run", "RequestType": 5, "id" : "{{dataRowCustomer.id}}"}' class="btn block primary2 mA5">ارسال درخواست</span></td>
+		</tr>
+
+		<tr>
+			<td>#{{3| fitNumber}}</td>
+			<td>نوع درخواست {{6 | fitNumber}}</td>
+			<td>سرویس تغییر شباهای متصل به پذیردندگی	</td>
+			<td class="collapsing"><span data-ajaxify data-method='post' data-data='{"xtype":"run", "RequestType": 6, "id" : "{{dataRowCustomer.id}}"}' class="btn block primary2 mA5">ارسال درخواست</span></td>
+		</tr>
+
+		<tr>
+			<td>#{{4| fitNumber}}</td>
+			<td>نوع درخواست {{7 | fitNumber}}</td>
+			<td>سرویس غیر فعال سازی پایانه	</td>
+			<td class="collapsing"><span data-ajaxify data-method='post' data-data='{"xtype":"run", "RequestType": 7, "id" : "{{dataRowCustomer.id}}"}' class="btn block primary2 mA5">ارسال درخواست</span></td>
+		</tr>
+
+		<tr>
+			<td>#{{5| fitNumber}}</td>
+			<td>نوع درخواست {{18 | fitNumber}}</td>
+			<td>سرویس فعال سازی مجدد پایانه	</td>
+			<td class="collapsing"><span data-ajaxify data-method='post' data-data='{"xtype":"run", "RequestType": 18, "id" : "{{dataRowCustomer.id}}"}' class="btn block primary2 mA5">ارسال درخواست</span></td>
+		</tr>
+
+		<tr>
+			<td>#{{6| fitNumber}}</td>
+			<td>نوع درخواست {{17 | fitNumber}}</td>
+			<td>سرویس تغییر فروشگاه	</td>
+			<td class="collapsing"><span data-ajaxify data-method='post' data-data='{"xtype":"run", "RequestType": 17, "id" : "{{dataRowCustomer.id}}"}' class="btn block primary2 mA5">ارسال درخواست</span></td>
+		</tr>
+
+		<tr>
+			<td>#{{7| fitNumber}}</td>
+			<td>نوع درخواست {{14 | fitNumber}}</td>
+			<td>سرویس اصلاح اطلاعات	</td>
+			<td class="collapsing"><span data-ajaxify data-method='post' data-data='{"xtype":"run", "RequestType": 14, "id" : "{{dataRowCustomer.id}}"}' class="btn block primary2 mA5">ارسال درخواست</span></td>
+		</tr>
+
+
+	</tbody>
+</table>
+
+
+
+
+{%endblock%}
+

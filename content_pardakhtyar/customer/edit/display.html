@@ -1,0 +1,19 @@
+{%extends 'content_pardakhtyar/customer/layout.html'%}
+
+
+{%block pageContent%}
+
+
+   <form method="post"  autocomplete="off">
+    <div class="cbox">
+    {{block ('ADDEDITFORM')}}
+    <div class="txtRa">
+      <button class="btn success">{%trans "Update"%}</button>
+    </div>
+
+    </div>
+   </form>
+
+
+{%endblock%}
+

@@ -1,0 +1,13 @@
+[
+  {
+    "trackingNumber": null,
+    "trackingNumberPsp": "PF00139707040000A001",
+    "requestRejectionReasons": [
+      {
+        "codeExceptionValue": 43,
+        "fieldName": "TerminalNumber:Term00010"
+      }
+    ],
+    "success": false
+  }
+]
