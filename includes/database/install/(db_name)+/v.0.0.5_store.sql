@@ -1,9 +1,6 @@
-
-
 CREATE TABLE `store` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `subdomain` varchar(50) NULL,
-`dbname` varchar(15) NULL,
 `dbip` int(10) UNSIGNED NULL,
 `creator` int(10) UNSIGNED NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -12,15 +9,6 @@ PRIMARY KEY(`id`),
 KEY `store_subdomain` (`subdomain`)
 ) ENGINE=InnoDB AUTO_INCREMENT = 1000000 DEFAULT CHARSET=utf8mb4;
 
-
-DELIMITER $$
-CREATE TRIGGER `set_dbname` BEFORE INSERT ON `store` FOR EACH ROW BEGIN
-DECLARE next_id INT;
-SET next_id = (SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'store');
-SET NEW.dbname= CONCAT('jibres_', next_id);
-END
-$$
-DELIMITER ;
 
 
 
