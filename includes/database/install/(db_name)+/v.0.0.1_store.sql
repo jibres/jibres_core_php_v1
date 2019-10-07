@@ -7,6 +7,7 @@ CREATE TABLE `servers` (
 `ram` varchar(50) NULL,
 `hard` varchar(50) NULL,
 `datacenter` varchar(50) NULL,
+`type` enum('code','db','file','other') NULL DEFAULT NULL,
 `status` enum('enable','disable','deleted','lock') NULL DEFAULT NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
