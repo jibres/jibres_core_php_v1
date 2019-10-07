@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS `address` (
   KEY `address_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `comments`
---
+
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS `comments` (
@@ -64,11 +64,11 @@ CREATE TABLE IF NOT EXISTS `comments` (
   KEY `index_search_status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `files`
---
+
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS `files` (
@@ -94,11 +94,11 @@ CREATE TABLE IF NOT EXISTS `files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
--- --------------------------------------------------------
 
---
--- Table structure for table `posts`
---
+
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS `posts` (
@@ -132,11 +132,11 @@ CREATE TABLE IF NOT EXISTS `posts` (
   KEY `index_search_slug` (`slug`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `terms`
---
+
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS `terms` (
@@ -161,11 +161,11 @@ CREATE TABLE IF NOT EXISTS `terms` (
   KEY `index_search_type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `termusages`
---
+
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS `termusages` (
@@ -186,11 +186,11 @@ CREATE TABLE IF NOT EXISTS `termusages` (
   KEY `termusages_type_search_index` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `tickets`
---
+
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS `tickets` (
@@ -216,11 +216,11 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   KEY `index_search_type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `transactions`
---
+
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS `transactions` (
@@ -294,3 +294,130 @@ ALTER TABLE `tickets`
 
 ALTER TABLE `transactions`
   ADD CONSTRAINT `newtransactions_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+
+
+
+CREATE TABLE `user_android` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `uniquecode` char(32) NOT NULL,
+  `osversion` varchar(200) DEFAULT NULL,
+  `version` varchar(200) DEFAULT NULL,
+  `serial` varchar(200) DEFAULT NULL,
+  `model` varchar(200) DEFAULT NULL,
+  `manufacturer` varchar(200) DEFAULT NULL,
+  `language` char(2) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `status` enum('active','deactive','spam','bot','block','unreachable','unknown','filter','awaiting') DEFAULT NULL,
+  `meta` text CHARACTER SET utf8mb4,
+  `lastupdate` timestamp NULL DEFAULT NULL,
+  `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
+CREATE TABLE `user_auth` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `auth` char(32) NOT NULL,
+  `status` enum('enable','disable','expire','used') DEFAULT NULL,
+  `gateway` enum('android','ios','api') DEFAULT NULL,
+  `type` enum('guest','member','appkey') DEFAULT NULL,
+  `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `gateway_id` int(10) UNSIGNED DEFAULT NULL,
+  `parent` int(10) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
+CREATE TABLE `user_telegram` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `chatid` bigint(20) NOT NULL,
+  `firstname` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `lastname` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `username` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `language` char(2) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `status` enum('active','deactive','spam','bot','block','unreachable','unknown','filter','awaiting','inline','callback') DEFAULT NULL,
+  `lastupdate` timestamp NULL DEFAULT NULL,
+  `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
+
+ALTER TABLE `user_android`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_android_user_id` (`user_id`);
+
+
+
+
+ALTER TABLE `user_auth`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `index_search_auth` (`auth`),
+  ADD KEY `index_search_status` (`status`),
+  ADD KEY `index_search_user_id` (`user_id`);
+
+
+
+
+ALTER TABLE `user_telegram`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_tg_user_id` (`user_id`);
+
+
+
+
+
+
+
+
+ALTER TABLE `user_android`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+
+
+
+ALTER TABLE `user_auth`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+
+
+
+ALTER TABLE `user_telegram`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+
+
+
+
+
+
+
+ALTER TABLE `user_android`
+  ADD CONSTRAINT `user_android_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+
+
+
+
+ALTER TABLE `user_auth`
+  ADD CONSTRAINT `user_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+
+
+
+
+ALTER TABLE `user_telegram`
+  ADD CONSTRAINT `user_tg_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+
