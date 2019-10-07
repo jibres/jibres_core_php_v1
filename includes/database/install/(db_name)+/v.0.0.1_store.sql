@@ -6,8 +6,10 @@ CREATE TABLE `servers` (
 `cpu` varchar(50) NULL,
 `ram` varchar(50) NULL,
 `hard` varchar(50) NULL,
+`isp` varchar(50) NULL,
 `datacenter` varchar(50) NULL,
 `type` enum('code','db','file','other') NULL DEFAULT NULL,
+`first` enum('yes','no') NULL DEFAULT NULL,
 `status` enum('enable','disable','deleted','lock') NULL DEFAULT NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
@@ -31,7 +33,7 @@ KEY `store_subdomain` (`subdomain`)
 
 
 DELIMITER $$
-CREATE TRIGGER `set_db_name` BEFORE INSERT ON `store` FOR EACH ROW BEGIN
+CREATE TRIGGER `set_dbname` BEFORE INSERT ON `store` FOR EACH ROW BEGIN
 DECLARE next_id INT;
 SET next_id = (SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'store');
 SET NEW.dbname= CONCAT('jibres_', next_id);
