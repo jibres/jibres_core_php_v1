@@ -10,10 +10,6 @@ class model
 		$post['name']   = \dash\request::post('name');
 		$post['slug']   = \dash\request::post('slug');
 		$post['plan']   = 'trial';
-		// $post['period'] = \dash\request::post('period');
-		// $post['bank']   = \dash\request::post('bank');
-		// $post['promo']  = \dash\request::post('promo');
-
   		return $post;
 	}
 
@@ -22,7 +18,7 @@ class model
 	{
 		$post = self::getPost();
 
-		\lib\app\store::before_add($post);
+		\lib\app\store\add::before($post);
 
 		if(\dash\engine\process::status())
 		{
