@@ -1,33 +1,14 @@
 
-CREATE TABLE `servers` (
-`id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
-`title` varchar(200) NULL,
-`ip` int(10) UNSIGNED NULL,
-`cpu` varchar(50) NULL,
-`ram` varchar(50) NULL,
-`hard` varchar(50) NULL,
-`isp` varchar(50) NULL,
-`datacenter` varchar(50) NULL,
-`type` enum('code','db','file','other') NULL DEFAULT NULL,
-`first` enum('yes','no') NULL DEFAULT NULL,
-`status` enum('enable','disable','deleted','lock') NULL DEFAULT NULL,
-`datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-PRIMARY KEY(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 
 CREATE TABLE `store` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `subdomain` varchar(50) NULL,
 `dbname` varchar(15) NULL,
-`server_id` smallint(5) UNSIGNED NULL,
+`dbip` int(10) UNSIGNED NULL,
 `creator` int(10) UNSIGNED NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),
-CONSTRAINT `store_server_id` FOREIGN KEY (`server_id`) REFERENCES `servers` (`id`) ON UPDATE CASCADE,
 KEY `store_subdomain` (`subdomain`)
 ) ENGINE=InnoDB AUTO_INCREMENT = 1000000 DEFAULT CHARSET=utf8mb4;
 
