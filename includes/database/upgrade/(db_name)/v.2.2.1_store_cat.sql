@@ -1,2 +1,0 @@
-ALTER TABLE `stores` ADD `unit`  text CHARACTER  SET utf8mb4 NULL DEFAULT NULL;
-ALTER TABLE `stores` ADD `cat`  text CHARACTER  SET utf8mb4 NULL DEFAULT NULL;

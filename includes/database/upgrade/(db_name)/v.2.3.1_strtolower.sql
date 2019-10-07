@@ -1,1 +1,0 @@
-UPDATE stores SET stores.slug = LOWER(stores.slug);

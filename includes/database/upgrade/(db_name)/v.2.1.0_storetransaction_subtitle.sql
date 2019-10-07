@@ -1,1 +1,0 @@
-ALTER TABLE `storetransactions` ADD `subtitle` varchar(255) NULL DEFAULT NULL AFTER `title`;
