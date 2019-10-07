@@ -3,6 +3,7 @@ CREATE TABLE `store` (
 `subdomain` varchar(50) NULL,
 `dbip` int(10) UNSIGNED NULL,
 `creator` int(10) UNSIGNED NULL,
+`ip` int(10) UNSIGNED NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),
@@ -90,14 +91,14 @@ CREATE TABLE `store_analytics` (
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),
-CONSTRAINT `store_analytics_data_id` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+CONSTRAINT `store_analytics_id` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 CREATE TABLE `store_plan` (
 `id` bigint(20) UNSIGNED NOT NULL,
 `store_id` int(10) UNSIGNED NOT NULL,
-`creator` int(10) UNSIGNED DEFAULT NULL,
+`user_id` int(10) UNSIGNED DEFAULT NULL,
 `plan` varchar(100) DEFAULT NULL,
 `start` timestamp NULL DEFAULT NULL,
 `end` timestamp NULL DEFAULT NULL,
@@ -112,9 +113,27 @@ CREATE TABLE `store_plan` (
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
-CONSTRAINT `storeplans_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON UPDATE CASCADE,
-CONSTRAINT `store_paln_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+CONSTRAINT `store_plan_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `store_plan_creator` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+
+
+CREATE TABLE `store_user` (
+`id` bigint(20) UNSIGNED NOT NULL,
+`store_id` int(10) UNSIGNED NULL,
+`creator` int(10) UNSIGNED NULL,
+`user_id` int(10) UNSIGNED NULL,
+`customer` enum('yes','no') DEFAULT NULL,
+`staff` enum('yes','no') DEFAULT NULL,
+`supplier` enum('yes','no') DEFAULT NULL,
+`datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+PRIMARY KEY (`id`),
+CONSTRAINT `store_user_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `store_user_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `store_user_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
