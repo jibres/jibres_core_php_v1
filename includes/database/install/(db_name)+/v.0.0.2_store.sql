@@ -6,6 +6,7 @@ CREATE TABLE `store` (
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),
+CONSTRAINT `store_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
 KEY `store_subdomain` (`subdomain`)
 ) ENGINE=InnoDB AUTO_INCREMENT = 1000000 DEFAULT CHARSET=utf8mb4;
 
@@ -32,7 +33,8 @@ CREATE TABLE `store_data` (
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),
-CONSTRAINT `store_data_id` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+CONSTRAINT `store_data_id` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `store_data_owner` FOREIGN KEY (`owner`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -110,7 +112,8 @@ CREATE TABLE `store_plan` (
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
-CONSTRAINT `storeplans_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+CONSTRAINT `storeplans_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `store_paln_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
