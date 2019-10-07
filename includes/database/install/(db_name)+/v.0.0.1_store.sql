@@ -1,16 +1,42 @@
 
+CREATE TABLE `servers` (
+`id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+`title` varchar(200) NULL,
+`ip` int(10) UNSIGNED NULL,
+`cpu` varchar(50) NULL,
+`ram` varchar(50) NULL,
+`hard` varchar(50) NULL,
+`datacenter` varchar(50) NULL,
+`status` enum('enable','disable','deleted','lock') NULL DEFAULT NULL,
+`datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+PRIMARY KEY(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 CREATE TABLE `store` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `subdomain` varchar(50) NULL,
 `dbname` varchar(15) NULL,
-`dbip` int(10) UNSIGNED NULL,
+`server_id` smallint(5) UNSIGNED NULL,
 `creator` int(10) UNSIGNED NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),
+CONSTRAINT `store_server_id` FOREIGN KEY (`server_id`) REFERENCES `servers` (`id`) ON UPDATE CASCADE,
 KEY `store_subdomain` (`subdomain`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT = 1000000 DEFAULT CHARSET=utf8mb4;
 
+
+DELIMITER $$
+CREATE TRIGGER `set_db_name` BEFORE INSERT ON `store` FOR EACH ROW BEGIN
+DECLARE next_id INT;
+SET next_id = (SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'store');
+SET NEW.dbname= CONCAT('jibres_', next_id);
+END
+$$
+DELIMITER ;
 
 
 
@@ -25,7 +51,7 @@ CREATE TABLE `store_data` (
 `domain1` varchar(100) CHARACTER SET utf8mb4 NULL DEFAULT NULL,
 `domain2` varchar(100) CHARACTER SET utf8mb4 NULL DEFAULT NULL,
 `domain3` varchar(100) CHARACTER SET utf8mb4 NULL DEFAULT NULL,
-`status` enum('enable','disable','deleted','lock','awaiting','block','filter','close') NOT NULL DEFAULT 'enable',
+`status` enum('enable','disable','deleted','lock','awaiting','block','filter','close') NULL DEFAULT NULL,
 `logo` varchar(2000) DEFAULT NULL,
 `plan` varchar(50) DEFAULT NULL,
 `startplan` timestamp NULL,
