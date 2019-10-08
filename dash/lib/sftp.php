@@ -101,13 +101,17 @@ class sftp
 	 */
 	public static function __callStatic($_func, $_args)
 	{
-		if(function_exists($_func))
+		if(function_exists('ssh2_sftp_'. $_func))
 		{
-			$fn = $_func;
+			$fn = 'ssh2_sftp_'. $_func;
 		}
 		elseif(function_exists('ssh2_'. $_func))
 		{
 			$fn = 'ssh2_'. $_func;
+		}
+		elseif(function_exists($_func))
+		{
+			$fn = $_func;
 		}
 		else
 		{
@@ -118,7 +122,7 @@ class sftp
 
 		if(self::$login)
 		{
-			$result = $fn(self::$link, ...$_args);
+			$result = @$fn(self::$link, ...$_args);
 			return $result;
 		}
 
