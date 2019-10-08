@@ -63,7 +63,6 @@ class ftp
 
 		if($login)
 		{
-			\dash\log::set('ftpLogin');
 			self::$login = $login;
 		}
 
