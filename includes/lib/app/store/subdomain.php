@@ -13,12 +13,6 @@ class subdomain
 		$_subdomain = preg_replace("/\_{2,}/", "_", $_subdomain);
 		$_subdomain = preg_replace("/\-{2,}/", "-", $_subdomain);
 
-		if(self::system_keyword($_subdomain))
-		{
-			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
-			return false;
-		}
-
 		if(mb_strlen($_subdomain) < 5)
 		{
 			\dash\notif::error(T_("Slug must have at least 5 character"), 'subdomain');
@@ -67,9 +61,33 @@ class subdomain
 			return false;
 		}
 
-		if(self::black_list($_subdomain))
+		if(self::badwords($_subdomain))
 		{
-			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain', 'arguments');
+			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			return false;
+		}
+
+		if(self::famous_site($_subdomain))
+		{
+			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			return false;
+		}
+
+		if(self::subdomain($_subdomain))
+		{
+			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			return false;
+		}
+
+		if(self::jibres($_subdomain))
+		{
+			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			return false;
+		}
+
+		if(self::verybadwords($_subdomain))
+		{
+			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
 			return false;
 		}
 
@@ -77,52 +95,77 @@ class subdomain
 	}
 
 
-	private static function system_keyword($_subdomain)
+	private static function badwords($_subdomain)
 	{
-		$system_keyword =
-		[
-			'ssl',			'www',						'ns1',
-			'http',			'https',					'vps',
-			'jibres',		'ermile',					'phpmyadmin',
-			'azvir',		'sarshomar',				'php',
-			'tejarak',		'demo',						'nginx',
-			'talambar',		'benefits',					'phpcode',
-			'pricing',		'help',						'apache',
-			'admin',		'enter',					'apache2',
-			'about',		'social-responsibility',	'hook',
-			'social',		'terms',					'payment',
-			'privacy',		'changelog',				'telegram',
-			'logo',			'contact',					'instagram',
-			'api',			'branch',					'twitter',
-			'team',			'member',					'facebook',
-			'add',			'edit',						'github',
-			'delete',		'user',						'smartgit',
-			'hours',		'report',					'trello',
-			'last',			'daily',					'gmail',
-			'account',		'for',						'vps1',
-			'files',		'static',					'subdomain',
-			'private',		'public',					'protected',
-			'dollar',		'android',					'ubuntu',
-			'wwww',			'wwwww',					'wwwwww',
-			'api',  		'application',				'domain',
-			'server',		'download',					'domains',
-			'dl',
-		];
-
-		return in_array($_subdomain, $system_keyword);
+		return self::blacklist($_subdomain, 'badwords');
 	}
 
 
-	private static function black_list($_subdomain)
+	private static function famous_site($_subdomain)
 	{
-		$file = \dash\file::read(__DIR__. '/subdomain_black_list.txt');
+		return self::blacklist($_subdomain, 'famous_site');
+	}
+
+
+	private static function subdomain($_subdomain)
+	{
+		return self::blacklist($_subdomain, 'subdomain');
+	}
+
+
+	private static function jibres($_subdomain)
+	{
+		$list = self::blacklist($_subdomain, 'jibres', true);
+		if($list && is_array($list))
+		{
+			foreach ($list as $key => $keyword)
+			{
+				if(strpos($_subdomain, $keyword) !== false)
+				{
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+
+	private static function verybadwords($_subdomain)
+	{
+		$list = self::blacklist($_subdomain, 'verybadwords', true);
+		if($list && is_array($list))
+		{
+			foreach ($list as $key => $keyword)
+			{
+				if(strpos($_subdomain, $keyword) !== false)
+				{
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+
+	private static function blacklist($_subdomain, $_file_name, $_return_file = false)
+	{
+		$file = \dash\file::read(__DIR__. '/blacklist/'. $_file_name. '.txt');
 
 		if($file)
 		{
 			$get = explode("\n", $file);
 			if(is_array($get))
 			{
-				return in_array($_subdomain, $get);
+				if($_return_file)
+				{
+					return $get;
+				}
+				else
+				{
+					return in_array($_subdomain, $get);
+				}
 			}
 		}
 
