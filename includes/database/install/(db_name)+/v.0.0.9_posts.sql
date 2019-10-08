@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  CONSTRAINT `posts_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `posts_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   UNIQUE KEY `url_unique` (`url`,`language`) USING BTREE,
   KEY `index_search_status` (`status`),
   KEY `index_search_type` (`type`),
