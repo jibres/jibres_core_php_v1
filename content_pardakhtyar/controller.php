@@ -6,13 +6,10 @@ class controller
 {
 	public static function routing()
 	{
-		if(!\dash\user::login())
-		{
-			\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), 'direct');
-			return;
-		}
 
-		\dash\permission::access('contentA');
+		// \dash\redirect::to_login();
+
+		// \dash\permission::access('contentA');
 	}
 }
 ?>

@@ -31,6 +31,8 @@ CREATE TABLE `store_data` (
 `startplan` timestamp NULL,
 `expireplan` timestamp  NULL DEFAULT NULL,
 `lastactivity` timestamp NULL DEFAULT NULL,
+`dbversion` varchar(50) NULL,
+`dbversiondate` datetime NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),
