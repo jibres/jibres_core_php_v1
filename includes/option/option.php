@@ -105,4 +105,16 @@ self::$config['enter']['verify_call']     = true;
 self::$config['enter']['verify_sendsms']  = false;
 
 
+
+
+
+if(!defined('shaparak_user'))
+{
+	define('shaparak_user', '926028');
+}
+
+if(!defined('shaparak_pass'))
+{
+	define('shaparak_pass', '123456');
+}
 ?>
