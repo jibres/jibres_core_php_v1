@@ -38,7 +38,7 @@ class transfer
 		$json_sample = json_decode($json_sample, true);
 
 		$result = \lib\pardakhtyar\start::transfer($json_sample);
-		j($result);
+		\dash\notif::api($result);
 		return \lib\app\shaparak\request::analyze_result($result);
 	}
 
