@@ -1,0 +1,21 @@
+CREATE TABLE `store_plan` (
+`id` bigint(20) UNSIGNED NOT NULL,
+`store_id` int(10) UNSIGNED NOT NULL,
+`user_id` int(10) UNSIGNED DEFAULT NULL,
+`plan` varchar(100) DEFAULT NULL,
+`start` timestamp NULL DEFAULT NULL,
+`end` timestamp NULL DEFAULT NULL,
+`type` enum('change','continuation','upgrade','downgrade','set','auto') DEFAULT NULL,
+`description` varchar(500) NULL DEFAULT NULL,
+`status` enum('enable','disable','deleted') DEFAULT NULL,
+`price` int(10) UNSIGNED DEFAULT NULL,
+`discount` int(10) UNSIGNED DEFAULT NULL,
+`promo` varchar(100) DEFAULT NULL,
+`period` enum('monthly','yearly') DEFAULT NULL,
+`expireplan` timestamp NULL DEFAULT NULL,
+`datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+PRIMARY KEY (`id`),
+CONSTRAINT `store_plan_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `store_plan_creator` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

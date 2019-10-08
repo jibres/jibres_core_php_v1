@@ -53,4 +53,4 @@ KEY `index_search_email` (`email`),
 KEY `index_search_username` (`username`),
 KEY `index_search_permission` (`permission`),
 KEY `index_search_status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
