@@ -149,11 +149,14 @@ class add
 			return false;
 		}
 
-		$create_file = self::create_file($store_id);
-
 		\dash\db::commit();
 
+		$create_detail_file = self::create_detail_file($store_id);
+
+		$create_subdomain_file = self::create_subdomain_file($store_id, $subdomain);
+
 		\dash\notif::ok(T_("Your store created"));
+
 		return true;
 	}
 
@@ -241,7 +244,7 @@ class add
 	}
 
 
-	private static function create_file($_store_id)
+	private static function create_detail_file($_store_id)
 	{
 		$dir = root . '/stores/detail/';
 		if(!file_exists($dir))
@@ -256,6 +259,22 @@ class add
 		$detail = json_encode($detail, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
 		\dash\file::write($dir, $detail);
+
+		return true;
+	}
+
+
+	private static function create_subdomain_file($_store_id, $_subdomain)
+	{
+		$dir = root . '/stores/subdomain/';
+		if(!file_exists($dir))
+		{
+			\dash\file::makeDir($dir, null, true);
+		}
+
+		$dir .= $_subdomain;
+
+		\dash\file::write($dir, $_store_id);
 
 		return true;
 	}
