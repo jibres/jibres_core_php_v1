@@ -7,61 +7,46 @@
 
 
 
+
 <table class="tbl1 v6 fs11 txtC">
   <thead>
     <tr>
-      <th>#</th>
-      <th>{%trans "Code"%}</th>
-      <th>{%trans "Store title"%}</th>
-      <th>{%trans "Plan"%}</th>
-      <th>{%trans "Start Plan"%}</th>
-      <th>{%trans "End Plan"%}</th>
-      <th>{%trans "Day left"%}</th>
+      <th>{%trans "id"%}</th>
+      <th>{%trans "subdomain"%}</th>
+      <th>{%trans "dbip"%}</th>
+      <th>{%trans "creator"%}</th>
+      <th>{%trans "ip"%}</th>
+      <th>{%trans "title"%}</th>
+      <th>{%trans "owner"%}</th>
+      <th>{%trans "status"%}</th>
+      <th>{%trans "plan"%}</th>
+      <th>{%trans "datecreated"%}</th>
+      <th>{%trans "startplan"%}</th>
+      <th>{%trans "expireplan"%}</th>
+      <th>{%trans "lastactivity"%}</th>
+      <th>{%trans "dbversion"%}</th>
+      <th>{%trans "dbversiondate"%}</th>
 
-      <th>{%trans "Product"%}</th>
-      <th>{%trans "Third Party"%}</th>
-      <th>{%trans "Factor"%}</th>
-
-      <th>{%trans "Created on"%}</th>
-      <th>{%trans "Last modify"%}</th>
-      <th>{%trans "Creator"%}</th>
     </tr>
   </thead>
   <tbody>
-{%for key, store in dataTable%}
+{%for key, value in dataTable%}
     <tr>
-      <td>{{store.id | fitNumber}}</td>
-      <td>
-        <div>{{store.name}}</div>
-        <div class="fs08">{{store.desc}}</div>
-      </td>
-      <td><a href="{{store.url}}" class="fc-blue"><i class="sf-share pRa10"></i> {{store.slug}}</a></td>
-      <td>{{store.plan}}</td>
-      <td>
-        {{store.startplan | dt(false)}}
-        <br>
-        {{store.startplan | dt('human', 'year')}}
-      </td>
-      <td>{{store.expireplan | dt(false)}}</td>
-      <td>{{store.daysleft | fitNumber}}</td>
-
-      <td>{{store.countProduct}}</td>
-      <td>{{store.countThirdParty}}</td>
-      <td>{{store.countFactor}}</td>
-
-      <td>
-        {{store.datecreated | dt(false)}}
-        <br>
-        {{store.datecreated | dt('human', 'year')}}
-      </td>
-      <td>
-        {%if store.datemodified%}
-          {{store.datemodified | dt(false)}}
-        <br>
-          {{store.datemodified | dt('human', 'year')}}
-        {%endif%}
-      </td>
-      <td>{{store.creator}}<a href="{{url.kingdom}}/enter?userid={{store.creator|coding('decode')}}"><i class="sf-log-in"></i></a></td>
+      <td><code>{{value.id}}</code></td>
+      <td>{{value.subdomain}}</td>
+      <td>{{value.dbip}}</td>
+      <td>{{value.creator}}</td>
+      <td>{{value.ip}}</td>
+      <td>{{value.title}}</td>
+      <td>{{value.owner}}</td>
+      <td>{{value.t_status}}</td>
+      <td>{{value.t_plan}}</td>
+      <td>{{value.datecreated | dt}}</td>
+      <td>{{value.startplan | dt}}</td>
+      <td>{{value.expireplan | dt}}</td>
+      <td>{{value.lastactivity | dt}}</td>
+      <td>{{value.dbversion}}</td>
+      <td>{{value.dbversiondate | dt}}</td>
     </tr>
 {%endfor%}
   </tbody>

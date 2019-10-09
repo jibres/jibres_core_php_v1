@@ -11,10 +11,8 @@ class view
 
 		$args = [];
 
-		// $dataTable = \lib\app\store\::list(\dash\request::get('q'), $args);
-		// \dash\data::dataTable($dataTable);
-
-
+		$dataTable = \lib\app\store\search::list(\dash\request::get('q'), $args);
+		\dash\data::dataTable($dataTable);
 	}
 }
 ?>
