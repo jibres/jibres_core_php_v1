@@ -141,18 +141,18 @@ class add
 		}
 
 
-		// $add_store_user = self::new_store_user($args, $store_id);
+		$add_store_user = self::new_store_user($args, $store_id);
 
-		// if(!$add_store_user)
-		// {
-		// 	\dash\db::rollback();
+		if(!$add_store_user)
+		{
+			\dash\db::rollback();
 
-		// 	\dash\log::set('dbCanNotAddStoreUser', ['request_subdomain' => $subdomain]);
+			\dash\log::set('dbCanNotAddStoreUser', ['request_subdomain' => $subdomain]);
 
-		// 	\dash\notif::error(T_("Can not add your store"));
+			\dash\notif::error(T_("Can not add your store"));
 
-		// 	return false;
-		// }
+			return false;
+		}
 
 		\dash\db::commit();
 		\dash\notif::ok(T_("Your store created"));
