@@ -4,6 +4,27 @@ namespace lib\app\store;
 
 class subdomain
 {
+	private static $debug = true;
+
+	public static function validate_exist($_subdomain)
+	{
+		self::$debug = false;
+
+		$subdomain = self::validate($_subdomain, false);
+		if(!$subdomain)
+		{
+			return false;
+		}
+
+		$check_exist = \lib\db\store\check::subdomain_exist($subdomain);
+		if($check_exist)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 
 	public static function validate($_subdomain)
 	{
@@ -15,79 +36,118 @@ class subdomain
 
 		if(mb_strlen($_subdomain) < 5)
 		{
-			\dash\notif::error(T_("Slug must have at least 5 character"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("Slug must have at least 5 character"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(mb_strlen($_subdomain) > 50)
 		{
-			\dash\notif::error(T_("Please set the subdomain less than 50 character"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("Please set the subdomain less than 50 character"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(!preg_match("/^[A-Za-z0-9\-\_]+$/", $_subdomain))
 		{
-			\dash\notif::error(T_("Only [A-Za-z0-9-_] can use in subdomain"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("Only [A-Za-z0-9-_] can use in subdomain"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(is_numeric($_subdomain))
 		{
-			\dash\notif::error(T_("Slug should contain a Latin letter"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("Slug should contain a Latin letter"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(is_numeric(substr($_subdomain, 0, 1)))
 		{
-			\dash\notif::error(T_("The subdomain must begin with latin letters"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("The subdomain must begin with latin letters"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(substr_count($_subdomain, '-') > 1)
 		{
-			\dash\notif::error(T_("The subdomain must have one separator"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("The subdomain must have one separator"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(substr_count($_subdomain, '_') > 1)
 		{
-			\dash\notif::error(T_("The subdomain must have one separator"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("The subdomain must have one separator"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(strpos($_subdomain, 'jibres') !== false)
 		{
-			\dash\notif::error(T_("Can not use subdomain by jibres keyword"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("Can not use subdomain by jibres keyword"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(self::badwords($_subdomain))
 		{
-			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(self::famous_site($_subdomain))
 		{
-			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(self::subdomain($_subdomain))
 		{
-			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(self::jibres($_subdomain))
 		{
-			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			}
 			return false;
 		}
 
 		if(self::verybadwords($_subdomain))
 		{
-			\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+			}
 			return false;
 		}
 

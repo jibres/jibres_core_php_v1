@@ -52,9 +52,7 @@
 {%block islug%}
 <label for="slug">{%trans "Store short name"%} <small>{%trans "Used for url of store as subdomain"%}</small> <span class="fc-red">*</span></label>
 <div class="input fix">
-  <input type="text" name="slug" id="slug" placeholder='{%trans "Free subdomain address for your store"%} *' maxlength='40' class="ltr" required title='{%trans "Set it carefully, you can not change it later"%}' autocomplete="off">
+  <input type="text" name="slug" id="slug" placeholder='{%trans "Free subdomain address for your store"%} *' maxlength='40' class="ltr" required title='{%trans "Set it carefully, you can not change it later"%}' autocomplete="off" data-check='{{url.this}}/add'>
   <label class="addon ltr" for="slug">.{{url.domain | capitalize}}</label>
 </div>
 {%endblock%}
-
-
