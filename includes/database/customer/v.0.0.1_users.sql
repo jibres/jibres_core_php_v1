@@ -47,6 +47,7 @@ CREATE TABLE `users` (
 `phone` varchar(100) DEFAULT NULL,
 `detail` text CHARACTER SET utf8mb4,
 PRIMARY KEY (`id`),
+KEY `index_search_jibres_user_id` (`jibres_user_id`),
 KEY `index_search_mobile` (`mobile`),
 KEY `index_search_nationalcode` (`nationalcode`),
 KEY `index_search_pasportcode` (`pasportcode`),

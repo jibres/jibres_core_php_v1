@@ -14,7 +14,7 @@ class add
 		if(!$user_id)
 		{
 			\dash\notif::warn(T_("Please login to continue"));
-			// return false;
+			return false;
 		}
 
 
@@ -52,9 +52,6 @@ class add
 		// create new store by free plan
 		// just check count of free plan store
 		// check store count
-		if(false)
-		{
-		// user can not login
 
 		$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
 
@@ -91,8 +88,6 @@ class add
 				\dash\notif::error($msg);
 				return false;
 			}
-		}
-
 		}
 
 		$args               = [];
