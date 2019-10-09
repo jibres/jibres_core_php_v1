@@ -145,6 +145,20 @@ class add
 			return false;
 		}
 
+
+		// $add_store_user = self::new_store_user($args, $store_id);
+
+		// if(!$add_store_user)
+		// {
+		// 	\dash\db::rollback();
+
+		// 	\dash\log::set('dbCanNotAddStoreUser', ['request_subdomain' => $subdomain]);
+
+		// 	\dash\notif::error(T_("Can not add your store"));
+
+		// 	return false;
+		// }
+
 		\dash\db::commit();
 		\dash\notif::ok(T_("Your store created"));
 		return true;
@@ -218,6 +232,21 @@ class add
 
 		return $result;
 
+	}
+
+
+	private static function new_store_user($_args, $_id)
+	{
+		$new_store_user                = [];
+		$new_store_user['store_id']    = $_id;
+		$new_store_user['creator']     = $_args['creator'];
+		$new_store_user['user_id']     = $_args['creator'];
+		$new_store_user['staff']       = 'yes';
+		$new_store_user['datecreated'] = date("Y-m-d H:i:s");
+
+		$result = \lib\db\store\insert::store_user($new_store_user);
+
+		return $result;
 	}
 }
 ?>
