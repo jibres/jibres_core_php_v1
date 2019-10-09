@@ -9,14 +9,12 @@ class add
 	{
 		\dash\app::variable($_args);
 
-
 		$user_id = \dash\user::id();
 		if(!$user_id)
 		{
 			\dash\notif::warn(T_("Please login to continue"));
 			return false;
 		}
-
 
 		// check title
 		$title = \dash\app::request('title');
@@ -32,8 +30,6 @@ class add
 			return false;
 		}
 
-
-
 		$subdomain = \dash\app::request('subdomain');
 		$subdomain = \lib\app\store\subdomain::validate($subdomain);
 		if(!$subdomain)
@@ -47,7 +43,6 @@ class add
 			\dash\notif::error(T_("This subdomain is already occupied"), 'subdomain');
 			return false;
 		}
-
 
 		// create new store by free plan
 		// just check count of free plan store
@@ -154,10 +149,12 @@ class add
 			return false;
 		}
 
+		$create_file = self::create_file($store_id);
+
 		\dash\db::commit();
+
 		\dash\notif::ok(T_("Your store created"));
 		return true;
-
 	}
 
 
@@ -226,7 +223,6 @@ class add
 		$result = \lib\db\store\insert::store_plan($new_store_plan);
 
 		return $result;
-
 	}
 
 
@@ -242,6 +238,26 @@ class add
 		$result = \lib\db\store\insert::store_user($new_store_user);
 
 		return $result;
+	}
+
+
+	private static function create_file($_store_id)
+	{
+		$dir = root . '/stores/detail/';
+		if(!file_exists($dir))
+		{
+			\dash\file::makeDir($dir, null, true);
+		}
+
+		$dir .= $_store_id;
+
+		$detail = \lib\db\store\get::detail($_store_id);
+
+		$detail = json_encode($detail, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+
+		\dash\file::write($dir, $detail);
+
+		return true;
 	}
 }
 ?>

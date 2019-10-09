@@ -9,6 +9,7 @@ desktop.ini
 
 node_modules
 
+/stores
 
 /public_html/files
 /content/cronjob/*.txt
