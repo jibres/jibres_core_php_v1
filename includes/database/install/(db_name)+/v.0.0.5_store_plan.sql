@@ -1,5 +1,5 @@
 CREATE TABLE `store_plan` (
-`id` bigint(20) UNSIGNED NOT NULL,
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `store_id` int(10) UNSIGNED NOT NULL,
 `user_id` int(10) UNSIGNED DEFAULT NULL,
 `plan` varchar(100) DEFAULT NULL,

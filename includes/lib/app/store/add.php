@@ -7,18 +7,55 @@ class add
 
 	public static function trial($_args)
 	{
-		$plan    = 'trial';
-		$user_id = \dash\user::id();
+		\dash\app::variable($_args);
 
+
+		$user_id = \dash\user::id();
 		if(!$user_id)
 		{
-			\dash\notif::error(T_("Please login to continue"));
+			\dash\notif::warn(T_("Please login to continue"));
+			// return false;
+		}
+
+
+		// check title
+		$title = \dash\app::request('title');
+		if(!$title)
+		{
+			\dash\notif::error(T_("Please fill the store title"), 'title');
 			return false;
 		}
+
+		if(mb_strlen($title) >= 200)
+		{
+			\dash\notif::error(T_("Please fill the store title less than 200 character"), 'title');
+			return false;
+		}
+
+
+
+		$subdomain = \dash\app::request('subdomain');
+		$subdomain = \lib\app\store\subdomain::validate($subdomain);
+		if(!$subdomain)
+		{
+			return false;
+		}
+
+		$check_exist = \lib\db\store\check::subdomain_exist($subdomain);
+		if($check_exist)
+		{
+			\dash\notif::error(T_("This subdomain is already occupied"), 'subdomain');
+			return false;
+		}
+
 
 		// create new store by free plan
 		// just check count of free plan store
 		// check store count
+		if(false)
+		{
+		// user can not login
+
 		$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
 
 		if($count_store_free >= 1)
@@ -56,281 +93,131 @@ class add
 			}
 		}
 
-		if($plan === 'trial')
-		{
-			$_args['startplan']  = date("Y-m-d H:i:s");
-			$_args['expireplan'] = date("Y-m-d H:i:s", strtotime("+14 days"));
-			$_args['plan']       = 'trial';
 		}
 
-		return self::add($_args);
+		$args               = [];
+		$args['owner']      = $user_id;
+		$args['creator']    = $user_id;
+		$args['title']      = $title;
+		$args['subdomain']  = $subdomain;
+		$args['startplan']  = date("Y-m-d H:i:s");
+		$args['expireplan'] = date("Y-m-d H:i:s", strtotime("+14 days"));
+		$args['plan']       = 'trial';
+
+		\dash\db::transaction();
+
+		$store_id = self::new_store($subdomain, $args['creator']);
+
+		if(!$store_id)
+		{
+			\dash\db::rollback();
+
+			\dash\log::set('dbCanNotAddStore', ['request_subdomain' => $subdomain]);
+
+			\dash\notif::error(T_("Can not add your store"));
+
+			return false;
+		}
+
+		$add_store_data = self::new_store_data($args, $store_id);
+
+		if(!$add_store_data)
+		{
+			\dash\db::rollback();
+
+			\dash\log::set('dbCanNotAddStoreData', ['request_subdomain' => $subdomain]);
+
+			\dash\notif::error(T_("Can not add your store"));
+
+			return false;
+		}
+
+		$add_store_plan = self::new_store_plan($args, $store_id);
+
+		if(!$add_store_plan)
+		{
+			\dash\db::rollback();
+
+			\dash\log::set('dbCanNotAddStorePlan', ['request_subdomain' => $subdomain]);
+
+			\dash\notif::error(T_("Can not add your store"));
+
+			return false;
+		}
+
+		\dash\db::commit();
+		\dash\notif::ok(T_("Your store created"));
+		return true;
+
 	}
 
 
-
-
-	/**
-	 * check args
-	 *
-	 * @return     array|boolean  ( description_of_the_return_value )
-	 */
-	private static function check()
+	private static function new_store($_subdomain, $_creator)
 	{
-		$log_meta =
-		[
-			'data' => null,
-			'meta' =>
-			[
-				'input' => \dash\app::request(),
-			]
-		];
+		$new_store                = [];
+		$new_store['subdomain']   = $_subdomain;
+		$new_store['dbip']        = ip2long('192.168.1.1');
+		$new_store['creator']     = $_creator;
+		$new_store['ip']          = \dash\server::ip(true);
+		$new_store['datecreated'] = date("Y-m-d H:i:s");
 
-		$name = \dash\app::request('name');
-		$name = trim($name);
+		$new_store_id = \lib\db\store\insert::store($new_store);
 
-		if(\dash\app::isset_request('name') && !$name)
-		{
-			\dash\notif::error(T_("Name of store can not be null"), 'name', 'arguments');
-			return false;
-		}
-
-		if($name && mb_strlen($name) > 100)
-		{
-			\dash\notif::error(T_("Store name must be less than 100 character"), 'name', 'arguments');
-			return false;
-		}
-
-		$website = \dash\app::request('website');
-		$website = trim($website);
-		if($website && mb_strlen($website) >= 200)
-		{
-			\dash\notif::error(T_("Store website must be less than 200 character"), 'website', 'arguments');
-			return false;
-		}
-
-		if(\dash\app::isset_request('name'))
-		{
-			if(!$name)
-			{
-				\dash\notif::error(T_("Name of store can not be null"), 'name', 'arguments');
-				return false;
-			}
-		}
-
-		$slug = \dash\app::request('slug');
-		$slug = trim($slug);
-
-		if(\dash\app::isset_request('slug'))
-		{
-			if(!$slug)
-			{
-				\dash\notif::error(T_("slug of store can not be null"), 'slug', 'arguments');
-				return false;
-			}
-		}
-
-		// // get slug of name in slug if the slug is not set
-		// if(!$slug && $name)
-		// {
-		// 	$slug = \dash\coding::encode((int) \dash\user::id() + (int) rand(10000,99999) * 10000);
-		// 	// $slug = \dash\utility\filter::slug($name);
-		// }
-
-		// remove - from slug
-		// if the name is persian and slug not set
-		// we change the slug as slug of name
-		// in the slug we have some '-' in return
-		// $slug = str_replace('-', '', $slug);
-
-		if($slug)
-		{
-			$slug = \dash\utility\convert::to_en_number($slug);
-
-			$slug = preg_replace("/\_{2,}/", "_", $slug);
-			$slug = preg_replace("/\-{2,}/", "-", $slug);
-
-			if(mb_strlen($slug) < 5)
-			{
-				\dash\notif::error(T_("Slug must have at least 5 character"), 'slug');
-				return false;
-			}
-
-			if(mb_strlen($slug) > 50)
-			{
-				\dash\notif::error(T_("Please set the slug less than 50 character"), 'slug');
-				return false;
-			}
-
-			if(!preg_match("/^[A-Za-z0-9\-]+$/", $slug))
-			{
-				\dash\notif::error(T_("Only [A-Za-z0-9-] can use in slug"), 'slug');
-				return false;
-			}
-
-			if(!preg_match("/[A-Za-z]+/", $slug))
-			{
-				\dash\notif::error(T_("You must use a one character from [A-Za-z] in the slug"), 'slug');
-				return false;
-			}
-
-			if(is_numeric($slug))
-			{
-				\dash\notif::error(T_("Slug should contain a Latin letter"),'slug');
-				return false;
-			}
-
-			if(is_numeric(substr($slug, 0, 1)))
-			{
-				\dash\notif::error(T_("The slug must begin with latin letters"),'slug');
-				return false;
-			}
-
-			$slug = mb_strtolower($slug);
-
-			if(in_array($slug, self::$black_list_slug))
-			{
-				\dash\notif::error(T_("You can not choose this slug"), 'slug', 'arguments');
-				return false;
-			}
-
-			if(substr_count($slug, '-') > 1)
-			{
-				\dash\notif::error(T_("The slug must have one separator"),'slug');
-				return false;
-			}
-
-		}
-
-		$desc = \dash\app::request('desc');
-		if($desc && mb_strlen($desc) > 200)
-		{
-			\dash\notif::error(T_("Store desc must be less than 200 character"), 'desc', 'arguments');
-			return false;
-		}
-
-		$phone = \dash\app::request('phone');
-		if($phone && mb_strlen($phone) > 50)
-		{
-			\dash\notif::error(T_("Store phone must be less than 50 character"), 'phone', 'arguments');
-			return false;
-		}
-
-		$mobile = \dash\app::request('mobile');
-		if($mobile && mb_strlen($mobile) > 50)
-		{
-			\dash\notif::error(T_("Store mobile must be less than 50 character"), 'mobile', 'arguments');
-			return false;
-		}
-
-		$address = \dash\app::request('address');
-		if($address && mb_strlen($address) > 1000)
-		{
-			\dash\notif::error(T_("Store address must be less than 1000 character"), 'address', 'arguments');
-			return false;
-		}
-
-		$payment = \dash\app::request('payment');
-		if($payment && is_array($payment))
-		{
-			$payment = json_encode($payment, JSON_UNESCAPED_UNICODE);
-		}
-
-		$logo_url = \dash\app::request('logo');
-		if($logo_url && !is_string($logo_url))
-		{
-			\dash\notif::error(T_("Invalid logo url fo store"), 'logo');
-			return false;
-		}
-
-		$parent = null;
-
-		$parent = \dash\app::request('parent');
-		if($parent)
-		{
-			$parent = \dash\coding::decode($parent);
-		}
-
-		if($parent)
-		{
-			// check this store and the parent store have one owner
-			$check_owner = \lib\db\stores::get(['id' => $parent, 'creator' => \dash\user::id(), 'limit' => 1]);
-			if(is_array($check_owner) && !array_key_exists('parent', $check_owner))
-			{
-				\dash\notif::error(T_("The parent is not in your store"), 'parent', 'arguments');
-				return false;
-			}
-		}
-
-
-		$lang = \dash\app::request('language');
-		if($lang && (mb_strlen($lang) !== 2 || !\dash\language::check($lang)))
-		{
-			\dash\notif::error(T_("Invalid language field"), 'language', 'arguments');
-			return false;
-		}
-
-		$country           = \dash\app::request('country');
-		if($country && mb_strlen($country) > 50)
-		{
-			\dash\notif::error(T_("You must set country less than 50 character", 'country', 'arguments'));
-			return false;
-		}
-
-		$province          = \dash\app::request('province');
-		if($province && mb_strlen($province) > 50)
-		{
-			\dash\notif::error(T_("You must set province less than 50 character", 'province', 'arguments'));
-			return false;
-		}
-
-		$city              = \dash\app::request('city');
-		if($city && mb_strlen($city) > 50)
-		{
-			\dash\notif::error(T_("You must set city less than 50 character", 'city', 'arguments'));
-			return false;
-		}
-
-
-		$status = \dash\app::request('status');
-		if($status && !in_array($status, ['enable', 'disable', 'close']))
-		{
-			\dash\notif::error(T_("Invalid status of stores", 'status', 'arguments'));
-			return false;
-		}
-
-		$plan = \dash\app::request('plan');
-		if($plan && !in_array($plan, ['free', 'standard', 'simple', 'trial']))
-		{
-			\dash\notif::error(T_("Invalid plan of stores", 'plan'));
-			return false;
-		}
-
-		$factorheader = \dash\app::request('factorheader');
-		$factorfooter = \dash\app::request('factorfooter');
-
-
-		$args                 = [];
-		$args['name']         = $name;
-		$args['slug']         = $slug;
-		$args['website']      = $website;
-		$args['desc']         = $desc;
-		$args['lang']         = $lang;
-		$args['logo']         = $logo_url;
-		$args['parent']       = $parent ? $parent : null;
-		$args['country']      = $country;
-		$args['province']     = $province;
-		$args['city']         = $city;
-		$args['status']       = $status;
-		$args['address']      = $address;
-		$args['phone']        = $phone;
-		$args['mobile']       = $mobile;
-		$args['plan']         = $plan;
-		$args['factorheader'] = $factorheader;
-		$args['factorfooter'] = $factorfooter;
-		$args['payment']      = $payment;
-
-		return $args;
+		return $new_store_id;
 	}
 
+
+	private static function new_store_data($_args, $_id)
+	{
+		$new_store_data                  = [];
+		$new_store_data['id']            = $_id;
+		$new_store_data['title']         = $_args['title'];
+		$new_store_data['owner']         = $_args['owner'];
+		$new_store_data['description']   = null;
+		$new_store_data['lang']          = null;
+		$new_store_data['unit']          = null;
+		$new_store_data['country']       = null;
+		$new_store_data['domain1']       = null;
+		$new_store_data['domain2']       = null;
+		$new_store_data['domain3']       = null;
+		$new_store_data['status']        = 'enable';
+		$new_store_data['logo']          = null;
+		$new_store_data['plan']          = $_args['plan'];
+		$new_store_data['startplan']     = $_args['startplan'];
+		$new_store_data['expireplan']    = $_args['expireplan'];
+		$new_store_data['lastactivity']  = date("Y-m-d H:i:s");
+		$new_store_data['dbversion']     = null;
+		$new_store_data['dbversiondate'] = null;
+		$new_store_data['datecreated']   = date("Y-m-d H:i:s");;
+
+		$result = \lib\db\store\insert::store_data($new_store_data);
+
+		return $result;
+	}
+
+
+	private static function new_store_plan($_args, $_id)
+	{
+		$new_store_plan                = [];
+		$new_store_plan['store_id']    = $_id;
+		$new_store_plan['user_id']     = $_args['creator'];
+		$new_store_plan['plan']        = $_args['plan'];
+		$new_store_plan['start']       = $_args['startplan'];
+		$new_store_plan['end']         = null;
+		$new_store_plan['type']        = 'set';
+		$new_store_plan['description'] = null;
+		$new_store_plan['status']      = 'enable';
+		$new_store_plan['price']       = null;
+		$new_store_plan['discount']    = null;
+		$new_store_plan['promo']       = null;
+		$new_store_plan['period']      = null;
+		$new_store_plan['expireplan']  = $_args['expireplan'];
+		$new_store_plan['datecreated'] = date("Y-m-d H:i:s");
+
+		$result = \lib\db\store\insert::store_plan($new_store_plan);
+
+		return $result;
+
+	}
 }
 ?>

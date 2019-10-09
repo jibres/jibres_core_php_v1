@@ -10,7 +10,7 @@ class subdomain
 	{
 		self::$debug = false;
 
-		$subdomain = self::validate($_subdomain, false);
+		$subdomain = self::validate($_subdomain);
 		if(!$subdomain)
 		{
 			return false;

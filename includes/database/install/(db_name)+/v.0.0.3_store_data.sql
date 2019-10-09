@@ -1,7 +1,7 @@
 CREATE TABLE `store_data` (
 `id` int(10) UNSIGNED NOT NULL,
 `title` varchar(200) CHARACTER SET utf8mb4 NULL,
-`owner` int(10) UNSIGNED NOT NULL,
+`owner` int(10) UNSIGNED NULL,
 `description` text CHARACTER SET utf8mb4,
 `lang` char(2) DEFAULT NULL,
 `unit` varchar(50) DEFAULT NULL,

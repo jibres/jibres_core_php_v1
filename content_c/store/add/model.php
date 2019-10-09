@@ -6,10 +6,9 @@ class model
 {
 	public static function getPost()
 	{
-		$post           = [];
-		$post['name']   = \dash\request::post('name');
-		$post['slug']   = \dash\request::post('slug');
-		$post['plan']   = 'trial';
+		$post              = [];
+		$post['title']      = \dash\request::post('title');
+		$post['subdomain'] = \dash\request::post('subdomain');
   		return $post;
 	}
 
@@ -18,7 +17,7 @@ class model
 	{
 		$post = self::getPost();
 
-		\lib\app\store\add::before($post);
+		\lib\app\store\add::trial($post);
 
 		if(\dash\engine\process::status())
 		{
