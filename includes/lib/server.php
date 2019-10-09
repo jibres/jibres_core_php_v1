@@ -5,10 +5,23 @@ namespace lib;
 class server
 {
 
-	public static function trial()
+	public static function db()
 	{
-		$trial = '192.168.1.1';
-		return $trial;
+		if(\dash\url::root() === 'jibres')
+		{
+			if(\dash\url::subdomain())
+			{
+				// search in subdomain
+			}
+			else
+			{
+				// master jibres server
+			}
+		}
+		else
+		{
+			// search in domains
+		}
 	}
 }
 ?>

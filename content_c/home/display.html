@@ -16,16 +16,12 @@
 
 {%block myStores%}
 <div class="cbox fs12">
-  <h2 class="ovh" data-kerkere="[data-storeList]" data-kerkere-icon='open'> {%trans "Your Stores"%}
-  {%if perm_su()%}
-     <a class="btn xs warn floatRa" href="{{url.here}}/store?all=true">{%trans "List of all stores"%}</a>
-  {%endif%}
-  </h2>
+  <h2 class="ovh" data-kerkere="[data-storeList]" data-kerkere-icon='open'> {%trans "Your Stores"%}</h2>
   <div data-kerkere-content data-storeList>
     <div class='middle normal live f justify-center'>
 {%if stores or listStore.staff%}
-{{block('iAmCreator')}}
-{{block('staffInStore')}}
+  {{block('iAmCreator')}}
+  {{block('staffInStore')}}
 {%else%}
       <div class="vcard mA10" data-live='none'>
         <img src="{{url.static}}/siftal/images/useful/plus1.png" alt='{%trans "Add new store"%}'>
@@ -36,7 +32,6 @@
       </div>
       <div class="msg info2 mA10 fs20 txtC">{%trans "You have not created your own store yet!"%}<br><a href="{{url.here}}/store/add">{%trans "Try Jibres free trial for 14 days"%}</a>
       </div>
-
 {%endif%}
     </div>
   </div>
@@ -85,9 +80,9 @@
     {%for key, value in stores%}
 
       <a href='{{value.url}}/a' class="vcard shadow blue mA10 c3 s6" data-live="on" >
-        <img src="{{value.logo}}" alt="{{value.name}}">
+        <img src="{{value.logo}}" alt="{{value.title}}">
         <div class="content">
-          <div class="header">{{value.name}}</div>
+          <div class="header">{{value.title}}</div>
 
           <div class="desc mT10" title='{%trans "Start from"%} {{value.startplan | dt(true)}}'>
             <div class="mB10">{%trans "Current plan"%} <b>{%set myPlan = value.plan | capitalize %}{%trans myPlan%}</b></div>
@@ -108,7 +103,7 @@
             <span class="badge success fs10">{%trans "Owner"%}</span>
           </div>
           <div class="cauto os hide">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
-          <div class="cauto os">{{value.slug | capitalize}}</div>
+          <div class="cauto os">{{value.subdomain | capitalize}}</div>
         </div>
       </a>
 
@@ -122,16 +117,16 @@
     {%if value.store_id in storeCreatorId%}
     {%else%}
       <a href='{{value.url}}/a' class="vcard shadow blue mA10 c3 s6" data-live="{%if value.user_status == 'active'%}on{%elseif value.user_status == 'draft'%}half{%else%}off{%endif%}" >
-        <img src="{{value.logo}}" alt="{{value.name}}">
+        <img src="{{value.logo}}" alt="{{value.title}}">
         <div class="content">
-          <div class="header">{{value.name}}</div>
+          <div class="header">{{value.title}}</div>
         </div>
         <div class="footer txtC f">
           <div class="c txtB txtLa">
             <span class="badge">{%trans "Staff"%}</span>
           </div>
           <div class="cauto os hide">{{value.url | replace({'http://': '', 'https://': ''}) | capitalize}}</div>
-          <div class="cauto os">{{value.slug | capitalize}}</div>
+          <div class="cauto os">{{value.subdomain | capitalize}}</div>
         </div>
       </a>
       {%endif%}
