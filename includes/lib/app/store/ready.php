@@ -44,6 +44,14 @@ class ready
 					}
 					break;
 
+				case 'logo':
+					if(!$value)
+					{
+						$value = \dash\app::static_logo_url();
+					}
+					$result[$key] = $value;
+					break;
+
 				case 'ip':
 				case 'dbip':
 					$result[$key. '_raw'] = $value;
@@ -51,7 +59,11 @@ class ready
 					{
 						$result[$key] = long2ip($value);
 					}
+					break;
 
+				case 'subdomain':
+					$result[$key] = $value;
+					$result['url'] = \dash\url::protocol(). '://'. $value. '.'. \dash\url::domain();
 					break;
 
 				case 'status':

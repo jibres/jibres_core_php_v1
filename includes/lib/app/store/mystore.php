@@ -21,7 +21,7 @@ class mystore
 
 		foreach ($store_user as $key => $value)
 		{
-			$value = \dash\app::ready($value);
+			$value = \lib\app\store\ready::row($value);
 
 			if(isset($value['staff']) && $value['staff'] === 'yes')
 			{

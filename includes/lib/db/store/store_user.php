@@ -9,14 +9,17 @@ class store_user
 		$query =
 		"
 			SELECT
+				store.*,
 				store_user.*,
 				store_data.title,
+				store_data.owner,
 				store_data.plan,
 				store_data.startplan,
 				store_data.expireplan,
 				store_data.logo
 			FROM
 				store_user
+			INNER JOIN store ON store.id = store_user.store_id
 			INNER JOIN store_data ON store_data.id = store_user.store_id
 			WHERE store_user.user_id = $_user_id
 		";
