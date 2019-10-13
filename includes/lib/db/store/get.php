@@ -19,5 +19,14 @@ class get
 		return $result;
 	}
 
+	public static function subdomain_detail($_subdomain)
+	{
+		$query = "SELECT * FROM store WHERE store.subdomain = '$_subdomain' LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
 }
 ?>
