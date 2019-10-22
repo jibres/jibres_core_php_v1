@@ -121,7 +121,7 @@ class check
 		$minstock = \dash\utility\convert::to_en_number($minstock);
 		if($minstock && !is_numeric($minstock))
 		{
-			\dash\notif::error(T_("Value of minstock muset be a number"), 'minstock');
+			\dash\notif::error(T_("Value of minstock must be a number"), 'minstock');
 			return false;
 		}
 
@@ -141,7 +141,7 @@ class check
 		$maxstock = \dash\utility\convert::to_en_number($maxstock);
 		if($maxstock && !is_numeric($maxstock))
 		{
-			\dash\notif::error(T_("Value of maxstock muset be a number"), 'maxstock');
+			\dash\notif::error(T_("Value of maxstock must be a number"), 'maxstock');
 			return false;
 		}
 
@@ -162,7 +162,7 @@ class check
 		$weight = \dash\utility\convert::to_en_number($weight);
 		if($weight && !is_numeric($weight))
 		{
-			\dash\notif::error(T_("Value of weight muset be a number"), 'weight');
+			\dash\notif::error(T_("Value of weight must be a number"), 'weight');
 			return false;
 		}
 
@@ -234,7 +234,7 @@ class check
 		$carton = \dash\utility\convert::to_en_number($carton);
 		if($carton && !is_numeric($carton))
 		{
-			\dash\notif::error(T_("Value of carton muset be a number"), 'carton');
+			\dash\notif::error(T_("Value of carton must be a number"), 'carton');
 			return false;
 		}
 
@@ -261,7 +261,7 @@ class check
 		$salestep = \dash\utility\convert::to_en_number($salestep);
 		if($salestep && !is_numeric($salestep))
 		{
-			\dash\notif::error(T_("Value of salestep muset be a number"), 'salestep');
+			\dash\notif::error(T_("Value of salestep must be a number"), 'salestep');
 			return false;
 		}
 
@@ -281,7 +281,7 @@ class check
 		$minsale = \dash\utility\convert::to_en_number($minsale);
 		if($minsale && !is_numeric($minsale))
 		{
-			\dash\notif::error(T_("Value of minsale muset be a number"), 'minsale');
+			\dash\notif::error(T_("Value of minsale must be a number"), 'minsale');
 			return false;
 		}
 
@@ -301,7 +301,7 @@ class check
 		$maxsale = \dash\utility\convert::to_en_number($maxsale);
 		if($maxsale && !is_numeric($maxsale))
 		{
-			\dash\notif::error(T_("Value of maxsale muset be a number"), 'maxsale');
+			\dash\notif::error(T_("Value of maxsale must be a number"), 'maxsale');
 			return false;
 		}
 
@@ -602,7 +602,7 @@ class check
 		$buyprice = \dash\utility\convert::to_en_number($buyprice);
 		if($buyprice && !is_numeric($buyprice))
 		{
-			\dash\notif::error(T_("Value of buyprice muset be a number"), 'buyprice');
+			\dash\notif::error(T_("Value of buyprice must be a number"), 'buyprice');
 			return false;
 		}
 
@@ -629,7 +629,7 @@ class check
 		$price = \dash\utility\convert::to_en_number($price);
 		if($price && !is_numeric($price))
 		{
-			\dash\notif::error(T_("Value of price muset be a number"), 'price');
+			\dash\notif::error(T_("Value of price must be a number"), 'price');
 			return false;
 		}
 
@@ -657,7 +657,7 @@ class check
 		$discount = \dash\utility\convert::to_en_number($discount);
 		if($discount && !is_numeric($discount))
 		{
-			\dash\notif::error(T_("Value of discount muset be a number"), 'discount');
+			\dash\notif::error(T_("Value of discount must be a number"), 'discount');
 			return false;
 		}
 
