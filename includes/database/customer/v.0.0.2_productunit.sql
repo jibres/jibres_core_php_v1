@@ -1,0 +1,6 @@
+CREATE TABLE `jibres_XXXXXXX`.`productunit` (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`title` varchar(100) DEFAULT NULL,
+`int` bit(1) DEFAULT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

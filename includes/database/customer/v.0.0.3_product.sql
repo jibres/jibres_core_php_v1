@@ -1,4 +1,4 @@
-CREATE TABLE `products` (
+CREATE TABLE `jibres_XXXXXXX`.`products` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `code` int(10) UNSIGNED DEFAULT NULL,
 `sku` varchar(20) DEFAULT NULL,

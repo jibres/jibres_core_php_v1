@@ -151,13 +151,27 @@ class add
 
 		\dash\db::commit();
 
-		$create_detail_file = self::create_detail_file($store_id);
+		// create database of store customer
+		$create_db = \lib\app\store\db::create($store_id);
 
-		$create_subdomain_file = self::create_subdomain_file($store_id, $subdomain);
+		if($create_db)
+		{
+			$create_detail_file = self::create_detail_file($store_id);
 
-		\dash\notif::ok(T_("Your store created"));
+			$create_subdomain_file = self::create_subdomain_file($store_id, $subdomain);
 
-		return true;
+			\dash\notif::ok(T_("Your store created"));
+			
+			return true;
+		}
+		else
+		{
+			\dash\notif::error(T_("We can not create your store!"));
+
+			\dash\log::set('createStoreDbOkCustormeDataBaseNOK', ['request_subdomain' => $subdomain, 'store_id' => $store_id]);
+
+			return false;
+		}
 	}
 
 

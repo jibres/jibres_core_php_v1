@@ -1,0 +1,21 @@
+CREATE TABLE `jibres_XXXXXXX`.`productprices` (
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+`product_id` int(10) UNSIGNED NOT NULL,
+`last` enum('yes') DEFAULT NULL,
+`creator` int(10) UNSIGNED NOT NULL,
+`startdate` datetime NOT NULL,
+`enddate` datetime DEFAULT NULL,
+`buyprice` bigint(20) UNSIGNED DEFAULT NULL,
+`price` bigint(20) UNSIGNED DEFAULT NULL,
+`discount` bigint(20) DEFAULT NULL,
+`discountpercent` float DEFAULT NULL,
+`finalprice` bigint(20) DEFAULT NULL,
+`datecreated` datetime DEFAULT CURRENT_TIMESTAMP,
+`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+`factor_id` bigint(20) UNSIGNED DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `productprices_last_search_index` (`last`),
+CONSTRAINT `productprices_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `productprices_factor_id` FOREIGN KEY (`factor_id`) REFERENCES `factors` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `productprices_product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

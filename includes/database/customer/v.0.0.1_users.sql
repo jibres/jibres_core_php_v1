@@ -1,4 +1,4 @@
-CREATE TABLE `users` (
+CREATE TABLE `jibres_XXXXXXX`.`users` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `jibres_user_id` int(10) UNSIGNED NULL,
 `username` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
