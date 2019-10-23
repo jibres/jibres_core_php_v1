@@ -100,14 +100,6 @@ class store
 				$store_detail['logo'] = \dash\app::static_logo_url();
 			}
 
-			if(isset($store_detail['meta']))
-			{
-				if(is_string($store_detail['meta']) && substr($store_detail['meta'], 0, 1) === '{')
-				{
-					$store_detail['meta'] = json_decode($store_detail['meta'], true);
-				}
-			}
-
 			self::$store = $store_detail;
 			\dash\session::set('store_detail_'. self::store_slug(), $store_detail);
 		}

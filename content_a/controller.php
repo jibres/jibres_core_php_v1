@@ -15,12 +15,9 @@ class controller
 		{
 			\dash\header::status(404, T_("Store not found"));
 		}
-
-		if(!\dash\user::login())
-		{
-			\dash\redirect::to(\dash\url::kingdom(). '/enter');
-			return;
-		}
+		
+		// check user is login
+		\dash\redirect::to_login();
 
 		if(!\lib\userstore::in_store() && !\dash\permission::supervisor())
 		{

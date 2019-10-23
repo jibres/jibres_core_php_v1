@@ -156,6 +156,8 @@ class userstore
 
 	public static function in_store()
 	{
+		return true;
+		
 		if(self::detail('staff'))
 		{
 			return self::id();
