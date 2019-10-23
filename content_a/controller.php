@@ -15,7 +15,7 @@ class controller
 		{
 			\dash\header::status(404, T_("Store not found"));
 		}
-		
+
 		// check user is login
 		\dash\redirect::to_login();
 

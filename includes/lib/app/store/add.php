@@ -135,7 +135,6 @@ class add
 			return false;
 		}
 
-
 		$add_store_user = self::new_store_user($args, $store_id);
 
 		if(!$add_store_user)
@@ -161,7 +160,7 @@ class add
 			$create_subdomain_file = self::create_subdomain_file($store_id, $subdomain);
 
 			\dash\notif::ok(T_("Your store created"));
-			
+
 			return true;
 		}
 		else
