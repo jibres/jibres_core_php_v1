@@ -44,7 +44,7 @@ class request
 	{
 		if(!empty(self::$data))
 		{
-			\lib\db\check::insert(self::$data);
+			// \lib\db\check::insert(self::$data);
 		}
 	}
 
