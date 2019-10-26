@@ -20,5 +20,5 @@ CREATE TABLE `jibres_XXXXXXX`.`productterms` (
 `defaultproperty` text CHARACTER SET utf8mb4,
  PRIMARY KEY (`id`),
  KEY `terms_type_search_index` (`type`),
- CONSTRAINT `productterms_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+ CONSTRAINT `productterms_creator` FOREIGN KEY (`creator`) REFERENCES `userstore` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

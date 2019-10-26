@@ -1,7 +1,7 @@
 CREATE TABLE `jibres_XXXXXXX`.`productcomment` (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `product_id` int(10) UNSIGNED NOT NULL,
-`user_id` int(10) UNSIGNED DEFAULT NULL,
+`userstore_id` int(10) UNSIGNED DEFAULT NULL,
 `content` mediumtext,
 `parent` bigint(20) UNSIGNED DEFAULT NULL,
 `star` smallint(5) UNSIGNED DEFAULT NULL,
@@ -12,5 +12,5 @@ CREATE TABLE `jibres_XXXXXXX`.`productcomment` (
 PRIMARY KEY (`id`),
 KEY `productcomment_star_search_index` (`star`),
 CONSTRAINT `productcomment_product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
-CONSTRAINT `productcomment_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+CONSTRAINT `productcomment_user_id` FOREIGN KEY (`userstore_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

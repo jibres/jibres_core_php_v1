@@ -52,16 +52,16 @@ class db
 	private static function inner_query($_db_name, $_args)
 	{
 		// insert current user to customer database
-		$set                   = [];
-		$set['status']         = 'active';
-		$set['permission']     = 'admin';
-		$set['jibres_user_id'] = $_args['creator'];
-		$set['mobile']         = $_args['mobile'];
-		$set['displayname']    = $_args['displayname'];
-		$set['gender']         = $_args['gender'];
-		$set['avatar']         = $_args['avatar'];
-		$set['birthday']       = $_args['birthday'];
-		$set['marital']        = $_args['marital'];
+		$set                = [];
+		$set['status']      = 'active';
+		$set['permission']  = 'admin';
+		$set['user_id']     = $_args['creator'];
+		$set['mobile']      = $_args['mobile'];
+		$set['displayname'] = $_args['displayname'];
+		$set['gender']      = $_args['gender'];
+		$set['avatar']      = $_args['avatar'];
+		$set['birthday']    = $_args['birthday'];
+		$set['marital']     = $_args['marital'];
 
 		$set = \dash\db\config::make_set($set);
 
@@ -71,7 +71,7 @@ class db
 
 	private static function insert_customer_user($_db_name, $_set)
 	{
-		$query = "INSERT INTO `$_db_name`.`users` SET $_set";
+		$query = "INSERT INTO `$_db_name`.`userstore` SET $_set";
 		$result = \dash\db::query($query);
 		return $result;
 	}

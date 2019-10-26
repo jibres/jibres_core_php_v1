@@ -1,6 +1,6 @@
-CREATE TABLE `jibres_XXXXXXX`.`users` (
+CREATE TABLE `jibres_XXXXXXX`.`userstore` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-`jibres_user_id` int(10) UNSIGNED NULL,
+`user_id` int(10) UNSIGNED NULL,
 `username` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `displayname` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `gender` enum('male','female','company','rather not say') DEFAULT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `jibres_XXXXXXX`.`users` (
 `phone` varchar(100) DEFAULT NULL,
 `detail` text CHARACTER SET utf8mb4,
 PRIMARY KEY (`id`),
-KEY `index_search_jibres_user_id` (`jibres_user_id`),
+KEY `index_search_jibres_user_id` (`user_id`),
 KEY `index_search_mobile` (`mobile`),
 KEY `index_search_nationalcode` (`nationalcode`),
 KEY `index_search_pasportcode` (`pasportcode`),
