@@ -7,7 +7,7 @@ class model
 	public static function getPost()
 	{
 		$post              = [];
-		$post['title']      = \dash\request::post('title');
+		$post['title']     = \dash\request::post('title');
 		$post['subdomain'] = \dash\request::post('subdomain');
   		return $post;
 	}
@@ -21,7 +21,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::here().'/store');
+			\dash\redirect::to(\dash\url::here());
 		}
 	}
 

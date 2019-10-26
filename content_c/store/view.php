@@ -19,10 +19,11 @@ class view
 			}
 		}
 
-		$dataTable = \lib\app\store::list(\dash\request::get('q'), $args);
+		$dataTable = \lib\app\store\search::list(\dash\request::get('q'), $args);
 		\dash\data::dataTable($dataTable);
 
-		\content_c\home\view::storeList();
+		$myStore = \lib\app\store\mystore::list();
+		\dash\data::listStore($myStore);
 	}
 }
 ?>

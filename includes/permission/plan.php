@@ -2,6 +2,9 @@
 
 $master   = [];
 
+$master[] = 'contentA';
+
+
 $master[] = 'factorAccess';
 $master[] = 'factorEditAccess';
 
