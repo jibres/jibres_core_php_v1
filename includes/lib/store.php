@@ -78,6 +78,12 @@ class store
 	 */
 	public static function init()
 	{
+		// no subdomain and no domains
+		if(!self::store_slug())
+		{
+			return;
+		}
+
 		if(!empty(self::$store))
 		{
 			return;
@@ -93,11 +99,11 @@ class store
 
 		$store_detail = \lib\db\store\get::subdomain_detail(self::store_slug());
 
-		if(is_array($store_detail))
+		if(isset($store_detail['store_data']) && is_array($store_detail['store_data']))
 		{
-			if(array_key_exists('logo', $store_detail) && !$store_detail['logo'])
+			if(array_key_exists('logo', $store_detail['store_data']) && !$store_detail['store_data']['logo'])
 			{
-				$store_detail['logo'] = \dash\app::static_logo_url();
+				$store_detail['store_data']['logo'] = \dash\app::static_logo_url();
 			}
 
 			self::$store = $store_detail;
@@ -137,19 +143,20 @@ class store
 
 
 	/**
-	 * get name of store
+	 * get title of store
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function name()
+	public static function title()
 	{
-		self::init();
+		return self::detail('title');
+	}
 
-		if(isset(self::$store['name']))
-		{
-			return self::$store['name'];
-		}
-		return null;
+
+	public static function logo()
+	{
+		return self::detail('logo');
+
 	}
 
 
@@ -166,7 +173,14 @@ class store
 			{
 				return self::$store[$_name];
 			}
-			return null;
+			elseif(isset(self::$store['store_data']) && is_array(self::$store['store_data']) && array_key_exists($_name, self::$store['store_data']))
+			{
+				return self::$store['store_data'][$_name];
+			}
+			else
+			{
+				return null;
+			}
 		}
 		else
 		{

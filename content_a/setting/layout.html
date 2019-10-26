@@ -134,9 +134,9 @@
 
 
   <a class="vcard mA10 shadow {{cardColor}}" {%if perm('settingEditLogo')%} href='{{url.this}}/logo' {%endif%}>
-    <img src="{{store.logo}}" alt="{{store.name}}" class="pA10-f">
+    <img src="{{store.logo}}" alt="{{store.store_data.title}}" class="pA10-f">
     <div class="content">
-      <div class="header">{{store.name}}</div>
+      <div class="header">{{store.store_data.title}}</div>
       {%if store.rule != 'admin' and store.privacy == 'private' or true%}
       {%else%}
         {%if not store.stats.last_traffic_string%}
@@ -187,7 +187,7 @@
  <input type="file" accept="image/jpeg, image/png, image/ico" name="fav" id="fav1" data-preview data-max="500">
  <label for="fav1" title='{%trans "allowed extentions jpg, png, ico. Max 500Kb"%}'>
 {%if store.fav%}
-  <img src="{{store.fav}}" alt="{{store.name}}" id="logoPreview">
+  <img src="{{store.fav}}" alt="{{store.store_data.title}}" id="logoPreview">
 {%endif%}
  </label>
 </div>
@@ -200,7 +200,7 @@
  <input type="file" accept="image/gif, image/jpeg, image/png" name="logo" id="logo1" data-preview data-max="500">
  <label for="logo1" title='{%trans "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"%}'>
 {%if store.logo%}
-  <img src="{{store.logo}}" alt="{{store.name}}" id="logoPreview">
+  <img src="{{store.logo}}" alt="{{store.store_data.title}}" id="logoPreview">
 {%endif%}
  </label>
 </div>
@@ -210,7 +210,7 @@
 {%block iname%}
 <label for="name">{%trans "Name"%} <span class="fc-red">*</span></label>
 <div class="input">
-  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{store.name}}" autofocus maxlength='50' minlength="1" pattern=".{1,50}" title='{%trans "Enter a valid name from 3 to 40 character"%}' required>
+  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{store.store_data.title}}" autofocus maxlength='50' minlength="1" pattern=".{1,50}" title='{%trans "Enter a valid name from 3 to 40 character"%}' required>
 </div>
 {%endblock%}
 

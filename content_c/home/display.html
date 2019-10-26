@@ -57,7 +57,7 @@
       <tbody>
         {%for key, store in listStore.supplier %}
         <tr>
-          <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
+          <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.store_data.title}}</a></td>
           <td>{%if store.countordersupplier%}{{store.countordersupplier | fitNumber}}{%else%}-{%endif%}</td>
           <td>{%if store.sumpaysupplier%}{{store.sumpaysupplier | fitNumber}}{%else%}-{%endif%}</td>
           <td>{%if store.countordersupplier%}{{(store.sumpaysupplier / store.countordersupplier) | round(2) | fitNumber}}{%else%}-{%endif%}</td>
@@ -154,7 +154,7 @@
     {%if listStore.customer%}
         {%for key, store in listStore.customer %}
         <tr>
-          <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.name}}</a></td>
+          <td><a href='{{store.url}}'><i class="sf-share pRa10"></i> {{store.store_data.title}}</a></td>
           <td>{%if store.countordercustomer%}{{store.countordercustomer | fitNumber}}{%else%}-{%endif%}</td>
           <td>{%if store.sumpaycustomer%}{{store.sumpaycustomer | fitNumber}}{%else%}-{%endif%}</td>
           <td>{%if store.countordercustomer%}{{(store.sumpaycustomer / store.countordercustomer) | round(2) | fitNumber}}{%else%}-{%endif%}</td>
