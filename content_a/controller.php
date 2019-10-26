@@ -19,10 +19,7 @@ class controller
 		// check user is login
 		\dash\redirect::to_login();
 
-		if(!\lib\userstore::in_store() && !\dash\permission::supervisor())
-		{
-			\dash\header::status(403, T_("Your are not in this store"));
-		}
+		\dash\permission::access('contentA');
 	}
 }
 ?>

@@ -12,7 +12,7 @@ class model
 		[
 			'msg_go'        => null,
 			'turn_back'     => \dash\url::pwd(),
-			'user_id'       => \lib\userstore::id(),
+			'user_id'       => \dash\user::id(),
 			'final_fn'      => ['/content_a/setting/sms/model', 'bank_back_transaction'],
 			'final_fn_args' => ['amount' => $amount],
 			'amount'        => $amount,
