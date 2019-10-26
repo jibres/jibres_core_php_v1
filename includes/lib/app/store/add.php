@@ -85,14 +85,22 @@ class add
 			}
 		}
 
-		$args               = [];
-		$args['owner']      = $user_id;
-		$args['creator']    = $user_id;
-		$args['title']      = $title;
-		$args['subdomain']  = $subdomain;
-		$args['startplan']  = date("Y-m-d H:i:s");
-		$args['expireplan'] = date("Y-m-d H:i:s", strtotime("+14 days"));
-		$args['plan']       = 'trial';
+		$args                = [];
+		$args['owner']       = $user_id;
+		$args['creator']     = $user_id;
+		$args['title']       = $title;
+		$args['subdomain']   = $subdomain;
+		$args['startplan']   = date("Y-m-d H:i:s");
+		$args['expireplan']  = date("Y-m-d H:i:s", strtotime("+14 days"));
+		$args['plan']        = 'trial';
+
+		// use in insert customer user table
+		$args['mobile']      = \dash\user::detail('mobile');
+		$args['displayname'] = \dash\user::detail('displayname');
+		$args['gender']      = \dash\user::detail('gender');
+		$args['avatar']      = \dash\user::detail('avatar');
+		$args['birthday']    = \dash\user::detail('birthday');
+		$args['marital']     = \dash\user::detail('marital');
 
 		\dash\db::transaction();
 
@@ -151,19 +159,9 @@ class add
 		\dash\db::commit();
 
 		// create database of store customer
-		$create_db = \lib\app\store\db::create($store_id);
+		$create_db = \lib\app\store\db::create($store_id, $args);
 
-		if($create_db)
-		{
-			$create_detail_file = self::create_detail_file($store_id);
-
-			$create_subdomain_file = self::create_subdomain_file($store_id, $subdomain);
-
-			\dash\notif::ok(T_("Your store created"));
-
-			return true;
-		}
-		else
+		if(!$create_db)
 		{
 			\dash\notif::error(T_("We can not create your store!"));
 
@@ -171,6 +169,17 @@ class add
 
 			return false;
 		}
+
+
+		$create_detail_file = self::create_detail_file($store_id);
+
+		$create_subdomain_file = self::create_subdomain_file($store_id, $subdomain);
+
+		\dash\notif::ok(T_("Your store created"));
+
+		return true;
+
+
 	}
 
 

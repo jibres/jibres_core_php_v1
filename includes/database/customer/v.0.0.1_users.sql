@@ -5,7 +5,6 @@ CREATE TABLE `jibres_XXXXXXX`.`users` (
 `displayname` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `gender` enum('male','female','company','rather not say') DEFAULT NULL,
 `title` varchar(100) DEFAULT NULL,
-`password` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
 `mobile` varchar(15) DEFAULT NULL,
 `verifymobile` bit(1) DEFAULT NULL,
 `email` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
