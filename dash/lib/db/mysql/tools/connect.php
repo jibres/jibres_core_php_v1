@@ -10,6 +10,10 @@ trait connect
 	public static $link_default = null;
 
 	// declare connection variables
+	// this is the jibres customer database name
+	// if this variable is set owerride to $db_name
+	public static $jibres_db_name = null;
+
 	public static $db_name      = null;
 	public static $db_user      = null;
 	public static $db_pass      = null;
@@ -91,6 +95,11 @@ trait connect
 		self::$db_name = self::$db_name ? self::$db_name : db_name;
 		self::$db_user = self::$db_user ? self::$db_user : db_user;
 		self::$db_pass = self::$db_pass ? self::$db_pass : db_pass;
+
+		if(self::$jibres_db_name)
+		{
+			self::$db_name = self::$jibres_db_name;
+		}
 
 		if(array_key_exists(self::$db_name, self::$link_open))
 		{

@@ -25,6 +25,9 @@ class power
 		// // check if isset remember me and login by this
 		\dash\user::check_remeber_login();
 
+		// find store detail and set to connect to true store
+		\dash\engine\store::config();
+
 
 		// LAUNCH !
 		\dash\engine\mvc::fire();
