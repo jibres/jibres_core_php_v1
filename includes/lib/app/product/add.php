@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\product2;
+namespace lib\app\product;
 
 
 class add
@@ -47,7 +47,7 @@ class add
 
 		$_option = array_merge($default_option, $_option);
 
-		\dash\app::variable($_args, \lib\app\product2\check::variable_args());
+		\dash\app::variable($_args, \lib\app\product\check::variable_args());
 
 
 		if(!\dash\user::id())
@@ -68,27 +68,27 @@ class add
 			return false;
 		}
 
-		if(!\lib\userstore::in_store())
-		{
-			\dash\notif::error(T_("You are not in this store"));
-			return false;
-		}
+		// if(!\lib\userstore::in_store())
+		// {
+		// 	\dash\notif::error(T_("You are not in this store"));
+		// 	return false;
+		// }
 
 
-		$args = \lib\app\product2\check::variable(null, $_option);
+		$args = \lib\app\product\check::variable(null, $_option);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		$args_price = \lib\app\product2\check::price(null, $_option);
+		$args_price = \lib\app\product\check::price(null, $_option);
 		if($args_price === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		$args['store_id']    = \lib\store::id();
+		// $args['store_id']    = \lib\store::id();
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
 		if(!isset($args['status']) || (isset($args['status']) && !$args['status']))
@@ -109,7 +109,7 @@ class add
 		}
 
 		// check plan limitation
-		if(!\lib\app\plan_limit::check('product'))
+		if(!\lib\app\plan\limit::check('product'))
 		{
 			return false;
 		}
@@ -125,7 +125,7 @@ class add
 		if($unit)
 		{
 			\lib\app\product\unit::$debug = false;
-			$add_unit                     = \lib\app\product2\unit::check_add($unit);
+			$add_unit                     = \lib\app\product\unit::check_add($unit);
 			if(isset($add_unit['id']))
 			{
 				$args['unit_id'] = $add_unit['id'];
@@ -137,7 +137,7 @@ class add
 		if($company)
 		{
 			\lib\app\product\company::$debug = false;
-			$add_company                     = \lib\app\product2\company::check_add($company);
+			$add_company                     = \lib\app\product\company::check_add($company);
 			if(isset($add_company['id']))
 			{
 				$args['company_id'] = $add_company['id'];
@@ -146,7 +146,7 @@ class add
 
 
 
-		$product_id = \lib\db\products2\db::insert($args, \lib\store::id());
+		$product_id = \lib\db\products\db::insert($args, \lib\store::id());
 
 		if(!$product_id)
 		{
@@ -217,8 +217,7 @@ class add
 		if(!$_option['multi_add'])
 		{
 			$return['product_id'] = \dash\coding::encode($product_id);
-			$return['code']       = \lib\db\products2\db::get_one_field($product_id, 'code');
-			\lib\app\product\dashboard::clean_cache('var');
+			$return['code']       = \lib\db\products\db::get_one_field($product_id, 'code');
 		}
 
 		if(!$_option['transaction'])

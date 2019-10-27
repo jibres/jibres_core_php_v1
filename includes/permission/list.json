@@ -700,5 +700,275 @@
   "productCommentListEdit": {
     "title": "productCommentListEdit",
     "cat": "ProductTag"
+  },
+  "productVariantscontentA": {
+    "title": "contentA"
+  },
+  "productVariants": {
+    "title": "productVariants"
+  },
+  "ProductEdit": {
+    "title": "ProductEdit"
+  },
+  "ProductAdd": {
+    "title": "ProductAdd"
+  },
+  "EnterByAnother": {
+    "title": "EnterByAnother"
+  },
+  "cpPermissionView": {
+    "title": "cpPermissionView"
+  },
+  "cpPermissionAdd": {
+    "title": "cpPermissionAdd"
+  },
+  "cpPermissionEdit": {
+    "title": "cpPermissionEdit"
+  },
+  "cpPermissionDelete": {
+    "title": "cpPermissionDelete"
+  },
+  "cpSmsTemplateEdit": {
+    "title": "cpSmsTemplateEdit"
+  },
+  "cpSmsTemplateView": {
+    "title": "cpSmsTemplateView"
+  },
+  "cpSmsSend": {
+    "title": "cpSmsSend"
+  },
+  "cpSMS": {
+    "title": "cpSMS"
+  },
+  "cpSmsSendGroup": {
+    "title": "cpSmsSendGroup"
+  },
+  "cpUsersEdit": {
+    "title": "cpUsersEdit"
+  },
+  "cpUsersView": {
+    "title": "cpUsersView"
+  },
+  "cpUsersPermission": {
+    "title": "cpUsersPermission"
+  },
+  "cpUsersPasswordChange": {
+    "title": "cpUsersPasswordChange"
+  },
+  "cpUsersAdd": {
+    "title": "cpUsersAdd"
+  },
+  "cpTransaction": {
+    "title": "cpTransaction"
+  },
+  "cpTransactionAdd": {
+    "title": "cpTransactionAdd"
+  },
+  "contentCrm": {
+    "title": "contentCrm"
+  },
+  "cpEmailSend": {
+    "title": "cpEmailSend"
+  },
+  "cpEmail": {
+    "title": "cpEmail"
+  },
+  "listOfStores": {
+    "title": "listOfStores"
+  },
+  "aCustomerView": {
+    "title": "aCustomerView"
+  },
+  "aCustomerEdit": {
+    "title": "aCustomerEdit"
+  },
+  "mClassroomAdd": {
+    "title": "mClassroomAdd"
+  },
+  "cpPageAdd": {
+    "title": "cpPageAdd"
+  },
+  "cpHelpCenterAdd": {
+    "title": "cpHelpCenterAdd"
+  },
+  "cpPostsAdd": {
+    "title": "cpPostsAdd"
+  },
+  "cpPostsViewAll": {
+    "title": "cpPostsViewAll"
+  },
+  "cpPageView": {
+    "title": "cpPageView"
+  },
+  "cpHelpCenterView": {
+    "title": "cpHelpCenterView"
+  },
+  "cpPostsView": {
+    "title": "cpPostsView"
+  },
+  "cpChangePostCreator": {
+    "title": "cpChangePostCreator"
+  },
+  "cpPostsEditStatus": {
+    "title": "cpPostsEditStatus"
+  },
+  "cpHelpCenterEditStatus": {
+    "title": "cpHelpCenterEditStatus"
+  },
+  "cpPostsDelete": {
+    "title": "cpPostsDelete"
+  },
+  "cpHelpCenterDelete": {
+    "title": "cpHelpCenterDelete"
+  },
+  "cpPageDelete": {
+    "title": "cpPageDelete"
+  },
+  "cpPageEdit": {
+    "title": "cpPageEdit"
+  },
+  "cpHelpCenterEdit": {
+    "title": "cpHelpCenterEdit"
+  },
+  "cpPostsEdit": {
+    "title": "cpPostsEdit"
+  },
+  "cpHelpCenterEditPublished": {
+    "title": "cpHelpCenterEditPublished"
+  },
+  "cpCategoryView": {
+    "title": "cpCategoryView"
+  },
+  "cpTagView": {
+    "title": "cpTagView"
+  },
+  "cpCommentsView": {
+    "title": "cpCommentsView"
+  },
+  "cpCommentsEdit": {
+    "title": "cpCommentsEdit"
+  },
+  "cpCategoryDelete": {
+    "title": "cpCategoryDelete"
+  },
+  "cpTagHelpDelete": {
+    "title": "cpTagHelpDelete"
+  },
+  "cpTagSupportDelete": {
+    "title": "cpTagSupportDelete"
+  },
+  "cpTagDelete": {
+    "title": "cpTagDelete"
+  },
+  "cpCategoryEdit": {
+    "title": "cpCategoryEdit"
+  },
+  "cpTagHelpEdit": {
+    "title": "cpTagHelpEdit"
+  },
+  "cpTagSupportEdit": {
+    "title": "cpTagSupportEdit"
+  },
+  "cpTagEdit": {
+    "title": "cpTagEdit"
+  },
+  "cpCategoryAdd": {
+    "title": "cpCategoryAdd"
+  },
+  "cpTagSupportAdd": {
+    "title": "cpTagSupportAdd"
+  },
+  "cpTagHelpAdd": {
+    "title": "cpTagHelpAdd"
+  },
+  "cpTagAdd": {
+    "title": "cpTagAdd"
+  },
+  "cpTagHelpView": {
+    "title": "cpTagHelpView"
+  },
+  "cpTagSupportView": {
+    "title": "cpTagSupportView"
+  },
+  "cpDayEvent": {
+    "title": "cpDayEvent"
+  },
+  "cpContactView": {
+    "title": "cpContactView"
+  },
+  "supportTicketManage": {
+    "title": "supportTicketManage"
+  },
+  "cpBackup": {
+    "title": "cpBackup"
+  },
+  "contentCp": {
+    "title": "contentCp"
+  },
+  "contentA": {
+    "title": "contentA"
+  },
+  "supportTicketAddNote": {
+    "title": "supportTicketAddNote"
+  },
+  "supportEditMessage": {
+    "title": "supportEditMessage"
+  },
+  "supportTicketSignature": {
+    "title": "supportTicketSignature"
+  },
+  "cpHelpCenterEditForOthers": {
+    "title": "cpHelpCenterEditForOthers"
+  },
+  "supportTicketAnswer": {
+    "title": "supportTicketAnswer"
+  },
+  "supportTicketTrash": {
+    "title": "supportTicketTrash"
+  },
+  "cpSupportTagAdd": {
+    "title": "cpSupportTagAdd"
+  },
+  "supportTicketAssignTag": {
+    "title": "supportTicketAssignTag"
+  },
+  "supportTicketClose": {
+    "title": "supportTicketClose"
+  },
+  "supportTicketReOpen": {
+    "title": "supportTicketReOpen"
+  },
+  "supportTicketDelete": {
+    "title": "supportTicketDelete"
+  },
+  "supportTicketManageSubdomain": {
+    "title": "supportTicketManageSubdomain"
+  },
+  "supportTicketShowLastVisitor": {
+    "title": "supportTicketShowLastVisitor"
+  },
+  "supportTicketShowMobile": {
+    "title": "supportTicketShowMobile"
+  },
+  "supportTicketReport": {
+    "title": "supportTicketReport"
+  },
+  "cpHelpCenterViewAll": {
+    "title": "cpHelpCenterViewAll"
+  },
+  "cpCommentsDelete": {
+    "title": "cpCommentsDelete"
+  },
+  "cpPostsEditPublished": {
+    "title": "cpPostsEditPublished"
+  },
+  "cpPostsEditForOthers": {
+    "title": "cpPostsEditForOthers"
+  },
+  "cpHelpCenterDeleteForOthers": {
+    "title": "cpHelpCenterDeleteForOthers"
+  },
+  "cpPostsDeleteForOthers": {
+    "title": "cpPostsDeleteForOthers"
   }
 }

@@ -1,7 +1,7 @@
 <?php
-namespace lib\app;
+namespace lib\app\plan;
 
-class plan_limit
+class limit
 {
 	public static function check($_module, $_count = null)
 	{

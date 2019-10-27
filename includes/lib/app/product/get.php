@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\product2;
+namespace lib\app\product;
 
 
 class get
@@ -25,7 +25,7 @@ class get
 			return false;
 		}
 
-		$result = \lib\db\products2\db::get_by_id($id, \lib\store::id());
+		$result = \lib\db\products\db::get_by_id($id, \lib\store::id());
 
 		if(!$result)
 		{
@@ -58,7 +58,7 @@ class get
 			return false;
 		}
 
-		$result = \lib\db\products2\db::get_by_code($_code, \lib\store::id());
+		$result = \lib\db\products\db::get_by_code($_code, \lib\store::id());
 
 		if(!$result)
 		{
@@ -76,7 +76,7 @@ class get
 		$result = self::by_code_inline($_code);
 		if($result)
 		{
-			$result = \lib\app\product2\ready::row($result, $_options);
+			$result = \lib\app\product\ready::row($result, $_options);
 		}
 		return $result;
 	}
@@ -88,7 +88,7 @@ class get
 
 		if($result)
 		{
-			$result = \lib\app\product2\ready::row($result, $_options);
+			$result = \lib\app\product\ready::row($result, $_options);
 		}
 
 		return $result;

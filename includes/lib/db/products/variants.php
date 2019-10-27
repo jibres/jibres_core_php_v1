@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\products2;
+namespace lib\db\products;
 
 
 class variants
@@ -7,14 +7,14 @@ class variants
 
 	public static function update($_variants, $_id)
 	{
-		$query  = "UPDATE products2 SET products2.variants = '$_variants' WHERE products2.id = $_id LIMIT 1";
+		$query  = "UPDATE products SET products.variants = '$_variants' WHERE products.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}
 
 	public static function have_child($_id)
 	{
-		$query  = "SELECT products2.id AS `id` FROM products2 WHERE products2.parent = $_id LIMIT 1";
+		$query  = "SELECT products.id AS `id` FROM products WHERE products.parent = $_id LIMIT 1";
 		$result = \dash\db::get($query, 'id', true);
 		return $result;
 	}
@@ -25,13 +25,13 @@ class variants
 		$query  =
 		"
 			SELECT
-				products2.parent,
+				products.parent,
 				COUNT(*) AS `count`
 			FROM
-				products2
+				products
 			WHERE
-				products2.parent IN ($_products_ids)
-			GROUP BY products2.parent
+				products.parent IN ($_products_ids)
+			GROUP BY products.parent
 		";
 		$result = \dash\db::get($query);
 		return $result;

@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\product2;
+namespace lib\app\product;
 
 
 class edit
@@ -19,7 +19,7 @@ class edit
 
 		$_option = array_merge($default_option, $_option);
 
-		\dash\app::variable($_args, \lib\app\product2\check::variable_args());
+		\dash\app::variable($_args, \lib\app\product\check::variable_args());
 
 		if(!\dash\user::id())
 		{
@@ -39,13 +39,13 @@ class edit
 			return false;
 		}
 
-		if(!\lib\userstore::in_store())
-		{
-			\dash\notif::error(T_("You are not in this store"));
-			return false;
-		}
+		// if(!\lib\userstore::in_store())
+		// {
+		// 	\dash\notif::error(T_("You are not in this store"));
+		// 	return false;
+		// }
 
-		$product_detail = \lib\app\product2\get::inline_get($_id);
+		$product_detail = \lib\app\product\get::inline_get($_id);
 		if(!$product_detail || !isset($product_detail['id']))
 		{
 			\dash\notif::error(T_("Invalid product id"));
@@ -55,7 +55,7 @@ class edit
 		$_option['product_detail'] = $product_detail;
 		$id = $product_detail['id'];
 
-		$args = \lib\app\product2\check::variable($id, $_option);
+		$args = \lib\app\product\check::variable($id, $_option);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -103,7 +103,7 @@ class edit
 			return false;
 		}
 
-		$args_price = \lib\app\product2\check::price($id, $_option);
+		$args_price = \lib\app\product\check::price($id, $_option);
 		if($args_price === false || !\dash\engine\process::status())
 		{
 			return false;
@@ -116,15 +116,15 @@ class edit
 		// check archive of price if price or discount or buyprice sended
 		if(array_key_exists('price', $args_price) || array_key_exists('discount', $args_price) || array_key_exists('buyprice', $args_price))
 		{
-			\lib\app\product2\updateprice::check($id, $args_price);
+			\lib\app\product\updateprice::check($id, $args_price);
 		}
 
 
 		$unit = \dash\app::request('unit');
 		if($unit)
 		{
-			\lib\app\product2\unit::$debug = false;
-			$add_unit                     = \lib\app\product2\unit::check_add($unit);
+			\lib\app\product\unit::$debug = false;
+			$add_unit                     = \lib\app\product\unit::check_add($unit);
 			if(isset($add_unit['id']))
 			{
 				$args['unit_id'] = $add_unit['id'];
@@ -135,8 +135,8 @@ class edit
 		$company = \dash\app::request('company');
 		if($company)
 		{
-			\lib\app\product2\company::$debug = false;
-			$add_company                     = \lib\app\product2\company::check_add($company);
+			\lib\app\product\company::$debug = false;
+			$add_company                     = \lib\app\product\company::check_add($company);
 			if(isset($add_company['id']))
 			{
 				$args['company_id'] = $add_company['id'];
@@ -146,8 +146,8 @@ class edit
 		$category = \dash\app::request('category');
 		if($category)
 		{
-			\lib\app\product2\category::$debug = false;
-			$add_category                     = \lib\app\product2\category::check_add($category);
+			\lib\app\product\category::$debug = false;
+			$add_category                     = \lib\app\product\category::check_add($category);
 			if(isset($add_category['id']))
 			{
 				$args['cat_id'] = $add_category['id'];
@@ -158,7 +158,7 @@ class edit
 		$tag = \dash\app::request('tag');
 		if($tag)
 		{
-			\lib\app\product2\tag::add($tag, $id, \lib\store::id());
+			\lib\app\product\tag::add($tag, $id, \lib\store::id());
 			if(!\dash\engine\process::status())
 			{
 				return false;
@@ -178,7 +178,7 @@ class edit
 
 			if(!empty($args))
 			{
-				$update = \lib\db\products2\db::update($args, $id);
+				$update = \lib\db\products\db::update($args, $id);
 				if(!$update)
 				{
 					\dash\log::set('productUpdateDbError', ['code' => $id]);

@@ -76,7 +76,7 @@ class model
 
 		$post = self::get_post();
 
-		$result = \lib\app\product2\edit::edit($post, $id);
+		$result = \lib\app\product\edit::edit($post, $id);
 
 
 		if(!$result)
@@ -99,7 +99,7 @@ class model
 			if(isset($uploaded_file['id']))
 			{
 				// save uploaded file
-				\lib\app\product2\gallery::gallery($_code, $uploaded_file, 'add');
+				\lib\app\product\gallery::gallery($_code, $uploaded_file, 'add');
 			}
 
 			if(!\dash\engine\process::status())
@@ -121,7 +121,7 @@ class model
 	public static function remove_gallery($_code)
 	{
 		$fileid = \dash\request::post('fileid');
-		\lib\app\product2\gallery::gallery($_code, $fileid, 'remove');
+		\lib\app\product\gallery::gallery($_code, $fileid, 'remove');
 		\dash\redirect::pwd();
 	}
 
@@ -129,7 +129,7 @@ class model
 	public static function setthumb($_code)
 	{
 		$fileid = \dash\request::post('fileid');
-		\lib\app\product2\gallery::setthumb($_code, $fileid);
+		\lib\app\product\gallery::setthumb($_code, $fileid);
 		\dash\redirect::pwd();
 	}
 
@@ -250,7 +250,7 @@ class model
 		{
 			$request         = self::getPostVariant();
 
-			\lib\app\product2\variants::set($request, $_id);
+			\lib\app\product\variants::set($request, $_id);
 
 			if(\dash\engine\process::status())
 			{

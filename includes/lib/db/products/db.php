@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\products2;
+namespace lib\db\products;
 
 class db
 {
@@ -15,11 +15,10 @@ class db
 				`barcode`,
 				`barcode2`
 			FROM
-			 	products2
+			 	products
 			WHERE
-				products2.store_id = $_store_id AND
-				products2.status  != 'deleted' AND
-				(products2.barcode = '$_barcode' OR products2.barcode2 = '$_barcode')
+				products.status  != 'deleted' AND
+				(products.barcode = '$_barcode' OR products.barcode2 = '$_barcode')
 		";
 		$result = \dash\db::get($query);
 		return $result;
@@ -33,9 +32,9 @@ class db
 		{
 			$query =
 			"
-				INSERT INTO `products2`
+				INSERT INTO `products`
 				SET $set,
-				products2.code = (SELECT IFNULL(MAX(myProd.code), 0) FROM products2 AS `myProd` WHERE myProd.store_id = $_store_id ) + 1
+				products.code = (SELECT IFNULL(MAX(myProd.code), 0) FROM products AS `myProd`) + 1
 			";
 
 			if(\dash\db::query($query))
@@ -60,7 +59,7 @@ class db
 		$set = \dash\db\config::make_set($_args, ['type' => 'update']);
 		if($set)
 		{
-			$query = " UPDATE `products2` SET $set WHERE products2.id = $_id LIMIT 1";
+			$query = " UPDATE `products` SET $set WHERE products.id = $_id LIMIT 1";
 			$result = \dash\db::query($query);
 			return $result;
 		}
@@ -73,7 +72,7 @@ class db
 
 	public static function get_one_field($_id, $_field)
 	{
-		$query  = "SELECT products2.$_field FROM products2 WHERE products2.id = $_id  LIMIT 1";
+		$query  = "SELECT products.$_field FROM products WHERE products.id = $_id  LIMIT 1";
 		$result = \dash\db::get($query, $_field, true);
 		return $result;
 	}
@@ -82,15 +81,15 @@ class db
 	{
 		$query =
 		"
-				products2.*,
+				products.*,
 				productprices.price,
 				productprices.buyprice,
 				productprices.discount,
 				productprices.discountpercent,
 				productprices.finalprice
 			FROM
-				products2
-			LEFT JOIN productprices ON productprices.product_id = products2.id AND productprices.last = 'yes'
+				products
+			LEFT JOIN productprices ON productprices.product_id = products.id AND productprices.last = 'yes'
 		";
 
 		return $query;
@@ -106,8 +105,7 @@ class db
 			SELECT
 				$public_query
 			WHERE
-				products2.id = $_id AND
-				products2.store_id = $_store_id
+				products.id = $_id
 			LIMIT 1
 		";
 		$result = \dash\db::get($query, null, true);
@@ -123,8 +121,7 @@ class db
 			SELECT
 				$public_query
 			WHERE
-				products2.store_id = $_store_id AND
-				products2.code = $_code
+				products.code = $_code
 			LIMIT 1
 		";
 		$result = \dash\db::get($query, null, true);
@@ -138,11 +135,12 @@ class db
 	{
 		if($_thumb)
 		{
-			$query  = "UPDATE products2 SET products2.thumbid = '$_thumb' WHERE products2.id = $_id LIMIT 1";
+			$query  = "UPDATE products SET products.thumbid = '$_thumb' WHERE products.id = $_id LIMIT 1";
 		}
 		else
+
 		{
-			$query  = "UPDATE products2 SET products2.thumbid = NULL WHERE products2.id = $_id LIMIT 1";
+			$query  = "UPDATE products SET products.thumbid = NULL WHERE products.id = $_id LIMIT 1";
 		}
 		$result = \dash\db::query($query);
 		return $result;
@@ -151,7 +149,7 @@ class db
 
 	public static function update_gallery($_gallery, $_id)
 	{
-		$query  = "UPDATE products2 SET products2.gallery = '$_gallery' WHERE products2.id = $_id LIMIT 1";
+		$query  = "UPDATE products SET products.gallery = '$_gallery' WHERE products.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}
@@ -159,7 +157,7 @@ class db
 
 	public static function check_unique_sku($_sku, $_store_id)
 	{
-		$query = "SELECT `id`, `sku` FROM products2 WHERE products2.store_id = $_store_id AND products2.sku = '$_sku' AND products2.status  != 'deleted' LIMIT 1";
+		$query = "SELECT `id`, `sku` FROM products WHERE products.store_id = $_store_id AND products.sku = '$_sku' AND products.status  != 'deleted' LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}

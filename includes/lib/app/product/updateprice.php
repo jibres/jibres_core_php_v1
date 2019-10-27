@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\product2;
+namespace lib\app\product;
 
 class updateprice
 {

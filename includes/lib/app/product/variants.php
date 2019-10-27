@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\product2;
+namespace lib\app\product;
 
 
 class variants
@@ -7,7 +7,7 @@ class variants
 	public static function get($_code)
 	{
 		// load main product detail
-		$product_detail = \lib\app\product2\get::by_code_inline($_code);
+		$product_detail = \lib\app\product\get::by_code_inline($_code);
 
 		if(!$product_detail)
 		{
@@ -68,7 +68,7 @@ class variants
 	public static function set($_variants, $_id)
 	{
 		// load main product detail
-		$product_detail = \lib\app\product2\get::inline_get($_id);
+		$product_detail = \lib\app\product\get::inline_get($_id);
 
 		if(!$product_detail)
 		{
@@ -86,7 +86,7 @@ class variants
 		$count = $variants['count'];
 
 		$variants_json = json_encode($variants, JSON_UNESCAPED_UNICODE);
-		$result = \lib\db\products2\variants::update($variants_json, $product_detail['id']);
+		$result = \lib\db\products\variants::update($variants_json, $product_detail['id']);
 
 		if($result)
 		{
@@ -222,7 +222,7 @@ class variants
 
 	public static function set_product($_variants, $_product_id)
 	{
-		$load_product = \lib\app\product2\get::inline_get($_product_id);
+		$load_product = \lib\app\product\get::inline_get($_product_id);
 		if(!$load_product || !isset($load_product['id']))
 		{
 			// product not found
@@ -248,7 +248,7 @@ class variants
 			return false;
 		}
 
-		$load_child = \lib\db\products2\variants::have_child($load_product['id']);
+		$load_child = \lib\db\products\variants::have_child($load_product['id']);
 		if($load_child)
 		{
 			\dash\notif::error(T_("This product have some child and can not set variants"));
@@ -301,7 +301,7 @@ class variants
 			return false;
 		}
 
-		$result = \lib\app\product2\add::multi_add($multi_product);
+		$result = \lib\app\product\add::multi_add($multi_product);
 		if($result)
 		{
 			\dash\notif::ok(T_("Your products was inserted"));

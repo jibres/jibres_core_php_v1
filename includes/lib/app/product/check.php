@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\product2;
+namespace lib\app\product;
 
 
 class check
@@ -327,7 +327,7 @@ class check
 		$parent = \dash\app::request('parent');
 		if($parent)
 		{
-			$parent_detail = \lib\app\product2\get::get_inline($parent);
+			$parent_detail = \lib\app\product\get::get_inline($parent);
 			if(!$parent_detail || !isset($parent_detail['id']))
 			{
 				\dash\notif::error(T_("Ivalid parent id"));
@@ -491,7 +491,7 @@ class check
 			return false;
 		}
 
-		$check_unique_sku = \lib\db\products2\db::check_unique_sku($_sku, $_store_id);
+		$check_unique_sku = \lib\db\products\db::check_unique_sku($_sku, $_store_id);
 		if(isset($check_unique_sku['id']))
 		{
 			if(intval($check_unique_sku['id']) === intval($_id))
@@ -512,7 +512,7 @@ class check
 	private static function check_unique_barcode($_barcode, $_id, $_store_id)
 	{
 
-		$check_exist  = \lib\db\products2\db::get_barcode($_barcode, $_store_id);
+		$check_exist  = \lib\db\products\db::get_barcode($_barcode, $_store_id);
 
 		if(!$check_exist)
 		{

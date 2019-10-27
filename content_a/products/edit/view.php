@@ -19,16 +19,16 @@ class view
 		\dash\data::badge_text(T_('Back'));
 		\dash\data::badge_link(\dash\url::this());
 
-		$variants_list = \lib\app\product2\variants::get(\dash\request::get('code'));
+		$variants_list = \lib\app\product\variants::get(\dash\request::get('code'));
 		\dash\data::variantsList($variants_list);
 
-		$company_list = \lib\app\product2\company::list();
+		$company_list = \lib\app\product\company::list();
 		\dash\data::listCompanies($company_list);
 
-		$unit_list = \lib\app\product2\unit::list();
+		$unit_list = \lib\app\product\unit::list();
 		\dash\data::listUnits($unit_list);
 
-		$category_list = \lib\app\product2\category::list();
+		$category_list = \lib\app\product\category::list();
 
 		\dash\data::listCategory($category_list);
 

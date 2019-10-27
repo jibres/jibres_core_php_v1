@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\product2;
+namespace lib\app\product;
 
 
 class gallery
@@ -33,7 +33,7 @@ class gallery
 	private static function get_gallery_field($_product_code)
 	{
 
-		$load_product_gallery = \lib\app\product2\get::by_code_inline($_product_code);
+		$load_product_gallery = \lib\app\product\get::by_code_inline($_product_code);
 
 		if(!$load_product_gallery || !is_array($load_product_gallery) || !isset($load_product_gallery['id']))
 		{
@@ -102,7 +102,7 @@ class gallery
 			}
 		}
 
-		$result = \lib\db\products2\db::update_thumb($file_id, $product_id);
+		$result = \lib\db\products\db::update_thumb($file_id, $product_id);
 		return $result;
 	}
 
@@ -151,7 +151,7 @@ class gallery
 
 			if(array_key_exists('thumbid', $product_detail) && !$product_detail['thumbid'])
 			{
-				\lib\db\products2\db::update_thumb($file_id, $product_id);
+				\lib\db\products\db::update_thumb($file_id, $product_id);
 			}
 		}
 		else
@@ -188,17 +188,17 @@ class gallery
 
 				if((!isset($product_detail['thumbid']) || (array_key_exists('thumbid', $product_detail) && !$product_detail['thumbid'])) && $next_image)
 				{
-					\lib\db\products2\db::update_thumb($next_image, $product_id);
+					\lib\db\products\db::update_thumb($next_image, $product_id);
 				}
 
 				if(isset($product_detail['thumbid']) && intval($product_detail['thumbid']) === intval($file_id) && $next_image)
 				{
-					\lib\db\products2\db::update_thumb($next_image, $product_id);
+					\lib\db\products\db::update_thumb($next_image, $product_id);
 				}
 
 				if(!$next_image)
 				{
-					\lib\db\products2\db::update_thumb(null, $product_id);
+					\lib\db\products\db::update_thumb(null, $product_id);
 				}
 
 			}
@@ -207,7 +207,7 @@ class gallery
 
 		$gallery = json_encode($gallery, JSON_UNESCAPED_UNICODE);
 
-		\lib\db\products2\db::update_gallery($gallery, $product_id);
+		\lib\db\products\db::update_gallery($gallery, $product_id);
 
 		return true;
 

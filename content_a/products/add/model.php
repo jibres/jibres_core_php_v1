@@ -8,7 +8,7 @@ class model
 	{
 		$post = \content_a\products\edit\model::get_post();
 
-		$result = \lib\app\product2\add::add($post);
+		$result = \lib\app\product\add::add($post);
 		if(!$result)
 		{
 			return false;

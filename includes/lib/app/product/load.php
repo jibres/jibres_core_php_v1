@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\product2;
+namespace lib\app\product;
 
 class load
 {
@@ -55,7 +55,7 @@ class load
 		$code = \dash\request::get('code');
 
 		// load detail
-		$detail = \lib\app\product2\get::by_code($code, ['load_gallery' => true]);
+		$detail = \lib\app\product\get::by_code($code, ['load_gallery' => true]);
 		if(!$detail)
 		{
 			// access denied or invalid id

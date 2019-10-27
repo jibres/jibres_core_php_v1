@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\products;
+namespace lib\app\product;
 
 class search
 {
@@ -45,8 +45,6 @@ class search
 		$or          = [];
 		$filter_args = [];
 		$order_sort  = null;
-
-		$and['store_id'] = \lib\store::id();
 
 		if($_args['barcode'])
 		{
@@ -154,7 +152,7 @@ class search
 
 		if(is_array($list))
 		{
-			$list = array_map(['\\lib\\app\\product', 'ready'], $list);
+			$list = array_map(['\\lib\\app\\product\\ready', 'row'], $list);
 		}
 		else
 		{

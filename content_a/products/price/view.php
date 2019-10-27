@@ -50,13 +50,13 @@ class view
 			\dash\data::page_title(T_('Search'). ' '.  $search_string);
 		}
 
-		$myProductList = \lib\app\products\search::price_list($search_string, $args);
+		$myProductList = \lib\app\product\search::price_list($search_string, $args);
 
-		\lib\app\products\load::barcode_is_scaned($myProductList, $search_string);
+		\lib\app\product\load::barcode_is_scaned($myProductList, $search_string);
 
 		\dash\data::dataTable($myProductList);
 
-		\dash\data::filterBox(\lib\app\products\search::filter_message());
+		\dash\data::filterBox(\lib\app\product\search::filter_message());
 
 
 	}
