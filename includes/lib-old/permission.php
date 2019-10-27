@@ -158,7 +158,8 @@ class permission
 		}
 
 		self::load_all_plans();
-		$store_plan = \lib\store::detail('plan');
+
+		$store_plan = \lib\store::plan();
 
 		if(isset(self::$plan[$store_plan]) && isset(self::$plan[$store_plan]['contain']))
 		{

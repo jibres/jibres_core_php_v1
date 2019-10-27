@@ -21,7 +21,7 @@ class alias
 		// 	return false;
 		// }
 
-		// if(\lib\store::detail('plan') !== 'standard')
+		// if(\lib\store::plan() !== 'standard')
 		// {
 		// 	return false;
 		// }

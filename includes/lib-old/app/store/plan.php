@@ -108,7 +108,7 @@ class plan
 			return false;
 		}
 
-		$current_plan  = \lib\store::detail('plan');
+		$current_plan  = \lib\store::plan();
 
 		$curent_expire = \lib\store::detail('expireplan');
 

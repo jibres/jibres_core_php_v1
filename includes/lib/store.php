@@ -97,7 +97,17 @@ class store
 
 		self::clean_session(self::store_slug());
 
-		$store_detail = \lib\db\store\get::subdomain_detail(self::store_slug());
+		$store_detail_raw = \dash\engine\store::detail();
+
+		if(!isset($store_detail_raw['store']))
+		{
+			return false;
+		}
+
+		$store_detail = $store_detail_raw['store'];
+
+		// $store_detail = \lib\db\store\get::subdomain_detail(self::store_slug());
+
 
 		if(isset($store_detail['store_data']) && is_array($store_detail['store_data']))
 		{
@@ -105,10 +115,11 @@ class store
 			{
 				$store_detail['store_data']['logo'] = \dash\app::static_logo_url();
 			}
-
-			self::$store = $store_detail;
-			\dash\session::set('store_detail_'. self::store_slug(), $store_detail);
 		}
+
+		self::$store = $store_detail;
+
+		\dash\session::set('store_detail_'. self::store_slug(), $store_detail);
 	}
 
 
@@ -211,6 +222,7 @@ class store
 
 	public static function plan()
 	{
+		return 'trial';
 		return self::detail('plan');
 	}
 

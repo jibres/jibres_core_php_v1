@@ -82,6 +82,10 @@ class user
 
 		foreach ($result as $key => $value)
 		{
+			if(!is_array($value))
+			{
+				$value = [];
+			}
 			$name  = null;
 			$count = 0;
 
