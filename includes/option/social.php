@@ -44,7 +44,7 @@ self::$social['facebook']['client_token']     = 'df0047eb1af1e2acba2a3645bcb4f47
 /**
 * GOOGLE
 */
-self::$social['google']['status']                      = true;
+self::$social['google']['status']                      = false;
 self::$social['google']['client_id']                   = '395232553225-5filcn07d2rdjl2fld57mf8e50ac146j.apps.googleusercontent.com';
 self::$social['google']['project_id']                  = 'ermile-jibres';
 self::$social['google']['auth_uri']                    = 'https://accounts.google.com/o/oauth2/auth';
