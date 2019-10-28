@@ -1,8 +1,8 @@
 <?php
-namespace lib\db;
+namespace lib\db\producttag;
 
 
-class producttag
+class tag
 {
 
 	public static function insert()
@@ -41,12 +41,12 @@ class producttag
 	}
 
 
-	public static function update_count($_store_id, $_where)
+	public static function update_count($_where)
 	{
 		$where = \dash\db\config::make_where($_where);
 		if($where)
 		{
-			$where = "AND $where";
+			$where = "WHERE $where";
 		}
 
 		$query =
@@ -58,9 +58,8 @@ class producttag
 					(
 						SELECT COUNT(*) FROM products WHERE products.cat_id = producttag.id
 					)
-			WHERE
-				producttag.store_id = $_store_id
-				$where";
+				$where
+		";
 
 		\dash\db::query($query);
 	}
@@ -103,9 +102,9 @@ class producttag
 	}
 
 
-	public static function get_mulit_term_title($_titles, $_type, $_store_id)
+	public static function get_mulit_title($_titles)
 	{
-		if(!is_array($_titles) || !$_type || !$_titles)
+		if(!is_array($_titles) || !$_titles)
 		{
 			return false;
 		}
@@ -117,9 +116,7 @@ class producttag
 			SELECT *
 			FROM producttag
 			WHERE
-				producttag.title IN ('$_titles') AND
-				producttag.type = '$_type' AND
-				producttag.store_id = $_store_id
+				producttag.title IN ('$_titles')
 		";
 		$result = \dash\db::get($query);
 

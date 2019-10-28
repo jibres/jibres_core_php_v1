@@ -9,7 +9,7 @@ class category
 
 	public static function check_add($_category)
 	{
-		$get_category_title = \lib\db\productcategory\db::get_by_title(\lib\store::id(), $_category);
+		$get_category_title = \lib\db\productcategory\db::get_by_title($_category);
 		if(isset($get_category_title['id']))
 		{
 			return $get_category_title;
@@ -18,7 +18,6 @@ class category
 		$args =
 		[
 			'title'       => $_category,
-			'store_id'    => \lib\store::id(),
 			'datecreated' => date("Y-m-d H:i:s"),
 			'slug'        => \dash\utility\filter::slug($_category, null, 'persian'),
 			'language'    => \dash\language::current(),
@@ -109,7 +108,7 @@ class category
 			return false;
 		}
 
-		$get_category_title = \lib\db\productcategory\db::get_by_title(\lib\store::id(), $args['title']);
+		$get_category_title = \lib\db\productcategory\db::get_by_title($args['title']);
 
 		if(isset($get_category_title['id']))
 		{
@@ -117,7 +116,6 @@ class category
 			return false;
 		}
 
-		$args['store_id']    = \lib\store::id();
 		$args['datecreated'] = date("Y-m-d H:i:s");
 		$args['slug']        = \dash\utility\filter::slug($slug, null, 'persian');
 		$args['language']    = \dash\language::current();
@@ -160,7 +158,7 @@ class category
 
 		$id = \dash\coding::decode($_id);
 
-		$count_product = \lib\db\products\category::get_count_category(\lib\store::id(), $id);
+		$count_product = \lib\db\products\category::get_count_category($id);
 		$count_product = intval($count_product);
 
 		if($count_product > 0)
@@ -198,11 +196,11 @@ class category
 				$new_category_id    = $check['id'];
 				$new_category_title = $check['title'];
 
-				\lib\db\products\category::update_all_product_by_category(\lib\store::id(), $new_category_id, $new_category_title, $old_category_id);
+				\lib\db\products\category::update_all_product_by_category($new_category_id, $new_category_title, $old_category_id);
 			}
 			else
 			{
-				\lib\db\products\category::update_all_product_by_category(\lib\store::id(), null, null, $old_category_id);
+				\lib\db\products\category::update_all_product_by_category(null, null, $old_category_id);
 			}
 		}
 
@@ -226,7 +224,7 @@ class category
 			return false;
 		}
 
-		$load = \lib\db\productcategory\db::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productcategory\db::get_one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid category id"));
@@ -254,14 +252,14 @@ class category
 			return false;
 		}
 
-		$load = \lib\db\productcategory\db::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productcategory\db::get_one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid category id"));
 			return false;
 		}
 
-		$load['count'] = \lib\db\products\category::get_count_category(\lib\store::id(), $id);
+		$load['count'] = \lib\db\products\category::get_count_category($id);
 		$load = self::ready($load);
 		return $load;
 	}
@@ -297,7 +295,7 @@ class category
 			return false;
 		}
 
-		$get_category = \lib\db\productcategory\db::get_one(\lib\store::id(), $id);
+		$get_category = \lib\db\productcategory\db::get_one($id);
 
 		if(isset($get_category['id']) && isset($get_category['title']) && $get_category['title'] == $args['title'])
 		{
@@ -314,7 +312,7 @@ class category
 
 		if($args['default'])
 		{
-			\lib\db\productcategory\db::set_all_default_as_null(\lib\store::id());
+			\lib\db\productcategory\db::set_all_default_as_null();
 		}
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
@@ -349,7 +347,7 @@ class category
 					if(array_key_exists('title', $args))
 					{
 						// update all product by this category
-						\lib\db\products\category::update_all_product_category_title(\lib\store::id(), $id, $args['title']);
+						\lib\db\products\category::update_all_product_category_title($id, $args['title']);
 					}
 
 					\dash\notif::ok(T_("The category successfully updated"));
@@ -382,7 +380,7 @@ class category
 		\dash\permission::access('productCategoryListView');
 
 
-		$result = \lib\db\productcategory\db::get_list(\lib\store::id());
+		$result = \lib\db\productcategory\db::get_list();
 
 		$temp            = [];
 

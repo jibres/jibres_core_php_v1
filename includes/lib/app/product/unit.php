@@ -9,7 +9,7 @@ class unit
 
 	public static function check_add($_unit)
 	{
-		$get_unit_title = \lib\db\productunit\db::get_by_title(\lib\store::id(), $_unit);
+		$get_unit_title = \lib\db\productunit\db::get_by_title($_unit);
 		if(isset($get_unit_title['id']))
 		{
 			return $get_unit_title;
@@ -18,7 +18,6 @@ class unit
 		$args =
 		[
 			'title' => $_unit,
-			'store_id' => \lib\store::id(),
 		];
 
 		$id = \lib\db\productunit\db::insert($args);
@@ -106,7 +105,7 @@ class unit
 			return false;
 		}
 
-		$get_unit_title = \lib\db\productunit\db::get_by_title(\lib\store::id(), $args['title']);
+		$get_unit_title = \lib\db\productunit\db::get_by_title($args['title']);
 
 		if(isset($get_unit_title['id']))
 		{
@@ -116,10 +115,8 @@ class unit
 
 		if($args['default'])
 		{
-			$get_unit_title = \lib\db\productunit\db::set_all_default_as_null(\lib\store::id());
+			$get_unit_title = \lib\db\productunit\db::set_all_default_as_null();
 		}
-
-		$args['store_id'] = \lib\store::id();
 
 		$id = \lib\db\productunit\db::insert($args);
 		if(!$id)
@@ -159,7 +156,7 @@ class unit
 
 		$id = \dash\coding::decode($_id);
 
-		$count_product = \lib\db\products\unit::get_count_unit(\lib\store::id(), $id);
+		$count_product = \lib\db\products\unit::get_count_unit($id);
 		$count_product = intval($count_product);
 
 		if($count_product > 0)
@@ -197,11 +194,11 @@ class unit
 				$new_unit_id    = $check['id'];
 				$new_unit_title = $check['title'];
 
-				\lib\db\products\unit::update_all_product_by_unit(\lib\store::id(), $new_unit_id, $new_unit_title, $old_unit_id);
+				\lib\db\products\unit::update_all_product_by_unit($new_unit_id, $new_unit_title, $old_unit_id);
 			}
 			else
 			{
-				\lib\db\products\unit::update_all_product_by_unit(\lib\store::id(), null, null, $old_unit_id);
+				\lib\db\products\unit::update_all_product_by_unit(null, null, $old_unit_id);
 			}
 		}
 
@@ -225,7 +222,7 @@ class unit
 			return false;
 		}
 
-		$load = \lib\db\productunit\db::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productunit\db::get_one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
@@ -253,14 +250,14 @@ class unit
 			return false;
 		}
 
-		$load = \lib\db\productunit\db::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productunit\db::get_one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
 			return false;
 		}
 
-		$load['count'] = \lib\db\products\unit::get_count_unit(\lib\store::id(), $id);
+		$load['count'] = \lib\db\products\unit::get_count_unit($id);
 		$load = self::ready($load);
 		return $load;
 	}
@@ -296,7 +293,7 @@ class unit
 			return false;
 		}
 
-		$get_unit = \lib\db\productunit\db::get_one(\lib\store::id(), $id);
+		$get_unit = \lib\db\productunit\db::get_one($id);
 
 		if(isset($get_unit['id']) && isset($get_unit['title']) && $get_unit['title'] == $args['title'])
 		{
@@ -313,7 +310,7 @@ class unit
 
 		if($args['default'])
 		{
-			\lib\db\productunit\db::set_all_default_as_null(\lib\store::id());
+			\lib\db\productunit\db::set_all_default_as_null();
 		}
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
@@ -348,7 +345,7 @@ class unit
 					if(array_key_exists('title', $args))
 					{
 						// update all product by this unit
-						\lib\db\products\unit::update_all_product_unit_title(\lib\store::id(), $id, $args['title']);
+						\lib\db\products\unit::update_all_product_unit_title($id, $args['title']);
 					}
 
 					\dash\notif::ok(T_("The unit successfully updated"));
@@ -381,7 +378,7 @@ class unit
 		\dash\permission::access('productUnitListView');
 
 
-		$result = \lib\db\productunit\db::get_list(\lib\store::id());
+		$result = \lib\db\productunit\db::get_list();
 
 		$temp            = [];
 

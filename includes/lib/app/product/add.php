@@ -50,7 +50,7 @@ class add
 		\dash\app::variable($_args, \lib\app\product\check::variable_args());
 
 
-		if(!\dash\user::id())
+		if(!\lib\userstore::id())
 		{
 			if($_option['debug'])
 			{
@@ -68,13 +68,6 @@ class add
 			return false;
 		}
 
-		// if(!\lib\userstore::in_store())
-		// {
-		// 	\dash\notif::error(T_("You are not in this store"));
-		// 	return false;
-		// }
-
-
 		$args = \lib\app\product\check::variable(null, $_option);
 
 		if($args === false || !\dash\engine\process::status())
@@ -88,7 +81,6 @@ class add
 			return false;
 		}
 
-		// $args['store_id']    = \lib\store::id();
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
 		if(!isset($args['status']) || (isset($args['status']) && !$args['status']))
@@ -146,7 +138,7 @@ class add
 
 
 
-		$product_id = \lib\db\products\db::insert($args, \lib\store::id());
+		$product_id = \lib\db\products\db::insert($args);
 
 		if(!$product_id)
 		{
@@ -172,7 +164,7 @@ class add
 			[
 				'last'            => 'yes',
 				'product_id'      => $product_id,
-				'creator'         => \dash\user::id(),
+				'creator'         => \lib\userstore::id(),
 				'startdate'       => date("Y-m-d H:i:s"),
 				'enddate'         => null,
 				'buyprice'        => $args_price['buyprice'],
@@ -182,7 +174,7 @@ class add
 				'finalprice'      => floatval($args_price['price']) - floatval($args_price['discount']),
 			];
 
-			$productprices_id = \lib\db\productprices::insert($insert_productprices);
+			$productprices_id = \lib\db\productprices\db::insert($insert_productprices);
 
 			if(!$productprices_id)
 			{

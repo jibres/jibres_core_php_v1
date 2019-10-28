@@ -1,8 +1,8 @@
 <?php
-namespace lib\db;
+namespace lib\db\producttag;
 
 
-class producttagusage
+class tagusage
 {
 
 

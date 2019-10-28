@@ -9,7 +9,7 @@ class company
 
 	public static function check_add($_company)
 	{
-		$get_company_title = \lib\db\productcompany\db::get_by_title(\lib\store::id(), $_company);
+		$get_company_title = \lib\db\productcompany\db::get_by_title($_company);
 		if(isset($get_company_title['id']))
 		{
 			return $get_company_title;
@@ -18,7 +18,6 @@ class company
 		$args =
 		[
 			'title' => $_company,
-			'store_id' => \lib\store::id(),
 		];
 
 		$id = \lib\db\productcompany\db::insert($args);
@@ -83,15 +82,13 @@ class company
 			return false;
 		}
 
-		$get_company_title = \lib\db\productcompany\db::get_by_title(\lib\store::id(), $args['title']);
+		$get_company_title = \lib\db\productcompany\db::get_by_title($args['title']);
 
 		if(isset($get_company_title['id']))
 		{
 			if(self::$debug) \dash\notif::error(T_("Duplicate company founded"), 'company');
 			return false;
 		}
-
-		$args['store_id'] = \lib\store::id();
 
 		$id = \lib\db\productcompany\db::insert($args);
 		if(!$id)
@@ -131,7 +128,7 @@ class company
 
 		$id = \dash\coding::decode($_id);
 
-		$count_product = \lib\db\products\company::get_count_company(\lib\store::id(), $id);
+		$count_product = \lib\db\products\company::get_count_company($id);
 		$count_product = intval($count_product);
 
 		if($count_product > 0)
@@ -169,11 +166,11 @@ class company
 				$new_company_id    = $check['id'];
 				$new_company_title = $check['title'];
 
-				\lib\db\products\company::update_all_product_by_company(\lib\store::id(), $new_company_id, $new_company_title, $old_company_id);
+				\lib\db\products\company::update_all_product_by_company($new_company_id, $new_company_title, $old_company_id);
 			}
 			else
 			{
-				\lib\db\products\company::update_all_product_by_company(\lib\store::id(), null, null, $old_company_id);
+				\lib\db\products\company::update_all_product_by_company(null, null, $old_company_id);
 			}
 		}
 
@@ -197,7 +194,7 @@ class company
 			return false;
 		}
 
-		$load = \lib\db\productcompany\db::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productcompany\db::get_one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid company id"));
@@ -225,14 +222,14 @@ class company
 			return false;
 		}
 
-		$load = \lib\db\productcompany\db::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productcompany\db::get_one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid company id"));
 			return false;
 		}
 
-		$load['count'] = \lib\db\products\company::get_count_company(\lib\store::id(), $id);
+		$load['count'] = \lib\db\products\company::get_count_company($id);
 		$load = self::ready($load);
 		return $load;
 	}
@@ -268,7 +265,7 @@ class company
 			return false;
 		}
 
-		$get_company = \lib\db\productcompany\db::get_one(\lib\store::id(), $id);
+		$get_company = \lib\db\productcompany\db::get_one($id);
 
 		if(isset($get_company['id']) && isset($get_company['title']) && $get_company['title'] == $args['title'])
 		{
@@ -313,7 +310,7 @@ class company
 					if(array_key_exists('title', $args))
 					{
 						// update all product by this company
-						\lib\db\products\company::update_all_product_company_title(\lib\store::id(), $id, $args['title']);
+						\lib\db\products\company::update_all_product_company_title($id, $args['title']);
 					}
 
 					\dash\notif::ok(T_("The company successfully updated"));
@@ -345,7 +342,7 @@ class company
 		\dash\permission::access('productCompanyListView');
 
 
-		$result = \lib\db\productcompany\db::get_page_list(\lib\store::id(), $_string);
+		$result = \lib\db\productcompany\db::get_page_list($_string);
 
 		$temp            = [];
 
@@ -373,7 +370,7 @@ class company
 		\dash\permission::access('productCompanyListView');
 
 
-		$result = \lib\db\productcompany\db::get_list(\lib\store::id());
+		$result = \lib\db\productcompany\db::get_list();
 
 		$temp            = [];
 

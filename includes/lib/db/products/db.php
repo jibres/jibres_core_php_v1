@@ -4,7 +4,7 @@ namespace lib\db\products;
 class db
 {
 
-	public static function get_barcode($_barcode, $_store_id)
+	public static function get_barcode($_barcode)
 	{
 		$query =
 		"
@@ -25,7 +25,7 @@ class db
 	}
 
 
-	public static function insert($_args, $_store_id)
+	public static function insert($_args)
 	{
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
@@ -97,7 +97,7 @@ class db
 
 
 
-	public static function get_by_id($_id, $_store_id)
+	public static function get_by_id($_id)
 	{
 		$public_query = self::get_product_query_string();
 		$query  =
@@ -113,7 +113,7 @@ class db
 	}
 
 
-	public static function get_by_code($_code, $_store_id)
+	public static function get_by_code($_code)
 	{
 		$public_query = self::get_product_query_string();
 		$query  =
@@ -155,33 +155,23 @@ class db
 	}
 
 
-	public static function check_unique_sku($_sku, $_store_id)
+	public static function check_unique_sku($_sku)
 	{
-		$query = "SELECT `id`, `sku` FROM products WHERE products.store_id = $_store_id AND products.sku = '$_sku' AND products.status  != 'deleted' LIMIT 1";
+		$query = "SELECT `id`, `sku` FROM products WHERE products.sku = '$_sku' AND products.status  != 'deleted' LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-	public static function get_one($_store_id, $_id)
+	public static function get_one($_id)
 	{
-		$query  = "SELECT * FROM products WHERE products.id = $_id AND products.store_id = $_store_id LIMIT 1";
+		$query  = "SELECT * FROM products WHERE products.id = $_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 
 
-	public static function field_group_count($_field, $_store_id)
+	public static function field_group_count($_field)
 	{
 		$catch = \dash\db\cache::get_cache('products', func_get_args());
 		if($catch)
@@ -189,12 +179,7 @@ class db
 			return $catch;
 		}
 
-		if(!$_store_id || !is_numeric($_store_id))
-		{
-			return false;
-		}
-
-		$query = "SELECT COUNT(*) AS `count`, products.$_field AS `$_field` FROM products WHERE products.store_id = $_store_id GROUP BY products.$_field ORDER BY count(*) DESC";
+		$query = "SELECT COUNT(*) AS `count`, products.$_field AS `$_field` FROM products GROUP BY products.$_field ORDER BY count(*) DESC";
 		$result = \dash\db::get($query, [$_field, 'count']);
 		\dash\db\cache::set_cache('products', func_get_args(), $result);
 		return $result;
@@ -202,13 +187,8 @@ class db
 
 
 
-	public static function get_duplicate_id($_store_id)
+	public static function get_duplicate_id()
 	{
-		if(!$_store_id || !is_numeric($_store_id))
-		{
-			return false;
-		}
-
 		$query =
 		"
 			SELECT
@@ -221,8 +201,6 @@ class db
 						title
 					FROM
 						products
-					WHERE
-						products.store_id = $_store_id
 					GROUP BY title
 					HAVING COUNT(*) > 1
 				) dup
@@ -233,11 +211,11 @@ class db
 		return $result;
 	}
 
-	public static function check_multi_product_id($_multi_id, $_store_id)
+	public static function check_multi_product_id($_multi_id)
 	{
 		$ids = implode(',', $_multi_id);
 		$field = self::$public_show_field;
-		$query = "SELECT $field FROM products WHERE products.store_id = $_store_id AND products.id IN ($ids) ";
+		$query = "SELECT $field FROM products WHERE products.id IN ($ids) ";
 		return \dash\db::get($query);
 	}
 
@@ -310,18 +288,12 @@ class db
 	/**
 	 * Gets the cat list.
 	 *
-	 * @param      <type>   $_store_id  The store identifier
 	 *
 	 * @return     boolean  The cat list.
 	 */
-	public static function get_cat_list($_store_id)
+	public static function get_cat_list()
 	{
-		if(!$_store_id)
-		{
-			return false;
-		}
-
-		$query = "SELECT products.cat AS `cat` FROM products WHERE products.store_id = $_store_id GROUP BY products.cat ORDER BY COUNT(*) DESC";
+		$query = "SELECT products.cat AS `cat` FROM products GROUP BY products.cat ORDER BY COUNT(*) DESC";
 		return \dash\db::get($query, 'cat');
 	}
 
@@ -329,18 +301,12 @@ class db
 	/**
 	 * Gets the company list.
 	 *
-	 * @param      <type>   $_store_id  The store identifier
 	 *
 	 * @return     boolean  The company list.
 	 */
-	public static function get_company_list($_store_id)
+	public static function get_company_list()
 	{
-		if(!$_store_id)
-		{
-			return false;
-		}
-
-		$query = "SELECT products.company AS `company` FROM products WHERE products.store_id = $_store_id  GROUP BY products.company ORDER BY COUNT(*) DESC";
+		$query = "SELECT products.company AS `company` FROM products GROUP BY products.company ORDER BY COUNT(*) DESC";
 		return \dash\db::get($query, 'company');
 	}
 
@@ -348,61 +314,24 @@ class db
 	/**
 	 * Gets the unit list.
 	 *
-	 * @param      <type>   $_store_id  The store identifier
 	 *
 	 * @return     boolean  The unit list.
 	 */
-	public static function get_unit_list($_store_id)
+	public static function get_unit_list()
 	{
-		if(!$_store_id)
-		{
-			return false;
-		}
-
-		$query = "SELECT products.unit AS `unit` FROM products WHERE products.store_id = $_store_id  GROUP BY products.unit ORDER BY COUNT(*) DESC";
+		$query = "SELECT products.unit AS `unit` FROM products GROUP BY products.unit ORDER BY COUNT(*) DESC";
 		return \dash\db::get($query, 'unit');
 	}
 
 
-	public static function get_all_product($_store_id)
+	public static function get_all_product()
 	{
-		if(!$_store_id || !is_numeric($_store_id))
-		{
-			return false;
-		}
-		$field = self::$public_show_field;
 		$query =
 		"
 			SELECT
-				products.title          AS `title`,
-				products.cat            AS `cat`,
-				products.slug           AS `slug`,
-				products.company        AS `company`,
-				products.shortcode      AS `shortcode`,
-				products.unit           AS `unit`,
-				products.barcode        AS `barcode`,
-				products.barcode2       AS `barcode2`,
-				products.quickcode           AS `quickcode`,
-				products.buyprice       AS `buyprice`,
-				products.price          AS `price`,
-				products.discount       AS `discount`,
-				products.vat            AS `vat`,
-				products.initialbalance AS `initialbalance`,
-				products.minstock       AS `minstock`,
-				products.maxstock       AS `maxstock`,
-				products.status         AS `status`,
-				products.sold           AS `sold`,
-				products.stock          AS `stock`,
-				products.thumb          AS `thumb`,
-				products.service        AS `service`,
-				products.saleonline     AS `saleonline`,
-				products.salestore      AS `salestore`,
-				products.carton         AS `carton`,
-				products.desc           AS `desc`
+				*
 			FROM
 				products
-			WHERE
-				products.store_id = $_store_id
 		";
 		return \dash\db::get($query);
 

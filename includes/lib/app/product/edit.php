@@ -21,7 +21,7 @@ class edit
 
 		\dash\app::variable($_args, \lib\app\product\check::variable_args());
 
-		if(!\dash\user::id())
+		if(!\lib\userstore::id())
 		{
 			if($_option['debug'])
 			{
@@ -38,12 +38,6 @@ class edit
 			}
 			return false;
 		}
-
-		// if(!\lib\userstore::in_store())
-		// {
-		// 	\dash\notif::error(T_("You are not in this store"));
-		// 	return false;
-		// }
 
 		$product_detail = \lib\app\product\get::inline_get($_id);
 		if(!$product_detail || !isset($product_detail['id']))
@@ -158,7 +152,7 @@ class edit
 		$tag = \dash\app::request('tag');
 		if($tag)
 		{
-			\lib\app\product\tag::add($tag, $id, \lib\store::id());
+			\lib\app\product\tag::add($tag, $id);
 			if(!\dash\engine\process::status())
 			{
 				return false;

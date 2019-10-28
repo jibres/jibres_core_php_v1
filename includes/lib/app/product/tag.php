@@ -4,7 +4,7 @@ namespace lib\app\product;
 class tag
 {
 
-	public static function add($_tag, $_product_id, $_store_id)
+	public static function add($_tag, $_product_id)
 	{
 		if(!\dash\permission::check('productAssignTag'))
 		{
@@ -23,7 +23,7 @@ class tag
 			return false;
 		}
 
-		$check_exist_tag = \lib\db\producttag::get_mulit_title($tag, $_store_id);
+		$check_exist_tag = \lib\db\producttag\tag::get_mulit_title($tag);
 
 		$all_tags_id = [];
 
@@ -60,24 +60,22 @@ class tag
 
 				$multi_insert_tag[] =
 				[
-					'type'     => $_type,
 					'status'   => 'enable',
 					'title'    => $value,
 					'slug'     => $slug,
 					'url'      => $slug,
-					'store_id' => \lib\store::id(),
-					'creator'  => \dash\user::id(),
+					'creator'  => \lib\userstore::id(),
 					// 'language' => \dash\language::current(),
 				];
 			}
 			$have_term_to_save_log = true;
-			$first_id    = \lib\db\productterms::multi_insert($multi_insert_tag);
+			$first_id    = \lib\db\producttag\tag::multi_insert($multi_insert_tag);
 			$all_tags_id = array_merge($all_tags_id, \dash\db\config::multi_insert_id($multi_insert_tag, $first_id));
 		}
 
 		$category_id = $all_tags_id;
 
-		$get_old_post_cat = \lib\db\producttermusages::usage($_product_id, $_type);
+		$get_old_post_cat = \lib\db\producttag\tagusage::usage($_product_id);
 
 		$must_insert = [];
 		$must_remove = [];
@@ -109,7 +107,7 @@ class tag
 			if(!empty($insert_multi))
 			{
 				$have_term_to_save_log = true;
-				\lib\db\producttermusages::multi_insert($insert_multi);
+				\lib\db\producttag\tagusage::multi_insert($insert_multi);
 			}
 		}
 
@@ -121,7 +119,7 @@ class tag
 			$must_remove = implode(',', $must_remove);
 
 			\dash\log::set('removePostTerm', ['code' => $_type, 'datalink' => \dash\coding::encode($_product_id)]);
-			\lib\db\producttermusages::hard_delete([ 'productterm_id' => ["IN", "($must_remove)"]]);
+			\lib\db\producttag\tagusage::hard_delete([ 'productterm_id' => ["IN", "($must_remove)"]]);
 		}
 
 
@@ -130,11 +128,7 @@ class tag
 			\dash\log::set('productAddTag', ['code' => $_product_id, 'tag' => $_tag]);
 		}
 
-
 		return true;
-
-
-
 
 	}
 

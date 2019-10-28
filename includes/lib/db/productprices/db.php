@@ -1,7 +1,7 @@
 <?php
-namespace lib\db;
+namespace lib\db\productprices;
 
-class productprices
+class db
 {
 	public static function price_history_date($_product_id, $_order)
 	{

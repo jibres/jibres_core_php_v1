@@ -24,13 +24,13 @@ class db
 	}
 
 
-	public static function get_page_list($_store_id, $_string = null)
+	public static function get_page_list($_string = null)
 	{
 		$q = null;
 		if(isset($_string))
 		{
 			$_string = \dash\db\safe::value($_string);
-			$q       = "AND productcompany.title LIKE '%$_string%' ";
+			$q       = "WHERE productcompany.title LIKE '%$_string%' ";
 		}
 
 		$pagination_query =
@@ -39,8 +39,7 @@ class db
 				COUNT(*) AS `count`
 			FROM
 				productcompany
-			WHERE
-				productcompany.store_id = $_store_id
+
 				$q
 		";
 
@@ -54,8 +53,7 @@ class db
 				(SELECT COUNT(*) FROM products WHERE products.company_id = productcompany.id) AS `count`
 			FROM
 				productcompany
-			WHERE
-				productcompany.store_id = $_store_id
+
 				$q
 			ORDER BY
 				count DESC
@@ -68,7 +66,7 @@ class db
 
 
 
-	public static function get_list($_store_id)
+	public static function get_list()
 	{
 		$query =
 		"
@@ -78,8 +76,6 @@ class db
 				(SELECT COUNT(*) FROM products WHERE products.company_id = productcompany.id) AS `count`
 			FROM
 				productcompany
-			WHERE
-				productcompany.store_id = $_store_id
 			ORDER BY
 				count DESC
 		";
@@ -94,16 +90,16 @@ class db
 	}
 
 	// get one record of product company
-	public static function get_one($_store_id, $_id)
+	public static function get_one($_id)
 	{
-		$query  = "SELECT * FROM productcompany WHERE  productcompany.store_id = $_store_id AND productcompany.id = $_id LIMIT 1";
+		$query  = "SELECT * FROM productcompany WHERE  productcompany.id = $_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 
 
 	// get one company by title to check is duplicate title or no
-	public static function get_by_title($_store_id, $_title)
+	public static function get_by_title($_title)
 	{
 		$query =
 		"
@@ -113,7 +109,6 @@ class db
 			FROM
 				productcompany
 			WHERE
-				productcompany.store_id = $_store_id AND
 				productcompany.title = '$_title'
 			LIMIT 1
 		";

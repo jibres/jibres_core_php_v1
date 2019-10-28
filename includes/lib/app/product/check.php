@@ -100,7 +100,7 @@ class check
 
 		if($barcode)
 		{
-			$check_unique_barcode = self::check_unique_barcode($barcode, $_id, \lib\store::id());
+			$check_unique_barcode = self::check_unique_barcode($barcode, $_id);
 			if(!$check_unique_barcode || !\dash\engine\process::status())
 			{
 				return false;
@@ -109,7 +109,7 @@ class check
 
 		if($barcode2)
 		{
-			$check_unique_barcode = self::check_unique_barcode($barcode2, $_id, \lib\store::id());
+			$check_unique_barcode = self::check_unique_barcode($barcode2, $_id);
 			if(!$check_unique_barcode || !\dash\engine\process::status())
 			{
 				return false;
@@ -327,7 +327,7 @@ class check
 		$parent = \dash\app::request('parent');
 		if($parent)
 		{
-			$parent_detail = \lib\app\product\get::get_inline($parent);
+			$parent_detail = \lib\app\product\get::inline_get($parent);
 			if(!$parent_detail || !isset($parent_detail['id']))
 			{
 				\dash\notif::error(T_("Ivalid parent id"));
@@ -410,7 +410,7 @@ class check
 		$sku = \dash\app::request('sku');
 		if($sku)
 		{
-			$sku = self::check_sku($sku, $_id, \lib\store::id());
+			$sku = self::check_sku($sku, $_id);
 			if(!\dash\engine\process::status())
 			{
 				return false;
@@ -472,7 +472,7 @@ class check
 
 
 
-	private static function check_sku($_sku, $_id, $_store_id)
+	private static function check_sku($_sku, $_id)
 	{
 		$_sku = \dash\utility\convert::to_en_number($_sku);
 
@@ -491,7 +491,7 @@ class check
 			return false;
 		}
 
-		$check_unique_sku = \lib\db\products\db::check_unique_sku($_sku, $_store_id);
+		$check_unique_sku = \lib\db\products\db::check_unique_sku($_sku);
 		if(isset($check_unique_sku['id']))
 		{
 			if(intval($check_unique_sku['id']) === intval($_id))
@@ -509,10 +509,10 @@ class check
 	}
 
 
-	private static function check_unique_barcode($_barcode, $_id, $_store_id)
+	private static function check_unique_barcode($_barcode, $_id)
 	{
 
-		$check_exist  = \lib\db\products\db::get_barcode($_barcode, $_store_id);
+		$check_exist  = \lib\db\products\db::get_barcode($_barcode);
 
 		if(!$check_exist)
 		{

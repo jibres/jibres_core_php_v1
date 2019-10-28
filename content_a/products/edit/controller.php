@@ -11,7 +11,7 @@ class controller
 		// check load product detail
 		if(!\lib\app\product\load::code())
 		{
-			\dash\header::status(403);
+			\dash\header::status(404);
 		}
 	}
 }

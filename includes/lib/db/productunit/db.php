@@ -24,7 +24,7 @@ class db
 	}
 
 
-	public static function remove_if_useless($_store_id, $_unit_id)
+	public static function remove_if_useless($_unit_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM products WHERE products.unit_id = $_unit_id";
 		$result = \dash\db::get($query, 'count', true);
@@ -36,7 +36,7 @@ class db
 	}
 
 
-	public static function get_list($_store_id)
+	public static function get_list()
 	{
 		$query =
 		"
@@ -47,8 +47,6 @@ class db
 				(SELECT COUNT(*) FROM products WHERE products.unit_id = productunit.id) AS `count`
 			FROM
 				productunit
-			WHERE
-				productunit.store_id = $_store_id
 			ORDER BY
 				count DESC
 		";
@@ -63,16 +61,16 @@ class db
 	}
 
 	// get one record of product unit
-	public static function get_one($_store_id, $_id)
+	public static function get_one($_id)
 	{
-		$query  = "SELECT * FROM productunit WHERE  productunit.store_id = $_store_id AND productunit.id = $_id LIMIT 1";
+		$query  = "SELECT * FROM productunit WHERE  productunit.id = $_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 
 
 	// get one unit by title to check is duplicate title or no
-	public static function get_by_title($_store_id, $_title)
+	public static function get_by_title($_title)
 	{
 		$query =
 		"
@@ -82,7 +80,6 @@ class db
 			FROM
 				productunit
 			WHERE
-				productunit.store_id = $_store_id AND
 				productunit.title = '$_title'
 			LIMIT 1
 		";
@@ -94,7 +91,7 @@ class db
 
 	// user add new unit and set it ad default
 	// we change all old record of this store as not default
-	public static function set_all_default_as_null($_store_id)
+	public static function set_all_default_as_null()
 	{
 		$query =
 		"
@@ -103,7 +100,6 @@ class db
 			SET
 				productunit.isdefault = NULL
 			WHERE
-				productunit.store_id = $_store_id AND
 				productunit.isdefault IS NOT NULL
 		";
 

@@ -25,7 +25,7 @@ class get
 			return false;
 		}
 
-		$result = \lib\db\products\db::get_by_id($id, \lib\store::id());
+		$result = \lib\db\products\db::get_by_id($id);
 
 		if(!$result)
 		{
@@ -58,7 +58,7 @@ class get
 			return false;
 		}
 
-		$result = \lib\db\products\db::get_by_code($_code, \lib\store::id());
+		$result = \lib\db\products\db::get_by_code($_code);
 
 		if(!$result)
 		{
