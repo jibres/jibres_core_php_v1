@@ -99,8 +99,8 @@ class tag
 			{
 				$insert_multi[] =
 				[
-					'productterm_id' => $value,
-					'product_id'     => $_product_id,
+					'producttag_id' => $value,
+					'product_id'    => $_product_id,
 
 				];
 			}
@@ -118,8 +118,8 @@ class tag
 
 			$must_remove = implode(',', $must_remove);
 
-			\dash\log::set('removePostTerm', ['code' => $_type, 'datalink' => \dash\coding::encode($_product_id)]);
-			\lib\db\producttag\tagusage::hard_delete([ 'productterm_id' => ["IN", "($must_remove)"]]);
+			\dash\log::set('removePostTerm', ['datalink' => \dash\coding::encode($_product_id)]);
+			\lib\db\producttag\tagusage::hard_delete([ 'producttag_id' => ["IN", "($must_remove)"]]);
 		}
 
 

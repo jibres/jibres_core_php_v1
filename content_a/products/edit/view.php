@@ -29,8 +29,10 @@ class view
 		\dash\data::listUnits($unit_list);
 
 		$category_list = \lib\app\product\category::list();
-
 		\dash\data::listCategory($category_list);
+
+		// $tag_list = \lib\app\product\tag::list();
+		// \dash\data::listCategory($tag_list);
 
 	}
 }

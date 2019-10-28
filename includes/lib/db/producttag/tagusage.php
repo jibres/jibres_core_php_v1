@@ -52,11 +52,11 @@ class tagusage
 		$query =
 		"
 			SELECT
-				productterms.id AS `productterm_id`,
-				productterms.*
+				producttag.id AS `producttag_id`,
+				producttag.*
 			FROM
 				producttagusage
-			INNER JOIN productterms ON productterms.id = producttagusage.productterm_id
+			INNER JOIN producttag ON producttag.id = producttagusage.producttag_id
 			WHERE
 				producttagusage.product_id = $_product_id
 		";
