@@ -9,7 +9,7 @@ class unit
 
 	public static function check_add($_unit)
 	{
-		$get_unit_title = \lib\db\productunit::get_by_title(\lib\store::id(), $_unit);
+		$get_unit_title = \lib\db\productunit\db::get_by_title(\lib\store::id(), $_unit);
 		if(isset($get_unit_title['id']))
 		{
 			return $get_unit_title;
@@ -21,7 +21,7 @@ class unit
 			'store_id' => \lib\store::id(),
 		];
 
-		$id = \lib\db\productunit::insert($args);
+		$id = \lib\db\productunit\db::insert($args);
 
 		if(!$id)
 		{
@@ -106,7 +106,7 @@ class unit
 			return false;
 		}
 
-		$get_unit_title = \lib\db\productunit::get_by_title(\lib\store::id(), $args['title']);
+		$get_unit_title = \lib\db\productunit\db::get_by_title(\lib\store::id(), $args['title']);
 
 		if(isset($get_unit_title['id']))
 		{
@@ -116,12 +116,12 @@ class unit
 
 		if($args['default'])
 		{
-			$get_unit_title = \lib\db\productunit::set_all_default_as_null(\lib\store::id());
+			$get_unit_title = \lib\db\productunit\db::set_all_default_as_null(\lib\store::id());
 		}
 
 		$args['store_id'] = \lib\store::id();
 
-		$id = \lib\db\productunit::insert($args);
+		$id = \lib\db\productunit\db::insert($args);
 		if(!$id)
 		{
 			\dash\log::set('productUnitDbErrorInsert');
@@ -207,7 +207,7 @@ class unit
 
 		\dash\log::set('productUnitDeleted', ['old' => $load]);
 
-		\lib\db\productunit::delete($id);
+		\lib\db\productunit\db::delete($id);
 		if(self::$debug)
 		{
 			\dash\notif::ok(T_("Unit successfully removed"));
@@ -225,7 +225,7 @@ class unit
 			return false;
 		}
 
-		$load = \lib\db\productunit::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productunit\db::get_one(\lib\store::id(), $id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
@@ -253,7 +253,7 @@ class unit
 			return false;
 		}
 
-		$load = \lib\db\productunit::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productunit\db::get_one(\lib\store::id(), $id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
@@ -296,7 +296,7 @@ class unit
 			return false;
 		}
 
-		$get_unit = \lib\db\productunit::get_one(\lib\store::id(), $id);
+		$get_unit = \lib\db\productunit\db::get_one(\lib\store::id(), $id);
 
 		if(isset($get_unit['id']) && isset($get_unit['title']) && $get_unit['title'] == $args['title'])
 		{
@@ -313,7 +313,7 @@ class unit
 
 		if($args['default'])
 		{
-			\lib\db\productunit::set_all_default_as_null(\lib\store::id());
+			\lib\db\productunit\db::set_all_default_as_null(\lib\store::id());
 		}
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
@@ -338,7 +338,7 @@ class unit
 			}
 			else
 			{
-				$update = \lib\db\productunit::update($args, $id);
+				$update = \lib\db\productunit\db::update($args, $id);
 
 				if($update)
 				{
@@ -381,7 +381,7 @@ class unit
 		\dash\permission::access('productUnitListView');
 
 
-		$result = \lib\db\productunit::get_list(\lib\store::id());
+		$result = \lib\db\productunit\db::get_list(\lib\store::id());
 
 		$temp            = [];
 

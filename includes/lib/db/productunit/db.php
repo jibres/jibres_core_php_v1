@@ -1,26 +1,26 @@
 <?php
-namespace lib\db;
+namespace lib\db\productunit;
 
 
-class productcategory
+class db
 {
 
 	public static function insert()
 	{
-		\dash\db\config::public_insert('productcategory', ...func_get_args());
+		\dash\db\config::public_insert('productunit', ...func_get_args());
 		return \dash\db::insert_id();
 	}
 
 
 	public static function update()
 	{
-		return \dash\db\config::public_update('productcategory', ...func_get_args());
+		return \dash\db\config::public_update('productunit', ...func_get_args());
 	}
 
 
 	public static function get()
 	{
-		return \dash\db\config::public_get('productcategory', ...func_get_args());
+		return \dash\db\config::public_get('productunit', ...func_get_args());
 	}
 
 
@@ -41,13 +41,14 @@ class productcategory
 		$query =
 		"
 			SELECT
-				productcategory.id,
-				productcategory.title,
-				(SELECT COUNT(*) FROM products WHERE products.unit_id = productcategory.id) AS `count`
+				productunit.id,
+				productunit.title,
+				productunit.int,
+				(SELECT COUNT(*) FROM products WHERE products.unit_id = productunit.id) AS `count`
 			FROM
-				productcategory
+				productunit
 			WHERE
-				productcategory.store_id = $_store_id
+				productunit.store_id = $_store_id
 			ORDER BY
 				count DESC
 		";
@@ -58,13 +59,13 @@ class productcategory
 
 	public static function get_count()
 	{
-		return \dash\db\config::public_get_count('productcategory', ...func_get_args());
+		return \dash\db\config::public_get_count('productunit', ...func_get_args());
 	}
 
 	// get one record of product unit
 	public static function get_one($_store_id, $_id)
 	{
-		$query  = "SELECT * FROM productcategory WHERE  productcategory.store_id = $_store_id AND productcategory.id = $_id LIMIT 1";
+		$query  = "SELECT * FROM productunit WHERE  productunit.store_id = $_store_id AND productunit.id = $_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
@@ -76,13 +77,13 @@ class productcategory
 		$query =
 		"
 			SELECT
-				productcategory.id,
-				productcategory.title
+				productunit.id,
+				productunit.title
 			FROM
-				productcategory
+				productunit
 			WHERE
-				productcategory.store_id = $_store_id AND
-				productcategory.title = '$_title'
+				productunit.store_id = $_store_id AND
+				productunit.title = '$_title'
 			LIMIT 1
 		";
 
@@ -98,12 +99,12 @@ class productcategory
 		$query =
 		"
 			UPDATE
-				productcategory
+				productunit
 			SET
-				productcategory.isdefault = NULL
+				productunit.isdefault = NULL
 			WHERE
-				productcategory.store_id = $_store_id AND
-				productcategory.isdefault IS NOT NULL
+				productunit.store_id = $_store_id AND
+				productunit.isdefault IS NOT NULL
 		";
 
 		$result = \dash\db::query($query);
@@ -113,7 +114,7 @@ class productcategory
 
 	public static function delete($_id)
 	{
-		$query  = "DELETE FROM productcategory WHERE productcategory.id = $_id LIMIT 1";
+		$query  = "DELETE FROM productunit WHERE productunit.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}

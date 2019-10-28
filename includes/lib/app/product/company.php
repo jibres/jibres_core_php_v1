@@ -9,7 +9,7 @@ class company
 
 	public static function check_add($_company)
 	{
-		$get_company_title = \lib\db\productcompany::get_by_title(\lib\store::id(), $_company);
+		$get_company_title = \lib\db\productcompany\db::get_by_title(\lib\store::id(), $_company);
 		if(isset($get_company_title['id']))
 		{
 			return $get_company_title;
@@ -21,7 +21,7 @@ class company
 			'store_id' => \lib\store::id(),
 		];
 
-		$id = \lib\db\productcompany::insert($args);
+		$id = \lib\db\productcompany\db::insert($args);
 
 		if(!$id)
 		{
@@ -83,7 +83,7 @@ class company
 			return false;
 		}
 
-		$get_company_title = \lib\db\productcompany::get_by_title(\lib\store::id(), $args['title']);
+		$get_company_title = \lib\db\productcompany\db::get_by_title(\lib\store::id(), $args['title']);
 
 		if(isset($get_company_title['id']))
 		{
@@ -93,7 +93,7 @@ class company
 
 		$args['store_id'] = \lib\store::id();
 
-		$id = \lib\db\productcompany::insert($args);
+		$id = \lib\db\productcompany\db::insert($args);
 		if(!$id)
 		{
 			\dash\log::set('productCompanyDbErrorInsert');
@@ -179,7 +179,7 @@ class company
 
 		\dash\log::set('productCompanyDeleted', ['old' => $load]);
 
-		\lib\db\productcompany::delete($id);
+		\lib\db\productcompany\db::delete($id);
 		if(self::$debug)
 		{
 			\dash\notif::ok(T_("Company successfully removed"));
@@ -197,7 +197,7 @@ class company
 			return false;
 		}
 
-		$load = \lib\db\productcompany::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productcompany\db::get_one(\lib\store::id(), $id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid company id"));
@@ -225,7 +225,7 @@ class company
 			return false;
 		}
 
-		$load = \lib\db\productcompany::get_one(\lib\store::id(), $id);
+		$load = \lib\db\productcompany\db::get_one(\lib\store::id(), $id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid company id"));
@@ -268,7 +268,7 @@ class company
 			return false;
 		}
 
-		$get_company = \lib\db\productcompany::get_one(\lib\store::id(), $id);
+		$get_company = \lib\db\productcompany\db::get_one(\lib\store::id(), $id);
 
 		if(isset($get_company['id']) && isset($get_company['title']) && $get_company['title'] == $args['title'])
 		{
@@ -304,7 +304,7 @@ class company
 			}
 			else
 			{
-				$update = \lib\db\productcompany::update($args, $id);
+				$update = \lib\db\productcompany\db::update($args, $id);
 
 				if($update)
 				{
@@ -345,7 +345,7 @@ class company
 		\dash\permission::access('productCompanyListView');
 
 
-		$result = \lib\db\productcompany::get_page_list(\lib\store::id(), $_string);
+		$result = \lib\db\productcompany\db::get_page_list(\lib\store::id(), $_string);
 
 		$temp            = [];
 
@@ -373,7 +373,7 @@ class company
 		\dash\permission::access('productCompanyListView');
 
 
-		$result = \lib\db\productcompany::get_list(\lib\store::id());
+		$result = \lib\db\productcompany\db::get_list(\lib\store::id());
 
 		$temp            = [];
 

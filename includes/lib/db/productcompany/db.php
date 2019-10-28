@@ -1,8 +1,8 @@
 <?php
-namespace lib\db;
+namespace lib\db\productcompany;
 
 
-class productcompany
+class db
 {
 
 	public static function insert()
