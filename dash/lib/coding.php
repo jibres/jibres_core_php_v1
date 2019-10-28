@@ -18,9 +18,10 @@ class coding
 	 *
 	 * Source: https://github.com/delight-im/ShortURL (Apache License 2.0)
 	 */
-	public static $ALPHABET_NUMBER = '2513964078';
-	public static $ALPHABET        = '23456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ';
-	public static $ALPHABET_ALL    = 'Q4W3cvE5xRiTyu67qw1JKoplaGHLPkjhOYUrtfNMdsASDFIgZXezVB890C2bnm';
+	public static $ALPHABET_NUMBER = '1358962407';
+	// public static $ALPHABET     = '23456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ';
+	public static $ALPHABET        = 'jBRS2kJ3yP4dLxN5tH6zC7vG8rD9bFhVmqWgKsQnYpTfZcMwX';
+	public static $ALPHABET_ALL    = 'kjhOYUrxRDFIgZC2bKQ4Ww1JezVB890vE5opl3cLPtfNMdsASXnmiTyu67qaGH';
 
 
 	private static function alphabet($_alphabet)
