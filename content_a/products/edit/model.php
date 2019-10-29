@@ -50,24 +50,22 @@ class model
 
 	public static function post()
 	{
-		$id = \dash\request::post('id');
+		$id = \dash\request::get('id');
 
-		$code = \dash\request::get('code');
-
-		if(self::upload_gallery($code))
+		if(self::upload_gallery($id))
 		{
 			return false;
 		}
 
 		if(\dash\request::post('fileaction') === 'remove')
 		{
-			self::remove_gallery($code);
+			self::remove_gallery($id);
 			return false;
 		}
 
 		if(\dash\request::post('fileaction') === 'setthumb')
 		{
-			self::setthumb($code);
+			self::setthumb($id);
 			return false;
 		}
 
@@ -90,16 +88,16 @@ class model
 
 
 
-	public static function upload_gallery($_code)
+	public static function upload_gallery($_id)
 	{
 		if(\dash\request::files('gallery'))
 		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'gallery']);
+			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'gallery', 'user_id' => \lib\userstore::id()]);
 
 			if(isset($uploaded_file['id']))
 			{
 				// save uploaded file
-				\lib\app\product\gallery::gallery($_code, $uploaded_file, 'add');
+				\lib\app\product\gallery::gallery($_id, $uploaded_file, 'add');
 			}
 
 			if(!\dash\engine\process::status())
@@ -118,18 +116,18 @@ class model
 	}
 
 
-	public static function remove_gallery($_code)
+	public static function remove_gallery($_id)
 	{
 		$fileid = \dash\request::post('fileid');
-		\lib\app\product\gallery::gallery($_code, $fileid, 'remove');
+		\lib\app\product\gallery::gallery($_id, $fileid, 'remove');
 		\dash\redirect::pwd();
 	}
 
 
-	public static function setthumb($_code)
+	public static function setthumb($_id)
 	{
 		$fileid = \dash\request::post('fileid');
-		\lib\app\product\gallery::setthumb($_code, $fileid);
+		\lib\app\product\gallery::setthumb($_id, $fileid);
 		\dash\redirect::pwd();
 	}
 

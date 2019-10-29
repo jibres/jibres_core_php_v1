@@ -157,11 +157,11 @@ class file
 	}
 
 
-	public static function upload_quick($_upload_name)
+	public static function upload_quick($_upload_name, $_user_id = null)
 	{
 		if(\dash\request::files($_upload_name))
 		{
-			$uploaded_file = self::upload(['debug' => false, 'upload_name' => $_upload_name]);
+			$uploaded_file = self::upload(['debug' => false, 'upload_name' => $_upload_name, 'user_id' => $_user_id]);
 
 			if(isset($uploaded_file['url']))
 			{
@@ -187,6 +187,7 @@ class file
 			'url'         => null,
 			'debug'       => true,
 			'max_upload'  => null,
+			'user_id'     => null,
 		];
 
 		if(!is_array($_options))
@@ -214,7 +215,16 @@ class file
 		}
 
 		$ready_upload               = [];
-		$ready_upload['user_id']    = \dash\user::id();
+
+		if($_options['user_id'])
+		{
+			$ready_upload['user_id'] = $_options['user_id'];
+		}
+		else
+		{
+			$ready_upload['user_id'] = \dash\user::id();
+		}
+
 		$ready_upload['debug']      = $_options['debug'];
 		$ready_upload['max_upload'] = $_options['max_upload'];
 

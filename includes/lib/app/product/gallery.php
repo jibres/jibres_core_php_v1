@@ -30,10 +30,10 @@ class gallery
 		return $_data;
 	}
 
-	private static function get_gallery_field($_product_code)
+	private static function get_gallery_field($_product_id)
 	{
 
-		$load_product_gallery = \lib\app\product\get::by_code_inline($_product_code);
+		$load_product_gallery = \lib\app\product\get::inline_get($_product_id);
 
 		if(!$load_product_gallery || !is_array($load_product_gallery) || !isset($load_product_gallery['id']))
 		{
@@ -73,10 +73,10 @@ class gallery
 	}
 
 
-	public static function setthumb($_product_code, $_file_id)
+	public static function setthumb($_product_id, $_file_id)
 	{
 
-		$load_gallery = self::get_gallery_field($_product_code);
+		$load_gallery = self::get_gallery_field($_product_id);
 		if(!$load_gallery)
 		{
 			return false;
@@ -107,9 +107,9 @@ class gallery
 	}
 
 
-	public static function gallery($_product_code, $_file_detail, $_type = 'add')
+	public static function gallery($_product_id, $_file_detail, $_type = 'add')
 	{
-		$load_gallery = self::get_gallery_field($_product_code);
+		$load_gallery = self::get_gallery_field($_product_id);
 		if(!$load_gallery)
 		{
 			return false;
