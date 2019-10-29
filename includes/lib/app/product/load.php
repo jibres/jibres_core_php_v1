@@ -34,7 +34,7 @@ class load
 		$id = \dash\request::get('id');
 
 		// load detail
-		$detail = \lib\app\product::get($id);
+		$detail = \lib\app\product\get::get($id);
 		if(!$detail)
 		{
 			// access denied or invalid id
@@ -46,27 +46,5 @@ class load
 
 		return $detail;
 	}
-
-
-	// load one product by code in query string url
-	public static function code()
-	{
-		// get id from url
-		$code = \dash\request::get('code');
-
-		// load detail
-		$detail = \lib\app\product\get::by_code($code, ['load_gallery' => true]);
-		if(!$detail)
-		{
-			// access denied or invalid id
-			return false;
-		}
-
-		// sed dataRow to load detail in html
-		\dash\data::productDataRow($detail);
-
-		return $detail;
-	}
-
 }
 ?>

@@ -18,14 +18,21 @@ class get
 			return false;
 		}
 
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+
+		if(!is_numeric($_id))
 		{
 			\dash\notif::error(T_("Invalid id"));
 			return false;
 		}
 
-		$result = \lib\db\products\db::get_by_id($id);
+		// $id = \dash\coding::decode($_id);
+		// if(!$id)
+		// {
+		// 	\dash\notif::error(T_("Invalid id"));
+		// 	return false;
+		// }
+
+		$result = \lib\db\products\db::get_by_id($_id);
 
 		if(!$result)
 		{

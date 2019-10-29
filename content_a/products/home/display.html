@@ -96,7 +96,7 @@
       {%for key, value in dataTable%}
       <tr>
         <td class="collapsing"><img src="{{value.thumb}}" class="avatar" alt="{{value.title}}"></td>
-        <td><a href="{{url.this}}/general?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
+        <td><a href="{{url.this}}/edit?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
         <td>
           {%if value.variants_detail.stock %}
             <span><b>{{value.variants_detail.stock | fitNumber}}</b> {%trans "in stock"%}</span>

@@ -9,7 +9,7 @@ class controller
 		\dash\permission::access('ProductEdit');
 
 		// check load product detail
-		if(!\lib\app\product\load::code())
+		if(!\lib\app\product\load::one())
 		{
 			\dash\header::status(404);
 		}

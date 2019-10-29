@@ -19,7 +19,7 @@ class view
 		\dash\data::badge_text(T_('Back'));
 		\dash\data::badge_link(\dash\url::this());
 
-		$variants_list = \lib\app\product\variants::get(\dash\request::get('code'));
+		$variants_list = \lib\app\product\variants::get(\dash\request::get('id'));
 		\dash\data::variantsList($variants_list);
 
 		$company_list = \lib\app\product\company::list();

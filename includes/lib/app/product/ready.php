@@ -32,6 +32,9 @@ class ready
 			switch ($key)
 			{
 				case 'id':
+					$result['id'] = $value;
+					break;
+
 				case 'creator':
 				case 'cat_id':
 				case 'unit_id':

@@ -4,10 +4,10 @@ namespace lib\app\product;
 
 class variants
 {
-	public static function get($_code)
+	public static function get($_id)
 	{
 		// load main product detail
-		$product_detail = \lib\app\product\get::by_code_inline($_code);
+		$product_detail = \lib\app\product\get::get($_id);
 
 		if(!$product_detail)
 		{
