@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `file` (
+CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`file` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `userstore_id` int(10) UNSIGNED DEFAULT NULL,
 `md5` char(32) DEFAULT NULL,
@@ -22,7 +22,7 @@ KEY `files_md5_search` (`md5`)
 
 
 
-CREATE TABLE IF NOT EXISTS `fileusage` (
+CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`fileusage` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `file_id` int(10) UNSIGNED DEFAULT NULL,
 `userstore_id` int(10) UNSIGNED DEFAULT NULL,
