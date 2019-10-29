@@ -187,8 +187,7 @@ class search
 		}
 
 		$product_ids = array_column($list, 'id');
-
-		$product_ids = array_map(['\\dash\\coding', 'decode'], $product_ids);
+		$product_ids = array_map('intval', $product_ids);
 
 		$product_ids = array_filter($product_ids);
 
@@ -205,7 +204,7 @@ class search
 				{
 					$temp = $value;
 					unset($temp['parent']);
-					$variants[\dash\coding::encode($value['parent'])] = $temp;
+					$variants[$value['parent']] = $temp;
 				}
 
 				foreach ($list as $key => $value)

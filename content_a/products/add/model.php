@@ -14,9 +14,9 @@ class model
 			return false;
 		}
 
-		if(isset($result['code']))
+		if(isset($result['id']))
 		{
-			\dash\redirect::to(\dash\url::this(). '/edit?code='. $result['code']);
+			\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
 		}
 		else
 		{

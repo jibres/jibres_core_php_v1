@@ -209,7 +209,7 @@ class add
 		if(!$_option['multi_add'])
 		{
 			$return['product_id'] = \dash\coding::encode($product_id);
-			$return['code']       = \lib\db\products\db::get_one_field($product_id, 'code');
+			$return['id']       = $product_id;
 		}
 
 		if(!$_option['transaction'])
