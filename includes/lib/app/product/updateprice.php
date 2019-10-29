@@ -75,6 +75,8 @@ class updateprice
 			$new_record['last']       = 'yes';
 
 			\lib\db\productprices\db::insert($new_record);
+
+			\dash\temp::set('productHasChange', true);
 		}
 	}
 }

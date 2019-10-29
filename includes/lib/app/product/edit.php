@@ -187,8 +187,15 @@ class edit
 			}
 			else
 			{
-				// no change
-				\dash\notif::info(T_("Your product saved without change"));
+				if(\dash\temp::get('productHasChange'))
+				{
+					\dash\notif::ok(T_("Your product successfully updated"));
+				}
+				else
+				{
+					// no change
+					\dash\notif::info(T_("Your product saved without change"));
+				}
 			}
 		}
 		else

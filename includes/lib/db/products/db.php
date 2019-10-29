@@ -30,13 +30,7 @@ class db
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query =
-			"
-				INSERT INTO `products`
-				SET $set,
-				products.code = (SELECT IFNULL(MAX(myProd.code), 0) FROM products AS `myProd`) + 1
-			";
-
+			$query = " INSERT INTO `products` SET $set ";
 			if(\dash\db::query($query))
 			{
 				$id = \dash\db::insert_id();
@@ -112,22 +106,6 @@ class db
 		return $result;
 	}
 
-
-	public static function get_by_code($_code)
-	{
-		$public_query = self::get_product_query_string();
-		$query  =
-		"
-			SELECT
-				$public_query
-			WHERE
-				products.code = $_code
-			LIMIT 1
-		";
-		$result = \dash\db::get($query, null, true);
-
-		return $result;
-	}
 
 
 

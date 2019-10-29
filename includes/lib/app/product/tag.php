@@ -125,6 +125,7 @@ class tag
 
 		if($have_term_to_save_log)
 		{
+			\dash\temp::set('productHasChange', true);
 			\dash\log::set('productAddTag', ['code' => $_product_id, 'tag' => $_tag]);
 		}
 
