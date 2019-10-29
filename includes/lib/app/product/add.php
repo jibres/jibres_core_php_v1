@@ -100,11 +100,6 @@ class add
 			}
 		}
 
-		// check plan limitation
-		if(!\lib\app\plan\limit::check('product'))
-		{
-			return false;
-		}
 
 		// the transaction not start. neet to statr
 		if(!$_option['transaction'])
