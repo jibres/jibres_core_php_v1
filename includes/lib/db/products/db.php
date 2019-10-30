@@ -113,12 +113,12 @@ class db
 	{
 		if($_thumb)
 		{
-			$query  = "UPDATE products SET products.thumbid = '$_thumb' WHERE products.id = $_id LIMIT 1";
+			$query  = "UPDATE products SET products.thumb = '$_thumb' WHERE products.id = $_id LIMIT 1";
 		}
 		else
 
 		{
-			$query  = "UPDATE products SET products.thumbid = NULL WHERE products.id = $_id LIMIT 1";
+			$query  = "UPDATE products SET products.thumb = NULL WHERE products.id = $_id LIMIT 1";
 		}
 		$result = \dash\db::query($query);
 		return $result;

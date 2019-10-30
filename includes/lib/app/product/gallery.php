@@ -144,12 +144,12 @@ class gallery
 				$gallery['gallery'] = [$file_id];
 			}
 
-			if(isset($product_detail['thumbid']) && !in_array($product_detail['thumbid'], $gallery['gallery']))
+			if(isset($product_detail['thumb']) && !in_array($product_detail['thumb'], $gallery['gallery']))
 			{
-				unset($product_detail['thumbid']);
+				unset($product_detail['thumb']);
 			}
 
-			if(array_key_exists('thumbid', $product_detail) && !$product_detail['thumbid'])
+			if(array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])
 			{
 				\lib\db\products\db::update_thumb($file_id, $product_id);
 			}
@@ -172,9 +172,9 @@ class gallery
 					return false;
 				}
 
-				if(isset($product_detail['thumbid']) && !in_array($product_detail['thumbid'], $gallery['gallery']))
+				if(isset($product_detail['thumb']) && !in_array($product_detail['thumb'], $gallery['gallery']))
 				{
-					unset($product_detail['thumbid']);
+					unset($product_detail['thumb']);
 				}
 
 				unset($gallery['gallery'][array_search($file_id, $gallery['gallery'])]);
@@ -186,12 +186,12 @@ class gallery
 					break;
 				}
 
-				if((!isset($product_detail['thumbid']) || (array_key_exists('thumbid', $product_detail) && !$product_detail['thumbid'])) && $next_image)
+				if((!isset($product_detail['thumb']) || (array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])) && $next_image)
 				{
 					\lib\db\products\db::update_thumb($next_image, $product_id);
 				}
 
-				if(isset($product_detail['thumbid']) && intval($product_detail['thumbid']) === intval($file_id) && $next_image)
+				if(isset($product_detail['thumb']) && intval($product_detail['thumb']) === intval($file_id) && $next_image)
 				{
 					\lib\db\products\db::update_thumb($next_image, $product_id);
 				}

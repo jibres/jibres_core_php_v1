@@ -39,7 +39,7 @@ class ready
 				case 'cat_id':
 				case 'unit_id':
 				case 'company_id':
-				case 'thumbid':
+				case 'thumb':
 					if(isset($value))
 					{
 						$result[$key] = \dash\coding::encode($value);

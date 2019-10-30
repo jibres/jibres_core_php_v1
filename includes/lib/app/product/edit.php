@@ -64,7 +64,7 @@ class edit
 		if(!\dash\app::isset_request('maxstock')) unset($args['maxstock']);
 		if(!\dash\app::isset_request('weight')) unset($args['weight']);
 		if(!\dash\app::isset_request('status')) unset($args['status']);
-		if(!\dash\app::isset_request('thumbid')) unset($args['thumbid']);
+		if(!\dash\app::isset_request('thumb')) unset($args['thumb']);
 		if(!\dash\app::isset_request('vat')) unset($args['vat']);
 		if(!\dash\app::isset_request('saleonline')) unset($args['saleonline']);
 		if(!\dash\app::isset_request('carton')) unset($args['carton']);

@@ -378,7 +378,7 @@
 
 <div class="f">
   {%for key, value in productDataRow.gallery_array%}
-    {%if value.id and value.id == productDataRow.thumbid%}
+    {%if value.id and value.id == productDataRow.thumb%}
     <span class="cauto example">
       <div class="w300 mA20">
         <img src="{{value.url}}">
@@ -389,7 +389,7 @@
   {%endfor%}
 
   {%for key, value in productDataRow.gallery_array%}
-    {%if value.id and value.id != productDataRow.thumbid%}
+    {%if value.id and value.id != productDataRow.thumb%}
       <span class="cauto">
         <div class="w100 mA5">
           <img src="{{value.url}}">

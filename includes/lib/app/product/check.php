@@ -200,16 +200,16 @@ class check
 			return false;
 		}
 
-		$thumbid = \dash\app::request('thumbid');
-		if($thumbid)
+		$thumb = \dash\app::request('thumb');
+		if($thumb)
 		{
-			$load_file_detail = \dash\app\file::get_inline($thumbid);
+			$load_file_detail = \dash\app\file::get_inline($thumb);
 			if(!$load_file_detail || !isset($load_file_detail['id']))
 			{
 				return false;
 			}
 
-			$thumbid = $load_file_detail['id'];
+			$thumb = $load_file_detail['id'];
 		}
 		$gallery = \dash\app::request('gallery');
 
@@ -440,7 +440,7 @@ class check
 		$args['maxstock']     = $maxstock;
 		$args['weight']       = $weight;
 		$args['status']       = $status;
-		$args['thumbid']      = $thumbid;
+		$args['thumb']      = $thumb;
 		$args['vat']          = $vat;
 		$args['saleonline']   = $saleonline;
 		$args['carton']       = $carton;
