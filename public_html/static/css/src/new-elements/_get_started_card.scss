@@ -1,0 +1,23 @@
+#get_started_card{
+  background-color: #fff;
+  border-radius: 1em;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  padding: 3em 3em 1em;
+  position: relative;
+  box-shadow: 0 10px 25px #ddd;
+  margin: 1em auto;
+  font-size: 1.5em;
+}
+
+#get_started_card .input{
+	display: block;
+	width: 100%;
+	margin-bottom: 1em;
+}
+#get_started_card img{
+	display: block;
+	margin: 0 auto;
+	max-width: 280px;
+}
+

@@ -110,6 +110,10 @@ Version       1.0.0
 @import 'blog/blog';
 
 
+// add new elements
+@import 'new-elements/get_started_card';
+
+
 // add responsive styles
 @import 'responsive/desktop';
 @import 'responsive/tablet';

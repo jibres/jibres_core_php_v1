@@ -4,78 +4,24 @@
 {%block pageContent%}
 
 <div class="f justify-center">
-  <div class="c6 s12">
-    <div class="panel fs15">
-      <div class="padxH">
-        <h1>{%trans "Create a new store"%}</h1>
-        <p>{%trans "To make a online store from scratch, please enter your bussiness name."%}</p>
+  <div class="c4 s12">
+    <div id="get_started_card">
+      <h1>{%trans "Create a new store"%}</h1>
+      <p>{%trans "To make a online store from scratch, please enter your bussiness name."%}</p>
 
-      </div>
-    </div>
-  </div>
-</div>
+      <input type="text" class="input" name="bt" placeholder='{%trans "Your bussiness title"%}'autofocus maxlength='50' required>
 
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-
-
-
-
-
-<div class="f justify-center">
-  <div class="c8 s12">
-
-{%if countStore%}
-    <div class="msg warn txtC fs18">
-      <h2 class="txtB">{%trans "You are reach your store limit!"%}</h2>
-      <div>{%trans "If you want to add a new store, you must say to us via ticket, then we check and increase your max store limit."%}
-      </div>
-      <div class="mT25">
-        <a class="btn light lg" href="{{url.kingdom}}/support/ticket/add?title=storeLimit">{%trans "Submit a ticket"%}</a>
-      </div>
-    </div>
-
-{%endif%}
-{%if not countStore or perm_su()%}
-    <div class="msg primary txtC fs18">
-      <h2 class="txtB">{%trans "Easily set up your store"%}</h2>
-      <div>{%trans "Try Jibres free for 14 days."%} {%trans "Then if you want, pick a plan!"%}</div>
-    </div>
-
-
-    <form method="post" class="cbox pB20" autocomplete="off">
-    {{block ("iTitle")}}
-    {{block ("isubdomain")}}
-      <img class="block" src="{{url.static}}/images/help/choose-subdomain.png" alt='{{site.title}} {%trans "subdomain select"%}'>
+      <button class="btn success block">{%trans "Create my store now"%}</button>
 
       <div class="msg mT10 fs08">{{termOfService | raw}}</div>
 
-      <button class="btn success block mT10">{%trans "Create my store now"%}</button>
-    </form>
 
-{%endif%}
-
+      <img src="{{url.static}}/img/store/your-brand.svg">
+    </div>
+    <div class="txtLa">
+      <a href="{{url.here}}" class="btn">{%trans "Cancel"%}</a>
+    </div>
   </div>
 </div>
 {%endblock%}
 
-
-
-{%block iTitle%}
-<label for="name">{%trans "Store title"%} <span class="fc-red">*</span></label>
-<div class="input">
-  <input type="text" name="title" id="name" placeholder='{%trans "Your store title"%} *' autofocus maxlength='70' pattern=".{1,70}" required>
-</div>
-{%endblock%}
-
-
-{%block isubdomain%}
-<label for="subdomain">{%trans "Store short name"%} <small>{%trans "Used for url of store as subdomain"%}</small> <span class="fc-red">*</span></label>
-<div class="input fix">
-  <input type="text" name="subdomain" id="subdomain" placeholder='{%trans "Free subdomain address for your store"%} *' maxlength='50' class="ltr" required  autocomplete="off" data-check='{{url.this}}/add'>
-  <label class="addon ltr" for="subdomain">.{{url.domain | capitalize}}</label>
-</div>
-{%endblock%}
