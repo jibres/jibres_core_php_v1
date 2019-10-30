@@ -34,7 +34,7 @@ class load
 		$id = \dash\request::get('id');
 
 		// load detail
-		$detail = \lib\app\product\get::get($id);
+		$detail = \lib\app\product\get::get($id, ['load_gallery' => true]);
 		if(!$detail)
 		{
 			// access denied or invalid id

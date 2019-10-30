@@ -20,7 +20,7 @@ class gallery
 			return $_data;
 		}
 
-		$load_files = \lib\app\file::multi_load($file_id);
+		$load_files = \dash\app\file::multi_load($file_id);
 
 		if($load_files)
 		{
