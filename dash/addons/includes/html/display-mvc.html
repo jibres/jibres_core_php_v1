@@ -6,9 +6,7 @@
  <base href="{{url.base}}"/>
  <title>{{global.title }}</title>
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
-{%if url.root != 'deadbrowser'%}
  <!--[if lte IE 9]><script>document.location = 'https://deadbrowser.com/{{lang.current}}';</script><![endif]-->
-{%endif%}
  <meta name     ="description"             content="{{page.desc}}"/>
  <meta name     ="site:root"               content="{{url.kingdom}}"/>
 {%block head_twitter%}
@@ -64,9 +62,7 @@
  <link rel="alternate"        href="{{myLangUrl}}" hreflang="{{key|slice(0, 2)}}"/>
 {%endfor%}
 
-{%if include.siftal and siftalCSS != 'off' %}
- <link rel="stylesheet"       href="{{url.siftal}}{{'/css/siftal.css' | filemtime('siftal')}}"/>
-{%endif%}
+ <link rel="stylesheet"       href="{{url.static}}{{'/css/siftal.min.css' | filemtime('true')}}"/>
 {%block head_css         %}{%endblock%}
 {%if include.css %}
  <link rel="stylesheet"       href="{{url.static}}{{'/css/style.css' | filemtime(true)}}"/>
