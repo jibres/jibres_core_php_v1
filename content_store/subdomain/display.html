@@ -1,0 +1,27 @@
+{%extends display.jibresControlLayout%}
+
+
+{%block pageContent%}
+
+<div class="f justify-center">
+  <div class="c4 x3 m7 s12">
+    <div id="get_started_card">
+      <div class="body">
+        <h1>{%trans "Choose your online address"%}</h1>
+        <p>{%trans "Your answer is important for us."%}</p>
+
+        <form method="post" autocomplete="off">
+          <input type="text" class="input" name="sd" placeholder='{%trans "Your bussiness title"%}' autofocus maxlength='50'>
+
+          <button class="btn success block">{%trans "Build my online store"%}</button>
+        </form>
+
+        <img src="{{url.static}}/img/store/answer-polls.svg" alt='{%trans "answer Jibres polls"%}'>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+{%endblock%}
+
