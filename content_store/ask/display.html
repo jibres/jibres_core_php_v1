@@ -1,0 +1,34 @@
+{%extends display.jibresControlLayout%}
+
+
+{%block pageContent%}
+
+<div class="f justify-center">
+  <div class="cauto">
+    <div id="get_started_card">
+      <div class="body">
+        <h1>{%trans "Tell us a little about yourself"%}</h1>
+        <p>{%trans "Your answer is important for us."%}</p>
+
+        <form method="post" autocomplete="off">
+          <input type="text" class="input" name="bt" placeholder='{%trans "Your bussiness title"%}'autofocus maxlength='50'>
+
+          <div class="f">
+            <div class="c pRa5">
+              <button class="btn success block">{%trans "Next"%}</button>
+            </div>
+            <div class="cauto os pLa5">
+              <button class="btn block">{%trans "Skip"%}</button>
+            </div>
+          </div>
+        </form>
+
+        <img src="{{url.static}}/img/store/your-brand.svg" alt='{%trans "Create a store on Jibres"%}'>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+{%endblock%}
+
