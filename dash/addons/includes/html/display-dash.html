@@ -74,7 +74,7 @@
 
 
 {%elseif page.tbox is null and (page.title or page.desc)%}
-<div class="tbox{%if page.pictogram%} pictogram{%endif%}">
+<div class="tbox{%if page.pictogram%} pictogram{%endif%}" style="background-color:rgba(255,0,0,0.5)">
   <div class="f align-center">
     <div class="c">
       <h2>{{page.title | raw}} {%if page.desc%}<i class="compact sf-info-circle mLR5" title='{{page.desc | raw}}'></i>{%endif%}</h2>

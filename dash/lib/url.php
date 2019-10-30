@@ -86,6 +86,7 @@ class url
 		// generate with host and path
 		self::$url['sitelang']  = self::_sitelang();
 		self::$url['kingdom']   = self::_kingdom();
+		self::$url['support']   = self::_kingdom(). '/support';
 		self::$url['here']      = self::_here();
 		self::$url['this']      = self::_this();
 		self::$url['that']      = self::_that();

@@ -1,5 +1,5 @@
 <?php
-namespace content_c;
+namespace content_store;
 
 
 class view
@@ -11,12 +11,15 @@ class view
 		\dash\data::site_slogan(T_("Integrated Sales and Online Accounting"));
 
 
+		\dash\data::page_titleBox(true);
+
+
 		\dash\data::include_adminPanel(true);
 		\dash\data::include_css(false);
 		\dash\data::include_highcharts(true);
 
 
-		\dash\data::display_jibresControlLayout('content_c/layout.html');
+		\dash\data::display_jibresControlLayout('content_store/layout.html');
 	}
 }
 ?>

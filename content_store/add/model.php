@@ -1,5 +1,5 @@
 <?php
-namespace content_c\store\add;
+namespace content_store\add;
 
 
 class model

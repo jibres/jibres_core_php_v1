@@ -1,5 +1,5 @@
 <?php
-namespace content_c;
+namespace content_store;
 
 
 class controller
