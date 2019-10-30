@@ -11,7 +11,9 @@
         <p>{%trans "To make a online store from scratch, please enter name of your bussiness."%}</p>
 
         <form method="post" autocomplete="off">
-          <input type="text" class="input" name="bt" placeholder='{%trans "Your bussiness title"%}' autofocus maxlength='50'>
+          <div class="input">
+            <input type="text" name="bt" placeholder='{%trans "Your bussiness title"%}' autofocus maxlength='50'>
+          </div>
 
           <button class="btn success block">{%trans "Let's go"%}</button>
         </form>
