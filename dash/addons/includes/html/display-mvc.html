@@ -86,13 +86,7 @@
 {%if perm_su()%}
 <a class='superAdmin{%if url.tld != "local"%} public{%endif%}' data-direct title='{%trans "You are supervisor!"%}' href='{{url.sitelang}}/su' data-tippy-placement='bottom' data-tippy-animation="perspective" data-tippy-arrowtype="round"></a>
 {%endif%}
-{%block xaccess%}
-{%if perm('contentCp')%}
-  <div id="xaccess">
-    <a class='siteAdmin{%if url.tld != "local"%} public{%endif%}'{%if not include.adminPanel%} data-direct{%endif%} href='{{xaccessLink.cms}}' title='{%trans "Control Panel"%}' data-tippy-placement='right' data-tippy-animation="shift-away" data-tippy-inertia="true"><span class="sf-gauge"></span></a>
-  </div>
-{%endif%}
-{%endblock%}
+<div class="js">
 {%block foot_css%}{%endblock%}
 {%if include.siftal and siftalJS != 'off' %}
  <script src="{{url.siftal}}{{'/js/siftal.min.js' | filemtime('siftal')}}"></script>
@@ -113,6 +107,8 @@
     <div class="warn pA10">{{youAreDead}}</div>
 </div>
 {%endif%}
+
+
 {%block js%}{%endblock%}
 {%if include.editor%}
  <script src="{{url.siftal}}{{'/js/medium-editor.min.js' | filemtime('siftal')}}"></script>
@@ -141,5 +137,6 @@
 {%endif%}
 
  <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
+</div>
 </body>
 </html>
