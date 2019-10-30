@@ -5,14 +5,6 @@ require_once('social.php');
 require_once('payment.php');
 require_once('sms.php');
 
-/**
- * save logs in other database
- */
-if(!defined('db_log_name'))
-{
-	define('db_log_name', 'jibres_log');
-}
-
 
 // self::$url['fix']               = false;
 // self::$url['tld']               = 'com';
@@ -43,7 +35,7 @@ self::$language =
  */
 
 
-self::$config['redirect']                     = 'c';
+self::$config['redirect']                     = 'store';
 
 // self::$config['visitor'] = true;
 
@@ -62,7 +54,7 @@ self::$config['enter']['call_template_en'] = 'ermile-en';
  * first signup url
  * main redirect url . signup redirect url
  */
-self::$config['enter']['singup_redirect']     = 'c';
+self::$config['enter']['singup_redirect']     = 'store';
 
 
 /**

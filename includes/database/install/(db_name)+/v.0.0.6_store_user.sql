@@ -1,4 +1,4 @@
-CREATE TABLE `store_user` (
+CREATE TABLE IF NOT EXISTS `store_user` (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `store_id` int(10) UNSIGNED NULL,
 `creator` int(10) UNSIGNED NULL,

@@ -11,8 +11,6 @@ class prepare
 
 		self::error_handler();
 		self::debug();
-
-		self::set_db_log_name();
 	}
 
 
@@ -62,16 +60,6 @@ class prepare
 	}
 
 
-	private static function set_db_log_name()
-	{
-		if(!defined('db_log_name'))
-		{
-			if(defined('db_name'))
-			{
-				define('db_log_name', db_name. '_log');
-			}
-		}
-	}
 
 	/**
 	* if the user use 'en' language of site

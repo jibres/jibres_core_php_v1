@@ -1,4 +1,4 @@
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `username` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `displayname` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,

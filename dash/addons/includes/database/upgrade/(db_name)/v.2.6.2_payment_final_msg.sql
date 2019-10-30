@@ -1,1 +1,0 @@
-ALTER TABLE `transactions` ADD `finalmsg` bit(1) DEFAULT NULL;

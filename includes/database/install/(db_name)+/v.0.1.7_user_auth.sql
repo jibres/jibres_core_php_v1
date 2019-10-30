@@ -1,4 +1,4 @@
-CREATE TABLE `user_auth` (
+CREATE TABLE IF NOT EXISTS `user_auth` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(10) UNSIGNED DEFAULT NULL,
   `auth` char(32) NOT NULL,

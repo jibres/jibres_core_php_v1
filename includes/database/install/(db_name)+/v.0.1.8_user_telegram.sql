@@ -1,4 +1,4 @@
-CREATE TABLE `user_telegram` (
+CREATE TABLE IF NOT EXISTS `user_telegram` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(10) UNSIGNED NOT NULL,
   `chatid` bigint(20) NOT NULL,

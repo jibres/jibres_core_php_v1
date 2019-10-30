@@ -1,4 +1,4 @@
-CREATE TABLE `store_data` (
+CREATE TABLE IF NOT EXISTS `store_data` (
 `id` int(10) UNSIGNED NOT NULL,
 `title` varchar(200) CHARACTER SET utf8mb4 NULL,
 `owner` int(10) UNSIGNED NULL,

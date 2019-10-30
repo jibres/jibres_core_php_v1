@@ -1,4 +1,4 @@
-CREATE TABLE `user_android` (
+CREATE TABLE IF NOT EXISTS `user_android` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(10) UNSIGNED NOT NULL,
   `uniquecode` char(32) NOT NULL,

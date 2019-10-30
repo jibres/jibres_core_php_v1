@@ -1,5 +1,8 @@
-CREATE TABLE `store_analytics` (
+CREATE TABLE IF NOT EXISTS `store_analytics` (
 `id` int(10) UNSIGNED NOT NULL,
+`question1` smallint(3) UNSIGNED DEFAULT NULL,
+`question2` smallint(3) UNSIGNED DEFAULT NULL,
+`question3` smallint(3) UNSIGNED DEFAULT NULL,
 `lastactivity` timestamp NULL DEFAULT NULL,
 `dbtrafic` int(10) UNSIGNED DEFAULT NULL,
 `dbsize` int(10) UNSIGNED DEFAULT NULL,
@@ -20,7 +23,6 @@ CREATE TABLE `store_analytics` (
 `transaction` int(10) UNSIGNED DEFAULT NULL,
 `term` int(10) UNSIGNED DEFAULT NULL,
 `termusages` int(10) UNSIGNED DEFAULT NULL,
-`storetransaction` int(10) UNSIGNED DEFAULT NULL,
 `sumplustransaction` int(10) UNSIGNED DEFAULT NULL,
 `summinustransaction` int(10) UNSIGNED DEFAULT NULL,
 `product` int(10) UNSIGNED DEFAULT NULL,
@@ -44,6 +46,7 @@ CREATE TABLE `store_analytics` (
 `user_filter` int(10) UNSIGNED DEFAULT NULL,
 `user_unreachabl` int(10) UNSIGNED DEFAULT NULL,
 `user_permission` int(10) UNSIGNED DEFAULT NULL,
+
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY(`id`),

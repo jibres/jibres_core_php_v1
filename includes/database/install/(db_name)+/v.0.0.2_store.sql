@@ -1,4 +1,4 @@
-CREATE TABLE `store` (
+CREATE TABLE IF NOT EXISTS `store` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `subdomain` varchar(50) NULL,
 `dbip` int(10) UNSIGNED NULL,
