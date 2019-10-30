@@ -1,1 +1,1 @@
-sass --watch source.scss:../../dist/css/siftal.min.css --style compressed
+sass --watch source.scss:../siftal.min.css --style compressed
