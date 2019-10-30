@@ -73,27 +73,6 @@
 </div>
 
 
-{%elseif page.tbox is null and (page.title or page.desc)%}
-<div class="tbox{%if page.pictogram%} pictogram{%endif%}" style="background-color:rgba(255,0,0,0.5)">
-  <div class="f align-center">
-    <div class="c">
-      <h2>{{page.title | raw}} {%if page.desc%}<i class="compact sf-info-circle mLR5" title='{{page.desc | raw}}'></i>{%endif%}</h2>
-      {%if badge.text%} <a {%if badge.link%} href="{{badge.link}}"{%endif%} class="badge primary" {%if badge.shortkey%} data-shortkey="{{badge.shortkey}}"{%endif%}>{{badge.text}} {%if badge.shortkey == 120%}<kbd>f9</kbd>{%endif%}</a>{%endif%}
-    </div>
-    <div class="cauto os">{%if badge2.text and badge2.link and badge2.shortkey%} <a href="{{badge2.link}}" class="badge light" data-shortkey="{{badge2.shortkey}}">{{badge2.text}} {%if badge2.shortkey == 121%}<kbd>f10</kbd>{%endif%}</a>{%endif%}</div>
-  </div>
-
-{%if page.breadcrumb%}
-  <nav class="breadcrumb">
-{%for key, value in page.breadcrumb%}
-   <a{%if value.link%} href="{{value.link}}"{%endif%}{%if value.title%} title="{{value.title}}"{%endif%}{%if value.attr%} {{value.attr}}{%endif%}>{%if value.icon%}<span class="sf-{{value.icon}} mRa5"></span>{%endif%}{{value.text}}</a>
-{%endfor%}
-  </nav>
-{%endif%}
-  {%if page.pictogram%}
-  <span class="sf-{{page.pictogram}}"></span>
-  {%endif%}
-</div>
 {%endif%}
 {%endblock%}
 
