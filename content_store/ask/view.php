@@ -6,7 +6,9 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Add New Store"));
+		\dash\data::page_title(T_("Help Jibres work better"));
+
+		\dash\data::polls(\lib\polls::all());
 
 		\dash\data::userToggleSidebar(false);
 	}

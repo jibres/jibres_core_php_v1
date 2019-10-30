@@ -11,7 +11,16 @@
         <p>{%trans "Your answer is important for us."%}</p>
 
         <form method="post" autocomplete="off">
-          <input type="text" class="input" name="bt" placeholder='{%trans "Your bussiness title"%}'autofocus maxlength='50'>
+
+{%for index, myQ in polls.questions%}
+          <label for="{{myQ.id}}">{{myQ.title}}</label>
+          <select class="select" id="{{myQ.id}}" name="{{myQ.id}}">
+            <option readonly>{{polls.placeholder}}</option>
+            {% for myItem in myQ.items %}
+            <option value="{{myItem.key}}">{{myItem}}</option>
+            {% endfor %}
+          </select>
+{% endfor %}
 
           <div class="f">
             <div class="c pRa5">
