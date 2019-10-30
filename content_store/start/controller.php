@@ -1,5 +1,5 @@
 <?php
-namespace content_store\add;
+namespace content_store\start;
 
 
 class controller

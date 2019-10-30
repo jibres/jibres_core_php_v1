@@ -12,7 +12,7 @@ class view
 
 		// btn
 		\dash\data::page_btnText(T_('Add new store'));
-		\dash\data::page_btnLink(\dash\url::this(). '/add');
+		\dash\data::page_btnLink(\dash\url::this(). '/start');
 
 		$myStore = \lib\app\store\mystore::list();
 		\dash\data::listStore($myStore);
