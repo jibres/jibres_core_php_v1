@@ -6,6 +6,7 @@
   "dependencies": {
     "@ermile/dash": "^20.0.0",
     "jibres": "file:public_html/static/js/gulp",
+    "node-sass": "^4.13.0",
     "siftal": "^6.9.0"
   }
 }

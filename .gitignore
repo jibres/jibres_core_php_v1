@@ -8,6 +8,11 @@ desktop.ini
 *.me.*
 
 node_modules
+.sass-cache
+package-lock.json
+
+
+
 
 /stores
 
@@ -28,10 +33,7 @@ node_modules
 *crontab.json
 
 
-node_modules
-.sass-cache
 
-package-lock.json
 /dash/lib/engine/cronjob/crontab.txt
 
 *.sublime-*
