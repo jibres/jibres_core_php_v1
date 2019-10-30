@@ -204,12 +204,12 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`visitors` (
 
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`agents`
+ALTER TABLE `jibres_XXXXXXX`.`agents`
   ADD PRIMARY KEY (`id`),
   ADD KEY `index_search_agentmd5` (`agentmd5`);
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`apilog`
+ALTER TABLE `jibres_XXXXXXX`.`apilog`
   ADD PRIMARY KEY (`id`),
   ADD KEY `index_search_version` (`version`),
   ADD KEY `index_search_token` (`token`),
@@ -226,12 +226,12 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`apilog`
   ADD KEY `index_search_subdomain` (`subdomain`);
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`dayevent`
+ALTER TABLE `jibres_XXXXXXX`.`dayevent`
   ADD PRIMARY KEY (`id`);
 
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`logs`
+ALTER TABLE `jibres_XXXXXXX`.`logs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `log_status_index` (`status`),
   ADD KEY `log_to_index` (`to`),
@@ -246,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`logs`
   ADD KEY `index_search_datecreated` (`datecreated`);
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`sessions`
+ALTER TABLE `jibres_XXXXXXX`.`sessions`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `unique` (`code`) USING BTREE,
   ADD KEY `sessions_user_id` (`user_id`),
@@ -256,16 +256,16 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`sessions`
   ADD KEY `index_search_agent_id` (`agent_id`);
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`telegrams`
+ALTER TABLE `jibres_XXXXXXX`.`telegrams`
   ADD PRIMARY KEY (`id`);
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`urls`
+ALTER TABLE `jibres_XXXXXXX`.`urls`
   ADD PRIMARY KEY (`id`),
   ADD KEY `urlmd5_index` (`urlmd5`);
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`visitors`
+ALTER TABLE `jibres_XXXXXXX`.`visitors`
   ADD PRIMARY KEY (`id`),
   ADD KEY `visitors_agents` (`agent_id`),
   ADD KEY `visitors_urls` (`url_id`),
@@ -274,45 +274,45 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`visitors`
 
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`agents`
+ALTER TABLE `jibres_XXXXXXX`.`agents`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`apilog`
+ALTER TABLE `jibres_XXXXXXX`.`apilog`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`dayevent`
+ALTER TABLE `jibres_XXXXXXX`.`dayevent`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`logs`
+ALTER TABLE `jibres_XXXXXXX`.`logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`sessions`
+ALTER TABLE `jibres_XXXXXXX`.`sessions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`telegrams`
+ALTER TABLE `jibres_XXXXXXX`.`telegrams`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`urls`
+ALTER TABLE `jibres_XXXXXXX`.`urls`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`visitors`
+ALTER TABLE `jibres_XXXXXXX`.`visitors`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`sessions`
+ALTER TABLE `jibres_XXXXXXX`.`sessions`
   ADD CONSTRAINT `sessions_agent_id` FOREIGN KEY (`agent_id`) REFERENCES `agents` (`id`) ON UPDATE CASCADE;
 
 
-CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`visitors`
+ALTER TABLE `jibres_XXXXXXX`.`visitors`
   ADD CONSTRAINT `visitors_agents` FOREIGN KEY (`agent_id`) REFERENCES `agents` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `visitors_urls` FOREIGN KEY (`url_id`) REFERENCES `urls` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `visitors_urls_referer` FOREIGN KEY (`url_idreferer`) REFERENCES `urls` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
