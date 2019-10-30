@@ -7,19 +7,18 @@
   <div class="c4 s12">
     <div id="get_started_card">
       <h1>{%trans "Create a new store"%}</h1>
-      <p>{%trans "To make a online store from scratch, please enter your bussiness name."%}</p>
+      <p>{%trans "To make a online store from scratch, please enter name of your bussiness."%}</p>
 
       <input type="text" class="input" name="bt" placeholder='{%trans "Your bussiness title"%}'autofocus maxlength='50' required>
 
-      <button class="btn success block">{%trans "Create my store now"%}</button>
-
-      <div class="msg mT10 fs08">{{termOfService | raw}}</div>
-
+      <button class="btn success block">{%trans "Let's go"%}</button>
 
       <img src="{{url.static}}/img/store/your-brand.svg">
     </div>
-    <div class="txtLa">
-      <a href="{{url.here}}" class="btn">{%trans "Cancel"%}</a>
+
+    <div class="f align-center msg mT10 fs12">
+      <div class="c pRa10">{{termOfService | raw}}</div>
+      <div class="cauto os"><a href="{{url.here}}" class="btn">{%trans "Cancel"%}</a></div>
     </div>
   </div>
 </div>
