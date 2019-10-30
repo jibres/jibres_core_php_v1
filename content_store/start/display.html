@@ -4,15 +4,17 @@
 {%block pageContent%}
 
 <div class="f justify-center">
-  <div class="c4 x3 m7 s12">
+  <div class="cauto">
     <div id="get_started_card">
       <div class="body">
         <h1>{%trans "Create a new store"%}</h1>
         <p>{%trans "To make a online store from scratch, please enter name of your bussiness."%}</p>
 
-        <input type="text" class="input" name="bt" placeholder='{%trans "Your bussiness title"%}'autofocus maxlength='50' required>
+        <form method="post" autocomplete="off">
+          <input type="text" class="input" name="bt" placeholder='{%trans "Your bussiness title"%}'autofocus maxlength='50'>
+          <button class="btn success block">{%trans "Let's go"%}</button>
+        </form>
 
-        <button class="btn success block">{%trans "Let's go"%}</button>
         <img src="{{url.static}}/img/store/your-brand.svg" alt='{%trans "Create a store on Jibres"%}'>
 
       </div>

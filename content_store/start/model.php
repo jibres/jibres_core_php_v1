@@ -15,6 +15,11 @@ class model
 
 	public static function post()
 	{
+		// temp
+		\dash\redirect::to(\dash\url::here(). '/ask');
+		return;
+
+
 		$post = self::getPost();
 
 		\lib\app\store\add::trial($post);
