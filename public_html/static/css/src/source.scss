@@ -16,7 +16,7 @@ Version       1.0.0
 @import 'fonts/siftal';
 
 // add fonts
-@import 'reset/reset';
+@import 'base/reset';
 
 // add base styles
 @import 'base/global';
@@ -44,7 +44,6 @@ Version       1.0.0
 @import 'components/deadline';
 @import 'components/line';
 @import 'components/clock';
-@import 'components/step';
 @import 'components/statistic';
 @import 'components/share';
 @import 'components/printArea';
@@ -60,7 +59,6 @@ Version       1.0.0
 @import 'lib/icon';
 @import 'lib/clockpicker';
 @import 'lib/datepicker';
-// @import 'lib/cropper';
 @import 'lib/sortable';
 
 @import 'lib/iziToast';
@@ -69,9 +67,7 @@ Version       1.0.0
 @import 'lib/tagDetector';
 @import 'lib/tippy';
 @import 'lib/uploader';
-@import 'lib/ui-transition';
-@import 'lib/ui-dropdown';
-@import 'lib/ui-flag';
+// @import 'lib/ui-flag';
 @import 'lib/nprogress';
 @import 'lib/alerty2';
 @import 'lib/kerkere';
