@@ -1,0 +1,91 @@
+.cbox{
+	font-size: 1.4em;
+	margin:0 auto 1.5em;
+	padding: 1em 1.5em;
+	display: block;
+	border-radius: 0.25rem;
+	background-color: #fff;
+	color: #555;
+	position:relative;
+	transition-duration:0.3s;
+	transition-property:opacity, background-color, box-shadow, border;
+}
+.cbox.minimal{
+	padding: 1em 0.5em;
+}
+.cbox .simple{border-bottom-color:transparent}
+.cbox h1{font-size:1.5em;}
+.cbox h2{font-size:1.4em;}
+.cbox h3{font-size:1.3em;}
+.cbox h4{font-size:1.2em;}
+.cbox h5{font-size:1.1em;}
+.cbox h6{font-size:1em;}
+
+.cbox h2, .cbox h3, .cbox h4{
+	border-bottom:1px solid #ddd;
+	padding:0.5em 0;
+	font-weight:bold;
+	transition:0.3s border-color;
+	color:#777;
+}
+.cbox h2:hover, .cbox h3:hover, .cbox h4:hover{border-bottom-color:#80c0d0;}
+
+.cbox h2 [class^="sf-"]:before, .cbox h2 [class*=" sf-"]:before{vertical-align:middle;transition-duration:0.3s;transition-property:opacity, background-color, color;color:#ccc;font-size:1.3em;}
+.cbox:hover h2 [class^="sf-"]:before{color:#777;}
+.cbox h3 [class^="sf-"]:before, .cbox h3 [class*=" sf-"]:before{vertical-align:middle;transition-duration:0.3s;transition-property:opacity, background-color, color;color:#ccc;font-size:1.3em;}
+.cbox:hover h3 [class^="sf-"]:before{color:#777;}
+.cbox h4 [class^="sf-"]:before, .cbox h4 [class*=" sf-"]:before{vertical-align:middle;transition-duration:0.3s;transition-property:opacity, background-color, color;color:#ccc;font-size:1.3em;}
+.cbox:hover h4 [class^="sf-"]:before{color:#777;}
+
+// mediaBox in cbox
+.cbox .mediaBox {
+	position: relative;
+	overflow:hidden;
+}
+.cbox .mediaBox img{
+	display:block;
+	margin: 0 auto;
+	max-height:500px;
+}
+.cbox .mediaBox::before {
+	position: absolute;
+	top: 0;
+	left: -75%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 50%;
+	height: 100%;
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+	-webkit-transform: skewX(-25deg);
+	transform: skewX(-25deg);
+}
+.cbox .mediaBox:hover::before {
+	-webkit-animation: shine .75s;
+	animation: shine .75s;
+}
+@-webkit-keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+
+
+
+.cbox .example{padding: 1em;}
+
+.ibox{
+	background-color: #eee;
+	border-radius: 0.25rem;
+	display: block;
+	padding: 1em 1.5em;
+	margin:1em;
+}
+

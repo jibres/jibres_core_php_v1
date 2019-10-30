@@ -1,0 +1,72 @@
+
+// extra style for icons
+[class^="sf-"].vlmiddle:before{vertical-align:middle;}
+[class^="sf-"].vlbottom:before{vertical-align:bottom;}
+[class^="sf-"].vltop:before{vertical-align:top;}
+
+[class^="sf-"].style1{background-color:#eee;padding:5px;border-radius:50%;width: 40px;height: 40px;line-height: 32px;font-size: 1.2em;display: block;margin:0 auto;}
+[class^="sf-"].style2{width:30px;height:30px;line-height:30px;background-color:#eee;border-radius:30%;display:inline-block}
+
+@-webkit-keyframes spiny {
+		from {
+				transform:rotate(0deg);
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				transform:rotate(3600deg);
+				-webkit-transform: rotate(360deg);
+		}
+}
+
+[class^="sf-"].spiny:before{
+	-webkit-animation: spiny 2s infinite linear;
+	-webkit-animation-timing-function:cubic-bezier(.43, .84, .61, .14);
+	animation-timing-function:cubic-bezier(.43, .84, .61, .14);
+	transform-origin: 50% 50%;
+}
+
+
+
+@-moz-keyframes spiner {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spiner {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spiner {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+
+@-moz-keyframes shaker {
+    0% { -moz-transform: rotate(0deg); }
+    25% { -moz-transform: rotate(45deg); }
+    50% { -moz-transform: rotate(0deg); }
+    75% { -moz-transform: rotate(-45deg); }
+    100% { -moz-transform: rotate(0deg); }
+}
+@-webkit-keyframes shaker {
+    0% { -webkit-transform: rotate(0deg); }
+    25% { -webkit-transform: rotate(45deg); }
+    50% { -webkit-transform: rotate(0deg); }
+    75% { -webkit-transform: rotate(-45deg); }
+    100% { -webkit-transform: rotate(0deg); }
+}
+@keyframes shaker {
+    0% {transform:rotate(0deg);}
+    25% {transform:rotate(45deg);}
+    50% {transform:rotate(0deg);}
+    75% {transform:rotate(-45deg);}
+    100% {transform:rotate(0deg);}
+}
+
+
+[class^="sf-"].redPlus{
+    color:#e91e1e;
+    transform: scale(1.0);
+    animation:pulseNotificationHeart 0.7s infinite ease-in-out;
+}
+@keyframes pulseHeart { 0%{opacity:.7} 80%{opacity:.9;transform: scale(1.05);} 100%{opacity:.7}}

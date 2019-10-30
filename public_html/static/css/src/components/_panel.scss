@@ -1,0 +1,26 @@
+.panel{
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #dadce0;
+  overflow: hidden;
+}
+.panel .body{
+
+}
+.panel hr{
+  border-color: #dadce0;
+  margin: 0;
+}
+.panel .pad{
+  padding: 1em 1.5em;
+}
+.panel .padH{
+  padding: 1.5em 2em;
+}
+.panel .padxH{
+  padding: 3em 3em;
+}
+.panel a.special{display:block;transition: 0.3s}
+.panel a.special:hover{background-color: #f5f5f5}
+.panel a.special:focus{background-color: #eee}
+

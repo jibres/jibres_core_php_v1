@@ -1,0 +1,8 @@
+{
+  "name": "Siftal",
+  "version": "2.0.0",
+  "description": "",
+  "main": "runSass.bat",
+  "author": "Javad Evazzadeh",
+  "license": "MIT"
+}

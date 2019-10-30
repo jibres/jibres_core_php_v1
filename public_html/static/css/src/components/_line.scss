@@ -1,0 +1,16 @@
+.line{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: #fff;
+	display: block;
+	z-index: 1000;
+	text-align: center;
+	padding: 1em;
+}
+
+.line.top{
+	bottom: inherit;
+	top: 0;
+}
