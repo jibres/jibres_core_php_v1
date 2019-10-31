@@ -32,7 +32,7 @@ class model
 		{
 			\dash\session::set('createNewStore_title', null);
 			\dash\session::set('createNewStore_question_answer', null);
-			\dash\redirect::to(\dash\url::here());
+			\dash\redirect::to(\dash\url::here().'/opening');
 		}
 	}
 }
