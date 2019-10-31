@@ -1,3 +1,29 @@
+.welcome{
+	text-align: center;
+	color: #fff;
+	padding: 2em 5%;
+	position:relative;
+	transition:0.3s;
+	margin-bottom: 2em;
+	border: 1px solid transparent;
+	border-radius:0.3rem;
+}
+.welcome p{
+	font-size: 2em;
+	margin-bottom: 0.5em;
+}
+.welcome h2{
+	font-size: 3em;
+	font-weight: 1000;
+}
+.welcome .salesChannel{
+
+}
+.welcome .salesChannel a{
+	color: #fff;
+}
+
+// list of stores
 .listOfStores{
 	font-size: 1.5em;
 }
@@ -26,6 +52,7 @@
 	width: 100%;
 	display: block;
 	padding: 10px;
+	overflow: hidden;
 }
 .scard img{
 	height: 100px;
@@ -35,13 +62,22 @@
 	font-size: 1.2em;
 	line-height: 25px;
 	margin-bottom: 10px;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
 }
 .scard  .position{
 	line-height: 20px;
 }
 .scard  .addr{
 	line-height: 20px;
+	height: 20px;
 	font-size: 0.9em;
 	direction: ltr;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
 }
 
