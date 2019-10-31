@@ -1,7 +1,8 @@
 .welcome{
 	text-align: center;
-	color: #fff;
-	padding: 2em 5%;
+	color: #333;
+	background-color: rgba(0,0,0,0.05);
+	padding: 2em 2%;
 	position:relative;
 	transition:0.3s;
 	margin-bottom: 2em;
@@ -9,23 +10,22 @@
 	border-radius:0.3rem;
 }
 .welcome p{
-	font-size: 2em;
+	font-size: 1.6em;
 	margin-bottom: 0.5em;
 }
 .welcome h2{
 	font-size: 3em;
 	font-weight: 1000;
 }
-.welcome .salesChannel{
-
-}
-.welcome .salesChannel a{
-	color: #fff;
+.welcome .buildBtn{
+	font-size: 2em;
+	padding:1em 0 2em;
 }
 
 // list of stores
 .listOfStores{
 	font-size: 1.5em;
+	margin-bottom: 1em;
 }
 .scard{
 	position: relative;

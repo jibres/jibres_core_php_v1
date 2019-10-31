@@ -5,7 +5,7 @@
 
 {{block('createYourStore')}}
 {{block('myStores')}}
-{{block('myStores')}}
+{{block('buyAsCustomer')}}
 
 {%endblock%}
 
@@ -36,37 +36,48 @@
 
 
 {%block createYourStore%}
-<div class="welcome grBlue2">
+<div class="welcome">
   <p>{%trans "Jibres can painlessly and quickly help you to start your online business."%}</p>
   <h2>{%trans "#1 World Sales Engineering System"%}</h2>
+
+  <div class="buildBtn">
+    <a class="btn xl master" href="{{url.here}}/start">{%trans "Build my own store"%}</a>
+  </div>
+
   <div class="f salesChannel s0">
     <div class="c3">
-      <div class="grBlue3 pTB20">
+      <div class="msg pTB20">
         <h3>{%trans "Website"%}</h3>
         <a target="_blank" href="{{url.support}}/store/website">{%trans "Read more"%}</a>
       </div>
     </div>
     <div class="c3 pLa10">
-      <div class="grBlue3 pTB20">
+      <div class="msg pTB20">
         <h3>{%trans "Application"%}</h3>
         <a target="_blank" href="{{url.support}}/store/app">{%trans "Read more"%}</a>
       </div>
     </div>
     <div class="c3 pLa10">
-      <div class="grBlue3 pTB20">
+      <div class="msg pTB20">
         <h3>{%trans "Sale in store"%}</h3>
         <a target="_blank" href="{{url.support}}/store/pos">{%trans "Read more"%}</a>
       </div>
     </div>
     <div class="c3 pLa10">
-      <div class="grBlue3 pTB20">
+      <div class="msg pTB20">
         <h3>{%trans "Telegram bot"%}</h3>
         <a target="_blank" href="{{url.support}}/store/telegram">{%trans "Read more"%}</a>
       </div>
     </div>
   </div>
+
 </div>
 {%endblock%}
 
 
+{%block buyAsCustomer%}
+{%if false%}
+<div class="msg grGreen2 fs20">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div>
+{%endif%}
+{%endblock%}
 

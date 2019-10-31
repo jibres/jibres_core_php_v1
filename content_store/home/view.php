@@ -10,9 +10,6 @@ class view
 		\dash\data::page_titleBox(true);
 		\dash\data::page_help(\dash\url::support().'/store');
 
-		// btn
-		\dash\data::page_btnText(T_('Add new store'));
-		\dash\data::page_btnLink(\dash\url::this(). '/start');
 
 		$myStore = \lib\app\store\mystore::list();
 		\dash\data::listStore($myStore);
@@ -21,6 +18,10 @@ class view
 		if(isset($myStore['owner']) && $myStore['owner'])
 		{
 			\dash\data::page_title(T_("Store Lists"));
+
+			// btn to add new store
+			\dash\data::page_btnText(T_('Add new store'));
+			\dash\data::page_btnLink(\dash\url::this(). '/start');
 		}
 		else
 		{
