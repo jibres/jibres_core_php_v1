@@ -85,6 +85,7 @@ class add
 			}
 		}
 
+
 		$args                = [];
 		$args['owner']       = $user_id;
 		$args['creator']     = $user_id;
@@ -177,6 +178,11 @@ class add
 
 		\dash\notif::ok(T_("Your store created"));
 
+		if(isset($_args['answer']) && is_array($_args['answer']))
+		{
+			self::new_store_analytics($_args['answer'], $store_id);
+		}
+
 		return true;
 
 
@@ -261,6 +267,22 @@ class add
 		$new_store_user['datecreated'] = date("Y-m-d H:i:s");
 
 		$result = \lib\db\store\insert::store_user($new_store_user);
+
+		return $result;
+	}
+
+
+	private static function new_store_analytics($_args, $_id)
+	{
+		$store_analytics                 = [];
+		$store_analytics['id']           = $_id;
+		$store_analytics['question1']    = (isset($_args['Q1']) && is_numeric($_args['Q1'])) ? $_args['Q1'] : null;
+		$store_analytics['question2']    = (isset($_args['Q2']) && is_numeric($_args['Q2'])) ? $_args['Q2'] : null;
+		$store_analytics['question3']    = (isset($_args['Q3']) && is_numeric($_args['Q3'])) ? $_args['Q3'] : null;
+		$store_analytics['lastactivity'] = date("Y-m-d H:i:s");
+		$store_analytics['datecreated']  = date("Y-m-d H:i:s");
+
+		$result = \lib\db\store\insert::store_analytics($store_analytics);
 
 		return $result;
 	}
