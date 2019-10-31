@@ -3,12 +3,69 @@
 
 {%block pageContent%}
 
+{{block('myStores2')}}
 {{block('myStores')}}
 
 {{block('supplierInStore')}}
 
 {{block('customerInStore')}}
 {%endblock%}
+
+
+
+
+
+
+
+
+
+{%block myStores2%}
+{%if listStore.staff%}
+<div class="f listOfStores">
+{%for key, value in listStore.staff%}
+  <div class="c4 xauto s12 pRa10">
+    <a href='{{value.url}}/a' class="scard">
+      <img src="{{value.logo}}" alt="{{value.title}}">
+      <div class="body">
+        <h2>{{value.title}}</h2>
+        <div class="position txtRa"><div class="badge light">{%trans "Staff"%}</div></div>
+        <div class="addr">{{value.subdomain | capitalize}} <span class="fc-mute fs09">.Jibres.com</span></div>
+      </div>
+    </a>
+  </div>
+{%endfor%}
+</div>
+{%endif%}
+
+
+<hr class="mT100 block">
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -80,7 +137,7 @@
       <a href='{{value.url}}/a' class="vcard shadow blue mA10 c3 s6" data-live="on" >
         <img src="{{value.logo}}" alt="{{value.title}}">
         <div class="content">
-          <div class="header">{{value.title}}</div>
+          <div class="header">{{value.title}} </div>
 
           <div class="desc mT10" title='{%trans "Start from"%} {{value.startplan | dt(true)}}'>
             <div class="mB10">{%trans "Current plan"%} <b>{%set myPlan = value.plan | capitalize %}{%trans myPlan%}</b></div>

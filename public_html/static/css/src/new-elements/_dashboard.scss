@@ -1,0 +1,46 @@
+.listOfStores{
+	font-size: 1.5em;
+}
+.scard{
+	position: relative;
+	@include flexbox;
+	overflow: hidden;
+	margin:0 auto 1em;
+	border-radius: 0.3rem;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	color: #333;
+  	box-shadow: 0 10px 25px #ddd;
+  	transition: 0.3s;
+  	height: 100px;
+  	max-width: 400px;
+  	min-width: 260px;
+}
+.scard:hover{
+  	box-shadow: 0 15px 25px #ccc;
+}
+.scard:focus{
+  	box-shadow: 0 0px 5px #decc4e;
+}
+.scard .body{
+	width: 100%;
+	display: block;
+	padding: 10px;
+}
+.scard img{
+	height: 100px;
+	width: 100px;
+}
+.scard h2{
+	font-size: 1.2em;
+	line-height: 25px;
+	margin-bottom: 10px;
+}
+.scard  .position{
+	line-height: 20px;
+}
+.scard  .addr{
+	line-height: 20px;
+	font-size: 0.9em;
+}
+
