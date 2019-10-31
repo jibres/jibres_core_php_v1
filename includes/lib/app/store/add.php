@@ -176,12 +176,13 @@ class add
 
 		$create_subdomain_file = self::create_subdomain_file($store_id, $subdomain);
 
-		\dash\notif::ok(T_("Your store created"));
 
 		if(isset($_args['answer']) && is_array($_args['answer']))
 		{
 			self::new_store_analytics($_args['answer'], $store_id);
 		}
+
+		\dash\notif::ok(T_("Your store successfully created"), ['alerty' => true]);
 
 		return true;
 

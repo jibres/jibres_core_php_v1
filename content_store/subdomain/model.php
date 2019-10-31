@@ -30,8 +30,6 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\notif::clean();
-			\dash\notif::ok(T_("Your store successfully created"), ['alerty' => true, 'timeout' => 5000]);
 			\dash\session::set('createNewStore_title', null);
 			\dash\session::set('createNewStore_question_answer', null);
 			\dash\redirect::to(\dash\url::here());
