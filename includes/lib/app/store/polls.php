@@ -1,5 +1,5 @@
 <?php
-namespace lib;
+namespace lib\app\store;
 
 
 class polls

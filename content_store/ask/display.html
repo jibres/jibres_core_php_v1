@@ -16,8 +16,8 @@
           <label for="{{myQ.id}}">{{myQ.title}}</label>
           <select class="select" id="{{myQ.id}}" name="{{myQ.id}}">
             <option readonly>{{polls.placeholder}}</option>
-            {% for myItem in myQ.items %}
-            <option value="{{myItem.key}}">{{myItem}}</option>
+            {% for itemKey, myItem in myQ.items %}
+            <option value="{{itemKey}}">{{myItem}}</option>
             {% endfor %}
           </select>
 {% endfor %}
@@ -27,7 +27,7 @@
               <button class="btn success block">{%trans "Next"%}</button>
             </div>
             <div class="cauto os pLa5">
-              <button class="btn block">{%trans "Skip"%}</button>
+              <button class="btn block" name="skip" value="skip">{%trans "Skip"%}</button>
             </div>
           </div>
         </form>

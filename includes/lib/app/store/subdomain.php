@@ -28,6 +28,15 @@ class subdomain
 
 	public static function validate($_subdomain)
 	{
+		if(!is_string($_subdomain))
+		{
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("Plase set subdomain as string!"), 'subdomain');
+			}
+			return false;
+		}
+
 		$_subdomain = \dash\utility\convert::to_en_number($_subdomain);
 		$_subdomain = mb_strtolower($_subdomain);
 		$_subdomain = trim($_subdomain);

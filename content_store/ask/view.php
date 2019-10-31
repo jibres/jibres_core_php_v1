@@ -8,7 +8,8 @@ class view
 	{
 		\dash\data::page_title(T_("Help Jibres work better"));
 
-		\dash\data::polls(\lib\polls::all());
+		$polls = \lib\app\store\polls::all();
+		\dash\data::polls($polls);
 
 		\dash\data::userToggleSidebar(false);
 	}
