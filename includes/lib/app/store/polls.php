@@ -28,10 +28,11 @@ class polls
 			'title' => T_('Why you are here in Jibres?'),
 			'items' =>
 			[
-				1 => T_("I'm not selling products yet"),
-				2 => T_("I sell with a different system"),
-				3 => T_("I'm hust playing around"),
-				4 => T_("I'm selling, just not online"),
+				1 => T_("I'm try to create my own bussiness"),
+				2 => T_("I want to extend my bussiness"),
+				3 => T_("I'm just playing around 😀"),
+				4 => T_("I'm your rival ;)"),
+				5 => T_("I'm not satisfied with my current software!"),
 			]
 
 		];
@@ -46,10 +47,9 @@ class polls
 			'title' => T_('Are you already selling?'),
 			'items' =>
 			[
-				1 => T_("aa"),
-				2 => T_("bb"),
-				3 => T_("cc"),
-				4 => T_("dd"),
+				1 => T_("No, I'm not selling products yet"),
+				2 => T_("Yes, I'm selling in store, just not online"),
+				3 => T_("Yes, I sell with a different system"),
 			]
 
 		];
