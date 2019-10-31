@@ -15,7 +15,7 @@
 {%for index, myQ in polls.questions%}
           <label for="{{myQ.id}}">{{myQ.title}}</label>
           <select class="select" id="{{myQ.id}}" name="{{myQ.id}}">
-            <option readonly>{{polls.placeholder}}</option>
+            <option selected disabled>{{polls.placeholder}}</option>
             {% for itemKey, myItem in myQ.items %}
             <option value="{{itemKey}}">{{myItem}}</option>
             {% endfor %}
