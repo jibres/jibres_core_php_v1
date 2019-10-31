@@ -28,8 +28,11 @@
       <img src="{{value.logo}}" alt="{{value.title}}">
       <div class="body">
         <h2>{{value.title}}</h2>
-        <div class="position txtRa"><div class="badge light">{%trans "Staff"%}</div></div>
-        <div class="addr">{{value.subdomain | capitalize}} <span class="fc-mute fs09">.Jibres.com</span></div>
+        <div class="position txtRa">
+          <span class="badge light">{%trans "From"%} {{"1/1/2008"|dt(false,'date')}}</span>
+          <span class="badge light">{%trans "Staff"%}</span>
+        </div>
+        <div class="addr"><b>{{value.subdomain}}</b><span class="fc-mute fs09">.Jibres.com</span></div>
       </div>
     </a>
   </div>
