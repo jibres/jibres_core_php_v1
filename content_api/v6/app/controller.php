@@ -115,6 +115,7 @@ class controller
 		$detail['url']['kingdom'] = \dash\url::kingdom();
 		$detail['url']['domain']  = \dash\url::domain();
 		$detail['url']['root']    = \dash\url::root();
+		$detail['url']['enter']    = self::jibres_temp_url(). '/enter';
 		$detail['url']['update']  = \dash\url::kingdom(). '/app/update';
 	}
 
@@ -532,7 +533,7 @@ class controller
 		$link          = [];
 		$link['type']  = 'banner';
 		$link['image'] = 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg';
-		$link['url']   = \dash\url::kingdom(). '/store';
+		$link['url']   = self::jibres_temp_url(). '/store';
 		return $link;
 	}
 
@@ -542,7 +543,7 @@ class controller
 		$link['type']             = 'link4';
 
 		$link['link'][0]['image'] = self::logo_url();
-		$link['link'][0]['url']   = \dash\url::kingdom();
+		$link['link'][0]['url']   = self::jibres_temp_url();
 		$link['link'][0]['text']  = T_('Home');
 
 
@@ -552,12 +553,12 @@ class controller
 
 
 		$link['link'][2]['image'] = self::logo_url();
-		$link['link'][2]['url']   = \dash\url::kingdom(). '/store';
+		$link['link'][2]['url']   = self::jibres_temp_url(). '/store';
 		$link['link'][2]['text']  = T_('Store');
 
 
 		$link['link'][3]['image'] = self::logo_url();
-		$link['link'][3]['url']   = \dash\url::kingdom(). '/enter';
+		$link['link'][3]['url']   = self::jibres_temp_url(). '/enter';
 		$link['link'][3]['text']  = T_('Enter');
 
 		return $link;
@@ -566,6 +567,11 @@ class controller
 	private static function logo_url()
 	{
 		return 'https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg';
+	}
+
+	private static function jibres_temp_url()
+	{
+		return 'https://jeebres.com';
 	}
 
 
