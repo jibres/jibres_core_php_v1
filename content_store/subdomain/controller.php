@@ -1,5 +1,5 @@
 <?php
-namespace content_store\opening;
+namespace content_store\subdomain;
 
 
 class controller

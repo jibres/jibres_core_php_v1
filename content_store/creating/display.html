@@ -19,6 +19,8 @@
 
 
 {%endblock%}
+
+
 {%block foot_js%}
 <script>
 $.ajax(
@@ -27,17 +29,21 @@ $.ajax(
    type : 'post',
    data : {"create":"store"},
    dataType: 'json',
+   success : function()
+   {
+    Navigate({ url: "{{url.here}}/opening" });
+   },
    done : function()
    {
-    window.location.replace("{{url.here}}/opening");
+    Navigate({ url: "{{url.here}}/opening" });
    },
    fail : function()
    {
-    window.location.replace("{{url.here}}/opening");
+    Navigate({ url: "{{url.here}}" });
    },
    always : function()
    {
-    window.location.replace("{{url.here}}/opening");
+    Navigate({ url: "{{url.here}}" });
    }
  });
 </script>

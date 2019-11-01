@@ -8,7 +8,7 @@ class controller
 	{
 		if(!\dash\session::get('createNewStore_title', 'CreateNewStore'))
 		{
-			\dash\redirect::to(\dash\url::here());
+			\dash\redirect::to(\dash\url::here(). '/start');
 		}
 	}
 }
