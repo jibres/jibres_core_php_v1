@@ -11,6 +11,13 @@ class get
 		return $result;
 	}
 
+	public static function data($_store_id)
+	{
+		$query = "SELECT * FROM store_data WHERE store_data.id = $_store_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 	public static function count_free_trial($_user_id)
 	{
