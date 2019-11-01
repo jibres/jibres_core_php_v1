@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `title` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `seotitle` varchar(500) DEFAULT NULL,
   `slug` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `url` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `url` varchar(190) CHARACTER SET utf8mb4 DEFAULT NULL,
   `content` mediumtext CHARACTER SET utf8mb4,
   `subtitle` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
   `excerpt` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,

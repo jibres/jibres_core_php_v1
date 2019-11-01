@@ -12,7 +12,7 @@ CREATE TABLE `agents` (
   `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `agentmd5` varchar(32) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -21,28 +21,28 @@ CREATE TABLE `agents` (
 CREATE TABLE `apilog` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `apikey` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `appkey` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `zoneid` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `url` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `method` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `header` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `token` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `apikey` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `appkey` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `zoneid` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `url` varchar(2000) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `method` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `header` mediumtext CHARACTER SET utf8mb4,
   `headerlen` int(10) UNSIGNED DEFAULT NULL,
-  `body` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `body` mediumtext CHARACTER SET utf8mb4,
   `bodylen` int(10) UNSIGNED DEFAULT NULL,
   `datesend` timestamp NULL DEFAULT NULL,
-  `pagestatus` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `resultstatus` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `responseheader` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `responsebody` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `pagestatus` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `resultstatus` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `responseheader` mediumtext CHARACTER SET utf8mb4,
+  `responsebody` mediumtext CHARACTER SET utf8mb4,
   `dateresponse` timestamp NULL DEFAULT NULL,
   `version` varchar(100) DEFAULT NULL,
   `responselen` int(10) UNSIGNED DEFAULT NULL,
   `subdomain` varchar(100) DEFAULT NULL,
   `urlmd5` char(32) DEFAULT NULL,
-  `notif` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `notif` mediumtext CHARACTER SET utf8mb4
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -91,7 +91,7 @@ CREATE TABLE `dayevent` (
   `user_permission` int(10) UNSIGNED DEFAULT NULL,
   `ticket_message` int(10) UNSIGNED DEFAULT NULL,
   `userdetail` int(10) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -108,17 +108,17 @@ CREATE TABLE `logs` (
   `from` int(10) UNSIGNED DEFAULT NULL,
   `ip` int(10) UNSIGNED DEFAULT NULL,
   `readdate` timestamp NULL DEFAULT NULL,
-  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data` text CHARACTER SET utf8mb4,
   `status` enum('enable','disable','expire','deliver','awaiting','deleted','cancel','block','notif','notifread','notifexpire') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `visitor_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `meta` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `meta` mediumtext CHARACTER SET utf8mb4,
   `sms` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `telegram` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `expiredate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -135,7 +135,7 @@ CREATE TABLE `sessions` (
   `datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `last_seen` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -145,27 +145,27 @@ CREATE TABLE `telegrams` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `chatid` bigint(20) DEFAULT NULL,
   `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `step` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `hook` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `hooktext` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `step` text CHARACTER SET utf8mb4,
+  `hook` mediumtext CHARACTER SET utf8mb4,
+  `hooktext` text CHARACTER SET utf8mb4,
   `hookdate` datetime DEFAULT NULL,
-  `hookmessageid` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `send` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `hookmessageid` text CHARACTER SET utf8mb4,
+  `send` mediumtext CHARACTER SET utf8mb4,
   `senddate` datetime DEFAULT NULL,
-  `sendtext` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `sendmesageid` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `sendmethod` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `sendkeyboard` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `response` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `sendtext` text CHARACTER SET utf8mb4,
+  `sendmesageid` text CHARACTER SET utf8mb4,
+  `sendmethod` text CHARACTER SET utf8mb4,
+  `sendkeyboard` text CHARACTER SET utf8mb4,
+  `response` mediumtext CHARACTER SET utf8mb4,
   `responsedate` datetime DEFAULT NULL,
   `status` enum('enable','disable','ok','failed','other') DEFAULT NULL,
-  `url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `meta` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `send2` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `response2` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `send3` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `response3` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `url` text CHARACTER SET utf8mb4,
+  `meta` mediumtext CHARACTER SET utf8mb4,
+  `send2` mediumtext CHARACTER SET utf8mb4,
+  `response2` mediumtext CHARACTER SET utf8mb4,
+  `send3` mediumtext CHARACTER SET utf8mb4,
+  `response3` mediumtext CHARACTER SET utf8mb4
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -173,14 +173,14 @@ CREATE TABLE `telegrams` (
 
 CREATE TABLE `urls` (
   `id` int(10) UNSIGNED NOT NULL,
-  `urlmd5` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `domain` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `subdomain` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `path` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `query` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `pwd` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `urlmd5` varchar(32) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `domain` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `subdomain` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `path` text CHARACTER SET utf8mb4,
+  `query` text CHARACTER SET utf8mb4,
+  `pwd` text CHARACTER SET utf8mb4,
   `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -199,7 +199,7 @@ CREATE TABLE `visitors` (
   `avgtime` int(10) UNSIGNED DEFAULT NULL,
   `country` char(2) DEFAULT NULL,
   `method` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
