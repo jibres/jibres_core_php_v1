@@ -16,7 +16,7 @@ class model
 		}
 
 		\dash\session::set('createNewStore_subdomain', $subdomain, 'CreateNewStore');
-
+		\lib\app\store\timeline::set('subdomain');
 		\dash\redirect::to(\dash\url::here().'/creating');
 	}
 }

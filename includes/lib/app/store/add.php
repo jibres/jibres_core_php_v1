@@ -184,9 +184,13 @@ class add
 
 		\dash\notif::ok(T_("Your store successfully created"), ['alerty' => true]);
 
-		return true;
+		$result =
+		[
+			'store_id'  => $store_id,
+			'subdomain' => $subdomain,
+		];
 
-
+		return $result;
 	}
 
 

@@ -1,0 +1,155 @@
+<?php
+namespace lib\app\store;
+
+
+class timeline
+{
+	private static $key = 'store_timeline';
+
+
+	public static function set_store_id($_store_id)
+	{
+		// set store id in field list
+		$session = [];
+		if(\dash\session::get(self::$key))
+		{
+			$session = \dash\session::get(self::$key);
+		}
+
+		if(!is_array($session))
+		{
+			$session = [];
+		}
+
+		if(isset($session['id']) && $_store_id)
+		{
+			\lib\db\store\timeline::set_store_id($session['id'], $_store_id);
+		}
+
+		\dash\session::clean(self::$key);
+	}
+
+
+	private static function start()
+	{
+		if(!\dash\session::get(self::$key))
+		{
+			$session = [];
+			if(isset($_SESSION['auth']['logintime']))
+			{
+				$session['login'] = date("Y-m-d H:i:s", $_SESSION['auth']['logintime']);
+				$session['login_diff'] = time() - intval($_SESSION['auth']['logintime']);
+			}
+
+			$session['start'] = date("Y-m-d H:i:s");
+
+			$timeline_id = \lib\db\store\timeline::insert($session);
+
+			if($timeline_id)
+			{
+				$session['id'] = $timeline_id;
+			}
+
+			\dash\session::set(self::$key, $session);
+		}
+	}
+
+
+	public static function set($_module)
+	{
+		switch ($_module)
+		{
+			case 'start':
+				self::start();
+				break;
+
+			case 'ask':
+				self::set_module_time($_module, 'start');
+				break;
+
+			case 'subdomain':
+				self::set_module_time($_module, 'ask');
+				break;
+
+			case 'creating':
+				self::set_module_time($_module, 'subdomain');
+				break;
+
+			case 'startcreate':
+				self::set_module_time($_module, 'creating');
+				break;
+
+			case 'endcreate':
+				self::set_module_time($_module, 'startcreate');
+				break;
+
+			case 'opening':
+				self::set_module_time($_module, 'endcreate');
+				break;
+
+			case 'loadstore':
+				self::set_module_time($_module, 'opening');
+				break;
+
+			default:
+				self::set_module_time($_module);
+				break;
+		}
+	}
+
+
+	public static function set_module_time($_current_module, $_prev_module = null)
+	{
+		$session = [];
+		if(\dash\session::get(self::$key))
+		{
+			$session = \dash\session::get(self::$key);
+		}
+
+		if(!is_array($session))
+		{
+			$session = [];
+		}
+
+		if(!isset($session[$_current_module]))
+		{
+			$session[$_current_module] = date("Y-m-d H:i:s");
+
+			if($_prev_module)
+			{
+				if(isset($session[$_prev_module]))
+				{
+					$session[$_prev_module. '_diff'] = time() - strtotime($session[$_prev_module]);
+				}
+			}
+
+			if(isset($session['id']))
+			{
+				$allow_field =
+				[
+					'store_id','login','login_diff','start','start_diff','ask','ask_diff','subdomain','subdomain_diff','creating',
+					'creating_diff','startcreate','startcreate_diff','endcreate','endcreate_diff','opening','opening_diff','loadstore',
+					'loadstore_diff','userstore','productcompany','productunit','products','factors','factordetails','funds','inventory',
+					'productcategory','productcomment','productprices','productproperties','producttag','producttagusage','files','fileusage',
+					'agents','apilog',
+				];
+
+				$update = [];
+
+				foreach ($session as $key => $value)
+				{
+					if(in_array($key, $allow_field))
+					{
+						$update[$key] = $value;
+					}
+				}
+
+				\lib\db\store\timeline::update($update, $session['id']);
+			}
+
+			\dash\session::set(self::$key, $session);
+		}
+	}
+
+}
+?>

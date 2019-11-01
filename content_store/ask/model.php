@@ -43,7 +43,7 @@ class model
 
 			\dash\session::set('createNewStore_question_answer', $question_answer, 'CreateNewStore');
 		}
-
+		\lib\app\store\timeline::set('ask');
 		\dash\redirect::to(\dash\url::here(). '/subdomain');
 		return;
 

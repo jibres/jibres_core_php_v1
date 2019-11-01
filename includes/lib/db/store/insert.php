@@ -118,6 +118,5 @@ class insert
 			return false;
 		}
 	}
-
 }
 ?>

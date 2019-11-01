@@ -10,6 +10,8 @@ class view
 
 		$subdomain = \dash\session::get('myNewStoreId');
 
+		\lib\app\store\timeline::set('opening');
+
 		if($subdomain)
 		{
 			$lang = null;
