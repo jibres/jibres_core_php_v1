@@ -5,9 +5,16 @@ class controller
 {
 	public static function routing()
 	{
-		if(!\lib\store::id())
+		if(\dash\url::subdomain() === 'source')
 		{
-			\dash\header::status(404, T_("Store not found"));
+
+		}
+		else
+		{
+			if(!\lib\store::id())
+			{
+				\dash\header::status(404, T_("Store not found"));
+			}
 		}
 	}
 }
