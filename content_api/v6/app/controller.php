@@ -124,7 +124,7 @@ class controller
 		$detail['site']['name']   = T_(\dash\option::config('site','title'));
 		$detail['site']['desc']   = T_(\dash\option::config('site','desc'));
 		$detail['site']['slogan'] = T_(\dash\option::config('site','slogan'));
-		$detail['site']['logo']   = \dash\url::static(). '/images/logo.png';
+		$detail['site']['logo']   = self::logo_url();
 	}
 
 
@@ -282,7 +282,7 @@ class controller
 			'bg_to'       => '#ffffff',
 			'title_color' => '#000000',
 			'desc_color'  => '#000000',
-			'image'       => \dash\url::static(). '/images/logo.png',
+			'image'       => self::logo_url(),
 			'btn'         =>
 			[
 				[
@@ -300,7 +300,7 @@ class controller
 			'bg_to'       => '#ffffff',
 			'title_color' => '#000000',
 			'desc_color'  => '#000000',
-			'image'       => \dash\url::static(). '/images/logo.png',
+			'image'       => self::logo_url(),
 			'btn'         =>
 			[
 				[
@@ -322,7 +322,7 @@ class controller
 			'bg_to'       => '#ffffff',
 			'title_color' => '#000000',
 			'desc_color'  => '#000000',
-			'image'       => \dash\url::static(). '/images/logo.png',
+			'image'       => self::logo_url(),
 			'btn'         =>
 			[
 				[
@@ -344,7 +344,7 @@ class controller
 			'bg_to'       => '#ffffff',
 			'title_color' => '#000000',
 			'desc_color'  => '#000000',
-			'image'       => \dash\url::static(). '/images/logo.png',
+			'image'       => self::logo_url(),
 			'btn' =>
 			[
 				[
@@ -531,7 +531,7 @@ class controller
 	{
 		$link          = [];
 		$link['type']  = 'banner';
-		$link['image'] = \dash\url::static(). '/img/cover/cover-fa-1.jpg';
+		$link['image'] = 'https://source.jibres.com/static/img/cover/cover-fa-1.jpg';
 		$link['url']   = \dash\url::kingdom(). '/store';
 		return $link;
 	}
@@ -541,26 +541,31 @@ class controller
 		$link                     = [];
 		$link['type']             = 'link4';
 
-		$link['link'][0]['image'] = \dash\url::static(). '/img/logo/svg/Jibres-icon.svg';
+		$link['link'][0]['image'] = self::logo_url();
 		$link['link'][0]['url']   = \dash\url::kingdom();
 		$link['link'][0]['text']  = T_('Home');
 
 
-		$link['link'][1]['image'] = \dash\url::static(). '/img/logo/svg/Jibres-icon.svg';
+		$link['link'][1]['image'] = self::logo_url();
 		$link['link'][1]['url']   = \dash\url::support();
 		$link['link'][1]['text']  = T_('Support');
 
 
-		$link['link'][2]['image'] = \dash\url::static(). '/img/logo/svg/Jibres-icon.svg';
+		$link['link'][2]['image'] = self::logo_url();
 		$link['link'][2]['url']   = \dash\url::kingdom(). '/store';
 		$link['link'][2]['text']  = T_('Store');
 
 
-		$link['link'][3]['image'] = \dash\url::static(). '/img/logo/svg/Jibres-icon.svg';
+		$link['link'][3]['image'] = self::logo_url();
 		$link['link'][3]['url']   = \dash\url::kingdom(). '/enter';
 		$link['link'][3]['text']  = T_('Enter');
 
 		return $link;
+	}
+
+	private static function logo_url()
+	{
+		return 'https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg';
 	}
 
 
