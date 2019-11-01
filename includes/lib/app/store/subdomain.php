@@ -5,7 +5,7 @@ namespace lib\app\store;
 class subdomain
 {
 	public static $subdomain_field_name = 'subdomain';
-	private static $debug = true;
+	public static $debug = true;
 
 	public static function validate_exist($_subdomain)
 	{
@@ -18,6 +18,10 @@ class subdomain
 		$check_exist = \lib\db\store\check::subdomain_exist($subdomain);
 		if($check_exist)
 		{
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("This subdomain is already occupied"), self::$subdomain_field_name);
+			}
 			return false;
 		}
 
