@@ -531,7 +531,7 @@ class controller
 	{
 		$link          = [];
 		$link['type']  = 'banner';
-		$link['image'] = 'https://source.jibres.com/static/img/cover/cover-fa-1.jpg';
+		$link['image'] = 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg';
 		$link['url']   = \dash\url::kingdom(). '/store';
 		return $link;
 	}
