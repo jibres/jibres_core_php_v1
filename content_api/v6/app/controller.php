@@ -44,6 +44,7 @@ class controller
 
 	private static function detail_v6(&$detail)
 	{
+		self::setting($detail);
 
 		self::lang($detail);
 
@@ -66,8 +67,20 @@ class controller
 		self::theme_night($detail);
 
 		self::ad($detail);
+
+
+		$detail['homepage'] = self::homepage();
 	}
 
+	private static function setting(&$detail)
+	{
+		$detail['setting']           = [];
+		$detail['setting']['enter']    =
+		[
+			'mode'       => 'native',
+			'other_mode' => ['native', 'webview'],
+		];
+	}
 
 	private static function ad(&$detail)
 	{
@@ -118,8 +131,8 @@ class controller
 	private static function version(&$detail)
 	{
 		$detail['version']                     = [];
-		$detail['version']['last']             = null;
-		$detail['version']['deprecated']       = null;
+		$detail['version']['last']             = 1;
+		$detail['version']['deprecated']       = 0;
 		$detail['version']['deprecated_title'] = null;
 		$detail['version']['deprecated_desc']  = null;
 		$detail['version']['update_title']     = null;
@@ -501,5 +514,85 @@ class controller
 		$detail['theme']['night'] = $theme_default;
 
 	}
+
+
+
+	private static function homepage()
+	{
+		$homepage              = [];
+		$homepage[]            = self::banner();
+		$homepage[]            = self::link4();
+		$homepage[]            = self::news();
+		return $homepage;
+	}
+
+
+	private static function banner()
+	{
+		$link          = [];
+		$link['type']  = 'banner';
+		$link['image'] = \dash\url::static(). '/img/cover/cover-fa-1.jpg';
+		$link['url']   = \dash\url::kingdom(). '/store';
+		return $link;
+	}
+
+	private static function link4()
+	{
+		$link                     = [];
+		$link['type']             = 'link4';
+
+		$link['link'][0]['image'] = \dash\url::static(). '/img/logo/svg/Jibres-icon.svg';
+		$link['link'][0]['url']   = \dash\url::kingdom();
+		$link['link'][0]['text']  = T_('Home');
+
+
+		$link['link'][1]['image'] = \dash\url::static(). '/img/logo/svg/Jibres-icon.svg';
+		$link['link'][1]['url']   = \dash\url::support();
+		$link['link'][1]['text']  = T_('Support');
+
+
+		$link['link'][2]['image'] = \dash\url::static(). '/img/logo/svg/Jibres-icon.svg';
+		$link['link'][2]['url']   = \dash\url::kingdom(). '/store';
+		$link['link'][2]['text']  = T_('Store');
+
+
+		$link['link'][3]['image'] = \dash\url::static(). '/img/logo/svg/Jibres-icon.svg';
+		$link['link'][3]['url']   = \dash\url::kingdom(). '/enter';
+		$link['link'][3]['text']  = T_('Enter');
+
+		return $link;
+	}
+
+
+
+	private static function news()
+	{
+		$link         = [];
+		$link['type'] = 'news';
+		$posts        = \dash\app\posts::get_post_list(['limit' => 3, 'language' => \dash\language::current()]);
+		$link['news'] = $posts;
+		return $link;
+	}
+
+
+	private static function hr()
+	{
+		$link          = [];
+		$link['type']  = 'hr';
+		return $link;
+	}
+
+
+
+	private static function title($_title = null)
+	{
+		$link          = [];
+		$link['type']  = 'title';
+		$link['title'] = $_title ? $_title : T_("Hi!");
+		return $link;
+	}
+
+
+
 }
 ?>
