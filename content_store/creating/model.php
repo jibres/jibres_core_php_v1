@@ -26,12 +26,14 @@ class model
 			if(\dash\engine\process::status())
 			{
 				\dash\session::clean_cat('CreateNewStore');
-				\dash\session::set('myNewStoreId', $subdomain);
+
+				\dash\session::set('myNewStoreSubdomain', $subdomain);
 
 				\lib\app\store\timeline::set('endcreate');
 
 				if(isset($result['store_id']))
 				{
+					\dash\session::set('myNewStoreID', $result['store_id']);
 					\lib\app\store\timeline::set_store_id($result['store_id']);
 				}
 

@@ -7,6 +7,11 @@ class timeline
 	private static $key = 'store_timeline';
 
 
+	public static function clean()
+	{
+		\dash\session::clean(self::$key);
+	}
+
 	public static function set_store_id($_store_id)
 	{
 		// set store id in field list
@@ -25,8 +30,6 @@ class timeline
 		{
 			\lib\db\store\timeline::set_store_id($session['id'], $_store_id);
 		}
-
-		\dash\session::clean(self::$key);
 	}
 
 
@@ -55,7 +58,7 @@ class timeline
 	}
 
 
-	public static function set($_module)
+	public static function set($_module, $_store_id = null)
 	{
 		switch ($_module)
 		{
@@ -64,42 +67,75 @@ class timeline
 				break;
 
 			case 'ask':
-				self::set_module_time($_module, 'start');
+				self::set_module_time($_module, 'start', $_store_id);
 				break;
 
 			case 'subdomain':
-				self::set_module_time($_module, 'ask');
+				self::set_module_time($_module, 'ask', $_store_id);
 				break;
 
 			case 'creating':
-				self::set_module_time($_module, 'subdomain');
+				self::set_module_time($_module, 'subdomain', $_store_id);
 				break;
 
 			case 'startcreate':
-				self::set_module_time($_module, 'creating');
+				self::set_module_time($_module, 'creating', $_store_id);
 				break;
 
 			case 'endcreate':
-				self::set_module_time($_module, 'startcreate');
+				self::set_module_time($_module, 'startcreate', $_store_id);
 				break;
 
 			case 'opening':
-				self::set_module_time($_module, 'endcreate');
+				self::set_module_time($_module, 'endcreate', $_store_id);
 				break;
 
 			case 'loadstore':
-				self::set_module_time($_module, 'opening');
+				self::set_module_time($_module, 'opening', $_store_id);
 				break;
 
 			default:
-				self::set_module_time($_module);
+				self::set_module_time($_module, null, $_store_id);
 				break;
 		}
 	}
 
 
-	public static function set_module_time($_current_module, $_prev_module = null)
+	public static function set_module_time($_current_module, $_prev_module = null, $_store_id = null)
 	{
+		$allow_field =
+		[
+			'store_id','login','login_diff','start','start_diff','ask','ask_diff','subdomain','subdomain_diff','creating',
+			'creating_diff','startcreate','startcreate_diff','endcreate','endcreate_diff','opening','opening_diff','loadstore',
+			'loadstore_diff','userstore','productcompany','productunit','products','factors','factordetails','funds','inventory',
+			'productcategory','productcomment','productprices','productproperties','producttag','producttagusage','files','fileusage',
+			'agents','apilog',
+		];
+
+		if($_store_id)
+		{
+			if(in_array($_current_module, $allow_field))
+			{
+				$update_by_store_id =
+				[
+					$_current_module => date("Y-m-d H:i:s"),
+				];
+
+				if($_prev_module)
+				{
+					$prev_module_time = \lib\db\store\timeline::get_by_store_id($_store_id);
+					if(isset($prev_module_time[$_prev_module]) && is_numeric($prev_module_time[$_prev_module]))
+					{
+						$update_by_store_id[$_prev_module. '_diff'] = time() - strtotime($prev_module_time[$_prev_module]);
+					}
+				}
+
+				\lib\db\store\timeline::update_by_store_id($update_by_store_id, $_store_id);
+				return true;
+			}
+			return false;
+		}
+
 		$session = [];
 		if(\dash\session::get(self::$key))
 		{
@@ -125,15 +161,6 @@ class timeline
 
 			if(isset($session['id']))
 			{
-				$allow_field =
-				[
-					'store_id','login','login_diff','start','start_diff','ask','ask_diff','subdomain','subdomain_diff','creating',
-					'creating_diff','startcreate','startcreate_diff','endcreate','endcreate_diff','opening','opening_diff','loadstore',
-					'loadstore_diff','userstore','productcompany','productunit','products','factors','factordetails','funds','inventory',
-					'productcategory','productcomment','productprices','productproperties','producttag','producttagusage','files','fileusage',
-					'agents','apilog',
-				];
-
 				$update = [];
 
 				foreach ($session as $key => $value)

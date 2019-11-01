@@ -8,9 +8,9 @@ class view
 	{
 		\dash\data::page_title(T_("Big Opening"));
 
-		$subdomain = \dash\session::get('myNewStoreId');
+		$subdomain = \dash\session::get('myNewStoreSubdomain');
 
-		\lib\app\store\timeline::set('opening');
+		\lib\app\store\timeline::set('opening', \dash\session::get('myNewStoreID'));
 
 		if($subdomain)
 		{
@@ -21,7 +21,7 @@ class view
 				$lang = '/'. \dash\url::lang();
 			}
 
-			\dash\data::myNewStoreId(\dash\url::protocol(). '://'. $subdomain. '.'. \dash\url::domain(). $lang. '/a');
+			\dash\data::myNewStoreSubdomain(\dash\url::protocol(). '://'. $subdomain. '.'. \dash\url::domain(). $lang. '/a');
 		}
 		else
 		{

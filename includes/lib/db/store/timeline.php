@@ -51,5 +51,32 @@ class timeline
 		return $result;
 	}
 
+
+	public static function update_by_store_id($_args, $_store_id)
+	{
+		$set = \dash\db\config::make_set($_args, ['type' => 'update']);
+		if($set)
+		{
+			$query = " UPDATE `store_timeline` SET $set WHERE store_timeline.store_id = $_store_id LIMIT 1";
+			$result = \dash\db::query($query);
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public static function get_by_store_id($_store_id)
+	{
+		$query = "SELECT * FROM `store_timeline`WHERE store_timeline.store_id = $_store_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
+
+
 }
 ?>
