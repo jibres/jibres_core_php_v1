@@ -32,6 +32,7 @@ class model
 		{
 			\dash\session::set('createNewStore_title', null);
 			\dash\session::set('createNewStore_question_answer', null);
+			\dash\session::set('myNewStoreId', $subdomain);
 			\dash\redirect::to(\dash\url::here().'/opening');
 		}
 	}

@@ -20,6 +20,8 @@ class controller
 		\dash\redirect::to_login();
 
 		\dash\permission::access('contentA');
+
+		\dash\session::set('myNewStoreId', null);
 	}
 }
 ?>
