@@ -92,7 +92,7 @@ if(isset($_POST['nu']) && isset($_POST['np']))
   </form>
 <?php } ?>
 
-<div id="no"><img src="/static/images/logo.png" alt="Logo" id='logo'></div>
+<div id="no"><img src="/static/img/logo/svg/Jibres-icon.svg" alt="Jibres Logo" id='logo'></div>
 </body>
 </html>
 <?php \dash\code::boom(); ?>
