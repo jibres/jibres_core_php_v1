@@ -336,7 +336,7 @@ class enter
 		}
 		elseif(self::get_session('app_mode'))
 		{
-			$host .= '/enter/app';
+			$host .= '/enter/app?ok=true';
 			self::set_session('app_mode', false);
 		}
 		elseif(self::get_session('first_signup'))
