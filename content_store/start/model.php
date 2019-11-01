@@ -20,7 +20,7 @@ class model
 			return false;
 		}
 
-		\dash\session::set('createNewStore_title', $title);
+		\dash\session::set('createNewStore_title', $title, 'CreateNewStore');
 
 		\dash\redirect::to(\dash\url::here(). '/ask');
 		return;

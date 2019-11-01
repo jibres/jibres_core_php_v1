@@ -4,12 +4,11 @@ namespace lib\app\store;
 
 class subdomain
 {
+	public static $subdomain_field_name = 'subdomain';
 	private static $debug = true;
 
 	public static function validate_exist($_subdomain)
 	{
-		self::$debug = false;
-
 		$subdomain = self::validate($_subdomain);
 		if(!$subdomain)
 		{
@@ -32,7 +31,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("Plase set subdomain as string!"), 'subdomain');
+				\dash\notif::error(T_("Plase set subdomain as string!"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -47,7 +46,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("Slug must have at least 5 character"), 'subdomain');
+				\dash\notif::error(T_("Slug must have at least 5 character"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -56,7 +55,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("Please set the subdomain less than 50 character"), 'subdomain');
+				\dash\notif::error(T_("Please set the subdomain less than 50 character"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -65,7 +64,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("Only [A-Za-z0-9-_] can use in subdomain"), 'subdomain');
+				\dash\notif::error(T_("Only [A-Za-z0-9-_] can use in subdomain"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -74,7 +73,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("Slug should contain a Latin letter"), 'subdomain');
+				\dash\notif::error(T_("Slug should contain a Latin letter"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -83,7 +82,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("The subdomain must begin with latin letters"), 'subdomain');
+				\dash\notif::error(T_("The subdomain must begin with latin letters"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -92,7 +91,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("The subdomain must have one separator"), 'subdomain');
+				\dash\notif::error(T_("The subdomain must have one separator"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -101,7 +100,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("The subdomain must have one separator"), 'subdomain');
+				\dash\notif::error(T_("The subdomain must have one separator"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -110,7 +109,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("Can not use subdomain by jibres keyword"), 'subdomain');
+				\dash\notif::error(T_("Can not use subdomain by jibres keyword"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -119,7 +118,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+				\dash\notif::error(T_("You can not choose this subdomain"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -128,7 +127,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+				\dash\notif::error(T_("You can not choose this subdomain"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -137,7 +136,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+				\dash\notif::error(T_("You can not choose this subdomain"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -146,7 +145,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+				\dash\notif::error(T_("You can not choose this subdomain"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -155,7 +154,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("You can not choose this subdomain"), 'subdomain');
+				\dash\notif::error(T_("You can not choose this subdomain"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -178,7 +177,7 @@ class subdomain
 
 	private static function subdomain($_subdomain)
 	{
-		return self::blacklist($_subdomain, 'subdomain');
+		return self::blacklist($_subdomain, self::$subdomain_field_name);
 	}
 
 

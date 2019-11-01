@@ -41,7 +41,7 @@ class model
 				}
 			}
 
-			\dash\session::set('createNewStore_question_answer', $question_answer);
+			\dash\session::set('createNewStore_question_answer', $question_answer, 'CreateNewStore');
 		}
 
 		\dash\redirect::to(\dash\url::here(). '/subdomain');

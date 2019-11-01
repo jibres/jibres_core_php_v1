@@ -1,0 +1,44 @@
+{%extends display.jibresControlLayout%}
+
+
+{%block pageContent%}
+
+<div class="f justify-center">
+  <div class="c4 x3 m7 s12">
+    <div id="get_started_card">
+      <div class="body">
+        <h1>{%trans "Please wait to creating your store"%} ... </h1>
+        <p>{%trans "Loading..."%}</p>
+
+      </div>
+      <img class="grandOpening" src="{{url.static}}/img/store/grand-opening.jpg" alt='{%trans "Grand opening your store on Jibres"%}'>
+    </div>
+  </div>
+</div>
+
+
+
+{%endblock%}
+{%block foot_js%}
+<script>
+$.ajax(
+  {
+   url : "{{url.this}}",
+   type : 'post',
+   data : {"create":"store"},
+   dataType: 'json',
+   done : function()
+   {
+    window.location.replace("{{url.here}}/opening");
+   },
+   fail : function()
+   {
+    window.location.replace("{{url.here}}/opening");
+   },
+   always : function()
+   {
+    window.location.replace("{{url.here}}/opening");
+   }
+ });
+</script>
+{%endblock%}

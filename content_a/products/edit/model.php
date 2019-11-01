@@ -92,7 +92,16 @@ class model
 	{
 		if(\dash\request::files('gallery'))
 		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'gallery', 'user_id' => \lib\userstore::id()]);
+			$upload_detail
+			[
+				'debug'       => false,
+				'upload_name' => 'gallery',
+				'user_id'     => \lib\userstore::id(),
+				'related'     => 'product',
+				'related_id'  => $_id,
+			];
+
+			$uploaded_file = \dash\app\file::upload_store($upload_detail);
 
 			if(isset($uploaded_file['id']))
 			{
