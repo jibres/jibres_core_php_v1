@@ -2,8 +2,12 @@
 
 
 {%block pageContent%}
+{%if listStore.owner%}
+  {{block('myStoresOwner')}}
+{%else%}
+  {{block('createYourStore')}}
+{%endif%}
 
-{{block('createYourStore')}}
 {{block('myStores')}}
 {{block('buyAsCustomer')}}
 
@@ -23,6 +27,30 @@
         <div class="position txtRa">
           <span class="badge light s0">{%trans "From"%} {{value.datecreated|dt(false,'date')}}</span>
           <span class="badge {%if admin%}primary{%else%}light{%endif%}">{%trans "Staff"%}</span>
+        </div>
+        <div class="addr"><b>{{value.subdomain}}</b><span class="fc-mute fs09">.Jibres.{{url.tld}}</span></div>
+      </div>
+    </a>
+  </div>
+{%endfor%}
+</div>
+{%endif%}
+{%endblock%}
+
+
+
+{%block myStoresOwner%}
+{%if listStore.owner%}
+<div class="f listOfStores">
+{%for key, value in listStore.owner%}
+  <div class="c4 xauto s12 pRa10">
+    <a href='{{value.url}}/a' class="scard">
+      <img src="{{value.logo}}" alt="{{value.title}}">
+      <div class="body">
+        <h2>{{value.title}}</h2>
+        <div class="position txtRa">
+          <span class="badge light s0">{%trans "From"%} {{value.datecreated|dt(false,'date')}}</span>
+          <span class="badge {%if admin%}primary{%else%}light{%endif%}">{%trans "Owner"%}</span>
         </div>
         <div class="addr"><b>{{value.subdomain}}</b><span class="fc-mute fs09">.Jibres.{{url.tld}}</span></div>
       </div>

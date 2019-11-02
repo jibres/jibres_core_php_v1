@@ -18,10 +18,17 @@ class mystore
 		$result['staff']    = [];
 		$result['customer'] = [];
 		$result['supplier'] = [];
+		$result['owner']    = [];
 
 		foreach ($store_user as $key => $value)
 		{
 			$value = \lib\app\store\ready::row($value);
+
+			if(isset($value['owner']) && intval(\dash\coding::decode($value['owner'])) === intval($user_id))
+			{
+				$result['owner'][] = $value;
+				continue;
+			}
 
 			if(isset($value['staff']) && $value['staff'] === 'yes')
 			{
