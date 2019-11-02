@@ -10,6 +10,10 @@ class view
 		\dash\data::include_css(false);
 
 		\dash\data::display_jibresControlLayout('content_store/layout.html');
+
+
+		$myStore = \lib\app\store\mystore::list();
+		\dash\data::listStore($myStore);
 	}
 }
 ?>

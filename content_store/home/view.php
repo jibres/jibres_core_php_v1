@@ -10,9 +10,7 @@ class view
 		\dash\data::page_titleBox(true);
 		\dash\data::page_help(\dash\url::support().'/store');
 
-
-		$myStore = \lib\app\store\mystore::list();
-		\dash\data::listStore($myStore);
+		$myStore = \dash\data::listStore();
 
 		// if store is not exist
 		if(isset($myStore['owner']) && $myStore['owner'])
