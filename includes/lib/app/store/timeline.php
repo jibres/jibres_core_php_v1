@@ -147,8 +147,8 @@ class timeline
 			$session = [];
 		}
 
-		if(!isset($session[$_current_module]))
-		{
+		// if(!isset($session[$_current_module]))
+		// {
 			$session[$_current_module] = date("Y-m-d H:i:s");
 
 			if($_prev_module)
@@ -175,7 +175,7 @@ class timeline
 			}
 
 			\dash\session::set(self::$key, $session);
-		}
+		// }
 	}
 
 }

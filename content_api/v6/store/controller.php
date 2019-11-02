@@ -77,10 +77,16 @@ class controller
 
 		$post['answer']    = $question_answer;
 
+		\lib\app\store\timeline::set('start');
+		\lib\app\store\timeline::set('startcreate');
+
 		$result = \lib\app\store\add::trial($post);
+
+		\lib\app\store\timeline::set('endcreate');
 
 		if(isset($result['store_id']))
 		{
+			\lib\app\store\timeline::set_store_id($result['store_id']);
 			unset($result['store_id']);
 		}
 
