@@ -10,5 +10,5 @@ PRIMARY KEY (`id`),
 KEY `setting_index_search_cat` (`cat`),
 KEY `setting_index_search_key` (`key`),
 KEY `setting_index_search_lang` (`lang`),
-CONSTRAINT `files_userstore_id` FOREIGN KEY (`userstore_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE
+CONSTRAINT `setting_userstore_id` FOREIGN KEY (`userstore_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

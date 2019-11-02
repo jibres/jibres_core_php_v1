@@ -12,6 +12,15 @@ class files
 	}
 
 
+	public static function insert_usage($_args)
+	{
+		\dash\db\config::public_insert('fileusage', $_args);
+		return \dash\db::insert_id();
+	}
+
+
+
+
 	public static function attachment_count()
 	{
 		$query = "SELECT COUNT(*) AS 'count' FROM files ";
@@ -26,15 +35,9 @@ class files
 	 */
 	public static function duplicate($_md5)
 	{
-
-		$qry_count = "SELECT * FROM files WHERE files.md5 = '$_md5' LIMIT 1";
-		$qry_count = \dash\db::get($qry_count, null, true);
-		if($qry_count && !empty($qry_count))
-		{
-			\dash\temp::set('upload', ["id" =>  $qry_count['id'], 'url' => $qry_count['path'], 'size' => $qry_count['size']]);
-			return $qry_count;
-		}
-		return false;
+		$query = "SELECT * FROM files WHERE files.md5 = '$_md5' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
 	}
 
 

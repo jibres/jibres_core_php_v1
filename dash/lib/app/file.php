@@ -298,16 +298,11 @@ class file
 		$default_options =
 		[
 			'debug'       => false,
-			'upload_name' => 'gallery',
-			'user_id'     => \lib\userstore::id(),
-			'related'     => 'product',
-			'related_id'  => $_id,
-
-			'upload_name' => \dash\app::request('upload_name'),
-			'url'         => null,
-			'debug'       => true,
-			'max_upload'  => null,
+			'upload_name' => null,
 			'user_id'     => null,
+			'related'     => null,
+			'related_id'  => null,
+			'max_upload'  => null,
 		];
 
 		if(!is_array($_options))
@@ -317,49 +312,15 @@ class file
 
 		$_options = array_merge($default_options, $_options);
 
-		if(\dash\app::request('url') && !$_options['url'])
-		{
-			$_options['url'] = \dash\app::request('url');
-		}
-
 		$file_path = false;
 
-		if($_options['url'])
-		{
-			$file_path = true;
-		}
-		elseif(!\dash\request::files($_options['upload_name']))
+		if(!\dash\request::files($_options['upload_name']))
 		{
 			\dash\notif::error(T_("Unable to upload, because of selected upload name"), 'upload_name', 'arguments');
 			return false;
 		}
 
-		$ready_upload               = [];
-
-		if($_options['user_id'])
-		{
-			$ready_upload['user_id'] = $_options['user_id'];
-		}
-		else
-		{
-			$ready_upload['user_id'] = \dash\user::id();
-		}
-
-		$ready_upload['debug']      = $_options['debug'];
-		$ready_upload['max_upload'] = $_options['max_upload'];
-
-		if($file_path)
-		{
-			$ready_upload['file_path'] = $_options['url'];
-		}
-		else
-		{
-			$ready_upload['upload_name'] = $_options['upload_name'];
-		}
-
-		$ready_upload['status'] = null;
-
-		$upload      = \dash\utility\upload::upload($ready_upload);
+		$upload      = \dash\utility\upload::upload_store($_options);
 
 		if(!\dash\engine\process::status())
 		{
