@@ -65,15 +65,32 @@ class db
 
 		$set = \dash\db\config::make_set($set);
 
-		self::insert_customer_user($_db_name, $set);
+		\lib\db\store\insert::insert_customer_user($_db_name, $set);
+
+		$set_setting = [];
+
+		$set_setting[] = self::make_setting_record('store_data', 'owner', 			$_args['owner']);
+		$set_setting[] = self::make_setting_record('store_data', 'title', 			$_args['title']);
+		$set_setting[] = self::make_setting_record('store_data', 'subdomain', 		$_args['subdomain']);
+		$set_setting[] = self::make_setting_record('store_data', 'plan', 			$_args['plan']);
+		$set_setting[] = self::make_setting_record('store_data', 'startplan', 		$_args['startplan']);
+		$set_setting[] = self::make_setting_record('store_data', 'expireplan', 	$_args['expireplan']);
+
+		$set_setting = \dash\db\config::make_multi_insert($set_setting);
+
+		\lib\db\store\insert::insert_multi_customer_setting($_db_name, $set_setting);
 	}
 
 
-	private static function insert_customer_user($_db_name, $_set)
+	private static function make_setting_record($_cat = null, $_key = null, $_value = null, $_lang = null)
 	{
-		$query = "INSERT INTO `$_db_name`.`userstore` SET $_set";
-		$result = \dash\db::query($query);
-		return $result;
+		return
+		[
+			'lang'  => $_lang,
+			'cat'   => $_cat,
+			'key'   => $_key,
+			'value' => $_value,
+		];
 	}
 }
 ?>
