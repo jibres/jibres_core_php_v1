@@ -4,12 +4,6 @@
 {%block pageContent%}
 
 
-{%if dashAPIDoc %}
-  {%for key, value in dashAPIDoc%}
-    {%include value%}
-  {%endfor%}
-{%endif%}
-
 {%if projectDoc %}
   {%for key, value in projectDoc%}
     {%include value%}
@@ -49,10 +43,15 @@
       <li><a href="{{url.that}}#app-detail"><i class='sf-code'></i> <span>{%trans "Get app detail"%}</span></a></li>
       <li><a href="{{url.that}}#session-list"><i class='sf-code'></i> <span>{%trans "Session list"%}</span></a></li>
       <li><a href="{{url.that}}#session-terminate"><i class='sf-code'></i> <span>{%trans "Terminate session"%}</span></a></li>
+
+
+      <li><a href="{{url.that}}#store-add"><i class='sf-code'></i> <span>{%trans "Add new store"%}</span></a></li>
+      <li><a href="{{url.that}}#product-unit-list"><i class='sf-code'></i> <span>{%trans "Product unit list"%}</span></a></li>
+      <li><a href="{{url.that}}#product-company-list"><i class='sf-code'></i> <span>{%trans "Product company list"%}</span></a></li>
+      <li><a href="{{url.that}}#product-guarantee-list"><i class='sf-code'></i> <span>{%trans "Product guarantee list"%}</span></a></li>
+      <li><a href="{{url.that}}#product-comment-list"><i class='sf-code'></i> <span>{%trans "Product comment list"%}</span></a></li>
+
     </ul>
-    {%if projectSidebar %}
-     {%include projectSidebar%}
-    {%endif%}
   </li>
 
 

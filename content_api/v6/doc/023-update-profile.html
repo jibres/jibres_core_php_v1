@@ -29,7 +29,7 @@
             </td>
             <td>
               <div>{%trans "Your apikey"%}</div>
-              <code>87923bd0d04b30aa5f66b699c2698e3b</code>
+              <code>{{myApiKey}}</code>
             </td>
             <td>
               <div class="fc-red"><i>{%trans "Required"%}</i></div>
@@ -255,7 +255,7 @@
 <pre>
 curl -X PATCH \
   {{apiURL}}profile \
-  -H 'apikey: 87923bd0d04b30aa5f66b699c2698e3b' \
+  -H 'apikey: {{myApiKey}}' \
   -F 'username=biqarar'\
   -F 'bio=programing is my life'
 </pre>

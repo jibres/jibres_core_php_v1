@@ -1,14 +1,14 @@
-<div class="cbox" id='upload-avatar'>
+<div class="cbox" id='session-terminate'>
 
-  <h2 class="f" data-kerkere='#upload-avatar-detail' data-kerkere-icon='open'>
+  <h2 class="f" data-kerkere='#session-terminate-detail' data-kerkere-icon='open'>
     <div class="cauto pRa10"><span class="badge primary">POST</span></div>
-    <div>{%trans "Update avatar"%}</div>
+    <div>{%trans "Terminate session"%}</div>
   </h2>
-  <div id="upload-avatar-detail">
-    <p>{%trans "Upload your avatar to change it"%}</p>
+  <div id="session-terminate-detail">
+    <p>{%trans "Terminate one session or all session"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>profile</b></span>
+      <span>{{apiURL}}<b>session</b></span>
     </div>
 
     <div class="tblBox">
@@ -22,6 +22,7 @@
           </tr>
         </thead>
         <tbody>
+
           <tr>
             <td>
               <div class="txtB">apikey</div>
@@ -29,67 +30,81 @@
             </td>
             <td>
               <div>{%trans "Your apikey"%}</div>
-              <code>87923bd0d04b30aa5f66b699c2698e3b</code>
+              <code>{{myApiKey}}</code>
             </td>
             <td>
               <div class="fc-red"><i>{%trans "Required"%}</i></div>
               {%trans "length"%} {{32 | fitNumber}}
-            </td>
+              <div>{%trans "Get from your account profile"%}</div>
+          </td>
           </tr>
         </tbody>
       </table>
     </div>
 
+
+
+
     <div class="tblBox">
-      <h3>{%trans "Required parameters"%}</h3>
+      <h3>{%trans "Parameters"%}</h3>
       <table class="tbl1 v3">
         <thead>
           <tr>
             <th>{%trans "Name"%} <small>{%trans "type"%}</small></th>
             <th>{%trans "Description"%} <small>{%trans "example"%}</small></th>
-            <th>{%trans "Constraints"%}</th>
+
           </tr>
         </thead>
         <tbody>
+
           <tr>
             <td>
-              <div class="txtB">avatar</div>
-              <i>FILE</i>
+              <div class="txtB">type</div>
+              <i>String</i>
             </td>
             <td>
-              <div>{%trans "You file location to upload"%}</div>
-
-            </td>
-            <td>
-              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              <code>terminate</code> {%trans "Or"%} <code>terminateall</code>
 
             </td>
           </tr>
+
+          <tr>
+            <td>
+              <div class="txtB">id</div>
+              <i>String</i>
+            </td>
+            <td>
+              <div>{%trans "example"%}</div>
+              <code>3N</code>
+              <div>{%trans "If type is `terminate` the id is require"%}</div>
+            </td>
+          </tr>
+
         </tbody>
       </table>
     </div>
 
 
-
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}profile \
-  -H 'apikey: 87923bd0d04b30aa5f66b699c2698e3b' \
-  -F avatar=@/home/reza/Desktop/yourfile.jpg
+  {{apiURL}}session \
+  -H 'apikey: {{myApiKey}}' \
+  -F 'type=terminate' \
+  -F 'id=3N'
 </pre>
 
-    <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
+<h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
 <pre>
 {
   "ok": true,
   "msg": [
     {
       "type": "ok",
-      "text": "User successfully updated"
+      "text": "This Session was terminated"
     }
   ],
-  "result": null
+  "result": true
 }
 </pre>
 

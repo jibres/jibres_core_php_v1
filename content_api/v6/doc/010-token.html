@@ -29,7 +29,7 @@
             </td>
             <td>
               <div>{%trans "APP key generated on the user panel"%}</div>
-              <code>1234ec8e69c19ebb7c202ae1097aa404</code>
+              <code>{{myAppKey}}</code>
             </td>
             <td>
               <div class="fc-red"><i>{%trans "Required"%}</i></div>
@@ -41,7 +41,7 @@
     </div>
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
-    <pre>curl -X POST {{apiURL}}token -H 'appkey: 1234ec8e69c19ebb7c202ae1097aa404'</pre>
+    <pre>curl -X POST {{apiURL}}token -H 'appkey: {{myAppKey}}'</pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
 <pre>
