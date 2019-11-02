@@ -44,6 +44,11 @@ $.ajax(
    always : function()
    {
     Navigate({ url: "{{url.here}}" });
+   },
+   statusCode: {
+    501: function() {
+      Navigate({ url: "{{url.here}}" });
+    }
    }
  });
 </script>

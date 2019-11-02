@@ -27,7 +27,10 @@ class model
 			{
 				\dash\session::clean_cat('CreateNewStore');
 
-				\dash\session::set('myNewStoreSubdomain', $subdomain);
+				if(isset($result['subdomain']))
+				{
+					\dash\session::set('myNewStoreSubdomain', $result['subdomain']);
+				}
 
 				\lib\app\store\timeline::set('endcreate');
 
@@ -43,6 +46,9 @@ class model
 			}
 			else
 			{
+				\dash\log::set('CreateNewStoreError', ['detail' => $post]);
+
+				\dash\header::status(501, T_("Can not create your store!"));
 				return false;
 			}
 		}
