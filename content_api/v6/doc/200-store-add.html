@@ -41,6 +41,81 @@
             </td>
           </tr>
 
+          <tr>
+            <td>
+              <div class="txtB">apikey</div>
+              <i>String</i>
+            </td>
+            <td>
+              <p>
+                {%trans "Get from your account"%}
+                <a class="btn secondary xs" href="{{url.kingdom}}/account/apikey">{%trans "Click here to get your apikey"%}</a>
+              </p>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+   <div class="tblBox">
+      <h3>{%trans "Parameters"%}</h3>
+      <table class="tbl1 v3">
+        <thead>
+          <tr>
+            <th>{%trans "Name"%} <small>{%trans "type"%}</small></th>
+            <th>{%trans "Description"%} <small>{%trans "example"%}</small></th>
+            <th>{%trans "Constraints"%}</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+              <div class="txtB">subdomain</div>
+              <i>String</i>
+            </td>
+            <td>
+              <p>{%trans "You can use a-z, 0-9 and underscores."%}</p>
+              <p>{%trans "Minimum length is 5 characters."%}</p>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td>
+              <div class="txtB">title</div>
+              <i>String</i>
+            </td>
+            <td>
+              <p>{%trans "Title of your business"%}</p>
+
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="txtB">answer</div>
+              <i>Array</i>
+            </td>
+            <td>
+              <p>{%trans "Answer of setup question"%}</p>
+              <p>{%trans "You can get the question from below link"%}</p>
+              <a class="badge" href="{{url.that}}#store-setup-question">{%trans "Setup Questions"%}</a>
+            </td>
+            <td>
+              <div class="fc-green"><i>{%trans "Optional"%}</i></div>
+            </td>
+          </tr>
 
 
         </tbody>
@@ -58,8 +133,21 @@ curl -X POST \
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
 <pre>
-??
-
+{
+  "ok": true,
+  "msg": [
+    {
+      "type": "ok",
+      "text": "Your store successfully created",
+      "meta": {
+        "alerty": true
+      }
+    }
+  ],
+  "result": {
+    "subdomain": "{{mySubdomain}}"
+  }
+}
 </pre>
 
 

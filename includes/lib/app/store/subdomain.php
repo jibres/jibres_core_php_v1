@@ -31,6 +31,15 @@ class subdomain
 
 	public static function validate($_subdomain)
 	{
+		if(!$_subdomain)
+		{
+			if(self::$debug)
+			{
+				\dash\notif::error(T_("Plase fill subdomain"), self::$subdomain_field_name);
+			}
+			return false;
+		}
+
 		if(!is_string($_subdomain))
 		{
 			if(self::$debug)
