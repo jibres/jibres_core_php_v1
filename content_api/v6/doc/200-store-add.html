@@ -104,13 +104,13 @@
 
           <tr>
             <td>
-              <div class="txtB">answer</div>
-              <i>Array</i>
+              <div class="txtB">[Question key]</div>
+              <i>String</i>
             </td>
             <td>
-              <p>{%trans "Answer of setup question"%}</p>
+              <p>{%trans "Question key and number of answer item"%}</p>
               <p>{%trans "You can get the question from below link"%}</p>
-              <a class="badge" href="{{url.that}}#store-setup-question">{%trans "Setup Questions"%}</a>
+              <a class="badge" href="{{url.that}}#store-add-question">{%trans "Setup Questions"%}</a>
             </td>
             <td>
               <div class="fc-green"><i>{%trans "Optional"%}</i></div>
@@ -129,6 +129,12 @@
 curl -X POST \
   {{apiURL}}store/add \
   -H 'appkey: {{myAppKey}}'
+  -H 'apikey: {{myApiKey}}'
+  -F title=xxxsdfdsf \
+  -F subdomain=sdfdsfsdfdxxd \
+  -F Q1=1 \
+  -F Q2=3 \
+  -F Q3=2
 </pre>
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>

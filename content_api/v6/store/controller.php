@@ -6,9 +6,6 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v6\access::check_appkey();
-
-		\content_api\v6\access::user();
 
 		$detail    = [];
 
@@ -16,6 +13,10 @@ class controller
 
 		if($directory === 'v6/store/add')
 		{
+			\content_api\v6\access::check_appkey();
+
+			\content_api\v6\access::user();
+
 			if(\dash\request::is('post'))
 			{
 				$detail = self::new_store();
@@ -24,6 +25,10 @@ class controller
 			{
 				\content_api\v6::no(400);
 			}
+		}
+		elseif($directory === 'v6/store/question')
+		{
+			$detail = \lib\app\store\polls::all();
 		}
 		else
 		{
@@ -40,7 +45,37 @@ class controller
 		$post              = [];
 		$post['title']     = \dash\request::post('title');
 		$post['subdomain'] = \dash\request::post('subdomain');
-		$post['answer']    = \dash\request::post('answer');
+
+		$polls = \lib\app\store\polls::all();
+
+		$question_answer = [];
+
+		if(isset($polls['questions']) && is_array($polls['questions']))
+		{
+			foreach ($polls['questions'] as $key => $question)
+			{
+				if(isset($question['id']))
+				{
+					$answer = \dash\request::post($question['id']);
+					if($answer && is_string($answer))
+					{
+						if(isset($question['items']) && is_array($question['items']))
+						{
+							$allow_key = array_keys($question['items']);
+							if(!in_array($answer, $allow_key))
+							{
+								\dash\notif::error(T_("Plase select one itme"), $question['id']);
+								return false;
+							}
+
+							$question_answer[$question['id']] = $answer;
+						}
+					}
+				}
+			}
+		}
+
+		$post['answer']    = $question_answer;
 
 		$result = \lib\app\store\add::trial($post);
 
