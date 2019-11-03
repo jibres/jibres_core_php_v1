@@ -50,7 +50,7 @@ class add
 
 		$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
 
-		if($count_store_free >= 1)
+		if($count_store_free >= 10)
 		{
 			$user_budget = \dash\db\transactions::budget($user_id, ['unit' => 'toman']);
 
