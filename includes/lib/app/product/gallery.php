@@ -75,13 +75,13 @@ class gallery
 	}
 
 
-	public static function setthumb($_product_id, $_file_path)
+	public static function setthumb($_product_id, $_file_id)
 	{
-		$file_path = \dash\app\file::unpath($_file_path);
+		$file_id = $_file_id;
 
-		if(!$file_path)
+		if(!$file_id)
 		{
-			\dash\notif::error(T_("Invalid file path"));
+			\dash\notif::error(T_("Invalid file id"));
 			return false;
 		}
 
@@ -93,19 +93,25 @@ class gallery
 
 		$product_gallery_field    = $load_gallery['gallery'];
 		$product_id = $load_gallery['id'];
-
-
-		if(isset($product_gallery_field) && is_array($product_gallery_field))
+		if(isset($product_gallery_field['files']) && is_array($product_gallery_field['files']))
 		{
-			if(!in_array($file_path, $product_gallery_field))
+			foreach ($product_gallery_field['files'] as $key => $one_file)
 			{
-				\dash\notif::error(T_("Invalid gallery id"));
-				return false;
+				if(isset($one_file['id']) && intval($one_file['id']) === intval($file_id) && isset($one_file['path']))
+				{
+					$product_gallery_field['thumbid'] = $one_file['id'];
+					$product_gallery_field            = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
+
+					\lib\db\products\db::update_gallery($product_gallery_field, $product_id);
+					\lib\db\products\db::update_thumb($one_file['path'], $product_id);
+
+					return true;
+				}
 			}
 		}
 
-		$result = \lib\db\products\db::update_thumb($file_path, $product_id);
-		return $result;
+		\dash\notif::error(T_("Invalid gallery id"));
+		return false;
 	}
 
 
