@@ -215,6 +215,7 @@ class gallery
 
 				if(!$next_image)
 				{
+					$product_gallery_field['thumbid'] = null;
 					\lib\db\products\db::update_thumb(null, $product_id);
 				}
 

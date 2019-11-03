@@ -54,7 +54,7 @@ class ready
 					break;
 
 				case 'thumb':
-					$result[$key] = isset($value) ? \dash\app\file::fix_path($value) : null;
+					$result[$key] = isset($value) ? \dash\app\file::fix_path($value) : \dash\app::static_image_url();
 					break;
 
 
