@@ -115,106 +115,102 @@ trait connect
 
 
 		$link = \mysqli_init();
-		\mysqli_options ($link, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
 
-		// $link->ssl_set('/home/ermile/client-ssl/client-key.pem',
-		//  '/home/ermile/client-ssl/client-cert.pem',
-		//  '/home/ermile/client-ssl/ca.pem',
-		//  NULL, NULL);
+		\mysqli_options($link, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
+		// \mysqli_options($link, MYSQLI_OPT_CONNECT_TIMEOUT, 10);
+		// \mysqli_options($link, MYSQLI_OPT_READ_TIMEOUT, 30);
+
 		$real_link = @mysqli_real_connect($link, self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port, NULL, MYSQLI_CLIENT_SSL);
 		// $link = mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
 
-		if(!$real_link)
-		{
-			\dash\notif::error(T_("We can't connect to db server!"). " ". T_("Please contact administrator!"));
-			return false;
-		}
-
 		// if we have error on connection to this database
-		if(!$link)
+
+		switch (@mysqli_connect_errno())
 		{
-			switch (@mysqli_connect_errno())
-			{
-				// Access denied for user 'user'@'hostname' (using password: YES)
-				case 1045:
-					// to not make some error
-					if(!isset(self::$load_error[1045]))
+			// Access denied for user 'user'@'hostname' (using password: YES)
+			case 1045:
+				// to not make some error
+				if(!isset(self::$load_error[1045]))
+				{
+					self::$load_error[1045] = true;
+					\dash\notif::error(T_("We can't connect to database service!"). " ". T_("Please contact administrator!"));
+				}
+				// \dash\header::status(503, T_("We can't connect to database service!"). " ". T_("Please contact administrator!"));
+				break;
+
+			// ERROR 1049 (42000): Unknown database
+			case 1049:
+
+				// if allow to create then start create database
+				if($_autoCreate)
+				{
+
+					// connect to mysql database for creating new one
+					$real_link = @mysqli_real_connect($link, self::$db_host, self::$db_user, self::$db_pass, 'mysql', self::$db_port, NULL, MYSQLI_CLIENT_SSL);
+
+					// $link = @mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, 'mysql');
+					// if can connect to mysql database
+					if($link)
 					{
-						self::$load_error[1045] = true;
-						\dash\notif::error(T_("We can't connect to database service!"). " ". T_("Please contact administrator!"));
-					}
-					// \dash\header::status(503, T_("We can't connect to database service!"). " ". T_("Please contact administrator!"));
-					break;
+						$qry = "CREATE DATABASE IF NOT EXISTS `". self::$db_name. "` DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;";
 
-				// ERROR 1049 (42000): Unknown database
-				case 1049:
-					// if allow to create then start create database
-					if($_autoCreate)
-					{
-						// connect to mysql database for creating new one
-						$link = @mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, 'mysql');
-						// if can connect to mysql database
-						if($link)
+						// try to create database
+						if(!@mysqli_query($link, $qry))
 						{
-							$qry = "CREATE DATABASE IF NOT EXISTS `". self::$db_name. "` DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;";
-
-							// try to create database
-							if(!@mysqli_query($link, $qry))
-							{
-								// if cant create db
-								return false;
-							}
-
-							if(defined('db_log_name'))
-							{
-								$qry = "CREATE DATABASE IF NOT EXISTS `". db_log_name. "` DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;";
-								// try to create log database
-								@mysqli_query($link, $qry);
-							}
-
-							// else if can create new database then reset link to dbname
-							$link = @mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name);
-						}
-						else
-						{
+							// if cant create db
 							return false;
 						}
+
+						if(defined('db_log_name'))
+						{
+							$qry = "CREATE DATABASE IF NOT EXISTS `". db_log_name. "` DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;";
+							// try to create log database
+							@mysqli_query($link, $qry);
+						}
+
+						// else if can create new database then reset link to dbname
+						$link = @mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name);
 					}
-					elseif($_autoCreate === false)
+					else
 					{
 						return false;
 					}
-					// else only show related message
-					else
+				}
+				elseif($_autoCreate === false)
+				{
+					return false;
+				}
+				// else only show related message
+				else
+				{
+					// to not make some error
+					if(!isset(self::$load_error['database']))
 					{
-						// to not make some error
-						if(!isset(self::$load_error['database']))
-						{
-							self::$load_error['database'] = true;
-							\dash\notif::error(T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
-							// \dash\header::status(501, T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
-						}
+						self::$load_error['database'] = true;
+						\dash\notif::error(T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
+						// \dash\header::status(501, T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
 					}
-					break;
+				}
+				break;
 
 
-				case 2002:
-					// i dont know!
-					break;
+			case 2002:
+				// i dont know!
+				break;
 
 
-				// Connections using insecure transport are prohibited while --require_secure_transport=ON.
-				case 3159:
-					self::$load_error[3159] = true;
-					\dash\notif::error(T_("Connections using insecure transport are prohibited while --require_secure_transport=ON."). " ". T_("Please contact administrator!"));
-					break;
+			// Connections using insecure transport are prohibited while --require_secure_transport=ON.
+			case 3159:
+				self::$load_error[3159] = true;
+				\dash\notif::error(T_("Connections using insecure transport are prohibited while --require_secure_transport=ON."). " ". T_("Please contact administrator!"));
+				break;
 
-				default:
-					// another errors occure
-					// on development create connection error handling system
-					break;
-			}
+			default:
+				// another errors occure
+				// on development create connection error handling system
+				break;
 		}
+
 
 		// link is created and exist,
 		// check if link is exist set it as global variable
