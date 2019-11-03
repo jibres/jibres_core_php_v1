@@ -165,6 +165,17 @@ class gallery
 				\lib\db\products\db::update_thumb($file_path, $product_id);
 				$product_gallery_field['thumbid'] = $fileid;
 			}
+
+			$insert_file_usage =
+			[
+				'file_id'      => $fileid,
+				'userstore_id' => \lib\userstore::id(),
+				'related'      => 'product',
+				'related_id'   => $product_id,
+				'datecreated'  => date("Y-m-d H:i:s"),
+			];
+
+			\lib\db\files\usage::insert($insert_file_usage);
 		}
 		else
 		{
@@ -179,11 +190,12 @@ class gallery
 			if(isset($product_gallery_field['files']) && is_array($product_gallery_field['files']))
 			{
 				$find_in_gallery = false;
-
+				$remove_file_id = null;
 				foreach ($product_gallery_field['files'] as $key => $one_file)
 				{
 					if(isset($one_file['id']) && intval($one_file['id']) === intval($fileid))
 					{
+						$remove_file_id = $one_file['id'];
 						$find_in_gallery = true;
 						unset($product_gallery_field['files'][$key]);
 					}
@@ -193,6 +205,11 @@ class gallery
 				{
 					\dash\notif::error(T_("Invalid gallery id"));
 					return false;
+				}
+
+				if($find_in_gallery && $remove_file_id)
+				{
+					\lib\db\files\usage::remove('product', $product_id, $remove_file_id);
 				}
 
 				if(isset($product_detail['thumb']) && isset($product_gallery_field['thumbid']) && intval($product_gallery_field['thumbid']) === intval($fileid))

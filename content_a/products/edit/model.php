@@ -97,8 +97,8 @@ class model
 				'debug'        => false,
 				'upload_name'  => 'gallery',
 				'userstore_id' => \lib\userstore::id(),
-				'related'      => 'product',
-				'related_id'   => $_id,
+				// 'related'      => 'product',
+				// 'related_id'   => $_id,
 				'store_id'     => \lib\store::id(),
 			];
 

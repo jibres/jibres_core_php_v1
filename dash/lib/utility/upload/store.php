@@ -159,14 +159,14 @@ trait store
 			return false;
 		}
 
-		$insert_file_usage                 = [];
-		$insert_file_usage['file_id']      = $new_id;
-		$insert_file_usage['userstore_id'] = $_options['userstore_id'];
-		$insert_file_usage['related']      = $_options['related'];
-		$insert_file_usage['related_id']   = $_options['related_id'];
-		$insert_file_usage['datecreated']  = date("Y-m-d H:i:s");
+		// $insert_file_usage                 = [];
+		// $insert_file_usage['file_id']      = $new_id;
+		// $insert_file_usage['userstore_id'] = $_options['userstore_id'];
+		// $insert_file_usage['related']      = $_options['related'];
+		// $insert_file_usage['related_id']   = $_options['related_id'];
+		// $insert_file_usage['datecreated']  = date("Y-m-d H:i:s");
 
-		$new_usage_id = \dash\db\files::insert_usage($insert_file_usage);
+		// $new_usage_id = \dash\db\files::insert_usage($insert_file_usage);
 
 		$inset_files_record['id'] = $new_id;
 
