@@ -35,9 +35,6 @@ class view
 			\dash\data::page_export(\dash\url::here());
 		}
 
-
-
-
 		$args =
 		[
 			'order'        => \dash\request::get('order'),
@@ -53,7 +50,6 @@ class view
 			'filter'       => [],
 		];
 
-
 		if(\dash\request::get('duplicatetitle')) $args['filter']['duplicatetitle']   = true;
 		if(\dash\request::get('hbarcode')) 		 $args['filter']['hbarcode'] 		 = true;
 		if(\dash\request::get('hnotbarcode')) 	 $args['filter']['hnotbarcode'] 	 = true;
@@ -68,10 +64,6 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		if($search_string)
-		{
-			\dash\data::page_title(T_('Search'). ' '.  $search_string);
-		}
 
 		$myProductList = \lib\app\product\search::variant_list($search_string, $args);
 
@@ -81,10 +73,10 @@ class view
 
 		\dash\data::filterBox(\lib\app\product\search::filter_message());
 
-
+		if(\lib\app\product\search::is_filtered())
+		{
+			\dash\data::page_title(\dash\data::page_title() . '  '. T_('Filtered'));
+		}
 	}
-
-
-
 }
 ?>

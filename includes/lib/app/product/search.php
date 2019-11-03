@@ -4,10 +4,18 @@ namespace lib\app\product;
 class search
 {
 	private static $filter_message = null;
+	private static $is_filtered    = false;
+
 
 	public static function filter_message()
 	{
 		return self::$filter_message;
+	}
+
+
+	public static function is_filtered()
+	{
+		return self::$is_filtered;
 	}
 
 
@@ -51,6 +59,7 @@ class search
 			$barcode = \dash\utility\convert::to_en_number($_args['barcode']);
 			$and['products.barcode'] = $barcode;
 			$filter_args['barcode'] = T_('Barcode');
+			self::$is_filtered = true;
 		}
 
 		// if($_args['price'])
@@ -70,6 +79,7 @@ class search
 			{
 				$and['products.buyprice'] = $buyprice;
 				$filter_args['buyprice'] = T_('Buy price');
+				self::$is_filtered = true;
 			}
 		}
 
@@ -86,6 +96,7 @@ class search
 			{
 				$and['products.discount'] = $discount;
 				$filter_args['discount'] = T_('Discount');
+				self::$is_filtered = true;
 			}
 		}
 
@@ -96,6 +107,7 @@ class search
 			{
 				$and['products.cat_id'] = $catid;
 				$filter_args['cat'] = T_('Category');
+				self::$is_filtered = true;
 			}
 		}
 
@@ -106,6 +118,7 @@ class search
 			{
 				$and['products.unit_id'] = $unitid;
 				$filter_args['unit'] = T_('Unit');
+				self::$is_filtered = true;
 			}
 		}
 
@@ -116,6 +129,7 @@ class search
 			{
 				$and['products.company_id'] = $companyid;
 				$filter_args['company'] = T_('Company');
+				self::$is_filtered = true;
 			}
 		}
 
@@ -126,7 +140,13 @@ class search
 			{
 				$and['products.guarantee_id'] = $guaranteeid;
 				$filter_args['guarantee'] = T_('Guarantee');
+				self::$is_filtered = true;
 			}
+		}
+		if(mb_strlen($_query_string) > 50)
+		{
+			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
+			return false;
 		}
 
 		$query_string = \dash\safe::forQueryString($_query_string);
@@ -142,6 +162,7 @@ class search
 			$or['products.barcode2'] = ["=", "'$query_string'"];
 
 			$or['products.sku']      = ["=", "'$query_string'"];
+			self::$is_filtered = true;
 		}
 
 		$and = array_merge($and, $_where);
