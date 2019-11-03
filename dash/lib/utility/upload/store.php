@@ -102,28 +102,26 @@ trait store
 			case 'jpeg':
 			case 'png':
 			case 'gif':
-				if($_options['crop'] === true)
-				{
-					$extlen     = mb_strlen(self::$fileExt);
-					$url_file   = substr($url_full, 0, -$extlen-1);
-					$url_thumb  = $url_file.'-thumb.'.self::$fileExt;
-					$url_normal = $url_file.'-normal.'.self::$fileExt;
-					$url_large = $url_file.'-large.'.self::$fileExt;
+				$extlen     = mb_strlen(self::$fileExt);
+				$url_file   = substr($url_full, 0, -$extlen-1);
+				$url_thumb  = $url_file.'-thumb.'.self::$fileExt;
+				$url_normal = $url_file.'-normal.'.self::$fileExt;
+				$url_large = $url_file.'-large.'.self::$fileExt;
 
-					\dash\utility\image::load($real_url_full);
+				\dash\utility\image::load($url_full);
 
-					// large image
-					\dash\utility\image::thumb(900, 600);
-					\dash\utility\image::save($url_large);
+				// large image
+				\dash\utility\image::thumb(900, 600);
+				\dash\utility\image::save($url_large);
 
-					// normal image
-					\dash\utility\image::thumb(600, 400);
-					\dash\utility\image::save($url_normal);
+				// normal image
+				\dash\utility\image::thumb(600, 400);
+				\dash\utility\image::save($url_normal);
 
-					// thumb image
-					\dash\utility\image::thumb(150, 150);
-					\dash\utility\image::save($url_thumb);
-				}
+				// thumb image
+				\dash\utility\image::thumb(150, 150);
+				\dash\utility\image::save($url_thumb);
+
 				break;
 
 			default:
