@@ -13,15 +13,15 @@ trait connect
 	// this is the jibres customer database name
 	// if this variable is set owerride to $db_name
 	public static $jibres_db_name = null;
-
-	public static $db_name      = null;
-	public static $db_user      = null;
-	public static $db_pass      = null;
-	public static $db_host      = '45.82.139.124';
-	public static $db_charset   = 'utf8mb4'; //'utf8';
-	public static $db_lang      = 'fa_IR';
-	public static $debug_error  = false;
-	private static $load_error  = [];
+	public static $db_port        = 3306;
+	public static $db_name        = null;
+	public static $db_user        = null;
+	public static $db_pass        = null;
+	public static $db_host        = '45.82.139.124';
+	public static $db_charset     = 'utf8mb4'; //'utf8';
+	public static $db_lang        = 'fa_IR';
+	public static $debug_error    = false;
+	private static $load_error    = [];
 
 	public static function close($_link = null)
 	{
@@ -113,8 +113,9 @@ trait connect
 			\dash\header::status(503, T_("we can't find database service!"). " ". T_("Please contact administrator!"));
 		}
 		// j([self::$db_host, self::$db_user, self::$db_pass, self::$db_name]);
-		$link = @mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name);
-
+		// $link = mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
+		$link = real_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
+		var_dump($link, mysqli_connect_errno());exit();
 		// if we have error on connection to this database
 		if(!$link)
 		{
