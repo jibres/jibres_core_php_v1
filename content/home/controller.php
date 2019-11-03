@@ -46,8 +46,6 @@ class controller
 	// for routing check
 	public static function routing()
 	{
-		var_dump(\dash\db::get("SELECT * FROM userstore"));
-		var_dump('ss');
 		// if on homepage return false
 		$url = \dash\url::directory();
 		if(!$url)
