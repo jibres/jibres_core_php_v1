@@ -113,8 +113,8 @@ trait connect
 			\dash\header::status(503, T_("we can't find database service!"). " ". T_("Please contact administrator!"));
 		}
 		// j([self::$db_host, self::$db_user, self::$db_pass, self::$db_name]);
-		// $link = mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
-		$link = real_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
+		$link = mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
+		// $link = real_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
 		var_dump($link, mysqli_connect_errno());exit();
 		// if we have error on connection to this database
 		if(!$link)
