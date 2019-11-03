@@ -25,6 +25,22 @@ class file
 		'datemodified',
 	];
 
+
+	public static function fix_path($_path)
+	{
+		$path = \dash\url::site() . '/'. $_path;
+		return $path;
+	}
+
+
+	public static function fix_path_array($_path_array)
+	{
+		return array_map(['self', 'fix_path'], $_path_array);
+	}
+
+
+
+
 	public static function multi_load($_ids)
 	{
 		if(!is_array($_ids))

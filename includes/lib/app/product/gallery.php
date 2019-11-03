@@ -6,21 +6,21 @@ class gallery
 {
 	public static function load_detail($_data)
 	{
-		$file_id = isset($_data['gallery']) ? $_data['gallery'] : null;
-		if(!$file_id)
+		$file_path = isset($_data['gallery']) ? $_data['gallery'] : null;
+		if(!$file_path)
 		{
 			return $_data;
 		}
 
-		$file_id = array_filter($file_id);
-		$file_id = array_unique($file_id);
+		$file_path = array_filter($file_path);
+		$file_path = array_unique($file_path);
 
-		if(!$file_id)
+		if(!$file_path)
 		{
 			return $_data;
 		}
 
-		$load_files = \dash\app\file::multi_load($file_id);
+		$load_files = \dash\app\file::fix_path_array($file_path);
 
 		if($load_files)
 		{
@@ -73,8 +73,14 @@ class gallery
 	}
 
 
-	public static function setthumb($_product_id, $_file_id)
+	public static function setthumb($_product_id, $_file_path)
 	{
+
+		if(!$file_path)
+		{
+			\dash\notif::error(T_("Invalid file path"));
+			return false;
+		}
 
 		$load_gallery = self::get_gallery_field($_product_id);
 		if(!$load_gallery)
@@ -85,24 +91,17 @@ class gallery
 		$gallery    = $load_gallery['gallery'];
 		$product_id = $load_gallery['id'];
 
-		$file_id = \dash\coding::decode($_file_id);
-
-		if(!$file_id)
-		{
-			\dash\notif::error(T_("Invalid file id"));
-			return false;
-		}
 
 		if(isset($gallery['gallery']) && is_array($gallery['gallery']))
 		{
-			if(!in_array($file_id, $gallery['gallery']))
+			if(!in_array($file_path, $gallery['gallery']))
 			{
 				\dash\notif::error(T_("Invalid gallery id"));
 				return false;
 			}
 		}
 
-		$result = \lib\db\products\db::update_thumb($file_id, $product_id);
+		$result = \lib\db\products\db::update_thumb($file_path, $product_id);
 		return $result;
 	}
 
@@ -121,27 +120,28 @@ class gallery
 
 		if($_type === 'add')
 		{
-			if(isset($_file_detail['id']))
+			if(isset($_file_detail['path']))
 			{
-				$file_id = $_file_detail['id'];
+				$file_path = $_file_detail['path'];
 			}
 			else
 			{
 				\dash\notif::error(T_("File detail not found"));
 				return false;
 			}
+
 			if(isset($gallery['gallery']) && is_array($gallery['gallery']))
 			{
-				if(in_array($file_id, $gallery['gallery']))
+				if(in_array($file_path, $gallery['gallery']))
 				{
 					\dash\notif::error(T_("Duplicate gallery in this gallery"));
 					return false;
 				}
-				array_push($gallery['gallery'], $file_id);
+				array_push($gallery['gallery'], $file_path);
 			}
 			else
 			{
-				$gallery['gallery'] = [$file_id];
+				$gallery['gallery'] = [$file_path];
 			}
 
 			if(isset($product_detail['thumb']) && !in_array($product_detail['thumb'], $gallery['gallery']))
@@ -151,22 +151,30 @@ class gallery
 
 			if(array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])
 			{
-				\lib\db\products\db::update_thumb($file_id, $product_id);
+				\lib\db\products\db::update_thumb($file_path, $product_id);
 			}
 		}
 		else
 		{
-			$file_id = \dash\coding::decode($_file_detail);
-
-			if(!$file_id)
+			if(isset($_file_detail['path']))
 			{
-				\dash\notif::error(T_("Invalid file id"));
+				$file_path = $_file_detail['path'];
+			}
+			else
+			{
+				\dash\notif::error(T_("File detail not found"));
+				return false;
+			}
+
+			if(!$file_path)
+			{
+				\dash\notif::error(T_("Invalid file path"));
 				return false;
 			}
 
 			if(isset($gallery['gallery']) && is_array($gallery['gallery']))
 			{
-				if(!in_array($file_id, $gallery['gallery']))
+				if(!in_array($file_path, $gallery['gallery']))
 				{
 					\dash\notif::error(T_("Invalid gallery id"));
 					return false;
@@ -177,7 +185,7 @@ class gallery
 					unset($product_detail['thumb']);
 				}
 
-				unset($gallery['gallery'][array_search($file_id, $gallery['gallery'])]);
+				unset($gallery['gallery'][array_search($file_path, $gallery['gallery'])]);
 
 				$next_image = null;
 				foreach ($gallery['gallery'] as $key => $value)
@@ -191,7 +199,7 @@ class gallery
 					\lib\db\products\db::update_thumb($next_image, $product_id);
 				}
 
-				if(isset($product_detail['thumb']) && intval($product_detail['thumb']) === intval($file_id) && $next_image)
+				if(isset($product_detail['thumb']) && $product_detail['thumb'] === $file_path && $next_image)
 				{
 					\lib\db\products\db::update_thumb($next_image, $product_id);
 				}
