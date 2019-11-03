@@ -116,31 +116,8 @@ trait connect
 
 
 
-$con=mysqli_init();
-if (!$con)
-  {
-  die("mysqli_init failed");
-  }
-
-mysqli_ssl_set($con,"/home/ermile/client-ssl/client-key.pem","/home/ermile/client-ssl/client-cert.pem","/home/ermile/client-ssl/ca.pem",NULL,NULL);
-
-if (!mysqli_real_connect($con,self::$db_host,self::$db_user,self::$db_pass,self::$db_name))
-  {
-  die("Connect Error: " . mysqli_connect_error());
-  }
-
-// Some queries...
-
-var_dump($con);
-exit();
-mysqli_close($con);
-
-
-
-
-
 		$db = \mysqli_init();
-		\mysqli_options ($db, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
+		\mysqli_options ($db, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
 
 		$db->ssl_set('/home/ermile/client-ssl/client-key.pem',
 		 '/home/ermile/client-ssl/client-cert.pem',
