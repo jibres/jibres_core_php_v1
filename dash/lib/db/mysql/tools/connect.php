@@ -114,23 +114,22 @@ trait connect
 		}
 
 
+		$link = \mysqli_init();
+		\mysqli_options ($link, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
 
-
-		$db = \mysqli_init();
-		\mysqli_options ($db, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
-
-		// $db->ssl_set('/home/ermile/client-ssl/client-key.pem',
+		// $link->ssl_set('/home/ermile/client-ssl/client-key.pem',
 		//  '/home/ermile/client-ssl/client-cert.pem',
 		//  '/home/ermile/client-ssl/ca.pem',
 		//  NULL, NULL);
-
-		$link = mysqli_real_connect ($db, self::$db_host, self::$db_user, self::$db_pass, self::$db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
-
-
-
-		// j([self::$db_host, self::$db_user, self::$db_pass, self::$db_name]);
+		$real_link = @mysqli_real_connect($link, self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port, NULL, MYSQLI_CLIENT_SSL);
 		// $link = mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
-		// $link = real_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
+
+		if(!$real_link)
+		{
+			\dash\notif::error(T_("We can't connect to db server!"). " ". T_("Please contact administrator!"));
+			return false;
+		}
+
 		// if we have error on connection to this database
 		if(!$link)
 		{
