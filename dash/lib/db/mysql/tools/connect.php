@@ -112,6 +112,19 @@ trait connect
 		{
 			\dash\header::status(503, T_("we can't find database service!"). " ". T_("Please contact administrator!"));
 		}
+
+
+		$db = \mysqli_init();
+		\mysqli_options ($db, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
+
+		$db->ssl_set('/home/ermile/client-ssl/client-key.pem',
+		 '/home/ermile/client-ssl/client-cert.pem',
+		 '/home/ermile/client-ssl/ca.pem',
+		 NULL, NULL);
+		// $link = mysqli_real_connect ($db, 'ip', 'user', 'pass', 'db', 3306, NULL, MYSQLI_CLIENT_SSL);
+
+
+
 		// j([self::$db_host, self::$db_user, self::$db_pass, self::$db_name]);
 		$link = mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
 		// $link = real_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
