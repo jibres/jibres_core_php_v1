@@ -6,7 +6,8 @@ class gallery
 {
 	public static function load_detail($_data)
 	{
-		$gallery_raw = isset($_data['gallery']['files']) ? $_data['gallery']['files'] : null;
+		$gallery_raw = isset($_data['files']) ? $_data['files'] : null;
+
 		if(!$gallery_raw)
 		{
 			return $_data;
@@ -22,7 +23,6 @@ class gallery
 					$gallery_raw[$key]['path'] = \dash\app\file::fix_path($value['path']);
 				}
 			}
-
 			return $gallery_raw;
 		}
 		else
@@ -95,9 +95,9 @@ class gallery
 		$product_id = $load_gallery['id'];
 
 
-		if(isset($product_gallery_field['gallery']) && is_array($product_gallery_field['gallery']))
+		if(isset($product_gallery_field) && is_array($product_gallery_field))
 		{
-			if(!in_array($file_path, $product_gallery_field['gallery']))
+			if(!in_array($file_path, $product_gallery_field))
 			{
 				\dash\notif::error(T_("Invalid gallery id"));
 				return false;
@@ -135,9 +135,9 @@ class gallery
 
 			$fileid = isset($_file_detail['id']) ? $_file_detail['id'] : null;
 
-			if(isset($product_gallery_field['gallery']) && is_array($product_gallery_field['gallery']) && isset($product_gallery_field['gallery']['files']) && is_array($product_gallery_field['gallery']['files']))
+			if(isset($product_gallery_field) && is_array($product_gallery_field) && isset($product_gallery_field['files']) && is_array($product_gallery_field['files']))
 			{
-				foreach ($product_gallery_field['gallery']['files'] as $key => $one_file)
+				foreach ($product_gallery_field['files'] as $key => $one_file)
 				{
 					if(isset($one_file['path']) && $one_file['path'] === $file_path)
 					{
@@ -154,56 +154,57 @@ class gallery
 				$product_gallery_field['files'][] = ['id' => $fileid, 'path' => $file_path];
 			}
 
-			// if(isset($product_detail['thumb']) && !in_array($product_detail['thumb'], $product_gallery_field['gallery']))
-			// {
-			// 	unset($product_detail['thumb']);
-			// }
-
-			// if(array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])
-			// {
-			// 	\lib\db\products\db::update_thumb($file_path, $product_id);
-			// }
+			if(!isset($product_detail['thumb']) || (array_key_exists('thumb', $product_detail) && !$product_detail['thumb']))
+			{
+				\lib\db\products\db::update_thumb($file_path, $product_id);
+				$product_gallery_field['thumbid'] = $fileid;
+			}
 		}
 		else
 		{
-			$file_path = \dash\app\file::unpath($_file_detail);
+			$fileid = $_file_detail; // the file id
 
-			if(!$file_path)
+			if(!$fileid)
 			{
-				\dash\notif::error(T_("Invalid file path"));
+				\dash\notif::error(T_("Invalid file id"));
 				return false;
 			}
 
-			if(isset($product_gallery_field['gallery']) && is_array($product_gallery_field['gallery']))
+			if(isset($product_gallery_field['files']) && is_array($product_gallery_field['files']))
 			{
-				if(!in_array($file_path, $product_gallery_field['gallery']))
+				$find_in_gallery = false;
+
+				foreach ($product_gallery_field['files'] as $key => $one_file)
+				{
+					if(isset($one_file['id']) && intval($one_file['id']) === intval($fileid))
+					{
+						$find_in_gallery = true;
+						unset($product_gallery_field['files'][$key]);
+					}
+				}
+
+				if(!$find_in_gallery)
 				{
 					\dash\notif::error(T_("Invalid gallery id"));
 					return false;
 				}
 
-				if(isset($product_detail['thumb']) && !in_array($product_detail['thumb'], $product_gallery_field['gallery']))
+				if(isset($product_detail['thumb']) && isset($product_gallery_field['thumbid']) && intval($product_gallery_field['thumbid']) === intval($fileid))
 				{
-					unset($product_detail['thumb']);
+					$product_detail['thumb'] = null;
 				}
 
-				unset($product_gallery_field['gallery'][array_search($file_path, $product_gallery_field['gallery'])]);
-
 				$next_image = null;
-				foreach ($product_gallery_field['gallery'] as $key => $value)
+				foreach ($product_gallery_field['files'] as $key => $value)
 				{
 					$next_image = $value;
 					break;
 				}
 
-				if((!isset($product_detail['thumb']) || (array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])) && $next_image)
+				if((!isset($product_detail['thumb']) || (array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])) && $next_image && isset($next_image['id']) && isset($next_image['path']))
 				{
-					\lib\db\products\db::update_thumb($next_image, $product_id);
-				}
-
-				if(isset($product_detail['thumb']) && $product_detail['thumb'] === $file_path && $next_image)
-				{
-					\lib\db\products\db::update_thumb($next_image, $product_id);
+					\lib\db\products\db::update_thumb($next_image['path'], $product_id);
+					$product_gallery_field['thumbid'] = $next_image['id'];
 				}
 
 				if(!$next_image)
