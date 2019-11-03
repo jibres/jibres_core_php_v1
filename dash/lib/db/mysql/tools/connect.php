@@ -127,16 +127,10 @@ trait connect
 		$link = mysqli_real_connect ($db, self::$db_host, self::$db_user, self::$db_pass, self::$db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
 
 
-		var_dump($link);
-		var_dump(mysqli_connect_errno());
-		die ('Connect error (' . mysqli_connect_errno() . '): ' . mysqli_connect_error() . "\n");
-		exit();
-
 
 		// j([self::$db_host, self::$db_user, self::$db_pass, self::$db_name]);
-		$link = mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
+		// $link = mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
 		// $link = real_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
-		var_dump($link, mysqli_connect_errno());exit();
 		// if we have error on connection to this database
 		if(!$link)
 		{
