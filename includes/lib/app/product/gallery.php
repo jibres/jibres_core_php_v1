@@ -6,28 +6,30 @@ class gallery
 {
 	public static function load_detail($_data)
 	{
-		$file_path = isset($_data['gallery']) ? $_data['gallery'] : null;
-		if(!$file_path)
+		$gallery_raw = isset($_data['gallery']['files']) ? $_data['gallery']['files'] : null;
+		if(!$gallery_raw)
 		{
 			return $_data;
 		}
 
-		$file_path = array_filter($file_path);
-		$file_path = array_unique($file_path);
+		if(is_array($gallery_raw))
+		{
 
-		if(!$file_path)
+			foreach ($gallery_raw as $key => $value)
+			{
+				if(isset($value['path']))
+				{
+					$gallery_raw[$key]['path'] = \dash\app\file::fix_path($value['path']);
+				}
+			}
+
+			return $gallery_raw;
+		}
+		else
 		{
 			return $_data;
 		}
 
-		$load_files = \dash\app\file::fix_path_array($file_path);
-
-		if($load_files)
-		{
-			return $load_files;
-		}
-
-		return $_data;
 	}
 
 	private static function get_gallery_field($_product_id)
@@ -47,24 +49,24 @@ class gallery
 			return false;
 		}
 
-		$gallery = $load_product_gallery['gallery'];
+		$product_gallery_field = $load_product_gallery['gallery'];
 
-		if(is_string($gallery) && (substr($gallery, 0, 1) === '{' || substr($gallery, 0, 1) === '['))
+		if(is_string($product_gallery_field) && (substr($product_gallery_field, 0, 1) === '{' || substr($product_gallery_field, 0, 1) === '['))
 		{
-			$gallery = json_decode($gallery, true);
+			$product_gallery_field = json_decode($product_gallery_field, true);
 		}
-		elseif(is_array($gallery))
+		elseif(is_array($product_gallery_field))
 		{
 			// no thing
 		}
 		else
 		{
-			$gallery = [];
+			$product_gallery_field = [];
 		}
 
 		$result =
 		[
-			'gallery' => $gallery,
+			'gallery' => $product_gallery_field,
 			'detail'  => $load_product_gallery,
 			'id'      => $load_product_gallery['id'],
 		];
@@ -89,13 +91,13 @@ class gallery
 			return false;
 		}
 
-		$gallery    = $load_gallery['gallery'];
+		$product_gallery_field    = $load_gallery['gallery'];
 		$product_id = $load_gallery['id'];
 
 
-		if(isset($gallery['gallery']) && is_array($gallery['gallery']))
+		if(isset($product_gallery_field['gallery']) && is_array($product_gallery_field['gallery']))
 		{
-			if(!in_array($file_path, $gallery['gallery']))
+			if(!in_array($file_path, $product_gallery_field['gallery']))
 			{
 				\dash\notif::error(T_("Invalid gallery id"));
 				return false;
@@ -115,9 +117,9 @@ class gallery
 			return false;
 		}
 
-		$gallery        = $load_gallery['gallery'];
-		$product_id     = $load_gallery['id'];
-		$product_detail = $load_gallery['detail'];
+		$product_gallery_field = $load_gallery['gallery'];
+		$product_id            = $load_gallery['id'];
+		$product_detail        = $load_gallery['detail'];
 
 		if($_type === 'add')
 		{
@@ -131,29 +133,36 @@ class gallery
 				return false;
 			}
 
-			if(isset($gallery['gallery']) && is_array($gallery['gallery']))
+			$fileid = isset($_file_detail['id']) ? $_file_detail['id'] : null;
+
+			if(isset($product_gallery_field['gallery']) && is_array($product_gallery_field['gallery']) && isset($product_gallery_field['gallery']['files']) && is_array($product_gallery_field['gallery']['files']))
 			{
-				if(in_array($file_path, $gallery['gallery']))
+				foreach ($product_gallery_field['gallery']['files'] as $key => $one_file)
 				{
-					\dash\notif::error(T_("Duplicate gallery in this gallery"));
-					return false;
+					if(isset($one_file['path']) && $one_file['path'] === $file_path)
+					{
+						\dash\notif::error(T_("Duplicate file in this gallery"));
+						return false;
+					}
 				}
-				array_push($gallery['gallery'], $file_path);
+
+				$product_gallery_field['files'][] = ['id' => $fileid, 'path' => $file_path];
 			}
 			else
 			{
-				$gallery['gallery'] = [$file_path];
+				$product_gallery_field['files']   = [];
+				$product_gallery_field['files'][] = ['id' => $fileid, 'path' => $file_path];
 			}
 
-			if(isset($product_detail['thumb']) && !in_array($product_detail['thumb'], $gallery['gallery']))
-			{
-				unset($product_detail['thumb']);
-			}
+			// if(isset($product_detail['thumb']) && !in_array($product_detail['thumb'], $product_gallery_field['gallery']))
+			// {
+			// 	unset($product_detail['thumb']);
+			// }
 
-			if(array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])
-			{
-				\lib\db\products\db::update_thumb($file_path, $product_id);
-			}
+			// if(array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])
+			// {
+			// 	\lib\db\products\db::update_thumb($file_path, $product_id);
+			// }
 		}
 		else
 		{
@@ -165,23 +174,23 @@ class gallery
 				return false;
 			}
 
-			if(isset($gallery['gallery']) && is_array($gallery['gallery']))
+			if(isset($product_gallery_field['gallery']) && is_array($product_gallery_field['gallery']))
 			{
-				if(!in_array($file_path, $gallery['gallery']))
+				if(!in_array($file_path, $product_gallery_field['gallery']))
 				{
 					\dash\notif::error(T_("Invalid gallery id"));
 					return false;
 				}
 
-				if(isset($product_detail['thumb']) && !in_array($product_detail['thumb'], $gallery['gallery']))
+				if(isset($product_detail['thumb']) && !in_array($product_detail['thumb'], $product_gallery_field['gallery']))
 				{
 					unset($product_detail['thumb']);
 				}
 
-				unset($gallery['gallery'][array_search($file_path, $gallery['gallery'])]);
+				unset($product_gallery_field['gallery'][array_search($file_path, $product_gallery_field['gallery'])]);
 
 				$next_image = null;
-				foreach ($gallery['gallery'] as $key => $value)
+				foreach ($product_gallery_field['gallery'] as $key => $value)
 				{
 					$next_image = $value;
 					break;
@@ -206,9 +215,9 @@ class gallery
 
 		}
 
-		$gallery = json_encode($gallery, JSON_UNESCAPED_UNICODE);
+		$product_gallery_field = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
 
-		\lib\db\products\db::update_gallery($gallery, $product_id);
+		\lib\db\products\db::update_gallery($product_gallery_field, $product_id);
 
 		return true;
 

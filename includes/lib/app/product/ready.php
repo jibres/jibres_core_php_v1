@@ -32,13 +32,13 @@ class ready
 			switch ($key)
 			{
 				case 'id':
-					$result['id'] = $value;
-					break;
-
-				case 'creator':
 				case 'cat_id':
 				case 'unit_id':
 				case 'company_id':
+					$result[$key] = $value;
+					break;
+
+				case 'creator':
 					if(isset($value))
 					{
 						$result[$key] = \dash\coding::encode($value);
