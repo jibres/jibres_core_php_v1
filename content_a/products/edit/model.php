@@ -128,16 +128,16 @@ class model
 
 	public static function remove_gallery($_id)
 	{
-		$fileid = \dash\request::post('fileid');
-		\lib\app\product\gallery::gallery($_id, $fileid, 'remove');
+		$filepath = \dash\request::post('filepath');
+		\lib\app\product\gallery::gallery($_id, $filepath, 'remove');
 		\dash\redirect::pwd();
 	}
 
 
 	public static function setthumb($_id)
 	{
-		$fileid = \dash\request::post('fileid');
-		\lib\app\product\gallery::setthumb($_id, $fileid);
+		$filepath = \dash\request::post('filepath');
+		\lib\app\product\gallery::setthumb($_id, $filepath);
 		\dash\redirect::pwd();
 	}
 

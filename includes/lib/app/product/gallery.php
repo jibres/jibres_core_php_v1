@@ -75,6 +75,7 @@ class gallery
 
 	public static function setthumb($_product_id, $_file_path)
 	{
+		$file_path = \dash\app\file::unpath($_file_path);
 
 		if(!$file_path)
 		{
@@ -156,15 +157,7 @@ class gallery
 		}
 		else
 		{
-			if(isset($_file_detail['path']))
-			{
-				$file_path = $_file_detail['path'];
-			}
-			else
-			{
-				\dash\notif::error(T_("File detail not found"));
-				return false;
-			}
+			$file_path = \dash\app\file::unpath($_file_detail);
 
 			if(!$file_path)
 			{

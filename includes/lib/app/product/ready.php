@@ -39,7 +39,6 @@ class ready
 				case 'cat_id':
 				case 'unit_id':
 				case 'company_id':
-				case 'thumb':
 					if(isset($value))
 					{
 						$result[$key] = \dash\coding::encode($value);
@@ -54,6 +53,9 @@ class ready
 					$result[$key] = isset($value) ? (string) $value : null;
 					break;
 
+				case 'thumb':
+					$result[$key] = isset($value) ? \dash\app\file::fix_path($value) : null;
+					break;
 
 
 				case 'gallery':

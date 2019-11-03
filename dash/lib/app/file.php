@@ -26,6 +26,13 @@ class file
 	];
 
 
+	public static function unpath($_path)
+	{
+		$path = str_replace(\dash\url::site() . '/', '', $_path);
+		return $path;
+	}
+
+
 	public static function fix_path($_path)
 	{
 		$path = \dash\url::site() . '/'. $_path;
