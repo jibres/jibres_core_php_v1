@@ -17,7 +17,7 @@ trait connect
 	public static $db_name      = null;
 	public static $db_user      = null;
 	public static $db_pass      = null;
-	public static $db_host      = 'localhost';
+	public static $db_host      = '45.82.139.124';
 	public static $db_charset   = 'utf8mb4'; //'utf8';
 	public static $db_lang      = 'fa_IR';
 	public static $debug_error  = false;
@@ -112,7 +112,7 @@ trait connect
 		{
 			\dash\header::status(503, T_("we can't find database service!"). " ". T_("Please contact administrator!"));
 		}
-
+		// j([self::$db_host, self::$db_user, self::$db_pass, self::$db_name]);
 		$link = @mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name);
 
 		// if we have error on connection to this database
@@ -180,6 +180,13 @@ trait connect
 							// \dash\header::status(501, T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
 						}
 					}
+					break;
+
+
+				// Connections using insecure transport are prohibited while --require_secure_transport=ON.
+				case 3159:
+					self::$load_error[3159] = true;
+					\dash\notif::error(T_("Connections using insecure transport are prohibited while --require_secure_transport=ON."). " ". T_("Please contact administrator!"));
 					break;
 
 				default:
