@@ -50,7 +50,7 @@ class add
 
 		$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
 
-		if($count_store_free >= 10)
+		if($count_store_free >= 10000000)
 		{
 			$user_budget = \dash\db\transactions::budget($user_id, ['unit' => 'toman']);
 
@@ -70,7 +70,7 @@ class add
 			}
 		}
 
-		if($count_store_free >= 2)
+		if($count_store_free >= 2000000)
 		{
 			$msg = T_("You can not have more than two free or trial stores.");
 
