@@ -119,10 +119,10 @@ trait connect
 		$db = \mysqli_init();
 		\mysqli_options ($db, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
 
-		$db->ssl_set('/home/ermile/client-ssl/client-key.pem',
-		 '/home/ermile/client-ssl/client-cert.pem',
-		 '/home/ermile/client-ssl/ca.pem',
-		 NULL, NULL);
+		// $db->ssl_set('/home/ermile/client-ssl/client-key.pem',
+		//  '/home/ermile/client-ssl/client-cert.pem',
+		//  '/home/ermile/client-ssl/ca.pem',
+		//  NULL, NULL);
 
 		$link = mysqli_real_connect ($db, self::$db_host, self::$db_user, self::$db_pass, self::$db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
 
@@ -202,6 +202,11 @@ trait connect
 							// \dash\header::status(501, T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
 						}
 					}
+					break;
+
+
+				case 2002:
+					// i dont know!
 					break;
 
 
