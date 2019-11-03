@@ -134,6 +134,8 @@ class safe
 	{
 		$_string = self::safe($_string, 'get_url-sqlinjection');
 		$_string = mb_ereg_replace('([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.\@\!\#\$\&\^\%\-\=\_])+', ' ', $_string);
+		$_string = str_replace('%', '', $_string);
+		$_string = trim($_string);
 		return $_string;
 	}
 

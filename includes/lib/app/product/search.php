@@ -129,12 +129,19 @@ class search
 			}
 		}
 
-		$query_string     = \dash\safe::forQueryString($_query_string);
+		$query_string = \dash\safe::forQueryString($_query_string);
+
+		$query_string = mb_substr($query_string, 0, 50);
 
 		if($query_string)
 		{
-			$or['products.title'] = ["LIKE", "'%$query_string'"];
-			// $or['products.price'] = ["LIKE", "'%$query_string'"];
+			$or['products.title']    = ["LIKE", "'$query_string%'"];
+			$or['products.slug']     = ["LIKE", "'$query_string%'"];
+
+			$or['products.barcode']  = ["=", "'$query_string'"];
+			$or['products.barcode2'] = ["=", "'$query_string'"];
+
+			$or['products.sku']      = ["=", "'$query_string'"];
 		}
 
 		$and = array_merge($and, $_where);

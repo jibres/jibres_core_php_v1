@@ -43,14 +43,13 @@ class view
 			'order'        => \dash\request::get('order'),
 			'sort'         => \dash\request::get('sort'),
 			'barcode'      => \dash\request::get('barcode'),
-			'price'        => \dash\request::get('price'),
-			'buyprice'     => \dash\request::get('buyprice'),
-			'cat'          => \dash\request::get('cat'),
-			'cat_id'       => \dash\request::get('catid'),
-			'discount'     => \dash\request::get('discount'),
-			'unit_id'      => \dash\request::get('unitid'),
-			'company_id'   => \dash\request::get('companyid'),
-			'guarantee_id' => \dash\request::get('guaranteeid'),
+			// 'price'        => \dash\request::get('price'),
+			// 'buyprice'     => \dash\request::get('buyprice'),
+			// 'cat'          => \dash\request::get('cat'),
+			// 'cat_id'       => \dash\request::get('catid'),
+			// 'discount'     => \dash\request::get('discount'),
+			// 'unit_id'      => \dash\request::get('unitid'),
+			// 'company_id'   => \dash\request::get('companyid'),
 			'filter'       => [],
 		];
 
@@ -84,5 +83,8 @@ class view
 
 
 	}
+
+
+
 }
 ?>

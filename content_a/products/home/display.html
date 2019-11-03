@@ -34,10 +34,15 @@
 
 {%block htmlSearchBox%}
 <form method="get" action="{{url.this}}">
+
+  {%if requestGET.filter%}<input type="hidden" name="filter" value="1">{%endif%}
+  {%if requestGET.duplicatetitle%}<input type="hidden" name="duplicatetitle" value="1">{%endif%}
+  {%if requestGET.bardoce%}<input type="hidden" name="bardoce" value="1">{%endif%}
+
   <div class="searchBox">
     <div class="f">
       <div class="cauto pRa10">
-        <a class="btn light3" data-kerkere-icon="close" data-kerkere='.filterBox'>{%trans "Filter"%}</a>
+        <a class="btn light3{%if requestGET.filter%} apply{%endif%}" data-kerkere-icon="close" data-kerkere='.filterBox'>{%trans "Filter"%}</a>
       </div>
       <div class="c pRa10">
         <div>
@@ -50,8 +55,18 @@
     </div>
   </div>
 
+{%if requestGET.filter%}
+<div class="applyFilters">
+  {%if requestGET.duplicatetitle%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Duplicate title"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
+  {%if requestGET.bardoce%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Have barcode"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
+
+  <a class="btn primary outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>
+</div>
+{%endif%}
+
+
   {%if perm('productAdvanceSearchView')%}
-  <div class="filterBox" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
+  <div class="filterBox" data-kerkere-content='hide'>
       {%include 'content_a/products/filter.html'%}
   </div>
   {%endif%}

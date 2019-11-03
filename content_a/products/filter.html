@@ -3,26 +3,27 @@
 <div class="f align-center">
   <div class="cauto pRa10">{%trans "Title"%}</div>
   <div class="c">
-    <a class='btn light mB5' href="{{url.this}}?customfilter=1&duplicatetitle=1">{%trans "is duplicate"%}</a>
+    <a class='btn {%if requestGET.duplicatetitle%}primary2{%else%}light{%endif%}  mB5 ' href="{{url.this}}?filter=1&duplicatetitle=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "is duplicate"%}</a>
+    <a class='btn {%if requestGET.bardoce%}primary2{%else%}light{%endif%}  mB5 ' href="{{url.this}}?filter=1&bardoce=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Have barcode"%}</a>
   </div>
 </div>
 
 <!--
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&duplicatetitle=1">{%trans "Duplicate title"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&hbarcode=1">{%trans "Have barcode"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&hnotbarcode=1">{%trans "Have not barcode"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&justcode=1">{%trans "Just code"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&wcodbarcode=1">{%trans "No barcode & code"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&wbuyprice=1">{%trans "Whithout buyprice"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&wprice=1">{%trans "Whithout price"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&wminstock=1">{%trans "Whithout min stock"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&wmaxstock=1">{%trans "Whithout max stock"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&wdiscount=1">{%trans "Whithout discount"%}</a>
-  <a class='btn light mB5' href="{{url.this}}?customfilter=1&negativeprofit=1">{%trans "Negative profit"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&duplicatetitle=1">{%trans "Duplicate title"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&hbarcode=1">{%trans "Have barcode"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&hnotbarcode=1">{%trans "Have not barcode"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&justcode=1">{%trans "Just code"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&wcodbarcode=1">{%trans "No barcode & code"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&wbuyprice=1">{%trans "Whithout buyprice"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&wprice=1">{%trans "Whithout price"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&wminstock=1">{%trans "Whithout min stock"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&wmaxstock=1">{%trans "Whithout max stock"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&wdiscount=1">{%trans "Whithout discount"%}</a>
+  <a class='btn light mB5' href="{{url.this}}?filter=1&negativeprofit=1">{%trans "Negative profit"%}</a>
  -->
 
 <div class="txtRa fs12">
-  <a class="btn outline" href="#">{%trans "Clear filters"%}</a>
-  <a class="btn primary"href="">{%trans "Apply"%}</a>
+  <a class="btn outline" href="{{url.this}}">{%trans "Clear filters"%}</a>
+  <button class="btn primary">{%trans "Apply"%}</button>
 </div>
 
