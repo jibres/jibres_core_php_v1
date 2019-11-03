@@ -53,15 +53,15 @@ class search
 			$filter_args['barcode'] = T_('Barcode');
 		}
 
-		if($_args['price'])
-		{
-			$price = \dash\utility\convert::to_en_number($_args['price']);
-			if(is_numeric($price))
-			{
-				$and['products.price'] = $price;
-				$filter_args['price'] = T_('Price');
-			}
-		}
+		// if($_args['price'])
+		// {
+		// 	$price = \dash\utility\convert::to_en_number($_args['price']);
+		// 	if(is_numeric($price))
+		// 	{
+		// 		$and['products.price'] = $price;
+		// 		$filter_args['price'] = T_('Price');
+		// 	}
+		// }
 
 		if($_args['buyprice'])
 		{
@@ -134,7 +134,7 @@ class search
 		if($query_string)
 		{
 			$or['products.title'] = ["LIKE", "'%$query_string'"];
-			$or['products.price'] = ["LIKE", "'%$query_string'"];
+			// $or['products.price'] = ["LIKE", "'%$query_string'"];
 		}
 
 		$and = array_merge($and, $_where);
