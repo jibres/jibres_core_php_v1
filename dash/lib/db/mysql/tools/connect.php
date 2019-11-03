@@ -121,8 +121,14 @@ trait connect
 		 '/home/ermile/client-ssl/client-cert.pem',
 		 '/home/ermile/client-ssl/ca.pem',
 		 NULL, NULL);
-		// $link = mysqli_real_connect ($db, 'ip', 'user', 'pass', 'db', 3306, NULL, MYSQLI_CLIENT_SSL);
 
+		$link = mysqli_real_connect ($db, self::$db_host, self::$db_user, self::$db_pass, self::$db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
+
+
+		var_dump($link);
+		var_dump(mysqli_connect_errno());
+		die ('Connect error (' . mysqli_connect_errno() . '): ' . mysqli_connect_error() . "\n");
+		exit();
 
 
 		// j([self::$db_host, self::$db_user, self::$db_pass, self::$db_name]);
