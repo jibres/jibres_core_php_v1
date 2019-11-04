@@ -69,7 +69,7 @@ class datalist
 
 		if($q)
 		{
-			$where = 'WHERE '. implode($q, " AND ");
+			$where = 'WHERE '. implode(" AND ", $q);
 		}
 
 		$order = null;
