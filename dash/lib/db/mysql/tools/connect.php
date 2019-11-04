@@ -117,7 +117,7 @@ trait connect
 		$link = \mysqli_init();
 
 		\mysqli_options($link, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
-		// \mysqli_options($link, MYSQLI_OPT_CONNECT_TIMEOUT, 10);
+		\mysqli_options($link, MYSQLI_OPT_CONNECT_TIMEOUT, 10);
 		// \mysqli_options($link, MYSQLI_OPT_READ_TIMEOUT, 30);
 
 		$real_link = @mysqli_real_connect($link, self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port, NULL, MYSQLI_CLIENT_SSL);
