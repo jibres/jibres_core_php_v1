@@ -50,9 +50,11 @@ class search
 		$_args = array_merge($default_args, $_args);
 
 		$and         = [];
+		$meta        = [];
 		$or          = [];
 		$filter_args = [];
 		$order_sort  = null;
+
 
 		if($_args['barcode'])
 		{
@@ -62,15 +64,15 @@ class search
 			self::$is_filtered = true;
 		}
 
-		// if($_args['price'])
-		// {
-		// 	$price = \dash\utility\convert::to_en_number($_args['price']);
-		// 	if(is_numeric($price))
-		// 	{
-		// 		$and['products.price'] = $price;
-		// 		$filter_args['price'] = T_('Price');
-		// 	}
-		// }
+		if($_args['price'])
+		{
+			$price = \dash\utility\convert::to_en_number($_args['price']);
+			if(is_numeric($price))
+			{
+				$and['products.price'] = $price;
+				$filter_args['price'] = T_('Price');
+			}
+		}
 
 		if($_args['buyprice'])
 		{
@@ -146,12 +148,21 @@ class search
 
 		// set filter
 
-		// if(isset($_args['filter']['duplicatetitle']) && $_args['filter']['duplicatetitle'])
-		// {
-		// 	$and['products.duplicatetitle'] = null;
-		// 	$filter_args['duplicatetitle'] = T_("duplicatetitle");
-		// 	self::$is_filtered = true;
-		// }
+		if(isset($_args['filter']['duplicatetitle']) && $_args['filter']['duplicatetitle'])
+		{
+			$duplicate_id = \lib\db\products\db::get_duplicate_id();
+			if(!$duplicate_id)
+			{
+				return [];
+			}
+
+			$duplicate_id       = implode(',', $duplicate_id);
+			$and['products.id'] = ["IN", "($duplicate_id)"];
+			$order_sort     = 'ORDER BY products.title ASC';
+
+			$filter_args['title'] = T_("Is Duplicate");
+			self::$is_filtered = true;
+		}
 
 		if(isset($_args['filter']['hbarcode']) && $_args['filter']['hbarcode'])
 		{
@@ -220,11 +231,11 @@ class search
 		switch ($_type)
 		{
 			case 'price':
-				$list = \lib\db\products\datalist::all_list($and, $or, $order_sort);
+				$list = \lib\db\products\datalist::all_list($and, $or, $order_sort, $meta);
 				break;
 
 			default:
-				$list = \lib\db\products\datalist::list($and, $or, $order_sort);
+				$list = \lib\db\products\datalist::list($and, $or, $order_sort, $meta);
 				break;
 		}
 

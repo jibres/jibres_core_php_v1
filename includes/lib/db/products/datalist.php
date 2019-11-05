@@ -4,7 +4,7 @@ namespace lib\db\products;
 class datalist
 {
 
-	public static function all_list($_and, $_or, $_order_sort = null)
+	public static function all_list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
 		$where = null;
 		$q     = [];
@@ -51,7 +51,8 @@ class datalist
 	}
 
 
-	public static function list($_and, $_or, $_order_sort = null)
+
+	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
 		$where = null;
 		$q     = [];
