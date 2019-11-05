@@ -56,6 +56,14 @@
           </div>
         </div>
       </div>
+      <div class="cauto">
+        <select class="select">
+            <option  value="{{url.this}}?{{value.query_string}}">{%trans "You can sort your list"%}</option>
+            {%for key, value in sortList%}
+              <option  value="{{url.this}}?{{value.query_string}}">{{value.title}}</option>
+            {%endfor%}
+        </select>
+    </div>
     </div>
   </div>
 
@@ -103,9 +111,9 @@
         <div class="btn light3"><i class="sf-sort mRa5"></i><span class="text">{%trans "Sort"%}</span></div>
         <div class="menu">
           <div class="header">{%trans "You can sort your list"%}</div>
-            <a class="item" href="{{value.url}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>Sort by price DESC</span></a>
-  {%for key, value in sortAvailable%}
-            <a class="item" href="{{value.url}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.name}}</span></a>
+
+  {%for key, value in sortList%}
+            <a class="item" href="{{url.this}}?{{value.query_string}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.title}}</span></a>
   {%endfor%}
         </div>
       </div>
