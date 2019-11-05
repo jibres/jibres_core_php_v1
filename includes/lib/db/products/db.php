@@ -262,6 +262,14 @@ class db
 	}
 
 
+	public static function update_status($_status, $_id)
+	{
+		$query  = "UPDATE products SET products.status = '$_status' WHERE products.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 
 	/**
 	 * Gets the cat list.

@@ -46,6 +46,8 @@
 
   {{block('Box_organization')}}
 
+  {{block('Box_deleteProduct')}}
+
  </div>
 
 </form>
@@ -190,16 +192,37 @@
   <header data-kerkere='.organizationPanel' data-kerkere-icon='open'>{%trans "Organization"%}</header>
   <div class="body organizationPanel" >
 
+
     {{block('iCat')}}
-    {{block('iGuarantee')}}
+
     {{block('iManufacturer')}}
-    {{block('iTag')}}
+
+    {%if url.child == 'edit'%}
+      {{block('iTag')}}
+    {%endif%}
+
     {{block('iUnit')}}
     {{block('iCodeOnScale')}}
     {{block('iStatus')}}
+
 
   </div>
 </section>
 
 
+{%endblock%}
+
+
+
+
+{%block Box_deleteProduct%}
+{%if url.child == 'edit'%}
+  <section class="pbox">
+    <header data-kerkere='.deleteproduct' data-kerkere-icon='close'>{%trans "Delete product"%}</header>
+    <div class="body deleteproduct" data-kerkere-content='hide' >
+
+      <div class="btn danger block" data-confirm data-data='{"delete":"product"}'>{%trans "Remove product"%}</div>
+    </div>
+  </section>
+{%endif%}
 {%endblock%}

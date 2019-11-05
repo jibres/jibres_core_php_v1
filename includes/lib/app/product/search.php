@@ -160,7 +160,7 @@ class search
 			$and['products.id'] = ["IN", "($duplicate_id)"];
 			$order_sort     = 'ORDER BY products.title ASC';
 
-			$filter_args['title'] = T_("Is Duplicate");
+			$filter_args['Duplicate title'] = null;
 			self::$is_filtered = true;
 		}
 

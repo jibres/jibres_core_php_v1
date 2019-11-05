@@ -52,6 +52,11 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+		if(self::delete_product($id))
+		{
+			return true;
+		}
+
 		if(self::upload_gallery($id))
 		{
 			return false;
@@ -85,6 +90,19 @@ class model
 		\dash\redirect::pwd();
 	}
 
+	private static function delete_product($_id)
+	{
+		if(\dash\request::post('delete') === 'product')
+		{
+			$result = \lib\app\product\remove::product($_id);
+			if($result)
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+			return true;
+		}
+		return false;
+	}
 
 
 
