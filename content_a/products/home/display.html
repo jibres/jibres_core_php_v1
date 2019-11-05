@@ -4,7 +4,7 @@
 {%block pageContent%}
 
 {%if dataTable%}
- {%if filterBox%}
+ {%if isFiltered%}
 
   {{block('htmlSearchBox')}}
   {{block('htmlTable')}}
@@ -17,7 +17,7 @@
 
  {%endif%}
 {%else%}
- {%if filterBox%}
+ {%if isFiltered%}
 
   {{block('htmlSearchBox')}}
   {{block('htmlFilterNoResult')}}
@@ -39,16 +39,9 @@
   {%if requestGET.duplicatetitle%}<input type="hidden" name="duplicatetitle" value="1">{%endif%}
   {%if requestGET.hbarcode%}<input type="hidden" name="hbarcode" value="1">{%endif%}
   {%if requestGET.hnotbarcode%}<input type="hidden" name="hnotbarcode" value="1">{%endif%}
-  {%if requestGET.justcode%}<input type="hidden" name="justcode" value="1">{%endif%}
-  {%if requestGET.wcodbarcode%}<input type="hidden" name="wcodbarcode" value="1">{%endif%}
   {%if requestGET.wbuyprice%}<input type="hidden" name="wbuyprice" value="1">{%endif%}
   {%if requestGET.wprice%}<input type="hidden" name="wprice" value="1">{%endif%}
-  {%if requestGET.wminstock%}<input type="hidden" name="wminstock" value="1">{%endif%}
-  {%if requestGET.wmaxstock%}<input type="hidden" name="wmaxstock" value="1">{%endif%}
   {%if requestGET.wdiscount%}<input type="hidden" name="wdiscount" value="1">{%endif%}
-  {%if requestGET.negativeprofit%}<input type="hidden" name="negativeprofit" value="1">{%endif%}
-
-
 
   <div class="searchBox">
     <div class="f">
@@ -72,14 +65,9 @@
   {%if requestGET.duplicatetitle%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Duplicate title"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
   {%if requestGET.hbarcode%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Have barcode"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
   {%if requestGET.hnotbarcode%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Have not barcode"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.justcode%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Just code"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.wcodbarcode%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "No barcode & code"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
   {%if requestGET.wbuyprice%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Whithout buyprice"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
   {%if requestGET.wprice%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Whithout price"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.wminstock%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Whithout min stock"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.wmaxstock%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Whithout max stock"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
   {%if requestGET.wdiscount%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Whithout discount"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.negativeprofit%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Negative profit"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
 
   <a class="btn primary outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>
 </div>

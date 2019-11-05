@@ -143,6 +143,56 @@ class search
 				self::$is_filtered = true;
 			}
 		}
+
+		// set filter
+
+		// if(isset($_args['filter']['duplicatetitle']) && $_args['filter']['duplicatetitle'])
+		// {
+		// 	$and['products.duplicatetitle'] = null;
+		// 	$filter_args['duplicatetitle'] = T_("duplicatetitle");
+		// 	self::$is_filtered = true;
+		// }
+
+		if(isset($_args['filter']['hbarcode']) && $_args['filter']['hbarcode'])
+		{
+			$or['products.barcode']  = [" IS ", " NOT NULL "];
+			$or['products.barcode2'] = [" IS ", " NOT NULL "];
+			$filter_args['barcode'] = T_("Have barcode");
+			self::$is_filtered = true;
+		}
+
+		if(isset($_args['filter']['hnotbarcode']) && $_args['filter']['hnotbarcode'])
+		{
+			$and['products.barcode']  = [" IS ", " NULL "];
+			$and['products.barcode2'] = [" IS ", " NULL "];
+			$filter_args['barcode']   = T_("Have not barcode");
+			self::$is_filtered = true;
+		}
+
+		// if(isset($_args['filter']['wbuyprice']) && $_args['filter']['wbuyprice'])
+		// {
+		// 	$and['productprice.buyprice'] = [' IS ', ' NULL '];
+		// 	$filter_args['buyprice'] = T_("without buy price");
+		// 	self::$is_filtered = true;
+		// }
+
+		// if(isset($_args['filter']['wprice']) && $_args['filter']['wprice'])
+		// {
+		// 	$and['productprice.price'] = [' IS ', ' NULL '];
+		// 	$filter_args['price'] = T_("without price");
+
+		// 	self::$is_filtered = true;
+		// }
+
+
+		// if(isset($_args['filter']['wdiscount']) && $_args['filter']['wdiscount'])
+		// {
+		// 	$and['productprice.discount'] = [' IS ', ' NULL '];
+		// 	$filter_args['discount'] = T_("without discount");
+
+		// 	self::$is_filtered = true;
+		// }
+
 		if(mb_strlen($_query_string) > 50)
 		{
 			\dash\notif::error(T_("Please search by keyword less than 50 characters"), 'q');
@@ -194,6 +244,10 @@ class search
 			if(isset($list[0][$key]))
 			{
 				$filter_args_data[$value] = $list[0][$key];
+			}
+			else
+			{
+				$filter_args_data[$key] = $value;
 			}
 		}
 

@@ -53,14 +53,9 @@ class view
 		if(\dash\request::get('duplicatetitle')) $args['filter']['duplicatetitle']   = true;
 		if(\dash\request::get('hbarcode')) 		 $args['filter']['hbarcode'] 		 = true;
 		if(\dash\request::get('hnotbarcode')) 	 $args['filter']['hnotbarcode'] 	 = true;
-		if(\dash\request::get('justcode')) 		 $args['filter']['justcode'] 		 = true;
-		if(\dash\request::get('wcodbarcode')) 	 $args['filter']['wcodbarcode'] 	 = true;
 		if(\dash\request::get('wbuyprice')) 	 $args['filter']['wbuyprice'] 	 	 = true;
 		if(\dash\request::get('wprice')) 		 $args['filter']['wprice'] 		 	 = true;
-		if(\dash\request::get('wminstock')) 	 $args['filter']['wminstock'] 	 	 = true;
-		if(\dash\request::get('wmaxstock')) 	 $args['filter']['wmaxstock'] 	 	 = true;
 		if(\dash\request::get('wdiscount')) 	 $args['filter']['wdiscount'] 	 	 = true;
-		if(\dash\request::get('negativeprofit')) $args['filter']['negativeprofit']   = true;
 
 		$search_string = \dash\request::get('q');
 
@@ -73,7 +68,11 @@ class view
 
 		\dash\data::filterBox(\lib\app\product\search::filter_message());
 
-		if(\lib\app\product\search::is_filtered())
+		$isFiltered = \lib\app\product\search::is_filtered();
+
+		\dash\data::isFiltered($isFiltered);
+
+		if($isFiltered)
 		{
 			\dash\data::page_title(\dash\data::page_title() . '  '. T_('Filtered'));
 		}
