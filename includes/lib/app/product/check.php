@@ -549,15 +549,15 @@ class check
 							$msg = T_("This barcode used as barcode2 :title", ['title' => $product_title]);
 						}
 
-						$product_code = null;
-						if(isset($check_exist[0]['code']))
+						$product_id = null;
+						if(isset($check_exist[0]['id']))
 						{
-							$product_code = $check_exist[0]['code'];
+							$product_id = $check_exist[0]['id'];
 						}
 
-						if($product_code)
+						if($product_id)
 						{
-							$link = \dash\url::this(). '/edit?code='. $product_code;
+							$link = \dash\url::this(). '/edit?id='. $product_id;
 							$msg = "<a href='$link'>". $msg. '</a>';
 						}
 

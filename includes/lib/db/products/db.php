@@ -10,7 +10,6 @@ class db
 		"
 			SELECT
 				`id`,
-				`code`,
 				`title`,
 				`barcode`,
 				`barcode2`
