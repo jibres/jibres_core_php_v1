@@ -60,7 +60,7 @@ class search
 		{
 			$barcode = \dash\utility\convert::to_en_number($_args['barcode']);
 			$and['products.barcode'] = $barcode;
-			$filter_args['barcode'] = T_('Barcode');
+			$filter_args['barcode'] = '*'. T_('Barcode');
 			self::$is_filtered = true;
 		}
 
@@ -70,7 +70,7 @@ class search
 			if(is_numeric($price))
 			{
 				$and['products.price'] = $price;
-				$filter_args['price'] = T_('Price');
+				$filter_args['price'] = '*'. T_('Price');
 			}
 		}
 
@@ -80,7 +80,7 @@ class search
 			if(is_numeric($buyprice))
 			{
 				$and['products.buyprice'] = $buyprice;
-				$filter_args['buyprice'] = T_('Buy price');
+				$filter_args['buyprice'] = '*'. T_('Buy price');
 				self::$is_filtered = true;
 			}
 		}
@@ -88,7 +88,7 @@ class search
 		if($_args['cat'])
 		{
 			$and['products.cat'] = $_args['cat'];
-			$filter_args['cat']  = T_('Category');
+			$filter_args['cat']  = '*'. T_('Category');
 		}
 
 		if($_args['discount'])
@@ -97,7 +97,7 @@ class search
 			if(is_numeric($discount))
 			{
 				$and['products.discount'] = $discount;
-				$filter_args['discount'] = T_('Discount');
+				$filter_args['discount'] = '*'. T_('Discount');
 				self::$is_filtered = true;
 			}
 		}
@@ -108,7 +108,7 @@ class search
 			if($catid)
 			{
 				$and['products.cat_id'] = $catid;
-				$filter_args['cat'] = T_('Category');
+				$filter_args['cat'] = '*'. T_('Category');
 				self::$is_filtered = true;
 			}
 		}
@@ -119,7 +119,7 @@ class search
 			if($unitid)
 			{
 				$and['products.unit_id'] = $unitid;
-				$filter_args['unit'] = T_('Unit');
+				$filter_args['unit'] = '*'. T_('Unit');
 				self::$is_filtered = true;
 			}
 		}
@@ -130,18 +130,7 @@ class search
 			if($companyid)
 			{
 				$and['products.company_id'] = $companyid;
-				$filter_args['company'] = T_('Company');
-				self::$is_filtered = true;
-			}
-		}
-
-		if($_args['guarantee_id'])
-		{
-			$guaranteeid = \dash\coding::decode($_args['guarantee_id']);
-			if($guaranteeid)
-			{
-				$and['products.guarantee_id'] = $guaranteeid;
-				$filter_args['guarantee'] = T_('Guarantee');
+				$filter_args['company'] = '*'. T_('Company');
 				self::$is_filtered = true;
 			}
 		}
@@ -252,9 +241,9 @@ class search
 
 		foreach ($filter_args as $key => $value)
 		{
-			if(isset($list[0][$key]))
+			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
 			{
-				$filter_args_data[$value] = $list[0][$key];
+				$filter_args_data[substr($value, 1)] = $list[0][$key];
 			}
 			else
 			{
