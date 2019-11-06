@@ -47,8 +47,8 @@ class search
 			$_where = [];
 		}
 
-		$_args = array_merge($default_args, $_args);
-
+		$_args       = array_merge($default_args, $_args);
+		$type        = $_type;
 		$and         = [];
 		$meta        = [];
 		$or          = [];
@@ -58,10 +58,10 @@ class search
 
 		if($_args['barcode'])
 		{
-			$barcode = \dash\utility\convert::to_en_number($_args['barcode']);
+			$barcode                 = \dash\utility\convert::to_en_number($_args['barcode']);
 			$and['products.barcode'] = $barcode;
-			$filter_args['barcode'] = '*'. T_('Barcode');
-			self::$is_filtered = true;
+			$filter_args['barcode']  = '*'. T_('Barcode');
+			self::$is_filtered       = true;
 		}
 
 		if($_args['price'])
@@ -70,7 +70,7 @@ class search
 			if(is_numeric($price))
 			{
 				$and['products.price'] = $price;
-				$filter_args['price'] = '*'. T_('Price');
+				$filter_args['price']  = '*'. T_('Price');
 			}
 		}
 
@@ -80,8 +80,8 @@ class search
 			if(is_numeric($buyprice))
 			{
 				$and['products.buyprice'] = $buyprice;
-				$filter_args['buyprice'] = '*'. T_('Buy price');
-				self::$is_filtered = true;
+				$filter_args['buyprice']  = '*'. T_('Buy price');
+				self::$is_filtered        = true;
 			}
 		}
 
@@ -97,8 +97,8 @@ class search
 			if(is_numeric($discount))
 			{
 				$and['products.discount'] = $discount;
-				$filter_args['discount'] = '*'. T_('Discount');
-				self::$is_filtered = true;
+				$filter_args['discount']  = '*'. T_('Discount');
+				self::$is_filtered        = true;
 			}
 		}
 
@@ -108,8 +108,8 @@ class search
 			if($catid)
 			{
 				$and['products.cat_id'] = $catid;
-				$filter_args['cat'] = '*'. T_('Category');
-				self::$is_filtered = true;
+				$filter_args['cat']     = '*'. T_('Category');
+				self::$is_filtered      = true;
 			}
 		}
 
@@ -130,8 +130,8 @@ class search
 			if($companyid)
 			{
 				$and['products.company_id'] = $companyid;
-				$filter_args['company'] = '*'. T_('Company');
-				self::$is_filtered = true;
+				$filter_args['company']     = '*'. T_('Company');
+				self::$is_filtered          = true;
 			}
 		}
 
@@ -145,20 +145,20 @@ class search
 				return [];
 			}
 
-			$duplicate_id       = implode(',', $duplicate_id);
-			$and['products.id'] = ["IN", "($duplicate_id)"];
-			$order_sort     = 'ORDER BY products.title ASC';
+			$duplicate_id                   = implode(',', $duplicate_id);
+			$and['products.id']             = ["IN", "($duplicate_id)"];
+			$order_sort                     = 'ORDER BY products.title ASC';
 
 			$filter_args['Duplicate title'] = null;
-			self::$is_filtered = true;
+			self::$is_filtered              = true;
 		}
 
 		if(isset($_args['filter']['hbarcode']) && $_args['filter']['hbarcode'])
 		{
 			$or['products.barcode']  = [" IS ", " NOT NULL "];
 			$or['products.barcode2'] = [" IS ", " NOT NULL "];
-			$filter_args['barcode'] = T_("Have barcode");
-			self::$is_filtered = true;
+			$filter_args['barcode']  = T_("Have barcode");
+			self::$is_filtered       = true;
 		}
 
 		if(isset($_args['filter']['hnotbarcode']) && $_args['filter']['hnotbarcode'])
@@ -166,32 +166,39 @@ class search
 			$and['products.barcode']  = [" IS ", " NULL "];
 			$and['products.barcode2'] = [" IS ", " NULL "];
 			$filter_args['barcode']   = T_("Have not barcode");
+			self::$is_filtered        = true;
+		}
+
+		if(isset($_args['filter']['wbuyprice']) && $_args['filter']['wbuyprice'])
+		{
+			$and['productprices.buyprice'] = [' IS ', ' NULL '];
+			$filter_args['buyprice']      = T_("without buy price");
+
+			$type                         = 'join_price';
+
+			self::$is_filtered            = true;
+		}
+
+		if(isset($_args['filter']['wprice']) && $_args['filter']['wprice'])
+		{
+			$and['productprices.price'] = [' IS ', ' NULL '];
+			$filter_args['price'] = T_("without price");
+
+			$type                         = 'join_price';
+
 			self::$is_filtered = true;
 		}
 
-		// if(isset($_args['filter']['wbuyprice']) && $_args['filter']['wbuyprice'])
-		// {
-		// 	$and['productprice.buyprice'] = [' IS ', ' NULL '];
-		// 	$filter_args['buyprice'] = T_("without buy price");
-		// 	self::$is_filtered = true;
-		// }
 
-		// if(isset($_args['filter']['wprice']) && $_args['filter']['wprice'])
-		// {
-		// 	$and['productprice.price'] = [' IS ', ' NULL '];
-		// 	$filter_args['price'] = T_("without price");
+		if(isset($_args['filter']['wdiscount']) && $_args['filter']['wdiscount'])
+		{
+			$and['productprices.discount'] = [' IS ', ' NULL '];
+			$filter_args['discount']       = T_("without discount");
 
-		// 	self::$is_filtered = true;
-		// }
+			$type                          = 'join_price';
 
-
-		// if(isset($_args['filter']['wdiscount']) && $_args['filter']['wdiscount'])
-		// {
-		// 	$and['productprice.discount'] = [' IS ', ' NULL '];
-		// 	$filter_args['discount'] = T_("without discount");
-
-		// 	self::$is_filtered = true;
-		// }
+			self::$is_filtered             = true;
+		}
 
 		if(mb_strlen($_query_string) > 50)
 		{
@@ -217,10 +224,14 @@ class search
 
 		$and = array_merge($and, $_where);
 
-		switch ($_type)
+		switch ($type)
 		{
 			case 'price':
 				$list = \lib\db\products\datalist::all_list($and, $or, $order_sort, $meta);
+				break;
+
+			case 'join_price':
+				$list = \lib\db\products\datalist::list_join_price($and, $or, $order_sort, $meta);
 				break;
 
 			default:
