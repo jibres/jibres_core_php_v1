@@ -36,9 +36,6 @@ class view
 		// set shortkey for all badges is this content
 		\dash\data::badge_shortkey(120);
 
-		// set usable variable
-		\dash\data::moduleType(\dash\request::get('type'));
-		\dash\data::moduleTypeP('?type='. \dash\data::moduleType());
 
 		// $cache_key = 'staff_list_'.\dash\url::subdomain();
 		// $cache = \dash\session::get($cache_key, 'jibres_store');

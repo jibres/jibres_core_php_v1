@@ -15,6 +15,17 @@ class view
 
 		\dash\data::page_title($title);
 
+		// nav
+		\dash\data::page_next('disabled');
+		\dash\data::page_prev(\dash\url::this(). '/prev');
+		// back
+		\dash\data::page_backText(T_('Dashboard'));
+		\dash\data::page_backLink(\dash\url::here());
+		\dash\data::page_duplicate(\dash\url::here());
+		\dash\data::page_view(\dash\url::here());
+		\dash\data::page_help(\dash\url::kingdom().'/support/test');
+
+
 		// back to list of product
 		\dash\data::badge_text(T_('Back'));
 		\dash\data::badge_link(\dash\url::this());
