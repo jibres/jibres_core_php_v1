@@ -21,7 +21,7 @@ class load
 
 			if(isset($_data[0]['id']) && $barcode_is_scaned)
 			{
-				\dash\redirect::to(\dash\url::this().'/general?id='. $_data[0]['id']);
+				\dash\redirect::to(\dash\url::this().'/edit?id='. $_data[0]['id']);
 			}
 		}
 	}
