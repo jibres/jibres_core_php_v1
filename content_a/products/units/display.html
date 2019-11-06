@@ -1,0 +1,279 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+{%if editMode%}
+<div class="f justify-center">
+  <div class="c5 s12">
+    {{block('addNewUnit')}}
+  </div>
+</div>
+{%elseif removeMode%}
+    {{block('removeUnit')}}
+{%else%}
+
+    {{block('htmlTable')}}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block addNewUnit%}
+<div class="cbox">
+
+{%if editMode%}
+		<h3>{%trans "Edit unit"%} <span class="fc-green txtB">{{dataRow.title}}</span></h3>
+	{%else%}
+		<h3>{%trans "Add new unit"%}</h3>
+	{%endif%}
+
+  <form method="post" autocomplete="off">
+    {{block('unitName')}}
+    {{block('iNumberType')}}
+
+
+    {%if editMode%}
+
+      {%if dataRow.count%}
+        <p class="msg mT10 {%if dataRow.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this unit all product will be update to new value."%} <a class="badge" href='{{url.this}}?unitid={{dataRow.id}}' title='{%trans "Click to check list of this product"%}'>{{dataRow.count | fitNumber}} {%trans "Product"%}</a></p>
+      {%else%}
+        <p class="msg mT10 info2">{%trans "No product in this unit"%}
+          <span class="txtB">{%trans "You can delete it now!"%}</span>
+          <a href="{{url.that}}/remove?id={{requestGET.id}}" class="badge danger mLa5">{%trans "Remove"%}</a>
+        </p>
+      {%endif%}
+
+       <div class="f mT20">
+          <div class="c pRa10">
+            <button class="btn outline warn block">{%trans "Edit"%}</button>
+          </div>
+          <div class="cauto">
+            <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+          </div>
+       </div>
+    {%else%}
+       <button class="btn primary block mT20">{%trans "Add"%}</button>
+    {%endif%}
+  </form>
+</div>
+{%endblock%}
+
+
+
+
+{% block unitDefault %}
+  <div class="switch1 mT10">
+   <input type="checkbox" name="unitdefault" id="unitdefault" {%if dataRow.title.default%} checked {%endif%}>
+   <label for="unitdefault"></label>
+   <label for="unitdefault">{%trans "Is default unit?"%}</label>
+  </div>
+{%endblock%}
+
+
+
+{%block iNumberType%}
+  <div class="msg">
+
+  <small>{%trans "Sometimes employees sell some product with decimal unit and if you are force this unit to give integer value, we are not allow them to enter invalid value"%}</small>
+  <div class="switch1 mT10">
+   <input type="checkbox" name="int" id="int" {%if dataRow.int%} checked {%endif%}>
+   <label for="int"></label>
+   <label for="int">{%trans "Only accept integer value?"%}</label>
+  </div>
+  </div>
+{%endblock%}
+
+
+{%block iMaxSale%}
+<div class="mT10">
+  <label for="imaxsale">{%trans "Max sale from this unit"%}</label>
+  <div class="input">
+     <input type="number" name="maxsale" id="imaxsale" placeholder='{%trans "For example 100"%}' value="{{dataRow.title}}" autofocus maxlength='50' minlength="1"  >
+  </div>
+</div>
+{%endblock%}
+
+
+
+{%block unitName%}
+<label for="iunitname">{%trans "Title"%}</label>
+<div class="input">
+	<input type="hidden" name="oldunit" value="{{dataRow.title}}">
+  <input type="text" name="unit" id="iunitname" placeholder='{%trans "Unit name"%}' value="{{dataRow.title}}" autofocus maxlength='50' minlength="1" required>
+</div>
+{%endblock%}
+
+
+
+{%block htmlTable%}
+{%if dataTable%}
+<div class="f justify-center">
+  <div class="c8 s12">
+
+    <table class="tbl1 v1 cbox fs12">
+      <thead>
+        <tr class="fs09">
+          <th>{%trans "Unit"%}</th>
+          <th class="txtC">{%trans "Force integer value"%}</th>
+          <th class="txtC">{%trans "Count product"%}</th>
+          <th class="txtC">{%trans "Action"%}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {%for key, value in dataTable%}
+        <tr {%if (requestGET.id) == value.id %} class="positive"{%endif%} {%if value.default%} title='{%trans "Is default"%}' {%endif%}>
+          <td>
+            {%if value.default%}<i class="sf-check fc-green"></i>{%endif%}
+            {%if not value.title and value.title != '0' %}<small class="fc-red">{%trans "Without Unit"%}</small>{%else%}{{value.title}}{%endif%}
+          </td>
+          <td class="txtC">{%if value.int%}<i class="sf-check fc-green"></i>{%else%}-{%endif%}</td>
+          <td class="txtC">
+            <a href="{{url.here}}/product?unitid={{value.id}}" title='{%trans "Click to check products in this unit"%}'>{{value.count | fitNumber}}</a>
+          </td>
+          <td class="collapsing">
+            <a class="block" href="{{url.this}}/units?id={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>
+            <a class="block" href="{{url.this}}/units/remove?id={{value.id}}"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm">{%trans "Remove"%}</span></a>
+
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</div>
+{%else%}
+<div class="msg info2 fs12 txtB">
+
+    {%trans "Hi!"%}
+    <br>
+    {%trans "You have not product unit yet!"%}
+    <br>
+    {%trans "To add a product unit you must set unit when registering or editing a product"%}
+    <a href="{{url.this}}" class="btn secondary xs">{%trans "Product list"%}</a>
+
+</div>
+{%endif%}
+
+{%endblock%}
+
+
+
+
+
+
+
+
+
+{%block removeUnit%}
+<div class="f justify-center">
+  <div class="x6 c5 m8 s12 pRa10">
+    <dvi class="cbox">
+
+        {%if dataRow.count%}
+
+          <div class="msg {%if dataRow.count < 10%} warn2 {%else%} danger2 {%endif%}">
+            <div class="msg  txtC txtB">{{dataRow.title}}</div>
+            <p>
+              <b>{{dataRow.count | fitNumber}}</b>  {%trans "Product found in this unit"%}
+              <br>
+              {%trans "To remove this unit you must set all products by this unit as a non product unit or set another unit for this products"%}
+            </p>
+          </div>
+
+          <div class="msg info2 txtC txtB">
+            <a href="{{url.here}}/product?unitid={{dataRow.id}}">{%trans "Show product list"%} {{dataRow.title}}</a>
+          </div>
+
+          <form method="post">
+            <input type="hidden" name="type" value="remove">
+            {%if  allUnit | length == 1%}
+                <input type="hidden" name="whattodo" value="non-unit">
+
+                <div class="f mT20">
+                  <div class="c pRa10">
+                    <button class="btn danger outline block hauto" type="submit">{%trans "Set all products by this unit as a non product unit and remove this unit"%}</button>
+                  </div>
+                  <div class="cauto">
+                    <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+                  </div>
+               </div>
+            {%else%}
+              {{block('iWhatToDo')}}
+              {{block('iAllUnit')}}
+              <div data-response='whattodo' data-response-where='new-unit|non-unit' data-response-hide>
+
+                <div class="f mT20">
+                  <div class="c pRa10">
+                    <button class="btn danger outline block" type="submit">{%trans "Save and remove unit"%}</button>
+                  </div>
+                  <div class="cauto">
+                    <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+                  </div>
+               </div>
+              </div>
+            {%endif%}
+          </form>
+
+        {%else%}
+
+          <div class="msg info">
+            <p>
+              {%trans "Non product found by this unit"%}
+              <br>
+              {%trans "You can delete this unit now"%}
+            </p>
+          </div>
+          <form method="post">
+            <input type="hidden" name="type" value="remove">
+            <button  class="btn danger outline block mT20" type="submit">{%trans "Remove unit"%}</button>
+          </form>
+        {%endif%}
+
+    </dvi>
+  </div>
+</div>
+{%endblock%}
+
+
+{%block iWhatToDo%}
+<div class="f mB10">
+  <h4>{%trans "What do you want to do?"%}</h4>
+        <div class="c">
+          <div class="radio3 mB5">
+            <input type="radio" name="whattodo" value="non-unit" id="whattodo-non" {%if  allUnit | length == 1%} checked {%endif%} >
+            <label for="whattodo-non">{%trans "Set all products as a non product unit"%}</label>
+          </div>
+        </div>
+
+        <div class="c">
+          <div class="radio3 mB5">
+            <input type="radio" name="whattodo" value="new-unit" id="whattodo-new" {%if  allUnit | length == 1%} disabled {%endif%}>
+            <label for="whattodo-new">{%trans "Select new unit"%}{%if  allUnit | length == 1%} <small>{%trans "You have not other unit!"%}</small> {%endif%}</label>
+          </div>
+        </div>
+
+      </div>
+{%endblock%}
+
+
+
+{%block iAllUnit%}
+<div data-response='whattodo' data-response-where='new-unit' data-response-hide>
+
+<label for='unit'>{%trans "New unit"%}</label>
+<select name="unit" class="select ui dropdown search" id="unit">
+  <option value="">{%trans "Select new unit to update all product unit"%}</option>
+  {%for key, value in allUnit%}
+    {%if value.title%}
+    {%if value.id != requestGET.id%}
+      <option value="{{value.id}}">{{value.title}}</option>
+    {%endif%}
+    {%endif%}
+  {%endfor%}
+</select>
+</div>
+
+{%endblock%}
