@@ -3,17 +3,17 @@
 <div class="f align-center">
 
   <div class="c">
-    <a class='btn {%if requestGET.duplicatetitle%}primary2{%else%}light{%endif%}  mB5 ' href="{{url.this}}?filter=1&duplicatetitle=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Duplicate title"%}</a>
-    <a class='btn {%if requestGET.hbarcode%}primary2{%else%}light{%endif%} mB5 ' href="{{url.this}}?filter=1&hbarcode=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Have barcode"%}</a>
-    <a class='btn {%if requestGET.hnotbarcode%}primary2{%else%}light{%endif%} mB5' href="{{url.this}}?filter=1&hnotbarcode=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Have not barcode"%}</a>
-    <a class='btn {%if requestGET.wbuyprice%}primary2{%else%}light{%endif%} mB5' href="{{url.this}}?filter=1&wbuyprice=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Whithout buyprice"%}</a>
-    <a class='btn {%if requestGET.wprice%}primary2{%else%}light{%endif%} mB5' href="{{url.this}}?filter=1&wprice=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Whithout price"%}</a>
-    <a class='btn {%if requestGET.wdiscount%}primary2{%else%}light{%endif%} mB5' href="{{url.this}}?filter=1&wdiscount=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Whithout discount"%}</a>
+    <a class='btn {%if requestGET.duplicatetitle%}primary2{%else%}light{%endif%}  mB5 ' href="{{url.that}}?filter=1&duplicatetitle=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Duplicate title"%}</a>
+    <a class='btn {%if requestGET.hbarcode%}primary2{%else%}light{%endif%} mB5 ' href="{{url.that}}?filter=1&hbarcode=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Have barcode"%}</a>
+    <a class='btn {%if requestGET.hnotbarcode%}primary2{%else%}light{%endif%} mB5' href="{{url.that}}?filter=1&hnotbarcode=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Have not barcode"%}</a>
+    <a class='btn {%if requestGET.wbuyprice%}primary2{%else%}light{%endif%} mB5' href="{{url.that}}?filter=1&wbuyprice=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Whithout buyprice"%}</a>
+    <a class='btn {%if requestGET.wprice%}primary2{%else%}light{%endif%} mB5' href="{{url.that}}?filter=1&wprice=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Whithout price"%}</a>
+    <a class='btn {%if requestGET.wdiscount%}primary2{%else%}light{%endif%} mB5' href="{{url.that}}?filter=1&wdiscount=1{%if requestGET.q%}&q={{requestGET.q}}{%endif%}">{%trans "Whithout discount"%}</a>
   </div>
 </div>
 
 <div class="txtRa fs12">
-  <a class="btn outline" href="{{url.this}}">{%trans "Clear filters"%}</a>
+  <a class="btn outline" href="{{url.that}}">{%trans "Clear filters"%}</a>
   <button class="btn primary">{%trans "Apply"%}</button>
 </div>
 

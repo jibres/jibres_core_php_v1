@@ -33,7 +33,7 @@
 
 
 {%block htmlSearchBox%}
-<form method="get" action="{{url.this}}">
+<form method="get" action="{{url.that}}">
 
   {%if requestGET.filter%}<input type="hidden" name="filter" value="1">{%endif%}
   {%if requestGET.duplicatetitle%}<input type="hidden" name="duplicatetitle" value="1">{%endif%}
@@ -58,9 +58,9 @@
       </div>
       <div class="cauto">
         <select class="select">
-            <option  value="{{url.this}}?{{value.query_string}}">{%trans "You can sort your list"%}</option>
+            <option  value="{{url.that}}?{{value.query_string}}">{%trans "You can sort your list"%}</option>
             {%for key, value in sortList%}
-              <option  value="{{url.this}}?{{value.query_string}}">{{value.title}}</option>
+              <option  value="{{url.that}}?{{value.query_string}}">{{value.title}}</option>
             {%endfor%}
         </select>
     </div>
@@ -70,12 +70,12 @@
 {%if requestGET.filter%}
 <div class="applyFilters">
 
-  {%if requestGET.duplicatetitle%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Duplicate title"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.hbarcode%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Have barcode"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.hnotbarcode%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Have not barcode"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.wbuyprice%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Whithout buyprice"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.wprice%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Whithout price"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.wdiscount%}<a class="btn danger2 sm mRa5" href="{{url.this}}"><span>{%trans "Whithout discount"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
+  {%if requestGET.duplicatetitle%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Duplicate title"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
+  {%if requestGET.hbarcode%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Have barcode"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
+  {%if requestGET.hnotbarcode%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Have not barcode"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
+  {%if requestGET.wbuyprice%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Whithout buyprice"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
+  {%if requestGET.wprice%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Whithout price"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
+  {%if requestGET.wdiscount%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Whithout discount"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
 
   <a class="btn primary outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>
 </div>
@@ -113,7 +113,7 @@
           <div class="header">{%trans "You can sort your list"%}</div>
 
   {%for key, value in sortList%}
-            <a class="item" href="{{url.this}}?{{value.query_string}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.title}}</span></a>
+            <a class="item" href="{{url.that}}?{{value.query_string}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.title}}</span></a>
   {%endfor%}
         </div>
       </div>
@@ -154,7 +154,7 @@
       {%for key, value in dataTable%}
       <tr>
         <td class="collapsing"><img src="{{value.thumb}}" class="avatar" alt="{{value.title}}"></td>
-        <td><a href="{{url.this}}/edit?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
+        <td><a href="{{url.that}}/edit?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
         <td>
           {%if value.variants_detail.stock %}
             <span><b>{{value.variants_detail.stock | fitNumber}}</b> {%trans "in stock"%}</span>
@@ -163,7 +163,7 @@
             <span> {%trans "For"%} <b>{{value.variants_detail.count | fitNumber}}</b> {%trans "variants"%}</span>
           {%endif%}
         </td>
-        <td class=""><small><a href="{{url.this}}?catid={{value.cat_id}}">{{value.cat}}</a></small></td>
+        <td class=""><small><a href="{{url.that}}?catid={{value.cat_id}}">{{value.cat}}</a></small></td>
       </tr>
       {%endfor%}
     </tbody>
@@ -179,7 +179,7 @@
 {%block htmlFilter%}
 <p class="f fs14 msg warn2">
   <span class="c">{{filterBox | raw}}</span>
-  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
@@ -188,14 +188,14 @@
 <p class="f fs14 msg warn2">
   <span class="c s12">{%trans "Result not found!"%} {%trans "Search with new keywords."%} </span>
 {%if barcodeScaned%}
-  <a class="c" href="{{url.this}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
+  <a class="c" href="{{url.that}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
 {%endif%}
-  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
 
 {%block htmlStartAddNew%}
-<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.this}}/add">{%trans "Try to start with add new product!"%}</a></p>
+<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.that}}/add">{%trans "Try to start with add new product!"%}</a></p>
 {%endblock%}
 

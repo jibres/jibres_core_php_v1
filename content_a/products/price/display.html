@@ -1,63 +1,5 @@
-{%extends display.admin%}
+{%extends 'content_a/products/home/display.html'%}
 
-{%block filterProductLink%}
-{%include 'content_a/products/filter.html'%}
-{%endblock%}
-
-
-{%block pageContent%}
-
-{%if dataTable%}
- {%if filterBox%}
-
-  {{block('htmlSearchBox')}}
-  {{block('htmlTable')}}
-  {{block('htmlFilter')}}
-
- {%else%}
-
-  {{block('htmlSearchBox')}}
-  {{block('htmlTable')}}
-
- {%endif%}
-{%else%}
- {%if filterBox%}
-
-  {{block('htmlSearchBox')}}
-  {{block('htmlFilterNoResult')}}
-
- {%else%}
-
-  {{block('htmlStartAddNew')}}
-
- {%endif%}
-{%endif%}
-
-{%endblock%}
-
-
-{%block showAdvanceSearch%}
-<div class="showAdvanceSearch" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
-  {{block('filterProductLink')}}
-</div>
-{%endblock%}
-
-
-
-
-
-{%block htmlSearchBox%}
-<div class="cbox fs12 p0">
-  <form method="get" action='{{url.this}}'>
-    <div class="input">
-      <label class="addon" data-kerkere-icon data-kerkere='.showAdvanceSearch'>{%trans "Advance search"%}</label>
-      <input type="search" name="q" placeholder='{%trans "Search in products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" autofocus class="barCode" data-default data-pass='submit' autocomplete='off'>
-      <button class="addon btn ">{%trans "Search" %}</button>
-    </div>
-    {{block('showAdvanceSearch')}}
-  </form>
-</div>
-{%endblock%}
 
 
 {%block htmlTable%}
@@ -65,9 +7,12 @@
     <thead>
       <tr class="fs08">
         <th class="collapsing"></th>
-        <th data-sort="{{myFilter.title.order}}"><a href='{{myFilter.title.link}}'>{%trans "Title"%}</a></th>
-        <th data-sort="{{myFilter.cat.order}}" class=""><a href='{{myFilter.cat.link}}'>{%trans "Category"%}</a></th>
-        <th data-sort="{{myFilter.price.order}}" class=""><a href='{{myFilter.price.link}}'>{%trans "Price"%}</a></th>
+        <th>{%trans "Title"%}</th>
+        <th>{%trans "Buy price"%}</th>
+        <th>{%trans "Price"%}</th>
+        <th>{%trans "Discount"%}</th>
+        <th>{%trans "Discount percent"%}</th>
+        <th>{%trans "Final price"%}</th>
       </tr>
     </thead>
 
@@ -90,39 +35,17 @@
           {%endif%}
         </td>
 
-        <td class=""><small><a href="{{url.this}}?catid={{value.cat_id}}">{{value.cat}}</a></small></td>
+        <td>{{value.buyprice | fitNumber}}</td>
         <td>{{value.price | fitNumber}}</td>
+        <td>{{value.discount | fitNumber}}</td>
+        <td>{{value.discountpercent | fitNumber}}</td>
+        <td>{{value.finalprice | fitNumber}}</td>
+
       </tr>
       {%endfor%}
     </tbody>
   </table>
 
   {%include display.pagination%}
-{%endblock%}
-
-
-
-
-{%block htmlFilter%}
-<p class="f fs14 msg warn2">
-  <span class="c">{{filterBox | raw}}</span>
-  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
-</p>
-{%endblock%}
-
-
-{%block htmlFilterNoResult%}
-<p class="f fs14 msg warn2">
-  <span class="c s12">{%trans "Result not found!"%} {%trans "Search with new keywords."%} </span>
-{%if barcodeScaned%}
-  <a class="c" href="{{url.this}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
-{%endif%}
-  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
-</p>
-{%endblock%}
-
-
-{%block htmlStartAddNew%}
-<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.this}}/add">{%trans "Try to start with add new product!"%}</a></p>
 {%endblock%}
 

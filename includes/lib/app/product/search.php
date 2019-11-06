@@ -227,9 +227,6 @@ class search
 		switch ($type)
 		{
 			case 'price':
-				$list = \lib\db\products\datalist::all_list($and, $or, $order_sort, $meta);
-				break;
-
 			case 'join_price':
 				$list = \lib\db\products\datalist::list_join_price($and, $or, $order_sort, $meta);
 				break;

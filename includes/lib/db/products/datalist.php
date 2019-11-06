@@ -60,7 +60,8 @@ class datalist
 				products.*,
 				productprices.buyprice,
 				productprices.price,
-				productprices.discount
+				productprices.discount,
+				IF(products.parent IS NOT NULL, (SELECT parentTitle.title FROM products AS `parentTitle` WHERE parentTitle.id = products.parent LIMIT 1), products.title) AS `title`
 
 			FROM products
 			LEFT JOIN productprices ON productprices.product_id = products.id AND productprices.last = 'yes'
@@ -72,32 +73,6 @@ class datalist
 		return $result;
 
 	}
-
-
-
-	public static function all_list($_and, $_or, $_order_sort = null, $_meta = [])
-	{
-
-		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
-
-		$pagination_query = "SELECT COUNT(*) AS `count` FROM products $q[where] ";
-
-		$limit = \dash\db::pagination_query($pagination_query);
-
-		$query =
-		"
-			SELECT
-				products.*,
-				IF(products.parent IS NOT NULL, (SELECT parentTitle.title FROM products AS `parentTitle` WHERE parentTitle.id = products.parent LIMIT 1), products.title) AS `title`
-			FROM products
-				$q[where] $q[order] $limit
-		";
-
-		$result = \dash\db::get($query);
-
-		return $result;
-	}
-
 
 
 	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
