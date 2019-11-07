@@ -6,7 +6,7 @@
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
  <meta name ="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0 maximum-scale=1.5, minimal-ui"/>
  <link rel="shortcut icon" href="<?php echo(\dash\url::static()); ?>/images/favicon-error.png"/>
- <link rel="stylesheet"  href="<?php echo(\dash\url::siftal()); ?>/css/siftal.css">
+ <link rel="stylesheet"  href="<?php echo(\dash\url::static()); ?>/css/siftal.min.css">
 </head>
 <body class='<?php echo (\dash\language::current('direction')); ?> errorPage s<?php echo(substr($_code,0,2));?>'>
  <div id="nodes"></div>
