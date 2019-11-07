@@ -1,0 +1,529 @@
+{%extends display.admin%}
+
+
+
+
+{%block iType%}
+<div class="mT10">
+
+  <label for="type">{%trans "Type of customer"%}</label>
+
+  <div class="f">
+   <div class="check1">
+    <input type="checkbox" id="r-customer" name="customer" value="customer" {%if dataRow.customer %}checked{%endif%}>
+    <label for="r-customer">{%trans "Customer"%}</label>
+   </div>
+
+   <div class="check1">
+    <input type="checkbox" id="r-staff" name="staff" value="staff" {%if dataRow.staff %}checked{%endif%}>
+    <label for="r-staff">{%trans "Staff"%}</label>
+   </div>
+
+   <div class="check1">
+    <input type="checkbox" id="r-supplier" name="supplier" value="supplier" {%if dataRow.supplier %}checked{%endif%}>
+    <label for="r-supplier">{%trans "Supplier"%}</label>
+   </div>
+  </div>
+
+</div>
+{%endblock%}
+
+
+
+{%block psidebar%}
+<div class="cbox max-w300">
+
+ <div class="vcard txtC">
+  <a href='{{url.this}}/avatar?id={{requestGET.id}}'>
+    <img src="{{dataRow.avatar}}" alt="{{dataRow.displayname}}">
+  </a>
+  <div class="content">
+    <div class="header"><a href='{{url.this}}/general?id={{requestGET.id}}'><small>{{dataRow.genderString}}</small> {{dataRow.displayname}}</a></div>
+    <div class="meta mT5">
+      <a href='{{url.this}}/manage?id={{requestGET.id}}'>
+        {%if dataRow.staff%}<div class="badge success">{%trans "Staff"%}</div>{%endif%}
+        {%if dataRow.supplier%}<div class="badge primary">{%trans "Supplier"%}</div>{%endif%}
+        {%if dataRow.customer%}<div class="badge">{%trans "Customer"%}</div>{%endif%}
+      </a>
+    </div>
+  </div>
+  <div class="footer">
+    {%if dataRow.mobile%}
+    <div><i class="sf-mobile fs2"></i>{{dataRow.mobile|fitNumber('mobile')}}</div>
+    {%endif%}
+  </div>
+ </div>
+</div>
+
+{{block('iTag')}}
+
+{%endblock%}
+
+
+
+{%block iTag%}
+
+{%if perm('customerAssignTag')%}
+<div class="cbox">
+
+  <div class="tagDetector">
+    {%set myID = requestGET.id %}
+    {%set postTag = tags({"post_id" : myID , "title" : true, "format" : 'csv', "type" : "customer_tag", "related" : "userstores"}) %}
+    <form method="post"  action="{{url.this}}/tag?id={{requestGET.id}}">
+
+    <div class="input mB10 hide">
+      <input type="text" class="input tagVals" name="tag"  value="{{postTag}}" id="tagValues" placeholder='{%trans "Tag"%}'>
+    </div>
+
+      <input type="hidden" name="redirecturl" value="{{url.pwd}}">
+      <datalist id="taglist">
+        {%for key, value in tagList%}
+          <option value="{{value.title}}">
+        {%endfor%}
+      </datalist>
+
+      <div class="input" title='{%trans "Add tag manually to link customer togethers"%}'>
+        <input type="text" list="taglist" class="tagInput" placeholder='{%trans "Tag keywords..."%}'>
+        <button class="addon tagAdd">+</button>
+      </div>
+
+      <div class="tagBox"></div>
+
+      <button class="btn block mTB10 primary"  name="TicketFormType" value="tag">{%trans "Save tag"%}</button>
+
+    </form>
+
+  </div>
+</div>
+{%endif%}
+
+{%endblock%}
+
+
+{%block idisplayname%}
+<label for="iname">{%trans "Name"%}</label>
+<div class="input">
+  <input type="text" name="displayname" id="iname" placeholder='{%trans "Name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1">
+</div>
+{%endblock%}
+
+
+
+{%block iVisitorDisplayName%}
+<div data-response='mobile' data-response-hide data-response-effect="slide">
+  {{block('igender')}}
+ <label for="iname">{%trans "Salesman Name"%}</label>
+ <div class="input">
+  <input type="text" name="displayname" id="iname" placeholder='{%trans "Name"%}' value="{{dataRow.displayname}}" maxlength='40' minlength="1">
+ </div>
+</div>
+{%endblock%}
+
+
+
+{%block iname%}
+<label for="name">{%trans "Name"%}</label>
+<div class="input">
+  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{dataRow.firstname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+</div>
+{%endblock%}
+
+
+
+
+
+{%block inameFree%}
+<label for="name">{%trans "Name"%}</label>
+<div class="input">
+  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{dataRow.firstname}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid name from 3 to 40 character"%}'>
+</div>
+{%endblock%}
+
+
+{%block ifamily%}
+<label for="lastName">{%trans "Last name"%}</label>
+<div class="input">
+  <input type="text" name="lastName" id="lastName" placeholder='{%trans "Last name"%}' value="{{dataRow.lastname}}" maxlength='60'>
+</div>
+{%endblock%}
+
+
+
+
+{%block imobile%}
+<label for="mobile">{%trans "Mobile"%}</label>
+<div class="input">
+  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like"%} {{"09120123456" | fitNumber("mobile")}}' autofocus value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
+</div>
+{%endblock%}
+
+{%block imobileVisitor%}
+<label for="mobile">{%trans "Mobile"%}</label>
+<div class="input">
+  <input type="text" name="mobile" id="mobile" placeholder='{%trans "Like"%} {{"09120123456" | fitNumber("mobile")}}' value="{{dataRow.mobile}}" maxlength='30' data-response-realtime>
+</div>
+{%endblock%}
+
+
+{%block incode%}
+<label for="nationalcode">{%trans "National code"%}</label>
+<div class="input">
+  <input type="number" name="nationalcode" id="nationalcode" placeholder='{%trans "10 digit national code"%}' value="{{dataRow.nationalcode}}" min=0 max=9999999999>
+</div>
+{%endblock%}
+
+
+{%block ifather%}
+<label for="father">{%trans "Father name"%}</label>
+<div class="input">
+  <input type="text" name="father" id="father" placeholder='{%trans "Father name"%}' value="{{dataRow.father}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+{%block ibirthday%}
+<label for="birthday">{%trans "Birthday"%}</label>
+<div class="input ltr">
+  <input class="datepicker" type="text" name="birthday" id="birthday" placeholder='{{"1369/04/15" | fitNumber(false)}}' value="{{dataRow.birthday}}" maxlength='20' data-format="YYYY/MM/DD" data-view="year">
+</div>
+{%endblock%}
+
+
+{%block igender%}
+
+  <label for="gender">{%trans "Gender"%}</label>
+  <select name="gender" id="gender" class="ui dropdown select">
+    <option value="" disabled>{%trans "Gender"%}</option>
+    <option value="0">&nbsp;</option>
+    <option value="male" {%if dataRow.gender == 'male' %}selected {%endif%}>{%trans "Mr"%}</option>
+    <option value="female" {%if dataRow.gender == 'female' %}selected{%endif%}>{%trans "Mrs"%}</option>
+  </select>
+
+{%endblock%}
+
+
+
+
+{%block ibirthcity%}
+<label for="birthcity">{%trans "Birth city"%}</label>
+<div class="input">
+  <input type='text' class="autoList" name="birthcity" id="birthcity" placeholder='{%trans "Birth city"%}' value="{{dataRow.birthcity}}" maxlength='50' data-minchars="1" data-autofirst data-list="{{listCities}}"/>
+
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+
+{%block ipassport%}
+<label for='pasportcode'>{%trans "Passport id"%}</label>
+<div class="input ltr">
+ <input name='pasportcode' id='pasportcode' value="{{dataRow.pasportcode}}" />
+
+</div>
+{%endblock%}
+
+
+
+
+
+
+{%block iFax%}
+<label for="fax">{%trans "Fax"%}</label>
+<div class="input">
+  <input type="tel" name="fax" id="fax" placeholder='{%trans "Like"%} {{"02536505460" | fitNumber(false)}}' value="{{dataRow.fax}}" maxlength='15'>
+</div>
+{%endblock%}
+
+
+
+
+{%block iPhone%}
+<label for="phone">{%trans "Phone"%}</label>
+<div class="input">
+  <input type="tel" name="phone" id="phone" placeholder='{%trans "Like"%} {{"02536505281" | fitNumber(false)}}' value="{{dataRow.phone}}" maxlength='15'>
+</div>
+{%endblock%}
+
+
+{%block iEmail%}
+<label for="email">{%trans "Email"%}</label>
+<div class="input">
+  <input type="email" name="email" id="email" placeholder='{%trans "Like"%} abc@example.com' value="{{dataRow.email}}" maxlength='50'>
+</div>
+{%endblock%}
+
+
+{%block iEmailMarketing%}
+<div class="check1">
+  <input type="checkbox" id="r-emailmarketing" name="emailmarketing" value="emailmarketing" {%if dataRow.emailmarketing %}checked{%endif%}>
+  <label for="r-emailmarketing">{%trans "No problem with email marketing"%}</label>
+</div>
+{%endblock%}
+
+
+{%block iSmsMarketing%}
+<div class="check1">
+  <input type="checkbox" id="r-smsmarketing" name="smsmarketing" value="smsmarketing" {%if dataRow.smsmarketing %}checked{%endif%}>
+  <label for="r-smsmarketing">{%trans "No problem with sms marketing"%}</label>
+</div>
+{%endblock%}
+
+
+{%block iTaxExempt%}
+<div class="check1">
+  <input type="checkbox" id="r-taxexempt" name="taxexempt" value="taxexempt" {%if dataRow.taxexempt %}checked{%endif%}>
+  <label for="r-taxexempt">{%trans "Customer is tax exempt"%}</label>
+</div>
+{%endblock%}
+
+
+{%block iAvatar%}
+<div class="input preview">
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="avatar" id="avatar1" data-preview data-max="500">
+ <label for="avatar1" title='{%trans "Click to choose new image as avatar"%}'>
+    {%if dataRow.avatar%}<img src="{{dataRow.avatar}}" alt='{%trans "Avatar"%}'>{%endif%}
+ </label>
+</div>
+{%endblock%}
+
+
+
+
+{%block inationality%}
+<div class="mB10">
+  <label for='nationality'>{%trans "Nationality"%}</label>
+  <div class="ui fluid search selection dropdown">
+    <input type="hidden" name="nationality" value="{%if dataRow.nationality%}{{dataRow.nationality}}{%else%}IR{%endif%}">
+    <i class="dropdown icon"></i>
+    <div class="default text">{%trans "Choose your nationality"%}</div>
+    <div class="menu">
+{%for key, value in countryList%}
+      <div class="item" data-value="{{key}}">
+        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}<small class="description">{{value.name | capitalize}}</small>
+      </div>
+{%endfor%}
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+{%block iNationalthumb%}
+<div class="input">
+<label for="nationalthumb">{%trans "National card photo"%}</label>
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="nationalthumb" id="nationalthumb"  data-max="500">
+</div>
+{%if dataRow.file_array.nationalthumb%}<a href="{{dataRow.file_array.nationalthumb}}" target="_blank"><img class="size-we200 block mLRa" src="{{dataRow.file_array.nationalthumb}}"></a>{%endif%}
+{%endblock%}
+
+
+
+{%block iShthumb%}
+<div class="input">
+  <label for="shthumb">{%trans "ID card image"%}</label>
+  <input type="file" accept="image/gif, image/jpeg, image/png" name="shthumb" id="shthumb"  data-max="500">
+</div>
+{%if dataRow.file_array.shthumb%}<a href="{{dataRow.file_array.shthumb}}" target="_blank"><img class="size-we200 block mLRa" src="{{dataRow.file_array.shthumb}}"></a>{%endif%}
+{%endblock%}
+
+
+
+{%block iPassportThumb%}
+<div class="input">
+  <label for="passportthumb">{%trans "Passport card image"%}</label>
+  <input type="file" accept="image/gif, image/jpeg, image/png" name="passportthumb" id="passportthumb"  data-max="500">
+</div>
+{%if dataRow.file_array.passportthumb%}<a href="{{dataRow.file_array.passportthumb}}" target="_blank"><img class="size-we200 block mLRa" src="{{dataRow.file_array.passportthumb}}"></a>{%endif%}
+{%endblock%}
+
+
+
+{%block imarital%}
+
+  <label for="marital">{%trans "Marital"%}</label>
+  <select name="marital" class="ui dropdown select">
+    <option value="" readonly>{%trans "Please select one itme"%}</option>
+    <option value="single" {%if dataRow.marital == 'single' %}selected {%endif%}>{%trans "Single"%}</option>
+    <option value="married" {%if dataRow.marital == 'married' %}selected{%endif%}>{%trans "Married"%}</option>
+  </select>
+
+{%endblock%}
+
+
+{%block iadd%}
+<button class="btn primary block mT20">{%trans "Add"%}</button>
+{%endblock%}
+
+{%block isave%}
+<button class="btn primary block mT20">{%trans "Save"%}</button>
+{%endblock%}
+
+
+{%block icompanyname%}
+<label for="icompanyname">{%trans "Company name"%}</label>
+<div class="input">
+  <input type="text" name="companyname" id="icompanyname" placeholder='{%trans "Enter company name"%}' value="{{dataRow.companyname}}" autofocus maxlength='40' minlength="1" data-response-realtime>
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+{%block inamevisitor%}
+<label for="visitorname">{%trans "Visitor name"%}</label>
+<div class="input">
+  <input type="text" name="visitorname" id="visitorname" placeholder='{%trans "Visitor name"%}' value="{{dataRow.visitorname}}" maxlength='60'>
+</div>
+{%endblock%}
+
+
+
+{%block ishcode%}
+<label for="shcode">{%trans "Identify code"%}</label>
+<div class="input">
+  <input type="number" name="shcode" id="shcode" placeholder='{%trans "Identify code"%}' value="{{dataRow.shcode}}" min=0 max=9999999999>
+</div>
+{%endblock%}
+
+{%block icode%}
+<label for="code">{%trans "Customer code"%}</label>
+<div class="input">
+  <input type="number" name="code" id="code" placeholder='{%trans "Customer code"%}' value="{{dataRow.code}}" min=0 max=9999999999>
+</div>
+{%endblock%}
+
+
+{%block iDesc%}
+<label for="desc">{%trans "Desctiption"%}</label>
+<div class="input">
+  <textarea  name="desc" id="desc" placeholder='{%trans "Desctiption"%}' class="txt" rows="4">{{dataRow.desc}}</textarea>
+</div>
+{%endblock%}
+
+
+
+{%block pageSteps%}
+<div class="f">
+  <div class="c s6">
+    <a class="dcard {%if url.child == 'glance' %}active{%endif%}" href='{{url.this}}/glance?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-broadcast"></i></div>
+      <div class="label">{%trans "Glance"%} <kbd>T+1</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c s6">
+    <a class="dcard {%if url.child in ['profile', 'general', 'address', 'identify', 'avatar', 'company', 'manage'] %}active{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-user"></i></div>
+      <div class="label">{%trans "Profile"%} <kbd>T+2</kbd></div>
+     </div>
+    </a>
+  </div>
+
+  <div class="c">
+    <a class="dcard {%if url.child in ['billing', 'transaction', 'credit', 'factor', 'bought', 'sold' ] %}active{%endif%}" href='{{url.this}}/billing?id={{requestGET.id}}' data-shortkey="49shift">
+     <div class="statistic gray">
+      <div class="value"><i class="sf-card"></i></div>
+      <div class="label">{%trans "Billing"%} <kbd>T+3</kbd></div>
+     </div>
+    </a>
+  </div>
+{%if false%}
+  <div class="c">
+    <a class="dcard {%if url.child == 'log'%}active{%endif%}" href='{{url.this}}/log?id={{requestGET.id}}' data-shortkey="50shift">
+     <div class="statistic orange">
+      <div class="value"><i class="sf-load-a"></i></div>
+      <div class="label">{%trans "Logs"%} <kbd>T+7</kbd></div>
+     </div>
+    </a>
+  </div>
+{%endif%}
+
+</div>
+{%endblock%}
+
+
+
+
+{%block pageStepsProfile%}
+<div class="f msg pB0 secondary2">
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='profile'%} primary{%else%} light{%endif%}" href='{{url.this}}/profile?id={{requestGET.id}}'>{%trans "Notes"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='general'%} primary{%else%} light{%endif%}" href='{{url.this}}/general?id={{requestGET.id}}'>{%trans "General"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='address'%} primary{%else%} light{%endif%}" href='{{url.this}}/address?id={{requestGET.id}}'>{%trans "Address"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='identify'%} primary{%else%} light{%endif%}" href='{{url.this}}/identify?id={{requestGET.id}}'>{%trans "Identify"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='avatar'%} primary{%else%} light{%endif%}" href='{{url.this}}/avatar?id={{requestGET.id}}'>{%trans "avatar"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='company'%} primary{%else%} light{%endif%}" href='{{url.this}}/company?id={{requestGET.id}}'>{%trans "Company Detail"%}</a>
+  </div>
+  <div class="c pB10">
+    <a class="btn block {%if url.child=='manage'%} primary{%else%} light{%endif%}" href='{{url.this}}/manage?id={{requestGET.id}}'>{%trans "Manage"%}</a>
+  </div>
+
+</div>
+{%endblock%}
+
+
+
+
+
+
+{%block pageStepsBilling%}
+<div class="f msg pB0 secondary2">
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='transaction'%} primary{%else%} light{%endif%}" href='{{url.this}}/transaction?id={{requestGET.id}}'>{%trans "Transaction"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='plustransaction'%} primary{%else%} light{%endif%}" href='{{url.this}}/plustransaction?id={{requestGET.id}}'>{%trans "Charge account"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='minustransaction'%} primary{%else%} light{%endif%}" href='{{url.this}}/minustransaction?id={{requestGET.id}}'>{%trans "Uncharge account"%}</a>
+  </div>
+
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='credit'%} primary{%else%} light{%endif%}" href='{{url.this}}/credit?id={{requestGET.id}}'>{%trans "Credit"%}</a>
+  </div>
+  {%if false%}
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='factor'%} primary{%else%} light{%endif%}" href='{{url.this}}/factor?id={{requestGET.id}}'>{%trans "Factor"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='bought'%} primary{%else%} light{%endif%}" href='{{url.this}}/bought?id={{requestGET.id}}'>{%trans "Has bought"%}</a>
+  </div>
+  <div class="c pB10 pRa10">
+    <a class="btn block {%if url.child=='sold'%} primary{%else%} light{%endif%}" href='{{url.this}}/sold?id={{requestGET.id}}'>{%trans "Sold"%}</a>
+  </div>
+  {%endif%}
+
+</div>
+{%endblock%}
+
+
+
+

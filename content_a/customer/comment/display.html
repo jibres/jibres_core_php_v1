@@ -1,0 +1,50 @@
+{%extends "content_a/customer/layout.html"%}
+
+{%block pageContent%}
+{{block ("pageSteps")}}
+
+{{block("timeline")}}
+
+
+{%endblock%}
+
+
+{%block timeline%}
+{%if perm('customerNoteAdd') or dataTable%}
+<section class="sTimeline">
+
+  <div class="event" >
+    <div class="box">
+      <form method="post" autocomplete="off" action="{{url.this}}/comment?id={{requestGET.id}}">
+        <h2>{%trans "Add note"%}</h2>
+        <input type="hidden" name="redirecturl" value="{{url.pwd}}">
+        <textarea class="txt " name="note" rows="3" autofocus placeholder='{%trans "Write your note about user."%} {%trans "Something like calls, favorites, hobbits, special approach or something else."%}'></textarea>
+        <button class="btn secondary2 block mT5">{%trans "Add new note"%}</button>
+      </form>
+    </div>
+  </div>
+  {%for key, value in dataTable%}
+
+  <div class="event" data-done>
+        <div class="box">
+
+          <div class="detail f">
+              <div class="cauto"><i class="sf-certificate"></i>{{value.firstname}} <b>{{value.lastname}}</b></div>
+              {%if perm('customerNoteDelete')%}
+              <div class="cauto os">
+                <div class="btn danger2 xs" data-confirm data-data='{"id" : "{{value.id}}", "type" : "remove"}'>{%trans "Remove"%}</div>
+              </div>
+              {%endif%}
+              <div class="cauto os"><i class="sf-calendar-o pRa5"></i>{{value.datecreated | dt(true)}}</div>
+            </div>
+          <p>{{value.text | raw}}</p>
+        </div>
+      </div>
+  {%endfor%}
+
+</section>
+{%include display.pagination%}
+{%endif%}
+{%endblock%}
+
+

@@ -1,0 +1,126 @@
+{%extends "content_a/customer/layout.html"%}
+
+{%block pageContent%}
+{{block ("pageSteps")}}
+{{block ("pageStepsBilling")}}
+
+
+
+
+<div class="f">
+ <div class="c3 s12 pRa10">
+    {{block("psidebar")}}
+ </div>
+ <div class="c9 s12">
+
+ 	{{block('transactionPlusMinus')}}
+ </div>
+</div>
+
+
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%block transactionPlusMinus%}
+  <div class="cbox ">
+    <form method="post" class="mLa10 m6 s12" autocomplete="off">
+      <input type="hidden" name="member" value="{{requestGET.member}}">
+      {{block('iprice')}}
+      {{block('ititle')}}
+      {{block('iPricePayType')}}
+      {{block('iDesc')}}
+
+      {%if requestGET.action == 'minus'%}
+      <input type="hidden" name="plusminus" value="minus">
+      <button class="btn danger block mT20">{%trans "Decrease from budget"%}</button>
+      {%else%}
+      <input type="hidden" name="plusminus" value="plus">
+      <button class="btn success block mT20">{%trans "Increase amount of budget"%}</button>
+      {%endif%}
+    </form>
+  </div>
+{%endblock%}
+
+
+
+
+
+
+{% block ititle %}
+<label for="title">{%trans "Title"%} <small class="fc-red">* {%trans "Require"%}</small></label>
+<div class="input">
+  <input type="text" name="title" id="title" placeholder='{%trans "Title of transaction"%} *' value="{{dataRow.title}}" autofocus required maxlength='200' minlength="1" pattern=".{1,200}" title='{%trans "Enter a valid title"%}'>
+</div>
+{% endblock %}
+
+
+
+{% block iprice %}
+<label for="price">{%trans "Price"%} <small class="fc-red">* {%trans "Require"%}</small></label>
+<div class="input">
+  <input type="number" name="price" id="price" placeholder='{%trans "Price of transaction"%} | {%trans "Toman"%} * ' autofocus value="{{dataRow.price}}" required max='999999999' min="0" pattern=".{1,150}" title='{%trans "Enter a valid price"%}' data-response-realtime>
+</div>
+{%if lang.current == 'fa'%}
+<div class="msg info2 txtB" data-response='price' data-response-call='wordifyResponse'></div>
+{%endif%}
+
+
+
+{% endblock %}
+
+
+
+{%block iPricePayType%}
+<div class="mT10">
+  <label for="type">{%trans "Pay type"%} <small class="fc-red">* {%trans "Require"%}</small></label>
+  <select name="type" class="ui dropdown" id="type">
+    <option value="" readonly>{%trans "Please select one item"%}</option>
+    <option value="pos">{%trans "POS"%}</option>
+    <option value="bank">{%trans "Bank"%}</option>
+    <option value="card">{%trans "Card to card"%}</option>
+    <option value="cash">{%trans "Cash"%}</option>
+    <option value="gift">{%trans "Gift"%}</option>
+  </select>
+</div>
+
+<div data-response='type' data-response-where= 'bank|card|pos' data-response-hide>
+     <label for="bank mT10">{%trans "Bank"%}</label>
+      <div class="input">
+        <input type="text" name="bank" id="bank" placeholder='{%trans "Enter bank name"%}' value="{{dataRow.payment.bank}}" autofocus  maxlength='200' minlength="1" pattern=".{1,200}" title='{%trans "Enter a valid bank"%}'>
+      </div>
+    <label for="trackid mT10">{%trans "Track id"%}</label>
+      <div class="input">
+        <input type="number" name="trackid" id="trackid" placeholder='{%trans "Enter track id"%}' value="{{dataRow.payment.trackid}}"   maxlength='200' minlength="1" pattern=".{1,200}">
+      </div>
+</div>
+{%endblock%}
+
+
+
+{%block iDesc%}
+<label for="desc">{%trans "Description"%}</label>
+<textarea class="txt mB10" id='desc' name="desc" placeholder='{%trans "Description of transaction to show in website"%}' maxlength='500' rows="2"></textarea>
+{%endblock%}
+
+
+
+
+{%block isave%}
+<button class="btn primary block mT20">{%trans "Save"%}</button>
+{%endblock%}
+

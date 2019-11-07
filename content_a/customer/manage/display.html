@@ -1,0 +1,120 @@
+{%extends "content_a/customer/layout.html"%}
+
+{%block pageContent%}
+{{block ("pageSteps")}}
+{{block ("pageStepsProfile")}}
+
+
+<div class="f">
+ <div class="c3 s12 pRa10">
+    {{block("psidebar")}}
+ </div>
+ <div class="c9 s12">
+ 	<div class="cbox">
+ 	{{block('iformData')}}
+ 	</div>
+ </div>
+</div>
+
+
+{%endblock%}
+
+
+
+{%block iformData%}
+
+<form method="post" autocomplete="off">
+{{block('iType')}}
+
+{%if dataRow.staff%}
+{{block('iPermission')}}
+{%endif%}
+
+{{block('iStatus')}}
+
+
+{{block('iDeleteAccount')}}
+
+
+{{block("isave")}}
+
+</form>
+{%endblock%}
+
+
+
+
+{%block iPermission%}
+{%if permGroup%}
+<div data-response='staff' data-response-effect='slide' {%if dataRow.staff %}{%else%} data-response-hide {%endif%}>
+	<div class="mT10">
+	  <label for="permission">{%trans "Permission"%}</label>
+	  <select name="permission" class="ui dropdown" id="permission">
+	    <option value="" readonly>{%trans "No permission"%}</option>
+	    <option value="0" readonly>{%trans "No permission"%}</option>
+	    {%for key, value in permGroup%}
+	      <option value="{{key}}" {%if dataRow.permission == key%} selected {%endif%} >{%set myValue = value.title%}{%trans myValue%}</option>
+	    {%endfor%}
+	  </select>
+	</div>
+</div>
+{%endif%}
+{%endblock%}
+
+
+
+
+
+
+{%block iStatus%}
+<div>
+ <label >{%trans "Status"%}</label>
+
+ <div class="radio1 green">
+  <input type="radio" id="r-active" name="status" value="active" {%if dataRow.status == 'active' or not dataRow.status %} checked{%endif%}>
+  <label for="r-active">{%trans "Active"%}</label>
+ </div>
+
+ <div class="radio1 black">
+  <input type="radio" id="r-deactive" name="status" value="deactive" {%if dataRow.status == 'deactive'%} checked{%endif%} >
+  <label for="r-deactive">{%trans "Deactive"%}</label>
+ </div>
+
+ <div class="radio1 red">
+  <input type="radio" id="r-suspended" name="status" value="suspended" {%if dataRow.status == 'suspended' %} checked{%endif%}>
+  <label for="r-suspended">{%trans "Suspended"%}</label>
+ </div>
+
+ <div class="radio1 red">
+  <input type="radio" id="r-filter" name="status" value="filter" {%if dataRow.status == 'filter' %} checked{%endif%}>
+  <label for="r-filter">{%trans "Filter"%}</label>
+ </div>
+
+ <div class="radio1 yellow">
+  <input type="radio" id="r-delete" name="status" value="delete" {%if dataRow.status == 'delete' %} checked{%endif%}>
+  <label for="r-delete">{%trans "Delete"%}</label>
+ </div>
+
+ <div class="radio1 red">
+  <input type="radio" id="r-leave" name="status" value="leave" {%if dataRow.status == 'leave' %} checked{%endif%}>
+  <label for="r-leave">{%trans "Leave"%}</label>
+ </div>
+
+
+</div>
+{%endblock%}
+
+
+{%block iDeleteAccount%}
+{%if false%}
+	{%if dataRow.status == 'delete' or 1%}
+	<div class="f">
+		<div class="cauto os">
+			<a class="btn danger" href="{{url.this}}/delete">{%trans "Delete account"%}</a>
+		</div>
+	</div>
+	{%endif%}
+
+{%endif%}
+{%endblock%}
+

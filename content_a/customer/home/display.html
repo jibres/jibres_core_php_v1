@@ -1,0 +1,262 @@
+{%extends display.admin%}
+
+
+
+
+{%block pageContent%}
+
+{{block ("stTypeSelector")}}
+
+
+{%if dataTable%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12">
+  <form method="get" action='{{url.here}}/customer' >
+    {%if requestGET.type%}
+      <input type="hidden" name="type" value="{{requestGET.type}}">
+    {%endif%}
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus  data-pass='submit' autocomplete='off' >
+      <button class="addon btn">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+{%block htmlTable%}
+
+
+{%if false%} This field is exist but not have in html `lastpaycustomer` {%endif%}
+
+
+  <table class="tbl1 v1 cbox fs12">
+    <thead>
+      <tr class="fs08">
+        <th data-sort="{{sortLink.id.order}}" colspan="2"><a href='{{sortLink.id.link}}'>{%trans "Member"%}</a></th>
+
+        {%if requestGET.type == "customer"%}
+        <th class="txtC" data-sort="{{sortLink.countordercustomer.order}}"><a href='{{sortLink.countordercustomer.link}}'>{%trans "Customer total order"%}</a></th>
+        {%endif%}
+
+        {%if not requestGET.type or requestGET.type == "customer"%}
+        <th class="txtC" data-sort="{{sortLink.sumpaycustomer.order}}"><a href='{{sortLink.sumpaycustomer.link}}'>{%trans "Customer total spend"%}</a></th>
+        {%endif%}
+
+        {%if requestGET.type == "customer"%}
+        <th class="txtC" data-sort="{{sortLink.customercredit.order}}"><a href='{{sortLink.customercredit.link}}'>{%trans "Customer credit"%}</a></th>
+        {%endif%}
+
+        {%if requestGET.type == "supplier"%}
+        <th class="txtC" data-sort="{{sortLink.countordersupplier.order}}"><a href='{{sortLink.countordersupplier.link}}'>{%trans "Supplier total purchased order"%}</a></th>
+        {%endif%}
+
+        {%if not requestGET.type or requestGET.type == "supplier"%}
+        <th class="txtC" data-sort="{{sortLink.sumpaysupplier.order}}"><a href='{{sortLink.sumpaysupplier.link}}'>{%trans "Supplier total purchased"%}</a></th>
+        {%endif%}
+
+        {%if not requestGET.type or requestGET.type == "staff"%}
+        <th class="txtC" data-sort="{{sortLink.sumsalestaff.order}}"><a href='{{sortLink.sumsalestaff.link}}'>{%trans "Staff total sales"%}</a></th>
+        {%endif%}
+
+        {%if requestGET.type == "staff"%}
+        <th class="txtC" data-sort="{{sortLink.sumbuystaff.order}}"><a href='{{sortLink.sumbuystaff.link}}'>{%trans "Staff total buy order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.countorderbuystaff.order}}"><a href='{{sortLink.countorderbuystaff.link}}'>{%trans "Staff count buy order"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.countorderstaff.order}}"><a href='{{sortLink.countorderstaff.link}}'>{%trans "Staff total sales order"%}</a></th>
+        {%endif%}
+
+        <th class="txtC" data-sort="{{sortLink.balance.order}}"><a href='{{sortLink.balance.link}}'>{%trans "Balance"%}</a></th>
+        <th class="txtC" data-sort="{{sortLink.lastactivity.order}}"><a href='{{sortLink.lastactivity.link}}'>{%trans "Last activity"%}</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for key, value in dataTable%}
+      <tr {%if value.status=='disable'%} class='negative'{%endif%}>
+        <td class="collapsing">
+          <a href="{{url.this}}/glance?id={{value.id}}" class="block">
+            <img src="{{value.avatar}}" alt='{{value.displayname}}' class="avatar fs15 mRa10">
+          </a>
+        </td>
+        <td class="pRa10">
+          <a href="{{url.this}}/glance?id={{value.id}}" class="block">
+            <div class="mB5 name">
+            {{value.genderString}}
+            {%if value.displayname%}
+              {{value.displayname}}
+            {%else%}
+              <small class="fc-mute">{%trans "Without name"%}</small>
+            {%endif%}
+            </div>
+            <div class="mobile">
+            {%if value.mobile%}
+              {%if lang.current == 'fa'%}
+                {{value.mobile | fitNumber('mobile')}}
+              {%else%}
+                {{value.mobile | fitNumber('mobile12')}}
+              {%endif%}
+            {%else%}
+              <small class="fc-mute">{%trans "Without mobile"%}</small>
+            {%endif%}
+            </div>
+          </a>
+          <div class="type">
+        {%if not requestGET.type %}
+          {%if value.customer and perm('customerAccess') %}
+            <a href="{{url.this}}?type=customer"><span class="badge">{%trans "Customer"%}</span></a>
+          {%endif%}
+          {%if value.supplier and perm('supplierAccess') %}
+            <a href="{{url.this}}?type=supplier"><span class="badge primary">{%trans "Supplier"%}</span></a>
+          {%endif%}
+          {%if value.staff and perm('staffAccess') %}
+            <a href="{{url.this}}?type=staff"><span class="badge success">{%trans "Staff"%}</span></a>
+          {%endif%}
+        {%endif%}
+          </div>
+        </td>
+
+        {%if requestGET.type == "customer"%}
+        <td class="txtC">{%if value.countordercustomer%}{{value.countordercustomer | fitNumber}}{%else%}-{%endif%}</td>
+        {%endif%}
+
+        {%if not requestGET.type or requestGET.type == "customer"%}
+        <td class="txtC pRa10">{%if value.customer and value.sumpaycustomer%}{{value.sumpaycustomer | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        {%endif%}
+
+        {%if requestGET.type == "customer"%}
+        <td class="txtC pRa10">{%if value.customer and value.customercredit%}{{value.customercredit | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        {%endif%}
+
+        {%if requestGET.type == "supplier"%}
+        <td class="txtC">{%if value.countordersupplier%}{{value.countordersupplier | fitNumber}}{%else%}-{%endif%}</td>
+        {%endif%}
+
+        {%if not requestGET.type or requestGET.type == "supplier"%}
+        <td class="txtC pRa10">{%if value.supplier and value.sumpaysupplier%}{{value.sumpaysupplier | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        {%endif%}
+
+        {%if not requestGET.type or requestGET.type == "staff"%}
+        <td class="txtC pRa10">{%if value.staff and value.sumsalestaff%}{{value.sumsalestaff | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        {%endif%}
+
+        {%if requestGET.type == "staff"%}
+        <td class="txtC">{%if value.sumbuystaff%}{{value.sumbuystaff | fitNumber}}{%else%}-{%endif%}</td>
+        <td class="txtC">{%if value.countorderbuystaff%}{{value.countorderbuystaff | fitNumber}}{%else%}-{%endif%}</td>
+        <td class="txtC">{%if value.countorderstaff%}{{value.countorderstaff | fitNumber}}{%else%}-{%endif%}</td>
+        {%endif%}
+
+        <td class="txtC pRa10">{%if value.balance%}{{value.balance | fitNumber}} <small class="fc-mute">{%trans "Toman"%}</small>{%else%}-{%endif%}</td>
+        <td class="txtC pRa10 fs08 fc-mute">{%if value.lastactivity%}{{value.lastactivity | dt('human')}}<br>{{value.lastactivity | dt('human', 'year')}}{%else%}-{%endif%}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  {%include display.pagination%}
+
+{%endblock%}
+
+
+{%block htmlFilter%}
+<p class="f fs14 msg info2">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{url.here}}/customer{%if requestGET.type%}?type={{requestGET.type}}{%endif%}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
+  <a class="cauto" href="{{url.here}}/customer{%if requestGET.type%}?type={{requestGET.type}}{%endif%}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.here}}/customer/add">{%trans "Try to start with add new member!"%}</a></p>
+{%endblock%}
+
+
+
+{%block stTypeSelector%}
+
+<div class="f mB10">
+ <div class="c">{{block ("stAll")}}</div>
+{%if perm('customerAccess')%}<div class="c">{{block ("stCustomer")}}</div>{%endif%}
+{%if perm('supplierAccess')%}<div class="c">{{block ("stSupplier")}}</div>{%endif%}
+{%if perm('staffAccess')%}<div class="c">{{block ("stStaff")}}</div>{%endif%}
+</div>
+
+
+
+{%endblock%}
+
+{%block stAll%}
+
+<a class="dcard {%if requestGET.type%}{%else%}active{%endif%}" href='{{url.this}}{%if requestGET.q%}?q={{requestGET.q}}{%endif%}' data-shortkey="49shift">
+ <div class="statistic gray">
+  <div class="value"><i class="sf-users"></i><span>{{dashboardData.all_member | fitNumber}}</span></div>
+  <div class="label">{%trans "All customer"%} <kbd>Shift+1</kbd></div>
+ </div>
+</a>
+{%endblock%}
+
+{%block stCustomer%}
+<a class="dcard {%if requestGET.type == 'customer'%}active{%endif%}" href='{{url.this}}?type=customer{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="50shift">
+ <div class="statistic teal">
+  <div class="value"><i class="sf-user-4"></i><span class="fs08">{{dashboardData.customer_count | fitNumber}}</span></div>
+  <div class="label">{%trans "Customers"%} <kbd>Shift+2</kbd></div>
+ </div>
+</a>
+{%endblock%}
+
+{%block stStaff%}
+<a class="dcard {%if requestGET.type == 'staff'%}active{%endif%}" href='{{url.this}}?type=staff{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="51shift">
+ <div class="statistic gray">
+  <div class="value"><i class="sf-user-md"></i><span>{{dashboardData.staff_count | fitNumber}}</span></div>
+  <div class="label">{%trans "Staffs"%} <kbd>Shift+3</kbd></div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block stSupplier%}
+<a class="dcard {%if requestGET.type == 'supplier'%}active{%endif%}" href='{{url.this}}?type=supplier{%if requestGET.q%}&q={{requestGET.q}}{%endif%}' data-shortkey="52shift">
+ <div class="statistic orange">
+  <div class="value"><i class="sf-network"></i><span>{{dashboardData.supplier_count | fitNumber}}</span></div>
+  <div class="label">{%trans "Suppliers"%} <kbd>Shift+4</kbd></div>
+ </div>
+</a>
+{%endblock%}
+
+
+
