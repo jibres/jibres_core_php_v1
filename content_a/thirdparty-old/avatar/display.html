@@ -1,0 +1,46 @@
+{%extends "content_a/thirdparty/layout.html"%}
+
+{%block pageContent%}
+{{block ("pageSteps")}}
+{{block ("pageStepsProfile")}}
+
+
+<div class="f">
+ <div class="c3 s12 x2 pRa10">
+    {{block("psidebar")}}
+ </div>
+ <div class="c9 x10 s12">
+ 	<div class="cbox">
+ 		{{block('iformData')}}
+ 	</div>
+ </div>
+</div>
+
+
+{%endblock%}
+
+
+
+
+{%block iformData%}
+
+<form method="post" autocomplete="off">
+
+
+
+{{block("iAvatar")}}
+<div class="f">
+	<div class="c mRa10">
+		<button class="btn primary block mT20">{%trans "Save"%}</button>
+	</div>
+	{%if perm('thirdpartyAvatarDelete') and dataRow.avatar_raw%}
+	<div class="cauto">
+		<button name="remove" value="avatar" class="btn danger block mT20">{%trans "Remove"%}</button>
+	</div>
+	{%endif%}
+</div>
+
+
+</form>
+{%endblock%}
+

@@ -1,0 +1,14 @@
+<?php
+namespace content_a\thirdparty\minustransaction;
+
+class controller
+{
+
+	public static function routing()
+	{
+		\dash\permission::access('thirdpartyTransactionMinus');
+
+		\content_a\thirdparty\load::check_access();
+	}
+}
+?>

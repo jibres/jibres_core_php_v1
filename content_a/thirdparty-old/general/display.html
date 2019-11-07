@@ -1,0 +1,93 @@
+{%extends "content_a/thirdparty/layout.html"%}
+
+{%block pageContent%}
+{{block ("pageSteps")}}
+{{block ("pageStepsProfile")}}
+
+
+<div class="f">
+ <div class="c3 s12 x2 pRa10">
+    {{block("psidebar")}}
+ </div>
+ <div class="c9 x10 s12">
+ 	<div class="cbox">
+ 		{{block('iformData')}}
+ 	</div>
+ </div>
+</div>
+
+
+{%endblock%}
+
+
+
+
+{%block iformData%}
+
+
+<form method="post" autocomplete="off">
+
+	{%if perm('thirdpartyMobileEdit')%}
+		{{block('imobile')}}
+	{%endif%}
+
+	<div class="f">
+	 <div class="cauto pRa5">{{block("igender")}}</div>
+	 <div class="c">{{block('idisplayname')}}</div>
+	</div>
+
+	{%if perm('thirdpartyContactEdit')%}
+		<h3 class="mT50">{%trans "Contact detail"%}</h3>
+		<div class="f">
+		 <div class="c pRa5">{{block('iPhone')}}</div>
+		 <div class="c">{{block('iFax')}}</div>
+		</div>
+
+		{{block('iEmail')}}
+	{%endif%}
+
+	{{block('iEmailMarketing')}}
+	{{block('iSmsMarketing')}}
+	{{block('iTaxExempt')}}
+
+
+	<div class="f pA5 pT20">
+		{{block("isave")}}
+	</div>
+</form>
+{%endblock%}
+
+
+
+
+{%block iPermission%}
+<div data-response='staff' data-response-effect='slide' {%if thirdparty.staff %}{%else%} data-response-hide {%endif%}>
+	<div class="mT10">
+	  <label for="permission">{%trans "Permission"%}</label>
+	  <select name="permission" class="ui dropdown" id="permission">
+	    <option value="0" >{%trans "No permission"%}</option>
+	    {%for perm in permGroup%}
+	      <option value="{{perm}}" {%if thirdparty.permission == perm%} selected {%endif%} >{%trans perm%}</option>
+	    {%endfor%}
+	  </select>
+	</div>
+</div>
+{%endblock%}
+
+
+
+{%block iMemType%}
+<div class="mT10">
+  <label for="type">{%trans "Type of thirdparty"%}</label>
+  <div class="f">
+
+  {%if perm('staffAdd')%}
+   <div class="check1">
+    <input type="checkbox" id="r-staff" name="staff" value="staff" {%if thirdparty.staff %}checked{%endif%}>
+    <label for="r-staff">{%trans "Staff"%}</label>
+   </div>
+  {%endif%}
+
+  </div>
+</div>
+{%endblock%}

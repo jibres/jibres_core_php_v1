@@ -1,0 +1,49 @@
+{%extends "content_a/thirdparty/layout.html"%}
+
+{%block pageContent%}
+{{block ("pageSteps")}}
+{{block ("pageStepsBilling")}}
+
+
+
+
+<div class="f">
+ <div class="c3 s12 pRa10">
+    {{block("psidebar")}}
+ </div>
+ <div class="c9 s12">
+  {{block('creditBox')}}
+  {{block('updateCredit')}}
+ </div>
+</div>
+
+
+{%endblock%}
+
+
+
+
+{%block creditBox%}
+    <section class="cbox fs10">
+      <h3>{%trans "Thirdparty credit"%}<i class="sf-diamond floatRa"></i></h3>
+      <div class="statistics mT10">
+        <a class="statistic sm {%if memberBudget > 0%}green{%else%}orange{%endif%}" title='{%trans "Toman"%}' href="{{url.this}}/billing?id={{requestGET.id}}&action=list">
+          <div class="value">{{memberBudget | fitNumber}}</div>
+          <div class="label">{%trans "Financial balance"%}</div>
+        </a>
+
+
+        <a class="statistic sm blue" title='{%trans "Toman"%}' href="{{url.this}}/billing?id={{requestGET.id}}&action=credit">
+          <div class="value">{%if dataRow.credit%}{{dataRow.credit | fitNumber}}{%else%}-{%endif%}</div>
+          <div class="label">{%trans "Max credit"%}</div>
+        </a>
+
+        <div class="statistic sm brown" title='{%trans "Toman"%}'>
+          <div class="value">{{ (dataRow.credit + memberBudget) | fitNumber}}</div>
+          <div class="label">{%trans "Remain credit"%}</div>
+        </div>
+      </div>
+    </section>
+{%endblock%}
+
+
