@@ -19,6 +19,9 @@ class view
 		// transfer to new location on root of content
 		\dash\data::display_admin('content_a/layout.html');
 
+		// enable title box
+		\dash\data::page_titleBox(true);
+
 		\dash\data::include_adminPanel(true);
 		\dash\data::include_css(false);
 		\dash\data::include_js(false);

@@ -12,7 +12,6 @@ class view
 		\dash\data::page_pictogram('box');
 
 		// enable titleBox
-		\dash\data::page_titleBox(true);
 
 		if(\dash\request::get('inside'))
 		{

@@ -24,17 +24,12 @@
   </li>
 
 
+  {%if perm('customerAccess')%}
+    <li>
+      <a href="{{url.here}}/customer"><i class="sf-users"></i>{%trans "Customers"%}</a>
+    </li>
+  {%endif%}
 
-  <li>
-    {%if perm('staffAccess') or perm('supplierAccess') or perm('customerAccess')%}<a href="{{url.here}}/thirdparty"><i class="sf-users"></i>{%trans "Third Parties"%}</a>{%endif%}
-{%if url.module == "thirdparty"%}
-    <ul>
-      {%if perm('customerAccess')%}<li><a href="{{url.here}}/thirdparty?type=customer"><i class="floatRa mRa10 fc-mute sf-user"></i>{%trans "Customers"%}</a></li>{%endif%}
-      {%if perm('supplierAccess')%}<li><a href="{{url.here}}/thirdparty?type=supplier"><i class="floatRa mRa10 fc-mute sf-network"></i>{%trans "Suppliers"%}</a></li>{%endif%}
-      {%if perm('staffAccess')%}<li><a href="{{url.here}}/thirdparty?type=staff"><i class="floatRa mRa10 fc-mute sf-user-4"></i>{%trans "Staffs"%}</a></li>{%endif%}
-    </ul>
-{%endif%}
-  </li>
 
   <li>
     {%if perm('factorAccess')%}<a href="{{url.here}}/factor"><i class="sf-print"></i>{%trans "Factor"%}</a>{%endif%}

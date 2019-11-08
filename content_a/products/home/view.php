@@ -10,8 +10,6 @@ class view
 		\dash\data::page_title(T_('Products'));
 		\dash\data::page_desc(T_('You can search in list of products, add new product and edit existing.'));
 
-		// enable titleBox
-		\dash\data::page_titleBox(true);
 
 		// btn
 		\dash\data::page_btnText(T_('Add product'));

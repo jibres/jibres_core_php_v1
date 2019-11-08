@@ -4,6 +4,23 @@ namespace lib\db\products;
 class db
 {
 
+	public static function get_next_prev($_id)
+	{
+		$next        = "SELECT products.id AS `id` FROM products where products.id = (SELECT MIN(products.id) FROM products where products.id > $_id) LIMIT 1 ";
+		$next_result = \dash\db::get($next, 'id', true);
+
+		$prev        = "SELECT products.id AS `id` FROM products where products.id = (SELECT MAX(products.id) FROM products where products.id < $_id) LIMIT 1 ";
+		$prev_result = \dash\db::get($prev, 'id', true);
+
+		return
+		[
+			'next' => $next_result,
+			'prev' => $prev_result
+		];
+	}
+
+
+
 	public static function get_barcode($_barcode)
 	{
 		$query =

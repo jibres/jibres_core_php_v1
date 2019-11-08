@@ -6,6 +6,8 @@ class view
 {
 	public static function config()
 	{
+		$id = \dash\request::get('id');
+
 		// set page title from product title
 		$title = \dash\data::productDataRow_title();
 		if(!isset($title))
@@ -15,22 +17,41 @@ class view
 
 		\dash\data::page_title($title);
 
-		// nav
-		\dash\data::page_next('disabled');
-		\dash\data::page_prev(\dash\url::this(). '/prev');
+		$nex_prev_product = \lib\app\product\get::next_prev($id);
+		if(isset($nex_prev_product['next']))
+		{
+			// nav
+			\dash\data::page_next($nex_prev_product['next']);
+		}
+		else
+		{
+			\dash\data::page_next('disabled');
+		}
+
+		$nex_prev_product = \lib\app\product\get::next_prev($id);
+		if(isset($nex_prev_product['prev']))
+		{
+			// nav
+			\dash\data::page_prev($nex_prev_product['prev']);
+		}
+		else
+		{
+			\dash\data::page_prev('disabled');
+		}
+
+
 		// back
-		\dash\data::page_backText(T_('Dashboard'));
-		\dash\data::page_backLink(\dash\url::here());
+		\dash\data::page_backText(T_('Products'));
+		\dash\data::page_backLink(\dash\url::this());
 		\dash\data::page_duplicate(\dash\url::here());
 		\dash\data::page_view(\dash\url::here());
 		\dash\data::page_help(\dash\url::kingdom().'/support/test');
-
 
 		// back to list of product
 		\dash\data::badge_text(T_('Back'));
 		\dash\data::badge_link(\dash\url::this());
 
-		$variants_list = \lib\app\product\variants::get(\dash\request::get('id'));
+		$variants_list = \lib\app\product\variants::get($id);
 		\dash\data::variantsList($variants_list);
 
 		$company_list = \lib\app\product\company::list();

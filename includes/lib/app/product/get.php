@@ -4,6 +4,9 @@ namespace lib\app\product;
 
 class get
 {
+	private static $product_detail = [];
+
+
 	public static function inline_get($_id)
 	{
 		if(!\lib\store::id())
@@ -18,29 +21,26 @@ class get
 			return false;
 		}
 
-
 		if(!is_numeric($_id))
 		{
 			\dash\notif::error(T_("Invalid id"));
 			return false;
 		}
 
-		// $id = \dash\coding::decode($_id);
-		// if(!$id)
-		// {
-		// 	\dash\notif::error(T_("Invalid id"));
-		// 	return false;
-		// }
-
-		$result = \lib\db\products\db::get_by_id($_id);
-
-		if(!$result)
+		if(!self::$product_detail)
 		{
-			\dash\notif::error(T_("Detail not found"));
-			return false;
+			$result = \lib\db\products\db::get_by_id($_id);
+
+			if(!$result)
+			{
+				\dash\notif::error(T_("Detail not found"));
+				return false;
+			}
+
+			self::$product_detail = $result;
 		}
 
-		return $result;
+		return self::$product_detail;
 	}
 
 
@@ -51,6 +51,32 @@ class get
 		if($result)
 		{
 			$result = \lib\app\product\ready::row($result, $_options);
+		}
+
+		return $result;
+	}
+
+
+	public static function next_prev($_id)
+	{
+		$result = self::inline_get($_id);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		$next_prev = \lib\db\products\db::get_next_prev($result['id']);
+
+		$result = [];
+		if(isset($next_prev['next']) && $next_prev['next'])
+		{
+			$result['next'] = \dash\url::this(). '/edit?id='. $next_prev['next'];
+		}
+
+		if(isset($next_prev['prev']) && $next_prev['prev'])
+		{
+			$result['prev'] = \dash\url::this(). '/edit?id='. $next_prev['prev'];
 		}
 
 		return $result;
