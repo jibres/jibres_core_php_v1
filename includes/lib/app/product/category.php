@@ -43,6 +43,12 @@ class category
 	private static function check($_id = null)
 	{
 		$title = \dash\app::request('title');
+		if(!is_string($title))
+		{
+			\dash\notif::error(T_("Format error!"));
+			return false;
+		}
+
 		if(!$title && $title !== '0')
 		{
 			if(self::$debug) \dash\notif::error(T_("Plese fill the category name"), 'category');
@@ -60,6 +66,12 @@ class category
 		$default = \dash\app::request('categorydefault') ? 1 : null;
 
 		$maxsale = \dash\app::request('maxsale');
+		if(!is_string($maxsale))
+		{
+			\dash\notif::error(T_("Format error!"));
+			return false;
+		}
+
 		if($maxsale && !is_numeric($maxsale))
 		{
 			if(self::$debug) \dash\notif::error(T_("Plese set the max sale as a number"), 'maxsale');

@@ -109,7 +109,7 @@ class add
 
 
 		$unit = \dash\app::request('unit');
-		if($unit)
+		if($unit && is_string($unit))
 		{
 			\lib\app\product\unit::$debug = false;
 			$add_unit                     = \lib\app\product\unit::check_add($unit);
@@ -121,7 +121,7 @@ class add
 		}
 
 		$company = \dash\app::request('company');
-		if($company)
+		if($company && is_string($company))
 		{
 			\lib\app\product\company::$debug = false;
 			$add_company                     = \lib\app\product\company::check_add($company);

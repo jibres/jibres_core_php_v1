@@ -34,7 +34,7 @@ class check
 		if(\dash\app::isset_request('title'))
 		{
 			$title = \dash\app::request('title');
-			if(!is_string($title))
+			if(isset($title) && !is_string($title))
 			{
 				\dash\notif::error(T_("Please fill your product title as a string"), 'title');
 				return false;
@@ -55,6 +55,12 @@ class check
 
 
 		$slug = \dash\app::request('slug');
+		if(isset($slug) && !is_string($slug))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'slug']), 'slug');
+			return false;
+		}
+
 		if(!$slug)
 		{
 			$slug = \dash\utility\filter::slug($title, null, 'persian');
@@ -68,6 +74,12 @@ class check
 
 
 		$barcode = \dash\app::request('barcode');
+		if(isset($barcode) && !is_string($barcode))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'barcode']), 'barcode');
+			return false;
+		}
+
 		$to_barcode = \dash\utility\convert::to_barcode($barcode);
 		if($barcode != $to_barcode)
 		{
@@ -83,6 +95,12 @@ class check
 		}
 
 		$barcode2 = \dash\app::request('barcode2');
+		if(isset($barcode2) && !is_string($barcode2))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'barcode2']), 'barcode2');
+			return false;
+		}
+
 
 		$to_barcode2 = \dash\utility\convert::to_barcode($barcode2);
 		if($barcode2 != $to_barcode2)
@@ -124,6 +142,12 @@ class check
 
 
 		$minstock = \dash\app::request('minstock');
+		if(isset($minstock) && !is_string($minstock))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'minstock']), 'minstock');
+			return false;
+		}
+
 		$minstock = \dash\utility\convert::to_en_number($minstock);
 		if($minstock && !is_numeric($minstock))
 		{
@@ -144,6 +168,12 @@ class check
 		}
 
 		$maxstock = \dash\app::request('maxstock');
+		if(isset($maxstock) && !is_string($maxstock))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'maxstock']), 'maxstock');
+			return false;
+		}
+
 		$maxstock = \dash\utility\convert::to_en_number($maxstock);
 		if($maxstock && !is_numeric($maxstock))
 		{
@@ -165,6 +195,12 @@ class check
 
 
 		$weight = \dash\app::request('weight');
+		if(isset($weight) && !is_string($weight))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'weight']), 'weight');
+			return false;
+		}
+
 		$weight = \dash\utility\convert::to_en_number($weight);
 		if($weight && !is_numeric($weight))
 		{
@@ -185,6 +221,12 @@ class check
 		}
 
 		$weightunit = \dash\app::request('weightunit');
+		if(isset($weightunit) && !is_string($weightunit))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'weightunit']), 'weightunit');
+			return false;
+		}
+
 		if($weightunit && !in_array($weightunit, ['lb','oz','kg','g']))
 		{
 			\dash\notif::error(T_("Invalid weight unit"), 'weightunit');
@@ -193,6 +235,12 @@ class check
 
 
 		$status = \dash\app::request('status');
+		if(isset($status) && !is_string($status))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'status']), 'status');
+			return false;
+		}
+
 		if($status && !in_array($status, ['unset','available','unavailable','soon','discountinued', 'deleted']))
 		{
 			\dash\notif::error(T_("Product status is incorrect"), 'status');
@@ -200,6 +248,12 @@ class check
 		}
 
 		$type = \dash\app::request('type');
+		if(isset($type) && !is_string($type))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'type']), 'type');
+			return false;
+		}
+
 		if($type && !in_array($type, ['product','file','service']))
 		{
 			\dash\notif::error(T_("Invalid type of product"), 'type');
@@ -207,6 +261,12 @@ class check
 		}
 
 		$thumb = \dash\app::request('thumb');
+		if(isset($thumb) && !is_string($thumb))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'thumb']), 'thumb');
+			return false;
+		}
+
 		if($thumb)
 		{
 			$load_file_detail = \dash\app\file::get_inline($thumb);
@@ -217,13 +277,24 @@ class check
 
 			$thumb = $load_file_detail['id'];
 		}
-		$gallery = \dash\app::request('gallery');
 
+		$gallery = \dash\app::request('gallery');
+		if(isset($gallery) && !is_string($gallery))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'gallery']), 'gallery');
+			return false;
+		}
 
 		$vat = null;
 		if(\dash\app::isset_request('vat'))
 		{
 			$vat = \dash\app::request('vat');
+			if(isset($vat) && !is_string($vat))
+			{
+				\dash\notif::error(T_("Format error :val", ['val' => 'vat']), 'vat');
+				return false;
+			}
+
 			$vat = $vat ? 'yes' : null;
 		}
 
@@ -232,11 +303,23 @@ class check
 		if(\dash\app::isset_request('saleonline'))
 		{
 			$saleonline = \dash\app::request('saleonline');
+			if(isset($saleonline) && !is_string($saleonline))
+			{
+				\dash\notif::error(T_("Format error :val", ['val' => 'saleonline']), 'saleonline');
+				return false;
+			}
+
 			$saleonline = $saleonline ? null : 'no';
 		}
 
 
 		$carton = \dash\app::request('carton');
+		if(isset($carton) && !is_string($carton))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'carton']), 'carton');
+			return false;
+		}
+
 		$carton = \dash\utility\convert::to_en_number($carton);
 		if($carton && !is_numeric($carton))
 		{
@@ -257,6 +340,12 @@ class check
 		}
 
 		$desc = \dash\app::request('desc');
+		if(isset($desc) && !is_string($desc))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'desc']), 'desc');
+			return false;
+		}
+
 		if($desc && mb_strlen($desc) > 60000)
 		{
 			\dash\notif::error(T_("Value of desc is out of rage"), 'desc');
@@ -264,6 +353,12 @@ class check
 		}
 
 		$salestep = \dash\app::request('salestep');
+		if(isset($salestep) && !is_string($salestep))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'salestep']), 'salestep');
+			return false;
+		}
+
 		$salestep = \dash\utility\convert::to_en_number($salestep);
 		if($salestep && !is_numeric($salestep))
 		{
@@ -284,6 +379,12 @@ class check
 		}
 
 		$minsale = \dash\app::request('minsale');
+		if(isset($minsale) && !is_string($minsale))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'minsale']), 'minsale');
+			return false;
+		}
+
 		$minsale = \dash\utility\convert::to_en_number($minsale);
 		if($minsale && !is_numeric($minsale))
 		{
@@ -304,6 +405,12 @@ class check
 		}
 
 		$maxsale = \dash\app::request('maxsale');
+		if(isset($maxsale) && !is_string($maxsale))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'maxsale']), 'maxsale');
+			return false;
+		}
+
 		$maxsale = \dash\utility\convert::to_en_number($maxsale);
 		if($maxsale && !is_numeric($maxsale))
 		{
@@ -324,13 +431,41 @@ class check
 		}
 
 
-		$oversale     = \dash\app::request('oversale') ? 'yes' : null;
-		$saletelegram = \dash\app::request('saletelegram') ? null : 'no';
-		$saleapp      = \dash\app::request('saleapp') ? null : 'no';
-		$infinite     = \dash\app::request('infinite') ? 'yes' : null;
+		$oversale     = \dash\app::request('oversale') ? 'yes' : 'no';
+		if(isset($oversale) && !is_string($oversale))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'oversale']), 'oversale');
+			return false;
+		}
 
+		$saletelegram = \dash\app::request('saletelegram') ? 'yes' : 'no';
+		if(isset($saletelegram) && !is_string($saletelegram))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'saletelegram']), 'saletelegram');
+			return false;
+		}
+
+		$saleapp      = \dash\app::request('saleapp') ? 'yes' : 'no';
+		if(isset($saleapp) && !is_string($saleapp))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'saleapp']), 'saleapp');
+			return false;
+		}
+
+		$infinite     = \dash\app::request('infinite') ? 'yes' : 'no';
+		if(isset($infinite) && !is_string($infinite))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'infinite']), 'infinite');
+			return false;
+		}
 
 		$parent = \dash\app::request('parent');
+		if(isset($parent) && !is_string($parent))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'parent']), 'parent');
+			return false;
+		}
+
 		if($parent)
 		{
 			$parent_detail = \lib\app\product\get::inline_get($parent);
@@ -345,6 +480,12 @@ class check
 
 
 		$scalecode = \dash\app::request('scalecode');
+		if(isset($scalecode) && !is_string($scalecode))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'scalecode']), 'scalecode');
+			return false;
+		}
+
 		if($scalecode)
 		{
 			$scalecode = \dash\utility\convert::to_en_number($scalecode);
@@ -372,6 +513,12 @@ class check
 
 
 		$optionname1  = \dash\app::request('optionname1');
+		if(isset($optionname1) && !is_string($optionname1))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionname1']), 'optionname1');
+			return false;
+		}
+
 		if($optionname1 && mb_strlen($optionname1) > 100)
 		{
 			\dash\notif::error(T_("optionname1 is out of range"), 'optionname1');
@@ -379,6 +526,12 @@ class check
 		}
 
 		$optionvalue1 = \dash\app::request('optionvalue1');
+		if(isset($optionvalue1) && !is_string($optionvalue1))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionvalue1']), 'optionvalue1');
+			return false;
+		}
+
 		if($optionvalue1 && mb_strlen($optionvalue1) > 100)
 		{
 			\dash\notif::error(T_("optionvalue1 is out of range"), 'optionvalue1');
@@ -386,6 +539,12 @@ class check
 		}
 
 		$optionname2  = \dash\app::request('optionname2');
+		if(isset($optionname2) && !is_string($optionname2))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionname2']), 'optionname2');
+			return false;
+		}
+
 		if($optionname2 && mb_strlen($optionname2) > 100)
 		{
 			\dash\notif::error(T_("optionname2 is out of range"), 'optionname2');
@@ -393,6 +552,12 @@ class check
 		}
 
 		$optionvalue2 = \dash\app::request('optionvalue2');
+		if(isset($optionvalue2) && !is_string($optionvalue2))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionvalue2']), 'optionvalue2');
+			return false;
+		}
+
 		if($optionvalue2 && mb_strlen($optionvalue2) > 100)
 		{
 			\dash\notif::error(T_("optionvalue2 is out of range"), 'optionvalue2');
@@ -400,6 +565,12 @@ class check
 		}
 
 		$optionname3  = \dash\app::request('optionname3');
+		if(isset($optionname3) && !is_string($optionname3))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionname3']), 'optionname3');
+			return false;
+		}
+
 		if($optionname3 && mb_strlen($optionname3) > 100)
 		{
 			\dash\notif::error(T_("optionname3 is out of range"), 'optionname3');
@@ -407,6 +578,12 @@ class check
 		}
 
 		$optionvalue3 = \dash\app::request('optionvalue3');
+		if(isset($optionvalue3) && !is_string($optionvalue3))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionvalue3']), 'optionvalue3');
+			return false;
+		}
+
 		if($optionvalue3 && mb_strlen($optionvalue3) > 100)
 		{
 			\dash\notif::error(T_("optionvalue3 is out of range"), 'optionvalue3');
@@ -414,6 +591,12 @@ class check
 		}
 
 		$sku = \dash\app::request('sku');
+		if(isset($sku) && !is_string($sku))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'sku']), 'sku');
+			return false;
+		}
+
 		if($sku)
 		{
 			$sku = self::check_sku($sku, $_id);
@@ -424,6 +607,12 @@ class check
 		}
 
 		$seotitle = \dash\app::request('seotitle');
+		if(isset($seotitle) && !is_string($seotitle))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'seotitle']), 'seotitle');
+			return false;
+		}
+
 		if($seotitle && mb_strlen($seotitle) >= 300)
 		{
 			\dash\notif::error(T_("Seo title is out of range"), 'seotitle');
@@ -431,6 +620,12 @@ class check
 		}
 
 		$seodesc = \dash\app::request('seodesc');
+		if(isset($seodesc) && !is_string($seodesc))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'seodesc']), 'seodesc');
+			return false;
+		}
+
 		if($seodesc && mb_strlen($seodesc) >= 500)
 		{
 			\dash\notif::error(T_("Seo description is out of range"), 'seodesc');
@@ -446,7 +641,7 @@ class check
 		$args['maxstock']     = $maxstock;
 		$args['weight']       = $weight;
 		$args['status']       = $status;
-		$args['thumb']      = $thumb;
+		$args['thumb']        = $thumb;
 		$args['vat']          = $vat;
 		$args['saleonline']   = $saleonline;
 		$args['carton']       = $carton;

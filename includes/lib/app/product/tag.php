@@ -13,6 +13,11 @@ class tag
 
 		$have_term_to_save_log = false;
 
+		if(!is_string($_tag))
+		{
+			return false;
+		}
+
 		$tag = $_tag;
 		$tag = explode(',', $tag);
 		$tag = array_filter($tag);

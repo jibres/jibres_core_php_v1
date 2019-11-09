@@ -115,7 +115,7 @@ class edit
 
 
 		$unit = \dash\app::request('unit');
-		if($unit)
+		if($unit && is_string($unit))
 		{
 			\lib\app\product\unit::$debug = false;
 			$add_unit                     = \lib\app\product\unit::check_add($unit);
@@ -127,7 +127,7 @@ class edit
 		}
 
 		$company = \dash\app::request('company');
-		if($company)
+		if($company && is_string($company))
 		{
 			\lib\app\product\company::$debug = false;
 			$add_company                     = \lib\app\product\company::check_add($company);
@@ -138,7 +138,7 @@ class edit
 		}
 
 		$category = \dash\app::request('category');
-		if($category)
+		if($category && is_string($category))
 		{
 			\lib\app\product\category::$debug = false;
 			$add_category                     = \lib\app\product\category::check_add($category);
@@ -150,7 +150,7 @@ class edit
 
 
 		$tag = \dash\app::request('tag');
-		if($tag)
+		if($tag && is_string($tag))
 		{
 			\lib\app\product\tag::add($tag, $id);
 			if(!\dash\engine\process::status())
