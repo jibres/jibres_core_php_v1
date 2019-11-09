@@ -69,7 +69,7 @@ class category
 		if($maxsale)
 		{
 			$maxsale = abs(intval($maxsale));
-			if(\dash\utility\filter::is_larger($maxsale, 999999999))
+			if(\dash\number::is_larger($maxsale, 999999999))
 			{
 				if(self::$debug) \dash\notif::error(T_("Max sale is out of range"), 'maxsale');
 				return false;
