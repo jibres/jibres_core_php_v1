@@ -222,6 +222,11 @@ class config
 		$set = [];
 		foreach ($_args as $key => $value)
 		{
+			if(!is_string($key))
+			{
+				continue;
+			}
+
 			if($value === null)
 			{
 				if($_options['type'] === 'insert')

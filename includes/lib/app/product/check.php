@@ -34,6 +34,12 @@ class check
 		if(\dash\app::isset_request('title'))
 		{
 			$title = \dash\app::request('title');
+			if(!is_string($title))
+			{
+				\dash\notif::error(T_("Please fill your product title as a string"), 'title');
+				return false;
+			}
+
 			if(!$title && $title !== '0')
 			{
 				\dash\notif::error(T_("Please fill your product title"), 'title');
