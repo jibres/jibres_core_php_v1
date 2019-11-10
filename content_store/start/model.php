@@ -20,10 +20,6 @@ class model
 			return false;
 		}
 
-		// user try to add new process
-		// set null the error variable to not load error page again
-		\dash\session::set('createNewStore_error', null, 'CreateNewStore');
-
 		\dash\session::set('createNewStore_title', $title, 'CreateNewStore');
 
 		\lib\app\store\timeline::set('start');
