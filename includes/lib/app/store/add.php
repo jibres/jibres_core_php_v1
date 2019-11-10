@@ -13,7 +13,7 @@ class add
 		// just check count of free plan store
 		// check store count
 
-		// if(!\dash\permission::supervisor())
+		if(!\dash\permission::supervisor())
 		{
 			$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
 
