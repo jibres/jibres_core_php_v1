@@ -29,6 +29,13 @@ class store
 			return null;
 		}
 
+		\lib\app\store\subdomain::$debug = false;
+
+		if(!\lib\app\store\subdomain::validate($subdomain))
+		{
+			return null;
+		}
+
 		$subdomain_addr   = self::subdomain_addr(). $subdomain;
 		$detail_addr      = self::detail_addr();
 		$get_store_id     = null;
