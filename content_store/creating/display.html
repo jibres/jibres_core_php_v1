@@ -39,15 +39,15 @@ $.ajax(
    },
    fail : function()
    {
-    Navigate({ url: "{{url.here}}" });
+    Navigate({ url: "{{url.here}}/error" });
    },
    always : function()
    {
-    Navigate({ url: "{{url.here}}" });
+    Navigate({ url: "{{url.here}}/error" });
    },
    statusCode: {
     501: function() {
-      Navigate({ url: "{{url.here}}" });
+      Navigate({ url: "{{url.here}}/error" });
     }
    }
  });

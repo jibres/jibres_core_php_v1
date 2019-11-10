@@ -114,7 +114,7 @@ class model
 		if(\dash\request::get('title'))
 		{
 			$title = \dash\request::get('title');
-			$title = substr($title, 0, 20);
+			$title = substr($title, 0, 50);
 		}
 
 		// insert tickets

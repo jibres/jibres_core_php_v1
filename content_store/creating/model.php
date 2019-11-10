@@ -48,6 +48,8 @@ class model
 			{
 				\dash\log::set('CreateNewStoreError', ['detail' => $post]);
 
+				\dash\session::set('createNewStore_error', \dash\notif::get(), 'CreateNewStore');
+
 				\dash\header::status(501, T_("Can not create your store!"));
 				return false;
 			}

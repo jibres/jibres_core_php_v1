@@ -48,42 +48,48 @@ class add
 		// just check count of free plan store
 		// check store count
 
-		$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
-
-		if($count_store_free >= 10000000)
+		// if(!\dash\permission::supervisor())
 		{
-			$user_budget = \dash\db\transactions::budget($user_id, ['unit' => 'toman']);
+			$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
 
-			$user_budget = floatval($user_budget);
-
-			if($user_budget < 10000)
+			if($count_store_free >= 1)
 			{
-				if(\dash\permission::supervisor())
+				$user_budget = \dash\db\transactions::budget($user_id, ['unit' => 'toman']);
+
+				$user_budget = floatval($user_budget);
+
+				if($user_budget < 10000)
 				{
-					\dash\notif::warn(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+					// if(\dash\permission::supervisor())
+					// {
+					// 	\dash\notif::warn(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+					// }
+					// else
+					{
+						\dash\notif::code(1408);
+						\dash\notif::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+						return false;
+					}
 				}
-				else
+			}
+
+			if($count_store_free >= 2)
+			{
+				$msg = T_("You can not have more than two free or trial stores.");
+
+				// if(\dash\url::isLocal())
+				// {
+				// 	\dash\notif::warn($msg. "\n". T_("This msg in local is warn and in site is error :)"));
+				// }
+				// else
 				{
-					\dash\notif::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
+					\dash\notif::code(1418);
+					\dash\notif::error($msg);
 					return false;
 				}
 			}
 		}
 
-		if($count_store_free >= 2000000)
-		{
-			$msg = T_("You can not have more than two free or trial stores.");
-
-			if(\dash\url::isLocal())
-			{
-				\dash\notif::warn($msg. "\n". T_("This msg in local is warn and in site is error :)"));
-			}
-			else
-			{
-				\dash\notif::error($msg);
-				return false;
-			}
-		}
 
 
 		$args                = [];
@@ -115,6 +121,8 @@ class add
 
 			\dash\notif::error(T_("Can not add your store"));
 
+			\dash\notif::code(1428);
+
 			return false;
 		}
 
@@ -127,6 +135,8 @@ class add
 			\dash\log::set('dbCanNotAddStoreData', ['request_subdomain' => $subdomain]);
 
 			\dash\notif::error(T_("Can not add your store"));
+
+			\dash\notif::code(1438);
 
 			return false;
 		}
@@ -141,6 +151,8 @@ class add
 
 			\dash\notif::error(T_("Can not add your store"));
 
+			\dash\notif::code(1448);
+
 			return false;
 		}
 
@@ -153,6 +165,8 @@ class add
 			\dash\log::set('dbCanNotAddStoreUser', ['request_subdomain' => $subdomain]);
 
 			\dash\notif::error(T_("Can not add your store"));
+
+			\dash\notif::code(1458);
 
 			return false;
 		}
@@ -167,6 +181,8 @@ class add
 			\dash\notif::error(T_("We can not create your store!"));
 
 			\dash\log::set('createStoreDbOkCustormeDataBaseNOK', ['request_subdomain' => $subdomain, 'store_id' => $store_id]);
+
+			\dash\notif::code(1468);
 
 			return false;
 		}

@@ -1,0 +1,30 @@
+{%extends display.jibresControlLayout%}
+
+
+{%block pageContent%}
+
+<div class="f justify-center">
+  <div class="c4 x3 m7 s12">
+    <div id="get_started_card">
+      <div class="body">
+        <h1>{%trans "Sorry!"%}</h1>
+        <p>{%trans "There was an error building your store"%}</p>
+        <p>{%trans "Please report the error with support or try again in a few minutes"%}</p>
+
+        {%if StoreCreateErrorCode%}
+          <div class="msg ltr">
+            <code>Error code {{StoreCreateErrorCode}}</code>
+          </div>
+        {%endif%}
+        <a href='{{url.here}}' class="btn mTB20 block success2 outline">{%trans "Try again"%}</a>
+
+        <a href='{{url.support}}/ticket/add?title={%trans "Error create store"%}{%if StoreCreateErrorCode%} {{StoreCreateErrorCode}}{%endif%}' class="btn block primary2 outline">{%trans "Contact Us about this error"%}</a>
+      </div>
+      <img class="grandOpening" src="{{url.static}}/img/store/grand-opening.jpg" alt='{%trans "Grand opening your store on Jibres"%}'>
+    </div>
+  </div>
+</div>
+
+
+
+{%endblock%}

@@ -538,7 +538,7 @@ class ticket
 		$args['user_id'] = $user_id;
 
 		$args['meta']    = $meta;
-		$args['mobile']  = $mobile;
+		// $args['mobile']  = $mobile;
 		$args['title']   = $title;
 		$args['file']    = $file;
 		$args['parent']  = $parent;

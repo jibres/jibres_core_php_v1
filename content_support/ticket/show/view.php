@@ -152,7 +152,7 @@ class view
 		\content_support\ticket\home\view::sidebarDetail(true);
 
 		self::see_ticket($main, $dataTable, $_id);
-		self::inline_log($main, $dataTable, $_id);
+		// self::inline_log($main, $dataTable, $_id);
 	}
 
 	public static function inline_log($_main, $_dataTable, $_id)
