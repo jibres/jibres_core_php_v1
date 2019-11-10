@@ -4,6 +4,21 @@ namespace dash\engine;
 
 class store
 {
+	private static $check_db = false;
+
+
+	private static function subdomain_addr()
+	{
+		return root. 'stores/subdomain/';
+	}
+
+
+	private static function detail_addr()
+	{
+		return root. 'stores/detail/';
+	}
+
+
 	public static function detail()
 	{
 		// no subdomain
@@ -14,8 +29,8 @@ class store
 			return null;
 		}
 
-		$subdomain_addr   = root. 'stores/subdomain/'. $subdomain;
-		$detail_addr      = root. 'stores/detail/';
+		$subdomain_addr   = self::subdomain_addr(). $subdomain;
+		$detail_addr      = self::detail_addr();
 		$get_store_id     = null;
 		$get_store_detail = null;
 
@@ -37,6 +52,23 @@ class store
 			}
 		}
 
+
+
+		if(!$get_store_id || !$get_store_detail)
+		{
+			if(!self::$check_db)
+			{
+				self::$check_db = true;
+				// check from database
+				$get_store_detail = self::check_db($subdomain);
+				if(isset($get_store_detail['id']))
+				{
+					$get_store_id = $get_store_detail['id'];
+				}
+			}
+		}
+
+
 		if($get_store_id)
 		{
 			$db_name           = 'jibres_'. $get_store_id;
@@ -49,7 +81,6 @@ class store
 		}
 
 		return null;
-
 	}
 
 
@@ -60,6 +91,30 @@ class store
 		{
 			\dash\db::$jibres_db_name = $store_detail['db_name'];
 		}
+	}
+
+
+	// check store record is exsist on db and if exists create the file
+	private static function check_db($_subdomain)
+	{
+		$store_detail = \lib\app\store\get::subdomain($_subdomain);
+		if(isset($store_detail['id']))
+		{
+			if(!is_dir(self::subdomain_addr()))
+			{
+				\dash\file::makeDir(self::subdomain_addr(), null, true);
+			}
+
+			if(!is_dir(self::detail_addr()))
+			{
+				\dash\file::makeDir(self::detail_addr(), null, true);
+			}
+
+			\dash\file::write(self::subdomain_addr(). $_subdomain, $store_detail['id']);
+			\dash\file::write(self::detail_addr(). $store_detail['id'], json_encode($store_detail, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+			return $store_detail;
+		}
+
 	}
 }
 ?>
