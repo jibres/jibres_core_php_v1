@@ -11,6 +11,10 @@ class db
 		$sql_query        = glob($addr. '/*');
 		$is_ok            = false;
 		$customer_db_name = 'jibres_'. $_store_id;
+		if(\dash\url::isLocal())
+		{
+			$customer_db_name = db_name. '_'. $customer_db_name;
+		}
 
 		foreach ($sql_query as $sql_file)
 		{

@@ -73,6 +73,11 @@ class store
 		{
 			$db_name           = 'jibres_'. $get_store_id;
 
+			if(\dash\url::isLocal())
+			{
+				$db_name = db_name. '_'. $db_name;
+			}
+
 			$detail            = [];
 			$detail['id']      = $get_store_id;
 			$detail['store']   = $get_store_detail;
