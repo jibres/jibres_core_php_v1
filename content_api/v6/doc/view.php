@@ -16,9 +16,30 @@ class view
 		\dash\data::apiURL(\dash\url::site(). '/'. \dash\language::current(). '/api/v6/');
 
 
-		\dash\data::mySubdomain("YourSubdomain");
-		\dash\data::myAppKey("YourAPPKey");
-		\dash\data::myApiKey("YourApiKey");
+		$YourSubdomain = 'YourSubdomain';
+		$YourAPPKey    = 'YourAPPKey';
+		$YourApiKey    = 'YourApiKey';
+
+		if(\dash\user::id())
+		{
+			$apikey = \dash\app\user_auth::get_apikey(\dash\user::id(), 'api');
+			if(isset($apikey['auth']))
+			{
+				$YourApiKey = $apikey;
+			}
+
+			$appkey = \dash\app\user_auth::get_appkey(\dash\user::id());
+			if(isset($appkey['auth']))
+			{
+				$YourAPPKey = $appkey['auth'];
+			}
+
+		}
+
+
+		\dash\data::mySubdomain($YourSubdomain);
+		\dash\data::myAppKey($YourAPPKey);
+		\dash\data::myApiKey($YourApiKey);
 
 		self::load_project_api_doc();
 	}
