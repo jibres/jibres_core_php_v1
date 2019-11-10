@@ -11781,7 +11781,7 @@ msgstr "تجاوز حد ملحق الملف"
 #~ msgid "Enter a valid name from 3 to 40 character"
 #~ msgstr "أدخل اسماً صالحاً من 3 إلى 40 حرفاً"
 
-#~ msgid "allowed extentions jpg, png (gif for bussiness plans). Max 500Kb"
+#~ msgid "allowed extentions jpg, png (gif for business plans). Max 500Kb"
 #~ msgstr ""
 #~ "السماح ملحقات jpg, png، (gif لخطط الأعمال التجارية). 500 كيلو بايت كحد أقصى"
 
