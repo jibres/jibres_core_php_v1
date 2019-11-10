@@ -2746,6 +2746,7 @@ class twigTransTerms
 	echo T_("Your online store has online address on Jibres domain.");                // Line 11
 	echo T_("Although you can connect your domain into store but to finish setup we need to set it.");// Line 11
 	echo T_("Set it carefully, you can not change it.");                              // Line 12
+	echo T_("Your subdomain");                                                        // Line 16
 	echo T_("Build my online store");                                                 // Line 20
 	echo T_("choose subdomain on Jibres");                                            // Line 24
 
@@ -2754,7 +2755,7 @@ class twigTransTerms
 	echo T_("We are do everything you need and now you can fly with Jibres power.");  // Line 11
 	echo T_("Bring me to store");                                                     // Line 13
 	echo T_("Grand opening your store on Jibres");                                    // Line 14
-	echo T_("List of stores");                                                        // Line 20
+	echo T_("My stores");                                                             // Line 20
 
 	//-----------------------------------jects/jibres/content_store/start/display.html
 	echo T_("To make a online store from scratch, please enter name of your business.");// Line 11

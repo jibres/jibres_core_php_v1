@@ -8,7 +8,7 @@ class polls
 	{
 		return
 		[
-			'placeholder' => T_("Please choose one item1"),
+			'placeholder' => T_("Please choose one item"),
 			'questions'   =>
 			[
 				self::Q1(),
