@@ -333,7 +333,7 @@ class twigTransTerms
 	echo T_("Choose a gateway");                                                      // Line 102
 	echo T_("Pay");                                                                   // Line 109
 	echo T_("Cancel");                                                                // Line 41
-	echo T_("Back");                                                                  // Line 22
+	echo T_("Back");                                                                  // Line 31
 	echo T_("Track id");                                                              // Line 104
 	echo T_("Payment");                                                               // Line 118
 	echo T_("Parsian");                                                               // Line 45
@@ -2438,7 +2438,7 @@ class twigTransTerms
 	echo T_("You are not have billing detail yet!");                                  // Line 39
 
 	//-------------------------------jects/jibres/content_account/billing/display.html
-	echo T_("Charge your account");                                                   // Line 14
+	echo T_("Charge your account");                                                   // Line 25
 	echo T_("Enter an amount to charge your account");                                // Line 15
 	echo T_("If you have a promo code, please enter it below to receive your credit.");// Line 32
 	echo T_("Apply Code");                                                            // Line 38
@@ -2758,16 +2758,27 @@ class twigTransTerms
 	echo T_("My stores");                                                             // Line 20
 
 	//-----------------------------------jects/jibres/content_store/start/display.html
-	echo T_("To make a online store from scratch, please enter name of your business.");// Line 11
-	echo T_("Your business title");                                                   // Line 15
-	echo T_("Let's go");                                                              // Line 18
-	echo T_("Create a store on Jibres");                                              // Line 21
+	echo T_("To make a online store from scratch, please enter name of your business.");// Line 12
+	echo T_("Your business title");                                                   // Line 16
+	echo T_("Let's go");                                                              // Line 19
+	echo T_("Can not add new store");                                                 // Line 22
+	echo T_("Create more store");                                                     // Line 27
+	echo T_("Contact Us");                                                            // Line 27
+	echo T_("Create a store on Jibres");                                              // Line 35
 
 	//-------------------------------------jects/jibres/content_store/ask/display.html
 	echo T_("Tell us a little about yourself");                                       // Line 10
 	echo T_("Your answer is important for us.");                                      // Line 11
 	echo T_("Next");                                                                  // Line 161
 	echo T_("answer Jibres polls");                                                   // Line 35
+
+	//-----------------------------------jects/jibres/content_store/error/display.html
+	echo T_("Sorry!");                                                                // Line 10
+	echo T_("There was an error building your store");                                // Line 11
+	echo T_("Please report the error with support or try again in a few minutes");    // Line 12
+	echo T_("Try again");                                                             // Line 19
+	echo T_("Error create store");                                                    // Line 21
+	echo T_("Contact Us about this error");                                           // Line 21
 
 	//--------------------------------jects/jibres/content_store/creating/display.html
 	echo T_("Please wait to creating your store");                                    // Line 10

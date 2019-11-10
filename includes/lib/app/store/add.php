@@ -5,6 +5,72 @@ namespace lib\app\store;
 class add
 {
 
+	public static function can($_get_detail = false, $_notif = true)
+	{
+		$user_id = \dash\user::id();
+
+		// create new store by free plan
+		// just check count of free plan store
+		// check store count
+
+		// if(!\dash\permission::supervisor())
+		{
+			$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
+
+			if($count_store_free >= 1)
+			{
+				$user_budget = \dash\db\transactions::budget($user_id, ['unit' => 'toman']);
+
+				$user_budget = floatval($user_budget);
+
+				if($user_budget < 10000)
+				{
+					$msg = T_("To register a second store, you need to have at least 10,000 toman in inventory on your account");
+					\dash\notif::code(1408);
+					if($_notif)
+					{
+						\dash\notif::error($msg);
+					}
+					if($_get_detail)
+					{
+						return ['can' => false, 'msg' => $msg, 'type' => 'price'];
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+
+			if($count_store_free >= 2)
+			{
+				$msg = T_("You can not have more than two free or trial stores."). ' '. T_("Contact Us if you need more stores");
+
+				\dash\notif::code(1418);
+				if($_notif)
+				{
+					\dash\notif::error($msg);
+				}
+
+				if($_get_detail)
+				{
+					return ['can' => false, 'msg' => $msg, 'type' => 'store3'];
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+
+		if($_get_detail)
+		{
+			return ['can' => true];
+		}
+		return true;
+	}
+
+
 	public static function trial($_args)
 	{
 		\dash\app::variable($_args);
@@ -44,52 +110,11 @@ class add
 			return false;
 		}
 
-		// create new store by free plan
-		// just check count of free plan store
-		// check store count
 
-		// if(!\dash\permission::supervisor())
+		if(!self::can())
 		{
-			$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
-
-			if($count_store_free >= 1)
-			{
-				$user_budget = \dash\db\transactions::budget($user_id, ['unit' => 'toman']);
-
-				$user_budget = floatval($user_budget);
-
-				if($user_budget < 10000)
-				{
-					// if(\dash\permission::supervisor())
-					// {
-					// 	\dash\notif::warn(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
-					// }
-					// else
-					{
-						\dash\notif::code(1408);
-						\dash\notif::error(T_("To register a second store, you need to have at least 10,000 toman in inventory on your account"));
-						return false;
-					}
-				}
-			}
-
-			if($count_store_free >= 2)
-			{
-				$msg = T_("You can not have more than two free or trial stores.");
-
-				// if(\dash\url::isLocal())
-				// {
-				// 	\dash\notif::warn($msg. "\n". T_("This msg in local is warn and in site is error :)"));
-				// }
-				// else
-				{
-					\dash\notif::code(1418);
-					\dash\notif::error($msg);
-					return false;
-				}
-			}
+			return false;
 		}
-
 
 
 		$args                = [];

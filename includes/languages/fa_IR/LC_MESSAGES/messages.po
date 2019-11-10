@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-11-10 14:16+0330\n"
-"PO-Revision-Date: 2019-11-10 14:18+0330\n"
+"POT-Creation-Date: 2019-11-10 15:51+0330\n"
+"PO-Revision-Date: 2019-11-10 15:55+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -385,7 +385,7 @@ msgstr "پروفایل"
 #: jibres/content_account/my/signature/view.php:10
 #: jibres/dash/addons/includes/languages/trans_dash.php:209
 #: jibres/includes/languages/trans_dash.php:131
-#: jibres/includes/languages/trans_project.php:2990
+#: jibres/includes/languages/trans_project.php:3001
 msgid "Edit your profile"
 msgstr "پروفایل خود را ویرایش کنید"
 
@@ -1094,7 +1094,7 @@ msgstr "صفحه نخست"
 #: jibres/content_api/v6/app/controller.php:334
 #: jibres/dash/addons/includes/languages/trans_dash.php:297
 #: jibres/includes/languages/trans_dash.php:37
-#: jibres/includes/languages/trans_project.php:2769
+#: jibres/includes/languages/trans_project.php:2772
 msgid "Next"
 msgstr "بعدی"
 
@@ -1469,6 +1469,7 @@ msgstr "بازگشت به داشبورد"
 #: jibres/content_cms/contact/edit/controller.php:10
 #: jibres/content_cms/contact/home/view.php:11
 #: jibres/content_support/ticket/contact_ticket/model.php:194
+#: jibres/includes/languages/trans_project.php:2766
 msgid "Contact Us"
 msgstr "تماس با ما"
 
@@ -3002,7 +3003,7 @@ msgstr ""
 #: jibres/content_enter/pass/view.php:22
 #: jibres/dash/addons/includes/languages/trans_dash.php:305
 #: jibres/includes/languages/trans_dash.php:45
-#: jibres/includes/languages/trans_project.php:2919
+#: jibres/includes/languages/trans_project.php:2930
 msgid "Set Password"
 msgstr "تنظیم گذرواژه"
 
@@ -3116,7 +3117,7 @@ msgstr ""
 #: dash/addons/content_enter/twostep/model.php:11
 #: dash/addons/content_enter/twostep/view.php:11
 #: jibres/content_enter/twostep/model.php:11
-#: jibres/content_enter/twostep/view.php:11 jibres/includes/lib/app/store/add.php:15
+#: jibres/content_enter/twostep/view.php:11 jibres/includes/lib/app/store/add.php:81
 msgid "Please login to continue"
 msgstr "لطفا برای ادامه مراحل وارد سیستم شوید"
 
@@ -3889,7 +3890,7 @@ msgstr "نمی‌توانید دو لینک را در یک پیام ارسال �
 #: jibres/dash/addons/includes/languages/trans_dash.php:804
 #: jibres/dash/addons/includes/languages/trans_static.php:1092
 #: jibres/dash/lib/social/telegram/commands/ermile.php:334
-#: jibres/includes/languages/trans_project.php:2867
+#: jibres/includes/languages/trans_project.php:2878
 msgid "Add new ticket"
 msgstr "افزودن تیکت جدید"
 
@@ -3980,7 +3981,7 @@ msgstr "بازگشت به پنل پشتیبانی"
 #: dash/addons/includes/languages/trans_dash.php:742
 #: jibres/content_support/ticket/home/view.php:92
 #: jibres/dash/addons/includes/languages/trans_dash.php:742
-#: jibres/includes/languages/trans_project.php:2812
+#: jibres/includes/languages/trans_project.php:2823
 msgid "Open tickets"
 msgstr "تیکت‌های باز"
 
@@ -3998,7 +3999,7 @@ msgstr "تیکت‌های حل نشده"
 #: dash/addons/includes/languages/trans_dash.php:774
 #: jibres/content_support/ticket/home/view.php:108
 #: jibres/dash/addons/includes/languages/trans_dash.php:774
-#: jibres/includes/languages/trans_project.php:2847
+#: jibres/includes/languages/trans_project.php:2858
 msgid "Solved ticket"
 msgstr "ثبت به عنوان حل شده"
 
@@ -5182,14 +5183,14 @@ msgstr "شما مدیر فنی سیستم هستید!"
 #: dash/addons/includes/languages/trans_dash.php:205
 #: jibres/dash/addons/includes/languages/trans_dash.php:205
 #: jibres/includes/languages/trans_dash.php:67
-#: jibres/includes/languages/trans_project.php:2938
+#: jibres/includes/languages/trans_project.php:2949
 msgid "JavaScript is required to use our service."
 msgstr "جاوا اسکریپت برای استفاده از سرویس ما ضروری است."
 
 #: dash/addons/includes/languages/trans_dash.php:206
 #: jibres/dash/addons/includes/languages/trans_dash.php:206
 #: jibres/includes/languages/trans_dash.php:68
-#: jibres/includes/languages/trans_project.php:2939
+#: jibres/includes/languages/trans_project.php:2950
 msgid "Enable JavaScript in your browser or use one which supports it."
 msgstr ""
 "جاوا اسکریپت را در مرورگر خود فعال کنید یا از مرورگری استفاده کنید که  آن "
@@ -5198,7 +5199,7 @@ msgstr ""
 #: dash/addons/includes/languages/trans_dash.php:210
 #: jibres/dash/addons/includes/languages/trans_dash.php:210
 #: jibres/includes/languages/trans_dash.php:132
-#: jibres/includes/languages/trans_project.php:2991
+#: jibres/includes/languages/trans_project.php:3002
 msgid "Please login to save anything"
 msgstr "لطفا برای ذخیره هر چیزی وارد شوید"
 
@@ -5221,70 +5222,70 @@ msgstr "تصویر پیشفرض"
 #: jibres/dash/addons/includes/languages/trans_dash.php:213
 #: jibres/dash/lib/social/telegram/answer.php:76
 #: jibres/includes/languages/trans_dash.php:135
-#: jibres/includes/languages/trans_project.php:2992
+#: jibres/includes/languages/trans_project.php:3003
 msgid "Hello"
 msgstr "سلام"
 
 #: dash/addons/includes/languages/trans_dash.php:214
 #: jibres/dash/addons/includes/languages/trans_dash.php:214
 #: jibres/includes/languages/trans_dash.php:136
-#: jibres/includes/languages/trans_project.php:2993
+#: jibres/includes/languages/trans_project.php:3004
 msgid "Hello "
 msgstr "سلام "
 
 #: dash/addons/includes/languages/trans_dash.php:215
 #: jibres/dash/addons/includes/languages/trans_dash.php:215
 #: jibres/includes/languages/trans_dash.php:137
-#: jibres/includes/languages/trans_project.php:2994
+#: jibres/includes/languages/trans_project.php:3005
 msgid "dear GUEST!"
 msgstr "میهمان عزیز!"
 
 #: dash/addons/includes/languages/trans_dash.php:217
 #: jibres/dash/addons/includes/languages/trans_dash.php:217
 #: jibres/includes/languages/trans_dash.php:122
-#: jibres/includes/languages/trans_project.php:2982
+#: jibres/includes/languages/trans_project.php:2993
 msgid "Quick Access"
 msgstr "دسترسی سریع"
 
 #: dash/addons/includes/languages/trans_dash.php:218
 #: jibres/dash/addons/includes/languages/trans_dash.php:218
 #: jibres/includes/languages/trans_dash.php:123
-#: jibres/includes/languages/trans_project.php:2983
+#: jibres/includes/languages/trans_project.php:2994
 msgid "Shortkey"
 msgstr "کلید میانبر"
 
 #: dash/addons/includes/languages/trans_dash.php:219
 #: jibres/dash/addons/includes/languages/trans_dash.php:219
 #: jibres/includes/languages/trans_dash.php:124
-#: jibres/includes/languages/trans_project.php:2984
+#: jibres/includes/languages/trans_project.php:2995
 msgid "CMS"
 msgstr "سیستم مدیریت محتوا"
 
 #: dash/addons/includes/languages/trans_dash.php:220
 #: jibres/dash/addons/includes/languages/trans_dash.php:220
 #: jibres/includes/languages/trans_dash.php:125
-#: jibres/includes/languages/trans_project.php:2985
+#: jibres/includes/languages/trans_project.php:2996
 msgid "CRM Panel"
 msgstr "پنل مدیریت ارتباط با مشتریان"
 
 #: dash/addons/includes/languages/trans_dash.php:221
 #: jibres/dash/addons/includes/languages/trans_dash.php:221
 #: jibres/includes/languages/trans_dash.php:126
-#: jibres/includes/languages/trans_project.php:2986
+#: jibres/includes/languages/trans_project.php:2997
 msgid "Supervisor Panel"
 msgstr "پنل مدیر فنی"
 
 #: dash/addons/includes/languages/trans_dash.php:222
 #: jibres/dash/addons/includes/languages/trans_dash.php:222
 #: jibres/includes/languages/trans_dash.php:127
-#: jibres/includes/languages/trans_project.php:2987
+#: jibres/includes/languages/trans_project.php:2998
 msgid "My Account"
 msgstr "حساب من"
 
 #: dash/addons/includes/languages/trans_dash.php:224
 #: jibres/dash/addons/includes/languages/trans_dash.php:224
 #: jibres/includes/languages/trans_dash.php:138
-#: jibres/includes/languages/trans_project.php:2995
+#: jibres/includes/languages/trans_project.php:3006
 msgid "Click to toggle sidebar status"
 msgstr "برای تغییر وضعیت منوی کناری کلیک کنید"
 
@@ -5307,21 +5308,21 @@ msgstr "خروج از سیستم"
 #: dash/addons/includes/languages/trans_dash.php:228
 #: jibres/dash/addons/includes/languages/trans_dash.php:228
 #: jibres/includes/languages/trans_dash.php:142
-#: jibres/includes/languages/trans_project.php:2996
+#: jibres/includes/languages/trans_project.php:3007
 msgid "You really want to go?"
 msgstr "واقعا میخوای بری؟"
 
 #: dash/addons/includes/languages/trans_dash.php:229
 #: jibres/dash/addons/includes/languages/trans_dash.php:229
 #: jibres/includes/languages/trans_dash.php:143
-#: jibres/includes/languages/trans_project.php:2997
+#: jibres/includes/languages/trans_project.php:3008
 msgid "We are waiting for you to come back:)"
 msgstr "ما در انتظار بازگشت دوباره شما هستیم:)"
 
 #: dash/addons/includes/languages/trans_dash.php:230
 #: jibres/dash/addons/includes/languages/trans_dash.php:230
 #: jibres/includes/languages/trans_dash.php:144
-#: jibres/includes/languages/trans_project.php:2998
+#: jibres/includes/languages/trans_project.php:3009
 msgid "Enter to have better experience"
 msgstr "وارد شوید تا تجربه بهتری داشته باشید"
 
@@ -5335,7 +5336,7 @@ msgstr "مکان فعلی خود را دیده و به مکان‌های وال�
 #: dash/addons/includes/languages/trans_dash.php:234
 #: jibres/dash/addons/includes/languages/trans_dash.php:234
 #: jibres/includes/languages/trans_dash.php:71
-#: jibres/includes/languages/trans_project.php:2942
+#: jibres/includes/languages/trans_project.php:2953
 #: jibres/includes/lib-old/app/cheque.php:79
 #: jibres/includes/lib-old/app/chequebook.php:83
 #: jibres/includes/lib-old/app/jib.php:80
@@ -5347,7 +5348,7 @@ msgstr "لطفا بانک را انتخاب کنید"
 #: jibres/dash/addons/includes/languages/trans_dash.php:235
 #: jibres/dash/addons/includes/languages/trans_static.php:510
 #: jibres/includes/languages/trans_dash.php:72
-#: jibres/includes/languages/trans_project.php:2943
+#: jibres/includes/languages/trans_project.php:2954
 msgid "Saderat"
 msgstr "بانک صادرات"
 
@@ -5356,7 +5357,7 @@ msgstr "بانک صادرات"
 #: jibres/dash/addons/includes/languages/trans_dash.php:236
 #: jibres/dash/addons/includes/languages/trans_static.php:511
 #: jibres/includes/languages/trans_dash.php:73
-#: jibres/includes/languages/trans_project.php:2944
+#: jibres/includes/languages/trans_project.php:2955
 msgid "Mellat"
 msgstr "بانک ملت"
 
@@ -5365,7 +5366,7 @@ msgstr "بانک ملت"
 #: jibres/dash/addons/includes/languages/trans_dash.php:237
 #: jibres/dash/addons/includes/languages/trans_static.php:512
 #: jibres/includes/languages/trans_dash.php:74
-#: jibres/includes/languages/trans_project.php:2945
+#: jibres/includes/languages/trans_project.php:2956
 msgid "Tejarat"
 msgstr "بانک تجارت"
 
@@ -5374,7 +5375,7 @@ msgstr "بانک تجارت"
 #: jibres/dash/addons/includes/languages/trans_dash.php:238
 #: jibres/dash/addons/includes/languages/trans_static.php:513
 #: jibres/includes/languages/trans_dash.php:75
-#: jibres/includes/languages/trans_project.php:2946
+#: jibres/includes/languages/trans_project.php:2957
 msgid "Melli"
 msgstr "بانک ملی"
 
@@ -5383,7 +5384,7 @@ msgstr "بانک ملی"
 #: jibres/dash/addons/includes/languages/trans_dash.php:239
 #: jibres/dash/addons/includes/languages/trans_static.php:514
 #: jibres/includes/languages/trans_dash.php:76
-#: jibres/includes/languages/trans_project.php:2947
+#: jibres/includes/languages/trans_project.php:2958
 msgid "Sepah"
 msgstr "بانک سپه"
 
@@ -5392,7 +5393,7 @@ msgstr "بانک سپه"
 #: jibres/dash/addons/includes/languages/trans_dash.php:240
 #: jibres/dash/addons/includes/languages/trans_static.php:515
 #: jibres/includes/languages/trans_dash.php:77
-#: jibres/includes/languages/trans_project.php:2948
+#: jibres/includes/languages/trans_project.php:2959
 msgid "Keshavarzi"
 msgstr "بانک کشاورزی"
 
@@ -5408,7 +5409,7 @@ msgstr "پارسیان"
 #: jibres/dash/addons/includes/languages/trans_dash.php:242
 #: jibres/dash/addons/includes/languages/trans_static.php:516
 #: jibres/includes/languages/trans_dash.php:79
-#: jibres/includes/languages/trans_project.php:2949
+#: jibres/includes/languages/trans_project.php:2960
 msgid "Maskan"
 msgstr "بانک مسکن"
 
@@ -5417,7 +5418,7 @@ msgstr "بانک مسکن"
 #: jibres/dash/addons/includes/languages/trans_dash.php:243
 #: jibres/dash/addons/includes/languages/trans_static.php:517
 #: jibres/includes/languages/trans_dash.php:80
-#: jibres/includes/languages/trans_project.php:2950
+#: jibres/includes/languages/trans_project.php:2961
 msgid "Refah"
 msgstr "بانک رفاه"
 
@@ -5426,7 +5427,7 @@ msgstr "بانک رفاه"
 #: jibres/dash/addons/includes/languages/trans_dash.php:244
 #: jibres/dash/addons/includes/languages/trans_static.php:518
 #: jibres/includes/languages/trans_dash.php:81
-#: jibres/includes/languages/trans_project.php:2951
+#: jibres/includes/languages/trans_project.php:2962
 msgid "Novin"
 msgstr "بانک نوین"
 
@@ -5435,7 +5436,7 @@ msgstr "بانک نوین"
 #: jibres/dash/addons/includes/languages/trans_dash.php:245
 #: jibres/dash/addons/includes/languages/trans_static.php:519
 #: jibres/includes/languages/trans_dash.php:82
-#: jibres/includes/languages/trans_project.php:2952
+#: jibres/includes/languages/trans_project.php:2963
 msgid "Ansar"
 msgstr "بانک انصار"
 
@@ -5444,7 +5445,7 @@ msgstr "بانک انصار"
 #: jibres/dash/addons/includes/languages/trans_dash.php:246
 #: jibres/dash/addons/includes/languages/trans_static.php:520
 #: jibres/includes/languages/trans_dash.php:83
-#: jibres/includes/languages/trans_project.php:2953
+#: jibres/includes/languages/trans_project.php:2964
 msgid "Pasargad"
 msgstr "بانک پاسارگاد"
 
@@ -5453,7 +5454,7 @@ msgstr "بانک پاسارگاد"
 #: jibres/dash/addons/includes/languages/trans_dash.php:247
 #: jibres/dash/addons/includes/languages/trans_static.php:521
 #: jibres/includes/languages/trans_dash.php:84
-#: jibres/includes/languages/trans_project.php:2954
+#: jibres/includes/languages/trans_project.php:2965
 msgid "Saman"
 msgstr "بانک سامان"
 
@@ -5462,7 +5463,7 @@ msgstr "بانک سامان"
 #: jibres/dash/addons/includes/languages/trans_dash.php:248
 #: jibres/dash/addons/includes/languages/trans_static.php:522
 #: jibres/includes/languages/trans_dash.php:85
-#: jibres/includes/languages/trans_project.php:2955
+#: jibres/includes/languages/trans_project.php:2966
 msgid "Sina"
 msgstr "بانک سینا"
 
@@ -5480,7 +5481,7 @@ msgstr "نوشته"
 #: jibres/dash/addons/includes/languages/trans_dash.php:250
 #: jibres/dash/addons/includes/languages/trans_static.php:524
 #: jibres/includes/languages/trans_dash.php:87
-#: jibres/includes/languages/trans_project.php:2956
+#: jibres/includes/languages/trans_project.php:2967
 msgid "Ghavamin"
 msgstr "بانک قوامین"
 
@@ -5489,7 +5490,7 @@ msgstr "بانک قوامین"
 #: jibres/dash/addons/includes/languages/trans_dash.php:251
 #: jibres/dash/addons/includes/languages/trans_static.php:525
 #: jibres/includes/languages/trans_dash.php:88
-#: jibres/includes/languages/trans_project.php:2957
+#: jibres/includes/languages/trans_project.php:2968
 msgid "Taavon"
 msgstr "بانک تعاون"
 
@@ -5498,7 +5499,7 @@ msgstr "بانک تعاون"
 #: jibres/dash/addons/includes/languages/trans_dash.php:252
 #: jibres/dash/addons/includes/languages/trans_static.php:526
 #: jibres/includes/languages/trans_dash.php:89
-#: jibres/includes/languages/trans_project.php:2958
+#: jibres/includes/languages/trans_project.php:2969
 msgid "Shahr"
 msgstr "بانک شهر"
 
@@ -5507,7 +5508,7 @@ msgstr "بانک شهر"
 #: jibres/dash/addons/includes/languages/trans_dash.php:253
 #: jibres/dash/addons/includes/languages/trans_static.php:527
 #: jibres/includes/languages/trans_dash.php:90
-#: jibres/includes/languages/trans_project.php:2959
+#: jibres/includes/languages/trans_project.php:2970
 msgid "Ayande"
 msgstr "بانک آینده"
 
@@ -5516,14 +5517,14 @@ msgstr "بانک آینده"
 #: jibres/dash/addons/includes/languages/trans_dash.php:254
 #: jibres/dash/addons/includes/languages/trans_static.php:528
 #: jibres/includes/languages/trans_dash.php:91
-#: jibres/includes/languages/trans_project.php:2960
+#: jibres/includes/languages/trans_project.php:2971
 msgid "Sarmayeh"
 msgstr "بانک سرمایه"
 
 #: dash/addons/includes/languages/trans_dash.php:255
 #: jibres/dash/addons/includes/languages/trans_dash.php:255
 #: jibres/includes/languages/trans_dash.php:92
-#: jibres/includes/languages/trans_project.php:2961
+#: jibres/includes/languages/trans_project.php:2972
 msgid "Day bank"
 msgstr "بانک دی"
 
@@ -5532,7 +5533,7 @@ msgstr "بانک دی"
 #: jibres/dash/addons/includes/languages/trans_dash.php:256
 #: jibres/dash/addons/includes/languages/trans_static.php:530
 #: jibres/includes/languages/trans_dash.php:93
-#: jibres/includes/languages/trans_project.php:2962
+#: jibres/includes/languages/trans_project.php:2973
 msgid "Hekmat"
 msgstr "بانک حکمت"
 
@@ -5541,7 +5542,7 @@ msgstr "بانک حکمت"
 #: jibres/dash/addons/includes/languages/trans_dash.php:257
 #: jibres/dash/addons/includes/languages/trans_static.php:531
 #: jibres/includes/languages/trans_dash.php:94
-#: jibres/includes/languages/trans_project.php:2963
+#: jibres/includes/languages/trans_project.php:2974
 msgid "Iranzamin"
 msgstr "بانک ایران زمین"
 
@@ -5550,7 +5551,7 @@ msgstr "بانک ایران زمین"
 #: jibres/dash/addons/includes/languages/trans_dash.php:258
 #: jibres/dash/addons/includes/languages/trans_static.php:532
 #: jibres/includes/languages/trans_dash.php:95
-#: jibres/includes/languages/trans_project.php:2964
+#: jibres/includes/languages/trans_project.php:2975
 msgid "Karafarin"
 msgstr "بانک کار آفرین"
 
@@ -5559,7 +5560,7 @@ msgstr "بانک کار آفرین"
 #: jibres/dash/addons/includes/languages/trans_dash.php:259
 #: jibres/dash/addons/includes/languages/trans_static.php:533
 #: jibres/includes/languages/trans_dash.php:96
-#: jibres/includes/languages/trans_project.php:2965
+#: jibres/includes/languages/trans_project.php:2976
 msgid "Gardeshgari"
 msgstr "بانک گردشگری"
 
@@ -5568,7 +5569,7 @@ msgstr "بانک گردشگری"
 #: jibres/dash/addons/includes/languages/trans_dash.php:260
 #: jibres/dash/addons/includes/languages/trans_static.php:534
 #: jibres/includes/languages/trans_dash.php:97
-#: jibres/includes/languages/trans_project.php:2966
+#: jibres/includes/languages/trans_project.php:2977
 msgid "Madan"
 msgstr "بانک مدائن"
 
@@ -5577,7 +5578,7 @@ msgstr "بانک مدائن"
 #: jibres/dash/addons/includes/languages/trans_dash.php:261
 #: jibres/dash/addons/includes/languages/trans_static.php:535
 #: jibres/includes/languages/trans_dash.php:98
-#: jibres/includes/languages/trans_project.php:2967
+#: jibres/includes/languages/trans_project.php:2978
 msgid "Tsaderat"
 msgstr "بانک صادرات"
 
@@ -5586,7 +5587,7 @@ msgstr "بانک صادرات"
 #: jibres/dash/addons/includes/languages/trans_dash.php:262
 #: jibres/dash/addons/includes/languages/trans_static.php:536
 #: jibres/includes/languages/trans_dash.php:99
-#: jibres/includes/languages/trans_project.php:2968
+#: jibres/includes/languages/trans_project.php:2979
 msgid "Khavarmiyane"
 msgstr "بانک خاور میانه"
 
@@ -5595,7 +5596,7 @@ msgstr "بانک خاور میانه"
 #: jibres/dash/addons/includes/languages/trans_dash.php:263
 #: jibres/dash/addons/includes/languages/trans_static.php:537
 #: jibres/includes/languages/trans_dash.php:100
-#: jibres/includes/languages/trans_project.php:2969
+#: jibres/includes/languages/trans_project.php:2980
 msgid "Ivbb"
 msgstr "بانک مشترک ایران و ونزوئلا"
 
@@ -5604,7 +5605,7 @@ msgstr "بانک مشترک ایران و ونزوئلا"
 #: jibres/dash/addons/includes/languages/trans_dash.php:264
 #: jibres/dash/addons/includes/languages/trans_static.php:538
 #: jibres/includes/languages/trans_dash.php:101
-#: jibres/includes/languages/trans_project.php:2970
+#: jibres/includes/languages/trans_project.php:2981
 msgid "Irkish"
 msgstr "ایران کیش"
 
@@ -5613,7 +5614,7 @@ msgstr "ایران کیش"
 #: jibres/dash/addons/includes/languages/trans_dash.php:265
 #: jibres/dash/addons/includes/languages/trans_static.php:539
 #: jibres/includes/languages/trans_dash.php:102
-#: jibres/includes/languages/trans_project.php:2971
+#: jibres/includes/languages/trans_project.php:2982
 msgid "Asanpardakht"
 msgstr "آسان پرداخت"
 
@@ -5622,7 +5623,7 @@ msgstr "آسان پرداخت"
 #: jibres/dash/addons/includes/languages/trans_dash.php:266
 #: jibres/dash/addons/includes/languages/trans_static.php:540
 #: jibres/includes/languages/trans_dash.php:103
-#: jibres/includes/languages/trans_project.php:2972
+#: jibres/includes/languages/trans_project.php:2983
 msgid "Zarinpal"
 msgstr "زرین پال"
 
@@ -5631,56 +5632,56 @@ msgstr "زرین پال"
 #: jibres/dash/addons/includes/languages/trans_dash.php:267
 #: jibres/dash/addons/includes/languages/trans_static.php:541
 #: jibres/includes/languages/trans_dash.php:104
-#: jibres/includes/languages/trans_project.php:2973
+#: jibres/includes/languages/trans_project.php:2984
 msgid "Payir"
 msgstr "پی‌آی‌آر"
 
 #: dash/addons/includes/languages/trans_dash.php:271
 #: jibres/dash/addons/includes/languages/trans_dash.php:271
 #: jibres/includes/languages/trans_dash.php:9
-#: jibres/includes/languages/trans_project.php:2891
+#: jibres/includes/languages/trans_project.php:2902
 msgid "Please enter valid mobile number"
 msgstr "لطفا شماره موبایل معتبری وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:272
 #: jibres/dash/addons/includes/languages/trans_dash.php:272
 #: jibres/includes/languages/trans_dash.php:10
-#: jibres/includes/languages/trans_project.php:2892
+#: jibres/includes/languages/trans_project.php:2903
 msgid "Enter correct iranian mobile starting with zero like 0935"
 msgstr "شماره موبایل ایران را همراه با صفر وارد کنید مثل 0935"
 
 #: dash/addons/includes/languages/trans_dash.php:273
 #: jibres/dash/addons/includes/languages/trans_dash.php:273
 #: jibres/includes/languages/trans_dash.php:11
-#: jibres/includes/languages/trans_project.php:2893
+#: jibres/includes/languages/trans_project.php:2904
 msgid "Enter your mobile number"
 msgstr "شماره موبایل خود را وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:274
 #: jibres/dash/addons/includes/languages/trans_dash.php:274
 #: jibres/includes/languages/trans_dash.php:12
-#: jibres/includes/languages/trans_project.php:2894
+#: jibres/includes/languages/trans_project.php:2905
 msgid "Username or Mobile or email"
 msgstr "نام کاربری یا موبایل یا رایانامه"
 
 #: dash/addons/includes/languages/trans_dash.php:275
 #: jibres/dash/addons/includes/languages/trans_dash.php:275
 #: jibres/includes/languages/trans_dash.php:13
-#: jibres/includes/languages/trans_project.php:2895
+#: jibres/includes/languages/trans_project.php:2906
 msgid "Please enter valid mobile or username or email number"
 msgstr "لطفا نام‌کاربری یا موبایل یا رایانامه معتبری وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:276
 #: jibres/dash/addons/includes/languages/trans_dash.php:276
 #: jibres/includes/languages/trans_dash.php:14
-#: jibres/includes/languages/trans_project.php:2896
+#: jibres/includes/languages/trans_project.php:2907
 msgid "Username or Mobile or Email"
 msgstr "نام کاربری یا موبایل یا رایانامه"
 
 #: dash/addons/includes/languages/trans_dash.php:278
 #: jibres/dash/addons/includes/languages/trans_dash.php:278
 #: jibres/includes/languages/trans_dash.php:16
-#: jibres/includes/languages/trans_project.php:2897
+#: jibres/includes/languages/trans_project.php:2908
 msgid "Click to see your password"
 msgstr "برای مشاهده گذرواژه وارد شده کلیک کنید"
 
@@ -5689,70 +5690,70 @@ msgstr "برای مشاهده گذرواژه وارد شده کلیک کنید"
 #: jibres/dash/addons/includes/languages/trans_dash.php:279
 #: jibres/dash/addons/includes/languages/trans_static.php:341
 #: jibres/includes/languages/trans_dash.php:17
-#: jibres/includes/languages/trans_project.php:2898
+#: jibres/includes/languages/trans_project.php:2909
 msgid "New Password"
 msgstr "گذرواژه جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:280
 #: jibres/dash/addons/includes/languages/trans_dash.php:280
 #: jibres/includes/languages/trans_dash.php:18
-#: jibres/includes/languages/trans_project.php:2899
+#: jibres/includes/languages/trans_project.php:2910
 msgid "Enter a password between 7 and 40 characters"
 msgstr "گذرواژه‌ای بین ۷ تا ۴۰ کاراکتر وارد کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:281
 #: jibres/dash/addons/includes/languages/trans_dash.php:281
 #: jibres/includes/languages/trans_dash.php:19
-#: jibres/includes/languages/trans_project.php:2900
+#: jibres/includes/languages/trans_project.php:2911
 msgid "Password is password."
 msgstr "گذرواژه همان کلمه‌عبور یا رمز شماست. سعی کنیم فارسی صحبت کنیم:)"
 
 #: dash/addons/includes/languages/trans_dash.php:282
 #: jibres/dash/addons/includes/languages/trans_dash.php:282
 #: jibres/includes/languages/trans_dash.php:20
-#: jibres/includes/languages/trans_project.php:2901
+#: jibres/includes/languages/trans_project.php:2912
 msgid "Password?"
 msgstr "کلمه عبور؟"
 
 #: dash/addons/includes/languages/trans_dash.php:283
 #: jibres/dash/addons/includes/languages/trans_dash.php:283
 #: jibres/includes/languages/trans_dash.php:21
-#: jibres/includes/languages/trans_project.php:2902
+#: jibres/includes/languages/trans_project.php:2913
 msgid "Verify Code"
 msgstr "کد اعتبارسنجی"
 
 #: dash/addons/includes/languages/trans_dash.php:284
 #: jibres/dash/addons/includes/languages/trans_dash.php:284
 #: jibres/includes/languages/trans_dash.php:23
-#: jibres/includes/languages/trans_project.php:2903
+#: jibres/includes/languages/trans_project.php:2914
 msgid "Send this code to our number!"
 msgstr "این کد را به شماره‌ی ما پیامک کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:285
 #: jibres/dash/addons/includes/languages/trans_dash.php:285
 #: jibres/includes/languages/trans_dash.php:24
-#: jibres/includes/languages/trans_project.php:2904
+#: jibres/includes/languages/trans_project.php:2915
 msgid "send to this number"
 msgstr "به این شماره پیامک کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:286
 #: jibres/dash/addons/includes/languages/trans_dash.php:286
 #: jibres/includes/languages/trans_dash.php:25
-#: jibres/includes/languages/trans_project.php:2905
+#: jibres/includes/languages/trans_project.php:2916
 msgid "Send code to this number!"
 msgstr "کد را به این شماره ارسال کنید!"
 
 #: dash/addons/includes/languages/trans_dash.php:287
 #: jibres/dash/addons/includes/languages/trans_dash.php:287
 #: jibres/includes/languages/trans_dash.php:27
-#: jibres/includes/languages/trans_project.php:2906
+#: jibres/includes/languages/trans_project.php:2917
 msgid "We will call you with this name"
 msgstr "شما را با این نام صدا خواهیم کرد"
 
 #: dash/addons/includes/languages/trans_dash.php:288
 #: jibres/dash/addons/includes/languages/trans_dash.php:288
 #: jibres/includes/languages/trans_dash.php:28
-#: jibres/includes/languages/trans_project.php:2907
+#: jibres/includes/languages/trans_project.php:2918
 msgid "Full name"
 msgstr "نام کامل"
 
@@ -5776,7 +5777,7 @@ msgstr "رایانامه"
 #: dash/addons/includes/languages/trans_dash.php:291
 #: jibres/dash/addons/includes/languages/trans_dash.php:291
 #: jibres/includes/languages/trans_dash.php:31
-#: jibres/includes/languages/trans_project.php:2908
+#: jibres/includes/languages/trans_project.php:2919
 msgid "Enter a valid eamil!"
 msgstr "رایانامه‌ی معتبر را وارد کنید!"
 
@@ -5785,14 +5786,14 @@ msgstr "رایانامه‌ی معتبر را وارد کنید!"
 #: jibres/dash/addons/includes/languages/trans_dash.php:292
 #: jibres/dash/addons/includes/languages/trans_static.php:404
 #: jibres/includes/languages/trans_dash.php:32
-#: jibres/includes/languages/trans_project.php:2909
+#: jibres/includes/languages/trans_project.php:2920
 msgid "username"
 msgstr "نام‌کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:293
 #: jibres/dash/addons/includes/languages/trans_dash.php:293
 #: jibres/includes/languages/trans_dash.php:33
-#: jibres/includes/languages/trans_project.php:2910
+#: jibres/includes/languages/trans_project.php:2921
 msgid "Enter a valid username from 4 to 50 character"
 msgstr "نام‌کاربری معتبری بین ۴ تا ۵۰ کاراکتر وارد کنید"
 
@@ -5806,14 +5807,14 @@ msgstr "حذف حساب کاربری"
 #: dash/addons/includes/languages/trans_dash.php:296
 #: jibres/dash/addons/includes/languages/trans_dash.php:296
 #: jibres/includes/languages/trans_dash.php:36
-#: jibres/includes/languages/trans_project.php:2911
+#: jibres/includes/languages/trans_project.php:2922
 msgid "Go and check it"
 msgstr "برو و چک کن"
 
 #: dash/addons/includes/languages/trans_dash.php:298
 #: jibres/dash/addons/includes/languages/trans_dash.php:298
 #: jibres/includes/languages/trans_dash.php:38
-#: jibres/includes/languages/trans_project.php:2912
+#: jibres/includes/languages/trans_project.php:2923
 msgid "Sign in instead"
 msgstr "یا وارد شوید"
 
@@ -5822,49 +5823,49 @@ msgstr "یا وارد شوید"
 #: jibres/dash/addons/includes/languages/trans_dash.php:299
 #: jibres/dash/addons/includes/languages/trans_static.php:171
 #: jibres/includes/languages/trans_dash.php:39
-#: jibres/includes/languages/trans_project.php:2913
+#: jibres/includes/languages/trans_project.php:2924
 msgid "Login"
 msgstr "ورود به سیستم"
 
 #: dash/addons/includes/languages/trans_dash.php:300
 #: jibres/dash/addons/includes/languages/trans_dash.php:300
 #: jibres/includes/languages/trans_dash.php:40
-#: jibres/includes/languages/trans_project.php:2914
+#: jibres/includes/languages/trans_project.php:2925
 msgid "Go back"
 msgstr "برگرد"
 
 #: dash/addons/includes/languages/trans_dash.php:301
 #: jibres/dash/addons/includes/languages/trans_dash.php:301
 #: jibres/includes/languages/trans_dash.php:41
-#: jibres/includes/languages/trans_project.php:2915
+#: jibres/includes/languages/trans_project.php:2926
 msgid "No account?"
 msgstr "حساب کاربری ندارید؟"
 
 #: dash/addons/includes/languages/trans_dash.php:302
 #: jibres/dash/addons/includes/languages/trans_dash.php:302
 #: jibres/includes/languages/trans_dash.php:42
-#: jibres/includes/languages/trans_project.php:2916
+#: jibres/includes/languages/trans_project.php:2927
 msgid "Create for yourself"
 msgstr "حساب کاربری خود را بسازید"
 
 #: dash/addons/includes/languages/trans_dash.php:303
 #: jibres/dash/addons/includes/languages/trans_dash.php:303
 #: jibres/includes/languages/trans_dash.php:43
-#: jibres/includes/languages/trans_project.php:2917
+#: jibres/includes/languages/trans_project.php:2928
 msgid "Create Account"
 msgstr "ساخت حساب کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:304
 #: jibres/dash/addons/includes/languages/trans_dash.php:304
 #: jibres/includes/languages/trans_dash.php:44
-#: jibres/includes/languages/trans_project.php:2918
+#: jibres/includes/languages/trans_project.php:2929
 msgid "Sign Up"
 msgstr "ثبت‌نام"
 
 #: dash/addons/includes/languages/trans_dash.php:306
 #: jibres/dash/addons/includes/languages/trans_dash.php:306
 #: jibres/includes/languages/trans_dash.php:46
-#: jibres/includes/languages/trans_project.php:2920
+#: jibres/includes/languages/trans_project.php:2931
 msgid "Recovery password"
 msgstr "بازیابی گذرواژه"
 
@@ -5878,91 +5879,91 @@ msgstr "تایید"
 #: dash/addons/includes/languages/trans_dash.php:309
 #: jibres/dash/addons/includes/languages/trans_dash.php:309
 #: jibres/includes/languages/trans_dash.php:49
-#: jibres/includes/languages/trans_project.php:2921
+#: jibres/includes/languages/trans_project.php:2932
 msgid "Enter with another methods"
 msgstr "ورود با سایر روش‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:310
 #: jibres/dash/addons/includes/languages/trans_dash.php:310
 #: jibres/includes/languages/trans_dash.php:50
-#: jibres/includes/languages/trans_project.php:2922
+#: jibres/includes/languages/trans_project.php:2933
 msgid "Log in with mobile"
 msgstr "ورود با موبایل"
 
 #: dash/addons/includes/languages/trans_dash.php:311
 #: jibres/dash/addons/includes/languages/trans_dash.php:311
 #: jibres/includes/languages/trans_dash.php:51
-#: jibres/includes/languages/trans_project.php:2923
+#: jibres/includes/languages/trans_project.php:2934
 msgid "Enter with mobile"
 msgstr "ورود با موبایل"
 
 #: dash/addons/includes/languages/trans_dash.php:312
 #: jibres/dash/addons/includes/languages/trans_dash.php:312
 #: jibres/includes/languages/trans_dash.php:52
-#: jibres/includes/languages/trans_project.php:2924
+#: jibres/includes/languages/trans_project.php:2935
 msgid "Enter with Google"
 msgstr "ورود با گوگل"
 
 #: dash/addons/includes/languages/trans_dash.php:313
 #: jibres/dash/addons/includes/languages/trans_dash.php:313
 #: jibres/includes/languages/trans_dash.php:53
-#: jibres/includes/languages/trans_project.php:2925
+#: jibres/includes/languages/trans_project.php:2936
 msgid "Enter with email"
 msgstr "ورود با رایانامه"
 
 #: dash/addons/includes/languages/trans_dash.php:314
 #: jibres/dash/addons/includes/languages/trans_dash.php:314
 #: jibres/includes/languages/trans_dash.php:54
-#: jibres/includes/languages/trans_project.php:2926
+#: jibres/includes/languages/trans_project.php:2937
 msgid "Enter with username"
 msgstr "ورود با نام‌کاربری"
 
 #: dash/addons/includes/languages/trans_dash.php:315
 #: jibres/dash/addons/includes/languages/trans_dash.php:315
 #: jibres/includes/languages/trans_dash.php:55
-#: jibres/includes/languages/trans_project.php:2927
+#: jibres/includes/languages/trans_project.php:2938
 msgid "Resend code"
 msgstr "ارسال دوباره‌ی کد"
 
 #: dash/addons/includes/languages/trans_dash.php:316
 #: jibres/dash/addons/includes/languages/trans_dash.php:316
 #: jibres/includes/languages/trans_dash.php:56
-#: jibres/includes/languages/trans_project.php:2928
+#: jibres/includes/languages/trans_project.php:2939
 msgid "After end timer you can request code again"
 msgstr "پس از به‌اتمام رسیدن زمان، شما امکان درخواست مجدد کد را خواهید داشت"
 
 #: dash/addons/includes/languages/trans_dash.php:317
 #: jibres/dash/addons/includes/languages/trans_dash.php:317
 #: jibres/includes/languages/trans_dash.php:57
-#: jibres/includes/languages/trans_project.php:2929
+#: jibres/includes/languages/trans_project.php:2940
 msgid "Another way?"
 msgstr "روش دیگر؟"
 
 #: dash/addons/includes/languages/trans_dash.php:318
 #: jibres/dash/addons/includes/languages/trans_dash.php:318
 #: jibres/includes/languages/trans_dash.php:58
-#: jibres/includes/languages/trans_project.php:2930
+#: jibres/includes/languages/trans_project.php:2941
 msgid "Restart with new mobile"
 msgstr "شروع دوباره با موبایل جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:319
 #: jibres/dash/addons/includes/languages/trans_dash.php:319
 #: jibres/includes/languages/trans_dash.php:59
-#: jibres/includes/languages/trans_project.php:2931
+#: jibres/includes/languages/trans_project.php:2942
 msgid "New email"
 msgstr "رایانامه‌ی جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:320
 #: jibres/dash/addons/includes/languages/trans_dash.php:320
 #: jibres/includes/languages/trans_dash.php:60
-#: jibres/includes/languages/trans_project.php:2932
+#: jibres/includes/languages/trans_project.php:2943
 msgid "New username"
 msgstr "نام کاربری جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:321
 #: jibres/dash/addons/includes/languages/trans_dash.php:321
 #: jibres/includes/languages/trans_dash.php:61
-#: jibres/includes/languages/trans_project.php:2933
+#: jibres/includes/languages/trans_project.php:2944
 msgid "Enter a valid username!"
 msgstr "نام کاربری معتبر وارد کنید!"
 
@@ -7793,7 +7794,7 @@ msgstr "برای ادامه شما باید تلفن‌همراه یا رایا�
 
 #: dash/addons/includes/languages/trans_dash.php:736
 #: jibres/dash/addons/includes/languages/trans_dash.php:736
-#: jibres/includes/languages/trans_project.php:2807
+#: jibres/includes/languages/trans_project.php:2818
 msgid "Support Dashboard"
 msgstr "داشبورد پشتیبانی"
 
@@ -7801,13 +7802,13 @@ msgstr "داشبورد پشتیبانی"
 #: dash/addons/includes/languages/trans_static.php:1111
 #: jibres/dash/addons/includes/languages/trans_dash.php:737
 #: jibres/dash/addons/includes/languages/trans_static.php:1111
-#: jibres/includes/languages/trans_project.php:2808
+#: jibres/includes/languages/trans_project.php:2819
 msgid "New Ticket"
 msgstr "تیکت جدید"
 
 #: dash/addons/includes/languages/trans_dash.php:738
 #: jibres/dash/addons/includes/languages/trans_dash.php:738
-#: jibres/includes/languages/trans_project.php:2809
+#: jibres/includes/languages/trans_project.php:2820
 msgid "Awaiting answer"
 msgstr "در انتظار پاسخ"
 
@@ -7815,13 +7816,13 @@ msgstr "در انتظار پاسخ"
 #: dash/addons/includes/languages/trans_static.php:994
 #: jibres/dash/addons/includes/languages/trans_dash.php:739
 #: jibres/dash/addons/includes/languages/trans_static.php:994
-#: jibres/includes/languages/trans_project.php:2810
+#: jibres/includes/languages/trans_project.php:2821
 msgid "Answered"
 msgstr "پاسخ داده شده"
 
 #: dash/addons/includes/languages/trans_dash.php:740
 #: jibres/dash/addons/includes/languages/trans_dash.php:740
-#: jibres/includes/languages/trans_project.php:2811
+#: jibres/includes/languages/trans_project.php:2822
 msgid "Unsolved"
 msgstr "حل نشده"
 
@@ -7835,43 +7836,43 @@ msgstr "حل شده"
 
 #: dash/addons/includes/languages/trans_dash.php:743
 #: jibres/dash/addons/includes/languages/trans_dash.php:743
-#: jibres/includes/languages/trans_project.php:2813
+#: jibres/includes/languages/trans_project.php:2824
 msgid "Archived"
 msgstr "بایگانی شده"
 
 #: dash/addons/includes/languages/trans_dash.php:744
 #: jibres/dash/addons/includes/languages/trans_dash.php:744
-#: jibres/includes/languages/trans_project.php:2814
+#: jibres/includes/languages/trans_project.php:2825
 msgid "Ticket Topics"
 msgstr "موضوعات تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:747
 #: jibres/dash/addons/includes/languages/trans_dash.php:747
-#: jibres/includes/languages/trans_project.php:2817
+#: jibres/includes/languages/trans_project.php:2828
 msgid "Ticket Subject"
 msgstr "موضوع تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:748
 #: jibres/dash/addons/includes/languages/trans_dash.php:748
-#: jibres/includes/languages/trans_project.php:2818
+#: jibres/includes/languages/trans_project.php:2829
 msgid "Subject of your ticket"
 msgstr "عنوان تیکت شما"
 
 #: dash/addons/includes/languages/trans_dash.php:749
 #: jibres/dash/addons/includes/languages/trans_dash.php:749
-#: jibres/includes/languages/trans_project.php:2819
+#: jibres/includes/languages/trans_project.php:2830
 msgid "Set title will help us answer quickly"
 msgstr "تنظیم عنوان تیکت به ما کمک می‌کند تا سریع‌تر پاسخگو باشیم"
 
 #: dash/addons/includes/languages/trans_dash.php:750
 #: jibres/dash/addons/includes/languages/trans_dash.php:750
-#: jibres/includes/languages/trans_project.php:2820
+#: jibres/includes/languages/trans_project.php:2831
 msgid "Please write your message"
 msgstr "لطفا پیام خود را بنویسید"
 
 #: dash/addons/includes/languages/trans_dash.php:751
 #: jibres/dash/addons/includes/languages/trans_dash.php:751
-#: jibres/includes/languages/trans_project.php:2821
+#: jibres/includes/languages/trans_project.php:2832
 msgid "Max size"
 msgstr "حداکثر اندازه"
 
@@ -7887,31 +7888,31 @@ msgstr "مگابایت"
 
 #: dash/addons/includes/languages/trans_dash.php:753
 #: jibres/dash/addons/includes/languages/trans_dash.php:753
-#: jibres/includes/languages/trans_project.php:2822
+#: jibres/includes/languages/trans_project.php:2833
 msgid "Send notify about your answer to creator of ticket"
 msgstr "سازنده تیکت را در جریان پاسخ شما قرار دهیم"
 
 #: dash/addons/includes/languages/trans_dash.php:754
 #: jibres/dash/addons/includes/languages/trans_dash.php:754
-#: jibres/includes/languages/trans_project.php:2823
+#: jibres/includes/languages/trans_project.php:2834
 msgid "Via sms to"
 msgstr "با ارسال پیامک به"
 
 #: dash/addons/includes/languages/trans_dash.php:755
 #: jibres/dash/addons/includes/languages/trans_dash.php:755
-#: jibres/includes/languages/trans_project.php:2824
+#: jibres/includes/languages/trans_project.php:2835
 msgid "Via telegram"
 msgstr "با تلگرام"
 
 #: dash/addons/includes/languages/trans_dash.php:756
 #: jibres/dash/addons/includes/languages/trans_dash.php:756
-#: jibres/includes/languages/trans_project.php:2825
+#: jibres/includes/languages/trans_project.php:2836
 msgid "Submit a ticket"
 msgstr "ارسال تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:757
 #: jibres/dash/addons/includes/languages/trans_dash.php:757
-#: jibres/includes/languages/trans_project.php:2826
+#: jibres/includes/languages/trans_project.php:2837
 msgid "Send new message"
 msgstr "ارسال پیام جدید"
 
@@ -7923,7 +7924,7 @@ msgstr "افزودن یادداشت"
 
 #: dash/addons/includes/languages/trans_dash.php:761
 #: jibres/dash/addons/includes/languages/trans_dash.php:761
-#: jibres/includes/languages/trans_project.php:2834
+#: jibres/includes/languages/trans_project.php:2845
 msgid ""
 "If your problem is solved or do not need to track, please close this ticket by "
 "press below bottom."
@@ -7933,25 +7934,25 @@ msgstr ""
 
 #: dash/addons/includes/languages/trans_dash.php:762
 #: jibres/dash/addons/includes/languages/trans_dash.php:762
-#: jibres/includes/languages/trans_project.php:2835
+#: jibres/includes/languages/trans_project.php:2846
 msgid "You can open it anytime you need."
 msgstr "شما می‌توانید تیکت را هر زمانی که مایل بودید مجدد باز کنید."
 
 #: dash/addons/includes/languages/trans_dash.php:763
 #: jibres/dash/addons/includes/languages/trans_dash.php:763
-#: jibres/includes/languages/trans_project.php:2836
+#: jibres/includes/languages/trans_project.php:2847
 msgid "Close ticket"
 msgstr "بستن تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:764
 #: jibres/dash/addons/includes/languages/trans_dash.php:764
-#: jibres/includes/languages/trans_project.php:2837
+#: jibres/includes/languages/trans_project.php:2848
 msgid "This ticket is closed."
 msgstr "این تیکت بسته شده است."
 
 #: dash/addons/includes/languages/trans_dash.php:765
 #: jibres/dash/addons/includes/languages/trans_dash.php:765
-#: jibres/includes/languages/trans_project.php:2838
+#: jibres/includes/languages/trans_project.php:2849
 msgid "Also you can delete it if you do not need it."
 msgstr "هم‌چنین در صورت عدم نیاز می‌توانید آن را حذف کنید."
 
@@ -7959,51 +7960,51 @@ msgstr "هم‌چنین در صورت عدم نیاز می‌توانید آن �
 #: dash/lib/app/log/caller/ticket/ticket_setDeleteTicket.php:8
 #: jibres/dash/addons/includes/languages/trans_dash.php:766
 #: jibres/dash/lib/app/log/caller/ticket/ticket_setDeleteTicket.php:8
-#: jibres/includes/languages/trans_project.php:2839
+#: jibres/includes/languages/trans_project.php:2850
 msgid "Delete ticket"
 msgstr "حذف تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:767
 #: jibres/dash/addons/includes/languages/trans_dash.php:767
-#: jibres/includes/languages/trans_project.php:2840
+#: jibres/includes/languages/trans_project.php:2851
 msgid "Open it again"
 msgstr "دوباره بازش کن"
 
 #: dash/addons/includes/languages/trans_dash.php:768
 #: jibres/dash/addons/includes/languages/trans_dash.php:768
-#: jibres/includes/languages/trans_project.php:2841
+#: jibres/includes/languages/trans_project.php:2852
 msgid "This is deleted ticket."
 msgstr "این تیکت حذف شده است."
 
 #: dash/addons/includes/languages/trans_dash.php:769
 #: jibres/dash/addons/includes/languages/trans_dash.php:769
-#: jibres/includes/languages/trans_project.php:2842
+#: jibres/includes/languages/trans_project.php:2853
 msgid "You can change it to close condition if need to save it in history!"
 msgstr ""
 "شما می‌توانید برای نگهداری این تیکت در تاریخچه وضعیت آن را به بسته‌شده تغییر دهید!"
 
 #: dash/addons/includes/languages/trans_dash.php:770
 #: jibres/dash/addons/includes/languages/trans_dash.php:770
-#: jibres/includes/languages/trans_project.php:2843
+#: jibres/includes/languages/trans_project.php:2854
 msgid "Not spam"
 msgstr "جفنگ نیست"
 
 #: dash/addons/includes/languages/trans_dash.php:771
 #: jibres/dash/addons/includes/languages/trans_dash.php:771
-#: jibres/includes/languages/trans_project.php:2844
+#: jibres/includes/languages/trans_project.php:2855
 msgid "If your problem is not solved yet, please set this ticket as unsolved"
 msgstr ""
 "اگر مشکل مطرح شده همچنان باقی است، لطفا این تیکت را در حالت حل نشده قرار دهید"
 
 #: dash/addons/includes/languages/trans_dash.php:772
 #: jibres/dash/addons/includes/languages/trans_dash.php:772
-#: jibres/includes/languages/trans_project.php:2845
+#: jibres/includes/languages/trans_project.php:2856
 msgid "Un Solved ticket"
 msgstr "ثبت به عنوان حل نشده"
 
 #: dash/addons/includes/languages/trans_dash.php:773
 #: jibres/dash/addons/includes/languages/trans_dash.php:773
-#: jibres/includes/languages/trans_project.php:2846
+#: jibres/includes/languages/trans_project.php:2857
 msgid "If your problem is solved, please set this ticket as solved"
 msgstr "اگر مشکل مطرح حل شده است، لطفا این تیکت را در حالت حل شده قرار دهید"
 
@@ -8015,13 +8016,13 @@ msgstr "ذخیره کلیدواژه"
 
 #: dash/addons/includes/languages/trans_dash.php:776
 #: jibres/dash/addons/includes/languages/trans_dash.php:776
-#: jibres/includes/languages/trans_project.php:2848
+#: jibres/includes/languages/trans_project.php:2859
 msgid "Last seen"
 msgstr "آخرین بازدید"
 
 #: dash/addons/includes/languages/trans_dash.php:777
 #: jibres/dash/addons/includes/languages/trans_dash.php:777
-#: jibres/includes/languages/trans_project.php:2849
+#: jibres/includes/languages/trans_project.php:2860
 msgid "Ticket No"
 msgstr "شماره تیکت"
 
@@ -8033,43 +8034,43 @@ msgstr "آخرین فعالیت"
 
 #: dash/addons/includes/languages/trans_dash.php:779
 #: jibres/dash/addons/includes/languages/trans_dash.php:779
-#: jibres/includes/languages/trans_project.php:2850
+#: jibres/includes/languages/trans_project.php:2861
 msgid "Subject of ticket"
 msgstr "عنوان تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:780
 #: jibres/dash/addons/includes/languages/trans_dash.php:780
-#: jibres/includes/languages/trans_project.php:2851
+#: jibres/includes/languages/trans_project.php:2862
 msgid "Set the title to get faster"
 msgstr "برای دسترسی سریع‌تر عنوان را تنظیم کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:781
 #: jibres/dash/addons/includes/languages/trans_dash.php:781
-#: jibres/includes/languages/trans_project.php:2852
+#: jibres/includes/languages/trans_project.php:2863
 msgid "User tickets"
 msgstr "تیکت‌های کاربر"
 
 #: dash/addons/includes/languages/trans_dash.php:782
 #: jibres/dash/addons/includes/languages/trans_dash.php:782
-#: jibres/includes/languages/trans_project.php:2853
+#: jibres/includes/languages/trans_project.php:2864
 msgid "View attachment"
 msgstr "مشاهده ضمیمه"
 
 #: dash/addons/includes/languages/trans_dash.php:783
 #: jibres/dash/addons/includes/languages/trans_dash.php:783
-#: jibres/includes/languages/trans_project.php:2854
+#: jibres/includes/languages/trans_project.php:2865
 msgid "Add tag manually to link tickets togethers"
 msgstr "کلدواژه را به صورت دستی اضافه کنید تا تیکت‌ها را در کنار هم قرار دهید"
 
 #: dash/addons/includes/languages/trans_dash.php:784
 #: jibres/dash/addons/includes/languages/trans_dash.php:784
-#: jibres/includes/languages/trans_project.php:2855
+#: jibres/includes/languages/trans_project.php:2866
 msgid "Current Time"
 msgstr "زمان فعلی"
 
 #: dash/addons/includes/languages/trans_dash.php:785
 #: jibres/dash/addons/includes/languages/trans_dash.php:785
-#: jibres/includes/languages/trans_project.php:2856
+#: jibres/includes/languages/trans_project.php:2867
 msgid "Notification procedures"
 msgstr "روش‌های اعلان"
 
@@ -8081,13 +8082,13 @@ msgstr "نام"
 
 #: dash/addons/includes/languages/trans_dash.php:788
 #: jibres/dash/addons/includes/languages/trans_dash.php:788
-#: jibres/includes/languages/trans_project.php:2857
+#: jibres/includes/languages/trans_project.php:2868
 msgid "Do you know you can connect your account with our Telegram bot"
 msgstr "<b>آیا می‌دانید</b> می‌توانید حساب کاربری خود را به ربات تلگرام ما وصل کنید"
 
 #: dash/addons/includes/languages/trans_dash.php:789
 #: jibres/dash/addons/includes/languages/trans_dash.php:789
-#: jibres/includes/languages/trans_project.php:2858
+#: jibres/includes/languages/trans_project.php:2869
 msgid "Just need to start bot in Telegram and sync your account via /sync."
 msgstr ""
 "تنها کافی‌است ربات را شروع کرده و حساب خود را از طریق دستور /sync به وب‌سایت متصل "
@@ -8095,85 +8096,85 @@ msgstr ""
 
 #: dash/addons/includes/languages/trans_dash.php:790
 #: jibres/dash/addons/includes/languages/trans_dash.php:790
-#: jibres/includes/languages/trans_project.php:2795
+#: jibres/includes/languages/trans_project.php:2806
 msgid "Short link"
 msgstr "لینک کوتاه"
 
 #: dash/addons/includes/languages/trans_dash.php:793
 #: jibres/dash/addons/includes/languages/trans_dash.php:793
-#: jibres/includes/languages/trans_project.php:2878
+#: jibres/includes/languages/trans_project.php:2889
 msgid "Please log in if you need to store this ticket and track it in the future"
 msgstr "لطفا برای ذخیره و پیگیری‌های بعدی این تیکت وارد سیستم شوید"
 
 #: dash/addons/includes/languages/trans_dash.php:798
 #: jibres/dash/addons/includes/languages/trans_dash.php:798
-#: jibres/includes/languages/trans_project.php:2861
+#: jibres/includes/languages/trans_project.php:2872
 msgid "My tickets"
 msgstr "تیکت‌های من"
 
 #: dash/addons/includes/languages/trans_dash.php:799
 #: jibres/dash/addons/includes/languages/trans_dash.php:799
-#: jibres/includes/languages/trans_project.php:2862
+#: jibres/includes/languages/trans_project.php:2873
 msgid "Manage tickets"
 msgstr "مدیریت تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:800
 #: jibres/dash/addons/includes/languages/trans_dash.php:800
-#: jibres/includes/languages/trans_project.php:2863
+#: jibres/includes/languages/trans_project.php:2874
 msgid "Manage all tickets"
 msgstr "مدیریت تمامی تیکت‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:803
 #: jibres/dash/addons/includes/languages/trans_dash.php:803
-#: jibres/includes/languages/trans_project.php:2866
+#: jibres/includes/languages/trans_project.php:2877
 msgid "No ticket was found"
 msgstr "تیکتی یافت نشد"
 
 #: dash/addons/includes/languages/trans_dash.php:805
 #: jibres/dash/addons/includes/languages/trans_dash.php:805
-#: jibres/includes/languages/trans_project.php:2868
+#: jibres/includes/languages/trans_project.php:2879
 msgid "Active tickets"
 msgstr "تیکت‌های فعال"
 
 #: dash/addons/includes/languages/trans_dash.php:806
 #: jibres/dash/addons/includes/languages/trans_dash.php:806
-#: jibres/includes/languages/trans_project.php:2869
+#: jibres/includes/languages/trans_project.php:2880
 msgid "Replies"
 msgstr "پاسخ‌ها"
 
 #: dash/addons/includes/languages/trans_dash.php:807
 #: jibres/dash/addons/includes/languages/trans_dash.php:807
-#: jibres/includes/languages/trans_project.php:2870
+#: jibres/includes/languages/trans_project.php:2881
 msgid "Avg. First Response"
 msgstr "میانگین اولین پاسخگویی"
 
 #: dash/addons/includes/languages/trans_dash.php:808
 #: jibres/dash/addons/includes/languages/trans_dash.php:808
-#: jibres/includes/languages/trans_project.php:2871
+#: jibres/includes/languages/trans_project.php:2882
 msgid "Minute"
 msgstr "دقیقه"
 
 #: dash/addons/includes/languages/trans_dash.php:809
 #: jibres/dash/addons/includes/languages/trans_dash.php:809
-#: jibres/includes/languages/trans_project.php:2872
+#: jibres/includes/languages/trans_project.php:2883
 msgid "Avg. Time to Archive"
 msgstr "میانگین زمان بایگانی‌شدن"
 
 #: dash/addons/includes/languages/trans_dash.php:810
 #: jibres/dash/addons/includes/languages/trans_dash.php:810
-#: jibres/includes/languages/trans_project.php:2873
+#: jibres/includes/languages/trans_project.php:2884
 msgid "Hours"
 msgstr "ساعات"
 
 #: dash/addons/includes/languages/trans_dash.php:813
 #: jibres/dash/addons/includes/languages/trans_dash.php:813
-#: jibres/includes/languages/trans_project.php:2829
+#: jibres/includes/languages/trans_project.php:2840
 msgid "Last active tickets"
 msgstr "آخرین تیکت‌های فعال"
 
 #: dash/addons/includes/languages/trans_dash.php:814
 #: jibres/dash/addons/includes/languages/trans_dash.php:814
-#: jibres/includes/languages/trans_project.php:2830
+#: jibres/includes/languages/trans_project.php:2841
 msgid "All Tickets"
 msgstr "همه تیکت‌ها"
 
@@ -8185,13 +8186,13 @@ msgstr "آخرین به‌روزرسانی در"
 
 #: dash/addons/includes/languages/trans_dash.php:816
 #: jibres/dash/addons/includes/languages/trans_dash.php:816
-#: jibres/includes/languages/trans_project.php:2831
+#: jibres/includes/languages/trans_project.php:2842
 msgid "Active in this ticket"
 msgstr "فعال در این تیکت"
 
 #: dash/addons/includes/languages/trans_dash.php:819
 #: jibres/dash/addons/includes/languages/trans_dash.php:819
-#: jibres/includes/languages/trans_project.php:2798
+#: jibres/includes/languages/trans_project.php:2809
 msgid "Search result"
 msgstr "نتیجه جستجو"
 
@@ -8199,44 +8200,44 @@ msgstr "نتیجه جستجو"
 #: jibres/content_a/--product/home/controller.php:76
 #: jibres/content_a/thirdparty-old/home/controller.php:52
 #: jibres/dash/addons/includes/languages/trans_dash.php:820
-#: jibres/includes/languages/trans_project.php:2799
+#: jibres/includes/languages/trans_project.php:2810
 msgid "No result found!"
 msgstr "نتیجه‌ای یافت نشد!"
 
 #: dash/addons/includes/languages/trans_dash.php:821
 #: jibres/dash/addons/includes/languages/trans_dash.php:821
-#: jibres/includes/languages/trans_project.php:2800
+#: jibres/includes/languages/trans_project.php:2811
 msgid "Search our knowledge base..."
 msgstr "جستجو در پایگاه دانش ما..."
 
 #: dash/addons/includes/languages/trans_dash.php:822
 #: jibres/content/help/faq/view.php:9
 #: jibres/dash/addons/includes/languages/trans_dash.php:822
-#: jibres/includes/languages/trans_project.php:2801
+#: jibres/includes/languages/trans_project.php:2812
 msgid "Frequently Asked Questions"
 msgstr "سوالات متداول"
 
 #: dash/addons/includes/languages/trans_dash.php:823
 #: jibres/dash/addons/includes/languages/trans_dash.php:823
-#: jibres/includes/languages/trans_project.php:2802
+#: jibres/includes/languages/trans_project.php:2813
 msgid "Random Articles"
 msgstr "مقالات تصادفی"
 
 #: dash/addons/includes/languages/trans_dash.php:824
 #: jibres/dash/addons/includes/languages/trans_dash.php:824
-#: jibres/includes/languages/trans_project.php:2803
+#: jibres/includes/languages/trans_project.php:2814
 msgid "Can't find what you're looking for?"
 msgstr "نمی‌توانید آنچه را به‌دنبالش هستید بیابید؟"
 
 #: dash/addons/includes/languages/trans_dash.php:825
 #: jibres/dash/addons/includes/languages/trans_dash.php:825
-#: jibres/includes/languages/trans_project.php:2804
+#: jibres/includes/languages/trans_project.php:2815
 msgid "Contact the legendary support team right now."
 msgstr "همین الان با تیم پشتیبانی افسانه‌ای ما تماس بگیرید."
 
 #: dash/addons/includes/languages/trans_dash.php:828
 #: jibres/dash/addons/includes/languages/trans_dash.php:828
-#: jibres/includes/languages/trans_project.php:2794
+#: jibres/includes/languages/trans_project.php:2805
 msgid "In this section"
 msgstr "در این بخش"
 
@@ -8254,13 +8255,13 @@ msgstr "پیام شما"
 
 #: dash/addons/includes/languages/trans_dash.php:833
 #: jibres/dash/addons/includes/languages/trans_dash.php:833
-#: jibres/includes/languages/trans_project.php:2788
+#: jibres/includes/languages/trans_project.php:2799
 msgid "Open new ticket!"
 msgstr "باز کردن تیکت جدید!"
 
 #: dash/addons/includes/languages/trans_dash.php:836
 #: jibres/dash/addons/includes/languages/trans_dash.php:836
-#: jibres/includes/languages/trans_project.php:2791
+#: jibres/includes/languages/trans_project.php:2802
 msgid "Content"
 msgstr "محتوا"
 
@@ -18518,7 +18519,7 @@ msgstr "ثبت‌نام با موبایل"
 #: dash/lib/social/telegram/commands/ermile.php:434
 #: jibres/dash/lib/social/telegram/commands/ermile.php:434
 #: jibres/includes/languages/trans_dash.php:118
-#: jibres/includes/languages/trans_project.php:2979
+#: jibres/includes/languages/trans_project.php:2990
 msgid "Help"
 msgstr "کمک"
 
@@ -21078,13 +21079,17 @@ msgstr "همچنین فروشگاه خاصی را اضافه یا ویرایش �
 msgid "Help Jibres work better"
 msgstr "جیبرس کمک می‌کند تا بهتر کار کنید"
 
-#: jibres/content_store/creating/model.php:51
+#: jibres/content_store/creating/model.php:53
 msgid "Can not create your store!"
 msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
 
 #: jibres/content_store/creating/view.php:9
 msgid "Creating your store"
 msgstr "درحال ساخت فروشگاه شما"
+
+#: jibres/content_store/error/view.php:9
+msgid "Oops!"
+msgstr "اوه!"
 
 #: jibres/content_store/home/view.php:18
 msgid "Store Lists"
@@ -21103,13 +21108,17 @@ msgstr "به جهان جیبرس خوش‌آمدید"
 msgid "Big Opening"
 msgstr "افتتاح بزرگ"
 
-#: jibres/content_store/start/model.php:13
+#: jibres/content_store/start/model.php:16
 msgid "Please enter name of your bissiness"
 msgstr "لطفا نام کسب‌و‌کار خود را وارد کنید"
 
-#: jibres/content_store/start/model.php:19
+#: jibres/content_store/start/model.php:22
 msgid "Please fill the store title less than 100 character"
 msgstr "لطفا عنوان فروشگاه را کمتر از ۱۰۰ حرف وارد کنید"
+
+#: jibres/content_store/start/model.php:35
+msgid "Can not add new store!"
+msgstr "نمی‌توانید فروشگاه جدیدی را ایجاد کنید!"
 
 #: jibres/content_store/start/view.php:9
 msgid "Create a new store"
@@ -21150,7 +21159,7 @@ msgstr ""
 "ممنوع است."
 
 #: jibres/dash/lib/engine/view.php:142
-#: jibres/includes/languages/trans_project.php:2779
+#: jibres/includes/languages/trans_project.php:2790
 msgid "#1 World Sales Engineering System"
 msgstr "سیستم شماره یک مهندسی فروش در جهان"
 
@@ -21183,17 +21192,17 @@ msgid "Export"
 msgstr "خروجی"
 
 #: jibres/includes/languages/trans_dash.php:116
-#: jibres/includes/languages/trans_project.php:2978
+#: jibres/includes/languages/trans_project.php:2989
 msgid "Duplicate"
 msgstr "کپی"
 
 #: jibres/includes/languages/trans_dash.php:119
-#: jibres/includes/languages/trans_project.php:2980
+#: jibres/includes/languages/trans_project.php:2991
 msgid "Previous item"
 msgstr "گزینه قبلی"
 
 #: jibres/includes/languages/trans_dash.php:120
-#: jibres/includes/languages/trans_project.php:2981
+#: jibres/includes/languages/trans_project.php:2992
 msgid "Next item"
 msgstr "گزینه بعدی"
 
@@ -25198,50 +25207,82 @@ msgid "Let's go"
 msgstr "بزن بریم"
 
 #: jibres/includes/languages/trans_project.php:2764
+msgid "Can not add new store"
+msgstr "نمی‌توانید فروشگاه جدیدی را ایجاد کنید"
+
+#: jibres/includes/languages/trans_project.php:2765
+msgid "Create more store"
+msgstr "ساخت فروشگاه‌های بیشتر"
+
+#: jibres/includes/languages/trans_project.php:2767
 msgid "Create a store on Jibres"
 msgstr "ساخت یک فروشگاه در جیبرس"
 
-#: jibres/includes/languages/trans_project.php:2767
+#: jibres/includes/languages/trans_project.php:2770
 msgid "Tell us a little about yourself"
 msgstr "به ما کمی در مورد خودتان بگویید"
 
-#: jibres/includes/languages/trans_project.php:2768
+#: jibres/includes/languages/trans_project.php:2771
 msgid "Your answer is important for us."
 msgstr "پاسخ شما برای ما بسیار با ارزش است."
 
-#: jibres/includes/languages/trans_project.php:2770
+#: jibres/includes/languages/trans_project.php:2773
 msgid "answer Jibres polls"
 msgstr "به نظرسنجی‌های جیبرس پاسخ دهید"
 
-#: jibres/includes/languages/trans_project.php:2773
+#: jibres/includes/languages/trans_project.php:2776
+msgid "Sorry!"
+msgstr "متاسفیم!"
+
+#: jibres/includes/languages/trans_project.php:2777
+msgid "There was an error building your store"
+msgstr "در هنگام ساخت فروشگاه شما خطایی رخ داده است"
+
+#: jibres/includes/languages/trans_project.php:2778
+msgid "Please report the error with support or try again in a few minutes"
+msgstr "لطفا خطا را به پشتیبانی اطلاع دهید یا پس از چند دقیقه مجددا تلاش کنید"
+
+#: jibres/includes/languages/trans_project.php:2779
+msgid "Try again"
+msgstr "مجددا تلاش کنید"
+
+#: jibres/includes/languages/trans_project.php:2780
+msgid "Error create store"
+msgstr "خطا در هنگام ساخت فروشگاه"
+
+#: jibres/includes/languages/trans_project.php:2781
+msgid "Contact Us about this error"
+msgstr "این خطا را به ما اطلاع دهید"
+
+#: jibres/includes/languages/trans_project.php:2784
 msgid "Please wait to creating your store"
 msgstr "درحال ساخت فروشگاه شما هستیم. لطفا صبر کنید"
 
-#: jibres/includes/languages/trans_project.php:2774
+#: jibres/includes/languages/trans_project.php:2785
 msgid "Loading..."
 msgstr "در حال بارگذاری ..."
 
-#: jibres/includes/languages/trans_project.php:2777
+#: jibres/includes/languages/trans_project.php:2788
 msgid "From"
 msgstr "از"
 
-#: jibres/includes/languages/trans_project.php:2778
+#: jibres/includes/languages/trans_project.php:2789
 msgid "Jibres can painlessly and quickly help you to start your online business."
 msgstr "جیبرس می‌تواند بدون دردسر و سریع به شما در شروع کسب‌وکارتان کمک کند."
 
-#: jibres/includes/languages/trans_project.php:2780
+#: jibres/includes/languages/trans_project.php:2791
 msgid "Build my own store"
-msgstr ""
+msgstr "فروشگاه من را بساز"
 
-#: jibres/includes/languages/trans_project.php:2781
+#: jibres/includes/languages/trans_project.php:2792
 msgid "Application"
 msgstr "برنامه"
 
-#: jibres/includes/languages/trans_project.php:2782
+#: jibres/includes/languages/trans_project.php:2793
 msgid "Telegram bot"
 msgstr "ربات تلگرام"
 
-#: jibres/includes/languages/trans_project.php:2785
+#: jibres/includes/languages/trans_project.php:2796
 msgid "My Stores"
 msgstr "فروشگاه‌های من"
 
@@ -27463,7 +27504,7 @@ msgstr "پلن فروشگاه نادرست است"
 #: jibres/includes/lib-old/app/store/add.php:59
 #: jibres/includes/lib-old/app/store/add.php:63
 #: jibres/includes/lib-old/app/store/add.php:382
-#: jibres/includes/lib/app/store/add.php:63 jibres/includes/lib/app/store/add.php:67
+#: jibres/includes/lib/app/store/add.php:28
 msgid ""
 "To register a second store, you need to have at least 10,000 toman in inventory "
 "on your account"
@@ -27472,12 +27513,11 @@ msgstr ""
 "خود داشته باشید"
 
 #: jibres/includes/lib-old/app/store/add.php:71
-#: jibres/includes/lib/app/store/add.php:75
+#: jibres/includes/lib/app/store/add.php:47
 msgid "You can not have more than two free or trial stores."
 msgstr "شما نمی‌توانید بیش از دو فروشگاه رایگان داشته باشید."
 
 #: jibres/includes/lib-old/app/store/add.php:75
-#: jibres/includes/lib/app/store/add.php:79
 msgid "This msg in local is warn and in site is error :)"
 msgstr ""
 "این پیام در حالت لوکال به صورت هشدار است و در حالت سایت به صورت خطا نمایش داده "
@@ -28145,31 +28185,35 @@ msgstr "بدون تخفیف"
 msgid "Please search by keyword less than 50 characters"
 msgstr "لطفا با کلید‌واژه‌ای کمتر از ۵۰ حرف جستجو کنید"
 
-#: jibres/includes/lib/app/store/add.php:23
+#: jibres/includes/lib/app/store/add.php:47
+msgid "Contact Us if you need more stores"
+msgstr "اگر به فروشگاه‌های بیشتری نیاز دارید با ما تماس بگیرید"
+
+#: jibres/includes/lib/app/store/add.php:89
 msgid "Please fill the store title"
 msgstr "لطفا عنوان فروشگاه را وارد کنید"
 
-#: jibres/includes/lib/app/store/add.php:29
+#: jibres/includes/lib/app/store/add.php:95
 msgid "Please fill the store title less than 200 character"
 msgstr "لطفا عنوان فروشگاه را کمتر از ۲۰۰ حرف وارد کنید"
 
-#: jibres/includes/lib/app/store/add.php:43
+#: jibres/includes/lib/app/store/add.php:109
 #: jibres/includes/lib/app/store/subdomain.php:23
 msgid "This subdomain is already occupied"
 msgstr "این زیر دامنه قبلاً اشغال شده است"
 
-#: jibres/includes/lib/app/store/add.php:116
-#: jibres/includes/lib/app/store/add.php:129
-#: jibres/includes/lib/app/store/add.php:142
-#: jibres/includes/lib/app/store/add.php:155
+#: jibres/includes/lib/app/store/add.php:147
+#: jibres/includes/lib/app/store/add.php:162
+#: jibres/includes/lib/app/store/add.php:177
+#: jibres/includes/lib/app/store/add.php:192
 msgid "Can not add your store"
 msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم"
 
-#: jibres/includes/lib/app/store/add.php:167
+#: jibres/includes/lib/app/store/add.php:206
 msgid "We can not create your store!"
 msgstr "ما نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
 
-#: jibres/includes/lib/app/store/add.php:185
+#: jibres/includes/lib/app/store/add.php:226
 msgid "Your store successfully created"
 msgstr "فروشگاه شما با موفقیت ساخته شد"
 
@@ -29359,9 +29403,6 @@ msgstr "حقوقی"
 
 #~ msgid "Maybe your browser saved your password incorrectly."
 #~ msgstr "امیدواریم مرورگر شما پسوردتون رو اشتباه ذخیره کرده باشه."
-
-#~ msgid "Try again!"
-#~ msgstr "مجددا تلاش کنید!"
 
 #~ msgid "You do not have any password!"
 #~ msgstr "هیچ کلمه عبوری برای شما تنظیم نشده است!"
