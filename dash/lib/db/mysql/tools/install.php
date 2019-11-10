@@ -284,8 +284,11 @@ trait install
 		$connect = self::connect(true, $_create);
 		if($connect)
 		{
-			$result = mysqli_query(self::$link, 'SHOW TABLES');
-			$result = $result->num_rows;
+			$result = @mysqli_query(self::$link, 'SHOW TABLES');
+			if($result)
+			{
+				$result = $result->num_rows;
+			}
 		}
 		// return result
 		return $result;
