@@ -1091,8 +1091,7 @@ class twigTransTerms
 	echo T_("This product is vat base");                                              // Line 245
 	echo T_("Min sale");                                                              // Line 211
 	echo T_("Max sale");                                                              // Line 220
-	echo T_("Sale step");                                                             // Line 225
-	echo T_("Sale ste");                                                              // Line 227
+	echo T_("Sale step");                                                             // Line 227
 	echo T_("Min stock");                                                             // Line 261
 	echo T_("Max stock");                                                             // Line 270
 	echo T_("Status of product");                                                     // Line 277
