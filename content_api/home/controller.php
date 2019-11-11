@@ -8,7 +8,7 @@ class controller
 	{
 		$module = \dash\url::module();
 
-		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v5', 'v6']) && !\dash\url::child()))
+		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v6']) && !\dash\url::child()))
 		{
 			// nothing
 		}

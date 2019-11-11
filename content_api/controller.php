@@ -6,11 +6,9 @@ class controller
 {
 	public static function routing()
 	{
-		if(\dash\url::subdomain() !== 'source')
+		if(!in_array(\dash\url::subdomain(), ['source', 'store', null]))
 		{
-			$sourceURL = \dash\url::protocol(). '://source.'. \dash\url::domain(). \dash\url::path();
-
-			\dash\redirect::to($sourceURL);
+			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
 		}
 
 		// save api log
