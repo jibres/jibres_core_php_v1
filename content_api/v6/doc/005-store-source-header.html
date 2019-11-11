@@ -1,0 +1,26 @@
+{%if url.subdomain in ['store', 'subdomain'] %}
+<div class="cbox fs15" id='important'>
+
+  <h2 class="f" data-kerkere='#important-detail' data-kerkere-icon='open'>{%trans "Important!"%}</h2>
+
+  <div id="important-detail">
+
+    {%if url.subdomain == 'store'%}
+
+      <div class="msg danger2">
+        {%trans "We need to send store subdomain in all request in header"%}
+      </div>
+
+    {%elseif url.subdomain == 'source' %}
+
+      <div class="msg primary2">
+        {%trans "Never send store variable to header"%}
+      </div>
+
+    {%endif%}
+
+  </div>
+
+</div>
+
+{%endif%}
