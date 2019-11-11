@@ -17,7 +17,8 @@ trait connect
 	public static $db_name        = null;
 	public static $db_user        = null;
 	public static $db_pass        = null;
-	public static $db_host        = '45.82.139.124';
+	// public static $db_host        = '45.82.139.124';
+	public static $db_host        = 'localhost';
 	public static $db_charset     = 'utf8mb4'; //'utf8';
 	public static $db_lang        = 'fa_IR';
 	public static $debug_error    = false;
@@ -48,6 +49,35 @@ trait connect
 		self::$link         = null;
 		self::$link_open    = [];
 		self::$link_default = null;
+	}
+
+
+	private static function create_link($_myDatabase = null)
+	{
+		$link = \mysqli_init();
+
+		\mysqli_options($link, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
+		\mysqli_options($link, MYSQLI_OPT_CONNECT_TIMEOUT, 10);
+		// \mysqli_options($link, MYSQLI_OPT_READ_TIMEOUT, 30);
+
+		if($_myDatabase === null)
+		{
+			$_myDatabase = self::$db_name;
+		}
+
+		if(self::$db_host === 'localhost')
+		{
+			$real_link = @mysqli_real_connect($link, self::$db_host, self::$db_user, self::$db_pass, $_myDatabase, self::$db_port);
+		}
+		else
+		{
+			$real_link = @mysqli_real_connect($link, self::$db_host, self::$db_user, self::$db_pass, $_myDatabase, self::$db_port, NULL, MYSQLI_CLIENT_SSL);
+		}
+
+		// old method of connection
+		// $link = @mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
+
+		return $link;
 	}
 
 
@@ -113,18 +143,9 @@ trait connect
 			\dash\header::status(503, T_("we can't find database service!"). " ". T_("Please contact administrator!"));
 		}
 
-
-		$link = \mysqli_init();
-
-		\mysqli_options($link, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
-		\mysqli_options($link, MYSQLI_OPT_CONNECT_TIMEOUT, 10);
-		// \mysqli_options($link, MYSQLI_OPT_READ_TIMEOUT, 30);
-
-		$real_link = @mysqli_real_connect($link, self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port, NULL, MYSQLI_CLIENT_SSL);
-		// $link = mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name, self::$db_port);
+		$link = self::create_link();
 
 		// if we have error on connection to this database
-
 		switch (@mysqli_connect_errno())
 		{
 			// Access denied for user 'user'@'hostname' (using password: YES)
@@ -138,17 +159,15 @@ trait connect
 				// \dash\header::status(503, T_("We can't connect to database service!"). " ". T_("Please contact administrator!"));
 				break;
 
+
 			// ERROR 1049 (42000): Unknown database
 			case 1049:
-
 				// if allow to create then start create database
 				if($_autoCreate)
 				{
+					// connect to mysql database
+					$link = self::create_link('mysql');
 
-					// connect to mysql database for creating new one
-					$real_link = @mysqli_real_connect($link, self::$db_host, self::$db_user, self::$db_pass, 'mysql', self::$db_port, NULL, MYSQLI_CLIENT_SSL);
-
-					// $link = @mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, 'mysql');
 					// if can connect to mysql database
 					if($link)
 					{
@@ -169,7 +188,7 @@ trait connect
 						}
 
 						// else if can create new database then reset link to dbname
-						$link = @mysqli_connect(self::$db_host, self::$db_user, self::$db_pass, self::$db_name);
+						$link = self::create_link();
 					}
 					else
 					{
@@ -187,8 +206,8 @@ trait connect
 					if(!isset(self::$load_error['database']))
 					{
 						self::$load_error['database'] = true;
-						\dash\notif::error(T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
-						// \dash\header::status(501, T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
+						// \dash\notif::error(T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
+						\dash\header::status(503, T_("We can't connect to correct database!"). " ". T_("Please contact administrator!"));
 					}
 				}
 				break;
@@ -196,6 +215,11 @@ trait connect
 
 			case 2002:
 				// i dont know!
+				break;
+
+
+			// MySQL server has gone away
+			case 2006:
 				break;
 
 
@@ -216,7 +240,6 @@ trait connect
 		// check if link is exist set it as global variable
 		if($link)
 		{
-
 			// set charset for link
 			@mysqli_set_charset($link, self::$db_charset);
 			// save link as global variable
