@@ -105,15 +105,7 @@ trait connect
 			// connect to save link of default db
 			self::connect(true, false);
 			// if want to connect to core tools
-			if($_db_name === '[tools]')
-			{
-				// connect to core db
-				// self::$db_name = core_name.'_tools';
-				// fix it later
-				self::$db_name = 'saloos_tools';
-			}
-			// else connect to specefic database
-			elseif($_db_name)
+			if($_db_name)
 			{
 				// connect to db passed from user
 				// else connect to last db saved

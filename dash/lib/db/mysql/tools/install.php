@@ -266,9 +266,6 @@ trait install
 		$myDbName = substr( $myDbName, (strrpos($myDbName, "/" )+ 1));
 		// change db_name and core_name to defined value
 		$myDbName = str_replace('(db_name)', db_name, $myDbName);
-		// $myDbName = str_replace('(core_name)', core_name, $myDbName);
-		// need to fix it!
-		$myDbName = str_replace('(core_name)', 'saloos', $myDbName);
 		// return result
 		return $myDbName;
 	}
