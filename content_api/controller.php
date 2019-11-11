@@ -8,8 +8,11 @@ class controller
 	{
 		if(\dash\url::subdomain() !== 'source')
 		{
-			\dash\redirect::remove_subdomain();
+			$sourceURL = \dash\url::protocol(). '://source.'. \dash\url::domain(). \dash\url::path();
+
+			\dash\redirect::to($sourceURL);
 		}
+
 		// save api log
 		\dash\app\apilog::start();
 	}
