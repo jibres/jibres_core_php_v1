@@ -17,7 +17,6 @@ trait connect
 	public static $db_name        = null;
 	public static $db_user        = null;
 	public static $db_pass        = null;
-	// public static $db_host        = '45.82.139.124';
 	public static $db_host        = 'localhost';
 	public static $db_charset     = 'utf8mb4'; //'utf8';
 	public static $db_lang        = 'fa_IR';
@@ -63,6 +62,11 @@ trait connect
 		if($_myDatabase === null)
 		{
 			$_myDatabase = self::$db_name;
+		}
+
+		if(defined('db_host')
+		{
+			self::$db_host = db_host;
 		}
 
 		if(self::$db_host === 'localhost')
