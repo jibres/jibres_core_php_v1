@@ -25,7 +25,7 @@ class view
 			$apikey = \dash\app\user_auth::get_apikey(\dash\user::id(), 'api');
 			if(isset($apikey['auth']))
 			{
-				$YourApiKey = $apikey;
+				$YourApiKey = $apikey['auth'];
 			}
 
 			$appkey = \dash\app\user_auth::get_appkey(\dash\user::id());
