@@ -15,7 +15,7 @@ class controller
 		}
 		else
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 	}
 }

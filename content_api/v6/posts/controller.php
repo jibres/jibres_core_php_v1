@@ -8,12 +8,12 @@ class controller
 	{
 		if(count(\dash\url::dir()) > 3 && \dash\url::subchild() !== 'get')
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
 		if(!\dash\request::is('get'))
 		{
-			\content_api\v6::no(400);
+			\content_api\v6::invalid_method();
 		}
 
 		if(\dash\url::subchild() === 'get')
@@ -22,7 +22,7 @@ class controller
 
 			if(!$id || !\dash\coding::decode($id))
 			{
-				\content_api\v6::no(400);
+				\content_api\v6::invalid_param('id');
 			}
 
 			$detail = self::load_post($id);
@@ -33,7 +33,7 @@ class controller
 			$detail = self::posts();
 		}
 
-		\content_api\v6::bye($detail);
+		\content_api\v6::say($detail);
 	}
 
 

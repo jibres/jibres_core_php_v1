@@ -8,14 +8,14 @@ class controller
 	{
 		if(\dash\url::subchild())
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
 		\content_api\v6::check_apikey();
 
 		$smile = self::smile();
 
-		\content_api\v6::bye($smile);
+		\content_api\v6::say($smile);
 	}
 
 

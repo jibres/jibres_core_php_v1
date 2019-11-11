@@ -14,7 +14,7 @@ class controller
 		}
 		else
 		{
-			\dash\header::status(404);
+			\dash\header::status(404, T_("Invalid url"));
 		}
 
 		if($module === 'v6')

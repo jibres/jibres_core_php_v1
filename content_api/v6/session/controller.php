@@ -8,7 +8,7 @@ class controller
 	{
 		if(\dash\url::subchild())
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
 		$result = null;
@@ -23,11 +23,11 @@ class controller
 		}
 		else
 		{
-			\content_api\v6::no(400);
+			\content_api\v6::invalid_method();
 		}
 
 
-		\content_api\v6::bye($result);
+		\content_api\v6::say($result);
 	}
 
 

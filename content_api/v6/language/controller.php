@@ -8,7 +8,7 @@ class controller
 	{
 		if(\dash\url::subchild())
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
 
@@ -21,7 +21,7 @@ class controller
 			}
 		}
 
-		\content_api\v6::bye($lang_list);
+		\content_api\v6::say($lang_list);
 	}
 }
 ?>

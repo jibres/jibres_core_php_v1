@@ -8,17 +8,17 @@ class controller
 	{
 		if(\dash\url::subchild())
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
 		if(!\dash\request::is('get'))
 		{
-			\content_api\v6::no(400);
+			\content_api\v6::invalid_method();
 		}
 
 		$detail = self::detail();
 
-		\content_api\v6::bye($detail);
+		\content_api\v6::say($detail);
 	}
 
 

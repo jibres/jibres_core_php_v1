@@ -12,12 +12,12 @@ class controller
 		}
 		elseif(\dash\url::subchild())
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
 		$detail = self::detail();
 
-		\content_api\v6::bye($detail);
+		\content_api\v6::say($detail);
 	}
 
 	private static function detail()

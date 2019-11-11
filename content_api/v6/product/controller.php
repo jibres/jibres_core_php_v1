@@ -6,20 +6,18 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v6\access::full_access_check();
-
 		$detail    = [];
 
 		$directory = \dash\url::directory();
 
 		if($directory === 'v6/product/unit')
 		{
-			\content_api\v6\access::user();
+			\content_api\v6::check_apikey();
 			$detail = \content_api\v6\product\unit::route();
 		}
 		elseif($directory === 'v6/product/company')
 		{
-			\content_api\v6\access::user();
+			\content_api\v6::check_apikey();
 			$detail = \content_api\v6\product\company::route();
 		}
 		elseif($directory === 'v6/product/comment')
@@ -34,10 +32,10 @@ class controller
 		}
 		else
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
-		\content_api\v6::bye($detail);
+		\content_api\v6::say($detail);
 
 	}
 

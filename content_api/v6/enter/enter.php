@@ -32,7 +32,7 @@ class enter
 		}
 		else
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::stop(404);
 		}
 
 		if(!\dash\engine\process::status())
@@ -40,7 +40,7 @@ class enter
 			\dash\header::set(400);
 		}
 
-		\content_api\v6::bye(self::$response);
+		\content_api\v6::say(self::$response);
 
 	}
 

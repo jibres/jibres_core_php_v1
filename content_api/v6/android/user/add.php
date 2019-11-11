@@ -18,7 +18,7 @@ class add
 
 		if(!$add_user || !is_array($add_user))
 		{
-			\content_api\v6::no(400);
+			\content_api\v6::stop(400);
 		}
 
 
@@ -55,7 +55,7 @@ class add
 
 		self::$response['zoneid'] = 'android-'. \dash\coding::encode(self::$zoneid);
 
-		\content_api\v6::bye(self::$response);
+		\content_api\v6::say(self::$response);
 	}
 
 	private static function check_input()

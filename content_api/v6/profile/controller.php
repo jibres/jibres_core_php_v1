@@ -8,7 +8,7 @@ class controller
 	{
 		if(\dash\url::subchild())
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
 		\content_api\v6::check_apikey();
@@ -29,10 +29,10 @@ class controller
 		}
 		else
 		{
-			\content_api\v6::no(400);
+			\content_api\v6::invalid_method();
 		}
 
-		\content_api\v6::bye($profile);
+		\content_api\v6::say($profile);
 	}
 
 

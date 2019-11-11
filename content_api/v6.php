@@ -27,7 +27,7 @@ class v6
 				$store = \dash\header::get('store');
 				if($store)
 				{
-					self::no(400, T_("Never send store variable to header on this request"));
+					self::stop(400, T_("Never send store variable to header on this request"));
 				}
 			}
 
@@ -36,12 +36,31 @@ class v6
 				$store = \dash\header::get('store');
 				if(!$store)
 				{
-					self::no(400, T_("We need to store variable to route this address"));
+					self::stop(400, T_("We need to store variable to route this address"));
 				}
 			}
 		}
+	}
 
 
+	public static function check_store_init()
+	{
+		if(\dash\url::subdomain() === 'store')
+		{
+
+			$store = \dash\header::get('store');
+			if(!$store || is_numeric($store))
+			{
+				\content_api\v6::stop(404, T_("Store variable not set in header"));
+			}
+
+			\lib\store::set_store_slug($store);
+
+			if(!\lib\store::id())
+			{
+				\content_api\v6::stop(404, T_("Store not found"));
+			}
+		}
 	}
 
 
@@ -55,7 +74,7 @@ class v6
 
 		if(!trim($appkey))
 		{
-			self::no(400, T_("Appkey not set"));
+			self::stop(400, T_("Appkey not set"));
 		}
 
 		$appkey_is_ok              = \dash\app\user_auth::check_appkey($appkey);
@@ -68,10 +87,11 @@ class v6
 		}
 		else
 		{
-			self::no(400, T_("Invalid app key"));
+			self::stop(400, T_("Invalid app key"));
 		}
-
 	}
+
+
 
 	public static function check_token()
 	{
@@ -81,12 +101,12 @@ class v6
 
 		if(!$token)
 		{
-			self::no(401, T_("token not set"));
+			self::stop(401, T_("token not set"));
 		}
 
 		if(!$token || mb_strlen($token) !== 32)
 		{
-			self::no(401, T_("Invalid token"));
+			self::stop(401, T_("Invalid token"));
 		}
 
 		$get =
@@ -102,7 +122,7 @@ class v6
 
 		if(!isset($get['id']) || !isset($get['datecreated']))
 		{
-			self::no(401, T_("Invalid token"));
+			self::stop(401, T_("Invalid token"));
 		}
 
 		$time_left = time() - strtotime($get['datecreated']);
@@ -112,7 +132,7 @@ class v6
 		if($time_left > $life_time)
 		{
 			\dash\db\user_auth::update(['status' => 'expire'], $get['id']);
-			self::no(401, T_("Token is expire"));
+			self::stop(401, T_("Token is expire"));
 		}
 
 		\dash\db\user_auth::update(['status' => 'used'], $get['id']);
@@ -129,12 +149,12 @@ class v6
 
 		if(!$apikey)
 		{
-			self::no(401, T_("apikey not set"));
+			self::stop(401, T_("apikey not set"));
 		}
 
 		if(mb_strlen($apikey) !== 32)
 		{
-			self::no(401, T_("Invalid apikey"));
+			self::stop(401, T_("Invalid apikey"));
 		}
 
 		$get =
@@ -150,7 +170,7 @@ class v6
 
 		if(!isset($get['id']) || !isset($get['datecreated']) || !isset($get['user_id']))
 		{
-			self::no(401, T_("Invalid apikey"));
+			self::stop(401, T_("Invalid apikey"));
 		}
 
 		self::api_user_login($get['id']);
@@ -181,7 +201,28 @@ class v6
 	}
 
 
-	public static function no($_code, $_msg = null, $_result = null)
+	public static function invalid_url()
+	{
+		self::stop(404, T_("Invalid url"));
+	}
+
+
+	public static function invalid_method()
+	{
+		self::stop(405, T_("Invalid method"));
+	}
+
+
+	public static function invalid_param($_param = null)
+	{
+		self::stop(400, T_("Invalid param :val", ['val' => $_param]));
+	}
+
+
+
+
+
+	public static function stop($_code, $_msg = null, $_result = null)
 	{
 		\dash\header::set($_code);
 
@@ -194,16 +235,14 @@ class v6
 		{
 			\dash\notif::error($_msg);
 		}
-		self::bye($_result);
+		self::say($_result);
 	}
 
 
-	public static function bye($_result = null)
+	public static function say($_result = null)
 	{
 		\dash\app\apilog::save($_result);
 		\dash\notif::api($_result);
 	}
-
-
 }
 ?>

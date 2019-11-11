@@ -8,10 +8,12 @@ class controller
 	{
 		if(\dash\url::subchild())
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
 		\content_api\v6::check_appkey();
+
+		\content_api\v6::check_store_init();
 
 		$parent = null;
 		if(isset(\content_api\v6::$v6['appkey_detail']['id']))
@@ -21,7 +23,7 @@ class controller
 
 		$result = \dash\app\user_auth::make(['parent' => $parent]);
 
-		\content_api\v6::bye($result);
+		\content_api\v6::say($result);
 	}
 }
 ?>

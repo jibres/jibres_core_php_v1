@@ -14,13 +14,13 @@ class static_page
 			case 'mission':
 			case 'vision':
 				$page = self::page($_type);
-				\content_api\v6::bye($page);
+				\content_api\v6::say($page);
 				break;
 
 
 
 			default:
-				\content_api\v6::no(404);
+				\content_api\v6::stop(404, T_("Invalid url"));
 				break;
 		}
 	}

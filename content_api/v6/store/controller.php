@@ -13,9 +13,9 @@ class controller
 
 		if($directory === 'v6/store/add')
 		{
-			\content_api\v6\access::check_appkey();
+			\content_api\v6::check_appkey();
 
-			\content_api\v6\access::user();
+			\content_api\v6::check_apikey();
 
 			if(\dash\request::is('post'))
 			{
@@ -23,7 +23,7 @@ class controller
 			}
 			else
 			{
-				\content_api\v6::no(400);
+				\content_api\v6::invalid_method();
 			}
 		}
 		elseif($directory === 'v6/store/question')
@@ -32,10 +32,10 @@ class controller
 		}
 		else
 		{
-			\content_api\v6::no(404);
+			\content_api\v6::invalid_url();
 		}
 
-		\content_api\v6::bye($detail);
+		\content_api\v6::say($detail);
 	}
 
 

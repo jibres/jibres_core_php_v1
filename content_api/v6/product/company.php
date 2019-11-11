@@ -12,7 +12,7 @@ class company
 		}
 		else
 		{
-			\content_api\v6::no(405);
+			\content_api\v6::stop(405);
 		}
 	}
 
