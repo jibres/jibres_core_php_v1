@@ -6,9 +6,20 @@ class controller
 {
 	public static function routing()
 	{
-		if(!in_array(\dash\url::subdomain(), ['source', 'store', null]))
+		$module = \dash\url::module();
+
+		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v6'])))
 		{
-			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
+			// nothing
+		}
+		else
+		{
+			\dash\header::status(404);
+		}
+
+		if($module === 'v6')
+		{
+			\content_api\v6::master_check();
 		}
 
 		// save api log

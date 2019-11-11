@@ -6,6 +6,47 @@ class v6
 {
 	public static $v6 = [];
 
+
+	public static function master_check()
+	{
+		$subdomain = \dash\url::subdomain();
+
+		if(!in_array($subdomain, ['source', 'store', null]))
+		{
+			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
+		}
+
+		if(\dash\url::child() === 'doc')
+		{
+			// in doc needless to send header
+		}
+		else
+		{
+			if($subdomain === 'source')
+			{
+				$store = \dash\header::get('store');
+				if($store)
+				{
+					self::no(400, T_("Never send store variable to header on this request"));
+				}
+			}
+
+			if($subdomain === 'store')
+			{
+				$store = \dash\header::get('store');
+				if(!$store)
+				{
+					self::no(400, T_("We need to store variable to route this address"));
+				}
+			}
+		}
+
+
+	}
+
+
+
+
 	public static function check_appkey()
 	{
 		$appkey = \dash\header::get('appkey');
