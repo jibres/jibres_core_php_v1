@@ -57,6 +57,10 @@ class ready
 					$result[$key. '_raw'] = $value;
 					if($value)
 					{
+						if(!is_int($value))
+						{
+							$value = intval($value);
+						}
 						$result[$key] = long2ip($value);
 					}
 					break;
