@@ -64,7 +64,7 @@ trait connect
 			$_myDatabase = self::$db_name;
 		}
 
-		if(defined('db_host')
+		if(defined('db_host'))
 		{
 			self::$db_host = db_host;
 		}
