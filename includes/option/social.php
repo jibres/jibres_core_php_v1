@@ -9,8 +9,8 @@ self::$social['list']['telegram']             = 'jibres';
 self::$social['list']['facebook']             = 'jibres';
 self::$social['list']['twitter']              = 'ermile_jibres';
 self::$social['list']['instagram']            = 'ermile_jibres';
-self::$social['list']['googleplus']           = '113130164586721131168';
-self::$social['list']['github']               = 'ermile';
+// self::$social['list']['googleplus']           = '113130164586721131168';
+self::$social['list']['github']               = 'jibres';
 self::$social['list']['linkedin']             = null;
 self::$social['list']['aparat']               = 'jibres';
 
@@ -75,7 +75,7 @@ self::$social['googleplus']['key']            = null;
 * GITHUB
 */
 self::$social['github']['status']             = false;
-self::$social['github']['name']               = 'ermile';
+self::$social['github']['name']               = 'jibres';
 self::$social['github']['key']                = null;
 
 
