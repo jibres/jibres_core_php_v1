@@ -46,8 +46,8 @@
    <div class="f bottom align-center">
     <div class="cauto s12">{{langList({'html':true}) | raw}}</div>
 
-{%if lang.current =='fa'%}
       <nav class="c s12 txtC">
+{%if lang.current =='fa'%}
         <div class="certification">
          <div class="f">
           <div title='{%trans "Iran NSR Certification"%}'><a target="_blank" href="http://qom.irannsr.org/index.php?module=cdk&func=loadmodule&system=cdk&sismodule=user/content_view.php&cnt_id=225820&ctp_id=61&id=17394&sisOp=view"><img src="{{url.static}}/siftal/images/cert/irannsr.png" alt='{%trans "Iran NSR"%} {{site.title}}'></a></div>
@@ -62,8 +62,8 @@
 
          </div>
         </div>
-     </nav>
 {%endif%}
+     </nav>
 
     <div class="cauto s12 love"><a href="{%if lang.current =='fa'%}https://ermile.com/fa{%else%}https://ermile.com{%endif%}" target="_blank">{%trans "Proudly Made in IRAN"%}</a></div>
    </div>
