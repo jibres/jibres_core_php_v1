@@ -23,11 +23,6 @@
       <li><a href="{{url.that}}#endpoints"><i class='sf-terminal'></i> <span>{%trans "Endpoints"%}</span></a></li>
       <li><a href="{{url.that}}#requests"><i class='sf-upload'></i> <span>{%trans "Requests"%}</span></a></li>
       <li><a href="{{url.that}}#responses"><i class='sf-download'></i> <span>{%trans "Responses"%}</span></a></li>
-
-      {%if url.subdomain in ['source', 'store'] %}
-        <li><a href="{{url.that}}#important"><i class='sf-alert'></i> <span>{%trans "Important message"%}</span></a></li>
-      {%endif%}
-
       <li><a href="{{url.that}}#token"><i class='sf-unlock-alt'></i> <span>{%trans "Token"%}</span></a></li>
       <li><a href="{{url.that}}#user-add"><i class='sf-plus-circle'></i> <span>{%trans "Sign Up User"%}</span></a></li>
       <li><a href="{{url.that}}#get-profile"><i class='sf-user'></i> <span>{%trans "Get profile detail"%}</span></a></li>

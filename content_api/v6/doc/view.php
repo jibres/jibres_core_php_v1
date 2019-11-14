@@ -13,28 +13,28 @@ class view
 		\dash\data::page_desc(T_('Last modified'). ' '. \dash\datetime::fit('2019-02-21 17:30', 'human', 'year'));
 		\dash\data::page_pictogram('campfire');
 
-		$apiURL = \dash\url::protocol(). '://'. \dash\url::subdomain(). '.'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v6/';
+		$apiURL = \dash\url::protocol(). '://'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v6/';
 		\dash\data::apiURL($apiURL);
 
 		$YourSubdomain = 'YourSubdomain';
 		$YourAPPKey    = 'YourAPPKey';
 		$YourApiKey    = 'YourApiKey';
 
-		if(\dash\user::id())
-		{
-			$apikey = \dash\app\user_auth::get_apikey(\dash\user::id(), 'api');
-			if(isset($apikey['auth']))
-			{
-				$YourApiKey = $apikey['auth'];
-			}
+		// if(\dash\user::id())
+		// {
+		// 	$apikey = \dash\app\user_auth::get_apikey(\dash\user::id(), 'api');
+		// 	if(isset($apikey['auth']))
+		// 	{
+		// 		$YourApiKey = $apikey['auth'];
+		// 	}
 
-			$appkey = \dash\app\user_auth::get_appkey(\dash\user::id());
-			if(isset($appkey['auth']))
-			{
-				$YourAPPKey = $appkey['auth'];
-			}
+		// 	$appkey = \dash\app\user_auth::get_appkey(\dash\user::id());
+		// 	if(isset($appkey['auth']))
+		// 	{
+		// 		$YourAPPKey = $appkey['auth'];
+		// 	}
 
-		}
+		// }
 
 
 		\dash\data::mySubdomain($YourSubdomain);

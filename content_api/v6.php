@@ -15,51 +15,22 @@ class v6
 		{
 			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
 		}
-
-		if(\dash\url::child() === 'doc')
-		{
-			// in doc needless to send header
-		}
-		else
-		{
-			if($subdomain === 'source')
-			{
-				$store = \dash\header::get('store');
-				if($store)
-				{
-					self::stop(400, T_("Never send store variable to header on this request"));
-				}
-			}
-
-			if($subdomain === 'store')
-			{
-				$store = \dash\header::get('store');
-				if(!$store)
-				{
-					self::stop(400, T_("We need to store variable to route this address"));
-				}
-			}
-		}
 	}
 
 
 	public static function check_store_init()
 	{
-		if(\dash\url::subdomain() === 'store')
+		$store = \dash\header::get('store');
+		if(!$store || is_numeric($store))
 		{
+			\content_api\v6::stop(404, T_("Store variable not set in header"));
+		}
 
-			$store = \dash\header::get('store');
-			if(!$store || is_numeric($store))
-			{
-				\content_api\v6::stop(404, T_("Store variable not set in header"));
-			}
+		\lib\store::set_store_slug($store);
 
-			\lib\store::set_store_slug($store);
-
-			if(!\lib\store::id())
-			{
-				\content_api\v6::stop(404, T_("Store not found"));
-			}
+		if(!\lib\store::id())
+		{
+			\content_api\v6::stop(404, T_("Store not found"));
 		}
 	}
 
