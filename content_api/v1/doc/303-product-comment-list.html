@@ -1,0 +1,59 @@
+
+<div class="cbox" id='product-comment-list'>
+
+  <h2 class="f" data-kerkere='#product-comment-list-detail' data-kerkere-icon='open'>
+    <div class="cauto pRa10"><span class="badge primary">GET</span></div>
+    <div>{%trans "Get list of product comment"%}</div>
+  </h2>
+  <div id="product-comment-list-detail">
+    <p>{%trans "See the product comment "%}</p>
+
+    <div class="msg url">
+      <i class="method">GET</i>
+      <span>{{apiURL}}<b>product/comment</b></span>
+    </div>
+
+    {%include "/content_api/v1/headers/just-appkey.html"%}
+
+
+
+    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
+<pre>
+curl -X GET \
+  {{apiURL}}product/comment \
+{%include "/content_api/v1/headers/just-appkey-curl.html"%}
+
+</pre>
+
+<h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
+<pre>
+{
+  "ok": true,
+  "pagination": {
+    "desc": "صفحه ۱ از ۳ - نمایش رکورد ۱ تا ۱۰ از ۲۲",
+    "page": 1,
+    "total_page": 3,
+    "limit": 10,
+    "total_rows": 22
+  },
+  "result": [
+    {
+      "id": "7",
+      "content": "خیلی خوبه",
+      "star": "3",
+      "status": "approved",
+      "tstatus": "تایید شده",
+      "datecreated": "2019-05-19 17:22:20",
+      "user": "4b",
+      "avatar": "{{url.site}}/static/siftal/images/default/avatar.png",
+      "displayname": "رضا",
+      "gender": "male"
+    }
+  ]
+}
+</pre>
+
+
+  </div>
+</div>
+

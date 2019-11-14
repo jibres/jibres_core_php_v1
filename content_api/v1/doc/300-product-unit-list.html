@@ -1,0 +1,63 @@
+
+<div class="cbox" id='product-unit-list'>
+
+  <h2 class="f" data-kerkere='#product-unit-list-detail' data-kerkere-icon='open'>
+    <div class="cauto pRa10"><span class="badge primary">GET</span></div>
+    <div>{%trans "Get list of product units"%}</div>
+  </h2>
+  <div id="product-unit-list-detail">
+    <p>{%trans "See the product units "%}</p>
+    <p>{%trans "To add a new unit, you must add a product with the same unit"%}</p>
+
+
+    <div class="msg url">
+      <i class="method">GET</i>
+      <span>{{apiURL}}<b>product/unit</b></span>
+    </div>
+
+    {%include "/content_api/v1/headers/full.html"%}
+
+
+
+    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
+<pre>
+curl -X GET \
+  {{apiURL}}product/unit \
+{%include "/content_api/v1/headers/full-curl.html"%}
+
+</pre>
+
+<h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
+<pre>
+{
+  "ok": true,
+  "result": [
+    {
+      "id": "8",
+      "title": "عدد",
+      "int": "1",
+      "maxsale": null,
+      "count": "2780"
+    },
+    {
+      "id": "3",
+      "title": "بسته",
+      "int": null,
+      "maxsale": null,
+      "count": "689"
+    },
+    {
+      "id": "b",
+      "title": "قوطی",
+      "int": null,
+      "maxsale": null,
+      "count": "137"
+    }
+  ]
+}
+</pre>
+
+
+  </div>
+</div>
+

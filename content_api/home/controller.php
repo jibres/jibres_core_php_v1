@@ -8,7 +8,7 @@ class controller
 	{
 		$module = \dash\url::module();
 
-		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v6']) && !\dash\url::child()))
+		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v1']) && !\dash\url::child()))
 		{
 			// nothing
 		}
@@ -22,10 +22,10 @@ class controller
 			'website'            => \dash\url::kingdom(),
 			'api-latest-version' => 6,
 
-			'api-v6' =>
+			'api-v1' =>
 			[
-				'url' => \dash\url::here(). '/v6',
-				'doc' => \dash\url::here(). '/v6/doc',
+				'url' => \dash\url::here(). '/v1',
+				'doc' => \dash\url::here(). '/v1/doc',
 			],
 			'lang' =>
 			[
