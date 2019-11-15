@@ -1,0 +1,50 @@
+https://jibres.com/api/v1/
+
+>> enter
+>> enter/verify
+>> enter/password
+
+>> app
+
+>> product/list
+>> product/list/expensive
+>> product/list/inexpensive
+>> product/list/letest
+>> product/list/visit
+>> product/list/popular
+>> product/list/discount
+
+>> product/category/list
+>> product/category/get
+
+>> product/get
+>> product/get/comment
+>> product/get/comment/add
+>> product/get/similar
+>> product/get/detail
+>> product/get/search
+
+>> product/like
+>> product/notif
+
+
+>> cart/get
+>> cart/add
+>> cart/remove
+>> cart/done
+
+>> profile/get
+>> profile/update
+>> profile/address/get
+>> profile/address/update
+>> profile/address/remove
+>> profile/liked
+>> profile/orders
+
+
+>> about
+>> faq
+>> logout
+
+
+>> ticket/add
