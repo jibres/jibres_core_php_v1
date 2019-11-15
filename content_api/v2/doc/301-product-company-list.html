@@ -1,0 +1,57 @@
+
+<div class="cbox" id='product-company-list'>
+
+  <h2 class="f" data-kerkere='#product-company-list-detail' data-kerkere-icon='open'>
+    <div class="cauto pRa10"><span class="badge primary">GET</span></div>
+    <div>{%trans "Get list of product company"%}</div>
+  </h2>
+  <div id="product-company-list-detail">
+    <p>{%trans "See the product company "%}</p>
+    <p>{%trans "To add a new company, you must add a product with the same company"%}</p>
+
+
+    <div class="msg url">
+      <i class="method">GET</i>
+      <span>{{apiURL}}<b>product/company</b></span>
+    </div>
+
+    {%include "/content_api/v2/headers/full.html"%}
+
+
+
+    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
+<pre>
+curl -X GET \
+  {{apiURL}}product/company \
+{%include "/content_api/v2/headers/full-curl.html"%}
+
+</pre>
+
+<h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
+<pre>
+{
+  "ok": true,
+  "result": [
+    {
+      "id": "9Z",
+      "title": "شیرین عسل",
+      "count": "40"
+    },
+    {
+      "id": "gq",
+      "title": "کاله",
+      "count": "34"
+    },
+    {
+      "id": "d6",
+      "title": "میهن",
+      "count": "15"
+    }
+  ]
+}
+</pre>
+
+
+  </div>
+</div>
+

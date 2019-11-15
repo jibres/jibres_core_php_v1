@@ -81,7 +81,9 @@ https://developers.jibres.com/api/v1/$STORE
 
 
 
-********************************************************************* Enter
+********************************************************************* Enter / Account
+>> account/android/add
+>> account/token
 >> account/enter
 >> account/enter/verify
 >> account/logout
@@ -89,9 +91,9 @@ https://developers.jibres.com/api/v1/$STORE
 
 
 ********************************************************************* Bussiness Data
->> bussiness/about
->> bussiness/mission
->> bussiness/vision
->> bussiness/contact
+>> business/about
+>> business/mission
+>> business/vision
+>> business/contact
 
 

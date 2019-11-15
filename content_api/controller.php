@@ -15,9 +15,10 @@ class controller
 		// $x[] = password_hash(':~-:~reza:,.[]', PASSWORD_BCRYPT, ['cost' => 7]);
 		// $x[] = uniqid("reza");
 		// j($x);exit();
+
 		$module = \dash\url::module();
 
-		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v1'])))
+		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v2'])))
 		{
 			// nothing
 		}
@@ -26,9 +27,9 @@ class controller
 			\dash\header::status(404, T_("Invalid url"));
 		}
 
-		if($module === 'v1')
+		if($module === 'v2')
 		{
-			\content_api\v1::master_check();
+			\content_api\v2::master_check();
 		}
 
 		// save api log
