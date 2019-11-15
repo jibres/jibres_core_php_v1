@@ -26,6 +26,8 @@ class v1
 			\content_api\v1::stop(404, T_("Store variable not set in header"));
 		}
 
+		\dash\engine\store::config($store);
+
 		\lib\store::set_store_slug($store);
 
 		if(!\lib\store::id())

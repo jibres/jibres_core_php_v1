@@ -89,6 +89,7 @@ class store
 			return;
 		}
 
+
 		if(\dash\session::get('store_detail_'. self::store_slug()))
 		{
 			self::$store = \dash\session::get('store_detail_'. self::store_slug());
@@ -97,7 +98,7 @@ class store
 
 		self::clean_session(self::store_slug());
 
-		$store_detail_raw = \dash\engine\store::detail();
+		$store_detail_raw = \dash\engine\store::detail(self::store_slug());
 
 		if(!isset($store_detail_raw['store']))
 		{

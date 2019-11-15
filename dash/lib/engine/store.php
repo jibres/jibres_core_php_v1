@@ -19,14 +19,21 @@ class store
 	}
 
 
-	public static function detail()
+	public static function detail($_subdomain = null)
 	{
 		// no subdomain
 		$subdomain        = \dash\url::subdomain();
 
 		if(!$subdomain)
 		{
-			return null;
+			if($_subdomain)
+			{
+				$subdomain = $_subdomain;
+			}
+			else
+			{
+				return null;
+			}
 		}
 
 		\lib\app\store\subdomain::$debug = false;
@@ -96,9 +103,9 @@ class store
 	}
 
 
-	public static function config()
+	public static function config($_subdomain = null)
 	{
-		$store_detail = self::detail();
+		$store_detail = self::detail($_subdomain);
 		if(isset($store_detail['db_name']))
 		{
 			\dash\db::$jibres_db_name = $store_detail['db_name'];

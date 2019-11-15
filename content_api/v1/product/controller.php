@@ -30,6 +30,11 @@ class controller
 			// need less to check user
 			$detail = \content_api\v1\product\add::route();
 		}
+		elseif($directory === 'v1/product')
+		{
+			\content_api\v1::check_store_init();
+			$detail = \content_api\v1\product\get::route();
+		}
 		else
 		{
 			\content_api\v1::invalid_url();
