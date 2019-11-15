@@ -1,50 +1,97 @@
-https://jibres.com/api/v1/
+https://developers.jibres.com/api/v1/$STORE
 
->> enter
->> enter/verify
->> enter/password
-
+********************************************************************* Application Default Settings
 >> app
 
->> product/list
->> product/list/expensive
->> product/list/inexpensive
->> product/list/letest
->> product/list/visit
->> product/list/popular
->> product/list/discount
 
->> product/category/list
->> product/category/get
+********************************************************************* Product Actions
+>> product/$PRODUCT
+>> product/$PRODUCT/comment
+>> product/$PRODUCT/comment/add
+>> product/$PRODUCT/similars
+>> product/$PRODUCT/categories
+>> product/$PRODUCT/specifications
+>> product/$PRODUCT/tags
+>> product/$PRODUCT/history
+>> product/$PRODUCT/like
+>> product/$PRODUCT/notif
 
->> product/get
->> product/get/comment
->> product/get/comment/add
->> product/get/similar
->> product/get/detail
->> product/get/search
-
->> product/like
->> product/notif
+++++++++++++++++++++++++++++++++++++ Admin Actions
+>> product/add
+>> product/$PRODUCT/edit
+>> product/$PRODUCT/gallery
+>> product/$PRODUCT/remove
+>> product/$PRODUCT/varient
 
 
->> cart/get
->> cart/add
->> cart/remove
->> cart/done
 
+********************************************************************* Products
+>> products/compare/$PRODUCT/$PRODUCT/$PRODUCT/$PRODUCT/$PRODUCT
+>> products/list?sort=expensive|inexpensive|latest|visit|popular|discount
+>> products/category/$CATEGORY
+>> products/collection/$COLLECTION
+>> products/tag/$TAG
+>> products/company/$TAG
+>> products/search?q=$QUERY&tag=$TAG&...
+
+
+
+********************************************************************* Other Lists
+>> collection/list
+>> category/list
+>> company/list
+
+
+
+********************************************************************* Profile
 >> profile/get
 >> profile/update
->> profile/address/get
->> profile/address/update
->> profile/address/remove
+>> profile/address/list
+>> profile/address/add
+>> profile/address/$ADDRESS/update
+>> profile/address/$ADDRESS/remove
 >> profile/liked
->> profile/orders
 
 
->> about
->> faq
->> logout
+
+********************************************************************* Orders
+>> orders/list
+>> orders/$ORDER
 
 
+
+********************************************************************* Profile
+>> cart/get
+>> cart/add
+>> cart/update
+>> cart/remove
+>> cart/confirm
+
+
+
+********************************************************************* Ticket
+>> ticket/list
 >> ticket/add
+>> ticket/add/bug
+>> ticket/add/feedback
+>> ticket/add/contact
+>> ticket/$TICKET
+>> ticket/$TICKET/reply
+>> ticket/$TICKET/close
+
+
+
+********************************************************************* Enter
+>> account/enter
+>> account/enter/verify
+>> account/logout
+
+
+
+********************************************************************* Bussiness Data
+>> bussiness/about
+>> bussiness/mission
+>> bussiness/vision
+>> bussiness/contact
+
+
