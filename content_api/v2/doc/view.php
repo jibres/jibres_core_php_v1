@@ -57,13 +57,16 @@ class view
 			{
 				foreach ($list as $key => $value)
 				{
-					if(in_array(basename($value), ['display.html', 'view.php']))
+					if(substr($value, -5) === '.html')
 					{
-						continue;
-					}
-					else
-					{
-						$projectDoc[] = str_replace(root, '', $value);
+						if(in_array(basename($value), ['display.html', 'view.php']))
+						{
+							continue;
+						}
+						else
+						{
+							$projectDoc[] = str_replace(root, '', $value);
+						}
 					}
 
 				}
