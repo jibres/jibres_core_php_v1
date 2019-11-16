@@ -89,6 +89,10 @@ class controller
 				\content_api\v2\business\controller::api_routing();
 				break;
 
+			case 'language':
+				\content_api\v2\language\controller::api_routing();
+				break;
+
 			default:
 				\content_api\v2::stop(404);
 				break;

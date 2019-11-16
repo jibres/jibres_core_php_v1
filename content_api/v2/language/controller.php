@@ -11,7 +11,7 @@ class controller
 
 	public static function api_routing()
 	{
-		if(\dash\url::subchild())
+		if(\dash\url::dir(3))
 		{
 			\content_api\v2::invalid_url();
 		}
