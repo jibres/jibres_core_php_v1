@@ -1557,6 +1557,7 @@ class twigTransTerms
 	//-------------------------rojects/jibres/content_api/v2/doc/070-session-list.html
 
 	//-----------------------------rojects/jibres/content_api/v2/doc/020-user-add.html
+	echo T_("This service is used to add users through the Android app.");            // Line 8
 
 	//--------------------rojects/jibres/content_api/v2/doc/300-product-unit-list.html
 
@@ -1587,6 +1588,7 @@ class twigTransTerms
 	//--------------------------------rojects/jibres/content_api/v2/doc/030-about.html
 
 	//--------------------------------rojects/jibres/content_api/v2/doc/010-token.html
+	echo T_("This key is disposable and has a time limit. It is usable only at the specified time and if it is used successfully or unsuccessfully once in a request, it loses its validity and needs to be rebuilt for the next request");// Line 9
 
 	//---------------------------rojects/jibres/content_api/v2/doc/040-user-login.html
 
@@ -2444,6 +2446,7 @@ class twigTransTerms
 	echo T_("GENERATE YOUR APPKEY");                                                  // Line 23
 	echo T_("If you want to revoke or remove this appkey");                           // Line 28
 	echo T_("Make appkey");                                                           // Line 32
+	echo T_("Your Stores code to use in api");                                        // Line 54
 
 	//--------------------------rojects/jibres/content_account/my/profile/display.html
 	echo T_("First name");                                                            // Line 429

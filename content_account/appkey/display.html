@@ -32,12 +32,41 @@
         <button data-confirm data-data='{"add" : "appkey"}' class="btn primary mT5 block">{%trans "Make appkey"%}</button>
     	{%endif%}
 
-
-        </div>
       </form>
+
+    </div>
+
+    <div class="cbox">
+      {{block('myStoresOwner')}}
+    </div>
+
+
     </div>
 
   </div>
 
 </div>
+{%endblock%}
+
+
+{%block myStoresOwner%}
+{%if listStore.owner%}
+<h3>{%trans "Your Stores code to use in api"%}</h3>
+<div class="">
+{%for key, value in listStore.owner%}
+  <div class="" >
+    <div href='{{value.url}}/a' class="scard">
+      <img src="{{value.logo}}" alt="{{value.title}}">
+      <div class="body">
+        <h2>{{value.title}}</h2>
+        <div class="position txtRa">
+          <code class="ltr">{{value.store_id | coding("encode")}}</code>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{%endfor%}
+</div>
+{%endif%}
 {%endblock%}
