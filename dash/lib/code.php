@@ -125,7 +125,6 @@ class code
 				$_data = json_encode($_data, JSON_UNESCAPED_UNICODE);
 			}
 		}
-		echo $_data;
 		// set header
 		if($_customHeader === 'manifest')
 		{
@@ -147,6 +146,8 @@ class code
 		{
 			@header("Content-Type: application/json; charset=utf-8");
 		}
+
+		echo $_data;
 
 		self::boom();
 	}
