@@ -515,6 +515,7 @@ class controller
 	{
 		$homepage              = [];
 		$homepage[]            = self::banner();
+		$homepage[]            = self::slider();
 		$homepage[]            = self::link4();
 		$homepage[]            = self::news();
 		return $homepage;
@@ -527,6 +528,17 @@ class controller
 		$link['type']  = 'banner';
 		$link['image'] = 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg';
 		$link['url']   = self::jibres_temp_url(). '/store';
+		return $link;
+	}
+
+
+
+	private static function slider()
+	{
+		$link           = [];
+		$link['type']   = 'slider';
+		$posts          = \dash\app\posts::get_post_list(['special' => 'slider', 'limit' => 5]);
+		$link['slider'] = $posts;
 		return $link;
 	}
 
