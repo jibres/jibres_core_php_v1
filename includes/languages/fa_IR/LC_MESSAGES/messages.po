@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-11-16 14:30+0330\n"
-"PO-Revision-Date: 2019-11-16 14:30+0330\n"
+"POT-Creation-Date: 2019-11-16 15:15+0330\n"
+"PO-Revision-Date: 2019-11-16 15:15+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -891,7 +891,7 @@ msgstr "کارخانه سازنده محصول"
 #: jibres/content_api/v1/android/user/add.php:114
 #: jibres/content_api/v1/app/controller.php:147
 #: jibres/content_api/v2/account/android/user/add.php:114
-#: jibres/content_api/v2/app/controller.php:140
+#: jibres/content_api/v2/app/controller.php:111
 #: jibres/dash/addons/includes/languages/trans_static.php:109
 #: jibres/includes/languages/trans_project.php:1823
 msgid "Version"
@@ -958,13 +958,13 @@ msgstr "نام تجاری"
 
 #: dash/addons/content_api/v6/app/controller.php:134
 #: jibres/content_api/v1/app/controller.php:148
-#: jibres/content_api/v2/app/controller.php:141
+#: jibres/content_api/v2/app/controller.php:112
 msgid "Change language"
 msgstr "تغییر زبان"
 
 #: dash/addons/content_api/v6/app/controller.php:135
 #: jibres/content_api/v1/app/controller.php:149
-#: jibres/content_api/v2/app/controller.php:142
+#: jibres/content_api/v2/app/controller.php:113
 msgid "Close"
 msgstr "بستن"
 
@@ -975,7 +975,7 @@ msgstr "بستن"
 #: jibres/content_a/products/add/view.php:13
 #: jibres/content_a/products/edit/view.php:51
 #: jibres/content_api/v1/app/controller.php:150
-#: jibres/content_api/v2/app/controller.php:143
+#: jibres/content_api/v2/app/controller.php:114
 #: jibres/content_i/bank/add/view.php:16 jibres/content_i/bank/edit/view.php:14
 #: jibres/content_i/category/add/view.php:16
 #: jibres/content_i/category/edit/view.php:14
@@ -994,7 +994,7 @@ msgstr "بازگشت"
 #: dash/addons/content_api/v6/app/controller.php:137
 #: dash/addons/includes/languages/trans_dash.php:294
 #: jibres/content_api/v1/app/controller.php:151
-#: jibres/content_api/v2/app/controller.php:144
+#: jibres/content_api/v2/app/controller.php:115
 #: jibres/dash/addons/includes/languages/trans_dash.php:34
 #: jibres/includes/languages/trans_dash.php:34
 #: jibres/includes/languages/trans_project.php:330
@@ -1008,8 +1008,8 @@ msgstr "برو"
 #: dash/lib/app/log/caller/enter/enter_apiverificationcode.php:16
 #: jibres/content_api/v1/app/controller.php:152
 #: jibres/content_api/v1/app/controller.php:562
-#: jibres/content_api/v2/app/controller.php:145
-#: jibres/content_api/v2/app/controller.php:567
+#: jibres/content_api/v2/app/controller.php:116
+#: jibres/content_api/v2/app/controller.php:629
 #: jibres/content_enter/pass/recovery/model.php:34
 #: jibres/dash/addons/includes/languages/trans_dash.php:47
 #: jibres/dash/lib/app/log/caller/enter/enter_VerificationCode.php:16
@@ -1024,7 +1024,7 @@ msgstr "ورود"
 #: dash/lib/social/telegram/commands/ermile.php:528
 #: dash/lib/social/telegram/commands/ermileInline.php:76
 #: jibres/content_api/v1/app/controller.php:167
-#: jibres/content_api/v2/app/controller.php:160
+#: jibres/content_api/v2/app/controller.php:131
 #: jibres/dash/lib/social/telegram/commands/ermile.php:332
 #: jibres/dash/lib/social/telegram/commands/ermile.php:528
 #: jibres/dash/lib/social/telegram/commands/ermileInline.php:76
@@ -1034,19 +1034,19 @@ msgstr "درباره"
 
 #: dash/addons/content_api/v6/app/controller.php:160
 #: jibres/content_api/v1/app/controller.php:174
-#: jibres/content_api/v2/app/controller.php:167
+#: jibres/content_api/v2/app/controller.php:138
 msgid "About this version"
 msgstr "دریاره این نسخه"
 
 #: dash/addons/content_api/v6/app/controller.php:166
 #: jibres/content_api/v1/app/controller.php:180
-#: jibres/content_api/v2/app/controller.php:173
+#: jibres/content_api/v2/app/controller.php:144
 msgid "About us"
 msgstr "درباره ما"
 
 #: dash/addons/content_api/v6/app/controller.php:172
 #: jibres/content_api/v1/app/controller.php:186
-#: jibres/content_api/v2/app/controller.php:179
+#: jibres/content_api/v2/app/controller.php:150
 msgid "Privacy"
 msgstr "حریم خصوصی"
 
@@ -1054,7 +1054,7 @@ msgstr "حریم خصوصی"
 #: dash/addons/content_cms/terms/view.php:10
 #: dash/addons/includes/languages/trans_static.php:97
 #: jibres/content_api/v1/app/controller.php:192
-#: jibres/content_api/v2/app/controller.php:185 jibres/content_cms/terms/view.php:10
+#: jibres/content_api/v2/app/controller.php:156 jibres/content_cms/terms/view.php:10
 #: jibres/dash/addons/includes/languages/trans_static.php:97
 msgid "Terms"
 msgstr "عبارات"
@@ -1065,7 +1065,7 @@ msgstr "عبارات"
 #: dash/lib/engine/static_files.php:45 dash/lib/engine/static_files.php:52
 #: dash/lib/social/telegram/commands/ermile.php:528
 #: jibres/content_api/v1/app/controller.php:202
-#: jibres/content_api/v2/app/controller.php:195
+#: jibres/content_api/v2/app/controller.php:166
 #: jibres/dash/lib/engine/static_files.php:26
 #: jibres/dash/lib/engine/static_files.php:35
 #: jibres/dash/lib/engine/static_files.php:45
@@ -1077,13 +1077,13 @@ msgstr "تماس"
 
 #: dash/addons/content_api/v6/app/controller.php:197
 #: jibres/content_api/v1/app/controller.php:211
-#: jibres/content_api/v2/app/controller.php:204
+#: jibres/content_api/v2/app/controller.php:175
 msgid "Vision"
 msgstr "چشم‌انداز"
 
 #: dash/addons/content_api/v6/app/controller.php:206
 #: jibres/content_api/v1/app/controller.php:220
-#: jibres/content_api/v2/app/controller.php:213
+#: jibres/content_api/v2/app/controller.php:184
 msgid "Mission"
 msgstr "ماموریت"
 
@@ -1093,7 +1093,7 @@ msgstr "ماموریت"
 #: dash/lib/social/telegram/commands/ermile.php:346
 #: dash/lib/social/telegram/commands/ermile.php:533
 #: jibres/content_api/v1/app/controller.php:229
-#: jibres/content_api/v2/app/controller.php:222
+#: jibres/content_api/v2/app/controller.php:193
 #: jibres/dash/lib/engine/static_files.php:25
 #: jibres/dash/lib/engine/static_files.php:34
 #: jibres/dash/lib/social/telegram/commands/ermile.php:346
@@ -1111,14 +1111,14 @@ msgstr "وب‌سایت"
 #: jibres/content_a/setting/pos/view.php:8 jibres/content_a/setting/sms/view.php:8
 #: jibres/content_a/setting/social/view.php:8
 #: jibres/content_api/v1/app/controller.php:248
-#: jibres/content_api/v2/app/controller.php:241
+#: jibres/content_api/v2/app/controller.php:212
 #: jibres/includes/languages/trans_project.php:799
 msgid "Setting"
 msgstr "تنظیمات"
 
 #: dash/addons/content_api/v6/app/controller.php:242
 #: jibres/content_api/v1/app/controller.php:256
-#: jibres/content_api/v2/app/controller.php:249
+#: jibres/content_api/v2/app/controller.php:220
 #: jibres/includes/languages/trans_project.php:837
 msgid "More"
 msgstr "بیشتر"
@@ -1127,8 +1127,8 @@ msgstr "بیشتر"
 #: dash/addons/includes/languages/trans_static.php:75
 #: dash/lib/engine/twigAddons.php:240 jibres/content_api/v1/app/controller.php:264
 #: jibres/content_api/v1/app/controller.php:547
-#: jibres/content_api/v2/app/controller.php:257
-#: jibres/content_api/v2/app/controller.php:552
+#: jibres/content_api/v2/app/controller.php:228
+#: jibres/content_api/v2/app/controller.php:614
 #: jibres/dash/addons/includes/languages/trans_static.php:75
 #: jibres/dash/lib/engine/twigAddons.php:240
 #: jibres/includes/languages/trans_project.php:99
@@ -1142,9 +1142,9 @@ msgstr "صفحه نخست"
 #: jibres/content_api/v1/app/controller.php:290
 #: jibres/content_api/v1/app/controller.php:312
 #: jibres/content_api/v1/app/controller.php:334
-#: jibres/content_api/v2/app/controller.php:283
-#: jibres/content_api/v2/app/controller.php:305
-#: jibres/content_api/v2/app/controller.php:327
+#: jibres/content_api/v2/app/controller.php:254
+#: jibres/content_api/v2/app/controller.php:276
+#: jibres/content_api/v2/app/controller.php:298
 #: jibres/dash/addons/includes/languages/trans_dash.php:37
 #: jibres/includes/languages/trans_dash.php:37
 #: jibres/includes/languages/trans_project.php:2840
@@ -1153,13 +1153,13 @@ msgstr "بعدی"
 
 #: dash/addons/content_api/v6/app/controller.php:284
 #: jibres/content_api/v1/app/controller.php:298
-#: jibres/content_api/v2/app/controller.php:291
+#: jibres/content_api/v2/app/controller.php:262
 msgid "Easy"
 msgstr "آسان"
 
 #: dash/addons/content_api/v6/app/controller.php:285
 #: jibres/content_api/v1/app/controller.php:299
-#: jibres/content_api/v2/app/controller.php:292
+#: jibres/content_api/v2/app/controller.php:263
 msgid "Easy to use"
 msgstr "به سادگی قابل استفاده است"
 
@@ -1167,38 +1167,38 @@ msgstr "به سادگی قابل استفاده است"
 #: dash/addons/content_api/v6/app/controller.php:316
 #: jibres/content_api/v1/app/controller.php:308
 #: jibres/content_api/v1/app/controller.php:330
-#: jibres/content_api/v2/app/controller.php:301
-#: jibres/content_api/v2/app/controller.php:323
+#: jibres/content_api/v2/app/controller.php:272
+#: jibres/content_api/v2/app/controller.php:294
 msgid "Prev"
 msgstr "قبلی"
 
 #: dash/addons/content_api/v6/app/controller.php:306
 #: jibres/content_api/v1/app/controller.php:320
-#: jibres/content_api/v2/app/controller.php:313
+#: jibres/content_api/v2/app/controller.php:284
 msgid "Powerful"
 msgstr "پرقدرت"
 
 #: dash/addons/content_api/v6/app/controller.php:307
 #: jibres/content_api/v1/app/controller.php:321
-#: jibres/content_api/v2/app/controller.php:314
+#: jibres/content_api/v2/app/controller.php:285
 msgid "Best application"
 msgstr "بهترین برنامه"
 
 #: dash/addons/content_api/v6/app/controller.php:328
 #: jibres/content_api/v1/app/controller.php:342
-#: jibres/content_api/v2/app/controller.php:335
+#: jibres/content_api/v2/app/controller.php:306
 msgid "Enjoy"
 msgstr "لذت ببرید"
 
 #: dash/addons/content_api/v6/app/controller.php:329
 #: jibres/content_api/v1/app/controller.php:343
-#: jibres/content_api/v2/app/controller.php:336
+#: jibres/content_api/v2/app/controller.php:307
 msgid "Welcome to our collection"
 msgstr "به جمع ما خوش‌آمدید"
 
 #: dash/addons/content_api/v6/app/controller.php:338
 #: jibres/content_api/v1/app/controller.php:352
-#: jibres/content_api/v2/app/controller.php:345
+#: jibres/content_api/v2/app/controller.php:316
 #: jibres/includes/languages/trans_project.php:438
 msgid "Start"
 msgstr "شروع"
@@ -4194,7 +4194,7 @@ msgstr "تگ با موفقیت اضافه شد"
 #: dash/lib/app/log/caller/ticket/ticket_answerTicketAlertSend.php:14
 #: dash/lib/app/log/caller/ticket/ticket_seeTicket.php:13
 #: jibres/content_api/v1/app/controller.php:552
-#: jibres/content_api/v2/app/controller.php:557 jibres/content_support/view.php:47
+#: jibres/content_api/v2/app/controller.php:619 jibres/content_support/view.php:47
 #: jibres/dash/lib/app/log/caller/ticket/ticket_AddNoteTicket.php:13
 #: jibres/dash/lib/app/log/caller/ticket/ticket_AddToTicket.php:13
 #: jibres/dash/lib/app/log/caller/ticket/ticket_AnswerTicket.php:13
@@ -6503,7 +6503,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 
 #: dash/addons/includes/languages/trans_dash.php:467
 #: jibres/content_api/v1/app/controller.php:602
-#: jibres/content_api/v2/app/controller.php:607
+#: jibres/content_api/v2/app/controller.php:669
 #: jibres/includes/languages/trans_project.php:35
 msgid "Hi!"
 msgstr "سلام!"
@@ -19860,7 +19860,7 @@ msgid "Invalid param :val"
 msgstr "پارامتر :val اشتباه است"
 
 #: jibres/content_api/v1/app/controller.php:557
-#: jibres/content_api/v2/app/controller.php:562
+#: jibres/content_api/v2/app/controller.php:624
 msgid "Store"
 msgstr "فروشگاه"
 
@@ -23763,7 +23763,7 @@ msgstr "آخرین نسخه،‌ نسخه ۱ است."
 msgid "The stable base URL for all Version 1 HTTPS endpoints is"
 msgstr "آدرس پایدار برای تمامی نقاط اتصال در نسخه ۱ از طریق اچ‌تی‌تی‌پی‌اس عبارت است از"
 
-#: jibres/includes/languages/trans_project.php:1560
+#: jibres/includes/languages/trans_project.php:1562
 msgid "This service is used to add users through the Android app."
 msgstr ""
 "این سرویس برای افزودن کاربر از طریق اپلیکیشن اندروید مورد استفاده قرار می‌گیرد."

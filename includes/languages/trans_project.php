@@ -1351,7 +1351,7 @@ class twigTransTerms
 	echo T_("Get from your account profile");                                         // Line 53
 
 	//-----------------------------rojects/jibres/content_api/v1/doc/020-user-add.html
-	echo T_("Sign Up User");                                                          // Line 27
+	echo T_("Sign Up User");                                                          // Line 28
 	echo T_("Add new user to service");                                               // Line 8
 	echo T_("Your temporary token");                                                  // Line 45
 	echo T_("Max length");                                                            // Line 97
@@ -1431,7 +1431,7 @@ class twigTransTerms
 	echo T_("response is not valid JSON");                                            // Line 115
 
 	//--------------------------------rojects/jibres/content_api/v1/doc/055-notif.html
-	echo T_("Get notification list");                                                 // Line 41
+	echo T_("Get notification list");                                                 // Line 42
 	echo T_("Get list of your notification");                                         // Line 8
 	echo T_("If you want to set all notif of this user as read notif set this parameters as true");// Line 81
 	echo T_("If user not read this notif, this response is null else see read date of this notif");// Line 122
@@ -1471,7 +1471,7 @@ class twigTransTerms
 	echo T_("APP key generated on the user panel");                                   // Line 31
 
 	//---------------------------rojects/jibres/content_api/v1/doc/040-user-login.html
-	echo T_("Login user");                                                            // Line 37
+	echo T_("Login user");                                                            // Line 38
 	echo T_("Login user and get new apikey for this user");                           // Line 8
 	echo T_("To get this token see");                                                 // Line 51
 	echo T_("Your temporary apikey");                                                 // Line 62
@@ -1479,7 +1479,7 @@ class twigTransTerms
 	echo T_("Min length");                                                            // Line 98
 
 	//-----------------------------rojects/jibres/content_api/v1/doc/042-language.html
-	echo T_("Get language list");                                                     // Line 39
+	echo T_("Get language list");                                                     // Line 40
 
 	//----------------------------------rojects/jibres/content_api/v1/doc/display.html
 	echo T_("API");                                                                   // Line 20
@@ -1487,17 +1487,17 @@ class twigTransTerms
 	echo T_("Endpoints");                                                             // Line 3
 	echo T_("Token");                                                                 // Line 8
 	echo T_("Get profile detail");                                                    // Line 5
-	echo T_("Upload avatar");                                                         // Line 29
-	echo T_("Update profile");                                                        // Line 30
-	echo T_("Get about");                                                             // Line 31
-	echo T_("Get mission");                                                           // Line 32
-	echo T_("Get vision");                                                            // Line 33
-	echo T_("Get contact");                                                           // Line 34
-	echo T_("Get posts");                                                             // Line 35
-	echo T_("Get post detail");                                                       // Line 36
+	echo T_("Upload avatar");                                                         // Line 30
+	echo T_("Update profile");                                                        // Line 31
+	echo T_("Get about");                                                             // Line 32
+	echo T_("Get mission");                                                           // Line 33
+	echo T_("Get vision");                                                            // Line 34
+	echo T_("Get contact");                                                           // Line 35
+	echo T_("Get posts");                                                             // Line 36
+	echo T_("Get post detail");                                                       // Line 37
 	echo T_("Verify user");                                                           // Line 5
-	echo T_("Check new notification");                                                // Line 40
-	echo T_("Get app detail");                                                        // Line 42
+	echo T_("Check new notification");                                                // Line 41
+	echo T_("Get app detail");                                                        // Line 26
 	echo T_("Session list");                                                          // Line 43
 	echo T_("Product unit list");                                                     // Line 48
 	echo T_("Product company list");                                                  // Line 49
@@ -1550,6 +1550,8 @@ class twigTransTerms
 
 	//-----------------------------rojects/jibres/content_api/v2/doc/headers/full.html
 
+	//---------------------------rojects/jibres/content_api/v2/doc/010-app-detail.html
+
 	//-------------------rojects/jibres/content_api/v2/doc/201-store-add-question.html
 
 	//------------------------------rojects/jibres/content_api/v2/doc/033-contact.html
@@ -1582,8 +1584,6 @@ class twigTransTerms
 	//-----------------------------rojects/jibres/content_api/v2/doc/035-get-post.html
 
 	//------------------------------rojects/jibres/content_api/v2/doc/031-mission.html
-
-	//---------------------------rojects/jibres/content_api/v2/doc/061-app-detail.html
 
 	//--------------------------------rojects/jibres/content_api/v2/doc/030-about.html
 
