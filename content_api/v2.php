@@ -34,7 +34,7 @@ class v2
 		$detail = \dash\engine\store::init_id($store_id);
 		if(!$detail)
 		{
-			self::stop(403, T_("Detail not found"));
+			self::stop(403, T_("Store Detail not found"));
 		}
 
 		if(isset($detail['subdomain']))
