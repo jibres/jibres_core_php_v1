@@ -44,8 +44,9 @@ https://developers.jibres.com/api/v1/$STORE ------------------------ OK
 
 
 ********************************************************************* Profile
->> profile/get
->> profile/update
+>> profile/get ------------------------------------------------------ OK -- NEED TO FIX
+>> profile/update/avatar -------------------------------------------- OK -- NEED TO FIX
+>> profile/update --------------------------------------------------- OK -- NEED TO FIX
 >> profile/address/list
 >> profile/address/add
 >> profile/address/$ADDRESS/update
@@ -82,7 +83,7 @@ https://developers.jibres.com/api/v1/$STORE ------------------------ OK
 
 
 ********************************************************************* Enter / Account
->> account/android/add
+>> account/android/add ---------------------------------------------- OK
 >> account/token ---------------------------------------------------- OK
 >> account/enter
 >> account/enter/verify

@@ -11,30 +11,59 @@ class controller
 
 	public static function api_routing()
 	{
-		if(\dash\url::subchild())
-		{
-			\content_api\v2::invalid_url();
-		}
-
-		\content_api\v2::check_apikey();
 
 		$profile = false;
 
-		if(\dash\request::is('patch'))
+		\content_api\v2::check_apikey();
+
+		switch (\dash\url::dir(3))
 		{
-			$profile = self::update_profile();
-		}
-		elseif(\dash\request::is('post'))
-		{
-			$profile = self::update_profile(true);
-		}
-		elseif(\dash\request::is('get'))
-		{
-			$profile = self::get_profile();
-		}
-		else
-		{
-			\content_api\v2::invalid_method();
+			case 'get':
+				if(\dash\url::dir(4))
+				{
+					\content_api\v2::invalid_url();
+				}
+
+				if(!\dash\request::is('get'))
+				{
+					\content_api\v2::invalid_method();
+				}
+				$profile = self::get_profile();
+				break;
+
+			case 'update':
+				if(\dash\url::dir(4) === 'avatar')
+				{
+					if(\dash\url::dir(5))
+					{
+						\content_api\v2::invalid_url();
+					}
+
+					if(!\dash\request::is('post'))
+					{
+						\content_api\v2::invalid_method();
+					}
+
+					$profile = self::update_profile(true);
+				}
+				elseif(!\dash\url::dir(4))
+				{
+					if(!\dash\request::is('post'))
+					{
+						\content_api\v2::invalid_method();
+					}
+
+					$profile = self::update_profile();
+				}
+				else
+				{
+					content_api\v2::invalid_url();
+				}
+				break;
+
+			default:
+				\content_api\v2::invalid_url();
+				break;
 		}
 
 		\content_api\v2::say($profile);
@@ -43,11 +72,10 @@ class controller
 
 	private static function update_profile($_get_avatar = false)
 	{
-
 		$request = self::getPost($_get_avatar);
 		if(!array_filter($request))
 		{
-			\dash\notif::error(T_("No field sended"));
+			\dash\notif::error(T_("No file sended"));
 			return false;
 		}
 
@@ -62,12 +90,34 @@ class controller
 			\dash\user::refresh();
 		}
 
-		return $profile;
+		return $result;
 	}
 
 
 	private static function get_profile()
 	{
+		return json_decode(
+		'{
+	        "username": "Biqarar",
+	        "displayname": "Reza mohiti",
+	        "gender": "male",
+	        "title": "Programer",
+	        "mobile": "9891...",
+	        "verifymobile": "1",
+	        "status": "active",
+	        "avatar": "http://jibres.local/static/images/logo.png",
+	        "datecreated": "2017-12-27 22:40:53",
+	        "datemodified": "2019-06-18 21:29:32",
+	        "birthday": "1990-01-16",
+	        "language": "fa",
+	        "firstname": "Reza",
+	        "lastname": "Mohitit",
+	        "bio": null,
+	        "email": null
+    	}', true);
+
+
+
 		$detail = \dash\user::detail();
 		$result = [];
 		foreach ($detail as $key => $value)

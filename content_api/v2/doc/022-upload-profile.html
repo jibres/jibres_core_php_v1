@@ -8,7 +8,7 @@
     <p>{%trans "Upload your avatar to change it"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>profile</b></span>
+      <span>{{apiURL}}<b>profile/update/avatar</b></span>
     </div>
 
     <div class="tblBox">
@@ -22,6 +22,20 @@
           </tr>
         </thead>
         <tbody>
+            <tr>
+            <td>
+              <div class="txtB">appkey</div>
+              <i>string</i>
+            </td>
+            <td>
+              <div>{%trans "APP key generated on the user panel"%}</div>
+              <code>{{myAppKey}}</code>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              {%trans "length"%} {{32 | fitNumber}}
+            </td>
+          </tr>
           <tr>
             <td>
               <div class="txtB">apikey</div>
@@ -74,7 +88,8 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}profile \
+  {{apiURL}}profile/update/avatar \
+  -H 'appkey: {{myAppKey}}' \
   -H 'apikey: {{myApiKey}}' \
   -F avatar=@/home/reza/Desktop/yourfile.jpg
 </pre>

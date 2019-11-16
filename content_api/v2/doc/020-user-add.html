@@ -22,6 +22,20 @@
           </tr>
         </thead>
         <tbody>
+           <tr>
+            <td>
+              <div class="txtB">appkey</div>
+              <i>string</i>
+            </td>
+            <td>
+              <div>{%trans "APP key generated on the user panel"%}</div>
+              <code>{{myAppKey}}</code>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              {%trans "length"%} {{32 | fitNumber}}
+            </td>
+          </tr>
           <tr>
             <td>
               <div class="txtB">token</div>
@@ -221,6 +235,7 @@
 <pre>
 curl -X POST \
   {{apiURL}}account/android/add \
+  -H 'appkey: {{myAppKey}}' \
   -H 'token: ec8e69c19ebb7c202ae1097aa40484e0' \
   -F 'model=HUAWEI Y560-U02' \
   -F 'serial=60D15B27D1259123456' \
