@@ -6,6 +6,11 @@ class controller
 {
 	public static function routing()
 	{
+		\content_api\v2::invalid_url();
+	}
+
+	public static function api_routing()
+	{
 		$detail    = [];
 
 		$directory = \dash\url::directory();

@@ -16,7 +16,7 @@ class v2
 			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
 		}
 
-		self::check_store_init();
+		// self::check_store_init();
 	}
 
 

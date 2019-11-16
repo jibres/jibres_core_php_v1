@@ -31,6 +31,10 @@ class controller
 		{
 			\content_api\v2::master_check();
 		}
+		else
+		{
+			\dash\header::status(404);
+		}
 
 		// save api log
 		\dash\app\apilog::start();
