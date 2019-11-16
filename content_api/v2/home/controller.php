@@ -6,7 +6,15 @@ class controller
 {
 	public static function routing()
 	{
+
+		if(\dash\url::directory() === 'v2')
+		{
+			\content_api\home\controller::routing();
+			return;
+		}
+
 		$url = \dash\url::dir();
+
 		// $url[0] is v2
 		if(!isset($url[0]))
 		{

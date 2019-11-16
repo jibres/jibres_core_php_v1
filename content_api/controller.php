@@ -31,7 +31,7 @@ class controller
 		{
 			\content_api\v2::master_check();
 		}
-		else
+		elseif($module)
 		{
 			\dash\header::status(404);
 		}
