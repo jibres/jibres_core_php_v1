@@ -9,11 +9,42 @@
 
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{apiURL}}<b>mission</b></span>
+      <span>{{apiURL}}<b>business/mission</b></span>
+    </div>
+
+
+    <div class="tblBox">
+      <h3>{%trans "Required parameters"%} {%trans "on header"%}</h3>
+      <table class="tbl1 v3">
+        <thead>
+          <tr>
+            <th>{%trans "Name"%} <small>{%trans "type"%}</small></th>
+            <th>{%trans "Description"%} <small>{%trans "example"%}</small></th>
+            <th>{%trans "Constraints"%}</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr>
+            <td>
+              <div class="txtB">appkey</div>
+              <i>string</i>
+            </td>
+            <td>
+              <div>{%trans "APP key generated on the user panel"%}</div>
+              <code>{{myAppKey}}</code>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              {%trans "length"%} {{32 | fitNumber}}
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
     </div>
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
-    <pre>curl -X GET {{apiURL}}mission</pre>
+    <pre>curl -X GET {{apiURL}}business/mission -H 'appkey: {{myAppKey}}' </pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
 <pre>
