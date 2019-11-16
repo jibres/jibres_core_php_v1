@@ -1,5 +1,5 @@
 <?php
-namespace content_api\v2\smile;
+namespace content_api\v2\account\smile;
 
 
 class controller
@@ -11,7 +11,7 @@ class controller
 
 	public static function api_routing()
 	{
-		if(\dash\url::subchild())
+		if(\dash\url::dir(4))
 		{
 			\content_api\v2::invalid_url();
 		}

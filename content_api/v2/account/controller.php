@@ -27,6 +27,10 @@ class controller
 				\content_api\v2\account\enter\controller::api_routing();
 				break;
 
+			case 'smile':
+				\content_api\v2\account\smile\controller::api_routing();
+				break;
+
 			default:
 				\content_api\v2::invalid_url(404);
 				break;
