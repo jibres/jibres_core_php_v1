@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`posts` (
   `subtitle` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
   `excerpt` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
   `meta` mediumtext CHARACTER SET utf8mb4,
+  `subtype` varchar(100) CHARACTER SET utf8mb4 NULL,
   `type` varchar(100) CHARACTER SET utf8mb4 NOT NULL DEFAULT 'post',
   `special` varchar(100) DEFAULT NULL,
   `comment` enum('open','closed') DEFAULT NULL,

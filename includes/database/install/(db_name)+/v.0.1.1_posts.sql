@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `excerpt` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
   `meta` mediumtext CHARACTER SET utf8mb4,
   `type` varchar(100) CHARACTER SET utf8mb4 NOT NULL DEFAULT 'post',
+  `subtype` varchar(100) CHARACTER SET utf8mb4 NULL,
   `special` varchar(100) DEFAULT NULL,
   `comment` enum('open','closed') DEFAULT NULL,
   `status` enum('publish','draft','schedule','deleted','expire') NOT NULL DEFAULT 'draft',

@@ -204,7 +204,7 @@ trait search
 		"
 			SELECT
 				posts.*,
-				(SELECT COUNT(*) FROM comments WHERE comments.post_id = posts.id AND comments.type = 'comment') AS `commentcount`
+				(SELECT COUNT(*) FROM comments WHERE comments.post_id = posts.id ) AS `commentcount`
 			FROM
 				posts
 			WHERE

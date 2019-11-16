@@ -918,8 +918,8 @@ class posts
 		$args['meta']        = $meta;
 		$args['type']        = $type;
 		$args['comment']     = $comment;
-		$args['count']       = $count;
-		$args['order']       = $order;
+		// $args['count']       = $count;
+		// $args['order']       = $order;
 		$args['status']      = $status;
 		$args['excerpt']     = $excerpt;
 		$args['subtitle']    = $subtitle;
