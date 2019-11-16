@@ -35,6 +35,10 @@ class controller
 				\content_api\v2\account\notif\controller::api_routing();
 				break;
 
+			case 'session':
+				\content_api\v2\account\session\controller::api_routing();
+				break;
+
 			default:
 				\content_api\v2::invalid_url(404);
 				break;
