@@ -11,10 +11,6 @@ class controller
 
 	public static function api_routing()
 	{
-		if(\dash\url::dir(4))
-		{
-			\content_api\v2::invalid_url();
-		}
 
 		$detail = [];
 
@@ -26,12 +22,21 @@ class controller
 			case 'vision':
 			case 'about':
 			case 'contact':
+				if(\dash\url::dir(4))
+				{
+					\content_api\v2::invalid_url();
+				}
 				if(!\dash\request::is('get'))
 				{
 					\content_api\v2::invalid_method();
 				}
 
 				$detail = self::page($my_child);
+				break;
+
+			case 'post':
+			case 'posts':
+				\content_api\v2\business\posts\controller::api_routing();
 				break;
 
 			default:

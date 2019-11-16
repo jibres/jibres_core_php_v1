@@ -92,9 +92,11 @@ https://developers.jibres.com/api/v1/$STORE ------------------------ OK
 
 
 ********************************************************************* Bussiness Data
->> business/about
->> business/mission
->> business/vision
->> business/contact
+>> business/about --------------------------------------------------- OK
+>> business/mission ------------------------------------------------- OK
+>> business/vision -------------------------------------------------- OK
+>> business/contact ------------------------------------------------- OK
+>> business/posts/list ---------------------------------------------- OK
+>> business/posts/$POST --------------------------------------------- OK
 
 
