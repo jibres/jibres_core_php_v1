@@ -8,7 +8,7 @@
     <p>{%trans "Get list of your notification"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>account/notif</b></span>
+      <span>{{CustomerApiURL}}<b>account/notif</b></span>
     </div>
 
     <div class="tblBox">
@@ -226,7 +226,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}account/notif \
+  {{CustomerApiURL}}account/notif \
   -H 'apikey: {{myApiKey}}' \
   -H 'appkey: {{myAppKey}}'
 </pre>

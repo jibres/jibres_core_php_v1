@@ -10,7 +10,7 @@
 
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{apiURL}}<b>product/comment</b></span>
+      <span>{{CustomerApiURL}}<b>product/comment</b></span>
     </div>
 
     {%include "/content_api/v2/doc/headers/just-appkey.html"%}
@@ -20,7 +20,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X GET \
-  {{apiURL}}product/comment \
+  {{CustomerApiURL}}product/comment \
 {%include "/content_api/v2/doc/headers/just-appkey-curl.html"%}
 
 </pre>

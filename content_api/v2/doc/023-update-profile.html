@@ -8,7 +8,7 @@
     <p>{%trans "Update profile detail"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>profile/update</b></span>
+      <span>{{CustomerApiURL}}<b>profile/update</b></span>
     </div>
 
     <div class="tblBox">
@@ -268,7 +268,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}profile/update \
+  {{CustomerApiURL}}profile/update \
   -H 'appkey: {{myAppKey}}' \
   -H 'apikey: {{myApiKey}}' \
   -F 'username=biqarar'\

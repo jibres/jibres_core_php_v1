@@ -1603,7 +1603,7 @@ class twigTransTerms
 	//-----------------------------rojects/jibres/content_api/v2/doc/002-endpoint.html
 	echo T_("The latest version is Version 2.");                                      // Line 8
 	echo T_("The stable base URL for all Version 2 HTTPS endpoints is");              // Line 10
-	echo T_("Use your store code instead of the {$STORE}");                           // Line 12
+	echo T_("Use your store code instead of the {STORE}");                            // Line 12
 
 	//--------------------------------rojects/jibres/content_api/v2/doc/050-smile.html
 

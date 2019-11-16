@@ -6,9 +6,10 @@
   </h2>
   <div id="token-detail">
     <p>{%trans "Get access token of new connection from server"%}</p>
+    <p>{%trans "This key is disposable and has a time limit. It is usable only at the specified time and if it is used successfully or unsuccessfully once in a request, it loses its validity and needs to be rebuilt for the next request"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>account/token</b></span>
+      <span>{{CustomerApiURL}}<b>account/token</b></span>
     </div>
 
     <div class="tblBox">
@@ -41,7 +42,7 @@
     </div>
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
-    <pre>curl -X POST {{apiURL}}account/token -H 'appkey: {{myAppKey}}'</pre>
+    <pre>curl -X POST {{CustomerApiURL}}account/token -H 'appkey: {{myAppKey}}'</pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
 <pre>

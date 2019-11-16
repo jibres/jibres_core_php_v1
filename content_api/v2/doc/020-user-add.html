@@ -5,10 +5,10 @@
     <div>{%trans "Sign Up User"%}</div>
   </h2>
   <div id="user-add-detail">
-    <p>{%trans "Add new user to service"%}</p>
+    <p>{%trans "This service is used to add users through the Android app."%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>account/android/add</b></span>
+      <span>{{CustomerApiURL}}<b>account/android/add</b></span>
     </div>
 
     <div class="tblBox">
@@ -234,7 +234,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}account/android/add \
+  {{CustomerApiURL}}account/android/add \
   -H 'appkey: {{myAppKey}}' \
   -H 'token: ec8e69c19ebb7c202ae1097aa40484e0' \
   -F 'model=HUAWEI Y560-U02' \

@@ -8,7 +8,7 @@
     <p>{%trans "Upload your avatar to change it"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>profile/update/avatar</b></span>
+      <span>{{CustomerApiURL}}<b>profile/update/avatar</b></span>
     </div>
 
     <div class="tblBox">
@@ -88,7 +88,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}profile/update/avatar \
+  {{CustomerApiURL}}profile/update/avatar \
   -H 'appkey: {{myAppKey}}' \
   -H 'apikey: {{myApiKey}}' \
   -F avatar=@/home/reza/Desktop/yourfile.jpg

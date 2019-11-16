@@ -9,7 +9,7 @@
 
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{apiURL}}<b>business/mission</b></span>
+      <span>{{CustomerApiURL}}<b>business/mission</b></span>
     </div>
 
 
@@ -44,7 +44,7 @@
     </div>
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
-    <pre>curl -X GET {{apiURL}}business/mission -H 'appkey: {{myAppKey}}' </pre>
+    <pre>curl -X GET {{CustomerApiURL}}business/mission -H 'appkey: {{myAppKey}}' </pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
 <pre>
@@ -54,7 +54,7 @@
     "language": "en",
     "title": "mission",
     "slug": "mission",
-    "url": "{{apiURL}}mission",
+    "url": "{{CustomerApiURL}}mission",
     "content": "Your mission text"
   }
 }

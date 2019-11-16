@@ -8,7 +8,7 @@
     <p>{%trans "After send verification code to user you must verify it"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>account/enter/verify</b></span>
+      <span>{{CustomerApiURL}}<b>account/enter/verify</b></span>
     </div>
 
     <div class="tblBox">
@@ -121,7 +121,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}account/enter/verify \
+  {{CustomerApiURL}}account/enter/verify \
   -H 'token: d97a1190a211bc8896c1c7319af916a9' \
   -H 'apikey: {{YourApiKey}}' \
   -H 'appkey: {{YourAppKey}}' \

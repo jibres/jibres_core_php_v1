@@ -13,8 +13,11 @@ class view
 		\dash\data::page_desc(T_('Last modified'). ' '. \dash\datetime::fit('2019-02-21 17:30', 'human', 'year'));
 		\dash\data::page_pictogram('campfire');
 
-		$apiURL = \dash\url::protocol(). '://'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v2/{$STORE}/';
-		\dash\data::apiURL($apiURL);
+		$CustomerApiURL = \dash\url::protocol(). '://'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v2/{STORE}/';
+		\dash\data::CustomerApiURL($CustomerApiURL);
+
+		$JibresApiURL = \dash\url::protocol(). '://'. \dash\url::domain(). '/'. \dash\language::current(). '/api/v2/';
+		\dash\data::JibresApiURL($JibresApiURL);
 
 		$YourSubdomain = 'YourSubdomain';
 		$YourAPPKey    = 'YourAPPKey';

@@ -8,7 +8,7 @@
     <p>{%trans "Login user and get new apikey for this user"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>account/enter</b></span>
+      <span>{{CustomerApiURL}}<b>account/enter</b></span>
     </div>
 
     <div class="tblBox">
@@ -106,7 +106,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}account/enter \
+  {{CustomerApiURL}}account/enter \
   -H 'appkey: {{myAppKey}}' \
   -H 'token: ec8e69c19ebb7c202ae1097aa40484e0' \
   -H 'apikey: {{myApiKey}}' \
