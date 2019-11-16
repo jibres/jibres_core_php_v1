@@ -124,9 +124,9 @@ class twigTransTerms
 
 	//-----------------------------------rojects/jibres/content/template/shareBox.html
 	echo T_("Share");                                                                 // Line 2
-	echo T_("facebook");                                                              // Line 203
-	echo T_("twitter");                                                               // Line 215
-	echo T_("linkedin");                                                              // Line 191
+	echo T_("facebook");                                                              // Line 217
+	echo T_("twitter");                                                               // Line 229
+	echo T_("linkedin");                                                              // Line 205
 	echo T_("telegram");                                                              // Line 50
 
 	//------------------------------------rojects/jibres/content/template/dafault.html
@@ -240,7 +240,7 @@ class twigTransTerms
 	echo T_("Max item in each invoice");                                              // Line 115
 	echo T_("Basic Features");                                                        // Line 124
 	echo T_("Each SMS cost");                                                         // Line 128
-	echo T_("Optional");                                                              // Line 244
+	echo T_("Optional");                                                              // Line 258
 	echo T_("Sale on social networks");                                               // Line 157
 	echo T_("Starter Features");                                                      // Line 173
 	echo T_("Simple Features");                                                       // Line 199
@@ -1318,69 +1318,64 @@ class twigTransTerms
 
 	//----------------------------rojects/jibres/content_a/--product/desc/display.html
 
-	//--------------------------rojects/jibres/content_api/v6/headers/just-appkey.html
+	//--------------------------rojects/jibres/content_api/v1/headers/just-appkey.html
 	echo T_("Parameters on header");                                                  // Line 17
 	echo T_("type");                                                                  // Line 16
-	echo T_("example");                                                               // Line 51
+	echo T_("example");                                                               // Line 66
 	echo T_("Constraints");                                                           // Line 21
 	echo T_("Your store subdomain");                                                  // Line 19
-	echo T_("Required");                                                              // Line 35
-	echo T_("Get from your account");                                                 // Line 38
+	echo T_("Required");                                                              // Line 49
+	echo T_("Get from your account");                                                 // Line 52
 	echo T_("Click here to get your appkey");                                         // Line 36
 
-	//---------------------------------rojects/jibres/content_api/v6/headers/full.html
+	//---------------------------------rojects/jibres/content_api/v1/headers/full.html
 	echo T_("Click here to get your apikey");                                         // Line 52
 
-	//-------------------rojects/jibres/content_api/v6/doc/201-store-add-question.html
+	//-------------------rojects/jibres/content_api/v1/doc/201-store-add-question.html
 	echo T_("Get setup store question");                                              // Line 6
 	echo T_("You must be aware of the terms and conditions of the Jibres before adding the store");// Line 9
-	echo T_("cURL");                                                                  // Line 44
-	echo T_("Response");                                                              // Line 51
-	echo T_("Example");                                                               // Line 240
+	echo T_("cURL");                                                                  // Line 58
+	echo T_("Response");                                                              // Line 66
+	echo T_("Example");                                                               // Line 254
 
-	//------------------------------rojects/jibres/content_api/v6/doc/033-contact.html
+	//------------------------------rojects/jibres/content_api/v1/doc/033-contact.html
 	echo T_("Get contact text");                                                      // Line 5
 
-	//-------------------------rojects/jibres/content_api/v6/doc/070-session-list.html
+	//-------------------------rojects/jibres/content_api/v1/doc/070-session-list.html
 	echo T_("Get session list");                                                      // Line 5
 	echo T_("Get your active session detail.");                                       // Line 10
 	echo T_("Required parameters");                                                   // Line 15
 	echo T_("on header");                                                             // Line 15
-	echo T_("Your apikey");                                                           // Line 31
-	echo T_("length");                                                                // Line 36
-	echo T_("Get from your account profile");                                         // Line 38
+	echo T_("Your apikey");                                                           // Line 45
+	echo T_("length");                                                                // Line 50
+	echo T_("Get from your account profile");                                         // Line 53
 
-	//-----------------------------rojects/jibres/content_api/v6/doc/020-user-add.html
-	echo T_("Sign Up User");                                                          // Line 32
+	//-----------------------------rojects/jibres/content_api/v1/doc/020-user-add.html
+	echo T_("Sign Up User");                                                          // Line 27
 	echo T_("Add new user to service");                                               // Line 8
-	echo T_("Your temporary token");                                                  // Line 31
-	echo T_("Max length");                                                            // Line 83
+	echo T_("Your temporary token");                                                  // Line 45
+	echo T_("Max length");                                                            // Line 97
 
-	//--------------------rojects/jibres/content_api/v6/doc/300-product-unit-list.html
+	//--------------------rojects/jibres/content_api/v1/doc/300-product-unit-list.html
 	echo T_("Get list of product units");                                             // Line 6
 	echo T_("See the product units ");                                                // Line 9
 	echo T_("To add a new unit, you must add a product with the same unit");          // Line 10
 
-	//--------------------rojects/jibres/content_api/v6/doc/071-session-terminate.html
-	echo T_("Terminate session");                                                     // Line 50
+	//--------------------rojects/jibres/content_api/v1/doc/071-session-terminate.html
+	echo T_("Terminate session");                                                     // Line 44
 	echo T_("Terminate one session or all session");                                  // Line 8
-	echo T_("Parameters");                                                            // Line 45
-	echo T_("Or");                                                                    // Line 141
-	echo T_("If type is `terminate` the id is require");                              // Line 79
+	echo T_("Parameters");                                                            // Line 59
+	echo T_("Or");                                                                    // Line 155
+	echo T_("If type is `terminate` the id is require");                              // Line 93
 
-	//-------------------------------rojects/jibres/content_api/v6/doc/032-vision.html
+	//-------------------------------rojects/jibres/content_api/v1/doc/032-vision.html
 	echo T_("Get vision text");                                                       // Line 5
 
-	//------------------rojects/jibres/content_api/v6/doc/005-store-source-header.html
-	echo T_("Important!");                                                            // Line 4
-	echo T_("We need to send store subdomain in all request in header");              // Line 11
-	echo T_("Never send store variable to header");                                   // Line 17
-
-	//------------------------------rojects/jibres/content_api/v6/doc/060-android.html
-	echo T_("Get android detail");                                                    // Line 47
+	//------------------------------rojects/jibres/content_api/v1/doc/060-android.html
+	echo T_("Get android detail");                                                    // Line 42
 	echo T_("Get details like pages, language list, translations, and more.");        // Line 10
 
-	//-----------------------------rojects/jibres/content_api/v6/doc/003-requests.html
+	//-----------------------------rojects/jibres/content_api/v1/doc/003-requests.html
 	echo T_("Requests");                                                              // Line 24
 	echo T_("Any tool that is fluent in HTTP can communicate with the API simply by requesting the correct URI.");// Line 6
 	echo T_("Requests should be made using the HTTPS protocol so that traffic is encrypted.");// Line 6
@@ -1410,11 +1405,11 @@ class twigTransTerms
 	echo T_("For instance, the headers contain your current rate-limit value and the amount of time available until the limit resets.");// Line 69
 	echo T_("It also contains metrics about the total number of objects found, pagination information, and the total content length.");// Line 69
 
-	//-----------------rojects/jibres/content_api/v6/doc/303-product-comment-list.html
+	//-----------------rojects/jibres/content_api/v1/doc/303-product-comment-list.html
 	echo T_("Get list of product comment");                                           // Line 6
 	echo T_("See the product comment ");                                              // Line 9
 
-	//----------------------------rojects/jibres/content_api/v6/doc/004-responses.html
+	//----------------------------rojects/jibres/content_api/v1/doc/004-responses.html
 	echo T_("Responses");                                                             // Line 25
 	echo T_("Each response is a JSON object.");                                       // Line 6
 	echo T_("The data requested is wrapped in the <code>result</code> tag.");         // Line 8
@@ -1435,13 +1430,13 @@ class twigTransTerms
 	echo T_("incorrect HTTP method provided");                                        // Line 109
 	echo T_("response is not valid JSON");                                            // Line 115
 
-	//--------------------------------rojects/jibres/content_api/v6/doc/055-notif.html
-	echo T_("Get notification list");                                                 // Line 46
+	//--------------------------------rojects/jibres/content_api/v1/doc/055-notif.html
+	echo T_("Get notification list");                                                 // Line 41
 	echo T_("Get list of your notification");                                         // Line 8
-	echo T_("If you want to set all notif of this user as read notif set this parameters as true");// Line 66
-	echo T_("If user not read this notif, this response is null else see read date of this notif");// Line 107
+	echo T_("If you want to set all notif of this user as read notif set this parameters as true");// Line 81
+	echo T_("If user not read this notif, this response is null else see read date of this notif");// Line 122
 
-	//----------------------------rojects/jibres/content_api/v6/doc/200-store-add.html
+	//----------------------------rojects/jibres/content_api/v1/doc/200-store-add.html
 	echo T_("Add new store");                                                         // Line 22
 	echo T_("You can use a-z, 0-9 and underscores.");                                 // Line 11
 	echo T_("Minimum length is 5 characters.");                                       // Line 12
@@ -1450,94 +1445,93 @@ class twigTransTerms
 	echo T_("You can get the question from below link");                              // Line 112
 	echo T_("Setup Questions");                                                       // Line 113
 
-	//--------------------------------rojects/jibres/content_api/v6/doc/034-posts.html
+	//--------------------------------rojects/jibres/content_api/v1/doc/034-posts.html
 	echo T_("Get last posts");                                                        // Line 5
 
-	//-----------------------rojects/jibres/content_api/v6/doc/022-upload-profile.html
+	//-----------------------rojects/jibres/content_api/v1/doc/022-upload-profile.html
 	echo T_("Update avatar");                                                         // Line 5
 	echo T_("Upload your avatar to change it");                                       // Line 8
-	echo T_("You file location to upload");                                           // Line 60
+	echo T_("You file location to upload");                                           // Line 74
 
-	//-----------------------------rojects/jibres/content_api/v6/doc/035-get-post.html
+	//-----------------------------rojects/jibres/content_api/v1/doc/035-get-post.html
 	echo T_("Get last get-post");                                                     // Line 5
 
-	//------------------------------rojects/jibres/content_api/v6/doc/031-mission.html
+	//------------------------------rojects/jibres/content_api/v1/doc/031-mission.html
 	echo T_("Get mission text");                                                      // Line 5
 
-	//---------------------------rojects/jibres/content_api/v6/doc/061-app-detail.html
+	//---------------------------rojects/jibres/content_api/v1/doc/061-app-detail.html
 	echo T_("Get application detail");                                                // Line 5
 
-	//--------------------------------rojects/jibres/content_api/v6/doc/030-about.html
+	//--------------------------------rojects/jibres/content_api/v1/doc/030-about.html
 	echo T_("Get about text");                                                        // Line 5
 
-	//--------------------------------rojects/jibres/content_api/v6/doc/010-token.html
+	//--------------------------------rojects/jibres/content_api/v1/doc/010-token.html
 	echo T_("Get Access Token");                                                      // Line 5
 	echo T_("Get access token of new connection from server");                        // Line 8
 	echo T_("APP key generated on the user panel");                                   // Line 31
 
-	//---------------------------rojects/jibres/content_api/v6/doc/040-user-login.html
-	echo T_("Login user");                                                            // Line 42
+	//---------------------------rojects/jibres/content_api/v1/doc/040-user-login.html
+	echo T_("Login user");                                                            // Line 37
 	echo T_("Login user and get new apikey for this user");                           // Line 8
-	echo T_("To get this token see");                                                 // Line 37
-	echo T_("Your temporary apikey");                                                 // Line 47
-	echo T_("Get from your account or signup user");                                  // Line 53
-	echo T_("Min length");                                                            // Line 84
+	echo T_("To get this token see");                                                 // Line 51
+	echo T_("Your temporary apikey");                                                 // Line 62
+	echo T_("Get from your account or signup user");                                  // Line 67
+	echo T_("Min length");                                                            // Line 98
 
-	//-----------------------------rojects/jibres/content_api/v6/doc/042-language.html
-	echo T_("Get language list");                                                     // Line 44
+	//-----------------------------rojects/jibres/content_api/v1/doc/042-language.html
+	echo T_("Get language list");                                                     // Line 39
 
-	//----------------------------------rojects/jibres/content_api/v6/doc/display.html
+	//----------------------------------rojects/jibres/content_api/v1/doc/display.html
 	echo T_("API");                                                                   // Line 20
 	echo T_("Introduction");                                                          // Line 22
 	echo T_("Endpoints");                                                             // Line 3
-	echo T_("Important message");                                                     // Line 28
 	echo T_("Token");                                                                 // Line 8
 	echo T_("Get profile detail");                                                    // Line 5
-	echo T_("Upload avatar");                                                         // Line 34
-	echo T_("Update profile");                                                        // Line 35
-	echo T_("Get about");                                                             // Line 36
-	echo T_("Get mission");                                                           // Line 37
-	echo T_("Get vision");                                                            // Line 38
-	echo T_("Get contact");                                                           // Line 39
-	echo T_("Get posts");                                                             // Line 40
-	echo T_("Get post detail");                                                       // Line 41
+	echo T_("Upload avatar");                                                         // Line 29
+	echo T_("Update profile");                                                        // Line 30
+	echo T_("Get about");                                                             // Line 31
+	echo T_("Get mission");                                                           // Line 32
+	echo T_("Get vision");                                                            // Line 33
+	echo T_("Get contact");                                                           // Line 34
+	echo T_("Get posts");                                                             // Line 35
+	echo T_("Get post detail");                                                       // Line 36
 	echo T_("Verify user");                                                           // Line 5
-	echo T_("Check new notification");                                                // Line 45
-	echo T_("Get app detail");                                                        // Line 48
-	echo T_("Session list");                                                          // Line 49
-	echo T_("Product unit list");                                                     // Line 54
-	echo T_("Product company list");                                                  // Line 55
-	echo T_("Product guarantee list");                                                // Line 56
-	echo T_("Product comment list");                                                  // Line 57
+	echo T_("Check new notification");                                                // Line 40
+	echo T_("Get app detail");                                                        // Line 42
+	echo T_("Session list");                                                          // Line 43
+	echo T_("Product unit list");                                                     // Line 48
+	echo T_("Product company list");                                                  // Line 49
+	echo T_("Product guarantee list");                                                // Line 50
+	echo T_("Product comment list");                                                  // Line 51
 
-	//--------------------rojects/jibres/content_api/v6/doc/041-user-login-verify.html
+	//--------------------rojects/jibres/content_api/v1/doc/041-user-login-verify.html
 	echo T_("After send verification code to user you must verify it");               // Line 8
 
-	//-----------------rojects/jibres/content_api/v6/doc/301-product-company-list.html
+	//-----------------rojects/jibres/content_api/v1/doc/301-product-company-list.html
 	echo T_("Get list of product company");                                           // Line 6
 	echo T_("See the product company ");                                              // Line 9
 	echo T_("To add a new company, you must add a product with the same company");    // Line 10
 
-	//-----------------------rojects/jibres/content_api/v6/doc/023-update-profile.html
+	//-----------------------rojects/jibres/content_api/v1/doc/023-update-profile.html
 	echo T_("Update your profile");                                                   // Line 5
 	echo T_("Update profile detail");                                                 // Line 8
-	echo T_("Your account username in");                                              // Line 215
-	echo T_("instagram");                                                             // Line 179
+	echo T_("Your account username in");                                              // Line 229
+	echo T_("instagram");                                                             // Line 193
 
-	//-----------------------------rojects/jibres/content_api/v6/doc/002-endpoint.html
+	//-----------------------------rojects/jibres/content_api/v1/doc/002-endpoint.html
 	echo T_("The API is accessed by making HTTPS requests to a specific version endpoint URL, in which GET, POST, PUT, PATCH,HEAD and DELETE methods dictate how your interact with the information available.");// Line 6
 	echo T_("Every endpoint is accessed only via the HTTPS protocol.");               // Line 6
 	echo T_("Everything (methods, parameters, etc.) is fixed to a version number, and every call must contain one.");// Line 8
-	echo T_("The latest version is Version 6.");                                      // Line 8
-	echo T_("The stable base URL for all Version 6 HTTPS endpoints is");              // Line 10
+	echo T_("The latest version is Version 1.");                                      // Line 8
+	echo T_("The stable base URL for all Version 1 HTTPS endpoints is");              // Line 10
 
-	//--------------------------------rojects/jibres/content_api/v6/doc/050-smile.html
+	//--------------------------------rojects/jibres/content_api/v1/doc/050-smile.html
 	echo T_("Get notification count");                                                // Line 5
 	echo T_("To get this user have notification or no");                              // Line 8
 
-	//--------------------------rojects/jibres/content_api/v6/doc/021-get-profile.html
+	//--------------------------rojects/jibres/content_api/v1/doc/021-get-profile.html
 
-	//--------------------------------rojects/jibres/content_api/v6/doc/001-intro.html
+	//--------------------------------rojects/jibres/content_api/v1/doc/001-intro.html
 	echo T_("APIs");                                                                  // Line 3
 	echo T_("With our API you can control the entire infrastructure via a standardized programmatic interface.");// Line 6
 	echo T_("You can using API do just about anything you can do via your dashboard.");// Line 6
@@ -1551,6 +1545,71 @@ class twigTransTerms
 	echo T_("Partners");                                                              // Line 16
 	echo T_("Developers");                                                            // Line 18
 	echo T_("The API documentation will start with a general overview about the design and technology that has been implemented, followed by reference information about specific endpoints.");// Line 22
+
+	//----------------------rojects/jibres/content_api/v2/doc/headers/just-appkey.html
+
+	//-----------------------------rojects/jibres/content_api/v2/doc/headers/full.html
+
+	//-------------------rojects/jibres/content_api/v2/doc/201-store-add-question.html
+
+	//------------------------------rojects/jibres/content_api/v2/doc/033-contact.html
+
+	//-------------------------rojects/jibres/content_api/v2/doc/070-session-list.html
+
+	//-----------------------------rojects/jibres/content_api/v2/doc/020-user-add.html
+
+	//--------------------rojects/jibres/content_api/v2/doc/300-product-unit-list.html
+
+	//--------------------rojects/jibres/content_api/v2/doc/071-session-terminate.html
+
+	//-------------------------------rojects/jibres/content_api/v2/doc/032-vision.html
+
+	//-----------------------------rojects/jibres/content_api/v2/doc/003-requests.html
+
+	//-----------------rojects/jibres/content_api/v2/doc/303-product-comment-list.html
+
+	//----------------------------rojects/jibres/content_api/v2/doc/004-responses.html
+
+	//--------------------------------rojects/jibres/content_api/v2/doc/055-notif.html
+
+	//----------------------------rojects/jibres/content_api/v2/doc/200-store-add.html
+
+	//--------------------------------rojects/jibres/content_api/v2/doc/034-posts.html
+
+	//-----------------------rojects/jibres/content_api/v2/doc/022-upload-profile.html
+
+	//-----------------------------rojects/jibres/content_api/v2/doc/035-get-post.html
+
+	//------------------------------rojects/jibres/content_api/v2/doc/031-mission.html
+
+	//---------------------------rojects/jibres/content_api/v2/doc/061-app-detail.html
+
+	//--------------------------------rojects/jibres/content_api/v2/doc/030-about.html
+
+	//--------------------------------rojects/jibres/content_api/v2/doc/010-token.html
+
+	//---------------------------rojects/jibres/content_api/v2/doc/040-user-login.html
+
+	//-----------------------------rojects/jibres/content_api/v2/doc/042-language.html
+
+	//----------------------------------rojects/jibres/content_api/v2/doc/display.html
+
+	//--------------------rojects/jibres/content_api/v2/doc/041-user-login-verify.html
+
+	//-----------------rojects/jibres/content_api/v2/doc/301-product-company-list.html
+
+	//-----------------------rojects/jibres/content_api/v2/doc/023-update-profile.html
+
+	//-----------------------------rojects/jibres/content_api/v2/doc/002-endpoint.html
+	echo T_("The latest version is Version 2.");                                      // Line 8
+	echo T_("The stable base URL for all Version 2 HTTPS endpoints is");              // Line 10
+	echo T_("Use your store code instead of the {$STORE}");                           // Line 12
+
+	//--------------------------------rojects/jibres/content_api/v2/doc/050-smile.html
+
+	//--------------------------rojects/jibres/content_api/v2/doc/021-get-profile.html
+
+	//--------------------------------rojects/jibres/content_api/v2/doc/001-intro.html
 
 	//-----------------------------------rojects/jibres/content_enter/ban/display.html
 	echo T_("What are you doing!");                                                   // Line 7
