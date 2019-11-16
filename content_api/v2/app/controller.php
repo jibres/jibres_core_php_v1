@@ -45,7 +45,7 @@ class controller
 
 	private static function detail_v2(&$detail)
 	{
-		self::setting($detail);
+
 
 		self::lang($detail);
 
@@ -73,15 +73,7 @@ class controller
 		$detail['homepage'] = self::homepage();
 	}
 
-	private static function setting(&$detail)
-	{
-		$detail['setting']           = [];
-		$detail['setting']['enter']    =
-		[
-			'mode'       => 'native',
-			'other_mode' => ['native', 'webview'],
-		];
-	}
+
 
 	private static function ad(&$detail)
 	{
