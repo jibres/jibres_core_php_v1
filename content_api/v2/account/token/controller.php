@@ -1,5 +1,5 @@
 <?php
-namespace content_api\v2\token;
+namespace content_api\v2\account\token;
 
 
 class controller
@@ -11,9 +11,14 @@ class controller
 
 	public static function api_routing()
 	{
-		if(\dash\url::subchild())
+		if(\dash\url::dir(4))
 		{
 			\content_api\v2::invalid_url();
+		}
+
+		if(!\dash\request::is('post'))
+		{
+			\content_api\v2::invalid_method();
 		}
 
 		\content_api\v2::check_appkey();

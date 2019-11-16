@@ -19,6 +19,41 @@ class store
 	}
 
 
+	public static function check_exists_id($_store_id)
+	{
+		if(file_exists(self::detail_addr(). $_store_id))
+		{
+			return true;
+		}
+		return false;
+	}
+
+
+	public static function init_id($_store_id)
+	{
+		if(self::check_exists_id($_store_id))
+		{
+			$get_store_detail = file_get_contents(self::detail_addr(). $_store_id);
+			if(is_string($get_store_detail))
+			{
+				$get_store_detail = json_decode($get_store_detail, true);
+			}
+
+			if(!is_array($get_store_detail))
+			{
+				return false;
+			}
+			if(isset($get_store_detail['db_name']))
+			{
+				\dash\db::$jibres_db_name = $get_store_detail['db_name'];
+			}
+			return $get_store_detail;
+		}
+
+		return false;
+	}
+
+
 	public static function detail($_subdomain = null)
 	{
 		// no subdomain

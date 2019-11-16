@@ -10,25 +10,25 @@ class controller
 		// $url[0] is v2
 		if(!isset($url[0]))
 		{
-			\dash\header::status(404);
+			\content_api\v2::stop(404);
 		}
 
 		// y88y
 		$store = isset($url[1]) ? $url[1] : null;
 		if(!$store)
 		{
-			\dash\header::status(404, '$STORE not set');
+			\content_api\v2::stop(404, '$STORE not set');
 		}
 
 		$store_id = \dash\coding::decode($store);
 		if(!$store_id)
 		{
-			\dash\header::status(403, 'Invalid $STORE');
+			\content_api\v2::stop(403, 'Invalid $STORE');
 		}
 
 		if(intval($store_id) < 1000000 || \dash\number::is_larger($store_id, 9999999))
 		{
-			\dash\header::status(403, 'Invalid $STORE id');
+			\content_api\v2::stop(403, 'Invalid $STORE id');
 		}
 
 		// check store is exsist
@@ -86,7 +86,7 @@ class controller
 				break;
 
 			default:
-				\dash\header::status(404);
+				\content_api\v2::stop(404);
 				break;
 		}
 

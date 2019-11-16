@@ -24,28 +24,31 @@ class v2
 	{
 		$STORE = \dash\url::child();
 
-		if(mb_strlen($STORE) === 32)
+		$store_id = \dash\coding::decode($STORE);
+
+		if(!$store_id)
 		{
-			return true;
+			self::stop(403, T_("Invalid store id"));
+		}
+
+		$detail = \dash\engine\store::init_id($store_id);
+		if(!$detail)
+		{
+			self::stop(403, T_("Detail not found"));
+		}
+
+		if(isset($detail['subdomain']))
+		{
+			\lib\store::set_store_slug($detail['subdomain']);
+
+			if(!\lib\store::id())
+			{
+				self::stop(404, T_("Store not found"));
+			}
 		}
 		else
 		{
-			self::stop(400, '$STORE not set or invalid');
-		}
-
-		$store = \dash\header::get('store');
-		if(!$store || is_numeric($store))
-		{
-			\content_api\v2::stop(404, T_("Store variable not set in header"));
-		}
-
-		\dash\engine\store::config($store);
-
-		\lib\store::set_store_slug($store);
-
-		if(!\lib\store::id())
-		{
-			\content_api\v2::stop(404, T_("Store not found"));
+			self::stop(403, T_("subdomain not found"));
 		}
 	}
 
