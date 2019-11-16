@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`user_auth` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `userstore_id` int(10) UNSIGNED DEFAULT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
   `auth` char(32) NOT NULL,
   `status` enum('enable','disable','expire','used') DEFAULT NULL,
   `gateway` enum('android','ios','api') DEFAULT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`user_auth` (
   `gateway_id` int(10) UNSIGNED DEFAULT NULL,
   `parent` int(10) UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `user_auth_user_id` FOREIGN KEY (`userstore_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `user_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE,
   KEY `index_search_auth` (`auth`),
   KEY `index_search_status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

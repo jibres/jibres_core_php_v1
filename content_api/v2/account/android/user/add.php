@@ -1,5 +1,5 @@
 <?php
-namespace content_api\v2\android\user;
+namespace content_api\v2\account\android\user;
 
 
 class add

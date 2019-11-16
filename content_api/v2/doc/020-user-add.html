@@ -8,7 +8,7 @@
     <p>{%trans "Add new user to service"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>android/user/add</b></span>
+      <span>{{apiURL}}<b>account/android/add</b></span>
     </div>
 
     <div class="tblBox">
@@ -220,7 +220,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}android/user/add \
+  {{apiURL}}account/android/add \
   -H 'token: ec8e69c19ebb7c202ae1097aa40484e0' \
   -F 'model=HUAWEI Y560-U02' \
   -F 'serial=60D15B27D1259123456' \

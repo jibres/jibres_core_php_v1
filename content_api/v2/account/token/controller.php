@@ -21,10 +21,6 @@ class controller
 			\content_api\v2::invalid_method();
 		}
 
-		\content_api\v2::check_appkey();
-
-		\content_api\v2::check_store_init();
-
 		$parent = null;
 		if(isset(\content_api\v2::$v2['appkey_detail']['id']))
 		{

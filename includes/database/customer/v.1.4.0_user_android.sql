@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`user_android` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `userstore_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `uniquecode` char(32) NOT NULL,
   `osversion` varchar(200) DEFAULT NULL,
   `version` varchar(200) DEFAULT NULL,
@@ -13,5 +13,5 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`user_android` (
   `lastupdate` timestamp NULL DEFAULT NULL,
   `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  CONSTRAINT `user_android_userstore_id` FOREIGN KEY (`userstore_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `user_android_user_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

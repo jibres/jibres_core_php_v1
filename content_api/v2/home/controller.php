@@ -31,6 +31,10 @@ class controller
 			\content_api\v2::stop(403, 'Invalid $STORE id');
 		}
 
+		\content_api\v2::check_appkey();
+
+		\content_api\v2::check_store_init();
+
 		// check store is exsist
 
 		$module_url = isset($url[2]) ? $url[2] : null;

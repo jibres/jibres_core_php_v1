@@ -1,7 +1,7 @@
-https://developers.jibres.com/api/v1/$STORE
+https://developers.jibres.com/api/v1/$STORE ------------------------ OK
 
 ********************************************************************* Application Default Settings
->> app
+>> app -------------------------------------------------------------- OK
 
 
 ********************************************************************* Product Actions
@@ -83,7 +83,7 @@ https://developers.jibres.com/api/v1/$STORE
 
 ********************************************************************* Enter / Account
 >> account/android/add
->> account/token
+>> account/token ---------------------------------------------------- OK
 >> account/enter
 >> account/enter/verify
 >> account/logout
