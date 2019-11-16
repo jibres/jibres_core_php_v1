@@ -34,7 +34,7 @@ self::$language =
  * system default lanuage
  */
 
-self::$config['debug']                        = true;
+self::$config['debug']                        = false;
 
 self::$config['redirect']                     = 'store';
 
