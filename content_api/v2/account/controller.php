@@ -23,6 +23,9 @@ class controller
 				\content_api\v2\account\android\controller::api_routing();
 				break;
 
+			case 'enter':
+				\content_api\v2\account\enter\controller::api_routing();
+				break;
 
 			default:
 				\content_api\v2::invalid_url(404);

@@ -1,5 +1,5 @@
 <?php
-namespace content_api\v2\enter;
+namespace content_api\v2\account\enter;
 
 
 class enter
@@ -20,7 +20,7 @@ class enter
 
 		\content_api\v2::check_apikey();
 
-		$subchild = \dash\url::subchild();
+		$subchild = \dash\url::dir(5);
 
 		if(!$subchild)
 		{
