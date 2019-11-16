@@ -43,18 +43,15 @@ class store
 			{
 				return false;
 			}
-			if(isset($get_store_detail['db_name']))
-			{
-				\dash\db::$jibres_db_name = $get_store_detail['db_name'];
-			}
-			return $get_store_detail;
+
+			return self::make_ready_array($_store_id, $get_store_detail);
 		}
 
 		return false;
 	}
 
 
-	public static function detail($_subdomain = null)
+	public static function init_subdomain($_subdomain = null)
 	{
 		// no subdomain
 		$subdomain        = \dash\url::subdomain();
@@ -117,20 +114,30 @@ class store
 			}
 		}
 
+		return self::make_ready_array($get_store_id, $get_store_detail);
 
-		if($get_store_id)
+	}
+
+
+	private static function make_ready_array($_store_id, $_store_detail)
+	{
+		if($_store_id)
 		{
-			$db_name           = 'jibres_'. $get_store_id;
+			$db_name           = 'jibres_'. $_store_id;
 
 			if(\dash\url::isLocal())
 			{
 				$db_name = db_name. '_'. $db_name;
 			}
 
-			$detail            = [];
-			$detail['id']      = $get_store_id;
-			$detail['store']   = $get_store_detail;
-			$detail['db_name'] = $db_name;
+			$detail              = [];
+			$detail['id']        = $_store_id;
+			$detail['store']     = $_store_detail;
+			$detail['db_name']   = $db_name;
+			$detail['subdomain'] = isset($_store_detail['subdomain']) ? $_store_detail['subdomain'] : null;
+
+			\dash\db::$jibres_db_name = $db_name;
+
 			return $detail;
 		}
 
@@ -140,11 +147,7 @@ class store
 
 	public static function config($_subdomain = null)
 	{
-		$store_detail = self::detail($_subdomain);
-		if(isset($store_detail['db_name']))
-		{
-			\dash\db::$jibres_db_name = $store_detail['db_name'];
-		}
+		self::init_subdomain($_subdomain);
 	}
 
 

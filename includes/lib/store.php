@@ -98,7 +98,7 @@ class store
 
 		self::clean_session(self::store_slug());
 
-		$store_detail_raw = \dash\engine\store::detail(self::store_slug());
+		$store_detail_raw = \dash\engine\store::init_subdomain(self::store_slug());
 
 		if(!isset($store_detail_raw['store']))
 		{
