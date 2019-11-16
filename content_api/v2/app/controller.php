@@ -17,60 +17,31 @@ class controller
 			\content_api\v2::invalid_method();
 		}
 
-		$detail = self::detail();
+		$detail = self::detail_v2();
 
 		\content_api\v2::say($detail);
 	}
 
 
 
-	private static function detail()
+	private static function detail_v2()
 	{
-		$detail            = [];
+		$detail = [];
 
-		self::detail_v2($detail);
-
-		if(is_callable(["\\lib\\app\\application", "detail_v2"]))
-		{
-			$my_detail = \lib\app\application::detail_v2();
-			if(is_array($my_detail))
-			{
-				$detail = array_merge($detail, $my_detail);
-			}
-		}
-
-		return $detail;
-	}
-
-
-	private static function detail_v2(&$detail)
-	{
-
-
+		self::homepage($detail);
 		self::lang($detail);
-
 		self::url($detail);
-
 		self::site($detail);
-
 		self::version($detail);
-
 		self::menu($detail);
-
 		self::transalate($detail);
-
 		self::navigation($detail);
-
 		self::intro($detail);
-
 		self::theme_default($detail);
-
 		self::theme_night($detail);
-
 		self::ad($detail);
 
-
-		$detail['homepage'] = self::homepage();
+		return $detail;
 	}
 
 
@@ -511,16 +482,115 @@ class controller
 
 
 
-	private static function homepage()
+	private static function homepage(&$detail)
 	{
-		$homepage              = [];
-		$homepage[]            = self::banner();
-		$homepage[]            = self::slider();
-		$homepage[]            = self::link4();
-		$homepage[]            = self::news();
-		return $homepage;
+		$homepage           = [];
+		$homepage[]         = self::slider();
+		$homepage[]         = self::btns();
+		$homepage[]         = self::tile();
+		$homepage[]         = self::promotion();
+		$homepage[]         = self::banner();
+		$homepage[]         = self::btn4();
+		$homepage[]         = self::list();
+
+
+		$detail['homepage'] = $homepage;
 	}
 
+
+	private static function slider()
+	{
+		$slider           = [];
+		$slider['type']   = 'slider';
+		// $posts          = \dash\app\posts::get_post_list(['special' => 'slider', 'limit' => 5]);
+		$post = [];
+
+		$post[] =
+		[
+			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
+			'url'   => 'https://source.jibres.com/',
+		];
+
+		$slider['slider'] = $post;
+
+		return $slider;
+	}
+
+
+	private static function btns()
+	{
+		$btns           = [];
+		$btns['type']   = 'btns';
+		// $posts          = \dash\app\posts::get_post_list(['special' => 'btns', 'limit' => 5]);
+		$post = [];
+
+		$post[] =
+		[
+			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
+			'url'   => 'https://source.jibres.com/',
+		];
+
+		$btns['btns'] = $post;
+
+		return $btns;
+	}
+
+
+	private static function tile()
+	{
+		$tile           = [];
+		$tile['type']   = 'tile';
+		// $posts          = \dash\app\posts::get_post_list(['special' => 'tile', 'limit' => 5]);
+		$post = [];
+
+		$post[] =
+		[
+			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
+			'url'   => 'https://source.jibres.com/',
+		];
+
+		$tile['tile'] = $post;
+
+		return $tile;
+	}
+
+
+	private static function promotion()
+	{
+		$promotion           = [];
+		$promotion['type']   = 'promotion';
+		$promotion['expire']   = date("Y-m-d H:i:s", time() + 3600);
+		// $posts          = \dash\app\posts::get_post_list(['special' => 'promotion', 'limit' => 5]);
+		$post = [];
+
+		$post[] =
+		[
+			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
+			'url'   => 'https://source.jibres.com/',
+		];
+
+		$promotion['promotion'] = $post;
+
+		return $promotion;
+	}
+
+	private static function list()
+	{
+		$list           = [];
+		$list['type']   = 'list';
+		// $posts          = \dash\app\posts::get_post_list(['special' => 'list', 'limit' => 5]);
+		$post = [];
+
+		$post[] =
+		[
+			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
+			'url'   => 'https://source.jibres.com/',
+		];
+
+		$list['list'] = $post;
+
+		return $list;
+	}
 
 	private static function banner()
 	{
@@ -533,19 +603,11 @@ class controller
 
 
 
-	private static function slider()
-	{
-		$link           = [];
-		$link['type']   = 'slider';
-		$posts          = \dash\app\posts::get_post_list(['special' => 'slider', 'limit' => 5]);
-		$link['slider'] = $posts;
-		return $link;
-	}
 
-	private static function link4()
+	private static function btn4()
 	{
 		$link                     = [];
-		$link['type']             = 'link4';
+		$link['type']             = 'btn4';
 
 		$link['link'][0]['image'] = self::logo_url();
 		$link['link'][0]['url']   = self::jibres_temp_url();
