@@ -25,7 +25,14 @@ class user
 			return;
 		}
 
-		$detail  = \dash\db\users::get_by_id($_user_id);
+		if(\dash\db::$jibres_db_name)
+		{
+			$detail  = \lib\db\userstore\get::by_id($_user_id);
+		}
+		else
+		{
+			$detail  = \dash\db\users::get_by_id($_user_id);
+		}
 
 		if(!isset($detail['id']))
 		{

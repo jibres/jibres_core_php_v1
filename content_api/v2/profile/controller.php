@@ -96,28 +96,6 @@ class controller
 
 	private static function get_profile()
 	{
-		return json_decode(
-		'{
-	        "username": "Biqarar",
-	        "displayname": "Reza mohiti",
-	        "gender": "male",
-	        "title": "Programer",
-	        "mobile": "9891...",
-	        "verifymobile": "1",
-	        "status": "active",
-	        "avatar": "http://jibres.local/static/images/logo.png",
-	        "datecreated": "2017-12-27 22:40:53",
-	        "datemodified": "2019-06-18 21:29:32",
-	        "birthday": "1990-01-16",
-	        "language": "fa",
-	        "firstname": "Reza",
-	        "lastname": "Mohitit",
-	        "bio": null,
-	        "email": null
-    	}', true);
-
-
-
 		$detail = \dash\user::detail();
 		$result = [];
 		foreach ($detail as $key => $value)

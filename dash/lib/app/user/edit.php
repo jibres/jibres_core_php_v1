@@ -47,7 +47,15 @@ trait edit
 			return false;
 		}
 
-		$load_user = \dash\db\users::get_by_id($id);
+		if(\dash\db::$jibres_db_name)
+		{
+			$load_user  = \lib\db\userstore\get::by_id($id);
+		}
+		else
+		{
+			$load_user  = \dash\db\users::get_by_id($id);
+		}
+
 		if(!isset($load_user['id']))
 		{
 			\dash\notif::error(T_("Invalid user id"));
@@ -157,11 +165,18 @@ trait edit
 		if(!\dash\app::isset_request('foreign'))        unset($args['foreign']);
 		if(!\dash\app::isset_request('nationality'))    unset($args['nationality']);
 
-
 		if(!empty($args))
 		{
 			\dash\log::set('editUser', ['code' => $id, 'datalink' => \dash\coding::encode($id)]);
-			\dash\db\users::update($args, $id);
+
+			if(\dash\db::$jibres_db_name)
+			{
+				\lib\db\userstore\db::update($args, $id);
+			}
+			else
+			{
+				\dash\db\users::update($args, $id);
+			}
 		}
 
 		if(\dash\engine\process::status())
