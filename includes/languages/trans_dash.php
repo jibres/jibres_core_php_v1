@@ -13,10 +13,10 @@ class twigTransTerms
 	echo T_("Please enter valid mobile or username or email number");                 // Line 24
 	echo T_("Username or Mobile or Email");                                           // Line 24
 	echo T_("Password");                                                              // Line 36
-	echo T_("Click to see your password");                                            // Line 52
 	echo T_("New Password");                                                          // Line 53
 	echo T_("Enter a password between 7 and 40 characters");                          // Line 53
 	echo T_("Password is password.");                                                 // Line 53
+	echo T_("Click to see your password");                                            // Line 52
 	echo T_("Password?");                                                             // Line 62
 	echo T_("Verify Code");                                                           // Line 80
 	echo T_("Code");                                                                  // Line 88

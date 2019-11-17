@@ -297,7 +297,7 @@ class twigTransTerms
 	//-----------------------------------------rojects/jibres/content/main/layout.html
 	echo T_("Next →");                                                                // Line 33
 	echo T_("← Back");                                                                // Line 33
-	echo T_("Skip");                                                                  // Line 30
+	echo T_("Skip");                                                                  // Line 27
 	echo T_("Done");                                                                  // Line 33
 
 	//-----------------------------------rojects/jibres/content/changelog/display.html
@@ -333,7 +333,7 @@ class twigTransTerms
 	echo T_("Choose a gateway");                                                      // Line 102
 	echo T_("Pay");                                                                   // Line 109
 	echo T_("Cancel");                                                                // Line 41
-	echo T_("Back");                                                                  // Line 31
+	echo T_("Back");                                                                  // Line 30
 	echo T_("Track id");                                                              // Line 104
 	echo T_("Payment");                                                               // Line 118
 	echo T_("Parsian");                                                               // Line 45
@@ -1048,13 +1048,13 @@ class twigTransTerms
 	echo T_("Whithout discount");                                                     // Line 13
 
 	//-----------------------------rojects/jibres/content_a/products/home/display.html
-	echo T_("Search products");                                                       // Line 104
-	echo T_("You can sort your list");                                                // Line 113
-	echo T_("Sort");                                                                  // Line 111
+	echo T_("Search products");                                                       // Line 107
+	echo T_("Sort");                                                                  // Line 114
+	echo T_("You can sort your list");                                                // Line 116
 	echo T_("Variants");                                                              // Line 619
-	echo T_("in stock");                                                              // Line 160
-	echo T_("For");                                                                   // Line 163
-	echo T_("variants");                                                              // Line 163
+	echo T_("in stock");                                                              // Line 163
+	echo T_("For");                                                                   // Line 166
+	echo T_("variants");                                                              // Line 166
 
 	//-----------------------------------rojects/jibres/content_a/products/layout.html
 	echo T_("Set short and best title for your product");                             // Line 62
@@ -1109,6 +1109,7 @@ class twigTransTerms
 	echo T_("This product is saleonline base");                                       // Line 339
 	echo T_("Count in carton");                                                       // Line 357
 	echo T_("Count of product in carton");                                            // Line 359
+	echo T_("Add tag manually to link product togethers");                            // Line 328
 	echo T_("Sale in telegram");                                                      // Line 39
 	echo T_("Sale in app");                                                           // Line 48
 	echo T_("Add to gallery");                                                        // Line 61
@@ -1118,7 +1119,7 @@ class twigTransTerms
 	echo T_("Customize for SEO");                                                     // Line 532
 	echo T_("SEO Title");                                                             // Line 538
 	echo T_("Recommended being more than 40 character and appear at the beginning of page content");// Line 4
-	echo T_("End part of your product url.");                                         // Line 457
+	echo T_("End part of your product url.");                                         // Line 444
 	echo T_("SEO Description");                                                       // Line 570
 	echo T_("If leave it empty we are generate it automatically");                    // Line 19
 	echo T_("Excerpt used for social media and search engines");                      // Line 19
@@ -2506,7 +2507,7 @@ class twigTransTerms
 	echo T_("You are not have billing detail yet!");                                  // Line 39
 
 	//-----------------------------rojects/jibres/content_account/billing/display.html
-	echo T_("Charge your account");                                                   // Line 25
+	echo T_("Charge your account");                                                   // Line 24
 	echo T_("Enter an amount to charge your account");                                // Line 15
 	echo T_("If you have a promo code, please enter it below to receive your credit.");// Line 32
 	echo T_("Apply Code");                                                            // Line 38
@@ -2810,47 +2811,47 @@ class twigTransTerms
 	echo T_("Show archived");                                                         // Line 40
 
 	//-----------------------------rojects/jibres/content_store/subdomain/display.html
-	echo T_("Choose your online address");                                            // Line 10
-	echo T_("Your online store has online address on Jibres domain.");                // Line 11
-	echo T_("Although you can connect your domain into store but to finish setup we need to set it.");// Line 11
-	echo T_("Set it carefully, you can not change it.");                              // Line 12
-	echo T_("Your subdomain");                                                        // Line 16
-	echo T_("Build my online store");                                                 // Line 20
-	echo T_("choose subdomain on Jibres");                                            // Line 24
+	echo T_("Choose your online address");                                            // Line 9
+	echo T_("Your online store has online address on Jibres domain.");                // Line 10
+	echo T_("Although you can connect your domain into store but to finish setup we need to set it.");// Line 10
+	echo T_("Set it carefully, you can not change it.");                              // Line 11
+	echo T_("Your subdomain");                                                        // Line 15
+	echo T_("Build my online store");                                                 // Line 19
+	echo T_("choose subdomain on Jibres");                                            // Line 23
 
 	//-------------------------------rojects/jibres/content_store/opening/display.html
-	echo T_("Your store is ready to go!");                                            // Line 10
-	echo T_("We are do everything you need and now you can fly with Jibres power.");  // Line 11
-	echo T_("Bring me to store");                                                     // Line 13
-	echo T_("Grand opening your store on Jibres");                                    // Line 14
-	echo T_("My stores");                                                             // Line 20
+	echo T_("Your store is ready to go!");                                            // Line 9
+	echo T_("We are do everything you need and now you can fly with Jibres power.");  // Line 10
+	echo T_("Bring me to store");                                                     // Line 12
+	echo T_("Grand opening your store on Jibres");                                    // Line 15
+	echo T_("My stores");                                                             // Line 19
 
 	//---------------------------------rojects/jibres/content_store/start/display.html
-	echo T_("To make a online store from scratch, please enter name of your business.");// Line 12
-	echo T_("Your business title");                                                   // Line 16
-	echo T_("Let's go");                                                              // Line 19
-	echo T_("Can not add new store");                                                 // Line 22
-	echo T_("Create more store");                                                     // Line 27
-	echo T_("Contact Us");                                                            // Line 27
-	echo T_("Create a store on Jibres");                                              // Line 35
+	echo T_("To make a online store from scratch, please enter name of your business.");// Line 11
+	echo T_("Your business title");                                                   // Line 15
+	echo T_("Let's go");                                                              // Line 18
+	echo T_("Can not add new store");                                                 // Line 21
+	echo T_("Create more store");                                                     // Line 26
+	echo T_("Contact Us");                                                            // Line 26
+	echo T_("Create a store on Jibres");                                              // Line 33
 
 	//-----------------------------------rojects/jibres/content_store/ask/display.html
-	echo T_("Tell us a little about yourself");                                       // Line 10
-	echo T_("Your answer is important for us.");                                      // Line 11
+	echo T_("Tell us a little about yourself");                                       // Line 9
+	echo T_("Your answer is important for us.");                                      // Line 10
 	echo T_("Next");                                                                  // Line 161
-	echo T_("answer Jibres polls");                                                   // Line 35
+	echo T_("answer Jibres polls");                                                   // Line 32
 
 	//---------------------------------rojects/jibres/content_store/error/display.html
-	echo T_("Sorry!");                                                                // Line 10
-	echo T_("There was an error building your store");                                // Line 11
-	echo T_("Please report the error with support or try again in a few minutes");    // Line 12
-	echo T_("Try again");                                                             // Line 19
-	echo T_("Error create store");                                                    // Line 21
-	echo T_("Contact Us about this error");                                           // Line 21
+	echo T_("Sorry!");                                                                // Line 9
+	echo T_("There was an error building your store");                                // Line 10
+	echo T_("Please report the error with support or try again in a few minutes");    // Line 11
+	echo T_("Try again");                                                             // Line 18
+	echo T_("Error create store");                                                    // Line 20
+	echo T_("Contact Us about this error");                                           // Line 20
 
 	//------------------------------rojects/jibres/content_store/creating/display.html
-	echo T_("Please wait to creating your store");                                    // Line 10
-	echo T_("Loading...");                                                            // Line 11
+	echo T_("Please wait to creating your store");                                    // Line 9
+	echo T_("Loading Jibres");                                                        // Line 12
 
 	//----------------------------------rojects/jibres/content_store/home/display.html
 	echo T_("From");                                                                  // Line 52
@@ -2973,10 +2974,10 @@ class twigTransTerms
 	echo T_("Username or Mobile or email");                                           // Line 24
 	echo T_("Please enter valid mobile or username or email number");                 // Line 24
 	echo T_("Username or Mobile or Email");                                           // Line 24
-	echo T_("Click to see your password");                                            // Line 52
 	echo T_("New Password");                                                          // Line 53
 	echo T_("Enter a password between 7 and 40 characters");                          // Line 53
 	echo T_("Password is password.");                                                 // Line 53
+	echo T_("Click to see your password");                                            // Line 52
 	echo T_("Password?");                                                             // Line 62
 	echo T_("Verify Code");                                                           // Line 80
 	echo T_("Send this code to our number!");                                         // Line 88

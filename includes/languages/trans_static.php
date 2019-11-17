@@ -374,6 +374,12 @@ class TransStatic
 	echo T_("status");              // user_status
 	echo T_("permission");          // user_permission
 	echo T_("createdate");          // user_createdate
+
+
+
+
+	// ------------------------------------------------------------ Static trans
+	echo T_("barcode");
  }
 }
 ?>
