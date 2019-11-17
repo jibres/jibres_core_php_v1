@@ -45,7 +45,7 @@ class controller
 
 			case 'all':
 				// pull dash
-				$result[] = self::updateDash();
+				// $result[] = self::updateDash();
 
 				// pull current project
 				$_name = \dash\url::root();
