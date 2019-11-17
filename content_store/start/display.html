@@ -17,6 +17,7 @@
 
             <button class="btn success block">{%trans "Let's go"%}</button>
           </form>
+          <img src="{{url.static}}/img/store/your-brand.svg" alt='{%trans "Create a store on Jibres"%}'>
         {%else%}
             <h1>{%trans "Can not add new store"%}</h1>
             <p>{{canAddStore.msg}}</p>
@@ -28,9 +29,10 @@
             {%endif%}
 
             <a data-direct href="{{url.here}}" class="btn block outline mT10 success">{%trans "Back"%}</a>
+
+            <img src="{{url.static}}/img/store/limit1.gif" alt='{%trans "Limit of create store"%}'>
         {%endif%}
 
-          <img src="{{url.static}}/img/store/your-brand.svg" alt='{%trans "Create a store on Jibres"%}'>
 
         </div>
       </div>
