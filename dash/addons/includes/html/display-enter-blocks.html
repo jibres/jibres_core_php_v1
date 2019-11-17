@@ -39,7 +39,7 @@
 
 {%block eramzNewSignup%}
    <div class='flex fix' id='eramzNew'>
-    <label for='ramzNew' title='{%trans "Click to see your password"%}'>**</label>
+    <label for='ramzNew'>**</label>
     <input id='ramzNew' name="ramzNew" type='password' placeholder='{%trans "New Password"%}' autocomplete="off" minlength="6" maxlength="40" pattern=".{6,40}" title='{%trans "Enter a password between 7 and 40 characters"%}{%if lang.current == "fa"%}<br>{%trans "Password is password."%}{%endif%}' required>
    </div>
 {%endblock%}
