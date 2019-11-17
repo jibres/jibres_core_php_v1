@@ -3,23 +3,27 @@
 
 {%block pageContent%}
 
-<div class="f justify-center">
-  <div class="c4 x3 m7 s12">
     <div id="get_started_card">
       <div class="body">
-        <h1>{%trans "Your store is ready to go!"%}</h1>
-        <p>{%trans "We are do everything you need and now you can fly with Jibres power."%}</p>
+        <div class="pad">
+          <h1>{%trans "Your store is ready to go!"%}</h1>
+          <p>{%trans "We are do everything you need and now you can fly with Jibres power."%}</p>
 
-        <a class="btn master block" href="{{myNewStoreSubdomain}}">{%trans "Bring me to store"%}</a>
+          <a class="btn master block" href="{{myNewStoreSubdomain}}">{%trans "Bring me to store"%}</a>
+
+        </div>
+        <img class="grandOpening" src="{{url.static}}/img/store/grand-opening.jpg" alt='{%trans "Grand opening your store on Jibres"%}'>
       </div>
 
-      <img class="grandOpening" src="{{url.static}}/img/store/grand-opening.jpg" alt='{%trans "Grand opening your store on Jibres"%}'>
+      <div class="f align-center fs12">
+        <div class="cauto os"><a href="{{url.here}}" class="btn">{%trans "My stores"%}</a></div>
+      </div>
     </div>
 
-    <div class="f align-center fs12">
-      <div class="cauto os"><a href="{{url.here}}" class="btn">{%trans "My stores"%}</a></div>
-    </div>
 
-  </div>
-</div>
 {%endblock%}
+
+
+{%block sideBox%}{%endblock%}
+{%block headerBox%}{%endblock%}
+

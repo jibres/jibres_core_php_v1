@@ -3,18 +3,16 @@
 
 {%block pageContent%}
 
-<div class="f justify-center">
-  <div class="c4 x3 m7 s12">
     <div id="get_started_card">
       <div class="body">
-        <h1>{%trans "Please wait to creating your store"%} ... </h1>
-        <p>{%trans "Loading..."%}</p>
+        <div class="pad">
+          <p>{%trans "Please wait to creating your store"%} ... </p>
+
+        </div>
+        <img class="grandOpening" src="{{url.static}}/img/store/grand-opening.jpg" alt='{%trans "Grand opening your store on Jibres"%}'>
 
       </div>
-      <img class="grandOpening" src="{{url.static}}/img/store/grand-opening.jpg" alt='{%trans "Grand opening your store on Jibres"%}'>
     </div>
-  </div>
-</div>
 
 
 
@@ -39,15 +37,15 @@ $.ajax(
    },
    fail : function()
    {
-    // Navigate({ url: "{{url.here}}/error" });
+    Navigate({ url: "{{url.here}}/error" });
    },
    always : function()
    {
-    // Navigate({ url: "{{url.here}}/error" });
+    Navigate({ url: "{{url.here}}/error" });
    },
    statusCode: {
     501: function() {
-      // Navigate({ url: "{{url.here}}/error" });
+      Navigate({ url: "{{url.here}}/error" });
     }
    }
  });

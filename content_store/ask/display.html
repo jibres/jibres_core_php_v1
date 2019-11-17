@@ -3,46 +3,46 @@
 
 {%block pageContent%}
 
-<div class="f justify-center">
-  <div class="c4 x3 m7 s12">
     <div id="get_started_card">
       <div class="body">
-        <h1>{%trans "Tell us a little about yourself"%}</h1>
-        <p>{%trans "Your answer is important for us."%}</p>
+        <div class="pad">
+          <h1>{%trans "Tell us a little about yourself"%}</h1>
+          <p>{%trans "Your answer is important for us."%}</p>
 
-        <form method="post" autocomplete="off">
-
+          <form method="post" autocomplete="off">
 {%for index, myQ in polls.questions%}
-          <label for="{{myQ.id}}">{{myQ.title}}</label>
-          <select class="select" id="{{myQ.id}}" name="{{myQ.id}}">
-            <option selected disabled>{{polls.placeholder}}</option>
-            {% for itemKey, myItem in myQ.items %}
-            <option value="{{itemKey}}">{{myItem}}</option>
-            {% endfor %}
-          </select>
+            <label for="{{myQ.id}}">{{myQ.title}}</label>
+            <select class="select" id="{{myQ.id}}" name="{{myQ.id}}">
+              <option selected disabled>{{polls.placeholder}}</option>
+              {% for itemKey, myItem in myQ.items %}
+              <option value="{{itemKey}}">{{myItem}}</option>
+              {% endfor %}
+            </select>
 {% endfor %}
-
-          <div class="f">
-            <div class="c pRa5">
-              <button class="btn success block">{%trans "Next"%}</button>
+            <div class="f">
+              <div class="c pRa5">
+                <button class="btn success block">{%trans "Next"%}</button>
+              </div>
+              <div class="cauto os pLa5">
+                <button class="btn block" name="skip" value="skip">{%trans "Skip"%}</button>
+              </div>
             </div>
-            <div class="cauto os pLa5">
-              <button class="btn block" name="skip" value="skip">{%trans "Skip"%}</button>
-            </div>
-          </div>
-        </form>
+          </form>
 
-        <img src="{{url.static}}/img/store/answer-polls.svg" alt='{%trans "answer Jibres polls"%}'>
+          <img src="{{url.static}}/img/store/answer-polls.svg" alt='{%trans "answer Jibres polls"%}'>
 
+        </div>
+
+
+
+      </div>
+
+      <div class="f align-center">
+        <div class="cauto os"><a href="{{url.here}}" class="btn" data-direct>{%trans "Cancel"%}</a></div>
       </div>
     </div>
 
-    <div class="f align-center fs12">
-      <div class="cauto os"><a href="{{url.here}}" class="btn" data-direct>{%trans "Cancel"%}</a></div>
-    </div>
 
-  </div>
-</div>
 {%endblock%}
 
 

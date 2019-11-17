@@ -3,26 +3,25 @@
 
 {%block pageContent%}
 
-<div class="f justify-center">
-  <div class="c4 x3 m7 s12">
     <div id="get_started_card">
       <div class="body">
-        <h1>{%trans "Sorry!"%}</h1>
-        <p>{%trans "There was an error building your store"%}</p>
-        <p>{%trans "Please report the error with support or try again in a few minutes"%}</p>
+        <div class="pad">
+          <h1>{%trans "Sorry!"%}</h1>
+          <p>{%trans "There was an error building your store"%}</p>
+          <p>{%trans "Please report the error with support or try again in a few minutes"%}</p>
 
-        {%if StoreCreateErrorCode%}
-          <div class="msg ltr">
-            <code>Error code {{StoreCreateErrorCode}}</code>
-          </div>
-        {%endif%}
-        <a data-direct href='{{url.here}}' class="btn mTB20 block success2 outline">{%trans "Try again"%}</a>
+          {%if StoreCreateErrorCode%}
+            <div class="msg ltr">
+              <code>Error code {{StoreCreateErrorCode}}</code>
+            </div>
+          {%endif%}
+          <a data-direct href='{{url.here}}' class="btn mTB20 block success2 outline">{%trans "Try again"%}</a>
 
-        <a data-direct href='{{url.support}}/ticket/add?title={%trans "Error create store"%}{%if StoreCreateErrorCode%} {{StoreCreateErrorCode}}{%endif%}' class="btn block primary2 outline mB50">{%trans "Contact Us about this error"%}</a>
+          <a data-direct href='{{url.support}}/ticket/add?title={%trans "Error create store"%}{%if StoreCreateErrorCode%} {{StoreCreateErrorCode}}{%endif%}' class="btn block primary2 outline mB50">{%trans "Contact Us about this error"%}</a>
+
+        </div>
       </div>
     </div>
-  </div>
-</div>
 {%endblock%}
 
 

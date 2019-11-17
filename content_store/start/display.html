@@ -3,10 +3,9 @@
 
 {%block pageContent%}
 
-<div class="f justify-center">
-  <div class="c4 x3 m7 s12">
     <div id="get_started_card">
       <div class="body">
+        <div class="pad">
         {%if canAddStore.can%}
           <h1>{{page.title}}</h1>
           <p>{%trans "To make a online store from scratch, please enter name of your business."%}</p>
@@ -31,18 +30,17 @@
             <a href="{{url.here}}" class="btn block outline mT10 success">{%trans "Back"%}</a>
         {%endif%}
 
+          <img src="{{url.static}}/img/store/your-brand.svg" alt='{%trans "Create a store on Jibres"%}'>
 
-        <img src="{{url.static}}/img/store/your-brand.svg" alt='{%trans "Create a store on Jibres"%}'>
+        </div>
+      </div>
 
+      <div class="f align-center msg">
+        <div class="c pRa10">{{termOfService | raw}}</div>
+        <div class="cauto os"><a href="{{url.here}}" class="btn" data-direct>{%trans "Cancel"%}</a></div>
       </div>
     </div>
 
-    <div class="f align-center msg mT10 fs12">
-      <div class="c pRa10">{{termOfService | raw}}</div>
-      <div class="cauto os"><a href="{{url.here}}" class="btn" data-direct>{%trans "Cancel"%}</a></div>
-    </div>
-  </div>
-</div>
 {%endblock%}
 
 
