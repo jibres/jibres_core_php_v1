@@ -6,18 +6,17 @@
     <div id="get_started_card">
       <div class="body">
         <div class="pad">
-          <h1>{%trans "Sorry!"%}</h1>
-          <p>{%trans "There was an error building your store"%}</p>
-          <p>{%trans "Please report the error with support or try again in a few minutes"%}</p>
+          <h1>{%trans "Oops!"%}</h1>
+          <p> {%trans "We can not build your store!"%} {%trans "Please contact us to solve this problem."%}</p>
 
           {%if StoreCreateErrorCode%}
             <div class="msg ltr">
-              <code>Error code {{StoreCreateErrorCode}}</code>
+              <code>Error {{StoreCreateErrorCode}}</code>
             </div>
           {%endif%}
           <a data-direct href='{{url.here}}' class="btn mTB20 block success2 outline">{%trans "Try again"%}</a>
 
-          <a data-direct href='{{url.support}}/ticket/add?title={%trans "Error create store"%}{%if StoreCreateErrorCode%} {{StoreCreateErrorCode}}{%endif%}' class="btn block primary2 outline mB50">{%trans "Contact Us about this error"%}</a>
+          <a data-direct href='{{url.support}}/setup/error' class="btn block secondary">{%trans "Read about this problem"%}</a>
 
         </div>
 
