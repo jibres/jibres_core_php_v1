@@ -8,7 +8,6 @@
 
   {{block('htmlSearchBox')}}
   {{block('htmlTable')}}
-  {{block('htmlFilter')}}
 
  {%else%}
 
@@ -17,10 +16,11 @@
 
  {%endif%}
 {%else%}
+
  {%if isFiltered%}
 
   {{block('htmlSearchBox')}}
-  {{block('htmlFilterNoResult')}}
+  {{block('htmlFilter')}}
 
  {%else%}
 
@@ -57,13 +57,16 @@
         </div>
       </div>
       <div class="cauto">
-        <select class="select">
-            <option  value="{{url.that}}?{{value.query_string}}">{%trans "You can sort your list"%}</option>
+        <div class="ui floating dropdown">
+          <div class="btn light3"><i class="sf-sort mRa5"></i><span class="text">{%trans "Sort"%}</span></div>
+          <div class="menu">
+            <div class="header">{%trans "You can sort your list"%}</div>
             {%for key, value in sortList%}
-              <option  value="{{url.that}}?{{value.query_string}}">{{value.title}}</option>
+              <a class="item" href="{{url.that}}?{{value.query_string}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.title}}</span></a>
             {%endfor%}
-        </select>
-    </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -163,7 +166,7 @@
             <span> {%trans "For"%} <b>{{value.variants_detail.count | fitNumber}}</b> {%trans "variants"%}</span>
           {%endif%}
         </td>
-        <td class=""><small><a href="{{url.that}}?catid={{value.cat_id}}">{{value.cat}}</a></small></td>
+        <td class="">{{value.category}}</td>
       </tr>
       {%endfor%}
     </tbody>

@@ -4,6 +4,7 @@ namespace lib\app\product;
 class search
 {
 	private static $filter_message = null;
+	private static $filter_args    = [];
 	private static $is_filtered    = false;
 
 
@@ -52,7 +53,7 @@ class search
 		$and         = [];
 		$meta        = [];
 		$or          = [];
-		$filter_args = [];
+
 		$order_sort  = null;
 
 
@@ -60,7 +61,7 @@ class search
 		{
 			$barcode                 = \dash\utility\convert::to_en_number($_args['barcode']);
 			$and['products.barcode'] = $barcode;
-			$filter_args['barcode']  = '*'. T_('Barcode');
+			self::$filter_args['barcode']  = '*'. T_('Barcode');
 			self::$is_filtered       = true;
 		}
 
@@ -70,7 +71,7 @@ class search
 			if(is_numeric($price))
 			{
 				$and['products.price'] = $price;
-				$filter_args['price']  = '*'. T_('Price');
+				self::$filter_args['price']  = '*'. T_('Price');
 			}
 		}
 
@@ -80,7 +81,7 @@ class search
 			if(is_numeric($buyprice))
 			{
 				$and['products.buyprice'] = $buyprice;
-				$filter_args['buyprice']  = '*'. T_('Buy price');
+				self::$filter_args['buyprice']  = '*'. T_('Buy price');
 				self::$is_filtered        = true;
 			}
 		}
@@ -88,7 +89,7 @@ class search
 		if($_args['cat'])
 		{
 			$and['products.cat'] = $_args['cat'];
-			$filter_args['cat']  = '*'. T_('Category');
+			self::$filter_args['cat']  = '*'. T_('Category');
 		}
 
 		if($_args['discount'])
@@ -97,7 +98,7 @@ class search
 			if(is_numeric($discount))
 			{
 				$and['products.discount'] = $discount;
-				$filter_args['discount']  = '*'. T_('Discount');
+				self::$filter_args['discount']  = '*'. T_('Discount');
 				self::$is_filtered        = true;
 			}
 		}
@@ -108,7 +109,7 @@ class search
 			if($catid)
 			{
 				$and['products.cat_id'] = $catid;
-				$filter_args['cat']     = '*'. T_('Category');
+				self::$filter_args['cat']     = '*'. T_('Category');
 				self::$is_filtered      = true;
 			}
 		}
@@ -119,7 +120,7 @@ class search
 			if($unitid)
 			{
 				$and['products.unit_id'] = $unitid;
-				$filter_args['unit'] = '*'. T_('Unit');
+				self::$filter_args['unit'] = '*'. T_('Unit');
 				self::$is_filtered = true;
 			}
 		}
@@ -130,7 +131,7 @@ class search
 			if($companyid)
 			{
 				$and['products.company_id'] = $companyid;
-				$filter_args['company']     = '*'. T_('Company');
+				self::$filter_args['company']     = '*'. T_('Company');
 				self::$is_filtered          = true;
 			}
 		}
@@ -140,24 +141,27 @@ class search
 		if(isset($_args['filter']['duplicatetitle']) && $_args['filter']['duplicatetitle'])
 		{
 			$duplicate_id = \lib\db\products\db::get_duplicate_id();
-			if(!$duplicate_id)
+			self::$filter_args['Duplicate title'] = null;
+			self::$is_filtered              = true;
+
+			if($duplicate_id)
 			{
-				return [];
+				$duplicate_id                   = implode(',', $duplicate_id);
+				$and['products.id']             = ["IN", "($duplicate_id)"];
+				$order_sort                     = 'ORDER BY products.title ASC';
+			}
+			else
+			{
+				$type = 'no-duplicatetitle';
 			}
 
-			$duplicate_id                   = implode(',', $duplicate_id);
-			$and['products.id']             = ["IN", "($duplicate_id)"];
-			$order_sort                     = 'ORDER BY products.title ASC';
-
-			$filter_args['Duplicate title'] = null;
-			self::$is_filtered              = true;
 		}
 
 		if(isset($_args['filter']['hbarcode']) && $_args['filter']['hbarcode'])
 		{
 			$or['products.barcode']  = [" IS ", " NOT NULL "];
 			$or['products.barcode2'] = [" IS ", " NOT NULL "];
-			$filter_args['barcode']  = T_("Have barcode");
+			self::$filter_args['barcode']  = T_("Have barcode");
 			self::$is_filtered       = true;
 		}
 
@@ -165,14 +169,14 @@ class search
 		{
 			$and['products.barcode']  = [" IS ", " NULL "];
 			$and['products.barcode2'] = [" IS ", " NULL "];
-			$filter_args['barcode']   = T_("Have not barcode");
+			self::$filter_args['barcode']   = T_("Have not barcode");
 			self::$is_filtered        = true;
 		}
 
 		if(isset($_args['filter']['wbuyprice']) && $_args['filter']['wbuyprice'])
 		{
 			$and['productprices.buyprice'] = [' IS ', ' NULL '];
-			$filter_args['buyprice']      = T_("without buy price");
+			self::$filter_args['buyprice']      = T_("without buy price");
 
 			$type                         = 'join_price';
 
@@ -182,7 +186,7 @@ class search
 		if(isset($_args['filter']['wprice']) && $_args['filter']['wprice'])
 		{
 			$and['productprices.price'] = [' IS ', ' NULL '];
-			$filter_args['price'] = T_("without price");
+			self::$filter_args['price'] = T_("without price");
 
 			$type                         = 'join_price';
 
@@ -193,7 +197,7 @@ class search
 		if(isset($_args['filter']['wdiscount']) && $_args['filter']['wdiscount'])
 		{
 			$and['productprices.discount'] = [' IS ', ' NULL '];
-			$filter_args['discount']       = T_("without discount");
+			self::$filter_args['discount']       = T_("without discount");
 
 			$type                          = 'join_price';
 
@@ -231,6 +235,11 @@ class search
 				$list = \lib\db\products\datalist::list_join_price($and, $or, $order_sort, $meta);
 				break;
 
+			case 'no-duplicatetitle':
+				// no result found by duplicate  title
+				$list = [];
+				break;
+
 			default:
 				$list = \lib\db\products\datalist::list($and, $or, $order_sort, $meta);
 				break;
@@ -247,7 +256,7 @@ class search
 
 		$filter_args_data = [];
 
-		foreach ($filter_args as $key => $value)
+		foreach (self::$filter_args as $key => $value)
 		{
 			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
 			{

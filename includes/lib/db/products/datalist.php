@@ -84,7 +84,12 @@ class datalist
 
 		$limit = \dash\db::pagination_query($pagination_query);
 
-		$query = " SELECT products.* FROM products $q[where] $q[order] $limit";
+		$query =
+		"
+			SELECT
+				products.*,
+				IF(products.cat_id IS NOT NULL, (SELECT productcategory.title FROM productcategory  WHERE productcategory.id = products.cat_id LIMIT 1), NULL) AS `category`
+			FROM products $q[where] $q[order] $limit";
 
 		$result = \dash\db::get($query);
 

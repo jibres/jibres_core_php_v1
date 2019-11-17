@@ -50,6 +50,7 @@ class view
 		\dash\data::dataTable($myProductList);
 
 		\dash\data::filterBox(\lib\app\product\search::filter_message());
+
 		\dash\data::sortList(\lib\app\product\filter::sort_list());
 
 		$isFiltered = \lib\app\product\search::is_filtered();
