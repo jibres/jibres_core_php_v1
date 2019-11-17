@@ -4,6 +4,27 @@ namespace content_a\products\edit;
 
 class model
 {
+	public static function add()
+	{
+		$post = self::get_post();
+
+		$result = \lib\app\product\add::add($post);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		if(isset($result['id']))
+		{
+			\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
+		}
+		else
+		{
+			\dash\redirect::to(\dash\url::this());
+		}
+	}
+
 
 	public static function get_post()
 	{
