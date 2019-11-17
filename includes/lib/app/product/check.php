@@ -309,7 +309,7 @@ class check
 				return false;
 			}
 
-			$saleonline = $saleonline ? null : 'no';
+			$saleonline = $saleonline ? 'yes' : 'no';
 		}
 
 
@@ -432,32 +432,11 @@ class check
 
 
 		$oversale     = \dash\app::request('oversale') ? 'yes' : 'no';
-		if(isset($oversale) && !is_string($oversale))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'oversale']), 'oversale');
-			return false;
-		}
-
 		$saletelegram = \dash\app::request('saletelegram') ? 'yes' : 'no';
-		if(isset($saletelegram) && !is_string($saletelegram))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'saletelegram']), 'saletelegram');
-			return false;
-		}
-
 		$saleapp      = \dash\app::request('saleapp') ? 'yes' : 'no';
-		if(isset($saleapp) && !is_string($saleapp))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'saleapp']), 'saleapp');
-			return false;
-		}
-
 		$infinite     = \dash\app::request('infinite') ? 'yes' : 'no';
-		if(isset($infinite) && !is_string($infinite))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'infinite']), 'infinite');
-			return false;
-		}
+
+
 
 		$parent = \dash\app::request('parent');
 		if(isset($parent) && !is_string($parent))

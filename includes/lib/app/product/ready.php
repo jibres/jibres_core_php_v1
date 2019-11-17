@@ -91,7 +91,7 @@ class ready
 				case 'saleonline':
 				case 'saletelegram':
 				case 'saleapp':
-					if(!$value)
+					if($value === 'yes')
 					{
 						$value = true;
 					}
