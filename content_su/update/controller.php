@@ -64,7 +64,7 @@ class controller
 	{
 	    if($_url === null)
 	    {
-	    	$_url = 'https://c.goni4.ermile.com';
+	    	$_url = 'https://ermile.com';
 	    }
 
 	    $ch = curl_init($_url);
