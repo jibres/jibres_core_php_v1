@@ -43,7 +43,7 @@
 {%if listStore.owner%}
 <div class="f listOfStores">
 {%for key, value in listStore.owner%}
-  <div class="c4 xauto s12 pRa10" {%if perm_su()%} title='{{value.store_id | coding("encode")}}' {%endif%}>
+  <div class="c4 xauto s12 pRa10">
     <a href='{{value.url}}/a' class="scard">
       <img src="{{value.logo}}" alt="{{value.title}}">
       <div class="body">
