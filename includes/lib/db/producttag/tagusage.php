@@ -53,7 +53,8 @@ class tagusage
 		"
 			SELECT
 				producttag.id AS `producttag_id`,
-				producttag.*
+				producttag.title,
+				producttag.slug
 			FROM
 				producttagusage
 			INNER JOIN producttag ON producttag.id = producttagusage.producttag_id

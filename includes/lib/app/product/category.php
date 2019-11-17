@@ -422,9 +422,9 @@ class category
 		{
 			switch ($key)
 			{
-				case 'id':
-					$result[$key] = \dash\coding::encode($value);
-					break;
+				// case 'id':
+				// 	$result[$key] = \dash\coding::encode($value);
+				// 	break;
 
 				default:
 					$result[$key] = $value;

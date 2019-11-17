@@ -316,33 +316,20 @@
 
 {%block iTag%}
 
-{%if perm('thirdpartyAssignTag')%}
+
+{%if perm('productAssignTag')%}
 <div class="mT20">
 
   <div class="tagDetector">
 
     <div class="input mB10 hide">
-      <input type="text" class="input tagVals" name="tag"  value="{{tagValue}}" id="tagValues" placeholder='{%trans "Tag"%}'>
+      <input type="text" class="input tagVals" name="tag"  value="{{tagString}}" id="tagValues" placeholder='{%trans "Tag"%}'>
     </div>
-
-      <input type="hidden" name="redirecturl" value="{{url.pwd}}">
-      <datalist id="taglist">
-        {%for key, value in tagRow%}
-          <option value="{{value.title}}">
-        {%endfor%}
-      </datalist>
-
-      <div class="input" title='{%trans "Add tag manually to link thirdparty togethers"%}'>
+      <div class="input" title='{%trans "Add tag manually to link product togethers"%}'>
         <input type="text" list="taglist" class="tagInput" placeholder='{%trans "Tag keywords..."%}'>
         <button class="addon tagAdd">+</button>
       </div>
-      <div class="w300">
-
       <div class="tagBox"></div>
-      </div>
-
-
-
   </div>
 </div>
 {%endif%}

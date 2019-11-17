@@ -141,7 +141,15 @@ class tag
 
 	public static function get($_product_id)
 	{
+		$detail = \lib\app\product\get::inline_get($_product_id);
+		if(!$detail)
+		{
+			return false;
+		}
 
+		$get_usage = \lib\db\producttag\tagusage::usage($_product_id);
+
+		return $get_usage;
 	}
 }
 ?>

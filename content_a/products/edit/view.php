@@ -63,8 +63,14 @@ class view
 		$category_list = \lib\app\product\category::list();
 		\dash\data::listCategory($category_list);
 
-		// $tag_list = \lib\app\product\tag::list();
-		// \dash\data::listCategory($tag_list);
+
+		$tag_list = \lib\app\product\tag::get($id);
+		if(is_array($tag_list) && $tag_list)
+		{
+			$tagString = implode(',', array_column($tag_list, 'title'));
+			\dash\data::tagString($tagString);
+		}
+		\dash\data::listTag($tag_list);
 
 	}
 }
