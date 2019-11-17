@@ -20,6 +20,7 @@ class view
 			// btn to add new store
 			\dash\data::page_btnText(T_('Add new store'));
 			\dash\data::page_btnLink(\dash\url::this(). '/start');
+			\dash\data::page_btnDirect(true);
 		}
 		else
 		{
