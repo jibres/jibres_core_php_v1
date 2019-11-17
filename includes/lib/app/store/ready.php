@@ -67,7 +67,14 @@ class ready
 
 				case 'subdomain':
 					$result[$key] = $value;
-					$result['url'] = \dash\url::protocol(). '://'. $value. '.'. \dash\url::domain();
+
+					$url_lang = null;
+					if(\dash\url::lang())
+					{
+						$url_lang = '/'. \dash\url::lang();
+					}
+
+					$result['url'] = \dash\url::protocol(). '://'. $value. '.'. \dash\url::domain(). $url_lang;
 					break;
 
 				case 'status':
