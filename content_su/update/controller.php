@@ -39,26 +39,18 @@ class controller
 		// switch by name of repository
 		switch ($_name)
 		{
-			case 'dash':
-				$result[] = self::updateDash();
-				break;
 
 			case 'all':
-				// pull dash
-				// $result[] = self::updateDash();
-
 				// pull current project
 				$_name = \dash\url::root();
-				$result[] = "<h1>$_name <small>Current Project</small></h1>";
-				$result[] = "<p>Project location is <b>". root. "</b></p>";
+				$result[] = "<h1>$_name</h1>";
+				$result[] = "<p>Project location is <b>". root. "</b></p><br><br>";
 				$result[] =  \dash\utility\git::pull(root, false, $_password);
 				break;
 
-			case '':
-				break;
 
 			default:
-				$result[] =  \dash\utility\git::pull(root, false, $_password);
+				// $result[] =  \dash\utility\git::pull(root, false, $_password);
 
 				// return;
 				break;
@@ -68,31 +60,11 @@ class controller
 	}
 
 
-
-	public static function updateDash()
-	{
-		$dashLocation = null;
-		// check dash location
-		if(is_dir(root. 'dash'))
-		{
-			$dashLocation = '../dash';
-		}
-		elseif(is_dir(root. '../dash'))
-		{
-			$dashLocation = '../../dash';
-		}
-
-		$back = "<h1><a href='".\dash\url::kingdom()."/su/update' >Back to su update</a></h1>";
-		return $back. "<h1>Dash</h1>". \dash\utility\git::pull($dashLocation);
-	}
-
-
-
 	private static function ping($_url = null)
 	{
 	    if($_url === null)
 	    {
-	    	$_url = 'https://ermile.com/fa';
+	    	$_url = 'https://c.goni4.ermile.com';
 	    }
 
 	    $ch = curl_init($_url);
