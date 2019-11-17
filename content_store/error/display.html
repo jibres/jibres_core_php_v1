@@ -16,15 +16,16 @@
             <code>Error code {{StoreCreateErrorCode}}</code>
           </div>
         {%endif%}
-        <a href='{{url.here}}' class="btn mTB20 block success2 outline">{%trans "Try again"%}</a>
+        <a data-direct href='{{url.here}}' class="btn mTB20 block success2 outline">{%trans "Try again"%}</a>
 
-        <a href='{{url.support}}/ticket/add?title={%trans "Error create store"%}{%if StoreCreateErrorCode%} {{StoreCreateErrorCode}}{%endif%}' class="btn block primary2 outline">{%trans "Contact Us about this error"%}</a>
+        <a data-direct href='{{url.support}}/ticket/add?title={%trans "Error create store"%}{%if StoreCreateErrorCode%} {{StoreCreateErrorCode}}{%endif%}' class="btn block primary2 outline mB50">{%trans "Contact Us about this error"%}</a>
       </div>
-      <img class="grandOpening" src="{{url.static}}/img/store/grand-opening.jpg" alt='{%trans "Grand opening your store on Jibres"%}'>
     </div>
   </div>
 </div>
-
-
-
 {%endblock%}
+
+
+{%block sideBox%}{%endblock%}
+{%block headerBox%}{%endblock%}
+
