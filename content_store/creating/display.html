@@ -9,7 +9,7 @@
           <p>{%trans "Please wait to creating your store"%} ... </p>
 
         </div>
-        <img class="grandOpening" src="{{url.static}}/img/store/grand-opening.jpg" alt='{%trans "Grand opening your store on Jibres"%}'>
+        <img class="loadingGif" src="{{url.static}}/img/store/loading1.gif" alt='{%trans "Loading Jibres"%}'>
 
       </div>
     </div>
@@ -39,10 +39,6 @@ $.ajax(
    {
     Navigate({ url: "{{url.here}}/error" });
    },
-   always : function()
-   {
-    Navigate({ url: "{{url.here}}/error" });
-   },
    statusCode: {
     501: function() {
       Navigate({ url: "{{url.here}}/error" });
@@ -51,3 +47,8 @@ $.ajax(
  });
 </script>
 {%endblock%}
+
+
+{%block sideBox%}{%endblock%}
+{%block headerBox%}{%endblock%}
+
