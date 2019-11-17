@@ -486,12 +486,20 @@ class controller
 	{
 		$homepage           = [];
 		$homepage[]         = self::slider();
-		$homepage[]         = self::btns();
-		$homepage[]         = self::tile();
+		$homepage[]         = self::bottonLine();
 		$homepage[]         = self::promotion();
 		$homepage[]         = self::banner();
-		$homepage[]         = self::btn4();
-		$homepage[]         = self::list();
+		$homepage[]         = self::tile(1);
+		$homepage[]         = self::tile(2);
+		$homepage[]         = self::tile(3);
+		$homepage[]         = self::tile(4);
+		$homepage[]         = self::banner();
+
+
+		$homepage[]         = self::products();
+		$homepage[]         = self::btnTile();
+		$homepage[]         = self::text();
+
 
 
 		$detail['homepage'] = $homepage;
@@ -502,56 +510,125 @@ class controller
 	{
 		$slider           = [];
 		$slider['type']   = 'slider';
-		// $posts          = \dash\app\posts::get_post_list(['special' => 'slider', 'limit' => 5]);
-		$post = [];
 
-		$post[] =
+		$data = [];
+
+		$data[] =
 		[
-			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
-			'url'   => 'https://source.jibres.com/',
+			"image"    => self::sample_image('09'),
+			"url"      => '/product/2kf',
+			"activity" => "product",
+			"mode"     => "api"
 		];
 
-		$slider['slider'] = $post;
+		$data[] =
+		[
+			"image"    => self::sample_image('13'),
+			"url"      => '/category/2kd',
+			"activity" => "category",
+			"mode"     => "api"
+		];
+
+		$data[] =
+		[
+			"image"    => self::sample_image('06'),
+			"url"      => '/collection/2kn',
+			"activity" => "collection",
+			"mode"     => "api"
+		];
+
+		$data[] =
+		[
+			"image"    => self::sample_image('14'),
+			"url"      => '/post/2ke',
+			"activity" => "page",
+			"mode"     => "api"
+		];
+
+
+		$data[] =
+		[
+			"image"    => self::sample_image('21'),
+			"url"      => 'https://jibres.com/category/sample',
+			"activity" => "category",
+			"mode"     => "webview"
+		];
+
+		$data[] =
+		[
+			"image"    => self::sample_image('30'),
+			"url"      => 'https://jibres.com/collection/sample',
+			"activity" => "collection",
+			"mode"     => "website"
+		];
+
+		$data[] =
+		[
+			"image"    => self::sample_image('14'),
+			"url"      => 'tel:+989123456789',
+			"activity" => "tel",
+			"mode"     => "tel"
+		];
+
+
+		$data[] =
+		[
+			"image"    => self::sample_image('09'),
+			"url"      => 'mail:info@jires.com',
+			"activity" => "email",
+			"mode"     => "email"
+		];
+
+
+		$slider['data'] = $data;
 
 		return $slider;
 	}
 
 
-	private static function btns()
+	private static function bottonLine()
 	{
-		$btns           = [];
-		$btns['type']   = 'btns';
-		// $posts          = \dash\app\posts::get_post_list(['special' => 'btns', 'limit' => 5]);
-		$post = [];
+		$bottonLine           = [];
+		$bottonLine['type']   = 'bottonLine';
 
-		$post[] =
+		$data = [];
+
+
+		$data[] =
 		[
-			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
-			'url'   => 'https://source.jibres.com/',
+			"title"    => T_("Expensive"),
+			"url"      => '/product/2kf',
+			"activity" => "product",
+			"mode"     => "api"
 		];
 
-		$btns['btns'] = $post;
-
-		return $btns;
-	}
-
-
-	private static function tile()
-	{
-		$tile           = [];
-		$tile['type']   = 'tile';
-		// $posts          = \dash\app\posts::get_post_list(['special' => 'tile', 'limit' => 5]);
-		$post = [];
-
-		$post[] =
+		$data[] =
 		[
-			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
-			'url'   => 'https://source.jibres.com/',
+			"title"    => T_("Promotion"),
+			"url"      => '/category/2kd',
+			"activity" => "category",
+			"mode"     => "api"
 		];
 
-		$tile['tile'] = $post;
+		$data[] =
+		[
+			"title"    => T_("Inexpensive"),
+			"url"      => '/collection/2kn',
+			"activity" => "collection",
+			"mode"     => "api"
+		];
 
-		return $tile;
+		$data[] =
+		[
+			"title"    => T_("Sample"),
+			"url"      => '/post/2ke',
+			"activity" => "page",
+			"mode"     => "api"
+		];
+
+		$bottonLine['data'] = $data;
+
+		return $bottonLine;
 	}
 
 
@@ -559,115 +636,325 @@ class controller
 	{
 		$promotion           = [];
 		$promotion['type']   = 'promotion';
-		$promotion['expire']   = date("Y-m-d H:i:s", time() + 3600);
-		// $posts          = \dash\app\posts::get_post_list(['special' => 'promotion', 'limit' => 5]);
-		$post = [];
-
-		$post[] =
+		$promotion['expire'] =
 		[
-			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
-			'url'   => 'https://source.jibres.com/',
+			"serverttime" => time(),
+			"expiretime"  => time() + 3600,
+		];
+		$promotion['title']   = T_("50% Deals");
+
+		$data = [];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('09'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product1",
+			"firstPrice" => 1000,
+			"discount"   => 300,
+			"price"      => 700,
+			"unit"       => T_("Toman"),
 		];
 
-		$promotion['promotion'] = $post;
+		$data[] =
+		[
+			"image"      => self::sample_image('13'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product2",
+			"firstPrice" => 2000,
+			"discount"   => 300,
+			"price"      => 1700,
+			"unit"       => T_("Toman"),
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('06'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product3",
+			"firstPrice" => 3000,
+			"discount"   => 300,
+			"price"      => 2700,
+			"unit"       => "$"
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('14'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product4",
+			"firstPrice" => 4000,
+			"discount"   => 300,
+			"price"      => 3700,
+			"unit"       => "$"
+		];
+
+
+		$data[] =
+		[
+			"image"      => self::sample_image('21'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product5",
+			"firstPrice" => 5000,
+			"discount"   => 300,
+			"price"      => 4700,
+			"unit"       => T_("Toman"),
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('30'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product6",
+			"firstPrice" => 6000,
+			"discount"   => 300,
+			"price"      => 5700,
+			"unit"       => T_("Toman"),
+		];
+
+
+		$promotion['data'] = $data;
 
 		return $promotion;
 	}
 
-	private static function list()
-	{
-		$list           = [];
-		$list['type']   = 'list';
-		// $posts          = \dash\app\posts::get_post_list(['special' => 'list', 'limit' => 5]);
-		$post = [];
-
-		$post[] =
-		[
-			'image' => 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg',
-			'url'   => 'https://source.jibres.com/',
-		];
-
-		$list['list'] = $post;
-
-		return $list;
-	}
-
 	private static function banner()
 	{
-		$link          = [];
-		$link['type']  = 'banner';
-		$link['image'] = 'https://source.jibres.com/static/img/cover/Jibres-cover-fa-1.jpg';
-		$link['url']   = self::jibres_temp_url(). '/store';
+		$link             = [];
+		$link['type']     = 'banner';
+		$link['image']    = self::sample_image('06');
+		$link['url']      = self::jibres_temp_url(). '/store';
+		$link['activity'] = "category";
+		$link['mode']     = "api";
 		return $link;
 	}
 
-
-
-
-	private static function btn4()
+	private static function tile($_count = 1)
 	{
-		$link                     = [];
-		$link['type']             = 'btn4';
+		$tile           = [];
+		$tile['type']   = 'tile';
 
-		$link['link'][0]['image'] = self::logo_url();
-		$link['link'][0]['url']   = self::jibres_temp_url();
-		$link['link'][0]['text']  = T_('Home');
+		$data = [];
+		$rand = [10,11,12,16,17];
+		for ($i=1; $i <= $_count ; $i++)
+		{
+			$data[] =
+			[
+				"image"    => self::sample_image($rand[array_rand($rand)]),
+				"url"      => 'https://jibres.com/collection/sample',
+				"activity" => "collection",
+				"mode"     => "website"
+			];
+		}
 
-
-		$link['link'][1]['image'] = self::logo_url();
-		$link['link'][1]['url']   = \dash\url::support();
-		$link['link'][1]['text']  = T_('Support');
-
-
-		$link['link'][2]['image'] = self::logo_url();
-		$link['link'][2]['url']   = self::jibres_temp_url(). '/store';
-		$link['link'][2]['text']  = T_('Store');
-
-
-		$link['link'][3]['image'] = self::logo_url();
-		$link['link'][3]['url']   = self::jibres_temp_url(). '/enter';
-		$link['link'][3]['text']  = T_('Enter');
-
-		return $link;
+		$tile['data'] = $data;
+		return $tile;
 	}
+
+
+	private static function products()
+	{
+		$products           = [];
+		$products['type']   = 'products';
+		$products['desc'] =
+		[
+			"title"    => "Product group 1",
+			"url"      => '/product/2kf',
+			"link"     => 'View Full',
+			"activity" => "product",
+			"mode"     => "api",
+		];
+
+		$data = [];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('09'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product1",
+			"firstPrice" => 1000,
+			"discount"   => 300,
+			"price"      => 700,
+			"unit"       => T_("Toman"),
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('13'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product2",
+			"firstPrice" => 2000,
+			"discount"   => 300,
+			"price"      => 1700,
+			"unit"       => T_("Toman"),
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('06'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product3",
+			"firstPrice" => 3000,
+			"discount"   => 300,
+			"price"      => 2700,
+			"unit"       => "$"
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('14'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product4",
+			"firstPrice" => 4000,
+			"discount"   => 300,
+			"price"      => 3700,
+			"unit"       => "$"
+		];
+
+
+		$data[] =
+		[
+			"image"      => self::sample_image('21'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product5",
+			"firstPrice" => 5000,
+			"discount"   => 300,
+			"price"      => 4700,
+			"unit"       => T_("Toman"),
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('30'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product6",
+			"firstPrice" => 6000,
+			"discount"   => 300,
+			"price"      => 5700,
+			"unit"       => T_("Toman"),
+		];
+
+
+		$products['data'] = $data;
+
+		return $products;
+	}
+
+	private static function btnTile()
+	{
+		$btnTile           = [];
+		$btnTile['type']   = 'btnTile';
+
+		$data = [];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('09'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"text"      => "Product1",
+
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('13'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"text"      => "Product2",
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('06'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"text"      => "Product3",
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('14'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"text"      => "Product4",
+		];
+
+
+		$data[] =
+		[
+			"image"      => self::sample_image('21'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"text"      => "Product5",
+		];
+
+
+		$btnTile['data'] = $data;
+
+		return $btnTile;
+	}
+
+
+	private static function text()
+	{
+		$text           = [];
+		$text['type']   = 'text';
+		$text['text']   = "Hello, Show this text to me. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod \ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo";
+
+
+		return $text;
+
+	}
+
+
+
 
 	private static function logo_url()
 	{
-		return 'https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg';
+		return \dash\url::site(). '/static/img/logo/svg/Jibres-icon.svg';
 	}
 
 	private static function jibres_temp_url()
 	{
-		return 'https://jeebres.com';
+		return \dash\url::site();
 	}
 
 
 
-	private static function news()
+
+	private static function sample_image($_id)
 	{
-		$link         = [];
-		$link['type'] = 'news';
-		$posts        = \dash\app\posts::get_post_list(['limit' => 3, 'language' => \dash\language::current()]);
-		$link['news'] = $posts;
-		return $link;
-	}
-
-
-	private static function hr()
-	{
-		$link          = [];
-		$link['type']  = 'hr';
-		return $link;
-	}
-
-
-
-	private static function title($_title = null)
-	{
-		$link          = [];
-		$link['type']  = 'title';
-		$link['title'] = $_title ? $_title : T_("Hi!");
-		return $link;
+		return self::jibres_temp_url(). '/static/images/api-sample/'. $_id. '.jpg';
 	}
 
 
