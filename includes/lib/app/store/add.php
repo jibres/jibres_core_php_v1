@@ -17,32 +17,32 @@ class add
 		{
 			$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
 
-			if($count_store_free >= 1)
-			{
-				$user_budget = \dash\db\transactions::budget($user_id, ['unit' => 'toman']);
+			// if($count_store_free >= 1)
+			// {
+			// 	$user_budget = \dash\db\transactions::budget($user_id, ['unit' => 'toman']);
 
-				$user_budget = floatval($user_budget);
+			// 	$user_budget = floatval($user_budget);
 
-				if($user_budget < 10000)
-				{
-					$msg = T_("To register a second store, you need to have at least 10,000 toman in inventory on your account");
-					\dash\notif::code(1408);
-					if($_notif)
-					{
-						\dash\notif::error($msg);
-					}
-					if($_get_detail)
-					{
-						return ['can' => false, 'msg' => $msg, 'type' => 'price'];
-					}
-					else
-					{
-						return false;
-					}
-				}
-			}
+			// 	if($user_budget < 10000)
+			// 	{
+			// 		$msg = T_("To register a second store, you need to have at least 10,000 toman in inventory on your account");
+			// 		\dash\notif::code(1408);
+			// 		if($_notif)
+			// 		{
+			// 			\dash\notif::error($msg);
+			// 		}
+			// 		if($_get_detail)
+			// 		{
+			// 			return ['can' => false, 'msg' => $msg, 'type' => 'price'];
+			// 		}
+			// 		else
+			// 		{
+			// 			return false;
+			// 		}
+			// 	}
+			// }
 
-			if($count_store_free >= 2)
+			if($count_store_free > 3)
 			{
 				$msg = T_("You can not have more than two free or trial stores."). ' '. T_("Contact Us if you need more stores");
 
