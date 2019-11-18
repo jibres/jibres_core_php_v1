@@ -88,6 +88,9 @@
 {%endblock%}
 
 {%block footerBox%}  <footer id='footer' class='f'>{{block ('footer')}}  </footer>{%endblock%}
+{%if line.bottom%}
+<div class="line warn fs20">{{line.bottom}}</div>
+{%endif%}
 
  </main>
 {%endblock%}

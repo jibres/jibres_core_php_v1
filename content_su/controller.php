@@ -18,17 +18,15 @@ class controller
 			return false;
 		}
 
-		if(!\dash\user::login())
+		if(\dash\url::isLocal())
 		{
-			if(\dash\url::isLocal() && \dash\url::module() === 'translation')
-			{
-				// on tld local open the su to upgrade for test
-			}
-			else
-			{
-				\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), 'direct');
-				return;
-			}
+			\dash\notif::warn('Local mode');
+			\dash\data::line_bottom(T_('You are in Supervisor Panel of Local Mode'));
+		}
+		else if(!\dash\user::login())
+		{
+			\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), 'direct');
+			return;
 		}
 		else
 		{
