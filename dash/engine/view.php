@@ -132,6 +132,7 @@ class view
 		\dash\data::service_title(T_('Jibres'));
 		\dash\data::service_desc(T_('As easy as ABC is our slogan!'). '<br>'. T_('If you are not finded a solution for your problem, call us.'));
 		\dash\data::service_slogan(T_('#1 World Sales Engineering System'));
+		\dash\data::service_slogan(T_('Sell and enjoy'));
 		\dash\data::service_logo(\dash\url::static(). '/img/logo/svg/Jibres-icon.svg');
 		\dash\data::service_url('https://jibres.com');
 

@@ -12,7 +12,7 @@ class twigTransTerms
 	echo T_("Soon");                                                                  // Line 260
 
 	//-------------------------------\htdocs\Projects\jibres\content\blog\display.html
-	echo T_("View your current location and navigate to parent of it");               // Line 225
+	echo T_("View your current location and navigate to parent of it");               // Line 219
 	echo T_("Read more");                                                             // Line 97
 
 	//--------------------------\htdocs\Projects\jibres\content\changelog\display.html
@@ -958,7 +958,7 @@ class twigTransTerms
 	echo T_("Store plans");                                                           // Line 61
 	echo T_("Factor settings");                                                       // Line 62
 	echo T_("Shift transformation");                                                  // Line 68
-	echo T_("Logout");                                                                // Line 201
+	echo T_("Logout");                                                                // Line 195
 	echo T_("You are active user");                                                   // Line 81
 
 	//------------------------------\htdocs\Projects\jibres\content_a\pay\display.html
@@ -1323,8 +1323,8 @@ class twigTransTerms
 	echo T_("Factor of team");                                                        // Line 8
 
 	//-----------------------\htdocs\Projects\jibres\content_account\home\display.html
-	echo T_("Avatar of you");                                                         // Line 206
-	echo T_("Default Avatar");                                                        // Line 210
+	echo T_("Avatar of you");                                                         // Line 200
+	echo T_("Default Avatar");                                                        // Line 204
 	echo T_("Welcome");                                                               // Line 16
 	echo T_(",");                                                                     // Line 16
 	echo T_("Manage your info, privacy, and security to make us work better for you");// Line 17
@@ -1344,7 +1344,7 @@ class twigTransTerms
 	echo T_("Get expert answers and advice on our service or contact our legendary support team");// Line 112
 	echo T_("Get help");                                                              // Line 120
 	echo T_("Check your account balance, charge your account, and bill your invoices!");// Line 132
-	echo T_("Notifications");                                                         // Line 195
+	echo T_("Notifications");                                                         // Line 189
 	echo T_("Check your last messages.");                                             // Line 152
 	echo T_("Maybe some messages need your action!");                                 // Line 152
 	echo T_("Read your messages");                                                    // Line 160
@@ -1361,7 +1361,7 @@ class twigTransTerms
 	echo T_("like");                                                                  // Line 38
 
 	//--------------------\htdocs\Projects\jibres\content_account\my\home\display.html
-	echo T_("Account");                                                               // Line 200
+	echo T_("Account");                                                               // Line 194
 	echo T_("You can enter to your account with username and mobile.");               // Line 45
 	echo T_("Username");                                                              // Line 71
 	echo T_("Some info may be visible to other people using our service.");           // Line 88
@@ -1928,7 +1928,7 @@ class twigTransTerms
 	echo T_("Categories");                                                            // Line 87
 	echo T_("Keywords");                                                              // Line 191
 	echo T_("Static Pages");                                                          // Line 22
-	echo T_("Help Center");                                                           // Line 192
+	echo T_("Help Center");                                                           // Line 186
 	echo T_("Help Center Keywords");                                                  // Line 40
 	echo T_("All Comments");                                                          // Line 55
 	echo T_("Files");                                                                 // Line 69
@@ -2941,12 +2941,10 @@ class twigTransTerms
 	echo T_("Help");                                                                  // Line 48
 	echo T_("Previous item");                                                         // Line 54
 	echo T_("Next item");                                                             // Line 55
-	echo T_("Quick Access");                                                          // Line 133
-	echo T_("Shortkey");                                                              // Line 158
-	echo T_("CMS");                                                                   // Line 143
-	echo T_("CRM Panel");                                                             // Line 147
-	echo T_("Supervisor Panel");                                                      // Line 151
-	echo T_("My Account");                                                            // Line 155
+	echo T_("CMS");                                                                   // Line 139
+	echo T_("CRM Panel");                                                             // Line 143
+	echo T_("Supervisor Panel");                                                      // Line 147
+	echo T_("My Account");                                                            // Line 151
 
 	//-------------------------\htdocs\Projects\jibres\includes\html\display-dash.html
 	echo T_("Edit your profile");                                                     // Line 107
@@ -2954,10 +2952,10 @@ class twigTransTerms
 	echo T_("Hello");                                                                 // Line 120
 	echo T_("Hello ");                                                                // Line 122
 	echo T_("dear GUEST!");                                                           // Line 122
-	echo T_("Click to toggle sidebar status");                                        // Line 166
-	echo T_("You really want to go?");                                                // Line 202
-	echo T_("We are waiting for you to come back:)");                                 // Line 203
-	echo T_("Enter to have better experience");                                       // Line 214
+	echo T_("Click to toggle sidebar status");                                        // Line 160
+	echo T_("You really want to go?");                                                // Line 196
+	echo T_("We are waiting for you to come back:)");                                 // Line 197
+	echo T_("Enter to have better experience");                                       // Line 208
 
 	//-----------------\htdocs\Projects\jibres\includes\html\display-enter-blocks.html
 	echo T_("Please enter valid mobile number");                                      // Line 16

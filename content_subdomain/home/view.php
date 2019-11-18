@@ -12,12 +12,6 @@ class view
 		\dash\data::site_desc(\dash\data::store_desc());
 
 
-		\dash\data::service_title(T_("Jibres"));
-		\dash\data::service_desc(T_("Jibres is not just an online accounting software;"). ' <br> '.  T_("We try to create the best financial platform that has everything you need to sale and manage your financial life."));
-		\dash\data::service_slogan(T_("Integrated Sales and Online Accounting"));
-		\dash\data::service_logo(\dash\url::static(). '/siftal/images/logo/jibres.png');
-		\dash\data::service_url('https://jibres.com');
-
 		\dash\data::display_storesubdomain('content_subdomain/main/visitcard.html');
 		// if the plan have site
 		// if(\dash\permission::supervisor())
