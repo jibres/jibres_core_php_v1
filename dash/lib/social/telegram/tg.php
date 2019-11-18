@@ -19,7 +19,6 @@ class tg
 		'dash:news',
 		'dash:utility',
 		'dash:ticket',
-		'dash:hafez',
 		'dash:conversation',
 		'dash:conversationFa',
 	];
