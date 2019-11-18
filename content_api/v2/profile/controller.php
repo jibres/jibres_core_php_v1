@@ -73,6 +73,7 @@ class controller
 	private static function update_profile($_get_avatar = false)
 	{
 		$request = self::getPost($_get_avatar);
+
 		if(!array_filter($request))
 		{
 			\dash\notif::error(T_("No file sended"));
@@ -80,14 +81,14 @@ class controller
 		}
 
 		// ready request
-		$id = \dash\coding::encode(\dash\user::id());
+		$id = \dash\coding::encode(\lib\user::id());
 
 		$result = \dash\app\user::edit($request, $id);
 
 		if(\dash\engine\process::status())
 		{
-			\dash\log::set('editProfileAPI', ['code' => \dash\user::id()]);
-			\dash\user::refresh();
+			\dash\log::set('editProfileAPI', ['code' => \lib\user::id()]);
+			\lib\user::refresh();
 		}
 
 		return $result;
@@ -96,7 +97,7 @@ class controller
 
 	private static function get_profile()
 	{
-		$detail = \dash\user::detail();
+		$detail = \lib\user::detail();
 		$result = [];
 		foreach ($detail as $key => $value)
 		{
