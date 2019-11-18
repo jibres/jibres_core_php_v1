@@ -18,16 +18,11 @@ define("core", preg_replace("[\\\\]", "/", $dir).'/' );
 // Dash library
 define("lib", "lib/");
 
-// set include path for lib
-// Dash plugin
-define("addons", core."addons/");
-
 // Define Project variables ***************************************************
 define("root", dirname(dirname($_SERVER['SCRIPT_FILENAME'])).'/' );
 
 
 set_include_path(get_include_path() . PATH_SEPARATOR . root.'includes/');
-set_include_path(get_include_path() . PATH_SEPARATOR . core.'addons/');
 set_include_path(get_include_path() . PATH_SEPARATOR . core);
 
 

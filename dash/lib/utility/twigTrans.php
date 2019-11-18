@@ -12,18 +12,9 @@ class twigTrans
 		echo "<!DOCTYPE html><meta charset='UTF-8'/><title>Extract text form twig files</title><body style='padding:0 1%;margin:0 1%;direction:ltr;'>";
 
 		$export_file_name = 'twig';
-		switch ($_path)
-		{
-			case 'addons':
-				$mypath = realpath(addons).DIRECTORY_SEPARATOR;
-				$export_file_name = 'dash';
-				break;
 
-			default:
-				$mypath = is_dir($_path)? $_path: realpath(root).DIRECTORY_SEPARATOR;
-				$export_file_name = 'project';
-				break;
-		}
+		$mypath = is_dir($_path)? $_path: realpath(root).DIRECTORY_SEPARATOR;
+		$export_file_name = 'project';
 
 
 		$directory   = new \RecursiveDirectoryIterator($mypath);
@@ -36,16 +27,7 @@ class twigTrans
 		foreach($files as $file)
 		{
 			// create an record for array name
-			switch ($_path)
-			{
-				case 'addons':
-					$trans_key = substr($file, strpos($file, core_name)+mb_strlen(core_name)+1 );
-					break;
-
-				default:
-					$trans_key = substr($file, strpos($file, db_name)+mb_strlen(db_name)+1 );
-					break;
-			}
+			$trans_key = substr($file, strpos($file, db_name)+mb_strlen(db_name)+1 );
 			// $file_name = basename($file,'.html');
 			$lines     = file($file);
 			$find      = "trans";
@@ -117,13 +99,6 @@ class twigTrans
 		$translation_output .= "\n }";
 		$translation_output .= "\n}\n?>";
 		file_put_contents(root. "/includes/languages/trans_".$export_file_name.".php", $translation_output);
-		if($_path ==='addons')
-		{
-			if($_update === 'dash')
-			{
-				file_put_contents(addons. "includes/languages/trans_".$export_file_name.".php", $translation_output);
-			}
-		}
 
 		echo "</ol><br/><br/><hr/><h1>Finish..!</h1>";
 		if($_update === 'dash')

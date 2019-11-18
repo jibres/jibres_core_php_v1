@@ -1,9 +1,9 @@
 <?php
 namespace dash;
 
-require (core.'addons/lib/PHPMailer/Exception.php');
-require (core.'addons/lib/PHPMailer/PHPMailer.php');
-// require (core.'addons/lib/PHPMailer/SMTP.php');
+require (root.'includes/lib/PHPMailer/Exception.php');
+require (root.'includes/lib/PHPMailer/PHPMailer.php');
+// require (root.'includes/lib/PHPMailer/SMTP.php');
 
 
 class mail

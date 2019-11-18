@@ -45,10 +45,6 @@ class twig
 				}
 			}
 		}
-		if(strpos($tmpname, '\addons') === 0)
-		{
-			$tmpname = str_replace('\addons', '', $tmpname);
-		}
 
 		\dash\data::pagination(\dash\utility\pagination::page_number());
 		\dash\data::paginationDetail(\dash\utility\pagination::detail());
@@ -57,9 +53,9 @@ class twig
 		require_once root.'includes/lib/Twig/lib/Twig/Autoloader.php';
 		\Twig_Autoloader::register();
 
+
 		$twig_include_path     = [];
 		$twig_include_path[]   = root;
-		$twig_include_path[]   = addons;
 		$loader                = new \Twig_Loader_Filesystem($twig_include_path);
 		$array_option          = [];
 		$array_option['debug'] = true;
