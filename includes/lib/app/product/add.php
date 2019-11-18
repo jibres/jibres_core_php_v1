@@ -33,6 +33,8 @@ class add
 	 */
 	public static function add($_args, $_option = [])
 	{
+		\dash\permission::access('productAdd');
+
 		$default_option =
 		[
 			'debug'       => true,

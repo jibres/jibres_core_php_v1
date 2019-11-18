@@ -46,6 +46,11 @@ class userstore
 			return false;
 		}
 
+		if(!\dash\user::id())
+		{
+			return false;
+		}
+
 		$userstore_detail = \lib\db\userstore\get::user_id_detail(\dash\user::id());
 
 		if(is_array($userstore_detail))

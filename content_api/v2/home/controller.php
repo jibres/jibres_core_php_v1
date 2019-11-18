@@ -101,6 +101,10 @@ class controller
 				\content_api\v2\language\controller::api_routing();
 				break;
 
+			case 'product':
+				\content_api\v2\product\controller::api_routing();
+				break;
+
 			default:
 				\content_api\v2::stop(404);
 				break;
