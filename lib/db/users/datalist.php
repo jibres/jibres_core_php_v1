@@ -47,7 +47,7 @@ class datalist
 
 		$limit = \dash\db::pagination_query($pagination_query);
 
-		$query = " SELECT user.* FROM users $q[where] $q[order] $limit";
+		$query = " SELECT users.* FROM users $q[where] $q[order] $limit";
 
 		$result = \dash\db::get($query);
 
