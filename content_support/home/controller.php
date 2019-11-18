@@ -22,19 +22,6 @@ class controller
 				'limit'  => 1
 			];
 
-			if(!\dash\option::config('no_subdomain'))
-			{
-				$subdomain = \dash\url::subdomain();
-				if($subdomain)
-				{
-					$check_arg['subdomain'] = $subdomain;
-				}
-				else
-				{
-					$check_arg['subdomain'] = null;
-				}
-			}
-
 			if(\dash\permission::check('cpHelpCenterEditForOthers'))
 			{
 				$check_arg['status']   = ["NOT IN", "('deleted')"];

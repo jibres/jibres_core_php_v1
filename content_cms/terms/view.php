@@ -76,17 +76,7 @@ class view
 			'sort'  => \dash\request::get('sort'),
 
 		];
-		if(!\dash\option::config('no_subdomain'))
-		{
-			if(\dash\url::subdomain())
-			{
-				$args['subdomain'] = \dash\url::subdomain();
-			}
-			else
-			{
-				$args['subdomain'] = null;
-			}
-		}
+
 
 		if(!$args['order'])
 		{

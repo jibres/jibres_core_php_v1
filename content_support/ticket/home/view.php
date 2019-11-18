@@ -167,13 +167,7 @@ class view
 
 		$subdomain = \dash\request::get('subdomain');
 
-		if(!\dash\option::config('no_subdomain'))
-		{
-			if($subdomain && \dash\permission::check('supportTicketManageSubdomain'))
-			{
-				$args['tickets.subdomain'] = $subdomain;
-			}
-		}
+
 
 
 		$tag = \dash\request::get('tag');
@@ -276,20 +270,6 @@ class view
 			}
 		}
 
-		if(!\dash\option::config('no_subdomain'))
-		{
-			if(!\dash\data::haveSubdomain())
-			{
-				if(\dash\data::subdomain())
-				{
-					$args['tickets.subdomain']    = \dash\url::subdomain();
-				}
-				else
-				{
-					$args['tickets.subdomain']    = null;
-				}
-			}
-		}
 
 
 		if(\dash\data::accessMode() === 'all')
@@ -382,20 +362,6 @@ class view
 
 			case 'manage':
 				\dash\permission::access('supportTicketManage');
-
-				if(!\dash\option::config('no_subdomain'))
-				{
-					\dash\data::haveSubdomain(false);
-
-					if(\dash\url::subdomain())
-					{
-						$args['tickets.subdomain']    = \dash\url::subdomain();
-					}
-					else
-					{
-						$args['tickets.subdomain']    = null;
-					}
-				}
 				break;
 
 			default:

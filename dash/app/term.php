@@ -38,18 +38,6 @@ class term
 	{
 		$check_arg = ['type' => $_type, 'language' => \dash\language::current(), 'status' => 'enable'];
 
-		if(!\dash\option::config('no_subdomain'))
-		{
-			$subdomain = \dash\url::subdomain();
-			if($subdomain)
-			{
-				$check_arg['subdomain'] = $subdomain;
-			}
-			else
-			{
-				$check_arg['subdomain'] = null;
-			}
-		}
 
 		$result = \dash\db\terms::get($check_arg);
 		$temp   = [];
@@ -73,19 +61,6 @@ class term
 		}
 
 		$args = ['id' => $id, 'limit' => 1];
-
-		if(!\dash\option::config('no_subdomain'))
-		{
-			if(\dash\url::subdomain())
-			{
-				$args['subdomain'] = \dash\url::subdomain();
-			}
-			else
-			{
-				$args['subdomain'] = null;
-			}
-		}
-
 
 		$result = \dash\db\terms::get($args);
 		$temp = [];
@@ -197,18 +172,7 @@ class term
 		}
 
 		$check_duplicate_args = ['type' => $type, 'slug' => $slug, 'language' => $language, 'limit' => 1];
-		if(!\dash\option::config('no_subdomain'))
-		{
-			$subdomain = \dash\url::subdomain();
-			if($subdomain)
-			{
-				$check_duplicate_args['subdomain'] = $subdomain;
-			}
-			else
-			{
-				$check_duplicate_args['subdomain'] = null;
-			}
-		}
+
 
 		// check duplicate
 		// type+lang+slug

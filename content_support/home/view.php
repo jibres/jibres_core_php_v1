@@ -91,22 +91,6 @@ class view
 
 		$random_faq_args = ['type' => 'help', 'limit' => 5, 'tag' => 'faq', 'random' => true];
 
-		if(!\dash\option::config('no_subdomain'))
-		{
-			$subdomain = \dash\url::subdomain();
-			if($subdomain)
-			{
-				$get_posts_term['subdomain']  = $subdomain;
-				$random_post_arg['subdomain'] = $subdomain;
-				$random_faq_args['subdomain'] = $subdomain;
-			}
-			else
-			{
-				$get_posts_term['subdomain']  = null;
-				$random_post_arg['subdomain'] = null;
-				$random_faq_args['subdomain'] = null;
-			}
-		}
 
 		if(\dash\permission::check('cpHelpCenterEditForOthers'))
 		{

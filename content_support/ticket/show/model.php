@@ -94,18 +94,7 @@ class model
 		if(!\dash\permission::check('cpTagSupportAdd'))
 		{
 			$getTagArgs = ['type' => 'support_tag'];
-			if(!\dash\option::config('no_subdomain'))
-			{
-				$subdomain = \dash\url::subdomain();
-				if($subdomain)
-				{
-					$getTagArgs['subdomain'] = $subdomain;
-				}
-				else
-				{
-					$getTagArgs['subdomain'] = null;
-				}
-			}
+
 
 			$current_tag = \dash\db\terms::get($getTagArgs);
 

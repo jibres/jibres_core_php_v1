@@ -27,17 +27,7 @@ class controller
 			\dash\header::status(403, T_("Ticket not found"));
 		}
 
-		if(!\dash\permission::check('supportTicketManageSubdomain'))
-		{
-			if(!\dash\option::config('no_subdomain'))
-			{
-				$subdomain = \dash\url::subdomain();
-				if(is_array($main) && array_key_exists('subdomain', $main) && $main['subdomain'] != $subdomain)
-				{
-					\dash\header::status(403, T_("Invalid Subdomain"));
-				}
-			}
-		}
+
 
 		\dash\data::loadTicketDetail($main);
 		return $main;

@@ -17,17 +17,6 @@ class model
 			}
 
 			$remove_args = ['id' => $term_id, 'limit' => 1];
-			if(!\dash\option::config('no_subdomain'))
-			{
-				if(\dash\url::subdomain())
-				{
-					$remove_args['subdomain'] = \dash\url::subdomain();
-				}
-				else
-				{
-					$remove_args['subdomain'] = null;
-				}
-			}
 
 
 			$load_term = \dash\db\terms::get($remove_args);
@@ -172,14 +161,6 @@ class model
 			else
 			{
 				\dash\permission::access('cpTagAdd');
-			}
-
-			if(!\dash\option::config('no_subdomain'))
-			{
-				if(\dash\url::subdomain())
-				{
-					$post['subdomain'] = \dash\url::subdomain();
-				}
 			}
 
 

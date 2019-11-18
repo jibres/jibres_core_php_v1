@@ -7,12 +7,6 @@ class controller
 
 	public static function routing()
 	{
-
-		if(\dash\option::config('no_subdomain'))
-		{
-			\dash\redirect::remove_subdomain();
-		}
-
 		self::check_block_cookie();
 
 		self::check_unlock_page();

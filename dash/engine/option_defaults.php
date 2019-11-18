@@ -61,9 +61,7 @@ self::$language           =
 self::$config['botscout'] = null;
 
 
-// the project have no any subdomain
-// in ticket not load in all subdomain
-self::$config['no_subdomain'] = true;
+
 
 // free subdomain
 // for set cookie not in

@@ -21,17 +21,7 @@ class view
 
 		$args['language'] = \dash\language::current();
 		$args['type'] = 'support_tag';
-		if(!\dash\option::config('no_subdomain'))
-		{
-			if(\dash\url::subdomain())
-			{
-				$args['subdomain'] = \dash\url::subdomain();
-			}
-			else
-			{
-				$args['subdomain'] = null;
-			}
-		}
+
 
 		$search_string = \dash\request::get('q');
 

@@ -443,27 +443,11 @@ class posts
 	}
 
 
-	public static function get_post_similar($_post_id, $_lang, $_subdomain = false)
+	public static function get_post_similar($_post_id, $_lang)
 	{
 		if(!$_post_id || !is_numeric($_post_id))
 		{
 			return false;
-		}
-
-		$where = null;
-		$wherePost = null;
-		if($_subdomain !== false)
-		{
-			if($_subdomain)
-			{
-				$where = " AND terms.subdomain = '$_subdomain' ";
-				$wherePost = " AND posts.subdomain = '$_subdomain' ";
-			}
-			else
-			{
-				$where = " AND terms.subdomain IS NULL ";
-				$wherePost = " AND posts.subdomain IS NULL ";
-			}
 		}
 
 
@@ -477,7 +461,7 @@ class posts
 			INNER JOIN terms ON terms.id = termusages.term_id
 			WHERE
 				posts.id = $_post_id
-				$where
+
 		";
 
 		$post_term = \dash\db::get($load_post_term, 'id');
@@ -507,7 +491,6 @@ class posts
 				posts.type                        = 'post' AND
 				posts.language                    = '$_lang' AND
 				UNIX_TIMESTAMP(posts.publishdate) <= $time
-				$wherePost
 			GROUP BY posts.title, posts.url, posts.id
 			ORDER BY posts.id DESC
 			LIMIT 5

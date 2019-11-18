@@ -153,26 +153,13 @@ class terms
 	}
 
 
-	public static function get_mulit_term_title($_titles, $_type, $_subdomain = false)
+	public static function get_mulit_term_title($_titles, $_type)
 	{
 		if(!is_array($_titles) || !$_type || !$_titles)
 		{
 			return false;
 		}
 
-		$subdomainQuery = null;
-		if($_subdomain !== false)
-		{
-			if($_subdomain)
-			{
-				$subdomainQuery = " AND terms.subdomain = '$_subdomain' ";
-			}
-			else
-			{
-				$subdomainQuery = " AND terms.subdomain IS NULL ";
-
-			}
-		}
 
 		$_titles = implode("','", $_titles);
 
@@ -183,7 +170,7 @@ class terms
 			WHERE
 				terms.title IN ('$_titles') AND
 				terms.type = '$_type'
-				$subdomainQuery
+
 		";
 		$result = \dash\db::get($query);
 

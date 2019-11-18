@@ -483,18 +483,6 @@ class posts
 
 		$check_duplicate_args = ['slug' => $slug, 'language' => $language, 'limit' => 1];
 
-		if(!\dash\option::config('no_subdomain'))
-		{
-			$subdomain = \dash\url::subdomain();
-			if($subdomain)
-			{
-				$check_duplicate_args['subdomain'] = $subdomain;
-			}
-			else
-			{
-				$check_duplicate_args['subdomain'] = null;
-			}
-		}
 
 		$check_duplicate_slug = \dash\db\posts::get($check_duplicate_args);
 		if(isset($check_duplicate_slug['id']))
@@ -961,13 +949,6 @@ class posts
 			$_related = 'posts';
 		}
 
-		$check_subdomain = false;
-
-		if(!\dash\option::config('no_subdomain'))
-		{
-			$check_subdomain = \dash\url::subdomain();
-		}
-
 		$category = \dash\app::request($_type);
 		if(!$category && $_data)
 		{
@@ -983,7 +964,7 @@ class posts
 			$tag = array_filter($tag);
 			$tag = array_unique($tag);
 
-			$check_exist_tag = \dash\db\terms::get_mulit_term_title($tag, $_type, $check_subdomain);
+			$check_exist_tag = \dash\db\terms::get_mulit_term_title($tag, $_type);
 
 			$all_tags_id = [];
 
@@ -1047,7 +1028,7 @@ class posts
 				$category_id = array_filter($category_id);
 				$category_id = array_unique($category_id);
 
-				$check_all_is_cat = \dash\db\terms::check_multi_id($category_id, $_type, $check_subdomain);
+				$check_all_is_cat = \dash\db\terms::check_multi_id($category_id, $_type);
 
 				if(count($check_all_is_cat) !== count($category_id))
 				{
