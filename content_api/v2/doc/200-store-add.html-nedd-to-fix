@@ -10,7 +10,7 @@
 
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{CustomerApiURL}}<b>store/add</b></span>
+      <span>{{JibresApiURL}}<b>store/add</b></span>
     </div>
 
        <div class="tblBox">
@@ -127,7 +127,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{CustomerApiURL}}store/add \
+  {{JibresApiURL}}store/add \
   -H 'appkey: {{myAppKey}}'
   -H 'apikey: {{myApiKey}}'
   -F title=xxxsdfdsf \
