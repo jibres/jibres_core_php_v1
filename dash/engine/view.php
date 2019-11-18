@@ -12,8 +12,6 @@ class view
 		\dash\data::display_enter("includes/html/display-enter.html");
 		// add special pages to display array to use without name
 		\dash\data::display_main("content/main/layout.html");
-		\dash\data::display_account("content_account/home/layout.html");
-		\dash\data::display_payMain("content_pay/layout.html");
 
 		\dash\data::display_pagination("includes/html/inc_pagination.html");
 		\dash\data::display_hive("includes/html/inc_hive.html");
