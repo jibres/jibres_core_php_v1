@@ -9,13 +9,13 @@ class store
 
 	private static function subdomain_addr()
 	{
-		return root. 'stores/subdomain/';
+		return root. 'includes/stores/subdomain/';
 	}
 
 
 	private static function detail_addr()
 	{
-		return root. 'stores/detail/';
+		return root. 'includes/stores/detail/';
 	}
 
 
