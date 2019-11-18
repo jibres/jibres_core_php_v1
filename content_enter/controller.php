@@ -7,6 +7,24 @@ class controller
 
 	public static function routing()
 	{
+		// all subdomain must be login to jibres
+		if(\dash\url::subdomain())
+		{
+			$query            = \dash\request::get();
+
+			if(!isset($query['referer']))
+			{
+				$query['referer'] = \dash\url::kingdom();
+			}
+
+			$query            = '?'. http_build_query($query);
+
+			$url = \dash\url::sitelang().'/enter'. $query;
+
+			\dash\redirect::to($url);
+		}
+
+
 		self::check_block_cookie();
 
 		self::check_unlock_page();
