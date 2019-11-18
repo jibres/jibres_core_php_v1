@@ -23,27 +23,23 @@ class twig
 		$tmpname_addr = \autoload::fix_os_path(root. ltrim($tmpname, '\\'));
 		if(!is_file($tmpname_addr))
 		{
-			// display file is not exist in root
-			$tmpname_addr = \autoload::fix_os_path(addons. ltrim($tmpname, '\\'));
-			if(!is_file($tmpname_addr))
+			if(\dash\url::content() === null && \dash\app\template::$finded_template)
 			{
-				if(\dash\url::content() === null && \dash\app\template::$finded_template)
-				{
-					$tmpname_addr = root. \dash\app\template::$display_name;
-					$tmpname_addr = \autoload::fix_os_path($tmpname_addr);
-					if(!is_file($tmpname_addr))
-					{
-						\dash\header::status(206, "without display");
-						return false;
-					}
-					$tmpname = \dash\app\template::$display_name;
-				}
-				else
+				$tmpname_addr = root. \dash\app\template::$display_name;
+				$tmpname_addr = \autoload::fix_os_path($tmpname_addr);
+				if(!is_file($tmpname_addr))
 				{
 					\dash\header::status(206, "without display");
 					return false;
 				}
+				$tmpname = \dash\app\template::$display_name;
 			}
+			else
+			{
+				\dash\header::status(206, "without display");
+				return false;
+			}
+
 		}
 
 		\dash\data::pagination(\dash\utility\pagination::page_number());
