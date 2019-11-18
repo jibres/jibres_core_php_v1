@@ -14,7 +14,8 @@ package-lock.json
 
 
 
-/stores
+/includes/stores
+
 
 /public_html/files
 /content/cronjob/*.txt
