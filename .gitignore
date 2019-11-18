@@ -39,6 +39,12 @@ package-lock.json
 /vendor
 
 
+*.swo
+*.swp
+cache/*.json
+.idea
+yarn.lock
+
 /dash/lib/engine/cronjob/crontab.txt
 
 *.sublime-*
