@@ -45,7 +45,6 @@ class view
 
 
 		$get_comment_counter_args         = [];
-		$get_comment_counter_args['type'] = 'comment';
 
 		if(!$args['order'])
 		{
@@ -61,7 +60,7 @@ class view
 		\dash\data::dataTable(\dash\app\comment::list(\dash\request::get('q'), $args));
 
 		$filterArray = $args;
-		unset($filterArray['type']);
+
 		unset($filterArray['comments.status']);
 		if(isset($filterArray['post_id']))
 		{

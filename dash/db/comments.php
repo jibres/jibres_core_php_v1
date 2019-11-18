@@ -161,11 +161,20 @@ class comments
 
 		if($_options)
 		{
-			$q = \dash\db\config::make_where($_options);
+			$myWhere = \dash\db\config::make_where($_options);
+			if($myWhere)
+			{
+				$q = "WHERE ". $myWhere;
+			}
 		}
 
 		if(isset($_string))
 		{
+			if(!$q)
+			{
+				$q = "WHERE ";
+			}
+
 			$_string = \dash\db\safe::value($_string);
 			$q       .= "AND comments.content LIKE '%$_string%' ";
 		}
@@ -176,7 +185,6 @@ class comments
 				COUNT(*) AS `count`
 			FROM
 				comments
-			WHERE
 				$q
 		";
 
@@ -195,12 +203,12 @@ class comments
 				comments
 			LEFT JOIN users ON users.id = comments.user_id
 			LEFT JOIN posts ON posts.id = comments.post_id
-			WHERE
 				$q
 			ORDER BY
 				comments.datecreated DESC
 			$limit
 		";
+
 		$result = \dash\db::get($query);
 
 		return $result;

@@ -138,7 +138,6 @@ class comment
 		if(!\dash\app::isset_request('status')) unset($args['status']);
 		if(!\dash\app::isset_request('content')) unset($args['content']);
 		if(!\dash\app::isset_request('author')) unset($args['author']);
-		if(!\dash\app::isset_request('type'))   unset($args['type']);
 		if(!\dash\app::isset_request('user_id')) unset($args['user_id']);
 		if(!\dash\app::isset_request('post_id')) unset($args['post_id']);
 		if(!\dash\app::isset_request('meta'))   unset($args['meta']);
@@ -187,7 +186,6 @@ class comment
 		unset($_args['order']);
 		unset($_args['sort']);
 
-		$_args['comments.type'] = 'comment';
 
 		$result            = \dash\db\comments::search_full($_string, $_args);
 		$temp              = [];
@@ -236,11 +234,7 @@ class comment
 			$author = substr($author, 0, 99);
 		}
 
-		$type = \dash\app::request('type');
-		if($type && mb_strlen($type) >= 50)
-		{
-			$type = substr($type, 0, 49);
-		}
+
 
 		$meta = \dash\app::request('meta');
 		if($meta && (is_array($meta) || is_object($meta)))
@@ -360,7 +354,7 @@ class comment
 		$args            = [];
 		$args['status']  = $status ? $status : 'awaiting';
 		$args['author']  = $author;
-		$args['type']    = $type;
+
 		$args['user_id'] = $user_id;
 		$args['post_id'] = $post_id;
 		$args['meta']    = $meta;
