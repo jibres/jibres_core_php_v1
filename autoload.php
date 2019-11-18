@@ -2,7 +2,7 @@
 /**
  * require default define
  */
-require_once (__DIR__. '/lib/engine/define.php');
+require_once (__DIR__. '/dash/lib/engine/define.php');
 
 
 class autoload
