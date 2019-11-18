@@ -135,7 +135,7 @@ class model
 			[
 				'debug'        => false,
 				'upload_name'  => 'gallery',
-				'user_id' => \lib\userstore::id(),
+				'user_id' => \lib\user::id(),
 				// 'related'      => 'product',
 				// 'related_id'   => $_id,
 				'store_id'     => \lib\store::id(),
