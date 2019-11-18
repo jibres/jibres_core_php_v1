@@ -408,9 +408,9 @@
 {%block iSEO%}
 
     <div class="seoPreview">
-      <a target="_blank" href="{{url.kingdom}}/p/{{productDataRow.code}}">
+      <a target="_blank" href="{{url.kingdom}}/p/{{productDataRow.id}}">
         <h3>{%if productDataRow.seotitle%}{{productDataRow.seotitle}}{%else%}{{productDataRow.title}}{%endif%} | {{site.title}}</h3>
-        <cite><span>{{url.kingdom}}/p/</span>{{productDataRow.code}}/{{productDataRow.slug}}</cite>
+        <cite><span>{{url.kingdom}}/p/</span>{{productDataRow.id}}/{{productDataRow.slug}}</cite>
       </a>
       <div class="f">
         <div class="c s12">
