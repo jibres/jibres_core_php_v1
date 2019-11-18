@@ -191,12 +191,7 @@ class term
 			}
 		}
 
-		$excerpt = \dash\app::request('excerpt');
-		if($excerpt && mb_strlen($excerpt) > 500)
-		{
-			\dash\notif::error(T_("Please set the term excerpt less than 500 character"), 'excerpt');
-			return false;
-		}
+
 
 		$parent = \dash\app::request('parent');
 		if($parent && !\dash\coding::is($parent))
@@ -264,18 +259,17 @@ class term
 			}
 		}
 
-		$subdomain = \dash\url::subdomain();
+
 
 		$args['title']    = $title;
 		$args['parent']   = $parent;
 		$args['desc']     = $desc;
-		$args['subdomain']= $subdomain;
+
 		$args['status']   = $status;
 		$args['slug']     = $slug;
 		$args['url']      = $url;
 		$args['type']     = $type;
 		$args['language'] = $language;
-		$args['excerpt']  = $excerpt;
 
 		return $args;
 	}
@@ -503,8 +497,6 @@ class term
 
 		// check args
 		$args = self::check($id);
-
-		if(!\dash\app::isset_request('subdomain')) unset($args['subdomain']);
 
 		if($args === false || !\dash\engine\process::status())
 		{

@@ -19,7 +19,6 @@ class view
 			\dash\data::myDataType('post');
 		}
 
-		// check subdomain
 	}
 }
 ?>

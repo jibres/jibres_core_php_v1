@@ -8,7 +8,7 @@ class address
 {
 	public static $sort_field =
 	[
-		'subdomain',
+
 		'title',
 		'firstname',
 		'lastname',
@@ -148,12 +148,6 @@ class address
 			return false;
 		}
 
-		$subdomain = \dash\app::request('subdomain');
-		if($subdomain && mb_strlen($subdomain) > 50)
-		{
-			\dash\notif::error(T_("Please set subdomain less than 50 character"), 'subdomain');
-			return false;
-		}
 
 		$mobile = \dash\app::request('mobile');
 		if($mobile && !\dash\utility\filter::mobile($mobile))
@@ -207,7 +201,6 @@ class address
 		$args['isdefault']   = $isdefault;
 		$args['company']     = $company;
 		$args['companyname'] = $companyname;
-		$args['subdomain']   = $subdomain;
 		$args['jobtitle']    = $jobtitle;
 		$args['country']     = $country;
 		$args['province']    = $province;
@@ -345,10 +338,7 @@ class address
 			$args['user_id'] = \dash\user::id();
 		}
 
-		// if(\dash\url::subdomain())
-		// {
-		// 	$args['subdomain'] = \dash\url::subdomain();
-		// }
+
 
 		$address = \dash\db\address::insert($args);
 
@@ -465,7 +455,7 @@ class address
 		if(!\dash\app::isset_request('fax')) unset($args['fax']);
 		if(!\dash\app::isset_request('status')) unset($args['status']);
 		if(!\dash\app::isset_request('favorite')) unset($args['favorite']);
-		if(!\dash\app::isset_request('subdomain')) unset($args['subdomain']);
+
 		if(!\dash\app::isset_request('mobile')) unset($args['mobile']);
 
 		if(!empty($args))

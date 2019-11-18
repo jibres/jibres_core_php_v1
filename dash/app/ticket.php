@@ -315,11 +315,6 @@ class ticket
 		$args['datecreated'] = $dateNow;
 
 
-		if(\dash\url::subdomain())
-		{
-			$args['subdomain'] = \dash\url::subdomain();
-		}
-
 		$ticket_id = \dash\db\tickets::insert($args);
 
 		if(!$ticket_id)
@@ -567,11 +562,7 @@ class ticket
 					}
 					$result[$key] = $value;
 					break;
-				case 'subdomain':
-					$link = \dash\url::this();
-					$result['myTicketUrl'] = $link;
-					$result[$key]          = $value;
-					break;
+
 				case 'status':
 					$color       = null;
 					$color_class = null;

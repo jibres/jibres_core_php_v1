@@ -898,7 +898,6 @@ class posts
 
 		$args['language']    = $language;
 		$args['subtype']    = $subtype;
-		$args['subdomain']   = \dash\app::request('subdomain');
 		$args['title']       = $title;
 		$args['slug']        = $slug;
 		$args['url']         = $url;
@@ -1008,7 +1007,7 @@ class posts
 						'url'       => $slug,
 						'user_id'   => \dash\user::id(),
 						'language'  => \dash\language::current(),
-						'subdomain' => \dash\url::subdomain(),
+
 					];
 				}
 				$have_term_to_save_log = true;
