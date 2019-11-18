@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\user;
+namespace lib\db\users;
 
 class datalist
 {
@@ -43,11 +43,11 @@ class datalist
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query = "SELECT COUNT(*) AS `count` FROM user $q[where] ";
+		$pagination_query = "SELECT COUNT(*) AS `count` FROM users $q[where] ";
 
 		$limit = \dash\db::pagination_query($pagination_query);
 
-		$query = " SELECT user.* FROM user $q[where] $q[order] $limit";
+		$query = " SELECT user.* FROM users $q[where] $q[order] $limit";
 
 		$result = \dash\db::get($query);
 

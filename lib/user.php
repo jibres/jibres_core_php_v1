@@ -51,7 +51,7 @@ class user
 			return false;
 		}
 
-		$user_detail = \lib\db\user\get::user_id_detail(\dash\user::id());
+		$user_detail = \lib\db\users\get::user_id_detail(\dash\user::id());
 
 		if(is_array($user_detail))
 		{
@@ -74,7 +74,7 @@ class user
 		}
 		else
 		{
-			$user_detail = \lib\db\user\get::user_id_detail(\dash\user::id());
+			$user_detail = \lib\db\users\get::user_id_detail(\dash\user::id());
 
 			if(isset($user_detail['id']))
 			{
