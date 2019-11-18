@@ -31,7 +31,7 @@ class controller
 					break;
 				}
 
-				require addons.'lib/linfo/index.php';
+				require core.'bin/linfo/index.php';
 
 				break;
 
