@@ -14,7 +14,6 @@ class view
 
 		\dash\data::display_su_posts("content_su/posts/layout.html");
 		\dash\data::display_suSample("content_su/sample/layout.html");
-		\dash\data::display_suMain("content_su/layout.html");
 
 		\dash\data::dir_right(\dash\data::global_direction() == 'rtl'? 'left':  'right');
 		\dash\data::dir_left(\dash\data::global_direction() == 'rtl'? 'right': 'left');
