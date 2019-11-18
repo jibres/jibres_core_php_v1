@@ -30,7 +30,6 @@ class option
 		{
 			self::$load_option = true;
 			// load default option
-			require_once(lib."engine/option_defaults.php");
 
 			if(file_exists(root.'/includes/option/option.php'))
 			{

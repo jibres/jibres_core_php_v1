@@ -5,8 +5,18 @@ require_once('social.php');
 require_once('payment.php');
 require_once('sms.php');
 
+/**
+ * try to fix url and set some settings of them like slash, www or fix tld or use main domain
+ */
+// on set below value to off, skip all of this part
+self::$url['fix']   = true;
 
-// self::$url['fix']               = false;
+// if true set www else try to remove from url
+self::$url['www']   = false;
+
+// if true add slash at end of url, else remove
+self::$url['slash'] = false;
+
 // self::$url['tld']               = 'com';
 self::$url['protocol']                   = 'https';
 
@@ -21,6 +31,12 @@ self::$config['address_page']   = true;
 
 self::$config['botscout']                 = 'hIenwLNiGpPOoSk';
 
+// the project have help center or no
+self::$config['help_center']         = true;
+
+// for example posts, tags, term , ...
+self::$config['cms'] = true;
+self::$config['visitor'] = false;
 /**
 @ In the name Of Allah
 * The base configurations of the jibres.
@@ -38,7 +54,6 @@ self::$config['debug']                        = false;
 
 self::$config['redirect']                     = 'store';
 
-// self::$config['visitor'] = true;
 
 self::$config['favicon']['version']           = null;
 
@@ -62,6 +77,7 @@ self::$config['enter']['singup_redirect']     = 'store';
  * cronjob urls and status
  */
 self::$config['cronjob']['status'] = true;
+
 
 
 /**
@@ -97,6 +113,22 @@ self::$config['enter']['verify_sms']      = true;
 self::$config['enter']['verify_call']     = true;
 self::$config['enter']['verify_sendsms']  = false;
 
+
+// every wrong pass or code wate for ? [second]
+self::$config['enter']['wait']                         = 10;
+// life time code for ? [second]
+self::$config['enter']['life_time_code']               = 60 * 5;
+// after signup user redirect to different page
+// self::$config['enter']['signup_redirect']              = null;
+// after signup user redirect to different page
+self::$config['enter']['singup_username']              = false;
+// save remember me to login
+self::$config['enter']['remember_me']              = true;
+
+
+// ----- favicon option
+self::$config['favicon']['complete']                   = true;
+self::$config['favicon']['version']                    = 1;
 
 
 
