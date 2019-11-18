@@ -49,12 +49,6 @@ class permission
 			self::$project_perm_list = self::read_file(root.'/includes/permission/list.json');
 			self::$project_group     = self::read_file(root.'/includes/permission/group.me.json');
 
-			// self::$core_perm_list    = self::read_file(core.'addons/includes/permission/list.json');
-
-			if(!self::$project_group)
-			{
-				self::$core_group        = self::read_file(core.'addons/includes/permission/group.json');
-			}
 
 			if(empty(self::$core_group))
 			{
@@ -64,13 +58,11 @@ class permission
 			if(is_callable(['\lib\permission', 'perm_list']))
 			{
 				self::$project_perm_list = \lib\permission::perm_list(self::$project_perm_list, 'project');
-				// self::$core_perm_list    = \lib\permission::perm_list(self::$core_perm_list, 'dash');
 			}
 
 			if(is_callable(['\lib\permission', 'group_list']))
 			{
 				self::$project_group = \lib\permission::group_list(self::$project_group, 'project');
-				self::$core_group    = \lib\permission::group_list(self::$core_group, 'dash');
 			}
 		}
 	}
