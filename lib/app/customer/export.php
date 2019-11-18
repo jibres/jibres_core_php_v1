@@ -13,14 +13,14 @@ class export
 		ini_set("max_execution_time", "-1");
 
 		$args             = [];
-		$args['userstores.store_id'] = \lib\store::id();
-		// $args['userstores.status']   = 'enable';
+		$args['users.store_id'] = \lib\store::id();
+		// $args['users.status']   = 'enable';
 		switch ($_type)
 		{
 			case 'staff':
 			case 'supplier':
 			case 'customer':
-				$args['userstores.'. $_type] = 1;
+				$args['users.'. $_type] = 1;
 				break;
 
 			default:
@@ -33,7 +33,7 @@ class export
 		$my_limit           = 1000;
 		$link               = null;
 
-		$result             = \lib\db\userstores::search(null, $args);
+		$result             = \lib\db\users::search(null, $args);
 
 		while ($result)
 		{
@@ -41,7 +41,7 @@ class export
 			$link                = self::put_csv($result);
 			$args['start_limit'] = $my_limit;
 			$args['end_limit']   = 1000;
-			$result              = \lib\db\userstores::search(null, $args);
+			$result              = \lib\db\users::search(null, $args);
 			$my_limit            = $my_limit + 1000;
 		}
 

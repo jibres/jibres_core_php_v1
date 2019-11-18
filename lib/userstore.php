@@ -2,10 +2,10 @@
 namespace lib;
 
 
-class userstore
+class user
 {
 
-	private static $userstore = [];
+	private static $user = [];
 
 
 	public static function refresh()
@@ -16,28 +16,28 @@ class userstore
 
 	/**
 	 * clean chach to load detail again
-	 * user in edit userstore
+	 * user in edit user
 	 */
 	public static function clean()
 	{
-		\dash\session::set('userstore_detail_'. \lib\store::store_slug(). '_'. \dash\user::id(), null);
-		self::$userstore = [];
+		\dash\session::set('user_detail_'. \lib\store::store_slug(). '_'. \dash\user::id(), null);
+		self::$user = [];
 	}
 
 
 	/**
-	 * initial userstore detail
+	 * initial user detail
 	 */
 	public static function init()
 	{
-		if(!empty(self::$userstore))
+		if(!empty(self::$user))
 		{
 			return;
 		}
 
-		if(\dash\session::get('userstore_detail_'. \lib\store::store_slug(). '_'. \dash\user::id()))
+		if(\dash\session::get('user_detail_'. \lib\store::store_slug(). '_'. \dash\user::id()))
 		{
-			self::$userstore = \dash\session::get('userstore_detail_'. \lib\store::store_slug(). '_'. \dash\user::id());
+			self::$user = \dash\session::get('user_detail_'. \lib\store::store_slug(). '_'. \dash\user::id());
 			return;
 		}
 
@@ -51,12 +51,12 @@ class userstore
 			return false;
 		}
 
-		$userstore_detail = \lib\db\userstore\get::user_id_detail(\dash\user::id());
+		$user_detail = \lib\db\user\get::user_id_detail(\dash\user::id());
 
-		if(is_array($userstore_detail))
+		if(is_array($user_detail))
 		{
-			self::$userstore = $userstore_detail;
-			\dash\session::set('userstore_detail_'. \lib\store::store_slug(). '_'. \dash\user::id(), $userstore_detail);
+			self::$user = $user_detail;
+			\dash\session::set('user_detail_'. \lib\store::store_slug(). '_'. \dash\user::id(), $user_detail);
 		}
 	}
 
@@ -74,16 +74,16 @@ class userstore
 		}
 		else
 		{
-			$userstore_detail = \lib\db\userstore\get::user_id_detail(\dash\user::id());
+			$user_detail = \lib\db\user\get::user_id_detail(\dash\user::id());
 
-			if(isset($userstore_detail['id']))
+			if(isset($user_detail['id']))
 			{
-				return $userstore_detail['id'];
+				return $user_detail['id'];
 			}
 			else
 			{
 
-				$insert_userstore =
+				$insert_user =
 				[
 					'user_id'     => \dash\user::id(),
 					'mobile'      => \dash\user::detail('mobile'),
@@ -94,7 +94,7 @@ class userstore
 					'gender'      => \dash\user::detail('gender'),
 				];
 
-				$id = \lib\db\userstores\insert::new_row($insert_userstore);
+				$id = \lib\db\users\insert::new_row($insert_user);
 
 				return $id;
 			}
@@ -103,7 +103,7 @@ class userstore
 
 
 	/**
-	 * get id of userstore
+	 * get id of user
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
@@ -111,9 +111,9 @@ class userstore
 	{
 		self::init();
 
-		if(isset(self::$userstore['id']))
+		if(isset(self::$user['id']))
 		{
-			return intval(self::$userstore['id']);
+			return intval(self::$user['id']);
 		}
 		return null;
 	}
@@ -123,16 +123,16 @@ class userstore
 	{
 		self::init();
 
-		if(isset(self::$userstore['user_id']))
+		if(isset(self::$user['user_id']))
 		{
-			return intval(self::$userstore['user_id']);
+			return intval(self::$user['user_id']);
 		}
 		return null;
 	}
 
 
 	/**
-	 * get userstore detail
+	 * get user detail
 	 */
 	public static function detail($_name = null)
 	{
@@ -140,15 +140,15 @@ class userstore
 
 		if($_name)
 		{
-			if(array_key_exists($_name, self::$userstore))
+			if(array_key_exists($_name, self::$user))
 			{
-				return self::$userstore[$_name];
+				return self::$user[$_name];
 			}
 			return null;
 		}
 		else
 		{
-			return self::$userstore;
+			return self::$user;
 		}
 	}
 }

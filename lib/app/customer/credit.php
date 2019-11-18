@@ -28,7 +28,7 @@ class credit
 			return false;
 		}
 
-		$result = \lib\db\userstores::update(['credit' => $credit], $id);
+		$result = \lib\db\users::update(['credit' => $credit], $id);
 
 		if($result)
 		{

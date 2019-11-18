@@ -21,7 +21,7 @@ class edit
 
 		\dash\app::variable($_args, \lib\app\product\check::variable_args());
 
-		if(!\lib\userstore::id())
+		if(!\lib\user::id())
 		{
 			if($_option['debug'])
 			{

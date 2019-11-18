@@ -36,7 +36,7 @@ trait user_id
 			$mobile_syntax = $mobile = null;
 		}
 
-		$check_not_duplicate_userstore = false;
+		$check_not_duplicate_user = false;
 
 		/**
 		 ****************************************************************************
@@ -55,7 +55,7 @@ trait user_id
 				if(isset($check_user_exist['id']))
 				{
 					$master_user_id = $check_user_exist['id'];
-					$check_not_duplicate_userstore = true;
+					$check_not_duplicate_user = true;
 				}
 				else
 				{
@@ -69,11 +69,11 @@ trait user_id
 		}
 		elseif($_id)
 		{
-			$userstore_detail = \lib\db\userstores::get(['id' => $_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+			$user_detail = \lib\db\users::get(['id' => $_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 
-			if(isset($userstore_detail['user_id']))
+			if(isset($user_detail['user_id']))
 			{
-				$request_user_id = $userstore_detail['user_id'];
+				$request_user_id = $user_detail['user_id'];
 			}
 			else
 			{
@@ -104,7 +104,7 @@ trait user_id
 					if($mobile == $old_user_id['mobile'])
 					{
 						$master_user_id = $old_user_id['id'];
-						$check_not_duplicate_userstore = true;
+						$check_not_duplicate_user = true;
 					}
 					else
 					{
@@ -113,7 +113,7 @@ trait user_id
 						if(isset($check_user_exist['id']))
 						{
 							$master_user_id = $check_user_exist['id'];
-							$check_not_duplicate_userstore = true;
+							$check_not_duplicate_user = true;
 						}
 						else
 						{
@@ -138,7 +138,7 @@ trait user_id
 					if(isset($check_user_exist['id']))
 					{
 						$master_user_id = $check_user_exist['id'];
-						$check_not_duplicate_userstore = true;
+						$check_not_duplicate_user = true;
 					}
 					else
 					{
@@ -163,24 +163,24 @@ trait user_id
 			return false;
 		}
 
-		if($check_not_duplicate_userstore)
+		if($check_not_duplicate_user)
 		{
-			$userstore_record = \lib\db\userstores::get(['user_id' => $master_user_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+			$user_record = \lib\db\users::get(['user_id' => $master_user_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 
-			\dash\temp::set('userstore_record', $userstore_record);
+			\dash\temp::set('user_record', $user_record);
 
-			if(isset($userstore_record['id']))
+			if(isset($user_record['id']))
 			{
-				if(intval($userstore_record['id']) === intval($_id))
+				if(intval($user_record['id']) === intval($_id))
 				{
 					// no problem
 				}
 				else
 				{
 					$msg = T_("This user was already added to this store");
-					if(isset($userstore_record['mobile']))
+					if(isset($user_record['mobile']))
 					{
-						$msg = "<a href='". \dash\url::here(). '/customer?q='. $userstore_record['mobile']. "'>$msg</a>";
+						$msg = "<a href='". \dash\url::here(). '/customer?q='. $user_record['mobile']. "'>$msg</a>";
 					}
 
 					\dash\notif::error($msg, 'mobile');

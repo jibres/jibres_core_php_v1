@@ -59,10 +59,10 @@ class search
 			switch ($_args['sort_type'])
 			{
 				case 'sale':
-					$_args['order_raw'] = " userstores.customer DESC, userstores.staff DESC, userstores.id DESC ";
+					$_args['order_raw'] = " users.customer DESC, users.staff DESC, users.id DESC ";
 					break;
 				case 'buy':
-					$_args['order_raw'] = " userstores.supplier DESC, userstores.staff DESC, userstores.customer DESC, userstores.id DESC ";
+					$_args['order_raw'] = " users.supplier DESC, users.staff DESC, users.customer DESC, users.id DESC ";
 					break;
 
 				default:
@@ -72,7 +72,7 @@ class search
 		}
 		unset($_args['sort_type']);
 
-		$result            = \lib\db\userstore\datalist::list(null, null, null, null);
+		$result            = \lib\db\user\datalist::list(null, null, null, null);
 
 		$temp              = [];
 

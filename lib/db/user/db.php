@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\userstore;
+namespace lib\db\user;
 
 
 class db
@@ -9,7 +9,7 @@ class db
 		$set = \dash\db\config::make_set($_args, ['type' => 'update']);
 		if($set)
 		{
-			$query = " UPDATE `userstore` SET $set WHERE userstore.id = $_id LIMIT 1";
+			$query = " UPDATE `user` SET $set WHERE user.id = $_id LIMIT 1";
 			$result = \dash\db::query($query);
 			return $result;
 		}

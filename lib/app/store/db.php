@@ -59,7 +59,7 @@ class db
 		$set                = [];
 		$set['status']      = 'active';
 		$set['permission']  = 'admin';
-		$set['user_id']     = $_args['creator'];
+		$set['jibres_user_id']     = $_args['creator'];
 		$set['mobile']      = $_args['mobile'];
 		$set['displayname'] = $_args['displayname'];
 		$set['gender']      = $_args['gender'];

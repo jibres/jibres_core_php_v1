@@ -70,7 +70,7 @@ class updateprice
 			// the product was inserted
 			// set the productprice record
 			$new_record['product_id'] = $_product_id;
-			$new_record['creator']    = \lib\userstore::id();
+			$new_record['creator']    = \lib\user::id();
 			$new_record['startdate']  = date("Y-m-d H:i:s");
 			$new_record['last']       = 'yes';
 

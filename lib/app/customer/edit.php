@@ -14,7 +14,7 @@ trait edit
 	 */
 	public static function edit($_args, $_id, $_option = [])
 	{
-		if(!\lib\userstore::in_store())
+		if(!\lib\user::in_store())
 		{
 			\dash\notif::error(T_("You are not in this store"), 'subdomain');
 			return false;
@@ -57,7 +57,7 @@ trait edit
 				'limit'    => 1,
 			];
 
-			$check_duplicate = \lib\db\userstores::get($check_duplicate);
+			$check_duplicate = \lib\db\users::get($check_duplicate);
 
 			if(isset($check_duplicate['id']))
 			{
@@ -123,7 +123,7 @@ trait edit
 
 		if(!empty($args))
 		{
-			$update = \lib\db\userstores::update($args, $id);
+			$update = \lib\db\users::update($args, $id);
 
 			if(\dash\engine\process::status())
 			{

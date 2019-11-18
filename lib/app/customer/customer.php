@@ -193,7 +193,7 @@ class check
 
 		if(\dash\app::isset_request('code') && !$code)
 		{
-			$code = \lib\db\userstores::get_costomer_code();
+			$code = \lib\db\users::get_costomer_code();
 		}
 
 		if($code && intval($code) > 1E+9)

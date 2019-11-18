@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\userstore;
+namespace lib\db\user;
 
 
 class insert
@@ -138,7 +138,7 @@ class insert
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query = " INSERT INTO `userstore` SET $set ";
+			$query = " INSERT INTO `user` SET $set ";
 
 			if(\dash\db::query($query))
 			{

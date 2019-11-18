@@ -6,7 +6,7 @@ trait add
 {
 
 	/**
-	 * add new user and save the userstore record
+	 * add new user and save the user record
 	 *
 	 * @param      <type>  $_args    The arguments
 	 * @param      array   $_option  The option
@@ -46,7 +46,7 @@ trait add
 			return false;
 		}
 
-		if(!\lib\userstore::in_store() && !$_option['store_id'])
+		if(!\lib\user::in_store() && !$_option['store_id'])
 		{
 			if($_option['debug'])
 			{
@@ -99,7 +99,7 @@ trait add
 				'limit'    => 1,
 			];
 
-			$check_duplicate = \lib\db\userstores::get($check_duplicate);
+			$check_duplicate = \lib\db\users::get($check_duplicate);
 
 			if(isset($check_duplicate['id']))
 			{
@@ -141,7 +141,7 @@ trait add
 			$check['companyname'] = $args['companyname'];
 			$check['limit']       = 1;
 
-			$check_query = \lib\db\userstores::get($check);
+			$check_query = \lib\db\users::get($check);
 
 			if(isset($check_query['id']))
 			{
@@ -161,7 +161,7 @@ trait add
 			$supplier['companyname'] = $args['companyname'];
 			$supplier['user_id']     = self::signup(['displayname' => $args['companyname']]);
 
-			$supplier_id             = \lib\db\userstores::insert($supplier);
+			$supplier_id             = \lib\db\users::insert($supplier);
 
 			if(!$supplier_id)
 			{
@@ -201,9 +201,9 @@ trait add
 		$args['user_id'] = $user_id;
 
 
-		$userstore_id = \lib\db\userstores::insert($args);
+		$user_id = \lib\db\users::insert($args);
 
-		if(!$userstore_id)
+		if(!$user_id)
 		{
 			\dash\log::set('dbErrorInsertUserstores');
 			if($_option['debug'])
@@ -213,7 +213,7 @@ trait add
 			return false;
 		}
 
-		$return['customer_id'] = \dash\coding::encode($supplier_id ? $supplier_id : $userstore_id);
+		$return['customer_id'] = \dash\coding::encode($supplier_id ? $supplier_id : $user_id);
 
 		if(\dash\engine\process::status())
 		{

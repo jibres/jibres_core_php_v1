@@ -14,28 +14,28 @@ class metafield
 		}
 
 		$date          = date("Y-m-d H:i:s");
-		self::$query[] = \lib\db\userstores\metafield::lastactivity($_customer_id, $date);
+		self::$query[] = \lib\db\users\metafield::lastactivity($_customer_id, $date);
 	}
 
 
 	public static function staff($_staff_id, $_type)
 	{
 		self::lastactivity($_staff_id);
-		self::$query[] = \lib\db\userstores\metafield::staff($_staff_id, $_type);
+		self::$query[] = \lib\db\users\metafield::staff($_staff_id, $_type);
 	}
 
 
 	public static function customer($_customer_id)
 	{
 		self::lastactivity($_customer_id);
-		self::$query[] = \lib\db\userstores\metafield::customer($_customer_id);
+		self::$query[] = \lib\db\users\metafield::customer($_customer_id);
 	}
 
 
 	public static function supplier($_supplier_id)
 	{
 		self::lastactivity($_supplier_id);
-		self::$query[] = \lib\db\userstores\metafield::supplier($_supplier_id);
+		self::$query[] = \lib\db\users\metafield::supplier($_supplier_id);
 	}
 
 

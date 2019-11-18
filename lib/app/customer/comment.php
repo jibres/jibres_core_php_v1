@@ -3,17 +3,17 @@ namespace lib\app\customer;
 
 class comment
 {
-	private static function load_user_id($_userstore_id)
+	private static function load_user_id($_user_id)
 	{
 
-		$_userstore_id = \dash\coding::decode($_userstore_id);
-		if(!$_userstore_id)
+		$_user_id = \dash\coding::decode($_user_id);
+		if(!$_user_id)
 		{
 			\dash\notif::error(T_("Invalid user id"));
 			return false;
 		}
 
-		$load = \lib\db\userstores::get(['id' => $_userstore_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+		$load = \lib\db\users::get(['id' => $_user_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
 		if(!isset($load['user_id']))
 		{
 			\dash\notif::error(T_("Invalid user id"));
@@ -79,11 +79,11 @@ class comment
 
 	}
 
-	public static function remove($_id, $_userstore_id)
+	public static function remove($_id, $_user_id)
 	{
 		\dash\permission::access('customerNoteDelete');
 
-		$user_id = self::load_user_id($_userstore_id);
+		$user_id = self::load_user_id($_user_id);
 		if(!$user_id)
 		{
 			return false;

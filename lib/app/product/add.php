@@ -52,7 +52,7 @@ class add
 		\dash\app::variable($_args, \lib\app\product\check::variable_args());
 
 
-		if(!\lib\userstore::id())
+		if(!\lib\user::id())
 		{
 			if($_option['debug'])
 			{
@@ -161,7 +161,7 @@ class add
 			[
 				'last'            => 'yes',
 				'product_id'      => $product_id,
-				'creator'         => \lib\userstore::id(),
+				'creator'         => \lib\user::id(),
 				'startdate'       => date("Y-m-d H:i:s"),
 				'enddate'         => null,
 				'buyprice'        => $args_price['buyprice'],

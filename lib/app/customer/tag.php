@@ -37,7 +37,7 @@ class tag
 
 		\dash\app::variable(['customer_tag' => $_tag]);
 
-		\dash\app\posts::set_post_term($id, 'customer_tag', 'userstores', $_tag);
+		\dash\app\posts::set_post_term($id, 'customer_tag', 'users', $_tag);
 
 		\dash\log::set('customerAddTag', ['code' => $_id, 'tag' => $_tag]);
 		\dash\notif::ok(T_("Tag was saved"));

@@ -69,7 +69,7 @@ class tag
 					'title'    => $value,
 					'slug'     => $slug,
 					'url'      => $slug,
-					'creator'  => \lib\userstore::id(),
+					'creator'  => \lib\user::id(),
 					// 'language' => \dash\language::current(),
 				];
 			}

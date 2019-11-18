@@ -32,7 +32,7 @@ class permission
 	}
 
 
-	// load user in userstore
+	// load user in user
 	public static function load_user($_user_id = null, $_force = false)
 	{
 		if(!\lib\store::loaded())
@@ -42,7 +42,7 @@ class permission
 
 		if($_force)
 		{
-			\lib\userstore::refresh();
+			\lib\user::refresh();
 		}
 	}
 
@@ -55,7 +55,7 @@ class permission
 			return null;
 		}
 
-		$count = \lib\db\userstores::permission_group();
+		$count = \lib\db\users::permission_group();
 		return $count;
 	}
 
@@ -172,7 +172,7 @@ class permission
 	}
 
 
-	// check permission by check userstores permission field
+	// check permission by check users permission field
 	public static function check($_caller)
 	{
 		if(!\lib\store::loaded())
@@ -180,7 +180,7 @@ class permission
 			return null;
 		}
 
-		$user_permission = \lib\userstore::detail('permission');
+		$user_permission = \lib\user::detail('permission');
 
 		if($user_permission === 'admin')
 		{
