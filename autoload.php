@@ -40,7 +40,7 @@ class autoload
 		}
 		elseif(substr($_class_name, 0, 3) === 'lib')
 		{
-			$addr = root. 'includes/'. $_class_name;
+			$addr = root. $_class_name;
 			$addr = self::fix_os_path($addr);
 
 			if(self::open($addr))
