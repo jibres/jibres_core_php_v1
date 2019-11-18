@@ -42,7 +42,7 @@ class add
 			// 	}
 			// }
 
-			if($count_store_free > 3)
+			if($count_store_free >= 3)
 			{
 				$msg = T_("You can not have more than two free or trial stores."). ' '. T_("Contact Us if you need more stores");
 
