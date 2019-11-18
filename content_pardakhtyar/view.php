@@ -14,9 +14,6 @@ class view
 		// set shortkey for all badges is this content
 		\dash\data::badge_shortkey(120);
 		\dash\data::badge2_shortkey(121);
-
-		\dash\data::display_pAdmin('/content_pardakhtyar/layout.html');
-
 	}
 }
 ?>
