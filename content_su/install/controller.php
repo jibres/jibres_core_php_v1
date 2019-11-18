@@ -9,7 +9,7 @@ class controller
 
 		if(!\dash\db::count_table())
 		{
-			require_once(lib."engine/install.php");
+			require_once(core."engine/install.php");
 			// this code exit the code
 			\dash\code::end();
 		}

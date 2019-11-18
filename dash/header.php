@@ -187,7 +187,7 @@ class header
 		else
 		{
 			$debug_backtrace = debug_backtrace(true);
-			require_once(lib."engine/error_page.php");
+			require_once(core."engine/error_page.php");
 		}
 
 		\dash\code::boom();

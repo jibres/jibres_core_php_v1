@@ -1,6 +1,6 @@
 <?php
 namespace dash\utility;
-require(lib."utility/kavenegar_api.php");
+require(core."utility/kavenegar_api.php");
 
 /** Sms management class **/
 class sms

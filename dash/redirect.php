@@ -88,7 +88,7 @@ class redirect
 	 */
 	private static function via_html($_loc, $_txt = null)
 	{
-		require_once(lib."redirect_html.php");
+		require_once(core."redirect_html.php");
 	}
 
 

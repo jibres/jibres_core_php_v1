@@ -2,7 +2,7 @@
 /**
  * require default define
  */
-require_once (__DIR__. '/dash/lib/engine/define.php');
+require_once (__DIR__. '/dash/engine/define.php');
 
 
 class autoload
@@ -19,7 +19,7 @@ class autoload
 
 		if(substr($_class_name, 0, 4) === 'dash')
 		{
-			$addr = core. 'lib';
+			$addr = core;
 			$addr = $addr. str_replace('dash', '', $_class_name);;
 			$addr = self::fix_os_path($addr);
 

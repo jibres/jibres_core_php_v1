@@ -171,7 +171,7 @@ class language
 		}
 
 		// use php gettext function
-		require_once(lib.'engine/i18n/translator.inc');
+		require_once(core.'engine/i18n/translator.inc');
 		// if we have iso then trans
 		if(isset(self::$language['iso']))
 		{
