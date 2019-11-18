@@ -18,7 +18,7 @@ class user
 	 *
 	 * @param      <type>  $_user_id  The user identifier
 	 */
-	public static function init($_user_id, $_app_mode = false)
+	public static function init($_user_id)
 	{
 		if(!is_numeric($_user_id))
 		{
@@ -33,10 +33,6 @@ class user
 			return;
 		}
 
-		if($_app_mode)
-		{
-			$detail = \dash\app\user::ready($detail);
-		}
 
 		if(is_array($detail))
 		{
@@ -59,17 +55,9 @@ class user
 
 		$_SESSION['auth']['logintime'] = time();
 
-		if(!$_app_mode)
-		{
-			self::$USER_ID                 = $_user_id;
-			$_SESSION['auth']['id']        = $_user_id;
-		}
-		else
-		{
-			self::$USER_ID                  = \dash\coding::encode($_user_id);
-			$_SESSION['auth']['id']         = self::$USER_ID;
-			self::$USER_DETAIL['logintime'] = time();
-		}
+		self::$USER_ID          = $_user_id;
+		$_SESSION['auth']['id'] = $_user_id;
+
 	}
 
 
@@ -133,23 +121,6 @@ class user
 		}
 
 		return self::$USER_ID;
-	}
-
-
-	public static function app_id()
-	{
-		$user_code = \dash\header::get('user_code');
-
-		if($user_code)
-		{
-			$user_id = \dash\coding::decode($user_code);
-
-			if($user_id)
-			{
-				return $user_id;
-			}
-		}
-		return null;
 	}
 
 

@@ -1,7 +1,7 @@
 <?php
 namespace lib;
 
-
+////////////// STORE USER //////////////
 class user
 {
 
