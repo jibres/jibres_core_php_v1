@@ -61,11 +61,11 @@ class polls
 		return
 		[
 			'id'    => __FUNCTION__ ,
-			'title' => T_('Are you setting up an online store for client?'),
+			'title' => T_('Are you setting up an online store for yourself?'),
 			'items' =>
 			[
-				1 => T_("Yes, I'm developing a store for a client"),
-				2 => T_("No, I'm an owner of business"),
+				1 => T_("Yes, I'm an owner of business"),
+				2 => T_("No, I'm developing a store for a client"),
 			]
 
 		];

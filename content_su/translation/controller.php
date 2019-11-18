@@ -11,17 +11,9 @@ class controller
 		if($mypath)
 		{
 			\dash\log::set('translationRun');
-			if($mypath === 'all')
-			{
-				echo \dash\utility\twigTrans::extract('current', $myupdate);
-				echo \dash\utility\twigTrans::extract('addons', $myupdate);
-				\dash\code::boom();
-			}
-			else
-			{
-				echo \dash\utility\twigTrans::extract($mypath, $myupdate);
-				\dash\code::boom();
-			}
+			echo \dash\utility\twigTrans::extract('current', $myupdate);
+			echo \dash\utility\twigTrans::extract('addons', $myupdate);
+			\dash\code::boom();
 		}
 	}
 
