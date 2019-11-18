@@ -55,7 +55,7 @@ class permission
 			return null;
 		}
 
-		$count = \lib\db\users::permission_group();
+		$count = \dash\db\users::permission_group();
 		return $count;
 	}
 

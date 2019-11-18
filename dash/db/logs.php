@@ -345,15 +345,14 @@ class logs
 				"public_show_field" =>
 				"
 					logs.*,
-
-					$db_name.users.displayname,
-					$db_name.users.mobile,
-					$db_name.users.avatar
+					users.displayname,
+					users.mobile,
+					users.avatar
 
 				",
 				"master_join"       =>
 				"
-					LEFT JOIN $db_name.users ON $db_name.users.id = logs.from
+					LEFT JOIN users ON users.id = logs.from
 				",
 				'db_name' => \dash\db::get_db_log_name(),
 			];
@@ -394,15 +393,14 @@ class logs
 			"public_show_field" =>
 			"
 				logs.*,
-
-				$db_name.users.displayname,
-				$db_name.users.mobile,
-				$db_name.users.avatar
+				users.displayname,
+				users.mobile,
+				users.avatar
 
 			",
 			"master_join"       =>
 			"
-				LEFT JOIN $db_name.users ON $db_name.users.id = logs.from
+				LEFT JOIN users ON users.id = logs.from
 			",
 			"search_field" => " ( logs.caller = '__string__') ",
 			'db_name' => \dash\db::get_db_log_name(),
