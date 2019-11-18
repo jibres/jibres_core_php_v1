@@ -54,7 +54,7 @@ class twig
 		\dash\data::paginationDetail(\dash\utility\pagination::detail());
 
 		// twig method
-		require_once core.'addons/lib/Twig/lib/Twig/Autoloader.php';
+		require_once root.'includes/lib/Twig/lib/Twig/Autoloader.php';
 		\Twig_Autoloader::register();
 
 		$twig_include_path     = [];
