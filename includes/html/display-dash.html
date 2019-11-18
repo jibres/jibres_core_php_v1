@@ -130,34 +130,28 @@
 {%endblock%}
 
     <li class="hr"></li>
-    <li class="title" data-kerkere="[data-sidebarService]" data-kerkere-icon>{%trans "Quick Access"%}</li>
    </ul>
 
 {%block sidebarService%}
-   <ul class="sidenavService" data-xhr='sidenavService' data-sidebarService data-kerkere-content='hide'>
-{%block sidebarServiceTop%}{%endblock%}
-
-{%include 'includes/html/sidebarServiceTop.html' ignore missing %}
+   <ul class="sidenavService" data-xhr='sidenavService'>
 
 {%if perm('contentCp')%}
-        <li><a href="{{url.kingdom}}/cms" {%if url.content == "cms"%} class="activeContent"{%endif%} data-shortkey="67+77" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} cm' data-tippy-placement='right'><i class='sf-align-left'></i> {% trans "CMS" %}</a></li>
+        <li><a href="{{url.kingdom}}/cms" {%if url.content == "cms"%} class="activeContent"{%endif%} data-shortkey="67+77" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-align-left'></i> {% trans "CMS" %}</a></li>
 {%endif%}
 
 {%if perm('contentCrm')%}
-        <li><a href="{{url.kingdom}}/crm" {%if url.content == "crm"%} class="activeContent"{%endif%} data-shortkey="77+85" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} mu' data-tippy-placement='right'><i class='sf-group-full'></i> {% trans "CRM Panel" %}</a></li>
+        <li><a href="{{url.kingdom}}/crm" {%if url.content == "crm"%} class="activeContent"{%endif%} data-shortkey="77+85" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-group-full'></i> {% trans "CRM Panel" %}</a></li>
 {%endif%}
 
 {%if perm_su()%}
-        <li><a href="{{url.kingdom}}/su" {%if url.content == "su"%} class="activeContent"{%endif%} data-shortkey="83+85" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} su' data-tippy-placement='right'><i class='sf-heartbeat'></i> <span>{% trans "Supervisor Panel" %}</span></a></li>
+        <li><a href="{{url.kingdom}}/su" {%if url.content == "su"%} class="activeContent"{%endif%} data-shortkey="83+85" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-heartbeat'></i> <span>{% trans "Supervisor Panel" %}</span></a></li>
 {%endif%}
 
 {%if login%}
-        <li><a href="{{url.kingdom}}/account" {%if url.content == "account"%} class="activeContent"{%endif%} data-shortkey="77+69" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} me' data-tippy-placement='right'><i class='sf-user'></i> <span>{% trans "My Account" %}</span></a></li>
+        <li><a href="{{url.kingdom}}/account" {%if url.content == "account"%} class="activeContent"{%endif%} data-shortkey="77+69" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-user'></i> <span>{% trans "My Account" %}</span></a></li>
 {%endif%}
 
-        <li><a href="{{url.kingdom}}/support" {%if url.content == "support"%} class="activeContent"{%endif%} data-shortkey="112" data-shortkey-prevent data-shortkey-timeout='1000' title='{%trans "Shortkey"%} f1' data-tippy-placement='right'><i class='sf-life-ring'></i> <span>{% trans "Help Center" %}</span></a></li>
-
-        <li class="hr"></li>
+        <li><a href="{{url.kingdom}}/support" {%if url.content == "support"%} class="activeContent"{%endif%} data-shortkey="112" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-life-ring'></i> <span>{% trans "Help Center" %}</span></a></li>
    </ul>
 {%endblock%}
 
@@ -167,7 +161,7 @@
 
   <a href="{{service.url}}" id='ermileBadge' class="f" target="_blank">
    <div class="cauto pRa10">
-    <img src="{{service.logo}}" alt='{{service.title}}' class="cauto">
+    <img src="{{service.logo}}" alt='{{service.title}}'>
    </div>
    <div class="c">
     <h2>{{service.title}}</h2>
