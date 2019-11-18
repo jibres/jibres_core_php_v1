@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2019-11-18 13:35+0330\n"
-"PO-Revision-Date: 2019-11-18 14:01+0330\n"
+"PO-Revision-Date: 2019-11-18 14:09+0330\n"
 "Last-Translator: Javad <J.Evazzadeh@gmail.com>\n"
 "Language-Team: Ermile <J.Evazzadeh@gmail.com>\n"
 "Language: fa_IR\n"
@@ -23095,17 +23095,17 @@ msgstr "فروشگاه‌های من"
 
 #: jibres/includes/languages/trans_project.php:2583
 msgid "Your store is ready to go!"
-msgstr "فروشگاه شما آماده استفاده است!"
+msgstr "فروشگاه شما آماده شد!"
 
 #: jibres/includes/languages/trans_project.php:2584
 msgid "We are do everything you need and now you can fly with Jibres power."
 msgstr ""
-"ما همه کارهایی را که شما نیاز دارید انجام می‌دهیم و اکنون می‌توانید با قدرت جیبرس "
+"ما همه کارهایی رو که نیاز بود، انجام دادیم؛ از این بعدش با شماست تا با قدرت جیبرس "
 "پرواز کنید."
 
 #: jibres/includes/languages/trans_project.php:2585
 msgid "Bring me to store"
-msgstr "من را به فروشگاه ببر"
+msgstr "منو به فروشگاهم ببر"
 
 #: jibres/includes/languages/trans_project.php:2586
 msgid "Grand opening your store on Jibres"
@@ -23145,31 +23145,31 @@ msgstr "محدودیت در ساخت فروشگاه"
 
 #: jibres/includes/languages/trans_project.php:2600
 msgid "Choose your online address"
-msgstr "آدرس آنلاین خود را انتخاب کنید"
+msgstr "آدرس فروشگاه آنلاین خود را انتخاب کنید"
 
 #: jibres/includes/languages/trans_project.php:2601
 msgid "Your online store has online address on Jibres domain."
-msgstr "فروشگاه آنلاین شما دارای آدرس آنلاین در دامنه جیبرس است."
+msgstr "فروشگاه شما دارای یک آدرس آنلاین بر روی دامنه جیبرس است."
 
 #: jibres/includes/languages/trans_project.php:2602
 msgid ""
 "Although you can connect your domain into store but to finish setup we need to "
 "set it."
 msgstr ""
-"اگرچه می‌توانید دامنه خود را به فروشگاه متصل کنید اما برای تکمیل عملیات ساخت "
-"فروشگاه ما به این نیاز داریم."
+"اگرچه می‌توانید دامنه اختصاصی خودتان را به فروشگاه متصل کنید اما برای تکمیل "
+"عملیات، ما به ساختن آن روی زیردامنه‌ی جیبرس داریم."
 
 #: jibres/includes/languages/trans_project.php:2603
 msgid "Set it carefully, you can not change it."
-msgstr "با دقت تنظیم کنید، بعدا نمیتوانید آن را تغییر دهید"
+msgstr "در آینده قادر به تغییر نیستید؛ با دقت تنظیم کنید."
 
 #: jibres/includes/languages/trans_project.php:2604
 msgid "Your subdomain"
-msgstr "زیردامنه فروشگاه شما"
+msgstr "آدرس فروشگاه شما"
 
 #: jibres/includes/languages/trans_project.php:2605
 msgid "Build my online store"
-msgstr "فروشگاه آنلاین من را بساز"
+msgstr "فروشگاه آنلاین منو بساز"
 
 #: jibres/includes/languages/trans_project.php:2606
 msgid "choose subdomain on Jibres"
