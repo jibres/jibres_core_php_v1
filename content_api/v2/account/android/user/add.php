@@ -224,27 +224,13 @@ class add
 
 	private static function user_add($_detail)
 	{
-		if(\dash\db::$jibres_db_name)
+		$user_id = \dash\db\users::signup();
+		if($user_id)
 		{
-			$user_id = \lib\db\userstore\insert::signup();
-			if($user_id)
-			{
-				self::$user_id = $user_id;
-				$_detail['user_id'] = $user_id;
-				\dash\db\user_android::insert($_detail);
-				self::$zoneid = \dash\db::insert_id();
-			}
-		}
-		else
-		{
-			$user_id = \dash\db\users::signup();
-			if($user_id)
-			{
-				self::$user_id = $user_id;
-				$_detail['user_id'] = $user_id;
-				\dash\db\user_android::insert($_detail);
-				self::$zoneid = \dash\db::insert_id();
-			}
+			self::$user_id = $user_id;
+			$_detail['user_id'] = $user_id;
+			\dash\db\user_android::insert($_detail);
+			self::$zoneid = \dash\db::insert_id();
 		}
 
 		self::$response['usercode'] = \dash\coding::encode($user_id);

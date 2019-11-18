@@ -47,14 +47,7 @@ trait edit
 			return false;
 		}
 
-		if(\dash\db::$jibres_db_name)
-		{
-			$load_user  = \lib\db\userstore\get::by_id($id);
-		}
-		else
-		{
-			$load_user  = \dash\db\users::get_by_id($id);
-		}
+		$load_user  = \dash\db\users::get_by_id($id);
 
 		if(!isset($load_user['id']))
 		{
@@ -169,14 +162,8 @@ trait edit
 		{
 			\dash\log::set('editUser', ['code' => $id, 'datalink' => \dash\coding::encode($id)]);
 
-			if(\dash\db::$jibres_db_name)
-			{
-				\lib\db\userstore\db::update($args, $id);
-			}
-			else
-			{
-				\dash\db\users::update($args, $id);
-			}
+			\dash\db\users::update($args, $id);
+
 		}
 
 		if(\dash\engine\process::status())
