@@ -20,7 +20,7 @@ class enter
 
 		\content_api\v2::check_apikey();
 
-		$subchild = \dash\url::dir(5);
+		$subchild = \dash\url::dir(4);
 
 		if(!$subchild)
 		{

@@ -190,8 +190,6 @@ class add
 			}
 		}
 
-
-
 		$return     = [];
 		$args['ok'] = true;
 
@@ -205,7 +203,6 @@ class add
 
 		if(!$_option['multi_add'])
 		{
-			$return['product_id'] = \dash\coding::encode($product_id);
 			$return['id']       = $product_id;
 		}
 

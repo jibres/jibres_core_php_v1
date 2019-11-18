@@ -11,6 +11,7 @@ class controller
 
 	public static function api_routing()
 	{
+
 		switch (\dash\url::dir(4))
 		{
 			case 'verify':
