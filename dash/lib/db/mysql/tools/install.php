@@ -4,18 +4,16 @@ namespace dash\db\mysql\tools;
 trait install
 {
 	public static $path_project = database. 'install/';
-	public static $path_addons  = addons. 'includes/database/install/';
 
 
 	/**
-	 * read current project and addons folder to find database folder
+	 * read current project folder to find database folder
 	 * then start installing files into databases
 	 *** database name must not use - in name!
 	 * @param  boolean $_onlyUpgrade run upgrade process if true
-	 * @param  boolean $_addonsFirst first run addons query
 	 * @return [type]                array contain a result of installation
 	 */
-	public static function install($_onlyUpgrade = false, $_addonsFirst = true)
+	public static function install($_onlyUpgrade = false)
 	{
 		// increase php code execution time
 		ini_set('max_execution_time', 300); //300 seconds = 5 minutes
@@ -24,18 +22,14 @@ trait install
 		$myList = [];
 		// find addresses
 		$path_project = self::$path_project;
-		$path_addons  = self::$path_addons;
 		// if want to only upgrade read upgrade folder
 		if($_onlyUpgrade)
 		{
 			$path_project = substr(self::$path_project, 0, -8). 'upgrade/';
-			$path_addons  = substr(self::$path_addons,  0, -8). 'upgrade/';
 		}
 		// read folders
-		$project = glob($path_project.'*', GLOB_ONLYDIR);
-		$addons  = glob($path_addons.'*',  GLOB_ONLYDIR);
-		// merge two location list in one array
-		$dbList  = array_merge($project, $addons);
+		$dbList = glob($path_project.'*', GLOB_ONLYDIR);
+
 		// flip array to change location to key
 		$dbList  = array_flip($dbList);
 		// create a array to install each table only one times, remove duplicate
@@ -43,13 +37,6 @@ trait install
 		{
 			$myDbName     = self::find_dbName($key);
 			$myList[$key] = $myDbName;
-		}
-
-
-		// reverse because first install addons databases
-		if($_addonsFirst)
-		{
-			$myList = array_reverse($myList);
 		}
 
 		// run query for each folder
@@ -71,19 +58,19 @@ trait install
 			if($_onlyUpgrade)
 			{
 				$result[$myDbName]['connect']        = self::connect($myDbCon, false);
-				$result[$myDbName]['exec'][$myDbLoc] =	self::execFolder($myDbLoc.'/', 'v.', false, $myDbCon, $db_version);
+				$result[$myDbName]['exec'][$myDbLoc] =	self::execFolder($myDbLoc.'/', 'v.', $myDbCon, $db_version);
 			}
 			// run normal installation
 			else
 			{
 				$result[$myDbName]['connect']        = self::connect($myDbCon, true);
-				$result[$myDbName]['exec'][$myDbLoc] = self::execFolder($myDbLoc.'/', null, false, $myDbCon, $db_version);
+				$result[$myDbName]['exec'][$myDbLoc] = self::execFolder($myDbLoc.'/', null, $myDbCon, $db_version);
 			}
 		}
 		// on normal installation call upgrade process to complete installation
 		if(!$_onlyUpgrade)
 		{
-			$result['upgrade'] = self::install(true, true);
+			$result['upgrade'] = self::install(true);
 		}
 
 		// decrease php code execution time to default value
@@ -99,22 +86,14 @@ trait install
 	 * execute files in one folder
 	 * @param  [type]  $_path   [description]
 	 * @param  [type]  $_group  [description]
-	 * @param  boolean $_addons [description]
 	 * @return [type]           [description]
 	 */
-	public static function execFolder($_path = null, $_group = null, $_addons = false, $_db_name = true , $_db_version = 0)
+	public static function execFolder($_path = null, $_group = null, $_db_name = true , $_db_version = 0)
 	{
 		$result = [];
-		// if want to read from addons update location
+		// if want to read from addaons update location
 		$myDbName = null;
 		$path     = $_path;
-		if($_addons)
-		{
-			$path    = self::$path_addons. $path;
-			$path    = $path.'/';
-			$myDbName = self::find_dbName($path);
-			self::connect($myDbName, true);
-		}
 
 		if($myDbName === null && $_db_name !== true)
 		{
@@ -136,7 +115,7 @@ trait install
 		{
 			$fname = $filename;
 			$fname = str_replace($_path, '', $fname);
-			$result[$fname] = self::execFile($filename, false, $myDbName, $_db_version);
+			$result[$fname] = self::execFile($filename, $myDbName, $_db_version);
 		}
 
 		return $result;
@@ -149,21 +128,10 @@ trait install
 	 * @param  boolean $_tools [description]
 	 * @return [type]          [description]
 	 */
-	public static function execFile($_path, $_addons = false, $_db_name = true, $_db_version = 0)
+	public static function execFile($_path, $_db_name = true, $_db_version = 0)
 	{
 		// disable debug error to run all query
 		self::$debug_error = false;
-
-		// default set version in db_name version
-		// the addons_version is false
-		$addons_version = false;
-
-		// if want to read from addons update location
-		if($_addons)
-		{
-			$_path = self::$path_addons. $_path. '.sql';
-			$addons_version = true;
-		}
 
 		$file_version = 0;
 		if(preg_match("/v\.([\d\.]+)\_(.*)$/", $_path, $split))
@@ -174,18 +142,7 @@ trait install
 			}
 		}
 
-		if(preg_match("/(.*)addons(.*)\(db_name\)/", $_path))
-		{
-			$addons_version = true;
-		}
-
 		$_db_version = self::db_version(self::$db_name);
-
-		if($addons_version === true)
-		{
-			// get the addons version on this database
-			$_db_version = self::db_version(self::$db_name, true);
-		}
 
 		if(version_compare($_db_version, $file_version, "<"))
 		{
@@ -236,7 +193,7 @@ trait install
 				}
 
 				// set the new version in database
-				self::set_db_version($file_version, $_db_name, $addons_version);
+				self::set_db_version($file_version, $_db_name);
 				return T_('executed');
 			}
 		}

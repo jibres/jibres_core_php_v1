@@ -12,7 +12,7 @@ class content
 
 	public static function content_list()
 	{
-		$dash_addons =
+		$dash_contents =
 		[
 			'enter',
 			'su',
@@ -26,7 +26,7 @@ class content
 			'crm',
 		];
 
-		return $dash_addons;
+		return $dash_contents;
 	}
 
 
@@ -37,20 +37,15 @@ class content
 	 */
 	public static function load($_content_name)
 	{
-		// list of addons exist in dash,
+		// list of contents exist in dash,
 		$myrep       = 'content_'.$_content_name;
-		$dash_addons = self::content_list();
+		$dash_contents = self::content_list();
 
 
-		// check content_aaa folder is exist in project or dash addons folder
+		// check content_aaa folder is exist in project folder
 		if(is_dir(root.$myrep))
 		{
 			return self::set($myrep);
-		}
-		// if exist on addons folder
-		elseif(in_array($_content_name, $dash_addons) && is_dir(addons.$myrep))
-		{
-			return self::set($myrep, addons);
 		}
 		elseif($dynamic_sub_domain = self::dynamic_subdomain())
 		{

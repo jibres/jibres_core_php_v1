@@ -3,8 +3,7 @@ namespace dash\db\mysql\tools;
 
 trait info
 {
-	private static $all_db_version        = [];
-	private static $all_db_addons_version = [];
+	private static $all_db_version = [];
 
 	/**
 	 * read query info and analyse it and return array contain result
@@ -193,7 +192,7 @@ trait info
 	 *
 	 * @param      boolean  $_db_name  The database name
 	 */
-	public static function db_version($_db_name = true, $_addons_version = false, $_time = false)
+	public static function db_version($_db_name = true, $_time = false)
 	{
 		$version = null;
 
@@ -202,11 +201,6 @@ trait info
 		if($_db_name === true)
 		{
 			$file_name = db_name;
-		}
-
-		if($_addons_version)
-		{
-			$file_name .= '_addons';
 		}
 
 		$file_url = database;
@@ -249,18 +243,13 @@ trait info
 	 * @param      <type>   $_version  The version
 	 * @param      boolean  $_db_name  The database name
 	 */
-	public static function set_db_version($_version, $_db_name = true, $_addons_version = false)
+	public static function set_db_version($_version, $_db_name = true)
 	{
 		$file_name = $_db_name;
 
 		if($_db_name === true)
 		{
 			$file_name = db_name;
-		}
-
-		if($_addons_version)
-		{
-			$file_name .= '_addons';
 		}
 
 		$file_url = database. 'version/';
@@ -274,32 +263,6 @@ trait info
 
 		\dash\file::write($file_url, $_version);
 
-	}
-
-
-	/**
-	 * check version of db and custom version
-	 *
-	 * @param      <type>   $_condition  The condition
-	 * @param      <type>   $_version    The version
-	 * @param      boolean  $_db         The database
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	public static function check_version($_condition, $_version, $_db = true)
-	{
-		$version = null;
-
-		if($_db === true)
-		{
-			$version = self::db_version();
-		}
-		else
-		{
-			$version = self::db_version(true, true);
-		}
-
-		return version_compare($version, $_version, $_condition);
 	}
 }
 ?>

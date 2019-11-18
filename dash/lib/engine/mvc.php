@@ -120,7 +120,7 @@ class mvc
 
 
 	/**
-	 * check controller in project or in dash addons
+	 * check controller in project
 	 * @param  [type] $_addr [description]
 	 * @return [type]        [description]
 	 */
@@ -135,27 +135,12 @@ class mvc
 		}
 		else
 		{
-			$myctrl = '\addons'. $myctrl;
-			if(class_exists($myctrl))
+			$_addr = trim($_addr, '\\');
+			$temp_addr = \autoload::fix_os_path($_addr);
+			if(is_dir(root. $temp_addr))
 			{
-				$find = $myctrl;
-				$_addr = '\addons'. $_addr;
-			}
-			else
-			{
-				$_addr = trim($_addr, '\\');
-				$temp_addr = \autoload::fix_os_path($_addr);
-				if(is_dir(root. $temp_addr))
-				{
-					self::$only_folder = true;
-					$find              = true;
-				}
-				elseif(is_dir(addons. $temp_addr))
-				{
-					// load addons only folder
-					self::$only_folder = true;
-					$find              = true;
-				}
+				self::$only_folder = true;
+				$find              = true;
 			}
 		}
 		if($find)
