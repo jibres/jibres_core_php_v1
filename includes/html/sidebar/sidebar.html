@@ -1,13 +1,6 @@
 
 
       <li><a href="{{url.kingdom}}/store" {%if url.content == "store"%} class="activeContent"{%endif%}><i class='sf-atom'></i> {% trans "Jibres Panel" %}</a></li>
-      <li>
-        <ul>
-{%if url.content == "store"%}
-    {%embed "includes/html/sidebar/sidebar-jibres.html"%}{%endembed%}
-{%endif%}
-        </ul>
-      </li>
 
 {%if perm('contentCp')%}
       <li><a href="{{url.kingdom}}/cms" {%if url.content == "cms"%} class="activeContent"{%endif%} data-shortkey="67+77" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-align-left'></i> {% trans "CMS" %}</a></li>
