@@ -12,7 +12,7 @@ class twigTransTerms
 	echo T_("Soon");                                                                  // Line 260
 
 	//-------------------------------\htdocs\Projects\jibres\content\blog\display.html
-	echo T_("View your current location and navigate to parent of it");               // Line 222
+	echo T_("View your current location and navigate to parent of it");               // Line 225
 	echo T_("Read more");                                                             // Line 97
 
 	//--------------------------\htdocs\Projects\jibres\content\changelog\display.html
@@ -301,10 +301,10 @@ class twigTransTerms
 	echo T_("Action");                                                                // Line 16
 	echo T_("Edit");                                                                  // Line 151
 	echo T_("No result founded!");                                                    // Line 133
-	echo T_("Clear filters");                                                         // Line 113
-	echo T_("Hi!");                                                                   // Line 119
+	echo T_("Clear filters");                                                         // Line 247
+	echo T_("Hi!");                                                                   // Line 253
 	echo T_("No comment added for this product!");                                    // Line 107
-	echo T_("Search");                                                                // Line 44
+	echo T_("Search");                                                                // Line 102
 	echo T_("Remove comment");                                                        // Line 167
 	echo T_("Cancel");                                                                // Line 26
 	echo T_("Status of comment");                                                     // Line 186
@@ -440,8 +440,8 @@ class twigTransTerms
 	echo T_("stock count is less than zero!");                                        // Line 86
 	echo T_("Discount more than 50 percent!");                                        // Line 92
 	echo T_("Final price is under buy price");                                        // Line 93
-	echo T_("Result not found!");                                                     // Line 112
-	echo T_("Search with new keywords.");                                             // Line 112
+	echo T_("Result not found!");                                                     // Line 246
+	echo T_("Search with new keywords.");                                             // Line 246
 	echo T_("Add new product");                                                       // Line 106
 	echo T_("Try to start with add new product!");                                    // Line 114
 
@@ -943,7 +943,7 @@ class twigTransTerms
 	echo T_("Sales count group by hour");                                             // Line 144
 
 	//-----------------------------------\htdocs\Projects\jibres\content_a\layout.html
-	echo T_("Dashboard");                                                             // Line 126
+	echo T_("Dashboard");                                                             // Line 129
 	echo T_("Product price");                                                         // Line 16
 	echo T_("Categories of Product");                                                 // Line 19
 	echo T_("Product Units");                                                         // Line 20
@@ -958,7 +958,7 @@ class twigTransTerms
 	echo T_("Store plans");                                                           // Line 61
 	echo T_("Factor settings");                                                       // Line 62
 	echo T_("Shift transformation");                                                  // Line 68
-	echo T_("Logout");                                                                // Line 198
+	echo T_("Logout");                                                                // Line 201
 	echo T_("You are active user");                                                   // Line 81
 
 	//------------------------------\htdocs\Projects\jibres\content_a\pay\display.html
@@ -1323,8 +1323,8 @@ class twigTransTerms
 	echo T_("Factor of team");                                                        // Line 8
 
 	//-----------------------\htdocs\Projects\jibres\content_account\home\display.html
-	echo T_("Avatar of you");                                                         // Line 203
-	echo T_("Default Avatar");                                                        // Line 207
+	echo T_("Avatar of you");                                                         // Line 206
+	echo T_("Default Avatar");                                                        // Line 210
 	echo T_("Welcome");                                                               // Line 16
 	echo T_(",");                                                                     // Line 16
 	echo T_("Manage your info, privacy, and security to make us work better for you");// Line 17
@@ -1344,7 +1344,7 @@ class twigTransTerms
 	echo T_("Get expert answers and advice on our service or contact our legendary support team");// Line 112
 	echo T_("Get help");                                                              // Line 120
 	echo T_("Check your account balance, charge your account, and bill your invoices!");// Line 132
-	echo T_("Notifications");                                                         // Line 192
+	echo T_("Notifications");                                                         // Line 195
 	echo T_("Check your last messages.");                                             // Line 152
 	echo T_("Maybe some messages need your action!");                                 // Line 152
 	echo T_("Read your messages");                                                    // Line 160
@@ -1361,7 +1361,7 @@ class twigTransTerms
 	echo T_("like");                                                                  // Line 38
 
 	//--------------------\htdocs\Projects\jibres\content_account\my\home\display.html
-	echo T_("Account");                                                               // Line 197
+	echo T_("Account");                                                               // Line 200
 	echo T_("You can enter to your account with username and mobile.");               // Line 45
 	echo T_("Username");                                                              // Line 71
 	echo T_("Some info may be visible to other people using our service.");           // Line 88
@@ -1928,7 +1928,7 @@ class twigTransTerms
 	echo T_("Categories");                                                            // Line 87
 	echo T_("Keywords");                                                              // Line 191
 	echo T_("Static Pages");                                                          // Line 22
-	echo T_("Help Center");                                                           // Line 189
+	echo T_("Help Center");                                                           // Line 192
 	echo T_("Help Center Keywords");                                                  // Line 40
 	echo T_("All Comments");                                                          // Line 55
 	echo T_("Files");                                                                 // Line 69
@@ -2477,6 +2477,13 @@ class twigTransTerms
 	echo T_("diff");                                                                  // Line 105
 	echo T_("datemodified");                                                          // Line 107
 
+	//-----\htdocs\Projects\jibres\content_pardakhtyar\content_test1\home\display.html
+
+	//\htdocs\Projects\jibres\content_pardakhtyar\content_test1\log\check\display.html
+	echo T_("You are not starting yet!");                                             // Line 128
+
+	//\htdocs\Projects\jibres\content_pardakhtyar\content_test1\log\request\display.html
+
 	//-----------\htdocs\Projects\jibres\content_pardakhtyar\customer\add\display.html
 
 	//\htdocs\Projects\jibres\content_pardakhtyar\customer\dashboard\acceptor-detail.html
@@ -2558,7 +2565,7 @@ class twigTransTerms
 
 	//---------------------\htdocs\Projects\jibres\content_store\creating\display.html
 	echo T_("Please wait");                                                           // Line 9
-	echo T_("We are build your online store.");                                       // Line 10
+	echo T_("Building your online store in progress.");                               // Line 10
 	echo T_("Loading Jibres");                                                        // Line 23
 
 	//------------------------\htdocs\Projects\jibres\content_store\error\display.html
@@ -2760,7 +2767,6 @@ class twigTransTerms
 	echo T_("Check more detail");                                                     // Line 128
 	echo T_("Without response");                                                      // Line 132
 	echo T_("Without meta");                                                          // Line 137
-	echo T_("You are not starting yet!");                                             // Line 119
 
 	//------------------\htdocs\Projects\jibres\content_su\tg\sendmessage\display.html
 	echo T_("Chat id or username");                                                   // Line 7
@@ -2930,36 +2936,30 @@ class twigTransTerms
 	echo T_("Manage tickets");                                                        // Line 16
 	echo T_("Manage all tickets");                                                    // Line 27
 
-	//-------------------------\htdocs\Projects\jibres\content_test1\home\display.html
-
-	//--------------------\htdocs\Projects\jibres\content_test1\log\check\display.html
-
-	//------------------\htdocs\Projects\jibres\content_test1\log\request\display.html
-
-	//---------\htdocs\Projects\jibres\dash\addons\includes\html\display-dash-xhr.html
+	//---------------------\htdocs\Projects\jibres\includes\html\display-dash-xhr.html
 	echo T_("Duplicate");                                                             // Line 42
 	echo T_("Help");                                                                  // Line 48
 	echo T_("Previous item");                                                         // Line 54
 	echo T_("Next item");                                                             // Line 55
-	echo T_("Quick Access");                                                          // Line 130
-	echo T_("Shortkey");                                                              // Line 155
-	echo T_("CMS");                                                                   // Line 140
-	echo T_("CRM Panel");                                                             // Line 144
-	echo T_("Supervisor Panel");                                                      // Line 148
-	echo T_("My Account");                                                            // Line 152
+	echo T_("Quick Access");                                                          // Line 133
+	echo T_("Shortkey");                                                              // Line 158
+	echo T_("CMS");                                                                   // Line 143
+	echo T_("CRM Panel");                                                             // Line 147
+	echo T_("Supervisor Panel");                                                      // Line 151
+	echo T_("My Account");                                                            // Line 155
 
-	//-------------\htdocs\Projects\jibres\dash\addons\includes\html\display-dash.html
-	echo T_("Edit your profile");                                                     // Line 104
-	echo T_("Please login to save anything");                                         // Line 106
-	echo T_("Hello");                                                                 // Line 117
-	echo T_("Hello ");                                                                // Line 119
-	echo T_("dear GUEST!");                                                           // Line 119
-	echo T_("Click to toggle sidebar status");                                        // Line 163
-	echo T_("You really want to go?");                                                // Line 199
-	echo T_("We are waiting for you to come back:)");                                 // Line 200
-	echo T_("Enter to have better experience");                                       // Line 211
+	//-------------------------\htdocs\Projects\jibres\includes\html\display-dash.html
+	echo T_("Edit your profile");                                                     // Line 107
+	echo T_("Please login to save anything");                                         // Line 109
+	echo T_("Hello");                                                                 // Line 120
+	echo T_("Hello ");                                                                // Line 122
+	echo T_("dear GUEST!");                                                           // Line 122
+	echo T_("Click to toggle sidebar status");                                        // Line 166
+	echo T_("You really want to go?");                                                // Line 202
+	echo T_("We are waiting for you to come back:)");                                 // Line 203
+	echo T_("Enter to have better experience");                                       // Line 214
 
-	//-----\htdocs\Projects\jibres\dash\addons\includes\html\display-enter-blocks.html
+	//-----------------\htdocs\Projects\jibres\includes\html\display-enter-blocks.html
 	echo T_("Please enter valid mobile number");                                      // Line 16
 	echo T_("Enter correct iranian mobile starting with zero like 0935");             // Line 16
 	echo T_("Enter your mobile number");                                              // Line 16
@@ -3004,15 +3004,15 @@ class twigTransTerms
 	echo T_("New username");                                                          // Line 382
 	echo T_("Enter a valid username!");                                               // Line 382
 
-	//--------------\htdocs\Projects\jibres\dash\addons\includes\html\display-mvc.html
+	//--------------------------\htdocs\Projects\jibres\includes\html\display-mvc.html
 	echo T_("JavaScript is required to use our service.");                            // Line 100
 	echo T_("Enable JavaScript in your browser or use one which supports it.");       // Line 101
 
-	//-----------\htdocs\Projects\jibres\dash\addons\includes\html\inc_commentadd.html
+	//-----------------------\htdocs\Projects\jibres\includes\html\inc_commentadd.html
 
-	//-----------\htdocs\Projects\jibres\dash\addons\includes\html\inc_pagination.html
+	//-----------------------\htdocs\Projects\jibres\includes\html\inc_pagination.html
 
-	//-----------------\htdocs\Projects\jibres\dash\addons\includes\html\inc_spay.html
+	//-----------------------------\htdocs\Projects\jibres\includes\html\inc_spay.html
 	echo T_("Please choose bank");                                                    // Line 4
 	echo T_("Saderat");                                                               // Line 9
 	echo T_("Mellat");                                                                // Line 15
@@ -3045,244 +3045,6 @@ class twigTransTerms
 	echo T_("Asanpardakht");                                                          // Line 189
 	echo T_("Zarinpal");                                                              // Line 195
 	echo T_("Payir");                                                                 // Line 201
-
-	//----------------------\htdocs\Projects\jibres\node_modules\amdefine\intercept.js
-
-	//---------\htdocs\Projects\jibres\node_modules\are-we-there-yet\tracker-stream.js
-
-	//------------------\htdocs\Projects\jibres\node_modules\jibres\dist\storePanel.js
-
-	//-----\htdocs\Projects\jibres\node_modules\jibres\dist\storePanel.uncompressed.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\@gulp-sourcemaps\identity-map\index.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\@gulp-sourcemaps\identity-map\node_modules\source-map\dist\source-map.debug.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\@gulp-sourcemaps\identity-map\node_modules\source-map\dist\source-map.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\@gulp-sourcemaps\identity-map\node_modules\source-map\lib\source-map-consumer.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\@gulp-sourcemaps\map-sources\index.js
-
-	//-\htdocs\Projects\jibres\node_modules\jibres\node_modules\acorn\dist\acorn.es.js
-
-	//----\htdocs\Projects\jibres\node_modules\jibres\node_modules\acorn\dist\acorn.js
-
-	//----\htdocs\Projects\jibres\node_modules\jibres\node_modules\async-each\index.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\chokidar\lib\fsevents-handler.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\concat-with-sourcemaps\node_modules\source-map\dist\source-map.debug.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\concat-with-sourcemaps\node_modules\source-map\dist\source-map.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\concat-with-sourcemaps\node_modules\source-map\lib\source-map-consumer.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\css\node_modules\source-map\dist\source-map.debug.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\css\node_modules\source-map\dist\source-map.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\css\node_modules\source-map\lib\source-map-consumer.js
-
-	//-----\htdocs\Projects\jibres\node_modules\jibres\node_modules\debug\src\debug.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\debug-fabulous\node_modules\debug\dist\debug.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\debug-fabulous\node_modules\debug\src\common.js
-
-	//----\htdocs\Projects\jibres\node_modules\jibres\node_modules\fill-range\index.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\gulp\node_modules\gulp-cli\index.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\gulp\node_modules\gulp-cli\lib\shared\cli-options.js
-
-	//---\htdocs\Projects\jibres\node_modules\jibres\node_modules\gulp-rename\index.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\gulp-sourcemaps\node_modules\source-map\dist\source-map.debug.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\gulp-sourcemaps\node_modules\source-map\dist\source-map.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\gulp-sourcemaps\node_modules\source-map\lib\source-map-consumer.js
-
-	//---------\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\core.js
-
-	//------\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\countBy.js
-
-	//-\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\fp\transform.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\fp\_baseConvert.js
-
-	//--\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\fp\_mapping.js
-
-	//------\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\groupBy.js
-
-	//--------\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\keyBy.js
-
-	//-------\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\lodash.js
-
-	//---\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\lodash.min.js
-
-	//-------\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\object.js
-
-	//-----\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\overArgs.js
-
-	//-------\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\reduce.js
-
-	//----\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\transform.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\wrapperLodash.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\_arrayAggregator.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\_baseAggregator.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\_baseInverter.js
-
-	//-----\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\_getView.js
-
-	//-----\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\_overArg.js
-
-	//----\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\_overRest.js
-
-	//-----\htdocs\Projects\jibres\node_modules\jibres\node_modules\lodash\_setData.js
-
-	//-\htdocs\Projects\jibres\node_modules\jibres\node_modules\minimatch\minimatch.js
-
-	//---\htdocs\Projects\jibres\node_modules\jibres\node_modules\pump\test-browser.js
-
-	//------\htdocs\Projects\jibres\node_modules\jibres\node_modules\pump\test-node.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\readable-stream\lib\_stream_passthrough.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\readable-stream\lib\_stream_transform.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\readable-stream\readable-browser.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\readable-stream\readable.js
-
-	//--\htdocs\Projects\jibres\node_modules\jibres\node_modules\spdx-correct\index.js
-
-	//-----\htdocs\Projects\jibres\node_modules\jibres\node_modules\strip-bom\index.js
-
-	//---\htdocs\Projects\jibres\node_modules\jibres\node_modules\through2\through2.js
-
-	//----\htdocs\Projects\jibres\node_modules\jibres\node_modules\typedarray\index.js
-
-	//---\htdocs\Projects\jibres\node_modules\jibres\node_modules\uglify-js\lib\ast.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\uglify-js\lib\compress.js
-
-	//-\htdocs\Projects\jibres\node_modules\jibres\node_modules\uglify-js\lib\parse.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\uglify-js\lib\propmangle.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\uglify-js\lib\transform.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\uglify-js\node_modules\source-map\dist\source-map.debug.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\uglify-js\node_modules\source-map\dist\source-map.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\uglify-js\node_modules\source-map\lib\source-map-consumer.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\uglify-js\tools\node.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\vinyl-fs\lib\dest\prepare.js
-
-	//\htdocs\Projects\jibres\node_modules\jibres\node_modules\vinyl-fs\lib\symlink\prepare.js
-
-	//---\htdocs\Projects\jibres\node_modules\jibres\node_modules\yargs\lib\command.js
-
-	//--\htdocs\Projects\jibres\node_modules\jibres\node_modules\yargs-parser\index.js
-
-	//-\htdocs\Projects\jibres\node_modules\jibres\src\storePanel\JsBarcode.all.min.js
-
-	//-----\htdocs\Projects\jibres\node_modules\js-base64\.attic\test-moment\moment.js
-
-	//-----------------------\htdocs\Projects\jibres\node_modules\js-base64\package.js
-
-	//-----------------------\htdocs\Projects\jibres\node_modules\jsprim\lib\jsprim.js
-
-	//-----------------------------\htdocs\Projects\jibres\node_modules\lodash\core.js
-
-	//--------------------------\htdocs\Projects\jibres\node_modules\lodash\countBy.js
-
-	//---------------------\htdocs\Projects\jibres\node_modules\lodash\fp\transform.js
-
-	//------------------\htdocs\Projects\jibres\node_modules\lodash\fp\_baseConvert.js
-
-	//----------------------\htdocs\Projects\jibres\node_modules\lodash\fp\_mapping.js
-
-	//--------------------------\htdocs\Projects\jibres\node_modules\lodash\groupBy.js
-
-	//----------------------------\htdocs\Projects\jibres\node_modules\lodash\keyBy.js
-
-	//---------------------------\htdocs\Projects\jibres\node_modules\lodash\lodash.js
-
-	//-----------------------\htdocs\Projects\jibres\node_modules\lodash\lodash.min.js
-
-	//---------------------------\htdocs\Projects\jibres\node_modules\lodash\object.js
-
-	//-------------------------\htdocs\Projects\jibres\node_modules\lodash\overArgs.js
-
-	//---------------------------\htdocs\Projects\jibres\node_modules\lodash\reduce.js
-
-	//------------------------\htdocs\Projects\jibres\node_modules\lodash\transform.js
-
-	//--------------------\htdocs\Projects\jibres\node_modules\lodash\wrapperLodash.js
-
-	//-----------------\htdocs\Projects\jibres\node_modules\lodash\_arrayAggregator.js
-
-	//------------------\htdocs\Projects\jibres\node_modules\lodash\_baseAggregator.js
-
-	//--------------------\htdocs\Projects\jibres\node_modules\lodash\_baseInverter.js
-
-	//-------------------------\htdocs\Projects\jibres\node_modules\lodash\_getView.js
-
-	//-------------------------\htdocs\Projects\jibres\node_modules\lodash\_overArg.js
-
-	//------------------------\htdocs\Projects\jibres\node_modules\lodash\_overRest.js
-
-	//-------------------------\htdocs\Projects\jibres\node_modules\lodash\_setData.js
-
-	//---------------------\htdocs\Projects\jibres\node_modules\minimatch\minimatch.js
-
-	//---------------------\htdocs\Projects\jibres\node_modules\node-sass\lib\index.js
-
-	//----------------------------\htdocs\Projects\jibres\node_modules\psl\dist\psl.js
-
-	//------------------------\htdocs\Projects\jibres\node_modules\psl\dist\psl.min.js
-
-	//---------------------------\htdocs\Projects\jibres\node_modules\qs\test\parse.js
-
-	//-\htdocs\Projects\jibres\node_modules\readable-stream\lib\_stream_passthrough.js
-
-	//---\htdocs\Projects\jibres\node_modules\readable-stream\lib\_stream_transform.js
-
-	//--------\htdocs\Projects\jibres\node_modules\readable-stream\readable-browser.js
-
-	//----------------\htdocs\Projects\jibres\node_modules\readable-stream\readable.js
-
-	//-------------------\htdocs\Projects\jibres\node_modules\request\lib\multipart.js
-
-	//-----------------------\htdocs\Projects\jibres\node_modules\request\lib\oauth.js
-
-	//----------------------\htdocs\Projects\jibres\node_modules\spdx-correct\index.js
-
-	//-------------------------\htdocs\Projects\jibres\node_modules\strip-bom\index.js
-
-	//-------\htdocs\Projects\jibres\node_modules\tar\coverage\lcov-report\prettify.js
-
-	//\htdocs\Projects\jibres\node_modules\tar\coverage\lcov-report\tar\lib\pack.js.html
-
-	//\htdocs\Projects\jibres\node_modules\tar\coverage\lcov-report\tar\lib\winchars.js.html
-
-	//---------------------------------\htdocs\Projects\jibres\node_modules\tar\tar.js
-
-	//----------------------\htdocs\Projects\jibres\node_modules\uri-js\tests\qunit.js
-
-	//-----------------------\htdocs\Projects\jibres\node_modules\yargs\lib\command.js
-
-	//----------------------\htdocs\Projects\jibres\node_modules\yargs-parser\index.js
 
 	//----\htdocs\Projects\jibres\public_html\static\fonts\siftal\icons-reference.html
 
