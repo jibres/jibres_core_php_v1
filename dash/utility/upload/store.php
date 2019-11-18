@@ -9,13 +9,13 @@ trait store
 	{
 		$default_options =
 		[
-			'debug'        => null,
-			'upload_name'  => null,
-			'userstore_id' => null,
-			'related'      => null,
-			'related_id'   => null,
-			'max_upload'   => null,
-			'store_id'     => null,
+			'debug'       => null,
+			'upload_name' => null,
+			'user_id'     => null,
+			'related'     => null,
+			'related_id'  => null,
+			'max_upload'  => null,
+			'store_id'    => null,
 		];
 
 		$_options = array_merge($default_options, $_options);
@@ -131,7 +131,7 @@ trait store
 
 
 		$inset_files_record                 = [];
-		$inset_files_record['userstore_id'] = $_options['userstore_id'];
+		$inset_files_record['user_id'] = $_options['user_id'];
 		$inset_files_record['md5']          = self::$fileMd5;
 		$inset_files_record['filename']     = self::$fileName ? addslashes(self::$fileName) : T_("Untitled file");
 		$inset_files_record['title']        = null;
@@ -157,14 +157,6 @@ trait store
 			return false;
 		}
 
-		// $insert_file_usage                 = [];
-		// $insert_file_usage['file_id']      = $new_id;
-		// $insert_file_usage['userstore_id'] = $_options['userstore_id'];
-		// $insert_file_usage['related']      = $_options['related'];
-		// $insert_file_usage['related_id']   = $_options['related_id'];
-		// $insert_file_usage['datecreated']  = date("Y-m-d H:i:s");
-
-		// $new_usage_id = \dash\db\files::insert_usage($insert_file_usage);
 
 		$inset_files_record['id'] = $new_id;
 

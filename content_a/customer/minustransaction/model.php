@@ -8,13 +8,13 @@ class model
 	{
 		$post =
 		[
-			'title'        => \dash\request::post('title'),
-			'type'         => \dash\request::post('type'),
-			'bank'         => \dash\request::post('bank'),
-			'userstore_id' => \dash\request::get('id'),
-			'minus'        => \dash\request::post('price'),
-			'desc'         => \dash\request::post('desc'),
-			'trackid'      => \dash\request::post('trackid'),
+			'title'   => \dash\request::post('title'),
+			'type'    => \dash\request::post('type'),
+			'bank'    => \dash\request::post('bank'),
+			'user_id' => \dash\request::get('id'),
+			'minus'   => \dash\request::post('price'),
+			'desc'    => \dash\request::post('desc'),
+			'trackid' => \dash\request::post('trackid'),
 		];
 
 		\lib\app\storetransaction\account::charge($post);

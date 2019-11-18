@@ -17,6 +17,6 @@ CREATE TABLE IF NOT EXISTS `files` (
 `datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
-CONSTRAINT `files_userstore_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `files_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
 KEY `files_md5_search` (`md5`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

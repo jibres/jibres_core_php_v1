@@ -25,7 +25,7 @@ class productcomment
 
 
 	// get product comment for one user and product to check not duplicate
-	public static function check_duplicate($_store_id, $_userstore_id, $_product_id)
+	public static function check_duplicate($_store_id, $_user_id, $_product_id)
 	{
 		$query =
 		"
@@ -37,7 +37,7 @@ class productcomment
 				productcomment
 			WHERE
 				productcomment.store_id     = $_store_id AND
-				productcomment.userstore_id = $_userstore_id AND
+				productcomment.user_id = $_user_id AND
 				productcomment.product_id   = $_product_id
 			LIMIT 1
 		";
@@ -56,13 +56,13 @@ class productcomment
 				productcomment.star,
 				productcomment.status,
 				productcomment.datecreated,
-				productcomment.userstore_id,
+				productcomment.user_id,
 				userstores.avatar,
 				userstores.displayname,
 				userstores.gender
 			FROM
 				productcomment
-			INNER JOIN userstores ON userstores.id = productcomment.userstore_id
+			INNER JOIN userstores ON userstores.id = productcomment.user_id
 			WHERE
 				productcomment.store_id = $_store_id AND
 				productcomment.id = $_id
@@ -131,13 +131,13 @@ class productcomment
 				productcomment.star,
 				productcomment.status,
 				productcomment.datecreated,
-				productcomment.userstore_id,
+				productcomment.user_id,
 				userstores.avatar,
 				userstores.displayname,
 				userstores.gender
 			FROM
 				productcomment
-			INNER JOIN userstores ON userstores.id = productcomment.userstore_id
+			INNER JOIN userstores ON userstores.id = productcomment.user_id
 			WHERE
 				productcomment.store_id = $_store_id
 				$q $product_id $status

@@ -30,7 +30,7 @@ class view
 			$args['paytype'] = \dash\request::get('paytype');
 		}
 
-		$args['userstore_id'] = \dash\coding::decode(\dash\request::get('id'));
+		$args['user_id'] = \dash\coding::decode(\dash\request::get('id'));
 		$args['storetransactions.status']        = 'enable';
 
 		$sortLink  = \dash\app\sort::make_sortLink(\lib\app\storetransaction::$sort_field, \dash\url::this());
@@ -42,7 +42,7 @@ class view
 		$check_empty_datatable = $args;
 		unset($check_empty_datatable['sort']);
 		unset($check_empty_datatable['order']);
-		unset($check_empty_datatable['userstore_id']);
+		unset($check_empty_datatable['user_id']);
 		unset($check_empty_datatable['storetransactions.status']);
 
 		// set dataFilter

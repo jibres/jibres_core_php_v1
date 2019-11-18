@@ -61,46 +61,6 @@ class user
 	}
 
 
-	public static function force_id()
-	{
-		if(!\lib\store::id() || !\dash\user::id())
-		{
-			return false;
-		}
-
-		if(self::id())
-		{
-			return self::id();
-		}
-		else
-		{
-			$user_detail = \lib\db\users\get::user_id_detail(\dash\user::id());
-
-			if(isset($user_detail['id']))
-			{
-				return $user_detail['id'];
-			}
-			else
-			{
-
-				$insert_user =
-				[
-					'user_id'     => \dash\user::id(),
-					'mobile'      => \dash\user::detail('mobile'),
-					'displayname' => \dash\user::detail('displayname') ?  \dash\user::detail('displayname') : null,
-					'firstname'   => \dash\user::detail('firstname') ?  \dash\user::detail('firstname') : null,
-					'lastname'    => \dash\user::detail('lastname') ?  \dash\user::detail('lastname') : null,
-					'avatar'      => \dash\user::detail('avatar') ?  \dash\user::detail('avatar') : null,
-					'gender'      => \dash\user::detail('gender'),
-				];
-
-				$id = \lib\db\users\insert::new_row($insert_user);
-
-				return $id;
-			}
-		}
-	}
-
 
 	/**
 	 * get id of user

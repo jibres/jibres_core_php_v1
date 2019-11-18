@@ -39,21 +39,21 @@ class dashboard
 	}
 
 
-	public static function lastactivity($_userstore_id)
+	public static function lastactivity($_user_id)
 	{
-		if(!is_numeric($_userstore_id))
+		if(!is_numeric($_user_id))
 		{
 			return false;
 		}
 
-		$query = "UPDATE userstores SET userstores.lastactivity = '$date' WHERE userstores.id = $_userstore_id LIMIT 1";
+		$query = "UPDATE userstores SET userstores.lastactivity = '$date' WHERE userstores.id = $_user_id LIMIT 1";
 		return self::query($query);
 	}
 
 
-	public static function staff($_userstore_id)
+	public static function staff($_user_id)
 	{
-		if(!is_numeric($_userstore_id))
+		if(!is_numeric($_user_id))
 		{
 			return false;
 		}
@@ -63,7 +63,7 @@ class dashboard
 			UPDATE userstores SET
 				userstores.lastactivity = '$date'
 			WHERE
-				userstores.id = $_userstore_id
+				userstores.id = $_user_id
 			LIMIT 1
 		";
 
@@ -71,13 +71,13 @@ class dashboard
 	}
 
 
-	public static function supplier($_userstore_id)
+	public static function supplier($_user_id)
 	{
 
 	}
 
 
-	public static function customer($_userstore_id)
+	public static function customer($_user_id)
 	{
 
 	}

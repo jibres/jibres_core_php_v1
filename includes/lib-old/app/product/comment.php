@@ -144,9 +144,9 @@ class comment
 			return false;
 		}
 
-		$args['store_id']     = \lib\store::id();
-		$args['userstore_id'] = \lib\userstore::force_id(\lib\store::id(), \dash\user::id());
-		$args['ip']           = \dash\server::ip(true);
+		$args['store_id'] = \lib\store::id();
+		$args['user_id']  = \lib\userstore::id();
+		$args['ip']       = \dash\server::ip(true);
 
 		if(!$args['status'])
 		{
@@ -416,12 +416,10 @@ class comment
 			{
 				case 'id':
 				case 'product_id':
+				case 'user_id':
 					$result[$key] = \dash\coding::encode($value);
 					break;
 
-				case 'userstore_id':
-					$result['user'] = \dash\coding::encode($value);
-					break;
 
 				case 'status':
 					$result[$key]      = $value;

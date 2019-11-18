@@ -201,9 +201,9 @@ trait add
 		$args['user_id'] = $user_id;
 
 
-		$userstore_id = \lib\db\userstores::insert($args);
+		$user_id = \lib\db\userstores::insert($args);
 
-		if(!$userstore_id)
+		if(!$user_id)
 		{
 			\dash\log::set('dbErrorInsertUserstores');
 			if($_option['debug'])
@@ -213,7 +213,7 @@ trait add
 			return false;
 		}
 
-		$return['thirdparty_id'] = \dash\coding::encode($supplier_id ? $supplier_id : $userstore_id);
+		$return['thirdparty_id'] = \dash\coding::encode($supplier_id ? $supplier_id : $user_id);
 
 		if(\dash\engine\process::status())
 		{

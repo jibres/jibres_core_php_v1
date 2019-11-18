@@ -22,15 +22,15 @@ class storetransaction
 	public static function check($_option = [])
 	{
 
-		$userstore_id = \dash\app::request('userstore_id');
-		$userstore_id = \dash\coding::decode($userstore_id);
-		if(!$userstore_id && \dash\app::isset_request('userstore_id'))
+		$user_id = \dash\app::request('user_id');
+		$user_id = \dash\coding::decode($user_id);
+		if(!$user_id && \dash\app::isset_request('user_id'))
 		{
-			\dash\notif::error(T_("Invalid userstore id"), 'userstore_id');
+			\dash\notif::error(T_("Invalid userstore id"), 'user_id');
 			return false;
 		}
 
-		if(!$userstore_id) $userstore_id = null;
+		if(!$user_id) $user_id = null;
 
 
 		$plus = \dash\app::request('plus');
@@ -152,11 +152,11 @@ class storetransaction
 			// get customer from factor
 			if(isset($factor_detail['customer']))
 			{
-				$userstore_id = $factor_detail['customer'];
+				$user_id = $factor_detail['customer'];
 			}
 			else
 			{
-				$userstore_id = null;
+				$user_id = null;
 			}
 
 			$amount = \dash\app::request('amount');
@@ -220,7 +220,7 @@ class storetransaction
 			}
 			elseif($factor_sum < $saved_amount)
 			{
-				if(!$userstore_id)
+				if(!$user_id)
 				{
 					\dash\notif::error(T_("Can not set amount larger than factor sum when no customer selected"), 'amount');
 					return false;
@@ -277,7 +277,7 @@ class storetransaction
 		$args['subtitle']     = $subtitle;
 		$args['title']        = $title;
 		$args['type']         = $type;
-		$args['userstore_id'] = $userstore_id;
+		$args['user_id'] = $user_id;
 		$args['operator']     = $operator;
 		$args['fund_id']      = $fund_id;
 		$args['factor_id']    = $factor_id;
