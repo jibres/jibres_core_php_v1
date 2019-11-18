@@ -20,6 +20,14 @@ class variants
 	}
 
 
+	public static function load_child($_id)
+	{
+		$query  = "SELECT * FROM products WHERE products.parent = $_id";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function load_child_count($_products_ids)
 	{
 		$query  =

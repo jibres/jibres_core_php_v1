@@ -41,6 +41,21 @@ class load
 			return false;
 		}
 
+		if(isset($detail['variants']) && $detail['variants'])
+		{
+			$load_child = \lib\db\products\variants::load_child($id);
+			if(!$load_child)
+			{
+				$detail['have_child'] = false;
+			}
+			else
+			{
+				$detail['have_child'] = true;
+				$detail['child'] = array_map(['\\lib\\app\\product\\ready', 'row'], $load_child);
+			}
+
+		}
+
 		// sed dataRow to load detail in html
 		\dash\data::productDataRow($detail);
 

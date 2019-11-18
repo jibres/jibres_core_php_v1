@@ -142,14 +142,17 @@
 
 {%block Box_variants %}
 <h3>{%trans "Variants"%}</h3>
-<div class="check1">
- <input type="checkbox" name="variants" id="variants" value="1" {% if productDataRow.variants%} checked{%endif%}>
-  <label for="variants">{%trans "This product has multiple options, like different sizes or colors"%}</label>
-</div>
-
-<div data-response='variants' {%if  productDataRow.variants%} {%else%} data-response-hide {%endif%}>
-  {{block('variantHTML')}}
-</div>
+{%if productDataRow.have_child%}
+    {{block('variantChild')}}
+{%else%}
+  <div class="check1">
+   <input type="checkbox" name="variants" id="variants" value="1" {% if productDataRow.variants%} checked{%endif%}>
+    <label for="variants">{%trans "This product has multiple options, like different sizes or colors"%}</label>
+  </div>
+  <div data-response='variants' {%if  productDataRow.variants%} {%else%} data-response-hide {%endif%}>
+    {{block('variantHTML')}}
+  </div>
+{%endif%}
 
 {%endblock%}
 

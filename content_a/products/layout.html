@@ -458,7 +458,17 @@
 
 
 
+{%block variantChild%}
+{%if productDataRow.have_child%}
 
+{%for key, value in productDataRow.child%}
+  <div class="msg">
+    {{value.optionname1}} - {{value.optionvalue1}} - {{value.optionname2}} - {{value.optionvalue2}} - {{value.optionname3}} - {{value.optionvalue3}}
+  </div>
+{%endfor%}
+
+{%endif%}
+{%endblock%}
 
 
 
