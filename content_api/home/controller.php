@@ -29,8 +29,8 @@ class controller
 			// ],
 			'api-v2' =>
 			[
-				'url' => \dash\url::here(). '/v2',
-				'doc' => \dash\url::here(). '/v2/doc',
+				'url' => \dash\url::sitelang(). '/api/v2',
+				'doc' => \dash\url::sitelang(). '/api/v2/doc',
 			],
 			'lang' =>
 			[

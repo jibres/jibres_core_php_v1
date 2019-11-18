@@ -117,6 +117,7 @@ desktop
 devel
 developement
 developer
+developers
 development
 dildo
 directory

@@ -6,15 +6,11 @@ class controller
 {
 	public static function routing()
 	{
-		// $x   = [];
-		// $x[] = sha1("reza");
-		// $x[] = md5("reza");
-		// $x[] = hash('sha256', 'reza');
-		// $x[] = hash('ripemd160', 'reza');
-		// $x[] = bin2hex(random_bytes(100));
-		// $x[] = password_hash(':~-:~reza:,.[]', PASSWORD_BCRYPT, ['cost' => 7]);
-		// $x[] = uniqid("reza");
-		// j($x);exit();
+
+		if(!in_array(\dash\url::subdomain(), ['source', 'store', 'developers', null]))
+		{
+			\dash\redirect::remove_subdomain();
+		}
 
 		$module = \dash\url::module();
 
