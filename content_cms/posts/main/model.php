@@ -110,14 +110,6 @@ class model
 
 		];
 
-
-
-		if(\dash\url::subdomain())
-		{
-			$post['subdomain'] = \dash\url::subdomain();
-		}
-
-
 		if(!$post['status'])
 		{
 			$post['status'] = 'draft';

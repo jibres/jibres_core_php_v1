@@ -13,10 +13,6 @@ class model
 			'content'     => isset($_POST['content']) ? $_POST['content'] : null,
 		];
 
-		if(\dash\url::subdomain())
-		{
-			$post['subdomain'] = \dash\url::subdomain();
-		}
 
 		if(\dash\request::get('type'))
 		{
