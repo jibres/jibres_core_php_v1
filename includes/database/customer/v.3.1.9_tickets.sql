@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`tickets` (
   `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  CONSTRAINT `tickets_users_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `tickets_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   KEY `index_search_status` (`status`),
   KEY `index_search_type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

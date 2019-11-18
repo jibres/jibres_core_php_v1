@@ -10,5 +10,5 @@ CREATE TABLE `jibres_XXXXXXX`.`producttag` (
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`),
  KEY `tag_title_search_index` (`title`),
- CONSTRAINT `producttags_creator` FOREIGN KEY (`creator`) REFERENCES `userstore` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+ CONSTRAINT `producttags_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

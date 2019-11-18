@@ -36,7 +36,7 @@ KEY `index_search_discount2` (`discount2`),
 KEY `index_search_detailsum` (`detailsum`),
 KEY `index_search_detaildiscount` (`detaildiscount`),
 KEY `index_search_detailtotalsum` (`detailtotalsum`),
-CONSTRAINT `factors_customer` FOREIGN KEY (`seller`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE,
-CONSTRAINT `factors_seller` FOREIGN KEY (`customer`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE
+CONSTRAINT `factors_customer` FOREIGN KEY (`seller`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `factors_seller` FOREIGN KEY (`customer`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

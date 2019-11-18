@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`user_auth` (
   `gateway_id` int(10) UNSIGNED DEFAULT NULL,
   `parent` int(10) UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `user_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `user_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   KEY `index_search_auth` (`auth`),
   KEY `index_search_status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

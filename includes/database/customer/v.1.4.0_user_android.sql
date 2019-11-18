@@ -13,5 +13,5 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`user_android` (
   `lastupdate` timestamp NULL DEFAULT NULL,
   `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  CONSTRAINT `user_android_user_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `user_android_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

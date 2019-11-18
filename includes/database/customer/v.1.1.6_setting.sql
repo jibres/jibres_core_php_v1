@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`setting` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-`userstore_id` int(10) UNSIGNED DEFAULT NULL,
+`user_id` int(10) UNSIGNED DEFAULT NULL,
 `lang` char(2) DEFAULT NULL,
 `cat` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
 `key` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
@@ -10,5 +10,5 @@ PRIMARY KEY (`id`),
 KEY `setting_index_search_cat` (`cat`),
 KEY `setting_index_search_key` (`key`),
 KEY `setting_index_search_lang` (`lang`),
-CONSTRAINT `setting_userstore_id` FOREIGN KEY (`userstore_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE
+CONSTRAINT `setting_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

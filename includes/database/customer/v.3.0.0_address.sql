@@ -24,5 +24,5 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`address` (
   `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  CONSTRAINT `address_user_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `address_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

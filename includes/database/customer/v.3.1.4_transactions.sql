@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`transactions` (
   `banktoken` varchar(100) DEFAULT NULL,
   `finalmsg` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `newtransactions_user_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `newtransactions_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   KEY `transactions_index_token` (`token`),
   KEY `transactions_index_banktoken` (`banktoken`),
   KEY `transactions_index_payment` (`payment`),

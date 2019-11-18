@@ -15,7 +15,7 @@ CREATE TABLE `jibres_XXXXXXX`.`productprices` (
 `factor_id` bigint(20) UNSIGNED DEFAULT NULL,
 PRIMARY KEY (`id`),
 KEY `productprices_last_search_index` (`last`),
-CONSTRAINT `productprices_creator` FOREIGN KEY (`creator`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `productprices_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `productprices_factor_id` FOREIGN KEY (`factor_id`) REFERENCES `factors` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `productprices_product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`user_telegram` (
   `lastupdate` timestamp NULL DEFAULT NULL,
   `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  CONSTRAINT `user_tg_user_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `user_tg_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   KEY `index_search_chatid` (`chatid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

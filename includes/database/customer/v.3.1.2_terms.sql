@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`terms` (
   `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  CONSTRAINT `terms_users_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `terms_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   KEY `terms_type_search_index` (`type`),
   KEY `index_search_slug` (`slug`),
   KEY `index_search_type` (`type`)

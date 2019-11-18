@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`comments` (
   `via` enum('site','telegram','sms','contact','admincontact','app') DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `comments_posts_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `comments_users_id` FOREIGN KEY (`user_id`) REFERENCES `userstore` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `comments_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   KEY `index_search_star` (`star`),
   KEY `index_search_minus` (`minus`),
   KEY `index_search_plus` (`plus`),
