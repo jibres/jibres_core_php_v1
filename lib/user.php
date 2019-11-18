@@ -14,13 +14,26 @@ class user
 		self::init();
 	}
 
+
+	private static function sessionKey()
+	{
+		return 'user_detail_'. \lib\store::store_slug(). '_'. \dash\user::id();
+	}
+
+
+	private static function sessionCat()
+	{
+		return 'jibres_user_store';
+	}
+
+
 	/**
 	 * clean chach to load detail again
 	 * user in edit user
 	 */
 	public static function clean()
 	{
-		\dash\session::set('user_detail_'. \lib\store::store_slug(). '_'. \dash\user::id(), null);
+		\dash\session::clean_cat(self::sessionCat());
 		self::$user = [];
 	}
 
@@ -35,9 +48,9 @@ class user
 			return;
 		}
 
-		if(\dash\session::get('user_detail_'. \lib\store::store_slug(). '_'. \dash\user::id()))
+		if(\dash\session::get(self::sessionKey(), self::sessionCat()))
 		{
-			self::$user = \dash\session::get('user_detail_'. \lib\store::store_slug(). '_'. \dash\user::id());
+			self::$user = \dash\session::get(self::sessionKey(), self::sessionCat());
 			return;
 		}
 
@@ -51,12 +64,12 @@ class user
 			return false;
 		}
 
-		$user_detail = \lib\db\users\get::user_id_detail(\dash\user::id());
+		$user_detail = \lib\db\users\get::jibres_user_id_detail(\dash\user::id());
 
 		if(is_array($user_detail))
 		{
 			self::$user = $user_detail;
-			\dash\session::set('user_detail_'. \lib\store::store_slug(). '_'. \dash\user::id(), $user_detail);
+			\dash\session::set(self::sessionKey(), $user_detail, self::sessionCat());
 		}
 	}
 
