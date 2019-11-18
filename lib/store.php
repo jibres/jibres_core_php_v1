@@ -201,25 +201,6 @@ class store
 	}
 
 
-	/**
-	 * check the user is creator of this store or no
-	 *
-	 * @return     boolean  True if creator, False otherwise.
-	 */
-	public static function is_creator()
-	{
-		if(
-			\dash\user::id() &&
-			\lib\store::id() &&
-			\lib\store::detail('creator') &&
-			intval(\dash\user::id()) === intval(\lib\store::detail('creator'))
-		  )
-		{
-			return true;
-		}
-		return false;
-	}
-
 
 	public static function plan()
 	{
@@ -227,11 +208,6 @@ class store
 		return self::detail('plan');
 	}
 
-
-	public static function creator()
-	{
-		return intval(self::detail('creator'));
-	}
 
 
 	public static function setting($_key = null)
