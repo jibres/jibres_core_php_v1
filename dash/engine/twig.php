@@ -58,7 +58,7 @@ class twig
 
 		$twig = new \Twig_Environment($loader, $array_option);
 
-		\dash\engine\twigAddons::init($twig);
+		\dash\engine\twigFn::init($twig);
 
 		$twig->addGlobal("session", $_SESSION);
 

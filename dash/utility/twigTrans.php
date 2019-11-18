@@ -5,7 +5,7 @@ namespace dash\utility;
 class twigTrans
 {
 	// Create a files in language folder has contain twig trans value
-	public static function extract($_path = null, $_update = null)
+	public static function extract()
 	{
 		ob_start();
 
@@ -13,7 +13,7 @@ class twigTrans
 
 		$export_file_name = 'twig';
 
-		$mypath = is_dir($_path)? $_path: realpath(root).DIRECTORY_SEPARATOR;
+		$mypath = realpath(root).DIRECTORY_SEPARATOR;
 		$export_file_name = 'project';
 
 
@@ -101,10 +101,7 @@ class twigTrans
 		file_put_contents(root. "/includes/languages/trans_".$export_file_name.".php", $translation_output);
 
 		echo "</ol><br/><br/><hr/><h1>Finish..!</h1>";
-		if($_update === 'dash')
-		{
-			echo "<strong>Translation file in dash repository is updated</strong>";
-		}
+
 		echo "<p class='msg success2'>Extract string from twig file completed!</p></body></html>";
 	}
 }

@@ -11,8 +11,7 @@ class controller
 		if($mypath)
 		{
 			\dash\log::set('translationRun');
-			echo \dash\utility\twigTrans::extract('current', $myupdate);
-			echo \dash\utility\twigTrans::extract('addons', $myupdate);
+			echo \dash\utility\twigTrans::extract();
 			\dash\code::boom();
 		}
 	}

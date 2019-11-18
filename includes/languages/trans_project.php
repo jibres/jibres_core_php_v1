@@ -2710,10 +2710,6 @@ class twigTransTerms
 	echo T_("Sms client");                                                            // Line 40
 	echo T_("Translation tools");                                                     // Line 114
 
-	//---------------------------\htdocs\Projects\jibres\content_su\linfo\display.html
-	echo T_("First you need to enable COM on windows");                               // Line 5
-	echo T_("Read More");                                                             // Line 7
-
 	//-----------------------------\htdocs\Projects\jibres\content_su\log\display.html
 	echo T_("Show archived");                                                         // Line 40
 

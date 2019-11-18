@@ -1,7 +1,7 @@
 <?php
 namespace dash\engine;
 
-class twigAddons
+class twigFn
 {
 
 	public static function init($_twig)
