@@ -23,6 +23,12 @@
   {%endif%}
 {%endif%}
 
+{%if perm_su()%}
+        <li><a href="{{url.kingdom}}/su" {%if url.content == "su"%} class="activeContent"{%endif%} data-shortkey="83+85" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-heartbeat'></i> <span>{% trans "Supervisor Panel" %}</span></a></li>
+  {%if url.content == "su"%}
+    {%embed "includes/html/sidebar/sidebar-su.html"%}{%endembed%}
+  {%endif%}
+{%endif%}
 
 
 {%if login%}
