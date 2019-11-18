@@ -487,6 +487,10 @@ class upload
 
 		if($duplicate)
 		{
+			if(isset($duplicate['path']))
+			{
+				$duplicate['url'] = \dash\url::site(). '/'. $duplicate['path'];
+			}
 			// in duplicate mode debug
 			if($_options['debug'])
 			{
@@ -642,25 +646,20 @@ class upload
 			$master_file_url = \dash\url::site(). '/'. $url_full;
 		}
 
-		$inset_files_record['url']         = $master_file_url;
 		$inset_files_record['size']        = intval(self::$fileSize);
 		$inset_files_record['status']      = $_options['status'];
 		$inset_files_record['datecreated'] = date("Y-m-d H:i:s");
 
 		$new_id = \dash\db\files::insert($inset_files_record);
 
+		$inset_files_record['url']         = $master_file_url;
+
 		$inset_files_record['id'] = $new_id;
 
 		$url = \dash\temp::get('upload');
 
-		if(isset($url['url']))
-		{
-			$url = $url['url'];
-		}
-		else
-		{
-			$url = null;
-		}
+		$url = $master_file_url;
+
 		\dash\temp::set('upload', ["id" => \dash\db::insert_id(), 'url' => $url, 'size' => self::$fileSize]);
 		if($_options['debug'])
 		{
