@@ -7,7 +7,6 @@ class view
 	public static function config()
 	{
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_css(false);
 
 
 		$myStore = \lib\app\store\mystore::list();
