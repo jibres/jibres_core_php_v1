@@ -702,16 +702,20 @@
     "cat": "ProductTag"
   },
   "productVariantscontentA": {
-    "title": "contentA"
+    "title": "contentA",
+    "cat": "Product"
   },
   "productVariants": {
-    "title": "productVariants"
+    "title": "productVariants",
+    "cat": "Product"
   },
   "ProductEdit": {
-    "title": "ProductEdit"
+    "title": "ProductEdit",
+    "cat": "Product"
   },
   "ProductAdd": {
-    "title": "ProductAdd"
+    "title": "ProductAdd",
+    "cat": "Product"
   },
   "EnterByAnother": {
     "title": "EnterByAnother",
@@ -870,16 +874,20 @@
     ]
   },
   "listOfStores": {
-    "title": "listOfStores"
+    "title": "listOfStores",
+    "cat": "Store"
   },
   "aCustomerView": {
-    "title": "aCustomerView"
+    "title": "aCustomerView",
+    "cat": "Store"
   },
   "aCustomerEdit": {
-    "title": "aCustomerEdit"
+    "title": "aCustomerEdit",
+    "cat": "Store"
   },
   "mClassroomAdd": {
-    "title": "mClassroomAdd"
+    "title": "mClassroomAdd",
+    "cat": "Store"
   },
   "cpPageAdd": {
     "title": "cpPageAdd",
@@ -1191,7 +1199,8 @@
     "require": []
   },
   "cpBackup": {
-    "title": "cpBackup"
+    "title": "cpBackup",
+    "cat": "Backup"
   },
   "contentCp": {
     "title": "contentCp",
@@ -1202,7 +1211,8 @@
     ]
   },
   "contentA": {
-    "title": "contentA"
+    "title": "contentA",
+    "cat": "Admin"
   },
   "supportTicketAddNote": {
     "title": "supportTicketAddNote",
