@@ -3,7 +3,12 @@
 
 {%block pageContent%}
 {%if listStore.owner%}
+{%if listStore.owner | length > 3%}
+  {{block('myStoresOwner3Plus')}}
+{%else%}
   {{block('myStoresOwner')}}
+{%endif%}
+
 {%else%}
   {{block('createYourStore')}}
 {%endif%}
@@ -38,8 +43,40 @@
 {%endblock%}
 
 
-
 {%block myStoresOwner%}
+{%if listStore.owner%}
+<div class="f listOfStores">
+{%for key, value in listStore.owner%}
+  <div class="c6 x4 s12 {%if loop.index is divisibleby(2)%}pLa5{%else%}pRa10{%endif%}">
+    <a href='{{value.url}}/a' class="scardLarge grBlue3">
+      <img src="{{value.logo}}" alt="{{value.title}}">
+      <h2>{{value.title}}</h2>
+      <div class="f summary">
+        <div class="c4">{{184 | fitNumber}} {%trans "Product"%}</div>
+        <div class="c4 pLR5">{{21 | fitNumber}} {%trans "Customer"%}</div>
+        <div class="c4">{{94 | fitNumber}} {%trans "Factor"%}</div>
+      </div>
+      <div class="f meta">
+        <div class="c6 s12 txtLa">{%trans "Last activity"%} {{"now" | dt('human')}}</div>
+        <div class="c6 s12 txtRa">{%trans "Created on"%} {{value.datecreated | dt(false,'date')}}</div>
+      </div>
+      <div class="f meta">
+        <div class="c">
+          <span class="badge {%if admin%}primary{%else%}light{%endif%}">{%trans "Owner"%}</span>
+        </div>
+        <div class="cauto os">
+          <div class="addr ltr"><b>{{value.subdomain}}</b><span>.Jibres.{{url.tld}}</span></div>
+        </div>
+      </div>
+    </a>
+  </div>
+{%endfor%}
+</div>
+{%endif%}
+{%endblock%}
+
+
+{%block myStoresOwner3Plus%}
 {%if listStore.owner%}
 <div class="f listOfStores">
 {%for key, value in listStore.owner%}

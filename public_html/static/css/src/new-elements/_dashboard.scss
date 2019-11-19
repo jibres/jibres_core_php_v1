@@ -24,7 +24,7 @@
 
 // list of stores
 .listOfStores{
-	font-size: 1.5em;
+	font-size: 1.4em;
 	margin-bottom: 1em;
 }
 .scard{
@@ -89,3 +89,50 @@
 	height: 200px;
 	width: 200px;
 }
+
+// large card
+.scardLarge{
+	position: relative;
+	display: block;
+	overflow: hidden;
+	margin:0 auto 1em;
+	padding: 1em;
+	border-radius: 0.3rem;
+	background: linear-gradient(33deg, #41c7af, #54e38e);
+	background: linear-gradient(0, #6cacff, #8debff);
+	color: #fff;
+  	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  	transition: 0.3s;
+  	min-height: 300px;
+  	padding: 20px 1em 10px;
+  	line-height: 30px;
+}
+.scardLarge:hover{
+	color: #efefef;
+}
+.scardLarge:focus{
+	color: #eee;
+}
+.scardLarge img{
+	display: block;
+	margin: 10px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+	border: 5px solid #fff;
+}
+.scardLarge h2{
+	text-align: center;
+	font-weight: 700;
+	line-height: 50px;
+	margin-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.scardLarge .summary .c4{
+	background-color: rgba(255,255,255,0.2);
+	text-align: center;
+}
+
