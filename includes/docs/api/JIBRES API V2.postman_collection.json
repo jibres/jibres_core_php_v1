@@ -77,34 +77,24 @@
 							},
 							{
 								"key": "token",
-								"value": "6f7453a8d661c7f3f78cb8e9e6ecd537",
+								"value": "d1a5482c4d2533bc2b71ba789b825934",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "model",
-									"value": "ssss",
-									"type": "text"
-								},
-								{
-									"key": "serial",
-									"value": "5465546",
-									"type": "text"
-								},
-								{
-									"key": "manufacturer",
-									"value": "dddd",
-									"type": "text"
-								},
-								{
-									"key": "version",
-									"value": "45465",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n\"model\": \"ssss\",\n\"serial\": \"5465546\",\n\"manufacturer\": \"dddd\",\n\"version\": \"45465\"\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://jibres.local/api/v2/y88y/account/android/add",
@@ -465,7 +455,7 @@
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "2340912732e33eb8cfb9ca4c4726c54c"
+								"value": "733f884c43a3edfaa16cb825bec2f014"
 							}
 						],
 						"url": {
@@ -499,7 +489,7 @@
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "2340912732e33eb8cfb9ca4c4726c54c"
+								"value": "733f884c43a3edfaa16cb825bec2f014"
 							}
 						],
 						"url": {
@@ -533,7 +523,7 @@
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "2340912732e33eb8cfb9ca4c4726c54c"
+								"value": "733f884c43a3edfaa16cb825bec2f014"
 							}
 						],
 						"url": {
@@ -571,24 +561,12 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "a02e34c6a1c3052a959b33d2c6d02320"
+								"value": "951ba3c89480e67e0f066184357cbe3f"
 							},
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "1deb0749cf1887e2d41887108a9dcd05",
-								"disabled": true
-							},
-							{
-								"key": "store",
-								"type": "text",
-								"value": "mohiti",
-								"disabled": true
-							},
-							{
-								"key": "apikey",
-								"type": "text",
-								"value": "009fb3e3bdf3fe6a74e6e2921e43b313"
+								"value": "733f884c43a3edfaa16cb825bec2f014"
 							}
 						],
 						"body": {
@@ -647,35 +625,15 @@
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "2340912732e33eb8cfb9ca4c4726c54c"
+								"value": "733f884c43a3edfaa16cb825bec2f014"
 							}
 						],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "model",
-									"value": "ssss",
-									"type": "text"
-								},
-								{
-									"key": "serial",
-									"value": "5465546",
-									"type": "text"
-								},
-								{
-									"key": "manufacturer",
-									"value": "dddd",
-									"type": "text"
-								},
-								{
-									"key": "language",
-									"value": "fa",
-									"type": "text"
-								},
-								{
 									"key": "displayname",
-									"value": "reza",
+									"value": "12",
 									"type": "text"
 								}
 							]
@@ -693,6 +651,57 @@
 								"y88y",
 								"profile",
 								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile Update Avatar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "951ba3c89480e67e0f066184357cbe3f"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "733f884c43a3edfaa16cb825bec2f014"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/home/reza/Desktop/reza.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v2/y88y/profile/update/avatar",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v2",
+								"y88y",
+								"profile",
+								"update",
+								"avatar"
 							]
 						}
 					},
@@ -718,17 +727,22 @@
 								"key": "apikey",
 								"type": "text",
 								"value": "733f884c43a3edfaa16cb825bec2f014"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "title",
-									"value": "abc",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"Sample\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://jibres.local/api/v2/y88y/product/add",
@@ -743,6 +757,138 @@
 								"y88y",
 								"product",
 								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product edit",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "951ba3c89480e67e0f066184357cbe3f"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "733f884c43a3edfaa16cb825bec2f014"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\" : \"SSSSSS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v2/y88y/product/14/edit",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v2",
+								"y88y",
+								"product",
+								"14",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "951ba3c89480e67e0f066184357cbe3f"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "733f884c43a3edfaa16cb825bec2f014"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v2/y88y/product/3",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v2",
+								"y88y",
+								"product",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "951ba3c89480e67e0f066184357cbe3f"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "733f884c43a3edfaa16cb825bec2f014"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v2/y88y/products/list",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v2",
+								"y88y",
+								"products",
+								"list"
 							]
 						}
 					},
