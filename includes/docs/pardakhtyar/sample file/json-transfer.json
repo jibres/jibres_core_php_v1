@@ -1,0 +1,20 @@
+{
+  "settlementDataDetails": [
+    {
+      "acceptorCode": "000000000000004",
+      "iin": 581672111,
+      "paymentFacilitatorIban": "IR000000000000000000000001",
+      "settlementAmount": 2000000,
+      "wageAmount": 1000000,
+      "settlementIban": "IR480700035000114904343001"
+    },
+    {
+      "acceptorCode": "000000000000005",
+      "iin": 581672111,
+      "paymentFacilitatorIban": "IR000000000000000000000004",
+      "settlementAmount": 1000000,
+      "wageAmount": 200000,
+      "settlementIban": "IR000000000000000000000005"
+    }
+  ]
+}
