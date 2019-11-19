@@ -3,6 +3,11 @@
   background-color: #fff;
 }
 
+.siftal[data-in="a"] .cbox{border:1px solid #eee;background-color: #fafafa;}
+.siftal[data-in="a"] .pbox{border:1px solid #eee;margin-bottom: 10px;}
+.siftal[data-in="a"] .pbox header{background-color: #eee;}
+.siftal[data-in="a"] .pbox .body{background-color: #fafafa;border:none;}
+
 img.banner{
   display: block;
   margin: 1em auto 0;
