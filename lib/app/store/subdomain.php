@@ -232,7 +232,7 @@ class subdomain
 
 	private static function blacklist($_subdomain, $_file_name, $_return_file = false)
 	{
-		$file = \dash\file::read(__DIR__. '/blacklist/'. $_file_name. '.txt');
+		$file = \dash\file::read(\autoload::fix_os_path(__DIR__. '/blacklist/'. $_file_name. '.txt'));
 
 		if($file)
 		{
