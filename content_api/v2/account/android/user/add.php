@@ -60,7 +60,7 @@ class add
 
 	private static function check_input()
 	{
-		$model = \dash\request::post('model');
+		$model = \content_api\v2::input_body('model');
 
 		if(!$model)
 		{
@@ -76,7 +76,7 @@ class add
 			return false;
 		}
 
-		$serial = \dash\request::post('serial');
+		$serial = \content_api\v2::input_body('serial');
 
 		if(!$serial)
 		{
@@ -92,7 +92,7 @@ class add
 			return false;
 		}
 
-		$manufacturer = \dash\request::post('manufacturer');
+		$manufacturer = \content_api\v2::input_body('manufacturer');
 
 		if(!$manufacturer)
 		{
@@ -108,7 +108,7 @@ class add
 			return false;
 		}
 
-		$version = \dash\request::post('version');
+		$version = \content_api\v2::input_body('version');
 		if(!$version)
 		{
 			\dash\notif::error(T_("Version"). ' '. T_("not set"));
@@ -122,49 +122,49 @@ class add
 			return false;
 		}
 
-		$hardware = \dash\request::post('hardware');
+		$hardware = \content_api\v2::input_body('hardware');
 		if(mb_strlen($hardware) > 50)
 		{
 			\dash\notif::error(T_("hardware"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$type = \dash\request::post('type');
+		$type = \content_api\v2::input_body('type');
 		if(mb_strlen($type) > 50)
 		{
 			\dash\notif::error(T_("type"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$board = \dash\request::post('board');
+		$board = \content_api\v2::input_body('board');
 		if(mb_strlen($board) > 100)
 		{
 			\dash\notif::error(T_("board"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$id = \dash\request::post('id');
+		$id = \content_api\v2::input_body('id');
 		if(mb_strlen($id) > 100)
 		{
 			\dash\notif::error(T_("id"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$product = \dash\request::post('product');
+		$product = \content_api\v2::input_body('product');
 		if(mb_strlen($product) > 100)
 		{
 			\dash\notif::error(T_("product"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$device = \dash\request::post('device');
+		$device = \content_api\v2::input_body('device');
 		if(mb_strlen($device) > 100)
 		{
 			\dash\notif::error(T_("device"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$brand = \dash\request::post('brand');
+		$brand = \content_api\v2::input_body('brand');
 		if(mb_strlen($brand) > 100)
 		{
 			\dash\notif::error(T_("brand"). ' '. T_("is out of range"));

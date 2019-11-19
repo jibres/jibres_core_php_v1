@@ -48,8 +48,8 @@ class controller
 	private static function new_store()
 	{
 		$post              = [];
-		$post['title']     = \dash\request::post('title');
-		$post['subdomain'] = \dash\request::post('subdomain');
+		$post['title']     = \content_api\v2::input_body('title');
+		$post['subdomain'] = \content_api\v2::input_body('subdomain');
 
 		$polls = \lib\app\store\polls::all();
 
@@ -61,7 +61,7 @@ class controller
 			{
 				if(isset($question['id']))
 				{
-					$answer = \dash\request::post($question['id']);
+					$answer = \content_api\v2::input_body($question['id']);
 					if($answer && is_string($answer))
 					{
 						if(isset($question['items']) && is_array($question['items']))

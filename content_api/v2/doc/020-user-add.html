@@ -237,17 +237,7 @@ curl -X POST \
   {{CustomerApiURL}}account/android/add \
   -H 'appkey: {{myAppKey}}' \
   -H 'token: ec8e69c19ebb7c202ae1097aa40484e0' \
-  -F 'model=HUAWEI Y560-U02' \
-  -F 'serial=60D15B27D1259123456' \
-  -F 'manufacturer=HUAWEI' \
-  -F 'version=19' \
-  -F 'hardware=sc8830' \
-  -F 'type=user' \
-  -F 'board=HUAWEI' \
-  -F 'id=>HUAWEIY560-U02' \
-  -F 'product=Y560-U02' \
-  -F 'device=HWY560-U' \
-  -F 'brand=HUAWEI'
+  -d '{"model": "HUAWEI Y560-U02", "serial": "60D15B27D1259123456", "manufacturer": "HUAWEI", "version": "19","hardware": "sc8830","type": "user","board": "HUAWEI","id": ">HUAWEIY560-U02","product": "Y560-U02","device": "HWY560-U","brand": "HUAWEI"}'
 </pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>

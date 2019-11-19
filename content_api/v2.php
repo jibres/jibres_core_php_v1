@@ -4,8 +4,9 @@ namespace content_api;
 
 class v2
 {
-	public static $v2 = [];
-
+	public static $v2             = [];
+	private static $REQUEST       = [];
+	private static $request_check = false;
 
 	public static function master_check()
 	{
@@ -238,6 +239,51 @@ class v2
 	{
 		\dash\app\apilog::save($_result);
 		\dash\notif::api($_result);
+	}
+
+
+	public static function input_body($_name = null)
+	{
+		if(!self::$request_check)
+		{
+			self::$request_check = true;
+
+			if(\dash\request::post())
+			{
+				\dash\notif::warn(T_("Send your request as json not in post field"));
+			}
+
+			$request = @file_get_contents('php://input');
+			if(is_string($request))
+			{
+				$request = json_decode($request, true);
+			}
+
+			if(!is_array($request))
+			{
+				$request = [];
+			}
+
+			$request = \dash\safe::safe($request, 'sqlinjection');
+
+			self::$REQUEST = $request;
+		}
+
+		if(isset($_name))
+		{
+			if(array_key_exists($_name, self::$REQUEST))
+			{
+				return self::$REQUEST[$_name];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return self::$REQUEST;
+		}
 	}
 }
 ?>

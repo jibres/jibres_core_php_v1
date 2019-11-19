@@ -30,7 +30,7 @@ class controller
 						\content_api\v2::invalid_url();
 					}
 
-					\content_api\v2\product\add::route();
+					\content_api\v2\product\add::route_add();
 					break;
 
 				default:
@@ -42,6 +42,14 @@ class controller
 						{
 							case 'comment':
 								# code...
+								break;
+
+							case 'edit':
+								if(\dash\url::dir(5))
+								{
+									\content_api\v2::invalid_url();
+								}
+								\content_api\v2\product\add::route_edit($product_id);
 								break;
 
 							case null:

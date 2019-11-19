@@ -128,13 +128,9 @@
 <pre>
 curl -X POST \
   {{JibresApiURL}}store/add \
-  -H 'appkey: {{myAppKey}}'
-  -H 'apikey: {{myApiKey}}'
-  -F title=xxxsdfdsf \
-  -F subdomain=sdfdsfsdfdxxd \
-  -F Q1=1 \
-  -F Q2=3 \
-  -F Q3=2
+  -H 'appkey: {{myAppKey}}' \
+  -H 'apikey: {{myApiKey}}' \
+  -d {"title":"My Store name","subdomain":"mohiti","Q1":1, "Q2": 3}'
 </pre>
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>

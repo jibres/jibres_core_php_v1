@@ -271,8 +271,7 @@ curl -X POST \
   {{CustomerApiURL}}profile/update \
   -H 'appkey: {{myAppKey}}' \
   -H 'apikey: {{myApiKey}}' \
-  -F 'username=biqarar'\
-  -F 'bio=programing is my life'
+  -d '{"username": "biqarar", "bio": "programing is my life"}'
 </pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>

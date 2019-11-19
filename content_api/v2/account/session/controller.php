@@ -92,7 +92,7 @@ class controller
 
 	private static function terminate_session()
 	{
-		if(\dash\request::post('type') === 'terminateall')
+		if(\content_api\v2::input_body('type') === 'terminateall')
 		{
 			\dash\db\sessions::terminate_all_other(\dash\user::id());
 			\dash\log::set('APIsessionTerminateAll');
@@ -100,9 +100,9 @@ class controller
 			return true;
 		}
 
-		if(\dash\request::post('type') === 'terminate')
+		if(\content_api\v2::input_body('type') === 'terminate')
 		{
-			$session_id = \dash\request::post('id');
+			$session_id = \content_api\v2::input_body('id');
 
 			if($session_id && \dash\coding::is($session_id))
 			{

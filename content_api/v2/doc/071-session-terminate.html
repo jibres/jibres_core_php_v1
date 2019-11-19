@@ -105,8 +105,7 @@ curl -X POST \
   {{CustomerApiURL}}account/session \
   -H 'apikey: {{myApiKey}}' \
   -H 'appkey: {{myAppKey}}' \
-  -F 'type=terminate' \
-  -F 'id=3N'
+  -d '{"type":"terminate", "id": "3N"}'
 </pre>
 
 <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>

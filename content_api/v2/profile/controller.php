@@ -148,88 +148,88 @@ class controller
 
 		// if(array_key_exists('twostep', $_POST))
 		// {
-		// 	$post['twostep']     = \dash\request::post('twostep');
+		// 	$post['twostep']     = \content_api\v2::input_body('twostep');
 		// }
 
 		// if(array_key_exists('sidebar', $_POST))
 		// {
-		// 	$post['sidebar']     = \dash\request::post('sidebar') ? true : false;
+		// 	$post['sidebar']     = \content_api\v2::input_body('sidebar') ? true : false;
 		// }
 
 		if(array_key_exists('language', $_POST))
 		{
-			$post['language']    = \dash\request::post('language');
+			$post['language']    = \content_api\v2::input_body('language');
 		}
 
 		if(array_key_exists('website', $_POST))
 		{
-			$post['website']     = \dash\request::post('website');
+			$post['website']     = \content_api\v2::input_body('website');
 		}
 
 		if(array_key_exists('instagram', $_POST))
 		{
-			$post['instagram']   = \dash\request::post('instagram');
+			$post['instagram']   = \content_api\v2::input_body('instagram');
 		}
 
 		if(array_key_exists('linkedin', $_POST))
 		{
-			$post['linkedin']    = \dash\request::post('linkedin');
+			$post['linkedin']    = \content_api\v2::input_body('linkedin');
 		}
 
 		if(array_key_exists('facebook', $_POST))
 		{
-			$post['facebook']    = \dash\request::post('facebook');
+			$post['facebook']    = \content_api\v2::input_body('facebook');
 		}
 
 		if(array_key_exists('twitter', $_POST))
 		{
-			$post['twitter']     = \dash\request::post('twitter');
+			$post['twitter']     = \content_api\v2::input_body('twitter');
 		}
 
 		if(array_key_exists('firstname', $_POST))
 		{
-			$post['firstname']   = \dash\request::post('firstname');
+			$post['firstname']   = \content_api\v2::input_body('firstname');
 		}
 
 		if(array_key_exists('lastname', $_POST))
 		{
-			$post['lastname']    = \dash\request::post('lastname');
+			$post['lastname']    = \content_api\v2::input_body('lastname');
 		}
 
 		if(array_key_exists('username', $_POST))
 		{
-			$post['username']    = \dash\request::post('username');
+			$post['username']    = \content_api\v2::input_body('username');
 		}
 
 		if(array_key_exists('title', $_POST))
 		{
-			$post['title']       = \dash\request::post('title');
+			$post['title']       = \content_api\v2::input_body('title');
 		}
 
 		if(array_key_exists('bio', $_POST))
 		{
-			$post['bio']         = \dash\request::post('bio');
+			$post['bio']         = \content_api\v2::input_body('bio');
 		}
 
 		if(array_key_exists('displayname', $_POST))
 		{
-			$post['displayname'] = \dash\request::post('displayname');
+			$post['displayname'] = \content_api\v2::input_body('displayname');
 		}
 
 		if(array_key_exists('birthday', $_POST))
 		{
-			$post['birthday']    = \dash\request::post('birthday');
+			$post['birthday']    = \content_api\v2::input_body('birthday');
 		}
 
 
 		if(array_key_exists('gender', $_POST))
 		{
-			$post['gender']      = \dash\request::post('gender');
+			$post['gender']      = \content_api\v2::input_body('gender');
 		}
 
 		if(array_key_exists('email', $_POST))
 		{
-			$post['email']       = \dash\request::post('email');
+			$post['email']       = \content_api\v2::input_body('email');
 		}
 
 		if($_get_avatar)

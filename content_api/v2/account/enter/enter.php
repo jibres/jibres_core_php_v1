@@ -127,7 +127,7 @@ class enter
 
 	private static function check_input()
 	{
-		$mobile = \dash\request::post('mobile');
+		$mobile = \content_api\v2::input_body('mobile');
 		if(!$mobile)
 		{
 			\dash\notif::error(T_("Mobile not set"), 'mobile');
@@ -141,7 +141,7 @@ class enter
 			return false;
 		}
 
-		$verifycode = \dash\request::post('verifycode');
+		$verifycode = \content_api\v2::input_body('verifycode');
 		if($verifycode)
 		{
 			if(!is_numeric($verifycode))
