@@ -170,8 +170,9 @@ class language
 			self::$language = self::get(self::$language_default, 'all');
 		}
 
+
 		// use php gettext function
-		require_once(core.'engine/i18n/translator.inc');
+		require_once(core.'engine/i18n/translator.php');
 		// if we have iso then trans
 		if(isset(self::$language['iso']))
 		{
@@ -182,6 +183,7 @@ class language
 			T_bind_textdomain_codeset('messages', 'UTF-8');
 			T_textdomain('messages');
 		}
+putenv('LANGUAGE=en_US');
 	}
 
 
