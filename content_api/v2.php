@@ -169,6 +169,12 @@ class v2
 			\dash\user::init($get['user_id']);
 		}
 
+		if(!\lib\user::id())
+		{
+			\lib\user::init();
+		}
+
+
 		return true;
 	}
 

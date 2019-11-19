@@ -14,6 +14,8 @@ class controller
 	{
 		$detail    = [];
 
+		\content_api\v2::check_apikey();
+
 		$dir_2 = \dash\url::dir(2);
 
 		if($dir_2 === 'product')
