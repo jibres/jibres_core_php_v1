@@ -1,13 +1,13 @@
 <div class="cbox" id='smile'>
 
   <h2 class="f" data-kerkere='#smile-detail' data-kerkere-icon='open'>
-    <div class="cauto pRa10"><span class="badge primary">POST</span></div>
+    <div class="cauto pRa10"><span class="badge primary">GET</span></div>
     <div>{%trans "Get notification count"%}</div>
   </h2>
   <div id="smile-detail">
     <p>{%trans "To get this user have notification or no"%}</p>
     <div class="msg url">
-      <i class="method">POST</i>
+      <i class="method">GET</i>
       <span>{{CustomerApiURL}}<b>account/smile</b></span>
     </div>
 
@@ -59,7 +59,7 @@
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
-curl -X POST \
+curl -X GET \
   {{CustomerApiURL}}account/smile \
   -H 'apikey: {{myApiKey}}' \
   -H 'appkey: {{myAppKey}}'

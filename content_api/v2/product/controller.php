@@ -18,53 +18,46 @@ class controller
 
 		$dir_2 = \dash\url::dir(2);
 
-		if($dir_2 === 'product')
+		if($dir_2 !== 'product')
 		{
-			$dir_3 = \dash\url::dir(3);
+			\content_api\v2::invalid_url();
+		}
 
-			switch ($dir_3)
+
+		$dir_3 = \dash\url::dir(3);
+		$product_id = \dash\url::dir(3);
+
+		if($dir_3 === 'add')
+		{
+			if(\dash\url::dir(4))
 			{
-				case 'add':
-					if(\dash\url::dir(4))
+				\content_api\v2::invalid_url();
+			}
+
+			\content_api\v2\product\add::route_add();
+		}
+		elseif(is_numeric($product_id) && intval($product_id) > 0 && !\dash\number::is_larger($product_id, 9999999999))
+		{
+			switch (\dash\url::dir(4))
+			{
+				case 'comment':
+					# code...
+					break;
+
+				case 'edit':
+					if(\dash\url::dir(5))
 					{
 						\content_api\v2::invalid_url();
 					}
+					\content_api\v2\product\add::route_edit($product_id);
+					break;
 
-					\content_api\v2\product\add::route_add();
+				case null:
+					\content_api\v2\product\get::route($product_id);
 					break;
 
 				default:
-					$product_id = \dash\url::dir(3);
-
-					if(is_numeric($product_id) && intval($product_id) > 0 && !\dash\number::is_larger($product_id, 9999999999))
-					{
-						switch (\dash\url::dir(4))
-						{
-							case 'comment':
-								# code...
-								break;
-
-							case 'edit':
-								if(\dash\url::dir(5))
-								{
-									\content_api\v2::invalid_url();
-								}
-								\content_api\v2\product\add::route_edit($product_id);
-								break;
-
-							case null:
-								\content_api\v2\product\get::route($product_id);
-								break;
-
-							default:
-								\content_api\v2::invalid_url();
-								break;
-						}
-					}
-					else
-					{
-						\content_api\v2::invalid_url();
-					}
+					\content_api\v2::invalid_url();
 					break;
 			}
 		}
@@ -72,6 +65,8 @@ class controller
 		{
 			\content_api\v2::invalid_url();
 		}
+
+
 
 		// if($dir === 'v2/product/unit')
 		// {

@@ -285,5 +285,17 @@ class v2
 			return self::$REQUEST;
 		}
 	}
+
+
+	public static function isset_input_body($_name)
+	{
+		self::input_body();
+
+		if(array_key_exists($_name, self::$REQUEST))
+		{
+			return true;
+		}
+		return false;
+	}
 }
 ?>

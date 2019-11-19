@@ -18,6 +18,11 @@ class controller
 
 		\content_api\v2::check_apikey();
 
+		if(!\dash\request::is('get'))
+		{
+			\content_api\v2::invalid_method();
+		}
+
 		$smile = self::smile();
 
 		\content_api\v2::say($smile);

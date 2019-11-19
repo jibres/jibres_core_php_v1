@@ -34,9 +34,7 @@ class add
 	private static function edit($_product_id)
 	{
 		$post = self::get_post();
-		parse_str(file_get_contents('php://input'), $_PATCH);
-		j($_PATCH);
-		j(file_get_contents("php://input"));
+
 		$result = \lib\app\product\edit::edit($post, $_product_id);
 
 		if(!$result)
@@ -66,41 +64,42 @@ class add
 	private static function get_post()
 	{
 		$post                    = [];
-		$post['title']           = \content_api\v2::input_body('title');
-		$post['desc']            = \content_api\v2::input_body('desc') ? $_POST['desc'] : null;
-		$post['buyprice']        = \content_api\v2::input_body('buyprice');
-		$post['price']           = \content_api\v2::input_body('price');
-		$post['discount']        = \content_api\v2::input_body('discount');
-		$post['vat']             = \content_api\v2::input_body('vat');
-		$post['sku']             = \content_api\v2::input_body('sku');
-		$post['code']            = \content_api\v2::input_body('code');
-		$post['barcode']         = \content_api\v2::input_body('barcode');
-		$post['barcode2']        = \content_api\v2::input_body('barcode2');
-		$post['infinite']        = \content_api\v2::input_body('infinite');
-		$post['gallery']         = \content_api\v2::input_body('gallery');
-		$post['weight']          = \content_api\v2::input_body('weight');
-		$post['weightunit']      = \content_api\v2::input_body('weightunit');
-		$post['seotitle']        = \content_api\v2::input_body('seotitle');
-		$post['slug']            = \content_api\v2::input_body('slug');
-		$post['type']            = \content_api\v2::input_body('type');
-		$post['seodesc']         = \content_api\v2::input_body('seodesc');
-		$post['saleonline']      = \content_api\v2::input_body('saleonline');
-		$post['saletelegram']    = \content_api\v2::input_body('saletelegram');
-		$post['saleapp']         = \content_api\v2::input_body('saleapp');
-		$post['publishdatetype'] = \content_api\v2::input_body('publishdatetype');
-		$post['publishdate']     = \content_api\v2::input_body('publishdate');
-		$post['publishtime']     = \content_api\v2::input_body('publishtime');
-		$post['company']         = \content_api\v2::input_body('company');
-		$post['scalecode']       = \content_api\v2::input_body('scalecode');
-		$post['status']          = \content_api\v2::input_body('status');
-		$post['minsale']         = \content_api\v2::input_body('minsale');
-		$post['maxsale']         = \content_api\v2::input_body('maxsale');
-		$post['salestep']        = \content_api\v2::input_body('salestep');
-		$post['oversale']        = \content_api\v2::input_body('oversale');
-		$post['company']         = \content_api\v2::input_body('company');
-		$post['unit']            = \content_api\v2::input_body('unit');
-		$post['category']        = \content_api\v2::input_body('cat');
-		$post['tag']             = \content_api\v2::input_body('tag');
+
+		if(\content_api\v2::isset_input_body('title')) 				$post['title']           = \content_api\v2::input_body('title');
+		if(\content_api\v2::isset_input_body('desc')) 				$post['desc']            = \content_api\v2::input_body('desc') ? $_POST['desc'] : null;
+		if(\content_api\v2::isset_input_body('buyprice')) 			$post['buyprice']        = \content_api\v2::input_body('buyprice');
+		if(\content_api\v2::isset_input_body('price')) 				$post['price']           = \content_api\v2::input_body('price');
+		if(\content_api\v2::isset_input_body('discount')) 			$post['discount']        = \content_api\v2::input_body('discount');
+		if(\content_api\v2::isset_input_body('vat')) 				$post['vat']             = \content_api\v2::input_body('vat');
+		if(\content_api\v2::isset_input_body('sku')) 				$post['sku']             = \content_api\v2::input_body('sku');
+		if(\content_api\v2::isset_input_body('code')) 				$post['code']            = \content_api\v2::input_body('code');
+		if(\content_api\v2::isset_input_body('barcode')) 			$post['barcode']         = \content_api\v2::input_body('barcode');
+		if(\content_api\v2::isset_input_body('barcode2')) 			$post['barcode2']        = \content_api\v2::input_body('barcode2');
+		if(\content_api\v2::isset_input_body('infinite')) 			$post['infinite']        = \content_api\v2::input_body('infinite');
+		if(\content_api\v2::isset_input_body('gallery')) 			$post['gallery']         = \content_api\v2::input_body('gallery');
+		if(\content_api\v2::isset_input_body('weight')) 			$post['weight']          = \content_api\v2::input_body('weight');
+		if(\content_api\v2::isset_input_body('weightunit')) 		$post['weightunit']      = \content_api\v2::input_body('weightunit');
+		if(\content_api\v2::isset_input_body('seotitle')) 			$post['seotitle']        = \content_api\v2::input_body('seotitle');
+		if(\content_api\v2::isset_input_body('slug')) 				$post['slug']            = \content_api\v2::input_body('slug');
+		if(\content_api\v2::isset_input_body('type')) 				$post['type']            = \content_api\v2::input_body('type');
+		if(\content_api\v2::isset_input_body('seodesc')) 			$post['seodesc']         = \content_api\v2::input_body('seodesc');
+		if(\content_api\v2::isset_input_body('saleonline')) 		$post['saleonline']      = \content_api\v2::input_body('saleonline');
+		if(\content_api\v2::isset_input_body('saletelegram')) 		$post['saletelegram']    = \content_api\v2::input_body('saletelegram');
+		if(\content_api\v2::isset_input_body('saleapp')) 			$post['saleapp']         = \content_api\v2::input_body('saleapp');
+		if(\content_api\v2::isset_input_body('publishdatetype')) 	$post['publishdatetype'] = \content_api\v2::input_body('publishdatetype');
+		if(\content_api\v2::isset_input_body('publishdate')) 		$post['publishdate']     = \content_api\v2::input_body('publishdate');
+		if(\content_api\v2::isset_input_body('publishtime')) 		$post['publishtime']     = \content_api\v2::input_body('publishtime');
+		if(\content_api\v2::isset_input_body('company')) 			$post['company']         = \content_api\v2::input_body('company');
+		if(\content_api\v2::isset_input_body('scalecode')) 			$post['scalecode']       = \content_api\v2::input_body('scalecode');
+		if(\content_api\v2::isset_input_body('status')) 			$post['status']          = \content_api\v2::input_body('status');
+		if(\content_api\v2::isset_input_body('minsale')) 			$post['minsale']         = \content_api\v2::input_body('minsale');
+		if(\content_api\v2::isset_input_body('maxsale')) 			$post['maxsale']         = \content_api\v2::input_body('maxsale');
+		if(\content_api\v2::isset_input_body('salestep')) 			$post['salestep']        = \content_api\v2::input_body('salestep');
+		if(\content_api\v2::isset_input_body('oversale')) 			$post['oversale']        = \content_api\v2::input_body('oversale');
+		if(\content_api\v2::isset_input_body('company')) 			$post['company']         = \content_api\v2::input_body('company');
+		if(\content_api\v2::isset_input_body('unit')) 				$post['unit']            = \content_api\v2::input_body('unit');
+		if(\content_api\v2::isset_input_body('cat')) 				$post['category']        = \content_api\v2::input_body('cat');
+		if(\content_api\v2::isset_input_body('tag')) 				$post['tag']             = \content_api\v2::input_body('tag');
 
 		return $post;
 	}

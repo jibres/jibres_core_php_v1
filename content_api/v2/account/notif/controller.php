@@ -16,6 +16,11 @@ class controller
 			\content_api\v2::invalid_url();
 		}
 
+		if(!\dash\request::is('get'))
+		{
+			\content_api\v2::invalid_method();
+		}
+
 		\content_api\v2::check_apikey();
 
 		$notif = self::notif();
