@@ -199,6 +199,15 @@
 
 
 {%block htmlStartAddNew%}
-<p class="fs14 msg success2 pTB20">{%trans "Hi!"%} <a href="{{url.that}}/add">{%trans "Try to start with add new product!"%}</a></p>
+
+<div class="fs14 msg info2 pTB20">
+  <p>{%trans "Hi!"%}</p>
+  <p>{%trans "First step to set up your online store is add products."%} {%trans "After add products, you can sell them to your customers."%}</p>
+  <p><a href="{{url.that}}/add">{%trans "Try to start with add new product!"%}</a></p>
+
+</div>
+
+<img class="banner" src="{{url.static}}/img/product/camera1.png" align='{%trans "add new product"%}'>
+
 {%endblock%}
 
