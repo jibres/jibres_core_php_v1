@@ -34,7 +34,29 @@ class controller
 					break;
 
 				default:
-					\content_api\v2::invalid_url();
+					$product_id = \dash\url::dir(3);
+
+					if(is_numeric($product_id) && intval($product_id) > 0 && !\dash\number::is_larger($product_id, 9999999999))
+					{
+						switch (\dash\url::dir(4))
+						{
+							case 'comment':
+								# code...
+								break;
+
+							case null:
+								\content_api\v2\product\get::route($product_id);
+								break;
+
+							default:
+								\content_api\v2::invalid_url();
+								break;
+						}
+					}
+					else
+					{
+						\content_api\v2::invalid_url();
+					}
 					break;
 			}
 		}

@@ -4,41 +4,24 @@ namespace content_api\v2\product;
 
 class get
 {
-	public static function route()
+	public static function route($_product_id)
 	{
 		if(\dash\request::is('get'))
 		{
-			return self::get();
+			$result = self::get_one($_product_id);
+			\content_api\v2::say($result);
 		}
 		else
 		{
-			\content_api\v2::stop(405);
+			\content_api\v2::invalid_method();
 		}
 	}
 
-	private static function get()
+
+	private static function get_one($_product_id)
 	{
-
-		$args =
-		[
-			'order'        => \dash\request::get('order'),
-			'sort'         => \dash\request::get('sort'),
-			'barcode'      => \dash\request::get('barcode'),
-			'filter'       => [],
-		];
-
-		if(\dash\request::get('duplicatetitle')) $args['filter']['duplicatetitle']   = true;
-		if(\dash\request::get('hbarcode')) 		 $args['filter']['hbarcode'] 		 = true;
-		if(\dash\request::get('hnotbarcode')) 	 $args['filter']['hnotbarcode'] 	 = true;
-		if(\dash\request::get('wbuyprice')) 	 $args['filter']['wbuyprice'] 	 	 = true;
-		if(\dash\request::get('wprice')) 		 $args['filter']['wprice'] 		 	 = true;
-		if(\dash\request::get('wdiscount')) 	 $args['filter']['wdiscount'] 	 	 = true;
-
-		$search_string = \dash\request::get('q');
-
-		$myProductList = \lib\app\product\search::variant_list($search_string, $args);
-
-		return $myProductList;
+		$detail = \lib\app\product\load::one($_product_id);
+		return $detail;
 	}
 }
 ?>

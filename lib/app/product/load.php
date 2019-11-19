@@ -28,10 +28,15 @@ class load
 
 
 	// load one product by id in query string url
-	public static function one()
+	public static function one($_id = null)
 	{
-		// get id from url
-		$id = \dash\request::get('id');
+		$id = $_id;
+
+		if(!$id)
+		{
+			// get id from url
+			$id = \dash\request::get('id');
+		}
 
 		// load detail
 		$detail = \lib\app\product\get::get($id, ['load_gallery' => true]);
