@@ -1,0 +1,24 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+
+<div class="msg info2 fs14">
+{%trans "You can export your products to a CSV file to help with several tasks."%}
+  <ul class="list">
+    <li>{%trans "Creating a backup of your products."%}</li>
+    <li>{%trans "Moving your existing products to a new Jibres store."%}</li>
+    <li>{%trans "Editing your products in bulk using a spreadsheet."%}</li>
+  </ul>
+</div>
+
+<p class="msg info2 fs14">{%trans "If you want to transfer a large amount of product information between Jibres and another system, then you can use a specially-formatted spreadsheet to import or export that data. Jibres uses CSV (comma-separated value) files to perform this kind of bulk task."%}</p>
+
+<p class="msg primary2 fs14">{%trans "If you export up to 50 products, then the CSV file is downloaded by your browser. If you export 51 or more products, then the CSV file is emailed to you."%} {%trans "If you aren't the store owner, then the file is sent to the store owner's email as well."%}</p>
+
+
+<img class="banner w300" src="{{url.static}}/img/product/export1.png" align='{%trans "import products"%}'>
+
+
+{%endblock%}
+
