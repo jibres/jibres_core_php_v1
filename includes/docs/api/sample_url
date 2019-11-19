@@ -19,7 +19,7 @@ https://developers.jibres.com/api/v1/$STORE ------------------------- OK
 
 ++++++++++++++++++++++++++++++++++++ Admin Actions
 >> product/add ------------------------------------------------------ OK
->> product/$PRODUCT/edit --------------------------------------------
+>> product/$PRODUCT/edit -------------------------------------------- OK
 >> product/$PRODUCT/gallery
 >> product/$PRODUCT/remove
 >> product/$PRODUCT/varient
@@ -32,7 +32,7 @@ https://developers.jibres.com/api/v1/$STORE ------------------------- OK
 >> products/category/$CATEGORY
 >> products/collection/$COLLECTION
 >> products/tag/$TAG
->> products/company/$TAG
+>> products/company/$COMPANY
 >> products/search?q=$QUERY&tag=$TAG&...
 
 
