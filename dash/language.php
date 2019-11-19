@@ -183,7 +183,6 @@ class language
 			T_bind_textdomain_codeset('messages', 'UTF-8');
 			T_textdomain('messages');
 		}
-putenv('LANGUAGE=en_US');
 	}
 
 
