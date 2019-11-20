@@ -3,33 +3,33 @@ CREATE TABLE IF NOT EXISTS `store_timeline` (
 `store_id` int(10) UNSIGNED NULL,
 
 `login` datetime NULL,
-`login_diff` smallint(4) NULL,
+`login_diff` int(10) UNSIGNED NULL,
 
 `start` datetime NULL,
-`start_diff` smallint(4) NULL,
+`start_diff` int(10) UNSIGNED NULL,
 
 `ask` datetime NULL,
-`ask_diff` smallint(4) NULL,
+`ask_diff` int(10) UNSIGNED NULL,
 
 `subdomain` datetime NULL,
-`subdomain_diff` smallint(4) NULL,
+`subdomain_diff` int(10) UNSIGNED NULL,
 
 `creating` datetime NULL,
-`creating_diff` smallint(4) NULL,
+`creating_diff` int(10) UNSIGNED NULL,
 
 `startcreate` datetime NULL,
-`startcreate_diff` smallint(4) NULL,
+`startcreate_diff` int(10) UNSIGNED NULL,
 
 `endcreate` datetime NULL,
-`endcreate_diff` smallint(4) NULL,
+`endcreate_diff` int(10) UNSIGNED NULL,
 
 `opening` datetime NULL,
-`opening_diff` smallint(4) NULL,
+`opening_diff` int(10) UNSIGNED NULL,
 
 `loadstore` datetime NULL,
-`loadstore_diff` smallint(4) NULL,
+`loadstore_diff` int(10) UNSIGNED NULL,
 
-`userstore` datetime NULL,
+`users` datetime NULL,
 `productcompany` datetime NULL,
 `productunit` datetime NULL,
 `products` datetime NULL,
