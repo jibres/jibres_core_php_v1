@@ -11,6 +11,7 @@ class view
 		$subdomain = \dash\session::get('myNewStoreSubdomain');
 
 		\lib\app\store\timeline::set('opening', \dash\session::get('myNewStoreID'));
+		\lib\app\store\timeline::clean();
 
 		if($subdomain)
 		{

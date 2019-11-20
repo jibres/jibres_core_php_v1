@@ -25,6 +25,8 @@ class model
 
 			\dash\session::set('createNewStore_title', $title, 'CreateNewStore');
 
+			\lib\app\store\timeline::clean();
+
 			\lib\app\store\timeline::set('start');
 
 			\dash\redirect::to(\dash\url::here(). '/ask');
