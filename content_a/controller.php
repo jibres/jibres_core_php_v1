@@ -32,13 +32,19 @@ class controller
 
 	private static function check_setup_page()
 	{
-		if(\dash\url::module() !== 'setup')
+		$check_once = \dash\session::get('checkStoreSetupOnce');
+		if(!$check_once)
 		{
-			$complete = \lib\app\setting\setup::complete();
-			if(!$complete)
+			\dash\session::set('checkStoreSetupOnce', true);
+
+			if(\dash\url::module() !== 'setup')
 			{
-				$url = \dash\url::here(). '/setup';
-				\dash\redirect::to($url);
+				$complete = \lib\app\setting\setup::complete();
+				if(!$complete)
+				{
+					$url = \dash\url::here(). '/setup';
+					\dash\redirect::to($url);
+				}
 			}
 		}
 	}
