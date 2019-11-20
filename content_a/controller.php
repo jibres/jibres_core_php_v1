@@ -22,9 +22,8 @@ class controller
 		\dash\permission::access('contentA');
 
 		// \lib\app\store\timeline::set('loadstore', \lib\store::id());
-		\dash\session::set('myNewStoreSubdomain', null);
-		\dash\session::set('myNewStoreID', null);
-		\lib\app\store\timeline::clean();
+		\dash\session::clean('myNewStoreSubdomain');
+		\dash\session::clean('myNewStoreID');
 
 	}
 }
