@@ -48,7 +48,7 @@ class controller
 			{
 				\dash\notif::warn(T_("Your cookies may have been blocked"). ' '. T_("You need to enable cookie for usign this service"));
 			}
-			$_SESSION['your_cookie_is_blocked'] = true;
+			$_SESSION['check_cookie_is_blocked'] = true;
 		}
 	}
 
