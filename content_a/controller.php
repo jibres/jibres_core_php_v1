@@ -25,6 +25,22 @@ class controller
 		\dash\session::clean('myNewStoreSubdomain');
 		\dash\session::clean('myNewStoreID');
 
+		self::check_setup_page();
+
+	}
+
+
+	private static function check_setup_page()
+	{
+		if(\dash\url::module() !== 'setup')
+		{
+			$complete = \lib\app\setting\setup::complete();
+			if(!$complete)
+			{
+				$url = \dash\url::here(). '/setup';
+				\dash\redirect::to($url);
+			}
+		}
 	}
 }
 ?>
