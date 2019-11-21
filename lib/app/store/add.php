@@ -44,7 +44,7 @@ class add
 
 			if($count_store_free >= 3)
 			{
-				$msg = T_("You can not have more than two free or trial stores."). ' '. T_("Contact Us if you need more stores");
+				$msg = T_("You can not have more than 3 free or trial stores."). ' '. T_("Contact Us if you need more stores");
 
 				\dash\notif::code(1418);
 				if($_notif)
@@ -71,7 +71,7 @@ class add
 	}
 
 
-	public static function trial($_args)
+	public static function free($_args)
 	{
 		\dash\app::variable($_args);
 
@@ -123,8 +123,8 @@ class add
 		$args['title']       = $title;
 		$args['subdomain']   = $subdomain;
 		$args['startplan']   = date("Y-m-d H:i:s");
-		$args['expireplan']  = date("Y-m-d H:i:s", strtotime("+14 days"));
-		$args['plan']        = 'trial';
+		$args['expireplan']  = null;
+		$args['plan']        = 'free';
 
 		// use in insert customer user table
 		$args['mobile']      = \dash\user::detail('mobile');

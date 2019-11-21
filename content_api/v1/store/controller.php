@@ -80,7 +80,7 @@ class controller
 		\lib\app\store\timeline::set('start');
 		\lib\app\store\timeline::set('startcreate');
 
-		$result = \lib\app\store\add::trial($post);
+		$result = \lib\app\store\add::free($post);
 
 		\lib\app\store\timeline::set('endcreate');
 

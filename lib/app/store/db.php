@@ -73,12 +73,12 @@ class db
 
 		$set_setting = [];
 
-		$set_setting[] = self::make_setting_record('store_data', 'owner', 			$_args['owner']);
-		$set_setting[] = self::make_setting_record('store_data', 'title', 			$_args['title']);
-		$set_setting[] = self::make_setting_record('store_data', 'subdomain', 		$_args['subdomain']);
-		$set_setting[] = self::make_setting_record('store_data', 'plan', 			$_args['plan']);
-		$set_setting[] = self::make_setting_record('store_data', 'startplan', 		$_args['startplan']);
-		$set_setting[] = self::make_setting_record('store_data', 'expireplan', 	$_args['expireplan']);
+		$set_setting[] = self::make_setting_record('store_setting', 'owner', 			$_args['owner']);
+		$set_setting[] = self::make_setting_record('store_setting', 'title', 			$_args['title']);
+		$set_setting[] = self::make_setting_record('store_setting', 'subdomain', 		$_args['subdomain']);
+		$set_setting[] = self::make_setting_record('store_setting', 'plan', 			$_args['plan']);
+		$set_setting[] = self::make_setting_record('store_setting', 'startplan', 		$_args['startplan']);
+		$set_setting[] = self::make_setting_record('store_setting', 'expireplan',  		$_args['expireplan']);
 
 		$set_setting = \dash\db\config::make_multi_insert($set_setting);
 

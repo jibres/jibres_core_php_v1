@@ -21,7 +21,7 @@ class model
 				'answer'    => $question_answer,
 			];
 
-			$result = \lib\app\store\add::trial($post);
+			$result = \lib\app\store\add::free($post);
 
 			if(\dash\engine\process::status())
 			{
