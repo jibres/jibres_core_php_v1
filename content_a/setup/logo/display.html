@@ -1,12 +1,50 @@
 {%extends display.admin%}
 
 
+
 {%block pageContent%}
-<div class="cbox">
-	<form method="post">
-		<h1>Save logo detail</h1>
-		<button class="btn block success">NEXT</button>
-	</form>
-</div>
+
+<form method="post" enctype="multipart/form-data" autocomplete="off">
+  <div class="f justify-center txtC">
+    <div class="c6 m8 x5 s12">
+
+
+
+      <div class="cbox">
+        <h3 class="txtC mB20">{%trans "Set your store logo"%}</h3>
+
+        {%if dataRow.logo%}<img src="{{dataRow.logo}}" class="box200">{%endif%}
+        {{block("iLogo")}}
+        <div class="f align-center">
+          {%if dataRow.logo%}
+          <div class="cauto">
+            <div class="btn danger xs"  data-confirm data-method='post' data-data='{"remove" : "logo"}'>{%trans "Remove"%} {%trans "Your logo"%}</div>
+          </div>
+          {%endif%}
+          <div class="c"></div>
+          <div class="cauto">
+            <button class="btn success">{%trans "Save"%}</button>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</form>
 {%endblock%}
+
+
+
+
+{%block iLogo%}
+<div class="input mT10">
+ <input type="file" accept="image/gif, image/jpeg, image/png" name="logo" id="logo1"  data-max="500">
+ <label for="logo1" content_account\my>
+ </label>
+</div>
+
+{%endblock%}
+
 

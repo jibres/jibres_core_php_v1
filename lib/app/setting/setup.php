@@ -78,5 +78,15 @@ class setup
 
 		}
 	}
+
+
+	public static function upload_logo()
+	{
+		$file = \dash\app\file::upload_quick('logo');
+		if($file)
+		{
+			\lib\app\setting\tools::save('store_setting', 'logo', $file);
+		}
+	}
 }
 ?>

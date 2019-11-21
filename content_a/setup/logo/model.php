@@ -6,9 +6,14 @@ class model
 {
 	public static function post()
 	{
-		// save every field in somewhere and set the logo detail is complete
+		\lib\app\setting\setup::upload_logo();
+
 		$next_level = \lib\app\setting\setup::logo();
+
+		\lib\store::refresh();
+
 		\dash\redirect::to($next_level);
 	}
+
 }
 ?>
