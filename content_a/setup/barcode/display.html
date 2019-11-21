@@ -27,7 +27,7 @@
 
 {%block iBarcode%}
 <div class="switch1">
- <input type="checkbox" name="barcode" id="barcode" {% if productDataRow.barcode%} checked{%endif%}>
+ <input type="checkbox" name="barcode" id="barcode" {% if dataRow.barcode == 'yes'%} checked{%endif%}>
  <label for="barcode"></label>
  <label for="barcode">{%trans "Barcode"%} <small>{%trans "Use barcode reader in your store?"%}</small></label>
 </div>

@@ -12,6 +12,8 @@ class model
 
 		\lib\store::refresh();
 
+		\dash\notif::direct();
+
 		\dash\redirect::to($next_level);
 	}
 
