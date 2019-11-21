@@ -2,11 +2,123 @@
 
 
 {%block pageContent%}
-<div class="cbox">
-	<form method="post">
-		<h1>Save address detail</h1>
-		<button class="btn block success">NEXT</button>
-	</form>
+
+<form method="post" enctype="multipart/form-data" autocomplete="off">
+  <div class="f justify-center">
+    <div class="c6 m8 x5 s12">
+      <div class="cbox">
+
+		    {{block('iCountry')}}
+		    {{block('iCity')}}
+		    {{block('iAddress')}}
+
+
+
+		    <div class="f">
+		      <div class="c pRa5">{{block('iPostcode')}}</div>
+		      <div class="c">{{block('iPhone')}}</div>
+		    </div>
+
+		    <div class="f">
+		      <div class="c pRa5">{{block('iMobile')}}</div>
+		      <div class="c">{{block('iFax')}}</div>
+		    </div>
+
+		      {{block('iadd')}}
+      </div>
+
+    </div>
+  </div>
+</form>
+{%endblock%}
+
+
+
+
+
+
+
+{%block iCountry%}
+<div class="mB10">
+  <label for='country'>{%trans "Country"%}</label>
+  <div class="ui fluid search selection dropdown">
+    <input type="hidden" name="country" value="{%if dataRowAddress.country%}{{dataRowAddress.country}}{%elseif lang.current == 'fa'%}IR{%endif%}">
+    <i class="dropdown icon"></i>
+    <div class="default text">{%trans "Choose your country"%}</div>
+    <div class="menu">
+{%for key, value in countryList%}
+      <div class="item" data-value="{{key}}">
+        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}<small class="description">{{value.name | capitalize}}</small>
+      </div>
+{%endfor%}
+    </div>
+  </div>
 </div>
 {%endblock%}
 
+
+
+{%block iCity%}
+<div data-response='country' data-response-where='IR' {%if dataRowAddress.country == 'IR' or (not dataRowAddress and lang.current == 'fa') %}{%else%}data-response-hide{%endif%}>
+
+<label for='city'>{%trans "City"%}</label>
+<select name="city" class="ui dropdown select search mB10" id="city">
+  <option value="" readonly>{%trans "Select city"%}</option>
+  {%for key, value in cityList%}
+    <option value="{{key}}" {% if dataRowAddress.city == key %} selected {%endif%}>{{value}}</option>
+  {%endfor%}
+</select>
+</div>
+{%endblock%}
+
+
+
+
+{%block iPostcode%}
+<label for="postcode">{%trans "Post code"%}</label>
+<div class="input ltr">
+  <input type="text" name="postcode" id="postcode" value="{{dataRowAddress.postcode}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+</div>
+{%endblock%}
+
+
+
+{%block iPhone%}
+<label for="iphone">{%trans "Phone"%}</label>
+<div class="input">
+  <input type="tel" name="phone" id="iphone" value="{{dataRowAddress.phone}}" pattern=".{1,20}">
+</div>
+{%endblock%}
+
+
+{%block iFax%}
+<label for="ifax">{%trans "Fax"%}</label>
+<div class="input">
+  <input type="tel" name="fax" id="ifax" value="{{dataRowAddress.fax}}" pattern=".{1,20}">
+</div>
+{%endblock%}
+
+
+{%block iMobile%}
+<label for="iMobile">{%trans "Mobile"%}</label>
+<div class="input">
+  <input type="tel" name="mobile" id="iMobile" value="{%if dataRowAddress.mobile%}{{dataRowAddress.mobile}}{%elseif dataRowMember%}{{dataRowMember.mobile}}{%elseif not dataRowAddress%}{{user.mobile}}{%endif%}" pattern=".{1,20}">
+</div>
+{%endblock%}
+
+
+
+
+{%block iAddress%}
+<label for="address">{%trans "Address"%}</label>
+<textarea class="txt mB10 pB25" name="address" maxlength='300' rows="2">{{dataRowAddress.address}}</textarea>
+{%endblock%}
+
+
+
+
+{%block iadd%}
+<div class="txtRa">
+  <button class="btn success">{%trans "Save"%}</button>
+</div>
+{%endblock%}

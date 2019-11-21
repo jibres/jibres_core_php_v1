@@ -7,12 +7,7 @@
 <form method="post" enctype="multipart/form-data" autocomplete="off">
   <div class="f justify-center txtC">
     <div class="c6 m8 x5 s12">
-
-
-
       <div class="cbox">
-        <h3 class="txtC mB20">{%trans "Set your store logo"%}</h3>
-
         {%if dataRow.logo%}<img src="{{dataRow.logo}}" class="box200">{%endif%}
         {{block("iLogo")}}
         <div class="f align-center">
@@ -26,10 +21,7 @@
             <button class="btn success">{%trans "Save"%}</button>
           </div>
         </div>
-
       </div>
-
-
     </div>
   </div>
 </form>

@@ -4,6 +4,20 @@ namespace lib\app\setting;
 
 class tools
 {
+	public static function update($_cat, $_key, $_value)
+	{
+		$get = self::get($_cat, $_key);
+		if(!isset($get['id']))
+		{
+			return self::save($_cat, $_key, $_value);
+		}
+		else
+		{
+			$result = \lib\db\setting\db::update($_cat, $_key, $_value);
+			return $result;
+		}
+	}
+
 	public static function save($_cat, $_key, $_value)
 	{
 		$insert =
