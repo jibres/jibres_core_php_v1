@@ -32,10 +32,10 @@ class controller
 
 	private static function check_setup_page()
 	{
-		$check_once = \dash\session::get('checkStoreSetupOnce');
+		$check_once = \dash\session::get('checkStoreSetupOnce_'.\lib\store::store_slug());
 		if(!$check_once)
 		{
-			\dash\session::set('checkStoreSetupOnce', true);
+			\dash\session::set('checkStoreSetupOnce_'.\lib\store::store_slug(), true);
 
 			if(\dash\url::module() !== 'setup')
 			{
