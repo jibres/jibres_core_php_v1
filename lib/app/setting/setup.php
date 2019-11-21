@@ -80,6 +80,36 @@ class setup
 	}
 
 
+	public static function have_barcode($_have_barcode)
+	{
+		$have_barcode = $_have_barcode ? 'yes' : 'no';
+		if($have_barcode)
+		{
+			\lib\app\setting\tools::update('store_setting', 'barcode', $have_barcode);
+		}
+	}
+
+
+	public static function have_vat($_have_vat)
+	{
+		$have_vat = $_have_vat ? 'yes' : 'no';
+		if($have_vat)
+		{
+			\lib\app\setting\tools::update('store_setting', 'vat', $have_vat);
+		}
+	}
+
+
+	public static function have_scale($_have_scale)
+	{
+		$have_scale = $_have_scale ? 'yes' : 'no';
+		if($have_scale)
+		{
+			\lib\app\setting\tools::update('store_setting', 'scale', $have_scale);
+		}
+	}
+
+
 	public static function upload_logo()
 	{
 		$file = \dash\app\file::upload_quick('logo');

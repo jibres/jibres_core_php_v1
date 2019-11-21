@@ -6,7 +6,7 @@ class model
 {
 	public static function post()
 	{
-		// save every field in somewhere and set the barcode detail is complete
+		\lib\app\setting\setup::have_barcode(\dash\request::post('barcode'));
 		$next_level = \lib\app\setting\setup::barcode();
 		\dash\redirect::to($next_level);
 	}

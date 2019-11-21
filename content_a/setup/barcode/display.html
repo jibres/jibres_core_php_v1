@@ -1,12 +1,35 @@
 {%extends display.admin%}
 
 
+
+
 {%block pageContent%}
-<div class="cbox">
-	<form method="post">
-		<h1>Save barcode detail</h1>
-		<button class="btn block success">NEXT</button>
-	</form>
-</div>
+
+<form method="post"  autocomplete="off">
+  <div class="f justify-center">
+    <div class="c6 m8 x5 s12">
+      <div class="cbox">
+        {{block("iBarcode")}}
+        <div class="f align-center">
+          <div class="c"></div>
+          <div class="cauto">
+            <button class="btn success">{%trans "Save"%}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 {%endblock%}
 
+
+
+
+{%block iBarcode%}
+<div class="switch1">
+ <input type="checkbox" name="barcode" id="barcode" {% if productDataRow.barcode%} checked{%endif%}>
+ <label for="barcode"></label>
+ <label for="barcode">{%trans "Barcode"%} <small>{%trans "Use barcode reader in your store?"%}</small></label>
+</div>
+
+{%endblock%}
