@@ -98,20 +98,32 @@ class store
 
 		self::clean_session(self::store_slug());
 
-		$store_detail_raw = \dash\engine\store::init_subdomain(self::store_slug());
+		$store_detail_file = \dash\engine\store::init_subdomain(self::store_slug());
 
-		if(!isset($store_detail_raw['store']))
+		$store_detail_setting_record = \lib\app\setting\tools::get_cat('store_setting');
+
+		if(is_array($store_detail_setting_record))
+		{
+			$store_detail_setting_record = array_column($store_detail_setting_record, 'value', 'key');
+		}
+
+		if(!isset($store_detail_file['store']))
 		{
 			return false;
 		}
 
-		$store_detail = $store_detail_raw['store'];
+		$store_detail = $store_detail_file['store'];
 
 		// $store_detail = \lib\db\store\get::subdomain_detail(self::store_slug());
 
 
 		if(isset($store_detail['store_data']) && is_array($store_detail['store_data']))
 		{
+			if(is_array($store_detail_setting_record))
+			{
+				$store_detail['store_data'] = array_merge($store_detail['store_data'], $store_detail_setting_record);
+			}
+
 			if(array_key_exists('logo', $store_detail['store_data']) && !$store_detail['store_data']['logo'])
 			{
 				$store_detail['store_data']['logo'] = \dash\app::static_logo_url();
