@@ -26,7 +26,7 @@
 
 {%if login%}
     {%if perm('contentA')%}
-    <a href="{{url.base}}/a" data-direct class="btn block primary">{%trans "Store Panel"%}</a>
+    <a href="{{url.here}}/a" data-direct class="btn block primary">{%trans "Store Panel"%}</a>
     {%else%}
       {# no permission to load this store panel. In the feature go to sotre onlie shoping #}
     {%endif%}
