@@ -27,7 +27,7 @@
 
 {%block iScale%}
 <div class="switch1">
- <input type="checkbox" name="scale" id="scale" {% if productDataRow.scale%} checked{%endif%}>
+ <input type="checkbox" name="scale" id="scale" {% if dataRow.scale == 'yes'%} checked{%endif%}>
  <label for="scale"></label>
  <label for="scale">{%trans "Scale"%} <small>{%trans "Use scale reader in your store?"%}</small></label>
 </div>
