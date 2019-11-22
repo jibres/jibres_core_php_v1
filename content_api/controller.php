@@ -7,7 +7,7 @@ class controller
 	public static function routing()
 	{
 
-		if(!in_array(\dash\url::subdomain(), ['source', 'store', 'developers', null]))
+		if(!in_array(\dash\url::subdomain(), ['developers', null]))
 		{
 			\dash\redirect::remove_subdomain();
 		}
