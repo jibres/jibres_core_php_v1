@@ -76,10 +76,13 @@ class view
 		$productDataRow = \dash\data::productDataRow();
 		if(isset($productDataRow['parent']) && $productDataRow['parent'])
 		{
+
+			$parent = \lib\app\product\get::inline_get($productDataRow['parent']);
+			\dash\data::productDataRow_parentDetail($parent);
+
 			$family = \lib\app\product\variants::family($productDataRow['parent']);
 			\dash\data::productFamily($family);
 		}
-
 	}
 }
 ?>

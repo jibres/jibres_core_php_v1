@@ -58,14 +58,6 @@ class load
 				$detail['have_child'] = true;
 				$detail['child'] = array_map(['\\lib\\app\\product\\ready', 'row'], $load_child);
 			}
-
-		}
-
-
-		if(isset($detail['parent']) && $detail['parent'])
-		{
-			$parent = \lib\app\product\get::inline_get($detail['parent']);
-			$detail['parent_detail'] = $parent;
 		}
 
 		// sed dataRow to load detail in html
