@@ -6,30 +6,64 @@ class controller
 {
 	public static function routing()
 	{
-		if(\dash\url::subchild())
-		{
-			\content_api\v1::invalid_url();
-		}
+		\content_api\v1::invalid_url();
+	}
 
-		\content_api\v1::check_apikey();
+	public static function api_routing()
+	{
 
 		$profile = false;
 
-		if(\dash\request::is('patch'))
+		\content_api\v1::check_apikey();
+
+		switch (\dash\url::dir(3))
 		{
-			$profile = self::update_profile();
-		}
-		elseif(\dash\request::is('post'))
-		{
-			$profile = self::update_profile(true);
-		}
-		elseif(\dash\request::is('get'))
-		{
-			$profile = self::get_profile();
-		}
-		else
-		{
-			\content_api\v1::invalid_method();
+			case 'get':
+				if(\dash\url::dir(4))
+				{
+					\content_api\v1::invalid_url();
+				}
+
+				if(!\dash\request::is('get'))
+				{
+					\content_api\v1::invalid_method();
+				}
+				$profile = self::get_profile();
+				break;
+
+			case 'update':
+				if(\dash\url::dir(4) === 'avatar')
+				{
+					if(\dash\url::dir(5))
+					{
+						\content_api\v1::invalid_url();
+					}
+
+					if(!\dash\request::is('post'))
+					{
+						\content_api\v1::invalid_method();
+					}
+
+					$profile = self::update_profile(true);
+				}
+				elseif(!\dash\url::dir(4))
+				{
+					if(!\dash\request::is('post'))
+					{
+						\content_api\v1::invalid_method();
+					}
+
+					$profile = self::update_profile();
+				}
+				else
+				{
+					content_api\v1::invalid_url();
+				}
+				break;
+
+			default:
+				\content_api\v1::invalid_url();
+				break;
 		}
 
 		\content_api\v1::say($profile);
@@ -38,32 +72,32 @@ class controller
 
 	private static function update_profile($_get_avatar = false)
 	{
-
 		$request = self::getPost($_get_avatar);
+
 		if(!array_filter($request))
 		{
-			\dash\notif::error(T_("No field sended"));
+			\dash\notif::error(T_("No file sended"));
 			return false;
 		}
 
 		// ready request
-		$id = \dash\coding::encode(\dash\user::id());
+		$id = \dash\coding::encode(\lib\user::id());
 
 		$result = \dash\app\user::edit($request, $id);
 
 		if(\dash\engine\process::status())
 		{
-			\dash\log::set('editProfileAPI', ['code' => \dash\user::id()]);
-			\dash\user::refresh();
+			\dash\log::set('editProfileAPI', ['code' => \lib\user::id()]);
+			\lib\user::refresh();
 		}
 
-		return $profile;
+		return $result;
 	}
 
 
 	private static function get_profile()
 	{
-		$detail = \dash\user::detail();
+		$detail = \lib\user::detail();
 		$result = [];
 		foreach ($detail as $key => $value)
 		{
@@ -114,88 +148,88 @@ class controller
 
 		// if(array_key_exists('twostep', $_POST))
 		// {
-		// 	$post['twostep']     = \dash\request::post('twostep');
+		// 	$post['twostep']     = \content_api\v1::input_body('twostep');
 		// }
 
 		// if(array_key_exists('sidebar', $_POST))
 		// {
-		// 	$post['sidebar']     = \dash\request::post('sidebar') ? true : false;
+		// 	$post['sidebar']     = \content_api\v1::input_body('sidebar') ? true : false;
 		// }
 
 		if(array_key_exists('language', $_POST))
 		{
-			$post['language']    = \dash\request::post('language');
+			$post['language']    = \content_api\v1::input_body('language');
 		}
 
 		if(array_key_exists('website', $_POST))
 		{
-			$post['website']     = \dash\request::post('website');
+			$post['website']     = \content_api\v1::input_body('website');
 		}
 
 		if(array_key_exists('instagram', $_POST))
 		{
-			$post['instagram']   = \dash\request::post('instagram');
+			$post['instagram']   = \content_api\v1::input_body('instagram');
 		}
 
 		if(array_key_exists('linkedin', $_POST))
 		{
-			$post['linkedin']    = \dash\request::post('linkedin');
+			$post['linkedin']    = \content_api\v1::input_body('linkedin');
 		}
 
 		if(array_key_exists('facebook', $_POST))
 		{
-			$post['facebook']    = \dash\request::post('facebook');
+			$post['facebook']    = \content_api\v1::input_body('facebook');
 		}
 
 		if(array_key_exists('twitter', $_POST))
 		{
-			$post['twitter']     = \dash\request::post('twitter');
+			$post['twitter']     = \content_api\v1::input_body('twitter');
 		}
 
 		if(array_key_exists('firstname', $_POST))
 		{
-			$post['firstname']   = \dash\request::post('firstname');
+			$post['firstname']   = \content_api\v1::input_body('firstname');
 		}
 
 		if(array_key_exists('lastname', $_POST))
 		{
-			$post['lastname']    = \dash\request::post('lastname');
+			$post['lastname']    = \content_api\v1::input_body('lastname');
 		}
 
 		if(array_key_exists('username', $_POST))
 		{
-			$post['username']    = \dash\request::post('username');
+			$post['username']    = \content_api\v1::input_body('username');
 		}
 
 		if(array_key_exists('title', $_POST))
 		{
-			$post['title']       = \dash\request::post('title');
+			$post['title']       = \content_api\v1::input_body('title');
 		}
 
 		if(array_key_exists('bio', $_POST))
 		{
-			$post['bio']         = \dash\request::post('bio');
+			$post['bio']         = \content_api\v1::input_body('bio');
 		}
 
 		if(array_key_exists('displayname', $_POST))
 		{
-			$post['displayname'] = \dash\request::post('displayname');
+			$post['displayname'] = \content_api\v1::input_body('displayname');
 		}
 
 		if(array_key_exists('birthday', $_POST))
 		{
-			$post['birthday']    = \dash\request::post('birthday');
+			$post['birthday']    = \content_api\v1::input_body('birthday');
 		}
 
 
 		if(array_key_exists('gender', $_POST))
 		{
-			$post['gender']      = \dash\request::post('gender');
+			$post['gender']      = \content_api\v1::input_body('gender');
 		}
 
 		if(array_key_exists('email', $_POST))
 		{
-			$post['email']       = \dash\request::post('email');
+			$post['email']       = \content_api\v1::input_body('email');
 		}
 
 		if($_get_avatar)

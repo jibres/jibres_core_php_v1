@@ -5,10 +5,10 @@
     <div>{%trans "Sign Up User"%}</div>
   </h2>
   <div id="user-add-detail">
-    <p>{%trans "Add new user to service"%}</p>
+    <p>{%trans "This service is used to add users through the Android app."%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>android/user/add</b></span>
+      <span>{{CustomerApiURL}}<b>account/android/add</b></span>
     </div>
 
     <div class="tblBox">
@@ -22,6 +22,20 @@
           </tr>
         </thead>
         <tbody>
+           <tr>
+            <td>
+              <div class="txtB">appkey</div>
+              <i>string</i>
+            </td>
+            <td>
+              <div>{%trans "APP key generated on the user panel"%}</div>
+              <code>{{myAppKey}}</code>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              {%trans "length"%} {{32 | fitNumber}}
+            </td>
+          </tr>
           <tr>
             <td>
               <div class="txtB">token</div>
@@ -220,19 +234,10 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}android/user/add \
+  {{CustomerApiURL}}account/android/add \
+  -H 'appkey: {{myAppKey}}' \
   -H 'token: ec8e69c19ebb7c202ae1097aa40484e0' \
-  -F 'model=HUAWEI Y560-U02' \
-  -F 'serial=60D15B27D1259123456' \
-  -F 'manufacturer=HUAWEI' \
-  -F 'version=19' \
-  -F 'hardware=sc8830' \
-  -F 'type=user' \
-  -F 'board=HUAWEI' \
-  -F 'id=>HUAWEIY560-U02' \
-  -F 'product=Y560-U02' \
-  -F 'device=HWY560-U' \
-  -F 'brand=HUAWEI'
+  -d '{"model": "HUAWEI Y560-U02", "serial": "60D15B27D1259123456", "manufacturer": "HUAWEI", "version": "19","hardware": "sc8830","type": "user","board": "HUAWEI","id": ">HUAWEIY560-U02","product": "Y560-U02","device": "HWY560-U","brand": "HUAWEI"}'
 </pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>

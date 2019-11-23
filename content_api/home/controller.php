@@ -8,7 +8,7 @@ class controller
 	{
 		$module = \dash\url::module();
 
-		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v2']) && !\dash\url::child()))
+		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v1']) && !\dash\url::child()))
 		{
 			// nothing
 		}
@@ -27,10 +27,10 @@ class controller
 			// 	'url' => \dash\url::here(). '/v1',
 			// 	'doc' => \dash\url::here(). '/v1/doc',
 			// ],
-			'api-v2' =>
+			'api-v1' =>
 			[
-				'url' => \dash\url::sitelang(). '/api/v2',
-				'doc' => \dash\url::sitelang(). '/api/v2/doc',
+				'url' => \dash\url::sitelang(). '/api/v1',
+				'doc' => \dash\url::sitelang(). '/api/v1/doc',
 			],
 			'lang' =>
 			[

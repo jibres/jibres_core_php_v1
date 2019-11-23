@@ -1,14 +1,14 @@
 <div class="cbox" id='update-profile'>
 
   <h2 class="f" data-kerkere='#update-profile-detail' data-kerkere-icon='open'>
-    <div class="cauto pRa10"><span class="badge primary">PATCH</span></div>
+    <div class="cauto pRa10"><span class="badge primary">POST</span></div>
     <div>{%trans "Update your profile"%}</div>
   </h2>
   <div id="update-profile-detail">
     <p>{%trans "Update profile detail"%}</p>
     <div class="msg url">
-      <i class="method">PATCH</i>
-      <span>{{apiURL}}<b>profile</b></span>
+      <i class="method">POST</i>
+      <span>{{CustomerApiURL}}<b>profile/update</b></span>
     </div>
 
     <div class="tblBox">
@@ -22,6 +22,20 @@
           </tr>
         </thead>
         <tbody>
+           <tr>
+            <td>
+              <div class="txtB">appkey</div>
+              <i>string</i>
+            </td>
+            <td>
+              <div>{%trans "APP key generated on the user panel"%}</div>
+              <code>{{myAppKey}}</code>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              {%trans "length"%} {{32 | fitNumber}}
+            </td>
+          </tr>
           <tr>
             <td>
               <div class="txtB">apikey</div>
@@ -253,11 +267,11 @@
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
-curl -X PATCH \
-  {{apiURL}}profile \
+curl -X POST \
+  {{CustomerApiURL}}profile/update \
+  -H 'appkey: {{myAppKey}}' \
   -H 'apikey: {{myApiKey}}' \
-  -F 'username=biqarar'\
-  -F 'bio=programing is my life'
+  -d '{"username": "biqarar", "bio": "programing is my life"}'
 </pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>

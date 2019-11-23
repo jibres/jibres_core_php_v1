@@ -9,11 +9,11 @@
 
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{apiURL}}<b>posts/get</b></span>
+      <span>{{CustomerApiURL}}<b>posts/{$POSTID}</b></span>
     </div>
 
-    <div class="tblBox">
-      <h3>{%trans "Required parameters"%}</h3>
+       <div class="tblBox">
+      <h3>{%trans "Required parameters"%} {%trans "on header"%}</h3>
       <table class="tbl1 v3">
         <thead>
           <tr>
@@ -23,25 +23,29 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+           <tr>
             <td>
-              <div class="txtB">id</div>
-              <i>code</i>
+              <div class="txtB">appkey</div>
+              <i>string</i>
             </td>
             <td>
-              <div class="fc-mute">{%trans "example"%}</div>
-              <code>3zC</code>
+              <div>{%trans "APP key generated on the user panel"%}</div>
+              <code>{{myAppKey}}</code>
             </td>
             <td>
               <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              {%trans "length"%} {{32 | fitNumber}}
             </td>
           </tr>
+
         </tbody>
       </table>
     </div>
 
+
+
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
-    <pre>curl -X GET {{apiURL}}posts/get?id=3zC</pre>
+    <pre>curl -X GET {{CustomerApiURL}}post/{$POSTID} -H 'appkey: {{myAppKey}}'</pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
 <pre>

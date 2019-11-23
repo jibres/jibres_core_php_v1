@@ -1,14 +1,14 @@
 <div class="cbox" id='notif'>
 
   <h2 class="f" data-kerkere='#notif-detail' data-kerkere-icon='open'>
-    <div class="cauto pRa10"><span class="badge primary">POST</span></div>
+    <div class="cauto pRa10"><span class="badge primary">GET</span></div>
     <div>{%trans "Get notification list"%}</div>
   </h2>
   <div id="notif-detail">
     <p>{%trans "Get list of your notification"%}</p>
     <div class="msg url">
-      <i class="method">POST</i>
-      <span>{{apiURL}}<b>notif</b></span>
+      <i class="method">GET</i>
+      <span>{{CustomerApiURL}}<b>account/notif</b></span>
     </div>
 
     <div class="tblBox">
@@ -22,6 +22,21 @@
           </tr>
         </thead>
         <tbody>
+
+           <tr>
+            <td>
+              <div class="txtB">appkey</div>
+              <i>string</i>
+            </td>
+            <td>
+              <div>{%trans "APP key generated on the user panel"%}</div>
+              <code>{{myAppKey}}</code>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              {%trans "length"%} {{32 | fitNumber}}
+            </td>
+          </tr>
 
           <tr>
             <td>
@@ -210,9 +225,10 @@
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
-curl -X POST \
-  {{apiURL}}notif \
+curl -X GET \
+  {{CustomerApiURL}}account/notif \
   -H 'apikey: {{myApiKey}}' \
+  -H 'appkey: {{myAppKey}}'
 </pre>
 
 <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>

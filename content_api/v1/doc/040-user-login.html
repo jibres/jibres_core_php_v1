@@ -8,7 +8,7 @@
     <p>{%trans "Login user and get new apikey for this user"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>enter</b></span>
+      <span>{{CustomerApiURL}}<b>account/enter</b></span>
     </div>
 
     <div class="tblBox">
@@ -22,6 +22,21 @@
           </tr>
         </thead>
         <tbody>
+           <tr>
+            <td>
+              <div class="txtB">appkey</div>
+              <i>string</i>
+            </td>
+            <td>
+              <div>{%trans "APP key generated on the user panel"%}</div>
+              <code>{{myAppKey}}</code>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              {%trans "length"%} {{32 | fitNumber}}
+            </td>
+          </tr>
+
           <tr>
             <td>
               <div class="txtB">token</div>
@@ -91,10 +106,11 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}enter \
+  {{CustomerApiURL}}account/enter \
+  -H 'appkey: {{myAppKey}}' \
   -H 'token: ec8e69c19ebb7c202ae1097aa40484e0' \
-  -H 'apikey: 87923bd0d04b30aa5f66b699c2698e3b' \
-  -F 'mobile=989121234567'
+  -H 'apikey: {{myApiKey}}' \
+  -d '{"mobile":"989121234567"}'
 </pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>

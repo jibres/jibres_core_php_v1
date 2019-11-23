@@ -8,7 +8,7 @@
     <p>{%trans "After send verification code to user you must verify it"%}</p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{apiURL}}<b>enter/verify</b></span>
+      <span>{{CustomerApiURL}}<b>account/enter/verify</b></span>
     </div>
 
     <div class="tblBox">
@@ -22,6 +22,20 @@
           </tr>
         </thead>
         <tbody>
+           <tr>
+            <td>
+              <div class="txtB">appkey</div>
+              <i>string</i>
+            </td>
+            <td>
+              <div>{%trans "APP key generated on the user panel"%}</div>
+              <code>{{myAppKey}}</code>
+            </td>
+            <td>
+              <div class="fc-red"><i>{%trans "Required"%}</i></div>
+              {%trans "length"%} {{32 | fitNumber}}
+            </td>
+          </tr>
           <tr>
             <td>
               <div class="txtB">token</div>
@@ -29,7 +43,7 @@
             </td>
             <td>
               <div>{%trans "Your temporary token"%}</div>
-              <code>ec8e69c19ebb7c202ae1097aa40484e0</code>
+              <code>d97a1190a211bc8896c1c7319af916a9</code>
             </td>
             <td>
               <div class="fc-red"><i>{%trans "Required"%}</i></div>
@@ -44,8 +58,8 @@
               <i>string</i>
             </td>
             <td>
-              <div>{%trans "Your temporary apikey"%}</div>
-              <code>87923bd0d04b30aa5f66b699c2698e3b</code>
+              <div>{%trans "Your apikey"%}</div>
+              <code>{{myApiKey}}</code>
             </td>
             <td>
               <div class="fc-red"><i>{%trans "Required"%}</i></div>
@@ -107,11 +121,11 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X POST \
-  {{apiURL}}enter \
-  -H 'token: ec8e69c19ebb7c202ae1097aa40484e0' \
-  -H 'apikey: 87923bd0d04b30aa5f66b699c2698e3b' \
-  -F 'mobile=989121234567'
-  -F 'verifycode=12345'
+  {{CustomerApiURL}}account/enter/verify \
+  -H 'token: d97a1190a211bc8896c1c7319af916a9' \
+  -H 'apikey: {{YourApiKey}}' \
+  -H 'appkey: {{YourAppKey}}' \
+  -d '{"mobile":"989121234567", "verifycode": "12345"}'
 </pre>
 
     <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>

@@ -4,35 +4,52 @@ namespace content_api;
 
 class v1
 {
-	public static $v1 = [];
-
+	public static $v1             = [];
+	private static $REQUEST       = [];
+	private static $request_check = false;
 
 	public static function master_check()
 	{
 		$subdomain = \dash\url::subdomain();
 
-		if(!in_array($subdomain, ['source', 'store', null]))
+		if(!in_array($subdomain, [null, 'developers']))
 		{
 			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
 		}
+
+		// self::check_store_init();
 	}
 
 
 	public static function check_store_init()
 	{
-		$store = \dash\header::get('store');
-		if(!$store || is_numeric($store))
+		$STORE = \dash\url::child();
+
+		$store_id = \dash\coding::decode($STORE);
+
+		if(!$store_id)
 		{
-			\content_api\v1::stop(404, T_("Store variable not set in header"));
+			self::stop(403, T_("Invalid store id"));
 		}
 
-		\dash\engine\store::config($store);
-
-		\lib\store::set_store_slug($store);
-
-		if(!\lib\store::id())
+		$detail = \dash\engine\store::init_id($store_id);
+		if(!$detail)
 		{
-			\content_api\v1::stop(404, T_("Store not found"));
+			self::stop(403, T_("Store Detail not found"));
+		}
+
+		if(isset($detail['subdomain']))
+		{
+			\lib\store::set_store_slug($detail['subdomain']);
+
+			if(!\lib\store::id())
+			{
+				self::stop(404, T_("Store not found"));
+			}
+		}
+		else
+		{
+			self::stop(403, T_("subdomain not found"));
 		}
 	}
 
@@ -153,6 +170,12 @@ class v1
 			\dash\user::init($get['user_id']);
 		}
 
+		if(!\lib\user::id())
+		{
+			\lib\user::init();
+		}
+
+
 		return true;
 	}
 
@@ -216,6 +239,63 @@ class v1
 	{
 		\dash\app\apilog::save($_result);
 		\dash\notif::api($_result);
+	}
+
+
+	public static function input_body($_name = null)
+	{
+		if(!self::$request_check)
+		{
+			self::$request_check = true;
+
+			if(\dash\request::post())
+			{
+				\dash\notif::warn(T_("Send your request as json not in post field"));
+			}
+
+			$request = @file_get_contents('php://input');
+			if(is_string($request))
+			{
+				$request = json_decode($request, true);
+			}
+
+			if(!is_array($request))
+			{
+				$request = [];
+			}
+
+			$request = \dash\safe::safe($request, 'sqlinjection');
+
+			self::$REQUEST = $request;
+		}
+
+		if(isset($_name))
+		{
+			if(array_key_exists($_name, self::$REQUEST))
+			{
+				return self::$REQUEST[$_name];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return self::$REQUEST;
+		}
+	}
+
+
+	public static function isset_input_body($_name)
+	{
+		self::input_body();
+
+		if(array_key_exists($_name, self::$REQUEST))
+		{
+			return true;
+		}
+		return false;
 	}
 }
 ?>

@@ -14,7 +14,7 @@ class controller
 
 		$module = \dash\url::module();
 
-		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v2'])))
+		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v1'])))
 		{
 			// nothing
 		}
@@ -23,9 +23,9 @@ class controller
 			\dash\header::status(404, T_("Invalid url"));
 		}
 
-		if($module === 'v2')
+		if($module === 'v1')
 		{
-			\content_api\v2::master_check();
+			\content_api\v1::master_check();
 		}
 		elseif($module)
 		{

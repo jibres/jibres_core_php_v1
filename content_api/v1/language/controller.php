@@ -6,7 +6,12 @@ class controller
 {
 	public static function routing()
 	{
-		if(\dash\url::subchild())
+		\content_api\v1::invalid_url();
+	}
+
+	public static function api_routing()
+	{
+		if(\dash\url::dir(3))
 		{
 			\content_api\v1::invalid_url();
 		}
