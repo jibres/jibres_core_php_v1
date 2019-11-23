@@ -120,23 +120,8 @@ module.exports = function (grunt)
 			{
 				files:
 				{
-					'siftal.min.js': myModuleFiles,
+					'../siftal.min.js': myModuleFiles,
 				}
-			}
-		},
-		copy:
-		{
-			all:
-			{
-				files:
-				[
-					{
-						expand: true,
-						flatten: true,
-						src: ['siftal.min.js'],
-						dest: '../../dist/js/'
-					}
-				]
 			}
 		},
 		watch:
@@ -149,15 +134,13 @@ module.exports = function (grunt)
 			scripts:
 			{
 				files: ['*.js'],
-				tasks: ['copy:all']
 			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-uglify-es');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 
-	grunt.registerTask('default', ['uglify', 'copy', 'watch']);
+	grunt.registerTask('default', ['uglify', 'watch']);
 };
 
