@@ -21,7 +21,7 @@ class filter
 	}
 
 
-	public static function check_allow($_sort, $_order)
+	public static function check_allow($_sort, $_order, $_module = null)
 	{
 		$order = mb_strtolower($_order);
 		if($order && in_array($order, ['asc', 'desc']))
@@ -29,7 +29,7 @@ class filter
 			$sort = mb_strtolower($_sort);
 			if($sort)
 			{
-				$list     = self::sort_list(true);
+				$list     = self::sort_list($_module);
 				$query    = array_column($list, 'query');
 				$sort_key = array_column($query, 'sort');
 
@@ -49,15 +49,15 @@ class filter
 	{
 		// public => true means show in api and site
 		$sort_list   = [];
-		$sort_list[] = ['title' => T_("None"), 				'query' => [], 												'public' => true];
-		$sort_list[] = ['title' => T_("Expensive"), 		'query' => ['sort' => 'price',		 'order' => 'desc'], 	'public' => true];
-		$sort_list[] = ['title' => T_("Inexpensive"), 		'query' => ['sort' => 'price',		 'order' => 'asc'], 	'public' => true];
-
+		// $sort_list[] = ['title' => T_("None"), 				'query' => [], 												'public' => true];
 		$sort_list[] = ['title' => T_("Title ASC"), 		'query' => ['sort' => 'title',		 'order' => 'asc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Title DESC"), 		'query' => ['sort' => 'title',		 'order' => 'desc'], 	'public' => false];
 
-		if($_module === 'price' || $_module === true)
+		if($_module === 'price')
 		{
+			$sort_list[] = ['title' => T_("Expensive"), 		'query' => ['sort' => 'price',		 'order' => 'desc'], 	'public' => true];
+			$sort_list[] = ['title' => T_("Inexpensive"), 		'query' => ['sort' => 'price',		 'order' => 'asc'], 	'public' => true];
+
 			$sort_list[] = ['title' => T_("Buy price ASC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'asc'], 	'public' => false];
 			$sort_list[] = ['title' => T_("Buy price DESC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'desc'], 	'public' => false];
 		}

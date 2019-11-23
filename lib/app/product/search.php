@@ -56,22 +56,6 @@ class search
 
 		$order_sort  = null;
 
-		if($_args['sort'])
-		{
-			$check_order_trust = \lib\app\product\filter::check_allow($_args['sort'], $_args['order']);
-			if($check_order_trust)
-			{
-				$sort = mb_strtolower($_args['sort']);
-				$order = null;
-				if($_args['order'])
-				{
-					$order = mb_strtolower($_args['order']);
-				}
-
-				$order_sort = " ORDER BY $sort $order";
-			}
-		}
-
 
 		if($_args['barcode'])
 		{
@@ -194,7 +178,7 @@ class search
 			$and['productprices.buyprice'] = [' IS ', ' NULL '];
 			self::$filter_args['buyprice']      = T_("without buy price");
 
-			$type                         = 'join_price';
+			$type                         = 'price';
 
 			self::$is_filtered            = true;
 		}
@@ -204,7 +188,7 @@ class search
 			$and['productprices.price'] = [' IS ', ' NULL '];
 			self::$filter_args['price'] = T_("without price");
 
-			$type                         = 'join_price';
+			$type                         = 'price';
 
 			self::$is_filtered = true;
 		}
@@ -215,7 +199,7 @@ class search
 			$and['productprices.discount'] = [' IS ', ' NULL '];
 			self::$filter_args['discount']       = T_("without discount");
 
-			$type                          = 'join_price';
+			$type                          = 'price';
 
 			self::$is_filtered             = true;
 		}
@@ -242,12 +226,31 @@ class search
 			self::$is_filtered = true;
 		}
 
+
+		if($_args['sort'] && !$order_sort)
+		{
+
+			$check_order_trust = \lib\app\product\filter::check_allow($_args['sort'], $_args['order'], $type);
+
+			if($check_order_trust)
+			{
+				$sort = mb_strtolower($_args['sort']);
+				$order = null;
+				if($_args['order'])
+				{
+					$order = mb_strtolower($_args['order']);
+				}
+
+				$order_sort = " ORDER BY $sort $order";
+			}
+		}
+
+
 		$and = array_merge($and, $_where);
 
 		switch ($type)
 		{
 			case 'price':
-			case 'join_price':
 				$list = \lib\db\products\datalist::list_join_price($and, $or, $order_sort, $meta);
 				break;
 
