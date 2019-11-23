@@ -99,7 +99,7 @@ class model
 
 				if(is_callable(['\lib\user', 'refresh']))
 				{
-					\lib\user::refresh();
+					\dash\user::refresh();
 				}
 
 				\dash\utility\enter::load_user_data($user_id, 'user_id');

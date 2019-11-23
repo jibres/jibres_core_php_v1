@@ -169,7 +169,7 @@ class gallery
 			$insert_file_usage =
 			[
 				'file_id'      => $fileid,
-				'user_id' => \lib\user::id(),
+				'user_id' => \dash\user::id(),
 				'related'      => 'product',
 				'related_id'   => $product_id,
 				'datecreated'  => date("Y-m-d H:i:s"),

@@ -14,7 +14,7 @@ trait edit
 	 */
 	public static function edit($_args, $_id, $_option = [])
 	{
-		if(!\lib\user::in_store())
+		if(!\dash\user::in_store())
 		{
 			\dash\notif::error(T_("You are not in this store"), 'subdomain');
 			return false;

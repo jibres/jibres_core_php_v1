@@ -46,7 +46,7 @@ trait add
 			return false;
 		}
 
-		if(!\lib\user::in_store() && !$_option['store_id'])
+		if(!\dash\user::in_store() && !$_option['store_id'])
 		{
 			if($_option['debug'])
 			{

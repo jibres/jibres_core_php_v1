@@ -28,7 +28,7 @@ class model
 		$request = self::getPost();
 
 		// ready request
-		$id = \lib\user::id();
+		$id = \dash\user::id();
 
 		$result = \dash\app\user\edit::edit($request, $id);
 
@@ -36,8 +36,8 @@ class model
 		{
 			\dash\notif::clean();
 			\dash\notif::ok(T_("Your profile successfully updated"));
-			\dash\log::set('editProfile', ['code' => \lib\user::id()]);
-			\lib\user::refresh();
+			\dash\log::set('editProfile', ['code' => \dash\user::id()]);
+			\dash\user::refresh();
 
 			// save every field in somewhere and set the owner detail is complete
 			$next_level = \lib\app\setting\setup::owner();

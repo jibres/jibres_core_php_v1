@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Your detail'));
-		\dash\data::dataRow(\lib\user::detail());
+		\dash\data::dataRow(\dash\user::detail());
 	}
 }
 ?>

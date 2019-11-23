@@ -42,7 +42,7 @@ class permission
 
 		if($_force)
 		{
-			\lib\user::refresh();
+			\dash\user::refresh();
 		}
 	}
 
@@ -180,7 +180,7 @@ class permission
 			return null;
 		}
 
-		$user_permission = \lib\user::detail('permission');
+		$user_permission = \dash\user::detail('permission');
 
 		if($user_permission === 'admin')
 		{

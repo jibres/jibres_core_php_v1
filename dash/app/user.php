@@ -1077,7 +1077,7 @@ class user
 
 		if(is_callable(['\\lib\\user', 'user_in_all_table']))
 		{
-			$advance = \lib\user::user_in_all_table($_user_id);
+			$advance = \dash\user::user_in_all_table($_user_id);
 			if(is_array($advance))
 			{
 				$result = array_merge($result, $advance);

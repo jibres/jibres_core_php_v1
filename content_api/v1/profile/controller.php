@@ -81,14 +81,14 @@ class controller
 		}
 
 		// ready request
-		$id = \dash\coding::encode(\lib\user::id());
+		$id = \dash\coding::encode(\dash\user::id());
 
 		$result = \dash\app\user::edit($request, $id);
 
 		if(\dash\engine\process::status())
 		{
-			\dash\log::set('editProfileAPI', ['code' => \lib\user::id()]);
-			\lib\user::refresh();
+			\dash\log::set('editProfileAPI', ['code' => \dash\user::id()]);
+			\dash\user::refresh();
 		}
 
 		return $result;
@@ -97,7 +97,7 @@ class controller
 
 	private static function get_profile()
 	{
-		$detail = \lib\user::detail();
+		$detail = \dash\user::detail();
 		$result = [];
 		foreach ($detail as $key => $value)
 		{

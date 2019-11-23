@@ -170,9 +170,9 @@ class v1
 			\dash\user::init($get['user_id']);
 		}
 
-		if(!\lib\user::id())
+		if(!\dash\user::id())
 		{
-			\lib\user::init();
+			\dash\user::init();
 		}
 
 
