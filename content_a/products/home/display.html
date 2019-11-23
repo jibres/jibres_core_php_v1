@@ -1,4 +1,5 @@
 {%extends display.admin%}
+{%use 'content_a/products/filter.html'%}
 
 
 {%block pageContent%}
@@ -31,114 +32,10 @@
 
 {%endblock%}
 
-
 {%block htmlSearchBox%}
-<form method="get" action="{{url.that}}">
-
-  {%if requestGET.filter%}<input type="hidden" name="filter" value="1">{%endif%}
-  {%if requestGET.duplicatetitle%}<input type="hidden" name="duplicatetitle" value="1">{%endif%}
-  {%if requestGET.hbarcode%}<input type="hidden" name="hbarcode" value="1">{%endif%}
-  {%if requestGET.hnotbarcode%}<input type="hidden" name="hnotbarcode" value="1">{%endif%}
-  {%if requestGET.wbuyprice%}<input type="hidden" name="wbuyprice" value="1">{%endif%}
-  {%if requestGET.wprice%}<input type="hidden" name="wprice" value="1">{%endif%}
-  {%if requestGET.wdiscount%}<input type="hidden" name="wdiscount" value="1">{%endif%}
-
-  <div class="searchBox">
-    <div class="f">
-      <div class="cauto pRa10">
-        <a class="btn light3{%if requestGET.filter%} apply{%endif%}" data-kerkere-icon="close" data-kerkere='.filterBox'>{%trans "Filter"%}</a>
-      </div>
-      <div class="c pRa10">
-        <div>
-          <div class="input search{%if requestGET.q%} apply{%endif%}">
-            <input type="search" name="q" placeholder='{%trans "Search products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" class="barCode" data-default data-pass='submit' autocomplete='off'>
-            <button class="addon btn light3 s0"><i class="sf-search"></i></button>
-          </div>
-        </div>
-      </div>
-      <div class="cauto">
-        <div class="ui floating dropdown">
-          <div class="btn light3"><i class="sf-sort mRa5"></i><span class="text">{%trans "Sort"%}</span></div>
-          <div class="menu">
-            <div class="header">{%trans "You can sort your list"%}</div>
-            {%for key, value in sortList%}
-              <a class="item" href="{{url.that}}?{{value.query_string}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.title}}</span></a>
-            {%endfor%}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-{%if requestGET.filter%}
-<div class="applyFilters">
-
-  {%if requestGET.duplicatetitle%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Duplicate title"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.hbarcode%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Have barcode"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.hnotbarcode%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Have not barcode"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.wbuyprice%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Whithout buyprice"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.wprice%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Whithout price"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-  {%if requestGET.wdiscount%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Whithout discount"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
-
-  <a class="btn primary outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>
-</div>
-{%endif%}
-
-
-  {%if perm('productAdvanceSearchView')%}
-  <div class="filterBox" data-kerkere-content='hide'>
-      {%include 'content_a/products/filter.html'%}
-  </div>
-  {%endif%}
-
-</form>
+  {{block('htmlSearchBoxMaster')}}
 {%endblock%}
 
-
-{%block htmlSearchBox2%}
-<div class="searchBox">
-  <div class="f">
-    <div class="cauto pRa10">
-      <a class="btn light3 apply" data-kerkere-icon="close" data-kerkere='.filterBox'>{%trans "Filter"%}</a>
-    </div>
-    <div class="c pRa10">
-      <div>
-        <div class="input search apply">
-          <input type="search" name="q" placeholder='{%trans "Search products"%}' id="q" value="{{requestGET.q}}{{requestGET.barcode}}" class="barCode" data-default data-pass='submit' autocomplete='off'>
-          <button class="addon btn light3 s0"><i class="sf-search"></i></button>
-        </div>
-      </div>
-    </div>
-    <div class="cauto">
-      <div class="ui floating dropdown">
-        <div class="btn light3"><i class="sf-sort mRa5"></i><span class="text">{%trans "Sort"%}</span></div>
-        <div class="menu">
-          <div class="header">{%trans "You can sort your list"%}</div>
-
-  {%for key, value in sortList%}
-            <a class="item" href="{{url.that}}?{{value.query_string}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.title}}</span></a>
-  {%endfor%}
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="applyFilters">
-  <a class="btn danger2 sm mRa5" href="#"><span>Filter1</span><i class="fc-red pLa10 sf-times"></i></a>
-  <a class="btn danger2 sm mRa5" href="#"><span>Filter2</span><i class="fc-red pLa10 sf-times"></i></a>
-  <a class="btn danger2 sm mRa5" href="#"><span>Filter3</span><i class="fc-red pLa10 sf-times"></i></a>
-  <a class="btn primary outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>
-</div>
-
-{%if perm('productAdvanceSearchView')%}
-<div class="filterBox" {%if requestGET.customfilter%} {%else%} data-kerkere-content='hide' {%endif%}>
-    {%include 'content_a/products/filter.html'%}
-</div>
-{%endif%}
-
-{%endblock%}
 
 
 {%block htmlTable%}

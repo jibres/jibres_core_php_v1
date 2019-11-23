@@ -49,6 +49,7 @@ class filter
 	{
 		// public => true means show in api and site
 		$sort_list   = [];
+		$sort_list[] = ['title' => T_("None"), 				'query' => [], 												'public' => true];
 		$sort_list[] = ['title' => T_("Expensive"), 		'query' => ['sort' => 'price',		 'order' => 'desc'], 	'public' => true];
 		$sort_list[] = ['title' => T_("Inexpensive"), 		'query' => ['sort' => 'price',		 'order' => 'asc'], 	'public' => true];
 
@@ -61,10 +62,15 @@ class filter
 			$sort_list[] = ['title' => T_("Buy price DESC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'desc'], 	'public' => false];
 		}
 
+		$current_string_query = \dash\request::get();
+		unset($current_string_query['sort']);
+		unset($current_string_query['order']);
 
 		foreach ($sort_list as $key => $value)
 		{
-			$sort_list[$key]['query_string'] = http_build_query($value['query']);
+			$myQuery = [];
+			$myQuery = array_merge($value['query'], $current_string_query);
+			$sort_list[$key]['query_string'] = http_build_query($myQuery);
 		}
 
 		return $sort_list;
