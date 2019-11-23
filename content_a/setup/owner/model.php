@@ -30,7 +30,7 @@ class model
 		// ready request
 		$id = \lib\user::id();
 
-		$result = \lib\app\user\edit::edit($request, $id);
+		$result = \dash\app\user\edit::edit($request, $id);
 
 		if(\dash\engine\process::status())
 		{
