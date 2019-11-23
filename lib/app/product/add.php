@@ -213,5 +213,55 @@ class add
 
 		return $return;
 	}
+
+
+	public static function duplicate($_id, $_args)
+	{
+		$load = \lib\app\product\get::inline_get($_id);
+		if(!$load)
+		{
+			return false;
+		}
+
+		\dash\app::variable($_args);
+
+		$args = \lib\app\product\check::variable();
+
+		if($args === false || !\dash\engine\process::status())
+		{
+			return false;
+		}
+
+		$copy_product = [];
+		foreach ($load as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'id':
+				case 'variants':
+				case 'barcode':
+				case 'barcode2':
+				case 'sku':
+				case 'datemodified':
+				case 'datecreated':
+				case 'slug':
+					break;
+
+				case 'title':
+					$copy_product[$key] = $args['title'];
+					break;
+
+				default:
+					$copy_product[$key] = $value;
+					break;
+			}
+		}
+
+		\dash\notif::warn("Not ready!");
+		return false;
+
+		j($copy_product);
+
+	}
 }
 ?>

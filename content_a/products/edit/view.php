@@ -43,7 +43,8 @@ class view
 		// back
 		\dash\data::page_backText(T_('Products'));
 		\dash\data::page_backLink(\dash\url::this());
-		\dash\data::page_duplicate(\dash\url::here());
+
+
 		\dash\data::page_view(\dash\url::here());
 		\dash\data::page_help(\dash\url::kingdom().'/support/test');
 
@@ -83,6 +84,11 @@ class view
 			$family = \lib\app\product\variants::family($productDataRow['parent']);
 			\dash\data::productFamily($family);
 		}
+		else
+		{
+			\dash\data::page_duplicate(\dash\url::this(). '/duplicate?id='. $id);
+		}
+
 	}
 }
 ?>
