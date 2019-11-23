@@ -56,6 +56,22 @@ class search
 
 		$order_sort  = null;
 
+		if($_args['sort'])
+		{
+			$check_order_trust = \lib\app\product\filter::check_allow($_args['sort'], $_args['order']);
+			if($check_order_trust)
+			{
+				$sort = mb_strtolower($_args['sort']);
+				$order = null;
+				if($_args['order'])
+				{
+					$order = mb_strtolower($_args['order']);
+				}
+
+				$order_sort = " ORDER BY $sort $order";
+			}
+		}
+
 
 		if($_args['barcode'])
 		{

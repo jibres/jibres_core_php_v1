@@ -29,7 +29,7 @@ class filter
 			$sort = mb_strtolower($_sort);
 			if($sort)
 			{
-				$list     = self::sort_list();
+				$list     = self::sort_list(true);
 				$query    = array_column($list, 'query');
 				$sort_key = array_column($query, 'sort');
 
@@ -55,7 +55,7 @@ class filter
 		$sort_list[] = ['title' => T_("Title ASC"), 		'query' => ['sort' => 'title',		 'order' => 'asc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Title DESC"), 		'query' => ['sort' => 'title',		 'order' => 'desc'], 	'public' => false];
 
-		if($_module === 'price')
+		if($_module === 'price' || $_module === true)
 		{
 			$sort_list[] = ['title' => T_("Buy price ASC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'asc'], 	'public' => false];
 			$sort_list[] = ['title' => T_("Buy price DESC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'desc'], 	'public' => false];
