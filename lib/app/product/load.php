@@ -61,6 +61,13 @@ class load
 
 		}
 
+
+		if(isset($detail['parent']) && $detail['parent'])
+		{
+			$parent = \lib\app\product\get::inline_get($detail['parent']);
+			$detail['parent_detail'] = $parent;
+		}
+
 		// sed dataRow to load detail in html
 		\dash\data::productDataRow($detail);
 

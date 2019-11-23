@@ -28,7 +28,12 @@ class get
 			return false;
 		}
 
-		if(!self::$product_detail)
+
+		if(isset(self::$product_detail[$_id]))
+		{
+			$result = self::$product_detail[$_id];
+		}
+		else
 		{
 			$result = \lib\db\products\db::get_by_id($_id);
 
@@ -38,10 +43,11 @@ class get
 				return false;
 			}
 
-			self::$product_detail = $result;
+			self::$product_detail[$_id] = $result;
 		}
 
-		return self::$product_detail;
+		return $result;
+
 	}
 
 
