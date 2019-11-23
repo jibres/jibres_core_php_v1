@@ -10,8 +10,6 @@ trait log
 	 */
 	public static function log($_text, $_time = null, $_name = 'log.sql', $_type = 'sql')
 	{
-		$classes  = (array_column(debug_backtrace(), 'file'));
-
 		// start saving
 		$fileAddr = root.'/includes/log/database/';
 		$time_ms  = round($_time*1000);
