@@ -46,6 +46,8 @@
 
   {{block('Box_organization')}}
 
+  {{block('Box_variant_list')}}
+
   {{block('Box_deleteProduct')}}
 
  </div>
@@ -141,10 +143,8 @@
 
 
 {%block Box_variants %}
+{%if not productDataRow.have_child%}
 <h3>{%trans "Variants"%}</h3>
-{%if productDataRow.have_child%}
-    {{block('variantChild')}}
-{%else%}
   <div class="check1">
    <input type="checkbox" name="variants" id="variants" value="1" {% if productDataRow.variants%} checked{%endif%}>
     <label for="variants">{%trans "This product has multiple options, like different sizes or colors"%}</label>
@@ -157,6 +157,20 @@
 {%endblock%}
 
 
+
+
+
+{%block Box_variant_list %}
+{%if productDataRow.have_child%}
+<section class="pbox">
+  <header data-kerkere='.variantPanel' data-kerkere-icon='open'>{%trans "Variants"%}</header>
+  <div class="body variantPanel" >
+    {{block('variantChild')}}
+  </div>
+</section>
+{%endif%}
+
+{%endblock%}
 
 
 

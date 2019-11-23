@@ -56,6 +56,13 @@ class edit
 			return false;
 		}
 
+		// in child mode remove some setting
+		if(isset($product_detail['parent']) && $product_detail['parent'])
+		{
+			unset($args['title']);
+			unset($args['slug']);
+		}
+
 		if(!\dash\app::isset_request('title')) unset($args['title']);
 		if(!\dash\app::isset_request('slug')) unset($args['slug']);
 		if(!\dash\app::isset_request('barcode')) unset($args['barcode']);

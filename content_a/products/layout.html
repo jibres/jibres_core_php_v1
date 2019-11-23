@@ -462,8 +462,16 @@
 {%if productDataRow.have_child%}
 
 {%for key, value in productDataRow.child%}
-  <div class="msg">
-    {{value.optionname1}} - {{value.optionvalue1}} - {{value.optionname2}} - {{value.optionvalue2}} - {{value.optionname3}} - {{value.optionvalue3}}
+  <div class="msg f">
+    <div class="cauto"><span class="mRa10">{{(key + 1)  | fitNumber}}</span></div>
+    <div class="c">
+      <small class="fc-mute">{{value.optionname1}}</small> <b class="fc-red">{{value.optionvalue1}}</b>
+      <small class="fc-mute">{{value.optionname2}}</small> <b class="fc-green">{{value.optionvalue2}}</b>
+      <small class="fc-mute">{{value.optionname3}}</small> <b class="fc-blue">{{value.optionvalue3}}</b>
+    </div>
+    <div class="cauto">
+      <a href="{{url.that}}?edit={{value.id}}" class="btn xs outline primary">{%trans "Edit"%}</a>
+    </div>
   </div>
 {%endfor%}
 
