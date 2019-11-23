@@ -73,6 +73,12 @@ class users
 	}
 
 
+	public static function get_by_user_id($_user_id)
+	{
+		$query = "SELECT * FROM users WHERE users.user_id = '$_user_id' LIMIT 1";
+		return \dash\db::get($query, null, true);
+	}
+
 	public static function get_by_id($_user_id)
 	{
 		$query = "SELECT * FROM users WHERE users.id = '$_user_id' LIMIT 1";
