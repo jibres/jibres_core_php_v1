@@ -161,7 +161,7 @@
 
 
 {%block Box_variant_list %}
-{%if productDataRow.have_child%}
+{%if productDataRow.have_child or productFamily%}
 <section class="pbox">
   <header data-kerkere='.variantPanel' data-kerkere-icon='open'>{%trans "Variants"%}</header>
   <div class="body variantPanel" >

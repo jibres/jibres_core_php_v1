@@ -314,5 +314,22 @@ class variants
 		}
 	}
 
+	// load every product by this parent id
+	public static function family($_parent)
+	{
+		if(!$_parent || !is_numeric($_parent))
+		{
+			return false;
+		}
+
+		$load_child = \lib\db\products\variants::load_child($_parent);
+		if(is_array($load_child))
+		{
+			$load_child = array_map(['\\lib\\app\\product\\ready', 'row'], $load_child);
+		}
+
+		return $load_child;
+	}
+
 }
 ?>

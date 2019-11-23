@@ -72,6 +72,14 @@ class view
 		}
 		\dash\data::listTag($tag_list);
 
+
+		$productDataRow = \dash\data::productDataRow();
+		if(isset($productDataRow['parent']) && $productDataRow['parent'])
+		{
+			$family = \lib\app\product\variants::family($productDataRow['parent']);
+			\dash\data::productFamily($family);
+		}
+
 	}
 }
 ?>

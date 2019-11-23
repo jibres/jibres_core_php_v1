@@ -4,7 +4,8 @@ namespace lib\app\product;
 
 class get
 {
-	private static $product_detail = [];
+	private static $product_detail    = [];
+	private static $product_next_prev = [];
 
 
 	public static function inline_get($_id)
@@ -59,6 +60,11 @@ class get
 
 	public static function next_prev($_id)
 	{
+		if(isset(self::$product_next_prev[$_id]))
+		{
+			return self::$product_next_prev[$_id];
+		}
+
 		$result = self::inline_get($_id);
 
 		if(!$result)
@@ -78,6 +84,8 @@ class get
 		{
 			$result['prev'] = \dash\url::this(). '/edit?id='. $next_prev['prev'];
 		}
+
+		self::$product_next_prev[$_id] = $result;
 
 		return $result;
 	}
