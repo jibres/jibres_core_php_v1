@@ -73,7 +73,20 @@ class ready
 					}
 					break;
 
+				case 'price':
+				case 'buyprice':
+				case 'discount':
 				case 'finalprice':
+					if($value)
+					{
+						$result[$key] = \lib\price::down($value);
+					}
+					else
+					{
+						$result[$key] = $value;
+					}
+					break;
+
 				case 'intrestrate':
 				case 'intrestrate_impure':
 					$result[$key] = isset($value) ? (float) $value : null;

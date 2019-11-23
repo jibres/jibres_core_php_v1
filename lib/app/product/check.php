@@ -875,9 +875,9 @@ class check
 		}
 
 		$args                    = [];
-		$args['buyprice']        = $buyprice;
-		$args['price']           = $price;
-		$args['discount']        = $discount;
+		$args['buyprice']        = \lib\price::up($buyprice);
+		$args['price']           = \lib\price::up($price);
+		$args['discount']        = \lib\price::up($discount);
 		$args['discountpercent'] = $discountpercent;
 
 		return $args;

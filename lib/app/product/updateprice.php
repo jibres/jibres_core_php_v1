@@ -44,9 +44,9 @@ class updateprice
 
 		if($changed)
 		{
-			$new_record['price']           = array_key_exists('price', $_args) ? $_args['price'] : null;
-			$new_record['discount']        = array_key_exists('discount', $_args) ? $_args['discount'] : null;
-			$new_record['buyprice']        = array_key_exists('buyprice', $_args) ? $_args['buyprice'] : null;
+			$new_record['price']           = array_key_exists('price', $_args) ? \lib\price::up($_args['price']) : null;
+			$new_record['discount']        = array_key_exists('discount', $_args) ? \lib\price::up($_args['discount']) : null;
+			$new_record['buyprice']        = array_key_exists('buyprice', $_args) ? \lib\price::up($_args['buyprice']) : null;
 			$new_record['discountpercent'] = array_key_exists('discountpercent', $_args) ? $_args['discountpercent'] : null;
 			if(isset($new_record['price']) || isset($new_record['discount']))
 			{
