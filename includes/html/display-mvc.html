@@ -62,10 +62,10 @@
  <link rel="alternate"        href="{{myLangUrl}}" hreflang="{{key|slice(0, 2)}}"/>
 {%endfor%}
 
- <link rel="stylesheet"       href="{{url.static}}{{'/css/siftal.min.css' | filemtime('true')}}"/>
+ <link rel="stylesheet"       href="{{url.static}}{{'/css/siftal.min.css' | filemtime}}"/>
 {%block head_css         %}{%endblock%}
 {%if include.css %}
- <link rel="stylesheet"       href="{{url.static}}{{'/css/style.css' | filemtime(true)}}"/>
+ <link rel="stylesheet"       href="{{url.static}}{{'/css/style.css' | filemtime}}"/>
 {%endif%}
 {%block head_js          %}{%endblock%}
 {%endblock%}
@@ -88,10 +88,10 @@
 {%endif%}
 <div class="js">
 {%block foot_css%}{%endblock%}
-{%if include.siftal and siftalJS != 'off' %}
- <script src="{{url.siftal}}{{'/js/siftal.min.js' | filemtime('siftal')}}"></script>
+{%if include.siftal %}
+ <script src="{{url.static}}{{'/js/siftal.min.js' | filemtime}}"></script>
 {%if include.highcharts %}
- <script src="{{url.siftal}}{{'/js/highcharts/highcharts.min.js' | filemtime('siftal')}}"></script>
+ <script src="{{url.static}}{{'/js/highcharts/highcharts.min.js' | filemtime}}"></script>
 {%endif%}
 {%endif%}
 {%if user.id%}
@@ -111,11 +111,11 @@
 
 {%block js%}{%endblock%}
 {%if include.editor%}
- <script src="{{url.siftal}}{{'/js/medium-editor.min.js' | filemtime('siftal')}}"></script>
- <link  href="{{url.siftal}}{{'/css/medium-editor.css' | filemtime('siftal')}}" rel="stylesheet" media="screen"/>
+ <script src="{{url.static}}{{'/js/medium-editor.min.js' | filemtime}}"></script>
+ <link  href="{{url.static}}{{'/css/medium-editor.css' | filemtime}}" rel="stylesheet" media="screen"/>
 {%endif%}
 {%if include.js%}
- <script src="{{url.static}}{{'/js/script.js' | filemtime(true)}}"></script>
+ <script src="{{url.static}}{{'/js/script.js' | filemtime}}"></script>
 {%endif%}
 
 

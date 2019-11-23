@@ -146,8 +146,8 @@ class view
 		// read file data
 		$fileData = @file_get_contents($filepath, FILE_USE_INCLUDE_PATH, null, $page, $lenght);
 		$myURL    = \dash\url::static(). '/';
-		$myCommon = \dash\url::static(). '/siftal/js/siftal.min.js';
-		$myCode   = \dash\url::static(). '/siftal/';
+		$myCommon = \dash\url::static(). '/js/siftal.min.js';
+		$myCode   = \dash\url::static(). '/';
 
 		$output .= "<head>";
 		$output .= ' <title>Log | '. $name. '</title>';

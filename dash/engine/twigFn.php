@@ -700,16 +700,12 @@ class twigFn
 
 	private static function filter_filemtime()
 	{
-		return new \Twig_SimpleFilter('filemtime', function ($_url, $_withReturn = null)
+		return new \Twig_SimpleFilter('filemtime', function ($_url, $_withReturn = true)
 		{
 			$result       = '';
 			$lastTime     = null;
 			$complete_url = root.'public_html/';
-			if($_withReturn === 'siftal')
-			{
-				$complete_url .= 'static/siftal';
-			}
-			else if($_withReturn)
+			if($_withReturn)
 			{
 				$complete_url .= 'static';
 			}
