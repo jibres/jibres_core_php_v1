@@ -20,7 +20,8 @@ class check
 	{
 		$default_option =
 		[
-			'debug' => true,
+			'debug'   => true,
+			'isChild' => null,
 		];
 
 		if(!is_array($_option))
@@ -30,26 +31,32 @@ class check
 
 		$_option = array_merge($default_option, $_option);
 
+		$isChild = $_option['isChild'];
+
 		$title = null;
-		if(\dash\app::isset_request('title'))
+
+		if(!$isChild)
 		{
-			$title = \dash\app::request('title');
-			if(isset($title) && !is_string($title))
+			if(\dash\app::isset_request('title'))
 			{
-				\dash\notif::error(T_("Please fill your product title as a string"), 'title');
-				return false;
-			}
+				$title = \dash\app::request('title');
+				if(isset($title) && !is_string($title))
+				{
+					\dash\notif::error(T_("Please fill your product title as a string"), 'title');
+					return false;
+				}
 
-			if(!$title && $title !== '0')
-			{
-				\dash\notif::error(T_("Please fill your product title"), 'title');
-				return false;
-			}
+				if(!$title && $title !== '0')
+				{
+					\dash\notif::error(T_("Please fill your product title"), 'title');
+					return false;
+				}
 
-			if(mb_strlen($title) >= 500)
-			{
-				\dash\notif::error(T_("Product title must be less than 500 character"), 'title');
-				return false;
+				if(mb_strlen($title) >= 500)
+				{
+					\dash\notif::error(T_("Product title must be less than 500 character"), 'title');
+					return false;
+				}
 			}
 		}
 

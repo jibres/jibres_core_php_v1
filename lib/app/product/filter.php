@@ -3,14 +3,64 @@ namespace lib\app\product;
 
 class filter
 {
-	public static function sort_list()
-	{
-		$sort_list   = [];
-		$sort_list[] = ['title' => T_("Expensive"), 'query' => ['sort' => 'price', 'order' => 'desc']];
-		$sort_list[] = ['title' => T_("Inexpensive"), 'query' => ['sort' => 'price', 'order' => 'asc']];
 
-		// $sort_list[] = ['title' => T_("Sort by title DESC"), 'query' => ['sort' => 'title', 'order' => 'desc']];
-		// $sort_list[] = ['title' => T_("Sort by title ASC"), 'query' => ['sort' => 'title', 'order' => 'asc']];
+	// get public sort list for api and application
+	public static function public_sort_list($_module = null)
+	{
+		$list = self::sort_list($_module);
+		$public_sort_list = [];
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['public']) && $value['public'])
+			{
+				$public_sort_list[] = $value;
+			}
+		}
+
+		return $public_sort_list;
+	}
+
+
+	public static function check_allow($_sort, $_order)
+	{
+		$order = mb_strtolower($_order);
+		if($order && in_array($order, ['asc', 'desc']))
+		{
+			$sort = mb_strtolower($_sort);
+			if($sort)
+			{
+				$list     = self::sort_list();
+				$query    = array_column($list, 'query');
+				$sort_key = array_column($query, 'sort');
+
+				if(in_array($sort, $sort_key))
+				{
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+
+
+	public static function sort_list($_module = null)
+	{
+		// public => true means show in api and site
+		$sort_list   = [];
+		$sort_list[] = ['title' => T_("Expensive"), 		'query' => ['sort' => 'price',		 'order' => 'desc'], 	'public' => true];
+		$sort_list[] = ['title' => T_("Inexpensive"), 		'query' => ['sort' => 'price',		 'order' => 'asc'], 	'public' => true];
+
+		$sort_list[] = ['title' => T_("Title ASC"), 		'query' => ['sort' => 'title',		 'order' => 'asc'], 	'public' => false];
+		$sort_list[] = ['title' => T_("Title DESC"), 		'query' => ['sort' => 'title',		 'order' => 'desc'], 	'public' => false];
+
+		if($_module === 'price')
+		{
+			$sort_list[] = ['title' => T_("Buy price ASC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'asc'], 	'public' => false];
+			$sort_list[] = ['title' => T_("Buy price DESC"), 	'query' => ['sort' => 'buyprice',	 'order' => 'desc'], 	'public' => false];
+		}
+
 
 		foreach ($sort_list as $key => $value)
 		{

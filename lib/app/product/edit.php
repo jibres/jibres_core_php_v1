@@ -49,6 +49,15 @@ class edit
 		$_option['product_detail'] = $product_detail;
 		$id = $product_detail['id'];
 
+		$isChild = false;
+		// in child mode remove some setting
+		if(isset($product_detail['parent']) && $product_detail['parent'])
+		{
+			$isChild = true;
+		}
+
+		$_option['isChild'] = $isChild;
+
 		$args = \lib\app\product\check::variable($id, $_option);
 
 		if($args === false || !\dash\engine\process::status())
@@ -56,12 +65,12 @@ class edit
 			return false;
 		}
 
-		// in child mode remove some setting
-		if(isset($product_detail['parent']) && $product_detail['parent'])
+		if($isChild)
 		{
 			unset($args['title']);
 			unset($args['slug']);
 		}
+
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
 		if(!\dash\app::isset_request('slug')) unset($args['slug']);
