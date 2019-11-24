@@ -45,7 +45,6 @@ function select2Country()
     }
     // fill lines
     var $container = _repo.text;
-    console.log(_repo.id);
     if(_repo.id)
     {
       $container = $(

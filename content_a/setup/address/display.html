@@ -9,7 +9,6 @@
       <div class="cbox">
 
 
-        {{block('iCountry')}}
 		    {{block('iCountry2')}}
 		    {{block('iCity')}}
 		    {{block('iAddress')}}
@@ -36,35 +35,13 @@
 
 
 
-
-
-
-{%block iCountry%}
-<div class="mB10">
-  <label for='country'>{%trans "Country"%}</label>
-  <div class="ui fluid search selection dropdown">
-    <input type="hidden" name="country" value="{%if dataRow.country%}{{dataRow.country}}{%elseif lang.current == 'fa'%}IR{%endif%}">
-    <i class="dropdown icon"></i>
-    <div class="default text">{%trans "Choose your country"%}</div>
-    <div class="menu">
-{%for key, value in countryList%}
-      <div class="item" data-value="{{key}}">
-        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}<small class="description">{{value.name | capitalize}}</small>
-      </div>
-{%endfor%}
-    </div>
-  </div>
-</div>
-{%endblock%}
-
-
 {%block iCountry2%}
 <div class="mB10">
   <label for='country'>{%trans "Country"%}</label>
   <select class="select2-country">
     <option value="" readonly>{%trans "Choose your country"%}</option>
 {%for key, value in countryList%}
-      <option value="{{key}}">{%set myCountry = value.name%}{%trans myCountry%}</option>
+      <option value="{{key}}">{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}</option>
 {%endfor%}
   </select>
   </select>
