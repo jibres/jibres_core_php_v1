@@ -64,6 +64,27 @@ class controller
 				}
 				break;
 			case 'city':
+				$province = \dash\request::get('province');
+				if($province)
+				{
+					$data = \dash\utility\location\cites::$data;
+
+					$new_data = [];
+					foreach ($data as $key => $value)
+					{
+						if(is_array($value) && array_key_exists('province', $value) && array_key_exists('localname', $value))
+						{
+							if(mb_strtoupper($province) === mb_strtoupper($value['province']))
+							{
+								$temp         = $value;
+								$temp['id']   = $key;
+								$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
+								$new_data[]   = $temp;
+							}
+						}
+					}
+					$data = $new_data;
+				}
 				break;
 
 			default:
