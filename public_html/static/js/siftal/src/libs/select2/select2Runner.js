@@ -9,6 +9,9 @@ function select2Runner()
   {
     $.fn.select2.defaults.set("dir", "rtl");
   }
+  // set minimum to show search
+  $.fn.select2.defaults.set("minimumResultsForSearch", "6");
+
   $('.select2').select2();
 
 
