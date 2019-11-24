@@ -1,53 +1,57 @@
 
 function cleaveRunner()
 {
-  new Cleave('input[data-format="number"]',
+  $('input[data-format]').each(function()
   {
-    numeral: true
-  });
+    var myFormat = $(this).attr('data-format');
+    var opt = {};
 
-  new Cleave('input[data-format="int"]',
-  {
-    numericOnly: true,
-    delimiter: ',',
-  });
+    switch ($(this).attr('data-format'))
+    {
+      case "number":
+        opt.numeral = true;
+        break;
 
-  new Cleave('input[data-format="toman"]',
-  {
-      numeral: true,
-      prefix: 'تومان'
-  });
+      case "int":
+        opt.numeral = true,
+        opt.numeralDecimalScale = 0
+        break;
 
+      case "toman":
+        opt.  numeral = true;
+        opt.  prefix = ' تومان';
+        break;
 
-  new Cleave('input[data-format="date"]',
-  {
-    date: true,
-    datePattern: ['Y', 'm', 'd']
-  });
+      case "date":
+        opt.date = true;
+        opt.datePattern = ['Y', 'm', 'd'];
+        break;
 
-  new Cleave('input[data-format="time"]',
-  {
-    time: true,
-    timePattern: ['h', 'm']
-  });
+      case "time":
+        opt.time = true;
+        opt.timePattern = ['h', 'm'];
+        break;
 
+      case "creditCard":
+        opt.creditCard = true;
+        break;
 
-  new Cleave('input[data-format="creditCard"]',
-  {
-    creditCard: true
-  });
+      case "phone-ir":
+        opt.phone = true;
+        opt.phoneRegionCode = 'IR';
+        break;
 
+      case "phone-us":
+        opt.phone = true;
+        opt.phoneRegionCode = 'IR';
+        break;
 
-  new Cleave('input[data-format="phone"]',
-  {
-    phone: true
-  });
+      default:
+        opt.numeral = true;
+        break;
+    }
 
-  new Cleave('input[data-format="phone-ir"]',
-  {
-    phone: true,
-    phoneRegionCode: 'IR'
+    new Cleave($(this), opt);
   });
 
 }
-

@@ -67,7 +67,7 @@
 <label for="birthday">{%trans "Birthday"%}</label>
 
 <div class="input">
-  <input class="ltr" {%if lang.current == 'fa'%}type="text" placeholder="yyyy/mm/dd" data-format="date" {%else%}type="date"{%endif%} name="birthday" id="birthday" value="{{dataRow.birthday}}" autocomplete='off'>
+  <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="birthday" id="birthday" value="{{dataRow.birthday}}" autocomplete='off'>
 </div>
 {%endblock%}
 
