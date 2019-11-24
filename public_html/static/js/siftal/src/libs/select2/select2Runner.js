@@ -26,6 +26,15 @@ function select2Runner()
     }
   });
 
+  $(document).on('change', '.select2[data-next]', function (e)
+  {
+    var nextEl = $(this).attr('data-next');
+    if(nextEl)
+    {
+      fillNext($(this).val(), $(nextEl), nextEl);
+    }
+  });
+
 }
 
 
@@ -52,7 +61,58 @@ function formatDropDownCoutry(_repo)
 }
 
 
+function fillNext(_val, _el, _next)
+{
+  console.log(_val);
+  console.log(_el);
 
+  var apiURL = 'http://jibres.local/' + $('html').attr('lang') + '/api/v1/location/';
+  if(_next === '#city')
+  {
+    apiURL += 'city?province=' + _val;
+  }
+  else if(_next === '#province')
+  {
+    apiURL += 'province?country=' + _val;
+  }
+
+  $.ajax({
+    url: apiURL,
+    dataType: 'json',
+    success: function(returnedData)
+    {
+      console.log('success');
+        var myData =
+        [
+            {
+                id: 0,
+                text: 'enhancement'
+            },
+            {
+                id: 1,
+                text: 'bug'
+            },
+            {
+                id: 2,
+                text: 'duplicate'
+            },
+            {
+                id: 3,
+                text: 'invalid'
+            },
+            {
+                id: 4,
+                text: 'wontfix'
+            }
+        ];
+
+
+        // Initialize the Select2 with the data returned from the AJAX.
+        _el.empty().select2({data: returnedData.result});
+    }
+  });
+
+}
 
 
 
