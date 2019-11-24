@@ -14,8 +14,6 @@ function pushStateSiftal(_direct)
   runCounterUp();
   // run notif from html
   runHtmlNotif();
-  // run datepicker
-  runDatePicker();
   // check here links
   weAreHereChecker();
   // detect id and try to scroll to it
@@ -30,6 +28,8 @@ function pushStateSiftal(_direct)
   dropdownRunner();
   // run select2
   select2Runner();
+  // run numeral fn
+  cleaveRunner();
   // check navigate is done or not
   navigateChecker();
   // check autoPrint detection

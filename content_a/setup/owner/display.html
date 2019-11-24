@@ -65,8 +65,9 @@
 
 {%block ibirthday%}
 <label for="birthday">{%trans "Birthday"%}</label>
+
 <div class="input">
-  <input class="datepicker" type="text" name="birthday" id="birthday" placeholder='{{"1369/04/15" | fitNumber}} *' value="{{dataRow.birthday}}" data-view="year" autocomplete='off'>
+  <input class="ltr" {%if lang.current == 'fa'%}type="text" placeholder="yyyy/mm/dd" data-format="date" {%else%}type="date"{%endif%} name="birthday" id="birthday" value="{{dataRow.birthday}}" autocomplete='off'>
 </div>
 {%endblock%}
 
