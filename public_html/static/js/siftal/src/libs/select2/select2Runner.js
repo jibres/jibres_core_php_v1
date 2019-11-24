@@ -15,14 +15,15 @@ function select2Runner()
   // init simple select2
   $('.select2').select2();
 
-  var apiLang = $('html').attr('lang') === 'fa';
+  var apiLang = '/' +$('html').attr('lang');
 
   // init select2 for country
   $('.select2-country').select2({
     ajax:
     {
-      url: '/' + apiLang + '/api/v1/location/country',
+      url: 'http://jibres.local' + apiLang + '/api/v1/location/country',
       dataType: 'json',
+      cache: true,
       // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
       processResults: function (_data)
       {
