@@ -9,7 +9,8 @@
       <div class="cbox">
 
 
-		    {{block('iCountry2')}}
+		    {{block('iCountry')}}
+        {{block('iProvince')}}
 		    {{block('iCity')}}
 		    {{block('iAddress')}}
 
@@ -35,7 +36,7 @@
 
 
 
-{%block iCountry2%}
+{%block iCountry%}
 <div class="mB10">
   <label for='country'>{%trans "Country"%}</label>
   <select class="select2-country">
@@ -44,22 +45,27 @@
       <option value="{{key}}">{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}</option>
 {%endfor%}
   </select>
-  </select>
 </div>
 {%endblock%}
 
 
 
-{%block iCity%}
-<div data-response='country' data-response-where='IR' {%if dataRow.country == 'IR' or (not dataRow and lang.current == 'fa') %}{%else%}data-response-hide{%endif%}>
+{%block iProvince%}
+<div>
+  <label for='province'>{%trans "Province"%}</label>
+  <select name="province" class="select2-province" id="province">
+    <option value="0">{%trans "Please choose country"%}</option>
+  </select>
+</div>
+{%endblock%}
 
-<label for='city'>{%trans "City"%}</label>
-<select name="city" class="select2 mB10" id="city">
-  <option value="" readonly>{%trans "Select city"%}</option>
-  {%for key, value in cityList%}
-    <option value="{{key}}" {% if dataRow.city == key %} selected {%endif%}>{{value}}</option>
-  {%endfor%}
-</select>
+
+{%block iCity%}
+<div>
+  <label for='city'>{%trans "City"%}</label>
+  <select name="city" class="select2-city" id="city">
+    <option value="" readonly>{%trans "Please choose province"%}</option>
+  </select>
 </div>
 {%endblock%}
 
