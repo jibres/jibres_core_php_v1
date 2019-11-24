@@ -26,9 +26,14 @@ class controller
 		{
 			case 'country':
 				$data = \dash\utility\location\countres::$data;
+				$data = array_values($data);
 				break;
 			case 'province':
-				// $data = \dash\utility\location\countres::$data;
+				$country = \dash\request::get('country');
+				if($country)
+				{
+					$data = \dash\utility\location\countres::$data;
+				}
 				break;
 			case 'city':
 				break;
