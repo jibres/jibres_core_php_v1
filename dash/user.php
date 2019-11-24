@@ -8,10 +8,51 @@ class user
 	 *
 	 * @var        <type>
 	 */
-	private static $USER_ID     = null;
-	private static $USER_DETAIL = [];
+	private static $detail = [];
 
 
+	/**
+	 * Initial user in store
+	 *
+	 * @param      <type>  $_user_id  The user identifier
+	 */
+	public static function store_init($_user_id)
+	{
+		if(!is_numeric($_user_id))
+		{
+			return;
+		}
+
+		$detail  = \dash\db\users::get_by_jibres_user_id($_user_id);
+
+		if(!isset($detail['id']))
+		{
+			return;
+		}
+
+		if(is_array($detail))
+		{
+			$detail = \dash\app::fix_avatar($detail);
+			$detail['fullname'] = self::fullName($detail);
+			foreach ($detail as $key => $value)
+			{
+
+				if($value === null)
+				{
+					// nothing
+				}
+				else
+				{
+					self::$detail[$key] = $value;
+					$_SESSION['store_auth'][$key] = $value;
+				}
+			}
+		}
+
+		$_SESSION['store_auth']['logintime'] = time();
+		$_SESSION['store_auth']['id'] = $detail['id'];
+
+	}
 
 	/**
 	 * Initial user id
@@ -47,22 +88,37 @@ class user
 				}
 				else
 				{
-					self::$USER_DETAIL[$key] = $value;
+					self::$detail[$key] = $value;
 					$_SESSION['auth'][$key] = $value;
 				}
 			}
 		}
 
 		$_SESSION['auth']['logintime'] = time();
-
-		self::$USER_ID          = $_user_id;
 		$_SESSION['auth']['id'] = $_user_id;
 
 	}
 
 
+	private static function detect()
+	{
+		$user_data  = isset($_SESSION['auth']) ? $_SESSION['auth'] : [];
+		$store_data = isset($_SESSION['store_auth']) ? $_SESSION['store_auth'] : [];
+
+		if(\dash\db::$jibres_db_name)
+		{
+			self::$detail = $store_data;
+		}
+		else
+		{
+			self::$detail = $user_data;
+		}
+	}
+
+
 	public static function refresh()
 	{
+		return;
 		$user_id = self::id();
 		self::destroy();
 		self::init($user_id);
@@ -94,8 +150,7 @@ class user
 	 */
 	public static function destroy()
 	{
-		self::$USER_ID     = null;
-		self::$USER_DETAIL = [];
+		self::$detail = [];
 		unset($_SESSION['auth']);
 	}
 
@@ -107,20 +162,22 @@ class user
 	 */
 	public static function id()
 	{
-		if(!isset(self::$USER_ID))
+		self::detect();
+
+		$id = null;
+
+		if(isset(self::$detail['id']))
 		{
-			if(isset($_SESSION['auth']['id']))
-			{
-				self::$USER_ID = $_SESSION['auth']['id'];
-			}
+			$id = self::$detail['id'];
 		}
 
-		if(is_numeric(self::$USER_ID))
+
+		if(is_numeric($id))
 		{
-			return intval(self::$USER_ID);
+			return intval($id);
 		}
 
-		return self::$USER_ID;
+		return $id;
 	}
 
 
@@ -202,24 +259,26 @@ class user
 	 */
 	public static function detail($_key = null)
 	{
-		if(empty(self::$USER_DETAIL) && isset($_SESSION['auth']))
+		self::detect();
+
+		if(empty(self::$detail))
 		{
-			self::$USER_DETAIL = $_SESSION['auth'];
+			return null;
 		}
 
 		if($_key)
 		{
-			if(isset(self::$USER_DETAIL[$_key]))
+			if(isset(self::$detail[$_key]))
 			{
-				return self::$USER_DETAIL[$_key];
+				return self::$detail[$_key];
 			}
 			return null;
 		}
 		else
 		{
-			if(isset(self::$USER_DETAIL))
+			if(isset(self::$detail))
 			{
-				return self::$USER_DETAIL;
+				return self::$detail;
 			}
 			return null;
 		}

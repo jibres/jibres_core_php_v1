@@ -29,8 +29,8 @@ class model
 
 		// ready request
 		$id = \dash\user::id();
-
-		$result = \dash\app\user\edit::edit($request, $id);
+		$id = \dash\coding::encode($id);
+		$result = \dash\app\user::edit($request, $id);
 
 		if(\dash\engine\process::status())
 		{

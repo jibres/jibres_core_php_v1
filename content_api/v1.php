@@ -170,12 +170,6 @@ class v1
 			\dash\user::init($get['user_id']);
 		}
 
-		if(!\dash\user::id())
-		{
-			\dash\user::init();
-		}
-
-
 		return true;
 	}
 

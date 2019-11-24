@@ -136,8 +136,11 @@ class store
 			$detail['db_name']   = $db_name;
 			$detail['subdomain'] = isset($_store_detail['subdomain']) ? $_store_detail['subdomain'] : null;
 
+			$user_id = \dash\user::id();
+
 			\dash\db::$jibres_db_name = $db_name;
 
+			\dash\user::store_init($user_id);
 			return $detail;
 		}
 
