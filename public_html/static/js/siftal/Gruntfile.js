@@ -19,10 +19,6 @@ var myModuleFiles =
 	'src/libs/clockpicker/jquery-clockpicker.js',
 	'src/libs/clockpicker/clockpickerRunner.js',
 
-	'src/libs/date/persian-date.js',
-	'src/libs/date/persian-datepicker.js',
-	'src/libs/date/runDatepicker.js',
-
 	// 'src/libs/cropper/cropper.js',
 	// 'src/libs/cropper/cropperRunner.js',
 	'src/libs/dataResponse/dataResponse.js',
