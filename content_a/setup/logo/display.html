@@ -1,42 +1,36 @@
-{%extends display.admin%}
-
+{%extends display.dash%}
 
 
 {%block pageContent%}
 
-<form method="post" enctype="multipart/form-data" autocomplete="off">
-  <div class="f justify-center txtC">
-    <div class="c6 m8 x5 s12">
-      <div class="cbox">
-        {%if dataRow.logo%}<img src="{{dataRow.logo}}" class="box200">{%endif%}
-        {{block("iLogo")}}
-        <div class="f align-center">
-          {%if dataRow.logo%}
-          <div class="cauto">
-            <div class="btn danger xs"  data-confirm data-method='post' data-data='{"remove" : "logo"}'>{%trans "Remove"%} {%trans "Your logo"%}</div>
-          </div>
-          {%endif%}
-          <div class="c"></div>
-          <div class="cauto">
-            <button class="btn success">{%trans "Save"%}</button>
-          </div>
+<div id="get_started_card">
+  <div class="body">
+    <div class="pad">
+      <h1>{{page.title}}</h1>
+      <p>{%trans "You can set it later but in setup process we help you to quick start."%} {%trans "So, it's better to set it now!"%}</p>
+      <p class="msg primary2">{%trans "Please use square logo s!"%}</p>
+      <form method="post" enctype="multipart/form-data" autocomplete="off">
+
+
+        <div class="input preview">
+         <input type="file" accept="image/gif, image/jpeg, image/png" name="logo" data-max="1000" data-preview id="logo1">
+         <label for="logo1">
+          <img src="{{dataRow.logo}}" class="box200">
+         </label>
         </div>
-      </div>
+
+        <div class="f align-center mB10">
+          <div class="c fc-mute">{%trans "Step"%} {{2 | fitNumber}} {%trans "of"%} {{7 | fitNumber}}</div>
+          <div class="cauto os"><button class="btn success">{%trans "Save"%}</button></div>
+        </div>
+
+      </form>
     </div>
   </div>
-</form>
-{%endblock%}
-
-
-
-
-{%block iLogo%}
-<div class="input mT10">
- <input type="file" accept="image/gif, image/jpeg, image/png" name="logo" id="logo1"  data-max="500">
- <label for="logo1" content_account\my>
- </label>
 </div>
 
 {%endblock%}
 
 
+{%block sideBox%}{%endblock%}
+{%block headerBox%}{%endblock%}

@@ -18,6 +18,7 @@ class view
 		\dash\data::page_titleBox(true);
 		if(\dash\url::module() == 'setup')
 		{
+			\dash\data::userToggleSidebar(false);
 			\dash\data::page_titleBox(false);
 		}
 

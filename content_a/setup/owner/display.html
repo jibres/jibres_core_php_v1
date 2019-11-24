@@ -33,12 +33,13 @@
         <div class="input">
           <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="birthday" id="birthday" value="{{dataRow.birthday}}" autocomplete='off'>
         </div>
-        {{block('idisplayname')}}
+
 
         <div class="f align-center mB10">
           <div class="c fc-mute">{%trans "Step"%} {{1 | fitNumber}} {%trans "of"%} {{7 | fitNumber}}</div>
           <div class="cauto os"><button class="btn success">{%trans "Save"%}</button></div>
         </div>
+
       </form>
     </div>
   </div>
