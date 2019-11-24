@@ -15,6 +15,22 @@ function select2Runner()
   // init simple select2
   $('.select2').select2();
 
+  select2Country();
+
+  $(document).on('focus', '.select2.select2-container', function (e)
+  {
+    // only open on original attempt - close focus event should not fire open
+    if (e.originalEvent && $(this).find(".select2-selection--single").length > 0)
+    {
+      $(this).siblings('select:enabled').select2('open');
+    }
+  });
+
+}
+
+
+function select2Country()
+{
   var apiLang = '/' +$('html').attr('lang');
 
   // init select2 for country
@@ -46,13 +62,13 @@ function select2Runner()
             })
         }
     },
-    templateResult: formatDropDownOneLine
+    templateResult: formatDropDownCoutry
   });
 
 
-  function formatDropDownOneLine (_repo)
+  function formatDropDownCoutry(_repo)
   {
-    if (_repo.loading)
+    if(_repo.loading)
     {
       return _repo.text;
     }
@@ -67,17 +83,5 @@ function select2Runner()
 
     return $container;
   }
-
-
-
-  $(document).on('focus', '.select2.select2-container', function (e)
-  {
-    // only open on original attempt - close focus event should not fire open
-    if (e.originalEvent && $(this).find(".select2-selection--single").length > 0)
-    {
-      $(this).siblings('select:enabled').select2('open');
-    }
-  });
-
 }
 
