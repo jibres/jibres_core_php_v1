@@ -46,6 +46,7 @@ var myModuleFiles =
 	'src/libs/escNav/escNav.js',
 	'src/libs/kerkere/kerkere.js',
 	'src/libs/dataCopy/dataCopy.js',
+	'src/libs/numeral-js/numeral.min.js',
 
 	// select2
 	'src/libs/select2/select2.full.min.js',
