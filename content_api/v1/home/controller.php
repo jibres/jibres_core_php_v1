@@ -23,6 +23,14 @@ class controller
 
 		// y88y
 		$store = isset($url[1]) ? $url[1] : null;
+
+		// route location query whitout store
+		if($store === 'location')
+		{
+			\content_api\v1\location\controller::routing();
+			return;
+		}
+
 		if(!$store)
 		{
 			\content_api\v1::stop(404, '$STORE not set');
