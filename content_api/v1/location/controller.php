@@ -29,11 +29,14 @@ class controller
 				$new_data = [];
 				foreach ($data as $key => $value)
 				{
-					$temp         = $value;
-					$temp['id']   = $key;
-					$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
-					$temp['flag'] = \dash\url::site(). '/static/img/flags/png100px/'. mb_strtolower($key). '.png';
-					$new_data[]   = $temp;
+					if(is_array($value) && array_key_exists('name', $value) && array_key_exists('localname', $value))
+					{
+						$temp         = $value;
+						$temp['id']   = $key;
+						$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
+						$temp['flag'] = \dash\url::site(). '/static/img/flags/png100px/'. mb_strtolower($key). '.png';
+						$new_data[]   = $temp;
+					}
 				}
 				$data = $new_data;
 				break;
@@ -42,7 +45,22 @@ class controller
 				$country = \dash\request::get('country');
 				if($country)
 				{
-					$data = \dash\utility\location\countres::$data;
+					$data = \dash\utility\location\provinces::$data;
+					$new_data = [];
+					foreach ($data as $key => $value)
+					{
+						if(is_array($value) && array_key_exists('country', $value) && array_key_exists('localname', $value))
+						{
+							if(mb_strtoupper($country) === mb_strtoupper($value['country']))
+							{
+								$temp         = $value;
+								$temp['id']   = $key;
+								$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
+								$new_data[]   = $temp;
+							}
+						}
+					}
+					$data = $new_data;
 				}
 				break;
 			case 'city':
