@@ -18,11 +18,7 @@ class view
 		\dash\data::page_titleBox(true);
 
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_css(false);
-		\dash\data::include_js(false);
-
 		\dash\data::include_editor(true);
-
 		// use old version of chart until new version is being stable
 		\dash\data::include_highcharts(true);
 
