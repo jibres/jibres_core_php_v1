@@ -13,10 +13,9 @@ function select2Runner()
   $.fn.select2.defaults.set("minimumResultsForSearch", "6");
 
   // init simple select2
-  $('.select2').select2();
+  $('.select2:not([data-model])').select2();
+  $('.select2[data-model="country"]').select2({ templateResult: formatDropDownCoutry});
 
-  select2Country();
-  select2Province();
 
   $(document).on('focus', '.select2.select2-container', function (e)
   {
@@ -30,35 +29,44 @@ function select2Runner()
 }
 
 
-
-function select2Country()
+// fill country elements
+function formatDropDownCoutry(_repo)
 {
-  $('.select2-country').select2(
+  if(_repo.loading)
   {
-    templateResult: formatDropDownCoutry
-  });
-
-  function formatDropDownCoutry(_repo)
-  {
-    if(_repo.loading)
-    {
-      return _repo.text;
-    }
-    // fill lines
-    var $container = _repo.text;
-    if(_repo.id)
-    {
-      $container = $(
-        "<div class='f align-center'>" +
-          "<div class='c1 pRa10'><img src='http://jibres.local/static/img/flags/png100px/" + _repo.id.toLowerCase() + ".png' alt='"+ _repo.text + "' /></div>" +
-          "<div class='c'>" + _repo.text + "</div>" +
-        "</div>"
-      );
-    }
-
-    return $container;
+    return _repo.text;
   }
+  // fill lines
+  var $container = _repo.text;
+  if(_repo.id)
+  {
+    $container = $(
+      "<div class='f align-center'>" +
+        "<div class='c1 pRa10'><img src='http://jibres.local/static/img/flags/png100px/" + _repo.id.toLowerCase() + ".png' alt='"+ _repo.text + "' /></div>" +
+        "<div class='c'>" + _repo.text + "</div>" +
+      "</div>"
+    );
+  }
+
+  return $container;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
