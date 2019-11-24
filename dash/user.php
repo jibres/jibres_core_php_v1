@@ -16,8 +16,13 @@ class user
 	 *
 	 * @param      <type>  $_user_id  The user identifier
 	 */
-	public static function store_init($_user_id)
+	public static function store_init($_user_id = null)
 	{
+		if(!$_user_id && isset($_SESSION['auth']['id']))
+		{
+			$_user_id = $_SESSION['auth']['id'];
+		}
+
 		if(!is_numeric($_user_id))
 		{
 			return;
@@ -96,7 +101,19 @@ class user
 
 		$_SESSION['auth']['logintime'] = time();
 		$_SESSION['auth']['id'] = $_user_id;
+	}
 
+
+	private static function inStore()
+	{
+		if(\dash\db::$jibres_db_name)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 
@@ -105,7 +122,7 @@ class user
 		$user_data  = isset($_SESSION['auth']) ? $_SESSION['auth'] : [];
 		$store_data = isset($_SESSION['store_auth']) ? $_SESSION['store_auth'] : [];
 
-		if(\dash\db::$jibres_db_name)
+		if(self::inStore())
 		{
 			self::$detail = $store_data;
 		}
@@ -118,10 +135,17 @@ class user
 
 	public static function refresh()
 	{
-		return;
 		$user_id = self::id();
 		self::destroy();
-		self::init($user_id);
+
+		if(self::inStore())
+		{
+			self::store_init();
+		}
+		else
+		{
+			self::init($user_id);
+		}
 	}
 
 
@@ -151,7 +175,16 @@ class user
 	public static function destroy()
 	{
 		self::$detail = [];
-		unset($_SESSION['auth']);
+
+		if(self::inStore())
+		{
+			unset($_SESSION['store_auth']);
+		}
+		else
+		{
+			unset($_SESSION['auth']);
+		}
+
 	}
 
 
@@ -191,6 +224,7 @@ class user
 
 		return null;
 	}
+
 
 	public static function chatid()
 	{
