@@ -34,9 +34,16 @@ function select2Country()
   $('.select2-country').one('focus', function(e)
   {
     var self = $(this);
+    var loadingTxt = self.attr('data-loading');
+    var defaultOptEl = self.find('option:eq(0)');
+    if(!loadingTxt)
+    {
+      loadingTxt = 'Data is being loaded...';
+    }
+    var defaultTxt = self.attr('data-opt1', defaultOptEl.text());
 
     // Text to let user know data is being loaded for long requests.
-    self.find('option:eq(0)').text('Data is being loaded...');
+    defaultOptEl.text(loadingTxt);
     $.ajax({
       url: 'http://jibres.local' + '/' + $('html').attr('lang') + '/api/v1/location/country',
       data: {},
@@ -44,7 +51,7 @@ function select2Country()
       success: function(returnedData)
       {
           // Clear the notification text of the option.
-          self.find('option:eq(0)').text('');
+          defaultOptEl.text(defaultTxt.attr('data-opt1'));
           // Initialize the Select2 with the data returned from the AJAX.
           self.select2(
           {
@@ -56,7 +63,7 @@ function select2Country()
       }
     });
       // Blur the select to register the text change of the option.
-      $(this).blur();
+    // self.blur();
   });
 
   function formatDropDownCoutry(_repo)
@@ -65,7 +72,7 @@ function select2Country()
     {
       return _repo.text;
     }
-
+    // fill lines
     var $container = $(
       "<div class='f'>" +
         "<div class='c1 pRa10'><img src='" + _repo.flag + "' alt='"+ _repo.name + "' /></div>" +
@@ -73,6 +80,11 @@ function select2Country()
         "<div class='cauto os pLa10'>" + _repo.name + "</div>" +
       "</div>"
     );
+    console.log(_repo);
+    if(!_repo.id)
+    {
+      $container = _repo.text;
+    }
 
     return $container;
   }
