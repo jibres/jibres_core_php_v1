@@ -254,7 +254,7 @@ class countres
 	'EH' => ['slug' => 'western-sahara', 	'name' => 'western sahara','localname' => '‫الصحراء الغربية','phonecode' => 212,'language' => 'ar','containent' => 'Africa','shortcontainent' => 'AF','capital' => 'Laâyoune / El Aaiún','shortname' => 'MAD','iso2' => 'EH','iso3' => 'ESH','width' => '-','length' => '-',],
 	'YE' => ['slug' => 'yemen', 	'name' => 'yemen','localname' => '‫اليمن','phonecode' => 967,'language' => 'ar-YE','containent' => 'Asia','shortcontainent' => 'AS','capital' => 'Sanaa','shortname' => 'YER','iso2' => 'YE','iso3' => 'YEM','width' => '-','length' => '-',],
 	'ZM' => ['slug' => 'zambia', 	'name' => 'zambia','localname' => '','phonecode' => 260,'language' => 'en-ZM','containent' => 'Africa','shortcontainent' => 'AF','capital' => 'Lusaka','shortname' => 'ZMW','iso2' => 'ZM','iso3' => 'ZMB','width' => '15°28 S','length' => '15°28 S',],
-	'ZW' => ['slug' => 'zimbabwe', 	'name' => 'zimbabwe','localname' => '','phonecode' => 263,'language' => 'en-ZW','containent' => 'Africa','shortcontainent' => 'AF','capital' => 'Harare','shortname' => 'ZWL','iso2' => 'ZW','iso3' => 'ZWE','width' => '17°43 S','length' => '17°43 S',0 => 'all',],
+	'ZW' => ['slug' => 'zimbabwe', 	'name' => 'zimbabwe','localname' => '','phonecode' => 263,'language' => 'en-ZW','containent' => 'Africa','shortcontainent' => 'AF','capital' => 'Harare','shortname' => 'ZWL','iso2' => 'ZW','iso3' => 'ZWE','width' => '17°43 S','length' => '17°43 S',],
 ];
 
 }
