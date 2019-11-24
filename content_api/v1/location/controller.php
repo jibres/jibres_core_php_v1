@@ -26,8 +26,18 @@ class controller
 		{
 			case 'country':
 				$data = \dash\utility\location\countres::$data;
-				$data = array_values($data);
+				$new_data = [];
+				foreach ($data as $key => $value)
+				{
+					$temp         = $value;
+					$temp['id']   = $key;
+					$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
+					$temp['flag'] = \dash\url::site(). '/static/img/flags/png100px/'. mb_strtolower($key). '.png';
+					$new_data[]   = $temp;
+				}
+				$data = $new_data;
 				break;
+
 			case 'province':
 				$country = \dash\request::get('country');
 				if($country)
