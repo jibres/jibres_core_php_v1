@@ -62,8 +62,8 @@ function select2Country()
           self.select2('open');
       }
     });
-      // Blur the select to register the text change of the option.
-    // self.blur();
+    // Blur the select to register the text change of the option.
+    self.blur();
   });
 
   function formatDropDownCoutry(_repo)
@@ -74,7 +74,7 @@ function select2Country()
     }
     // fill lines
     var $container = $(
-      "<div class='f'>" +
+      "<div class='f align-center'>" +
         "<div class='c1 pRa10'><img src='" + _repo.flag + "' alt='"+ _repo.name + "' /></div>" +
         "<div class='c'>" + _repo.text + "</div>" +
         "<div class='cauto os pLa10'>" + _repo.name + "</div>" +
