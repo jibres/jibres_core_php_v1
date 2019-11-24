@@ -8,8 +8,6 @@ function pushStateSiftal(_direct)
   responsiveSidebar();
   // setLanguageURL(_direct);
   runSortable();
-  // run clockpickers
-  runClockPicker();
   // run counter up on each page we have counter
   runCounterUp();
   // run notif from html

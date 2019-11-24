@@ -15,10 +15,6 @@ var myModuleFiles =
 	'src/libs/utils.js',
 	'src/libs/underscore.js',
 
-	// new lib used in siftal
-	'src/libs/clockpicker/jquery-clockpicker.js',
-	'src/libs/clockpicker/clockpickerRunner.js',
-
 	// 'src/libs/cropper/cropper.js',
 	// 'src/libs/cropper/cropperRunner.js',
 	'src/libs/dataResponse/dataResponse.js',
