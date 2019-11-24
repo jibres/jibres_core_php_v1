@@ -1,38 +1,40 @@
-{%extends display.admin%}
+{%extends display.dash%}
 
 
 {%block pageContent%}
 
-<form method="post" enctype="multipart/form-data" autocomplete="off">
-  <div class="f justify-center">
-    <div class="c6 m8 x5 s12">
-      <div class="cbox">
+<div id="get_started_card">
+  <div class="body">
+    <div class="pad">
+      <h1>{{page.title}}</h1>
+      <form method="post" autocomplete="off">
 
+        {{block('iMobile')}}
 
 		    {{block('iCountry')}}
         {{block('iProvince')}}
 		    {{block('iCity')}}
 		    {{block('iAddress')}}
 
+        {{block('iPostcode')}}
+        {{block('iPhone')}}
+        {{block('iFax')}}
 
 
-		    <div class="f">
-		      <div class="c pRa5">{{block('iPostcode')}}</div>
-		      <div class="c">{{block('iPhone')}}</div>
-		    </div>
+        <div class="f align-center mB10">
+          <div class="c fc-mute">{%trans "Step"%} {{3 | fitNumber}} {%trans "of"%} {{7 | fitNumber}}</div>
+          <div class="cauto os"><button class="btn success">{%trans "Save"%}</button></div>
+        </div>
 
-		    <div class="f">
-		      <div class="c pRa5">{{block('iMobile')}}</div>
-		      <div class="c">{{block('iFax')}}</div>
-		    </div>
-
-		      {{block('iadd')}}
-      </div>
-
+      </form>
     </div>
   </div>
-</form>
+</div>
 {%endblock%}
+
+
+{%block sideBox%}{%endblock%}
+{%block headerBox%}{%endblock%}
 
 
 
@@ -53,7 +55,7 @@
 {%block iProvince%}
 <div>
   <label for='province'>{%trans "Province"%}</label>
-  <select name="province" class="select2-province" id="province">
+  <select name="province" class="select select2-province" id="province">
     <option value="0">{%trans "Please choose country"%}</option>
   </select>
 </div>
@@ -63,7 +65,7 @@
 {%block iCity%}
 <div>
   <label for='city'>{%trans "City"%}</label>
-  <select name="city" class="select2-city" id="city">
+  <select name="city" class="select select2-city" id="city">
     <option value="" readonly>{%trans "Please choose province"%}</option>
   </select>
 </div>
