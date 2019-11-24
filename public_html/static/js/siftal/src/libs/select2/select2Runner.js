@@ -16,6 +16,7 @@ function select2Runner()
   $('.select2').select2();
 
   select2Country();
+  select2Province();
 
   $(document).on('focus', '.select2.select2-container', function (e)
   {
