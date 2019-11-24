@@ -10,5 +10,16 @@ function select2Runner()
     $.fn.select2.defaults.set("dir", "rtl");
   }
   $('.select2').select2();
+
+
+$(document).on('focus', '.select2.select2-container', function (e)
+{
+  // only open on original attempt - close focus event should not fire open
+  if (e.originalEvent && $(this).find(".select2-selection--single").length > 0)
+  {
+    $(this).siblings('select:enabled').select2('open');
+  }
+});
+
 }
 
