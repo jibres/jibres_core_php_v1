@@ -36,6 +36,19 @@ function cleaveRunner()
         opt.creditCard = true;
         break;
 
+
+      case "phone":
+        opt.numericOnly = true;
+        opt.blocks = [0, 3, 0, 3, 4];
+        opt.delimiters = ["(", ")", " ", "-"];
+        break;
+
+      case "phone-14":
+        opt.numericOnly = true;
+        opt.blocks = [0, 2, 0, 3, 0, 3, 4];
+        opt.delimiters = ["+", " ", "(", ")", " ", "-"];
+        break;
+
       case "phone-ir":
         opt.phone = true;
         opt.phoneRegionCode = 'IR';
