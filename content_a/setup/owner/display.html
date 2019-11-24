@@ -13,11 +13,11 @@
     <div class="cbox">
       <form method="post" autocomplete="off">
 
+        {{block('igender')}}
         {{block('ifirstname')}}
         {{block('ilastname')}}
         {{block('ibirthday')}}
         {{block('idisplayname')}}
-        {{block('igender')}}
 
 
         <div class="txtRa">
@@ -86,26 +86,12 @@
 
 
 {%block igender%}
-
 <label for="gender">{%trans "Gender"%}</label>
-<select name="gender" class="select2" id="gender">
-  <option value="" readonly>{%trans "Please select one item"%} *</option>
-    <option value="male" {%if dataRow.gender == 'male' %} selected {%endif%}>{%trans "Male"%}</option>
-    <option value="female" {%if dataRow.gender == 'female' %} selected {%endif%}>{%trans "Female"%}</option>
-    <option value="company" {%if dataRow.gender == 'company' %} selected {%endif%}>{%trans "Company"%}</option>
-    <option value="rather not say" {%if dataRow.gender == 'rather not say' %} selected {%endif%}>{%trans "Rather not say"%}</option>
-</select>
-
-<br>
-
-
-<label for="genderOld">{%trans "GenderOld"%}</label>
-<select name="genderOld" class="select ui dropdown" id="genderOld">
-  <option value="" readonly>{%trans "Please select one item"%} *</option>
-    <option value="male" {%if dataRow.gender == 'male' %} selected {%endif%}>{%trans "Male"%}</option>
-    <option value="female" {%if dataRow.gender == 'female' %} selected {%endif%}>{%trans "Female"%}</option>
-    <option value="company" {%if dataRow.gender == 'company' %} selected {%endif%}>{%trans "Company"%}</option>
-    <option value="rather not say" {%if dataRow.gender == 'rather not say' %} selected {%endif%}>{%trans "Rather not say"%}</option>
-</select>
-
+<div>
+  <select name="gender" class="select2" id="gender">
+    <option value="" readonly>{%trans "Please select your gender"%} *</option>
+      <option value="male" {%if dataRow.gender == 'male' %} selected {%endif%}>{%trans "Male"%}</option>
+      <option value="female" {%if dataRow.gender == 'female' %} selected {%endif%}>{%trans "Female"%}</option>
+  </select>
+</div>
 {%endblock%}
