@@ -61,9 +61,11 @@
 {%block iCountry2%}
 <div class="mB10">
   <label for='country'>{%trans "Country"%}</label>
-  <select class="select2-country" data-loading='{%trans "Data is being loading..."%}'>
+  <select class="select2-country">
     <option value="" readonly>{%trans "Choose your country"%}</option>
-    <option value="">{%trans "Iran"%}</option>
+{%for key, value in countryList%}
+      <option value="{{key}}">{%set myCountry = value.name%}{%trans myCountry%}</option>
+{%endfor%}
   </select>
   </select>
 </div>

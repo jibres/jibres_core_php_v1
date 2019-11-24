@@ -29,7 +29,40 @@ function select2Runner()
 }
 
 
+
 function select2Country()
+{
+  $('.select2-country').select2(
+  {
+    templateResult: formatDropDownCoutry
+  });
+
+  function formatDropDownCoutry(_repo)
+  {
+    if(_repo.loading)
+    {
+      return _repo.text;
+    }
+    // fill lines
+    var $container = _repo.text;
+    console.log(_repo.id);
+    if(_repo.id)
+    {
+      $container = $(
+        "<div class='f align-center'>" +
+          "<div class='c1 pRa10'><img src='http://jibres.local/static/img/flags/png100px/" + _repo.id.toLowerCase() + ".png' alt='"+ _repo.text + "' /></div>" +
+          "<div class='c'>" + _repo.text + "</div>" +
+        "</div>"
+      );
+    }
+
+    return $container;
+  }
+}
+
+
+
+function select2CountryOld2()
 {
   $('.select2-country').one('focus', function(e)
   {
@@ -45,7 +78,7 @@ function select2Country()
     // Text to let user know data is being loaded for long requests.
     defaultOptEl.text(loadingTxt);
     $.ajax({
-      url: 'http://jibres.local' + '/' + $('html').attr('lang') + '/api/v1/location/country',
+      url: 'http://jibres.local/' + $('html').attr('lang') + '/api/v1/location/country',
       data: {},
       dataType: 'json',
       success: function(returnedData)
@@ -89,6 +122,16 @@ function select2Country()
     return $container;
   }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
