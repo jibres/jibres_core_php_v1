@@ -6,7 +6,9 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Your detail'));
+		\dash\data::userToggleSidebar(false);
+
+		\dash\data::page_title(T_('Complete your profile'));
 		\dash\data::dataRow(\dash\user::detail());
 	}
 }

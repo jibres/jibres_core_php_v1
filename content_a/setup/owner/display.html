@@ -1,29 +1,44 @@
-{%extends display.admin%}
-
-
-
-
+{%extends display.dash%}
 
 
 {%block pageContent%}
 
-
-<div class="f justify-center">
-  <div class="c6 m8 x5 s12">
-    <div class="cbox">
+<div id="get_started_card">
+  <div class="body">
+    <div class="pad">
+      <h1>{{page.title}}</h1>
+      <p>{%trans "Fill your name and public detail to save on your store."%}</p>
       <form method="post" autocomplete="off">
 
-        {{block('igender')}}
-        {{block('ifirstname')}}
-        {{block('ilastname')}}
-        {{block('ibirthday')}}
-        {{block('idisplayname')}}
-
-
-        <div class="txtRa">
-          <button class="btn success">{%trans "Save"%}</button>
+        <label for="gender">{%trans "Gender"%}</label>
+        <div>
+          <select name="gender" class="select2" id="gender">
+            <option value="male" {%if dataRow.gender == 'male' %} selected {%endif%}>{%trans "Male"%}</option>
+            <option value="female" {%if dataRow.gender == 'female' %} selected {%endif%}>{%trans "Female"%}</option>
+          </select>
         </div>
 
+        <label for="firstname">{%trans "First name"%}</label>
+        <div class="input">
+          <input type="text" name="firstname" id="firstname" placeholder='{%trans "Firstname"%}' value="{{dataRow.firstname}}" maxlength='40' minlength="1" pattern=".{1,40}" title2='{%trans "Enter a valid firstname from 3 to 40 character"%}' >
+        </div>
+
+        <label for="lastname">{%trans "Last name"%}</label>
+        <div class="input">
+          <input type="text" name="lastname" id="lastname" placeholder='{%trans "Lastname"%}' value="{{dataRow.lastname}}" maxlength='40' minlength="1" pattern=".{1,40}" title2='{%trans "Enter a valid lastname from 3 to 40 character"%}' >
+        </div>
+
+        <label for="birthday">{%trans "Birthday"%}</label>
+
+        <div class="input">
+          <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="birthday" id="birthday" value="{{dataRow.birthday}}" autocomplete='off'>
+        </div>
+        {{block('idisplayname')}}
+
+        <div class="f align-center mB10">
+          <div class="c fc-mute">{%trans "Step"%} {{1 | fitNumber}} {%trans "of"%} {{7 | fitNumber}}</div>
+          <div class="cauto os"><button class="btn success">{%trans "Save"%}</button></div>
+        </div>
       </form>
     </div>
   </div>
@@ -32,42 +47,5 @@
 {%endblock%}
 
 
-
-
-
-
-{%block ifirstname%}
-<label for="firstname">{%trans "First name"%}</label>
-<div class="input">
-  <input type="text" name="firstname" id="firstname" placeholder='{%trans "Firstname"%}' value="{{dataRow.firstname}}" maxlength='40' minlength="1" pattern=".{1,40}" title2='{%trans "Enter a valid firstname from 3 to 40 character"%}' >
-</div>
-{%endblock%}
-
-
-{%block ilastname%}
-<label for="lastname">{%trans "Last name"%}</label>
-<div class="input">
-  <input type="text" name="lastname" id="lastname" placeholder='{%trans "Lastname"%}' value="{{dataRow.lastname}}" maxlength='40' minlength="1" pattern=".{1,40}" title2='{%trans "Enter a valid lastname from 3 to 40 character"%}' >
-</div>
-{%endblock%}
-
-
-{%block ibirthday%}
-<label for="birthday">{%trans "Birthday"%}</label>
-
-<div class="input">
-  <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="birthday" id="birthday" value="{{dataRow.birthday}}" autocomplete='off'>
-</div>
-{%endblock%}
-
-
-
-{%block igender%}
-<label for="gender">{%trans "Gender"%}</label>
-<div>
-  <select name="gender" class="select2" id="gender">
-    <option value="male" {%if dataRow.gender == 'male' %} selected {%endif%}>{%trans "Male"%}</option>
-    <option value="female" {%if dataRow.gender == 'female' %} selected {%endif%}>{%trans "Female"%}</option>
-  </select>
-</div>
-{%endblock%}
+{%block sideBox%}{%endblock%}
+{%block headerBox%}{%endblock%}

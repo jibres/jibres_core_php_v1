@@ -16,6 +16,10 @@ class view
 
 		// enable title box
 		\dash\data::page_titleBox(true);
+		if(\dash\url::module() == 'setup')
+		{
+			\dash\data::page_titleBox(false);
+		}
 
 		\dash\data::include_adminPanel(true);
 		\dash\data::include_editor(true);
