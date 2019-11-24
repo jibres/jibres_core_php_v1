@@ -19,20 +19,32 @@ function select2Runner()
 
   // init select2 for country
   $('.select2-country').select2({
-    ajax:
+    cacheDataSource: [],
+    query: function(query)
     {
-      url: 'http://jibres.local' + apiLang + '/api/v1/location/country',
-      dataType: 'json',
-      cache: true,
-      // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-      processResults: function (_data)
-      {
-        if(_data && _data.result)
+        self = this;
+        // var key = query.term;
+        var cachedData = self.cacheDataSource;
+
+        if(cachedData)
         {
-          return {results: _data.result};
+            query.callback({results: cachedData.result});
+            return;
         }
-        return null;
-      }
+        else
+        {
+            $.ajax({
+              url: 'http://jibres.local' + apiLang + '/api/v1/location/country',
+              // data: { q : query.term },
+              dataType: 'json',
+              type: 'GET',
+              success: function(data)
+              {
+                self.cacheDataSource = data;
+                query.callback({results: data.result});
+              }
+            })
+        }
     },
     templateResult: formatDropDownOneLine
   });
@@ -46,25 +58,12 @@ function select2Runner()
     }
 
     var $container = $(
-      "<div class='select2-result-repository clearfix'>" +
-        "<div class='select2-result-repository__avatar'><img src='" + _repo.owner.avatar_url + "' /></div>" +
-        "<div class='select2-result-repository__meta'>" +
-          "<div class='select2-result-repository__title'></div>" +
-          "<div class='select2-result-repository__description'></div>" +
-          "<div class='select2-result-repository__statistics'>" +
-            "<div class='select2-result-repository__forks'><i class='fa fa-flash'></i> </div>" +
-            "<div class='select2-result-repository__stargazers'><i class='fa fa-star'></i> </div>" +
-            "<div class='select2-result-repository__watchers'><i class='fa fa-eye'></i> </div>" +
-          "</div>" +
-        "</div>" +
+      "<div class='f'>" +
+        "<div class='c1 pRa10'><img src='" + _repo.flag + "' alt='"+ _repo.name + "' /></div>" +
+        "<div class='c'>" + _repo.text + "</div>" +
+        "<div class='cauto os pLa10'>" + _repo.name + "</div>" +
       "</div>"
     );
-
-    $container.find(".select2-result-repository__title").text(_repo.full_name);
-    $container.find(".select2-result-repository__description").text(_repo.description);
-    $container.find(".select2-result-repository__forks").append(_repo.forks_count + " Forks");
-    $container.find(".select2-result-repository__stargazers").append(_repo.stargazers_count + " Stars");
-    $container.find(".select2-result-repository__watchers").append(_repo.watchers_count + " Watchers");
 
     return $container;
   }
