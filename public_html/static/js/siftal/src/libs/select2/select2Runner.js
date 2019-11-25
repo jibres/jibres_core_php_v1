@@ -52,7 +52,7 @@ function select2FormatDropDownCoutry(_repo)
   {
     $container = $(
       "<div class='f align-center'>" +
-        "<div class='c1 pRa10'><img src='http://jibres.local/static/img/flags/png100px/" + _repo.id.toLowerCase() + ".png' alt='"+ _repo.text + "' /></div>" +
+        "<div class='c1 pRa10'><img src='" + $('meta[name="jibres:site"]').attr('content') + "/static/img/flags/png100px/" + _repo.id.toLowerCase() + ".png' alt='"+ _repo.text + "' /></div>" +
         "<div class='c'>" + _repo.text + "</div>" +
       "</div>"
     );
@@ -64,7 +64,7 @@ function select2FormatDropDownCoutry(_repo)
 
 function select2FillNext(_val, _next, _default)
 {
-  var apiURL = 'http://jibres.local/' + $('html').attr('lang') + '/api/v1/location/';
+  var apiURL = $('meta[name="jibres:api"]').attr('content') + 'v1/location/';
   var _el = $(_next);
   if(_next === '#city')
   {
