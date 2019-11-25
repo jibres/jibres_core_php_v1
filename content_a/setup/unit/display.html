@@ -7,10 +7,18 @@
   <div class="body">
     <div class="pad">
       <h1>{{page.title}}</h1>
-      <p>{%trans "Warning! We do not change your price saved in product or factors"%}</p>
+      <p>{%trans "This is the currency your products are sold in."%} {%trans "After your first sale, currency is locked in and can't be changed."%}</p>
       <form method="post" autocomplete="off">
 
-        {{block('iunitname')}}
+        <div class="mB10">
+          <label for='currency'>{%trans "Store currency"%}</label>
+          <select class="select2" name="currency" id="currency">
+            <option value="">{%trans "Choose your default currency"%}</option>
+              {%for key, value in unitList%}
+                <option value="{{key}}" {%if dataRow.unit == key%} selected {%endif%}>{{value.symbol}} - {{value.name}}</option>
+              {%endfor%}
+          </select>
+        </div>
 
 
         <div class="f align-center mB10">
@@ -27,24 +35,4 @@
 
 {%block sideBox%}{%endblock%}
 {%block headerBox%}{%endblock%}
-
-
-
-
-
-
-
-{%block iunitname%}
-<div class="mB10">
-  <label for='unit'>{%trans "Unit"%}</label>
-  <select class="select2" name="unit" id="unit">
-    <option value="">{%trans "Choose your unit"%}</option>
-      {%for key, value in unitList%}
-        <option value="{{key}}" {%if dataRow.unit == key%} selected {%endif%}>{{value.symbol}} - {{value.name}}</option>
-      {%endfor%}
-  </select>
-</div>
-{%endblock%}
-
-
 
