@@ -13,7 +13,7 @@ class model
 		$request['user_id']   = $user_id;
 		$request['creator']   = \dash\user::id();
 		$request['status']    = 'enable';
-		$request['subdomain'] = null;
+
 
 		if(!trim($request['text']))
 		{

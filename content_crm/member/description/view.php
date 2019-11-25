@@ -14,7 +14,6 @@ class view
 
 		$args              = [];
 		$args['user_id']   = \dash\coding::decode(\dash\request::get('id'));
-		$args['subdomain'] = null;
 		$dataTable         = \dash\db\userdetail::search(null, $args);
 
 		\dash\data::dataTable($dataTable);
