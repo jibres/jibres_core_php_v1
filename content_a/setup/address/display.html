@@ -72,15 +72,15 @@
 {%block iPostcode%}
 <label for="postcode">{%trans "Post code"%}</label>
 <div class="input ltr">
-  <input type="text" name="postcode" id="postcode" value="{{dataRow.postcode}}" maxlength='40' minlength="1" pattern=".{1,40}" >
+  <input type="text" name="postcode" id="postcode" value="{{dataRow.postcode}}" data-format="postalcode">
 </div>
 {%endblock%}
 
 
 {%block iPhone%}
 <label for="iphone">{%trans "Phone"%}</label>
-<div class="input">
-  <input type="tel" name="phone" id="iphone" value="{{dataRow.phone}}" pattern=".{1,20}">
+<div class="input ltr">
+  <input type="text" name="phone" id="iphone" value="{{dataRow.phone}}" data-format="tel">
 </div>
 {%endblock%}
 

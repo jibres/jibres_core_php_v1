@@ -13,8 +13,8 @@ function cleaveRunner()
         break;
 
       case "int":
-        opt.numeral = true,
-        opt.numeralDecimalScale = 0
+        opt.numeral = true;
+        opt.numeralDecimalScale = 0;
         break;
 
       case "toman":
@@ -36,10 +36,23 @@ function cleaveRunner()
         opt.creditCard = true;
         break;
 
-
-      case "phone":
+      case "postalcode":
         opt.numericOnly = true;
-        opt.blocks = [0, 3, 0, 3, 4];
+        opt.blocks = [5, 5];
+        opt.delimiter = "-";
+        break;
+
+
+      case "tel":
+        opt.numericOnly = true;
+        opt.prefix = '+',
+        opt.blocks = [3, 3, 3, 4];
+        opt.delimiterLazyShow = true;
+        break;
+
+      case "phone-12":
+        opt.numericOnly = true;
+        opt.blocks = [0, 3, 0, 4, 4];
         opt.delimiters = ["(", ")", " ", "-"];
         break;
 
@@ -57,6 +70,14 @@ function cleaveRunner()
       case "phone-us":
         opt.phone = true;
         opt.phoneRegionCode = 'IR';
+        break;
+
+      case "phone-country":
+        if($('#country').val())
+        {
+          opt.phone = true;
+          opt.phoneRegionCode = $('#country').val();
+        }
         break;
 
       default:
