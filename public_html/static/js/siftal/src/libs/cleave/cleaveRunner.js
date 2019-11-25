@@ -45,16 +45,23 @@ function cleaveRunner()
         opt.creditCard = true;
         break;
 
-      case "postalcode":
+      case "postalCode":
         opt.numericOnly = true;
         opt.blocks = [5, 5];
         opt.delimiter = "-";
         break;
 
-      case "nationalcode":
+      case "nationalCode":
         opt.numericOnly = true;
         opt.blocks = [3, 6, 1];
         opt.delimiter = "-";
+        opt.delimiterLazyShow = true;
+        break;
+
+      case "vat":
+        opt.numericOnly = true;
+        opt.blocks = [5, 3, 4];
+        opt.delimiter = ".";
         opt.delimiterLazyShow = true;
         break;
 
