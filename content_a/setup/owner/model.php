@@ -35,8 +35,7 @@ class model
 		if(\dash\engine\process::status())
 		{
 			\dash\notif::clean();
-			\dash\notif::ok(T_("Your profile successfully updated"));
-			\dash\log::set('editProfile', ['code' => \dash\user::id()]);
+			\dash\log::set('editProfileInSetup', ['code' => \dash\user::id()]);
 			\dash\user::refresh();
 
 			// save every field in somewhere and set the owner detail is complete
