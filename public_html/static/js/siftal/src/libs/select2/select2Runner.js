@@ -66,8 +66,6 @@ function select2FillNext(_val, _next, _default)
 {
   var apiURL = 'http://jibres.local/' + $('html').attr('lang') + '/api/v1/location/';
   var _el = $(_next);
-console.log(_val);
-console.log(_next);
   if(_next === '#city')
   {
     apiURL += 'city?province=' + _val;
@@ -82,20 +80,32 @@ console.log(_next);
     dataType: 'json',
     success: function(returnedData)
     {
-      _el.empty().select2({data: returnedData.result});
-
       if(returnedData && returnedData.result && returnedData.result.length)
       {
+        var serverResult = returnedData.result;
+        if(_default)
+        {
+          $.each(serverResult, function (_el)
+          {
+            if(this.id == _default)
+            {
+              this.selected = true;
+            }
+          });
+        }
+
+        _el.empty().select2({data: serverResult});
         _el.parents('[data-status]').slideDown('fast');
       }
       else
       {
+        _el.empty();
         _el.parents('[data-status]').slideUp('fast');
         // close subchild if exist
         var nextOne = $(_el.attr('data-next'));
         if(nextOne.length)
         {
-          nextOne.parents('[data-status]').slideUp();
+          nextOne.parents('[data-status]').slideUp('fast');
         }
       }
     }
