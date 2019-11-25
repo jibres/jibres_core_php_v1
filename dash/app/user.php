@@ -1038,12 +1038,6 @@ class user
 			'encode' => false,
 		];
 
-		$result['userdetail']   =
-		[
-			'count'  => \dash\db\userdetail::get_count(['user_id' => $_user_id]),
-			'link'   => null,
-			'encode' => false,
-		];
 
 		$result['logs']         =
 		[
@@ -1074,15 +1068,6 @@ class user
 		];
 
 
-
-		if(is_callable(['\\lib\\user', 'user_in_all_table']))
-		{
-			$advance = \dash\user::user_in_all_table($_user_id);
-			if(is_array($advance))
-			{
-				$result = array_merge($result, $advance);
-			}
-		}
 
 		return $result;
 
