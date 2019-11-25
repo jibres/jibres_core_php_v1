@@ -14,7 +14,7 @@ function select2Runner()
 
   // init simple select2
   $('.select2:not([data-model])').select2();
-  $('.select2[data-model="country"]').select2({ templateResult: formatDropDownCoutry});
+  $('.select2[data-model="country"]').select2({ templateResult: select2FormatDropDownCoutry});
 
 
   $(document).on('focus', '.select2.select2-container', function (e)
@@ -31,15 +31,16 @@ function select2Runner()
     var nextEl = $(this).attr('data-next');
     if(nextEl)
     {
-      fillNext($(this).val(), $(nextEl), nextEl);
+      select2FillNext($(this).val(),nextEl);
     }
   });
-
+  // fill default value
+  select2FillDefault();
 }
 
 
 // fill country elements
-function formatDropDownCoutry(_repo)
+function select2FormatDropDownCoutry(_repo)
 {
   if(_repo.loading)
   {
@@ -61,9 +62,12 @@ function formatDropDownCoutry(_repo)
 }
 
 
-function fillNext(_val, _el, _next)
+function select2FillNext(_val, _next, _default)
 {
   var apiURL = 'http://jibres.local/' + $('html').attr('lang') + '/api/v1/location/';
+  var _el = $(_next);
+console.log(_val);
+console.log(_next);
   if(_next === '#city')
   {
     apiURL += 'city?province=' + _val;
@@ -80,7 +84,7 @@ function fillNext(_val, _el, _next)
     {
       _el.empty().select2({data: returnedData.result});
 
-      if(returnedData.result.length)
+      if(returnedData && returnedData.result && returnedData.result.length)
       {
         _el.parents('[data-status]').slideDown('fast');
       }
@@ -91,7 +95,7 @@ function fillNext(_val, _el, _next)
         var nextOne = $(_el.attr('data-next'));
         if(nextOne.length)
         {
-          nextOne.parents('[data-status]').slideUp('fast');
+          nextOne.parents('[data-status]').slideUp();
         }
       }
     }
@@ -99,3 +103,18 @@ function fillNext(_val, _el, _next)
 
 }
 
+function select2FillDefault()
+{
+
+  $('.select2[data-next-default]').each(function(_el)
+  {
+    var myDefault = $(this).attr('data-next-default');
+    var myNextEl  = $(this).attr('data-next');
+    var myVal     = $(this).val();
+
+    if(myVal && myNextEl && myDefault)
+    {
+      select2FillNext(myVal, myNextEl, myDefault);
+    }
+  });
+}
