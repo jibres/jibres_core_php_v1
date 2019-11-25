@@ -9,15 +9,25 @@
   <div class="body">
     <div class="pad">
       <h1>{{page.title}}</h1>
-      <p>{%trans "You can use barcode scanners to quickly enter products to the cart at checkout."%} {%trans "If already you have barcode reader in your store, please tell us to add related fileds into products."%}</p>
-      <div class="msg primary2">{%trans "You can change these settings everytime."%}</div>
+      <p>{%trans "Manage how your store calculates and shows tax on your store."%}</p>
       <form method="post" autocomplete="off">
 
         <div class="switch1">
-         <input type="checkbox" name="vat" id="vat" {% if dataRow.vat == 'yes'%} checked{%endif%}>
-         <label for="vat"></label>
-         <label for="vat">{%trans "Vat"%} <small>{%trans "Use vat reader in your store?"%}</small></label>
+         <input type="checkbox" name="tax-calc" id="tax-calc" {% if dataRow.tax-calc == 'yes'%} checked{%endif%}>
+         <label for="tax-calc"></label>
+         <label for="tax-calc">{%trans "Show all prices with tax included"%}</label>
         </div>
+        <p class="fc-mute">{%trans "If taxes are charged on shipping rates, then taxes are included in the shipping price."%}</p>
+        <hr>
+
+
+        <div class="switch1">
+         <input type="checkbox" name="tax-shipping" id="tax-shipping" {% if dataRow.tax-shipping == 'yes'%} checked{%endif%}>
+         <label for="tax-shipping"></label>
+         <label for="tax-shipping">{%trans "Charge tax on shipping rates"%}</label>
+        </div>
+        <p class="fc-mute">{%trans "Include shipping rates in the tax calculation."%}</p>
+        <hr>
 
 
         <div class="f align-center mB10">
