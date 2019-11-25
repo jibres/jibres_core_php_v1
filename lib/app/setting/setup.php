@@ -81,6 +81,16 @@ class setup
 		}
 	}
 
+	private static function multi_save($_args)
+	{
+		foreach ($_args as $key => $value)
+		{
+			\lib\app\setting\tools::update('store_setting', $key, $value);
+		}
+
+		\lib\store::refresh();
+	}
+
 
 	public static function ready($_module)
 	{
@@ -96,17 +106,33 @@ class setup
 			\dash\data::stepDesc($stepDesc);
 		}
 
-
+		$store_data = \lib\store::detail('store_data');
+		\dash\data::dataRow($store_data);
 	}
 
 
-	public static function have_barcode($_have_barcode)
+	public static function save_pos($_args)
 	{
-		$have_barcode = $_have_barcode ? 'yes' : 'no';
-		if($have_barcode)
+		\dash\app::variable($_args);
+
+
+		$barcode = \dash\app::request('barcode') ? 'yes' : 'no';
+
+		if($barcode === 'yes')
 		{
-			\lib\app\setting\tools::update('store_setting', 'barcode', $have_barcode);
+			$scale   = \dash\app::request('scale') ? 'yes' : 'no';
 		}
+		else
+		{
+			$scale = 'no';
+		}
+
+		$args            = [];
+		$args['barcode'] = $barcode;
+		$args['scale']   = $scale;
+
+		return self::multi_save($args);
+
 	}
 
 
@@ -119,15 +145,6 @@ class setup
 		}
 	}
 
-
-	public static function have_scale($_have_scale)
-	{
-		$have_scale = $_have_scale ? 'yes' : 'no';
-		if($have_scale)
-		{
-			\lib\app\setting\tools::update('store_setting', 'scale', $have_scale);
-		}
-	}
 
 
 	public static function upload_logo()
@@ -238,12 +255,8 @@ class setup
 		$args['phone']    = $phone;
 		$args['fax']      = $fax;
 
-		foreach ($args as $key => $value)
-		{
-			\lib\app\setting\tools::update('store_setting', $key, $value);
-		}
+		return self::multi_save($args);
 
-		return true;
 	}
 
 
@@ -315,12 +328,7 @@ class setup
 		$args['ceonationalcode']       = $ceonationalcode;
 		$args['companyname']           = $companyname;
 
-		foreach ($args as $key => $value)
-		{
-			\lib\app\setting\tools::update('store_setting', $key, $value);
-		}
-
-		return true;
+		return self::multi_save($args);
 	}
 
 
@@ -340,12 +348,7 @@ class setup
 		$args         = [];
 		$args['currency'] = $currency;
 
-		foreach ($args as $key => $value)
-		{
-			\lib\app\setting\tools::update('store_setting', $key, $value);
-		}
-
-		return true;
+		return self::multi_save($args);
 	}
 }
 ?>
