@@ -35,6 +35,12 @@ class controller
 						$temp['id']   = $key;
 						$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
 						$temp['flag'] = \dash\url::site(). '/static/img/flags/png100px/'. mb_strtolower($key). '.png';
+
+						if(empty($new_data))
+						{
+							$new_data[] = ['id' => 0, 'text' => T_("Plase choose country"), 'disable' => true];
+						}
+
 						$new_data[]   = $temp;
 					}
 				}
@@ -56,6 +62,12 @@ class controller
 								$temp         = $value;
 								$temp['id']   = $key;
 								$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
+
+								if(empty($new_data))
+								{
+									$new_data[] = ['id' => 0, 'text' => T_("Plase choose province"), 'disable' => true];
+								}
+
 								$new_data[]   = $temp;
 							}
 						}
@@ -79,6 +91,11 @@ class controller
 								$temp         = $value;
 								$temp['id']   = $key;
 								$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
+
+								if(empty($new_data))
+								{
+									$new_data[] = ['id' => 0, 'text' => T_("Plase choose city"), 'disable' => true];
+								}
 								$new_data[]   = $temp;
 							}
 						}
