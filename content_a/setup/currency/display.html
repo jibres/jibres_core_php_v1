@@ -15,7 +15,7 @@
           <select class="select2" name="currency" id="currency">
             <option value="">{%trans "Choose your currency format"%}</option>
               {%for key, value in currencyList%}
-                <option value="{{key}}" {%if dataRow.currency == key%} selected {%endif%}>{{value.symbol}} - {{value.name}}</option>
+                <option value="{{key}}" {%if dataRow.currency == key%} selected  {%elseif dataRow.country == 'IR' and key == 'IRT' and not dataRow.currency%} selected {%endif%}>{{value.name}} - {{value.symbol_native}}</option>
               {%endfor%}
           </select>
         </div>
