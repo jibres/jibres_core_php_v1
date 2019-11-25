@@ -228,7 +228,7 @@ class view
 			$temp['file']              = isset($value['file']) ? $value['file'] : null;
 			// $temp['answertime']     = isset($value['answertime']) ? $value['answertime'] : null;
 			// $temp['openNewTab']     = isset($value['openNewTab']) ? $value['openNewTab'] : null;
-			// $temp['myTicketUrl']    = isset($value['myTicketUrl']) ? $value['myTicketUrl'] : null;
+
 			$temp['subdomain']         = isset($value['subdomain']) ? $value['subdomain'] : null;
 			$temp['solved']            = isset($value['solved']) ? $value['solved'] : null;
 			$temp['via']               = isset($value['via']) ? $value['via'] : null;
