@@ -23,6 +23,13 @@ class controller
 			\dash\header::status(404, T_("Invalid url"));
 		}
 
+		// redirect api/doc to api/{last version of api}/doc
+		if($module === 'doc' && !\dash\url::child())
+		{
+			\dash\redirect::to(\dash\url::here(). '/v1/doc');
+		}
+
+
 		if($module === 'v1')
 		{
 			\content_api\v1::master_check();
