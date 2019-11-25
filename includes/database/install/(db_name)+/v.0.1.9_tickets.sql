@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `type` varchar(50) DEFAULT NULL,
   `ip` int(10) UNSIGNED DEFAULT NULL,
   `file` varchar(2000) DEFAULT NULL,
+  `plus` int(10) UNSIGNED DEFAULT NULL,
   `answertime` int(10) UNSIGNED DEFAULT NULL,
   `solved` bit(1) DEFAULT NULL,
   `via` enum('site','telegram','sms','contact','admincontact','app') DEFAULT NULL,
