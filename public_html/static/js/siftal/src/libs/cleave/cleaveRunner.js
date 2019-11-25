@@ -51,6 +51,13 @@ function cleaveRunner()
         opt.delimiter = "-";
         break;
 
+      case "nationalcode":
+        opt.numericOnly = true;
+        opt.blocks = [3, 6, 1];
+        opt.delimiter = "-";
+        opt.delimiterLazyShow = true;
+        break;
+
 
       case "tel":
         opt.numericOnly = true;

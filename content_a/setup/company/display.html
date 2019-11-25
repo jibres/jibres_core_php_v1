@@ -55,7 +55,7 @@
 {%block icompanynationalid%}
 <label for="icompanynationalid">{%trans "Company national id"%}</label>
 <div class="input">
-  <input type="number" name="companynationalid" id="icompanynationalid" value="{{dataRow.companynationalid}}" data-format='int' maxlength="11">
+  <input type="text" name="companynationalid" id="icompanynationalid" value="{{dataRow.companynationalid}}" data-format='int' maxlength="11">
 </div>
 {%endblock%}
 
@@ -64,7 +64,7 @@
 {%block icompanyregisternumber%}
 <label for="icompanyregisternumber">{%trans "Company register number"%}</label>
 <div class="input">
-  <input type="number" name="companyregisternumber" id="icompanyregisternumber" value="{{dataRow.companyregisternumber}}" data-format='int' maxlength="10">
+  <input type="text" name="companyregisternumber" id="icompanyregisternumber" value="{{dataRow.companyregisternumber}}" data-format='int' maxlength="10">
 </div>
 {%endblock%}
 
@@ -73,7 +73,7 @@
 {%block iceonationalcode%}
 <label for="iceonationalcode">{%trans "CEO nationalcode"%}</label>
 <div class="input">
-  <input type="number" name="ceonationalcode" id="iceonationalcode" value="{{dataRow.ceonationalcode}}" data-format='int' maxlength="10">
+  <input type="text" name="ceonationalcode" id="iceonationalcode" value="{{dataRow.ceonationalcode}}" data-format='nationalcode'>
 </div>
 {%endblock%}
 
