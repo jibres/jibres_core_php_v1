@@ -38,7 +38,7 @@
 {%block iCountry%}
 <div class="mB10">
   <label for='country'>{%trans "Country"%}</label>
-  <select class="select2" name="country" id="country" data-model2='country' data-next='#province' data-next-default='{{dataRow.province}}'>
+  <select class="select2" name="country" id="country" data-model='country' data-next='#province' data-next-default='{{dataRow.province}}'>
     <option value="" readonly>{%trans "Choose your country"%}</option>
 {%for key, value in countryList%}
       <option value="{{key}}" {%if dataRow.country == key%} selected {%endif%}>{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}</option>

@@ -14,7 +14,7 @@ function select2Runner()
 
   // init simple select2
   $('.select2:not([data-model])').select2();
-  $('.select2[data-model="country"]').select2({ templateResult: select2FormatDropDownCoutry});
+  $('.select2[data-model="country"]').select2({ templateResult2: select2FormatDropDownCoutry, templateSelection: select2FormatDropDownCoutry });
 
 
   $(document).on('focus', '.select2.select2-container', function (e)
