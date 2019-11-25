@@ -90,6 +90,15 @@ class setup
 			'toman' => ['title' => T_("Toman")],
 			'dolar' => ['title' => T_("Dollar")],
 		];
+		$read_file = \dash\file::read(root.'includes/docs/currency/Common-Currency.json');
+		if($read_file && is_string($read_file))
+		{
+			$read_file = json_decode($read_file, true);
+			if(is_array($read_file))
+			{
+				$list = $read_file;
+			}
+		}
 		return $list;
 	}
 
