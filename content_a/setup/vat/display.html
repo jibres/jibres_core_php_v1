@@ -1,35 +1,36 @@
-{%extends display.admin%}
+{%extends display.dash%}
 
 
 
 
 {%block pageContent%}
 
-<form method="post"  autocomplete="off">
-  <div class="f justify-center">
-    <div class="c6 m8 x5 s12">
-      <div class="cbox">
-        {{block("iVat")}}
-        <div class="f align-center">
-          <div class="c"></div>
-          <div class="cauto">
-            <button class="btn success">{%trans "Save"%}</button>
-          </div>
+<div id="get_started_card">
+  <div class="body">
+    <div class="pad">
+      <h1>{{page.title}}</h1>
+      <p>{%trans "You can use barcode scanners to quickly enter products to the cart at checkout."%} {%trans "If already you have barcode reader in your store, please tell us to add related fileds into products."%}</p>
+      <div class="msg primary2">{%trans "You can change these settings everytime."%}</div>
+      <form method="post" autocomplete="off">
+
+        <div class="switch1">
+         <input type="checkbox" name="vat" id="vat" {% if dataRow.vat == 'yes'%} checked{%endif%}>
+         <label for="vat"></label>
+         <label for="vat">{%trans "Vat"%} <small>{%trans "Use vat reader in your store?"%}</small></label>
         </div>
-      </div>
+
+
+        <div class="f align-center mB10">
+          <div class="c fc-mute">{{stepDesc}}</div>
+          <div class="cauto os"><button class="btn success">{%trans "Save"%}</button></div>
+        </div>
+
+      </form>
     </div>
   </div>
-</form>
-{%endblock%}
-
-
-
-
-{%block iVat%}
-<div class="switch1">
- <input type="checkbox" name="vat" id="vat" {% if dataRow.vat == 'yes'%} checked{%endif%}>
- <label for="vat"></label>
- <label for="vat">{%trans "Vat"%} <small>{%trans "Use vat reader in your store?"%}</small></label>
 </div>
-
 {%endblock%}
+
+
+{%block sideBox%}{%endblock%}
+{%block headerBox%}{%endblock%}
