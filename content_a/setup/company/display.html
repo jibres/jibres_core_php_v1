@@ -1,0 +1,89 @@
+{%extends display.dash%}
+
+
+{%block pageContent%}
+
+<div id="get_started_card">
+  <div class="body">
+    <div class="pad">
+      <h1>{{page.title}}</h1>
+      <p>{%trans "Complete your legal information if you want to issue an official invoice."%}</p>
+      <form method="post" autocomplete="off">
+
+        {{block('icompanyname')}}
+        {{block('icompanyeconomiccode')}}
+        {{block('icompanynationalid')}}
+        {{block('icompanyregisternumber')}}
+        {{block('iceonationalcode')}}
+
+        <div class="f align-center mB10">
+          <div class="c fc-mute">{{stepDesc}}</div>
+          <div class="cauto os"><button class="btn success">{%trans "Save"%}</button></div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+{%block sideBox%}{%endblock%}
+{%block headerBox%}{%endblock%}
+
+
+
+
+
+
+
+{%block iceonationalcode%}
+<label for="iceonationalcode">{%trans "CEO nationalcode"%}</label>
+<div class="input">
+  <input type="number" name="ceonationalcode" id="iceonationalcode" value="{{dataRow.ceonationalcode}}" >
+</div>
+{%endblock%}
+
+{%block icompanyname%}
+<label for="icompanyname">{%trans "Company name"%}</label>
+<div class="input">
+  <input type="text" name="companyname" id="icompanyname" value="{{dataRow.companyname}}" >
+</div>
+{%endblock%}
+
+
+{%block icompanyeconomiccode%}
+<label for="icompanyeconomiccode">{%trans "Economic code"%}</label>
+<div class="input">
+  <input type="number" name="companyeconomiccode" id="icompanyeconomiccode" value="{{dataRow.companyeconomiccode}}" >
+</div>
+{%endblock%}
+
+
+{%block icompanynationalid%}
+<label for="icompanynationalid">{%trans "Company national id"%}</label>
+<div class="input">
+  <input type="number" name="companynationalid" id="icompanynationalid" value="{{dataRow.companynationalid}}">
+</div>
+{%endblock%}
+
+
+
+{%block icompanyregisternumber%}
+<label for="icompanyregisternumber">{%trans "Company register number"%}</label>
+<div class="input">
+  <input type="number" name="companyregisternumber" id="icompanyregisternumber" value="{{dataRow.companyregisternumber}}">
+</div>
+{%endblock%}
+
+
+
+{%block icompanyTel%}
+<label for="icompanytel">{%trans "Company Telephone number"%}</label>
+<div class="input">
+  <input type="tel" name="companytel" id="icompanytel" value="{{dataRow.companytel}}" maxlength='15' minlength="1" data-response-realtime>
+</div>
+{%endblock%}
+
+
+

@@ -10,9 +10,12 @@ class setup
 		'owner',
 		'logo',
 		'address',
+		'company',
+		'plan',
 		'barcode',
 		'scale',
 		'vat',
+		'unit',
 	];
 
 	public static function complete($_set_complete = false)
@@ -213,6 +216,79 @@ class setup
 		$args['postcode'] = $postcode;
 		$args['phone']    = $phone;
 		$args['fax']      = $fax;
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update('store_setting', $key, $value);
+		}
+
+		return true;
+	}
+
+
+	public static function save_company($_args)
+	{
+		\dash\app::variable($_args);
+
+		$companyeconomiccode = \dash\app::request('companyeconomiccode');
+		if($companyeconomiccode && !is_numeric($companyeconomiccode))
+		{
+			\dash\notif::error(T_("Plase fill the field as a number"), 'companyeconomiccode');
+			return false;
+		}
+
+		if($companyeconomiccode && mb_strlen($companyeconomiccode) > 100)
+		{
+			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'companyeconomiccode');
+			return false;
+		}
+
+		$companynationalid = \dash\app::request('companynationalid');
+		if($companynationalid && !is_numeric($companynationalid))
+		{
+			\dash\notif::error(T_("Plase fill the field as a number"), 'companynationalid');
+			return false;
+		}
+
+		if($companynationalid && mb_strlen($companynationalid) > 100)
+		{
+			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'companynationalid');
+			return false;
+		}
+
+		$companyregisternumber = \dash\app::request('companyregisternumber');
+		if($companyregisternumber && !is_numeric($companyregisternumber))
+		{
+			\dash\notif::error(T_("Plase fill the field as a number"), 'companyregisternumber');
+			return false;
+		}
+
+		if($companyregisternumber && mb_strlen($companyregisternumber) > 100)
+		{
+			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'companyregisternumber');
+			return false;
+		}
+
+		$ceonationalcode = \dash\app::request('ceonationalcode');
+		if($ceonationalcode && !\dash\utility\filter::nationalcode($ceonationalcode))
+		{
+			\dash\notif::error(T_("Invalid nationalcode"), 'ceonationalcode');
+			return false;
+		}
+
+		$companyname = \dash\app::request('companyname');
+		if($companyname && mb_strlen($companyname) > 100)
+		{
+			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'companyname');
+			return false;
+		}
+
+		$args                          = [];
+		$args['companyeconomiccode']   = $companyeconomiccode;
+		$args['companynationalid']     = $companynationalid;
+		$args['companyregisternumber'] = $companyregisternumber;
+		$args['ceonationalcode']       = $ceonationalcode;
+		$args['companyname']           = $companyname;
 
 		foreach ($args as $key => $value)
 		{
