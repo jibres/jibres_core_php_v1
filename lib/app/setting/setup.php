@@ -11,6 +11,7 @@ class setup
 		'logo',
 		'address',
 		'company',
+		'unit',
 		'barcode',
 		'scale',
 		'vat',
@@ -79,6 +80,17 @@ class setup
 			}
 
 		}
+	}
+
+	public static function unit_list()
+	{
+		$list =
+		[
+			'rial'  => ['title' => T_("Rial")],
+			'toman' => ['title' => T_("Toman")],
+			'dolar' => ['title' => T_("Dollar")],
+		];
+		return $list;
 	}
 
 
@@ -306,6 +318,31 @@ class setup
 		$args['companyregisternumber'] = $companyregisternumber;
 		$args['ceonationalcode']       = $ceonationalcode;
 		$args['companyname']           = $companyname;
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update('store_setting', $key, $value);
+		}
+
+		return true;
+	}
+
+
+	public static function save_unit($_args)
+	{
+		\dash\app::variable($_args);
+
+		$unit = \dash\app::request('unit');
+
+		if($unit && !in_array($unit, array_keys(self::unit_list())))
+		{
+			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'unit');
+			return false;
+		}
+
+
+		$args         = [];
+		$args['unit'] = $unit;
 
 		foreach ($args as $key => $value)
 		{

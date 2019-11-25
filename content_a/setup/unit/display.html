@@ -1,0 +1,50 @@
+{%extends display.dash%}
+
+
+{%block pageContent%}
+
+<div id="get_started_card">
+  <div class="body">
+    <div class="pad">
+      <h1>{{page.title}}</h1>
+      <p>{%trans "Warning! We do not change your price saved in product or factors"%}</p>
+      <form method="post" autocomplete="off">
+
+        {{block('iunitname')}}
+
+
+        <div class="f align-center mB10">
+          <div class="c fc-mute">{{stepDesc}}</div>
+          <div class="cauto os"><button class="btn success">{%trans "Save"%}</button></div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+{%block sideBox%}{%endblock%}
+{%block headerBox%}{%endblock%}
+
+
+
+
+
+
+
+{%block iunitname%}
+<div class="mB10">
+  <label for='unit'>{%trans "Unit"%}</label>
+  <select class="select2" name="unit" id="unit">
+    <option value="">{%trans "Choose your unit"%}</option>
+      {%for key, value in unitList%}
+        <option value="{{key}}" {%if dataRow.unit == key%} selected {%endif%}>{{value.title}}</option>
+      {%endfor%}
+  </select>
+</div>
+{%endblock%}
+
+
+
