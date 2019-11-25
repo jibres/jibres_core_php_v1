@@ -11,7 +11,7 @@ class setup
 		'logo',
 		'address',
 		'company',
-		'unit',
+		'currency',
 		'barcode',
 		'scale',
 		'vat',
@@ -80,26 +80,6 @@ class setup
 			}
 
 		}
-	}
-
-	public static function unit_list()
-	{
-		$list =
-		[
-			'rial'  => ['title' => T_("Rial")],
-			'toman' => ['title' => T_("Toman")],
-			'dolar' => ['title' => T_("Dollar")],
-		];
-		$read_file = \dash\file::read(root.'includes/docs/currency/Common-Currency.json');
-		if($read_file && is_string($read_file))
-		{
-			$read_file = json_decode($read_file, true);
-			if(is_array($read_file))
-			{
-				$list = $read_file;
-			}
-		}
-		return $list;
 	}
 
 
@@ -345,21 +325,21 @@ class setup
 	}
 
 
-	public static function save_unit($_args)
+	public static function save_currency($_args)
 	{
 		\dash\app::variable($_args);
 
-		$unit = \dash\app::request('unit');
+		$currency = \dash\app::request('currency');
 
-		if($unit && !in_array($unit, array_keys(self::unit_list())))
+		if($currency && !in_array($currency, array_keys(\lib\currency::list())))
 		{
-			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'unit');
+			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'currency');
 			return false;
 		}
 
 
 		$args         = [];
-		$args['unit'] = $unit;
+		$args['currency'] = $currency;
 
 		foreach ($args as $key => $value)
 		{

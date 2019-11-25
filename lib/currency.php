@@ -1,11 +1,11 @@
 <?php
 namespace lib;
 
-class units {
+class currncy {
 
 	public static function list()
 	{
-		$units =
+		$currncy =
 		[
 			"USD" => ["symbol" => "$", 		"decimal_digits" => 2, "code" => "USD", "name" => "US Dollar", "symbol_native" => "$", "name_plural" => "US dollars", ],
 			"CAD" => ["symbol" => "CA$", 	"decimal_digits" => 2, "code" => "CAD", "name" => "Canadian Dollar", "symbol_native" => "$", "name_plural" => "Canadian dollars", ],
@@ -126,6 +126,8 @@ class units {
 			"ZAR" => ["symbol" => "R", 		"decimal_digits" => 2, "code" => "ZAR", "name" => "South African Rand", "symbol_native" => "R", "name_plural" => "South African rand", ],
 			"ZMK" => ["symbol" => "ZK", 	"decimal_digits" => 0, "code" => "ZMK", "name" => "Zambian Kwacha", "symbol_native" => "ZK", "name_plural" => "Zambian kwachas", ],
 		];
+
+		return $currncy;
 	}
 }
 ?>
