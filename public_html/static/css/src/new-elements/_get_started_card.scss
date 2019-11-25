@@ -63,6 +63,9 @@
   max-width: 100%;
   border-radius: .25rem;
 }
+[data-status="hide"]{
+  display: none
+}
 #get_started_card .btn{
   min-width: 100px;
 }

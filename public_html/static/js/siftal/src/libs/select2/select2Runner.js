@@ -78,7 +78,22 @@ function fillNext(_val, _el, _next)
     dataType: 'json',
     success: function(returnedData)
     {
-        _el.empty().select2({data: returnedData.result});
+      _el.empty().select2({data: returnedData.result});
+
+      if(returnedData.result.length)
+      {
+        _el.parents('[data-status]').slideDown('fast');
+      }
+      else
+      {
+        _el.parents('[data-status]').slideUp('fast');
+        // close subchild if exist
+        var nextOne = $(_el.attr('data-next'));
+        if(nextOne.length)
+        {
+          nextOne.parents('[data-status]').slideUp('fast');
+        }
+      }
     }
   });
 

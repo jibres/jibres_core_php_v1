@@ -49,7 +49,7 @@
 
 
 {%block iProvince%}
-<div>
+<div data-status='hide'>
   <label for='province'>{%trans "Province"%}</label>
   <select name="province" id="province" class="select2" data-next='#city'>
     <option value="0">{%trans "Please choose country"%}</option>
@@ -59,7 +59,7 @@
 
 
 {%block iCity%}
-<div>
+<div data-status='hide'>
   <label for='city'>{%trans "City"%}</label>
   <select name="city" id="city" class="select2">
     <option value="" readonly>{%trans "Please choose province"%}</option>
