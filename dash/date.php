@@ -40,35 +40,35 @@ class date
 	}
 
 
-	public static function birthdate($_birthdate, $_notif = false)
+	public static function birthday($_birthday, $_notif = false)
 	{
-		if(!$_birthdate)
+		if(!$_birthday)
 		{
 			return null;
 		}
 
-		$birthdate = self::db($_birthdate);
+		$birthday = self::db($_birthday);
 
-		if($birthdate === false)
+		if($birthday === false)
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Invalid birthdate"), 'birthdate');
+				\dash\notif::error(T_("Invalid birthday"), 'birthday');
 			}
 			return false;
 		}
 
 
-		if(\dash\utility\jdate::is_jalali($birthdate))
+		if(\dash\utility\jdate::is_jalali($birthday))
 		{
-			$birthdate = \dash\utility\jdate::to_gregorian($birthdate);
+			$birthday = \dash\utility\jdate::to_gregorian($birthday);
 		}
 
-		if($birthdate === false)
+		if($birthday === false)
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Invalid birthdate"), 'birthdate');
+				\dash\notif::error(T_("Invalid birthday"), 'birthday');
 			}
 			return false;
 		}
@@ -76,14 +76,14 @@ class date
 		try
 		{
 
-			$datetime1 = new \DateTime($birthdate);
+			$datetime1 = new \DateTime($birthday);
 			$datetime2 = new \DateTime(date("Y-m-d"));
 
 			if($datetime1 >= $datetime2)
 			{
 				if($_notif)
 				{
-					\dash\notif::error(T_("Invalid birthdate, birthdate can not larger than date now!"), 'birthdate');
+					\dash\notif::error(T_("Invalid birthday, birthday can not larger than date now!"), 'birthday');
 				}
 				return false;
 			}
@@ -93,7 +93,7 @@ class date
 			return false;
 		}
 
-		return $birthdate;
+		return $birthday;
 	}
 
 

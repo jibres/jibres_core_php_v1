@@ -25,6 +25,11 @@ class view
 			\dash\header::status(404, T_("Invalid user id"));
 		}
 
+		if(isset($result['birthday']) && $result['birthday'])
+		{
+			$result['jalali_birthday'] = \dash\utility\jdate::date("Y-m-d", $result['birthday'], false);
+		}
+
 		\dash\data::dataRowMember($result);
 
 		// add back level to summary link

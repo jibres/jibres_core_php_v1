@@ -11,7 +11,7 @@ trait datalist
 		'code',
 		'firstname',
 		'lastname',
-		'birthdate',
+		'birthday',
 		'mobile',
 		'gender',
 	];

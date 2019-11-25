@@ -14,7 +14,7 @@ class model
 			'lastname'    => \dash\request::post('lastName'),
 			'father'      => \dash\request::post('father'),
 			'marital'     => \dash\request::post('marital'),
-			'birthdate'   => \dash\request::post('birthdate'),
+			'birthday'   => \dash\request::post('birthday'),
 			'gender'      => \dash\request::post('gender'),
 			'shcode'      => \dash\request::post('shcode'),
 			'nationality' => \dash\request::post('nationality'),
@@ -24,6 +24,7 @@ class model
 
 			// 'status'      => \dash\request::post('status'),
 		];
+
 
 		if(\dash\request::post('nationality') === 'IR')
 		{

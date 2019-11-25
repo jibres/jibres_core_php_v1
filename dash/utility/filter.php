@@ -238,12 +238,12 @@ class filter
 
 
 	/**
-	 * filter birthdate value
+	 * filter birthday value
 	 * @param  [str] $_date raw date for filtering in function
 	 * @param  [str] $_arg  type of input like year or month on day
-	 * @return [str]        filtered birthdate
+	 * @return [str]        filtered birthday
 	 */
-	public static function birthdate($_date, $_arg)
+	public static function birthday($_date, $_arg)
 	{
 		if($_arg && method_exists(__CLASS__, $_arg) )
 		{

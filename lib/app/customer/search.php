@@ -72,7 +72,7 @@ class search
 		}
 		unset($_args['sort_type']);
 
-		$result            = \lib\db\users\datalist::list(null, null, null, null);
+		$result            = \dash\db\users::search(null, null, null, null);
 
 		$temp              = [];
 

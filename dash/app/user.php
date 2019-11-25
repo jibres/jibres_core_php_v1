@@ -334,7 +334,7 @@ class user
 			if($birthday)
 			{
 				$birthday = \dash\date::db($birthday);
-				$birthday = \dash\date::birthdate($birthday, true);
+				$birthday = \dash\date::birthday($birthday, true);
 
 				if(!$birthday)
 				{

@@ -131,9 +131,9 @@
 
 
 {%block ibirthday%}
-<label for="birthdate">{%trans "Birthday"%}</label>
+<label for="birthday">{%trans "Birthday"%}</label>
 <div class="input ltr">
-  <input class="datepicker" type="text" name="birthdate" id="birthdate" placeholder='{{"1369/04/15" | fitNumber}}' value="{{dataRowMember.birthday}}" data-view="year" autocomplete='off'>
+  <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date"  name="birthday" id="birthday" placeholder='{{"1369/04/15" | fitNumber}}' value="{{dataRowMember.jalali_birthday}}"  autocomplete='off'>
 </div>
 {%endblock%}
 

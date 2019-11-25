@@ -24,7 +24,7 @@ class company_sign_person
 			'gender'                  => 1,
 
 			// for real person must fill
-			'birthdate'               => '1369/04/15',
+			'birthday'               => '1369/04/15',
 
 			// for company must fill
 			'registerDate'            => null,
