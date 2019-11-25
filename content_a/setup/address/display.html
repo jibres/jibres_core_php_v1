@@ -49,7 +49,7 @@
 
 
 {%block iProvince%}
-<div data-status='hide'>
+<div class="mB10" data-status='hide'>
   <label for='province'>{%trans "Province"%}</label>
   <select name="province" id="province" class="select2" data-next='#city' data-next-default='{{dataRow.city}}'>
     <option value="0">{%trans "Please choose country"%}</option>
@@ -60,7 +60,7 @@
 
 
 {%block iCity%}
-<div data-status='hide'>
+<div class="mB10" data-status='hide'>
   <label for='city'>{%trans "City"%}</label>
   <select name="city" id="city" class="select2">
     <option value="" readonly>{%trans "Please choose province"%}</option>
