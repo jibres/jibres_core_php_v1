@@ -40,7 +40,7 @@
   <select class="select2" name="unit" id="unit">
     <option value="">{%trans "Choose your unit"%}</option>
       {%for key, value in unitList%}
-        <option value="{{key}}" {%if dataRow.unit == key%} selected {%endif%}>{{value.title}}</option>
+        <option value="{{key}}" {%if dataRow.unit == key%} selected {%endif%}>{{value.symbol}} - {{value.name}}</option>
       {%endfor%}
   </select>
 </div>
