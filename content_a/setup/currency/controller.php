@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setup\unit;
+namespace content_a\setup\currency;
 
 
 class controller

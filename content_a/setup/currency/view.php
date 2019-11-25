@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setup\unit;
+namespace content_a\setup\currency;
 
 
 class view
@@ -9,7 +9,7 @@ class view
 		\dash\data::page_title(T_('Store currency'));
 		$store_data = \lib\store::detail('store_data');
 		\dash\data::dataRow($store_data);
-		\dash\data::unitList(\lib\app\setting\setup::unit_list());
+		\dash\data::currencyList(\lib\currency::list());
 	}
 }
 ?>
