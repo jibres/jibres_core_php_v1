@@ -4,6 +4,24 @@ namespace dash;
 
 class number
 {
+	public static function clean($_number)
+	{
+
+		if(is_int($_number) || is_float($_number) || is_numeric($_number))
+		{
+			return $_number;
+		}
+
+		if(is_string($_number))
+		{
+			$_number = \dash\utility\convert::to_en_number($_number);
+			$replace = ['{', '}', '(', ')', '_', '-', '+',' ', ','];
+			$_number = str_replace($replace, '', $_number);
+		}
+
+		return $_number;
+	}
+
 
 	public static function is($_check)
 	{

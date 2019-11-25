@@ -167,7 +167,6 @@ class setup
 
 
 		$country = \dash\app::request('country');
-
 		if($country && mb_strlen($country) > 100)
 		{
 			\dash\notif::error(T_("Please set country less than 100 character"), 'country');
@@ -218,13 +217,16 @@ class setup
 
 
 		$mobile = \dash\app::request('mobile');
+		$module = \dash\number::clean($mobile);
 		if($mobile && !\dash\utility\filter::mobile($mobile))
 		{
 			\dash\notif::error(T_("Invalid mobile"), 'mobile');
 			return false;
 		}
 
+
 		$postcode = \dash\app::request('postcode');
+		$postcode = \dash\number::clean($postcode);
 		if($postcode && mb_strlen($postcode) > 50)
 		{
 			\dash\notif::error(T_("Please set postcode less than 50 character"), 'postcode');
@@ -232,6 +234,7 @@ class setup
 		}
 
 		$phone = \dash\app::request('phone');
+		$phone = \dash\number::clean($phone);
 		if($phone && mb_strlen($phone) > 50)
 		{
 			\dash\notif::error(T_("Please set phone less than 50 character"), 'phone');
@@ -239,6 +242,7 @@ class setup
 		}
 
 		$fax = \dash\app::request('fax');
+		$fax = \dash\number::clean($fax);
 		if($fax && mb_strlen($fax) > 50)
 		{
 			\dash\notif::error(T_("Please set fax less than 50 character"), 'fax');
@@ -269,6 +273,7 @@ class setup
 		\dash\app::variable($_args);
 
 		$companyeconomiccode = \dash\app::request('companyeconomiccode');
+		$companyeconomiccode = \dash\number::clean($companyeconomiccode);
 		if($companyeconomiccode && !is_numeric($companyeconomiccode))
 		{
 			\dash\notif::error(T_("Plase fill the field as a number"), 'companyeconomiccode');
@@ -282,6 +287,7 @@ class setup
 		}
 
 		$companynationalid = \dash\app::request('companynationalid');
+		$companynationalid = \dash\number::clean($companynationalid);
 		if($companynationalid && !is_numeric($companynationalid))
 		{
 			\dash\notif::error(T_("Plase fill the field as a number"), 'companynationalid');
@@ -295,6 +301,7 @@ class setup
 		}
 
 		$companyregisternumber = \dash\app::request('companyregisternumber');
+		$companyregisternumber = \dash\number::clean($companyregisternumber);
 		if($companyregisternumber && !is_numeric($companyregisternumber))
 		{
 			\dash\notif::error(T_("Plase fill the field as a number"), 'companyregisternumber');
@@ -308,6 +315,7 @@ class setup
 		}
 
 		$ceonationalcode = \dash\app::request('ceonationalcode');
+		$ceonationalcode = \dash\number::clean($ceonationalcode);
 		if($ceonationalcode && !\dash\utility\filter::nationalcode($ceonationalcode))
 		{
 			\dash\notif::error(T_("Invalid nationalcode"), 'ceonationalcode');
