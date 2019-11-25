@@ -1,4 +1,4 @@
-https://developers.jibres.com/api/v1/$STORE ------------------------- OK
+https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 ********************************************************************* Application Default Settings
 >> app -------------------------------------------------------------- OK
@@ -6,34 +6,34 @@ https://developers.jibres.com/api/v1/$STORE ------------------------- OK
 
 
 ********************************************************************* Product Actions
->> product/$PRODUCT ------------------------------------------------- OK
->> product/$PRODUCT/comment
->> product/$PRODUCT/comment/add
->> product/$PRODUCT/similars
->> product/$PRODUCT/categories
->> product/$PRODUCT/specifications
->> product/$PRODUCT/tags
->> product/$PRODUCT/history
->> product/$PRODUCT/like
->> product/$PRODUCT/notif
+>> product/{PRODUCT} ------------------------------------------------- OK
+>> product/{PRODUCT}/comment
+>> product/{PRODUCT}/comment/add
+>> product/{PRODUCT}/similars
+>> product/{PRODUCT}/categories
+>> product/{PRODUCT}/specifications
+>> product/{PRODUCT}/tags
+>> product/{PRODUCT}/history
+>> product/{PRODUCT}/like
+>> product/{PRODUCT}/notif
 
 ++++++++++++++++++++++++++++++++++++ Admin Actions
 >> product/add ------------------------------------------------------ OK
->> product/$PRODUCT/edit -------------------------------------------- OK
->> product/$PRODUCT/gallery
->> product/$PRODUCT/remove
->> product/$PRODUCT/varient
+>> product/{PRODUCT}/edit -------------------------------------------- OK
+>> product/{PRODUCT}/gallery
+>> product/{PRODUCT}/remove
+>> product/{PRODUCT}/varient
 
 
 
 ********************************************************************* Products
->> products/compare/$PRODUCT/$PRODUCT/$PRODUCT/$PRODUCT/$PRODUCT
+>> products/compare/{PRODUCT}/{PRODUCT}/{PRODUCT}/{PRODUCT}/{PRODUCT}
 >> products/list?sort=expensive|latest|visit|popular|discount ------- OK
->> products/category/$CATEGORY
->> products/collection/$COLLECTION
->> products/tag/$TAG
->> products/company/$COMPANY
->> products/search?q=$QUERY&tag=$TAG&...
+>> products/category/{CATEGORY}
+>> products/collection/{COLLECTION}
+>> products/tag/{TAG}
+>> products/company/{COMPANY}
+>> products/search?q={QUERY}&tag={TAG}&...
 
 
 
@@ -50,15 +50,15 @@ https://developers.jibres.com/api/v1/$STORE ------------------------- OK
 >> profile/update --------------------------------------------------- OK
 >> profile/address/list
 >> profile/address/add
->> profile/address/$ADDRESS/update
->> profile/address/$ADDRESS/remove
+>> profile/address/{ADDRESS}/update
+>> profile/address/{ADDRESS}/remove
 >> profile/liked
 
 
 
 ********************************************************************* Orders
 >> orders/list
->> orders/$ORDER
+>> orders/{ORDER}
 
 
 
@@ -77,9 +77,9 @@ https://developers.jibres.com/api/v1/$STORE ------------------------- OK
 >> ticket/add/bug
 >> ticket/add/feedback
 >> ticket/add/contact
->> ticket/$TICKET
->> ticket/$TICKET/reply
->> ticket/$TICKET/close
+>> ticket/{TICKET}
+>> ticket/{TICKET}/reply
+>> ticket/{TICKET}/close
 
 
 
@@ -101,6 +101,35 @@ https://developers.jibres.com/api/v1/$STORE ------------------------- OK
 >> business/vision -------------------------------------------------- OK
 >> business/contact ------------------------------------------------- OK
 >> business/posts/list ---------------------------------------------- OK
->> business/posts/$POST --------------------------------------------- OK
+>> business/posts/{POST} --------------------------------------------- OK
+
+
+
+********************************************************************* User managment
+
+
+>> user/list
+>> user/add
+>> user/{USERID}
+>> user/{USERID}/edit
+>> user/{USERID}/edit/avatar
+
+>> user/{USERID}/comment/add
+>> user/{USERID}/comment/list
+>> user/{USERID}/comment/delete
+
+
+
+********************************************************************* Support managment
+
+
+>> ticket/list
+>> ticket/add
+>> ticket/{TICKET}
+>> ticket/{TICKET}/answer
+>> ticket/{TICKET}/attachment
+>> ticket/{TICKET}/status
+>> ticket/{TICKET}/solved
+
 
 
