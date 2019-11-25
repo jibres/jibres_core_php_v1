@@ -12,8 +12,7 @@ class setup
 		'address',
 		'company',
 		'currency',
-		'barcode',
-		'scale',
+		'pos',
 		'vat',
 
 	];

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setup\barcode;
+namespace content_a\setup\pos;
 
 
 class model
