@@ -278,6 +278,9 @@ input[name="website"]{
  direction: ltr;
 }
 
+input[data-format]{
+ direction: ltr;
+}
 input[type="number"] {
   direction: ltr;
   -moz-appearance: textfield;

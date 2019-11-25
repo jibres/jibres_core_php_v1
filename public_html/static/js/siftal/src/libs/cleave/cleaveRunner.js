@@ -10,16 +10,25 @@ function cleaveRunner()
     {
       case "number":
         opt.numeral = true;
+        opt.numeralPositiveOnly = true;
         break;
 
       case "int":
         opt.numeral = true;
         opt.numeralDecimalScale = 0;
+        opt.numeralPositiveOnly = true;
+        opt.numeralThousandsGroupStyle = 'none';
         break;
 
-      case "toman":
-        opt.  numeral = true;
-        opt.  prefix = ' تومان';
+      case "price":
+        opt.numeral = true;
+        opt.numeralPositiveOnly = true;
+        break;
+
+      case "price-int":
+        opt.numeral = true;
+        opt.numeralDecimalScale = 0;
+        opt.numeralPositiveOnly = true;
         break;
 
       case "date":
