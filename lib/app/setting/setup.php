@@ -11,11 +11,10 @@ class setup
 		'logo',
 		'address',
 		'company',
-		'plan',
 		'barcode',
 		'scale',
 		'vat',
-		'unit',
+
 	];
 
 	public static function complete($_set_complete = false)
@@ -80,6 +79,24 @@ class setup
 			}
 
 		}
+	}
+
+
+	public static function ready($_module)
+	{
+		if(in_array($_module, self::$levels))
+		{
+			$current_step = array_search($_module, self::$levels) + 1;
+			$all = count(self::$levels);
+			// set stepDesc
+			$stepDesc = T_('Step') . ' ';
+			$stepDesc .= \dash\utility\human::fitNumber($current_step). ' ';
+			$stepDesc .= T_('of') . ' ';
+			$stepDesc .= \dash\utility\human::fitNumber($all);
+			\dash\data::stepDesc($stepDesc);
+		}
+
+
 	}
 
 
