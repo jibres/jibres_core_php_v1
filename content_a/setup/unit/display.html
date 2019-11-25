@@ -13,7 +13,7 @@
         <div class="mB10">
           <label for='currency'>{%trans "Store currency"%}</label>
           <select class="select2" name="currency" id="currency">
-            <option value="">{%trans "Choose your default currency"%}</option>
+            <option value="">{%trans "Choose your currency format"%}</option>
               {%for key, value in unitList%}
                 <option value="{{key}}" {%if dataRow.unit == key%} selected {%endif%}>{{value.symbol}} - {{value.name}}</option>
               {%endfor%}
