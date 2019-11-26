@@ -16,7 +16,6 @@ class view
 
 		\dash\data::bodyclass('unselectable');
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_css(false);
 
 		$sms = \dash\session::get('verify_sms_send');
 

@@ -15,7 +15,6 @@ class view
 		\dash\data::badge_text(T_('Back to dashboard'));
 		\dash\data::bodyclass('unselectable');
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_css(false);
 
 		$list = \dash\app\smstemplate::list();
 		\dash\data::templateList($list);

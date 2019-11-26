@@ -6,8 +6,6 @@ class view
 	public static function config()
 	{
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_css(false);
-		\dash\data::include_js(false);
 
 		\dash\data::page_title( T_(':val API documentation v1', ['val' => \dash\data::site_title()]));
 		\dash\data::page_desc(T_('Last modified'). ' '. \dash\datetime::fit('2019-02-21 17:30', 'human', 'year'));

@@ -119,8 +119,6 @@ class view
 
 		// define default value for include
 		\dash\data::include_siftal(true);
-		\dash\data::include_css(true);
-		\dash\data::include_js(true);
 
 		self::deadbrowserDetection();
 	}
@@ -305,8 +303,6 @@ class view
 		if(\dash\data::include_adminPanel())
 		{
 			\dash\data::global_siftal(true);
-			\dash\data::include_css(false);
-			\dash\data::include_js(false);
 
 			$txtDesc   = '';
 			if(\dash\data::user_displayname())

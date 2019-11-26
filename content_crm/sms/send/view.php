@@ -17,8 +17,6 @@ class view
 
 		\dash\data::bodyclass('unselectable');
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_css(false);
-
 
 		$mobile = \dash\request::get('mobile');
 		$mobile = \dash\utility\filter::mobile($mobile);

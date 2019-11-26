@@ -1,68 +1,68 @@
 #factorAdd .cbox{margin-bottom:10px;padding:0.5em}
 
 /*final price*/
-.priceBox{font-size:1.4em;margin:0 auto 10px;padding:0;border-radius:0.25rem;background-color:#5bbbdb;color:#eee;text-align:center;max-width:400px;min-width:170px;transition:0.3s opacity;overflow:hidden;}
-.priceBox h3{font-size:1em;padding:1em;margin:0}
-.priceBox div span{font-weight:bold;color:#fff;display:inline-block;}
-.priceBox div{transition: color 0.3s;}
-.priceBox div:hover{color:#fff}
-.priceBox .final{padding:0;background-color:#50a0c0;color:#fff;font-size:2.5em;margin-bottom:10px;height:70px;}
-.priceBox .final span{line-height:75px;height:70px;}
-.priceBox .final abbr{font-size:1rem;display:inline-block;transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);vertical-align:middle;}
-.priceBox .desc{padding:0.4em 0.2em;color:#fff;font-size:1.1rem;font-weight:100;min-height:30px;line-height:1.4}
-.ltr .priceBox .desc{display:none;}
-.priceBox .detail{padding:0.5em;text-align:initial;}
-.priceBox .detail span{float:right;font-size:1.2em;}
-.rtl .priceBox .detail span{float:left;}
-.priceBox .count{display:none;}
-.priceBox .discount{background-color:#50aacc;cursor:pointer;display:none;overflow:hidden;}
-.priceBox .discountPercent{display:none;}
-body[data-page="buy"] .priceBox{background-color:#a03030}
-body[data-page="buy"] .priceBox .final{background-color:#702020;}
-body[data-page="buy"] .priceBox .discount{background-color:#703030;}
-kbd{font-family:monospace;}
+.siftal .priceBox{font-size:1.4em;margin:0 auto 10px;padding:0;border-radius:0.25rem;background-color:#5bbbdb;color:#eee;text-align:center;max-width:400px;min-width:170px;transition:0.3s opacity;overflow:hidden;}
+.siftal .priceBox h3{font-size:1em;padding:1em;margin:0}
+.siftal .priceBox div span{font-weight:bold;color:#fff;display:inline-block;}
+.siftal .priceBox div{transition: color 0.3s;}
+.siftal .priceBox div:hover{color:#fff}
+.siftal .priceBox .final{padding:0;background-color:#50a0c0;color:#fff;font-size:2.5em;margin-bottom:10px;height:70px;}
+.siftal .priceBox .final span{line-height:75px;height:70px;}
+.siftal .priceBox .final abbr{font-size:1rem;display:inline-block;transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);vertical-align:middle;}
+.siftal .priceBox .desc{padding:0.4em 0.2em;color:#fff;font-size:1.1rem;font-weight:100;min-height:30px;line-height:1.4}
+.siftal.ltr  .priceBox .desc{display:none;}
+.siftal .priceBox .detail{padding:0.5em;text-align:initial;}
+.siftal .priceBox .detail span{float:right;font-size:1.2em;}
+.siftal.rtl  .priceBox .detail span{float:left;}
+.siftal .priceBox .count{display:none;}
+.siftal .priceBox .discount{background-color:#50aacc;cursor:pointer;display:none;overflow:hidden;}
+.siftal .priceBox .discountPercent{display:none;}
+body[data-page="buy"].siftal .priceBox{background-color:#a03030}
+body[data-page="buy"].siftal .priceBox .final{background-color:#702020;}
+body[data-page="buy"].siftal .priceBox .discount{background-color:#703030;}
+.siftal kbd{font-family:monospace;}
 
 
 
-.tbl1.productList[data-item='0']{display:none}
-.tbl1.productList .headProduct{white-space:nowrap;min-width:100px;}
-.tbl1.productList input.count{white-space:nowrap;min-width:50px;max-width:60px;padding:5px 0.1em;text-align:center;background-color:transparent;}
-.tbl1.productList input.buy{white-space:nowrap;min-width:60px;max-width:80px;padding:5px 0.1em;text-align:center;background-color:transparent;}
+.siftal tbl1.productList[data-item='0']{display:none}
+.siftal tbl1.productList .headProduct{white-space:nowrap;min-width:100px;}
+.siftal tbl1.productList input.count{white-space:nowrap;min-width:50px;max-width:60px;padding:5px 0.1em;text-align:center;background-color:transparent;}
+.siftal tbl1.productList input.buy{white-space:nowrap;min-width:60px;max-width:80px;padding:5px 0.1em;text-align:center;background-color:transparent;}
 
-.tbl1.productList .input.discountCn{min-width:70px;max-width:120px;margin:0 auto;}
-.tbl1.productList .input.discountCn input.discount{padding:5px 0.1em;text-align:center;background-color:transparent;}
-.tbl1.productList .input.discountCn .addon.small{min-width:40px;max-width:45px;text-align:center;transition:0.3s;opacity:1;line-height:24px;display:inline-block;}
-.tbl1.productList .input.discountCn .addon.small:empty{min-width:0;width:0;opacity:0;border-width:0;padding:0}
+.siftal tbl1.productList .input.discountCn{min-width:70px;max-width:120px;margin:0 auto;}
+.siftal tbl1.productList .input.discountCn input.discount{padding:5px 0.1em;text-align:center;background-color:transparent;}
+.siftal tbl1.productList .input.discountCn .addon.small{min-width:40px;max-width:45px;text-align:center;transition:0.3s;opacity:1;line-height:24px;display:inline-block;}
+.siftal tbl1.productList .input.discountCn .addon.small:empty{min-width:0;width:0;opacity:0;border-width:0;padding:0}
 
-.tbl1 .min80{white-space:nowrap;width:80px}
-.tbl1 .min100{white-space:nowrap;width:100px}
-.tbl1 .min120{white-space:nowrap;width:120px}
-.tbl1 .min150{white-space:nowrap;width:150px}
+.siftal tbl1 .min80{white-space:nowrap;width:80px}
+.siftal tbl1 .min100{white-space:nowrap;width:100px}
+.siftal tbl1 .min120{white-space:nowrap;width:120px}
+.siftal tbl1 .min150{white-space:nowrap;width:150px}
 
-.finalPriceVal span{font-size: 2em;font-weight:bold;}
+.siftal .finalPriceVal span{font-size: 2em;font-weight:bold;}
 
 
 
-.factor .logo.midSize{width: 50%;margin:0 auto;}
-.factor .storeDetail h1{font-weight: bold;font-size: 2em}
-.factor .storeDetail address{font-style: normal;font-weight: 300;line-height: 1.5em;}
-.factor .storeDetail address .phone{font-weight:bold}
-.factor .storeDetail .logo img{width: 80px;height:auto;max-width:80px;max-height:80px;border-radius:3px;overflow:hidden;}
-.factor .storeDetail .desc{line-height:1.5em}
+.siftal .factor .logo.midSize{width: 50%;margin:0 auto;}
+.siftal .factor .storeDetail h1{font-weight: bold;font-size: 2em}
+.siftal .factor .storeDetail address{font-style: normal;font-weight: 300;line-height: 1.5em;}
+.siftal .factor .storeDetail address .phone{font-weight:bold}
+.siftal .factor .storeDetail .logo img{width: 80px;height:auto;max-width:80px;max-height:80px;border-radius:3px;overflow:hidden;}
+.siftal .factor .storeDetail .desc{line-height:1.5em}
 
-.factor .factorDetail{padding-top:1em;border-top:2px solid #333}
-.factor .factorDetail .datetime .time{font-weight:700}
-.factor .factorDetail code{font-size: 1.5em;background-color:#eee;border-radius:3px;padding:3px 5px;min-width:50px;text-align:center;}
-.factor .barcodePrev{height: 40px;width:140px;}
-.factor .barcodePrev.wide{height: auto;width:100%;}
-.factor .tbl1{color:#000}
-.factor .tbl1 thead th{border-bottom-color: #000;padding-top:1em;padding-bottom:1em; }
-.factor .tbl1 tbody td{line-height:1.4em;}
-.factor .tbl1 td{vertical-align: middle;}
-.factor .tbl1 tfoot th{border-top:1px dotted #000;font-weight:bold}
-.factor .factorResult th{vertical-align: middle;}
-.factor .factorResult .collapsing{font-weight:bold;font-size: 1.2em;}
-.factor .factorResult .factorSum{font-size: 1.2em;color:#000!important;}
+.siftal .factor .factorDetail{padding-top:1em;border-top:2px solid #333}
+.siftal .factor .factorDetail .datetime .time{font-weight:700}
+.siftal .factor .factorDetail code{font-size: 1.5em;background-color:#eee;border-radius:3px;padding:3px 5px;min-width:50px;text-align:center;}
+.siftal .factor .barcodePrev{height: 40px;width:140px;}
+.siftal .factor .barcodePrev.wide{height: auto;width:100%;}
+.siftal .factor .tbl1{color:#000}
+.siftal .factor .tbl1 thead th{border-bottom-color: #000;padding-top:1em;padding-bottom:1em; }
+.siftal .factor .tbl1 tbody td{line-height:1.4em;}
+.siftal .factor .tbl1 td{vertical-align: middle;}
+.siftal .factor .tbl1 tfoot th{border-top:1px dotted #000;font-weight:bold}
+.siftal .factor .factorResult th{vertical-align: middle;}
+.siftal .factor .factorResult .collapsing{font-weight:bold;font-size: 1.2em;}
+.siftal .factor .factorResult .factorSum{font-size: 1.2em;color:#000!important;}
 
 
 
@@ -70,17 +70,17 @@ kbd{font-family:monospace;}
 
 
 @media (max-width: 767px) {
-  .tbl1.productList .headProduct{min-width:auto;}
-  .tbl1 .min80{width:auto;}
-  .tbl1 .min100{width:auto;}
-  .tbl1 .min120{width:auto;}
-  .tbl1 .min150{width:auto;}
+  .siftal .tbl1.productList .headProduct{min-width:auto;}
+  .siftal .tbl1 .min80{width:auto;}
+  .siftal .tbl1 .min100{width:auto;}
+  .siftal .tbl1 .min120{width:auto;}
+  .siftal .tbl1 .min150{width:auto;}
 
-  #factorAdd .tbl1 tr td:first-child, #factorAdd .tbl1 tr th:first-child{display: none;}
-  #factorAdd .tbl1 tr td:last-child, #factorAdd .tbl1 tr th:last-child{display: none;}
-  #factorAdd .tbl1.productList input.count{width:50px;}
-  #factorAdd .tbl1.productList .input.discountCn{width:60px;}
-  #factorAdd .tbl1.productList .input.discountCn .addon.small{display:none!important}
+  .siftal #factorAdd .tbl1 tr td:first-child, .siftal #factorAdd .tbl1 tr th:first-child{display: none;}
+  .siftal #factorAdd .tbl1 tr td:last-child, .siftal #factorAdd .tbl1 tr th:last-child{display: none;}
+  .siftal #factorAdd .tbl1.productList input.count{width:50px;}
+  .siftal #factorAdd .tbl1.productList .input.discountCn{width:60px;}
+  .siftal #factorAdd .tbl1.productList .input.discountCn .addon.small{display:none!important}
 }
 
 
@@ -98,12 +98,12 @@ kbd{font-family:monospace;}
   #main{overflow: auto;}
   #content{overflow: auto;}
   .siftal #content .tbox{display: none}
-  .tbl1{color:#000!important;font-size:1.2em}
-  .tbl1 thead{background-color:#ddd;color:#000}
-  .tbl1 tfoot{background-color:#ddd;font-size:1.1em}
+  .siftal .tbl1{color:#000!important;font-size:1.2em}
+  .siftal .tbl1 thead{background-color:#ddd;color:#000}
+  .siftal .tbl1 tfoot{background-color:#ddd;font-size:1.1em}
 
   body.siftal #main #content{padding:0;}
-  .factor.printArea{color:#000!important;}
+  .siftal .factor.printArea{color:#000!important;}
 
 }
 

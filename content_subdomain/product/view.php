@@ -8,8 +8,6 @@ class view
 	{
 
 		\dash\data::include_adminPanel(true);
-		\dash\data::include_css(true);
-		\dash\data::include_js(true);
 		\dash\data::include_highcharts(true);
 
 		\dash\data::page_title(T_('General setting'). ' | ' . \dash\data::dataRow_title());
