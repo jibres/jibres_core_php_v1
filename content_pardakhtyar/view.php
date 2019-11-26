@@ -1,15 +1,19 @@
 <?php
-namespace content_pardakhtyar\write;
+namespace content_pardakhtyar;
+
 
 class view
 {
 	public static function config()
 	{
-		\dash\data::site_title(T_("PardakhtYar"). "  - ". "Test1");
+		\dash\data::include_adminPanel(true);
+		\dash\data::include_css(true);
+		\dash\data::include_js(true);
 
-		// we dont use js
-		\dash\data::include_js(false);
-		\dash\data::include_css(false);
+		\dash\data::include_highcharts(true);
+		// set shortkey for all badges is this content
+		\dash\data::badge_shortkey(120);
+		\dash\data::badge2_shortkey(121);
 	}
 }
 ?>
