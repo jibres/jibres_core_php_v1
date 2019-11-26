@@ -59,11 +59,6 @@
 {%endfor%}
 
  <link rel="stylesheet"       href="{{url.static}}{{'/css/siftal.min.css' | filemtime}}"/>
-{%block head_css         %}{%endblock%}
-{%if include.css %}
- <link rel="stylesheet"       href="{{url.static}}{{'/css/style.css' | filemtime}}"/>
-{%endif%}
-{%block head_js          %}{%endblock%}
 {%endblock%}
 {%block head             %}{%endblock%}
 </head>
