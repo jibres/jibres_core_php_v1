@@ -1,5 +1,13 @@
 
 
+
+{%if url.subdomain%}
+      <li><a href="{{url.kingdom}}/a" {%if url.content == "a"%} class="activeContent"{%endif%}><i class='sf-align-left'></i> {% trans "Store admin panel" %}</a></li>
+  {%if url.content == "a"%}
+    {%embed "includes/html/sidebar/sidebar-a.html"%}{%endembed%}
+  {%endif%}
+{%endif%}
+
       <li><a href="{{url.kingdom}}/store" {%if url.content == "store"%} class="activeContent"{%endif%}><i class='sf-atom'></i> {% trans "Jibres Panel" %}</a></li>
 
 {%if perm('contentCp')%}
