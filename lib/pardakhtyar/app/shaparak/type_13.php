@@ -6,9 +6,9 @@ class type_13
 {
 	public static function run($_id)
 	{
-		$merchant = \lib\app\shaparak\request::load_customer($_id);
+		$merchant = \lib\pardakhtyar\app\shaparak\request::load_customer($_id);
 
-		$shop = \lib\app\shaparak\request::load_shop($_id);
+		$shop = \lib\pardakhtyar\app\shaparak\request::load_shop($_id);
 
 		$send                            = [];
 		$send['trackingNumberPsp']       = 'customer_'. $_id;
@@ -38,7 +38,7 @@ class type_13
 
 		$result = \lib\pardakhtyar\start::request($send, $_id);
 
-		return \lib\app\shaparak\request::analyze_result($result, $_id);
+		return \lib\pardakhtyar\app\shaparak\request::analyze_result($result, $_id);
 	}
 }
 ?>

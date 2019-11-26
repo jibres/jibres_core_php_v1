@@ -39,7 +39,7 @@ class transfer
 
 		$result = \lib\pardakhtyar\start::transfer($json_sample);
 		var_dump($result);exit();
-		return \lib\app\shaparak\request::analyze_result($result);
+		return \lib\pardakhtyar\app\shaparak\request::analyze_result($result);
 	}
 
 }

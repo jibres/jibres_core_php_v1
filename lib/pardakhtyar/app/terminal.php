@@ -29,7 +29,7 @@ class terminal
 		$args['datecreated'] = date("Y-m-d H:i:s");
 		$return = [];
 
-		$terminal_id = \lib\db\terminal::insert($args);
+		$terminal_id = \lib\pardakhtyar\db\terminal::insert($args);
 
 		if(!$terminal_id)
 		{
@@ -88,7 +88,7 @@ class terminal
 		{
 			$args['datemodified'] = date("Y-m-d H:i:s");
 
-			$update = \lib\db\terminal::update($args, $id);
+			$update = \lib\pardakhtyar\db\terminal::update($args, $id);
 
 			if(\dash\engine\process::status())
 			{
@@ -108,7 +108,7 @@ class terminal
 			return false;
 		}
 
-		$get = \lib\db\terminal::get(['id' => $_id, 'limit' => 1]);
+		$get = \lib\pardakhtyar\db\terminal::get(['id' => $_id, 'limit' => 1]);
 
 		if(!$get)
 		{
@@ -270,7 +270,7 @@ class terminal
 			'sequence'    => $sequence,
 		];
 
-		$check_duplicate = \lib\db\terminal::check_duplicate($check_duplicate_args, $_id);
+		$check_duplicate = \lib\pardakhtyar\db\terminal::check_duplicate($check_duplicate_args, $_id);
 		if(isset($check_duplicate['id']))
 		{
 			if(intval($check_duplicate['id']) === intval($_id))
@@ -421,7 +421,7 @@ class terminal
 		}
 
 
-		$result            = \lib\db\terminal::search($_string, $_args);
+		$result            = \lib\pardakhtyar\db\terminal::search($_string, $_args);
 		$temp              = [];
 
 		foreach ($result as $key => $value)

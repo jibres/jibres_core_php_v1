@@ -8,12 +8,12 @@ class type_14
 
 	public static function run($_id)
 	{
-		$merchant = \lib\app\shaparak\request::load_customer($_id);
+		$merchant = \lib\pardakhtyar\app\shaparak\request::load_customer($_id);
 
 
 		$merchantIbans = [];
 
-		$ibans = \lib\db\merchantIbans::get_by_customer_id($_id);
+		$ibans = \lib\pardakhtyar\db\merchantIbans::get_by_customer_id($_id);
 		if(is_array($ibans))
 		{
 			foreach ($ibans as $key => $value)
@@ -28,9 +28,9 @@ class type_14
 			$merchant['updateAction'] = 2;
 		}
 
-		$shop = \lib\app\shaparak\request::load_shop($_id);
+		$shop = \lib\pardakhtyar\app\shaparak\request::load_shop($_id);
 		$shop['updateAction'] = 2;
-		$acceptor = \lib\app\shaparak\request::load_acceptor($_id, true, false);
+		$acceptor = \lib\pardakhtyar\app\shaparak\request::load_acceptor($_id, true, false);
 		$acceptor['updateAction'] = 2;
 		if(!$acceptor)
 		{
@@ -60,7 +60,7 @@ class type_14
 
 		$result = \lib\pardakhtyar\start::request($send, $_id);
 
-		return \lib\app\shaparak\request::analyze_result($result, $_id);
+		return \lib\pardakhtyar\app\shaparak\request::analyze_result($result, $_id);
 	}
 
 

@@ -78,7 +78,7 @@ class model
 			case 17:
 			case 14:
 				$fn = 'type_'. $RequestType;
-				$namespace = "\\lib\\app\\shaparak\\$fn";
+				$namespace = "\\lib\\pardakhtyar\\app\\shaparak\\$fn";
 				$namespace::run($id);
 				return true;
 				break;

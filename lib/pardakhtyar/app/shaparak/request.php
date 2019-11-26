@@ -55,7 +55,7 @@ class request
 
 		if($_for_shaparak)
 		{
-			$merchant = \lib\app\customer::ready_for_shaparak($merchant);
+			$merchant = \lib\pardakhtyar\app\customer::ready_for_shaparak($merchant);
 		}
 
 		return $merchant;
@@ -64,14 +64,14 @@ class request
 
 	public static function load_shop($_id)
 	{
-		$shop = \lib\db\shop::get_by_customer_id($_id);
+		$shop = \lib\pardakhtyar\db\shop::get_by_customer_id($_id);
 
 		if(!$shop)
 		{
 			\dash\notif::error('Shop detail not set');
 			return false;
 		}
-		$shop = \lib\app\shop::ready_for_shaparak($shop);
+		$shop = \lib\pardakhtyar\app\shop::ready_for_shaparak($shop);
 
 		return $shop;
 	}
@@ -79,7 +79,7 @@ class request
 
 	public static function load_acceptor($_id, $_load_terminal = true, $_load_iban = true)
 	{
-		$acceptor = \lib\db\acceptor::get_by_customer_id($_id);
+		$acceptor = \lib\pardakhtyar\db\acceptor::get_by_customer_id($_id);
 
 		if(!$acceptor)
 		{
@@ -87,9 +87,9 @@ class request
 			return false;
 		}
 
-		$acceptor = \lib\app\acceptor::ready_for_shaparak($acceptor);
+		$acceptor = \lib\pardakhtyar\app\acceptor::ready_for_shaparak($acceptor);
 
-		$ibans = \lib\db\merchantIbans::get_by_customer_id($_id);
+		$ibans = \lib\pardakhtyar\db\merchantIbans::get_by_customer_id($_id);
 		if(is_array($ibans))
 		{
 			$merchantIban = array_column($ibans, 'merchantIban');
@@ -102,14 +102,14 @@ class request
 
 		if($_load_terminal)
 		{
-			$terminal = \lib\db\terminal::get_by_customer_id($_id);
+			$terminal = \lib\pardakhtyar\db\terminal::get_by_customer_id($_id);
 			if(!$terminal)
 			{
 				\dash\notif::error('terminal not set');
 			}
 			else
 			{
-				$terminal = \lib\app\terminal::ready_for_shaparak($terminal);
+				$terminal = \lib\pardakhtyar\app\terminal::ready_for_shaparak($terminal);
 				$acceptor['terminals'] = [$terminal];
 			}
 		}

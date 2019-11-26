@@ -44,7 +44,7 @@ class request
 	{
 		if(!empty(self::$data))
 		{
-			// \lib\pardakhtyar\db\check::insert(self::$data);
+			\lib\pardakhtyar\db\check::insert(self::$data);
 		}
 	}
 

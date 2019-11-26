@@ -29,7 +29,7 @@ class acceptor
 		$args['datecreated'] = date("Y-m-d H:i:s");
 		$return = [];
 
-		$acceptor_id = \lib\db\acceptor::insert($args);
+		$acceptor_id = \lib\pardakhtyar\db\acceptor::insert($args);
 
 		if(!$acceptor_id)
 		{
@@ -97,7 +97,7 @@ class acceptor
 		{
 			$args['datemodified'] = date("Y-m-d H:i:s");
 
-			$update = \lib\db\acceptor::update($args, $id);
+			$update = \lib\pardakhtyar\db\acceptor::update($args, $id);
 
 			if(\dash\engine\process::status())
 			{
@@ -117,7 +117,7 @@ class acceptor
 			return false;
 		}
 
-		$get = \lib\db\acceptor::get(['id' => $_id, 'limit' => 1]);
+		$get = \lib\pardakhtyar\db\acceptor::get(['id' => $_id, 'limit' => 1]);
 
 		if(!$get)
 		{
@@ -232,7 +232,7 @@ class acceptor
 			'acceptorCode' => $acceptorCode,
 		];
 
-		$check_duplicate = \lib\db\acceptor::check_duplicate($check_duplicate_args, $_id);
+		$check_duplicate = \lib\pardakhtyar\db\acceptor::check_duplicate($check_duplicate_args, $_id);
 		if(isset($check_duplicate['id']))
 		{
 			if(intval($check_duplicate['id']) === intval($_id))
@@ -393,7 +393,7 @@ class acceptor
 		}
 
 
-		$result            = \lib\db\acceptor::search($_string, $_args);
+		$result            = \lib\pardakhtyar\db\acceptor::search($_string, $_args);
 		$temp              = [];
 
 		foreach ($result as $key => $value)

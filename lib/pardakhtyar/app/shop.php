@@ -29,7 +29,7 @@ class shop
 		$args['datecreated'] = date("Y-m-d H:i:s");
 		$return = [];
 
-		$shop_id = \lib\db\shop::insert($args);
+		$shop_id = \lib\pardakhtyar\db\shop::insert($args);
 
 		if(!$shop_id)
 		{
@@ -100,7 +100,7 @@ class shop
 		{
 			$args['datemodified'] = date("Y-m-d H:i:s");
 
-			$update = \lib\db\shop::update($args, $id);
+			$update = \lib\pardakhtyar\db\shop::update($args, $id);
 
 			if(\dash\engine\process::status())
 			{
@@ -120,7 +120,7 @@ class shop
 			return false;
 		}
 
-		$get = \lib\db\shop::get(['id' => $_id, 'limit' => 1]);
+		$get = \lib\pardakhtyar\db\shop::get(['id' => $_id, 'limit' => 1]);
 
 		if(!$get)
 		{
@@ -521,7 +521,7 @@ class shop
 			'businessSubCategoryCode' => $businessSubCategoryCode,
 		];
 
-		$check_duplicate = \lib\db\shop::check_duplicate($check_duplicate_args, $_id);
+		$check_duplicate = \lib\pardakhtyar\db\shop::check_duplicate($check_duplicate_args, $_id);
 		if(isset($check_duplicate['id']))
 		{
 			if(intval($check_duplicate['id']) === intval($_id))
@@ -693,7 +693,7 @@ class shop
 		}
 
 
-		$result            = \lib\db\shop::search($_string, $_args);
+		$result            = \lib\pardakhtyar\db\shop::search($_string, $_args);
 		$temp              = [];
 
 		foreach ($result as $key => $value)

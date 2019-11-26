@@ -29,7 +29,7 @@ class merchantIbans
 		$args['datecreated'] = date("Y-m-d H:i:s");
 		$return = [];
 
-		$merchantIbans_id = \lib\db\merchantIbans::insert($args);
+		$merchantIbans_id = \lib\pardakhtyar\db\merchantIbans::insert($args);
 
 		if(!$merchantIbans_id)
 		{
@@ -79,7 +79,7 @@ class merchantIbans
 		{
 			$args['datemodified'] = date("Y-m-d H:i:s");
 
-			$update = \lib\db\merchantIbans::update($args, $id);
+			$update = \lib\pardakhtyar\db\merchantIbans::update($args, $id);
 
 			if(\dash\engine\process::status())
 			{
@@ -99,7 +99,7 @@ class merchantIbans
 			return false;
 		}
 
-		$get = \lib\db\merchantIbans::get(['id' => $_id, 'limit' => 1]);
+		$get = \lib\pardakhtyar\db\merchantIbans::get(['id' => $_id, 'limit' => 1]);
 
 		if(!$get)
 		{
@@ -172,7 +172,7 @@ class merchantIbans
 			'merchantIban' => $merchantIban,
 		];
 
-		$check_duplicate = \lib\db\merchantIbans::check_duplicate($check_duplicate_args, $_id);
+		$check_duplicate = \lib\pardakhtyar\db\merchantIbans::check_duplicate($check_duplicate_args, $_id);
 		if(isset($check_duplicate['id']))
 		{
 			if(intval($check_duplicate['id']) === intval($_id))
@@ -206,7 +206,7 @@ class merchantIbans
 			return false;
 		}
 
-		\lib\db\merchantIbans::delete($_id);
+		\lib\pardakhtyar\db\merchantIbans::delete($_id);
 		\dash\notif::ok('Iban removed');
 		return true;
 	}
@@ -309,7 +309,7 @@ class merchantIbans
 		}
 
 
-		$result            = \lib\db\merchantIbans::search($_string, $_args);
+		$result            = \lib\pardakhtyar\db\merchantIbans::search($_string, $_args);
 		$temp              = [];
 
 		foreach ($result as $key => $value)

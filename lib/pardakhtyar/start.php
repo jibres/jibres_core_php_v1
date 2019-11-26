@@ -48,10 +48,10 @@ class start
 	{
 
 		$addr = self::addr('write');
-		\lib\app\check::add_new_record($_data, $_id, $addr);
+		\lib\pardakhtyar\app\check::add_new_record($_data, $_id, $addr);
 		$_data  = [$_data];
 		$result = \dash\curl::go($addr, $_data, 'json', [self::authHeader()], true);
-		\lib\app\check::save_new_record($result);
+		\lib\pardakhtyar\app\check::save_new_record($result);
 		return $result;
 	}
 

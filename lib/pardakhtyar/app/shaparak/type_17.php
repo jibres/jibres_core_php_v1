@@ -6,14 +6,14 @@ class type_17
 {
 	public static function run($_id)
 	{
-		$merchant = \lib\app\shaparak\request::load_customer($_id);
+		$merchant = \lib\pardakhtyar\app\shaparak\request::load_customer($_id);
 
 		$merchant['merchantIbans'] = null;
 
 
-		$shop = \lib\app\shaparak\request::load_shop($_id);
+		$shop = \lib\pardakhtyar\app\shaparak\request::load_shop($_id);
 
-		$acceptor = \lib\app\shaparak\request::load_acceptor($_id, false, false);
+		$acceptor = \lib\pardakhtyar\app\shaparak\request::load_acceptor($_id, false, false);
 
 		if(!$acceptor)
 		{
@@ -41,7 +41,7 @@ class type_17
 
 		$result = \lib\pardakhtyar\start::request($send, $_id);
 
-		return \lib\app\shaparak\request::analyze_result($result, $_id);
+		return \lib\pardakhtyar\app\shaparak\request::analyze_result($result, $_id);
 	}
 
 }
