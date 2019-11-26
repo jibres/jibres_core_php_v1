@@ -28,8 +28,6 @@ var myModuleFiles =
 	'src/libs/codeReader/codeReader.js',
 	'src/libs/cursor/cursor.js',
 	'src/libs/tagDetector/tagDetector.js',
-	'src/libs/tippy/tippy.min.js',
-	'src/libs/tippy/tippyRunner.js',
 	'src/libs/uploader/uploader.min.js',
 	'src/libs/uploader/uploaderRunner.js',
 	'src/libs/shortkey/shortkey.js',
