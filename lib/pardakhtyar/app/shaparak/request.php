@@ -7,7 +7,7 @@ class request
 	public static function load_error($_code)
 	{
 		$error = [];
-		$file  = root. 'includes/lib/error_list.json';
+		$file  = root. 'lib/pardakhtyar/error_list.json';
 		if(is_file($file))
 		{
 			$error = \dash\file::read($file);
