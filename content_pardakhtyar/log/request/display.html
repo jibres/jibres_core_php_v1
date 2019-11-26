@@ -1,0 +1,121 @@
+{%extends display.main%}
+
+
+
+{%block body%}
+{%include 'content_pardakhtyar/log/navigationLink.html'%}
+{%if dataTable%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12">
+  <form method="get" action='{{url.that}}' data-action>
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus autocomplete='off'>
+
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+{%block htmlTable%}
+
+
+<table class="tbl1 v4 cbox fs12">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>trackingNumber</th>
+      <th>trackingNumberPsp</th>
+      <th>requestRejectionReasons</th>
+      <th>success</th>
+      <th>datecreated</th>
+
+      <th>send</th>
+      <th>response</th>
+      <th>url</th>
+      <th>Time</th>
+      <th>diff</th>
+
+    </tr>
+  </thead>
+  <tbody>
+{%for key, value in dataTable%}
+  <tr>
+    <td><a href="{{url.this}}/show?id={{value.id}}&table=request" class="btn">{{value.id}}</a></td>
+    <td>{{value.trackingNumber}}</td>
+    <td>{{value.trackingNumberPsp}}</td>
+    <td>{{value.requestRejectionReasons}}</td>
+    <td>{{value.success}}</td>
+    <td>
+      <div>{{value.datecreated}}</div>
+      <div>{{value.datemodified}}</div>
+    </td>
+
+    <td>{% if value.send%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</td>
+    <td>{% if value.response%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</td>
+    <td>{{value.url}}</td>
+    <td>
+      <div>{{value.sendtime}}</div>
+      <div>{{value.responsetime}}</div>
+    </td>
+    <td>{{value.diff}}</td>
+  </tr>
+
+{%endfor%}
+  </tbody>
+</table>
+  {%include display.pagination%}
+{%endblock%}
+
+
+{%block htmlFilter%}
+<p class="f fs14 msg info2">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg dark2 pTB20">{%trans "Hi!"%} {%trans "You are not starting yet!"%}</p>
+{%endblock%}
+

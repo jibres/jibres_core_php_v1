@@ -1,32 +1,110 @@
-{%extends display.dash%}
+{%extends display.main%}
 
 
-{%block pageContent%}
-<div class="f mB10">
-   <div class="c6 s6">{{block ("bCustomerAdd")}}</div>
-   <div class="c6 s6">{{block ("bCustomer")}}</div>
+{%block pageNav%}{%endblock%}
+{%block pageFooter%}{%endblock%}
+
+
+{%block page%}
+<div class="f justify-center">
+  <div class="cauto">
+    <a href="{{url.this}}/log" class="btn">Show log</a>
+  </div>
+</div>
+<div class="fs12">
+  <h3>Transfer</h3>
+  <hr>
+  <a class="btn txtC" href="{{url.this}}?transfer=1">Start Transfer</a>
+</div>
+<div class="fs12">
+  <h3>Write</h3>
+  <hr>
+
+  <table class="tbl1 v1">
+    <thead>
+      <tr class="fs07">
+        <th></th>
+        <th>Jibres - Evazzadeh</th>
+        <th>Reza Mohiti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Step 1 <small>define Customer and shop</small></th>
+        <td><a target="_blank" href="{{url.this}}/write/step1?sample=1" class="btn">Go 1</a></td>
+        <td><a target="_blank" href="{{url.this}}/write/step1?sample=2" class="btn">Go 2</a></td>
+      </tr>
+      <tr>
+        <th>Step 2 <small>define new payane or pazirande</small></th>
+        <td><a target="_blank" href="{{url.this}}/write/step2?sample=1" class="btn">Go 1</a></td>
+        <td><a target="_blank" href="{{url.this}}/write/step2?sample=2" class="btn">Go 2</a></td>
+      </tr>
+      <tr>
+        <th>Step 3 <small>change shaba</small></th>
+        <td><a target="_blank" href="{{url.this}}/write/step3?sample=1" class="btn">Go 1</a></td>
+        <td><a target="_blank" href="{{url.this}}/write/step3?sample=2" class="btn">Go 2</a></td>
+      </tr>
+      <tr>
+        <th>Step 4 <small>disable payane</small></th>
+        <td><a target="_blank" href="{{url.this}}/write/step4?sample=1" class="btn">Go 1</a></td>
+        <td><a target="_blank" href="{{url.this}}/write/step4?sample=2" class="btn">Go 2</a></td>
+      </tr>
+      <tr>
+        <th>Step 5 <small>enable payane</small></th>
+        <td><a target="_blank" href="{{url.this}}/write/step5?sample=1" class="btn">Go 1</a></td>
+        <td><a target="_blank" href="{{url.this}}/write/step5?sample=2" class="btn">Go 2</a></td>
+      </tr>
+      <tr>
+        <th>Step 6 <small>change shop</small></th>
+        <td><a target="_blank" href="{{url.this}}/write/step6?sample=1" class="btn">Go 1</a></td>
+        <td><a target="_blank" href="{{url.this}}/write/step6?sample=2" class="btn">Go 2</a></td>
+      </tr>
+      <tr>
+        <th>Step 7 <small>edit data</small></th>
+        <td><a target="_blank" href="{{url.this}}/write/step7?sample=1" class="btn">Go 1</a></td>
+        <td><a target="_blank" href="{{url.this}}/write/step7?sample=2" class="btn">Go 2</a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-{%endblock%}
+
+<div class="fs14 msg">
+  <h3>Read</h3>
+  <hr>
+
+  <div class="mB5">
+  	<a target="_blank" href="{{url.this}}/read/date" class="btn">Read Last Month data</a>
+  </div>
+
+  <div class="mB5">
+    <a target="_blank" href="{{url.this}}/read/statuses" class="btn">All Status</a>
+  </div>
+
+  <div class="mB5">
+    <a target="_blank" href="{{url.this}}/read/status14" class="btn">Status 14</a>
+  </div>
 
 
-{%block bCustomerAdd%}
-<a class="dcard x1" href='{{url.here}}/customer/add'>
- <div class="statistic teal">
-  <div class="value"><i class="sf-user-plus"></i></div>
-  <div class="label">{%trans "Add new customer"%}</div>
- </div>
-</a>
-{%endblock%}
+  <form class="mB5 f" action="{{url.this}}/read/trackingNumbers" data-action target="_blank">
+  	<div class="c">
+	  	<div class="input">
+	  		<input type="number" name="num" placeholder="tracking number" value="107672914671153">
+  			<button class="addon btn">tracking number</button>
+	  	</div>
+  	</div>
+  </form>
 
 
+  <form class="mB5 f" action="{{url.this}}/read/trackingNumberPsps" data-action target="_blank">
+  	<div class="c">
+	  	<div class="input">
+	  		<input type="number" name="num" placeholder="tracking number psp">
+  			<button class="addon btn">tracking number psp</button>
+	  	</div>
+  	</div>
+  </form>
+</div>
 
-{%block bCustomer%}
-<a class="dcard x1" href='{{url.here}}/customer'>
- <div class="statistic">
-  <div class="value"><i class="sf-users"></i></div>
-  <div class="label">{%trans "Customer list"%}</div>
- </div>
-</a>
 {%endblock%}
 
