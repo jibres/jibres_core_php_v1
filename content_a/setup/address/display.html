@@ -39,7 +39,7 @@
 {%block iCountry%}
 <div class="mB10">
   <label for='country'>{%trans "Country"%}</label>
-  <select class="select2" name="country" id="country" data-model='country' data-next='#province' data-next-default='{{dataRow.province}}'>
+  <select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='{{dataRow.province}}'>
     <option value="">{%trans "Choose your country"%}</option>
 {%for key, value in countryList%}
       <option value="{{key}}" {%if dataRow.country == key%} selected {%endif%}>{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}</option>
@@ -52,7 +52,7 @@
 {%block iProvince%}
 <div class="mB10" data-status='hide'>
   <label for='province'>{%trans "Province"%}</label>
-  <select name="province" id="province" class="select2" data-next='#city' data-next-default='{{dataRow.city}}'>
+  <select name="province" id="province" class="select22" data-next='#city' data-next-default='{{dataRow.city}}'>
     <option value="0">{%trans "Please choose country"%}</option>
     <option value="{{dataRow.province}}" selected>{{dataRow.province}}</option>
   </select>
@@ -63,7 +63,7 @@
 {%block iCity%}
 <div class="mB10" data-status='hide'>
   <label for='city'>{%trans "City"%}</label>
-  <select name="city" id="city" class="select2">
+  <select name="city" id="city" class="select22">
     <option value="">{%trans "Please choose province"%}</option>
   </select>
 </div>

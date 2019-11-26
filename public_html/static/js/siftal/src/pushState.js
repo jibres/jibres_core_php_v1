@@ -23,8 +23,8 @@ function pushStateSiftal(_direct)
   initTagDetector();
   bindUploader();
   dropdownRunner();
-  // run select2
-  select2Runner();
+  // run select22
+  selectRunner();
   // run numeral fn
   cleaveRunner();
   // check navigate is done or not

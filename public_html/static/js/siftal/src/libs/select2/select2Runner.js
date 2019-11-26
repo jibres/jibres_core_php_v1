@@ -1,46 +1,46 @@
 
-function select2Runner()
+function selectRunner()
 {
   if($('html').attr('lang') === 'fa')
   {
-    $.fn.select2.defaults.set("language", "fa");
+    $.fn.select22.defaults.set("language", "fa");
   }
   if($('body').attr('dir') === 'rtl')
   {
-    $.fn.select2.defaults.set("dir", "rtl");
+    $.fn.select22.defaults.set("dir", "rtl");
   }
   // set minimum to show search
-  $.fn.select2.defaults.set("minimumResultsForSearch", "6");
+  $.fn.select22.defaults.set("minimumResultsForSearch", "6");
 
-  // init simple select2
-  $('.select2:not([data-model])').select2();
-  $('.select2[data-model="country"]').select2({ templateResult2: select2FormatDropDownCoutry, templateSelection: select2FormatDropDownCoutry });
+  // init simple select22
+  $('.select22:not([data-model])').select22();
+  $('.select22[data-model="country"]').select22({ templateResult2: select22FormatDropDownCoutry, templateSelection: select22FormatDropDownCoutry });
 
 
-  $(document).on('focus', '.select2.select2-container', function (e)
+  $(document).on('focus', '.select22.select22-container', function (e)
   {
     // only open on original attempt - close focus event should not fire open
-    if (e.originalEvent && $(this).find(".select2-selection--single").length > 0)
+    if (e.originalEvent && $(this).find(".select22-selection--single").length > 0)
     {
-      $(this).siblings('select:enabled').select2('open');
+      $(this).siblings('select:enabled').select22('open');
     }
   });
 
-  $(document).on('change', '.select2[data-next]', function (e)
+  $(document).on('change', '.select22[data-next]', function (e)
   {
     var nextEl = $(this).attr('data-next');
     if(nextEl)
     {
-      select2FillNext($(this).val(),nextEl);
+      select22FillNext($(this).val(),nextEl);
     }
   });
   // fill default value
-  select2FillDefault();
+  select22FillDefault();
 }
 
 
 // fill country elements
-function select2FormatDropDownCoutry(_repo)
+function select22FormatDropDownCoutry(_repo)
 {
   if(_repo.loading)
   {
@@ -62,7 +62,7 @@ function select2FormatDropDownCoutry(_repo)
 }
 
 
-function select2FillNext(_val, _next, _default)
+function select22FillNext(_val, _next, _default)
 {
   var apiURL = $('meta[name="jibres:api"]').attr('content') + 'v1/location/';
   var _el = $(_next);
@@ -94,7 +94,7 @@ function select2FillNext(_val, _next, _default)
           });
         }
 
-        _el.empty().select2({data: serverResult});
+        _el.empty().select22({data: serverResult});
         _el.parents('[data-status]').slideDown('fast');
       }
       else
@@ -113,10 +113,10 @@ function select2FillNext(_val, _next, _default)
 
 }
 
-function select2FillDefault()
+function select22FillDefault()
 {
 
-  $('.select2[data-next-default]').each(function(_el)
+  $('.select22[data-next-default]').each(function(_el)
   {
     var myDefault = $(this).attr('data-next-default');
     var myNextEl  = $(this).attr('data-next');
@@ -124,7 +124,7 @@ function select2FillDefault()
 
     if(myVal && myNextEl && myDefault)
     {
-      select2FillNext(myVal, myNextEl, myDefault);
+      select22FillNext(myVal, myNextEl, myDefault);
     }
   });
 }
