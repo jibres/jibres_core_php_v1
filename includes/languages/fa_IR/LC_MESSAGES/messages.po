@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2019-11-26 11:43+0330\n"
-"PO-Revision-Date: 2019-11-26 11:45+0330\n"
+"PO-Revision-Date: 2019-11-26 11:48+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -11875,11 +11875,11 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1264
 msgid "If you want to issue an official invoice, complete your legal information."
-msgstr ""
+msgstr "اگر مایل به صدور فاکتور رسمی هستید، اطلاعات حقوق لازم را تکمیل کنید."
 
 #: includes/languages/trans_project.php:1265
 msgid "It's totaly optional!"
-msgstr ""
+msgstr "این کاملا اختیاری است!"
 
 #: includes/languages/trans_project.php:1266
 msgid "VAT number"
@@ -11962,7 +11962,7 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1294
 msgid "Have barcode reader?"
-msgstr ""
+msgstr "آیا بارکدخوان دارید؟"
 
 #: includes/languages/trans_project.php:1295
 msgid "If already you have scale with label printer, tell us."
@@ -11976,7 +11976,7 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1297
 msgid "Have scale with label printer?"
-msgstr ""
+msgstr "آیا ترازوی لیبل پرینتر دارید؟"
 
 #: includes/languages/trans_project.php:1300
 msgid "Manage how your store calculates and shows tax on your store."
@@ -19812,7 +19812,7 @@ msgstr "سوئیس"
 
 #: includes/languages/trans_static_public.php:823
 msgid "syria"
-msgstr ""
+msgstr "سوریه"
 
 #: includes/languages/trans_static_public.php:824
 msgid "taiwan"
@@ -20048,7 +20048,7 @@ msgstr "تخفیف"
 
 #: includes/languages/trans_static_public.php:906
 msgid "teacher"
-msgstr ""
+msgstr "معلم"
 
 #: includes/languages/trans_static_public.php:907
 msgid "other"
@@ -20698,7 +20698,7 @@ msgstr "مدیریت ارتباط با مشتریان"
 
 #: includes/languages/trans_static_public.php:1121
 msgid "CP"
-msgstr ""
+msgstr "کنترل‌پنل"
 
 #: includes/languages/trans_static_public.php:1122
 msgid "Customer relationship management"
@@ -20722,7 +20722,7 @@ msgstr "پنل"
 
 #: includes/languages/trans_static_public.php:1132
 msgid "panel"
-msgstr ""
+msgstr "پنل"
 
 #: includes/languages/trans_static_public.php:1134
 msgid "activeuser"
