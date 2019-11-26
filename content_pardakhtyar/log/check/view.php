@@ -60,7 +60,7 @@ class view
 
 		unset($args['page']);
 
-		$dataTable = \lib\db\check::search(\dash\request::get('q'), $args);
+		$dataTable = \lib\pardakhtyar\db\check::search(\dash\request::get('q'), $args);
 
 
 		if(is_array($dataTable))

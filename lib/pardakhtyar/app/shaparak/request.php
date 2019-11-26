@@ -45,7 +45,7 @@ class request
 			return false;
 		}
 
-		$merchant = \lib\db\customer::get_by_id($_id);
+		$merchant = \lib\pardakhtyar\db\customer::get_by_id($_id);
 
 		if(!$merchant)
 		{
@@ -242,7 +242,7 @@ class request
 
 		if(!empty($update_customer))
 		{
-			\lib\db\customer::update($update_customer, $_id);
+			\lib\pardakhtyar\db\customer::update($update_customer, $_id);
 		}
 
 		return $_result;

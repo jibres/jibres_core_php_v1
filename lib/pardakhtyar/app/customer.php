@@ -30,7 +30,7 @@ class customer
 		$args['datecreated'] = date("Y-m-d H:i:s");
 		$return = [];
 
-		$customer_id = \lib\db\customer::insert($args);
+		$customer_id = \lib\pardakhtyar\db\customer::insert($args);
 
 		if(!$customer_id)
 		{
@@ -110,7 +110,7 @@ class customer
 		{
 			$args['datemodified'] = date("Y-m-d H:i:s");
 
-			$update = \lib\db\customer::update($args, $id);
+			$update = \lib\pardakhtyar\db\customer::update($args, $id);
 
 			if(\dash\engine\process::status())
 			{
@@ -130,7 +130,7 @@ class customer
 			return false;
 		}
 
-		$get = \lib\db\customer::get(['id' => $_id, 'limit' => 1]);
+		$get = \lib\pardakhtyar\db\customer::get(['id' => $_id, 'limit' => 1]);
 
 		if(!$get)
 		{
@@ -713,7 +713,7 @@ class customer
 			'foreignPervasiveCode' => $foreignPervasiveCode,
 		];
 
-		$check_duplicate = \lib\db\customer::check_duplicate($check_duplicate_args, $_id);
+		$check_duplicate = \lib\pardakhtyar\db\customer::check_duplicate($check_duplicate_args, $_id);
 		if(isset($check_duplicate['id']))
 		{
 			if(intval($check_duplicate['id']) === intval($_id))
@@ -900,7 +900,7 @@ class customer
 		}
 
 
-		$result            = \lib\db\customer::search($_string, $_args);
+		$result            = \lib\pardakhtyar\db\customer::search($_string, $_args);
 		$temp              = [];
 
 		foreach ($result as $key => $value)

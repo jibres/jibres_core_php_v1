@@ -61,7 +61,7 @@ class check
 		self::$logdata['responsetime']            = time();
 		self::$logdata['diff']                    = time() - intval(self::$logdata['sendtime']);
 
-		\lib\db\check::insert(self::$logdata);
+		\lib\pardakhtyar\db\check::insert(self::$logdata);
 
 		self::$logdata = [];
 	}
@@ -74,7 +74,7 @@ class check
 			\dash\notif::error("error id");
 			return false;
 		}
-		$load = \lib\db\check::get_by_id($_id);
+		$load = \lib\pardakhtyar\db\check::get_by_id($_id);
 
 		if(isset($load['send']))
 		{
@@ -162,7 +162,7 @@ class check
 		}
 
 
-		$result            = \lib\db\check::search($_string, $_args);
+		$result            = \lib\pardakhtyar\db\check::search($_string, $_args);
 		$temp              = [];
 
 		foreach ($result as $key => $value)

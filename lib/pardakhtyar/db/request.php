@@ -7,7 +7,7 @@ class request
 	public static function insert($_args)
 	{
 		$set    = \dash\db\config::make_set($_args);
-		$query  = "INSERT INTO request SET $set";
+		$query  = "INSERT INTO pardakhtyar_request SET $set";
 		$result = \dash\db::query($query);
 		return \dash\db::insert_id();
 	}
@@ -27,7 +27,7 @@ class request
 
 		$_option = array_merge($default, $_option);
 
-		$result = \dash\db\config::public_search('request', $_string, $_option);
+		$result = \dash\db\config::public_search('pardakhtyar_request', $_string, $_option);
 		return $result;
 	}
 
