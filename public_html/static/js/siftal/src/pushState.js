@@ -37,6 +37,8 @@ function pushStateSiftal(_direct)
   kerkereRunner();
   // run dataCopy
   dataCopy();
+  // add typed
+  typeTitles();
 
   if($('body').attr('data-in') === 'enter')
   {
@@ -49,6 +51,13 @@ function pushStateSiftal(_direct)
     // run on enter
     handlePayEvents();
   }
+
+  if($('body').attr('data-in') === 'a')
+  {
+    calcFooterValues();
+    recalcPricePercents();
+  }
+
 
   if($('body').hasClass('siftal'))
   {
@@ -91,6 +100,10 @@ $(document).ready(function()
     checkSmile(true);
   }
 
+  // run once on ready
+  bindBtnOnFactor();
+  // bind shortkey on each page
+  callFunc('bindShortkey')
 });
 
 

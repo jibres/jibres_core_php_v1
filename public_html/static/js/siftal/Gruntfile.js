@@ -95,6 +95,12 @@ var myModuleFiles =
 	'src/main.js',
 	'src/load.js',
 	'src/pushState.js',
+
+	// jibres js
+	'src/storePanel/typed.js',
+	'src/storePanel/storePanel.js',
+	'src/storePanel/JsBarcode.all.min.js',
+	'src/storePanel/shortkey.js',
 ];
 
 
