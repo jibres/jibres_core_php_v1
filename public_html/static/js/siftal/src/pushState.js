@@ -20,7 +20,6 @@ function pushStateSiftal(_direct)
   watchScroll();
   // run form tools
   formToolsRunner();
-  runTippy();
   initTagDetector();
   bindUploader();
   dropdownRunner();
