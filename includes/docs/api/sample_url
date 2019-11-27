@@ -18,7 +18,7 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> product/{PRODUCT}/notif
 
 ++++++++++++++++++++++++++++++++++++ Admin Actions
->> product/add ------------------------------------------------------ OK
+>> product/add ------------------------------------------------------- OK
 >> product/{PRODUCT}/edit -------------------------------------------- OK
 >> product/{PRODUCT}/gallery
 >> product/{PRODUCT}/remove
@@ -108,7 +108,7 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 ********************************************************************* User managment
 
 
->> user/list
+>> user/list ------------------------------------------------------
 >> user/add
 >> user/{USERID}
 >> user/{USERID}/edit

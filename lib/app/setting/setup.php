@@ -14,6 +14,8 @@ class setup
 		'currency',
 		'pos',
 		'vat',
+		'shipping',
+		'payment',
 
 	];
 

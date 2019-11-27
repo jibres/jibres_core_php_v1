@@ -20,7 +20,6 @@ class datalist
 
 	private static function list()
 	{
-		j($_SESSION);
 		$detail = \lib\app\user\load::one($_user_id);
 		return $detail;
 	}
