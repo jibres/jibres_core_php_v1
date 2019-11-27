@@ -1,10 +1,8 @@
 
 
 {%block iTitle%}
-<label for="title">{%trans "Title"%}<span class="fc-red">*</span></label>
-<div class="input">
- <input type="text" name="title" id="title" placeholder='{%trans "Set short and best title for your product" %} *' value="{{productDataRow.title}}" maxlength='200' autofocus>
- <span class="addon btn {%if productDataRow.desc%} primary2 {%endif%}" data-kerkere='.showDescProduct' data-kerkere-icon='close'>{%trans "Description"%}</span>
+<div class="input mB10">
+ <input type="text" name="title" id="title" placeholder='{%trans "Product Title" %} *' value="{{productDataRow.title}}" maxlength='200' autofocus>
 </div>
 {%endblock%}
 
@@ -87,7 +85,7 @@
 
 
 {%block iDesc%}
-<textarea name="desc" data-editor class="txt mB20" rows="10" placeholder='{%trans "Description"%}'>{{productDataRow.desc | raw}}</textarea>
+<textarea name="desc" data-editor class="txt" rows="6" data-placeholder='{%trans "Description"%}'>{{productDataRow.desc | raw}}</textarea>
 {%endblock%}
 
 

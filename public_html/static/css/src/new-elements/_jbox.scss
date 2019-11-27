@@ -1,0 +1,36 @@
+.jPage{
+  font-size: 1.4em;
+}
+
+
+.jbox{
+  position: relative;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+}
+.jbox.pad{
+  padding: 10px;
+}
+.jbox header{
+  padding: 0 1.5rem;
+  line-height: 36px;
+  font-weight: 900;
+  color: #222;
+  border: none;
+  box-shadow: none;
+  transition: 0.3s;
+  background-color: #efefef;
+}
+.jbox header:hover{
+  background-color: #eee;
+}
+.jbox header[data-kerkere-status="open"]{
+  background-color: #ddd;
+}
+.jbox section{
+  padding: 5px;
+}
+.jbox .txt{
+  min-height:150px;
+  max-height: 300px;
+}

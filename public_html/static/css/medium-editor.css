@@ -8,7 +8,7 @@
 .medium-editor-dragover{background:#ddd}
 .medium-editor-image-loading{-webkit-animation:medium-editor-image-loading 1s infinite ease-in-out;animation:medium-editor-image-loading 1s infinite ease-in-out;background-color:#333;border-radius:100%;display:inline-block;height:40px;width:40px}
 .medium-editor-placeholder{position:relative}
-.medium-editor-placeholder:after{content:attr(data-placeholder)!important;font-style:italic;position:absolute;left:0;top:0;white-space:pre;padding:inherit;margin:inherit}
+.medium-editor-placeholder:after{content:attr(data-placeholder)!important;position:absolute;left:0;right:0;top:0;white-space:pre;padding:inherit;margin:inherit}
 .medium-editor-placeholder-relative{position:relative}
 .medium-editor-placeholder-relative:after{content:attr(data-placeholder)!important;font-style:italic;position:relative;white-space:pre;padding:inherit;margin:inherit}
 .medium-toolbar-arrow-under:after,.medium-toolbar-arrow-over:before{border-style:solid;content:'';display:block;height:0;left:50%;margin-left:-8px;position:absolute;width:0}
@@ -57,5 +57,6 @@
 /*added for siftal*/
 .medium-editor-element blockquote{background:#f9f9f9;border-left:1em solid #ccc;margin:1.5em 1em;padding:0.5em 1em;}
 .medium-editor-element ul{list-style:square inside;}
-.medium-editor-element.txt{line-height:1.5;min-height:300px;}
+.medium-editor-element.txt{line-height:1.5;min-height:150px;max-height:500px;}
+.medium-editor-element.txt .rtl p{line-height:1.9;margin-bottom: 0.5em;}
 
