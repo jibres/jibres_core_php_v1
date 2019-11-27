@@ -12,16 +12,16 @@
       <form method="post" autocomplete="off">
 
         <div class="mB10">
-          <label for='units'>{%trans "Store Currency"%}</label>
-          <select class="select22" name="units" id="units">
-{%if not dataRow.units%}
+          <label for='currency'>{%trans "Store Currency"%}</label>
+          <select class="select22" name="currency" id="currency">
+{%if not dataRow.currency%}
             <option disabled selected></option>
 {%endif%}
               {%for key, value in currencyList%}
-                <option value="{{key}}" {%if dataRow.units == key%} selected  {%elseif dataRow.country == 'IR' and key == 'IRT' and not dataRow.units%} selected {%endif%}>{{value.name}} - {{value.symbol_native}}</option>
+                <option value="{{key}}" {%if dataRow.currency == key%} selected  {%elseif dataRow.country == 'IR' and key == 'IRT' and not dataRow.currency%} selected {%endif%}>{{value.name}} - {{value.symbol_native}}</option>
               {%endfor%}
           </select>
-          <p class="mT10 fc-mute">{%trans "This is the units your products are sold in."%} <b>{%trans "After your first sale, units is locked in and can't be changed."%}</b></p>
+          <p class="mT10 fc-mute">{%trans "This is the currency your products are sold in."%} <b>{%trans "After your first sale, currency is locked in and can't be changed."%}</b></p>
         </div>
 
         <br>
@@ -47,7 +47,7 @@
             <option disabled selected></option>
 {%endif%}
           {%for key, value in lengthList%}
-            <option value="{{key}}" {%if dataRow.mass_unit == key %} selected {%endif%}>{{value.name}}</option>
+            <option value="{{key}}" {%if dataRow.length_unit == key %} selected {%endif%}>{{value.name}}</option>
           {%endfor%}
 
           </select>
