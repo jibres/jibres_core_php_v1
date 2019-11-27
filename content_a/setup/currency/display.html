@@ -7,46 +7,51 @@
   <div class="body">
     <div class="pad">
       <h1>{{page.title}}</h1>
-      <p>{%trans "Please choose your default units."%}</p>
+      <p>{%trans "Please choose your store default units."%}</p>
 
       <form method="post" autocomplete="off">
 
-        <hr>
-        <p>{%trans "This is the currency your products are sold in."%} {%trans "After your first sale, currency is locked in and can't be changed."%}</p>
         <div class="mB10">
-          <label for='currency'>{%trans "Store currency"%}</label>
+          <label for='currency'>{%trans "Store Currency"%}</label>
           <select class="select22" name="currency" id="currency">
-            <option value="">{%trans "Choose your currency format"%}</option>
+{%if not dataRow.currency%}
+            <option disabled selected></option>
+{%endif%}
               {%for key, value in currencyList%}
                 <option value="{{key}}" {%if dataRow.currency == key%} selected  {%elseif dataRow.country == 'IR' and key == 'IRT' and not dataRow.currency%} selected {%endif%}>{{value.name}} - {{value.symbol_native}}</option>
               {%endfor%}
           </select>
+          <p class="mT10 fc-mute">{%trans "This is the currency your products are sold in."%} <b>{%trans "After your first sale, currency is locked in and can't be changed."%}</b></p>
         </div>
 
-        <hr>
-        <p>{%trans ""%} {%trans ""%}</p>
+        <br>
         <div class="mB10">
-          <label for='mass'>{%trans "Mass unit"%}</label>
+          <label for='mass'>{%trans "Weight Unit"%}</label>
           <select name="mass_unit" id="mass" class="select22">
-            <option value="">{%trans "Please choose one item"%}</option>
+{%if not dataRow.mass_unit%}
+            <option disabled selected></option>
+{%endif%}
             <option value="kilogram" {%if dataRow.mass_unit == 'kilogram' %} selected {%endif%}>{%trans "Kilogram"%}</option>
             <option value="gram" {%if dataRow.mass_unit == 'gram' %} selected {%endif%}>{%trans "Gram"%}</option>
             <option value="pound" {%if dataRow.mass_unit == 'pound' %} selected {%endif%}>{%trans "Pound"%}</option>
             <option value="ounce" {%if dataRow.mass_unit == 'ounce' %} selected {%endif%}>{%trans "Ounce"%}</option>
           </select>
+          <p class="mT10 fc-mute">{%trans "This is the unit for your product weight."%}</p>
         </div>
 
-        <hr>
-        <p>{%trans ""%} {%trans ""%}</p>
+        <br>
         <div class="mB10">
-          <label for='length'>{%trans "Length unit"%}</label>
+          <label for='length'>{%trans "Dimensions Unit"%}</label>
           <select name="length_unit" id="length" class="select22">
-            <option value="">{%trans "Please choose one item"%}</option>
+{%if not dataRow.length_unit%}
+            <option disabled selected></option>
+{%endif%}
             <option value="centimetre" {%if dataRow.length_unit == 'centimetre' %} selected {%endif%}>{%trans "Centimetre"%}</option>
             <option value="millimetre" {%if dataRow.length_unit == 'millimetre' %} selected {%endif%}>{%trans "Millimetre"%}</option>
             <option value="inch" {%if dataRow.length_unit == 'inch' %} selected {%endif%}>{%trans "Inch"%}</option>
             <option value="yard" {%if dataRow.length_unit == 'yard' %} selected {%endif%}>{%trans "Yard"%}</option>
           </select>
+          <p class="mT10 fc-mute">{%trans "We are get product dimensions in this unit."%}</p>
         </div>
 
         <div class="f align-center mB10">
