@@ -11,8 +11,6 @@ class currency {
 		[
 			'IRT' 	=> ['symbol' => 'IRT', 	'decimal_digits' => 0, 'code' => 'IRT', 'symbol_native' => 'تومان',	 'name' => 'Iranian Toman'],
 			'IRR' 	=> ['symbol' => 'IRR', 	'decimal_digits' => 0, 'code' => 'IRR', 'symbol_native' => '﷼',		 'name' => 'Iranian Rial'],
-			'IRHT' 	=> ['symbol' => 'IRHT',	'decimal_digits' => 0, 'code' => 'IRHT','symbol_native' => 'هزار تومان','name' => 'Iranian Thousand Toman'],
-			'IRHR' 	=> ['symbol' => 'IRHR',	'decimal_digits' => 0, 'code' => 'IRHR','symbol_native' => 'هزار ریال','name' => 'Iranian Thousand Rial'],
 			'USD' 	=> ['symbol' => '$', 	'decimal_digits' => 2, 'code' => 'USD', 'symbol_native' => '$',		 'name' => 'US Dollar'],
 			'EUR' 	=> ['symbol' => '€', 	'decimal_digits' => 2, 'code' => 'EUR', 'symbol_native' => '€',		 'name' => 'Euro'],
 			'GBP' 	=> ['symbol' => '£', 	'decimal_digits' => 2, 'code' => 'GBP', 'symbol_native' => '£',		 'name' => 'British Pound Sterling'],
@@ -65,6 +63,8 @@ class currency {
 			// 'ILS' 	=> ['symbol' => '₪','decimal_digits' => 2, 'code' => 'ILS', 'symbol_native' => '₪',		 'name' => 'Israeli New Sheqel'],
 			'INR' 	=> ['symbol' => 'Rs', 	'decimal_digits' => 2, 'code' => 'INR', 'symbol_native' => 'টকা',	 'name' => 'Indian Rupee'],
 			'IQD' 	=> ['symbol' => 'IQD', 	'decimal_digits' => 0, 'code' => 'IQD', 'symbol_native' => 'د.ع.‏',	 'name' => 'Iraqi Dinar'],
+			'IRHT' 	=> ['symbol' => 'IRHT',	'decimal_digits' => 0, 'code' => 'IRHT','symbol_native' => 'هزار تومان','name' => 'Iranian Thousand Toman'],
+			'IRHR' 	=> ['symbol' => 'IRHR',	'decimal_digits' => 0, 'code' => 'IRHR','symbol_native' => 'هزار ریال','name' => 'Iranian Thousand Rial'],
 			'ISK' 	=> ['symbol' => 'Ikr', 	'decimal_digits' => 0, 'code' => 'ISK', 'symbol_native' => 'kr',	 'name' => 'Icelandic Króna'],
 			'JMD' 	=> ['symbol' => 'J$', 	'decimal_digits' => 2, 'code' => 'JMD', 'symbol_native' => '$',		 'name' => 'Jamaican Dollar'],
 			'JOD' 	=> ['symbol' => 'JD', 	'decimal_digits' => 3, 'code' => 'JOD', 'symbol_native' => 'د.أ.‏',	 'name' => 'Jordanian Dinar'],
