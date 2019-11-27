@@ -8,15 +8,108 @@
     <div class="pad">
       <h1>{{page.title}}</h1>
       <p>{%trans "Based on your country some of our options will be changed."%}</p>
-      <form method="post" autocomplete="off">
+       <form method="post" autocomplete="off">
 
-		    {{block('iCountry')}}
-        {{block('iProvince')}}
-		    {{block('iCity')}}
-		    {{block('ishipping')}}
+        <div class="switch1 fs12">
+         <input type="checkbox" name="shipping_status" id="shipping-status" {% if dataRow.shipping_status%} checked{%endif%}>
+         <label for="shipping-status"></label>
+         <label for="shipping-status">{%trans "Do you have shipping?"%}</label>
+        </div>
 
-        {{block('iPostcode')}}
-        {{block('iPhone')}}
+        <div data-response='shipping_status' {% if dataRow.shipping_status%} {%else%} data-response-hide {%endif%}>
+
+          <hr>
+
+          <div class="switch1 fs12">
+           <input type="checkbox" name="shipping_current_country" id="shipping_current_country" {% if dataRow.shipping_current_country%} checked{%endif%}>
+           <label for="shipping_current_country"></label>
+           <label for="shipping_current_country">{%trans "Shipping in"%} {{myCountryName}}</label>
+          </div>
+
+
+          <div data-response='shipping_current_country' {% if dataRow.shipping_current_country%} {%else%} data-response-hide {%endif%}>
+
+            <div class="f mB10">
+              <div class="c">
+                  <div class="radio3">
+                    <input type="radio" name="shipping_current_country_value_type" value="free" id="shipping_current_country_free" {%if not dataRow.shipping_current_country_value%} checked {%endif%} >
+                    <label for="shipping_current_country_free">{%trans "Free"%}</label>
+                  </div>
+              </div>
+              <div class="c">
+                  <div class="radio3">
+                    <input type="radio" name="shipping_current_country_value_type" value="static" id="shipping_current_country_static" {%if dataRow.shipping_current_country_value%} checked {%endif%} >
+                    <label for="shipping_current_country_static">{%trans "Static price"%}</label>
+                  </div>
+              </div>
+            </div>
+            <div data-response='shipping_current_country_value_type' data-response-where='static' {%if dataRow.shipping_current_country_value%} {%else%} data-response-hide {%endif%} >
+              <div class="input">
+                <input type="text" name="shipping_current_country_value" placeholder='{%trans "Shipping Static price"%} {{myCountryName}}' id="iShippingCurrentCountryValue" value="{{dataRow.shipping_current_country_value}}" data-format="price" maxlength="12">
+                <label for="iShippingCurrentCountryValue" class="addon">{{storeCurrency.symbol_native}}</label>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="switch1 fs12">
+           <input type="checkbox" name="shipping_other_country" id="shipping_other_country" {% if dataRow.shipping_other_country%} checked{%endif%}>
+           <label for="shipping_other_country"></label>
+           <label for="shipping_other_country">{%trans "Shipping to other country"%}</label>
+          </div>
+
+
+          <div data-response='shipping_other_country' {% if dataRow.shipping_other_country%} {%else%} data-response-hide {%endif%}>
+
+            <div class="f mB10">
+              <div class="c">
+                  <div class="radio3">
+                    <input type="radio" name="shipping_other_country_value_type" value="free" id="shipping_other_country_free" {%if not dataRow.shipping_other_country_value%} checked {%endif%} >
+                    <label for="shipping_other_country_free">{%trans "Free"%}</label>
+                  </div>
+              </div>
+              <div class="c">
+                  <div class="radio3">
+                    <input type="radio" name="shipping_other_country_value_type" value="static" id="shipping_other_country_static" {%if dataRow.shipping_other_country_value%} checked {%endif%} >
+                    <label for="shipping_other_country_static">{%trans "Static price"%}</label>
+                  </div>
+              </div>
+            </div>
+            <div data-response='shipping_other_country_value_type' data-response-where='static' {%if dataRow.shipping_other_country_value%} {%else%} data-response-hide {%endif%} >
+              <div class="input">
+                <input type="text" name="shipping_other_country_value" placeholder='{%trans "Shipping Static price to other country"%}' id="iShippingotherCountryValue" value="{{dataRow.shipping_other_country_value}}" data-format="price" maxlength="12">
+                <label for="iShippingotherCountryValue" class="addon">{{storeCurrency.symbol_native}}</label>
+              </div>
+            </div>
+
+          </div>
+
+          <hr>
+          <div class="mB10">
+            <label for='length'>{%trans "Length unit"%}</label>
+            <select name="length_unit" id="length" class="select22">
+              <option value="">{%trans "Please choose one item"%}</option>
+              <option value="centimetre" {%if dataRow.length_unit == 'centimetre' %} selected {%endif%}>{%trans "Centimetre"%}</option>
+              <option value="millimetre" {%if dataRow.length_unit == 'millimetre' %} selected {%endif%}>{%trans "Millimetre"%}</option>
+              <option value="inch" {%if dataRow.length_unit == 'inch' %} selected {%endif%}>{%trans "Inch"%}</option>
+              <option value="yard" {%if dataRow.length_unit == 'yard' %} selected {%endif%}>{%trans "Yard"%}</option>
+            </select>
+          </div>
+
+          <div class="mB10">
+            <label for='mass'>{%trans "Mass unit"%}</label>
+            <select name="mass_unit" id="mass" class="select22">
+              <option value="">{%trans "Please choose one item"%}</option>
+              <option value="kilogram" {%if dataRow.mass_unit == 'kilogram' %} selected {%endif%}>{%trans "Kilogram"%}</option>
+              <option value="gram" {%if dataRow.mass_unit == 'gram' %} selected {%endif%}>{%trans "Gram"%}</option>
+              <option value="pound" {%if dataRow.mass_unit == 'pound' %} selected {%endif%}>{%trans "Pound"%}</option>
+              <option value="ounce" {%if dataRow.mass_unit == 'ounce' %} selected {%endif%}>{%trans "Ounce"%}</option>
+            </select>
+          </div>
+
+
+        </div>
 
 
         <div class="f align-center mB10">
@@ -34,60 +127,4 @@
 {%block sideBox%}{%endblock%}
 {%block headerBox%}{%endblock%}
 
-
-
-{%block iCountry%}
-<div class="mB10">
-  <label for='country'>{%trans "Country"%}</label>
-  <select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='{{dataRow.province}}'>
-    <option value="">{%trans "Choose your country"%}</option>
-{%for key, value in countryList%}
-      <option value="{{key}}" {%if dataRow.country == key%} selected {%endif%}>{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}</option>
-{%endfor%}
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iProvince%}
-<div class="mB10" data-status='hide'>
-  <label for='province'>{%trans "Province"%}</label>
-  <select name="province" id="province" class="select22" data-next='#city' data-next-default='{{dataRow.city}}'>
-    <option value="0">{%trans "Please choose country"%}</option>
-    <option value="{{dataRow.province}}" selected>{{dataRow.province}}</option>
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iCity%}
-<div class="mB10" data-status='hide'>
-  <label for='city'>{%trans "City"%}</label>
-  <select name="city" id="city" class="select22">
-    <option value="">{%trans "Please choose province"%}</option>
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iPostcode%}
-<label for="postcode">{%trans "Post code"%}</label>
-<div class="input">
-  <input type="text" name="postcode" id="postcode" value="{{dataRow.postcode}}" data-format="postalCode">
-</div>
-{%endblock%}
-
-
-{%block iPhone%}
-<label for="iphone">{%trans "Phone"%}</label>
-<div class="input">
-  <input type="text" name="phone" id="iphone" value="{{dataRow.phone}}" data-format="tel">
-</div>
-{%endblock%}
-
-
-{%block ishipping%}
-<label for="shipping">{%trans "shipping"%}</label>
-<textarea class="txt mB10 pB25" name="shipping" id="shipping" maxlength='300' rows="2">{{dataRow.shipping}}</textarea>
-{%endblock%}
 

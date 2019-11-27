@@ -91,6 +91,8 @@ class setup
 		}
 
 		\lib\store::refresh();
+
+		return true;
 	}
 
 
@@ -119,23 +121,15 @@ class setup
 
 
 		$barcode = \dash\app::request('barcode') ? 1 : null;
-
-		if($barcode)
-		{
-			$scale   = \dash\app::request('scale') ? 1 : null;
-		}
-		else
-		{
-			$scale = null;
-		}
+		$scale   = \dash\app::request('scale') ? 1 : null;
 
 		$args            = [];
 		$args['barcode'] = $barcode;
 		$args['scale']   = $scale;
 
 		return self::multi_save($args);
-
 	}
+
 
 	public static function save_vat($_args)
 	{
@@ -146,22 +140,86 @@ class setup
 		$tax_calc_all_price = \dash\app::request('tax_calc_all_price') ? 1 : null;
 		$tax_shipping       = \dash\app::request('tax_shipping') ? 1 : null;
 
-
-		$args            = [];
+		$args                       = [];
 		$args['tax_status']         = $tax_status;
+		$args['tax_calc']           = $tax_calc;
+		$args['tax_calc_all_price'] = $tax_calc_all_price;
+		$args['tax_shipping']       = $tax_shipping;
 
-		if($tax_status)
+		return self::multi_save($args);
+
+	}
+
+
+	public static function save_shipping($_args)
+	{
+		\dash\app::variable($_args);
+
+		$shipping_status                     = \dash\app::request('shipping_status') ? 1 : null;
+		$shipping_current_country            = \dash\app::request('shipping_current_country') ? 1 : null;
+		$shipping_current_country_value      = \dash\app::request('shipping_current_country_value');
+		$shipping_current_country_value_type = \dash\app::request('shipping_current_country_value_type');
+		$shipping_other_country              = \dash\app::request('shipping_other_country') ? 1 : null;
+		$shipping_other_country_value        = \dash\app::request('shipping_other_country_value');
+		$shipping_other_country_value_type   = \dash\app::request('shipping_other_country_value_type');
+		$length_unit                         = \dash\app::request('length_unit');
+		$mass_unit                           = \dash\app::request('mass_unit');
+
+		if($shipping_current_country_value_type === 'free')
 		{
-			$args['tax_calc']           = $tax_calc;
-			$args['tax_calc_all_price'] = $tax_calc_all_price;
-			$args['tax_shipping']       = $tax_shipping;
+			$shipping_current_country_value = 0;
 		}
 		else
 		{
-			$args['tax_calc']           = null;
-			$args['tax_calc_all_price'] = null;
-			$args['tax_shipping']       = null;
+			if($shipping_current_country_value && !\dash\number::is($shipping_current_country_value))
+			{
+				\dash\notif::error(T_("Invalid number data"), 'shipping_current_country_value');
+				return false;
+			}
+
+			if($shipping_current_country_value)
+			{
+				$shipping_current_country_value = \dash\number::clean($shipping_current_country_value);
+				if(\dash\number::is_larger($shipping_current_country_value, 999999999999))
+				{
+					\dash\notif::error(T_("Data is out of range"), 'shipping_current_country_value');
+					return false;
+				}
+			}
 		}
+
+		if($shipping_other_country_value_type === 'free')
+		{
+			$shipping_other_country_value = 0;
+		}
+		else
+		{
+			if($shipping_other_country_value && !\dash\number::is($shipping_other_country_value))
+			{
+				\dash\notif::error(T_("Invalid number data"), 'shipping_other_country_value');
+				return false;
+			}
+
+			if($shipping_other_country_value)
+			{
+				$shipping_other_country_value = \dash\number::clean($shipping_other_country_value);
+				if(\dash\number::is_larger($shipping_other_country_value, 999999999999))
+				{
+					\dash\notif::error(T_("Data is out of range"), 'shipping_other_country_value');
+					return false;
+				}
+			}
+		}
+
+
+		$args                                   = [];
+		$args['shipping_status']                = $shipping_status;
+		$args['shipping_current_country']       = $shipping_current_country;
+		$args['shipping_current_country_value'] = $shipping_current_country_value;
+		$args['shipping_other_country']         = $shipping_other_country;
+		$args['shipping_other_country_value']   = $shipping_other_country_value;
+		$args['length_unit']                    = $length_unit;
+		$args['mass_unit']                      = $mass_unit;
 
 		return self::multi_save($args);
 

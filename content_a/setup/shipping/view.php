@@ -7,13 +7,27 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Set your store shipping'));
+
+		$myCountryName = null;
+		if(\dash\data::dataRow_country())
+		{
+			$myCountryName = \dash\utility\location\countres::get_name(\dash\data::dataRow_country(), true);
+		}
+		\dash\data::myCountryName($myCountryName);
+
+
+		if(\dash\data::dataRow_currency())
+		{
+			$storeCurrency = \lib\currency::detail(\dash\data::dataRow_currency());
+			\dash\data::storeCurrency($storeCurrency);
+		}
+
 		self::static_var();
 	}
 
 
 	private static function static_var()
 	{
-
 		$countryList = \dash\utility\location\countres::$data;
 		\dash\data::countryList($countryList);
 

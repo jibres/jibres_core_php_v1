@@ -25,6 +25,8 @@ class number
 
 	public static function is($_check)
 	{
+		$_check = self::clean($_check);
+
 		if(!is_numeric($_check))
 		{
 			return false;

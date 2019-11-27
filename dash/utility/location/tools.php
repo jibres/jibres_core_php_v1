@@ -352,6 +352,21 @@ trait tools
 		return false;
 	}
 
+	public static function get_name($_key, $_trans = false)
+	{
+		$name = null;
+		if(isset(self::$data[$_key]['name']))
+		{
+			$name = self::$data[$_key]['name'];
+		}
+
+		if($name && $_trans)
+		{
+			return T_(ucfirst($name));
+		}
+
+		return $name;
+	}
 
 	public static function get_localname($_key, $_trans = false)
 	{
@@ -367,7 +382,7 @@ trait tools
 
 		if($name && $_trans)
 		{
-			return T_($name);
+			return T_(ucfirst($name));
 		}
 
 		return $name;

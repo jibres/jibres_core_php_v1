@@ -135,5 +135,17 @@ class currency {
 
 		return $currency;
 	}
+
+
+	public static function detail($_key)
+	{
+		$list = self::list();
+		if(isset($list[$_key]))
+		{
+			return $list[$_key];
+		}
+
+		return null;
+	}
 }
 ?>
