@@ -18,7 +18,7 @@ class enter
 	{
 		\content_api\v1::check_token();
 
-		\content_api\v1::check_apikey();
+		\content_api\v1::apikey_required();
 
 		$subchild = \dash\url::dir(4);
 

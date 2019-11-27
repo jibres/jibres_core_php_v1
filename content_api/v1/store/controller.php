@@ -16,11 +16,12 @@ class controller
 
 		$directory = \dash\url::directory();
 
+		\content_api\v1::appkey_required();
+
 		if($directory === 'v1/store/add')
 		{
-			\content_api\v1::check_appkey();
 
-			\content_api\v1::check_apikey();
+			\content_api\v1::apikey_required();
 
 			if(\dash\request::is('post'))
 			{

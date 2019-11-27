@@ -14,7 +14,7 @@ class controller
 	{
 		$detail    = [];
 
-		\content_api\v1::check_apikey();
+		\content_api\v1::apikey_required();
 
 		$dir_2 = \dash\url::dir(2);
 

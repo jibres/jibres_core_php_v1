@@ -16,7 +16,7 @@ class controller
 			\content_api\v1::invalid_url();
 		}
 
-		\content_api\v1::check_apikey();
+		\content_api\v1::apikey_required();
 
 		if(!\dash\request::is('get'))
 		{

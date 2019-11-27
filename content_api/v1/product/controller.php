@@ -14,7 +14,7 @@ class controller
 	{
 		$detail    = [];
 
-		\content_api\v1::check_apikey();
+		\content_api\v1::apikey_required();
 
 		$dir_2 = \dash\url::dir(2);
 
@@ -41,7 +41,7 @@ class controller
 			switch (\dash\url::dir(4))
 			{
 				case 'comment':
-					# code...
+
 					break;
 
 				case 'edit':
@@ -65,43 +65,6 @@ class controller
 		{
 			\content_api\v1::invalid_url();
 		}
-
-
-
-		// if($dir === 'v1/product/unit')
-		// {
-		// 	\content_api\v1::check_apikey();
-		// 	$detail = \content_api\v1\product\unit::route();
-		// }
-		// elseif($dir === 'v1/product/company')
-		// {
-		// 	\content_api\v1::check_apikey();
-		// 	$detail = \content_api\v1\product\company::route();
-		// }
-		// elseif($dir === 'v1/product/comment')
-		// {
-		// 	// need less to check user
-		// 	$detail = \content_api\v1\product\comment::route();
-		// }
-		// elseif($dir === 'v1/product/add')
-		// {
-		// 	// need less to check user
-		// 	$detail = \content_api\v1\product\add::route();
-		// }
-		// elseif($dir === 'v1/product')
-		// {
-		// 	\content_api\v1::check_store_init();
-		// 	$detail = \content_api\v1\product\get::route();
-		// }
-		// else
-		// {
-		// 	\content_api\v1::invalid_url();
-		// }
-
-
-
 	}
-
-
 }
 ?>

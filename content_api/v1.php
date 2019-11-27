@@ -9,7 +9,7 @@ class v1
 	private static $request_check = false;
 
 	/**
-	 * this function route as first of every
+	 * this function route as first of every request on api
 	 */
 	public static function master_check()
 	{
@@ -20,11 +20,45 @@ class v1
 			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
 		}
 
-		// self::check_store_init();
+		self::check_appkey();
+		self::check_apikey();
+		self::check_store_init();
 	}
 
 
-	public static function check_store_init()
+	public static function appkey_required()
+	{
+		if(isset(self::$v1['appkey_detail']) && self::$v1['appkey_detail'])
+		{
+			return true;
+		}
+		else
+		{
+			self::stop(403, T_("Appkey not set"));
+		}
+	}
+
+
+	public static function apikey_required()
+	{
+		if(!\dash\user::id())
+		{
+			self::stop(403, T_("Apikey not set"));
+		}
+	}
+
+
+	public static function store_required()
+	{
+		if(!\lib\store::id())
+		{
+			self::stop(403, T_("Store not found"));
+		}
+	}
+
+
+
+	private static function check_store_init()
 	{
 		$STORE = \dash\url::child();
 
@@ -32,10 +66,16 @@ class v1
 
 		if(!$store_id)
 		{
-			self::stop(403, T_("Invalid store id"));
+			return false;
+		}
+
+		if(intval($store_id) < 1000000 || \dash\number::is_larger($store_id, 9999999))
+		{
+			return false;
 		}
 
 		$detail = \dash\engine\store::init_id($store_id);
+
 		if(!$detail)
 		{
 			self::stop(403, T_("Store Detail not found"));
@@ -57,11 +97,14 @@ class v1
 	}
 
 
-
-
 	public static function check_appkey()
 	{
 		$appkey = \dash\header::get('appkey');
+
+		if(!$appkey)
+		{
+			return;
+		}
 
 		\dash\app\apilog::static_var('appkey', $appkey);
 
@@ -138,12 +181,12 @@ class v1
 	{
 		$apikey = \dash\header::get('apikey');
 
-		\dash\app\apilog::static_var('apikey', $apikey);
-
 		if(!$apikey)
 		{
-			self::stop(401, T_("apikey not set"));
+			return false;
 		}
+
+		\dash\app\apilog::static_var('apikey', $apikey);
 
 		if(mb_strlen($apikey) !== 32)
 		{

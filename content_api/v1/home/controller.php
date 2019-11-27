@@ -21,9 +21,6 @@ class controller
 			\content_api\v1::stop(404);
 		}
 
-		// y88y
-		$store = isset($url[1]) ? $url[1] : null;
-
 		// route location query whitout store
 		if($store === 'location')
 		{
@@ -31,25 +28,9 @@ class controller
 			return;
 		}
 
-		if(!$store)
-		{
-			\content_api\v1::stop(404, '$STORE not set');
-		}
+		\content_api\v1::appkey_required();
 
-		$store_id = \dash\coding::decode($store);
-		if(!$store_id)
-		{
-			\content_api\v1::stop(403, 'Invalid $STORE');
-		}
-
-		if(intval($store_id) < 1000000 || \dash\number::is_larger($store_id, 9999999))
-		{
-			\content_api\v1::stop(403, 'Invalid $STORE id');
-		}
-
-		\content_api\v1::check_appkey();
-
-		\content_api\v1::check_store_init();
+		\content_api\v1::store_required();
 
 		// check store is exsist
 
@@ -121,16 +102,6 @@ class controller
 				\content_api\v1::stop(404);
 				break;
 		}
-
-		// if(\dash\url::child() && !\dash\url::subchild() && in_array(\dash\url::child(), ['mission', 'vision', 'about', 'contact']))
-		// {
-		// 	\content_api\v1\static_page::run(\dash\url::child());
-		// }
-		// else
-		// {
-		// 	\content_api\home\controller::routing();
-		// }
-
 	}
 }
 ?>

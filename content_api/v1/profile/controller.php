@@ -14,7 +14,7 @@ class controller
 
 		$profile = false;
 
-		\content_api\v1::check_apikey();
+		\content_api\v1::apikey_required();
 
 		switch (\dash\url::dir(3))
 		{
