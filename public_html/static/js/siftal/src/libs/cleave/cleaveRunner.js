@@ -68,8 +68,8 @@ function cleaveRunner()
 
       case "tel":
         opt.numericOnly = true;
-        opt.prefix = '+',
-        opt.blocks = [3, 3, 3, 4];
+        // opt.prefix = '00',
+        opt.blocks = [4, 2, 4, 4];
         opt.delimiterLazyShow = true;
         break;
 
