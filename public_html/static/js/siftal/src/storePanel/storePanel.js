@@ -843,6 +843,10 @@ function recalcPricePercents()
   //   return;
   // }
 
+  if(!$('#finalprice').length)
+  {
+    return;
+  }
   // declare variables
   var elFinalPriceBox = $('#finalprice').parent().parent();
   var buy             = parseInt($('#buyprice').val().toEnglish());
