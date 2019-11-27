@@ -10,6 +10,23 @@
       {{block('iDesc')}}
     </section>
 
+    <section class="jbox">
+      <header data-kerkere='.jboxPrice' data-kerkere-icon='open'>{%trans "Pricing"%}</header>
+      <div class="pad jboxPrice">
+        {{block ('iBuyprice') }}
+        <div class="f">
+          <div class="c s12 pRa5">{{block ('iPrice') }}</div>
+          <div class="c s12">{{block ('iDiscount') }}</div>
+        </div>
+        {{block ('iFinalPrice') }}
+        {{block ('iVat') }}
+      </div>
+    </section>
+
+
+
+
+
 
   </div>
   <div class="c4 x3 s12 mB10">
@@ -25,9 +42,6 @@
  <div class="c s12 pRa10">
 
 
-  <div class="cbox mB10">
-   {{block('Box_pirce')}}
-  </div>
 
   <div class="cbox mB10">
    {{block('Box_inventory')}}
@@ -81,17 +95,6 @@
 
 
 
-
-{%block Box_pirce %}
-  <h3>{%trans "Pricing"%}</h3>
-  {{block ('iBuyprice') }}
-  <div class="f">
-   <div class="c s12 pRa5">{{block ('iPrice') }}</div>
-   <div class="c s12">{{block ('iDiscount') }}</div>
-  </div>
-  {{block ('iFinalPrice') }}
-  {{block ('iVat') }}
-{%endblock%}
 
 
 

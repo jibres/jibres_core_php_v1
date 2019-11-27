@@ -8,12 +8,13 @@
   background-color: #fafafa;
   margin-bottom: 10px;
 }
-.jbox.pad{
+.jbox.pad, .jbox .pad{
   padding: 10px;
 }
 .jbox header{
   padding: 0 1.5rem;
   line-height: 36px;
+  height: 36px;
   font-weight: 900;
   color: #222;
   border: none;
@@ -24,7 +25,7 @@
 .jbox header:hover{
   background-color: #eee;
 }
-.jbox header[data-kerkere-status="open"]{
+.jbox header[data-kerkere-status="close"]{
   background-color: #ddd;
 }
 .jbox section{
