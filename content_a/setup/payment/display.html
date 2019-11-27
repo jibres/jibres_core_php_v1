@@ -10,13 +10,31 @@
       <p>{%trans "Based on your country some of our options will be changed."%}</p>
       <form method="post" autocomplete="off">
 
-		    {{block('iCountry')}}
-        {{block('iProvince')}}
-		    {{block('iCity')}}
-		    {{block('ipayment')}}
+        <div class="switch1 fs12">
+         <input type="checkbox" name="payment_online" id="payment_online" {% if dataRow.payment_online%} checked{%endif%}>
+         <label for="payment_online"></label>
+         <label for="payment_online">{%trans "Online payment"%}</label>
+        </div>
 
-        {{block('iPostcode')}}
-        {{block('iPhone')}}
+        <div class="switch1 fs12">
+         <input type="checkbox" name="payment_cheque" id="payment_cheque" {% if dataRow.payment_cheque%} checked{%endif%}>
+         <label for="payment_cheque"></label>
+         <label for="payment_cheque">{%trans "Cheque payment"%}</label>
+        </div>
+
+        <div class="switch1 fs12">
+         <input type="checkbox" name="payment_bank" id="payment_bank" {% if dataRow.payment_bank%} checked{%endif%}>
+         <label for="payment_bank"></label>
+         <label for="payment_bank">{%trans "Bank receipt payment"%}</label>
+        </div>
+
+
+        <div class="switch1 fs12">
+         <input type="checkbox" name="payment_on_deliver" id="payment_on_deliver" {% if dataRow.payment_on_deliver%} checked{%endif%}>
+         <label for="payment_on_deliver"></label>
+         <label for="payment_on_deliver">{%trans "Pay on deliver"%}</label>
+        </div>
+
 
 
         <div class="f align-center mB10">
@@ -33,61 +51,4 @@
 
 {%block sideBox%}{%endblock%}
 {%block headerBox%}{%endblock%}
-
-
-
-{%block iCountry%}
-<div class="mB10">
-  <label for='country'>{%trans "Country"%}</label>
-  <select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='{{dataRow.province}}'>
-    <option value="">{%trans "Choose your country"%}</option>
-{%for key, value in countryList%}
-      <option value="{{key}}" {%if dataRow.country == key%} selected {%endif%}>{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}</option>
-{%endfor%}
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iProvince%}
-<div class="mB10" data-status='hide'>
-  <label for='province'>{%trans "Province"%}</label>
-  <select name="province" id="province" class="select22" data-next='#city' data-next-default='{{dataRow.city}}'>
-    <option value="0">{%trans "Please choose country"%}</option>
-    <option value="{{dataRow.province}}" selected>{{dataRow.province}}</option>
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iCity%}
-<div class="mB10" data-status='hide'>
-  <label for='city'>{%trans "City"%}</label>
-  <select name="city" id="city" class="select22">
-    <option value="">{%trans "Please choose province"%}</option>
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iPostcode%}
-<label for="postcode">{%trans "Post code"%}</label>
-<div class="input">
-  <input type="text" name="postcode" id="postcode" value="{{dataRow.postcode}}" data-format="postalCode">
-</div>
-{%endblock%}
-
-
-{%block iPhone%}
-<label for="iphone">{%trans "Phone"%}</label>
-<div class="input">
-  <input type="text" name="phone" id="iphone" value="{{dataRow.phone}}" data-format="tel">
-</div>
-{%endblock%}
-
-
-{%block ipayment%}
-<label for="payment">{%trans "payment"%}</label>
-<textarea class="txt mB10 pB25" name="payment" id="payment" maxlength='300' rows="2">{{dataRow.payment}}</textarea>
-{%endblock%}
 
