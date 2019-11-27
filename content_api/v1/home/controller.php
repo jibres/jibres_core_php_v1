@@ -113,6 +113,10 @@ class controller
 				\content_api\v1\product\controller::api_routing();
 				break;
 
+			case 'user':
+				\content_api\v1\user\controller::api_routing();
+				break;
+
 			default:
 				\content_api\v1::stop(404);
 				break;
