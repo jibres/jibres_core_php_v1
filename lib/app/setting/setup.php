@@ -116,15 +116,15 @@ class setup
 		\dash\app::variable($_args);
 
 
-		$barcode = \dash\app::request('barcode') ? 'yes' : 'no';
+		$barcode = \dash\app::request('barcode') ? 1 : null;
 
-		if($barcode === 'yes')
+		if($barcode)
 		{
-			$scale   = \dash\app::request('scale') ? 'yes' : 'no';
+			$scale   = \dash\app::request('scale') ? 1 : null;
 		}
 		else
 		{
-			$scale = 'no';
+			$scale = null;
 		}
 
 		$args            = [];
@@ -135,10 +135,40 @@ class setup
 
 	}
 
+	public static function save_vat($_args)
+	{
+		\dash\app::variable($_args);
+
+		$tax_status         = \dash\app::request('tax_status') ? 1 : null;
+		$tax_calc           = \dash\app::request('tax_calc') ? 1 : null;
+		$tax_calc_all_price = \dash\app::request('tax_calc_all_price') ? 1 : null;
+		$tax_shipping       = \dash\app::request('tax_shipping') ? 1 : null;
+
+
+		$args            = [];
+		$args['tax_status']         = $tax_status;
+
+		if($tax_status)
+		{
+			$args['tax_calc']           = $tax_calc;
+			$args['tax_calc_all_price'] = $tax_calc_all_price;
+			$args['tax_shipping']       = $tax_shipping;
+		}
+		else
+		{
+			$args['tax_calc']           = null;
+			$args['tax_calc_all_price'] = null;
+			$args['tax_shipping']       = null;
+		}
+
+		return self::multi_save($args);
+
+	}
+
 
 	public static function have_vat($_have_vat)
 	{
-		$have_vat = $_have_vat ? 'yes' : 'no';
+		$have_vat = $_have_vat ? 1 : null;
 		if($have_vat)
 		{
 			\lib\app\setting\tools::update('store_setting', 'vat', $have_vat);

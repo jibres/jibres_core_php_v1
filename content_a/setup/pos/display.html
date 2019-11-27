@@ -14,7 +14,7 @@
 
         <p>{%trans "You can use barcode scanners to quickly enter products to the cart at checkout."%} {%trans "If already you have barcode reader in your store, please tell us to add related fileds into products."%}</p>
         <div class="switch1 fs12">
-         <input type="checkbox" name="barcode" id="barcode" {% if dataRow.barcode == 'yes'%} checked{%endif%}>
+         <input type="checkbox" name="barcode" id="barcode" {% if dataRow.barcode%} checked{%endif%}>
          <label for="barcode"></label>
          <label for="barcode">{%trans "Have barcode reader?"%}</label>
         </div>
@@ -24,7 +24,7 @@
           <p>{%trans "If already you have scale with label printer, tell us."%} {%trans "We allow you to scan barcode of scale receipt, then we detect product and add them automatically."%}</p>
 
           <div class="switch1 fs12">
-           <input type="checkbox" name="scale" id="scale" {% if dataRow.scale == 'yes'%} checked{%endif%}>
+           <input type="checkbox" name="scale" id="scale" {% if dataRow.scale%} checked{%endif%}>
            <label for="scale"></label>
            <label for="scale">{%trans "Have scale with label printer?"%}</label>
           </div>
