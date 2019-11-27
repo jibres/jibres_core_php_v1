@@ -27,7 +27,7 @@ function recalcPricePercents()
     impureIntrestRate = ((sale * 100 / buy) - 100).toFixed(2);
     pureIntrestRate   = (((sale - discount) * 100 / buy) - 100).toFixed(2);
   }
-  $('#price').parent().find('.addon').text(fitNumber(impureIntrestRate) + '%');
+  // $('#price').parent().find('.addon').text(fitNumber(impureIntrestRate) + '%');
 
   // Discount Rate
   if(discount && sale)

@@ -163,9 +163,18 @@
 <label for='price'>{%trans "Sale Price"%}</label>
 <div class="input">
  <input type="text" name="price" id="price" data-format='price' value="{{productDataRow.price}}" maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}" data-run-input='recalcPricePercents'>
- <span class="addon" title='{%trans "Impure Interest Rate"%}'>{{ productDataRow.intrestrate_impure | fitNumber}} %</span>
 </div>
 {%endblock%}
+
+
+{%block iCompareAtPrice%}
+<label for='CompareAtPrice'>{%trans "CompareAtPrice"%}</label>
+<div class="input">
+ <input type="text" name="CompareAtPrice" id="CompareAtPrice" data-format='price' value="{{productDataRow.CompareAtPrice}}" maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}" data-run-input='recalcPricePercents'>
+</div>
+{%endblock%}
+
+
 
 
 {%block iFinalPrice%}
@@ -196,7 +205,7 @@
 <div class="switch1">
  <input type="checkbox" name="vat" id="vat" {% if productDataRow.vat%} checked{%endif%}>
  <label for="vat"></label>
- <label for="vat">{%trans "Vat"%} <small>{%trans "This product is vat base"%}</small></label>
+ <label for="vat">{%trans "Charge taxes on this product"%}</label>
 </div>
 {%endblock%}
 
