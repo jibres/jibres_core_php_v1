@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setup\currency;
+namespace content_a\setup\units;
 
 
 class view
@@ -9,6 +9,8 @@ class view
 		\dash\data::page_title(T_('Store Units'));
 
 		\dash\data::currencyList(\lib\currency::list());
+		\dash\data::massList(\lib\units::mass());
+		\dash\data::lengthList(\lib\units::length());
 	}
 }
 ?>

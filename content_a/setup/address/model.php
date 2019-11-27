@@ -16,10 +16,6 @@ class model
 		$post['fax']      = \dash\request::post('fax');
 
 		\lib\app\setting\setup::save_address($post);
-		\lib\store::refresh();
-		// save every field in somewhere and set the address detail is complete
-		$next_level = \lib\app\setting\setup::address();
-		\dash\redirect::to($next_level);
 	}
 }
 ?>

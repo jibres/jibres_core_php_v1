@@ -15,10 +15,7 @@ class model
 
 
 		\lib\app\setting\setup::save_company($post);
-		\lib\store::refresh();
-		// save every field in somewhere and set the company detail is complete
-		$next_level = \lib\app\setting\setup::company();
-		\dash\redirect::to($next_level);
+
 	}
 }
 ?>

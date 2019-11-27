@@ -11,7 +11,7 @@ class setup
 		'logo',
 		'address',
 		'company',
-		'currency',
+		'units',
 		'pos',
 		'vat',
 		'shipping',
@@ -83,7 +83,7 @@ class setup
 		}
 	}
 
-	private static function multi_save($_args)
+	private static function multi_save($_args, $_current_level)
 	{
 		foreach ($_args as $key => $value)
 		{
@@ -91,6 +91,13 @@ class setup
 		}
 
 		\lib\store::refresh();
+
+		$next_level = self::$_current_level();
+
+		if($next_level)
+		{
+			\dash\redirect::to($next_level);
+		}
 
 		return true;
 	}
@@ -127,7 +134,7 @@ class setup
 		$args['barcode'] = $barcode;
 		$args['scale']   = $scale;
 
-		return self::multi_save($args);
+		return self::multi_save($args, 'pos');
 	}
 
 
@@ -146,7 +153,7 @@ class setup
 		$args['payment_bank']       = $payment_bank;
 		$args['payment_on_deliver'] = $payment_on_deliver;
 
-		return self::multi_save($args);
+		return self::multi_save($args, 'payment');
 
 	}
 
@@ -165,7 +172,7 @@ class setup
 		$args['tax_calc_all_price'] = $tax_calc_all_price;
 		$args['tax_shipping']       = $tax_shipping;
 
-		return self::multi_save($args);
+		return self::multi_save($args, 'vat');
 
 	}
 
@@ -181,8 +188,6 @@ class setup
 		$shipping_other_country              = \dash\app::request('shipping_other_country') ? 1 : null;
 		$shipping_other_country_value        = \dash\app::request('shipping_other_country_value');
 		$shipping_other_country_value_type   = \dash\app::request('shipping_other_country_value_type');
-		$length_unit                         = \dash\app::request('length_unit');
-		$mass_unit                           = \dash\app::request('mass_unit');
 
 		if($shipping_current_country_value_type === 'free')
 		{
@@ -237,10 +242,9 @@ class setup
 		$args['shipping_current_country_value'] = $shipping_current_country_value;
 		$args['shipping_other_country']         = $shipping_other_country;
 		$args['shipping_other_country_value']   = $shipping_other_country_value;
-		$args['length_unit']                    = $length_unit;
-		$args['mass_unit']                      = $mass_unit;
 
-		return self::multi_save($args);
+
+		return self::multi_save($args, 'shipping');
 
 	}
 
@@ -364,7 +368,7 @@ class setup
 		$args['phone']    = $phone;
 		$args['fax']      = $fax;
 
-		return self::multi_save($args);
+		return self::multi_save($args, 'address');
 
 	}
 
@@ -437,11 +441,11 @@ class setup
 		$args['ceonationalcode']       = $ceonationalcode;
 		$args['companyname']           = $companyname;
 
-		return self::multi_save($args);
+		return self::multi_save($args, 'company');
 	}
 
 
-	public static function save_currency($_args)
+	public static function save_units($_args)
 	{
 		\dash\app::variable($_args);
 
@@ -449,15 +453,33 @@ class setup
 
 		if($currency && !in_array($currency, array_keys(\lib\currency::list())))
 		{
-			\dash\notif::error(T_("Please fill the value less than 100 character"), 'currency');
+			\dash\notif::error(T_("Invalid currency"), 'currency');
+			return false;
+		}
+
+		$length_unit         = \dash\app::request('length_unit');
+		if($length_unit && !in_array($length_unit, array_keys(\lib\units::length())))
+		{
+			\dash\notif::error(T_("Invalid length"), 'length_unit');
 			return false;
 		}
 
 
-		$args         = [];
-		$args['currency'] = $currency;
+		$mass_unit         = \dash\app::request('mass_unit');
+		if($mass_unit && !in_array($mass_unit, array_keys(\lib\units::mass())))
+		{
+			\dash\notif::error(T_("Invalid mass"), 'mass_unit');
+			return false;
+		}
 
-		return self::multi_save($args);
+
+		$args                = [];
+		$args['currency']    = $currency;
+		$args['length_unit'] = $length_unit;
+		$args['mass_unit']   = $mass_unit;
+
+
+		return self::multi_save($args, 'units');
 	}
 }
 ?>

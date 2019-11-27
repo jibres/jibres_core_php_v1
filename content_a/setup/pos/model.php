@@ -14,8 +14,6 @@ class model
 
 		\lib\app\setting\setup::save_pos($post);
 
-		$next_level = \lib\app\setting\setup::pos();
-		\dash\redirect::to($next_level);
 	}
 }
 ?>

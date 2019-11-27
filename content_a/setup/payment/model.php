@@ -13,10 +13,6 @@ class model
 		$post['payment_on_deliver'] = \dash\request::post('payment_on_deliver');
 
 		\lib\app\setting\setup::save_payment($post);
-
-		// save every field in somewhere and set the payment detail is complete
-		$next_level = \lib\app\setting\setup::payment();
-		\dash\redirect::to($next_level);
 	}
 }
 ?>

@@ -17,14 +17,7 @@ class model
 		$post['length_unit']                         = \dash\request::post('length_unit');
 		$post['mass_unit']                           = \dash\request::post('mass_unit');
 
-		$result = \lib\app\setting\setup::save_shipping($post);
-
-		if ($result)
-		{
-			// save every field in somewhere and set the shipping detail is complete
-			$next_level = \lib\app\setting\setup::shipping();
-			\dash\redirect::to($next_level);
-		}
+		\lib\app\setting\setup::save_shipping($post);
 	}
 }
 ?>

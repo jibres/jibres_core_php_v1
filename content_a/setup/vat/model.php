@@ -14,10 +14,10 @@ class model
 			'tax_shipping'       => \dash\request::post('tax_shipping'),
 		];
 
+		\dash\notif::direct();
+
 		\lib\app\setting\setup::save_vat($post);
-		\lib\store::refresh();
-		$next_level = \lib\app\setting\setup::vat();
-		\dash\redirect::to($next_level);
+
 	}
 }
 ?>
