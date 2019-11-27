@@ -29,8 +29,9 @@ class type_14
 		}
 
 		$shop = \lib\pardakhtyar\app\shaparak\request::load_shop($_id);
-		$shop['updateAction'] = 2;
+		$shop['updateAction'] = 0;
 		$acceptor = \lib\pardakhtyar\app\shaparak\request::load_acceptor($_id, true, false);
+
 		$acceptor['updateAction'] = 2;
 		if(!$acceptor)
 		{
@@ -38,7 +39,7 @@ class type_14
 			return false;
 		}
 
-		$acceptor['terminals'][0]['updateAction'] = 2;
+		$acceptor['terminals'][0]['updateAction'] = 0;
 
 		$send                            = [];
 		$send['trackingNumberPsp']       = 'customer_'. $_id;
@@ -50,7 +51,7 @@ class type_14
 		[
 			[
 				'shop'      => $shop,
-				'acceptors' => [$acceptor]
+				'acceptors' => null,
 			],
 		];
 
