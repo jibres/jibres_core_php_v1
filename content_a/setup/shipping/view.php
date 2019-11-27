@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Set your store shipping'));
+		\dash\data::page_title(T_('Setting up shipping rates'));
 
 		$myCountryName = null;
 		if(\dash\data::dataRow_country())

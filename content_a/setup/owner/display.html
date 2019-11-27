@@ -31,7 +31,7 @@
           <input type="text" name="lastname" id="lastname" value="{{dataRow.lastname}}" maxlength='40'>
         </div>
 
-        <label for="birthday">{%trans "Birthday"%}</label>
+        <label for="birthday">{%trans "Birthday"%} <b>{%trans "yyyy/mm/dd"%}</b></label>
 
         <div class="input">
           <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="birthday" id="birthday" value="{{dataRow.jalali_birthday}}" autocomplete='off'>
