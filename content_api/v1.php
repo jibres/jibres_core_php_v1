@@ -8,6 +8,9 @@ class v1
 	private static $REQUEST       = [];
 	private static $request_check = false;
 
+	/**
+	 * this function route as first of every
+	 */
 	public static function master_check()
 	{
 		$subdomain = \dash\url::subdomain();

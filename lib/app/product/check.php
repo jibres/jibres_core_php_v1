@@ -477,7 +477,7 @@ class check
 			$scalecode = \dash\utility\convert::to_en_number($scalecode);
 			if(!is_numeric($scalecode))
 			{
-				\dash\notif::error(T_("Plase set scale code as a number"), 'scalecode');
+				\dash\notif::error(T_("Please set scale code as a number"), 'scalecode');
 				return false;
 			}
 

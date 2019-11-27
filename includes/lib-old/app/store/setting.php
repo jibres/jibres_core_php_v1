@@ -19,7 +19,7 @@ class setting
 
 		if($maxbuyprice && !is_numeric($maxbuyprice))
 		{
-			\dash\notif::error(T_("Plase set maxbuyprice as a number"), 'maxbuyprice');
+			\dash\notif::error(T_("Please set maxbuyprice as a number"), 'maxbuyprice');
 			return false;
 		}
 
@@ -35,7 +35,7 @@ class setting
 
 		if($maxprice && !is_numeric($maxprice))
 		{
-			\dash\notif::error(T_("Plase set maxprice as a number"), 'maxprice');
+			\dash\notif::error(T_("Please set maxprice as a number"), 'maxprice');
 			return false;
 		}
 
@@ -51,7 +51,7 @@ class setting
 
 		if($maxdiscount && !is_numeric($maxdiscount))
 		{
-			\dash\notif::error(T_("Plase set maxdiscount as a number"), 'maxdiscount');
+			\dash\notif::error(T_("Please set maxdiscount as a number"), 'maxdiscount');
 			return false;
 		}
 
@@ -67,7 +67,7 @@ class setting
 
 		if($maxproductcount && !is_numeric($maxproductcount))
 		{
-			\dash\notif::error(T_("Plase set maxproductcount as a number"), 'maxproductcount');
+			\dash\notif::error(T_("Please set maxproductcount as a number"), 'maxproductcount');
 			return false;
 		}
 

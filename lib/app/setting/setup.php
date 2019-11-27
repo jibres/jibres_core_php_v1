@@ -377,13 +377,13 @@ class setup
 		$companyeconomiccode = \dash\number::clean($companyeconomiccode);
 		if($companyeconomiccode && !is_numeric($companyeconomiccode))
 		{
-			\dash\notif::error(T_("Plase fill the field as a number"), 'companyeconomiccode');
+			\dash\notif::error(T_("Please fill the field as a number"), 'companyeconomiccode');
 			return false;
 		}
 
 		if($companyeconomiccode && mb_strlen($companyeconomiccode) > 100)
 		{
-			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'companyeconomiccode');
+			\dash\notif::error(T_("Please fill the value less than 100 character"), 'companyeconomiccode');
 			return false;
 		}
 
@@ -391,13 +391,13 @@ class setup
 		$companynationalid = \dash\number::clean($companynationalid);
 		if($companynationalid && !is_numeric($companynationalid))
 		{
-			\dash\notif::error(T_("Plase fill the field as a number"), 'companynationalid');
+			\dash\notif::error(T_("Please fill the field as a number"), 'companynationalid');
 			return false;
 		}
 
 		if($companynationalid && mb_strlen($companynationalid) > 100)
 		{
-			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'companynationalid');
+			\dash\notif::error(T_("Please fill the value less than 100 character"), 'companynationalid');
 			return false;
 		}
 
@@ -405,13 +405,13 @@ class setup
 		$companyregisternumber = \dash\number::clean($companyregisternumber);
 		if($companyregisternumber && !is_numeric($companyregisternumber))
 		{
-			\dash\notif::error(T_("Plase fill the field as a number"), 'companyregisternumber');
+			\dash\notif::error(T_("Please fill the field as a number"), 'companyregisternumber');
 			return false;
 		}
 
 		if($companyregisternumber && mb_strlen($companyregisternumber) > 100)
 		{
-			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'companyregisternumber');
+			\dash\notif::error(T_("Please fill the value less than 100 character"), 'companyregisternumber');
 			return false;
 		}
 
@@ -426,7 +426,7 @@ class setup
 		$companyname = \dash\app::request('companyname');
 		if($companyname && mb_strlen($companyname) > 100)
 		{
-			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'companyname');
+			\dash\notif::error(T_("Please fill the value less than 100 character"), 'companyname');
 			return false;
 		}
 
@@ -449,7 +449,7 @@ class setup
 
 		if($currency && !in_array($currency, array_keys(\lib\currency::list())))
 		{
-			\dash\notif::error(T_("Plase fill the value less than 100 character"), 'currency');
+			\dash\notif::error(T_("Please fill the value less than 100 character"), 'currency');
 			return false;
 		}
 

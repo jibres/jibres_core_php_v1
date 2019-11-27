@@ -157,7 +157,7 @@ trait add
 		if($title === 'custom' && !$other_title)
 		{
 			if($_args['save_log']) \dash\db\logs::set('api:parent:title:othertitle:not:set', \dash\user::id(), $log_meta);
-			if($_args['debug']) \dash\notif::error(T_("Plase set the other title field"));
+			if($_args['debug']) \dash\notif::error(T_("Please set the other title field"));
 			return false;
 		}
 

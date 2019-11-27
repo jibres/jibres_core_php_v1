@@ -38,7 +38,7 @@ class controller
 
 						if(empty($new_data))
 						{
-							$new_data[] = ['id' => 0, 'text' => T_("Plase choose country"), 'disable' => true];
+							$new_data[] = ['id' => 0, 'text' => T_("Please choose country"), 'disable' => true];
 						}
 
 						$new_data[]   = $temp;
@@ -65,7 +65,7 @@ class controller
 
 								if(empty($new_data))
 								{
-									$new_data[] = ['id' => 0, 'text' => T_("Plase choose province"), 'disable' => true];
+									$new_data[] = ['id' => 0, 'text' => T_("Please choose province"), 'disable' => true];
 								}
 
 								$new_data[]   = $temp;
@@ -94,7 +94,7 @@ class controller
 
 								if(empty($new_data))
 								{
-									$new_data[] = ['id' => 0, 'text' => T_("Plase choose city"), 'disable' => true];
+									$new_data[] = ['id' => 0, 'text' => T_("Please choose city"), 'disable' => true];
 								}
 								$new_data[]   = $temp;
 							}

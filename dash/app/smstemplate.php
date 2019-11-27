@@ -48,14 +48,14 @@ class smstemplate
 
 		if(!$_args['name'])
 		{
-			\dash\notif::error(T_("Plase fill the name of template"), 'name');
+			\dash\notif::error(T_("Please fill the name of template"), 'name');
 			return false;
 		}
 
 
 		if(!$_args['text'])
 		{
-			\dash\notif::error(T_("Plase fill the text of template"), 'text');
+			\dash\notif::error(T_("Please fill the text of template"), 'text');
 			return false;
 		}
 

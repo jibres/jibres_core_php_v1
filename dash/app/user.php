@@ -612,7 +612,7 @@ class user
 			{
 				if(mb_strlen($password) < 6)
 				{
-					if($debug) \dash\notif::error(T_("Plase set password larger than 6 character"), ['element' => ['password', 'repassword']]);
+					if($debug) \dash\notif::error(T_("Please set password larger than 6 character"), ['element' => ['password', 'repassword']]);
 					return false;
 				}
 
@@ -627,21 +627,21 @@ class user
 		$title = \dash\app::request('title');
 		if($title && mb_strlen($title) > 100)
 		{
-			if($debug) \dash\notif::error(T_("Plase set title less than 100 character"), 'title');
+			if($debug) \dash\notif::error(T_("Please set title less than 100 character"), 'title');
 			return false;
 		}
 
 		$bio = \dash\app::request('bio');
 		if($bio && mb_strlen($bio) > 100)
 		{
-			if($debug) \dash\notif::error(T_("Plase set bio less than 100 character"), 'bio');
+			if($debug) \dash\notif::error(T_("Please set bio less than 100 character"), 'bio');
 			return false;
 		}
 
 		$displayname = \dash\app::request('displayname');
 		if($displayname && mb_strlen($displayname) > 100)
 		{
-			if($debug) \dash\notif::error(T_("Plase set displayname less than 100 character"), 'displayname');
+			if($debug) \dash\notif::error(T_("Please set displayname less than 100 character"), 'displayname');
 			return false;
 		}
 

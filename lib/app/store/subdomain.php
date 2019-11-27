@@ -35,7 +35,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("Plase fill subdomain"), self::$subdomain_field_name);
+				\dash\notif::error(T_("Please fill subdomain"), self::$subdomain_field_name);
 			}
 			return false;
 		}
@@ -44,7 +44,7 @@ class subdomain
 		{
 			if(self::$debug)
 			{
-				\dash\notif::error(T_("Plase set subdomain as string!"), self::$subdomain_field_name);
+				\dash\notif::error(T_("Please set subdomain as string!"), self::$subdomain_field_name);
 			}
 			return false;
 		}

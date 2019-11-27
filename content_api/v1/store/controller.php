@@ -69,7 +69,7 @@ class controller
 							$allow_key = array_keys($question['items']);
 							if(!in_array($answer, $allow_key))
 							{
-								\dash\notif::error(T_("Plase select one itme"), $question['id']);
+								\dash\notif::error(T_("Please select one itme"), $question['id']);
 								return false;
 							}
 
