@@ -59,7 +59,7 @@ class model
 			[
 				'cash'   => false,
 				'pos'    => false,
-				'cheque' => false,
+				'check' => false,
 			],
 
 			'default_pay' => 'cash',
@@ -86,7 +86,7 @@ class model
 		{
 			$meta['pay']['cash']   = in_array('cash', \dash\request::post('pay')) ? true : false;
 			$meta['pay']['pos']    = in_array('pos', \dash\request::post('pay')) ? true : false;
-			$meta['pay']['cheque'] = in_array('cheque', \dash\request::post('pay')) ? true : false;
+			$meta['pay']['check'] = in_array('check', \dash\request::post('pay')) ? true : false;
 		}
 
 

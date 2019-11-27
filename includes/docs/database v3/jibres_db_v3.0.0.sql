@@ -392,13 +392,13 @@ INSERT INTO `papers` (`id`, `paper_type`, `paper_number`, `paper_date`, `paper_p
 -- Triggers `papers`
 --
 DELIMITER //
-CREATE TRIGGER `cheques_AU_outline_copy` BEFORE UPDATE ON `papers`
+CREATE TRIGGER `checks_AU_outline_copy` BEFORE UPDATE ON `papers`
  FOR EACH ROW IF coalesce(OLD.paper_date , '') <> coalesce(NEW.paper_date , '') or
     coalesce(OLD.paper_price , '') <> coalesce(NEW.paper_price , '') or
     coalesce(OLD.paper_status , '') <> coalesce(NEW.paper_status , '')
 THEN
 
-  Update receipts 
+  Update receipts
     SET receipt_paperdate = NEW.paper_date, receipt_price = NEW.paper_price, receipt_paperstatus = NEW.paper_status
     WHERE paper_id = NEW.id;
 End if
@@ -563,7 +563,7 @@ Then
 
     IF New.productmeta_name = "product_buyprice"
     THEN
-      UPDATE productprices SET productprice_buyprice = NEW.productmeta_value 
+      UPDATE productprices SET productprice_buyprice = NEW.productmeta_value
         WHERE  product_id = NEW.product_id and productprice_cat = New.productmeta_cat and productprice_enddate is null;
     End if;
 
@@ -619,7 +619,7 @@ Then
 
     IF New.productmeta_name = "product_buyprice"
     THEN
-      UPDATE productprices SET productprice_buyprice = NEW.productmeta_value 
+      UPDATE productprices SET productprice_buyprice = NEW.productmeta_value
         WHERE  product_id = NEW.product_id and productprice_cat = New.productmeta_cat and productprice_enddate is null;
     End if;
 
@@ -712,8 +712,8 @@ INSERT INTO `products` (`id`, `product_title`, `product_slug`, `productcat_id`, 
 DELIMITER //
 CREATE TRIGGER `products_AI_outline_copy` AFTER INSERT ON `products`
  FOR EACH ROW INSERT INTO productprices
-    (product_id, productprice_startdate, productprice_buyprice, productprice_price,  productprice_discount, productprice_vat) 
-    
+    (product_id, productprice_startdate, productprice_buyprice, productprice_price,  productprice_discount, productprice_vat)
+
     VALUES(NEW.id,  NOW(), NEW.product_buyprice, new.product_price, new.product_discount, new.product_vat)
 //
 DELIMITER ;
@@ -726,23 +726,23 @@ CREATE TRIGGER `products_AU_copy2` AFTER UPDATE ON `products`
 
   Then
     IF
-      (Select count(*) from productprices 
+      (Select count(*) from productprices
         WHERE (product_id = NEW.id and productmeta_id is null ) and (TIMESTAMPDIFF(MINUTE, productprice_startdate, NOW() ) < 3)
         ) = 0
     Then
       # if record does not exist or higher than 3 minutes after old insert, then insert new record in archive table and set end time for older price
 
       UPDATE productprices SET productprice_enddate = now()
-        WHERE product_id = NEW.id 
+        WHERE product_id = NEW.id
           and productmeta_id is null
           and productprice_enddate is null;
 
-      INSERT INTO productprices (product_id, productprice_startdate, productprice_buyprice, productprice_price,  productprice_discount, productprice_vat) 
+      INSERT INTO productprices (product_id, productprice_startdate, productprice_buyprice, productprice_price,  productprice_discount, productprice_vat)
       VALUES(NEW.id,  NOW(), NEW.product_buyprice, new.product_price, new.product_discount, new.product_vat);
 
     ELSE
 
-      UPDATE productprices SET 
+      UPDATE productprices SET
           productprice_buyprice   = NEW.product_buyprice,
           productprice_price          = new.product_price,
           productprice_discount   = new.product_discount,

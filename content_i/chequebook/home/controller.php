@@ -1,5 +1,5 @@
 <?php
-namespace content_i\chequebook\home;
+namespace content_i\checkbook\home;
 
 class controller
 {

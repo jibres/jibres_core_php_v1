@@ -1,12 +1,12 @@
 {%extends 'content_i/layout.html'%}
 
 
-{%block ichequebook_id%}
-<label for='chequebook_id'>{%trans "Cheque book"%}</label>
-<select name="chequebook_id" class="select ui dropdown search addition" id="chequebook_id">
+{%block icheckbook_id%}
+<label for='checkbook_id'>{%trans "Check book"%}</label>
+<select name="checkbook_id" class="select ui dropdown search addition" id="checkbook_id">
   <option value="">{%trans "Please select one itme"%}</option>
-  {%for key, value in chequebookList%}
-    <option value="{{value.id}}" {%if value.id == dataRow.chequebook_id %} selected{%endif%}>{{value.title}}</option>
+  {%for key, value in checkbookList%}
+    <option value="{{value.id}}" {%if value.id == dataRow.checkbook_id %} selected{%endif%}>{{value.title}}</option>
   {%endfor%}
 </select>
 {%endblock%}
@@ -51,7 +51,7 @@
 
 
 {%block idate %}
-<label for="date">{%trans "Date of cheque"%}</label>
+<label for="date">{%trans "Date of check"%}</label>
 <div class="input ltr">
 <input class="datepicker" type="text" name="date" id="date" placeholder='{{"now" | dt(null, "date")}}' value="{{dataRow.date}}" maxlength='15' data-format="YYYY/MM/DD" data-view="day">
 </div>
@@ -92,7 +92,7 @@
 
 
 {%block inumber %}
-<label for="number">{%trans "Cheque number"%}</label>
+<label for="number">{%trans "Check number"%}</label>
 <div class="input">
   <input type="number" name="number" id="number"  value="{{dataRow.number}}" max='999999999999999999999999999'>
 </div>

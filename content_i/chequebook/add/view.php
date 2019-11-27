@@ -1,12 +1,12 @@
 <?php
-namespace content_i\chequebook\add;
+namespace content_i\checkbook\add;
 
 class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Add new chequebook"));
-		\dash\data::page_desc(T_("Add new chequebook"));
+		\dash\data::page_title(T_("Add new checkbook"));
+		\dash\data::page_desc(T_("Add new checkbook"));
 		\dash\data::page_pictogram('new-sign');
 
 		\dash\data::badge_link(\dash\url::this());

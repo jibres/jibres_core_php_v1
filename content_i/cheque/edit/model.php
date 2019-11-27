@@ -1,5 +1,5 @@
 <?php
-namespace content_i\cheque\edit;
+namespace content_i\check\edit;
 
 
 class model
@@ -13,7 +13,7 @@ class model
 		$post['bank']          = \dash\request::post('bank');
 		$post['bank_id']       = \dash\request::post('bank_id');
 		$post['branch']        = \dash\request::post('branch');
-		$post['chequebook_id'] = \dash\request::post('chequebook_id');
+		$post['checkbook_id'] = \dash\request::post('checkbook_id');
 		$post['date']          = \dash\request::post('date');
 		$post['desc']          = \dash\request::post('desc');
 		$post['getdate']       = \dash\request::post('getdate');
@@ -24,7 +24,7 @@ class model
 		$post['vajh']          = \dash\request::post('vajh');
 
 
-		\lib\app\cheque::edit($post, \dash\request::get('id'));
+		\lib\app\check::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{

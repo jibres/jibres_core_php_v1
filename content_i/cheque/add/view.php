@@ -1,12 +1,12 @@
 <?php
-namespace content_i\cheque\add;
+namespace content_i\check\add;
 
 class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Add new cheque"));
-		\dash\data::page_desc(T_("Add new cheque"));
+		\dash\data::page_title(T_("Add new check"));
+		\dash\data::page_desc(T_("Add new check"));
 		\dash\data::page_pictogram('new-sign');
 
 		\dash\data::badge_link(\dash\url::this());
@@ -16,7 +16,7 @@ class view
 		\dash\data::jibList(\lib\app\jib::my_list());
 
 		\dash\data::bankList(\lib\app\bank::list(null, ['pagenation' => false]));
-		\dash\data::chequebookList(\lib\app\chequebook::list(null, ['pagenation' => false]));
+		\dash\data::checkbookList(\lib\app\checkbook::list(null, ['pagenation' => false]));
 
 	}
 }

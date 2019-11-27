@@ -136,13 +136,13 @@ class setup
 		\dash\app::variable($_args);
 
 		$payment_online     = \dash\app::request('payment_online') ? 1 : null;
-		$payment_cheque     = \dash\app::request('payment_cheque') ? 1 : null;
+		$payment_check     = \dash\app::request('payment_check') ? 1 : null;
 		$payment_bank       = \dash\app::request('payment_bank') ? 1 : null;
 		$payment_on_deliver = \dash\app::request('payment_on_deliver') ? 1 : null;
 
 		$args                       = [];
 		$args['payment_online']     = $payment_online;
-		$args['payment_cheque']     = $payment_cheque;
+		$args['payment_check']     = $payment_check;
 		$args['payment_bank']       = $payment_bank;
 		$args['payment_on_deliver'] = $payment_on_deliver;
 

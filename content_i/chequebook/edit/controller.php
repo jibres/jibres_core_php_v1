@@ -1,5 +1,5 @@
 <?php
-namespace content_i\chequebook\edit;
+namespace content_i\checkbook\edit;
 
 
 class controller

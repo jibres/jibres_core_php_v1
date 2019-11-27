@@ -1,5 +1,5 @@
 <?php
-namespace content_i\cheque\add;
+namespace content_i\check\add;
 
 class model
 {
@@ -12,7 +12,7 @@ class model
 		$post['bank']          = \dash\request::post('bank');
 		$post['bank_id']       = \dash\request::post('bank_id');
 		$post['branch']        = \dash\request::post('branch');
-		$post['chequebook_id'] = \dash\request::post('chequebook_id');
+		$post['checkbook_id'] = \dash\request::post('checkbook_id');
 		$post['date']          = \dash\request::post('date');
 		$post['desc']          = \dash\request::post('desc');
 		$post['getdate']       = \dash\request::post('getdate');
@@ -22,7 +22,7 @@ class model
 		$post['type']          = \dash\request::post('type');
 		$post['vajh']          = \dash\request::post('vajh');
 
-		\lib\app\cheque::add($post);
+		\lib\app\check::add($post);
 
 		if(\dash\engine\process::status())
 		{

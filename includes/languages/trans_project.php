@@ -1162,7 +1162,7 @@ class twigTransTerms
 	echo T_("No default");                                                            // Line 445
 	echo T_("Check");                                                                 // Line 140
 	echo T_("Default pay");                                                           // Line 442
-	echo T_("Cheque");                                                                // Line 36
+	echo T_("Check");                                                                // Line 36
 
 	//------------------\htdocs\Projects\jibres\content_a\setting\maximum\display.html
 	echo T_("Maximum buyprice");                                                      // Line 34
@@ -2366,8 +2366,8 @@ class twigTransTerms
 	//--------------------------\htdocs\Projects\jibres\content_i\category\layout.html
 	echo T_("Use in incoming record?");                                               // Line 40
 
-	//----------------------\htdocs\Projects\jibres\content_i\cheque\home\display.html
-	echo T_("Cheque book");                                                           // Line 27
+	//----------------------\htdocs\Projects\jibres\content_i\check\home\display.html
+	echo T_("Check book");                                                           // Line 27
 	echo T_("branch");                                                                // Line 62
 	echo T_("vajh");                                                                  // Line 63
 	echo T_("owner");                                                                 // Line 20
@@ -2378,22 +2378,22 @@ class twigTransTerms
 	echo T_("getdate");                                                               // Line 70
 	echo T_("Datetime");                                                              // Line 64
 
-	//----------------------------\htdocs\Projects\jibres\content_i\cheque\layout.html
+	//----------------------------\htdocs\Projects\jibres\content_i\check\layout.html
 	echo T_("Get date");                                                              // Line 44
-	echo T_("Date of cheque");                                                        // Line 54
+	echo T_("Date of check");                                                        // Line 54
 	echo T_("Vajh");                                                                  // Line 70
 	echo T_("Babat");                                                                 // Line 87
-	echo T_("Cheque number");                                                         // Line 47
+	echo T_("Check number");                                                         // Line 47
 	echo T_("Thirdparty");                                                            // Line 160
 	echo T_("In");                                                                    // Line 124
 	echo T_("Out");                                                                   // Line 128
 
-	//------------------\htdocs\Projects\jibres\content_i\chequebook\home\display.html
+	//------------------\htdocs\Projects\jibres\content_i\checkbook\home\display.html
 	echo T_("First serial");                                                          // Line 32
 	echo T_("Number");                                                                // Line 62
 	echo T_("Page count");                                                            // Line 40
 
-	//------------------------\htdocs\Projects\jibres\content_i\chequebook\layout.html
+	//------------------------\htdocs\Projects\jibres\content_i\checkbook\layout.html
 	echo T_("bank");                                                                  // Line 21
 
 	//-----------------------------\htdocs\Projects\jibres\content_i\home\display.html

@@ -49,7 +49,7 @@ class view
 			[
 				'cash'   => true,
 				'pos'    => true,
-				'cheque' => true,
+				'check' => true,
 			],
 
 			'detault_pay' => 'cash',

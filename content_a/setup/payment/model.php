@@ -8,7 +8,7 @@ class model
 	{
 		$post                       = [];
 		$post['payment_online']     = \dash\request::post('payment_online');
-		$post['payment_cheque']     = \dash\request::post('payment_cheque');
+		$post['payment_check']     = \dash\request::post('payment_check');
 		$post['payment_bank']       = \dash\request::post('payment_bank');
 		$post['payment_on_deliver'] = \dash\request::post('payment_on_deliver');
 

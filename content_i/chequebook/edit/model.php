@@ -1,5 +1,5 @@
 <?php
-namespace content_i\chequebook\edit;
+namespace content_i\checkbook\edit;
 
 
 class model
@@ -15,7 +15,7 @@ class model
 		$post['pagecount']   = \dash\request::post('pagecount');
 		$post['title']       = \dash\request::post('title');
 
-		\lib\app\chequebook::edit($post, \dash\request::get('id'));
+		\lib\app\checkbook::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{

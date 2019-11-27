@@ -1,12 +1,12 @@
 <?php
-namespace content_i\chequebook\edit;
+namespace content_i\checkbook\edit;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Edit chequebook"));
+		\dash\data::page_title(T_("Edit checkbook"));
 		\dash\data::page_desc(' ');
 		\dash\data::page_pictogram('edit');
 
@@ -14,10 +14,10 @@ class view
 		\dash\data::badge_text(T_('Back'));
 
 		$id     = \dash\request::get('id');
-		$result = \lib\app\chequebook::get($id);
+		$result = \lib\app\checkbook::get($id);
 		if(!$result)
 		{
-			\dash\header::status(403, T_("Invalid chequebook id"));
+			\dash\header::status(403, T_("Invalid checkbook id"));
 		}
 
 		if(isset($result['user_id']))

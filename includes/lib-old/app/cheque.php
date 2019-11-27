@@ -2,9 +2,9 @@
 namespace lib\app;
 
 /**
- * Class for cheque.
+ * Class for check.
  */
-class cheque
+class check
 {
 	public static $sort_field =
 	[
@@ -36,7 +36,7 @@ class cheque
 			return false;
 		}
 
-		$result = \lib\db\cheque::get(['id' => $id, 'limit' => 1]);
+		$result = \lib\db\check::get(['id' => $id, 'limit' => 1]);
 		$temp = [];
 		if(is_array($result))
 		{
@@ -87,20 +87,20 @@ class cheque
 			}
 		}
 
-		$chequebook_id = \dash\app::request('chequebook_id');
-		if($chequebook_id)
+		$checkbook_id = \dash\app::request('checkbook_id');
+		if($checkbook_id)
 		{
-			$chequebook_id = \dash\coding::decode($chequebook_id);
-			if(!$chequebook_id)
+			$checkbook_id = \dash\coding::decode($checkbook_id);
+			if(!$checkbook_id)
 			{
-				\dash\notif::error(T_("Invalid chequebook"), 'chequebook_id');
+				\dash\notif::error(T_("Invalid checkbook"), 'checkbook_id');
 				return false;
 			}
 
-			$check = \lib\db\chequebook::get(['user_id' => \dash\user::id(), 'id' => $chequebook_id, 'limit' => 1]);
+			$check = \lib\db\checkbook::get(['user_id' => \dash\user::id(), 'id' => $checkbook_id, 'limit' => 1]);
 			if(!isset($check['id']))
 			{
-				\dash\notif::error(T_("Invalid chequebook"), 'chequebook_id');
+				\dash\notif::error(T_("Invalid checkbook"), 'checkbook_id');
 				return false;
 			}
 		}
@@ -124,7 +124,7 @@ class cheque
 
 		if(!$date)
 		{
-			\dash\notif::error(T_("Please set cheque date"), 'date');
+			\dash\notif::error(T_("Please set check date"), 'date');
 			return false;
 		}
 
@@ -248,7 +248,7 @@ class cheque
 
 		$args                  = [];
 		$args['bank_id']       = $bank_id;
-		$args['chequebook_id'] = $chequebook_id;
+		$args['checkbook_id'] = $checkbook_id;
 		$args['bank']          = $bank;
 		$args['date']          = $date;
 		$args['branch']        = $branch;
@@ -290,7 +290,7 @@ class cheque
 				case 'id':
 				case 'bank_id':
 
-				case 'chequebook_id':
+				case 'checkbook_id':
 					$result[$key] = \dash\coding::encode($value);
 					break;
 
@@ -353,16 +353,16 @@ class cheque
 
 		$args['user_id'] = \dash\user::id();
 
-		$cheque = \lib\db\cheque::insert($args);
+		$check = \lib\db\check::insert($args);
 
-		if(!$cheque)
+		if(!$check)
 		{
-			\dash\log::set('noWayToAddCheque');
-			\dash\notif::error(T_("No way to insert cheque"));
+			\dash\log::set('noWayToAddCheck');
+			\dash\notif::error(T_("No way to insert check"));
 			return false;
 		}
 
-		\dash\log::set('iAddCheque', ['code' => $cheque]);
+		\dash\log::set('iAddCheck', ['code' => $check]);
 
 		return $return;
 	}
@@ -408,10 +408,10 @@ class cheque
 		}
 
 
-		$option['i_cheque.user_id'] = \dash\user::id();
+		$option['i_check.user_id'] = \dash\user::id();
 
 
-		$result = \lib\db\cheque::search($_string, $option);
+		$result = \lib\db\check::search($_string, $option);
 
 		$temp            = [];
 
@@ -437,7 +437,7 @@ class cheque
 
 		if(!$id)
 		{
-			\dash\notif::error(T_("Can not access to edit cheque"), 'cheque');
+			\dash\notif::error(T_("Can not access to edit check"), 'check');
 			return false;
 		}
 
@@ -455,7 +455,7 @@ class cheque
 		}
 
 		if(!\dash\app::isset_request('bank_id')) unset($args['bank_id']);
-		if(!\dash\app::isset_request('chequebook_id')) unset($args['chequebook_id']);
+		if(!\dash\app::isset_request('checkbook_id')) unset($args['checkbook_id']);
 		if(!\dash\app::isset_request('bank')) unset($args['bank']);
 		if(!\dash\app::isset_request('date')) unset($args['date']);
 		if(!\dash\app::isset_request('branch')) unset($args['branch']);
@@ -472,8 +472,8 @@ class cheque
 
 		if(!empty($args))
 		{
-			\lib\db\cheque::update($args, $id);
-			\dash\log::set('iEditCheque', ['code' => $id]);
+			\lib\db\check::update($args, $id);
+			\dash\log::set('iEditCheck', ['code' => $id]);
 		}
 
 		return true;

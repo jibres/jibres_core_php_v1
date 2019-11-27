@@ -2,9 +2,9 @@
 namespace lib\app;
 
 /**
- * Class for chequebook.
+ * Class for checkbook.
  */
-class chequebook
+class checkbook
 {
 	public static $sort_field =
 	[
@@ -29,7 +29,7 @@ class chequebook
 			return false;
 		}
 
-		$result = \lib\db\chequebook::get(['id' => $id, 'limit' => 1]);
+		$result = \lib\db\checkbook::get(['id' => $id, 'limit' => 1]);
 		$temp = [];
 		if(is_array($result))
 		{
@@ -249,16 +249,16 @@ class chequebook
 
 		$args['user_id'] = \dash\user::id();
 
-		$chequebook = \lib\db\chequebook::insert($args);
+		$checkbook = \lib\db\checkbook::insert($args);
 
-		if(!$chequebook)
+		if(!$checkbook)
 		{
-			\dash\log::set('noWayToAddChequeBook');
-			\dash\notif::error(T_("No way to insert chequebook"));
+			\dash\log::set('noWayToAddCheckBook');
+			\dash\notif::error(T_("No way to insert checkbook"));
 			return false;
 		}
 
-		\dash\log::set('iAddChequeBook', ['code' => $chequebook]);
+		\dash\log::set('iAddCheckBook', ['code' => $checkbook]);
 
 		return $return;
 	}
@@ -304,10 +304,10 @@ class chequebook
 		}
 
 
-		$option['i_chequebook.user_id'] = \dash\user::id();
+		$option['i_checkbook.user_id'] = \dash\user::id();
 
 
-		$result = \lib\db\chequebook::search($_string, $option);
+		$result = \lib\db\checkbook::search($_string, $option);
 
 		$temp            = [];
 
@@ -333,7 +333,7 @@ class chequebook
 
 		if(!$id)
 		{
-			\dash\notif::error(T_("Can not access to edit chequebook"), 'chequebook');
+			\dash\notif::error(T_("Can not access to edit checkbook"), 'checkbook');
 			return false;
 		}
 
@@ -361,8 +361,8 @@ class chequebook
 
 		if(!empty($args))
 		{
-			\lib\db\chequebook::update($args, $id);
-			\dash\log::set('iEditChequeBook', ['code' => $id]);
+			\lib\db\checkbook::update($args, $id);
+			\dash\log::set('iEditCheckBook', ['code' => $id]);
 		}
 
 		return true;

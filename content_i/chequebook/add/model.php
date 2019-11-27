@@ -1,5 +1,5 @@
 <?php
-namespace content_i\chequebook\add;
+namespace content_i\checkbook\add;
 
 class model
 {
@@ -14,7 +14,7 @@ class model
 		$post['pagecount']   = \dash\request::post('pagecount');
 		$post['title']       = \dash\request::post('title');
 
-		\lib\app\chequebook::add($post);
+		\lib\app\checkbook::add($post);
 
 		if(\dash\engine\process::status())
 		{

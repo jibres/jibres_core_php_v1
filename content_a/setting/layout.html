@@ -425,7 +425,7 @@
     </div>
 
     <div class="switch1 mB10">
-     <input type="checkbox" name="pay[]" value="cheque" id="f-waychekc" {%if   store.meta.factor.pay.cheque or not store.meta.factor.pay%} checked {%endif%}>
+     <input type="checkbox" name="pay[]" value="check" id="f-waychekc" {%if   store.meta.factor.pay.check or not store.meta.factor.pay%} checked {%endif%}>
      <label for="f-waychekc"></label>
      <label for="f-waychekc">{%trans "Check"%}</label>
     </div>
@@ -438,14 +438,14 @@
 
 
 {% block iPayDefault %}
-{%if store.meta.factor.pay.cash or store.meta.factor.pay.pos or store.meta.factor.pay.cheque%}
+{%if store.meta.factor.pay.cash or store.meta.factor.pay.pos or store.meta.factor.pay.check%}
 <label for="idefaultPay">{%trans "Default pay"%}</label>
 <div class="input">
   <select name="defaultPay" class="select" id="idefaultPay">
       <option value="" {%if not store.meta.factor.default_pay  %} selected {%endif%}>{%trans "No default"%}</option>
 
-    {%if store.meta.factor.pay.cheque %}
-      <option value="cheque" {%if store.meta.factor.default_pay == 'cheque' %} selected {%endif%}>{%trans "Cheque"%}</option>
+    {%if store.meta.factor.pay.check %}
+      <option value="check" {%if store.meta.factor.default_pay == 'check' %} selected {%endif%}>{%trans "Check"%}</option>
     {%endif%}
 
     {%if store.meta.factor.pay.cash %}

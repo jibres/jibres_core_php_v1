@@ -135,7 +135,7 @@ class storetransaction
 		if($factor_id)
 		{
 			// check type of pay factor
-			if($type && !in_array($type, ['cash', 'cheque', 'pos']))
+			if($type && !in_array($type, ['cash', 'check', 'pos']))
 			{
 				\dash\notif::error(T_("Invalid type of factor pay"), 'type');
 				return false;

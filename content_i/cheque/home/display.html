@@ -1,4 +1,4 @@
-{%extends 'content_i/cheque/layout.html'%}
+{%extends 'content_i/check/layout.html'%}
 
 
 
@@ -56,7 +56,7 @@
 
         <th class="">#</th>
         <th class="" data-sort="{{sortLink.bank_id.order}}"><a href="{{sortLink.bank_id.link}}">{%trans "Bank"%}</a></th>
-        <th class="" data-sort="{{sortLink.chequebook_id.order}}"><a href="{{sortLink.chequebook_id.link}}">{%trans "Cheque book"%}</a></th>
+        <th class="" data-sort="{{sortLink.checkbook_id.order}}"><a href="{{sortLink.checkbook_id.link}}">{%trans "Check book"%}</a></th>
         <th class="" data-sort="{{sortLink.bank.order}}"><a href="{{sortLink.bank.link}}">{%trans "Bank"%}</a></th>
         <th class="" data-sort="{{sortLink.date.order}}"><a href="{{sortLink.date.link}}">{%trans "Date"%}</a></th>
         <th class="" data-sort="{{sortLink.branch.order}}"><a href="{{sortLink.branch.link}}">{%trans "branch"%}</a></th>
@@ -81,7 +81,7 @@
       <tr>
         <td class="collapsing"><a href="{{url.this}}/edit?id={{value.id}}"><i class="sf-edit"></i> {{value.id}}</a></td>
         <td>{{value.bank_title}}</td>
-        <td>{{value.chequebook_title}}</td>
+        <td>{{value.checkbook_title}}</td>
         <td>{{value.bank}}</td>
         <td>{{value.date | dt(null ,'date')}}</td>
         <td>{{value.branch}}</td>
