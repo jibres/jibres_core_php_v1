@@ -288,6 +288,12 @@ class setup
 			return false;
 		}
 
+		if(!$country)
+		{
+			\dash\notif::error(T_("Please choose your country"), 'country');
+			return false;
+		}
+
 		$province = \dash\app::request('province');
 		if($province && mb_strlen($province) > 100)
 		{
@@ -317,10 +323,34 @@ class setup
 			}
 		}
 
+		if($country === 'IR' && !$province)
+		{
+			\dash\notif::error(T_("Please choose your province"), 'province');
+			return false;
+		}
+
+		if($country === 'IR' && !$city)
+		{
+			\dash\notif::error(T_("Please choose your city"), 'city');
+			return false;
+		}
+
 		$address = \dash\app::request('address');
 		if($address && mb_strlen($address) > 300)
 		{
 			\dash\notif::error(T_("Please set address less than 300 character"), 'address');
+			return false;
+		}
+
+		if(!$address)
+		{
+			\dash\notif::error(T_("Please fill your address"), 'address');
+			return false;
+		}
+
+		if(mb_strlen($address) < 5)
+		{
+			\dash\notif::error(T_("This address is too short. Please enter your full address"), 'address');
 			return false;
 		}
 
@@ -342,6 +372,12 @@ class setup
 			return false;
 		}
 
+		if(!$postcode)
+		{
+			\dash\notif::error(T_("Please set your postcode"), 'postcode');
+			return false;
+		}
+
 		$phone = \dash\app::request('phone');
 		$phone = \dash\number::clean($phone);
 		if($phone && mb_strlen($phone) > 50)
@@ -349,6 +385,7 @@ class setup
 			\dash\notif::error(T_("Please set phone less than 50 character"), 'phone');
 			return false;
 		}
+
 
 		$fax = \dash\app::request('fax');
 		$fax = \dash\number::clean($fax);
@@ -457,6 +494,12 @@ class setup
 			return false;
 		}
 
+		if(!$currency)
+		{
+			\dash\notif::error(T_("Please set your currency"), 'currency');
+			return false;
+		}
+
 		$length_unit         = \dash\app::request('length_unit');
 		if($length_unit && !in_array($length_unit, array_keys(\lib\units::length())))
 		{
@@ -464,11 +507,22 @@ class setup
 			return false;
 		}
 
+		if(!$length_unit)
+		{
+			\dash\notif::error(T_("Please set your length unit"), 'length_unit');
+			return false;
+		}
 
 		$mass_unit         = \dash\app::request('mass_unit');
 		if($mass_unit && !in_array($mass_unit, array_keys(\lib\units::mass())))
 		{
 			\dash\notif::error(T_("Invalid mass"), 'mass_unit');
+			return false;
+		}
+
+		if(!$mass_unit)
+		{
+			\dash\notif::error(T_("Please set your mass unit"), 'mass_unit');
 			return false;
 		}
 
