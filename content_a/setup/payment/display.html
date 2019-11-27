@@ -7,7 +7,7 @@
   <div class="body">
     <div class="pad">
       <h1>{{page.title}}</h1>
-      <p>{%trans "Based on your country some of our options will be changed."%}</p>
+      <p>{%trans "You need at least one payment method to collect payment from your customers."%}</p>
       <form method="post" autocomplete="off">
 
         <div class="switch1 fs12">
@@ -15,31 +15,35 @@
          <label for="payment_online"></label>
          <label for="payment_online">{%trans "Online payment"%}</label>
         </div>
+        <p class="fc-mute">{%trans "Such as Credit card, PayPal and Stripe."%}</p>
 
         <div class="switch1 fs12">
-         <input type="checkbox" name="payment_cheque" id="payment_cheque" {% if dataRow.payment_cheque%} checked{%endif%}>
-         <label for="payment_cheque"></label>
-         <label for="payment_cheque">{%trans "Cheque payment"%}</label>
+         <input type="checkbox" name="payment_check" id="payment_check" {% if dataRow.payment_check%} checked{%endif%}>
+         <label for="payment_check"></label>
+         <label for="payment_check">{%trans "Check Payments"%}</label>
         </div>
+        <p class="fc-mute">{%trans "Check Payments is a payment gateway that doesn't require payment to be made online."%}</p>
 
         <div class="switch1 fs12">
          <input type="checkbox" name="payment_bank" id="payment_bank" {% if dataRow.payment_bank%} checked{%endif%}>
          <label for="payment_bank"></label>
-         <label for="payment_bank">{%trans "Bank receipt payment"%}</label>
+         <label for="payment_bank">{%trans "Direct Bank Transfer"%}</label>
         </div>
+        <p class="fc-mute">{%trans "Direct Bank Transfer, or Bank Account Clearing System (BACS), is a gateway that require no payment be made online."%}</p>
 
 
         <div class="switch1 fs12">
          <input type="checkbox" name="payment_on_deliver" id="payment_on_deliver" {% if dataRow.payment_on_deliver%} checked{%endif%}>
          <label for="payment_on_deliver"></label>
-         <label for="payment_on_deliver">{%trans "Pay on deliver"%}</label>
+         <label for="payment_on_deliver">{%trans "Cash on delivery"%}</label>
         </div>
+        <p class="fc-mute">{%trans "Cash on Delivery (COD) is a payment gateway that required no payment be made online."%} {%trans "Orders using Cash on Delivery are set to Processing until payment is made upon delivery of the order by you or your shipping method."%}</p>
 
 
 
         <div class="f align-center mB10">
           <div class="c fc-mute">{{stepDesc}}</div>
-          <div class="cauto os"><button class="btn success">{%trans "Save"%}</button></div>
+          <div class="cauto os"><button class="btn primary">{%trans "Save"%}</button></div>
         </div>
 
       </form>
