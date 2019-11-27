@@ -11,11 +11,29 @@ class model
 		[
 			'firstname'   => \dash\request::post('firstname'),
 			'lastname'    => \dash\request::post('lastname'),
-			'displayname' => \dash\request::post('displayname'),
 			'birthday'    => \dash\request::post('birthday'),
 			'gender'      => \dash\request::post('gender'),
 
 		];
+
+		if(!$post['gender'])
+		{
+			\dash\notif::error(T_("Please set your gender"), 'gender');
+			return false;
+		}
+
+		if(!$post['firstname'])
+		{
+			\dash\notif::error(T_("Please set your firstname"), 'firstname');
+			return false;
+		}
+
+		if(!$post['lastname'])
+		{
+			\dash\notif::error(T_("Please set your lastname"), 'lastname');
+			return false;
+		}
+
 
 		return $post;
 	}
@@ -26,6 +44,11 @@ class model
 	{
 
 		$request = self::getPost();
+
+		if($request === false)
+		{
+			return false;
+		}
 
 		// ready request
 		$id = \dash\user::id();

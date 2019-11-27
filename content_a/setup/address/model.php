@@ -9,6 +9,7 @@ class model
 		$post             = [];
 		$post['country']  = \dash\request::post('country');
 		$post['city']     = \dash\request::post('city');
+		$post['province'] = \dash\request::post('province');
 		$post['address']  = \dash\request::post('address');
 		$post['postcode'] = \dash\request::post('postcode');
 		$post['phone']    = \dash\request::post('phone');

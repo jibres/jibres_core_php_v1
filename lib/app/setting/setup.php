@@ -260,13 +260,21 @@ class setup
 
 
 
-	public static function upload_logo()
+	public static function upload_logo($_old_logo = null)
 	{
 		$file = \dash\app\file::upload_quick('logo');
+
+		if(!$file && !$_old_logo)
+		{
+			\dash\notif::error(T_("Please choose yoru file"), 'loog');
+			return false;
+		}
+
 		if($file)
 		{
 			\lib\app\setting\tools::update('store_setting', 'logo', $file);
 		}
+		return true;
 	}
 
 
@@ -314,18 +322,9 @@ class setup
 			return false;
 		}
 
-		if(!$province && $city)
-		{
-			$province = \dash\utility\location\cites::get($city, 'province', 'province');
-			if(!\dash\utility\location\provinces::check($province))
-			{
-				$province = null;
-			}
-		}
-
 		if($country === 'IR' && !$province)
 		{
-			\dash\notif::error(T_("Please choose your province"), 'province');
+			\dash\notif::error(T_("Please choose your province111"), 'province');
 			return false;
 		}
 
