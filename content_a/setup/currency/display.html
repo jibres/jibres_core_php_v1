@@ -7,9 +7,12 @@
   <div class="body">
     <div class="pad">
       <h1>{{page.title}}</h1>
-      <p>{%trans "This is the currency your products are sold in."%} {%trans "After your first sale, currency is locked in and can't be changed."%}</p>
+      <p>{%trans "Please choose your default units."%}</p>
+
       <form method="post" autocomplete="off">
 
+        <hr>
+        <p>{%trans "This is the currency your products are sold in."%} {%trans "After your first sale, currency is locked in and can't be changed."%}</p>
         <div class="mB10">
           <label for='currency'>{%trans "Store currency"%}</label>
           <select class="select22" name="currency" id="currency">
@@ -20,6 +23,31 @@
           </select>
         </div>
 
+        <hr>
+        <p>{%trans ""%} {%trans ""%}</p>
+        <div class="mB10">
+          <label for='mass'>{%trans "Mass unit"%}</label>
+          <select name="mass_unit" id="mass" class="select22">
+            <option value="">{%trans "Please choose one item"%}</option>
+            <option value="kilogram" {%if dataRow.mass_unit == 'kilogram' %} selected {%endif%}>{%trans "Kilogram"%}</option>
+            <option value="gram" {%if dataRow.mass_unit == 'gram' %} selected {%endif%}>{%trans "Gram"%}</option>
+            <option value="pound" {%if dataRow.mass_unit == 'pound' %} selected {%endif%}>{%trans "Pound"%}</option>
+            <option value="ounce" {%if dataRow.mass_unit == 'ounce' %} selected {%endif%}>{%trans "Ounce"%}</option>
+          </select>
+        </div>
+
+        <hr>
+        <p>{%trans ""%} {%trans ""%}</p>
+        <div class="mB10">
+          <label for='length'>{%trans "Length unit"%}</label>
+          <select name="length_unit" id="length" class="select22">
+            <option value="">{%trans "Please choose one item"%}</option>
+            <option value="centimetre" {%if dataRow.length_unit == 'centimetre' %} selected {%endif%}>{%trans "Centimetre"%}</option>
+            <option value="millimetre" {%if dataRow.length_unit == 'millimetre' %} selected {%endif%}>{%trans "Millimetre"%}</option>
+            <option value="inch" {%if dataRow.length_unit == 'inch' %} selected {%endif%}>{%trans "Inch"%}</option>
+            <option value="yard" {%if dataRow.length_unit == 'yard' %} selected {%endif%}>{%trans "Yard"%}</option>
+          </select>
+        </div>
 
         <div class="f align-center mB10">
           <div class="c fc-mute">{{stepDesc}}</div>
