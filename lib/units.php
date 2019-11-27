@@ -6,9 +6,13 @@ class units {
 
 	public static function mass()
 	{
+
 		$units =
 		[
-			'IRT' 	=> ['symbol' => 'IRT', 	'decimal_digits' => 0, 'code' => 'IRT', 'symbol_native' => 'تومان',	 'name' => T_('Iranian Toman')],
+			'kg' 	=> ['name' => T_('Kilogram')],
+			'g' 	=> ['name' => T_('Gram')],
+			'lb' 	=> ['name' => T_('Pound')],
+			'oz' 	=> ['name' => T_('Ounce')],
 		];
 
 		return $units;
@@ -19,7 +23,10 @@ class units {
 	{
 		$units =
 		[
-			'IRT' 	=> ['symbol' => 'IRT', 	'decimal_digits' => 0, 'code' => 'IRT', 'symbol_native' => 'تومان',	 'name' => T_('Iranian Toman')],
+			'cm' 	=> ['name' => T_('Centimetre')],
+			'mm' 	=> ['name' => T_('Millimetre')],
+			'in' 	=> ['name' => T_('Inch')],
+			'yd' 	=> ['name' => T_('Yard')],
 		];
 
 		return $units;
