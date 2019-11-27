@@ -184,7 +184,7 @@ class factor
 					$check_exist_displayname = \lib\db\userstores::get(['displayname' => $displayname, 'mobile' => null, 'limit' => 1]);
 					if(isset($check_exist_displayname['id']))
 					{
-						\dash\notif::error(T_("This thirdparyt already added to your store. plase set her mobile or change the name"), 'displayname');
+						\dash\notif::error(T_("This thirdparyt already added to your store. please set her mobile or change the name"), 'displayname');
 					}
 					else
 					{
