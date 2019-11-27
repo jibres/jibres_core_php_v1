@@ -58,5 +58,5 @@
 .medium-editor-element blockquote{background:#f9f9f9;border-left:1em solid #ccc;margin:1.5em 1em;padding:0.5em 1em;}
 .medium-editor-element ul{list-style:square inside;}
 .medium-editor-element.txt{line-height:1.5;min-height:150px;max-height:500px;}
-.medium-editor-element.txt .rtl p{line-height:1.9;margin-bottom: 0.5em;}
+.rtl .medium-editor-element.txt p{line-height:1.9;margin-bottom: 0.5em;}
 
