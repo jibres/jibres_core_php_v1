@@ -7,33 +7,62 @@ class store
 	private static $check_db = false;
 
 
-	private static function subdomain_addr()
+	/**
+	 * call from \dash\engine\power
+	 */
+	public static function config()
 	{
-		return root. 'includes/stores/subdomain/';
+		$subdomain        = \dash\url::subdomain();
+
+		if(!$subdomain)
+		{
+			return;
+		}
+
+		$free_subdomain =
+		[
+			'developers'
+		];
+
+		if(in_array($subdomain, $free_subdomain))
+		{
+			return;
+		}
+
+		self::init_subdomain($subdomain);
 	}
 
 
-	private static function detail_addr()
-	{
-		return root. 'includes/stores/detail/';
-	}
 
-
-	public static function check_exists_id($_store_id)
+	/**
+	 * call from API
+	 * on the API we have the store code and decode it
+	 * if have a number and lenght of this number is ok init store by id
+	 *
+	 * @param      <int>   $_store_id  The store identifier
+	 *
+	 * @return     boolean
+	 */
+	public static function init_by_id($_store_id)
 	{
 		if(file_exists(self::detail_addr(). $_store_id))
 		{
-			return true;
-		}
-		return false;
-	}
+			$get_store_detail = \dash\file::read(self::detail_addr(). $_store_id);
 
+			if(!$get_store_detail)
+			{
+				if(!self::$check_db)
+				{
+					self::$check_db = true;
+					// check from database
+					$get_store_detail = self::check_db($_store_id, 'id');
+					if(isset($get_store_detail['id']))
+					{
+						$_store_id = $get_store_detail['id'];
+					}
+				}
+			}
 
-	public static function init_id($_store_id)
-	{
-		if(self::check_exists_id($_store_id))
-		{
-			$get_store_detail = file_get_contents(self::detail_addr(). $_store_id);
 			if(is_string($get_store_detail))
 			{
 				$get_store_detail = json_decode($get_store_detail, true);
@@ -44,52 +73,39 @@ class store
 				return false;
 			}
 
-			return self::make_ready_array($_store_id, $get_store_detail);
+			return self::lock($_store_id, $get_store_detail);
 		}
 
 		return false;
 	}
 
 
+	/**
+	 * Init store by subdomain
+	 * called from \lib\store and \engine\power
+	 *
+	 * @param      <type>  $_subdomain  The subdomain
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function init_subdomain($_subdomain = null)
 	{
-		// no subdomain
-		$subdomain        = \dash\url::subdomain();
-
-		if(!$subdomain)
-		{
-			if($_subdomain)
-			{
-				$subdomain = $_subdomain;
-			}
-			else
-			{
-				return null;
-			}
-		}
-
-		\lib\app\store\subdomain::$debug = false;
-
-		if(!\lib\app\store\subdomain::validate($subdomain))
-		{
-			return null;
-		}
-
-		$subdomain_addr   = self::subdomain_addr(). $subdomain;
+		$subdomain_addr   = self::subdomain_addr(). $_subdomain;
 		$detail_addr      = self::detail_addr();
+
 		$get_store_id     = null;
 		$get_store_detail = null;
 
 		if(file_exists($subdomain_addr))
 		{
-			$get_store_id = file_get_contents($subdomain_addr);
+			$get_store_id = \dash\file::read($subdomain_addr);
 			$get_store_id = trim($get_store_id);
 			if(is_numeric($get_store_id))
 			{
 				$detail_addr .= $get_store_id;
 				if(file_exists($detail_addr))
 				{
-					$get_store_detail = file_get_contents($detail_addr);
+					$get_store_detail = \dash\file::read($detail_addr);
 					if(is_string($get_store_detail))
 					{
 						$get_store_detail = json_decode($get_store_detail, true);
@@ -99,14 +115,13 @@ class store
 		}
 
 
-
 		if(!$get_store_id || !$get_store_detail)
 		{
 			if(!self::$check_db)
 			{
 				self::$check_db = true;
 				// check from database
-				$get_store_detail = self::check_db($subdomain);
+				$get_store_detail = self::check_db($_subdomain, 'subdomain');
 				if(isset($get_store_detail['id']))
 				{
 					$get_store_id = $get_store_detail['id'];
@@ -114,12 +129,18 @@ class store
 			}
 		}
 
-		return self::make_ready_array($get_store_id, $get_store_detail);
-
+		if($get_store_id)
+		{
+			return self::lock($get_store_id, $get_store_detail);
+		}
+		else
+		{
+			return;
+		}
 	}
 
 
-	private static function make_ready_array($_store_id, $_store_detail)
+	private static function lock($_store_id, $_store_detail)
 	{
 		if($_store_id)
 		{
@@ -141,6 +162,7 @@ class store
 			\dash\db::$jibres_db_name = $db_name;
 
 			\dash\user::store_init($user_id);
+
 			return $detail;
 		}
 
@@ -148,17 +170,23 @@ class store
 	}
 
 
-	public static function config($_subdomain = null)
-	{
-		self::init_subdomain($_subdomain);
-	}
-
-
 	// check store record is exsist on db and if exists create the file
-	private static function check_db($_subdomain)
+	private static function check_db($_key, $_type)
 	{
-		$store_detail = \lib\app\store\get::subdomain($_subdomain);
-		if(isset($store_detail['id']))
+		if($_type === 'subdomain')
+		{
+			$store_detail = \lib\app\store\get::by_subdomain($_key);
+		}
+		elseif($_type === 'id')
+		{
+			$store_detail = \lib\app\store\get::by_id($_key);
+		}
+		else
+		{
+			return;
+		}
+
+		if(isset($store_detail['id']) && isset($store_detail['subdomain']))
 		{
 			if(!is_dir(self::subdomain_addr()))
 			{
@@ -170,11 +198,24 @@ class store
 				\dash\file::makeDir(self::detail_addr(), null, true);
 			}
 
-			\dash\file::write(self::subdomain_addr(). $_subdomain, $store_detail['id']);
+			\dash\file::write(self::subdomain_addr(). $store_detail['subdomain'], $store_detail['id']);
 			\dash\file::write(self::detail_addr(). $store_detail['id'], json_encode($store_detail, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 			return $store_detail;
 		}
-
 	}
+
+
+	public static function subdomain_addr()
+	{
+		return root. 'includes/stores/subdomain/';
+	}
+
+
+	public static function detail_addr()
+	{
+		return root. 'includes/stores/detail/';
+	}
+
+
 }
 ?>

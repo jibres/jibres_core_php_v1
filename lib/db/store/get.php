@@ -49,5 +49,19 @@ class get
 		}
 		return $result;
 	}
+
+	public static function id_detail($_id)
+	{
+		$query = "SELECT * FROM store WHERE store.id = $_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		if(isset($result['id']))
+		{
+			$query      = "SELECT * FROM store_data WHERE store_data.id = '$result[id]' LIMIT 1 ";
+			$store_data = \dash\db::get($query, null, true);
+
+			$result['store_data'] = $store_data;
+		}
+		return $result;
+	}
 }
 ?>

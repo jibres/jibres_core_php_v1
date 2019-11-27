@@ -74,7 +74,7 @@ class v1
 			return false;
 		}
 
-		$detail = \dash\engine\store::init_id($store_id);
+		$detail = \dash\engine\store::init_by_id($store_id);
 
 		if(!$detail)
 		{

@@ -336,7 +336,8 @@ class add
 
 	private static function create_detail_file($_store_id)
 	{
-		$dir = root . '/includes/stores/detail/';
+		$dir = \dash\engine\store::detail_addr();
+
 		if(!file_exists($dir))
 		{
 			\dash\file::makeDir($dir, null, true);
@@ -358,7 +359,8 @@ class add
 
 	private static function create_subdomain_file($_store_id, $_subdomain)
 	{
-		$dir = root . '/includes/stores/subdomain/';
+		$dir = \dash\engine\store::subdomain_addr();
+
 		if(!file_exists($dir))
 		{
 			\dash\file::makeDir($dir, null, true);
