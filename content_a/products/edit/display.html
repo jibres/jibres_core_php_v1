@@ -24,9 +24,6 @@
    {{block('Box_gallery')}}
   </div>
 
-  <div class="cbox mB10">
-   {{block('Box_shopping')}}
-  </div>
 
   <div class="cbox mB10">
    {{block('Box_variants')}}
@@ -47,6 +44,7 @@
   {{block('Box_organization')}}
 
   {{block('Box_variant_list')}}
+  {{block('Box_shopping')}}
 
   {{block('Box_deleteProduct')}}
 
@@ -119,20 +117,23 @@
 
 
 {%block Box_shopping %}
-<h3>{%trans "Shopping"%}</h3>
-<div class="f">
- <div class="c s12 pRa5">{{block ('iMinsale') }}</div>
- <div class="c s12 pRa5">{{block ('iMaxsale') }}</div>
- <div class="c s12">{{block ('iSalestep') }}</div>
-</div>
+<section class="pbox">
+  <header data-kerkere='.shippingPanel' data-kerkere-icon='open'>{%trans "Shopping"%}</header>
+  <div class="body shippingPanel" >
+    {{block ('iMinsale') }}
+    {{block ('iMaxsale') }}
+    {{block ('iSalestep') }}
 
-{{block('iType')}}
-<div data-response='type' data-response-where='product' {%if productDataRow.type != 'product'%} data-response-hide {%endif%}>
-  <div class="f">
-   <div class="c s12 pRa5">{{block('iWeight')}}</div>
-   <div class="c s12">{{block('iWeightunit')}}</div>
+
+    {{block('iType')}}
+    <div data-response='type' data-response-where='product' {%if productDataRow.type != 'product'%} data-response-hide {%endif%}>
+      <div class="f">
+       <div class="c s12 pRa5">{{block('iWeight')}}</div>
+       <div class="c s12">{{block('iWeightunit')}}</div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 {%endblock%}
 
