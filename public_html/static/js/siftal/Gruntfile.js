@@ -97,6 +97,7 @@ var myModuleFiles =
 	'src/pushState.js',
 
 	// jibres js
+	'src/storePanel/numbers.js',
 	'src/storePanel/typed.js',
 	'src/storePanel/products.js',
 	'src/storePanel/storePanel.js',

@@ -12,27 +12,14 @@ function recalcPricePercents()
   }
   // declare variables
   var elFinalPriceBox = $('#finalprice').parent().parent();
-  var buy             = parseInt($('#buyprice').val().toEnglish());
-  var sale            = parseInt($('#price').val().toEnglish());
-  var discount        = parseInt($('#discount').val().toEnglish());
+  var buy             = getElNumber($('#buyprice'));
+  var sale            = getElNumber($('#price'));
+  var discount        = getElNumber($('#discount'));
   var finalPrice      = 0;
 
   var impureIntrestRate = 0;
   var pureIntrestRate   = 0;
   var discountRate      = 0;
-  // check and set NAN value
-  if(isNaN(buy))
-  {
-    buy = 0;
-  }
-  if(isNaN(sale))
-  {
-    sale = 0;
-  }
-  if(isNaN(discount))
-  {
-    discount = 0;
-  }
 
   // impureIntrestRate
   if(buy && sale)
