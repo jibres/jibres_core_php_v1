@@ -123,13 +123,10 @@ class search
 
 		if($_args['company_id'])
 		{
-			$companyid = \dash\coding::decode($_args['company_id']);
-			if($companyid)
-			{
-				$and['products.company_id'] = $companyid;
-				self::$filter_args['company']     = '*'. T_('Company');
-				self::$is_filtered          = true;
-			}
+			$and['products.company_id'] = $_args['company_id'];
+			self::$filter_args['company']     = '*'. T_('Company');
+			self::$is_filtered          = true;
+
 		}
 
 		// set filter
