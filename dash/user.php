@@ -16,7 +16,7 @@ class user
 	 *
 	 * @param      <type>  $_user_id  The user identifier
 	 */
-	public static function store_init($_user_id = null)
+	public static function store_init($_user_id = null, $_in_store = false)
 	{
 		if(!$_user_id && isset($_SESSION['auth']['id']))
 		{
@@ -28,7 +28,14 @@ class user
 			return;
 		}
 
-		$detail  = \dash\db\users::get_by_jibres_user_id($_user_id);
+		if(!$_in_store)
+		{
+			$detail  = \dash\db\users::get_by_jibres_user_id($_user_id);
+		}
+		else
+		{
+			$detail  = \dash\db\users::get_by_id($_user_id);
+		}
 
 		if(!isset($detail['id']))
 		{
@@ -106,14 +113,7 @@ class user
 
 	private static function inStore()
 	{
-		if(\dash\db::$jibres_db_name)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return \dash\engine\store::inStore();
 	}
 
 

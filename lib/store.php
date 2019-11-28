@@ -78,6 +78,7 @@ class store
 	 */
 	public static function init()
 	{
+
 		// no subdomain and no domains
 		if(!self::store_slug())
 		{
@@ -98,7 +99,7 @@ class store
 
 		self::clean_session(self::store_slug());
 
-		$store_detail_file = \dash\engine\store::init_subdomain(self::store_slug());
+ 		$store_detail_file = \dash\engine\store::init_subdomain(self::store_slug());
 
 		$store_detail_setting_record = \lib\app\setting\tools::get_cat('store_setting');
 

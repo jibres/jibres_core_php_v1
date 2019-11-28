@@ -4,7 +4,32 @@ namespace dash\engine;
 
 class store
 {
+
+	/**
+	 * CHECKING THE STORE IS LOADED OR NO
+	 *
+	 * @var        boolean
+	 */
+	private static $IN_SOTE  = false;
+
+
+	/**
+	 * if not found store detail file check store detail in database one time
+	 *
+	 * @var        boolean
+	 */
 	private static $check_db = false;
+
+
+	/**
+	 * this function use in every where need to check the store is loaded or no
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function inStore()
+	{
+		return self::$IN_SOTE;
+	}
 
 
 	/**
@@ -29,7 +54,14 @@ class store
 			return;
 		}
 
+		$user_id = \dash\user::id();
+
 		self::init_subdomain($subdomain);
+
+		if(self::inStore())
+		{
+			\dash\user::store_init($user_id);
+		}
 	}
 
 
@@ -84,9 +116,8 @@ class store
 	 * Init store by subdomain
 	 * called from \lib\store and \engine\power
 	 *
-	 * @param      <type>  $_subdomain  The subdomain
+	 * @param      <string>  $_subdomain  The subdomain
 	 *
-	 * @return     <type>  ( description_of_the_return_value )
 	 */
 	public static function init_subdomain($_subdomain = null)
 	{
@@ -131,11 +162,8 @@ class store
 
 		if($get_store_id)
 		{
-			return self::lock($get_store_id, $get_store_detail);
-		}
-		else
-		{
-			return;
+			$result = self::lock($get_store_id, $get_store_detail);
+			return $result;
 		}
 	}
 
@@ -157,11 +185,9 @@ class store
 			$detail['db_name']   = $db_name;
 			$detail['subdomain'] = isset($_store_detail['subdomain']) ? $_store_detail['subdomain'] : null;
 
-			$user_id = \dash\user::id();
-
 			\dash\db::$jibres_db_name = $db_name;
 
-			\dash\user::store_init($user_id);
+			self::$IN_SOTE = true;
 
 			return $detail;
 		}
@@ -170,7 +196,12 @@ class store
 	}
 
 
-	// check store record is exsist on db and if exists create the file
+
+	/**
+	 * check store record is exsist on db and if exists create the file
+	 *
+	 * @param      <string | int>  $_key   the subdomain or store id
+	 */
 	private static function check_db($_key, $_type)
 	{
 		if($_type === 'subdomain')
@@ -205,12 +236,24 @@ class store
 	}
 
 
+	/**
+	 * subdomain folder addr
+	 * user in this file and app store add
+	 *
+	 * @return     string
+	 */
 	public static function subdomain_addr()
 	{
 		return root. 'includes/stores/subdomain/';
 	}
 
 
+	/**
+	 * detail folder addr
+	 * user in this file and app store add
+	 *
+	 * @return     string
+	 */
 	public static function detail_addr()
 	{
 		return root. 'includes/stores/detail/';

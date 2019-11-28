@@ -15,11 +15,7 @@ class controller
 
 		$url = \dash\url::dir();
 
-		// $url[0] is v1
-		if(!isset($url[0]))
-		{
-			\content_api\v1::stop(404);
-		}
+		$store = \dash\url::child();
 
 		// route location query whitout store
 		if($store === 'location')

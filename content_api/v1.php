@@ -21,8 +21,8 @@ class v1
 		}
 
 		self::check_appkey();
-		self::check_apikey();
 		self::check_store_init();
+		self::check_apikey();
 	}
 
 
@@ -213,7 +213,14 @@ class v1
 
 		if(!\dash\user::id())
 		{
-			\dash\user::init($get['user_id']);
+			if(\dash\engine\store::inStore())
+			{
+				\dash\user::store_init($get['user_id'], true);
+			}
+			else
+			{
+				\dash\user::init($get['user_id']);
+			}
 		}
 
 		return true;
