@@ -245,18 +245,8 @@ class setup
 
 
 		return self::multi_save($args, 'shipping');
-
 	}
 
-
-	public static function have_vat($_have_vat)
-	{
-		$have_vat = $_have_vat ? 1 : null;
-		if($have_vat)
-		{
-			\lib\app\setting\tools::update('store_setting', 'vat', $have_vat);
-		}
-	}
 
 
 
