@@ -76,7 +76,7 @@ class controller
 							{
 								\content_api\v1::invalid_url();
 							}
-							\content_api\v1\product\action::route_remove($product_id);
+							\content_api\v1\product\action::route_gallery_remove($product_id);
 						}
 						else
 						{
@@ -85,6 +85,11 @@ class controller
 					}
 
 					\content_api\v1\product\action::route_gallery($product_id);
+					break;
+
+				case 'remove':
+					\dash\permission::access('ProductDelete');
+					\content_api\v1\product\action::route_remove($product_id);
 					break;
 
 				case null:

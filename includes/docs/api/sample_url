@@ -23,7 +23,7 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> product/{PRODUCT}/gallery ----------------------------------------- OK
 >> product/{PRODUCT}/gallery/thumb------------------------------------ OK
 >> product/{PRODUCT}/gallery/remove ---------------------------------- OK
->> product/{PRODUCT}/remove ----------------- Ready
+>> product/{PRODUCT}/remove ------------------------------------------ ??
 >> product/{PRODUCT}/varient ---------------- Ready
 
 

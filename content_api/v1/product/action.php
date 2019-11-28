@@ -76,7 +76,23 @@ class action
 		}
 	}
 
+
+
 	public static function route_remove($_product_id)
+	{
+		if(\dash\request::is('delete'))
+		{
+			$result = \lib\app\product\remove::product($_product_id);
+			\content_api\v1::say($result);
+		}
+		else
+		{
+			\content_api\v1::invalid_method();
+		}
+	}
+
+
+	public static function route_gallery_remove($_product_id)
 	{
 		if(\dash\request::is('delete'))
 		{
