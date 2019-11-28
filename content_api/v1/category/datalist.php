@@ -20,21 +20,7 @@ class datalist
 
 	private static function list()
 	{
-		$detail = [];
-		$detail[] =
-		[
-			'id'    => '2kf',
-			'title' => 'Category 1',
-			'image' => \content_api\v1\app\controller::sample_image(10),
-		];
-
-		$detail[] =
-		[
-			'id'    => '2kg',
-			'title' => 'Category 2',
-			'image' => \content_api\v1\app\controller::sample_image(11),
-		];
-
+		$detail = \lib\app\product\category::list();
 		return $detail;
 	}
 }
