@@ -12,7 +12,7 @@ class model
 		}
 		else
 		{
-			$result = \lib\app\setting\setup::upload_logo(\dash\data::dataRow_logo());
+			$result = \lib\app\setting\setup::upload_logo();
 			if($result)
 			{
 				\lib\store::refresh();

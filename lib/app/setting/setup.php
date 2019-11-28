@@ -260,11 +260,13 @@ class setup
 
 
 
-	public static function upload_logo($_old_logo = null)
+	public static function upload_logo()
 	{
 		$file = \dash\app\file::upload_quick('logo');
 
-		if(!$file && !$_old_logo)
+		$old_logo = \lib\app\setting\tools::get('store_setting', 'logo');
+
+		if(!$file && !$old_logo)
 		{
 			\dash\notif::error(T_("Please choose yoru file"), 'loog');
 			return false;
