@@ -145,92 +145,21 @@ class controller
 	private static function getPost($_get_avatar = false)
 	{
 		$post = [];
-
-		// if(array_key_exists('twostep', $_POST))
-		// {
-		// 	$post['twostep']     = \content_api\v1::input_body('twostep');
-		// }
-
-		// if(array_key_exists('sidebar', $_POST))
-		// {
-		// 	$post['sidebar']     = \content_api\v1::input_body('sidebar') ? true : false;
-		// }
-
-		if(array_key_exists('language', $_POST))
-		{
-			$post['language']    = \content_api\v1::input_body('language');
-		}
-
-		if(array_key_exists('website', $_POST))
-		{
-			$post['website']     = \content_api\v1::input_body('website');
-		}
-
-		if(array_key_exists('instagram', $_POST))
-		{
-			$post['instagram']   = \content_api\v1::input_body('instagram');
-		}
-
-		if(array_key_exists('linkedin', $_POST))
-		{
-			$post['linkedin']    = \content_api\v1::input_body('linkedin');
-		}
-
-		if(array_key_exists('facebook', $_POST))
-		{
-			$post['facebook']    = \content_api\v1::input_body('facebook');
-		}
-
-		if(array_key_exists('twitter', $_POST))
-		{
-			$post['twitter']     = \content_api\v1::input_body('twitter');
-		}
-
-		if(array_key_exists('firstname', $_POST))
-		{
-			$post['firstname']   = \content_api\v1::input_body('firstname');
-		}
-
-		if(array_key_exists('lastname', $_POST))
-		{
-			$post['lastname']    = \content_api\v1::input_body('lastname');
-		}
-
-		if(array_key_exists('username', $_POST))
-		{
-			$post['username']    = \content_api\v1::input_body('username');
-		}
-
-		if(array_key_exists('title', $_POST))
-		{
-			$post['title']       = \content_api\v1::input_body('title');
-		}
-
-		if(array_key_exists('bio', $_POST))
-		{
-			$post['bio']         = \content_api\v1::input_body('bio');
-		}
-
-		if(array_key_exists('displayname', $_POST))
-		{
-			$post['displayname'] = \content_api\v1::input_body('displayname');
-		}
-
-		if(array_key_exists('birthday', $_POST))
-		{
-			$post['birthday']    = \content_api\v1::input_body('birthday');
-		}
-
-
-		if(array_key_exists('gender', $_POST))
-		{
-			$post['gender']      = \content_api\v1::input_body('gender');
-		}
-
-		if(array_key_exists('email', $_POST))
-		{
-			$post['email']       = \content_api\v1::input_body('email');
-		}
+		if(\content_api\v1::isset_input_body('language')) 		 $post['language']    = \content_api\v1::input_body('language');
+		if(\content_api\v1::isset_input_body('website')) 		 $post['website']     = \content_api\v1::input_body('website');
+		if(\content_api\v1::isset_input_body('instagram')) 		 $post['instagram']   = \content_api\v1::input_body('instagram');
+		if(\content_api\v1::isset_input_body('linkedin')) 		 $post['linkedin']    = \content_api\v1::input_body('linkedin');
+		if(\content_api\v1::isset_input_body('facebook')) 		 $post['facebook']    = \content_api\v1::input_body('facebook');
+		if(\content_api\v1::isset_input_body('twitter')) 		 $post['twitter']     = \content_api\v1::input_body('twitter');
+		if(\content_api\v1::isset_input_body('firstname')) 		 $post['firstname']   = \content_api\v1::input_body('firstname');
+		if(\content_api\v1::isset_input_body('lastname')) 		 $post['lastname']    = \content_api\v1::input_body('lastname');
+		if(\content_api\v1::isset_input_body('username')) 		 $post['username']    = \content_api\v1::input_body('username');
+		if(\content_api\v1::isset_input_body('title')) 			 $post['title']       = \content_api\v1::input_body('title');
+		if(\content_api\v1::isset_input_body('bio')) 			 $post['bio']         = \content_api\v1::input_body('bio');
+		if(\content_api\v1::isset_input_body('displayname')) 	 $post['displayname'] = \content_api\v1::input_body('displayname');
+		if(\content_api\v1::isset_input_body('birthday')) 		 $post['birthday']    = \content_api\v1::input_body('birthday');
+		if(\content_api\v1::isset_input_body('gender')) 		 $post['gender']      = \content_api\v1::input_body('gender');
+		if(\content_api\v1::isset_input_body('email')) 			 $post['email']       = \content_api\v1::input_body('email');
 
 		if($_get_avatar)
 		{

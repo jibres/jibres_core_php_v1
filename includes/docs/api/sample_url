@@ -39,7 +39,7 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 ********************************************************************* Other Lists
 >> collection/list
->> category/list ---------------------------------------------------- OK
+>> category/list ---------------------------------------------------- OK -- Sample data -- need to fill by real data
 >> company/list
 
 
@@ -110,8 +110,8 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 >> user/list ------------------------------------------------------- OK
 >> user/add -------------------------------------------------------- OK
->> user/{USERID}
->> user/{USERID}/edit
+>> user/{USERID} --------------------------------------------------- OK
+>> user/{USERID}/edit ---------------------------------------------- ??
 >> user/{USERID}/edit/avatar
 
 >> user/{USERID}/comment/add
