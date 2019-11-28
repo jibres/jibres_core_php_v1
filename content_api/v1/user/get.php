@@ -4,12 +4,18 @@ namespace content_api\v1\user;
 
 class get
 {
-	public static function route($_user_id)
+	public static function route_one($_user_id)
 	{
 		if(\dash\request::is('get'))
 		{
-			$result = self::get_one($_user_id);
-			\content_api\v1::say($result);
+			$user_code = \dash\coding::encode($_user_id);
+
+			$detail = \dash\app\user::get($user_code);
+			if(is_array($detail))
+			{
+				$detail = self::ready($detail);
+			}
+			\content_api\v1::say($detail);
 		}
 		else
 		{
@@ -18,10 +24,91 @@ class get
 	}
 
 
-	private static function get_one($_user_id)
+	public static function route_list()
 	{
-		$detail = \lib\app\user\load::one($_user_id);
-		return $detail;
+		if(\dash\request::is('get'))
+		{
+			$detail = \dash\app\user::list(null, []);
+			if(is_array($detail))
+			{
+				$detail = array_map(['self', 'ready'], $detail);
+			}
+
+			\content_api\v1::say($detail);
+		}
+		else
+		{
+			\content_api\v1::invalid_method();
+		}
+	}
+
+
+	private static function ready($_data)
+	{
+		$result = [];
+		foreach ($_data as $key => $value)
+		{
+			switch($key)
+			{
+				case 'jibres_user_id':
+				case 'title':
+				case 'verifymobile':
+				case 'verifyemail':
+				case 'avatar_raw':
+				case 'parent':
+				case 'type':
+				case 'pin':
+				case 'ref':
+				case 'twostep':
+				case 'unit_id':
+				case 'meta':
+				case 'sidebar':
+				case 'theme':
+				case 'forceremember':
+				case 'signature':
+				case 'detail':
+					// not show to user
+					break;
+
+				// case 'id':
+				// case 'username':
+				// case 'displayname':
+				// case 'gender':
+				// case 'mobile':
+				// case 'email':
+				// case 'status':
+				// case 'avatar':
+				// case 'permission':
+				// case 'datecreated':
+				// case 'datemodified':
+				// case 'birthday':
+				// case 'language':
+				// case 'website':
+				// case 'facebook':
+				// case 'twitter':
+				// case 'instagram':
+				// case 'linkedin':
+				// case 'gmail':
+				// case 'firstname':
+				// case 'lastname':
+				// case 'bio':
+				// case 'father':
+				// case 'nationalcode':
+				// case 'nationality':
+				// case 'pasportcode':
+				// case 'pasportdate':
+				// case 'marital':
+				// case 'foreign':
+				// case 'phone':
+
+				// 	break;
+
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
+		return $result;
 	}
 }
 ?>

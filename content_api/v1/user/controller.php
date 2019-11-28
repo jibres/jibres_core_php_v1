@@ -26,7 +26,12 @@ class controller
 		\dash\permission::access('contentCrm');
 
 		$dir_3 = \dash\url::dir(3);
+
 		$user_id = \dash\url::dir(3);
+		if($user_id)
+		{
+			$user_id = \dash\coding::decode($user_id);
+		}
 
 		if($dir_3 === 'add')
 		{
@@ -39,7 +44,7 @@ class controller
 		}
 		elseif($dir_3 === 'list')
 		{
-			\content_api\v1\user\datalist::route();
+			\content_api\v1\user\get::route_list();
 		}
 		elseif(is_numeric($user_id) && intval($user_id) > 0 && !\dash\number::is_larger($user_id, 9999999999))
 		{
@@ -55,7 +60,7 @@ class controller
 					break;
 
 				case null:
-					\content_api\v1\user\get::route($user_id);
+					\content_api\v1\user\get::route_one($user_id);
 					break;
 
 				default:
