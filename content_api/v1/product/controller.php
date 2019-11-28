@@ -34,7 +34,9 @@ class controller
 				\content_api\v1::invalid_url();
 			}
 
-			\content_api\v1\product\add::route_add();
+			\dash\permission::access('ProductAdd');
+
+			\content_api\v1\product\action::route_add();
 		}
 		elseif(is_numeric($product_id) && intval($product_id) > 0 && !\dash\number::is_larger($product_id, 9999999999))
 		{
@@ -45,11 +47,25 @@ class controller
 					break;
 
 				case 'edit':
+					\dash\permission::access('ProductEdit');
+
 					if(\dash\url::dir(5))
 					{
 						\content_api\v1::invalid_url();
 					}
-					\content_api\v1\product\add::route_edit($product_id);
+
+					\content_api\v1\product\action::route_edit($product_id);
+					break;
+
+				case 'gallery':
+					\dash\permission::access('ProductEdit');
+
+					if(\dash\url::dir(5))
+					{
+						\content_api\v1::invalid_url();
+					}
+
+					\content_api\v1\product\action::route_gallery($product_id);
 					break;
 
 				case null:

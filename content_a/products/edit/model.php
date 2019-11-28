@@ -126,7 +126,10 @@ class model
 	}
 
 
-
+	/**
+	 * Uploads a gallery.
+	 * Use this function in api
+	 */
 	public static function upload_gallery($_id)
 	{
 		if(\dash\request::files('gallery'))

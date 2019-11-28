@@ -17,12 +17,14 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> product/{PRODUCT}/like
 >> product/{PRODUCT}/notif
 
-++++++++++++++++++++++++++++++++++++ Admin Actions
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Admin Actions
 >> product/add ------------------------------------------------------- OK
 >> product/{PRODUCT}/edit -------------------------------------------- OK
->> product/{PRODUCT}/gallery ------------ Ready
->> product/{PRODUCT}/remove ------------- Ready
->> product/{PRODUCT}/varient ------------ Ready
+>> product/{PRODUCT}/gallery ----------------------------------------- OK
+>> product/{PRODUCT}/gallery/thumb----------- Ready
+>> product/{PRODUCT}/gallery/{FILE}/remove -- Ready
+>> product/{PRODUCT}/remove ----------------- Ready
+>> product/{PRODUCT}/varient ---------------- Ready
 
 
 
@@ -112,8 +114,6 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 
 ********************************************************************* User managment
-
-
 >> user/list ------------------------------------------------------- OK
 >> user/add -------------------------------------------------------- OK
 >> user/{USERID} --------------------------------------------------- OK

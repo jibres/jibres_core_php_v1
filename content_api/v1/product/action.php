@@ -2,14 +2,17 @@
 namespace content_api\v1\product;
 
 
-class add
+class action
 {
 	public static function route_add()
 	{
 		if(\dash\request::is('post'))
 		{
-			$detail = self::add();
-			\content_api\v1::say($detail);
+			$post = self::get_post();
+
+			$result = \lib\app\product\add::add($post);
+
+			\content_api\v1::say($result);
 		}
 		else
 		{
@@ -21,8 +24,11 @@ class add
 	{
 		if(\dash\request::is('patch'))
 		{
-			$detail = self::edit($_product_id);
-			\content_api\v1::say($detail);
+			$post = self::get_post();
+
+			$result = \lib\app\product\edit::edit($post, $_product_id);
+
+			\content_api\v1::say($result);
 		}
 		else
 		{
@@ -30,35 +36,20 @@ class add
 		}
 	}
 
-
-	private static function edit($_product_id)
+	public static function route_gallery($_product_id)
 	{
-		$post = self::get_post();
-
-		$result = \lib\app\product\edit::edit($post, $_product_id);
-
-		if(!$result)
+		if(\dash\request::is('post'))
 		{
-			return false;
-		}
+			$result =\content_a\products\edit\model::upload_gallery($_product_id);
 
-		return $result;
+			\content_api\v1::say($result);
+		}
+		else
+		{
+			\content_api\v1::invalid_method();
+		}
 	}
 
-
-	private static function add()
-	{
-		$post = self::get_post();
-
-		$result = \lib\app\product\add::add($post);
-
-		if(!$result)
-		{
-			return false;
-		}
-
-		return $result;
-	}
 
 
 	private static function get_post()
