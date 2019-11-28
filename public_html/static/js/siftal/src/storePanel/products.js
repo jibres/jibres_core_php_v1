@@ -1,6 +1,11 @@
 
 function recalcPricePercents()
 {
+
+}
+
+function recalcPricePercentsOld()
+{
   // if((window.location.pathname).indexOf('/a/product') < 0 || $('#price').length === 0)
   // {
   //   return;
