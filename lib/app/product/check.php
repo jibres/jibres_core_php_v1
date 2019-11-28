@@ -267,6 +267,11 @@ class check
 			return false;
 		}
 
+		if(\dash\app::isset_request('type') && !$type)
+		{
+			$type = 'product';
+		}
+
 		$thumb = \dash\app::request('thumb');
 		if(isset($thumb) && !is_string($thumb))
 		{
