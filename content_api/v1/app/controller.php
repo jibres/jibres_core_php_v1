@@ -952,7 +952,7 @@ class controller
 
 
 
-	private static function sample_image($_id)
+	public static function sample_image($_id)
 	{
 		return self::jibres_temp_url(). '/static/images/api-sample/'. $_id. '.jpg';
 	}
