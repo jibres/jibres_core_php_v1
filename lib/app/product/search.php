@@ -105,13 +105,9 @@ class search
 
 		if($_args['cat_id'])
 		{
-			$catid = \dash\coding::decode($_args['cat_id']);
-			if($catid)
-			{
-				$and['products.cat_id'] = $catid;
-				self::$filter_args['cat']     = '*'. T_('Category');
-				self::$is_filtered      = true;
-			}
+			$and['products.cat_id']   = $_args['cat_id'];
+			self::$filter_args['cat'] = '*'. T_('Category');
+			self::$is_filtered        = true;
 		}
 
 		if($_args['unit_id'])

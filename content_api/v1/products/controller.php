@@ -27,6 +27,7 @@ class controller
 		$dir_3 = \dash\url::dir(3);
 		$products_id = \dash\url::dir(3);
 
+
 		if($dir_3 === 'list')
 		{
 			if(\dash\url::dir(4))
@@ -35,6 +36,21 @@ class controller
 			}
 
 			self::products_list();
+		}
+		elseif($dir_3 === 'category')
+		{
+			$category_id = \dash\url::dir(4);
+			if(!$category_id || !is_numeric($category_id) || intval($category_id) < 0 || \dash\number::is_larger($category_id, 9999999999))
+			{
+				\content_api\v1::invalid_url();
+			}
+
+			if(\dash\url::dir(5))
+			{
+				\content_api\v1::invalid_url();
+			}
+
+			self::products_category_list($category_id);
 		}
 		else
 		{
@@ -58,6 +74,23 @@ class controller
 
 		\content_api\v1::say($myProductList);
 
+	}
+
+
+	private static function products_category_list($_category_id)
+	{
+		$args =
+		[
+			'cat_id' => $_category_id,
+			'order'  => \dash\request::get('order'),
+			'sort'   => \dash\request::get('sort'),
+		];
+
+		$myProductList  = \lib\app\product\search::variant_list(null, $args);
+		$filter_message = \lib\app\product\search::filter_message();
+		$isFiltered     = \lib\app\product\search::is_filtered();
+
+		\content_api\v1::say($myProductList);
 	}
 }
 ?>
