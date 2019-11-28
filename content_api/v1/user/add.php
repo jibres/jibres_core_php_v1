@@ -1,5 +1,5 @@
 <?php
-namespace content_api\v1\product;
+namespace content_api\v1\user;
 
 
 class add
@@ -48,14 +48,17 @@ class add
 
 	private static function add()
 	{
-		$post = self::get_post();
+		$post           = [];
+		$post['mobile'] = \content_api\v1::input_body('mobile');
 
-		$result = \lib\app\product\add::add($post);
+		$result = \dash\app\user::add($post);
 
 		if(!$result)
 		{
 			return false;
 		}
+
+		unset($result['user_id']);
 
 		return $result;
 	}
