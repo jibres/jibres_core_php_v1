@@ -70,6 +70,14 @@ class controller
 							}
 							\content_api\v1\product\action::route_thumb($product_id);
 						}
+						elseif(\dash\url::dir(5) === 'remove')
+						{
+							if(\dash\url::dir(6))
+							{
+								\content_api\v1::invalid_url();
+							}
+							\content_api\v1\product\action::route_remove($product_id);
+						}
 						else
 						{
 							\content_api\v1::invalid_url();
