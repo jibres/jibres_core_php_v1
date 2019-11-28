@@ -29,11 +29,11 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 ********************************************************************* Products
 >> products/compare/{PRODUCT}/{PRODUCT}/{PRODUCT}/{PRODUCT}/{PRODUCT}
 >> products/list?sort=expensive|latest|visit|popular|discount ------- OK
->> products/category/{CATEGORY}
+>> products/category/{CATEGORY} ------------------------------------- OK
 >> products/collection/{COLLECTION}
 >> products/tag/{TAG}
->> products/company/{COMPANY}
->> products/search?q={QUERY}&tag={TAG}&...
+>> products/company/{COMPANY} --------------------------------------- OK
+>> products/search?q={QUERY}&tag={TAG}&... -------------------------- OK
 
 
 

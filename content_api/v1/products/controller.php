@@ -28,11 +28,16 @@ class controller
 		$products_id = \dash\url::dir(3);
 
 
-		if($dir_3 === 'list')
+		if($dir_3 === 'list' || $dir_3 === 'search')
 		{
 			if(\dash\url::dir(4))
 			{
 				\content_api\v1::invalid_url();
+			}
+
+			if(!\dash\request::is('get'))
+			{
+				\content_api\v1::invalid_method();
 			}
 
 			self::products_list();
@@ -50,6 +55,11 @@ class controller
 				\content_api\v1::invalid_url();
 			}
 
+			if(!\dash\request::is('get'))
+			{
+				\content_api\v1::invalid_method();
+			}
+
 			self::products_category_list($category_id);
 		}
 		elseif($dir_3 === 'company')
@@ -63,6 +73,11 @@ class controller
 			if(\dash\url::dir(5))
 			{
 				\content_api\v1::invalid_url();
+			}
+
+			if(!\dash\request::is('get'))
+			{
+				\content_api\v1::invalid_method();
 			}
 
 			self::products_company_list($company_id);
@@ -83,7 +98,9 @@ class controller
 			'filter' => [],
 		];
 
-		$myProductList  = \lib\app\product\search::variant_list(null, $args);
+		$search_query = \dash\request::get('q');
+
+		$myProductList  = \lib\app\product\search::variant_list($search_query, $args);
 		$filter_message = \lib\app\product\search::filter_message();
 		$isFiltered     = \lib\app\product\search::is_filtered();
 
