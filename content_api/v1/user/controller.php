@@ -23,6 +23,7 @@ class controller
 			\content_api\v1::invalid_url();
 		}
 
+		\dash\permission::access('contentCrm');
 
 		$dir_3 = \dash\url::dir(3);
 		$user_id = \dash\url::dir(3);
