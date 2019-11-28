@@ -20,9 +20,9 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 ++++++++++++++++++++++++++++++++++++ Admin Actions
 >> product/add ------------------------------------------------------- OK
 >> product/{PRODUCT}/edit -------------------------------------------- OK
->> product/{PRODUCT}/gallery
->> product/{PRODUCT}/remove
->> product/{PRODUCT}/varient
+>> product/{PRODUCT}/gallery ------------ Ready
+>> product/{PRODUCT}/remove ------------- Ready
+>> product/{PRODUCT}/varient ------------ Ready
 
 
 
@@ -31,7 +31,7 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> products/list?sort=expensive|latest|visit|popular|discount ------- OK
 >> products/category/{CATEGORY} ------------------------------------- OK
 >> products/collection/{COLLECTION}
->> products/tag/{TAG}
+>> products/tag/{TAG} ---- Realy need this?
 >> products/company/{COMPANY} --------------------------------------- OK
 >> products/search?q={QUERY}&tag={TAG}&... -------------------------- OK
 
@@ -48,10 +48,10 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> profile/get ------------------------------------------------------ OK
 >> profile/update/avatar -------------------------------------------- OK
 >> profile/update --------------------------------------------------- OK
->> profile/address/list
->> profile/address/add
->> profile/address/{ADDRESS}/update
->> profile/address/{ADDRESS}/remove
+>> profile/address/list ----------------- Ready
+>> profile/address/add ------------------ Ready
+>> profile/address/{ADDRESS}/update ----- Ready
+>> profile/address/{ADDRESS}/remove ----- Ready
 >> profile/liked
 
 
@@ -72,17 +72,17 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 
 ********************************************************************* Ticket
->> ticket/list
->> ticket/add
+>> ticket/list ----------------------- Ready
+>> ticket/add ------------------------ Ready
 >> ticket/add/bug
 >> ticket/add/feedback
 >> ticket/add/contact
->> ticket/{TICKET}
->> ticket/{TICKET}/attachment
->> ticket/{TICKET}/reply
->> ticket/{TICKET}/close
->> ticket/{TICKET}/status
->> ticket/{TICKET}/solved
+>> ticket/{TICKET} ------------------- Ready
+>> ticket/{TICKET}/attachment -------- Ready
+>> ticket/{TICKET}/reply ------------- Ready
+>> ticket/{TICKET}/close ------------- Ready
+>> ticket/{TICKET}/status ------------ Ready
+>> ticket/{TICKET}/solved ------------ Ready
 
 
 
@@ -118,8 +118,8 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> user/add -------------------------------------------------------- OK
 >> user/{USERID} --------------------------------------------------- OK
 >> user/{USERID}/edit ---------------------------------------------- OK
->> user/{USERID}/edit/avatar
+>> user/{USERID}/edit/avatar ---------------- Ready
 
->> user/{USERID}/comment/add
->> user/{USERID}/comment/list
->> user/{USERID}/comment/delete
+>> user/{USERID}/comment/add ---------------- Ready
+>> user/{USERID}/comment/list --------------- Ready
+>> user/{USERID}/comment/delete ------------- Ready
