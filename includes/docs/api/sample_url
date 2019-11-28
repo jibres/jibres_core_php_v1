@@ -39,8 +39,8 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 ********************************************************************* Other Lists
 >> collection/list
->> category/list ---------------------------------------------------- OK -- Sample data -- need to fill by real data
->> company/list
+>> category/list ---------------------------------------------------- OK
+>> company/list ----------------------------------------------------- OK
 
 
 
