@@ -58,15 +58,39 @@ class view
 			{
 				foreach ($list as $key => $value)
 				{
-					if(substr($value, -5) === '.html')
+					if(is_dir($value))
 					{
-						if(in_array(basename($value), ['display.html', 'view.php']))
+						$folder_list = glob($value. '/*');
+						if(is_array($folder_list))
 						{
-							continue;
+							foreach ($folder_list as $k => $v)
+							{
+								if(substr($v, -5) === '.html')
+								{
+									if(in_array(basename($v), ['display.html', 'view.php']))
+									{
+										continue;
+									}
+									else
+									{
+										$projectDoc[] = str_replace(root, '', $v);
+									}
+								}
+							}
 						}
-						else
+					}
+					else
+					{
+						if(substr($value, -5) === '.html')
 						{
-							$projectDoc[] = str_replace(root, '', $value);
+							if(in_array(basename($value), ['display.html', 'view.php']))
+							{
+								continue;
+							}
+							else
+							{
+								$projectDoc[] = str_replace(root, '', $value);
+							}
 						}
 					}
 
