@@ -21,7 +21,7 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> product/add ------------------------------------------------------- OK
 >> product/{PRODUCT}/edit -------------------------------------------- OK
 >> product/{PRODUCT}/gallery ----------------------------------------- OK
->> product/{PRODUCT}/gallery/thumb----------- Ready
+>> product/{PRODUCT}/gallery/thumb------------------------------------ ??
 >> product/{PRODUCT}/gallery/{FILE}/remove -- Ready
 >> product/{PRODUCT}/remove ----------------- Ready
 >> product/{PRODUCT}/varient ---------------- Ready

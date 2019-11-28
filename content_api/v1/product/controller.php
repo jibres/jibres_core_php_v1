@@ -62,7 +62,18 @@ class controller
 
 					if(\dash\url::dir(5))
 					{
-						\content_api\v1::invalid_url();
+						if(\dash\url::dir(5) === 'thumb')
+						{
+							if(\dash\url::dir(6))
+							{
+								\content_api\v1::invalid_url();
+							}
+							\content_api\v1\product\action::route_thumb($product_id);
+						}
+						else
+						{
+							\content_api\v1::invalid_url();
+						}
 					}
 
 					\content_api\v1\product\action::route_gallery($product_id);

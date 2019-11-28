@@ -51,6 +51,32 @@ class action
 	}
 
 
+	public static function route_thumb($_product_id)
+	{
+		if(\dash\request::is('put'))
+		{
+			$fileid = \content_api\v1::input_body('fileid');
+
+			if(!$fileid || !is_numeric($fileid))
+			{
+				\content_api\v1::stop(400, T_("File id is required"));
+			}
+
+			$result = \lib\app\product\gallery::setthumb($_product_id, $fileid);
+			if($result)
+			{
+				\dash\notif::ok(T_("Product thumb set"));
+			}
+
+			\content_api\v1::say($result);
+		}
+		else
+		{
+			\content_api\v1::invalid_method();
+		}
+	}
+
+
 
 	private static function get_post()
 	{
