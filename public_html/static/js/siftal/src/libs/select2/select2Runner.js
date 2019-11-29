@@ -26,14 +26,35 @@ function selectRunner()
     }
   });
 
-  $(document).on('change', '.select22[data-next]', function (e)
+  $(document).on('change', '.select22', function (_e)
   {
     var nextEl = $(this).attr('data-next');
     if(nextEl)
     {
-      select22FillNext($(this).val(),nextEl);
+      select22FillNext($(this).val(), nextEl);
     }
+    // open option as link
+    if($(this).attr('data-link') !== undefined)
+    {
+      var selectedVal = $(this).val();
+      // we are link inside value, so open link
+      if(selectedVal.indexOf('http') === 0)
+      {
+        Navigate({ url: selectedVal });
+      }
+    }
+
   });
+
+$('.select22').on("select2:selecting", function(e, a) {
+   // what you would like to happen
+    console.log(e);
+    console.log(a);
+});
+$(".select22").on("select2:select", function (e) {
+    console.log(e.params.data.id);
+});
+
   // fill default value
   select22FillDefault();
 }

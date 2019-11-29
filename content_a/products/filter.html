@@ -22,7 +22,7 @@
 
 
 
-{%block htmlSearchBoxMaster%}
+{%block htmlSearchBox%}
 <form method="get" action="{{url.that}}">
 
   {%if requestGET.filter%}<input type="hidden" name="filter" value="1">{%endif%}
@@ -46,16 +46,14 @@
           </div>
         </div>
       </div>
+
       <div class="cauto">
-        <div class="ui floating dropdown">
-          <div class="btn light3 {%if requestGET.sort or requestGET.order%}apply{%endif%}"><i class="sf-sort mRa5"></i><span class="text">{%trans "Sort"%}</span></div>
-          <div class="menu">
-            <div class="header">{%trans "You can sort your list"%}</div>
-            {%for key, value in sortList%}
-              <a class="item" href="{{url.that}}?{{value.query_string}}"><i class="compact mRa5 sf-{{value.class}}"></i><span>{{value.title}}</span></a>
-            {%endfor%}
-          </div>
-        </div>
+        <select class="select22{%if requestGET.sort or requestGET.order%} apply{%endif%}" data-link>
+          <option selected><i class="sf-sort mRa5"></i><span>{%trans "Sort"%}</span></div>
+        {%for key, value in sortList%}
+          <option value="{{url.that}}?{{value.query_string}}">{{value.title}}</a>
+        {%endfor%}
+        </select>
       </div>
     </div>
   </div>
