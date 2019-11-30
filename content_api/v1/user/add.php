@@ -40,7 +40,7 @@ class add
 
 			if(!$avatar)
 			{
-				\dash\notif::warn(T_("Plase upload a file"));
+				\dash\notif::warn(T_("Please upload a file"));
 			}
 			else
 			{

@@ -316,7 +316,7 @@ class setup
 
 		if($country === 'IR' && !$province)
 		{
-			\dash\notif::error(T_("Please choose your province111"), 'province');
+			\dash\notif::error(T_("Please choose your province"), 'province');
 			return false;
 		}
 
