@@ -2135,7 +2135,7 @@ class twigTransTerms
 	echo T_("Example");                                                               // Line 21
 
 	//----------------------------content_api/v1/doc/045-ticket/020-ticket-replay.html
-	echo T_("Get add of ticket");                                                     // Line 5
+	echo T_("Replay the ticket");                                                     // Line 5
 	echo T_("Required parameters");                                                   // Line 76
 	echo T_("type");                                                                  // Line 16
 	echo T_("Constraints");                                                           // Line 82
@@ -2144,14 +2144,17 @@ class twigTransTerms
 	echo T_("The ticket title");                                                      // Line 47
 
 	//----------------------------content_api/v1/doc/045-ticket/030-ticket-solved.html
+	echo T_("Set solved ticket");                                                     // Line 5
 	echo T_("The ticket solved");                                                     // Line 34
 
 	//-------------------------------content_api/v1/doc/045-ticket/005-ticket-add.html
+	echo T_("Add new ticket");                                                        // Line 79
 
 	//------------------------------content_api/v1/doc/045-ticket/010-ticket-list.html
 	echo T_("Get list of ticket");                                                    // Line 5
 
 	//----------------------------content_api/v1/doc/045-ticket/025-ticket-status.html
+	echo T_("Change status of ticket");                                               // Line 5
 	echo T_("The ticket status");                                                     // Line 34
 
 	//-----------------------content_api/v1/doc/025-user/057-profile-address-edit.html
@@ -2383,7 +2386,6 @@ class twigTransTerms
 	echo T_("Get notification list");                                                 // Line 5
 	echo T_("Session list");                                                          // Line 79
 	echo T_("Terminate session");                                                     // Line 5
-	echo T_("Add new ticket");                                                        // Line 79
 	echo T_("Ticket list");                                                           // Line 85
 	echo T_("Answer to ticket");                                                      // Line 87
 	echo T_("Set ticket status");                                                     // Line 88
