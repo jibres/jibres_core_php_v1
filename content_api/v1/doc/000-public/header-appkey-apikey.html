@@ -1,5 +1,8 @@
 {%set myClassRand = 'showHeaders_' ~ random() %}
-<h3 class="mB20" data-kerkere='.{{myClassRand}}' data-kerkere-icon='close'>{%trans "Required parameters"%} {%trans "on header"%} <code>appkey</code> <i>&</i> <code>apikey</code> <small class="fc-mute">{%trans "Click to show description"%}</small></h3>
+<h3 class="mB20" data-kerkere='.{{myClassRand}}' data-kerkere-icon='close'>{%trans "Required parameters"%} {%trans "on header"%} <code>appkey</code> <i>{%trans "And"%}</i> <code>apikey</code>
+  <br>
+  <small class="fc-mute mR15">{%trans "Click to show detail"%}</small>
+</h3>
 <div class="{{myClassRand}}" data-kerkere-content='hide'>
 
   <div class="tblBox">
