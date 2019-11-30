@@ -33,8 +33,8 @@ class controller
 		\content_api\v1::apikey_required();
 
 		$dir_3     = \dash\url::dir(3);
+		$ticket_id = $dir_3;
 
-		$ticket_id = \dash\coding::decode($dir_3);
 
 		if($dir_3 === 'list')
 		{
@@ -66,12 +66,39 @@ class controller
 		}
 		elseif($ticket_id && is_numeric($ticket_id) && intval($ticket_id) > 0 && !\dash\number::is_larger($ticket_id, 9999999999))
 		{
+			if(!\dash\url::dir(5))
+			{
+				if(!\dash\request::is('get'))
+				{
+					\content_api\v1::invalid_method();
+				}
 
+				self::get_ticket($ticket_id);
+			}
+			elseif(in_array(\dash\url::dir(5), ['attachment','reply','close','status','solved']))
+			{
+				if(\dash\url::dir(6))
+				{
+					\content_api\v1::invalid_url();
+				}
+			}
+			else
+			{
+				\content_api\v1::invalid_url();
+			}
 		}
 		else
 		{
 			\content_api\v1::invalid_url();
 		}
+	}
+
+
+	private static function get_ticket($_tiket_id)
+	{
+		\content_support\ticket\show\view::load_tichet($_tiket_id);
+		$ticket_list                    = \dash\data::dataTable();
+		\content_api\v1::say($ticket_list);
 	}
 
 

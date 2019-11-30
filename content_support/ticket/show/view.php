@@ -38,6 +38,13 @@ class view
 
 	}
 
+
+	/**
+	 * Loads a tichet.
+	 * this function call from api
+	 *
+	 * @param      <type>  $_id    The identifier
+	 */
 	public static function load_tichet($_id)
 	{
 

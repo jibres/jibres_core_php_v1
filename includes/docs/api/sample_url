@@ -81,12 +81,12 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 
 ********************************************************************* Ticket
->> ticket/list ------------------------------------------------------ ??
->> ticket/add ------------------------ Ready
+>> ticket/list ------------------------------------------------------ OK
+>> ticket/add ------------------------------------------------------- OK
 >> ticket/add/bug
 >> ticket/add/feedback
 >> ticket/add/contact
->> ticket/{TICKET} ------------------- Ready
+>> ticket/{TICKET} -------------------------------------------------- OK
 >> ticket/{TICKET}/attachment -------- Ready
 >> ticket/{TICKET}/reply ------------- Ready
 >> ticket/{TICKET}/close ------------- Ready
