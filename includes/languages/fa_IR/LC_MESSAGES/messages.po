@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2019-11-30 16:12+0330\n"
-"PO-Revision-Date: 2019-11-30 16:12+0330\n"
+"POT-Creation-Date: 2019-11-30 17:07+0330\n"
+"PO-Revision-Date: 2019-11-30 17:07+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -23131,560 +23131,486 @@ msgid "You can not choose this subdomain"
 msgstr "شما نمی توانید زیردامنه را انتخاب دهید"
 
 #: lib/currency.php:12
+#, fuzzy
+#| msgid "Iranian Thousand Toman"
 msgid "Iranian Toman"
-msgstr "تومان"
+msgstr "هزار تومان ایران"
 
 #: lib/currency.php:13
 msgid "Iranian Rial"
-msgstr "ریال ایرانی"
+msgstr "ریال ایران"
 
 #: lib/currency.php:14
 msgid "US Dollar"
-msgstr ""
+msgstr "دلار آمریکا"
 
 #: lib/currency.php:15
 msgid "Euro"
-msgstr ""
+msgstr "یورو"
 
 #: lib/currency.php:16
 msgid "British Pound Sterling"
-msgstr ""
+msgstr "استرلینگ پوند انگلیس"
 
 #: lib/currency.php:17
 msgid "Japanese Yen"
-msgstr ""
+msgstr "ین ژاپن"
 
 #: lib/currency.php:19
 msgid "Canadian Dollar"
-msgstr ""
+msgstr "دلار کانادایی"
 
 #: lib/currency.php:20
-#, fuzzy
-#| msgid "united arab emirates"
 msgid "United Arab Emirates Dirham"
-msgstr "امارات متحده عربی"
+msgstr "درهم امارات متحده عربی"
 
 #: lib/currency.php:21
 msgid "Afghan Afghani"
-msgstr ""
+msgstr "افغانی افغانستان"
 
 #: lib/currency.php:22
-#, fuzzy
-#| msgid "albania"
 msgid "Albanian Lek"
-msgstr "آلبانی"
+msgstr "لک آلبانیایی"
 
 #: lib/currency.php:23
-#, fuzzy
-#| msgid "armenia"
 msgid "Armenian Dram"
-msgstr "آرمانیا"
+msgstr "درام ارمنی"
 
 #: lib/currency.php:24
-#, fuzzy
-#| msgid "argentina"
 msgid "Argentine Peso"
-msgstr "آرژانتین"
+msgstr "پزو آرژانتین"
 
 #: lib/currency.php:25
-#, fuzzy
-#| msgid "australia"
 msgid "Australian Dollar"
-msgstr "استرالیا"
+msgstr "دلار استرالیا"
 
 #: lib/currency.php:26
-#, fuzzy
-#| msgid "azerbaijan"
 msgid "Azerbaijani Manat"
-msgstr "آذربایجان"
+msgstr "مانات آذربایجانی"
 
 #: lib/currency.php:27
 msgid "Bosnia-Herzegovina Convertible Mark"
-msgstr ""
+msgstr "مارک تبدیل پذیر بوسنی و هرزگوین"
 
 #: lib/currency.php:28
-#, fuzzy
-#| msgid "bangladesh"
 msgid "Bangladeshi Taka"
-msgstr "بنگلادش"
+msgstr "تاکا بنگلادشی"
 
 #: lib/currency.php:29
-#, fuzzy
-#| msgid "bulgaria"
 msgid "Bulgarian Lev"
-msgstr "بلغارستان"
+msgstr "لو بلغار"
 
 #: lib/currency.php:30
 msgid "Bahraini Dinar"
-msgstr ""
+msgstr "دینار بحرین"
 
 #: lib/currency.php:31
 msgid "Burundian Franc"
-msgstr ""
+msgstr "فرانک بروندی"
 
 #: lib/currency.php:32
 msgid "Brunei Dollar"
-msgstr ""
+msgstr "دلار برونئی"
 
 #: lib/currency.php:33
 msgid "Bolivian Boliviano"
-msgstr ""
+msgstr "بولیوی بولیویایی"
 
 #: lib/currency.php:34
-#, fuzzy
-#| msgid "Iranian Detail"
 msgid "Brazilian Real"
-msgstr "جزئیات اعضاء ایرانی"
+msgstr "رئال برزیل"
 
 #: lib/currency.php:35
-#, fuzzy
-#| msgid "botswana"
 msgid "Botswanan Pula"
-msgstr "بوتسوانا"
+msgstr "پولای بوتسوانا"
 
 #: lib/currency.php:36
 msgid "Belarusian Ruble"
-msgstr ""
+msgstr "روبل بلاروس"
 
 #: lib/currency.php:37
 msgid "Belize Dollar"
-msgstr ""
+msgstr "دلار بلیز"
 
 #: lib/currency.php:38
-#, fuzzy
-#| msgid "golestan"
 msgid "Congolese Franc"
-msgstr "گلستان"
+msgstr "فرانک کنگو"
 
 #: lib/currency.php:39
 msgid "Swiss Franc"
-msgstr ""
+msgstr "فرانک سوئیس"
 
 #: lib/currency.php:40
 msgid "Chilean Peso"
-msgstr ""
+msgstr "پزو شیلی"
 
 #: lib/currency.php:41
 msgid "Chinese Yuan"
-msgstr ""
+msgstr "یوان چینی"
 
 #: lib/currency.php:42
-#, fuzzy
-#| msgid "colombia"
 msgid "Colombian Peso"
-msgstr "کلمبیا"
+msgstr "پزو کلمبیا"
 
 #: lib/currency.php:43
 msgid "Costa Rican Colón"
-msgstr ""
+msgstr "کولون کاستاریکا"
 
 #: lib/currency.php:44
 msgid "Cape Verdean Escudo"
-msgstr ""
+msgstr "اسکودوی کیپ ورد"
 
 #: lib/currency.php:45
-#, fuzzy
-#| msgid "czech republic"
 msgid "Czech Republic Koruna"
-msgstr "جمهوری چک"
+msgstr "کرونای چک"
 
 #: lib/currency.php:46
 msgid "Djiboutian Franc"
-msgstr ""
+msgstr "فرانک جیبوتی"
 
 #: lib/currency.php:47
 msgid "Danish Krone"
-msgstr ""
+msgstr "کرون دانمارکی"
 
 #: lib/currency.php:48
-#, fuzzy
-#| msgid "dominica"
 msgid "Dominican Peso"
-msgstr "دومینیکا"
+msgstr "پزو دومینیکن"
 
 #: lib/currency.php:49
 msgid "Algerian Dinar"
-msgstr ""
+msgstr "دینار الجزایر"
 
 #: lib/currency.php:50
 msgid "Estonian Kroon"
-msgstr ""
+msgstr "کرون استونی"
 
 #: lib/currency.php:51
 msgid "Egyptian Pound"
-msgstr ""
+msgstr "پوند مصر"
 
 #: lib/currency.php:52
 msgid "Eritrean Nakfa"
-msgstr ""
+msgstr "ناکفای اریتره"
 
 #: lib/currency.php:53
-#, fuzzy
-#| msgid "ethiopia"
 msgid "Ethiopian Birr"
-msgstr "اتیوپی"
+msgstr "بیر اتیوپی"
 
 #: lib/currency.php:54
-#, fuzzy
-#| msgid "georgia"
 msgid "Georgian Lari"
-msgstr "جورجیا"
+msgstr "لاری گرجستان"
 
 #: lib/currency.php:55
 msgid "Ghanaian Cedi"
-msgstr ""
+msgstr "سدی غنا"
 
 #: lib/currency.php:56
 msgid "Guinean Franc"
-msgstr ""
+msgstr "فرانک گینه"
 
 #: lib/currency.php:57
 msgid "Guatemalan Quetzal"
-msgstr ""
+msgstr "کوتزال گواتمالا"
 
 #: lib/currency.php:58
 msgid "Hong Kong Dollar"
-msgstr ""
+msgstr "دلار هنگ کنگ"
 
 #: lib/currency.php:59
 msgid "Honduran Lempira"
-msgstr ""
+msgstr "لامپیرای هندوراس"
 
 #: lib/currency.php:60
-#, fuzzy
-#| msgid "croatia"
 msgid "Croatian Kuna"
-msgstr "کرواتی"
+msgstr "کونا کرواتی"
 
 #: lib/currency.php:61
 msgid "Hungarian Forint"
-msgstr ""
+msgstr "فورینت مجارستانی"
 
 #: lib/currency.php:62
-#, fuzzy
-#| msgid "indonesia"
 msgid "Indonesian Rupiah"
-msgstr "اندونزی"
+msgstr "روپیه اندونزیایی"
 
 #: lib/currency.php:64
 msgid "Indian Rupee"
-msgstr ""
+msgstr "روپیه هند"
 
 #: lib/currency.php:65
 msgid "Iraqi Dinar"
-msgstr ""
+msgstr "دینار عراقی"
 
 #: lib/currency.php:66
 msgid "Iranian Thousand Toman"
-msgstr ""
+msgstr "هزار تومان ایران"
 
 #: lib/currency.php:67
 msgid "Iranian Thousand Rial"
-msgstr "هزار ریال ایرانی"
+msgstr "هزار ریال ایران"
 
 #: lib/currency.php:68
 msgid "Icelandic Króna"
-msgstr ""
+msgstr "کرونای ایسلند"
 
 #: lib/currency.php:69
-#, fuzzy
-#| msgid "american samoa"
 msgid "Jamaican Dollar"
-msgstr "ساموآی آمریکا"
+msgstr "دلار جامائیکا"
 
 #: lib/currency.php:70
-#, fuzzy
-#| msgid "Iranian Detail"
 msgid "Jordanian Dinar"
-msgstr "جزئیات اعضاء ایرانی"
+msgstr "دینار اردن"
 
 #: lib/currency.php:71
 msgid "Kenyan Shilling"
-msgstr ""
+msgstr "شیلینگ کنیا"
 
 #: lib/currency.php:72
-#, fuzzy
-#| msgid "cambodia"
 msgid "Cambodian Riel"
-msgstr "کامبوج"
+msgstr "ریال کامبوج"
 
 #: lib/currency.php:73
 msgid "Comorian Franc"
-msgstr ""
+msgstr "کامور فرانک"
 
 #: lib/currency.php:74
-#, fuzzy
-#| msgid "south korea"
 msgid "South Korean Won"
-msgstr "کره جنوبی"
+msgstr "وون کره جنوبی"
 
 #: lib/currency.php:75
 msgid "Kuwaiti Dinar"
-msgstr ""
+msgstr "دینار کویت"
 
 #: lib/currency.php:76
-#, fuzzy
-#| msgid "kazakhstan"
 msgid "Kazakhstani Tenge"
-msgstr "قزاقستان"
+msgstr "تنگه قزاقستانی"
 
 #: lib/currency.php:77
 msgid "Lebanese Pound"
-msgstr ""
+msgstr "پوند لبنان"
 
 #: lib/currency.php:78
 msgid "Sri Lankan Rupee"
-msgstr ""
+msgstr "روپیه سری‌لانکا"
 
 #: lib/currency.php:79
-#, fuzzy
-#| msgid "lithuania"
 msgid "Lithuanian Litas"
-msgstr "لیتوانی"
+msgstr "لیتاس لیتوانیایی"
 
 #: lib/currency.php:80
 msgid "Latvian Lats"
-msgstr ""
+msgstr "لاتس لتونی"
 
 #: lib/currency.php:81
 msgid "Libyan Dinar"
-msgstr ""
+msgstr "دینار لیبی"
 
 #: lib/currency.php:82
 msgid "Moroccan Dirham"
-msgstr ""
+msgstr "درهم مراکش"
 
 #: lib/currency.php:83
-#, fuzzy
-#| msgid "moldova"
 msgid "Moldovan Leu"
-msgstr "مولداوی"
+msgstr "لئوی مولداوی"
 
 #: lib/currency.php:84
 msgid "Malagasy Ariary"
-msgstr ""
+msgstr "آریاری ماداگاسکار"
 
 #: lib/currency.php:85
-#, fuzzy
-#| msgid "macedonia"
 msgid "Macedonian Denar"
-msgstr "مقدونیه"
+msgstr "دلار مقدونی"
 
 #: lib/currency.php:86
 msgid "Myanma Kyat"
-msgstr ""
+msgstr "کیات میانمار"
 
 #: lib/currency.php:87
 msgid "Macanese Pataca"
-msgstr ""
+msgstr "پاتاکای ماکانز"
 
 #: lib/currency.php:88
 msgid "Mauritian Rupee"
-msgstr ""
+msgstr "روپیه موریتانی"
 
 #: lib/currency.php:89
-#, fuzzy
-#| msgid "american samoa"
 msgid "Mexican Peso"
-msgstr "ساموآی آمریکا"
+msgstr "پزو مکزیکی"
 
 #: lib/currency.php:90
 msgid "Malaysian Ringgit"
-msgstr ""
+msgstr "رینگیت مالزی"
 
 #: lib/currency.php:91
 msgid "Mozambican Metical"
-msgstr ""
+msgstr "متیکال موزامبیکی"
 
 #: lib/currency.php:92
 msgid "Namibian Dollar"
-msgstr ""
+msgstr "دلار نامیبیان"
 
 #: lib/currency.php:93
 msgid "Nigerian Naira"
-msgstr ""
+msgstr "نایارای نیجریه"
 
 #: lib/currency.php:94
 msgid "Nicaraguan Córdoba"
-msgstr ""
+msgstr "کوردوبای نیکاراگوئه"
 
 #: lib/currency.php:95
 msgid "Norwegian Krone"
-msgstr ""
+msgstr "کرون نروژی"
 
 #: lib/currency.php:96
 msgid "Nepalese Rupee"
-msgstr ""
+msgstr "روپیه نپال"
 
 #: lib/currency.php:97
-#, fuzzy
-#| msgid "new zealand"
 msgid "New Zealand Dollar"
-msgstr "نیوزلند"
+msgstr "دلار نیوزیلند"
 
 #: lib/currency.php:98
 msgid "Omani Rial"
-msgstr ""
+msgstr "ریال عمانی"
 
 #: lib/currency.php:99
 msgid "Panamanian Balboa"
-msgstr ""
+msgstr "بالبوآ پاناما"
 
 #: lib/currency.php:100
 msgid "Peruvian Nuevo Sol"
-msgstr ""
+msgstr "سول پرو"
 
 #: lib/currency.php:101
-#, fuzzy
-#| msgid "philippines"
 msgid "Philippine Peso"
-msgstr "فیلیپین"
+msgstr "پزو فیلیپین"
 
 #: lib/currency.php:102
-#, fuzzy
-#| msgid "pakistan"
 msgid "Pakistani Rupee"
-msgstr "پاکستان"
+msgstr "روپیه پاکستان"
 
 #: lib/currency.php:103
 msgid "Polish Zloty"
-msgstr ""
+msgstr "زلوتی لهستانی"
 
 #: lib/currency.php:104
 msgid "Paraguayan Guarani"
-msgstr ""
+msgstr "پارسی گاروانی"
 
 #: lib/currency.php:105
 msgid "Qatari Rial"
-msgstr ""
+msgstr "ریال قطر"
 
 #: lib/currency.php:106
-#, fuzzy
-#| msgid "romania"
 msgid "Romanian Leu"
-msgstr "رومانی"
+msgstr "لو رومانیایی"
 
 #: lib/currency.php:107
 msgid "Serbian Dinar"
-msgstr ""
+msgstr "دینار صربستان"
 
 #: lib/currency.php:108
 msgid "Russian Ruble"
-msgstr ""
+msgstr "روبل روسی"
 
 #: lib/currency.php:109
-#, fuzzy
-#| msgid "mazandaran"
 msgid "Rwandan Franc"
-msgstr "مازندران"
+msgstr "فرانک رواندا"
 
 #: lib/currency.php:110
-#, fuzzy
-#| msgid "saudi arabia"
 msgid "Saudi Riyal"
-msgstr "عربستان سعودی"
+msgstr "ریال سعودی"
 
 #: lib/currency.php:111
 msgid "Sudanese Pound"
-msgstr ""
+msgstr "پوند سودانی"
 
 #: lib/currency.php:112
 msgid "Swedish Krona"
-msgstr ""
+msgstr "کرون سوئدی"
 
 #: lib/currency.php:113
-#, fuzzy
-#| msgid "singapore"
 msgid "Singapore Dollar"
-msgstr "سیناپور"
+msgstr "دلار سنگاپور"
 
 #: lib/currency.php:114
 msgid "Somali Shilling"
-msgstr ""
+msgstr "شیلینگ سومالی"
 
 #: lib/currency.php:115
-#, fuzzy
-#| msgid "Store id not found"
 msgid "Syrian Pound"
-msgstr "شناسه فروشگاه یافت نشد"
+msgstr "پوند سوریه"
 
 #: lib/currency.php:116
 msgid "Thai Baht"
-msgstr ""
+msgstr "بات تایلندی"
 
 #: lib/currency.php:117
 msgid "Tunisian Dinar"
-msgstr ""
+msgstr "دینار تونسی"
 
 #: lib/currency.php:118
 msgid "Tongan Paʻanga"
-msgstr ""
+msgstr "پاآنگای تونگا"
 
 #: lib/currency.php:119
 msgid "Turkish Lira"
-msgstr ""
+msgstr "لیر ترکیه"
 
 #: lib/currency.php:120
-#, fuzzy
-#| msgid "trinidad and tobago"
 msgid "Trinidad and Tobago Dollar"
-msgstr "ترینیداد و توباگو"
+msgstr "دلار ترینیداد و توباگو"
 
 #: lib/currency.php:121
 msgid "New Taiwan Dollar"
-msgstr ""
+msgstr "دلار جدید تایوان"
 
 #: lib/currency.php:122
 msgid "Tanzanian Shilling"
-msgstr ""
+msgstr "شیلینگ تانزانیا"
 
 #: lib/currency.php:123
 msgid "Ukrainian Hryvnia"
-msgstr ""
+msgstr "گریونا اوکراین"
 
 #: lib/currency.php:124
 msgid "Ugandan Shilling"
-msgstr ""
+msgstr "شیلینگ اوگاندا"
 
 #: lib/currency.php:125
 msgid "Uruguayan Peso"
-msgstr ""
+msgstr "پزو اروگوئه"
 
 #: lib/currency.php:126
-#, fuzzy
-#| msgid "uzbekistan"
 msgid "Uzbekistan Som"
-msgstr "ازبکستان"
+msgstr "سام ازبکستان"
 
 #: lib/currency.php:127
 msgid "Venezuelan Bolívar"
-msgstr ""
+msgstr "بولیوار ونزوئلا"
 
 #: lib/currency.php:128
 msgid "Vietnamese Dong"
-msgstr ""
+msgstr "دونگ ویتنامی"
 
 #: lib/currency.php:129
 msgid "CFA Franc BEAC"
-msgstr ""
+msgstr "فرانک سی‌اف‌ای آفریقای میانه"
 
 #: lib/currency.php:130
 msgid "CFA Franc BCEAO"
-msgstr ""
+msgstr "فرانک سی‌اف‌ای آفریقای غربی"
 
 #: lib/currency.php:131
 msgid "Yemeni Rial"
-msgstr ""
+msgstr "ریال یمن"
 
 #: lib/currency.php:132
-#, fuzzy
-#| msgid "south africa"
 msgid "South African Rand"
-msgstr "آفریقای جنوبی"
+msgstr "رند آفریقای جنوبی"
 
 #: lib/currency.php:133
 msgid "Zambian Kwacha"
-msgstr ""
+msgstr "کواچای زامبیا"
 
 #: lib/pardakhtyar/app/acceptor.php:37
 msgid "No way to insert Acceptor"
@@ -23921,6 +23847,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Israeli New Sheqel"
+#~ msgstr "شکل جدید اسرائیل"
 
 #~ msgid "Invalid store id"
 #~ msgstr "شناسه فروشگاه اشتباه است"
