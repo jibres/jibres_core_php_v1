@@ -22,8 +22,10 @@ class address
 
 	public static function add_address()
 	{
-		$post = self::getPost_address();
-		$result = \dash\app\address::add($post);
+		$post            = self::getPost_address();
+		$post['user_id'] = self::myUserId();
+		$result          = \dash\app\address::add($post);
+
 		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("Address successfully added"));
