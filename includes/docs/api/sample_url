@@ -87,10 +87,9 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> ticket/add/feedback
 >> ticket/add/contact
 >> ticket/{TICKET} -------------------------------------------------- OK
->> ticket/{TICKET}/reply ------------- Ready
->> ticket/{TICKET}/close ------------- Ready
->> ticket/{TICKET}/status ------------ Ready
->> ticket/{TICKET}/solved ------------ Ready
+>> ticket/{TICKET}/reply -------------------------------------------- OK
+>> ticket/{TICKET}/status ------------------------------------------- OK
+>> ticket/{TICKET}/solved ------------------------------------------- OK
 
 
 

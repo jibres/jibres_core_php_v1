@@ -132,7 +132,14 @@ class model
 	}
 
 
-
+	/**
+	 * this function call from api
+	 *
+	 * @param      <type>   $_id      The identifier
+	 * @param      <type>   $_status  The status
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function change_status($_id, $_status)
 	{
 		$main = self::loadTicketDetail($_id);

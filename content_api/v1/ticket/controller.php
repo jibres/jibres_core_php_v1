@@ -10,22 +10,6 @@ class controller
 	}
 
 
-
-	/**
-	 *
-		********************************************************************* Ticket
-		>> ticket/list ------------------------------------------------------ ??
-		>> ticket/add ------------------------ Ready
-		>> ticket/add/bug
-		>> ticket/add/feedback
-		>> ticket/add/contact
-		>> ticket/{TICKET} ------------------- Ready
-		>> ticket/{TICKET}/attachment -------- Ready
-		>> ticket/{TICKET}/reply ------------- Ready
-		>> ticket/{TICKET}/close ------------- Ready
-		>> ticket/{TICKET}/status ------------ Ready
-		>> ticket/{TICKET}/solved ------------ Ready
-	 */
 	public static function api_routing()
 	{
 		$detail    = [];
@@ -75,14 +59,43 @@ class controller
 
 				self::get_ticket($ticket_id);
 			}
-			elseif(in_array(\dash\url::dir(4), ['attachment','replay','close','status','solved']))
+			elseif(in_array(\dash\url::dir(4), ['attachment','replay','status','solved']))
 			{
+				$dir_4 = \dash\url::dir(4);
+
 				if(\dash\url::dir(5))
 				{
 					\content_api\v1::invalid_url();
 				}
 
-				self::ticket_replay($ticket_id);
+				if($dir_4 === 'replay')
+				{
+					if(!\dash\request::is('post'))
+					{
+						\content_api\v1::invalid_method();
+					}
+					self::ticket_replay($ticket_id);
+				}
+				elseif($dir_4 === 'status')
+				{
+					if(!\dash\request::is('put'))
+					{
+						\content_api\v1::invalid_method();
+					}
+					self::ticket_status($ticket_id);
+				}
+				elseif($dir_4 === 'solved')
+				{
+					if(!\dash\request::is('put'))
+					{
+						\content_api\v1::invalid_method();
+					}
+					self::ticket_solved($ticket_id);
+				}
+				else
+				{
+					\content_api\v1::invalid_url();
+				}
 			}
 			else
 			{
@@ -93,6 +106,22 @@ class controller
 		{
 			\content_api\v1::invalid_url();
 		}
+	}
+
+
+	private static function ticket_status($_tiket_id)
+	{
+		$status = \content_api\v1::input_body('status');
+		$result = \content_support\ticket\show\model::change_status($_tiket_id, $status);
+		\content_api\v1::say($result);
+	}
+
+
+	private static function ticket_solved($_tiket_id)
+	{
+		$solved = \content_api\v1::input_body('solved');
+		$result = \content_support\ticket\show\model::save_solved($_tiket_id, $solved);
+		\content_api\v1::say($result);
 	}
 
 
