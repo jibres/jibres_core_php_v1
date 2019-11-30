@@ -19,6 +19,17 @@ class view
 		\dash\data::badge2_text(T_('Back to support panel'));
 		\dash\data::badge2_link(\dash\url::here().\dash\data::accessGet());
 
+		self::load_ticket_list();
+	}
+
+
+	/**
+	 * Load ticket list
+	 * this function call from api ticket
+	 *
+	 */
+	public static function load_ticket_list()
+	{
 		if(!\dash\user::login())
 		{
 			self::is_not_login();
@@ -27,7 +38,6 @@ class view
 		{
 			self::is_login();
 		}
-
 	}
 
 	private static function is_not_login()

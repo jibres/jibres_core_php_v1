@@ -81,7 +81,7 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 
 ********************************************************************* Ticket
->> ticket/list ----------------------- Ready
+>> ticket/list ------------------------------------------------------ ??
 >> ticket/add ------------------------ Ready
 >> ticket/add/bug
 >> ticket/add/feedback
