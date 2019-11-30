@@ -62,6 +62,26 @@ class controller
 
 			self::products_category_list($category_id);
 		}
+		elseif($dir_3 === 'collection')
+		{
+			$category_id = \dash\url::dir(4);
+			if(!$category_id || !is_numeric($category_id) || intval($category_id) < 0 || \dash\number::is_larger($category_id, 9999999999))
+			{
+				\content_api\v1::invalid_url();
+			}
+
+			if(\dash\url::dir(5))
+			{
+				\content_api\v1::invalid_url();
+			}
+
+			if(!\dash\request::is('get'))
+			{
+				\content_api\v1::invalid_method();
+			}
+
+			self::products_category_list($category_id);
+		}
 		elseif($dir_3 === 'company')
 		{
 			$company_id = \dash\url::dir(4);
@@ -117,6 +137,7 @@ class controller
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
 		];
+
 
 		$myProductList  = \lib\app\product\search::variant_list(null, $args);
 		$filter_message = \lib\app\product\search::filter_message();
