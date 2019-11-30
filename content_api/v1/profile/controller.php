@@ -61,6 +61,48 @@ class controller
 				}
 				break;
 
+			case 'address':
+
+				// set user id as current logined user id
+				// in crm call this function but set user id from api parameter
+				\content_api\v1\user\address::set_user_id(\dash\user::id());
+
+				if(\dash\url::dir(4) === 'add')
+				{
+					if(\dash\url::dir(5))
+					{
+						\content_api\v1::invalid_url();
+					}
+
+					if(!\dash\request::is('post'))
+					{
+						\content_api\v1::invalid_method();
+					}
+
+					$profile = \content_api\v1\user\address::add_address();
+
+				}
+				elseif(\dash\url::dir(4) === 'list')
+				{
+					if(\dash\url::dir(5))
+					{
+						\content_api\v1::invalid_url();
+					}
+
+					if(!\dash\request::is('get'))
+					{
+						\content_api\v1::invalid_method();
+					}
+
+					$profile = \content_api\v1\user\address::list_address();
+
+				}
+				else
+				{
+					\content_api\v1::invalid_url();
+				}
+				break;
+
 			default:
 				\content_api\v1::invalid_url();
 				break;
@@ -173,7 +215,6 @@ class controller
 
 		return $post;
 	}
-
 
 }
 ?>

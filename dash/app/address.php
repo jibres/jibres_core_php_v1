@@ -339,7 +339,6 @@ class address
 		}
 
 
-
 		$address = \dash\db\address::insert($args);
 
 		if(!$address)
@@ -350,6 +349,8 @@ class address
 		}
 
 		\dash\log::set('addAddress');
+
+		$return['id'] = \dash\coding::encode($address);
 
 		return $return;
 	}

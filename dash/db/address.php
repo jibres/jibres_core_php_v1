@@ -7,7 +7,8 @@ class address
 
 	public static function insert()
 	{
-		return \dash\db\config::public_insert('address', ...func_get_args());
+		\dash\db\config::public_insert('address', ...func_get_args());
+		return \dash\db::insert_id();
 	}
 
 

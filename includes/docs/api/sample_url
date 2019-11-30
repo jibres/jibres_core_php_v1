@@ -23,8 +23,8 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> product/{PRODUCT}/gallery ----------------------------------------- OK
 >> product/{PRODUCT}/gallery/thumb------------------------------------ OK
 >> product/{PRODUCT}/gallery/remove ---------------------------------- OK
->> product/{PRODUCT}/remove ------------------------------------------ ??
->> product/{PRODUCT}/varient ---------------- Ready
+>> product/{PRODUCT}/remove ------------------------------------------ OK
+>> product/{PRODUCT}/varient
 
 
 
@@ -46,12 +46,19 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 
 
+********************************************************************* Location
+>> location/country ------------------------------------------------- ??
+>> location/province ------------------------------------------------ ??
+>> location/city ---------------------------------------------------- ??
+
+
+
 ********************************************************************* Profile
 >> profile/get ------------------------------------------------------ OK
 >> profile/update/avatar -------------------------------------------- OK
 >> profile/update --------------------------------------------------- OK
+>> profile/address/add ---------------------------------------------- ??
 >> profile/address/list ----------------- Ready
->> profile/address/add ------------------ Ready
 >> profile/address/{ADDRESS}/update ----- Ready
 >> profile/address/{ADDRESS}/remove ----- Ready
 >> profile/liked
