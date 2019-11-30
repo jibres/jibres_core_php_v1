@@ -119,6 +119,93 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "Country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://jibres.local/fa/api/v1/location/country",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"fa",
+								"api",
+								"v1",
+								"location",
+								"country"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Province",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://jibres.local/fa/api/v1/location/province?country=IR",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"fa",
+								"api",
+								"v1",
+								"location",
+								"province"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "IR"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "City",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://jibres.local/fa/api/v1/location/city?province=IR-01",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"fa",
+								"api",
+								"v1",
+								"location",
+								"city"
+							],
+							"query": [
+								{
+									"key": "province",
+									"value": "IR-01"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Business",
 			"item": [
 				{
@@ -706,6 +793,211 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Profile Address add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c681d334cb13bae20db5fe1105c65d1b"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"address\": \"salam bar shoma\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88y/profile/address/add",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88y",
+								"profile",
+								"address",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile Address list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c681d334cb13bae20db5fe1105c65d1b"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"address\": \"salam bar shoma\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88y/profile/address/list",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88y",
+								"profile",
+								"address",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile Address Edit",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c681d334cb13bae20db5fe1105c65d1b"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"address\": \"salam bar shomadddddddddddddddddddddddddddddddddddddddddddddddddd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88y/profile/address/R/edit",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88y",
+								"profile",
+								"address",
+								"R",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile Address Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c681d334cb13bae20db5fe1105c65d1b"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"address\": \"salam bar shomadddddddddddddddddddddddddddddddddddddddddddddddddd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88y/profile/address/R/remove",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88y",
+								"profile",
+								"address",
+								"R",
+								"remove"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -813,6 +1105,214 @@
 					"response": []
 				},
 				{
+					"name": "Product Gallery",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c681d334cb13bae20db5fe1105c65d1b"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gallery",
+									"type": "file",
+									"src": "/home/reza/Pictures/Sample/2.png"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88y/product/1/gallery",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88y",
+								"product",
+								"1",
+								"gallery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Thumb",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c681d334cb13bae20db5fe1105c65d1b"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fileid\" : \"3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88y/product/1/gallery/thumb",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88y",
+								"product",
+								"1",
+								"gallery",
+								"thumb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Gallery remove",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c681d334cb13bae20db5fe1105c65d1b"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fileid\" : \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88y/product/1/gallery/remove",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88y",
+								"product",
+								"1",
+								"gallery",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product remove",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c681d334cb13bae20db5fe1105c65d1b"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"fileid\" : \"3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88y/product/1/remove",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88y",
+								"product",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Product Get",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -823,12 +1323,12 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "951ba3c89480e67e0f066184357cbe3f"
+								"value": "c681d334cb13bae20db5fe1105c65d1b"
 							},
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "733f884c43a3edfaa16cb825bec2f014"
+								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
 							}
 						],
 						"body": {
@@ -836,7 +1336,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://jibres.local/api/v2/y88y/product/3",
+							"raw": "http://jibres.local/api/v1/y88y/product/1",
 							"protocol": "http",
 							"host": [
 								"jibres",
@@ -844,10 +1344,10 @@
 							],
 							"path": [
 								"api",
-								"v2",
+								"v1",
 								"y88y",
 								"product",
-								"3"
+								"1"
 							]
 						}
 					},
