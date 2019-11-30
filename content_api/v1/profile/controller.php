@@ -67,6 +67,8 @@ class controller
 				// in crm call this function but set user id from api parameter
 				\content_api\v1\user\address::set_user_id(\dash\user::id());
 
+				$dir_4 = \dash\url::dir(4);
+
 				if(\dash\url::dir(4) === 'add')
 				{
 					if(\dash\url::dir(5))
@@ -96,6 +98,26 @@ class controller
 
 					$profile = \content_api\v1\user\address::list_address();
 
+				}
+				elseif(\dash\coding::is($dir_4) && in_array(\dash\url::dir(5), ['edit', 'remove']) && !\dash\url::dir(6))
+				{
+					if(\dash\url::dir(5) === 'edit')
+					{
+						if(!\dash\request::is('patch'))
+						{
+							\content_api\v1::invalid_method();
+						}
+
+						$profile = \content_api\v1\user\address::edit_address($dir_4);
+					}
+					elseif(\dash\url::dir(5) === 'remove')
+					{
+						if(!\dash\request::is('delete'))
+						{
+							\content_api\v1::invalid_method();
+						}
+						$profile = \content_api\v1\user\address::remove_address($dir_4);
+					}
 				}
 				else
 				{

@@ -11,48 +11,7 @@
       <span>{{CustomerApiURL}}<b>profile/update/avatar</b></span>
     </div>
 
-    <div class="tblBox">
-      <h3>{%trans "Required parameters"%} {%trans "on header"%}</h3>
-      <table class="tbl1 v3">
-        <thead>
-          <tr>
-            <th>{%trans "Name"%} <small>{%trans "type"%}</small></th>
-            <th>{%trans "Description"%} <small>{%trans "example"%}</small></th>
-            <th>{%trans "Constraints"%}</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>
-              <div class="txtB">appkey</div>
-              <i>string</i>
-            </td>
-            <td>
-              <div>{%trans "APP key generated on the user panel"%}</div>
-              <code>{{myAppKey}}</code>
-            </td>
-            <td>
-              <div class="fc-red"><i>{%trans "Required"%}</i></div>
-              {%trans "length"%} {{32 | fitNumber}}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="txtB">apikey</div>
-              <i>string</i>
-            </td>
-            <td>
-              <div>{%trans "Your apikey"%}</div>
-              <code>{{myApiKey}}</code>
-            </td>
-            <td>
-              <div class="fc-red"><i>{%trans "Required"%}</i></div>
-              {%trans "length"%} {{32 | fitNumber}}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+{%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
 
     <div class="tblBox">
       <h3>{%trans "Required parameters"%}</h3>

@@ -47,9 +47,9 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 
 
 ********************************************************************* Location
->> location/country ------------------------------------------------- ??
->> location/province ------------------------------------------------ ??
->> location/city ---------------------------------------------------- ??
+>> location/country ------------------------------ Ready
+>> location/province ----------------------------- Ready
+>> location/city --------------------------------- Ready
 
 
 
@@ -57,8 +57,8 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> profile/get ------------------------------------------------------ OK
 >> profile/update/avatar -------------------------------------------- OK
 >> profile/update --------------------------------------------------- OK
->> profile/address/add ---------------------------------------------- ??
->> profile/address/list ----------------- Ready
+>> profile/address/add ---------------------------------------------- OK
+>> profile/address/list --------------------------------------------- OK
 >> profile/address/{ADDRESS}/update ----- Ready
 >> profile/address/{ADDRESS}/remove ----- Ready
 >> profile/liked

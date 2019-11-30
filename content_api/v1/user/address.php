@@ -60,10 +60,6 @@ class address
 	public static function remove_address($_address_id)
 	{
 		$result = \dash\app\address::remove($_address_id);
-		if($result)
-		{
-			\dash\notif::ok(T_("Address successfully removed"));
-		}
 		return $result;
 	}
 

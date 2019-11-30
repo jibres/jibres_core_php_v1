@@ -58,6 +58,11 @@ class view
 			{
 				foreach ($list as $key => $value)
 				{
+					if(substr($value, -10) === '000-public')
+					{
+						continue;
+					}
+
 					if(is_dir($value))
 					{
 						$folder_list = glob($value. '/*');
