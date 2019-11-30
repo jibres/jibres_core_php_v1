@@ -123,13 +123,9 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> user/add -------------------------------------------------------- OK
 >> user/{USERID} --------------------------------------------------- OK
 >> user/{USERID}/edit ---------------------------------------------- OK
->> user/{USERID}/edit/avatar ---------------- Ready
+>> user/{USERID}/edit/avatar --------------------------------------- OK
 
 >> user/{USERID}/address/add --------------------------------------- OK
 >> user/{USERID}/address/list -------------------------------------- OK
 >> user/{USERID}/address/{ADDRESS}/update -------------------------- OK
 >> user/{USERID}/address/{ADDRESS}/remove -------------------------- OK
-
->> user/{USERID}/comment/add ---------------- Ready
->> user/{USERID}/comment/list --------------- Ready
->> user/{USERID}/comment/delete ------------- Ready

@@ -52,11 +52,23 @@ class controller
 			{
 
 				case 'edit':
-					if(\dash\url::dir(5))
+
+					if(\dash\url::dir(5) === 'avatar')
+					{
+						if(\dash\url::dir(6))
+						{
+							\content_api\v1::invalid_url();
+						}
+						\content_api\v1\user\add::route_edit_avatar($user_id);
+					}
+					elseif(\dash\url::dir(5))
 					{
 						\content_api\v1::invalid_url();
 					}
-					\content_api\v1\user\add::route_edit($user_id);
+					else
+					{
+						\content_api\v1\user\add::route_edit($user_id);
+					}
 					break;
 
 				case 'address':

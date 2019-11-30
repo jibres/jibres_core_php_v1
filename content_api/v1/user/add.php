@@ -25,6 +25,38 @@ class add
 
 
 
+	public static function route_edit_avatar($_user_id)
+	{
+		if(\dash\request::is('post'))
+		{
+			$result = null;
+			$post   = [];
+			$avatar = \dash\app\file::upload_quick('avatar');
+
+			if($avatar)
+			{
+				$post['avatar'] = $avatar;
+			}
+
+			if(!$avatar)
+			{
+				\dash\notif::warn(T_("Plase upload a file"));
+			}
+			else
+			{
+
+				$user_code = \dash\coding::encode($_user_id);
+				$result    = \dash\app\user::edit($post, $user_code);
+
+			}
+			\content_api\v1::say($result);
+		}
+		else
+		{
+			\content_api\v1::invalid_method();
+		}
+	}
+
 	public static function route_edit($_user_id)
 	{
 		if(\dash\request::is('patch'))
