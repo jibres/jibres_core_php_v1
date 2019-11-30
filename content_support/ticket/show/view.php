@@ -62,8 +62,18 @@ class view
 
 		if(isset($main['parent']))
 		{
-			\dash\redirect::to(\dash\url::this(). '/show?id='. $main['parent']);
-			return;
+			$newUrl = \dash\url::this(). '/show?id='. $main['parent'];
+			if(\dash\url::content() === 'api')
+			{
+				\dash\notif::warn(T_("This is a ticket message!"));
+				\dash\notif::direct($main['parent']);
+				return;
+			}
+			else
+			{
+				\dash\redirect::to($newUrl);
+				return;
+			}
 		}
 
 		\dash\data::masterTicketDetail($main);

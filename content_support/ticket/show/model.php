@@ -55,6 +55,11 @@ class model
 	private static function loadTicketDetail($_id)
 	{
 		$main = \dash\data::loadTicketDetail();
+		if(!$main && $_id && is_numeric($_id))
+		{
+			$main = \dash\app\ticket::get($_id);
+			\dash\data::loadTicketDetail($main);
+		}
 		return $main;
 	}
 
@@ -235,6 +240,18 @@ class model
 
 	}
 
+
+	/**
+	 * replay message
+	 * this function call in api
+	 *
+	 * @param      <type>   $_id            The identifier
+	 * @param      <type>   $_answer        The answer
+	 * @param      string   $_type          The type
+	 * @param      boolean  $_send_message  The send message
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function answer_save($_id, $_answer, $_type = 'ticket', $_send_message = true)
 	{
 		$file     = self::upload_file('file');

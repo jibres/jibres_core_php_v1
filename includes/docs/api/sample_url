@@ -32,7 +32,7 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> products/compare/{PRODUCT}/{PRODUCT}/{PRODUCT}/{PRODUCT}/{PRODUCT}
 >> products/list?sort=expensive|latest|visit|popular|discount ------- OK
 >> products/category/{CATEGORY} ------------------------------------- OK
->> products/collection/{COLLECTION} --------------------------------- ??
+>> products/collection/{COLLECTION} --------------------------------- OK
 >> products/tag/{TAG} ---- Realy need this?
 >> products/company/{COMPANY} --------------------------------------- OK
 >> products/search?q={QUERY}&tag={TAG}&... -------------------------- OK
@@ -87,7 +87,6 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> ticket/add/feedback
 >> ticket/add/contact
 >> ticket/{TICKET} -------------------------------------------------- OK
->> ticket/{TICKET}/attachment -------- Ready
 >> ticket/{TICKET}/reply ------------- Ready
 >> ticket/{TICKET}/close ------------- Ready
 >> ticket/{TICKET}/status ------------ Ready

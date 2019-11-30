@@ -66,7 +66,7 @@ class controller
 		}
 		elseif($ticket_id && is_numeric($ticket_id) && intval($ticket_id) > 0 && !\dash\number::is_larger($ticket_id, 9999999999))
 		{
-			if(!\dash\url::dir(5))
+			if(!\dash\url::dir(4))
 			{
 				if(!\dash\request::is('get'))
 				{
@@ -75,12 +75,14 @@ class controller
 
 				self::get_ticket($ticket_id);
 			}
-			elseif(in_array(\dash\url::dir(5), ['attachment','reply','close','status','solved']))
+			elseif(in_array(\dash\url::dir(4), ['attachment','replay','close','status','solved']))
 			{
-				if(\dash\url::dir(6))
+				if(\dash\url::dir(5))
 				{
 					\content_api\v1::invalid_url();
 				}
+
+				self::ticket_replay($ticket_id);
 			}
 			else
 			{
@@ -107,6 +109,15 @@ class controller
 		\content_support\ticket\home\view::load_ticket_list();
 		$ticket_list = \dash\data::dataTable();
 		\content_api\v1::say($ticket_list);
+	}
+
+	private static function ticket_replay($_tiket_id)
+	{
+		// $via     = 'api';
+		$via     = null;
+		$content = \content_api\v1::input_body('content');
+		$result = \content_support\ticket\show\model::answer_save($_tiket_id, $content, $_type = 'ticket', $_send_message = false);
+		\content_api\v1::say($result);
 	}
 
 

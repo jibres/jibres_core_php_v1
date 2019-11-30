@@ -1,15 +1,15 @@
-<div class="cbox" id='ticket-add'>
+<div class="cbox" id='ticket-replay'>
 
-  <h2 class="f" data-kerkere='#ticket-add-detail' data-kerkere-icon='open'>
+  <h2 class="f" data-kerkere='#ticket-replay-detail' data-kerkere-icon='open'>
     <div class="cauto pRa10"><span class="badge primary">POST</span></div>
     <div>{%trans "Get add of ticket"%}</div>
   </h2>
-  <div id="ticket-add-detail">
+  <div id="ticket-replay-detail">
 
 
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{CustomerApiURL}}<b>ticket/add</b></span>
+      <span>{{CustomerApiURL}}<b>ticket/{TICKET}/replay</b></span>
     </div>
 
          {%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
@@ -70,7 +70,7 @@
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
-curl -X POST {{CustomerApiURL}}ticket/add -H 'appkey: {{myAppKey}}' -H 'apikey: {{myApiKey}} -d '{"content": "Can Help me?"}'
+curl -X POST {{CustomerApiURL}}ticket/{TICKET}/replay -H 'appkey: {{myAppKey}}' -H 'apikey: {{myApiKey}} -d '{"content": "Can Help me?"}'
 </pre>
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
