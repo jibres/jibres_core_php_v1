@@ -4,6 +4,12 @@ namespace dash\engine;
 
 class store
 {
+	/**
+	 * save store loaded detail to get from detective
+	 *
+	 * @var        array
+	 */
+	private static $store_loaded_detail = [];
 
 	/**
 	 * CHECKING THE STORE IS LOADED OR NO
@@ -29,6 +35,17 @@ class store
 	public static function inStore()
 	{
 		return self::$IN_SOTE;
+	}
+
+
+	/**
+	 * Stores a detail.
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function store_detail()
+	{
+		return self::$store_loaded_detail;
 	}
 
 
@@ -187,6 +204,9 @@ class store
 			$detail['store']     = $_store_detail;
 			$detail['db_name']   = $db_name;
 			$detail['subdomain'] = isset($_store_detail['subdomain']) ? $_store_detail['subdomain'] : null;
+			$detail['fuel']      = isset($_store_detail['fuel']) ? $_store_detail['fuel'] : null;
+
+			self::$store_loaded_detail = $detail;
 
 			\dash\db::$store_db_name = $db_name;
 
