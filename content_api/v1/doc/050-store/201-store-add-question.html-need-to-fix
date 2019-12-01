@@ -1,5 +1,5 @@
 <h2 class="f" data-kerkere='#store-add-question-detail' data-kerkere-icon='open'>
-  <span class="cauto pRa10"><span class="badge primary">GET</span></span>
+  <span class="cauto pRa10"><span class="badge success">GET</span></span>
   <span class="c">{%trans "Get setup store question"%}</span>
 </h2>
 <div id="store-add-question-detail">
