@@ -1,17 +1,15 @@
+<h2 class="f" data-kerkere='#responses-detail' data-kerkere-icon='open'>{%trans "Responses"%}</h2>
+<div id="responses-detail">
+  <div class="cbox fs15" id='responses'>
 
-<div class="cbox fs15" id='responses'>
-  <h2 class="f" data-kerkere='#responses-detail' data-kerkere-icon='open'>{%trans "Responses"%}</h2>
-  <div id="responses-detail">
-
-    <p>{%trans "Each response is a JSON object."%}
-      <ul class="list">
-        <li>{%trans "The data requested is wrapped in the <code>result</code> tag."%}</li>
-        <li>{%trans "If you have a response, it will always be within the <code>result</code> field."%}</li>
-        <li>{%trans "We also include a <code>ok</code> flag and an array of <code>msg</code> in the response."%}</li>
-        <li>{%trans "Some responses can have additional pagination info wrapped in the <code>meta</code>"%}</li>
-        <li>{%trans "An msg object will contain a <code>type</code> field and a <code>text</code>"%}</li>
-      </ul>
-    </p>
+    <p>{%trans "Each response is a JSON object."%}</p>
+    <ul class="list">
+      <li>{%trans "The data requested is wrapped in the <code>result</code> tag."%}</li>
+      <li>{%trans "If you have a response, it will always be within the <code>result</code> field."%}</li>
+      <li>{%trans "We also include a <code>ok</code> flag and an array of <code>msg</code> in the response."%}</li>
+      <li>{%trans "Some responses can have additional pagination info wrapped in the <code>meta</code>"%}</li>
+      <li>{%trans "An msg object will contain a <code>type</code> field and a <code>text</code>"%}</li>
+    </ul>
 
 
     <h3>{%trans "Success Response"%} <small>{%trans "example"%}</small></h3>

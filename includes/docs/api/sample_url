@@ -33,7 +33,7 @@ https://developers.jibres.com/api/v1/{STORE} ------------------------- OK
 >> products/list?sort=expensive|latest|visit|popular|discount ------- OK
 >> products/category/{CATEGORY} ------------------------------------- OK
 >> products/collection/{COLLECTION} --------------------------------- OK
->> products/tag/{TAG} ---- Realy need this?
+>> products/tag/{TAG} ---- Really need this?
 >> products/company/{COMPANY} --------------------------------------- OK
 >> products/search?q={QUERY}&tag={TAG}&... -------------------------- OK
 

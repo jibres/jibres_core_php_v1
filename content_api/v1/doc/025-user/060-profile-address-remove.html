@@ -1,10 +1,9 @@
-<div class="cbox" id='user-address-remove'>
-
-  <h2 class="f" data-kerkere='#user-address-remove-detail' data-kerkere-icon='open'>
-    <div class="cauto pRa10"><span class="badge primary">DELETE</span></div>
-    <div>{%trans "Remove address"%}</div>
-  </h2>
-  <div id="user-address-remove-detail">
+<h2 class="f" data-kerkere='#user-address-remove-detail' data-kerkere-icon='open'>
+  <span class="cauto pRa10"><span class="badge primary">DELETE</span></span>
+  <span class="c">{%trans "Remove address"%}</span>
+</h2>
+<div id="user-address-remove-detail">
+  <div class="cbox" id='user-address-remove'>
     <div class="msg url">
       <i class="method">DELETE</i>
       <span>{{CustomerApiURL}}<b>user/{USERID}/address/{ADDRESS}/remove</b></span>

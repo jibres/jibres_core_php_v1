@@ -1,12 +1,9 @@
-<div class="cbox" id='ticket-status'>
-
-  <h2 class="f" data-kerkere='#ticket-status-detail' data-kerkere-icon='open'>
-    <div class="cauto pRa10"><span class="badge primary">PUT</span></div>
-    <div>{%trans "Change status of ticket"%}</div>
-  </h2>
-  <div id="ticket-status-detail">
-
-
+<h2 class="f" data-kerkere='#ticket-status-detail' data-kerkere-icon='open'>
+  <span class="cauto pRa10"><span class="badge primary">PUT</span></span>
+  <span class="c">{%trans "Change status of ticket"%}</span>
+</h2>
+<div id="ticket-status-detail">
+  <div class="cbox" id='ticket-status'>
     <div class="msg url">
       <i class="method">PUT</i>
       <span>{{CustomerApiURL}}<b>ticket/{TICKET}/status</b></span>

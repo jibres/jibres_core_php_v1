@@ -1,11 +1,10 @@
+<h2 class="f" data-kerkere='#store-add-detail' data-kerkere-icon='open'>
+  <span class="cauto pRa10"><span class="badge primary">POST</span></span>
+  <span class="c">{%trans "Add new store"%}</span>
+</h2>
+<div id="store-add-detail">
+  <div class="cbox" id='store-add'>
 
-<div class="cbox" id='store-add'>
-
-  <h2 class="f" data-kerkere='#store-add-detail' data-kerkere-icon='open'>
-    <div class="cauto pRa10"><span class="badge primary">POST</span></div>
-    <div>{%trans "Add new store"%}</div>
-  </h2>
-  <div id="store-add-detail">
     <p>{%trans "You must be aware of the terms and conditions of the Jibres before adding the store"%}</p>
 
     <div class="msg url">
