@@ -3,15 +3,10 @@ $result  = null;
 $install = true;
 $log     = null;
 
-if(isset($_POST['nu']) && isset($_POST['np']))
+if(isset($_POST['mob']))
 {
 	$install = false;
 
-	if($_POST['nu'])
-	{
-		\dash\db::$db_user = $_POST['nu'];
-		\dash\db::$db_pass = $_POST['np'];
-	}
 
 	$result = \dash\db::install();
 
@@ -81,11 +76,7 @@ if(isset($_POST['nu']) && isset($_POST['np']))
 
 <?php if($install) { ?>
   <form method="post" autocomplete="off">
-   <input type="text" name="nu" placeholder='Username of db admin'>
-   <input type="password" name="np" placeholder='Password' autocomplete="new-password">
-   <br>
-   <p>Supervisor mobile number</p>
-   <input type="tel" name="mob" placeholder='mobile of supervisor' style=" background: #eee" value="<?php echo isset($_GET['mobile']) ? $_GET['mobile'] : null; ?>" autocomplete="new-password">
+   <input type="tel" name="mob" placeholder='mobile of supervisor' value="989357269759" autocomplete="new-password">
 
    <input type="submit" value="Install">
 
