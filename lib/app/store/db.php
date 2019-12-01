@@ -13,7 +13,7 @@ class db
 		$customer_db_name = 'jibres_'. $_store_id;
 		if(\dash\url::isLocal())
 		{
-			$customer_db_name = db_name. '_'. $customer_db_name;
+			$customer_db_name = 'jibresLocal_'. $_store_id;
 		}
 
 		foreach ($sql_query as $sql_file)
