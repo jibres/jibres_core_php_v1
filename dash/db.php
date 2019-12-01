@@ -10,7 +10,6 @@ class db
 	 */
 	use \dash\db\mysql\tools\connect;
 	use \dash\db\mysql\tools\backup;
-	use \dash\db\mysql\tools\install;
 	use \dash\db\mysql\tools\get;
 	use \dash\db\mysql\tools\info;
 	use \dash\db\mysql\tools\pagination;
