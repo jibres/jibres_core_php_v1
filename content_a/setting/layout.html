@@ -207,12 +207,6 @@
 {%endblock%}
 
 
-{%block iname%}
-<label for="name">{%trans "Name"%} <span class="fc-red">*</span></label>
-<div class="input">
-  <input type="text" name="name" id="name" placeholder='{%trans "Name"%}' value="{{store.store_data.title}}" autofocus maxlength='50' minlength="1" pattern=".{1,50}" title='{%trans "Enter a valid name from 3 to 40 character"%}' required>
-</div>
-{%endblock%}
 
 
 {%block islug%}
@@ -247,11 +241,6 @@
 </div>
 {%endblock%}
 
-
-{%block idesc%}
-<label for="desc">{%trans "Description"%} <small>{%trans "Used for description of board and show in social media links"%}</small></label>
-<textarea class="txt mB10" name="desc" placeholder='{%trans "Description"%}' maxlength='300' rows="3">{{store.desc}}</textarea>
-{%endblock%}
 
 
 {%block iaddress%}

@@ -6,7 +6,7 @@ class model
 {
 	public static function post()
 	{
-		\lib\app\store::edit(self::getPost());
+		\lib\app\store\edit::selfedit(self::getPost());
 
 		if(\dash\engine\process::status())
 		{
@@ -19,10 +19,8 @@ class model
 	{
 		$args =
 		[
-			'name'    => \dash\request::post('name'),
-			'website' => \dash\request::post('website'),
+			'title'    => \dash\request::post('title'),
 			'desc'    => \dash\request::post('desc'),
-			'status'  => \dash\request::post('status'),
 		];
 		return $args;
 	}

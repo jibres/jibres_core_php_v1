@@ -8,17 +8,19 @@
  </div>
  <div class="c s12 pA10">
   <div class="cbox">
-   <form method="post">
-    <input type="hidden" name="formType" value="public">
-    {{block ("iname")}}
-    {{block ("islug")}}
-    {{block ("iwebsite")}}
-    {{block ("idesc")}}
+   <form method="post" autocomplete="off">
 
-    <div class="msg {%if store.status == 'enable'%}success2{%elseif store.status == 'close' %}danger2{%endif%}">
-      {{block ("istatus")}}
-    </div>
-    {{block ("iSaveAll")}}
+      <label for="ititle">{%trans "Name"%} <span class="fc-red">*</span></label>
+      <div class="input">
+        <input type="text" name="title" id="ititle" placeholder='{%trans "Name"%}' value="{{store.store_data.title}}" autofocus maxlength='50' minlength="1"  required>
+      </div>
+
+      <label for="desc">{%trans "Description"%}</label>
+      <textarea class="txt mB10" name="desc"  maxlength='2000' rows="3">{{store.store_data.desc}}</textarea>
+
+      <div class="txtRa">
+        <button class="btn success">{%trans "Save"%}</button>
+      </div>
    </form>
   </div>
 
@@ -30,8 +32,6 @@
 
 
 {%endblock%}
-
-
 
 
 {%block istatus%}
