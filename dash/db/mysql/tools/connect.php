@@ -176,13 +176,6 @@ trait connect
 							return false;
 						}
 
-						if(defined('db_log_name'))
-						{
-							$qry = "CREATE DATABASE IF NOT EXISTS `". db_log_name. "` DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;";
-							// try to create log database
-							@mysqli_query($link, $qry);
-						}
-
 						// else if can create new database then reset link to dbname
 						$link = self::create_link();
 					}
