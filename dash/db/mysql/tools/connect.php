@@ -152,7 +152,7 @@ trait connect
 	 * if not exist create it
 	 * @return [type] [description]
 	 */
-	public static function connect($_db_name = null)
+	public static function connect()
 	{
 		// if link exist before this, use it
 		// if(array_key_exists(self::$db_name, self::$link_open))
