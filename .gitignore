@@ -6,6 +6,7 @@ desktop.ini
 ~*.tmp
 *tg.json
 *.me.*
+/install.jibres
 
 node_modules
 .sass-cache
