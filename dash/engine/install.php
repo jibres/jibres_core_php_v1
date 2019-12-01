@@ -12,8 +12,11 @@ if(isset($_POST['mob']))
 
 	if($result)
 	{
+		// remove
+		\dash\file::delete(root.'install.jibres');
+
 		// insert the admin mobile and set her permission as admin
-		if(isset($_POST['mob']))
+		if($_POST['mob'])
 		{
 			$mobile = \dash\utility\filter::mobile($_POST['mob']);
 			if($mobile)
