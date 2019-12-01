@@ -35,7 +35,7 @@ class controller
 		self::version($detail);
 		self::menu($detail);
 		self::transalate($detail);
-		self::navigation($detail);
+		// self::navigation($detail);
 		self::intro($detail);
 		self::theme_default($detail);
 		self::theme_night($detail);
@@ -124,75 +124,72 @@ class controller
 	{
 		$menu = [];
 		// type enum(defile, url, api, menu, tel, email)
+		// $menu[] =
+		// [
+		// 	'icon'  => 'info',
+		// 	'type'  => 'menu',
+		// 	'title' => T_("About"),
+		// 	'link'  => null,
+		// 	'child' =>
+		// 	[
+		// 		[
+		// 			'icon'  => 'android',
+		// 			'type'  => 'define',
+		// 			'title' => T_("About this version"),
+		// 			'link'  => null,
+		// 		],
+		// 		[
+		// 			'icon'  => 'info',
+		// 			'type'  => 'api',
+		// 			'title' => T_("About us"),
+		// 			'link'  => \dash\url::kingdom(). '/api/v1/about',
+		// 		],
+		// 		[
+		// 			'icon'  => 'lock',
+		// 			'type'  => 'api',
+		// 			'title' => T_("Privacy"),
+		// 			'link'  => \dash\url::kingdom(). '/api/v1/privacy',
+		// 		],
+		// 		[
+		// 			'icon'  => 'list',
+		// 			'type'  => 'api',
+		// 			'title' => T_("Terms"),
+		// 			'link'  => \dash\url::kingdom(). '/api/v1/terms',
+		// 		],
+		// 	],
+		// ];
+
 		$menu[] =
 		[
-			'icon'  => 'info',
-			'type'  => 'menu',
-			'title' => T_("About"),
-			'link'  => null,
-			'child' =>
-			[
-				[
-					'icon'  => 'android',
-					'type'  => 'define',
-					'title' => T_("About this version"),
-					'link'  => null,
-				],
-				[
-					'icon'  => 'info',
-					'type'  => 'api',
-					'title' => T_("About us"),
-					'link'  => \dash\url::kingdom(). '/api/v1/about',
-				],
-				[
-					'icon'  => 'lock',
-					'type'  => 'api',
-					'title' => T_("Privacy"),
-					'link'  => \dash\url::kingdom(). '/api/v1/privacy',
-				],
-				[
-					'icon'  => 'list',
-					'type'  => 'api',
-					'title' => T_("Terms"),
-					'link'  => \dash\url::kingdom(). '/api/v1/terms',
-				],
-			],
+			'icon'   => null,
+			'target' => 'page',
+			'url'    => 'content',
+			'title'  => T_("Contact"),
 		];
 
 		$menu[] =
 		[
-			'icon'  => null,
-			'type'  => 'api',
-			'title' => T_("Contact"),
-			'link'  => \dash\url::kingdom(). '/api/v1/contact',
-			'child' => null,
+			'icon'   => null,
+			'target' => 'page',
+			'url'    => 'vision',
+			'title'  => T_("Vision"),
+			'child'  => null,
 		];
 
 		$menu[] =
 		[
-			'icon'  => null,
-			'type'  => 'api',
-			'title' => T_("Vision"),
-			'link'  => \dash\url::kingdom(). '/api/v1/vision',
-			'child' => null,
+			'icon'   => null,
+			'target' => 'page',
+			'url'    => 'mission',
+			'title'  => T_("Mission"),
 		];
 
 		$menu[] =
 		[
-			'icon'  => null,
-			'type'  => 'api',
-			'title' => T_("Mission"),
-			'link'  => \dash\url::kingdom(). '/api/v1/mission',
-			'child' => null,
-		];
-
-		$menu[] =
-		[
-			'icon'  => null,
-			'type'  => 'url',
-			'title' => T_("Website"),
-			'link'  => \dash\url::kingdom(),
-			'child' => null,
+			'icon'   => null,
+			'target' => 'browser',
+			'url'    => \dash\url::kingdom(),
+			'title'  => T_("Website"),
 		];
 
 
@@ -507,7 +504,8 @@ class controller
 		$homepage[]         = self::products();
 		$homepage[]         = self::btnTile();
 		$homepage[]         = self::text();
-
+		$homepage[]         = self::text2();
+		$homepage[]         = self::text3();
 
 
 		$detail['homepage'] = $homepage;
@@ -526,68 +524,60 @@ class controller
 
 		$data[] =
 		[
-			"image"    => self::sample_image('09'),
-			"url"      => '/product/2kf',
-			"activity" => "product",
-			"mode"     => "api"
+			"image"  => self::sample_image('09'),
+			"url"    => '1',
+			"target" => "product",
 		];
 
 		$data[] =
 		[
-			"image"    => self::sample_image('13'),
-			"url"      => '/category/2kd',
-			"activity" => "category",
-			"mode"     => "api"
+			"image"  => self::sample_image('13'),
+			"url"    => '2kf',
+			"target" => "product",
 		];
 
 		$data[] =
 		[
-			"image"    => self::sample_image('06'),
-			"url"      => '/collection/2kn',
-			"activity" => "collection",
-			"mode"     => "api"
+			"image"  => self::sample_image('06'),
+			"url"    => '3',
+			"target" => "productn"
 		];
 
 		$data[] =
 		[
-			"image"    => self::sample_image('14'),
-			"url"      => '/post/2ke',
-			"activity" => "page",
-			"mode"     => "api"
+			"image"  => self::sample_image('14'),
+			"url"    => 'contact',
+			"target" => "producte"
 		];
 
 
 		$data[] =
 		[
-			"image"    => self::sample_image('21'),
-			"url"      => 'https://jibres.com/category/sample',
-			"activity" => "category",
-			"mode"     => "webview"
+			"image"  => self::sample_image('21'),
+			"url"    => 'https://jibres.com/category/sample',
+			"target" => "webview",
 		];
 
 		$data[] =
 		[
-			"image"    => self::sample_image('30'),
-			"url"      => 'https://jibres.com/collection/sample',
-			"activity" => "collection",
-			"mode"     => "website"
+			"image"  => self::sample_image('30'),
+			"url"    => 'https://jibres.com/collection/sample',
+			"target" => "browser"
 		];
 
 		$data[] =
 		[
-			"image"    => self::sample_image('14'),
-			"url"      => 'tel:+989123456789',
-			"activity" => "tel",
-			"mode"     => "tel"
+			"image"  => self::sample_image('14'),
+			"url"    => '+989123456789',
+			"target" => "tel"
 		];
 
 
 		$data[] =
 		[
-			"image"    => self::sample_image('09'),
-			"url"      => 'mail:info@jires.com',
-			"activity" => "email",
-			"mode"     => "email"
+			"image"  => self::sample_image('09'),
+			"url"    => 'info@jires.com',
+			"target" => "email"
 		];
 
 
@@ -606,69 +596,60 @@ class controller
 
 		$data = [];
 
-
 		$data[] =
 		[
-			"title"    => T_("Expensive"),
-			"url"      => '/product/2kf',
-			"activity" => "product",
-			"mode"     => "api"
+			"title"  => T_("Expensive"),
+			"url"    => '2',
+			"target" => "productt"
 		];
 
 		$data[] =
 		[
-			"title"    => T_("Promotion"),
-			"url"      => '/category/2kd',
-			"activity" => "category",
-			"mode"     => "api"
+			"title"  => T_("Promotion"),
+			"url"    => '2kf',
+			"target" => "productn"
 		];
 
 		$data[] =
 		[
-			"title"    => T_("Inexpensive"),
-			"url"      => '/collection/2kn',
-			"activity" => "collection",
-			"mode"     => "api"
+			"title"  => T_("Inexpensive"),
+			"url"    => 10,
+			"target" => "product",
 		];
 
 		$data[] =
 		[
-			"title"    => T_("Sample"),
-			"url"      => '/post/2ke',
-			"activity" => "page",
-			"mode"     => "api"
+			"title"  => T_("Sample"),
+			"url"    => 'about',
+			"target" => "producte"
 		];
 
 		$data[] =
 		[
-			"title"    => T_("Expensive"),
-			"url"      => '/product/2kf',
-			"activity" => "product",
-			"mode"     => "api"
+			"title"  => T_("Expensive"),
+			"url"    => '3',
+			"target" => "productt"
 		];
 
 		$data[] =
 		[
-			"title"    => T_("Promotion"),
-			"url"      => '/category/2kd',
-			"activity" => "category",
-			"mode"     => "api"
+			"title"  => T_("Promotion"),
+			"url"    => '3',
+			"target" => "producty"
 		];
 
 		$data[] =
 		[
-			"title"    => T_("Inexpensive"),
-			"url"      => '/collection/2kn',
-			"activity" => "collection",
-			"mode"     => "api"
+			"title"  => T_("Inexpensive"),
+			"url"    => '9',
+			"target" => "productn"
 		];
 
 		$data[] =
 		[
-			"title"    => T_("Sample"),
-			"url"      => '/post/2ke',
-			"activity" => "page",
-			"mode"     => "api"
+			"title"  => T_("Sample"),
+			"url"    => '3',
+			"target" => "productt"
 		];
 
 		$bottonLine['data'] = $data;
@@ -694,22 +675,20 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('09'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '2',
+			"target"     => "product",
 			"title"      => "Product1",
 			"firstPrice" => 1000,
 			"discount"   => 300,
 			"price"      => 700,
-			"unit"       => T_("Toman"),
+			"unit"       => T_("Rial"),
 		];
 
 		$data[] =
 		[
 			"image"      => self::sample_image('13'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '33',
+			"target"     => "product",
 			"title"      => "Product2",
 			"firstPrice" => 2000,
 			"discount"   => 300,
@@ -720,9 +699,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('06'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '3',
+			"target"     => "product",
 			"title"      => "Product3",
 			"firstPrice" => 3000,
 			"discount"   => 300,
@@ -733,9 +711,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('14'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product4",
 			"firstPrice" => 4000,
 			"discount"   => 300,
@@ -747,9 +724,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('21'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product5",
 			"firstPrice" => 5000,
 			"discount"   => 300,
@@ -760,9 +736,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('30'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product6",
 			"firstPrice" => 6000,
 			"discount"   => 300,
@@ -773,9 +748,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('09'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product1",
 			"firstPrice" => 1000,
 			"discount"   => 300,
@@ -786,9 +760,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('13'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product2",
 			"firstPrice" => 2000,
 			"discount"   => 300,
@@ -799,9 +772,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('06'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product3",
 			"firstPrice" => 3000,
 			"discount"   => 300,
@@ -812,9 +784,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('14'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product4",
 			"firstPrice" => 4000,
 			"discount"   => 300,
@@ -826,9 +797,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('21'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product5",
 			"firstPrice" => 5000,
 			"discount"   => 300,
@@ -839,9 +809,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('30'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product6",
 			"firstPrice" => 6000,
 			"discount"   => 300,
@@ -883,10 +852,9 @@ class controller
 		{
 			$data[] =
 			[
-				"image"    => self::sample_image($rand[array_rand($rand)]),
-				"url"      => 'https://jibres.com/collection/sample',
-				"activity" => "collection",
-				"mode"     => "website"
+				"image"  => self::sample_image($rand[array_rand($rand)]),
+				"url"    => '1',
+				"target" => "product"
 			];
 		}
 
@@ -907,10 +875,9 @@ class controller
 		{
 			$data[] =
 			[
-				"image"    => self::sample_image($rand[array_rand($rand)]),
-				"url"      => 'https://jibres.com/collection/sample',
-				"activity" => "collection",
-				"mode"     => "website"
+				"image"  => self::sample_image($rand[array_rand($rand)]),
+				"url"    => '2',
+				"target" => "collection"
 			];
 		}
 
@@ -924,13 +891,12 @@ class controller
 		$products           = [];
 		$products['type']   = 'products';
 		$products['margin'] = 2;
-		$products['desc'] =
+		$products['desc']   =
 		[
-			"title"    => "Product group 1",
-			"url"      => '/product/2kf',
-			"link"     => 'View Full',
-			"activity" => "product",
-			"mode"     => "api",
+			"title"  => "Product group 1",
+			"url"    => '123',
+			"target" => "product",
+			"link"   => 'View Full',
 		];
 
 		$data = [];
@@ -938,9 +904,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('09'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product1",
 			"firstPrice" => 1000,
 			"discount"   => 300,
@@ -951,9 +916,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('13'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product2",
 			"firstPrice" => 2000,
 			"discount"   => 300,
@@ -964,9 +928,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('06'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product3",
 			"firstPrice" => 3000,
 			"discount"   => 300,
@@ -977,9 +940,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('14'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product4",
 			"firstPrice" => 4000,
 			"discount"   => 300,
@@ -991,9 +953,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('21'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product5",
 			"firstPrice" => 5000,
 			"discount"   => 300,
@@ -1004,9 +965,8 @@ class controller
 		$data[] =
 		[
 			"image"      => self::sample_image('30'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
+			"url"        => '123',
+			"target"     => "product",
 			"title"      => "Product6",
 			"firstPrice" => 6000,
 			"discount"   => 300,
@@ -1030,49 +990,44 @@ class controller
 
 		$data[] =
 		[
-			"image"      => self::sample_image('09'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
-			"text"      => "Product1",
+			"image"  => self::sample_image('09'),
+			"url"    => '123',
+			"target" => "product",
+			"text"   => "Product1",
 
 		];
 
 		$data[] =
 		[
-			"image"      => self::sample_image('13'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
-			"text"      => "Product2",
+			"image"  => self::sample_image('13'),
+			"url"    => '123',
+			"target" => "product",
+			"text"   => "Product2",
 		];
 
 		$data[] =
 		[
-			"image"      => self::sample_image('06'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
-			"text"      => "Product3",
+			"image"  => self::sample_image('06'),
+			"url"    => '123',
+			"target" => "product",
+			"text"   => "Product3",
 		];
 
 		$data[] =
 		[
-			"image"      => self::sample_image('14'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
-			"text"      => "Product4",
+			"image"  => self::sample_image('14'),
+			"url"    => '123',
+			"target" => "product",
+			"text"   => "Product4",
 		];
 
 
 		$data[] =
 		[
-			"image"      => self::sample_image('21'),
-			"url"        => '/product/2kf',
-			"activity"   => "product",
-			"mode"       => "api",
-			"text"      => "Product5",
+			"image"  => self::sample_image('21'),
+			"url"    => '123',
+			"target" => "product",
+			"text"   => "Product5",
 		];
 
 
@@ -1084,13 +1039,35 @@ class controller
 
 	private static function text()
 	{
-		$text           = [];
-		$text['type']   = 'text';
-		$text['margin'] = 2;
+		$text            = [];
+		$text['type']    = 'text';
+		$text['margin']  = 2;
 		$text['justify'] = 'center'; // rigth // left
-		$text['text']   = "Hello, Show this text to me. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod \ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo";
+		$text['text']    = "Hello, Show this text to me. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod \ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo";
 
 
+		return $text;
+
+	}
+
+	private static function text2()
+	{
+		$text            = [];
+		$text['type']    = 'text';
+		$text['margin']  = 5;
+		$text['justify'] = 'left'; // rigth // left
+		$text['text']    = "Hi";
+		return $text;
+
+	}
+
+	private static function text3()
+	{
+		$text            = [];
+		$text['type']    = 'text';
+		$text['margin']  = 5;
+		$text['justify'] = 'right'; // rigth // left
+		$text['text']    = "Hi";
 		return $text;
 
 	}
