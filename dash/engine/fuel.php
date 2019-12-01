@@ -90,12 +90,12 @@ class fuel
 	{
 		return
 		[
-			'code'  => __FUNCTION__,
-			'host'  => 'localhost',
-			'port'  => 3306,
-			'user'  => 'ermile',
-			'pass'  => 'Ermile@#$1233',
-			'database'  => 'jibres5',
+			'code'     => __FUNCTION__,
+			'host'     => 'localhost',
+			'port'     => 3306,
+			'user'     => 'root',
+			'pass'     => 'root',
+			'database' => 'jibres',
 		];
 	}
 }

@@ -179,7 +179,7 @@ class store
 
 			if(\dash\url::isLocal())
 			{
-				$db_name = db_name. '_'. $db_name;
+				$db_name           = 'jibresLocal_'. $_store_id;
 			}
 
 			$detail              = [];
