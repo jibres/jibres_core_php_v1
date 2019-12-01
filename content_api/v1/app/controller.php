@@ -488,11 +488,19 @@ class controller
 		$homepage[]         = self::slider();
 		$homepage[]         = self::bottonLine();
 		$homepage[]         = self::promotion();
-		$homepage[]         = self::banner();
+
+		$homepage[]         = self::banner(1);
+		$homepage[]         = self::banner(2);
+		$homepage[]         = self::banner(3);
+		$homepage[]         = self::banner(4);
+		$homepage[]         = self::banner(5);
+
 		$homepage[]         = self::tile(1);
 		$homepage[]         = self::tile(2);
 		$homepage[]         = self::tile(3);
 		$homepage[]         = self::tile(4);
+		$homepage[]         = self::tile(5);
+
 		$homepage[]         = self::banner();
 
 
@@ -510,6 +518,9 @@ class controller
 	{
 		$slider           = [];
 		$slider['type']   = 'slider';
+		$slider['ratio']  = 30;
+		$slider['margin'] = 4;
+
 
 		$data = [];
 
@@ -590,9 +601,43 @@ class controller
 	{
 		$bottonLine           = [];
 		$bottonLine['type']   = 'bottonLine';
+		$bottonLine['margin'] = 2;
+
 
 		$data = [];
 
+
+		$data[] =
+		[
+			"title"    => T_("Expensive"),
+			"url"      => '/product/2kf',
+			"activity" => "product",
+			"mode"     => "api"
+		];
+
+		$data[] =
+		[
+			"title"    => T_("Promotion"),
+			"url"      => '/category/2kd',
+			"activity" => "category",
+			"mode"     => "api"
+		];
+
+		$data[] =
+		[
+			"title"    => T_("Inexpensive"),
+			"url"      => '/collection/2kn',
+			"activity" => "collection",
+			"mode"     => "api"
+		];
+
+		$data[] =
+		[
+			"title"    => T_("Sample"),
+			"url"      => '/post/2ke',
+			"activity" => "page",
+			"mode"     => "api"
+		];
 
 		$data[] =
 		[
@@ -636,10 +681,11 @@ class controller
 	{
 		$promotion           = [];
 		$promotion['type']   = 'promotion';
+		$promotion['margin'] = 2;
 		$promotion['expire'] =
 		[
 			"serverttime" => time(),
-			"expiretime"  => time() + 3600,
+			"expiretime"  => time() + rand(36000, 90000),
 		];
 		$promotion['title']   = T_("50% Deals");
 
@@ -730,21 +776,50 @@ class controller
 		return $promotion;
 	}
 
-	private static function banner()
+	// private static function banner()
+	// {
+	// 	$link             = [];
+	// 	$link['type']     = 'banner';
+
+	// 	$banner = [];
+	// 	$link['image']    = self::sample_image('06');
+	// 	$link['url']      = self::jibres_temp_url(). '/store';
+	// 	$link['activity'] = "category";
+	// 	$link['mode']     = "api";
+	// 	return $link;
+	// }
+
+	private static function banner($_count = 1)
 	{
-		$link             = [];
-		$link['type']     = 'banner';
-		$link['image']    = self::sample_image('06');
-		$link['url']      = self::jibres_temp_url(). '/store';
-		$link['activity'] = "category";
-		$link['mode']     = "api";
-		return $link;
+		$banner           = [];
+		$banner['type']   = 'banner';
+		$banner['ratio']  = 30;
+		$banner['margin'] = 3;
+
+		$data = [];
+		// @check
+		$rand = [10,11,12,16,17];
+		for ($i=1; $i <= $_count ; $i++)
+		{
+			$data[] =
+			[
+				"image"    => self::sample_image($rand[array_rand($rand)]),
+				"url"      => 'https://jibres.com/collection/sample',
+				"activity" => "collection",
+				"mode"     => "website"
+			];
+		}
+
+		$banner['data'] = $data;
+		return $banner;
 	}
 
 	private static function tile($_count = 1)
 	{
 		$tile           = [];
 		$tile['type']   = 'tile';
+		$tile['ratio']  = 35;
+		$tile['margin'] = 2;
 
 		$data = [];
 		$rand = [10,11,12,16,17];
@@ -768,6 +843,7 @@ class controller
 	{
 		$products           = [];
 		$products['type']   = 'products';
+		$products['margin'] = 2;
 		$products['desc'] =
 		[
 			"title"    => "Product group 1",
@@ -868,6 +944,7 @@ class controller
 	{
 		$btnTile           = [];
 		$btnTile['type']   = 'btnTile';
+		$btnTile['margin'] = 2;
 
 		$data = [];
 
@@ -929,6 +1006,8 @@ class controller
 	{
 		$text           = [];
 		$text['type']   = 'text';
+		$text['margin'] = 2;
+		$text['justify'] = 'center'; // rigth // left
 		$text['text']   = "Hello, Show this text to me. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod \ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo";
 
 
