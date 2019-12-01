@@ -45,7 +45,7 @@ trait install
 			$myDbCon = $myDbName;
 
 			// get the current version of database
-			$db_version = self::db_version($myDbCon);
+			$db_version = self::db_version('database_version.jibres');
 
 			$result[$myDbName]['version'] = $db_version;
 
@@ -142,7 +142,7 @@ trait install
 			}
 		}
 
-		$_db_version = self::db_version(self::$db_name);
+		$_db_version = self::db_version('database_version.jibres');
 
 		if(version_compare($_db_version, $file_version, "<"))
 		{
