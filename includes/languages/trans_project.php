@@ -240,7 +240,7 @@ class twigTransTerms
 	echo T_("Max item in each invoice");                                              // Line 115
 	echo T_("Basic Features");                                                        // Line 124
 	echo T_("Each SMS cost");                                                         // Line 128
-	echo T_("Optional");                                                              // Line 40
+	echo T_("Optional");                                                              // Line 39
 	echo T_("Sale on social networks");                                               // Line 157
 	echo T_("Starter Features");                                                      // Line 173
 	echo T_("Simple Features");                                                       // Line 199
@@ -353,7 +353,7 @@ class twigTransTerms
 	echo T_("Click to see your password");                                            // Line 52
 	echo T_("Password?");                                                             // Line 62
 	echo T_("Verify Code");                                                           // Line 80
-	echo T_("Code");                                                                  // Line 58
+	echo T_("Code");                                                                  // Line 56
 	echo T_("Send this code to our number!");                                         // Line 88
 	echo T_("send to this number");                                                   // Line 95
 	echo T_("Send code to this number!");                                             // Line 95
@@ -1507,7 +1507,7 @@ class twigTransTerms
 	//------------------------------------content_a/thirdparty-old/export/display.html
 	echo T_("Please choose type of third party you want to export.");                 // Line 7
 	echo T_("Please wait to complete export process");                                // Line 57
-	echo T_("Customers");                                                             // Line 17
+	echo T_("Customers");                                                             // Line 16
 	echo T_("Staffs");                                                                // Line 38
 	echo T_("Suppliers");                                                             // Line 122
 	echo T_("Thirdparties");                                                          // Line 60
@@ -2129,82 +2129,84 @@ class twigTransTerms
 
 	//------------------------------content_api/v1/doc/045-ticket/015-ticket-load.html
 	echo T_("Load a ticket");                                                         // Line 86
-	echo T_("cURL");                                                                  // Line 16
-	echo T_("example");                                                               // Line 24
-	echo T_("Response");                                                              // Line 24
-	echo T_("Example");                                                               // Line 21
+	echo T_("cURL");                                                                  // Line 15
+	echo T_("example");                                                               // Line 23
+	echo T_("Response");                                                              // Line 23
+	echo T_("Example");                                                               // Line 18
 
 	//----------------------------content_api/v1/doc/045-ticket/020-ticket-replay.html
-	echo T_("Replay the ticket");                                                     // Line 5
-	echo T_("Required parameters");                                                   // Line 76
+	echo T_("Replay the ticket");                                                     // Line 3
+	echo T_("Required parameters");                                                   // Line 75
 	echo T_("type");                                                                  // Line 16
-	echo T_("Constraints");                                                           // Line 82
-	echo T_("The ticket content");                                                    // Line 34
-	echo T_("Required");                                                              // Line 112
-	echo T_("The ticket title");                                                      // Line 47
+	echo T_("Constraints");                                                           // Line 81
+	echo T_("The ticket content");                                                    // Line 33
+	echo T_("Required");                                                              // Line 111
+	echo T_("The ticket title");                                                      // Line 46
 
 	//----------------------------content_api/v1/doc/045-ticket/030-ticket-solved.html
-	echo T_("Set solved ticket");                                                     // Line 5
-	echo T_("The ticket solved");                                                     // Line 34
+	echo T_("Set solved ticket");                                                     // Line 3
+	echo T_("The ticket solved");                                                     // Line 31
 
 	//-------------------------------content_api/v1/doc/045-ticket/005-ticket-add.html
 	echo T_("Add new ticket");                                                        // Line 79
 
 	//------------------------------content_api/v1/doc/045-ticket/010-ticket-list.html
-	echo T_("Get list of ticket");                                                    // Line 5
+	echo T_("Get list of ticket");                                                    // Line 3
 
 	//----------------------------content_api/v1/doc/045-ticket/025-ticket-status.html
-	echo T_("Change status of ticket");                                               // Line 5
-	echo T_("The ticket status");                                                     // Line 34
+	echo T_("Change status of ticket");                                               // Line 3
+	echo T_("The ticket status");                                                     // Line 31
 
 	//-----------------------content_api/v1/doc/025-user/057-profile-address-edit.html
 	echo T_("Edit address");                                                          // Line 8
-	echo T_("Parameters");                                                            // Line 17
+	echo T_("Edit user address");                                                     // Line 61
+	echo T_("Parameters");                                                            // Line 16
 	echo T_("Every parameter in add new address can be use in edit mode");            // Line 18
 
 	//-------------------------------content_api/v1/doc/025-user/025-user-add-crm.html
-	echo T_("Add new user to members list");                                          // Line 8
-	echo T_("This method is different by sinup user api");                            // Line 9
-	echo T_("In this metho you must have permission to add new user");                // Line 10
-	echo T_("The user mobile");                                                       // Line 35
+	echo T_("Add new user to members list");                                          // Line 7
+	echo T_("This method is different by sinup user api");                            // Line 8
+	echo T_("In this metho you must have permission to add new user");                // Line 9
+	echo T_("The user mobile");                                                       // Line 34
 
 	//----------------------------content_api/v1/doc/025-user/026-get-user-detail.html
-	echo T_("Get user detail");                                                       // Line 5
+	echo T_("Get user detail");                                                       // Line 3
 
 	//----------------------------------content_api/v1/doc/025-user/024-user-list.html
-	echo T_("Get list of users");                                                     // Line 5
+	echo T_("Get list of users");                                                     // Line 3
 
 	//--------------------------------content_api/v1/doc/025-user/050-address-add.html
-	echo T_("Add new address");                                                       // Line 11
-	echo T_("Add new address to your user");                                          // Line 8
-	echo T_("Get from location API");                                                 // Line 34
+	echo T_("Add new address to user");                                               // Line 59
+	echo T_("Get from location API");                                                 // Line 33
 	echo T_("Click here");                                                            // Line 420
 
 	//-----------------------content_api/v1/doc/025-user/055-profile-address-list.html
-	echo T_("Get address list");                                                      // Line 5
-	echo T_("Get your address list");                                                 // Line 8
+	echo T_("Get user address list");                                                 // Line 7
 
 	//---------------------------content_api/v1/doc/025-user/029-edit-user-avatar.html
-	echo T_("Update avatar");                                                         // Line 5
-	echo T_("Upload user avatar to change it");                                       // Line 8
+	echo T_("Update avatar");                                                         // Line 3
+	echo T_("Upload user avatar to change it");                                       // Line 7
 	echo T_("You file location to upload");                                           // Line 33
 
 	//----------------------------------content_api/v1/doc/025-user/027-edit-user.html
-	echo T_("Update your profile");                                                   // Line 5
+	echo T_("Update your profile");                                                   // Line 3
 	echo T_("Update profile detail");                                                 // Line 8
-	echo T_("Or");                                                                    // Line 36
-	echo T_("User account username in");                                              // Line 188
+	echo T_("Or");                                                                    // Line 35
+	echo T_("User account username in");                                              // Line 187
 	echo T_("instagram");                                                             // Line 152
 
 	//---------------------content_api/v1/doc/025-user/060-profile-address-remove.html
-	echo T_("Remove address");                                                        // Line 50
+	echo T_("Remove user address");                                                   // Line 62
 
 	//--------------------content_api/v1/doc/020-profile/057-profile-address-edit.html
 
 	//-----------------------------content_api/v1/doc/020-profile/050-address-add.html
-	echo T_("Add new address to your profile");                                       // Line 8
+	echo T_("Add new address");                                                       // Line 11
+	echo T_("Add new address to your profile");                                       // Line 7
 
 	//--------------------content_api/v1/doc/020-profile/055-profile-address-list.html
+	echo T_("Get address list");                                                      // Line 3
+	echo T_("Get your address list");                                                 // Line 9
 
 	//--------------------------content_api/v1/doc/020-profile/022-upload-profile.html
 	echo T_("Upload your avatar to change it");                                       // Line 8
@@ -2213,142 +2215,143 @@ class twigTransTerms
 	echo T_("Your account username in");                                              // Line 188
 
 	//------------------content_api/v1/doc/020-profile/060-profile-address-remove.html
+	echo T_("Remove address");                                                        // Line 50
 
 	//-----------------------------content_api/v1/doc/020-profile/021-get-profile.html
 	echo T_("Get profile detail");                                                    // Line 44
 
 	//----------------------------------content_api/v1/doc/001-intro/003-requests.html
 	echo T_("Requests");                                                              // Line 25
-	echo T_("Any tool that is fluent in HTTP can communicate with the API simply by requesting the correct URI.");// Line 6
-	echo T_("Requests should be made using the HTTPS protocol so that traffic is encrypted.");// Line 6
-	echo T_("The interface responds to different methods depending on the action required.");// Line 6
+	echo T_("Any tool that is fluent in HTTP can communicate with the API simply by requesting the correct URI.");// Line 5
+	echo T_("Requests should be made using the HTTPS protocol so that traffic is encrypted.");// Line 5
+	echo T_("The interface responds to different methods depending on the action required.");// Line 5
 	echo T_("Method");                                                                // Line 114
 	echo T_("Usage");                                                                 // Line 15
-	echo T_("For simple retrieval of information about your something you should use the GET method.");// Line 20
-	echo T_("The information you request will be returned to you as a JSON object."); // Line 20
-	echo T_("The attributes defined by the JSON object can be used to form additional requests.");// Line 22
-	echo T_("Any request using the GET method is read-only and will not affect any of the objects you are querying.");// Line 22
-	echo T_("To create a new object, your request should specify the POST method.");  // Line 29
-	echo T_("The POST request includes all of the attributes necessary to create a new object.");// Line 31
-	echo T_("When you wish to create a new object, send a POST request to the target endpoint.");// Line 31
-	echo T_("To destroy a resource and remove it from your account and environment, the DELETE method should be used.");// Line 38
-	echo T_("This will remove the specified object if it is found.");                 // Line 38
-	echo T_("If it is not found, the operation will return a response indicating that the object was not found.");// Line 38
-	echo T_("This idempotency means that you do not have to check for a resource's availability prior to issuing a delete command, the final state will be the same regardless of its existence.");// Line 40
-	echo T_("To update the information about a resource in your account, the PUT method is available.");// Line 47
-	echo T_("Like the DELETE Method, the PUT method is idempotent.");                 // Line 49
-	echo T_("It sets the state of the target using the provided values, regardless of their current values.");// Line 49
-	echo T_("Requests using the PUT method do not need to check the current attributes of the object.");// Line 49
-	echo T_("To update a portion of the information about a resource in your account, the PATCH method is available.");// Line 56
-	echo T_("Like the PUT Method, the PATCH method is idempotent.");                  // Line 58
-	echo T_("Finally, to retrieve metadata information, you should use the HEAD method to get the headers.");// Line 65
-	echo T_("This returns only the header of what would be returned with an associated GET request.");// Line 65
-	echo T_("Response headers contain some useful information about your API access and the results that are available for your request.");// Line 67
-	echo T_("For instance, the headers contain your current rate-limit value and the amount of time available until the limit resets.");// Line 69
-	echo T_("It also contains metrics about the total number of objects found, pagination information, and the total content length.");// Line 69
+	echo T_("For simple retrieval of information about your something you should use the GET method.");// Line 19
+	echo T_("The information you request will be returned to you as a JSON object."); // Line 19
+	echo T_("The attributes defined by the JSON object can be used to form additional requests.");// Line 21
+	echo T_("Any request using the GET method is read-only and will not affect any of the objects you are querying.");// Line 21
+	echo T_("To create a new object, your request should specify the POST method.");  // Line 28
+	echo T_("The POST request includes all of the attributes necessary to create a new object.");// Line 30
+	echo T_("When you wish to create a new object, send a POST request to the target endpoint.");// Line 30
+	echo T_("To destroy a resource and remove it from your account and environment, the DELETE method should be used.");// Line 37
+	echo T_("This will remove the specified object if it is found.");                 // Line 37
+	echo T_("If it is not found, the operation will return a response indicating that the object was not found.");// Line 37
+	echo T_("This idempotency means that you do not have to check for a resource's availability prior to issuing a delete command, the final state will be the same regardless of its existence.");// Line 39
+	echo T_("To update the information about a resource in your account, the PUT method is available.");// Line 46
+	echo T_("Like the DELETE Method, the PUT method is idempotent.");                 // Line 48
+	echo T_("It sets the state of the target using the provided values, regardless of their current values.");// Line 48
+	echo T_("Requests using the PUT method do not need to check the current attributes of the object.");// Line 48
+	echo T_("To update a portion of the information about a resource in your account, the PATCH method is available.");// Line 55
+	echo T_("Like the PUT Method, the PATCH method is idempotent.");                  // Line 57
+	echo T_("Finally, to retrieve metadata information, you should use the HEAD method to get the headers.");// Line 64
+	echo T_("This returns only the header of what would be returned with an associated GET request.");// Line 64
+	echo T_("Response headers contain some useful information about your API access and the results that are available for your request.");// Line 66
+	echo T_("For instance, the headers contain your current rate-limit value and the amount of time available until the limit resets.");// Line 68
+	echo T_("It also contains metrics about the total number of objects found, pagination information, and the total content length.");// Line 68
 
 	//---------------------------------content_api/v1/doc/001-intro/004-responses.html
 	echo T_("Responses");                                                             // Line 26
-	echo T_("Each response is a JSON object.");                                       // Line 6
-	echo T_("The data requested is wrapped in the <code>result</code> tag.");         // Line 8
-	echo T_("If you have a response, it will always be within the <code>result</code> field.");// Line 9
-	echo T_("We also include a <code>ok</code> flag and an array of <code>msg</code> in the response.");// Line 10
-	echo T_("Some responses can have additional pagination info wrapped in the <code>meta</code>");// Line 11
-	echo T_("An msg object will contain a <code>type</code> field and a <code>text</code>");// Line 12
-	echo T_("Success Response");                                                      // Line 17
-	echo T_("Error Response");                                                        // Line 37
-	echo T_("HTTP response codes");                                                   // Line 52
-	echo T_("The status of a response can be determined from the HTTP status code."); // Line 53
-	echo T_("request successful");                                                    // Line 73
-	echo T_("request was invalid");                                                   // Line 79
-	echo T_("user does not have permission");                                         // Line 85
-	echo T_("request not authenticated");                                             // Line 91
-	echo T_("Invalid url");                                                           // Line 97
-	echo T_("client is rate limited");                                                // Line 103
-	echo T_("incorrect HTTP method provided");                                        // Line 109
-	echo T_("response is not valid JSON");                                            // Line 115
+	echo T_("Each response is a JSON object.");                                       // Line 5
+	echo T_("The data requested is wrapped in the <code>result</code> tag.");         // Line 7
+	echo T_("If you have a response, it will always be within the <code>result</code> field.");// Line 8
+	echo T_("We also include a <code>ok</code> flag and an array of <code>msg</code> in the response.");// Line 9
+	echo T_("Some responses can have additional pagination info wrapped in the <code>meta</code>");// Line 10
+	echo T_("An msg object will contain a <code>type</code> field and a <code>text</code>");// Line 11
+	echo T_("Success Response");                                                      // Line 15
+	echo T_("Error Response");                                                        // Line 35
+	echo T_("HTTP response codes");                                                   // Line 50
+	echo T_("The status of a response can be determined from the HTTP status code."); // Line 51
+	echo T_("request successful");                                                    // Line 71
+	echo T_("request was invalid");                                                   // Line 77
+	echo T_("user does not have permission");                                         // Line 83
+	echo T_("request not authenticated");                                             // Line 89
+	echo T_("Invalid url");                                                           // Line 95
+	echo T_("client is rate limited");                                                // Line 101
+	echo T_("incorrect HTTP method provided");                                        // Line 107
+	echo T_("response is not valid JSON");                                            // Line 113
 
 	//----------------------------------content_api/v1/doc/001-intro/002-endpoint.html
 	echo T_("Endpoints");                                                             // Line 24
-	echo T_("The API is accessed by making HTTPS requests to a specific version endpoint URL, in which GET, POST, PUT, PATCH,HEAD and DELETE methods dictate how your interact with the information available.");// Line 6
-	echo T_("Every endpoint is accessed only via the HTTPS protocol.");               // Line 6
-	echo T_("Everything (methods, parameters, etc.) is fixed to a version number, and every call must contain one.");// Line 8
-	echo T_("The latest version is Version 1.");                                      // Line 8
-	echo T_("The stable base URL for all Version 1 HTTPS endpoints is");              // Line 10
-	echo T_("Use your store code instead of the {STORE}");                            // Line 14
-	echo T_("If you are registered and have store, you can obtain your {STORE} key from 'My Account' page.");// Line 14
-	echo T_("Go to My account.");                                                     // Line 8
+	echo T_("The API is accessed by making HTTPS requests to a specific version endpoint URL, in which GET, POST, PUT, PATCH,HEAD and DELETE methods dictate how your interact with the information available.");// Line 5
+	echo T_("Every endpoint is accessed only via the HTTPS protocol.");               // Line 5
+	echo T_("Everything (methods, parameters, etc.) is fixed to a version number, and every call must contain one.");// Line 7
+	echo T_("The latest version is Version 1.");                                      // Line 7
+	echo T_("The stable base URL for all Version 1 HTTPS endpoints is");              // Line 9
+	echo T_("Use your store code instead of the {STORE}");                            // Line 13
+	echo T_("If you are registered and have store, you can obtain your {STORE} key from 'My Account' page.");// Line 13
+	echo T_("Go to My account.");                                                     // Line 7
 
 	//-------------------------------------content_api/v1/doc/001-intro/001-intro.html
-	echo T_("APIs");                                                                  // Line 3
-	echo T_("With our API you can control the entire infrastructure via a standardized programmatic interface.");// Line 6
-	echo T_("You can using API do just about anything you can do via your dashboard.");// Line 6
-	echo T_("Our API is a RESTful API based on HTTPS requests and JSON responses.");  // Line 8
-	echo T_("If you are registered, you can obtain your API key from 'My Account' page.");// Line 8
-	echo T_("Audience for APIs");                                                     // Line 11
-	echo T_("Most peoples manage their settings in the web dashboard, built using these APIs.");// Line 12
-	echo T_("Virtually anything you can do in the customer dashboard may be done via API.");// Line 12
-	echo T_("We offers public APIs with three audiences in mind.");                   // Line 14
-	echo T_("Partners");                                                              // Line 16
-	echo T_("Developers");                                                            // Line 18
-	echo T_("The API documentation will start with a general overview about the design and technology that has been implemented, followed by reference information about specific endpoints.");// Line 22
+	echo T_("APIs");                                                                  // Line 1
+	echo T_("With our API you can control the entire infrastructure via a standardized programmatic interface.");// Line 5
+	echo T_("You can using API do just about anything you can do via your dashboard.");// Line 5
+	echo T_("Our API is a RESTful API based on HTTPS requests and JSON responses.");  // Line 7
+	echo T_("If you are registered, you can obtain your API key from 'My Account' page.");// Line 7
+	echo T_("Audience for APIs");                                                     // Line 10
+	echo T_("Most peoples manage their settings in the web dashboard, built using these APIs.");// Line 11
+	echo T_("Virtually anything you can do in the customer dashboard may be done via API.");// Line 11
+	echo T_("We offers public APIs with three audiences in mind.");                   // Line 13
+	echo T_("Partners");                                                              // Line 15
+	echo T_("Developers");                                                            // Line 17
+	echo T_("The API documentation will start with a general overview about the design and technology that has been implemented, followed by reference information about specific endpoints.");// Line 20
 
 	//--------------------------------content_api/v1/doc/030-business/033-contact.html
-	echo T_("Get contact text");                                                      // Line 5
-	echo T_("on header");                                                             // Line 15
-	echo T_("APP key generated on the user panel");                                   // Line 31
-	echo T_("length");                                                                // Line 113
+	echo T_("Get contact text");                                                      // Line 3
+	echo T_("on header");                                                             // Line 14
+	echo T_("APP key generated on the user panel");                                   // Line 30
+	echo T_("length");                                                                // Line 112
 
 	//---------------------------------content_api/v1/doc/030-business/032-vision.html
-	echo T_("Get vision text");                                                       // Line 5
+	echo T_("Get vision text");                                                       // Line 3
 
 	//----------------------------------content_api/v1/doc/030-business/034-posts.html
-	echo T_("Get last posts");                                                        // Line 5
+	echo T_("Get last posts");                                                        // Line 3
 
 	//-------------------------------content_api/v1/doc/030-business/035-get-post.html
-	echo T_("Get last get-post");                                                     // Line 5
+	echo T_("Get last get-post");                                                     // Line 3
 
 	//--------------------------------content_api/v1/doc/030-business/031-mission.html
-	echo T_("Get mission text");                                                      // Line 5
+	echo T_("Get mission text");                                                      // Line 3
 
 	//----------------------------------content_api/v1/doc/030-business/030-about.html
-	echo T_("Get about text");                                                        // Line 5
+	echo T_("Get about text");                                                        // Line 3
 
 	//----------------------content_api/v1/doc/060-product/352-product-collection.html
-	echo T_("Get list of products by special collection");                            // Line 6
+	echo T_("Get list of products by special collection");                            // Line 3
 
 	//--------------------------content_api/v1/doc/060-product/500-product-remove.html
-	echo T_("Delete Product");                                                        // Line 6
+	echo T_("Delete Product");                                                        // Line 3
 	echo T_("Replace {PRODUCT_ID} by your product id");                               // Line 9
 
 	//----------------------------content_api/v1/doc/060-product/330-product-list.html
-	echo T_("Get list of products");                                                  // Line 6
+	echo T_("Get list of products");                                                  // Line 3
 
 	//------------------------content_api/v1/doc/060-product/350-product-category.html
-	echo T_("Get list of products by special category");                              // Line 6
+	echo T_("Get list of products by special category");                              // Line 3
 
 	//------------------content_api/v1/doc/060-product/325-product-gallery-remove.html
-	echo T_("Delete one file from product gallery");                                  // Line 6
+	echo T_("Delete one file from product gallery");                                  // Line 3
 
 	//--------------------------content_api/v1/doc/060-product/331-product-search.html
-	echo T_("Query string");                                                          // Line 37
+	echo T_("Query string");                                                          // Line 33
 
 	//----------------------------content_api/v1/doc/060-product/322-product-edit.html
 	echo T_("Edit product");                                                          // Line 96
-	echo T_("All parameter in add module can be use in edit");                        // Line 21
+	echo T_("All parameter in add module can be use in edit");                        // Line 18
 
 	//-------------------------content_api/v1/doc/060-product/355-product-company.html
-	echo T_("Get list of products by special company");                               // Line 6
+	echo T_("Get list of products by special company");                               // Line 3
 
 	//-------------------content_api/v1/doc/060-product/324-product-gallery-thumb.html
-	echo T_("Set one gallery image as thumb image");                                  // Line 6
+	echo T_("Set one gallery image as thumb image");                                  // Line 3
 
 	//-------------------------content_api/v1/doc/060-product/323-product-gellery.html
-	echo T_("Add image to product gallery");                                          // Line 6
+	echo T_("Add image to product gallery");                                          // Line 3
 
 	//-----------------------------content_api/v1/doc/060-product/320-product-add.html
-	echo T_("Maximum length");                                                        // Line 61
-	echo T_("Characters");                                                            // Line 61
+	echo T_("Maximum length");                                                        // Line 59
+	echo T_("Characters");                                                            // Line 59
 
 	//-----------------------------content_api/v1/doc/060-product/326-product-get.html
 	echo T_("Get product detail");                                                    // Line 100
@@ -2358,8 +2361,8 @@ class twigTransTerms
 	echo T_("Introduction");                                                          // Line 23
 	echo T_("Get app detail");                                                        // Line 30
 	echo T_("Token");                                                                 // Line 8
-	echo T_("Sign Up User");                                                          // Line 5
-	echo T_("Get language list");                                                     // Line 5
+	echo T_("Sign Up User");                                                          // Line 3
+	echo T_("Get language list");                                                     // Line 3
 	echo T_("Country list");                                                          // Line 37
 	echo T_("Province list");                                                         // Line 38
 	echo T_("City list");                                                             // Line 39
@@ -2370,22 +2373,19 @@ class twigTransTerms
 	echo T_("Get one user detail");                                                   // Line 56
 	echo T_("Edit user");                                                             // Line 57
 	echo T_("Set user avatar");                                                       // Line 58
-	echo T_("Add new address to user");                                               // Line 59
 	echo T_("Get list of user address");                                              // Line 60
-	echo T_("Edit user address");                                                     // Line 61
-	echo T_("Remove user address");                                                   // Line 62
 	echo T_("Get about");                                                             // Line 66
 	echo T_("Get mission");                                                           // Line 67
 	echo T_("Get vision");                                                            // Line 68
 	echo T_("Get contact");                                                           // Line 69
 	echo T_("Get list of posts");                                                     // Line 70
 	echo T_("Get post detail");                                                       // Line 71
-	echo T_("Login user");                                                            // Line 5
-	echo T_("Verify user");                                                           // Line 5
+	echo T_("Login user");                                                            // Line 3
+	echo T_("Verify user");                                                           // Line 3
 	echo T_("Check new notification");                                                // Line 77
-	echo T_("Get notification list");                                                 // Line 5
+	echo T_("Get notification list");                                                 // Line 3
 	echo T_("Session list");                                                          // Line 79
-	echo T_("Terminate session");                                                     // Line 5
+	echo T_("Terminate session");                                                     // Line 3
 	echo T_("Ticket list");                                                           // Line 85
 	echo T_("Answer to ticket");                                                      // Line 87
 	echo T_("Set ticket status");                                                     // Line 88
@@ -2401,70 +2401,71 @@ class twigTransTerms
 	echo T_("Collection list");                                                       // Line 114
 
 	//-------------------content_api/v1/doc/070-product-tools/500-collection-list.html
-	echo T_("Get list of collection");                                                // Line 5
+	echo T_("Get list of collection");                                                // Line 3
 
 	//----------------------content_api/v1/doc/070-product-tools/450-company-list.html
-	echo T_("Get list of company");                                                   // Line 5
+	echo T_("Get list of company");                                                   // Line 3
 
 	//---------------------content_api/v1/doc/070-product-tools/400-category-list.html
-	echo T_("Get list of category");                                                  // Line 5
+	echo T_("Get list of category");                                                  // Line 3
 
 	//--------------------------content_api/v1/doc/010-application/010-app-detail.html
-	echo T_("Get application detail");                                                // Line 5
+	echo T_("Get application detail");                                                // Line 3
 	echo T_("Get details like pages, language list, translations, and more.");        // Line 10
 
 	//----------------------------content_api/v1/doc/010-application/020-user-add.html
 	echo T_("This service is used to add users through the Android app.");            // Line 8
-	echo T_("Your temporary token");                                                  // Line 45
-	echo T_("Max length");                                                            // Line 97
+	echo T_("Your temporary token");                                                  // Line 44
+	echo T_("Max length");                                                            // Line 96
 
 	//-------------------------------content_api/v1/doc/010-application/010-token.html
-	echo T_("Get Access Token");                                                      // Line 5
+	echo T_("Get Access Token");                                                      // Line 3
 	echo T_("Get access token of new connection from server");                        // Line 8
 	echo T_("This key is disposable and has a time limit. It is usable only at the specified time and if it is used successfully or unsuccessfully once in a request, it loses its validity and needs to be rebuilt for the next request");// Line 9
 
 	//----------------------------content_api/v1/doc/010-application/042-language.html
 
 	//-------------------content_api/v1/doc/015-location/015-02-location-province.html
-	echo T_("Get list of province");                                                  // Line 5
+	echo T_("Get list of province");                                                  // Line 3
+	echo T_("The endpoint for this method is different");                             // Line 7
 
 	//-----------------------content_api/v1/doc/015-location/015-03-location-city.html
-	echo T_("Get list of city");                                                      // Line 5
+	echo T_("Get list of city");                                                      // Line 3
 
 	//--------------------content_api/v1/doc/015-location/015-01-location-country.html
-	echo T_("Get list of country");                                                   // Line 5
+	echo T_("Get list of country");                                                   // Line 3
 
 	//-------------------------content_api/v1/doc/000-public/header-appkey-apikey.html
 	echo T_("And");                                                                   // Line 2
 	echo T_("Click to show detail");                                                  // Line 4
-	echo T_("Your apikey");                                                           // Line 61
+	echo T_("Your apikey");                                                           // Line 60
 
 	//----------------------------content_api/v1/doc/040-account/070-session-list.html
-	echo T_("Get session list");                                                      // Line 5
-	echo T_("Get your active session detail.");                                       // Line 10
+	echo T_("Get session list");                                                      // Line 3
+	echo T_("Get your active session detail.");                                       // Line 8
 
 	//-----------------------content_api/v1/doc/040-account/071-session-terminate.html
-	echo T_("Terminate one session or all session");                                  // Line 8
-	echo T_("If type is `terminate` the id is require");                              // Line 49
+	echo T_("Terminate one session or all session");                                  // Line 7
+	echo T_("If type is `terminate` the id is require");                              // Line 48
 
 	//-----------------------------------content_api/v1/doc/040-account/055-notif.html
-	echo T_("Get list of your notification");                                         // Line 8
-	echo T_("If you want to set all notif of this user as read notif set this parameters as true");// Line 36
-	echo T_("If user not read this notif, this response is null else see read date of this notif");// Line 77
+	echo T_("Get list of your notification");                                         // Line 7
+	echo T_("If you want to set all notif of this user as read notif set this parameters as true");// Line 35
+	echo T_("If user not read this notif, this response is null else see read date of this notif");// Line 76
 
 	//------------------------------content_api/v1/doc/040-account/040-user-login.html
-	echo T_("Login user and get new apikey for this user");                           // Line 8
-	echo T_("To get this token see");                                                 // Line 51
-	echo T_("Your temporary apikey");                                                 // Line 62
-	echo T_("Get from your account or signup user");                                  // Line 67
-	echo T_("Min length");                                                            // Line 98
+	echo T_("Login user and get new apikey for this user");                           // Line 7
+	echo T_("To get this token see");                                                 // Line 50
+	echo T_("Your temporary apikey");                                                 // Line 61
+	echo T_("Get from your account or signup user");                                  // Line 66
+	echo T_("Min length");                                                            // Line 97
 
 	//-----------------------content_api/v1/doc/040-account/041-user-login-verify.html
-	echo T_("After send verification code to user you must verify it");               // Line 8
+	echo T_("After send verification code to user you must verify it");               // Line 7
 
 	//-----------------------------------content_api/v1/doc/040-account/050-smile.html
-	echo T_("Get notification count");                                                // Line 5
-	echo T_("To get this user have notification or no");                              // Line 8
+	echo T_("Get notification count");                                                // Line 3
+	echo T_("To get this user have notification or no");                              // Line 7
 
 	//--------------------------------------------------content_enter/ban/display.html
 	echo T_("What are you doing!");                                                   // Line 7
