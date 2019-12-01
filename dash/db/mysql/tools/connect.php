@@ -155,11 +155,11 @@ trait connect
 	public static function connect()
 	{
 		// if link exist before this, use it
-		// if(array_key_exists(self::$db_name, self::$link_open))
-		// {
-		// 	self::$link = self::$link_open[self::$db_name];
-		// 	return true;
-		// }
+		if(array_key_exists(self::$db_name, self::$link_open))
+		{
+			self::$link = self::$link_open[self::$db_name];
+			return true;
+		}
 
 		// find my Love!
 		$myLove = \dash\engine\detective::who();
