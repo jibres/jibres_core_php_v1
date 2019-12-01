@@ -239,7 +239,7 @@ class add
 	{
 		$new_store                = [];
 		$new_store['subdomain']   = $_subdomain;
-		// $new_store['dbip']        = ip2long('192.168.1.1');
+		$new_store['fuel']        = \dash\engine\fuel::priority(\dash\url::tld());
 		$new_store['creator']     = $_creator;
 		$new_store['ip']          = \dash\server::ip(true);
 		$new_store['datecreated'] = date("Y-m-d H:i:s");
