@@ -27,7 +27,6 @@ class fuel
 		if(\dash\url::isLocal())
 		{
 			return self::local();
-
 		}
 
 		return self::jibres_master();
@@ -89,8 +88,9 @@ class fuel
 			'code'  => __FUNCTION__,
 			'host'  => 'localhost',
 			'port'  => 3306,
-			'user'  => 'root',
-			'pass'  => 'root',
+			'user'  => 'ermile',
+			'pass'  => 'Ermile@#$1233',
+			'database'  => 'jibres5',
 		];
 	}
 }

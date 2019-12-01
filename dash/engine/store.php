@@ -188,7 +188,7 @@ class store
 			$detail['db_name']   = $db_name;
 			$detail['subdomain'] = isset($_store_detail['subdomain']) ? $_store_detail['subdomain'] : null;
 
-			\dash\db::$jibres_db_name = $db_name;
+			\dash\db::$store_db_name = $db_name;
 
 			self::$IN_SOTE = true;
 
