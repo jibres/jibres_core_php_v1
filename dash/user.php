@@ -67,6 +67,17 @@ class user
 	}
 
 	/**
+	 * Determines if initialize store user.
+	 * call from engine store to not duplicate init
+	 * @return     boolean  True if initialize store user, False otherwise.
+	 */
+	public static function is_init_store_user()
+	{
+		return isset($_SESSION['store_auth']['id']);
+	}
+
+
+	/**
 	 * Initial user id
 	 *
 	 * @param      <type>  $_user_id  The user identifier

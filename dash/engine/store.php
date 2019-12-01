@@ -60,7 +60,10 @@ class store
 
 		if(self::inStore())
 		{
-			\dash\user::store_init($user_id);
+			if(!\dash\user::is_init_store_user())
+			{
+				\dash\user::store_init($user_id);
+			}
 		}
 	}
 
