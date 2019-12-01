@@ -453,6 +453,18 @@ class user
 			}
 			else
 			{
+				// check active session every 1 min
+				// to not run query in every request
+				if(isset($_SESSION['last_check_session_active']) && $_SESSION['last_check_session_active'])
+				{
+					if(time() - intval($_SESSION['last_check_session_active']) < 60)
+					{
+						return;
+					}
+				}
+
+				$_SESSION['last_check_session_active'] = time();
+
 				$status = \dash\db\sessions::is_active($cookie, \dash\user::id());
 
 				if($status === false)
