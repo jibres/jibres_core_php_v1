@@ -685,9 +685,9 @@ class controller
 		$promotion['expire'] =
 		[
 			"serverttime" => time(),
-			"expiretime"  => time() + rand(36000, 90000),
+			"expiretime"  => time() + rand(36000, 190000),
 		];
-		$promotion['title']   = T_("50% Deals");
+		$promotion['title']   = T_("50% Deals test sample long string test");
 
 		$data = [];
 
@@ -769,6 +769,86 @@ class controller
 			"price"      => 5700,
 			"unit"       => T_("Toman"),
 		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('09'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product1",
+			"firstPrice" => 1000,
+			"discount"   => 300,
+			"price"      => 700,
+			"unit"       => T_("Toman"),
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('13'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product2",
+			"firstPrice" => 2000,
+			"discount"   => 300,
+			"price"      => 1700,
+			"unit"       => T_("Toman"),
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('06'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product3",
+			"firstPrice" => 3000,
+			"discount"   => 300,
+			"price"      => 2700,
+			"unit"       => "$"
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('14'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product4",
+			"firstPrice" => 4000,
+			"discount"   => 300,
+			"price"      => 3700,
+			"unit"       => "$"
+		];
+
+
+		$data[] =
+		[
+			"image"      => self::sample_image('21'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product5",
+			"firstPrice" => 5000,
+			"discount"   => 300,
+			"price"      => 4700,
+			"unit"       => T_("Toman"),
+		];
+
+		$data[] =
+		[
+			"image"      => self::sample_image('30'),
+			"url"        => '/product/2kf',
+			"activity"   => "product",
+			"mode"       => "api",
+			"title"      => "Product6",
+			"firstPrice" => 6000,
+			"discount"   => 300,
+			"price"      => 5700,
+			"unit"       => T_("Toman"),
+		];
+
 
 
 		$promotion['data'] = $data;
