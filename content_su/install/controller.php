@@ -7,7 +7,7 @@ class controller
 	{
 		// run if get is set and no database exist
 
-		if(\dash\file::read(root.'install.jibres') === 'Jibres')
+		if(\dash\file::exists(root.'install.jibres'))
 		{
 			require_once(core."engine/install.php");
 			// this code exit the code
