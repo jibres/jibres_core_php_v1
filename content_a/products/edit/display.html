@@ -62,14 +62,9 @@
       </div>
     </section>
 
-    <section class="jbox">
-      <header data-kerkere='.jboxGallery' data-kerkere-icon='open'>{%trans "Images Gallery"%}</header>
-      <div class="pad jboxGallery">
-        {{block('galleryImporter')}}
-      </div>
-    </section>
+{{block('galleryImporter')}}
 
-
+{{block('Box_variants')}}
 
 
   </div>
@@ -89,11 +84,6 @@
 
   <div class="cbox mB10">
    {{block('Box_inventory')}}
-  </div>
-
-
-  <div class="cbox mB10">
-   {{block('Box_variants')}}
   </div>
 
 

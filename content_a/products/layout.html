@@ -361,49 +361,56 @@
 
 {%block galleryImporter %}
 
-{%if productDataRow.gallery_array%}
+<section class="jbox">
+  <header data-kerkere='.jboxGallery' data-kerkere-icon='open'>{%trans "Images Gallery"%}</header>
+  <div class="pad jboxGallery">
 
-<div class="f">
-  {%for key, value in productDataRow.gallery_array%}
-    {%if value.path and value.path == productDataRow.thumb%}
-    <span class="cauto pA5 pB10">
-      <div class="w150">
-        <img src="{{value.path}}">
-        <div>
-          <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
-        </div>
-      </div>
-    </span>
-    {%endif%}
-  {%endfor%}
 
-  {%for key, value in productDataRow.gallery_array%}
-    {%if value.path and value.path != productDataRow.thumb%}
+  {%if productDataRow.gallery_array%}
+
+  <div class="f">
+    {%for key, value in productDataRow.gallery_array%}
+      {%if value.path and value.path == productDataRow.thumb%}
       <span class="cauto pA5 pB10">
         <div class="w150">
           <img src="{{value.path}}">
           <div>
             <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
-            <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "{{value.id}}"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5">{%trans "Set as cover"%}</span></a>
           </div>
         </div>
       </span>
-    {%endif%}
-  {%endfor%}
-</div>
+      {%endif%}
+    {%endfor%}
 
-{%endif%}
-
-  <div class="dropzone">
-    <h4>{%trans "Add to gallery"%}</h4>
-    <label for='gallery' class="btn light">{%trans "Choose or Drop file here"%}</label>
-    <input id="gallery" type="file" name="gallery" multiple>
-    <div class="progress shadow" data-percent='30'>
-      <div class="bar"></div>
-      <div class="detail"></div>
-    </div>
-    <small>{%trans "Maximum file size"%} <b>{{maxUploadSize}}</b></small>
+    {%for key, value in productDataRow.gallery_array%}
+      {%if value.path and value.path != productDataRow.thumb%}
+        <span class="cauto pA5 pB10">
+          <div class="w150">
+            <img src="{{value.path}}">
+            <div>
+              <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
+              <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "{{value.id}}"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5">{%trans "Set as cover"%}</span></a>
+            </div>
+          </div>
+        </span>
+      {%endif%}
+    {%endfor%}
   </div>
+  {%endif%}
+
+    <div class="dropzone">
+      <h4>{%trans "Add to gallery"%}</h4>
+      <label for='gallery' class="btn light">{%trans "Choose or Drop file here"%}</label>
+      <input id="gallery" type="file" name="gallery" multiple>
+      <div class="progress shadow" data-percent='30'>
+        <div class="bar"></div>
+        <div class="detail"></div>
+      </div>
+      <small>{%trans "Maximum file size"%} <b>{{maxUploadSize}}</b></small>
+    </div>
+
+  </div>
+</section>
 {% endblock %}
 
 
