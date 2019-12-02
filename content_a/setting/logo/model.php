@@ -12,23 +12,24 @@ class model
 
 		if($logo)
 		{
-			$result = \lib\app\store::edit_logo($logo, 'logo');
+			$result = \lib\app\store\edit::logo($logo);
 		}
 
-		$fav = self::upload_logo('fav');
+		// $fav = self::upload_logo('fav');
 
-		if($fav)
-		{
-			$result = \lib\app\store::edit_logo($fav, 'fav');
-		}
+		// if($fav)
+		// {
+		// 	$result = \lib\app\store::edit_logo($fav, 'fav');
+		// }
 
-		if(!$result)
-		{
-			\dash\notif::warn(T_("No file was sended"));
-		}
+		// if(!$result)
+		// {
+		// 	\dash\notif::warn(T_("No file was sended"));
+		// }
 
 		if(\dash\engine\process::status())
 		{
+			\lib\store::refresh();
 			\dash\redirect::pwd();
 		}
 	}

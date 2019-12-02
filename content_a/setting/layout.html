@@ -134,7 +134,7 @@
 
 
   <a class="vcard mA10 shadow {{cardColor}}" {%if perm('settingEditLogo')%} href='{{url.this}}/logo' {%endif%}>
-    <img src="{{store.logo}}" alt="{{store.store_data.title}}" class="pA10-f">
+    <img src="{{store.store_data.logo}}" alt="{{store.store_data.title}}" class="pA10-f">
     <div class="content">
       <div class="header">{{store.store_data.title}}</div>
       {%if store.rule != 'admin' and store.privacy == 'private' or true%}
