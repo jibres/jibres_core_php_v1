@@ -21,7 +21,7 @@ class logs
 				logs.expiredate < '$date_now'
 		";
 
-		$result = \dash\db::query($query, \dash\db::get_db_log_name());
+		$result = \dash\db::query($query);
 		return $result;
 
 	}
@@ -30,7 +30,7 @@ class logs
 	{
 		$lastYear = date("Y-m-d", strtotime("-365 days"));
 		$query = "SELECT count(*) AS `count`, DATE(logs.datecreated) AS `date` FROM logs WHERE DATE(logs.datecreated) > DATE('$lastYear') GROUP BY DATE(logs.datecreated) ";
-		$result = \dash\db::get($query, null, false, \dash\db::get_db_log_name());
+		$result = \dash\db::get($query, null, false);
 		return $result;
 	}
 
@@ -53,7 +53,7 @@ class logs
 				logs.readdate = logs.readdate IS NULL
 		";
 
-		$get_result = \dash\db::get($query, 'id', false, \dash\db::get_db_log_name());
+		$get_result = \dash\db::get($query, 'id', false);
 		if($get_result)
 		{
 
@@ -69,7 +69,7 @@ class logs
 				WHERE
 					logs.id IN ($id)
 			";
-			$result = \dash\db::query($query, \dash\db::get_db_log_name());
+			$result = \dash\db::query($query);
 			return $result;
 		}
 
@@ -90,7 +90,7 @@ class logs
 				logs.id IN ($_ids) AND
 				logs.readdate IS NULL
 		";
-		$result = \dash\db::query($query, \dash\db::get_db_log_name());
+		$result = \dash\db::query($query);
 		return $result;
 	}
 
@@ -111,7 +111,7 @@ class logs
 				logs.to     = $_user_id AND
 				logs.status = 'notif'
 		";
-		$result = \dash\db::get($query, 'count', true, \dash\db::get_db_log_name());
+		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
 
@@ -137,7 +137,7 @@ class logs
 
 		if(!empty($query))
 		{
-			return \dash\db::query(implode(';', $query), \dash\db::get_db_log_name(), ['multi_query' => true]);
+			return \dash\db::query(implode(';', $query), true, ['multi_query' => true]);
 		}
 	}
 
@@ -150,14 +150,14 @@ class logs
 
 	public static function get_count($_where = null)
 	{
-		return \dash\db\config::public_get_count('logs', $_where, \dash\db::get_db_log_name());
+		return \dash\db\config::public_get_count('logs', $_where);
 	}
 
 
 	public static function get_caller_group()
 	{
 		$query = "SELECT count(*) AS `count`, logs.caller AS `caller` FROM logs GROUP BY logs.caller ORDER BY count(*) DESC";
-		$result = \dash\db::get($query, ['caller', 'count'], false, \dash\db::get_db_log_name());
+		$result = \dash\db::get($query, ['caller', 'count'], false);
 		return $result;
 	}
 	/**
@@ -215,7 +215,7 @@ class logs
 		{
 			// make update query
 			$query = "UPDATE logs SET $set WHERE logs.id = $_id";
-			return \dash\db::query($query, \dash\db::get_db_log_name());
+			return \dash\db::query($query);
 		}
 	}
 
@@ -230,7 +230,7 @@ class logs
 	{
 		// get id
 		$query = "UPDATE FROM logs SET logs.notification_status = 'expire' WHERE logs.id = $_id ";
-		return \dash\db::query($query, \dash\db::get_db_log_name());
+		return \dash\db::query($query);
 	}
 
 
@@ -337,7 +337,6 @@ class logs
 				"
 					LEFT JOIN users ON users.id = logs.from
 				",
-				'db_name' => \dash\db::get_db_log_name(),
 			];
 
 
@@ -346,7 +345,6 @@ class logs
 		{
 			$default =
 			[
-				'db_name' => \dash\db::get_db_log_name(),
 			];
 
 		}
@@ -384,7 +382,6 @@ class logs
 				LEFT JOIN users ON users.id = logs.from
 			",
 			"search_field" => " ( logs.caller = '__string__') ",
-			'db_name' => \dash\db::get_db_log_name(),
 		];
 
 		if(!is_array($_options))

@@ -4,19 +4,6 @@ namespace dash\db\mysql\tools;
 trait get
 {
 
-	public static function get_db_log_name()
-	{
-		if(defined('db_log_name'))
-		{
-			return db_log_name;
-		}
-		else
-		{
-			return true;
-		}
-	}
-
-
 	/**
 	 * run query and get result of this query
 	 * @param  [type]  $_qry          [description]
@@ -100,91 +87,6 @@ trait get
 		}
 		// return result
 		return $result;
-	}
-
-
-	/**
-	 * create select query if you can't create manually!
-	 * @param  string $_table [description]
-	 * @param  array  $_field [description]
-	 * @param  array  $_where [description]
-	 * @param  array  $_arg   [description]
-	 * @return [type]         [description]
-	 */
-	public static function select($_table = 'options', $_field = [], $_where = [], $_arg = [])
-	{
-		// calc fields
-		$myfield = "*";
-		if(is_array($_field) & $_field)
-		{
-			$myfield = implode(", ", $_field);
-			$myfield = substr($myfield, 0, -2);
-		}
-		elseif(isset($_field))
-		{
-			$myfield = "`$_field`";
-		}
-
-		// calc where
-		$mywhere = "";
-		if(is_array($_where) & $_where)
-		{
-			foreach ($_where as $key => $value)
-			{
-				// in all condition except first loop
-				if($mywhere)
-				{
-					$opr = 'AND';
-					// if opr isset use it
-					if(isset($value['opr']))
-					{
-						$opr = $value['opr'];
-						if(isset($value['value']))
-						{
-							$value = $value['value'];
-						}
-						else
-						{
-							// if value is not set use null
-							$value = "NULL";
-						}
-					}
-					$mywhere .= " $opr ";
-				}
-
-				if(is_array($value))
-				{
-					$value = implode(", ", $value);
-					$value = substr($value, 0, -2);
-					$mywhere .= "$key IN ($value)";
-				}
-				elseif(substr($value, 0, 4) === 'LIKE')
-				{
-					$mywhere .= "`$key` $value";
-				}
-				elseif(is_string($value))
-				{
-					$mywhere .= "`$key` = '$value'";
-				}
-				else
-				{
-					$mywhere .= "`$key` = $value";
-				}
-			}
-		}
-		else
-		{
-			$mywhere = "";
-		}
-
-
-		$qry = "SELECT $myfield FROM $_table";
-		if($mywhere)
-		{
-			$qry .= " WHERE $mywhere";
-		}
-
-		return $qry;
 	}
 }
 ?>

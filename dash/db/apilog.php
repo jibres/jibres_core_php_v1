@@ -11,7 +11,7 @@ class apilog
 		if($set)
 		{
 			$query = " INSERT IGNORE INTO `apilog` SET $set ";
-			return \dash\db::query($query, \dash\db::get_db_log_name());
+			return \dash\db::query($query);
 		}
 
 	}
@@ -19,7 +19,7 @@ class apilog
 
 	public static function get($_where)
 	{
-		return \dash\db\config::public_get('apilog', $_where, ['db_name' => \dash\db::get_db_log_name()]);
+		return \dash\db\config::public_get('apilog', $_where);
 	}
 
 
@@ -27,7 +27,7 @@ class apilog
 	{
 		$default =
 		[
-			'db_name' => \dash\db::get_db_log_name(),
+
 		];
 		if(!is_array($_args))
 		{

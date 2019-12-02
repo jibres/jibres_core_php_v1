@@ -73,7 +73,7 @@ class visitor
 			if($last_time)
 			{
 				$avgtime = time() - intval($last_time);
-				\dash\db\config::public_update('visitors', ['avgtime' => $avgtime], self::id(), \dash\db::get_db_log_name());
+				\dash\db\config::public_update('visitors', ['avgtime' => $avgtime], self::id());
 			}
 		}
 	}
@@ -104,7 +104,7 @@ class visitor
 
 	private static function url_db($_url, $_referer = false)
 	{
-		$result = \dash\db\config::public_get('urls', ['urlmd5' => md5($_url), 'limit' => 1], ['db_name' => \dash\db::get_db_log_name()]);
+		$result = \dash\db\config::public_get('urls', ['urlmd5' => md5($_url), 'limit' => 1]);
 		if(isset($result['id']))
 		{
 			return intval($result['id']);

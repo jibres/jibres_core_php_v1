@@ -28,7 +28,7 @@ class sessions
 
 	public static function get_count($_where = [])
 	{
-		return \dash\db\config::public_get_count('sessions', $_where, \dash\db::get_db_log_name());
+		return \dash\db\config::public_get_count('sessions', $_where);
 	}
 
 
@@ -47,7 +47,7 @@ class sessions
 			return false;
 		}
 
-		return \dash\db::query("INSERT INTO sessions SET $set", \dash\db::get_db_log_name());
+		return \dash\db::query("INSERT INTO sessions SET $set");
 	}
 
 
@@ -66,7 +66,7 @@ class sessions
 				sessions.datecreated < '$date'
 		";
 
-		$get_list = \dash\db::get($query, 'id', false, \dash\db::get_db_log_name());
+		$get_list = \dash\db::get($query, 'id', false);
 		if(!$get_list || !is_array($get_list) || empty($get_list))
 		{
 			return true;
@@ -85,7 +85,7 @@ class sessions
 
 		";
 
-		$ok = \dash\db::query($query, \dash\db::get_db_log_name());
+		$ok = \dash\db::query($query);
 		if($ok)
 		{
 			\dash\log::set('AutoExpireSession', ['countsession' => count($get_list)]);
@@ -104,7 +104,7 @@ class sessions
 			return false;
 		}
 		$query = "SELECT * FROM sessions WHERE user_id = $_user_id AND id = $_session_id LIMIT 1";
-		return \dash\db::get($query, null, true, \dash\db::get_db_log_name());
+		return \dash\db::get($query, null, true);
 	}
 
 
@@ -126,7 +126,7 @@ class sessions
 			return false;
 		}
 
-		$get   = \dash\db::get("SELECT * FROM sessions WHERE $where LIMIT 1", null, true, \dash\db::get_db_log_name());
+		$get   = \dash\db::get("SELECT * FROM sessions WHERE $where LIMIT 1", null, true);
 		\dash\temp::set('db_remember_me_query', true);
 		\dash\temp::set('db_remember_me_query_result', $get);
 		return $get;
@@ -178,7 +178,7 @@ class sessions
 
 	public static function update($_args, $_id)
 	{
-		return \dash\db\config::public_update('sessions',$_args, $_id, \dash\db::get_db_log_name());
+		return \dash\db\config::public_update('sessions',$_args, $_id);
 	}
 
 
@@ -273,7 +273,7 @@ class sessions
 		{
 			$_code = addslashes($_code);
 			$query = "SELECT * FROM sessions WHERE sessions.user_id = $_user_id AND sessions.status = 'active' AND sessions.code = '$_code' LIMIT 1";
-			$get   = \dash\db::get($query, null, true, \dash\db::get_db_log_name());
+			$get   = \dash\db::get($query, null, true);
 
 			if(isset($get['status']))
 			{
@@ -343,7 +343,7 @@ class sessions
 			return false;
 		}
 
-		\dash\db::query("UPDATE sessions SET status = 'terminate' WHERE id = $_id LIMIT 1", \dash\db::get_db_log_name());
+		\dash\db::query("UPDATE sessions SET status = 'terminate' WHERE id = $_id LIMIT 1");
 	}
 
 
@@ -364,7 +364,7 @@ class sessions
 			WHERE user_id = $_user_id AND  status = 'active'
 			$where_code
 		";
-		\dash\db::query($query, \dash\db::get_db_log_name());
+		\dash\db::query($query);
 
 	}
 
@@ -375,7 +375,7 @@ class sessions
 			UPDATE sessions SET status = 'terminate'
 			WHERE user_id = $_user_id AND  status = 'active'
 		";
-		\dash\db::query($query, \dash\db::get_db_log_name());
+		\dash\db::query($query);
 	}
 
 
@@ -483,7 +483,7 @@ class sessions
 			";
 		}
 
-		$result = \dash\db::get($query, null, false, \dash\db::get_db_log_name());
+		$result = \dash\db::get($query, null, false);
 		// get agent list form dash tools
 		if($result && is_array($result))
 		{
@@ -491,7 +491,7 @@ class sessions
 			$agent_id    = array_unique($agent_id);
 			$agent_id    = implode(',', $agent_id);
 			$agent_query = "SELECT * FROM agents WHERE id IN ($agent_id)";
-			$agents      = \dash\db::get($agent_query, null, false, \dash\db::get_db_log_name());
+			$agents      = \dash\db::get($agent_query, null, false);
 			if($agents && is_array($agents))
 			{
 				$agent_id = array_column($agents, 'id');
@@ -581,7 +581,7 @@ class sessions
 			";
 		}
 
-		$result = \dash\db::get($query, null, false, \dash\db::get_db_log_name());
+		$result = \dash\db::get($query, null, false);
 		return $result;
 	}
 
@@ -595,7 +595,7 @@ class sessions
 	{
 		if($_code && is_string($_code))
 		{
-			return \dash\db::query("UPDATE sessions SET sessions.count = sessions.count + 1 WHERE code = '$_code'", \dash\db::get_db_log_name());
+			return \dash\db::query("UPDATE sessions SET sessions.count = sessions.count + 1 WHERE code = '$_code'");
 		}
 	}
 
@@ -624,7 +624,7 @@ class sessions
 			}
 		}
 
-		\dash\db::query("UPDATE sessions SET status = '$_status' WHERE user_id = $_user_id $where_code", \dash\db::get_db_log_name());
+		\dash\db::query("UPDATE sessions SET status = '$_status' WHERE user_id = $_user_id $where_code");
 
 	}
 
@@ -659,7 +659,7 @@ class sessions
 			$where_code = " AND sessions.code != '$code' ";
 		}
 
-		\dash\db::query("UPDATE sessions SET status = 'changed' WHERE user_id = $_user_id $where_code", \dash\db::get_db_log_name());
+		\dash\db::query("UPDATE sessions SET status = 'changed' WHERE user_id = $_user_id $where_code");
 
 	}
 

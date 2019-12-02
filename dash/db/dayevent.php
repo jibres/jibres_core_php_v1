@@ -7,14 +7,14 @@ class dayevent
 
 	public static function multi_insert($_args)
 	{
-		return \dash\db\config::public_multi_insert('dayevent', $_args, \dash\db::get_db_log_name());
+		return \dash\db\config::public_multi_insert('dayevent', $_args);
 	}
 
 
 	public static function get_all()
 	{
 		$query = "SELECT * FROM dayevent";
-		$resutl = \dash\db::get($query, null, false, \dash\db::get_db_log_name());
+		$resutl = \dash\db::get($query, null, false);
 		return $resutl;
 	}
 
@@ -41,7 +41,7 @@ class dayevent
 		{
 			// make update query
 			$query = "UPDATE dayevent SET $set WHERE dayevent.id = $_id LIMIT 1";
-			return \dash\db::query($query, \dash\db::get_db_log_name());
+			return \dash\db::query($query);
 		}
 	}
 
@@ -50,7 +50,7 @@ class dayevent
 	{
 		$default =
 		[
-			'db_name' => \dash\db::get_db_log_name(),
+
 		];
 
 		$_options = array_merge($default, $_options);
@@ -63,7 +63,7 @@ class dayevent
 	{
 		$default =
 		[
-			'db_name' => \dash\db::get_db_log_name(),
+
 		];
 
 		if(!is_array($_options))
