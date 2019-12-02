@@ -13,7 +13,7 @@ trait info
 	{
 		if($_link === null)
 		{
-			$_link = self::$link;
+			$_link = \dash\db\mysql\tools\connection::link();
 		}
 		preg_match_all ('/(\S[^:]+): (\d+)/', mysqli_info($_link), $matches);
 		$info = array_combine ($matches[1], $matches[2]);
@@ -29,7 +29,7 @@ trait info
 	{
 		if($_link === null)
 		{
-			$_link = self::$link;
+			$_link = \dash\db\mysql\tools\connection::link();
 		}
 
 		$result = self::get("SHOW GLOBAL STATUS;", ['Variable_name', 'Value'], true);
@@ -55,7 +55,7 @@ trait info
 
 		// if($_link === null)
 		// {
-		// 	$_link = self::$link;
+		// 	$_link = \dash\db\mysql\tools\connection::link();
 		// }
 
 		// $db_name = self::$db_name;
@@ -116,7 +116,7 @@ trait info
 	{
 		if($_link === null)
 		{
-			$_link = self::$link;
+			$_link = \dash\db\mysql\tools\connection::link();
 		}
 		$last_id = @mysqli_insert_id($_link);
 		return $last_id;
@@ -131,7 +131,7 @@ trait info
 	{
 		if($_link === null)
 		{
-			$_link = self::$link;
+			$_link = \dash\db\mysql\tools\connection::link();
 		}
 		// mysqli_get_client_info();
 		// mysqli_get_client_version();
@@ -148,10 +148,10 @@ trait info
 	{
 		if($_link === null)
 		{
-			$_link = self::$link;
+			$_link = \dash\db\mysql\tools\connection::link();
 		}
 		$num = @mysqli_num_rows($_link);
-		// $num = self::$link->affected_rows;
+		// $num = \dash\db\mysql\tools\connection::link()->affected_rows;
 		return $num;
 	}
 
@@ -165,7 +165,7 @@ trait info
 	{
 		if($_link === null)
 		{
-			$_link = self::$link;
+			$_link = \dash\db\mysql\tools\connection::link();
 		}
 		return mysqli_affected_rows($_link);
 	}
@@ -178,7 +178,7 @@ trait info
 	{
 		if($_link === null)
 		{
-			$_link = self::$link;
+			$_link = \dash\db\mysql\tools\connection::link();
 		}
 		return @mysqli_error($_link);
 	}

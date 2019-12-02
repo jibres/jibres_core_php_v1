@@ -1,13 +1,17 @@
 <?php
 namespace dash\db\mysql\tools;
 
-trait connect
+class connection
 {
 
 	// save link to database
 	private static $link;
 	private static $link_open  = [];
-	private static $db_charset = 'utf8mb4'; //'utf8';
+
+	public static function link()
+	{
+		return self::$link;
+	}
 
 
 	public static function close($_link = null)
@@ -171,7 +175,7 @@ trait connect
 		if($link)
 		{
 			// set charset for link
-			@mysqli_set_charset($link, self::$db_charset);
+			@mysqli_set_charset($link, 'utf8mb4');
 			// save link as global variable
 			self::$link = $link;
 			self::$link_open[$myDbName] = $link;

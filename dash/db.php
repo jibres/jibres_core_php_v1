@@ -8,7 +8,6 @@ class db
 	 * this library doing useful db actions
 	 * v4.4
 	 */
-	use \dash\db\mysql\tools\connect;
 	use \dash\db\mysql\tools\backup;
 	use \dash\db\mysql\tools\get;
 	use \dash\db\mysql\tools\info;
@@ -47,30 +46,30 @@ class db
 			'database' => $_options['database'],
 		];
 
-		self::connect($myDbFuel);
+		\dash\db\mysql\tools\connection::connect($myDbFuel);
 
 
 		// check the mysql link
-		if(!self::$link)
+		if(!\dash\db\mysql\tools\connection::link())
 		{
 			return null;
 		}
 
 
 		// to fix: mysql server has gone away!
-		// if(!@mysqli_ping(self::$link))
+		// if(!@mysqli_ping(\dash\db\mysql\tools\connection::link()))
 		// {
 		// 	self::close();
 
-		// 	$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". @mysqli_error(self::$link)." */";
+		// 	$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
 
 		// 	self::log($temp_error, $qry_exec_time, 'gone-away.sql');
 
 		// 	self::connect($_db_fuel);
 
-		// 	if(!@mysqli_ping(self::$link))
+		// 	if(!@mysqli_ping(\dash\db\mysql\tools\connection::link()))
 		// 	{
-		// 		$temp_error = "#". date("Y-m-d H:i:s") . "/* AFTER CONNECTION AGAIN! \n ERROR\tMYSQL ERROR\n". @mysqli_error(self::$link)." */";
+		// 		$temp_error = "#". date("Y-m-d H:i:s") . "/* AFTER CONNECTION AGAIN! \n ERROR\tMYSQL ERROR\n". @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
 		// 		self::log($temp_error, $qry_exec_time, 'gone-away.sql');
 		// 		return false;
 		// 	}
@@ -80,29 +79,29 @@ class db
 		 */
 		if($_options['multi_query'] === true)
 		{
-			$result = @mysqli_multi_query(self::$link, $_qry);
+			$result = @mysqli_multi_query(\dash\db\mysql\tools\connection::link(), $_qry);
 			if($result)
 			{
 				do
 				{
-					if ($r = mysqli_use_result(self::$link))
+					if ($r = mysqli_use_result(\dash\db\mysql\tools\connection::link()))
 					{
 						$r->close();
 					}
 
-					if (!mysqli_more_results(self::$link))
+					if (!mysqli_more_results(\dash\db\mysql\tools\connection::link()))
 					{
 						break;
 					}
 
-					mysqli_more_results(self::$link);
+					mysqli_more_results(\dash\db\mysql\tools\connection::link());
 				}
-				while (mysqli_next_result(self::$link));
+				while (mysqli_next_result(\dash\db\mysql\tools\connection::link()));
 			}
 		}
 		else
 		{
-			$result = mysqli_query(self::$link, $_qry);
+			$result = mysqli_query(\dash\db\mysql\tools\connection::link(), $_qry);
 		}
 
 		// get diff of time after exec
@@ -135,7 +134,7 @@ class db
 		{
 			// no result exist
 			// save mysql error
-			$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". mysqli_error(self::$link)." */";
+			$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". mysqli_error(\dash\db\mysql\tools\connection::link())." */";
 			self::log($temp_error, $qry_exec_time, 'error.sql');
 
 			if(\dash\url::isLocal())
