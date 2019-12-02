@@ -19,11 +19,12 @@ class get
 		return null;
 	}
 
+
 	public static function by_id($_by_id)
 	{
 		if($_by_id && is_numeric($_by_id))
 		{
-			$by_id_detail = \lib\db\store\get::by_id_detail($_by_id);
+			$by_id_detail = \lib\db\store\get::id_detail($_by_id);
 			if($by_id_detail)
 			{
 				return $by_id_detail;

@@ -97,36 +97,33 @@ class store
 	 */
 	public static function init_by_id($_store_id)
 	{
-		if(file_exists(self::detail_addr(). $_store_id))
-		{
-			$get_store_detail = \dash\file::read(self::detail_addr(). $_store_id);
+		$get_store_detail = \dash\file::read(self::detail_addr(). $_store_id);
 
-			if(!$get_store_detail)
+		if(!$get_store_detail)
+		{
+			if(!self::$check_db)
 			{
-				if(!self::$check_db)
+				self::$check_db = true;
+				// check from database
+				$get_store_detail = self::check_db($_store_id, 'id');
+				if(isset($get_store_detail['id']))
 				{
-					self::$check_db = true;
-					// check from database
-					$get_store_detail = self::check_db($_store_id, 'id');
-					if(isset($get_store_detail['id']))
-					{
-						$_store_id = $get_store_detail['id'];
-					}
+					$_store_id = $get_store_detail['id'];
 				}
 			}
-
-			if(is_string($get_store_detail))
-			{
-				$get_store_detail = json_decode($get_store_detail, true);
-			}
-
-			if(!is_array($get_store_detail))
-			{
-				return false;
-			}
-
-			return self::lock($_store_id, $get_store_detail);
 		}
+
+		if(is_string($get_store_detail))
+		{
+			$get_store_detail = json_decode($get_store_detail, true);
+		}
+
+		if(!is_array($get_store_detail))
+		{
+			return false;
+		}
+
+		return self::lock($_store_id, $get_store_detail);
 
 		return false;
 	}
