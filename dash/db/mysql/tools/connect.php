@@ -12,7 +12,6 @@ trait connect
 	// declare connection variables
 	// this is the jibres customer database name
 	// if this variable is set owerride to $db_name
-	public static $store_db_name = null;
 	public static $db_port        = 3306;
 	public static $db_user        = null;
 	public static $db_pass        = null;

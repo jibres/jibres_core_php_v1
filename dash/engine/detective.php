@@ -11,15 +11,14 @@ class detective
 		{
 			// connect to store
 			$store_detail = \dash\engine\store::store_detail();
-			if(isset($store_detail['fuel']))
+			if(isset($store_detail['fuel']) && isset($store_detail['db_name']))
 			{
 				$myFuel             = \dash\engine\fuel::get($store_detail['fuel']);
-				$myFuel['database'] = \dash\db::$store_db_name;
+				$myFuel['database'] = $store_detail['db_name'];
 			}
 			else
 			{
 				$myFuel             = \dash\engine\fuel::get();
-				$myFuel['database'] = \dash\db::$store_db_name;
 			}
 
 			return $myFuel;

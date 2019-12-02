@@ -208,8 +208,6 @@ class store
 
 			self::$store_loaded_detail = $detail;
 
-			\dash\db::$store_db_name = $db_name;
-
 			self::$IN_SOTE = true;
 
 			return $detail;
