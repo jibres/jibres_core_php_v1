@@ -49,7 +49,7 @@ class model
 
 	public static function backup_now($_db_name = null)
 	{
-		if(\dash\db::backup_dump(['download' => false, 'db_name' => $_db_name]))
+		if(\dash\db\mysql\tools\backup::backup_dump(['download' => false, 'db_name' => $_db_name]))
 		{
 			\dash\notif::ok(T_("Backup complete"));
 		}

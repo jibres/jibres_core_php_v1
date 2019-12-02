@@ -25,7 +25,7 @@ class model
 		elseif(\dash\request::post('type') == 'backup_dump')
 		{
 			// do backup
-			$result = \dash\db::backup_dump();
+			$result = \dash\db\mysql\tools\backup::backup_dump();
 		}
 
 		\dash\log::set('su_upgradeDataBase');

@@ -49,11 +49,11 @@ class model
 
 	private static function backup_db($_db_name = null)
 	{
-		if(\dash\db::backup_dump(['download' => false, 'db_name' => $_db_name, 'dir' => self::backup_addr()]))
+		if(\dash\db\mysql\tools\backup::backup_dump(['download' => false, 'db_name' => $_db_name, 'dir' => self::backup_addr()]))
 		{
 			if(defined('db_log_name'))
 			{
-				\dash\db::backup_dump(['download' => false, 'db_name' => db_log_name, 'dir' => self::backup_addr()]);
+				\dash\db\mysql\tools\backup::backup_dump(['download' => false, 'db_name' => db_log_name, 'dir' => self::backup_addr()]);
 			}
 
 			return true;
