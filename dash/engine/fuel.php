@@ -7,12 +7,7 @@ class fuel
 {
 	public static function get($_request = null)
 	{
-		if(\dash\url::isLocal())
-		{
-			return self::local();
-		}
-
-		if(method_exists(self, $_request))
+		if(is_callable(['self', $_request]))
 		{
 			return self::$_request();
 		}

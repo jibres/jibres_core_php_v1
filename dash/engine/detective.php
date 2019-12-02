@@ -10,8 +10,17 @@ class detective
 		if(\dash\engine\store::inStore())
 		{
 			// connect to store
-			$myFuel             = \dash\engine\fuel::get();
-			$myFuel['database'] = \dash\db::$store_db_name;
+			$store_detail = \dash\engine\store::store_detail();
+			if(isset($store_detail['fuel']))
+			{
+				$myFuel             = \dash\engine\fuel::get($store_detail['fuel']);
+				$myFuel['database'] = \dash\db::$store_db_name;
+			}
+			else
+			{
+				$myFuel             = \dash\engine\fuel::get();
+				$myFuel['database'] = \dash\db::$store_db_name;
+			}
 
 			return $myFuel;
 		}
