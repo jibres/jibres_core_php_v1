@@ -5,10 +5,12 @@
 {%block pageContent%}
 <form class="jPage f" method="post" autocomplete="off">
   <div class="c s12 pRa10">
+
     <section class="jbox pad">
       {{block('iTitle')}}
       {{block('iDesc')}}
     </section>
+
 
     <section class="jbox">
       <header data-kerkere='.jboxPrice' data-kerkere-icon='open'>{%trans "Pricing"%}</header>
@@ -22,6 +24,7 @@
       </div>
     </section>
 
+
     <section class="jbox">
       <header data-kerkere='.jboxCodes' data-kerkere-icon='open'>{%trans "Quick Access"%}</header>
       <div class="pad jboxCodes">
@@ -33,7 +36,6 @@
           {{block('iCodeOnScale')}}
          </div>
        </div>
-
 
         <div class="f">
          <div class="c s12 pRa5">
@@ -52,10 +54,18 @@
       </div>
     </section>
 
+
     <section class="jbox">
       <header data-kerkere='.seoData' data-kerkere-icon='open'>{%trans "Customize for SEO"%}</header>
       <div class="pad">
         {{block('iSEO')}}
+      </div>
+    </section>
+
+    <section class="jbox">
+      <header data-kerkere='.jboxGallery' data-kerkere-icon='open'>{%trans "Images Gallery"%}</header>
+      <div class="pad jboxGallery">
+        {{block('galleryImporter')}}
       </div>
     </section>
 
@@ -81,17 +91,9 @@
    {{block('Box_inventory')}}
   </div>
 
-  <div class="cbox mB10">
-   {{block('Box_gallery')}}
-  </div>
-
 
   <div class="cbox mB10">
    {{block('Box_variants')}}
-  </div>
-
-  <div class="cbox mB10">
-   {{block('Box_seo')}}
   </div>
 
 
@@ -114,17 +116,6 @@
 
 {% endblock %}
 
-
-
-
-
-
-
-
-{%block Box_gallery %}
-  <h3>{%trans "Images"%}</h3>
-  {{block('galleryImporter')}}
-{%endblock%}
 
 
 

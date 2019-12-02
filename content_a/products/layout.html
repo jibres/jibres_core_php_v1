@@ -367,7 +367,7 @@
   {%for key, value in productDataRow.gallery_array%}
     {%if value.path and value.path == productDataRow.thumb%}
     <span class="cauto example">
-      <div class="w300 mA20">
+      <div class="w100">
         <img src="{{value.path}}">
         <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
       </div>
@@ -378,7 +378,7 @@
   {%for key, value in productDataRow.gallery_array%}
     {%if value.path and value.path != productDataRow.thumb%}
       <span class="cauto">
-        <div class="w100 mA5">
+        <div class="w100">
           <img src="{{value.path}}">
           <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
           <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "{{value.id}}"}'><i class="sf-monitor-screen-1"></i></a>
