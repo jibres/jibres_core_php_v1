@@ -6,7 +6,14 @@ class model
 {
 	public static function post()
 	{
-		\lib\app\store\edit::selfedit(self::getPost());
+		$post =
+		[
+			'desc'    => \dash\request::post('desc'),
+		];
+
+		\lib\app\store\edit::selfedit($post);
+
+		\lib\app\store\edit::title(\dash\request::post('title'));
 
 		if(\dash\engine\process::status())
 		{
@@ -15,14 +22,5 @@ class model
 	}
 
 
-	public static function getPost()
-	{
-		$args =
-		[
-			'title'    => \dash\request::post('title'),
-			'desc'    => \dash\request::post('desc'),
-		];
-		return $args;
-	}
 }
 ?>

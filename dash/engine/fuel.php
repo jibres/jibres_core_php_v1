@@ -22,14 +22,34 @@ class fuel
 	}
 
 
-	public static function master()
+	/**
+	 * get master database array or name
+	 *
+	 * @param      boolean  $_get_array
+	 */
+	public static function master($_get_array = false)
 	{
 		if(\dash\url::isLocal())
 		{
-			return self::local();
+			if($_get_array)
+			{
+				return self::local();
+			}
+			else
+			{
+				return 'local';
+			}
 		}
 
-		return self::jibres_master();
+		if($_get_array)
+		{
+			return self::jibres_master();
+		}
+		else
+		{
+			return 'jibres_master';
+		}
+
 	}
 
 
@@ -43,11 +63,12 @@ class fuel
 	{
 		return
 		[
-			'code'  => __FUNCTION__,
-			'host'  => '45.82.139.124',
-			'port'  => 3306,
-			'user'  => 'ermile-local',
-			'pass'  => 'Reza1233',
+			'code'     => __FUNCTION__,
+			'host'     => '45.82.139.124',
+			'port'     => 3306,
+			'user'     => 'ermile-local',
+			'pass'     => 'Reza1233',
+			'database' => 'jibres',
 		];
 	}
 
@@ -55,11 +76,12 @@ class fuel
 	{
 		return
 		[
-			'code'  => __FUNCTION__,
-			'host'  => '45.82.139.124',
-			'port'  => 3306,
-			'user'  => 'ermile-local',
-			'pass'  => 'Reza1233',
+			'code'     => __FUNCTION__,
+			'host'     => '45.82.139.124',
+			'port'     => 3306,
+			'user'     => 'ermile-local',
+			'pass'     => 'Reza1233',
+			'database' => null,
 		];
 	}
 
@@ -72,11 +94,12 @@ class fuel
 	{
 		return
 		[
-			'code'  => __FUNCTION__,
-			'host'  => '45.82.139.124',
-			'port'  => 3306,
-			'user'  => 'ermile-local',
-			'pass'  => 'Reza1233',
+			'code'     => __FUNCTION__,
+			'host'     => '45.82.139.124',
+			'port'     => 3306,
+			'user'     => 'ermile-local',
+			'pass'     => 'Reza1233',
+			'database' => null,
 		];
 	}
 

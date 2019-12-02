@@ -39,7 +39,7 @@ class detective
 			else
 			{
 				// connect to jibres
-				$myFuel = \dash\engine\fuel::master();
+				$myFuel = \dash\engine\fuel::master(true);
 				return $myFuel;
 			}
 		}

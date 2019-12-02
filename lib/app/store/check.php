@@ -19,16 +19,16 @@ class check
 
 		$_option = array_merge($default_option, $_option);
 
-		$name = \dash\app::request('name');
-		if(\dash\app::isset_request('name') && !$name)
+		$title = \dash\app::request('title');
+		if(\dash\app::isset_request('title') && !$title)
 		{
-			\dash\notif::error(T_("Name of your store is required"), 'name');
+			\dash\notif::error(T_("title of your store is required"), 'title');
 			return false;
 		}
 
-		if($name && mb_strlen($name) > 100)
+		if($title && mb_strlen($title) > 100)
 		{
-			\dash\notif::error(T_("Store name must be less than 100 character"), 'name');
+			\dash\notif::error(T_("Store title must be less than 100 character"), 'title');
 			return false;
 		}
 
@@ -91,7 +91,7 @@ class check
 
 
 		$args                 = [];
-		$args['name']         = $name;
+		$args['title']         = $title;
 		$args['website']      = $website;
 		$args['desc']         = $desc;
 		$args['lang']         = $lang;
