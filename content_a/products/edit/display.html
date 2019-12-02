@@ -64,7 +64,11 @@
 
   </div>
   <div class="c4 x3 s12 mB10">
-    <button class="btn block master">{%trans "Save"%}</button>
+    <button class="btn block master mB10">{%trans "Save"%}</button>
+
+    {{block('iStatus')}}
+
+
   </div>
 </form>
 
@@ -176,7 +180,6 @@
   <header data-kerkere='.organizationPanel' data-kerkere-icon='open'>{%trans "Organization"%}</header>
   <div class="body organizationPanel" >
 
-
     {{block('iCat')}}
 
     {{block('iManufacturer')}}
@@ -187,12 +190,9 @@
 
     {{block('iUnit')}}
 
-    {{block('iStatus')}}
-
 
   </div>
 </section>
-
 
 {%endblock%}
 
