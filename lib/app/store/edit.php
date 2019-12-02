@@ -39,6 +39,35 @@ class edit
 
 	}
 
+	public static function logo($_logo)
+	{
+		if(!$_logo)
+		{
+			return false;
+		}
+
+		if(!is_string($_logo))
+		{
+			return false;
+		}
+
+		if(mb_strlen($_logo) > 100)
+		{
+			return false;
+		}
+
+		$store_id = \lib\store::id();
+
+		if(!$store_id)
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		\lib\app\setting\tools::update('store_setting', 'logo', $_logo);
+		\lib\db\store\jibres::update_logo($_logo, $store_id);
+	}
+
 
 
 	public static function selfedit($_args)

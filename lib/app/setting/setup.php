@@ -264,7 +264,7 @@ class setup
 
 		if($file)
 		{
-			\lib\app\setting\tools::update('store_setting', 'logo', $file);
+			\lib\app\store\edit::logo($file);
 		}
 		return true;
 	}
