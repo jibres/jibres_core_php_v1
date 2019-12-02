@@ -40,19 +40,19 @@ class telegrams
 
 		if(isset($_option['join_user']))
 		{
-			$db_name = db_name;
+
 
 			$default['public_show_field'] =
 			"
 				telegrams.*,
-				$db_name.users.displayname,
-				$db_name.users.mobile,
-				$db_name.users.avatar
+				users.displayname,
+				users.mobile,
+				users.avatar
 			";
 
 			$default['master_join'] =
 			"
-				LEFT JOIN $db_name.users ON $db_name.users.id = telegrams.user_id
+				LEFT JOIN users ON users.id = telegrams.user_id
 			";
 
 		}

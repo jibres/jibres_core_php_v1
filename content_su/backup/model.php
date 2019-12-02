@@ -58,6 +58,8 @@ class model
 
 	public static function backup_schedule()
 	{
+		\dash\notif::warn("need to fix");
+		return;
 
 		$array =
 		[
@@ -65,7 +67,7 @@ class model
 			'every'       => \dash\request::post('every'),
 			'time'        => \dash\request::post('time'),
 			'life_time'   => \dash\request::post('life_time'),
-			'db_name'     => db_name,
+			// data base name is here
 		];
 
 		$array = json_encode($array, JSON_UNESCAPED_UNICODE);

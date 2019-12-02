@@ -21,7 +21,7 @@ trait backup
 		{
 			$_tables   = [];
 			$result   = mysqli_query(self::$link, 'SHOW TABLES');
-			$_tables = self::fetch_all($result, 'Tables_in_'. db_name);
+			$_tables = self::fetch_all($result, 'Tables_in_'. self::$db_name);
 		}
 		else
 		{

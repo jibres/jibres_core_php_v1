@@ -337,8 +337,6 @@ class logs
 		if(isset($_options['join_user']))
 		{
 
-			$db_name = db_name;
-
 			$default =
 			[
 
@@ -384,8 +382,7 @@ class logs
 	 * @param      array   $_options  The options
 	 */
 	public static function search($_string = null, $_options = [])
-	{
-		$db_name = db_name;
+
 
 		$default =
 		[

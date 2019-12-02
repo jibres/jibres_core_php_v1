@@ -56,12 +56,7 @@ trait info
 			$_link = self::$link;
 		}
 
-		if(!defined('db_name'))
-		{
-			return null;
-		}
-
-		$db_name = db_name;
+		$db_name = self::$db_name;
 
 		$query =
 		"
@@ -200,7 +195,7 @@ trait info
 
 		if($_db_name === true)
 		{
-			$file_name = db_name;
+			$file_name = self::$db_name;
 		}
 
 		$file_url = database;
@@ -249,7 +244,7 @@ trait info
 
 		if($_db_name === true)
 		{
-			$file_name = db_name;
+			$file_name = self::$db_name;
 		}
 
 		$file_url = database. 'version/';

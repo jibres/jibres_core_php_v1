@@ -174,7 +174,7 @@ trait connect
 			// save link as global variable
 			self::$link = $link;
 			self::$link_open[self::$db_name] = $link;
-			if(self::$db_name === db_name)
+			if(self::$db_name === self::$db_name)
 			{
 				self::$link_default = $link;
 			}
