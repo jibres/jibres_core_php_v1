@@ -1,11 +1,10 @@
 .seoPreview{
   direction: ltr;
   position: relative;
-  margin-bottom: 1em;
 }
 .seoPreview img{
   width: 100px;
-  margin: 10px 0;
+  margin: 0 0 10px;
   filter:grayscale(100%);
   transition: 0.3s;
 }
@@ -60,16 +59,17 @@
   font-size: 1.3rem;
   line-height: 2rem;
   overflow: hidden;
+  margin: 0;
   text-overflow: ellipsis;
   text-align: left;
+  color: #545454;
+}
+.rtl .seoPreview .desc{
+  direction: rtl;
 }
 .seoPreview .desc p{
   display: inline;
   margin: 0;
-  color: #545454;
-}
-.rtl .seoPreview .desc p{
-  direction: rtl;
 }
 .seoPreview .desc time{
   color: #777;
@@ -78,4 +78,6 @@
 .rtl .seoPreview .desc time{
   direction: rtl;
 }
-
+.jbox .seoData .txt{
+  min-height: 70px;
+}
