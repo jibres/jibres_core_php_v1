@@ -523,27 +523,41 @@
 
 {%block variantHTML%}
 
+<section class="jbox">
+  <header data-kerkere='.jboxVariants' data-kerkere-icon='open'>{%trans "Variants"%}</header>
+  <div class="pad jboxVariants">
 
-    <div class="f">
-      <div class="cauto">{{block('optionName1')}}</div>
-      <div class="c pLa5">{{block('optionValueTag1')}}</div>
+
+{%if not productDataRow.have_child%}
+    <div class="check1">
+     <input type="checkbox" name="variants" id="variants" value="1" {% if productDataRow.variants%} checked{%endif%}>
+      <label for="variants">{%trans "This product has multiple options, like different sizes or colors"%}</label>
     </div>
+    <div data-response='variants' {%if  productDataRow.variants%} {%else%} data-response-hide {%endif%}>
 
-    <div class="f">
-      <div class="cauto">{{block('optionName2')}}</div>
-      <div class="c pLa5">{{block('optionValueTag2')}}</div>
+      <div class="f">
+        <div class="cauto">{{block('optionName1')}}</div>
+        <div class="c pLa5">{{block('optionValueTag1')}}</div>
+      </div>
+
+      <div class="f">
+        <div class="cauto">{{block('optionName2')}}</div>
+        <div class="c pLa5">{{block('optionValueTag2')}}</div>
+      </div>
+
+      <div class="f">
+        <div class="cauto">{{block('optionName3')}}</div>
+        <div class="c pLa5">{{block('optionValueTag3')}}</div>
+      </div>
+
+      <button class="btn primary block mT20" name="makevariants" value="1">{%trans "Make"%}</button>
+
+      {{block('productTempList')}}
+
     </div>
-
-    <div class="f">
-      <div class="cauto">{{block('optionName3')}}</div>
-      <div class="c pLa5">{{block('optionValueTag3')}}</div>
-    </div>
-
-    <button class="btn primary block mT20" name="makevariants" value="1">{%trans "Make"%}</button>
-
-
-    {{block('productTempList')}}
-
+{%endif%}
+  </div>
+</section>
 {%endblock%}
 
 
