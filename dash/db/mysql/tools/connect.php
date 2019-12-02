@@ -6,10 +6,9 @@ trait connect
 
 	// save link to database
 	public static $link;
-	public static $db_name        = null;
 
-	private static $link_open    = [];
-	private static $db_charset     = 'utf8mb4'; //'utf8';
+	private static $link_open  = [];
+	private static $db_charset = 'utf8mb4'; //'utf8';
 
 
 	public static function close($_link = null)

@@ -51,24 +51,26 @@ trait info
 
 	public static function get_size($_link = null)
 	{
-		if($_link === null)
-		{
-			$_link = self::$link;
-		}
+		return 0;
 
-		$db_name = self::$db_name;
+		// if($_link === null)
+		// {
+		// 	$_link = self::$link;
+		// }
 
-		$query =
-		"
-			SELECT
-				ROUND(SUM(data_length + index_length) / 1024 , 0) AS `dbsize`
-			FROM
-				information_schema.tables
-			WHERE
-				table_schema = '$db_name'
-		";
-		$result = self::get($query, 'dbsize', true);
-		return $result;
+		// $db_name = self::$db_name;
+
+		// $query =
+		// "
+		// 	SELECT
+		// 		ROUND(SUM(data_length + index_length) / 1024 , 0) AS `dbsize`
+		// 	FROM
+		// 		information_schema.tables
+		// 	WHERE
+		// 		table_schema = '$db_name'
+		// ";
+		// $result = self::get($query, 'dbsize', true);
+		// return $result;
 	}
 
 
@@ -193,10 +195,10 @@ trait info
 
 		$file_name = $_db_name;
 
-		if($_db_name === true)
-		{
-			$file_name = self::$db_name;
-		}
+		// if($_db_name === true)
+		// {
+		// 	$file_name = self::$db_name;
+		// }
 
 		$file_url = database;
 		if(!\dash\file::exists($file_url))
@@ -242,10 +244,10 @@ trait info
 	{
 		$file_name = $_db_name;
 
-		if($_db_name === true)
-		{
-			$file_name = self::$db_name;
-		}
+		// if($_db_name === true)
+		// {
+		// 	$file_name = self::$db_name;
+		// }
 
 		$file_url = database. 'version/';
 
