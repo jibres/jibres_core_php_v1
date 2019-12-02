@@ -351,8 +351,6 @@ class add
 
 		$detail = \lib\db\store\get::detail($_store_id);
 
-		$detail['store_data'] = \lib\db\store\get::data($_store_id);
-
 		$detail = json_encode($detail, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
 		\dash\file::write($dir, $detail);

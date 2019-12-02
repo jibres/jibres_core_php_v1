@@ -36,6 +36,7 @@ class edit
 		\lib\app\setting\tools::update('store_setting', 'title', $_title);
 		\lib\db\store\jibres::update_title($_title, $store_id);
 
+
 	}
 
 
@@ -67,7 +68,6 @@ class edit
 			}
 		}
 
-		\lib\store::refresh();
 		\dash\notif::ok(T_("Your setting was saved"));
 		return true;
 	}

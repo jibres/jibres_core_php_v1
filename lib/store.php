@@ -121,15 +121,13 @@ class store
 
 		$store_detail = $store_detail_file['store'];
 
-		// $store_detail = \lib\db\store\get::subdomain_detail(self::store_slug());
-
+		if(is_array($store_detail_setting_record))
+		{
+			$store_detail['store_data'] = $store_detail_setting_record;
+		}
 
 		if(isset($store_detail['store_data']) && is_array($store_detail['store_data']))
 		{
-			if(is_array($store_detail_setting_record))
-			{
-				$store_detail['store_data'] = array_merge($store_detail['store_data'], $store_detail_setting_record);
-			}
 
 			if(array_key_exists('logo', $store_detail['store_data']) && !$store_detail['store_data']['logo'])
 			{
