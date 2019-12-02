@@ -26,7 +26,7 @@ class daily
 		";
 		$totla_rows = \dash\db::get($limit_query, 'totla_rows', true);
 
-		list($start_limit, $end_limit) = \dash\db::pagnation(intval($totla_rows), $_days);
+		list($start_limit, $end_limit) = \dash\db\mysql\tools\pagination::pagnation(intval($totla_rows), $_days);
 		if($start_limit > 0)
 		{
 			$date_start =  date("Y-m-d", strtotime("-$start_limit days"));

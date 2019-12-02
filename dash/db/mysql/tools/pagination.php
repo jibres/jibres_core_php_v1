@@ -1,7 +1,7 @@
 <?php
 namespace dash\db\mysql\tools;
 
-trait pagination
+class pagination
 {
 	/**
 	 * get pagnation

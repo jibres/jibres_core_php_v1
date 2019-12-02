@@ -40,7 +40,7 @@ class search
 			$where
 		";
 
-		$limit = \dash\db::pagination_query($pagination_query);
+		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
 
 		$query =
 		"

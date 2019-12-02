@@ -26,7 +26,7 @@ class month
 		";
 		$totla_rows = \dash\db::get($limit_query, 'totla_rows', true);
 
-		list($start_limit, $end_limit) = \dash\db::pagnation(intval($totla_rows), 12);
+		list($start_limit, $end_limit) = \dash\db\mysql\tools\pagination::pagnation(intval($totla_rows), 12);
 		if($start_limit > 0)
 		{
 			$date_start =  date("Y-m-d", strtotime("-". (string) ($start_limit * 30). " days"));

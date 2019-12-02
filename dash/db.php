@@ -11,7 +11,6 @@ class db
 
 
 	use \dash\db\mysql\tools\info;
-	use \dash\db\mysql\tools\pagination;
 	use \dash\db\mysql\tools\log;
 
 

@@ -52,7 +52,7 @@ class datalist
 			$q[where]
 		";
 
-		$limit = \dash\db::pagination_query($pagination_query);
+		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
 
 		$query =
 		"
@@ -82,7 +82,7 @@ class datalist
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM products $q[where] ";
 
-		$limit = \dash\db::pagination_query($pagination_query);
+		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
 
 		$query =
 		"
