@@ -170,15 +170,8 @@ class logs
 
 	public static function multi_insert($_args)
 	{
-		$result = \dash\db\config::public_multi_insert('logs', $_args, \dash\db::get_db_log_name());
-		if(\dash\db::get_db_log_name() === true)
-		{
-			$result = \dash\db::insert_id();
-		}
-		elseif(isset(\dash\db::$link_open[\dash\db::get_db_log_name()]))
-		{
-			$result = \dash\db::insert_id(\dash\db::$link_open[\dash\db::get_db_log_name()]);
-		}
+		$result = \dash\db\config::public_multi_insert('logs', $_args);
+		$result = \dash\db::insert_id();
 		return $result;
 	}
 
@@ -201,16 +194,8 @@ class logs
 		{
 			$query  ="INSERT INTO logs SET $set ";
 
-			$result = \dash\db::query($query, \dash\db::get_db_log_name());
-			// get the link
-			if(\dash\db::get_db_log_name() === true)
-			{
-				$result = \dash\db::insert_id();
-			}
-			elseif(isset(\dash\db::$link_open[\dash\db::get_db_log_name()]))
-			{
-				$result = \dash\db::insert_id(\dash\db::$link_open[\dash\db::get_db_log_name()]);
-			}
+			$result = \dash\db::query($query);
+			$result = \dash\db::insert_id();
 			return $result;
 		}
 	}

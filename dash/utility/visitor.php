@@ -51,16 +51,8 @@ class visitor
 		$visitor['method']        = isset($_SERVER['REQUEST_METHOD']) ? mb_strtolower($_SERVER['REQUEST_METHOD']) : null;
 		$visitor['avgtime']       = null;
 
-		$result = \dash\db\config::public_insert('visitors', $visitor, \dash\db::get_db_log_name());
-
-		if(\dash\db::get_db_log_name() === true)
-		{
-			$result = \dash\db::insert_id();
-		}
-		elseif(isset(\dash\db::$link_open[\dash\db::get_db_log_name()]))
-		{
-			$result = \dash\db::insert_id(\dash\db::$link_open[\dash\db::get_db_log_name()]);
-		}
+		$result = \dash\db\config::public_insert('visitors', $visitor);
+		$result = \dash\db::insert_id();
 
 		if(is_numeric($result))
 		{
@@ -147,16 +139,8 @@ class visitor
 				$insert_url['pwd']       = addslashes(\dash\url::pwd());
 			}
 
-			$result = \dash\db\config::public_insert('urls', $insert_url, \dash\db::get_db_log_name());
-			if(\dash\db::get_db_log_name() === true)
-			{
-				return \dash\db::insert_id();
-			}
-			elseif(isset(\dash\db::$link_open[\dash\db::get_db_log_name()]))
-			{
-				return \dash\db::insert_id(\dash\db::$link_open[\dash\db::get_db_log_name()]);
-			}
-			return null;
+			$result = \dash\db\config::public_insert('urls', $insert_url);
+			return \dash\db::insert_id();
 		}
 	}
 

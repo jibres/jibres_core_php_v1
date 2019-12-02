@@ -6,26 +6,8 @@ class model
 {
 	public static function post()
 	{
-		\dash\db::$link_open    = [];
-		if(\dash\request::post('username'))
-		{
-			\dash\db::$db_user = \dash\request::post("username");
-			\dash\db::$db_pass = \dash\request::post("password");
-		}
-		elseif(defined('admin_db_user') && defined('admin_db_pass'))
-		{
-			\dash\db::$db_user = constant("admin_db_user");
-			\dash\db::$db_pass = constant("admin_db_pass");
-		}
-		elseif(defined('db_user') && defined('db_pass'))
-		{
-			\dash\db::$db_user = constant("db_user");
-			\dash\db::$db_pass = constant("db_pass");
-		}
-		else
-		{
-			\dash\header::status(403, T_("Permission denide for run upgrade database"));
-		}
+		\dash\notif::warn('hi :)');
+		return;
 
 		$result = null;
 		$exist  = true;

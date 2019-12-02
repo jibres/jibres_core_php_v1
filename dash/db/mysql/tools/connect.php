@@ -6,19 +6,10 @@ trait connect
 
 	// save link to database
 	public static $link;
-	public static $link_open    = [];
-
-	// declare connection variables
-	// this is the jibres customer database name
-	// if this variable is set owerride to $db_name
-	public static $db_port        = 3306;
-	public static $db_user        = null;
-	public static $db_pass        = null;
-	public static $db_host        = 'localhost';
-
 	public static $db_name        = null;
-	public static $db_charset     = 'utf8mb4'; //'utf8';
-	public static $db_lang        = 'fa_IR';
+
+	private static $link_open    = [];
+	private static $db_charset     = 'utf8mb4'; //'utf8';
 
 
 	public static function close($_link = null)

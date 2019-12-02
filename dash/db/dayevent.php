@@ -27,16 +27,8 @@ class dayevent
 		{
 			$query  ="INSERT IGNORE INTO dayevent SET $set ";
 
-			$resutl = \dash\db::query($query, \dash\db::get_db_log_name());
-			// get the link
-			if(\dash\db::get_db_log_name() === true)
-			{
-				$resutl = \dash\db::insert_id();
-			}
-			elseif(isset(\dash\db::$link_open[\dash\db::get_db_log_name()]))
-			{
-				$resutl = \dash\db::insert_id(\dash\db::$link_open[\dash\db::get_db_log_name()]);
-			}
+			$resutl = \dash\db::query($query);
+			$resutl = \dash\db::insert_id();
 			return $resutl;
 		}
 	}

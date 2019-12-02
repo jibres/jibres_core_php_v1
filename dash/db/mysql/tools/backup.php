@@ -140,8 +140,9 @@ trait backup
 			$db_name = $_options['db_name'];
 		}
 
-		$db_host    = \dash\db::$db_host;
-		$db_charset = \dash\db::$db_charset;
+		\dash\notif::warn("Hi :)");
+		return false;
+
 		$dest_file  = $db_name.'_'. date('Y-m-d_H-i-s'). '.sql.bz2';
 
 		if(!$_options['dir'])
@@ -166,10 +167,11 @@ trait backup
 			$cmd  .= " --skip-lock-tables ";
 		}
 
-		$cmd .= " --host='$db_host' --set-charset='$db_charset'";
-		$cmd .= " --user='".\dash\db::$db_user."'";
-		$cmd .= " --password='".\dash\db::$db_pass."' '". $db_name."'";
-		$cmd .= " | bzip2 -c > $dest_dir$dest_file";
+		return false;
+		// $cmd .= " --host='$db_host' --set-charset='$db_charset'";
+		// $cmd .= " --user='".\dash\db::$db_user."'";
+		// $cmd .= " --password='".\dash\db::$db_pass."' '". $db_name."'";
+		// $cmd .= " | bzip2 -c > $dest_dir$dest_file";
 
 		// to import this file
 		// bunzip2 < filename.sql.bz2 | mysql -u root -p db_name
