@@ -197,7 +197,7 @@
 <div class="switch1">
  <input type="checkbox" name="vat" id="vat" data-percent='9' {%if productDataRow.vat%} checked{%endif%}>
  <label for="vat"></label>
- <label for="vat">{%trans "Charge taxes on this product"%}</label>
+ <label for="vat">{%trans "Charge taxes"%}</label>
  <label for="vat"><span class="badge">{{9 | fitNumber}} %</span></label>
 </div>
 {%endblock%}
@@ -288,8 +288,9 @@
 <div class="switch1">
  <input type="checkbox" name="oversale" id="oversale" {% if productDataRow.oversale%} checked{%endif%}>
  <label for="oversale"></label>
- <label for="oversale">{%trans "Owersale"%}</label>
+ <label for="oversale">{%trans "Oversale"%}</label>
 </div>
+<p class="fc-mute">{%trans "Allow to purchase when sold out of stock"%}</p>
 {%endblock%}
 
 
