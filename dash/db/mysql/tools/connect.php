@@ -5,8 +5,7 @@ trait connect
 {
 
 	// save link to database
-	public static $link;
-
+	private static $link;
 	private static $link_open  = [];
 	private static $db_charset = 'utf8mb4'; //'utf8';
 

@@ -170,53 +170,5 @@ class session
 		// return result
 		return $result;
 	}
-
-
-	/**
-	 * delete session file with given perm name
-	 * @param  [type]  $_permName [description]
-	 * @param  boolean $_exceptMe [description]
-	 * @return [type]             [description]
-	 */
-	public static function deleteByPerm($_permName)
-	{
-		$permList     = \dash\utility\option::permList(true);
-		$deleteResult = [];
-
-		// if permission exist
-		if(isset($permList[$_permName]))
-		{
-			// find user with this permission
-			$perm_id = $permList[$_permName];
-			// connect to database
-			\dash\db::connect(true);
-			$qry =
-			"SELECT `options`.value
-				FROM users
-				INNER JOIN `options` ON `options`.user_id = `users`.id
-				WHERE `options`.cat = 'session' AND
-					permission = $perm_id;";
-			// run query and give result
-			$result = @mysqli_query(\dash\db::$link, $qry);
-			// fetch all records
-			$result = \dash\db::fetch_all($result, 'value');
-			if($result)
-			{
-				$deleteResult = self::delete($result);
-				// for each file in delete
-				foreach ($deleteResult as $key => $value)
-				{
-					// if file is deleted
-					if($value === true)
-					{
-						$qry = "DELETE FROM options WHERE cat = 'session' AND value = '$key';";
-						@mysqli_query(\dash\db::$link, $qry);
-					}
-				}
-				return $deleteResult;
-			}
-		}
-		return null;
-	}
 }
 ?>
