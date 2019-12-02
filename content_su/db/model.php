@@ -7,7 +7,6 @@ class model
 	public static function post()
 	{
 		\dash\db::$link_open    = [];
-		\dash\db::$link_default = null;
 		if(\dash\request::post('username'))
 		{
 			\dash\db::$db_user = \dash\request::post("username");
@@ -27,8 +26,6 @@ class model
 		{
 			\dash\header::status(403, T_("Permission denide for run upgrade database"));
 		}
-
-		\dash\db::$debug_error = false;
 
 		$result = null;
 		$exist  = true;

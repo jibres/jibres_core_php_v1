@@ -7,7 +7,6 @@ trait connect
 	// save link to database
 	public static $link;
 	public static $link_open    = [];
-	public static $link_default = null;
 
 	// declare connection variables
 	// this is the jibres customer database name
@@ -20,8 +19,7 @@ trait connect
 	public static $db_name        = null;
 	public static $db_charset     = 'utf8mb4'; //'utf8';
 	public static $db_lang        = 'fa_IR';
-	public static $debug_error    = false;
-	private static $load_error    = [];
+
 
 	public static function close($_link = null)
 	{
@@ -47,7 +45,6 @@ trait connect
 
 		self::$link         = null;
 		self::$link_open    = [];
-		self::$link_default = null;
 	}
 
 
@@ -189,10 +186,6 @@ trait connect
 			// save link as global variable
 			self::$link = $link;
 			self::$link_open[$myDbName] = $link;
-			if(isset($_db_fuel['fuel']) && $_db_fuel['fuel'])
-			{
-				self::$link_default = $link;
-			}
 			return true;
 		}
 		// if link is not created return false

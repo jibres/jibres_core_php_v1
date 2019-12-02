@@ -38,14 +38,6 @@ class db
 
 		$_options = array_merge($default_options, $_options);
 
-		// on default system connect to default db
-		$different_db = false;
-
-		if(is_string($_db_fuel) && $_db_fuel)
-		{
-			$different_db = true;
-		}
-
 		// get time before execute query
 		$qry_exec_time = microtime(true);
 
@@ -111,12 +103,6 @@ class db
 		else
 		{
 			$result = mysqli_query(self::$link, $_qry);
-		}
-
-		// set the default link
-		if($different_db)
-		{
-			self::$link = self::$link_default;
 		}
 
 		// get diff of time after exec
