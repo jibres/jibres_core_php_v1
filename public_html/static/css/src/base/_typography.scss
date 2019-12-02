@@ -54,6 +54,9 @@ a:focus{
 a:active{
 	outline:0;
 }
+a[data-ajaxify]{
+  cursor: pointer;
+}
 div{
   outline: none;
 }

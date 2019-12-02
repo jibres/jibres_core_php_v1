@@ -366,10 +366,12 @@
 <div class="f">
   {%for key, value in productDataRow.gallery_array%}
     {%if value.path and value.path == productDataRow.thumb%}
-    <span class="cauto example">
-      <div class="w100">
+    <span class="cauto pA5 pB10">
+      <div class="w150">
         <img src="{{value.path}}">
-        <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
+        <div>
+          <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
+        </div>
       </div>
     </span>
     {%endif%}
@@ -377,11 +379,13 @@
 
   {%for key, value in productDataRow.gallery_array%}
     {%if value.path and value.path != productDataRow.thumb%}
-      <span class="cauto">
-        <div class="w100">
+      <span class="cauto pA5 pB10">
+        <div class="w150">
           <img src="{{value.path}}">
-          <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
-          <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "{{value.id}}"}'><i class="sf-monitor-screen-1"></i></a>
+          <div>
+            <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
+            <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "{{value.id}}"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5">{%trans "Set as cover"%}</span></a>
+          </div>
         </div>
       </span>
     {%endif%}
