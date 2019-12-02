@@ -292,12 +292,6 @@
 
 
 
-{%block iSaleonline%}
-<div class="check1">
- <input type="checkbox" name="saleonline" id="saleonline" {% if productDataRow.saleonline%} checked{%endif%}>
- <label for="saleonline">{%trans "Sale Online"%} <small>{%trans "This product is saleonline base"%}</small></label>
-</div>
-{%endblock%}
 
 
 
@@ -336,23 +330,6 @@
 
 {%endblock%}
 
-
-
-
-{%block iSaletelegram%}
-<div class="check1">
-  <input type="checkbox" name="saletelegram" id="isaletelegram" {%if productDataRow.saletelegram%} checked {%endif%}>
-  <label for="isaletelegram">{%trans "Sale in telegram"%}</label>
-</div>
-{%endblock%}
-
-
-{%block iSaleapp%}
-<div class="check1">
-  <input type="checkbox" name="saleapp" id="isaleapp" {%if productDataRow.saleapp%} checked {%endif%}>
-  <label for="isaleapp">{%trans "Sale in app"%}</label>
-</div>
-{%endblock%}
 
 
 
