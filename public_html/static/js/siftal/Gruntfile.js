@@ -41,6 +41,11 @@ var myModuleFiles =
 	'src/libs/kerkere/kerkere.js',
 	'src/libs/dataCopy/dataCopy.js',
 
+	// JsBarcode
+	'src/libs/JsBarcode/JsBarcode.all.min.js',
+	'src/libs/JsBarcode/barcodeFlagDetector.js',
+	'src/libs/JsBarcode/JsBarcodeRunner.js',
+
 	// cleave
 	'src/libs/cleave/cleave.min.js',
 	'src/libs/cleave/cleaveRunner.js',
@@ -101,7 +106,6 @@ var myModuleFiles =
 	'src/storePanel/typed.js',
 	'src/storePanel/products.js',
 	'src/storePanel/storePanel.js',
-	'src/storePanel/JsBarcode.all.min.js',
 	'src/storePanel/shortkey.js',
 ];
 

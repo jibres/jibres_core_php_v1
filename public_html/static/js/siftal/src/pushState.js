@@ -39,6 +39,8 @@ function pushStateSiftal(_direct)
   dataCopy();
   // add typed
   typeTitles();
+  // Run draw barcode lib
+  JsBarcodeRunner();
 
   if($('body').attr('data-in') === 'enter')
   {
