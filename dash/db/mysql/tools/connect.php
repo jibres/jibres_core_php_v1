@@ -161,14 +161,21 @@ trait connect
 	public static function connect($_db_fuel = null)
 	{
 		// if link exist before this, use it
-		// if(array_key_exists(self::$db_name, self::$link_open))
-		// {
-		// 	self::$link = self::$link_open[self::$db_name];
-		// 	return true;
-		// }
 
 		// find my Love!
 		$myLove = \dash\engine\detective::who($_db_fuel);
+		$myDbName = null;
+		if(isset($myLove['database']))
+		{
+			$myDbName = $myLove['database'];
+		}
+
+		if(array_key_exists($myDbName, self::$link_open))
+		{
+			self::$link = self::$link_open[$myDbName];
+			return true;
+		}
+
 		// create link
 		$link = self::create_link($myLove);
 
@@ -180,7 +187,7 @@ trait connect
 			@mysqli_set_charset($link, self::$db_charset);
 			// save link as global variable
 			self::$link = $link;
-			self::$link_open[self::$db_name] = $link;
+			self::$link_open[$myDbName] = $link;
 			if(!$_db_fuel)
 			{
 				self::$link_default = $link;
