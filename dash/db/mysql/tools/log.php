@@ -1,7 +1,7 @@
 <?php
 namespace dash\db\mysql\tools;
 
-trait log
+class log
 {
 	/**
 	 * save log of sql request into file for debug

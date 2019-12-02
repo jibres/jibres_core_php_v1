@@ -21,8 +21,6 @@ class homepagenumber
 		}
 		else
 		{
-			\dash\db::log(json_encode($sum_factor, JSON_UNESCAPED_UNICODE), null, 'developer.log');
-			\dash\db::log(json_encode($result, null, 'developer.log'));
 			return;
 		}
 

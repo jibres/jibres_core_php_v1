@@ -11,7 +11,7 @@ class db
 
 
 	use \dash\db\mysql\tools\info;
-	use \dash\db\mysql\tools\log;
+
 
 
 	/**
@@ -62,14 +62,14 @@ class db
 
 		// 	$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
 
-		// 	self::log($temp_error, $qry_exec_time, 'gone-away.sql');
+		// 	\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'gone-away.sql');
 
 		// 	self::connect($_db_fuel);
 
 		// 	if(!@mysqli_ping(\dash\db\mysql\tools\connection::link()))
 		// 	{
 		// 		$temp_error = "#". date("Y-m-d H:i:s") . "/* AFTER CONNECTION AGAIN! \n ERROR\tMYSQL ERROR\n". @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
-		// 		self::log($temp_error, $qry_exec_time, 'gone-away.sql');
+		// 		\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'gone-away.sql');
 		// 		return false;
 		// 	}
 		// }
@@ -109,22 +109,22 @@ class db
 		// if debug mod is true save all string query
 		if(\dash\option::config('debug'))
 		{
-			self::log($_qry, $qry_exec_time);
+			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time);
 		}
 		// calc exex time in ms
 		$qry_exec_time_ms = round($qry_exec_time*1000);
 		// if spend more time, save it in special file
 		if($qry_exec_time_ms > 3000)
 		{
-			self::log($_qry, $qry_exec_time, 'log-critical.sql');
+			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time, 'log-critical.sql');
 		}
 		elseif($qry_exec_time_ms > 1000)
 		{
-			self::log($_qry, $qry_exec_time, 'log-warn.sql');
+			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time, 'log-warn.sql');
 		}
 		elseif($qry_exec_time_ms > 500)
 		{
-			self::log($_qry, $qry_exec_time, 'log-check.sql');
+			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time, 'log-check.sql');
 		}
 
 
@@ -134,7 +134,7 @@ class db
 			// no result exist
 			// save mysql error
 			$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". mysqli_error(\dash\db\mysql\tools\connection::link())." */";
-			self::log($temp_error, $qry_exec_time, 'error.sql');
+			\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
 
 			if(\dash\url::isLocal())
 			{
