@@ -38,9 +38,6 @@ class dayevent
 	public static function calc()
 	{
 		$result                    = [];
-
-		$result['dbtrafic']        = round(((intval(\dash\db::global_status(null, 'Bytes_sent')) + intval(\dash\db::global_status(null, 'Bytes_received'))) / 1024));
-		$result['dbsize']          = \dash\db::get_size();
 		$result['user']            = \dash\db\users::get_count();
 		$result['activeuser']      = \dash\db\users::get_count(['status' => 'active']);
 		$result['deactiveuser']    = \dash\db\users::get_count(['status' => 'deactive']);

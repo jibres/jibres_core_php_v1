@@ -4,15 +4,6 @@ namespace dash;
 /** Create simple and clean connection to db **/
 class db
 {
-	/**
-	 * this library doing useful db actions
-	 * v4.4
-	 */
-
-
-	use \dash\db\mysql\tools\info;
-
-
 
 	/**
 	 * run query string and return result
@@ -54,25 +45,6 @@ class db
 			return null;
 		}
 
-
-		// to fix: mysql server has gone away!
-		// if(!@mysqli_ping(\dash\db\mysql\tools\connection::link()))
-		// {
-		// 	self::close();
-
-		// 	$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
-
-		// 	\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'gone-away.sql');
-
-		// 	self::connect($_db_fuel);
-
-		// 	if(!@mysqli_ping(\dash\db\mysql\tools\connection::link()))
-		// 	{
-		// 		$temp_error = "#". date("Y-m-d H:i:s") . "/* AFTER CONNECTION AGAIN! \n ERROR\tMYSQL ERROR\n". @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
-		// 		\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'gone-away.sql');
-		// 		return false;
-		// 	}
-		// }
 		/**
 		 * send the query to mysql engine
 		 */
@@ -152,33 +124,6 @@ class db
 
 
 	/**
-	 * transaction
-	 */
-	public static function transaction($_db_name = true)
-	{
-		return self::query("START TRANSACTION", $_db_name);
-	}
-
-
-	/**
-	 * commit
-	 */
-	public static function commit($_db_name = true)
-	{
-		return self::query("COMMIT", $_db_name);
-	}
-
-
-	/**
-	 * rollback
-	 */
-	public static function rollback($_db_name = true)
-	{
-		return self::query("ROLLBACK", $_db_name);
-	}
-
-
-	/**
 	 * run query and get result of this query
 	 * @param  [type]  $_qry          [description]
 	 * @param  [type]  $_column       [description]
@@ -204,6 +149,33 @@ class db
 			}
 		}
 		return $result;
+	}
+
+
+	/**
+	 * transaction
+	 */
+	public static function transaction($_db_name = true)
+	{
+		return self::query("START TRANSACTION", $_db_name);
+	}
+
+
+	/**
+	 * commit
+	 */
+	public static function commit($_db_name = true)
+	{
+		return self::query("COMMIT", $_db_name);
+	}
+
+
+	/**
+	 * rollback
+	 */
+	public static function rollback($_db_name = true)
+	{
+		return self::query("ROLLBACK", $_db_name);
 	}
 
 
@@ -262,5 +234,66 @@ class db
 		// return result
 		return $result;
 	}
+
+
+	/**
+	 * return the last insert id
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function insert_id($_link = null)
+	{
+		if($_link === null)
+		{
+			$_link = \dash\db\mysql\tools\connection::link();
+		}
+		$last_id = @mysqli_insert_id($_link);
+		return $last_id;
+	}
+
+
+	/**
+	 * read query info and analyse it and return array contain result
+	 * @return [type] [description]
+	 */
+	public static function qry_info($_needle = null, $_link = null)
+	{
+		if($_link === null)
+		{
+			$_link = \dash\db\mysql\tools\connection::link();
+		}
+		preg_match_all ('/(\S[^:]+): (\d+)/', mysqli_info($_link), $matches);
+		$info = array_combine ($matches[1], $matches[2]);
+		if($_needle && isset($info[$_needle]))
+		{
+			$info = $info[$_needle];
+		}
+		return $info;
+	}
+
+
+	public static function global_status($_link = null, $_get = null)
+	{
+		if($_link === null)
+		{
+			$_link = \dash\db\mysql\tools\connection::link();
+		}
+
+		$result = self::get("SHOW GLOBAL STATUS;", ['Variable_name', 'Value'], true);
+
+		if($_get && is_array($result))
+		{
+			if(array_key_exists($_get, $result))
+			{
+				return $result[$_get];
+			}
+			return null;
+		}
+		else
+		{
+			return $result;
+		}
+	}
+
 }
 ?>
