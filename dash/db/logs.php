@@ -382,8 +382,7 @@ class logs
 	 * @param      array   $_options  The options
 	 */
 	public static function search($_string = null, $_options = [])
-
-
+	{
 		$default =
 		[
 

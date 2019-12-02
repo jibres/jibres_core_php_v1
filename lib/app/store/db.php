@@ -11,10 +11,25 @@ class db
 		$sql_query        = glob($addr. '/*');
 		$is_ok            = false;
 		$customer_db_name = 'jibres_'. $_store_id;
+
 		if(\dash\url::isLocal())
 		{
 			$customer_db_name = 'jibresLocal_'. $_store_id;
 		}
+
+
+		// in first query we need to connect to mysql database
+		// and the create the customer database
+		// and then connect to customer database
+		$fuel = $_args['fuel'];
+
+		$create_database = self::create_database_customer($fuel, $customer_db_name);
+		if(!$create_database)
+		{
+			\dash\log::set('errorInstallCustomerDbCreateDatabase', ['args' => $_args]);
+			return false;
+		}
+
 
 		foreach ($sql_query as $sql_file)
 		{
@@ -22,10 +37,11 @@ class db
 			if(is_string($load_file) && $load_file)
 			{
 				$load_file = str_replace('jibres_XXXXXXX', $customer_db_name, $load_file);
-				$is_ok = self::run_query($load_file);
+				$is_ok = self::run_query($load_file, $fuel, $customer_db_name);
+
 				if(!$is_ok)
 				{
-					\dash\log::set('errorInstallCustomerDb', ['db_file' => $sql_file]);
+					\dash\log::set('errorInstallCustomerDb', ['db_file' => $sql_file, 'args' => $_args]);
 					break;
 				}
 			}
@@ -33,43 +49,53 @@ class db
 
 		if($is_ok)
 		{
-			self::inner_query($customer_db_name, $_args);
+			self::inner_query($_args, $fuel, $customer_db_name);
 		}
 
 		return $is_ok;
 	}
 
 
-	public static function addr()
+	private static function create_database_customer($_fuel, $_customer_database)
+	{
+		$query = "CREATE DATABASE IF NOT EXISTS `$_customer_database` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
+		$result = \dash\db::query($query, ['fuel' => $_fuel, 'database' => 'mysql']);
+		return $result;
+	}
+
+
+	private static function addr()
 	{
 		return root. 'includes/database/customer';
 	}
 
 
-	private static function run_query($_query)
+	private static function run_query($_query, $_fuel, $_database)
 	{
-		$result = \dash\db::query($_query, true, ['multi_query' => true]);
+		$result = \dash\db::query($_query, ['fuel' => $_fuel, 'database' => $_database], ['multi_query' => true]);
 		return $result;
 	}
 
 
-	private static function inner_query($_db_name, $_args)
+	private static function inner_query($_args, $_fuel, $_database)
 	{
 		// insert current user to customer database
-		$set                = [];
-		$set['status']      = 'active';
-		$set['permission']  = 'admin';
-		$set['jibres_user_id']     = $_args['creator'];
-		$set['mobile']      = $_args['mobile'];
-		$set['displayname'] = $_args['displayname'];
-		$set['gender']      = $_args['gender'];
-		$set['avatar']      = $_args['avatar'];
-		$set['birthday']    = $_args['birthday'];
-		$set['marital']     = $_args['marital'];
+		$set                   = [];
+		$set['status']         = 'active';
+		$set['permission']     = 'admin';
+		$set['jibres_user_id'] = $_args['creator'];
+		$set['mobile']         = $_args['mobile'];
+		$set['displayname']    = $_args['displayname'];
+		$set['gender']         = $_args['gender'];
+		$set['avatar']         = $_args['avatar'];
+		$set['birthday']       = $_args['birthday'];
+		$set['marital']        = $_args['marital'];
 
 		$set = \dash\db\config::make_set($set);
 
-		\lib\db\store\insert::insert_customer_user($_db_name, $set);
+
+		$query = "INSERT INTO `$_database`.`users` SET $set";
+		$result = \dash\db::query($query, ['fuel' => $_fuel, 'database' => $_database]);
 
 		$set_setting = [];
 
@@ -82,7 +108,8 @@ class db
 
 		$set_setting = \dash\db\config::make_multi_insert($set_setting);
 
-		\lib\db\store\insert::insert_multi_customer_setting($_db_name, $set_setting);
+		$query = "INSERT INTO `$_database`.`setting` $set_setting";
+		$result = \dash\db::query($query, ['fuel' => $_fuel, 'database' => $_database]);
 	}
 
 

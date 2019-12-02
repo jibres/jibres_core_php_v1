@@ -5,29 +5,43 @@ namespace dash\engine;
  */
 class detective
 {
-	public static function who()
+	public static function who($_force_fuel = null)
 	{
-		if(\dash\engine\store::inStore())
+		if(isset($_force_fuel['fuel']))
 		{
-			// connect to store
-			$store_detail = \dash\engine\store::store_detail();
-			if(isset($store_detail['fuel']) && isset($store_detail['db_name']))
+			$myFuel             = \dash\engine\fuel::get($_force_fuel['fuel']);
+
+			if(isset($_force_fuel['database']))
 			{
-				$myFuel             = \dash\engine\fuel::get($store_detail['fuel']);
-				$myFuel['database'] = $store_detail['db_name'];
-			}
-			else
-			{
-				$myFuel             = \dash\engine\fuel::get();
+				$myFuel['database'] = $_force_fuel['database'];
 			}
 
 			return $myFuel;
 		}
 		else
 		{
-			// connect to jibres
-			$myFuel = \dash\engine\fuel::master();
-			return $myFuel;
+			if(\dash\engine\store::inStore())
+			{
+				// connect to store
+				$store_detail = \dash\engine\store::store_detail();
+				if(isset($store_detail['fuel']) && isset($store_detail['db_name']))
+				{
+					$myFuel             = \dash\engine\fuel::get($store_detail['fuel']);
+					$myFuel['database'] = $store_detail['db_name'];
+				}
+				else
+				{
+					$myFuel             = \dash\engine\fuel::get();
+				}
+
+				return $myFuel;
+			}
+			else
+			{
+				// connect to jibres
+				$myFuel = \dash\engine\fuel::master();
+				return $myFuel;
+			}
 		}
 	}
 }

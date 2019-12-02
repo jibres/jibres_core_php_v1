@@ -118,20 +118,5 @@ class insert
 			return false;
 		}
 	}
-
-
-	public static function insert_customer_user($_db_name, $_set)
-	{
-		$query = "INSERT INTO `$_db_name`.`users` SET $_set";
-		$result = \dash\db::query($query);
-		return $result;
-	}
-
-	public static function insert_multi_customer_setting($_db_name, $_set)
-	{
-		$query = "INSERT INTO `$_db_name`.`setting` $_set";
-		$result = \dash\db::query($query);
-		return $result;
-	}
 }
 ?>

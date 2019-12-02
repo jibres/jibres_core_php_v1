@@ -22,14 +22,12 @@ class db
 	 * @param  [type] $_qry [description]
 	 * @return [type]       [description]
 	 */
-	public static function query($_qry, $_db_name = true, $_options = [])
+	public static function query($_qry, $_db_fuel = null, $_options = [])
 	{
 		$default_options =
 		[
 			// run mysqli_multi_query
 			'multi_query'         => false,
-			// default auto create database
-			'auto_create_database' => false,
 		];
 
 		if(!is_array($_options))
@@ -39,26 +37,23 @@ class db
 
 		$_options = array_merge($default_options, $_options);
 
+		// in some query set the db_fuel true to connect to default db
+		if(!is_array($_db_fuel))
+		{
+			$_db_fuel = null;
+		}
+
 		// on default system connect to default db
 		$different_db = false;
 
-		// check connect to default db or no
-		if($_db_name === true)
+		if($_db_fuel)
 		{
-			// connect to main database
-			self::connect(true, $_options['auto_create_database']);
-		}
-		elseif(is_string($_db_name))
-		{
-			// connect to different db
-			self::connect($_db_name, $_options['auto_create_database']);
-			// different db used.
 			$different_db = true;
 		}
-		else
-		{
-			return false;
-		}
+
+
+		self::connect($_db_fuel);
+
 
 		// check the mysql link
 		if(!self::$link)
@@ -78,7 +73,7 @@ class db
 
 			self::log($temp_error, $qry_exec_time, 'gone-away.sql');
 
-			self::connect($_db_name);
+			self::connect($_db_fuel);
 
 			if(!@mysqli_ping(self::$link))
 			{
@@ -116,6 +111,13 @@ class db
 		{
 			$result = mysqli_query(self::$link, $_qry);
 		}
+
+		// set the default link
+		if($different_db)
+		{
+			self::$link = self::$link_default;
+		}
+
 		// get diff of time after exec
 		$qry_exec_time = microtime(true) - $qry_exec_time;
 
@@ -157,11 +159,7 @@ class db
 			return false;
 		}
 
-		// set the default link
-		if($different_db)
-		{
-			self::$link = self::$link_default;
-		}
+
 
 		// return the mysql result
 		return $result;

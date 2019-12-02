@@ -134,9 +134,13 @@ class add
 		$args['birthday']    = \dash\user::detail('birthday');
 		$args['marital']     = \dash\user::detail('marital');
 
+		$args['fuel']        = \dash\engine\fuel::priority(\dash\url::tld());
+
+		$fuel                = $args['fuel'];
+
 		\dash\db::transaction();
 
-		$store_id = self::new_store($subdomain, $args['creator']);
+		$store_id = self::new_store($subdomain, $args['creator'], $fuel);
 
 		if(!$store_id)
 		{
@@ -235,11 +239,11 @@ class add
 	}
 
 
-	private static function new_store($_subdomain, $_creator)
+	private static function new_store($_subdomain, $_creator, $_fuel)
 	{
 		$new_store                = [];
 		$new_store['subdomain']   = $_subdomain;
-		$new_store['fuel']        = \dash\engine\fuel::priority(\dash\url::tld());
+		$new_store['fuel']        = $_fuel;
 		$new_store['creator']     = $_creator;
 		$new_store['ip']          = \dash\server::ip(true);
 		$new_store['datecreated'] = date("Y-m-d H:i:s");
