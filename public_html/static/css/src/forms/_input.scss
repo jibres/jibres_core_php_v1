@@ -112,6 +112,7 @@ span.input{
 	-ms-flex-align:center;
 	align-items:center;
 	width: auto;
+	overflow: hidden;
 }
 .input .addon.small{
 	font-size:70%;
@@ -127,7 +128,22 @@ span.input{
 	background-color: #fff;
 	border:$inputBorder;
 }
-
+.input .addon.flag{
+	border: none;
+	padding: 2px 1em;
+	transition: 0.3s;
+	width:auto;
+}
+.input .addon.flag.none{
+	padding: 0;
+	width:0;
+}
+.input .addon.flag img{
+	display: block;
+	width: 2em;
+	margin:0 5px;
+	transition: 0.3s;
+}
 .input .addon:empty{
 	padding:5px;
 }

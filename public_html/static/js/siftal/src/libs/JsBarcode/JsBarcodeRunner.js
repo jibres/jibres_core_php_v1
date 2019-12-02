@@ -26,22 +26,22 @@ function bindBarcodeToRedraw()
   // work with barcode trigger
   $('body').on('barcode:detect', function(_e, _barcode)
   {
-        var $focused = $(':focus');
-        if($focused.is('.barCode') && $focused.attr('id'))
-        {
+    var $focused = $(':focus');
+    if($focused.is('.barCode') && $focused.attr('id'))
+    {
       var svgBox = $('.barcodePrev[data-val="#'+ $focused.attr('id') +'"]');
       drawBarcodeSvg(svgBox);
-        }
+    }
   });
 
   $('body').on('barcode:remove', function(_e, _barcode, _el)
   {
-        var $focused = $(':focus');
-        if($focused.is('.barCode') && $focused.attr('id'))
-        {
+    var $focused = $(':focus');
+    if($focused.is('.barCode') && $focused.attr('id'))
+    {
       var svgBox = $('.barcodePrev[data-val="#'+ $focused.attr('id') +'"]');
       drawBarcodeSvg(svgBox);
-        }
+    }
   });
 }
 
@@ -68,8 +68,8 @@ function drawBarcodeSvg(_this, _time)
     }
   }
 
-  var flagEl = $myCodeEl.parents('.input').find('span i');
-  flagDetectAndSet(myCode, flagEl);
+  var flagImg = $myCodeEl.parents('.input').find('span img');
+  flagDetectAndSet(myCode, flagImg);
 
 
   // console.log(_this);
@@ -88,7 +88,7 @@ function drawBarcodeSvg(_this, _time)
 
     drawTimeout = setTimeout(function()
     {
-    var drawOpt   = { height: 50}
+    var drawOpt   = { height: 40}
     var displayValue = false;
 
 
@@ -157,14 +157,19 @@ function findBarcodeFormat(_code)
   }
 }
 
-function flagDetectAndSet(_code, _flagEl)
+function flagDetectAndSet(_code, _flagImg)
 {
   var flagDetected = barcode_country(_code).toLowerCase();
-  _flagEl.removeClass();
   if(flagDetected)
   {
-    _flagEl.addClass('flag ' + barcode_country(_code).toLowerCase());
-
+    var imgSrc = $('meta[name="jibres:site"]').attr('content') + "/static/img/flags/svg/" + flagDetected + ".svg";
+    _flagImg.attr('src', imgSrc).attr('alt', flagDetected).attr('title', flagDetected);
+    _flagImg.parent().removeClass('none');
   }
+  else
+  {
+    _flagImg.parent().addClass('none');
+  }
+
 }
 
