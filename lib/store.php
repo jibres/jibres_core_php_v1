@@ -101,6 +101,12 @@ class store
 
  		$store_detail_file = \dash\engine\store::init_subdomain(self::store_slug());
 
+ 		// no file founded an no record existe in jibres database
+ 		if(!$store_detail_file)
+ 		{
+ 			return false;
+ 		}
+
 		$store_detail_setting_record = \lib\app\setting\tools::get_cat('store_setting');
 
 		if(is_array($store_detail_setting_record))
