@@ -148,8 +148,9 @@ trait connect
 
 	private static function make_error($_header, $_msg)
 	{
-		\dash\notif::error($_msg);
-		return;
+		// \dash\notif::error($_msg);
+		\dash\header::status($_header, $_msg);
+		return false;
 	}
 
 
@@ -160,7 +161,6 @@ trait connect
 	 */
 	public static function connect($_db_fuel = null)
 	{
-		// if link exist before this, use it
 
 		// find my Love!
 		$myLove = \dash\engine\detective::who($_db_fuel);
@@ -170,6 +170,7 @@ trait connect
 			$myDbName = $myLove['database'];
 		}
 
+		// if link exist before this, use it
 		if(array_key_exists($myDbName, self::$link_open))
 		{
 			self::$link = self::$link_open[$myDbName];
