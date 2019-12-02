@@ -22,7 +22,7 @@ class db
 	 * @param  [type] $_qry [description]
 	 * @return [type]       [description]
 	 */
-	public static function query($_qry, $_db_fuel = true, $_options = [])
+	public static function query($_qry, $_db_fuel = null, $_options = [])
 	{
 		$default_options =
 		[
@@ -41,7 +41,7 @@ class db
 		// on default system connect to default db
 		$different_db = false;
 
-		if($_db_fuel !== true)
+		if(is_string($_db_fuel) && $_db_fuel)
 		{
 			$different_db = true;
 		}
@@ -51,7 +51,7 @@ class db
 
 		$myDbFuel =
 		[
-			'fuel'     => $_db_fuel === true ? null : $_db_fuel,
+			'fuel'     => (is_string($_db_fuel) && $_db_fuel) ? $_db_fuel : null,
 			'database' => $_options['database'],
 		];
 

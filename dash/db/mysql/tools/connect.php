@@ -189,7 +189,7 @@ trait connect
 			// save link as global variable
 			self::$link = $link;
 			self::$link_open[$myDbName] = $link;
-			if(isset($_db_fuel['fuel']) && $_db_fuel['fuel'] !== true)
+			if(isset($_db_fuel['fuel']) && $_db_fuel['fuel'])
 			{
 				self::$link_default = $link;
 			}
