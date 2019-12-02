@@ -7,11 +7,11 @@ class detective
 {
 	public static function who($_force_fuel = null)
 	{
-		if(isset($_force_fuel['fuel']))
+		if(isset($_force_fuel['fuel']) && $_force_fuel['fuel'] && is_string($_force_fuel['fuel']))
 		{
 			$myFuel             = \dash\engine\fuel::get($_force_fuel['fuel']);
 
-			if(isset($_force_fuel['database']))
+			if(isset($_force_fuel['database']) && $_force_fuel['database'])
 			{
 				$myFuel['database'] = $_force_fuel['database'];
 			}
@@ -39,7 +39,7 @@ class detective
 			else
 			{
 				// connect to jibres
-				$myFuel = \dash\engine\fuel::master(true);
+				$myFuel = \dash\engine\fuel::master();
 				return $myFuel;
 			}
 		}

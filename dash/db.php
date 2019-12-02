@@ -22,12 +22,13 @@ class db
 	 * @param  [type] $_qry [description]
 	 * @return [type]       [description]
 	 */
-	public static function query($_qry, $_db_fuel = null, $_options = [])
+	public static function query($_qry, $_db_fuel = true, $_options = [])
 	{
 		$default_options =
 		[
 			// run mysqli_multi_query
-			'multi_query'         => false,
+			'multi_query' => false,
+			'database'    => null,
 		];
 
 		if(!is_array($_options))
@@ -37,22 +38,24 @@ class db
 
 		$_options = array_merge($default_options, $_options);
 
-		// in some query set the db_fuel true to connect to default db
-		if(!is_array($_db_fuel))
-		{
-			$_db_fuel = null;
-		}
-
 		// on default system connect to default db
 		$different_db = false;
 
-		if($_db_fuel)
+		if($_db_fuel !== true)
 		{
 			$different_db = true;
 		}
 
+		// get time before execute query
+		$qry_exec_time = microtime(true);
 
-		self::connect($_db_fuel);
+		$myDbFuel =
+		[
+			'fuel'     => $_db_fuel === true ? null : $_db_fuel,
+			'database' => $_options['database'],
+		];
+
+		self::connect($myDbFuel);
 
 
 		// check the mysql link
@@ -61,27 +64,25 @@ class db
 			return null;
 		}
 
-		// get time before execute query
-		$qry_exec_time = microtime(true);
 
 		// to fix: mysql server has gone away!
-		if(!@mysqli_ping(self::$link))
-		{
-			self::close();
+		// if(!@mysqli_ping(self::$link))
+		// {
+		// 	self::close();
 
-			$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". @mysqli_error(self::$link)." */";
+		// 	$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". @mysqli_error(self::$link)." */";
 
-			self::log($temp_error, $qry_exec_time, 'gone-away.sql');
+		// 	self::log($temp_error, $qry_exec_time, 'gone-away.sql');
 
-			self::connect($_db_fuel);
+		// 	self::connect($_db_fuel);
 
-			if(!@mysqli_ping(self::$link))
-			{
-				$temp_error = "#". date("Y-m-d H:i:s") . "/* AFTER CONNECTION AGAIN! \n ERROR\tMYSQL ERROR\n". @mysqli_error(self::$link)." */";
-				self::log($temp_error, $qry_exec_time, 'gone-away.sql');
-				return false;
-			}
-		}
+		// 	if(!@mysqli_ping(self::$link))
+		// 	{
+		// 		$temp_error = "#". date("Y-m-d H:i:s") . "/* AFTER CONNECTION AGAIN! \n ERROR\tMYSQL ERROR\n". @mysqli_error(self::$link)." */";
+		// 		self::log($temp_error, $qry_exec_time, 'gone-away.sql');
+		// 		return false;
+		// 	}
+		// }
 		/**
 		 * send the query to mysql engine
 		 */

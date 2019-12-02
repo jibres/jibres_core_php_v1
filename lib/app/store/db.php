@@ -59,7 +59,7 @@ class db
 	private static function create_database_customer($_fuel, $_customer_database)
 	{
 		$query = "CREATE DATABASE IF NOT EXISTS `$_customer_database` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
-		$result = \dash\db::query($query, ['fuel' => $_fuel, 'database' => 'mysql']);
+		$result = \dash\db::query($query, $_fuel, ['database' => 'mysql']);
 		return $result;
 	}
 
@@ -72,7 +72,7 @@ class db
 
 	private static function run_query($_query, $_fuel, $_database)
 	{
-		$result = \dash\db::query($_query, ['fuel' => $_fuel, 'database' => $_database], ['multi_query' => true]);
+		$result = \dash\db::query($_query, $_fuel, ['database' => $_database, 'multi_query' => true]);
 		return $result;
 	}
 
@@ -95,7 +95,7 @@ class db
 
 
 		$query = "INSERT INTO `$_database`.`users` SET $set";
-		$result = \dash\db::query($query, ['fuel' => $_fuel, 'database' => $_database]);
+		$result = \dash\db::query($query, $_fuel, ['database' => $_database]);
 
 		$set_setting = [];
 
@@ -109,7 +109,7 @@ class db
 		$set_setting = \dash\db\config::make_multi_insert($set_setting);
 
 		$query = "INSERT INTO `$_database`.`setting` $set_setting";
-		$result = \dash\db::query($query, ['fuel' => $_fuel, 'database' => $_database]);
+		$result = \dash\db::query($query, $_fuel, ['database' => $_database]);
 	}
 
 

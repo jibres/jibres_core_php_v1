@@ -22,34 +22,14 @@ class fuel
 	}
 
 
-	/**
-	 * get master database array or name
-	 *
-	 * @param      boolean  $_get_array
-	 */
-	public static function master($_get_array = false)
+	public static function master()
 	{
 		if(\dash\url::isLocal())
 		{
-			if($_get_array)
-			{
-				return self::local();
-			}
-			else
-			{
-				return 'local';
-			}
+			return self::local();
 		}
 
-		if($_get_array)
-		{
-			return self::jibres_master();
-		}
-		else
-		{
-			return 'jibres_master';
-		}
-
+		return self::jibres_master();
 	}
 
 
