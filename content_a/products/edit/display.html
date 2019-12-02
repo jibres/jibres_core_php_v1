@@ -25,7 +25,16 @@
     <section class="jbox">
       <header data-kerkere='.jboxCodes' data-kerkere-icon='open'>{%trans "Quick Access"%}</header>
       <div class="pad jboxCodes">
-        {{block ('iSKU') }}
+        <div class="f">
+         <div class="c s12 pRa5">
+          {{block ('iSKU') }}
+         </div>
+         <div class="c s12">
+          {{block('iCodeOnScale')}}
+         </div>
+       </div>
+
+
         <div class="f">
          <div class="c s12 pRa5">
           {{block ('iBarcode') }}
@@ -40,6 +49,7 @@
           </div>
          </div>
         </div>
+
 
       </div>
     </section>
@@ -239,7 +249,7 @@
     {%endif%}
 
     {{block('iUnit')}}
-    {{block('iCodeOnScale')}}
+
     {{block('iStatus')}}
 
 

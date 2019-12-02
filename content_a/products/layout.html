@@ -76,11 +76,10 @@
 
 
 {%block iSKU%}
-<label for='sku'>{%trans "SKU"%}</label>
+<label for='sku'>{%trans "Stock keeping unit (SKU)"%}</label>
 <div class="input">
- <input type="text" name="sku" id="sku" placeholder='{%trans "Stock keeping units"%}' value="{{productDataRow.sku}}" maxlength="16" class="txtC">
+ <input type="text" name="sku" id="sku" value="{{productDataRow.sku}}" maxlength="16" class="txtC ltr">
 </div>
-<p class="fc-mute fs09">{%trans "Stock keeping units (SKUs) are used to identify products and track inventory."%}</p>
 {%endblock%}
 
 
@@ -115,8 +114,8 @@
 
 {%block iCodeOnScale%}
 <label for="codeOnScale">{%trans "Code on scale"%}</label>
-<div class="input ">
- <input type="number" name="scalecode" id="codeOnScale" placeholder='{%trans "Enter product code on scale"%}' value="{{productDataRow.scalecode}}" class="barCode ltr" autocomplete="off" min="0" max="99999">
+<div class="input">
+ <input type="text" name="scalecode" id="codeOnScale" value="{{productDataRow.scalecode}}" class="txtC ltr" autocomplete="off" data-format='int' maxlength="5">
 </div>
 {%endblock%}
 
