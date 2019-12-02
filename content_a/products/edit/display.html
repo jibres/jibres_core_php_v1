@@ -22,6 +22,27 @@
       </div>
     </section>
 
+    <section class="jbox">
+      <header data-kerkere='.jboxCodes' data-kerkere-icon='open'>{%trans "Quick Access"%}</header>
+      <div class="pad jboxCodes">
+        {{block ('iSKU') }}
+        <div class="f">
+         <div class="c s12 pRa5">
+          {{block ('iBarcode') }}
+          <div class="txtC">
+            <svg class="barcodePrev" data-val="#barcode"></svg>
+          </div>
+         </div>
+         <div class="c s12">
+          {{block ('iBarcode2') }}
+          <div class="txtC">
+            <svg class="barcodePrev" data-val="#barcode2"></svg>
+          </div>
+         </div>
+        </div>
+
+      </div>
+    </section>
 
 
 
@@ -102,15 +123,7 @@
 
 {%block Box_inventory %}
   <h3>{%trans "Inventory"%}</h3>
-  <div class="f">
-   <div class="c s12 pRa5">{{block ('iSKU') }}</div>
-  </div>
 
-  <div class="f">
-   <div class="c s12 pRa5">{{block ('iBarcode') }}</div>
-   <div class="c s12">{{block ('iBarcode2') }}</div>
-  </div>
-  {{block ('iBarcodePrev') }}
 {{block('iInfinite')}}
 {{block('iOwersale')}}
 
