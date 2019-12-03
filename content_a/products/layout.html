@@ -135,7 +135,7 @@
 {%block iWeightunit%}
 <div>
   <label for='weightunit'>{%trans "Weight unit"%}</label>
-  <select name="weightunit" id="weightunit" class="select22" data-format='tag'>
+  <select name="weightunit" id="weightunit" class="select22">
     <option value="" {%if not productDataRow.weightunit  %} selected {%endif%}>{%trans "Please select one item"%}</option>
     <option value="lb" {%if productDataRow.weightunit == 'lb' %} selected {%endif%}>{%trans "lb"%}</option>
     <option value="oz" {%if productDataRow.weightunit == 'oz' %} selected {%endif%}>{%trans "oz"%}</option>
@@ -318,22 +318,15 @@
 
 
 {%block iTag%}
-
-
 {%if perm('productAssignTag')%}
-<div class="mT20">
-
-  <div class="tagDetector">
-
-    <div class="input mB10 hide">
-      <input type="text" class="input tagVals" name="tag"  value="{{tagString}}" id="tagValues" placeholder='{%trans "Tag"%}'>
-    </div>
-      <div class="input" title='{%trans "Add tag manually to link product togethers"%}'>
-        <input type="text" list="taglist" class="tagInput" placeholder='{%trans "Tag keywords..."%}'>
-        <button class="addon tagAdd">+</button>
-      </div>
-      <div class="tagBox"></div>
-  </div>
+<div>
+  <label for='tag'>{%trans "Tag"%}</label>
+  <select name="tag" id="tag" class="select22" data-model="tag" multiple="multiple">
+    <option disabled value="">{%trans "Add tag manually to link product togethers"%}</option>
+    {%for key, value in listTag%}
+      <option value="{{value.title}}" selected>{{value.title}}</option>
+    {%endfor%}
+  </select>
 </div>
 {%endif%}
 
