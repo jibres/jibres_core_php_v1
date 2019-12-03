@@ -96,7 +96,11 @@ label+div .select22 {
 .select22-results__option{
   padding:6px;
   user-select:none;
-  -webkit-user-select:none
+  -webkit-user-select:none;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 .select22-results__option[aria-selected]{
@@ -271,7 +275,8 @@ select.select22-country img{
 }
 
 .select22-container--default .select22-selection--multiple .select22-selection__rendered li{
-  list-style:none
+  list-style:none;
+  max-width: 100%;
 }
 
 .select22-container--default .select22-selection--multiple .select22-selection__clear{
@@ -287,6 +292,10 @@ select.select22-country img{
   background-color:#e4e4e4;
   border:1px solid #aaa;
   border-radius:0.25rem;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
   cursor:default;
   float:left;
   margin-right:5px;
