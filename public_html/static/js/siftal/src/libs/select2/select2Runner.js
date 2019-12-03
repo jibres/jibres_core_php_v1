@@ -47,12 +47,12 @@ function selectRunner()
 
   });
 
-$('.select22').on("select2:selecting", function(e, a) {
+$('.select22').on("select22:selecting", function(e, a) {
    // what you would like to happen
     console.log(e);
     console.log(a);
 });
-$(".select22").on("select2:select", function (e) {
+$(".select22").on("select22:select", function (e) {
     console.log(e.params.data.id);
 });
 
