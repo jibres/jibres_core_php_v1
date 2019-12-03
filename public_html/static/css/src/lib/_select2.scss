@@ -41,9 +41,12 @@ label+div .select22 {
   box-sizing:border-box;
   cursor:pointer;
   display:block;
-  min-height:32px;
+  min-height:36px;
   user-select:none;
-  -webkit-user-select:none
+  -webkit-user-select:none;
+  background-color:#fff;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:0.25rem
 }
 
 .select22-container .select22-selection--multiple .select22-selection__rendered{
@@ -261,7 +264,7 @@ select.select22-country img{
 
 .select22-container--default .select22-selection--multiple{
   background-color:#fff;
-  border:1px solid #aaa;
+  border:1px solid rgba(0,0,0,0.1);
   border-radius:0.25rem;
   cursor:text
 }
@@ -330,8 +333,8 @@ select.select22-country img{
 }
 
 .select22-container--default.select22-container--focus .select22-selection--multiple{
-  border:solid #000 1px;
-  outline:0
+  border:solid rgba(128,192,208,0.9) 1px;
+  outline:0;
 }
 
 .select22-container--default.select22-container--disabled .select22-selection--multiple{
