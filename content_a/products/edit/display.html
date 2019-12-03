@@ -67,8 +67,6 @@
   <div class="c4 x3 s12 mB10">
     <button class="btn block master mB10">{%trans "Save"%}</button>
 
-{{block('iStatus')}}
-
 {{block('Box_organization')}}
 
 {{block('Box_variant_list')}}
@@ -145,13 +143,17 @@
 <section class="jbox">
   <header data-kerkere='.jboxOrganize' data-kerkere-icon='open'><h2>{%trans "Organization"%}</h2></header>
   <div class="pad jboxOrganize">
+
+    {{block('iStatus')}}
+
     {{block('iCat')}}
 
-    {{block('iManufacturer')}}
 
     {%if url.child == 'edit'%}
       {{block('iTag')}}
     {%endif%}
+
+    {{block('iManufacturer')}}
 
     {{block('iUnit')}}
   </div>

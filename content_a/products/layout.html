@@ -249,37 +249,16 @@
 
 
 {%block iStatus%}
-<section class="jbox">
-  <header data-kerkere='.jboxStatus' data-kerkere-icon='open'><h2>{%trans "Status of product"%}</h2></header>
-  <div class="pad jboxStatus">
-
-   <div class="radio1 green">
-    <input type="radio" id="r-available" name="status" value="available" {%if productDataRow.status == 'available' or not productDataRow.status %} checked{%endif%}>
-    <label for="r-available">{%trans "Avalible"%} <small>{%trans "Normal status of product"%}</small></label>
-   </div>
-
-   <div class="radio1 blue">
-    <input type="radio" id="r-soon" name="status" value="soon" {%if productDataRow.status == 'soon' %} checked{%endif%}>
-    <label for="r-soon">{%trans "Soon"%} <small>{%trans "maybe come in future and be available"%}</small></label>
-   </div>
-
-   <div class="radio1 yellow">
-    <input type="radio" id="r-unavailable" name="status" value="unavailable" {%if productDataRow.status == 'unavailable' %} checked{%endif%}>
-    <label for="r-unavailable">{%trans "Unavailable"%} <small>{%trans "temporary does not exist in store"%}</small></label>
-   </div>
-
-   <div class="radio1 red">
-    <input type="radio" id="r-discountinued" name="status" value="discountinued" {%if productDataRow.status == 'discountinued' %} checked{%endif%}>
-    <label for="r-discountinued">{%trans "Discountinued"%} <small>{%trans "does not exist for now and on the future"%}</small></label>
-   </div>
-
-   <div class="radio1 black">
-    <input type="radio" id="r-unset" name="status" value="unset" {%if productDataRow.status == 'unset'%} checked{%endif%} >
-    <label for="r-unset">{%trans "Unset"%} <small>{%trans "Unknown status for product"%}</small></label>
-   </div>
-  </div>
-</section>
-
+<div>
+  <label for="status">{%trans "Status"%}</label>
+  <select name="status" id="status" class="select22">
+    <option value="available" {%if productDataRow.status == 'available' %} selected {%endif%}>{%trans "Available"%}</option>
+    <option value="soon" {%if productDataRow.status == 'soon' %} selected {%endif%}>{%trans "Soon"%}</option>
+    <option value="unavailable" {%if productDataRow.status == 'unavailable' %} selected {%endif%}>{%trans "Unavailable"%}</option>
+    <option value="discountinued" {%if productDataRow.status == 'discountinued' %} selected {%endif%}>{%trans "Discountinued"%}</option>
+    <option value="unset" {%if productDataRow.status == 'unset' %} selected {%endif%}>{%trans "Unset"%}</option>
+  </select>
+</div>
 {%endblock%}
 
 
