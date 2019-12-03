@@ -28,6 +28,11 @@
 .jbox header[data-kerkere-status="close"]{
   background-color: #ddd;
 }
+.jbox header h2{
+  display: inline-block;
+  font-size: 1em;
+  line-height: inherit;
+}
 .jbox section{
   padding: 5px;
 }
