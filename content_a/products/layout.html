@@ -542,21 +542,21 @@
 
 
 {%block optionName1%}
-<div class="input mA5">
+<div class="input">
   <input type="text" name="optionname1" placeholder='{%trans "Size"%}' value="{{variantsList.variants.option1.name}}">
 </div>
 {%endblock%}
 
 
 {%block optionName2%}
-<div class="input mA5">
+<div class="input">
   <input type="text" name="optionname2" placeholder='{%trans "Color"%}' value="{{variantsList.variants.option2.name}}">
 </div>
 {%endblock%}
 
 
 {%block optionName3%}
-<div class="input mA5">
+<div class="input">
   <input type="text" name="optionname3" placeholder='{%trans "Material"%}' value="{{variantsList.variants.option3.name}}">
 </div>
 {%endblock%}
@@ -565,81 +565,36 @@
 
 
 {%block optionValueTag3%}
-<div class="mA5">
-  <div class="tagDetector">
-
-    <div class="input mB10 hide">
-      <input type="text" class="input tagVals" name="optionvalue3"  value="{{variantsList.variants.option3.value | join(',')}}" id="" placeholder='{%trans "Tag"%}'>
-    </div>
-
-    <div class="input">
-      <input type="text" class="tagInput" placeholder='{%trans "Separate options with a comma"%}'>
-      <button class="addon tagAdd">+</button>
-    </div>
-
-    <div class="w300">
-      <div class="tagBox">
-        {%for key, value in variantsList.variants.option3.value%}
-        <span data-val="{{value}}">{{value}}</span>
-        {%endfor%}
-      </div>
-    </div>
-
-  </div>
+<div>
+  <select name="optionvalue3" id="optionvalue3" class="select22" data-model="tag" multiple="multiple">
+    {%for key, value in variantsList.variants.option3.value%}
+      <option value="{{value.title}}" selected>{{value.title}}</option>
+    {%endfor%}
+  </select>
 </div>
 {%endblock%}
 
 
 
 {%block optionValueTag2%}
-<div class="mA5">
-  <div class="tagDetector">
-
-    <div class="input mB10 hide">
-      <input type="text" class="input tagVals" name="optionvalue2"  value="{{variantsList.variants.option2.value | join(',')}}" id="" placeholder='{%trans "Tag"%}'>
-    </div>
-
-    <div class="input">
-      <input type="text" class="tagInput" placeholder='{%trans "Separate options with a comma"%}'>
-      <button class="addon tagAdd">+</button>
-    </div>
-
-    <div class="w300">
-      <div class="tagBox">
-        {%for key, value in variantsList.variants.option2.value%}
-        <span data-val="{{value}}">{{value}}</span>
-        {%endfor%}
-      </div>
-    </div>
-
-  </div>
+<div>
+  <select name="optionvalue2" id="optionvalue2" class="select22" data-model="tag" multiple="multiple">
+    {%for key, value in variantsList.variants.option2.value%}
+      <option value="{{value.title}}" selected>{{value.title}}</option>
+    {%endfor%}
+  </select>
 </div>
 {%endblock%}
 
 
 
 {%block optionValueTag1%}
-<div class="mA5">
-  <div class="tagDetector">
-
-    <div class="input mB10 hide">
-      <input type="text" class="input tagVals" name="optionvalue1"  value="{{variantsList.variants.option1.value | join(',')}}" id="" placeholder='{%trans "Tag"%}'>
-    </div>
-
-    <div class="input">
-      <input type="text" class="tagInput" placeholder='{%trans "Separate options with a comma"%}'>
-      <button class="addon tagAdd">+</button>
-    </div>
-
-    <div class="w300">
-      <div class="tagBox">
-        {%for key, value in variantsList.variants.option1.value%}
-        <span data-val="{{value}}">{{value}}</span>
-        {%endfor%}
-      </div>
-    </div>
-
-  </div>
+<div>
+  <select name="optionvalue1" id="optionvalue1" class="select22" data-model="tag" multiple="multiple">
+    {%for key, value in variantsList.variants.option1.value%}
+      <option value="{{value.title}}" selected>{{value.title}}</option>
+    {%endfor%}
+  </select>
 </div>
 {%endblock%}
 
