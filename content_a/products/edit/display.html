@@ -100,7 +100,7 @@
 
 
 {%block Box_shopping %}
-<section class="pbox">
+<section class="jbox">
   <header data-kerkere='.shippingPanel' data-kerkere-icon='open'><h2>{%trans "Shopping"%}</h2></header>
   <div class="body shippingPanel" >
     {{block ('iMinsale') }}
@@ -123,7 +123,7 @@
 
 {%block Box_variant_list %}
 {%if productDataRow.have_child or productFamily%}
-<section class="pbox">
+<section class="jbox">
   <header data-kerkere='.variantPanel' data-kerkere-icon='open'><h2>{%trans "Variants"%}</h2></header>
   <div class="body variantPanel" >
     {{block('variantChild')}}
@@ -159,7 +159,7 @@
 
 {%block Box_deleteProduct%}
 {%if url.child == 'edit'%}
-  <section class="pbox">
+  <section class="jbox">
     <header data-kerkere='.deleteproduct' data-kerkere-icon='close'>{%trans "Delete product"%}</header>
     <div class="body deleteproduct" data-kerkere-content='hide' >
 
