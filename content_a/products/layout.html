@@ -33,7 +33,7 @@
 {%block iCat%}
 
 <label for='cat'>{%trans "Cat"%}</label>
-<select name="cat" id="cat" class="select22" data-model='tag'>
+<select name="cat" id="cat" class="select222">
   <option value="">{%trans "Select or add new category"%}</option>
   {%for key, value in listCategory%}
     <option value="{{value.title}}" {%if value.id == productDataRow.cat_id %} selected{%endif%}>{{value.title}}</option>
@@ -45,7 +45,7 @@
 
 {%block iUnit%}
 <label for='unit'>{%trans "Unit"%}</label>
-<select name="unit" class="select ui dropdown search addition" id="unit">
+<select name="unit" id="unit" class="select222" >
   <option value="">{%trans "like Qty, kg, etc"%}</option>
   {%for key, value in listUnits%}
     <option value="{{value.title}}" {%if value.id == productDataRow.unit_id %} selected{%endif%}>{{value.title}}</option>
@@ -57,7 +57,7 @@
 
 {%block iType%}
 <label for='type'>{%trans "Type"%}</label>
-<select name="type" class="select ui dropdown search addition" id="type">
+<select name="type" id="type" class="select22">
   <option value="product" {%if productDataRow.type == 'product' %} selected {%endif%}>{%trans "Product"%}</option>
   <option value="service" {%if productDataRow.type == 'service' %} selected {%endif%}>{%trans "Service"%}</option>
   <option value="file" {%if productDataRow.type == 'file' %} selected {%endif%}>{%trans "File"%}</option>
@@ -208,7 +208,7 @@
 {%block iMinsale%}
 <label for='minsale'>{%trans "Min sale"%}</label>
 <div class="input">
- <input type="number" name="minsale" id="minsale" placeholder='{%trans "Min sale"%}' value="{{productDataRow.minsale}}" maxlength="50">
+ <input type="text" name="minsale" id="minsale" placeholder='{%trans "Min sale"%}' value="{{productDataRow.minsale}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -217,14 +217,14 @@
 {%block iMaxsale%}
 <label for='maxsale'>{%trans "Max sale"%}</label>
 <div class="input">
- <input type="number" name="maxsale" id="maxsale" placeholder='{%trans "Max sale"%}' value="{{productDataRow.maxsale}}" maxlength="50">
+ <input type="text" name="maxsale" id="maxsale" placeholder='{%trans "Max sale"%}' value="{{productDataRow.maxsale}}" maxlength="50">
 </div>
 {%endblock%}
 
 {%block iSalestep%}
 <label for='salestep'>{%trans "Sale step"%}</label>
 <div class="input">
- <input type="number" name="salestep" id="salestep" placeholder='{%trans "Sale step"%}' value="{{productDataRow.salestep}}" maxlength="50">
+ <input type="text" name="salestep" id="salestep" placeholder='{%trans "Sale step"%}' value="{{productDataRow.salestep}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -232,7 +232,7 @@
 {%block iMinstock%}
 <label for='minstock'>{%trans "Min stock"%}</label>
 <div class="input">
- <input type="number" name="minstock" id="minstock" placeholder='{%trans "Min stock"%}' value="{{productDataRow.minstock}}" maxlength="50">
+ <input type="text" name="minstock" id="minstock" placeholder='{%trans "Min stock"%}' value="{{productDataRow.minstock}}" maxlength="50">
 </div>
 {%endblock%}
 
@@ -241,14 +241,14 @@
 {%block iMaxstock%}
 <label for='maxstock'>{%trans "Max stock"%}</label>
 <div class="input">
- <input type="number" name="maxstock" id="maxstock" placeholder='{%trans "Max stock"%}' value="{{productDataRow.maxstock}}" maxlength="50">
+ <input type="text" name="maxstock" id="maxstock" placeholder='{%trans "Max stock"%}' value="{{productDataRow.maxstock}}" maxlength="50">
 </div>
 {%endblock%}
 
 
 {%block iStatus%}
 <section class="jbox">
-  <header data-kerkere='.jboxStatus' data-kerkere-icon='open'>{%trans "Status of product"%}</header>
+  <header data-kerkere='.jboxStatus' data-kerkere-icon='open'><h2>{%trans "Status of product"%}</h2></header>
   <div class="pad jboxStatus">
 
    <div class="radio1 green">
@@ -343,7 +343,7 @@
 {%block galleryImporter %}
 
 <section class="jbox">
-  <header data-kerkere='.jboxGallery' data-kerkere-icon='open'>{%trans "Images Gallery"%}</header>
+  <header data-kerkere='.jboxGallery' data-kerkere-icon='open'><h2>{%trans "Images Gallery"%}</h2></header>
   <div class="pad jboxGallery">
 
 
@@ -352,28 +352,28 @@
   <div class="f">
     {%for key, value in productDataRow.gallery_array%}
       {%if value.path and value.path == productDataRow.thumb%}
-      <span class="cauto pA5 pB10">
+      <div class="cauto pA5 pB10">
         <div class="w150">
-          <img src="{{value.path}}">
+          <img src="{{value.path}}" alt="{{value.id}}">
           <div>
             <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
           </div>
         </div>
-      </span>
+      </div>
       {%endif%}
     {%endfor%}
 
     {%for key, value in productDataRow.gallery_array%}
       {%if value.path and value.path != productDataRow.thumb%}
-        <span class="cauto pA5 pB10">
+        <div class="cauto pA5 pB10">
           <div class="w150">
-            <img src="{{value.path}}">
+            <img src="{{value.path}}" alt="{{value.id}}">
             <div>
               <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "{{value.id}}"}'><i class="sf-times fc-red"></i></a>
               <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "{{value.id}}"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5">{%trans "Set as cover"%}</span></a>
             </div>
           </div>
-        </span>
+        </div>
       {%endif%}
     {%endfor%}
   </div>
@@ -400,7 +400,7 @@
 {%block iSEO%}
 
 <section class="jbox">
-  <header data-kerkere='.seoData' data-kerkere-icon='open'>{%trans "Customize for SEO"%}</header>
+  <header data-kerkere='.seoData' data-kerkere-icon='open'><h2>{%trans "Customize for SEO"%}</h2></header>
   <div class="pad">
 
     <div class="seoPreview">
@@ -505,7 +505,7 @@
 {%block variantHTML%}
 
 <section class="jbox">
-  <header data-kerkere='.jboxVariants' data-kerkere-icon='open'>{%trans "Variants"%}</header>
+  <header data-kerkere='.jboxVariants' data-kerkere-icon='open'><h2>{%trans "Variants"%}</h2></header>
   <div class="pad jboxVariants">
 
 
