@@ -33,8 +33,8 @@
 {%block iCat%}
 
 <label for='cat'>{%trans "Cat"%}</label>
-<select name="cat" class="select ui dropdown search addition" id="cat">
-  <option value="">{%trans "Organize by category"%}</option>
+<select name="cat" id="cat" class="select22" data-model='tag'>
+  <option value="">{%trans "Select or add new category"%}</option>
   {%for key, value in listCategory%}
     <option value="{{value.title}}" {%if value.id == productDataRow.cat_id %} selected{%endif%}>{{value.title}}</option>
   {%endfor%}
