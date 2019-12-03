@@ -7,6 +7,7 @@
   <div class="c s12 pRa10">
 
     <section class="jbox pad">
+      <header class="hide" data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2>{%trans "Title"%}</h2></header>
       {{block('iTitle')}}
       {{block('iDesc')}}
     </section>
@@ -93,16 +94,20 @@
 
 
 {%block Box_inventory %}
-  <h3>{%trans "Inventory"%}</h3>
-{{block('iInfinite')}}
-{{block('iOwersale')}}
+<section class="jbox">
+  <header data-kerkere='.inventoryPanel' data-kerkere-icon='open'><h2>{%trans "Inventory"%}</h2></header>
+  <div class="pad inventoryPanel">
+    {{block('iInfinite')}}
+    {{block('iOwersale')}}
+  </div>
+</section>
 {%endblock%}
 
 
 {%block Box_shopping %}
 <section class="jbox">
   <header data-kerkere='.shippingPanel' data-kerkere-icon='open'><h2>{%trans "Shopping"%}</h2></header>
-  <div class="body shippingPanel" >
+  <div class="pad shippingPanel">
     {{block ('iMinsale') }}
     {{block ('iMaxsale') }}
     {{block ('iSalestep') }}
@@ -125,7 +130,7 @@
 {%if productDataRow.have_child or productFamily%}
 <section class="jbox">
   <header data-kerkere='.variantPanel' data-kerkere-icon='open'><h2>{%trans "Variants"%}</h2></header>
-  <div class="body variantPanel" >
+  <div class="pad variantPanel">
     {{block('variantChild')}}
   </div>
 </section>
@@ -161,7 +166,7 @@
 {%if url.child == 'edit'%}
   <section class="jbox">
     <header data-kerkere='.deleteproduct' data-kerkere-icon='close'>{%trans "Delete product"%}</header>
-    <div class="body deleteproduct" data-kerkere-content='hide' >
+    <div class="pad deleteproduct" data-kerkere-content='hide' >
 
       <div class="btn danger block" data-confirm data-data='{"delete":"product"}'>{%trans "Remove product"%}</div>
     </div>
