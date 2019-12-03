@@ -10,10 +10,10 @@ function selectRunner()
     $.fn.select22.defaults.set("dir", "rtl");
   }
   // set minimum to show search
-  $.fn.select22.defaults.set("minimumResultsForSearch", "6");
+  // $.fn.select22.defaults.set("minimumResultsForSearch", "6");
 
   // init simple select22
-  $('.select22:not([data-model])').select22();
+  $('.select22:not([data-model])').select22({minimumResultsForSearch: 6});
   $('.select22[data-model="country"]').select22({ templateResult2: select22FormatDropDownCoutry, templateSelection: select22FormatDropDownCoutry });
   $('.select22[data-model="tag"]').select22({ tags: true, tokenSeparators: [',', ' '] });
 
