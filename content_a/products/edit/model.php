@@ -281,6 +281,10 @@ class model
 	{
 		if(!\dash\request::post('variants'))
 		{
+			if(\dash\data::productDataRow_variants())
+			{
+				\lib\app\product\variants::clean_product($_id);
+			}
 			return false;
 		}
 

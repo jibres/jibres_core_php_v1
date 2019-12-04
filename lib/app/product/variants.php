@@ -219,6 +219,18 @@ class variants
 	}
 
 
+	/**
+	 * clean json of variants
+	 */
+	public static function clean_product($_product_id)
+	{
+		if($_product_id && is_numeric($_product_id))
+		{
+			\dash\temp::set('productHasChange', true);
+			\lib\db\products\variants::clean_product($_product_id);
+		}
+	}
+
 
 	public static function set_product($_variants, $_product_id)
 	{

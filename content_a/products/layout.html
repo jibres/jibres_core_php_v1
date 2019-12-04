@@ -2,7 +2,7 @@
 
 {%block iTitle%}
 <div class="input mB10">
- <input type="text" name="title" id="title" placeholder='{%trans "Product Title" %} *' value="{{productDataRow.title}}" maxlength='200' autofocus>
+ <input type="text" name="title" id="title" placeholder='{%trans "Product Title" %} *' value="{{productDataRow.title}}" maxlength='200' autofocus {%if productDataRow.parent%} disabled {%endif%}>
 </div>
 {%endblock%}
 
@@ -36,7 +36,7 @@
 {%block iCat%}
 <div>
   <label for='cat'>{%trans "Cat"%}</label>
-  <select name="cat" id="cat" class="select22" data-model="tag" data-placeholder='{%trans "Select or add new category"%}'>
+  <select name="cat" id="cat" class="select22" data-model="tag" data-placeholder='{%trans "Select or add new category"%}' {%if productDataRow.parent%} disabled {%endif%}>
     <option></option>
     {%if productDataRow.cat_id%}
       <option value="0">{%trans "Without category"%}</option>
@@ -52,7 +52,7 @@
 {%block iUnit%}
 <div>
   <label for='unit'>{%trans "Unit"%}</label>
-  <select name="unit" id="unit" class="select22" data-model='tag' data-placeholder='{%trans "like Qty, kg, etc"%}'>
+  <select name="unit" id="unit" class="select22" data-model='tag' data-placeholder='{%trans "like Qty, kg, etc"%}' {%if productDataRow.parent%} disabled {%endif%}>
     <option></option>
     {%if productDataRow.unit_id%}
       <option value="0">{%trans "Without unit"%}</option>
@@ -71,21 +71,21 @@
 
   <div class="c pRa5">
     <div class="radio3">
-      <input type="radio" name="type" value="product" id="typeProduct" {%if productDataRow.type == 'product'%} checked {%endif%} >
+      <input type="radio" name="type" value="product" id="typeProduct" {%if productDataRow.type == 'product'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%}>
       <label for="typeProduct">{%trans "Product"%}</label>
     </div>
   </div>
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="type" value="service" id="typeService" {%if productDataRow.type == 'service'%} checked {%endif%} >
+      <input type="radio" name="type" value="service" id="typeService" {%if productDataRow.type == 'service'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%}>
       <label for="typeService">{%trans "Service"%}</label>
     </div>
   </div>
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="type" value="file" id="typeFile" {%if productDataRow.type == 'file'%} checked {%endif%} >
+      <input type="radio" name="type" value="file" id="typeFile" {%if productDataRow.type == 'file'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%}>
       <label for="typeFile">{%trans "File"%}</label>
     </div>
   </div>
@@ -479,8 +479,18 @@
 
 
 {%block variantChild%}
+{%if productDataRow.parentDetail.id and productDataRow.parentDetail.id != requestGET.id%}
+<div class="msg f primary outline">
+  <div class="cauto"><span class="mRa10 sf-atom"></span></div>
+  <div class="c">
+    {{productDataRow.parentDetail.title}}
+  </div>
+  <div class="cauto">
+    <a href="{{url.that}}?id={{productDataRow.parentDetail.id}}" class="btn xs success">{%trans "Edit"%}</a>
+  </div>
+</div>
+{%endif%}
 {%if productDataRow.have_child%}
-
 {%for key, value in productDataRow.child%}
   <div class="msg f">
     <div class="cauto"><span class="mRa10">{{(key + 1)  | fitNumber}}</span></div>
@@ -506,9 +516,13 @@
       <small class="fc-mute">{{value.optionname2}}</small> <b class="fc-green">{{value.optionvalue2}}</b>
       <small class="fc-mute">{{value.optionname3}}</small> <b class="fc-blue">{{value.optionvalue3}}</b>
     </div>
-    <div class="cauto">
-      <a href="{{url.that}}?id={{value.id}}" class="btn xs outline primary">{%trans "Edit"%}</a>
-    </div>
+    {%if value.id == requestGET.id%}
+      <div class="cauto"><i class="sf-check"></i></div>
+    {%else%}
+      <div class="cauto">
+        <a href="{{url.that}}?id={{value.id}}" class="btn xs outline primary">{%trans "Edit"%}</a>
+      </div>
+    {%endif%}
   </div>
 {%endfor%}
 

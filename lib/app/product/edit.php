@@ -67,12 +67,6 @@ class edit
 			return false;
 		}
 
-		if($isChild)
-		{
-			unset($args['title']);
-			unset($args['slug']);
-		}
-
 
 		if(!\dash\app::isset_request('title')) 			unset($args['title']);
 		if(!\dash\app::isset_request('slug')) 			unset($args['slug']);
@@ -200,6 +194,15 @@ class edit
 			{
 				return false;
 			}
+		}
+
+		if($isChild)
+		{
+			unset($args['title']);
+			unset($args['slug']);
+			unset($args['cat_id']);
+			unset($args['unit_id']);
+			unset($args['type']);
 		}
 
 

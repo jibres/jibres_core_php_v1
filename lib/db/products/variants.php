@@ -20,6 +20,14 @@ class variants
 	}
 
 
+	public static function clean_product($_id)
+	{
+		$query  = "UPDATE products SET products.variants = NULL WHERE products.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 	public static function load_child($_id)
 	{
 		$query  = "SELECT * FROM products WHERE products.parent = $_id";
