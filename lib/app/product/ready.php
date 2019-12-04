@@ -73,6 +73,17 @@ class ready
 					}
 					break;
 
+				case 'weight':
+					if($value)
+					{
+						$result[$key] = \lib\number::down($value);
+					}
+					else
+					{
+						$result[$key] = $value;
+					}
+					break;
+
 				case 'price':
 				case 'buyprice':
 				case 'discount':
