@@ -140,8 +140,8 @@
 
 {%block Box_sale %}
 <section class="jbox">
-  <header data-kerkere='.salePanel' data-kerkere-icon='close'><h2>{%trans "Cart Limit"%}</h2></header>
-  <div class="pad salePanel hideIn">
+  <header data-kerkere='.salePanel' data-kerkere-icon='{%if productDataRow.minsale or productDataRow.maxsale or productDataRow.salestep%}open{%else%}close{%endif%}'><h2>{%trans "Cart Limit"%}</h2></header>
+  <div class="pad salePanel {%if productDataRow.minsale or productDataRow.maxsale or productDataRow.salestep%} {%else%}hideIn{%endif%}">
     <div class="f">
       <div class="c s12 pRa5">
         {{block ('iMinsale') }}
