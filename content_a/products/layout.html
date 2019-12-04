@@ -152,13 +152,13 @@
 </div>
 <div class="f">
   <div class="c pRa10">
-    <div class="profitMargin fs09 hideIn">
-      <div class="msg minimal" data-percent='11'><abbr>{%trans "Gross profit margin"%}</abbr> <b>11%</b></div>
+    <div class="profitMargin fs09 mB5 hideIn">
+      <div class="msg minimal mB0" data-percent='11'><abbr>{%trans "Gross profit"%}</abbr> <b>11%</b></div>
     </div>
   </div>
   <div class="c">
-    <div class="priceMargin fs09 hideIn">
-      <div class="msg minimal" data-percent='11'><abbr>{%trans "Margin"%}</abbr> <b>11%</b></div>
+    <div class="priceMargin fs09 mB5 hideIn">
+      <div class="msg minimal mB0" data-percent='11'><abbr>{%trans "Margin"%}</abbr> <b>11%</b></div>
     </div>
   </div>
 </div>
@@ -179,9 +179,7 @@
 <div class="input mB5-f">
  <div class="addon fs09">{%trans "Toman"%}</div>
  <input type="text" name="CompareAtPrice" id="CompareAtPrice" data-format='price' value="{{productDataRow.CompareAtPrice}}" placeholder='{%trans "Original retail price before off"%}' data-run-input='calcProductMargin' maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}">
-</div>
-<div class="discountMargin fs09 hideIn">
-  <div class="msg minimal mB0" data-percent='11'><b>11%</b> <abbr>{%trans "Discount"%}</abbr></div>
+ <div class="addon fs09 discountMargin"></div>
 </div>
 {%endblock%}
 
