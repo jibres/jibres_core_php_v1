@@ -20,7 +20,9 @@
           <div class="c s12 pRa5">{{block ('iPrice') }}</div>
           <div class="c s12">{{block ('iCompareAtPrice') }}</div>
         </div>
-        {{block ('iBuyprice') }}
+        <div data-response='type' data-response-where='product' {%if productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+          {{block ('iBuyprice') }}
+        </div>
         {{block ('iVat') }}
       </div>
     </section>
@@ -33,9 +35,11 @@
          <div class="c s12 pRa5">
           {{block ('iSKU') }}
          </div>
-         <div class="c s12">
-          {{block('iCodeOnScale')}}
-         </div>
+         <div data-response='type' data-response-where='product' {%if productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+           <div class="c6 s12">
+            {{block('iCodeOnScale')}}
+           </div>
+        </div>
        </div>
 
         <div class="f">
@@ -52,22 +56,23 @@
           </div>
          </div>
         </div>
+      <div data-response='type' data-response-where='product' {%if productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+        {{block('iInfinite')}}
+        <div data-response='iinfinite' data-response-effect='slide' {%if productDataRow.infinite%}{%else%} data-response-hide{%endif%}>
+          {{block('iOwersale')}}
 
-    {{block('iInfinite')}}
-    <div data-response='iinfinite' data-response-effect='slide' {%if productDataRow.infinite%}{%else%} data-response-hide{%endif%}>
-      {{block('iOwersale')}}
-
-      <div class="f">
-        <div class="c s12 pRa10">
-          {{block('iMinstock')}}
-        </div>
-        <div class="c s12">
-          {{block('iMaxstock')}}
+          <div class="f">
+            <div class="c s12 pRa10">
+              {{block('iMinstock')}}
+            </div>
+            <div class="c s12">
+              {{block('iMaxstock')}}
+            </div>
+          </div>
+          <p class="fs09 fc-mute">{%trans "Optimize your inventory decisions."%} {%trans "Know which products are the most profitable and which you should re-order when."%} <b>{%trans "Demand forecasting!"%}</b> {%trans "Receive recommendations on your products based on your rate of sales."%}
+          </p>
         </div>
       </div>
-      <p class="fs09 fc-mute">{%trans "Optimize your inventory decisions."%} {%trans "Know which products are the most profitable and which you should re-order when."%} <b>{%trans "Demand forecasting!"%}</b> {%trans "Receive recommendations on your products based on your rate of sales."%}
-      </p>
-    </div>
 
       </div>
     </section>
@@ -76,8 +81,9 @@
 {{block('iSEO')}}
 
 {{block('galleryImporter')}}
-
-{{block('variantHTML')}}
+<div data-response='type' data-response-where='product' {%if productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+  {{block('variantHTML')}}
+</div>
 
 
   </div>
@@ -89,8 +95,11 @@
 {{block('Box_variant_list')}}
 
 
-{{block('Box_shipping')}}
-{{block('Box_sale')}}
+{{block('Box_units')}}
+
+<div data-response='type' data-response-where='product' {%if productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+  {{block('Box_sale')}}
+</div>
 
 {{block('Box_deleteProduct')}}
 
@@ -101,15 +110,19 @@
 
 
 
-{%block Box_shipping %}
+{%block Box_units %}
 <section class="jbox">
-  <header data-kerkere='.shippingPanel' data-kerkere-icon='open'><h2>{%trans "Shipping"%}</h2></header>
-  <div class="pad shippingPanel">
+  <header data-kerkere='.unitsgPanel' data-kerkere-icon='open'><h2>{%trans "Units"%}</h2></header>
+  <div class="pad unitsgPanel">
 
-    {{block('iType')}}
     <div data-response='type' data-response-where='product' {%if productDataRow.type != 'product'%} data-response-hide {%endif%}>
       {{block('iWeight')}}
     </div>
+
+    <div data-response='type' data-response-where='file' {%if productDataRow.type != 'file'%} data-response-hide {%endif%}>
+      {{block('iSize')}}
+    </div>
+
   </div>
 </section>
 {%endblock%}
@@ -153,6 +166,7 @@
   <header data-kerkere='.jboxOrganize' data-kerkere-icon='open'><h2>{%trans "Organization"%}</h2></header>
   <div class="pad jboxOrganize">
 
+    {{block('iType')}}
     {{block('iStatus')}}
 
     {{block('iCat')}}

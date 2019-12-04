@@ -54,14 +54,32 @@
 
 
 {%block iType%}
-<div>
-  <label for='type'>{%trans "Type"%}</label>
-  <select name="type" id="type" class="select22" data-model='tag'>
-    <option value="product" {%if productDataRow.type == 'product' %} selected {%endif%}>{%trans "Product"%}</option>
-    <option value="service" {%if productDataRow.type == 'service' %} selected {%endif%}>{%trans "Service"%}</option>
-    <option value="file" {%if productDataRow.type == 'file' %} selected {%endif%}>{%trans "File"%}</option>
-  </select>
+
+<div class="f mB10">
+
+  <div class="c pRa5">
+    <div class="radio3">
+      <input type="radio" name="type" value="product" id="typeProduct" {%if productDataRow.type == 'product'%} checked {%endif%} >
+      <label for="typeProduct">{%trans "Product"%}</label>
+    </div>
+  </div>
+
+  <div class="c">
+    <div class="radio3">
+      <input type="radio" name="type" value="service" id="typeService" {%if productDataRow.type == 'service'%} checked {%endif%} >
+      <label for="typeService">{%trans "Service"%}</label>
+    </div>
+  </div>
+
+  <div class="c">
+    <div class="radio3">
+      <input type="radio" name="type" value="file" id="typeFile" {%if productDataRow.type == 'file'%} checked {%endif%} >
+      <label for="typeFile">{%trans "File"%}</label>
+    </div>
+  </div>
+
 </div>
+
 {%endblock%}
 
 
@@ -466,10 +484,10 @@
 
 {%if not productDataRow.have_child%}
     <div class="check1">
-     <input type="checkbox" name="variants" id="variants" value="1" {% if productDataRow.variants%} checked{%endif%}>
+     <input type="checkbox" name="variants" id="variants" value="1" >
       <label for="variants">{%trans "This product has multiple options, like different sizes or colors"%}</label>
     </div>
-    <div data-response='variants' {%if  productDataRow.variants%} {%else%} data-response-hide {%endif%}>
+    <div data-response='variants' data-response-hide>
 
       <div class="f">
         <div class="cauto mB10">{{block('optionName1')}}</div>

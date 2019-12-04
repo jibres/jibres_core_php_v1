@@ -50,6 +50,8 @@ class model
 		$post['company']        = \dash\request::post('company');
 		$post['scalecode']      = \dash\request::post('scalecode');
 		$post['status']         = \dash\request::post('status');
+		$post['minstock']       = \dash\request::post('minstock');
+		$post['maxstock']       = \dash\request::post('maxstock');
 		$post['minsale']        = \dash\request::post('minsale');
 		$post['maxsale']        = \dash\request::post('maxsale');
 		$post['salestep']       = \dash\request::post('salestep');
@@ -270,6 +272,10 @@ class model
 
 	private static function set_variant($_id)
 	{
+		if(!\dash\request::post('variants'))
+		{
+			return false;
+		}
 
 		if(\dash\request::post('saveproductvariants'))
 		{
