@@ -1,7 +1,81 @@
 // margin (calculated as ([price - cost] / price) * 100)
-function recalcPricePercents()
+function calcPriceMargin()
 {
+  var cost             = getElNumber($('#buyprice'));
+  var price            = getElNumber($('#price'));
+  var compareAtPrice   = getElNumber($('#CompareAtPrice'));
+  // price margin
+  var priceMarginEl    = $('.priceMargin');
+  var priceMargin      = 0;
+  // discount margin
+  var discountMarginEl = $('.discountMargin');
+  var discountMargin   = 0;
 
+  // cala priceMargin and show depends on condition
+  if(cost && price)
+  {
+    priceMargin = (((price - cost) / price)  * 100).toFixed(2);
+  }
+  if(priceMargin)
+  {
+    priceMarginEl.find('b').html(fitNumber(priceMargin) + ' %');
+    priceMarginEl.attr('data-percent', priceMargin).slideDown().removeClass('hide');
+    if(priceMargin > 10)
+    {
+      priceMarginEl.removeClass('danger2')
+      priceMarginEl.addClass('success2')
+    }
+    else if(priceMargin > 0)
+    {
+      priceMarginEl.removeClass('danger2')
+      priceMarginEl.removeClass('success2')
+    }
+    else
+    {
+      priceMarginEl.removeClass('success2')
+      priceMarginEl.addClass('danger2')
+    }
+  }
+  else
+  {
+    priceMarginEl.find('b').html('-');
+    priceMarginEl.attr('data-percent', priceMargin).slideUp();
+  }
+
+
+
+  if(price && compareAtPrice)
+  {
+    discountMargin = (((compareAtPrice - price) / compareAtPrice)  * 100).toFixed(2);
+  }
+  console.log(price);
+  console.log(compareAtPrice);
+  console.log(discountMargin);
+  if(discountMargin)
+  {
+    discountMarginEl.find('b').html(fitNumber(discountMargin) + ' %');
+    discountMarginEl.attr('data-percent', discountMargin).slideDown().removeClass('hide');
+    if(discountMargin > 10)
+    {
+      discountMarginEl.removeClass('danger2')
+      discountMarginEl.addClass('success2')
+    }
+    else if(discountMargin > 0)
+    {
+      discountMarginEl.removeClass('danger2')
+      discountMarginEl.removeClass('success2')
+    }
+    else
+    {
+      discountMarginEl.removeClass('success2')
+      discountMarginEl.addClass('danger2')
+    }
+  }
+  else
+  {
+    discountMarginEl.find('b').html('-');
+    discountMarginEl.attr('data-percent', discountMargin).slideUp();
+  }
 }
 
 function recalcPricePercentsOld()

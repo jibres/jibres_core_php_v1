@@ -147,24 +147,29 @@
 {%block iBuyprice%}
 <label for='buyprice'>{%trans "Buy cost"%}</label>
 <div class="input">
- <input type="text" name="buyprice" id="buyprice" data-format='price' value="{{productDataRow.buyprice}}" maxlength="{%if currentStore.setting.maxbuyprice%}{{currentStore.setting.maxbuyprice}}{%else%}15{%endif%}" data-run-input='recalcPricePercents'>
+ <input type="text" name="buyprice" id="buyprice" data-format='price' value="{{productDataRow.buyprice}}" maxlength="{%if currentStore.setting.maxbuyprice%}{{currentStore.setting.maxbuyprice}}{%else%}15{%endif%}" data-run-input='calcPriceMargin'>
 </div>
 {%endblock%}
 
 
 {%block iPrice%}
 <label for='price'>{%trans "Sale Price"%}</label>
-<div class="input">
- <input type="text" name="price" id="price" data-format='price' value="{{productDataRow.price}}" maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}" data-run-input='recalcPricePercents'>
- <div class="addon fs09" data-abbr='{%trans "Gross profit margin"%}' data-percent='11'><abbr></abbr> <b>%</b></div>
+<div class="input mB5-f">
+ <input type="text" name="price" id="price" data-format='price' value="{{productDataRow.price}}" maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}" data-run-input='calcPriceMargin'>
+</div>
+<div class="priceMargin fs09 hideIn">
+  <div class="msg minimal mB0" data-percent='11'><abbr>{%trans "Gross profit margin"%}</abbr> <b>11%</b></div>
 </div>
 {%endblock%}
 
 
 {%block iCompareAtPrice%}
 <label for='CompareAtPrice'>{%trans "Compare at price"%}</label>
-<div class="input">
- <input type="text" name="CompareAtPrice" id="CompareAtPrice" data-format='price' value="{{productDataRow.CompareAtPrice}}" placeholder='{%trans "Original retail price before off"%}' maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}">
+<div class="input mB5-f">
+ <input type="text" name="CompareAtPrice" id="CompareAtPrice" data-format='price' value="{{productDataRow.CompareAtPrice}}" placeholder='{%trans "Original retail price before off"%}' data-run-input='calcPriceMargin' maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}">
+</div>
+<div class="discountMargin fs09 hideIn">
+  <div class="msg minimal mB0" data-percent='11'><b>11%</b> <abbr>{%trans "Discount"%}</abbr></div>
 </div>
 {%endblock%}
 
@@ -187,7 +192,7 @@
 
 
 {%block iVat%}
-<div class="switch1">
+<div class="switch1 mB0">
  <input type="checkbox" name="vat" id="vat" data-percent='9' {%if productDataRow.vat%} checked{%endif%}>
  <label for="vat"></label>
  <label for="vat">{%trans "Charge taxes"%}</label>
