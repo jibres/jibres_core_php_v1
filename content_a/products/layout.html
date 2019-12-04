@@ -115,7 +115,7 @@
 
 {%block iBarcode%}
 <label for="barcode">{%trans "Barcode"%}</label>
-<div class="input ">
+<div class="input">
  <input type="text" name="barcode" id="barcode" placeholder='{%trans "Scan Barcode here..."%}' value="{{productDataRow.barcode}}" class="barCode txtC ltr" data-lock autocomplete="off" maxlength="30">
  <span class="addon flag"><img class="none" src="{{url.static}}/img/logo/svg/Jibres-icon.svg" alt="Jibres"/></span>
 </div>
@@ -142,11 +142,58 @@
 
 {%block iWeight%}
 <label for="iweight">{%trans "Weight"%}</label>
-<div class="input ">
+<div class="input">
  <input type="text" name="weight" id="iweight" value="{{productDataRow.weight}}"  autocomplete="off" maxlength="11" data-format='number'>
  <div class="addon">{%trans "Kg"%}</div>
 </div>
 {%endblock%}
+
+
+
+
+
+{%block iLength%}
+<label for="iLength">{%trans "Length"%}</label>
+<div class="input">
+ <input type="text" name="length" id="iLength" value="{{productDataRow.length}}"  autocomplete="off" maxlength="11" data-format='number'>
+</div>
+{%endblock%}
+
+
+{%block iWidth%}
+<label for="iWidth">{%trans "Width"%}</label>
+<div class="input">
+ <input type="text" name="width" id="iWidth" value="{{productDataRow.width}}"  autocomplete="off" maxlength="11" data-format='number'>
+</div>
+{%endblock%}
+
+
+{%block iHeight%}
+<label for="iHeight">{%trans "Height"%}</label>
+<div class="input">
+ <input type="text" name="height" id="iHeight" value="{{productDataRow.height}}"  autocomplete="off" maxlength="11" data-format='number'>
+</div>
+{%endblock%}
+
+{%block iFileSize%}
+<label for="iFileSize">{%trans "File Size"%}</label>
+<div class="input">
+ <input type="text" name="filesize" id="iFileSize" value="{{productDataRow.filesize}}"  autocomplete="off" maxlength="11" data-format='number'>
+ <div class="addon">{%trans "MB"%}</div>
+</div>
+{%endblock%}
+
+
+{%block iFileAddress%}
+<label for="iFileAddress">{%trans "File Address"%}</label>
+<div class="input">
+ <input type="url" name="filesize" id="iFileAddress" value="{{productDataRow.filesize}}"   maxlength="500">
+ <div class="addon">{%trans "MB"%}</div>
+</div>
+{%endblock%}
+
+
+
 
 
 

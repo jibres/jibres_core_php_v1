@@ -112,17 +112,27 @@
 
 {%block Box_units %}
 <section class="jbox">
+  <div data-response='type' data-response-where='product|file' {%if productDataRow.type == 'service'%} data-response-hide {%endif%}>
   <header data-kerkere='.unitsgPanel' data-kerkere-icon='open'><h2>{%trans "Units"%}</h2></header>
   <div class="pad unitsgPanel">
 
-    <div data-response='type' data-response-where='product' {%if productDataRow.type != 'product'%} data-response-hide {%endif%}>
+    <div data-response='type' data-response-where='product' {%if productDataRow.type == 'product'%} {%else%} data-response-hide {%endif%}>
+        <div>{%trans "Dimensions"%} <small>{%trans "cm"%}</small></div>
+      <div class="f">
+        <div class="c">{{block('iLength')}}</div>
+        <div class="c mLa5">{{block('iWidth')}}</div>
+        <div class="c mLa5">{{block('iHeight')}}</div>
+      </div>
+
       {{block('iWeight')}}
     </div>
 
-    <div data-response='type' data-response-where='file' {%if productDataRow.type != 'file'%} data-response-hide {%endif%}>
-      {{block('iSize')}}
+    <div data-response='type' data-response-where='file' {%if productDataRow.type == 'file'%} {%else%} data-response-hide {%endif%}>
+      {{block('iFileSize')}}
+      {{block('iFileAddress')}}
     </div>
 
+  </div>
   </div>
 </section>
 {%endblock%}
