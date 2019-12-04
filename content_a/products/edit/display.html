@@ -14,13 +14,13 @@
 
 
     <section class="jbox">
-      <header data-kerkere='.jboxPrice' data-kerkere-icon='open'><h2>{%trans "Pricing"%}</h2></header>
+      <header data-kerkere='.jboxPrice' data-kerkere-icon='open'><h2>{%trans "Pricing Model"%}</h2></header>
       <div class="pad jboxPrice">
-        {{block ('iBuyprice') }}
         <div class="f">
           <div class="c s12 pRa5">{{block ('iPrice') }}</div>
           <div class="c s12">{{block ('iCompareAtPrice') }}</div>
         </div>
+        {{block ('iBuyprice') }}
         {{block ('iVat') }}
       </div>
     </section>
