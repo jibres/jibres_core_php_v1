@@ -15,7 +15,7 @@ function selectRunner()
   // init simple select22
   $('.select22:not([data-model])').select22({minimumResultsForSearch: 6});
   $('.select22[data-model="country"]').select22({ templateResult2: select22FormatDropDownCoutry, templateSelection: select22FormatDropDownCoutry });
-  $('.select22[data-model="tag"]').select22({ tags: true, tokenSeparators: [',', ' '] });
+  $('.select22[data-model="tag"]').select22({ tags: true, tokenSeparators: [','] });
 
 
   $(document).on('focus', '.select22.select22-container', function (e)
