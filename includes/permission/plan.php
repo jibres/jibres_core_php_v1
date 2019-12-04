@@ -15,6 +15,7 @@ $master[] = 'factorMyBuyList';
 $master[] = 'factorBuyAdd';
 $master[] = 'factorBuyViewDetail';
 $master[] = 'productAdd';
+$master[] = 'productEdit';
 $master[] = 'ProductDelete';
 $master[] = 'productList';
 $master[] = 'productSummary';

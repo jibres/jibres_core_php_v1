@@ -155,7 +155,7 @@ class check
 			return false;
 		}
 
-		$minstock = \dash\utility\convert::to_en_number($minstock);
+		$minstock = \dash\number::clean($minstock);
 		if($minstock && !is_numeric($minstock))
 		{
 			\dash\notif::error(T_("Value of minstock must be a number"), 'minstock');
@@ -181,7 +181,7 @@ class check
 			return false;
 		}
 
-		$maxstock = \dash\utility\convert::to_en_number($maxstock);
+		$maxstock = \dash\number::clean($maxstock);
 		if($maxstock && !is_numeric($maxstock))
 		{
 			\dash\notif::error(T_("Value of maxstock must be a number"), 'maxstock');
@@ -208,7 +208,7 @@ class check
 			return false;
 		}
 
-		$weight = \dash\utility\convert::to_en_number($weight);
+		$weight = \dash\number::clean($weight);
 		if($weight && !is_numeric($weight))
 		{
 			\dash\notif::error(T_("Value of weight must be a number"), 'weight');
@@ -224,19 +224,6 @@ class check
 		if(intval($weight) < 0)
 		{
 			\dash\notif::error(T_("Value of weight is out of rage"), 'weight');
-			return false;
-		}
-
-		$weightunit = \dash\app::request('weightunit');
-		if(isset($weightunit) && !is_string($weightunit))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'weightunit']), 'weightunit');
-			return false;
-		}
-
-		if($weightunit && !in_array($weightunit, ['lb','oz','kg','g']))
-		{
-			\dash\notif::error(T_("Invalid weight unit"), 'weightunit');
 			return false;
 		}
 
@@ -332,7 +319,7 @@ class check
 			return false;
 		}
 
-		$carton = \dash\utility\convert::to_en_number($carton);
+		$carton = \dash\number::clean($carton);
 		if($carton && !is_numeric($carton))
 		{
 			\dash\notif::error(T_("Value of carton must be a number"), 'carton');
@@ -371,7 +358,7 @@ class check
 			return false;
 		}
 
-		$salestep = \dash\utility\convert::to_en_number($salestep);
+		$salestep = \dash\number::clean($salestep);
 		if($salestep && !is_numeric($salestep))
 		{
 			\dash\notif::error(T_("Value of salestep must be a number"), 'salestep');
@@ -397,7 +384,7 @@ class check
 			return false;
 		}
 
-		$minsale = \dash\utility\convert::to_en_number($minsale);
+		$minsale = \dash\number::clean($minsale);
 		if($minsale && !is_numeric($minsale))
 		{
 			\dash\notif::error(T_("Value of minsale must be a number"), 'minsale');
@@ -423,7 +410,7 @@ class check
 			return false;
 		}
 
-		$maxsale = \dash\utility\convert::to_en_number($maxsale);
+		$maxsale = \dash\number::clean($maxsale);
 		if($maxsale && !is_numeric($maxsale))
 		{
 			\dash\notif::error(T_("Value of maxsale must be a number"), 'maxsale');
@@ -479,7 +466,7 @@ class check
 
 		if($scalecode)
 		{
-			$scalecode = \dash\utility\convert::to_en_number($scalecode);
+			$scalecode = \dash\number::clean($scalecode);
 			if(!is_numeric($scalecode))
 			{
 				\dash\notif::error(T_("Please set scale code as a number"), 'scalecode');
@@ -654,7 +641,6 @@ class check
 		$args['salestep']     = $salestep;
 		$args['minsale']      = $minsale;
 		$args['maxsale']      = $maxsale;
-		$args['weightunit']   = $weightunit;
 		$args['type']         = $type;
 		$args['gallery']      = $gallery;
 		$args['oversale']     = $oversale;
@@ -666,7 +652,6 @@ class check
 
 	private static function check_sku($_sku, $_id)
 	{
-		$_sku = \dash\utility\convert::to_en_number($_sku);
 
 		$_sku = preg_replace("/\_{2,}/", "_", $_sku);
 		$_sku = preg_replace("/\-{2,}/", "-", $_sku);
@@ -791,14 +776,14 @@ class check
 		$_option = array_merge($default_option, $_option);
 
 		$buyprice = \dash\app::request('buyprice');
-		$buyprice = \dash\utility\convert::to_en_number($buyprice);
+		$buyprice = \dash\number::clean($buyprice);
 		if($buyprice && !is_numeric($buyprice))
 		{
 			\dash\notif::error(T_("Value of buyprice must be a number"), 'buyprice');
 			return false;
 		}
 
-		if(\dash\number::is_larger($buyprice, 999999999999999999))
+		if(\dash\number::is_larger($buyprice, 9999999999999999))
 		{
 			\dash\notif::error(T_("Value of buyprice is out of rage"), 'buyprice');
 			return false;
@@ -818,14 +803,14 @@ class check
 		}
 
 		$price = \dash\app::request('price');
-		$price = \dash\utility\convert::to_en_number($price);
+		$price = \dash\number::clean($price);
 		if($price && !is_numeric($price))
 		{
 			\dash\notif::error(T_("Value of price must be a number"), 'price');
 			return false;
 		}
 
-		if(\dash\number::is_larger($price, 999999999999999999))
+		if(\dash\number::is_larger($price, 9999999999999999))
 		{
 			\dash\notif::error(T_("Value of price is out of rage"), 'price');
 			return false;
@@ -834,6 +819,26 @@ class check
 		if(intval($price) < 0)
 		{
 			\dash\notif::error(T_("Value of price is out of rage"), 'price');
+			return false;
+		}
+
+		$compareatprice = \dash\app::request('compareatprice');
+		$compareatprice = \dash\number::clean($compareatprice);
+		if($compareatprice && !is_numeric($compareatprice))
+		{
+			\dash\notif::error(T_("Value of compareatprice must be a number"), 'compareatprice');
+			return false;
+		}
+
+		if(\dash\number::is_larger($compareatprice, 9999999999999999))
+		{
+			\dash\notif::error(T_("Value of compareatprice is out of rage"), 'compareatprice');
+			return false;
+		}
+
+		if(intval($compareatprice) < 0)
+		{
+			\dash\notif::error(T_("Value of compareatprice is out of rage"), 'compareatprice');
 			return false;
 		}
 
@@ -846,14 +851,14 @@ class check
 
 
 		$discount = \dash\app::request('discount');
-		$discount = \dash\utility\convert::to_en_number($discount);
+		$discount = \dash\number::clean($discount);
 		if($discount && !is_numeric($discount))
 		{
 			\dash\notif::error(T_("Value of discount must be a number"), 'discount');
 			return false;
 		}
 
-		if($discount && \dash\number::is_larger($discount, 999999999999999999))
+		if($discount && \dash\number::is_larger($discount, 9999999999999999))
 		{
 			\dash\notif::error(T_("Value of discount is out of rage"), 'discount');
 			return false;

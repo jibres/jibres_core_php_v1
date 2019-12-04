@@ -54,6 +54,11 @@
     "cat": "Product",
     "require": []
   },
+  "productEdit": {
+    "title": "productEdit",
+    "cat": "Product",
+    "require": []
+  },
   "productList": {
     "title": "productList",
     "cat": "Product",

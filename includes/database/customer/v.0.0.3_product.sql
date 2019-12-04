@@ -19,7 +19,6 @@ CREATE TABLE `jibres_XXXXXXX`.`products` (
 `carton` int(10) UNSIGNED DEFAULT NULL,
 `scalecode` int(10) DEFAULT NULL,
 `weight` int(10) DEFAULT NULL,
-`weightunit` enum('lb','oz','kg','g') DEFAULT NULL,
 `type` enum('product','file','service') NOT NULL DEFAULT 'product',
 `status` enum('unset','available','unavailable','soon','discountinued','deleted') DEFAULT NULL,
 `thumb` varchar(500) DEFAULT NULL,

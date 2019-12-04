@@ -7,6 +7,7 @@ CREATE TABLE `jibres_XXXXXXX`.`productprices` (
 `enddate` datetime DEFAULT NULL,
 `buyprice` bigint(20) UNSIGNED DEFAULT NULL,
 `price` bigint(20) UNSIGNED DEFAULT NULL,
+`compareatprice` bigint(20) UNSIGNED DEFAULT NULL,
 `discount` bigint(20) DEFAULT NULL,
 `discountpercent` float DEFAULT NULL,
 `finalprice` bigint(20) DEFAULT NULL,

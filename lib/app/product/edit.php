@@ -7,6 +7,8 @@ class edit
 
 	public static function edit($_args, $_id, $_option = [])
 	{
+		\dash\permission::access('productEdit');
+
 		$default_option =
 		[
 			'debug'       => true,
@@ -102,7 +104,6 @@ class edit
 		if(!\dash\app::isset_request('salestep')) unset($args['salestep']);
 		if(!\dash\app::isset_request('minsale')) unset($args['minsale']);
 		if(!\dash\app::isset_request('maxsale')) unset($args['maxsale']);
-		if(!\dash\app::isset_request('weightunit')) unset($args['weightunit']);
 		if(!\dash\app::isset_request('type')) unset($args['type']);
 		if(!\dash\app::isset_request('gallery')) unset($args['gallery']);
 		if(!\dash\app::isset_request('oversale')) unset($args['oversale']);
@@ -122,9 +123,16 @@ class edit
 		if(!\dash\app::isset_request('price')) unset($args['price']);
 		if(!\dash\app::isset_request('discount')) unset($args['discount']);
 		if(!\dash\app::isset_request('buyprice')) unset($args['buyprice']);
+		if(!\dash\app::isset_request('compareatprice')) unset($args['compareatprice']);
+
 
 		// check archive of price if price or discount or buyprice sended
-		if(array_key_exists('price', $args_price) || array_key_exists('discount', $args_price) || array_key_exists('buyprice', $args_price))
+		if(
+			array_key_exists('price', $args_price) ||
+			array_key_exists('discount', $args_price) ||
+			array_key_exists('buyprice', $args_price) ||
+			array_key_exists('compareatprice', $args_price)
+		  )
 		{
 			\lib\app\product\updateprice::check($id, $args_price);
 		}
