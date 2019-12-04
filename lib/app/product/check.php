@@ -683,6 +683,85 @@ class check
 		}
 
 
+		$optionname1  = \dash\app::request('optionname1');
+		if(isset($optionname1) && !is_string($optionname1))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionname1']), 'optionname1');
+			return false;
+		}
+
+		if($optionname1 && mb_strlen($optionname1) > 100)
+		{
+			\dash\notif::error(T_("optionname1 is out of range"), 'optionname1');
+			return false;
+		}
+
+		$optionvalue1 = \dash\app::request('optionvalue1');
+		if(isset($optionvalue1) && !is_string($optionvalue1))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionvalue1']), 'optionvalue1');
+			return false;
+		}
+
+		if($optionvalue1 && mb_strlen($optionvalue1) > 100)
+		{
+			\dash\notif::error(T_("optionvalue1 is out of range"), 'optionvalue1');
+			return false;
+		}
+
+		$optionname2  = \dash\app::request('optionname2');
+		if(isset($optionname2) && !is_string($optionname2))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionname2']), 'optionname2');
+			return false;
+		}
+
+		if($optionname2 && mb_strlen($optionname2) > 100)
+		{
+			\dash\notif::error(T_("optionname2 is out of range"), 'optionname2');
+			return false;
+		}
+
+		$optionvalue2 = \dash\app::request('optionvalue2');
+		if(isset($optionvalue2) && !is_string($optionvalue2))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionvalue2']), 'optionvalue2');
+			return false;
+		}
+
+		if($optionvalue2 && mb_strlen($optionvalue2) > 100)
+		{
+			\dash\notif::error(T_("optionvalue2 is out of range"), 'optionvalue2');
+			return false;
+		}
+
+		$optionname3  = \dash\app::request('optionname3');
+		if(isset($optionname3) && !is_string($optionname3))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionname3']), 'optionname3');
+			return false;
+		}
+
+		if($optionname3 && mb_strlen($optionname3) > 100)
+		{
+			\dash\notif::error(T_("optionname3 is out of range"), 'optionname3');
+			return false;
+		}
+
+		$optionvalue3 = \dash\app::request('optionvalue3');
+		if(isset($optionvalue3) && !is_string($optionvalue3))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'optionvalue3']), 'optionvalue3');
+			return false;
+		}
+
+		if($optionvalue3 && mb_strlen($optionvalue3) > 100)
+		{
+			\dash\notif::error(T_("optionvalue3 is out of range"), 'optionvalue3');
+			return false;
+		}
+
+
 		$args                 = [];
 		$args['title']        = $title;
 		$args['slug']         = $slug;
@@ -690,6 +769,12 @@ class check
 		$args['barcode2']     = (string) $barcode2;
 		$args['minstock']     = $minstock;
 		$args['maxstock']     = $maxstock;
+		$args['optionname1']  = $optionname1;
+		$args['optionvalue1'] = $optionvalue1;
+		$args['optionname2']  = $optionname2;
+		$args['optionvalue2'] = $optionvalue2;
+		$args['optionname3']  = $optionname3;
+		$args['optionvalue3'] = $optionvalue3;
 		$args['weight']       = $weight;
 		$args['status']       = $status;
 		$args['vat']          = $vat;
