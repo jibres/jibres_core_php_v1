@@ -83,12 +83,26 @@ class view
 
 			$family = \lib\app\product\variants::family($productDataRow['parent']);
 			\dash\data::productFamily($family);
+
+			$haveOtherChild = false;
+			if(is_array($family))
+			{
+				foreach ($family as $key => $value)
+				{
+					if(isset($value['id']) && intval($value['id']) !== intval($id))
+					{
+						$haveOtherChild = true;
+						break;
+					}
+				}
+			}
+
+			\dash\data::haveOtherChild($haveOtherChild);
 		}
 		else
 		{
 			// \dash\data::page_duplicate(\dash\url::this(). '/duplicate?id='. $id);
 		}
-
 	}
 }
 ?>

@@ -81,10 +81,11 @@
 {{block('iSEO')}}
 
 {{block('galleryImporter')}}
-<div data-response='type' data-response-where='product' {%if productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
-  {{block('variantHTML')}}
-</div>
-
+{%if not productDataRow.have_child and not productFamily%}
+  <div data-response='type' data-response-where='product' {%if productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+    {{block('variantHTML')}}
+  </div>
+{%endif%}
 
   </div>
   <div class="c4 x3 s12 mB10">

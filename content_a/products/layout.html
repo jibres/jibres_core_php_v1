@@ -541,10 +541,10 @@
 
 {%if not productDataRow.have_child%}
     <div class="check1">
-     <input type="checkbox" name="variants" id="variants" value="1" >
+     <input type="checkbox" name="variants" id="variants" value="1" {%if productDataRow.variants%} checked {%endif%}>
       <label for="variants">{%trans "This product has multiple options, like different sizes or colors"%}</label>
     </div>
-    <div data-response='variants' data-response-hide>
+    <div data-response='variants' {%if productDataRow.variants%} {%else%} data-response-hide {%endif%}>
 
       <div class="f">
         <div class="cauto mB10">{{block('optionName1')}}</div>
@@ -600,7 +600,7 @@
 <div>
   <select name="optionvalue3" id="optionvalue3" class="select22" data-model="tag" multiple="multiple">
     {%for key, value in variantsList.variants.option3.value%}
-      <option value="{{value.title}}" selected>{{value.title}}</option>
+      <option value="{{value}}" selected>{{value}}</option>
     {%endfor%}
   </select>
 </div>
@@ -612,7 +612,7 @@
 <div>
   <select name="optionvalue2" id="optionvalue2" class="select22" data-model="tag" multiple="multiple">
     {%for key, value in variantsList.variants.option2.value%}
-      <option value="{{value.title}}" selected>{{value.title}}</option>
+      <option value="{{value}}" selected>{{value}}</option>
     {%endfor%}
   </select>
 </div>
@@ -624,7 +624,7 @@
 <div>
   <select name="optionvalue1" id="optionvalue1" class="select22" data-model="tag" multiple="multiple">
     {%for key, value in variantsList.variants.option1.value%}
-      <option value="{{value.title}}" selected>{{value.title}}</option>
+      <option value="{{value}}" selected>{{value}}</option>
     {%endfor%}
   </select>
 </div>
