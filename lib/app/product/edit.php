@@ -155,6 +155,11 @@ class edit
 
 		}
 
+		if(\dash\app::isset_request('unit') && !$unit)
+		{
+			$args['unit_id'] = null;
+		}
+
 		$company = \dash\app::request('company');
 		if($company && is_string($company))
 		{
@@ -166,6 +171,11 @@ class edit
 			}
 		}
 
+		if(\dash\app::isset_request('company') && !$company)
+		{
+			$args['company_id'] = null;
+		}
+
 		$category = \dash\app::request('category');
 		if($category && is_string($category))
 		{
@@ -175,6 +185,11 @@ class edit
 			{
 				$args['cat_id'] = $add_category['id'];
 			}
+		}
+
+		if(\dash\app::isset_request('category') && !$category)
+		{
+			$args['cat_id'] = null;
 		}
 
 
