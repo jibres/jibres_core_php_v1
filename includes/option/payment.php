@@ -25,7 +25,7 @@ self::$config['payir']['redirect'] = null;
 * config of parsian payment
 */
 self::$config['parsian']['status']       = true;
-self::$config['parsian']['LoginAccount'] = 'n7RcBk5Wn5Qc033W00t3';
+self::$config['parsian']['LoginAccount'] = 'ybX2rEgJ187vVPh83FT2'; // jibres payment
 // set the call back is null to redirecto to default dash callback payment
 self::$config['parsian']['CallBackUrl']  = null;
 // all amount of this payment * exchange of this payment to change all units to default units of dash
