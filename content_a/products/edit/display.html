@@ -54,7 +54,20 @@
         </div>
 
     {{block('iInfinite')}}
-    {{block('iOwersale')}}
+    <div data-response='iinfinite' data-response-effect='slide' {%if productDataRow.infinite%}{%else%} data-response-hide{%endif%}>
+      {{block('iOwersale')}}
+
+      <div class="f">
+        <div class="c s12 pRa10">
+          {{block('iMinstock')}}
+        </div>
+        <div class="c s12">
+          {{block('iMaxstock')}}
+        </div>
+      </div>
+      <p class="fs09 fc-mute">{%trans "Optimize your inventory decisions."%} {%trans "Know which products are the most profitable and which you should re-order when."%} <b>{%trans "Demand forecasting!"%}</b> {%trans "Receive recommendations on your products based on your rate of sales."%}
+      </p>
+    </div>
 
       </div>
     </section>
