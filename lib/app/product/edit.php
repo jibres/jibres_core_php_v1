@@ -74,39 +74,44 @@ class edit
 		}
 
 
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('slug')) unset($args['slug']);
-		if(!\dash\app::isset_request('barcode')) unset($args['barcode']);
-		if(!\dash\app::isset_request('barcode2')) unset($args['barcode2']);
-		if(!\dash\app::isset_request('minstock')) unset($args['minstock']);
-		if(!\dash\app::isset_request('maxstock')) unset($args['maxstock']);
-		if(!\dash\app::isset_request('weight')) unset($args['weight']);
-		if(!\dash\app::isset_request('status')) unset($args['status']);
-		if(!\dash\app::isset_request('thumb')) unset($args['thumb']);
-		if(!\dash\app::isset_request('vat')) unset($args['vat']);
-		if(!\dash\app::isset_request('saleonline')) unset($args['saleonline']);
-		if(!\dash\app::isset_request('carton')) unset($args['carton']);
-		if(!\dash\app::isset_request('desc')) unset($args['desc']);
-		if(!\dash\app::isset_request('saletelegram')) unset($args['saletelegram']);
-		if(!\dash\app::isset_request('saleapp')) unset($args['saleapp']);
-		if(!\dash\app::isset_request('infinite')) unset($args['infinite']);
-		if(!\dash\app::isset_request('parent')) unset($args['parent']);
-		if(!\dash\app::isset_request('scalecode')) unset($args['scalecode']);
-		if(!\dash\app::isset_request('optionname1')) unset($args['optionname1']);
-		if(!\dash\app::isset_request('optionvalue1')) unset($args['optionvalue1']);
-		if(!\dash\app::isset_request('optionname2')) unset($args['optionname2']);
-		if(!\dash\app::isset_request('optionvalue2')) unset($args['optionvalue2']);
-		if(!\dash\app::isset_request('optionname3')) unset($args['optionname3']);
-		if(!\dash\app::isset_request('optionvalue3')) unset($args['optionvalue3']);
-		if(!\dash\app::isset_request('sku')) unset($args['sku']);
-		if(!\dash\app::isset_request('seotitle')) unset($args['seotitle']);
-		if(!\dash\app::isset_request('seodesc')) unset($args['seodesc']);
-		if(!\dash\app::isset_request('salestep')) unset($args['salestep']);
-		if(!\dash\app::isset_request('minsale')) unset($args['minsale']);
-		if(!\dash\app::isset_request('maxsale')) unset($args['maxsale']);
-		if(!\dash\app::isset_request('type')) unset($args['type']);
-		if(!\dash\app::isset_request('gallery')) unset($args['gallery']);
-		if(!\dash\app::isset_request('oversale')) unset($args['oversale']);
+		if(!\dash\app::isset_request('title')) 			unset($args['title']);
+		if(!\dash\app::isset_request('slug')) 			unset($args['slug']);
+		if(!\dash\app::isset_request('barcode')) 		unset($args['barcode']);
+		if(!\dash\app::isset_request('barcode2')) 		unset($args['barcode2']);
+		if(!\dash\app::isset_request('minstock')) 		unset($args['minstock']);
+		if(!\dash\app::isset_request('maxstock')) 		unset($args['maxstock']);
+		if(!\dash\app::isset_request('weight')) 		unset($args['weight']);
+		if(!\dash\app::isset_request('status')) 		unset($args['status']);
+		if(!\dash\app::isset_request('thumb')) 			unset($args['thumb']);
+		if(!\dash\app::isset_request('vat')) 			unset($args['vat']);
+		if(!\dash\app::isset_request('saleonline')) 	unset($args['saleonline']);
+		if(!\dash\app::isset_request('carton')) 		unset($args['carton']);
+		if(!\dash\app::isset_request('desc')) 			unset($args['desc']);
+		if(!\dash\app::isset_request('saletelegram')) 	unset($args['saletelegram']);
+		if(!\dash\app::isset_request('saleapp')) 		unset($args['saleapp']);
+		if(!\dash\app::isset_request('infinite')) 		unset($args['infinite']);
+		if(!\dash\app::isset_request('parent')) 		unset($args['parent']);
+		if(!\dash\app::isset_request('scalecode')) 		unset($args['scalecode']);
+		if(!\dash\app::isset_request('optionname1')) 	unset($args['optionname1']);
+		if(!\dash\app::isset_request('optionvalue1')) 	unset($args['optionvalue1']);
+		if(!\dash\app::isset_request('optionname2')) 	unset($args['optionname2']);
+		if(!\dash\app::isset_request('optionvalue2')) 	unset($args['optionvalue2']);
+		if(!\dash\app::isset_request('optionname3')) 	unset($args['optionname3']);
+		if(!\dash\app::isset_request('optionvalue3')) 	unset($args['optionvalue3']);
+		if(!\dash\app::isset_request('sku')) 			unset($args['sku']);
+		if(!\dash\app::isset_request('seotitle')) 		unset($args['seotitle']);
+		if(!\dash\app::isset_request('seodesc')) 		unset($args['seodesc']);
+		if(!\dash\app::isset_request('salestep')) 		unset($args['salestep']);
+		if(!\dash\app::isset_request('minsale')) 		unset($args['minsale']);
+		if(!\dash\app::isset_request('maxsale')) 		unset($args['maxsale']);
+		if(!\dash\app::isset_request('type')) 			unset($args['type']);
+		if(!\dash\app::isset_request('gallery')) 		unset($args['gallery']);
+		if(!\dash\app::isset_request('oversale')) 		unset($args['oversale']);
+		if(!\dash\app::isset_request('length')) 		unset($args['length']);
+		if(!\dash\app::isset_request('width')) 			unset($args['width']);
+		if(!\dash\app::isset_request('height')) 		unset($args['height']);
+		if(!\dash\app::isset_request('filesize')) 		unset($args['filesize']);
+		if(!\dash\app::isset_request('fileaddress')) 	unset($args['fileaddress']);
 
 		if(array_key_exists('title', $args) && !$args['title'] && $args['title'] !== '0')
 		{

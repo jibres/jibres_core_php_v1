@@ -541,6 +541,148 @@ class check
 			return false;
 		}
 
+
+		$length = \dash\app::request('length');
+		if(isset($length) && !is_string($length))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'length']), 'length');
+			return false;
+		}
+
+		$length = \dash\number::clean($length);
+		if($length && !is_numeric($length))
+		{
+			\dash\notif::error(T_("Value of length must be a number"), 'length');
+			return false;
+		}
+
+		if(\dash\number::is_larger($length, 999999999))
+		{
+			\dash\notif::error(T_("Value of length is out of rage"), 'length');
+			return false;
+		}
+
+		if(intval($length) < 0)
+		{
+			\dash\notif::error(T_("Value of length is out of rage"), 'length');
+			return false;
+		}
+
+		if($length)
+		{
+			$length = intval($length);
+		}
+
+		$width = \dash\app::request('width');
+		if(isset($width) && !is_string($width))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'width']), 'width');
+			return false;
+		}
+
+		$width = \dash\number::clean($width);
+		if($width && !is_numeric($width))
+		{
+			\dash\notif::error(T_("Value of width must be a number"), 'width');
+			return false;
+		}
+
+		if(\dash\number::is_larger($width, 999999999))
+		{
+			\dash\notif::error(T_("Value of width is out of rage"), 'width');
+			return false;
+		}
+
+		if(intval($width) < 0)
+		{
+			\dash\notif::error(T_("Value of width is out of rage"), 'width');
+			return false;
+		}
+
+		if($width)
+		{
+			$width = intval($width);
+		}
+
+
+		$height = \dash\app::request('height');
+		if(isset($height) && !is_string($height))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'height']), 'height');
+			return false;
+		}
+
+		$height = \dash\number::clean($height);
+		if($height && !is_numeric($height))
+		{
+			\dash\notif::error(T_("Value of height must be a number"), 'height');
+			return false;
+		}
+
+		if(\dash\number::is_larger($height, 999999999))
+		{
+			\dash\notif::error(T_("Value of height is out of rage"), 'height');
+			return false;
+		}
+
+		if(intval($height) < 0)
+		{
+			\dash\notif::error(T_("Value of height is out of rage"), 'height');
+			return false;
+		}
+
+		if($height)
+		{
+			$height = intval($height);
+		}
+
+
+		$filesize = \dash\app::request('filesize');
+		if(isset($filesize) && !is_string($filesize))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'filesize']), 'filesize');
+			return false;
+		}
+
+		$filesize = \dash\number::clean($filesize);
+		if($filesize && !is_numeric($filesize))
+		{
+			\dash\notif::error(T_("Value of filesize must be a number"), 'filesize');
+			return false;
+		}
+
+		if(\dash\number::is_larger($filesize, 999999999))
+		{
+			\dash\notif::error(T_("Value of filesize is out of rage"), 'filesize');
+			return false;
+		}
+
+		if(intval($filesize) < 0)
+		{
+			\dash\notif::error(T_("Value of filesize is out of rage"), 'filesize');
+			return false;
+		}
+
+		if($filesize)
+		{
+			$filesize = intval($filesize);
+		}
+
+
+		$fileaddress = \dash\app::request('fileaddress');
+		if(isset($fileaddress) && !is_string($fileaddress))
+		{
+			\dash\notif::error(T_("Format error :val", ['val' => 'fileaddress']), 'fileaddress');
+			return false;
+		}
+
+		if($fileaddress && !\dash\utility\filter::url($fileaddress))
+		{
+			\dash\notif::error(T_("Fileaddres is invalid"), 'fileaddress');
+			return false;
+		}
+
+
 		$args                 = [];
 		$args['title']        = $title;
 		$args['slug']         = $slug;
@@ -567,6 +709,11 @@ class check
 		$args['maxsale']      = $maxsale;
 		$args['type']         = $type;
 		$args['oversale']     = $oversale;
+		$args['length']       = $length;
+		$args['width']        = $width;
+		$args['height']       = $height;
+		$args['filesize']     = $filesize;
+		$args['fileaddress']  = $fileaddress;
 
 		return $args;
 	}

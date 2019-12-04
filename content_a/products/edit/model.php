@@ -61,6 +61,13 @@ class model
 		$post['category']       = \dash\request::post('cat');
 		$post['tag']            = \dash\request::post('tag');
 
+
+		$post['length']      = \dash\request::post('length');
+		$post['width']       = \dash\request::post('width');
+		$post['height']      = \dash\request::post('height');
+		$post['filesize']    = \dash\request::post('filesize');
+		$post['fileaddress'] = \dash\request::post('fileaddress');
+
 		return $post;
 	}
 
