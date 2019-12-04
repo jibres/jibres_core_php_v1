@@ -134,9 +134,9 @@ span.input{
 	transition: 0.3s;
 	width:auto;
 }
-.input .addon.flag.none{
-	padding: 0;
-	width:0;
+.input .addon.none{
+	padding: 0!important;
+	width:0!important;
 }
 .input .addon.flag img{
 	display: block;
