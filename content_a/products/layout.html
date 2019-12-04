@@ -67,16 +67,17 @@
 
 
 {%block iInfinite%}
-<div class="switch1">
+<div class="switch1 mB5">
   <input type="checkbox" name="infinite" id="iinfinite" {%if productDataRow.infinite%} checked {%endif%}>
   <label for="iinfinite"></label>
-  <label for="iinfinite">{%trans "Infinit"%}<small>{%trans "Track quantity"%}</small></label>
+  <label for="iinfinite">{%trans "Track quantity"%}<small></small></label>
 </div>
+<p class="fs09 fc-mute">{%trans "Inventory tracking can help you avoid selling products that have run out of stock, or let you know when you need to order or make more of your product."%}</p>
 {%endblock%}
 
 
 {%block iSKU%}
-<label for='sku'>{%trans "Stock keeping unit (SKU)"%}</label>
+<label for='sku'>{%trans "Stock keeping unit - SKU"%}</label>
 <div class="input">
  <input type="text" name="sku" id="sku" value="{{productDataRow.sku}}" maxlength="16" class="txtC ltr">
 </div>

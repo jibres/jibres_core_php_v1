@@ -27,7 +27,7 @@
 
 
     <section class="jbox">
-      <header data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2>{%trans "Quick Access"%}</h2></header>
+      <header data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2>{%trans "Inventory"%}</h2></header>
       <div class="pad jboxCodes">
         <div class="f">
          <div class="c s12 pRa5">
@@ -41,17 +41,21 @@
         <div class="f">
          <div class="c s12 pRa5">
           {{block ('iBarcode') }}
-          <div class="txtC">
+          <div class="txtC mB10">
             <svg class="barcodePrev" data-val="#barcode"></svg>
           </div>
          </div>
          <div class="c s12">
           {{block ('iBarcode2') }}
-          <div class="txtC">
+          <div class="txtC mB10">
             <svg class="barcodePrev" data-val="#barcode2"></svg>
           </div>
          </div>
         </div>
+
+    {{block('iInfinite')}}
+    {{block('iOwersale')}}
+
       </div>
     </section>
 
@@ -71,9 +75,8 @@
 
 {{block('Box_variant_list')}}
 
-{{block('Box_inventory')}}
 
-{{block('Box_shopping')}}
+{{block('Box_shipping')}}
 
 {{block('Box_deleteProduct')}}
 
@@ -84,27 +87,9 @@
 
 
 
-
-
-
-
-
-
-
-{%block Box_inventory %}
+{%block Box_shipping %}
 <section class="jbox">
-  <header data-kerkere='.inventoryPanel' data-kerkere-icon='open'><h2>{%trans "Inventory"%}</h2></header>
-  <div class="pad inventoryPanel">
-    {{block('iInfinite')}}
-    {{block('iOwersale')}}
-  </div>
-</section>
-{%endblock%}
-
-
-{%block Box_shopping %}
-<section class="jbox">
-  <header data-kerkere='.shippingPanel' data-kerkere-icon='open'><h2>{%trans "Shopping"%}</h2></header>
+  <header data-kerkere='.shippingPanel' data-kerkere-icon='open'><h2>{%trans "Shipping"%}</h2></header>
   <div class="pad shippingPanel">
     {{block ('iMinsale') }}
     {{block ('iMaxsale') }}
