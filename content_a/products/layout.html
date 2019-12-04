@@ -167,7 +167,7 @@
 <label for='CompareAtPrice'>{%trans "Compare at price"%}</label>
 <div class="input mB5-f">
  <div class="addon fs09">{%trans "Toman"%}</div>
- <input type="text" name="CompareAtPrice" id="CompareAtPrice" data-format='price' value="{{productDataRow.CompareAtPrice}}" placeholder='{%trans "Original retail price before off"%}' data-run-input='calcProductMargin' maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}">
+ <input type="text" name="CompareAtPrice" id="CompareAtPrice" data-format='price' value="{{productDataRow.compareatprice}}" placeholder='{%trans "Original retail price before off"%}' data-run-input='calcProductMargin' maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}">
  <div class="addon fs09 discountMargin"></div>
 </div>
 {%endblock%}

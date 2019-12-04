@@ -95,6 +95,7 @@ class db
 				productprices.price,
 				productprices.buyprice,
 				productprices.discount,
+				productprices.compareatprice,
 				productprices.discountpercent,
 				productprices.finalprice
 			FROM

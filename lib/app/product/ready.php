@@ -76,6 +76,7 @@ class ready
 				case 'price':
 				case 'buyprice':
 				case 'discount':
+				case 'compareatprice':
 				case 'finalprice':
 					if($value)
 					{

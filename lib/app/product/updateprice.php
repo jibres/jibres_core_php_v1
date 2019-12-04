@@ -26,6 +26,12 @@ class updateprice
 				$changed = true;
 			}
 
+			if((array_key_exists('compareatprice', $last_product_price) && array_key_exists('compareatprice', $_args) && floatval($_args['compareatprice']) !== floatval($last_product_price['compareatprice'])) || $changed)
+			{
+				$changed = true;
+			}
+
+
 			if((array_key_exists('discount', $last_product_price) && array_key_exists('discount', $_args) && floatval($_args['discount']) !== floatval($last_product_price['discount'])) || $changed)
 			{
 				$changed = true;
@@ -44,10 +50,12 @@ class updateprice
 
 		if($changed)
 		{
-			$new_record['price']           = array_key_exists('price', $_args) ? \lib\price::up($_args['price']) : null;
-			$new_record['discount']        = array_key_exists('discount', $_args) ? \lib\price::up($_args['discount']) : null;
-			$new_record['buyprice']        = array_key_exists('buyprice', $_args) ? \lib\price::up($_args['buyprice']) : null;
-			$new_record['discountpercent'] = array_key_exists('discountpercent', $_args) ? $_args['discountpercent'] : null;
+			$new_record['price']           = array_key_exists('price', $_args) 				? \lib\price::up($_args['price']) 			: null;
+			$new_record['discount']        = array_key_exists('discount', $_args) 			? \lib\price::up($_args['discount']) 		: null;
+			$new_record['buyprice']        = array_key_exists('buyprice', $_args) 			? \lib\price::up($_args['buyprice']) 		: null;
+			$new_record['compareatprice']  = array_key_exists('compareatprice', $_args) 	? \lib\price::up($_args['compareatprice']) 	: null;
+			$new_record['discountpercent'] = array_key_exists('discountpercent', $_args) 	? $_args['discountpercent'] 				: null;
+
 			if(isset($new_record['price']) || isset($new_record['discount']))
 			{
 				$new_record['finalprice'] = floatval($new_record['price']) - floatval($new_record['discount']);

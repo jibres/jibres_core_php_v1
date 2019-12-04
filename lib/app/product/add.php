@@ -166,6 +166,7 @@ class add
 				'enddate'         => null,
 				'buyprice'        => $args_price['buyprice'],
 				'price'           => $args_price['price'],
+				'compareatprice'  => $args_price['compareatprice'],
 				'discount'        => $args_price['discount'],
 				'discountpercent' => $args_price['discountpercent'],
 				'finalprice'      => floatval($args_price['price']) - floatval($args_price['discount']),

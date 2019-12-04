@@ -52,9 +52,9 @@ class check
 					return false;
 				}
 
-				if(mb_strlen($title) >= 500)
+				if(mb_strlen($title) >= 201)
 				{
-					\dash\notif::error(T_("Product title must be less than 500 character"), 'title');
+					\dash\notif::error(T_("Product title must be less than 200 character"), 'title');
 					return false;
 				}
 			}
@@ -174,6 +174,11 @@ class check
 			return false;
 		}
 
+		if($minstock)
+		{
+			$minstock = intval($minstock);
+		}
+
 		$maxstock = \dash\app::request('maxstock');
 		if(isset($maxstock) && !is_string($maxstock))
 		{
@@ -198,6 +203,11 @@ class check
 		{
 			\dash\notif::error(T_("Value of maxstock is out of rage"), 'maxstock');
 			return false;
+		}
+
+		if($maxstock)
+		{
+			$maxstock = intval($maxstock);
 		}
 
 
@@ -225,6 +235,12 @@ class check
 		{
 			\dash\notif::error(T_("Value of weight is out of rage"), 'weight');
 			return false;
+		}
+
+		if($weight)
+		{
+			// remove float value of number
+			$weight = \lib\number::up($weight);
 		}
 
 
@@ -259,31 +275,6 @@ class check
 			$type = 'product';
 		}
 
-		$thumb = \dash\app::request('thumb');
-		if(isset($thumb) && !is_string($thumb))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'thumb']), 'thumb');
-			return false;
-		}
-
-		if($thumb)
-		{
-			$load_file_detail = \dash\app\file::get_inline($thumb);
-			if(!$load_file_detail || !isset($load_file_detail['id']))
-			{
-				return false;
-			}
-
-			$thumb = $load_file_detail['id'];
-		}
-
-		$gallery = \dash\app::request('gallery');
-		if(isset($gallery) && !is_string($gallery))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'gallery']), 'gallery');
-			return false;
-		}
-
 		$vat = null;
 		if(\dash\app::isset_request('vat'))
 		{
@@ -308,7 +299,7 @@ class check
 				return false;
 			}
 
-			$saleonline = $saleonline ? 'yes' : 'no';
+			$saleonline = $saleonline ? 'yes' : null;
 		}
 
 
@@ -336,6 +327,11 @@ class check
 		{
 			\dash\notif::error(T_("Value of carton is out of rage"), 'carton');
 			return false;
+		}
+
+		if($carton)
+		{
+			$carton = intval($carton);
 		}
 
 		$desc = \dash\app::request('desc');
@@ -377,6 +373,11 @@ class check
 			return false;
 		}
 
+		if($salestep)
+		{
+			$salestep = intval($salestep);
+		}
+
 		$minsale = \dash\app::request('minsale');
 		if(isset($minsale) && !is_string($minsale))
 		{
@@ -401,6 +402,11 @@ class check
 		{
 			\dash\notif::error(T_("Value of minsale is out of rage"), 'minsale');
 			return false;
+		}
+
+		if($minsale)
+		{
+			$minsale = intval($minsale);
 		}
 
 		$maxsale = \dash\app::request('maxsale');
@@ -429,13 +435,16 @@ class check
 			return false;
 		}
 
+		if($maxsale)
+		{
+			$maxsale = intval($maxsale);
+		}
 
-		$oversale     = \dash\app::request('oversale') ? 'yes' : 'no';
-		$saletelegram = \dash\app::request('saletelegram') ? 'yes' : 'no';
-		$saleapp      = \dash\app::request('saleapp') ? 'yes' : 'no';
-		$infinite     = \dash\app::request('infinite') ? 'yes' : 'no';
 
-
+		$oversale     = \dash\app::request('oversale') ? 'yes' : null;
+		$saletelegram = \dash\app::request('saletelegram') ? 'yes' : null;
+		$saleapp      = \dash\app::request('saleapp') ? 'yes' : null;
+		$infinite     = \dash\app::request('infinite') ? 'yes' : null;
 
 		$parent = \dash\app::request('parent');
 		if(isset($parent) && !is_string($parent))
@@ -490,84 +499,6 @@ class check
 		}
 
 
-		$optionname1  = \dash\app::request('optionname1');
-		if(isset($optionname1) && !is_string($optionname1))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'optionname1']), 'optionname1');
-			return false;
-		}
-
-		if($optionname1 && mb_strlen($optionname1) > 100)
-		{
-			\dash\notif::error(T_("optionname1 is out of range"), 'optionname1');
-			return false;
-		}
-
-		$optionvalue1 = \dash\app::request('optionvalue1');
-		if(isset($optionvalue1) && !is_string($optionvalue1))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'optionvalue1']), 'optionvalue1');
-			return false;
-		}
-
-		if($optionvalue1 && mb_strlen($optionvalue1) > 100)
-		{
-			\dash\notif::error(T_("optionvalue1 is out of range"), 'optionvalue1');
-			return false;
-		}
-
-		$optionname2  = \dash\app::request('optionname2');
-		if(isset($optionname2) && !is_string($optionname2))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'optionname2']), 'optionname2');
-			return false;
-		}
-
-		if($optionname2 && mb_strlen($optionname2) > 100)
-		{
-			\dash\notif::error(T_("optionname2 is out of range"), 'optionname2');
-			return false;
-		}
-
-		$optionvalue2 = \dash\app::request('optionvalue2');
-		if(isset($optionvalue2) && !is_string($optionvalue2))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'optionvalue2']), 'optionvalue2');
-			return false;
-		}
-
-		if($optionvalue2 && mb_strlen($optionvalue2) > 100)
-		{
-			\dash\notif::error(T_("optionvalue2 is out of range"), 'optionvalue2');
-			return false;
-		}
-
-		$optionname3  = \dash\app::request('optionname3');
-		if(isset($optionname3) && !is_string($optionname3))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'optionname3']), 'optionname3');
-			return false;
-		}
-
-		if($optionname3 && mb_strlen($optionname3) > 100)
-		{
-			\dash\notif::error(T_("optionname3 is out of range"), 'optionname3');
-			return false;
-		}
-
-		$optionvalue3 = \dash\app::request('optionvalue3');
-		if(isset($optionvalue3) && !is_string($optionvalue3))
-		{
-			\dash\notif::error(T_("Format error :val", ['val' => 'optionvalue3']), 'optionvalue3');
-			return false;
-		}
-
-		if($optionvalue3 && mb_strlen($optionvalue3) > 100)
-		{
-			\dash\notif::error(T_("optionvalue3 is out of range"), 'optionvalue3');
-			return false;
-		}
-
 		$sku = \dash\app::request('sku');
 		if(isset($sku) && !is_string($sku))
 		{
@@ -619,7 +550,6 @@ class check
 		$args['maxstock']     = $maxstock;
 		$args['weight']       = $weight;
 		$args['status']       = $status;
-		$args['thumb']        = $thumb;
 		$args['vat']          = $vat;
 		$args['saleonline']   = $saleonline;
 		$args['carton']       = $carton;
@@ -629,12 +559,6 @@ class check
 		$args['infinite']     = $infinite;
 		$args['parent']       = $parent;
 		$args['scalecode']    = $scalecode;
-		$args['optionname1']  = $optionname1;
-		$args['optionvalue1'] = $optionvalue1;
-		$args['optionname2']  = $optionname2;
-		$args['optionvalue2'] = $optionvalue2;
-		$args['optionname3']  = $optionname3;
-		$args['optionvalue3'] = $optionvalue3;
 		$args['sku']          = $sku;
 		$args['seotitle']     = $seotitle;
 		$args['seodesc']      = $seodesc;
@@ -642,7 +566,6 @@ class check
 		$args['minsale']      = $minsale;
 		$args['maxsale']      = $maxsale;
 		$args['type']         = $type;
-		$args['gallery']      = $gallery;
 		$args['oversale']     = $oversale;
 
 		return $args;
@@ -887,6 +810,7 @@ class check
 		$args                    = [];
 		$args['buyprice']        = \lib\price::up($buyprice);
 		$args['price']           = \lib\price::up($price);
+		$args['compareatprice']  = \lib\price::up($compareatprice);
 		$args['discount']        = \lib\price::up($discount);
 		$args['discountpercent'] = $discountpercent;
 
