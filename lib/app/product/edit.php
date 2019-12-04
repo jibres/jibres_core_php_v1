@@ -192,10 +192,9 @@ class edit
 			$args['cat_id'] = null;
 		}
 
-
-		$tag = \dash\app::request('tag');
-		if($tag && is_string($tag))
+		if(\dash\app::isset_request('tag'))
 		{
+			$tag = \dash\app::request('tag');
 			\lib\app\product\tag::add($tag, $id);
 			if(!\dash\engine\process::status())
 			{

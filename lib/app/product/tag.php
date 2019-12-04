@@ -11,6 +11,17 @@ class tag
 			return false;
 		}
 
+		if(!$_tag)
+		{
+			$have_old_tag = \lib\db\producttag\tagusage::usage($_product_id);
+			if($have_old_tag)
+			{
+				\dash\temp::set('productHasChange', true);
+				\lib\db\producttag\tagusage::hard_delete_all_product_tag($_product_id);
+			}
+			return false;
+		}
+
 		$have_term_to_save_log = false;
 
 		if(!is_string($_tag))
@@ -23,10 +34,6 @@ class tag
 		$tag = array_filter($tag);
 		$tag = array_unique($tag);
 
-		if(!$tag)
-		{
-			return false;
-		}
 
 		$check_exist_tag = \lib\db\producttag\tag::get_mulit_title($tag);
 
@@ -80,18 +87,18 @@ class tag
 
 		$category_id = $all_tags_id;
 
-		$get_old_post_cat = \lib\db\producttag\tagusage::usage($_product_id);
+		$get_old_product_cat = \lib\db\producttag\tagusage::usage($_product_id);
 
 		$must_insert = [];
 		$must_remove = [];
 
-		if(empty($get_old_post_cat))
+		if(empty($get_old_product_cat))
 		{
 			$must_insert = $category_id;
 		}
 		else
 		{
-			$old_category_id = array_column($get_old_post_cat, 'id');
+			$old_category_id = array_column($get_old_product_cat, 'producttag_id');
 			$old_category_id = array_map('intval', $old_category_id);
 			$must_insert = array_diff($category_id, $old_category_id);
 			$must_remove = array_diff($old_category_id, $category_id);

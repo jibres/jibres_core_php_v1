@@ -160,5 +160,12 @@ class tagusage
 		}
 	}
 
+
+	public static function hard_delete_all_product_tag($_product_id)
+	{
+		$query = "DELETE FROM producttagusage WHERE producttagusage.product_id = $_product_id ";
+		return \dash\db::query($query);
+	}
+
 }
 ?>
