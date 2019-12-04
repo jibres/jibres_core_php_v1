@@ -125,23 +125,11 @@
 {%block iWeight%}
 <label for="iweight">{%trans "Weight"%}</label>
 <div class="input ">
- <input type="number" name="weight" id="iweight" placeholder='{%trans "Enter product weight"%}' value="{{productDataRow.weight}}"  autocomplete="off" min="0" max="99999999">
+ <input type="text" name="weight" id="iweight" value="{{productDataRow.weight}}"  autocomplete="off" maxlength="11" data-format='number'>
+ <div class="addon">{%trans "Kg"%}</div>
 </div>
 {%endblock%}
 
-
-{%block iWeightunit%}
-<div>
-  <label for='weightunit'>{%trans "Weight unit"%}</label>
-  <select name="weightunit" id="weightunit" class="select22">
-    <option value="" {%if not productDataRow.weightunit  %} selected {%endif%}>{%trans "Please select one item"%}</option>
-    <option value="lb" {%if productDataRow.weightunit == 'lb' %} selected {%endif%}>{%trans "lb"%}</option>
-    <option value="oz" {%if productDataRow.weightunit == 'oz' %} selected {%endif%}>{%trans "oz"%}</option>
-    <option value="kg" {%if productDataRow.weightunit == 'kg' %} selected {%endif%}>{%trans "kg"%}</option>
-    <option value="g" {%if productDataRow.weightunit == 'g' %} selected {%endif%}>{%trans "g"%}</option>
-  </select>
-</div>
-{%endblock%}
 
 
 
@@ -250,7 +238,7 @@
 {%block iMaxstock%}
 <label for='maxstock'>{%trans "Max stock"%}</label>
 <div class="input">
- <input type="text" name="maxstock" id="maxstock" data-format='number' value="{{productDataRow.maxstock}}" maxlength="12">
+ <input type="text" name="maxstock" id="maxstock" data-format='number' value="{{productDataRow.maxstock}}" maxlength="11">
 </div>
 {%endblock%}
 
@@ -284,19 +272,6 @@
 
 
 
-
-
-
-
-
-
-
-{%block iCarton%}
-<label for='carton'>{%trans "Count in carton"%}</label>
-<div class="input">
- <input type="number" name="carton" id="carton" placeholder='{%trans "Count of product in carton"%}' value="{{productDataRow.carton}}" maxlength="50">
-</div>
-{%endblock%}
 
 
 

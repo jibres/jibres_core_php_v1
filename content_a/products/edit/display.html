@@ -108,10 +108,7 @@
 
     {{block('iType')}}
     <div data-response='type' data-response-where='product' {%if productDataRow.type != 'product'%} data-response-hide {%endif%}>
-      <div class="f">
-       <div class="c s12 pRa5">{{block('iWeight')}}</div>
-       <div class="c s12">{{block('iWeightunit')}}</div>
-      </div>
+      {{block('iWeight')}}
     </div>
   </div>
 </section>
