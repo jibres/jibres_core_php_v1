@@ -57,7 +57,7 @@ function pushStateSiftal(_direct)
   if($('body').attr('data-in') === 'a')
   {
     calcFooterValues();
-    calcPriceMargin();
+    calcProductMargin();
   }
 
 

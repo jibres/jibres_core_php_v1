@@ -1,25 +1,64 @@
 // margin (calculated as ([price - cost] / price) * 100)
-function calcPriceMargin()
+function calcProductMargin()
 {
   var cost             = getElNumber($('#buyprice'));
   var price            = getElNumber($('#price'));
   var compareAtPrice   = getElNumber($('#CompareAtPrice'));
-  // price margin
-  var priceMarginEl    = $('.priceMargin');
-  var priceMargin      = 0;
   // discount margin
   var discountMarginEl = $('.discountMargin');
   var discountMargin   = 0;
+  // price margin
+  var priceMarginEl    = $('.priceMargin');
+  var priceMargin      = 0;
+  // profit margin
+  var profitMarginEl    = $('.profitMargin');
+  var profitMargin      = 0;
 
-  // cala priceMargin and show depends on condition
+
+  // calc discount margin
+  if(price && compareAtPrice)
+  {
+    discountMargin = (((compareAtPrice - price) / compareAtPrice)  * 100).toFixed(2);
+  }
+  if(discountMargin)
+  {
+    if(discountMargin > 80)
+    {
+      discountMarginEl.removeClass('danger2')
+      discountMarginEl.removeClass('success2')
+      discountMarginEl.addClass('warn')
+    }
+    else if(discountMargin > 0)
+    {
+      discountMarginEl.removeClass('danger2')
+      discountMarginEl.removeClass('warn')
+      discountMarginEl.addClass('success2')
+    }
+    else
+    {
+      discountMarginEl.removeClass('success2')
+      discountMarginEl.removeClass('warn')
+      discountMarginEl.addClass('danger2')
+      discountMargin = '-';
+    }
+    // set val
+    discountMarginEl.find('b').html(fitNumber(discountMargin) + ' %');
+    discountMarginEl.attr('data-percent', discountMargin).slideDown().removeClass('hide');
+  }
+  else
+  {
+    discountMarginEl.find('b').html('-');
+    discountMarginEl.attr('data-percent', discountMargin).slideUp();
+  }
+
+
+  // calc priceMargin and show depends on condition
   if(cost && price)
   {
     priceMargin = (((price - cost) / price)  * 100).toFixed(2);
   }
   if(priceMargin)
   {
-    priceMarginEl.find('b').html(fitNumber(priceMargin) + ' %');
-    priceMarginEl.attr('data-percent', priceMargin).slideDown().removeClass('hide');
     if(priceMargin > 10)
     {
       priceMarginEl.removeClass('danger2')
@@ -35,6 +74,9 @@ function calcPriceMargin()
       priceMarginEl.removeClass('success2')
       priceMarginEl.addClass('danger2')
     }
+    // set val
+    priceMarginEl.find('b').html(fitNumber(priceMargin) + ' %');
+    priceMarginEl.attr('data-percent', priceMargin).slideDown().removeClass('hide');
   }
   else
   {
@@ -43,38 +85,36 @@ function calcPriceMargin()
   }
 
 
-
-  if(price && compareAtPrice)
+  // calc priceMargin and show depends on condition
+  if(cost && price)
   {
-    discountMargin = (((compareAtPrice - price) / compareAtPrice)  * 100).toFixed(2);
+    profitMargin = (((price - cost) / cost)  * 100).toFixed(2);
   }
-  console.log(price);
-  console.log(compareAtPrice);
-  console.log(discountMargin);
-  if(discountMargin)
+  if(profitMargin)
   {
-    discountMarginEl.find('b').html(fitNumber(discountMargin) + ' %');
-    discountMarginEl.attr('data-percent', discountMargin).slideDown().removeClass('hide');
-    if(discountMargin > 10)
+    if(profitMargin > 10)
     {
-      discountMarginEl.removeClass('danger2')
-      discountMarginEl.addClass('success2')
+      profitMarginEl.removeClass('danger2')
+      profitMarginEl.addClass('success2')
     }
-    else if(discountMargin > 0)
+    else if(profitMargin > 0)
     {
-      discountMarginEl.removeClass('danger2')
-      discountMarginEl.removeClass('success2')
+      profitMarginEl.removeClass('danger2')
+      profitMarginEl.removeClass('success2')
     }
     else
     {
-      discountMarginEl.removeClass('success2')
-      discountMarginEl.addClass('danger2')
+      profitMarginEl.removeClass('success2')
+      profitMarginEl.addClass('danger2')
     }
+    // set val
+    profitMarginEl.find('b').html(fitNumber(profitMargin) + ' %');
+    profitMarginEl.attr('data-percent', profitMargin).slideDown().removeClass('hide');
   }
   else
   {
-    discountMarginEl.find('b').html('-');
-    discountMarginEl.attr('data-percent', discountMargin).slideUp();
+    profitMarginEl.find('b').html('-');
+    profitMarginEl.attr('data-percent', profitMargin).slideUp();
   }
 }
 
