@@ -215,25 +215,25 @@
 
 
 {%block iMinsale%}
-<label for='minsale'>{%trans "Min sale"%}</label>
+<label for='minsale'>{%trans "Min on one card"%}</label>
 <div class="input">
- <input type="text" name="minsale" id="minsale" placeholder='{%trans "Min sale"%}' value="{{productDataRow.minsale}}" maxlength="50">
+ <input type="text" name="minsale" id="minsale" data-format='number' value="{{productDataRow.minsale}}" maxlength="7">
 </div>
 {%endblock%}
 
 
 
 {%block iMaxsale%}
-<label for='maxsale'>{%trans "Max sale"%}</label>
+<label for='maxsale'>{%trans "Max on one card"%}</label>
 <div class="input">
- <input type="text" name="maxsale" id="maxsale" placeholder='{%trans "Max sale"%}' value="{{productDataRow.maxsale}}" maxlength="50">
+ <input type="text" name="maxsale" id="maxsale" data-format='number' value="{{productDataRow.maxsale}}" maxlength="7">
 </div>
 {%endblock%}
 
 {%block iSalestep%}
 <label for='salestep'>{%trans "Sale step"%}</label>
 <div class="input">
- <input type="text" name="salestep" id="salestep" placeholder='{%trans "Sale step"%}' value="{{productDataRow.salestep}}" maxlength="50">
+ <input type="text" name="salestep" id="salestep" data-format='number' value="{{productDataRow.salestep}}" maxlength="7">
 </div>
 {%endblock%}
 
@@ -241,7 +241,7 @@
 {%block iMinstock%}
 <label for='minstock'>{%trans "Min stock"%}</label>
 <div class="input">
- <input type="text" name="minstock" id="minstock" data-format='int' value="{{productDataRow.minstock}}" maxlength="10">
+ <input type="text" name="minstock" id="minstock" data-format='number' value="{{productDataRow.minstock}}" maxlength="7">
 </div>
 {%endblock%}
 
@@ -250,7 +250,7 @@
 {%block iMaxstock%}
 <label for='maxstock'>{%trans "Max stock"%}</label>
 <div class="input">
- <input type="text" name="maxstock" id="maxstock" data-format='int' value="{{productDataRow.maxstock}}" maxlength="10">
+ <input type="text" name="maxstock" id="maxstock" data-format='number' value="{{productDataRow.maxstock}}" maxlength="12">
 </div>
 {%endblock%}
 
