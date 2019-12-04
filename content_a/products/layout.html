@@ -87,7 +87,7 @@
 
 
 {%block iDesc%}
-<textarea name="desc" data-editor class="txt" rows="6" data-placeholder='{%trans "Description"%}'>{{productDataRow.desc | raw}}</textarea>
+<textarea name="desc" data-editor class="txt" rows="6" maxlength="2000" data-placeholder='{%trans "Description"%}'>{{productDataRow.desc | raw}}</textarea>
 {%endblock%}
 
 
