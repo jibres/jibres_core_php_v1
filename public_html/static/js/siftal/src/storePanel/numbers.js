@@ -3,6 +3,10 @@ function getElNumber(_el)
 {
   var myNum = _el.val();
   // strip number
+  if(!myNum)
+  {
+    return 0;
+  }
   myNum = myNum.split(",").join("");
   myNum = myNum.split(" ").join("");
   myNum = myNum.split("-").join("");
