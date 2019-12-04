@@ -145,7 +145,6 @@
 
 
 {%block iBuyprice%}
-
 <label for='buyprice'>{%trans "Buy cost"%}</label>
 <div class="input">
  <input type="text" name="buyprice" id="buyprice" data-format='price' value="{{productDataRow.buyprice}}" maxlength="{%if currentStore.setting.maxbuyprice%}{{currentStore.setting.maxbuyprice}}{%else%}15{%endif%}" data-run-input='recalcPricePercents'>
@@ -157,6 +156,7 @@
 <label for='price'>{%trans "Sale Price"%}</label>
 <div class="input">
  <input type="text" name="price" id="price" data-format='price' value="{{productDataRow.price}}" maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}" data-run-input='recalcPricePercents'>
+ <div class="addon fs09" data-abbr='{%trans "Gross profit margin"%}' data-percent='11'><abbr></abbr> <b>%</b></div>
 </div>
 {%endblock%}
 
@@ -184,15 +184,6 @@
 </div>
 {%endblock%}
 
-
-
-{%block iDiscount%}
-<label for='discount'>{%trans "Discount"%}</label>
-<div class="input">
- <input type="text" name="discount" id="discount" data-format='price' value="{{productDataRow.discount}}" maxlength="10" data-run-input='recalcPricePercents'>
- <span class="addon" title='{%trans "Discount Percent"%}'>{{ productDataRow.discountpercent | fitNumber}} %</span>
-</div>
-{%endblock%}
 
 
 {%block iVat%}

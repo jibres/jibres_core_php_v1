@@ -1,4 +1,4 @@
-
+// margin (calculated as ([price - cost] / price) * 100)
 function recalcPricePercents()
 {
 
