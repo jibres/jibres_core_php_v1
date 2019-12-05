@@ -8,13 +8,13 @@
       <a href="{{url.kingdom}}/api/doc" class="btn block outline">{{myTitle}}</a>
 
       {%if not user.verifymobile%}
-      <div class="msg warn txtB txtC">{%trans "To make your appkey you must verify your mobile"%}</div>
+      <a href="{{url.kingdom}}/enter/verify?referer={{url.pwd}}" target="_blank" data-direct class="msg block warn txtB txtC mT10">{%trans "To make your appkey you must verify your mobile"%}</a>
+      {%else%}
+        <div class="msg warn2 mT20">
+          <div>{%trans "Protect this key like a password!"%}</div>
+          <div>{%trans "By this code you can build new application to manage your account and manage other customer"%}</div>
+        </div>
       {%endif%}
-
-      <div class="msg warn2 mT20">
-        <div>{%trans "Protect this key like a password!"%}</div>
-        <div>{%trans "By this code you can build new application to manage your account and manage other customer"%}</div>
-      </div>
 
       <form method="post">
         <input type="hidden" name="add" value="appkey">
@@ -36,9 +36,9 @@
 
     </div>
 
-    <div class="cbox">
+
       {{block('myStoresOwner')}}
-    </div>
+
 
 
     </div>
@@ -51,22 +51,24 @@
 
 {%block myStoresOwner%}
 {%if listStore.owner%}
-<h3>{%trans "Your Stores code to use in api"%}</h3>
-<div class="">
-{%for key, value in listStore.owner%}
-  <div class="" >
-    <div href='{{value.url}}/a' class="scard">
-      <img src="{{value.logo}}" alt="{{value.title}}">
-      <div class="body">
-        <h2>{{value.title}}</h2>
-        <div class="position txtRa">
-          <code class="ltr">{{value.store_id | coding("encode")}}</code>
-        </div>
+<div class="cbox">
+  <h3>{%trans "Your Stores code to use in api"%}</h3>
 
+  {%for key, value in listStore.owner%}
+    <div class="" >
+      <div href='{{value.url}}/a' class="scard">
+        <img src="{{value.logo}}" alt="{{value.title}}">
+        <div class="body">
+          <h2>{{value.title}}</h2>
+          <div class="position txtRa">
+            <code class="ltr">{{value.store_id | coding("encode")}}</code>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
-{%endfor%}
+  {%endfor%}
+
 </div>
 {%endif%}
 {%endblock%}

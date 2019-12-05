@@ -56,15 +56,28 @@ class user
 				else
 				{
 					self::$detail[$key] = $value;
-					$_SESSION['store_auth'][$key] = $value;
+					$_SESSION[self::store_auth_key()][$key] = $value;
 				}
 			}
 		}
 
-		$_SESSION['store_auth']['logintime'] = time();
-		$_SESSION['store_auth']['id'] = $detail['id'];
+		$_SESSION[self::store_auth_key()]['logintime'] = time();
+		$_SESSION[self::store_auth_key()]['id'] = $detail['id'];
 
 	}
+
+
+	/**
+	 * save key of session store by slug of store
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	private static function store_auth_key()
+	{
+		return 'store_auth_'. \lib\store::store_slug();
+	}
+
+
 
 	/**
 	 * Determines if initialize store user.
@@ -73,7 +86,7 @@ class user
 	 */
 	public static function is_init_store_user()
 	{
-		return isset($_SESSION['store_auth']['id']);
+		return isset($_SESSION[self::store_auth_key()]['id']);
 	}
 
 
@@ -131,7 +144,7 @@ class user
 	private static function detect()
 	{
 		$user_data  = isset($_SESSION['auth']) ? $_SESSION['auth'] : [];
-		$store_data = isset($_SESSION['store_auth']) ? $_SESSION['store_auth'] : [];
+		$store_data = isset($_SESSION[self::store_auth_key()]) ? $_SESSION[self::store_auth_key()] : [];
 
 		if(self::inStore())
 		{
@@ -189,7 +202,7 @@ class user
 
 		if(self::inStore())
 		{
-			unset($_SESSION['store_auth']);
+			unset($_SESSION[self::store_auth_key()]);
 		}
 		else
 		{
