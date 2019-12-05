@@ -118,7 +118,7 @@
   <div class="pad unitsgPanel">
 
     <div data-response='type' data-response-where='product' {%if productDataRow.type == 'product'%} {%else%} data-response-hide {%endif%}>
-        <div>{%trans "Dimensions"%} <small>{%trans "cm"%}</small></div>
+        <div>{%trans "Dimensions"%} <small>@ {{store.store_data.length_detail.name}}</small></div>
       <div class="f">
         <div class="c">{{block('iLength')}}</div>
         <div class="c mLa5">{{block('iWidth')}}</div>

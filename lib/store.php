@@ -149,7 +149,7 @@ class store
 				}
 				else
 				{
-					return $getFile;
+					return self::ready_setting($getFile);
 				}
 			}
 			else
@@ -165,6 +165,9 @@ class store
 	}
 
 
+	/**
+	 * get store setting from database
+	 */
 	private static function store_detail_setting_record($_store_id)
 	{
 
@@ -197,9 +200,86 @@ class store
 			\dash\file::write($addr, json_encode($store_detail_setting_record, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 		}
 
-		return $store_detail_setting_record;
+		return self::ready_setting($store_detail_setting_record);
 	}
 
+
+
+
+	private static function ready_setting($_data)
+	{
+		if(!is_array($_data))
+		{
+			return null;
+		}
+
+		$result = [];
+
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+
+				case 'country':
+					if($value)
+					{
+						$result['country_detail'] = [];
+						$result['country_detail']['name'] = \dash\utility\location\countres::get_localname($value);
+					}
+					$result[$key] = $value;
+					break;
+
+				case 'province':
+					if($value)
+					{
+						$result['province_detail'] = [];
+						$result['province_detail']['name'] = \dash\utility\location\provinces::get_localname($value);
+					}
+					$result[$key] = $value;
+					break;
+
+				case 'city':
+					if($value)
+					{
+						$result['city_detail'] = [];
+						$result['city_detail']['name'] = \dash\utility\location\cites::get_localname($value);
+					}
+					$result[$key] = $value;
+					break;
+
+				case 'currency':
+					if($value)
+					{
+						$result['currency_detail'] = \lib\currency::detail($value);
+					}
+					$result[$key] = $value;
+					break;
+
+				case 'length_unit':
+					if($value)
+					{
+						$result['length_detail'] = \lib\units::detail($value, 'length');
+					}
+					$result[$key] = $value;
+					break;
+
+				case 'mass_unit':
+					if($value)
+					{
+						$result['mass_detail'] = \lib\units::detail($value, 'mass');
+					}
+					$result[$key] = $value;
+					break;
+
+
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
+
+		return $result;
+	}
 
 
 	public static function loaded()
