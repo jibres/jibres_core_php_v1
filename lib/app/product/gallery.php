@@ -166,6 +166,16 @@ class gallery
 				$product_gallery_field['thumbid'] = $fileid;
 			}
 
+			// check max gallery image
+			if(isset($product_gallery_field['files']) && is_array($product_gallery_field['files']))
+			{
+				if(count($product_gallery_field['files']) > 10)
+				{
+					\dash\notif::error(T_("Maximum count of gallery file is 10"));
+					return false;
+				}
+			}
+
 			$insert_file_usage =
 			[
 				'file_id'      => $fileid,
