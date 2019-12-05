@@ -65,15 +65,26 @@ class variants
 	}
 
 
+
+	/**
+	 * make json of variants
+	 */
 	public static function set($_variants, $_id)
 	{
 		// load main product detail
 		$product_detail = \lib\app\product\get::inline_get($_id);
 
-		if(!$product_detail)
+		if(!$product_detail || !isset($product_detail['type']))
 		{
 			return false;
 		}
+
+		if($product_detail['type'] !== 'product')
+		{
+			\dash\notif::error(T_("Variants not avalible on product by type :type", ['type' => T_(ucfirst($product_detail['type']))]));
+			return false;
+		}
+
 		// set option variants to app variable
 		\dash\app::variable($_variants);
 
@@ -235,11 +246,18 @@ class variants
 	public static function set_product($_variants, $_product_id)
 	{
 		$load_product = \lib\app\product\get::inline_get($_product_id);
-		if(!$load_product || !isset($load_product['id']))
+		if(!$load_product || !isset($load_product['id']) || !isset($load_product['type']))
 		{
 			// product not found
 			return false;
 		}
+
+		if($load_product['type'] !== 'product')
+		{
+			\dash\notif::error(T_("Variants not avalible on product by type :type", ['type' => T_(ucfirst($load_product['type']))]));
+			return false;
+		}
+
 
 		$load_option_name = isset($load_product['variants']) ? $load_product['variants'] : null;
 		if(!$load_option_name)
