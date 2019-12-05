@@ -48,7 +48,14 @@ class store
 	 */
 	public static function clean()
 	{
+		$addr = \dash\engine\store::setting_addr(). self::id();
+		if(is_file($addr))
+		{
+			\dash\file::delete($addr);
+		}
+
 		\dash\session::set('store_detail_'. self::store_slug(), null);
+
 		self::$store = [];
 	}
 
@@ -78,7 +85,6 @@ class store
 	 */
 	public static function init()
 	{
-
 		// no subdomain and no domains
 		if(!self::store_slug())
 		{
@@ -94,6 +100,7 @@ class store
 		if(\dash\session::get('store_detail_'. self::store_slug()))
 		{
 			self::$store = \dash\session::get('store_detail_'. self::store_slug());
+			self::$store['store_data'] = self::file_store_data(self::$store);
 			return;
 		}
 
@@ -102,10 +109,64 @@ class store
  		$store_detail_file = \dash\engine\store::init_subdomain(self::store_slug());
 
  		// no file founded an no record existe in jibres database
- 		if(!$store_detail_file)
+ 		if(!$store_detail_file || !isset($store_detail_file['store']))
  		{
  			return false;
  		}
+
+ 		$store_detail = $store_detail_file['store'];
+
+		self::$store = $store_detail;
+
+		\dash\session::set('store_detail_'. self::store_slug(), $store_detail);
+
+		self::$store['store_data'] = self::file_store_data(self::$store);
+	}
+
+
+	private static function file_store_data($_store_detail)
+	{
+		if(!isset($_store_detail['id']))
+		{
+			return false;
+		}
+
+		$addr = \dash\engine\store::setting_addr(). $_store_detail['id'];
+
+		if(is_file($addr))
+		{
+			$getFile = \dash\file::read($addr);
+			if($getFile && is_string($getFile))
+			{
+				$getFile = json_decode($getFile, true);
+			}
+
+			if(is_array($getFile) && $getFile)
+			{
+				if(isset($getFile['update_time']) && time() - intval($getFile['update_time']) > 30)
+				{
+					return self::store_detail_setting_record($_store_detail['id']);
+				}
+				else
+				{
+					return $getFile;
+				}
+			}
+			else
+			{
+				return self::store_detail_setting_record($_store_detail['id']);
+			}
+		}
+		else
+		{
+			return self::store_detail_setting_record($_store_detail['id']);
+		}
+
+	}
+
+
+	private static function store_detail_setting_record($_store_id)
+	{
 
 		$store_detail_setting_record = \lib\app\setting\tools::get_cat('store_setting');
 
@@ -114,31 +175,31 @@ class store
 			$store_detail_setting_record = array_column($store_detail_setting_record, 'value', 'key');
 		}
 
-		if(!isset($store_detail_file['store']))
-		{
-			return false;
-		}
-
-		$store_detail = $store_detail_file['store'];
-
 		if(is_array($store_detail_setting_record))
 		{
-			$store_detail['store_data'] = $store_detail_setting_record;
-		}
-
-		if(isset($store_detail['store_data']) && is_array($store_detail['store_data']))
-		{
-
-			if(array_key_exists('logo', $store_detail['store_data']) && !$store_detail['store_data']['logo'])
+			if(array_key_exists('logo', $store_detail_setting_record) && !$store_detail_setting_record['logo'])
 			{
-				$store_detail['store_data']['logo'] = \dash\app::static_logo_url();
+				$store_detail_setting_record['logo'] = \dash\app::static_logo_url();
 			}
 		}
 
-		self::$store = $store_detail;
+		if(is_array($store_detail_setting_record))
+		{
 
-		\dash\session::set('store_detail_'. self::store_slug(), $store_detail);
+			$addr = \dash\engine\store::setting_addr();
+			if(!is_dir($addr))
+			{
+				\dash\file::makeDir($addr, null, true);
+			}
+			$addr .= $_store_id;
+
+			$store_detail_setting_record['update_time'] = time();
+			\dash\file::write($addr, json_encode($store_detail_setting_record, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+		}
+
+		return $store_detail_setting_record;
 	}
+
 
 
 	public static function loaded()

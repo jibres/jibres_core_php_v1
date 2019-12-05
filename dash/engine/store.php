@@ -256,7 +256,7 @@ class store
 
 	/**
 	 * subdomain folder addr
-	 * user in this file and app store add
+	 * use in this file and app store add
 	 *
 	 * @return     string
 	 */
@@ -268,13 +268,25 @@ class store
 
 	/**
 	 * detail folder addr
-	 * user in this file and app store add
+	 * use in this file and app store add
 	 *
 	 * @return     string
 	 */
 	public static function detail_addr()
 	{
 		return root. 'includes/stores/detail/';
+	}
+
+
+	/**
+	 * setting folder addr
+	 * use in this file and \lib\store
+	 *
+	 * @return     string
+	 */
+	public static function setting_addr()
+	{
+		return root. 'includes/stores/setting/';
 	}
 
 
