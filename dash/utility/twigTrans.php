@@ -27,8 +27,8 @@ class twigTrans
 		foreach($files as $file)
 		{
 			// create an record for array name
-			$trans_key = substr($file, strpos($file, db_name)+mb_strlen(db_name)+1 );
-			// $file_name = basename($file,'.html');
+			$trans_key = $file->getPathname();
+			$trans_key = str_replace(root, '', $trans_key);
 			$lines     = file($file);
 			$find      = "trans";
 			$count     = 0;
