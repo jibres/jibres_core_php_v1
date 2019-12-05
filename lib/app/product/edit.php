@@ -196,6 +196,33 @@ class edit
 			}
 		}
 
+		if(isset($args['type']))
+		{
+			switch ($args['type'])
+			{
+				case 'product':
+					// nothing
+					unset($args['filesize']);
+					unset($args['fileaddress']);
+					break;
+
+				case 'service':
+					unset($args['filesize']);
+					unset($args['fileaddress']);
+					//no break!
+				case 'file':
+					unset($args['length']);
+					unset($args['height']);
+					unset($args['width']);
+					unset($args['weight']);
+					unset($args['minsale']);
+					unset($args['maxsale']);
+					unset($args['salestep']);
+					unset($args['scalecode']);
+					break;
+			}
+		}
+
 		if($isChild)
 		{
 			unset($args['title']);
