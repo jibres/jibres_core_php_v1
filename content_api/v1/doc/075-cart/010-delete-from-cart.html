@@ -1,12 +1,12 @@
-<h2 class="f" data-kerkere='#add-to-cart-detail' data-kerkere-icon='open'>
-  <span class="cauto pRa10"><span class="badge primary">POST</span></span>
-  <span class="c">{%trans "Add product to cart"%}</span>
+<h2 class="f" data-kerkere='#delete-from-cart-detail' data-kerkere-icon='open'>
+  <span class="cauto pRa10"><span class="badge danger">DELETE</span></span>
+  <span class="c">{%trans "Delete product from cart"%}</span>
 </h2>
-<div id="add-to-cart-detail">
-  <div class="cbox" id='add-to-cart'>
+<div id="delete-from-cart-detail">
+  <div class="cbox" id='delete-from-cart'>
     <div class="msg url">
-      <i class="method">POST</i>
-      <span>{{CustomerApiURL}}<b>cart/add</b></span>
+      <i class="method">DELETE</i>
+      <span>{{CustomerApiURL}}<b>cart/delete</b></span>
     </div>
 
          {%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
@@ -34,20 +34,6 @@
               <div class="fc-red"><i>{%trans "Required"%}</i></div>
             </td>
           </tr>
-
-          <tr>
-            <td>
-              <div class="txtB">count</div>
-              <i>integer</i>
-            </td>
-            <td>
-
-            </td>
-            <td>
-              <div class="fc-red"><i>{%trans "Required"%}</i></div>
-            </td>
-          </tr>
-
         </tbody>
       </table>
     </div>
@@ -55,7 +41,7 @@
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
-curl -X POST {{CustomerApiURL}}cart/add -H 'appkey: {{myAppKey}}' -H 'apikey: {{myApiKey}}' -d '{"product": 1, "count": 10}'
+curl -X DELETE {{CustomerApiURL}}cart/delete -H 'appkey: {{myAppKey}}' -H 'apikey: {{myApiKey}}' -d '{"product": 1}'
 </pre>
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
@@ -65,7 +51,7 @@ curl -X POST {{CustomerApiURL}}cart/add -H 'appkey: {{myAppKey}}' -H 'apikey: {{
   "msg": [
     {
       "type": "ok",
-      "text": "Product added to your cart"
+      "text": "The product was removed from your cart"
     }
   ],
   "result": null

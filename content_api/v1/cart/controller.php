@@ -68,7 +68,7 @@ class controller
 				\content_api\v1::invalid_url();
 			}
 
-			if(!\dash\request::is('patch'))
+			if(!\dash\request::is('put'))
 			{
 				\content_api\v1::invalid_method();
 			}
@@ -84,25 +84,84 @@ class controller
 
 	private static function cart_list()
 	{
-		j(__FUNCTION__);
+		$result =
+		[
+			[
+				'product' => 1,
+				'count'   => 10,
+				'date'    => date("Y-m-d H:i:s"),
+				'product_detail' => ['title' => 'product 1', 'price' => 1000],
+			],
+			[
+				'product' => 2,
+				'count'   => 10,
+				'date'    => date("Y-m-d H:i:s"),
+				'product_detail' => ['title' => 'product 2', 'price' => 2000],
+			],
+		];
+		\content_api\v1::say($result);
 	}
 
 
 	private static function cart_add()
 	{
-		j(__FUNCTION__);
+		$result = null;
+
+		$product = \content_api\v1::input_body('product');
+		if(!$product || !is_numeric($product))
+		{
+			\dash\notif::error(T_("Please set the product"));
+			\content_api\v1::say($result);
+		}
+
+		$count = \content_api\v1::input_body('count');
+		if(!$count || !is_numeric($count))
+		{
+			\dash\notif::error(T_("Please set the count"));
+			\content_api\v1::say($result);
+		}
+
+		\dash\notif::ok(T_("Product added to your cart"));
+		\content_api\v1::say($result);
 	}
 
 
 	private static function cart_delete()
 	{
-		j(__FUNCTION__);
+		$result = null;
+
+		$product = \content_api\v1::input_body('product');
+		if(!$product || !is_numeric($product))
+		{
+			\dash\notif::error(T_("Please set the product"));
+			\content_api\v1::say($result);
+		}
+
+		\dash\notif::ok(T_("The product was removed from your cart"));
+		\content_api\v1::say($result);
 	}
 
 
 	private static function cart_edit()
 	{
-		j(__FUNCTION__);
+		$result = null;
+
+		$product = \content_api\v1::input_body('product');
+		if(!$product || !is_numeric($product))
+		{
+			\dash\notif::error(T_("Please set the product"));
+			\content_api\v1::say($result);
+		}
+
+		$count = \content_api\v1::input_body('count');
+		if(!$count || !is_numeric($count))
+		{
+			\dash\notif::error(T_("Please set the count"));
+			\content_api\v1::say($result);
+		}
+
+		\dash\notif::ok(T_("Your cart was updated"));
+		\content_api\v1::say($result);
 	}
 
 }
