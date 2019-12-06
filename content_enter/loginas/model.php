@@ -10,6 +10,8 @@ class model
 		{
 			$result = \lib\app\customer\loginas::user(\dash\user::is_init_jibres_user(), \dash\data::logitToSubdomain());
 
+			unset($_SESSION['login_as'][\dash\data::logitToSubdomain()]);
+
 			if($result)
 			{
 				$referer = \dash\data::logiToReferer();
