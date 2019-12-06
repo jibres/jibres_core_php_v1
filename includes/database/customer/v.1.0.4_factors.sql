@@ -15,6 +15,7 @@ CREATE TABLE `jibres_XXXXXXX`.`factors` (
 `vat` int(10) UNSIGNED DEFAULT NULL,
 `discount` int(10) DEFAULT NULL,
 `sum` bigint(20) UNSIGNED DEFAULT NULL,
+`address_id` bigint(20) UNSIGNED DEFAULT NULL,
 `status` enum('enable','disable','expire','draft','deleted') NOT NULL DEFAULT 'draft',
 `datecreated` datetime DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
@@ -33,6 +34,7 @@ KEY `index_search_detailsum` (`detailsum`),
 KEY `index_search_detaildiscount` (`detaildiscount`),
 KEY `index_search_detailtotalsum` (`detailtotalsum`),
 CONSTRAINT `factors_customer` FOREIGN KEY (`seller`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+CONSTRAINT `factors_address_id` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `factors_seller` FOREIGN KEY (`customer`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
