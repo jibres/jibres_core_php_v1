@@ -354,7 +354,7 @@
 {%if perm('productAssignTag')%}
 <div>
   <label for='tag'>{%trans "Tag"%}</label>
-  <select name="tag" id="tag" class="select22" data-model="tag" multiple="multiple">
+  <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
     {%for key, value in listTag%}
       <option value="{{value.title}}" selected>{{value.title}}</option>
     {%endfor%}
@@ -616,7 +616,7 @@
 
 {%block optionValueTag3%}
 <div>
-  <select name="optionvalue3" id="optionvalue3" class="select22" data-model="tag" multiple="multiple">
+  <select name="optionvalue3[]" id="optionvalue3" class="select22" data-model="tag" multiple="multiple">
     {%for key, value in variantsList.variants.option3.value%}
       <option value="{{value}}" selected>{{value}}</option>
     {%endfor%}
@@ -628,7 +628,7 @@
 
 {%block optionValueTag2%}
 <div>
-  <select name="optionvalue2" id="optionvalue2" class="select22" data-model="tag" multiple="multiple">
+  <select name="optionvalue2[]" id="optionvalue2" class="select22" data-model="tag" multiple="multiple">
     {%for key, value in variantsList.variants.option2.value%}
       <option value="{{value}}" selected>{{value}}</option>
     {%endfor%}
@@ -640,7 +640,7 @@
 
 {%block optionValueTag1%}
 <div>
-  <select name="optionvalue1" id="optionvalue1" class="select22" data-model="tag" multiple="multiple">
+  <select name="optionvalue1[]" id="optionvalue1" class="select22" data-model="tag" multiple="multiple">
     {%for key, value in variantsList.variants.option1.value%}
       <option value="{{value}}" selected>{{value}}</option>
     {%endfor%}

@@ -87,9 +87,10 @@
 
 {{block('iSEO')}}
 
+{%if url.child == 'edit'%}
+
 {{block('galleryImporter')}}
 
-{%if url.child == 'edit'%}
 
   {%if not productDataRow.have_child and not productFamily%}
     <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>

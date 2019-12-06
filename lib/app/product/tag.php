@@ -24,15 +24,35 @@ class tag
 
 		$have_term_to_save_log = false;
 
-		if(!is_string($_tag))
+		if(is_string($_tag))
+		{
+			$tag = $_tag;
+			$tag = explode(',', $tag);
+		}
+		elseif(is_array($_tag))
+		{
+			$tag = $_tag;
+		}
+		else
 		{
 			return false;
 		}
 
-		$tag = $_tag;
-		$tag = explode(',', $tag);
 		$tag = array_filter($tag);
 		$tag = array_unique($tag);
+		if(!$tag)
+		{
+			return false;
+		}
+
+		foreach ($tag as $key => $value)
+		{
+			if(!is_string($value) && !is_numeric($value))
+			{
+				\dash\notif::error(T_("Invalid tag format"), 'tag');
+				return false;
+			}
+		}
 
 
 		$check_exist_tag = \lib\db\producttag\tag::get_mulit_title($tag);
