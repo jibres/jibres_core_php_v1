@@ -200,8 +200,6 @@ class add
 			return false;
 		}
 
-		\dash\db::commit();
-
 		// create database of store customer
 		$create_db = \lib\app\store\db::create($store_id, $args);
 
@@ -216,6 +214,7 @@ class add
 			return false;
 		}
 
+		\dash\db::commit();
 
 		$create_detail_file = self::create_detail_file($store_id);
 
