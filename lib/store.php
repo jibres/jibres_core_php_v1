@@ -213,12 +213,24 @@ class store
 			return null;
 		}
 
+		if(!isset($_data['logo']))
+		{
+			$_data['logo'] = null;
+		}
+
 		$result = [];
 
 		foreach ($_data as $key => $value)
 		{
 			switch ($key)
 			{
+				case 'logo':
+					if(!$value)
+					{
+						$value = \dash\app::static_logo_url();
+					}
+					$result[$key] = $value;
+					break;
 
 				case 'country':
 					if($value)
