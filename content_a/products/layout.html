@@ -71,7 +71,7 @@
 
   <div class="c pRa5">
     <div class="radio3">
-      <input type="radio" name="type" value="product" id="typeProduct" {%if productDataRow.type == 'product'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%}>
+      <input type="radio" name="type" value="product" id="typeProduct" {%if not productDataRow or productDataRow.type == 'product'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%}>
       <label for="typeProduct">{%trans "Product"%}</label>
     </div>
   </div>
@@ -155,7 +155,7 @@
 {%block iWeight%}
 <label for="iweight">{%trans "Weight"%}</label>
 <div class="input">
- <input type="text" name="weight" id="iweight" value="{{productDataRow.weight}}"  autocomplete="off" maxlength="11" data-format='number'>
+ <input type="text" name="weight" id="iweight" value="{{productDataRow.weight}}"  autocomplete="off" maxlength="7" data-format='number'>
  <div class="addon">{{store.store_data.mass_detail.name}}</div>
 </div>
 {%endblock%}

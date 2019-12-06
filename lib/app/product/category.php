@@ -15,6 +15,11 @@ class category
 			return $get_category_title;
 		}
 
+		if(!self::check_title($_category))
+		{
+			return false;
+		}
+
 		$args =
 		[
 			'title'       => $_category,
@@ -40,6 +45,31 @@ class category
 	}
 
 
+	private static function check_title($_title)
+	{
+		$title = $_title;
+		if(!is_string($title))
+		{
+			\dash\notif::error(T_("Format error!"));
+			return false;
+		}
+
+		if(!$title && $title !== '0')
+		{
+			\dash\notif::error(T_("Plese fill the category name"), 'category');
+			return false;
+		}
+
+		if(mb_strlen($title) > 100)
+		{
+			\dash\notif::error(T_("Category name is too large!"), 'category');
+			return false;
+		}
+
+		return true;
+	}
+
+
 	private static function check($_id = null)
 	{
 		$title = \dash\app::request('title');
@@ -61,38 +91,11 @@ class category
 			return false;
 		}
 
-		$int = \dash\app::request('int') ? 1 : null;
 
-		$default = \dash\app::request('categorydefault') ? 1 : null;
-
-		$maxsale = \dash\app::request('maxsale');
-		if(!is_string($maxsale))
-		{
-			\dash\notif::error(T_("Format error!"));
-			return false;
-		}
-
-		if($maxsale && !is_numeric($maxsale))
-		{
-			if(self::$debug) \dash\notif::error(T_("Plese set the max sale as a number"), 'maxsale');
-			return false;
-		}
-
-		if($maxsale)
-		{
-			$maxsale = abs(intval($maxsale));
-			if(\dash\number::is_larger($maxsale, 999999999))
-			{
-				if(self::$debug) \dash\notif::error(T_("Max sale is out of range"), 'maxsale');
-				return false;
-			}
-		}
 
 		$args            = [];
 		$args['title']   = $title;
-		$args['int']     = $int;
-		$args['default'] = $default;
-		$args['maxsale'] = $maxsale;
+
 		return $args;
 
 	}

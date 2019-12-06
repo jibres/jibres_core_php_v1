@@ -15,6 +15,11 @@ class unit
 			return $get_unit_title;
 		}
 
+		if(!self::check_title($_unit))
+		{
+			return false;
+		}
+
 		$args =
 		[
 			'title' => $_unit,
@@ -35,6 +40,33 @@ class unit
 
 		return $result;
 	}
+
+
+
+	private static function check_title($_title)
+	{
+		$title = $_title;
+		if(!is_string($title))
+		{
+			\dash\notif::error(T_("Format error!"));
+			return false;
+		}
+
+		if(!$title && $title !== '0')
+		{
+			\dash\notif::error(T_("Plese fill the unit name"), 'unit');
+			return false;
+		}
+
+		if(mb_strlen($title) > 100)
+		{
+			\dash\notif::error(T_("Unit name is too large!"), 'unit');
+			return false;
+		}
+
+		return true;
+	}
+
 
 
 	private static function check($_id = null)

@@ -225,7 +225,7 @@ class check
 			return false;
 		}
 
-		if(\dash\number::is_larger($weight, 999999999))
+		if(\dash\number::is_larger($weight, 9999999))
 		{
 			\dash\notif::error(T_("Value of weight is out of rage"), 'weight');
 			return false;

@@ -68,6 +68,12 @@ class tag
 			$multi_insert_tag = [];
 			foreach ($must_insert_tag as $key => $value)
 			{
+				if(mb_strlen($value) > 50)
+				{
+					\dash\notif::error(T_("Tag is too long!"), 'tag');
+					return false;
+				}
+
 				$slug = \dash\utility\filter::slug($value, null, 'persian');
 
 				$multi_insert_tag[] =
@@ -106,6 +112,12 @@ class tag
 
 		if(!empty($must_insert))
 		{
+			if(count($must_insert) > 20)
+			{
+				\dash\notif::error(T_("You can set maximum 20 tag to product"), 'tag');
+				return false;
+			}
+
 			$insert_multi = [];
 			foreach ($must_insert as $key => $value)
 			{

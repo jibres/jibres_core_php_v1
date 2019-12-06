@@ -15,6 +15,12 @@ class company
 			return $get_company_title;
 		}
 
+		if(!self::check_title($_company))
+		{
+			return false;
+		}
+
+
 		$args =
 		[
 			'title' => $_company,
@@ -35,6 +41,34 @@ class company
 
 		return $result;
 	}
+
+
+
+
+	private static function check_title($_title)
+	{
+		$title = $_title;
+		if(!is_string($title))
+		{
+			\dash\notif::error(T_("Format error!"));
+			return false;
+		}
+
+		if(!$title && $title !== '0')
+		{
+			\dash\notif::error(T_("Plese fill the company name"), 'company');
+			return false;
+		}
+
+		if(mb_strlen($title) > 100)
+		{
+			\dash\notif::error(T_("Company name is too large!"), 'company');
+			return false;
+		}
+
+		return true;
+	}
+
 
 
 	private static function check($_id = null)
