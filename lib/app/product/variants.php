@@ -182,7 +182,7 @@ class variants
 		{
 			if(\dash\url::isLocal())
 			{
-				\dash\notif::info("Count product variants = ". $count);
+				\dash\notif::info("Local Message: Count product variants = ". $count);
 			}
 
 			\dash\notif::error(T_("You can set maximum 100 variants"), ['element' => ['optionvalue1', 'optionvalue2', 'optionvalue3', 'optionname1', 'optionname2', 'optionname3']]);
@@ -209,7 +209,20 @@ class variants
 	private static function check_option_value($_option_value)
 	{
 		$optionvalue = \dash\app::request($_option_value);
-		$optionvalue = explode(',', $optionvalue);
+
+		if(is_string($optionvalue))
+		{
+			$optionvalue = explode(',', $optionvalue);
+		}
+		elseif(is_array($optionvalue))
+		{
+			// nothing
+		}
+		else
+		{
+			return false;
+		}
+
 		if(is_array($optionvalue))
 		{
 			foreach ($optionvalue as $key => $value)

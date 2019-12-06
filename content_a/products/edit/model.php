@@ -98,13 +98,11 @@ class model
 			return false;
 		}
 
-		self::set_variant($id);
-
-
 		$post = self::get_post();
 
 		$result = \lib\app\product\edit::edit($post, $id);
 
+		self::set_variant($id);
 
 		if(!$result)
 		{
