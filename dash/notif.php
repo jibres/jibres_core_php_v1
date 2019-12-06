@@ -106,6 +106,21 @@ class notif
 	}
 
 
+	/**
+	 * Use in every where need to add index to master result
+	 * for example select22 need to export result in `results` index
+	 * @param      <type>  $_index   The index
+	 * @param      <type>  $_result  The result
+	 */
+	public static function add_index($_index, $_result)
+	{
+		if(is_string($_index))
+		{
+			self::add_detail($_index, $_result);
+		}
+	}
+
+
 	public static function api($_data)
 	{
 		self::pagination();
