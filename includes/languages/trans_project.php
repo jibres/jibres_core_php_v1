@@ -393,8 +393,8 @@ class twigTransTerms
 	echo T_("Total");                                                                 // Line 22
 
 	//--------------------------------------------------includes/html/display-mvc.html
-	echo T_("JavaScript is required to use our service.");                            // Line 91
-	echo T_("Enable JavaScript in your browser or use one which supports it.");       // Line 92
+	echo T_("JavaScript is required to use our service.");                            // Line 92
+	echo T_("Enable JavaScript in your browser or use one which supports it.");       // Line 93
 
 	//-----------------------------------------------------includes/html/inc_spay.html
 	echo T_("Please choose bank");                                                    // Line 4
@@ -487,7 +487,7 @@ class twigTransTerms
 
 	//---------------------------------------includes/html/sidebar/sidebar-jibres.html
 	echo T_("My Stores");                                                             // Line 5
-	echo T_("Add new store");                                                         // Line 127
+	echo T_("Add new store");                                                         // Line 125
 
 	//----------------------------------------------includes/html/sidebar/sidebar.html
 	echo T_("Store admin panel");                                                     // Line 5
@@ -1804,7 +1804,6 @@ class twigTransTerms
 	echo T_("Scan Barcode2 here...");                                                 // Line 167
 	echo T_("Code on scale");                                                         // Line 174
 	echo T_("Weight");                                                                // Line 183
-	echo T_("Kg");                                                                    // Line 159
 	echo T_("Length");                                                                // Line 168
 	echo T_("Width");                                                                 // Line 176
 	echo T_("Height");                                                                // Line 184
@@ -1863,7 +1862,6 @@ class twigTransTerms
 	echo T_("Receive recommendations on your products based on your rate of sales."); // Line 72
 	echo T_("Units");                                                                 // Line 117
 	echo T_("Dimensions");                                                            // Line 121
-	echo T_("cm");                                                                    // Line 121
 	echo T_("Cart Limit");                                                            // Line 144
 	echo T_("Organization");                                                          // Line 177
 	echo T_("Delete product");                                                        // Line 20
@@ -2337,9 +2335,17 @@ class twigTransTerms
 	//----------------------------------content_api/v1/doc/030-business/030-about.html
 	echo T_("Get about text");                                                        // Line 3
 
+	//----------------------------------content_api/v1/doc/075-cart/005-cart-list.html
+	echo T_("List of your cart");                                                     // Line 3
+
 	//--------------------------------content_api/v1/doc/075-cart/001-add-to-cart.html
 	echo T_("Add product to cart");                                                   // Line 3
 	echo T_("The product id");                                                        // Line 31
+
+	//---------------------------content_api/v1/doc/075-cart/010-delete-from-cart.html
+	echo T_("Delete product from cart");                                              // Line 3
+
+	//----------------------------------content_api/v1/doc/075-cart/015-edit-cart.html
 
 	//----------------------content_api/v1/doc/060-product/352-product-collection.html
 	echo T_("Get list of products by special collection");                            // Line 3
@@ -2427,7 +2433,6 @@ class twigTransTerms
 	echo T_("Get cart detail");                                                       // Line 120
 	echo T_("Delete from cart");                                                      // Line 121
 	echo T_("Edit cart");                                                             // Line 122
-	echo T_("Pay cart");                                                              // Line 123
 
 	//-------------------content_api/v1/doc/070-product-tools/500-collection-list.html
 	echo T_("Get list of collection");                                                // Line 3
@@ -2527,6 +2532,11 @@ class twigTransTerms
 
 	//-------------------------------------------------content_enter/home/display.html
 	echo T_("You");                                                                   // Line 8
+
+	//----------------------------------------------content_enter/loginas/display.html
+	echo T_("You are currently logged in to your account");                           // Line 29
+	echo T_("Do you want to enter this store with the same account?");                // Line 29
+	echo T_("Continue");                                                              // Line 34
 
 	//--------------------------------------------------content_enter/app/display.html
 
@@ -3292,12 +3302,12 @@ class twigTransTerms
 	//---------------------------------------------content_account/appkey/display.html
 	echo T_("To make your appkey you must verify your mobile");                       // Line 11
 	echo T_("Protect this key like a password!");                                     // Line 136
-	echo T_("By this code you can build new application to manage your account and manage other customer");// Line 16
+	echo T_("By this code you can build new application to manage your account and manage other customer");// Line 15
 	echo T_("YOUR APPKEY");                                                           // Line 22
 	echo T_("GENERATE YOUR APPKEY");                                                  // Line 23
 	echo T_("If you want to revoke or remove this appkey");                           // Line 28
 	echo T_("Make appkey");                                                           // Line 32
-	echo T_("Your Stores code to use in api");                                        // Line 54
+	echo T_("Your Stores code to use in api");                                        // Line 55
 
 	//-----------------------------------------content_account/my/profile/display.html
 	echo T_("Firstname");                                                             // Line 98
