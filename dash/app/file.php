@@ -222,11 +222,14 @@ class file
 
 		$default_options =
 		[
-			'upload_name' => \dash\app::request('upload_name'),
-			'url'         => null,
-			'debug'       => true,
-			'max_upload'  => null,
-			'user_id'     => null,
+			'upload_name'   => \dash\app::request('upload_name'),
+			'url'           => null,
+			'debug'         => true,
+			'max_upload'    => null,
+			'user_id'       => null,
+			'debug'         => false,
+			// 'related'    => 'product',
+			// 'related_id' => $_id,
 		];
 
 		if(!is_array($_options))
@@ -312,73 +315,5 @@ class file
 
 		return $result;
 	}
-
-
-	public static function upload_store($_options = [])
-	{
-		\dash\app::variable($_options);
-
-		$default_options =
-		[
-			'debug'       => false,
-			'upload_name' => null,
-			'user_id'     => null,
-			'related'     => null,
-			'related_id'  => null,
-			'max_upload'  => null,
-		];
-
-		if(!is_array($_options))
-		{
-			$_options = [];
-		}
-
-		$_options = array_merge($default_options, $_options);
-
-		$file_path = false;
-
-		if(!\dash\request::files($_options['upload_name']))
-		{
-			\dash\notif::error(T_("Unable to upload, because of selected upload name"), 'upload_name', 'arguments');
-			return false;
-		}
-
-		$upload      = \dash\utility\upload::upload_store($_options);
-
-		if(!\dash\engine\process::status())
-		{
-			return false;
-		}
-
-		$file_id     = null;
-
-		if(isset($upload['id']) && is_numeric($upload['id']))
-		{
-			$file_id = $upload['id'];
-		}
-		else
-		{
-			\dash\notif::error(T_("Can not upload file. undefined error"));
-			return false;
-		}
-
-		$file_id_code = null;
-
-		if($file_id)
-		{
-			$file_id_code = \dash\coding::encode($file_id);
-		}
-
-		$url = null;
-
-		\dash\log::set('uploadFile', ['code' => $file_id_code, 'datalink' => $url]);
-
-		$result = array_merge($upload, ['code' => $file_id_code]);
-
-		return $result;
-	}
-
-
 }
-
 ?>

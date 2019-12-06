@@ -145,7 +145,7 @@ class model
 				'store_id'     => \lib\store::id(),
 			];
 
-			$uploaded_file = \dash\app\file::upload_store($upload_detail);
+			$uploaded_file = \dash\app\file::upload($upload_detail);
 
 			if(isset($uploaded_file['id']))
 			{
