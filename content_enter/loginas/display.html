@@ -1,0 +1,51 @@
+{%extends display.enter%}
+
+
+{%block header%}
+  <h1 class='logo'>
+  	<div class="f justify-center txtC">
+  		<div class="caouto">
+			<img src='{{url.static}}/img/logo/icon/svg/Jibres-Logo-icon.svg' alt='{{site.title}}'>
+  		</div>
+  		<div class="caouto mT20">
+  			<i class="sf-exchange fs18"></i>
+  		</div>
+
+  		<div class="caouto">
+			<img src='{{joinToStore.logo}}' alt='{{joinToStore.title}}'>
+  		</div>
+  	</div>
+  </h1>
+
+{%endblock%}
+
+
+{%block contentTitle%}
+   <h2 class='flex justify-center align-center'>{{joinToStore.title}}</h2>
+{%endblock%}
+
+{%block contentBody%}
+<div class="text">
+	<p>{%trans "You are currently logged in to your account"%}<br>{%trans "Do you want to enter this store with the same account?"%}</p>
+
+	<form method="post" autocomplete="off" class="mB20">
+		 <div class="f fs08">
+		 	<div class="c">
+				<button class="btn block success" name="myActionLogin" value="login">{%trans "Continue"%}</button>
+		 	</div>
+		 	<div class="c mLa5">
+				<button class="btn block secondary" name="myActionCancel" value="cancel">{%trans "Cancel"%}</button>
+		 	</div>
+		 </div>
+	</form>
+</div>
+{%endblock%}
+
+
+
+
+{%block contentFooter%}
+<footer class='f'>
+	<a href="{{url.kingdom}}/logout" data-direct>{%trans "Logout"%}</a>
+</footer>
+{%endblock%}

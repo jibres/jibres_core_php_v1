@@ -10,12 +10,8 @@ class db
 		$addr             = self::addr();
 		$sql_query        = glob($addr. '/*');
 		$is_ok            = false;
-		$customer_db_name = 'jibres_'. $_store_id;
 
-		if(\dash\url::isLocal())
-		{
-			$customer_db_name = 'jibresLocal_'. $_store_id;
-		}
+		$customer_db_name = \dash\engine\store::make_database_name($_store_id);
 
 
 		// in first query we need to connect to mysql database

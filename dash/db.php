@@ -130,10 +130,10 @@ class db
 	 * @param  boolean $_onlyOneValue [description]
 	 * @return [type]                 [description]
 	 */
-	public static function get($_qry, $_column = null, $_onlyOneValue = false, $_db_name = true)
+	public static function get($_qry, $_column = null, $_onlyOneValue = false, $_db_name = true, $_options = [])
 	{
 		// generate query and get result
-		$result = self::query($_qry, $_db_name);
+		$result = self::query($_qry, $_db_name, $_options);
 		// fetch datatable by result
 		$result = self::fetch_all($result, $_column);
 		// if we have only one row of result only return this row

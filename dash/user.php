@@ -84,9 +84,50 @@ class user
 	 * call from engine store to not duplicate init
 	 * @return     boolean  True if initialize store user, False otherwise.
 	 */
-	public static function is_init_store_user()
+	public static function is_init_store_user($_need = null)
 	{
-		return isset($_SESSION[self::store_auth_key()]['id']);
+		if($_need)
+		{
+			return self::get_session_by_key(self::store_auth_key(), $_need);
+		}
+
+		if(isset($_SESSION[self::store_auth_key()]['id']))
+		{
+			return $_SESSION[self::store_auth_key()]['id'];
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * Determines if initialize jibres user.
+	 * call from enter
+	 * @return     boolean  True if initialize jibres user, False otherwise.
+	 */
+	public static function is_init_jibres_user($_need = null)
+	{
+		if($_need)
+		{
+			return self::get_session_by_key('auth', $_need);
+		}
+
+		if(isset($_SESSION['auth']['id']))
+		{
+			return $_SESSION['auth']['id'];
+		}
+
+		return false;
+	}
+
+
+	private static function get_session_by_key($_key, $_need)
+	{
+		if(isset($_SESSION[$_key][$_need]))
+		{
+			return $_SESSION[$_key][$_need];
+		}
+		return null;
 	}
 
 

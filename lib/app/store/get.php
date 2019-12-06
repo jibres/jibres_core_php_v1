@@ -33,5 +33,16 @@ class get
 
 		return null;
 	}
+
+
+	public static function data_by_id($_id)
+	{
+		if($_id && is_numeric($_id))
+		{
+			$result = \lib\db\store\get::data($_id);
+			return $result;
+		}
+		return false;
+	}
 }
 ?>

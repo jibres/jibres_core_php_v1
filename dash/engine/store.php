@@ -185,16 +185,32 @@ class store
 	}
 
 
+	/**
+	 * Makes a database name.
+	 * call every where need to connect to customer database
+	 *
+	 * @param      <type>  $_store_id  The store identifier
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function make_database_name($_store_id)
+	{
+		$db_name           = 'jibres_'. $_store_id;
+
+		if(\dash\url::isLocal())
+		{
+			$db_name           = 'jibresLocal_'. $_store_id;
+		}
+
+		return $db_name;
+	}
+
+
 	private static function lock($_store_id, $_store_detail)
 	{
 		if($_store_id)
 		{
-			$db_name           = 'jibres_'. $_store_id;
-
-			if(\dash\url::isLocal())
-			{
-				$db_name           = 'jibresLocal_'. $_store_id;
-			}
+			$db_name           = self::make_database_name($_store_id);
 
 			$detail              = [];
 			$detail['id']        = $_store_id;
