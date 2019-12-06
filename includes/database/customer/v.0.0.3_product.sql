@@ -55,12 +55,10 @@ KEY `index_search_products_barcode` (`barcode`),
 KEY `index_search_products_saleapp` (`saleapp`),
 KEY `index_search_products_barcode2` (`barcode2`),
 KEY `index_search_products_scalecode` (`scalecode`),
-KEY `index_search_products_saleonline` (`saleonline`),
 KEY `index_search_products_optionname1` (`optionname1`),
 KEY `index_search_products_optionname2` (`optionname2`),
 KEY `index_search_products_optionname3` (`optionname3`),
 KEY `index_search_products_optionvalue1` (`optionvalue1`),
 KEY `index_search_products_optionvalue2` (`optionvalue2`),
-KEY `index_search_products_optionvalue3` (`optionvalue3`),
-KEY `index_search_products_saletelegram` (`saletelegram`)
+KEY `index_search_products_optionvalue3` (`optionvalue3`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
