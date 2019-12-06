@@ -1077,7 +1077,7 @@ class controller
 
 	private static function logo_url()
 	{
-		return \dash\url::site(). '/static/img/logo/svg/Jibres-icon.svg';
+		return \dash\url::site(). '/static/img/logo/icon/svg/Jibres-Logo-icon.svg';
 	}
 
 	private static function jibres_temp_url()

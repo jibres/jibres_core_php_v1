@@ -212,35 +212,35 @@
         "type": "btnTile",
         "data": [
           {
-            "image": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg",
+            "image": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
             "url": "https://source.jibres.com/",
             "activity": "product|category|collection|page",
             "mode": "api|webview|website|tel|email",
             "text": "صفحه نخست"
           },
           {
-            "image": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg",
+            "image": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
             "url": "https://source.jibres.com/",
             "activity": "product|category|collection|page",
             "mode": "api|webview|website|tel|email",
             "text": "صفحه نخست"
           },
           {
-            "image": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg",
+            "image": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
             "url": "https://source.jibres.com/",
             "activity": "product|category|collection|page",
             "mode": "api|webview|website|tel|email",
             "text": "صفحه نخست"
           },
           {
-            "image": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg",
+            "image": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
             "url": "https://source.jibres.com/",
             "activity": "product|category|collection|page",
             "mode": "api|webview|website|tel|email",
             "text": "صفحه نخست"
           },
           {
-            "image": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg",
+            "image": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
             "url": "https://source.jibres.com/",
             "activity": "product|category|collection|page",
             "mode": "api|webview|website|tel|email",
@@ -281,7 +281,7 @@
       "name": "جیبرس",
       "desc": "Jibres is not just an online accounting software; We try to create the best financial platform that has everything you need to sale and manage your financial life.",
       "slogan": "فروش یکپارچه و حسابداری آنلاین",
-      "logo": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg"
+      "logo": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg"
     },
     "version": {
       "last": 1,
@@ -389,7 +389,7 @@
         "bg_to": "#ffffff",
         "title_color": "#000000",
         "desc_color": "#000000",
-        "image": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg",
+        "image": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
         "btn": [
           {
             "title": "بعدی",
@@ -404,7 +404,7 @@
         "bg_to": "#ffffff",
         "title_color": "#000000",
         "desc_color": "#000000",
-        "image": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg",
+        "image": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
         "btn": [
           {
             "title": "قبلی",
@@ -423,7 +423,7 @@
         "bg_to": "#ffffff",
         "title_color": "#000000",
         "desc_color": "#000000",
-        "image": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg",
+        "image": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
         "btn": [
           {
             "title": "قبلی",
@@ -442,7 +442,7 @@
         "bg_to": "#ffffff",
         "title_color": "#000000",
         "desc_color": "#000000",
-        "image": "https://source.jibres.com/static/img/logo/svg/Jibres-icon.svg",
+        "image": "https://source.jibres.com/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
         "btn": [
           {
             "title": "شروع",
