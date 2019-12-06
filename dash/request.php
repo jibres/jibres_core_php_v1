@@ -75,7 +75,7 @@ class request
 	 *
 	 * @param      <type>  $_name  The name
 	 */
-	public static function files($_name = null)
+	public static function files($_name = null, $_key = null)
 	{
 		if(!self::$FILES)
 		{
@@ -86,7 +86,22 @@ class request
 		{
 			if(isset(self::$FILES[$_name]) && (isset(self::$FILES[$_name]['error']) && self::$FILES[$_name]['error'] != 4))
 			{
-				return self::$FILES[$_name];
+				if($_key)
+				{
+					if(isset(self::$FILES[$_name][$_key]))
+					{
+						return self::$FILES[$_name][$_key];
+					}
+					else
+					{
+						return null;
+					}
+				}
+				else
+				{
+					return self::$FILES[$_name];
+				}
+
 			}
 			else
 			{
