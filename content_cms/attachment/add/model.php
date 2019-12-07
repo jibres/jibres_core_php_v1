@@ -10,7 +10,7 @@ class model
 
 		if(\dash\request::files('gallery'))
 		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'gallery']);
+			$uploaded_file = \dash\upload\file::upload('gallery');
 
 			if(!\dash\engine\process::status())
 			{
