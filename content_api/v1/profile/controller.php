@@ -227,7 +227,7 @@ class controller
 
 		if($_get_avatar)
 		{
-			$avatar = \dash\app\file::upload_quick('avatar');
+			$avatar = \dash\upload\avatar::set();
 
 			if($avatar)
 			{
