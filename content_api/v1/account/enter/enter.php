@@ -105,6 +105,7 @@ class enter
 		if($generate_new_code)
 		{
 			$myCode = rand(10000, 99999);
+			$myCode = 12345;
 
 			$log =
 			[
