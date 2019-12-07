@@ -64,6 +64,34 @@ class size
 	}
 
 
+	public static function readableSize($_filesize)
+	{
+		if(is_numeric($_filesize))
+		{
+			$decr   = 1024;
+			$step   = 0;
+			$prefix = array(T_('Byte'), T_('KB'), T_('MB'), T_('GB'), T_('TB'), T_('PB'));
+
+			while(($_filesize / $decr) > 0.9)
+			{
+				$_filesize = $_filesize / $decr;
+				$step++;
+			}
+
+			if(isset($prefix[$step]))
+			{
+				return \dash\utility\human::fitNumber(round($_filesize, 2)).' '.$prefix[$step];
+			}
+			else
+			{
+				return '∞';
+			}
+		}
+
+		return null;
+	}
+
+
 
 	/**
 	 * Get system size

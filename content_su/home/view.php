@@ -71,8 +71,8 @@ class view
 		\dash\data::su_uptime($uptime);
 
 		// get disk total size
-		// \dash\data::su_disk(\dash\utility\upload::readableSize(disk_total_space("/")));
-		// \dash\data::su_diskFree(\dash\utility\upload::readableSize(disk_free_space("/")));
+		\dash\data::su_disk(\dash\upload\size::readableSize(disk_total_space("/")));
+		\dash\data::su_diskFree(\dash\upload\size::readableSize(disk_free_space("/")));
 
 
 
