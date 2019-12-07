@@ -135,17 +135,7 @@ class model
 	{
 		if(\dash\request::files('gallery'))
 		{
-			$upload_detail =
-			[
-				'debug'        => false,
-				'upload_name'  => 'gallery',
-				'user_id' => \dash\user::id(),
-				// 'related'      => 'product',
-				// 'related_id'   => $_id,
-				'store_id'     => \lib\store::id(),
-			];
-
-			$uploaded_file = \dash\app\file::upload($upload_detail);
+			$uploaded_file = \dash\upload\file::upload('gallery');
 
 			if(isset($uploaded_file['id']))
 			{
