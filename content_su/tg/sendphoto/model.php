@@ -8,11 +8,16 @@ class model
 		$chatid = \dash\request::post('chatid');
 		$text   = \dash\request::post('text');
 
-		$myFile = \dash\app\file::upload_quick('file2');
+		$myFile = \dash\upload\file::upload('file2');
 		if(!$myFile)
 		{
 			$myFile = \dash\request::post('file1');
 		}
+		else
+		{
+			$myFile = isset($myFile['path']) ? $myFile['path'] : null;
+		}
+
 		if(!$myFile)
 		{
 			\dash\notif::error(T_('Please add url or choose file'));
