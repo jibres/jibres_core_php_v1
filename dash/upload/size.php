@@ -70,7 +70,7 @@ class size
 		{
 			$decr   = 1024;
 			$step   = 0;
-			$prefix = array(T_('Byte'), T_('KB'), T_('MB'), T_('GB'), T_('TB'), T_('PB'));
+			$prefix = array(T_('Byte'), T_('KB'), T_('MB'), T_('GB'), T_('TB'), T_('PB'), 'EB', 'ZB', 'YB');
 
 			while(($_filesize / $decr) > 0.9)
 			{
