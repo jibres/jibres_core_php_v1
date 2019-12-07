@@ -46,11 +46,6 @@ class user
 
 		if(isset($check_duplicate_usage['id']))
 		{
-			$update_usage =
-			[
-				'file_id'     => $file_detail['id'],
-			];
-
 			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $file_detail['id']);
 		}
 		else
@@ -119,11 +114,6 @@ class user
 
 		if(isset($check_duplicate_usage['id']))
 		{
-			$update_usage =
-			[
-				'file_id'     => $file_detail['id'],
-			];
-
 			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $file_detail['id']);
 		}
 		else

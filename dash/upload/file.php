@@ -35,6 +35,11 @@ class file
 
 		$_meta = array_merge($default_meta, $_meta);
 
+		if(!\dash\request::files($_upload_name))
+		{
+			return null;
+		}
+
 		// 1. we have an error in $_FILE[$_upload_name]
 		$myFile = \dash\upload\validation_file::ok($_upload_name);
 

@@ -261,10 +261,10 @@ class model
 	 */
 	public static function answer_save($_id, $_answer, $_type = 'ticket', $_send_message = true)
 	{
-		$file     = self::upload_file('file');
+		$file     = \dash\upload\support::ticket();
 
 		// we have an error in upload file1
-		if($file === false)
+		if($file && !isset($file['path']))
 		{
 			return false;
 		}
@@ -313,7 +313,6 @@ class model
 					'masterid' => $_id,
 					'code'     => $_id,
 					// 'tcontent' => \dash\safe::forJson($content),
-					// 'file'     => $file ? $file : null,
 					'plus'     => $plus,
 				];
 
@@ -337,7 +336,7 @@ class model
 			'mobile'  => \dash\user::detail("mobile"),
 			'user_id' => \dash\user::id(),
 			'parent'  => $_id,
-			'file'    => $file,
+			'file'    => $file['path'],
 		];
 
 
@@ -365,7 +364,6 @@ class model
 						'masterid' => $_id,
 						'code'     => $_id,
 						// 'tcontent' => \dash\safe::forJson($content),
-						// 'file'     => $file ? $file : null,
 						'plus'     => $update_main['plus'],
 					];
 
@@ -389,7 +387,6 @@ class model
 						'masterid' => $_id,
 						'code'     => $_id,
 						// 'tcontent' => \dash\safe::forJson($content),
-						// 'file'     => $file ? $file : null,
 						'plus'     => $update_main['plus'],
 					];
 
@@ -464,6 +461,7 @@ class model
 			\dash\notif::$notif_fn($msg);
 			if(isset($result['id']))
 			{
+				\dash\upload\support::ticket_usage($file, $result['id']);
 				\dash\log::save_temp(['replace' => ['code' => $result['id'], 'masterid' => $_id]]);
 			}
 			else
@@ -475,32 +473,5 @@ class model
 		}
 		return false;
 	}
-
-
-
-	/**
-	 * UploAads an thumb.
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	public static function upload_file($_name)
-	{
-		if(\dash\request::files($_name))
-		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => $_name, 'max_upload' => 5*1024*1024]);
-
-			if(isset($uploaded_file['url']))
-			{
-				return $uploaded_file['url'];
-			}
-			// if in upload have error return
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
-		}
-		return null;
-	}
-
 }
 ?>

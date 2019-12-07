@@ -3,27 +3,6 @@ namespace content_support\ticket\add;
 
 class model
 {
-
-	public static function upload_file($_name)
-	{
-		if(\dash\request::files($_name))
-		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => $_name, 'max_upload' => 5*1024*1024]);
-
-			if(isset($uploaded_file['url']))
-			{
-				return $uploaded_file['url'];
-			}
-			// if in upload have error return
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
-		}
-		return null;
-	}
-
-
 	public static function add_new($_via, $_content, $_file = null, $_title = null)
 	{
 		// ready to insert tickets
@@ -80,10 +59,10 @@ class model
 		}
 
 
-		$file     = self::upload_file('file');
+		$file     = \dash\upload\support::ticket();
 
 		// we have an error in upload file1
-		if($file === false)
+		if($file && !isset($file['path']))
 		{
 			return false;
 		}
@@ -118,10 +97,12 @@ class model
 		}
 
 		// insert tickets
-		$result = self::add_new('site', $content, $file, $title);
+		$result = self::add_new('site', $content, $file['path'], $title);
 
 		if(isset($result['id']))
 		{
+			\dash\upload\support::ticket_usage($file, $result['id']);
+
 			if(!\dash\user::login())
 			{
 				if(!isset($_SESSION['guest_ticket']) || (isset($_SESSION['guest_ticket']) && !is_array($_SESSION['guest_ticket'])))
