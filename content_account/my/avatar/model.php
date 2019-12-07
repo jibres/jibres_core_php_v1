@@ -14,12 +14,12 @@ class model
 		{
 			$post           = [];
 			$post['avatar'] = null;
-			\dash\upload\avatar::remove();
+			\dash\upload\user::avatar_remove();
 		}
 		else
 		{
 
-			$avatar = \dash\upload\avatar::set();
+			$avatar = \dash\upload\user::avatar_set();
 
 			if($avatar)
 			{

@@ -6,47 +6,28 @@ class model
 {
 
 	/**
-	 * UploAads an avatar.
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	public static function upload_avatar()
-	{
-		if(\dash\request::files('avatar'))
-		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'avatar']);
-
-			if(isset($uploaded_file['url']))
-			{
-				return $uploaded_file['url'];
-			}
-			// if in upload have error return
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
-		}
-		return null;
-	}
-
-
-
-	/**
 	 * Posts an addmember.
 	 *
 	 * @param      <type>  $_args  The arguments
 	 */
 	public static function post()
 	{
+		$user_id = \dash\coding::decode(\dash\request::get('id'));
+		if(!$user_id)
+		{
+			return false;
+		}
+
 		$request           = [];
 		if(\dash\request::post('btn') === 'remove')
 		{
 			$request['avatar'] = null;
+
+			\dash\upload\user::avatar_remove($user_id);
 		}
 		else
 		{
-
-			$file_url     = self::upload_avatar();
+			$file_url = \dash\upload\user::avatar_set($user_id);
 
 			// we have an error in upload avatar
 			if($file_url === false)
@@ -54,16 +35,10 @@ class model
 				return false;
 			}
 
-			if($file_url === null)
-			{
-				\dash\notif::warn(T_("To change the image, please re-open the new file"),'avatar');
-				return false;
-			}
-
 			$request['avatar'] = $file_url;
 		}
 
-		\dash\db\users::update($request, \dash\coding::decode(\dash\request::get('id')));
+		\dash\db\users::update($request, $user_id);
 
 		if(\dash\engine\process::status())
 		{
