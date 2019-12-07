@@ -190,7 +190,7 @@ class subdomain
 
 	private static function subdomain($_subdomain)
 	{
-		return self::blacklist($_subdomain, self::$subdomain_field_name);
+		return self::blacklist($_subdomain, 'subdomain');
 	}
 
 
