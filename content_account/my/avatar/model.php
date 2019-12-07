@@ -45,7 +45,7 @@ class model
 		else
 		{
 
-			$avatar = self::upload_avatar();
+			$avatar = \dash\upload\avatar::file();
 
 			if($avatar)
 			{

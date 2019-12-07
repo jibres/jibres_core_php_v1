@@ -20,16 +20,19 @@ class validation_file
 		switch (\dash\request::files($_upload_name, 'error'))
 		{
 			case UPLOAD_ERR_OK:
+				// no error
 				break;
 
 			case UPLOAD_ERR_NO_FILE:
 				\dash\notif::error(T_('No file sent'));
 				return false;
+				break;
 
 			case UPLOAD_ERR_INI_SIZE:
 			case UPLOAD_ERR_FORM_SIZE:
 				\dash\notif::error(T_('Exceeded filesize limit'));
 				return false;
+				break;
 
 			default:
 				\dash\notif::error(T_('Unknown errors'));
@@ -42,28 +45,28 @@ class validation_file
 		{
 			$fileName     = $fileInfo['filename'];
 		}
+
 		if(isset($fileInfo['extension']))
 		{
 			$fileExt      = mb_strtolower($fileInfo['extension']);
 
-			if(mb_strtolower($fileExt) === 'jpeg')
+			if($fileExt === 'jpeg')
 			{
 				$fileExt = 'jpg';
 			}
 		}
 
-		$extCheck           = \dash\upload\extensions::check($fileExt);
+		$extCheck           = \dash\upload\extentions::check($fileExt);
 
-		$fileType     = isset($extCheck['type']) ? $extCheck['type'] : null;
-		$fileMime     = isset($extCheck['mime']) ? $extCheck['mime'] : null;
+		$fileType     = isset($extCheck['type']) 	 ? $extCheck['type'] 	 : null;
+		$fileMime     = isset($extCheck['mime']) 	 ? $extCheck['mime'] 	 : null;
 		$fileDisallow = isset($extCheck['disallow']) ? $extCheck['disallow'] : null;
 
 		if(!$fileMime)
 		{
-			\dash\notif::error(T_("We can not support this file type"));
+			\dash\notif::error(T_("We not support this file type"));
 			return false;
 		}
-
 
 		$fileSize = \dash\request::files($_upload_name, 'size');
 
@@ -83,18 +86,19 @@ class validation_file
 			return false;
 		}
 
+		$tmp_name = \dash\request::files($_upload_name, 'tmp_name');
 
-		$fileMd5      = md5_file(\dash\request::files($_upload_name, 'tmp_name'));
-
+		$fileMd5      = md5_file($tmp_name);
 
 		$result =
 		[
-			'name' => $fileName,
-			'ext'  => $fileExt,
-			'type' => $fileType,
-			'mime' => $fileMime,
-			'size' => $fileSize,
-			'md5'  => $fileMd5,
+			'filename' => $fileName,
+			'ext'      => $fileExt,
+			'type'     => $fileType,
+			'mime'     => $fileMime,
+			'size'     => $fileSize,
+			'md5'      => $fileMd5,
+			'tmp_name' => $tmp_name,
 		];
 
 		return $result;

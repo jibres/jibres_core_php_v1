@@ -359,17 +359,17 @@ class file
 	{
 		if( $_size > 1024 * 1024 * 1024 )
 		{
-			return round( $_size /( 1024 * 1024 * 1024 ), $accuracy ) . ' Go';
+			return round( $_size /( 1024 * 1024 * 1024 ), $accuracy ) . ' GB';
 		}
 
 		if( $_size > 1024 * 1024 )
 		{
-			return round( $_size /( 1024 * 1024 ), $accuracy ) . ' Mo';
+			return round( $_size /( 1024 * 1024 ), $accuracy ) . ' MB';
 		}
 
 		if( $_size > 1024 )
 		{
-			return round( $_size / 1024, $accuracy ) . ' Ko';
+			return round( $_size / 1024, $accuracy ) . ' KB';
 		}
 
 		return $_size . ' octets';

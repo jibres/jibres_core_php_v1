@@ -24,11 +24,6 @@ class fuel
 
 	public static function master()
 	{
-		if(\dash\url::isLocal())
-		{
-			return self::local();
-		}
-
 		return self::jibres_master();
 	}
 

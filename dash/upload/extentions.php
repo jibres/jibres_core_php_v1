@@ -1,5 +1,5 @@
 <?php
-namespace dash\utility\upload;
+namespace dash\upload;
 
 class extentions
 {
@@ -11,15 +11,8 @@ class extentions
 	 * @return string MIME type of file.
 	 * @static
 	 */
-	public static function check($_ext = '')
+	public static function check($_ext)
 	{
-		// if pass filepath
-        if(file_exists($_ext))
-        {
-        	$fileInfo = pathinfo($_ext);
-        	$_ext     = mb_strtolower($fileInfo['extension']);
-        }
-
 		$mimes =
 		[
 			// archive
