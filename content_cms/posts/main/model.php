@@ -8,12 +8,12 @@ class model
 	{
 		if(\dash\request::files('gallery'))
 		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'gallery']);
+			$uploaded_file = \dash\upload\cms::set_post_gallery(\dash\coding::decode(\dash\request::get('id')));
 
-			if(isset($uploaded_file['url']))
+			if($uploaded_file)
 			{
 				// save uploaded file
-				\dash\app\posts::post_gallery(\dash\request::get('id'), $uploaded_file['url'], 'add');
+				\dash\app\posts::post_gallery(\dash\request::get('id'), $uploaded_file, 'add');
 			}
 
 			if(!\dash\engine\process::status())
@@ -39,7 +39,12 @@ class model
 			return false;
 		}
 
+		$path = \dash\request::post('path');
+
 		\dash\app\posts::post_gallery(\dash\request::get('id'), $id, 'remove');
+
+		\dash\upload\cms::remove_post_gallery(\dash\coding::decode(\dash\request::get('id')), $path);
+
 		\dash\redirect::pwd();
 	}
 
@@ -147,20 +152,11 @@ class model
 			}
 		}
 
+		$uploaded_file = \dash\upload\cms::set_post_thumb(\dash\coding::decode(\dash\request::get('id')));
 
-		if(\dash\request::files('thumb'))
+		if($uploaded_file)
 		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'thumb']);
-
-			if(isset($uploaded_file['url']))
-			{
-				$post['thumb'] = $uploaded_file['url'];
-			}
-			// if in upload have error return
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
+			$post['thumb'] = $uploaded_file;
 		}
 
 		return $post;

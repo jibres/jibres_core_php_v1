@@ -609,7 +609,7 @@
         <div class="content title"><a href="{{myUrl}}" title='{%trans "Click to download"%}'>{%trans "Without preview"%}</a></div>
         {%endif%}
         <div class="footer f">
-          <button class="btn block secondary" data-ajaxify data-data='{"type" : "remove_gallery", "id": "{{key}}"}' data-method='post'>{%trans "Remove"%}</button>
+          <button class="btn block secondary" data-ajaxify data-data='{"type" : "remove_gallery", "id": "{{key}}", "path" : "{{myUrl}}"}' data-method='post'>{%trans "Remove"%}</button>
         </div>
       </div>
     {%endfor%}
