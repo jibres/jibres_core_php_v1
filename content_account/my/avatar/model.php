@@ -5,33 +5,6 @@ namespace content_account\my\avatar;
 class model
 {
 
-	/**
-	 * UploAads an avatar.
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	public static function upload_avatar()
-	{
-		if(\dash\request::files('avatar'))
-		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => 'avatar']);
-
-			if(isset($uploaded_file['url']))
-			{
-				\dash\notif::direct();
-
-				return $uploaded_file['url'];
-			}
-			// if in upload have error return
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
-		}
-		return null;
-	}
-
-
 	public static function getPost()
 	{
 
@@ -39,13 +12,14 @@ class model
 
 		if(\dash\request::post('remove') === 'avatar')
 		{
-			$post = [];
+			$post           = [];
 			$post['avatar'] = null;
+			\dash\upload\avatar::remove();
 		}
 		else
 		{
 
-			$avatar = \dash\upload\avatar::file();
+			$avatar = \dash\upload\avatar::set();
 
 			if($avatar)
 			{

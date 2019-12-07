@@ -6,57 +6,54 @@ namespace dash\upload;
  */
 class avatar
 {
-		/**
-	 *
-		CREATE TABLE IF NOT EXISTS `files` (
-		`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-		`creator` int(10) UNSIGNED DEFAULT NULL,
-		`md5` char(32) DEFAULT NULL,
-		`filename` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
-		`type` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
-		`mime` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
-		`ext` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
-		`folder` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
-		`path` varchar(2000) CHARACTER SET utf8mb4 DEFAULT NULL,
-		`size` int(10) UNSIGNED DEFAULT NULL,
-		`status` enum('awaiting','publish','block','filter','removed', 'spam') DEFAULT NULL,
-		`datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-		`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-		PRIMARY KEY (`id`),
-		CONSTRAINT `files_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
-		KEY `files_md5_search` (`md5`)
-		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-		CREATE TABLE IF NOT EXISTS `fileusage` (
-		`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-		`file_id` int(10) UNSIGNED DEFAULT NULL,
-		`user_id` int(10) UNSIGNED DEFAULT NULL,
-		`title` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
-		`alt` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
-		`desc` text CHARACTER SET utf8mb4,
-		`related` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
-		`related_id` int(10) UNSIGNED DEFAULT NULL,
-		`datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-		PRIMARY KEY (`id`),
-		KEY `fileuseage_related_search` (`related`),
-		KEY `fileuseage_related_id_search` (`related_id`),
-		CONSTRAINT `fileusage_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
-		CONSTRAINT `fileusage_file_id` FOREIGN KEY (`file_id`) REFERENCES `files` (`id`) ON UPDATE CASCADE
-		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-	 */
-
-
 	/**
 	 * Upload a file
 	 */
-	public static function file()
+	public static function set()
 	{
 		$file_detail = \dash\upload\file::upload('avatar');
-		j($file_detail);
-		j(func_get_args());
+
+		if(!$file_detail)
+		{
+			return false;
+		}
+
+		$user_id = \dash\user::id();
+
+		$fileusage =
+		[
+			'file_id'     => $file_detail['id'],
+			'user_id'     => $user_id,
+			'title'       => null,
+			'alt'         => null,
+			'desc'        => null,
+			'related'     => 'users_profile',
+			'related_id'  => $user_id,
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		$check_duplicate_usage = \dash\db\fileusage::duplicate('users_profile', $user_id);
+		if(isset($check_duplicate_usage['id']))
+		{
+			$update_usage =
+			[
+				'file_id'     => $file_detail['id'],
+			];
+
+			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $file_detail['id']);
+		}
+		else
+		{
+			\dash\db\fileusage::insert($fileusage);
+		}
+
+		return $file_detail['path'];
+	}
+
+
+	public static function remove()
+	{
+		\dash\db\fileusage::remove_usage('users_profile', \dash\user::id());
 	}
 }
 ?>

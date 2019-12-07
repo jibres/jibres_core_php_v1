@@ -12,14 +12,6 @@ class files
 	}
 
 
-	public static function insert_usage($_args)
-	{
-		\dash\db\config::public_insert('fileusage', $_args);
-		return \dash\db::insert_id();
-	}
-
-
-
 
 	public static function attachment_count()
 	{
