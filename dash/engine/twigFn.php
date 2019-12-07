@@ -10,7 +10,6 @@ class twigFn
 		$filters[] = self::filter_fcache();
 		$filters[] = self::filter_jdate();
 		$filters[] = self::filter_dt();
-		$filters[] = self::filter_readableSize();
 		$filters[] = self::filter_fitNumber();
 		$filters[] = self::filter_exist();
 		$filters[] = self::filter_decode();
@@ -105,19 +104,6 @@ class twigFn
 		});
 	}
 
-
-
-
-	/**
-	 * twig custom filter for convert date to jalai with custom format like php date func format
-	 */
-	private static function filter_readableSize()
-	{
-		return new \Twig_SimpleFilter('readableSize', function ($_string, $_type = 'file', $_emptyTxt = null)
-		{
-			return \dash\utility\upload::readableSize($_string, $_type, $_emptyTxt);
-		});
-	}
 
 
 	/**

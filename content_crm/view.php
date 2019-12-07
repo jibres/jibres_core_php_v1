@@ -15,7 +15,7 @@ class view
 		\dash\data::badge_shortkey(120);
 		\dash\data::badge2_shortkey(121);
 
-		\dash\data::maxUploadSize(\dash\utility\upload::max_file_upload_size(true));
+		\dash\data::maxUploadSize(\dash\upload\size::crm_file_size());
 	}
 
 

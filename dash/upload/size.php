@@ -26,6 +26,14 @@ class size
 	}
 
 
+	public static function crm_file_size()
+	{
+		$max_crm_file_size = 100000;
+		return self::allow_size($max_crm_file_size);
+	}
+
+
+
 	/**
 	 * is Ok Size
 	 *

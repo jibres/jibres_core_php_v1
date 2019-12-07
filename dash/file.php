@@ -397,7 +397,7 @@ class file
 		if(!$_fileMime)
 		{
 			// get file mime from upload library
-			$_fileMime = \dash\utility\upload::extCheck($_filePath);
+			$_fileMime = \dash\upload\extentions::check($_filePath);
 			$_fileMime = $_fileMime['mime'];
 		}
 
@@ -435,7 +435,7 @@ class file
 	 */
 	public static function open($_path, $_options = [])
 	{
-		$max_size = \dash\utility\upload::max_file_upload_size();
+		$max_size = 5 * 1024;
 		$default_options =
 		[
 			'read_size' => 1024 * 5, // 5 MB

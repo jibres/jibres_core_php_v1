@@ -88,7 +88,7 @@
             </div>
         </td>
         <td class="s0 m0 ltr txtL collapsing"><i class="sf-file-{{value.type}}-o fs16 mR5"></i> {{value.mime}}</td>
-        <td>{{value.size | readableSize }}</td>
+        <td>{{value.size | fitNumber }}</td>
         <td class="s0 ltr txtL collapsing"><div>{{value.datecreated | dt(false, "date")}}</div><div>{{value.datecreated | dt(false, "time")}}</div></td>
       </tr>
       {%endfor%}
