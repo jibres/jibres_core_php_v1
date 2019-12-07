@@ -33,13 +33,12 @@ class comments
 		$yesterday = date("Y-m-d H:i:s", strtotime('-1 days'));
 		$get_count =
 		"
-			SELECT COUNT(*) AS `count` FROM comments
+			SELECT COUNT(*) AS `count` FROM tickets
 			WHERE
-				comments.solved = 1 AND
-				comments.type   = 'ticket' AND
-				comments.parent IS NULL AND
-				comments.status IN ('answered', 'awaiting') AND
-				comments.datemodified < '$yesterday'
+				tickets.solved = 1 AND
+				tickets.parent IS NULL AND
+				tickets.status IN ('answered', 'awaiting') AND
+				tickets.datemodified < '$yesterday'
 		";
 
 		$count = \dash\db::get($get_count, 'count', true);
@@ -50,14 +49,13 @@ class comments
 
 		$query =
 		"
-			UPDATE comments
-			SET comments.status = 'close'
+			UPDATE tickets
+			SET tickets.status = 'close'
 			WHERE
-				comments.solved = 1 AND
-				comments.type   = 'ticket' AND
-				comments.parent IS NULL AND
-				comments.status IN ('answered', 'awaiting') AND
-				comments.datemodified < '$yesterday'
+				tickets.solved = 1 AND
+				tickets.parent IS NULL AND
+				tickets.status IN ('answered', 'awaiting') AND
+				tickets.datemodified < '$yesterday'
 		";
 		\dash\db::query($query);
 
@@ -383,7 +381,7 @@ class comments
 			return false;
 		}
 
-		$query = " SELECT COUNT(DISTINCT comments.parent) AS `count` FROM comments WHERE comments.type = 'ticket' AND comments.user_id = $_user_id ";
+		$query = " SELECT COUNT(DISTINCT comments.parent) AS `count` FROM comments WHERE comments.user_id = $_user_id ";
 		$result = \dash\db::get($query, 'count', true);
 		return intval($result);
 	}
