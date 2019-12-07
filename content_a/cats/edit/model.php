@@ -28,13 +28,6 @@ class model
 		$args['desc']      = \dash\request::post('desc');
 
 
-		$file = \dash\app\file::upload_quick('file1');
-		if($file)
-		{
-			$args['file'] = $file;
-		}
-
-
 		$result = \lib\app\product\cat::edit($args, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())

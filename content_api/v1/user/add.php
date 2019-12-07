@@ -31,7 +31,7 @@ class add
 		{
 			$result = null;
 			$post   = [];
-			$avatar = \dash\app\file::upload_quick('avatar');
+			$avatar = \dash\upload\user::avatar_set($_user_id);
 
 			if($avatar)
 			{
@@ -61,7 +61,7 @@ class add
 	{
 		if(\dash\request::is('patch'))
 		{
-			$post      = self::get_post();
+			$post      = self::get_post(null, $_user_id);
 			$user_code = \dash\coding::encode($_user_id);
 			$result    = \dash\app\user::edit($post, $user_code);
 			\content_api\v1::say($result);
@@ -75,7 +75,7 @@ class add
 
 
 
-	private static function get_post($_get_avatar = false)
+	private static function get_post($_get_avatar = false, $_user_id = null)
 	{
 		$post = [];
 		if(\content_api\v1::isset_input_body('language')) 		 $post['language']    = \content_api\v1::input_body('language');
@@ -96,7 +96,7 @@ class add
 
 		if($_get_avatar)
 		{
-			$avatar = \dash\app\file::upload_quick('avatar');
+			$avatar = \dash\upload\user::avatar_set($_user_id);
 
 			if($avatar)
 			{
