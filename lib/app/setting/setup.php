@@ -249,10 +249,14 @@ class setup
 
 
 
-
+	/**
+	 * Uploads a logo.
+	 * call from setting upload logo and setup upload logo
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function upload_logo()
 	{
-		$file = \dash\app\file::upload_quick('logo');
+		$file = \dash\upload\store_logo::set();
 
 		$old_logo = \lib\app\setting\tools::get('store_setting', 'logo');
 

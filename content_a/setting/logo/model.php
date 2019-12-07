@@ -8,50 +8,13 @@ class model
 	{
 		$result = null;
 
-		$logo = self::upload_logo('logo');
-
-		if($logo)
-		{
-			$result = \lib\app\store\edit::logo($logo);
-		}
-
-		// $fav = self::upload_logo('fav');
-
-		// if($fav)
-		// {
-		// 	$result = \lib\app\store::edit_logo($fav, 'fav');
-		// }
-
-		// if(!$result)
-		// {
-		// 	\dash\notif::warn(T_("No file was sended"));
-		// }
+		\lib\app\setting\setup::upload_logo();
 
 		if(\dash\engine\process::status())
 		{
 			\lib\store::refresh();
 			\dash\redirect::pwd();
 		}
-	}
-
-
-	public static function upload_logo($_name)
-	{
-		if(\dash\request::files($_name))
-		{
-			$uploaded_file = \dash\app\file::upload(['debug' => false, 'upload_name' => $_name]);
-
-			if(isset($uploaded_file['url']))
-			{
-				return $uploaded_file['url'];
-			}
-			// if in upload have error return
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
-		}
-		return null;
 	}
 }
 ?>
