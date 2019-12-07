@@ -5,6 +5,8 @@ namespace lib\app\setting;
 class setup
 {
 	private static $setting_cat = 'setup';
+	private static $is_end_level = false;
+
 	private static $levels =
 	[
 		'owner',
@@ -77,6 +79,7 @@ class setup
 			}
 			else
 			{
+				self::$is_end_level = true;
 				return \dash\url::here();
 			}
 
@@ -93,6 +96,11 @@ class setup
 		\lib\store::refresh();
 
 		$next_level = self::$_current_level();
+
+		if(self::$is_end_level)
+		{
+			\dash\notif::direct();
+		}
 
 		if($next_level)
 		{
