@@ -14,6 +14,8 @@ class filepath
 	 */
 	private static function file_domain()
 	{
+		return \dash\url::site();
+
 		$file_domain = '';
 		$file_domain .= \dash\url::protocol(). '://dl.';
 		$file_domain .= \dash\url::domain();
