@@ -963,6 +963,16 @@ class user
 					{
 						$result[$key] = $value;
 					}
+
+					if(isset($result['detail']['file1']))
+					{
+						$result['detail']['file1'] = \lib\filepath::fix($result['detail']['file1']);
+					}
+
+					if(isset($result['detail']['file2']))
+					{
+						$result['detail']['file2'] = \lib\filepath::fix($result['detail']['file2']);
+					}
 					break;
 
 				case 'forceremember':
