@@ -52,7 +52,13 @@ self::$language =
 
 self::$config['debug']                        = false;
 
-self::$config['redirect']                     = 'store';
+self::$config['redirect']                     = '';
+
+/**
+ * first signup url
+ * main redirect url . signup redirect url
+ */
+self::$config['enter']['singup_redirect']     = 'store';
 
 
 self::$config['favicon']['version']           = null;
@@ -65,12 +71,6 @@ self::$config['enter']['call']                = true;
 self::$config['enter']['call_template_fa'] = 'ermile-fa';
 self::$config['enter']['call_template_en'] = 'ermile-en';
 
-
-/**
- * first signup url
- * main redirect url . signup redirect url
- */
-self::$config['enter']['singup_redirect']     = 'store';
 
 
 /**
