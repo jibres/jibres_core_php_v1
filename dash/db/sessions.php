@@ -176,11 +176,6 @@ class sessions
 	private static function cookie_name()
 	{
 		$name = 'remember_me';
-		if(\dash\url::subdomain())
-		{
-			$name .= '_'. \dash\url::subdomain();
-		}
-
 		return $name;
 	}
 	/**
