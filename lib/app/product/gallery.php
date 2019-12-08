@@ -175,17 +175,6 @@ class gallery
 					return false;
 				}
 			}
-
-			$insert_file_usage =
-			[
-				'file_id'      => $fileid,
-				'user_id' => \dash\user::id(),
-				'related'      => 'product',
-				'related_id'   => $product_id,
-				'datecreated'  => date("Y-m-d H:i:s"),
-			];
-
-			\lib\db\files\usage::insert($insert_file_usage);
 		}
 		else
 		{
@@ -219,7 +208,7 @@ class gallery
 
 				if($find_in_gallery && $remove_file_id)
 				{
-					\lib\db\files\usage::remove('product', $product_id, $remove_file_id);
+					\dash\upload\product::remove_product_gallery($product_id, $remove_file_id);
 				}
 
 				if(isset($product_detail['thumb']) && isset($product_gallery_field['thumbid']) && intval($product_gallery_field['thumbid']) === intval($fileid))

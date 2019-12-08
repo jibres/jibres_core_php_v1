@@ -135,7 +135,7 @@ class model
 	{
 		if(\dash\request::files('gallery'))
 		{
-			$uploaded_file = \dash\upload\file::upload('gallery');
+			$uploaded_file = \dash\upload\product::set_product_gallery($_id);
 
 			if(isset($uploaded_file['id']))
 			{
