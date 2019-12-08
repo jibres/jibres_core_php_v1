@@ -62,12 +62,6 @@ self::$config['botscout'] = null;
 
 
 
-
-// free subdomain
-// for set cookie not in
-//self::$config['free_subdomain']    = true;
-
-
 // self::$config['crop_size']['wide']     = [1200, 1200];
 // self::$config['crop_size']['verywide'] = [1600, 1800];
 // self::$config['crop_size']['smally']   = [16, 16];
