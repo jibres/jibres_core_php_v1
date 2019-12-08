@@ -20,7 +20,7 @@ class gallery
 			{
 				if(isset($value['path']))
 				{
-					$gallery_raw[$key]['path'] = \dash\app\file::fix_path($value['path']);
+					$gallery_raw[$key]['path'] = \lib\filepath::fix($value['path']);
 				}
 			}
 			return $gallery_raw;

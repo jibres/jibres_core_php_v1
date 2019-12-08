@@ -1312,6 +1312,23 @@ class posts
 					}
 
 					$result['file'] = self::makeFileAddr($result['meta']);
+					if(isset($result['meta']['thumb']))
+					{
+						$result['meta']['thumb'] = \lib\filepath::fix($result['meta']['thumb']);
+					}
+
+					if(isset($result['meta']['gallery']['files']) && is_array($result['meta']['gallery']['files']))
+					{
+						foreach ($result['meta']['gallery']['files'] as $Gkey => $Gvalue)
+						{
+							if(isset($Gvalue['path']))
+							{
+								$result['meta']['gallery']['files'][$Gkey]['path'] = \lib\filepath::fix($result['meta']['gallery']['files'][$Gkey]['path']);
+							}
+
+						}
+					}
+
 
 					break;
 
@@ -1340,11 +1357,20 @@ class posts
 					$result['link'] = \dash\url::kingdom(). '/'. $value;
 					break;
 
+				case 'thumb':
+					if($value)
+					{
+						$value = \lib\filepath::fix($value);
+					}
+					$result[$key] = $value;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
 			}
 		}
+
 
 		return $result;
 	}
@@ -1362,6 +1388,7 @@ class posts
 			return null;
 		}
 
+		$thumb = \lib\filepath::fix($thumb);
 		$file_addr = substr($thumb, 0, strrpos($thumb, '.'));
 		$ext       = str_replace($file_addr, '', $thumb);
 		$files =
@@ -1371,6 +1398,7 @@ class posts
 			'normal' => $file_addr. '-normal'. $ext,
 			'thumb'  => $file_addr. '-thumb'. $ext,
 		];
+
 		return $files;
 	}
 

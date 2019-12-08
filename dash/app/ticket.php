@@ -640,6 +640,18 @@ class ticket
 					}
 					break;
 
+				case 'avatar':
+				case 'file':
+					if(isset($value))
+					{
+						$result[$key] = \lib\filepath::fix($value);
+					}
+					else
+					{
+						$result[$key] = null;
+					}
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;

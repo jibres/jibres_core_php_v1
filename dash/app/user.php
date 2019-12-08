@@ -915,6 +915,8 @@ class user
 					break;
 
 				case 'avatar':
+					$value = \lib\filepath::fix($value);
+
 					$result['avatar_raw'] = $value;
 					if($value)
 					{

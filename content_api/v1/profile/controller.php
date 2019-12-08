@@ -167,6 +167,11 @@ class controller
 		{
 			switch ($key)
 			{
+				case 'avatar':
+					$value = \lib\filepath::fix($value);
+					$result[$key] = $value;
+					break;
+
 				case 'username':
 				case 'displayname':
 				case 'gender':
@@ -174,7 +179,6 @@ class controller
 				case 'mobile':
 				case 'verifymobile':
 				case 'status':
-				case 'avatar':
 				case 'datecreated':
 				case 'datemodified':
 				case 'birthday':

@@ -225,10 +225,15 @@ class store
 			switch ($key)
 			{
 				case 'logo':
-					if(!$value)
+					if($value)
+					{
+						$value = \lib\filepath::fix($value);
+					}
+					else
 					{
 						$value = \dash\app::static_logo_url();
 					}
+
 					$result[$key] = $value;
 					break;
 

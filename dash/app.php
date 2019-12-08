@@ -255,7 +255,7 @@ class app
 				case 'logo':
 					if($value)
 					{
-						$result['logo'] = $value;
+						$result['logo'] = \lib\filepath::fix($value);
 					}
 					else
 					{
@@ -266,7 +266,7 @@ class app
 				case 'avatar':
 					if($value)
 					{
-						$avatar = $value;
+						$avatar = \lib\filepath::fix($value);
 					}
 					else
 					{
@@ -314,7 +314,7 @@ class app
 				case 'avatar':
 					if($value)
 					{
-						$avatar = $value;
+						$avatar = \lib\filepath::fix($value);
 					}
 					else
 					{

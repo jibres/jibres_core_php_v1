@@ -77,7 +77,6 @@ class get
 				// case 'mobile':
 				// case 'email':
 				// case 'status':
-				// case 'avatar':
 				// case 'permission':
 				// case 'datecreated':
 				// case 'datemodified':
@@ -102,6 +101,10 @@ class get
 				// case 'phone':
 
 				// 	break;
+				case 'avatar':
+					$value = \lib\filepath::fix($value);
+					$result[$key] = $value;
+					break;
 
 				default:
 					$result[$key] = $value;

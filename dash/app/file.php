@@ -26,27 +26,6 @@ class file
 	];
 
 
-	public static function unpath($_path)
-	{
-		$path = str_replace(\dash\url::site() . '/', '', $_path);
-		return $path;
-	}
-
-
-	public static function fix_path($_path)
-	{
-		$path = \dash\url::site() . '/'. $_path;
-		return $path;
-	}
-
-
-	public static function fix_path_array($_path_array)
-	{
-		return array_map(['self', 'fix_path'], $_path_array);
-	}
-
-
-
 
 	public static function multi_load($_ids)
 	{
@@ -184,7 +163,10 @@ class file
 					}
 					break;
 
-
+				case 'path':
+					$value = \lib\filepath::fix($value);
+					$result[$key] = $value;
+					break;
 
 				default:
 					$result[$key] = $value;
