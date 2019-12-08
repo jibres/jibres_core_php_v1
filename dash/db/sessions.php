@@ -165,6 +165,24 @@ class sessions
 	}
 
 
+
+
+	public static function update($_args, $_id)
+	{
+		return \dash\db\config::public_update('sessions',$_args, $_id);
+	}
+
+
+	private static function cookie_name()
+	{
+		$name = 'remember_me';
+		if(\dash\url::subdomain())
+		{
+			$name .= '_'. \dash\url::subdomain();
+		}
+
+		return $name;
+	}
 	/**
 	 * Gets the cookie.
 	 *
@@ -172,14 +190,19 @@ class sessions
 	 */
 	public static function get_cookie()
 	{
-		return \dash\utility\cookie::read('remember_me_');
+		return \dash\utility\cookie::read(self::cookie_name());
 	}
 
-
-	public static function update($_args, $_id)
+	/**
+	 * Sets the cookie.
+	 *
+	 * @param      <type>  $_code  The code
+	 */
+	public static function set_cookie($_code)
 	{
-		return \dash\db\config::public_update('sessions',$_args, $_id);
+		setcookie(self::cookie_name(), $_code, time() + (60*60*24*30), '/', self::cookie_domain());
 	}
+
 
 
 	/**
@@ -191,7 +214,7 @@ class sessions
 	{
 		$code = self::get_cookie();
 
-		\dash\utility\cookie::delete("remember_me_", '/', self::cookie_domain());
+		\dash\utility\cookie::delete(self::cookie_name(), '/', self::cookie_domain());
 
 		if($_check_cause)
 		{
@@ -248,15 +271,6 @@ class sessions
 	}
 
 
-	/**
-	 * Sets the cookie.
-	 *
-	 * @param      <type>  $_code  The code
-	 */
-	public static function set_cookie($_code)
-	{
-		setcookie("remember_me_", $_code, time() + (60*60*24*30), '/', self::cookie_domain());
-	}
 
 
 	public static function is_active($_code, $_user_id)
