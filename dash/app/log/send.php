@@ -9,7 +9,7 @@ class send
 	public static function notification()
 	{
 
-		$not_send = \dash\db\logs::get(['notif' => 1, 'send' => null]);
+		$not_send = \dash\db\logs::notif_not_send();
 		if(!$not_send || !is_array($not_send))
 		{
 			// nothing to send

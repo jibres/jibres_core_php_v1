@@ -6,6 +6,15 @@ class logs
 {
 	private static $logUpdate = [];
 
+	public static function notif_not_send()
+	{
+		$query = "SELECT * FROM logs WHERE logs.notif = 1 AND logs.send IS NULL ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
 	public static function expire_notif()
 	{
 		$date_now = date("Y-m-d H:i:s");
