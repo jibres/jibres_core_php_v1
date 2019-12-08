@@ -251,7 +251,7 @@ class posts
 	}
 
 
-	public static function post_gallery($_post_id, $_file_index, $_type = 'add')
+	public static function post_gallery($_post_id, $_file_detail, $_type = 'add')
 	{
 		$post_id = \dash\coding::decode($_post_id);
 		if(!$post_id)
@@ -283,38 +283,88 @@ class posts
 			$meta = [];
 		}
 
+		$post_gallery_field = isset($meta['gallery']) ? $meta['gallery'] : [];
+
 		if($_type === 'add')
 		{
-			if(isset($meta['gallery']) && is_array($meta['gallery']))
+			if(isset($_file_detail['path']))
 			{
-				if(in_array($_file_index, $meta['gallery']))
-				{
-					\dash\notif::error(T_("Duplicate file in this gallery"));
-					return false;
-				}
-				array_push($meta['gallery'], $_file_index);
+				$file_path = $_file_detail['path'];
 			}
 			else
 			{
-				$meta['gallery'] = [$_file_index];
+				\dash\notif::error(T_("File detail not found"));
+				return false;
+			}
+
+			$fileid = isset($_file_detail['id']) ? $_file_detail['id'] : null;
+
+			if(isset($post_gallery_field) && is_array($post_gallery_field) && isset($post_gallery_field['files']) && is_array($post_gallery_field['files']))
+			{
+				foreach ($post_gallery_field['files'] as $key => $one_file)
+				{
+					if(isset($one_file['path']) && $one_file['path'] === $file_path)
+					{
+						\dash\notif::error(T_("Duplicate file in this gallery"));
+						return false;
+					}
+				}
+
+				$post_gallery_field['files'][] = ['id' => $fileid, 'path' => $file_path];
+			}
+			else
+			{
+				$post_gallery_field['files']   = [];
+				$post_gallery_field['files'][] = ['id' => $fileid, 'path' => $file_path];
+			}
+
+
+			// check max gallery image
+			if(isset($post_gallery_field['files']) && is_array($post_gallery_field['files']))
+			{
+				if(count($post_gallery_field['files']) > 10)
+				{
+					\dash\notif::error(T_("Maximum count of gallery file is 10"));
+					return false;
+				}
 			}
 		}
 		else
 		{
-			if(isset($meta['gallery']) && is_array($meta['gallery']))
+			$fileid = $_file_detail; // the file id
+
+			if(!$fileid)
 			{
-				if(!array_key_exists($_file_index, $meta['gallery']))
+				\dash\notif::error(T_("Invalid file id"));
+				return false;
+			}
+
+			if(isset($post_gallery_field['files']) && is_array($post_gallery_field['files']))
+			{
+				$find_in_gallery = false;
+				$remove_file_id = null;
+				foreach ($post_gallery_field['files'] as $key => $one_file)
+				{
+					if(isset($one_file['id']) && intval($one_file['id']) === intval($fileid))
+					{
+						$remove_file_id = $one_file['id'];
+						$find_in_gallery = true;
+						unset($post_gallery_field['files'][$key]);
+					}
+				}
+
+				if(!$find_in_gallery)
 				{
 					\dash\notif::error(T_("Invalid gallery id"));
 					return false;
 				}
-				unset($meta['gallery'][$_file_index]);
 			}
-
 		}
 
+		$meta['gallery'] = $post_gallery_field;
+
 		$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
-		\dash\log::set('addPostGallery', ['code' => $post_id, 'datalink' => \dash\coding::encode($post_id)]);
+		\dash\log::set('addPostGallery', ['code' => $post_id]);
 		\dash\db\posts::update(['meta' => $meta], $post_id);
 		return true;
 

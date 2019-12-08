@@ -33,17 +33,15 @@ class model
 
 	public static function remove_gallery()
 	{
-		$id = \dash\request::post('id');
-		if(!is_numeric($id))
+		$fileid = \dash\request::post('fileid');
+		if(!$fileid || !is_numeric($fileid))
 		{
 			return false;
 		}
 
-		$path = \dash\request::post('path');
+		\dash\app\posts::post_gallery(\dash\request::get('id'), $fileid, 'remove');
 
-		\dash\app\posts::post_gallery(\dash\request::get('id'), $id, 'remove');
-
-		\dash\upload\cms::remove_post_gallery(\dash\coding::decode(\dash\request::get('id')), $path);
+		\dash\upload\cms::remove_post_gallery(\dash\coding::decode(\dash\request::get('id')), $fileid);
 
 		\dash\redirect::pwd();
 	}

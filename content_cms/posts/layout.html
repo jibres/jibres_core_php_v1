@@ -581,14 +581,14 @@
 
 {%block iGalleryShow%}
 
-{%if dataRow.meta.gallery%}
+{%if dataRow.meta.gallery.files%}
 <div class="cbox">
   <h2>{%trans "Gallery"%}</h2>
   <div class="normal f">
 
-    {% for key, myUrl in dataRow.meta.gallery%}
+    {% for key, value in dataRow.meta.gallery.files%}
       <div class="vcard mA10">
-
+        {%set myUrl = value.path%}
         {%if myUrl ends with '.jpg' or myUrl ends with '.png' or myUrl ends with '.gif'%}
         <img src="{{myUrl}}">
         <div class="content"></div>
@@ -609,7 +609,7 @@
         <div class="content title"><a href="{{myUrl}}" title='{%trans "Click to download"%}'>{%trans "Without preview"%}</a></div>
         {%endif%}
         <div class="footer f">
-          <button class="btn block secondary" data-ajaxify data-data='{"type" : "remove_gallery", "id": "{{key}}", "path" : "{{myUrl}}"}' data-method='post'>{%trans "Remove"%}</button>
+          <button class="btn block secondary" data-ajaxify data-data='{"type" : "remove_gallery", "fileid": "{{value.id}}"}' data-method='post'>{%trans "Remove"%}</button>
         </div>
       </div>
     {%endfor%}

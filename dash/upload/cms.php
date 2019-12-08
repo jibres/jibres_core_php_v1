@@ -54,31 +54,28 @@ class cms
 
 	/**
 	 * Removes a post gallery.
-	 * Nedd to fix
 	 * @param      <type>   $_post_id  The post identifier
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function remove_post_gallery($_post_id = null)
+	public static function remove_post_gallery($_post_id, $_file_id)
 	{
-		return false;
-
 		if(!$_post_id)
 		{
 			\dash\notif::error(T_("Post not found"));
 			return false;
 		}
 
-		if(!$_path)
+		if(!$_file_id)
 		{
 			return false;
 		}
 
-		\dash\db\fileusage::remove_usage_path('post_gallery', $_post_id, $_path);
+		\dash\db\fileusage::remove_usage_file_id('post_gallery', $_post_id, $_file_id);
 	}
 
 
-	public static function set_post_gallery($_post_id = null)
+	public static function set_post_gallery($_post_id)
 	{
 		if(!$_post_id)
 		{
@@ -105,7 +102,7 @@ class cms
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
 
-		$check_duplicate_usage = \dash\db\fileusage::duplicate('post_gallery', $_post_id);
+		$check_duplicate_usage = \dash\db\fileusage::duplicate_whit_file_id('post_gallery', $_post_id, $file_detail['id']);
 
 		if(isset($check_duplicate_usage['id']))
 		{
@@ -116,7 +113,7 @@ class cms
 			\dash\db\fileusage::insert($fileusage);
 		}
 
-		return $file_detail['path'];
+		return $file_detail;
 	}
 
 
