@@ -10,21 +10,21 @@ class controller
 		self::check_login_as_referer();
 
 		// all subdomain must be login to jibres
-		if(\dash\url::subdomain())
-		{
-			$query            = \dash\request::get();
+		// if(\dash\url::subdomain())
+		// {
+		// 	$query            = \dash\request::get();
 
-			if(!isset($query['referer']))
-			{
-				$query['referer'] = \dash\url::kingdom();
-			}
+		// 	if(!isset($query['referer']))
+		// 	{
+		// 		$query['referer'] = \dash\url::kingdom();
+		// 	}
 
-			$query            = '?'. http_build_query($query);
+		// 	$query            = '?'. http_build_query($query);
 
-			$url = \dash\url::sitelang().'/enter'. $query;
+		// 	$url = \dash\url::sitelang().'/enter'. $query;
 
-			\dash\redirect::to($url);
-		}
+		// 	\dash\redirect::to($url);
+		// }
 
 
 		self::check_block_cookie();
@@ -184,34 +184,29 @@ class controller
 		// this code only work on subdomain
 		if(!\dash\url::subdomain())
 		{
-			// j('if(!\dash\url::subdomain())');
 			return false;
 		}
 
 		// have referer
 		if(!isset($_SERVER['HTTP_REFERER']))
 		{
-			// j('if(!isset($_SERVER[HTTP_REFERER]))');
 			return false;
 		}
 		// user must be login on master jibres domain
 		if(!\dash\user::is_init_jibres_user())
 		{
-			// j('if(!\dash\user::is_init_jibres_user())');
 			return false;
 		}
 
 		// user must be not login on this subdomain
 		if(\dash\user::id())
 		{
-			// j('if(\dash\user::id())');
 			return false;
 		}
 
 		// we need host
 		if(!isset($_SERVER['HTTP_HOST']))
 		{
-			// j('if(!isset($_SERVER[HTTP_HOST]))');
 			return false;
 		}
 
@@ -223,21 +218,18 @@ class controller
 		// host must have subdomian.domain.tld
 		if(count($host_explode) !== 3)
 		{
-			// j('if(count($host_explode) !== 3)');
 			return false;
 		}
 		// domain must equal to host domain
 		// need check when user connect her domain to jibres
 		if($host_explode[1] !== \dash\url::root())
 		{
-			// j('if($host_explode[1] !== \dash\url::root())');
 			return false;
 		}
 		// tld must equal to host tld
 		// need check when user connect her domain to jibres
 		if($host_explode[2] !== \dash\url::tld())
 		{
-			// j('if($host_explode[2] !== \dash\url::tld())');
 			return false;
 		}
 
@@ -249,7 +241,6 @@ class controller
 		// the referer must compare the referer subdomain. for trust referer
 		if(strpos($referer, $referer_subdomain) === false)
 		{
-			// j('if(strpos($referer, $referer_subdomain) === false)');
 			return false;
 		}
 
