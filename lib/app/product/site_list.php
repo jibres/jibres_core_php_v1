@@ -1,0 +1,270 @@
+<?php
+namespace lib\app\product;
+
+
+class site_list
+{
+	public static function dropdown()
+	{
+		if(\dash\request::get('json') !== 'true')
+		{
+			return;
+		}
+
+		$notif_result = [];
+		$result       = [];
+		$meta         = [];
+		$msg          = T_("Product not found."). ' ';
+
+		if(\dash\request::get('q'))
+		{
+			$resultRaw    = \lib\app\product\search::price_list(\dash\request::get('q'), $meta);
+			foreach ($resultRaw as $key => $value)
+			{
+				$result['result'][] = self::getNeededField($value);
+			}
+		}
+		elseif(\dash\request::get('barcode'))
+		{
+			$result = \lib\app\product\find::barcode(\dash\request::get('barcode'));
+			if(!$result)
+			{
+				$msg .= '<a href="'. \dash\url::here(). '/products/add';
+				if(mb_strlen(\dash\request::get('barcode')) === 5)
+				{
+					// do nothing
+				}
+				else
+				{
+					$msg .= '?barcode='. \dash\request::get('barcode');
+				}
+				$msg .=  '" target="_blank">'. T_('add as new product'). '</a>';
+
+				\dash\notif::result(['message' => $msg]);
+				\dash\code::end();
+			}
+
+			$result = self::getNeededField_barcode($result);
+			\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
+			\dash\code::jsonBoom(\dash\notif::get());
+
+		}
+		elseif(\dash\request::get('id'))
+		{
+			$result = \lib\app\product::list(null, ['id' => \dash\request::get('id')]);
+			$result = self::getNeededField_barcode($result);
+			\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
+			\dash\code::jsonBoom(\dash\notif::get());
+		}
+		else
+		{
+			$result['result'] =
+			[
+				[
+					"name"  => T_("No result founded!"),
+					"value" => null,
+					// "disabled"  => true
+				]
+			];
+		}
+
+		if(!$result)
+		{
+			$notif_result['message'] = $msg;
+		}
+
+
+		if(!$result)
+		{
+			$result = [];
+			$result['result'][] = ['name' => T_("No result found!"), 'value' => null];
+		}
+
+		\dash\code::jsonBoom($result);
+
+	}
+
+	private static function getNeededField($_data)
+	{
+
+		// $myName = '<img class="ui avatar image" src="'.  $value['avatar'] .'">';
+		// $myName .= '<span class="pRa10">'. \dash\utility\human::fitNumber($value['code'], false). '</span>';
+		// $myName .= '   '. $value['firstname']. ' <b>'. $value['lastname']. '</b> <small class="badge light mLa5">'. $value['father'].'</small>';
+		// $myName .= '<span class="description">'. \dash\utility\human::fitNumber($value['nationalcode'], false). '</span>';
+
+		$result   = [];
+		$id       = null;
+		$name     = null;
+		$datalist = [];
+		$priceTxt = '<span class="description ltr">';
+
+		if(isset($_data['thumb']))
+		{
+			$name .= '<img class="avatar image" src="'.  $_data['thumb'] .'"> ';
+		}
+
+		if(isset($_data['id']))
+		{
+			$id = $_data['id'];
+			$datalist['id'] = $_data['id'];
+		}
+
+		if(isset($_data['title']))
+		{
+			$datalist['title'] = $_data['title'];
+			$name .= '<span class="pRa10">'. $_data['title']. '</span>';
+		}
+
+		if(isset($_data['barcode']))
+		{
+			$datalist['barcode'] = $_data['barcode'];
+			$name .= '<span class="badge light mRa5"><i class="sf-thumbnails"></i> '. T_('Barcode'). '</span>';
+		}
+
+		if(isset($_data['barcode2']))
+		{
+			$datalist['barcode2'] = $_data['barcode2'];
+			$name .= '<span class="badge light mRa5"><i class="sf-check"></i> '. T_('Iran barcode'). '</span>';
+		}
+
+		if(isset($_data['code']))
+		{
+			$datalist['desc'] = T_("Code"). ' +'. $_data['code'];
+			$name .= '<span class="badge light mRa5"><i class="sf-bookmark"></i> '. T_('Code'). $_data['code']. '</span>';
+		}
+
+		if(isset($_data['finalprice']) && $_data['finalprice'])
+		{
+			$datalist['finalprice'] = $_data['finalprice'];
+			$priceTxt .= '<span class="txtB">'. \dash\utility\human::fitNumber($datalist['finalprice']). '</span>';
+		}
+
+		if(isset($_data['buyprice']))
+		{
+			$datalist['buyprice'] = floatval($_data['buyprice']);
+		}
+
+		if(isset($_data['price']))
+		{
+			$datalist['price'] = floatval($_data['price']);
+			// if(floatval($datalist['price']) !== floatval($datalist['finalprice']))
+			// {
+			// 	$priceTxt .= ' <span class="badge light mLR10"><i class="sf-bolt"></i> '. \dash\utility\human::fitNumber($datalist['price']);
+			// }
+		}
+
+		if(isset($_data['discount']))
+		{
+			$datalist['discount'] = $_data['discount'];
+			$priceTxt .= ' - '. \dash\utility\human::fitNumber($datalist['discount']). '</span>';
+		}
+
+
+		// add price to name of item
+		$name   .= $priceTxt. '</span>';
+		$result =
+		[
+			// on list
+			'name'     => $name,
+			// after select
+			// 'text'     => $name,
+			// value for backend
+			'value'    => $id,
+			// for extra use and remove double query
+			'datalist' => $datalist,
+		];
+
+		// $all_field_we_have =
+		// [
+		// 	'title', 'name', 'cat', 'slug', 'company', 'shortcode', 'unit',
+		// 	'barcode', 'barcode2', 'code', 'buyprice', 'price', 'discount',
+		// 	'discountpercent', 'vat', 'initialbalance', 'minstock', 'maxstock',
+		// 	'status', 'sold', 'stock', 'thumb', 'service', 'checkstock',
+		// 	'factoronline', 'factorstore', 'carton', 'datecreated', 'datemodified', 'desc',
+		// ];
+
+		return $result;
+	}
+
+
+	private static function getNeededField_barcode($_data)
+	{
+		$result = [];
+
+		if(isset($_data['id']))
+		{
+			$result['id'] = $_data['id'];
+			$result['value'] = $_data['id'];
+		}
+
+		if(isset($_data['title']))
+		{
+			$result['title'] = $_data['title'];
+		}
+
+		if(isset($_data['finalprice']) && $_data['finalprice'])
+		{
+			$result['count'] = \dash\utility\human::fitNumber($_data['finalprice']);
+		}
+
+		if(isset($_data['barcode']))
+		{
+			$result['barcode'] = $_data['barcode'];
+		}
+
+		if(isset($_data['barcode2']))
+		{
+			$result['barcode2'] = $_data['barcode2'];
+		}
+
+		if(isset($_data['price']))
+		{
+			$result['price'] = $_data['price'];
+		}
+
+		if(isset($_data['buyprice']))
+		{
+			$result['buyprice'] = $_data['buyprice'];
+		}
+
+		if(isset($_data['discount']))
+		{
+			$result['discount'] = $_data['discount'];
+		}
+
+		if(isset($_data['code']))
+		{
+			$result['desc'] = T_("Code"). ' /'. $_data['code'];
+		}
+
+		if(isset($_data['price']))
+		{
+			$result['desc'] = T_("Price"). ' +'. $_data['price'];
+		}
+
+		// set scale as true if exist
+		if(isset($_data['scale']) && $_data['scale'] === true)
+		{
+			$result['scale'] = true;
+		}
+
+		// if scale turn plus off
+		if(!isset($_data['quantity']))
+		{
+			$result['quantity'] = 1;
+		}
+		else
+		{
+			$result['quantity'] = $_data['quantity'];
+		}
+
+		if(isset($_data['scaleDuplicate']))
+		{
+			$result['scaleDuplicate'] = $_data['scaleDuplicate'];
+		}
+
+		return $result;
+
+	}
+}
+?>
