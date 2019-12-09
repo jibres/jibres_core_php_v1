@@ -209,11 +209,16 @@ class search
 
 		if($query_string)
 		{
-			$or['products.title']    = ["LIKE", "'$query_string%'"];
-			$or['products.slug']     = ["LIKE", "'$query_string%'"];
+			$or['products.title']        = ["LIKE", "'%$query_string%'"];
+			// $or['products.slug']     = ["LIKE", "'$query_string%'"];
 
-			$or['products.barcode']  = ["=", "'$query_string'"];
-			$or['products.barcode2'] = ["=", "'$query_string'"];
+			$query_string_barcode = \dash\utility\convert::to_barcode($query_string);
+
+			if($query_string_barcode)
+			{
+				$or['products.barcode']  = ["=", "'$query_string'"];
+				$or['products.barcode2'] = ["=", "'$query_string'"];
+			}
 
 			$or['products.sku']      = ["=", "'$query_string'"];
 			self::$is_filtered = true;
