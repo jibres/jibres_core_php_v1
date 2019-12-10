@@ -247,7 +247,11 @@ $master[] = 'cpPostsEditForOthers';
 $master[] = 'cpHelpCenterDeleteForOthers';
 $master[] = 'cpPostsDeleteForOthers';
 $master[] = 'productListPrice';
-
+$master[] = 'ProductDelete';
+$master[] = 'customerAssignTag';
+$master[] = 'customerNoteAdd';
+$master[] = 'customerNoteView';
+$master[] = 'customerNoteDelete';
 
 // $master[] = 'factorAccess';
 // $master[] = 'factorEditAccess';

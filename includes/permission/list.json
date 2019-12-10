@@ -1450,5 +1450,30 @@
     "title": "productListPrice",
     "cat": "product",
     "require": []
+  },
+  "ProductDelete": {
+    "title": "ProductDelete",
+    "cat": "product",
+    "require": []
+  },
+  "customerAssignTag": {
+    "title": "customerAssignTag",
+    "cat": "customer",
+    "require": []
+  },
+  "customerNoteAdd": {
+    "title": "customerNoteAdd",
+    "cat": "customer",
+    "require": []
+  },
+  "customerNoteView": {
+    "title": "customerNoteView",
+    "cat": "customer",
+    "require": []
+  },
+  "customerNoteDelete": {
+    "title": "customerNoteDelete",
+    "cat": "customer",
+    "require": []
   }
 }
