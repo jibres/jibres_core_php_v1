@@ -60,9 +60,7 @@ class datalist
 				products.*,
 				productprices.buyprice,
 				productprices.price,
-				productprices.discount,
-				IF(products.parent IS NOT NULL, (SELECT parentTitle.title FROM products AS `parentTitle` WHERE parentTitle.id = products.parent LIMIT 1), products.title) AS `title`
-
+				productprices.discount
 			FROM products
 			LEFT JOIN productprices ON productprices.product_id = products.id AND productprices.last = 'yes'
 				$q[where] $q[order] $limit
@@ -84,13 +82,7 @@ class datalist
 
 		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
 
-		$query =
-		"
-			SELECT
-				products.*,
-				IF(products.cat_id IS NOT NULL, (SELECT productcategory.title FROM productcategory  WHERE productcategory.id = products.cat_id LIMIT 1), NULL) AS `category`
-			FROM products $q[where] $q[order] $limit
-		";
+		$query = "SELECT products.* FROM products $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query);
 

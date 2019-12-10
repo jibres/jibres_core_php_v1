@@ -97,8 +97,7 @@ class db
 				productprices.discount,
 				productprices.compareatprice,
 				productprices.discountpercent,
-				productprices.finalprice,
-				IF(products.parent IS NOT NULL, (SELECT parentTitle.title FROM products AS `parentTitle` WHERE parentTitle.id = products.parent LIMIT 1), products.title) AS `title`
+				productprices.finalprice
 			FROM
 				products
 			LEFT JOIN productprices ON productprices.product_id = products.id AND productprices.last = 'yes'

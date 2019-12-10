@@ -223,14 +223,19 @@ class edit
 			}
 		}
 
+		$parent_field = ['title', 'slug', 'cat_id', 'unit_id', 'type'];
+
+
+
 		if($isChild)
 		{
-			unset($args['title']);
-			unset($args['slug']);
-			unset($args['cat_id']);
-			unset($args['unit_id']);
-			unset($args['type']);
+			foreach ($parent_field as $must_unset)
+			{
+				unset($args[$must_unset]);
+			}
 		}
+
+
 
 
 		if(!empty($args))
@@ -255,6 +260,24 @@ class edit
 
 				if(\dash\engine\process::status())
 				{
+					if(!$isChild)
+					{
+						$update_child = [];
+
+						foreach ($parent_field as $field)
+						{
+							if(array_key_exists($field, $args))
+							{
+								$update_child[$field] = $args[$field];
+							}
+						}
+
+						if(!empty($update_child))
+						{
+							\lib\db\products\variants::update_all_child($id, $update_child);
+						}
+					}
+
 					\dash\notif::ok(T_("Your product successfully updated"));
 				}
 			}

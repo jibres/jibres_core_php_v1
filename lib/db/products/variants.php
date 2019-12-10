@@ -4,6 +4,18 @@ namespace lib\db\products;
 
 class variants
 {
+	public static function update_all_child($_parent_id, $_update)
+	{
+		if(!empty($_update))
+		{
+			$set    = \dash\db\config::make_set($_update);
+			$query  = "UPDATE products SET $set WHERE products.parent = $_parent_id";
+			$result = \dash\db::query($query);
+			return $result;
+		}
+
+		return null;
+	}
 
 	public static function update($_variants, $_id)
 	{
