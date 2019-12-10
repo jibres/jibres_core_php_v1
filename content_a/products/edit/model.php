@@ -98,9 +98,13 @@ class model
 			return false;
 		}
 
-		$post = self::get_post();
+		$result = null;
 
-		$result = \lib\app\product\edit::edit($post, $id);
+		if(\dash\request::post('submitall') === 'master')
+		{
+			$post = self::get_post();
+			$result = \lib\app\product\edit::edit($post, $id);
+		}
 
 		self::set_variant($id);
 
@@ -109,7 +113,12 @@ class model
 			return false;
 		}
 
-		\dash\redirect::pwd();
+		// product no changed not redirect
+		if(!\dash\temp::get('productNoChangeNotRedirect'))
+		{
+			\dash\redirect::pwd();
+		}
+
 	}
 
 	private static function delete_product($_id)
@@ -269,14 +278,14 @@ class model
 	{
 		if(!\dash\request::post('variants'))
 		{
-			if(\dash\data::productDataRow_variants())
+			if(\dash\data::productDataRow_variants() && !\dash\data::productDataRow_have_child())
 			{
 				\lib\app\product\variants::clean_product($_id);
 			}
 			return false;
 		}
 
-		if(\dash\request::post('saveproductvariants'))
+		if(\dash\request::post('submitall') === 'savevariants')
 		{
 			$variant = self::get_variant();
 
@@ -295,7 +304,7 @@ class model
 			return;
 		}
 
-		if(\dash\request::post('makevariants'))
+		if(\dash\request::post('submitall') === 'makevariants')
 		{
 			$request         = self::getPostVariant();
 

@@ -579,7 +579,7 @@
         <div class="c pLa5 mB10">{{block('optionValueTag3')}}</div>
       </div>
 
-      <button class="btn primary block mT20" name="makevariants" value="1">{%trans "Make"%}</button>
+      <button class="btn primary block mT20" name="submitall" value="makevariants">{%trans "Make"%}</button>
 
       {{block('productTempList')}}
 
@@ -593,14 +593,14 @@
 
 {%block optionName1%}
 <div class="input">
-  <input type="text" name="optionname1" placeholder='{%trans "Size"%}' value="{{variantsList.variants.option1.name}}">
+  <input type="text" name="optionname1" placeholder='{%trans "Color"%}' value="{{variantsList.variants.option1.name}}">
 </div>
 {%endblock%}
 
 
 {%block optionName2%}
 <div class="input">
-  <input type="text" name="optionname2" placeholder='{%trans "Color"%}' value="{{variantsList.variants.option2.name}}">
+  <input type="text" name="optionname2" placeholder='{%trans "Size"%}' value="{{variantsList.variants.option2.name}}">
 </div>
 {%endblock%}
 
@@ -720,7 +720,7 @@
           {%trans "Only product by check the need box and set price and stock can add to your product list!"%}
         </p>
         <div class="txtRa">
-          <button class="btn success" name="saveproductvariants" value="1">{%trans "Save"%}</button>
+          <button class="btn success" name="submitall" value="savevariants">{%trans "Save"%}</button>
         </div>
 
 

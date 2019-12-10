@@ -289,6 +289,7 @@ class edit
 				}
 				else
 				{
+					\dash\temp::set('productNoChangeNotRedirect', true);
 					// no change
 					\dash\notif::info(T_("Your product saved without change"));
 				}
