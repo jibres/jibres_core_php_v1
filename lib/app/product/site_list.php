@@ -4,6 +4,10 @@ namespace lib\app\product;
 
 class site_list
 {
+	/**
+	 * This function call everywhere need to get product list in dropdown mode
+	 * in sale page or buy page
+	 */
 	public static function dropdown()
 	{
 		if(\dash\request::get('json') !== 'true')
@@ -51,7 +55,7 @@ class site_list
 		}
 		elseif(\dash\request::get('id'))
 		{
-			$result = \lib\app\product::list(null, ['id' => \dash\request::get('id')]);
+			$result = \lib\app\product\search::price_list(null, ['id' => \dash\request::get('id')]);
 			$result = self::getNeededField_barcode($result);
 			\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 			\dash\code::jsonBoom(\dash\notif::get());
@@ -113,6 +117,21 @@ class site_list
 		{
 			$datalist['title'] = $_data['title'];
 			$name .= '<span class="pRa10">'. $_data['title']. '</span>';
+
+			if(isset($_data['optionname1']) && isset($_data['optionvalue1']))
+			{
+				$name .= '<span class="pRa10">'. $_data['optionname1']. ' '. $_data['optionvalue1']. '</span>';
+			}
+
+			if(isset($_data['optionname2']) && isset($_data['optionvalue2']))
+			{
+				$name .= '<span class="pRa10">'. $_data['optionname2']. ' '. $_data['optionvalue2']. '</span>';
+			}
+
+			if(isset($_data['optionname3']) && isset($_data['optionvalue3']))
+			{
+				$name .= '<span class="pRa10">'. $_data['optionname3']. ' '. $_data['optionvalue3']. '</span>';
+			}
 		}
 
 		if(isset($_data['barcode']))
