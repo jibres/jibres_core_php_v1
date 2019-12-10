@@ -1445,5 +1445,10 @@
     "title": "cpVisitorView",
     "cat": "Visitors",
     "require": []
+  },
+  "productListPrice": {
+    "title": "productListPrice",
+    "cat": "product",
+    "require": []
   }
 }

@@ -246,6 +246,8 @@ $master[] = 'cpPostsEditPublished';
 $master[] = 'cpPostsEditForOthers';
 $master[] = 'cpHelpCenterDeleteForOthers';
 $master[] = 'cpPostsDeleteForOthers';
+$master[] = 'productListPrice';
+
 
 // $master[] = 'factorAccess';
 // $master[] = 'factorEditAccess';
