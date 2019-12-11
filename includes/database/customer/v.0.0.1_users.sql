@@ -20,6 +20,7 @@ CREATE TABLE `jibres_XXXXXXX`.`users` (
 `pin` smallint(4) UNSIGNED DEFAULT NULL,
 `ref` int(10) UNSIGNED DEFAULT NULL,
 `twostep` bit(1) DEFAULT NULL,
+`subscribe` bit(1) DEFAULT NULL,
 `birthday` varchar(50) DEFAULT NULL,
 `unit_id` smallint(5) DEFAULT NULL,
 `language` char(2) DEFAULT NULL,

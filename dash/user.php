@@ -543,7 +543,7 @@ class user
 					if(\dash\engine\store::inStore())
 					{
 						// check from master
-						$status = \dash\db\sessions::is_active_master($cookie, \dash\user::id());
+						$status = \dash\db\sessions::is_active_master($cookie, \dash\user::is_init_jibres_user());
 
 						if($status === true)
 						{
