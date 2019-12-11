@@ -138,6 +138,12 @@ class user
 	 */
 	public static function init($_user_id)
 	{
+		// login on subdomain
+		if(self::inStore())
+		{
+			return self::store_init($_user_id, true);
+		}
+
 		if(!is_numeric($_user_id))
 		{
 			return;
