@@ -540,6 +540,17 @@ class user
 
 				if($status === false)
 				{
+					if(\dash\engine\store::inStore())
+					{
+						// check from master
+						$status = \dash\db\sessions::is_active_master($cookie, \dash\user::id());
+
+						if($status === true)
+						{
+							// this cookie ok in master database
+							return;
+						}
+					}
 
 					\dash\db\sessions::disable_cookie($cookie, \dash\user::id());
 

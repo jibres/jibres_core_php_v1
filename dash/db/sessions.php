@@ -267,6 +267,24 @@ class sessions
 
 
 
+	public static function is_active_master($_code, $_user_id)
+	{
+		$_code = addslashes($_code);
+		$query = "SELECT * FROM sessions WHERE sessions.user_id = $_user_id AND sessions.status = 'active' AND sessions.code = '$_code' LIMIT 1";
+		$get   = \dash\db::get($query, null, true, 'master');
+
+		if(isset($get['status']))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+
 
 	public static function is_active($_code, $_user_id)
 	{
