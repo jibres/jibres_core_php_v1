@@ -92,7 +92,7 @@
 {{block('galleryImporter')}}
 
 
-  {%if not productDataRow.have_child and not productFamily%}
+  {%if not productDataRow.variant_child and not productFamily%}
     <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
       {{block('variantHTML')}}
     </div>
@@ -174,7 +174,7 @@
 
 
 {%block Box_variant_list %}
-{%if productDataRow.have_child or productFamily%}
+{%if productDataRow.variant_child or productFamily%}
 <section class="jbox">
   <header data-kerkere='.variantPanel' data-kerkere-icon='open'><h2>{%trans "Variants"%}</h2></header>
   <div class="pad variantPanel">

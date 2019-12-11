@@ -278,7 +278,7 @@ class model
 	{
 		if(!\dash\request::post('variants'))
 		{
-			if(\dash\data::productDataRow_variants() && !\dash\data::productDataRow_have_child())
+			if(\dash\data::productDataRow_variants() && !\dash\data::productDataRow_variant_child())
 			{
 				\lib\app\product\variants::clean_product($_id);
 			}

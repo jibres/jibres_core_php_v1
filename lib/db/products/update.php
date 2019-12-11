@@ -11,5 +11,15 @@ class update
 		$result = \dash\db::query($query);
 		return $result;
 	}
+
+
+	public static function variant_child($_id)
+	{
+		$query  = "UPDATE products SET products.variant_child = 1 WHERE products.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 }
 ?>

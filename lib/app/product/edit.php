@@ -223,7 +223,7 @@ class edit
 			}
 		}
 
-		$parent_field = ['title', 'slug', 'cat_id', 'unit_id', 'type'];
+		$parent_field = \lib\app\product\variants::parent_field();
 
 
 

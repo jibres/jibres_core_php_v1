@@ -4,6 +4,14 @@ namespace lib\app\product;
 
 class variants
 {
+
+	// this field must be copy to child and update it whene the parent was updated
+	public static function parent_field()
+	{
+		return ['title', 'slug', 'cat_id', 'unit_id', 'type'];
+	}
+
+
 	public static function get($_id)
 	{
 		// load main product detail
@@ -279,6 +287,12 @@ class variants
 			return false;
 		}
 
+		if(isset($load_product['variant_child']) && $load_product['variant_child'])
+		{
+			\dash\notif::error(T_("This product have some child and can not set variants"));
+			return false;
+		}
+
 		if(is_string($load_option_name))
 		{
 			$load_option_name = json_decode($load_option_name, true);
@@ -291,18 +305,13 @@ class variants
 			return false;
 		}
 
-		$load_child = \lib\db\products\variants::have_child($load_product['id']);
-		if($load_child)
-		{
-			\dash\notif::error(T_("This product have some child and can not set variants"));
-			return false;
-		}
-
 		$option1_name = isset($load_option_name['variants']['option1']['name']) ? $load_option_name['variants']['option1']['name'] : null;
 		$option2_name = isset($load_option_name['variants']['option2']['name']) ? $load_option_name['variants']['option2']['name'] : null;
 		$option3_name = isset($load_option_name['variants']['option3']['name']) ? $load_option_name['variants']['option3']['name'] : null;
 
 		$multi_product = [];
+
+		$parent_fields = self::parent_field();
 
 		foreach ($_variants as $key => $value)
 		{
@@ -321,18 +330,24 @@ class variants
 				'sku'          => array_key_exists('sku', $value) ? $value['sku'] : null,
 			];
 
-
 			if(!$temp['stock'] || !is_numeric($temp['stock']))
 			{
 				\dash\notif::error(T_("Zero stock!"));
 				return false;
 			}
 
-
 			if(!$temp['price'] || !is_numeric($temp['price']))
 			{
 				\dash\notif::error(T_("Zero price!"));
 				return false;
+			}
+
+			foreach ($parent_fields as $parent_field)
+			{
+				if(isset($load_product[$parent_field]))
+				{
+					$temp[$parent_field] = $load_product[$parent_field];
+				}
 			}
 
 			$multi_product[] = $temp;
@@ -345,8 +360,11 @@ class variants
 		}
 
 		$result = \lib\app\product\add::multi_add($multi_product);
+
 		if($result)
 		{
+			\lib\db\products\update::variant_child($_product_id);
+
 			\dash\notif::ok(T_("Your products was inserted"));
 			return true;
 		}

@@ -494,7 +494,7 @@
   </div>
 </div>
 {%endif%}
-{%if productDataRow.have_child%}
+{%if productDataRow.variant_child%}
 {%for key, value in productDataRow.child%}
   <div class="msg f">
     <div class="cauto"><span class="mRa10">{{(key + 1)  | fitNumber}}</span></div>
@@ -557,7 +557,7 @@
   <div class="pad jboxVariants">
 
 
-{%if not productDataRow.have_child%}
+{%if not productDataRow.variant_child%}
     <div class="check1">
      <input type="checkbox" name="variants" id="variants" value="1" {%if productDataRow.variants%} checked {%endif%}>
       <label for="variants">{%trans "This product has multiple options, like different sizes or colors"%}</label>
