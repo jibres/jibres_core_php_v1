@@ -35,6 +35,7 @@ CREATE TABLE `jibres_XXXXXXX`.`products` (
 `saletelegram` enum('yes', 'no') DEFAULT NULL,
 `saleapp` enum('yes', 'no') DEFAULT NULL,
 `variants` mediumtext CHARACTER SET utf8mb4,
+`variant_child` bit(1) NULL DEFAULT NULL,
 `optionname1` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `optionname2` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `optionname3` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
