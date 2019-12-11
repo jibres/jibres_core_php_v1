@@ -31,18 +31,25 @@
             <a data-direct href="{{url.here}}" class="btn block outline mT10 success">{%trans "Back"%}</a>
 
             <img src="{{url.static}}/img/store/limit1.gif" alt='{%trans "Limit of create store"%}'>
-        {%endif%}
 
+
+        {%endif%}
 
         </div>
       </div>
-
-      <div class="f align-center msg">
-        <div class="c pRa10">{{termOfService | raw}}</div>
-        <div class="cauto os"><a href="{{url.here}}" class="btn" data-direct>{%trans "Cancel"%}</a></div>
-      </div>
+      {%if canAddStore.can%}
+        {{block('ShowTermOfService')}}
+      {%endif%}
     </div>
 
+{%endblock%}
+
+
+{%block ShowTermOfService%}
+<div class="f align-center msg">
+  <div class="c pRa10">{{termOfService | raw}}</div>
+  <div class="cauto os"><a href="{{url.here}}" class="btn" data-direct>{%trans "Cancel"%}</a></div>
+</div>
 {%endblock%}
 
 
