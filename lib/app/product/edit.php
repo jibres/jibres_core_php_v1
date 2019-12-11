@@ -223,9 +223,13 @@ class edit
 			}
 		}
 
+		// if the product have child the type of product locked!
+		if(isset($product_detail['variant_child']) && $product_detail['variant_child'])
+		{
+			unset($args['type']);
+		}
+
 		$parent_field = \lib\app\product\variants::parent_field();
-
-
 
 		if($isChild)
 		{
@@ -234,8 +238,6 @@ class edit
 				unset($args[$must_unset]);
 			}
 		}
-
-
 
 
 		if(!empty($args))

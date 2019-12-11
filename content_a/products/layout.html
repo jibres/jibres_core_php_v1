@@ -71,21 +71,21 @@
 
   <div class="c pRa5">
     <div class="radio3">
-      <input type="radio" name="type" value="product" id="typeProduct" {%if not productDataRow or productDataRow.type == 'product'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%}>
+      <input type="radio" name="type" value="product" id="typeProduct" {%if not productDataRow or productDataRow.type == 'product'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%} {%if productDataRow.variant_child %} disabled {%endif%}>
       <label for="typeProduct">{%trans "Product"%}</label>
     </div>
   </div>
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="type" value="service" id="typeService" {%if productDataRow.type == 'service'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%}>
+      <input type="radio" name="type" value="service" id="typeService" {%if productDataRow.type == 'service'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%} {%if productDataRow.variant_child %} disabled {%endif%}>
       <label for="typeService">{%trans "Service"%}</label>
     </div>
   </div>
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="type" value="file" id="typeFile" {%if productDataRow.type == 'file'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%}>
+      <input type="radio" name="type" value="file" id="typeFile" {%if productDataRow.type == 'file'%} checked {%endif%} {%if productDataRow.parent%} disabled {%endif%} {%if productDataRow.variant_child %} disabled {%endif%}>
       <label for="typeFile">{%trans "File"%}</label>
     </div>
   </div>
