@@ -34,7 +34,14 @@ class filepath
 	{
 		if($_path && is_string($_path))
 		{
-			return self::file_domain(). '/'. $_path;
+			if(substr($_path, 0, 7) === 'http://' || substr($_path, 0, 8) === 'https://' )
+			{
+				// no change
+			}
+			else
+			{
+				return self::file_domain(). '/'. $_path;
+			}
 		}
 
 		return $_path;
