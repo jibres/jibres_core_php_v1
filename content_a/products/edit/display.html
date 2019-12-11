@@ -107,7 +107,6 @@
 
 {{block('Box_organization')}}
 
-{{block('Box_variant_list')}}
 
 
 {{block('Box_units')}}
@@ -115,6 +114,9 @@
 <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
   {{block('Box_sale')}}
 </div>
+
+
+{{block('Box_variant_list')}}
 
 {{block('Box_deleteProduct')}}
 

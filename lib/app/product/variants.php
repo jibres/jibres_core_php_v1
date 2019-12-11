@@ -196,9 +196,9 @@ class variants
 	private static function check_option_name($_option_name)
 	{
 		$optionname = \dash\app::request($_option_name);
-		if($optionname && mb_strlen($optionname) >= 100)
+		if($optionname && mb_strlen($optionname) >= 20)
 		{
-			\dash\notif::error(T_("Please set option name less than 100 characters"), $_option_name);
+			\dash\notif::error(T_("Please set option name less than 20 characters"), $_option_name);
 			return false;
 		}
 
@@ -227,9 +227,9 @@ class variants
 		{
 			foreach ($optionvalue as $key => $value)
 			{
-				if(mb_strlen($value) >= 100)
+				if(mb_strlen($value) >= 30)
 				{
-					\dash\notif::error(T_("Please set option value less than 100 characters"), $_option_value);
+					\dash\notif::error(T_("Please set option value less than 30 characters"), $_option_value);
 					return false;
 				}
 				$optionvalue[$key] = \dash\safe::safe($value);
