@@ -124,8 +124,6 @@ class store
 		}
 
 		return self::lock($_store_id, $get_store_detail);
-
-		return false;
 	}
 
 
@@ -182,6 +180,8 @@ class store
 			$result = self::lock($get_store_id, $get_store_detail);
 			return $result;
 		}
+
+		return false;
 	}
 
 
