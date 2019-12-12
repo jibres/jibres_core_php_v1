@@ -107,13 +107,23 @@ class controller
 
 	private static function transalate(&$detail)
 	{
-		$transalate               = [];
-		$transalate['version']    = T_("Version");
-		$transalate['changelang'] = T_("Change language");
-		$transalate['close']      = T_("Close");
-		$transalate['back']       = T_("Back");
-		$transalate['go']         = T_("Go");
-		$transalate['enter']      = T_("Enter");
+		$transalate                            = [];
+		$transalate['version']                 = T_("Version");
+		$transalate['changelang']              = T_("Change language");
+		$transalate['close']                   = T_("Close");
+		$transalate['back']                    = T_("Back");
+		$transalate['go']                      = T_("Go");
+		$transalate['enter']                   = T_("Enter");
+
+		$transalate['enter:phone:title']       = T_("Your Phone");
+		$transalate['enter:phone:lable']       = T_("Phone Number");
+		$transalate['enter:phone:placeholder'] = null;
+		$transalate['enter:phone:desc']        = T_("A 4 digit OTP will be sent via SMS to verify your mobile number");
+		$transalate['enter:verify:title']      = T_("Phone Verification");
+		$transalate['enter:verify:desc']       = T_("Enter the OTP you received to");
+		$transalate['enter:verify:edit']       = T_("Edit");
+		$transalate['enter:verify:resend']     = T_("Resend");
+
 
 		// set translate into detail json
 		$detail['transalate'] = $transalate;
