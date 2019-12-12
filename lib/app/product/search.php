@@ -59,7 +59,7 @@ class search
 
 		if($_args['barcode'])
 		{
-			$barcode                 = \dash\utility\convert::to_en_number($_args['barcode']);
+			$barcode                 = \dash\number::clean($_args['barcode']);
 			$and['products.barcode'] = $barcode;
 			self::$filter_args['barcode']  = '*'. T_('Barcode');
 			self::$is_filtered       = true;
@@ -67,7 +67,7 @@ class search
 
 		if($_args['price'])
 		{
-			$price = \dash\utility\convert::to_en_number($_args['price']);
+			$price = \dash\number::clean($_args['price']);
 			if(is_numeric($price))
 			{
 				$and['products.price'] = $price;
@@ -77,7 +77,7 @@ class search
 
 		if($_args['buyprice'])
 		{
-			$buyprice = \dash\utility\convert::to_en_number($_args['buyprice']);
+			$buyprice = \dash\number::clean($_args['buyprice']);
 			if(is_numeric($buyprice))
 			{
 				$and['products.buyprice'] = $buyprice;
@@ -94,7 +94,7 @@ class search
 
 		if($_args['discount'])
 		{
-			$discount = \dash\utility\convert::to_en_number($_args['discount']);
+			$discount = \dash\number::clean($_args['discount']);
 			if(is_numeric($discount))
 			{
 				$and['products.discount'] = $discount;
@@ -249,6 +249,7 @@ class search
 		switch ($type)
 		{
 			case 'price':
+			case 'factor_admin_list':
 				$list = \lib\db\products\datalist::list_join_price($and, $or, $order_sort, $meta);
 				break;
 
@@ -342,5 +343,17 @@ class search
 		$list        = self::products_list('price', $_query_string, $_args);
 		return $list;
 	}
+
+
+	public static function factor_admin_list($_query_string, $_args)
+	{
+		$and['variant_child'] = [" IS ", " NULL "];
+
+		$list        = self::products_list('factor_admin_list', $_query_string, $_args, $and);
+		return $list;
+	}
+
+
+
 }
 ?>

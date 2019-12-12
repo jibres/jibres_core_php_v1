@@ -22,7 +22,7 @@ class site_list
 
 		if(\dash\request::get('q'))
 		{
-			$resultRaw    = \lib\app\product\search::price_list(\dash\request::get('q'), $meta);
+			$resultRaw    = \lib\app\product\search::factor_admin_list(\dash\request::get('q'), $meta);
 			foreach ($resultRaw as $key => $value)
 			{
 				$result['result'][] = self::getNeededField($value);
