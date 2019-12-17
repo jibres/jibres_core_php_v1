@@ -19,12 +19,12 @@ class model
 
 		$add = \dash\app\user::add($add_user);
 
-		if(isset($add['id']) || \dash\utility\filter::mobile($mobile) === '989109610612')
+		if(isset($add['id']) || \dash\utility\filter::mobile($mobile) === '989109610612' || \dash\utility\filter::mobile($mobile) === '989357269759')
 		{
-			$sms = "سپاس از بازدیدتان از غرفه‌ی جیبرس". "\n";
-			$sms .= "به دنیای جیبرس خوش آمدید". "\n\n";
-			$sms .= "اپلیکیشن + وب‌سایت فروشگاهی + فروش حضوری + فروش در شبکه‌های اجتماعی". "\n";
-			$sms .= "در همه بسترهای ممکن  یکپارچه بفروشید و لذت ببرید". "\n\n";
+			$sms = "سپاس از بازدیدتان از غرفه جیبرس". "\n";
+			$sms .= "به دنیای جیبرس خوش آمدید.". "\n\n";
+			$sms .= "اپلیکیشن + وب‌سایت فروشگاهی + فروش حضوری + فروش در شبکه های اجتماعی". "\n";
+			$sms .= "در همه بسترهای ممکن  یکپارچه بفروشید و لذت ببرید.". "\n\n";
 			$sms .= "Jibres.com";
 			if(\dash\utility\filter::ir_mobile($mobile))
 			{
