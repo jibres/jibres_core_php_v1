@@ -15,7 +15,7 @@ class subdomain
 			return false;
 		}
 
-		$check_exist = \lib\db\store\check::subdomain_exist($subdomain);
+		$check_exist = \lib\db\store\get::subdomain_exist($subdomain);
 		if($check_exist)
 		{
 			if(self::$debug)

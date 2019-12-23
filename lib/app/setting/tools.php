@@ -13,7 +13,7 @@ class tools
 		}
 		else
 		{
-			$result = \lib\db\setting\db::update($_cat, $_key, $_value);
+			$result = \lib\db\setting\update::by_cat_key($_cat, $_key, $_value);
 			return $result;
 		}
 	}
@@ -27,7 +27,7 @@ class tools
 			'value' => $_value,
 		];
 
-		$result = \lib\db\setting\db::insert($insert);
+		$result = \lib\db\setting\insert::new_record($insert);
 		return $result;
 	}
 
@@ -36,7 +36,7 @@ class tools
 	{
 		if($_cat && $_key)
 		{
-			$result = \lib\db\setting\db::get($_cat, $_key);
+			$result = \lib\db\setting\get::by_cat_key($_cat, $_key);
 			return $result;
 		}
 		return null;
@@ -48,7 +48,7 @@ class tools
 	{
 		if($_cat)
 		{
-			$result = \lib\db\setting\db::get_cat($_cat);
+			$result = \lib\db\setting\get::by_cat($_cat);
 			return $result;
 		}
 

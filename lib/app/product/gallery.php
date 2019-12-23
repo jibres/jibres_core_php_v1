@@ -102,8 +102,8 @@ class gallery
 					$product_gallery_field['thumbid'] = $one_file['id'];
 					$product_gallery_field            = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
 
-					\lib\db\products\db::update_gallery($product_gallery_field, $product_id);
-					\lib\db\products\db::update_thumb($one_file['path'], $product_id);
+					\lib\db\products\update::gallery($product_gallery_field, $product_id);
+					\lib\db\products\update::thumb($one_file['path'], $product_id);
 
 					return true;
 				}
@@ -162,7 +162,7 @@ class gallery
 
 			if(!isset($product_detail['thumb']) || (array_key_exists('thumb', $product_detail) && !$product_detail['thumb']))
 			{
-				\lib\db\products\db::update_thumb($file_path, $product_id);
+				\lib\db\products\update::thumb($file_path, $product_id);
 				$product_gallery_field['thumbid'] = $fileid;
 			}
 
@@ -225,14 +225,14 @@ class gallery
 
 				if((!isset($product_detail['thumb']) || (array_key_exists('thumb', $product_detail) && !$product_detail['thumb'])) && $next_image && isset($next_image['id']) && isset($next_image['path']))
 				{
-					\lib\db\products\db::update_thumb($next_image['path'], $product_id);
+					\lib\db\products\update::thumb($next_image['path'], $product_id);
 					$product_gallery_field['thumbid'] = $next_image['id'];
 				}
 
 				if(!$next_image)
 				{
 					$product_gallery_field['thumbid'] = null;
-					\lib\db\products\db::update_thumb(null, $product_id);
+					\lib\db\products\update::thumb(null, $product_id);
 				}
 
 			}
@@ -241,7 +241,7 @@ class gallery
 
 		$product_gallery_field = json_encode($product_gallery_field, JSON_UNESCAPED_UNICODE);
 
-		\lib\db\products\db::update_gallery($product_gallery_field, $product_id);
+		\lib\db\products\update::gallery($product_gallery_field, $product_id);
 
 		return true;
 

@@ -105,7 +105,7 @@ class variants
 		$count = $variants['count'];
 
 		$variants_json = json_encode($variants, JSON_UNESCAPED_UNICODE);
-		$result = \lib\db\products\variants::update($variants_json, $product_detail['id']);
+		$result = \lib\db\products\update::variants_update($variants_json, $product_detail['id']);
 
 		if($result)
 		{
@@ -259,7 +259,7 @@ class variants
 		if($_product_id && is_numeric($_product_id))
 		{
 			\dash\temp::set('productHasChange', true);
-			\lib\db\products\variants::clean_product($_product_id);
+			\lib\db\products\update::variants_clean_product($_product_id);
 		}
 	}
 
@@ -383,7 +383,7 @@ class variants
 			return false;
 		}
 
-		$load_child = \lib\db\products\variants::load_child($_parent);
+		$load_child = \lib\db\products\get::variants_load_child($_parent);
 		if(is_array($load_child))
 		{
 			$load_child = array_map(['\\lib\\app\\product\\ready', 'row'], $load_child);

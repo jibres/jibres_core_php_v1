@@ -13,11 +13,11 @@ class tag
 
 		if(!$_tag)
 		{
-			$have_old_tag = \lib\db\producttag\tagusage::usage($_product_id);
+			$have_old_tag = \lib\db\producttagusage\get::usage($_product_id);
 			if($have_old_tag)
 			{
 				\dash\temp::set('productHasChange', true);
-				\lib\db\producttag\tagusage::hard_delete_all_product_tag($_product_id);
+				\lib\db\producttagusage\delete::hard_delete_all_product_tag($_product_id);
 			}
 			return false;
 		}
@@ -55,7 +55,7 @@ class tag
 		}
 
 
-		$check_exist_tag = \lib\db\producttag\tag::get_mulit_title($tag);
+		$check_exist_tag = \lib\db\producttag\get::mulit_title($tag);
 
 		$all_tags_id = [];
 
@@ -107,13 +107,13 @@ class tag
 				];
 			}
 			$have_term_to_save_log = true;
-			$first_id    = \lib\db\producttag\tag::multi_insert($multi_insert_tag);
+			$first_id    = \lib\db\producttag\insert::multi_insert($multi_insert_tag);
 			$all_tags_id = array_merge($all_tags_id, \dash\db\config::multi_insert_id($multi_insert_tag, $first_id));
 		}
 
 		$category_id = $all_tags_id;
 
-		$get_old_product_cat = \lib\db\producttag\tagusage::usage($_product_id);
+		$get_old_product_cat = \lib\db\producttagusage\get::usage($_product_id);
 
 		$must_insert = [];
 		$must_remove = [];
@@ -151,7 +151,7 @@ class tag
 			if(!empty($insert_multi))
 			{
 				$have_term_to_save_log = true;
-				\lib\db\producttag\tagusage::multi_insert($insert_multi);
+				\lib\db\producttagusage\insert::multi_insert($insert_multi);
 			}
 		}
 
@@ -163,7 +163,7 @@ class tag
 			$must_remove = implode(',', $must_remove);
 
 			\dash\log::set('removePostTerm', ['datalink' => \dash\coding::encode($_product_id)]);
-			\lib\db\producttag\tagusage::hard_delete([ 'producttag_id' => ["IN", "($must_remove)"]]);
+			\lib\db\producttagusage\delete::hard_delete([ 'producttag_id' => ["IN", "($must_remove)"]]);
 		}
 
 
@@ -186,7 +186,7 @@ class tag
 			return false;
 		}
 
-		$get_usage = \lib\db\producttag\tagusage::usage($_product_id);
+		$get_usage = \lib\db\producttagusage\get::usage($_product_id);
 
 		return $get_usage;
 	}

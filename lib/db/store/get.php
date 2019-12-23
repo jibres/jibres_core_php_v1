@@ -4,6 +4,13 @@ namespace lib\db\store;
 
 class get
 {
+	public static function subdomain_exist($_subdomain)
+	{
+		$query = "SELECT * FROM store WHERE store.subdomain = '$_subdomain' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function detail($_store_id)
 	{
 		$query = "SELECT * FROM store WHERE store.id = $_store_id LIMIT 1 ";

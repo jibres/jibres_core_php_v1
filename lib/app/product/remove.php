@@ -28,7 +28,7 @@ class remove
 		$use_in_factor = false;
 		if($use_in_factor)
 		{
-			\lib\db\products\db::update_status('deleted', $_id);
+			\lib\db\products\update::status('deleted', $_id);
 		}
 		else
 		{
@@ -50,9 +50,9 @@ class remove
 		// remove tag
 		// remove fileusage
 		// remove product price
-		\lib\db\productprices\db::delete_by_product_id($_id);
+		\lib\db\productprices\delete::by_product_id($_id);
 		// remove product
-		\lib\db\products\db::delete($_id);
+		\lib\db\products\delete::record($_id);
 	}
 
 }

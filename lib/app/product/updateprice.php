@@ -11,7 +11,7 @@ class updateprice
 
 		$new_record = [];
 
-		$last_product_price = \lib\db\productprices\db::last_active($_product_id);
+		$last_product_price = \lib\db\productprices\get::last_active($_product_id);
 
 		if(!$last_product_price || !isset($last_product_price['id']))
 		{
@@ -70,7 +70,7 @@ class updateprice
 				'last'    => null,
 			];
 
-			\lib\db\productprices\db::update($update_old_record, $last_product_price['id']);
+			\lib\db\productprices\update::record($update_old_record, $last_product_price['id']);
 		}
 
 		if(!empty($new_record))
@@ -82,7 +82,7 @@ class updateprice
 			$new_record['startdate']  = date("Y-m-d H:i:s");
 			$new_record['last']       = 'yes';
 
-			\lib\db\productprices\db::insert($new_record);
+			\lib\db\productprices\insert::new_record($new_record);
 
 			\dash\temp::set('productHasChange', true);
 		}

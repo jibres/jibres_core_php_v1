@@ -9,7 +9,7 @@ class unit
 
 	public static function check_add($_unit)
 	{
-		$get_unit_title = \lib\db\productunit\db::get_by_title($_unit);
+		$get_unit_title = \lib\db\productunit\get::by_title($_unit);
 		if(isset($get_unit_title['id']))
 		{
 			return $get_unit_title;
@@ -25,7 +25,7 @@ class unit
 			'title' => $_unit,
 		];
 
-		$id = \lib\db\productunit\db::insert($args);
+		$id = \lib\db\productunit\insert::new_record($args);
 
 		if(!$id)
 		{
@@ -137,7 +137,7 @@ class unit
 			return false;
 		}
 
-		$get_unit_title = \lib\db\productunit\db::get_by_title($args['title']);
+		$get_unit_title = \lib\db\productunit\get::by_title($args['title']);
 
 		if(isset($get_unit_title['id']))
 		{
@@ -145,12 +145,8 @@ class unit
 			return false;
 		}
 
-		if($args['default'])
-		{
-			$get_unit_title = \lib\db\productunit\db::set_all_default_as_null();
-		}
 
-		$id = \lib\db\productunit\db::insert($args);
+		$id = \lib\db\productunit\insert::new_record($args);
 		if(!$id)
 		{
 			\dash\log::set('productUnitDbErrorInsert');
@@ -236,7 +232,7 @@ class unit
 
 		\dash\log::set('productUnitDeleted', ['old' => $load]);
 
-		\lib\db\productunit\db::delete($id);
+		\lib\db\productunit\delete::record($id);
 		if(self::$debug)
 		{
 			\dash\notif::ok(T_("Unit successfully removed"));
@@ -254,7 +250,7 @@ class unit
 			return false;
 		}
 
-		$load = \lib\db\productunit\db::get_one($id);
+		$load = \lib\db\productunit\get::one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
@@ -282,7 +278,7 @@ class unit
 			return false;
 		}
 
-		$load = \lib\db\productunit\db::get_one($id);
+		$load = \lib\db\productunit\get::one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid unit id"));
@@ -325,7 +321,7 @@ class unit
 			return false;
 		}
 
-		$get_unit = \lib\db\productunit\db::get_one($id);
+		$get_unit = \lib\db\productunit\get::one($id);
 
 		if(isset($get_unit['id']) && isset($get_unit['title']) && $get_unit['title'] == $args['title'])
 		{
@@ -338,11 +334,6 @@ class unit
 				if(self::$debug) \dash\notif::error(T_("Duplicate unit founded"), 'unit');
 				return false;
 			}
-		}
-
-		if($args['default'])
-		{
-			\lib\db\productunit\db::set_all_default_as_null();
 		}
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
@@ -367,7 +358,7 @@ class unit
 			}
 			else
 			{
-				$update = \lib\db\productunit\db::update($args, $id);
+				$update = \lib\db\productunit\update::record($args, $id);
 
 				if($update)
 				{
@@ -410,7 +401,7 @@ class unit
 		\dash\permission::access('productUnitListView');
 
 
-		$result = \lib\db\productunit\db::get_list();
+		$result = \lib\db\productunit\get::list();
 
 		$temp            = [];
 

@@ -133,7 +133,7 @@ class search
 
 		if(isset($_args['filter']['duplicatetitle']) && $_args['filter']['duplicatetitle'])
 		{
-			$duplicate_id = \lib\db\products\db::get_duplicate_id();
+			$duplicate_id = \lib\db\products\get::duplicate_id();
 			self::$filter_args['Duplicate title'] = null;
 			self::$is_filtered              = true;
 
@@ -250,7 +250,7 @@ class search
 		{
 			case 'price':
 			case 'factor_admin_list':
-				$list = \lib\db\products\datalist::list_join_price($and, $or, $order_sort, $meta);
+				$list = \lib\db\products\search::list_join_price($and, $or, $order_sort, $meta);
 				break;
 
 			case 'no-duplicatetitle':
@@ -259,7 +259,7 @@ class search
 				break;
 
 			default:
-				$list = \lib\db\products\datalist::list($and, $or, $order_sort, $meta);
+				$list = \lib\db\products\search::list($and, $or, $order_sort, $meta);
 				break;
 		}
 
@@ -312,7 +312,7 @@ class search
 
 		if($product_ids)
 		{
-			$load_child = \lib\db\products\variants::load_child_count(implode(',', $product_ids));
+			$load_child = \lib\db\products\get::variants_load_child_count(implode(',', $product_ids));
 
 			if($load_child && is_array($load_child))
 			{

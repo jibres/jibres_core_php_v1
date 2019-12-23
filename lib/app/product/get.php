@@ -35,7 +35,7 @@ class get
 		}
 		else
 		{
-			$result = \lib\db\products\db::get_by_id($_id);
+			$result = \lib\db\products\get::by_id($_id);
 
 			if(!$result)
 			{
@@ -78,7 +78,7 @@ class get
 			return false;
 		}
 
-		$next_prev = \lib\db\products\db::get_next_prev($result['id']);
+		$next_prev = \lib\db\products\get::next_prev($result['id']);
 
 		$result = [];
 		if(isset($next_prev['next']) && $next_prev['next'])

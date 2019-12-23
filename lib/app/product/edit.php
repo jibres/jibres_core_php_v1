@@ -252,7 +252,7 @@ class edit
 
 			if(!empty($args))
 			{
-				$update = \lib\db\products\db::update($args, $id);
+				$update = \lib\db\products\update::record($args, $id);
 				if(!$update)
 				{
 					\dash\log::set('productUpdateDbError', ['code' => $id]);
@@ -276,7 +276,7 @@ class edit
 
 						if(!empty($update_child))
 						{
-							\lib\db\products\variants::update_all_child($id, $update_child);
+							\lib\db\products\update::variants_update_all_child($id, $update_child);
 						}
 					}
 

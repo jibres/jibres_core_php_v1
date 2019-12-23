@@ -36,5 +36,89 @@ class update
 	}
 
 
+
+
+
+	public static function record($_args, $_id)
+	{
+		$set = \dash\db\config::make_set($_args, ['type' => 'update']);
+		if($set)
+		{
+			$query = " UPDATE `products` SET $set WHERE products.id = $_id LIMIT 1";
+			$result = \dash\db::query($query);
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+
+	public static function thumb($_thumb, $_id)
+	{
+		if($_thumb)
+		{
+			$query  = "UPDATE products SET products.thumb = '$_thumb' WHERE products.id = $_id LIMIT 1";
+		}
+		else
+
+		{
+			$query  = "UPDATE products SET products.thumb = NULL WHERE products.id = $_id LIMIT 1";
+		}
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+	public static function gallery($_gallery, $_id)
+	{
+		$query  = "UPDATE products SET products.gallery = '$_gallery' WHERE products.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+
+	public static function status($_status, $_id)
+	{
+		$query  = "UPDATE products SET products.status = '$_status' WHERE products.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+	public static function variants_update_all_child($_parent_id, $_update)
+	{
+		if(!empty($_update))
+		{
+			$set    = \dash\db\config::make_set($_update);
+			$query  = "UPDATE products SET $set WHERE products.parent = $_parent_id";
+			$result = \dash\db::query($query);
+			return $result;
+		}
+
+		return null;
+	}
+
+
+
+	public static function variants_update($_variants, $_id)
+	{
+		$query  = "UPDATE products SET products.variants = '$_variants' WHERE products.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+	public static function variants_clean_product($_id)
+	{
+		$query  = "UPDATE products SET products.variants = NULL WHERE products.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+
 }
 ?>

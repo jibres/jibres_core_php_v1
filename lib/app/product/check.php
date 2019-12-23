@@ -823,7 +823,7 @@ class check
 			return false;
 		}
 
-		$check_unique_sku = \lib\db\products\db::check_unique_sku($_sku);
+		$check_unique_sku = \lib\db\products\get::check_unique_sku($_sku);
 		if(isset($check_unique_sku['id']))
 		{
 			if(intval($check_unique_sku['id']) === intval($_id))
@@ -844,7 +844,7 @@ class check
 	private static function check_unique_barcode($_barcode, $_id)
 	{
 
-		$check_exist  = \lib\db\products\db::get_barcode($_barcode);
+		$check_exist  = \lib\db\products\get::barcode($_barcode);
 
 		if(!$check_exist)
 		{

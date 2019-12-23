@@ -48,7 +48,7 @@ class load
 
 		if(isset($detail['variant_child']) && $detail['variant_child'])
 		{
-			$load_child = \lib\db\products\variants::load_child($id);
+			$load_child = \lib\db\products\get::variants_load_child($id);
 			if($load_child)
 			{
 				$detail['child'] = array_map(['\\lib\\app\\product\\ready', 'row'], $load_child);

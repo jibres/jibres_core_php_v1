@@ -9,7 +9,7 @@ class company
 
 	public static function check_add($_company)
 	{
-		$get_company_title = \lib\db\productcompany\db::get_by_title($_company);
+		$get_company_title = \lib\db\productcompany\get::by_title($_company);
 		if(isset($get_company_title['id']))
 		{
 			return $get_company_title;
@@ -26,7 +26,7 @@ class company
 			'title' => $_company,
 		];
 
-		$id = \lib\db\productcompany\db::insert($args);
+		$id = \lib\db\productcompany\insert::new_record($args);
 
 		if(!$id)
 		{
@@ -116,7 +116,7 @@ class company
 			return false;
 		}
 
-		$get_company_title = \lib\db\productcompany\db::get_by_title($args['title']);
+		$get_company_title = \lib\db\productcompany\get::by_title($args['title']);
 
 		if(isset($get_company_title['id']))
 		{
@@ -124,7 +124,7 @@ class company
 			return false;
 		}
 
-		$id = \lib\db\productcompany\db::insert($args);
+		$id = \lib\db\productcompany\insert::new_record($args);
 		if(!$id)
 		{
 			\dash\log::set('productCompanyDbErrorInsert');
@@ -210,7 +210,7 @@ class company
 
 		\dash\log::set('productCompanyDeleted', ['old' => $load]);
 
-		\lib\db\productcompany\db::delete($id);
+		\lib\db\productcompany\delete::record($id);
 		if(self::$debug)
 		{
 			\dash\notif::ok(T_("Company successfully removed"));
@@ -228,7 +228,7 @@ class company
 			return false;
 		}
 
-		$load = \lib\db\productcompany\db::get_one($id);
+		$load = \lib\db\productcompany\get::one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid company id"));
@@ -256,7 +256,7 @@ class company
 			return false;
 		}
 
-		$load = \lib\db\productcompany\db::get_one($id);
+		$load = \lib\db\productcompany\get::one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid company id"));
@@ -299,7 +299,7 @@ class company
 			return false;
 		}
 
-		$get_company = \lib\db\productcompany\db::get_one($id);
+		$get_company = \lib\db\productcompany\get::one($id);
 
 		if(isset($get_company['id']) && isset($get_company['title']) && $get_company['title'] == $args['title'])
 		{
@@ -335,7 +335,7 @@ class company
 			}
 			else
 			{
-				$update = \lib\db\productcompany\db::update($args, $id);
+				$update = \lib\db\productcompany\update::record($args, $id);
 
 				if($update)
 				{
@@ -376,7 +376,7 @@ class company
 		\dash\permission::access('productCompanyListView');
 
 
-		$result = \lib\db\productcompany\db::get_page_list($_string);
+		$result = \lib\db\productcompany\get::page_list($_string);
 
 		$temp            = [];
 
@@ -404,7 +404,7 @@ class company
 		\dash\permission::access('productCompanyListView');
 
 
-		$result = \lib\db\productcompany\db::get_list();
+		$result = \lib\db\productcompany\get::list();
 
 		$temp            = [];
 

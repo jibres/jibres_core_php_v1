@@ -6,7 +6,6 @@ class model
 {
 	public static function post()
 	{
-		// ready factor_list
 		$factor_list = self::getPostSaleProduct();
 
 		if($factor_list === false)
@@ -14,15 +13,9 @@ class model
 			return false;
 		}
 
-		// ready factor_list
 		$detail = self::getPostSaleDetail();
 
-		if($detail === false)
-		{
-			return false;
-		}
-
-		$factor_detail = \lib\app\factor::add($detail, $factor_list);
+		$factor_detail = \lib\app\factor\add::new_factor($detail, $factor_list);
 
 		$query_data = [];
 

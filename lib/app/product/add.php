@@ -135,7 +135,7 @@ class add
 
 
 
-		$product_id = \lib\db\products\db::insert($args);
+		$product_id = \lib\db\products\insert::new_record($args);
 
 		if(!$product_id)
 		{
@@ -172,7 +172,7 @@ class add
 				'finalprice'      => floatval($args_price['price']) - floatval($args_price['discount']),
 			];
 
-			$productprices_id = \lib\db\productprices\db::insert($insert_productprices);
+			$productprices_id = \lib\db\productprices\insert::new_record($insert_productprices);
 
 			if(!$productprices_id)
 			{

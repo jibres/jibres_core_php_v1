@@ -9,7 +9,7 @@ class category
 
 	public static function check_add($_category)
 	{
-		$get_category_title = \lib\db\productcategory\db::get_by_title($_category);
+		$get_category_title = \lib\db\productcategory\get::by_title($_category);
 		if(isset($get_category_title['id']))
 		{
 			return $get_category_title;
@@ -28,7 +28,7 @@ class category
 			'language'    => \dash\language::current(),
 		];
 
-		$id = \lib\db\productcategory\db::insert($args);
+		$id = \lib\db\productcategory\insert::new_record($args);
 
 		if(!$id)
 		{
@@ -123,7 +123,7 @@ class category
 			return false;
 		}
 
-		$get_category_title = \lib\db\productcategory\db::get_by_title($args['title']);
+		$get_category_title = \lib\db\productcategory\get::by_title($args['title']);
 
 		if(isset($get_category_title['id']))
 		{
@@ -135,7 +135,7 @@ class category
 		$args['slug']        = \dash\utility\filter::slug($slug, null, 'persian');
 		$args['language']    = \dash\language::current();
 
-		$id = \lib\db\productcategory\db::insert($args);
+		$id = \lib\db\productcategory\insert::new_record($args);
 		if(!$id)
 		{
 			\dash\log::set('productCategoryDbErrorInsert');
@@ -221,7 +221,7 @@ class category
 
 		\dash\log::set('productCategoryDeleted', ['old' => $load]);
 
-		\lib\db\productcategory\db::delete($id);
+		\lib\db\productcategory\delete::delete($id);
 		if(self::$debug)
 		{
 			\dash\notif::ok(T_("Category successfully removed"));
@@ -239,7 +239,7 @@ class category
 			return false;
 		}
 
-		$load = \lib\db\productcategory\db::get_one($id);
+		$load = \lib\db\productcategory\get::one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid category id"));
@@ -267,7 +267,7 @@ class category
 			return false;
 		}
 
-		$load = \lib\db\productcategory\db::get_one($id);
+		$load = \lib\db\productcategory\get::one($id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid category id"));
@@ -310,7 +310,7 @@ class category
 			return false;
 		}
 
-		$get_category = \lib\db\productcategory\db::get_one($id);
+		$get_category = \lib\db\productcategory\get::one($id);
 
 		if(isset($get_category['id']) && isset($get_category['title']) && $get_category['title'] == $args['title'])
 		{
@@ -325,14 +325,9 @@ class category
 			}
 		}
 
-		if($args['default'])
-		{
-			\lib\db\productcategory\db::set_all_default_as_null();
-		}
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
 		if(!\dash\app::isset_request('int')) unset($args['int']);
-		if(!\dash\app::isset_request('default')) unset($args['default']);
 		if(!\dash\app::isset_request('maxsale')) unset($args['maxsale']);
 
 		if(!empty($args))
@@ -352,7 +347,7 @@ class category
 			}
 			else
 			{
-				$update = \lib\db\productcategory\db::update($args, $id);
+				$update = \lib\db\productcategory\update::record($args, $id);
 
 				if($update)
 				{
@@ -395,7 +390,7 @@ class category
 		\dash\permission::access('productCategoryListView');
 
 
-		$result = \lib\db\productcategory\db::get_list();
+		$result = \lib\db\productcategory\get::list();
 
 		$temp            = [];
 
