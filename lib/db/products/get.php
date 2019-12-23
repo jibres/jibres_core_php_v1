@@ -87,6 +87,22 @@ class get
 
 
 
+	/**
+	 * Get multi product by id
+	 * Call in factor add to check multi product and add new factor
+	 *
+	 * @param      <type>  $_ids   The identifiers
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function by_multi_id($_ids)
+	{
+		$ids          = implode(',', $_ids);
+		$public_query = self::product_query_string();
+		$query        = "SELECT  $public_query WHERE products.id IN ($ids)";
+		$result       = \dash\db::get($query);
+		return $result;
+	}
 
 
 	public static function check_unique_sku($_sku)

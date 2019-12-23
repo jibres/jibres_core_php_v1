@@ -27,8 +27,10 @@ class add
 
 		$_option = array_merge($default_option, $_option);
 
+		// check permission to add new factor
 		\dash\permission::access('factorAccess');
 
+		// store not loaded!
 		if(!\lib\store::id())
 		{
 			\dash\log::set('factor:store_id:notfound');
@@ -111,7 +113,7 @@ class add
 			return false;
 		}
 
-		$return['factor_id'] = \dash\coding::encode($factor_id);
+		$return['factor_id'] = 'JF'. \dash\coding::encode($factor_id);
 
 		foreach ($factor_detail as $key => $value)
 		{
