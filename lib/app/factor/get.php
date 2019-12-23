@@ -2,7 +2,7 @@
 namespace lib\app\factor;
 
 
-trait get
+class get
 {
 
 
@@ -13,7 +13,7 @@ trait get
 	 *
 	 * @return     <type>  The factor.
 	 */
-	public static function get($_args, $_option = [])
+	public static function one($_args, $_option = [])
 	{
 		\dash\app::variable($_args);
 

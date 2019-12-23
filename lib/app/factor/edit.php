@@ -2,7 +2,7 @@
 namespace lib\app\factor;
 
 
-trait edit
+class edit
 {
 	/**
 	 * edit a factor

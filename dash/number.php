@@ -54,8 +54,8 @@ class number
 			return null;
 		}
 
-		$len_number = strlen($_number);
-		$len_max    = strlen($_max);
+		$len_number = strlen(self::to_number($_number));
+		$len_max    = strlen(self::to_number($_max));
 
 		if($len_number > $len_max)
 		{
@@ -80,6 +80,28 @@ class number
 		{
 			return false;
 		}
+	}
+
+
+	/**
+	 * Convert 1E+3 to 1000
+	 * Only call this function in this file to check is larger
+	 *
+	 * @param      <type>  $_number  The number
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function to_number($_number)
+	{
+		if(preg_match("/^(\d+)(\.(\d+))?(e|E)\+(\d+)$/", $_number, $split))
+		{
+			$string_number = $split[1];
+			$string_number .= $split[3];
+			$string_number .= str_repeat('0', intval($split[5]) - strlen($string_number));
+			return $string_number;
+		}
+
+		return $_number;
 	}
 
 }

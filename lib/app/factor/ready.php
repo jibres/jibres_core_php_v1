@@ -2,9 +2,7 @@
 namespace lib\app\factor;
 
 
-/**
- * Class for factor.
- */
+
 class ready
 {
 

@@ -280,6 +280,7 @@ class check
 				continue;
 			}
 
+
 			/**
 			 * @CHECK @REZA
 			 * Need to get from store or set manually
@@ -291,6 +292,9 @@ class check
 				\dash\notif::error(T_("The maximum count product in factor in your store is :val", ['val' => \dash\utility\human::fitNumber($maxproductcount)]), $key + 1);
 				return false;
 			}
+
+			// up count to remove desimal
+			$value['count'] = \lib\number::up($value['count']);
 
 			$continue = false;
 

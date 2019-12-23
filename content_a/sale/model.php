@@ -68,7 +68,7 @@ class model
 				$redirect_url .= '?'. http_build_query($query_data);
 			}
 
-			\dash\redirect::to($redirect_url);
+			// \dash\redirect::to($redirect_url);
 		}
 	}
 

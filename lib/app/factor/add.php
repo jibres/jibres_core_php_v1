@@ -38,9 +38,6 @@ class add
 			return false;
 		}
 
-		// start transaction of db
-		\dash\db::transaction();
-
 		\dash\app::variable($_factor);
 		// check args
 		$factor          = \lib\app\factor\check::factor($_option);
@@ -48,7 +45,6 @@ class add
 
 		if($factor === false || !\dash\engine\process::status())
 		{
-			\dash\db::rollback();
 			return false;
 		}
 
@@ -58,7 +54,6 @@ class add
 
 		if($factor_detail === false || !\dash\engine\process::status())
 		{
-			\dash\db::rollback();
 			return false;
 		}
 
@@ -94,6 +89,55 @@ class add
 		$factor['discount'] = null;
 		$factor['status']   = 'draft';
 		$factor['sum']      = floatval($factor['detailtotalsum']) - floatval($factor['discount']);
+
+		// qty field in int(10)
+		if(\dash\number::is_larger($factor['qty'], 999999999))
+		{
+			\dash\notif::error(T_("Data is out of range for column qty"), 'qty');
+			return false;
+		}
+
+		// item field in bigint(20)
+		if(\dash\number::is_larger($factor['item'], 9999999999999999999))
+		{
+			\dash\notif::error(T_("Data is out of range for column item"), 'item');
+			return false;
+		}
+
+		// detailsum field in bigint(20)
+		if(\dash\number::is_larger($factor['detailsum'], 9999999999999999999))
+		{
+			\dash\notif::error(T_("Data is out of range for column detailsum"), 'detailsum');
+			return false;
+		}
+
+		// detaildiscount field in bigint(20)
+		if(\dash\number::is_larger($factor['detaildiscount'], 9999999999999999999))
+		{
+			\dash\notif::error(T_("Data is out of range for column detaildiscount"), 'detaildiscount');
+			return false;
+		}
+
+
+		// detailtotalsum field in bigint(20)
+		if(\dash\number::is_larger($factor['detailtotalsum'], 9999999999999999999))
+		{
+			\dash\notif::error(T_("Data is out of range for column detailtotalsum"), 'detailtotalsum');
+			return false;
+		}
+
+		// sum field in bigint(20)
+		if(\dash\number::is_larger($factor['sum'], 9999999999999999999))
+		{
+			\dash\notif::error(T_("Data is out of range for column sum"), 'sum');
+			return false;
+		}
+
+
+
+
+		// start transaction of db
+		\dash\db::transaction();
 
 		if(!$_option['factor_id'])
 		{
