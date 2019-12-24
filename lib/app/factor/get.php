@@ -76,6 +76,10 @@ class get
 
 		$factor_detail = \lib\db\factordetails\get::by_factor_id_join_product($_id);
 
+		if($factor_detail)
+		{
+			$factor_detail = array_map(['\\lib\\app\\factor\\ready', 'row'], $factor_detail);
+		}
 		$result                  = [];
 		$result['factor']        = $factor;
 		$result['factor_detail'] = $factor_detail;

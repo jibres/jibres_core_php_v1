@@ -20,6 +20,26 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'qty':
+				case 'count':
+					$value = \lib\number::down($value);
+					$result[$key] = $value;
+					break;
+
+
+				case 'price':
+					$value = \lib\price::down($value);
+					$result[$key] = $value;
+					break;
+
+				case 'detailsum':
+				case 'detailtotalsum':
+				case 'sum':
+					$value = \lib\price::down($value);
+					$value = \lib\number::down($value);
+					$result[$key] = $value;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
