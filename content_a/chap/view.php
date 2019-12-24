@@ -13,7 +13,9 @@ class view
 		\dash\data::badge_link(\dash\url::here());
 
 		$id = \dash\request::get('id');
-		$factorDetail = \lib\app\factor::get(['id' => $id]);
+
+		$factorDetail = \lib\app\factor\get::full($id);
+
 		\dash\data::factorDetail($factorDetail);
 
 

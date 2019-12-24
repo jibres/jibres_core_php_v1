@@ -157,7 +157,7 @@ class add
 			return false;
 		}
 
-		$return['factor_id'] = 'JF'. \dash\coding::encode($factor_id);
+		$return['factor_id'] = 'JF'. $factor_id;
 
 		foreach ($factor_detail as $key => $value)
 		{

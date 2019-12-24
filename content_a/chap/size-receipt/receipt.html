@@ -91,12 +91,12 @@
  {%for key, datarow in factorDetail.factor_detail%}
   <tr>
    <td class="fs09 txtLa">{{datarow.title}}</td>
-   <td>{{datarow.factordetails_count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
-   <td>{{datarow.factordetails_price | fitNumber}}</td>
+   <td>{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
+   <td>{{datarow.price | fitNumber}}</td>
 {%if factorDetail.factor.detaildiscount%}
-   <td>{{datarow.factordetails_discount | fitNumber}}</td>
+   <td>{{datarow.discount | fitNumber}}</td>
 {%endif%}
-   <td>{{datarow.factordetails_sum | fitNumber}}</td>
+   <td>{{datarow.sum | fitNumber}}</td>
   </tr>
  {%endfor%}
   </tbody>
