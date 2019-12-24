@@ -84,21 +84,7 @@ class controller
 
 	private static function cart_list()
 	{
-		$result =
-		[
-			[
-				'product' => 1,
-				'count'   => 10,
-				'date'    => date("Y-m-d H:i:s"),
-				'product_detail' => ['title' => 'product 1', 'price' => 1000],
-			],
-			[
-				'product' => 2,
-				'count'   => 10,
-				'date'    => date("Y-m-d H:i:s"),
-				'product_detail' => ['title' => 'product 2', 'price' => 2000],
-			],
-		];
+		$result  = \lib\app\cart\get::my_cart_list();
 		\content_api\v1::say($result);
 	}
 
@@ -115,39 +101,17 @@ class controller
 
 	private static function cart_delete()
 	{
-		$result = null;
-
 		$product = \content_api\v1::input_body('product');
-		if(!$product || !is_numeric($product))
-		{
-			\dash\notif::error(T_("Please set the product"));
-			\content_api\v1::say($result);
-		}
-
-		\dash\notif::ok(T_("The product was removed from your cart"));
+		$result  = \lib\app\cart\remove::from_cart($product);
 		\content_api\v1::say($result);
 	}
 
 
 	private static function cart_edit()
 	{
-		$result = null;
-
 		$product = \content_api\v1::input_body('product');
-		if(!$product || !is_numeric($product))
-		{
-			\dash\notif::error(T_("Please set the product"));
-			\content_api\v1::say($result);
-		}
-
-		$count = \content_api\v1::input_body('count');
-		if(!$count || !is_numeric($count))
-		{
-			\dash\notif::error(T_("Please set the count"));
-			\content_api\v1::say($result);
-		}
-
-		\dash\notif::ok(T_("Your cart was updated"));
+		$count   = \content_api\v1::input_body('count');
+		$result  = \lib\app\cart\edit::update_cart($product, $count);
 		\content_api\v1::say($result);
 	}
 

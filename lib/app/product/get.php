@@ -64,6 +64,27 @@ class get
 	}
 
 
+	/**
+	 * Get some prodcut
+	 *
+	 * @param      <type>  $_ids      The identifiers
+	 * @param      array   $_options  The options
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function multi_product($_ids, $_options = [])
+	{
+		$result = \lib\db\products\get::by_multi_id($_ids);
+
+		if($result)
+		{
+			$result = array_map(['\\lib\\app\\product\\ready', 'row'], $result);
+		}
+
+		return $result;
+	}
+
+
 	public static function next_prev($_id)
 	{
 		if(isset(self::$product_next_prev[$_id]))

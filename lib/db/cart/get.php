@@ -11,5 +11,13 @@ class get
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
+
+
+	public static function user_cart($_user_id)
+	{
+		$query  = "SELECT * FROM cart WHERE cart.user_id = $_user_id";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 }
 ?>
