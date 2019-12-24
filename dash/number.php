@@ -87,6 +87,8 @@ class number
 	 * Convert 1E+3 to 1000
 	 * Only call this function in this file to check is larger
 	 *
+	 * Only number > 0 can convert to string
+	 *
 	 * @param      <type>  $_number  The number
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
@@ -97,7 +99,13 @@ class number
 		{
 			$string_number = $split[1];
 			$string_number .= $split[3];
-			$string_number .= str_repeat('0', intval($split[5]) - strlen($string_number));
+
+			$repeat = intval($split[5]) - strlen($string_number);
+
+			if($repeat >= 0)
+			{
+				$string_number .= str_repeat('0', $repeat);
+			}
 			return $string_number;
 		}
 

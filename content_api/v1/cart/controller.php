@@ -103,25 +103,12 @@ class controller
 	}
 
 
+
 	private static function cart_add()
 	{
-		$result = null;
-
 		$product = \content_api\v1::input_body('product');
-		if(!$product || !is_numeric($product))
-		{
-			\dash\notif::error(T_("Please set the product"));
-			\content_api\v1::say($result);
-		}
-
-		$count = \content_api\v1::input_body('count');
-		if(!$count || !is_numeric($count))
-		{
-			\dash\notif::error(T_("Please set the count"));
-			\content_api\v1::say($result);
-		}
-
-		\dash\notif::ok(T_("Product added to your cart"));
+		$count   = \content_api\v1::input_body('count');
+		$result  = \lib\app\cart\add::new_cart($product, $count);
 		\content_api\v1::say($result);
 	}
 

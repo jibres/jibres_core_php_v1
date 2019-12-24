@@ -18,13 +18,13 @@ class get
 
 		if(!$_id)
 		{
-			\dash\notif::error(T_("Id not set"));
+			\dash\notif::error(T_("Product id not set"));
 			return false;
 		}
 
 		if(!is_numeric($_id))
 		{
-			\dash\notif::error(T_("Invalid id"));
+			\dash\notif::error(T_("Invalid product id"));
 			return false;
 		}
 
@@ -39,7 +39,7 @@ class get
 
 			if(!$result)
 			{
-				\dash\notif::error(T_("Detail not found"));
+				\dash\notif::error(T_("Product detail not found"));
 				return false;
 			}
 
