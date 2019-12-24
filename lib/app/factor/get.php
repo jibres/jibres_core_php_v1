@@ -4,6 +4,14 @@ namespace lib\app\factor;
 
 class get
 {
+	private static function fix_id($_id)
+	{
+		if(substr($_id, 0, 2) === 'JF')
+		{
+			$_id = substr($_id, 2);
+		}
+		return $_id;
+	}
 
 
 	/**
@@ -26,6 +34,9 @@ class get
 			\dash\notif::error(T_("Store not found"));
 			return false;
 		}
+
+
+		$_id = self::fix_id($_id);
 
 		if(!$_id)
 		{
@@ -60,6 +71,8 @@ class get
 		{
 			return false;
 		}
+
+		$_id = self::fix_id($_id);
 
 		$factor_detail = \lib\db\factordetails\get::by_factor_id_join_product($_id);
 
