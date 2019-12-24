@@ -61,7 +61,7 @@ class get
 			return false;
 		}
 
-		$factor_detail = \lib\db\factordetails\get::by_factor_id($_id);
+		$factor_detail = \lib\db\factordetails\get::by_factor_id_join_product($_id);
 
 		$result                  = [];
 		$result['factor']        = $factor;
