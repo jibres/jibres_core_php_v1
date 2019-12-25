@@ -19,11 +19,12 @@ class controller
 
 		$level =
 		[
-			'ready/check'    => ['title' => 'Check something'],
-			'ready/db'       => ['title' => 'Ready database to transfer'],
-			'user/db'        => ['title' => 'Transfer users table'],
-			'store/db'       => ['title' => 'Transfer store table'],
-			'store/database' => ['title' => 'Transfer customer database'],
+			'ready/check'     => ['title' => 'Check something'],
+			'ready/db'        => ['title' => 'Ready database to transfer'],
+			'user/db'         => ['title' => 'Transfer users table'],
+			'store/db'        => ['title' => 'Transfer store table'],
+			'store/database'  => ['title' => 'Transfer customer database'],
+			'store/userstore' => ['title' => 'Transfer userstore'],
 		];
 
 		if(!isset($level[$directory]))
