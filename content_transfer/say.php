@@ -8,6 +8,12 @@ class say
 		return __DIR__. '/output.me.log';
 	}
 
+
+	public static function clean()
+	{
+		\dash\file::delete(self::dir());
+	}
+
 	public static function start()
 	{
 		$_text = date("Y-m-d H:i:s"). ' ' . str_repeat('-', 50). " START TRANSFER MACHINE \n";

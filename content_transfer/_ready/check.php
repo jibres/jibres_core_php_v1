@@ -8,7 +8,10 @@ class check
 		\content_transfer\say::info('Check something');
 
 		self::check_exist_database();
+
 		self::sum_all_record();
+
+		self::empty_store_in_jibres();
 	}
 
 
@@ -25,6 +28,15 @@ class check
 		{
 			\content_transfer\say::end('Database jibres_transfer Not founded');
 		}
+
+		if(in_array('jibres', $result))
+		{
+			\content_transfer\say::ok('Database jibres OK');
+		}
+		else
+		{
+			\content_transfer\say::end('Database jibres Not founded');
+		}
 	}
 
 	private static function sum_all_record()
@@ -39,6 +51,22 @@ class check
 		else
 		{
 			\content_transfer\say::end('Database jibres_transfer Not founded');
+		}
+	}
+
+
+	private static function empty_store_in_jibres()
+	{
+		$query = "SELECT * FROM store ";
+		$result = \dash\db::get($query, null, false, 'local', ['database' => 'jibres']);
+
+		if($result)
+		{
+			\content_transfer\say::end('Database jibres.store must be empty!'. ' >> '. count($result). ' Record Founded in this table!');
+		}
+		else
+		{
+			\content_transfer\say::ok('Database jibres.store is empty. OK');
 		}
 	}
 

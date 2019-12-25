@@ -19,18 +19,22 @@ class controller
 
 		$level =
 		[
-			'ready/check'         => ['title' => 'Check something'],
-			'ready/db'            => ['title' => 'Ready database to transfer'],
-			'ready/db1'           => ['title' => 'Ready database 1 to transfer'],
-			'store/transfer'      => ['title' => 'Move store to new database'],
-			'store/store_data'    => ['title' => 'Move store data to new database'],
-			'store/store_setting' => ['title' => 'Move store setting to new database'],
+			'ready/check' => ['title' => 'Check something'],
+			'ready/db'    => ['title' => 'Ready database to transfer'],
+			'user/db'     => ['title' => 'Transfer users table'],
+			'store/db'    => ['title' => 'Transfer store table'],
+
 		];
 
 		if(!isset($level[$directory]))
 		{
 			foreach ($level as $url => $value)
 			{
+				/**
+				 * Remove this link in real mode
+				 */
+				\content_transfer\say::clean();
+
 				\content_transfer\say::start();
 				\dash\redirect::to(\dash\url::here(). '/'.$url);
 			}
