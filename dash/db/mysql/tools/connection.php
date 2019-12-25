@@ -161,9 +161,10 @@ class connection
 		}
 
 		// if link exist before this, use it
-		if(array_key_exists($myDbName, self::$link_open))
+		$LinkKey = $myLove['code']. '_'. $myDbName;
+		if(array_key_exists($LinkKey, self::$link_open))
 		{
-			self::$link = self::$link_open[$myDbName];
+			self::$link = self::$link_open[$LinkKey];
 			return true;
 		}
 
