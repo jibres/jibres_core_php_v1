@@ -1,4 +1,31 @@
-openssl genpkey -algorithm RSA -out ROZP_13981006.pem -pkeyopt rsa_keygen_bits:2048
+# Make Private key
+```
+openssl genrsa -out private_key.pem 2048
+```
 
-$ openssl rsa -pubout -in ROZP_13981006.pem -out public_key.pem
-writing RSA key
+# Make Public key
+```
+openssl rsa -in private_key.pem -outform PEM -pubout -out public_key.pem
+```
+
+
+# Sign File by public key
+
+## Signing:
+```
+openssl dgst -sha256 ROZP_13980919_01_OK.txt > hash
+openssl rsautl -sign -inkey private_key.pem -keyform PEM -in hash >signature
+```
+
+## Verifying just the signature:
+```
+openssl rsautl -verify -inkey public_key.pem -pubin -keyform PEM -in signature
+```
+
+
+
+## Verifying that the owner of the private key does vouch for ROZP_13980919_01_OK.txt:
+
+```
+openssl dgst -sha256 -verify public_key.pem -signature signature ROZP_13980919_01_OK.txt
+```
