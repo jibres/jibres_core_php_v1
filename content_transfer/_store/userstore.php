@@ -123,9 +123,5 @@ class userstore
 			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 		}
 	}
-
-
-
-
 }
 ?>
