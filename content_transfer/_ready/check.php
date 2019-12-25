@@ -12,6 +12,8 @@ class check
 		self::sum_all_record();
 
 		self::empty_store_in_jibres();
+
+		self::empty_users_in_jibres();
 	}
 
 
@@ -62,11 +64,27 @@ class check
 
 		if($result)
 		{
-			\content_transfer\say::end('Database jibres.store must be empty!'. ' >> '. count($result). ' Record Founded in this table!');
+			\content_transfer\say::end('Database jibres.store must be empty!'. ' >> '. count($result). ' Record Founded in store table!');
 		}
 		else
 		{
 			\content_transfer\say::ok('Database jibres.store is empty. OK');
+		}
+	}
+
+
+	private static function empty_users_in_jibres()
+	{
+		$query = "SELECT * FROM users ";
+		$result = \dash\db::get($query, null, false, 'local', ['database' => 'jibres']);
+
+		if($result)
+		{
+			\content_transfer\say::end('Database jibres.users must be empty!'. ' >> '. count($result). ' Record Founded in users table!');
+		}
+		else
+		{
+			\content_transfer\say::ok('Database jibres.users is empty. OK');
 		}
 	}
 

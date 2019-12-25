@@ -37,6 +37,7 @@ class controller
 
 				\content_transfer\say::start();
 				\dash\redirect::to(\dash\url::here(). '/'.$url);
+				return;
 			}
 		}
 		else
