@@ -1,0 +1,4 @@
+openssl genpkey -algorithm RSA -out ROZP_13981006.pem -pkeyopt rsa_keygen_bits:2048
+
+$ openssl rsa -pubout -in ROZP_13981006.pem -out public_key.pem
+writing RSA key
