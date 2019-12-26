@@ -17,14 +17,14 @@ class userstore
 		$query =
 		"
 			SELECT
+			userstores.id AS `xid`,
 			userstores.*,
 			stores.new_id AS `new_store_id`
 			FROM userstores
 			INNER JOIN stores ON stores.id = userstores.store_id
-			WHERE userstores.user_id NOT IN (SELECT stores.creator FROM stores)
 		";
-
 		$result = \dash\db::get($query, null, false, 'local', ['database' => 'jibres_transfer']);
+
 
 		foreach ($result as $key => $value)
 		{
@@ -90,10 +90,9 @@ class userstore
 
 			];
 
-
 			$user_store_id = null;
 
-			$check_query = "SELECT * FROM users WHERE users.mobile = '$value[mobile]' LIMIT 1";
+			$check_query = "SELECT * FROM users WHERE users.jibres_user_id = '$user_store[jibres_user_id]'  LIMIT 1";
 			$check       = \dash\db::get($check_query, null, true, 'local', ['database' => 'jibres_'. $value['new_store_id']]);
 
 			if(isset($check['id']))
@@ -114,12 +113,13 @@ class userstore
 				}
 			}
 
+
 			if(!$user_store_id)
 			{
-				\content_transfer\say::end('Can not add store! '.  json_encode($new_store, JSON_UNESCAPED_UNICODE));
+				\content_transfer\say::end('Can not add userstore! '.  json_encode($new_store, JSON_UNESCAPED_UNICODE));
 			}
 
-			$query = "UPDATE userstores SET userstores.new_id = $user_store_id WHERE userstores.id = $value[id] LIMIT 1";
+			$query = "UPDATE userstores SET userstores.new_id = $user_store_id WHERE userstores.id = $value[xid] LIMIT 1";
 			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 		}
 	}

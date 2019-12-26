@@ -30,6 +30,27 @@ class controller
 			'product/price'    => ['title' => 'Transfer product price'],
 		];
 
+		/**
+		 * Run All step
+		 */
+		if(\dash\request::get('run'))
+		{
+			foreach ($level as $url => $value)
+			{
+				\content_transfer\say::clean();
+				\content_transfer\say::start();
+
+				$fn = str_replace('/', '\\', $url);
+				$name = "\\content_transfer\\_$fn";
+				if(is_callable([$name, 'run']))
+				{
+					$name::run();
+				}
+			}
+			\content_transfer\say::end('Transfer complete');
+		}
+
+
 		if(!isset($level[$directory]))
 		{
 			foreach ($level as $url => $value)

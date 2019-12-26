@@ -23,16 +23,17 @@ class price
 				productprices.*,
 				products.new_id AS `new_product_id`,
 				stores.new_id AS `new_store_id`,
-				IFNULL(userstores.new_id, userstores.user_id) AS `new_user_id`
+				userstores.new_id AS `new_user_id`
 
 			FROM productprices
 
 			INNER JOIN products ON products.id = productprices.product_id
 			INNER JOIN stores ON stores.id = products.store_id
-			INNER JOIN userstores ON userstores.user_id = productprices.creator
+			INNER JOIN userstores ON userstores.user_id = productprices.creator and userstores.store_id = products.store_id
 
 
 			WHERE productprices.new_id IS NULL
+			limit 2
 
 		";
 
