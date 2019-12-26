@@ -387,8 +387,6 @@ class category
 			return false;
 		}
 
-		\dash\permission::access('productCategoryListView');
-
 
 		$result = \lib\db\productcategory\get::list();
 

@@ -401,7 +401,7 @@ class company
 			return false;
 		}
 
-		\dash\permission::access('productCompanyListView');
+		//  \dash\permission::access('productCompanyListView');
 
 
 		$result = \lib\db\productcompany\get::list();
