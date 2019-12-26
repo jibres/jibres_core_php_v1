@@ -25,6 +25,7 @@ class controller
 			'store/db'         => ['title' => 'Transfer store table'],
 			'store/database'   => ['title' => 'Transfer customer database'],
 			'store/userstore'  => ['title' => 'Transfer userstore'],
+			'product/ready'    => ['title' => 'Ready to transfer product'],
 			'product/transfer' => ['title' => 'Transfer product'],
 		];
 
