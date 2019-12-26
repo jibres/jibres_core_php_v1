@@ -5,12 +5,58 @@ class price
 {
 	public static function run()
 	{
-
 		\content_transfer\say::info('Transfer productprice ...');
 		self::transfer_price();
+
+
+		\content_transfer\say::info('Set last productprices record as master price ...');
+		self::set_last();
+
 	}
 
 
+	private static function set_last()
+	{
+		$query = "SELECT * FROM store";
+
+		$result = \dash\db::get($query, null, false, 'local', ['database' => 'jibres']);
+		foreach ($result as $key => $value)
+		{
+			$customer_db = 'jibres_'. $value['id'];
+
+			$last_id_query =
+			"
+				SELECT
+					MAX(productprices.id) AS `id`
+				FROM
+					productprices
+				GROUP BY productprices.product_id
+			";
+
+			$last_product_ids = \dash\db::get($last_id_query, 'id', false, 'local', ['database' => $customer_db]);
+			if(!$last_product_ids)
+			{
+				continue;
+			}
+
+			$last_product_ids = implode(',', $last_product_ids);
+
+			$set_last =
+			"
+				UPDATE
+					productprices
+				SET
+					productprices.last = 'yes'
+
+				WHERE
+					productprices.enddate IS NULL AND
+					productprices.id IN ($last_product_ids)
+			";
+
+			$ok = \dash\db::query($set_last, 'local', ['database' => $customer_db]);
+		}
+
+	}
 
 
 
@@ -33,7 +79,7 @@ class price
 
 
 			WHERE productprices.new_id IS NULL
-			limit 2
+
 
 		";
 
