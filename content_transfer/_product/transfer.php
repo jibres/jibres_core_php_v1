@@ -5,17 +5,76 @@ class transfer
 {
 	public static function run()
 	{
+		\content_transfer\say::info('Transfer cat ...');
+		self::transfer_cat();
+
 		\content_transfer\say::info('Transfer company ...');
 		self::transfer_company();
 
 		\content_transfer\say::info('Transfer product ...');
 		self::transfer_product();
-
-
-
 	}
 
 
+
+
+	private static function transfer_cat()
+	{
+		$query =
+		"
+			SELECT
+			productterms.*,
+			stores.new_id AS `new_store_id`
+			FROM productterms
+			INNER JOIN stores ON stores.id = productterms.store_id
+			WHERE productterms.type = 'cat'
+		";
+
+		$result = \dash\db::get($query, null, false, 'local', ['database' => 'jibres_transfer']);
+
+		foreach ($result as $key => $value)
+		{
+			$new_productterms =
+			[
+				"title"        => $value['title'],
+				"slug"         => $value['slug'],
+				"status"       => $value['status'],
+				"datecreated"  => $value['datecreated'],
+
+			];
+
+			$productterms_id = null;
+
+			$check_query = "SELECT * FROM productcategory WHERE title = '$value[title]' LIMIT 1";
+			$check       = \dash\db::get($check_query, null, true, 'local', ['database' => 'jibres_'. $value['new_store_id']]);
+
+			if(isset($check['id']))
+			{
+				$productterms_id = $check['id'];
+			}
+			else
+			{
+				$set = \dash\db\config::make_set($new_productterms, ['type' => 'insert']);
+
+				$query = " INSERT INTO productcategory SET $set ";
+
+				$inserr_new_store = \dash\db::query($query, 'local', ['database' => 'jibres_'. $value['new_store_id']]);
+
+				if($inserr_new_store)
+				{
+					$productterms_id = \dash\db::insert_id();
+				}
+			}
+
+			if(!$productterms_id)
+			{
+				\content_transfer\say::end('Can not add productterms! '.  json_encode($new_productterms, JSON_UNESCAPED_UNICODE));
+			}
+
+			$query = "UPDATE productterms SET productterms.new_id = $productterms_id WHERE productterms.id = $value[id] LIMIT 1";
+			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
+		}
+	}
 
 
 	private static function transfer_company()
@@ -65,7 +124,7 @@ class transfer
 
 			if(!$productcompany_id)
 			{
-				\content_transfer\say::end('Can not add productcompany! '.  json_encode($new_store, JSON_UNESCAPED_UNICODE));
+				\content_transfer\say::end('Can not add productcompany! '.  json_encode($new_productcompany, JSON_UNESCAPED_UNICODE));
 			}
 
 			$query = "UPDATE productcompany SET productcompany.new_id = $productcompany_id WHERE productcompany.id = $value[id] LIMIT 1";
@@ -188,7 +247,7 @@ class transfer
 
 			if(!$user_store_id)
 			{
-				\content_transfer\say::end('Can not add store! '.  json_encode($new_store, JSON_UNESCAPED_UNICODE));
+				\content_transfer\say::end('Can not add store! '.  json_encode($new_product, JSON_UNESCAPED_UNICODE));
 			}
 
 			$query = "UPDATE userstores SET userstores.new_id = $user_store_id WHERE userstores.id = $value[id] LIMIT 1";
