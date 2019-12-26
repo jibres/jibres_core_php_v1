@@ -9,7 +9,25 @@ class transfer
 	public static function run()
 	{
 
+		$query =
+		"
+
+			SELECT
+				count(*)
+			FROM
+				factors
+			INNER JOIN userstores ON factors.seller = userstores.id
+			WHERE
+				userstores.store_id != factors.store_id
+		";
+
 		\content_transfer\say::info('Transfer factors ...');
+
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.new_id IS NULL";
+
+		$result = \dash\db::get($query, 'count', true, 'local', ['database' => 'jibres_transfer']);
+
+		\content_transfer\say::info(number_format($result).  ' Factors remained ...');
 
 		while (self::$continue)
 		{
@@ -28,14 +46,18 @@ class transfer
 				factors.id AS `factor_id`,
 				stores.new_id AS `new_store_id`,
 				(SELECT userstores.new_id FROM userstores WHERE userstores.id = factors.seller and userstores.store_id = factors.store_id LIMIT 1 ) AS `new_seller_id`,
-				IF(factors.customer IS NOT NULL ,(SELECT userstores.new_id FROM userstores WHERE userstores.id = factors.customer and userstores.store_id = factors.store_id LIMIT 1 ), NULL) AS `new_customer_id`
+				IF(
+					factors.customer IS NOT NULL ,
+					(SELECT userstores.new_id FROM userstores WHERE userstores.id = factors.customer and userstores.store_id = factors.store_id LIMIT 1 ),
+					 NULL
+				  ) AS `new_customer_id`
 
 			FROM factors
 
 			INNER JOIN stores ON stores.id = factors.store_id
 
 			WHERE factors.new_id IS NULL
-			LIMIT 2
+			LIMIT 2000
 
 		";
 
@@ -152,7 +174,7 @@ class transfer
 
 			if(!$factor_new_id)
 			{
-				\content_transfer\say::error('Can not add factor! '.  json_encode($new_factor, JSON_UNESCAPED_UNICODE));
+				\content_transfer\say::end('Can not add factor! '.  json_encode($new_factor, JSON_UNESCAPED_UNICODE));
 			}
 
 
@@ -173,7 +195,7 @@ class transfer
 
 			if($i === 500)
 			{
-				\content_transfer\say::info(self::$count_all .' Factor transfered ...');
+				\content_transfer\say::info(number_format(self::$count_all) .' Factor transfered ...');
 				$i = 0;
 			}
 		}
