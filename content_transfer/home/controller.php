@@ -28,6 +28,7 @@ class controller
 			'product/ready'    => ['title' => 'Ready to transfer product'],
 			'product/transfer' => ['title' => 'Transfer product'],
 			'product/price'    => ['title' => 'Transfer product price'],
+			'factor/transfer'  => ['title' => 'Transfer factors'],
 		];
 
 		/**
