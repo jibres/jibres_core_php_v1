@@ -36,9 +36,9 @@ class controller
 		 */
 		if(\dash\request::get('run'))
 		{
+
 			foreach ($level as $url => $value)
 			{
-				\content_transfer\say::clean();
 				\content_transfer\say::start();
 
 				$fn = str_replace('/', '\\', $url);
@@ -56,10 +56,6 @@ class controller
 		{
 			foreach ($level as $url => $value)
 			{
-				/**
-				 * Remove this link in real mode
-				 */
-				\content_transfer\say::clean();
 
 				\content_transfer\say::start();
 				\dash\redirect::to(\dash\url::here(). '/'.$url);
