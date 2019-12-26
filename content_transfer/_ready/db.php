@@ -21,6 +21,10 @@ class db
 
 		\content_transfer\say::info('Alter table to add field productterms.new_id');
 		self::productterms_new_id();
+
+
+		\content_transfer\say::info('Alter table to add field productunit.new_id');
+		self::productunit_new_id();
 	}
 
 
@@ -58,6 +62,13 @@ class db
 	private static function productterms_new_id()
 	{
 		$query  = "ALTER TABLE jibres_transfer.productterms ADD `new_id` int(10) unsigned NULL DEFAULT NULL AFTER `id` ";
+		$result = \dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
+
+	}
+
+	private static function productunit_new_id()
+	{
+		$query  = "ALTER TABLE jibres_transfer.productunit ADD `new_id` int(10) unsigned NULL DEFAULT NULL AFTER `id` ";
 		$result = \dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 
 	}
