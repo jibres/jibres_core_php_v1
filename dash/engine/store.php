@@ -197,10 +197,10 @@ class store
 	{
 		$db_name           = 'jibres_'. $_store_id;
 
-		if(\dash\url::isLocal())
-		{
-			$db_name           = 'jibresLocal_'. $_store_id;
-		}
+		// if(\dash\url::isLocal())
+		// {
+		// 	$db_name           = 'jibresLocal_'. $_store_id;
+		// }
 
 		return $db_name;
 	}
