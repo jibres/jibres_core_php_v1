@@ -5,12 +5,75 @@ class transfer
 {
 	public static function run()
 	{
+		\content_transfer\say::info('Transfer company ...');
+		self::transfer_company();
+
 		\content_transfer\say::info('Transfer product ...');
 		self::transfer_product();
 
 
 
 	}
+
+
+
+
+	private static function transfer_company()
+	{
+		$query =
+		"
+			SELECT
+			productcompany.*,
+			stores.new_id AS `new_store_id`
+			FROM productcompany
+			INNER JOIN stores ON stores.id = productcompany.store_id
+		";
+
+		$result = \dash\db::get($query, null, false, 'local', ['database' => 'jibres_transfer']);
+
+
+		foreach ($result as $key => $value)
+		{
+			$new_productcompany =
+			[
+				"title"           => $value['title'],
+			];
+
+
+			$productcompany_id = null;
+
+			$check_query = "SELECT * FROM productcompany WHERE title = '$value[title]' LIMIT 1";
+			$check       = \dash\db::get($check_query, null, true, 'local', ['database' => 'jibres_'. $value['new_store_id']]);
+
+			if(isset($check['id']))
+			{
+				$productcompany_id = $check['id'];
+			}
+			else
+			{
+				$set = \dash\db\config::make_set($new_productcompany, ['type' => 'insert']);
+
+				$query = " INSERT INTO productcompany SET $set ";
+
+				$inserr_new_store = \dash\db::query($query, 'local', ['database' => 'jibres_'. $value['new_store_id']]);
+
+				if($inserr_new_store)
+				{
+					$productcompany_id = \dash\db::insert_id();
+				}
+			}
+
+			if(!$productcompany_id)
+			{
+				\content_transfer\say::end('Can not add productcompany! '.  json_encode($new_store, JSON_UNESCAPED_UNICODE));
+			}
+
+			$query = "UPDATE productcompany SET productcompany.new_id = $productcompany_id WHERE productcompany.id = $value[id] LIMIT 1";
+			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
+		}
+	}
+
+
 
 
 	private static function transfer_product()

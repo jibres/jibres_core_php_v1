@@ -13,6 +13,10 @@ class db
 
 		\content_transfer\say::info('Add field product.new_id To save new product id in old db');
 		self::product_new_id();
+
+
+		\content_transfer\say::info('Add field productcompany.new_id To save new productcompany id in old db and fix &quot; from title of company');
+		self::productcompany_new_id();
 	}
 
 
@@ -34,6 +38,16 @@ class db
 	private static function product_new_id()
 	{
 		$query  = "ALTER TABLE jibres_transfer.products ADD `new_id` int(10) unsigned NULL DEFAULT NULL AFTER `id` ";
+		$result = \dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
+	}
+
+
+	private static function productcompany_new_id()
+	{
+		$query  = "ALTER TABLE jibres_transfer.productcompany ADD `new_id` int(10) unsigned NULL DEFAULT NULL AFTER `id` ";
+		$result = \dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
+
+		$query  = "UPDATE jibres_transfer.productcompany SET productcompany.title = REPLACE(productcompany.title, '&quot;', '') ";
 		$result = \dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 	}
 
