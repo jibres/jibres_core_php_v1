@@ -27,6 +27,7 @@ class controller
 			'store/userstore'  => ['title' => 'Transfer userstore'],
 			'product/ready'    => ['title' => 'Ready to transfer product'],
 			'product/transfer' => ['title' => 'Transfer product'],
+			'product/price'    => ['title' => 'Transfer product price'],
 		];
 
 		if(!isset($level[$directory]))
