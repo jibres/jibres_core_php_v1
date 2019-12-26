@@ -14,9 +14,9 @@ class say
 		\dash\file::delete(self::dir());
 	}
 
-	public static function start()
+	public static function start($_text = null)
 	{
-		$_text = date("Y-m-d H:i:s"). ' ' . str_repeat('-', 50). " START TRANSFER MACHINE \n";
+		$_text = date("Y-m-d H:i:s"). ' ' . str_repeat('-', 60). " TRANSFER MACHINE  \n". ($_text) ? " (On leve $_text) " : null;
 		\dash\file::append(self::dir(), $_text);
 	}
 

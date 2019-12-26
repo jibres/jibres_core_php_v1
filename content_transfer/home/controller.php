@@ -39,7 +39,7 @@ class controller
 
 			foreach ($level as $url => $value)
 			{
-				\content_transfer\say::start();
+				\content_transfer\say::start($value['title']);
 
 				$fn = str_replace('/', '\\', $url);
 				$name = "\\content_transfer\\_$fn";
