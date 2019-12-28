@@ -8,7 +8,49 @@ class userstore
 		\content_transfer\say::info('Transfer userstore ...');
 		self::transfer_user_store();
 
+		\content_transfer\say::info('Make store_user record ...');
+		self::make_store_user();
+	}
 
+
+	private static function make_store_user()
+	{
+		$query =
+		"
+			SELECT
+			userstores.id AS `xid`,
+			userstores.*,
+			stores.new_id AS `new_store_id`
+			FROM userstores
+			INNER JOIN stores ON stores.id = userstores.store_id
+		";
+		$result = \dash\db::get($query, null, false, 'local', ['database' => 'jibres_transfer']);
+
+		foreach ($result as $key => $value)
+		{
+			$check_record = "SELECT * FROM store_user WHERE store_user.store_id = $value[new_store_id] AND store_user.user_id = $value[user_id] LIMIT 1";
+			$get_record = \dash\db::get($check_record, null, true , 'local', ['database' => 'jibres']);
+			if(!isset($get_record['id']))
+			{
+				$insert_new_store_user =
+				[
+					'store_id'     => $value['new_store_id'],
+					'creator'      => $value['user_id'],
+					'user_id'      => $value['user_id'],
+					'customer'     => $value['customer'] ? 'yes' : 'no',
+					'staff'        => $value['staff'] 	 ? 'yes' : 'no',
+					'supplier'     => $value['supplier'] ? 'yes' : 'no',
+					'datecreated'  => $value['datecreated'],
+					'datemodified' => $value['datemodified'],
+				];
+
+				$set = \dash\db\config::make_set($insert_new_store_user, ['type' => 'insert']);
+
+				$query = " INSERT INTO store_user SET $set ";
+
+				$inserr_new_store = \dash\db::query($query, 'local', ['database' => 'jibres']);
+			}
+		}
 	}
 
 
