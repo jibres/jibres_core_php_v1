@@ -566,8 +566,8 @@ class comments
 			LEFT JOIN users ON users.id = comments.user_id
 			WHERE
 				comments.post_id        = $_post_id AND
-				comments.status = 'approved' AND
-				comments.type   = 'comment'
+				comments.status = 'approved'
+
 			ORDER BY RAND()
 			LIMIT $_limit
 		)
@@ -589,8 +589,8 @@ class comments
 			LEFT JOIN users ON users.id = comments.user_id
 			WHERE
 				comments.post_id      = $_post_id AND
-				comments.user_id      = $_user_id AND
-				comments.type = 'comment'
+				comments.user_id      = $_user_id
+
 			ORDER BY comments.id DESC
 			LIMIT 1
 			)
@@ -793,7 +793,7 @@ class comments
 		}
 
 		$pagenation_query =
-		"SELECT	id	FROM comments WHERE	comments.type = 'comment' AND comments.status = 'unapproved'
+		"SELECT	id	FROM comments WHERE	 comments.status = 'unapproved'
 		 -- comments::admin_get() for pagenation ";
 		list($limit_start, $_limit) = \dash\db\mysql\tools\pagination::pagnation($pagenation_query, $_limit);
 		$limit = " LIMIT $limit_start, $_limit ";
@@ -811,7 +811,6 @@ class comments
 			INNER JOIN posts ON posts.id = comments.post_id
 			INNER JOIN users ON users.id = comments.user_id
 			WHERE
-				comments.type = 'comment' AND
 				comments.status = 'unapproved'
 			ORDER BY id ASC
 			$limit
