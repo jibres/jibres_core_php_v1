@@ -9,9 +9,9 @@
 </div>
 
 <div class="f">
- {%if perm('productSummary')%}<div class="c4 s0">{{block ("stProductDashboard")}}</div>{%endif%}
- {%if perm('productList')%}<div class="c4 s6">{{block ("stProduct")}}</div>{%endif%}
- {%if perm('productAdd')%}<div class="c4 s6">{{block ("stProductAdd")}}</div>{%endif%}
+ {%if false %}<div class="c4 s0">{{block ("stProductDashboard")}}</div>{%endif%}
+ {%if perm('productList')%}<div class="c6 s6">{{block ("stProduct")}}</div>{%endif%}
+ {%if perm('productAdd')%}<div class="c6 s6">{{block ("stProductAdd")}}</div>{%endif%}
 </div>
 
 <div class="f">
@@ -100,7 +100,7 @@
 
 
 {%block stCustomer%}
-<a class="dcard" href='{{url.here}}/thirdparty?type=customer'>
+<a class="dcard" href='{{url.kingdom}}/crm'>
  <div class="statistic gray">
   <div class="value"><i class="sf-user"></i><span>{{dashboardData.customer_count |fitNumber}}</span></div>
   <div class="label">{%trans "Customer"%}</div>
@@ -110,7 +110,7 @@
 
 
 {%block stSupplier%}
-<a class="dcard" href='{{url.here}}/thirdparty?type=supplier'>
+<a class="dcard" href='{{url.kingdom}}/crm'>
  <div class="statistic teal">
   <div class="value"><i class="sf-network"></i><span class="fs08">{{dashboardData.supplier_count |fitNumber}}</span></div>
   <div class="label">{%trans "Supplier"%}</div>
@@ -120,7 +120,7 @@
 
 
 {%block stStaff%}
-<a class="dcard" href='{{url.here}}/thirdparty?type=staff'>
+<a class="dcard" href='{{url.kingdom}}/crm'>
  <div class="statistic orange">
   <div class="value"><i class="sf-user-4"></i><span>{{dashboardData.staff_count |fitNumber}}</span></div>
   <div class="label">{%trans "Staff"%}</div>
