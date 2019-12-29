@@ -14,7 +14,62 @@ class dash
 		\content_transfer\say::info('Transfer jibres termusage ...');
 		self::termusage();
 
+		\content_transfer\say::info('Transfer jibres ticket ...');
+		self::ticket();
+
 		j('end');
+	}
+
+	private static function ticket()
+	{
+		$query =
+		"
+			INSERT INTO jibres.tickets
+			(
+				`id`,
+				`user_id`,
+				`title`,
+				`content`,
+				`meta`,
+				`status`,
+				`parent`,
+				`type`,
+				`ip`,
+				`file`,
+				`plus`,
+				`answertime`,
+				`solved`,
+				`via`,
+				`see`,
+				`datemodified`,
+				`datecreated`
+			)
+			SELECT
+				jibres_transfer.tickets.id,
+				jibres_transfer.tickets.user_id,
+				jibres_transfer.tickets.title,
+				jibres_transfer.tickets.content,
+				jibres_transfer.tickets.meta,
+				jibres_transfer.tickets.status,
+				jibres_transfer.tickets.parent,
+				jibres_transfer.tickets.type,
+				jibres_transfer.tickets.ip,
+				jibres_transfer.tickets.file,
+				jibres_transfer.tickets.plus,
+				jibres_transfer.tickets.answertime,
+				jibres_transfer.tickets.solved,
+				jibres_transfer.tickets.via,
+				jibres_transfer.tickets.see,
+				jibres_transfer.tickets.datemodified,
+				jibres_transfer.tickets.datecreated
+			FROM
+				jibres_transfer.tickets
+			WHERE 1
+		";
+
+		$result = \dash\db::query($query,'local', ['database' => 'jibres']);
+
+
 	}
 
 	private static function termusage()
