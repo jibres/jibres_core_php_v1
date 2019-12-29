@@ -9,6 +9,12 @@ class unit
 
 	public static function check_add($_unit)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		$get_unit_title = \lib\db\productunit\get::by_title($_unit);
 		if(isset($get_unit_title['id']))
 		{
@@ -128,6 +134,12 @@ class unit
 			return false;
 		}
 
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		\dash\app::variable($_args);
 
 		$args = self::check();
@@ -169,6 +181,12 @@ class unit
 	{
 		if(!\dash\permission::check('productUnitDelete'))
 		{
+			return false;
+		}
+
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
 			return false;
 		}
 
@@ -302,6 +320,12 @@ class unit
 
 		if(!\dash\permission::check('productUnitListEdit'))
 		{
+			return false;
+		}
+
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
 			return false;
 		}
 

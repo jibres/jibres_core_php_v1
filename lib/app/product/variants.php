@@ -79,6 +79,12 @@ class variants
 	 */
 	public static function set($_variants, $_id)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		// load main product detail
 		$product_detail = \lib\app\product\get::inline_get($_id);
 
@@ -256,6 +262,12 @@ class variants
 	 */
 	public static function clean_product($_product_id)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		if($_product_id && is_numeric($_product_id))
 		{
 			\dash\temp::set('productHasChange', true);
@@ -266,6 +278,12 @@ class variants
 
 	public static function set_product($_variants, $_product_id)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		$load_product = \lib\app\product\get::inline_get($_product_id);
 		if(!$load_product || !isset($load_product['id']) || !isset($load_product['type']))
 		{

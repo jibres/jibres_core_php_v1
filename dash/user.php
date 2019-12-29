@@ -195,6 +195,12 @@ class user
 
 		if(self::inStore())
 		{
+			// supervisor can view all store data
+			if(!$store_data && $user_data && isset($user_data['permission']) && $user_data['permission'] === 'supervisor')
+			{
+				$store_data = $user_data;
+			}
+
 			self::$detail = $store_data;
 		}
 		else

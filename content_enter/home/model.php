@@ -97,11 +97,6 @@ class model
 
 				\dash\user::destroy();
 
-				if(is_callable(['\lib\user', 'refresh']))
-				{
-					\dash\user::refresh();
-				}
-
 				\dash\utility\enter::load_user_data($user_id, 'user_id');
 
 				$_SESSION['main_account'] = $main_account;

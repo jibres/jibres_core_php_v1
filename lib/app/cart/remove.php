@@ -17,6 +17,12 @@ class remove
 			return false;
 		}
 
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 
 		$load_product = \lib\app\product\get::inline_get($_product_id);
 		if(!$load_product)

@@ -70,6 +70,15 @@ class add
 			return false;
 		}
 
+		if(!\lib\store::in_store())
+		{
+			if($_option['debug'])
+			{
+				\dash\notif::error(T_("Your are not in this store!"));
+			}
+			return false;
+		}
+
 		$args = \lib\app\product\check::variable(null, $_option);
 
 		if($args === false || !\dash\engine\process::status())

@@ -17,6 +17,12 @@ class edit
 			return false;
 		}
 
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		// check count < stock of this product and count < 9999
 		if(!is_numeric($_count))
 		{

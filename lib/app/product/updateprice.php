@@ -6,6 +6,12 @@ class updateprice
 
 	public static function check($_product_id, $_args, $_from_buy_factor = false)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		$changed    = false;
 		$changed    = $_from_buy_factor;
 

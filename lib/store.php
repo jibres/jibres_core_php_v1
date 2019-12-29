@@ -124,6 +124,23 @@ class store
 	}
 
 
+	/**
+	 * Check user is inserted to current database user or no
+	 * where supervisor check the store the supervisor not in_stroe and can not add or edit any thing
+	 */
+	public static function in_store()
+	{
+		if(\dash\user::is_init_store_user())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
 	private static function file_store_data($_store_detail)
 	{
 		if(!isset($_store_detail['id']))

@@ -41,6 +41,16 @@ class edit
 			return false;
 		}
 
+		if(!\lib\store::in_store())
+		{
+			if($_option['debug'])
+			{
+				\dash\notif::error(T_("Your are not in this store!"));
+			}
+			return false;
+		}
+
+
 		$product_detail = \lib\app\product\get::inline_get($_id);
 		if(!$product_detail || !isset($product_detail['id']))
 		{

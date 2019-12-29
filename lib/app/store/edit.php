@@ -6,6 +6,12 @@ class edit
 {
 	public static function title($_title)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		if(!$_title)
 		{
 			\dash\notif::error(T_("Title of your store is required"), 'title');
@@ -39,8 +45,16 @@ class edit
 
 	}
 
+
+
 	public static function logo($_logo)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		if(!$_logo)
 		{
 			return false;
@@ -72,6 +86,12 @@ class edit
 
 	public static function selfedit($_args)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		\dash\app::variable($_args);
 
 		$args = \lib\app\store\check::variable();

@@ -11,6 +11,12 @@ class tag
 			return false;
 		}
 
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		if(!$_tag)
 		{
 			$have_old_tag = \lib\db\producttagusage\get::usage($_product_id);

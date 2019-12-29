@@ -27,16 +27,24 @@ class add
 
 		$_option = array_merge($default_option, $_option);
 
-		// check permission to add new factor
-		\dash\permission::access('factorAccess');
+
 
 		// store not loaded!
 		if(!\lib\store::id())
 		{
-			\dash\log::set('factor:store_id:notfound');
 			\dash\notif::error(T_("Store not found"), 'subdomain');
 			return false;
 		}
+
+		// check permission to add new factor
+		\dash\permission::access('factorAccess');
+
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 
 		\dash\app::variable($_factor);
 		// check args

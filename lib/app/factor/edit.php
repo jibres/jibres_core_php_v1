@@ -52,9 +52,9 @@ class edit
 			return false;
 		}
 
-		if(!\lib\userstore::in_store())
+		if(!\lib\store::in_store())
 		{
-			\dash\notif::error(T_("You are not in this store"), 'subdomain');
+			\dash\notif::error(T_("You are not in this store"));
 			return false;
 		}
 

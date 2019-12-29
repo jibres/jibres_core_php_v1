@@ -85,6 +85,12 @@ class gallery
 			return false;
 		}
 
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		$load_gallery = self::get_gallery_field($_product_id);
 		if(!$load_gallery)
 		{
@@ -117,6 +123,12 @@ class gallery
 
 	public static function gallery($_product_id, $_file_detail, $_type = 'add')
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		$load_gallery = self::get_gallery_field($_product_id);
 		if(!$load_gallery)
 		{
@@ -129,6 +141,7 @@ class gallery
 
 		if($_type === 'add')
 		{
+
 			if(isset($_file_detail['path']))
 			{
 				$file_path = $_file_detail['path'];

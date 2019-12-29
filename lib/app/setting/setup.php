@@ -88,6 +88,12 @@ class setup
 
 	private static function multi_save($_args, $_current_level)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		foreach ($_args as $key => $value)
 		{
 			\lib\app\setting\tools::update('store_setting', $key, $value);
@@ -264,6 +270,12 @@ class setup
 	 */
 	public static function upload_logo()
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		$file = \dash\upload\store_logo::set();
 
 		$old_logo = \lib\app\setting\tools::get('store_setting', 'logo');

@@ -9,6 +9,12 @@ class category
 
 	public static function check_add($_category)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		$get_category_title = \lib\db\productcategory\get::by_title($_category);
 		if(isset($get_category_title['id']))
 		{
@@ -114,6 +120,12 @@ class category
 			return false;
 		}
 
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		\dash\app::variable($_args);
 
 		$args = self::check();
@@ -158,6 +170,12 @@ class category
 	{
 		if(!\dash\permission::check('productCategoryDelete'))
 		{
+			return false;
+		}
+
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
 			return false;
 		}
 
@@ -291,6 +309,12 @@ class category
 
 		if(!\dash\permission::check('productCategoryListEdit'))
 		{
+			return false;
+		}
+
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
 			return false;
 		}
 

@@ -9,6 +9,12 @@ class company
 
 	public static function check_add($_company)
 	{
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		$get_company_title = \lib\db\productcompany\get::by_title($_company);
 		if(isset($get_company_title['id']))
 		{
@@ -107,6 +113,12 @@ class company
 			return false;
 		}
 
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		\dash\app::variable($_args);
 
 		$args = self::check();
@@ -147,6 +159,12 @@ class company
 	{
 		if(!\dash\permission::check('productCompanyDelete'))
 		{
+			return false;
+		}
+
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
 			return false;
 		}
 
@@ -280,6 +298,12 @@ class company
 
 		if(!\dash\permission::check('productCompanyListEdit'))
 		{
+			return false;
+		}
+
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
 			return false;
 		}
 
