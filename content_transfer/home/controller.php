@@ -25,6 +25,7 @@ class controller
 			'store/db'         => ['title' => 'Transfer store table'],
 			'store/database'   => ['title' => 'Transfer customer database'],
 			'store/userstore'  => ['title' => 'Transfer userstore'],
+			'store/logo'       => ['title' => 'Transfer store logo'],
 			'product/ready'    => ['title' => 'Ready to transfer product'],
 			'product/transfer' => ['title' => 'Transfer product'],
 			'product/price'    => ['title' => 'Transfer product price'],
