@@ -4,33 +4,33 @@
 {%block headerArea%}{%endblock%}
 
 {%block storeDetailArea%}
-{%if currentStore.logo_raw %}
+{%if store.store_data.logo %}
   <div class="logo txtC midSize">
-   <img src="{{currentStore.logo}}" alt="{{currentStore.name}}">
+   <img src="{{store.store_data.logo}}" alt="{{store.store_data.title}}">
   </div>
 {%endif%}
 
  <div class="f storeDetail fs12 txtC">
   <div class="c">
-   <h1>{{currentStore.name}}</h1>
+   <h1>{{store.store_data.title}}</h1>
    <address>
-    <div class="address">{{currentStore.address}}</div>
+    <div class="address">{{store.store_data.address}}</div>
     <div class="f">
-     <div class="phone">{{currentStore.phone | fitNumber(false)}}</div>
-     <div class="website">{{currentStore.website}}</div>
+     <div class="phone">{{store.store_data.phone | fitNumber(false)}}</div>
+     <div class="website">{{store.store_data.website}}</div>
     </div>
    </address>
-   <div class="desc mB5">{{currentStore.desc}}</div>
+   <div class="desc mB5">{{store.store_data.desc}}</div>
   </div>
  </div>
 {%endblock%}
 
 
 {%block factorHeader%}
-{%if currentStore.factorheader%}
+{%if store.store_data.factorheader%}
 <hr>
 <p class="factorHeader fs12 txtC">
-{{currentStore.factorheader | raw | nl2br}}
+{{store.store_data.factorheader | raw | nl2br}}
 </p>
 {%endif%}
 {%endblock%}
@@ -145,10 +145,10 @@
 </div>
 
 {%block factorFooter%}
-{% if currentStore.factorfooter%}
+{% if store.store_data.factorfooter%}
 <hr>
 <p class="factorFooter fs14 txtC">
-{{currentStore.factorfooter | raw | nl2br}}
+{{store.store_data.factorfooter | raw | nl2br}}
 </p>
 {%endif%}
 {%endblock%}

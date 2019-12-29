@@ -6,19 +6,19 @@
 {%block storeDetailArea%}
  <div class="f storeDetail fs11">
   <div class="c">
-   <h1>{{currentStore.name}}</h1>
+   <h1>{{store.store_data.title}}</h1>
    <address>
-    <div class="address">{{currentStore.address}}</div>
+    <div class="address">{{store.store_data.address}}</div>
     <div class="f">
-     <div class="phone">{{currentStore.phone | fitNumber(false)}}</div>
-     <div class="website">{{currentStore.website}}</div>
+     <div class="phone">{{store.store_data.phone | fitNumber(false)}}</div>
+     <div class="website">{{store.store_data.website}}</div>
     </div>
    </address>
-   <div class="desc">{{currentStore.desc}}</div>
+   <div class="desc">{{store.store_data.desc}}</div>
   </div>
-{%if currentStore.logo_raw %}
+{%if store.store_data.logo %}
   <div class="c4 logo txtRa">
-   <img src="{{currentStore.logo}}" alt="{{currentStore.name}}">
+   <img src="{{store.store_data.logo}}" alt="{{store.store_data.title}}">
   </div>
 {%endif%}
  </div>
@@ -26,10 +26,10 @@
 
 
 {%block factorHeader%}
-{%if currentStore.factorheader%}
+{%if store.store_data.factorheader%}
 <hr>
 <p class="factorHeader fs11">
-{{currentStore.factorheader | raw | nl2br}}
+{{store.store_data.factorheader | raw | nl2br}}
 </p>
 {%endif%}
 {%endblock%}
@@ -89,12 +89,12 @@
  {%for key, datarow in factorDetail.factor_detail%}
   <tr>
    <td class="fs09 txtLa">{{datarow.title}}</td>
-   <td>{{datarow.factordetails_count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
-   <td>{{datarow.factordetails_price | fitNumber}}</td>
+   <td>{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
+   <td>{{datarow.price | fitNumber}}</td>
 {%if factorDetail.factor.detaildiscount%}
-   <td>{{datarow.factordetails_discount | fitNumber}}</td>
+   <td>{{datarow.discount | fitNumber}}</td>
 {%endif%}
-   <td>{{datarow.factordetails_sum | fitNumber}}</td>
+   <td>{{datarow.sum | fitNumber}}</td>
   </tr>
  {%endfor%}
   </tbody>
@@ -140,10 +140,10 @@
 
 
 {%block factorFooter%}
-{% if currentStore.factorfooter%}
+{% if store.store_data.factorfooter%}
 <hr>
 <p class="factorFooter fs11">
-{{currentStore.factorfooter | raw | nl2br}}
+{{store.store_data.factorfooter | raw | nl2br}}
 </p>
 {%endif%}
 {%endblock%}

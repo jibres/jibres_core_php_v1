@@ -66,6 +66,7 @@ class get
 
 	public static function full($_id)
 	{
+		// load factor
 		$factor = self::one($_id);
 		if(!$factor)
 		{
@@ -74,12 +75,38 @@ class get
 
 		$_id = self::fix_id($_id);
 
+		// load factor detail
 		$factor_detail = \lib\db\factordetails\get::by_factor_id_join_product($_id);
 
 		if($factor_detail)
 		{
 			$factor_detail = array_map(['\\lib\\app\\factor\\ready', 'row'], $factor_detail);
 		}
+
+		// load customer detail
+		if(isset($factor['customer']) && $factor['customer'])
+		{
+			$load_customer = \dash\db\users::get_by_id($factor['customer']);
+
+			if(isset($load_customer['displayname']))
+			{
+				$factor['customer_displayname'] = $load_customer['displayname'];
+			}
+
+			if(isset($load_customer['phone']))
+			{
+				$factor['customer_phone'] = $load_customer['phone'];
+			}
+
+			if(isset($load_customer['mobile']))
+			{
+				$factor['customer_mobile'] = $load_customer['mobile'];
+			}
+		}
+
+		// load address saved on this factor
+		// @reza
+
 		$result                  = [];
 		$result['factor']        = $factor;
 		$result['factor_detail'] = $factor_detail;
