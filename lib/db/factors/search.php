@@ -39,16 +39,15 @@ class search
 
 
 
-	public static function list_join_price($_and, $_or, $_order_sort = null, $_meta = [])
+	public static function list_join_factordetails($_and, $_or, $_order_sort = null, $_meta = [])
 	{
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query =
 		"
-			SELECT COUNT(*) AS `count`
-			FROM factors
-			LEFT JOIN productprices ON productprices.product_id = factors.id AND productprices.last = 'yes'
+			SELECT COUNT(*) AS `count` FROM factors
+			LEFT JOIN factordetails ON factors.id = factordetails.factor_id
 			$q[where]
 		";
 
@@ -57,13 +56,10 @@ class search
 		$query =
 		"
 			SELECT
-				factors.*,
-				productprices.buyprice,
-				productprices.price,
-				productprices.discount
+				factors.*
 			FROM factors
-			LEFT JOIN productprices ON productprices.product_id = factors.id AND productprices.last = 'yes'
-				$q[where] $q[order] $limit
+			LEFT JOIN factordetails ON factors.id = factordetails.factor_id
+			$q[where] $q[order] $limit
 		";
 
 		$result = \dash\db::get($query);
