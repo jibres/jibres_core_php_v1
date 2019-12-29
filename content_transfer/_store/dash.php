@@ -17,8 +17,141 @@ class dash
 		\content_transfer\say::info('Transfer jibres ticket ...');
 		self::ticket();
 
+		\content_transfer\say::info('Transfer jibres transactions ...');
+		self::transactions();
+
 		j('end');
 	}
+
+
+	private static function transactions()
+	{
+		$query =
+		"
+			INSERT INTO jibres.transactions
+			(
+				`id`,
+				`user_id`,
+				`code`,
+				`title`,
+				`caller`,
+				`type`,
+				`unit_id`,
+				`amount_request`,
+				`amount_end`,
+				`plus`,
+				`minus`,
+				`budget_before`,
+				`budget`,
+				`status`,
+				`condition`,
+				`verify`,
+				`parent_id`,
+				`related_user_id`,
+				`related_foreign`,
+				`related_id`,
+				`payment`,
+				`payment_response`,
+				`meta`,
+				`desc`,
+				`datecreated`,
+				`datemodified`,
+				`invoice_id`,
+				`date`,
+				`dateverify`,
+				`payment_response1`,
+				`payment_response2`,
+				`payment_response3`,
+				`payment_response4`,
+				`token`,
+				`banktoken`,
+				`finalmsg`
+
+
+			)
+			SELECT
+				jibres_transfer.transactions.id,
+				jibres_transfer.transactions.user_id,
+				jibres_transfer.transactions.code,
+				jibres_transfer.transactions.title,
+				jibres_transfer.transactions.caller,
+				jibres_transfer.transactions.type,
+				jibres_transfer.transactions.unit_id,
+				jibres_transfer.transactions.amount_request,
+				jibres_transfer.transactions.amount_end,
+				jibres_transfer.transactions.plus,
+				jibres_transfer.transactions.minus,
+				jibres_transfer.transactions.budget_before,
+				jibres_transfer.transactions.budget,
+				jibres_transfer.transactions.status,
+				jibres_transfer.transactions.condition,
+				jibres_transfer.transactions.verify,
+				jibres_transfer.transactions.parent_id,
+				jibres_transfer.transactions.related_user_id,
+				jibres_transfer.transactions.related_foreign,
+				jibres_transfer.transactions.related_id,
+				jibres_transfer.transactions.payment,
+				jibres_transfer.transactions.payment_response,
+				jibres_transfer.transactions.meta,
+				jibres_transfer.transactions.desc,
+				jibres_transfer.transactions.datecreated,
+				jibres_transfer.transactions.datemodified,
+				jibres_transfer.transactions.invoice_id,
+				jibres_transfer.transactions.date,
+				jibres_transfer.transactions.dateverify,
+				jibres_transfer.transactions.payment_response1,
+				jibres_transfer.transactions.payment_response2,
+				jibres_transfer.transactions.payment_response3,
+				jibres_transfer.transactions.payment_response4,
+				jibres_transfer.transactions.token,
+				jibres_transfer.transactions.banktoken,
+				jibres_transfer.transactions.finalmsg
+			FROM
+				jibres_transfer.transactions
+			WHERE 1
+		";
+
+		$result = \dash\db::query($query,'local', ['database' => 'jibres']);
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	private static function ticket()
 	{
