@@ -397,7 +397,8 @@ class check
 			\dash\notif::warn(T_("Invalid product detail in some record of this factor, [:key]", ['key' => implode(',', $have_warn)]));
 		}
 
-		$check_true_product = \lib\db\products\get::by_multi_id($allproduct_id);
+
+		$check_true_product = \lib\db\products\get::by_multi_id(implode(',', $allproduct_id));
 		$true_product_ids   = array_column($check_true_product, 'id');
 		$check_true_product = array_combine($true_product_ids, $check_true_product);
 

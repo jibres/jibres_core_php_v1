@@ -3,6 +3,13 @@ namespace lib\db\factordetails;
 
 class get
 {
+	public static function by_multi_factor_id($_ids)
+	{
+		$query = "SELECT * FROM factordetails WHERE factordetails.factor_id IN ($_ids)";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 
 
 	public static function by_factor_id($_id)

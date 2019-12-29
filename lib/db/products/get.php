@@ -104,9 +104,8 @@ class get
 	 */
 	public static function by_multi_id($_ids)
 	{
-		$ids          = implode(',', $_ids);
 		$public_query = self::product_query_string();
-		$query        = "SELECT  $public_query WHERE products.id IN ($ids)";
+		$query        = "SELECT  $public_query WHERE products.id IN ($_ids)";
 		$result       = \dash\db::get($query);
 		return $result;
 	}

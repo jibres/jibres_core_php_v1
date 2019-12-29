@@ -96,6 +96,11 @@ class search
 			}
 		}
 
+		if(!$order_sort)
+		{
+			$order_sort = " ORDER BY factors.id DESC ";
+		}
+
 
 		$and = array_merge($and, $_where);
 
@@ -138,8 +143,80 @@ class search
 
 	public static function list($_string, $_args)
 	{
-		$list = self::factors_list('detail', $_string, $_args);
-		return $list;
+		$result = self::factors_list('detail', $_string, $_args);
+
+		$factors_id = array_column($result, 'id');
+		$factors_id = array_unique($factors_id);
+		$factors_id = array_filter($factors_id);
+
+		if($factors_id)
+		{
+			// load all product in this factor
+			$factors_id    = implode(',', $factors_id);
+			$factor_detail = \lib\db\factordetails\get::by_multi_factor_id($factors_id);
+
+			// load all product in this factors
+			$products_id   = [];
+			if(is_array($factor_detail))
+			{
+				$products_id = array_column($factor_detail, 'product_id');
+				$products_id = array_unique($products_id);
+				$products_id = array_filter($products_id);
+
+				if($products_id)
+				{
+					$products_id = implode(',', $products_id);
+					$product_detail = \lib\db\products\get::by_multi_id($products_id);
+					if($product_detail && is_array($product_detail))
+					{
+						$result = self::merge_detail($result, $factor_detail, $product_detail);
+					}
+				}
+
+			}
+
+		}
+
+
+
+		return $result;
+	}
+
+
+	private static function merge_detail($_result, $_factor_detail, $_produect_detail)
+	{
+		$product_detail = array_combine(array_column($_produect_detail, 'id'), $_produect_detail);
+
+		$factor_product = [];
+		foreach ($_factor_detail as $key => $value)
+		{
+			if(!isset($factor_product[$value['factor_id']]))
+			{
+				$factor_product[$value['factor_id']] = [];
+			}
+			$temp = [];
+			if(isset($product_detail[$value['product_id']]['title']))
+			{
+				$temp_title = $product_detail[$value['product_id']]['title'];
+				$temp['title'] = $temp_title;
+			}
+
+			$temp['count'] = \lib\number::down($value['count']);
+			$temp['id']    = \dash\coding::encode($value['product_id']);
+
+
+			$factor_product[$value['factor_id']][] = $temp;
+		}
+
+		foreach ($_result as $key => $value)
+		{
+			if(isset($factor_product[$value['id']]))
+			{
+				$_result[$key]['productInFactor'] = $factor_product[$value['id']];
+			}
+		}
+
+		return $_result;
 	}
 
 }

@@ -74,7 +74,7 @@ class get
 	 */
 	public static function multi_product($_ids, $_options = [])
 	{
-		$result = \lib\db\products\get::by_multi_id($_ids);
+		$result = \lib\db\products\get::by_multi_id(implode(',', $_ids));
 
 		if($result)
 		{
