@@ -8,9 +8,102 @@ class dash
 		\content_transfer\say::info('Transfer jibres posts ...');
 		self::posts();
 
+		\content_transfer\say::info('Transfer jibres terms ...');
+		self::terms();
+
+		\content_transfer\say::info('Transfer jibres termusage ...');
+		self::termusage();
+
 		j('end');
 	}
 
+	private static function termusage()
+	{
+		if(\dash\db::get("SELECT * FROM termusages", null, true, 'local', ['database' => 'jibres']))
+		{
+			\content_transfer\say::info('Table termusages is not empty. Transfer of termusages skipped ...');
+			return;
+		}
+
+		$query =
+		"
+			INSERT INTO jibres.termusages
+			(
+				`term_id`,
+				`related_id`,
+				`related`,
+				`order`,
+				`status`,
+				`datecreated`,
+				`datemodified`,
+				`type`
+
+			)
+			SELECT
+				jibres_transfer.termusages.term_id,
+				jibres_transfer.termusages.related_id,
+				jibres_transfer.termusages.related,
+				jibres_transfer.termusages.order,
+				jibres_transfer.termusages.status,
+				jibres_transfer.termusages.datecreated,
+				jibres_transfer.termusages.datemodified,
+				jibres_transfer.termusages.type
+
+			FROM
+				jibres_transfer.termusages
+			WHERE 1
+		";
+
+		$result = \dash\db::query($query,'local', ['database' => 'jibres']);
+
+
+	}
+
+	private static function terms()
+	{
+		$query =
+		"
+			INSERT INTO jibres.terms
+			(
+				`id`,
+				`language`,
+				`type`,
+				`caller`,
+				`title`,
+				`slug`,
+				`url`,
+				`desc`,
+				`meta`,
+				`parent`,
+				`user_id`,
+				`status`,
+				`datecreated`,
+				`datemodified`
+			)
+			SELECT
+				jibres_transfer.terms.id,
+				jibres_transfer.terms.language,
+				jibres_transfer.terms.type,
+				jibres_transfer.terms.caller,
+				jibres_transfer.terms.title,
+				jibres_transfer.terms.slug,
+				jibres_transfer.terms.url,
+				jibres_transfer.terms.desc,
+				jibres_transfer.terms.meta,
+				jibres_transfer.terms.parent,
+				jibres_transfer.terms.user_id,
+				jibres_transfer.terms.status,
+				jibres_transfer.terms.datecreated,
+				jibres_transfer.terms.datemodified
+			FROM
+				jibres_transfer.terms
+			WHERE 1
+		";
+
+		$result = \dash\db::query($query,'local', ['database' => 'jibres']);
+
+
+	}
 
 	private static function posts()
 	{
