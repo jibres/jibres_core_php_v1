@@ -68,7 +68,9 @@
   {%if requestGET.wprice%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Whithout price"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
   {%if requestGET.wdiscount%}<a class="btn danger2 sm mRa5" href="{{url.that}}"><span>{%trans "Whithout discount"%}</span><i class="fc-red pLa10 sf-times"></i></a>{%endif%}
 
-  <a class="btn primary outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>
+  {%if false%}
+    <a class="btn primary outline sm mLa10 floatRa s0" href="{{url.that}}"><span class="">Save Search</span><i class="pLa10 sf-save"></i></a>
+  {%endif%}
 </div>
 {%endif%}
 
