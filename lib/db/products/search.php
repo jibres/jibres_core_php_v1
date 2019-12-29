@@ -60,7 +60,9 @@ class search
 				products.*,
 				productprices.buyprice,
 				productprices.price,
-				productprices.discount
+				productprices.discount,
+				productprices.discountpercent,
+				productprices.finalprice
 			FROM products
 			LEFT JOIN productprices ON productprices.product_id = products.id AND productprices.last = 'yes'
 				$q[where] $q[order] $limit

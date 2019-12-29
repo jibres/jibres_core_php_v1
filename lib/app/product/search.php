@@ -243,6 +243,11 @@ class search
 			}
 		}
 
+		if(!$order_sort)
+		{
+			$order_sort = " ORDER BY products.id DESC";
+		}
+
 
 		$and = array_merge($and, $_where);
 
@@ -296,7 +301,9 @@ class search
 	{
 		$where['parent'] = [' IS ', ' NULL '];
 
-		$list        = self::products_list('variants', $_query_string, $_args, $where);
+		$list = self::products_list('variants', $_query_string, $_args, $where);
+
+		$list = self::fill_category($list);
 
 		foreach ($list as $key => $value)
 		{
@@ -351,6 +358,39 @@ class search
 
 		$list        = self::products_list('factor_admin_list', $_query_string, $_args, $and);
 		return $list;
+	}
+
+
+	private static function fill_category($_list)
+	{
+		if(!$_list || !is_array($_list))
+		{
+			return $_list;
+		}
+
+		$cat_id = array_column($_list, 'cat_id');
+		$cat_id = array_filter($cat_id);
+		$cat_id = array_unique($cat_id);
+		if(!$cat_id)
+		{
+			return $_list;
+		}
+
+		$cat_detail = \lib\db\productcategory\get::by_muliti_id(implode(',', $cat_id));
+		if(is_array($cat_detail))
+		{
+			$cat_detail = array_combine(array_column($cat_detail, 'id'), $cat_detail);
+			foreach ($_list as $key => $value)
+			{
+				if(isset($value['cat_id']) && isset($cat_detail[$value['cat_id']]['title']))
+				{
+					$_list[$key]['category'] = $cat_detail[$value['cat_id']]['title'];
+				}
+			}
+		}
+
+		return $_list;
+
 	}
 
 

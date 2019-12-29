@@ -5,6 +5,14 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function by_muliti_id($_ids)
+	{
+		$query  = "SELECT id, title FROM productcategory WHERE productcategory.id IN ($_ids)";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function list()
 	{
 		$query =
