@@ -46,7 +46,7 @@ class view
 
 
 		\dash\data::page_view(\dash\url::here());
-		\dash\data::page_help(\dash\url::kingdom().'/support/test');
+		// \dash\data::page_help(\dash\url::kingdom().'/support/test');
 
 		// back to list of product
 		\dash\data::badge_text(T_('Back'));

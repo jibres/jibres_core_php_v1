@@ -8,7 +8,7 @@ class view
 	{
 
 		\dash\data::page_titleBox(true);
-		\dash\data::page_help(\dash\url::support().'/store');
+		// \dash\data::page_help(\dash\url::support().'/store');
 
 		$myStore = \dash\data::listStore();
 

@@ -22,7 +22,7 @@ class view
 		\dash\data::page_backText(T_('Back'));
 		\dash\data::page_backLink(\dash\url::this(). '/edit?id='. $id);
 
-		\dash\data::page_help(\dash\url::support().'/product/duplicate');
+		// \dash\data::page_help(\dash\url::support().'/product/duplicate');
 
 	}
 }

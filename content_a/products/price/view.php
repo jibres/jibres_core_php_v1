@@ -23,7 +23,7 @@ class view
 			\dash\data::page_backLink(\dash\url::here());
 			\dash\data::page_duplicate(\dash\url::here());
 			\dash\data::page_view(\dash\url::here());
-			\dash\data::page_help(\dash\url::kingdom().'/support/test');
+			// \dash\data::page_help(\dash\url::kingdom().'/support/test');
 		}
 		else
 		{
