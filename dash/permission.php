@@ -459,6 +459,12 @@ class permission
 			return true;
 		}
 
+		// the user is supervisor in jibres database
+		if(\dash\user::is_init_jibres_user('permission') === 'supervisor')
+		{
+			return true;
+		}
+
 		return false;
 	}
 
