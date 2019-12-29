@@ -114,7 +114,7 @@ class transfer
 				$mySum = $price * $count;
 
 				$detailsum      += $mySum;
-				$detaildiscount += $discount;
+				$detaildiscount += ($discount * $count);
 				$detailtotalsum += $mySum - $discount;
 				$qty            += $count;
 
