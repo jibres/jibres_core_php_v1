@@ -306,5 +306,15 @@ class store
 	}
 
 
+	/**
+	 * cache folder addr
+	 * use \lib\app\cache
+	 *
+	 * @return     string
+	 */
+	public static function cache_addr()
+	{
+		return root. 'includes/stores/cache/';
+	}
 }
 ?>

@@ -28,6 +28,23 @@ class users
 		return \dash\db::get($query, 'mobile');
 	}
 
+	/**
+	 * Counts the number of ok users.
+	 * Not deleted and not unreachible
+	 */
+	public static function count_ok_users()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM users WHERE users.status NOT IN ('removed', 'unreachable') ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function count_users_have_permission()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM users WHERE users.status NOT IN ('removed', 'unreachable') AND users.permission IS NOT NULL ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
 
 
 	public static function update_where($_set, $_where)
