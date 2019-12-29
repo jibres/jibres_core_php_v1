@@ -448,13 +448,10 @@ class template
 
 	public static function find_post()
 	{
-		if(defined('db_name') && !empty(db_name))
+		$post_detail = \dash\app\posts::find_post();
+		if($post_detail)
 		{
-			$post_detail = \dash\app\posts::find_post();
-			if($post_detail)
-			{
-				return $post_detail;
-			}
+			return $post_detail;
 		}
 		return false;
 	}
