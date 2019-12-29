@@ -20,8 +20,54 @@ class dash
 		\content_transfer\say::info('Transfer jibres transactions ...');
 		self::transactions();
 
-		j('end');
+		\content_transfer\say::info('Transfer jibres user_telegram ...');
+		self::user_telegram();
+
 	}
+
+
+	private static function user_telegram()
+	{
+		$query =
+		"
+			INSERT INTO jibres.user_telegram
+			(
+
+				`id`,
+				`user_id`,
+				`chatid`,
+				`firstname`,
+				`lastname`,
+				`username`,
+				`language`,
+				`status`,
+				`lastupdate`,
+				`datecreated`
+
+
+			)
+			SELECT
+				jibres_transfer.user_telegram.id,
+				jibres_transfer.user_telegram.user_id,
+				jibres_transfer.user_telegram.chatid,
+				jibres_transfer.user_telegram.firstname,
+				jibres_transfer.user_telegram.lastname,
+				jibres_transfer.user_telegram.username,
+				jibres_transfer.user_telegram.language,
+				jibres_transfer.user_telegram.status,
+				jibres_transfer.user_telegram.lastupdate,
+				jibres_transfer.user_telegram.datecreated
+			FROM
+				jibres_transfer.user_telegram
+			WHERE 1
+		";
+
+		$result = \dash\db::query($query,'local', ['database' => 'jibres']);
+
+
+	}
+
+
 
 
 	private static function transactions()
@@ -115,41 +161,6 @@ class dash
 
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
