@@ -67,6 +67,7 @@ class price
 			SELECT
 
 				productprices.*,
+				productprices.id AS `xid`,
 				products.new_id AS `new_product_id`,
 				stores.new_id AS `new_store_id`,
 				userstores.new_id AS `new_user_id`
@@ -104,7 +105,7 @@ class price
 				'compareatprice'  => intval($price) + intval($discount),
 				'discount'        => $discount,
 				'discountpercent' => null,
-				'finalprice'      => null,
+				'finalprice'      => $price,
 				'datecreated'     => $value['datecreated'],
 				'datemodified'    => $value['datemodified'],
 
@@ -130,7 +131,7 @@ class price
 				\content_transfer\say::end('Can not add product! '.  json_encode($new_productprices, JSON_UNESCAPED_UNICODE). ' '. $value['new_store_id'] );
 			}
 
-			$query = "UPDATE productprices SET productprices.new_id = $product_new_id WHERE productprices.id = $value[id] LIMIT 1";
+			$query = "UPDATE productprices SET productprices.new_id = $product_new_id WHERE productprices.id = $value[xid] LIMIT 1";
 			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 		}
 	}

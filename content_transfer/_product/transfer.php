@@ -21,6 +21,7 @@ class transfer
 			SELECT
 
 				products.*,
+				products.id AS `xid`,
 				productcompany.new_id AS `new_company_id`,
 				productunit.new_id AS `new_unit_id`,
 				productterms.new_id AS `new_cat_id`,
@@ -88,7 +89,7 @@ class transfer
 				\content_transfer\say::end('Can not add product! '.  json_encode($new_product, JSON_UNESCAPED_UNICODE));
 			}
 
-			$query = "UPDATE products SET products.new_id = $product_new_id WHERE products.id = $value[id] LIMIT 1";
+			$query = "UPDATE products SET products.new_id = $product_new_id WHERE products.id = $value[xid] LIMIT 1";
 			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 		}
 	}
