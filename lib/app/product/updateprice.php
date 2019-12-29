@@ -4,6 +4,109 @@ namespace lib\app\product;
 class updateprice
 {
 
+	public static function chart($_id)
+	{
+		$id = \dash\coding::decode($_id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$chart = \lib\db\productprices\get::for_chart($id);
+		// j($chart);
+
+		$data             = [];
+		$buyprice_array   = [];
+		$categories_array = [];
+		$price_array      = [];
+		$discount_array   = [];
+		$finalprice_array = [];
+		$profit_array     = [];
+
+		foreach ($chart as $key => $value)
+		{
+			array_push($categories_array, \dash\datetime::fit($value['startdate'], null, 'date'));
+
+			$buyprice = null;
+			if($value['buyprice'])
+			{
+				$buyprice = \lib\price::down($value['buyprice']);
+			}
+
+			$price = null;
+			if($value['price'])
+			{
+				$price = \lib\price::down($value['price']);
+			}
+
+			$discount = null;
+			if($value['discount'])
+			{
+				$discount = \lib\price::down($value['discount']);
+			}
+
+			$finalprice = null;
+			if($price || $discount)
+			{
+				$finalprice = floatval($price) - floatval($discount);
+			}
+
+			$profit = null;
+			if($buyprice)
+			{
+				$profit     = $finalprice - floatval($buyprice);
+			}
+
+			array_push($buyprice_array, $buyprice);
+			array_push($price_array, $price);
+			array_push($discount_array, $discount);
+			array_push($finalprice_array, $finalprice);
+			array_push($profit_array, $profit);
+		}
+
+		if(
+			empty(array_filter($buyprice_array)) &&
+			empty(array_filter($price_array)) &&
+			empty(array_filter($discount_array)) &&
+			empty(array_filter($finalprice_array)) &&
+			empty(array_filter($profit_array))
+		  )
+		{
+			return ['categories' => '[]',  'data' => '[]'];
+		}
+
+		$data =
+		[
+			[
+				'name' => T_('Buyprice'),
+				'data' => $buyprice_array,
+			],
+			[
+				'name' => T_('Price'),
+				'data' => $price_array,
+			],
+			[
+				'name' => T_('Discount'),
+				'data' => $discount_array,
+			],
+			[
+				'name' => T_('Final price'),
+				'data' => $finalprice_array,
+			],
+			[
+				'name' => T_('Gross profit'),
+				'data' => $profit_array,
+			],
+		];
+
+		$result               = [];
+		$result['categories'] = json_encode($categories_array, JSON_UNESCAPED_UNICODE);
+		$result['data']       = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+		return $result;
+	}
+
+
 	public static function check($_product_id, $_args, $_from_buy_factor = false)
 	{
 		if(!\lib\store::in_store())
