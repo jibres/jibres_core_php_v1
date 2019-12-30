@@ -6,14 +6,14 @@ class updateprice
 
 	public static function chart($_id)
 	{
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+
+		if(!$_id || !is_numeric($_id))
 		{
 			return false;
 		}
 
-		$chart = \lib\db\productprices\get::for_chart($id);
-		// j($chart);
+		$chart = \lib\db\productprices\get::for_chart($_id);
+
 
 		$data             = [];
 		$buyprice_array   = [];
