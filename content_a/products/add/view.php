@@ -19,6 +19,15 @@ class view
 
 		// \dash\data::page_help(\dash\url::support().'/product');
 
+		$company_list = \lib\app\product\company::list();
+		\dash\data::listCompanies($company_list);
+
+		$unit_list = \lib\app\product\unit::list();
+		\dash\data::listUnits($unit_list);
+
+		$category_list = \lib\app\product\category::list();
+		\dash\data::listCategory($category_list);
+
 
 	}
 }
