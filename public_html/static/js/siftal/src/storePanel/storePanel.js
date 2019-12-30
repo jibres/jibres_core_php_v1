@@ -635,8 +635,6 @@ function addNewRecord_ProductList(_table, _product, _append)
     // prepent to start of table
     newRecord.prependTo('.productList tbody');
   }
-  // run tippy again for discount
-  runTippy();
 
   calcFooterValues(_table);
 }
