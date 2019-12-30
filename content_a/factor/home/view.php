@@ -48,6 +48,9 @@ class view
 
 		\dash\data::filterBox(\lib\app\factor\search::filter_message());
 
+		$sort_field = ['date', 'detailsum', 'detailtotalsum', 'detaildiscount', 'item', 'qty','customer'];
+		\dash\data::myFilter(\content_a\filter::current($sort_field, \dash\url::this()));
+
 		$isFiltered = \lib\app\factor\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);

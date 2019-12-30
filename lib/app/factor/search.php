@@ -418,19 +418,19 @@ class search
 		if($_args['sort'] && !$order_sort)
 		{
 
-			$check_order_trust = \lib\app\factor\filter::check_allow($_args['sort'], $_args['order'], $type);
-
-			if($check_order_trust)
+			if(in_array($_args['sort'], ['date', 'detailsum', 'detailtotalsum', 'detaildiscount', 'item', 'qty','customer']))
 			{
 				$sort = mb_strtolower($_args['sort']);
 				$order = null;
-				if($_args['order'])
+				if($_args['order'] && in_array($_args['order'], ['asc', 'desc']))
 				{
 					$order = mb_strtolower($_args['order']);
 				}
 
 				$order_sort = " ORDER BY $sort $order";
+
 			}
+
 		}
 
 		if(!$order_sort)
