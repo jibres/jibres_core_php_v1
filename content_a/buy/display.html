@@ -3,7 +3,7 @@
 
 {%block pageContent%}
 
-<form method="post" class="f" id='factorAdd' data-disallowEnter data-msgNewError='{%trans "You can add new empty tab if current tab is filled!"%}' {%if requestGET.extra == 'true'%}data-autoClose=2000{%endif%}>
+<form method="post" autocomplete="off" class="f" id='factorAdd' data-disallowEnter data-msgNewError='{%trans "You can add new empty tab if current tab is filled!"%}' {%if requestGET.extra == 'true'%}data-autoClose=2000{%endif%}>
   <div class="c9 s12 pRa10">
 
     {{block("addProducts")}}
@@ -113,7 +113,7 @@
 
 {%block addProducts%}
 <div class="cbox p0">
-  <select name="product" class="ui dropdown search selection barCode" id="productSearch" autofocus data-default data-search='{{url.here}}/product?json=true&q={query}'>
+  <select name="product" class="ui dropdown search selection barCode" id="productSearch" autofocus data-default data-search='{{url.this}}?json=true&q={query}' data-shortkey-search>
     <option value="">{%trans "Search in list to add product"%} +</option>
   </select>
 </div>

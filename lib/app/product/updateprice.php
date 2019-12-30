@@ -165,6 +165,13 @@ class updateprice
 			$new_record['compareatprice']  = array_key_exists('compareatprice', $_args) 	? $_args['compareatprice'] 	: null;
 			$new_record['discountpercent'] = array_key_exists('discountpercent', $_args) 	? $_args['discountpercent'] : null;
 
+			// if($_from_buy_factor)
+			// {
+			// 	if($new_record['price'] === null && array_key_exists('price', $last_product_price)) $new_record['price'] = $last_product_price['price'];
+			// 	if($new_record['price'] === null && array_key_exists('price', $last_product_price)) $new_record['price'] = $last_product_price['price'];
+			// 	if($new_record['price'] === null && array_key_exists('price', $last_product_price)) $new_record['price'] = $last_product_price['price'];
+			// }
+
 			if(isset($new_record['price']) || isset($new_record['discount']))
 			{
 				$new_record['finalprice'] = floatval($new_record['price']) - floatval($new_record['discount']);

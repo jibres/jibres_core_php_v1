@@ -310,6 +310,8 @@ class check
 					break;
 
 				case 'buy':
+					\dash\notif::error(T_("Invalid factor type"), 'type');
+					return false;
 					// if(!array_key_exists('buyprice', $value))
 					// {
 					// 	$have_warn[] = $key + 1;
@@ -330,7 +332,7 @@ class check
 
 					// $price_change['buyprice']        = $new_buyprice;
 
-					// \lib\app\product\buyprice::check($product_id, $price_change, true);
+					// \lib\app\product\updateprice::check($product_id, $price_change, true);
 
 					break;
 

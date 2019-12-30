@@ -22,7 +22,7 @@ class model
 			return false;
 		}
 
-		$factor_detail = \lib\app\factor::add($detail, $factor_list);
+		$factor_detail = \lib\app\factor\add::new_factor($detail, $factor_list);
 
 		$query_data = [];
 
