@@ -128,7 +128,7 @@ class price
 
 			if(!$product_new_id)
 			{
-				\content_transfer\say::end('Can not add product! '.  json_encode($new_productprices, JSON_UNESCAPED_UNICODE). ' '. $value['new_store_id'] );
+				\content_transfer\say::end('Can not add product price! '.  json_encode($new_productprices, JSON_UNESCAPED_UNICODE). ' '. $value['new_store_id'] );
 			}
 
 			$query = "UPDATE productprices SET productprices.new_id = $product_new_id WHERE productprices.id = $value[xid] LIMIT 1";

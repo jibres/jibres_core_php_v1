@@ -59,7 +59,7 @@ class controller
 			foreach ($level as $url => $value)
 			{
 
-				\content_transfer\say::start();
+				\content_transfer\say::start($value['title']);
 				\dash\redirect::to(\dash\url::here(). '/'.$url);
 				return;
 			}

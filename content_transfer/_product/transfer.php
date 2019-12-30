@@ -35,6 +35,7 @@ class transfer
 			LEFT JOIN productterms ON productterms.id = products.cat_id
 
 			WHERE products.new_id IS NULL
+
 		";
 
 		$result = \dash\db::get($query, null, false, 'local', ['database' => 'jibres_transfer']);
