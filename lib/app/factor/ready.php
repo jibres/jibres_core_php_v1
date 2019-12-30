@@ -29,11 +29,11 @@ class ready
 
 				case 'price':
 				case 'discount':
-				case 'detaildiscount':
 					$value = \lib\price::down($value);
 					$result[$key] = $value;
 					break;
 
+				case 'detaildiscount':
 				case 'detailsum':
 				case 'detailtotalsum':
 				case 'sum':
