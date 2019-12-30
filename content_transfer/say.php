@@ -16,7 +16,7 @@ class say
 
 	public static function start($_text = null)
 	{
-		$_text = date("Y-m-d H:i:s"). ' ' . str_repeat('-', 60). " TRANSFER MACHINE  \n". ($_text) ? " (On leve $_text) " : null;
+		$_text = date("Y-m-d H:i:s"). ' ' . str_repeat('-', 60). " TRANSFER MACHINE  \n". ($_text) ? " (On level $_text) " : null;
 		\dash\file::append(self::dir(), $_text);
 	}
 
