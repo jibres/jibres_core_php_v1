@@ -370,6 +370,11 @@ class check
 				continue;
 			}
 
+			if(isset($value['discount']))
+			{
+				$value['discount'] = \lib\price::up($value['discount']);
+			}
+
 			$new_list[$key]['count']      = floatval($value['count']);
 			$new_list[$key]['discount']   = (isset($value['discount'])) ? intval($value['discount']) : null;
 			$new_list[$key]['product_id'] = $product_id;

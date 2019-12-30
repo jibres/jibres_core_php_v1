@@ -72,17 +72,17 @@ class add
 
 		foreach ($factor_detail as $key => $value)
 		{
-			$sum                      = (floatval($value['price']) * floatval($value['count']));
+			$sum                      = (intval($value['price']) * intval($value['count']));
 			$discount = 0;
 
 			if(isset($value['discount']))
 			{
-				$discount                 = (floatval($value['discount']) * floatval($value['count']));
+				$discount                 = (intval($value['discount']) * intval($value['count']));
 			}
 
 			if(isset($value['count']))
 			{
-				$qty_sum                 += floatval($value['count']);
+				$qty_sum                 += intval($value['count']);
 			}
 
 			$factor['detailsum']      += $sum;
@@ -96,7 +96,7 @@ class add
 		$factor['vat']      = null;
 		$factor['discount'] = null;
 		$factor['status']   = 'draft';
-		$factor['sum']      = floatval($factor['detailtotalsum']) - floatval($factor['discount']);
+		$factor['sum']      = intval($factor['detailtotalsum']) - intval($factor['discount']);
 
 		// qty field in int(10)
 		if(\dash\number::is_larger($factor['qty'], 999999999))
