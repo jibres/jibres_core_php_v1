@@ -4,7 +4,7 @@ namespace lib;
 
 class number
 {
-	private static $rate = 100;
+	private static $rate = 1000;
 
 	public static function up($_number)
 	{
