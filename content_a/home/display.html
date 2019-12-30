@@ -15,10 +15,10 @@
 </div>
 
 <div class="f">
- {%if perm('customerAccess')%}<div class="c3 s6">{{block ("stCustomer")}}</div>{%endif%}
- {%if perm('staffAccess')%}<div class="c3 s6">{{block ("stStaff")}}</div>{%endif%}
- {%if perm('supplierAccess')%}<div class="c3 s6">{{block ("stSupplier")}}</div>{%endif%}
- <div class="c3 s6">{{block ("prDate")}}</div>
+ {%if perm('customerAccess')%}<div class="c4 s6">{{block ("stCustomer")}}</div>{%endif%}
+ {%if perm('staffAccess')%}<div class="c4 s6">{{block ("stStaff")}}</div>{%endif%}
+
+ <div class="c4 s6">{{block ("prDate")}}</div>
 </div>
 
 {%if perm('reportListChartHours')%}
