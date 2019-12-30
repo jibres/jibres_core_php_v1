@@ -611,6 +611,8 @@ class prepare
 		// change header and remove php from it
 		@header("X-Made-In: Ermile!");
 		@header("X-Powered-By: Jibres");
+		@header("Server1: Ruby");
+
 	}
 }
 ?>
