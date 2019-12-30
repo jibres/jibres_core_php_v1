@@ -1,9 +1,10 @@
 <?php
 namespace content_transfer\_factor;
 
-class transfer
+class transfer_v1
 {
-
+	private static $continue = true;
+	private static $count_all = 0;
 
 	public static function run()
 	{
@@ -20,38 +21,18 @@ class transfer
 				userstores.store_id != factors.store_id
 		";
 
-		$query = [];
-		$query[] = "ALTER TABLE jibres_transfer.factordetails ADD `new_price` bigint(20) unsigned NULL DEFAULT NULL AFTER `price`;";
-		$query[] = "ALTER TABLE jibres_transfer.factordetails ADD `new_count` int(10) unsigned NULL DEFAULT NULL AFTER `count`;";
-		$query[] = "ALTER TABLE jibres_transfer.factordetails ADD `new_discount` bigint(20) unsigned NULL DEFAULT NULL AFTER `discount`;";
-		$query[] = "ALTER TABLE jibres_transfer.factordetails ADD `new_sum` bigint(20) unsigned NULL DEFAULT NULL AFTER `sum`;";
-		$query[] = "ALTER TABLE jibres_transfer.factordetails ADD `new_vat` int(10) unsigned NULL DEFAULT NULL AFTER `vat`;";
-
-		$query[] = "UPDATE factordetails SET factordetails.new_price = factordetails.price * 1000 ;";
-		$query[] = "UPDATE factordetails SET factordetails.new_count = factordetails.count * 100 ;";
-		$query[] = "UPDATE factordetails SET factordetails.new_discount = factordetails.discount * 1000 ;";
-
-		$query[] = "UPDATE factordetails SET factordetails.new_sum = (factordetails.new_price - factordetails.new_discount) * factordetails.new_count ;";
-
-
-		$query[] = "ALTER TABLE `factors` ADD  `new_qty` int(10) UNSIGNED DEFAULT NULL AFTER `qty`;";
-		$query[] = "ALTER TABLE `factors` ADD  `new_item` bigint(20) UNSIGNED DEFAULT NULL AFTER `item`;";
-		$query[] = "ALTER TABLE `factors` ADD  `new_detailsum` bigint(20) UNSIGNED DEFAULT NULL AFTER `detailsum`;";
-		$query[] = "ALTER TABLE `factors` ADD  `new_detaildiscount` bigint(20) DEFAULT NULL AFTER `detaildiscount`;";
-		$query[] = "ALTER TABLE `factors` ADD  `new_detailtotalsum` bigint(20) UNSIGNED DEFAULT NULL AFTER `detailtotalsum`;";
-		$query[] = "ALTER TABLE `factors` ADD  `new_discount` int(10) DEFAULT NULL AFTER `discount`;";
-		$query[] = "ALTER TABLE `factors` ADD  `new_sum` bigint(20) UNSIGNED DEFAULT NULL AFTER `sum`;";
-
-		$query[] = "UPDATE factors SET factors.new_detailsum = (SELECT SUM(factordetails.new_price * factordetails.new_count) FROM factordetails WHERE factordetails.factor_id = factors.id ) ;";
-		$query[] = "UPDATE factors SET factors.new_detaildiscount = (SELECT SUM(factordetails.new_discount * factordetails.new_count) FROM factordetails WHERE factordetails.factor_id = factors.id ) ;";
-		$query[] = "UPDATE factors SET factors.new_qty = (SELECT SUM(factordetails.new_count) FROM factordetails WHERE factordetails.factor_id = factors.id ) ;";
-
-		$query[] = "UPDATE factors SET factors.new_detailtotalsum = (SELECT SUM((factordetails.new_price * factordetails.new_count) - (factordetails.new_discount * factordetails.new_count)) FROM factordetails WHERE factordetails.factor_id = factors.id ) ;";
-
-		j($query);
-		j('fff');
 		\content_transfer\say::info('Transfer factors ...');
 
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.new_id IS NULL";
+
+		$result = \dash\db::get($query, 'count', true, 'local', ['database' => 'jibres_transfer']);
+
+		\content_transfer\say::info(number_format($result).  ' Factors remained ...');
+
+		while (self::$continue)
+		{
+			self::factors();
+		}
 	}
 
 
@@ -134,7 +115,7 @@ class transfer
 
 				$detailsum      += $mySum;
 				$detaildiscount += ($discount * $count);
-				$detailtotalsum += $mySum - ($discount * $count);
+				$detailtotalsum += $mySum - $discount;
 				$qty            += $count;
 
 				$insert_new_factor_detail[] =
