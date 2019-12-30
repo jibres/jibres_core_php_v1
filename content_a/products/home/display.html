@@ -76,6 +76,9 @@
 {%block htmlFilter%}
 <p class="f fs14 msg warn2">
   <span class="c">{{filterBox | raw}}</span>
+  {%if barcodeScaned%}
+  <a class="c" href="{{url.that}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
+  {%endif%}
   <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
@@ -90,6 +93,7 @@
   <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
+
 
 
 {%block htmlStartAddNew%}

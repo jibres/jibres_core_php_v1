@@ -44,6 +44,12 @@ class view
 		$search_string = \dash\request::get('q');
 
 
+		if($search_string && ctype_digit($search_string) && mb_strlen($search_string) === 13)
+		{
+			\dash\data::barcodeScaned('?barcode='. $search_string);
+		}
+
+
 		$myProductList = \lib\app\product\search::variant_list($search_string, $args);
 
 		\lib\app\product\load::barcode_is_scaned($myProductList, $search_string);
