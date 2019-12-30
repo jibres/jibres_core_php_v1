@@ -16,6 +16,7 @@ class view
 		];
 
 		if(\dash\request::get('customer'))				 $args['customer']             = \dash\request::get('customer');
+		if(\dash\request::get('type'))					 $args['type']          	   = \dash\request::get('type');
 		if(\dash\request::get('product'))				 $args['product']              = \dash\request::get('product');
 		if(\dash\request::get('startdate'))				 $args['startdate']            = \dash\request::get('startdate');
 		if(\dash\request::get('enddate'))				 $args['enddate']              = \dash\request::get('enddate');

@@ -26,6 +26,7 @@ class search
 		[
 			'order'                => null,
 			'sort'                 => null,
+			'type'                 => null,
 			'customer'             => null,
 			'product'              => null,
 			'startdate'            => null,
@@ -76,6 +77,14 @@ class search
 		{
 			$and['factors.customer']       = $_args['customer'];
 			self::$filter_args['customer'] = '*'. T_('Cusomer');
+			self::$is_filtered             = true;
+		}
+
+
+		if($_args['type'] && is_string($_args['type']))
+		{
+			$and['factors.type']       = $_args['type'];
+			self::$filter_args['type'] = '*'. T_('Cusomer');
 			self::$is_filtered             = true;
 		}
 
