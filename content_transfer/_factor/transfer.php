@@ -27,9 +27,9 @@ class transfer
 		$query[] = "ALTER TABLE jibres_transfer.factordetails ADD `new_sum` bigint(20) unsigned NULL DEFAULT NULL AFTER `sum`;";
 		$query[] = "ALTER TABLE jibres_transfer.factordetails ADD `new_vat` int(10) unsigned NULL DEFAULT NULL AFTER `vat`;";
 
-		$query[] = "UPDATE factordetails SET factordetails.new_price = factordetails.price * 1000 ;";
-		$query[] = "UPDATE factordetails SET factordetails.new_count = factordetails.count * 100 ;";
-		$query[] = "UPDATE factordetails SET factordetails.new_discount = factordetails.discount * 1000 ;";
+		$query[] = "UPDATE factordetails SET factordetails.new_price = factordetails.price * 100 ;";
+		$query[] = "UPDATE factordetails SET factordetails.new_count = factordetails.count * 1000 ;";
+		$query[] = "UPDATE factordetails SET factordetails.new_discount = factordetails.discount * 100 ;";
 
 		$query[] = "UPDATE factordetails SET factordetails.new_sum = (factordetails.new_price - factordetails.new_discount) * factordetails.new_count ;";
 
@@ -48,176 +48,131 @@ class transfer
 
 		$query[] = "UPDATE factors SET factors.new_detailtotalsum = (SELECT SUM((factordetails.new_price * factordetails.new_count) - (factordetails.new_discount * factordetails.new_count)) FROM factordetails WHERE factordetails.factor_id = factors.id ) ;";
 
-		j($query);
-		j('fff');
+		\dash\file::delete(__DIR__. '/run.me.sql');
+
 		\content_transfer\say::info('Transfer factors ...');
+		self::factor();
+
+		\content_transfer\say::info('RUN THIS CODE: mysql -uroot -proot < '. __DIR__. '/run.me.sql');
 
 	}
 
 
-	private static function factors()
+	private static function factor()
 	{
-		$query =
-		"
-			SELECT
-
-				factors.*,
-				factors.id AS `factor_id`,
-				stores.new_id AS `new_store_id`,
-				(SELECT userstores.new_id FROM userstores WHERE userstores.id = factors.seller and userstores.store_id = factors.store_id LIMIT 1 ) AS `new_seller_id`,
-				IF(
-					factors.customer IS NOT NULL ,
-					(SELECT userstores.new_id FROM userstores WHERE userstores.id = factors.customer and userstores.store_id = factors.store_id LIMIT 1 ),
-					 NULL
-				  ) AS `new_customer_id`
-
-			FROM factors
-
-			INNER JOIN stores ON stores.id = factors.store_id
-
-			WHERE factors.new_id IS NULL
-			LIMIT 2000
-
-		";
-
+		$query = "SELECT * FROM stores";
 
 		$result = \dash\db::get($query, null, false, 'local', ['database' => 'jibres_transfer']);
-
-		if(!$result)
-		{
-			self::$continue = false;
-		}
-
-		$i = 0;
 		foreach ($result as $key => $value)
 		{
-			$i++;
-			self::$count_all++;
+			$customer_db = 'jibres_'. $value['new_id'];
 
-			$factor_detail_query =
+			$INSERT_FACTORS =
 			"
+				INSERT INTO $customer_db.factors
+				(
+					$customer_db.factors.id,
+					$customer_db.factors.type,
+					$customer_db.factors.customer,
+					$customer_db.factors.seller,
+					$customer_db.factors.date,
+					$customer_db.factors.title,
+					$customer_db.factors.qty,
+					$customer_db.factors.item,
+					$customer_db.factors.detailsum,
+					$customer_db.factors.detaildiscount,
+					$customer_db.factors.detailtotalsum,
+					$customer_db.factors.vat,
+					$customer_db.factors.discount,
+					$customer_db.factors.discount2,
+					$customer_db.factors.pre,
+					$customer_db.factors.transport,
+					$customer_db.factors.sum,
+					$customer_db.factors.pay,
+					$customer_db.factors.address_id,
+					$customer_db.factors.status,
+					$customer_db.factors.datecreated,
+					$customer_db.factors.datemodified,
+					$customer_db.factors.desc
+				)
 				SELECT
-					factordetails.*,
-					products.new_id AS `product_new_id`
+					jibres_transfer.factors.id,
+					jibres_transfer.factors.type,
+					IF(
+					jibres_transfer.factors.customer IS NOT NULL ,
+					(
+						SELECT jibres_transfer.userstores.new_id
+						FROM jibres_transfer.userstores
+						WHERE jibres_transfer.userstores.id = jibres_transfer.factors.customer
+						AND jibres_transfer.userstores.store_id = jibres_transfer.factors.store_id
+						LIMIT 1 ),
+					 NULL
+				  	),
+					(
+						SELECT jibres_transfer.userstores.new_id
+						FROM jibres_transfer.userstores
+						WHERE jibres_transfer.userstores.id = jibres_transfer.factors.seller
+						AND jibres_transfer.userstores.store_id = jibres_transfer.factors.store_id
+						LIMIT 1
+					),
+					jibres_transfer.factors.date,
+					jibres_transfer.factors.title,
+					jibres_transfer.factors.new_qty,
+					jibres_transfer.factors.item,
+					jibres_transfer.factors.new_detailsum,
+					jibres_transfer.factors.new_detaildiscount,
+					jibres_transfer.factors.new_detailtotalsum,
+					jibres_transfer.factors.vat,
+					jibres_transfer.factors.discount,
+					jibres_transfer.factors.discount2,
+					jibres_transfer.factors.pre,
+					jibres_transfer.factors.transport,
+					jibres_transfer.factors.sum,
+					jibres_transfer.factors.pay,
+					NULL,
+					jibres_transfer.factors.status,
+					jibres_transfer.factors.datecreated,
+					jibres_transfer.factors.datemodified,
+					jibres_transfer.factors.desc
 				FROM
-					factordetails
-				INNER JOIN products ON products.id = factordetails.product_id
-				WHERE
-					factordetails.factor_id = $value[factor_id]
+					jibres_transfer.factors
+				WHERE jibres_transfer.factors.store_id = $value[id];
 			";
 
-			$factor_detail = \dash\db::get($factor_detail_query, null, false, 'local', ['database' => 'jibres_transfer']);
 
-			if(!$factor_detail)
-			{
-				\content_transfer\say::error('Facordetails record is empty!'. ' '. json_encode($value, JSON_UNESCAPED_UNICODE));
-				continue;
-			}
+			$INSERT_FACTORS_DETAILS =
+			"
+				INSERT INTO $customer_db.factordetails
+				(
+					$customer_db.factordetails.factor_id,
+					$customer_db.factordetails.product_id,
+					$customer_db.factordetails.price,
+					$customer_db.factordetails.count,
+					$customer_db.factordetails.discount,
+					$customer_db.factordetails.sum,
+					$customer_db.factordetails.vat
 
-			$qty            = 0;
-
-			$detailsum      = 0;
-			$detaildiscount = 0;
-			$detailtotalsum = 0;
-
-			$insert_new_factor_detail = [];
-
-			foreach ($factor_detail as  $factor_record)
-			{
-				$price    = \lib\price::up($factor_record['price']);
-
-				$count    = \lib\number::up($factor_record['count']);
-
-				$discount = \lib\price::up($factor_record['discount']);
-
-				$mySum = $price * $count;
-
-				$detailsum      += $mySum;
-				$detaildiscount += ($discount * $count);
-				$detailtotalsum += $mySum - ($discount * $count);
-				$qty            += $count;
-
-				$insert_new_factor_detail[] =
-				[
-					'factor_id'  => null,
-					'product_id' => $factor_record['product_new_id'],
-					'price'      => $price,
-					'count'      => $count,
-					'discount'   => $discount,
-					'sum'        => ($price - $discount) * $count,
-				];
-
-			}
+				)
+				SELECT
+					jibres_transfer.factordetails.factor_id,
+					(SELECT jibres_transfer.products.new_id FROM jibres_transfer.products WHERE jibres_transfer.products.id = jibres_transfer.factordetails.product_id),
+					jibres_transfer.factordetails.new_price,
+					jibres_transfer.factordetails.new_count,
+					jibres_transfer.factordetails.new_discount,
+					jibres_transfer.factordetails.new_sum,
+					NULL
+				FROM
+					jibres_transfer.factordetails
+				INNER JOIN jibres_transfer.factors ON jibres_transfer.factors.id = jibres_transfer.factordetails.factor_id
+				WHERE jibres_transfer.factors.store_id = $value[id];
+			";
 
 
-			$new_factor =
-			[
-				'type'           => $value['type'],
-				'customer'       => $value['new_customer_id'],
-				'seller'         => $value['new_seller_id'],
-				'date'           => $value['date'],
-				'title'          => $value['title'],
-
-				'status'         => $value['status'],
-				'vat'            => $value['vat'],
-				'discount'       => $value['discount'],
-				'discount2'      => $value['discount2'],
-				'pre'            => $value['pre'],
-				'pay'            => $value['pay'],
-
-				'datecreated'    => $value['datecreated'],
-				'datemodified'   => $value['datemodified'],
-				'desc'           => $value['desc'],
-
-				'qty'            => $qty,
-				'item'           => count($factor_detail),
-				'detailsum'      => $detailsum,
-				'detaildiscount' => $detaildiscount,
-				'detailtotalsum' => $detailtotalsum,
-				'sum'            => $detailtotalsum - \lib\price::up($value['discount']),
-
-			];
-
-			$factor_new_id = null;
-
-			$set = \dash\db\config::make_set($new_factor, ['type' => 'insert']);
-
-			$query = " INSERT INTO factors SET $set ";
-
-			$inserr_new_store = \dash\db::query($query, 'local', ['database' => 'jibres_'. $value['new_store_id']]);
-
-			if($inserr_new_store)
-			{
-				$factor_new_id = \dash\db::insert_id();
-			}
-
-			if(!$factor_new_id)
-			{
-				\content_transfer\say::end('Can not add factor! '.  json_encode($new_factor, JSON_UNESCAPED_UNICODE));
-			}
-
-
-			foreach ($insert_new_factor_detail as $k => $v)
-			{
-				$insert_new_factor_detail[$k]['factor_id'] = $factor_new_id;
-			}
-
-			$multi_insert_factor_detail = \dash\db\config::make_multi_insert($insert_new_factor_detail);
-			if($multi_insert_factor_detail)
-			{
-				$query = " INSERT INTO factordetails $multi_insert_factor_detail ";
-				\dash\db::query($query, 'local' , ['database' => 'jibres_'. $value['new_store_id']]);
-			}
-
-			$query = "UPDATE factors SET factors.new_id = $factor_new_id WHERE factors.id = $value[id] LIMIT 1";
-			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
-
-			if($i === 500)
-			{
-				\content_transfer\say::info(number_format(self::$count_all) .' Factor transfered ...');
-				$i = 0;
-			}
+			\dash\file::append(__DIR__. '/run.me.sql', $INSERT_FACTORS);
+			\dash\file::append(__DIR__. '/run.me.sql', $INSERT_FACTORS_DETAILS);
 		}
+
 	}
+
 }
 ?>
