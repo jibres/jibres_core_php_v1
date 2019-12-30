@@ -77,7 +77,7 @@
 <p class="f fs14 msg warn2">
   <span class="c">{{filterBox | raw}}</span>
   {%if barcodeScaned%}
-  <a class="c" href="{{url.that}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
+  <a class="c" href="{{url.this}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
   {%endif%}
   <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
 </p>
@@ -88,7 +88,7 @@
 <p class="f fs14 msg warn2">
   <span class="c s12">{%trans "Result not found!"%} {%trans "Search with new keywords."%} </span>
 {%if barcodeScaned%}
-  <a class="c" href="{{url.that}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
+  <a class="c" href="{{url.this}}/add{{barcodeScaned}}" data-shortkey="118">{%trans "Add new product"%} <kbd>f7</kbd></a>
 {%endif%}
   <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
 </p>
