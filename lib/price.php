@@ -4,7 +4,7 @@ namespace lib;
 
 class price
 {
-	private static $rate = 1000;
+	private static $rate = 100;
 
 	public static function up($_number)
 	{
