@@ -23,14 +23,14 @@ class controller
 			'ready/db'         => ['title' => 'Ready database to transfer'],
 			'user/db'          => ['title' => 'Transfer users table'],
 			'store/db'         => ['title' => 'Transfer store table'],
-			'store/database'   => ['title' => 'Transfer customer database'],
+			'store/database'   => ['title' => 'Transfer customer database - about 8 min'],
 			'store/userstore'  => ['title' => 'Transfer userstore'],
 			'store/logo'       => ['title' => 'Transfer store logo'],
 			'store/dash'       => ['title' => 'Transfer dash tables'],
 			'product/ready'    => ['title' => 'Ready to transfer product'],
-			'product/transfer' => ['title' => 'Transfer product'],
-			'product/price'    => ['title' => 'Transfer product price'],
-			'factor/transfer'  => ['title' => 'Transfer factors'],
+			'product/transfer' => ['title' => 'Transfer product - about 4 min'],
+			'product/price'    => ['title' => 'Transfer product price - about 6 min'],
+			'factor/transfer'  => ['title' => 'Transfer factors - run command time about 5 min'],
 		];
 
 		\dash\data::myLink($level);
@@ -72,7 +72,8 @@ class controller
 
 				if($next_url)
 				{
-					\dash\redirect::to(\dash\url::here(). '/'.$next_url);
+					\content_transfer\say::end('Next step is: '. \dash\url::here(). '/'.$next_url);
+					// \dash\redirect::to(\dash\url::here(). '/'.$next_url);
 				}
 				else
 				{

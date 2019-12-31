@@ -99,6 +99,15 @@ class price
 				$discountpercent = \lib\price::up($discountpercent);
 			}
 
+			$myPrice = $price - $discount;
+			if($myPrice < 0)
+			{
+				\content_transfer\say::error('Price is out of range! '.  json_encode($value, JSON_UNESCAPED_UNICODE). ' -- in store '. $value['new_store_id'] );
+				continue;
+			}
+
+
+
 			$new_productprices =
 			[
 
@@ -108,11 +117,11 @@ class price
 				'startdate'       => $value['startdate'],
 				'enddate'         => $value['enddate'],
 				'buyprice'        => $buyprice,
-				'price'           => $price - $discount,
+				'price'           => $myPrice,
 				'compareatprice'  => $price,
 				'discount'        => $discount,
 				'discountpercent' => $discountpercent,
-				'finalprice'      => $price - $discount,
+				'finalprice'      => $myPrice,
 				'datecreated'     => $value['datecreated'],
 				'datemodified'    => $value['datemodified'],
 
