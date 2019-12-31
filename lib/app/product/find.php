@@ -7,7 +7,8 @@ class find
 	public static function barcode($_barcode)
 	{
 		// find in barcode
-		$result = \lib\app\product::list(null, ['barcode' => $_barcode]);
+		$_barcode = \dash\utility\convert::to_barcode($_barcode);
+		$result   = \lib\db\products\get::barcode($_barcode);
 		if($result)
 		{
 			return $result;
