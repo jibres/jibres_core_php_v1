@@ -68,15 +68,11 @@ class get
 
 	public static function scalecode($_scalecode)
 	{
-		$query =
+		$public_query = self::product_query_string();
+		$query  =
 		"
 			SELECT
-				`id`,
-				`title`,
-				`barcode`,
-				`barcode2`
-			FROM
-			 	products
+				$public_query
 			WHERE
 				products.status  != 'deleted' AND
 				products.scalecode = '$_scalecode'

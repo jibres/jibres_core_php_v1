@@ -28,6 +28,7 @@ class find
 				$result = \lib\db\products\get::scalecode(intval($code));
 				if($result)
 				{
+					$result = \lib\app\product\ready::row($result);
 					$result['scale']    = true;
 					$result['scaleDuplicate'] = T_("This barcode is scanned before");
 					$result['quantity'] = intval($quantity) / 1000;
