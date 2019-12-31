@@ -296,11 +296,11 @@ function checkProductExist(_key, _value)
   switch(_key)
   {
     case 'barcode':
-      var productInList = $('table tbody [data-barcode='+ _value +']');
+      var productInList = $('table tbody [data-barcode="'+ _value +'"]');
       // if not finded in barcode, search in barcode2
       if(!productInList.length)
       {
-        productInList = $('table tbody [data-barcode2='+ _value +']');
+        productInList = $('table tbody [data-barcode2="'+ _value +'"]');
       }
       // if finded try to increase number of this product
       if(productInList.length)
@@ -354,7 +354,7 @@ function searchForProduct(_key, _value)
 {
   // if is not barcode and not finde02902749
   // d, search and if find, add or update
-  var pSearchURL = "/a/products/api?" + _key + "=" + _value;
+  var pSearchURL = "/a/products/api?json=true&" + _key + "=" + _value;
   $.get(pSearchURL, function(_productData)
   {
     var myMsg;
