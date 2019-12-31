@@ -62,6 +62,7 @@ class search
 				productprices.price,
 				productprices.discount,
 				productprices.discountpercent,
+				productprices.compareatprice,
 				productprices.finalprice
 			FROM products
 			LEFT JOIN productprices ON productprices.product_id = products.id AND productprices.last = 'yes'
