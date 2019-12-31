@@ -43,7 +43,7 @@ self::$config['visitor'] = false;
 */
 self::$language =
 [
-	'default' => 'en',
+	'default' => 'fa',
 	'list'    => ['fa','en',],
 ];
 /**
