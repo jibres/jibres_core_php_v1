@@ -47,19 +47,19 @@ class db
 			$id = array_column($result, 'id');
 			$delete_id = implode(',', $id);
 			$query = "DELETE from planhistory where planhistory.store_id in ($delete_id);";
-			$result = \dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
+			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 			\content_transfer\say::info('Remove fake stores (planhistory)...');
 
 			$query = "DELETE from userstores where userstores.store_id in ($delete_id);";
-			$result = \dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
+			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 			\content_transfer\say::info('Remove fake stores (userstores)...');
 
 			$query = "DELETE from productterms where productterms.store_id in ($delete_id);";
-			$result = \dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
+			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 			\content_transfer\say::info('Remove fake stores (productterms)...');
 
 			$query = "DELETE from stores where stores.id in ($delete_id);";
-			$result = \dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
+			\dash\db::query($query, 'local', ['database' => 'jibres_transfer']);
 			\content_transfer\say::info(count($result). ' Store removed ...');
 		}
 
