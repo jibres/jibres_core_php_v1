@@ -10,10 +10,10 @@ class site_list
 	 */
 	public static function dropdown()
 	{
-		if(\dash\request::get('json') !== 'true')
-		{
-			return;
-		}
+		// if(\dash\request::get('json') !== 'true')
+		// {
+		// 	return;
+		// }
 
 		$notif_result = [];
 		$result       = [];
