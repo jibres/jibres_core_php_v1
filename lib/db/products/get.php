@@ -48,6 +48,45 @@ class get
 	}
 
 
+	public static function by_barcode($_barcode)
+	{
+		$public_query = self::product_query_string();
+		$query  =
+		"
+			SELECT
+				$public_query
+			WHERE
+				products.status  != 'deleted' AND
+				(products.barcode = '$_barcode' OR products.barcode2 = '$_barcode')
+			LIMIT 1
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
+	public static function scalecode($_scalecode)
+	{
+		$query =
+		"
+			SELECT
+				`id`,
+				`title`,
+				`barcode`,
+				`barcode2`
+			FROM
+			 	products
+			WHERE
+				products.status  != 'deleted' AND
+				products.scalecode = '$_scalecode'
+			LIMIT 1
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 
 	public static function one_field($_id, $_field)
 	{
