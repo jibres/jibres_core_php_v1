@@ -112,7 +112,7 @@ class price
 				'compareatprice'  => intval($price) + intval($discount),
 				'discount'        => $discount,
 				'discountpercent' => $discountpercent,
-				'finalprice'      => $price,
+				'finalprice'      => $price - $discount,
 				'datecreated'     => $value['datecreated'],
 				'datemodified'    => $value['datemodified'],
 
