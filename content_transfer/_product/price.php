@@ -92,21 +92,20 @@ class price
 			$price    = \lib\price::up($value['price']);
 			$discount = \lib\price::up($value['discount']);
 
-			$discountpercent = null;
-			if($discount && $price && intval($price) !== 0)
-			{
-				$discountpercent = round((\lib\price::down($discount) * 100) / \lib\price::down($price), 2);
-				$discountpercent = \lib\price::up($discountpercent);
-			}
-
-			$myPrice = $price - $discount;
-			if($myPrice < 0)
+			$finalprice = $price - $discount;
+			if($finalprice < 0)
 			{
 				\content_transfer\say::error('Price is out of range! '.  json_encode($value, JSON_UNESCAPED_UNICODE). ' -- in store '. $value['new_store_id'] );
 				continue;
 			}
 
 
+			$discountpercent = null;
+			if($discount && $price && intval($price) !== 0)
+			{
+				$discountpercent = round((\lib\price::down($discount) * 100) / \lib\price::down($price), 2);
+				$discountpercent = \lib\price::up($discountpercent);
+			}
 
 			$new_productprices =
 			[
@@ -117,11 +116,11 @@ class price
 				'startdate'       => $value['startdate'],
 				'enddate'         => $value['enddate'],
 				'buyprice'        => $buyprice,
-				'price'           => $price,
-				'compareatprice'  => $price + $discount,
+				'price'           => $finalprice,
+				'compareatprice'  => $price,
 				'discount'        => $discount,
 				'discountpercent' => $discountpercent,
-				'finalprice'      => $price,
+				'finalprice'      => $finalprice,
 				'datecreated'     => $value['datecreated'],
 				'datemodified'    => $value['datemodified'],
 
