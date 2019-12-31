@@ -50,6 +50,8 @@ self::$language =
  * system default lanuage
  */
 
+self::$config['coming']           = true;
+
 self::$config['debug']                        = false;
 
 self::$config['redirect']                     = '';
