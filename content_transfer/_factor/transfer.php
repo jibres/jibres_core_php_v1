@@ -23,8 +23,16 @@ class transfer
 		$check = \dash\db::get($query, null, false, 'local', ['database' => 'jibres_transfer']);
 		if($check)
 		{
-			\content_transfer\say::error('We have some factors can not be transfered. fix it ...');
-			\content_transfer\say::end(json_encode($check, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+			if(isset($check[0]['id']) && count($check) === 1 && intval($check[0]['id']) === 1000408)
+			{
+				$Fquery = "UPDATE factors SET factors.seller = 11 WHERE factors.id = 1000408 LIMIT 1";
+				$check = \dash\db::query($Fquery, 'local', ['database' => 'jibres_transfer']);
+			}
+			else
+			{
+				\content_transfer\say::error('We have some factors can not be transfered. fix it ...');
+				\content_transfer\say::end(json_encode($check, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+			}
 		}
 
 		$query = [];
@@ -67,7 +75,7 @@ class transfer
 		\content_transfer\say::info('Transfer factors ...');
 		self::factor();
 
-		\content_transfer\say::info('RUN THIS CODE: mysql -uroot -proot < '. __DIR__. '/run.me.sql');
+		\content_transfer\say::info('RUN THIS CODE: mysql -uroot -p < '. __DIR__. '/run.me.sql');
 
 	}
 
