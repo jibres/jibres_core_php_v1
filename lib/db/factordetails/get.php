@@ -25,10 +25,13 @@ class get
 		"
 			SELECT
 				factordetails.*,
-				products.title AS `title`
+				products.title AS `title`,
+				productunit.title AS `unit`
 			FROM
 				factordetails
 			INNER JOIN products ON products.id = factordetails.product_id
+			LEFT JOIN productunit ON productunit.id = products.unit_id
+
 			WHERE
 				factordetails.factor_id = $_id
 		";
