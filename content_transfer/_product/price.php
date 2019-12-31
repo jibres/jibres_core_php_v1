@@ -92,6 +92,13 @@ class price
 			$price    = \lib\price::up($value['price']);
 			$discount = \lib\price::up($value['discount']);
 
+			$discountpercent = null;
+			if($discount && $price && intval($price) !== 0)
+			{
+				$discountpercent = round((\lib\price::down($discount) * 100) / \lib\price::down($price), 2);
+				$discountpercent = \lib\price::up($discountpercent);
+			}
+
 			$new_productprices =
 			[
 
@@ -104,7 +111,7 @@ class price
 				'price'           => $price,
 				'compareatprice'  => intval($price) + intval($discount),
 				'discount'        => $discount,
-				'discountpercent' => null,
+				'discountpercent' => $discountpercent,
 				'finalprice'      => $price,
 				'datecreated'     => $value['datecreated'],
 				'datemodified'    => $value['datemodified'],
