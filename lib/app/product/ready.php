@@ -87,6 +87,7 @@ class ready
 				case 'price':
 				case 'buyprice':
 				case 'discount':
+				case 'discountpercent':
 				case 'compareatprice':
 				case 'finalprice':
 					if($value)
