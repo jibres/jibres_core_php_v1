@@ -172,6 +172,11 @@ class site_list
 			// }
 		}
 
+		if(isset($_data['compareatprice']))
+		{
+			$datalist['compareatprice'] = floatval($_data['compareatprice']);
+		}
+
 		if(isset($_data['discount']))
 		{
 			$datalist['discount'] = $_data['discount'];
@@ -234,6 +239,11 @@ class site_list
 		if(isset($_data['barcode2']))
 		{
 			$result['barcode2'] = $_data['barcode2'];
+		}
+
+		if(isset($_data['compareatprice']))
+		{
+			$result['compareatprice'] = $_data['compareatprice'];
 		}
 
 		if(isset($_data['price']))
