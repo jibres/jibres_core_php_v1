@@ -23,7 +23,7 @@ class controller
 			'ready/db'         => ['title' => 'Ready database to transfer'],
 			'user/db'          => ['title' => 'Transfer users table'],
 			'store/db'         => ['title' => 'Transfer store table'],
-			'store/database'   => ['title' => 'Transfer customer database - about 8 min'],
+			'store/database'   => ['title' => 'Transfer customer database - about 4 min'],
 			'store/userstore'  => ['title' => 'Transfer userstore'],
 			'store/logo'       => ['title' => 'Transfer store logo'],
 			'store/dash'       => ['title' => 'Transfer dash tables'],
