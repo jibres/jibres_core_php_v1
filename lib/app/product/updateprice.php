@@ -172,9 +172,9 @@ class updateprice
 			// 	if($new_record['price'] === null && array_key_exists('price', $last_product_price)) $new_record['price'] = $last_product_price['price'];
 			// }
 
-			if(isset($new_record['price']) || isset($new_record['discount']))
+			if(isset($new_record['price']))
 			{
-				$new_record['finalprice'] = floatval($new_record['price']) - floatval($new_record['discount']);
+				$new_record['finalprice'] = floatval($new_record['price']);
 			}
 		}
 
