@@ -35,7 +35,10 @@ class controller
 
 		\dash\data::myLink($level);
 
-
+		if(!$directory)
+		{
+			return;
+		}
 
 		if(!isset($level[$directory]))
 		{

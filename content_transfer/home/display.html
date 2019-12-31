@@ -4,7 +4,7 @@
 {%block pageContent%}
 <div class="fs18">
   {%for key, value in myLink%}
-  <div class="block mA10"><a class="btn" href="{{url.this}}/{{key}}">{{loop.index}}. {{value.title}}</a></div>
+  <div class="block mA10"><a class="btn" target="_blank" href="{{url.this}}/{{key}}">{{loop.index}}. {{value.title}}</a></div>
   {%endfor%}
 </div>
 
