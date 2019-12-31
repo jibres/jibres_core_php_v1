@@ -34,9 +34,9 @@ class updateprice
 			}
 
 			$price = null;
-			if($value['price'])
+			if($value['compareatprice'])
 			{
-				$price = \lib\price::down($value['price']);
+				$price = \lib\price::down($value['compareatprice']);
 			}
 
 			$discount = null;
