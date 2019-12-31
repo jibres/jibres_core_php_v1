@@ -33,36 +33,13 @@ class controller
 			'factor/transfer'  => ['title' => 'Transfer factors'],
 		];
 
-		/**
-		 * Run All step
-		 */
-		if(\dash\request::get('run'))
-		{
+		\dash\data::myLink($level);
 
-			foreach ($level as $url => $value)
-			{
-				\content_transfer\say::start($value['title']);
-
-				$fn = str_replace('/', '\\', $url);
-				$name = "\\content_transfer\\_$fn";
-				if(is_callable([$name, 'run']))
-				{
-					$name::run();
-				}
-			}
-			\content_transfer\say::end('Transfer complete');
-		}
 
 
 		if(!isset($level[$directory]))
 		{
-			foreach ($level as $url => $value)
-			{
-
-				\content_transfer\say::start($value['title']);
-				\dash\redirect::to(\dash\url::here(). '/'.$url);
-				return;
-			}
+			\content_transfer\say::end('Invalid url');
 		}
 		else
 		{
