@@ -62,7 +62,9 @@ class price
 				$discountpercent = \lib\price::up($discountpercent);
 			}
 
-			$removeLast  = "UPDATE productprices SET productprices.last = NULL WHERE productprices.product_id = $value[new_product_id] AND productprices.last = 'yes'  LIMIT 1";
+			$now = date("Y-m-d H:i:s");
+
+			$removeLast  = "UPDATE productprices SET productprices.last = NULL , productprices.enddate = '$now' WHERE productprices.product_id = $value[new_product_id] AND productprices.last = 'yes'  LIMIT 1";
 			$removeLast = \dash\db::query($removeLast, 'local', ['database' => 'jibres_'. $value['new_store_id']]);
 
 			$new_productprices =
