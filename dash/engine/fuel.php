@@ -31,7 +31,6 @@ class fuel
 	public static function master()
 	{
 		self::set_header('master');
-		return self::local();
 		return self::jibres_master();
 	}
 
@@ -47,10 +46,10 @@ class fuel
 		return
 		[
 			'code'     => __FUNCTION__,
-			'host'     => '45.82.139.124',
+			'host'     => 'localhost',
 			'port'     => 3306,
-			'user'     => 'ermile-local',
-			'pass'     => 'Reza1233',
+			'user'     => '101x',
+			'pass'     => 'ArvanJibres101MySql101!!!!',
 			'database' => 'jibres',
 		];
 	}
@@ -60,10 +59,11 @@ class fuel
 		return
 		[
 			'code'     => __FUNCTION__,
-			'host'     => '45.82.139.124',
+			// 'host'     => '45.82.139.124',
+			'host'     => 'localhost',
 			'port'     => 3306,
-			'user'     => 'ermile-local',
-			'pass'     => 'Reza1233',
+			'user'     => '101x',
+			'pass'     => 'ArvanJibres101MySql101!!!!',
 			'database' => null,
 		];
 	}
