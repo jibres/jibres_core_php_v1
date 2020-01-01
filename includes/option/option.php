@@ -16,6 +16,8 @@ self::$url['www']   = false;
 
 // if true add slash at end of url, else remove
 self::$url['slash'] = false;
+// redirect all domains to jibres
+self::$url['root'] = 'jibres';
 
 // self::$url['tld']               = 'com';
 self::$url['protocol']                   = 'https';
