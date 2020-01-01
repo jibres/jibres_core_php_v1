@@ -50,17 +50,19 @@ class get
 
 	public static function by_barcode($_barcode)
 	{
-		$public_query = self::product_query_string();
 		$query  =
 		"
 			SELECT
-				$public_query
+				*
+			FROM
+				products
 			WHERE
 				products.status  != 'deleted' AND
 				(products.barcode = '$_barcode' OR products.barcode2 = '$_barcode')
 			LIMIT 1
 		";
 		$result = \dash\db::get($query, null, true);
+		$result = self::load_price($result);
 		return $result;
 	}
 
@@ -68,17 +70,19 @@ class get
 
 	public static function scalecode($_scalecode)
 	{
-		$public_query = self::product_query_string();
 		$query  =
 		"
 			SELECT
-				$public_query
+				*
+			FROM
+				products
 			WHERE
 				products.status  != 'deleted' AND
 				products.scalecode = '$_scalecode'
 			LIMIT 1
 		";
 		$result = \dash\db::get($query, null, true);
+		$result = self::load_price($result);
 		return $result;
 	}
 
@@ -91,39 +95,41 @@ class get
 		return $result;
 	}
 
-	private static function product_query_string()
+
+	/**
+	 * Loads a price.
+	 *
+	 * @param      <type>  $_result      The result
+	 * @param      <type>  $_one_record  One record
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function load_price($_result)
 	{
-		$query =
-		"
-				products.*,
-				productprices.price,
-				productprices.buyprice,
-				productprices.discount,
-				productprices.compareatprice,
-				productprices.discountpercent,
-				productprices.finalprice
-			FROM
-				products
-			LEFT JOIN productprices ON productprices.product_id = products.id AND productprices.last = 'yes'
-		";
+		if(isset($_result['id']))
+		{
+			$query = "SELECT * FROM productprices WHERE productprices.product_id = $_result[id] ORDER BY productprices.id DESC LIMIT 1";
+			$prices = \dash\db::get($query, null, true);
+			if(is_array($prices))
+			{
+				if(array_key_exists('price', $prices)) 				$_result['price']           = $prices['price'];
+				if(array_key_exists('buyprice', $prices)) 			$_result['buyprice']        = $prices['buyprice'];
+				if(array_key_exists('discount', $prices)) 			$_result['discount']        = $prices['discount'];
+				if(array_key_exists('compareatprice', $prices)) 	$_result['compareatprice']  = $prices['compareatprice'];
+				if(array_key_exists('discountpercent', $prices)) 	$_result['discountpercent'] = $prices['discountpercent'];
+				if(array_key_exists('finalprice', $prices)) 		$_result['finalprice']      = $prices['finalprice'];
+			}
+		}
 
-		return $query;
+		return $_result;
 	}
-
 
 
 	public static function by_id($_id)
 	{
-		$public_query = self::product_query_string();
-		$query  =
-		"
-			SELECT
-				$public_query
-			WHERE
-				products.id = $_id
-			LIMIT 1
-		";
+		$query  = "SELECT * FROM products WHERE products.id = $_id	LIMIT 1	";
 		$result = \dash\db::get($query, null, true);
+		$result = self::load_price($result);
 		return $result;
 	}
 
@@ -139,9 +145,21 @@ class get
 	 */
 	public static function by_multi_id($_ids)
 	{
-		$public_query = self::product_query_string();
-		$query        = "SELECT  $public_query WHERE products.id IN ($_ids)";
-		$result       = \dash\db::get($query);
+		$query  =
+		"
+			SELECT
+				products.*,
+				productprices.buyprice,
+				productprices.price,
+				productprices.discount,
+				productprices.discountpercent,
+				productprices.compareatprice,
+				productprices.finalprice
+			FROM products
+			LEFT JOIN productprices ON productprices.id = (SELECT MAX(productprices.id) FROM productprices WHERE productprices.product_id = products.id)
+			WHERE products.id IN ($_ids)
+		";
+		$result = \dash\db::get($query);
 		return $result;
 	}
 

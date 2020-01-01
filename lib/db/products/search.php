@@ -58,13 +58,7 @@ class search
 
 		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query =
-		"
-			SELECT COUNT(*) AS `count`
-			FROM products
-			LEFT JOIN productprices ON productprices.product_id = products.id AND productprices.last = 'yes'
-			$q[where]
-		";
+		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM products $q[where]";
 
 		$limit = null;
 		if($q['pagination'] !== false)
@@ -83,7 +77,7 @@ class search
 				productprices.compareatprice,
 				productprices.finalprice
 			FROM products
-			LEFT JOIN productprices ON productprices.product_id = products.id AND productprices.last = 'yes'
+			LEFT JOIN productprices ON productprices.id = (SELECT MAX(productprices.id) FROM productprices WHERE productprices.product_id = products.id)
 				$q[where] $q[order] $limit
 		";
 
