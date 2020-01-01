@@ -30,11 +30,13 @@ class cronjob
 
 		$index_php_addr = $jibres_addr. "public_html/index.php";
 
+		$SERVER_NAME = 'jibres.local';
+
 		$server =
 		[
 			'trust_token'     => $trust_token,
 			'HTTP_HOST'       => null, // "mohiti.jibres.local",
-			'SERVER_NAME'     => null, // "jibres.local",
+			'SERVER_NAME'     => $SERVER_NAME, // "jibres.local",
 			'SERVER_PORT'     => "443",
 			'SERVER_PROTOCOL' => "HTTP/1.1",
 			'REQUEST_URI'     => "/aaahook/cronjob11",
@@ -42,7 +44,6 @@ class cronjob
 			'SCRIPT_FILENAME' => $index_php_addr,
 
 		];
-		$SERVER_NAME = 'jibres.local';
 
 		$exec = [];
 		foreach ($list_stores as $key => $value)
@@ -67,7 +68,7 @@ class cronjob
 
 
 		$exec_php = 'cd '. $jibres_addr. 'public_html && '. $exec;
-		var_dump($exec_php);exit();
+		// var_dump($exec_php);exit();
 
 		exec($exec_php);
 
@@ -76,7 +77,17 @@ class cronjob
 
 	private static function trust_token()
 	{
-		return 111;
+		$engine_addr = __DIR__;
+		$engine_addr = str_replace('/cronjob', '', $engine_addr);
+		$engine_addr .= '/cronjob_server.me.token';
+
+		$rand = random_bytes(100). ' '. microtime(). ' '. rand();
+
+		$token = md5($rand);
+
+		file_put_contents($engine_addr, $token);
+
+		return $token;
 	}
 
 

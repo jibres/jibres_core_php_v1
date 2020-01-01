@@ -35,6 +35,12 @@ function cronjob_server()
 	{
 		$_SERVER = $newServer;
 	}
+	else
+	{
+		// invalid token
+		// be not continue
+		exit();
+	}
 }
 
 /**
