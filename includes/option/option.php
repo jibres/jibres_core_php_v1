@@ -50,7 +50,7 @@ self::$language =
  * system default lanuage
  */
 
-self::$config['coming']           = true;
+self::$config['coming']           = false;
 
 self::$config['debug']                        = false;
 
