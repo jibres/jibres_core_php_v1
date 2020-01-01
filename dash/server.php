@@ -30,6 +30,25 @@ class server
 	}
 
 
+	public static function server_ip($_change = null)
+	{
+		$server_ip = null;
+		if (isset($_SERVER["SERVER_ADDR"]))
+		{
+			$server_ip = $_SERVER["SERVER_ADDR"];
+		}
+
+		if($_change)
+		{
+			// sprintf will then write it as an unsigned integer.
+			$server_ip = sprintf("%u",ip2long( $server_ip ));
+		}
+
+		return $server_ip;
+	}
+
+
+
 	/**
 	 * Function to get the client IP address
 	 * @return [type] [description]

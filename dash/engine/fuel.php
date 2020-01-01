@@ -91,5 +91,27 @@ class fuel
 			'database' => 'jibres',
 		];
 	}
+
+
+
+
+	public static function server_code_name($_ip)
+	{
+		$code_servers =
+		[
+			'127.0.0.1'   => 'local',
+			'127.0.0.2'   => 'localServerReza',
+			'192.168.1.1' => 'localServerJibres100',
+		];
+
+		if(isset($code_servers[$_ip]))
+		{
+			return $code_servers[$_ip];
+		}
+		else
+		{
+			return 'Unknow bedroom';
+		}
+	}
 }
 ?>
