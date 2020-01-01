@@ -614,7 +614,7 @@ class prepare
 		@header("Server1: Ruby");
 
 		$server_code_name = \dash\engine\fuel::server_code_name(\dash\server::server_ip());
-		@header("Bedromcode: ". $server_code_name);
+		@header("x-node: ". $server_code_name);
 
 
 	}
