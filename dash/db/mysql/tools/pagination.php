@@ -17,9 +17,9 @@ class pagination
 	}
 
 
-	public static function pagination_query($_query, $_length = 10, $_array = false, $_db_name = true)
+	public static function pagination_query($_query, $_length = 10, $_array = false)
 	{
-		$total_rows = \dash\db::get($_query, 'count', true, $_db_name);
+		$total_rows = \dash\db::get($_query, 'count', true);
 		$total_rows = intval($total_rows);
 		$result     = self::pagnation($total_rows, $_length);
 
