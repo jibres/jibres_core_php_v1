@@ -5,10 +5,16 @@ namespace dash\engine;
  */
 class fuel
 {
+	private static $last_get = null;
+	private static $header_count = 0;
+
+
 	public static function get($_request = null)
 	{
 		if(is_callable(['self', $_request]))
 		{
+			self::set_header($_request);
+
 			return self::$_request();
 		}
 
@@ -24,6 +30,8 @@ class fuel
 
 	public static function master()
 	{
+		self::set_header('master');
+		return self::local();
 		return self::jibres_master();
 	}
 
@@ -111,6 +119,17 @@ class fuel
 		else
 		{
 			return 'Unknow bedroom';
+		}
+	}
+
+
+	private static function set_header($_request)
+	{
+		if($_request !== self::$last_get)
+		{
+			self::$last_get = $_request;
+			self::$header_count++;
+			@header('lastFuel_'. self::$header_count. ': '. $_request);
 		}
 	}
 }
