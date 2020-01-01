@@ -24,22 +24,23 @@ class cronjob
 		}
 
 		// cun cronjob by this code
-	// php /home/reza/projects/jibres/public_html/index.php '{"trust_token":"123","HTTP_HOST":"mohiti.jibres.local","SERVER_NAME":"jibres.local","SERVER_PORT":"80","SERVER_PROTOCOL":"HTTP/1.1","REQUEST_URI":"/a","REQUEST_METHOD":"POST","SCRIPT_FILENAME":"/home/reza/projects/jibres/public_html/index.php"}' &
+		// php /home/reza/projects/jibres/public_html/index.php '{"trust_token":"123","HTTP_HOST":"mohiti.jibres.local","SERVER_NAME":"jibres.local","SERVER_PORT":"80","SERVER_PROTOCOL":"HTTP/1.1","REQUEST_URI":"/a","REQUEST_METHOD":"POST","SCRIPT_FILENAME":"/home/reza/projects/jibres/public_html/index.php"}' &
 
 		$trust_token = self::trust_token();
 
 		$index_php_addr = $jibres_addr. "public_html/index.php";
 
-		$SERVER_NAME = 'jibres.local';
+		$SERVER_NAME = 'jibres.WorldSalesEngineeringSystem';
+
 
 		$server =
 		[
 			'trust_token'     => $trust_token,
-			'HTTP_HOST'       => null, // "mohiti.jibres.local",
-			'SERVER_NAME'     => $SERVER_NAME, // "jibres.local",
-			'SERVER_PORT'     => "80",
+			'HTTP_HOST'       => null, // "mohiti.jibres.tld",
+			'SERVER_NAME'     => $SERVER_NAME, // "jibres.tld",
+			'SERVER_PORT'     => "443",
 			'SERVER_PROTOCOL' => "HTTP/1.1",
-			'REQUEST_URI'     => "/hook/cronjob",
+			'REQUEST_URI'     => "/hook/crontab/". $trust_token,
 			'REQUEST_METHOD'  => "POST",
 			'SCRIPT_FILENAME' => $index_php_addr,
 
@@ -62,7 +63,7 @@ class cronjob
 		}
 
 		$exec_addr = __DIR__. '/exec.me.php';
-		$exec = implode(" && ", $exec);
+		$exec = implode(" & ", $exec);
 		$exec_php = 'cd '. $jibres_addr. 'public_html && '. $exec;
 
 		file_put_contents($exec_addr, $exec_php);

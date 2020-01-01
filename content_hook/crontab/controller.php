@@ -16,67 +16,46 @@ class controller
 			return;
 		}
 
-		// In local mode it should not be run
-		if(\dash\url::isLocal())
+		// only by run php can set this tld :)
+		if(\dash\url::tld() !== 'WorldSalesEngineeringSystem')
 		{
-			return false;
+			\dash\header::status(416, 'tld!');
 		}
 
-		if(\dash\url::child() !== 'exec')
+		$child = \dash\url::child();
+		if(!$child)
 		{
-			\dash\header::status(404);
+			\dash\header::status(416, 'child');
 		}
 
-		if(mb_strtoupper(\dash\request::is()) !== 'POST')
+		if(mb_strlen($child) !== 32)
 		{
-			\dash\header::status(416);
+			\dash\header::status(416, 'child!');
 		}
 
-		$token = \dash\request::post('token');
-		if(!$token)
+		$read_file = core. 'engine/cronjob_server.me.token';
+		$read_file = \dash\file::read($read_file);
+		if($child !== $read_file)
 		{
-			\dash\notif::error("Token!");
-			\dash\code::jsonBoom(\dash\notif::get());
+			\dash\header::status(416, 'child!!!');
 		}
 
-		if(!\dash\option::config('cronjob','status'))
-		{
-			\dash\header::status(403, 'Cronjob is off');
-		}
+		// stop visitor save for cronjob
+		\dash\temp::set('force_stop_visitor', true);
 
-		$read_file = core. 'lib/engine/cronjob/token.me.json';
+		// \dash\log::set('CronjobMasterOK');
 
-		if(is_file($read_file))
-		{
-			$check_token = file_get_contents($read_file);
-			$check_token = json_decode($check_token, true);
+		self::cronjob_run();
 
-			if(isset($check_token['token']) && $check_token['token'] === $token)
-			{
-				// stop visitor save for cronjob
-				\dash\temp::set('force_stop_visitor', true);
-
-				// \dash\log::set('CronjobMasterOK');
-
-				self::cronjob_run();
-
-				// this is ok
-				\dash\notif::ok("Ok ;)");
-				\dash\code::jsonBoom(\dash\notif::get());
-			}
-		}
-		\dash\log::set('CronjobTokenNotSet');
-		\dash\notif::error("Token :/");
+		// this is ok
+		\dash\notif::ok("Ok ;)");
 		\dash\code::jsonBoom(\dash\notif::get());
-
 	}
 
 
 
 	private static function cronjob_run()
 	{
-		\dash\open::get();
-		\dash\open::post();
 		// this cronjob must be run every time
 		self::master_cronjob();
 
@@ -99,11 +78,6 @@ class controller
 		if(self::at('01:00'))
 		{
 			\dash\utility\dayevent::save();
-		}
-
-		if(is_callable(['\lib\cronjob', 'run']))
-		{
-			\lib\cronjob::run();
 		}
 	}
 
