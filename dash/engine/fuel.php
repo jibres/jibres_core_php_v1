@@ -31,6 +31,12 @@ class fuel
 	public static function master()
 	{
 		self::set_header('master');
+
+		if(\dash\url::isLocal())
+		{
+			return self::myLocal();
+		}
+
 		return self::jibres_master();
 	}
 
@@ -95,6 +101,19 @@ class fuel
 			'user'     => 'ermile-local',
 			'pass'     => 'Reza1233',
 			'database' => null,
+		];
+	}
+
+	private static function myLocal()
+	{
+		return
+		[
+			'code'     => __FUNCTION__,
+			'host'     => 'localhost',
+			'port'     => 3306,
+			'user'     => 'root',
+			'pass'     => 'root',
+			'database' => 'jibres',
 		];
 	}
 
