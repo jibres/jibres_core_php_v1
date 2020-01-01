@@ -1045,6 +1045,11 @@ class check
 		// 	return false;
 		// }
 
+		if($price && !$compareatprice)
+		{
+			$compareatprice = $price;
+		}
+
 		$args                    = [];
 		$args['buyprice']        = \lib\price::up($buyprice);
 		$args['price']           = \lib\price::up($price);
