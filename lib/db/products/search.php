@@ -30,10 +30,24 @@ class search
 			$order = $_order_sort;
 		}
 
+		$pagination = null;
+		if(array_key_exists('pagination', $_meta))
+		{
+			$pagination = $_meta['pagination'];
+		}
+
+		$limit = null;
+		if(array_key_exists('limit', $_meta))
+		{
+			$limit = $_meta['limit'];
+		}
+
 		return
 		[
-			'where' => $where,
-			'order' => $order,
+			'where'      => $where,
+			'order'      => $order,
+			'pagination' => $pagination,
+			'limit'      => $limit,
 		];
 	}
 
@@ -52,7 +66,11 @@ class search
 			$q[where]
 		";
 
-		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
+		$limit = null;
+		if($q['pagination'] !== false)
+		{
+			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+		}
 
 		$query =
 		"
@@ -83,7 +101,11 @@ class search
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM products $q[where] ";
 
-		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
+		$limit = null;
+		if($q['pagination'] !== false)
+		{
+			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+		}
 
 		$query = "SELECT products.* FROM products $q[where] $q[order] $limit ";
 

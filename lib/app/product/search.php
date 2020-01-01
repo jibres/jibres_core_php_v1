@@ -205,9 +205,23 @@ class search
 
 		$query_string = \dash\safe::forQueryString($_query_string);
 
-		$query_string = mb_substr($query_string, 0, 50);
+		if(substr($query_string, 0, 1) === '+' && is_numeric(\dash\number::clean(substr($query_string, 1))))
+		{
+			$search         = substr($query_string, 1);
+			$search         = \dash\number::clean($search);
 
-		if($query_string)
+			$and['productprices.compareatprice'] = \lib\price::up($search);
+			$and['products.barcode']             = NULL;
+			$and['products.barcode2']            = NULL;
+			$meta['pagination']                  = false;
+
+			self::$filter_args['price'] = T_("without price");
+
+			$type                         = 'price';
+
+			self::$is_filtered = true;
+		}
+		elseif($query_string)
 		{
 			$or['products.title']        = ["LIKE", "'%$query_string%'"];
 			// $or['products.slug']     = ["LIKE", "'$query_string%'"];

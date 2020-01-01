@@ -133,7 +133,10 @@ class safe
 	public static function forQueryString($_string)
 	{
 		$_string = self::safe($_string, 'get_url-sqlinjection');
-		$_string = mb_ereg_replace('([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.\@\!\#\$\&\^\%\-\=\_])+', ' ', $_string);
+		// remove every character else of this characters
+		// this carachter allow in query string
+		// only remove emoji and unallow characters
+		$_string = mb_ereg_replace('([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.\@\!\#\$\&\^\%\-\=\_\+\/])+', ' ', $_string);
 		$_string = str_replace('%', '', $_string);
 		$_string = trim($_string);
 		return $_string;
