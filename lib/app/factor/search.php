@@ -76,7 +76,7 @@ class search
 		if($_args['customer'] && is_numeric($_args['customer']))
 		{
 			$and['factors.customer']       = $_args['customer'];
-			self::$filter_args['customer'] = '*'. T_('Cusomer');
+			self::$filter_args['customer'] = '*'. T_('Customer');
 			self::$is_filtered             = true;
 		}
 
@@ -84,7 +84,7 @@ class search
 		if($_args['type'] && is_string($_args['type']))
 		{
 			$and['factors.type']       = $_args['type'];
-			self::$filter_args['type'] = '*'. T_('Cusomer');
+			self::$filter_args['type'] = '*'. T_('Customer');
 			self::$is_filtered             = true;
 		}
 
@@ -101,7 +101,7 @@ class search
 		{
 			$join_factordetails               = true;
 			$and['factordetails.product_id'] = $_args['product'];
-			self::$filter_args['customer']    = '*'. T_('Cusomer');
+			self::$filter_args['customer']    = '*'. T_('Customer');
 			self::$is_filtered                = true;
 		}
 
