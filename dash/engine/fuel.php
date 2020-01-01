@@ -101,6 +101,7 @@ class fuel
 
 	private static function local()
 	{
+		return self::jibres101();
 		return
 		[
 			'code'     => __FUNCTION__,
