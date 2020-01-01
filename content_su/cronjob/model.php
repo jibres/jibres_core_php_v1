@@ -7,8 +7,6 @@ class model
 	{
 		$post = \dash\request::post();
 
-		\dash\engine\cronjob\options::save_list($post);
-
 		if(\dash\request::post('active'))
 		{
 			\dash\log::set('cronJobChange');
