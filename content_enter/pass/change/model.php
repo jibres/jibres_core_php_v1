@@ -45,7 +45,7 @@ class model
 
 			// check min and max of password
 			// if not okay make debug error and return false
-			if(!\dash\utility\enter::check_pass_syntax($temp_ramz))
+			if(!\dash\utility\enter::check_pass_syntax($temp_ramz, \dash\user::detail('mobile')))
 			{
 				return false;
 			}

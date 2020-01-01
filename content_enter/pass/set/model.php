@@ -16,7 +16,7 @@ class model
 				$temp_ramz = $_POST['ramzNew'];
 			}
 			// check min and max of password and make error
-			if(!\dash\utility\enter::check_pass_syntax($temp_ramz))
+			if(!\dash\utility\enter::check_pass_syntax($temp_ramz, \dash\utility\enter::user_data('mobile')))
 			{
 				return false;
 			}

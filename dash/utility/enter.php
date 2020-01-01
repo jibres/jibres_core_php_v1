@@ -1410,26 +1410,29 @@ class enter
 	 *
 	 * @param      <type>  $_password  The password
 	 */
-	public static function check_pass_syntax($_password, $_debug = true)
+	public static function check_pass_syntax($_password, $_mobile_or_email = null)
 	{
 		// cehck min leng of password is 6 character
 		if(mb_strlen($_password) < 6)
 		{
-			if($_debug)
-			{
-				\dash\notif::error(T_("You must set 6 character and large in password"));
-			}
+			\dash\notif::error(T_("You must set 6 character and large in password"));
 			return false;
 		}
 
 		// cehck max length of password
 		if(mb_strlen($_password) > 99)
 		{
-			if($_debug)
-			{
-				\dash\notif::error(T_("You must set less than 99 character in password"));
-			}
+			\dash\notif::error(T_("You must set less than 99 character in password"));
 			return false;
+		}
+
+		if($_mobile_or_email)
+		{
+			if(strpos($_password, substr($_mobile_or_email, 2)) !== false)
+			{
+				\dash\notif::error(T_("Please do not use your mobile in password!"));
+				return false;
+			}
 		}
 
 		// no problem ;)
