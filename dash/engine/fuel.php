@@ -68,6 +68,18 @@ class fuel
 		];
 	}
 
+	private static function jibres101rg6()
+	{
+		return
+		[
+			'code'     => __FUNCTION__,
+			'host'     => '45.82.139.124',
+			'port'     => 3306,
+			'user'     => '101rg6',
+			'pass'     => 'ArJibres101MSqg6^^^^*&',
+			'database' => null,
+		];
+	}
 
 
 
