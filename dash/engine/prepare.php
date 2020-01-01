@@ -611,12 +611,11 @@ class prepare
 		// change header and remove php from it
 		@header("X-Made-In: Ermile!");
 		@header("X-Powered-By: Jibres");
-		@header("Server1: Ruby");
-
 		$server_code_name = \dash\engine\fuel::server_code_name(\dash\server::server_ip());
-		@header("x-node: ". $server_code_name);
+		@header("X-Node: ". $server_code_name);
 
 
+		@header("Server1: Ruby");
 	}
 }
 ?>
