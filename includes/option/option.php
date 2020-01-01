@@ -54,7 +54,7 @@ self::$config['coming']           = false;
 
 self::$config['debug']                        = false;
 
-self::$config['redirect']                     = '';
+self::$config['redirect']                     = 'store';
 
 /**
  * first signup url
