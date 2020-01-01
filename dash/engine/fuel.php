@@ -119,9 +119,13 @@ class fuel
 	{
 		$code_servers =
 		[
-			'127.0.0.1'   => 'local',
-			'127.0.0.2'   => 'localServerReza',
-			'192.168.1.1' => 'localServerJibres100',
+			'127.0.0.1'       => 'local1',
+			'127.0.0.2'       => 'local2',
+
+			'45.82.139.124'   => '101',
+			'193.176.242.143' => 'g6',
+			'193.176.242.25'  => 'g4',
+
 		];
 
 		if(isset($code_servers[$_ip]))
