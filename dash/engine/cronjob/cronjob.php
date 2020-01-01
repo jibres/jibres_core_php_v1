@@ -37,9 +37,9 @@ class cronjob
 			'trust_token'     => $trust_token,
 			'HTTP_HOST'       => null, // "mohiti.jibres.local",
 			'SERVER_NAME'     => $SERVER_NAME, // "jibres.local",
-			'SERVER_PORT'     => "443",
+			'SERVER_PORT'     => "80",
 			'SERVER_PROTOCOL' => "HTTP/1.1",
-			'REQUEST_URI'     => "/aaahook/cronjob11",
+			'REQUEST_URI'     => "/hook/cronjob",
 			'REQUEST_METHOD'  => "POST",
 			'SCRIPT_FILENAME' => $index_php_addr,
 
@@ -62,15 +62,12 @@ class cronjob
 		}
 
 		$exec_addr = __DIR__. '/exec.me.php';
-		$exec = implode(" & \n", $exec);
-
-		file_put_contents($exec_addr, $exec);
-
-
+		$exec = implode(" && ", $exec);
 		$exec_php = 'cd '. $jibres_addr. 'public_html && '. $exec;
-		// var_dump($exec_php);exit();
 
-		exec($exec_php);
+		file_put_contents($exec_addr, $exec_php);
+
+		shell_exec($exec_php);
 
 	}
 
