@@ -34,20 +34,21 @@ class model
 				$user_id = \dash\request::get('userid');
 			}
 
-			if($user_id)
+			if($user_id && is_numeric($user_id))
 			{
 
 				$main_account = \dash\user::id();
 				$main_mobile  = \dash\user::login('mobile');
 
 				$user_detail = \dash\db\users::get_by_id($user_id);
+
 				if(!$user_detail)
 				{
 					\dash\notif::error(T_("User not found"));
 					return true;
 				}
 
-				if(\dash\user::detail('permission') === 'supervisor')
+				if(\dash\permission::supervisor())
 				{
 					// nothing
 					// supervisor can login by anyone
@@ -95,7 +96,7 @@ class model
 
 				\dash\utility\enter::clean_session();
 
-				\dash\user::destroy();
+				\dash\user::full_destroy();
 
 				\dash\utility\enter::load_user_data($user_id, 'user_id');
 

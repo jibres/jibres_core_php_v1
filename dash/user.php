@@ -264,6 +264,16 @@ class user
 
 	}
 
+	/**
+	 * Full destroy user id
+	 */
+	public static function full_destroy()
+	{
+		self::$detail = [];
+		unset($_SESSION[self::store_auth_key()]);
+		unset($_SESSION['auth']);
+	}
+
 
 	/**
 	 * return current version
