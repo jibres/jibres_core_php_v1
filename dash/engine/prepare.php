@@ -82,6 +82,8 @@ class prepare
 			return;
 		}
 
+		// set header processing ...
+		\dash\header::set(202);
 
 		if(\dash\request::ajax())
 		{
@@ -101,7 +103,17 @@ class prepare
 		}
 		else
 		{
-			\dash\redirect::to(\dash\url::static(). '/page/lock/', true, 302);
+			$updatePageUrl = root. 'public_html/static/page/lock/index.html';
+			$updatePage = \dash\file::read($updatePageUrl);
+			if($updatePage)
+			{
+				echo $updatePage;
+				\dash\code::boom();
+			}
+			else
+			{
+				\dash\redirect::to(\dash\url::static(). '/page/lock/', true, 302);
+			}
 		}
 
 	}
