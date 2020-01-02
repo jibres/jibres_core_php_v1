@@ -1,79 +1,74 @@
 {%extends display.dash%}
 
+
 {%block pageContent%}
+<p class="msg danger2 fs16 txtC">{%trans "If you dont know about this page, leave it!"%}</p>
 
-<div class="f mB20 mT20">
-  <div class="c s12">
-    <div class="dcard x2 mB10 txtC">
-      <img src="{{url.static}}/img/logo/icon/svg/Jibres-Logo-icon.svg" alt='{{site.title}}' class="w100">
-      <h1>{{site.title}}</h1>
-      <a target='_blank' class="btn block primary mT10" href="{{url.here}}/update?git=all" title='{%trans "Press it if you are sure!"%}'>{%trans "Update"%}</a>
-    </div>
-  </div>
+{%if isLockService%}
+  <p class="msg danger  fs20 txtB txtC">{%trans "Service is Locked!"%}</p>
+{%else%}
+  <p class="msg success fs20 txtB txtC">{%trans "Service is Running!"%}</p>
+{%endif%}
 
-  <div class="c3 s6">
-    {{block('iPorjectCommitCount')}}
-  </div>
-  <div class="c4 s6">
-    {{block('iProjectVersion')}}
-  </div>
-</div>
-<p class="msg danger fs16 txtC">{%trans "If you dont know about this page, leave it!"%}</p>
-
-
-<p class="msg danger2 txtC">{%trans "Submit this form carefully"%}</p>
 <div class="f">
-  <div class="c s12">
-    {{block('iUpdateDb')}}
+  <div class="c s6">
+    {{block('iDbLock')}}
   </div>
-  <div class="c4 s6">
-    {{block('iDbVersion')}}
+  <div class="c s6">
+    {{block('iDbGitPull')}}
+  </div>
+  <div class="c s6">
+    {{block('iDbDbUpgrade')}}
+  </div>
+  <div class="c s6">
+    {{block('iDbUnlock')}}
   </div>
 </div>
-
 
 {%endblock%}
 
 
-{%block iProjectVersion%}
-<div class="dcard x2 mB10">
-  <div class="statistic blue" title='{{dash.projectVersion | dt(true)}}'>
-    <div class="value mB10">{{dash.projectVersion | dt("human", 'month')}}</div>
-    <div class="label">{%trans "Last update"%}</div>
-  </div>
-</div>
-{%endblock%}
 
-{%block iPorjectCommitCount%}
-<div class="dcard x2 mB10">
-  <div class="statistic grey">
-    <div class="value"><span>{{dash.projectCommitCount | fitNumber}}</span></div>
-    <div class="label">{%trans "Commits"%}</div>
-  </div>
-</div>
-{%endblock%}
 
-{%block iDbVersion%}
-<div class="dcard x2 mB10">
-  <div class="statistic red" title='{{dash.dbVersionDate | date}}'>
-    <div class="value">{{"1.2.3" | fitNumber(false)}}</div>
-    <div class="label">{%trans "Project database"%}</div>
+{%block iDbLock%}
+<div class="dcard x2 mB10" data-confirm data-data='{"type" : "lock"}'>
+  <div class="statistic red">
+    <div class="value">{%trans "Lock"%}</div>
+    <div class="label">{%trans "Lock service"%}</div>
   </div>
 </div>
 {%endblock%}
 
 
 
-{%block iUpdateDb%}
-<div class="dcard x2 mB20">
-
-<div class="msg danger">
-  {{137 | fitNumber}} {%trans "Stores need to upgrade"%}
-</div>
- <form method="post" autocomplete="off">
-  <button class="btn block danger outline">{%trans "Upgrade"%}</button>
- </form>
+{%block iDbGitPull%}
+<div class="dcard x2 mB10" data-confirm data-data='{"type" : "pull"}'>
+  <div class="statistic yellow">
+    <div class="value">{%trans "Pull"%}</div>
+    <div class="label">{%trans "Pull service"%}</div>
+  </div>
 </div>
 {%endblock%}
 
+
+
+{%block iDbDbUpgrade%}
+<div class="dcard x2 mB10" data-confirm data-data='{"type" : "upgrade"}'>
+  <div class="statistic blue">
+    <div class="value">{%trans "Upgrade"%}</div>
+    <div class="label">{%trans "Update database"%}</div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+{%block iDbUnlock%}
+<div class="dcard x2 mB10" data-confirm data-data='{"type" : "unlock"}'>
+  <div class="statistic green">
+    <div class="value">{%trans "Unlock"%}</div>
+    <div class="label">{%trans "Unlock service"%}</div>
+  </div>
+</div>
+{%endblock%}
 
