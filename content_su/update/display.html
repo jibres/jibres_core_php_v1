@@ -2,12 +2,12 @@
 
 {%block pageContent%}
 
-<div class="f mB50 mT20">
+<div class="f mB20 mT20">
   <div class="c s12">
     <div class="dcard x2 mB10 txtC">
       <img src="{{url.static}}/img/logo/icon/svg/Jibres-Logo-icon.svg" alt='{{site.title}}' class="w100">
       <h1>{{site.title}}</h1>
-      <a target='_blank' class="btn block primary mT10" href="{{url.here}}/update?git=all" title='{%trans "Press it if you are sure!"%}'>{%trans "Update All"%}</a>
+      <a target='_blank' class="btn block primary mT10" href="{{url.here}}/update?git=all" title='{%trans "Press it if you are sure!"%}'>{%trans "Update"%}</a>
     </div>
   </div>
 
@@ -18,8 +18,8 @@
     {{block('iProjectVersion')}}
   </div>
 </div>
-
 <p class="msg danger fs16 txtC">{%trans "If you dont know about this page, leave it!"%}</p>
+
 
 <p class="msg danger2 txtC">{%trans "Submit this form carefully"%}</p>
 <div class="f">
@@ -50,14 +50,13 @@
     <div class="value"><span>{{dash.projectCommitCount | fitNumber}}</span></div>
     <div class="label">{%trans "Commits"%}</div>
   </div>
-  <a target='_blank' class="badge black" href="{{url.here}}/update?git={{url.root}}" title='{%trans "Do it if you know it"%}'>{%trans "Update Repository"%}</a>
 </div>
 {%endblock%}
 
 {%block iDbVersion%}
 <div class="dcard x2 mB10">
   <div class="statistic red" title='{{dash.dbVersionDate | date}}'>
-    <div class="value">{{dash.dbVersion | fitNumber(false)}}</div>
+    <div class="value">{{"1.2.3" | fitNumber(false)}}</div>
     <div class="label">{%trans "Project database"%}</div>
   </div>
 </div>
@@ -66,25 +65,15 @@
 
 
 {%block iUpdateDb%}
- <form method="post" action="{{url.here}}/db" data-action class="dcard x2 mB50" autocomplete="off">
-  <div class="input mB5">
-   <span class="addon">{%trans "Username"%}</span>
-   <input type="text" name="username" placeholder="db username" autocomplete="new-password">
-  </div>
-  <div class="input mB5">
-   <span class="addon">{%trans "Password"%}</span>
-   <input type="password" name="password" placeholder="db password" autocomplete="new-password" class="input">
-  </div>
-  <div class="input mB10 f">
-   <span class="addon cauto">{%trans "Type"%}</span>
-  <select name="type" class="c select">
-   <option value="upgrade" selected="selected">{%trans "Upgrade"%}</option>
-   <option value="backup" >{%trans "Backup"%}</option>
-   <option value="backup_dump" >{%trans "Backup by dump"%}</option>
-  </select>
-  </div>
-  <button class="btn block danger outline">{%trans "Submit"%}</button>
+<div class="dcard x2 mB20">
+
+<div class="msg danger">
+  {{137 | fitNumber}} {%trans "Stores need to upgrade"%}
+</div>
+ <form method="post" autocomplete="off">
+  <button class="btn block danger outline">{%trans "Upgrade"%}</button>
  </form>
+</div>
 {%endblock%}
 
 

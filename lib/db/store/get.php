@@ -4,6 +4,13 @@ namespace lib\db\store;
 
 class get
 {
+	public static function all_version()
+	{
+		$query = "SELECT dbversion FROM store_data";
+		$result = \dash\db::get($query, 'dbversion');
+		return $result;
+	}
+
 	public static function subdomain_exist($_subdomain)
 	{
 		$query = "SELECT * FROM store WHERE store.subdomain = '$_subdomain' LIMIT 1";
