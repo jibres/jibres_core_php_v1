@@ -153,9 +153,7 @@ class header
 		$status_header = "HTTP/1.1 $_code $desc";
 		@header($status_header, true, $_code);
 
-		$debug_backtrace = ['args' => func_get_args(), 'debug' => debug_backtrace(), 'server' => $_SERVER];
-		$debug_backtrace = json_encode($debug_backtrace, JSON_UNESCAPED_UNICODE);
-		\dash\log::file($debug_backtrace, "$_code.txt", 'header');
+		\dash\log::file(null, "$_code.txt", 'header');
 
 		// translate desc of header if in this level T_ fn is defined!
 		$translatedDesc = $desc;

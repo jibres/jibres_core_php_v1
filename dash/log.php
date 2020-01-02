@@ -646,8 +646,11 @@ class log
 		$my_text .= '@'. \dash\user::id(). ' | ';
 		$my_text .= \dash\url::pwd();
 		$my_text .= "\n";
-		$my_text .= $_text;
-		$my_text .= "\r\n";
+		if($_text !== null)
+		{
+			$my_text .= $_text;
+			$my_text .= "\r\n";
+		}
 
 		@file_put_contents($fileAddr, $my_text, FILE_APPEND);
 	}
