@@ -51,9 +51,9 @@ class dayevent
 		$result['agent']           = \dash\db\agents::get_count();
 		$result['session']         = \dash\db\sessions::get_count();
 		$result['urls']            = \dash\db\visitors::url_get_count();
-		$result['ticket']          = \dash\db\comments::get_count(['type' => 'ticket', 'parent' => null]);
-		$result['ticket_message']          = \dash\db\comments::get_count(['type' => 'ticket', 'parent' => ['IS NOT', 'NULL']]);
-		$result['comment']         = \dash\db\comments::get_count(['type' => ['<>', "'ticket'"]]);
+		$result['ticket']          = \dash\db\tickets::get_count(['parent' => null]);
+		$result['ticket_message']  = \dash\db\tickets::get_count(['parent' => ['IS NOT', 'NULL']]);
+		$result['comment']         = \dash\db\comments::get_count();
 		$result['address']         = \dash\db\address::get_count();
 
 		$result['news']            = \dash\db\posts::get_count(['type' => 'post']);
