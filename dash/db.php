@@ -72,7 +72,7 @@ class db
 		}
 		else
 		{
-			$result = mysqli_query(\dash\db\mysql\tools\connection::link(), $_qry);
+			$result = @mysqli_query(\dash\db\mysql\tools\connection::link(), $_qry);
 		}
 
 		// get diff of time after exec
@@ -105,7 +105,10 @@ class db
 		{
 			// no result exist
 			// save mysql error
-			$temp_error = "#". date("Y-m-d H:i:s") . "\n$_qry\n/* ERROR\tMYSQL ERROR\n". mysqli_error(\dash\db\mysql\tools\connection::link())." */";
+			$temp_error = "#". date("Y-m-d H:i:s") ;
+			$temp_error .= "\n$_qry\n/* \tMYSQL ERROR\n";
+			$temp_error .= @mysqli_errno(\dash\db\mysql\tools\connection::link()). ' - ';
+			$temp_error .= @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
 			\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
 
 			if(\dash\url::isLocal())
