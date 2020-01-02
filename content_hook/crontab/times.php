@@ -1,5 +1,5 @@
 <?php
-namespace content_hook\cronjob;
+namespace content_hook\crontab;
 
 
 trait times

@@ -4,8 +4,8 @@ namespace content_hook\crontab;
 
 class controller
 {
-	use \content_hook\cronjob\times;
-	use \content_hook\cronjob\fn_list;
+	use \content_hook\crontab\times;
+	use \content_hook\crontab\fn_list;
 
 
 	public static function routing()
@@ -43,11 +43,8 @@ class controller
 		// stop visitor save for cronjob
 		\dash\temp::set('force_stop_visitor', true);
 
-		// \dash\log::set('CronjobMasterOK');
-
 		self::cronjob_run();
 
-		// this is ok
 		\dash\notif::ok("Ok ;)");
 		\dash\code::jsonBoom(\dash\notif::get());
 	}
@@ -67,10 +64,13 @@ class controller
 			\dash\db\comments::spam_by_block_ip();
 		}
 
-		if(self::every_30_min())
+		if(!\dash\engine\store::inStore())
 		{
-			self::check_error_file();
-			self::removetempfile();
+			if(self::every_30_min())
+			{
+				self::check_error_file();
+				self::removetempfile();
+			}
 		}
 
 		\dash\app\log\send::notification();
