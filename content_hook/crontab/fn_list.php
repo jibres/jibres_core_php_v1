@@ -5,16 +5,6 @@ namespace content_hook\crontab;
 trait fn_list
 {
 
-	private static function master_cronjob()
-	{
-		// remove all expire session
-		if(self::at('01:10'))
-		{
-			\dash\db\sessions::remove_old_expire();
-		}
-	}
-
-
 
 	private static function expire_notif()
 	{

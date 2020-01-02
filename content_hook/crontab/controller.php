@@ -53,8 +53,18 @@ class controller
 
 	private static function cronjob_run()
 	{
-		// this cronjob must be run every time
-		self::master_cronjob();
+
+		if(self::every_10_min())
+		{
+			// sync every statistics between stores and jibres
+			\lib\app\sync\statistics::fire();
+		}
+
+		// remove all expire session
+		if(self::at('01:10'))
+		{
+			\dash\db\sessions::remove_old_expire();
+		}
 
 		if(self::every_10_min())
 		{
@@ -72,6 +82,7 @@ class controller
 				self::removetempfile();
 			}
 		}
+
 
 		\dash\app\log\send::notification();
 

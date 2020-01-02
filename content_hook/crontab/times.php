@@ -62,7 +62,5 @@ trait times
 		}
 		return false;
 	}
-
-
 }
 ?>
