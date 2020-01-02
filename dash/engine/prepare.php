@@ -29,11 +29,17 @@ class prepare
 
 		// dont run on some condition
 		self::dont_run_exception();
+
 		// check comming soon page
 		self::coming_soon();
+
+		// check service is locked
+		self::server_lock();
+
 		// check need redirect for lang or www or https or main domain
 		self::fix_url_host();
 		self::account_urls();
+
 		// generate static files
 		self::static_files();
 
@@ -58,6 +64,48 @@ class prepare
 
 		register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
 	}
+
+
+
+	private static function server_lock()
+	{
+		$lock = \dash\engine\lock::is();
+
+		if(!$lock)
+		{
+			return;
+		}
+
+		// in lock mode su can be load
+		if(\dash\url::content() === 'su')
+		{
+			return;
+		}
+
+
+		if(\dash\request::ajax())
+		{
+			$msg = T_("Please wait a moment, The system is being updated ...");
+
+			// in smile request we not show notif
+			if(\dash\url::content() === 'hook' && \dash\url::module() === 'smile')
+			{
+				\dash\notif::result($msg);
+			}
+			else
+			{
+				\dash\notif::info($msg);
+			}
+
+			\dash\code::end();
+		}
+		else
+		{
+			\dash\redirect::to(\dash\url::static(). '/page/lock/', true, 302);
+		}
+
+	}
+
 
 
 
