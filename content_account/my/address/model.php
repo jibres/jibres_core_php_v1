@@ -21,7 +21,6 @@ class model
 		$post['city']        = \dash\request::post('city');
 		$post['postcode']    = \dash\request::post('postcode');
 		$post['phone']       = \dash\request::post('phone');
-		$post['subdomain']   = null;
 		$post['province']    = null;
 		$post['mobile']      = \dash\request::post('mobile');
 		$post['address']     = \dash\request::post('address');
