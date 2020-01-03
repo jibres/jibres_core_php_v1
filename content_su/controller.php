@@ -5,57 +5,30 @@ class controller
 {
 	public static function routing()
 	{
-		self::_permission();
-	}
+		\dash\redirect::remove_subdomain();
 
-
-	public static function _permission()
-	{
-		// if user is not login then redirect
-		if(\dash\url::module() === 'install' && \dash\request::get('time') == 'first_time')
-		{
-			// turn routing on and allow to check in module
-			return false;
-		}
+		\dash\redirect::to_login();
 
 		if(\dash\url::isLocal())
 		{
-			\dash\notif::warn('Local mode');
+			\dash\notif::info('Local mode');
 			\dash\data::line_bottom(T_('You are in Supervisor Panel of Local Mode'));
-		}
-		else if(!\dash\user::login())
-		{
-			\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), 'direct');
-			return;
 		}
 		else
 		{
 			// Check permission and if user can do this operation
 			// allow to do it, else show related message in notify center
 
+			if(!\dash\permission::supervisor())
+			{
+				\dash\header::status(403);
+			}
+
 			if(\dash\request::get('server') === 'status')
 			{
-				if(!\dash\permission::supervisor())
-				{
-					\dash\header::status(403);
-				}
-
 				\dash\temp::set('force_stop_visitor', true);
 			}
-			else
-			{
-				if(\dash\permission::supervisor(true))
-				{
-					// the user have permission of su
-				}
-				else
-				{
-					\dash\header::status(403);
-				}
-			}
 		}
-
-		\dash\redirect::remove_subdomain();
 	}
 }
 ?>
