@@ -22,8 +22,8 @@ class model
 				break;
 
 			case 'upgrade':
-				// self::upgrade();
-				\dash\notif::info('system upgrade successfully');
+				\lib\app\upgradedb\upgrade::run();
+				\dash\notif::info('system upgrade database successfully');
 				break;
 
 			case 'unlock':
