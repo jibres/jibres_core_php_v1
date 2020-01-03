@@ -3286,10 +3286,10 @@ class twigTransTerms
 	echo T_("Service is Locked!");                                                    // Line 8
 	echo T_("Service is Running!");                                                   // Line 10
 	echo T_("If you want to show git pull result click below link");                  // Line 29
-	echo T_("Force unlock page");                                                     // Line 36
+	echo T_("Pull");                                                                  // Line 61
+	echo T_("Force unlock page");                                                     // Line 38
 	echo T_("Lock");                                                                  // Line 50
 	echo T_("Lock service");                                                          // Line 51
-	echo T_("Pull");                                                                  // Line 61
 	echo T_("Pull service");                                                          // Line 62
 	echo T_("Update database");                                                       // Line 74
 	echo T_("Unlock");                                                                // Line 84
