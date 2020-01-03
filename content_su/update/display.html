@@ -31,6 +31,14 @@
 <a class="badge warn" target="_blank" href="{{url.this}}?git=all">Git Pull and show result!</a>
 </div>
 
+{%if isLockService%}
+<div class="msg fs12">
+{%trans "Force unlock page"%}
+<br>
+<a class="badge success" target="_blank" href="{{url.kingdom}}/forceunlock">Force unlock page</a>
+</div>
+{%endif%}
+
 {%endblock%}
 
 

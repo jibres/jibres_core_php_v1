@@ -81,6 +81,11 @@ class prepare
 		{
 			return;
 		}
+		// route force unlock page
+		if(\dash\url::directory() === 'forceunlock')
+		{
+			return;
+		}
 
 		// set header processing ...
 		\dash\header::set(202);

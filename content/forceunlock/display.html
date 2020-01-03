@@ -1,0 +1,29 @@
+{%extends display.main%}
+
+
+{%block page%}
+
+<div class="f justify-center txtC mB50">
+	<div class="c6 s12 fs18">
+		{%trans "Start lock"%}
+		<br>
+		{{startLock | dt('Y-m-d H:i:s')}}
+		<br>
+		{{startLock | dt('human', 'month')}}
+
+	</div>
+</div>
+
+<div class="f justify-center txtC">
+
+	<div class="c6 s12">
+		<div data-confirm data-data='{"unlock" : "unlock"}' class="btn success block xl">
+			{%trans "Force unlock"%}
+		</div>
+	</div>
+
+
+</div>
+
+{%endblock%}
+

@@ -43,6 +43,15 @@ class lock
 
 
 	/**
+	 * Return time of start lock
+	 */
+	public static function when()
+	{
+		return \dash\file::read(self::lock_file_addr());
+	}
+
+
+	/**
 	 * Locks the file address.
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
