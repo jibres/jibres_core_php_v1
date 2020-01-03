@@ -11,6 +11,11 @@ class controller
 			\dash\header::status(400);
 		}
 
+		if(!\dash\request::get('force'))
+		{
+			\dash\header::status(400);
+		}
+
 		\dash\data::startLock(\dash\engine\lock::when());
 	}
 }
