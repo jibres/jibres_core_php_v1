@@ -15,8 +15,10 @@ class model
 				break;
 
 			case 'pull':
-				// self::pull();
-				\dash\notif::info('system pull successfully');
+				if(\content_su\update\controller::gitUpdate('all', false))
+				{
+					\dash\notif::info('system pull successfully');
+				}
 				break;
 
 			case 'upgrade':

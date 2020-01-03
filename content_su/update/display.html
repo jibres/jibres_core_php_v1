@@ -25,6 +25,12 @@
   </div>
 </div>
 
+<div class="msg fs12">
+{%trans "If you want to show git pull result the link"%}
+<br>
+<a class="badge warn" target="_blank" href="{{url.this}}?git=all">Git Pull and show result!</a>
+</div>
+
 {%endblock%}
 
 
@@ -45,9 +51,10 @@
 <div class="dcard x2 mB10" data-confirm data-data='{"type" : "pull"}'>
   <div class="statistic yellow">
     <div class="value">{%trans "Pull"%}</div>
-    <div class="label">{%trans "Pull service"%}</div>
+    <div class="label">{%trans "Pull service"%} </div>
   </div>
 </div>
+
 {%endblock%}
 
 
