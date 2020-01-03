@@ -25,17 +25,17 @@
   </div>
 </div>
 
-<div class="msg fs12">
+<div class="msg fs14">
 {%trans "If you want to show git pull result click below link"%}
 <br>
-<a class="badge warn" target="_blank" href="{{url.this}}?git=all">Git Pull and show result!</a>
+<a class="badge warn" target="_blank" href="{{url.this}}?git=all">{%trans "Pull"%}</a>
 </div>
 
 {%if isLockService%}
-<div class="msg fs12">
+<div class="msg fs14">
 {%trans "Force unlock page"%}
 <br>
-<a class="badge success" target="_blank" href="{{url.kingdom}}/forceunlock?force=1">Force unlock page</a>
+<a class="badge success" target="_blank" href="{{url.kingdom}}/forceunlock?force=1">{%trans "Force unlock page"%}</a>
 </div>
 {%endif%}
 

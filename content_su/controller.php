@@ -11,7 +11,7 @@ class controller
 
 		if(\dash\url::isLocal())
 		{
-			\dash\notif::info('Local mode');
+			\dash\notif::info(T_('Local mode'));
 			\dash\data::line_bottom(T_('You are in Supervisor Panel of Local Mode'));
 		}
 		else

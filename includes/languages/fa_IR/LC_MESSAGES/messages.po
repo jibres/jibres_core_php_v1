@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-01-03 10:10+0330\n"
-"PO-Revision-Date: 2020-01-03 10:11+0330\n"
+"POT-Creation-Date: 2020-01-03 10:15+0330\n"
+"PO-Revision-Date: 2020-01-03 10:16+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3277,6 +3277,10 @@ msgstr "دستور"
 msgid "Run some command in server"
 msgstr "اجرای برخی دستورات در سرور"
 
+#: content_su/controller.php:14
+msgid "Local mode"
+msgstr "مد محلی"
+
 #: content_su/controller.php:15
 msgid "You are in Supervisor Panel of Local Mode"
 msgstr "شما در پنل مدیریت فنی در مد محلی هستید"
@@ -3461,6 +3465,14 @@ msgstr "افزودن تراکنش برای هر کس"
 #: content_su/update/model.php:14
 msgid "System locked"
 msgstr "سیستم قفل شده است"
+
+#: content_su/update/model.php:20
+msgid "System git pull successfully"
+msgstr "دریافت اطلاعات از گیت با موفقیت انجام شد"
+
+#: content_su/update/model.php:26
+msgid "System upgrade database successfully"
+msgstr "به‌روزرسانی دیتابیس سیستم با موفقیت انجام شد"
 
 #: content_su/update/model.php:31
 msgid "System unlock successfully"

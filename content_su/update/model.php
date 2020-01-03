@@ -17,13 +17,13 @@ class model
 			case 'pull':
 				if(\content_su\update\controller::gitUpdate('all', false))
 				{
-					\dash\notif::info('system pull successfully');
+					\dash\notif::info(T_('System git pull successfully'));
 				}
 				break;
 
 			case 'upgrade':
 				\lib\app\upgradedb\upgrade::run();
-				\dash\notif::info('system upgrade database successfully');
+				\dash\notif::info(T_('System upgrade database successfully'));
 				break;
 
 			case 'unlock':
