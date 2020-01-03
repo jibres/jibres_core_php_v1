@@ -14,7 +14,7 @@ class twigTransTerms
 	echo T_("Enter");                                                                 // Line 68
 
 	//------------------------------------------content_subdomain/product/display.html
-	echo T_("Submit");                                                                // Line 86
+	echo T_("Submit");                                                                // Line 226
 	echo T_("Your rate");                                                             // Line 27
 	echo T_("Write your comment...");                                                 // Line 44
 
@@ -40,6 +40,10 @@ class twigTransTerms
 	echo T_("Store Panel");                                                           // Line 16
 
 	//---------------------------------------content_subdomain/theme_start/header.html
+
+	//------------------------------------------------content/forceunlock/display.html
+	echo T_("Start lock");                                                            // Line 8
+	echo T_("Force unlock");                                                          // Line 21
 
 	//--------------------------------------------------content/subscribe/display.html
 	echo T_("Subscribe to Jibres world");                                             // Line 8
@@ -123,13 +127,13 @@ class twigTransTerms
 	echo T_("System Status");                                                         // Line 33
 	echo T_("Iran NSR Certification");                                                // Line 53
 	echo T_("Iran NSR");                                                              // Line 53
-	echo T_("Enamad Certification");                                                  // Line 57
-	echo T_("Enamad");                                                                // Line 57
-	echo T_("Samandehi Certification");                                               // Line 59
-	echo T_("Samandehi");                                                             // Line 59
-	echo T_("Shamad Certification");                                                  // Line 61
-	echo T_("Shamad");                                                                // Line 61
-	echo T_("Proudly Made in IRAN");                                                  // Line 68
+	echo T_("Enamad Certification");                                                  // Line 59
+	echo T_("Enamad");                                                                // Line 59
+	echo T_("Samandehi Certification");                                               // Line 61
+	echo T_("Samandehi");                                                             // Line 61
+	echo T_("Shamad Certification");                                                  // Line 64
+	echo T_("Shamad");                                                                // Line 64
+	echo T_("Proudly Made in IRAN");                                                  // Line 70
 
 	//--------------------------------------------------content/template/shareBox.html
 	echo T_("Share");                                                                 // Line 2
@@ -349,7 +353,7 @@ class twigTransTerms
 	echo T_("Username or Mobile or email");                                           // Line 24
 	echo T_("Please enter valid mobile or username or email number");                 // Line 24
 	echo T_("Username or Mobile or Email");                                           // Line 24
-	echo T_("Password");                                                              // Line 75
+	echo T_("Password");                                                              // Line 88
 	echo T_("New Password");                                                          // Line 53
 	echo T_("Enter a password between 7 and 40 characters");                          // Line 53
 	echo T_("Password is password.");                                                 // Line 53
@@ -461,22 +465,22 @@ class twigTransTerms
 	echo T_("Product price");                                                         // Line 7
 	echo T_("Products Summary");                                                      // Line 55
 	echo T_("Add new Product");                                                       // Line 74
-	echo T_("Categories of Product");                                                 // Line 10
-	echo T_("Product Units");                                                         // Line 11
-	echo T_("Product Compnay");                                                       // Line 12
-	echo T_("register new sale factor");                                              // Line 21
-	echo T_("List of sales");                                                         // Line 23
-	echo T_("List of purchases");                                                     // Line 24
-	echo T_("List of all factors");                                                   // Line 25
-	echo T_("Reports");                                                               // Line 31
+	echo T_("Categories of Product");                                                 // Line 11
+	echo T_("Product Units");                                                         // Line 12
+	echo T_("Product Compnay");                                                       // Line 13
+	echo T_("register new sale factor");                                              // Line 23
+	echo T_("List of sales");                                                         // Line 25
+	echo T_("List of purchases");                                                     // Line 26
+	echo T_("List of all factors");                                                   // Line 27
+	echo T_("Reports");                                                               // Line 34
 	echo T_("Daily report");                                                          // Line 20
 	echo T_("Monthly report");                                                        // Line 20
 	echo T_("Setting");                                                               // Line 13
-	echo T_("Store plans");                                                           // Line 44
-	echo T_("Factor settings");                                                       // Line 45
-	echo T_("Shift transformation");                                                  // Line 51
+	echo T_("Store plans");                                                           // Line 47
+	echo T_("Factor settings");                                                       // Line 48
+	echo T_("Shift transformation");                                                  // Line 55
 	echo T_("Logout");                                                                // Line 19
-	echo T_("You are active user");                                                   // Line 64
+	echo T_("You are active user");                                                   // Line 68
 
 	//------------------------------------------includes/html/sidebar/sidebar-cms.html
 	echo T_("News");                                                                  // Line 88
@@ -511,7 +515,7 @@ class twigTransTerms
 	echo T_("Minus charge account");                                                  // Line 22
 
 	//-------------------------------------------includes/html/sidebar/sidebar-su.html
-	echo T_("Backup");                                                                // Line 82
+	echo T_("Backup");                                                                // Line 15
 	echo T_("Raw table");                                                             // Line 23
 	echo T_("Date and time");                                                         // Line 36
 	echo T_("Server information");                                                    // Line 45
@@ -1172,7 +1176,7 @@ class twigTransTerms
 	echo T_("Factor footer");                                                         // Line 37
 
 	//-----------------------------------content_a/setting/plan/currentPlanDetail.html
-	echo T_("Upgrade");                                                               // Line 81
+	echo T_("Upgrade");                                                               // Line 73
 	echo T_("Continuation");                                                          // Line 21
 	echo T_("Change plan");                                                           // Line 28
 	echo T_("Current Plan");                                                          // Line 220
@@ -1185,7 +1189,7 @@ class twigTransTerms
 	echo T_("Start");                                                                 // Line 328
 	echo T_("End");                                                                   // Line 329
 	echo T_("Expire");                                                                // Line 126
-	echo T_("Type");                                                                  // Line 79
+	echo T_("Type");                                                                  // Line 57
 	echo T_("Period");                                                                // Line 332
 	echo T_("Plan expire date");                                                      // Line 295
 	echo T_("Require");                                                               // Line 160
@@ -2344,7 +2348,7 @@ class twigTransTerms
 	echo T_("Send SMS");                                                              // Line 65
 	echo T_("Are you sure to delete this user?");                                     // Line 38
 	echo T_("Telegrams");                                                             // Line 164
-	echo T_("Username");                                                              // Line 71
+	echo T_("Username");                                                              // Line 307
 	echo T_("Join at");                                                               // Line 189
 	echo T_("Android");                                                               // Line 185
 	echo T_("Version");                                                               // Line 13
@@ -2446,7 +2450,7 @@ class twigTransTerms
 	echo T_("Id number");                                                             // Line 134
 	echo T_("National Id");                                                           // Line 140
 	echo T_("10 digit national code");                                                // Line 142
-	echo T_("Last update");                                                           // Line 42
+	echo T_("Last update");                                                           // Line 33
 	echo T_("Joined to serivce on");                                                  // Line 165
 	echo T_("The user was blocked");                                                  // Line 188
 	echo T_("The user was removed");                                                  // Line 190
@@ -3134,7 +3138,7 @@ class twigTransTerms
 
 	//---------------------------------------------------content_su/tools/display.html
 	echo T_("You can use our tools");                                                 // Line 6
-	echo T_("If you dont know about this page, leave it!");                           // Line 22
+	echo T_("If you dont know about this page, leave it!");                           // Line 5
 	echo T_("Database");                                                              // Line 8
 	echo T_("Server");                                                                // Line 30
 	echo T_("Git");                                                                   // Line 61
@@ -3279,14 +3283,17 @@ class twigTransTerms
 	echo T_("Human Timing");                                                          // Line 61
 
 	//--------------------------------------------------content_su/update/display.html
-	echo T_("Press it if you are sure!");                                             // Line 10
-	echo T_("Update All");                                                            // Line 10
-	echo T_("Submit this form carefully");                                            // Line 24
-	echo T_("Commits");                                                               // Line 51
-	echo T_("Do it if you know it");                                                  // Line 53
-	echo T_("Update Repository");                                                     // Line 53
-	echo T_("Project database");                                                      // Line 61
-	echo T_("Backup by dump");                                                        // Line 83
+	echo T_("Service is Locked!");                                                    // Line 8
+	echo T_("Service is Running!");                                                   // Line 10
+	echo T_("If you want to show git pull result click below link");                  // Line 29
+	echo T_("Force unlock page");                                                     // Line 36
+	echo T_("Lock");                                                                  // Line 50
+	echo T_("Lock service");                                                          // Line 51
+	echo T_("Pull");                                                                  // Line 61
+	echo T_("Pull service");                                                          // Line 62
+	echo T_("Update database");                                                       // Line 74
+	echo T_("Unlock");                                                                // Line 84
+	echo T_("Unlock service");                                                        // Line 85
 
 	//-------------------------------------------------content_su/session/display.html
 
