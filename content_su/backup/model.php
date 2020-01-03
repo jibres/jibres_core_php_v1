@@ -6,7 +6,12 @@ class model
 	public static function post()
 	{
 
-		if(\dash\request::post('backup') === 'now')
+		if(\dash\request::post('backup') === 'schedule')
+		{
+			\dash\engine\backup\database::backup_schedule();
+			\dash\redirect::pwd();
+		}
+		elseif(\dash\request::post('backup') === 'now')
 		{
 			\dash\log::set('backupDb');
 			self::backup_now();
@@ -23,11 +28,6 @@ class model
 				\dash\notif::error(T_("Database of logs dose not exists"));
 				return false;
 			}
-		}
-		elseif(\dash\request::post('backup') === 'schedule')
-		{
-			\dash\log::set('backupScheduleChange');
-			self::backup_schedule();
 		}
 		elseif(\dash\request::post('type') === 'remove' && \dash\request::post('file'))
 		{
@@ -54,36 +54,6 @@ class model
 			\dash\notif::ok(T_("Backup complete"));
 		}
 		\dash\redirect::pwd();
-	}
-
-	public static function backup_schedule()
-	{
-		\dash\notif::warn("need to fix");
-		return;
-
-		$array =
-		[
-			'auto_backup' => \dash\request::post('auto_backup') === 'on' ? true : false,
-			'every'       => \dash\request::post('every'),
-			'time'        => \dash\request::post('time'),
-			'life_time'   => \dash\request::post('life_time'),
-			// data base name is here
-		];
-
-		$array = json_encode($array, JSON_UNESCAPED_UNICODE);
-
-		$url    = database . 'backup';
-
-		if(!\dash\file::exists($url))
-		{
-			\dash\file::makeDir($url, null, true);
-		}
-
-		$url .= '/schedule';
-		\dash\file::write($url, $array);
-
-		\dash\notif::ok(T_("Auto backup schedule saved"));
-
 	}
 }
 ?>

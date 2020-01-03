@@ -42,12 +42,6 @@ class view
 			$oldBackup_files = array_reverse($oldBackup_files);
 			\dash\data::oldBackup($oldBackup_files);
 		}
-
-
-		if(defined('db_log_name'))
-		{
-			\dash\data::databaseLog(true);
-		}
 	}
 }
 ?>

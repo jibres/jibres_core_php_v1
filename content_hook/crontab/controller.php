@@ -53,6 +53,23 @@ class controller
 
 	private static function cronjob_run()
 	{
+		if(!\dash\engine\store::inStore())
+		{
+			// to not check every min all backup setting!
+			// the backup setting have special schedule
+			if(self::every_hour())
+			{
+				\dash\engine\backup\database::run();
+			}
+
+			if(self::every_30_min())
+			{
+				self::check_error_file();
+				self::removetempfile();
+			}
+		}
+
+		\dash\app\log\send::notification();
 
 		if(self::every_10_min())
 		{
@@ -74,17 +91,6 @@ class controller
 			\dash\db\comments::spam_by_block_ip();
 		}
 
-		if(!\dash\engine\store::inStore())
-		{
-			if(self::every_30_min())
-			{
-				self::check_error_file();
-				self::removetempfile();
-			}
-		}
-
-
-		\dash\app\log\send::notification();
 
 		if(self::at('01:00'))
 		{

@@ -4,6 +4,24 @@ namespace lib\db\store;
 
 class get
 {
+
+	public static function all_store_fuel_detail()
+	{
+		$query =
+		"
+			SELECT
+				store.id,
+				store.fuel,
+				store.subdomain
+			FROM
+				store
+			INNER JOIN store_data ON store_data.id = store.id
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function all_version_detail()
 	{
 		$query =
