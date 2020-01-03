@@ -225,7 +225,7 @@ class upgrade
 					if(version_compare($current_version, $dbversion, '>'))
 					{
 						$temp_sql = \dash\file::read($file);
-						$temp_sql = str_replace('jibres_xxx', $database_name, $temp_sql);
+						$temp_sql = str_replace('jibres_XXXXXXX', $database_name, $temp_sql);
 						// $temp_sql .= ' -- '. $subdomain;
 						self::update_query_db_version($current_version, $store_id);
 						$this_store_sql[] = $temp_sql;
@@ -279,7 +279,7 @@ class upgrade
 			$query[] = "UPDATE jibres.store_data SET jibres.store_data.dbversion = '$version', jibres.store_data.dbversiondate = '$versiondate' WHERE jibres.store_data.id = $store_id LIMIT 1";
 		}
 
-		\dash\file::write(self::temp_sql_addr(), implode(' ; ', $query));
+		\dash\file::write(self::temp_sql_addr(), implode(";\n", $query));
 		self::runExecFile(self::temp_sql_addr(), 'master');
 	}
 
