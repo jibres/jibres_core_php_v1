@@ -10,40 +10,26 @@ class model
 		switch ($type)
 		{
 			case 'lock':
-				\dash\engine\lock::lock();
-				\dash\notif::warn(T_("System locked"));
+				self::lock();
 				break;
 
 			case 'pull':
-				if(\content_su\update\controller::gitUpdate('all', false))
-				{
-					\dash\notif::info(T_('System git pull successfully'));
-				}
+				self::pull();
 				break;
 
 			case 'upgrade':
-				\lib\app\upgradedb\upgrade::run();
-				\dash\notif::info(T_('System upgrade database successfully'));
+				self::upgrade();
 				break;
 
 			case 'unlock':
-				\dash\engine\lock::unlock();
-				\dash\notif::ok(T_("System unlock successfully"));
+				self::unlock();
 				break;
 
 			case 'all':
-				\dash\engine\lock::lock();
-				\dash\notif::warn(T_("System locked"));
-
-				if(\content_su\update\controller::gitUpdate('all', false))
-				{
-					\dash\notif::info(T_('System git pull successfully'));
-				}
-				\lib\app\upgradedb\upgrade::run();
-				\dash\notif::info(T_('System upgrade database successfully'));
-
-				\dash\engine\lock::unlock();
-				\dash\notif::ok(T_("System unlock successfully"));
+				self::lock();
+				self::pull();
+				self::upgrade();
+				self::unlock();
 				break;
 
 			default:
@@ -54,5 +40,36 @@ class model
 
 		\dash\redirect::pwd();
 	}
+
+
+	private static function lock()
+	{
+		\dash\engine\lock::lock();
+		\dash\notif::warn(T_("System locked"));
+	}
+
+
+	private static function pull()
+	{
+		if(\content_su\update\controller::gitUpdate('all', false))
+		{
+			\dash\notif::info(T_('System git pull successfully'));
+		}
+	}
+
+
+	private static function upgrade()
+	{
+		\lib\app\upgradedb\upgrade::run();
+		\dash\notif::info(T_('System upgrade database successfully'));
+	}
+
+
+	private static function unlock()
+	{
+		\dash\engine\lock::unlock();
+		\dash\notif::ok(T_("System unlock successfully"));
+	}
+
 }
 ?>
