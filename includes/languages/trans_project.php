@@ -1176,7 +1176,7 @@ class twigTransTerms
 	echo T_("Factor footer");                                                         // Line 37
 
 	//-----------------------------------content_a/setting/plan/currentPlanDetail.html
-	echo T_("Upgrade");                                                               // Line 73
+	echo T_("Upgrade");                                                               // Line 80
 	echo T_("Continuation");                                                          // Line 21
 	echo T_("Change plan");                                                           // Line 28
 	echo T_("Current Plan");                                                          // Line 220
@@ -3286,14 +3286,18 @@ class twigTransTerms
 	echo T_("Service is Locked!");                                                    // Line 8
 	echo T_("Service is Running!");                                                   // Line 10
 	echo T_("If you want to show git pull result click below link");                  // Line 29
-	echo T_("Pull");                                                                  // Line 61
-	echo T_("Force unlock page");                                                     // Line 38
-	echo T_("Lock");                                                                  // Line 50
-	echo T_("Lock service");                                                          // Line 51
-	echo T_("Pull service");                                                          // Line 62
-	echo T_("Update database");                                                       // Line 74
-	echo T_("Unlock");                                                                // Line 84
-	echo T_("Unlock service");                                                        // Line 85
+	echo T_("Pull gir repository");                                                   // Line 30
+	echo T_("Force unlock page");                                                     // Line 36
+	echo T_("Run all step by one click");                                             // Line 43
+	echo T_("For when you don't have heavy updates");                                 // Line 43
+	echo T_("Run all");                                                               // Line 44
+	echo T_("Lock");                                                                  // Line 57
+	echo T_("Lock service");                                                          // Line 58
+	echo T_("Pull");                                                                  // Line 68
+	echo T_("Pull service");                                                          // Line 69
+	echo T_("Update database");                                                       // Line 81
+	echo T_("Unlock");                                                                // Line 91
+	echo T_("Unlock service");                                                        // Line 92
 
 	//-------------------------------------------------content_su/session/display.html
 

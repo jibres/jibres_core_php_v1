@@ -11,41 +11,40 @@
 {%endif%}
 
 <div class="f">
-  <div class="c s6">
+  <div class="c s12">
     {{block('iDbLock')}}
   </div>
-  <div class="c s6">
+  <div class="c s12">
     {{block('iDbGitPull')}}
   </div>
-  <div class="c s6">
+  <div class="c s12">
     {{block('iDbDbUpgrade')}}
   </div>
-  <div class="c s6">
+  <div class="c s12">
     {{block('iDbUnlock')}}
   </div>
 </div>
 
 <div class="msg fs14">
 <p>{%trans "If you want to show git pull result click below link"%}</p>
-
-<a class="badge warn" target="_blank" href="{{url.this}}?git=all">{%trans "Pull gir repository"%}</a>
+<a class="btn warn" target="_blank" href="{{url.this}}?git=all">{%trans "Pull gir repository"%}</a>
 </div>
 
 {%if isLockService%}
 <div class="msg fs14">
 <p>{%trans "Force unlock page"%}</p>
-
-<a class="badge success" target="_blank" href="{{url.kingdom}}/forceunlock?force=1">{%trans "Force unlock page"%}</a>
+<a class="btn success" target="_blank" href="{{url.kingdom}}/forceunlock?force=1">{%trans "Force unlock page"%}</a>
 </div>
 {%endif%}
 
 
 
 <div class="msg fs14">
-<p>{%trans "Run all step in one click"%} <small>{%trans "For when you don't have heavy updates"%}</small></p>
-
-<div class="badge danger" data-confirm data-data='{"type" : "all"}'>{%trans "Run all"%}</div>
+<p>{%trans "Run all step by one click"%} <small>{%trans "For when you don't have heavy updates"%}</small></p>
+<div class="btn danger" data-confirm data-data='{"type" : "all"}'>{%trans "Run all"%}</div>
 </div>
+<div class="mB50">&nbsp;</div>
+
 
 {%endblock%}
 

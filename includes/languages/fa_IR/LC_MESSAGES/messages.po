@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-01-03 10:15+0330\n"
-"PO-Revision-Date: 2020-01-03 10:16+0330\n"
+"POT-Creation-Date: 2020-01-03 18:43+0330\n"
+"PO-Revision-Date: 2020-01-03 18:44+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -49,7 +49,7 @@ msgstr "ما توسعه دهنده هستیم، صبور باشید!"
 #: content/contact/view.php:9 content_cms/contact/edit/controller.php:10
 #: content_cms/contact/home/view.php:11
 #: content_support/ticket/contact_ticket/model.php:194
-#: includes/languages/trans_project.php:3330
+#: includes/languages/trans_project.php:3334
 msgid "Contact Us"
 msgstr "تماس با ما"
 
@@ -74,7 +74,7 @@ msgstr "سردرد دارید؟ ما راه‌حل‌هایی برای شما د
 msgid "Unlock system"
 msgstr "بازکردن قفل سیستم"
 
-#: content/help/faq/view.php:9 includes/languages/trans_project.php:3374
+#: content/help/faq/view.php:9 includes/languages/trans_project.php:3378
 msgid "Frequently Asked Questions"
 msgstr "سوالات متداول"
 
@@ -1413,7 +1413,7 @@ msgstr "شناسه نشست ارسال نشده است یا نادرست است"
 #: content_api/v1/account/session/controller.php:143
 #: content_crm/transactions/add/model.php:64
 #: content_crm/transactions/minus/model.php:64
-#: content_su/transactions/add/model.php:80 content_su/update/model.php:35
+#: content_su/transactions/add/model.php:80 content_su/update/model.php:50
 #: dash/app/posts.php:897 dash/app/posts.php:930
 msgid "Invalid type"
 msgstr "نوع نامعتبر"
@@ -3189,7 +3189,7 @@ msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
 msgid "Creating your store"
 msgstr "درحال ساخت فروشگاه شما"
 
-#: content_store/error/view.php:9 includes/languages/trans_project.php:3339
+#: content_store/error/view.php:9 includes/languages/trans_project.php:3343
 msgid "Oops!"
 msgstr "اوه!"
 
@@ -3462,19 +3462,19 @@ msgstr "افزودن تراکنش"
 msgid "Add new transactions for every one"
 msgstr "افزودن تراکنش برای هر کس"
 
-#: content_su/update/model.php:14
+#: content_su/update/model.php:14 content_su/update/model.php:36
 msgid "System locked"
 msgstr "سیستم قفل شده است"
 
-#: content_su/update/model.php:20
+#: content_su/update/model.php:20 content_su/update/model.php:40
 msgid "System git pull successfully"
 msgstr "دریافت اطلاعات از گیت با موفقیت انجام شد"
 
-#: content_su/update/model.php:26
+#: content_su/update/model.php:26 content_su/update/model.php:43
 msgid "System upgrade database successfully"
 msgstr "به‌روزرسانی دیتابیس سیستم با موفقیت انجام شد"
 
-#: content_su/update/model.php:31
+#: content_su/update/model.php:31 content_su/update/model.php:46
 msgid "System unlock successfully"
 msgstr "بازکردن قفل سیستم با موفقیت انجام شد"
 
@@ -3674,7 +3674,7 @@ msgid "Un solved ticket"
 msgstr "تیکت‌های حل نشده"
 
 #: content_support/ticket/home/view.php:118
-#: includes/languages/trans_project.php:3410
+#: includes/languages/trans_project.php:3414
 msgid "Solved ticket"
 msgstr "ثبت به عنوان حل شده"
 
@@ -4203,7 +4203,7 @@ msgid "Set close ticket"
 msgstr "وضعیت تیکت به بسته شده تغییر کرد"
 
 #: dash/app/log/caller/ticket/ticket_setDeleteTicket.php:8
-#: includes/languages/trans_project.php:3402
+#: includes/languages/trans_project.php:3406
 msgid "Delete ticket"
 msgstr "حذف تیکت"
 
@@ -5068,7 +5068,7 @@ msgstr "کاری نداره شعار ماست!"
 msgid "If you are not finded a solution for your problem, call us."
 msgstr "اگر راه‌کاری مناسب برای مشکل خود نیافته‌اید، با ما تماس بگیرید."
 
-#: dash/engine/view.php:109 includes/languages/trans_project.php:3354
+#: dash/engine/view.php:109 includes/languages/trans_project.php:3358
 msgid "#1 World Sales Engineering System"
 msgstr "#1 جهان در سیستم مهندسی فروش"
 
@@ -14878,58 +14878,74 @@ msgstr ""
 "کنید"
 
 #: includes/languages/trans_project.php:3289
+msgid "Pull gir repository"
+msgstr "به‌روزرسانی مخازن گیت"
+
+#: includes/languages/trans_project.php:3290
 msgid "Force unlock page"
 msgstr "صفحه بازکردن قفل به اجبار"
 
-#: includes/languages/trans_project.php:3290
+#: includes/languages/trans_project.php:3291
+msgid "Run all step by one click"
+msgstr "اجرای همه مراحل با یک دکمه"
+
+#: includes/languages/trans_project.php:3292
+msgid "For when you don't have heavy updates"
+msgstr "برای زمانی که آپدیت سنگین ندارید"
+
+#: includes/languages/trans_project.php:3293
+msgid "Run all"
+msgstr "اجرای همه"
+
+#: includes/languages/trans_project.php:3294
 msgid "Lock"
 msgstr "قفل"
 
-#: includes/languages/trans_project.php:3291
+#: includes/languages/trans_project.php:3295
 msgid "Lock service"
 msgstr "قفل کردن سیستم"
 
-#: includes/languages/trans_project.php:3292
+#: includes/languages/trans_project.php:3296
 msgid "Pull"
 msgstr "دریافت"
 
-#: includes/languages/trans_project.php:3293
+#: includes/languages/trans_project.php:3297
 msgid "Pull service"
 msgstr "دریافت سرویس"
 
-#: includes/languages/trans_project.php:3294
+#: includes/languages/trans_project.php:3298
 msgid "Update database"
 msgstr "به‌روزرسانی دیتابیس"
 
-#: includes/languages/trans_project.php:3295
+#: includes/languages/trans_project.php:3299
 msgid "Unlock"
 msgstr "بازکردن قفل"
 
-#: includes/languages/trans_project.php:3296
+#: includes/languages/trans_project.php:3300
 msgid "Unlock service"
 msgstr "بازکردن قفل سیستم"
 
-#: includes/languages/trans_project.php:3301
+#: includes/languages/trans_project.php:3305
 msgid "Translate"
 msgstr "ترجمه"
 
-#: includes/languages/trans_project.php:3302
+#: includes/languages/trans_project.php:3306
 msgid "Extract All trans func"
 msgstr "استخراج توابع ترجمه در دش و پروژه جاری"
 
-#: includes/languages/trans_project.php:3305
+#: includes/languages/trans_project.php:3309
 msgid "Show archived"
 msgstr "نمایش بایگانی شده"
 
-#: includes/languages/trans_project.php:3308
+#: includes/languages/trans_project.php:3312
 msgid "Choose your online address"
 msgstr "آدرس فروشگاه آنلاین خود را انتخاب کنید"
 
-#: includes/languages/trans_project.php:3309
+#: includes/languages/trans_project.php:3313
 msgid "Your online store has online address on Jibres domain."
 msgstr "فروشگاه شما دارای یک آدرس آنلاین بر روی دامنه جیبرس است."
 
-#: includes/languages/trans_project.php:3310
+#: includes/languages/trans_project.php:3314
 msgid ""
 "Although you can connect your domain into store but to finish setup we need to "
 "set it."
@@ -14937,233 +14953,233 @@ msgstr ""
 "اگرچه می‌توانید دامنه اختصاصی خودتان را به فروشگاه متصل کنید اما برای تکمیل "
 "عملیات، ما به ساختن آن روی زیردامنه‌ی جیبرس داریم."
 
-#: includes/languages/trans_project.php:3311
+#: includes/languages/trans_project.php:3315
 msgid "Set it carefully, you can not change it."
 msgstr "در آینده قادر به تغییر نیستید؛ با دقت تنظیم کنید."
 
-#: includes/languages/trans_project.php:3312
+#: includes/languages/trans_project.php:3316
 msgid "Your subdomain"
 msgstr "آدرس فروشگاه شما"
 
-#: includes/languages/trans_project.php:3313
+#: includes/languages/trans_project.php:3317
 msgid "Build my online store"
 msgstr "فروشگاه آنلاین منو بساز"
 
-#: includes/languages/trans_project.php:3314
+#: includes/languages/trans_project.php:3318
 msgid "choose subdomain on Jibres"
 msgstr "زیردامنه‌ خودتان را بر روی جیبرس انتخاب کنید"
 
-#: includes/languages/trans_project.php:3317
+#: includes/languages/trans_project.php:3321
 msgid "Your store is ready to go!"
 msgstr "فروشگاه شما آماده شد!"
 
-#: includes/languages/trans_project.php:3318
+#: includes/languages/trans_project.php:3322
 msgid "We are do everything you need and now you can fly with Jibres power."
 msgstr ""
 "ما همه کارهایی رو که نیاز بود، انجام دادیم؛ از این بعدش با شماست تا با قدرت جیبرس "
 "پرواز کنید."
 
-#: includes/languages/trans_project.php:3319
+#: includes/languages/trans_project.php:3323
 msgid "Bring me to store"
 msgstr "منو به فروشگاهم ببر"
 
-#: includes/languages/trans_project.php:3320
+#: includes/languages/trans_project.php:3324
 msgid "Grand opening your store on Jibres"
 msgstr "افتتاح بزرگ فروشگاه شما در جیبرس"
 
-#: includes/languages/trans_project.php:3321
+#: includes/languages/trans_project.php:3325
 msgid "My stores"
 msgstr "فروشگاه‌های من"
 
-#: includes/languages/trans_project.php:3324
+#: includes/languages/trans_project.php:3328
 msgid "To make a online store from scratch, please enter name of your business."
 msgstr "برای ساخت فروشگاه آنلاین، لطفا ابتدا نام کسب و کار خودتون را وارد کنید."
 
-#: includes/languages/trans_project.php:3325
+#: includes/languages/trans_project.php:3329
 msgid "Your business title"
 msgstr "عنوان کسب‌و‌کار شما"
 
-#: includes/languages/trans_project.php:3326
+#: includes/languages/trans_project.php:3330
 msgid "Let's go"
 msgstr "بزن بریم"
 
-#: includes/languages/trans_project.php:3327
+#: includes/languages/trans_project.php:3331
 msgid "Create a store on Jibres"
 msgstr "ساخت یک فروشگاه در جیبرس"
 
-#: includes/languages/trans_project.php:3328
+#: includes/languages/trans_project.php:3332
 msgid "Can not add new store"
 msgstr "نمی‌توانید فروشگاه جدیدی را ایجاد کنید"
 
-#: includes/languages/trans_project.php:3329
+#: includes/languages/trans_project.php:3333
 msgid "Create more store"
 msgstr "ساخت فروشگاه‌های بیشتر"
 
-#: includes/languages/trans_project.php:3331
+#: includes/languages/trans_project.php:3335
 msgid "Limit of create store"
 msgstr "محدودیت در ساخت فروشگاه"
 
-#: includes/languages/trans_project.php:3334
+#: includes/languages/trans_project.php:3338
 msgid "Tell us a little about yourself"
 msgstr "به ما کمی در مورد خودتان بگویید"
 
-#: includes/languages/trans_project.php:3335
+#: includes/languages/trans_project.php:3339
 msgid "Your answer is important for us."
 msgstr "پاسخ شما برای ما بسیار با ارزش است."
 
-#: includes/languages/trans_project.php:3336
+#: includes/languages/trans_project.php:3340
 msgid "answer Jibres polls"
 msgstr "به نظرسنجی‌های جیبرس پاسخ دهید"
 
-#: includes/languages/trans_project.php:3340
+#: includes/languages/trans_project.php:3344
 msgid "We can not build your store!"
 msgstr "ما نتوانستیم فروشگاه شما را بسازیم!"
 
-#: includes/languages/trans_project.php:3341
+#: includes/languages/trans_project.php:3345
 msgid "Please contact us to solve this problem."
 msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل را برطرف کنیم."
 
-#: includes/languages/trans_project.php:3342
+#: includes/languages/trans_project.php:3346
 msgid "Try again"
 msgstr "مجددا تلاش کنید"
 
-#: includes/languages/trans_project.php:3343
+#: includes/languages/trans_project.php:3347
 msgid "Read about this problem"
 msgstr "درباره این مشکل بخوانید"
 
-#: includes/languages/trans_project.php:3344
+#: includes/languages/trans_project.php:3348
 msgid "Loading Jibres"
 msgstr "در حال انجام عملیات"
 
-#: includes/languages/trans_project.php:3347
+#: includes/languages/trans_project.php:3351
 msgid "Please wait"
 msgstr "لطفا کمی صبر کنید"
 
-#: includes/languages/trans_project.php:3348
+#: includes/languages/trans_project.php:3352
 msgid "Building your online store in progress."
 msgstr "ما در حال ساخت فروشگاه آنلاین شما هستیم."
 
-#: includes/languages/trans_project.php:3351
+#: includes/languages/trans_project.php:3355
 msgid "From"
 msgstr "از"
 
-#: includes/languages/trans_project.php:3352
+#: includes/languages/trans_project.php:3356
 msgid "Last activity"
 msgstr "آخرین فعالیت"
 
-#: includes/languages/trans_project.php:3353
+#: includes/languages/trans_project.php:3357
 msgid "Jibres can painlessly and quickly help you to start your online business."
 msgstr "جیبرس می‌تواند بدون دردسر و سریع به شما در شروع کسب‌وکارتان کمک کند."
 
-#: includes/languages/trans_project.php:3355
+#: includes/languages/trans_project.php:3359
 msgid "Build my own store"
 msgstr "فروشگاه من را بساز"
 
-#: includes/languages/trans_project.php:3356
+#: includes/languages/trans_project.php:3360
 msgid "Application"
 msgstr "برنامه"
 
-#: includes/languages/trans_project.php:3357
+#: includes/languages/trans_project.php:3361
 msgid "Sale in store"
 msgstr "فروش در فروشگاه"
 
-#: includes/languages/trans_project.php:3358
+#: includes/languages/trans_project.php:3362
 msgid "Telegram bot"
 msgstr "ربات تلگرام"
 
-#: includes/languages/trans_project.php:3361
+#: includes/languages/trans_project.php:3365
 msgid "Open new ticket!"
 msgstr "باز کردن تیکت جدید!"
 
-#: includes/languages/trans_project.php:3364
+#: includes/languages/trans_project.php:3368
 msgid "Content"
 msgstr "محتوا"
 
-#: includes/languages/trans_project.php:3367
+#: includes/languages/trans_project.php:3371
 msgid "In this section"
 msgstr "در این بخش"
 
-#: includes/languages/trans_project.php:3368
+#: includes/languages/trans_project.php:3372
 msgid "Short link"
 msgstr "لینک کوتاه"
 
-#: includes/languages/trans_project.php:3371
+#: includes/languages/trans_project.php:3375
 msgid "Search result"
 msgstr "نتیجه جستجو"
 
-#: includes/languages/trans_project.php:3372 lib/app/product/site_list.php:84
+#: includes/languages/trans_project.php:3376 lib/app/product/site_list.php:84
 msgid "No result found!"
 msgstr "نتیجه‌ای یافت نشد!"
 
-#: includes/languages/trans_project.php:3373
+#: includes/languages/trans_project.php:3377
 msgid "Search our knowledge base..."
 msgstr "جستجو در پایگاه دانش ما..."
 
-#: includes/languages/trans_project.php:3375
+#: includes/languages/trans_project.php:3379
 msgid "Random Articles"
 msgstr "مقالات تصادفی"
 
-#: includes/languages/trans_project.php:3376
+#: includes/languages/trans_project.php:3380
 msgid "Can't find what you're looking for?"
 msgstr "نمی‌توانید آنچه را به‌دنبالش هستید بیابید؟"
 
-#: includes/languages/trans_project.php:3377
+#: includes/languages/trans_project.php:3381
 msgid "Contact the legendary support team right now."
 msgstr "همین الان با تیم پشتیبانی افسانه‌ای ما تماس بگیرید."
 
-#: includes/languages/trans_project.php:3380
+#: includes/languages/trans_project.php:3384
 msgid "Ticket Subject"
 msgstr "موضوع تیکت"
 
-#: includes/languages/trans_project.php:3381
+#: includes/languages/trans_project.php:3385
 msgid "Subject of your ticket"
 msgstr "عنوان تیکت شما"
 
-#: includes/languages/trans_project.php:3382
+#: includes/languages/trans_project.php:3386
 msgid "Set title will help us answer quickly"
 msgstr "تنظیم عنوان تیکت به ما کمک می‌کند تا سریع‌تر پاسخگو باشیم"
 
-#: includes/languages/trans_project.php:3383
+#: includes/languages/trans_project.php:3387
 msgid "Please write your message"
 msgstr "لطفا پیام خود را بنویسید"
 
-#: includes/languages/trans_project.php:3384
+#: includes/languages/trans_project.php:3388
 msgid "Max size"
 msgstr "حداکثر اندازه"
 
-#: includes/languages/trans_project.php:3385
+#: includes/languages/trans_project.php:3389
 msgid "Send notify about your answer to creator of ticket"
 msgstr "سازنده تیکت را در جریان پاسخ شما قرار دهیم"
 
-#: includes/languages/trans_project.php:3386
+#: includes/languages/trans_project.php:3390
 msgid "Via sms to"
 msgstr "با ارسال پیامک به"
 
-#: includes/languages/trans_project.php:3387
+#: includes/languages/trans_project.php:3391
 msgid "Via telegram"
 msgstr "با تلگرام"
 
-#: includes/languages/trans_project.php:3388
+#: includes/languages/trans_project.php:3392
 msgid "Submit a ticket"
 msgstr "ارسال تیکت"
 
-#: includes/languages/trans_project.php:3389
+#: includes/languages/trans_project.php:3393
 msgid "Send new message"
 msgstr "ارسال پیام جدید"
 
-#: includes/languages/trans_project.php:3392
+#: includes/languages/trans_project.php:3396
 msgid "Last active tickets"
 msgstr "آخرین تیکت‌های فعال"
 
-#: includes/languages/trans_project.php:3393
+#: includes/languages/trans_project.php:3397
 msgid "All Tickets"
 msgstr "همه تیکت‌ها"
 
-#: includes/languages/trans_project.php:3394
+#: includes/languages/trans_project.php:3398
 msgid "Active in this ticket"
 msgstr "فعال در این تیکت"
 
-#: includes/languages/trans_project.php:3397
+#: includes/languages/trans_project.php:3401
 msgid ""
 "If your problem is solved or do not need to track, please close this ticket by "
 "press below bottom."
@@ -15171,143 +15187,143 @@ msgstr ""
 "اگر مشکل شما حل شده و یا نیازی به رهگیری آن نیست، لطفا تیکت را با فشردن دکمه زیر "
 "ببندید."
 
-#: includes/languages/trans_project.php:3398
+#: includes/languages/trans_project.php:3402
 msgid "You can open it anytime you need."
 msgstr "شما می‌توانید تیکت را هر زمانی که مایل بودید مجدد باز کنید."
 
-#: includes/languages/trans_project.php:3399
+#: includes/languages/trans_project.php:3403
 msgid "Close ticket"
 msgstr "بستن تیکت"
 
-#: includes/languages/trans_project.php:3400
+#: includes/languages/trans_project.php:3404
 msgid "This ticket is closed."
 msgstr "این تیکت بسته شده است."
 
-#: includes/languages/trans_project.php:3401
+#: includes/languages/trans_project.php:3405
 msgid "Also you can delete it if you do not need it."
 msgstr "هم‌چنین در صورت عدم نیاز می‌توانید آن را حذف کنید."
 
-#: includes/languages/trans_project.php:3403
+#: includes/languages/trans_project.php:3407
 msgid "Open it again"
 msgstr "دوباره بازش کن"
 
-#: includes/languages/trans_project.php:3404
+#: includes/languages/trans_project.php:3408
 msgid "This is deleted ticket."
 msgstr "این تیکت حذف شده است."
 
-#: includes/languages/trans_project.php:3405
+#: includes/languages/trans_project.php:3409
 msgid "You can change it to close condition if need to save it in history!"
 msgstr ""
 "شما می‌توانید برای نگهداری این تیکت در تاریخچه وضعیت آن را به بسته‌شده تغییر دهید!"
 
-#: includes/languages/trans_project.php:3406
+#: includes/languages/trans_project.php:3410
 msgid "Not spam"
 msgstr "جفنگ نیست"
 
-#: includes/languages/trans_project.php:3407
+#: includes/languages/trans_project.php:3411
 msgid "If your problem is not solved yet, please set this ticket as unsolved"
 msgstr ""
 "اگر مشکل مطرح شده همچنان باقی است، لطفا این تیکت را در حالت حل نشده قرار دهید"
 
-#: includes/languages/trans_project.php:3408
+#: includes/languages/trans_project.php:3412
 msgid "Un Solved ticket"
 msgstr "ثبت به عنوان حل نشده"
 
-#: includes/languages/trans_project.php:3409
+#: includes/languages/trans_project.php:3413
 msgid "If your problem is solved, please set this ticket as solved"
 msgstr "اگر مشکل مطرح حل شده است، لطفا این تیکت را در حالت حل شده قرار دهید"
 
-#: includes/languages/trans_project.php:3411
+#: includes/languages/trans_project.php:3415
 msgid "Save tag"
 msgstr "ذخیره کلیدواژه"
 
-#: includes/languages/trans_project.php:3412
+#: includes/languages/trans_project.php:3416
 msgid "Last seen"
 msgstr "آخرین بازدید"
 
-#: includes/languages/trans_project.php:3413
+#: includes/languages/trans_project.php:3417
 msgid "Ticket No"
 msgstr "شماره تیکت"
 
-#: includes/languages/trans_project.php:3414
+#: includes/languages/trans_project.php:3418
 msgid "Subject of ticket"
 msgstr "عنوان تیکت"
 
-#: includes/languages/trans_project.php:3415
+#: includes/languages/trans_project.php:3419
 msgid "Set the title to get faster"
 msgstr "برای دسترسی سریع‌تر عنوان را تنظیم کنید"
 
-#: includes/languages/trans_project.php:3416
+#: includes/languages/trans_project.php:3420
 msgid "User tickets"
 msgstr "تیکت‌های کاربر"
 
-#: includes/languages/trans_project.php:3417
+#: includes/languages/trans_project.php:3421
 msgid "View attachment"
 msgstr "مشاهده ضمیمه"
 
-#: includes/languages/trans_project.php:3418
+#: includes/languages/trans_project.php:3422
 msgid "Add tag manually to link tickets togethers"
 msgstr "کلدواژه را به صورت دستی اضافه کنید تا تیکت‌ها را در کنار هم قرار دهید"
 
-#: includes/languages/trans_project.php:3419
+#: includes/languages/trans_project.php:3423
 msgid "Current Time"
 msgstr "زمان فعلی"
 
-#: includes/languages/trans_project.php:3420
+#: includes/languages/trans_project.php:3424
 msgid "Notification procedures"
 msgstr "روش‌های اعلان"
 
-#: includes/languages/trans_project.php:3421
+#: includes/languages/trans_project.php:3425
 msgid "Do you know you can connect your account with our Telegram bot"
 msgstr "<b>آیا می‌دانید</b> می‌توانید حساب کاربری خود را به ربات تلگرام ما وصل کنید"
 
-#: includes/languages/trans_project.php:3422
+#: includes/languages/trans_project.php:3426
 msgid "Just need to start bot in Telegram and sync your account via /sync."
 msgstr ""
 "تنها کافی‌است ربات را شروع کرده و حساب خود را از طریق دستور /sync به وب‌سایت متصل "
 "کنید."
 
-#: includes/languages/trans_project.php:3425
+#: includes/languages/trans_project.php:3429
 msgid "My tickets"
 msgstr "تیکت‌های من"
 
-#: includes/languages/trans_project.php:3426
+#: includes/languages/trans_project.php:3430
 msgid "Manage tickets"
 msgstr "مدیریت تیکت"
 
-#: includes/languages/trans_project.php:3427
+#: includes/languages/trans_project.php:3431
 msgid "Manage all tickets"
 msgstr "مدیریت تمامی تیکت‌ها"
 
-#: includes/languages/trans_project.php:3430
+#: includes/languages/trans_project.php:3434
 msgid "No ticket was found"
 msgstr "تیکتی یافت نشد"
 
-#: includes/languages/trans_project.php:3431
+#: includes/languages/trans_project.php:3435
 msgid "Active tickets"
 msgstr "تیکت‌های فعال"
 
-#: includes/languages/trans_project.php:3432
+#: includes/languages/trans_project.php:3436
 msgid "Replies"
 msgstr "پاسخ‌ها"
 
-#: includes/languages/trans_project.php:3433
+#: includes/languages/trans_project.php:3437
 msgid "Avg. First Response"
 msgstr "میانگین اولین پاسخگویی"
 
-#: includes/languages/trans_project.php:3434
+#: includes/languages/trans_project.php:3438
 msgid "Minute"
 msgstr "دقیقه"
 
-#: includes/languages/trans_project.php:3435
+#: includes/languages/trans_project.php:3439
 msgid "Avg. Time to Archive"
 msgstr "میانگین زمان بایگانی‌شدن"
 
-#: includes/languages/trans_project.php:3436
+#: includes/languages/trans_project.php:3440
 msgid "Hours"
 msgstr "ساعات"
 
-#: includes/languages/trans_project.php:3441
+#: includes/languages/trans_project.php:3445
 msgid "Please log in if you need to store this ticket and track it in the future"
 msgstr "لطفا برای ذخیره و پیگیری‌های بعدی این تیکت وارد سیستم شوید"
 
