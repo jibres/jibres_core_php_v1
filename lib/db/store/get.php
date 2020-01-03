@@ -4,6 +4,25 @@ namespace lib\db\store;
 
 class get
 {
+	public static function all_version_detail()
+	{
+		$query =
+		"
+			SELECT
+				store.id,
+				store.fuel,
+				store.subdomain,
+				store_data.dbversion,
+				store_data.dbversiondate
+			FROM
+				store
+			INNER JOIN store_data ON store_data.id = store.id
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function all_version()
 	{
 		$query = "SELECT dbversion FROM store_data";

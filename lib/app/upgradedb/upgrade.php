@@ -3,6 +3,10 @@ namespace lib\app\upgradedb;
 
 class upgrade
 {
+	// save all db version
+	private static $all_dbversion = [];
+
+
 	public static function run()
 	{
 		$jibres_last_upgrade_version = self::jibres_last_upgrade_version();
@@ -19,11 +23,10 @@ class upgrade
 
 		if(version_compare($store_last_upgrade_version, $store_min_version, '>'))
 		{
-			self::upgrade_store_database($store_min_version);
+			self::upgrade_store_database();
 		}
-
-
 	}
+
 
 	public static function jibres_last_upgrade_version()
 	{
@@ -49,8 +52,6 @@ class upgrade
 	public static function store_min_version()
 	{
 		$result = \lib\db\store\get::all_version();
-		$result = array_filter($result);
-		$result = array_unique($result);
 		if(!$result)
 		{
 			return null;
@@ -152,7 +153,7 @@ class upgrade
 				$current_version = $split[1];
 				if(version_compare($current_version, $_last_version, '>'))
 				{
-					self::runExecJibres($file);
+					self::runExecFile($file, 'master');
 					\dash\file::write($version_file, $current_version);
 				}
 			}
@@ -160,15 +161,32 @@ class upgrade
 	}
 
 
-	private static function runExecJibres($_file)
+	private static function runExecFile($_file, $_fuel)
 	{
-		$fuel    = \dash\engine\fuel::get('master');
-		$exec    = "mysql -u'". $fuel['user']. "' -p'". $fuel['pass']. "' < ". $_file;
-		$runExec = exec($exec);
+		$fuel    = \dash\engine\fuel::get($_fuel);
+		$exec    = "mysql -u'$fuel[user]' -p'$fuel[pass]' -h'$fuel[host]' < $_file 2>&1";
+		$runExec = exec($exec, $return);
+
+
+		\dash\file::append(__DIR__.'/log.me.json', date("Y-m-d H:i:s"). "\n");
+		\dash\file::append(__DIR__.'/log.me.json', 'exec command: '. $exec. "\n");
+		\dash\file::append(__DIR__.'/log.me.json', 'exec result: '. $runExec. "\n");
+		\dash\file::append(__DIR__.'/log.me.json', 'exec all result: '. implode("\n", $return). "\n");
+
+		// End line of sql file write SELECT 'OK'; to return ok in exec result ;)
+		if($runExec === 'OK')
+		{
+			// Everything is ok
+		}
+		else
+		{
+			// have error!
+		}
+		// save log return in file
 	}
 
 
-	private static function upgrade_store_database($_last_version)
+	private static function upgrade_store_database()
 	{
 		$addr = self::addr('store');
 		if(!is_dir($addr))
@@ -182,24 +200,93 @@ class upgrade
 			return null;
 		}
 
-		foreach ($list as $key => $file)
+		$all_store_version = \lib\db\store\get::all_version_detail();
+		$store_fuel = [];
+		foreach ($all_store_version as $key => $store)
 		{
-			$name = basename($file);
-			if(preg_match("/^v\.(\d+\.\d+\.\d+)\_(.*)$/", $name, $split))
+
+			$myFuel        = $store['fuel'];
+			$store_id      = $store['id'];
+			$dbversion     = $store['dbversion'];
+			$dbversiondate = $store['dbversiondate'];
+			$subdomain     = $store['subdomain'];
+
+			$database_name = \dash\engine\store::make_database_name($store_id);
+
+			$this_store_sql = [];
+
+			// make sql file
+			foreach ($list as $file)
 			{
-				$current_version = $split[1];
-				if(version_compare($current_version, $_last_version, '>'))
+				$name = basename($file);
+				if(preg_match("/^v\.(\d+\.\d+\.\d+)\_(.*)$/", $name, $split))
 				{
-					self::runExecStore($file, $current_version);
+					$current_version = $split[1];
+					if(version_compare($current_version, $dbversion, '>'))
+					{
+						$temp_sql = \dash\file::read($file);
+						$temp_sql = str_replace('jibres_xxx', $database_name, $temp_sql);
+						// $temp_sql .= ' -- '. $subdomain;
+						self::update_query_db_version($current_version, $store_id);
+						$this_store_sql[] = $temp_sql;
+					}
 				}
 			}
+
+			if($this_store_sql)
+			{
+				// set on the fuel list
+				if(!isset($store_fuel[$myFuel]))
+				{
+					$store_fuel[$myFuel] = [];
+				}
+
+				$store_fuel[$myFuel][] = $this_store_sql;
+			}
 		}
+
+		foreach ($store_fuel as $fuel => $query)
+		{
+			$temp_addr = self::temp_sql_addr();
+			$query = array_map(function($_a) {return implode(' ; ', $_a);}, $query);
+			$query = implode(' ; ', $query);
+			\dash\file::write($temp_addr, $query);
+			self::runExecFile($temp_addr, $fuel);
+		}
+
+		self::update_all_database_version();
 	}
 
 
-	private static function runExecStore($_file, $_version)
+	private static function temp_sql_addr()
 	{
+		return __DIR__. '/temp.me.sql';
+	}
 
+
+	private static function update_all_database_version()
+	{
+		if(empty(self::$all_dbversion))
+		{
+			return;
+		}
+
+		$versiondate = date("Y-m-d H:i:s");
+
+		$query = [];
+		foreach (self::$all_dbversion as $store_id => $version)
+		{
+			$query[] = "UPDATE jibres.store_data SET jibres.store_data.dbversion = '$version', jibres.store_data.dbversiondate = '$versiondate' WHERE jibres.store_data.id = $store_id LIMIT 1";
+		}
+
+		\dash\file::write(self::temp_sql_addr(), implode(' ; ', $query));
+		self::runExecFile(self::temp_sql_addr(), 'master');
+	}
+
+
+	private static function update_query_db_version($_version, $_store_id)
+	{
+		self::$all_dbversion[$_store_id] = $_version;
 	}
 }
 ?>
