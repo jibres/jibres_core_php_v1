@@ -12,6 +12,12 @@ class tools
 	 */
 	public static function add($_query, $_fuel, $_title = null)
 	{
+		$run_first_time = self::run_sync($_query, $_fuel);
+		if($run_first_time)
+		{
+			return $run_first_time;
+		}
+
 		$add                = [];
 		$add['query']       = addslashes($_query);
 		$add['fuel']        = $_fuel;
@@ -24,13 +30,6 @@ class tools
 		{
 			\dash\log::set('dbCanNotAddSync');
 		}
-
-		$run_first_time = self::run_sync($_query, $_fuel);
-		if($run_first_time)
-		{
-			\lib\db\sync\update::status('success', $sync_id);
-		}
-
 	}
 
 
