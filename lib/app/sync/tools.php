@@ -30,6 +30,8 @@ class tools
 		{
 			\dash\log::set('dbCanNotAddSync');
 		}
+
+		\dash\db::query("Sync Error");
 	}
 
 
