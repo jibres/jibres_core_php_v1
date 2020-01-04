@@ -9,7 +9,7 @@ class user
 	use \dash\app\user\edit;
 	use \dash\app\user\datalist;
 	use \dash\app\user\get;
-	use \dash\app\user\user_id;
+
 
 
 	public static function lates_user($_args = [])
