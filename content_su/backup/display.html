@@ -27,7 +27,7 @@
         <li>Trafic received: <span>{{(((mysqlInfo.Bytes_received) / 1024 ) / 1024) | number_format }}</span> <small>MB</small></li>
         <li>Trafic send: <span>{{(((mysqlInfo.Bytes_sent) / 1024 ) / 1024) | number_format }}</span> <small>MB</small></li>
       </div>
-       <p><a href="{{url.here}}/backup?show=log">{%trans "Show Auto backup log file"%}</a></p>
+
       <form method="post" data-timeout=0>
         <input type="hidden" name="backup" value="now">
           <h6>{%trans "You can create backup now"%}</h6>
@@ -85,23 +85,48 @@
 
 
 {%block iShowFiles%}
+<nav class="breadcrumb">
+  {%if requestGET.folder%}
+  <a href="{{url.this}}" tabindex="-1"><span class="fa fa-home"></span>All</a>
+  {%if not requestGET.subfolder %}
+  <a>{{requestGET.folder}}</a>
+  {%endif%}
+  {%endif%}
+  {%if requestGET.subfolder and requestGET.folder%}
+  <a href="{{url.this}}?folder={{requestGET.folder}}" tabindex="-1"><span class="fa fa-home"></span>{{requestGET.folder}}</a>
+  <a>{{requestGET.subfolder}}</a>
+  {%endif%}
+
+
+
+
+</nav>
 {%if oldBackup%}
 <div class="ltr">
 
-<table class="tbl1 v3">
+<table class="tbl1 v5">
 
 {%for key, value in oldBackup%}
+{%if value.type == 'file'%}
   <tr>
     <td class="txtL">
       <span class="sf-database fs15 mR10"></span>
-      <a href="{{url.here}}/backup?download={{value.name}}" title='{%trans "Click to download"%}'>{{value.name}}</a>
+      <a href="{{url.here}}/backup?download={{value.addr}}" title='{%trans "Click to download"%}'>{{value.name}}</a>
     </td>
     <td class="rtl s0">{{value.ago}}</td>
-    <td class="rtl s0">{{value.size | fitNumber(false)}} {%trans "MB"%}</td>
-    <td class="pR25-f ">
-      <div class="btn xs danger"><a href="{{url.pwd}}" data-ajaxify data-data='{"type" : "remove", "file" : "{{value.name}}"}' data-method='post'>{%trans "Remove"%}</a></div>
-    </td>
+    <td class="pR25-f rtl s0">{{value.size | fitNumber(false)}} {%trans "MB"%}</td>
+
   </tr>
+  {%elseif value.type == 'folder'%}
+  <tr>
+    <td class="txtL">
+      <span class="sf-folder fs15 mR10"></span>
+      <a href="{{url.this}}/?folder={{value.folder}}&subfolder={{value.subfolder}}">{{value.name}}</a>
+    </td>
+    <td class="rtl s0 pR25-f"><i class="sf-briefcase"></i> <a target="_blank" href="{{url.here}}/backup?zipdownload={{value.addr}}" >{%trans "Download zip"%}</div></td>
+
+  </tr>
+  {%endif%}
 {%endfor%}
 </table>
 </div>
