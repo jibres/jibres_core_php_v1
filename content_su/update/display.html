@@ -35,9 +35,33 @@
 <p>{%trans "Force unlock page"%}</p>
 <a class="btn success" target="_blank" href="{{url.kingdom}}/forceunlock?force=1">{%trans "Force unlock page"%}</a>
 </div>
+
+
 {%endif%}
 
 
+{%if needUpgrade%}
+  <div class="msg danger2 fs14">
+  <p>{%trans "Database need to upgrade"%}</p>
+   <div class="f">
+    {%if needUpgrade.jibres%}
+      <div class="c">
+        <span>{%trans "Jibres"%}</span>
+         <div>current version {{needUpgrade.jibres.current}}</div>
+         <div>new version {{needUpgrade.jibres.upgrade}}</div>
+      </div>
+    {%endif%}
+
+    {%if needUpgrade.jibres%}
+      <div class="c">
+        <span>{%trans "Stores"%}</span>
+         <div>current version {{needUpgrade.jibres.current}}</div>
+         <div>new version {{needUpgrade.jibres.upgrade}}</div>
+      </div>
+    {%endif%}
+   </div>
+  </div>
+{%endif%}
 
 <div class="msg fs14">
 <p>{%trans "Run all step by one click"%} <small>{%trans "For when you don't have heavy updates"%}</small></p>

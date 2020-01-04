@@ -6,6 +6,29 @@ class upgrade
 	// save all db version
 	private static $all_dbversion = [];
 
+	public static function need_upgrade()
+	{
+		$jibres_last_upgrade_version = self::jibres_last_upgrade_version();
+		$jibres_last_version         = self::jibres_last_version();
+
+		$result = [];
+		if(version_compare($jibres_last_upgrade_version, $jibres_last_version, '>'))
+		{
+			$result['jibres'] = ['current' => $jibres_last_version, 'upgrade' => $jibres_last_upgrade_version];
+		}
+
+
+		$store_last_upgrade_version = self::store_last_upgrade_version();
+		$store_min_version         = self::store_min_version();
+
+		if(version_compare($store_last_upgrade_version, $store_min_version, '>'))
+		{
+			$result['store'] = ['current' => $store_min_version, 'upgrade' => $store_last_upgrade_version];
+		}
+
+		return $result;
+	}
+
 
 	public static function run()
 	{
