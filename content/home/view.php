@@ -11,13 +11,8 @@ class view
 		\dash\data::page_title(\dash\data::site_title(). ' - '. T_('Integrated Sales and Online Accounting'));
 		\dash\data::page_special(true);
 
-		\dash\data::homepagenumber(
-		[
-			'product'    => 12158,
-			'factor'     => 260268,
-			'sum_factor' => 3576954205,
-		]
-		);
+		\dash\data::homepagenumber(\lib\app\statistics\homepage::get());
+
 	}
 }
 ?>

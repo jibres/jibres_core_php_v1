@@ -64,6 +64,7 @@ class controller
 
 			if(self::every_30_min())
 			{
+				\lib\app\statistics\homepage::refresh();
 				self::check_error_file();
 				self::removetempfile();
 			}
