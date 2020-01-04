@@ -37,7 +37,7 @@ class database
 	{
 		if(self::schedule_detail())
 		{
-			// self::clean();
+			self::clean();
 			self::run_backup();
 		}
 	}
@@ -187,30 +187,21 @@ class database
 			return;
 		}
 
-		$url         = preg_replace("/schedule$/", 'files/', self::backup_folder_path());
-		$files       = glob($url . "*.*");
+		$folders     = glob(self::backup_folder_path() . "/*");
 		$must_remove = [];
 
-		foreach ($files as $key => $value)
+		foreach ($folders as $key => $value)
 		{
-			if(time() - filemtime($value) > $left_time)
+			if(time() - strtotime(str_replace('_', '-', basename($value))) > $left_time)
 			{
 				array_push($must_remove, $value);
 			}
 		}
+
 		if($must_remove)
 		{
-			$cmd = "rm ". implode(' ', $must_remove);
+			$cmd = "rm -r ". implode(' ', $must_remove);
 			$result     = exec($cmd, $output, $return_var);
-			if($return_var ===  0 )
-			{
-				$log_txt = '---------------'. "\n";
-				$log_txt .= 'Autoremove at: ';
-				$log_txt .= date("Y-m-d_H-i-s");
-				$log_txt .= ' - files: '. "\n" . implode("\n", $must_remove);
-				$log_txt .= "\n";
-				self::save_log(self::backup_folder_path(), $log_txt);
-			}
 		}
 	}
 
@@ -278,14 +269,6 @@ class database
 				break;
 		}
 		return $left_time;
-	}
-
-
-	private static function save_log($_text)
-	{
-		$_text    = "--------------- \n $_text \n";
-		$log_file = preg_replace("/schedule$/", 'log', self::backup_folder_path());
-		file_put_contents( $log_file, $_text, FILE_APPEND );
 	}
 }
 ?>

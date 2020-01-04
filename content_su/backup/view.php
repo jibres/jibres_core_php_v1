@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 
-		$configBackup = @\dash\file::read(database. 'backup/schedule');
+		$configBackup = @\dash\file::read(database. 'backup/schedule.json');
 		if($configBackup && is_string($configBackup))
 		{
 			$configBackup = json_decode($configBackup, true);

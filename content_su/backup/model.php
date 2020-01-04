@@ -32,7 +32,7 @@ class model
 		elseif(\dash\request::post('type') === 'remove' && \dash\request::post('file'))
 		{
 			$file_name = \dash\request::post('file');
-			if(\dash\file::delete(database. 'backup/files/'. $file_name))
+			if(\dash\file::delete(database. 'backup/file/'. $file_name))
 			{
 				\dash\log::set('backupRemoveDb');
 				\dash\notif::ok(T_("File successfully deleted"));
