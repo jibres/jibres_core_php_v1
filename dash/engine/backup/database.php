@@ -117,9 +117,22 @@ class database
 			return;
 		}
 
+		self::make_backup_now();
+	}
+
+
+	public static function make_backup_now($_force = false)
+	{
 		$all_store = \lib\db\store\get::all_store_fuel_detail();
 
-		$folder       = date('Y_m_d'). '/'. date("H");
+		$hour_folder = date("H");
+
+		if($_force)
+		{
+			$hour_folder = date("Hi");
+		}
+
+		$folder       = date('Y_m_d'). '/'. $hour_folder;
 		$backup_dir = self::backup_folder_path() . '/'. $folder;
 
 		if(is_dir($backup_dir))
@@ -139,7 +152,6 @@ class database
 		}
 
 		$exec = exec('sh '. __DIR__.'/temp.me.exec', $output, $return_var);
-
 
 	}
 

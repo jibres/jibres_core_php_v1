@@ -14,7 +14,9 @@ class model
 		elseif(\dash\request::post('backup') === 'now')
 		{
 			\dash\log::set('backupDb');
-			self::backup_now();
+			\dash\engine\backup\database::make_backup_now(true);
+			\dash\notif::ok(T_("Backup complete"));
+			\dash\redirect::pwd();
 		}
 		elseif(\dash\request::post('backup') === 'now_log')
 		{
@@ -47,13 +49,5 @@ class model
 		}
 	}
 
-	public static function backup_now($_db_name = null)
-	{
-		if(\dash\db\mysql\tools\backup::backup_dump(['download' => false, 'db_name' => $_db_name]))
-		{
-			\dash\notif::ok(T_("Backup complete"));
-		}
-		\dash\redirect::pwd();
-	}
 }
 ?>

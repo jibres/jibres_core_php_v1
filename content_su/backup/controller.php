@@ -17,12 +17,12 @@ class controller
 		$zipdownload = \dash\request::get('zipdownload');
 		if($zipdownload && is_dir(database. 'backup/file/'. $zipdownload))
 		{
-			$zip_addr  = __DIR__.'/';
-			$file_name = 'Backup_database.me.zip';
-			\dash\file::delete($zip_addr. $file_name);
-			$zip       = \dash\utility\zip::folder($zip_addr. $file_name, database. 'backup/file/'. $zipdownload);
+			$zip_addr  = __DIR__.'/Backup_database.me.zip';
+
+			\dash\file::delete($zip_addr);
+			$zip       = \dash\utility\zip::folder($zip_addr, database. 'backup/file/'. $zipdownload. '/');
 			\dash\log::set('downloadBackupZip');
-			\dash\file::download($zip_addr. $file_name);
+			\dash\file::download($zip_addr);
 			return;
 		}
 	}
