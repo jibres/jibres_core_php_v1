@@ -19,6 +19,7 @@ class controller
 		{
 			$zip_addr  = __DIR__.'/';
 			$file_name = 'Backup_database.me.zip';
+			\dash\file::delete($zip_addr. $file_name);
 			$zip       = \dash\utility\zip::folder($zip_addr. $file_name, database. 'backup/file/'. $zipdownload);
 			\dash\log::set('downloadBackupZip');
 			\dash\file::download($zip_addr. $file_name);
