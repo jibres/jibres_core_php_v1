@@ -13,8 +13,10 @@ class view
 		$product_list_link        =  T_('Database raw table');
 		\dash\data::page_desc(\dash\data::page_desc() . ' | '. $product_list_link);
 
-		\dash\data::badge_link(\dash\url::this());
-		\dash\data::badge_text(T_('Select table'));
+		\dash\data::page_titleBox(true);
+
+		\dash\data::page_backText(T_('Select table'));
+		\dash\data::page_backLink(\dash\url::this());
 
 		$search_string            = \dash\request::get('q');
 		if($search_string)

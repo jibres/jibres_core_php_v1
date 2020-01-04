@@ -63,8 +63,10 @@
 
 
 {%block htmlTable%}
- <div class="cbox fs12">
-  <table class="tbl bordered1">
+<div class="tblBox mB50">
+
+ <div class="fs12">
+  <table class="tbl1 v1">
     <thead class="primary">
       <tr>
         {%for key, value in allField%}
@@ -89,6 +91,8 @@
   </table>
   {%include display.pagination%}
  </div>
+</div>
+<div class="mB50">&nbsp;</div>
 {%endblock%}
 
 
