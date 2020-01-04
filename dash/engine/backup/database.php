@@ -143,12 +143,16 @@ class database
 		\dash\file::makeDir($backup_dir, null, true);
 
 		\dash\file::delete(__DIR__.'/temp.me.exec');
+
+		// make jibres backup
+		$fuel      = \dash\engine\fuel::get('master');
+		self::backup_dump_exec($backup_dir, $fuel, 'jibres');
+
 		foreach ($all_store as $key => $value)
 		{
 			$fuel      = \dash\engine\fuel::get($value['fuel']);
 			$db_name   = \dash\engine\store::make_database_name($value['id']);
-			$subdomain = $value['subdomain'];
-			self::backup_dump_exec($backup_dir, $fuel, $db_name, $subdomain, $value);
+			self::backup_dump_exec($backup_dir, $fuel, $db_name);
 		}
 
 		$exec = exec('sh '. __DIR__.'/temp.me.exec', $output, $return_var);
@@ -156,7 +160,7 @@ class database
 	}
 
 
-	private static function backup_dump_exec($_dir, $_fuel, $_database_name, $_subdomain, $_meta)
+	private static function backup_dump_exec($_dir, $_fuel, $_database_name)
 	{
 
 		$db_charset = 'utf8mb4';
