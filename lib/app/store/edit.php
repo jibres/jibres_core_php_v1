@@ -40,7 +40,7 @@ class edit
 
 
 		\lib\app\setting\tools::update('store_setting', 'title', $_title);
-		\lib\db\store\jibres::update_title($_title, $store_id);
+		\lib\app\sync\store::title($_title, $store_id);
 
 
 	}
@@ -79,7 +79,7 @@ class edit
 		}
 
 		\lib\app\setting\tools::update('store_setting', 'logo', $_logo);
-		\lib\db\store\jibres::update_logo($_logo, $store_id);
+		\lib\app\sync\store::logo($_logo, $store_id);
 	}
 
 

@@ -4,26 +4,20 @@ namespace lib\db\store;
 /**
  * Class for master jibres database
  */
-class jibres
+class get_string
 {
-	/**
-	 * update title in master jibres database -> table store
-	 *
-	 * @param      <type>  $_title     The title
-	 */
+
 	public static function update_title($_title, $_store_id)
 	{
 		$query = "UPDATE store_data SET store_data.title = '$_title' WHERE store_data.id = $_store_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
-		return $result;
+		return $query;
 	}
 
 
 	public static function update_logo($_logo, $_store_id)
 	{
 		$query = "UPDATE store_data SET store_data.logo = '$_logo' WHERE store_data.id = $_store_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
-		return $result;
+		return $query;
 	}
 }
 ?>
