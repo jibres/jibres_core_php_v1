@@ -101,6 +101,7 @@ class edit
 			return false;
 		}
 
+		if(!\dash\app::isset_request('title')) unset($args['title']);
 		if(!\dash\app::isset_request('website')) unset($args['website']);
 		if(!\dash\app::isset_request('desc')) unset($args['desc']);
 		if(!\dash\app::isset_request('lang')) unset($args['lang']);
