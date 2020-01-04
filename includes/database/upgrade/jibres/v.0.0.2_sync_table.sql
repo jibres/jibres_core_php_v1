@@ -3,6 +3,7 @@ CREATE TABLE `sync` (
 `title` varchar(200) DEFAULT NULL,
 `query` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
 `fuel` varchar(100) DEFAULT NULL,
+`database` varchar(100) DEFAULT NULL,
 `status` enum('pending','awaiting','success','fail','deleted') DEFAULT NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
