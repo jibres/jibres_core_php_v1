@@ -1,0 +1,150 @@
+{%extends display.jibresControlLayout%}
+
+
+{%block pageContent%}
+
+  {{block("htmlSearchBox")}}
+
+
+
+
+<table class="tbl1 v6 fs11">
+  <thead>
+    <tr>
+      <th>{%trans "Id"%}</th>
+      <th>{%trans "Subdomain"%}</th>
+      <th>{%trans "Title"%}</th>
+      <th>{%trans "Plan"%}</th>
+      <th>{%trans "Last activity"%}</th>
+      <th>{%trans "Products"%}</th>
+      <th>{%trans "Factors"%}</th>
+      <th>{%trans "Sum factors"%}</th>
+      <th>{%trans "Customers"%}</th>
+
+    </tr>
+  </thead>
+  <tbody>
+{%for key, value in dataTable%}
+    <tr>
+      <td><code>{{value.id}}</code></td>
+      <td><div class="">{{value.subdomain}}</div></td>
+      <td>{{value.title}}</td>
+      <td>{{value.t_plan}}</td>
+      <td>{{value.lastactivity | dt('human', 'year')}}</td>
+      <td>{{value.product | fitNumber}}</td>
+      <td>{{value.factor | fitNumber}}</td>
+      <td>{{value.sumfactor | fitNumber}}</td>
+      <td>{%if value.customer%}{{value.customer | fitNumber}} <small>{%trans "Person"%}</small>{%endif%}</td>
+    </tr>
+{%endfor%}
+  </tbody>
+</table>
+
+
+{%include display.pagination%}
+
+{%endblock%}
+
+
+
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12">
+  <form method="get" action='{{url.this}}' data-action>
+    {%if requestGET.all%}<input type="hidden" name="all" value="true">{%endif%}
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus autocomplete='off'>
+
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+
+{%block hideAllField%}
+"id": "1000000",
+"subdomain": "supersaeed",
+"url": "http://supersaeed.jibres.local",
+"fuel": "myLocal",
+"creator": "R",
+"ip_raw": null,
+"datecreated": "2020-01-04 16:04:51",
+"datemodified": "2020-01-04 16:29:48",
+"title": "فروشگاه سعید",
+"owner": "R",
+"description": "تنوع در انتخاب و کیفیت با سوپرسعید",
+"lang": null,
+"unit": null,
+"country": null,
+"domain1": null,
+"domain2": null,
+"domain3": null,
+"status": "enable",
+"t_status": "فعال",
+"logo": "https://jibres.com/files/1/4-20bf86ce8703fa4653f4b2eb487fff33.png",
+"plan": "standard",
+"t_plan": "استاندارد",
+"startplan": "2019-02-13 03:05:37",
+"expireplan": "2020-04-13 04:05:36",
+"lastactivity": "2020-01-04 16:29:24",
+"dbversion": "0.0.1",
+"dbversiondate": "2020-01-04 13:20:20",
+"question1": null,
+"question2": null,
+"question3": null,
+"lastchangesetting": null,
+"lastadminlogin": null,
+"laststafflogin": null,
+"lastsale": "2017-12-20 08:15:26",
+"lastbuy": "2018-04-22 10:01:42",
+"dbtrafic": null,
+"dbsize": null,
+"users": "13",
+"customer": "12",
+"staff": "9",
+"agent": "1",
+"session": "2",
+"ticket": "0",
+"ticket_message": "0",
+"comment": "0",
+"address": "0",
+"news": "0",
+"page": "0",
+"post": "0",
+"transaction": "0",
+"term": "0",
+"termusages": "0",
+"sumplustransaction": null,
+"summinustransaction": null,
+"product": "8127",
+"factor": "258112",
+"factorbuy": "266",
+"factorsale": "257846",
+"factordetail": "651310",
+"sumfactor": "351338058429000",
+"planhistory": null,
+"help": "0",
+"attachment": "0",
+"tag": "0",
+"cat": "0",
+"support_tag": "0",
+"help_tag": "0",
+"user_mobile": "10",
+"user_email": "0",
+"user_chatid": "0",
+"user_username": "0",
+"user_android": "0",
+"user_awaiting": "1",
+"user_removed": "1",
+"user_filter": "0",
+"user_unreachabl": "0",
+"user_permission": null,
+"log": "10",
+"cart": "0",
+"sync": "2",
+"apilog": "0"
+{%endblock%}

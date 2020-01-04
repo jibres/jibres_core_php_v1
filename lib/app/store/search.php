@@ -10,8 +10,20 @@ class search
 		return self::$filter_message;
 	}
 
+	public static function list($_query_string, $_args)
+	{
+		return self::store_list('list', $_query_string, $_args);
+	}
 
-	public static function list($_query_string, $_args, $_where = [])
+	public static function list_analytics($_query_string, $_args)
+	{
+		return self::store_list('analytics', $_query_string, $_args);
+	}
+
+
+
+
+	private static function store_list($_type, $_query_string, $_args, $_where = [])
 	{
 		$default_args =
 		[
@@ -40,13 +52,6 @@ class search
 		$filter_args = [];
 		$order_sort  = null;
 
-		// if($_args['barcode'])
-		// {
-		// 	$barcode = \dash\utility\convert::to_en_number($_args['barcode']);
-		// 	$and['store.barcode'] = $barcode;
-		// 	$filter_args['barcode'] = T_('Barcode');
-		// }
-
 
 		$query_string     = \dash\safe::forQueryString($_query_string);
 
@@ -58,7 +63,17 @@ class search
 
 		$and = array_merge($and, $_where);
 
-		$list = \lib\db\store\search::list($and, $or, $order_sort);
+		switch ($_type)
+		{
+			case 'analytics':
+				$list = \lib\db\store\search::analytics($and, $or, $order_sort);
+				break;
+
+			case 'list':
+			default:
+				$list = \lib\db\store\search::list($and, $or, $order_sort);
+				break;
+		}
 
 		if(is_array($list))
 		{

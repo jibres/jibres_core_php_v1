@@ -4,7 +4,8 @@
 {%block pageContent%}
 
 <div class="f">
-  <div class="c4">{{block('btnStoreList')}}</div>
+  <div class="c4 s12">{{block('btnStoreList')}}</div>
+  <div class="c4 s12">{{block('btnStoreListAnalytics')}}</div>
 </div>
 
 
@@ -12,6 +13,14 @@
 
 
 
+{%block btnStoreListAnalytics%}
+<a class="dcard x1" href='{{url.this}}/analytics'>
+ <div class="statistic blue">
+  <div class="value"><i class="sf-analytics-chart-graph"></i></div>
+  <div class="label">{%trans "Store analytics"%}</div>
+ </div>
+</a>
+{%endblock%}
 
 
 {%block btnStoreList%}
