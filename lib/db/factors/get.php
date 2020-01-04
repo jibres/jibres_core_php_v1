@@ -3,6 +3,50 @@ namespace lib\db\factors;
 
 class get
 {
+	public static function sum_all()
+	{
+		$query   = "SELECT SUM(factors.sum) AS `sum` FROM factors where factors.status != 'deleted' ";
+		$result = \dash\db::get($query, 'sum', true);
+		return $result;
+	}
+
+
+	public static function count_all()
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM factors where factors.status != 'deleted' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function count_all_buy()
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM factors where factors.status != 'deleted' AND factors.type = 'buy' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+	public static function count_all_sale()
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM factors where factors.status != 'deleted' AND factors.type = 'sale' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+	public static function last_sale_date()
+	{
+		$query = "SELECT factors.datecreated AS `datecreated` FROM factors WHERE factors.type = 'sale' ORDER BY factors.id LIMIT 1";
+		$result = \dash\db::Get($query, 'datecreated', true);
+		return $result ? $result : null;
+	}
+
+	public static function last_buy_date()
+	{
+		$query = "SELECT factors.datecreated AS `datecreated` FROM factors WHERE factors.type = 'buy' ORDER BY factors.id LIMIT 1";
+		$result = \dash\db::Get($query, 'datecreated', true);
+		return $result ? $result : null;
+	}
 
 
 	public static function by_id($_id)

@@ -3,6 +3,14 @@ namespace lib\db\factordetails;
 
 class get
 {
+
+	public static function count_all()
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM factordetails ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 	public static function by_multi_factor_id($_ids)
 	{
 		$query = "SELECT * FROM factordetails WHERE factordetails.factor_id IN ($_ids)";

@@ -5,8 +5,8 @@ class get
 {
 	public static function count_all()
 	{
-		$next   = "SELECT COUNT(*) AS `count` FROM products where products.status != 'deleted' ";
-		$result = \dash\db::get($next, 'count', true);
+		$query   = "SELECT COUNT(*) AS `count` FROM products where products.status != 'deleted' ";
+		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
 

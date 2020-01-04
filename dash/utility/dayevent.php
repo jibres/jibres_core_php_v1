@@ -80,14 +80,7 @@ class dayevent
 
 		$result['user_permission'] = \dash\db\users::get_count(['permission' => ['IS NOT', 'NULL']]);
 
-		if(is_callable(['\\lib\\dayevent', 'calc']))
-		{
-			$project_result = \lib\dayevent::calc();
-			if(is_array($project_result))
-			{
-				$result = array_merge($result, $project_result);
-			}
-		}
+
 		$result = array_map('intval', $result);
 
 		return $result;

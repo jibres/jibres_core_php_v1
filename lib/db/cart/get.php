@@ -5,6 +5,13 @@ namespace lib\db\cart;
 class get
 {
 
+	public static function count_all()
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM cart ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 	public static function product_user($_product_id, $_user_id)
 	{
 		$query  = "SELECT * FROM cart WHERE cart.product_id = $_product_id AND cart.user_id = $_user_id LIMIT 1";

@@ -17,6 +17,14 @@ class apilog
 	}
 
 
+	public static function get_count()
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM apilog ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function get($_where)
 	{
 		return \dash\db\config::public_get('apilog', $_where);
