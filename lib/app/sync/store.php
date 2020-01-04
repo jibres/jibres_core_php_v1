@@ -14,7 +14,7 @@ class store
 	{
 		$query_string = \lib\db\store\get_string::update_logo($_logo, $_store_id);
 
-		\lib\app\sync\tools::add($query_string, 'master');
+		\lib\app\sync\tools::add($query_string, 'master', 'update_store_logo');
 
 	}
 
@@ -23,7 +23,7 @@ class store
 	{
 		$query_string = \lib\db\store\get_string::update_title($_title, $_store_id);
 
-		\lib\app\sync\tools::add($query_string, 'master');
+		\lib\app\sync\tools::add($query_string, 'master', 'update_store_title');
 	}
 }
 ?>

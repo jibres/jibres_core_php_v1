@@ -7,7 +7,8 @@ class update
 
 	public static function status($_status, $_id)
 	{
-		$query = "UPDATE sync SET sync.status = '$_status' WHERE sync.id = $_id LIMIT 1";
+		$now = date("Y-m-d H:i:s");
+		$query = "UPDATE sync SET sync.status = '$_status', sync.datemodified = '$now' WHERE sync.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}

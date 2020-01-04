@@ -10,11 +10,12 @@ class tools
 	/**
 	 * Start sync logo from stores to jibres
 	 */
-	public static function add($_query, $_fuel)
+	public static function add($_query, $_fuel, $_title = null)
 	{
 		$add                = [];
 		$add['query']       = addslashes($_query);
 		$add['fuel']        = $_fuel;
+		$add['title']       = $_title;
 		$add['datecreated'] = date("Y-m-d H:i:s");
 		$add['status']      = 'pending';
 
