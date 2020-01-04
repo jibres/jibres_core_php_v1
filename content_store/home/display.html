@@ -52,12 +52,12 @@
       <img src="{{value.logo}}" alt="{{value.title}}">
       <h2>{{value.title}}</h2>
       <div class="f summary">
-        <div class="c4">{{184 | fitNumber}} {%trans "Product"%}</div>
-        <div class="c4 pLR5">{{21 | fitNumber}} {%trans "Customer"%}</div>
-        <div class="c4">{{94 | fitNumber}} {%trans "Factor"%}</div>
+        <div class="c4">{{value.product | fitNumber}} {%trans "Product"%}</div>
+        <div class="c4 pLR5">{{value.customer | fitNumber}} {%trans "Customer"%}</div>
+        <div class="c4">{{value.factor | fitNumber}} {%trans "Factor"%}</div>
       </div>
       <div class="f meta">
-        <div class="c6 s12 txtLa">{%trans "Last activity"%} {{"now" | dt('human')}}</div>
+        <div class="c6 s12 txtLa">{%if value.lastactivity%}{%trans "Last activity"%} {{value.lastactivity | dt('human')}}{%endif%}</div>
         <div class="c6 s12 txtRa">{%trans "Created on"%} {{value.datecreated | dt(false,'date')}}</div>
       </div>
       <div class="f meta">
