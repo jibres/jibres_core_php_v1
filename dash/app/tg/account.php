@@ -32,6 +32,9 @@ class account
 		{
 			if(!\dash\user::detail('mobile'))
 			{
+				// @check
+				// @reza
+				// need to set jibres_user_id
 				\dash\db\users::update(['mobile' => $mobile], \dash\user::id());
 				\dash\db\user_telegram::update_where(['user_id' => \dash\user::id()], ['chatid' => $_chat_id]);
 				self::relogin();
