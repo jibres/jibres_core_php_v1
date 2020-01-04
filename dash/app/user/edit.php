@@ -162,6 +162,16 @@ trait edit
 		{
 			\dash\log::set('editUser', ['code' => $id, 'datalink' => \dash\coding::encode($id)]);
 
+			// in stroe whene user signuped we need to set jibres_user_id
+			if(\dash\engine\store::inStore() && isset($args['mobile']))
+			{
+				$mobile = \dash\utility\filter::mobile($_args['mobile']);
+				if($mobile)
+				{
+					$args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($args);
+				}
+			}
+
 			\dash\db\users::update($args, $id);
 
 		}
