@@ -25,7 +25,7 @@ trait user_id
 			// INSERT NEW USER
 			if(!$new_mobile)
 			{
-				$user_id = \dash\db\users::signup($_args);
+				$user_id = \dash\app\user::quick_add($_args);
 				\dash\log::set('userSignupByOther', ['code' => $user_id, 'datalink' => \dash\coding::encode($user_id)]);
 			}
 			else
@@ -37,7 +37,7 @@ trait user_id
 				}
 				else
 				{
-					$user_id = \dash\db\users::signup($_args);
+					$user_id = \dash\app\user::quick_add($_args);
 					\dash\log::set('userSignupByOther', ['code' => $user_id, 'datalink' => \dash\coding::encode($user_id)]);
 				}
 			}
@@ -75,7 +75,7 @@ trait user_id
 						}
 						else
 						{
-							$user_id = \dash\db\users::signup($_args);
+							$user_id = \dash\app\user::quick_add($_args);
 							\dash\log::set('userSignupByOther', ['code' => $user_id, 'datalink' => \dash\coding::encode($user_id)]);
 						}
 					}
@@ -101,7 +101,7 @@ trait user_id
 				// new mobile not set
 				if($old_mobile)
 				{
-					$user_id = \dash\db\users::signup($_args);
+					$user_id = \dash\app\user::quick_add($_args);
 					\dash\log::set('userSignupByOther', ['code' => $user_id, 'datalink' => \dash\coding::encode($user_id)]);
 				}
 				else

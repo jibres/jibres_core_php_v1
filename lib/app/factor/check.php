@@ -117,7 +117,7 @@ class check
 
 			if($mobile)
 			{
-				$customer_user_id = \dash\db\users::signup(['mobile' => $mobile, 'gender' => $gender, 'displayname' => $displayname]);
+				$customer_user_id = \dash\app\user::quick_add(['mobile' => $mobile, 'gender' => $gender, 'displayname' => $displayname]);
 				if($customer_user_id)
 				{
 					$check_in_store = \lib\db\userstores::get(['store_id' => \lib\store::id(), 'user_id' => $customer_user_id, 'limit' => 1]);
@@ -173,7 +173,7 @@ class check
 					}
 					else
 					{
-						$customer_user_id = \dash\db\users::signup(['mobile' => null, 'gender' => $gender, 'displayname' => $displayname]);
+						$customer_user_id = \dash\app\user::quick_add(['mobile' => null, 'gender' => $gender, 'displayname' => $displayname]);
 
 						$insert_new_user_store =
 						[

@@ -52,7 +52,7 @@ class enter
 			return false;
 		}
 
-		$user_id = \dash\db\users::signup(['mobile' => self::$mobile]);
+		$user_id = \dash\app\user::quick_add(['mobile' => self::$mobile]);
 		if(!$user_id)
 		{
 			\dash\log::set('API-canNotSignupUserEnter');
@@ -181,7 +181,7 @@ class enter
 			return false;
 		}
 
-		$user_id = \dash\db\users::signup(['mobile' => self::$mobile]);
+		$user_id = \dash\app\user::quick_add(['mobile' => self::$mobile]);
 		if(!$user_id)
 		{
 			\dash\log::set('API-canNotSignupUserEnterVerify');

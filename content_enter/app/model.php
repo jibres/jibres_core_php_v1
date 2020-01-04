@@ -55,7 +55,7 @@ class model
 		// the user not found must be signup
 		if(!$user_data)
 		{
-			$user_id   = \dash\db\users::signup(['mobile' => $mobile]);
+			$user_id   = \dash\app\user::quick_add(['mobile' => $mobile]);
 			$user_data = \dash\utility\enter::load_user_data($user_id, 'user_id');
 
 			if(!$user_data)

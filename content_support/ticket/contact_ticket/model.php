@@ -167,7 +167,7 @@ class model
 				if(!$exists_user || empty($exists_user))
 				{
 					// signup user by site_guest
-					$user_id = \dash\db\users::signup(['mobile' => $mobile, 'displayname' => $displayname]);
+					$user_id = \dash\app\user::quick_add(['mobile' => $mobile, 'displayname' => $displayname]);
 
 					if(!$user_id)
 					{

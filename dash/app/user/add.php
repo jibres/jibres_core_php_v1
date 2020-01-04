@@ -4,7 +4,10 @@ namespace dash\app\user;
 
 trait add
 {
-
+	public static function quick_add($_args)
+	{
+		return \dash\db\users::signup($_args);
+	}
 
 
 	/**
@@ -107,7 +110,7 @@ trait add
 			}
 		}
 
-		$user_id = \dash\db\users::signup($args);
+		$user_id = \dash\app\user::quick_add($args);
 
 		if(!$user_id)
 		{

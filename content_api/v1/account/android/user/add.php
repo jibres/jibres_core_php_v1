@@ -224,7 +224,7 @@ class add
 
 	private static function user_add($_detail)
 	{
-		$user_id = \dash\db\users::signup();
+		$user_id = \dash\app\user::quick_add();
 		if($user_id)
 		{
 			self::$user_id = $user_id;

@@ -49,7 +49,7 @@ class account
 					'displayname' => trim($first_name. ' '. $last_name),
 				];
 
-				$new_user_id = \dash\db\users::signup($new_signup);
+				$new_user_id = \dash\app\user::quick_add($new_signup);
 				\dash\db\user_telegram::update_where(['user_id' => $new_user_id], ['chatid' => $_chat_id]);
 				// to loadmobile and some other field
 				self::relogin($new_user_id);

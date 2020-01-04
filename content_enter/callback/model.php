@@ -148,7 +148,7 @@ class model
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
 
-		$user_id = \dash\db\users::signup($signup);
+		$user_id = \dash\app\user::quick_add($signup);
 
 
 		$log_meta =

@@ -248,7 +248,7 @@ class enter
 			$_args['mobile'] = $mobile;
 			$_args['email']  = $_value;
 
-			$user_id = \dash\db\users::signup($_args);
+			$user_id = \dash\app\user::quick_add($_args);
 
 			if($user_id)
 			{
@@ -298,7 +298,7 @@ class enter
 			unset($_SESSION['ref']);
 		}
 
-		$user_id = \dash\db\users::signup($_args);
+		$user_id = \dash\app\user::quick_add($_args);
 
 		if($user_id)
 		{

@@ -28,7 +28,7 @@ class model
 
 			$signup['verifymobile'] = 0;
 
-			$user_id = \dash\db\users::signup($signup);
+			$user_id = \dash\app\user::quick_add($signup);
 
 			if(!$user_id)
 			{
