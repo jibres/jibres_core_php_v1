@@ -57,7 +57,7 @@
         <div class="c4">{{value.factor | fitNumber}} {%trans "Factor"%}</div>
       </div>
       <div class="f meta">
-        <div class="c6 s12 txtLa">{%if value.lastactivity%}{%trans "Last activity"%} {{value.lastactivity | dt('human')}}{%endif%}</div>
+        <div class="c6 s12 txtLa">{%if value.lastactivity%}{%trans "Last activity"%} {{value.lastactivity | dt('human', 'year')}}{%endif%}</div>
         <div class="c6 s12 txtRa">{%trans "Created on"%} {{value.datecreated | dt(false,'date')}}</div>
       </div>
       <div class="f meta">

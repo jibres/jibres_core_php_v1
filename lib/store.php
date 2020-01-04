@@ -141,6 +141,29 @@ class store
 	}
 
 
+	public static function get_last_update()
+	{
+		$addr = \dash\engine\store::setting_addr(). self::id();
+
+		if(is_file($addr))
+		{
+			$getFile = \dash\file::read($addr);
+			if($getFile && is_string($getFile))
+			{
+				$getFile = json_decode($getFile, true);
+			}
+
+			if($getFile['update_time'] && is_numeric($getFile['update_time']))
+			{
+				return date("Y-m-d H:i:s", intval($getFile['update_time']));
+			}
+		}
+
+		return null;
+
+	}
+
+
 	private static function file_store_data($_store_detail)
 	{
 		if(!isset($_store_detail['id']))
@@ -160,7 +183,7 @@ class store
 
 			if(is_array($getFile) && $getFile)
 			{
-				if(isset($getFile['update_time']) && time() - intval($getFile['update_time']) > 30)
+				if(isset($getFile['update_time']) && time() - intval($getFile['update_time']) > 60)
 				{
 					return self::store_detail_setting_record($_store_detail['id']);
 				}

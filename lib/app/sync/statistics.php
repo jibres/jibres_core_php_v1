@@ -31,7 +31,7 @@ class statistics
 		$result['user_filter']         = \dash\db\users::get_count(['status' => 'filter']);
 		$result['user_unreachabl']     = \dash\db\users::get_count(['status' => 'unreachabl']);
 
-		$result['lastactivity']        = null;
+		$result['lastactivity']        = \lib\store::get_last_update();
 		$result['lastchangesetting']   = null;
 		$result['lastadminlogin']      = null;
 		$result['laststafflogin']      = null;
