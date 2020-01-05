@@ -15,7 +15,13 @@ trait add
 				$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($_args);
 			}
 		}
-		return \dash\db\users::signup($_args);
+
+		if(mb_strlen($_args['displayname']) > 99)
+		{
+			$_args['displayname'] = null;
+		}
+
+		return \dash\db\users\insert::signup($_args);
 	}
 
 

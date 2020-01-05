@@ -96,6 +96,29 @@ class users
 		return \dash\db::get($query, null, true);
 	}
 
+
+	public static function jibres_get_by_mobile($_mobile)
+	{
+		$query = "SELECT * FROM users WHERE users.mobile = '$_mobile' ORDER BY users.id ASC LIMIT 1";
+		return \dash\db::get($query, null, true, 'master');
+	}
+
+
+	public static function jibres_get_by_email($_email)
+	{
+		$query = "SELECT * FROM users WHERE users.email = '$_email' ORDER BY users.id ASC LIMIT 1 ";
+		return \dash\db::get($query, null, true, 'master');
+	}
+
+
+	public static function jibres_get_by_username($_username)
+	{
+		$query = "SELECT * FROM users WHERE users.username = '$_username' ORDER BY users.id ASC LIMIT 1";
+		return \dash\db::get($query, null, true, 'master');
+	}
+
+
+
 	public static function get_by_id($_user_id)
 	{
 		$query = "SELECT * FROM users WHERE users.id = '$_user_id' LIMIT 1";
@@ -108,13 +131,6 @@ class users
 		$query = "SELECT * FROM users WHERE users.email = '$_email' ORDER BY users.id ASC LIMIT 1 ";
 		return \dash\db::get($query, null, true);
 	}
-
-
-	// public static function get_by_chatid($_chatid)
-	// {
-	// 	$query = "SELECT * FROM users WHERE users.chatid = '$_chatid' ORDER BY users.id ASC LIMIT 1 ";
-	// 	return \dash\db::get($query, null, true);
-	// }
 
 
 	public static function get_by_username($_username)
@@ -248,156 +264,6 @@ class users
 	}
 
 
-	private static function check_ref($_ref)
-	{
-		if(!is_string($_ref))
-		{
-			return null;
-		}
-
-		if($_ref)
-		{
-			$ref_id = \dash\coding::decode($_ref);
-			if($ref_id)
-			{
-				$check_ref = self::get($ref_id);
-				if(!empty($check_ref))
-				{
-					return $ref_id;
-				}
-			}
-		}
-		return null;
-	}
-
-
-
-	/**
-	 * check signup and if can add new user
-	 * @return [type] [description]
-	 */
-	public static function signup($_args = [])
-	{
-		$default_args =
-		[
-			'mobile'       => null,
-			'password'     => null,
-			'email'        => null,
-			'permission'   => null,
-			'displayname'  => null,
-			'ref'          => null,
-		];
-
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
-
-		$_args = array_merge($default_args, $_args);
-
-		$ref = null;
-		// get the ref and set in users_parent
-		if(isset($_SESSION['ref']))
-		{
-			$ref = self::check_ref($_SESSION['ref']);
-			if($ref)
-			{
-				$_args['ref'] = $_SESSION['ref'];
-			}
-			else
-			{
-				$_args['ref'] = null;
-			}
-		}
-		elseif($_args['ref'])
-		{
-			$ref = self::check_ref($_args['ref']);
-			if(!$ref)
-			{
-				$_args['ref'] = null;
-			}
-		}
-
-		if($ref)
-		{
-			unset($_SESSION['ref']);
-		}
-
-		if(isset($_args['mobile']) && $_args['mobile'])
-		{
-			$mobile = \dash\utility\filter::mobile($_args['mobile']);
-			if(!$mobile)
-			{
-				return false;
-			}
-
-			$check = self::get_by_mobile($mobile);
-
-			if(isset($check['id']))
-			{
-				return $check['id'];
-			}
-		}
-
-
-		if(isset($_args['username']) && $_args['username'])
-		{
-			$check_username = self::get(['username' => $_args['username'], 'limit' => 1]);
-
-			if(isset($check_username['id']))
-			{
-				return $check_username['id'];
-			}
-		}
-
-		if(isset($_args['chatid']) && $_args['chatid'])
-		{
-			$check_chatid = self::get(['chatid' => $_args['chatid'], 'limit' => 1]);
-
-			if(isset($check_chatid['id']))
-			{
-				return $check_chatid['id'];
-			}
-		}
-
-		if(isset($_args['email']) && $_args['email'])
-		{
-			$check_email = self::get(['email' => $email, 'limit' => 1]);
-
-			if(isset($check_email['id']))
-			{
-				return $check_email['id'];
-			}
-		}
-
-
-		if($_args['password'])
-		{
-			$password = \dash\utility::hasher($_args['password']);
-		}
-		else
-		{
-			$password = null;
-		}
-
-		if(!\dash\engine\process::status())
-		{
-			return false;
-		}
-
-		if(mb_strlen($_args['displayname']) > 99)
-		{
-			$_args['displayname'] = null;
-		}
-
-		// signup up users
-		$_args['datecreated'] = date("Y-m-d H:i:s");
-
-		$insert_new    = self::insert($_args);
-		$insert_id     = \dash\db::insert_id();
-		return $insert_id;
-
-	}
 
 
 	public static function get_count()
