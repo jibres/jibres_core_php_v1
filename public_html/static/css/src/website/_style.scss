@@ -90,6 +90,14 @@ body.loading-page .site-header .logo img{padding:7px;opacity:0.7}
 .typed-cursor{opacity: 1;font-weight: 100;animation: blink 0.7s infinite;}
 @keyframes blink{ 0% { opacity:1; } 50% { opacity:0.3; } 100% { opacity:1; } }
 
+#saleChannels{padding: 150px 0;font-size: 1.8em;text-align: center;}
+#saleChannels h2{font-size: 3em;color:#444;font-weight: 700;}
+#saleChannels .title{margin-bottom: 50px;}
+#saleChannels h3{font-size: 1.2em;color: #333;font-weight: 700;}
+#saleChannels .item{margin:1em 0.8em;background-color: #ffffff;border-radius: 0.5em;box-shadow: 0 0 1.5em rgba(220,90,90,0.15);padding: 40px 10px;-webkit-transition: all 0.3s linear 0s;transition: all 0.3s linear 0s;overflow: hidden;}
+#saleChannels .item:hover{box-shadow: 0 0 2em rgba(220,90,90,0.3);}
+#saleChannels .item:active{box-shadow: 0 0 2em rgba(220,90,90,0.4);}
+#saleChannels .item img{display: block;min-height: 75px;max-height: 100px;margin-bottom:20px;}
 
 #roadmap{background-image:url(/static/images/homepage/jibres-roadmap.jpg);min-height:300px;background-attachment:fixed;background-position:center;background-repeat:no-repeat;background-size:cover;position:relative;color:#fff}
 

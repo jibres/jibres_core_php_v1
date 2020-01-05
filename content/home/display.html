@@ -5,6 +5,7 @@
 
 
  {{block('landPage')}}
+ {{block('saleChannels')}}
  {{block('keepSimple')}}
  {{block('statistic')}}
  {{block('enterprise--')}}
@@ -45,6 +46,57 @@
 
 </section>
 {%endblock%}
+
+
+{%block saleChannels%}
+<section id='saleChannels'>
+ <div class="cn">
+  <div class="title">
+   <h2>{%trans "Jibres Sale Channels"%}</h2>
+   <p>{%trans "Sales channels represent the different marketplaces where you sell your products."%}<br>{%trans "By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place."%} <a href="{{url.kingdom}}">{%trans "Read more"%}</a></p>
+  </div>
+
+  <div class="f">
+    <div class="c3 m6 s12">
+      <div class="item">
+        <img src="{{url.static}}/img/logo/icon/svg/Jibres-Logo-icon.svg" alt='{%trans "Jibres"%}'>
+        <h3>{%trans "Point of Sale Software"%}</h3>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="c3 m6 s12">
+      <div class="item">
+        <img src="{{url.static}}/img/logo/icon/svg/Jibres-Logo-icon.svg" alt='{%trans "Jibres"%}'>
+        <h3>{%trans "Mobile Online Store"%}</h3>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="c3 m6 s12">
+      <div class="item">
+        <img src="{{url.static}}/img/logo/icon/svg/Jibres-Logo-icon.svg" alt='{%trans "Jibres"%}'>
+        <h3>{%trans "Social Marketing"%}</h3>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="c3 m6 s12">
+      <div class="item">
+        <img src="{{url.static}}/img/logo/icon/svg/Jibres-Logo-icon.svg" alt='{%trans "Jibres"%}'>
+        <h3>{%trans "Online Store Website"%}</h3>
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+ </div>
+</section>
+{%endblock%}
+
+
+
+
 
 
 
