@@ -884,6 +884,13 @@ class enter
 			return false;
 		}
 
+		// check verification code len
+		if(mb_strlen($verificationCode) !== 5)
+		{
+			\dash\notif::error(T_("Please enter the 5 digit code sent to your mobile phone"), 'code');
+			return false;
+		}
+
 		$code_is_okay = false;
 		// if the module is sendsms user not send the verification code here
 		// the user send the verification code to my sms service
@@ -1020,7 +1027,7 @@ class enter
 		{
 			\dash\log::set('PasswordOK');
 			// set temp ramz in use pass
-			\dash\app\user::quick_update(['password' => self::get_session('temp_ramz_hash')], self::user_data('id'));
+			\dash\app\user::update_password(self::get_session('temp_ramz_hash'), self::user_data('id'));
 		}
 
 
@@ -1031,31 +1038,31 @@ class enter
 		 * TRY TO REMOVE USER NAME
 		 ***********************************************************
 		 */
-		if(self::get_session('verify_from') === 'username_remove' && is_numeric(self::user_data('id')))
-		{
-			// set temp ramz in use pass
-			\dash\app\user::quick_update(['username' => null], self::user_data('id'));
-			// remove usename from sessions
-			unset($_SESSION['auth']['username']);
-			// set the alert message
-			$alert =
-			[
-				'clean_session' => true,
-				'text' => T_("Your username was removed"),
-				'link' => \dash\url::kingdom(),
-			];
+		// if(self::get_session('verify_from') === 'username_remove' && is_numeric(self::user_data('id')))
+		// {
+		// 	// set temp ramz in use pass
+		// 	\dash\app\user::quick_update(['username' => null], self::user_data('id'));
+		// 	// remove usename from sessions
+		// 	unset($_SESSION['auth']['username']);
+		// 	// set the alert message
+		// 	$alert =
+		// 	[
+		// 		'clean_session' => true,
+		// 		'text' => T_("Your username was removed"),
+		// 		'link' => \dash\url::kingdom(),
+		// 	];
 
-			\dash\log::set('usernameRemoved');
+		// 	\dash\log::set('usernameRemoved');
 
-			self::set_session('alert', $alert);
-			// open lock of alert page
-			self::next_step('alert');
+		// 	self::set_session('alert', $alert);
+		// 	// open lock of alert page
+		// 	self::next_step('alert');
 
-			// self::clean_session(true);
-			// go to alert page
-			self::go_to('alert');
-			return;
-		}
+		// 	// self::clean_session(true);
+		// 	// go to alert page
+		// 	self::go_to('alert');
+		// 	return;
+		// }
 
 		/**
 		 ***********************************************************
@@ -1114,73 +1121,73 @@ class enter
 		 * USERNAME/CHANGE
 		 ***********************************************************
 		 */
-		if(
-			(
-				self::get_session('verify_from') === 'username_set' ||
-				self::get_session('verify_from') === 'username_change'
-			) &&
-			self::get_session('temp_username') &&
-			is_numeric(self::user_data('id'))
-		  )
-		{
-			// set temp ramz in use pass
-			\dash\app\user::quick_update(['username' => self::get_session('temp_username')], self::user_data('id'));
-			// set the alert message
-			if(self::get_session('verify_from') === 'username_set')
-			{
-				\dash\log::set('usernameSetOK');
-				$text = T_("Your username was set");
-			}
-			else
-			{
-				\dash\log::set('usernameChangeOK');
-				$text = T_("Your username was change");
-			}
+		// if(
+		// 	(
+		// 		self::get_session('verify_from') === 'username_set' ||
+		// 		self::get_session('verify_from') === 'username_change'
+		// 	) &&
+		// 	self::get_session('temp_username') &&
+		// 	is_numeric(self::user_data('id'))
+		//   )
+		// {
+		// 	// set temp ramz in use pass
+		// 	\dash\app\user::quick_update(['username' => self::get_session('temp_username')], self::user_data('id'));
+		// 	// set the alert message
+		// 	if(self::get_session('verify_from') === 'username_set')
+		// 	{
+		// 		\dash\log::set('usernameSetOK');
+		// 		$text = T_("Your username was set");
+		// 	}
+		// 	else
+		// 	{
+		// 		\dash\log::set('usernameChangeOK');
+		// 		$text = T_("Your username was change");
+		// 	}
 
 
-			if(isset($_SESSION['auth']) && is_array($_SESSION['auth']))
-			{
-				$_SESSION['auth']['username'] = self::get_session('temp_username');
-			}
+		// 	if(isset($_SESSION['auth']) && is_array($_SESSION['auth']))
+		// 	{
+		// 		$_SESSION['auth']['username'] = self::get_session('temp_username');
+		// 	}
 
-			// set the alert message
-			$alert =
-			[
-				'clean_session' => true,
-				'text'          => $text,
-				'link'          => \dash\url::kingdom(),
-			];
+		// 	// set the alert message
+		// 	$alert =
+		// 	[
+		// 		'clean_session' => true,
+		// 		'text'          => $text,
+		// 		'link'          => \dash\url::kingdom(),
+		// 	];
 
-			self::set_session('alert', $alert);
-			// open lock of alert page
-			self::next_step('alert');
-			// self::clean_session(true);
-			// go to alert page
-			self::go_to('alert');
-			return;
-		}
+		// 	self::set_session('alert', $alert);
+		// 	// open lock of alert page
+		// 	self::next_step('alert');
+		// 	// self::clean_session(true);
+		// 	// go to alert page
+		// 	self::go_to('alert');
+		// 	return;
+		// }
 
-		/**
-		 ***********************************************************
-		 * VERIFY FROM
-		 * EMAIL/SET
-		 * EMAIL/CHANGE
-		 ***********************************************************
-		 */
-		if(
-			(
-				self::get_session('verify_from') === 'email_set' ||
-				self::get_session('verify_from') === 'email_change'
-			) &&
-			self::get_session('temp_email') &&
-			is_numeric(self::user_data('id'))
-		  )
-		{
-			\dash\log::set('emailOK');
+		// /**
+		//  ***********************************************************
+		//  * VERIFY FROM
+		//  * EMAIL/SET
+		//  * EMAIL/CHANGE
+		//  ***********************************************************
+		//  */
+		// if(
+		// 	(
+		// 		self::get_session('verify_from') === 'email_set' ||
+		// 		self::get_session('verify_from') === 'email_change'
+		// 	) &&
+		// 	self::get_session('temp_email') &&
+		// 	is_numeric(self::user_data('id'))
+		//   )
+		// {
+		// 	\dash\log::set('emailOK');
 
-			// set temp ramz in use pass
-			\dash\app\user::quick_update(['email' => self::get_session('temp_email')], self::user_data('id'));
-		}
+		// 	// set temp ramz in use pass
+		// 	\dash\app\user::quick_update(['email' => self::get_session('temp_email')], self::user_data('id'));
+		// }
 
 
 
@@ -1240,8 +1247,8 @@ class enter
 		{
 
 			// set off two_step of this user
-			\dash\app\user::quick_update(['password' => self::get_session('temp_ramz_hash')], \dash\user::id());
-			\dash\db\sessions::change_password(\dash\user::id());
+			\dash\app\user::update_password(self::get_session('temp_ramz_hash'), \dash\user::id());
+			// \dash\db\sessions::change_password(\dash\user::id());
 			\dash\user::refresh();
 			$alert =
 			[

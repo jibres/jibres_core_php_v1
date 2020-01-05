@@ -4,6 +4,16 @@ namespace dash\app\user;
 
 trait edit
 {
+
+	public static function update_password($_password_hash, $_user_id)
+	{
+		\dash\db\users::update(['password' => $_password_hash], $_user_id);
+		\dash\db\sessions::change_password($_user_id);
+
+	}
+
+
+
 	public static function quick_update($_args, $_id)
 	{
 		// in stroe whene user signuped we need to set jibres_user_id
