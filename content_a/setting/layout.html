@@ -9,7 +9,7 @@
 
 
 
-{%block pageSteps%}
+{%block pageSteps__2%}
 <div class="f" data-scroll>
 
   <div class="c">
@@ -148,8 +148,6 @@
     </div>
   </a>
 
- <a class="btn block mTB5" href='{{url.this}}/general'>{%trans "General Detail"%}</a>
- <a class="btn block mTB5" href='{{url.this}}/plan'>{%trans "Store Plan"%}</a>
 
 </div>
 {%endblock%}
@@ -199,8 +197,8 @@
 <div class="input preview">
  <input type="file" accept="image/gif, image/jpeg, image/png" name="logo" id="logo1" data-preview data-max="500">
  <label for="logo1" title='{%trans "allowed extentions jpg, png (gif for business plans). Max 500Kb"%}'>
-{%if store.logo%}
-  <img src="{{store.logo}}" alt="{{store.store_data.title}}" id="logoPreview">
+{%if store.store_data.logo%}
+  <img src="{{store.store_data.logo}}" alt="{{store.store_data.title}}" id="logoPreview">
 {%endif%}
  </label>
 </div>

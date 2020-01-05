@@ -39,17 +39,18 @@
     </ul>
 {%endif%}
   </li>
+  {%endif%}
 
   <li>
     {%if perm('settingView')%}<a href="{{url.here}}/setting/general"><i class="sf-cogs"></i>{%trans "Setting"%}</a>{%endif%}
-{%if url.module == "setting"%}
+
+{%if false and url.module == "setting"%}
     <ul>
       {%if perm('settingEditPlan')%}<li><a href="{{url.here}}/setting/plan"><i class="floatRa mRa10 fc-mute sf-lamp"></i>{%trans "Store plans"%}</a></li>{%endif%}
       {%if perm('settingEditFactor')%}<li><a href="{{url.here}}/setting/factor"><i class="floatRa mRa10 fc-mute sf-sliders"></i>{%trans "Factor settings"%}</a></li>{%endif%}
     </ul>
 {%endif%}
   </li>
-  {%endif%}
 
   <li class="s0 hide">
     <a data-kerkere='.slideShifTransformation' data-kerkere-icon><i class="sf-refresh"></i>{%trans "Shift transformation"%}</a>

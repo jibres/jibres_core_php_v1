@@ -12,7 +12,9 @@ class model
 
 		if(\dash\engine\process::status())
 		{
+			\dash\notif::ok(T_("Store logo updated"));
 			\lib\store::refresh();
+			\dash\notif::direct();
 			\dash\redirect::pwd();
 		}
 	}
