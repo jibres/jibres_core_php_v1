@@ -15,7 +15,7 @@ class fuel
 		{
 			self::set_header($_request);
 
-			if(\dash\url::isLocal())
+			if(\dash\url::isLocal() && $_request !== 'master')
 			{
 				return self::myStoreLocal();
 			}
