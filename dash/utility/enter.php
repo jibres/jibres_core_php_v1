@@ -342,18 +342,33 @@ class enter
 		elseif(self::get_session('first_signup'))
 		{
 			// if first signup
-			if(\dash\option::config('enter', 'singup_redirect'))
+			if(\dash\option::config('singup_redirect'))
 			{
-				$host .= '/'. \dash\option::config('enter', 'singup_redirect');
+				$host .= '/'. \dash\option::config('singup_redirect');
 			}
 			else
 			{
-				$host .= \dash\option::config('redirect');
+				if(\dash\engine\store::inStore())
+				{
+					$host .= '/'. \dash\option::config('store_redirect');
+				}
+				else
+				{
+					$host .= '/'. \dash\option::config('redirect');
+				}
 			}
 		}
 		else
 		{
-			$host .='/'. \dash\option::config('redirect');
+			if(\dash\engine\store::inStore())
+			{
+				$host .= '/'. \dash\option::config('store_redirect');
+			}
+			else
+			{
+				$host .= '/'. \dash\option::config('redirect');
+			}
+
 		}
 
 		return $host;

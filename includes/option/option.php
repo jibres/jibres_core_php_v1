@@ -56,13 +56,14 @@ self::$config['coming']           = false;
 
 self::$config['debug']                        = false;
 
-self::$config['redirect']                     = 'store';
+// jibres after login redirect url
+self::$config['redirect']        = 'store';
 
-/**
- * first signup url
- * main redirect url . signup redirect url
- */
-self::$config['enter']['singup_redirect']     = 'store';
+// store after login redirect
+self::$config['store_redirect']  = '';
+
+// first signup after signup redirect
+self::$config['singup_redirect'] = 'store';
 
 
 self::$config['favicon']['version']           = null;
