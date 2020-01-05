@@ -60,7 +60,7 @@ class insert
 
 			if(isset($check_username['id']))
 			{
-				return $check_username['id'];
+				return false; // $check_username['id'];
 			}
 		}
 
@@ -71,7 +71,7 @@ class insert
 
 			if(isset($check_email['id']))
 			{
-				return $check_email['id'];
+				return false; // $check_email['id'];
 			}
 		}
 
@@ -141,7 +141,7 @@ class insert
 
 			if(isset($check_username['id']))
 			{
-				return $check_username['id'];
+				return false; // $check_username['id'];
 			}
 		}
 
@@ -152,7 +152,7 @@ class insert
 
 			if(isset($check_email['id']))
 			{
-				return $check_email['id'];
+				return false; // $check_email['id'];
 			}
 		}
 
