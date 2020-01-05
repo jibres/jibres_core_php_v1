@@ -15,6 +15,11 @@ class fuel
 		{
 			self::set_header($_request);
 
+			if(\dash\url::isLocal())
+			{
+				return self::myStoreLocal();
+			}
+
 			return self::$_request();
 		}
 
@@ -114,6 +119,19 @@ class fuel
 			'user'     => 'root',
 			'pass'     => 'root',
 			'database' => 'jibres',
+		];
+	}
+
+	private static function myStoreLocal()
+	{
+		return
+		[
+			'code'     => __FUNCTION__,
+			'host'     => 'localhost',
+			'port'     => 3306,
+			'user'     => 'root',
+			'pass'     => 'root',
+			'database' => null,
 		];
 	}
 
