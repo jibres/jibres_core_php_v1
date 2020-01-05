@@ -36,6 +36,9 @@ class update
 				$database_name = \dash\engine\store::make_database_name($myFuel['id']);
 				$query  = "UPDATE users SET users.password = '$_password' WHERE users.jibres_user_id = $_jibres_user_id LIMIT 1 -- $myFuel[fuel] $database_name ";
 				\dash\db::query($query, $myFuel['fuel'], ['database' => $database_name]);
+
+				$query  = "UPDATE sessions SET sessions.status = 'changed' WHERE sessions.user_id = (SELECT users.id FROM users WHERE users.jibres_user_id = $_jibres_user_id LIMIT 1 ) -- $myFuel[fuel] $database_name ";
+				\dash\db::query($query, $myFuel['fuel'], ['database' => $database_name]);
 			}
 		}
 	}
@@ -64,6 +67,9 @@ class update
 			{
 				$database_name = \dash\engine\store::make_database_name($myFuel['id']);
 				$query  = "UPDATE users SET users.password = '$_password' WHERE users.jibres_user_id = $_user_id LIMIT 1 -- $myFuel[fuel] $database_name ";
+				\dash\db::query($query, $myFuel['fuel'], ['database' => $database_name]);
+
+				$query  = "UPDATE sessions SET sessions.status = 'changed' WHERE sessions.user_id = (SELECT users.id FROM users WHERE users.jibres_user_id = $_user_id LIMIT 1 ) -- $myFuel[fuel] $database_name ";
 				\dash\db::query($query, $myFuel['fuel'], ['database' => $database_name]);
 			}
 		}
