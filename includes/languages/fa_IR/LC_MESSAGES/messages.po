@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-01-03 18:43+0330\n"
-"PO-Revision-Date: 2020-01-03 18:44+0330\n"
+"POT-Creation-Date: 2020-01-05 23:54+0330\n"
+"PO-Revision-Date: 2020-01-06 00:55+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -185,7 +185,7 @@ msgstr ""
 #: content_cms/backup/model.php:44
 #: content_pardakhtyar/customer/dashboard/model.php:43
 #: content_pardakhtyar/customer/dashboard/model.php:87
-#: content_su/backup/model.php:45 content_su/smsclient/edit/model.php:47
+#: content_su/backup/model.php:47 content_su/smsclient/edit/model.php:47
 #: content_su/smsclient/home/model.php:47 dash/utility/pay/verify.php:40
 msgid "Dont!"
 msgstr "نکن عزیزم!"
@@ -330,8 +330,8 @@ msgid "Id not found"
 msgstr "کد یافت نشد"
 
 #: content_a/factor/edit/model.php:47 content_enter/alert/view.php:16
-#: content_enter/verify/model.php:36 dash/utility/enter.php:936
-#: dash/utility/enter.php:947 dash/utility/enter.php:954
+#: content_enter/verify/model.php:36 dash/utility/enter.php:958
+#: dash/utility/enter.php:969 dash/utility/enter.php:976
 msgid "What are you doing?"
 msgstr "اینجا چیکار می‌کنی عزیز جان!؟"
 
@@ -538,15 +538,21 @@ msgid "Add new product"
 msgstr "افزودن محصول جدید"
 
 #: content_a/products/add/view.php:13 content_a/products/duplicate/view.php:22
-#: content_a/products/edit/view.php:52 content_api/v1/app/controller.php:114
-#: content_i/bank/add/view.php:16 content_i/bank/edit/view.php:14
-#: content_i/category/add/view.php:16 content_i/category/edit/view.php:14
-#: content_i/cheque/add/view.php:13 content_i/cheque/edit/view.php:14
-#: content_i/chequebook/add/view.php:13 content_i/chequebook/edit/view.php:14
-#: content_i/inout/add/view.php:13 content_i/inout/edit/view.php:14
-#: content_i/jib/add/view.php:13 content_i/jib/edit/view.php:14
-#: content_su/smsclient/edit/view.php:9 content_su/smsclient/home/view.php:9
-#: content_subdomain/products/view.php:18 includes/languages/trans_project.php:343
+#: content_a/products/edit/view.php:52 content_a/setting/address/view.php:11
+#: content_a/setting/company/view.php:11 content_a/setting/factor/view.php:11
+#: content_a/setting/logo/view.php:15 content_a/setting/maximum/view.php:18
+#: content_a/setting/payment/view.php:11 content_a/setting/pos/view.php:11
+#: content_a/setting/shipping/view.php:11 content_a/setting/social/view.php:20
+#: content_a/setting/units/view.php:15 content_a/setting/vat/view.php:13
+#: content_api/v1/app/controller.php:114 content_i/bank/add/view.php:16
+#: content_i/bank/edit/view.php:14 content_i/category/add/view.php:16
+#: content_i/category/edit/view.php:14 content_i/cheque/add/view.php:13
+#: content_i/cheque/edit/view.php:14 content_i/chequebook/add/view.php:13
+#: content_i/chequebook/edit/view.php:14 content_i/inout/add/view.php:13
+#: content_i/inout/edit/view.php:14 content_i/jib/add/view.php:13
+#: content_i/jib/edit/view.php:14 content_su/smsclient/edit/view.php:9
+#: content_su/smsclient/home/view.php:9 content_subdomain/products/view.php:18
+#: includes/languages/trans_project.php:343
 msgid "Back"
 msgstr "بازگشت"
 
@@ -679,16 +685,23 @@ msgstr "بازگشت به داشبورد فروشگاه"
 msgid "Report month"
 msgstr "گزارش به تفکیک ماه"
 
+#: content_a/setting/address/view.php:9 content_a/setup/address/view.php:9
+msgid "Set your store address"
+msgstr "تنظیم آدرس فروشگاه شما"
+
+#: content_a/setting/company/view.php:9 content_a/setup/company/view.php:9
+msgid "Store legal information"
+msgstr "اطلاعات حقوقی فروشگاه"
+
 #: content_a/setting/factor/model.php:34
 msgid "Factor setting saved"
 msgstr "تنظیمات فاکتور ذخیره شد"
 
 #: content_a/setting/factor/view.php:8 content_a/setting/general/view.php:8
-#: content_a/setting/home/view.php:9 content_a/setting/logo/view.php:8
-#: content_a/setting/maximum/view.php:8 content_a/setting/payment/view.php:8
-#: content_a/setting/pos/view.php:8 content_a/setting/sms/view.php:8
-#: content_a/setting/social/view.php:8 content_api/v1/app/controller.php:219
-#: includes/languages/trans_project.php:478
+#: content_a/setting/home/view.php:9 content_a/setting/maximum/view.php:8
+#: content_a/setting/payment-old/view.php:8 content_a/setting/pos-old/view.php:8
+#: content_a/setting/sms/view.php:8 content_a/setting/social/view.php:8
+#: content_api/v1/app/controller.php:219 includes/languages/trans_project.php:478
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -697,9 +710,8 @@ msgid "Factor"
 msgstr "فاکتور"
 
 #: content_a/setting/factor/view.php:9 content_a/setting/general/view.php:9
-#: content_a/setting/home/view.php:10 content_a/setting/logo/view.php:9
-#: content_a/setting/maximum/view.php:9 content_a/setting/pos/view.php:9
-#: content_a/setting/sms/view.php:9
+#: content_a/setting/home/view.php:10 content_a/setting/maximum/view.php:9
+#: content_a/setting/pos-old/view.php:9 content_a/setting/sms/view.php:9
 msgid ""
 "Change all settings of team and edit them to customize and have a good experience."
 msgstr ""
@@ -741,22 +753,31 @@ msgstr "انبار با موفقیت اضافه شد"
 msgid "Inventory detail"
 msgstr "جزئیات انبار"
 
-#: content_a/setting/logo/view.php:8 includes/languages/trans_project.php:126
-msgid "Logo"
-msgstr "لوگو"
+#: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:120
+#: lib/app/store/edit.php:121
+msgid "Your setting was saved"
+msgstr "تنظیمات شما ذخیره شد"
 
-#: content_a/setting/maximum/view.php:8 content_a/setting/pos/view.php:8
+#: content_a/setting/logo/view.php:9 content_a/setup/logo/view.php:9
+msgid "Set logo of your store"
+msgstr "تنظیم لوگوی فروشگاه شما"
+
+#: content_a/setting/maximum/view.php:8 content_a/setting/pos-old/view.php:8
 #: includes/languages/trans_project.php:1161
 msgid "Pos"
 msgstr "کارتخوان"
 
-#: content_a/setting/payment/model.php:102
+#: content_a/setting/payment-old/model.php:102
 msgid "Your payment detail was saved"
 msgstr "جزئيات درگاه پرداخت شما با موفقیت ذخیره شد"
 
-#: content_a/setting/payment/view.php:8 includes/languages/trans_project.php:345
+#: content_a/setting/payment-old/view.php:8 includes/languages/trans_project.php:345
 msgid "Payment"
 msgstr "درگاه"
+
+#: content_a/setting/payment/view.php:9 content_a/setup/payment/view.php:9
+msgid "Payment channels"
+msgstr "روش‌های پرداخت"
 
 #: content_a/setting/plan/view.php:8
 msgid "Setting | "
@@ -770,13 +791,21 @@ msgstr "تغییر پلن :name"
 msgid "Choose or change your plan"
 msgstr "انتخاب یا تغییر پلن شما"
 
-#: content_a/setting/pos/model.php:24
+#: content_a/setting/pos-old/model.php:24
 msgid "Pos removed"
 msgstr "دستگاه کارتخوان حذف شد"
 
-#: content_a/setting/pos/model.php:36
+#: content_a/setting/pos-old/model.php:36
 msgid "Pos setting saved"
 msgstr "تنظیمات کارتخوان ذخیره شد"
+
+#: content_a/setting/pos/view.php:9 content_a/setup/pos/view.php:9
+msgid "Point of sale hardwares"
+msgstr "سخت‌افزارهای صندوق فروشگاهی"
+
+#: content_a/setting/shipping/view.php:9 content_a/setup/shipping/view.php:9
+msgid "Setting up shipping rates"
+msgstr "تنظیم نرخ حمل و نقل"
 
 #: content_a/setting/sms/view.php:8 includes/languages/trans_project.php:1258
 msgid "Sms"
@@ -790,21 +819,17 @@ msgstr "اطلاعات مربوط به شبکه‌‌های اجتماعی به�
 msgid "Social"
 msgstr "شبکه اجتماعی"
 
-#: content_a/setup/address/view.php:9
-msgid "Set your store address"
-msgstr "تنظیم آدرس فروشگاه شما"
+#: content_a/setting/units/view.php:9 content_a/setup/units/view.php:9
+msgid "Store Units"
+msgstr "واحد‌های فروشگاه"
 
-#: content_a/setup/company/view.php:9
-msgid "Store legal information"
-msgstr "اطلاعات حقوقی فروشگاه"
+#: content_a/setting/vat/view.php:9 content_a/setup/vat/view.php:9
+msgid "Tax settings"
+msgstr "تنظیمات مالیاتی"
 
 #: content_a/setup/home/view.php:9
 msgid "Setup"
 msgstr "راه‌اندازی"
-
-#: content_a/setup/logo/view.php:9
-msgid "Set logo of your store"
-msgstr "تنظیم لوگوی فروشگاه شما"
 
 #: content_a/setup/owner/model.php:21
 msgid "Please set your gender"
@@ -821,26 +846,6 @@ msgstr "لطفا نام‌ خانوادگی خود را وارد کنید"
 #: content_a/setup/owner/view.php:9
 msgid "Complete your profile"
 msgstr "پروفایل خود را تکمیل کنید"
-
-#: content_a/setup/payment/view.php:9
-msgid "Payment channels"
-msgstr "روش‌های پرداخت"
-
-#: content_a/setup/pos/view.php:9
-msgid "Point of sale hardwares"
-msgstr ""
-
-#: content_a/setup/shipping/view.php:9
-msgid "Setting up shipping rates"
-msgstr ""
-
-#: content_a/setup/units/view.php:9
-msgid "Store Units"
-msgstr "واحد‌های فروشگاه"
-
-#: content_a/setup/vat/view.php:9
-msgid "Tax settings"
-msgstr "تنظیمات مالیاتی"
 
 #: content_account/api/model.php:20 content_account/notification/model.php:20
 msgid "Creat new api key successfully complete"
@@ -966,7 +971,7 @@ msgstr "بازگشت به حساب کاربری"
 #: content_account/security/sessions/view.php:22
 #: content_account/security/view.php:23 content_crm/member/main/view.php:18
 #: content_crm/member/main/view.php:25 dash/app/address.php:192
-#: dash/app/user/edit.php:54 dash/app/user_telegram.php:80
+#: dash/app/user/edit.php:106 dash/app/user_telegram.php:80
 #: dash/app/user_telegram.php:87 lib/pardakhtyar/app/acceptor.php:145
 #: lib/pardakhtyar/app/acceptor.php:152 lib/pardakhtyar/app/customer.php:158
 #: lib/pardakhtyar/app/merchantIbans.php:127
@@ -1352,7 +1357,7 @@ msgstr "موبایل تنظیم نشده است"
 
 #: content_api/v1/account/enter/enter.php:141 content_enter/app/model.php:23
 #: dash/app/address.php:155 dash/app/user.php:275 lib/app/factor/check.php:103
-#: lib/app/setting/setup.php:377
+#: lib/app/setting/setup.php:384
 msgid "Invalid mobile"
 msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
@@ -1413,7 +1418,7 @@ msgstr "شناسه نشست ارسال نشده است یا نادرست است"
 #: content_api/v1/account/session/controller.php:143
 #: content_crm/transactions/add/model.php:64
 #: content_crm/transactions/minus/model.php:64
-#: content_su/transactions/add/model.php:80 content_su/update/model.php:50
+#: content_su/transactions/add/model.php:80 content_su/update/model.php:36
 #: dash/app/posts.php:897 dash/app/posts.php:930
 msgid "Invalid type"
 msgstr "نوع نامعتبر"
@@ -1662,7 +1667,7 @@ msgstr "افزودن فایل ضمیمه جدید"
 #: content_pardakhtyar/log/check/view.php:22
 #: content_pardakhtyar/log/request/view.php:22
 #: content_pardakhtyar/shop/home/view.php:21 content_su/apilog/home/view.php:32
-#: content_su/dbtables/view.php:22 content_su/tg/log/view.php:22
+#: content_su/dbtables/view.php:24 content_su/tg/log/view.php:22
 #: content_su/tg/system/view.php:22 content_su/tg/users/view.php:22
 #: content_su/transactions/view.php:22
 msgid "Search for :search"
@@ -1672,7 +1677,7 @@ msgstr "جستجوی :search"
 msgid "Can not create backup"
 msgstr "نمی توانیم فایل پشتیبان را بسازیم"
 
-#: content_cms/backup/model.php:37 content_su/backup/model.php:38
+#: content_cms/backup/model.php:37 content_su/backup/model.php:40
 msgid "File successfully deleted"
 msgstr "فایل با موفقیت حذف شد"
 
@@ -2039,7 +2044,7 @@ msgstr "آدرس عضو"
 msgid "set current location and full address"
 msgstr "تنظیم آدرس و جزئیات موقعیت فعلی دانش‌آموز"
 
-#: content_crm/member/avatar/model.php:45 dash/app/user/edit.php:176
+#: content_crm/member/avatar/model.php:45 dash/app/user/edit.php:227
 msgid "User successfully updated"
 msgstr "کاربر با موفقیت به روزرسانی شد"
 
@@ -2275,7 +2280,7 @@ msgstr "ارسال پیام کوتاه به گروهی از کاربران"
 msgid "Send every sms to every group users by mobile"
 msgstr "ارسال هر پیام کوتاهی به گروه‌های مختلف کاربران"
 
-#: content_crm/sms/send/model.php:40 dash/app/parent/add.php:78
+#: content_crm/sms/send/model.php:40
 msgid "Invalid mobile number"
 msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
@@ -2489,6 +2494,13 @@ msgstr "احتمالا کوکی‌های شما بلاک شده است"
 msgid "You need to enable cookie for usign this service"
 msgstr "برای استفاده از این سرویس شما به کوکی نیاز دارید"
 
+#: content_enter/delete/controller.php:10
+#: content_enter/pass/change/controller.php:10
+#, fuzzy
+#| msgid "Login user"
+msgid "Login error"
+msgstr "ورود کاربر به سیستم"
+
 #: content_enter/delete/request/view.php:9
 msgid "Request delete account"
 msgstr "درخواست حذف حساب کاربری"
@@ -2546,14 +2558,12 @@ msgid "Mobile not found"
 msgstr "موبایل یافت نشد"
 
 #: content_enter/home/model.php:47 content_su/sendnotify/model.php:30
-#: dash/app/address.php:317 dash/app/parent/add.php:50 dash/app/parent/add.php:59
-#: dash/app/parent/delete.php:35 dash/app/parent/delete.php:114
-#: dash/app/parent/get.php:35 dash/app/parent/get.php:44 dash/app/posts/add.php:35
-#: dash/app/term.php:380 dash/app/user/add.php:55 dash/upload/user.php:22
-#: dash/upload/user.php:69 dash/upload/user.php:88 dash/upload/user.php:137
-#: lib/app/product/add.php:59 lib/app/product/edit.php:30
-#: lib/pardakhtyar/app/acceptor.php:16 lib/pardakhtyar/app/merchantIbans.php:16
-#: lib/pardakhtyar/app/shop.php:16 lib/pardakhtyar/app/terminal.php:16
+#: dash/app/address.php:317 dash/app/posts/add.php:35 dash/app/term.php:380
+#: dash/app/user/add.php:73 dash/upload/user.php:22 dash/upload/user.php:69
+#: dash/upload/user.php:88 dash/upload/user.php:137 lib/app/product/add.php:59
+#: lib/app/product/edit.php:30 lib/pardakhtyar/app/acceptor.php:16
+#: lib/pardakhtyar/app/merchantIbans.php:16 lib/pardakhtyar/app/shop.php:16
+#: lib/pardakhtyar/app/terminal.php:16
 msgid "User not found"
 msgstr "کاربر یافت نشد"
 
@@ -2687,7 +2697,7 @@ msgid "Please do not use your username as password. Never Ever!"
 msgstr ""
 "لطفا از نام‌کاربری خود به‌عنوان گذرواژه استفاده نکنید. نه اینجا و نه هیچ‌کجای دیگر!"
 
-#: content_enter/signup/model.php:98 dash/utility/enter.php:1433
+#: content_enter/signup/model.php:98 dash/utility/enter.php:1455
 msgid "Please do not use your mobile in password!"
 msgstr "لطفا از موبایل خود در گذرواژه استفاده نکنید!"
 
@@ -2784,7 +2794,7 @@ msgstr "شناسه‌ی کاربری باید بزرگتر از ۵ کاراکت�
 msgid "You must set less than 50 character in username"
 msgstr "شناسه‌ی کاربری باید کمتر از ۵۵ کاراکتر باشد"
 
-#: content_enter/username/set/model.php:41 dash/utility/enter.php:1132
+#: content_enter/username/set/model.php:41
 msgid "Your username was set"
 msgstr "نام کاربری شما ثبت شد"
 
@@ -3033,17 +3043,17 @@ msgstr "لیست جیب‌ها"
 msgid "Add jib"
 msgstr "افزودن جیب"
 
-#: content_m/home/view.php:9 content_m/view.php:9
-msgid "Jibres Management"
-msgstr "مدیریت جیبرس"
-
-#: content_m/store/view.php:9
+#: content_m/analytics/view.php:9 content_m/store/view.php:9
 msgid "Stores"
 msgstr "فروشگاه‌ها"
 
-#: content_m/store/view.php:10
+#: content_m/analytics/view.php:10 content_m/store/view.php:10
 msgid "View list of stores and add new one easily just in seconds."
 msgstr "مشاهده لیست فروشگاه‌ها و افزودن فروشگاه جدید در چند ثانیه."
+
+#: content_m/home/view.php:9 content_m/view.php:9
+msgid "Jibres Management"
+msgstr "مدیریت جیبرس"
 
 #: content_pardakhtyar/check/show/view.php:9 content_pardakhtyar/check/view.php:9
 #: includes/languages/trans_project.php:1295
@@ -3203,7 +3213,7 @@ msgstr "افزودن فروشگاه جدید"
 
 #: content_store/home/view.php:27
 msgid "Welcome to Jibres world"
-msgstr "به جهان جیبرس خوش‌آمدید"
+msgstr "به دنیای جیبرس خوش آمدید"
 
 #: content_store/opening/view.php:9
 msgid "Big Opening"
@@ -3249,17 +3259,13 @@ msgstr "نمایش جزئیات کلید ارتباط با اندروید"
 msgid "View api log"
 msgstr "نمایش لاگ ای‌پی‌آی"
 
-#: content_su/backup/model.php:23
-msgid "Database of logs dose not exists"
-msgstr "پایگاه داده برای لاگ‌ها وجود ندارد"
-
-#: content_su/backup/model.php:54
+#: content_su/backup/model.php:18
 msgid "Backup complete"
 msgstr "عملیات پشتیبان گیری با موفقیت به پایان رسید"
 
-#: content_su/backup/model.php:85
-msgid "Auto backup schedule saved"
-msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
+#: content_su/backup/model.php:30
+msgid "Database of logs dose not exists"
+msgstr "پایگاه داده برای لاگ‌ها وجود ندارد"
 
 #: content_su/command/model.php:11
 msgid "Please fill the password"
@@ -3301,7 +3307,7 @@ msgstr "جدول‌های خام پایگاه داده"
 msgid "Database raw table"
 msgstr "جدول‌های خام پایگاه داده"
 
-#: content_su/dbtables/view.php:17
+#: content_su/dbtables/view.php:18
 msgid "Select table"
 msgstr "انتخاب جدول"
 
@@ -3462,19 +3468,19 @@ msgstr "افزودن تراکنش"
 msgid "Add new transactions for every one"
 msgstr "افزودن تراکنش برای هر کس"
 
-#: content_su/update/model.php:14 content_su/update/model.php:36
+#: content_su/update/model.php:48
 msgid "System locked"
 msgstr "سیستم قفل شده است"
 
-#: content_su/update/model.php:20 content_su/update/model.php:40
+#: content_su/update/model.php:56
 msgid "System git pull successfully"
 msgstr "دریافت اطلاعات از گیت با موفقیت انجام شد"
 
-#: content_su/update/model.php:26 content_su/update/model.php:43
+#: content_su/update/model.php:64
 msgid "System upgrade database successfully"
 msgstr "به‌روزرسانی دیتابیس سیستم با موفقیت انجام شد"
 
-#: content_su/update/model.php:31 content_su/update/model.php:46
+#: content_su/update/model.php:71
 msgid "System unlock successfully"
 msgstr "بازکردن قفل سیستم با موفقیت انجام شد"
 
@@ -3842,27 +3848,27 @@ msgstr "لطفا نام شرکت را کمتر از ۱۰۰ حرف وارد کن�
 msgid "Please set jobtitle less than 100 character"
 msgstr "لطفا عنوان شغلی را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: dash/app/address.php:92 lib/app/setting/setup.php:305
+#: dash/app/address.php:92 lib/app/setting/setup.php:312
 msgid "Please set country less than 100 character"
 msgstr "لطفا کشور را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: dash/app/address.php:98 lib/app/setting/setup.php:311
+#: dash/app/address.php:98 lib/app/setting/setup.php:318
 msgid "Invalid country"
 msgstr "کشور نامعتبر"
 
-#: dash/app/address.php:105 lib/app/setting/setup.php:324
+#: dash/app/address.php:105 lib/app/setting/setup.php:331
 msgid "Please set province less than 100 character"
 msgstr "لطفا استان را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: dash/app/address.php:111 lib/app/setting/setup.php:330
+#: dash/app/address.php:111 lib/app/setting/setup.php:337
 msgid "Invalid province"
 msgstr "استان نامعتبر"
 
-#: dash/app/address.php:118 lib/app/setting/setup.php:337
+#: dash/app/address.php:118 lib/app/setting/setup.php:344
 msgid "Please set city less than 100 character"
 msgstr "لطفا شهر را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: dash/app/address.php:134 lib/app/setting/setup.php:356
+#: dash/app/address.php:134 lib/app/setting/setup.php:363
 msgid "Please set address less than 300 character"
 msgstr "لطفا آدرس را کمتر از ۳۰۰ حرف وارد کنید"
 
@@ -3874,15 +3880,15 @@ msgstr "لطفا آدرس را وارد کنید"
 msgid "Please set address2 less than 300 character"
 msgstr "لطفا آدرس را کمتر از ۳۰۰ حرف وارد کنید"
 
-#: dash/app/address.php:162 lib/app/setting/setup.php:386
+#: dash/app/address.php:162 lib/app/setting/setup.php:393
 msgid "Please set postcode less than 50 character"
 msgstr "کدپستی باید کمتر از ۵۰ کاراکتر باشد"
 
-#: dash/app/address.php:169 lib/app/setting/setup.php:400
+#: dash/app/address.php:169 lib/app/setting/setup.php:407
 msgid "Please set phone less than 50 character"
 msgstr "تلفن باید کمتر از ۵۰ کاراکتر باشد"
 
-#: dash/app/address.php:176 lib/app/setting/setup.php:409
+#: dash/app/address.php:176 lib/app/setting/setup.php:416
 msgid "Please set fax less than 50 character"
 msgstr "فکس باید کمتر از ۵۰ کاراکتر باشد"
 
@@ -4258,76 +4264,6 @@ msgstr "ارتباط با مدیریت"
 #: dash/app/log/support_tools.php:129
 msgid "application"
 msgstr "برنامه"
-
-#: dash/app/parent/add.php:69
-msgid "Please set the parent mobile"
-msgstr "لطفا شماره موبایل والد را وارد کنید"
-
-#: dash/app/parent/add.php:86
-msgid "Please select one title"
-msgstr "لطفا یک عنوان انتخاب کنید"
-
-#: dash/app/parent/add.php:109 dash/app/parent/get.php:54
-msgid "Related id is incurrect"
-msgstr "شناسه داخلی اشتباه است"
-
-#: dash/app/parent/add.php:119
-msgid "You can not set parent yourself"
-msgstr "شما نمی‌توانید والد خودتان باشید"
-
-#: dash/app/parent/add.php:152
-msgid "Invalid title"
-msgstr "عنوان اشتباه است"
-
-#: dash/app/parent/add.php:160
-msgid "Please set the other title field"
-msgstr "لطفا عنوان دلخواه خود را وارد کنید"
-
-#: dash/app/parent/add.php:167
-msgid "You must set other title less than 50 character"
-msgstr "عنوان دلخواه نمی‌تواند بیشتر از ۵۰ کاراکتر باشد"
-
-#: dash/app/parent/add.php:176
-msgid "Your request was sended to user, wait for answer user"
-msgstr ""
-"درخواست شما به کاربر ارسال شده است. منتظر بمانید تا جواب کاربر به درخواست شما "
-"مشخص شود"
-
-#: dash/app/parent/add.php:203
-msgid "Are you :title of this user?"
-msgstr "آیا شما :title این کاربر هستید؟"
-
-#: dash/app/parent/add.php:210
-msgid "Your request was sended"
-msgstr "درخواست شما ارسال شد"
-
-#: dash/app/parent/delete.php:45
-msgid "Invalid request id"
-msgstr "شناسه درخواست اشتباه است"
-
-#: dash/app/parent/delete.php:68
-msgid "Invalid request data"
-msgstr "اطلاعات درخواست اشتباه است"
-
-#: dash/app/parent/delete.php:76
-msgid "Your request canceled"
-msgstr "درخواست شما لغو شد"
-
-#: dash/app/parent/delete.php:123 dash/app/parent/delete.php:132
-msgid "Invalid remove data"
-msgstr "اطلاعات جهت حذف اشتباه است"
-
-#: dash/app/parent/delete.php:160
-msgid "Invalid remove details"
-msgstr "اطلاعات جهت حذف اشتباه است"
-
-#: dash/app/parent/delete.php:168
-msgid "Parent removed"
-msgstr "والد حذف شد"
-
-#: dash/app/parent/get.php:79
-msgid "Waiting to user accept this request"
-msgstr "در انتظار تایید درخواست توسط کاربر"
 
 #: dash/app/posts.php:296 lib/app/product/gallery.php:151
 msgid "File detail not found"
@@ -4826,33 +4762,29 @@ msgstr "نمی‌توانید کاربری که داری سطح دسترسی ه�
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
-#: dash/app/user/add.php:80 dash/app/user/edit.php:72
+#: dash/app/user/add.php:98 dash/app/user/edit.php:124
 msgid "Duplicate mobile"
 msgstr "تلفن همراه تکراری"
 
-#: dash/app/user/add.php:102 dash/app/user/edit.php:109
+#: dash/app/user/add.php:120 dash/app/user/edit.php:161
 msgid "Duplicate nationalcode or pasportcode in your user list"
 msgstr "این کدملی یا شماره گذرنامه در لیست اعضا شما تکراری است"
 
-#: dash/app/user/add.php:115
+#: dash/app/user/add.php:133
 msgid "No way to insert user"
 msgstr "هیچ راهی برای ثبت کاربر یافت نشد"
 
-#: dash/app/user/add.php:135
+#: dash/app/user/add.php:153
 msgid "User successfuly added"
 msgstr "کاربر با موفقیت اضافه شد"
 
-#: dash/app/user/edit.php:46
+#: dash/app/user/edit.php:98
 msgid "Can not access to edit staff"
 msgstr "شما برای ویرایش این کارمند دسترسی ندارد"
 
-#: dash/app/user/edit.php:82
+#: dash/app/user/edit.php:134
 msgid "Duplicate email"
 msgstr "ایمیل تکراری است"
-
-#: dash/app/user/user_id.php:51
-msgid "User not found."
-msgstr "کاربر یافت نشد."
 
 #: dash/app/user_telegram.php:94
 msgid "Please set firstname less than 200 character"
@@ -4977,6 +4909,10 @@ msgstr "مبلغ باید به صورت عددی وارد شود"
 #: dash/utility/pay/start.php:212
 msgid "Amount is out of range"
 msgstr "مبلغ خارج از محدوده مجاز است"
+
+#: dash/engine/backup/database.php:28
+msgid "Auto backup schedule saved"
+msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 
 #: dash/engine/error_page.php:19
 msgid "Return to Homepage"
@@ -5915,56 +5851,56 @@ msgstr "عملیات کلادفلر از طریق ای‌پی‌آی با موف
 msgid "The api Cloudflare opration faild"
 msgstr "عملیات کلادفلر از طریق ای‌پی‌آی با موفقیت ناموفق بود"
 
-#: dash/utility/enter.php:381
+#: dash/utility/enter.php:396
 msgid "User id not found to save your session"
 msgstr "شناسه کاربر برای ذخیره نشست یافت نشد"
 
-#: dash/utility/enter.php:874
+#: dash/utility/enter.php:889
 msgid "Please fill the verification code"
 msgstr "لطفا کد اعتبارسنجی را وارد کنید"
 
-#: dash/utility/enter.php:883
+#: dash/utility/enter.php:898
 msgid "What happend? the code is number. you try to send string!?"
 msgstr "چی شده؟ کد باید عددی باشد. شما چطوری دارین متن وارد میکنید!؟"
 
-#: dash/utility/enter.php:904
+#: dash/utility/enter.php:905
+#, fuzzy
+#| msgid ""
+#| "Wrong code entered, Please enter the 5 digit code sent to your mobile phone"
+msgid "Please enter the 5 digit code sent to your mobile phone"
+msgstr ""
+"کد اشتباهی وارد شده است، لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
+
+#: dash/utility/enter.php:926
 msgid "System error, try again"
 msgstr "خطای سیستم، دوباره تلاش کنید"
 
-#: dash/utility/enter.php:928
+#: dash/utility/enter.php:950
 msgid "Your sms not deliver to us!"
 msgstr "پیامک شما بدست ما نرسیده است!"
 
-#: dash/utility/enter.php:972
+#: dash/utility/enter.php:994
 msgid "Wrong code entered, Please enter the 5 digit code sent to your mobile phone"
 msgstr ""
 "کد اشتباهی وارد شده است، لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
 
-#: dash/utility/enter.php:1044
-msgid "Your username was removed"
-msgstr "نام کاربری شما حذف شد"
-
-#: dash/utility/enter.php:1137
-msgid "Your username was change"
-msgstr "نام کاربری شما تغییر یافت"
-
-#: dash/utility/enter.php:1200
+#: dash/utility/enter.php:1222
 msgid "Your two-step verification is now active for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما فعال است"
 
-#: dash/utility/enter.php:1226
+#: dash/utility/enter.php:1248
 msgid "Your two-step verification is now deactive for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما غیر فعال است"
 
-#: dash/utility/enter.php:1249
+#: dash/utility/enter.php:1271
 msgid "Your password was changed"
 msgstr "کلمه عبور شما تغییر یافت"
 
-#: dash/utility/enter.php:1418
+#: dash/utility/enter.php:1440
 msgid "You must set 6 character and large in password"
 msgstr "گذرواژه باید حداقل ۶ کاراکتر باشد"
 
-#: dash/utility/enter.php:1425
+#: dash/utility/enter.php:1447
 msgid "You must set less than 99 character in password"
 msgstr "گذرواژه باید کمتر از ۹۹ کاراکتر باشد"
 
@@ -7399,6 +7335,10 @@ msgstr "پیشرفت پروژه"
 #: includes/languages/trans_project.php:121
 msgid "Learn More"
 msgstr "بیشتر بدانید"
+
+#: includes/languages/trans_project.php:126
+msgid "Logo"
+msgstr "لوگو"
 
 #: includes/languages/trans_project.php:127
 msgid "System Status"
@@ -9745,10 +9685,13 @@ msgstr "گزارش به تفکیک ماه"
 msgid ""
 "Importing products is useful if you switched to Jibres from another platform."
 msgstr ""
+"اگر در حال انتقال از یک سیستم دیگر به جیبرس هستید، ورود دسته‌ای محصولات می‌تواند "
+"برای شما کاربردی باشد."
 
 #: includes/languages/trans_project.php:1523
 msgid "When importing, Jibres converts the data from the CSV file into products."
 msgstr ""
+"در زمان درون‌ریزی، جیبرس داده‌ها را از فایل سی‌اس‌وی خوانده و به محصولات منتقل می‌کند."
 
 #: includes/languages/trans_project.php:1524
 msgid ""
@@ -9770,6 +9713,8 @@ msgid ""
 "Before you start your import, make sure that you have a backup of your product "
 "data."
 msgstr ""
+"پیش از شروع فرآیند درون‌ریزی، مطمئن شوید که از داده‌های محصولات خودتون نسخه پشتیبان "
+"گرفته باشید."
 
 #: includes/languages/trans_project.php:1527
 msgid "import products"
@@ -9915,30 +9860,37 @@ msgstr "یک واحد جدید انتخاب کنید تا همه محصولات 
 #: includes/languages/trans_project.php:1563
 msgid "You can export your products to a CSV file to help with several tasks."
 msgstr ""
+"شما می‌توانید داده‌های محصولات خودتون رو برای برخی نیازها توی فایل سی‌اس‌وی دریافت "
+"کنید."
 
 #: includes/languages/trans_project.php:1564
 msgid "Creating a backup of your products."
-msgstr ""
+msgstr "گرفتن نسخه پشتیبان از محصولات."
 
 #: includes/languages/trans_project.php:1565
 msgid "Moving your existing products to a new Jibres store."
-msgstr ""
+msgstr "انتقال محصولات فعلی به فروشگاه جدید در جیبرس."
 
 #: includes/languages/trans_project.php:1566
 msgid "Editing your products in bulk using a spreadsheet."
-msgstr ""
+msgstr "ویرایش محصولات به‌صورت دسته‌ای با استفاده از اکسل یا نرم‌افزاهای مشابه."
 
 #: includes/languages/trans_project.php:1567
 msgid ""
 "If you export up to 50 products, then the CSV file is downloaded by your browser. "
 "If you export 51 or more products, then the CSV file is emailed to you."
 msgstr ""
+"اگر شما در حال استخراج محصولات تا حداکثر ۵۰ مورد هستید، فایل سی‌اس‌وی توسط مرورگر "
+"شما دانلود خواهد شد. اما اگر ۵۱ مورد یا بیشتر محصول برای استخراج داشته باشید، در "
+"این‌صورت فایل سی‌اس‌وی برای شما ایمیل خواهد شد."
 
 #: includes/languages/trans_project.php:1568
 msgid ""
 "If you aren't the store owner, then the file is sent to the store owner's email "
 "as well."
 msgstr ""
+"اگر شما مالک فروشگاه نیستید، پس به‌خاطر داشته باشید که ایمیل به آدرس مدیر فروشگاه "
+"ارسال خواهد شد."
 
 #: includes/languages/trans_project.php:1571
 msgid "Show all products where"
@@ -9978,11 +9930,11 @@ msgstr "تنوع محصول"
 
 #: includes/languages/trans_project.php:1590
 msgid "First step to set up your online store is add products."
-msgstr ""
+msgstr "مرحله اول برای تنظیم فروشگاه افزودن کالاهاست."
 
 #: includes/languages/trans_project.php:1591
 msgid "After add products, you can sell them to your customers."
-msgstr ""
+msgstr "پس از افزودن محصولات، شما می‌توانید آن‌ها را به مشتریان خود بفروشید."
 
 #: includes/languages/trans_project.php:1592
 msgid "add new product"
@@ -10036,7 +9988,7 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1607
 msgid "Stock keeping unit - SKU"
-msgstr ""
+msgstr "واحد نگهداری انبار - کد کالا"
 
 #: includes/languages/trans_project.php:1608 lib/app/product/search.php:64
 #: lib/app/product/site_list.php:140
@@ -10105,7 +10057,7 @@ msgstr "قیمت اولیه"
 
 #: includes/languages/trans_project.php:1625
 msgid "Original retail price before off"
-msgstr ""
+msgstr "قیمت خرده فروشی قبل از تخفیف"
 
 #: includes/languages/trans_project.php:1626
 msgid "Pure Interest Rates"
@@ -10119,11 +10071,11 @@ msgstr "تغییر به"
 
 #: includes/languages/trans_project.php:1628
 msgid "Min quantity per order"
-msgstr ""
+msgstr "حداقل تعداد در هر سفارش"
 
 #: includes/languages/trans_project.php:1629
 msgid "Max quantity per order"
-msgstr ""
+msgstr "حداکثر تعداد در هر سفارش"
 
 #: includes/languages/trans_project.php:1630
 #, fuzzy
@@ -10157,7 +10109,7 @@ msgstr "فروش با موجودی منفی"
 
 #: includes/languages/trans_project.php:1637
 msgid "Allow to purchase when sold out of stock"
-msgstr ""
+msgstr "اجازه به فروش زمانی که موجودی انبار منفی شده است."
 
 #: includes/languages/trans_project.php:1638
 msgid "Tag"
@@ -10227,7 +10179,7 @@ msgstr "گزیده متن برای رسانه‌های اجتماعی و موت�
 
 #: includes/languages/trans_project.php:1653
 msgid "This product has multiple options, like different sizes or colors"
-msgstr "این محصول دارای نتوع است. مانند اندازه و رنگ‌های مختلف"
+msgstr "این محصول دارای تنوع است. مانند اندازه و رنگ‌های مختلف"
 
 #: includes/languages/trans_project.php:1654
 msgid "Make"
@@ -10268,11 +10220,11 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1666
 msgid "Pricing Model"
-msgstr ""
+msgstr "مدل قیمت‌گذاری"
 
 #: includes/languages/trans_project.php:1667
 msgid "Optimize your inventory decisions."
-msgstr ""
+msgstr "تصمیمات انبار خود را بهینه کنید."
 
 #: includes/languages/trans_project.php:1668
 msgid ""
@@ -10281,7 +10233,7 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1669
 msgid "Demand forecasting!"
-msgstr ""
+msgstr "پیش‌بینی تقاضا!"
 
 #: includes/languages/trans_project.php:1670
 msgid "Receive recommendations on your products based on your rate of sales."
@@ -10376,7 +10328,7 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1702
 msgid "Do you want to calc tax?"
-msgstr ""
+msgstr "آیا می‌خواهید مالیات را محاسبه کنیم؟"
 
 #: includes/languages/trans_project.php:1703
 msgid ""
@@ -10419,11 +10371,11 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1714
 msgid "Do you have shipping?"
-msgstr ""
+msgstr "آیا حمل و نقل دارید؟"
 
 #: includes/languages/trans_project.php:1715
 msgid "Ship to"
-msgstr ""
+msgstr "حمل و نقل به"
 
 #: includes/languages/trans_project.php:1716
 msgid "Static price"
@@ -10439,7 +10391,7 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1721
 msgid "So, it's better to set it now!"
-msgstr ""
+msgstr "بنابراین، بهتره همین الان تنظیمش کنید!"
 
 #: includes/languages/trans_project.php:1722
 msgid "Please use square logo!"
@@ -10501,7 +10453,7 @@ msgstr ""
 
 #: includes/languages/trans_project.php:1740
 msgid "Direct Bank Transfer"
-msgstr ""
+msgstr "انتقال بانکی مستقیم"
 
 #: includes/languages/trans_project.php:1741
 msgid ""
@@ -14791,7 +14743,7 @@ msgstr "جزئیات‌کاربر"
 msgid "Hook"
 msgstr "هوک"
 
-#: includes/languages/trans_project.php:3262 lib/app/setting/setup.php:127
+#: includes/languages/trans_project.php:3262 lib/app/setting/setup.php:134
 msgid "Step"
 msgstr "مرحله"
 
@@ -19795,7 +19747,7 @@ msgstr "مشارکت کننده"
 #: lib/app/product/unit.php:328 lib/app/product/updateprice.php:114
 #: lib/app/product/variants.php:84 lib/app/product/variants.php:267
 #: lib/app/product/variants.php:283 lib/app/setting/setup.php:93
-#: lib/app/setting/setup.php:275 lib/app/store/edit.php:11 lib/app/store/edit.php:54
+#: lib/app/setting/setup.php:282 lib/app/store/edit.php:11 lib/app/store/edit.php:54
 #: lib/app/store/edit.php:91
 msgid "Your are not in this store!"
 msgstr "شما در این فروشگاه نیستید!"
@@ -20555,81 +20507,81 @@ msgstr "محصولات شما اضافه شد"
 msgid "Can not add product"
 msgstr "نمی‌توانیم هیچ محصولی را اضافه کنیم"
 
-#: lib/app/setting/setup.php:129
+#: lib/app/setting/setup.php:136
 msgid "of"
 msgstr "از"
 
-#: lib/app/setting/setup.php:214 lib/app/setting/setup.php:237
+#: lib/app/setting/setup.php:221 lib/app/setting/setup.php:244
 msgid "Invalid number data"
 msgstr "مقداری عددی نامعتبر است"
 
-#: lib/app/setting/setup.php:223 lib/app/setting/setup.php:246
+#: lib/app/setting/setup.php:230 lib/app/setting/setup.php:253
 msgid "Data is out of range"
 msgstr "اطلاعات وارد شده خارج از محدوده مجاز است"
 
-#: lib/app/setting/setup.php:285
+#: lib/app/setting/setup.php:292
 msgid "Please choose yoru file"
 msgstr "لطفا فایل خود را انتخاب کنید"
 
-#: lib/app/setting/setup.php:317
+#: lib/app/setting/setup.php:324
 msgid "Please choose your country"
 msgstr "لطفا کشور خود را انتخاب کنید"
 
-#: lib/app/setting/setup.php:343
+#: lib/app/setting/setup.php:350
 msgid "Please choose your province"
 msgstr "لطفا استان خود را انتخاب کنید"
 
-#: lib/app/setting/setup.php:349
+#: lib/app/setting/setup.php:356
 msgid "Please choose your city"
 msgstr "لطفا شهر خود را انتخاب کنید"
 
-#: lib/app/setting/setup.php:362
+#: lib/app/setting/setup.php:369
 msgid "Please fill your address"
 msgstr "لطفا آدرس خود را وارد کنید"
 
-#: lib/app/setting/setup.php:368
+#: lib/app/setting/setup.php:375
 msgid "This address is too short. Please enter your full address"
 msgstr "این آدرس بسیار کوتاه است. لطفا آدرس کامل خود را وارد کنید"
 
-#: lib/app/setting/setup.php:392
+#: lib/app/setting/setup.php:399
 msgid "Please set your postcode"
 msgstr "لطفا کد پستی خود را وارد کنید"
 
-#: lib/app/setting/setup.php:436 lib/app/setting/setup.php:450
-#: lib/app/setting/setup.php:464
+#: lib/app/setting/setup.php:443 lib/app/setting/setup.php:457
+#: lib/app/setting/setup.php:471
 msgid "Please fill the field as a number"
 msgstr "لطفا مقدار را به صورت عددی وارد کنید"
 
-#: lib/app/setting/setup.php:442 lib/app/setting/setup.php:456
-#: lib/app/setting/setup.php:470 lib/app/setting/setup.php:485
+#: lib/app/setting/setup.php:449 lib/app/setting/setup.php:463
+#: lib/app/setting/setup.php:477 lib/app/setting/setup.php:492
 msgid "Please fill the value less than 100 character"
 msgstr "لطفا مقدار را کمتر از ۱۰۰ حرف وارد کنید"
 
-#: lib/app/setting/setup.php:478
+#: lib/app/setting/setup.php:485
 msgid "Invalid nationalcode"
 msgstr "کد ملی اشتباه است"
 
-#: lib/app/setting/setup.php:508
+#: lib/app/setting/setup.php:515
 msgid "Invalid currency"
 msgstr "واحد مالی نامعتبر است"
 
-#: lib/app/setting/setup.php:514
+#: lib/app/setting/setup.php:521
 msgid "Please set your currency"
 msgstr "لطفا واحد مالی خود را تنظیم کنید"
 
-#: lib/app/setting/setup.php:521
+#: lib/app/setting/setup.php:528
 msgid "Invalid length"
 msgstr "طول نامعتبر است"
 
-#: lib/app/setting/setup.php:527
+#: lib/app/setting/setup.php:534
 msgid "Please set your length unit"
 msgstr "لطفا واحد سنجش ابعاد را مشخص کنید"
 
-#: lib/app/setting/setup.php:534
+#: lib/app/setting/setup.php:541
 msgid "Invalid mass"
 msgstr "واحد سنجش وزن نامعتبر است"
 
-#: lib/app/setting/setup.php:540
+#: lib/app/setting/setup.php:547
 msgid "Please set your mass unit"
 msgstr "لطفا واحد سنجش وزن را مشخص کنید"
 
@@ -20709,10 +20661,6 @@ msgstr "پر کردن عنوان فروشگاه الزامی است"
 #: lib/app/store/edit.php:23
 msgid "Please set title as string!"
 msgstr "لطفا عنوان را به صورت متنی وارد کنید"
-
-#: lib/app/store/edit.php:120
-msgid "Your setting was saved"
-msgstr "تنظیمات شما ذخیره شد"
 
 #: lib/app/store/polls.php:28
 msgid "Why you are here in Jibres?"
@@ -21515,6 +21463,68 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Please set the parent mobile"
+#~ msgstr "لطفا شماره موبایل والد را وارد کنید"
+
+#~ msgid "Please select one title"
+#~ msgstr "لطفا یک عنوان انتخاب کنید"
+
+#~ msgid "Related id is incurrect"
+#~ msgstr "شناسه داخلی اشتباه است"
+
+#~ msgid "You can not set parent yourself"
+#~ msgstr "شما نمی‌توانید والد خودتان باشید"
+
+#~ msgid "Invalid title"
+#~ msgstr "عنوان اشتباه است"
+
+#~ msgid "Please set the other title field"
+#~ msgstr "لطفا عنوان دلخواه خود را وارد کنید"
+
+#~ msgid "You must set other title less than 50 character"
+#~ msgstr "عنوان دلخواه نمی‌تواند بیشتر از ۵۰ کاراکتر باشد"
+
+#~ msgid "Your request was sended to user, wait for answer user"
+#~ msgstr ""
+#~ "درخواست شما به کاربر ارسال شده است. منتظر بمانید تا جواب کاربر به درخواست شما "
+#~ "مشخص شود"
+
+#~ msgid "Are you :title of this user?"
+#~ msgstr "آیا شما :title این کاربر هستید؟"
+
+#~ msgid "Your request was sended"
+#~ msgstr "درخواست شما ارسال شد"
+
+#~ msgid "Invalid request id"
+#~ msgstr "شناسه درخواست اشتباه است"
+
+#~ msgid "Invalid request data"
+#~ msgstr "اطلاعات درخواست اشتباه است"
+
+#~ msgid "Your request canceled"
+#~ msgstr "درخواست شما لغو شد"
+
+#~ msgid "Invalid remove data"
+#~ msgstr "اطلاعات جهت حذف اشتباه است"
+
+#~ msgid "Invalid remove details"
+#~ msgstr "اطلاعات جهت حذف اشتباه است"
+
+#~ msgid "Parent removed"
+#~ msgstr "والد حذف شد"
+
+#~ msgid "Waiting to user accept this request"
+#~ msgstr "در انتظار تایید درخواست توسط کاربر"
+
+#~ msgid "User not found."
+#~ msgstr "کاربر یافت نشد."
+
+#~ msgid "Your username was removed"
+#~ msgstr "نام کاربری شما حذف شد"
+
+#~ msgid "Your username was change"
+#~ msgstr "نام کاربری شما تغییر یافت"
 
 #~ msgid "Please fill the git password"
 #~ msgstr "لطفا گذرواژه را وارد کنید"
