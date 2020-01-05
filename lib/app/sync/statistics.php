@@ -12,10 +12,13 @@ class statistics
 	 */
 	public static function fire()
 	{
-		$calc  = self::calc();
-		$query = self::make_query($calc, \lib\store::id());
+		if(\dash\engine\store::inStore())
+		{
+			$calc  = self::calc();
+			$query = self::make_query($calc, \lib\store::id());
 
-		\lib\app\sync\tools::add($query, 'master');
+			\lib\app\sync\tools::add($query, 'master');
+		}
 	}
 
 
