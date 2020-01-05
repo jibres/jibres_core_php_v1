@@ -7,6 +7,10 @@ class view
 	public static function config()
 	{
 		\dash\data::page_title(T_('Set your store address'));
+
+		\dash\data::page_backText(T_('Back'));
+		\dash\data::page_backLink(\dash\url::this());
+
 		self::static_var();
 	}
 

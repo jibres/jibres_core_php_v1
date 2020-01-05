@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\logo;
+namespace content_a\setting\address;
 
 
 class controller

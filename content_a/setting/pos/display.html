@@ -1,169 +1,45 @@
-{%extends "content_a/setting/layout.html"%}
+{%extends display.admin%}
 
 
 
 
 {%block pageContent%}
-{{block('pageSteps')}}
-<div class="f">
-  <div class="c5 s12 pRa10">
-    {{block('addNewPos')}}
-  </div>
-  {%if dataTable%}
-  <div class="c s12">
-    {{block('htmlTable')}}
-  </div>
-  {%endif%}
-</div>
 
-{%endblock%}
+<div id="get_started_card">
+  <div class="body">
+    <div class="pad">
+      <h1>{{page.title}}</h1>
+      <div class="msg primary2">{%trans "You can change these settings everytime."%}</div>
+      <form method="post" autocomplete="off">
 
+        <p>{%trans "You can use barcode scanners to quickly enter products to the cart at checkout."%} {%trans "If already you have barcode reader in your store, please tell us to add related fileds into products."%}</p>
+        <div class="switch1 fs12">
+         <input type="checkbox" name="barcode" id="barcode" {% if dataRow.barcode%} checked{%endif%}>
+         <label for="barcode"></label>
+         <label for="barcode">{%trans "Have barcode reader?"%}</label>
+        </div>
 
-{%block addNewPos%}
+        <div data-response='barcode'{%if dataRow.barcode%}{%else%} data-response-hide{%endif%}>
+          <hr class="mB25">
+          <p>{%trans "If already you have scale with label printer, tell us."%} {%trans "We allow you to scan barcode of scale receipt, then we detect product and add them automatically."%}</p>
 
-<div class="cbox">
- <form method="post" autocomplete="off">
- 	<h2>{%trans "Add new pos to you store"%}</h2>
-
- 	<label for="pos">{%trans "Pos issuer bank"%}</label>
-	{%include display.spay%}
-
- 	<label for="title">{%trans "Title"%}</label>
-	<div class="input">
-	  <input type="text" name="title" id="title" placeholder='{%trans "Title"%}' minlength="1" maxlength="100">
-	</div>
-
-
-	<div data-response='pos' data-response-where='irkish' data-response-hide>
-		{{block('iPcPosIrankish')}}
-	</div>
-
-	<div data-response='pos' data-response-where='asanpardakht' data-response-hide>
-		{{block('iPcPosAsanpardakht')}}
-	</div>
-
-
-	<button class="btn block primary mT10">{%trans "Add pos"%}</button>
- </form>
-</div>
-{%endblock%}
-
-
-
-
-
-
-
-{%block htmlTable%}
-
-  <table class="tbl1 v1 txtC cbox fs12">
-    <thead>
-      <tr class="fs09">
-        <th colspan="2">{%trans "Bank"%}</th>
-        <th>{%trans "Name"%}</th>
-        <th class="s0">{%trans "Default"%}</th>
-        <th>{%trans "Action"%}</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      {%for key, value in dataTable%}
-      <tr {%if value.default%} title='{%trans "Is default"%}' class="positive"{%endif%}>
-        <td class="collapsing"><span class="spay-32-{{value.class}}"></span></td>
-        <td class="collapsing txtLa">
-          <span class="txtB">{%set bankName = value.name | capitalize%}{%trans bankName%}</span>
-          {%if value.pc_pos%}
-	      <span class="badge primary">{%trans "PcPos"%}</span>
-          <div class="mT10">
-				{%for k, v in value.pc_pos%}
-				{%set attrName = k | capitalize%}
-	          		<span class="badge light">{%trans attrName%} {{v | fitNumber(false)}}</span>
-				{%endfor%}
+          <div class="switch1 fs12">
+           <input type="checkbox" name="scale" id="scale" {% if dataRow.scale%} checked{%endif%}>
+           <label for="scale"></label>
+           <label for="scale">{%trans "Have scale with label printer?"%}</label>
           </div>
-          {%endif%}
-      	</td>
-        <td>{%if value.title %}{{value.title}}{%else%}-{%endif%}</td>
-        <td class="collapsing s0">
-        	{%if value.default%}
-          		<a class="badge success"> {%trans "Is default"%}</a>
-        	{%else%}
-          		<a href="{{url.pwd}}" class="badge" data-ajaxify data-method='post' data-data='{"key" : "{{key}}", "type" : "default"}'>{%trans "Set as default"%}</a>
-          	{%endif%}
-        </td>
-        <td class="collapsing">
-          <div class="badge danger" data-confirm data-data='{"key":"{{key}}", "type":"remove"}'>{%trans "Remove"%}</div>
-        </td>
-      </tr>
-      {%endfor%}
-    </tbody>
-  </table>
 
-{%endblock%}
+        </div>
 
+        <div class="f align-center mB10">
+          <div class="c fc-mute">{{stepDesc}}</div>
+          <div class="cauto os"><button class="btn primary">{%trans "Save"%}</button></div>
+        </div>
 
-
-
-
-
-
-
-
-{%block iPcPosIrankish%}
-<div class="switch1">
- <input type="checkbox" name="irankish" id="irankish" {%if currentStore.pos.irankish.status %}checked{%endif%}>
- <label for="irankish"></label>
- <label for="irankish">{%trans "Enable irankish PC POS"%}</label>
+      </form>
+    </div>
+  </div>
 </div>
-
-<div class="f mT10" data-response='irankish' data-response-effect='slide' {%if currentStore.pos.irankish.status%}{%else%} data-response-hide {%endif%}>
-		<label for="serial">{%trans "Serial"%}</label>
-		<div class="input">
-		  <input type="number" name="serial" id="serial" placeholder='{%trans "Serial"%}' value="{{currentStore.pos.irankish.serial}}" min="1" max="99999999999999999999999">
-		</div>
-
-		<label for="terminal">{%trans "Terminal"%}</label>
-		<div class="input">
-		  <input type="number" name="terminal" id="terminal" placeholder='{%trans "Terminal"%}' value="{{currentStore.pos.irankish.terminal}}" min="1" max="99999999999999999999999">
-		</div>
-
-		<label for="receiver">{%trans "Receiver"%}</label>
-		<div class="input">
-		  <input type="number" name="receiver" id="receiver" placeholder='{%trans "Receiver"%}' value="{{currentStore.pos.irankish.receiver}}" min="1" max="99999999999999999999999">
-		</div>
-</div>
-
-{%endblock%}
-
-
-
-
-
-
-{%block iPcPosAsanpardakht%}
-<div class="switch1">
- <input type="checkbox" name="asanpardakht" id="asanpardakht" {%if currentStore.pos.asanpardakht.status %}checked{%endif%}>
- <label for="asanpardakht"></label>
- <label for="asanpardakht">{%trans "Enable asanpardakht PC POS"%}</label>
-</div>
-
-<div class="f mT10" data-response='asanpardakht' data-response-effect='slide' {%if currentStore.pos.asanpardakht.status%}{%else%} data-response-hide {%endif%}>
-	<div class="c6 pLa5">
-		<label for="ip">{%trans "IP"%}</label>
-		<div class="input">
-		  <input type="text" name="ip" id="ip" placeholder='{%trans "IP"%}' value="{{currentStore.pos.asanpardakht.ip}}" maxlength='15'>
-		</div>
-	</div>
-
-	{%if currentStore.pos.asanpardakht.port%}
-	<div class="c6 pLa5">
-		<label for="port">{%trans "Port"%}</label>
-		<div class="input">
-		  <input type="text" name="iport" id="port" placeholder='{%trans "Port"%}' value="{{currentStore.pos.asanpardakht.port}}" maxlength='500' disabled>
-		</div>
-	</div>
-	{%endif%}
-</div>
-
 {%endblock%}
 
 

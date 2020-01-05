@@ -28,23 +28,29 @@
  </div>
 </div>
 
+<div class="cbox">
 
+  <div class="pA20">
 
+    <p>{%trans "Stroe settings"%}</p>
 
-{%endblock%}
+    <ul>
+        <li><a href="{{url.this}}/address">{%trans "Set your store address" %}</a></li>
+        <li><a href="{{url.this}}/company">{%trans "Store legal information" %}</a></li>
+        <li><a href="{{url.this}}/logo">{%trans "Set logo of your store" %}</a></li>
+        <li><a href="{{url.this}}/payment">{%trans "Payment channels" %}</a></li>
+        <li><a href="{{url.this}}/pos">{%trans "Point of sale hardwares" %}</a></li>
+        <li><a href="{{url.this}}/shipping">{%trans "Setting up shipping rates" %}</a></li>
+        <li><a href="{{url.this}}/units">{%trans "Store Units" %}</a></li>
+        <li><a href="{{url.this}}/vat">{%trans "Tax settings" %}</a></li>
 
+    </ul>
 
-{%block istatus%}
+  </div>
 
-<div class="radio1">
-  <input type="radio" name="status" id="r-enable" value="enable" {%if store.status =='enable'%}checked{%endif%}>
-  <label for="r-enable">{%trans "Enable"%}</label>
 </div>
 
-<div class="radio1">
-  <input type="radio" name="status" id="r-close" value="close" {%if store.status =='close'%}checked{%endif%}>
-  <label for="r-close">{%trans "Closed"%}</label>
-</div>
+
 
 
 {%endblock%}

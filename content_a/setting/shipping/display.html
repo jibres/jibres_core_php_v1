@@ -1,0 +1,108 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+
+<div id="get_started_card">
+  <div class="body">
+    <div class="pad">
+      <h1>{{page.title}}</h1>
+      <p>{%trans "Selling physical products? You need to ship them!"%}</p>
+       <form method="post" autocomplete="off">
+
+        <div class="switch1 fs12">
+         <input type="checkbox" name="shipping_status" id="shipping-status" {% if dataRow.shipping_status%} checked{%endif%}>
+         <label for="shipping-status"></label>
+         <label for="shipping-status">{%trans "Do you have shipping?"%}</label>
+        </div>
+
+        <div data-response='shipping_status' {% if dataRow.shipping_status%} {%else%} data-response-hide {%endif%}>
+
+          <br>
+
+          <div class="switch1 fs12">
+           <input type="checkbox" name="shipping_current_country" id="shipping_current_country" {% if dataRow.shipping_current_country%} checked{%endif%}>
+           <label for="shipping_current_country"></label>
+           <label for="shipping_current_country">{%trans "Ship to"%} {{myCountryName}}</label>
+          </div>
+
+
+          <div data-response='shipping_current_country' {% if dataRow.shipping_current_country%} {%else%} data-response-hide {%endif%}>
+
+            <div class="f mB10">
+              <div class="c pRa5">
+                  <div class="radio3">
+                    <input type="radio" name="shipping_current_country_value_type" value="free" id="shipping_current_country_free" {%if not dataRow.shipping_current_country_value%} checked {%endif%} >
+                    <label for="shipping_current_country_free">{%trans "Free"%}</label>
+                  </div>
+              </div>
+              <div class="c">
+                  <div class="radio3">
+                    <input type="radio" name="shipping_current_country_value_type" value="static" id="shipping_current_country_static" {%if dataRow.shipping_current_country_value%} checked {%endif%} >
+                    <label for="shipping_current_country_static">{%trans "Static price"%}</label>
+                  </div>
+              </div>
+            </div>
+            <div data-response='shipping_current_country_value_type' data-response-where='static' {%if dataRow.shipping_current_country_value%} {%else%} data-response-hide {%endif%} >
+              <div class="input">
+                <input type="text" name="shipping_current_country_value" id="iShippingCurrentCountryValue" value="{{dataRow.shipping_current_country_value}}" data-format="price" maxlength="12">
+                <label for="iShippingCurrentCountryValue" class="addon">{{storeCurrency.symbol_native}}</label>
+              </div>
+            </div>
+
+          </div>
+          <br>
+
+          <div class="switch1 fs12">
+           <input type="checkbox" name="shipping_other_country" id="shipping_other_country" {% if dataRow.shipping_other_country%} checked{%endif%}>
+           <label for="shipping_other_country"></label>
+           <label for="shipping_other_country">{%trans "Ship to other country"%}</label>
+          </div>
+
+
+          <div data-response='shipping_other_country' {% if dataRow.shipping_other_country%} {%else%} data-response-hide {%endif%}>
+
+            <div class="f mB10">
+              <div class="c pRa5">
+                  <div class="radio3">
+                    <input type="radio" name="shipping_other_country_value_type" value="free" id="shipping_other_country_free" {%if not dataRow.shipping_other_country_value%} checked {%endif%} >
+                    <label for="shipping_other_country_free">{%trans "Free"%}</label>
+                  </div>
+              </div>
+              <div class="c">
+                  <div class="radio3">
+                    <input type="radio" name="shipping_other_country_value_type" value="static" id="shipping_other_country_static" {%if dataRow.shipping_other_country_value%} checked {%endif%} >
+                    <label for="shipping_other_country_static">{%trans "Static price"%}</label>
+                  </div>
+              </div>
+            </div>
+            <div data-response='shipping_other_country_value_type' data-response-where='static' {%if dataRow.shipping_other_country_value%} {%else%} data-response-hide {%endif%} >
+              <div class="input">
+                <input type="text" name="shipping_other_country_value" id="iShippingotherCountryValue" value="{{dataRow.shipping_other_country_value}}" data-format="price" maxlength="12">
+                <label for="iShippingotherCountryValue" class="addon">{{storeCurrency.symbol_native}}</label>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+
+
+        <div class="f align-center mB10">
+          <div class="c fc-mute">{{stepDesc}}</div>
+          <div class="cauto os"><button class="btn primary">{%trans "Save"%}</button></div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+
+

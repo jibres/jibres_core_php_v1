@@ -101,16 +101,23 @@ class setup
 
 		\lib\store::refresh();
 
-		$next_level = self::$_current_level();
-
-		if(self::$is_end_level)
+		if(\dash\url::module() === 'setup')
 		{
-			\dash\notif::direct();
+			$next_level = self::$_current_level();
+
+			if(self::$is_end_level)
+			{
+				\dash\notif::direct();
+			}
+
+			if($next_level)
+			{
+				\dash\redirect::to($next_level);
+			}
 		}
-
-		if($next_level)
+		else
 		{
-			\dash\redirect::to($next_level);
+			\dash\notif::ok(T_("Your setting was saved"));
 		}
 
 		return true;

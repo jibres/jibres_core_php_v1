@@ -6,17 +6,28 @@ class model
 {
 	public static function post()
 	{
-		$result = null;
-
-		\lib\app\setting\setup::upload_logo();
-
-		if(\dash\engine\process::status())
+		if(\dash\request::post('skip') === 'skip')
 		{
-			\dash\notif::ok(T_("Store logo updated"));
-			\lib\store::refresh();
-			\dash\notif::direct();
-			\dash\redirect::pwd();
+			// skip this step
 		}
+		else
+		{
+			$result = \lib\app\setting\setup::upload_logo();
+			if($result)
+			{
+				\dash\notif::ok(T_("Your setting was saved"));
+				\lib\store::refresh();
+				\dash\notif::direct();
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+
+		\dash\redirect::pwd();
 	}
+
 }
 ?>

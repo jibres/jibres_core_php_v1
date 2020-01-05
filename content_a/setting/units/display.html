@@ -1,0 +1,70 @@
+{%extends display.admin%}
+
+
+{%block pageContent%}
+
+<div id="get_started_card">
+  <div class="body">
+    <div class="pad">
+      <h1>{{page.title}}</h1>
+      <p>{%trans "Please choose your store default units."%}</p>
+
+      <form method="post" autocomplete="off">
+
+        <div class="mB10">
+          <label for='currency'>{%trans "Store Currency"%}</label>
+          <select class="select22" name="currency" id="currency">
+{%if not dataRow.currency%}
+            <option disabled selected></option>
+{%endif%}
+              {%for key, value in currencyList%}
+                <option value="{{key}}" {%if dataRow.currency == key%} selected  {%elseif dataRow.country == 'IR' and key == 'IRT' and not dataRow.currency%} selected {%endif%}>{{value.name}} - {{value.symbol_native}}</option>
+              {%endfor%}
+          </select>
+          <p class="mT10 fc-mute">{%trans "This is the currency your products are sold in."%} <b>{%trans "After your first sale, currency is locked in and can't be changed."%}</b></p>
+        </div>
+
+        <br>
+        <div class="mB10">
+          <label for='mass'>{%trans "Weight Unit"%}</label>
+          <select name="mass_unit" id="mass" class="select22">
+{%if not dataRow.mass_unit%}
+            <option disabled selected></option>
+{%endif%}
+          {%for key, value in massList%}
+            <option value="{{key}}" {%if dataRow.mass_unit == key %} selected {%endif%}>{{value.name}}</option>
+          {%endfor%}
+
+          </select>
+          <p class="mT10 fc-mute">{%trans "This is the unit for your product weight."%}</p>
+        </div>
+
+        <br>
+        <div class="mB10">
+          <label for='length'>{%trans "Dimensions Unit"%}</label>
+          <select name="length_unit" id="length" class="select22">
+{%if not dataRow.length_unit%}
+            <option disabled selected></option>
+{%endif%}
+          {%for key, value in lengthList%}
+            <option value="{{key}}" {%if dataRow.length_unit == key %} selected {%endif%}>{{value.name}}</option>
+          {%endfor%}
+
+          </select>
+          <p class="mT10 fc-mute">{%trans "We are get product dimensions in this unit."%}</p>
+        </div>
+
+        <div class="f align-center mB10">
+          <div class="c fc-mute">{{stepDesc}}</div>
+          <div class="cauto os"><button class="btn primary">{%trans "Save"%}</button></div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+{%endblock%}
+
+
+
+

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\maximum;
+namespace content_a\setting\pos;
 
 class view
 {
@@ -14,9 +14,6 @@ class view
 		}
 
 		\dash\data::dataTable($pos);
-
-		\dash\data::page_backText(T_('Back'));
-		\dash\data::page_backLink(\dash\url::this());
 	}
 }
 ?>
