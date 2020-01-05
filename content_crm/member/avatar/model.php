@@ -38,7 +38,7 @@ class model
 			$request['avatar'] = $file_url;
 		}
 
-		\dash\db\users::update($request, $user_id);
+		\dash\app\user::quick_update($request, $user_id);
 
 		if(\dash\engine\process::status())
 		{

@@ -11,7 +11,7 @@ class model
 		{
 			\dash\log::set('removeEmail');
 
-			\dash\db\users::update(['email' => null], \dash\user::id());
+			\dash\app\user::quick_update(['email' => null], \dash\user::id());
 			// set the alert message
 			\dash\utility\enter::set_session('alert', ['text' => T_("Your email was removed")]);
 			// open lock of alert page

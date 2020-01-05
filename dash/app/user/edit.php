@@ -4,6 +4,26 @@ namespace dash\app\user;
 
 trait edit
 {
+	public static function quick_update($_args, $_id)
+	{
+		// in stroe whene user signuped we need to set jibres_user_id
+		if(\dash\engine\store::inStore() && isset($_args['mobile']))
+		{
+			$mobile = \dash\utility\filter::mobile($_args['mobile']);
+			if($mobile)
+			{
+				$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($_args);
+			}
+		}
+
+		\dash\log::set('editUser', ['code' => $_id]);
+
+		return \dash\db\users::update($_args, $_id);
+
+	}
+
+
+
 	/**
 	 * edit a user
 	 *
@@ -160,19 +180,8 @@ trait edit
 
 		if(!empty($args))
 		{
-			\dash\log::set('editUser', ['code' => $id, 'datalink' => \dash\coding::encode($id)]);
 
-			// in stroe whene user signuped we need to set jibres_user_id
-			if(\dash\engine\store::inStore() && isset($args['mobile']))
-			{
-				$mobile = \dash\utility\filter::mobile($_args['mobile']);
-				if($mobile)
-				{
-					$args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id($args);
-				}
-			}
-
-			\dash\db\users::update($args, $id);
+			self::quick_update($args, $id);
 
 		}
 

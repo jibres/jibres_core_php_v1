@@ -35,7 +35,7 @@ class account
 				// @check
 				// @reza
 				// need to set jibres_user_id
-				\dash\db\users::update(['mobile' => $mobile], \dash\user::id());
+				\dash\app\user::quick_update(['mobile' => $mobile], \dash\user::id());
 				\dash\db\user_telegram::update_where(['user_id' => \dash\user::id()], ['chatid' => $_chat_id]);
 				self::relogin();
 			}
@@ -110,14 +110,14 @@ class account
 
 
 			$update_new_user                   = \dash\safe::safe($update_new_user);
-			\dash\db\users::update($update_new_user, $mobile_exist['id']);
+			\dash\app\user::quick_update($update_new_user, $mobile_exist['id']);
 
 
 			if(!\dash\user::detail('mobile') && !\dash\user::detail('email'))
 			{
 				$update_current_user             = [];
 				$update_current_user['status']   = 'unreachable';
-				\dash\db\users::update($update_current_user, \dash\user::id());
+				\dash\app\user::quick_update($update_current_user, \dash\user::id());
 			}
 
 			self::relogin($mobile_exist['id']);

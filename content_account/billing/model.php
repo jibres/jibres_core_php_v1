@@ -132,7 +132,7 @@ class model
 			return false;
 		}
 
-		\dash\db\users::update(['ref' => $ref], \dash\user::id());
+		\dash\app\user::quick_update(['ref' => $ref], \dash\user::id());
 		$_SESSION['auth']['ref'] = $ref;
 
 		$transaction_set =

@@ -27,7 +27,7 @@ class model
 		if($old_google_mail && $new_google_mail && is_numeric($user_id))
 		{
 
-			\dash\db\users::update(['googlemail' => $new_google_mail], $user_id);
+			\dash\app\user::quick_update(['googlemail' => $new_google_mail], $user_id);
 			\dash\utility\enter::load_user_data($user_id, 'user_id');
 			\dash\utility\enter::enter_set_login();
 			\dash\utility\enter::next_step('okay');

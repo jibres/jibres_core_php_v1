@@ -1164,7 +1164,7 @@ class user
 		$update_old['pasportcode']          = null;
 		$update_old['meta']                 = $deletedetail;
 
-		\dash\db\users::update($update_old, $_user_id);
+		\dash\app\user::quick_update($update_old, $_user_id);
 
 		\dash\log::set('crmMemberRemoved', ['code' => $_user_id]);
 		return true;

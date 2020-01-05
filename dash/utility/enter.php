@@ -476,7 +476,7 @@ class enter
 			// set the user status as enable
 			if(self::user_data('status') === 'awaiting' && is_numeric($user_id))
 			{
-				\dash\db\users::update(['status' => 'active'], $user_id);
+				\dash\app\user::quick_update(['status' => 'active'], $user_id);
 			}
 		}
 
@@ -992,12 +992,12 @@ class enter
 
 		if(is_numeric(self::user_data('id')) && !self::user_data('verifymobile'))
 		{
-			\dash\db\users::update(['verifymobile' => 1], self::user_data('id'));
+			\dash\app\user::quick_update(['verifymobile' => 1], self::user_data('id'));
 		}
 
 		if(is_numeric(\dash\user::id()) && !\dash\user::detail('verifymobile'))
 		{
-			\dash\db\users::update(['verifymobile' => 1], \dash\user::id());
+			\dash\app\user::quick_update(['verifymobile' => 1], \dash\user::id());
 		}
 
 		/**
@@ -1020,7 +1020,7 @@ class enter
 		{
 			\dash\log::set('PasswordOK');
 			// set temp ramz in use pass
-			\dash\db\users::update(['password' => self::get_session('temp_ramz_hash')], self::user_data('id'));
+			\dash\app\user::quick_update(['password' => self::get_session('temp_ramz_hash')], self::user_data('id'));
 		}
 
 
@@ -1034,7 +1034,7 @@ class enter
 		if(self::get_session('verify_from') === 'username_remove' && is_numeric(self::user_data('id')))
 		{
 			// set temp ramz in use pass
-			\dash\db\users::update(['username' => null], self::user_data('id'));
+			\dash\app\user::quick_update(['username' => null], self::user_data('id'));
 			// remove usename from sessions
 			unset($_SESSION['auth']['username']);
 			// set the alert message
@@ -1095,7 +1095,7 @@ class enter
 			}
 			$update_user['status'] = 'removed';
 
-			\dash\db\users::update($update_user, \dash\user::id());
+			\dash\app\user::quick_update($update_user, \dash\user::id());
 
 			\dash\log::set('userDeletedOK');
 
@@ -1124,7 +1124,7 @@ class enter
 		  )
 		{
 			// set temp ramz in use pass
-			\dash\db\users::update(['username' => self::get_session('temp_username')], self::user_data('id'));
+			\dash\app\user::quick_update(['username' => self::get_session('temp_username')], self::user_data('id'));
 			// set the alert message
 			if(self::get_session('verify_from') === 'username_set')
 			{
@@ -1179,7 +1179,7 @@ class enter
 			\dash\log::set('emailOK');
 
 			// set temp ramz in use pass
-			\dash\db\users::update(['email' => self::get_session('temp_email')], self::user_data('id'));
+			\dash\app\user::quick_update(['email' => self::get_session('temp_email')], self::user_data('id'));
 		}
 
 
@@ -1193,7 +1193,7 @@ class enter
 		if(self::get_session('verify_from') === 'two_step_set' &&	is_numeric(self::user_data('id')))
 		{
 			// set on two_step of this user
-			\dash\db\users::update(['twostep' => 1], self::user_data('id'));
+			\dash\app\user::quick_update(['twostep' => 1], self::user_data('id'));
 			$alert =
 			[
 				'clean_session' => true,
@@ -1219,7 +1219,7 @@ class enter
 		if(self::get_session('verify_from') === 'two_step_unset' &&	is_numeric(self::user_data('id')))
 		{
 			// set off two_step of this user
-			\dash\db\users::update(['twostep' => 0], self::user_data('id'));
+			\dash\app\user::quick_update(['twostep' => 0], self::user_data('id'));
 			$alert =
 			[
 				'clean_session' => true,
@@ -1240,7 +1240,7 @@ class enter
 		{
 
 			// set off two_step of this user
-			\dash\db\users::update(['password' => self::get_session('temp_ramz_hash')], \dash\user::id());
+			\dash\app\user::quick_update(['password' => self::get_session('temp_ramz_hash')], \dash\user::id());
 			\dash\db\sessions::change_password(\dash\user::id());
 			\dash\user::refresh();
 			$alert =
