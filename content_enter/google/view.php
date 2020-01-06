@@ -6,6 +6,7 @@ class view
 {
 	public static function config()
 	{
+		return false;
 		$auth_url = \dash\utility\google::auth_url();
 
 		// auto redirect if url is clean
