@@ -1,6 +1,6 @@
 //This is the service worker with the Advanced caching
 
-const CACHE = "pwabuilder-adv-cache";
+const CACHE = "jibres-pwa";
 const precacheFiles = [
   /* Add an array of files to precache for your app */
 ];
@@ -44,10 +44,14 @@ self.addEventListener("install", function (event) {
     caches.open(CACHE).then(function (cache) {
       console.log("Caching pages during install");
 
+      console.log(71);
       return cache.addAll(precacheFiles).then(function () {
+      console.log(72);
         if (offlineFallbackPage === "offline.html") {
+      console.log(73);
           return cache.add(new Response("Update the value of the offlineFallbackPage constant in the serviceworker."));
         }
+      console.log(74);
 
         return cache.add(offlineFallbackPage);
       });
