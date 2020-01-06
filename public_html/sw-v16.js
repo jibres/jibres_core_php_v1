@@ -3,6 +3,10 @@
 const CACHE = "jibres-pwa";
 const precacheFiles = [
   /* Add an array of files to precache for your app */
+  "/static/siftal/images/cert/irannsr.png",
+  "/static/siftal/images/cert/enamad2.png",
+  "/static/siftal/images/cert/samandehi.png",
+  "/static/siftal/images/cert/shamad.png",
 ];
 
 const offlineFallbackPage = "offline.html";
@@ -17,7 +21,7 @@ const avoidCachingPaths = [
   /\/api\/.*/,
   /.*google.*/,
   /.*google-analytics.*/,
-
+  /.*googletagmanager.*/,
 ];
 
 function pathComparer(requestUrl, pathRegEx) {
