@@ -146,12 +146,9 @@ function fromCache(request) {
 
 function updateCache(request, response) {
   if (!comparePaths(request.url, avoidCachingPaths)) {
-    if(event.request.url.indexOf('http') === 0)
-    {
       return caches.open(CACHE).then(function (cache) {
         return cache.put(request, response);
       });
-    }
   }
 
   return Promise.resolve();
