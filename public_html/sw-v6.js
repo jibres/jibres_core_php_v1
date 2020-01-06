@@ -37,8 +37,8 @@ function comparePaths(requestUrl, pathsArray) {
 self.addEventListener("install", function (event) {
   console.log("Install Event processing");
 
-  console.log("Skip waiting on install");
   self.skipWaiting();
+  console.log("Skip waiting on install");
 
   event.waitUntil(
     caches.open(CACHE).then(function (cache) {
@@ -79,6 +79,7 @@ console.log(4);
 });
 
 function cacheFirstFetch(event) {
+  console.log(8);
   event.respondWith(
     fromCache(event.request).then(
       function (response) {
@@ -121,6 +122,7 @@ function cacheFirstFetch(event) {
 }
 
 function networkFirstFetch(event) {
+  console.log(5);
   event.respondWith(
     fetch(event.request)
       .then(function (response) {
@@ -136,6 +138,7 @@ function networkFirstFetch(event) {
 }
 
 function fromCache(request) {
+  console.log(6);
   // Check to see if you have it in the cache
   // Return response
   // If not in the cache, then return error page
