@@ -66,8 +66,10 @@ self.addEventListener("fetch", function (event) {
   if (event.request.method !== "GET") return;
 
   if (comparePaths(event.request.url, networkFirstPaths)) {
+    console.log(11);
     networkFirstFetch(event);
   } else {
+    console.log(22);
     cacheFirstFetch(event);
   }
 });
