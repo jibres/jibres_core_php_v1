@@ -6,12 +6,12 @@ function registerServiceWorker()
   {
     if (navigator.serviceWorker.controller)
     {
-      console.log("Active service worker found, no need to register");
+      console.log("Active service worker found, no need to register.");
     }
     else
     {
       // Register the service worker
-      navigator.serviceWorker.register("sw.js?v=3", { scope: "./"})
+      navigator.serviceWorker.register("sw-v2.js", { scope: "./"})
       .then(function (_reg)
       {
         console.log("Service worker has been registered for scope " + _reg.scope);
