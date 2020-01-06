@@ -117,6 +117,7 @@
 
 {{block('Box_variant_list')}}
 
+{{block('Box_otherLink')}}
 {{block('Box_deleteProduct')}}
 
   </div>
@@ -209,6 +210,20 @@
 
 {%endblock%}
 
+
+
+{%block Box_otherLink%}
+{%if url.child == 'edit'%}
+  <section class="jbox">
+    <header data-kerkere='.deleteproduct' data-kerkere-icon='open'><h2>{%trans "Reports"%}</h2></header>
+    <div class="pad deleteproduct"  >
+      <ul>
+        <li><a href="{{url.this}}/pricehistory?id={{requestGET.id}}">{%trans "Price change chart"%}</a></li>
+      </ul>
+    </div>
+  </section>
+{%endif%}
+{%endblock%}
 
 
 

@@ -19,7 +19,7 @@ class twigTransTerms
 	echo T_("Write your comment...");                                                 // Line 44
 
 	//------------------------------------------------content_subdomain/home/site.html
-	echo T_("Products");                                                              // Line 4
+	echo T_("Products");                                                              // Line 19
 
 	//-----------------------------------------content_subdomain/products/display.html
 	echo T_("Search in products");                                                    // Line 46
@@ -114,7 +114,7 @@ class twigTransTerms
 	echo T_("Careers");                                                               // Line 8
 	echo T_("Social Responsibility");                                                 // Line 25
 	echo T_("FAQ");                                                                   // Line 31
-	echo T_("Jibres");                                                                // Line 15
+	echo T_("Jibres");                                                                // Line 49
 	echo T_("Benefits");                                                              // Line 16
 	echo T_("Pricing");                                                               // Line 15
 	echo T_("Changelog");                                                             // Line 18
@@ -123,7 +123,7 @@ class twigTransTerms
 	echo T_("Privacy Policy");                                                        // Line 24
 	echo T_("Support");                                                               // Line 115
 	echo T_("Contact");                                                               // Line 14
-	echo T_("Logo");                                                                  // Line 198
+	echo T_("Logo");                                                                  // Line 196
 	echo T_("System Status");                                                         // Line 33
 	echo T_("Iran NSR Certification");                                                // Line 53
 	echo T_("Iran NSR");                                                              // Line 53
@@ -197,7 +197,7 @@ class twigTransTerms
 	//-------------------------------------------------content/pricing/priceTable.html
 	echo T_("Free Plan");                                                             // Line 6
 	echo T_("Free");                                                                  // Line 69
-	echo T_("All the basics for personal use.");                                      // Line 258
+	echo T_("All the basics for personal use.");                                      // Line 256
 	echo T_("Also <span class='txtB'>sell on social networks</span> with easy online payment.");// Line 8
 	echo T_("Beta Version");                                                          // Line 9
 	echo T_("Free Invoicing");                                                        // Line 55
@@ -472,15 +472,15 @@ class twigTransTerms
 	echo T_("List of sales");                                                         // Line 25
 	echo T_("List of purchases");                                                     // Line 26
 	echo T_("List of all factors");                                                   // Line 27
-	echo T_("Reports");                                                               // Line 34
+	echo T_("Reports");                                                               // Line 218
 	echo T_("Daily report");                                                          // Line 20
 	echo T_("Monthly report");                                                        // Line 20
 	echo T_("Setting");                                                               // Line 13
-	echo T_("Store plans");                                                           // Line 47
-	echo T_("Factor settings");                                                       // Line 48
-	echo T_("Shift transformation");                                                  // Line 55
+	echo T_("Store plans");                                                           // Line 49
+	echo T_("Factor settings");                                                       // Line 50
+	echo T_("Shift transformation");                                                  // Line 56
 	echo T_("Logout");                                                                // Line 19
-	echo T_("You are active user");                                                   // Line 68
+	echo T_("You are active user");                                                   // Line 69
 
 	//------------------------------------------includes/html/sidebar/sidebar-cms.html
 	echo T_("News");                                                                  // Line 88
@@ -1131,6 +1131,18 @@ class twigTransTerms
 	echo T_("Label of your permission");                                              // Line 18
 	echo T_("Remove");                                                                // Line 153
 
+	//------------------------------------------content_a/setting/address/display.html
+	echo T_("Based on your country some of our options will be changed.");            // Line 10
+	echo T_("Save");                                                                  // Line 179
+	echo T_("Country");                                                               // Line 125
+	echo T_("Choose your country");                                                   // Line 129
+	echo T_("Province");                                                              // Line 54
+	echo T_("Please choose country");                                                 // Line 56
+	echo T_("City");                                                                  // Line 146
+	echo T_("Please choose province");                                                // Line 67
+	echo T_("Post code");                                                             // Line 160
+	echo T_("Phone");                                                                 // Line 178
+
 	//----------------------------------------------content_a/setting/sms/display.html
 	echo T_("Charge your sms account");                                               // Line 11
 	echo T_("Enter an amount to charge your sms account");                            // Line 12
@@ -1139,14 +1151,21 @@ class twigTransTerms
 	echo T_("Your sms balance");                                                      // Line 33
 
 	//------------------------------------------content_a/setting/general/display.html
-	echo T_("Save");                                                                  // Line 179
-	echo T_("Enable");                                                                // Line 220
-	echo T_("Closed");                                                                // Line 46
+	echo T_("Stroe settings");                                                        // Line 35
+	echo T_("Set your store address");                                                // Line 38
+	echo T_("Store legal information");                                               // Line 39
+	echo T_("Set logo of your store");                                                // Line 40
+	echo T_("Payment channels");                                                      // Line 41
+	echo T_("Point of sale hardwares");                                               // Line 42
+	echo T_("Setting up shipping rates");                                             // Line 43
+	echo T_("Store Units");                                                           // Line 44
+	echo T_("Tax settings");                                                          // Line 45
 
 	//---------------------------------------------content_a/setting/fund/display.html
 	echo T_("Add new fund");                                                          // Line 19
 	echo T_("Edit");                                                                  // Line 151
 	echo T_("Disable");                                                               // Line 221
+	echo T_("Enable");                                                                // Line 220
 	echo T_("Add");                                                                   // Line 147
 	echo T_("Is default fund?");                                                      // Line 50
 	echo T_("Is sale online from this fund?");                                        // Line 59
@@ -1156,15 +1175,57 @@ class twigTransTerms
 	echo T_("Enter a valid name from 3 to 40 character");                             // Line 79
 	echo T_("Status");                                                                // Line 217
 	echo T_("Action");                                                                // Line 16
-	echo T_("Country");                                                               // Line 125
-	echo T_("Choose your country");                                                   // Line 129
-	echo T_("Pos");                                                                   // Line 445
+	echo T_("Pos");                                                                   // Line 443
 	echo T_("Select pos");                                                            // Line 159
-	echo T_("City");                                                                  // Line 146
 	echo T_("Select city");                                                           // Line 148
-	echo T_("Post code");                                                             // Line 160
-	echo T_("Phone");                                                                 // Line 178
 	echo T_("Fax");                                                                   // Line 186
+
+	//------------------------------------------content_a/setting/pos-old/display.html
+	echo T_("Add new pos to you store");                                              // Line 26
+	echo T_("Pos issuer bank");                                                       // Line 28
+	echo T_("Add pos");                                                               // Line 46
+	echo T_("Bank");                                                                  // Line 58
+	echo T_("Default");                                                               // Line 64
+	echo T_("Is default");                                                            // Line 127
+	echo T_("PcPos");                                                                 // Line 76
+	echo T_("Set as default");                                                        // Line 90
+	echo T_("Enable irankish PC POS");                                                // Line 115
+	echo T_("Serial");                                                                // Line 188
+	echo T_("Terminal");                                                              // Line 126
+	echo T_("Receiver");                                                              // Line 131
+	echo T_("Enable asanpardakht PC POS");                                            // Line 146
+	echo T_("Port");                                                                  // Line 161
+
+	//----------------------------------------------content_a/setting/vat/display.html
+	echo T_("Manage how your store calculates and shows tax on your store.");         // Line 12
+	echo T_("Do you want to calc tax?");                                              // Line 18
+	echo T_("If tax is enable, we are add in products and factors based on antoher settings.");// Line 20
+	echo T_("If you turn it off, we are totally hide tax options from everywhere!");  // Line 20
+	echo T_("VAT default value for new product");                                     // Line 28
+	echo T_("You can change default value for VAT on add new product.");              // Line 30
+	echo T_("Show all prices with tax included");                                     // Line 37
+	echo T_("If taxes are charged on shipping rates, then taxes are included in the shipping price.");// Line 39
+	echo T_("Charge tax on shipping rates");                                          // Line 46
+	echo T_("Include shipping rates in the tax calculation.");                        // Line 48
+
+	//-----------------------------------------content_a/setting/shipping/display.html
+	echo T_("Selling physical products? You need to ship them!");                     // Line 10
+	echo T_("Do you have shipping?");                                                 // Line 16
+	echo T_("Ship to");                                                               // Line 26
+	echo T_("Static price");                                                          // Line 75
+	echo T_("Ship to other country");                                                 // Line 59
+
+	//--------------------------------------content_a/setting/payment-old/display.html
+	echo T_("Enable zarinpal payment");                                               // Line 37
+	echo T_("Enable asanpardakht payment");                                           // Line 65
+	echo T_("Enable parsian payment");                                                // Line 132
+	echo T_("Enable payir payment");                                                  // Line 151
+	echo T_("Enable irkish payment");                                                 // Line 170
+
+	//---------------------------------------------content_a/setting/logo/display.html
+	echo T_("You can set it later but in setup process we help you to quick start."); // Line 10
+	echo T_("So, it's better to set it now!");                                        // Line 10
+	echo T_("Please use square logo!");                                               // Line 11
 
 	//-------------------------------------------content_a/setting/factor/display.html
 	echo T_("Print status");                                                          // Line 8
@@ -1175,8 +1236,18 @@ class twigTransTerms
 	echo T_("Footer");                                                                // Line 36
 	echo T_("Factor footer");                                                         // Line 37
 
+	//--------------------------------------------content_a/setting/units/display.html
+	echo T_("Please choose your store default units.");                               // Line 10
+	echo T_("Store Currency");                                                        // Line 15
+	echo T_("This is the currency your products are sold in.");                       // Line 24
+	echo T_("After your first sale, currency is locked in and can't be changed.");    // Line 24
+	echo T_("Weight Unit");                                                           // Line 29
+	echo T_("This is the unit for your product weight.");                             // Line 39
+	echo T_("Dimensions Unit");                                                       // Line 44
+	echo T_("We are get product dimensions in this unit.");                           // Line 54
+
 	//-----------------------------------content_a/setting/plan/currentPlanDetail.html
-	echo T_("Upgrade");                                                               // Line 80
+	echo T_("Upgrade");                                                               // Line 104
 	echo T_("Continuation");                                                          // Line 21
 	echo T_("Change plan");                                                           // Line 28
 	echo T_("Current Plan");                                                          // Line 220
@@ -1185,7 +1256,7 @@ class twigTransTerms
 	echo T_("days left");                                                             // Line 307
 	echo T_("Expired");                                                               // Line 206
 	echo T_("History");                                                               // Line 321
-	echo T_("Plan");                                                                  // Line 29
+	echo T_("Plan");                                                                  // Line 17
 	echo T_("Start");                                                                 // Line 328
 	echo T_("End");                                                                   // Line 329
 	echo T_("Expire");                                                                // Line 126
@@ -1195,8 +1266,8 @@ class twigTransTerms
 	echo T_("Require");                                                               // Line 160
 	echo T_("Promo code");                                                            // Line 31
 	echo T_("If you have promo code, enter it to give some discount!");               // Line 124
-	echo T_("Choose your plan");                                                      // Line 254
-	echo T_("Simple");                                                                // Line 276
+	echo T_("Choose your plan");                                                      // Line 252
+	echo T_("Simple");                                                                // Line 274
 	echo T_("Standard");                                                              // Line 244
 	echo T_("Choose your plan period");                                               // Line 159
 	echo T_("two month is free");                                                     // Line 169
@@ -1214,17 +1285,22 @@ class twigTransTerms
 	echo T_("Starter");                                                               // Line 70
 	echo T_("Renew");                                                                 // Line 221
 	echo T_("Choose plan");                                                           // Line 226
-	echo T_("Yearly");                                                                // Line 269
+	echo T_("Yearly");                                                                // Line 267
 	echo T_("Change plan manual");                                                    // Line 247
 
 	//----------------------------------------content_a/setting/plan/choosePeriod.html
 
 	//------------------------------------------content_a/setting/payment/display.html
-	echo T_("Enable zarinpal payment");                                               // Line 37
-	echo T_("Enable asanpardakht payment");                                           // Line 65
-	echo T_("Enable parsian payment");                                                // Line 132
-	echo T_("Enable payir payment");                                                  // Line 151
-	echo T_("Enable irkish payment");                                                 // Line 170
+	echo T_("You need at least one payment method to collect payment from your customers.");// Line 10
+	echo T_("Online payment");                                                        // Line 16
+	echo T_("Such as Credit card, PayPal and Stripe.");                               // Line 18
+	echo T_("Check Payments");                                                        // Line 23
+	echo T_("Check Payments is a payment gateway that doesn't require payment to be made online.");// Line 25
+	echo T_("Direct Bank Transfer");                                                  // Line 30
+	echo T_("Direct Bank Transfer, or Bank Account Clearing System (BACS), is a gateway that require no payment be made online.");// Line 32
+	echo T_("Cash on delivery");                                                      // Line 38
+	echo T_("Cash on Delivery (COD) is a payment gateway that required no payment be made online.");// Line 40
+	echo T_("Orders using Cash on Delivery are set to Processing until payment is made upon delivery of the order by you or your shipping method.");// Line 40
 
 	//---------------------------------------------content_a/setting/home/display.html
 	echo T_("Hi");                                                                    // Line 7
@@ -1262,54 +1338,55 @@ class twigTransTerms
 	echo T_("Social Network");                                                        // Line 106
 	echo T_("Without traffic");                                                       // Line 143
 	echo T_("Last traffic");                                                          // Line 145
-	echo T_("General Detail");                                                        // Line 28
-	echo T_("Store Plan");                                                            // Line 152
-	echo T_("Insert");                                                                // Line 173
-	echo T_("Save All");                                                              // Line 177
-	echo T_("Faveicon");                                                              // Line 185
-	echo T_("allowed extentions jpg, png, ico. Max 500Kb");                           // Line 188
-	echo T_("allowed extentions jpg, png (gif for business plans). Max 500Kb");       // Line 201
-	echo T_("Team short name");                                                       // Line 213
-	echo T_("Used for url of board");                                                 // Line 213
-	echo T_("Slug of team for board url");                                            // Line 215
-	echo T_("Link your logo on board for visitors");                                  // Line 222
-	echo T_("For show in factors");                                                   // Line 247
-	echo T_("Everything you need for a growing business.");                           // Line 264
-	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 276
-	echo T_("Full");                                                                  // Line 280
-	echo T_("For big companies that need fix price per month.");                      // Line 280
-	echo T_("Force show in specefic language");                                       // Line 289
+	echo T_("Insert");                                                                // Line 171
+	echo T_("Save All");                                                              // Line 175
+	echo T_("Faveicon");                                                              // Line 183
+	echo T_("allowed extentions jpg, png, ico. Max 500Kb");                           // Line 186
+	echo T_("allowed extentions jpg, png (gif for business plans). Max 500Kb");       // Line 199
+	echo T_("Team short name");                                                       // Line 211
+	echo T_("Used for url of board");                                                 // Line 211
+	echo T_("Slug of team for board url");                                            // Line 213
+	echo T_("Link your logo on board for visitors");                                  // Line 220
+	echo T_("For show in factors");                                                   // Line 245
+	echo T_("Everything you need for a growing business.");                           // Line 262
+	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 274
+	echo T_("Full");                                                                  // Line 278
+	echo T_("For big companies that need fix price per month.");                      // Line 278
+	echo T_("Force show in specefic language");                                       // Line 287
 	echo T_("Please select one language");                                            // Line 32
-	echo T_("Persian");                                                               // Line 292
-	echo T_("English");                                                               // Line 293
-	echo T_("Report Header");                                                         // Line 303
-	echo T_("Report Footer");                                                         // Line 311
-	echo T_("Active print factor");                                                   // Line 322
-	echo T_("Fish print");                                                            // Line 378
-	echo T_("Short");                                                                 // Line 342
-	echo T_("A4");                                                                    // Line 382
-	echo T_("A5");                                                                    // Line 386
-	echo T_("Default print_size");                                                    // Line 367
-	echo T_("No default");                                                            // Line 434
-	echo T_("Cash");                                                                  // Line 441
+	echo T_("Persian");                                                               // Line 290
+	echo T_("English");                                                               // Line 291
+	echo T_("Report Header");                                                         // Line 301
+	echo T_("Report Footer");                                                         // Line 309
+	echo T_("Active print factor");                                                   // Line 320
+	echo T_("Fish print");                                                            // Line 376
+	echo T_("Short");                                                                 // Line 340
+	echo T_("A4");                                                                    // Line 380
+	echo T_("A5");                                                                    // Line 384
+	echo T_("Default print_size");                                                    // Line 365
+	echo T_("No default");                                                            // Line 432
+	echo T_("Cash");                                                                  // Line 439
 	echo T_("Check");                                                                 // Line 140
-	echo T_("Default pay");                                                           // Line 431
+	echo T_("Default pay");                                                           // Line 429
 
 	//----------------------------------------------content_a/setting/pos/display.html
-	echo T_("Add new pos to you store");                                              // Line 26
-	echo T_("Pos issuer bank");                                                       // Line 28
-	echo T_("Add pos");                                                               // Line 46
-	echo T_("Bank");                                                                  // Line 58
-	echo T_("Default");                                                               // Line 64
-	echo T_("Is default");                                                            // Line 127
-	echo T_("PcPos");                                                                 // Line 76
-	echo T_("Set as default");                                                        // Line 90
-	echo T_("Enable irankish PC POS");                                                // Line 115
-	echo T_("Serial");                                                                // Line 188
-	echo T_("Terminal");                                                              // Line 126
-	echo T_("Receiver");                                                              // Line 131
-	echo T_("Enable asanpardakht PC POS");                                            // Line 146
-	echo T_("Port");                                                                  // Line 161
+	echo T_("You can change these settings everytime.");                              // Line 12
+	echo T_("You can use barcode scanners to quickly enter products to the cart at checkout.");// Line 15
+	echo T_("If already you have barcode reader in your store, please tell us to add related fileds into products.");// Line 15
+	echo T_("Have barcode reader?");                                                  // Line 19
+	echo T_("If already you have scale with label printer, tell us.");                // Line 24
+	echo T_("We allow you to scan barcode of scale receipt, then we detect product and add them automatically.");// Line 24
+	echo T_("Have scale with label printer?");                                        // Line 29
+
+	//------------------------------------------content_a/setting/company/display.html
+	echo T_("If you want to issue an official invoice, complete your legal information.");// Line 10
+	echo T_("It's totaly optional!");                                                 // Line 10
+	echo T_("VAT number");                                                            // Line 16
+	echo T_("Company name");                                                          // Line 220
+	echo T_("Economic code");                                                         // Line 59
+	echo T_("Company national id");                                                   // Line 67
+	echo T_("Company register number");                                               // Line 76
+	echo T_("CEO nationalcode");                                                      // Line 85
 
 	//----------------------------------------content_a/setting/inventory/display.html
 	echo T_("Add new inventory");                                                     // Line 19
@@ -1583,7 +1660,7 @@ class twigTransTerms
 	echo T_("Price change in time line");                                             // Line 26
 
 	//--------------------------------------------content_a/products/home/display.html
-	echo T_("Variants");                                                              // Line 178
+	echo T_("Variants");                                                              // Line 179
 	echo T_("in stock");                                                              // Line 57
 	echo T_("For");                                                                   // Line 60
 	echo T_("variants");                                                              // Line 60
@@ -1668,11 +1745,12 @@ class twigTransTerms
 	echo T_("Know which products are the most profitable and which you should re-order when.");// Line 79
 	echo T_("Demand forecasting!");                                                   // Line 79
 	echo T_("Receive recommendations on your products based on your rate of sales."); // Line 79
-	echo T_("Units");                                                                 // Line 132
-	echo T_("Dimensions");                                                            // Line 136
-	echo T_("Cart Limit");                                                            // Line 159
-	echo T_("Organization");                                                          // Line 192
-	echo T_("Delete product");                                                        // Line 218
+	echo T_("Units");                                                                 // Line 133
+	echo T_("Dimensions");                                                            // Line 137
+	echo T_("Cart Limit");                                                            // Line 160
+	echo T_("Organization");                                                          // Line 193
+	echo T_("Price change chart");                                                    // Line 221
+	echo T_("Delete product");                                                        // Line 233
 	echo T_("Remove product");                                                        // Line 107
 
 	//---------------------------------------content_a/products/duplicate/display.html
@@ -1682,10 +1760,6 @@ class twigTransTerms
 	echo T_("Copy");                                                                  // Line 15
 
 	//--------------------------------------------content_a/setup/address/display.html
-	echo T_("Based on your country some of our options will be changed.");            // Line 10
-	echo T_("Province");                                                              // Line 54
-	echo T_("Please choose country");                                                 // Line 56
-	echo T_("Please choose province");                                                // Line 67
 
 	//----------------------------------------------content_a/setup/owner/display.html
 	echo T_("Fill your name and public detail to save on your store.");               // Line 10
@@ -1698,69 +1772,18 @@ class twigTransTerms
 	echo T_("yyyy/mm/dd");                                                            // Line 34
 
 	//------------------------------------------------content_a/setup/vat/display.html
-	echo T_("Manage how your store calculates and shows tax on your store.");         // Line 12
-	echo T_("Do you want to calc tax?");                                              // Line 18
-	echo T_("If tax is enable, we are add in products and factors based on antoher settings.");// Line 20
-	echo T_("If you turn it off, we are totally hide tax options from everywhere!");  // Line 20
-	echo T_("VAT default value for new product");                                     // Line 28
-	echo T_("You can change default value for VAT on add new product.");              // Line 30
-	echo T_("Show all prices with tax included");                                     // Line 37
-	echo T_("If taxes are charged on shipping rates, then taxes are included in the shipping price.");// Line 39
-	echo T_("Charge tax on shipping rates");                                          // Line 46
-	echo T_("Include shipping rates in the tax calculation.");                        // Line 48
 
 	//-------------------------------------------content_a/setup/shipping/display.html
-	echo T_("Selling physical products? You need to ship them!");                     // Line 10
-	echo T_("Do you have shipping?");                                                 // Line 16
-	echo T_("Ship to");                                                               // Line 26
-	echo T_("Static price");                                                          // Line 75
-	echo T_("Ship to other country");                                                 // Line 59
 
 	//-----------------------------------------------content_a/setup/logo/display.html
-	echo T_("You can set it later but in setup process we help you to quick start."); // Line 10
-	echo T_("So, it's better to set it now!");                                        // Line 10
-	echo T_("Please use square logo!");                                               // Line 11
 
 	//----------------------------------------------content_a/setup/units/display.html
-	echo T_("Please choose your store default units.");                               // Line 10
-	echo T_("Store Currency");                                                        // Line 15
-	echo T_("This is the currency your products are sold in.");                       // Line 24
-	echo T_("After your first sale, currency is locked in and can't be changed.");    // Line 24
-	echo T_("Weight Unit");                                                           // Line 29
-	echo T_("This is the unit for your product weight.");                             // Line 39
-	echo T_("Dimensions Unit");                                                       // Line 44
-	echo T_("We are get product dimensions in this unit.");                           // Line 54
 
 	//--------------------------------------------content_a/setup/payment/display.html
-	echo T_("You need at least one payment method to collect payment from your customers.");// Line 10
-	echo T_("Online payment");                                                        // Line 16
-	echo T_("Such as Credit card, PayPal and Stripe.");                               // Line 18
-	echo T_("Check Payments");                                                        // Line 23
-	echo T_("Check Payments is a payment gateway that doesn't require payment to be made online.");// Line 25
-	echo T_("Direct Bank Transfer");                                                  // Line 30
-	echo T_("Direct Bank Transfer, or Bank Account Clearing System (BACS), is a gateway that require no payment be made online.");// Line 32
-	echo T_("Cash on delivery");                                                      // Line 38
-	echo T_("Cash on Delivery (COD) is a payment gateway that required no payment be made online.");// Line 40
-	echo T_("Orders using Cash on Delivery are set to Processing until payment is made upon delivery of the order by you or your shipping method.");// Line 40
 
 	//------------------------------------------------content_a/setup/pos/display.html
-	echo T_("You can change these settings everytime.");                              // Line 12
-	echo T_("You can use barcode scanners to quickly enter products to the cart at checkout.");// Line 15
-	echo T_("If already you have barcode reader in your store, please tell us to add related fileds into products.");// Line 15
-	echo T_("Have barcode reader?");                                                  // Line 19
-	echo T_("If already you have scale with label printer, tell us.");                // Line 24
-	echo T_("We allow you to scan barcode of scale receipt, then we detect product and add them automatically.");// Line 24
-	echo T_("Have scale with label printer?");                                        // Line 29
 
 	//--------------------------------------------content_a/setup/company/display.html
-	echo T_("If you want to issue an official invoice, complete your legal information.");// Line 10
-	echo T_("It's totaly optional!");                                                 // Line 10
-	echo T_("VAT number");                                                            // Line 16
-	echo T_("Company name");                                                          // Line 220
-	echo T_("Economic code");                                                         // Line 59
-	echo T_("Company national id");                                                   // Line 67
-	echo T_("Company register number");                                               // Line 76
-	echo T_("CEO nationalcode");                                                      // Line 85
 
 	//-----------------------------------------------------content_a/sale/display.html
 	echo T_("Choose customer");                                                       // Line 111
@@ -1936,7 +1959,7 @@ class twigTransTerms
 	echo T_("Virtually anything you can do in the customer dashboard may be done via API.");// Line 11
 	echo T_("We offers public APIs with three audiences in mind.");                   // Line 13
 	echo T_("Partners");                                                              // Line 15
-	echo T_("Customers");                                                             // Line 16
+	echo T_("Customers");                                                             // Line 22
 	echo T_("Developers");                                                            // Line 17
 	echo T_("The API documentation will start with a general overview about the design and technology that has been implemented, followed by reference information about specific endpoints.");// Line 20
 
@@ -2436,6 +2459,7 @@ class twigTransTerms
 	echo T_("Terminate");                                                             // Line 52
 
 	//--------------------------------------------------content_crm/member/layout.html
+	echo T_("General Detail");                                                        // Line 28
 	echo T_("Identification detail");                                                 // Line 29
 	echo T_("Contact information");                                                   // Line 30
 	echo T_("Education");                                                             // Line 37
@@ -2506,7 +2530,7 @@ class twigTransTerms
 	echo T_("Check book");                                                            // Line 27
 	echo T_("branch");                                                                // Line 62
 	echo T_("vajh");                                                                  // Line 63
-	echo T_("owner");                                                                 // Line 20
+	echo T_("owner");                                                                 // Line 14
 	echo T_("babat");                                                                 // Line 65
 	echo T_("thirdparty");                                                            // Line 66
 	echo T_("amount");                                                                // Line 67
@@ -2577,26 +2601,28 @@ class twigTransTerms
 	//-------------------------------------------------------content_i/jib/layout.html
 	echo T_("Is default?");                                                           // Line 45
 
+	//------------------------------------------------content_m/analytics/display.html
+	echo T_("Id");                                                                    // Line 14
+	echo T_("Last activity");                                                         // Line 158
+	echo T_("Factors");                                                               // Line 20
+	echo T_("Sum factors");                                                           // Line 21
+
 	//-----------------------------------------------------content_m/home/display.html
+	echo T_("Store analytics");                                                       // Line 20
 	echo T_("Store list");                                                            // Line 6
 
 	//-----------------------------------------------------------content_m/layout.html
 
 	//----------------------------------------------------content_m/store/display.html
-	echo T_("id");                                                                    // Line 14
-	echo T_("subdomain");                                                             // Line 15
-	echo T_("dbip");                                                                  // Line 16
-	echo T_("creator");                                                               // Line 17
-	echo T_("ip");                                                                    // Line 18
-	echo T_("title");                                                                 // Line 19
+	echo T_("id");                                                                    // Line 11
+	echo T_("subdomain");                                                             // Line 12
+	echo T_("title");                                                                 // Line 13
 	echo T_("status");                                                                // Line 89
 	echo T_("plan");                                                                  // Line 12
 	echo T_("datecreated");                                                           // Line 106
-	echo T_("startplan");                                                             // Line 24
-	echo T_("expireplan");                                                            // Line 25
-	echo T_("lastactivity");                                                          // Line 26
-	echo T_("dbversion");                                                             // Line 27
-	echo T_("dbversiondate");                                                         // Line 28
+	echo T_("dbversion");                                                             // Line 18
+	echo T_("dbversiondate");                                                         // Line 19
+	echo T_("creator");                                                               // Line 20
 
 	//----------------------------------content_pardakhtyar/customer/home/display.html
 	echo T_("Search in customers");                                                   // Line 42
@@ -2745,7 +2771,7 @@ class twigTransTerms
 	echo T_("Choose Parent");                                                         // Line 136
 	echo T_("Without Parent");                                                        // Line 137
 	echo T_("End part of your post url.");                                            // Line 563
-	echo T_("Click to download");                                                     // Line 97
+	echo T_("Click to download");                                                     // Line 114
 	echo T_("MP3");                                                                   // Line 242
 	echo T_("Without preview");                                                       // Line 246
 
@@ -2835,7 +2861,7 @@ class twigTransTerms
 	echo T_("Please wait This operation may take a few minutes");                     // Line 13
 	echo T_("Backup now");                                                            // Line 34
 	echo T_("Sise");                                                                  // Line 36
-	echo T_("No backup was found");                                                   // Line 110
+	echo T_("No backup was found");                                                   // Line 135
 
 	//----------------------------------------content_cms/attachment/home/display.html
 	echo T_("File Name");                                                             // Line 59
@@ -3119,7 +3145,7 @@ class twigTransTerms
 
 	//------------------------------------------------content_su/dbtables/display.html
 	echo T_("Search in :dbtabless");                                                  // Line 57
-	echo T_("Try to start with add new :dbtables!");                                  // Line 112
+	echo T_("Try to start with add new :dbtables!");                                  // Line 116
 
 	//----------------------------------------------------content_su/info/display.html
 	echo T_("Show server info");                                                      // Line 8
@@ -3205,29 +3231,29 @@ class twigTransTerms
 	echo T_("Backup database");                                                       // Line 5
 	echo T_("File is empty");                                                         // Line 15
 	echo T_("Database info");                                                         // Line 25
-	echo T_("Show Auto backup log file");                                             // Line 30
 	echo T_("You have another database for logs");                                    // Line 38
 	echo T_("Click for create backup from log database");                             // Line 38
 	echo T_("Auto backup");                                                           // Line 51
-	echo T_("Start backup every");                                                    // Line 131
-	echo T_("Year");                                                                  // Line 133
-	echo T_("Month");                                                                 // Line 134
-	echo T_("Week");                                                                  // Line 135
-	echo T_("Day");                                                                   // Line 136
-	echo T_("hour");                                                                  // Line 137
-	echo T_("Start backup at time");                                                  // Line 142
-	echo T_("Life time of old backup");                                               // Line 172
-	echo T_("2 years");                                                               // Line 174
-	echo T_("one year");                                                              // Line 175
-	echo T_("6 months");                                                              // Line 176
-	echo T_("3 months");                                                              // Line 177
-	echo T_("2 months");                                                              // Line 178
-	echo T_("one month");                                                             // Line 179
-	echo T_("one week");                                                              // Line 180
-	echo T_("2 weeks");                                                               // Line 181
-	echo T_("one day");                                                               // Line 182
-	echo T_("3 days");                                                                // Line 183
-	echo T_("5 days");                                                                // Line 184
+	echo T_("Download zip");                                                          // Line 126
+	echo T_("Start backup every");                                                    // Line 156
+	echo T_("Year");                                                                  // Line 158
+	echo T_("Month");                                                                 // Line 159
+	echo T_("Week");                                                                  // Line 160
+	echo T_("Day");                                                                   // Line 161
+	echo T_("hour");                                                                  // Line 162
+	echo T_("Start backup at time");                                                  // Line 167
+	echo T_("Life time of old backup");                                               // Line 197
+	echo T_("2 years");                                                               // Line 199
+	echo T_("one year");                                                              // Line 200
+	echo T_("6 months");                                                              // Line 201
+	echo T_("3 months");                                                              // Line 202
+	echo T_("2 months");                                                              // Line 203
+	echo T_("one month");                                                             // Line 204
+	echo T_("one week");                                                              // Line 205
+	echo T_("2 weeks");                                                               // Line 206
+	echo T_("one day");                                                               // Line 207
+	echo T_("3 days");                                                                // Line 208
+	echo T_("5 days");                                                                // Line 209
 
 	//-----------------------------------------------content_su/tg/system/display.html
 	echo T_("Chatid");                                                                // Line 60
@@ -3288,16 +3314,18 @@ class twigTransTerms
 	echo T_("If you want to show git pull result click below link");                  // Line 29
 	echo T_("Pull gir repository");                                                   // Line 30
 	echo T_("Force unlock page");                                                     // Line 36
-	echo T_("Run all step by one click");                                             // Line 43
-	echo T_("For when you don't have heavy updates");                                 // Line 43
-	echo T_("Run all");                                                               // Line 44
-	echo T_("Lock");                                                                  // Line 57
-	echo T_("Lock service");                                                          // Line 58
-	echo T_("Pull");                                                                  // Line 68
-	echo T_("Pull service");                                                          // Line 69
-	echo T_("Update database");                                                       // Line 81
-	echo T_("Unlock");                                                                // Line 91
-	echo T_("Unlock service");                                                        // Line 92
+	echo T_("Database need to upgrade");                                              // Line 45
+	echo T_("Stores");                                                                // Line 57
+	echo T_("Run all step by one click");                                             // Line 67
+	echo T_("For when you don't have heavy updates");                                 // Line 67
+	echo T_("Run all");                                                               // Line 68
+	echo T_("Lock");                                                                  // Line 81
+	echo T_("Lock service");                                                          // Line 82
+	echo T_("Pull");                                                                  // Line 92
+	echo T_("Pull service");                                                          // Line 93
+	echo T_("Update database");                                                       // Line 105
+	echo T_("Unlock");                                                                // Line 115
+	echo T_("Unlock service");                                                        // Line 116
 
 	//-------------------------------------------------content_su/session/display.html
 
@@ -3353,7 +3381,6 @@ class twigTransTerms
 
 	//-------------------------------------------------content_store/home/display.html
 	echo T_("From");                                                                  // Line 89
-	echo T_("Last activity");                                                         // Line 158
 	echo T_("Jibres can painlessly and quickly help you to start your online business.");// Line 105
 	echo T_("#1 World Sales Engineering System");                                     // Line 106
 	echo T_("Build my own store");                                                    // Line 109

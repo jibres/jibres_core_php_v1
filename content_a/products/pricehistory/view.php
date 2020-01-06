@@ -10,8 +10,10 @@ class view
 		\dash\data::page_desc(T_('Check price change of this product like buy, sale and profit.'));
 		\dash\data::page_pictogram('chart-line');
 
-		\dash\data::badge_text(T_('Back to product list'));
-		\dash\data::badge_link(\dash\url::this());
+		// back
+		\dash\data::page_backText(T_('Back'));
+		\dash\data::page_backLink(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+
 
 
 		$chart = \lib\app\product\updateprice::chart(\dash\request::get('id'));
