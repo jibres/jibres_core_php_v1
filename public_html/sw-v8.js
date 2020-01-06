@@ -47,10 +47,10 @@ self.addEventListener("install", function (event) {
       console.log(71);
       return cache.addAll(precacheFiles).then(function () {
       console.log(72);
-        if (offlineFallbackPage === "offline.html") {
-      console.log(73);
-          return cache.add(new Response("Update the value of the offlineFallbackPage constant in the serviceworker."));
-        }
+      //   if (offlineFallbackPage === "offline.html") {
+      // console.log(73);
+      //     return cache.add(new Response("Update the value of the offlineFallbackPage constant in the serviceworker."));
+      //   }
       console.log(74);
 
         return cache.add(offlineFallbackPage);
