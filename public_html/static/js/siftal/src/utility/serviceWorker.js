@@ -1,7 +1,7 @@
 function registerServiceWorker()
 {
   removeAllServiceWorkers();
-  return;
+  // return;
   if ('serviceWorker' in navigator)
   {
     if (navigator.serviceWorker.controller)
