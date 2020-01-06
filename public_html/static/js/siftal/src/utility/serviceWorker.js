@@ -9,7 +9,7 @@ function registerServiceWorker()
     else
     {
       // Register the service worker
-      navigator.serviceWorker.register("/static/js/sw.js?v=1", { scope: "./"})
+      navigator.serviceWorker.register("sw.js?v=2", { scope: "./"})
       .then(function (_reg)
       {
         console.log("Service worker has been registered for scope " + _reg.scope);
