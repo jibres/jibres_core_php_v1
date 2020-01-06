@@ -55,15 +55,19 @@ self.addEventListener("install", function (event) {
   );
 });
 
+console.log(1);
 // Allow sw to control of current page
 self.addEventListener("activate", function (event) {
   console.log("Claiming clients for current page");
   event.waitUntil(self.clients.claim());
 });
+console.log(2);
 
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function (event) {
+console.log(3);
   if (event.request.method !== "GET") return;
+console.log(4);
 
   if (comparePaths(event.request.url, networkFirstPaths)) {
     console.log(11);
