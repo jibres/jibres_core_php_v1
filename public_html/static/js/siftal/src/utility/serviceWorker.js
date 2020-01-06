@@ -1,7 +1,7 @@
 function registerServiceWorker()
 {
-  removeAllServiceWorkers();
-  // return;
+  // removeAllServiceWorkers();
+
   if ('serviceWorker' in navigator)
   {
     if (navigator.serviceWorker.controller)
@@ -11,7 +11,7 @@ function registerServiceWorker()
     else
     {
       // Register the service worker
-      navigator.serviceWorker.register("sw-v8.js", { scope: "./"})
+      navigator.serviceWorker.register("sw-v9.js", { scope: "./"})
       .then(function (_reg)
       {
         console.log("Service worker has been registered for scope " + _reg.scope);

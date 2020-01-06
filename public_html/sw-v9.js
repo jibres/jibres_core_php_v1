@@ -44,14 +44,10 @@ self.addEventListener("install", function (event) {
     caches.open(CACHE).then(function (cache) {
       console.log("Caching pages during install");
 
-      console.log(71);
       return cache.addAll(precacheFiles).then(function () {
-      console.log(72);
       //   if (offlineFallbackPage === "offline.html") {
-      // console.log(73);
       //     return cache.add(new Response("Update the value of the offlineFallbackPage constant in the serviceworker."));
       //   }
-      console.log(74);
 
         return cache.add(offlineFallbackPage);
       });
@@ -59,31 +55,24 @@ self.addEventListener("install", function (event) {
   );
 });
 
-console.log(1);
 // Allow sw to control of current page
 self.addEventListener("activate", function (event) {
   console.log("Claiming clients for current page");
   event.waitUntil(self.clients.claim());
 });
-console.log(2);
 
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function (event) {
-console.log(3);
   if (event.request.method !== "GET") return;
-console.log(4);
 
   if (comparePaths(event.request.url, networkFirstPaths)) {
-    console.log(11);
     networkFirstFetch(event);
   } else {
-    console.log(22);
     cacheFirstFetch(event);
   }
 });
 
 function cacheFirstFetch(event) {
-  console.log(8);
   event.respondWith(
     fromCache(event.request).then(
       function (response) {
@@ -126,7 +115,6 @@ function cacheFirstFetch(event) {
 }
 
 function networkFirstFetch(event) {
-  console.log(5);
   event.respondWith(
     fetch(event.request)
       .then(function (response) {
@@ -142,7 +130,6 @@ function networkFirstFetch(event) {
 }
 
 function fromCache(request) {
-  console.log(6);
   // Check to see if you have it in the cache
   // Return response
   // If not in the cache, then return error page
