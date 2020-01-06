@@ -4,7 +4,7 @@ namespace dash\app\user;
 
 trait add
 {
-	public static function quick_add($_args)
+	public static function quick_add($_args = [])
 	{
 		// in stroe whene user signuped we need to set jibres_user_id
 		if(\dash\engine\store::inStore() && isset($_args['mobile']))
