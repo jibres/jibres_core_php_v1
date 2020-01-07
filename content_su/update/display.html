@@ -47,16 +47,16 @@
     {%if needUpgrade.jibres%}
       <div class="c">
         <span>{%trans "Jibres"%}</span>
-         <div>current version {{needUpgrade.jibres.current}}</div>
-         <div>new version {{needUpgrade.jibres.upgrade}}</div>
+         <div>{%trans "current version" %} {{needUpgrade.jibres.current}}</div>
+         <div>{%trans "new version" %} {{needUpgrade.jibres.upgrade}}</div>
       </div>
     {%endif%}
 
     {%if needUpgrade.store%}
       <div class="c">
         <span>{%trans "Stores"%}</span>
-         <div>current version {{needUpgrade.store.current}}</div>
-         <div>new version {{needUpgrade.store.upgrade}}</div>
+         <div>{%trans "current version" %} {{needUpgrade.store.current}}</div>
+         <div>{%trans "new version" %} {{needUpgrade.store.upgrade}}</div>
       </div>
     {%endif%}
    </div>

@@ -187,7 +187,8 @@ class upgrade
 	private static function runExecFile($_file, $_fuel)
 	{
 		$fuel    = \dash\engine\fuel::get($_fuel);
-		$exec    = "mysql -u'$fuel[user]' -p'$fuel[pass]' -h'$fuel[host]' < $_file 2>&1";
+		// --force on mysql command mean ignore error if happend and continue to other query
+		$exec    = "mysql --force -u'$fuel[user]' -p'$fuel[pass]' -h'$fuel[host]' < $_file 2>&1";
 		$runExec = exec($exec, $return);
 
 
@@ -270,7 +271,7 @@ class upgrade
 
 		foreach ($store_fuel as $fuel => $query)
 		{
-			$temp_addr = self::temp_sql_addr();
+			$temp_addr = self::temp_store_exec_addr();
 			$query = array_map(function($_a) {return implode(' ; ', $_a);}, $query);
 			$query = implode(' ; ', $query);
 			\dash\file::write($temp_addr, $query);
@@ -278,6 +279,12 @@ class upgrade
 		}
 
 		self::update_all_database_version();
+	}
+
+
+	private static function temp_store_exec_addr()
+	{
+		return __DIR__. '/temp.me.exec';
 	}
 
 
