@@ -13,7 +13,7 @@
     replace: false,
     filter: null,
     fake: false,
-    data: false,
+    data: {pushState: 1},
     nostate: false,
     abort: true,
     ajax:
