@@ -33,7 +33,7 @@
 
 
 #quote{background-image:url(/static/images/homepage/quote-supersaeed-sadeghi.jpg);min-height:500px;background-position:top left;background-repeat:no-repeat;background-size:cover;position:relative;color:#fff;overflow: hidden;}
-#quote .title{position:absolute;top:0;bottom:0;width:40%;min-width:280px;max-width:400px;margin:0 auto;right:10%;font-size:1.7em;text-align:center;background-color:rgba(255,255,255,0.1);padding:5em 1em 0;transition:0.3s;}
+#quote .title{position:absolute;top:0;bottom:0;width:40%;min-width:280px;max-width:400px;margin:0 auto;right:10%;font-size:1.5em;text-align:center;background-color:rgba(255,255,255,0.1);padding:5em 1em 0;transition:0.3s;}
 #quote:hover .title{text-shadow: 0 0 5px #fff}
 #quote .title h4{font-weight:400;line-height:1.6em;margin-bottom:2em}
 #quote .title h5{font-weight:400;font-size:1.1em;color:#ddd;}
@@ -41,7 +41,7 @@
 
 #keepitsimple{background:#3850cc;background:-webkit-linear-gradient(left,#3230a0, #4895ff 70%,#aabbff);background:linear-gradient(90deg,#3230a0, #4895ff 70%,#aabbff);color:#fff;position:relative;}
 #keepitsimple .title{font-size:2em;text-align:center;padding:7em 5px;}
-#keepitsimple .title h2{font-weight:900;font-size:3em;margin-bottom:0;position:relative;margin-bottom:1em;}
+#keepitsimple .title h2{font-weight:900;font-size:3em;line-height:2;margin-bottom:0;position:relative;margin-bottom:1em;}
 #keepitsimple .title h2:after{content:"";position:absolute;bottom:0;right:0;left:0;width:50px;height:1px;margin:0 auto;background-color:#ddd;transition:0.3s;}
 #keepitsimple:hover .title h2:after{background-color:#fff;width:100px;}
 #keepitsimple .title h3{font-weight:100;font-size:1em;color:#eee;}
