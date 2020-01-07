@@ -18,7 +18,7 @@
 
 
 {%block iManufacturer%}
-<div>
+<div class="mB10">
   <label for='company'>{%trans "Manufacturer"%}</label>
   <select name="company" id="company" class="select22" data-model="tag" data-placeholder='{%trans "Product manufacturer"%}'>
     <option></option>
@@ -34,7 +34,7 @@
 
 
 {%block iCat%}
-<div>
+<div class="mB10">
   <label for='cat'>{%trans "Cat"%}</label>
   <select name="cat" id="cat" class="select22" data-model="tag" data-placeholder='{%trans "Select or add new category"%}' {%if productDataRow.parent%} disabled {%endif%}>
     <option></option>
@@ -320,7 +320,7 @@
 
 
 {%block iStatus%}
-<div>
+<div class="mB10">
   <label for="status">{%trans "Status"%}</label>
   <select name="status" id="status" class="select22">
     <option value="available" {%if productDataRow.status == 'available' %} selected {%endif%}>{%trans "Available"%}</option>
@@ -352,7 +352,7 @@
 
 {%block iTag%}
 {%if perm('productAssignTag')%}
-<div>
+<div class="mB10">
   <label for='tag'>{%trans "Tag"%}</label>
   <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
     {%for key, value in listTag%}

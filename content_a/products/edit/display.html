@@ -131,11 +131,11 @@
 {%block Box_units %}
 <section class="jbox">
   <div data-response='type' data-response-where='product|file' {%if productDataRow.type == 'service'%} data-response-hide {%endif%}>
-  <header data-kerkere='.unitsgPanel' data-kerkere-icon='open'><h2>{%trans "Units"%}</h2></header>
-  <div class="pad unitsgPanel">
+  <header data-kerkere='.unitsgPanel' data-kerkere-icon='close'><h2>{%trans "Units"%}</h2></header>
+  <div class="pad unitsgPanel hideIn">
 
     <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product'%} {%else%} data-response-hide {%endif%}>
-        <div>{%trans "Dimensions"%} <small class="fc-mute">@ {{store.store_data.length_detail.name}}</small></div>
+        <div>{%trans "Dimensions"%} <span class="fc-mute"> {{store.store_data.length_detail.name}}</span></div>
       <div class="f">
         <div class="c">{{block('iLength')}}</div>
         <div class="c mLa5">{{block('iWidth')}}</div>
