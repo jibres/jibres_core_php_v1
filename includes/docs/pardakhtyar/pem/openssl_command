@@ -5,7 +5,7 @@ openssl genrsa -out private_key.pem 2048
 
 # Make Public key
 ```
-openssl rsa -in private_key.pem -outform PEM -pubout -out ROZP_13981909_01.pem
+openssl rsa -in private_key.pem -outform PEM -pubout -out ROZP_13980919_01.pem
 ```
 
 
@@ -18,6 +18,6 @@ openssl dgst -sha256 -sign private_key.pem -out ROZP_13980919_01.json.sign ROZP_
 
 ## Verifying just the signature:
 ```
-openssl dgst -sha256 -verify ROZP_13981909_01.pem -signature ROZP_13980919_01.json.sign ROZP_13980919_01.json
+openssl dgst -sha256 -verify ROZP_13980919_01.pem -signature ROZP_13980919_01.json.sign ROZP_13980919_01.json
 ```
 
