@@ -7,6 +7,11 @@ const precacheFiles = [
   "/static/siftal/images/cert/enamad2.png",
   "/static/siftal/images/cert/samandehi.png",
   "/static/siftal/images/cert/shamad.png",
+  "/static/img/logo/icon/png/Jibres-Logo-icon-144.png",
+  "/manifest.webmanifes",
+  "/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
+  ""
+
 ];
 
 const offlineFallbackPage = "offline.html";
@@ -69,16 +74,25 @@ self.addEventListener("activate", function (event) {
 });
 
 // If any fetch fails, it will look for the request in the cache and serve it from there first
-self.addEventListener("fetch", function (event) {
-  if (event.request.method !== "GET") return;
-  // if (event.url.indexOf('{"') !== -1) { return; }
-  console.log(event);
-  console.log(event.request);
+self.addEventListener("fetch", function (event)
+{
+  if (event.request.method !== "GET")
+  {
+    return;
+  }
+  if (comparePaths(event.request.url, avoidCachingPaths))
+  {
+    return;
+  }
+  // if ajax, dont cache
 
 
-  if (comparePaths(event.request.url, networkFirstPaths)) {
+  if (comparePaths(event.request.url, networkFirstPaths))
+  {
     networkFirstFetch(event);
-  } else {
+  }
+  else
+  {
     cacheFirstFetch(event);
   }
 });
