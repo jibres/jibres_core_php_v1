@@ -11,7 +11,7 @@ function registerServiceWorker()
     else
     {
       // Register the service worker
-      navigator.serviceWorker.register("sw-v20.js", { scope: "./"})
+      navigator.serviceWorker.register("sw-v21.js", { scope: "./"})
       .then(function (_reg)
       {
         console.log("Service worker has been registered for scope " + _reg.scope);

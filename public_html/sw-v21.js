@@ -8,7 +8,7 @@ const precacheFiles = [
   "/static/siftal/images/cert/samandehi.png",
   "/static/siftal/images/cert/shamad.png",
   "/static/img/logo/icon/png/Jibres-Logo-icon-144.png",
-  "/manifest.webmanifes",
+  "/manifest.webmanifest",
   "/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
 ];
 
