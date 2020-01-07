@@ -36,7 +36,7 @@ function calcProductMargin()
   }
 
   // set discount rate
-  if(discountRate > 1000)
+  if(discountRate > 100000)
   {
     $('#discountRate').text('+ ∞');
   }
