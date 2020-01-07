@@ -11,26 +11,23 @@
 .typed-cursor{opacity: 1;font-weight: 100;animation: blink 0.7s infinite;}
 @keyframes blink{ 0% { opacity:1; } 50% { opacity:0.3; } 100% { opacity:1; } }
 
-#saleChannels{padding: 150px 0;font-size: 1.8em;text-align: center;}
+#saleChannels{padding: 150px 0;font-size: 1.6em;text-align: center;}
 #saleChannels h2{font-size: 3em;color:#444;font-weight: 700;}
 #saleChannels .title{margin-bottom: 50px;}
-#saleChannels h3{font-size: 1.2em;color: #333;font-weight: 700;}
+#saleChannels h3{font-size: 1.3em;color: #333;font-weight: 700;}
+.rtl #saleChannels h3{font-size: 1.1em;font-weight: 800;}
 #saleChannels .item{margin:1em 0.8em;background-color: #ffffff;border-radius: 0.5em;box-shadow: 0 0 1.5em rgba(220,90,90,0.15);padding: 40px 10px;-webkit-transition: all 0.3s linear 0s;transition: all 0.3s linear 0s;overflow: hidden;}
 #saleChannels .item:hover{box-shadow: 0 0 2em rgba(220,90,90,0.3);}
 #saleChannels .item:active{box-shadow: 0 0 2em rgba(220,90,90,0.4);}
 #saleChannels .item img{display: block;min-height: 75px;max-height: 100px;margin-bottom:20px;}
 
-#roadmap{background-image:url(/static/images/homepage/jibres-roadmap.jpg);min-height:300px;background-attachment:fixed;background-position:center;background-repeat:no-repeat;background-size:cover;position:relative;color:#fff}
-
-/*#roadmap .title{position:absolute;top:15%;left:10%;font-size:2em;text-align:center;z-index:1}*/
-#roadmap .title{font-size:2em;text-align:left;z-index:1;padding:3em 10%;}
-#roadmap .title:before{content:"";position:absolute;top:0;bottom:0;right:0;left:0;background-color:#000;opacity:0.3;transition:0.3s}
-#roadmap:hover .title{text-shadow: 0 0 10px #fff;}
-#roadmap:hover .title:before{opacity:0.5;}
-#roadmap .title h2{font-weight:400;font-size:4.5em;margin-bottom:0;position:relative;z-index:1;transition:0.3s;text-shadow: 0 0 5px #fff;}
-.rtl #roadmap .title h2{font-size: 3.5em;}
-#roadmap .title h3{font-weight:100;font-size:1.5em;position:relative;z-index:1}
-#roadmap .title h3{-webkit-animation:pulse 2s infinite ease-in-out;-o-animation:pulse 2s infinite ease-in-out;-ms-animation:pulse 2s infinite ease-in-out;-moz-animation:pulse 2s infinite ease-in-out;animation:pulse 2s infinite ease-in-out}
+#roadmap{min-height:400px;padding:50px 0;position:relative;color:#000;background-color:#fbfdff;font-size:1.7em;}
+#roadmap:before{content:"";position:absolute;top:0;bottom:0;right:0;left:0;background-color:#000;opacity:0;transition:0.3s}
+#roadmap:hover:before{opacity:0.05;}
+#roadmap img{max-height: 300px;display: block;margin:0 auto;border-radius: 1em;}
+#roadmap h2{text-align:center;font-weight:400;font-size:4em;line-height:1.5;margin:0;position:relative;z-index:1;transition:0.3s;text-shadow: 0 0 5px #fff;}
+#roadmap h3{text-align:center;font-weight:700;font-size:1em;line-height:2;position:relative;z-index:1;-webkit-animation:pulse 2s infinite ease-in-out;-o-animation:pulse 2s infinite ease-in-out;-ms-animation:pulse 2s infinite ease-in-out;-moz-animation:pulse 2s infinite ease-in-out;animation:pulse 2s infinite ease-in-out}
+#roadmap:hover h3{text-shadow: 0 0 10px #fff;}
 @-webkit-keyframes pulse { 0%{opacity:.2} 50%{opacity:.7} 100%{opacity:.2} }
 @keyframes pulse { 0%{opacity:.2} 50%{opacity:.7} 100%{opacity:.2}}
 
