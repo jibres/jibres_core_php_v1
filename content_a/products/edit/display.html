@@ -16,12 +16,12 @@
     <section class="jbox">
       <header class="hide" data-kerkere='.jboxPrice' data-kerkere-icon='open'><h2>{%trans "Pricing Model"%}</h2></header>
       <div class="pad jboxPrice">
+        <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+          {{block ('iBuyprice') }}
+        </div>
         <div class="f">
           <div class="c s12 pRa5">{{block ('iPrice') }}</div>
           <div class="c s12">{{block ('iCompareAtPrice') }}</div>
-        </div>
-        <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
-          {{block ('iBuyprice') }}
         </div>
         {% if store.store_data.tax_status%}
           {{block ('iVat') }}
@@ -33,18 +33,6 @@
     <section class="jbox">
       <header data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2>{%trans "Inventory"%}</h2></header>
       <div class="pad jboxCodes">
-        <div class="f">
-         <div class="c s12 pRa5">
-          {{block ('iSKU') }}
-         </div>
-        {%if store.store_data.barcode and store.store_data.scale%}
-         <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
-           <div class="c6 s12">
-            {{block('iCodeOnScale')}}
-           </div>
-        </div>
-        {%endif%}
-       </div>
 
         {%if store.store_data.barcode%}
         <div class="f">
@@ -62,6 +50,19 @@
          </div>
         </div>
         {%endif%}
+
+        <div class="f">
+         <div class="c s12 pRa5">
+          {{block ('iSKU') }}
+         </div>
+        {%if store.store_data.barcode and store.store_data.scale%}
+         <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+           <div class="c6 s12">
+            {{block('iCodeOnScale')}}
+           </div>
+        </div>
+        {%endif%}
+       </div>
 
       <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
         {{block('iInfinite')}}
