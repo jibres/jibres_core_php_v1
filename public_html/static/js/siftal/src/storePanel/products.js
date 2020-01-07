@@ -78,7 +78,7 @@ function calcProductMargin()
   // $('#finalPrice').parent().parent().find('label span').text(fitNumber(finalPriceTxt, false));
   finalPriceEl.text(fitNumber(finalPrice));
 
-  if(cost)
+  if(price && cost)
   {
     grossProfit       = finalPrice - cost;
     grossProfitMargin = ((finalPrice - cost) / cost)  * 100;
@@ -174,7 +174,7 @@ function calcProductMargin()
     finalPriceMsgEl.removeClass('warn');
     finalPriceMsgEl.removeClass('success');
   }
-  else if(finalPrice < cost)
+  else if(finalPrice <= cost)
   {
     finalPriceMsgEl.removeClass('danger');
     finalPriceMsgEl.addClass('warn');
