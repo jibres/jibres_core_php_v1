@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\address;
+namespace content_a\setup\address;
 
 
 class view
