@@ -245,7 +245,7 @@
     var options = $.extend(true, {}, props.ajax,
     {
       url: props.url,
-      // headers: { 'Cached-MD5': props.md5 }
+      headers: { 'x-request-type': 'pushState' }
     });
 
     var deferred = new jQuery.Deferred();
