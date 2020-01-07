@@ -10,8 +10,6 @@ const precacheFiles = [
   "/static/img/logo/icon/png/Jibres-Logo-icon-144.png",
   "/manifest.webmanifes",
   "/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
-  ""
-
 ];
 
 const offlineFallbackPage = "offline.html";
@@ -84,7 +82,7 @@ self.addEventListener("fetch", function (event)
   {
     return;
   }
-  // if ajax, dont cache
+  // if ajax, dont cache request
 
 
   if (comparePaths(event.request.url, networkFirstPaths))
