@@ -26,10 +26,12 @@ class model
 				break;
 
 			case 'all':
+				$start = time();
 				self::lock();
 				self::pull();
 				self::upgrade();
 				self::unlock();
+				\dash\notif::info(T_("Operation complete at :val second", ['val' => \dash\utility\human::fitNumber(time() - $start)]));
 				break;
 
 			default:
