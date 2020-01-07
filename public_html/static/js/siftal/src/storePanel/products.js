@@ -19,9 +19,11 @@ function calcProductMargin()
   var grossProfit         = 0;
   // grossProfitMargin    = (price - cost) / price
   var grossProfitMargin   = 0;
-  // useful elements
-  var grossProfitMarginEl = $('.grossProfitMargin');
+  // get money value
   var moneyUnit           = $('#finalprice').attr('data-unit');
+  // useful elements
+  var grossProfitEl       = $('.grossProfitMargin');
+  var discountEl          = $('#discount').parent();
 
   // calc final price
   if(discount)
@@ -78,47 +80,79 @@ function calcProductMargin()
   {
     grossProfit       = finalPrice - cost;
     grossProfitMargin = ((finalPrice - cost) / cost)  * 100;
-    // grossProfitMargin = parseFloat(grossProfitMargin.toFixed(2))
-    console.log(finalPrice);
-    console.log(cost);
-    console.log(grossProfit);
-    console.log(grossProfitMargin);
+    grossProfitMargin = parseFloat(grossProfitMargin.toFixed(2))
   }
 
   // set val
   if(grossProfitMargin)
   {
-    grossProfitMarginEl.find('.c').html(fitNumber(grossProfitMargin) + '%');
-    grossProfitMarginEl.find('.cauto').html(fitNumber(grossProfit) + ' ' + moneyUnit);
-    grossProfitMarginEl.attr('data-percent', grossProfitMargin).slideDown('fast');
+    if(grossProfitMargin > 100000)
+    {
+      grossProfitEl.find('.c').html('+ ∞');
+    }
+    else if(grossProfitMargin < 0)
+    {
+      grossProfitEl.find('.c').html('- ∞');
+    }
+    else
+    {
+      grossProfitEl.find('.c').html(fitNumber(grossProfitMargin) + '%');
+    }
+    grossProfitEl.find('.cauto').html(fitNumber(grossProfit) + ' ' + moneyUnit);
+    grossProfitEl.attr('data-percent', grossProfitMargin).slideDown('fast');
   }
   else
   {
-    grossProfitMarginEl.find('.c').html('-');
-    grossProfitMarginEl.find('.cauto').html('-');
-    grossProfitMarginEl.attr('data-percent', grossProfitMargin).slideUp('fast');
+    grossProfitEl.find('.c').html('-');
+    grossProfitEl.find('.cauto').html('-');
+    grossProfitEl.attr('data-percent', grossProfitMargin).slideUp('fast');
   }
 
   // change design based on change
   if(grossProfitMargin > 10)
   {
-    grossProfitMarginEl.find('.msg').removeClass('danger2')
-    grossProfitMarginEl.find('.msg').removeClass('info2')
-    grossProfitMarginEl.find('.msg').addClass('success2')
+    grossProfitEl.find('.msg').removeClass('danger2')
+    grossProfitEl.find('.msg').removeClass('info2')
+    grossProfitEl.find('.msg').addClass('success2')
   }
   else if(grossProfitMargin > 0)
   {
-    grossProfitMarginEl.find('.msg').removeClass('danger2')
-    grossProfitMarginEl.find('.msg').addClass('info2')
-    grossProfitMarginEl.find('.msg').removeClass('success2')
+    grossProfitEl.find('.msg').removeClass('danger2')
+    grossProfitEl.find('.msg').addClass('info2')
+    grossProfitEl.find('.msg').removeClass('success2')
   }
   else
   {
-    grossProfitMarginEl.find('.msg').addClass('danger2')
-    grossProfitMarginEl.find('.msg').removeClass('info2')
-    grossProfitMarginEl.find('.msg').removeClass('success2')
+    grossProfitEl.find('.msg').addClass('danger2')
+    grossProfitEl.find('.msg').removeClass('info2')
+    grossProfitEl.find('.msg').removeClass('success2')
   }
 
+  if(discountRate > 80)
+  {
+    discountEl.removeClass('danger2')
+    discountEl.removeClass('success2')
+    discountEl.addClass('warn')
+  }
+  else if(discountRate > 0)
+  {
+    discountEl.removeClass('danger2')
+    discountEl.addClass('success2')
+    discountEl.removeClass('warn')
+  }
+  else if(discountRate == 0)
+  {
+    discountEl.removeClass('danger2')
+    discountEl.removeClass('success2')
+    discountEl.removeClass('warn')
+  }
+  else
+  {
+    discountEl.addClass('danger2')
+    discountEl.removeClass('success2')
+    discountEl.removeClass('warn')
+    discountRate = 0;
+  }
 
 
 
@@ -128,25 +162,6 @@ return;
   if(price && compareAtPrice)
   {
     discountMargin = (((compareAtPrice - price) / compareAtPrice)  * 100).toFixed(2);
-  }
-  if(discountMargin > 80)
-  {
-    discountMarginEl.removeClass('danger2')
-    discountMarginEl.removeClass('success2')
-    discountMarginEl.addClass('warn')
-  }
-  else if(discountMargin > 0)
-  {
-    discountMarginEl.removeClass('danger2')
-    discountMarginEl.removeClass('warn')
-    discountMarginEl.addClass('success2')
-  }
-  else
-  {
-    discountMarginEl.removeClass('success2')
-    discountMarginEl.removeClass('warn')
-    discountMarginEl.addClass('danger2')
-    discountMargin = 0;
   }
   // set val
   if(discountMargin)
