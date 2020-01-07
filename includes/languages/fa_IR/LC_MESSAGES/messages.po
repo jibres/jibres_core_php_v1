@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-01-07 13:11+0330\n"
-"PO-Revision-Date: 2020-01-07 13:13+0330\n"
+"POT-Creation-Date: 2020-01-07 16:49+0330\n"
+"PO-Revision-Date: 2020-01-07 16:49+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -49,7 +49,7 @@ msgstr "ما توسعه دهنده هستیم، صبور باشید!"
 #: content/contact/view.php:9 content_cms/contact/edit/controller.php:10
 #: content_cms/contact/home/view.php:11
 #: content_support/ticket/contact_ticket/model.php:194
-#: includes/languages/trans_project.php:3372
+#: includes/languages/trans_project.php:3374
 msgid "Contact Us"
 msgstr "تماس با ما"
 
@@ -74,7 +74,7 @@ msgstr "سردرد دارید؟ ما راه‌حل‌هایی برای شما د
 msgid "Unlock system"
 msgstr "بازکردن قفل سیستم"
 
-#: content/help/faq/view.php:9 includes/languages/trans_project.php:3415
+#: content/help/faq/view.php:9 includes/languages/trans_project.php:3417
 msgid "Frequently Asked Questions"
 msgstr "سوالات متداول"
 
@@ -210,76 +210,76 @@ msgstr ""
 msgid "Back to last sales"
 msgstr "بازگشت به آخرین فروش‌ها"
 
-#: content_a/cats/add/view.php:8 content_a/cats/home/view.php:14
+#: content_a/category/add/view.php:8 content_a/category/home/view.php:14
 #: content_i/category/add/view.php:11 content_i/category/home/view.php:15
-#: includes/languages/trans_project.php:1450
+#: includes/languages/trans_project.php:1551
 msgid "Add new category"
 msgstr "افزودن دسته‌بندی جدید"
 
-#: content_a/cats/add/view.php:9
+#: content_a/category/add/view.php:9
 msgid "You can add new category."
 msgstr "شما می‌توانید دسته‌بندی جدیدی اضافه کنید."
 
-#: content_a/cats/add/view.php:14 content_a/cats/edit/view.php:14
-#: content_a/cats/property/view.php:14 content_a/cats/remove/view.php:14
+#: content_a/category/add/view.php:14 content_a/category/edit/view.php:14
+#: content_a/category/property/view.php:14 content_a/category/remove/view.php:14
 #: includes/languages/trans_project.php:2089
 msgid "Category list"
 msgstr "لیست دسته‌بندی‌ها"
 
-#: content_a/cats/edit/model.php:16 content_a/cats/property/model.php:16
+#: content_a/category/edit/model.php:16 content_a/category/property/model.php:16
 msgid "Category file deleted"
 msgstr "تصویر دسته‌بندی حذف شد"
 
-#: content_a/cats/edit/model.php:35
+#: content_a/category/edit/model.php:35
 msgid "Category successfully updated"
 msgstr "دسته‌بندی با موفقیت به‌روزرسانی شد"
 
-#: content_a/cats/edit/view.php:8 content_a/cats/edit/view.php:20
-#: content_a/cats/remove/view.php:21 content_i/category/edit/view.php:9
+#: content_a/category/edit/view.php:8 content_a/category/edit/view.php:20
+#: content_a/category/remove/view.php:21 content_i/category/edit/view.php:9
 msgid "Edit category"
 msgstr "ویرایش دسته‌‌بندی"
 
-#: content_a/cats/edit/view.php:9 content_a/cats/home/view.php:9
+#: content_a/category/edit/view.php:9 content_a/category/home/view.php:9
 msgid "You can manage your categories manually."
 msgstr "شما می‌توانید دسته‌بندی‌های خود را دستی ویرایش کنید."
 
-#: content_a/cats/home/view.php:8
+#: content_a/category/home/view.php:8
 msgid "Product categories"
 msgstr "دسته‌بندی محصولات"
 
-#: content_a/cats/home/view.php:9
+#: content_a/category/home/view.php:9
 msgid "Don't worry! we are add categories automatically on add new product"
 msgstr ""
 "نگران نباشید! ما به‌صورت خودکار هنگام افزودن محصول جدید دسته آن را اضافه می‌کنیم"
 
-#: content_a/cats/home/view.php:37 content_cms/terms/view.php:112
+#: content_a/category/home/view.php:37 content_cms/terms/view.php:112
 #: content_subdomain/products/view.php:54 content_support/ticket/tags/view.php:30
 #: includes/languages/trans_project.php:26
 #: includes/languages/trans_static_public.php:113
 msgid "Search"
 msgstr "جستجو"
 
-#: content_a/cats/property/view.php:8
+#: content_a/category/property/view.php:8
 msgid "Property of category"
 msgstr "خصیصه‌های دسته‌بندی"
 
-#: content_a/cats/property/view.php:9
+#: content_a/category/property/view.php:9
 msgid "You can manage your categories property manually."
 msgstr "شما می‌توانید خصیصه‌های دسته‌بندی خود را دستی مدیریت کنید."
 
-#: content_a/cats/property/view.php:20
+#: content_a/category/property/view.php:20
 msgid "Category property"
 msgstr "خصیصه برای دسته‌بندی"
 
-#: content_a/cats/remove/model.php:18
+#: content_a/category/remove/model.php:18
 msgid "Category successfully deleted"
 msgstr "دسته‌بندی با موفقیت حذف شد"
 
-#: content_a/cats/remove/view.php:8 includes/languages/trans_project.php:1439
+#: content_a/category/remove/view.php:8 includes/languages/trans_project.php:1540
 msgid "Remove category"
 msgstr "حذف دسته‌بندی"
 
-#: content_a/cats/remove/view.php:9
+#: content_a/category/remove/view.php:9
 msgid "You can remove your categories manually."
 msgstr "شما می‌توانید دسته‌بندی‌های خود را دستی حذف کنید."
 
@@ -318,7 +318,7 @@ msgstr "بازگشت به آخرین خرید‌ها"
 #: lib/app/product/company.php:107 lib/app/product/company.php:264
 #: lib/app/product/company.php:295 lib/app/product/company.php:396
 #: lib/app/product/company.php:424 lib/app/product/edit.php:39
-#: lib/app/product/get.php:15 lib/app/product/unit.php:128
+#: lib/app/product/get.php:16 lib/app/product/unit.php:128
 #: lib/app/product/unit.php:286 lib/app/product/unit.php:317
 #: lib/app/product/unit.php:421 lib/app/store/edit.php:37 lib/app/store/edit.php:77
 msgid "Store not found"
@@ -403,7 +403,7 @@ msgid "Invalid"
 msgstr "نامعتبر"
 
 #: content_a/filter.php:71 content_a/filter.php:140
-#: includes/languages/trans_project.php:1493 includes/languages/trans_static.php:61
+#: includes/languages/trans_project.php:1441 includes/languages/trans_static.php:61
 #: lib/app/factor/search.php:79 lib/app/factor/search.php:87
 #: lib/app/factor/search.php:104
 msgid "Customer"
@@ -451,7 +451,7 @@ msgstr "بدون حداکثر موجودی"
 msgid "Whithout discount"
 msgstr "بدون تخفیف"
 
-#: content_a/filter.php:130 includes/languages/trans_project.php:1494
+#: content_a/filter.php:130 includes/languages/trans_project.php:1442
 #: includes/languages/trans_static.php:69
 msgid "Supplier"
 msgstr "تامین‌کننده"
@@ -538,7 +538,7 @@ msgid "Add new product"
 msgstr "افزودن محصول جدید"
 
 #: content_a/products/add/view.php:13 content_a/products/duplicate/view.php:22
-#: content_a/products/edit/view.php:52 content_a/products/pricehistory/view.php:14
+#: content_a/products/edit/view.php:33 content_a/products/pricehistory/view.php:14
 #: content_a/setting/address/view.php:11 content_a/setting/company/view.php:11
 #: content_a/setting/factor/view.php:11 content_a/setting/logo/view.php:15
 #: content_a/setting/maximum/view.php:18 content_a/setting/payment/view.php:11
@@ -557,7 +557,7 @@ msgstr "افزودن محصول جدید"
 msgid "Back"
 msgstr "بازگشت"
 
-#: content_a/products/add/view.php:17 content_a/products/edit/view.php:44
+#: content_a/products/add/view.php:17 content_a/products/edit/view.php:25
 #: content_a/products/export/view.php:12 content_a/products/home/view.php:10
 #: content_a/products/import/view.php:12 includes/languages/trans_project.php:22
 msgid "Products"
@@ -1495,7 +1495,7 @@ msgstr "ماموریت"
 msgid "Website"
 msgstr "وب‌سایت"
 
-#: content_api/v1/app/controller.php:227 includes/languages/trans_project.php:1500
+#: content_api/v1/app/controller.php:227 includes/languages/trans_project.php:1448
 msgid "More"
 msgstr "بیشتر"
 
@@ -1616,12 +1616,12 @@ msgstr "تصویر شاخص محصول تنظیم شد"
 msgid "File removed from gallery"
 msgstr "فایل از گالری حذف شد"
 
-#: content_api/v1/product/comment.php:14 lib/app/product/get.php:21
+#: content_api/v1/product/comment.php:14 lib/app/product/get.php:22
 msgid "Product id not set"
 msgstr "شناسه محصول یافت نشد"
 
 #: content_api/v1/product/comment.php:20 lib/app/product/edit.php:57
-#: lib/app/product/get.php:27
+#: lib/app/product/get.php:28
 msgid "Invalid product id"
 msgstr "شناسه محصول اشتباه است"
 
@@ -3043,7 +3043,7 @@ msgid "Add jib"
 msgstr "افزودن جیب"
 
 #: content_m/analytics/view.php:9 content_m/store/view.php:9
-#: includes/languages/trans_project.php:3328
+#: includes/languages/trans_project.php:3330
 msgid "Stores"
 msgstr "فروشگاه‌ها"
 
@@ -3199,7 +3199,7 @@ msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
 msgid "Creating your store"
 msgstr "درحال ساخت فروشگاه شما"
 
-#: content_store/error/view.php:9 includes/languages/trans_project.php:3381
+#: content_store/error/view.php:9 includes/languages/trans_project.php:3383
 msgid "Oops!"
 msgstr "اوه!"
 
@@ -3680,7 +3680,7 @@ msgid "Un solved ticket"
 msgstr "تیکت‌های حل نشده"
 
 #: content_support/ticket/home/view.php:118
-#: includes/languages/trans_project.php:3451
+#: includes/languages/trans_project.php:3453
 msgid "Solved ticket"
 msgstr "ثبت به عنوان حل شده"
 
@@ -4209,7 +4209,7 @@ msgid "Set close ticket"
 msgstr "وضعیت تیکت به بسته شده تغییر کرد"
 
 #: dash/app/log/caller/ticket/ticket_setDeleteTicket.php:8
-#: includes/languages/trans_project.php:3443
+#: includes/languages/trans_project.php:3445
 msgid "Delete ticket"
 msgstr "حذف تیکت"
 
@@ -5004,7 +5004,7 @@ msgstr "کاری نداره شعار ماست!"
 msgid "If you are not finded a solution for your problem, call us."
 msgstr "اگر راه‌کاری مناسب برای مشکل خود نیافته‌اید، با ما تماس بگیرید."
 
-#: dash/engine/view.php:109 includes/languages/trans_project.php:3395
+#: dash/engine/view.php:109 includes/languages/trans_project.php:3397
 msgid "#1 World Sales Engineering System"
 msgstr "#1 جهان در سیستم مهندسی فروش"
 
@@ -5602,7 +5602,7 @@ msgstr "آیا تایید می‌کنید؟"
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/commands/step_ticketCreate.php:111
-#: includes/languages/trans_project.php:1473
+#: includes/languages/trans_project.php:1574
 msgid "Yes"
 msgstr "بلی"
 
@@ -9448,10 +9448,345 @@ msgid "Last scanned barcode"
 msgstr "آخرین بارکد اسکن شده"
 
 #: includes/languages/trans_project.php:1433
+msgid "No factor founded."
+msgstr "هیچ فاکتوری یافت نشد."
+
+#: includes/languages/trans_project.php:1434
+msgid "Search with new keywords or barcode."
+msgstr "با کلیدواژه‌های بهتر یا بارکد دیگری جستجو کنید."
+
+#: includes/languages/trans_project.php:1435
+msgid "Add new sale"
+msgstr "افزودن فروش جدید"
+
+#: includes/languages/trans_project.php:1436
+msgid "Add new buy"
+msgstr "افزودن خرید جدید"
+
+#: includes/languages/trans_project.php:1437
+msgid "You are not have factor yet! add new one."
+msgstr "شما هنوز هیچ فاکتوری ندارید! یک اضافه کنید."
+
+#: includes/languages/trans_project.php:1438
+msgid "Search in factors list"
+msgstr "جستجو در لیست فاکتور‌ها"
+
+#: includes/languages/trans_project.php:1439
+msgid "You are not register any factor yet!"
+msgstr "شما تا کنون هیچ فاکتوری ثبت نکرده اید!"
+
+#: includes/languages/trans_project.php:1440
+msgid "Advance result"
+msgstr "نتایج پیشرفته"
+
+#: includes/languages/trans_project.php:1443
+msgid "Items"
+msgstr "آیتم‌ها"
+
+#: includes/languages/trans_project.php:1444
+msgid "Invoice Date"
+msgstr "تاریخ فاکتور"
+
+#: includes/languages/trans_project.php:1445
+msgid "Operation"
+msgstr "عملیات"
+
+#: includes/languages/trans_project.php:1446
+msgid "Whithout name"
+msgstr "بدون نام"
+
+#: includes/languages/trans_project.php:1447
+msgid "Quick"
+msgstr "سریع"
+
+#: includes/languages/trans_project.php:1449 includes/languages/trans_static.php:24
+msgid "Sale"
+msgstr "فروش"
+
+#: includes/languages/trans_project.php:1450 includes/languages/trans_static.php:25
+msgid "Buy"
+msgstr "خرید"
+
+#: includes/languages/trans_project.php:1451
+msgid "Prefactor"
+msgstr "پیش فاکتور"
+
+#: includes/languages/trans_project.php:1452 includes/languages/trans_static.php:27
+msgid "Lending"
+msgstr "امانی"
+
+#: includes/languages/trans_project.php:1453 includes/languages/trans_static.php:28
+msgid "Backbuy"
+msgstr "بازگشت از خرید"
+
+#: includes/languages/trans_project.php:1454
+msgid "Backfactor"
+msgstr "بازگشت فاکتور"
+
+#: includes/languages/trans_project.php:1455 includes/languages/trans_static.php:30
+msgid "Waste"
+msgstr "ضایعات محصول"
+
+#: includes/languages/trans_project.php:1456
+msgid "Try to start with add new sale!"
+msgstr "با افزودن فروش جدید تلاشی برای شروع داشته باشید!"
+
+#: includes/languages/trans_project.php:1457
+msgid "Try to start with add new buy!"
+msgstr "با افزودن خردی جدید تلاشی برای شروع داشته باشید!"
+
+#: includes/languages/trans_project.php:1458
+msgid "Other"
+msgstr "سایر"
+
+#: includes/languages/trans_project.php:1459
+msgid "Back buy"
+msgstr "بازگشت از خرید"
+
+#: includes/languages/trans_project.php:1460
+msgid "Back factor"
+msgstr "بازگشت به فاکتور‌"
+
+#: includes/languages/trans_project.php:1461 includes/languages/trans_static.php:22
+msgid "waste"
+msgstr "ضایعات"
+
+#: includes/languages/trans_project.php:1462
+msgid "Filter by product"
+msgstr "فیلتر بر اساس محصول"
+
+#: includes/languages/trans_project.php:1463
+msgid "Filter by customer"
+msgstr "فیلتر بر اساس مشتری"
+
+#: includes/languages/trans_project.php:1464
+msgid "Filter by weekday"
+msgstr "فیلتر بر اساس روز‌ هفته"
+
+#: includes/languages/trans_project.php:1465
+msgid "Filter by date"
+msgstr "فیلتر بر اساس تاریخ"
+
+#: includes/languages/trans_project.php:1466
+msgid "Filter by time"
+msgstr "فیلتر بر اساس زمان"
+
+#: includes/languages/trans_project.php:1467
+msgid "Filter by start and end date"
+msgstr "فیلتر بر اساس بازه زمانی"
+
+#: includes/languages/trans_project.php:1468
+msgid "Filter by price"
+msgstr "فیلتر بر اساس قیمت"
+
+#: includes/languages/trans_project.php:1469
+msgid "Filter by item"
+msgstr "فیلتر بر اساس آیتم"
+
+#: includes/languages/trans_project.php:1470
+msgid "Filter by discount"
+msgstr "فیلتر بر اساس تخفیف"
+
+#: includes/languages/trans_project.php:1471
+msgid "Filter by count"
+msgstr "فیلتر بر اساس تعداد"
+
+#: includes/languages/trans_project.php:1472
+msgid "Filter by type"
+msgstr "فیلتر بر اساس نوع"
+
+#: includes/languages/trans_project.php:1473
+msgid "Clear filter"
+msgstr "پاک‌سازی فیلترها"
+
+#: includes/languages/trans_project.php:1474
+msgid "Apply"
+msgstr "اعمال‌کردن"
+
+#: includes/languages/trans_project.php:1475
+msgid "Please choose product"
+msgstr "لطفا محصول را انتخاب کنید"
+
+#: includes/languages/trans_project.php:1476
+#: includes/languages/trans_static_public.php:887
+msgid "saturday"
+msgstr "شنبه"
+
+#: includes/languages/trans_project.php:1477
+#: includes/languages/trans_static_public.php:881
+msgid "sunday"
+msgstr "یک شنبه"
+
+#: includes/languages/trans_project.php:1478
+#: includes/languages/trans_static_public.php:882
+msgid "monday"
+msgstr "دوشنبه"
+
+#: includes/languages/trans_project.php:1479
+#: includes/languages/trans_static_public.php:883
+msgid "tuesday"
+msgstr "سه شنبه"
+
+#: includes/languages/trans_project.php:1480
+#: includes/languages/trans_static_public.php:884
+msgid "wednesday"
+msgstr "چهارشنبه"
+
+#: includes/languages/trans_project.php:1481
+#: includes/languages/trans_static_public.php:885
+msgid "thursday"
+msgstr "پنج شنبه"
+
+#: includes/languages/trans_project.php:1482
+#: includes/languages/trans_static_public.php:886
+msgid "friday"
+msgstr "جمعه"
+
+#: includes/languages/trans_project.php:1483
+msgid "Special date"
+msgstr "تاریخ خاص"
+
+#: includes/languages/trans_project.php:1484
+msgid "Time"
+msgstr "زمان"
+
+#: includes/languages/trans_project.php:1485
+msgid "Start date"
+msgstr "تاریخ شروع"
+
+#: includes/languages/trans_project.php:1486
+msgid "End date"
+msgstr "تاریخ پایان"
+
+#: includes/languages/trans_project.php:1487
+msgid "Sum price is greater than ..."
+msgstr "جمع مبلغ بزرگتر از ..."
+
+#: includes/languages/trans_project.php:1488
+msgid "Sum price less than ..."
+msgstr "جمع مبلغ کوچکتر از ..."
+
+#: includes/languages/trans_project.php:1489
+msgid "Price is equal to ..."
+msgstr "مبلغ مساوی با ..."
+
+#: includes/languages/trans_project.php:1490
+msgid "Item is greater than ..."
+msgstr "تعداد آیتم بزرگتر از ..."
+
+#: includes/languages/trans_project.php:1491
+msgid "Item less than ..."
+msgstr "تعداد آیتم کوچکتر از ..."
+
+#: includes/languages/trans_project.php:1492
+msgid "Item is equal to ..."
+msgstr "تعداد آیتم مساوی با ..."
+
+#: includes/languages/trans_project.php:1493
+msgid "Sum is greater than ..."
+msgstr "جمع مبلغ بزرگتر از ..."
+
+#: includes/languages/trans_project.php:1494
+msgid "Sum less than ..."
+msgstr "جمع مبلغ کوچکتر از ..."
+
+#: includes/languages/trans_project.php:1495
+msgid "Sum is equal to ..."
+msgstr "جمع مساوی با ..."
+
+#: includes/languages/trans_project.php:1496
+msgid "Discount is greater than ..."
+msgstr "تخفیف بزرگتر از ..."
+
+#: includes/languages/trans_project.php:1497
+msgid "Discount less than ..."
+msgstr "تخفیف کوچکتر از ..."
+
+#: includes/languages/trans_project.php:1498
+msgid "Discount is equal to ..."
+msgstr "تخفیف مساوی با ..."
+
+#: includes/languages/trans_project.php:1499 includes/languages/trans_static.php:16
+msgid "sale"
+msgstr "فروش"
+
+#: includes/languages/trans_project.php:1500 includes/languages/trans_static.php:17
+msgid "buy"
+msgstr "خرید"
+
+#: includes/languages/trans_project.php:1503
+msgid "Final Price"
+msgstr "قیمت نهایی"
+
+#: includes/languages/trans_project.php:1504
+msgid "Save & print"
+msgstr "ذخیره و چاپ"
+
+#: includes/languages/trans_project.php:1505
+msgid "Count of rows"
+msgstr "تعداد ردیف‌ها"
+
+#: includes/languages/trans_project.php:1506
+msgid "Sum of prices"
+msgstr "جمع قیمت‌ها"
+
+#: includes/languages/trans_project.php:1507
+msgid "Sum of discounts"
+msgstr "جمع تخفیف‌ها"
+
+#: includes/languages/trans_project.php:1508
+msgid "Sum of final prices"
+msgstr "جمع قیمت نهایی"
+
+#: includes/languages/trans_project.php:1511
+msgid "Print Status is active"
+msgstr "وضعیت چاپ فاکتور فعال است"
+
+#: includes/languages/trans_project.php:1512
+msgid "Payment detail"
+msgstr "جزئیات حساب بانکی"
+
+#: includes/languages/trans_project.php:1513
+msgid "Choose card reader"
+msgstr "کارت‌خوان را انتخاب کنید"
+
+#: includes/languages/trans_project.php:1514
+msgid "Save Pay & continue"
+msgstr "ذخیره تراکنش و ادامه"
+
+#: includes/languages/trans_project.php:1517
+msgid "Customer Detail"
+msgstr "جزئیات مشتری"
+
+#: includes/languages/trans_project.php:1518
+msgid "Sale Invoice"
+msgstr "فاکتور فروش"
+
+#: includes/languages/trans_project.php:1519
+msgid "Sum"
+msgstr "جمع"
+
+#: includes/languages/trans_project.php:1520
+msgid "Your total discount and profits"
+msgstr "کل تخفیف و سود شما"
+
+#: includes/languages/trans_project.php:1527
+msgid "Buyer Detail"
+msgstr "جزئیات خریدار"
+
+#: includes/languages/trans_project.php:1530
+msgid "Another print formats"
+msgstr "سایر فرمت‌های چاپ"
+
+#: includes/languages/trans_project.php:1531
+msgid "Please choose one format to print factor"
+msgstr "لطفا یک فرمت را برای چاپ انتخاب کنید"
+
+#: includes/languages/trans_project.php:1534
 msgid "Product found in this category"
 msgstr "محصول با این دسته‌بندی یافت شد"
 
-#: includes/languages/trans_project.php:1434
+#: includes/languages/trans_project.php:1535
 msgid ""
 "To remove this category you must set all products by this category as a non "
 "product category or set another category for this products"
@@ -9459,482 +9794,147 @@ msgstr ""
 "برای حذف این دسته شما باید یا همه محصولات این دسته را به عنوان محصول بدون "
 "دسته‌بندی تنظیم کنید و یا اینکه دسته بندی جدید برای این محصولات انتخاب کنید"
 
-#: includes/languages/trans_project.php:1435
+#: includes/languages/trans_project.php:1536
 msgid "Show product list"
 msgstr "نمایش لیست محصولات"
 
-#: includes/languages/trans_project.php:1436
+#: includes/languages/trans_project.php:1537
 msgid "Save and remove category"
 msgstr "ذخیره و حذف دسته‌بندی"
 
-#: includes/languages/trans_project.php:1437
+#: includes/languages/trans_project.php:1538
 msgid "Non product found by this category"
 msgstr "هیچ محصولی با این دسته‌بندی یافت نشد"
 
-#: includes/languages/trans_project.php:1438
+#: includes/languages/trans_project.php:1539
 msgid "You can delete this category now"
 msgstr "شما می‌توانید هم‌اکنون این دسته را حذف کنید"
 
-#: includes/languages/trans_project.php:1440
+#: includes/languages/trans_project.php:1541
 msgid "What do you want to do?"
 msgstr "می‌خواهید چه کاری انجام بدهید؟"
 
-#: includes/languages/trans_project.php:1441
+#: includes/languages/trans_project.php:1542
 msgid "Set all products as a non product category"
 msgstr "تنظیم همه محصولات این دسته به عنوان محصول بدون دسته‌بندی"
 
-#: includes/languages/trans_project.php:1442
+#: includes/languages/trans_project.php:1543
 msgid "Select new category"
 msgstr "انتخاب دسته‌بندی جدید"
 
-#: includes/languages/trans_project.php:1443
+#: includes/languages/trans_project.php:1544
 msgid "New category"
 msgstr "دسته‌بندی جدید"
 
-#: includes/languages/trans_project.php:1444
+#: includes/languages/trans_project.php:1545
 msgid "Select new category to update all product category"
 msgstr "یک دسته‌بندی جدید انتخاب کنید تا همه محصولات آن دسته به‌روزرسانی شود"
 
-#: includes/languages/trans_project.php:1447
+#: includes/languages/trans_project.php:1548
 msgid "Slug"
 msgstr "نامک"
 
-#: includes/languages/trans_project.php:1448
+#: includes/languages/trans_project.php:1549
 msgid "Value type"
 msgstr "نوع مقدار"
 
-#: includes/languages/trans_project.php:1449
+#: includes/languages/trans_project.php:1550
 msgid "Is a default category"
 msgstr "دسته پیش‌فرض است"
 
-#: includes/languages/trans_project.php:1451
+#: includes/languages/trans_project.php:1552
 msgid "Try to start with add new category!"
 msgstr "با افزودن دسته‌ جدید تلاشی برای شروع داشته باشید!"
 
-#: includes/languages/trans_project.php:1454
+#: includes/languages/trans_project.php:1555
 msgid "Default property of this category"
 msgstr "خصیصه‌ پیش‌فرض برای این دسته‌بندی"
 
-#: includes/languages/trans_project.php:1455
+#: includes/languages/trans_project.php:1556
 msgid "Cat"
 msgstr "دسته‌بندی"
 
-#: includes/languages/trans_project.php:1456
+#: includes/languages/trans_project.php:1557
 #: includes/languages/trans_static_public.php:116
 msgid "Key"
 msgstr "کلید"
 
-#: includes/languages/trans_project.php:1457 includes/languages/trans_static.php:313
+#: includes/languages/trans_project.php:1558 includes/languages/trans_static.php:313
 msgid "cat"
 msgstr "دسته"
 
-#: includes/languages/trans_project.php:1458
+#: includes/languages/trans_project.php:1559
 msgid "Add or select"
 msgstr "افزودن یا انتخاب"
 
-#: includes/languages/trans_project.php:1459
+#: includes/languages/trans_project.php:1560
 #: includes/languages/trans_static_public.php:117
 msgid "Value"
 msgstr "مقدار"
 
-#: includes/languages/trans_project.php:1462
+#: includes/languages/trans_project.php:1563
 msgid "Property"
 msgstr "خصیصه"
 
-#: includes/languages/trans_project.php:1465
+#: includes/languages/trans_project.php:1566
 msgid "Download PDF"
 msgstr "دانلود پی‌دی‌اف"
 
-#: includes/languages/trans_project.php:1466
+#: includes/languages/trans_project.php:1567
 msgid "Download File"
 msgstr "دانلود فایل"
 
-#: includes/languages/trans_project.php:1467
+#: includes/languages/trans_project.php:1568
 msgid "Delete file"
 msgstr "حذف فایل"
 
-#: includes/languages/trans_project.php:1468
+#: includes/languages/trans_project.php:1569
 msgid "Category image"
 msgstr "تصویر دسته‌بندی"
 
-#: includes/languages/trans_project.php:1469
+#: includes/languages/trans_project.php:1570
 msgid "Max 1Mb"
 msgstr "حداکثر یک مگابایت"
 
-#: includes/languages/trans_project.php:1470
+#: includes/languages/trans_project.php:1571
 msgid "Is default category?"
 msgstr "دسته پیش‌فرض است؟"
 
-#: includes/languages/trans_project.php:1471
+#: includes/languages/trans_project.php:1572
 msgid "Not show in site"
 msgstr "عدم نمایش در وب‌سایت"
 
-#: includes/languages/trans_project.php:1472
+#: includes/languages/trans_project.php:1573
 msgid "Show in website"
 msgstr "نمایش در وب‌سایت"
 
-#: includes/languages/trans_project.php:1474
+#: includes/languages/trans_project.php:1575
 msgid "No"
 msgstr "خیر"
 
-#: includes/languages/trans_project.php:1475
+#: includes/languages/trans_project.php:1576
 msgid "Decimal or Integer"
 msgstr "صحیح یا اعشاری"
 
-#: includes/languages/trans_project.php:1476
+#: includes/languages/trans_project.php:1577
 msgid "Decimal"
 msgstr "اعشاری"
 
-#: includes/languages/trans_project.php:1477
+#: includes/languages/trans_project.php:1578
 msgid "Integer"
 msgstr "عدد صحیح"
 
-#: includes/languages/trans_project.php:1478
+#: includes/languages/trans_project.php:1579
 msgid "Max sale from this cat"
 msgstr "حداکثر فروش از این دسته‌بندی"
 
-#: includes/languages/trans_project.php:1479
+#: includes/languages/trans_project.php:1580
 msgid "For example 100"
 msgstr "برای مثال ۱۰۰"
 
-#: includes/languages/trans_project.php:1480
+#: includes/languages/trans_project.php:1581
 msgid "Category name"
 msgstr "نام دسته‌بندی"
-
-#: includes/languages/trans_project.php:1485
-msgid "No factor founded."
-msgstr "هیچ فاکتوری یافت نشد."
-
-#: includes/languages/trans_project.php:1486
-msgid "Search with new keywords or barcode."
-msgstr "با کلیدواژه‌های بهتر یا بارکد دیگری جستجو کنید."
-
-#: includes/languages/trans_project.php:1487
-msgid "Add new sale"
-msgstr "افزودن فروش جدید"
-
-#: includes/languages/trans_project.php:1488
-msgid "Add new buy"
-msgstr "افزودن خرید جدید"
-
-#: includes/languages/trans_project.php:1489
-msgid "You are not have factor yet! add new one."
-msgstr "شما هنوز هیچ فاکتوری ندارید! یک اضافه کنید."
-
-#: includes/languages/trans_project.php:1490
-msgid "Search in factors list"
-msgstr "جستجو در لیست فاکتور‌ها"
-
-#: includes/languages/trans_project.php:1491
-msgid "You are not register any factor yet!"
-msgstr "شما تا کنون هیچ فاکتوری ثبت نکرده اید!"
-
-#: includes/languages/trans_project.php:1492
-msgid "Advance result"
-msgstr "نتایج پیشرفته"
-
-#: includes/languages/trans_project.php:1495
-msgid "Items"
-msgstr "آیتم‌ها"
-
-#: includes/languages/trans_project.php:1496
-msgid "Invoice Date"
-msgstr "تاریخ فاکتور"
-
-#: includes/languages/trans_project.php:1497
-msgid "Operation"
-msgstr "عملیات"
-
-#: includes/languages/trans_project.php:1498
-msgid "Whithout name"
-msgstr "بدون نام"
-
-#: includes/languages/trans_project.php:1499
-msgid "Quick"
-msgstr "سریع"
-
-#: includes/languages/trans_project.php:1501 includes/languages/trans_static.php:24
-msgid "Sale"
-msgstr "فروش"
-
-#: includes/languages/trans_project.php:1502 includes/languages/trans_static.php:25
-msgid "Buy"
-msgstr "خرید"
-
-#: includes/languages/trans_project.php:1503
-msgid "Prefactor"
-msgstr "پیش فاکتور"
-
-#: includes/languages/trans_project.php:1504 includes/languages/trans_static.php:27
-msgid "Lending"
-msgstr "امانی"
-
-#: includes/languages/trans_project.php:1505 includes/languages/trans_static.php:28
-msgid "Backbuy"
-msgstr "بازگشت از خرید"
-
-#: includes/languages/trans_project.php:1506
-msgid "Backfactor"
-msgstr "بازگشت فاکتور"
-
-#: includes/languages/trans_project.php:1507 includes/languages/trans_static.php:30
-msgid "Waste"
-msgstr "ضایعات محصول"
-
-#: includes/languages/trans_project.php:1508
-msgid "Try to start with add new sale!"
-msgstr "با افزودن فروش جدید تلاشی برای شروع داشته باشید!"
-
-#: includes/languages/trans_project.php:1509
-msgid "Try to start with add new buy!"
-msgstr "با افزودن خردی جدید تلاشی برای شروع داشته باشید!"
-
-#: includes/languages/trans_project.php:1510
-msgid "Other"
-msgstr "سایر"
-
-#: includes/languages/trans_project.php:1511
-msgid "Back buy"
-msgstr "بازگشت از خرید"
-
-#: includes/languages/trans_project.php:1512
-msgid "Back factor"
-msgstr "بازگشت به فاکتور‌"
-
-#: includes/languages/trans_project.php:1513 includes/languages/trans_static.php:22
-msgid "waste"
-msgstr "ضایعات"
-
-#: includes/languages/trans_project.php:1514
-msgid "Filter by product"
-msgstr "فیلتر بر اساس محصول"
-
-#: includes/languages/trans_project.php:1515
-msgid "Filter by customer"
-msgstr "فیلتر بر اساس مشتری"
-
-#: includes/languages/trans_project.php:1516
-msgid "Filter by weekday"
-msgstr "فیلتر بر اساس روز‌ هفته"
-
-#: includes/languages/trans_project.php:1517
-msgid "Filter by date"
-msgstr "فیلتر بر اساس تاریخ"
-
-#: includes/languages/trans_project.php:1518
-msgid "Filter by time"
-msgstr "فیلتر بر اساس زمان"
-
-#: includes/languages/trans_project.php:1519
-msgid "Filter by start and end date"
-msgstr "فیلتر بر اساس بازه زمانی"
-
-#: includes/languages/trans_project.php:1520
-msgid "Filter by price"
-msgstr "فیلتر بر اساس قیمت"
-
-#: includes/languages/trans_project.php:1521
-msgid "Filter by item"
-msgstr "فیلتر بر اساس آیتم"
-
-#: includes/languages/trans_project.php:1522
-msgid "Filter by discount"
-msgstr "فیلتر بر اساس تخفیف"
-
-#: includes/languages/trans_project.php:1523
-msgid "Filter by count"
-msgstr "فیلتر بر اساس تعداد"
-
-#: includes/languages/trans_project.php:1524
-msgid "Filter by type"
-msgstr "فیلتر بر اساس نوع"
-
-#: includes/languages/trans_project.php:1525
-msgid "Clear filter"
-msgstr "پاک‌سازی فیلترها"
-
-#: includes/languages/trans_project.php:1526
-msgid "Apply"
-msgstr "اعمال‌کردن"
-
-#: includes/languages/trans_project.php:1527
-msgid "Please choose product"
-msgstr "لطفا محصول را انتخاب کنید"
-
-#: includes/languages/trans_project.php:1528
-#: includes/languages/trans_static_public.php:887
-msgid "saturday"
-msgstr "شنبه"
-
-#: includes/languages/trans_project.php:1529
-#: includes/languages/trans_static_public.php:881
-msgid "sunday"
-msgstr "یک شنبه"
-
-#: includes/languages/trans_project.php:1530
-#: includes/languages/trans_static_public.php:882
-msgid "monday"
-msgstr "دوشنبه"
-
-#: includes/languages/trans_project.php:1531
-#: includes/languages/trans_static_public.php:883
-msgid "tuesday"
-msgstr "سه شنبه"
-
-#: includes/languages/trans_project.php:1532
-#: includes/languages/trans_static_public.php:884
-msgid "wednesday"
-msgstr "چهارشنبه"
-
-#: includes/languages/trans_project.php:1533
-#: includes/languages/trans_static_public.php:885
-msgid "thursday"
-msgstr "پنج شنبه"
-
-#: includes/languages/trans_project.php:1534
-#: includes/languages/trans_static_public.php:886
-msgid "friday"
-msgstr "جمعه"
-
-#: includes/languages/trans_project.php:1535
-msgid "Special date"
-msgstr "تاریخ خاص"
-
-#: includes/languages/trans_project.php:1536
-msgid "Time"
-msgstr "زمان"
-
-#: includes/languages/trans_project.php:1537
-msgid "Start date"
-msgstr "تاریخ شروع"
-
-#: includes/languages/trans_project.php:1538
-msgid "End date"
-msgstr "تاریخ پایان"
-
-#: includes/languages/trans_project.php:1539
-msgid "Sum price is greater than ..."
-msgstr "جمع مبلغ بزرگتر از ..."
-
-#: includes/languages/trans_project.php:1540
-msgid "Sum price less than ..."
-msgstr "جمع مبلغ کوچکتر از ..."
-
-#: includes/languages/trans_project.php:1541
-msgid "Price is equal to ..."
-msgstr "مبلغ مساوی با ..."
-
-#: includes/languages/trans_project.php:1542
-msgid "Item is greater than ..."
-msgstr "تعداد آیتم بزرگتر از ..."
-
-#: includes/languages/trans_project.php:1543
-msgid "Item less than ..."
-msgstr "تعداد آیتم کوچکتر از ..."
-
-#: includes/languages/trans_project.php:1544
-msgid "Item is equal to ..."
-msgstr "تعداد آیتم مساوی با ..."
-
-#: includes/languages/trans_project.php:1545
-msgid "Sum is greater than ..."
-msgstr "جمع مبلغ بزرگتر از ..."
-
-#: includes/languages/trans_project.php:1546
-msgid "Sum less than ..."
-msgstr "جمع مبلغ کوچکتر از ..."
-
-#: includes/languages/trans_project.php:1547
-msgid "Sum is equal to ..."
-msgstr "جمع مساوی با ..."
-
-#: includes/languages/trans_project.php:1548
-msgid "Discount is greater than ..."
-msgstr "تخفیف بزرگتر از ..."
-
-#: includes/languages/trans_project.php:1549
-msgid "Discount less than ..."
-msgstr "تخفیف کوچکتر از ..."
-
-#: includes/languages/trans_project.php:1550
-msgid "Discount is equal to ..."
-msgstr "تخفیف مساوی با ..."
-
-#: includes/languages/trans_project.php:1551 includes/languages/trans_static.php:16
-msgid "sale"
-msgstr "فروش"
-
-#: includes/languages/trans_project.php:1552 includes/languages/trans_static.php:17
-msgid "buy"
-msgstr "خرید"
-
-#: includes/languages/trans_project.php:1555
-msgid "Final Price"
-msgstr "قیمت نهایی"
-
-#: includes/languages/trans_project.php:1556
-msgid "Save & print"
-msgstr "ذخیره و چاپ"
-
-#: includes/languages/trans_project.php:1557
-msgid "Count of rows"
-msgstr "تعداد ردیف‌ها"
-
-#: includes/languages/trans_project.php:1558
-msgid "Sum of prices"
-msgstr "جمع قیمت‌ها"
-
-#: includes/languages/trans_project.php:1559
-msgid "Sum of discounts"
-msgstr "جمع تخفیف‌ها"
-
-#: includes/languages/trans_project.php:1560
-msgid "Sum of final prices"
-msgstr "جمع قیمت نهایی"
-
-#: includes/languages/trans_project.php:1563
-msgid "Print Status is active"
-msgstr "وضعیت چاپ فاکتور فعال است"
-
-#: includes/languages/trans_project.php:1564
-msgid "Payment detail"
-msgstr "جزئیات حساب بانکی"
-
-#: includes/languages/trans_project.php:1565
-msgid "Choose card reader"
-msgstr "کارت‌خوان را انتخاب کنید"
-
-#: includes/languages/trans_project.php:1566
-msgid "Save Pay & continue"
-msgstr "ذخیره تراکنش و ادامه"
-
-#: includes/languages/trans_project.php:1569
-msgid "Customer Detail"
-msgstr "جزئیات مشتری"
-
-#: includes/languages/trans_project.php:1570
-msgid "Sale Invoice"
-msgstr "فاکتور فروش"
-
-#: includes/languages/trans_project.php:1571
-msgid "Sum"
-msgstr "جمع"
-
-#: includes/languages/trans_project.php:1572
-msgid "Your total discount and profits"
-msgstr "کل تخفیف و سود شما"
-
-#: includes/languages/trans_project.php:1579
-msgid "Buyer Detail"
-msgstr "جزئیات خریدار"
-
-#: includes/languages/trans_project.php:1582
-msgid "Another print formats"
-msgstr "سایر فرمت‌های چاپ"
-
-#: includes/languages/trans_project.php:1583
-msgid "Please choose one format to print factor"
-msgstr "لطفا یک فرمت را برای چاپ انتخاب کنید"
 
 #: includes/languages/trans_project.php:1586
 msgid "Sum factor price and count of it group by hours"
@@ -14905,67 +14905,75 @@ msgstr "صفحه بازکردن قفل به اجبار"
 msgid "Database need to upgrade"
 msgstr "پایگاه داده نیاز به به‌روزرسانی دارد"
 
+#: includes/languages/trans_project.php:3328
+msgid "current version"
+msgstr "نسخه فعلی"
+
 #: includes/languages/trans_project.php:3329
+msgid "new version"
+msgstr "نسخه جدید"
+
+#: includes/languages/trans_project.php:3331
 msgid "Run all step by one click"
 msgstr "اجرای همه مراحل با یک دکمه"
 
-#: includes/languages/trans_project.php:3330
+#: includes/languages/trans_project.php:3332
 msgid "For when you don't have heavy updates"
 msgstr "برای زمانی که آپدیت سنگین ندارید"
 
-#: includes/languages/trans_project.php:3331
+#: includes/languages/trans_project.php:3333
 msgid "Run all"
 msgstr "اجرای همه"
 
-#: includes/languages/trans_project.php:3332
+#: includes/languages/trans_project.php:3334
 msgid "Lock"
 msgstr "قفل"
 
-#: includes/languages/trans_project.php:3333
+#: includes/languages/trans_project.php:3335
 msgid "Lock service"
 msgstr "قفل کردن سیستم"
 
-#: includes/languages/trans_project.php:3334
+#: includes/languages/trans_project.php:3336
 msgid "Pull"
 msgstr "دریافت"
 
-#: includes/languages/trans_project.php:3335
+#: includes/languages/trans_project.php:3337
 msgid "Pull service"
 msgstr "دریافت سرویس"
 
-#: includes/languages/trans_project.php:3336
+#: includes/languages/trans_project.php:3338
 msgid "Update database"
 msgstr "به‌روزرسانی دیتابیس"
 
-#: includes/languages/trans_project.php:3337
+#: includes/languages/trans_project.php:3339
 msgid "Unlock"
 msgstr "بازکردن قفل"
 
-#: includes/languages/trans_project.php:3338
+#: includes/languages/trans_project.php:3340
 msgid "Unlock service"
 msgstr "بازکردن قفل سیستم"
 
-#: includes/languages/trans_project.php:3343
+#: includes/languages/trans_project.php:3345
 msgid "Translate"
 msgstr "ترجمه"
 
-#: includes/languages/trans_project.php:3344
+#: includes/languages/trans_project.php:3346
 msgid "Extract All trans func"
 msgstr "استخراج توابع ترجمه در دش و پروژه جاری"
 
-#: includes/languages/trans_project.php:3347
+#: includes/languages/trans_project.php:3349
 msgid "Show archived"
 msgstr "نمایش بایگانی شده"
 
-#: includes/languages/trans_project.php:3350
+#: includes/languages/trans_project.php:3352
 msgid "Choose your online address"
 msgstr "آدرس فروشگاه آنلاین خود را انتخاب کنید"
 
-#: includes/languages/trans_project.php:3351
+#: includes/languages/trans_project.php:3353
 msgid "Your online store has online address on Jibres domain."
 msgstr "فروشگاه شما دارای یک آدرس آنلاین بر روی دامنه جیبرس است."
 
-#: includes/languages/trans_project.php:3352
+#: includes/languages/trans_project.php:3354
 msgid ""
 "Although you can connect your domain into store but to finish setup we need to "
 "set it."
@@ -14973,229 +14981,229 @@ msgstr ""
 "اگرچه می‌توانید دامنه اختصاصی خودتان را به فروشگاه متصل کنید اما برای تکمیل "
 "عملیات، ما به ساختن آن روی زیردامنه‌ی جیبرس داریم."
 
-#: includes/languages/trans_project.php:3353
+#: includes/languages/trans_project.php:3355
 msgid "Set it carefully, you can not change it."
 msgstr "در آینده قادر به تغییر نیستید؛ با دقت تنظیم کنید."
 
-#: includes/languages/trans_project.php:3354
+#: includes/languages/trans_project.php:3356
 msgid "Your subdomain"
 msgstr "آدرس فروشگاه شما"
 
-#: includes/languages/trans_project.php:3355
+#: includes/languages/trans_project.php:3357
 msgid "Build my online store"
 msgstr "فروشگاه آنلاین منو بساز"
 
-#: includes/languages/trans_project.php:3356
+#: includes/languages/trans_project.php:3358
 msgid "choose subdomain on Jibres"
 msgstr "زیردامنه‌ خودتان را بر روی جیبرس انتخاب کنید"
 
-#: includes/languages/trans_project.php:3359
+#: includes/languages/trans_project.php:3361
 msgid "Your store is ready to go!"
 msgstr "فروشگاه شما آماده شد!"
 
-#: includes/languages/trans_project.php:3360
+#: includes/languages/trans_project.php:3362
 msgid "We are do everything you need and now you can fly with Jibres power."
 msgstr ""
 "ما همه کارهایی رو که نیاز بود، انجام دادیم؛ از این بعدش با شماست تا با قدرت جیبرس "
 "پرواز کنید."
 
-#: includes/languages/trans_project.php:3361
+#: includes/languages/trans_project.php:3363
 msgid "Bring me to store"
 msgstr "منو به فروشگاهم ببر"
 
-#: includes/languages/trans_project.php:3362
+#: includes/languages/trans_project.php:3364
 msgid "Grand opening your store on Jibres"
 msgstr "افتتاح بزرگ فروشگاه شما در جیبرس"
 
-#: includes/languages/trans_project.php:3363
+#: includes/languages/trans_project.php:3365
 msgid "My stores"
 msgstr "فروشگاه‌های من"
 
-#: includes/languages/trans_project.php:3366
+#: includes/languages/trans_project.php:3368
 msgid "To make a online store from scratch, please enter name of your business."
 msgstr "برای ساخت فروشگاه آنلاین، لطفا ابتدا نام کسب و کار خودتون را وارد کنید."
 
-#: includes/languages/trans_project.php:3367
+#: includes/languages/trans_project.php:3369
 msgid "Your business title"
 msgstr "عنوان کسب‌و‌کار شما"
 
-#: includes/languages/trans_project.php:3368
+#: includes/languages/trans_project.php:3370
 msgid "Let's go"
 msgstr "بزن بریم"
 
-#: includes/languages/trans_project.php:3369
+#: includes/languages/trans_project.php:3371
 msgid "Create a store on Jibres"
 msgstr "ساخت یک فروشگاه در جیبرس"
 
-#: includes/languages/trans_project.php:3370
+#: includes/languages/trans_project.php:3372
 msgid "Can not add new store"
 msgstr "نمی‌توانید فروشگاه جدیدی را ایجاد کنید"
 
-#: includes/languages/trans_project.php:3371
+#: includes/languages/trans_project.php:3373
 msgid "Create more store"
 msgstr "ساخت فروشگاه‌های بیشتر"
 
-#: includes/languages/trans_project.php:3373
+#: includes/languages/trans_project.php:3375
 msgid "Limit of create store"
 msgstr "محدودیت در ساخت فروشگاه"
 
-#: includes/languages/trans_project.php:3376
+#: includes/languages/trans_project.php:3378
 msgid "Tell us a little about yourself"
 msgstr "به ما کمی در مورد خودتان بگویید"
 
-#: includes/languages/trans_project.php:3377
+#: includes/languages/trans_project.php:3379
 msgid "Your answer is important for us."
 msgstr "پاسخ شما برای ما بسیار با ارزش است."
 
-#: includes/languages/trans_project.php:3378
+#: includes/languages/trans_project.php:3380
 msgid "answer Jibres polls"
 msgstr "به نظرسنجی‌های جیبرس پاسخ دهید"
 
-#: includes/languages/trans_project.php:3382
+#: includes/languages/trans_project.php:3384
 msgid "We can not build your store!"
 msgstr "ما نتوانستیم فروشگاه شما را بسازیم!"
 
-#: includes/languages/trans_project.php:3383
+#: includes/languages/trans_project.php:3385
 msgid "Please contact us to solve this problem."
 msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل را برطرف کنیم."
 
-#: includes/languages/trans_project.php:3384
+#: includes/languages/trans_project.php:3386
 msgid "Try again"
 msgstr "مجددا تلاش کنید"
 
-#: includes/languages/trans_project.php:3385
+#: includes/languages/trans_project.php:3387
 msgid "Read about this problem"
 msgstr "درباره این مشکل بخوانید"
 
-#: includes/languages/trans_project.php:3386
+#: includes/languages/trans_project.php:3388
 msgid "Loading Jibres"
 msgstr "در حال انجام عملیات"
 
-#: includes/languages/trans_project.php:3389
+#: includes/languages/trans_project.php:3391
 msgid "Please wait"
 msgstr "لطفا کمی صبر کنید"
 
-#: includes/languages/trans_project.php:3390
+#: includes/languages/trans_project.php:3392
 msgid "Building your online store in progress."
 msgstr "ما در حال ساخت فروشگاه آنلاین شما هستیم."
 
-#: includes/languages/trans_project.php:3393
+#: includes/languages/trans_project.php:3395
 msgid "From"
 msgstr "از"
 
-#: includes/languages/trans_project.php:3394
+#: includes/languages/trans_project.php:3396
 msgid "Jibres can painlessly and quickly help you to start your online business."
 msgstr "جیبرس می‌تواند بدون دردسر و سریع به شما در شروع کسب‌وکارتان کمک کند."
 
-#: includes/languages/trans_project.php:3396
+#: includes/languages/trans_project.php:3398
 msgid "Build my own store"
 msgstr "فروشگاه من را بساز"
 
-#: includes/languages/trans_project.php:3397
+#: includes/languages/trans_project.php:3399
 msgid "Application"
 msgstr "برنامه"
 
-#: includes/languages/trans_project.php:3398
+#: includes/languages/trans_project.php:3400
 msgid "Sale in store"
 msgstr "فروش در فروشگاه"
 
-#: includes/languages/trans_project.php:3399
+#: includes/languages/trans_project.php:3401
 msgid "Telegram bot"
 msgstr "ربات تلگرام"
 
-#: includes/languages/trans_project.php:3402
+#: includes/languages/trans_project.php:3404
 msgid "Open new ticket!"
 msgstr "باز کردن تیکت جدید!"
 
-#: includes/languages/trans_project.php:3405
+#: includes/languages/trans_project.php:3407
 msgid "Content"
 msgstr "محتوا"
 
-#: includes/languages/trans_project.php:3408
+#: includes/languages/trans_project.php:3410
 msgid "In this section"
 msgstr "در این بخش"
 
-#: includes/languages/trans_project.php:3409
+#: includes/languages/trans_project.php:3411
 msgid "Short link"
 msgstr "لینک کوتاه"
 
-#: includes/languages/trans_project.php:3412
+#: includes/languages/trans_project.php:3414
 msgid "Search result"
 msgstr "نتیجه جستجو"
 
-#: includes/languages/trans_project.php:3413 lib/app/product/site_list.php:84
+#: includes/languages/trans_project.php:3415 lib/app/product/site_list.php:84
 msgid "No result found!"
 msgstr "نتیجه‌ای یافت نشد!"
 
-#: includes/languages/trans_project.php:3414
+#: includes/languages/trans_project.php:3416
 msgid "Search our knowledge base..."
 msgstr "جستجو در پایگاه دانش ما..."
 
-#: includes/languages/trans_project.php:3416
+#: includes/languages/trans_project.php:3418
 msgid "Random Articles"
 msgstr "مقالات تصادفی"
 
-#: includes/languages/trans_project.php:3417
+#: includes/languages/trans_project.php:3419
 msgid "Can't find what you're looking for?"
 msgstr "نمی‌توانید آنچه را به‌دنبالش هستید بیابید؟"
 
-#: includes/languages/trans_project.php:3418
+#: includes/languages/trans_project.php:3420
 msgid "Contact the legendary support team right now."
 msgstr "همین الان با تیم پشتیبانی افسانه‌ای ما تماس بگیرید."
 
-#: includes/languages/trans_project.php:3421
+#: includes/languages/trans_project.php:3423
 msgid "Ticket Subject"
 msgstr "موضوع تیکت"
 
-#: includes/languages/trans_project.php:3422
+#: includes/languages/trans_project.php:3424
 msgid "Subject of your ticket"
 msgstr "عنوان تیکت شما"
 
-#: includes/languages/trans_project.php:3423
+#: includes/languages/trans_project.php:3425
 msgid "Set title will help us answer quickly"
 msgstr "تنظیم عنوان تیکت به ما کمک می‌کند تا سریع‌تر پاسخگو باشیم"
 
-#: includes/languages/trans_project.php:3424
+#: includes/languages/trans_project.php:3426
 msgid "Please write your message"
 msgstr "لطفا پیام خود را بنویسید"
 
-#: includes/languages/trans_project.php:3425
+#: includes/languages/trans_project.php:3427
 msgid "Max size"
 msgstr "حداکثر اندازه"
 
-#: includes/languages/trans_project.php:3426
+#: includes/languages/trans_project.php:3428
 msgid "Send notify about your answer to creator of ticket"
 msgstr "سازنده تیکت را در جریان پاسخ شما قرار دهیم"
 
-#: includes/languages/trans_project.php:3427
+#: includes/languages/trans_project.php:3429
 msgid "Via sms to"
 msgstr "با ارسال پیامک به"
 
-#: includes/languages/trans_project.php:3428
+#: includes/languages/trans_project.php:3430
 msgid "Via telegram"
 msgstr "با تلگرام"
 
-#: includes/languages/trans_project.php:3429
+#: includes/languages/trans_project.php:3431
 msgid "Submit a ticket"
 msgstr "ارسال تیکت"
 
-#: includes/languages/trans_project.php:3430
+#: includes/languages/trans_project.php:3432
 msgid "Send new message"
 msgstr "ارسال پیام جدید"
 
-#: includes/languages/trans_project.php:3433
+#: includes/languages/trans_project.php:3435
 msgid "Last active tickets"
 msgstr "آخرین تیکت‌های فعال"
 
-#: includes/languages/trans_project.php:3434
+#: includes/languages/trans_project.php:3436
 msgid "All Tickets"
 msgstr "همه تیکت‌ها"
 
-#: includes/languages/trans_project.php:3435
+#: includes/languages/trans_project.php:3437
 msgid "Active in this ticket"
 msgstr "فعال در این تیکت"
 
-#: includes/languages/trans_project.php:3438
+#: includes/languages/trans_project.php:3440
 msgid ""
 "If your problem is solved or do not need to track, please close this ticket by "
 "press below bottom."
@@ -15203,143 +15211,143 @@ msgstr ""
 "اگر مشکل شما حل شده و یا نیازی به رهگیری آن نیست، لطفا تیکت را با فشردن دکمه زیر "
 "ببندید."
 
-#: includes/languages/trans_project.php:3439
+#: includes/languages/trans_project.php:3441
 msgid "You can open it anytime you need."
 msgstr "شما می‌توانید تیکت را هر زمانی که مایل بودید مجدد باز کنید."
 
-#: includes/languages/trans_project.php:3440
+#: includes/languages/trans_project.php:3442
 msgid "Close ticket"
 msgstr "بستن تیکت"
 
-#: includes/languages/trans_project.php:3441
+#: includes/languages/trans_project.php:3443
 msgid "This ticket is closed."
 msgstr "این تیکت بسته شده است."
 
-#: includes/languages/trans_project.php:3442
+#: includes/languages/trans_project.php:3444
 msgid "Also you can delete it if you do not need it."
 msgstr "هم‌چنین در صورت عدم نیاز می‌توانید آن را حذف کنید."
 
-#: includes/languages/trans_project.php:3444
+#: includes/languages/trans_project.php:3446
 msgid "Open it again"
 msgstr "دوباره بازش کن"
 
-#: includes/languages/trans_project.php:3445
+#: includes/languages/trans_project.php:3447
 msgid "This is deleted ticket."
 msgstr "این تیکت حذف شده است."
 
-#: includes/languages/trans_project.php:3446
+#: includes/languages/trans_project.php:3448
 msgid "You can change it to close condition if need to save it in history!"
 msgstr ""
 "شما می‌توانید برای نگهداری این تیکت در تاریخچه وضعیت آن را به بسته‌شده تغییر دهید!"
 
-#: includes/languages/trans_project.php:3447
+#: includes/languages/trans_project.php:3449
 msgid "Not spam"
 msgstr "جفنگ نیست"
 
-#: includes/languages/trans_project.php:3448
+#: includes/languages/trans_project.php:3450
 msgid "If your problem is not solved yet, please set this ticket as unsolved"
 msgstr ""
 "اگر مشکل مطرح شده همچنان باقی است، لطفا این تیکت را در حالت حل نشده قرار دهید"
 
-#: includes/languages/trans_project.php:3449
+#: includes/languages/trans_project.php:3451
 msgid "Un Solved ticket"
 msgstr "ثبت به عنوان حل نشده"
 
-#: includes/languages/trans_project.php:3450
+#: includes/languages/trans_project.php:3452
 msgid "If your problem is solved, please set this ticket as solved"
 msgstr "اگر مشکل مطرح حل شده است، لطفا این تیکت را در حالت حل شده قرار دهید"
 
-#: includes/languages/trans_project.php:3452
+#: includes/languages/trans_project.php:3454
 msgid "Save tag"
 msgstr "ذخیره کلیدواژه"
 
-#: includes/languages/trans_project.php:3453
+#: includes/languages/trans_project.php:3455
 msgid "Last seen"
 msgstr "آخرین بازدید"
 
-#: includes/languages/trans_project.php:3454
+#: includes/languages/trans_project.php:3456
 msgid "Ticket No"
 msgstr "شماره تیکت"
 
-#: includes/languages/trans_project.php:3455
+#: includes/languages/trans_project.php:3457
 msgid "Subject of ticket"
 msgstr "عنوان تیکت"
 
-#: includes/languages/trans_project.php:3456
+#: includes/languages/trans_project.php:3458
 msgid "Set the title to get faster"
 msgstr "برای دسترسی سریع‌تر عنوان را تنظیم کنید"
 
-#: includes/languages/trans_project.php:3457
+#: includes/languages/trans_project.php:3459
 msgid "User tickets"
 msgstr "تیکت‌های کاربر"
 
-#: includes/languages/trans_project.php:3458
+#: includes/languages/trans_project.php:3460
 msgid "View attachment"
 msgstr "مشاهده ضمیمه"
 
-#: includes/languages/trans_project.php:3459
+#: includes/languages/trans_project.php:3461
 msgid "Add tag manually to link tickets togethers"
 msgstr "کلدواژه را به صورت دستی اضافه کنید تا تیکت‌ها را در کنار هم قرار دهید"
 
-#: includes/languages/trans_project.php:3460
+#: includes/languages/trans_project.php:3462
 msgid "Current Time"
 msgstr "زمان فعلی"
 
-#: includes/languages/trans_project.php:3461
+#: includes/languages/trans_project.php:3463
 msgid "Notification procedures"
 msgstr "روش‌های اعلان"
 
-#: includes/languages/trans_project.php:3462
+#: includes/languages/trans_project.php:3464
 msgid "Do you know you can connect your account with our Telegram bot"
 msgstr "<b>آیا می‌دانید</b> می‌توانید حساب کاربری خود را به ربات تلگرام ما وصل کنید"
 
-#: includes/languages/trans_project.php:3463
+#: includes/languages/trans_project.php:3465
 msgid "Just need to start bot in Telegram and sync your account via /sync."
 msgstr ""
 "تنها کافی‌است ربات را شروع کرده و حساب خود را از طریق دستور /sync به وب‌سایت متصل "
 "کنید."
 
-#: includes/languages/trans_project.php:3466
+#: includes/languages/trans_project.php:3468
 msgid "My tickets"
 msgstr "تیکت‌های من"
 
-#: includes/languages/trans_project.php:3467
+#: includes/languages/trans_project.php:3469
 msgid "Manage tickets"
 msgstr "مدیریت تیکت"
 
-#: includes/languages/trans_project.php:3468
+#: includes/languages/trans_project.php:3470
 msgid "Manage all tickets"
 msgstr "مدیریت تمامی تیکت‌ها"
 
-#: includes/languages/trans_project.php:3471
+#: includes/languages/trans_project.php:3473
 msgid "No ticket was found"
 msgstr "تیکتی یافت نشد"
 
-#: includes/languages/trans_project.php:3472
+#: includes/languages/trans_project.php:3474
 msgid "Active tickets"
 msgstr "تیکت‌های فعال"
 
-#: includes/languages/trans_project.php:3473
+#: includes/languages/trans_project.php:3475
 msgid "Replies"
 msgstr "پاسخ‌ها"
 
-#: includes/languages/trans_project.php:3474
+#: includes/languages/trans_project.php:3476
 msgid "Avg. First Response"
 msgstr "میانگین اولین پاسخگویی"
 
-#: includes/languages/trans_project.php:3475
+#: includes/languages/trans_project.php:3477
 msgid "Minute"
 msgstr "دقیقه"
 
-#: includes/languages/trans_project.php:3476
+#: includes/languages/trans_project.php:3478
 msgid "Avg. Time to Archive"
 msgstr "میانگین زمان بایگانی‌شدن"
 
-#: includes/languages/trans_project.php:3477
+#: includes/languages/trans_project.php:3479
 msgid "Hours"
 msgstr "ساعات"
 
-#: includes/languages/trans_project.php:3482
+#: includes/languages/trans_project.php:3484
 msgid "Please log in if you need to store this ticket and track it in the future"
 msgstr "لطفا برای ذخیره و پیگیری‌های بعدی این تیکت وارد سیستم شوید"
 
@@ -20456,7 +20464,7 @@ msgstr "قیمت خرید نزولی"
 msgid "This barcode is scanned before"
 msgstr "این بارکد پیش از این اسکن شده است"
 
-#: lib/app/product/gallery.php:42 lib/app/product/get.php:42
+#: lib/app/product/gallery.php:42 lib/app/product/get.php:43
 msgid "Product detail not found"
 msgstr "جزئیات محصول یافت نشد"
 
