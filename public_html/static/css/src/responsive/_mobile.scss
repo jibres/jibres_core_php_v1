@@ -171,7 +171,49 @@
   ul.list li{padding-right:0.1em;padding-left:0.1em;}
   .alert{padding:0.5em;}
 
+
+  .page-title{padding:5em 0;}
+  .page-title h2{padding: 0 5%;}
+  #tfooter nav.s12{margin-bottom:2em;}
+  .pc{padding:2em 0;}
+  .pc ul.list{margin: 2em 2%;}
+
+  #landing{min-height:350px;height: 400px;}
+  #landing .title{padding-top:10px;position:relative;}
+  #landing .title .h2{font-size:3em;}
+  #landing .title h3{font-size: 1.4em}
+  #keepitsimple .title h2{font-size:2em;}
+  #roadmap{display:none}
+  #quote{min-height: 300px;}
+  #quote .title{right: 0;left: 0;font-size: 1.5em;position: relative;padding:2em 0}
+  #tfooter .middle nav a{display:inline-block;background-color:rgba(0,0,0,0.1);border-radius:0.25rem;margin: 0 0 5px;padding: 1rem 1em}
+  #tfooter .top a{display:inline-block;background-color:rgba(0,0,0,0.1);border-radius:0.25rem;margin: 0 2px 5px!important;padding: 1rem 1em}
+
+  .pricingQuick .box > .c3{
+    border: none!important;
+    border-bottom: 1px solid #e0f0ff!important;
+    padding: 2em 0;
+  }
+  .pricingQuick h3{
+    min-height: initial;
+  }
+  .pricingQuick ul{
+    margin: 0;
+  }
+  .guaranteeBox .text{text-align: center;padding-top:50px;}
+  /*fix logo on mobile*/
+  .logoEffect{
+    height: 300px;
+  }
+  .logoEffect .shadow{
+    height: 162px;
+    width: 163px;
+  }
+  .logoEffect .logo{
+    height: 160px;
+    width: 160px;
+    top: 72px;
+  }
+
+
 }
-
-
-

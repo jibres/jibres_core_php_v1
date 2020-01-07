@@ -81,9 +81,18 @@ Version       1.0.0
 // enter
 @import 'enter/enter';
 
-// website
+// store panel
 @import 'website/storePanel';
-@import 'website/style';
+
+// website
+@import 'website/header';
+@import 'website/footer';
+@import 'website/layout';
+@import 'website/homepage';
+@import 'website/page_logo';
+@import 'website/page_pricing';
+@import 'website/page_blog';
+
 // @import 'website/subdomain';
 // @import 'website/theme_full';
 // @import 'website/theme_start';
