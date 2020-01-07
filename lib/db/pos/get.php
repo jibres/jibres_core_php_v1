@@ -18,6 +18,13 @@ class get
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
+
+	public static function default_pos()
+	{
+		$query = "SELECT * FROM pos WHERE pos.isdefault = 1 LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
 }
 
 ?>

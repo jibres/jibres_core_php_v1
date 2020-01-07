@@ -22,5 +22,82 @@ class tools
 		\lib\db\pos\update::set_default($_id);
 		return true;
 	}
+
+
+
+	public static function pc_pos_btn()
+	{
+		$pos_default = \lib\db\pos\get::default_pos();
+
+		// no pos default founded
+		if(!isset($pos_default['id']) || !is_array($pos_default) || !array_key_exists('pcpos', $pos_default))
+		{
+			return null;
+		}
+
+		// default pos is not pc pos
+		if(!$pos_default['pcpos'])
+		{
+			return null;
+		}
+
+		// check support pcpos in JibresBooster
+		if(!in_array($pos_default['slug'], ['asanpardakht', 'irkish']))
+		{
+			return null;
+		}
+
+		if($pos_default['slug'] === 'irkish')
+		{
+			$pc_pos   = $pos_default['setting'];
+			$pc_pos   = json_decode($pc_pos, true);
+
+			// no config for pcpos
+			if(!is_array($pc_pos))
+			{
+				return null;
+			}
+
+			$serial   = isset($pc_pos['serial']) ? $pc_pos['serial'] : null;
+			$terminal = isset($pc_pos['terminal']) ? $pc_pos['terminal'] : null;
+			$receiver = isset($pc_pos['receiver']) ? $pc_pos['receiver'] : null;
+			$link     = 'http://localhost:9759/jibres/?type=PcPosKiccc';
+			$link     .= '&serial='. $serial;
+			$link     .= '&terminal='. $terminal;
+			$link     .= '&acceptor='. $receiver;
+			$link     .= '&sum=$';
+
+			$pos_default['link'] = $link;
+
+			\dash\data::pcPosLink($pos_default);
+		}
+		elseif($pos_default['slug'] === 'asanpardakht')
+		{
+			$pc_pos   = $pos_default['setting'];
+			$pc_pos   = json_decode($pc_pos, true);
+
+			// no config for pcpos
+			if(!is_array($pc_pos))
+			{
+				return null;
+			}
+
+			$ip   = isset($pc_pos['ip']) ? $pc_pos['ip'] : null;
+			$port = isset($pc_pos['port']) ? $pc_pos['port'] : null;
+			$link  = 'http://localhost:9759/jibres/?type=PcPosAsanpardakht';
+			$link .= '&ip='. $ip;
+			$link .= '&invoice='. time();
+			if($port)
+			{
+				$link .= '&port='. $port;
+			}
+			$link .= '&amount=$';
+
+			$pos_default['link'] = $link;
+
+			\dash\data::pcPosLink($pos_default);
+		}
+
+	}
 }
 ?>
