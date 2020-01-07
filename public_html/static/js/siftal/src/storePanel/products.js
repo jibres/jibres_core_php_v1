@@ -131,33 +131,44 @@ function calcProductMargin()
   }
 
   // check discount and percent
-  if(discountRate > 80 && discountRate < 500)
+  if(discountRate > 100 || discountRate < 0)
   {
-    discountEl.removeClass('danger2');
-    discountEl.removeClass('warn2');
+    discountEl.addClass('danger2');
+    discountEl.removeClass('warn');
     discountEl.removeClass('info2');
-    discountEl.addClass('success2');
-  }
-  else if(discountRate > 0)
-  {
-    discountEl.removeClass('danger2');
-    discountEl.removeClass('warn2');
-    discountEl.addClass('info2');
     discountEl.removeClass('success2');
   }
   else if(discountRate == 0)
   {
     discountEl.removeClass('danger2');
-    discountEl.removeClass('warn2');
+    discountEl.removeClass('warn');
     discountEl.removeClass('info2');
     discountEl.removeClass('success2');
   }
   else
   {
-    discountEl.addClass('danger2');
-    discountEl.removeClass('warn2');
-    discountEl.removeClass('info2');
-    discountEl.removeClass('success2');
+    if(cost < price && cost + discount > price)
+    {
+      discountEl.removeClass('danger2');
+      discountEl.addClass('warn');
+      discountEl.removeClass('info2');
+      discountEl.removeClass('success2');
+    }
+    else if(discountRate < 30 )
+    {
+      discountEl.removeClass('danger2');
+      discountEl.removeClass('warn');
+      discountEl.removeClass('info2');
+      discountEl.addClass('success2');
+    }
+    else
+    {
+      discountEl.removeClass('danger2');
+      discountEl.removeClass('warn');
+      discountEl.addClass('info2');
+      discountEl.removeClass('success2');
+    }
+
   }
 
 
