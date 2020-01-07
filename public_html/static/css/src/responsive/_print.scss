@@ -33,8 +33,6 @@
   .siftal > #main > .dashHead{display:none;}
   .siftal > #main > footer{display:none;}
   .siftal .scr::-webkit-scrollbar{display:none;}
-  .siftal .tbox .badge{display:none;}
-  .siftal .tbox.pictogram > span[class^="sf-"]{font-size:3em;}
   .highcharts-button{display: none;}
 
   // some default for dash
@@ -55,6 +53,7 @@
   #main {overflow: auto;}
   #content {overflow: auto;}
   .siftal #content .tbox{display: none}
+  .siftal #content .titleBox{display: none}
   .tbl1{color:#000!important;font-size:1.2em}
   .tbl1 thead{background-color:#ddd;color:#000}
   .tbl1 tfoot{background-color:#ddd;font-size:1.1em}

@@ -1,12 +1,12 @@
-@media (max-width: 280px) {
+@media screen and (max-width: 269px) {
   html:before{font-size:100vw;position:absolute;right:0;left:0;content:":\\";text-align:center;color:#000}
   html body{display:none!important;background:#333!important;}
   html body.enter{display:none!important}
 
 }
 
-@media (max-height: 160px) {
-  html:before{font-size:10em;position:absolute;right:0;left:0;content:":\\";text-align:center;color:#000}
+@media screen and (max-height: 150px) {
+  html:before{font-size:10em;position:absolute;right:0;left:0;content:":\\\\";text-align:center;color:#000}
   html body{display:none!important;background:#333!important;}
   html body.enter{display:none!important}
 
