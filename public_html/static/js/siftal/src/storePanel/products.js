@@ -128,30 +128,33 @@ function calcProductMargin()
     grossProfitEl.find('.msg').removeClass('success2')
   }
 
-  if(discountRate > 80)
+  if(discountRate > 80 && discountRate < 500)
   {
-    discountEl.removeClass('danger2')
-    discountEl.removeClass('success2')
-    discountEl.addClass('warn')
+    discountEl.removeClass('danger2');
+    discountEl.removeClass('warn2');
+    discountEl.removeClass('info2');
+    discountEl.addClass('success2');
   }
   else if(discountRate > 0)
   {
-    discountEl.removeClass('danger2')
-    discountEl.addClass('success2')
-    discountEl.removeClass('warn')
+    discountEl.removeClass('danger2');
+    discountEl.removeClass('warn2');
+    discountEl.addClass('info2');
+    discountEl.removeClass('success2');
   }
   else if(discountRate == 0)
   {
-    discountEl.removeClass('danger2')
-    discountEl.removeClass('success2')
-    discountEl.removeClass('warn')
+    discountEl.removeClass('danger2');
+    discountEl.removeClass('warn2');
+    discountEl.removeClass('info2');
+    discountEl.removeClass('success2');
   }
   else
   {
-    discountEl.addClass('danger2')
-    discountEl.removeClass('success2')
-    discountEl.removeClass('warn')
-    discountRate = 0;
+    discountEl.addClass('danger2');
+    discountEl.removeClass('warn2');
+    discountEl.removeClass('info2');
+    discountEl.removeClass('success2');
   }
 
 
