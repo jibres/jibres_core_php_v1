@@ -251,13 +251,16 @@
 
 {%block iFinalPrice%}
 <div {%if not productDataRow.finalprice%} class="hide1"{%endif%}>
- <label for='finalprice'>{%trans "Final Price"%} <span></span></label>
- <div class="input fix ltr disabled">
-  <input type="text" id="finalprice" data-format='price' value="{{productDataRow.finalprice}}" readonly data-unit='{{store.store_data.currency_detail.symbol_native}}'>
-  <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
- </div>
+  <div class="msg">
+    <div class="f">
+      <div class="cauto">{%trans "Final Price"%}</div>
+      <div class="c ltr txtL pLR5" id="finalPrice">{{productDataRow.finalprice}}</div>
+      <div class="cauto" id="moneyUnit">{{store.store_data.currency_detail.symbol_native}}</div>
+    </div>
+  </div>
+
 {%if lang.current == 'fa'%}
-<div class="msg info2 txtB finalPriceToman"></div>
+  <div class="msg info2 txtB finalPriceToman"></div>
 {%endif%}
 </div>
 {%endblock%}
