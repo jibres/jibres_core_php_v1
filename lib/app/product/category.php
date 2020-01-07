@@ -411,8 +411,17 @@ class category
 			return false;
 		}
 
+		if($_string)
+		{
+			$_string = \dash\safe::forQueryString($_string);
+			if(mb_strlen($_string) > 50)
+			{
+				$_string = null;
+			}
+		}
 
-		$result = \lib\db\productcategory\get::list();
+
+		$result = \lib\db\productcategory\get::list($_string);
 
 		$temp            = [];
 

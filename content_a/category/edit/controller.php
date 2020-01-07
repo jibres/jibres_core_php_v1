@@ -1,11 +1,11 @@
 <?php
-namespace content_a\cats\property;
+namespace content_a\category\edit;
 
 class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('categoryPropertyAddEdit');
+		\dash\permission::access('categoryEdit');
 
 		$dataRow = \lib\app\product\cat::get(\dash\request::get('id'));
 		\dash\data::dataRow($dataRow);

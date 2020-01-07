@@ -1,5 +1,5 @@
 <?php
-namespace content_a\cats\edit;
+namespace content_a\category\edit;
 
 
 class model

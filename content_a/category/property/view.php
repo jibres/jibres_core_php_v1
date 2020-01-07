@@ -1,5 +1,5 @@
 <?php
-namespace content_a\cats\property;
+namespace content_a\category\property;
 
 class view
 {

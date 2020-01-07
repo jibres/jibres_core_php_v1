@@ -1,5 +1,5 @@
 <?php
-namespace content_a\cats\home;
+namespace content_a\category\home;
 
 class controller
 {

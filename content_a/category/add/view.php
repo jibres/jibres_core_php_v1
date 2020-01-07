@@ -1,5 +1,5 @@
 <?php
-namespace content_a\cats\add;
+namespace content_a\category\add;
 
 class view
 {

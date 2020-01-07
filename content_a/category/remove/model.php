@@ -1,5 +1,5 @@
 <?php
-namespace content_a\cats\remove;
+namespace content_a\category\remove;
 
 
 class model

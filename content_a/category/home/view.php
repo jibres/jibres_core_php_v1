@@ -1,5 +1,5 @@
 <?php
-namespace content_a\cats\home;
+namespace content_a\category\home;
 
 class view
 {
@@ -38,10 +38,10 @@ class view
 		}
 
 		// work with product list
-		$myProductList = \lib\app\product\cat::list($search_string, $args);
+		$myProductList = \lib\app\product\category::list($search_string, $args);
 		\dash\data::dataTable($myProductList);
 
-		\dash\data::myFilter(\content_a\filter::current(\lib\app\product\cat::$sort_field, \dash\url::this()));
+		\dash\data::myFilter(\content_a\filter::current(['title', 'count', 'slug'], \dash\url::this()));
 
 		\dash\data::filterBox(\content_a\filter::createMsg($args));
 	}

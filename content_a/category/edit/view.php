@@ -1,13 +1,13 @@
 <?php
-namespace content_a\cats\remove;
+namespace content_a\category\edit;
 
 class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Remove category'));
-		\dash\data::page_desc(T_('You can remove your categories manually.'));
-		\dash\data::page_pictogram('trash');
+		\dash\data::page_title(T_('Edit category'));
+		\dash\data::page_desc(T_('You can manage your categories manually.'));
+		\dash\data::page_pictogram('edit');
 
 		if(\dash\permission::check('categoryView'))
 		{
@@ -15,14 +15,10 @@ class view
 			\dash\data::badge_link(\dash\url::this());
 		}
 
-
 		if(\dash\data::dataRow_title())
 		{
 			\dash\data::page_title(T_('Edit category'). ' | '. \dash\data::dataRow_title());
 		}
-
-		$allCat = \lib\app\product\cat::list(null, ['pagenation' => false]);
-		\dash\data::allCat($allCat);
 	}
 }
 ?>

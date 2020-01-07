@@ -13,8 +13,15 @@ class get
 	}
 
 
-	public static function list()
+	public static function list($_string = null)
 	{
+		$where = null;
+
+		if($_string)
+		{
+			$where = " WHERE productcategory.title LIKE '$_string%' ";
+		}
+
 		$query =
 		"
 			SELECT
@@ -23,6 +30,7 @@ class get
 				(SELECT COUNT(*) FROM products WHERE products.unit_id = productcategory.id) AS `count`
 			FROM
 				productcategory
+				$where
 			ORDER BY
 				count DESC
 		";
