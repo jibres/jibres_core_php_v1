@@ -211,52 +211,48 @@
 
 {%block iBuyprice%}
 <label for='buyprice'>{%trans "Buy cost"%}</label>
-<div class="input">
- <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
+<div class="input fix ltr">
  <input type="text" name="buyprice" id="buyprice" data-format='price' value="{{productDataRow.buyprice}}" maxlength="{%if currentStore.setting.maxbuyprice%}{{currentStore.setting.maxbuyprice}}{%else%}15{%endif%}" data-run-input='calcProductMargin'>
+ <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
 </div>
-<div class="f">
-  <div class="c pRa10">
-    <div class="profitMargin fs09 mB5 hideIn">
-      <div class="msg minimal mB0" data-percent='11'><abbr>{%trans "Gross profit"%}</abbr> <b>11%</b></div>
-    </div>
-  </div>
-  <div class="c">
-    <div class="priceMargin fs09 mB5 hideIn">
-      <div class="msg minimal mB0" data-percent='11'><abbr>{%trans "Margin"%}</abbr> <b>11%</b></div>
-    </div>
-  </div>
+{%endblock%}
+
+
+{%block iPriceProfit%}
+<div class="profitMargin hideIn mB10">
+  <label for='buyprice'>{%trans "Gross profit"%}</label>
+  <div class="msg h36" data-percent='11'><abbr>{%trans "Gross profit"%}</abbr> <b>11%</b></div>
 </div>
 {%endblock%}
 
 
 {%block iPrice%}
 <label for='price'>{%trans "Sale Price"%}</label>
-<div class="input mB5-f">
- <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
+<div class="input fix ltr mB5-f">
  <input type="text" name="price" id="price" data-format='price' value="{{productDataRow.price}}" maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}" data-run-input='calcProductMargin'>
-</div>
-{%endblock%}
-
-
-{%block iCompareAtPrice%}
-<label for='CompareAtPrice'>{%trans "Compare at price"%}</label>
-<div class="input mB5-f">
  <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
- <input type="text" name="CompareAtPrice" id="CompareAtPrice" data-format='price' value="{{productDataRow.compareatprice}}" placeholder='{%trans "Original retail price before off"%}' data-run-input='calcProductMargin' maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}">
- <div class="addon fs09 discountMargin"></div>
 </div>
 {%endblock%}
 
+
+
+{%block iDiscount%}
+<label for='discount'>{%trans "Discount"%}</label>
+<div class="input fix ltr mB5-f">
+ <div class="addon fs09" id='discountRate'></div>
+ <input type="text" name="discount" id="discount" data-format='price' value="{{productDataRow.discount}}" data-run-input='calcProductMargin'>
+ <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
+</div>
+{%endblock%}
 
 
 
 {%block iFinalPrice%}
-<div {%if not productDataRow.finalprice%} class="hide"{%endif%}>
+<div {%if not productDataRow.finalprice%} class="hide1"{%endif%}>
  <label for='finalprice'>{%trans "Final Price"%}</label>
- <div class="input disabled">
+ <div class="input fix ltr disabled">
   <input type="text" id="finalprice" data-format='price' value="{{productDataRow.finalprice}}" readonly>
-  <span class="addon" title='{%trans "Pure Interest Rates"%}'>{{ productDataRow.intrestrate | fitNumber}} %</span>
+  <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
  </div>
 {%if lang.current == 'fa'%}
 <div class="msg info2 txtB finalPriceToman"></div>
@@ -267,11 +263,9 @@
 
 
 {%block iVat%}
-<div class="switch1 mB0">
- <input type="checkbox" name="vat" id="vat" data-percent='9' {%if productDataRow.vat%} checked{%endif%}>
- <label for="vat"></label>
- <label for="vat">{%trans "Charge taxes"%}</label>
- <label for="vat"><span class="badge">{{9 | fitNumber}} %</span></label>
+<div class="check1 mB0">
+ <input type="checkbox" name="vat" id="vat" data-rate='0.09' data-run-input='calcProductMargin' {%if productDataRow.vat%} checked{%endif%}>
+ <label for="vat">{%trans "Charge taxes"%} {{9 | fitNumber}}% <span class="compact mLa10">2500</span></label>
 </div>
 {%endblock%}
 

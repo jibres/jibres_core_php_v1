@@ -16,16 +16,22 @@
     <section class="jbox">
       <header class="hide" data-kerkere='.jboxPrice' data-kerkere-icon='open'><h2>{%trans "Pricing Model"%}</h2></header>
       <div class="pad jboxPrice">
-        <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
-          {{block ('iBuyprice') }}
+        <div class="f" data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+          <div class="c s12 pRa5">{{block ('iBuyprice') }}</div>
+          <div class="c s12">{{block ('iPriceProfit') }}</div>
         </div>
         <div class="f">
           <div class="c s12 pRa5">{{block ('iPrice') }}</div>
-          <div class="c s12">{{block ('iCompareAtPrice') }}</div>
+          <div class="c s12">{{block ('iDiscount') }}</div>
         </div>
+
         {% if store.store_data.tax_status%}
           {{block ('iVat') }}
         {%endif%}
+
+        {{block ('iFinalPrice') }}
+
+
       </div>
     </section>
 
