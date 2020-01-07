@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\pos;
+namespace content_a\setting\pcpos;
 
 
 class model
@@ -8,7 +8,7 @@ class model
 	{
 		if(\dash\request::post('type') === 'default')
 		{
-			$result = \lib\app\store\pos::default(\dash\request::post('key'));
+			$result = \lib\app\pos\tools::default(\dash\request::post('id'));
 
 			if($result)
 			{
@@ -17,11 +17,10 @@ class model
 		}
 		elseif(\dash\request::post('type') === 'remove')
 		{
-			$result = \lib\app\store\pos::remove(\dash\request::post('key'));
+			$result = \lib\app\pos\remove::remove(\dash\request::post('id'));
 
 			if($result)
 			{
-				\dash\notif::warn(T_("Pos removed"));
 				\dash\redirect::pwd();
 			}
 		}
@@ -29,11 +28,10 @@ class model
 		{
 			$post = \dash\request::post();
 
-			$result = \lib\app\store\pos::add($post);
+			$result = \lib\app\pos\add::new_pos($post);
 
 			if($result)
 			{
-				\dash\notif::ok(T_("Pos setting saved"));
 				\dash\redirect::pwd();
 			}
 		}

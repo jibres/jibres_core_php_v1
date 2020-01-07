@@ -68,14 +68,14 @@
 
     <tbody>
       {%for key, value in dataTable%}
-      <tr {%if value.default%} title='{%trans "Is default"%}' class="positive"{%endif%}>
-        <td class="collapsing"><span class="spay-32-{{value.class}}"></span></td>
+      <tr {%if value.isdefault%} title='{%trans "Is default"%}' class="positive"{%endif%}>
+        <td class="collapsing"><span class="spay-32-{{value.slug}}"></span></td>
         <td class="collapsing txtLa">
-          <span class="txtB">{%set bankName = value.name | capitalize%}{%trans bankName%}</span>
-          {%if value.pc_pos%}
+          <span class="txtB">{%set bankName = value.slug | capitalize%}{%trans bankName%}</span>
+          {%if value.pcpos%}
 	      <span class="badge primary">{%trans "PcPos"%}</span>
           <div class="mT10">
-				{%for k, v in value.pc_pos%}
+				{%for k, v in value.setting%}
 				{%set attrName = k | capitalize%}
 	          		<span class="badge light">{%trans attrName%} {{v | fitNumber(false)}}</span>
 				{%endfor%}
@@ -84,14 +84,14 @@
       	</td>
         <td>{%if value.title %}{{value.title}}{%else%}-{%endif%}</td>
         <td class="collapsing s0">
-        	{%if value.default%}
+        	{%if value.isdefault%}
           		<a class="badge success"> {%trans "Is default"%}</a>
         	{%else%}
-          		<a href="{{url.pwd}}" class="badge" data-ajaxify data-method='post' data-data='{"key" : "{{key}}", "type" : "default"}'>{%trans "Set as default"%}</a>
+          		<a href="{{url.pwd}}" class="badge" data-ajaxify data-method='post' data-data='{"id" : "{{value.id}}", "type" : "default"}'>{%trans "Set as default"%}</a>
           	{%endif%}
         </td>
         <td class="collapsing">
-          <div class="badge danger" data-confirm data-data='{"key":"{{key}}", "type":"remove"}'>{%trans "Remove"%}</div>
+          <div class="badge danger" data-confirm data-data='{"id":"{{value.id}}", "type":"remove"}'>{%trans "Remove"%}</div>
         </td>
       </tr>
       {%endfor%}
