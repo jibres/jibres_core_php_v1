@@ -78,10 +78,10 @@ self.addEventListener("fetch", function (event)
   {
     return;
   }
-  // if (comparePaths(event.request.url, avoidCachingPaths))
-  // {
-  //   return;
-  // }
+  if (comparePaths(event.request.url, avoidCachingPaths))
+  {
+    return;
+  }
   // if ajax, dont cache request
 
 
