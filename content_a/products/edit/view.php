@@ -17,27 +17,8 @@ class view
 
 		\dash\data::page_title($title);
 
-		$nex_prev_product = \lib\app\product\get::next_prev($id);
-		if(isset($nex_prev_product['next']))
-		{
-			// nav
-			\dash\data::page_next($nex_prev_product['next']);
-		}
-		else
-		{
-			\dash\data::page_next('disabled');
-		}
-
-		$nex_prev_product = \lib\app\product\get::next_prev($id);
-		if(isset($nex_prev_product['prev']))
-		{
-			// nav
-			\dash\data::page_prev($nex_prev_product['prev']);
-		}
-		else
-		{
-			\dash\data::page_prev('disabled');
-		}
+		\dash\data::page_next(\dash\url::this(). '/next/'. \dash\request::get('id'));
+		\dash\data::page_prev(\dash\url::this(). '/prev/'. \dash\request::get('id'));
 
 
 		// back

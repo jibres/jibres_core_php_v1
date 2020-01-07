@@ -3,27 +3,44 @@ namespace lib\db\products;
 
 class get
 {
+
+	public static function first_product_id()
+	{
+		$query  = "SELECT products.id AS `id` FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC LIMIT 1 ";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
+	}
+
+
+	public static function end_product_id()
+	{
+		$query  = "SELECT products.id AS `id` FROM products WHERE products.status != 'deleted' ORDER BY products.id DESC LIMIT 1 ";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
+	}
+
+
+
 	public static function count_all()
 	{
-		$query   = "SELECT COUNT(*) AS `count` FROM products where products.status != 'deleted' ";
+		$query   = "SELECT COUNT(*) AS `count` FROM products WHERE products.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
 
 
-	public static function next_prev($_id)
+	public static function prev($_id)
 	{
-		$next        = "SELECT products.id AS `id` FROM products where products.id = (SELECT MIN(products.id) FROM products where products.id > $_id) LIMIT 1 ";
-		$next_result = \dash\db::get($next, 'id', true);
+		$query  = "SELECT products.id AS `id` FROM products WHERE products.id = (SELECT MAX(products.id) FROM products WHERE products.status != 'deleted' AND products.id < $_id) LIMIT 1 ";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
+	}
 
-		$prev        = "SELECT products.id AS `id` FROM products where products.id = (SELECT MAX(products.id) FROM products where products.id < $_id) LIMIT 1 ";
-		$prev_result = \dash\db::get($prev, 'id', true);
-
-		return
-		[
-			'next' => $next_result,
-			'prev' => $prev_result
-		];
+	public static function next($_id)
+	{
+		$query  = "SELECT products.id AS `id` FROM products WHERE products.id = (SELECT MIN(products.id) FROM products WHERE products.status != 'deleted' AND products.id > $_id) LIMIT 1 ";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
 	}
 
 

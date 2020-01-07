@@ -5,7 +5,8 @@ namespace lib\app\product;
 class get
 {
 	private static $product_detail    = [];
-	private static $product_next_prev = [];
+	private static $product_prev      = [];
+	private static $product_next      = [];
 
 
 	public static function inline_get($_id)
@@ -85,11 +86,14 @@ class get
 	}
 
 
-	public static function next_prev($_id)
+
+
+
+	public static function next($_id)
 	{
-		if(isset(self::$product_next_prev[$_id]))
+		if(isset(self::$product_next[$_id]))
 		{
-			return self::$product_next_prev[$_id];
+			return self::$product_next[$_id];
 		}
 
 		$result = self::inline_get($_id);
@@ -99,22 +103,47 @@ class get
 			return false;
 		}
 
-		$next_prev = \lib\db\products\get::next_prev($result['id']);
+		$next = \lib\db\products\get::next($result['id']);
 
-		$result = [];
-		if(isset($next_prev['next']) && $next_prev['next'])
+		if(!$next)
 		{
-			$result['next'] = \dash\url::this(). '/edit?id='. $next_prev['next'];
+			$next = \lib\db\products\get::first_product_id();
 		}
 
-		if(isset($next_prev['prev']) && $next_prev['prev'])
+		$next = \dash\url::this(). '/edit?id='. $next;
+
+		self::$product_next[$_id] = $next;
+
+		return $next;
+	}
+
+
+	public static function prev($_id)
+	{
+		if(isset(self::$product_prev[$_id]))
 		{
-			$result['prev'] = \dash\url::this(). '/edit?id='. $next_prev['prev'];
+			return self::$product_prev[$_id];
 		}
 
-		self::$product_next_prev[$_id] = $result;
+		$result = self::inline_get($_id);
 
-		return $result;
+		if(!$result)
+		{
+			return false;
+		}
+
+		$prev = \lib\db\products\get::prev($result['id']);
+
+		if(!$prev)
+		{
+			$prev = \lib\db\products\get::end_product_id();
+		}
+
+		$prev = \dash\url::this(). '/edit?id='. $prev;
+
+		self::$product_prev[$_id] = $prev;
+
+		return $prev;
 	}
 }
 ?>
