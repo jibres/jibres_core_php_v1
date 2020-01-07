@@ -394,11 +394,11 @@ class setup
 			return false;
 		}
 
-		if(!$postcode)
-		{
-			\dash\notif::error(T_("Please set your postcode"), 'postcode');
-			return false;
-		}
+		// if(!$postcode)
+		// {
+		// 	\dash\notif::error(T_("Please set your postcode"), 'postcode');
+		// 	return false;
+		// }
 
 		$phone = \dash\app::request('phone');
 		$phone = \dash\number::clean($phone);
