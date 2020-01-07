@@ -6,19 +6,22 @@ function calcProductMargin()
     return;
   }
 
-  var cost              = getElNumber($('#buyprice'));
-  var price             = getElNumber($('#price'));
-  var discount          = getElNumber($('#discount'));
-  var discountRate      = 0;
-  var vat               = 0;
-  var vatRate           = 0;
-  // finalPrice = price - discount
-  var finalPrice        = price;
-  var finalPriceTxt     = price;
-  // grossProfit = price - cost
-  var grossProfit       = 0;
-  // grossProfitMargin = (price - cost) / price
-  var grossProfitMargin = 0;
+  var cost                = getElNumber($('#buyprice'));
+  var price               = getElNumber($('#price'));
+  var discount            = getElNumber($('#discount'));
+  var discountRate        = 0;
+  var vat                 = 0;
+  var vatRate             = 0;
+  // finalPrice           = price - discount
+  var finalPrice          = price;
+  var finalPriceTxt       = price;
+  // grossProfit          = price - cost
+  var grossProfit         = 0;
+  // grossProfitMargin    = (price - cost) / price
+  var grossProfitMargin   = 0;
+  // useful elements
+  var grossProfitMarginEl = $('.grossProfitMargin');
+  var moneyUnit           = $('#finalprice').attr('data-unit');
 
   // calc final price
   if(discount)
@@ -71,54 +74,55 @@ function calcProductMargin()
   // $('#finalprice').parent().parent().find('label span').text(fitNumber(finalPriceTxt, false));
   $('#finalprice').val(finalPrice);
 
-
-return;
-
-
-  // calc priceMargin and show depends on condition
-  if(price && cost)
+  if(cost)
   {
-    grossProfit       = price - cost;
-    grossProfitMargin = (((price - cost) / price)  * 100).toFixed(2);
+    grossProfit       = finalPrice - cost;
+    grossProfitMargin = ((finalPrice - cost) / cost)  * 100;
+    // grossProfitMargin = parseFloat(grossProfitMargin.toFixed(2))
+    console.log(finalPrice);
+    console.log(cost);
+    console.log(grossProfit);
+    console.log(grossProfitMargin);
   }
+
+  // set val
+  if(grossProfitMargin)
+  {
+    grossProfitMarginEl.find('.c').html(fitNumber(grossProfitMargin) + '%');
+    grossProfitMarginEl.find('.cauto').html(fitNumber(grossProfit) + ' ' + moneyUnit);
+    grossProfitMarginEl.attr('data-percent', grossProfitMargin).slideDown('fast');
+  }
+  else
+  {
+    grossProfitMarginEl.find('.c').html('-');
+    grossProfitMarginEl.find('.cauto').html('-');
+    grossProfitMarginEl.attr('data-percent', grossProfitMargin).slideUp('fast');
+  }
+
   // change design based on change
   if(grossProfitMargin > 10)
   {
-    priceMarginEl.removeClass('danger2')
-    priceMarginEl.removeClass('info2')
-    priceMarginEl.addClass('success2')
+    grossProfitMarginEl.find('.msg').removeClass('danger2')
+    grossProfitMarginEl.find('.msg').removeClass('info2')
+    grossProfitMarginEl.find('.msg').addClass('success2')
   }
   else if(grossProfitMargin > 0)
   {
-    priceMarginEl.removeClass('danger2')
-    priceMarginEl.addClass('info2')
-    priceMarginEl.removeClass('success2')
+    grossProfitMarginEl.find('.msg').removeClass('danger2')
+    grossProfitMarginEl.find('.msg').addClass('info2')
+    grossProfitMarginEl.find('.msg').removeClass('success2')
   }
   else
   {
-    priceMarginEl.addClass('danger2')
-    priceMarginEl.removeClass('info2')
-    priceMarginEl.removeClass('success2')
-  }
-  // set val
-  if(priceMargin)
-  {
-    priceMarginEl.find('b').html(fitNumber(priceMargin) + ' %');
-    priceMarginEl.attr('data-percent', priceMargin).slideDown('fast');
-  }
-  else
-  {
-    priceMarginEl.find('b').html('-');
-    priceMarginEl.attr('data-percent', priceMargin).slideUp('fast');
+    grossProfitMarginEl.find('.msg').addClass('danger2')
+    grossProfitMarginEl.find('.msg').removeClass('info2')
+    grossProfitMarginEl.find('.msg').removeClass('success2')
   }
 
 
 
 
-
-
-
-
+return;
 
   // calc discount margin
   if(price && compareAtPrice)
