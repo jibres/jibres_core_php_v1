@@ -36,7 +36,7 @@ function calcProductMargin()
   }
 
   // set discount rate
-  if(discountRate > 100000)
+  if(discountRate > 10000)
   {
     $('#discountRate').text('+ ∞');
   }
@@ -61,10 +61,12 @@ function calcProductMargin()
   {
     vat = ((price - discount) * vatRate).toFixed(2);
     vat = parseFloat(vat);
-    if(vat)
-    {
-      $('#vat').parent().find('label span').text(fitNumber(vat));
-    }
+    // display vat
+    $('#vatCost').text(fitNumber(vat));
+  }
+  else
+  {
+    $('#vatCost').text('-');
   }
 
   // charge tax is enabled by user

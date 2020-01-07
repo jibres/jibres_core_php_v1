@@ -218,7 +218,7 @@
 
 
 {%block iGrossProfitMargin%}
-<div class="grossProfitMargin hideIn mB5">
+<div class="grossProfitMargin hideIn">
   <label for='buyprice'>{%trans "Gross profit"%}</label>
   <div class="msg h36" data-percent='11'>
     <div class="f">
@@ -251,7 +251,7 @@
 
 {%block iFinalPrice%}
 <div {%if not productDataRow.finalprice%} class="hide1"{%endif%}>
-  <div class="msg">
+  <div class="msg mT10">
     <div class="f">
       <div class="cauto">{%trans "Final Price"%}</div>
       <div class="c ltr txtL pLR5" id="finalPrice">{{productDataRow.finalprice}}</div>
@@ -268,9 +268,18 @@
 
 
 {%block iVat%}
-<div class="check1 mB0">
- <input type="checkbox" name="vat" id="vat" data-rate='0.09' data-run-input='calcProductMargin' {%if productDataRow.vat%} checked{%endif%}>
- <label for="vat">{%trans "Charge taxes"%} {{9 | fitNumber}}% <span class="compact mLa10">2500</span></label>
+<div class="msg h36 dark2">
+  <div class="f align-center">
+    <div class="c pRa5">
+      <div class="check1 mB0">
+       <input type="checkbox" name="vat" id="vat" data-rate='0.09' data-run-input='calcProductMargin' {%if productDataRow.vat%} checked{%endif%}>
+       <label for="vat">{%trans "Charge taxes"%}<span class="compact mLa10 txtB">{{9 | fitNumber}}%</span></label>
+      </div>
+    </div>
+    <div class="cauto">{%trans "VAT"%}</div>
+    <div class="cauto ltr txtL pLR5" id="vatCost"></div>
+    <div class="cauto">{{store.store_data.currency_detail.symbol_native}}</div>
+  </div>
 </div>
 {%endblock%}
 
