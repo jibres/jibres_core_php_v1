@@ -14,6 +14,7 @@ function calcProductMargin()
   var vatRate           = 0;
   // finalPrice = price - discount
   var finalPrice        = price;
+  var finalPriceTxt     = price;
   // grossProfit = price - cost
   var grossProfit       = 0;
   // grossProfitMargin = (price - cost) / price
@@ -23,13 +24,18 @@ function calcProductMargin()
   if(discount)
   {
     finalPrice = price - discount;
+    finalPriceTxt +=  " - " + discount;
     discountRate = ((discount / price) * 100).toFixed(2);
   }
 
   // set discount rate
   if(discountRate > 1000)
   {
-    $('#discountRate').text(fitNumber(1000, false) + '+ %');
+    $('#discountRate').text('+ ∞');
+  }
+  else if(discountRate < 0)
+  {
+    $('#discountRate').text('- ∞');
   }
   else
   {
@@ -46,7 +52,8 @@ function calcProductMargin()
   // show vat value
   if(price - discount > 0)
   {
-    vat = (price - discount) * vatRate;
+    vat = ((price - discount) * vatRate).toFixed(2);
+    vat = parseFloat(vat);
     if(vat)
     {
       $('#vat').parent().find('label span').text(fitNumber(vat));
@@ -57,9 +64,11 @@ function calcProductMargin()
   if($("#vat").is(":checked"))
   {
     finalPrice = finalPrice + vat;
+    finalPriceTxt +=  " + " + vat;
   }
 
   // set finalPrice
+  // $('#finalprice').parent().parent().find('label span').text(fitNumber(finalPriceTxt, false));
   $('#finalprice').val(finalPrice);
 
 

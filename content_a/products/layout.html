@@ -213,7 +213,6 @@
 <label for='buyprice'>{%trans "Buy cost"%}</label>
 <div class="input fix ltr">
  <input type="text" name="buyprice" id="buyprice" data-format='price' value="{{productDataRow.buyprice}}" maxlength="{%if currentStore.setting.maxbuyprice%}{{currentStore.setting.maxbuyprice}}{%else%}15{%endif%}" data-run-input='calcProductMargin'>
- <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
 </div>
 {%endblock%}
 
@@ -230,7 +229,6 @@
 <label for='price'>{%trans "Sale Price"%}</label>
 <div class="input fix ltr mB5-f">
  <input type="text" name="price" id="price" data-format='price' value="{{productDataRow.price}}" maxlength="{%if currentStore.setting.maxprice%}{{currentStore.setting.maxprice}}{%else%}15{%endif%}" data-run-input='calcProductMargin'>
- <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
 </div>
 {%endblock%}
 
@@ -239,9 +237,8 @@
 {%block iDiscount%}
 <label for='discount'>{%trans "Discount"%}</label>
 <div class="input fix ltr mB5-f">
- <div class="addon fs09" id='discountRate'></div>
  <input type="text" name="discount" id="discount" data-format='price' value="{{productDataRow.discount}}" data-run-input='calcProductMargin'>
- <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
+ <div class="addon fs09" id='discountRate'></div>
 </div>
 {%endblock%}
 
@@ -249,7 +246,7 @@
 
 {%block iFinalPrice%}
 <div {%if not productDataRow.finalprice%} class="hide1"{%endif%}>
- <label for='finalprice'>{%trans "Final Price"%}</label>
+ <label for='finalprice'>{%trans "Final Price"%} <span></span></label>
  <div class="input fix ltr disabled">
   <input type="text" id="finalprice" data-format='price' value="{{productDataRow.finalprice}}" readonly>
   <div class="addon fs09">{{store.store_data.currency_detail.symbol_native}}</div>
