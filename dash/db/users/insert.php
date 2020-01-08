@@ -4,6 +4,16 @@ namespace dash\db\users;
 
 class insert
 {
+
+	public static function jibres_customer_users_insert($_database, $_fuel, $_set)
+	{
+		$set = \dash\db\config::make_set($_set);
+
+		$query = "INSERT INTO `$_database`.`users` SET $set";
+		$result = \dash\db::query($query, $_fuel, ['database' => $_database]);
+		return $result;
+	}
+
 	public static function insert($_args)
 	{
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);

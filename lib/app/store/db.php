@@ -19,7 +19,7 @@ class db
 		// and then connect to customer database
 		$fuel = $_args['fuel'];
 
-		$create_database = self::create_database_customer($fuel, $customer_db_name);
+		$create_database = \lib\db\store\create::database_customer($fuel, $customer_db_name);
 		if(!$create_database)
 		{
 			\dash\log::set('errorInstallCustomerDbCreateDatabase', ['args' => $_args]);
@@ -76,12 +76,7 @@ class db
 	}
 
 
-	private static function create_database_customer($_fuel, $_customer_database)
-	{
-		$query = "CREATE DATABASE IF NOT EXISTS `$_customer_database` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
-		$result = \dash\db::query($query, $_fuel, ['database' => 'mysql']);
-		return $result;
-	}
+
 
 
 	private static function addr()
@@ -117,11 +112,8 @@ class db
 		$set['birthday']       = $_args['birthday'];
 		$set['marital']        = $_args['marital'];
 
-		$set = \dash\db\config::make_set($set);
+		\dash\db\users\insert::jibres_customer_users_insert($_database, $_fuel, $set);
 
-
-		$query = "INSERT INTO `$_database`.`users` SET $set";
-		$result = \dash\db::query($query, $_fuel, ['database' => $_database]);
 
 		$set_setting = [];
 
@@ -132,10 +124,8 @@ class db
 		$set_setting[] = self::make_setting_record('store_setting', 'startplan', 		$_args['startplan']);
 		$set_setting[] = self::make_setting_record('store_setting', 'expireplan',  		$_args['expireplan']);
 
-		$set_setting = \dash\db\config::make_multi_insert($set_setting);
+		\lib\db\setting\insert::jibres_customer_insert($_database, $_fuel, $set_setting);
 
-		$query = "INSERT INTO `$_database`.`setting` $set_setting";
-		$result = \dash\db::query($query, $_fuel, ['database' => $_database]);
 	}
 
 
