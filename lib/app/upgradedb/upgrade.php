@@ -306,7 +306,7 @@ class upgrade
 		$query = [];
 		foreach (self::$all_dbversion as $store_id => $version)
 		{
-			$query[] = "UPDATE jibres.store_data SET jibres.store_data.dbversion = '$version', jibres.store_data.dbversiondate = '$versiondate' WHERE jibres.store_data.id = $store_id LIMIT 1";
+			$query[] = \lib\db\store\get_string::update_db_version($version, $versiondate, $store_id);
 		}
 
 		\dash\file::write(self::temp_sql_addr(), implode(";\n", $query));
