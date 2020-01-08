@@ -1050,6 +1050,12 @@ class check
 			$compareatprice = $price;
 		}
 
+		if((intval($price) - intval($discount)) < 0)
+		{
+			\dash\notif::error(T_("Final price is out of rage"), ['element' => ['discount', 'price']]);
+			return false;
+		}
+
 		$args                    = [];
 		$args['buyprice']        = \lib\price::up($buyprice);
 		$args['price']           = \lib\price::up($price);
