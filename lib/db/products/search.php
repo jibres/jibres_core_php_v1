@@ -75,6 +75,7 @@ class search
 				productprices.discount,
 				productprices.discountpercent,
 				productprices.compareatprice,
+				productprices.vatprice,
 				productprices.finalprice
 			FROM products
 			LEFT JOIN productprices ON productprices.id = (SELECT MAX(productprices.id) FROM productprices WHERE productprices.product_id = products.id)

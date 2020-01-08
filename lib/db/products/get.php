@@ -135,6 +135,7 @@ class get
 				if(array_key_exists('compareatprice', $prices)) 	$_result['compareatprice']  = $prices['compareatprice'];
 				if(array_key_exists('discountpercent', $prices)) 	$_result['discountpercent'] = $prices['discountpercent'];
 				if(array_key_exists('finalprice', $prices)) 		$_result['finalprice']      = $prices['finalprice'];
+				if(array_key_exists('vatprice', $prices))		 	$_result['vatprice']        = $prices['vatprice'];
 			}
 		}
 
@@ -171,6 +172,7 @@ class get
 				productprices.discount,
 				productprices.discountpercent,
 				productprices.compareatprice,
+				productprices.vatprice,
 				productprices.finalprice
 			FROM products
 			LEFT JOIN productprices ON productprices.id = (SELECT MAX(productprices.id) FROM productprices WHERE productprices.product_id = products.id)

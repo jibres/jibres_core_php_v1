@@ -1050,10 +1050,25 @@ class check
 			$compareatprice = $price;
 		}
 
-		if((intval($price) - intval($discount)) < 0)
+		$finalprice = floatval($price) - floatval($discount);
+
+		if($finalprice < 0)
 		{
 			\dash\notif::error(T_("Final price is out of rage"), ['element' => ['discount', 'price']]);
 			return false;
+		}
+
+		$vatprice = 0;
+
+		if(\dash\app::request('vatprice'))
+		{
+			$vatprice_percent = 9; // 9% in iran. need to get from setting
+			if($vatprice_percent)
+			{
+				$new_finalprice = $finalprice + (($finalprice * $vatprice_percent) / 100);
+				$vatprice = $new_finalprice - $finalprice;
+				$finalprice = $new_finalprice;
+			}
 		}
 
 		$args                    = [];
@@ -1062,6 +1077,8 @@ class check
 		$args['compareatprice']  = \lib\price::up($compareatprice);
 		$args['discount']        = \lib\price::up($discount);
 		$args['discountpercent'] = \lib\price::up($discountpercent);
+		$args['finalprice']      = \lib\price::up($finalprice);
+		$args['vatprice']        = \lib\price::up($vatprice);
 
 		return $args;
 	}

@@ -46,153 +46,155 @@ class check
 			$type = 'sale';
 		}
 
-		$customer = \dash\app::request('customer');
-		if(!$customer || $customer === '')
-		{
-			$customer = null;
-		}
+		$customer = null;
 
-		if($customer)
-		{
-			$customer_id = \dash\coding::decode($customer);
-			if($customer_id)
-			{
-				$customer_detail = \lib\db\userstores::get(['id' => $customer_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
-				if(!isset($customer_detail['id']))
-				{
-					\dash\notif::error(T_("Customer detail is invalid"), 'customer');
-					return false;
-				}
-				else
-				{
-					$customer = $customer_detail['id'];
-				}
-			}
-			else
-			{
-				// search in displayname of userstore
-				$customer_detail = \lib\db\userstores::search_customer($customer, \lib\store::id());
-				if(isset($customer_detail['id']))
-				{
-					$customer = $customer_detail['id'];
-				}
-				else
-				{
-					$customer = null;
-				}
-			}
+		// $customer = \dash\app::request('customer');
+		// if(!$customer || $customer === '')
+		// {
+		// 	$customer = null;
+		// }
 
-			if($type === 'sale')
-			{
-				// everyone sell one time, is customer
-				if(isset($customer_detail['id']) && !isset($customer_detail['customer']))
-				{
-					\lib\db\userstores::update(['customer' => 1], $customer_detail['id']);
-				}
-			}
-		}
+		// if($customer)
+		// {
+		// 	$customer_id = \dash\coding::decode($customer);
+		// 	if($customer_id)
+		// 	{
+		// 		$customer_detail = \lib\db\userstores::get(['id' => $customer_id, 'store_id' => \lib\store::id(), 'limit' => 1]);
+		// 		if(!isset($customer_detail['id']))
+		// 		{
+		// 			\dash\notif::error(T_("Customer detail is invalid"), 'customer');
+		// 			return false;
+		// 		}
+		// 		else
+		// 		{
+		// 			$customer = $customer_detail['id'];
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		// search in displayname of userstore
+		// 		$customer_detail = \lib\db\userstores::search_customer($customer, \lib\store::id());
+		// 		if(isset($customer_detail['id']))
+		// 		{
+		// 			$customer = $customer_detail['id'];
+		// 		}
+		// 		else
+		// 		{
+		// 			$customer = null;
+		// 		}
+		// 	}
 
-		if(!$customer)
-		{
-			$mobile      = \dash\app::request('mobile');
-			if($mobile)
-			{
-				$mobile = \dash\utility\filter::mobile($mobile);
-				if(!$mobile)
-				{
-					\dash\notif::error(T_("Invalid mobile"), 'mobile');
-					return false;
-				}
-			}
+		// 	if($type === 'sale')
+		// 	{
+		// 		// everyone sell one time, is customer
+		// 		if(isset($customer_detail['id']) && !isset($customer_detail['customer']))
+		// 		{
+		// 			\lib\db\userstores::update(['customer' => 1], $customer_detail['id']);
+		// 		}
+		// 	}
+		// }
 
-			$gender      = \dash\app::request('gender');
+		// if(!$customer)
+		// {
+		// 	$mobile      = \dash\app::request('mobile');
+		// 	if($mobile)
+		// 	{
+		// 		$mobile = \dash\utility\filter::mobile($mobile);
+		// 		if(!$mobile)
+		// 		{
+		// 			\dash\notif::error(T_("Invalid mobile"), 'mobile');
+		// 			return false;
+		// 		}
+		// 	}
 
-			if($gender && !in_array($gender, ['male', 'female']))
-			{
-				\dash\notif::error(T_("Invalid gender"), 'gender');
-				return false;
-			}
+		// 	$gender      = \dash\app::request('gender');
 
-			$displayname = \dash\app::request('displayname');
+		// 	if($gender && !in_array($gender, ['male', 'female']))
+		// 	{
+		// 		\dash\notif::error(T_("Invalid gender"), 'gender');
+		// 		return false;
+		// 	}
 
-			if($mobile)
-			{
-				$customer_user_id = \dash\app\user::quick_add(['mobile' => $mobile, 'gender' => $gender, 'displayname' => $displayname]);
-				if($customer_user_id)
-				{
-					$check_in_store = \lib\db\userstores::get(['store_id' => \lib\store::id(), 'user_id' => $customer_user_id, 'limit' => 1]);
-					if(isset($check_in_store['id']))
-					{
-						$customer = $check_in_store['id'];
+		// 	$displayname = \dash\app::request('displayname');
 
-						$update_current_customer = [];
+		// 	if($mobile)
+		// 	{
+		// 		$customer_user_id = \dash\app\user::quick_add(['mobile' => $mobile, 'gender' => $gender, 'displayname' => $displayname]);
+		// 		if($customer_user_id)
+		// 		{
+		// 			$check_in_store = \lib\db\userstores::get(['store_id' => \lib\store::id(), 'user_id' => $customer_user_id, 'limit' => 1]);
+		// 			if(isset($check_in_store['id']))
+		// 			{
+		// 				$customer = $check_in_store['id'];
 
-						if(array_key_exists('displayname', $check_in_store) && !$check_in_store['displayname'] && $displayname)
-						{
-							$update_current_customer['displayname'] = $displayname;
-						}
+		// 				$update_current_customer = [];
 
-						if(array_key_exists('gender', $check_in_store) && !$check_in_store['gender'] && $gender)
-						{
-							$update_current_customer['gender'] = $gender;
-						}
+		// 				if(array_key_exists('displayname', $check_in_store) && !$check_in_store['displayname'] && $displayname)
+		// 				{
+		// 					$update_current_customer['displayname'] = $displayname;
+		// 				}
 
-						if(!empty($update_current_customer))
-						{
-							\lib\db\userstores::update($update_current_customer, $customer);
-						}
-					}
-					else
-					{
-						$insert_new_user_store =
-						[
-							'store_id'    => \lib\store::id(),
-							'user_id'     => $customer_user_id,
-							'gender'      => $gender,
-							'mobile'      => $mobile,
-							'displayname' => $displayname,
-						];
+		// 				if(array_key_exists('gender', $check_in_store) && !$check_in_store['gender'] && $gender)
+		// 				{
+		// 					$update_current_customer['gender'] = $gender;
+		// 				}
 
-						if($type === 'sale')
-						{
-							$insert_new_user_store['customer'] = 1;
-						}
+		// 				if(!empty($update_current_customer))
+		// 				{
+		// 					\lib\db\userstores::update($update_current_customer, $customer);
+		// 				}
+		// 			}
+		// 			else
+		// 			{
+		// 				$insert_new_user_store =
+		// 				[
+		// 					'store_id'    => \lib\store::id(),
+		// 					'user_id'     => $customer_user_id,
+		// 					'gender'      => $gender,
+		// 					'mobile'      => $mobile,
+		// 					'displayname' => $displayname,
+		// 				];
 
-						$customer = \lib\db\userstores::insert($insert_new_user_store);
-					}
-				}
-			}
-			else
-			{
-				if($displayname)
-				{
-					$check_exist_displayname = \lib\db\userstores::get(['displayname' => $displayname, 'mobile' => null, 'limit' => 1]);
-					if(isset($check_exist_displayname['id']))
-					{
-						\dash\notif::error(T_("This thirdparyt already added to your store. plase set her mobile or change the name"), 'displayname');
-					}
-					else
-					{
-						$customer_user_id = \dash\app\user::quick_add(['mobile' => null, 'gender' => $gender, 'displayname' => $displayname]);
+		// 				if($type === 'sale')
+		// 				{
+		// 					$insert_new_user_store['customer'] = 1;
+		// 				}
 
-						$insert_new_user_store =
-						[
-							'store_id'    => \lib\store::id(),
-							'user_id'     => $customer_user_id,
-							'gender'      => $gender,
-							'displayname' => $displayname,
-						];
+		// 				$customer = \lib\db\userstores::insert($insert_new_user_store);
+		// 			}
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		if($displayname)
+		// 		{
+		// 			$check_exist_displayname = \lib\db\userstores::get(['displayname' => $displayname, 'mobile' => null, 'limit' => 1]);
+		// 			if(isset($check_exist_displayname['id']))
+		// 			{
+		// 				\dash\notif::error(T_("This thirdparyt already added to your store. plase set her mobile or change the name"), 'displayname');
+		// 			}
+		// 			else
+		// 			{
+		// 				$customer_user_id = \dash\app\user::quick_add(['mobile' => null, 'gender' => $gender, 'displayname' => $displayname]);
 
-						if($type === 'sale')
-						{
-							$insert_new_user_store['customer'] = 1;
-						}
+		// 				$insert_new_user_store =
+		// 				[
+		// 					'store_id'    => \lib\store::id(),
+		// 					'user_id'     => $customer_user_id,
+		// 					'gender'      => $gender,
+		// 					'displayname' => $displayname,
+		// 				];
 
-						$customer = \lib\db\userstores::insert($insert_new_user_store);
-					}
-				}
-			}
-		}
+		// 				if($type === 'sale')
+		// 				{
+		// 					$insert_new_user_store['customer'] = 1;
+		// 				}
+
+		// 				$customer = \lib\db\userstores::insert($insert_new_user_store);
+		// 			}
+		// 		}
+		// 	}
+		// }
 
 		$args                   = [];
 		$args['customer']       = $customer;
@@ -423,7 +425,10 @@ class check
 
 			$this_proudct = $check_true_product[$value['product_id']];
 
-			$price = 0;
+			$price      = 0;
+			$finalprice = 0;
+			$discount   = 0;
+			$vat        = 0;
 
 			switch ($_option['type'])
 			{
@@ -439,8 +444,18 @@ class check
 						$price = floatval($this_proudct['price']);
 					}
 
+					if(array_key_exists('finalprice', $this_proudct))
+					{
+						$finalprice = floatval($this_proudct['finalprice']);
+					}
+
+					if(array_key_exists('vat', $this_proudct))
+					{
+						$vat = floatval($this_proudct['vat']);
+					}
+
 					$temp['discount']   = $value['discount'] === null ? $this_proudct['discount'] : $value['discount'];
-					$temp['sum']        = (floatval($price) - floatval($value['discount'])) * floatval($value['count']);
+					$temp['sum']        = floatval($finalprice) * floatval($value['count']);
 					break;
 
 				case 'buy':

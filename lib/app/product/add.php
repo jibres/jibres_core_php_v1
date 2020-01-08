@@ -178,7 +178,8 @@ class add
 				'compareatprice'  => $args_price['compareatprice'],
 				'discount'        => $args_price['discount'],
 				'discountpercent' => $args_price['discountpercent'],
-				'finalprice'      => floatval($args_price['price']) - floatval($args_price['discount']),
+				'finalprice'      => $args_price['finalprice'],
+				'vat'             => $args_price['vat'],
 			];
 
 			$productprices_id = \lib\db\productprices\insert::new_record($insert_productprices);

@@ -151,7 +151,7 @@ class updateprice
 				$changed = true;
 			}
 
-			if((array_key_exists('discountpercent', $last_product_price) && array_key_exists('discountpercent', $_args) && floatval($_args['discountpercent']) !== floatval($last_product_price['discountpercent'])) || $changed)
+			if((array_key_exists('vatprice', $last_product_price) && array_key_exists('vatprice', $_args) && floatval($_args['vatprice']) !== floatval($last_product_price['vatprice'])) || $changed)
 			{
 				$changed = true;
 			}
@@ -164,18 +164,8 @@ class updateprice
 			$new_record['buyprice']        = array_key_exists('buyprice', $_args) 			? $_args['buyprice'] 		: null;
 			$new_record['compareatprice']  = array_key_exists('compareatprice', $_args) 	? $_args['compareatprice'] 	: null;
 			$new_record['discountpercent'] = array_key_exists('discountpercent', $_args) 	? $_args['discountpercent'] : null;
-
-			// if($_from_buy_factor)
-			// {
-			// 	if($new_record['price'] === null && array_key_exists('price', $last_product_price)) $new_record['price'] = $last_product_price['price'];
-			// 	if($new_record['price'] === null && array_key_exists('price', $last_product_price)) $new_record['price'] = $last_product_price['price'];
-			// 	if($new_record['price'] === null && array_key_exists('price', $last_product_price)) $new_record['price'] = $last_product_price['price'];
-			// }
-
-			if(isset($new_record['price']))
-			{
-				$new_record['finalprice'] = floatval($new_record['price']) - floatval($new_record['discount']);
-			}
+			$new_record['finalprice']      = array_key_exists('finalprice', $_args) 		? $_args['finalprice'] 		: null;
+			$new_record['vatprice']        = array_key_exists('vatprice', $_args) 			? $_args['vatprice'] 		: null;
 		}
 
 		if($changed && isset($last_product_price['id']))

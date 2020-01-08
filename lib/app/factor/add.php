@@ -88,6 +88,7 @@ class add
 			$factor['detailsum']      += $sum;
 			$factor['detaildiscount'] += $discount;
 			$factor['detailtotalsum'] += $sum - $discount;
+			// $factor['detailtotalsum'] += $sum;
 		}
 
 		// $factor['qty']      = array_sum(array_column($factor_detail, 'count'));
