@@ -179,7 +179,7 @@ class add
 				'discount'        => $args_price['discount'],
 				'discountpercent' => $args_price['discountpercent'],
 				'finalprice'      => $args_price['finalprice'],
-				'vat'             => $args_price['vat'],
+				'vatprice'        => $args_price['vatprice'],
 			];
 
 			$productprices_id = \lib\db\productprices\insert::new_record($insert_productprices);

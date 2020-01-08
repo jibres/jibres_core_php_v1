@@ -71,7 +71,11 @@ class add
 
 		foreach ($factor_detail as $key => $value)
 		{
-			$sum                      = (intval($value['price']) * intval($value['count']));
+			if(isset($value['count']))
+			{
+				$qty_sum += intval($value['count']);
+			}
+
 			$discount = 0;
 
 			if(isset($value['discount']))
@@ -79,15 +83,12 @@ class add
 				$discount                 = (intval($value['discount']) * intval($value['count']));
 			}
 
-			if(isset($value['count']))
-			{
-				$qty_sum                 += intval($value['count']);
-			}
-
+			$sum = $value['sum'];
+			// @check need to fix
 			$factor['detailsum']      += $sum;
 			$factor['detaildiscount'] += $discount;
-			$factor['detailtotalsum'] += $sum - $discount;
-			// $factor['detailtotalsum'] += $sum;
+			$factor['detailtotalsum'] += $sum;
+			// $factor['detailtotalsum'] += $sum - $discount;
 		}
 
 		// $factor['qty']      = array_sum(array_column($factor_detail, 'count'));

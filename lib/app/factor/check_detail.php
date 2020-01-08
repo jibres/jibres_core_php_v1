@@ -193,7 +193,7 @@ class check_detail
 			$price      = 0;
 			$finalprice = 0;
 			$discount   = 0;
-			$vat        = 0;
+			$vatprice   = 0;
 
 			switch ($_option['type'])
 			{
@@ -214,9 +214,9 @@ class check_detail
 						$finalprice = floatval($this_proudct['finalprice']);
 					}
 
-					if(array_key_exists('vat', $this_proudct))
+					if(array_key_exists('vatprice', $this_proudct))
 					{
-						$vat = floatval($this_proudct['vat']);
+						$vatprice = floatval($this_proudct['vatprice']);
 					}
 
 					$temp['discount']   = $value['discount'] === null ? $this_proudct['discount'] : $value['discount'];
@@ -242,7 +242,7 @@ class check_detail
 			}
 
 			$temp['product_id'] = $value['product_id'];
-			$temp['price']      = $price;
+			$temp['price']      = $finalprice;
 			$temp['count']      = $value['count'] === null ? 1 : $value['count'];
 
 			$factor_detail[] = $temp;
