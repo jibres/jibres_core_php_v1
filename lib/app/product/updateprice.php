@@ -174,7 +174,7 @@ class updateprice
 
 			if(isset($new_record['price']))
 			{
-				$new_record['finalprice'] = floatval($new_record['price']);
+				$new_record['finalprice'] = floatval($new_record['price']) - floatval($new_record['discount']);
 			}
 		}
 
