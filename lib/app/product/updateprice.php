@@ -34,9 +34,9 @@ class updateprice
 			}
 
 			$price = null;
-			if($value['compareatprice'])
+			if($value['price'])
 			{
-				$price = \lib\price::down($value['compareatprice']);
+				$price = \lib\price::down($value['price']);
 			}
 
 			$discount = null;
@@ -46,9 +46,9 @@ class updateprice
 			}
 
 			$finalprice = null;
-			if($price || $discount)
+			if($value['finalprice'])
 			{
-				$finalprice = floatval($price) - floatval($discount);
+				$finalprice = \lib\price::down($value['finalprice']);
 			}
 
 			$profit = null;
