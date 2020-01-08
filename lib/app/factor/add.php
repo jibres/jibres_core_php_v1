@@ -28,7 +28,6 @@ class add
 		$_option = array_merge($default_option, $_option);
 
 
-
 		// store not loaded!
 		if(!\lib\store::id())
 		{
@@ -58,7 +57,7 @@ class add
 
 		\dash\app::variable($_factor_detail);
 
-		$factor_detail = \lib\app\factor\check::factor_detail($_option);
+		$factor_detail = \lib\app\factor\check_detail::factor_detail($_option);
 
 		if($factor_detail === false || !\dash\engine\process::status())
 		{

@@ -119,6 +119,14 @@ class users
 
 
 
+
+	public static function get_by_displayname($_displayname)
+	{
+		$query = "SELECT * FROM users WHERE users.displayname = '$_displayname' LIMIT 1";
+		return \dash\db::get($query, null, true);
+	}
+
+
 	public static function get_by_id($_user_id)
 	{
 		$query = "SELECT * FROM users WHERE users.id = '$_user_id' LIMIT 1";
@@ -154,7 +162,7 @@ class users
 			"
 				(
 					users.nationalcode = '__string__' OR
-					users.displayname LIKE '__string__%'
+					users.displayname LIKE '%__string__%'
 				)
 			";
 
@@ -174,7 +182,7 @@ class users
 				$search_field =
 				"
 					(
-						users.displayname LIKE '__string__%'
+						users.displayname LIKE '%__string__%'
 					)
 				";
 			}
