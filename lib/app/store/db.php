@@ -48,6 +48,30 @@ class db
 			self::inner_query($_args, $fuel, $customer_db_name);
 		}
 
+		$upgrade_addr = self::upgrade_addr();
+		$update_sql_query = glob($upgrade_addr . '/*');
+
+		foreach ($update_sql_query as $sql_file)
+		{
+			$load_file = \dash\file::read($sql_file);
+			if(is_string($load_file) && $load_file)
+			{
+				$load_file = str_replace('jibres_XXXXXXX', $customer_db_name, $load_file);
+				$is_ok = self::run_query($load_file, $fuel, $customer_db_name);
+
+				if(!$is_ok)
+				{
+					\dash\log::set('errorUpgradeCustomerDb', ['db_file' => $sql_file, 'args' => $_args]);
+					break;
+				}
+			}
+		}
+
+		if($is_ok)
+		{
+			self::set_last_db_version($update_sql_query, $_store_id);
+		}
+
 		return $is_ok;
 	}
 
@@ -63,6 +87,12 @@ class db
 	private static function addr()
 	{
 		return root. 'includes/database/customer';
+	}
+
+
+	private static function upgrade_addr()
+	{
+		return root. 'includes/database/upgrade/store';
 	}
 
 
@@ -118,6 +148,22 @@ class db
 			'key'   => $_key,
 			'value' => $_value,
 		];
+	}
+
+
+	private static function set_last_db_version($_updates, $_store_id)
+	{
+		$last_file = end($_updates);
+		if(is_string($last_file))
+		{
+			if(preg_match("/^v\.(\d+\.\d+\.\d+)\_(.*)$/", $last_file, $split))
+			{
+				$last_db_version = $split[1];
+				$query = \lib\db\store\get_string::update_db_version($last_db_version, date("Y-m-d H:i:s"), $_store_id);
+				$result = \dash\db::query($query, 'master');
+
+			}
+		}
 	}
 }
 ?>
