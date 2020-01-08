@@ -434,9 +434,9 @@ class check
 						return false;
 					}
 
-					if(array_key_exists('compareatprice', $this_proudct))
+					if(array_key_exists('price', $this_proudct))
 					{
-						$price = floatval($this_proudct['compareatprice']);
+						$price = floatval($this_proudct['price']);
 					}
 
 					$temp['discount']   = $value['discount'] === null ? $this_proudct['discount'] : $value['discount'];
