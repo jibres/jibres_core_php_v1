@@ -1,0 +1,1 @@
+ALTER TABLE `jibres_XXXXXXX`.`productprices` CHANGE `vat` `vatprice` BIGINT(20) UNSIGNED NULL DEFAULT NULL;
