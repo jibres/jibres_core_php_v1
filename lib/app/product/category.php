@@ -110,9 +110,12 @@ class category
 			return false;
 		}
 
+		$file = \dash\app::request('file');
+
 		$args          = [];
 		$args['title'] = $title;
 		$args['desc']  = $desc;
+		$args['file']  = $file;
 
 		return $args;
 
@@ -175,6 +178,16 @@ class category
 		$result       = [];
 		$result['id'] = $id;
 		return $result;
+	}
+
+	public static function remove_file($_id)
+	{
+		$load = self::inline_get($_id);
+		if($load)
+		{
+			\dash\upload\category::remove($_id);
+			\lib\db\productcategory\update::unset_file($_id);
+		}
 	}
 
 
@@ -262,14 +275,13 @@ class category
 
 	public static function inline_get($_id)
 	{
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+		if(!$_id || !is_numeric($_id))
 		{
 			\dash\notif::error(T_("Invalid category id"));
 			return false;
 		}
 
-		$load = \lib\db\productcategory\get::one($id);
+		$load = \lib\db\productcategory\get::one($_id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid category id"));
@@ -363,6 +375,7 @@ class category
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
 		if(!\dash\app::isset_request('desc')) unset($args['desc']);
+		if(!\dash\app::isset_request('file')) unset($args['file']);
 
 
 		if(!empty($args))
@@ -465,6 +478,10 @@ class category
 				// case 'id':
 				// 	$result[$key] = \dash\coding::encode($value);
 				// 	break;
+				case 'file':
+					$result[$key] = \lib\filepath::fix($value);;
+
+					break;
 
 				default:
 					$result[$key] = $value;

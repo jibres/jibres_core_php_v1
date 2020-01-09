@@ -6,10 +6,11 @@ class model
 {
 	public static function post()
 	{
+		$id = \dash\request::get('id');
 
 		if(\dash\request::post('deletefile'))
 		{
-			\lib\app\product\cat::remove_file(\dash\request::get('id'));
+			\lib\app\product\category::remove_file($id);
 
 			if(\dash\engine\process::status())
 			{
@@ -23,8 +24,13 @@ class model
 		$args['title']     = \dash\request::post('title');
 		$args['desc']      = \dash\request::post('desc');
 
+		$file = \dash\upload\category::set($id);
+		if($file)
+		{
+			$args['file'] = $file;
+		}
 
-		$result = \lib\app\product\category::edit($args, \dash\request::get('id'));
+		$result = \lib\app\product\category::edit($args, $id);
 
 		if(\dash\engine\process::status())
 		{

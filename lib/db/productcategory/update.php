@@ -14,5 +14,13 @@ class update
 		$result = \dash\db\config::public_update('productcategory', ...func_get_args());
 		return $result;
 	}
+
+
+	public static function unset_file($_id)
+	{
+		$query  = "UPDATE productcategory SET productcategory.file = NULL WHERE productcategory.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
 }
 ?>
