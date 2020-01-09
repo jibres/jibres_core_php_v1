@@ -61,7 +61,6 @@
         <th data-sort="{{myFilter.slug.order}}" class="s0"><a href='{{myFilter.slug.link}}'>{%trans "Slug"%}</a></th>
         <th data-sort="{{myFilter.count.order}}" class="s0"><a href='{{myFilter.count.link}}'>{%trans "Count"%}</a></th>
         <th data-sort="{{myFilter.desc.order}}" class="s0"><a href='{{myFilter.desc.link}}'>{%trans "Description"%}</a></th>
-        <th data-sort="{{myFilter.valuetype.order}}" class="s0"><a href='{{myFilter.valuetype.link}}'>{%trans "Value type"%}</a></th>
         <th>{%trans "Action"%}</th>
       </tr>
     </thead>
@@ -70,18 +69,16 @@
       {%for key, value in dataTable%}
       <tr  {%if value.isdefault%} class="positive" title='{%trans "Is a default category"%}' {%endif%}>
         <td class="collapsing">
-          {%if value.isdefault%}<i class="sf-check sc-green"></i>{%endif%}
           {%if value.file%}<img src="{{value.file}}" class="avatar">{%endif%}
         </td>
         <td ><a href="{{url.here}}/category/edit?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
-        <td class="s0"><a href="{{url.here}}/category?slug={{value.slug}}">{{value.slug}}</a></td>
+        <td class="s0">{{value.slug}}</td>
         <td class="s0">
           <a href="{{url.here}}/product?catid={{value.id}}">{{value.count | fitNumber}}</a>
 
 
         </td>
         <td class="s0"><a href="{{url.here}}/category?desc={{value.desc}}">{{value.desc}}</a></td>
-        <td class="s0"><a href="{{url.here}}/category?valuetype={{value.valuetype}}">{{value.t_valuetype}}</a></td>
         <td class="collapsing">
           <a class="block" href="{{url.here}}/category/edit?id={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>
           {%if false%}<a class="block" href="{{url.here}}/category/remove?id={{value.id}}"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm">{%trans "Remove"%}</span></a>{%endif%}

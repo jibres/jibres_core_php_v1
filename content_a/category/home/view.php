@@ -23,13 +23,6 @@ class view
 		];
 
 
-
-		if(\dash\request::get('unit'))
-		{
-			$args['unit'] = \dash\request::get('unit');
-		}
-
-
 		$search_string = \dash\request::get('q');
 
 		if($search_string)
@@ -38,8 +31,9 @@ class view
 		}
 
 		// work with product list
-		$myProductList = \lib\app\product\category::list($search_string, $args);
-		\dash\data::dataTable($myProductList);
+		$myCategoryList = \lib\app\product\category::list($search_string, $args);
+
+		\dash\data::dataTable($myCategoryList);
 
 		\dash\data::myFilter(\content_a\filter::current(['title', 'count', 'slug'], \dash\url::this()));
 

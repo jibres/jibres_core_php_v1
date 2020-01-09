@@ -35,6 +35,9 @@ class get
 			SELECT
 				productcategory.id,
 				productcategory.title,
+				productcategory.slug,
+				productcategory.file,
+				productcategory.desc,
 				(SELECT COUNT(*) FROM products WHERE products.unit_id = productcategory.id) AS `count`
 			FROM
 				productcategory
