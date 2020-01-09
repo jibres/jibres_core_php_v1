@@ -611,8 +611,7 @@ function addNewRecord_ProductList(_table, _product, _append)
     }
     else
     {
-      // newRecord.find('td.cellPrice').text(fitNumber(_product.price)).attr('data-val', _product.price);
-      newRecord.find('td.cellPrice').text(fitNumber(_product.compareatprice)).attr('data-val', _product.compareatprice);
+      newRecord.find('td.cellPrice').text(fitNumber(_product.price)).attr('data-val', _product.price);
       newRecord.find('td.cellDiscount').html(htmlPDiscount);
     }
 
