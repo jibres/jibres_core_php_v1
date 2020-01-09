@@ -98,7 +98,7 @@ class category
 		}
 
 		$desc = \dash\app::request('desc');
-		if(!is_string($desc))
+		if(\dash\app::isset_request('desc') && !is_string($desc))
 		{
 			\dash\notif::error(T_("Format error!"));
 			return false;
@@ -159,7 +159,7 @@ class category
 		}
 
 		$args['datecreated'] = date("Y-m-d H:i:s");
-		$args['slug']        = \dash\utility\filter::slug($slug, null, 'persian');
+		$args['slug']        = \dash\utility\filter::slug($args['title'], null, 'persian');
 		$args['language']    = \dash\language::current();
 
 		$id = \lib\db\productcategory\insert::new_record($args);

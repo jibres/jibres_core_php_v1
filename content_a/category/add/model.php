@@ -9,7 +9,7 @@ class model
 		$args                = [];
 		$args['title']       = \dash\request::post('cat');
 
-		$result = \lib\app\product\cat::add($args);
+		$result = \lib\app\product\category::add($args);
 
 		if(\dash\engine\process::status())
 		{

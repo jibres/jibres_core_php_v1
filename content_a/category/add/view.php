@@ -9,11 +9,10 @@ class view
 		\dash\data::page_desc(T_('You can add new category.'));
 		\dash\data::page_pictogram('plus');
 
-		if(\dash\permission::check('categoryView'))
-		{
-			\dash\data::badge_text(T_('Category list'));
-			\dash\data::badge_link(\dash\url::this());
-		}
+
+		\dash\data::page_backText(T_('Category list'));
+		\dash\data::page_backLink(\dash\url::this());
+
 	}
 }
 ?>
