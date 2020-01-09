@@ -5,6 +5,14 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function get_count_product($_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE  products.cat_id = $_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function by_muliti_id($_ids)
 	{
 		$query  = "SELECT id, title FROM productcategory WHERE productcategory.id IN ($_ids)";

@@ -97,10 +97,22 @@ class category
 			return false;
 		}
 
+		$desc = \dash\app::request('desc');
+		if(!is_string($desc))
+		{
+			\dash\notif::error(T_("Format error!"));
+			return false;
+		}
 
+		if(mb_strlen($desc) > 10000)
+		{
+			if(self::$debug) \dash\notif::error(T_("Category description is too large!"), 'category');
+			return false;
+		}
 
-		$args            = [];
-		$args['title']   = $title;
+		$args          = [];
+		$args['title'] = $title;
+		$args['desc']  = $desc;
 
 		return $args;
 
@@ -161,7 +173,7 @@ class category
 		}
 
 		$result       = [];
-		$result['id'] = \dash\coding::encode($id);
+		$result['id'] = $id;
 		return $result;
 	}
 
@@ -191,7 +203,7 @@ class category
 
 		$id = \dash\coding::decode($_id);
 
-		$count_product = \lib\db\products\category::get_count_category($id);
+		$count_product = \lib\db\productcategory\get::get_count_product($id);
 		$count_product = intval($count_product);
 
 		if($count_product > 0)
@@ -278,21 +290,21 @@ class category
 
 		\dash\permission::access('productCategoryListView');
 
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+
+		if(!$_id || !is_numeric($_id))
 		{
 			\dash\notif::error(T_("Invalid category id"));
 			return false;
 		}
 
-		$load = \lib\db\productcategory\get::one($id);
+		$load = \lib\db\productcategory\get::one($_id);
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid category id"));
 			return false;
 		}
 
-		$load['count'] = \lib\db\products\category::get_count_category($id);
+		$load['count'] = \lib\db\productcategory\get::get_count_product($_id);
 		$load = self::ready($load);
 		return $load;
 	}
@@ -320,25 +332,24 @@ class category
 
 		\dash\app::variable($_args);
 
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+		if(!$_id || !is_numeric($_id))
 		{
 			\dash\notif::error(T_("Invalid category id"));
 			return false;
 		}
 
-		$args = self::check($id);
+		$args = self::check($_id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		$get_category = \lib\db\productcategory\get::one($id);
+		$get_category = \lib\db\productcategory\get::one($_id);
 
 		if(isset($get_category['id']) && isset($get_category['title']) && $get_category['title'] == $args['title'])
 		{
-			if(intval($get_category['id']) === intval($id))
+			if(intval($get_category['id']) === intval($_id))
 			{
 				// nothing
 			}
@@ -351,8 +362,8 @@ class category
 
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('int')) unset($args['int']);
-		if(!\dash\app::isset_request('maxsale')) unset($args['maxsale']);
+		if(!\dash\app::isset_request('desc')) unset($args['desc']);
+
 
 		if(!empty($args))
 		{
@@ -371,7 +382,7 @@ class category
 			}
 			else
 			{
-				$update = \lib\db\productcategory\update::record($args, $id);
+				$update = \lib\db\productcategory\update::record($args, $_id);
 
 				if($update)
 				{
@@ -381,7 +392,7 @@ class category
 					if(array_key_exists('title', $args))
 					{
 						// update all product by this category
-						\lib\db\products\category::update_all_product_category_title($id, $args['title']);
+						\lib\db\products\category::update_all_product_category_title($_id, $args['title']);
 					}
 
 					\dash\notif::ok(T_("The category successfully updated"));

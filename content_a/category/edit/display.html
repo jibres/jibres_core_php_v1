@@ -1,4 +1,5 @@
-{%extends 'content_a/cats/layout.html'%}
+{%extends display.admin%}
+
 
 
 {%block pageContent%}
@@ -7,11 +8,7 @@
   <div class="x6 c5 s12 pRa10">
     <dvi class="cbox">
       <form method="post">
-          {{block('catName')}}
-          {{block('catDefault')}}
-          {{block('iSite')}}
-          {{block('iNumberType')}}
-          {{block('iMaxSale')}}
+          {{block('catTitle')}}
           {{block('idesc')}}
           {{block('ifile')}}
           <button class="btn primary block mT20" type="submit">{%trans "Save"%}</button>
@@ -68,52 +65,8 @@
 
 
 
-{% block catDefault %}
-  <div class="switch1 mT10">
-   <input type="checkbox" name="isdefault" id="isdefault" {%if dataRow.isdefault%} checked {%endif%}>
-   <label for="isdefault"></label>
-   <label for="isdefault">{%trans "Is default category?"%}</label>
-  </div>
-{%endblock%}
 
-
-
-{%block iSite%}
-<div class="mT20">
-  <label for="site">{%trans "Not show in site"%}</label>
-  <select name="site" class="ui dropdown select">
-    <option value="" readonly>{%trans "Show in website"%}</option>
-    <option value="yes" {%if dataRow.site == 'yes' %}selected {%endif%}>{%trans "Yes"%}</option>
-    <option value="no" {%if dataRow.site == 'no' %}selected{%endif%}>{%trans "No"%}</option>
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iNumberType%}
-<div class="mT20">
-  <label for="valuetype">{%trans "Decimal or Integer"%}</label>
-  <select name="valuetype" class="ui dropdown select">
-    <option value="" readonly>{%trans "Decimal or Integer"%}</option>
-    <option value="decimal" {%if dataRow.valuetype == 'decimal' %}selected {%endif%}>{%trans "Decimal"%}</option>
-    <option value="integer" {%if dataRow.valuetype == 'integer' %}selected{%endif%}>{%trans "Integer"%}</option>
-  </select>
-</div>
-{%endblock%}
-
-
-{%block iMaxSale%}
-<div class="mT10">
-  <label for="imaxsale">{%trans "Max sale from this cat"%}</label>
-  <div class="input">
-     <input type="number" name="maxsale" id="imaxsale" placeholder='{%trans "For example 100"%}' value="{{dataRow.meta.maxsale}}" autofocus maxlength='50' minlength="1"  >
-  </div>
-</div>
-{%endblock%}
-
-
-
-{%block catName%}
+{%block catTitle%}
 <label for="icatname">{%trans "Title"%}</label>
 <div class="input">
   <input type="text" name="title" id="icatname" placeholder='{%trans "Category name"%}' value="{{dataRow.title}}" autofocus maxlength='50' minlength="1" required>
