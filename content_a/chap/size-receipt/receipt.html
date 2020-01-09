@@ -90,7 +90,7 @@
   <tbody>
  {%for key, datarow in factorDetail.factor_detail%}
   <tr>
-   <td class="fs09 txtLa">{{datarow.title}}</td>
+   <td class="fs09 txtLa">{%if datarow.vat%} * {%endif%} {{datarow.title}}</td>
    <td>{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
    <td>{{datarow.price | fitNumber}}</td>
 {%if factorDetail.factor.detaildiscount%}
@@ -130,6 +130,12 @@
      <th class="txtRa fs08">{%trans "Your total discount and profits"%}</th>
      <td class="collapsing txtLa">{{factorDetail.factor.detaildiscount | number_format |fitNumber}}</td>
    </tr>
+   {%if factorDetail.factor.detailvat%}
+   <tr>
+     <th class="txtRa fs08">* {%trans "VAT"%}</th>
+     <td class="collapsing txtLa">{{factorDetail.factor.detailvat | number_format |fitNumber}}</td>
+   </tr>
+   {%endif%}
 {%endif%}
    <tr class="msg info2 factorSum">
      <th class="txtRa fs08">{%trans "Total payable"%}</th>

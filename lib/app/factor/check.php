@@ -131,9 +131,9 @@ class check
 		$args['detailsum']      = null;
 		$args['detaildiscount'] = null;
 		$args['detailtotalsum'] = null;
+		$args['detailvat']      = null;
 		$args['item']           = null;
 		$args['qty']            = null;
-		$args['vat']            = null;
 		$args['discount']       = null;
 		$args['sum']            = null;
 		$args['status']         = null;

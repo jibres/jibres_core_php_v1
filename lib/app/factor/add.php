@@ -64,40 +64,15 @@ class add
 			return false;
 		}
 
-
-		$return = [];
-
-		$qty_sum = 0;
-
-		foreach ($factor_detail as $key => $value)
-		{
-			if(isset($value['count']))
-			{
-				$qty_sum += intval($value['count']);
-			}
-
-			$discount = 0;
-
-			if(isset($value['discount']))
-			{
-				$discount                 = (intval($value['discount']) * intval($value['count']));
-			}
-
-			$sum = $value['sum'];
-			// @check need to fix
-			$factor['detailsum']      += $sum;
-			$factor['detaildiscount'] += $discount;
-			$factor['detailtotalsum'] += $sum;
-			// $factor['detailtotalsum'] += $sum - $discount;
-		}
-
-		// $factor['qty']      = array_sum(array_column($factor_detail, 'count'));
-		$factor['qty']      = $qty_sum;
-		$factor['item']     = count($factor_detail);
-		$factor['vat']      = null;
-		$factor['discount'] = null;
-		$factor['status']   = 'draft';
-		$factor['sum']      = intval($factor['detailtotalsum']) - intval($factor['discount']);
+		$factor['detailsum']      = array_sum(array_column($factor_detail, 'sum_price_temp'));
+		$factor['detaildiscount'] = array_sum(array_column($factor_detail, 'sum_discount_temp'));
+		$factor['detailtotalsum'] = array_sum(array_column($factor_detail, 'sum'));
+		$factor['qty']            = array_sum(array_column($factor_detail, 'count'));
+		$factor['detailvat']      = array_sum(array_column($factor_detail, 'sum_vat_temp'));;
+		$factor['item']           = count($factor_detail);
+		$factor['discount']       = null;
+		$factor['status']         = 'draft';
+		$factor['sum']            = intval($factor['detailtotalsum']) - intval($factor['discount']);
 
 		// qty field in int(10)
 		if(\dash\number::is_larger($factor['qty'], 999999999))
@@ -166,11 +141,18 @@ class add
 			return false;
 		}
 
+		$return = [];
+
 		$return['factor_id'] = 'JF'. $factor_id;
 
 		foreach ($factor_detail as $key => $value)
 		{
 			$factor_detail[$key]['factor_id'] = $factor_id;
+			unset($factor_detail[$key]['sum_price_temp']);
+			unset($factor_detail[$key]['sum_discount_temp']);
+			unset($factor_detail[$key]['sum_vat_temp']);
+
+
 		}
 
 		$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);

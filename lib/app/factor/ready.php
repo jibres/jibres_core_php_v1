@@ -20,6 +20,11 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'id' :
+					$result[$key] = $value;
+					$result['id_code'] = 'JF'. $value;
+					break;
+
 				case 'qty':
 				case 'count':
 					$value = \lib\number::down($value);
@@ -33,6 +38,7 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				case 'detailvat':
 				case 'detaildiscount':
 				case 'detailsum':
 				case 'detailtotalsum':

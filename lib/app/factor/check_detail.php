@@ -30,7 +30,7 @@ class check_detail
 
 		$decode_list   = [];
 		$allproduct_id = [];
-		$new_list      = [];
+		$trust_order_list      = [];
 
 		$have_warn     = [];
 
@@ -98,39 +98,14 @@ class check_detail
 					break;
 
 				case 'buy':
+				case 'prefactor':
+				case 'lending':
+				case 'backbuy':
+				case 'backfactor':
+				case 'waste':
+				default:
 					\dash\notif::error(T_("Invalid factor type"), 'type');
 					return false;
-
-					break;
-
-					// -------------------- prefactor
-					case 'prefactor':
-						// no thing
-						break;
-
-					// -------------------- backbuy
-					case 'lending':
-
-						break;
-
-					// -------------------- backbuy
-					case 'backbuy':
-						break;
-
-					// -------------------- backfactor
-					case 'backfactor':
-
-						break;
-
-					// -------------------- wast
-					case 'waste':
-
-						break;
-
-					// invalid type
-				default:
-						\dash\notif::error(T_("Invalid factor type"), 'type');
-						return false;
 					break;
 			}
 
@@ -144,9 +119,9 @@ class check_detail
 				$value['discount'] = \lib\price::up($value['discount']);
 			}
 
-			$new_list[$key]['count']      = floatval($value['count']);
-			$new_list[$key]['discount']   = (isset($value['discount'])) ? intval($value['discount']) : null;
-			$new_list[$key]['product_id'] = $product_id;
+			$trust_order_list[$key]['count']      = floatval($value['count']);
+			$trust_order_list[$key]['discount']   = (isset($value['discount'])) ? intval($value['discount']) : null;
+			$trust_order_list[$key]['product_id'] = $product_id;
 
 			$allproduct_id[]              = $product_id;
 		}
@@ -178,9 +153,9 @@ class check_detail
 
 		$factor_detail = [];
 
-		foreach ($new_list as $key => $value)
+		foreach ($trust_order_list as $key => $value)
 		{
-			$temp = [];
+			$factor_detail_record = [];
 
 			if(!isset($check_true_product[$value['product_id']]))
 			{
@@ -190,6 +165,7 @@ class check_detail
 
 			$this_proudct = $check_true_product[$value['product_id']];
 
+			$count      = floatval($value['count']);
 			$price      = 0;
 			$finalprice = 0;
 			$discount   = 0;
@@ -198,40 +174,30 @@ class check_detail
 			switch ($_option['type'])
 			{
 				case 'sale':
+
+
 					if(!array_key_exists('discount', $this_proudct))
 					{
 						\dash\notif::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
 						return false;
 					}
 
-					if(array_key_exists('price', $this_proudct))
-					{
-						$price = floatval($this_proudct['price']);
-					}
+					$factor_detail_record['discount'] = $value['discount'] === null ? $this_proudct['discount'] : $value['discount'];
 
-					if(array_key_exists('finalprice', $this_proudct))
-					{
-						$finalprice = floatval($this_proudct['finalprice']);
-					}
+					$discount                         = floatval($factor_detail_record['discount']);
+					$price                            = floatval($this_proudct['price']);
+					$finalprice                       = floatval($this_proudct['finalprice']);
+					$vatprice                         = floatval($this_proudct['vatprice']);
 
-					if(array_key_exists('vatprice', $this_proudct))
-					{
-						$vatprice = floatval($this_proudct['vatprice']);
-					}
 
-					$temp['discount']   = $value['discount'] === null ? $this_proudct['discount'] : $value['discount'];
-					$temp['sum']        = floatval($finalprice) * floatval($value['count']);
+					$factor_detail_record['sum']               = $finalprice * $count;
+					$factor_detail_record['vat']               = $vatprice;
+					$factor_detail_record['sum_vat_temp']      = $vatprice * $count;
+					$factor_detail_record['sum_price_temp']    = $price * $count;
+					$factor_detail_record['sum_discount_temp'] = $discount * $count;
 					break;
 
 				case 'buy':
-					// if(array_key_exists('buyprice', $this_proudct))
-					// {
-					// 	$price = floatval($this_proudct['buyprice']);
-					// }
-
-					// $temp['sum'] = floatval($price) * floatval($value['count']);
-					break;
-
 				case 'prefactor':
 				case 'lending':
 				case 'backbuy':
@@ -241,11 +207,11 @@ class check_detail
 					break;
 			}
 
-			$temp['product_id'] = $value['product_id'];
-			$temp['price']      = $finalprice;
-			$temp['count']      = $value['count'] === null ? 1 : $value['count'];
+			$factor_detail_record['product_id'] = $value['product_id'];
+			$factor_detail_record['price']      = $finalprice;
+			$factor_detail_record['count']      = $value['count'] === null ? 1 : $count;
 
-			$factor_detail[] = $temp;
+			$factor_detail[] = $factor_detail_record;
 		}
 
 		return $factor_detail;
