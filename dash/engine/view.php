@@ -272,12 +272,20 @@ class view
 			{
 				$myCanonical .= '.com/';
 			}
+			else
+			{
+				return false;
+			}
 		}
 		else if(\dash\url::tld() === 'com')
 		{
 			if(\dash\url::lang() === 'fa')
 			{
 				$myCanonical .= '.ir/';
+			}
+			else
+			{
+				return false;
 			}
 		}
 		else
