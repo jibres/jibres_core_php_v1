@@ -1,0 +1,1 @@
+UPDATE  `jibres_XXXXXXX`.`products` SET products.vat = NULL;
