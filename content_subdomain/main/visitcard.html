@@ -16,11 +16,11 @@
 
   <div class="cbox txtC">
    <h1><a href="{{url.here}}" data-direct>{{store.store_data.title}}</a></h1>
-   <h2>{{store.desc}}</h2>
-{%if store.address%}
+   <h2>{{store.store_data.desc}}</h2>
+{%if store.store_data.address%}
    <address class="mB20">
-    <div class="street-address fs08 mB10">{{store.address}}</div>
-    <div class="tel ltr fs09">{%trans "Tel"%} <a href="tel:{{store.phone}}">{{store.phone | fitNumber(false)}}</a></div>
+    <div class="street-address fs08 mB10">{{store.store_data.address}}</div>
+    <div class="tel ltr fs09">{%trans "Tel"%} <a href="tel:{{store.store_data.phone}}">{{store.store_data.phone | fitNumber(false)}}</a></div>
    </address>
 {%endif%}
 
