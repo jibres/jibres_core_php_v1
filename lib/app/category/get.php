@@ -53,5 +53,24 @@ class get
 		$load = \lib\app\category\ready::row($load);
 		return $load;
 	}
+
+
+	public static function parent_list()
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		$all_list = \lib\db\productcategory\get::parent_list();
+		if(!is_array($all_list))
+		{
+			$all_list = [];
+		}
+
+		$all_list = array_map(['\\lib\\app\\category\\ready', 'row'], $all_list);
+		return $all_list;
+	}
 }
 ?>

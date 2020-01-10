@@ -56,9 +56,18 @@ class edit
 		}
 
 
-		if(!\dash\app::isset_request('title')) unset($args['title']);
-		if(!\dash\app::isset_request('desc')) unset($args['desc']);
-		if(!\dash\app::isset_request('file')) unset($args['file']);
+		if(!\dash\app::isset_request('parent'))
+		{
+			unset($args['parent1']);
+			unset($args['parent2']);
+			unset($args['parent3']);
+			unset($args['parent4']);
+		}
+
+		if(!\dash\app::isset_request('title')) 	unset($args['title']);
+		if(!\dash\app::isset_request('slug')) 	unset($args['slug']);
+		if(!\dash\app::isset_request('desc')) 	unset($args['desc']);
+		if(!\dash\app::isset_request('file')) 	unset($args['file']);
 
 
 		if(!empty($args))
@@ -84,13 +93,6 @@ class edit
 				{
 
 					\dash\log::set('productCategoryUpdated', ['old' => $get_category, 'change' => $args]);
-
-					if(array_key_exists('title', $args))
-					{
-						// update all product by this category
-						\lib\db\products\category::update_all_product_category_title($_id, $args['title']);
-					}
-
 					\dash\notif::ok(T_("The category successfully updated"));
 					return true;
 				}

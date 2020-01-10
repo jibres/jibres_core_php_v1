@@ -13,6 +13,7 @@ class view
 		\dash\data::page_backText(T_('Category list'));
 		\dash\data::page_backLink(\dash\url::this());
 
+		\dash\data::parentList(\lib\app\category\get::parent_list());
 
 		if(\dash\data::dataRow_title())
 		{

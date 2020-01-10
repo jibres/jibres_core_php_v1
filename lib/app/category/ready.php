@@ -16,6 +16,10 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'id':
+					$result[$key] = $value;
+
+					break;
 				// case 'id':
 				// 	$result[$key] = \dash\coding::encode($value);
 				// 	break;
@@ -28,6 +32,23 @@ class ready
 					$result[$key] = $value;
 					break;
 			}
+		}
+
+		if(isset($result['parent4']))
+		{
+			$result['last_parent'] = $result['parent4'];
+		}
+		elseif(isset($result['parent3']))
+		{
+			$result['last_parent'] = $result['parent3'];
+		}
+		elseif(isset($result['parent2']))
+		{
+			$result['last_parent'] = $result['parent2'];
+		}
+		elseif(isset($result['parent1']))
+		{
+			$result['last_parent'] = $result['parent1'];
 		}
 
 		return $result;

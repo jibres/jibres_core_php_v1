@@ -113,7 +113,6 @@ class add
 		}
 
 		$args['datecreated'] = date("Y-m-d H:i:s");
-		$args['slug']        = \dash\utility\filter::slug($args['title'], null, 'persian');
 		$args['language']    = \dash\language::current();
 
 		$id = \lib\db\productcategory\insert::new_record($args);

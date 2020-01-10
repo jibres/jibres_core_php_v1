@@ -8,7 +8,9 @@
   <div class="x6 c5 s12 pRa10">
     <dvi class="cbox">
       <form method="post">
+          {{block('iParent')}}
           {{block('catTitle')}}
+          {{block('catSlug')}}
           {{block('idesc')}}
           {{block('ifile')}}
           <button class="btn primary block mT20" type="submit">{%trans "Save"%}</button>
@@ -18,6 +20,23 @@
 </div>
 {%endblock%}
 
+
+
+
+{%block iParent%}
+<div class="mB10">
+  <label for='parent'>{%trans "Parent"%}</label>
+  <select name="parent" id="parent" class="select22" data-placeholder='{%trans "Select category parent"%}'>
+    <option></option>
+    {%if dataRow.parent1%}
+      <option value="0">{%trans "Without category"%}</option>
+    {%endif%}
+    {%for key, value in parentList%}
+      <option value="{{value.id}}" {%if value.id == dataRow.last_parent %} selected{%endif%}>{{value.title}}</option>
+    {%endfor%}
+  </select>
+</div>
+{%endblock%}
 
 
 
@@ -70,6 +89,16 @@
 <label for="icatname">{%trans "Title"%}</label>
 <div class="input">
   <input type="text" name="title" id="icatname" placeholder='{%trans "Category name"%}' value="{{dataRow.title}}" autofocus maxlength='50' minlength="1" required>
+</div>
+{%endblock%}
+
+
+
+
+{%block catSlug%}
+<label for="icatslug">{%trans "Slug"%}</label>
+<div class="input">
+  <input type="text" name="slug" id="icatslug" placeholder='{%trans "Category name"%}' value="{{dataRow.slug}}" autofocus maxlength='50' minlength="1" required>
 </div>
 {%endblock%}
 

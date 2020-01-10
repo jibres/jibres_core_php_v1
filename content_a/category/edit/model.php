@@ -20,9 +20,11 @@ class model
 			return;
 		}
 
-		$args               = [];
-		$args['title']     = \dash\request::post('title');
-		$args['desc']      = \dash\request::post('desc');
+		$args           = [];
+		$args['title']  = \dash\request::post('title');
+		$args['slug']   = \dash\request::post('slug');
+		$args['parent'] = \dash\request::post('parent');
+		$args['desc']   = \dash\request::post('desc');
 
 		$file = \dash\upload\category::set($id);
 		if($file)

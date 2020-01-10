@@ -5,6 +5,13 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function parent_list()
+	{
+		$query  = "SELECT * FROM productcategory WHERE  productcategory.parent3 IS NULL";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function get_count_product($_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE  products.cat_id = $_id ";
@@ -43,7 +50,7 @@ class get
 				productcategory
 				$where
 			ORDER BY
-				count DESC
+				IF(productcategory.parent1 IS NULL, productcategory.id,  productcategory.parent1) ASC, productcategory.parent2 ASC, productcategory.parent3 ASC, productcategory.parent4 ASC, count
 		";
 		$result = \dash\db::get($query);
 
