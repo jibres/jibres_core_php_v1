@@ -22,10 +22,10 @@ class view
 		$jibresDesc .= T_('SSL Certificate'). '. ';
 		$jibresDesc .= T_('Fully API');
 
-
 		\dash\data::site_title(T_("Jibres"));
 		\dash\data::site_desc($jibresDesc);
-		\dash\data::site_slogan(T_("Integrated Sales and Online Accounting"));
+		\dash\data::site_slogan(T_("#1 World Sales Engineering System"));
+		\dash\data::site_slogan(T_("Sell and Enjoy"));
 
 
 

@@ -100,7 +100,7 @@ class twigTransTerms
 	echo T_("Sales");                                                                 // Line 39
 	echo T_("Sales Software");                                                        // Line 40
 	echo T_("Integrated Sales");                                                      // Line 54
-	echo T_("Integrated Sales and Online Accounting");                                // Line 106
+	echo T_("Integrated Ecommerce Platform");                                         // Line 42
 	echo T_("Jibres Sale Channels");                                                  // Line 55
 	echo T_("Sales channels represent the different marketplaces where you sell your products.");// Line 56
 	echo T_("By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.");// Line 56
@@ -109,6 +109,7 @@ class twigTransTerms
 	echo T_("Mobile Online Store");                                                   // Line 71
 	echo T_("Social Marketing");                                                      // Line 79
 	echo T_("Online Store Website");                                                  // Line 87
+	echo T_("Integrated Sales and Online Accounting");                                // Line 106
 	echo T_("Simplest forever");                                                      // Line 117
 	echo T_("Keep it simple");                                                        // Line 117
 	echo T_("Simplicity is the ultimate sophistication");                             // Line 118
@@ -395,7 +396,7 @@ class twigTransTerms
 	echo T_("Sale Invoice");                                                          // Line 69
 	echo T_("Discount");                                                              // Line 62
 	echo T_("Sum");                                                                   // Line 29
-	echo T_("Your total discount and profits");                                       // Line 130
+	echo T_("Your total discount and profits");                                       // Line 131
 
 	//---D:\xampp\htdocs\Projects\jibres\content_a\chap\size-receipt\receipt-long.html
 	echo T_("Customer Detail");                                                       // Line 43
@@ -425,66 +426,66 @@ class twigTransTerms
 	echo T_("Customer");                                                              // Line 11
 	echo T_("Supplier");                                                              // Line 116
 	echo T_("Items");                                                                 // Line 118
-	echo T_("Invoice Date");                                                          // Line 123
+	echo T_("Invoice Date");                                                          // Line 124
 	echo T_("Type");                                                                  // Line 57
-	echo T_("Operation");                                                             // Line 127
-	echo T_("Whithout name");                                                         // Line 142
-	echo T_("Quick");                                                                 // Line 147
+	echo T_("Operation");                                                             // Line 128
+	echo T_("Whithout name");                                                         // Line 143
+	echo T_("Quick");                                                                 // Line 148
 	echo T_("View");                                                                  // Line 25
-	echo T_("More");                                                                  // Line 181
-	echo T_("Sale");                                                                  // Line 268
-	echo T_("Buy");                                                                   // Line 279
-	echo T_("Prefactor");                                                             // Line 306
-	echo T_("Lending");                                                               // Line 318
-	echo T_("Backbuy");                                                               // Line 213
-	echo T_("Backfactor");                                                            // Line 214
-	echo T_("Waste");                                                                 // Line 215
-	echo T_("Try to start with add new sale!");                                       // Line 238
-	echo T_("Try to start with add new buy!");                                        // Line 239
+	echo T_("More");                                                                  // Line 183
+	echo T_("Sale");                                                                  // Line 270
+	echo T_("Buy");                                                                   // Line 281
+	echo T_("Prefactor");                                                             // Line 308
+	echo T_("Lending");                                                               // Line 320
+	echo T_("Backbuy");                                                               // Line 215
+	echo T_("Backfactor");                                                            // Line 216
+	echo T_("Waste");                                                                 // Line 217
+	echo T_("Try to start with add new sale!");                                       // Line 240
+	echo T_("Try to start with add new buy!");                                        // Line 241
 	echo T_("All");                                                                   // Line 9
 	echo T_("Other");                                                                 // Line 213
-	echo T_("Back buy");                                                              // Line 310
-	echo T_("Back factor");                                                           // Line 314
-	echo T_("waste");                                                                 // Line 322
-	echo T_("Filter by product");                                                     // Line 372
-	echo T_("Filter by customer");                                                    // Line 377
-	echo T_("Filter by weekday");                                                     // Line 382
-	echo T_("Filter by date");                                                        // Line 387
-	echo T_("Filter by time");                                                        // Line 392
-	echo T_("Filter by start and end date");                                          // Line 397
-	echo T_("Filter by price");                                                       // Line 402
-	echo T_("Filter by item");                                                        // Line 408
-	echo T_("Filter by discount");                                                    // Line 413
-	echo T_("Filter by count");                                                       // Line 418
-	echo T_("Filter by type");                                                        // Line 423
+	echo T_("Back buy");                                                              // Line 312
+	echo T_("Back factor");                                                           // Line 316
+	echo T_("waste");                                                                 // Line 324
+	echo T_("Filter by product");                                                     // Line 374
+	echo T_("Filter by customer");                                                    // Line 379
+	echo T_("Filter by weekday");                                                     // Line 384
+	echo T_("Filter by date");                                                        // Line 389
+	echo T_("Filter by time");                                                        // Line 394
+	echo T_("Filter by start and end date");                                          // Line 399
+	echo T_("Filter by price");                                                       // Line 404
+	echo T_("Filter by item");                                                        // Line 410
+	echo T_("Filter by discount");                                                    // Line 415
+	echo T_("Filter by count");                                                       // Line 420
+	echo T_("Filter by type");                                                        // Line 425
 	echo T_("Clear filter");                                                          // Line 291
 	echo T_("Apply");                                                                 // Line 292
-	echo T_("Please choose product");                                                 // Line 452
-	echo T_("saturday");                                                              // Line 462
-	echo T_("sunday");                                                                // Line 469
-	echo T_("monday");                                                                // Line 477
-	echo T_("tuesday");                                                               // Line 486
-	echo T_("wednesday");                                                             // Line 494
-	echo T_("thursday");                                                              // Line 502
-	echo T_("friday");                                                                // Line 510
-	echo T_("Special date");                                                          // Line 522
+	echo T_("Please choose product");                                                 // Line 454
+	echo T_("saturday");                                                              // Line 464
+	echo T_("sunday");                                                                // Line 471
+	echo T_("monday");                                                                // Line 479
+	echo T_("tuesday");                                                               // Line 488
+	echo T_("wednesday");                                                             // Line 496
+	echo T_("thursday");                                                              // Line 504
+	echo T_("friday");                                                                // Line 512
+	echo T_("Special date");                                                          // Line 524
 	echo T_("Time");                                                                  // Line 52
-	echo T_("Start date");                                                            // Line 540
-	echo T_("End date");                                                              // Line 546
-	echo T_("Sum price is greater than ...");                                         // Line 562
-	echo T_("Sum price less than ...");                                               // Line 568
-	echo T_("Price is equal to ...");                                                 // Line 574
-	echo T_("Item is greater than ...");                                              // Line 589
-	echo T_("Item less than ...");                                                    // Line 595
-	echo T_("Item is equal to ...");                                                  // Line 601
-	echo T_("Sum is greater than ...");                                               // Line 614
-	echo T_("Sum less than ...");                                                     // Line 620
-	echo T_("Sum is equal to ...");                                                   // Line 626
-	echo T_("Discount is greater than ...");                                          // Line 640
-	echo T_("Discount less than ...");                                                // Line 646
-	echo T_("Discount is equal to ...");                                              // Line 652
-	echo T_("sale");                                                                  // Line 665
-	echo T_("buy");                                                                   // Line 672
+	echo T_("Start date");                                                            // Line 542
+	echo T_("End date");                                                              // Line 548
+	echo T_("Sum price is greater than ...");                                         // Line 564
+	echo T_("Sum price less than ...");                                               // Line 570
+	echo T_("Price is equal to ...");                                                 // Line 576
+	echo T_("Item is greater than ...");                                              // Line 591
+	echo T_("Item less than ...");                                                    // Line 597
+	echo T_("Item is equal to ...");                                                  // Line 603
+	echo T_("Sum is greater than ...");                                               // Line 616
+	echo T_("Sum less than ...");                                                     // Line 622
+	echo T_("Sum is equal to ...");                                                   // Line 628
+	echo T_("Discount is greater than ...");                                          // Line 642
+	echo T_("Discount less than ...");                                                // Line 648
+	echo T_("Discount is equal to ...");                                              // Line 654
+	echo T_("sale");                                                                  // Line 667
+	echo T_("buy");                                                                   // Line 674
 
 	//-------------------------D:\xampp\htdocs\Projects\jibres\content_a\home\chart.js
 	echo T_("Sum factor price and count of it group by hours");                       // Line 20
