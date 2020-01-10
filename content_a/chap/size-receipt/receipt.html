@@ -121,15 +121,17 @@
 {%block factorResultArea%}
  <table class="tbl fs14 factorResult mB10">
   <tbody>
-{%if factorDetail.factor.subdiscount%}
+{%if factorDetail.factor.subdiscount or factorDetail.factor.subvat%}
    <tr>
      <th class="txtRa fs08">{%trans "Invoice amount"%}</th>
      <td class="collapsing txtLa">{{factorDetail.factor.subprice | number_format |fitNumber}}</td>
    </tr>
+   {%if factorDetail.factor.subdiscount%}
    <tr>
      <th class="txtRa fs08">{%trans "Your total discount and profits"%}</th>
      <td class="collapsing txtLa">{{factorDetail.factor.subdiscount | number_format |fitNumber}}</td>
    </tr>
+   {%endif%}
    {%if factorDetail.factor.subvat%}
    <tr>
      <th class="txtRa fs08">* {%trans "VAT"%}</th>
