@@ -43,13 +43,13 @@ class search
 			'qtylarger'            => null,
 			'qtyless'              => null,
 			'qtyequal'             => null,
-			'detailtotalsumlarger' => null,
-			'detailtotalsumless'   => null,
-			'detailtotalsumequal'  => null,
+			'subtotallarger' => null,
+			'subtotalless'   => null,
+			'subtotalequal'  => null,
 			'subdiscountlarger' => null,
 			'subdiscountless'   => null,
 			'subdiscountequal'  => null,
-			'detailtotalsum'       => null,
+			'subtotal'       => null,
 
 
 		];
@@ -316,38 +316,38 @@ class search
 			}
 		}
 
-		$detailtotalsumlarger = $_args['detailtotalsumlarger'];
-		if($detailtotalsumlarger)
+		$subtotallarger = $_args['subtotallarger'];
+		if($subtotallarger)
 		{
-			$detailtotalsumlarger = \dash\number::clean($detailtotalsumlarger);
-			if($detailtotalsumlarger && is_numeric($detailtotalsumlarger))
+			$subtotallarger = \dash\number::clean($subtotallarger);
+			if($subtotallarger && is_numeric($subtotallarger))
 			{
-				$and['factors.detailtotalsum'] = [" > ", " '$detailtotalsumlarger' "];
-				self::$filter_args['detailtotalsum larger than'] = $detailtotalsumlarger;
+				$and['factors.subtotal'] = [" > ", " '$subtotallarger' "];
+				self::$filter_args['subtotal larger than'] = $subtotallarger;
 				self::$is_filtered = true;
 			}
 		}
 
-		$detailtotalsumless = $_args['detailtotalsumless'];
-		if($detailtotalsumless)
+		$subtotalless = $_args['subtotalless'];
+		if($subtotalless)
 		{
-			$detailtotalsumless = \dash\number::clean($detailtotalsumless);
-			if($detailtotalsumless && is_numeric($detailtotalsumless))
+			$subtotalless = \dash\number::clean($subtotalless);
+			if($subtotalless && is_numeric($subtotalless))
 			{
-				$and['factors.detailtotalsum'] = [" < ", " '$detailtotalsumless' "];
-				self::$filter_args['detailtotalsum less than'] = $detailtotalsumless;
+				$and['factors.subtotal'] = [" < ", " '$subtotalless' "];
+				self::$filter_args['subtotal less than'] = $subtotalless;
 				self::$is_filtered = true;
 			}
 		}
 
-		$detailtotalsumequal = $_args['detailtotalsumequal'];
-		if($detailtotalsumequal)
+		$subtotalequal = $_args['subtotalequal'];
+		if($subtotalequal)
 		{
-			$detailtotalsumequal = \dash\number::clean($detailtotalsumequal);
-			if($detailtotalsumequal && is_numeric($detailtotalsumequal))
+			$subtotalequal = \dash\number::clean($subtotalequal);
+			if($subtotalequal && is_numeric($subtotalequal))
 			{
-				$and['factors.detailtotalsum'] = [" = ", " '$detailtotalsumequal' "];
-				self::$filter_args['detailtotalsum equal'] = $detailtotalsumequal;
+				$and['factors.subtotal'] = [" = ", " '$subtotalequal' "];
+				self::$filter_args['subtotal equal'] = $subtotalequal;
 				self::$is_filtered = true;
 			}
 		}
@@ -389,14 +389,14 @@ class search
 			}
 		}
 
-		$detailtotalsum = $_args['detailtotalsum'];
-		if($detailtotalsum)
+		$subtotal = $_args['subtotal'];
+		if($subtotal)
 		{
-			$detailtotalsum = \dash\number::clean($detailtotalsum);
-			if($detailtotalsum && is_numeric($detailtotalsum))
+			$subtotal = \dash\number::clean($subtotal);
+			if($subtotal && is_numeric($subtotal))
 			{
-				$and['factors.detailtotalsum'] = [" = ", " '$detailtotalsum' "];
-				self::$filter_args['subdiscount equal'] = $detailtotalsum;
+				$and['factors.subtotal'] = [" = ", " '$subtotal' "];
+				self::$filter_args['subdiscount equal'] = $subtotal;
 				self::$is_filtered = true;
 			}
 		}
@@ -427,7 +427,7 @@ class search
 		if($_args['sort'] && !$order_sort)
 		{
 
-			if(in_array($_args['sort'], ['date', 'subprice', 'detailtotalsum', 'subdiscount', 'item', 'qty','customer']))
+			if(in_array($_args['sort'], ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']))
 			{
 				$sort = mb_strtolower($_args['sort']);
 				$order = null;

@@ -130,7 +130,7 @@ class check
 		$args['pay']            = null;
 		$args['subprice']      = null;
 		$args['subdiscount'] = null;
-		$args['detailtotalsum'] = null;
+		$args['subtotal'] = null;
 		$args['detailvat']      = null;
 		$args['item']           = null;
 		$args['qty']            = null;

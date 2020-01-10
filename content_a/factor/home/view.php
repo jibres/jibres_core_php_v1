@@ -32,13 +32,13 @@ class view
 		if(\dash\request::get('qtylarger'))				 $args['qtylarger']            = \dash\request::get('qtylarger');
 		if(\dash\request::get('qtyless'))				 $args['qtyless']              = \dash\request::get('qtyless');
 		if(\dash\request::get('qtyequal'))				 $args['qtyequal']             = \dash\request::get('qtyequal');
-		if(\dash\request::get('detailtotalsumlarger'))	 $args['detailtotalsumlarger'] = \dash\request::get('detailtotalsumlarger');
-		if(\dash\request::get('detailtotalsumless'))	 $args['detailtotalsumless']   = \dash\request::get('detailtotalsumless');
-		if(\dash\request::get('detailtotalsumequal'))	 $args['detailtotalsumequal']  = \dash\request::get('detailtotalsumequal');
+		if(\dash\request::get('subtotallarger'))	 $args['subtotallarger'] = \dash\request::get('subtotallarger');
+		if(\dash\request::get('subtotalless'))	 $args['subtotalless']   = \dash\request::get('subtotalless');
+		if(\dash\request::get('subtotalequal'))	 $args['subtotalequal']  = \dash\request::get('subtotalequal');
 		if(\dash\request::get('subdiscountlarger'))	 $args['subdiscountlarger'] = \dash\request::get('subdiscountlarger');
 		if(\dash\request::get('subdiscountless'))	 $args['subdiscountless']   = \dash\request::get('subdiscountless');
 		if(\dash\request::get('subdiscountequal'))	 $args['subdiscountequal']  = \dash\request::get('subdiscountequal');
-		if(\dash\request::get('detailtotalsum'))		 $args['detailtotalsum']       = \dash\request::get('detailtotalsum');
+		if(\dash\request::get('subtotal'))		 $args['subtotal']       = \dash\request::get('subtotal');
 
 		$search_string = \dash\request::get('q');
 
@@ -49,7 +49,7 @@ class view
 
 		\dash\data::filterBox(\lib\app\factor\search::filter_message());
 
-		$sort_field = ['date', 'subprice', 'detailtotalsum', 'subdiscount', 'item', 'qty','customer'];
+		$sort_field = ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer'];
 		\dash\data::myFilter(\content_a\filter::current($sort_field, \dash\url::this()));
 
 		$isFiltered = \lib\app\factor\search::is_filtered();
