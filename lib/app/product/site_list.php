@@ -118,6 +118,11 @@ class site_list
 			$datalist['title'] = $_data['title'];
 			$name .= '<span class="pRa10">'. $_data['title']. '</span>';
 
+			if(isset($_data['vat']) && $_data['vat'])
+			{
+				$name .= '*';
+			}
+
 			if(isset($_data['optionname1']) && isset($_data['optionvalue1']))
 			{
 				$name .= '<span class="pRa10">'. $_data['optionname1']. ' '. $_data['optionvalue1']. '</span>';
