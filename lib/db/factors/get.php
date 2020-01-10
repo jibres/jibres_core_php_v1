@@ -5,7 +5,7 @@ class get
 {
 	public static function sum_all()
 	{
-		$query   = "SELECT SUM(factors.sum) AS `sum` FROM factors where factors.status != 'deleted' ";
+		$query   = "SELECT SUM(factors.total) AS `sum` FROM factors where factors.status != 'deleted' ";
 		$result = \dash\db::get($query, 'sum', true);
 		return $result;
 	}

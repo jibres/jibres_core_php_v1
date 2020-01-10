@@ -11,7 +11,7 @@ class chart
 		"
 			SELECT
 				COUNT(*) AS `count`,
-				SUM(factors.sum) AS `sum`,
+				SUM(factors.total) AS `sum`,
 				hour(factors.date) AS `key`
 			FROM
 				factors
