@@ -107,7 +107,7 @@
 {%if factorDetail.factor.subdiscount%}
    <th></th>
 {%endif%}
-   <th>{{factorDetail.factor.sum | number_format | fitNumber}}</th>
+   <th>{{factorDetail.factor.total | number_format | fitNumber}}</th>
   </tfoot>
 {%endif%}
 
@@ -131,7 +131,7 @@
 {%endif%}
    <tr class="msg info2 factorSum">
      <th class="txtRa">{%trans "Total payable"%}</th>
-     <td class="collapsing txtLa">{{factorDetail.factor.sum | number_format |fitNumber}} <small class="fs07">{%trans "Toman"%}</small></td>
+     <td class="collapsing txtLa">{{factorDetail.factor.total | number_format |fitNumber}} <small class="fs07">{%trans "Toman"%}</small></td>
    </tr>
   </tbody>
 

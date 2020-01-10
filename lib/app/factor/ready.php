@@ -42,6 +42,7 @@ class ready
 				case 'subdiscount':
 				case 'subprice':
 				case 'subtotal':
+				case 'total':
 				case 'sum':
 					$value = \lib\price::down($value);
 					$value = \lib\number::down($value);
