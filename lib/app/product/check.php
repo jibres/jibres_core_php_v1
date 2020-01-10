@@ -164,13 +164,13 @@ class check
 
 		if(\dash\number::is_larger($minstock, 999999999))
 		{
-			\dash\notif::error(T_("Value of minstock is out of rage"), 'minstock');
+			\dash\notif::error(T_("Value of minstock is out of range"), 'minstock');
 			return false;
 		}
 
 		if(intval($minstock) < 0)
 		{
-			\dash\notif::error(T_("Value of minstock is out of rage"), 'minstock');
+			\dash\notif::error(T_("Value of minstock is out of range"), 'minstock');
 			return false;
 		}
 
@@ -195,13 +195,13 @@ class check
 
 		if(\dash\number::is_larger($maxstock, 999999999))
 		{
-			\dash\notif::error(T_("Value of maxstock is out of rage"), 'maxstock');
+			\dash\notif::error(T_("Value of maxstock is out of range"), 'maxstock');
 			return false;
 		}
 
 		if(intval($maxstock) < 0)
 		{
-			\dash\notif::error(T_("Value of maxstock is out of rage"), 'maxstock');
+			\dash\notif::error(T_("Value of maxstock is out of range"), 'maxstock');
 			return false;
 		}
 
@@ -227,13 +227,13 @@ class check
 
 		if(\dash\number::is_larger($weight, 9999999))
 		{
-			\dash\notif::error(T_("Value of weight is out of rage"), 'weight');
+			\dash\notif::error(T_("Value of weight is out of range"), 'weight');
 			return false;
 		}
 
 		if(intval($weight) < 0)
 		{
-			\dash\notif::error(T_("Value of weight is out of rage"), 'weight');
+			\dash\notif::error(T_("Value of weight is out of range"), 'weight');
 			return false;
 		}
 
@@ -319,13 +319,13 @@ class check
 
 		if(\dash\number::is_larger($carton, 999999999))
 		{
-			\dash\notif::error(T_("Value of carton is out of rage"), 'carton');
+			\dash\notif::error(T_("Value of carton is out of range"), 'carton');
 			return false;
 		}
 
 		if(intval($carton) < 0)
 		{
-			\dash\notif::error(T_("Value of carton is out of rage"), 'carton');
+			\dash\notif::error(T_("Value of carton is out of range"), 'carton');
 			return false;
 		}
 
@@ -343,7 +343,7 @@ class check
 
 		if($desc && mb_strlen($desc) > 60000)
 		{
-			\dash\notif::error(T_("Value of desc is out of rage"), 'desc');
+			\dash\notif::error(T_("Value of desc is out of range"), 'desc');
 			return false;
 		}
 
@@ -363,13 +363,13 @@ class check
 
 		if(\dash\number::is_larger($salestep, 999999999))
 		{
-			\dash\notif::error(T_("Value of salestep is out of rage"), 'salestep');
+			\dash\notif::error(T_("Value of salestep is out of range"), 'salestep');
 			return false;
 		}
 
 		if(intval($salestep) < 0)
 		{
-			\dash\notif::error(T_("Value of salestep is out of rage"), 'salestep');
+			\dash\notif::error(T_("Value of salestep is out of range"), 'salestep');
 			return false;
 		}
 
@@ -394,13 +394,13 @@ class check
 
 		if(\dash\number::is_larger($minsale, 999999999))
 		{
-			\dash\notif::error(T_("Value of minsale is out of rage"), 'minsale');
+			\dash\notif::error(T_("Value of minsale is out of range"), 'minsale');
 			return false;
 		}
 
 		if(intval($minsale) < 0)
 		{
-			\dash\notif::error(T_("Value of minsale is out of rage"), 'minsale');
+			\dash\notif::error(T_("Value of minsale is out of range"), 'minsale');
 			return false;
 		}
 
@@ -425,13 +425,13 @@ class check
 
 		if(\dash\number::is_larger($maxsale, 999999999))
 		{
-			\dash\notif::error(T_("Value of maxsale is out of rage"), 'maxsale');
+			\dash\notif::error(T_("Value of maxsale is out of range"), 'maxsale');
 			return false;
 		}
 
 		if(intval($maxsale) < 0)
 		{
-			\dash\notif::error(T_("Value of maxsale is out of rage"), 'maxsale');
+			\dash\notif::error(T_("Value of maxsale is out of range"), 'maxsale');
 			return false;
 		}
 
@@ -558,13 +558,13 @@ class check
 
 		if(\dash\number::is_larger($length, 999999999))
 		{
-			\dash\notif::error(T_("Value of length is out of rage"), 'length');
+			\dash\notif::error(T_("Value of length is out of range"), 'length');
 			return false;
 		}
 
 		if(intval($length) < 0)
 		{
-			\dash\notif::error(T_("Value of length is out of rage"), 'length');
+			\dash\notif::error(T_("Value of length is out of range"), 'length');
 			return false;
 		}
 
@@ -589,13 +589,13 @@ class check
 
 		if(\dash\number::is_larger($width, 999999999))
 		{
-			\dash\notif::error(T_("Value of width is out of rage"), 'width');
+			\dash\notif::error(T_("Value of width is out of range"), 'width');
 			return false;
 		}
 
 		if(intval($width) < 0)
 		{
-			\dash\notif::error(T_("Value of width is out of rage"), 'width');
+			\dash\notif::error(T_("Value of width is out of range"), 'width');
 			return false;
 		}
 
@@ -621,13 +621,13 @@ class check
 
 		if(\dash\number::is_larger($height, 999999999))
 		{
-			\dash\notif::error(T_("Value of height is out of rage"), 'height');
+			\dash\notif::error(T_("Value of height is out of range"), 'height');
 			return false;
 		}
 
 		if(intval($height) < 0)
 		{
-			\dash\notif::error(T_("Value of height is out of rage"), 'height');
+			\dash\notif::error(T_("Value of height is out of range"), 'height');
 			return false;
 		}
 
@@ -653,13 +653,13 @@ class check
 
 		if(\dash\number::is_larger($filesize, 999999999))
 		{
-			\dash\notif::error(T_("Value of filesize is out of rage"), 'filesize');
+			\dash\notif::error(T_("Value of filesize is out of range"), 'filesize');
 			return false;
 		}
 
 		if(intval($filesize) < 0)
 		{
-			\dash\notif::error(T_("Value of filesize is out of rage"), 'filesize');
+			\dash\notif::error(T_("Value of filesize is out of range"), 'filesize');
 			return false;
 		}
 
@@ -940,13 +940,13 @@ class check
 
 		if(\dash\number::is_larger($buyprice, 9999999999999999))
 		{
-			\dash\notif::error(T_("Value of buyprice is out of rage"), 'buyprice');
+			\dash\notif::error(T_("Value of buyprice is out of range"), 'buyprice');
 			return false;
 		}
 
 		if(intval($buyprice) < 0)
 		{
-			\dash\notif::error(T_("Value of buyprice is out of rage"), 'buyprice');
+			\dash\notif::error(T_("Value of buyprice is out of range"), 'buyprice');
 			return false;
 		}
 
@@ -967,13 +967,13 @@ class check
 
 		if(\dash\number::is_larger($price, 9999999999999999))
 		{
-			\dash\notif::error(T_("Value of price is out of rage"), 'price');
+			\dash\notif::error(T_("Value of price is out of range"), 'price');
 			return false;
 		}
 
 		if(intval($price) < 0)
 		{
-			\dash\notif::error(T_("Value of price is out of rage"), 'price');
+			\dash\notif::error(T_("Value of price is out of range"), 'price');
 			return false;
 		}
 
@@ -987,13 +987,13 @@ class check
 
 		if(\dash\number::is_larger($compareatprice, 9999999999999999))
 		{
-			\dash\notif::error(T_("Value of compareatprice is out of rage"), 'compareatprice');
+			\dash\notif::error(T_("Value of compareatprice is out of range"), 'compareatprice');
 			return false;
 		}
 
 		if(intval($compareatprice) < 0)
 		{
-			\dash\notif::error(T_("Value of compareatprice is out of rage"), 'compareatprice');
+			\dash\notif::error(T_("Value of compareatprice is out of range"), 'compareatprice');
 			return false;
 		}
 
@@ -1021,13 +1021,13 @@ class check
 
 		if($discount && \dash\number::is_larger($discount, 9999999999999999))
 		{
-			\dash\notif::error(T_("Value of discount is out of rage"), 'discount');
+			\dash\notif::error(T_("Value of discount is out of range"), 'discount');
 			return false;
 		}
 
 		if($discount && intval($discount) < 0)
 		{
-			\dash\notif::error(T_("Value of discount is out of rage"), 'discount');
+			\dash\notif::error(T_("Value of discount is out of range"), 'discount');
 			return false;
 		}
 
@@ -1054,7 +1054,7 @@ class check
 
 		if($finalprice < 0)
 		{
-			\dash\notif::error(T_("Final price is out of rage"), ['element' => ['discount', 'price']]);
+			\dash\notif::error(T_("Final price is out of range"), ['element' => ['discount', 'price']]);
 			return false;
 		}
 
