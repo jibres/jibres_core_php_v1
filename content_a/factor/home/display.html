@@ -119,6 +119,7 @@
         <th class="s0" data-sort="{{myFilter.qty.order}}"><a href="{{myFilter.qty.link}}">{%trans "Qty"%}</a></th>
         <th class="s0" data-sort="{{myFilter.subprice.order}}"><a href="{{myFilter.subprice.link}}">{%trans "Price"%}</a></th>
         <th class="s0" data-sort="{{myFilter.subdiscount.order}}"><a href="{{myFilter.subdiscount.link}}">{%trans "Discount"%}</a></th>
+        <th class="s0" data-sort="{{myFilter.subvat.order}}"><a href="{{myFilter.subvat.link}}">{%trans "VAT"%}</a></th>
         <th data-sort="{{myFilter.subtotal.order}}"><a href="{{myFilter.subtotal.link}}">{%trans "Total"%}</a></th>
         <th data-sort="{{myFilter.date.order}}"><a href="{{myFilter.date.link}}">{%trans "Invoice Date"%}</a></th>
         {%if not requestGET.type%}
@@ -152,6 +153,7 @@
           <td class="s0"><a href="{{url.this}}?qtyequal={{value.qty}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.qty| number_format | fitNumber}}</a></td>
           <td class="s0"><a href="{{url.this}}?subpriceequal={{value.subprice}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.subprice| number_format | fitNumber}}</a></td>
           <td class="s0"><a href="{{url.this}}?subdiscountequal={{value.subdiscount}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.subdiscount| number_format | fitNumber}}</a></td>
+          <td class="s0"><a href="{{url.this}}?subpriceequal={{value.subvat}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.subvat| number_format | fitNumber}}</a></td>
           <td ><a href="{{url.this}}?subtotal={{value.subtotal}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.subtotal| number_format | fitNumber}}</a></td>
           <td class="collapsing">
             <div class="f">
@@ -167,7 +169,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="{%if not requestGET.type%}9{%else%}8{%endif%}" class="pTB0-f txtLa">
+          <td colspan="{%if not requestGET.type%}10{%else%}9{%endif%}" class="pTB0-f txtLa">
             {%set needMore = false%}
             {%set openKerkere = false%}
             {%set counterI = 0%}
