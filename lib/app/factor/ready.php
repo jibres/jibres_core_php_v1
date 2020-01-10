@@ -39,7 +39,7 @@ class ready
 					break;
 
 				case 'detailvat':
-				case 'detaildiscount':
+				case 'subdiscount':
 				case 'detailsum':
 				case 'detailtotalsum':
 				case 'sum':

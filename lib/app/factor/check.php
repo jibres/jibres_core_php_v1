@@ -129,7 +129,7 @@ class check
 		$args['transport']      = null;
 		$args['pay']            = null;
 		$args['detailsum']      = null;
-		$args['detaildiscount'] = null;
+		$args['subdiscount'] = null;
 		$args['detailtotalsum'] = null;
 		$args['detailvat']      = null;
 		$args['item']           = null;

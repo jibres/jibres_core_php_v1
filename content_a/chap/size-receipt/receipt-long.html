@@ -76,7 +76,7 @@
 
 {%block factorTableArea%}
 {%set colCount%}
-{%if factorDetail.factor.detaildiscount%}4{%else%}3{%endif%}
+{%if factorDetail.factor.subdiscount%}4{%else%}3{%endif%}
 {%endset%}
  <table class="tbl1 v1 fs12 txtC">
   <thead>
@@ -86,7 +86,7 @@
    <tr class="fs07">
     <th class="pTB5-f">{%trans "Qty"%}</th>
     <th class="pTB5-f">{%trans "Price"%}</th>
-{%if factorDetail.factor.detaildiscount%}
+{%if factorDetail.factor.subdiscount%}
     <th class="pTB5-f">{%trans "Discount"%}</th>
 {%endif%}
     <th class="pTB5-f">{%trans "Sum"%}</th>
@@ -100,7 +100,7 @@
   <tr>
    <td>{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
    <td>{{datarow.price | fitNumber}}</td>
-{%if factorDetail.factor.detaildiscount%}
+{%if factorDetail.factor.subdiscount%}
    <td>{{datarow.discount | fitNumber}}</td>
 {%endif%}
    <td>{{datarow.sum | fitNumber}}</td>
@@ -113,7 +113,7 @@
    <th>{{factorDetail.factor.item | number_format | fitNumber}}</th>
    <th>{{factorDetail.factor.qty | fitNumber}}</th>
    <th></th>
-{%if factorDetail.factor.detaildiscount%}
+{%if factorDetail.factor.subdiscount%}
    <th></th>
 {%endif%}
    <th>{{factorDetail.factor.sum | number_format | fitNumber}}</th>
@@ -128,14 +128,14 @@
 {%block factorResultArea%}
  <table class="tbl fs14 factorResult mB10">
   <tbody>
-{%if factorDetail.factor.detaildiscount%}
+{%if factorDetail.factor.subdiscount%}
    <tr>
      <th class="txtRa fs08">{%trans "Invoice amount"%}</th>
      <td class="collapsing txtLa">{{factorDetail.factor.detailsum | number_format |fitNumber}}</td>
    </tr>
    <tr>
      <th class="txtRa fs08">{%trans "Your total discount and profits"%}</th>
-     <td class="collapsing txtLa">{{factorDetail.factor.detaildiscount | number_format |fitNumber}}</td>
+     <td class="collapsing txtLa">{{factorDetail.factor.subdiscount | number_format |fitNumber}}</td>
    </tr>
 {%endif%}
    <tr class="msg info2 factorSum">

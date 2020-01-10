@@ -118,7 +118,7 @@
         <th class="s0" data-sort="{{myFilter.item.order}}"><a href="{{myFilter.item.link}}">{%trans "Items"%}</a></th>
         <th class="s0" data-sort="{{myFilter.qty.order}}"><a href="{{myFilter.qty.link}}">{%trans "Qty"%}</a></th>
         <th class="s0" data-sort="{{myFilter.detailsum.order}}"><a href="{{myFilter.detailsum.link}}">{%trans "Price"%}</a></th>
-        <th class="s0" data-sort="{{myFilter.detaildiscount.order}}"><a href="{{myFilter.detaildiscount.link}}">{%trans "Discount"%}</a></th>
+        <th class="s0" data-sort="{{myFilter.subdiscount.order}}"><a href="{{myFilter.subdiscount.link}}">{%trans "Discount"%}</a></th>
         <th data-sort="{{myFilter.detailtotalsum.order}}"><a href="{{myFilter.detailtotalsum.link}}">{%trans "Total"%}</a></th>
         <th data-sort="{{myFilter.date.order}}"><a href="{{myFilter.date.link}}">{%trans "Invoice Date"%}</a></th>
         {%if not requestGET.type%}
@@ -151,7 +151,7 @@
           <td class="s0"><a href="{{url.this}}?itemequal={{value.item}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.item| number_format | fitNumber}}</a></td>
           <td class="s0"><a href="{{url.this}}?qtyequal={{value.qty}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.qty| number_format | fitNumber}}</a></td>
           <td class="s0"><a href="{{url.this}}?detailsumequal={{value.detailsum}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.detailsum| number_format | fitNumber}}</a></td>
-          <td class="s0"><a href="{{url.this}}?detaildiscountequal={{value.detaildiscount}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.detaildiscount| number_format | fitNumber}}</a></td>
+          <td class="s0"><a href="{{url.this}}?subdiscountequal={{value.subdiscount}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.subdiscount| number_format | fitNumber}}</a></td>
           <td ><a href="{{url.this}}?detailtotalsum={{value.detailtotalsum}}{%if requestGET.type%}&type={{requestGET.type}}{%endif%}">{{value.detailtotalsum| number_format | fitNumber}}</a></td>
           <td class="collapsing">
             <div class="f">
@@ -358,9 +358,9 @@
   not requestGET.itemless     and
   not requestGET.itemequal    and
 
-  not requestGET.detaildiscountlarger     and
-  not requestGET.detaildiscountless     and
-  not requestGET.detaildiscountequal    and
+  not requestGET.subdiscountlarger     and
+  not requestGET.subdiscountless     and
+  not requestGET.subdiscountequal    and
 
   not requestGET.qtylarger    and
   not requestGET.qtyless    and
@@ -411,7 +411,7 @@
     </div>
 
     <h6 data-kerkere=".showFilterBydiscount" data-kerkere-icon>{%trans "Filter by discount"%}</h6>
-    <div class="showFilterBydiscount"  {%if not requestGET.detaildiscountlarger and not requestGET.detaildiscountless and not requestGET.detaildiscountequal%} data-kerkere-content='hide' {%endif%}>
+    <div class="showFilterBydiscount"  {%if not requestGET.subdiscountlarger and not requestGET.subdiscountless and not requestGET.subdiscountequal%} data-kerkere-content='hide' {%endif%}>
       {{block('iFilterdiscount')}}
     </div>
 
@@ -637,19 +637,19 @@
 
       <div class="c s12 mB5 pRa5">
         <div class="input ltr">
-          <input  type="number" name="detaildiscountlarger" placeholder='{%trans "Discount is greater than ..."%}'  value="{{requestGET.detaildiscountlarger}}" min="0" max="9999999999999999">
+          <input  type="number" name="subdiscountlarger" placeholder='{%trans "Discount is greater than ..."%}'  value="{{requestGET.subdiscountlarger}}" min="0" max="9999999999999999">
         </div>
       </div>
 
       <div class="c s12 mB5 pRa5">
         <div class="input ltr">
-          <input  type="number" name="detaildiscountless" placeholder='{%trans "Discount less than ..."%}'  value="{{requestGET.detaildiscountless}}" min="0" max="9999999999999999">
+          <input  type="number" name="subdiscountless" placeholder='{%trans "Discount less than ..."%}'  value="{{requestGET.subdiscountless}}" min="0" max="9999999999999999">
         </div>
       </div>
 
       <div class="c s12 mB5 pRa5">
         <div class="input ltr">
-          <input  type="number" name="detaildiscountequal" placeholder='{%trans "Discount is equal to ..."%}'  value="{{requestGET.detaildiscountequal}}" min="0" max="9999999999999999">
+          <input  type="number" name="subdiscountequal" placeholder='{%trans "Discount is equal to ..."%}'  value="{{requestGET.subdiscountequal}}" min="0" max="9999999999999999">
         </div>
       </div>
     </div>

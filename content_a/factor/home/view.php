@@ -35,9 +35,9 @@ class view
 		if(\dash\request::get('detailtotalsumlarger'))	 $args['detailtotalsumlarger'] = \dash\request::get('detailtotalsumlarger');
 		if(\dash\request::get('detailtotalsumless'))	 $args['detailtotalsumless']   = \dash\request::get('detailtotalsumless');
 		if(\dash\request::get('detailtotalsumequal'))	 $args['detailtotalsumequal']  = \dash\request::get('detailtotalsumequal');
-		if(\dash\request::get('detaildiscountlarger'))	 $args['detaildiscountlarger'] = \dash\request::get('detaildiscountlarger');
-		if(\dash\request::get('detaildiscountless'))	 $args['detaildiscountless']   = \dash\request::get('detaildiscountless');
-		if(\dash\request::get('detaildiscountequal'))	 $args['detaildiscountequal']  = \dash\request::get('detaildiscountequal');
+		if(\dash\request::get('subdiscountlarger'))	 $args['subdiscountlarger'] = \dash\request::get('subdiscountlarger');
+		if(\dash\request::get('subdiscountless'))	 $args['subdiscountless']   = \dash\request::get('subdiscountless');
+		if(\dash\request::get('subdiscountequal'))	 $args['subdiscountequal']  = \dash\request::get('subdiscountequal');
 		if(\dash\request::get('detailtotalsum'))		 $args['detailtotalsum']       = \dash\request::get('detailtotalsum');
 
 		$search_string = \dash\request::get('q');
@@ -49,7 +49,7 @@ class view
 
 		\dash\data::filterBox(\lib\app\factor\search::filter_message());
 
-		$sort_field = ['date', 'detailsum', 'detailtotalsum', 'detaildiscount', 'item', 'qty','customer'];
+		$sort_field = ['date', 'detailsum', 'detailtotalsum', 'subdiscount', 'item', 'qty','customer'];
 		\dash\data::myFilter(\content_a\filter::current($sort_field, \dash\url::this()));
 
 		$isFiltered = \lib\app\factor\search::is_filtered();
