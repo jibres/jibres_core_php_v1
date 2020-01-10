@@ -6,13 +6,28 @@ class view
 	public static function config()
 	{
 		// define default value for global
+		$jibresDesc = '';
+		$jibresDesc .= T_('Integrated Ecommerce Platform Software'). ' / ';
+		$jibresDesc .= T_('Start Selling Online.'). ' ';
+		$jibresDesc .= T_('Quickly Start Free!'). ' ';
+
+		$jibresDesc .= T_('Online Store Website'). T_(' & ');
+		$jibresDesc .= T_('Mobile Online Store'). T_(' & ');
+		$jibresDesc .= T_('Social Marketing'). T_(' & ');
+		$jibresDesc .= T_('POS Software'). ' | ';
+
+		$jibresDesc .= T_('Accept Credit Cards'). '. ';
+		$jibresDesc .= T_('Fully Hosted'). '. ';
+		$jibresDesc .= T_('SEO Optimized'). '. ';
+		$jibresDesc .= T_('SSL Certificate'). '. ';
+		$jibresDesc .= T_('Fully API');
 
 
 		\dash\data::site_title(T_("Jibres"));
-		\dash\data::site_desc(T_("Jibres is not just an online accounting software;"). ' '.  T_("We try to create the best financial platform that has everything you need to sale and manage your financial life."));
+		\dash\data::site_desc($jibresDesc);
 		\dash\data::site_slogan(T_("Integrated Sales and Online Accounting"));
 
-		\dash\data::page_desc(\dash\data::site_desc(). ' | '. \dash\data::site_slogan());
+
 
 		// add page cover to all pages
 		\dash\data::page_cover(\dash\url::static(). '/img/cover/Jibres-cover-fa-1.jpg');
