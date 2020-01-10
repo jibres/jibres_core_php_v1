@@ -176,7 +176,7 @@ class language
 	public static function detect_language()
 	{
 		$url_lang = \dash\url::lang();
-		if(self::check($url_lang))
+		if(array_key_exists($url_lang, self::$data))
 		{
 			self::set_language($url_lang);
 		}
