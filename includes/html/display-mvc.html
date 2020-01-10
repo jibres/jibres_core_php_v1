@@ -48,6 +48,9 @@
  <link rel="shortcut icon"    href="{{url.site}}/favicon.ico?v=6">
  <link rel="manifest"         href="{{url.kingdom}}/manifest.webmanifest">
 {%endblock%}
+{%if url.canonical%}
+ <link rel="canonical"        href="{{url.canonical}}">
+{%endif%}
  <link rel ="author"          href="{{url.kingdom}}/humans.txt"/>
 {%if false%}
  <link rel="alternate"        href="{{url.kingdom}}/feed" title="{{site.title}} RSS feed" type="application/rss+xml"/>

@@ -22,6 +22,7 @@ class view
 
 		// return all url detail
 		\dash\data::url(\dash\url::all());
+		self::set_canonical();
 
 		// return all parameters and clean it
 		\dash\data::requestGET(\dash\request::get());
@@ -254,6 +255,51 @@ class view
 			\dash\data::page_cover(\dash\data::site_logo());
 			\dash\data::page_twitterCard('summary');
 		}
+	}
+
+	private static function set_canonical()
+	{
+		$myCanonical = \dash\url::protocol(). '://';
+		if(\dash\url::subdomain())
+		{
+			$myCanonical .= \dash\url::subdomain(). '.';
+		}
+		$myCanonical .= \dash\url::root();
+
+		if(\dash\url::tld() === 'ir')
+		{
+			if(\dash\url::lang() === 'en')
+			{
+				$myCanonical .= '.com/';
+			}
+		}
+		else if(\dash\url::tld() === 'com')
+		{
+			if(\dash\url::lang() === 'fa')
+			{
+				$myCanonical .= '.ir/';
+			}
+		}
+		else
+		{
+			return false;
+		}
+
+		if(\dash\url::content())
+		{
+			$myCanonical .= \dash\url::content(). '/';
+		}
+		if(\dash\url::directory())
+		{
+			$myCanonical .= \dash\url::directory();
+		}
+		if(\dash\url::query())
+		{
+			$myCanonical .= '?'. \dash\url::query();
+		}
+
+		// set canonical
+		\dash\data::url_canonical($myCanonical);
 	}
 
 
