@@ -23,9 +23,9 @@ class view
 		if(\dash\request::get('date'))					 $args['date']                 = \dash\request::get('date');
 		if(\dash\request::get('time'))					 $args['time']                 = \dash\request::get('time');
 		if(\dash\request::get('weekday'))				 $args['weekday']              = \dash\request::get('weekday');
-		if(\dash\request::get('detailsumlarger'))		 $args['detailsumlarger']      = \dash\request::get('detailsumlarger');
-		if(\dash\request::get('detailsumless'))			 $args['detailsumless']        = \dash\request::get('detailsumless');
-		if(\dash\request::get('detailsumequal'))		 $args['detailsumequal']       = \dash\request::get('detailsumequal');
+		if(\dash\request::get('subpricelarger'))		 $args['subpricelarger']      = \dash\request::get('subpricelarger');
+		if(\dash\request::get('subpriceless'))			 $args['subpriceless']        = \dash\request::get('subpriceless');
+		if(\dash\request::get('subpriceequal'))		 $args['subpriceequal']       = \dash\request::get('subpriceequal');
 		if(\dash\request::get('itemlarger'))			 $args['itemlarger']           = \dash\request::get('itemlarger');
 		if(\dash\request::get('itemless'))				 $args['itemless']             = \dash\request::get('itemless');
 		if(\dash\request::get('itemequal'))				 $args['itemequal']            = \dash\request::get('itemequal');
@@ -49,7 +49,7 @@ class view
 
 		\dash\data::filterBox(\lib\app\factor\search::filter_message());
 
-		$sort_field = ['date', 'detailsum', 'detailtotalsum', 'subdiscount', 'item', 'qty','customer'];
+		$sort_field = ['date', 'subprice', 'detailtotalsum', 'subdiscount', 'item', 'qty','customer'];
 		\dash\data::myFilter(\content_a\filter::current($sort_field, \dash\url::this()));
 
 		$isFiltered = \lib\app\factor\search::is_filtered();

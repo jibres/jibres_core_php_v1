@@ -34,9 +34,9 @@ class search
 			'date'                 => null,
 			'time'                 => null,
 			'weekday'              => null,
-			'detailsumlarger'      => null,
-			'detailsumless'        => null,
-			'detailsumequal'       => null,
+			'subpricelarger'      => null,
+			'subpriceless'        => null,
+			'subpriceequal'       => null,
 			'itemlarger'           => null,
 			'itemless'             => null,
 			'itemequal'            => null,
@@ -208,38 +208,38 @@ class search
 			self::$is_filtered = true;
 		}
 
-		$detailsumlarger = $_args['detailsumlarger'];
-		if($detailsumlarger)
+		$subpricelarger = $_args['subpricelarger'];
+		if($subpricelarger)
 		{
-			$detailsumlarger = \dash\number::clean($detailsumlarger);
-			if($detailsumlarger && is_numeric($detailsumlarger))
+			$subpricelarger = \dash\number::clean($subpricelarger);
+			if($subpricelarger && is_numeric($subpricelarger))
 			{
-				$and['factors.detailsum'] = [" > ", " $detailsumlarger "];
-				self::$filter_args['detailsum larger than'] = $detailsumlarger;
+				$and['factors.subprice'] = [" > ", " $subpricelarger "];
+				self::$filter_args['subprice larger than'] = $subpricelarger;
 				self::$is_filtered = true;
 			}
 		}
 
-		$detailsumless = $_args['detailsumless'];
-		if($detailsumless)
+		$subpriceless = $_args['subpriceless'];
+		if($subpriceless)
 		{
-			$detailsumless = \dash\number::clean($detailsumless);
-			if($detailsumless && is_numeric($detailsumless))
+			$subpriceless = \dash\number::clean($subpriceless);
+			if($subpriceless && is_numeric($subpriceless))
 			{
-				$and['factors.detailsum'] = [" < ", " '$detailsumless' "];
-				self::$filter_args['detailsum less than'] = $detailsumless;
+				$and['factors.subprice'] = [" < ", " '$subpriceless' "];
+				self::$filter_args['subprice less than'] = $subpriceless;
 				self::$is_filtered = true;
 			}
 		}
 
-		$detailsumequal = $_args['detailsumequal'];
-		if($detailsumequal)
+		$subpriceequal = $_args['subpriceequal'];
+		if($subpriceequal)
 		{
-			$detailsumequal = \dash\number::clean($detailsumequal);
-			if($detailsumequal && is_numeric($detailsumequal))
+			$subpriceequal = \dash\number::clean($subpriceequal);
+			if($subpriceequal && is_numeric($subpriceequal))
 			{
-				$and['factors.detailsum'] = [" = ", " '$detailsumequal' "];
-				self::$filter_args['detailsum equal'] = $detailsumequal;
+				$and['factors.subprice'] = [" = ", " '$subpriceequal' "];
+				self::$filter_args['subprice equal'] = $subpriceequal;
 				self::$is_filtered = true;
 			}
 		}
@@ -427,7 +427,7 @@ class search
 		if($_args['sort'] && !$order_sort)
 		{
 
-			if(in_array($_args['sort'], ['date', 'detailsum', 'detailtotalsum', 'subdiscount', 'item', 'qty','customer']))
+			if(in_array($_args['sort'], ['date', 'subprice', 'detailtotalsum', 'subdiscount', 'item', 'qty','customer']))
 			{
 				$sort = mb_strtolower($_args['sort']);
 				$order = null;

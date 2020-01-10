@@ -40,7 +40,7 @@ class ready
 
 				case 'detailvat':
 				case 'subdiscount':
-				case 'detailsum':
+				case 'subprice':
 				case 'detailtotalsum':
 				case 'sum':
 					$value = \lib\price::down($value);

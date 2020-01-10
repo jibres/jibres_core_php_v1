@@ -131,7 +131,7 @@
 {%if factorDetail.factor.subdiscount%}
    <tr>
      <th class="txtRa fs08">{%trans "Invoice amount"%}</th>
-     <td class="collapsing txtLa">{{factorDetail.factor.detailsum | number_format |fitNumber}}</td>
+     <td class="collapsing txtLa">{{factorDetail.factor.subprice | number_format |fitNumber}}</td>
    </tr>
    <tr>
      <th class="txtRa fs08">{%trans "Your total discount and profits"%}</th>

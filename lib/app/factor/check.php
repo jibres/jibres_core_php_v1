@@ -128,7 +128,7 @@ class check
 		$args['pre']            = null;
 		$args['transport']      = null;
 		$args['pay']            = null;
-		$args['detailsum']      = null;
+		$args['subprice']      = null;
 		$args['subdiscount'] = null;
 		$args['detailtotalsum'] = null;
 		$args['detailvat']      = null;
