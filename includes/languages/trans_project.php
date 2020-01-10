@@ -91,7 +91,7 @@ class twigTransTerms
 	echo T_("The date you first select a paid plan will be the recurring billing date. For example: If you sign up for the first time on July 15, all future charges will be billed on the 15th of every month.");// Line 316
 
 	//-----------------------D:\xampp\htdocs\Projects\jibres\content\home\display.html
-	echo T_("Invoice Software");                                                      // Line 31
+	echo T_("Invoice Software");                                                      // Line 64
 	echo T_("Easy Invoicing Software");                                               // Line 32
 	echo T_("Online Invoicing Software");                                             // Line 33
 	echo T_("Free Invoicing Software");                                               // Line 34
@@ -106,9 +106,19 @@ class twigTransTerms
 	echo T_("By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.");// Line 56
 	echo T_("Jibres");                                                                // Line 49
 	echo T_("Point of Sale Software");                                                // Line 63
+	echo T_("Barcode reader");                                                        // Line 64
+	echo T_(",");                                                                     // Line 16
+	echo T_("Receipt printer");                                                       // Line 64
+	echo T_("PC POS");                                                                // Line 64
+	echo T_("Label Printing Scale");                                                  // Line 64
 	echo T_("Mobile Online Store");                                                   // Line 71
+	echo T_("Create mobile app for your online store.");                              // Line 72
+	echo T_("Free");                                                                  // Line 69
+	echo T_("Fully Customizable");                                                    // Line 72
 	echo T_("Social Marketing");                                                      // Line 79
+	echo T_("Easily add ecommerce to any website and social networks by embedding a single buy button.");// Line 80
 	echo T_("Online Store Website");                                                  // Line 87
+	echo T_("Online store builder allow you robust your business in a faster way, simpler way!");// Line 88
 	echo T_("Integrated Sales and Online Accounting");                                // Line 106
 	echo T_("Simplest forever");                                                      // Line 117
 	echo T_("Keep it simple");                                                        // Line 117
@@ -140,7 +150,6 @@ class twigTransTerms
 	//--------------------D:\xampp\htdocs\Projects\jibres\content\pricing\display.html
 	echo T_("only team admin");                                                       // Line 10
 	echo T_("Unlimited");                                                             // Line 119
-	echo T_("Free");                                                                  // Line 69
 	echo T_("Bronze");                                                                // Line 26
 	echo T_("Silver");                                                                // Line 50
 	echo T_("Gold");                                                                  // Line 80
@@ -1068,7 +1077,6 @@ class twigTransTerms
 	echo T_("Avatar of you");                                                         // Line 54
 	echo T_("Default Avatar");                                                        // Line 58
 	echo T_("Welcome");                                                               // Line 16
-	echo T_(",");                                                                     // Line 16
 	echo T_("Manage your info, privacy, and security to make us work better for you");// Line 17
 	echo T_("Only you can see your settings.");                                       // Line 44
 	echo T_("We are committed to protecting your privacy and security.");             // Line 44
