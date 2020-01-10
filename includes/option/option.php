@@ -43,14 +43,7 @@ self::$config['visitor'] = false;
 @ In the name Of Allah
 * The base configurations of the jibres.
 */
-self::$language =
-[
-	'default' => 'fa',
-	'list'    => ['fa','en',],
-];
-/**
- * system default lanuage
- */
+
 
 self::$config['coming']           = false;
 

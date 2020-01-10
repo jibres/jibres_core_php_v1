@@ -16,7 +16,7 @@ class language
 	[
 		'en' => ['name' => 'en', 'direction' => 'ltr', 'iso' => 'en_US', 'localname' => 'English'],
 		'fa' => ['name' => 'fa', 'direction' => 'rtl', 'iso' => 'fa_IR', 'localname' => 'فارسی'],
-		'ar' => ['name' => 'ar', 'direction' => 'rtl', 'iso' => 'ar_IQ', 'localname' => 'العربية'],
+		// 'ar' => ['name' => 'ar', 'direction' => 'rtl', 'iso' => 'ar_IQ', 'localname' => 'العربية'],
 	];
 
 
@@ -28,14 +28,7 @@ class language
 			return 'fa';
 		}
 
-		// get default lang
-		$default = \dash\option::language('default');
-		// if default is not exist, set en as default
-		if(!$default)
-		{
-			$default = 'en';
-		}
-		return $default;
+		return 'en';
 	}
 
 
@@ -44,31 +37,25 @@ class language
 	 */
 	public static function all($_for_html = false)
 	{
-		$list = \dash\option::language('list');
+		$list = [];
 
-		$temp = [];
-
-		if(is_array($list))
+		foreach (self::$data as $key => $value)
 		{
-			foreach ($list as $key => $value)
+			if(array_key_exists($key, self::$data))
 			{
-				if(array_key_exists($value, self::$data))
+				if($_for_html)
 				{
-					if($_for_html)
+					if(isset(self::$data[$key]['localname']))
 					{
-						if(isset(self::$data[$value]['localname']))
-						{
-							$temp[$value] = self::$data[$value]['localname'];
-						}
+						$list[$key] = self::$data[$key]['localname'];
 					}
-					else
-					{
-						$temp[$value] = self::$data[$value];
-					}
+				}
+				else
+				{
+					$list[$key] = self::$data[$key];
 				}
 			}
 		}
-		$list = $temp;
 
 		return $list;
 	}
