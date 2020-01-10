@@ -183,8 +183,7 @@ class edit
 		$category = \dash\app::request('category');
 		if($category && is_string($category))
 		{
-			\lib\app\product\category::$debug = false;
-			$add_category                     = \lib\app\product\category::check_add($category);
+			$add_category                     = \lib\app\category\add::check_add($category);
 			if(isset($add_category['id']))
 			{
 				$args['cat_id'] = $add_category['id'];

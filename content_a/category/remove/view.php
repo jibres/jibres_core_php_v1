@@ -18,7 +18,7 @@ class view
 			\dash\data::page_title(T_('Remove category'). ' | '. \dash\data::dataRow_title());
 		}
 
-		$allCat = \lib\app\product\category::list(null, ['pagenation' => false]);
+		$allCat = \lib\app\category\search::list(null, ['pagenation' => false]);
 		\dash\data::allCat($allCat);
 	}
 }

@@ -10,7 +10,7 @@ class model
 
 		if(\dash\request::post('deletefile'))
 		{
-			\lib\app\product\category::remove_file($id);
+			\lib\app\category\remove::remove_file($id);
 
 			if(\dash\engine\process::status())
 			{
@@ -30,7 +30,7 @@ class model
 			$args['file'] = $file;
 		}
 
-		$result = \lib\app\product\category::edit($args, $id);
+		$result = \lib\app\category\edit::edit($args, $id);
 
 		if(\dash\engine\process::status())
 		{

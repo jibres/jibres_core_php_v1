@@ -31,7 +31,7 @@ class view
 		}
 
 		// work with product list
-		$myCategoryList = \lib\app\product\category::list($search_string, $args);
+		$myCategoryList = \lib\app\category\search::list($search_string, $args);
 
 		\dash\data::dataTable($myCategoryList);
 

@@ -20,7 +20,7 @@ class datalist
 
 	private static function list()
 	{
-		$detail = \lib\app\product\category::list();
+		$detail = \lib\app\category\search::list();
 		return $detail;
 	}
 }

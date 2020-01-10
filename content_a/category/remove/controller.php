@@ -9,7 +9,7 @@ class controller
 
 		\dash\permission::access('categoryRemove');
 
-		$dataRow = \lib\app\product\category::get(\dash\request::get('id'));
+		$dataRow = \lib\app\category\get::get(\dash\request::get('id'));
 		\dash\data::dataRow($dataRow);
 
 		if(!$dataRow)
