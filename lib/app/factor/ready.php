@@ -38,7 +38,7 @@ class ready
 					$result[$key] = $value;
 					break;
 
-				case 'detailvat':
+				case 'subvat':
 				case 'subdiscount':
 				case 'subprice':
 				case 'subtotal':

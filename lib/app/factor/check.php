@@ -131,7 +131,7 @@ class check
 		$args['subprice']      = null;
 		$args['subdiscount'] = null;
 		$args['subtotal'] = null;
-		$args['detailvat']      = null;
+		$args['subvat']      = null;
 		$args['item']           = null;
 		$args['qty']            = null;
 		$args['discount']       = null;

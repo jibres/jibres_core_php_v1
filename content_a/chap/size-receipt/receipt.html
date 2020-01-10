@@ -130,10 +130,10 @@
      <th class="txtRa fs08">{%trans "Your total discount and profits"%}</th>
      <td class="collapsing txtLa">{{factorDetail.factor.subdiscount | number_format |fitNumber}}</td>
    </tr>
-   {%if factorDetail.factor.detailvat%}
+   {%if factorDetail.factor.subvat%}
    <tr>
      <th class="txtRa fs08">* {%trans "VAT"%}</th>
-     <td class="collapsing txtLa">{{factorDetail.factor.detailvat | number_format |fitNumber}}</td>
+     <td class="collapsing txtLa">{{factorDetail.factor.subvat | number_format |fitNumber}}</td>
    </tr>
    {%endif%}
 {%endif%}
