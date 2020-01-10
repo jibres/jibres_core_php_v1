@@ -64,15 +64,15 @@ class add
 			return false;
 		}
 
-		$factor['detailsum']      = array_sum(array_column($factor_detail, 'sum_price_temp'));
-		$factor['detaildiscount'] = array_sum(array_column($factor_detail, 'sum_discount_temp'));
-		$factor['detailtotalsum'] = array_sum(array_column($factor_detail, 'sum'));
-		$factor['qty']            = array_sum(array_column($factor_detail, 'count'));
-		$factor['detailvat']      = array_sum(array_column($factor_detail, 'sum_vat_temp'));;
-		$factor['item']           = count($factor_detail);
-		$factor['discount']       = null;
-		$factor['status']         = 'draft';
-		$factor['sum']            = intval($factor['detailtotalsum']) - intval($factor['discount']);
+		$factor['subprice']    = array_sum(array_column($factor_detail, 'sub_price_temp'));
+		$factor['subdiscount'] = array_sum(array_column($factor_detail, 'sub_discount_temp'));
+		$factor['subvat']      = array_sum(array_column($factor_detail, 'sub_vat_temp'));;
+		$factor['subtotal']    = array_sum(array_column($factor_detail, 'sum'));
+		$factor['qty']         = array_sum(array_column($factor_detail, 'count'));
+		$factor['item']        = count($factor_detail);
+		$factor['discount']    = null;
+		$factor['total']       = intval($factor['subtotal']) - intval($factor['discount']);
+		$factor['status']      = 'draft';
 
 		// qty field in int(10)
 		if(\dash\number::is_larger($factor['qty'], 999999999))
@@ -88,37 +88,34 @@ class add
 			return false;
 		}
 
-		// detailsum field in bigint(20)
-		if(\dash\number::is_larger($factor['detailsum'], 9999999999999999999))
+		// subprice field in bigint(20)
+		if(\dash\number::is_larger($factor['subprice'], 9999999999999999999))
 		{
-			\dash\notif::error(T_("Data is out of range for column detailsum"), 'detailsum');
+			\dash\notif::error(T_("Data is out of range for column subprice"), 'subprice');
 			return false;
 		}
 
-		// detaildiscount field in bigint(20)
-		if(\dash\number::is_larger($factor['detaildiscount'], 9999999999999999999))
+		// subdiscount field in bigint(20)
+		if(\dash\number::is_larger($factor['subdiscount'], 9999999999999999999))
 		{
-			\dash\notif::error(T_("Data is out of range for column detaildiscount"), 'detaildiscount');
-			return false;
-		}
-
-
-		// detailtotalsum field in bigint(20)
-		if(\dash\number::is_larger($factor['detailtotalsum'], 9999999999999999999))
-		{
-			\dash\notif::error(T_("Data is out of range for column detailtotalsum"), 'detailtotalsum');
-			return false;
-		}
-
-		// sum field in bigint(20)
-		if(\dash\number::is_larger($factor['sum'], 9999999999999999999))
-		{
-			\dash\notif::error(T_("Data is out of range for column sum"), 'sum');
+			\dash\notif::error(T_("Data is out of range for column subdiscount"), 'subdiscount');
 			return false;
 		}
 
 
+		// subtotal field in bigint(20)
+		if(\dash\number::is_larger($factor['subtotal'], 9999999999999999999))
+		{
+			\dash\notif::error(T_("Data is out of range for column subtotal"), 'subtotal');
+			return false;
+		}
 
+		// total field in bigint(20)
+		if(\dash\number::is_larger($factor['total'], 9999999999999999999))
+		{
+			\dash\notif::error(T_("Data is out of range for column total"), 'total');
+			return false;
+		}
 
 		// start transaction of db
 		\dash\db::transaction();
@@ -148,11 +145,9 @@ class add
 		foreach ($factor_detail as $key => $value)
 		{
 			$factor_detail[$key]['factor_id'] = $factor_id;
-			unset($factor_detail[$key]['sum_price_temp']);
-			unset($factor_detail[$key]['sum_discount_temp']);
-			unset($factor_detail[$key]['sum_vat_temp']);
-
-
+			unset($factor_detail[$key]['sub_price_temp']);
+			unset($factor_detail[$key]['sub_discount_temp']);
+			unset($factor_detail[$key]['sub_vat_temp']);
 		}
 
 		$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);

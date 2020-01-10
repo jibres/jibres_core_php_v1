@@ -155,7 +155,13 @@ class check_detail
 
 		foreach ($trust_order_list as $key => $value)
 		{
-			$factor_detail_record = [];
+			$this_proudct = $check_true_product[$value['product_id']];
+
+			if(!array_key_exists('discount', $this_proudct))
+			{
+				\dash\notif::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
+				return false;
+			}
 
 			if(!isset($check_true_product[$value['product_id']]))
 			{
@@ -163,53 +169,43 @@ class check_detail
 				return false;
 			}
 
-			$this_proudct = $check_true_product[$value['product_id']];
 
+			$factor_detail_record = [];
+
+			$price      = floatval($this_proudct['price']);
+			$discount   = $value['discount'] === null ? floatval($this_proudct['discount']) : floatval($value['discount']);
+			$vat        = 0;
+			$finalprice = $price - $discount;
 			$count      = floatval($value['count']);
-			$price      = 0;
-			$finalprice = 0;
-			$discount   = 0;
-			$vatprice   = 0;
-
-			switch ($_option['type'])
+			if(!$count)
 			{
-				case 'sale':
-
-
-					if(!array_key_exists('discount', $this_proudct))
-					{
-						\dash\notif::error(T_("Invalid proudct in factor :key", ['key' => $key]), 'product');
-						return false;
-					}
-
-					$factor_detail_record['discount'] = $value['discount'] === null ? $this_proudct['discount'] : $value['discount'];
-
-					$discount                         = floatval($factor_detail_record['discount']);
-					$price                            = floatval($this_proudct['price']);
-					$finalprice                       = floatval($this_proudct['finalprice']);
-					$vatprice                         = floatval($this_proudct['vatprice']);
-
-
-					$factor_detail_record['sum']               = $finalprice * $count;
-					$factor_detail_record['vat']               = $vatprice;
-					$factor_detail_record['sum_vat_temp']      = $vatprice * $count;
-					$factor_detail_record['sum_price_temp']    = $price * $count;
-					$factor_detail_record['sum_discount_temp'] = $discount * $count;
-					break;
-
-				case 'buy':
-				case 'prefactor':
-				case 'lending':
-				case 'backbuy':
-				case 'backfactor':
-				case 'waste':
-
-					break;
+				$count = 1;
 			}
 
-			$factor_detail_record['product_id'] = $value['product_id'];
-			$factor_detail_record['price']      = $finalprice;
-			$factor_detail_record['count']      = $value['count'] === null ? 1 : $count;
+
+			if(array_key_exists('vat', $this_proudct) && $this_proudct['vat'])
+			{
+				$vat_percent = 9; // 9% in iran. need to get from setting
+				if($vat_percent)
+				{
+					$new_finalprice = ($price - $discount) + ((($price - $discount) * $vat_percent) / 100);
+					$vat            = $new_finalprice - ($price - $discount);
+					$finalprice     = $new_finalprice;
+				}
+			}
+
+			$factor_detail_record['product_id']        = $value['product_id'];
+
+			$factor_detail_record['price']             = $price;
+			$factor_detail_record['discount']          = $discount;
+			$factor_detail_record['vat']               = $vat;
+			$factor_detail_record['finalprice']        = $finalprice;
+			$factor_detail_record['count']             = $count;
+			$factor_detail_record['sum']               = $finalprice * $count;
+
+			$factor_detail_record['sub_vat_temp']      = $vat * $count;
+			$factor_detail_record['sub_price_temp']    = $price * $count;
+			$factor_detail_record['sub_discount_temp'] = $discount * $count;
 
 			$factor_detail[] = $factor_detail_record;
 		}

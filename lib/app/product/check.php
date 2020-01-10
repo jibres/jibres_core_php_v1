@@ -1066,8 +1066,8 @@ class check
 			if($vatprice_percent)
 			{
 				$new_finalprice = $finalprice + (($finalprice * $vatprice_percent) / 100);
-				$vatprice = $new_finalprice - $finalprice;
-				$finalprice = $new_finalprice;
+				$vatprice       = $new_finalprice - $finalprice;
+				$finalprice     = $new_finalprice;
 			}
 		}
 
