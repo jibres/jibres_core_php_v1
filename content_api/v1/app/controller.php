@@ -89,7 +89,7 @@ class controller
 		$detail['site']['name']   = T_(\dash\option::config('site','title'));
 		$detail['site']['desc']   = T_(\dash\option::config('site','desc'));
 		$detail['site']['slogan'] = T_(\dash\option::config('site','slogan'));
-		$detail['site']['logo']   = self::logo_url();
+		$detail['site']['logo']   = \dash\url::icon();
 	}
 
 
@@ -254,7 +254,7 @@ class controller
 			'bg_to'       => '#ffffff',
 			'title_color' => '#000000',
 			'desc_color'  => '#000000',
-			'image'       => self::logo_url(),
+			'image'       => \dash\url::icon(),
 			'btn'         =>
 			[
 				[
@@ -272,7 +272,7 @@ class controller
 			'bg_to'       => '#ffffff',
 			'title_color' => '#000000',
 			'desc_color'  => '#000000',
-			'image'       => self::logo_url(),
+			'image'       => \dash\url::icon(),
 			'btn'         =>
 			[
 				[
@@ -294,7 +294,7 @@ class controller
 			'bg_to'       => '#ffffff',
 			'title_color' => '#000000',
 			'desc_color'  => '#000000',
-			'image'       => self::logo_url(),
+			'image'       => \dash\url::icon(),
 			'btn'         =>
 			[
 				[
@@ -316,7 +316,7 @@ class controller
 			'bg_to'       => '#ffffff',
 			'title_color' => '#000000',
 			'desc_color'  => '#000000',
-			'image'       => self::logo_url(),
+			'image'       => \dash\url::icon(),
 			'btn' =>
 			[
 				[
@@ -1153,13 +1153,6 @@ class controller
 
 	}
 
-
-
-
-	private static function logo_url()
-	{
-		return \dash\url::site(). '/static/img/logo/icon/svg/Jibres-Logo-icon.svg';
-	}
 
 	private static function jibres_temp_url()
 	{

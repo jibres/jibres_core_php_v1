@@ -129,7 +129,7 @@
 <label for="barcode">{%trans "Barcode"%}</label>
 <div class="input">
  <input type="text" name="barcode" id="barcode" placeholder='{%trans "Scan Barcode here..."%}' value="{%if productDataRow.barcode%}{{productDataRow.barcode}}{%elseif requestGET.barcode%}{{requestGET.barcode}}{%endif%}" class="barCode txtC ltr" data-lock autocomplete="off" maxlength="30">
- <span class="addon flag"><img class="none" src="{{url.static}}/img/logo/icon/svg/Jibres-Logo-icon.svg" alt="Jibres"/></span>
+ <span class="addon flag"><img class="none" src="{{url.icon}}" alt="Jibres"/></span>
 </div>
 {%endblock%}
 
@@ -138,7 +138,7 @@
 <label for="barcode2">{%trans "Barcode2"%}</label>
 <div class="input">
  <input type="text" name="barcode2" id="barcode2" placeholder='{%trans "Scan Barcode2 here..."%}' value="{{productDataRow.barcode2}}" class="barCode txtC ltr" data-lock autocomplete="off" maxlength="30">
- <span class="addon flag"><img class="none" src="{{url.static}}/img/logo/icon/svg/Jibres-Logo-icon.svg" alt="Jibres"/></span>
+ <span class="addon flag"><img class="none" src="{{url.icon}}" alt="Jibres"/></span>
 </div>
 {%endblock%}
 

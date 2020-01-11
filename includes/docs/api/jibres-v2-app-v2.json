@@ -405,7 +405,7 @@
       "name": "Jibres",
       "desc": "Jibres is not just an online accounting software; We try to create the best financial platform that has everything you need to sale and manage your financial life.",
       "slogan": "Integrated Sales and Online Accounting",
-      "logo": "http://jibres.local/static/img/logo/icon/svg/Jibres-Logo-icon.svg"
+      "logo": "http://jibres.local/static/logo/icon/svg/Jibres-Logo-icon.svg"
     },
     "version": {
       "last": 1,
@@ -513,7 +513,7 @@
         "bg_to": "#ffffff",
         "title_color": "#000000",
         "desc_color": "#000000",
-        "image": "http://jibres.local/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
+        "image": "http://jibres.local/static/logo/icon/svg/Jibres-Logo-icon.svg",
         "btn": [
           {
             "title": "Next",
@@ -528,7 +528,7 @@
         "bg_to": "#ffffff",
         "title_color": "#000000",
         "desc_color": "#000000",
-        "image": "http://jibres.local/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
+        "image": "http://jibres.local/static/logo/icon/svg/Jibres-Logo-icon.svg",
         "btn": [
           {
             "title": "Prev",
@@ -547,7 +547,7 @@
         "bg_to": "#ffffff",
         "title_color": "#000000",
         "desc_color": "#000000",
-        "image": "http://jibres.local/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
+        "image": "http://jibres.local/static/logo/icon/svg/Jibres-Logo-icon.svg",
         "btn": [
           {
             "title": "Prev",
@@ -566,7 +566,7 @@
         "bg_to": "#ffffff",
         "title_color": "#000000",
         "desc_color": "#000000",
-        "image": "http://jibres.local/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
+        "image": "http://jibres.local/static/logo/icon/svg/Jibres-Logo-icon.svg",
         "btn": [
           {
             "title": "Start",

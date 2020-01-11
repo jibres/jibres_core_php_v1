@@ -97,7 +97,7 @@ class view
 		\dash\data::site_title(T_(\dash\option::config('site', 'title')));
 		\dash\data::site_desc(T_(\dash\option::config('site', 'desc')));
 		\dash\data::site_slogan(T_(\dash\option::config('site', 'slogan')));
-		\dash\data::site_logo(\dash\url::static(). '/img/logo/icon/svg/Jibres-Logo-icon.svg');
+		\dash\data::site_logo(\dash\url::icon());
 		// set custom logo
 		if(\dash\option::config('site', 'logo'))
 		{
@@ -109,7 +109,7 @@ class view
 		\dash\data::service_desc(T_('As easy as ABC is our slogan!'). '<br>'. T_('If you are not finded a solution for your problem, call us.'));
 		\dash\data::service_slogan(T_('#1 World Sales Engineering System'));
 		\dash\data::service_slogan(T_('Sell and enjoy'));
-		\dash\data::service_logo(\dash\url::static(). '/img/logo/icon/svg/Jibres-Logo-icon.svg');
+		\dash\data::service_logo(\dash\url::icon());
 		\dash\data::service_url('https://jibres.com');
 
 		// toggle side bar

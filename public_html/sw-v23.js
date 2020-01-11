@@ -7,9 +7,9 @@ const precacheFiles = [
   "/static/siftal/images/cert/enamad2.png",
   "/static/siftal/images/cert/samandehi.png",
   "/static/siftal/images/cert/shamad.png",
-  "/static/img/logo/icon/png/Jibres-Logo-icon-144.png",
+  "/static/logo/icon/png/Jibres-Logo-icon-144.png",
   "/manifest.webmanifest",
-  "/static/img/logo/icon/svg/Jibres-Logo-icon.svg",
+  "/static/logo/icon/svg/Jibres-Logo-icon.svg",
 ];
 
 const offlineFallbackPage = "offline.html";

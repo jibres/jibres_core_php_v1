@@ -52,7 +52,7 @@ class pwa
 		$iconsArr = [];
 
 		// check icon128
-		$icon128 = '/img/logo/icon/png/Jibres-Logo-icon-128.png';
+		$icon128 = '/logo/icon/png/Jibres-Logo-icon-128.png';
 		if(file_exists(root. 'public_html/static'. $icon128))
 		{
 			$icon128 = \dash\url::static(). $icon128;
@@ -65,7 +65,7 @@ class pwa
 		}
 
 		// check icon144
-		$icon144 = '/img/logo/icon/png/Jibres-Logo-icon-144.png';
+		$icon144 = '/logo/icon/png/Jibres-Logo-icon-144.png';
 		if(file_exists(root. 'public_html/static'. $icon144))
 		{
 			$icon144 = \dash\url::static(). $icon144;
@@ -78,7 +78,7 @@ class pwa
 		}
 
 		// check icon192
-		$icon192 = '/img/logo/icon/png/Jibres-Logo-icon-192.png';
+		$icon192 = '/logo/icon/png/Jibres-Logo-icon-192.png';
 		if(file_exists(root. 'public_html/static'. $icon192))
 		{
 			$icon192 = \dash\url::static(). $icon192;
@@ -91,7 +91,7 @@ class pwa
 		}
 
 		// check icon256
-		$icon256 = '/img/logo/icon/png/Jibres-Logo-icon-256.png';
+		$icon256 = '/logo/icon/png/Jibres-Logo-icon-256.png';
 		if(file_exists(root. 'public_html/static'. $icon256))
 		{
 			$icon256 = \dash\url::static(). $icon256;
@@ -104,7 +104,7 @@ class pwa
 		}
 
 		// check icon512
-		$icon512 = '/img/logo/icon/png/Jibres-Logo-icon-512.png';
+		$icon512 = '/logo/icon/png/Jibres-Logo-icon-512.png';
 		if(file_exists(root. 'public_html/static'. $icon512))
 		{
 			$icon512 = \dash\url::static(). $icon512;
@@ -117,7 +117,7 @@ class pwa
 		}
 
 		// check default logo
-		$iconDefault = '/img/logo/icon/png/Jibres-Logo-icon-256.png';
+		$iconDefault = '/logo/icon/png/Jibres-Logo-icon-256.png';
 		if(file_exists(root. 'public_html/static'. $iconDefault))
 		{
 			$iconDefault = \dash\url::static(). $iconDefault;
