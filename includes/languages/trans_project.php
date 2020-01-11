@@ -512,7 +512,7 @@ class twigTransTerms
 
 	//---------------------------------------includes/html/sidebar/sidebar-jibres.html
 	echo T_("My Stores");                                                             // Line 5
-	echo T_("Add new store");                                                         // Line 125
+	echo T_("Add new store");                                                         // Line 126
 
 	//----------------------------------------------includes/html/sidebar/sidebar.html
 	echo T_("Store admin panel");                                                     // Line 5
@@ -1548,7 +1548,7 @@ class twigTransTerms
 	echo T_("Save and remove category");                                              // Line 29
 	echo T_("Non product found by this category");                                    // Line 37
 	echo T_("You can delete this category now");                                      // Line 39
-	echo T_("Remove category");                                                       // Line 20
+	echo T_("Remove category");                                                       // Line 22
 	echo T_("What do you want to do?");                                               // Line 243
 	echo T_("Set all products as a non product category");                            // Line 60
 	echo T_("Select new category");                                                   // Line 67
@@ -1574,16 +1574,25 @@ class twigTransTerms
 	echo T_("Property");                                                              // Line 22
 
 	//--------------------------------------------content_a/category/edit/display.html
-	echo T_("No product found by this category.");                                    // Line 19
-	echo T_("Your can remove it");                                                    // Line 20
+	echo T_("No product found by this category.");                                    // Line 21
+	echo T_("Your can remove it");                                                    // Line 22
+	echo T_("Customize for SEO");                                                     // Line 532
+	echo T_("Google");                                                                // Line 527
+	echo T_("SEO Title");                                                             // Line 538
+	echo T_("Recommended being more than 40 character.");                             // Line 466
+	echo T_("End part of your category url.");                                        // Line 70
+	echo T_("Category slug");                                                         // Line 72
+	echo T_("SEO Description");                                                       // Line 570
+	echo T_("If leave it empty we are generate it automatically");                    // Line 19
+	echo T_("Excerpt used for social media and search engines");                      // Line 19
 	echo T_("Parent");                                                                // Line 134
-	echo T_("Select category parent");                                                // Line 39
+	echo T_("This category have some child and you can not change parent of it");     // Line 89
+	echo T_("Select category parent");                                                // Line 90
 	echo T_("Without category");                                                      // Line 42
-	echo T_("Delete file");                                                           // Line 71
-	echo T_("Category image");                                                        // Line 75
-	echo T_("Max 1Mb");                                                               // Line 76
 	echo T_("Category name");                                                         // Line 25
-	echo T_("Category slug");                                                         // Line 102
+	echo T_("Delete file");                                                           // Line 139
+	echo T_("Category image");                                                        // Line 143
+	echo T_("Max 1Mb");                                                               // Line 144
 
 	//---------------------------------------------content_a/category/add/display.html
 
@@ -1729,14 +1738,7 @@ class twigTransTerms
 	echo T_("Add to gallery");                                                        // Line 61
 	echo T_("Choose or Drop file here");                                              // Line 490
 	echo T_("Maximum file size");                                                     // Line 17
-	echo T_("Customize for SEO");                                                     // Line 532
-	echo T_("Google");                                                                // Line 527
-	echo T_("SEO Title");                                                             // Line 538
-	echo T_("Recommended being more than 40 character.");                             // Line 466
 	echo T_("End part of your product url.");                                         // Line 475
-	echo T_("SEO Description");                                                       // Line 570
-	echo T_("If leave it empty we are generate it automatically");                    // Line 19
-	echo T_("Excerpt used for social media and search engines");                      // Line 19
 	echo T_("This product has multiple options, like different sizes or colors");     // Line 571
 	echo T_("Make");                                                                  // Line 590
 	echo T_("Color");                                                                 // Line 604
@@ -1808,7 +1810,7 @@ class twigTransTerms
 	echo T_("cURL");                                                                  // Line 15
 	echo T_("example");                                                               // Line 23
 	echo T_("Response");                                                              // Line 23
-	echo T_("Example");                                                               // Line 18
+	echo T_("Example");                                                               // Line 20
 
 	//----------------------------content_api/v1/doc/045-ticket/020-ticket-replay.html
 	echo T_("Replay the ticket");                                                     // Line 3
@@ -2087,12 +2089,13 @@ class twigTransTerms
 	echo T_("Get product by category");                                               // Line 103
 	echo T_("Get product by company");                                                // Line 104
 	echo T_("Category list");                                                         // Line 112
-	echo T_("Company list");                                                          // Line 113
-	echo T_("Collection list");                                                       // Line 114
-	echo T_("Add to cart");                                                           // Line 119
-	echo T_("Get cart detail");                                                       // Line 120
-	echo T_("Delete from cart");                                                      // Line 121
-	echo T_("Edit cart");                                                             // Line 122
+	echo T_("Category child");                                                        // Line 113
+	echo T_("Company list");                                                          // Line 114
+	echo T_("Collection list");                                                       // Line 115
+	echo T_("Add to cart");                                                           // Line 120
+	echo T_("Get cart detail");                                                       // Line 121
+	echo T_("Delete from cart");                                                      // Line 122
+	echo T_("Edit cart");                                                             // Line 123
 
 	//-------------------content_api/v1/doc/070-product-tools/500-collection-list.html
 	echo T_("Get list of collection");                                                // Line 3
@@ -2102,6 +2105,9 @@ class twigTransTerms
 
 	//---------------------content_api/v1/doc/070-product-tools/400-category-list.html
 	echo T_("Get list of category");                                                  // Line 3
+
+	//--------------------content_api/v1/doc/070-product-tools/410-category-child.html
+	echo T_("Get list of category child");                                            // Line 3
 
 	//--------------------------content_api/v1/doc/010-application/010-app-detail.html
 	echo T_("Get application detail");                                                // Line 3
