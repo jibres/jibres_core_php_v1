@@ -7,13 +7,23 @@
 <div class="f justify-center">
   <div class="x6 c5 s12 pRa10">
     <dvi class="cbox">
-      <form method="post">
+      <form method="post" autocomplete="off">
           {{block('iParent')}}
           {{block('catTitle')}}
           {{block('catSlug')}}
           {{block('idesc')}}
           {{block('ifile')}}
-          <button class="btn primary block mT20" type="submit">{%trans "Save"%}</button>
+
+
+          {%if not dataRow.count and not dataRow.parent_json%}
+            <p>{%trans "No product found by this category."%}
+              {%trans "Your can remove it"%} <span data-confirm data-data='{"delete" : "delete"}' class="fc-red" >{%trans "Remove category"%}</span>
+            </p>
+          {%endif%}
+          <div class="txtRa">
+            <button class="btn success mT20" type="submit">{%trans "Save"%}</button>
+          </div>
+
       </form>
     </dvi>
   </div>
@@ -101,7 +111,7 @@
   {%if dataRow.parent_slug%}
   <label class="addon">{{dataRow.parent_slug}}/</label>
   {%endif%}
-  <input type="text" class="ltr" name="slug" id="icatslug" placeholder='{%trans "Category name"%}' value="{{dataRow.slug}}" autofocus maxlength='50' minlength="1" required>
+  <input type="text" class="ltr" name="slug" id="icatslug" placeholder='{%trans "Category slug"%}' value="{{dataRow.slug}}" autofocus maxlength='50' minlength="1" required>
 
 </div>
 {%endblock%}

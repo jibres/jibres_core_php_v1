@@ -49,10 +49,9 @@ class check
 			return false;
 		}
 
-		if(\dash\app::isset_request('slug') && !$slug && $slug !== '0')
+		if(\dash\app::isset_request('slug') && !$slug)
 		{
-			\dash\notif::error(T_("Plese fill the category slug"), 'category');
-			return false;
+			$slug = \dash\utility\filter::slug($title, null, 'persian');
 		}
 
 		if(mb_strlen($slug) > 100)
@@ -64,7 +63,7 @@ class check
 		$parent1 = null;
 		$parent2 = null;
 		$parent3 = null;
-		$parent4 = null;
+
 
 		$parent = \dash\app::request('parent');
 		if($parent)
@@ -122,6 +121,22 @@ class check
 			}
 		}
 
+		// check unique slug
+		$check_unique_slug = \lib\db\productcategory\get::check_unique_slug($slug, $parent1, $parent2, $parent3);
+		if(isset($check_unique_slug['id']))
+		{
+			if(intval($check_unique_slug['id']) === intval($_id))
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\notif::error(T_("Duplicate slug founded"), 'slug');
+				return false;
+			}
+		}
+
+
 		$args            = [];
 		$args['title']   = $title;
 		$args['desc']    = $desc;
@@ -130,7 +145,7 @@ class check
 		$args['parent1'] = $parent1;
 		$args['parent2'] = $parent2;
 		$args['parent3'] = $parent3;
-		$args['parent4'] = $parent4;
+
 
 		return $args;
 

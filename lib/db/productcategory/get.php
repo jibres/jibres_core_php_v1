@@ -5,6 +5,23 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function check_unique_slug($_slug, $_parent1, $_parent2, $_parent3)
+	{
+		$where =
+		[
+			'slug'    => $_slug,
+			'parent1' => $_parent1,
+			'parent2' => $_parent2,
+			'parent3' => $_parent3,
+		];
+
+		$where  = \dash\db\config::make_where($where);
+		$query  = "SELECT * FROM productcategory WHERE $where LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function have_child($_id)
 	{
 		$query  = "SELECT id FROM productcategory WHERE productcategory.parent1 = $_id || productcategory.parent2 = $_id || productcategory.parent3 = $_id LIMIT 1";
@@ -71,7 +88,7 @@ class get
 		"
 			SELECT
 				productcategory.*,
-				(SELECT COUNT(*) FROM products WHERE products.unit_id = productcategory.id) AS `count`,
+				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
 				(
 					IF(productcategory.parent1 IS NOT NULL ,
 					(
@@ -106,6 +123,7 @@ class get
 		$query  =
 		"
 			SELECT
+				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
 				productcategory.*,
 				(
 					IF(productcategory.parent1 IS NOT NULL,
