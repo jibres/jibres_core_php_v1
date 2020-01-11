@@ -5,6 +5,23 @@ namespace lib\db\productcategory;
 class get
 {
 
+
+	public static function is_parent_not_changed($_id, $_parent1, $_parent2, $_parent3)
+	{
+		$where =
+		[
+			'id'      => $_id,
+			'parent1' => $_parent1,
+			'parent2' => $_parent2,
+			'parent3' => $_parent3,
+		];
+
+		$where  = \dash\db\config::make_where($where);
+		$query  = "SELECT * FROM productcategory WHERE $where LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function check_unique_slug($_slug, $_parent1, $_parent2, $_parent3)
 	{
 		$where =

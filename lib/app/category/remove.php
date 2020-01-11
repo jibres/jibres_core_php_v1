@@ -16,7 +16,7 @@ class remove
 	}
 
 
-	public static function remove($_args, $_id)
+	public static function remove($_id)
 	{
 		if(!\dash\permission::check('productCategoryDelete'))
 		{
@@ -29,8 +29,6 @@ class remove
 			return false;
 		}
 
-		\dash\app::variable($_args);
-
 		$load = \lib\app\category\get::inline_get($_id);
 
 		if(!isset($load['id']))
@@ -39,57 +37,21 @@ class remove
 			return false;
 		}
 
-		$id = \dash\coding::decode($_id);
-
-		$count_product = \lib\db\productcategory\get::get_count_product($id);
-		$count_product = intval($count_product);
-
-		if($count_product > 0)
+		if(isset($load['count']) && $load['count'])
 		{
-			$whattodo = \dash\app::request('whattodo');
-			if(!in_array($whattodo, ['non-category','new-category']))
-			{
-				\dash\notif::error(T_("What to do for old category?"));
-				return false;
-			}
-
-			$check = null;
-
-			$category = \dash\app::request('category');
-			if($category)
-			{
-				$check = \lib\app\category\get::inline_get($category);
-				if(!$check)
-				{
-					\dash\notif::error(T_("Invalid new category id!"));
-					return false;
-				}
-			}
-
-			if($whattodo === 'new-category' && !isset($check['id']))
-			{
-				\dash\notif::error(T_("Please select one category"), 'category');
-				return false;
-			}
-
-			$old_category_id    = \dash\coding::decode($_id);
-
-			if($whattodo === 'new-category')
-			{
-				$new_category_id    = $check['id'];
-				$new_category_title = $check['title'];
-
-				\lib\db\products\category::update_all_product_by_category($new_category_id, $new_category_title, $old_category_id);
-			}
-			else
-			{
-				\lib\db\products\category::update_all_product_by_category(null, null, $old_category_id);
-			}
+			\dash\notif::error(T_("Some product save by this category and you can not remove it"));
+			return false;
 		}
 
-		\dash\log::set('productCategoryDeleted', ['old' => $load]);
 
-		\lib\db\productcategory\delete::delete($id);
+		$have_child = \lib\db\productcategory\get::have_child($_id);
+		if($have_child)
+		{
+			\dash\notif::error(T_("This category have some child and your can not remove it"));
+			return false;
+		}
+
+		\lib\db\productcategory\delete::record($_id);
 
 		\dash\notif::ok(T_("Category successfully removed"));
 

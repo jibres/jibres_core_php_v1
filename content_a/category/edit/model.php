@@ -8,6 +8,17 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+		if(\dash\request::post('delete') === 'delete')
+		{
+			\lib\app\category\remove::remove($id);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+			return;
+		}
+
 		if(\dash\request::post('deletefile'))
 		{
 			\lib\app\category\remove::remove_file($id);

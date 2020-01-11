@@ -49,6 +49,11 @@ class check
 			return false;
 		}
 
+		if(\dash\app::isset_request('slug') && $slug)
+		{
+			$slug = \dash\utility\filter::slug($slug, null, 'persian');
+		}
+
 		if(\dash\app::isset_request('slug') && !$slug)
 		{
 			$slug = \dash\utility\filter::slug($title, null, 'persian');
@@ -81,17 +86,6 @@ class check
 				return false;
 			}
 
-
-			if($_id && is_numeric($_id))
-			{
-				$have_child = \lib\db\productcategory\get::have_child($_id);
-				if($have_child)
-				{
-					\dash\notif::error(T_("This category have some child and you can not change parent of it"), 'parent');
-					return false;
-				}
-			}
-
 			if(isset($load_parent['parent1']))
 			{
 				$parent1 = $load_parent['parent1'];
@@ -118,6 +112,30 @@ class check
 			else
 			{
 				$parent1 = $parent;
+			}
+		}
+		else
+		{
+			if($_id && is_numeric($_id))
+			{
+				$load_current = \lib\app\category\get::inline_get($_id);
+				if(isset($load_current['parent1'])) $parent1 = $load_current['parent1'];
+				if(isset($load_current['parent2'])) $parent2 = $load_current['parent2'];
+				if(isset($load_current['parent3'])) $parent3 = $load_current['parent3'];
+			}
+		}
+
+		if($_id && is_numeric($_id))
+		{
+			$have_child = \lib\db\productcategory\get::have_child($_id);
+			if($have_child)
+			{
+				$is_parent_not_changed = \lib\db\productcategory\get::is_parent_not_changed($_id, $parent1, $parent2, $parent3);
+				if(!$is_parent_not_changed)
+				{
+					\dash\notif::error(T_("This category have some child and you can not change parent of it"), 'parent');
+					return false;
+				}
 			}
 		}
 

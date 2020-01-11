@@ -15,7 +15,7 @@
           {{block('ifile')}}
 
 
-          {%if not dataRow.count and not dataRow.parent_json%}
+          {%if not dataRow.count and not dataRow.have_child%}
             <p>{%trans "No product found by this category."%}
               {%trans "Your can remove it"%} <span data-confirm data-data='{"delete" : "delete"}' class="fc-red" >{%trans "Remove category"%}</span>
             </p>
@@ -64,20 +64,8 @@
 
 {% set myExt = dataRow.file[(dataRow.file | length)-3:3] %}
 
- {%if myExt == 'mp4' %}
-    <video class="block" controls>
-     <source src="{{dataRow.file}}" type="video/mp4">
-    </video>
- {%elseif myExt == 'mp3' %}
-    <audio class="block" controls>
-     <source src="{{dataRow.file}}" type="audio/mp3">
-    </audio>
- {%elseif myExt == 'png' or myExt == 'jpg' or myExt == 'jpeg' or myExt == 'gif'%}
+ {%if myExt == 'png' or myExt == 'jpg' or myExt == 'jpeg' or myExt == 'gif'%}
     <img src="{{dataRow.file}}" alt="{{myTitle.title}}">
- {%elseif myExt == 'pdf' %}
-    <a class="btn primary outline block" href="{{dataRow.file}}">{%trans "Download PDF"%}</a>
- {%else%}
-    <a class="btn primary outline block" href="{{dataRow.file}}">{%trans "Download File"%}</a>
  {%endif%}
    </div>
    <dir data-confirm data-data='{"deletefile" : 1}' class="btn xs danger floatL">{%trans "Delete file"%}</dir>
@@ -111,7 +99,7 @@
   {%if dataRow.parent_slug%}
   <label class="addon">{{dataRow.parent_slug}}/</label>
   {%endif%}
-  <input type="text" class="ltr" name="slug" id="icatslug" placeholder='{%trans "Category slug"%}' value="{{dataRow.slug}}" autofocus maxlength='50' minlength="1" required>
+  <input type="text" class="ltr" name="slug" id="icatslug" placeholder='{%trans "Category slug"%}' value="{{dataRow.slug}}" autofocus maxlength='50' minlength="1">
 
 </div>
 {%endblock%}
