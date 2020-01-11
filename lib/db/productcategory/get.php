@@ -64,7 +64,7 @@ class get
 
 		if($_string)
 		{
-			$where = " WHERE productcategory.title LIKE '$_string%' ";
+			$where = " WHERE productcategory.title LIKE '%$_string%' ";
 		}
 
 		$query =
@@ -103,7 +103,28 @@ class get
 	// get one record of product unit
 	public static function one($_id)
 	{
-		$query  = "SELECT * FROM productcategory WHERE  productcategory.id = $_id LIMIT 1";
+		$query  =
+		"
+			SELECT
+				productcategory.*,
+				(
+					IF(productcategory.parent1 IS NOT NULL,
+					(
+						SELECT JSON_ARRAYAGG(
+							JSON_OBJECT(
+							    'title', myPcat.title,
+							    'slug', myPcat.slug,
+							    'id', myPcat.id
+							  )
+						)
+						FROM
+							productcategory AS `myPcat`
+						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
+					), NULL)
+				) AS `parent_json`
+			 FROM productcategory
+			 WHERE  productcategory.id = $_id LIMIT 1
+		";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}

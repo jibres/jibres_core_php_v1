@@ -97,8 +97,12 @@
 
 {%block catSlug%}
 <label for="icatslug">{%trans "Slug"%}</label>
-<div class="input">
-  <input type="text" name="slug" id="icatslug" placeholder='{%trans "Category name"%}' value="{{dataRow.slug}}" autofocus maxlength='50' minlength="1" required>
+<div class="input ltr">
+  {%if dataRow.parent_slug%}
+  <label class="addon">{{dataRow.parent_slug}}/</label>
+  {%endif%}
+  <input type="text" class="ltr" name="slug" id="icatslug" placeholder='{%trans "Category name"%}' value="{{dataRow.slug}}" autofocus maxlength='50' minlength="1" required>
+
 </div>
 {%endblock%}
 
