@@ -54,7 +54,7 @@ class controller
 					}
 					else
 					{
-						\content_api\v1::invalid_url();
+						\content_api\v1\product\comment::route_get($product_id);
 					}
 
 					break;
