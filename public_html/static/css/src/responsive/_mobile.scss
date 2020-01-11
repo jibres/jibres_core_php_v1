@@ -179,10 +179,12 @@
   .pc ul.list{margin: 2em 2%;}
 
   #landing {min-height:350px;height: 400px;}
-  #landing .title{padding-top:10px;position:relative;}
-  #landing .title .h2{font-size:3em;}
+  #landing .title{padding:10px 10px;position:relative;top:50px;}
+  #landing .title .h2{font-size:1.8em;}
   #landing .title h3{font-size: 1.4em}
   #keepitsimple .title h2{font-size:2em;}
+  #saleChannels {font-size: 1.2em;}
+  #pricingPlans {font-size: 1.4em;}
   #quote {min-height: 300px;}
   #quote .title{right: 0;left: 0;font-size: 1.5em;position: relative;padding:2em 0}
   #tfooter .middle nav a{display:inline-block;background-color:rgba(0,0,0,0.1);border-radius:0.25rem;margin: 0 0 5px;padding: 1rem 1em}
