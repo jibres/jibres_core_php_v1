@@ -76,6 +76,8 @@ class url
 		self::$url['site']      = self::_site();
 		self::$url['base']      = self::_base();
 		self::$url['static']    = self::_static();
+		self::$url['icon']      = self::_static(). '/logo/icon/svg/Jibres-Logo-icon.svg';
+		self::$url['logo']      = self::_static(). '/logo/icon/svg/Jibres-Logo-icon.svg';
 		self::$url['siftal']    = self::_siftal();
 
 		// generate with path
