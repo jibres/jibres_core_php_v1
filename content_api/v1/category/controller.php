@@ -40,6 +40,10 @@ class controller
 		{
 			\content_api\v1\category\datalist::route();
 		}
+		elseif($dir_3 === 'child')
+		{
+			\content_api\v1\category\datalist::route_child();
+		}
 		elseif(is_numeric($category_id) && intval($category_id) > 0 && !\dash\number::is_larger($category_id, 9999999999))
 		{
 			switch (\dash\url::dir(4))

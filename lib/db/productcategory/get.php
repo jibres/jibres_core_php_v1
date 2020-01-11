@@ -100,13 +100,84 @@ class get
 	}
 
 
-	public static function list($_string = null)
+	public static function list($_string = null, $_args = [])
+	{
+		$and = [];
+
+		if($_string)
+		{
+			$and[] = " productcategory.title LIKE '%$_string%' ";
+		}
+
+		if($_args)
+		{
+			$and[] =  \dash\db\config::make_where($_args);
+		}
+
+		$where = null;
+
+		if(!empty($and))
+		{
+			$where = ' WHERE '. implode(' AND ', $and);
+		}
+
+
+		$query =
+		"
+			SELECT
+				productcategory.*,
+				(SELECT COUNT(*) FROM products WHERE products.cat_id = productcategory.id) AS `count`,
+				(
+					IF(productcategory.parent1 IS NOT NULL ,
+					(
+						SELECT JSON_ARRAYAGG(
+							JSON_OBJECT(
+							    'title', myPcat.title,
+							    'slug', myPcat.slug,
+							    'id', myPcat.id
+							  )
+						)
+						FROM
+							productcategory AS `myPcat`
+						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
+					), NULL)
+				) AS `parent_json`,
+				(
+					SELECT 1
+					FROM productcategory AS `myHchild`
+					WHERE myHchild.parent1 = productcategory.id
+					OR myHchild.parent2 = productcategory.id
+					OR myHchild.parent3 = productcategory.id
+					LIMIT 1)
+				AS `have_child`
+			FROM
+				productcategory
+				$where
+			ORDER BY
+				count DESC
+
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
+
+	public static function list_child($_category_id, $_parent_field,  $_string = null, $_parent_where = [])
 	{
 		$where = null;
 
 		if($_string)
 		{
-			$where = " WHERE productcategory.title LIKE '%$_string%' ";
+			$where = " AND productcategory.title LIKE '%$_string%' ";
+		}
+
+
+		$parent_where = null;
+		if($_parent_where)
+		{
+			$parent_where = " AND ". \dash\db\config::make_where($_parent_where);
 		}
 
 		$query =
@@ -139,6 +210,9 @@ class get
 				AS `have_child`
 			FROM
 				productcategory
+			WHERE
+				productcategory.$_parent_field = $_category_id
+				$parent_where
 				$where
 			ORDER BY
 				count DESC

@@ -18,44 +18,96 @@ class datalist
 	}
 
 
-	private static function list()
+	public static function route_child()
 	{
-		$list = \lib\app\category\search::list();
+		if(\dash\request::is('get'))
+		{
+			$category_id = \dash\url::dir(4);
+			if(!$category_id)
+			{
+				\content_api\v1::invalid_url();
+			}
+
+			if(!is_numeric($category_id))
+			{
+				\content_api\v1::invalid_url();
+			}
+
+			$result = self::list_child($category_id);
+			\content_api\v1::say($result);
+		}
+		else
+		{
+			\content_api\v1::invalid_method();
+		}
+	}
+
+	private static function list_child($_category_id)
+	{
+		$list = \lib\app\category\search::list_child($_category_id, \dash\request::get('q'));
 
 		if(!is_array($list))
 		{
 			$list = [];
 		}
 
-		$new_list = [];
-		foreach ($list as $key => $value)
+		$list = array_map(['self', 'ready'], $list);
+		return $list;
+	}
+
+
+	private static function list()
+	{
+		$meta = [];
+		$meta['parent1'] = null;
+		$meta['parent2'] = null;
+		$meta['parent3'] = null;
+
+		$list = \lib\app\category\search::list(\dash\request::get('q'), $meta);
+
+		if(!is_array($list))
 		{
-			if(!is_array($value))
-			{
-				continue;
-			}
-
-			$temp                 = [];
-			$temp['id']           = array_key_exists('id', $value) ? $value['id'] : null;
-			$temp['title']        = array_key_exists('title', $value) ? $value['title'] : null;
-			$temp['slug']         = array_key_exists('slug', $value) ? $value['slug'] : null;
-			$temp['language']     = array_key_exists('language', $value) ? $value['language'] : null;
-			$temp['desc']         = array_key_exists('desc', $value) ? $value['desc'] : null;
-			$temp['seotitle']     = array_key_exists('seotitle', $value) ? $value['seotitle'] : null;
-			$temp['seodesc']      = array_key_exists('seodesc', $value) ? $value['seodesc'] : null;
-			$temp['file']         = array_key_exists('file', $value) ? $value['file'] : null;
-			$temp['count']        = array_key_exists('count', $value) ? $value['count'] : null;
-			$temp['parent_slug']  = array_key_exists('parent_slug', $value) ? $value['parent_slug'] : null;
-			$temp['parent_title'] = array_key_exists('parent_title', $value) ? $value['parent_title'] : null;
-			$temp['full_slug']    = array_key_exists('full_slug', $value) ? $value['full_slug'] : null;
-			$temp['full_title']   = array_key_exists('full_title', $value) ? $value['full_title'] : null;
-			$temp['have_child']   = array_key_exists('have_child', $value) ? $value['have_child'] : null;
-			$temp['have_product'] = array_key_exists('have_product', $value) ? $value['have_product'] : null;
-
-			$new_list[] = $temp;
+			$list = [];
 		}
 
-		return $new_list;
+
+		$list = array_map(['self', 'ready'], $list);
+		return $list;
+	}
+
+
+	private static function ready($_data)
+	{
+		$result = [];
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'id':
+				case 'title':
+				case 'slug':
+				case 'language':
+				case 'desc':
+				case 'seotitle':
+				case 'seodesc':
+				case 'file':
+				case 'count':
+				case 'parent_slug':
+				case 'parent_title':
+				case 'full_slug':
+				case 'full_title':
+				case 'have_child':
+				case 'have_product':
+					$result[$key] = $value;
+					break;
+
+				default:
+					// nothing
+					break;
+			}
+		}
+
+		return $result;
 	}
 }
 ?>
