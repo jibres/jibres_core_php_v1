@@ -542,7 +542,7 @@ class controller
 		$data[] =
 		[
 			"image"  => self::sample_image('13'),
-			"url"    => '2kf',
+			"url"    => '2',
 			"target" => "product",
 		];
 
@@ -550,7 +550,7 @@ class controller
 		[
 			"image"  => self::sample_image('06'),
 			"url"    => '3',
-			"target" => "productn"
+			"target" => "product"
 		];
 
 		$data[] =
@@ -610,20 +610,20 @@ class controller
 		[
 			"title"  => T_("Expensive"),
 			"url"    => '2',
-			"target" => "productt"
+			"target" => "product"
 		];
 
 		$data[] =
 		[
 			"title"  => T_("Promotion"),
-			"url"    => '2kf',
-			"target" => "productn"
+			"url"    => '1',
+			"target" => "product"
 		];
 
 		$data[] =
 		[
 			"title"  => T_("Inexpensive"),
-			"url"    => 10,
+			"url"    => 3,
 			"target" => "product",
 		];
 
@@ -638,7 +638,7 @@ class controller
 		[
 			"title"  => T_("Expensive"),
 			"url"    => '3',
-			"target" => "productt"
+			"target" => "product"
 		];
 
 		$data[] =
@@ -652,14 +652,14 @@ class controller
 		[
 			"title"  => T_("Inexpensive"),
 			"url"    => '9',
-			"target" => "productn"
+			"target" => "product"
 		];
 
 		$data[] =
 		[
 			"title"  => T_("Sample"),
 			"url"    => '3',
-			"target" => "productt"
+			"target" => "product"
 		];
 
 		$bottonLine['data'] = $data;
