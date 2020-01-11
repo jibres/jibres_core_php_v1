@@ -7,7 +7,7 @@
 
     <div class="msg url">
       <i class="method">PATCH</i>
-      <span>{{CustomerApiURL}}<b>profile/address/{ADDRESS}/edit</b></span>
+      <span>{{CustomerApiURL}}<b>profile/address/{ADDRESSID}/edit</b></span>
     </div>
 
     {%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
@@ -22,7 +22,7 @@
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
 curl -X PATCH \
-  {{CustomerApiURL}}profile/address/{ADDRESS}/edit \
+  {{CustomerApiURL}}profile/address/{ADDRESSID}/edit \
   -H 'appkey: {{myAppKey}}' \
   -H 'apikey: {{myApiKey}}' \
   -d '{"address" : "St 19. qom"}'
