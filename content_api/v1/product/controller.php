@@ -88,8 +88,21 @@ class controller
 					break;
 
 				case 'remove':
+					if(\dash\url::dir(5))
+					{
+						\content_api\v1::invalid_url();
+					}
 					\dash\permission::access('ProductDelete');
 					\content_api\v1\product\action::route_remove($product_id);
+					break;
+
+				case 'property':
+					if(\dash\url::dir(5))
+					{
+						\content_api\v1::invalid_url();
+					}
+					\content_api\v1\product\property::route($product_id);
+
 					break;
 
 				case null:
