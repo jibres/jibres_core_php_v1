@@ -218,8 +218,9 @@ class twigTransTerms
 	echo T_("Get Silver");                                                            // Line 160
 	echo T_("Gold");                                                                  // Line 40
 	echo T_("Ultimate");                                                              // Line 169
-	echo T_("Get Gold");                                                              // Line 194
+	echo T_("Get Gold");                                                              // Line 175
 	echo T_("Get started with our <span class='txtB'>Free Plan</span>");              // Line 182
+	echo T_("Get Free");                                                              // Line 194
 	echo T_("Free Forever.");                                                         // Line 195
 	echo T_("Jibres Free pricing");                                                   // Line 199
 	echo T_("Of course Made with love 😍");                                            // Line 210
@@ -508,7 +509,7 @@ class twigTransTerms
 	echo T_("List of sales");                                                         // Line 25
 	echo T_("List of purchases");                                                     // Line 26
 	echo T_("List of all factors");                                                   // Line 27
-	echo T_("Reports");                                                               // Line 225
+	echo T_("Reports");                                                               // Line 230
 	echo T_("Daily report");                                                          // Line 20
 	echo T_("Monthly report");                                                        // Line 20
 	echo T_("Setting");                                                               // Line 13
@@ -530,7 +531,7 @@ class twigTransTerms
 
 	//---------------------------------------includes/html/sidebar/sidebar-jibres.html
 	echo T_("My Stores");                                                             // Line 5
-	echo T_("Add new store");                                                         // Line 128
+	echo T_("Add new store");                                                         // Line 131
 
 	//----------------------------------------------includes/html/sidebar/sidebar.html
 	echo T_("Store admin panel");                                                     // Line 5
@@ -1352,7 +1353,7 @@ class twigTransTerms
 	echo T_("Public");                                                                // Line 19
 	echo T_("Maximum value");                                                         // Line 50
 	echo T_("Sms");                                                                   // Line 59
-	echo T_("Inventory");                                                             // Line 40
+	echo T_("Inventory");                                                             // Line 45
 	echo T_("Fund");                                                                  // Line 81
 	echo T_("POS");                                                                   // Line 94
 	echo T_("Social Network");                                                        // Line 106
@@ -1700,7 +1701,7 @@ class twigTransTerms
 	echo T_("Price change in time line");                                             // Line 26
 
 	//--------------------------------------------content_a/products/home/display.html
-	echo T_("Variants");                                                              // Line 186
+	echo T_("Variants");                                                              // Line 191
 	echo T_("in stock");                                                              // Line 57
 	echo T_("For");                                                                   // Line 60
 	echo T_("variants");                                                              // Line 60
@@ -1768,17 +1769,17 @@ class twigTransTerms
 	//-------------------------------------------content_a/products/price/display.html
 
 	//--------------------------------------------content_a/products/edit/display.html
-	echo T_("Pricing Model");                                                         // Line 17
-	echo T_("Optimize your inventory decisions.");                                    // Line 86
-	echo T_("Know which products are the most profitable and which you should re-order when.");// Line 86
-	echo T_("Demand forecasting!");                                                   // Line 86
-	echo T_("Receive recommendations on your products based on your rate of sales."); // Line 86
-	echo T_("Units");                                                                 // Line 140
-	echo T_("Dimensions");                                                            // Line 144
-	echo T_("Cart Limit");                                                            // Line 167
-	echo T_("Organization");                                                          // Line 200
-	echo T_("Price change chart");                                                    // Line 228
-	echo T_("Delete product");                                                        // Line 240
+	echo T_("Pricing Model");                                                         // Line 22
+	echo T_("Optimize your inventory decisions.");                                    // Line 91
+	echo T_("Know which products are the most profitable and which you should re-order when.");// Line 91
+	echo T_("Demand forecasting!");                                                   // Line 91
+	echo T_("Receive recommendations on your products based on your rate of sales."); // Line 91
+	echo T_("Units");                                                                 // Line 145
+	echo T_("Dimensions");                                                            // Line 149
+	echo T_("Cart Limit");                                                            // Line 172
+	echo T_("Organization");                                                          // Line 205
+	echo T_("Price change chart");                                                    // Line 233
+	echo T_("Delete product");                                                        // Line 245
 	echo T_("Remove product");                                                        // Line 108
 
 	//---------------------------------------content_a/products/duplicate/display.html
@@ -1913,6 +1914,14 @@ class twigTransTerms
 
 	//-----------------------------content_api/v1/doc/020-profile/021-get-profile.html
 	echo T_("Get profile detail");                                                    // Line 44
+
+	//------------content_api/v1/doc/065-product-comment/010-product-view-comment.html
+	echo T_("Get product comment");                                                   // Line 3
+
+	//-------------content_api/v1/doc/065-product-comment/001-product-add-comment.html
+	echo T_("Add new comment to product");                                            // Line 3
+	echo T_("Maximum length");                                                        // Line 59
+	echo T_("Characters");                                                            // Line 59
 
 	//----------------------------------content_api/v1/doc/001-intro/003-requests.html
 	echo T_("Requests");                                                              // Line 25
@@ -2058,8 +2067,6 @@ class twigTransTerms
 	echo T_("Add image to product gallery");                                          // Line 3
 
 	//-----------------------------content_api/v1/doc/060-product/320-product-add.html
-	echo T_("Maximum length");                                                        // Line 59
-	echo T_("Characters");                                                            // Line 59
 
 	//-----------------------------content_api/v1/doc/060-product/326-product-get.html
 	echo T_("Get product detail");                                                    // Line 100
@@ -2108,15 +2115,16 @@ class twigTransTerms
 	echo T_("Get product by category");                                               // Line 103
 	echo T_("Get product by company");                                                // Line 104
 	echo T_("Get product property");                                                  // Line 105
-	echo T_("Category list");                                                         // Line 113
-	echo T_("Category child");                                                        // Line 114
-	echo T_("Category property");                                                     // Line 115
-	echo T_("Company list");                                                          // Line 116
-	echo T_("Collection list");                                                       // Line 117
-	echo T_("Add to cart");                                                           // Line 122
-	echo T_("Get cart detail");                                                       // Line 123
-	echo T_("Delete from cart");                                                      // Line 124
-	echo T_("Edit cart");                                                             // Line 125
+	echo T_("Add product comment");                                                   // Line 112
+	echo T_("Category list");                                                         // Line 116
+	echo T_("Category child");                                                        // Line 117
+	echo T_("Category property");                                                     // Line 118
+	echo T_("Company list");                                                          // Line 119
+	echo T_("Collection list");                                                       // Line 120
+	echo T_("Add to cart");                                                           // Line 125
+	echo T_("Get cart detail");                                                       // Line 126
+	echo T_("Delete from cart");                                                      // Line 127
+	echo T_("Edit cart");                                                             // Line 128
 
 	//-------------------content_api/v1/doc/070-product-tools/500-collection-list.html
 	echo T_("Get list of collection");                                                // Line 3
