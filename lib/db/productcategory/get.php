@@ -40,12 +40,23 @@ class get
 		$query =
 		"
 			SELECT
-				productcategory.id,
-				productcategory.title,
-				productcategory.slug,
-				productcategory.file,
-				productcategory.desc,
-				(SELECT COUNT(*) FROM products WHERE products.unit_id = productcategory.id) AS `count`
+				productcategory.*,
+				(SELECT COUNT(*) FROM products WHERE products.unit_id = productcategory.id) AS `count`,
+				(
+					IF(productcategory.parent1 IS NOT NULL ,
+					(
+						SELECT JSON_ARRAYAGG(
+							JSON_OBJECT(
+							    'title', myPcat.title,
+							    'slug', myPcat.slug,
+							    'id', myPcat.id
+							  )
+						)
+						FROM
+							productcategory AS `myPcat`
+						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
+					), NULL)
+				) AS `parent_json`
 			FROM
 				productcategory
 				$where

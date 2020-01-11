@@ -18,11 +18,12 @@ class ready
 			{
 				case 'id':
 					$result[$key] = $value;
-
 					break;
-				// case 'id':
-				// 	$result[$key] = \dash\coding::encode($value);
-				// 	break;
+
+				case 'parent_json':
+					$result[$key] = json_decode($value, true);
+					break;
+
 				case 'file':
 					$result[$key] = \lib\filepath::fix($value);;
 
@@ -34,11 +35,7 @@ class ready
 			}
 		}
 
-		if(isset($result['parent4']))
-		{
-			$result['last_parent'] = $result['parent4'];
-		}
-		elseif(isset($result['parent3']))
+		if(isset($result['parent3']))
 		{
 			$result['last_parent'] = $result['parent3'];
 		}
@@ -51,8 +48,63 @@ class ready
 			$result['last_parent'] = $result['parent1'];
 		}
 
+		self::fix_parent_detail($result);
+
 		return $result;
 	}
 
+
+	private static function fix_parent_detail(&$result)
+	{
+		if(!isset($result['parent_json']))
+		{
+			return;
+		}
+
+		if(!$result['parent_json'] || !is_array($result['parent_json']))
+		{
+			return;
+		}
+
+		$parent_json = $result['parent_json'];
+
+		$new_title = [];
+		$new_slug = [];
+
+		foreach ($parent_json as $key => $value)
+		{
+			if(isset($result['parent1']) && $result['parent1'] && isset($value['id']) && intval($value['id']) === intval($result['parent1']))
+			{
+				$new_slug[0]  = $value['slug'];
+				$new_title[0] = $value['title'];
+			}
+
+			if(isset($result['parent2']) && $result['parent2'] && isset($value['id']) && intval($value['id']) === intval($result['parent2']))
+			{
+				$new_slug[1]  = $value['slug'];
+				$new_title[1] = $value['title'];
+			}
+
+			if(isset($result['parent3']) && $result['parent3'] && isset($value['id']) && intval($value['id']) === intval($result['parent3']))
+			{
+				$new_slug[2]  = $value['slug'];
+				$new_title[2] = $value['title'];
+			}
+
+		}
+		$new_title[]     = $result['title'];
+		$new_slug[]      = $result['slug'];
+
+		ksort($new_slug);
+		ksort($new_title);
+
+		$implode = \dash\language::current('direction') === 'ltr' ? ' <- ' : ' -> ';
+
+		$new_title       = implode($implode, $new_title);
+		$new_slug        = implode('/', $new_slug);
+
+		$result['slug']  = $new_slug;
+		$result['title'] = $new_title;
+	}
 }
 ?>
