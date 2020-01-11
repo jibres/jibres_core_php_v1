@@ -142,6 +142,33 @@ class add
 			}
 		}
 
+		$cat_id = \dash\app::request('cat_id');
+		if($cat_id && !is_numeric($cat_id))
+		{
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		if($cat_id)
+		{
+			$load_cat = \lib\app\category\get::inline_get($cat_id);
+			if(!isset($load_cat['id']))
+			{
+				\dash\notif::error(T_("Category not found"));
+				return false;
+			}
+		}
+
+		if($cat_id)
+		{
+			$args['cat_id'] = $cat_id;
+		}
+
+		if(\dash\app::isset_request('cat_id') && !$cat_id)
+		{
+			$args['cat_id'] = null;
+		}
+
 
 
 		$product_id = \lib\db\products\insert::new_record($args);

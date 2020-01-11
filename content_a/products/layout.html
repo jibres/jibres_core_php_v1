@@ -35,14 +35,14 @@
 
 {%block iCat%}
 <div class="mB10">
-  <label for='cat'>{%trans "Cat"%}</label>
-  <select name="cat" id="cat" class="select22" data-model="tag" data-placeholder='{%trans "Select or add new category"%}' {%if productDataRow.parent%} disabled {%endif%}>
+  <label for='cat'>{%trans "Cat"%} <small><a href="{{url.here}}/category">{%trans "Add"%}</a></small></label>
+  <select name="cat_id" id="cat" class="select22"  data-placeholder='{%trans "Select or add new category"%}' {%if productDataRow.parent%} disabled {%endif%}>
     <option></option>
     {%if productDataRow.cat_id%}
       <option value="0">{%trans "Without category"%}</option>
     {%endif%}
     {%for key, value in listCategory%}
-      <option value="{{value.title}}" {%if value.id == productDataRow.cat_id %} selected{%endif%}>{{value.title}}</option>
+      <option value="{{value.id}}" {%if value.id == productDataRow.cat_id %} selected{%endif%}>{{value.full_title}}</option>
     {%endfor%}
   </select>
 </div>

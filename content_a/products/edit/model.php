@@ -28,7 +28,7 @@ class model
 
 	public static function get_post()
 	{
-		$post                    = [];
+		$post                   = [];
 		$post['title']          = \dash\request::post('title');
 		$post['desc']           = \dash\request::post('desc') ? $_POST['desc'] : null;
 		$post['buyprice']       = \dash\request::post('buyprice');
@@ -58,15 +58,16 @@ class model
 		$post['oversale']       = \dash\request::post('oversale');
 		$post['company']        = \dash\request::post('company');
 		$post['unit']           = \dash\request::post('unit');
-		$post['category']       = \dash\request::post('cat');
+		// $post['category']    = \dash\request::post('cat');
+		$post['cat_id']         = \dash\request::post('cat_id');
 		$post['tag']            = \dash\request::post('tag');
 
 
-		$post['length']      = \dash\request::post('length');
-		$post['width']       = \dash\request::post('width');
-		$post['height']      = \dash\request::post('height');
-		$post['filesize']    = \dash\request::post('filesize');
-		$post['fileaddress'] = \dash\request::post('fileaddress');
+		$post['length']         = \dash\request::post('length');
+		$post['width']          = \dash\request::post('width');
+		$post['height']         = \dash\request::post('height');
+		$post['filesize']       = \dash\request::post('filesize');
+		$post['fileaddress']    = \dash\request::post('fileaddress');
 
 		return $post;
 	}

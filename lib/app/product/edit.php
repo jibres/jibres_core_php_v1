@@ -180,20 +180,33 @@ class edit
 			$args['company_id'] = null;
 		}
 
-		$category = \dash\app::request('category');
-		if($category && is_string($category))
+		$cat_id = \dash\app::request('cat_id');
+		if($cat_id && !is_numeric($cat_id))
 		{
-			$add_category                     = \lib\app\category\add::check_add($category);
-			if(isset($add_category['id']))
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		if($cat_id)
+		{
+			$load_cat = \lib\app\category\get::inline_get($cat_id);
+			if(!isset($load_cat['id']))
 			{
-				$args['cat_id'] = $add_category['id'];
+				\dash\notif::error(T_("Category not found"));
+				return false;
 			}
 		}
 
-		if(\dash\app::isset_request('category') && !$category)
+		if($cat_id)
+		{
+			$args['cat_id'] = $cat_id;
+		}
+
+		if(\dash\app::isset_request('cat_id') && !$cat_id)
 		{
 			$args['cat_id'] = null;
 		}
+
 
 		if(\dash\app::isset_request('tag'))
 		{
