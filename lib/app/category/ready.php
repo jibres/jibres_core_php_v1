@@ -20,6 +20,15 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				case 'have_child':
+					$result[$key] = $value ? true : false;
+					break;
+
+				case 'count':
+					$result[$key] = intval($value);
+					$result['have_product'] = $value ? true : false;
+					break;
+
 				case 'parent_json':
 					$result[$key] = json_decode($value, true);
 					break;

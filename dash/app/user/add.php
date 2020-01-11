@@ -16,7 +16,7 @@ trait add
 			}
 		}
 
-		if(mb_strlen($_args['displayname']) > 99)
+		if(isset($_args['displayname']) && mb_strlen($_args['displayname']) > 99)
 		{
 			$_args['displayname'] = null;
 		}

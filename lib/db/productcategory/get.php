@@ -41,7 +41,7 @@ class get
 
 	public static function have_child($_id)
 	{
-		$query  = "SELECT id FROM productcategory WHERE productcategory.parent1 = $_id || productcategory.parent2 = $_id || productcategory.parent3 = $_id LIMIT 1";
+		$query  = "SELECT id FROM productcategory WHERE productcategory.parent1 = $_id OR productcategory.parent2 = $_id OR productcategory.parent3 = $_id LIMIT 1";
 		$result = \dash\db::get($query, 'id', true);
 		return $result;
 	}
@@ -66,7 +66,15 @@ class get
 							productcategory AS `myPcat`
 						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
 					), NULL)
-				) AS `parent_json`
+				) AS `parent_json`,
+				(
+					SELECT 1
+					FROM productcategory AS `myHchild`
+					WHERE myHchild.parent1 = productcategory.id
+					OR myHchild.parent2 = productcategory.id
+					OR myHchild.parent3 = productcategory.id
+					LIMIT 1)
+				AS `have_child`
 			FROM
 				productcategory
 			WHERE
@@ -120,7 +128,15 @@ class get
 							productcategory AS `myPcat`
 						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
 					), NULL)
-				) AS `parent_json`
+				) AS `parent_json`,
+				(
+					SELECT 1
+					FROM productcategory AS `myHchild`
+					WHERE myHchild.parent1 = productcategory.id
+					OR myHchild.parent2 = productcategory.id
+					OR myHchild.parent3 = productcategory.id
+					LIMIT 1)
+				AS `have_child`
 			FROM
 				productcategory
 				$where
