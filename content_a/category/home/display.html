@@ -57,9 +57,9 @@
     <thead>
       <tr class="fs08">
         <th class="collapsing">&nbsp;</th>
-        <th data-sort="{{myFilter.title.order}}"><a href='{{myFilter.title.link}}'>{%trans "Title"%}</a></th>
-        <th data-sort="{{myFilter.slug.order}}" class="s0"><a href='{{myFilter.slug.link}}'>{%trans "Slug"%}</a></th>
-        <th class="collapsing s0" data-sort="{{myFilter.count.order}}"><a href='{{myFilter.count.link}}'>{%trans "Count product"%}</a></th>
+        <th>{%trans "Title"%}</th>
+        <th class="s0">{%trans "Slug"%}</th>
+        <th class="collapsing s0">{%trans "Count product"%}</th>
 
       </tr>
     </thead>
@@ -70,10 +70,13 @@
         <td class="collapsing">
           {%if value.file%}<img src="{{value.file}}" class="avatar">{%endif%}
         </td>
-        <td ><a href="{{url.here}}/category/edit?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.full_title}}</a></td>
+        <td ><a class="txtB" href="{{url.here}}/category/edit?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a>
+          <br>
+          <span class="fc-mute fs09">{{value.parent_title}}</span>
+        </td>
         <td class="s0">{{value.full_slug}}</td>
         <td class="s0 collapsing">
-          <a href="{{url.here}}/products?catid={{value.id}}">{{value.count | fitNumber}}</a>
+          <a href="{{url.here}}/products?catid={{value.id}}">{{value.count | fitNumber}} <small class="fc-mute">{%trans "Product"%}</small></a>
 
 
         </td>
