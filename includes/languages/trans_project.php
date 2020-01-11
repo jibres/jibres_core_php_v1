@@ -1635,6 +1635,17 @@ class twigTransTerms
 	echo T_("Report daily");                                                          // Line 17
 	echo T_("Report Month");                                                          // Line 28
 
+	//-----------------------------------------content_a/products/comment/display.html
+	echo T_("Author");                                                                // Line 12
+	echo T_("Comment");                                                               // Line 142
+	echo T_("Without name");                                                          // Line 431
+	echo T_("Approve");                                                               // Line 43
+	echo T_("Unapprove");                                                             // Line 51
+	echo T_("Created on");                                                            // Line 41
+	echo T_("No record exist!");                                                      // Line 136
+	echo T_("Awaiting");                                                              // Line 207
+	echo T_("Deleted");                                                               // Line 85
+
 	//------------------------------------------content_a/products/import/display.html
 	echo T_("Importing products is useful if you switched to Jibres from another platform.");// Line 6
 	echo T_("When importing, Jibres converts the data from the CSV file into products.");// Line 6
@@ -1779,7 +1790,8 @@ class twigTransTerms
 	echo T_("Cart Limit");                                                            // Line 172
 	echo T_("Organization");                                                          // Line 205
 	echo T_("Price change chart");                                                    // Line 233
-	echo T_("Delete product");                                                        // Line 245
+	echo T_("Comments");                                                              // Line 33
+	echo T_("Delete product");                                                        // Line 246
 	echo T_("Remove product");                                                        // Line 108
 
 	//---------------------------------------content_a/products/duplicate/display.html
@@ -2323,7 +2335,6 @@ class twigTransTerms
 	//-------------------------------------------content_crm/android/home/display.html
 	echo T_("Try to start with add new user!");                                       // Line 196
 	echo T_("Active");                                                                // Line 388
-	echo T_("Awaiting");                                                              // Line 207
 	echo T_("Deactive");                                                              // Line 390
 	echo T_("Removed");                                                               // Line 236
 	echo T_("Unreachable");                                                           // Line 393
@@ -2533,7 +2544,6 @@ class twigTransTerms
 
 	//------------------------------------------content_crm/member/ticket/display.html
 	echo T_("User ticket");                                                           // Line 21
-	echo T_("Created on");                                                            // Line 41
 	echo T_("Last modified on");                                                      // Line 41
 
 	//------------------------------------------content_crm/member/avatar/display.html
@@ -2572,7 +2582,6 @@ class twigTransTerms
 	echo T_("All draft log");                                                         // Line 73
 	echo T_("Draft");                                                                 // Line 76
 	echo T_("All trash log");                                                         // Line 82
-	echo T_("Deleted");                                                               // Line 85
 
 	//----------------------------------------------content_i/cheque/home/display.html
 	echo T_("Check book");                                                            // Line 27
@@ -2778,7 +2787,6 @@ class twigTransTerms
 	echo T_("Choose category for posts is fix url of post relative and help people find it better.");// Line 153
 	echo T_("Click on special tags to use this depending on your website design");    // Line 183
 	echo T_("Add tag to link articles");                                              // Line 189
-	echo T_("Comments");                                                              // Line 33
 	echo T_("Allow Comments");                                                        // Line 212
 	echo T_("Theme");                                                                 // Line 30
 	echo T_("Adjust the display style of your post");                                 // Line 238
@@ -2846,13 +2854,7 @@ class twigTransTerms
 	echo T_("Sitemap Result");                                                        // Line 37
 
 	//------------------------------------------content_cms/comments/home/display.html
-	echo T_("Author");                                                                // Line 12
-	echo T_("Comment");                                                               // Line 142
-	echo T_("Without name");                                                          // Line 431
 	echo T_("Visitor detail");                                                        // Line 96
-	echo T_("Approve");                                                               // Line 43
-	echo T_("Unapprove");                                                             // Line 51
-	echo T_("No record exist!");                                                      // Line 136
 
 	//------------------------------------------content_cms/comments/edit/display.html
 	echo T_("Submitted on");                                                          // Line 33
