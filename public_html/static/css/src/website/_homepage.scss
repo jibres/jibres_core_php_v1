@@ -4,7 +4,7 @@
 #landing .title h2{font-size:5em;line-height:2em}
 #landing .title h3{line-height:2em;padding:0 2%;font-weight:100}*/
 #landing .title{position:absolute;top:70px;bottom:0;left:0;right:0;padding-top:160px;min-width:280px;width:70%;margin:0 auto}
-#landing .title .h2{font-size:8em;line-height:1.5em;min-height:3em;}
+#landing .title .h2{font-size:5em;line-height:1.5em;min-height:3em;}
 .rtl #landing .h2{font-size:6em;}
 #landing .title .h2 span{font-weight:800;}
 #landing .title h3{line-height:2em;font-weight:100;font-size: 1.6em}
@@ -48,6 +48,39 @@
 #keepitsimple .title h3 span{opacity:0;transition:0.3s}
 #keepitsimple .title h3:hover span{opacity:1}
 
+#pricingPlans{font-size: 1.6em;text-align: center;margin: 80px 0;}
+#pricingPlans .headline{margin: 3em 0;}
+#pricingPlans h3{font-size: 2.5em;}
+#pricingPlans p{max-width: 600px;margin: 0 auto;color:#666;font-size: 1.1em;}
+.pricing-card{position:relative;margin: 1em auto 2em;padding:40px 1.5em 1.5em;border-radius: 1em;background-color:rgba(225, 243, 254, 0.5);border: 3px solid #eff9fe;transition: 0.3s;}
+.pricing-card .price{margin: 3rem 0 1.5rem;font-size: 1.2rem;}
+.pricing-card .price span{font-size:5em;font-weight:700;}
+.pricing-card .detail{line-height: 2em;color: #666;}
+.pricing-card .btn{margin: 3rem 0 2rem;border-radius: 2rem;display:block;}
+// bronze
+.pricing-card.bronze:hover{border-color: #e4be8f}
+.pricing-card.bronze .btn{background-color: #e4be8f;box-shadow: 0 10px 30px rgba(214,135,79,0.3)}
+.pricing-card.bronze .btn:hover{background-color: #d69a4f;}
+.pricing-card.bronze .btn:focus{background-color: #c68a3f;}
+// silver
+.pricing-card.silver:hover{border-color: #ddd}
+.pricing-card.silver .btn{background-color:#ddd;box-shadow: 0 10px 30px rgba(190,190,190,0.5)}
+.pricing-card.silver .btn:hover{background-color:#c0c0c0;}
+.pricing-card.silver .btn:focus{background-color:#bbb;}
+// gold
+.pricing-card.gold:hover{border-color: #ffd559}
+.pricing-card.gold .btn{background-color:#ffd559;box-shadow: 0 10px 30px rgba(255,213,89,0.5) }
+.pricing-card.gold .btn:hover{background-color:#efc549;}
+.pricing-card.gold .btn:focus{background-color:#cfb539;}
+// free
+.pricing-card.free{border-color: #c80a5a}
+.pricing-card.free:hover{border-color: #ea1d1d}
+.pricing-card.free .btn{background-color:#c80a5a;box-shadow: 0 10px 30px rgba(200, 10, 90, 0.3);color:#fff;}
+.pricing-card.free .btn:hover{background-color:#e2482e;}
+.pricing-card.free .btn:focus{background-color:#d8452e;}
+
+
+.pricing-card .meta{font-size: 1.2rem;color:#999}
 
 #statistic{padding:7em 0;background-color:#333;color:#eee}
 #statistic .statistic{margin-bottom: 2em;}
