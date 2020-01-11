@@ -6,7 +6,11 @@
 {{block('more')}}
 
 <div class="cn pTB50">
+{%if lang.current == 'fa'%}
+  {{block('styleguideFa')}}
+{%else%}
   {{block('styleguideEn')}}
+{%endif%}
 </div>
 
 {%endblock%}
@@ -55,3 +59,25 @@
 <img src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-14.png" alt="Jibres Logo Styleguide Page14">
 <img src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-1.png" alt="Jibres Logo Styleguide Page15">
 {%endblock%}
+
+
+
+{%block styleguideFa%}
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-1.png" alt="Jibres Logo Styleguide Persian Page1">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-2.png" alt="Jibres Logo Styleguide Persian Page2">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-3.png" alt="Jibres Logo Styleguide Persian Page3">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-4.png" alt="Jibres Logo Styleguide Persian Page4">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-5.png" alt="Jibres Logo Styleguide Persian Page5">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-6.png" alt="Jibres Logo Styleguide Persian Page6">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-7.png" alt="Jibres Logo Styleguide Persian Page7">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-8.png" alt="Jibres Logo Styleguide Persian Page8">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-9.png" alt="Jibres Logo Styleguide Persian Page9">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-10.png" alt="Jibres Logo Styleguide Persian Page10">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-11.png" alt="Jibres Logo Styleguide Persian Page11">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-12.png" alt="Jibres Logo Styleguide Persian Page12">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-13.png" alt="Jibres Logo Styleguide Persian Page13">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-14.png" alt="Jibres Logo Styleguide Persian Page14">
+<img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-1.png" alt="Jibres Logo Styleguide Persian Page15">
+{%endblock%}
+
+
