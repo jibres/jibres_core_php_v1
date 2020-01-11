@@ -155,15 +155,31 @@ class check
 		}
 
 
-		$args            = [];
-		$args['title']   = $title;
-		$args['desc']    = $desc;
-		$args['slug']    = $slug;
-		$args['file']    = $file;
-		$args['parent1'] = $parent1;
-		$args['parent2'] = $parent2;
-		$args['parent3'] = $parent3;
+		$seotitle = \dash\app::request('seotitle');
+		if($seotitle && mb_strlen($seotitle) > 200)
+		{
+			\dash\notif::error(T_("seotitle is out of range"), 'seotitle');
+			return false;
+		}
 
+		$seodesc = \dash\app::request('seodesc');
+		if($seodesc && mb_strlen($seodesc) > 300)
+		{
+			\dash\notif::error(T_("seodesc is out of range"), 'seodesc');
+			return false;
+		}
+
+
+		$args             = [];
+		$args['title']    = $title;
+		$args['desc']     = $desc;
+		$args['slug']     = $slug;
+		$args['file']     = $file;
+		$args['parent1']  = $parent1;
+		$args['parent2']  = $parent2;
+		$args['parent3']  = $parent3;
+		$args['seotitle'] = $seotitle;
+		$args['seodesc']  = $seodesc;
 
 		return $args;
 

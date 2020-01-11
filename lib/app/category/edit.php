@@ -64,10 +64,12 @@ class edit
 			unset($args['parent4']);
 		}
 
-		if(!\dash\app::isset_request('title')) 	unset($args['title']);
-		if(!\dash\app::isset_request('slug')) 	unset($args['slug']);
-		if(!\dash\app::isset_request('desc')) 	unset($args['desc']);
-		if(!\dash\app::isset_request('file')) 	unset($args['file']);
+		if(!\dash\app::isset_request('title')) 		unset($args['title']);
+		if(!\dash\app::isset_request('slug')) 		unset($args['slug']);
+		if(!\dash\app::isset_request('desc')) 		unset($args['desc']);
+		if(!\dash\app::isset_request('file')) 		unset($args['file']);
+		if(!\dash\app::isset_request('seodesc')) 	unset($args['seodesc']);
+		if(!\dash\app::isset_request('seotitle')) 	unset($args['seotitle']);
 
 
 		if(!empty($args))
