@@ -4,6 +4,11 @@
 
 {%block pageContent%}
 <form class="jPage f" method="post" autocomplete="off">
+
+
+   <button class="hide"  name="submitall" type="submit" value="master">{%trans "Save"%}</button>
+
+
   <div class="c8 x9 s12 pRa10">
 
     <section class="jbox pad">
@@ -109,7 +114,7 @@
 
   </div>
   <div class="c4 x3 s12 mB10">
-    <button class="btn block master mB10" name="submitall" value="master">{%trans "Save"%}</button>
+    <button class="btn block master mB10" name="submitall" type="submit" value="master">{%trans "Save"%}</button>
 
 {{block('Box_organization')}}
 
