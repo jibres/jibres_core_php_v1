@@ -36,7 +36,20 @@ class comment
 	private static function get_list($_product_id)
 	{
 		$result = \lib\app\product\comment::approved_of_product($_product_id);
-		return $result;
+
+		$detail = [];
+		$detail['star'] =
+		[
+			'total'  => 4.5,
+			'person' => 182,
+			'1'      => 2,
+			'2'      => 3,
+			'3'      => 2,
+			'4'      => 2,
+			'5'      => 1,
+		];
+		$detail['list'] = $result;
+		return $detail;
 	}
 
 

@@ -31,20 +31,31 @@ curl -X GET {{CustomerApiURL}}product/{PRODUCT_ID}/comment -H 'appkey: {{myAppKe
     "limit": 10,
     "total_rows": 1
   },
-  "result": [
-    {
-      "id": "S",
-      "content": "Sample1",
-      "star": "1",
-      "status": "approved",
-      "tstatus": "approved",
-      "datecreated": "2020-01-11 20:27:39",
-      "user_id": "10",
-      "avatar": "http://jibres.local/static/siftal/images/default/avatar.png",
-      "displayname": "Whitout name",
-      "gender": null
-    }
-  ]
+  "result": {
+    "star": {
+      "total": 4.5,
+      "person": 182,
+      "1": 2,
+      "2": 3,
+      "3": 2,
+      "4": 2,
+      "5": 1
+    },
+    "list": [
+      {
+        "id": "S",
+        "content": "Sample1",
+        "star": "1",
+        "status": "approved",
+        "tstatus": "approved",
+        "datecreated": "2020-01-11 20:27:39",
+        "user_id": "10",
+        "avatar": "http://jibres.local/static/siftal/images/default/avatar.png",
+        "displayname": "Whitout name",
+        "gender": null
+      }
+    ]
+  }
 }
 </pre>
 
