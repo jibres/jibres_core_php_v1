@@ -65,7 +65,14 @@ class controller
 		{
 			foreach ($lang_list as $key => $value)
 			{
-				$lang_list[$key]['api_url'] = \dash\url::base().'/'. $key .'/api/v1';
+				if($key === 'fa')
+				{
+					$lang_list[$key]['api_url'] = 'https://jibres.ir/api/v1';
+				}
+				else
+				{
+					$lang_list[$key]['api_url'] = 'https://jibres.com/api/v1';
+				}
 			}
 		}
 		$detail['lang_list'] = $lang_list;
@@ -75,12 +82,25 @@ class controller
 
 	private static function url(&$detail)
 	{
-		$detail['url']['site']    = \dash\url::site();
-		$detail['url']['kingdom'] = \dash\url::kingdom();
-		$detail['url']['domain']  = \dash\url::domain();
-		$detail['url']['root']    = \dash\url::root();
-		$detail['url']['enter']    = self::jibres_temp_url(). '/enter/app';
-		$detail['url']['update']  = \dash\url::kingdom(). '/app/update';
+		if(\dash\language::current() === 'fa')
+		{
+			$detail['url']['site']    = 'https://jibres.ir';
+			$detail['url']['kingdom'] = 'https://jibres.ir';
+			$detail['url']['domain']  = 'jibres.ir';
+			$detail['url']['root']    = 'jibres';
+			$detail['url']['enter']   = 'https://jibres.ir/enter/app';
+			$detail['url']['update']  = 'https://jibres.ir/app/update';
+		}
+		else
+		{
+			$detail['url']['site']    = 'https://jibres.com';
+			$detail['url']['kingdom'] = 'https://jibres.com';
+			$detail['url']['domain']  = 'jibres.com';
+			$detail['url']['root']    = 'jibres';
+			$detail['url']['enter']   = 'https://jibres.com/enter/app';
+			$detail['url']['update']  = 'https://jibres.com/app/update';
+		}
+
 	}
 
 
