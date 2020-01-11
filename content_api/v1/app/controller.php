@@ -506,7 +506,7 @@ class controller
 		$homepage[]         = self::tile(2);
 		$homepage[]         = self::tile(3);
 		$homepage[]         = self::tile(4);
-		$homepage[]         = self::tile(5);
+		$homepage[]         = self::real_tile(5);
 
 		$homepage[]         = self::banner();
 
@@ -835,18 +835,7 @@ class controller
 		return $promotion;
 	}
 
-	// private static function banner()
-	// {
-	// 	$link             = [];
-	// 	$link['type']     = 'banner';
 
-	// 	$banner = [];
-	// 	$link['image']    = self::sample_image('06');
-	// 	$link['url']      = self::jibres_temp_url(). '/store';
-	// 	$link['activity'] = "category";
-	// 	$link['mode']     = "api";
-	// 	return $link;
-	// }
 
 	private static function banner($_count = 1)
 	{
@@ -892,6 +881,56 @@ class controller
 		}
 
 		$tile['data'] = $data;
+		return $tile;
+	}
+
+
+	private static function real_tile($_count = 1)
+	{
+		$tile           = [];
+		$tile['type']   = 'tile';
+		$tile['ratio']  = 35;
+		$tile['margin'] = 2;
+
+		$data = \lib\app\product\search::variant_list(null, []);
+
+		if(!is_array($data))
+		{
+			$data = [];
+		}
+
+		if($data)
+		{
+
+			$myData = [];
+			foreach ($data as $key => $value)
+			{
+				$myData[] =
+				[
+					"image"  => $value['thumb'],
+					"url"    => $value['id'],
+					"target" => "product",
+				];
+			}
+
+		}
+		else
+		{
+			$myData = [];
+			$rand = [10,11,12,16,17];
+			for ($i=1; $i <= $_count ; $i++)
+			{
+				$myData[] =
+				[
+					"image"  => self::sample_image($rand[array_rand($rand)]),
+					"url"    => '2',
+					"target" => "collection"
+				];
+			}
+
+		}
+
+		$tile['data'] = $myData;
 		return $tile;
 	}
 
