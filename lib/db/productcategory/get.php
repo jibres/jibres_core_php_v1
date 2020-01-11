@@ -5,9 +5,39 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function have_child($_id)
+	{
+		$query  = "SELECT id FROM productcategory WHERE productcategory.parent1 = $_id || productcategory.parent2 = $_id || productcategory.parent3 = $_id LIMIT 1";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
+	}
+
 	public static function parent_list()
 	{
-		$query  = "SELECT * FROM productcategory WHERE  productcategory.parent3 IS NULL";
+		$query  =
+		"
+			SELECT
+				productcategory.*,
+				(
+					IF(productcategory.parent1 IS NOT NULL ,
+					(
+						SELECT JSON_ARRAYAGG(
+							JSON_OBJECT(
+							    'title', myPcat.title,
+							    'slug', myPcat.slug,
+							    'id', myPcat.id
+							  )
+						)
+						FROM
+							productcategory AS `myPcat`
+						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
+					), NULL)
+				) AS `parent_json`
+			FROM
+				productcategory
+			WHERE
+				productcategory.parent3 IS NULL
+		";
 		$result = \dash\db::get($query);
 		return $result;
 	}

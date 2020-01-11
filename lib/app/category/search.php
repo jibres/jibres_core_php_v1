@@ -36,7 +36,7 @@ class search
 				$temp[] = $check;
 			}
 		}
-
+		// j($temp);
 		return $temp;
 	}
 

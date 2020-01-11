@@ -58,12 +58,12 @@ class ready
 	{
 		if(!isset($result['parent_json']))
 		{
-			return;
+			$result['parent_json'] = [];
 		}
 
 		if(!$result['parent_json'] || !is_array($result['parent_json']))
 		{
-			return;
+			$result['parent_json'] = [];
 		}
 
 		$parent_json = $result['parent_json'];
@@ -90,21 +90,26 @@ class ready
 				$new_slug[2]  = $value['slug'];
 				$new_title[2] = $value['title'];
 			}
-
 		}
-		$new_title[]     = $result['title'];
-		$new_slug[]      = $result['slug'];
 
 		ksort($new_slug);
 		ksort($new_title);
 
 		$implode = \dash\language::current('direction') === 'ltr' ? ' <- ' : ' -> ';
 
+		$result['parent_slug']  = implode('/', $new_slug);
+		$result['parent_title'] = implode($implode, $new_title);
+
+
+		$new_title[]     = $result['title'];
+		$new_slug[]      = $result['slug'];
+
+
 		$new_title       = implode($implode, $new_title);
 		$new_slug        = implode('/', $new_slug);
 
-		$result['slug']  = $new_slug;
-		$result['title'] = $new_title;
+		$result['full_slug']  = $new_slug;
+		$result['full_title'] = $new_title;
 	}
 }
 ?>

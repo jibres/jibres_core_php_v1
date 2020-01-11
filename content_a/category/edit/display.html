@@ -32,7 +32,7 @@
       <option value="0">{%trans "Without category"%}</option>
     {%endif%}
     {%for key, value in parentList%}
-      <option value="{{value.id}}" {%if value.id == dataRow.last_parent %} selected{%endif%}>{{value.title}}</option>
+      <option value="{{value.id}}" {%if value.id == dataRow.last_parent %} selected{%endif%}>{{value.full_title}}</option>
     {%endfor%}
   </select>
 </div>

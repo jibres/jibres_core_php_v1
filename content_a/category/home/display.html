@@ -71,8 +71,8 @@
         <td class="collapsing">
           {%if value.file%}<img src="{{value.file}}" class="avatar">{%endif%}
         </td>
-        <td ><a href="{{url.here}}/category/edit?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.title}}</a></td>
-        <td class="s0">{{value.slug}}</td>
+        <td ><a href="{{url.here}}/category/edit?id={{value.id}}"><i class="sf-edit-write mRa10"></i>{{value.full_title}}</a></td>
+        <td class="s0">{{value.full_slug}}</td>
         <td class="s0">
           <a href="{{url.here}}/product?catid={{value.id}}">{{value.count | fitNumber}}</a>
 

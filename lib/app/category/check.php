@@ -82,6 +82,17 @@ class check
 				return false;
 			}
 
+
+			if($_id && is_numeric($_id))
+			{
+				$have_child = \lib\db\productcategory\get::have_child($_id);
+				if($have_child)
+				{
+					\dash\notif::error(T_("This category have some child and you can not change parent of it"), 'parent');
+					return false;
+				}
+			}
+
 			if(isset($load_parent['parent1']))
 			{
 				$parent1 = $load_parent['parent1'];
