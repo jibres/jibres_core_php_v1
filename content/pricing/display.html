@@ -43,11 +43,11 @@
   <tbody>
       <tr class="fs14">
         <th class="txtB">{%trans "Price"%} <small>{%trans "Pay monthly"%}</small></th>
-        <td class="txtB" rowspan="3">{%trans "FREE"%}</td>
+        <td class="txtB">{%trans "FREE"%}</td>
 {%if lang.current == 'fa'%}
-        <td class="txtB">{{"14000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
-        <td class="txtB">{{"30000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
-        <td class="txtB">{{"75000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
+        <td class="txtB">{{"14" | fitNumber}} <small>{%trans "Hezar Toman"%}</small></td>
+        <td class="txtB">{{"30" | fitNumber}} <small>{%trans "Hezar Toman"%}</small></td>
+        <td class="txtB">{{"75" | fitNumber}} <small>{%trans "Hezar Toman"%}</small></td>
 {%else%}
         <td>14<small>$</small></td>
         <td>30<small>$</small></td>
@@ -59,10 +59,11 @@
         <th class="txtB">{%trans "Price"%} <small>{%trans "Pay yearly"%}</small>
           <span class="badge sm mLa10">{%trans "Two month free"%}</span>
         </th>
+        <td class="txtB">{%trans "FREE"%}</td>
 {%if lang.current == 'fa'%}
-        <td class="txtB">{{"140000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
-        <td class="txtB">{{"300000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
-        <td class="txtB">{{"750000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
+        <td class="txtB">{{"140" | fitNumber}} <small>{%trans "Hezar Toman"%}</small></td>
+        <td class="txtB">{{"300" | fitNumber}} <small>{%trans "Hezar Toman"%}</small></td>
+        <td class="txtB">{{"750" | fitNumber}} <small>{%trans "Hezar Toman"%}</small></td>
 {%else%}
         <td>140<small>$</small></td>
         <td>300<small>$</small></td>
@@ -70,21 +71,23 @@
 {%endif%}
       </tr>
 
+{%if false%}
       <tr class="fs14">
         <th class="txtB">{%trans "Price"%} <small>{%trans "Pay yearly"%}</small>
           <span class="badge success sm mLa10">{%trans "First Year"%}</span>
           <span class="badge sm mLa10">{%trans "More than 50 percent off"%}</span>
         </th>
 {%if lang.current == 'fa'%}
-        <td class="txtB">{{"50000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
-        <td class="txtB">{{"150000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
-        <td class="txtB">{{"300000" | fitNumber}}<small>{%trans "Toman"%}</small></td>
+        <td class="txtB">{{"50" | fitNumber}} <small>{%trans "Hezar Toman"%}</small></td>
+        <td class="txtB">{{"150" | fitNumber}} <small>{%trans "Hezar Toman"%}</small></td>
+        <td class="txtB">{{"300" | fitNumber}} <small>{%trans "Hezar Toman"%}</small></td>
 {%else%}
         <td>140<small>$</small></td>
         <td>300<small>$</small></td>
         <td>750<small>$</small></td>
 {%endif%}
       </tr>
+{%endif%}
 
 
       <tr>
