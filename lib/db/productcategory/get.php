@@ -125,8 +125,8 @@ class get
 				productcategory
 				$where
 			ORDER BY
-				productcategory.id ASC,
-				IF(productcategory.parent1 IS NULL, productcategory.id,  productcategory.parent1) ASC, productcategory.parent2 ASC, productcategory.parent3 ASC, productcategory.parent4 ASC, count
+				count DESC
+
 		";
 		$result = \dash\db::get($query);
 

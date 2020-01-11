@@ -49,12 +49,12 @@ class check
 			return false;
 		}
 
-		if(\dash\app::isset_request('slug') && $slug)
+		if($slug)
 		{
 			$slug = \dash\utility\filter::slug($slug, null, 'persian');
 		}
 
-		if(\dash\app::isset_request('slug') && !$slug)
+		if(!$slug)
 		{
 			$slug = \dash\utility\filter::slug($title, null, 'persian');
 		}
