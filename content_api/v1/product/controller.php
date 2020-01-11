@@ -43,6 +43,19 @@ class controller
 			switch (\dash\url::dir(4))
 			{
 				case 'comment':
+					if(\dash\url::dir(5) === 'add')
+					{
+						if(\dash\url::dir(6))
+						{
+							\content_api\v1::invalid_url();
+						}
+
+						\content_api\v1\product\comment::route_add($product_id);
+					}
+					else
+					{
+						\content_api\v1::invalid_url();
+					}
 
 					break;
 
