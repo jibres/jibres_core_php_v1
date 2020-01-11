@@ -493,7 +493,8 @@ class controller
 	{
 		$homepage           = [];
 		$homepage[]         = self::slider();
-		$homepage[]         = self::bottonLine();
+		// $homepage[]         = self::bottonLine();
+		$homepage[]         = self::real_bottonLine();
 		$homepage[]         = self::promotion();
 
 		$homepage[]         = self::banner(1);
@@ -661,6 +662,37 @@ class controller
 			"url"    => '3',
 			"target" => "product"
 		];
+
+		$bottonLine['data'] = $data;
+
+		return $bottonLine;
+	}
+
+
+	private static function real_bottonLine()
+	{
+		$bottonLine           = [];
+		$bottonLine['type']   = 'bottonLine';
+		$bottonLine['margin'] = 2;
+
+		$meta = [];
+		$meta['parent1'] = null;
+		$meta['parent2'] = null;
+		$meta['parent3'] = null;
+
+		$list = \lib\app\category\search::list(null, $meta);
+
+		$data = [];
+
+		foreach ($list as $key => $value)
+		{
+			$data[] =
+			[
+				"title"  => $value['title'],
+				"url"    => $value['id'],
+				"target" => "category"
+			];
+		}
 
 		$bottonLine['data'] = $data;
 
