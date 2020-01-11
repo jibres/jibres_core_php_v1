@@ -68,6 +68,15 @@ class get
 	}
 
 
+	// get one record of product comment
+	public static function by_id($_id)
+	{
+		$query  = "SELECT * FROM productcomment WHERE  productcomment.id = $_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 
 
 
@@ -118,7 +127,7 @@ class get
 				users.gender
 			FROM
 				productcomment
-			INNER JOIN users ON users.id = productcomment.user_id
+			LEFT JOIN users ON users.id = productcomment.user_id
 			WHERE 1
 				$q $product_id $status
 			ORDER BY

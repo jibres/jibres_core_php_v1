@@ -22,11 +22,13 @@ class comment
 			\dash\notif::error(T_("Invalid star number"));
 			return false;
 		}
-
-		if(!$content && !$star)
+		if(\dash\app::isset_request('content') || \dash\app::isset_request('star'))
 		{
-			\dash\notif::error(T_("Plese fill the comment text or set your rate"), 'comment');
-			return false;
+			if(!$content && !$star)
+			{
+				\dash\notif::error(T_("Plese fill the comment text or set your rate"), 'comment');
+				return false;
+			}
 		}
 
 		$product_id = \dash\app::request('product_id');
@@ -93,7 +95,7 @@ class comment
 		}
 
 
-		$list = \lib\db\productcomment\get::get_page_list(\lib\store::id(), $_string, $_product_id);
+		$list = \lib\db\productcomment\get::get_page_list($_string, $_product_id);
 
 		if(is_array($list))
 		{
