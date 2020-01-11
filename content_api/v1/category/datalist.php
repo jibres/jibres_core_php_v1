@@ -18,22 +18,11 @@ class datalist
 	}
 
 
-	public static function route_child()
+	public static function route_child($_category_id)
 	{
 		if(\dash\request::is('get'))
 		{
-			$category_id = \dash\url::dir(4);
-			if(!$category_id)
-			{
-				\content_api\v1::invalid_url();
-			}
-
-			if(!is_numeric($category_id))
-			{
-				\content_api\v1::invalid_url();
-			}
-
-			$result = self::list_child($category_id);
+			$result = self::list_child($_category_id);
 			\content_api\v1::say($result);
 		}
 		else

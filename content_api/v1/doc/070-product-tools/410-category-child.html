@@ -6,7 +6,7 @@
   <div class="cbox" id='category-child'>
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{CustomerApiURL}}<b>category/child/{CATEGORYID}</b></span>
+      <span>{{CustomerApiURL}}<b>category/{CATEGORYID}/child</b></span>
     </div>
 
          {%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
@@ -14,7 +14,7 @@
 
     <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
 <pre>
-curl -X GET {{CustomerApiURL}}category/child/{CATEGORYID} -H 'appkey: {{myAppKey}}' -H 'apikey: {{myApiKey}}'
+curl -X GET {{CustomerApiURL}}category/{CATEGORYID}/child -H 'appkey: {{myAppKey}}' -H 'apikey: {{myApiKey}}'
 </pre>
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>

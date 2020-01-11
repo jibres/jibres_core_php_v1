@@ -40,14 +40,26 @@ class controller
 		{
 			\content_api\v1\category\datalist::route();
 		}
-		elseif($dir_3 === 'child')
-		{
-			\content_api\v1\category\datalist::route_child();
-		}
 		elseif(is_numeric($category_id) && intval($category_id) > 0 && !\dash\number::is_larger($category_id, 9999999999))
 		{
+
 			switch (\dash\url::dir(4))
 			{
+				case 'child':
+					if(\dash\url::dir(5))
+					{
+						\content_api\v1::invalid_url();
+					}
+					\content_api\v1\category\datalist::route_child($category_id);
+					break;
+
+				case 'property':
+					if(\dash\url::dir(5))
+					{
+						\content_api\v1::invalid_url();
+					}
+					\content_api\v1\category\property::route($category_id);
+					break;
 
 				// case 'edit':
 				// 	if(\dash\url::dir(5))

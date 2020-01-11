@@ -21,7 +21,25 @@ curl -X GET {{CustomerApiURL}}product/{PRODUCT_ID}/property -H 'appkey: {{myAppK
 
 <h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
 <pre>
-{DDDD}
+{
+  "ok": true,
+  "result": [
+    {
+      "title": "مشخصات فیزیکی",
+      "list": {
+        "وزن": "۹ کیلو گرم",
+        "ابعاد": "15*15*12"
+      }
+    },
+    {
+      "title": "مشخصات فنی",
+      "list": {
+        "cpu": "۹ هسته ای",
+        "garanty": "ایران جیبرس"
+      }
+    }
+  ]
+}
 </pre>
 
 
