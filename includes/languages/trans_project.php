@@ -87,7 +87,7 @@ class twigTransTerms
 	//---------------------------------------------------content/benefits/display.html
 
 	//-------------------------------------------------------content/logo/display.html
-	echo T_("Jibres logo");                                                           // Line 15
+	echo T_("Jibres logo");                                                           // Line 23
 
 	//------------------------------------------------------content/about/display.html
 	echo T_("Advancement of technology and development of Web-based business Cause Need new tools to resolve the daily needs and that’s the goal of making Jibres.");// Line 48
@@ -531,7 +531,7 @@ class twigTransTerms
 
 	//---------------------------------------includes/html/sidebar/sidebar-jibres.html
 	echo T_("My Stores");                                                             // Line 5
-	echo T_("Add new store");                                                         // Line 131
+	echo T_("Add new store");                                                         // Line 132
 
 	//----------------------------------------------includes/html/sidebar/sidebar.html
 	echo T_("Store admin panel");                                                     // Line 5
@@ -1536,6 +1536,18 @@ class twigTransTerms
 	echo T_("Sum of discounts");                                                      // Line 94
 	echo T_("Sum of final prices");                                                   // Line 95
 
+	//------------------------------------------------content_a/cart/view/display.html
+	echo T_("No record exist!");                                                      // Line 136
+	echo T_("Awaiting");                                                              // Line 207
+	echo T_("Approve");                                                               // Line 43
+	echo T_("Unapprove");                                                             // Line 51
+	echo T_("Deleted");                                                               // Line 85
+
+	//------------------------------------------------content_a/cart/home/display.html
+	echo T_("Product count");                                                         // Line 56
+	echo T_("Item count");                                                            // Line 57
+	echo T_("Without name");                                                          // Line 431
+
 	//------------------------------------------------------content_a/pay/display.html
 	echo T_("Print Status is active");                                                // Line 23
 	echo T_("Payment detail");                                                        // Line 40
@@ -1638,13 +1650,7 @@ class twigTransTerms
 	//-----------------------------------------content_a/products/comment/display.html
 	echo T_("Author");                                                                // Line 12
 	echo T_("Comment");                                                               // Line 142
-	echo T_("Without name");                                                          // Line 431
-	echo T_("Approve");                                                               // Line 43
-	echo T_("Unapprove");                                                             // Line 51
 	echo T_("Created on");                                                            // Line 41
-	echo T_("No record exist!");                                                      // Line 136
-	echo T_("Awaiting");                                                              // Line 207
-	echo T_("Deleted");                                                               // Line 85
 
 	//------------------------------------------content_a/products/import/display.html
 	echo T_("Importing products is useful if you switched to Jibres from another platform.");// Line 6
@@ -2039,6 +2045,10 @@ class twigTransTerms
 	//--------------------------------content_api/v1/doc/075-cart/001-add-to-cart.html
 	echo T_("Add product to cart");                                                   // Line 3
 	echo T_("The product id");                                                        // Line 31
+
+	//------------------------------content_api/v1/doc/075-cart/020-checkout-cart.html
+	echo T_("Checkout cart");                                                         // Line 129
+	echo T_("User address id");                                                       // Line 31
 
 	//---------------------------content_api/v1/doc/075-cart/010-delete-from-cart.html
 	echo T_("Delete product from cart");                                              // Line 3
