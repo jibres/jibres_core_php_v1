@@ -36,7 +36,7 @@ class address
 
 		$result = \dash\db\address::get(['id' => $id, 'limit' => 1]);
 		$temp = [];
-		if(is_array($result))
+		if(is_array($result) && $result)
 		{
 			$temp = self::ready($result);
 		}

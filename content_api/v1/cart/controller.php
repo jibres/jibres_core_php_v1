@@ -75,6 +75,20 @@ class controller
 
 			self::cart_edit();
 		}
+		elseif($dir_3 === 'checkout')
+		{
+			if(\dash\url::dir(4))
+			{
+				\content_api\v1::invalid_url();
+			}
+
+			if(!\dash\request::is('post'))
+			{
+				\content_api\v1::invalid_method();
+			}
+
+			self::cart_checkout();
+		}
 		else
 		{
 			\content_api\v1::invalid_url();
@@ -112,6 +126,19 @@ class controller
 		$product = \content_api\v1::input_body('product');
 		$count   = \content_api\v1::input_body('count');
 		$result  = \lib\app\cart\edit::update_cart($product, $count);
+		\content_api\v1::say($result);
+	}
+
+
+
+	private static function cart_checkout()
+	{
+		$address_id         = \content_api\v1::input_body('address_id');
+		$args               = [];
+		$args['address_id'] = $address_id;
+
+		$result  = \lib\app\cart\checkout::user_cart($args);
+
 		\content_api\v1::say($result);
 	}
 
