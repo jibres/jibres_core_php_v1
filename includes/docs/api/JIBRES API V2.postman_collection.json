@@ -15,12 +15,12 @@
 						"header": [
 							{
 								"key": "appkey",
-								"value": "c681d334cb13bae20db5fe1105c65d1b",
+								"value": "914bbeab0301a60239a21a63eed7193e",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://jibres.local/api/v1/y88y/account/token",
+							"raw": "http://jibres.local/api/v1/y88x/account/token",
 							"protocol": "http",
 							"host": [
 								"jibres",
@@ -29,7 +29,7 @@
 							"path": [
 								"api",
 								"v1",
-								"y88y",
+								"y88x",
 								"account",
 								"token"
 							]
@@ -45,20 +45,21 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "951ba3c89480e67e0f066184357cbe3f"
+								"value": "914bbeab0301a60239a21a63eed7193e"
 							}
 						],
 						"url": {
-							"raw": "http://jibres.local/api/v2/y88y/app",
+							"raw": "http://jibres.local/fa/api/v1/y88x/app",
 							"protocol": "http",
 							"host": [
 								"jibres",
 								"local"
 							],
 							"path": [
+								"fa",
 								"api",
-								"v2",
-								"y88y",
+								"v1",
+								"y88x",
 								"app"
 							]
 						}
@@ -73,11 +74,11 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "951ba3c89480e67e0f066184357cbe3f"
+								"value": "914bbeab0301a60239a21a63eed7193e"
 							},
 							{
 								"key": "token",
-								"value": "d1a5482c4d2533bc2b71ba789b825934",
+								"value": "cfb03e78e84e408656b98d73d0e7200f",
 								"type": "text"
 							},
 							{
@@ -89,7 +90,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"model\": \"ssss\",\n\"serial\": \"5465546\",\n\"manufacturer\": \"dddd\",\n\"version\": \"45465\"\t\n}",
+							"raw": "{\n\"model\": \"ssss\",\n\"serial\": \"5465546\",\n\"manufacturer\": \"ddddd\",\n\"version\": \"45465\"\t\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -97,7 +98,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://jibres.local/api/v2/y88y/account/android/add",
+							"raw": "http://jibres.local/api/v1/y88x/account/android/add",
 							"protocol": "http",
 							"host": [
 								"jibres",
@@ -105,8 +106,8 @@
 							],
 							"path": [
 								"api",
-								"v2",
-								"y88y",
+								"v1",
+								"y88x",
 								"account",
 								"android",
 								"add"
@@ -1024,12 +1025,12 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "951ba3c89480e67e0f066184357cbe3f"
+								"value": "42026ae371c95463f2891087f9fd5e72"
 							},
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "733f884c43a3edfaa16cb825bec2f014"
+								"value": "42026ae371c95463f2891087f9fd5e72"
 							},
 							{
 								"key": "Content-Type",
@@ -1049,7 +1050,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://jibres.local/api/v2/y88y/profile/update/avatar",
+							"raw": "http://jibres.local/api/v1/y88y/profile/update/avatar",
 							"protocol": "http",
 							"host": [
 								"jibres",
@@ -1057,7 +1058,7 @@
 							],
 							"path": [
 								"api",
-								"v2",
+								"v1",
 								"y88y",
 								"profile",
 								"update",
@@ -1075,12 +1076,12 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "c681d334cb13bae20db5fe1105c65d1b"
+								"value": "914bbeab0301a60239a21a63eed7193e"
 							},
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+								"value": "f3d8cad6e61f2f35606ec80a0b37d804"
 							},
 							{
 								"key": "Content-Type",
@@ -1099,16 +1100,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://jibres.local/api/v1/y88y/profile/address/add",
+							"raw": "http://jibres.local/fa/api/v1/y88x/profile/address/add",
 							"protocol": "http",
 							"host": [
 								"jibres",
 								"local"
 							],
 							"path": [
+								"fa",
 								"api",
 								"v1",
-								"y88y",
+								"y88x",
 								"profile",
 								"address",
 								"add"
@@ -1128,12 +1130,12 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "c681d334cb13bae20db5fe1105c65d1b"
+								"value": "914bbeab0301a60239a21a63eed7193e"
 							},
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+								"value": "f3d8cad6e61f2f35606ec80a0b37d804"
 							},
 							{
 								"key": "Content-Type",
@@ -1152,16 +1154,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://jibres.local/api/v1/y88y/profile/address/list",
+							"raw": "http://jibres.local/fa/api/v1/y88x/profile/address/list",
 							"protocol": "http",
 							"host": [
 								"jibres",
 								"local"
 							],
 							"path": [
+								"fa",
 								"api",
 								"v1",
-								"y88y",
+								"y88x",
 								"profile",
 								"address",
 								"list"
@@ -1229,12 +1232,12 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "c681d334cb13bae20db5fe1105c65d1b"
+								"value": "914bbeab0301a60239a21a63eed7193e"
 							},
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+								"value": "f3d8cad6e61f2f35606ec80a0b37d804"
 							},
 							{
 								"key": "Content-Type",
@@ -1253,7 +1256,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://jibres.local/api/v1/y88y/profile/address/R/remove",
+							"raw": "http://jibres.local/api/v1/y88x/profile/address/B/remove",
 							"protocol": "http",
 							"host": [
 								"jibres",
@@ -1262,10 +1265,10 @@
 							"path": [
 								"api",
 								"v1",
-								"y88y",
+								"y88x",
 								"profile",
 								"address",
-								"R",
+								"B",
 								"remove"
 							]
 						}
@@ -1286,12 +1289,12 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "951ba3c89480e67e0f066184357cbe3f"
+								"value": "b7a99ae72ecda8016aa583a0335dc019"
 							},
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "733f884c43a3edfaa16cb825bec2f014"
+								"value": "b7a99ae72ecda8016aa583a0335dc010"
 							},
 							{
 								"key": "Content-Type",
@@ -1310,7 +1313,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://jibres.local/api/v2/y88y/product/add",
+							"raw": "http://jibres.local/api/v1/y888/product/add",
 							"protocol": "http",
 							"host": [
 								"jibres",
@@ -1318,10 +1321,114 @@
 							],
 							"path": [
 								"api",
-								"v2",
-								"y88y",
+								"v1",
+								"y888",
 								"product",
 								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Comment add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "914bbeab0301a60239a21a63eed7193e"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "f3d8cad6e61f2f35606ec80a0b37d804"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\":\"Sample1\",\n\t\"star\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88x/product/1/comment/add",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88x",
+								"product",
+								"1",
+								"comment",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Comment Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "914bbeab0301a60239a21a63eed7193e"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "f3d8cad6e61f2f35606ec80a0b37d804"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\":\"Sample1\",\n\t\"star\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y88x/product/1/comment",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y88x",
+								"product",
+								"1",
+								"comment"
 							]
 						}
 					},
@@ -1621,6 +1728,49 @@
 								"y88y",
 								"product",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Get Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "914bbeab0301a60239a21a63eed7193e"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "f3d8cad6e61f2f35606ec80a0b37d804"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://jibres.local/fa/api/v1/y88x/product/1/property",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"fa",
+								"api",
+								"v1",
+								"y88x",
+								"product",
+								"1",
+								"property"
 							]
 						}
 					},
@@ -2303,27 +2453,100 @@
 							{
 								"key": "appkey",
 								"type": "text",
-								"value": "c681d334cb13bae20db5fe1105c65d1b"
+								"value": "914bbeab0301a60239a21a63eed7193e"
 							},
 							{
 								"key": "apikey",
 								"type": "text",
-								"value": "a8193e4a76f2a7d2158ba0d2a7ea93d7"
+								"value": "f3d8cad6e61f2f35606ec80a0b37d804"
 							}
 						],
 						"url": {
-							"raw": "http://jibres.local/api/v1/y88y/category/list",
+							"raw": "http://jibres.local/fa/api/v1/y88x/category/list",
 							"protocol": "http",
 							"host": [
 								"jibres",
 								"local"
 							],
 							"path": [
+								"fa",
 								"api",
 								"v1",
-								"y88y",
+								"y88x",
 								"category",
 								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cateogory child",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "914bbeab0301a60239a21a63eed7193e"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "f3d8cad6e61f2f35606ec80a0b37d804"
+							}
+						],
+						"url": {
+							"raw": "http://jibres.local/fa/api/v1/y88x/category/4/child",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"fa",
+								"api",
+								"v1",
+								"y88x",
+								"category",
+								"4",
+								"child"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cateogory property",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "914bbeab0301a60239a21a63eed7193e"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "f3d8cad6e61f2f35606ec80a0b37d804"
+							}
+						],
+						"url": {
+							"raw": "http://jibres.local/fa/api/v1/y88x/category/4/property",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"fa",
+								"api",
+								"v1",
+								"y88x",
+								"category",
+								"4",
+								"property"
 							]
 						}
 					},
@@ -2403,6 +2626,211 @@
 								"v1",
 								"y88y",
 								"company",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "appkey",
+								"value": "c81228dd27ae4cd8deb379a2b4aec276",
+								"type": "text"
+							},
+							{
+								"key": "apikey",
+								"value": "c81228dd27ae4cd8deb379a2b4aec276",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"product\": 1,\n\t\"count\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y886/cart/add",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y886",
+								"cart",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c81228dd27ae4cd8deb379a2b4aec276"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "c81228dd27ae4cd8deb379a2b4aec276"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"product\": 1,\n\t\"count\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y886/cart/edit",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y886",
+								"cart",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c81228dd27ae4cd8deb379a2b4aec276"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "c81228dd27ae4cd8deb379a2b4aec276"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"product\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y886/cart/delete",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y886",
+								"cart",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "c81228dd27ae4cd8deb379a2b4aec276"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "c81228dd27ae4cd8deb379a2b4aec276"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"product\": 1,\n\t\"count\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://jibres.local/api/v1/y886/cart/list",
+							"protocol": "http",
+							"host": [
+								"jibres",
+								"local"
+							],
+							"path": [
+								"api",
+								"v1",
+								"y886",
+								"cart",
 								"list"
 							]
 						}
