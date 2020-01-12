@@ -55,13 +55,8 @@ class get
 				(
 					IF(productcategory.parent1 IS NOT NULL ,
 					(
-						SELECT JSON_ARRAYAGG(
-							JSON_OBJECT(
-							    'title', myPcat.title,
-							    'slug', myPcat.slug,
-							    'id', myPcat.id
-							  )
-						)
+						SELECT
+							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
 						FROM
 							productcategory AS `myPcat`
 						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
@@ -130,13 +125,8 @@ class get
 				(
 					IF(productcategory.parent1 IS NOT NULL ,
 					(
-						SELECT JSON_ARRAYAGG(
-							JSON_OBJECT(
-							    'title', myPcat.title,
-							    'slug', myPcat.slug,
-							    'id', myPcat.id
-							  )
-						)
+						SELECT
+							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
 						FROM
 							productcategory AS `myPcat`
 						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
@@ -158,6 +148,8 @@ class get
 
 		";
 		$result = \dash\db::get($query);
+
+		// j($result);
 
 		return $result;
 	}
@@ -188,13 +180,8 @@ class get
 				(
 					IF(productcategory.parent1 IS NOT NULL ,
 					(
-						SELECT JSON_ARRAYAGG(
-							JSON_OBJECT(
-							    'title', myPcat.title,
-							    'slug', myPcat.slug,
-							    'id', myPcat.id
-							  )
-						)
+						SELECT
+							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
 						FROM
 							productcategory AS `myPcat`
 						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
@@ -236,13 +223,8 @@ class get
 				(
 					IF(productcategory.parent1 IS NOT NULL,
 					(
-						SELECT JSON_ARRAYAGG(
-							JSON_OBJECT(
-							    'title', myPcat.title,
-							    'slug', myPcat.slug,
-							    'id', myPcat.id
-							  )
-						)
+						SELECT
+							CONCAT('[',GROUP_CONCAT(CONCAT('{\"id\":\"', myPcat.id ,'\", \"title\":\"', myPcat.title, '\", \"slug\":\"',myPcat.slug,'\"}')), ']')
 						FROM
 							productcategory AS `myPcat`
 						WHERE myPcat.id IN (productcategory.parent1, productcategory.parent2, productcategory.parent3)
