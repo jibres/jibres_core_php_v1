@@ -245,8 +245,16 @@ class address
 					break;
 
 				case 'country':
-					$result[$key] = $value;
-					$result['country_name'] = \dash\utility\location\countres::get_localname($value, true);
+					$result[$key]                 = $value;
+					if($value && mb_strlen($value) === 2)
+					{
+						$result['flag'] = \dash\url::site(). '/static/img/flags/png100px/'. mb_strtolower($value). '.png';
+					}
+					else
+					{
+						$result['flag'] = null;
+					}
+					$result['country_name']       = \dash\utility\location\countres::get_localname($value, true);
 					$result['location_string'][1] = $result['country_name'];
 					break;
 
