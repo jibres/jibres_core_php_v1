@@ -29,6 +29,10 @@ class controller
 		$detail = [];
 
 		self::homepage($detail);
+
+		self::payment($detail);
+		self::shipping_way($detail);
+
 		self::lang($detail);
 		self::url($detail);
 		self::site($detail);
@@ -42,6 +46,20 @@ class controller
 		self::ad($detail);
 
 		return $detail;
+	}
+
+
+	private static function payment(&$detail)
+	{
+		$detail['payment'] = \lib\app\setting\get::payment();
+		// j($detail['payment']);
+	}
+
+
+	private static function shipping_way(&$detail)
+	{
+		$detail['shipping'] = [];
+		$detail['shipping']['way'] = \lib\app\setting\get::shipping_way();
 	}
 
 
@@ -983,6 +1001,7 @@ class controller
 		}
 
 		$tile['data'] = $myData;
+
 		return $tile;
 	}
 
