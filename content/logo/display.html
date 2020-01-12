@@ -4,14 +4,7 @@
 {%block content%}
 {{block('logoEffect')}}
 {{block('more')}}
-
-<div class="cn pTB50">
-{%if lang.current == 'fa'%}
-  {{block('styleguideFa')}}
-{%else%}
-  {{block('styleguideEn')}}
-{%endif%}
-</div>
+{{block('styleguide')}}
 
 {%endblock%}
 
@@ -41,6 +34,20 @@
   </div>
 {%endblock%}
 
+
+{%block styleguide%}
+<div class="cn pTB50">
+  <h2>{%trans "Jibres Brand Styleguide"%}</h2>
+  <div data-slick>
+  {%if lang.current == 'fa'%}
+    {{block('styleguideFa')}}
+  {%else%}
+    {{block('styleguideEn')}}
+  {%endif%}
+
+  </div>
+</div>
+{%endblock%}
 
 {%block styleguideEn%}
 <img src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-1.png" alt="Jibres Logo Styleguide Page1">
