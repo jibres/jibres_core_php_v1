@@ -77,7 +77,12 @@ class url
 		self::$url['base']      = self::_base();
 		self::$url['static']    = self::_static();
 		self::$url['icon']      = self::_static(). '/logo/icon/svg/Jibres-Logo-icon.svg';
-		self::$url['logo']      = self::_static(). '/logo/icon/svg/Jibres-Logo-icon.svg';
+		self::$url['logo']      = self::_static(). '/logo/en/svg/Jibres-Logo-en.svg';
+
+		if(\dash\language::current() === 'fa')
+		{
+			self::$url['logo']      = self::_static(). '/logo/fa/svg/Jibres-Logo-fa.svg';
+		}
 		self::$url['siftal']    = self::_siftal();
 
 		// generate with path
