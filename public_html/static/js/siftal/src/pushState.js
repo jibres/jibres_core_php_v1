@@ -27,6 +27,8 @@ function pushStateSiftal(_direct)
   selectRunner();
   // run numeral fn
   cleaveRunner();
+  // run slick slider
+  slickRunner();
   // check navigate is done or not
   navigateChecker();
   // check autoPrint detection

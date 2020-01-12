@@ -50,6 +50,10 @@ var myModuleFiles =
 	'src/libs/cleave/cleave.min.js',
 	'src/libs/cleave/cleaveRunner.js',
 
+	// slider
+	'src/libs/slick/slick.min.js',
+	'src/libs/slick/slickRunner.js',
+
 	// select2
 	'src/libs/select2/select2.full.min.js',
 	'src/libs/select2/fa.js',
