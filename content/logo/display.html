@@ -36,15 +36,16 @@
 
 
 {%block styleguide%}
-<div class="cn pTB50">
-  <h2>{%trans "Jibres Brand Styleguide"%}</h2>
-  <div data-slick>
-  {%if lang.current == 'fa'%}
-    {{block('styleguideFa')}}
-  {%else%}
-    {{block('styleguideEn')}}
-  {%endif%}
-
+<div class="styleguideBox">
+  <div class="cn">
+    <h2 class="txtC">{%trans "Jibres Brand Styleguide"%}</h2>
+    <div class="book" data-slick>
+    {%if lang.current == 'fa'%}
+      {{block('styleguideFa')}}
+    {%else%}
+      {{block('styleguideEn')}}
+    {%endif%}
+    </div>
   </div>
 </div>
 {%endblock%}

@@ -121,8 +121,8 @@
 
     display: block;
 
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
@@ -133,7 +133,8 @@
     color: transparent;
     border: none;
     outline: none;
-    background: transparent;
+    border-radius: 50%;
+    background: #333;
 }
 .slick-prev:hover,
 .slick-prev:focus,
@@ -142,7 +143,7 @@
 {
     color: transparent;
     outline: none;
-    background: transparent;
+    background: #111;
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,
@@ -173,11 +174,11 @@
 
 .slick-prev
 {
-    left: -25px;
+    left: -50px;
 }
 [dir='rtl'] .slick-prev
 {
-    right: -25px;
+    right: -50px;
     left: auto;
 }
 .slick-prev:before
@@ -191,12 +192,12 @@
 
 .slick-next
 {
-    right: -25px;
+    right: -50px;
 }
 [dir='rtl'] .slick-next
 {
     right: auto;
-    left: -25px;
+    left: -50px;
 }
 .slick-next:before
 {
