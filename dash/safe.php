@@ -98,7 +98,6 @@ class safe
 
 	public static function persian_char($_string)
 	{
-		var_dump(11);
 		if(\dash\language::current() === 'fa')
 		{
 			$_string = str_replace(['ي', 'ك'], ['ی', 'ک'], $_string);
