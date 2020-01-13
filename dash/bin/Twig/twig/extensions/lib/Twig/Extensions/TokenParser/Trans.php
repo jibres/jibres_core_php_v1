@@ -48,7 +48,27 @@ class Twig_Extensions_TokenParser_Trans extends Twig_TokenParser
 
         $this->checkTransString($body, $lineno);
 
+        $checkVal = (array)$body;
+        $myTransAttr = self::accessProtected($body, 'attributes');
+        if(isset($myTransAttr['value']))
+        {
+            $myTransAttr = $myTransAttr['value'];
+            if(!$myTransAttr)
+            {
+                return null;
+            }
+        }
+
         return new Twig_Extensions_Node_Trans($body, $plural, $count, $notes, $lineno, $this->getTag());
+    }
+
+
+    private static function accessProtected($obj, $prop)
+    {
+        $reflection = new ReflectionClass($obj);
+        $property = $reflection->getProperty($prop);
+        $property->setAccessible(true);
+        return $property->getValue($obj);
     }
 
     public function decideForFork(Twig_Token $token)
