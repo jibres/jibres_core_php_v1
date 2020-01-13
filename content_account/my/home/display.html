@@ -112,7 +112,7 @@
     </tr>
     <tr>
       <th>{%trans "Gender"%}</th>
-      <td>{%set myGender = dataRow.gender | capitalize%}{%trans myGender%}</td>
+      <td>{%if dataRow.gender%}{%set myGender = dataRow.gender | capitalize%}{%trans myGender%}{%endif%}</td>
       <td class="collapsing txtRa"><a href="{{url.this}}/profile" class="block {{arrow}}"></a></td>
     </tr>
     <tr>

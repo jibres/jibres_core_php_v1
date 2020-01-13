@@ -143,7 +143,7 @@
     <div class="menu">
 {%for key, value in countryList%}
       <div class="item" data-value="{{key}}">
-        <i class="{{value.iso2 | lower }} flag"></i>{%set myCountry = value.name%} {%trans myCountry%}<small class="description">{{value.name | capitalize}}</small>
+        <i class="{{value.iso2 | lower }} flag"></i>{%if value.name%}{%set myCountry = value.name%} {%trans myCountry%}{%endif%}<small class="description">{{value.name | capitalize}}</small>
       </div>
 {%endfor%}
     </div>

@@ -105,7 +105,7 @@
             <a class="mRa5 fc-red" href="{{url.pwd}}" data-ajaxify data-method='post' data-data='{"id":"{{value.id}}", "status":"spam"}'>{%trans "Spam"%}</a>
           </div>
         </td>
-        <td class="collapsing s0" title='{{value.datemodified}}'>{%set myStatus = value.status | capitalize%}{%trans myStatus%}</td>
+        <td class="collapsing s0" title='{{value.datemodified}}'>{%if value.status%}{%set myStatus = value.status | capitalize%}{%trans myStatus%}{%endif%}</td>
         <td class="collapsing s0 m0" title='{%trans "Created on"%} {{value.datecreated}}'>{{value.datecreated | dt("human", 'year')}}</td>
       </tr>
       {%endfor%}

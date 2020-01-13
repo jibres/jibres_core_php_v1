@@ -162,7 +162,7 @@
             </div>
           </td>
           {%if not requestGET.type%}
-          <td class="s0" >{%set myType = value.type | capitalize%}<a class="badge" href="{{url.this}}?type={{value.type}}">{%trans myType%}</a></td>
+          <td class="s0" >{%if value.type%}{%set myType = value.type | capitalize%}<a class="badge" href="{{url.this}}?type={{value.type}}">{%trans myType%}</a>{%endif%}</td>
           {%endif%}
           <td>
             <a href="{{url.here}}/chap/receipt?id={{value.id}}&size=receipt8" class="btn primary outline sm">{%trans "View"%}</a>

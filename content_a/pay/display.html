@@ -93,8 +93,8 @@
     {% for key, value in payDetail %}
     <tr>
       <td class="txtB">{%if value.plus%}{{value.plus | fitNumber}}{%elseif value.minus%}{{value.minus | fitNumber}}{%endif%}</td>
-      <td>{%set my_type = value.type | capitalize%}{%trans my_type%}</td>
-      <td>{%set my_subtitle = value.subtitle | capitalize%}{%trans my_subtitle%}</td>
+      <td>{%if value.type%}{%set my_type = value.type | capitalize%}{%trans my_type%}{%endif%}</td>
+      <td>{%if value.subtitle%}{%set my_subtitle = value.subtitle | capitalize%}{%trans my_subtitle%}{%endif%}</td>
     </tr>
     {%endfor%}
   </tbody>

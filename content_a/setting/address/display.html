@@ -41,7 +41,7 @@
   <select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='{{dataRow.province}}'>
     <option value="">{%trans "Choose your country"%}</option>
 {%for key, value in countryList%}
-      <option value="{{key}}" {%if dataRow.country == key%} selected {%endif%}>{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}</option>
+      <option value="{{key}}" {%if dataRow.country == key%} selected {%endif%}>{%if value.name%}{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}{%endif%}</option>
 {%endfor%}
   </select>
 </div>
