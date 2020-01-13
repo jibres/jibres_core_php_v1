@@ -17,8 +17,7 @@ class power
 		\dash\engine\baby::block();
 
 		// detect language and if need set the new language
-		// url call detect language before this and dont need to run it again
-		// \dash\language::detect_language();
+		\dash\language::detect_language();
 
 		\dash\engine\prepare::basics();
 
