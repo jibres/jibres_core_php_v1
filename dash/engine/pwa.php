@@ -15,8 +15,8 @@ class pwa
 			'name'             => T_($siteTitle). ' | '. T_(\dash\option::config('site', 'slogan')),
 			'short_name'       => T_($siteTitle),
 			'description'      => T_(\dash\option::config('site', 'desc')),
-			'dir'              => \dash\language::current('direction'),
-			'lang'             => str_replace('_', '-', \dash\language::current('iso')),
+			'dir'              => \dash\language::dir(),
+			'lang'             => str_replace('_', '-', \dash\language::currentAll('iso')),
 
 
 			'display'          => 'standalone',

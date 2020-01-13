@@ -104,7 +104,7 @@ class ready
 		ksort($new_slug);
 		ksort($new_title);
 
-		$implode = \dash\language::current('direction') === 'ltr' ? ' <- ' : ' -> ';
+		$implode = \dash\language::dir() === 'ltr' ? ' <- ' : ' -> ';
 
 		$result['parent_slug']  = implode('/', $new_slug);
 		$result['parent_title'] = implode($implode, $new_title);

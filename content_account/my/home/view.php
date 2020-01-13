@@ -16,7 +16,7 @@ class view
 
 
 
-		\dash\data::isLtr(\dash\language::current('direction') === 'ltr' ? true : false);
+		\dash\data::isLtr(\dash\language::dir() === 'ltr' ? true : false);
 
 		if(\dash\data::dataRow_permission())
 		{

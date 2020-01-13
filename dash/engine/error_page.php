@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo (\dash\language::current()); ?>" dir="<?php echo (\dash\language::current('direction')); ?>">
+<html lang="<?php echo (\dash\language::current()); ?>" dir="<?php echo (\dash\language::dir()); ?>">
 <head>
  <meta charset="UTF-8"/>
  <title>(>_<?php echo $_code;?>_<)</title>
@@ -8,7 +8,7 @@
  <link rel="shortcut icon" href="<?php echo(\dash\url::static()); ?>/images/favicon-error.png"/>
  <link rel="stylesheet"  href="<?php echo(\dash\url::static()); ?>/css/siftal.min.css">
 </head>
-<body class='<?php echo (\dash\language::current('direction')); ?> errorPage s<?php echo(substr($_code,0,2));?>'>
+<body class='<?php echo (\dash\language::dir()); ?> errorPage s<?php echo(substr($_code,0,2));?>'>
  <div id="nodes"></div>
  <div class="cn">
   <div class="wrapper">

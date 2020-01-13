@@ -366,7 +366,7 @@ class template
 			self::$display_name = \dash\engine\content::get(). '\\'. self::$display_name;
 		}
 
-		$current_lang = \dash\language::current('name');
+		$current_lang = \dash\language::current();
 
 		$current_lang_template = substr(self::$display_name, 0, -(strlen(self::$file_ext)));
 		$current_lang_template .= '-'.$current_lang . self::$file_ext;

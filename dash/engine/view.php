@@ -67,7 +67,7 @@ class view
 		\dash\data::global_title(null);
 		\dash\data::global_login(\dash\user::login());
 		\dash\data::global_lang(\dash\language::current());
-		\dash\data::global_direction(\dash\language::current('direction'));
+		\dash\data::global_direction(\dash\language::dir());
 		\dash\data::global_page(implode('_', \dash\url::dir()));
 		if(!\dash\data::global_page() && \dash\url::module() === null)
 		{
