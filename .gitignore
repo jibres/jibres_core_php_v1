@@ -40,6 +40,12 @@ composer.lock
 /ext/twig/autom4te.cache/
 /dash/bin/Twig/twig/extensions/test/
 /dash/bin/Twig/twig/twig/test/
+/dash/bin/Twig/twig/twig/.editorconfig
+/dash/bin/Twig/twig/twig/.gitattributes
+/dash/bin/Twig/twig/twig/.travis.yml
+/dash/bin/Twig/twig/twig/CHANGELOG
+/dash/bin/Twig/twig/twig/drupal_test.sh
+
 phpunit.xml
 /vendor
 
