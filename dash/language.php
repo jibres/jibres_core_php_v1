@@ -148,15 +148,14 @@ class language
 	 */
 	public static function set_language($_language)
 	{
-		self::$language_default = self::primary();
-
 		// get all detail of this language
 		self::$language = self::get($_language, 'all');
+
 		if(!self::$language)
 		{
+			self::$language_default = self::primary();
 			self::$language = self::get(self::$language_default, 'all');
 		}
-
 
 		// use php gettext function
 		require_once(core.'engine/i18n/translator.php');
@@ -175,8 +174,13 @@ class language
 
 	public static function detect_language()
 	{
+		if(self::$language)
+		{
+			return false;
+		}
+
 		$url_lang = \dash\url::lang();
-		if(array_key_exists($url_lang, self::$data))
+		if($url_lang && array_key_exists($url_lang, self::$data))
 		{
 			self::set_language($url_lang);
 		}
