@@ -92,16 +92,12 @@ class url
 		self::$url['that']      = self::_that();
 		self::$url['current']   = self::_current();
 		self::$url['pwd']       = self::_pwd();
-		self::$url['icon']      = self::_static(). '/logo/icon/svg/Jibres-Logo-icon.svg';
-		self::$url['logo']      = self::_static(). '/logo/en/svg/Jibres-Logo-en.svg';
-		if(\dash\language::current() === 'fa')
-		{
-			self::$url['logo']      = self::_static(). '/logo/fa/svg/Jibres-Logo-fa.svg';
-		}
+		self::setLogo();
 
 		// return final result
 		return self::$url;
 	}
+
 
 
 
@@ -755,6 +751,16 @@ class url
 		return null;
 	}
 
+
+	public static function setLogo()
+	{
+		self::$url['icon'] = self::_static(). '/logo/icon/svg/Jibres-Logo-icon.svg';
+		self::$url['logo'] = self::_static(). '/logo/en/svg/Jibres-Logo-en.svg';
+		if(\dash\language::current() === 'fa')
+		{
+			self::$url['logo'] = self::_static(). '/logo/fa/svg/Jibres-Logo-fa.svg';
+		}
+	}
 
 
 	public static function urlfilterer($_input, $_strip = true)
