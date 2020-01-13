@@ -113,7 +113,12 @@ class language
 
 	public static function dir()
 	{
-		return self::current('direction');
+		if(isset(self::$language['direction']))
+		{
+			return self::$language['direction'];
+		}
+
+		return 'ltr';
 	}
 
 
@@ -122,7 +127,23 @@ class language
 	 * @param  string $_request [description]
 	 * @return [type]           [description]
 	 */
-	public static function current($_request = 'name')
+	public static function current()
+	{
+		if(isset(self::$language['name']))
+		{
+			return self::$language['name'];
+		}
+
+		return null;
+	}
+
+
+	/**
+	 * get detail of language
+	 * @param  string $_request [description]
+	 * @return [type]           [description]
+	 */
+	public static function currentAll($_request = 'name')
 	{
 		if(!self::$language)
 		{
