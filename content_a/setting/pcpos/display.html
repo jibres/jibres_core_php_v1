@@ -71,7 +71,7 @@
       <tr {%if value.isdefault%} title='{%trans "Is default"%}' class="positive"{%endif%}>
         <td class="collapsing"><span class="spay-32-{{value.slug}}"></span></td>
         <td class="collapsing txtLa">
-          <span class="txtB">{%set bankName = value.slug | capitalize%}{%trans bankName%}</span>
+          <span class="txtB">{%if value.slug%}{%set bankName = value.slug | capitalize%}{%trans bankName%}{%endif%}</span>
           {%if value.pcpos%}
 	      <span class="badge primary">{%trans "PcPos"%}</span>
           <div class="mT10">
