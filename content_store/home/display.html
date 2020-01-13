@@ -47,7 +47,7 @@
 {%if listStore.owner%}
 <div class="f listOfStores">
 {%for key, value in listStore.owner%}
-  <div class="c6 x4 s12 {%if loop.index is divisibleby(2)%}pLa5{%else%}pRa10{%endif%}">
+  <div class="c6 x4 s12 {%if loop.index is divisible by(2)%}pLa5{%else%}pRa10{%endif%}">
     <a href='{{value.url}}/a' class="scardLarge grBlue3">
       <img src="{{value.logo}}" alt="{{value.title}}">
       <h2>{{value.title}}</h2>
