@@ -24,6 +24,7 @@ class safe
 		$remove_inject    = null;
 		$htmlspecialchars = true;
 		$trim             = true;
+		$checkPersianChar = null;
 
 		if(strpos($_type, '-') !== false)
 		{
@@ -44,10 +45,12 @@ class safe
 
 				case 'sqlinjection':
 					$remove_inject = ["'", '"', '\\\\\\', '`', '\*', "\\?", ';'];
+					$checkPersianChar = true;
 					break;
 
 				case 'raw':
 					$htmlspecialchars = false;
+					$checkPersianChar = true;
 					break;
 
 				case 'nottrim':
@@ -65,7 +68,10 @@ class safe
 			$_string = preg_replace("/\s?[" . join('', $remove_inject) . "]/", "", $_string);
 		}
 
-		$_string = self::persian_char($_string);
+		if($checkPersianChar)
+		{
+			$_string = self::persian_char($_string);
+		}
 
 		if($trim)
 		{
@@ -92,6 +98,7 @@ class safe
 
 	public static function persian_char($_string)
 	{
+		var_dump(11);
 		if(\dash\language::current() === 'fa')
 		{
 			$_string = str_replace(['ي', 'ك'], ['ی', 'ک'], $_string);
