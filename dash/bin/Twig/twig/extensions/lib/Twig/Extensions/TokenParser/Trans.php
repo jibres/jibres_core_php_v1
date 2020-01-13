@@ -50,7 +50,7 @@ class Twig_Extensions_TokenParser_Trans extends Twig_TokenParser
 
         $checkVal = (array)$body;
         $myTransAttr = self::accessProtected($body, 'attributes');
-        if(isset($myTransAttr['value']))
+        if(array_key_exists('value', $myTransAttr))
         {
             $myTransAttr = $myTransAttr['value'];
             if(!$myTransAttr)
