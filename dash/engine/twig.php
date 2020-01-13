@@ -54,7 +54,7 @@ class twig
 		$loader                = new \Twig\Loader\FilesystemLoader($twig_include_path);
 		$array_option          = [];
 		$array_option['debug'] = true;
-		$array_option['cache'] = root.'/tmp';
+		$array_option['cache'] = root.'/tmp/twig';
 
 		$twig = new \Twig\Environment($loader, $array_option);
 
