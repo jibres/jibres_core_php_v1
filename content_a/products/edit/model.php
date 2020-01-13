@@ -115,10 +115,12 @@ class model
 		}
 
 		// product no changed not redirect
-		if(!\dash\temp::get('productNoChangeNotRedirect'))
+		if(\dash\temp::get('productNoChangeNotRedirect'))
 		{
-			\dash\redirect::pwd();
+			\dash\redirect::to(\dash\url::this());
 		}
+
+		\dash\redirect::pwd();
 
 	}
 

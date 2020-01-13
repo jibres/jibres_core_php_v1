@@ -205,9 +205,9 @@
   <header data-kerkere='.jboxOrganize' data-kerkere-icon='open'><h2>{%trans "Organization"%}</h2></header>
   <div class="pad jboxOrganize">
     {{block('iType')}}
-    {{block('iStatus')}}
 
     {{block('iCat')}}
+    {{block('iUnit')}}
 
 
     {%if url.child == 'edit'%}
@@ -216,7 +216,7 @@
 
     {{block('iManufacturer')}}
 
-    {{block('iUnit')}}
+
   </div>
 </section>
 
@@ -227,8 +227,8 @@
 {%block Box_otherLink%}
 {%if url.child == 'edit'%}
   <section class="jbox">
-    <header data-kerkere='.reportproduct' data-kerkere-icon='open'><h2>{%trans "Reports"%}</h2></header>
-    <div class="pad reportproduct"  >
+    <header data-kerkere='.reportproduct' data-kerkere-icon='close'><h2>{%trans "Reports"%}</h2></header>
+    <div class="pad reportproduct"  data-kerkere-content='hide'>
       <ul>
         <li><a href="{{url.this}}/pricehistory?id={{requestGET.id}}">{%trans "Price change chart"%}</a></li>
         <li><a href="{{url.this}}/comment?id={{requestGET.id}}">{%trans "Comments"%}</a></li>
@@ -243,10 +243,13 @@
 {%block Box_deleteProduct%}
 {%if url.child == 'edit'%}
   <section class="jbox">
-    <header data-kerkere='.deleteproduct' data-kerkere-icon='close'><h2>{%trans "Delete product"%}</h2></header>
-    <div class="pad deleteproduct" data-kerkere-content='hide' >
+    <header data-kerkere='.deleteproduct' data-kerkere-icon='close'><h2>{%trans "Status"%}</h2></header>
+    <div class="pad deleteproduct" data-kerkere-content='hide'>
+      {{block('iStatus')}}
+      <div class="txtRa">
 
-      <div class="btn danger block" data-confirm data-data='{"delete":"product"}'>{%trans "Remove product"%}</div>
+        <div class="btn danger sm" data-confirm data-data='{"delete":"product"}'>{%trans "Remove product"%}</div>
+      </div>
     </div>
   </section>
 {%endif%}
