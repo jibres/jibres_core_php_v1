@@ -160,7 +160,7 @@
           <a href="{{url.this}}?status={{value.status}}">{%set myStatus = value.status | capitalize %}{%trans myStatus%}</a>
         </td>
         <td class="s0 m0">
-          <a href="{{url.this}}?permission={{value.permission}}{%if requestGET.status%}&status={{requestGET.status}}{%endif%}">{%set myPerm = value.permission | capitalize %}{%trans myPerm%}</a>
+          <a href="{{url.this}}?permission={{value.permission}}{%if requestGET.status%}&status={{requestGET.status}}{%endif%}">{%if value.permission%}{%set myPerm = value.permission | capitalize %}{%trans myPerm%}{%endif%}</a>
         </td>
         <td class="s0 m0" title="{{value.datecreated | dt(true)}}"><small class="fc-mute">{%if value.datecreated%}{{value.datecreated | dt("human", 'year')}}{%else%}-{%endif%}</small></td>
         <td class="s0 m0" title="{{value.datemodified | dt(true)}}"><small class="fc-mute">{%if value.datemodified%}{{value.datemodified | dt("human", 'year')}}{%else%}-{%endif%}</small></td>
