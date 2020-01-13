@@ -25,9 +25,21 @@
   </div>
 </div>
 
-<div class="msg fs14">
-<p>{%trans "If you want to show git pull result click below link"%}</p>
-<a class="btn warn" target="_blank" href="{{url.this}}?git=all">{%trans "Pull gir repository"%}</a>
+<div class="f">
+  <div class="c s6">
+    <div class="msg fs14">
+    <p>{%trans "If you want to show git pull result click below link"%}</p>
+    <a class="btn warn" target="_blank" href="{{url.this}}?git=all">{%trans "Pull gir repository"%}</a>
+    </div>
+  </div>
+
+  <div class="c s6 mLa5">
+
+      <div class="msg fs14">
+      <p>{%trans "Remove Twig temp cache file"%}</p>
+      <div data-confirm data-data='{"type": "remove_cache"}' class="btn info" >{%trans "Empty cache"%}</div>
+      </div>
+  </div>
 </div>
 
 {%if isLockService%}
