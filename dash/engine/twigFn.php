@@ -45,13 +45,13 @@ class twigFn
 
 	private static function filter_var_dump()
 	{
-		return new \Twig_SimpleFilter('dump', 'var_dump');
+		return new \Twig\TwigFilter('dump', 'var_dump');
 	}
 
 
 	private static function filter_unset_type()
 	{
-		return new \Twig_SimpleFilter('unset_type', function ($array= null)
+		return new \Twig\TwigFilter('unset_type', function ($array= null)
 		{
 			unset($array['attr']['type']);
 			return $array;
@@ -61,7 +61,7 @@ class twigFn
 
 	private static function filter_fcache()
 	{
-		return new \Twig_SimpleFilter('fcache', function ($string)
+		return new \Twig\TwigFilter('fcache', function ($string)
 		{
 			if(file_exists($string))
 			{
@@ -77,7 +77,7 @@ class twigFn
 
 	private static function filter_jdate()
 	{
-		return new \Twig_SimpleFilter('jdate', function ($_string, $_format ="Y/m/d", $_convert = true)
+		return new \Twig\TwigFilter('jdate', function ($_string, $_format ="Y/m/d", $_convert = true)
 		{
 			return \dash\utility\jdate::date($_format, $_string, $_convert);
 		});
@@ -92,7 +92,7 @@ class twigFn
 	 */
 	private static function filter_dt()
 	{
-		return new \Twig_SimpleFilter('dt', function ($_string, $_format = null, $_type = null, $_calendar = null)
+		return new \Twig\TwigFilter('dt', function ($_string, $_format = null, $_type = null, $_calendar = null)
 		{
 			if(!$_string)
 			{
@@ -111,7 +111,7 @@ class twigFn
 	 */
 	private static function filter_fitNumber()
 	{
-		return new \Twig_SimpleFilter('fitNumber', function ($_number, $_autoFormat = true)
+		return new \Twig\TwigFilter('fitNumber', function ($_number, $_autoFormat = true)
 		{
 			return \dash\utility\human::fitNumber($_number, $_autoFormat);
 		});
@@ -124,7 +124,7 @@ class twigFn
 	 */
 	private static function filter_exist()
 	{
-		return new \Twig_SimpleFilter('exist', function ($_file, $_alternative = null)
+		return new \Twig\TwigFilter('exist', function ($_file, $_alternative = null)
 		{
 			$result = \dash\file::alternative($_file, $_alternative);
 			return $result;
@@ -138,7 +138,7 @@ class twigFn
 	 */
 	private static function filter_decode()
 	{
-		return new \Twig_SimpleFilter('decode', function ($_array, $_key = null)
+		return new \Twig\TwigFilter('decode', function ($_array, $_key = null)
 		{
 			$result = json_decode($_array, true);
 			if(is_array($result) && isset($result[$_key]))
@@ -160,7 +160,7 @@ class twigFn
 	 */
 	private static function function_dump()
 	{
-		return new \Twig_SimpleFunction('dump', function()
+		return new \Twig\TwigFunction('dump', function()
 		{
 
 		});
@@ -174,7 +174,7 @@ class twigFn
 	 */
 	private static function function_langList()
 	{
-		return new \Twig_SimpleFunction('langList', function()
+		return new \Twig\TwigFunction('langList', function()
 		{
 			return \dash\language::langList(...func_get_args());
 		});
@@ -187,7 +187,7 @@ class twigFn
 	 */
 	private static function function_breadcrumb()
 	{
-		return new \Twig_SimpleFunction('breadcrumb', function ($_path = null, $_direct = null, $_homepage = true, $_hideLast = null)
+		return new \Twig\TwigFunction('breadcrumb', function ($_path = null, $_direct = null, $_homepage = true, $_hideLast = null)
 		{
 			// if user dont pass a path give it from controller
 			if(!$_path)
@@ -289,7 +289,7 @@ class twigFn
 	 */
 	private static function function_posts()
 	{
-		return new \Twig_SimpleFunction('posts', function()
+		return new \Twig\TwigFunction('posts', function()
 		{
 			$posts  = \dash\app\posts::get_post_list(...func_get_args());
 			$html   = array_column(func_get_args(), 'html');
@@ -352,7 +352,7 @@ class twigFn
 	 */
 	private static function function_tags()
 	{
-		return new \Twig_SimpleFunction('tags', function()
+		return new \Twig\TwigFunction('tags', function()
 		{
 			$tags      = [];
 			$args      = func_get_args();
@@ -504,7 +504,7 @@ class twigFn
 	 */
 	private static function function_category()
 	{
-		return new \Twig_SimpleFunction('category', function()
+		return new \Twig\TwigFunction('category', function()
 		{
 			$category = [];
 			$args     = func_get_args();
@@ -602,7 +602,7 @@ class twigFn
 	 */
 	private static function function_comments()
 	{
-		return new \Twig_SimpleFunction('comments', function()
+		return new \Twig\TwigFunction('comments', function()
 		{
 			$comments = [];
 			$args = func_get_args();
@@ -646,7 +646,7 @@ class twigFn
 	 */
 	private static function function_post_search()
 	{
-		return new \Twig_SimpleFunction('post_search', function()
+		return new \Twig\TwigFunction('post_search', function()
 		{
 			$post_search = [];
 			$args = func_get_args();
@@ -668,7 +668,7 @@ class twigFn
 	 */
 	private static function filter_coding()
 	{
-		return new \Twig_SimpleFilter('coding', function ($_url, $_type = 'decode', $_alphabet = null)
+		return new \Twig\TwigFilter('coding', function ($_url, $_type = 'decode', $_alphabet = null)
 		{
 			$result = null;
 			if($_type === 'decode')
@@ -686,7 +686,7 @@ class twigFn
 
 	private static function filter_filemtime()
 	{
-		return new \Twig_SimpleFilter('filemtime', function ($_url, $_withReturn = true)
+		return new \Twig\TwigFilter('filemtime', function ($_url, $_withReturn = true)
 		{
 			$result       = '';
 			$lastTime     = null;
@@ -722,7 +722,7 @@ class twigFn
 	 */
 	private static function function_attachment()
 	{
-		return new \Twig_SimpleFunction('attachment', function()
+		return new \Twig\TwigFunction('attachment', function()
 		{
 			$attachment = [];
 			$args       = func_get_args();
@@ -775,7 +775,7 @@ class twigFn
 	 */
 	private static function function_perm()
 	{
-		return new \Twig_SimpleFunction('perm', function()
+		return new \Twig\TwigFunction('perm', function()
 		{
 			$caller  = null;
 			$user_id = null;
@@ -803,7 +803,7 @@ class twigFn
 	 */
 	private static function function_perm_su()
 	{
-		return new \Twig_SimpleFunction('perm_su', function()
+		return new \Twig\TwigFunction('perm_su', function()
 		{
 			return \dash\permission::supervisor();
 		});

@@ -46,17 +46,17 @@ class twig
 		\dash\data::paginationDetail(\dash\utility\pagination::detail());
 
 		// twig method
-		require_once core.'bin/Twig/Autoloader.php';
-		\Twig_Autoloader::register();
+		require_once core.'bin/Twig/autoload.php';
 
 
 		$twig_include_path     = [];
 		$twig_include_path[]   = root;
-		$loader                = new \Twig_Loader_Filesystem($twig_include_path);
+		$loader                = new \Twig\Loader\FilesystemLoader($twig_include_path);
 		$array_option          = [];
 		$array_option['debug'] = true;
+		$array_option['cache'] = root.'/tmp';
 
-		$twig = new \Twig_Environment($loader, $array_option);
+		$twig = new \Twig\Environment($loader, $array_option);
 
 		\dash\engine\twigFn::init($twig);
 
@@ -68,6 +68,7 @@ class twig
 		}
 
 		$twig->addExtension(new \Twig_Extensions_Extension_I18n());
+
 
 		$template = $twig->loadTemplate($tmpname);
 		if(\dash\request::ajax())
@@ -82,6 +83,7 @@ class twig
 		else
 		{
 			$template->display(\dash\data::get());
+			// echo $twig->render($tmpname, \dash\data::get());
 		}
 
 
