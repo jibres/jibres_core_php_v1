@@ -362,13 +362,13 @@ class config
 					$values[] = " NULL";
 				}
 			}
-			$together[] = join($values, ",");
+			$together[] = implode(',', $values);
 			$values     = [];
 		}
 
-		$fields = '`'.  join(array_keys($fields), "`,`"). '`';
+		$fields = '`'.  implode("`,`", array_keys($fields)). '`';
 
-		$values = join($together, "),(");
+		$values = implode("),(", $together);
 
 		$temp_query = "($fields) VALUES ($values) ";
 		return $temp_query;
@@ -762,7 +762,7 @@ class config
 			}
 		}
 
-		$where = join($where, " AND ");
+		$where = implode(" AND ", $where);
 		$search = null;
 		if($_string && $search_field && !is_array($_string))
 		{
