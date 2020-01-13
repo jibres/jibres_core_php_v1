@@ -36,9 +36,11 @@ package-lock.json
 *crontab.json
 
 /build
-/composer.lock
+composer.lock
 /ext/twig/autom4te.cache/
-/phpunit.xml
+/dash/bin/Twig/twig/extensions/test/
+/dash/bin/Twig/twig/twig/test/
+phpunit.xml
 /vendor
 
 
