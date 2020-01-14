@@ -34,7 +34,7 @@
   .siftal > #main > footer{display:none;}
   .siftal .scr::-webkit-scrollbar{display:none;}
   .highcharts-button{display: none;}
-
+  .medium-editor-toolbar, .medium-editor-anchor-preview, .medium-editor-toolbar ul {display: none!important}
   // some default for dash
   .superAdmin{display:none;}
   #xaccess{display:none;}
