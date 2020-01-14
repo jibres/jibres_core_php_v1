@@ -67,4 +67,6 @@ article.logo section:nth-child(even){
   background-color:#f2f2f2;
 }
 article.logo section img{display:block;margin:10px auto;border-radius:1em;background-color: #fff;padding:5px;}
-
+article.logo.download{background-color: #8cad8a}
+article.logo.download section img{background-color: transparent;}
+article.logo.download section:nth-child(even){background-color:#97c794;}

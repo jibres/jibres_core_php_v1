@@ -6,6 +6,7 @@
 {{block('more')}}
 {{block('logoDetail')}}
 {{block('styleguide')}}
+{{block('downloadLogo')}}
 
 {%endblock%}
 
@@ -297,4 +298,68 @@
 <img src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-1.png" alt="Jibres Logo Styleguide Persian Page15">
 {%endblock%}
 
+
+
+{%block downloadLogo%}
+<article class="logo download">
+  <section class="pTB5x">
+    <div class="cn">
+      <h2>{%trans "Download Logo"%}</h2>
+      <p>{%trans "All of Jibres logos are available on Jibres Logo Github repository."%} <a target="_blank" href="https://github.com/jibres/Jibres-logo/archive/master.zip">{%trans "Download latest Jibres logo pack from Github."%}</a> {%trans "Also you can browse repository and find our logo based on your need."%} <a target="_blank" href="https://github.com/jibres/Jibres-logo/tree/master/dist">{%trans "Jibres logo repository."%}</a></p>
+    </div>
+  </section>
+
+  <section class="pTB5x">
+    <div class="cn">
+      <h3>{%trans "Jibres logo"%}</h3>
+      <div class="f">
+        <div class="c4 s12">
+          <img class="width-200" src="{{url.static}}/logo/en/svg/Jibres-Logo-en.svg">
+        </div>
+        <div class="c4 s12">
+          <img class="width-200" src="{{url.static}}/logo/en-black/svg/Jibres-Logo-en-black.svg">
+        </div>
+        <div class="c4 s12">
+          <img class="width-200" src="{{url.static}}/logo/en-white/svg/Jibres-Logo-en-white.svg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pTB5x">
+    <div class="cn">
+      <h3>{%trans "Jibres logo"%}</h3>
+      <div class="f">
+        <div class="c4 s12">
+          <img class="width-200" src="{{url.static}}/logo/en-vertical/svg/Jibres-Logo-en-vertical.svg">
+        </div>
+        <div class="c4 s12">
+          <img class="width-200" src="{{url.static}}/logo/en-vertical-black/svg/Jibres-Logo-en-vertical-black.svg">
+        </div>
+        <div class="c4 s12">
+          <img class="width-200" src="{{url.static}}/logo/en-vertical-white/svg/Jibres-Logo-en-vertical-white.svg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pTB5x">
+    <div class="cn">
+      <h3>{%trans "Jibres logo"%}</h3>
+      <div class="f">
+        <div class="c4 s12">
+          <img class="width-200" src="{{url.static}}/logo/icon/svg/Jibres-Logo-icon.svg">
+        </div>
+        <div class="c4 s12">
+          <img class="width-200" src="{{url.static}}/logo/icon-black/svg/Jibres-Logo-icon-black.svg">
+        </div>
+        <div class="c4 s12">
+          <img class="width-200" src="{{url.static}}/logo/icon-white/svg/Jibres-Logo-icon-white.svg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</article>
+{%endblock%}
 
