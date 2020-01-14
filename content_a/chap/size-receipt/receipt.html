@@ -80,10 +80,7 @@
    <tr class="fs07">
     <th>{%trans "Name"%}</th>
     <th>{%trans "Qty"%}</th>
-    <th>{%trans "Price"%}</th>
-{%if factorDetail.factor.subdiscount%}
-    <th>{%trans "Discount"%}</th>
-{%endif%}
+    <th>{%trans "Price"%}{%if factorDetail.factor.subdiscount%}<br>{%trans "Discount"%}{%endif%}</th>
     <th>{%trans "Sum"%}</th>
    </tr>
   </thead>
@@ -92,10 +89,7 @@
   <tr>
    <td class="fs09 txtLa">{%if datarow.vat%} * {%endif%} {{datarow.title}}</td>
    <td class="collapsing">{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
-   <td class="collapsing">{{datarow.price | fitNumber}}</td>
-{%if factorDetail.factor.subdiscount%}
-   <td>{{datarow.discount | fitNumber}}</td>
-{%endif%}
+   <td class="collapsing">{{datarow.price | fitNumber}}{%if factorDetail.factor.subdiscount%}<br>{{datarow.discount | fitNumber}}{%endif%}</td>
    <td class="collapsing">{{datarow.sum | fitNumber}}</td>
   </tr>
  {%endfor%}
