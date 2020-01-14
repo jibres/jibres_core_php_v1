@@ -4,6 +4,7 @@ desktop.ini
 *Thumbs.db
 ~*.docx
 ~*.tmp
+~$*.pptx
 *tg.json
 *.me.*
 /install.jibres
