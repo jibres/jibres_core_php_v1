@@ -16,7 +16,7 @@ class view
 		if(\dash\utility\enter::get_session('sendsms_code'))
 		{
 			\dash\data::codeSend(\dash\utility\enter::get_session('sendsms_code'));
-			\dash\data::codeSendNum('+98 1000 66600 66600');
+			\dash\data::codeSendNum('+98 1000 2000 9');
 			\dash\data::codeSendMsg(T_('Send ":code" to :num',
 				[
 					'code' => \dash\data::codeSend(),
