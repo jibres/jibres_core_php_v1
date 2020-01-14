@@ -89,7 +89,7 @@
   <tr>
    <td class="txtLa productTitle">{%if datarow.vat%} * {%endif%} {{datarow.title}}</td>
    <td>{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
-   <td>{{datarow.price | fitNumber}}{%if factorDetail.factor.subdiscount and factorDetail.factor.subdiscount > 0%}<br>{{datarow.discount | fitNumber}}{%endif%}</td>
+   <td>{{datarow.price | fitNumber}}{%if datarow.discount%}<br>{{datarow.discount | fitNumber}}{%endif%}</td>
    <td>{{datarow.sum | fitNumber}}</td>
   </tr>
  {%endfor%}
