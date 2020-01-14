@@ -87,10 +87,10 @@
   <tbody>
  {%for key, datarow in factorDetail.factor_detail%}
   <tr>
-   <td class="fs09 txtLa">{%if datarow.vat%} * {%endif%} {{datarow.title}}</td>
-   <td class="collapsing">{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
-   <td class="collapsing">{{datarow.price | fitNumber}}{%if factorDetail.factor.subdiscount%}<br>{{datarow.discount | fitNumber}}{%endif%}</td>
-   <td class="collapsing">{{datarow.sum | fitNumber}}</td>
+   <td class="txtLa productTitle">{%if datarow.vat%} * {%endif%} {{datarow.title}}</td>
+   <td>{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
+   <td>{{datarow.price | fitNumber}}{%if factorDetail.factor.subdiscount && factorDetail.factor.subdiscount > 0%}<br>{{datarow.discount | fitNumber}}{%endif%}</td>
+   <td>{{datarow.sum | fitNumber}}</td>
   </tr>
  {%endfor%}
   </tbody>
