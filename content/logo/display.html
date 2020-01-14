@@ -39,14 +39,17 @@
 {%block styleguide%}
 <section class="styleguideBox">
   <div class="cn">
-    <h2 class="txtC">{%trans "Jibres Brand Styleguide"%}</h2>
+{%if lang.current == 'fa'%}
+    <h2 class="txtC fs15"><a target="_blank" href="{{url.static}}/logo/styleguide-fa/Jibres-brand-styleguide-fa-v1.pdf">{%trans "Download Jibres Brand Styleguide"%}</a></h2>
     <div class="book" data-slick>
-    {%if lang.current == 'fa'%}
       {{block('styleguideFa')}}
-    {%else%}
-      {{block('styleguideEn')}}
-    {%endif%}
     </div>
+{%else%}
+    <h2 class="txtC fs15"><a target="_blank" href="{{url.static}}/logo/styleguide/Jibres-brand-styleguide-v3.pdf">{%trans "Download Jibres Brand Styleguide"%}</a></h2>
+    <div class="book" data-slick>
+      {{block('styleguideEn')}}
+    </div>
+{%endif%}
   </div>
 </section>
 {%endblock%}
@@ -190,45 +193,68 @@
    </div>
   </section>
 
+  <section class="pTB5x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "BACKGROUND COLOR"%}</h3>
+        <p>{%trans "Our logo must always have good contrast with the background to ensure maximum impact and accessibility."%}</p>
+        <p>{%trans "Use the black or white versions if the logo is to be presented on a background color."%}</p>
+        <p>{%trans "If you’re going with grayscale, make sure you choose a version where the contrast between the logo and the background is strong."%}</p>
+      </div>
+      <div class="c s12 pLa10">
+{%if lang.current == 'fa'%}
+        <img class="max-w300" src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-11-img.png" alt='{%trans "Jibres"%} {%trans "BACKGROUND COLOR"%}'>
+{%else%}
+        <img class="max-w300" src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-11-img.png" alt='{%trans "Jibres"%} {%trans "BACKGROUND COLOR"%}'>
+{%endif%}
+      </div>
+    </div>
+   </div>
+  </section>
 
+  <section class="pTB5x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "WORDMARK"%}</h3>
+        <p>{%trans "Here’s what you need to know about the wordmark:"%}</p>
+        <ul class="list">
+          <li>{%trans "The font used for the wordmark is Acre Medium."%}</li>
+          <li>{%trans "This font is only used in the logo."%}</li>
+          <li>{%trans "'Jibres' is written as one word, with the letters'J' capitalized in all instances."%}</li>
+        </ul>
+      </div>
+      <div class="c s12 pLa10">
+{%if lang.current == 'fa'%}
+        <img class="max-w300" src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-12-img.png" alt='{%trans "Jibres"%} {%trans "WORDMARK"%}'>
+{%else%}
+        <img class="max-w300" src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-12-img.png" alt='{%trans "Jibres"%} {%trans "WORDMARK"%}'>
+{%endif%}
+      </div>
+    </div>
+   </div>
+  </section>
 
+  <section class="pTB5x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "LOGO DON'TS"%}</h3>
+        <p>{%trans "Use the Jibres logos as provided and please do not make any changes to them :)"%}</p>
+      </div>
+      <div class="c s12 pLa10">
+{%if lang.current == 'fa'%}
+        <img class="max-w300" src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-14-img.png" alt='{%trans "Jibres"%} {%trans "LOGO DO NOTS"%}'>
+{%else%}
+        <img class="max-w300" src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-14-img.png" alt='{%trans "Jibres"%} {%trans "LOGO DO NOTS"%}'>
+{%endif%}
+      </div>
+    </div>
+   </div>
+  </section>
 
 </article>
-
-<hr>
-
-
-  <div class="pc">
-   <div class="cn">
-
-
-    <section class="pTB4x">
-      <h3>{%trans ""%}</h3>
-    </section>
-
-    <section class="pTB4x">
-      <h3>{%trans "BACKGROUND COLOR"%}</h3>
-      <p>{%trans "Our logo must always have good contrast with the background to ensure maximum impact and accessibility."%}</p>
-      <p>{%trans "Use the black or white versions if the logo is to be presented on a background color."%}</p>
-      <p>{%trans "If you’re going with grayscale, make sure you choose a version where the contrast between the logo and the background is strong."%}</p>
-    </section>
-
-    <section class="pTB4x">
-      <h3>{%trans "WORDMARK"%}</h3>
-      <p>{%trans "Here’s what you need to know about the wordmark:"%}</p>
-      <ul class="list">
-        <li>{%trans "The font used for the wordmark is Acre Medium."%}</li>
-        <li>{%trans "This font is only used in the logo."%}</li>
-        <li>{%trans "'Jibres' is written as one word, with the letters'J' capitalized in all instances."%}</li>
-      </ul>
-    </section>
-
-    <section class="pTB4x">
-      <h3>{%trans "LOGO DON'TS"%}</h3>
-      <p>{%trans "Use the Jibres logos as provided and please do not make any changes to them :)"%}</p>
-    </section>
-   </div>
- </div>
 {%endblock%}
 
 
