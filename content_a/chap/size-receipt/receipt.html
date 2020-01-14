@@ -91,12 +91,12 @@
  {%for key, datarow in factorDetail.factor_detail%}
   <tr>
    <td class="fs09 txtLa">{%if datarow.vat%} * {%endif%} {{datarow.title}}</td>
-   <td>{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
-   <td>{{datarow.price | fitNumber}}</td>
+   <td class="collapsing">{{datarow.count | fitNumber(false)}} <small>{{datarow.unit}}</small></td>
+   <td class="collapsing">{{datarow.price | fitNumber}}</td>
 {%if factorDetail.factor.subdiscount%}
    <td>{{datarow.discount | fitNumber}}</td>
 {%endif%}
-   <td>{{datarow.sum | fitNumber}}</td>
+   <td class="collapsing">{{datarow.sum | fitNumber}}</td>
   </tr>
  {%endfor%}
   </tbody>
