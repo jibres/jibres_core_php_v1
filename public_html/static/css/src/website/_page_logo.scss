@@ -56,3 +56,14 @@
   border-radius: 1em;
   padding: 1rem;
 }
+
+article.logo{
+  color: #333;
+  background-color:#fff;
+  font-size: 1.8em;
+}
+article.logo section:nth-child(even){
+  background-color:#f2f2f2;
+}
+article.logo section img{display:block;margin:10px auto;border-radius:1em;background-color: #fff;}
+

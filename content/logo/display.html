@@ -53,64 +53,157 @@
 
 
 {%block logoDetail%}
-<section class="pc bg-white pTB4x fs18">
- <div class="cn">
-  <div class="f align-center">
-    <div class="c4 s12">
-      <h3 class="mB50">{%trans "MEET THE LOGO"%}</h3>
-      <p>{%trans "Our logo represents simplicity, vivacity, agility, scalability and reliability; Values that we believe them as a company."%}</p>
-      <p>{%trans "These guidelines are here to help ensure that your use of the Jibres logo is consistent with the way we present ourselves."%}</p>
-    </div>
-    <div class="c6 s12 pLa10">
-      <img class="block size-he300" src="{{url.logo}}" alt='{%trans "Jibres"%}'>
-    </div>
-  </div>
- </div>
-</section>
+<article class="logo">
 
-
-  <div class="pc gray">
+  <section class="pTB5x">
    <div class="cn">
-    <section class="pTB4x">
-      <h3>{%trans "STANDARD LOCKUP"%}</h3>
-      <p>{%trans "Our standard horizontal lockup is our official logotype, consisting of the icon and our wordmark. If you aren’t sure which logo to use in your materials, use this one."%}</p>
-    </section>
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "MEET THE LOGO"%}</h3>
+        <p>{%trans "Our logo represents simplicity, vivacity, agility, scalability and reliability; Values that we believe them as a company."%}</p>
+        <p>{%trans "These guidelines are here to help ensure that your use of the Jibres logo is consistent with the way we present ourselves."%}</p>
+      </div>
+      <div class="c s12 pLa10">
+        <img class="max-w300" src="{{url.logo}}" alt='{%trans "Jibres"%}'>
+      </div>
+    </div>
    </div>
-  </div>
+  </section>
+
+  <section class="pTB5x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "STANDARD LOCKUP"%}</h3>
+        <p>{%trans "Our standard horizontal lockup is our official logotype, consisting of the icon and our wordmark. If you aren’t sure which logo to use in your materials, use this one."%}</p>
+      </div>
+      <div class="c s12 pLa10">
+{%if lang.current == 'fa'%}
+        <img class="max-w400" src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-4-img.png" alt='{%trans "Jibres"%} {%trans "STANDARD LOCKUP"%}'>
+{%else%}
+        <img class="max-w400" src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-4-img.png" alt='{%trans "Jibres"%} {%trans "STANDARD LOCKUP"%}'>
+{%endif%}
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="pTB5x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "VERTICAL LOCKUP"%}</h3>
+        <p>{%trans "The vertical lockup can be used when the provided space is square and use of the horizontal lockup will make the logo look too small."%}</p>
+      </div>
+      <div class="c s12 pLa10">
+{%if lang.current == 'fa'%}
+        <img class="max-w300" src="{{url.static}}/logo/fa-vertical/svg/Jibres-Logo-fa-vertical.svg" alt='{%trans "Jibres"%} {%trans "VERTICAL LOCKUP"%}'>
+{%else%}
+        <img class="max-w300" src="{{url.static}}/logo/en-vertical/svg/Jibres-Logo-en-vertical.svg" alt='{%trans "Jibres"%} {%trans "VERTICAL LOCKUP"%}'>
+{%endif%}
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="pTB5x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "ICON BY ITSELF"%}</h3>
+        <p>{%trans "Use the icon only when 'Jibres' has been well established elsewhere on the page or in the design. When in doubt, use the full logotype."%}</p>
+      </div>
+      <div class="c s12 pLa10">
+        <img class="max-w200" src="{{url.icon}}" alt='{%trans "Jibres"%}'>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="pTB5x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "SAFE SPACE"%}</h3>
+        <p>{%trans "Safe space acts as a buffer between the logo and other visual elements on a page, including text."%}</p>
+        <p>{%trans "This space is the minimum distance needed and is equal to third the height of the icon."%}</p>
+      </div>
+      <div class="c s12 pLa10">
+{%if lang.current == 'fa'%}
+        <img class="max-w500" src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-7-img.png" alt='{%trans "Jibres"%} {%trans "SAFE SPACE"%}'>
+{%else%}
+        <img class="max-w500" src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-7-img.png" alt='{%trans "Jibres"%} {%trans "SAFE SPACE"%}'>
+{%endif%}
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="pTB4x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "MINIMAL SIZE"%}</h3>
+        <p>{%trans "Here’s the recommended minimum size at which the logo may be reproduced. For legibility reasons, we ask that you stick to these dimensions."%}</p>
+      </div>
+      <div class="c s12 pLa10">
+{%if lang.current == 'fa'%}
+        <img class="max-w200" src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-8-img.png" alt='{%trans "Jibres"%} {%trans "MINIMAL SIZE"%}'>
+{%else%}
+        <img class="max-w200" src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-8-img.png" alt='{%trans "Jibres"%} {%trans "MINIMAL SIZE"%}'>
+{%endif%}
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="pTB5x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "JIBRES RED"%}</h3>
+        <p>{%trans "The Jibres red is bright and vibrant and we want it to stand out clearly. To that end, here are the color values you can use for both digital and print."%}</p>
+      </div>
+      <div class="c s12 pLa10">
+        <img class="max-w300" src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-9-img.png" alt='{%trans "JIBRES RED"%}'>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="pTB5x">
+   <div class="cn">
+    <div class="f align-center">
+      <div class="c4 m6 s12">
+        <h3 class="mB50">{%trans "USING GRAYSCALE"%}</h3>
+        <p>{%trans "If the color logotype isn’t an option for technical reasons, use the black or white versions instead."%}</p>
+        <p>{%trans "You can create a version using any value on the grayscale."%}</p>
+      </div>
+      <div class="c s12 pLa10">
+{%if lang.current == 'fa'%}
+        <img class="max-w300" src="{{url.static}}/logo/styleguide-fa/png/jibres-logo-styleguide-fa-10-img.png" alt='{%trans "Jibres"%} {%trans "USING GRAYSCALE"%}'>
+{%else%}
+        <img class="max-w300" src="{{url.static}}/logo/styleguide/png/jibres-logo-styleguide-10-img.png" alt='{%trans "Jibres"%} {%trans "USING GRAYSCALE"%}'>
+{%endif%}
+      </div>
+    </div>
+   </div>
+  </section>
+
+
+
+
+</article>
+
+<hr>
+
 
   <div class="pc">
    <div class="cn">
-    <section class="pTB4x">
-      <h3>{%trans "VERTICAL LOCKUP"%}</h3>
-      <p>{%trans "The vertical lockup can be used when the provided space is square and use of the horizontal lockup will make the logo look too small."%}</p>
-    </section>
+
 
     <section class="pTB4x">
-      <h3>{%trans "ICON BY ITSELF"%}</h3>
-      <p>{%trans "Use the icon only when 'Jibres' has been well established elsewhere on the page or in the design. When in doubt, use the full logotype."%}</p>
-      <p>{%trans ""%}</p>
-    </section>
-
-    <section class="pTB4x">
-      <h3>{%trans "SAFE SPACE"%}</h3>
-      <p>{%trans "Safe space acts as a buffer between the logo and other visual elements on a page, including text."%}</p>
-      <p>{%trans "This space is the minimum distance needed and is equal to third the height of the icon."%}</p>
-    </section>
-
-    <section class="pTB4x">
-      <h3>{%trans "MINIMAL SIZE"%}</h3>
-      <p>{%trans "Here’s the recommended minimum size at which the logo may be reproduced. For legibility reasons, we ask that you stick to these dimensions."%}</p>
-    </section>
-
-    <section class="pTB4x">
-      <h3>{%trans "JIBRES RED"%}</h3>
-      <p>{%trans "The Jibres red is bright and vibrant and we want it to stand out clearly. To that end, here are the color values you can use for both digital and print."%}</p>
-    </section>
-
-    <section class="pTB4x">
-      <h3>{%trans "USING GRAYSCALE"%}</h3>
-      <p>{%trans "If the color logotype isn’t an option for technical reasons, use the black or white versions instead."%}</p>
-      <p>{%trans "You can create a version using any value on the grayscale."%}</p>
+      <h3>{%trans ""%}</h3>
     </section>
 
     <section class="pTB4x">
