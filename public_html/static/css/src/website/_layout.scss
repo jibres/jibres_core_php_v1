@@ -1,11 +1,10 @@
 html {
   height: 100%;
 }
-
-
 body{
   height: 100%;
 }
+body main.wrapper{overflow-x: hidden;}
 .vflex{min-height:100vh;display:flex;flex-direction:column;}
 
 
