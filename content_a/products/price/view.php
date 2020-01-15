@@ -56,6 +56,10 @@ class view
 			\dash\data::barcodeScaned('?barcode='. $search_string);
 		}
 
+
+		// set back link
+		\lib\backlink::set_products();
+
 		$myProductList = \lib\app\product\search::price_list($search_string, $args);
 
 		\lib\app\product\load::barcode_is_scaned($myProductList, $search_string);

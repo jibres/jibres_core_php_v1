@@ -117,7 +117,7 @@ class model
 		// product no changed not redirect
 		if(\dash\temp::get('productNoChangeNotRedirect'))
 		{
-			\dash\redirect::to(\dash\url::this());
+			\dash\redirect::to(\lib\backlink::products());
 		}
 
 		\dash\redirect::pwd();
@@ -131,7 +131,7 @@ class model
 			$result = \lib\app\product\remove::product($_id);
 			if($result)
 			{
-				\dash\redirect::to(\dash\url::this());
+				\dash\redirect::to(\lib\backlink::products());
 			}
 			return true;
 		}

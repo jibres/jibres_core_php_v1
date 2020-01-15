@@ -15,7 +15,7 @@ class view
 
 		// back
 		\dash\data::page_backText(T_('Products'));
-		\dash\data::page_backLink(\dash\url::this());
+		\dash\data::page_backLink(\lib\backlink::products());
 
 		// \dash\data::page_help(\dash\url::support().'/product');
 

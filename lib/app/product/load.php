@@ -21,6 +21,7 @@ class load
 
 			if(isset($_data[0]['id']) && $barcode_is_scaned)
 			{
+				\lib\backlink::product_barcode_scaned();
 				\dash\redirect::to(\dash\url::this().'/edit?id='. $_data[0]['id']);
 			}
 		}
