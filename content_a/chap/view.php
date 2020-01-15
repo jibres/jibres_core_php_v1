@@ -9,14 +9,18 @@ class view
 		\dash\data::page_title(T_('Print factor'));
 		\dash\data::page_desc(T_('You can search in list of factors, add new factor and edit existing.'));
 
-		\dash\data::badge_text(T_('Back to dashboard'));
-		\dash\data::badge_link(\dash\url::here());
+
+		// back
+		\dash\data::page_backText(T_('Factors'));
+		\dash\data::page_backLink(\lib\backlink::factor());
 
 		$id = \dash\request::get('id');
 
 		$factorDetail = \lib\app\factor\get::full($id);
 
 		\dash\data::factorDetail($factorDetail);
+
+
 
 
 		$printSize  = \dash\url::child();

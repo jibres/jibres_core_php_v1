@@ -42,6 +42,7 @@ class view
 
 		$search_string = \dash\request::get('q');
 
+		\lib\backlink::set_factor();
 
 		$myFactorList = \lib\app\factor\search::list($search_string, $args);
 

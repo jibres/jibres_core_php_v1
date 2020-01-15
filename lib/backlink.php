@@ -1,7 +1,20 @@
 <?php
 namespace lib;
 
-class backlink {
+class backlink
+{
+
+	public static function set_factor($_args = [])
+	{
+		return self::set('factor', $_args);
+	}
+
+
+	public static function factor()
+	{
+		return self::get('factor');
+	}
+
 
 	public static function clean($_module)
 	{
@@ -51,7 +64,7 @@ class backlink {
 
 	public static function get($_module)
 	{
-		$url   = \dash\url::this();
+		$url   = \dash\url::here(). '/'. $_module;
 		$child = \dash\session::get('backlink_child_'. $_module);
 
 		if($child)
