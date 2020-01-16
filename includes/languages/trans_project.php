@@ -162,38 +162,60 @@ class twigTransTerms
 
 	//-----------------------D:\xampp\htdocs\Projects\jibres\content\logo\display.html
 	echo T_("Jibres logo");                                                           // Line 17
-	echo T_("Download Jibres Brand Styleguide");                                      // Line 48
-	echo T_("MEET THE LOGO");                                                         // Line 65
-	echo T_("Our logo represents simplicity, vivacity, agility, scalability and reliability; Values that we believe them as a company.");// Line 66
-	echo T_("These guidelines are here to help ensure that your use of the Jibres logo is consistent with the way we present ourselves.");// Line 67
-	echo T_("STANDARD LOCKUP");                                                       // Line 87
-	echo T_("Our standard horizontal lockup is our official logotype, consisting of the icon and our wordmark. If you aren't sure which logo to use in your materials, use this one.");// Line 81
-	echo T_("VERTICAL LOCKUP");                                                       // Line 105
-	echo T_("The vertical lockup can be used when the provided space is square and use of the horizontal lockup will make the logo look too small.");// Line 99
-	echo T_("ICON BY ITSELF");                                                        // Line 116
-	echo T_("Use the icon only when 'Jibres' has been well established elsewhere on the page or in the design. When in doubt, use the full logotype.");// Line 117
-	echo T_("SAFE SPACE");                                                            // Line 138
-	echo T_("Safe space acts as a buffer between the logo and other visual elements on a page, including text.");// Line 131
-	echo T_("This space is the minimum distance needed and is equal to third the height of the icon.");// Line 132
-	echo T_("MINIMAL SIZE");                                                          // Line 156
-	echo T_("Here’s the recommended minimum size at which the logo may be reproduced. For legibility reasons, we ask that you stick to these dimensions.");// Line 150
-	echo T_("JIBRES RED");                                                            // Line 171
-	echo T_("The Jibres red is bright and vibrant and we want it to stand out clearly. To that end, here are the color values you can use for both digital and print.");// Line 168
-	echo T_("USING GRAYSCALE");                                                       // Line 189
-	echo T_("If the color logotype isn’t an option for technical reasons, use the black or white versions instead.");// Line 182
-	echo T_("You can create a version using any value on the grayscale.");            // Line 183
-	echo T_("BACKGROUND COLOR");                                                      // Line 209
-	echo T_("Our logo must always have good contrast with the background to ensure maximum impact and accessibility.");// Line 201
-	echo T_("Use the black or white versions if the logo is to be presented on a background color.");// Line 202
-	echo T_("If you’re going with grayscale, make sure you choose a version where the contrast between the logo and the background is strong.");// Line 203
-	echo T_("WORDMARK");                                                              // Line 232
-	echo T_("Here’s what you need to know about the wordmark:");                      // Line 221
-	echo T_("The font used for the wordmark is Acre Medium.");                        // Line 223
-	echo T_("This font is only used in the logo.");                                   // Line 224
-	echo T_("'Jibres' is written as one word, with the letters'J' capitalized in all instances.");// Line 225
-	echo T_("LOGO DON'TS");                                                           // Line 243
-	echo T_("Use the Jibres logos as provided and please do not make any changes to them :)");// Line 244
-	echo T_("LOGO DO NOTS");                                                          // Line 250
+	echo T_("Download Logo Pack");                                                    // Line 43
+	echo T_("All type of Jibres logos are available!");                               // Line 45
+	echo T_("Download latest Jibres logo pack.");                                     // Line 45
+	echo T_("Also you can browse to find our logo based on your need.");              // Line 46
+	echo T_("Jibres logo repository.");                                               // Line 46
+	echo T_("MEET THE LOGO");                                                         // Line 54
+	echo T_("Our logo represents simplicity, vivacity, agility, scalability and reliability; Values that we believe them as a company.");// Line 55
+	echo T_("These guidelines are here to help ensure that your use of the Jibres logo is consistent with the way we present ourselves.");// Line 56
+	echo T_("SAFE SPACE");                                                            // Line 82
+	echo T_("Safe space acts as a buffer between the logo and other visual elements on a page, including text.");// Line 75
+	echo T_("This space is the minimum distance needed and is equal to third the height of the icon.");// Line 76
+	echo T_("MINIMAL SIZE");                                                          // Line 100
+	echo T_("Here’s the recommended minimum size at which the logo may be reproduced. For legibility reasons, we ask that you stick to these dimensions.");// Line 94
+	echo T_("JIBRES RED");                                                            // Line 115
+	echo T_("The Jibres red is bright and vibrant and we want it to stand out clearly. To that end, here are the color values you can use for both digital and print.");// Line 112
+	echo T_("USING GRAYSCALE");                                                       // Line 133
+	echo T_("If the color logotype isn’t an option for technical reasons, use the black or white versions instead.");// Line 126
+	echo T_("You can create a version using any value on the grayscale.");            // Line 127
+	echo T_("BACKGROUND COLOR");                                                      // Line 153
+	echo T_("Our logo must always have good contrast with the background to ensure maximum impact and accessibility.");// Line 145
+	echo T_("Use the black or white versions if the logo is to be presented on a background color.");// Line 146
+	echo T_("If you’re going with grayscale, make sure you choose a version where the contrast between the logo and the background is strong.");// Line 147
+	echo T_("WORDMARK");                                                              // Line 176
+	echo T_("Here’s what you need to know about the wordmark:");                      // Line 165
+	echo T_("The font used for the wordmark is Acre Medium.");                        // Line 167
+	echo T_("This font is only used in the logo.");                                   // Line 168
+	echo T_("'Jibres' is written as one word, with the letters'J' capitalized in all instances.");// Line 169
+	echo T_("LOGO DON'TS");                                                           // Line 187
+	echo T_("Use the Jibres logos as provided and please do not make any changes to them :)");// Line 188
+	echo T_("LOGO DO NOTS");                                                          // Line 194
+
+	//------------------D:\xampp\htdocs\Projects\jibres\content\logo\section-icon.html
+	echo T_("ICON BY ITSELF");                                                        // Line 5
+	echo T_("Use the icon only when 'Jibres' has been well established elsewhere on the page or in the design. When in doubt, use the full logotype.");// Line 6
+	echo T_("Jibres Icon");                                                           // Line 9
+	echo T_("Download Jibres Logo");                                                  // Line 120
+	echo T_("Icon");                                                                  // Line 45
+	echo T_("Jibres Logo");                                                           // Line 157
+	echo T_("Black");                                                                 // Line 205
+	echo T_("White");                                                                 // Line 255
+
+	//--------------D:\xampp\htdocs\Projects\jibres\content\logo\section-standard.html
+	echo T_("STANDARD LOCKUP");                                                       // Line 255
+	echo T_("Our standard horizontal lockup is our official logotype, consisting of the icon and our wordmark. If you aren't sure which logo to use in your materials, use this one.");// Line 6
+	echo T_("Download Jibres Persian Logo");                                          // Line 255
+	echo T_("Jibres Persian Logo");                                                   // Line 265
+
+	//------------D:\xampp\htdocs\Projects\jibres\content\logo\section-styleguide.html
+	echo T_("Download Jibres Brand Styleguide");                                      // Line 3
+	echo T_("Download Jibres Persian Brand Styleguide");                              // Line 27
+
+	//--------------D:\xampp\htdocs\Projects\jibres\content\logo\section-vertical.html
+	echo T_("VERTICAL LOCKUP");                                                       // Line 12
+	echo T_("The vertical lockup can be used when the provided space is square and use of the horizontal lockup will make the logo look too small.");// Line 6
 
 	//------------------------D:\xampp\htdocs\Projects\jibres\content\main\layout.html
 	echo T_("Next →");                                                                // Line 33
@@ -485,7 +507,7 @@ class twigTransTerms
 	echo T_("Sale Invoice");                                                          // Line 69
 	echo T_("Discount");                                                              // Line 62
 	echo T_("Sum");                                                                   // Line 29
-	echo T_("Your total discount and profits");                                       // Line 131
+	echo T_("Your total discount and profits");                                       // Line 125
 
 	//---D:\xampp\htdocs\Projects\jibres\content_a\chap\size-receipt\receipt-long.html
 	echo T_("Customer Detail");                                                       // Line 43
@@ -592,23 +614,6 @@ class twigTransTerms
 	echo T_("Save Pay & continue");                                                   // Line 76
 	echo T_("Amount");                                                                // Line 112
 	echo T_("Bank");                                                                  // Line 58
-
-	//--------D:\xampp\htdocs\Projects\jibres\content_a\permission\delete\display.html
-	echo T_("The permission name should be unique and contain only alphanameric characters and underscores");// Line 14
-	echo T_("Name of your permission");                                               // Line 14
-	echo T_("Label");                                                                 // Line 17
-	echo T_("The permission label is used to represent your permission in user management");// Line 18
-	echo T_("Label of your permission");                                              // Line 18
-
-	//---------------D:\xampp\htdocs\Projects\jibres\content_a\permission\display.html
-	echo T_("Permission title");                                                      // Line 8
-	echo T_("Customized");                                                            // Line 10
-	echo T_("Need double check permission for some sensitive permissions");           // Line 43
-	echo T_("Do hard check and need to enter again");                                 // Line 44
-	echo T_("Count of user in permission");                                           // Line 61
-	echo T_("Remove this permission if not need");                                    // Line 65
-	echo T_("No user");                                                               // Line 65
-	echo T_("Click to show list of user by this permission");                         // Line 67
 
 	//---------D:\xampp\htdocs\Projects\jibres\content_a\products\comment\display.html
 	echo T_("Author");                                                                // Line 54
@@ -1838,7 +1843,6 @@ class twigTransTerms
 
 	//-------------D:\xampp\htdocs\Projects\jibres\content_cms\posts\edit\display.html
 	echo T_("Preview");                                                               // Line 53
-	echo T_("Icon");                                                                  // Line 45
 	echo T_("Choose icon");                                                           // Line 94
 
 	//-------------D:\xampp\htdocs\Projects\jibres\content_cms\posts\home\display.html
@@ -2152,10 +2156,23 @@ class twigTransTerms
 	echo T_("Last modified on");                                                      // Line 41
 
 	//--------D:\xampp\htdocs\Projects\jibres\content_crm\permission\add\permView.html
+	echo T_("The permission name should be unique and contain only alphanameric characters and underscores");// Line 14
+	echo T_("Name of your permission");                                               // Line 14
+	echo T_("The permission label is used to represent your permission in user management");// Line 18
+	echo T_("Label of your permission");                                              // Line 18
 
 	//------D:\xampp\htdocs\Projects\jibres\content_crm\permission\delete\display.html
+	echo T_("Label");                                                                 // Line 17
 
 	//-------------D:\xampp\htdocs\Projects\jibres\content_crm\permission\display.html
+	echo T_("Permission title");                                                      // Line 8
+	echo T_("Customized");                                                            // Line 10
+	echo T_("Count of user in permission");                                           // Line 61
+	echo T_("Remove this permission if not need");                                    // Line 65
+	echo T_("No user");                                                               // Line 65
+	echo T_("Click to show list of user by this permission");                         // Line 67
+	echo T_("Need double check permission for some sensitive permissions");           // Line 43
+	echo T_("Do hard check and need to enter again");                                 // Line 44
 
 	//--------------D:\xampp\htdocs\Projects\jibres\content_crm\sms\group\display.html
 	echo T_("Users mobile");                                                          // Line 13
