@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 	public static function api_routing()
@@ -16,12 +16,12 @@ class controller
 
 		$directory = \dash\url::directory();
 
-		\content_api\v1::appkey_required();
+		\content_api\v1\tools::appkey_required();
 
 		if($directory === 'v1/store/add')
 		{
 
-			\content_api\v1::apikey_required();
+			\content_api\v1\tools::apikey_required();
 
 			if(\dash\request::is('post'))
 			{
@@ -29,7 +29,7 @@ class controller
 			}
 			else
 			{
-				\content_api\v1::invalid_method();
+				\content_api\v1\tools::invalid_method();
 			}
 		}
 		elseif($directory === 'v1/store/question')
@@ -38,10 +38,10 @@ class controller
 		}
 		else
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
-		\content_api\v1::say($detail);
+		\content_api\v1\tools::say($detail);
 	}
 
 
@@ -49,8 +49,8 @@ class controller
 	private static function new_store()
 	{
 		$post              = [];
-		$post['title']     = \content_api\v1::input_body('title');
-		$post['subdomain'] = \content_api\v1::input_body('subdomain');
+		$post['title']     = \content_api\v1\tools::input_body('title');
+		$post['subdomain'] = \content_api\v1\tools::input_body('subdomain');
 
 		$polls = \lib\app\store\polls::all();
 
@@ -62,7 +62,7 @@ class controller
 			{
 				if(isset($question['id']))
 				{
-					$answer = \content_api\v1::input_body($question['id']);
+					$answer = \content_api\v1\tools::input_body($question['id']);
 					if($answer && is_string($answer))
 					{
 						if(isset($question['items']) && is_array($question['items']))

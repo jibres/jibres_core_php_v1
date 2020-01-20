@@ -6,26 +6,26 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 	public static function api_routing()
 	{
 		if(\dash\url::dir(4))
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
-		\content_api\v1::apikey_required();
+		\content_api\v1\tools::apikey_required();
 
 		if(!\dash\request::is('get'))
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 
 		$smile = self::smile();
 
-		\content_api\v1::say($smile);
+		\content_api\v1\tools::say($smile);
 	}
 
 

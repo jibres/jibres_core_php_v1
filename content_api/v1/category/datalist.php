@@ -9,11 +9,11 @@ class datalist
 		if(\dash\request::is('get'))
 		{
 			$result = self::list();
-			\content_api\v1::say($result);
+			\content_api\v1\tools::say($result);
 		}
 		else
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 	}
 
@@ -23,11 +23,11 @@ class datalist
 		if(\dash\request::is('get'))
 		{
 			$result = self::list_child($_category_id);
-			\content_api\v1::say($result);
+			\content_api\v1\tools::say($result);
 		}
 		else
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 	}
 

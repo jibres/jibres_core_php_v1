@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 
@@ -14,7 +14,7 @@ class controller
 	{
 		$detail    = [];
 
-		\content_api\v1::apikey_required();
+		\content_api\v1\tools::apikey_required();
 
 		$dir_3     = \dash\url::dir(3);
 
@@ -23,12 +23,12 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			if(!\dash\request::is('get'))
 			{
-				\content_api\v1::invalid_method();
+				\content_api\v1\tools::invalid_method();
 			}
 
 			self::cart_list();
@@ -37,12 +37,12 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			if(!\dash\request::is('post'))
 			{
-				\content_api\v1::invalid_method();
+				\content_api\v1\tools::invalid_method();
 			}
 
 			self::cart_add();
@@ -51,12 +51,12 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			if(!\dash\request::is('delete'))
 			{
-				\content_api\v1::invalid_method();
+				\content_api\v1\tools::invalid_method();
 			}
 
 			self::cart_delete();
@@ -65,12 +65,12 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			if(!\dash\request::is('put'))
 			{
-				\content_api\v1::invalid_method();
+				\content_api\v1\tools::invalid_method();
 			}
 
 			self::cart_edit();
@@ -79,19 +79,19 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			if(!\dash\request::is('post'))
 			{
-				\content_api\v1::invalid_method();
+				\content_api\v1\tools::invalid_method();
 			}
 
 			self::cart_checkout();
 		}
 		else
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 	}
 
@@ -99,47 +99,47 @@ class controller
 	private static function cart_list()
 	{
 		$result  = \lib\app\cart\get::my_cart_list();
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 
 
 	private static function cart_add()
 	{
-		$product = \content_api\v1::input_body('product');
-		$count   = \content_api\v1::input_body('count');
+		$product = \content_api\v1\tools::input_body('product');
+		$count   = \content_api\v1\tools::input_body('count');
 		$result  = \lib\app\cart\add::new_cart($product, $count);
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 
 	private static function cart_delete()
 	{
-		$product = \content_api\v1::input_body('product');
+		$product = \content_api\v1\tools::input_body('product');
 		$result  = \lib\app\cart\remove::from_cart($product);
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 
 	private static function cart_edit()
 	{
-		$product = \content_api\v1::input_body('product');
-		$count   = \content_api\v1::input_body('count');
+		$product = \content_api\v1\tools::input_body('product');
+		$count   = \content_api\v1\tools::input_body('count');
 		$result  = \lib\app\cart\edit::update_cart($product, $count);
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 
 
 	private static function cart_checkout()
 	{
-		$address_id         = \content_api\v1::input_body('address_id');
+		$address_id         = \content_api\v1\tools::input_body('address_id');
 		$args               = [];
 		$args['address_id'] = $address_id;
 
 		$result  = \lib\app\cart\checkout::user_cart($args);
 
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 }

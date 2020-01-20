@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 
@@ -14,13 +14,13 @@ class controller
 	{
 		$detail    = [];
 
-		\content_api\v1::apikey_required();
+		\content_api\v1\tools::apikey_required();
 
 		$dir_2 = \dash\url::dir(2);
 
 		if($dir_2 !== 'product')
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
 
@@ -31,7 +31,7 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			\dash\permission::access('ProductAdd');
@@ -47,7 +47,7 @@ class controller
 					{
 						if(\dash\url::dir(6))
 						{
-							\content_api\v1::invalid_url();
+							\content_api\v1\tools::invalid_url();
 						}
 
 						\content_api\v1\product\comment::route_add($product_id);
@@ -64,7 +64,7 @@ class controller
 
 					if(\dash\url::dir(5))
 					{
-						\content_api\v1::invalid_url();
+						\content_api\v1\tools::invalid_url();
 					}
 
 					\content_api\v1\product\action::route_edit($product_id);
@@ -79,7 +79,7 @@ class controller
 						{
 							if(\dash\url::dir(6))
 							{
-								\content_api\v1::invalid_url();
+								\content_api\v1\tools::invalid_url();
 							}
 							\content_api\v1\product\action::route_thumb($product_id);
 						}
@@ -87,13 +87,13 @@ class controller
 						{
 							if(\dash\url::dir(6))
 							{
-								\content_api\v1::invalid_url();
+								\content_api\v1\tools::invalid_url();
 							}
 							\content_api\v1\product\action::route_gallery_remove($product_id);
 						}
 						else
 						{
-							\content_api\v1::invalid_url();
+							\content_api\v1\tools::invalid_url();
 						}
 					}
 
@@ -103,7 +103,7 @@ class controller
 				case 'remove':
 					if(\dash\url::dir(5))
 					{
-						\content_api\v1::invalid_url();
+						\content_api\v1\tools::invalid_url();
 					}
 					\dash\permission::access('ProductDelete');
 					\content_api\v1\product\action::route_remove($product_id);
@@ -112,7 +112,7 @@ class controller
 				case 'property':
 					if(\dash\url::dir(5))
 					{
-						\content_api\v1::invalid_url();
+						\content_api\v1\tools::invalid_url();
 					}
 					\content_api\v1\product\property::route($product_id);
 
@@ -123,13 +123,13 @@ class controller
 					break;
 
 				default:
-					\content_api\v1::invalid_url();
+					\content_api\v1\tools::invalid_url();
 					break;
 			}
 		}
 		else
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 	}
 }

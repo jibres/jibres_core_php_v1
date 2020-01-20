@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 	public static function api_routing()
@@ -24,11 +24,11 @@ class controller
 			case 'contact':
 				if(\dash\url::dir(4))
 				{
-					\content_api\v1::invalid_url();
+					\content_api\v1\tools::invalid_url();
 				}
 				if(!\dash\request::is('get'))
 				{
-					\content_api\v1::invalid_method();
+					\content_api\v1\tools::invalid_method();
 				}
 
 				$detail = self::page($my_child);
@@ -40,11 +40,11 @@ class controller
 				break;
 
 			default:
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 				break;
 		}
 
-		\content_api\v1::say($detail);
+		\content_api\v1\tools::say($detail);
 
 	}
 

@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 
@@ -14,12 +14,12 @@ class controller
 	{
 		if(!\dash\request::is('get'))
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 
 		$detail = self::detail_v1();
 
-		\content_api\v1::say($detail);
+		\content_api\v1\tools::say($detail);
 	}
 
 

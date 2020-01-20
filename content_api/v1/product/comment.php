@@ -9,11 +9,11 @@ class comment
 		if(\dash\request::is('post'))
 		{
 			$result = self::add_new_comment($_product_id);
-			\content_api\v1::say($result);
+			\content_api\v1\tools::say($result);
 		}
 		else
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 	}
 
@@ -24,11 +24,11 @@ class comment
 		if(\dash\request::is('get'))
 		{
 			$result = self::get_list($_product_id);
-			\content_api\v1::say($result);
+			\content_api\v1\tools::say($result);
 		}
 		else
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 	}
 
@@ -57,8 +57,8 @@ class comment
 	{
 		$post =
 		[
-			'content'    => \content_api\v1::input_body('content'),
-			'star'       => \content_api\v1::input_body('star'),
+			'content'    => \content_api\v1\tools::input_body('content'),
+			'star'       => \content_api\v1\tools::input_body('star'),
 			'product_id' => $_product_id,
 		];
 

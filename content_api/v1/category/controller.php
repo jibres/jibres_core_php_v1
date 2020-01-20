@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 
@@ -14,13 +14,13 @@ class controller
 	{
 		$detail    = [];
 
-		\content_api\v1::apikey_required();
+		\content_api\v1\tools::apikey_required();
 
 		$dir_2 = \dash\url::dir(2);
 
 		if($dir_2 !== 'category')
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
 
@@ -31,7 +31,7 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			\content_api\v1\category\add::route_add();
@@ -48,7 +48,7 @@ class controller
 				case 'child':
 					if(\dash\url::dir(5))
 					{
-						\content_api\v1::invalid_url();
+						\content_api\v1\tools::invalid_url();
 					}
 					\content_api\v1\category\datalist::route_child($category_id);
 					break;
@@ -56,7 +56,7 @@ class controller
 				case 'property':
 					if(\dash\url::dir(5))
 					{
-						\content_api\v1::invalid_url();
+						\content_api\v1\tools::invalid_url();
 					}
 					\content_api\v1\category\property::route($category_id);
 					break;
@@ -64,7 +64,7 @@ class controller
 				// case 'edit':
 				// 	if(\dash\url::dir(5))
 				// 	{
-				// 		\content_api\v1::invalid_url();
+				// 		\content_api\v1\tools::invalid_url();
 				// 	}
 				// 	\content_api\v1\category\add::route_edit($category_id);
 				// 	break;
@@ -74,13 +74,13 @@ class controller
 					break;
 
 				default:
-					\content_api\v1::invalid_url();
+					\content_api\v1\tools::invalid_url();
 					break;
 			}
 		}
 		else
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
 	}

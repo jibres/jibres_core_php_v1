@@ -6,14 +6,14 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 	public static function api_routing()
 	{
 		if(\dash\url::dir(3))
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
 
@@ -26,7 +26,7 @@ class controller
 			}
 		}
 
-		\content_api\v1::say($lang_list);
+		\content_api\v1\tools::say($lang_list);
 	}
 }
 ?>

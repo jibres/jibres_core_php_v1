@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 
@@ -14,7 +14,7 @@ class controller
 	{
 		$detail    = [];
 
-		\content_api\v1::apikey_required();
+		\content_api\v1\tools::apikey_required();
 
 		$dir_3     = \dash\url::dir(3);
 		$ticket_id = $dir_3;
@@ -24,12 +24,12 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			if(!\dash\request::is('get'))
 			{
-				\content_api\v1::invalid_method();
+				\content_api\v1\tools::invalid_method();
 			}
 
 			self::ticket_list();
@@ -38,12 +38,12 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			if(!\dash\request::is('post'))
 			{
-				\content_api\v1::invalid_method();
+				\content_api\v1\tools::invalid_method();
 			}
 
 			self::ticket_add();
@@ -54,7 +54,7 @@ class controller
 			{
 				if(!\dash\request::is('get'))
 				{
-					\content_api\v1::invalid_method();
+					\content_api\v1\tools::invalid_method();
 				}
 
 				self::get_ticket($ticket_id);
@@ -65,14 +65,14 @@ class controller
 
 				if(\dash\url::dir(5))
 				{
-					\content_api\v1::invalid_url();
+					\content_api\v1\tools::invalid_url();
 				}
 
 				if($dir_4 === 'replay')
 				{
 					if(!\dash\request::is('post'))
 					{
-						\content_api\v1::invalid_method();
+						\content_api\v1\tools::invalid_method();
 					}
 					self::ticket_replay($ticket_id);
 				}
@@ -80,7 +80,7 @@ class controller
 				{
 					if(!\dash\request::is('put'))
 					{
-						\content_api\v1::invalid_method();
+						\content_api\v1\tools::invalid_method();
 					}
 					self::ticket_status($ticket_id);
 				}
@@ -88,40 +88,40 @@ class controller
 				{
 					if(!\dash\request::is('put'))
 					{
-						\content_api\v1::invalid_method();
+						\content_api\v1\tools::invalid_method();
 					}
 					self::ticket_solved($ticket_id);
 				}
 				else
 				{
-					\content_api\v1::invalid_url();
+					\content_api\v1\tools::invalid_url();
 				}
 			}
 			else
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 		}
 		else
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 	}
 
 
 	private static function ticket_status($_tiket_id)
 	{
-		$status = \content_api\v1::input_body('status');
+		$status = \content_api\v1\tools::input_body('status');
 		$result = \content_support\ticket\show\model::change_status($_tiket_id, $status);
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 
 	private static function ticket_solved($_tiket_id)
 	{
-		$solved = \content_api\v1::input_body('solved');
+		$solved = \content_api\v1\tools::input_body('solved');
 		$result = \content_support\ticket\show\model::save_solved($_tiket_id, $solved);
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 
@@ -129,7 +129,7 @@ class controller
 	{
 		\content_support\ticket\show\view::load_tichet($_tiket_id);
 		$ticket_list                    = \dash\data::dataTable();
-		\content_api\v1::say($ticket_list);
+		\content_api\v1\tools::say($ticket_list);
 	}
 
 
@@ -137,16 +137,16 @@ class controller
 	{
 		\content_support\ticket\home\view::load_ticket_list();
 		$ticket_list = \dash\data::dataTable();
-		\content_api\v1::say($ticket_list);
+		\content_api\v1\tools::say($ticket_list);
 	}
 
 	private static function ticket_replay($_tiket_id)
 	{
 		// $via     = 'api';
 		$via     = null;
-		$content = \content_api\v1::input_body('content');
+		$content = \content_api\v1\tools::input_body('content');
 		$result = \content_support\ticket\show\model::answer_save($_tiket_id, $content, $_type = 'ticket', $_send_message = false);
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 
@@ -154,12 +154,12 @@ class controller
 	{
 		// $via     = 'api';
 		$via     = null;
-		$content = \content_api\v1::input_body('content');
-		$title   = \content_api\v1::input_body('title');
+		$content = \content_api\v1\tools::input_body('content');
+		$title   = \content_api\v1\tools::input_body('title');
 		$file    = null;
 		$result  = \content_support\ticket\add\model::add_new($via, $content, $file, $title);
 
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 }

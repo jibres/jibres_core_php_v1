@@ -15,11 +15,11 @@ class get
 			{
 				$detail = self::ready($detail);
 			}
-			\content_api\v1::say($detail);
+			\content_api\v1\tools::say($detail);
 		}
 		else
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 	}
 
@@ -34,11 +34,11 @@ class get
 				$detail = array_map(['self', 'ready'], $detail);
 			}
 
-			\content_api\v1::say($detail);
+			\content_api\v1\tools::say($detail);
 		}
 		else
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 	}
 

@@ -1,8 +1,8 @@
 <?php
-namespace content_api;
+namespace content_api\v1;
 
 
-class v1
+class tools
 {
 	public static $v1             = [];
 	private static $REQUEST       = [];

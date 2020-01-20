@@ -8,17 +8,17 @@ class controller
 	{
 		if(!\dash\request::is('get'))
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 
 		if(!\dash\url::subchild())
 		{
-			\content_api\v1::stop(404, T_("Need country, province or city? Fix url!"));
+			\content_api\v1\tools::stop(404, T_("Need country, province or city? Fix url!"));
 		}
 
 		if(count(\dash\url::dir()) > 3)
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
 		$data = [];
@@ -105,11 +105,11 @@ class controller
 				break;
 
 			default:
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 				break;
 		}
 
-		\content_api\v1::say($data);
+		\content_api\v1\tools::say($data);
 
 		// j(\dash\url::all());
 	}

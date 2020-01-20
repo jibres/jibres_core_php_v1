@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 	public static function api_routing()
@@ -18,11 +18,11 @@ class controller
 			case 'posts':
 				if(\dash\url::dir(4) !== 'list')
 				{
-					\content_api\v1::invalid_url();
+					\content_api\v1\tools::invalid_url();
 				}
 				if(!\dash\request::is('get'))
 				{
-					\content_api\v1::invalid_method();
+					\content_api\v1\tools::invalid_method();
 				}
 				$detail = self::posts();
 				break;
@@ -30,25 +30,25 @@ class controller
 			case 'post':
 				if(!\dash\request::is('get'))
 				{
-					\content_api\v1::invalid_method();
+					\content_api\v1\tools::invalid_method();
 				}
 
 				$id = \dash\url::dir(4);
 
 				if(!$id || !\dash\coding::decode($id))
 				{
-					\content_api\v1::invalid_param('id');
+					\content_api\v1\tools::invalid_param('id');
 				}
 
 				$detail = self::load_post($id);
 				break;
 
 			default:
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 				break;
 		}
 
-		\content_api\v1::say($detail);
+		\content_api\v1\tools::say($detail);
 	}
 
 

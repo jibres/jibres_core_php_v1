@@ -12,7 +12,7 @@ class unit
 		}
 		else
 		{
-			\content_api\v1::stop(405);
+			\content_api\v1\tools::stop(405);
 		}
 	}
 

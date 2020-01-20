@@ -24,9 +24,9 @@ class controller
 			return;
 		}
 
-		\content_api\v1::appkey_required();
+		\content_api\v1\tools::appkey_required();
 
-		\content_api\v1::store_required();
+		\content_api\v1\tools::store_required();
 
 		// check store is exsist
 
@@ -95,7 +95,7 @@ class controller
 				break;
 
 			default:
-				\content_api\v1::stop(404);
+				\content_api\v1\tools::stop(404);
 				break;
 		}
 	}

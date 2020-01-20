@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 	public static function api_routing()
@@ -17,12 +17,12 @@ class controller
 			case 'verify':
 				if(\dash\url::dir(5))
 				{
-					\content_api\v1::invalid_url();
+					\content_api\v1\tools::invalid_url();
 				}
 
 				if(!\dash\request::is('post'))
 				{
-					\content_api\v1::invalid_method();
+					\content_api\v1\tools::invalid_method();
 				}
 				\content_api\v1\account\enter\enter::fire();
 				break;
@@ -30,13 +30,13 @@ class controller
 			case null:
 				if(!\dash\request::is('post'))
 				{
-					\content_api\v1::invalid_method();
+					\content_api\v1\tools::invalid_method();
 				}
 				\content_api\v1\account\enter\enter::fire();
 				break;
 
 			default:
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 				break;
 		}
 	}

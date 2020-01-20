@@ -70,19 +70,19 @@ class address
 	{
 		$post                = [];
 
-		if(\content_api\v1::isset_input_body('title')) 			 $post['title']       = \content_api\v1::input_body('title');
-		if(\content_api\v1::isset_input_body('name')) 			 $post['name']        = \content_api\v1::input_body('name');
-		if(\content_api\v1::isset_input_body('country')) 		 $post['country']     = \content_api\v1::input_body('country');
-		if(\content_api\v1::isset_input_body('city')) 			 $post['city']        = \content_api\v1::input_body('city');
-		if(\content_api\v1::isset_input_body('postcode')) 		 $post['postcode']    = \content_api\v1::input_body('postcode');
-		if(\content_api\v1::isset_input_body('phone')) 			 $post['phone']       = \content_api\v1::input_body('phone');
-		if(\content_api\v1::isset_input_body('province')) 		 $post['province']    = \content_api\v1::input_body('province');
-		if(\content_api\v1::isset_input_body('mobile')) 		 $post['mobile']      = \content_api\v1::input_body('mobile');
-		if(\content_api\v1::isset_input_body('address')) 		 $post['address']     = \content_api\v1::input_body('address');
-		if(\content_api\v1::isset_input_body('address2')) 		 $post['address2']    = \content_api\v1::input_body('address2');
-		if(\content_api\v1::isset_input_body('company')) 		 $post['company']     = \content_api\v1::input_body('company');
-		if(\content_api\v1::isset_input_body('companyname')) 	 $post['companyname'] = \content_api\v1::input_body('companyname');
-		if(\content_api\v1::isset_input_body('jobtitle')) 		 $post['jobtitle']    = \content_api\v1::input_body('jobtitle');
+		if(\content_api\v1\tools::isset_input_body('title')) 			 $post['title']       = \content_api\v1\tools::input_body('title');
+		if(\content_api\v1\tools::isset_input_body('name')) 			 $post['name']        = \content_api\v1\tools::input_body('name');
+		if(\content_api\v1\tools::isset_input_body('country')) 		 $post['country']     = \content_api\v1\tools::input_body('country');
+		if(\content_api\v1\tools::isset_input_body('city')) 			 $post['city']        = \content_api\v1\tools::input_body('city');
+		if(\content_api\v1\tools::isset_input_body('postcode')) 		 $post['postcode']    = \content_api\v1\tools::input_body('postcode');
+		if(\content_api\v1\tools::isset_input_body('phone')) 			 $post['phone']       = \content_api\v1\tools::input_body('phone');
+		if(\content_api\v1\tools::isset_input_body('province')) 		 $post['province']    = \content_api\v1\tools::input_body('province');
+		if(\content_api\v1\tools::isset_input_body('mobile')) 		 $post['mobile']      = \content_api\v1\tools::input_body('mobile');
+		if(\content_api\v1\tools::isset_input_body('address')) 		 $post['address']     = \content_api\v1\tools::input_body('address');
+		if(\content_api\v1\tools::isset_input_body('address2')) 		 $post['address2']    = \content_api\v1\tools::input_body('address2');
+		if(\content_api\v1\tools::isset_input_body('company')) 		 $post['company']     = \content_api\v1\tools::input_body('company');
+		if(\content_api\v1\tools::isset_input_body('companyname')) 	 $post['companyname'] = \content_api\v1\tools::input_body('companyname');
+		if(\content_api\v1\tools::isset_input_body('jobtitle')) 		 $post['jobtitle']    = \content_api\v1\tools::input_body('jobtitle');
 
 		return $post;
 	}

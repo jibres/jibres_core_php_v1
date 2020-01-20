@@ -6,26 +6,26 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 	public static function api_routing()
 	{
 		if(\dash\url::dir(4))
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
 		if(!\dash\request::is('get'))
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 
-		\content_api\v1::apikey_required();
+		\content_api\v1\tools::apikey_required();
 
 		$notif = self::notif();
 
-		\content_api\v1::say($notif);
+		\content_api\v1\tools::say($notif);
 	}
 
 
@@ -55,7 +55,7 @@ class controller
 
 		$dataTable = self::ready_api($dataTable);
 		// in this version needless to send read method
-		if(\content_api\v1::input_body('read') || true)
+		if(\content_api\v1\tools::input_body('read') || true)
 		{
 			if(is_array($dataTable))
 			{

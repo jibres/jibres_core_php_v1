@@ -32,11 +32,11 @@ class controller
 
 		if($module === 'v1')
 		{
-			\content_api\v1::master_check();
+			\content_api\v1\tools::master_check();
 		}
 		elseif($module === 'v2')
 		{
-			// \content_api\v1::master_check();
+			// \content_api\v1\tools::master_check();
 		}
 		elseif($module)
 		{

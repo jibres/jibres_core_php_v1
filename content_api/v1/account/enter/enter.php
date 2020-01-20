@@ -16,9 +16,9 @@ class enter
 
 	public static function fire()
 	{
-		\content_api\v1::check_token();
+		\content_api\v1\tools::check_token();
 
-		\content_api\v1::apikey_required();
+		\content_api\v1\tools::apikey_required();
 
 		$subchild = \dash\url::dir(4);
 
@@ -32,7 +32,7 @@ class enter
 		}
 		else
 		{
-			\content_api\v1::stop(404);
+			\content_api\v1\tools::stop(404);
 		}
 
 		if(!\dash\engine\process::status())
@@ -40,7 +40,7 @@ class enter
 			\dash\header::set(400);
 		}
 
-		\content_api\v1::say(self::$response);
+		\content_api\v1\tools::say(self::$response);
 
 	}
 
@@ -128,7 +128,7 @@ class enter
 
 	private static function check_input()
 	{
-		$mobile = \content_api\v1::input_body('mobile');
+		$mobile = \content_api\v1\tools::input_body('mobile');
 		if(!$mobile)
 		{
 			\dash\notif::error(T_("Mobile not set"), 'mobile');
@@ -142,7 +142,7 @@ class enter
 			return false;
 		}
 
-		$verifycode = \content_api\v1::input_body('verifycode');
+		$verifycode = \content_api\v1\tools::input_body('verifycode');
 		if($verifycode)
 		{
 			if(!is_numeric($verifycode))

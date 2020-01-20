@@ -6,14 +6,14 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 	public static function api_routing()
 	{
 		if(\dash\url::dir(4))
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
 		$result = null;
@@ -28,11 +28,11 @@ class controller
 		}
 		else
 		{
-			\content_api\v1::invalid_method();
+			\content_api\v1\tools::invalid_method();
 		}
 
 
-		\content_api\v1::say($result);
+		\content_api\v1\tools::say($result);
 	}
 
 
@@ -92,7 +92,7 @@ class controller
 
 	private static function terminate_session()
 	{
-		if(\content_api\v1::input_body('type') === 'terminateall')
+		if(\content_api\v1\tools::input_body('type') === 'terminateall')
 		{
 			\dash\db\sessions::terminate_all_other(\dash\user::id());
 			\dash\log::set('APIsessionTerminateAll');
@@ -100,9 +100,9 @@ class controller
 			return true;
 		}
 
-		if(\content_api\v1::input_body('type') === 'terminate')
+		if(\content_api\v1\tools::input_body('type') === 'terminate')
 		{
-			$session_id = \content_api\v1::input_body('id');
+			$session_id = \content_api\v1\tools::input_body('id');
 
 			if($session_id && \dash\coding::is($session_id))
 			{

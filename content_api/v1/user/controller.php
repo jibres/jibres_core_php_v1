@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 
@@ -14,13 +14,13 @@ class controller
 	{
 		$detail    = [];
 
-		\content_api\v1::apikey_required();
+		\content_api\v1\tools::apikey_required();
 
 		$dir_2 = \dash\url::dir(2);
 
 		if($dir_2 !== 'user')
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
 		\dash\permission::access('contentCrm');
@@ -37,7 +37,7 @@ class controller
 		{
 			if(\dash\url::dir(4))
 			{
-				\content_api\v1::invalid_url();
+				\content_api\v1\tools::invalid_url();
 			}
 
 			\content_api\v1\user\add::route_add();
@@ -57,13 +57,13 @@ class controller
 					{
 						if(\dash\url::dir(6))
 						{
-							\content_api\v1::invalid_url();
+							\content_api\v1\tools::invalid_url();
 						}
 						\content_api\v1\user\add::route_edit_avatar($user_id);
 					}
 					elseif(\dash\url::dir(5))
 					{
-						\content_api\v1::invalid_url();
+						\content_api\v1\tools::invalid_url();
 					}
 					else
 					{
@@ -82,32 +82,32 @@ class controller
 					{
 						if(\dash\url::dir(6))
 						{
-							\content_api\v1::invalid_url();
+							\content_api\v1\tools::invalid_url();
 						}
 
 						if(!\dash\request::is('post'))
 						{
-							\content_api\v1::invalid_method();
+							\content_api\v1\tools::invalid_method();
 						}
 
 						$detail = \content_api\v1\user\address::add_address();
-						\content_api\v1::say($detail);
+						\content_api\v1\tools::say($detail);
 
 					}
 					elseif(\dash\url::dir(5) === 'list')
 					{
 						if(\dash\url::dir(6))
 						{
-							\content_api\v1::invalid_url();
+							\content_api\v1\tools::invalid_url();
 						}
 
 						if(!\dash\request::is('get'))
 						{
-							\content_api\v1::invalid_method();
+							\content_api\v1\tools::invalid_method();
 						}
 
 						$detail = \content_api\v1\user\address::list_address();
-						\content_api\v1::say($detail);
+						\content_api\v1\tools::say($detail);
 
 					}
 					elseif(\dash\coding::is($dir_5) && in_array(\dash\url::dir(6), ['edit', 'remove']) && !\dash\url::dir(7))
@@ -116,25 +116,25 @@ class controller
 						{
 							if(!\dash\request::is('patch'))
 							{
-								\content_api\v1::invalid_method();
+								\content_api\v1\tools::invalid_method();
 							}
 
 							$detail = \content_api\v1\user\address::edit_address($dir_5);
-							\content_api\v1::say($detail);
+							\content_api\v1\tools::say($detail);
 						}
 						elseif(\dash\url::dir(6) === 'remove')
 						{
 							if(!\dash\request::is('delete'))
 							{
-								\content_api\v1::invalid_method();
+								\content_api\v1\tools::invalid_method();
 							}
 							$detail = \content_api\v1\user\address::remove_address($dir_5);
-							\content_api\v1::say($detail);
+							\content_api\v1\tools::say($detail);
 						}
 					}
 					else
 					{
-						\content_api\v1::invalid_url();
+						\content_api\v1\tools::invalid_url();
 					}
 					break;
 
@@ -143,13 +143,13 @@ class controller
 					break;
 
 				default:
-					\content_api\v1::invalid_url();
+					\content_api\v1\tools::invalid_url();
 					break;
 			}
 		}
 		else
 		{
-			\content_api\v1::invalid_url();
+			\content_api\v1\tools::invalid_url();
 		}
 
 	}

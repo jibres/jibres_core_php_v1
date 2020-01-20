@@ -12,13 +12,13 @@ class add
 
 	public static function add()
 	{
-		\content_api\v1::check_token();
+		\content_api\v1\tools::check_token();
 
 		$add_user = self::check_input();
 
 		if(!$add_user || !is_array($add_user))
 		{
-			\content_api\v1::stop(400);
+			\content_api\v1\tools::stop(400);
 		}
 
 
@@ -55,12 +55,12 @@ class add
 
 		self::$response['zoneid'] = 'android-'. \dash\coding::encode(self::$zoneid);
 
-		\content_api\v1::say(self::$response);
+		\content_api\v1\tools::say(self::$response);
 	}
 
 	private static function check_input()
 	{
-		$model = \content_api\v1::input_body('model');
+		$model = \content_api\v1\tools::input_body('model');
 
 		if(!$model)
 		{
@@ -76,7 +76,7 @@ class add
 			return false;
 		}
 
-		$serial = \content_api\v1::input_body('serial');
+		$serial = \content_api\v1\tools::input_body('serial');
 
 		if(!$serial)
 		{
@@ -92,7 +92,7 @@ class add
 			return false;
 		}
 
-		$manufacturer = \content_api\v1::input_body('manufacturer');
+		$manufacturer = \content_api\v1\tools::input_body('manufacturer');
 
 		if(!$manufacturer)
 		{
@@ -108,7 +108,7 @@ class add
 			return false;
 		}
 
-		$version = \content_api\v1::input_body('version');
+		$version = \content_api\v1\tools::input_body('version');
 		if(!$version)
 		{
 			\dash\notif::error(T_("Version"). ' '. T_("not set"));
@@ -122,49 +122,49 @@ class add
 			return false;
 		}
 
-		$hardware = \content_api\v1::input_body('hardware');
+		$hardware = \content_api\v1\tools::input_body('hardware');
 		if(mb_strlen($hardware) > 50)
 		{
 			\dash\notif::error(T_("hardware"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$type = \content_api\v1::input_body('type');
+		$type = \content_api\v1\tools::input_body('type');
 		if(mb_strlen($type) > 50)
 		{
 			\dash\notif::error(T_("type"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$board = \content_api\v1::input_body('board');
+		$board = \content_api\v1\tools::input_body('board');
 		if(mb_strlen($board) > 100)
 		{
 			\dash\notif::error(T_("board"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$id = \content_api\v1::input_body('id');
+		$id = \content_api\v1\tools::input_body('id');
 		if(mb_strlen($id) > 100)
 		{
 			\dash\notif::error(T_("id"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$product = \content_api\v1::input_body('product');
+		$product = \content_api\v1\tools::input_body('product');
 		if(mb_strlen($product) > 100)
 		{
 			\dash\notif::error(T_("product"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$device = \content_api\v1::input_body('device');
+		$device = \content_api\v1\tools::input_body('device');
 		if(mb_strlen($device) > 100)
 		{
 			\dash\notif::error(T_("device"). ' '. T_("is out of range"));
 			return false;
 		}
 
-		$brand = \content_api\v1::input_body('brand');
+		$brand = \content_api\v1\tools::input_body('brand');
 		if(mb_strlen($brand) > 100)
 		{
 			\dash\notif::error(T_("brand"). ' '. T_("is out of range"));

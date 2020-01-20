@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_api\v1::invalid_url();
+		\content_api\v1\tools::invalid_url();
 	}
 
 	public static function api_routing()
@@ -40,7 +40,7 @@ class controller
 				break;
 
 			default:
-				\content_api\v1::invalid_url(404);
+				\content_api\v1\tools::invalid_url(404);
 				break;
 		}
 	}
