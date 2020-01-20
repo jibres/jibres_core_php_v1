@@ -308,11 +308,11 @@ class url
 		return $my_path;
 	}
 
-	public static function set_subdomain($_subdomain = null)
+	public static function set_subdomain($_subdomain = null, $_full = null)
 	{
+		$url = null;
 		if($_subdomain)
 		{
-			$url = null;
 			$url .= self::protocol(). '://';
 			$url .= $_subdomain. '.';
 			$url .= self::domain();
@@ -320,12 +320,21 @@ class url
 			{
 				$url .= '/'. self::lang();
 			}
-			return $url;
 		}
 		else
 		{
-			return self::sitelang();
+			$url = self::sitelang();
 		}
+
+		if($_full)
+		{
+			if(self::$url['directory'])
+			{
+				$url .= '/'. self::$url['directory'];
+			}
+		}
+
+		return $url;
 	}
 
 
