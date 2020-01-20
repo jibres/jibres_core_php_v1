@@ -16,37 +16,14 @@ class controller
 			\content_core\v3\tools::stop(404, T_("Need country, province or city? Fix url!"));
 		}
 
-		if(count(\dash\url::dir()) > 3)
-		{
-			\content_core\v3\tools::invalid_url();
-		}
+		// if(count(\dash\url::dir()) > 3)
+		// {
+		// 	\content_core\v3\tools::invalid_url();
+		// }
 
 		$data = [];
 		switch (\dash\url::subchild())
 		{
-			case 'country':
-				$data = \dash\utility\location\countres::$data;
-				$new_data = [];
-				foreach ($data as $key => $value)
-				{
-					if(is_array($value) && array_key_exists('name', $value) && array_key_exists('localname', $value))
-					{
-						$temp         = $value;
-						$temp['id']   = $key;
-						$temp['text'] = $value['localname'] ? $value['localname'] : $value['name'];
-						$temp['flag'] = \dash\url::site(). '/static/img/flags/png100px/'. mb_strtolower($key). '.png';
-
-						if(empty($new_data))
-						{
-							$new_data[] = ['id' => 0, 'text' => T_("Please choose country"), 'disable' => true];
-						}
-
-						$new_data[]   = $temp;
-					}
-				}
-				$data = $new_data;
-				break;
-
 			case 'province':
 				$country = \dash\request::get('country');
 				if($country)
@@ -73,6 +50,7 @@ class controller
 						}
 					}
 					$data = $new_data;
+					\content_core\v3\tools::say($data);
 				}
 				break;
 			case 'city':
@@ -101,17 +79,14 @@ class controller
 						}
 					}
 					$data = $new_data;
+					\content_core\v3\tools::say($data);
 				}
 				break;
 
 			default:
-				\content_core\v3\tools::invalid_url();
+				// \content_core\v3\tools::invalid_url();
 				break;
 		}
-
-		\content_core\v3\tools::say($data);
-
-		// j(\dash\url::all());
 	}
 
 
