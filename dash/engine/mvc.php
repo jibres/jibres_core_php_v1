@@ -38,7 +38,19 @@ class mvc
 		$my_repo       = '\\'. \dash\engine\content::get();
 		$my_module     = '\\'. \dash\url::module();
 		$my_child      = '\\'. \dash\url::child();
+		$my_subchild   = '\\'. \dash\url::subchild();
 		$my_controller = null;
+
+		if(\dash\url::subchild() !== null)
+		{
+			// something like \content_su\tools\test\abc\controller.php
+			$my_controller = self::checking($my_repo. $my_module. $my_child. $my_subchild);
+			if($my_controller)
+			{
+				self::$routed_addr = \dash\url::content(). '/'. \dash\url::module(). '/'. \dash\url::child(). '/'. \dash\url::subchild();
+				return $my_controller;
+			}
+		}
 
 		if(\dash\url::child() !== null)
 		{
@@ -202,11 +214,6 @@ class mvc
 					\dash\header::status(404, T_("We can't find the page you're looking for!"));
 				}
 			}
-		}
-
-		if(is_callable([$my_controller, 'runner']))
-		{
-			$my_controller::runner();
 		}
 	}
 
