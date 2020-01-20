@@ -15,7 +15,7 @@ class tools
 	{
 		$subdomain = \dash\url::subdomain();
 
-		if(!in_array($subdomain, [null, 'developers']))
+		if(!in_array($subdomain, [null, 'developers', 'api', 'core']))
 		{
 			\dash\header::status(404, T_("Invalid api subdomain. remove subdomain to continue"));
 		}
