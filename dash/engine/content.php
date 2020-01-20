@@ -20,6 +20,7 @@ class content
 			'crm',
 			'account',
 			'api',
+			'core',
 			'n',
 			'm',
 			'p',

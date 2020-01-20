@@ -202,6 +202,17 @@ class url
 
 		$my_path = trim(strtok($_path, '?'), '/');
 
+		if(isset(self::$url['subdomain']))
+		{
+			if(in_array(self::$url['subdomain'], ['api', 'core']))
+			{
+				if(\dash\engine\content::load(self::$url['subdomain']))
+				{
+					$path_result['content'] = self::$url['subdomain'];
+				}
+			}
+		}
+
 		// if we are in root, return empty path result
 		if($my_path === "")
 		{
@@ -221,9 +232,15 @@ class url
 			array_shift($my_dir);
 		}
 
-		// if we have another string in path
-		if(count($my_dir) > 0)
+		if($path_result['content'])
 		{
+			// if we detect content before this
+			// for example subdomain as content
+			// do nothing
+		}
+		else if(count($my_dir) > 0)
+		{
+			// if we have another string in path
 			// try to detect content
 			$maybe_content = reset($my_dir);
 			// maybe first is language
@@ -231,15 +248,20 @@ class url
 			{
 				// set language
 				$path_result['content'] = $maybe_content;
-				if($path_result['prefix'])
-				{
-					$path_result['prefix'] .= '/'. $maybe_content;
-				}
-				else
-				{
-					$path_result['prefix'] = $maybe_content;
-				}
 				array_shift($my_dir);
+			}
+		}
+
+		// if we detect content add it to prefix
+		if($path_result['content'])
+		{
+			if($path_result['prefix'])
+			{
+				$path_result['prefix'] .= '/'. $path_result['content'];
+			}
+			else
+			{
+				$path_result['prefix'] = $path_result['content'];
 			}
 		}
 
