@@ -203,6 +203,11 @@ class mvc
 				}
 			}
 		}
+
+		if(is_callable([$my_controller, 'runner']))
+		{
+			$my_controller::runner();
+		}
 	}
 
 
