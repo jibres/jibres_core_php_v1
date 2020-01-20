@@ -17,13 +17,17 @@ class content
 			'enter',
 			'su',
 			'cms',
+			'crm',
 			'account',
 			'api',
 			'n',
+			'm',
+			'p',
+			'pardakhtyar',
+			'pay',
+			'store',
 			'support',
 			'hook',
-			'pay',
-			'crm',
 		];
 
 		return $dash_contents;
@@ -39,11 +43,13 @@ class content
 	{
 		// list of contents exist in dash,
 		$myrep       = 'content_'.$_content_name;
-		$dash_contents = self::content_list();
-
 
 		// check content_aaa folder is exist in project folder
-		if(is_dir(root.$myrep))
+		if(in_array($_content_name, self::content_list()))
+		{
+			return self::set($myrep);
+		}
+		elseif(is_dir(root.$myrep))
 		{
 			return self::set($myrep);
 		}
