@@ -453,7 +453,8 @@ class prepare
 		}
 
 		$target_url = $target_host;
-		if(\dash\url::content() === 'hook' || \dash\url::content() === 'api')
+		$myContent  = \dash\url::content();
+		if($myContent === 'hook' || $myContent === 'api' || $myContent === 'core')
 		{
 			$target_url .= \dash\url::path();
 		}
