@@ -14,7 +14,7 @@ class controller
 
 		$module = \dash\url::module();
 
-		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v1'])))
+		if(!$module || ($module === 'doc' && !\dash\url::child()) || (in_array($module, ['v1', 'v2'])))
 		{
 			// nothing
 		}
@@ -33,6 +33,10 @@ class controller
 		if($module === 'v1')
 		{
 			\content_api\v1::master_check();
+		}
+		elseif($module === 'v2')
+		{
+			// \content_api\v1::master_check();
 		}
 		elseif($module)
 		{
