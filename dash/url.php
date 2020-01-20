@@ -201,14 +201,16 @@ class url
 		];
 
 		$my_path = trim(strtok($_path, '?'), '/');
-
+		$specialSubdomain = null;
 		if(isset(self::$url['subdomain']))
 		{
 			if(in_array(self::$url['subdomain'], ['api', 'core']))
 			{
 				if(\dash\engine\content::load(self::$url['subdomain']))
 				{
-					$path_result['content'] = self::$url['subdomain'];
+					$specialSubdomain = true;
+					// do not sumulate content inside url
+					// $path_result['content'] = self::$url['subdomain'];
 				}
 			}
 		}
@@ -232,7 +234,7 @@ class url
 			array_shift($my_dir);
 		}
 
-		if($path_result['content'])
+		if($specialSubdomain)
 		{
 			// if we detect content before this
 			// for example subdomain as content
