@@ -22,7 +22,7 @@ class site_list
 
 		if(\dash\request::get('q'))
 		{
-			$resultRaw    = \lib\app\product\search::factor_admin_list(\dash\request::get('q'), $meta);
+			$resultRaw    = \lib\app\product\search::list_in_sale(\dash\request::get('q'), $meta);
 			foreach ($resultRaw as $key => $value)
 			{
 				$result['result'][] = self::getNeededField($value);
@@ -55,7 +55,7 @@ class site_list
 		}
 		elseif(\dash\request::get('id'))
 		{
-			$result = \lib\app\product\search::price_list(null, ['id' => \dash\request::get('id')]);
+			$result = \lib\app\product\search::list_in_sale(null, ['id' => \dash\request::get('id')]);
 			$result = self::getNeededField_barcode($result);
 			\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 			\dash\code::jsonBoom(\dash\notif::get());

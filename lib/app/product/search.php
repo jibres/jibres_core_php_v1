@@ -54,6 +54,11 @@ class search
 		$meta        = [];
 		$or          = [];
 
+		if(isset($_args['limit']))
+		{
+			$meta['limit'] = $_args['limit'];
+		}
+
 		$order_sort  = null;
 
 
@@ -362,6 +367,15 @@ class search
 		return $list;
 	}
 
+
+
+
+	public static function list_in_sale($_query_string, $_args)
+	{
+		$_args['limit'] = 25;
+		$list        = self::products_list('price_factor_count', $_query_string, $_args);
+		return $list;
+	}
 
 	public static function price_list($_query_string, $_args)
 	{
