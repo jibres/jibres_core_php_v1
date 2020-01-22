@@ -217,7 +217,7 @@ class search
 
 			self::$filter_args['price'] = T_("without price");
 
-			$type                         = 'price';
+			$type                         = 'price_factor_count';
 
 			self::$is_filtered = true;
 		}
@@ -270,6 +270,10 @@ class search
 			case 'price':
 			case 'factor_admin_list':
 				$list = \lib\db\products\search::list_join_price($and, $or, $order_sort, $meta);
+				break;
+
+			case 'price_factor_count':
+				$list = \lib\db\products\search::list_join_price_factor_count($and, $or, $order_sort, $meta);
 				break;
 
 			case 'no-duplicatetitle':
