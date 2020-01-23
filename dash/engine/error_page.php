@@ -21,7 +21,7 @@
     <div class="cauto os s12">
      <a href="<?php echo(\dash\url::kingdom()); ?>" id='ermileBadge' class="f mT10">
       <div class="cauto">
-       <img src="<?php echo(\dash\url::static()); ?>/images/logo.png" alt='logo of project with Dash!' class="cauto">
+       <img src="<?php echo(\dash\url::icon()); ?>" alt='logo of project with Dash!' class="cauto">
       </div>
 <?php if(\dash\url::domain())
 { ?>
