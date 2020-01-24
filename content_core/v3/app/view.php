@@ -8,26 +8,31 @@ class view
 	{
 		$result =
 		[
-			'en' =>
+			'namespace' => 'jibres',
+			'title'     => T_('Jibres'),
+			'desc'      => \dash\data::site_desc(),
+			'slogan'    => \dash\data::site_slogan(),
+			'logo'      =>
 			[
-				'namespace'   => \dash\data::endpoint(),
-				'website'   => 'https://jibres.com',
-				'endpoint'  => 'https://core.jibres.com/v3',
-				'doc'       => 'https://core.jibres.com/v3/doc',
-				'direction' => 'ltr',
-				'lang'      => 'English',
-				'langname'  => 'English',
+				'standard'      => \dash\url::logo(),
+				'vertical'      => \dash\url::logo(),
+				'icon'      => \dash\url::icon(),
 			],
-			'fa' =>
+			'version'   =>
 			[
-				'namespace'   => 'jibres',
-				'website'   => 'https://jibres.ir',
-				'endpoint'  => 'https://core.jibres.ir/v3',
-				'doc'       => 'https://core.jibres.ir/v3/doc',
-				'direction' => 'rtl',
-				'lang'      => 'Persian',
-				'langname' => 'فارسی',
+				'last' => 4,
+				'depricated' => 3,
+				'update' => \content_core\v3\get::endpoint('app'). 'update',
 			],
+			'url'      =>
+			[
+				'update'   => \content_core\v3\get::endpoint('app'). 'update',
+				'splash'   => \content_core\v3\get::endpoint('app'). 'splash',
+				'intro'    => \content_core\v3\get::endpoint('app'). 'intro',
+				'homepage' => \content_core\v3\get::endpoint('app'). 'homepage',
+				'menu'     => \content_core\v3\get::endpoint('app'). 'menu',
+				'ad'       => \content_core\v3\get::endpoint('app'). 'ad',
+			]
 		];
 
 		\dash\notif::api($result);
