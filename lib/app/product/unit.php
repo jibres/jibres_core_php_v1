@@ -92,30 +92,12 @@ class unit
 
 		$int = \dash\app::request('int') ? 1 : null;
 
-		$default = \dash\app::request('unitdefault') ? 1 : null;
 
-		$maxsale = \dash\app::request('maxsale');
-		if($maxsale && !is_numeric($maxsale))
-		{
-			if(self::$debug) \dash\notif::error(T_("Plese set the max sale as a number"), 'maxsale');
-			return false;
-		}
-
-		if($maxsale)
-		{
-			$maxsale = abs(intval($maxsale));
-			if(\dash\number::is_larger($maxsale, 999999999))
-			{
-				if(self::$debug) \dash\notif::error(T_("Max sale is out of range"), 'maxsale');
-				return false;
-			}
-		}
 
 		$args            = [];
 		$args['title']   = $title;
 		$args['int']     = $int;
-		$args['default'] = $default;
-		$args['maxsale'] = $maxsale;
+
 		return $args;
 
 	}
@@ -200,9 +182,14 @@ class unit
 			return false;
 		}
 
-		$id = \dash\coding::decode($_id);
+		$id = $_id;
+		if(!$id || !is_numeric($id))
+		{
+			\dash\notif::error(T_("Invalid unit id"));
+			return false;
+		}
 
-		$count_product = \lib\db\products\unit::get_count_unit($id);
+		$count_product = \lib\db\productunit\get::count_unit($id);
 		$count_product = intval($count_product);
 
 		if($count_product > 0)
@@ -233,18 +220,24 @@ class unit
 				return false;
 			}
 
-			$old_unit_id    = \dash\coding::decode($_id);
+			$old_unit_id    = $_id;
+			if(!$old_unit_id || !is_numeric($old_unit_id))
+			{
+				\dash\notif::error(T_("Invalid unit id!"));
+				return false;
+			}
 
 			if($whattodo === 'new-unit')
 			{
 				$new_unit_id    = $check['id'];
 				$new_unit_title = $check['title'];
 
-				\lib\db\products\unit::update_all_product_by_unit($new_unit_id, $new_unit_title, $old_unit_id);
+				\lib\db\products\update::update_all_unit($new_unit_id, $old_unit_id);
 			}
 			else
 			{
-				\lib\db\products\unit::update_all_product_by_unit(null, null, $old_unit_id);
+				\lib\db\products\update::clean_all_unit($old_unit_id);
+
 			}
 		}
 
@@ -261,8 +254,8 @@ class unit
 
 	public static function inline_get($_id)
 	{
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+		$id = $_id;
+		if(!$id || !is_numeric($id))
 		{
 			\dash\notif::error(T_("Invalid unit id"));
 			return false;
@@ -281,6 +274,7 @@ class unit
 
 	public static function get($_id)
 	{
+
 		if(!\lib\store::id())
 		{
 			\dash\notif::error(T_("Store not found"));
@@ -289,8 +283,8 @@ class unit
 
 		\dash\permission::access('productUnitListView');
 
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+		$id = $_id;
+		if(!$id || !is_numeric($id))
 		{
 			\dash\notif::error(T_("Invalid unit id"));
 			return false;
@@ -303,7 +297,7 @@ class unit
 			return false;
 		}
 
-		$load['count'] = \lib\db\products\unit::get_count_unit($id);
+		// $load['count'] = \lib\db\productunit\get::get_count_unit($id);
 		$load = self::ready($load);
 		return $load;
 	}
@@ -331,8 +325,8 @@ class unit
 
 		\dash\app::variable($_args);
 
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+		$id = $_id;
+		if(!$id || !is_numeric($id))
 		{
 			\dash\notif::error(T_("Invalid unit id"));
 			return false;
@@ -362,8 +356,7 @@ class unit
 
 		if(!\dash\app::isset_request('title')) unset($args['title']);
 		if(!\dash\app::isset_request('int')) unset($args['int']);
-		if(!\dash\app::isset_request('default')) unset($args['default']);
-		if(!\dash\app::isset_request('maxsale')) unset($args['maxsale']);
+
 
 		if(!empty($args))
 		{
@@ -388,12 +381,6 @@ class unit
 				{
 
 					\dash\log::set('productUnitUpdated', ['old' => $get_unit, 'change' => $args]);
-
-					if(array_key_exists('title', $args))
-					{
-						// update all product by this unit
-						\lib\db\products\unit::update_all_product_unit_title($id, $args['title']);
-					}
 
 					\dash\notif::ok(T_("The unit successfully updated"));
 					return true;

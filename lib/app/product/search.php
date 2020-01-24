@@ -117,8 +117,8 @@ class search
 
 		if($_args['unit_id'])
 		{
-			$unitid = \dash\coding::decode($_args['unit_id']);
-			if($unitid)
+			$unitid = $_args['unit_id'];
+			if($unitid && is_numeric($unitid))
 			{
 				$and['products.unit_id'] = $unitid;
 				self::$filter_args['unit'] = '*'. T_('Unit');

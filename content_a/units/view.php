@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\units;
+namespace content_a\units;
 
 class view
 {
@@ -29,6 +29,11 @@ class view
 			\dash\data::badge_text(T_('Back to product unit list'));
 			\dash\data::badge_link(\dash\url::that());
 		}
+
+
+		// back
+		\dash\data::page_backText(T_('Products'));
+		\dash\data::page_backLink(\lib\backlink::products());
 
 	}
 }

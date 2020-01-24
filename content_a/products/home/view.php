@@ -29,7 +29,7 @@ class view
 			// 'cat'          => \dash\request::get('cat'),
 			'cat_id'       => \dash\request::get('catid'),
 			// 'discount'     => \dash\request::get('discount'),
-			// 'unit_id'      => \dash\request::get('unitid'),
+			'unit_id'      => \dash\request::get('unitid'),
 			// 'company_id'   => \dash\request::get('companyid'),
 			'filter'       => [],
 		];

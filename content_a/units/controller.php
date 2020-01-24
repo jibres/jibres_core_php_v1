@@ -1,11 +1,11 @@
 <?php
-namespace content_a\product\units;
+namespace content_a\units;
 
 class controller
 {
 	public static function routing()
 	{
-		if(\dash\url::subchild() === 'remove' && \dash\request::get('id'))
+		if(\dash\url::child() === 'remove' && \dash\request::get('id'))
 		{
 			\dash\open::get();
 			\dash\open::post();
@@ -33,8 +33,6 @@ class controller
 			$unitList = \lib\app\product\unit::list();
 			\dash\data::dataTable($unitList);
 		}
-
-
 	}
 }
 ?>

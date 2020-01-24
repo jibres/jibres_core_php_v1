@@ -1,5 +1,5 @@
 <?php
-namespace content_a\product\units;
+namespace content_a\units;
 
 
 class model
@@ -21,22 +21,20 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::this(). '/units');
+				\dash\redirect::to(\dash\url::this());
 			}
 			return;
 		}
 
 		$args                = [];
 		$args['int']         = \dash\request::post('int');
-		$args['unitdefault'] = \dash\request::post('unitdefault');
-		$args['maxsale']     = \dash\request::post('maxsale');
 		$args['title']       = \dash\request::post('unit');
 
 		$result = \lib\app\product\unit::edit($args, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this(). '/units');
+			\dash\redirect::to(\dash\url::this());
 		}
 
 	}

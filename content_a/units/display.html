@@ -37,11 +37,11 @@
     {%if editMode%}
 
       {%if dataRow.count%}
-        <p class="msg mT10 {%if dataRow.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this unit all product will be update to new value."%} <a class="badge" href='{{url.this}}?unitid={{dataRow.id}}' title='{%trans "Click to check list of this product"%}'>{{dataRow.count | fitNumber}} {%trans "Product"%}</a></p>
+        <p class="msg mT10 {%if dataRow.count > 10%}danger{%else%}warn2{%endif%}">{%trans "By update name of this unit all product will be update to new value."%} <a class="badge" href='{{url.here}}/products?unitid={{dataRow.id}}' title='{%trans "Click to check list of this product"%}'>{{dataRow.count | fitNumber}} {%trans "Product"%}</a></p>
       {%else%}
         <p class="msg mT10 info2">{%trans "No product in this unit"%}
           <span class="txtB">{%trans "You can delete it now!"%}</span>
-          <a href="{{url.that}}/remove?id={{requestGET.id}}" class="badge danger mLa5">{%trans "Remove"%}</a>
+          <a href="{{url.this}}/remove?id={{requestGET.id}}" class="badge danger mLa5">{%trans "Remove"%}</a>
         </p>
       {%endif%}
 
@@ -50,7 +50,7 @@
             <button class="btn outline warn block">{%trans "Edit"%}</button>
           </div>
           <div class="cauto">
-            <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+            <a class="btn primary block" href="{{url.this}}">{%trans "Cancel"%}</a>
           </div>
        </div>
     {%else%}
@@ -131,11 +131,11 @@
           </td>
           <td class="txtC">{%if value.int%}<i class="sf-check fc-green"></i>{%else%}-{%endif%}</td>
           <td class="txtC">
-            <a href="{{url.here}}/product?unitid={{value.id}}" title='{%trans "Click to check products in this unit"%}'>{{value.count | fitNumber}}</a>
+            <a href="{{url.here}}/products?unitid={{value.id}}" title='{%trans "Click to check products in this unit"%}'>{{value.count | fitNumber}}</a>
           </td>
           <td class="collapsing">
-            <a class="block" href="{{url.this}}/units?id={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>
-            <a class="block" href="{{url.this}}/units/remove?id={{value.id}}"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm">{%trans "Remove"%}</span></a>
+            <a class="block" href="{{url.this}}?id={{value.id}}"><i class="sf-edit-write fs11  mRa10"></i><span class="sm">{%trans "Edit"%}</span></a>
+            <a class="block" href="{{url.this}}/remove?id={{value.id}}"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm">{%trans "Remove"%}</span></a>
 
           </td>
         </tr>
@@ -184,7 +184,7 @@
           </div>
 
           <div class="msg info2 txtC txtB">
-            <a href="{{url.here}}/product?unitid={{dataRow.id}}">{%trans "Show product list"%} {{dataRow.title}}</a>
+            <a href="{{url.here}}/products?unitid={{dataRow.id}}">{%trans "Show product list"%} {{dataRow.title}}</a>
           </div>
 
           <form method="post">
@@ -197,7 +197,7 @@
                     <button class="btn danger outline block hauto" type="submit">{%trans "Set all products by this unit as a non product unit and remove this unit"%}</button>
                   </div>
                   <div class="cauto">
-                    <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+                    <a class="btn primary block" href="{{url.this}}">{%trans "Cancel"%}</a>
                   </div>
                </div>
             {%else%}
@@ -210,7 +210,7 @@
                     <button class="btn danger outline block" type="submit">{%trans "Save and remove unit"%}</button>
                   </div>
                   <div class="cauto">
-                    <a class="btn primary block" href="{{url.that}}">{%trans "Cancel"%}</a>
+                    <a class="btn primary block" href="{{url.this}}">{%trans "Cancel"%}</a>
                   </div>
                </div>
               </div>

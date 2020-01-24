@@ -36,6 +36,22 @@ class update
 	}
 
 
+	public static function update_all_unit($_new_unit_id, $_old_unit_id)
+	{
+		$query  = "UPDATE products SET products.unit_id = $_new_unit_id WHERE products.unit_id = $_old_unit_id";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+	public static function clean_all_unit($_old_unit_id)
+	{
+		$query  = "UPDATE products SET products.unit_id = NULL WHERE products.unit_id = $_old_unit_id";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 
 
 

@@ -29,8 +29,16 @@ class get
 	// get one record of product unit
 	public static function one($_id)
 	{
-		$query  = "SELECT * FROM productunit WHERE  productunit.id = $_id LIMIT 1";
+		$query  = "SELECT productunit.*, (SELECT COUNT(*) FROM products WHERE products.unit_id = $_id) AS `count` FROM productunit WHERE  productunit.id = $_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+	public static function count_unit($_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE products.unit_id = $_id ";
+		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
 
