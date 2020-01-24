@@ -15,6 +15,7 @@ class controller
 				break;
 
 			default:
+				\dash\header::status(404);
 				break;
 		}
 	}
