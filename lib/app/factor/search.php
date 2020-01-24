@@ -419,7 +419,7 @@ class search
 				$or['factors.id']  = ["=", "'$query_string'"];
 			}
 
-			$or['factors.sku']      = ["=", "'$query_string'"];
+
 			self::$is_filtered = true;
 		}
 
