@@ -11,6 +11,10 @@ class get
 		{
 			$myEndpoint = 'https://core.jibres.ir/v3/';
 		}
+		elseif(\dash\url::domain() === 'jibres.local')
+		{
+			$myEndpoint = 'http://core.jibres.local/v3/';
+		}
 		else
 		{
 			$myEndpoint = 'https://core.jibres.com/v3/';
