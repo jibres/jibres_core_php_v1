@@ -10,20 +10,22 @@ class controller
 		[
 			'en' =>
 			[
-				'website'  => 'https://jibres.com',
-				'endpoint' => 'https://core.jibres.com/v3',
-				'doc'      => 'https://core.jibres.com/v3/doc',
+				'namespace'   => 'jibres',
+				'website'   => 'https://jibres.com',
+				'endpoint'  => 'https://core.jibres.com/v3',
+				'doc'       => 'https://core.jibres.com/v3/doc',
 				'direction' => 'ltr',
-				'name'    => 'English',
+				'name'      => 'English',
 				'localname' => 'English',
 			],
 			'fa' =>
 			[
-				'website'  => 'https://jibres.ir',
-				'endpoint' => 'https://core.jibres.ir/v3',
-				'doc'      => 'https://core.jibres.ir/v3/doc',
+				'namespace'   => 'jibres',
+				'website'   => 'https://jibres.ir',
+				'endpoint'  => 'https://core.jibres.ir/v3',
+				'doc'       => 'https://core.jibres.ir/v3/doc',
 				'direction' => 'rtl',
-				'name'    => 'Persian',
+				'name'      => 'Persian',
 				'localname' => 'فارسی',
 			],
 		];

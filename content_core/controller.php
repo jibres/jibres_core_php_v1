@@ -8,9 +8,14 @@ class controller
 	{
 		self::check_subdomain_and_content();
 
-		if(\dash\url::module() === 'v3')
+		switch (\dash\url::module())
 		{
-			\content_core\v3\check::basic_core_detail();
+			case 'v3':
+				\content_core\v3\check::basic_core_detail();
+				break;
+
+			default:
+				break;
 		}
 	}
 
