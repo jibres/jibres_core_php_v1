@@ -2,9 +2,9 @@
 namespace content_core\v3\home;
 
 
-class controller
+class view
 {
-	public static function routing()
+	public static function config()
 	{
 		$result =
 		[
