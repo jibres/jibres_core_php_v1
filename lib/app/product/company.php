@@ -26,7 +26,6 @@ class company
 			return false;
 		}
 
-
 		$args =
 		[
 			'title' => $_company,
@@ -47,7 +46,6 @@ class company
 
 		return $result;
 	}
-
 
 
 
@@ -92,8 +90,10 @@ class company
 			return false;
 		}
 
+
 		$args            = [];
 		$args['title']   = $title;
+
 
 		return $args;
 
@@ -136,6 +136,7 @@ class company
 			return false;
 		}
 
+
 		$id = \lib\db\productcompany\insert::new_record($args);
 		if(!$id)
 		{
@@ -150,7 +151,7 @@ class company
 		}
 
 		$result       = [];
-		$result['id'] = \dash\coding::encode($id);
+		$result['id'] = $id;
 		return $result;
 	}
 
@@ -178,9 +179,14 @@ class company
 			return false;
 		}
 
-		$id = \dash\coding::decode($_id);
+		$id = $_id;
+		if(!$id || !is_numeric($id))
+		{
+			\dash\notif::error(T_("Invalid company id"));
+			return false;
+		}
 
-		$count_product = \lib\db\products\company::get_count_company($id);
+		$count_product = \lib\db\productcompany\get::count_company($id);
 		$count_product = intval($count_product);
 
 		if($count_product > 0)
@@ -211,18 +217,24 @@ class company
 				return false;
 			}
 
-			$old_company_id    = \dash\coding::decode($_id);
+			$old_company_id    = $_id;
+			if(!$old_company_id || !is_numeric($old_company_id))
+			{
+				\dash\notif::error(T_("Invalid company id!"));
+				return false;
+			}
 
 			if($whattodo === 'new-company')
 			{
 				$new_company_id    = $check['id'];
 				$new_company_title = $check['title'];
 
-				\lib\db\products\company::update_all_product_by_company($new_company_id, $new_company_title, $old_company_id);
+				\lib\db\products\update::update_all_company($new_company_id, $old_company_id);
 			}
 			else
 			{
-				\lib\db\products\company::update_all_product_by_company(null, null, $old_company_id);
+				\lib\db\products\update::clean_all_company($old_company_id);
+
 			}
 		}
 
@@ -239,8 +251,8 @@ class company
 
 	public static function inline_get($_id)
 	{
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+		$id = $_id;
+		if(!$id || !is_numeric($id))
 		{
 			\dash\notif::error(T_("Invalid company id"));
 			return false;
@@ -259,6 +271,7 @@ class company
 
 	public static function get($_id)
 	{
+
 		if(!\lib\store::id())
 		{
 			\dash\notif::error(T_("Store not found"));
@@ -267,8 +280,8 @@ class company
 
 		\dash\permission::access('productCompanyListView');
 
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+		$id = $_id;
+		if(!$id || !is_numeric($id))
 		{
 			\dash\notif::error(T_("Invalid company id"));
 			return false;
@@ -281,7 +294,7 @@ class company
 			return false;
 		}
 
-		$load['count'] = \lib\db\products\company::get_count_company($id);
+		// $load['count'] = \lib\db\productcompany\get::get_count_company($id);
 		$load = self::ready($load);
 		return $load;
 	}
@@ -309,8 +322,8 @@ class company
 
 		\dash\app::variable($_args);
 
-		$id = \dash\coding::decode($_id);
-		if(!$id)
+		$id = $_id;
+		if(!$id || !is_numeric($id))
 		{
 			\dash\notif::error(T_("Invalid company id"));
 			return false;
@@ -338,7 +351,6 @@ class company
 			}
 		}
 
-
 		if(!\dash\app::isset_request('title')) unset($args['title']);
 
 
@@ -363,13 +375,8 @@ class company
 
 				if($update)
 				{
-					\dash\log::set('productCompanyUpdated', ['old' => $get_company, 'change' => $args]);
 
-					if(array_key_exists('title', $args))
-					{
-						// update all product by this company
-						\lib\db\products\company::update_all_product_company_title($id, $args['title']);
-					}
+					\dash\log::set('productCompanyUpdated', ['old' => $get_company, 'change' => $args]);
 
 					\dash\notif::ok(T_("The company successfully updated"));
 					return true;
@@ -389,33 +396,6 @@ class company
 		}
 	}
 
-	public static function page_list($_string = null, $_args = [])
-	{
-		if(!\lib\store::id())
-		{
-			\dash\notif::error(T_("Store not found"));
-			return false;
-		}
-
-		\dash\permission::access('productCompanyListView');
-
-
-		$result = \lib\db\productcompany\get::page_list($_string);
-
-		$temp            = [];
-
-
-		foreach ($result as $key => $value)
-		{
-			$check = self::ready($value);
-			if($check)
-			{
-				$temp[] = $check;
-			}
-		}
-
-		return $temp;
-	}
 
 	public static function list($_string = null, $_args = [])
 	{
@@ -425,7 +405,7 @@ class company
 			return false;
 		}
 
-		//  \dash\permission::access('productCompanyListView');
+		\dash\permission::access('productCompanyListView');
 
 
 		$result = \lib\db\productcompany\get::list();

@@ -154,7 +154,7 @@ class unit
 		}
 
 		$result       = [];
-		$result['id'] = \dash\coding::encode($id);
+		$result['id'] = $id;
 		return $result;
 	}
 

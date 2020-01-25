@@ -5,48 +5,6 @@ namespace lib\db\productcompany;
 class get
 {
 
-	public static function page_list($_string = null)
-	{
-		$q = null;
-		if(isset($_string))
-		{
-			$_string = \dash\db\safe::value($_string);
-			$q       = "WHERE productcompany.title LIKE '%$_string%' ";
-		}
-
-		$pagination_query =
-		"
-			SELECT
-				COUNT(*) AS `count`
-			FROM
-				productcompany
-
-				$q
-		";
-
-		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
-
-		$query =
-		"
-			SELECT
-				productcompany.id,
-				productcompany.title,
-				(SELECT COUNT(*) FROM products WHERE products.company_id = productcompany.id) AS `count`
-			FROM
-				productcompany
-
-				$q
-			ORDER BY
-				count DESC
-			$limit
-		";
-		$result = \dash\db::get($query);
-
-		return $result;
-	}
-
-
-
 	public static function list()
 	{
 		$query =
@@ -66,11 +24,20 @@ class get
 	}
 
 
+
 	// get one record of product company
 	public static function one($_id)
 	{
-		$query  = "SELECT * FROM productcompany WHERE  productcompany.id = $_id LIMIT 1";
+		$query  = "SELECT productcompany.*, (SELECT COUNT(*) FROM products WHERE products.company_id = $_id) AS `count` FROM productcompany WHERE  productcompany.id = $_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+	public static function count_company($_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE products.company_id = $_id ";
+		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
 
@@ -93,6 +60,5 @@ class get
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
-
 }
 ?>

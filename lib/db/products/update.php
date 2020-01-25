@@ -52,6 +52,22 @@ class update
 	}
 
 
+	public static function update_all_company($_new_company_id, $_old_company_id)
+	{
+		$query  = "UPDATE products SET products.company_id = $_new_company_id WHERE products.company_id = $_old_company_id";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
+	public static function clean_all_company($_old_company_id)
+	{
+		$query  = "UPDATE products SET products.company_id = NULL WHERE products.company_id = $_old_company_id";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 
 
 
