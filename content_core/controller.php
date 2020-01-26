@@ -15,7 +15,14 @@ class controller
 				break;
 
 			default:
-				\dash\header::status(404);
+				if(\dash\url::module() === null)
+				{
+
+				}
+				else
+				{
+					\dash\header::status(404);
+				}
 				break;
 		}
 	}
