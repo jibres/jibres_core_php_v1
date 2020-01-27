@@ -29,6 +29,11 @@ class fuel
 
 	public static function priority($_tld)
 	{
+		if(\dash\url::isLocal())
+		{
+			return 'myLocal';
+		}
+
 		return "jibres101";
 	}
 
