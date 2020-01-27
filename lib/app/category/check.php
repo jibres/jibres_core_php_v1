@@ -137,7 +137,26 @@ class check
 					return false;
 				}
 			}
+
+			if($parent1 && intval($parent1) === intval($_id))
+			{
+				\dash\notif::error(T_("Cannot set option as self parent"), 'parent');
+				return false;
+			}
+
+			if($parent2 && intval($parent2) === intval($_id))
+			{
+				\dash\notif::error(T_("Cannot set option as self parent"), 'parent');
+				return false;
+			}
+
+			if($parent3 && intval($parent3) === intval($_id))
+			{
+				\dash\notif::error(T_("Cannot set option as self parent"), 'parent');
+				return false;
+			}
 		}
+
 
 		// check unique slug
 		$check_unique_slug = \lib\db\productcategory\get::check_unique_slug($slug, $parent1, $parent2, $parent3);
