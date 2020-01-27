@@ -177,6 +177,7 @@ class ready
 				case 'saleonline':
 				case 'carton':
 				case 'variants':
+				case 'thumb':
 
 					// skipp show this fields
 					break;
