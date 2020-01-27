@@ -146,7 +146,7 @@ class db
 		$last_file = end($_updates);
 		if(is_string($last_file))
 		{
-			if(preg_match("/^v\.(\d+\.\d+\.\d+)\_(.*)$/", $last_file, $split))
+			if(preg_match("/v\.(\d+\.\d+\.\d+)\_(.*)$/", $last_file, $split))
 			{
 				$last_db_version = $split[1];
 				$query = \lib\db\store\get_string::update_db_version($last_db_version, date("Y-m-d H:i:s"), $_store_id);
