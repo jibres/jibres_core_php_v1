@@ -27,6 +27,14 @@ class update
 	}
 
 
+	public static function whole_status_expire($_ids)
+	{
+		$query   = "UPDATE export SET export.status = 'expire' WHERE export.id IN ($_ids)";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 
 }
 ?>

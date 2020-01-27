@@ -13,6 +13,13 @@ class get
 	}
 
 
+	public static function last_day_complete($_date)
+	{
+		$query   = "SELECT export.id AS `id` FROM export WHERE  DATE(export.datecreated) <= DATE('$_date')";
+		$result = \dash\db::get($query, 'id');
+		return $result;
+	}
+
 	public static function check_duplicate($_type)
 	{
 		$query   = "SELECT * FROM export WHERE export.type = '$_type' AND export.status IN ('request', 'running') LIMIT 1";
@@ -31,7 +38,7 @@ class get
 
 	public static function by_type($_type)
 	{
-		$query   = "SELECT * FROM export WHERE export.type = '$_type' AND export.status NOT IN ('cancel', 'deleted')";
+		$query   = "SELECT * FROM export WHERE export.type = '$_type' AND export.status NOT IN ('cancel', 'deleted', 'expire')";
 		$result = \dash\db::get($query);
 		return $result;
 	}

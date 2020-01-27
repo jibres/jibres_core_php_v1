@@ -19,26 +19,26 @@ class download
 
 		if(!isset($load['id']) || !isset($load['type']) || !isset($load['file']))
 		{
-			\dash\noitf::error(T_("Invalid id"));
+			\dash\notif::error(T_("Invalid id"));
 			return false;
 		}
 
 		if($load['type'] !== $_type)
 		{
-			\dash\noitf::error(T_("Invalid type"));
+			\dash\notif::error(T_("Invalid type"));
 			return false;
 		}
 
 		if($load['status'] !== 'done')
 		{
-			\dash\noitf::error(T_("File not available to download"));
+			\dash\notif::error(T_("File not available to download"));
 			return false;
 		}
 
 		$file = $load['file'];
 		if(!is_file($file))
 		{
-			\dash\noitf::error(T_("File not found"));
+			\dash\notif::error(T_("File not found"));
 			return false;
 		}
 

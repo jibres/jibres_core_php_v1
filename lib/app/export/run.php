@@ -6,6 +6,8 @@ class run
 
 	public static function crontab()
 	{
+		// expire old export
+		self::expire();
 
 		// check have running
 		// if have any record as runing skip other export
@@ -54,6 +56,21 @@ class run
 		else
 		{
 			\lib\db\export\update::set_done($id, $link);
+		}
+	}
+
+
+	private static function expire()
+	{
+		$date           = date("Y-m-d", strtotime("-1 days"));
+		$need_to_expire = \lib\db\export\get::last_day_complete($date);
+		$need_to_expire = array_filter($need_to_expire);
+		$need_to_expire = array_unique($need_to_expire);
+
+		if($need_to_expire)
+		{
+			$ids = implode(',', $need_to_expire);
+			\lib\db\export\update::whole_status_expire($ids);
 		}
 	}
 }
