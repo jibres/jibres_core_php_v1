@@ -6,7 +6,7 @@ class model
 {
 	public static function post()
 	{
-		\dash\notif::ok(T_("Your request was saved"));
+		\lib\app\product\export::queue();
 	}
 }
 ?>

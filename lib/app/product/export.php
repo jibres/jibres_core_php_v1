@@ -27,5 +27,20 @@ class export
 			return;
 		}
 	}
+
+
+
+	public static function queue()
+	{
+		$count_all = self::count_all();
+		if(!$count_all)
+		{
+			\dash\notif::info(T_("You have not any product to export"));
+			return;
+		}
+
+		return \lib\app\export\add::request('products');
+
+	}
 }
 ?>
