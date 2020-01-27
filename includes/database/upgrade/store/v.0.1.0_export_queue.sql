@@ -1,4 +1,4 @@
-CREATE TABLE `jibres_XXXXXXX`.`export` (
+CREATE TABLE `jibres_XXXXXXX`.`importexport` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `type` varchar(200) DEFAULT NULL,
 `file` varchar(500) DEFAULT NULL,
@@ -8,5 +8,5 @@ CREATE TABLE `jibres_XXXXXXX`.`export` (
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
-CONSTRAINT `export_field_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+CONSTRAINT `importexport_field_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

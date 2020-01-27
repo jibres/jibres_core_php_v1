@@ -6,7 +6,7 @@ class update
 {
 	public static function set_running($_id)
 	{
-		$query   = "UPDATE export SET export.status = 'running' WHERE export.id = $_id LIMIT 1";
+		$query   = "UPDATE importexport SET importexport.status = 'running' WHERE importexport.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}
@@ -14,14 +14,14 @@ class update
 
 	public static function set_done($_id, $_link)
 	{
-		$query   = "UPDATE export SET export.status = 'done', export.file = '$_link' WHERE export.id = $_id LIMIT 1";
+		$query   = "UPDATE importexport SET importexport.status = 'done', importexport.file = '$_link' WHERE importexport.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}
 
 	public static function set_failed($_id)
 	{
-		$query   = "UPDATE export SET export.status = 'failed' WHERE export.id = $_id LIMIT 1";
+		$query   = "UPDATE importexport SET importexport.status = 'failed' WHERE importexport.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}
@@ -29,7 +29,7 @@ class update
 
 	public static function whole_status_expire($_ids)
 	{
-		$query   = "UPDATE export SET export.status = 'expire' WHERE export.id IN ($_ids)";
+		$query   = "UPDATE importexport SET importexport.status = 'expire' WHERE importexport.id IN ($_ids)";
 		$result = \dash\db::query($query);
 		return $result;
 	}
