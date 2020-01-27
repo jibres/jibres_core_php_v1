@@ -12,7 +12,15 @@ class view
 		\dash\data::page_backText(T_('Products'));
 		\dash\data::page_backLink(\dash\url::this());
 		// support link
-		// \dash\data::page_help(\dash\url::support().'/products/export');
+		\dash\data::page_help(\dash\url::support().'/products/export');
+
+		$count_all = \lib\app\product\export::count_all();
+		\dash\data::countAll($count_all);
+
+		if(\dash\request::get('download') === 'now')
+		{
+			\lib\app\product\export::download_now();
+		}
 	}
 }
 ?>

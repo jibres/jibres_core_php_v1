@@ -20,6 +20,14 @@ class get
 	}
 
 
+	public static function all_record_for_export()
+	{
+		$query  = "SELECT * FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 
 	public static function count_all()
 	{

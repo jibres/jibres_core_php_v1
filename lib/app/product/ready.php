@@ -151,5 +151,44 @@ class ready
 
 		return $result;
 	}
+
+
+	/**
+	 * ready record for export
+	 */
+	public static function export($_data, $_option = [])
+	{
+		$_data = self::row($_data);
+
+		if(!is_array($_data))
+		{
+			return null;
+		}
+
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'creator':
+				case 'gallery_array':
+				case 'saleonline':
+				case 'saletelegram':
+				case 'saleapp':
+				case 'saleonline':
+				case 'carton':
+				case 'variants':
+
+					// skipp show this fields
+					break;
+
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
+
+		return $result;
+	}
+
 }
 ?>
