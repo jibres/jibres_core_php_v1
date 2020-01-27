@@ -10,6 +10,7 @@ CREATE TABLE `jibres_XXXXXXX`.`productprices` (
 `compareatprice` bigint(20) UNSIGNED DEFAULT NULL,
 `discount` bigint(20) DEFAULT NULL,
 `discountpercent` int(10) DEFAULT NULL,
+`vatprice` BIGINT(20) UNSIGNED NULL DEFAULT NULL,
 `finalprice` bigint(20) DEFAULT NULL,
 `datecreated` datetime DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,

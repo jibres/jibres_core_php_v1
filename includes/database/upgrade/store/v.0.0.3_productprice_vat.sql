@@ -1,1 +1,0 @@
-ALTER TABLE `jibres_XXXXXXX`.`productprices` ADD `vat` BIGINT(20) UNSIGNED NULL DEFAULT NULL AFTER `discountpercent`;
