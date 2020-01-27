@@ -21,6 +21,22 @@ class get
 	}
 
 
+	public static function by_type($_type)
+	{
+		$query   = "SELECT * FROM export WHERE export.type = '$_type' AND export.status NOT IN ('cancel', 'deleted')";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+	public static function by_id($_id)
+	{
+		$query   = "SELECT * FROM export WHERE export.id = $_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function any_running()
 	{
 		$query   = "SELECT * FROM export WHERE export.status = 'running' LIMIT 1";

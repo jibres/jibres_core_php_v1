@@ -42,5 +42,13 @@ class export
 		return \lib\app\export\add::request('products');
 
 	}
+
+
+	public static function list()
+	{
+		$get_by_type = \lib\db\export\get::by_type('products');
+		$get_by_type = array_map(['\\lib\\app\\export\\ready', 'row'], $get_by_type);
+		return $get_by_type;
+	}
 }
 ?>

@@ -31,7 +31,30 @@
 	{%endif%}
 </div>
 
+{%if exportList%}
+<h5>{%trans "Product exported list"%}</h5>
+<div class="f fs12">
+	{%for key, value in exportList%}
+		<div class="c3 m8 s12">
+			<div class="f msg">
+				<div class="cauto mRa5"><i class="sf-database"></i></div>
+				<div class="c">{{value.datecreated | dt}}</div>
+				<div class="c">{{value.tstatus}}</div>
 
+				<div class="cauto mLa5">
+					{%if value.status == 'done'%}
+					<a href="{{url.that}}?id={{value.id}}">{%trans "Download"%}</a>
+					{%else%}
+
+					{%endif%}
+				</div>
+			</div>
+
+
+		</div>
+	{%endfor%}
+</div>
+{%endif%}
 
 {%endif%}
 

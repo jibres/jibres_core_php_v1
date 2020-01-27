@@ -21,6 +21,14 @@ class view
 		{
 			\lib\app\product\export::download_now();
 		}
+
+		if(\dash\request::get('id'))
+		{
+			\lib\app\export\download::export_products(\dash\request::get('id'));
+		}
+
+		$list = \lib\app\product\export::list();
+		\dash\data::exportList($list);
 	}
 }
 ?>
