@@ -24,8 +24,8 @@ class store_user
 			FROM
 				store_user
 			INNER JOIN store ON store.id = store_user.store_id
-			INNER JOIN store_data ON store_data.id = store_user.store_id
-			INNER JOIN store_analytics ON store_analytics.id = store_user.store_id
+			LEFT JOIN store_data ON store_data.id = store_user.store_id
+			LEFT JOIN store_analytics ON store_analytics.id = store_user.store_id
 			WHERE store_user.user_id = $_user_id
 		";
 		$result = \dash\db::get($query);
