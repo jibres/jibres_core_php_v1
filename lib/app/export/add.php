@@ -18,6 +18,14 @@ class add
 			return false;
 		}
 
+
+		$check_day_limit = \lib\db\export\get::check_day_limit($_type, date("Y-m-d"));
+		if(intval($check_day_limit) >= 5)
+		{
+			\dash\notif::error(T_("Your can make 5 export in every day"));
+			return false;
+		}
+
 		$insert =
 		[
 			'type'        => $_type,

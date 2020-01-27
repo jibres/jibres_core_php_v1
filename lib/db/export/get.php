@@ -21,6 +21,14 @@ class get
 	}
 
 
+	public static function check_day_limit($_type, $_date)
+	{
+		$query   = "SELECT COUNT(*) AS `count` FROM export WHERE export.type = '$_type' AND DATE(export.datecreated) = DATE('$_date')";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function by_type($_type)
 	{
 		$query   = "SELECT * FROM export WHERE export.type = '$_type' AND export.status NOT IN ('cancel', 'deleted')";
