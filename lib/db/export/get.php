@@ -20,5 +20,23 @@ class get
 		return $result;
 	}
 
+
+	public static function any_running()
+	{
+		$query   = "SELECT * FROM export WHERE export.status = 'running' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+	public static function any_request()
+	{
+		$query   = "SELECT * FROM export WHERE export.status = 'request' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
+
 }
 ?>

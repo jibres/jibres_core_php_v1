@@ -79,47 +79,17 @@ class export
     }
 
 
-    public static function new_csv_file()
-    {
-        self::$temp_file = null;
-    }
 
 
-    public static function get_link()
-    {
-        $url = self::$temp_file;
-        $url = str_replace(root.'public_html', \dash\url::site(), $url);
-        return $url;
-    }
-
-
-    public static function csv_file($_args)
+    public static function csv_file($_args, $_file, $_first_record = false)
     {
         $type         = isset($_args['type']) ? $_args['type'] : 'csv';
         $filename     = isset($_args['name']) ? $_args['name'] : 'Untitled';
 
-        $first_record = false;
-
-        if(!self::$temp_file)
+        if($_first_record)
         {
-            self::$temp_file = root. 'public_html/files';
-            if(!\dash\file::exists(self::$temp_file))
-            {
-                \dash\file::makeDir(self::$temp_file);
-            }
-
-            self::$temp_file .= '/temp';
-            if(!\dash\file::exists(self::$temp_file))
-            {
-                \dash\file::makeDir(self::$temp_file);
-            }
-
-            self::$temp_file.= '/'. $filename. '_'. date("Y_m_d_H_i_s"). '_'. rand(11111,99999). '.'. $type;
-
             // BOM header UTF-8
-            \dash\file::append(self::$temp_file, "\xEF\xBB\xBF");
-
-            $first_record = true;
+            \dash\file::write($_file, "\xEF\xBB\xBF");
         }
 
 
@@ -135,7 +105,7 @@ class export
 
         if(count($data) == 0 || !$data || empty($data) || !is_array($data))
         {
-            return self::get_link();
+            return;
         }
         else
         {
@@ -143,7 +113,7 @@ class export
 
             $df = @fopen("php://output", 'w');
 
-            if($first_record)
+            if($_first_record)
             {
                 if(is_array(reset($data)))
                 {
@@ -163,10 +133,9 @@ class export
 
             fclose($df);
 
-            \dash\file::append(self::$temp_file, ob_get_clean());
+            \dash\file::append($_file, ob_get_clean());
         }
 
-        return self::get_link();
     }
 
 }

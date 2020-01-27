@@ -4,6 +4,20 @@ namespace lib\db\products;
 class get
 {
 
+	public static function export_list($_start_limit, $_end_limit)
+	{
+		$query  = "SELECT * FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC LIMIT $_start_limit, $_end_limit";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+	public static function all_record_for_export()
+	{
+		$query  = "SELECT * FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function first_product_id()
 	{
 		$query  = "SELECT products.id AS `id` FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC LIMIT 1 ";
@@ -20,12 +34,6 @@ class get
 	}
 
 
-	public static function all_record_for_export()
-	{
-		$query  = "SELECT * FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC ";
-		$result = \dash\db::get($query);
-		return $result;
-	}
 
 
 

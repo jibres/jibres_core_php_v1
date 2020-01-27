@@ -70,6 +70,12 @@ class controller
 			}
 		}
 
+		if(\dash\engine\store::inStore())
+		{
+			// run export if exists
+			\lib\app\export\run::crontab();
+		}
+
 		\dash\app\log\send::notification();
 
 		if(self::every_10_min())

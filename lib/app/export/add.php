@@ -22,6 +22,7 @@ class add
 		[
 			'type'        => $_type,
 			'meta'        => $_meta,
+			'creator'     => \dash\user::id(),
 			'status'      => 'request',
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
