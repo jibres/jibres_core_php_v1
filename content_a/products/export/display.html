@@ -22,29 +22,31 @@
 </p>
 {%else%}
 
-<div class="msg  fs14">{%trans "Product count"%} <b>{{countAll |fitNumber}}</b>
-
-	{%if countAll <= 50%}
-		<a href="{{url.that}}?download=now" class="mLa10">{%trans "Download Now"%}</a>
-	{%elseif countAll > 50%}
-		<a href="{{url.that}}" data-confirm data-data='{"export":"product"}' class="mLa10">{%trans "Send export request"%}</a>
-	{%endif%}
+<div class="msg f fs14">
+	<div class="cauto mLa5 s12">{%trans "Product count"%} <b>{{countAll |fitNumber}}</b></div>
+	<div class="c mLa5">
+		{%if countAll <= 50%}
+			<a href="{{url.that}}?download=now" class="mLa10">{%trans "Download Now"%}</a>
+		{%elseif countAll > 50%}
+			<a href="{{url.that}}" data-confirm data-data='{"export":"product"}' class="mLa10">{%trans "Send export request"%}</a>
+		{%endif%}
+	</div>
 </div>
 
 {%if exportList%}
 <h5>{%trans "Product exported list"%}</h5>
 <div class="f fs12">
 	{%for key, value in exportList%}
-		<div class="mLa10 c6 m12 s12">
+		<div class="mLa10 c5 m12 s12">
 			<div class="f msg align-center">
 				<div class="cauto mRa10"><i class="sf-database fs14 fc-green"></i></div>
-				<div class="c">{{value.datecreated | dt}}</div>
-				<div class="c">{{value.datecreated | dt('human', 'year')}}</div>
+				<div class="c sauto">{{value.datecreated | dt}}</div>
+				<div class="c s12">{{value.datecreated | dt('human', 'year')}}</div>
 
 				{%if value.status == 'request'%}
-				<div class="c">{%trans "Waiting to complete process..."%}</div>
+				<div class="c s12">{%trans "Waiting to complete process..."%}</div>
 				{%else%}
-				<div class="c"><small>{%trans "Status"%}</small> <b>{{value.tstatus}}</b></div>
+				<div class="c s12"><small>{%trans "Status"%}</small> <b>{{value.tstatus}}</b></div>
 				{%endif%}
 
 				<div class="cauto mLa5">
