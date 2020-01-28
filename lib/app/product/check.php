@@ -90,7 +90,7 @@ class check
 		$to_barcode = \dash\utility\convert::to_barcode($barcode);
 		if($barcode != $to_barcode)
 		{
-			\dash\log::set('barcode:is:different:barcode', ['barcode' => $barcode, 'fixed' => $to_barcode]);
+			// \dash\log::set('barcode:is:different:barcode', ['barcode' => $barcode, 'fixed' => $to_barcode]);
 			\dash\notif::warn(T_("Your barcode have wrong character. we change it. please check your product again"), 'barcode');
 			$barcode = $to_barcode;
 		}
@@ -112,7 +112,7 @@ class check
 		$to_barcode2 = \dash\utility\convert::to_barcode($barcode2);
 		if($barcode2 != $to_barcode2)
 		{
-			\dash\log::set('barcode2:is:different:barcode2', ['barcode2' => $barcode2, 'fixed' => $to_barcode2]);
+			// \dash\log::set('barcode2:is:different:barcode2', ['barcode2' => $barcode2, 'fixed' => $to_barcode2]);
 			\dash\notif::warn(T_("Your barcode2 have wrong character. we change it. please check your product again"), 'barcode2');
 			$barcode2 = $to_barcode2;
 		}
@@ -863,7 +863,7 @@ class check
 					}
 					else
 					{
-
+						$element = [];
 
 						$product_title = '';
 						if(isset($check_exist[0]['title']))
@@ -874,11 +874,13 @@ class check
 						if(isset($check_exist[0]['barcode']) && $_barcode === $check_exist[0]['barcode'])
 						{
 							$msg = T_("This barcode used as barcode :title", ['title' => $product_title]);
+							$element[] = 'barcode';
 						}
 
 						if(isset($check_exist[0]['barcode2']) && $_barcode === $check_exist[0]['barcode2'])
 						{
 							$msg = T_("This barcode used as barcode2 :title", ['title' => $product_title]);
+							$element[] = 'barcode2';
 						}
 
 						$product_id = null;
@@ -893,21 +895,23 @@ class check
 							$msg = "<a href='$link'>". $msg. '</a>';
 						}
 
-						\dash\log::set('app:product:barcode:is:duplicate');
-						\dash\notif::error($msg);
+						// \dash\log::set('app:product:barcode:is:duplicate');
+
+						\dash\notif::error(T_("Duplicate barcode"), ['element' => $element]);
+						\dash\notif::info($msg);
 						return false;
 					}
 				}
 				else
 				{
-					\dash\log::set('app:product:barcode:1:record:havenot:id:error');
+					// \dash\log::set('app:product:barcode:1:record:havenot:id:error');
 					\dash\notif::error(T_("Undefined error was happend"));
 					return false;
 				}
 			}
 			else
 			{
-				\dash\log::set('more:than:2:product:save:by:one:barcode');
+				// \dash\log::set('more:than:2:product:save:by:one:barcode');
 				\dash\notif::error(T_("More than 2 products saved by this barcode"));
 				return false;
 			}

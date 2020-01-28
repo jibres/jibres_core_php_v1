@@ -21,11 +21,6 @@ class add
 			return false;
 		}
 
-
-		\lib\db\import\update::set_request($id);
-
-
-		\dash\notif::ok(T_("Your request was saved"));
 		return true;
 
 	}
@@ -36,22 +31,22 @@ class add
 		$check_duplicate = \lib\db\import\get::check_duplicate($_type);
 		if($check_duplicate)
 		{
-			// \dash\notif::error(T_("Your request was saved before. please wait to import process is complete"));
-			// return false;
+			\dash\notif::error(T_("Your request was saved before. please wait to import process is complete"));
+			return false;
 		}
 
 
 		$check_day_limit = \lib\db\import\get::check_day_limit($_type, date("Y-m-d"));
 		if(intval($check_day_limit) >= 5)
 		{
-			// \dash\notif::error(T_("Your can make 5 import in every day"));
-			// return false;
+			\dash\notif::error(T_("Your can make 5 import in every day"));
+			return false;
 		}
 
 		$upload_setting =
 		[
 			'ext'        => 'csv',
-			'allow_size' => (5*1024*1024)
+			'allow_size' => (5*1024*1024),
 		];
 
 		$meta = [];

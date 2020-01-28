@@ -3,9 +3,13 @@ namespace lib\app\import;
 
 class product
 {
+	private static $result = [];
+	private static $error = [];
+
 	public static function pre_check($_detail)
 	{
 		$file = isset($_detail['file']) ? $_detail['file'] : null;
+		$id = isset($_detail['id']) ? $_detail['id'] : null;
 		$meta = isset($_detail['meta']) ? $_detail['meta'] : null;
 
 		if(!$file)
@@ -40,6 +44,80 @@ class product
 		}
 
 
+
+		$avalible = [];
+
+		self::$result['allErrorCount'] = 0;
+
+		foreach ($load as $key => $value)
+		{
+			$index = $key + 1;
+
+			\dash\app::variable($value);
+
+			$check = \lib\app\product\check::variable($value);
+
+			if(!$check || !\dash\engine\process::status())
+			{
+				self::save_notif_error($index);
+				\dash\notif::clean();
+				\dash\engine\process::continue();
+				continue;
+			}
+
+			$avalible[] = $index;
+		}
+
+		\dash\notif::clean();
+
+		self::$result['avalible']       = $avalible;
+		self::$result['avalible_count'] = count($avalible);
+		self::$result['error']          = array_values(self::$error);
+
+		$meta = json_encode(self::$result, JSON_UNESCAPED_UNICODE);
+
+		\lib\db\import\update::meta_field($meta, $id);
+		\dash\notif::ok(T_("Your file saved."));
+		return true;
+
+	}
+
+
+	private static function save_notif_error($_index)
+	{
+		$notif = \dash\notif::get();
+
+		if(is_array($notif) && array_key_exists('ok', $notif) && $notif['ok'] == false)
+		{
+			if(isset($notif['msg']) && is_array($notif['msg']))
+			{
+				foreach ($notif['msg'] as $key => $value)
+				{
+					if(isset($value['text']) && isset($value['type']) && $value['type'] == 'error')
+					{
+						$myKey = md5($value['text']);
+						self::error($myKey, $value['text'], $_index);
+					}
+				}
+			}
+		}
+	}
+
+
+	private static function error($_key, $_msg, $_index)
+	{
+
+		self::$result['allErrorCount']++;
+
+		if(isset(self::$error[$_key]))
+		{
+			self::$error[$_key]['count']++;
+			self::$error[$_key]['index'][] = $_index;
+		}
+		else
+		{
+			self::$error[$_key] = ['count' => 1, 'msg' => $_msg, 'index' => [$_index]];
+		}
 	}
 }
 ?>
