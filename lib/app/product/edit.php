@@ -12,6 +12,8 @@ class edit
 		$default_option =
 		[
 			'debug'       => true,
+			'multi_add'   => false,
+			'transaction' => false,
 		];
 
 		if(!is_array($_option))
@@ -134,15 +136,9 @@ class edit
 		if(!\dash\app::isset_request('buyprice')) unset($args['buyprice']);
 		if(!\dash\app::isset_request('compareatprice')) unset($args['compareatprice']);
 
-
-		// check archive of price if price or discount or buyprice sended
-		if(
-			array_key_exists('price', $args_price) ||
-			array_key_exists('discount', $args_price) ||
-			array_key_exists('buyprice', $args_price) ||
-			array_key_exists('compareatprice', $args_price)
-		  )
+		if(\dash\app::isset_request('price') || \dash\app::isset_request('discount') || \dash\app::isset_request('buyprice') || \dash\app::isset_request('compareatprice'))
 		{
+			// check archive of price if price or discount or buyprice sended
 			\lib\app\product\updateprice::check($id, $args_price);
 		}
 
@@ -302,26 +298,38 @@ class edit
 						}
 					}
 
-					\dash\notif::ok(T_("Your product successfully updated"));
+					if($_option['debug'])
+					{
+						\dash\notif::ok(T_("Your product successfully updated"));
+					}
 				}
 			}
 			else
 			{
 				if(\dash\temp::get('productHasChange'))
 				{
-					\dash\notif::ok(T_("Your product successfully updated"));
+					if($_option['debug'])
+					{
+						\dash\notif::ok(T_("Your product successfully updated"));
+					}
 				}
 				else
 				{
 					\dash\temp::set('productNoChangeNotRedirect', true);
 					// no change
-					\dash\notif::info(T_("Your product saved without change"));
+					if($_option['debug'])
+					{
+						\dash\notif::info(T_("Your product saved without change"));
+					}
 				}
 			}
 		}
 		else
 		{
-			\dash\notif::warn(T_("No value found for editing"));
+			if($_option['debug'])
+			{
+				\dash\notif::warn(T_("No value found for editing"));
+			}
 		}
 
 		return true;

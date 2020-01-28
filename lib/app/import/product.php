@@ -23,8 +23,20 @@ class product
 			return false;
 		}
 
+		$overwrite = [];
+		if(isset($result['overwrite']))
+		{
+			$overwrite = $result['overwrite'];
+			if(!is_array($overwrite))
+			{
+				$overwrite = [];
+			}
+		}
+
+		$overwrite = array_map('intval', $overwrite);
+
 		// import all products
-		\lib\app\product\add::multi_add($result['data']);
+		\lib\app\product\add::for_import($result['data'], $overwrite);
 
 		\lib\db\import\update::set_done($get_last_awaiting['id']);
 

@@ -4,6 +4,39 @@ namespace lib\app\product;
 
 class add
 {
+	public static function for_import($_args, $_overwrite = [])
+	{
+		\dash\db::transaction();
+
+		foreach ($_args as $key => $value)
+		{
+			if(isset($value['id']) && is_numeric($value['id']))
+			{
+				if(in_array(intval($value['id']), $_overwrite))
+				{
+					$result = \lib\app\product\edit::edit($value, $value['id'], ['debug' => false, 'multi_add' => true, 'transaction' => true]);
+				}
+				else
+				{
+					$result = self::add($value, ['debug' => false, 'multi_add' => true, 'transaction' => true]);
+				}
+			}
+			else
+			{
+				$result = self::add($value, ['debug' => false, 'multi_add' => true, 'transaction' => true]);
+			}
+
+			if(!\dash\engine\process::status())
+			{
+				\dash\db::rollback();
+				return false;
+			}
+		}
+
+		\dash\db::commit();
+
+		return true;
+	}
 
 	public static function multi_add($_args)
 	{
