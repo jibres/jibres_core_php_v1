@@ -60,7 +60,7 @@ class add
 
 		$path = root. 'public_html/'. $file_detail['path'];
 
-		$meta['id'] = $file_detail['id'];
+		$meta['file_id'] = $file_detail['id'];
 
 		if($meta)
 		{

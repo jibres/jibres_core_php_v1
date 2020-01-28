@@ -8,9 +8,9 @@ class product
 
 	public static function pre_check($_detail)
 	{
-		$file = isset($_detail['file']) ? $_detail['file'] : null;
-		$id = isset($_detail['id']) ? $_detail['id'] : null;
-		$meta = isset($_detail['meta']) ? $_detail['meta'] : null;
+		$file     = isset($_detail['file']) ? $_detail['file'] : null;
+		$id       = isset($_detail['id']) ? $_detail['id'] : null;
+		$old_meta = isset($_detail['meta']) ? $_detail['meta'] : null;
 
 		if(!$file)
 		{
@@ -43,7 +43,15 @@ class product
 			return false;
 		}
 
+		if(is_string($old_meta))
+		{
+			$old_meta = json_decode($old_meta, true);
+		}
 
+		if(!is_array($old_meta))
+		{
+			$old_meta = [];
+		}
 
 		$avalible = [];
 
@@ -74,7 +82,8 @@ class product
 		self::$result['avalible_count'] = count($avalible);
 		self::$result['error']          = array_values(self::$error);
 
-		$meta = json_encode(self::$result, JSON_UNESCAPED_UNICODE);
+		$meta = array_merge($old_meta, self::$result);
+		$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
 
 		\lib\db\import\update::meta_field($meta, $id);
 		\dash\notif::ok(T_("Your file saved."));
