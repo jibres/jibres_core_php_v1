@@ -26,6 +26,8 @@ class product
 		// import all products
 		\lib\app\product\add::multi_add($result['data']);
 
+		\lib\db\import\update::set_done($get_last_awaiting['id']);
+
 		\dash\notif::ok(T_("Import successfully"));
 		return true;
 

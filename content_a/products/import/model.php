@@ -13,8 +13,9 @@ class model
 		else
 		{
 			\lib\app\import\add::product();
-			\dash\redirect::pwd();
 		}
+
+		\dash\redirect::pwd();
 	}
 }
 ?>
