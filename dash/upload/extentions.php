@@ -11,7 +11,7 @@ class extentions
 	 * @return string MIME type of file.
 	 * @static
 	 */
-	public static function check($_ext)
+	public static function check($_ext, $_meta = [])
 	{
 		$mimes =
 		[
@@ -87,6 +87,9 @@ class extentions
 			'apk'      => [ 'type' => 'file',       'mime' => 'application/vnd.android.package-archive'],
 			'chm'      => [ 'type' => 'file',       'mime' => 'application/vnd.ms-htmlhelp'],
 			'jar'      => [ 'type' => 'file',       'mime' => 'application/x-jar'],
+			// csv file
+			'csv'      => [ 'type' => 'file',       'mime' => 'text/csv'],
+
 		];
 
 		// if exist in list return it
@@ -105,6 +108,15 @@ class extentions
 		{
 			$myResult['disallow'] = true;
 		}
+
+		if(isset($_meta['ext']) && is_string($_meta['ext']))
+		{
+			if($_ext !== $_meta['ext'])
+			{
+				$myResult['disallow'] = true;
+			}
+		}
+
 		// else return the
 		return $myResult;
 	}

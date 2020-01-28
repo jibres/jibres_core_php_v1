@@ -15,7 +15,7 @@ class validation_file
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function ok($_upload_name)
+	public static function ok($_upload_name, $_meta = [])
 	{
 		switch (\dash\request::files($_upload_name, 'error'))
 		{
@@ -56,7 +56,7 @@ class validation_file
 			}
 		}
 
-		$extCheck           = \dash\upload\extentions::check($fileExt);
+		$extCheck           = \dash\upload\extentions::check($fileExt, $_meta);
 
 		$fileType     = isset($extCheck['type']) 	 ? $extCheck['type'] 	 : null;
 		$fileMime     = isset($extCheck['mime']) 	 ? $extCheck['mime'] 	 : null;

@@ -26,6 +26,7 @@ class file
 		$default_meta =
 		[
 			'allow_size' => null,
+			'ext'        => null,
 		];
 
 		if(!is_array($_meta))
@@ -41,7 +42,7 @@ class file
 		}
 
 		// 1. we have an error in $_FILE[$_upload_name]
-		$myFile = \dash\upload\validation_file::ok($_upload_name);
+		$myFile = \dash\upload\validation_file::ok($_upload_name, $_meta);
 
 		if(!$myFile || !isset($myFile['ext']) || !isset($myFile['md5']) || !isset($myFile['tmp_name']) || !isset($myFile['size']))
 		{
