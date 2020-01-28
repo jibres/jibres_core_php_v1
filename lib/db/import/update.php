@@ -27,12 +27,22 @@ class update
 	}
 
 
+	public static function set_request($_id)
+	{
+		$query   = "UPDATE importexport SET importexport.status = 'request' WHERE importexport.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 	public static function whole_status_expire($_ids)
 	{
 		$query   = "UPDATE importexport SET importexport.status = 'expire' WHERE importexport.id IN ($_ids)";
 		$result = \dash\db::query($query);
 		return $result;
 	}
+
+
 
 
 

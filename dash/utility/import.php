@@ -6,7 +6,7 @@ class import
     /**
     *   import data from csv to array
     */
-    public static function csv($_file, $_length = 0, $_delimiter = ",", $_enclosure = '"', $_escape = "\\")
+    public static function csv($_file, $_limit = null)
     {
         if(!is_string($_file))
         {
@@ -15,10 +15,11 @@ class import
 
         $header = [];
         $data   = [];
+        $i      = 0;
 
         if(($handle = fopen($_file, "r")) !== false)
         {
-            while(($one_rows = fgetcsv($handle, $_length, $_delimiter, $_enclosure, $_escape)) !== false)
+            while(($one_rows = fgetcsv($handle, 0, ",", '"', "\\")) !== false)
             {
                 if(empty($header))
                 {
@@ -27,6 +28,16 @@ class import
                 else
                 {
                     $data[] = $one_rows;
+                }
+
+                if($_limit)
+                {
+                    $i++;
+
+                    if($i > $_limit)
+                    {
+                        break;
+                    }
                 }
             }
             fclose($handle);
