@@ -28,6 +28,14 @@ class get
 	}
 
 
+	public static function get_last_awaiting($_type)
+	{
+		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'import' AND importexport.type = '$_type' AND importexport.status = 'awaiting' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function check_day_limit($_type, $_date)
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM importexport WHERE importexport.mode = 'import' AND importexport.type = '$_type' AND DATE(importexport.datecreated) = DATE('$_date')";
@@ -51,21 +59,12 @@ class get
 		return $result;
 	}
 
-
-	public static function any_running()
+	public static function awaiting_import($_type)
 	{
-		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'import' AND importexport.status = 'running' LIMIT 1";
+		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'import' AND importexport.type = '$_type' AND importexport.status = 'awaiting' LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
-
-	public static function any_request()
-	{
-		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'import' AND importexport.status = 'request' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
-		return $result;
-	}
-
 
 
 

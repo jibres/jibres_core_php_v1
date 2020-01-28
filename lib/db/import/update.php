@@ -12,9 +12,9 @@ class update
 	}
 
 
-	public static function set_done($_id, $_link)
+	public static function set_done($_id)
 	{
-		$query   = "UPDATE importexport SET importexport.status = 'done', importexport.file = '$_link' WHERE importexport.id = $_id LIMIT 1";
+		$query   = "UPDATE importexport SET importexport.status = 'done' WHERE importexport.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}
@@ -25,6 +25,14 @@ class update
 		$result = \dash\db::query($query);
 		return $result;
 	}
+
+	public static function set_cancel($_id)
+	{
+		$query   = "UPDATE importexport SET importexport.status = 'cancel' WHERE importexport.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
 
 
 	public static function set_request($_id)
@@ -42,9 +50,12 @@ class update
 		return $result;
 	}
 
-
-
-
+	public static function meta_field($_meta, $_id)
+	{
+		$query   = "UPDATE importexport SET importexport.meta = '$_meta' WHERE importexport.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
+	}
 
 }
 ?>
