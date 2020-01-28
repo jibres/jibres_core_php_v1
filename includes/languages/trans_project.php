@@ -1582,7 +1582,7 @@ class twigTransTerms
 
 	//------------------------------------------------content_a/cart/home/display.html
 	echo T_("User");                                                                  // Line 59
-	echo T_("Product count");                                                         // Line 25
+	echo T_("Product count");                                                         // Line 26
 	echo T_("Item count");                                                            // Line 57
 	echo T_("Without name");                                                          // Line 431
 
@@ -1755,7 +1755,17 @@ class twigTransTerms
 	echo T_("Jibres uses CSV (comma-separated value) files to perform this kind of bulk task.");// Line 15
 	echo T_("Importing a CSV file that has been sorted by a spreadsheet editor such as Microsoft Excel or Numbers might cause your products to be removed from their relevant image links on the CSV, and your product's images will be lost.");// Line 10
 	echo T_("Before you start your import, make sure that you have a backup of your product data.");// Line 12
-	echo T_("import products");                                                       // Line 63
+	echo T_("The maximum file size is 5 MB.");                                        // Line 17
+	echo T_("Only 1,000 products are accepted in each file");                         // Line 18
+	echo T_("Csv file");                                                              // Line 21
+	echo T_("Upload");                                                                // Line 25
+	echo T_("Result analysis file");                                                  // Line 32
+	echo T_("Count Record found whit error:");                                        // Line 35
+	echo T_("Count Record available to import:");                                     // Line 39
+	echo T_("Error");                                                                 // Line 47
+	echo T_("Count error");                                                           // Line 48
+	echo T_("Error in index record");                                                 // Line 49
+	echo T_("import products");                                                       // Line 71
 
 	//------------------------------------------content_a/products/export/display.html
 	echo T_("You can export your products to a CSV file to help with several tasks.");// Line 7
@@ -1765,9 +1775,10 @@ class twigTransTerms
 	echo T_("If you export up to 50 products, then the CSV file is downloaded by your browser. If you export 51 or more products, then the CSV file is emailed to you.");// Line 17
 	echo T_("If you aren't the store owner, then the file is sent to the store owner's email as well.");// Line 17
 	echo T_("You have not any product to export!");                                   // Line 20
-	echo T_("Download Now");                                                          // Line 28
-	echo T_("Send export request");                                                   // Line 30
-	echo T_("Product exported list");                                                 // Line 35
+	echo T_("Download Now");                                                          // Line 29
+	echo T_("Send export request");                                                   // Line 31
+	echo T_("Product exported list");                                                 // Line 37
+	echo T_("Waiting to complete process...");                                        // Line 47
 
 	//--------------------------------------------------content_a/products/filter.html
 	echo T_("Show all products where");                                               // Line 2

@@ -6,6 +6,26 @@ class product
 	private static $result = [];
 	private static $error = [];
 
+
+	public static function awaiting_import()
+	{
+		$awaiting_import = \lib\db\import\get::awaiting_import('product');
+		if(!isset($awaiting_import['id']))
+		{
+			return;
+		}
+
+		if(isset($awaiting_import['meta']))
+		{
+			$awaiting_import['meta'] = json_decode($awaiting_import['meta'], true);
+		}
+
+		return $awaiting_import;
+	}
+
+
+
+
 	public static function pre_check($_detail)
 	{
 		$file     = isset($_detail['file']) ? $_detail['file'] : null;

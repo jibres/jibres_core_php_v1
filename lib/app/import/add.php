@@ -39,7 +39,7 @@ class add
 		$check_day_limit = \lib\db\import\get::check_day_limit($_type, date("Y-m-d"));
 		if(intval($check_day_limit) >= 5)
 		{
-			\dash\notif::error(T_("Your can make 5 import in every day"));
+			\dash\notif::error(T_("You can make 5 import in every day"));
 			return false;
 		}
 
