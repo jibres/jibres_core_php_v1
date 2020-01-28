@@ -28,20 +28,6 @@ class add
 
 	private static function new_import($_type)
 	{
-		$check_duplicate = \lib\db\import\get::check_duplicate($_type);
-		if($check_duplicate)
-		{
-			\dash\notif::error(T_("Your request was saved before. please wait to import process is complete"));
-			return false;
-		}
-
-
-		$check_day_limit = \lib\db\import\get::check_day_limit($_type, date("Y-m-d"));
-		if(intval($check_day_limit) >= 5)
-		{
-			\dash\notif::error(T_("You can make 5 import in every day"));
-			return false;
-		}
 
 		$upload_setting =
 		[
@@ -57,6 +43,7 @@ class add
 		{
 			return false;
 		}
+
 
 		$path = root. 'public_html/'. $file_detail['path'];
 
@@ -81,6 +68,12 @@ class add
 			'status'      => 'awaiting',
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
+
+		$get_last_awaiting = \lib\db\import\get::get_last_awaiting($_type);
+		if(isset($get_last_awaiting['id']))
+		{
+			\lib\db\import\update::set_cancel($get_last_awaiting['id']);
+		}
 
 		$import_id = \lib\db\import\insert::new_record($insert);
 		if($import_id)

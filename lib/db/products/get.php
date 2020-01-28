@@ -35,6 +35,15 @@ class get
 
 
 
+	public static function check_import_id($_ids)
+	{
+		$query  = "SELECT products.id AS `id` FROM products WHERE products.id IN ($_ids) ";
+		$result = \dash\db::get($query, 'id');
+		return $result;
+	}
+
+
+
 
 
 	public static function count_all()

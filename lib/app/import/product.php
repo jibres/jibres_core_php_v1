@@ -6,6 +6,31 @@ class product
 	private static $result = [];
 	private static $error = [];
 
+	public static function import_last_file()
+	{
+		$get_last_awaiting = \lib\db\import\get::get_last_awaiting('product');
+		if(!isset($get_last_awaiting['id']))
+		{
+			\dash\notif::error(T_("No avalible file founded to import"));
+			return false;
+		}
+
+		$result = self::pre_check($get_last_awaiting, true);
+
+		if(isset($result['allErrorCount']) && $result['allErrorCount'] && intval($result['allErrorCount']) > 0)
+		{
+			\dash\notif::error(T_("This file have error and can not be import!"));
+			return false;
+		}
+
+		// import all products
+		\lib\app\product\add::multi_add($result['data']);
+
+		\dash\notif::ok(T_("Import successfully"));
+		return true;
+
+
+	}
 
 	public static function awaiting_import()
 	{
@@ -26,7 +51,7 @@ class product
 
 
 
-	public static function pre_check($_detail)
+	public static function pre_check($_detail, $_inline = false)
 	{
 		$file     = isset($_detail['file']) ? $_detail['file'] : null;
 		$id       = isset($_detail['id']) ? $_detail['id'] : null;
@@ -93,19 +118,54 @@ class product
 				continue;
 			}
 
-			$avalible[] = $index;
+			// raw id
+			if(isset($value['id']) && \dash\number::is($value['id']))
+			{
+				$check['id'] = $value['id'];
+			}
+
+			// id with hidden chracter
+			if(isset($value['﻿id']) && \dash\number::is($value['﻿id']))
+			{
+				$check['id'] = $value['﻿id'];
+			}
+
+			$avalible[] = $check;
 		}
 
 		\dash\notif::clean();
 
-		self::$result['avalible']       = $avalible;
 		self::$result['avalible_count'] = count($avalible);
 		self::$result['error']          = array_values(self::$error);
+
+
+		if(self::$result['allErrorCount'] === 0)
+		{
+			$ids = array_column($avalible, 'id');
+			$ids = array_filter($ids);
+			$ids = array_unique($ids);
+			if($ids)
+			{
+				$check_exsist_id = \lib\db\products\get::check_import_id(implode(',', $ids));
+				if($check_exsist_id)
+				{
+					self::$result['overwrite_count'] = count($check_exsist_id);
+					self::$result['overwrite'] = $check_exsist_id;
+				}
+			}
+		}
+
+		if($_inline)
+		{
+			self::$result['data'] = $avalible;
+			return self::$result;
+		}
 
 		$meta = array_merge($old_meta, self::$result);
 		$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
 
 		\lib\db\import\update::meta_field($meta, $id);
+
 		\dash\notif::ok(T_("Your file saved."));
 		return true;
 
