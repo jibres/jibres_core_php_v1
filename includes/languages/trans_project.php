@@ -637,7 +637,7 @@ class twigTransTerms
 	echo T_("Tags");                                                                  // Line 108
 
 	//----------------------------------------includes/html/display-dash-titlebox.html
-	echo T_("Import");                                                                // Line 16
+	echo T_("Import");                                                                // Line 82
 	echo T_("Export");                                                                // Line 19
 	echo T_("Duplicate");                                                             // Line 22
 	echo T_("View");                                                                  // Line 82
@@ -1755,16 +1755,22 @@ class twigTransTerms
 	echo T_("Jibres uses CSV (comma-separated value) files to perform this kind of bulk task.");// Line 15
 	echo T_("Importing a CSV file that has been sorted by a spreadsheet editor such as Microsoft Excel or Numbers might cause your products to be removed from their relevant image links on the CSV, and your product's images will be lost.");// Line 10
 	echo T_("Before you start your import, make sure that you have a backup of your product data.");// Line 12
-	echo T_("The maximum file size is 5 MB.");                                        // Line 17
-	echo T_("Only 1,000 products are accepted in each file");                         // Line 18
-	echo T_("Csv file");                                                              // Line 21
-	echo T_("Upload");                                                                // Line 25
-	echo T_("Result analysis file");                                                  // Line 32
-	echo T_("Count Record found whit error:");                                        // Line 35
-	echo T_("Count Record available to import:");                                     // Line 39
+	echo T_("The maximum file size is 5 MB.");                                        // Line 16
+	echo T_("Only 1,000 products are accepted in each file");                         // Line 17
+	echo T_("Posting a new file will delete the previously reviewed file");           // Line 19
+	echo T_("Csv file");                                                              // Line 23
+	echo T_("Check file");                                                            // Line 27
+	echo T_("Result analysis file");                                                  // Line 34
+	echo T_("Count Record available to import:");                                     // Line 37
+	echo T_("Count Record found whit error:");                                        // Line 41
 	echo T_("Error");                                                                 // Line 47
 	echo T_("Count error");                                                           // Line 48
-	echo T_("Error in index record");                                                 // Line 49
+	echo T_("Error in index records");                                                // Line 50
+	echo T_("Error in index record");                                                 // Line 54
+	echo T_("Your input file contains a number of records that have ID, and if you import this file your existing products by this ids will be replaced with new data");// Line 65
+	echo T_("Count record have ID");                                                  // Line 67
+	echo T_("Founded id");                                                            // Line 69
+	echo T_("I sure. I want to overwrite that products");                             // Line 80
 	echo T_("import products");                                                       // Line 71
 
 	//------------------------------------------content_a/products/export/display.html
