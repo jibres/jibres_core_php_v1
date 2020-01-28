@@ -6,6 +6,19 @@ class product
 	private static $result = [];
 	private static $error = [];
 
+	public static function cancel_last_file()
+	{
+		$get_last_awaiting = \lib\db\import\get::get_last_awaiting('product');
+		if(isset($get_last_awaiting['id']))
+		{
+			\lib\db\import\update::set_cancel($get_last_awaiting['id']);
+		}
+
+		\dash\notif::ok(T_("Ok"));
+		return false;
+	}
+
+
 	public static function import_last_file()
 	{
 		$get_last_awaiting = \lib\db\import\get::get_last_awaiting('product');

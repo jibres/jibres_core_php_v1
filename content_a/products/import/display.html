@@ -74,6 +74,7 @@
 
 	<div class="txtRa">
 
+	<div class="btn secondary" data-ajaxify data-data='{"cancel": "cancel"}' data-method='post'>{%trans "Never mind"%}</div>
 	{%if not awaitingImport.meta.allErrorCount%}
 
 		{%if awaitingImport.meta.overwrite_count%}
@@ -83,6 +84,7 @@
 		{%endif%}
 
 	{%endif%}
+
 	</div>
 
 

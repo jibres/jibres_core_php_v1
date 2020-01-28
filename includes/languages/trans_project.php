@@ -637,7 +637,7 @@ class twigTransTerms
 	echo T_("Tags");                                                                  // Line 108
 
 	//----------------------------------------includes/html/display-dash-titlebox.html
-	echo T_("Import");                                                                // Line 82
+	echo T_("Import");                                                                // Line 83
 	echo T_("Export");                                                                // Line 19
 	echo T_("Duplicate");                                                             // Line 22
 	echo T_("View");                                                                  // Line 82
@@ -1770,7 +1770,8 @@ class twigTransTerms
 	echo T_("Your input file contains a number of records that have ID, and if you import this file your existing products by this ids will be replaced with new data");// Line 65
 	echo T_("Count record have ID");                                                  // Line 67
 	echo T_("Founded id");                                                            // Line 69
-	echo T_("I sure. I want to overwrite that products");                             // Line 80
+	echo T_("Never mind");                                                            // Line 77
+	echo T_("I sure. I want to overwrite that products");                             // Line 81
 	echo T_("import products");                                                       // Line 71
 
 	//------------------------------------------content_a/products/export/display.html
