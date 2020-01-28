@@ -29,6 +29,7 @@ class add
 		$insert =
 		[
 			'type'        => $_type,
+			'mode'        => 'export',
 			'meta'        => $_meta,
 			'creator'     => \dash\user::id(),
 			'status'      => 'request',

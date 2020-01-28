@@ -5,19 +5,8 @@ namespace lib\app\export;
 class ready
 {
 
-	public static function row($_data, $_option = [])
+	public static function row($_data)
 	{
-		$default_option =
-		[
-			'load_gallery' => false,
-		];
-
-		if(!is_array($_option))
-		{
-			$_option = [];
-		}
-
-		$_option = array_merge($default_option, $_option);
 
 		$result = [];
 

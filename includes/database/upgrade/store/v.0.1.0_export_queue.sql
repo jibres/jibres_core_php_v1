@@ -1,10 +1,11 @@
 CREATE TABLE `jibres_XXXXXXX`.`importexport` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `type` varchar(200) DEFAULT NULL,
+`mode` enum('import', 'export') DEFAULT NULL,
 `file` varchar(500) DEFAULT NULL,
 `creator` int(10) UNSIGNED DEFAULT NULL,
 `meta` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
-`status` enum('request','cancel', 'expire','running', 'done','failed','deleted') DEFAULT NULL,
+`status` enum('awaiting','request','cancel', 'expire','running', 'done','failed','deleted') DEFAULT NULL,
 `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),

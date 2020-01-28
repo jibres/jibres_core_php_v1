@@ -17,7 +17,7 @@ class download
 
 		$load = \lib\db\export\get::by_id($_id);
 
-		if(!isset($load['id']) || !isset($load['type']) || !isset($load['file']))
+		if(!isset($load['id']) || !isset($load['type']) || !isset($load['file']) || !isset($load['mode']))
 		{
 			\dash\notif::error(T_("Invalid id"));
 			return false;
@@ -30,6 +30,13 @@ class download
 		}
 
 		if($load['status'] !== 'done')
+		{
+			\dash\notif::error(T_("File not available to download"));
+			return false;
+		}
+
+
+		if($load['mode'] !== 'export')
 		{
 			\dash\notif::error(T_("File not available to download"));
 			return false;
