@@ -15,8 +15,8 @@ class get
 
 	public static function last_day_complete($_date)
 	{
-		$query   = "SELECT importexport.id AS `id` FROM importexport WHERE  DATE(importexport.datecreated) <= DATE('$_date')";
-		$result = \dash\db::get($query, 'id');
+		$query   = "SELECT * FROM importexport WHERE  DATE(importexport.datecreated) <= DATE('$_date')";
+		$result = \dash\db::get($query);
 		return $result;
 	}
 

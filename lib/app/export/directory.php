@@ -15,7 +15,7 @@ class directory
             \dash\file::makeDir($master_dir, null, true);
         }
 
-        return $master_dir. $_name;
+        return $master_dir. $_name. '.csv';
 	}
 
 

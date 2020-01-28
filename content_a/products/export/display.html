@@ -35,11 +35,17 @@
 <h5>{%trans "Product exported list"%}</h5>
 <div class="f fs12">
 	{%for key, value in exportList%}
-		<div class="mLa10 c3 m8 s12">
-			<div class="f msg">
-				<div class="cauto mRa5"><i class="sf-database"></i></div>
+		<div class="mLa10 c6 m12 s12">
+			<div class="f msg align-center">
+				<div class="cauto mRa10"><i class="sf-database fs14 fc-green"></i></div>
 				<div class="c">{{value.datecreated | dt}}</div>
-				<div class="c">{{value.tstatus}}</div>
+				<div class="c">{{value.datecreated | dt('human', 'year')}}</div>
+
+				{%if value.status == 'request'%}
+				<div class="c">{%trans "Waiting to complete process..."%}</div>
+				{%else%}
+				<div class="c"><small>{%trans "Status"%}</small> <b>{{value.tstatus}}</b></div>
+				{%endif%}
 
 				<div class="cauto mLa5">
 					{%if value.status == 'done'%}

@@ -64,13 +64,24 @@ class run
 	{
 		$date           = date("Y-m-d", strtotime("-1 days"));
 		$need_to_expire = \lib\db\export\get::last_day_complete($date);
-		$need_to_expire = array_filter($need_to_expire);
-		$need_to_expire = array_unique($need_to_expire);
 
 		if($need_to_expire)
 		{
-			$ids = implode(',', $need_to_expire);
-			\lib\db\export\update::whole_status_expire($ids);
+			foreach ($need_to_expire as $key => $value)
+			{
+				if(isset($value['file']))
+				{
+					\dash\file::delete($value['file']);
+				}
+			}
+			$need_to_expire_id = array_column($need_to_expire, 'id');
+			$need_to_expire_id = array_filter($need_to_expire_id);
+			$need_to_expire_id = array_unique($need_to_expire_id);
+			if($need_to_expire_id)
+			{
+				$ids = implode(',', $need_to_expire_id);
+				\lib\db\export\update::whole_status_expire($ids);
+			}
 		}
 	}
 }
