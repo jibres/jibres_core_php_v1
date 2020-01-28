@@ -11,29 +11,12 @@ class view
 		\dash\data::page_desc(T_('You can search in list of products, add new product and edit existing.'));
 		\dash\data::page_pictogram('box');
 
-		// enable titleBox
-
-		if(\dash\request::get('inside'))
-		{
-			// nav
-			\dash\data::page_next('disabled');
-			\dash\data::page_prev(\dash\url::this(). '/prev');
-			// back
-			\dash\data::page_backText(T_('Dashboard'));
-			\dash\data::page_backLink(\dash\url::here());
-			\dash\data::page_duplicate(\dash\url::here());
-			\dash\data::page_view(\dash\url::here());
-			// \dash\data::page_help(\dash\url::kingdom().'/support/test');
-		}
-		else
-		{
-			// btn
-			\dash\data::page_btnText(T_('Add product'));
-			\dash\data::page_btnLink(\dash\url::this(). '/add');
-			// operations
-			\dash\data::page_import(\dash\url::here());
-			\dash\data::page_export(\dash\url::here());
-		}
+		// btn
+		\dash\data::page_btnText(T_('Add product'));
+		\dash\data::page_btnLink(\dash\url::this(). '/add');
+		// operations
+		\dash\data::page_import(\dash\url::this().'/import');
+		\dash\data::page_export(\dash\url::this().'/export');
 
 		$args =
 		[
