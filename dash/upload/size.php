@@ -125,21 +125,26 @@ class size
 	 */
 	private static function allow_size($_max_size = null)
 	{
+		$check      = [];
 
-		$allow_size   = self::sys_limit_size(ini_get('upload_max_filesize'));
+		$allow_size = self::sys_limit_size(ini_get('upload_max_filesize'));
+		$check[]    = $allow_size;
 
-		$max_post     = self::sys_limit_size(ini_get('post_max_size'));
+		$max_post   = self::sys_limit_size(ini_get('post_max_size'));
+		if($max_post > 0)
+		{
+			$check[] = $max_post;
+		}
 
 		$memory_limit = self::sys_limit_size(ini_get('memory_limit'));
+		$check[]      = $memory_limit;
 
 		if($_max_size)
 		{
-			$min = min($allow_size, $max_post, $memory_limit, $_max_size);
+			$check[] = $_max_size;
 		}
-		else
-		{
-			$min = min($allow_size, $max_post, $memory_limit);
-		}
+
+		$min = min($check);
 
 		return $min;
 	}
