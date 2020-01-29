@@ -41,6 +41,14 @@ class files
 	}
 
 
+	public static function set_removed($_id)
+	{
+		$query = "UPDATE files SET files.status = 'removed' WHERE files.id = $_id LIMIT 1 ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 	public static function search()
 	{
 		$result = \dash\db\config::public_search('files', ...func_get_args());

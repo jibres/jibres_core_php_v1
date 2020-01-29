@@ -74,6 +74,8 @@ class controller
 		{
 			// run export if exists
 			\lib\app\export\run::crontab();
+			// run import if exists
+			\lib\app\import\run::crontab();
 		}
 
 		\dash\app\log\send::notification();
