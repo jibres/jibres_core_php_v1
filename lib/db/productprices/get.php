@@ -18,5 +18,21 @@ class get
 		$result = \dash\db::get($query);
 		return $result;
 	}
+
+
+	public static function special_date($_product_id, $_date)
+	{
+		$query  =
+		"
+			SELECT * FROM productprices
+			WHERE productprices.product_id    = $_product_id
+			AND DATE(productprices.startdate) <= DATE('$_date')
+			AND (DATE(productprices.enddate)   >= DATE('$_date') || productprices.enddate IS NULL)
+			ORDER BY productprices.id DESC
+			LIMIT 50
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 }
 ?>

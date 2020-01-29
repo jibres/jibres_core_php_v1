@@ -2,7 +2,7 @@
 
   <li>
   {%if perm('productList')%}<a href="{{url.here}}/products"><i class="sf-box"></i>{%trans "Products"%}</a>{%endif%}
-  {%if url.module in ['products', 'category', 'units', 'company']%}
+  {%if url.module in ['products', 'category', 'units', 'company', 'pricehistory']%}
     <ul>
         {%if perm('productListPrice')%}<li><a href="{{url.here}}/products/price"><i class="floatRa mRa10 fc-mute sf-dollar"></i>{%trans "Product price"%}</a></li>{%endif%}
         {%if false and perm('productSummary')%}<li><a href="{{url.here}}/products/summary"><i class="floatRa mRa10 fc-mute sf-list"></i>{%trans "Products Summary"%}</a></li>{%endif%}
@@ -10,6 +10,7 @@
         {%if perm('productCategoryListView')%}<li><a href="{{url.here}}/category"><i class="floatRa mRa10 fc-mute sf-grid-1"></i>{%trans "Categories of Product"%}</a></li>{%endif%}
         {%if perm('productUnitListView')%}<li><a href="{{url.here}}/units"><i class="floatRa mRa10 fc-mute sf-eye-galsses"></i>{%trans "Product Units"%}</a></li>{%endif%}
         {%if perm('productCompanyListView')%}<li><a href="{{url.here}}/company"><i class="floatRa mRa10 fc-mute sf-eye-galsses"></i>{%trans "Product Compnay"%}</a></li>{%endif%}
+        {%if perm('productPriceHistoryView')%}<li><a href="{{url.here}}/pricehistory"><i class="floatRa mRa10 fc-mute sf-chart-line"></i>{%trans "Price history"%}</a></li>{%endif%}
     </ul>
   {%endif%}
   </li>

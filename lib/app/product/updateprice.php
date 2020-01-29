@@ -3,6 +3,39 @@ namespace lib\app\product;
 
 class updateprice
 {
+	public static function special_date($_id, $_date)
+	{
+
+		if(!$_id || !is_numeric($_id))
+		{
+			return false;
+		}
+
+		$_date                 = \dash\utility\convert::to_en_number($_date);
+		if(\dash\utility\jdate::is_jalali($_date))
+		{
+			$_date = \dash\utility\jdate::to_gregorian($_date);
+		}
+
+		$_date = \dash\date::db($_date);
+		if(!$_date)
+		{
+			return false;
+		}
+
+		$result = \lib\db\productprices\get::special_date($_id, $_date);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$result = array_map(['\\lib\\app\\product\\ready', 'row'], $result);
+
+		return $result;
+
+	}
+
+
 
 	public static function chart($_id)
 	{
