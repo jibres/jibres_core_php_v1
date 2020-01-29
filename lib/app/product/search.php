@@ -173,7 +173,7 @@ class search
 
 		if(isset($_args['filter']['wbuyprice']) && $_args['filter']['wbuyprice'])
 		{
-			$and['productprices.buyprice'] = [' IS ', ' NULL '];
+			$and['products.buyprice'] = [' IS ', ' NULL '];
 			self::$filter_args['buyprice']      = T_("without buy price");
 
 			$type                         = 'price';
@@ -183,7 +183,7 @@ class search
 
 		if(isset($_args['filter']['wprice']) && $_args['filter']['wprice'])
 		{
-			$and['productprices.price'] = [' IS ', ' NULL '];
+			$and['products.price'] = [' IS ', ' NULL '];
 			self::$filter_args['price'] = T_("without price");
 
 			$type                         = 'price';
@@ -194,7 +194,7 @@ class search
 
 		if(isset($_args['filter']['wdiscount']) && $_args['filter']['wdiscount'])
 		{
-			$and['productprices.discount'] = [' IS ', ' NULL '];
+			$and['products.discount'] = [' IS ', ' NULL '];
 			self::$filter_args['discount']       = T_("without discount");
 
 			$type                          = 'price';
@@ -215,7 +215,7 @@ class search
 			$search         = substr($query_string, 1);
 			$search         = \dash\number::clean($search);
 
-			$and['productprices.compareatprice'] = \lib\price::up($search);
+			$and['products.compareatprice'] = \lib\price::up($search);
 			$and['products.barcode']             = NULL;
 			$and['products.barcode2']            = NULL;
 			$meta['pagination']                  = false;
