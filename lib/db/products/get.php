@@ -159,16 +159,8 @@ class get
 		$query  =
 		"
 			SELECT
-				products.*,
-				productprices.buyprice,
-				productprices.price,
-				productprices.discount,
-				productprices.discountpercent,
-				productprices.compareatprice,
-				productprices.vatprice,
-				productprices.finalprice
+				products.*
 			FROM products
-			LEFT JOIN productprices ON productprices.id = (SELECT MAX(productprices.id) FROM productprices WHERE productprices.product_id = products.id)
 			WHERE products.id IN ($_ids)
 		";
 		$result = \dash\db::get($query);

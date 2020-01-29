@@ -148,16 +148,16 @@ class product
 			// raw id
 			if(isset($value['id']) && \dash\number::is($value['id']))
 			{
-				$check['id'] = $value['id'];
+				$value['id'] = $value['id'];
 			}
 
 			// id with hidden chracter
 			if(isset($value['﻿id']) && \dash\number::is($value['﻿id']))
 			{
-				$check['id'] = $value['﻿id'];
+				$value['id'] = $value['﻿id'];
 			}
 
-			$avalible[] = $check;
+			$avalible[] = $value;
 		}
 
 		\dash\notif::clean();
