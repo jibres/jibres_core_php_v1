@@ -30,19 +30,12 @@ class remove
 			$parent_id = $product_detail['parent'];
 		}
 
-		// check have factor ?
-		$use_in_factor = false;
-		if($use_in_factor)
-		{
-			\lib\db\products\update::status('deleted', $_id);
-		}
-		else
-		{
-			self::hard_delete($_id);
-		}
+		\lib\db\products\update::status('deleted', $_id);
 
 		if($parent_id)
 		{
+			// check other child of this product
+			// if no product set as child of this product set variatn_child of this product as null to remove parent product at other time
 			\lib\db\products\update::variant_child_calc($parent_id);
 		}
 
