@@ -178,6 +178,7 @@ class ready
 				case 'carton':
 				case 'variants':
 				case 'thumb':
+				case 'compareatprice':
 
 					// skipp show this fields
 					break;
