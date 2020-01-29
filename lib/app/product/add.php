@@ -119,11 +119,6 @@ class add
 			return false;
 		}
 
-		$args_price = \lib\app\product\check::price(null, $_option);
-		if($args_price === false || !\dash\engine\process::status())
-		{
-			return false;
-		}
 
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
@@ -222,7 +217,11 @@ class add
 			return false;
 		}
 
-		if(array_filter($args_price))
+		if(
+			(isset($args['buyprice']) && $args['buyprice']) ||
+			(isset($args['price']) && $args['price']) ||
+			(isset($args['discount']) && $args['discount'])
+		  )
 		{
 			// the product was inserted
 			// set the productprice record
@@ -233,13 +232,13 @@ class add
 				'creator'         => \dash\user::id(),
 				'startdate'       => date("Y-m-d H:i:s"),
 				'enddate'         => null,
-				'buyprice'        => $args_price['buyprice'],
-				'price'           => $args_price['price'],
-				'compareatprice'  => $args_price['compareatprice'],
-				'discount'        => $args_price['discount'],
-				'discountpercent' => $args_price['discountpercent'],
-				'finalprice'      => $args_price['finalprice'],
-				'vatprice'        => $args_price['vatprice'],
+				'buyprice'        => $args['buyprice'],
+				'price'           => $args['price'],
+				'compareatprice'  => $args['compareatprice'],
+				'discount'        => $args['discount'],
+				'discountpercent' => $args['discountpercent'],
+				'finalprice'      => $args['finalprice'],
+				'vatprice'        => $args['vatprice'],
 			];
 
 			$productprices_id = \lib\db\productprices\insert::new_record($insert_productprices);

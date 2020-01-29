@@ -104,7 +104,6 @@ class get
 			LIMIT 1
 		";
 		$result = \dash\db::get($query, null, true);
-		$result = self::load_price($result);
 		return $result;
 	}
 
@@ -124,7 +123,6 @@ class get
 			LIMIT 1
 		";
 		$result = \dash\db::get($query, null, true);
-		$result = self::load_price($result);
 		return $result;
 	}
 
@@ -138,41 +136,11 @@ class get
 	}
 
 
-	/**
-	 * Loads a price.
-	 *
-	 * @param      <type>  $_result      The result
-	 * @param      <type>  $_one_record  One record
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	private static function load_price($_result)
-	{
-		if(isset($_result['id']))
-		{
-			$query = "SELECT * FROM productprices WHERE productprices.product_id = $_result[id] ORDER BY productprices.id DESC LIMIT 1";
-			$prices = \dash\db::get($query, null, true);
-			if(is_array($prices))
-			{
-				if(array_key_exists('price', $prices)) 				$_result['price']           = $prices['price'];
-				if(array_key_exists('buyprice', $prices)) 			$_result['buyprice']        = $prices['buyprice'];
-				if(array_key_exists('discount', $prices)) 			$_result['discount']        = $prices['discount'];
-				if(array_key_exists('compareatprice', $prices)) 	$_result['compareatprice']  = $prices['compareatprice'];
-				if(array_key_exists('discountpercent', $prices)) 	$_result['discountpercent'] = $prices['discountpercent'];
-				if(array_key_exists('finalprice', $prices)) 		$_result['finalprice']      = $prices['finalprice'];
-				if(array_key_exists('vatprice', $prices))		 	$_result['vatprice']        = $prices['vatprice'];
-			}
-		}
-
-		return $_result;
-	}
-
 
 	public static function by_id($_id)
 	{
 		$query  = "SELECT * FROM products WHERE products.id = $_id	LIMIT 1	";
 		$result = \dash\db::get($query, null, true);
-		$result = self::load_price($result);
 		return $result;
 	}
 

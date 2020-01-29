@@ -118,6 +118,10 @@ class edit
 		if(!\dash\app::isset_request('height')) 		unset($args['height']);
 		if(!\dash\app::isset_request('filesize')) 		unset($args['filesize']);
 		if(!\dash\app::isset_request('fileaddress')) 	unset($args['fileaddress']);
+		if(!\dash\app::isset_request('price')) 			unset($args['price']);
+		if(!\dash\app::isset_request('discount')) 		unset($args['discount']);
+		if(!\dash\app::isset_request('buyprice')) 		unset($args['buyprice']);
+		if(!\dash\app::isset_request('compareatprice')) unset($args['compareatprice']);
 
 		if(array_key_exists('title', $args) && !$args['title'] && $args['title'] !== '0')
 		{
@@ -125,21 +129,10 @@ class edit
 			return false;
 		}
 
-		$args_price = \lib\app\product\check::price($id, $_option);
-		if($args_price === false || !\dash\engine\process::status())
-		{
-			return false;
-		}
-
-		if(!\dash\app::isset_request('price')) unset($args['price']);
-		if(!\dash\app::isset_request('discount')) unset($args['discount']);
-		if(!\dash\app::isset_request('buyprice')) unset($args['buyprice']);
-		if(!\dash\app::isset_request('compareatprice')) unset($args['compareatprice']);
-
 		if(\dash\app::isset_request('price') || \dash\app::isset_request('discount') || \dash\app::isset_request('buyprice') || \dash\app::isset_request('compareatprice'))
 		{
 			// check archive of price if price or discount or buyprice sended
-			\lib\app\product\updateprice::check($id, $args_price);
+			\lib\app\product\updateprice::check($id, $args);
 		}
 
 
