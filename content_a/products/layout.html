@@ -702,6 +702,10 @@
                 </td>
 
                 <td>
+
+                  <input type="hidden" name="buyprice_{{myCount}}" value="{{productDataRow.buyprice}}">
+                  <input type="hidden" name="discount_{{myCount}}" value="{{productDataRow.discount}}">
+
                   <div class="input">
                     <input type="number" name="price_{{myCount}}" placeholder='{%trans "Price"%}' value="{{productDataRow.price}}">
                   </div>

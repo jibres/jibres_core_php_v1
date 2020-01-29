@@ -345,6 +345,8 @@ class variants
 				'stock'        => array_key_exists('stock', $value) ? $value['stock'] : null,
 				'barcode'      => array_key_exists('barcode', $value) ? $value['barcode'] : null,
 				'price'        => array_key_exists('price', $value) ? $value['price'] : null,
+				'buyprice'     => array_key_exists('buyprice', $value) ? $value['buyprice'] : null,
+				'discount'     => array_key_exists('discount', $value) ? $value['discount'] : null,
 				'sku'          => array_key_exists('sku', $value) ? $value['sku'] : null,
 			];
 
