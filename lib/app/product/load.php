@@ -61,5 +61,38 @@ class load
 
 		return $detail;
 	}
+
+
+
+	// load one product by id in site
+	public static function site($_id)
+	{
+		if(!$_id || !is_numeric($_id))
+		{
+			return false;
+		}
+
+		// load detail
+		$detail = \lib\app\product\get::get($_id, ['load_gallery' => true]);
+		if(!$detail)
+		{
+			// access denied or invalid id
+			return false;
+		}
+
+		if(isset($detail['variant_child']) && $detail['variant_child'])
+		{
+			$load_child = \lib\db\products\get::variants_load_child($_id);
+			if($load_child)
+			{
+				$detail['child'] = array_map(['\\lib\\app\\product\\ready', 'row'], $load_child);
+			}
+		}
+
+		// sed dataRow to load detail in html
+		\dash\data::productDataRow($detail);
+
+		return $detail;
+	}
 }
 ?>
