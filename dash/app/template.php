@@ -92,12 +92,6 @@ class template
 				return false;
 			}
 
-
-			if(is_callable(['\\lib\\app\\posts\\template', 'find']))
-			{
-				\lib\app\posts\template::find($data);
-			}
-
 			if(isset($data['meta']['redirect']) && $data['meta']['redirect'])
 			{
 				\dash\redirect::to($data['meta']['redirect'], true, 302);
