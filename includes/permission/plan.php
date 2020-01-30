@@ -253,6 +253,8 @@ $master[] = 'customerNoteAdd';
 $master[] = 'customerNoteView';
 $master[] = 'customerNoteDelete';
 
+$master[] = 'productTagView';
+
 // $master[] = 'factorAccess';
 // $master[] = 'factorEditAccess';
 

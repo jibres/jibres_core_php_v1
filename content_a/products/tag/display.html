@@ -1,0 +1,242 @@
+{%extends display.dash%}
+
+
+{%block pageContent%}
+
+<div class="f justify-center">
+
+  <div class="c4 s12 pRa10">
+    {{block ('iAddEditBox') }}
+  </div>
+
+  <div class="c s12">
+      {{block ('iDataBox') }}
+  </div>
+</div>
+{%endblock%}
+
+
+{%block iAddEditBox%}
+<form method="post" class="cbox" autocomplete="off">
+  {{block ('iTitle') }}
+  {{block ('iSlug') }}
+  {{block ('iDescription') }}
+  {{block ('iLanguage') }}
+
+  {{block ('iStatus') }}
+  {%if editMode%}{{block ('iedit')}}{%else%}{{block ('iadd')}}
+  {%endif%}
+</form>
+{%endblock%}
+
+
+{%block iDataBox%}
+
+{%if dataTable%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+ {%if dataFilter%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilterNoResult')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+
+
+{%endblock%}
+
+
+
+{%block htmlSearchBox%}
+<div class="cbox fs12">
+  <form method="get" data-action>
+    <div class="input">
+      <input type="search" name="q" placeholder='{%trans "Search"%}' id="q" value="{{requestGET.q}}" autofocus  autocomplete='off'>
+      <button class="addon btn ">{%trans "Search" %}</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+
+
+{%block htmlTable%}
+
+  <table class="tbl1 v2 fs12">
+    <thead>
+      <tr class="primary ">
+        <th data-sort="{{sortLink.title.order}}"><a href="{{sortLink.title.link}}">{%trans "Title"%}</a></th>
+        <th data-sort="{{sortLink.slug.order}}"><a href="{{sortLink.slug.link}}">{%trans "Slug"%}</a></th>
+
+        <th>{%trans "Description"%}</th>
+        <th data-sort="{{sortLink.count.order}}"><a href="{{sortLink.count.link}}">{%trans "Used"%}</a></th>
+        <th data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for key, value in dataTable%}
+        <tr class="{%if value.status=='disable'%}negative{%elseif value.status=='expired'%}warning{%endif%}">
+          <td><a href="{{url.this}}?type={{value.type}}&edit={{value.id}}">
+
+          {{value.title}}</a></td>
+
+
+            <td class="fs08"><a href="{{url.kingdom}}/{{value.url}}" target="_blank"><span class="sf-share"></span> {{value.slug}}</a></td>
+
+          <td>{{value.desc}}</td>
+
+            <td class="collapsing txtC">{%if value.count%}<a target="_blank" href="{{url.here}}/posts?term={{value.slug}}">{{ value.count | fitNumber}}</a>{%else%}-{%endif%}</td>
+
+          <td class="collapsing txtC">{%set vStatus = value.status%}{%trans vStatus%}</td>
+        </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  {%include display.pagination%}
+
+{%endblock%}
+
+
+
+{%block iadd%}
+<button class="btn primary block mT25">{%trans "Add"%}</button>
+{%endblock%}
+
+{%block iedit%}
+<button class="btn primary block mT25">{%trans "Edit"%}</button>
+<div class="ovh">
+  <a href="{{url.pwd}}" class="badge danger floatL mT5" data-ajaxify data-method='post' data-data='{"action": "remove"}'>{%trans "Remove"%}</a>
+</div>
+
+{%endblock%}
+
+
+{%block iTitle%}
+<label for='ftitle'>{%trans "Title"%} <small class="fc-red">* {%trans "Require"%}</small></label>
+<div class="input">
+ <input type="text" name="title" placeholder='{%trans "Title"%} *' value="{{datarow.title}}" autofocus maxlength='100' minlength="1" pattern=".{1,100}" title='{%trans "Title is used to show on website"%}' id='ftitle' required>
+</div>
+{%endblock%}
+
+
+{%block iSlug%}
+<label for='fslug'>{%trans "Slug"%} <small>{%trans "Used for url"%}</small></label>
+<div class="input ltr">
+ <input type="text" name="slug" placeholder='{%trans "Slug"%}' value="{{datarow.slug}}" maxlength='50' minlength="1" pattern=".{1,50}" title='{%trans "Used in url for categorize addresses"%}' id='fslug'>
+</div>
+{%endblock%}
+
+
+
+{%block iParent%}
+
+<label for="parent">{%trans "Parent Category"%}</label>
+<select name="parent" class="input select">
+  <option value="">{%trans "Please select one itme"%}</option>
+  {%for key, item in dataTable%}
+{%if item.id == requestGET.edit%}
+{%else%}
+    <option value="{{item.id}}" {%if datarow.parent == item.id %} selected {%endif%}>{{item.title}}</option>
+{%endif%}
+  {%endfor%}
+</select>
+{%endblock%}
+
+
+{%block iDescription%}
+<div class="mB10">
+  <label for='fdesc'>{%trans "Description"%}</label>
+  <textarea class="txt" name="desc" rows="7" placeholder='{%trans "Description"%}' id='fdesc'>{{datarow.desc}}</textarea>
+</div>
+{%endblock%}
+
+
+{%block iStatus%}
+{%if perm_su()%}
+<label for="status">{%trans "Status"%}</label>
+<select name="status" class="input select">
+  <option value="">{%trans "Please select one itme"%}</option>
+  <option value="enable" {%if datarow.status == 'enable'%} selected {%endif%}>{%trans "Enable"%}</option>
+  <option value="disable" {%if datarow.status == 'disable'%} selected {%endif%}>{%trans "Disable"%}</option>
+  <option value="expired" {%if datarow.status == 'expired'%} selected {%endif%}>{%trans "Expired"%}</option>
+  <option value="awaiting" {%if datarow.status == 'awaiting'%} selected {%endif%}>{%trans "Awaiting"%}</option>
+  <option value="filtered" {%if datarow.status == 'filtered'%} selected {%endif%}>{%trans "Filtered"%}</option>
+  <option value="blocked" {%if datarow.status == 'blocked'%} selected {%endif%}>{%trans "Blocked"%}</option>
+  <option value="spam" {%if datarow.status == 'spam'%} selected {%endif%}>{%trans "Spam"%}</option>
+  <option value="violence" {%if datarow.status == 'violence'%} selected {%endif%}>{%trans "Violence"%}</option>
+  <option value="pornography" {%if datarow.status == 'pornography'%} selected {%endif%}>{%trans "Pornography"%}</option>
+  <option value="other" {%if datarow.status == 'other'%} selected {%endif%}>{%trans "Other"%}</option>
+</select>
+
+{%else%}
+<label for="status">{%trans "Status"%}</label>
+<select name="status" class="input select">
+  <option value="">{%trans "Please select one itme"%}</option>
+  <option value="enable" {%if datarow.status == 'enable'%} selected {%endif%}>{%trans "Enable"%}</option>
+  <option value="disable" {%if datarow.status == 'disable'%} selected {%endif%}>{%trans "Disable"%}</option>
+</select>
+{%endif%}
+{%endblock%}
+
+
+
+{%block iexcerpt%}
+<label for='excerpt'>{%trans "Excerpt"%}</label>
+<textarea class="txt" name="excerpt" rows="7" placeholder='{%trans "Description"%}' id='excerpt'>{{datarow.excerpt}}</textarea>
+{%endblock%}
+
+
+
+
+{%block htmlFilter%}
+<p class="f fs14 msg info2">
+  <span class="c">{{dataFilter | raw}}</span>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
+  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlStartAddNew%}
+<p class="fs14 msg success2">{%trans "Hi!"%} {%trans "Try to start with add new records!"%}</p>
+{%endblock%}
+
+
+{%block iLanguage%}
+<div class="mB10">
+  <label for="language">{%trans "Language"%}</label>
+  <select name="language" class="ui dropdown select">
+    <option value=""><i>{%trans "Please select one item"%}</i></option>
+    {%for key, value in lang.list%}
+      {%if key | length == 2%}
+      <option value="{{key}}" {%if datarow.language == key or (not datarow.lang and lang.current == key)  %} selected {%endif%}>{{value}}</option>
+      {%endif%}
+    {%endfor%}
+  </select>
+</div>
+{%endblock%}
+
+

@@ -1475,5 +1475,10 @@
     "title": "customerNoteDelete",
     "cat": "customer",
     "require": []
+  },
+  "productTagView": {
+    "title": "productTagView",
+    "cat": "Product",
+    "require": []
   }
 }
