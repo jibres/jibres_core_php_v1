@@ -11,7 +11,7 @@ class controller
 			\dash\data::editMode(true);
 
 			$id = \dash\request::get('edit');
-			$datarow = \dash\app\term::get($id);
+			$datarow = \lib\app\product\tag::get_tag($id);
 			\dash\data::datarow($datarow);
 
 			if(!$datarow)

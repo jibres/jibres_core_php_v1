@@ -123,11 +123,7 @@ class edit
 		if(!\dash\app::isset_request('buyprice')) 		unset($args['buyprice']);
 		if(!\dash\app::isset_request('compareatprice')) unset($args['compareatprice']);
 
-		if(array_key_exists('title', $args) && !$args['title'] && $args['title'] !== '0')
-		{
-			\dash\notif::error(T_("Title of product can not be null"), 'title');
-			return false;
-		}
+
 
 		if(\dash\app::isset_request('price') || \dash\app::isset_request('discount') || \dash\app::isset_request('buyprice') || \dash\app::isset_request('compareatprice'))
 		{
@@ -248,6 +244,12 @@ class edit
 			{
 				unset($args[$must_unset]);
 			}
+		}
+
+		if(array_key_exists('title', $args) && !$args['title'] && $args['title'] !== '0')
+		{
+			\dash\notif::error(T_("Title of product can not be null"), 'title');
+			return false;
 		}
 
 

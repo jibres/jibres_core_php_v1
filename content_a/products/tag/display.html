@@ -92,7 +92,7 @@
     <tbody>
       {%for key, value in dataTable%}
         <tr class="{%if value.status=='disable'%}negative{%elseif value.status=='expired'%}warning{%endif%}">
-          <td><a href="{{url.this}}?type={{value.type}}&edit={{value.id}}">
+          <td><a href="{{url.that}}?edit={{value.id}}">
 
           {{value.title}}</a></td>
 
@@ -101,7 +101,7 @@
 
           <td>{{value.desc}}</td>
 
-            <td class="collapsing txtC">{%if value.count%}<a target="_blank" href="{{url.here}}/posts?term={{value.slug}}">{{ value.count | fitNumber}}</a>{%else%}-{%endif%}</td>
+            <td class="collapsing txtC">{%if value.count%}<a target="_blank" href="{{url.this}}?tagid={{value.id}}">{{ value.count | fitNumber}}</a>{%else%}-{%endif%}</td>
 
           <td class="collapsing txtC">{%set vStatus = value.status%}{%trans vStatus%}</td>
         </tr>

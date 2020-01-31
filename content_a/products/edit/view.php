@@ -29,9 +29,7 @@ class view
 		\dash\data::page_view(\dash\url::here());
 		// \dash\data::page_help(\dash\url::kingdom().'/support/test');
 
-		// back to list of product
-		\dash\data::badge_text(T_('Back'));
-		\dash\data::badge_link(\dash\url::this());
+
 
 		$variants_list = \lib\app\product\variants::get($id);
 		\dash\data::variantsList($variants_list);

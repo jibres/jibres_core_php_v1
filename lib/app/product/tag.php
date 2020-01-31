@@ -196,5 +196,181 @@ class tag
 
 		return $get_usage;
 	}
+
+
+	public static function get_tag($_tag_id)
+	{
+		if(!$_tag_id || !is_numeric($_tag_id))
+		{
+			return false;
+		}
+
+		$load = \lib\db\producttag\get::by_id($_tag_id);
+		if(!$load)
+		{
+			return null;
+		}
+
+		return $load;
+	}
+
+
+	public static function list($_string, $_args = [])
+	{
+		$and    = [];
+		$or     = [];
+		$string = null;
+
+		$list = \lib\db\producttag\search::list($string, $and, $or);
+		return $list;
+	}
+
+
+
+	public static function check($_id = null)
+	{
+
+		$title = \dash\app::request('title');
+		if(!$title)
+		{
+			\dash\notif::error(T_("Please set the tag title"), 'title');
+			return false;
+		}
+
+		if(mb_strlen($title) > 150)
+		{
+			\dash\notif::error(T_("Please set the tag title less than 150 character"), 'title');
+			return false;
+		}
+
+
+		$slug = \dash\app::request('slug');
+
+		if($slug && mb_strlen($slug) > 150)
+		{
+			\dash\notif::error(T_("Please set the tag slug less than 150 character"), 'slug');
+			return false;
+		}
+
+		if(!$slug)
+		{
+			$slug = \dash\utility\filter::slug($title, null, 'persian');
+		}
+		else
+		{
+			$slug = \dash\utility\filter::slug($slug, null, 'persian');
+		}
+
+		$language = \dash\app::request('language');
+		if($language && mb_strlen($language) !== 2)
+		{
+			\dash\notif::error(T_("Invalid parameter language"), 'language');
+			return false;
+		}
+
+		if($language && !\dash\language::check($language))
+		{
+			\dash\notif::error(T_("Invalid parameter language"), 'language');
+			return false;
+		}
+
+		$desc = \dash\app::request('desc');
+		if($desc && mb_strlen($desc) > 500)
+		{
+			\dash\notif::error(T_("Please set the tag desc less than 500 character"), 'desc');
+			return false;
+		}
+
+
+		$status = \dash\app::request('status');
+
+		if($status && !in_array($status, ['enable','disable','expired','awaiting','filtered','blocked','spam','violence','pornography','other']))
+		{
+			\dash\notif::error(T_("Invalid status of term"));
+			return false;
+		}
+
+		// check duplicate
+		// lang+slug
+		$check_duplicate = \lib\db\producttag\get::check_duplicate($slug, $language);
+
+		if(isset($check_duplicate['id']))
+		{
+			if(intval($check_duplicate['id']) === intval($_id))
+			{
+				// no problem to edit it
+			}
+			else
+			{
+				\dash\notif::error(T_("Duplicate term"), ['slug', 'language', 'title']);
+				return false;
+			}
+		}
+
+
+		$args             = [];
+		$args['title']    = $title;
+		$args['desc']     = $desc;
+		$args['status']   = $status;
+		$args['slug']     = $slug;
+		$args['language'] = $language;
+
+		return $args;
+	}
+
+
+
+	public static function add_tag($_args)
+	{
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		\dash\app::variable($_args);
+
+		$args = self::check();
+
+		$tag_id = \lib\db\producttag\insert::new_record($args);
+
+		if(!$tag_id)
+		{
+			\dash\notif::error(T_("No way to insert tag"));
+			return false;
+		}
+
+		\dash\notif::ok(T_("Tag successfully added"));
+		return true;
+
+
+	}
+
+
+
+	public static function edit($_args, $_id)
+	{
+		if(!$_id || !is_numeric($_id))
+		{
+			\dash\notif::error(T_("Id not set"));
+			return false;
+		}
+
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		\dash\app::variable($_args);
+
+		$args = self::check($_id);
+
+		\lib\db\producttag\update::update($args, $_id);
+
+		\dash\notif::ok(T_("Tag successfully edited"));
+		return true;
+
+	}
 }
 ?>

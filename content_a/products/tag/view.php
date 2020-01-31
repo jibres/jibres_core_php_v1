@@ -16,6 +16,10 @@ class view
 		\dash\data::page_title($myTitle);
 		\dash\data::page_desc($myDesc);
 
+		// back
+		\dash\data::page_backText(T_('Products'));
+		\dash\data::page_backLink(\dash\url::this());
+
 
 		$args =
 		[
@@ -34,24 +38,14 @@ class view
 
 		$args['language'] = \dash\language::current();
 
-		if(isset($args['type']) && $args['type'] === 'cat')
-		{
-			if(!\dash\permission::check('cpCategoryView'))
-			{
-				// @check
-			}
-		}
 
 		$search_string = \dash\request::get('q');
 
-		if($search_string)
-		{
-			$myTitle = T_('Search'). ' '.  $search_string;
-		}
 
 
-		$dataTable = \dash\app\term::list($search_string, $args);
-		\dash\data::sortLink(\content_cms\view::make_sort_link(\dash\app\term::$sort_field, \dash\url::this()));
+		$dataTable = \lib\app\product\tag::list($search_string, $args);
+		\dash\data::sortLink(\content_cms\view::make_sort_link(['id', 'title'], \dash\url::that()));
+
 		\dash\data::dataTable($dataTable);
 
 	}
