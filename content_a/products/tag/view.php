@@ -44,7 +44,10 @@ class view
 
 
 		$dataTable = \lib\app\product\tag::list($search_string, $args);
-		\dash\data::sortLink(\content_cms\view::make_sort_link(['id', 'title'], \dash\url::that()));
+		\dash\data::sortLink(\content_cms\view::make_sort_link(['id', 'title', 'slug', 'status'], \dash\url::that()));
+
+		$dataFilter = \dash\app\sort::createFilterMsg($search_string, []);
+		\dash\data::dataFilter($dataFilter);
 
 		\dash\data::dataTable($dataTable);
 

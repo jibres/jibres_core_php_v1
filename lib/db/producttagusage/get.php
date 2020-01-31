@@ -30,5 +30,13 @@ class get
 	}
 
 
+	public static function check_usage_tag($_tag_id)
+	{
+		$query  = "SELECT * FROM producttagusage WHERE producttagusage.producttag_id = $_tag_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 }
 ?>

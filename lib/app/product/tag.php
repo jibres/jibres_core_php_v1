@@ -217,12 +217,41 @@ class tag
 
 	public static function list($_string, $_args = [])
 	{
-		$and    = [];
-		$or     = [];
-		$string = null;
+		$and          = [];
+		$or           = [];
 
-		$list = \lib\db\producttag\search::list($string, $and, $or);
+		$query_string = \dash\safe::forQueryString($_string);
+
+		if($query_string)
+		{
+			$or['producttag.title']  = ["LIKE", "'%$query_string%'"];
+		}
+
+		$list         = \lib\db\producttag\search::list($and, $or);
+
 		return $list;
+	}
+
+
+	public static function remove($_id)
+	{
+		$load = self::get_tag($_id);
+		if(!$load)
+		{
+			\dash\notif::error(T_("Tag not found"));
+			return false;
+		}
+
+		$check_usage = \lib\db\producttagusage\get::check_usage_tag($_id);
+		if($check_usage)
+		{
+			\dash\notif::error(T_("This tag use in some product and can not be removed"));
+			return false;
+		}
+
+		\lib\db\producttag\delete::record($_id);
+		\dash\notif::ok(T_("Tag removed"));
+		return true;
 	}
 
 

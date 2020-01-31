@@ -21,7 +21,7 @@
   {{block ('iTitle') }}
   {{block ('iSlug') }}
   {{block ('iDescription') }}
-  {{block ('iLanguage') }}
+
 
   {{block ('iStatus') }}
   {%if editMode%}{{block ('iedit')}}{%else%}{{block ('iadd')}}
@@ -92,16 +92,15 @@
     <tbody>
       {%for key, value in dataTable%}
         <tr class="{%if value.status=='disable'%}negative{%elseif value.status=='expired'%}warning{%endif%}">
-          <td><a href="{{url.that}}?edit={{value.id}}">
-
-          {{value.title}}</a></td>
+          <td>
+            <a href="{{url.that}}?edit={{value.id}}"><i class="sf-edit"></i> {{value.title}}</a></td>
 
 
             <td class="fs08"><a href="{{url.kingdom}}/{{value.url}}" target="_blank"><span class="sf-share"></span> {{value.slug}}</a></td>
 
           <td>{{value.desc}}</td>
 
-            <td class="collapsing txtC">{%if value.count%}<a target="_blank" href="{{url.this}}?tagid={{value.id}}">{{ value.count | fitNumber}}</a>{%else%}-{%endif%}</td>
+            <td class="collapsing txtC">{%if value.count%}<a target="_blank" href="{{url.that}}?tagid={{value.id}}">{{ value.count | fitNumber}}</a>{%else%}-{%endif%}</td>
 
           <td class="collapsing txtC">{%set vStatus = value.status%}{%trans vStatus%}</td>
         </tr>
@@ -121,7 +120,7 @@
 {%block iedit%}
 <button class="btn primary block mT25">{%trans "Edit"%}</button>
 <div class="ovh">
-  <a href="{{url.pwd}}" class="badge danger floatL mT5" data-ajaxify data-method='post' data-data='{"action": "remove"}'>{%trans "Remove"%}</a>
+  <a href="{{url.pwd}}" class="badge danger floatL mT5" data-confirm data-method='post' data-data='{"action": "remove"}'>{%trans "Remove"%}</a>
 </div>
 
 {%endblock%}
@@ -144,20 +143,6 @@
 
 
 
-{%block iParent%}
-
-<label for="parent">{%trans "Parent Category"%}</label>
-<select name="parent" class="input select">
-  <option value="">{%trans "Please select one itme"%}</option>
-  {%for key, item in dataTable%}
-{%if item.id == requestGET.edit%}
-{%else%}
-    <option value="{{item.id}}" {%if datarow.parent == item.id %} selected {%endif%}>{{item.title}}</option>
-{%endif%}
-  {%endfor%}
-</select>
-{%endblock%}
-
 
 {%block iDescription%}
 <div class="mB10">
@@ -174,14 +159,14 @@
   <option value="">{%trans "Please select one itme"%}</option>
   <option value="enable" {%if datarow.status == 'enable'%} selected {%endif%}>{%trans "Enable"%}</option>
   <option value="disable" {%if datarow.status == 'disable'%} selected {%endif%}>{%trans "Disable"%}</option>
-  <option value="expired" {%if datarow.status == 'expired'%} selected {%endif%}>{%trans "Expired"%}</option>
-  <option value="awaiting" {%if datarow.status == 'awaiting'%} selected {%endif%}>{%trans "Awaiting"%}</option>
-  <option value="filtered" {%if datarow.status == 'filtered'%} selected {%endif%}>{%trans "Filtered"%}</option>
-  <option value="blocked" {%if datarow.status == 'blocked'%} selected {%endif%}>{%trans "Blocked"%}</option>
-  <option value="spam" {%if datarow.status == 'spam'%} selected {%endif%}>{%trans "Spam"%}</option>
-  <option value="violence" {%if datarow.status == 'violence'%} selected {%endif%}>{%trans "Violence"%}</option>
-  <option value="pornography" {%if datarow.status == 'pornography'%} selected {%endif%}>{%trans "Pornography"%}</option>
-  <option value="other" {%if datarow.status == 'other'%} selected {%endif%}>{%trans "Other"%}</option>
+  <option value="expired" {%if datarow.status == 'expired'%} selected {%endif%}>{%trans "Expired"%} *</option>
+  <option value="awaiting" {%if datarow.status == 'awaiting'%} selected {%endif%}>{%trans "Awaiting"%} *</option>
+  <option value="filtered" {%if datarow.status == 'filtered'%} selected {%endif%}>{%trans "Filtered"%} *</option>
+  <option value="blocked" {%if datarow.status == 'blocked'%} selected {%endif%}>{%trans "Blocked"%} *</option>
+  <option value="spam" {%if datarow.status == 'spam'%} selected {%endif%}>{%trans "Spam"%} *</option>
+  <option value="violence" {%if datarow.status == 'violence'%} selected {%endif%}>{%trans "Violence"%} *</option>
+  <option value="pornography" {%if datarow.status == 'pornography'%} selected {%endif%}>{%trans "Pornography"%} *</option>
+  <option value="other" {%if datarow.status == 'other'%} selected {%endif%}>{%trans "Other"%} *</option>
 </select>
 
 {%else%}
@@ -207,7 +192,7 @@
 {%block htmlFilter%}
 <p class="f fs14 msg info2">
   <span class="c">{{dataFilter | raw}}</span>
-  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
@@ -215,7 +200,7 @@
 {%block htmlFilterNoResult%}
 <p class="f fs14 msg warn2">
   <span class="c">{%trans "Result not found!"%} {%trans "Search with new keywords."%}</span>
-  <a class="cauto" href="{{url.this}}">{%trans "Clear filters"%}</a>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
 </p>
 {%endblock%}
 
