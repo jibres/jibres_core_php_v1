@@ -28,6 +28,7 @@ class view
 			// 'buyprice'     => \dash\request::get('buyprice'),
 			// 'cat'          => \dash\request::get('cat'),
 			'cat_id'       => \dash\request::get('catid'),
+			'tag_id'       => \dash\request::get('tagid'),
 			// 'discount'     => \dash\request::get('discount'),
 			'unit_id'      => \dash\request::get('unitid'),
 			'company_id'   => \dash\request::get('companyid'),

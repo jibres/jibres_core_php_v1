@@ -31,6 +31,7 @@ class search
 			'buyprice'     => null,
 			'cat'          => null,
 			'cat_id'       => null,
+			'tag_id'       => null,
 			'discount'     => null,
 			'unit_id'      => null,
 			'company_id'   => null,
@@ -112,6 +113,14 @@ class search
 		{
 			$and['products.cat_id']   = $_args['cat_id'];
 			self::$filter_args['cat'] = '*'. T_('Category');
+			self::$is_filtered        = true;
+		}
+
+		if($_args['tag_id'] && is_numeric($_args['tag_id']))
+		{
+			$and['producttagusage.producttag_id']   = $_args['tag_id'];
+			$type = 'tagusage';
+			self::$filter_args['tag'] = '*'. T_('Tag');
 			self::$is_filtered        = true;
 		}
 
@@ -279,6 +288,10 @@ class search
 
 			case 'price_factor_count':
 				$list = \lib\db\products\search::list_join_price_factor_count($and, $or, $order_sort, $meta);
+				break;
+
+			case 'tagusage':
+				$list = \lib\db\products\search::list_join_tag($and, $or, $order_sort, $meta);
 				break;
 
 			case 'no-duplicatetitle':

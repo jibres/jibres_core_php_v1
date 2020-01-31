@@ -86,7 +86,7 @@
 
         <th>{%trans "Description"%}</th>
         <th data-sort="{{sortLink.count.order}}"><a href="{{sortLink.count.link}}">{%trans "Used"%}</a></th>
-        <th data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
+        <th class="collapsing" data-sort="{{sortLink.status.order}}"><a href="{{sortLink.status.link}}">{%trans "Status"%}</a></th>
       </tr>
     </thead>
     <tbody>
@@ -100,7 +100,7 @@
 
           <td>{{value.desc}}</td>
 
-            <td class="collapsing txtC">{%if value.count%}<a target="_blank" href="{{url.that}}?tagid={{value.id}}">{{ value.count | fitNumber}}</a>{%else%}-{%endif%}</td>
+            <td class="collapsing txtC">{%if value.count%}<a href="{{url.this}}/price?tagid={{value.id}}">{{ value.count | fitNumber}}</a>{%else%}-{%endif%}</td>
 
           <td class="collapsing txtC">{%set vStatus = value.status%}{%trans vStatus%}</td>
         </tr>

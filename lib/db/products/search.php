@@ -135,6 +135,41 @@ class search
 	}
 
 
+	public static function list_join_tag($_and, $_or, $_order_sort = null, $_meta = [])
+	{
+
+		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+
+		$pagination_query =
+		"
+			SELECT COUNT(*) AS `count` FROM products INNER JOIN producttagusage ON producttagusage.product_id = products.id $q[where]
+		";
+
+		$limit = null;
+		if($q['pagination'] !== false)
+		{
+			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+		}
+
+
+		$query =
+		"
+			SELECT
+				products.*,
+				(SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id) AS `count_sale`
+			FROM products
+			INNER JOIN producttagusage ON producttagusage.product_id = products.id
+				$q[where]
+			ORDER BY `count_sale` DESC
+				 $limit
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
 
 }
 ?>

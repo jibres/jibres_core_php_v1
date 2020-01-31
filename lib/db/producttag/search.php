@@ -68,7 +68,13 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
-		$query = "SELECT producttag.* FROM producttag $q[where] $q[order] $limit ";
+		$query =
+		"
+			SELECT
+				producttag.*,
+				(SELECT COUNT(*) FROM producttagusage WHERE producttagusage.producttag_id = producttag.id) AS `count`
+
+			FROM producttag $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query);
 
