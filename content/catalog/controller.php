@@ -9,7 +9,7 @@ class controller
 		$lastVersion = '6.0';
 		$dlLink      = \dash\url::base().'/static/catalog/Jibres-Catalog-v'. $lastVersion. '-preview.pdf';
 
-		\dash\redirect::to($dlLink);
+		\dash\redirect::to($dlLink, false, T_('Jibres Catalog'));
 	}
 }
 ?>
