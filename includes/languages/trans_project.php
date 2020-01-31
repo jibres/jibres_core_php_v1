@@ -18,6 +18,20 @@ class twigTransTerms
 	echo T_("Your rate");                                                             // Line 27
 	echo T_("Write your comment...");                                                 // Line 44
 
+	//----------------------------------------content_subdomain/template/shareBox.html
+	echo T_("Share");                                                                 // Line 2
+	echo T_("facebook");                                                              // Line 176
+	echo T_("twitter");                                                               // Line 188
+	echo T_("linkedin");                                                              // Line 164
+	echo T_("telegram");                                                              // Line 50
+
+	//-----------------------------------------content_subdomain/template/dafault.html
+	echo T_("For share via social networks");                                         // Line 66
+	echo T_("News Code");                                                             // Line 35
+	echo T_("Recommended for you");                                                   // Line 62
+	echo T_("Download");                                                              // Line 99
+	echo T_("PDF");                                                                   // Line 99
+
 	//------------------------------------------------content_subdomain/home/site.html
 	echo T_("Products");                                                              // Line 19
 
@@ -190,18 +204,8 @@ class twigTransTerms
 	echo T_("Proudly Made in IRAN");                                                  // Line 70
 
 	//--------------------------------------------------content/template/shareBox.html
-	echo T_("Share");                                                                 // Line 2
-	echo T_("facebook");                                                              // Line 176
-	echo T_("twitter");                                                               // Line 188
-	echo T_("linkedin");                                                              // Line 164
-	echo T_("telegram");                                                              // Line 50
 
 	//---------------------------------------------------content/template/dafault.html
-	echo T_("For share via social networks");                                         // Line 66
-	echo T_("News Code");                                                             // Line 35
-	echo T_("Recommended for you");                                                   // Line 56
-	echo T_("Download");                                                              // Line 99
-	echo T_("PDF");                                                                   // Line 99
 
 	//----------------------------------------------------content/template/header.html
 	echo T_("Beta");                                                                  // Line 7
@@ -424,6 +428,9 @@ class twigTransTerms
 	//-------------------------------------------------------content/blog/display.html
 	echo T_("View your current location and navigate to parent of it");               // Line 7
 
+	//-----------------------------------------------------content_p/home/display.html
+	echo T_("Product Code");                                                          // Line 41
+
 	//-----------------------------------------------content_pay/redirect/display.html
 	echo T_("Go");                                                                    // Line 153
 
@@ -559,19 +566,21 @@ class twigTransTerms
 	echo T_("Categories of Product");                                                 // Line 10
 	echo T_("Product Units");                                                         // Line 11
 	echo T_("Product Compnay");                                                       // Line 12
-	echo T_("register new sale factor");                                              // Line 21
-	echo T_("List of sales");                                                         // Line 23
-	echo T_("List of purchases");                                                     // Line 24
-	echo T_("List of all factors");                                                   // Line 25
+	echo T_("Price history");                                                         // Line 13
+	echo T_("Product tag");                                                           // Line 14
+	echo T_("register new sale factor");                                              // Line 23
+	echo T_("List of sales");                                                         // Line 25
+	echo T_("List of purchases");                                                     // Line 26
+	echo T_("List of all factors");                                                   // Line 27
 	echo T_("Reports");                                                               // Line 230
 	echo T_("Daily report");                                                          // Line 20
 	echo T_("Monthly report");                                                        // Line 20
 	echo T_("Setting");                                                               // Line 13
-	echo T_("Store plans");                                                           // Line 47
-	echo T_("Factor settings");                                                       // Line 48
-	echo T_("Shift transformation");                                                  // Line 54
+	echo T_("Store plans");                                                           // Line 49
+	echo T_("Factor settings");                                                       // Line 50
+	echo T_("Shift transformation");                                                  // Line 56
 	echo T_("Logout");                                                                // Line 19
-	echo T_("You are active user");                                                   // Line 67
+	echo T_("You are active user");                                                   // Line 69
 
 	//------------------------------------------includes/html/sidebar/sidebar-cms.html
 	echo T_("News");                                                                  // Line 88
@@ -1548,8 +1557,8 @@ class twigTransTerms
 	echo T_("friday");                                                                // Line 512
 	echo T_("Special date");                                                          // Line 524
 	echo T_("Time");                                                                  // Line 52
-	echo T_("Start date");                                                            // Line 542
-	echo T_("End date");                                                              // Line 548
+	echo T_("Start date");                                                            // Line 51
+	echo T_("End date");                                                              // Line 52
 	echo T_("Sum price is greater than ...");                                         // Line 564
 	echo T_("Sum price less than ...");                                               // Line 570
 	echo T_("Price is equal to ...");                                                 // Line 576
@@ -1697,6 +1706,16 @@ class twigTransTerms
 
 	//---------------------------------------------content_a/category/add/display.html
 
+	//-------------------------------------------------content_a/pricehistory/chart.js
+	echo T_("Price change in time line");                                             // Line 26
+
+	//---------------------------------------------content_a/pricehistory/display.html
+	echo T_("Choose product");                                                        // Line 17
+	echo T_("Show Price in special date");                                            // Line 20
+	echo T_("yyyy/mm/dd");                                                            // Line 34
+	echo T_("Show chart");                                                            // Line 27
+	echo T_("Show change price in special date");                                     // Line 42
+
 	//---------------------------------------------------------content_a/home/chart.js
 	echo T_("Sum factor price and count of it group by hours");                       // Line 20
 	echo T_("Sum price");                                                             // Line 87
@@ -1799,9 +1818,6 @@ class twigTransTerms
 	echo T_("Search products");                                                       // Line 44
 	echo T_("Sort");                                                                  // Line 52
 
-	//----------------------------------------content_a/products/pricehistory/chart.js
-	echo T_("Price change in time line");                                             // Line 26
-
 	//--------------------------------------------content_a/products/home/display.html
 	echo T_("Variants");                                                              // Line 191
 	echo T_("in stock");                                                              // Line 57
@@ -1824,7 +1840,7 @@ class twigTransTerms
 	echo T_("Track quantity");                                                        // Line 103
 	echo T_("Inventory tracking can help you avoid selling products that have run out of stock, or let you know when you need to order or make more of your product.");// Line 105
 	echo T_("Stock keeping unit - SKU");                                              // Line 110
-	echo T_("Barcode");                                                               // Line 718
+	echo T_("Barcode");                                                               // Line 722
 	echo T_("Scan Barcode here...");                                                  // Line 131
 	echo T_("Barcode2");                                                              // Line 138
 	echo T_("Scan Barcode2 here...");                                                 // Line 140
@@ -1865,8 +1881,8 @@ class twigTransTerms
 	echo T_("Material");                                                              // Line 618
 	echo T_("Avalible?");                                                             // Line 669
 	echo T_("Stock");                                                                 // Line 700
-	echo T_("SKU");                                                                   // Line 712
-	echo T_("Only product by check the need box and set price and stock can add to your product list!");// Line 728
+	echo T_("SKU");                                                                   // Line 716
+	echo T_("Only product by check the need box and set price and stock can add to your product list!");// Line 732
 
 	//-------------------------------------------content_a/products/price/display.html
 
@@ -1890,6 +1906,21 @@ class twigTransTerms
 	echo T_("Copy of");                                                               // Line 12
 	echo T_("Copy");                                                                  // Line 15
 
+	//---------------------------------------------content_a/products/tag/display.html
+	echo T_("Used");                                                                  // Line 117
+	echo T_("Title is used to show on website");                                      // Line 162
+	echo T_("Used for url");                                                          // Line 168
+	echo T_("Used in url for categorize addresses");                                  // Line 170
+	echo T_("Please select one itme");                                                // Line 219
+	echo T_("Filtered");                                                              // Line 208
+	echo T_("Blocked");                                                               // Line 209
+	echo T_("Violence");                                                              // Line 211
+	echo T_("Pornography");                                                           // Line 212
+	echo T_("Excerpt");                                                               // Line 229
+	echo T_("Try to start with add new records!");                                    // Line 253
+	echo T_("Language");                                                              // Line 259
+	echo T_("Please select one item");                                                // Line 261
+
 	//--------------------------------------------content_a/setup/address/display.html
 
 	//----------------------------------------------content_a/setup/owner/display.html
@@ -1900,7 +1931,6 @@ class twigTransTerms
 	echo T_("First name");                                                            // Line 429
 	echo T_("Last name");                                                             // Line 109
 	echo T_("Birthday");                                                              // Line 331
-	echo T_("yyyy/mm/dd");                                                            // Line 34
 
 	//------------------------------------------------content_a/setup/vat/display.html
 
@@ -2476,7 +2506,6 @@ class twigTransTerms
 	echo T_("Minus");                                                                 // Line 41
 
 	//--------------------------------------------content_crm/transactions/layout.html
-	echo T_("Please select one item");                                                // Line 261
 	echo T_("Money");                                                                 // Line 19
 	echo T_("Gift");                                                                  // Line 20
 	echo T_("Transfer");                                                              // Line 21
@@ -2502,7 +2531,6 @@ class twigTransTerms
 	echo T_("Bio");                                                                   // Line 341
 	echo T_("Display name");                                                          // Line 349
 	echo T_("Father name");                                                           // Line 128
-	echo T_("Please select one itme");                                                // Line 219
 	echo T_("Marital");                                                               // Line 156
 	echo T_("Single");                                                                // Line 159
 	echo T_("Married");                                                               // Line 160
@@ -2926,7 +2954,6 @@ class twigTransTerms
 	echo T_("Default is now");                                                        // Line 47
 	echo T_("Publish time");                                                          // Line 55
 	echo T_("Publish");                                                               // Line 90
-	echo T_("Language");                                                              // Line 259
 	echo T_("You can publish in another language");                                   // Line 117
 	echo T_("Recommended being more than 40 character and appear at the beginning of page content");// Line 4
 	echo T_("Choose parent for this page to create related url as tree");             // Line 133
@@ -2971,17 +2998,7 @@ class twigTransTerms
 	//--------------------------------------------------content_cms/terms/display.html
 	echo T_("Tag color");                                                             // Line 74
 	echo T_("Select tag color");                                                      // Line 78
-	echo T_("Used");                                                                  // Line 117
-	echo T_("Title is used to show on website");                                      // Line 162
-	echo T_("Used for url");                                                          // Line 168
-	echo T_("Used in url for categorize addresses");                                  // Line 170
 	echo T_("Parent Category");                                                       // Line 178
-	echo T_("Filtered");                                                              // Line 208
-	echo T_("Blocked");                                                               // Line 209
-	echo T_("Violence");                                                              // Line 211
-	echo T_("Pornography");                                                           // Line 212
-	echo T_("Excerpt");                                                               // Line 229
-	echo T_("Try to start with add new records!");                                    // Line 253
 	echo T_("Category icon");                                                         // Line 276
 	echo T_("Select category icon");                                                  // Line 280
 
