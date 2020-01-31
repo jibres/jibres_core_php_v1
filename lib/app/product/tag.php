@@ -331,7 +331,8 @@ class tag
 			}
 			else
 			{
-				\dash\notif::error(T_("Duplicate term"), ['slug', 'language', 'title']);
+
+				\dash\notif::error(T_("Duplicate tag"), ['element' => ['slug', 'language', 'title']]);
 				return false;
 			}
 		}
@@ -343,7 +344,6 @@ class tag
 		$args['status']   = $status;
 		$args['slug']     = $slug;
 		$args['language'] = $language;
-
 		return $args;
 	}
 
@@ -360,6 +360,10 @@ class tag
 		\dash\app::variable($_args);
 
 		$args = self::check();
+		if(!$args)
+		{
+			return false;
+		}
 
 		$tag_id = \lib\db\producttag\insert::new_record($args);
 
@@ -394,6 +398,10 @@ class tag
 		\dash\app::variable($_args);
 
 		$args = self::check($_id);
+		if(!$args)
+		{
+			return false;
+		}
 
 		\lib\db\producttag\update::update($args, $_id);
 

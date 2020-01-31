@@ -20,7 +20,7 @@ class model
 		$post             = [];
 		$post['title']    = \dash\request::post('title');
 		$post['desc']     = \dash\request::post('desc');
-		// $post['language'] = \dash\request::post('language');;
+		$post['language'] = \dash\request::post('language');;
 		$post['slug']     = \dash\request::post('slug');
 		$post['status']   = \dash\request::post('status');
 
