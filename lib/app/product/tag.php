@@ -224,7 +224,7 @@ class tag
 
 		if($query_string)
 		{
-			$or['producttag.title']  = ["LIKE", "'%$query_string%'"];
+			$or[]  = "producttag.title LIKE '%$query_string%'";
 		}
 
 		$list         = \lib\db\producttag\search::list($and, $or);

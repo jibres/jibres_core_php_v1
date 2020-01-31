@@ -10,13 +10,15 @@ class search
 
 		if($_and)
 		{
-			$q[] = \dash\db\config::make_where($_and, ['condition' => 'AND']);
+			$_and = implode(' AND ', $_and);
+			$q[] = "$_and";
+
 		}
 
 		if($_or)
 		{
-			$or =  \dash\db\config::make_where($_or, ['condition' => 'OR']);
-			$q[] = "($or)";
+			$_or = implode(' OR ', $_or);
+			$q[] = "($_or)";
 		}
 
 		if($q)
@@ -127,6 +129,7 @@ class search
 			ORDER BY `count_sale` DESC
 				 $limit
 		";
+
 
 		$result = \dash\db::get($query);
 

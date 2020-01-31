@@ -66,7 +66,7 @@ class search
 		if($_args['barcode'])
 		{
 			$barcode                 = \dash\number::clean($_args['barcode']);
-			$and['products.barcode'] = $barcode;
+			$and[] = " products.barcode  = '$barcode' ";
 			self::$filter_args['barcode']  = '*'. T_('Barcode');
 			self::$is_filtered       = true;
 		}
@@ -76,7 +76,7 @@ class search
 			$price = \dash\number::clean($_args['price']);
 			if(is_numeric($price))
 			{
-				$and['products.price'] = $price;
+				$and[] = " products.price = $price ";
 				self::$filter_args['price']  = '*'. T_('Price');
 			}
 		}
@@ -86,39 +86,34 @@ class search
 			$buyprice = \dash\number::clean($_args['buyprice']);
 			if(is_numeric($buyprice))
 			{
-				$and['products.buyprice'] = $buyprice;
+				$and[] = " products.buyprice = $buyprice ";
 				self::$filter_args['buyprice']  = '*'. T_('Buy price');
 				self::$is_filtered        = true;
 			}
 		}
 
-		if($_args['cat'])
-		{
-			$and['products.cat'] = $_args['cat'];
-			self::$filter_args['cat']  = '*'. T_('Category');
-		}
 
 		if($_args['discount'])
 		{
 			$discount = \dash\number::clean($_args['discount']);
 			if(is_numeric($discount))
 			{
-				$and['products.discount'] = $discount;
+				$and[] = " products.discount = $discount ";
 				self::$filter_args['discount']  = '*'. T_('Discount');
 				self::$is_filtered        = true;
 			}
 		}
 
-		if($_args['cat_id'])
+		if($_args['cat_id'] && is_numeric($_args['cat_id']))
 		{
-			$and['products.cat_id']   = $_args['cat_id'];
+			$and[]   = " products.cat_id  $_args[cat_id] ";
 			self::$filter_args['cat'] = '*'. T_('Category');
 			self::$is_filtered        = true;
 		}
 
 		if($_args['tag_id'] && is_numeric($_args['tag_id']))
 		{
-			$and['producttagusage.producttag_id']   = $_args['tag_id'];
+			$and[]   = " producttagusage.producttag_id =  $_args[tag_id] ";
 			$type = 'tagusage';
 			self::$filter_args['tag'] = '*'. T_('Tag');
 			self::$is_filtered        = true;
@@ -129,15 +124,15 @@ class search
 			$unitid = $_args['unit_id'];
 			if($unitid && is_numeric($unitid))
 			{
-				$and['products.unit_id'] = $unitid;
+				$and[] = "products.unit_id = $unitid ";
 				self::$filter_args['unit'] = '*'. T_('Unit');
 				self::$is_filtered = true;
 			}
 		}
 
-		if($_args['company_id'])
+		if($_args['company_id'] && is_numeric($_args['company_id']))
 		{
-			$and['products.company_id'] = $_args['company_id'];
+			$and[] = " products.company_id = $_args[company_id] ";
 			self::$filter_args['company']     = '*'. T_('Company');
 			self::$is_filtered          = true;
 
@@ -153,9 +148,9 @@ class search
 
 			if($duplicate_id)
 			{
-				$duplicate_id                   = implode(',', $duplicate_id);
-				$and['products.id']             = ["IN", "($duplicate_id)"];
-				$order_sort                     = 'ORDER BY products.title ASC';
+				$duplicate_id = implode(',', $duplicate_id);
+				$and[]        = "products.id IN ($duplicate_id)";
+				$order_sort   = 'ORDER BY products.title ASC';
 			}
 			else
 			{
@@ -166,23 +161,25 @@ class search
 
 		if(isset($_args['filter']['hbarcode']) && $_args['filter']['hbarcode'])
 		{
-			$or['products.barcode']  = [" IS ", " NOT NULL "];
-			$or['products.barcode2'] = [" IS ", " NOT NULL "];
+			$or[] = "products.barcode IS NOT NULL";
+			$or[] = "products.barcode2 IS NOT NULL";
+
 			self::$filter_args['barcode']  = T_("Have barcode");
 			self::$is_filtered       = true;
 		}
 
 		if(isset($_args['filter']['hnotbarcode']) && $_args['filter']['hnotbarcode'])
 		{
-			$and['products.barcode']  = [" IS ", " NULL "];
-			$and['products.barcode2'] = [" IS ", " NULL "];
+			$and[] = "products.barcode IS NULL";
+			$and[] = "products.barcode2 IS NULL";
 			self::$filter_args['barcode']   = T_("Have not barcode");
 			self::$is_filtered        = true;
 		}
 
 		if(isset($_args['filter']['wbuyprice']) && $_args['filter']['wbuyprice'])
 		{
-			$and['products.buyprice'] = [' IS ', ' NULL '];
+			$and[] = "(products.buyprice IS  NULL OR products.buyprice = 0 )";
+
 			self::$filter_args['buyprice']      = T_("without buy price");
 
 			$type                         = 'price';
@@ -192,7 +189,7 @@ class search
 
 		if(isset($_args['filter']['wprice']) && $_args['filter']['wprice'])
 		{
-			$and['products.price'] = [' IS ', ' NULL '];
+			$and[] = " (products.price  IS  NULL OR products.price = 0 )";
 			self::$filter_args['price'] = T_("without price");
 
 			$type                         = 'price';
@@ -203,7 +200,7 @@ class search
 
 		if(isset($_args['filter']['wdiscount']) && $_args['filter']['wdiscount'])
 		{
-			$and['products.discount'] = [' IS ', ' NULL '];
+			$and[] = "(products.discount IS NULL OR products.discount = 0 )";
 			self::$filter_args['discount']       = T_("without discount");
 
 			$type                          = 'price';
@@ -224,9 +221,9 @@ class search
 			$search         = substr($query_string, 1);
 			$search         = \dash\number::clean($search);
 
-			$and['products.compareatprice'] = \lib\price::up($search);
-			$and['products.barcode']             = NULL;
-			$and['products.barcode2']            = NULL;
+			$and[] = "products.compareatprice = ". \lib\price::up($search);
+			$and[] = "products.barcode IS NULL";
+			$and[] = "products.barcode2 IS NULL";
 			$meta['pagination']                  = false;
 
 			self::$filter_args['price'] = T_("without price");
@@ -237,18 +234,18 @@ class search
 		}
 		elseif($query_string)
 		{
-			$or['products.title']        = ["LIKE", "'%$query_string%'"];
+			$or[]        = " products.title LIKE '%$query_string%'";
 			// $or['products.slug']     = ["LIKE", "'$query_string%'"];
 
 			$query_string_barcode = \dash\utility\convert::to_barcode($query_string);
 
 			if($query_string_barcode)
 			{
-				$or['products.barcode']  = ["=", "'$query_string'"];
-				$or['products.barcode2'] = ["=", "'$query_string'"];
+				$or[] = " products.barcode = '$query_string'";
+				$or[] = " products.barcode2 = '$query_string'";
 			}
 
-			$or['products.sku']      = ["=", "'$query_string'"];
+			$or[]      = "products.sku = '$query_string'";
 			self::$is_filtered = true;
 		}
 
@@ -335,9 +332,10 @@ class search
 
 	public static function variant_list($_query_string, $_args)
 	{
-		$where['parent'] = [' IS ', ' NULL '];
+		$and = [];
+		$and[] = "products.parent IS NULL ";
 
-		$list = self::products_list('variants', $_query_string, $_args, $where);
+		$list = self::products_list('variants', $_query_string, $_args, $and);
 
 		$list = self::fill_category($list);
 
@@ -399,7 +397,8 @@ class search
 
 	public static function factor_admin_list($_query_string, $_args)
 	{
-		$and['variant_child'] = [" IS ", " NULL "];
+		$and = [];
+		$and[] = "products.variant_child IS  NULL ";
 
 		$list        = self::products_list('factor_admin_list', $_query_string, $_args, $and);
 		return $list;
