@@ -1,5 +1,5 @@
 <?php
-namespace content_api\v2\home;
+namespace content_c3\app\splash;
 
 
 class controller

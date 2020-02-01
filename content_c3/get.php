@@ -1,5 +1,5 @@
 <?php
-namespace content_core\v3;
+namespace content_c3;
 
 
 class get

@@ -1,5 +1,5 @@
 <?php
-namespace content_core;
+namespace content_c3;
 
 
 class controller
@@ -7,24 +7,6 @@ class controller
 	public static function routing()
 	{
 		self::check_subdomain_and_content();
-
-		switch (\dash\url::module())
-		{
-			case 'v3':
-				\content_core\v3\check::basic_core_detail();
-				break;
-
-			default:
-				if(\dash\url::module() === null)
-				{
-
-				}
-				else
-				{
-					\dash\header::status(404);
-				}
-				break;
-		}
 	}
 
 
@@ -34,9 +16,10 @@ class controller
 		if(\dash\url::subdomain() === null)
 		{
 			$newCoreAddress = \dash\url::set_subdomain('core');
-			if(\dash\url::directory())
+
+			if(\dash\url::path())
 			{
-				$newCoreAddress .= '/'. \dash\url::directory();
+				$newCoreAddress .= \dash\url::path();
 			}
 			\dash\redirect::to($newCoreAddress);
 		}

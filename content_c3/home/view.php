@@ -1,5 +1,5 @@
 <?php
-namespace content_core\v3\home;
+namespace content_c3\home;
 
 
 class view
