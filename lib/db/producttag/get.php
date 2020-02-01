@@ -35,6 +35,14 @@ class get
 	}
 
 
+	public static function by_slug($_slug)
+	{
+		$query  = "SELECT * FROM producttag WHERE producttag.slug = '$_slug' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function check_duplicate($_slug, $_language)
 	{
 		$query  = "SELECT * FROM producttag WHERE producttag.slug = '$_slug' AND producttag.language = '$_language' LIMIT 1";

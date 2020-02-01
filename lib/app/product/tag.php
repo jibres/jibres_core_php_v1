@@ -184,6 +184,19 @@ class tag
 	}
 
 
+	public static function load_product_by_tag($_tag)
+	{
+		if(!$_tag || !is_string($_tag))
+		{
+			return false;
+		}
+
+		$_tag     = urldecode($_tag);
+		$load_tag = \lib\db\producttag\get::by_slug($_tag);
+		return $load_tag;
+	}
+
+
 	public static function get($_product_id)
 	{
 		$detail = \lib\app\product\get::inline_get($_product_id);

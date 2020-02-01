@@ -1,0 +1,148 @@
+{%extends display.main%}
+
+
+{%block page%}
+
+
+  {{block('productDetail')}}
+
+
+{%endblock%}
+
+
+
+{%block productDetail%}
+<article>
+  <header>
+    <h2><a href="{{dataRow.link}}">{{dataRow.title}}</a></h2>
+    <div class="meta">
+{%if dataRow.price%}
+      <div class="fs09">{{dataRow.price | fitNumber}}</div>
+{%endif%}
+
+    </div>
+  </header>
+  <section>
+{%if dataRow.thumb%}
+  <a href="{{dataRow.link}}" class="thumb">
+      <img src="{{dataRow.thumb}}" alt="{{dataRow.title}}" class="w300">
+  </a>
+{%endif%}
+
+    <div>
+{{dataRow.desc | raw}}
+    </div>
+
+{{block('imagegallery')}}
+
+{%if dataRow.datemodified%}
+    <div class='msg simple f mT20'>
+      <div class="c"><time datetime="{{dataRow.datemodified}}">{{dataRow.datecreated | dt(true)}}</time></div>
+      <div class="cauto os"><a href="{{url.base}}/p/{{dataRow.id}}" title='{%trans "For share via social networks"%}'>{%trans "Product Code"%} <span class="txtB">{{dataRow.id | fitNumber(false)}}</span></a></div>
+    </div>
+{%endif%}
+    <div class="tagBox msg simple">{{tags({"format" : 'html'})}}</div>
+    <div class="msg">
+{%include 'content/template/shareBox.html'%}
+    </div>
+{{block('postSimilar')}}
+{{block('setPostComment')}}
+
+  </section>
+</article>
+{%endblock%}
+
+
+
+{%block postSimilar%}
+    {%set myPostSimilar = posts({"mode" : "similar", "post_id" : dataRow.id})%}
+
+    {%if myPostSimilar%}
+      <nav class="msg">
+        <h4 class="mB20-f">{%trans "Recommended for you"%}</h4>
+
+        {%for key, value in myPostSimilar%}
+        <a class="block" href="{{url.kingdom}}/n/{{value.id}}">{{value.title}}</a>
+
+        {%endfor%}
+      </nav>
+    {%endif%}
+{%endblock%}
+
+
+{%block terms%}
+    {{block('datatablePosts')}}
+{%endblock%}
+
+
+
+{%block imagegallery%}
+  {%if dataRow.meta.gallery%}
+    <div class="gallery" id="lightgallery">
+      {%for key, myUrl in dataRow.meta.gallery%}
+        {%if myUrl ends with '.jpg' or myUrl ends with '.png' or myUrl ends with '.gif'%}
+          <a data-action href="{{myUrl}}"><img src="{{myUrl}}" alt="{{dataRow.title | raw}}"></a>
+        {%endif%}
+      {%endfor%}
+    </div>
+  {%endif%}
+
+
+    <div class="gallery2">
+      {%for key, myUrl in dataRow.meta.gallery%}
+        {%if myUrl ends with '.mp4' %}
+        <video controls>
+            <source src="{{myUrl}}" type="video/mp4">
+        </video>
+        {%elseif myUrl ends with '.mp3' %}
+          <audio controls><source src="{{myUrl}}" type="audio/mpeg"></audio>
+        {%elseif myUrl ends with '.pdf' %}
+        <a href="{{myUrl}}" class="btn lg mT25 primary">{%trans "Download"%} {%trans "PDF"%}</a>
+        {%else%}
+        {%endif%}
+      {%endfor%}
+    </div>
+
+{%endblock%}
+
+
+{%block datatablePosts%}
+
+{%if dataRow.type == 'cat'%}
+
+  {%set myPostByThisCat = posts({"cat" : dataRow.slug})%}
+
+{%elseif dataRow.type == 'tag' %}
+
+  {%set myPostByThisCat = posts({"tag" : dataRow.slug})%}
+
+{%endif%}
+
+{%if myPostByThisCat %}
+<article class="postListPreview">
+  {%for key, value in myPostByThisCat%}
+    <section class="f">
+{%if value.meta.thumb%}
+      <div class="cauto s12 pRa10 txtC">
+        <a href="{{value.link}}"><img src="{{value.meta.thumb}}" alt="{{value.title}}" width="150px"></a>
+      </div>
+{%endif%}
+      <div class="c s12">
+        <h3><a href="{{value.link}}">{{value.title}}</a></h3>
+        <p>{{value.excerpt}}</p>
+      </div>
+    </section>
+  {%endfor%}
+</article>
+{%endif%}
+
+
+{%endblock%}
+
+
+
+{%block setPostComment%}
+{%include display.commentadd%}
+{%include display.commentlist%}
+{%endblock%}
+
