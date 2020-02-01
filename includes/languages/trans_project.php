@@ -47,7 +47,7 @@ class twigTransTerms
 	echo T_("Search with new keywords.");                                             // Line 246
 	echo T_("Add new product");                                                       // Line 95
 	echo T_("Hi!");                                                                   // Line 253
-	echo T_("Try to start with add new product!");                                    // Line 104
+	echo T_("Try to start with add new product!");                                    // Line 106
 
 	//-------------------------------------------content_subdomain/main/visitcard.html
 	echo T_("Tel");                                                                   // Line 51
@@ -430,6 +430,8 @@ class twigTransTerms
 
 	//-----------------------------------------------------content_p/home/display.html
 	echo T_("Product Code");                                                          // Line 41
+
+	//------------------------------------------------------content_p/tag/display.html
 
 	//-----------------------------------------------content_pay/redirect/display.html
 	echo T_("Go");                                                                    // Line 153
@@ -1820,12 +1822,12 @@ class twigTransTerms
 
 	//--------------------------------------------content_a/products/home/display.html
 	echo T_("Variants");                                                              // Line 191
-	echo T_("in stock");                                                              // Line 57
-	echo T_("For");                                                                   // Line 60
-	echo T_("variants");                                                              // Line 60
-	echo T_("First step to set up your online store is add products.");               // Line 103
-	echo T_("After add products, you can sell them to your customers.");              // Line 103
-	echo T_("add new product");                                                       // Line 108
+	echo T_("in stock");                                                              // Line 60
+	echo T_("For");                                                                   // Line 63
+	echo T_("variants");                                                              // Line 63
+	echo T_("First step to set up your online store is add products.");               // Line 105
+	echo T_("After add products, you can sell them to your customers.");              // Line 105
+	echo T_("add new product");                                                       // Line 110
 
 	//--------------------------------------------------content_a/products/layout.html
 	echo T_("Product Title");                                                         // Line 5

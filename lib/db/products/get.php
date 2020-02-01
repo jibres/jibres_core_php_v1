@@ -239,7 +239,9 @@ class get
 		"
 			SELECT
 				products.parent,
-				COUNT(*) AS `count`
+				COUNT(*) AS `count`,
+				MIN(products.price) AS `min_price`,
+				MAX(products.price) AS `max_price`
 			FROM
 				products
 			WHERE
