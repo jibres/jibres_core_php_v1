@@ -11,8 +11,8 @@ class view
 			'en' =>
 			[
 				'website'   => 'https://jibres.com',
-				'endpoint'  => 'https://core.jibres.com/v3',
-				'doc'       => 'https://core.jibres.com/v3/doc',
+				'endpoint'  => 'https://core.jibres.com/c3',
+				'doc'       => 'https://core.jibres.com/c3/doc',
 				'direction' => 'ltr',
 				'lang'      => 'English',
 				'langname'  => 'English',
@@ -20,8 +20,8 @@ class view
 			'fa' =>
 			[
 				'website'   => 'https://jibres.ir',
-				'endpoint'  => 'https://core.jibres.ir/v3',
-				'doc'       => 'https://core.jibres.ir/v3/doc',
+				'endpoint'  => 'https://core.jibres.ir/c3',
+				'doc'       => 'https://core.jibres.ir/c3/doc',
 				'direction' => 'rtl',
 				'lang'      => 'Persian',
 				'langname' => 'فارسی',

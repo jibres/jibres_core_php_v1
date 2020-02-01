@@ -4,7 +4,7 @@ namespace content_c3;
 
 class tools
 {
-	public static $v3             = [];
+	public static $c3             = [];
 	private static $REQUEST       = [];
 	private static $request_check = false;
 
@@ -28,7 +28,7 @@ class tools
 
 	public static function appkey_required()
 	{
-		if(isset(self::$v3['appkey_detail']) && self::$v3['appkey_detail'])
+		if(isset(self::$c3['appkey_detail']) && self::$c3['appkey_detail'])
 		{
 			return true;
 		}
@@ -115,7 +115,7 @@ class tools
 
 		$appkey_is_ok              = \dash\app\user_auth::check_appkey($appkey);
 
-		self::$v3['appkey_detail'] = $appkey_is_ok;
+		self::$c3['appkey_detail'] = $appkey_is_ok;
 
 		if($appkey_is_ok)
 		{
