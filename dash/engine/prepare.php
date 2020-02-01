@@ -46,7 +46,7 @@ class prepare
 		// start session
 		self::session_start();
 
-		self::user_country_redirect();
+		// self::user_country_redirect();
 
 		self::dash_shutdown_function();
 
