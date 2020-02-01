@@ -342,7 +342,7 @@ class search
 		foreach ($list as $key => $value)
 		{
 			$list[$key]['variants_detail'] = [];
-			$list[$key]['price_string']    = \dash\utility\human::fitNumber($value['price']);
+			$list[$key]['price_string']    = \dash\utility\human::fitNumber($value['finalprice']);
 		}
 
 		$product_ids = array_column($list, 'id');
