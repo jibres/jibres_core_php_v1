@@ -4,6 +4,13 @@ namespace lib\db\products;
 class get
 {
 
+	public static function check_duplicate_title($_title, $_id)
+	{
+		$query  = "SELECT * FROM products WHERE products.status != 'deleted' AND products.title = '$_title' AND products.id != $_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function export_list($_start_limit, $_end_limit)
 	{
 		$query  = "SELECT * FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC LIMIT $_start_limit, $_end_limit";

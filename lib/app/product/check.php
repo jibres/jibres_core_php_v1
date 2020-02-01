@@ -279,12 +279,6 @@ class check
 		if(\dash\app::isset_request('vat'))
 		{
 			$vat = \dash\app::request('vat');
-			if(isset($vat) && !is_string($vat))
-			{
-				\dash\notif::error(T_("Format error :val", ['val' => 'vat']), 'vat');
-				return false;
-			}
-
 			$vat = $vat ? 'yes' : null;
 		}
 
@@ -293,12 +287,6 @@ class check
 		if(\dash\app::isset_request('saleonline'))
 		{
 			$saleonline = \dash\app::request('saleonline');
-			if(isset($saleonline) && !is_string($saleonline))
-			{
-				\dash\notif::error(T_("Format error :val", ['val' => 'saleonline']), 'saleonline');
-				return false;
-			}
-
 			$saleonline = $saleonline ? 'yes' : null;
 		}
 

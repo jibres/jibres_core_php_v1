@@ -287,18 +287,25 @@ class add
 
 	public static function duplicate($_id, $_args)
 	{
-		$load = \lib\app\product\get::inline_get($_id);
+		$load = \lib\app\product\get::get($_id);
 		if(!$load)
 		{
 			return false;
 		}
 
-		\dash\app::variable($_args);
-
-		$args = \lib\app\product\check::variable();
-
-		if($args === false || !\dash\engine\process::status())
+		if(!isset($_args['title']) || (isset($_args['title']) && !$_args['title']))
 		{
+			\dash\notif::error(T_("Please set product title"), 'title');
+			return false;
+		}
+
+		$load = array_merge($load, $_args);
+
+		$check_duplicate_title = \lib\db\products\get::check_duplicate_title($load['title'], $load['id']);
+
+		if($check_duplicate_title)
+		{
+			\dash\notif::error(T_("Please change the product name to copy"), 'title');
 			return false;
 		}
 
@@ -315,10 +322,9 @@ class add
 				case 'datemodified':
 				case 'datecreated':
 				case 'slug':
-					break;
-
-				case 'title':
-					$copy_product[$key] = $args['title'];
+				case 'parent':
+				case 'thumb':
+				case 'gallery_array':
 					break;
 
 				default:
@@ -327,10 +333,9 @@ class add
 			}
 		}
 
-		\dash\notif::warn("Not ready!");
-		return false;
+		$result = \lib\app\product\add::add($copy_product);
 
-		j($copy_product);
+		return $result;
 
 	}
 }

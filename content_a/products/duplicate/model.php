@@ -19,10 +19,7 @@ class model
 		{
 			\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
 		}
-		else
-		{
-			\dash\redirect::to(\dash\url::here());
-		}
+
 	}
 
 

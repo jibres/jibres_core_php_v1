@@ -80,7 +80,7 @@ class view
 		}
 		else
 		{
-			// \dash\data::page_duplicate(\dash\url::this(). '/duplicate?id='. $id);
+			\dash\data::page_duplicate(\dash\url::this(). '/duplicate?id='. $id);
 		}
 	}
 }
