@@ -20,7 +20,7 @@ class content
 			'crm',
 			'account',
 			'api',
-			'core',
+			'c3',
 			'n',
 			'm',
 			'p',
@@ -70,6 +70,18 @@ class content
 		}
 
 		return null;
+	}
+
+	/**
+	 * List of api contents
+	 */
+	public static function api_content()
+	{
+		if(in_array(self::get(), ['content_api', 'content_c3']))
+		{
+			return true;
+		}
+		return false;
 	}
 
 

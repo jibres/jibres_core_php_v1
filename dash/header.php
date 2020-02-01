@@ -161,7 +161,8 @@ class header
 		{
 			$translatedDesc = T_($desc);
 		}
-		if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::get() === 'content_api' || \dash\engine\content::get() === 'content_core')
+
+		if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::api_content())
 		{
 			$translatedDesc .= ' '. \dash\utility\human::fitNumber($_code);
 			// depending on title if exist or not
