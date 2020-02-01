@@ -202,18 +202,18 @@ class url
 
 		$my_path = trim(strtok($_path, '?'), '/');
 		$specialSubdomain = null;
-		if(isset(self::$url['subdomain']))
-		{
-			if(in_array(self::$url['subdomain'], ['api', 'core']))
-			{
-				if(\dash\engine\content::load(self::$url['subdomain']))
-				{
-					$specialSubdomain = true;
-					// do not sumulate content inside url
-					// $path_result['content'] = self::$url['subdomain'];
-				}
-			}
-		}
+		// if(isset(self::$url['subdomain']))
+		// {
+		// 	if(in_array(self::$url['subdomain'], ['api', 'core']))
+		// 	{
+		// 		if(\dash\engine\content::load(self::$url['subdomain']))
+		// 		{
+		// 			$specialSubdomain = true;
+		// 			// do not sumulate content inside url
+		// 			// $path_result['content'] = self::$url['subdomain'];
+		// 		}
+		// 	}
+		// }
 
 		// if we are in root, return empty path result
 		if($my_path === "")
