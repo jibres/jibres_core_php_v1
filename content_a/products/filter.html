@@ -48,10 +48,10 @@
       </div>
 
       <div class="cauto">
-        <select class="select22{%if requestGET.sort or requestGET.order%} apply{%endif%}" data-link>
-          <option selected><i class="sf-sort mRa5"></i><span>{%trans "Sort"%}</span></div>
+        <select class="select22{%if requestGET.sort or requestGET.order%} apply {%endif%}" data-link>
+          <option><i class="sf-sort mRa5"></i><span>{%trans "Sort"%}</span></div>
         {%for key, value in sortList%}
-          <option value="{{url.that}}?{{value.query_string}}">{{value.title}}</a>
+          <option value="{{url.that}}?{{value.query_string}}" {%if requestGET.sort == value.query.sort and requestGET.order == value.query.order%} selected {%endif%}>{{value.title}}</a>
         {%endfor%}
         </select>
       </div>
