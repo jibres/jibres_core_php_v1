@@ -28,14 +28,6 @@ class get
 	}
 
 
-	public static function by_cat_key_value($_cat, $_key, $_value)
-	{
-		$query = "SELECT * FROM setting WHERE setting.cat = '$_cat' AND setting.key = '$_key' AND setting.value = '$_value' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
-		return $result;
-	}
-
-
 	public static function by_cat($_cat)
 	{
 		$query = "SELECT * FROM setting WHERE setting.cat = '$_cat'";
