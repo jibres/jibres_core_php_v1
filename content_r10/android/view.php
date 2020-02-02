@@ -27,6 +27,7 @@ class view
 			'url'      =>
 			[
 				'update'   => \content_r10\get::endpoint('android'). 'update',
+				'language' => \content_r10\get::endpoint('android'). 'language',
 				'splash'   => \content_r10\get::endpoint('android'). 'splash',
 				'intro'    => \content_r10\get::endpoint('android'). 'intro',
 				'homepage' => \content_r10\get::endpoint('android'). 'homepage',
