@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\edit;
+namespace content_a\products\variants;
 
 
 class view
@@ -15,15 +15,15 @@ class view
 			$title = T_("Whitout name");
 		}
 
-		\dash\data::page_title($title);
+		\dash\data::page_title(T_("Variants"). ' | '. $title);
 
 		\dash\data::page_next(\dash\url::this(). '/next/'. \dash\request::get('id'));
 		\dash\data::page_prev(\dash\url::this(). '/prev/'. \dash\request::get('id'));
 
 
 		// back
-		\dash\data::page_backText(T_('Products'));
-		\dash\data::page_backLink(\lib\backlink::products());
+		\dash\data::page_backText(T_('Back'));
+		\dash\data::page_backLink(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
 
 
 		if(\dash\data::productDataRow_url())
@@ -31,30 +31,13 @@ class view
 			\dash\data::page_view(\dash\data::productDataRow_url());
 		}
 
-		\dash\data::page_help(\dash\url::kingdom().'/support/test');
-
+		\dash\data::page_help(\dash\url::support().'/variants');
 
 
 		$variants_list = \lib\app\product\variants::get($id);
 		\dash\data::variantsList($variants_list);
 
-		$company_list = \lib\app\product\company::list();
-		\dash\data::listCompanies($company_list);
 
-		$unit_list = \lib\app\product\unit::list();
-		\dash\data::listUnits($unit_list);
-
-		$category_list = \lib\app\category\search::list();
-		\dash\data::listCategory($category_list);
-
-
-		$tag_list = \lib\app\product\tag::get($id);
-		if(is_array($tag_list) && $tag_list)
-		{
-			$tagString = implode(',', array_column($tag_list, 'title'));
-			\dash\data::tagString($tagString);
-		}
-		\dash\data::listTag($tag_list);
 
 
 		$productDataRow = \dash\data::productDataRow();
@@ -84,7 +67,7 @@ class view
 		}
 		else
 		{
-			\dash\data::page_duplicate(\dash\url::this(). '/duplicate?id='. $id);
+			// \dash\data::page_duplicate(\dash\url::this(). '/duplicate?id='. $id);
 		}
 	}
 }

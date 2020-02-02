@@ -103,11 +103,7 @@
 {{block('galleryImporter')}}
 
 
-  {%if not productDataRow.variant_child and not productFamily%}
-    <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
-      {{block('variantHTML')}}
-    </div>
-  {%endif%}
+
 
 {%endif%}
 
@@ -186,6 +182,19 @@
 
 
 {%block Box_variant_list %}
+  {%if not productDataRow.variant_child and not productFamily%}
+    <div data-response='type' data-response-where='product' {%if not productDataRow or productDataRow.type == 'product' %} {%else%} data-response-hide {%endif%}>
+      <section class="jbox">
+        <header data-kerkere='.variantPanelLink' data-kerkere-icon='close'><h2>{%trans "Variants"%}</h2></header>
+        <div class="pad variantPanelLink" data-kerkere-content='hide'>
+            <a href="{{url.this}}/variants?id={{productDataRow.id}}">{%trans "This product has multiple options, like different sizes or colors"%}</a>
+        </div>
+      </section>
+  </div>
+  {%endif%}
+
+
+
 {%if productDataRow.variant_child or productFamily%}
 <section class="jbox">
   <header data-kerkere='.variantPanel' data-kerkere-icon='open'><h2>{%trans "Variants"%}</h2></header>

@@ -558,46 +558,6 @@
 
 
 
-{%block variantHTML%}
-
-<section class="jbox">
-  <header data-kerkere='.jboxVariants' data-kerkere-icon='open'><h2>{%trans "Variants"%}</h2></header>
-  <div class="pad jboxVariants">
-
-
-{%if not productDataRow.variant_child%}
-    <div class="check1">
-     <input type="checkbox" name="variants" id="variants" value="1" {%if productDataRow.variants%} checked {%endif%}>
-      <label for="variants">{%trans "This product has multiple options, like different sizes or colors"%}</label>
-    </div>
-    <div data-response='variants' {%if productDataRow.variants%} {%else%} data-response-hide {%endif%}>
-
-      <div class="f">
-        <div class="cauto mB10">{{block('optionName1')}}</div>
-        <div class="c pLa5 mB10">{{block('optionValueTag1')}}</div>
-      </div>
-
-      <div class="f">
-        <div class="cauto mB10">{{block('optionName2')}}</div>
-        <div class="c pLa5 mB10">{{block('optionValueTag2')}}</div>
-      </div>
-
-      <div class="f">
-        <div class="cauto mB10">{{block('optionName3')}}</div>
-        <div class="c pLa5 mB10">{{block('optionValueTag3')}}</div>
-      </div>
-
-      <button class="btn primary block mT20" name="submitall" value="makevariants">{%trans "Make"%}</button>
-
-      {{block('productTempList')}}
-
-    </div>
-{%endif%}
-  </div>
-</section>
-{%endblock%}
-
-
 
 {%block optionName1%}
 <div class="input">
