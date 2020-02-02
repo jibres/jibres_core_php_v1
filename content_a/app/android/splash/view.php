@@ -1,5 +1,5 @@
 <?php
-namespace content_a\app\intro;
+namespace content_a\app\android\splash;
 
 
 class view
@@ -12,9 +12,9 @@ class view
 		\dash\data::page_backText(T_('Back'));
 		\dash\data::page_backLink(\dash\url::this());
 
-		$saved = \lib\app\application\theme::get();
+		$saved = \lib\app\application\splash::get_android();
 
-		\dash\data::themeSaved($saved);
+		\dash\data::splashSaved($saved);
 
 	}
 }

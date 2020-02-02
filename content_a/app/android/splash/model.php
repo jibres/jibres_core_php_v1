@@ -1,5 +1,5 @@
 <?php
-namespace content_a\app\intro;
+namespace content_a\app\android\splash;
 
 class model
 {
@@ -13,7 +13,7 @@ class model
 			return false;
 		}
 
-		$theme_detail = \lib\app\application\theme::set($theme);
+		$theme_detail = \lib\app\application\splash::set_android_theme($theme);
 
 		if(\dash\engine\process::status())
 		{

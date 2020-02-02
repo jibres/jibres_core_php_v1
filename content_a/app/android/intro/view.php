@@ -1,5 +1,5 @@
 <?php
-namespace content_a\app\splash;
+namespace content_a\app\android\intro;
 
 
 class view
@@ -12,8 +12,8 @@ class view
 		\dash\data::page_backText(T_('Back'));
 		\dash\data::page_backLink(\dash\url::this());
 
-		$saved_splash = \lib\app\application\splash::get();
-		\dash\data::splashSaved($saved_splash);
+		$saved_intro = \lib\app\application\intro::get();
+		\dash\data::introSaved($saved_intro);
 
 
 	}

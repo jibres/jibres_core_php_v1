@@ -1,5 +1,5 @@
 <?php
-namespace content_a\app\intro;
+namespace content_a\app\android\intro;
 
 
 class controller

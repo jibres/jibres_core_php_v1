@@ -1,5 +1,5 @@
 <?php
-namespace content_a\app\splash;
+namespace content_a\app\android\intro;
 
 class model
 {
@@ -7,21 +7,21 @@ class model
 	{
 		$post =
 		[
-			'splash1' =>
+			'intro1' =>
 			[
 				'title' => \dash\request::post('title1'),
 				'desc'  => \dash\request::post('desc1'),
 				'file'  => \dash\upload\quick::upload('file1'),
 			],
 
-			'splash2' =>
+			'intro2' =>
 			[
 				'title' => \dash\request::post('title2'),
 				'desc'  => \dash\request::post('desc2'),
 				'file'  => \dash\upload\quick::upload('file2'),
 			],
 
-			'splash3' =>
+			'intro3' =>
 			[
 				'title' => \dash\request::post('title3'),
 				'desc'  => \dash\request::post('desc3'),
@@ -30,7 +30,7 @@ class model
 		];
 
 
-		$theme_detail = \lib\app\application\splash::set($post);
+		$theme_detail = \lib\app\application\intro::set($post);
 
 		if(\dash\engine\process::status())
 		{

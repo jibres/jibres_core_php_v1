@@ -1,5 +1,5 @@
 <?php
-namespace content_a\app\splash;
+namespace content_a\app\android\splash;
 
 
 class controller

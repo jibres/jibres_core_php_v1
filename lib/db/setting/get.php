@@ -34,5 +34,23 @@ class get
 		$result = \dash\db::get($query);
 		return $result;
 	}
+
+
+	public static function platform_cat($_platform, $_cat)
+	{
+		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+	public static function platform_cat_key($_platform, $_cat, $_key)
+	{
+		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
 }
 ?>
