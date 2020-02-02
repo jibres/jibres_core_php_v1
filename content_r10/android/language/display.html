@@ -26,12 +26,15 @@
 
 
 <style>
- body{background-color: #f9e7e0}
+ body{background-color: #f9e7e0;user-select:none;}
  #android_chooseLang.cn{width:80%!important;max-width: 400px!important;min-width: 260px!important;}
- #android_chooseLang header{padding: 50px 0 30px;}
+ #android_chooseLang header{padding: 20vh 0 30px;}
  #android_chooseLang h1 {font-weight: 900;color:#000;font-size:20px;}
  #android_chooseLang h2 {font-weight: 300;color:#999;font-size:20px;}
- #android_chooseLang .langItem {background-color:#fff;border:3px solid transparent;padding:12px;border-radius:1rem;display:block}
+ #android_chooseLang .langItem {background-color:#fff;border:3px solid transparent;padding:12px;border-radius:1rem;display:block;overflow: hidden;transition: 0.3s}
+ #android_chooseLang .langItem:hover {background-color:#f7f7f7;}
+ #android_chooseLang .langItem:focus {background-color:#f1f1f1;}
+ #android_chooseLang .langItem:active {background-color:#efefef;}
  #android_chooseLang .langItem.device{border-color:#82b984 }
  #android_chooseLang .langItem p{font-weight:900;color: #444;font-size: 16px;line-height: 30px;margin-bottom: 20px}
  #android_chooseLang .langItem .lang{color:#f7ab8d;font-size:14px;line-height: 20px;}
