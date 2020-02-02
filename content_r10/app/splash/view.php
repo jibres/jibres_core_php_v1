@@ -8,11 +8,11 @@ class view
 	{
 		$result =
 		[
-			'logo'       => \dash\url::icon(),
-			'style'      => 1,
-			'title'      => T_('Jibres'),
-			'desc'       => T_('Sell and Enjoy'),
-			'meta'       => 'Powered by Ermile',
+			'logo'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+			'style' => 1,
+			'title' => T_('Jibres'),
+			'desc'  => T_('Sell and Enjoy'),
+			'meta'  => 'Powered by Ermile',
 
 			'bg' =>
 			[
@@ -22,8 +22,8 @@ class view
 
 			'color' =>
 			[
-				'primary' => '#fff',
-				'master'  => '#eee',
+				'primary'   => '#fff',
+				'secondary' => '#eee',
 			],
 		];
 
