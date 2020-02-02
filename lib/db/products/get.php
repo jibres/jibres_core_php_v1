@@ -219,7 +219,7 @@ class get
 
 	public static function variants_have_child($_id)
 	{
-		$query  = "SELECT products.id AS `id` FROM products WHERE products.parent = $_id LIMIT 1";
+		$query  = "SELECT products.id AS `id` FROM products WHERE products.parent = $_id AND products.status != 'deleted' LIMIT 1";
 		$result = \dash\db::get($query, 'id', true);
 		return $result;
 	}
@@ -227,7 +227,7 @@ class get
 
 	public static function variants_load_child($_id)
 	{
-		$query  = "SELECT * FROM products WHERE products.parent = $_id";
+		$query  = "SELECT * FROM products WHERE products.parent = $_id AND products.status != 'deleted' ";
 		$result = \dash\db::get($query);
 		return $result;
 	}
