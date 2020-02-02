@@ -55,7 +55,7 @@ class get
 	}
 
 
-	public static function parent_list()
+	public static function parent_list($_id = null)
 	{
 		if(!\lib\store::id())
 		{
@@ -63,7 +63,12 @@ class get
 			return false;
 		}
 
-		$all_list = \lib\db\productcategory\get::parent_list();
+		if(!$_id || !is_numeric($_id))
+		{
+			$_id = null;
+		}
+
+		$all_list = \lib\db\productcategory\get::parent_list($_id);
 		if(!is_array($all_list))
 		{
 			$all_list = [];

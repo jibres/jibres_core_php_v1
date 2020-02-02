@@ -46,8 +46,13 @@ class get
 		return $result;
 	}
 
-	public static function parent_list()
+	public static function parent_list($_id = null)
 	{
+		$where = null;
+		if($_id)
+		{
+			$where = " AND productcategory.id != $_id ";
+		}
 		$query  =
 		"
 			SELECT
@@ -74,8 +79,10 @@ class get
 				productcategory
 			WHERE
 				productcategory.parent3 IS NULL
+				$where
 		";
 		$result = \dash\db::get($query);
+
 		return $result;
 	}
 

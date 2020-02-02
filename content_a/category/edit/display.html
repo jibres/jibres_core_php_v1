@@ -84,6 +84,7 @@
 
 
 {%block iParent%}
+{%if dataRow.parent1 or parentList%}
 <div class="mB10">
   <label for='parent'>{%trans "Parent"%} {%if dataRow.have_child%} <small class="fc-mute">{%trans "This category have some child and you can not change parent of it"%}</small> {%endif%}</label>
   <select name="parent" id="parent" class="select22" data-placeholder='{%trans "Select category parent"%}' {%if dataRow.have_child%} disabled {%endif%}>
@@ -92,13 +93,11 @@
       <option value="0">{%trans "Without category"%}</option>
     {%endif%}
     {%for key, value in parentList%}
-      {%if value.id == requestGET.id%}
-      {%else%}
         <option value="{{value.id}}" {%if value.id == dataRow.last_parent %} selected{%endif%}>{{value.full_title}}</option>
-      {%endif%}
     {%endfor%}
   </select>
 </div>
+{%endif%}
 {%endblock%}
 
 
