@@ -13,7 +13,7 @@
           <div class="pad jboxVariants">
 
 
-        {%if not productDataRow.variant_child%}
+        {%if not productDataRow.variant_child and not productDataRow.parent%}
             <form method="post" autocomplete="off">
 
               <p class="msg">{%trans "You can differentiate your product in terms of three features"%}</p>
@@ -44,7 +44,14 @@
             </form>
 
         {%else%}
-          <p class="msg warn">{%trans "This product have some child and can not make variant"%}</p>
+          {%if productDataRow.variant_child%}
+            <p class="msg warn">{%trans "This product have some child and can not make variant"%}</p>
+          {%endif%}
+
+          {%if productDataRow.parent%}
+            <p class="msg warn">{%trans "This is child of another product"%}</p>
+          {%endif%}
+
         {%endif%}
           </div>
       </section>

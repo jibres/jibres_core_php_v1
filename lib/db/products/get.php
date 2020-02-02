@@ -245,10 +245,12 @@ class get
 			FROM
 				products
 			WHERE
-				products.parent IN ($_products_ids)
+				products.parent IN ($_products_ids) AND
+				products.status != 'deleted'
 			GROUP BY products.parent
 		";
 		$result = \dash\db::get($query);
+
 		return $result;
 	}
 

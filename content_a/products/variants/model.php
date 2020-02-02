@@ -5,27 +5,17 @@ namespace content_a\products\variants;
 class model
 {
 
-
-
 	public static function post()
 	{
 		$id = \dash\request::get('id');
 
-
 		self::set_variant($id);
 
-
-		// product no changed not redirect
-		if(\dash\temp::get('productNoChangeNotRedirect'))
+		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\lib\backlink::products());
+			\dash\redirect::pwd();
 		}
-
-		\dash\redirect::pwd();
-
 	}
-
-
 
 
 

@@ -99,6 +99,18 @@ class variants
 			return false;
 		}
 
+		if(isset($product_detail['parent']) && $product_detail['parent'])
+		{
+			\dash\notif::error(T_("This product was child of another product and can not set variantable"));
+			return false;
+		}
+
+		if(isset($product_detail['variant_child']) && $product_detail['variant_child'])
+		{
+			\dash\notif::error(T_("This product have some child and can not be set variants"));
+			return false;
+		}
+
 		// set option variants to app variable
 		\dash\app::variable($_variants);
 
@@ -190,7 +202,14 @@ class variants
 			$count *= count($optionvalue3);
 		}
 
+		if(!$number)
+		{
+			\dash\notif::error(T_("Please fill variants detail"), ['element' => ['optionvalue1', 'optionvalue2', 'optionvalue3', 'optionname1', 'optionname2', 'optionname3']]);
+			return false;
+		}
+
 		$variants['count'] = $count;
+
 
 		if($count > 100)
 		{
