@@ -246,6 +246,15 @@ class search
 			}
 
 			$or[]      = "products.sku = '$query_string'";
+
+			if(is_numeric($query_string) || is_numeric(\dash\utility\convert::to_en_number($query_string)))
+			{
+				$search_price = \dash\utility\convert::to_en_number($query_string);
+
+				$or[] = "products.finalprice = ". \lib\price::up($search_price);
+				$or[] = "products.price = ". \lib\price::up($search_price);
+			}
+
 			self::$is_filtered = true;
 		}
 
