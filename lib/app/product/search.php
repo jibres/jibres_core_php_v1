@@ -221,7 +221,7 @@ class search
 			$search         = substr($query_string, 1);
 			$search         = \dash\number::clean($search);
 
-			$and[] = "products.compareatprice = ". \lib\price::up($search);
+			$and[] = "products.finalprice = ". \lib\price::up($search);
 			$and[] = "products.barcode IS NULL";
 			$and[] = "products.barcode2 IS NULL";
 			$meta['pagination']                  = false;
