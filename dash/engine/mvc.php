@@ -41,13 +41,16 @@ class mvc
 		$my_subchild   = '\\'. \dash\url::subchild();
 		$my_controller = null;
 
+		$addr_content = \dash\url::content();
+		$addr_module  = '/'. \dash\url::module();
+
 		if(\dash\url::subchild() !== null)
 		{
 			// something like \content_su\tools\test\abc\controller.php
 			$my_controller = self::checking($my_repo. $my_module. $my_child. $my_subchild);
 			if($my_controller)
 			{
-				self::$routed_addr = \dash\url::content(). '/'. \dash\url::module(). '/'. \dash\url::child(). '/'. \dash\url::subchild();
+				self::$routed_addr = $addr_content. $addr_module. '/'. \dash\url::child(). '/'. \dash\url::subchild();
 				return $my_controller;
 			}
 		}
@@ -58,7 +61,7 @@ class mvc
 			$my_controller = self::checking($my_repo. $my_module. $my_child);
 			if($my_controller)
 			{
-				self::$routed_addr = \dash\url::content(). '/'. \dash\url::module(). '/'. \dash\url::child();
+				self::$routed_addr = $addr_content. $addr_module. '/'. \dash\url::child();
 				return $my_controller;
 			}
 		}
@@ -69,7 +72,7 @@ class mvc
 			$my_controller = self::checking($my_repo. $my_module. '\home');
 			if($my_controller)
 			{
-				self::$routed_addr = \dash\url::content(). '/'. \dash\url::module();
+				self::$routed_addr = $addr_content. $addr_module;
 				return $my_controller;
 			}
 
@@ -77,7 +80,7 @@ class mvc
 			$my_controller = self::checking($my_repo. $my_module);
 			if($my_controller)
 			{
-				self::$routed_addr = \dash\url::content(). '/'. \dash\url::module();
+				self::$routed_addr = $addr_content. $addr_module;
 				return $my_controller;
 			}
 		}
@@ -88,7 +91,7 @@ class mvc
 			$my_controller = self::checking($my_repo. '\home');
 			if($my_controller)
 			{
-				self::$routed_addr = \dash\url::content();
+				self::$routed_addr = $addr_content;
 				return $my_controller;
 			}
 		}
