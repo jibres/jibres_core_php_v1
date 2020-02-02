@@ -32,6 +32,10 @@ class ready
 			switch ($key)
 			{
 				case 'id':
+					$result[$key] = $value;
+					$result['url'] = \dash\url::kingdom(). '/p/'. $value;
+					break;
+
 				case 'cat_id':
 				case 'unit_id':
 				case 'company_id':
@@ -51,6 +55,10 @@ class ready
 
 				case 'slug':
 					$result[$key] = isset($value) ? (string) $value : null;
+					if(isset($result['url']))
+					{
+						$result['url'] = $result['url']. '/'. $value;
+					}
 					break;
 
 				case 'thumb':
