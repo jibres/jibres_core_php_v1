@@ -272,7 +272,7 @@ class search
 		{
 			$order_sort = " ORDER BY products.id DESC";
 		}
-
+		$and[] = " products.status != 'deleted' ";
 
 		$and = array_merge($and, $_where);
 
