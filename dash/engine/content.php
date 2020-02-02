@@ -82,6 +82,12 @@ class content
 		{
 			return true;
 		}
+
+		if(\dash\url::subdomain() === 'core')
+		{
+			return true;
+		}
+
 		return false;
 	}
 

@@ -7,6 +7,11 @@ class controller
 	{
 		if(\dash\url::subdomain() === 'core')
 		{
+			if(\dash\url::module())
+			{
+				\dash\header::status(404);
+			}
+
 			\content_r10\home\view::config();
 			return;
 		}
