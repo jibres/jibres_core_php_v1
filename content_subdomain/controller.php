@@ -5,7 +5,12 @@ class controller
 {
 	public static function routing()
 	{
-		if(in_array(\dash\url::subdomain(), ['developers']))
+		if(\dash\url::subdomain() === 'core')
+		{
+			\content_r10\home\view::config();
+			return;
+		}
+		elseif(in_array(\dash\url::subdomain(), ['developers']))
 		{
 
 		}
