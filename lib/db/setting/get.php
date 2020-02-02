@@ -11,6 +11,14 @@ class get
 		return $result;
 	}
 
+
+	public static function splash()
+	{
+		$query = "SELECT * FROM setting WHERE setting.cat = 'application' AND setting.key LIKE 'splash_%' ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function by_cat_key($_cat, $_key)
 	{
 		$query = "SELECT * FROM setting WHERE setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";

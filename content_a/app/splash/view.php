@@ -12,6 +12,9 @@ class view
 		\dash\data::page_backText(T_('Back'));
 		\dash\data::page_backLink(\dash\url::this());
 
+		$saved_splash = \lib\app\application\splash::get();
+		\dash\data::splashSaved($saved_splash);
+
 
 	}
 }

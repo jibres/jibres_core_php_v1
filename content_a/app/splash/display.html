@@ -3,10 +3,109 @@
 
 
 {%block pageContent%}
-<div class="cbox">
+<div class="f justify-center">
+  <div class="c8 m12 s12">
+    <div class="cbox">
+        <h4>{%trans "Splash setting"%}</h4>
+        <div class="mB20">
+         <div class="f">
+          <div class="vcard shadow mA10 s12">
+            <img alt="siftal" src="{{url.icon}}">
+            <div class="content">
+              <a class="header">{{splashSaved[1]['title']}}</a>
+              <div class="desc">{{splashSaved[1]['desc']}}</div>
+            </div>
+            <div class="footer">{%trans "Page"%} {{1 | fitNumber}}</div>
+          </div>
 
-splash
+          <div class="vcard shadow mA10 s12">
+            <img alt="siftal" src="{{url.icon}}">
+            <div class="content">
+              <a class="header">{{splashSaved[2]['title']}}</a>
+              <div class="desc">{{splashSaved[2]['desc']}}</div>
+            </div>
+            <div class="footer">{%trans "Page"%} {{2 | fitNumber}}</div>
+          </div>
+
+          <div class="vcard shadow mA10 s12">
+            <img alt="siftal" src="{{url.icon}}">
+            <div class="content">
+             <a class="header">{{splashSaved[3]['title']}}</a>
+              <div class="desc">{{splashSaved[3]['desc']}}</div>
+            </div>
+            <div class="footer">{%trans "Page"%} {{3 | fitNumber}}</div>
+          </div>
+     	</div>
+       </div>
+
+      <form method="post" autocomplete="off">
+
+
+         <h4 class="mT20" data-kerkere='.splash1'  data-kerkere-icon='open'>{%trans "Edit splash page 1"%}</h4>
+         <div class="splash1" >
+         	<label for="title1">{%trans "Title"%}</label>
+         	<div class="input">
+         		<input type="text" name="title1" id="title1" value="{{splashSaved[1]['title']}}" maxlength="50">
+         	</div>
+
+         	<label for="desc1">{%trans "Description"%}</label>
+         	<div class="input">
+         		<input type="text" name="desc1" id="desc1" value="{{splashSaved[1]['desc']}}" maxlength="100">
+         	</div>
+
+         	<label for="file1">{%trans "Image"%}</label>
+         	<div class="input">
+         		<input type="file" name="file1" id="file1">
+         	</div>
+         </div>
+
+         <h4 class="mT20" data-kerkere='.splash2'  data-kerkere-icon='open'>{%trans "Edit splash page 2"%}</h4>
+         <div class="splash2" >
+         	<label for="title2">{%trans "Title"%}</label>
+         	<div class="input">
+         		<input type="text" name="title2" id="title2" value="{{splashSaved[2]['title']}}" maxlength="50">
+         	</div>
+
+         	<label for="desc2">{%trans "Description"%}</label>
+         	<div class="input">
+         		<input type="text" name="desc2" id="desc2" value="{{splashSaved[2]['desc']}}" maxlength="100">
+         	</div>
+
+         	<label for="file2">{%trans "Image"%}</label>
+         	<div class="input">
+         		<input type="file" name="file2" id="file2">
+         	</div>
+         </div>
+
+         <h4 class="mT20" data-kerkere='.splash3'  data-kerkere-icon='open'>{%trans "Edit splash page 3"%}</h4>
+         <div class="splash3" >
+         	<label for="title3">{%trans "Title"%}</label>
+         	<div class="input">
+         		<input type="text" name="title3" id="title3" value="{{splashSaved[3]['title']}}" maxlength="50">
+         	</div>
+
+         	<label for="desc3">{%trans "Description"%}</label>
+         	<div class="input">
+         		<input type="text" name="desc3" id="desc3" value="{{splashSaved[3]['desc']}}" maxlength="100">
+         	</div>
+
+         	<label for="file3">{%trans "Image"%}</label>
+         	<div class="input">
+         		<input type="file" name="file3" id="file3">
+         	</div>
+         </div>
+
+         <div class="txtRa">
+         	<button class="btn success">{%trans "Save"%}</button>
+         </div>
+
+
+      </form>
+    </div>
+  </div>
 </div>
+
+
 
 {%endblock%}
 
