@@ -1,5 +1,5 @@
 <?php
-namespace content_c3\home;
+namespace content_r10\home;
 
 
 class view
@@ -11,8 +11,8 @@ class view
 			'en' =>
 			[
 				'website'   => 'https://jibres.com',
-				'endpoint'  => 'https://core.jibres.com/c3',
-				'doc'       => 'https://core.jibres.com/c3/doc',
+				'endpoint'  => 'https://core.jibres.com/r10',
+				'doc'       => 'https://core.jibres.com/r10/doc',
 				'direction' => 'ltr',
 				'lang'      => 'English',
 				'langname'  => 'English',
@@ -20,8 +20,8 @@ class view
 			'fa' =>
 			[
 				'website'   => 'https://jibres.ir',
-				'endpoint'  => 'https://core.jibres.ir/c3',
-				'doc'       => 'https://core.jibres.ir/c3/doc',
+				'endpoint'  => 'https://core.jibres.ir/r10',
+				'doc'       => 'https://core.jibres.ir/r10/doc',
 				'direction' => 'rtl',
 				'lang'      => 'Persian',
 				'langname' => 'فارسی',

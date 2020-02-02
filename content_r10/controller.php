@@ -1,5 +1,5 @@
 <?php
-namespace content_c3;
+namespace content_r10;
 
 
 class controller

@@ -1,5 +1,5 @@
 <?php
-namespace content_c3\app\splash;
+namespace content_r10\app\splash;
 
 
 class view

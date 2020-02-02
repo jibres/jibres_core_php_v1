@@ -1,5 +1,5 @@
 <?php
-namespace content_c3;
+namespace content_r10;
 
 
 class get
@@ -9,15 +9,15 @@ class get
 		$myEndpoint = '';
 		if(\dash\url::domain() === 'jibres.ir')
 		{
-			$myEndpoint = 'https://core.jibres.ir/c3/';
+			$myEndpoint = 'https://core.jibres.ir/r10/';
 		}
 		elseif(\dash\url::domain() === 'jibres.local')
 		{
-			$myEndpoint = 'http://core.jibres.local/c3/';
+			$myEndpoint = 'http://core.jibres.local/r10/';
 		}
 		else
 		{
-			$myEndpoint = 'https://core.jibres.com/c3/';
+			$myEndpoint = 'https://core.jibres.com/r10/';
 		}
 
 		if($_module)

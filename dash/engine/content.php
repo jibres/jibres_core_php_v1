@@ -20,7 +20,8 @@ class content
 			'crm',
 			'account',
 			'api',
-			'c3',
+			'r10',
+			'v2',
 			'n',
 			'm',
 			'p',
@@ -77,7 +78,7 @@ class content
 	 */
 	public static function api_content()
 	{
-		if(in_array(self::get(), ['content_api', 'content_c3']))
+		if(in_array(self::get(), ['content_api', 'content_v2', 'content_r10']))
 		{
 			return true;
 		}

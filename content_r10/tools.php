@@ -1,10 +1,10 @@
 <?php
-namespace content_c3;
+namespace content_r10;
 
 
 class tools
 {
-	public static $c3             = [];
+	public static $r10             = [];
 	private static $REQUEST       = [];
 	private static $request_check = false;
 
@@ -28,7 +28,7 @@ class tools
 
 	public static function appkey_required()
 	{
-		if(isset(self::$c3['appkey_detail']) && self::$c3['appkey_detail'])
+		if(isset(self::$r10['appkey_detail']) && self::$r10['appkey_detail'])
 		{
 			return true;
 		}
@@ -115,7 +115,7 @@ class tools
 
 		$appkey_is_ok              = \dash\app\user_auth::check_appkey($appkey);
 
-		self::$c3['appkey_detail'] = $appkey_is_ok;
+		self::$r10['appkey_detail'] = $appkey_is_ok;
 
 		if($appkey_is_ok)
 		{
