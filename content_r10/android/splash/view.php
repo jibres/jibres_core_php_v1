@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\app\splash;
+namespace content_r10\android\splash;
 
 
 class view
@@ -9,7 +9,7 @@ class view
 		$result =
 		[
 			'logo'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
-			'style' => 1,
+			'theme' => 'Jibres',
 			'title' => T_('Jibres'),
 			'desc'  => T_('Sell and Enjoy'),
 			'meta'  => 'Powered by Ermile',

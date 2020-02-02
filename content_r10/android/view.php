@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\app;
+namespace content_r10\android;
 
 
 class view
@@ -22,16 +22,16 @@ class view
 			[
 				'last'       => 4,
 				'depricated' => 3,
-				'update'     => \content_r10\get::endpoint('app'). 'update',
+				'update'     => \content_r10\get::endpoint('android'). 'update',
 			],
 			'url'      =>
 			[
-				'update'   => \content_r10\get::endpoint('app'). 'update',
-				'splash'   => \content_r10\get::endpoint('app'). 'splash',
-				'intro'    => \content_r10\get::endpoint('app'). 'intro',
-				'homepage' => \content_r10\get::endpoint('app'). 'homepage',
-				'menu'     => \content_r10\get::endpoint('app'). 'menu',
-				'ad'       => \content_r10\get::endpoint('app'). 'ad',
+				'update'   => \content_r10\get::endpoint('android'). 'update',
+				'splash'   => \content_r10\get::endpoint('android'). 'splash',
+				'intro'    => \content_r10\get::endpoint('android'). 'intro',
+				'homepage' => \content_r10\get::endpoint('android'). 'homepage',
+				'menu'     => \content_r10\get::endpoint('android'). 'menu',
+				'ad'       => \content_r10\get::endpoint('android'). 'ad',
 			]
 		];
 
