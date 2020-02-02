@@ -11,21 +11,21 @@ class model
 			[
 				'title' => \dash\request::post('title1'),
 				'desc'  => \dash\request::post('desc1'),
-				'file'  => \dash\request::post('file1'),
+				'file'  => \dash\upload\quick::upload('file1'),
 			],
 
 			'splash2' =>
 			[
 				'title' => \dash\request::post('title2'),
 				'desc'  => \dash\request::post('desc2'),
-				'file'  => \dash\request::post('file2'),
+				'file'  => \dash\upload\quick::upload('file2'),
 			],
 
 			'splash3' =>
 			[
 				'title' => \dash\request::post('title3'),
 				'desc'  => \dash\request::post('desc3'),
-				'file'  => \dash\request::post('file3'),
+				'file'  => \dash\upload\quick::upload('file3'),
 			],
 		];
 

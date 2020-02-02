@@ -19,20 +19,16 @@ class splash
 
 		foreach ($_splash as $key => $value)
 		{
-			if(!isset($value['title']))
+			if(!array_key_exists('title', $value))
 			{
 				continue;
 			}
 
-			if(!isset($value['desc']))
+			if(!array_key_exists('desc', $value))
 			{
 				continue;
 			}
 
-			if(!$value['title'] || !$value['desc'])
-			{
-				continue;
-			}
 
 			if(mb_strlen($value['title']) > 50)
 			{
@@ -50,6 +46,7 @@ class splash
 			[
 				'title' => $value['title'],
 				'desc'  => $value['desc'],
+				'file'  => $value['file'],
 			];
 
 			$index++;
@@ -64,7 +61,74 @@ class splash
 
 		foreach ($ok_splash as $key => $value)
 		{
-			\lib\app\application\tools::save('splash_'. $key, json_encode($value, JSON_UNESCAPED_UNICODE));
+			$my_key   = 'page_'. $key;
+
+			if(array_key_exists('title', $value))
+			{
+				$get      = \lib\db\setting\get::by_cat_key_value('splash', $my_key, 'title');
+
+				if(!isset($get['id']))
+				{
+					$insert =
+					[
+						'cat'   => 'splash',
+						'key'   => $my_key,
+						'value' => 'title',
+						'json'  => $value['title'],
+					];
+
+					\lib\db\setting\insert::new_record($insert);
+				}
+				else
+				{
+					\lib\db\setting\update::by_cat_key_value('splash', $my_key, 'title', $value['title']);
+				}
+			}
+
+			if(array_key_exists('desc', $value))
+			{
+				$get      = \lib\db\setting\get::by_cat_key_value('splash', $my_key, 'desc');
+
+				if(!isset($get['id']))
+				{
+					$insert =
+					[
+						'cat'   => 'splash',
+						'key'   => $my_key,
+						'value' => 'desc',
+						'json'  => $value['desc'],
+					];
+
+					\lib\db\setting\insert::new_record($insert);
+				}
+				else
+				{
+					\lib\db\setting\update::by_cat_key_value('splash', $my_key, 'desc', $value['desc']);
+				}
+			}
+
+			if(isset($value['file']) && $value['file'])
+			{
+				$get      = \lib\db\setting\get::by_cat_key_value('splash', $my_key, 'file');
+
+				if(!isset($get['id']))
+				{
+					$insert =
+					[
+						'cat'   => 'splash',
+						'key'   => $my_key,
+						'value' => 'file',
+						'json'  => $value['file'],
+					];
+
+					\lib\db\setting\insert::new_record($insert);
+				}
+				else
+				{
+					\lib\db\setting\update::by_cat_key_value('splash', $my_key, 'file', $value['file']);
+				}
+			}
+
 		}
 
 
@@ -81,27 +145,56 @@ class splash
 			$result = [];
 		}
 
-		$splash = [];
+		$splash =
+		[
+			1 =>
+			[
+				'title' => T_("Jibres"),
+				'desc'  => T_("Sale and Enjoy"),
+				'file'  => \dash\url::icon(),
+			],
+
+			2 =>
+			[
+				'title' => T_("Jibres"),
+				'desc'  => T_("Sale and Enjoy"),
+				'file'  => \dash\url::icon(),
+			],
+
+			3 =>
+			[
+				'title' => T_("Jibres"),
+				'desc'  => T_("Sale and Enjoy"),
+				'file'  => \dash\url::icon(),
+			],
+		];
 
 		foreach ($result as $key => $value)
 		{
-			$index = $key + 1;
-			$meta = json_decode($value['value'], true);
-			$temp  = [];
 
-			if(isset($meta['title']))
+			$index = substr($value['key'], 5);
+
+			if(!isset($splash[$index]))
 			{
-				$temp['title'] = $meta['title'];
+				$splash[$index] = [];
 			}
 
-			if(isset($meta['desc']))
+			if($value['value'] == 'title' && $value['json'])
 			{
-				$temp['desc'] = $meta['desc'];
+				$splash[$index]['title'] = $value['json'];
 			}
 
-			$splash[$index] = $temp;
+			if($value['value'] == 'desc' && $value['json'])
+			{
+				$splash[$index]['desc'] = $value['json'];
+			}
 
+			if($value['value'] == 'file' && $value['json'])
+			{
+				$splash[$index]['file'] = \lib\filepath::fix($value['json']);
+			}
 		}
+
 
 		return $splash;
 	}

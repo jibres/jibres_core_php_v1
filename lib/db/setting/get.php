@@ -14,10 +14,11 @@ class get
 
 	public static function splash()
 	{
-		$query = "SELECT * FROM setting WHERE setting.cat = 'application' AND setting.key LIKE 'splash_%' ";
+		$query = "SELECT * FROM setting WHERE setting.cat = 'splash' ";
 		$result = \dash\db::get($query);
 		return $result;
 	}
+
 
 	public static function by_cat_key($_cat, $_key)
 	{
@@ -25,6 +26,15 @@ class get
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
+
+
+	public static function by_cat_key_value($_cat, $_key, $_value)
+	{
+		$query = "SELECT * FROM setting WHERE setting.cat = '$_cat' AND setting.key = '$_key' AND setting.value = '$_value' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 	public static function by_cat($_cat)
 	{
