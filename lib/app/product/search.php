@@ -374,11 +374,13 @@ class search
 
 						$min_price = \lib\price::down($variants[$value['id']]['min_price']);
 						$max_price = \lib\price::down($variants[$value['id']]['max_price']);
+						if($min_price !== $max_price)
+						{
+							$min_price = \dash\utility\human::fitNumber($min_price);
+							$max_price = \dash\utility\human::fitNumber($max_price);
 
-						$min_price = \dash\utility\human::fitNumber($min_price);
-						$max_price = \dash\utility\human::fitNumber($max_price);
-
-						$list[$key]['price_string'] = $min_price . ' ... '. $max_price;
+							$list[$key]['price_string'] = $min_price . ' ... '. $max_price;
+						}
 					}
 				}
 			}
