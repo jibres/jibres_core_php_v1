@@ -5,6 +5,7 @@ require(core."utility/kavenegar_api.php");
 /** Sms management class **/
 class sms
 {
+	private static $kavenegar_auth = '5263694C4C426651434C6635686E463550333747363578636361446539383141';
 	/**
 	 * Makes a message.
 	 *
@@ -30,8 +31,15 @@ class sms
 		$_message = trim($_message);
 
 		// create complete message
-		$sms_header = T_(trim(\dash\option::sms('kavenegar', 'header')));
-		$sms_footer = T_(trim(\dash\option::sms('kavenegar', 'footer')));
+		$sms_header = T_('Jibres'));
+		if(\dash\url::tld() === 'ir')
+		{
+			$sms_footer = T_('Jibres.ir'));
+		}
+		else
+		{
+			$sms_footer = T_('Jibres.com'));
+		}
 
 		$message = '';
 
@@ -49,14 +57,15 @@ class sms
 			$message    .= $sms_footer;
 		}
 
-		if(\dash\option::sms('kavenegar', 'one') && mb_strlen($message) > self::is_rtl($message, true))
+		// try to change big message into one message
+		if(mb_strlen($message) > self::is_rtl($message, true))
 		{
 			if($sms_header && $_options['header'])
 			{
 				$message = $sms_header. "\n\n". $_message;
 			}
 
-			if(\dash\option::sms('kavenegar', 'one') && mb_strlen($message) > self::is_rtl($message, true))
+			if(mb_strlen($message) > self::is_rtl($message, true))
 			{
 				$message = $_message;
 			}
@@ -79,23 +88,10 @@ class sms
 		{
 			return null;
 		}
-		// disable status
-		// sms sevice is locked
-		if(!\dash\option::sms('kavenegar', 'status'))
-		{
-			return false;
-		}
-
-		// cehck api key
-		$api_key = \dash\option::sms('kavenegar','apikey');
-		if(!$api_key)
-		{
-			return false;
-		}
 
 		$default_option =
 		[
-			'line'           => \dash\option::sms('kavenegar', 'line'),
+			'line'           => 100020009,
 			'type'           => 1,
 			'date'           => 0,
 			'LocalMessageid' => null,
@@ -117,8 +113,9 @@ class sms
 			return false;
 		}
 
-		if(\dash\option::sms('kavenegar', 'iran') && substr($mobile, 0, 2) !== '98')
+		if(substr($mobile, 0, 2) !== '98')
 		{
+			// add another service for outside of iran
 			return false;
 		}
 
@@ -126,8 +123,8 @@ class sms
 		\dash\log::set('smsSend');
 
 		// send sms
-		$api    = new \dash\utility\kavenegar_api($api_key, $_options['line']);
-		$result = $api->send($mobile, $message, $_options['type'], $_options['date'], $_options['LocalMessageid']);
+		$myApiData = new \dash\utility\kavenegar_api(self::$kavenegar_auth, $_options['line']);
+		$result    = $myApiData->send($mobile, $message, $_options['type'], $_options['date'], $_options['LocalMessageid']);
 
 		// success result
 		// {
@@ -179,23 +176,9 @@ class sms
 			return null;
 		}
 
-		// disable status
-		// sms sevice is locked
-		if(!\dash\option::sms('kavenegar', 'status'))
-		{
-			return false;
-		}
-
-		// cehck api key
-		$api_key = \dash\option::sms('kavenegar','apikey');
-		if(!$api_key)
-		{
-			return false;
-		}
-
 		$default_option =
 		[
-			'line'   => \dash\option::sms('kavenegar', 'line'),
+			'line'   => 100020009,
 			'type'   => 1,
 			'date'   => 0,
 			'header' => true,
@@ -216,8 +199,9 @@ class sms
 
 			if($mobile)
 			{
-				if(\dash\option::sms('kavenegar', 'iran') && substr($mobile, 0, 2) !== '98')
+				if(substr($mobile, 0, 2) !== '98')
 				{
+					// add another service for outside of iran
 					continue;
 				}
 				array_push($accepted_mobile, $value);
@@ -232,14 +216,14 @@ class sms
 			return null;
 		}
 
-		$result  = [];
-		$message = self::make_message($_message, $_options);
-		$api     = new \dash\utility\kavenegar_api($api_key, $_options['line']);
+		$result    = [];
+		$message   = self::make_message($_message, $_options);
+		$myApiData = new \dash\utility\kavenegar_api(self::$kavenegar_auth, $_options['line']);
 		\dash\log::set('smsSendArray', ['count_send' => count($accepted_mobile)]);
 		$chunk   = array_chunk($accepted_mobile, 200);
 		foreach ($chunk as $key => $last_200_mobile)
 		{
-			$result[] = $api->sendarray($_options['line'], $last_200_mobile, $message, $_options['type'], $_options['date']);
+			$result[] = $myApiData->sendarray($_options['line'], $last_200_mobile, $message, $_options['type'], $_options['date']);
 		}
 
 		return $result;
@@ -248,22 +232,8 @@ class sms
 
 	public static function info()
 	{
-		// disable status
-		// sms sevice is locked
-		if(!\dash\option::sms('kavenegar', 'status'))
-		{
-			return false;
-		}
-
-		// cehck api key
-		$api_key = \dash\option::sms('kavenegar','apikey');
-		if(!$api_key)
-		{
-			return false;
-		}
-
-		$api    = new \dash\utility\kavenegar_api($api_key);
-		$result = $api->account_info();
+		$myApiData = new \dash\utility\kavenegar_api(self::$kavenegar_auth);
+		$result    = $myApiData->account_info();
 		return $result;
 	}
 }

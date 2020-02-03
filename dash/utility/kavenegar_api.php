@@ -3,7 +3,7 @@ namespace dash\utility;
 /*
 @ Kavenegar Api
 @ Version: 2.1
-@ Author: Javad Evazzadeh | Evazzadeh.com
+@ Author: Javad Adib | MrAdib.com
 
 Quick Start:
 	copy this file in your project and edit kavenegar_api.php first line and insert your apikey and linenumber

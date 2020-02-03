@@ -5,6 +5,9 @@ require(core."utility/kavenegar_api.php");
 /** call management class **/
 class call
 {
+	private static $kavenegar_auth = '5263694C4C426651434C6635686E463550333747363578636361446539383141';
+
+
 	/**
 	 * call mobile
 	 *
@@ -24,7 +27,7 @@ class call
 
 		$default_option =
 		[
-			'line'   => \dash\option::sms('kavenegar', 'line'),
+			'line'   => 100020009,
 			'token2' => null,
 			'token3' => null,
 			'type'   => 'call',
@@ -37,34 +40,20 @@ class call
 
 		$_options = array_merge($default_option, $_options);
 
-		// disable status
-		// sms sevice is locked
-		if(!\dash\option::sms('kavenegar', 'status'))
-		{
-			return false;
-		}
-
-
-		// cehck api key
-		$api_key = \dash\option::sms('kavenegar','apikey');
-		if(!$api_key)
-		{
-			return false;
-		}
-
 		$mobile = \dash\utility\filter::mobile($_mobile);
 		if(!$mobile)
 		{
 			return false;
 		}
 
-		if(\dash\option::sms('kavenegar', 'iran') && substr($mobile, 0, 2) !== '98')
+		if(substr($mobile, 0, 2) !== '98')
 		{
+			// add another service for outside of iran
 			return false;
 		}
 
 		// function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_template = null, $_type = 'sms')
-		$api    = new \dash\utility\kavenegar_api($api_key, $_options['line']);
+		$api    = new \dash\utility\kavenegar_api(self::$kavenegar_auth, $_options['line']);
 		$result = $api->verify($mobile, $_token, $_options['token2'], $_options['token3'], $_template, $_options['type']);
 		return $result;
 	}
@@ -77,34 +66,20 @@ class call
 			return null;
 		}
 
-		// disable status
-		// sms sevice is locked
-		if(!\dash\option::sms('kavenegar', 'status'))
-		{
-			return false;
-		}
-
-
-		// cehck api key
-		$api_key = \dash\option::sms('kavenegar','apikey');
-		if(!$api_key)
-		{
-			return false;
-		}
-
 		$mobile = \dash\utility\filter::mobile($_mobile);
 		if(!$mobile)
 		{
 			return false;
 		}
 
-		if(\dash\option::sms('kavenegar', 'iran') && substr($mobile, 0, 2) !== '98')
+		if(substr($mobile, 0, 2) !== '98')
 		{
+			// add another service for outside of iran
 			return false;
 		}
 
 		// function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_text = null, $_type = 'sms')
-		$api    = new \dash\utility\kavenegar_api($api_key, \dash\option::sms('kavenegar', 'line'));
+		$api    = new \dash\utility\kavenegar_api(self::$kavenegar_auth, 100020009);
 		$result = $api->tts($mobile, $_message);
 		return $result;
 	}
