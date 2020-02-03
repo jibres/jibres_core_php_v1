@@ -1,7 +1,6 @@
 <?php
 
 
-// self::$url['port']     = 80;
 
 
 // ----- debug

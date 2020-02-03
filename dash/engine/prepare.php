@@ -413,11 +413,12 @@ class prepare
 			$target_host .= '.'.\dash\url::tld();
 		}
 
-		if(\dash\option::url('port') && \dash\option::url('port') !== 80 && \dash\option::url('port') !== 443)
-		{
-			$target_host .= ':'.\dash\option::url('port');
-		}
-		elseif(\dash\url::port() && \dash\url::port() !== 80 && \dash\url::port() !== 443)
+		// if(\dash\option::url('port') && \dash\option::url('port') !== 80 && \dash\option::url('port') !== 443)
+		// {
+		// 	$target_host .= ':'.\dash\option::url('port');
+		// }
+		// else
+		if(\dash\url::port() && \dash\url::port() !== 80 && \dash\url::port() !== 443)
 		{
 			$target_host .= ':'.\dash\url::port();
 		}
