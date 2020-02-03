@@ -68,7 +68,7 @@ class view
 		// in all page the mobiel input is readonly
 		\dash\data::mobileReadonly(true);
 
-		// \dash\data::googleLogin(\dash\option::social('google', 'status'));
+		\dash\data::googleLogin(false);
 
 		if(\dash\url::subdomain())
 		{
