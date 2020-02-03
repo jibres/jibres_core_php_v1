@@ -22,10 +22,10 @@ class pwa
 			'display'          => 'standalone',
 			// phone top nav color
 			// get color from settings
-			'theme_color'      => '#ffffff',
+			'theme_color'      => '#c80a5a',
 			// background of splash
 			// get color from settings
-			'background_color' => '#1a2733',
+			'background_color' => '#fff',
 
 
 			'scope'            => '/',
