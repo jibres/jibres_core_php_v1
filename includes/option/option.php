@@ -85,10 +85,6 @@ self::$config['force_unit']   = 1;
 self::$config['transactions_code'][100] = "invoice:store";
 self::$config['transactions_code'][150] = "promo:ref";
 
-self::$config['enter']['verify_telegram'] = true;
-self::$config['enter']['verify_sms']      = true;
-self::$config['enter']['verify_call']     = true;
-self::$config['enter']['verify_sendsms']  = true;
 
 
 // every wrong pass or code wate for ? [second]

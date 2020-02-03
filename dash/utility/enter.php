@@ -660,28 +660,14 @@ class enter
 
 		if($chatid && \dash\social\telegram\tg::setting('status'))
 		{
-			if(\dash\option::config('enter', 'verify_telegram'))
-			{
-				array_push($way, 'telegram');
-			}
+			array_push($way, 'telegram');
 		}
 
 		if($mobile && \dash\utility\filter::mobile($mobile))
 		{
-			if(\dash\option::config('enter', 'verify_sms'))
-			{
-				array_push($way, 'sms');
-			}
-
-			if(\dash\option::config('enter', 'verify_call'))
-			{
-				array_push($way, 'call');
-			}
-
-			if(\dash\option::config('enter', 'verify_sendsms'))
-			{
-				array_push($way, 'sendsms');
-			}
+			array_push($way, 'sms');
+			array_push($way, 'call');
+			array_push($way, 'sendsms');
 		}
 
 		if(\dash\url::isLocal() && empty($way))
