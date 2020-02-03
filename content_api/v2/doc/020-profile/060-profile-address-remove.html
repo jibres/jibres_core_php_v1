@@ -1,0 +1,34 @@
+<h2 class="f" data-kerkere='#profile-address-remove-detail' data-kerkere-icon='open'>
+  <span class="cauto pRa10"><span class="badge danger">DELETE</span></span>
+  <span class="c">{%trans "Remove address"%}</span>
+</h2>
+<div id="profile-address-remove-detail">
+  <div class="cbox" id='profile-address-remove'>
+    <div class="msg url">
+      <i class="method">DELETE</i>
+      <span>{{CustomerApiURL}}<b>profile/address/{ADDRESSID}/remove</b></span>
+    </div>
+
+    {%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
+
+    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
+<pre>
+curl -X DELETE {{CustomerApiURL}}profile/address/{ADDRESSID}/remove  -H 'appkey: {{myAppKey}}'  -H 'apikey: {{myApiKey}}'
+</pre>
+
+    <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
+<pre>
+{
+  "ok": true,
+  "msg": [
+    {
+      "type": "ok",
+      "text": "Address removed"
+    }
+  ],
+  "result": true
+}
+</pre>
+
+  </div>
+</div>

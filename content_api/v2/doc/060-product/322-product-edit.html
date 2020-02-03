@@ -1,0 +1,49 @@
+<h2 class="f" data-kerkere='#product-edit-detail' data-kerkere-icon='open'>
+  <span class="cauto pRa10"><span class="badge info">PATCH</span></span>
+  <span class="c">{%trans "Edit product"%}</span>
+</h2>
+<div id="product-edit-detail">
+  <div class="cbox" id='product-edit'>
+     <p>{%trans "Replace {PRODUCT_ID} by your product id"%}</p>
+
+     <div class="msg url">
+      <i class="method">PATCH</i>
+      <span>{{CustomerApiURL}}<b>product/{PRODUCT_ID}/edit</b></span>
+    </div>
+
+    {%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
+
+
+      <h3>{%trans "Parameters"%}</h3>
+        <p>{%trans "All parameter in add module can be use in edit"%}</p>
+
+
+
+
+    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
+<pre>
+curl -X PATCH \
+  {{CustomerApiURL}}product/{PRODUCT_ID}/edit \
+  -H 'appkey: {{myAppKey}}' \
+  -H 'apikey: {{myApiKey}}' \
+  -d '{"title":"Product1"}'
+</pre>
+
+<h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
+<pre>
+{
+  "ok": true,
+  "msg": [
+    {
+      "type": "ok",
+      "text": "Your product successfully updated"
+    }
+  ],
+  "result": true
+}
+</pre>
+
+
+  </div>
+</div>
+
