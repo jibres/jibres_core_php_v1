@@ -294,10 +294,7 @@ class start
 
 	private static function default_bank()
 	{
-		if(\dash\option::config('default_payment'))
-		{
-			return \dash\option::config('default_payment');
-		}
+		return null;
 	}
 
 }

@@ -254,14 +254,8 @@ class pagination
 		$first      = ($current - 1) >= 1  ? ($current - 1) : 1;
 		$total_page = intval(self::detail('total_page'));
 
-		if(\dash\option::config('pagination_count_link') && ctype_digit(\dash\option::config('pagination_count_link')))
-		{
-			$count_link = intval(\dash\option::config('pagination_count_link'));
-		}
-		else
-		{
-			$count_link = 5;
-		}
+		$count_link = 5;
+
 
 		$result = [];
 

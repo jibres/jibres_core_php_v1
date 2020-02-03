@@ -122,19 +122,21 @@ class cloudflare
 	 */
 	private static function config($_args)
 	{
-		$status                  = \dash\option::config('cloudflare', 'status');
-		if(!$status) 			 return false;
+		return false;
 
-		$ZoneID                  = \dash\option::config('cloudflare', 'ZoneID');
-		if(!$ZoneID) 			 return false;
+		// $status                  = \dash\option::config('cloudflare', 'status');
+		// if(!$status) 			 return false;
 
-		$X_Auth_Key              = \dash\option::config('cloudflare', 'X-Auth-Key');
-		if(!$X_Auth_Key)		 return false;
+		// $ZoneID                  = \dash\option::config('cloudflare', 'ZoneID');
+		// if(!$ZoneID) 			 return false;
 
-		$X_Auth_Email            = \dash\option::config('cloudflare', 'X-Auth-Email');
-		if(!$X_Auth_Email)		 return false;
+		// $X_Auth_Key              = \dash\option::config('cloudflare', 'X-Auth-Key');
+		// if(!$X_Auth_Key)		 return false;
 
-		$X_Auth_User_Service_Key = \dash\option::config('cloudflare', 'X-Auth-User-Service-Key');
+		// $X_Auth_Email            = \dash\option::config('cloudflare', 'X-Auth-Email');
+		// if(!$X_Auth_Email)		 return false;
+
+		// $X_Auth_User_Service_Key = \dash\option::config('cloudflare', 'X-Auth-User-Service-Key');
 
 		if(!$X_Auth_Email && !$X_Auth_User_Service_Key && !$X_Auth_Key)
 		{

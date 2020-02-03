@@ -147,16 +147,6 @@ class term
 				$type = 'cat';
 				break;
 
-			// check mag is enable
-			case 'mag':
-			case 'mag_tag':
-				if(!\dash\option::config('mag'))
-				{
-					\dash\notif::error(T_("Invalid term type"), 'type');
-					return false;
-				}
-				break;
-
 			default:
 				\dash\notif::error(T_("Invalid term type"), 'type');
 				return false;

@@ -21,17 +21,7 @@ class ftp
 		if(!self::$link)
 		{
 			$ftp_host = $_host;
-			if(!$ftp_host)
-			{
-				$ftp_host = \dash\option::config('ftp', 'host');
-			}
-
 			$ftp_port = $_port;
-			if(!$ftp_port)
-			{
-				$ftp_port = \dash\option::config('ftp', 'port');
-			}
-
 			$link = @ftp_connect($ftp_host, $ftp_port);
 			if($link)
 			{
@@ -48,16 +38,7 @@ class ftp
 	public static function login($_user = null, $_passowrd = null)
 	{
 		$user = $_user;
-		if(!$user)
-		{
-			$user  = \dash\option::config('ftp', 'user');
-		}
-
 		$pass = $_passowrd;
-		if(!$_passowrd)
-		{
-			$pass  = \dash\option::config('ftp', 'pass');
-		}
 
 		$login = @ftp_login(self::$link, $user, $pass);
 

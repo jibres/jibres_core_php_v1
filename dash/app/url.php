@@ -26,12 +26,6 @@ class url
 
 		$disallow = array_merge($disallow, \dash\engine\content::content_list());
 
-		$option = \dash\option::config('disallow_url');
-		if($option && is_array($option))
-		{
-			$disallow = array_merge($option, $disallow);
-		}
-
 		if(in_array($raw_url, $disallow) || in_array($_url, $disallow))
 		{
 			\dash\notif::error(T_("This address is a system keyword and cannot be selected"), ['element' => ['url', 'slug', 'title']]);

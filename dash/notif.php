@@ -37,14 +37,6 @@ class notif
 					self::code($_meta['code']);
 					unset($_meta['code']);
 				}
-
-				// if(!array_key_exists('image', $_meta))
-				// {
-				// 	if(\dash\option::config('notif', 'image'))
-				// 	{
-				// 		$_meta['image'] = \dash\url::site(). \dash\option::config('notif', 'image');
-				// 	}
-				// }
 			}
 
 			$add['meta'] = $_meta;

@@ -195,24 +195,17 @@ class date
 	{
 		$format     = "Y-m-d H:i:s";
 
-		$short_time = \dash\option::config('short_time_format');
-		$long_time  = \dash\option::config('long_time_format');
-
-		$short_date = \dash\option::config('short_date_format');
-		$long_date  = \dash\option::config('long_date_format');
-
-
 		if($_type === 'time')
 		{
 			switch ($_format)
 			{
 				case 'long':
-					$format = $long_time ? $long_time : "H:i:s";
+					$format = "H:i:s";
 					break;
 
 				case 'short':
 				default:
-					$format = $short_time ? $short_time : "H:i";
+					$format = "H:i";
 					break;
 			}
 		}
@@ -221,11 +214,11 @@ class date
 			switch ($_format)
 			{
 				case 'long':
-					$format = $long_date ? $long_date : "Y-m-d";
+					$format = "Y-m-d";
 					break;
 
 				case 'year':
-					$format = $long_date ? $long_date : "Y";
+					$format = "Y";
 					break;
 
 				case 'full':
@@ -234,7 +227,7 @@ class date
 
 				case 'short':
 				default:
-					$format = $short_date ? $short_date : "Y/m/d";
+					$format = "Y/m/d";
 					break;
 			}
 		}
