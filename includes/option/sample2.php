@@ -1,8 +1,6 @@
 <?php
 
 
-// self::$url['root']     = 'ermile';
-// self::$url['tld']      = 'com';
 // self::$url['port']     = 80;
 
 

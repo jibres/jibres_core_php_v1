@@ -362,51 +362,53 @@ class prepare
 		}
 
 		// fix root domain
-		if(\dash\option::url('root'))
-		{
-			if(\dash\option::url('root') !== \dash\url::root())
-			{
-				if(is_callable(['\lib\alias', 'url']) && \lib\alias::url())
-				{
-					$target_host .= \dash\url::root();
-				}
-				elseif(\dash\engine\content::enterprise_customers())
-				{
-					$target_host .= \dash\url::root();
-				}
-				else
-				{
-					$target_host .= \dash\option::url('root');
-				}
-			}
-			else
-			{
-				$target_host .= \dash\option::url('root');
-			}
+		// if(\dash\option::url('root'))
+		// {
+		// 	if(\dash\option::url('root') !== \dash\url::root())
+		// 	{
+		// 		if(is_callable(['\lib\alias', 'url']) && \lib\alias::url())
+		// 		{
+		// 			$target_host .= \dash\url::root();
+		// 		}
+		// 		elseif(\dash\engine\content::enterprise_customers())
+		// 		{
+		// 			$target_host .= \dash\url::root();
+		// 		}
+		// 		else
+		// 		{
+		// 			$target_host .= \dash\option::url('root');
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		$target_host .= \dash\option::url('root');
+		// 	}
 
-		}
-		elseif(\dash\url::root())
+		// }
+		// else
+		if(\dash\url::root())
 		{
 			$target_host .= \dash\url::root();
 		}
 
 		// fix tld
-		if(\dash\option::url('tld'))
-		{
-			if(is_callable(['\lib\alias', 'url']) && \lib\alias::url())
-			{
-				$target_host .= '.'. \dash\url::tld();
-			}
-			elseif(\dash\engine\content::enterprise_customers())
-			{
-				$target_host .= '.'. \dash\url::tld();
-			}
-			else
-			{
-				$target_host .= '.'.\dash\option::url('tld');
-			}
-		}
-		elseif(\dash\url::tld())
+		// if(\dash\option::url('tld'))
+		// {
+		// 	if(is_callable(['\lib\alias', 'url']) && \lib\alias::url())
+		// 	{
+		// 		$target_host .= '.'. \dash\url::tld();
+		// 	}
+		// 	elseif(\dash\engine\content::enterprise_customers())
+		// 	{
+		// 		$target_host .= '.'. \dash\url::tld();
+		// 	}
+		// 	else
+		// 	{
+		// 		$target_host .= '.'.\dash\option::url('tld');
+		// 	}
+		// }
+		// else
+		if(\dash\url::tld())
 		{
 			$target_host .= '.'.\dash\url::tld();
 		}

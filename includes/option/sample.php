@@ -1,11 +1,6 @@
 <?php
-/**
-* The base configurations of the Dash.
-*/
 
 
-// self::$url['root']     = 'ermile';
-// self::$url['tld']      = 'com';
 // self::$url['port']     = 80;
 
 
