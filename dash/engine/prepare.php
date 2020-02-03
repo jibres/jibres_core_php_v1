@@ -549,12 +549,14 @@ class prepare
 	 */
 	private static function debug()
 	{
+		$status = false;
+
 		if(\dash\engine\error::debug_mode())
 		{
-			$_status = true;
+			$status = true;
 		}
 
-		if($_status)
+		if($status)
 		{
 			ini_set('display_startup_errors', 'On');
 			ini_set('error_reporting'       , 'E_ALL | E_STRICT');
