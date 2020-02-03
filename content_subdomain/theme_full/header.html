@@ -9,7 +9,13 @@
      <a href="{{url.kingdom}}/help">{%trans "Help Center"%}</a>
     </nav>
     <div class="cauto os">
-     {{langList({'html':true}) | raw}}
+     <nav class="langlist" data-xhr="langlist">
+{%if lang.current =='fa'%}
+      <a hreflang="en" data-direct href="https://jibres.com">English</a>
+{%else%}
+      <a hreflang="fa" data-direct href="https://jibres.ir">فارسی</a>
+{%endif%}
+    </nav>
     </div>
    </div>
   </div>
