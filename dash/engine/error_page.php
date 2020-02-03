@@ -33,7 +33,7 @@
      </a>
     </div>
    </div>
-<?php if(\dash\option::config('debug') || \dash\url::isLocal()) {?>
+<?php if(\dash\engine\error::debug_mode()) {?>
    <ol>
 <?php
 $debug_backtrace = array_reverse($debug_backtrace);

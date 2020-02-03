@@ -3,6 +3,14 @@ namespace dash\engine;
 
 class error
 {
+	public static function debug_mode()
+	{
+		if(\dash\url::isLocal())
+		{
+			return true;
+		}
+		return false;
+	}
 
 	public static function handle_exception($e)
 	{
@@ -61,7 +69,7 @@ class error
 
 	public static function show_error($_msg)
 	{
-		if(\dash\engine\dev::debug())
+		if(\dash\engine\error::debug_mode())
 		{
 			echo '<pre>';
 			echo $_msg;

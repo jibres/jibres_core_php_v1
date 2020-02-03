@@ -65,7 +65,7 @@ class twig
 
 		$twig->addGlobal("session", $_SESSION);
 
-		if(\dash\engine\dev::debug())
+		if(\dash\engine\error::debug_mode())
 		{
 			$twig->addExtension(new \Twig_Extension_Debug());
 		}

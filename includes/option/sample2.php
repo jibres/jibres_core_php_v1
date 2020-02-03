@@ -2,10 +2,6 @@
 
 
 
-
-// ----- debug
-self::$config['debug']         = false;
-
 // ------ can set upload subdomain to set in upload file
 // for example set upload_subdomain on 'dl' to make dl.domain.tld
 // self::$config['upload_subdomain']  = null;

@@ -79,7 +79,7 @@ class db
 		$qry_exec_time = microtime(true) - $qry_exec_time;
 
 		// if debug mod is true save all string query
-		if(\dash\option::config('debug'))
+		if(\dash\engine\error::debug_mode())
 		{
 			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time);
 		}
@@ -297,6 +297,5 @@ class db
 			return $result;
 		}
 	}
-
 }
 ?>

@@ -582,11 +582,11 @@ class prepare
 	 * set debug status
 	 * @param  [type] $_status [description]
 	 */
-	public static function debug($_status = null)
+	private static function debug()
 	{
-		if($_status === null)
+		if(\dash\engine\error::debug_mode())
 		{
-			$_status = \dash\option::config('debug');
+			$_status = true;
 		}
 
 		if($_status)
