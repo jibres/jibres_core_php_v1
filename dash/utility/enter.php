@@ -447,15 +447,7 @@ class enter
 		if(is_null(self::user_data('forceremember')))
 		{
 			// default of this variable is true
-			if(\dash\option::config('enter', 'remember_me'))
-			{
-				$set_session = true;
-			}
-			else
-			{
-				// no login by remember
-				$set_session = false;
-			}
+			$set_session = true;
 		}
 		elseif(is_numeric(self::user_data('forceremember')))
 		{

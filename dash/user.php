@@ -467,15 +467,7 @@ class user
 					if(is_null($load_user['forceremember']))
 					{
 						// default of this variable is true
-						if(\dash\option::config('enter', 'remember_me'))
-						{
-							$logi_by_remember = true;
-						}
-						else
-						{
-							$logi_by_remember = false;
-							// no login by remember
-						}
+						$logi_by_remember = true;
 					}
 					elseif(is_numeric($load_user['forceremember']))
 					{

@@ -978,14 +978,7 @@ class user
 				case 'forceremember':
 					if($value === null)
 					{
-						if(\dash\option::config('enter', 'remember_me'))
-						{
-							$result[$key] = true;
-						}
-						else
-						{
-							$result[$key] = false;
-						}
+						$result[$key] = true;
 					}
 					elseif($value)
 					{

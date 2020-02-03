@@ -92,15 +92,15 @@ self::$config['enter']['verify_sendsms']  = true;
 
 
 // every wrong pass or code wate for ? [second]
-self::$config['enter']['wait']                         = 10;
+
 // life time code for ? [second]
-self::$config['enter']['life_time_code']               = 60 * 5;
+
 // after signup user redirect to different page
 // self::$config['enter']['signup_redirect']              = null;
 // after signup user redirect to different page
-self::$config['enter']['singup_username']              = false;
+
 // save remember me to login
-self::$config['enter']['remember_me']              = true;
+
 
 
 // ----- favicon option
@@ -171,60 +171,6 @@ self::$config['sep']['status']   = true;
 self::$config['sep']['MID']      = 31064728;
 self::$config['sep']['Password'] = 8473172;
 
-
-
-
-/**
-* the social network
-*/
-self::$social['status']                       = true;
-
-self::$social['list']['telegram']             = 'jibres';
-self::$social['list']['facebook']             = 'jibres';
-self::$social['list']['twitter']              = 'ermile_jibres';
-self::$social['list']['instagram']            = 'ermile_jibres';
-// self::$social['list']['googleplus']           = '113130164586721131168';
-self::$social['list']['github']               = 'jibres';
-self::$social['list']['linkedin']             = null;
-self::$social['list']['aparat']               = 'jibres';
-
-/**
-* TELEGRAM
-* t.me
-*/
-self::$social['telegram']['status']           = true;
-self::$social['telegram']['bot']        = 'JibresBot';
-self::$social['telegram']['hookFolder'] = 'Halllooooo';
-self::$social['telegram']['token']      = '731332936:AAECREdVLCAJqzwTtCJnst_v293LtDSaiKc';
-self::$social['telegram']['debug']      = true;
-self::$social['telegram']['tunnel']     = true;
-
-
-// /**
-// * FACEBOOK
-// */
-// self::$social['facebook']['status']           = true;
-// self::$social['facebook']['name']             = 'jibres';
-// self::$social['facebook']['key']              = null;
-// self::$social['facebook']['app_id']           = '236377626849014';
-// self::$social['facebook']['app_secret']       = 'c7055125a0e70d2125664b009df3f3cd';
-// self::$social['facebook']['api_version']      = '2.9';
-// self::$social['facebook']['redirect_url']     = null;
-// self::$social['facebook']['required_scope']   = null;
-// self::$social['facebook']['page_id']          = null;
-// self::$social['facebook']['access_token']     = null;
-// self::$social['facebook']['client_token']     = 'df0047eb1af1e2acba2a3645bcb4f472';
-
-// /**
-// * GOOGLE
-// */
-// self::$social['google']['status']                      = false;
-// self::$social['google']['client_id']                   = '395232553225-5filcn07d2rdjl2fld57mf8e50ac146j.apps.googleusercontent.com';
-// self::$social['google']['project_id']                  = 'ermile-jibres';
-// self::$social['google']['auth_uri']                    = 'https://accounts.google.com/o/oauth2/auth';
-// self::$social['google']['token_uri']                   = 'https://accounts.google.com/o/oauth2/token';
-// self::$social['google']['auth_provider_x509_cert_url'] = 'https://www.googleapis.com/oauth2/v1/certs';
-// self::$social['google']['client_secret']               = 'oo6LPHZXJA6JWkgPgPb7uJ0U';
 
 
 
