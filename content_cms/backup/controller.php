@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		if(\dash\option::config('full_backup') || \dash\permission::supervisor())
+		if(\dash\permission::supervisor())
 		{
 			// no problem if the user have permission
 			\dash\permission::access('cpBackup');

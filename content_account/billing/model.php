@@ -39,22 +39,20 @@ class model
 			return false;
 		}
 
-		if(\dash\option::config('billing_promo'))
+		if(\dash\request::post('type') === 'promo')
 		{
-			if(\dash\request::post('type') === 'promo')
+			if(\dash\request::post('promo'))
 			{
-				if(\dash\request::post('promo'))
-				{
-					self::check_promo();
-					return;
-				}
-				else
-				{
-					\dash\notif::error(T_("Invalid promo code"), 'promo', 'arguments');
-					return false;
-				}
+				self::check_promo();
+				return;
+			}
+			else
+			{
+				\dash\notif::error(T_("Invalid promo code"), 'promo', 'arguments');
+				return false;
 			}
 		}
+
 
 		$meta =
 		[

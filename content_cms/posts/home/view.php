@@ -62,22 +62,7 @@ class view
 					break;
 
 				default:
-					$allowPostType = \dash\option::config('allow_post_type');
-					if($allowPostType && is_array($allowPostType))
-					{
-						if(in_array($myType, $allowPostType))
-						{
-							// no problem
-						}
-						else
-						{
-							\dash\header::status(404);
-						}
-					}
-					else
-					{
-						\dash\header::status(404);
-					}
+					\dash\header::status(404);
 					\dash\data::badge_text(T_('Add new post'));
 					\dash\data::badge_link(\dash\url::this(). '/add'. $moduleType);
 					break;
