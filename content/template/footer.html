@@ -44,7 +44,15 @@
    </div>
 
    <div class="f bottom align-center">
-    <div class="cauto s12">{{langList({'html':true}) | raw}}</div>
+    <div class="cauto s12">
+      <nav class="langlist" data-xhr="langlist">
+{%if lang.current =='fa'%}
+        <a hreflang="en" data-direct href="https://jibres.com">English</a>
+{%else%}
+        <a hreflang="fa" data-direct href="https://jibres.ir">فارسی</a>
+{%endif%}
+      </nav>
+    </div>
 
       <nav class="c s12 txtC">
 {%if lang.current =='fa'%}
