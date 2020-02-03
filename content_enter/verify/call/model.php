@@ -41,10 +41,6 @@ class model
 			return false;
 		}
 
-		if(!\dash\option::config('enter', 'call'))
-		{
-			return false;
-		}
 
 		// ready to save log
 		$log_meta =

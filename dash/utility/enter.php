@@ -677,10 +677,7 @@ class enter
 
 		if(\dash\utility\enter::get_session('verify_from') === 'signup')
 		{
-			if(!\dash\option::config('enter', 'force_verify'))
-			{
-				array_push($way, 'later');
-			}
+			array_push($way, 'later');
 		}
 
 		if(empty($way))

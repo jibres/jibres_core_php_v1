@@ -41,21 +41,6 @@ self::$config['singup_redirect'] = 'store';
 self::$config['favicon']['version']           = null;
 
 
-/**
- * call kavenegar template
- */
-self::$config['enter']['call']                = true;
-self::$config['enter']['call_template_fa'] = 'ermile-fa';
-self::$config['enter']['call_template_en'] = 'ermile-en';
-
-
-
-
-
-
-
-
-
 // every wrong pass or code wate for ? [second]
 
 // life time code for ? [second]
