@@ -343,11 +343,6 @@ class prepare
 	 */
 	private static function fix_url_host()
 	{
-		if(\dash\option::url('fix') !== true)
-		{
-			return null;
-		}
-
 		// decalare target url
 		$target_host = '';
 
@@ -362,18 +357,20 @@ class prepare
 		}
 
 		// set www subdomain
-		if(\dash\option::url('www'))
-		{
-			if(\dash\url::subdomain())
-			{
-				$target_host .= \dash\url::subdomain(). '.';
-			}
-			else
-			{
-				$target_host .= 'www.';
-			}
-		}
-		elseif(\dash\url::subdomain() && \dash\url::subdomain() !== 'www')
+		// if(\dash\option::url('www'))
+		// {
+		// 	if(\dash\url::subdomain())
+		// 	{
+		// 		$target_host .= \dash\url::subdomain(). '.';
+		// 	}
+		// 	else
+		// 	{
+		// 		$target_host .= 'www.';
+		// 	}
+		// }
+		// else
+
+		if(\dash\url::subdomain() && \dash\url::subdomain() !== 'www')
 		{
 
 			$target_host .= \dash\url::subdomain(). '.';
