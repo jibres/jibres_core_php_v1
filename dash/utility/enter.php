@@ -666,7 +666,7 @@ class enter
 			// array_push($way, 'email');
 		}
 
-		if($chatid && \dash\option::social('telegram', 'status'))
+		if($chatid && \dash\social\telegram\tg::setting('status'))
 		{
 			if(\dash\option::config('enter', 'verify_telegram'))
 			{

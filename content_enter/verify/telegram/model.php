@@ -22,7 +22,7 @@ class model
 	public static function send_telegram_code()
 	{
 		// the telegram is off for this project
-		// if(!\dash\option::social('telegram', 'status'))
+		// if(!\dash\social\telegram\tg::setting('status'))
 		// {
 		// 	return false;
 		// }

@@ -14,7 +14,7 @@ class view
 		\dash\data::badge2_text(T_('Back to supervisor dashboard'));
 		\dash\data::badge2_link(\dash\url::this());
 
-		\dash\data::tg_info(\dash\option::social('telegram'));
+		\dash\data::tg_info(\dash\social\telegram\tg::setting());
 	}
 }
 ?>

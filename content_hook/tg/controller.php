@@ -10,7 +10,7 @@ class controller
 	 */
 	public static function routing()
 	{
-		$myhook = \dash\option::social('telegram', 'hookFolder');
+		$myhook = \dash\social\telegram\tg::setting('hookFolder');
 
 		if(\dash\url::child() === $myhook)
 		{

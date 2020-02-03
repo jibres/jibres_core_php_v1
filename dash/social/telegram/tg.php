@@ -25,6 +25,32 @@ class tg
 	private static $finish     = null;
 
 
+	public static function setting($_key = null)
+	{
+		$setting =
+		[
+			'status'     => true,
+			'bot'        => 'JibresBot',
+			'hookFolder' => 'Halllooooo',
+			'token'      => '731332936:AAECREdVLCAJqzwTtCJnst_v293LtDSaiKc',
+			'debug'      => true,
+			'tunnel'     => true,
+		];
+
+		if(!$_key)
+		{
+			return $setting;
+		}
+
+		if(array_key_exists($_key, $setting))
+		{
+			return $setting[$_key];
+		}
+
+		return null;
+	}
+
+
 	/**
 	 * fire telegram api and run hook to get all requests
 	 * @return [type] [description]
@@ -32,12 +58,12 @@ class tg
 	public static function fire()
 	{
 		// if telegram is off then do not run
-		if(!\dash\option::social('telegram', 'status'))
+		if(!\dash\social\telegram\tg::setting('status'))
 		{
 			return T_('Telegram is off!');
 		}
 		// set bot name
-		$myName = \dash\option::social('telegram', 'bot');
+		$myName = \dash\social\telegram\tg::setting('bot');
 		if($myName)
 		{
 			self::$name = $myName;

@@ -167,7 +167,7 @@ class log
 
 	public static function logy($_text)
 	{
-		if(!\dash\option::social('telegram', 'debug'))
+		if(!\dash\social\telegram\tg::setting('debug'))
 		{
 			return T_('debug mode is off!');
 		}

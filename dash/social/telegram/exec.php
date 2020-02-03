@@ -18,13 +18,13 @@ class exec
 	public static function send($_method = null, $_data = null, $_jsonResult = false)
 	{
 		// if telegram is off then do not run
-		if(!\dash\option::social('telegram', 'status'))
+		if(!\dash\social\telegram\tg::setting('status'))
 		{
 			\dash\log::set('tg:off');
 			return T_('Telegram is off!');
 		}
 		$isTunnel = false;
-		if(\dash\option::social('telegram', 'tunnel'))
+		if(\dash\social\telegram\tg::setting('tunnel'))
 		{
 			$isTunnel = true;
 		}
@@ -38,7 +38,7 @@ class exec
 		// if api key is not set get it from options
 		if(!tg::$api_token)
 		{
-			tg::$api_token = \dash\option::social('telegram', 'token');
+			tg::$api_token = \dash\social\telegram\tg::setting('token');
 		}
 
 		// if key is not correct return

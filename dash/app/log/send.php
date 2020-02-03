@@ -62,7 +62,7 @@ class send
 
 	private static function send_telegram($_data)
 	{
-		if(!\dash\option::social('telegram', 'status'))
+		if(!\dash\social\telegram\tg::setting('status'))
 		{
 			return false;
 		}
