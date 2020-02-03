@@ -1,17 +1,9 @@
 <?php
 /**
 * The base configurations of the Dash.
-* Sample file
 */
 
 
-
-
-// // if true add slash at end of url, else remove
-// self::$url['slash'] = false;
-
-// if set below value of host, try to fix them
-// self::$url['protocol'] = 'https';
 // self::$url['root']     = 'ermile';
 // self::$url['tld']      = 'com';
 // self::$url['port']     = 80;

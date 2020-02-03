@@ -347,13 +347,13 @@ class prepare
 		$target_host = '';
 
 		// fix protocol
-		if(\dash\option::url('protocol'))
+		if(\dash\url::isLocal())
 		{
-			$target_host = \dash\option::url('protocol').'://';
+			$target_host = \dash\url::protocol().'://';
 		}
 		else
 		{
-			$target_host = \dash\url::protocol().'://';
+			$target_host = 'https://';
 		}
 
 		if(\dash\url::subdomain() && \dash\url::subdomain() !== 'www')
