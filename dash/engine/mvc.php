@@ -4,9 +4,10 @@ namespace dash\engine;
 
 class mvc
 {
-	private static $folder_addr = null;
-	private static $routed_addr = null;
-	private static $only_folder = null;
+	private static $folder_addr  = null;
+	private static $routed_addr  = null;
+	private static $only_folder  = null;
+	private static $real_address = null;
 
 
 	/**
@@ -43,6 +44,17 @@ class mvc
 
 		$addr_content = \dash\url::content();
 		$addr_module  = '/'. \dash\url::module();
+
+		self::$real_address = trim(\dash\url::content(). '/'. \dash\url::directory(), '/');
+
+		if(in_array(\dash\url::content(), ['v2']))
+		{
+			$fit_directroy      = substr(\dash\url::directory(), strlen(\dash\url::module()) + 1);
+			self::$real_address = trim(\dash\url::content(). '/'. $fit_directroy, '/');
+
+			$addr_module = '';
+			$my_module   = '';
+		}
 
 		if(\dash\url::subchild() !== null)
 		{
@@ -195,7 +207,8 @@ class mvc
 		}
 
 		// generate real address of current page
-		$real_address = trim(\dash\url::content(). '/'. \dash\url::directory(), '/');
+		$real_address = self::$real_address;
+
 		if($real_address === '')
 		{
 			$real_address = null;
