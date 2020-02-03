@@ -267,24 +267,19 @@ class template
 		// declare address of social networks
 		$social_list =
 		[
-			'twitter'    => 'https://twitter.com/',
-			'github'     => 'https://github.com/',
-			'googleplus' => 'https://plus.google.com/',
-			'facebook'   => 'https://www.facebook.com/',
-			'linkedin'   => 'https://linkedin.com/in/',
-			'telegram'   => 'http://telegram.me/',
-			'aparat'     => 'http://www.aparat.com/',
+			'twitter'    => 'https://twitter.com/ermile_jibres',
+			'github'     => 'https://github.com/jibres',
+			'facebook'   => 'https://www.facebook.com/jibres',
+			'linkedin'   => 'https://linkedin.com/in/jibres',
+			'telegram'   => 'http://telegram.me/jibres',
+			// 'aparat'     => 'http://www.aparat.com/',
 		];
 
 		// if social name exist in social adresses then redirect to it
-		if(
-			isset($social_list[$social_name]) &&
-			\dash\option::social($social_name, 'name') &&
-			is_string(\dash\option::social($social_name, 'name'))
-		  )
+		if(isset($social_list[$social_name]))
 		{
 			// create url of social network
-			$social_url = $social_list[$social_name] . \dash\option::social($social_name, 'name');
+			$social_url = $social_list[$social_name];
 			// redirect to new address
 			\dash\redirect::to($social_url);
 			return true;

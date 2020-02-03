@@ -232,14 +232,6 @@ class view
 
 	public static function setSocialTitle()
 	{
-		// if allow to use social then get social network account list
-		if(\dash\option::social('status'))
-		{
-			\dash\data::social(\dash\option::social('list'));
-			\dash\data::social_status(\dash\option::social('status'));
-
-		}
-
 		// if we dont have page image, use site image
 		if(\dash\data::page_cover())
 		{
