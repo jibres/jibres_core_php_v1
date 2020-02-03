@@ -54,26 +54,6 @@ class model
 			return false;
 		}
 
-		$username = \dash\request::post('username');
-		if(\dash\option::config('enter', 'singup_username'))
-		{
-			if(!$username || mb_strlen($username) < 5 || mb_strlen($username) > 50 )
-			{
-				\dash\notif::error(T_("Pleaes set a valid username"), 'username');
-				return false;
-			}
-		}
-		else
-		{
-			$username = null;
-		}
-
-		if(\dash\option::config('enter', 'singup_username') && !preg_match("/[A-Za-z0-9\_]/", $username))
-		{
-			\dash\log::set('usernameInvalidSyntax', ['code' => $username]);
-			\dash\notif::error(T_("Username must in [A-Za-z0-9]"), 'username');
-			return false;
-		}
 
 		$ramz = \dash\request::post('ramzNew');
 		if(isset($_POST['ramzNew']))
@@ -87,11 +67,7 @@ class model
 			return false;
 		}
 
-		if($username && $ramz && $username === $ramz)
-		{
-			\dash\notif::error(T_("Please do not use your username as password. Never Ever!"), ['element' => ['ramzNew', 'username']]);
-			return false;
-		}
+
 
 		if($mobile && strpos($ramz, $mobile) !== false)
 		{
@@ -106,16 +82,6 @@ class model
 			return false;
 		}
 
-		if(\dash\option::config('enter', 'singup_username'))
-		{
-			$check_username = \dash\db\users::get_by_username($username);
-			if($check_username)
-			{
-				\dash\log::set('usernameTaken', ['username' => $username]);
-				\dash\notif::error(T_("This username is already taken."), 'username');
-				return false;
-			}
-		}
 
 		$check_mobile = \dash\db\users::get_by_mobile($mobile);
 		if($check_mobile)
@@ -129,7 +95,6 @@ class model
 		[
 			'mobile'      => $mobile,
 			'displayname' => $displayname,
-			'username'    => $username,
 			'status'      => 'awaiting'
 		];
 

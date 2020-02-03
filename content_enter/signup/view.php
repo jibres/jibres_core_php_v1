@@ -11,7 +11,7 @@ class view
 		\dash\data::page_desc(\dash\data::page_title());
 
 		// set el value to use in display
-		\dash\data::el_username(\dash\option::config('enter', 'singup_username'));
+		\dash\data::el_username(false);
 
 
 		$termLink = '<a href="'. \dash\url::kingdom(). '/terms" target="_blank">'. T_('Terms of Service') .'</a>';
