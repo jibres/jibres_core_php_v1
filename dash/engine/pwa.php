@@ -12,7 +12,8 @@ class pwa
 
 		$manifest  =
 		[
-			'name'             => T_($siteTitle). ' | '. T_(\dash\option::config('site', 'slogan')),
+			// 'name'             => T_($siteTitle). ' | '. T_(\dash\option::config('site', 'slogan')),
+			'name'             => T_($siteTitle),
 			'short_name'       => T_($siteTitle),
 			'description'      => T_(\dash\option::config('site', 'desc')),
 			'dir'              => \dash\language::dir(),
