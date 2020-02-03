@@ -22,10 +22,10 @@ class model
 	public static function send_telegram_code()
 	{
 		// the telegram is off for this project
-		if(!\dash\option::social('telegram', 'status'))
-		{
-			return false;
-		}
+		// if(!\dash\option::social('telegram', 'status'))
+		// {
+		// 	return false;
+		// }
 
 		$my_chat_id = null;
 
