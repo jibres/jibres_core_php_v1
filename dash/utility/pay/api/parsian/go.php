@@ -7,14 +7,14 @@ class go
 
     public static function bank()
     {
-        if(!\dash\option::config('parsian', 'status'))
+        if(!\dash\setting\parsian::get('status'))
         {
             \dash\log::set('pay:parsian:status:false');
             \dash\notif::error(T_("The parsian payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('parsian', 'LoginAccount'))
+        if(!\dash\setting\parsian::get('LoginAccount'))
         {
             \dash\log::set('pay:parsian:LoginAccount:not:set');
             \dash\notif::error(T_("The parsian payment LoginAccount not set"));
@@ -23,11 +23,11 @@ class go
 
         $parsian = [];
 
-        $parsian['LoginAccount'] = \dash\option::config('parsian', 'LoginAccount');
+        $parsian['LoginAccount'] = \dash\setting\parsian::get('LoginAccount');
 
-        if(\dash\option::config('parsian', 'CallBackUrl'))
+        if(\dash\setting\parsian::get('CallBackUrl'))
         {
-            $parsian['CallBackUrl'] = \dash\option::config('parsian', 'CallBackUrl');
+            $parsian['CallBackUrl'] = \dash\setting\parsian::get('CallBackUrl');
         }
         else
         {

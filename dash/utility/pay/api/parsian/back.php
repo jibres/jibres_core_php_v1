@@ -7,14 +7,14 @@ class back
 
     public static function verify($_token)
     {
-        if(!\dash\option::config('parsian', 'status'))
+        if(!\dash\setting\parsian::get('status'))
         {
             \dash\log::set('pay:parsian:status:false');
             \dash\notif::error(T_("The parsian payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('parsian', 'LoginAccount'))
+        if(!\dash\setting\parsian::get('LoginAccount'))
         {
             \dash\log::set('pay:parsian:LoginAccount:not:set');
             \dash\notif::error(T_("The parsian payment LoginAccount not set"));
@@ -54,7 +54,7 @@ class back
         \dash\utility\pay\setting::save(true);
 
         $parsian                 = [];
-        $parsian['LoginAccount'] = \dash\option::config('parsian', 'LoginAccount');
+        $parsian['LoginAccount'] = \dash\setting\parsian::get('LoginAccount');
         $parsian['Token']        = $Token;
 
         $Amount_SESSION  = floatval(\dash\utility\pay\setting::get_plus());
