@@ -27,6 +27,8 @@ class prepare
 	public static function basics()
 	{
 
+		self::debug(\dash\engine\error::debug_mode());
+
 		// dont run on some condition
 		self::dont_run_exception();
 
@@ -547,16 +549,9 @@ class prepare
 	 * set debug status
 	 * @param  [type] $_status [description]
 	 */
-	private static function debug()
+	public static function debug($_status = null)
 	{
-		$status = false;
-
-		if(\dash\engine\error::debug_mode())
-		{
-			$status = true;
-		}
-
-		if($status)
+		if($_status)
 		{
 			ini_set('display_startup_errors', 'On');
 			ini_set('error_reporting'       , 'E_ALL | E_STRICT');
