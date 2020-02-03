@@ -519,12 +519,7 @@ class prepare
 			// remove slash in normal condition
 			$_url = trim($_url, '/');
 
-			if(\dash\option::url('slash'))
-			{
-				// add slash if set in settings
-				$_url .= '/';
-			}
-			elseif(\dash\url::path() === '/')
+			if(\dash\url::path() === '/')
 			{
 				// add slash for homepage
 				$_url .= '/';
