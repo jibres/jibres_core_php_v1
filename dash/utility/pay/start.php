@@ -35,7 +35,15 @@ class start
 			return self::endCompile();
 		}
 
-		$bank_status = \dash\option::config($bank, 'status');
+		if(is_callable(["\\dash\\setting\\$bank", 'get']))
+		{
+			$bank_status = ("\\dash\\setting\\$bank")::get('status');
+		}
+		else
+		{
+			$bank_status = false;
+		}
+
 		if(!$bank_status)
 		{
 			\dash\notif::error(T_("This bank is disabled on this service"));
