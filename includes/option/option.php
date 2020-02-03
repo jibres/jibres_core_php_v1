@@ -11,19 +11,6 @@ self::$config['billing_page']   = true;
 self::$config['billing_charge'] = true;
 self::$config['address_page']   = true;
 
-self::$config['botscout']                 = 'hIenwLNiGpPOoSk';
-
-// the project have help center or no
-self::$config['help_center']         = true;
-
-// for example posts, tags, term , ...
-self::$config['cms'] = true;
-self::$config['visitor'] = false;
-/**
-@ In the name Of Allah
-* The base configurations of the jibres.
-*/
-
 
 
 

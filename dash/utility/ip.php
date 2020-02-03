@@ -389,7 +389,7 @@ class ip
 			}
 		}
 
-		$apiKey = \dash\option::config('botscout');
+		$apiKey = 'hIenwLNiGpPOoSk';
 
 		if(!$apiKey)
 		{

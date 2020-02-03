@@ -44,12 +44,6 @@ class template
 			return true;
 		}
 
-		// this project needless to find database template
-		if(!\dash\option::config('cms'))
-		{
-			return false;
-		}
-
 		if($data = self::find_cat())
 		{
 			// find if 'categroy' is the first of url
