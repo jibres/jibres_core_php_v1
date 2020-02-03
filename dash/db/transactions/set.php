@@ -156,13 +156,13 @@ trait set
 			return false;
 		}
 
-		$unit_id = \dash\app\units::get_id($_args['unit']);
+
 
 		unset($_args['unit']);
 		unset($insert['unit']);
 
 		// check and make error on unit_id
-		$insert['unit_id'] = $unit_id;
+		$insert['unit_id'] = 1;
 		if(!isset($insert['unit_id']))
 		{
 			if($debug)
