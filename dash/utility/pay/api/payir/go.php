@@ -7,14 +7,14 @@ class go
 
     public static function bank()
     {
-        if(!\dash\option::config('payir', 'status'))
+        if(!\dash\setting\payir::get('status'))
         {
             \dash\log::set('pay:payir:status:false');
             \dash\notif::error(T_("The payir payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('payir', 'api'))
+        if(!\dash\setting\payir::get('api'))
         {
             \dash\log::set('pay:payir:api:not:set');
             \dash\notif::error(T_("The payir payment api not set"));
@@ -23,11 +23,11 @@ class go
 
         $payir = [];
 
-        $payir['api']          = \dash\option::config('payir', 'api');
+        $payir['api']          = \dash\setting\payir::get('api');
 
-        if(\dash\option::config('payir', 'redirect'))
+        if(\dash\setting\payir::get('redirect'))
         {
-            $payir['redirect'] = \dash\option::config('payir', 'redirect');
+            $payir['redirect'] = \dash\setting\payir::get('redirect');
         }
         else
         {

@@ -7,14 +7,14 @@ class back
 
     public static function verify($_token)
     {
-        if(!\dash\option::config('payir', 'status'))
+        if(!\dash\setting\payir::get('status'))
         {
             \dash\log::set('pay:payir:status:false');
             \dash\notif::error(T_("The payir payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('payir', 'api'))
+        if(!\dash\setting\payir::get('api'))
         {
             \dash\log::set('pay:payir:api:not:set');
             \dash\notif::error(T_("The payir payment api not set"));
@@ -51,7 +51,7 @@ class back
         }
 
         $payir            = [];
-        $payir['api']     = \dash\option::config('payir', 'api');
+        $payir['api']     = \dash\setting\payir::get('api');
         $payir['transId'] = $transId;
 
         if(\dash\utility\pay\setting::get_plus())
