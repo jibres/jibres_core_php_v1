@@ -13,10 +13,10 @@ class units
 	 */
 	public static function unit_list()
 	{
-		if(empty(self::$UNITS))
-		{
-			self::$UNITS = \dash\option::config('units');
-		}
+		// if(empty(self::$UNITS))
+		// {
+		// 	self::$UNITS = \dash\option::config('units');
+		// }
 		return self::$UNITS;
 	}
 
@@ -94,19 +94,19 @@ class units
 	{
 		return false;
 		// $user_unit = \dash\db\users::get_unit($_user_id);
-		$force_unit = \dash\option::config('force_unit');
+		// $force_unit = \dash\option::config('force_unit');
 
-		if($force_unit && (self::get_id($user_unit) != $force_unit))
-		{
-			self::set_user_unit($_user_id, self::get($force_unit, true));
-			return self::get($force_unit, true);
-		}
+		// if($force_unit && (self::get_id($user_unit) != $force_unit))
+		// {
+		// 	self::set_user_unit($_user_id, self::get($force_unit, true));
+		// 	return self::get($force_unit, true);
+		// }
 
-		if($user_unit)
-		{
-			return $user_unit;
-		}
-		return false;
+		// if($user_unit)
+		// {
+		// 	return $user_unit;
+		// }
+		// return false;
 	}
 
 
@@ -144,22 +144,22 @@ class units
 			return $isset_unit;
 		}
 
-		if($_set_user_unit_if_find)
-		{
-			if(\dash\option::config('force_unit') && ($force_unit = self::get(\dash\option::config('force_unit'), true)))
-			{
-				self::set_user_unit($_user_id, $force_unit);
-				return $force_unit;
-			}
-			else
-			{
-				if(\dash\option::config('default_unit') && ($default_unit = self::get(\dash\option::config('default_unit'), true)))
-				{
-					self::set_user_unit($_user_id, $default_unit);
-					return $default_unit;
-				}
-			}
-		}
+		// if($_set_user_unit_if_find)
+		// {
+		// 	if(\dash\option::config('force_unit') && ($force_unit = self::get(\dash\option::config('force_unit'), true)))
+		// 	{
+		// 		self::set_user_unit($_user_id, $force_unit);
+		// 		return $force_unit;
+		// 	}
+		// 	else
+		// 	{
+		// 		if(\dash\option::config('default_unit') && ($default_unit = self::get(\dash\option::config('default_unit'), true)))
+		// 		{
+		// 			self::set_user_unit($_user_id, $default_unit);
+		// 			return $default_unit;
+		// 		}
+		// 	}
+		// }
 		return null;
 	}
 

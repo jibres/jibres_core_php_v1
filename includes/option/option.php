@@ -50,40 +50,9 @@ self::$config['enter']['call_template_en'] = 'ermile-en';
 
 
 
-/**
- * cronjob urls and status
- */
-self::$config['cronjob']['status'] = true;
 
 
 
-/**
- * list of units
- */
-self::$config['units'] =
-[
-	1 =>
-	[
-		'title' => 'toman',
-		'desc'  => "Toman",
-	],
-
-	2 =>
-	[
-		'title' => 'dollar',
-		'desc'  => "$",
-	],
-];
-// the unit id for default
-self::$config['default_unit'] = 1;
-// force change unit to this unit
-self::$config['force_unit']   = 1;
-
-/**
- * transaction code
- */
-self::$config['transactions_code'][100] = "invoice:store";
-self::$config['transactions_code'][150] = "promo:ref";
 
 
 

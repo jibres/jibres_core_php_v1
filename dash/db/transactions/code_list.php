@@ -23,17 +23,6 @@ trait code_list
 		$list[10] = "payment:mellat";
 		$list[11] = "payment";
 
-		if($option_list = \dash\option::config('transactions_code'))
-		{
-			if(is_array($option_list))
-			{
-				foreach ($option_list as $key => $value)
-				{
-					$list[$key] = $value;
-				}
-			}
-		}
-
 		return $list;
 	}
 
