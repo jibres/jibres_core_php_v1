@@ -7,14 +7,14 @@ class back
 
     public static function verify($_token)
     {
-        if(!\dash\option::config('irkish', 'status'))
+        if(!\dash\setting\irkish::get('status'))
         {
             \dash\log::set('pay:irkish:status:false');
             \dash\notif::error(T_("The irkish payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('irkish', 'merchantId'))
+        if(!\dash\setting\irkish::get('merchantId'))
         {
             \dash\log::set('pay:irkish:merchantId:not:set');
             \dash\notif::error(T_("The irkish payment merchantId not set"));
@@ -57,11 +57,11 @@ class back
         }
 
         $irkish                    = [];
-        $irkish['merchantId']      = \dash\option::config('irkish', 'merchantId');
+        $irkish['merchantId']      = \dash\setting\irkish::get('merchantId');
         $irkish['token']           = $token;
         $irkish['amount']          = $amount;
         $irkish['referenceNumber'] = (string) $referenceId;
-        $irkish['sha1Key']         = \dash\option::config('irkish', 'sha1');
+        $irkish['sha1Key']         = \dash\setting\irkish::get('sha1');
 
         $amount_SESSION  = floatval(\dash\utility\pay\setting::get_plus());
 

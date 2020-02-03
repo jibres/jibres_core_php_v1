@@ -7,14 +7,14 @@ class go
 
     public static function bank()
     {
-        if(!\dash\option::config('irkish', 'status'))
+        if(!\dash\setting\irkish::get('status'))
         {
             \dash\log::set('pay:irkish:status:false');
             \dash\notif::error(T_("The irkish payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('irkish', 'merchantId'))
+        if(!\dash\setting\irkish::get('merchantId'))
         {
             \dash\log::set('pay:irkish:merchantId:not:set');
             \dash\notif::error(T_("The irkish payment merchantId not set"));
@@ -23,15 +23,15 @@ class go
 
         $irkish = [];
 
-        $irkish['paymentId']   = \dash\option::config('irkish', 'paymentId');
-        $irkish['Sha1']        = \dash\option::config('irkish', 'Sha1');
-        $irkish['merchantId']  = \dash\option::config('irkish', 'merchantId');
-        $irkish['description'] = \dash\option::config('irkish', 'description');
+        $irkish['paymentId']   = \dash\setting\irkish::get('paymentId');
+        $irkish['Sha1']        = \dash\setting\irkish::get('Sha1');
+        $irkish['merchantId']  = \dash\setting\irkish::get('merchantId');
+        $irkish['description'] = \dash\setting\irkish::get('description');
 
 
-        if(\dash\option::config('irkish', 'revertURL'))
+        if(\dash\setting\irkish::get('revertURL'))
         {
-            $irkish['revertURL'] = \dash\option::config('irkish', 'revertURL');
+            $irkish['revertURL'] = \dash\setting\irkish::get('revertURL');
         }
         else
         {
@@ -69,7 +69,7 @@ class go
             // redirect to enter/redirect
             \dash\session::set('redirect_page_url', 'https://ikc.shaparak.ir/TPayment/Payment/index');
             \dash\session::set('redirect_page_method', 'post');
-            \dash\session::set('redirect_page_args', ['token' => $token, 'merchantId' => \dash\option::config('irkish', 'merchantId')]);
+            \dash\session::set('redirect_page_args', ['token' => $token, 'merchantId' => \dash\setting\irkish::get('merchantId')]);
             \dash\session::set('redirect_page_title', T_("Redirect to iran kish payment"));
             \dash\session::set('redirect_page_button', T_("Redirect"));
             \dash\notif::direct();
