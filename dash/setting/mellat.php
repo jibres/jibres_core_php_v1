@@ -29,12 +29,12 @@ class mellat
 	}
 
 
-	public static function get($_key)
+	public static function get($_key = null)
 	{
 
 		self::load();
 
-		if($_key === 'all')
+		if($_key === null)
 		{
 			return self::$load;
 		}
