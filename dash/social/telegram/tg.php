@@ -27,27 +27,12 @@ class tg
 
 	public static function setting($_key = null)
 	{
-		$setting =
-		[
-			'status'     => true,
-			'bot'        => 'JibresBot',
-			'hookFolder' => 'Halllooooo',
-			'token'      => '731332936:AAECREdVLCAJqzwTtCJnst_v293LtDSaiKc',
-			'debug'      => true,
-			'tunnel'     => true,
-		];
-
 		if(!$_key)
 		{
-			return $setting;
+			return \dash\setting\telegram::all();
 		}
 
-		if(array_key_exists($_key, $setting))
-		{
-			return $setting[$_key];
-		}
-
-		return null;
+		return \dash\setting\telegram::$_key();
 	}
 
 
