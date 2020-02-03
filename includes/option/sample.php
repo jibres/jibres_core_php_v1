@@ -1,14 +1,13 @@
 <?php
 /**
 * The base configurations of the Dash.
+* Sample file
 */
 
 
 /**
  * try to fix url and set some settings of them like slash, www or fix tld or use main domain
  */
-// on set below value to off, skip all of this part
-// self::$url['fix']   = true;
 
 // // if true set www else try to remove from url
 // self::$url['www']   = false;
