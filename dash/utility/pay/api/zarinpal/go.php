@@ -7,14 +7,14 @@ class go
 
     public static function bank()
     {
-        if(!\dash\option::config('zarinpal', 'status'))
+        if(!\dash\setting\zarinpal::get('status'))
         {
             \dash\log::set('pay:zarinpal:status:false');
             \dash\notif::error(T_("The zarinpal payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('zarinpal', 'MerchantID'))
+        if(!\dash\setting\zarinpal::get('MerchantID'))
         {
             \dash\log::set('pay:zarinpal:MerchantID:not:set');
             \dash\notif::error(T_("The zarinpal payment MerchantID not set"));
@@ -22,16 +22,16 @@ class go
         }
 
         $zarinpal = [];
-        $zarinpal['MerchantID'] = \dash\option::config('zarinpal', 'MerchantID');
+        $zarinpal['MerchantID'] = \dash\setting\zarinpal::get('MerchantID');
 
-        if(\dash\option::config('zarinpal', 'Description'))
+        if(\dash\setting\zarinpal::get('Description'))
         {
-            $zarinpal['Description'] = \dash\option::config('zarinpal', 'Description');
+            $zarinpal['Description'] = \dash\setting\zarinpal::get('Description');
         }
 
-        if(\dash\option::config('zarinpal', 'CallbackURL'))
+        if(\dash\setting\zarinpal::get('CallbackURL'))
         {
-            $zarinpal['CallbackURL'] = \dash\option::config('zarinpal', 'CallbackURL');
+            $zarinpal['CallbackURL'] = \dash\setting\zarinpal::get('CallbackURL');
         }
         else
         {

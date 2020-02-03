@@ -12,14 +12,14 @@ class back
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('zarinpal', 'status'))
+        if(!\dash\setting\zarinpal::get('status'))
         {
             \dash\log::set('pay:zarinpal:status:false');
             \dash\notif::error(T_("The zarinpal payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('zarinpal', 'MerchantID'))
+        if(!\dash\setting\zarinpal::get('MerchantID'))
         {
             \dash\log::set('pay:zarinpal:MerchantID:not:set');
             \dash\notif::error(T_("The zarinpal payment MerchantID not set"));
@@ -27,7 +27,7 @@ class back
         }
 
         $zarinpal               = [];
-        $zarinpal['MerchantID'] = \dash\option::config('zarinpal', 'MerchantID');
+        $zarinpal['MerchantID'] = \dash\setting\zarinpal::get('MerchantID');
         $zarinpal['Authority']  = $_REQUEST['Authority'];
 
         \dash\utility\pay\setting::load_banktoken($_token, $zarinpal['Authority'], 'zarinpal');
