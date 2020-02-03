@@ -37,6 +37,8 @@
  </div>
 
 {%block footer%}
+{%if requestGET.utm_source == 'pwa'%}
+{%else%}
  <nav class="langlist" data-xhr="langlist">
 {%if lang.current =='fa'%}
   <a hreflang="en" data-direct href="https://jibres.com">English</a>
@@ -44,6 +46,7 @@
   <a hreflang="fa" data-direct href="https://jibres.ir">فارسی</a>
 {%endif%}
 </nav>
+{%endif%}
 {%endblock%}
 {%endblock%}
 
