@@ -13,22 +13,22 @@ class back
     public static function verify($_token)
     {
 
-        if(!\dash\option::config('asanpardakht', 'status'))
+        if(!\dash\setting\asanpardakht::get('status'))
         {
             \dash\log::set('pay:asanpardakht:status:false');
             \dash\notif::error(T_("The asanpardakht payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('asanpardakht', 'MerchantID'))
+        if(!\dash\setting\asanpardakht::get('MerchantID'))
         {
             \dash\log::set('pay:asanpardakht:MerchantID:false');
             \dash\notif::error(T_("The asanpardakht payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        $username = \dash\option::config('asanpardakht', 'Username');
-        $password = \dash\option::config('asanpardakht', 'Password');
+        $username = \dash\setting\asanpardakht::get('Username');
+        $password = \dash\setting\asanpardakht::get('Password');
 
         $ReturningParams    = isset($_REQUEST['ReturningParams']) ? (string) $_REQUEST['ReturningParams'] : null;
 

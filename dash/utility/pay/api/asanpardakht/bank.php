@@ -13,8 +13,8 @@ class bank
 
     public static function set_key_iv()
     {
-        self::$KEY = \dash\option::config('asanpardakht', 'EncryptionKey');
-        self::$IV  = \dash\option::config('asanpardakht', 'EncryptionVector');
+        self::$KEY = \dash\setting\asanpardakht::get('EncryptionKey');
+        self::$IV  = \dash\setting\asanpardakht::get('EncryptionVector');
     }
 
 
@@ -54,7 +54,7 @@ class bank
 
             $result_param =
             [
-                'merchantConfigurationID' => \dash\option::config('asanpardakht', 'MerchantConfigID'),
+                'merchantConfigurationID' => \dash\setting\asanpardakht::get('MerchantConfigID'),
                 'encryptedRequest'        => $encryptedRequest,
             ];
 
@@ -126,14 +126,14 @@ class bank
             $params = ['stream_context' => stream_context_create($options), 'exceptions'   => true,];
             $client = @new \SoapClient("https://services.asanpardakht.net/paygate/merchantservices.asmx?WSDL", $params);
 
-            $username = \dash\option::config('asanpardakht', 'Username');
-            $password = \dash\option::config('asanpardakht', 'Password');
+            $username = \dash\setting\asanpardakht::get('Username');
+            $password = \dash\setting\asanpardakht::get('Password');
 
             $encryptedCredintials = self::encrypt("{$username},{$password}");
 
             $params_result =
             [
-                'merchantConfigurationID' => \dash\option::config('asanpardakht', 'MerchantConfigID'),
+                'merchantConfigurationID' => \dash\setting\asanpardakht::get('MerchantConfigID'),
                 'encryptedCredentials'    => $encryptedCredintials,
                 'payGateTranID'           => $PayGateTranID,
             ];
