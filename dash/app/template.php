@@ -243,25 +243,22 @@ class template
 		$mymodule    = \dash\url::module();
 		$social_name = $mymodule;
 
-		if(\dash\option::social('status'))
-		{
-			// declare list of shortkey for socials
-			$social_list =
-			[
-				'@'        => 'twitter',
-				'~'        => 'github',
-				'+'        => 'googleplus',
-				'f'        => 'facebook',
-				'fb'       => 'facebook',
-				'in'       => 'linkedin',
-				'tg'       => 'telegram',
-			];
+		// declare list of shortkey for socials
+		$social_list =
+		[
+			'@'        => 'twitter',
+			'~'        => 'github',
+			'+'        => 'googleplus',
+			'f'        => 'facebook',
+			'fb'       => 'facebook',
+			'in'       => 'linkedin',
+			'tg'       => 'telegram',
+		];
 
-			// if name of current module is exist then save complete name of it
-			if(isset($social_list[$mymodule]))
-			{
-				$social_name = $social_list[$mymodule];
-			}
+		// if name of current module is exist then save complete name of it
+		if(isset($social_list[$mymodule]))
+		{
+			$social_name = $social_list[$mymodule];
 		}
 
 		// declare address of social networks
