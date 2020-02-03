@@ -1,11 +1,11 @@
 {%extends display.dash%}
 
 {%block pageContent%}
-{%if options.billing_charge%}
+
   {%if options.parsian.status or options.zarinpal.status or options.irkish.status or options.payir.status or options.asanpardakht.status or options.mellat.status%}
     {% set HaveOnePayment = true%}
   {%endif%}
-{%endif%}
+
 <div class="f">
 
     <div class="c8 s12 pA10">

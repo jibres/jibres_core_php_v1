@@ -56,17 +56,15 @@ class model
 			}
 		}
 
-		if(\dash\option::config('billing_charge'))
-		{
-			$meta =
-			[
-				'turn_back' => \dash\url::pwd(),
-				'user_id'   => \dash\user::id(),
-				'amount'    => \dash\request::post('amount'),
-			];
+		$meta =
+		[
+			'turn_back' => \dash\url::pwd(),
+			'user_id'   => \dash\user::id(),
+			'amount'    => \dash\request::post('amount'),
+		];
 
-			\dash\utility\pay\start::site($meta);
-		}
+		\dash\utility\pay\start::site($meta);
+
 
 	}
 

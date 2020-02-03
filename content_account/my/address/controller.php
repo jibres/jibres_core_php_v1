@@ -7,11 +7,6 @@ class controller
 
 	public static function routing()
 	{
-		if(!\dash\option::config('address_page'))
-		{
-			\dash\header::status(403, T_("This page is locked!"));
-		}
-
 		$id = \dash\request::get('addressid');
 		if($id)
 		{
