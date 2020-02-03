@@ -5,7 +5,7 @@ namespace lib\app\application;
 class intro
 {
 
-	public static function set($_intro)
+	public static function set_android($_intro)
 	{
 
 		if(!$_intro || !is_array($_intro))
@@ -14,11 +14,17 @@ class intro
 			return false;
 		}
 
+
 		$ok_intro = [];
 		$index = 1;
 
 		foreach ($_intro as $key => $value)
 		{
+			if(substr($key, 0, 5) !== 'intro')
+			{
+				continue;
+			}
+
 			if(!array_key_exists('title', $value))
 			{
 				continue;
@@ -59,75 +65,56 @@ class intro
 			return false;
 		}
 
+		$theme = isset($_intro['theme']) ? $_intro['theme'] : null;
+		if(!$theme)
+		{
+			\dash\notif::error(T_("Please choose your intro theme"));
+			return false;
+		}
+
+		if(!in_array($theme, ['blue','red','yellow','green','balck']))
+		{
+			\dash\notif::error(T_("Invalid intro theme"));
+			return false;
+		}
+
+		\lib\db\setting\update::overwirte_platform_cat_key($theme, 'android', 'intro', 'theme');
+
 		foreach ($ok_intro as $key => $value)
 		{
 			$my_key   = 'page_'. $key;
 
-			if(array_key_exists('title', $value))
+			$my_value = json_encode($value, JSON_UNESCAPED_UNICODE);
+
+			$get      = \lib\db\setting\get::platform_cat_key('android', 'intro', $my_key);
+
+			if(isset($get['id']))
 			{
-				$get      = \lib\db\setting\get::by_cat_key_value('intro', $my_key, 'title');
-
-				if(!isset($get['id']))
+				if(isset($get['value']) && is_string($get['value']))
 				{
-					$insert =
-					[
-						'cat'   => 'intro',
-						'key'   => $my_key,
-						'value' => 'title',
-						'json'  => $value['title'],
-					];
-
-					\lib\db\setting\insert::new_record($insert);
-				}
-				else
-				{
-					\lib\db\setting\update::by_cat_key_value('intro', $my_key, 'title', $value['title']);
+					$meta = json_decode($get['value'], true);
+					if(isset($meta['file']) && $meta['file'] && !$value['file'])
+					{
+						$value['file'] = $meta['file'];
+						$my_value = json_encode($value, JSON_UNESCAPED_UNICODE);
+					}
+					\lib\db\setting\update::value($my_value, $get['id']);
 				}
 			}
-
-			if(array_key_exists('desc', $value))
+			else
 			{
-				$get      = \lib\db\setting\get::by_cat_key_value('intro', $my_key, 'desc');
+				$insert =
+				[
+					'platform' => 'android',
+					'cat'      => 'intro',
+					'key'      => $my_key,
+					'value'    => $my_value,
+				];
 
-				if(!isset($get['id']))
-				{
-					$insert =
-					[
-						'cat'   => 'intro',
-						'key'   => $my_key,
-						'value' => 'desc',
-						'json'  => $value['desc'],
-					];
-
-					\lib\db\setting\insert::new_record($insert);
-				}
-				else
-				{
-					\lib\db\setting\update::by_cat_key_value('intro', $my_key, 'desc', $value['desc']);
-				}
+				\lib\db\setting\insert::new_record($insert);
 			}
 
-			if(isset($value['file']) && $value['file'])
-			{
-				$get      = \lib\db\setting\get::by_cat_key_value('intro', $my_key, 'file');
 
-				if(!isset($get['id']))
-				{
-					$insert =
-					[
-						'cat'   => 'intro',
-						'key'   => $my_key,
-						'value' => 'file',
-						'json'  => $value['file'],
-					];
-
-					\lib\db\setting\insert::new_record($insert);
-				}
-				else
-				{
-					\lib\db\setting\update::by_cat_key_value('intro', $my_key, 'file', $value['file']);
-				}
-			}
 
 		}
 
@@ -168,9 +155,13 @@ class intro
 				'file'  => \dash\url::icon(),
 			],
 		];
-
 		foreach ($result as $key => $value)
 		{
+			if($value['key'] == 'theme')
+			{
+				$intro['theme'] = $value['value'];
+				continue;
+			}
 
 			$index = substr($value['key'], 5);
 
@@ -179,19 +170,21 @@ class intro
 				$intro[$index] = [];
 			}
 
-			if($value['value'] == 'title' && $value['json'])
+			$meta = json_decode($value['value'], true);
+
+			if(isset($meta['title']))
 			{
-				$intro[$index]['title'] = $value['json'];
+				$intro[$index]['title'] = $meta['title'];
 			}
 
-			if($value['value'] == 'desc' && $value['json'])
+			if(isset($meta['desc']))
 			{
-				$intro[$index]['desc'] = $value['json'];
+				$intro[$index]['desc'] = $meta['desc'];
 			}
 
-			if($value['value'] == 'file' && $value['json'])
+			if(isset($meta['file']) && $meta['file'])
 			{
-				$intro[$index]['file'] = \lib\filepath::fix($value['json']);
+				$intro[$index]['file'] = \lib\filepath::fix($meta['file']);
 			}
 		}
 

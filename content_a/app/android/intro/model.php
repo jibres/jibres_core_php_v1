@@ -7,6 +7,7 @@ class model
 	{
 		$post =
 		[
+			'theme'  => \dash\request::post('theme'),
 			'intro1' =>
 			[
 				'title' => \dash\request::post('title1'),
@@ -30,7 +31,7 @@ class model
 		];
 
 
-		$theme_detail = \lib\app\application\intro::set($post);
+		$theme_detail = \lib\app\application\intro::set_android($post);
 
 		if(\dash\engine\process::status())
 		{
