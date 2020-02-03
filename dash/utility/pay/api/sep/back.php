@@ -7,14 +7,14 @@ class back
 
     public static function verify($_token)
     {
-        if(!\dash\option::config('sep', 'status'))
+        if(!\dash\setting\sep::get('status'))
         {
             \dash\log::set('pay:sep:status:false');
             \dash\notif::error(T_("The sep payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('sep', 'MID'))
+        if(!\dash\setting\sep::get('MID'))
         {
             \dash\log::set('pay:sep:MID:null');
             \dash\notif::error(T_("The sep payment MID not set"));
@@ -63,9 +63,9 @@ class back
         $sep['RefNum']   = $RefNum;
         $sep['Amount']   = $amount_SESSION;
 
-        $sep['MID']      = \dash\option::config('sep', 'MID');
-        $sep['Username'] = \dash\option::config('sep', 'MID');
-        $sep['Password'] = \dash\option::config('sep', 'Password');
+        $sep['MID']      = \dash\setting\sep::get('MID');
+        $sep['Username'] = \dash\setting\sep::get('MID');
+        $sep['Password'] = \dash\setting\sep::get('Password');
 
         \dash\utility\pay\setting::set_condition('pending');
         \dash\utility\pay\setting::set_payment_response2($_REQUEST);

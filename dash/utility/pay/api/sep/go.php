@@ -7,14 +7,14 @@ class go
 
     public static function bank()
     {
-        if(!\dash\option::config('sep', 'status'))
+        if(!\dash\setting\sep::get('status'))
         {
             \dash\log::set('pay:sep:status:false');
             \dash\notif::error(T_("The sep payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('sep', 'MID'))
+        if(!\dash\setting\sep::get('MID'))
         {
             \dash\log::set('pay:sep:MID:null');
             \dash\notif::error(T_("The sep payment MID not set"));
@@ -25,7 +25,7 @@ class go
 
 
         $sep                = [];
-        $sep['MID']         = \dash\option::config('sep', 'MID');
+        $sep['MID']         = \dash\setting\sep::get('MID');
         $sep['RedirectURL'] = $RedirectURL;
 
         $amount = \dash\utility\pay\setting::get_plus();
