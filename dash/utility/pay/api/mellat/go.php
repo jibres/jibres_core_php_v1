@@ -7,21 +7,21 @@ class go
 
     public static function bank()
     {
-        if(!\dash\option::config('mellat', 'status'))
+        if(!\dash\setting\mellat::get('status'))
         {
             \dash\log::set('pay:mellat:status:false');
             \dash\notif::error(T_("The mellat payment on this service is locked"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('mellat', 'TerminalId'))
+        if(!\dash\setting\mellat::get('TerminalId'))
         {
             \dash\log::set('pay:mellat:TerminalId:null');
             \dash\notif::error(T_("The mellat payment TerminalId not set"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\option::config('mellat', 'UserName'))
+        if(!\dash\setting\mellat::get('UserName'))
         {
             \dash\log::set('pay:mellat:UserName:null');
             \dash\notif::error(T_("The mellat payment UserName not set"));
@@ -29,18 +29,18 @@ class go
         }
 
         $mellat                   = [];
-        $mellat['terminalId']     = \dash\option::config('mellat', 'TerminalId');
-        $mellat['userName']       = \dash\option::config('mellat', 'UserName');
-        $mellat['userPassword']   = \dash\option::config('mellat', 'UserPassword');
+        $mellat['terminalId']     = \dash\setting\mellat::get('TerminalId');
+        $mellat['userName']       = \dash\setting\mellat::get('UserName');
+        $mellat['userPassword']   = \dash\setting\mellat::get('UserPassword');
         $mellat['localDate']      = date("Ymd");
         $mellat['localTime']      = date("His");
         $mellat['additionalData'] = null;
         $mellat['payerId']        = \dash\user::id();
 
 
-        if(\dash\option::config('mellat', 'callBackUrl'))
+        if(\dash\setting\mellat::get('callBackUrl'))
         {
-            $mellat['callBackUrl'] = \dash\option::config('mellat', 'callBackUrl');
+            $mellat['callBackUrl'] = \dash\setting\mellat::get('callBackUrl');
         }
         else
         {
