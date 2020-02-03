@@ -36,6 +36,14 @@
 {%endblock%}
  </div>
 
-{%block footer%} {{langList({'html':true}) | raw}}{%endblock%}
+{%block footer%}
+ <nav class="langlist" data-xhr="langlist">
+{%if lang.current =='fa'%}
+  <a hreflang="en" data-direct href="https://jibres.com">English</a>
+{%else%}
+  <a hreflang="fa" data-direct href="https://jibres.ir">فارسی</a>
+{%endif%}
+</nav>
+{%endblock%}
 {%endblock%}
 
