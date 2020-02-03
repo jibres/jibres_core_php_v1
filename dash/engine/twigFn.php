@@ -26,7 +26,6 @@ class twigFn
 
 		$functions   = [];
 		$functions[] = self::function_breadcrumb();
-		$functions[] = self::function_langList();
 		$functions[] = self::function_posts();
 		$functions[] = self::function_tags();
 		$functions[] = self::function_category();
@@ -163,20 +162,6 @@ class twigFn
 		return new \Twig\TwigFunction('dump', function()
 		{
 
-		});
-	}
-
-
-
-	/**
-	 * [function_language description]
-	 * @return [type] [description]
-	 */
-	private static function function_langList()
-	{
-		return new \Twig\TwigFunction('langList', function()
-		{
-			return \dash\language::langList(...func_get_args());
 		});
 	}
 

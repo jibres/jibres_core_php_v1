@@ -377,8 +377,6 @@ class view
 
 			// $txtFooter .= '</div>';
 
-			// add language bar
-			$txtFooter .= \dash\language::langList(['html' => true, 'all' => true, 'class' => 'f']);
 
 			\dash\data::userBadge_desc($txtDesc);
 			\dash\data::userBadge_footer($txtFooter);
