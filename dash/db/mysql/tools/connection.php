@@ -104,7 +104,8 @@ class connection
 
 			// ERROR 1049 (42000): Unknown database
 			case 1049:
-				self::make_error(503, T_("We can't connect to correct database!"));
+				// self::make_error(503, T_("We can't connect to correct database!"));
+				self::make_error(510, T_("Unable to connect to this store at this time"));
 				break;
 
 
