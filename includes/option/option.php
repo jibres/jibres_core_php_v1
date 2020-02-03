@@ -1,9 +1,5 @@
 <?php
 
-require_once('social.php');
-require_once('payment.php');
-require_once('sms.php');
-
 /**
  * try to fix url and set some settings of them like slash, www or fix tld or use main domain
  */
@@ -126,6 +122,183 @@ self::$config['enter']['remember_me']              = true;
 // ----- favicon option
 self::$config['favicon']['complete']                   = true;
 self::$config['favicon']['version']                    = 1;
+
+
+
+
+/**
+* cofig of zarinpal payment
+*/
+self::$config['zarinpal']['status']      = true;
+self::$config['zarinpal']['MerchantID']  = "325ffbdc-664a-11e8-acce-005056a205be";
+self::$config['zarinpal']['Description'] = "Jibres";
+// set the call back is null to redirecto to default dash callback payment
+self::$config['zarinpal']['CallbackURL'] = null;
+// all amount of this payment * exchange of this payment to change all units to default units of dash
+self::$config['zarinpal']['exchange']    = 1;
+
+
+/**
+* cofig op pay.ir
+*/
+self::$config['payir']['status']   = false;
+self::$config['payir']['api']      = "3c350829ff1161278c63640a798f2daf";
+self::$config['payir']['redirect'] = null;
+
+
+/**
+* config of parsian payment
+*/
+self::$config['parsian']['status']       = true;
+self::$config['parsian']['LoginAccount'] = 'ybX2rEgJ187vVPh83FT2'; // jibres payment
+// set the call back is null to redirecto to default dash callback payment
+self::$config['parsian']['CallBackUrl']  = null;
+// all amount of this payment * exchange of this payment to change all units to default units of dash
+self::$config['parsian']['exchange']     = 10;
+
+
+/**
+* config of irkish payment
+*/
+self::$config['irkish']['status']      = true;
+self::$config['irkish']['merchantId']  = 'C3FC'; // jibres
+// set the call back is null to redirecto to default dash callback payment
+self::$config['irkish']['revertURL']   = null;
+self::$config['irkish']['description'] = 'jibres.com';
+self::$config['irkish']['paymentId']   = null;
+self::$config['irkish']['sha1']        = '22338240992352910814917221751200141041845518824222260'; // main
+
+
+
+self::$config['asanpardakht']['status']           = true;
+self::$config['asanpardakht']['MerchantID']       = '3833817';
+self::$config['asanpardakht']['MerchantConfigID'] = '4358';
+self::$config['asanpardakht']['Username']         = 'jibrs3833817';
+self::$config['asanpardakht']['Password']         = 'TFIHOc7';
+self::$config['asanpardakht']['EncryptionKey']    = 'fkAD0Ebq8P2fvqpIkULhAuLJ12Av5GnXpJXxMRTTXIk=';
+self::$config['asanpardakht']['EncryptionVector'] = 'G4TOobPmmVp/P6U5VuRs+tERgFoA9gm3MbcFxXMhDg8=';
+self::$config['asanpardakht']['MerchantIP']       = '138.68.96.140';
+self::$config['asanpardakht']['MerchantName']     = 'JIBRES';
+
+
+
+
+self::$config['sep']['status']   = true;
+self::$config['sep']['MID']      = 31064728;
+self::$config['sep']['Password'] = 8473172;
+
+
+
+
+/**
+* sms kavenegar config
+*/
+self::$sms['kavenegar']['status'] = true;
+self::$sms['kavenegar']['apikey'] = '5263694C4C426651434C6635686E463550333747363578636361446539383141';
+self::$sms['kavenegar']['debug']  = null;
+self::$sms['kavenegar']['line']   = '10006660066600';
+self::$sms['kavenegar']['line']   = '100020009';
+self::$sms['kavenegar']['iran']   = true;
+self::$sms['kavenegar']['header'] = 'Jibres';
+self::$sms['kavenegar']['footer'] = 'Jibres.com';
+self::$sms['kavenegar']['footer'] = 'Jibres.ir';
+self::$sms['kavenegar']['one']    = true;
+
+
+
+/**
+* the social network
+*/
+self::$social['status']                       = true;
+
+self::$social['list']['telegram']             = 'jibres';
+self::$social['list']['facebook']             = 'jibres';
+self::$social['list']['twitter']              = 'ermile_jibres';
+self::$social['list']['instagram']            = 'ermile_jibres';
+// self::$social['list']['googleplus']           = '113130164586721131168';
+self::$social['list']['github']               = 'jibres';
+self::$social['list']['linkedin']             = null;
+self::$social['list']['aparat']               = 'jibres';
+
+/**
+* TELEGRAM
+* t.me
+*/
+self::$social['telegram']['status']           = true;
+self::$social['telegram']['bot']        = 'JibresBot';
+self::$social['telegram']['hookFolder'] = 'Halllooooo';
+self::$social['telegram']['token']      = '731332936:AAECREdVLCAJqzwTtCJnst_v293LtDSaiKc';
+self::$social['telegram']['debug']      = true;
+self::$social['telegram']['tunnel']     = true;
+
+
+/**
+* FACEBOOK
+*/
+self::$social['facebook']['status']           = true;
+self::$social['facebook']['name']             = 'jibres';
+self::$social['facebook']['key']              = null;
+self::$social['facebook']['app_id']           = '236377626849014';
+self::$social['facebook']['app_secret']       = 'c7055125a0e70d2125664b009df3f3cd';
+self::$social['facebook']['api_version']      = '2.9';
+self::$social['facebook']['redirect_url']     = null;
+self::$social['facebook']['required_scope']   = null;
+self::$social['facebook']['page_id']          = null;
+self::$social['facebook']['access_token']     = null;
+self::$social['facebook']['client_token']     = 'df0047eb1af1e2acba2a3645bcb4f472';
+
+/**
+* GOOGLE
+*/
+self::$social['google']['status']                      = false;
+self::$social['google']['client_id']                   = '395232553225-5filcn07d2rdjl2fld57mf8e50ac146j.apps.googleusercontent.com';
+self::$social['google']['project_id']                  = 'ermile-jibres';
+self::$social['google']['auth_uri']                    = 'https://accounts.google.com/o/oauth2/auth';
+self::$social['google']['token_uri']                   = 'https://accounts.google.com/o/oauth2/token';
+self::$social['google']['auth_provider_x509_cert_url'] = 'https://www.googleapis.com/oauth2/v1/certs';
+self::$social['google']['client_secret']               = 'oo6LPHZXJA6JWkgPgPb7uJ0U';
+
+/**
+* TWITTER
+*/
+self::$social['twitter']['status']            = false;
+self::$social['twitter']['name']              = 'jibres';
+self::$social['twitter']['key']               = null;
+self::$social['twitter']['ConsumerKey']       = null;
+self::$social['twitter']['ConsumerSecret']    = null;
+self::$social['twitter']['AccessToken']       = null;
+self::$social['twitter']['AccessTokenSecret'] = null;
+
+/**
+* GOOGLE PLUS
+*/
+self::$social['googleplus']['status']         = false;
+self::$social['googleplus']['name']           = '109727653714508522373';
+self::$social['googleplus']['key']            = null;
+
+
+/**
+* GITHUB
+*/
+self::$social['github']['status']             = false;
+self::$social['github']['name']               = 'jibres';
+self::$social['github']['key']                = null;
+
+
+/**
+* LINKDIN
+*/
+self::$social['linkedin']['status']           = false;
+self::$social['linkedin']['name']             = null;
+self::$social['linkedin']['key']              = null;
+
+
+/**
+* APARAT
+*/
+self::$social['aparat']['status']             = false;
+self::$social['aparat']['name']               = 'jibres';
+self::$social['aparat']['key']                = null;
 
 
 
