@@ -25,7 +25,7 @@ self::$config['visitor'] = false;
 */
 
 
-self::$config['coming']           = false;
+
 
 
 // jibres after login redirect url
@@ -38,24 +38,6 @@ self::$config['store_redirect']  = '';
 self::$config['singup_redirect'] = 'store';
 
 
-self::$config['favicon']['version']           = null;
-
-
-// every wrong pass or code wate for ? [second]
-
-// life time code for ? [second]
-
-// after signup user redirect to different page
-// self::$config['enter']['signup_redirect']              = null;
-// after signup user redirect to different page
-
-// save remember me to login
-
-
-
-// ----- favicon option
-self::$config['favicon']['complete']                   = true;
-self::$config['favicon']['version']                    = 1;
 
 
 

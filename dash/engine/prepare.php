@@ -30,9 +30,6 @@ class prepare
 		// dont run on some condition
 		self::dont_run_exception();
 
-		// check comming soon page
-		self::coming_soon();
-
 		// check service is locked
 		self::server_lock();
 
@@ -532,34 +529,6 @@ class prepare
 	}
 
 
-	/**
-	 * check coming soon status
-	 * @return [type] [description]
-	 */
-	private static function coming_soon()
-	{
-		/**
-		 * in coming soon period show public_html/pages/coming/ folder
-		 * developer must set get parameter like site.com/dev=anyvalue
-		 * for disable this attribute turn off it from config.php in project root
-		 */
-		if(\dash\option::config('coming'))
-		{
-			// if user set dev in get, show the site
-			if(isset($_GET['dev']))
-			{
-				setcookie('preview','yes',time() + 30*24*60*60,'/','.'.\dash\url::domain());
-			}
-			elseif(\dash\url::content() === 'hook')
-			{
-				// allow telegram to commiunate on coming soon
-			}
-			elseif(!isset($_COOKIE["preview"]))
-			{
-				\dash\redirect::to(\dash\url::static(). '/page/coming/', true, 302);
-			}
-		}
-	}
 
 
 	/**
