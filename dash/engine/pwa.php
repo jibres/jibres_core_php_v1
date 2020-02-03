@@ -29,7 +29,7 @@ class pwa
 
 
 			'scope'            => '/',
-			'start_url'        => \dash\url::kingdom(). '?utm_source=pwa',
+			'start_url'        => \dash\url::kingdom(). '/enter?utm_source=pwa',
 			'orientation'      => 'portrait',
 
 
