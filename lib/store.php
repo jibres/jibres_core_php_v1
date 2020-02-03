@@ -69,13 +69,13 @@ class store
 	// in api no user can set subdomain
 	public static function store_slug()
 	{
-		if(\dash\url::subdomain())
-		{
-			return \dash\url::subdomain();
-		}
-		elseif(self::$store_slug)
+		if(self::$store_slug)
 		{
 			return self::$store_slug;
+		}
+		elseif(\dash\url::subdomain())
+		{
+			return \dash\url::subdomain();
 		}
 	}
 

@@ -15,6 +15,16 @@ class controller
 			\content_r10\home\view::config();
 			return;
 		}
+		elseif(\dash\url::subdomain() === 'api')
+		{
+			if(\dash\url::module())
+			{
+				\dash\header::status(404);
+			}
+
+			\content_v2\home\view::config();
+			return;
+		}
 		elseif(in_array(\dash\url::subdomain(), ['developers']))
 		{
 

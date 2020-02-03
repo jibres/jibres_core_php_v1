@@ -63,7 +63,9 @@ class store
 
 		$free_subdomain =
 		[
-			'developers'
+			'developers',
+			'api',
+			'core',
 		];
 
 		if(in_array($subdomain, $free_subdomain))
