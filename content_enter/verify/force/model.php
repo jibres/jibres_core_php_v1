@@ -7,11 +7,11 @@ class model
 
 	public static function post()
 	{
-		if(\dash\utility\enter::get_session('verify_from') === 'ask_twostep' && \dash\option::config('force_enter_passcode'))
+		if(\dash\utility\enter::get_session('verify_from') === 'ask_twostep' && \dash\setting\enter::force_enter_passcode())
 		{
 			$code = \dash\request::post('code');
 
-			if($code === \dash\option::config('force_enter_passcode'))
+			if($code === \dash\setting\enter::force_enter_passcode())
 			{
 				// expire code
 				if(\dash\utility\enter::get_session('verification_code_id'))

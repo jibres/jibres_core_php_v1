@@ -8,7 +8,7 @@ class view
 	{
 		\content_enter\verify\view::verifyPageTitle();
 
-		if(\dash\utility\enter::get_session('verify_from') === 'ask_twostep' && \dash\option::config('force_enter_passcode'))
+		if(\dash\utility\enter::get_session('verify_from') === 'ask_twostep' && \dash\setting\enter::force_enter_passcode())
 		{
 			// nothing
 		}
