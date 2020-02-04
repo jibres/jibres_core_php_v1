@@ -59,144 +59,40 @@ class fuel
 	 */
 	private static function jibres_master()
 	{
-		$detail = \dash\setting\fuel::server(__FUNCTION__);
-		if($detail)
-		{
-			return $detail;
-		}
-
-		return
-		[
-			'code'     => __FUNCTION__,
-			'host'     => 'localhost',
-			'port'     => 3306,
-			'user'     => '101x',
-			'pass'     => 'ArvanJibres101MySql101!!!!',
-			'database' => 'jibres',
-		];
+		return \dash\setting\fuel::server(__FUNCTION__);
 	}
 
 	private static function jibres101()
 	{
-		$detail = \dash\setting\fuel::server(__FUNCTION__);
-		if($detail)
-		{
-			return $detail;
-		}
-
-		return
-		[
-			'code'     => __FUNCTION__,
-			// 'host'     => '45.82.139.124',
-			'host'     => 'localhost',
-			'port'     => 3306,
-			'user'     => '101x',
-			'pass'     => 'ArvanJibres101MySql101!!!!',
-			'database' => null,
-		];
+		return \dash\setting\fuel::server(__FUNCTION__);
 	}
 
 	private static function jibres101rg6()
 	{
-		$detail = \dash\setting\fuel::server(__FUNCTION__);
-		if($detail)
-		{
-			return $detail;
-		}
-
-		return
-		[
-			'code'     => __FUNCTION__,
-			'host'     => '45.82.139.124',
-			'port'     => 3306,
-			'user'     => '101rg6',
-			'pass'     => 'ArJibres101MSqg6^^^^*&',
-			'database' => null,
-		];
+		return \dash\setting\fuel::server(__FUNCTION__);
 	}
 
-
+	private static function local()
+	{
+		return self::jibres101();
+	}
 
 
 	// ----------------------------------------------- Local
 	private static function jibres101_test_local()
 	{
-		$detail = \dash\setting\fuel::server(__FUNCTION__);
-		if($detail)
-		{
-			return $detail;
-		}
-
-		return
-		[
-			'code'     => __FUNCTION__,
-			'host'     => '45.82.139.124',
-			'port'     => 3306,
-			'user'     => 'ermile-local',
-			'pass'     => 'Reza1233',
-			'database' => null,
-		];
+		return \dash\setting\fuel::server(__FUNCTION__);
 	}
 
 	private static function myLocal()
 	{
-		$detail = \dash\setting\fuel::server(__FUNCTION__);
-		if($detail)
-		{
-			return $detail;
-		}
-
-		return
-		[
-			'code'     => __FUNCTION__,
-			'host'     => 'localhost',
-			'port'     => 3306,
-			'user'     => 'root',
-			'pass'     => 'root',
-			'database' => 'jibres',
-		];
+		return \dash\setting\fuel::server(__FUNCTION__);
 	}
 
 	private static function myStoreLocal()
 	{
-		$detail = \dash\setting\fuel::server(__FUNCTION__);
-		if($detail)
-		{
-			return $detail;
-		}
-
-		return
-		[
-			'code'     => __FUNCTION__,
-			'host'     => 'localhost',
-			'port'     => 3306,
-			'user'     => 'root',
-			'pass'     => 'root',
-			'database' => null,
-		];
+		return \dash\setting\fuel::server(__FUNCTION__);
 	}
-
-
-	private static function local()
-	{
-		$detail = \dash\setting\fuel::server(__FUNCTION__);
-		if($detail)
-		{
-			return $detail;
-		}
-
-		return self::jibres101();
-		return
-		[
-			'code'     => __FUNCTION__,
-			'host'     => 'localhost',
-			'port'     => 3306,
-			'user'     => 'root',
-			'pass'     => 'root',
-			'database' => 'jibres',
-		];
-	}
-
 
 
 
