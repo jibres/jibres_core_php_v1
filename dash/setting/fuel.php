@@ -56,5 +56,18 @@ class fuel
 
 		return null;
 	}
+
+
+	public static function server($_code)
+	{
+		self::load();
+
+		if(isset(self::$fuel[$_code]))
+		{
+			return self::$fuel[$_code];
+		}
+
+		return null;
+	}
 }
 ?>

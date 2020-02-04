@@ -59,6 +59,12 @@ class fuel
 	 */
 	private static function jibres_master()
 	{
+		$detail = \dash\setting\fuel::server(__FUNCTION__);
+		if($detail)
+		{
+			return $detail;
+		}
+
 		return
 		[
 			'code'     => __FUNCTION__,
@@ -72,6 +78,12 @@ class fuel
 
 	private static function jibres101()
 	{
+		$detail = \dash\setting\fuel::server(__FUNCTION__);
+		if($detail)
+		{
+			return $detail;
+		}
+
 		return
 		[
 			'code'     => __FUNCTION__,
@@ -86,6 +98,12 @@ class fuel
 
 	private static function jibres101rg6()
 	{
+		$detail = \dash\setting\fuel::server(__FUNCTION__);
+		if($detail)
+		{
+			return $detail;
+		}
+
 		return
 		[
 			'code'     => __FUNCTION__,
@@ -103,6 +121,12 @@ class fuel
 	// ----------------------------------------------- Local
 	private static function jibres101_test_local()
 	{
+		$detail = \dash\setting\fuel::server(__FUNCTION__);
+		if($detail)
+		{
+			return $detail;
+		}
+
 		return
 		[
 			'code'     => __FUNCTION__,
@@ -116,6 +140,12 @@ class fuel
 
 	private static function myLocal()
 	{
+		$detail = \dash\setting\fuel::server(__FUNCTION__);
+		if($detail)
+		{
+			return $detail;
+		}
+
 		return
 		[
 			'code'     => __FUNCTION__,
@@ -129,6 +159,12 @@ class fuel
 
 	private static function myStoreLocal()
 	{
+		$detail = \dash\setting\fuel::server(__FUNCTION__);
+		if($detail)
+		{
+			return $detail;
+		}
+
 		return
 		[
 			'code'     => __FUNCTION__,
@@ -143,6 +179,12 @@ class fuel
 
 	private static function local()
 	{
+		$detail = \dash\setting\fuel::server(__FUNCTION__);
+		if($detail)
+		{
+			return $detail;
+		}
+
 		return self::jibres101();
 		return
 		[
