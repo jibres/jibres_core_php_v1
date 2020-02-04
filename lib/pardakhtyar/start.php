@@ -58,12 +58,12 @@ class start
 
 	public static function authHeader()
 	{
-		if(!defined('shaparak_user') || !defined('shaparak_pass'))
-		{
-			\dash\code::jsonBoom('user pass is not defined!');
-		}
+		// if(!defined('shaparak_user') || !defined('shaparak_pass'))
+		// {
+		// 	\dash\code::jsonBoom('user pass is not defined!');
+		// }
 		// set header of connection
-		$auth = base64_encode(shaparak_user. ':'. shaparak_pass);
+		$auth = base64_encode('926028'. ':'. '123456');
 		$result = 'Authorization: Basic '. $auth;
 
 		return $result;

@@ -13,13 +13,4 @@ self::$config['site']['googleAnalytics'] = "UA-130946685-1";
 
 
 
-if(!defined('shaparak_user'))
-{
-	define('shaparak_user', '926028');
-}
-
-if(!defined('shaparak_pass'))
-{
-	define('shaparak_pass', '123456');
-}
 ?>
