@@ -160,20 +160,11 @@ class fuel
 
 	public static function server_code_name($_ip)
 	{
-		$code_servers =
-		[
-			'127.0.0.1'       => 'local1',
-			'127.0.0.2'       => 'local2',
+		$server_code_name = \dash\setting\fuel::server_name($_ip);
 
-			'45.82.139.124'   => '101',
-			'193.176.242.143' => 'g6',
-			'193.176.242.25'  => 'g4',
-
-		];
-
-		if(isset($code_servers[$_ip]))
+		if($server_code_name)
 		{
-			return $code_servers[$_ip];
+			return $server_code_name;
 		}
 		else
 		{
