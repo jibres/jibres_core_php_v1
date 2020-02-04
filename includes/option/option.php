@@ -9,15 +9,6 @@ self::$config['site']['googleAnalytics'] = "UA-130946685-1";
 
 
 
-// jibres after login redirect url
-self::$config['redirect']        = 'store';
-
-// store after login redirect
-self::$config['store_redirect']  = '';
-
-// first signup after signup redirect
-self::$config['singup_redirect'] = 'store';
-
 
 
 

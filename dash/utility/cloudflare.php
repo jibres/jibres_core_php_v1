@@ -124,19 +124,19 @@ class cloudflare
 	{
 		return false;
 
-		// $status                  = \dash\option::config('cloudflare', 'status');
+		// $status                  = \dash\setting::get('cloudflare', 'status');
 		// if(!$status) 			 return false;
 
-		// $ZoneID                  = \dash\option::config('cloudflare', 'ZoneID');
+		// $ZoneID                  = \dash\setting::get('cloudflare', 'ZoneID');
 		// if(!$ZoneID) 			 return false;
 
-		// $X_Auth_Key              = \dash\option::config('cloudflare', 'X-Auth-Key');
+		// $X_Auth_Key              = \dash\setting::get('cloudflare', 'X-Auth-Key');
 		// if(!$X_Auth_Key)		 return false;
 
-		// $X_Auth_Email            = \dash\option::config('cloudflare', 'X-Auth-Email');
+		// $X_Auth_Email            = \dash\setting::get('cloudflare', 'X-Auth-Email');
 		// if(!$X_Auth_Email)		 return false;
 
-		// $X_Auth_User_Service_Key = \dash\option::config('cloudflare', 'X-Auth-User-Service-Key');
+		// $X_Auth_User_Service_Key = \dash\setting::get('cloudflare', 'X-Auth-User-Service-Key');
 
 		if(!$X_Auth_Email && !$X_Auth_User_Service_Key && !$X_Auth_Key)
 		{

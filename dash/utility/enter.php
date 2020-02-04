@@ -341,32 +341,17 @@ class enter
 		}
 		elseif(self::get_session('first_signup'))
 		{
-			// if first signup
-			if(\dash\option::config('singup_redirect'))
-			{
-				$host .= '/'. \dash\option::config('singup_redirect');
-			}
-			else
-			{
-				if(\dash\engine\store::inStore())
-				{
-					$host .= '/'. \dash\option::config('store_redirect');
-				}
-				else
-				{
-					$host .= '/'. \dash\option::config('redirect');
-				}
-			}
+			$host .= '/store';
 		}
 		else
 		{
 			if(\dash\engine\store::inStore())
 			{
-				$host .= '/'. \dash\option::config('store_redirect');
+				$host .= '/';
 			}
 			else
 			{
-				$host .= '/'. \dash\option::config('redirect');
+				$host .= '/store';
 			}
 
 		}

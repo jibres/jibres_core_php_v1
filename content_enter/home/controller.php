@@ -17,10 +17,7 @@ class controller
 			if(\dash\user::login())
 			{
 				$url = \dash\url::kingdom();
-				if(\dash\option::config('redirect'))
-				{
-					$url .= '/'. \dash\option::config('redirect');
-				}
+				$url .= '/store';
 
 				\dash\redirect::to($url);
 				return;

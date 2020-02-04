@@ -20,17 +20,7 @@ class sftp
 		if(!self::$link)
 		{
 			$sftp_host = $_host;
-			if(!$sftp_host)
-			{
-				$sftp_host = \dash\option::config('sftp', 'host');
-			}
-
 			$sftp_port = $_port;
-			if(!$sftp_port)
-			{
-				$sftp_port = \dash\option::config('sftp', 'port');
-			}
-
 			$link = @\ssh2_connect($sftp_host, $sftp_port);
 
 			if($link)
@@ -48,16 +38,7 @@ class sftp
 	public static function login($_user = null, $_passowrd = null)
 	{
 		$user = $_user;
-		if(!$user)
-		{
-			$user  = \dash\option::config('sftp', 'user');
-		}
-
 		$pass = $_passowrd;
-		if(!$pass)
-		{
-			$pass  = \dash\option::config('sftp', 'pass');
-		}
 
 		$login = @\ssh2_auth_password(self::$link, $user, $pass);
 
