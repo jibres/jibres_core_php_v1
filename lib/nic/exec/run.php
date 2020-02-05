@@ -21,7 +21,7 @@ class run
 		curl_setopt($ch, CURLOPT_USERAGENT, "IRNIC_EPP_Client_Sample");
 		// curl_setopt($ch, CURLOPT_USERAGENT, "User-Agent: JIbres");
 		//TRUE to do a regular HTTP POST.This POST is the normal application/x-www-form-urlencoded kind, most commonly used by HTML forms.
-		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POST, false);
 		//The URL to fetch.
 		curl_setopt($ch, CURLOPT_URL,"https://epp.nic.ir/submit");
 		//The full data to post in a HTTP "POST" operation.
