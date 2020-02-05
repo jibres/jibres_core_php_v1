@@ -22,10 +22,33 @@ class get
 
 		if($_module)
 		{
-			$myEndpoint .= $_module. '/';
+			$myEndpoint .= $_module;
 		}
 
 		return $myEndpoint;
 	}
+
+	public static function homepage($_module = null)
+	{
+		$myEndpoint = '';
+		if(\dash\url::domain() === 'jibres.ir')
+		{
+			$myEndpoint = 'https://jibres.ir/';
+		}
+		elseif(\dash\url::domain() === 'jibres.local')
+		{
+			$myEndpoint = 'https://jibres.local/';
+		}
+		else
+		{
+			$myEndpoint = 'https://jibres.com/';
+		}
+		if($_module)
+		{
+			$myEndpoint .= $_module;
+		}
+		return $myEndpoint;
+	}
+
 }
 ?>

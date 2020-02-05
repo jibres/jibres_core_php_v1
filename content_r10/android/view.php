@@ -26,13 +26,13 @@ class view
 			],
 			'url'      =>
 			[
-				'update'   => \content_r10\get::endpoint('android'). 'update',
-				'language' => \content_r10\get::endpoint('android'). 'language',
-				'splash'   => \content_r10\get::endpoint('android'). 'splash',
-				'intro'    => \content_r10\get::endpoint('android'). 'intro',
-				'homepage' => \content_r10\get::endpoint('android'). 'homepage',
-				'menu'     => \content_r10\get::endpoint('android'). 'menu',
-				'ad'       => \content_r10\get::endpoint('android'). 'ad',
+				'update'   => \content_r10\get::endpoint('android/update'),
+				'language' => \content_r10\get::endpoint('android/language'),
+				'splash'   => \content_r10\get::endpoint('android/splash'),
+				'intro'    => \content_r10\get::endpoint('android/intro'),
+				'menu'     => \content_r10\get::endpoint('android/menu'),
+				'ad'       => \content_r10\get::endpoint('android/ad'),
+				'homepage' => \content_r10\get::homepage('dashboard'),
 			]
 		];
 
