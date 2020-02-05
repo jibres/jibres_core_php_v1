@@ -16,10 +16,10 @@ class run
 		//FALSE to stop cURL from verifying the peer's certificate
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 
-		curl_setopt($ch, CURLOPT_SSLCERT, $certFolder.'file.crt.pem');
-		curl_setopt($ch, CURLOPT_SSLKEY, $certFolder.'file.key.pem');
-		curl_setopt($ch, CURLOPT_SSLCERTPASSWD, token());
-		curl_setopt($ch, CURLOPT_SSLKEYPASSWD, token());
+		curl_setopt($ch, CURLOPT_SSLCERT, $certFolder.'file1.crt.pem');
+		curl_setopt($ch, CURLOPT_SSLKEY, $certFolder.'file1.key.pem');
+		curl_setopt($ch, CURLOPT_SSLCERTPASSWD, self::token());
+		curl_setopt($ch, CURLOPT_SSLKEYPASSWD, self::token());
 
 		//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
