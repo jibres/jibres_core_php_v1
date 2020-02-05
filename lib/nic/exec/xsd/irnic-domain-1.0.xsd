@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	targetNamespace="http://epp.nic.ir/ns/domain-1.0"
+	xmlns:irnic_domain="http://epp.nic.ir/ns/domain-1.0"
+	xmlns:irnic_common="http://epp.nic.ir/ns/common-1.0"
+	xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
+	xmlns:host="urn:ietf:params:xml:ns:host-1.0"
+	xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
+	xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	>
+
+	<!--
+	Import common element types.
+	-->
+	<import
+		namespace="urn:ietf:params:xml:ns:eppcom-1.0"
+		schemaLocation="eppcom-1.0.xsd"
+		/>
+	<import
+		namespace="urn:ietf:params:xml:ns:epp-1.0"
+		schemaLocation="epp-1.0.xsd"
+		/>
+	<import
+		namespace="urn:ietf:params:xml:ns:host-1.0"
+		schemaLocation="host-1.0.xsd"
+		/>
+	<import
+		namespace="urn:ietf:params:xml:ns:domain-1.0"
+		schemaLocation="domain-1.0.xsd"
+		/>
+	<import
+		namespace="http://epp.nic.ir/ns/common-1.0"
+		schemaLocation="irnic-common-1.0.xsd"
+		/>
+
+	<annotation>
+		<documentation>
+			Extensible Provisioning Protocol v1.0
+			—
+			IRNIC Domain Provisioning Schema v1.0
+			(Version 1.0.5.2)
+		</documentation>
+	</annotation>
+
+	<!--
+	Child elements found in EPP commands.
+	-->
+	<element name="check" type="irnic_domain:checkType"/>
+	<element name="create" type="irnic_domain:createType"/>
+	<element name="info" type="irnic_domain:infoType"/>
+	<element name="renew" type="irnic_domain:renewType"/>
+	<element name="update" type="irnic_domain:updateType"/>
+	<element name="delete" type="irnic_domain:deleteType"/>
+
+	<!--
+	Child elements of the <check/> command.
+	-->
+	<complexType name="checkType">
+		<sequence>
+			<element name="name" type="irnic_domain:nameType" maxOccurs="10"/>
+			<element name="authInfo" type="irnic_domain:authInfoType"/>
+		</sequence>
+	</complexType>
+
+	<!--
+	LDH (ASCII) or Persian (IDN) domain name.
+	-->
+	<simpleType name="nameType">
+		<restriction base="token">
+			<pattern value="[a-zA-Z0-9\p{IsArabic}\p{IsGeneralPunctuation}\-]{1,63}(((.ac|.co|.gov|.id|.net|.org|.sch)){0,1}(.ir)|(.ایران|.xn--mgba3a4f16a|.ايران|.xn--mgba3a4fra)(.ir){0,1})"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="authInfoType">
+		<choice>
+			<element name="pw" type="normalizedString"/>
+		</choice>
+	</complexType>
+
+	<!--
+	Child elements of the <create/> command.
+	-->
+	<complexType name="createType">
+		<sequence>
+			<element name="name" type="irnic_domain:nameType"/>
+			<element name="period" type="irnic_domain:periodType"/>
+			<element name="ns" type="irnic_domain:nsType" minOccurs="0"/>
+			<element name="lns" type="irnic_domain:nsType" minOccurs="0"/>
+			<element name="contact" type="irnic_domain:contactType" minOccurs="4" maxOccurs="5"/>
+			<element name="agreement" type="boolean"/>
+			<element name="authInfo" type="irnic_domain:authInfoType"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="periodType">
+		<simpleContent>
+			<extension base="irnic_domain:pLimitType">
+				<attribute name="unit" type="irnic_domain:pUnitType" use="required"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="pLimitType">
+		<restriction base="unsignedShort">
+			<minInclusive value="1"/>
+			<maxInclusive value="99"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="pUnitType">
+		<restriction base="token">
+			<enumeration value="m"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="nsType">
+		<choice>
+			<element name="hostAttr" type="irnic_domain:hostAttrType" minOccurs="0" maxOccurs="4"/>
+		</choice>
+	</complexType>
+
+	<complexType name="hostAttrType">
+		<sequence>
+			<element name="hostName" type="eppcom:labelType"/>
+			<element name="hostAddr" type="host:addrType" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<simpleType name="createContactTypeAttrType">
+		<restriction base="token">
+			<enumeration value="holder"/>
+			<enumeration value="admin"/>
+			<enumeration value="tech"/>
+			<enumeration value="bill"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="contactType">
+		<simpleContent>
+			<extension base="irnic_common:handleType">
+				<attribute name="type" type="irnic_domain:createContactTypeAttrType"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<!--
+	Child elements of the <info/> command.
+	-->
+	<complexType name="infoType">
+		<sequence>
+			<element name="name" type="irnic_domain:nameType"/>
+			<element name="authInfo" type="irnic_domain:authInfoType"/>
+		</sequence>
+	</complexType>
+
+	<!--
+	Child elements of the <renew/> command.
+	-->
+	<complexType name="renewType">
+		<sequence>
+			<element name="name" type="irnic_domain:nameType"/>
+			<element name="curExpDate" type="date"/>
+			<element name="period" type="irnic_domain:periodType"/>
+			<element name="authInfo" type="irnic_domain:authInfoType"/>
+		</sequence>
+	</complexType>
+
+	<!--
+	Child elements of the <update/> command.
+	-->
+
+	<complexType name="updateType">
+		<sequence>
+			<element name="name" type="irnic_domain:nameType"/>
+			<element name="add" type="irnic_domain:addRemType" minOccurs="0"/>
+			<element name="rem" type="irnic_domain:addRemType" minOccurs="0"/>
+			<element name="chg" type="irnic_domain:chgType" minOccurs="0"/>
+			<element name="authInfo" type="irnic_domain:authInfoType"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="addRemType">
+		<sequence>
+			<element name="ns" type="irnic_domain:nsType" minOccurs="0" maxOccurs="4"/>
+			<element name="lns" type="irnic_domain:nsType" minOccurs="0" maxOccurs="4"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="chgType">
+		<sequence>
+			<element name="contact" type="irnic_domain:updateContactType" maxOccurs="4"/>
+		</sequence>
+	</complexType>
+
+	<simpleType name="updateContactTypeAttrType">
+		<restriction base="token">
+			<enumeration value="holder"/>
+			<enumeration value="admin"/>
+			<enumeration value="tech"/>
+			<enumeration value="bill"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="updateContactType">
+		<simpleContent>
+			<extension base="irnic_common:handleType">
+				<attribute name="type" type="irnic_domain:updateContactTypeAttrType"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<!--
+	Child elements of the <delete/> command.
+	-->
+	<complexType name="deleteType">
+		<sequence>
+			<element name="name" type="irnic_domain:nameType"/>
+			<element name="authInfo" type="irnic_domain:authInfoType"/>
+		</sequence>
+	</complexType>
+
+
+	<!--
+	Child response elements.
+	-->
+	<element name="chkData" type="irnic_domain:chkDataType"/>
+	<element name="creData" type="irnic_domain:creDataType"/>
+	<element name="infData" type="irnic_domain:infDataType"/>
+	<element name="renData" type="irnic_domain:renDataType"/>
+	<element name="polData" type="irnic_domain:polDataType"/>
+
+	<!--
+	<check/> response elements.
+	-->
+	<complexType name="chkDataType">
+		<sequence>
+			<element name="cd" type="irnic_domain:chkType" maxOccurs="10"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="chkType">
+		<sequence>
+			<element name="name" type="irnic_domain:chkNameType"/>
+			<element name="reason" type="eppcom:reasonType" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="chkNameType">
+		<simpleContent>
+			<extension base="irnic_domain:resNameType">
+				<attribute name="avail" type="boolean"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="resNameType">
+		<simpleContent>
+			<extension base="irnic_domain:nameType">
+				<attribute name="canonized_name" use="optional" type="token" />
+				<attribute name="normalized_name" use="optional" type="token" />
+				<attribute name="tld" use="optional" type="token" />
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<!--
+	<create/> response elements.
+	-->
+	<complexType name="creDataType">
+		<sequence>
+			<element name="name" type="irnic_domain:resNameType"/>
+			<element name="crDate" type="dateTime"/>
+			<element name="exDate" type="dateTime"/>
+		</sequence>
+	</complexType>
+
+	<!--
+	<info/> response elements.
+	-->
+	<complexType name="infDataType">
+		<sequence>
+			<element name="name" type="irnic_domain:resNameType"/>
+			<element name="roid" type="irnic_domain:domainIdentifierType" minOccurs="0"/>
+			<element name="status" type="irnic_domain:statusType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="contact" type="irnic_domain:oldContactType" minOccurs="0" maxOccurs="5"/>
+			<element name="ns" type="irnic_domain:nsType" minOccurs="0"/>
+			<element name="crDate" type="dateTime" minOccurs="0"/>
+			<element name="upDate" type="dateTime" minOccurs="0"/>
+			<element name="exDate" type="dateTime" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<simpleType name="domainIdentifierType">
+		<restriction base="token">
+			<pattern value="[0-9]{1,10}"/>
+			<maxLength value="255"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="infoContactTypeAttrType">
+		<restriction base="token">
+			<enumeration value="holder"/>
+			<enumeration value="admin"/>
+			<enumeration value="tech"/>
+			<enumeration value="bill"/>
+			<enumeration value="reseller"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="oldContactType">
+		<simpleContent>
+			<extension base="irnic_domain:oldHandleType">
+				<attribute name="type" type="irnic_domain:infoContactTypeAttrType"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="oldHandleType">
+		<restriction base="token">
+			<pattern value="(\w|_|.){1,100}-\w{1,8}"/>
+		</restriction>
+	</simpleType>
+
+	<!--
+	Status is a combination of attributes and an optional
+	human-readable message that may be expressed in languages other
+	than English.
+	-->
+	<complexType name="statusType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="s" type="irnic_domain:statusValueType" use="required"/>
+				<attribute name="lang" type="language" default="en"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="statusValueType">
+		<restriction base="token">
+			<!-- RFC state statuses -->
+			<enumeration value="inactive"/>
+			<enumeration value="ok"/>
+			<enumeration value="serverHold"/>
+			<!-- RFC change statuses -->
+			<enumeration value="pendingDelete"/>
+			<enumeration value="pendingRenew"/>
+			<enumeration value="pendingUpdate"/>
+			<enumeration value="serverDeleteProhibited"/>
+			<enumeration value="serverRenewProhibited"/>
+			<enumeration value="serverUpdateProhibited"/>
+			<!-- IRNIC state statuses -->
+			<enumeration value="irnicReserved"/>
+			<enumeration value="irnicRegistered"/>
+			<enumeration value="irnicLocked"/>
+			<enumeration value="irnicExpired"/>
+			<!-- RFC change statuses -->
+			<enumeration value="irnicRegistrationApproved"/>
+			<enumeration value="irnicRegistrationRejected"/>
+			<enumeration value="irnicRegistrationPendingHolderCheck"/>
+			<enumeration value="irnicRegistrationPendingDomainCheck"/>
+			<enumeration value="irnicRegistrationDocRequired"/>
+			<enumeration value="irnicRegistrationIsWithdrawn"/>
+			<enumeration value="irnicRenewalApproved"/>
+			<enumeration value="irnicRenewalRejected"/>
+			<enumeration value="irnicRenewalPendingHolderCheck"/>
+			<enumeration value="irnicRenewalPendingDomainCheck"/>
+			<enumeration value="irnicRenewalDocRequired"/>
+			<enumeration value="irnicRenewalIsWithdrawn"/>
+			<enumeration value="irnicHolderChangeApproved"/>
+			<enumeration value="irnicHolderChangeRejected"/>
+			<enumeration value="irnicHolderChangePendingHolderCheck"/>
+			<enumeration value="irnicHolderChangePendingDomainCheck"/>
+			<enumeration value="irnicHolderChangeDocRequired"/>
+			<enumeration value="irnicHolderChangeIsWithdrawn"/>
+			<enumeration value="irnicDeletionApproved"/>
+			<enumeration value="irnicDeletionRejected"/>
+			<enumeration value="irnicDeletionPendingHolderCheck"/>
+			<enumeration value="irnicDeletionPendingDomainCheck"/>
+			<enumeration value="irnicDeletionDocRequired"/>
+			<enumeration value="irnicDeletionIsWithdrawn"/>
+		</restriction>
+	</simpleType>
+
+	<!--
+	<renew/> response elements.
+	-->
+	<complexType name="renDataType">
+		<sequence>
+			<element name="name" type="irnic_domain:resNameType"/>
+			<element name="exDate" type="dateTime" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<!--
+	<poll/> response elements.
+	-->
+	<complexType name="polDataType">
+		<sequence>
+			<element name="name" type="irnic_domain:resNameType"/>
+			<element name="roid" type="irnic_domain:domainIdentifierType" minOccurs="0"/>
+			<element name="status" type="irnic_domain:statusType" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+
+
+	<!--
+	End of schema.
+	-->
+</schema>

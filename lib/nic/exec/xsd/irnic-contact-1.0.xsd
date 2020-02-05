@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	targetNamespace="http://epp.nic.ir/ns/contact-1.0"
+	xmlns:irnic_contact="http://epp.nic.ir/ns/contact-1.0"
+	xmlns:irnic_common="http://epp.nic.ir/ns/common-1.0"
+	xmlns:contact="urn:ietf:params:xml:ns:contact-1.0"
+	xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
+	xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	>
+
+	<!--
+	Import common element types.
+	-->
+	<import
+		namespace="urn:ietf:params:xml:ns:eppcom-1.0"
+		schemaLocation="eppcom-1.0.xsd"
+		/>
+	<import
+		namespace="urn:ietf:params:xml:ns:epp-1.0"
+		schemaLocation="epp-1.0.xsd"
+		/>
+	<import
+		namespace="urn:ietf:params:xml:ns:contact-1.0"
+		schemaLocation="contact-1.0.xsd"
+		/>
+	<import
+		namespace="http://epp.nic.ir/ns/common-1.0"
+		schemaLocation="irnic-common-1.0.xsd"
+		/>
+
+	<annotation>
+		<documentation>
+			Extensible Provisioning Protocol v1.0
+			—
+			IRNIC Contact Provisioning Schema v1.0
+			(Version 1.0.5.2)
+		</documentation>
+	</annotation>
+
+	<!--
+	Child elements found in EPP commands.
+	-->
+	<element name="check" type="irnic_contact:checkType"/>
+	<element name="create" type="irnic_contact:createType"/>
+	<element name="info" type="irnic_contact:infoType"/>
+	<element name="update" type="irnic_contact:updateType"/>
+
+	<!--
+	Child elements of the <check/> commands.
+	-->
+	<complexType name="checkType">
+		<sequence>
+			<element name="id" type="irnic_common:handleType" maxOccurs="4"/>
+			<element name="authInfo" type="irnic_contact:authInfoType"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="authInfoType">
+		<choice>
+			<element name="pw" type="normalizedString"/>
+		</choice>
+	</complexType>
+
+	<!--
+	Child elements of the <create/> command.
+	-->
+	<complexType name="createType">
+		<sequence>
+			<element name="postalInfo" type="irnic_contact:postalInfoType"/>
+			<element name="voice" type="irnic_contact:telType"/>
+			<element name="fax" type="irnic_contact:faxType" minOccurs="0"/>
+			<element name="ident" type="irnic_contact:identType"/>
+			<element name="signature" type="irnic_contact:nameType"/>
+			<element name="email" type="irnic_contact:emailType"/>
+			<element name="authInfo" type="irnic_contact:authInfoType"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="postalInfoType">
+		<sequence>
+			<element name="firstname" type="irnic_contact:nameType" minOccurs="0"/>
+			<element name="lastname" type="irnic_contact:nameType" minOccurs="0"/>
+			<element name="org" type="irnic_contact:nameType" minOccurs="0"/>
+			<element name="addr" type="irnic_contact:addrType"/>
+		</sequence>
+		<attribute name="type" type="irnic_contact:postalInfoEnumType" use="required"/>
+	</complexType>
+
+	<simpleType name="nameType">
+		<restriction base="normalizedString">
+			<pattern value="[a-zA-Z]+[a-zA-Z\-.,() ]{1,99}"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="identType">
+		<choice>
+			<sequence>
+				<element name="idcard" type="irnic_contact:identIdcardType" minOccurs="0"/>
+				<element name="passport" type="irnic_contact:identPassportType" minOccurs="0"/>
+			</sequence>
+			<sequence>
+				<element name="privatereg" type="irnic_contact:identPrivateregType"/>
+			</sequence>
+			<sequence>
+				<element name="govid" type="irnic_contact:identGovidType"/>
+			</sequence>
+			<sequence>
+				<element name="eduid" type="irnic_contact:identEduidType"/>
+			</sequence>
+		</choice>
+	</complexType>
+
+	<complexType name="identIdcardType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+				<attribute name="number" type="irnic_contact:identNumberType" use="required"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="identPassportType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+				<attribute name="issuer" type="irnic_contact:cityStateType" use="required"/>
+				<attribute name="number" type="irnic_contact:identNumberType" use="required"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="identPrivateregType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+				<attribute name="sp" type="irnic_contact:cityStateType" use="required"/>
+				<attribute name="issuer" type="irnic_contact:cityStateType" use="required"/>
+				<attribute name="category" type="irnic_contact:identPrivateregCategoryType" use="required"/>
+				<attribute name="number" type="irnic_contact:identNumberType" use="required"/>
+				<attribute name="number2" type="irnic_contact:identNumberType"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="identGovidType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+				<attribute name="sp" type="irnic_contact:cityStateType" use="required"/>
+				<attribute name="city" type="irnic_contact:cityStateType" use="required"/>
+				<attribute name="category" type="irnic_contact:identGovidCategoryType" use="required"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="identEduidType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+				<attribute name="sp" type="irnic_contact:cityStateType" use="required"/>
+				<attribute name="city" type="irnic_contact:cityStateType" use="required"/>
+				<attribute name="category" type="irnic_contact:identEduidCategoryType" use="required"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="identNumberType">
+		<restriction base="token">
+			<pattern value="[0-9a-zA-Z\-]{1,12}"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="identPrivateregCategoryType">
+		<restriction base="token">
+			<!-- Registered as a Company or Private Organization -->
+			<enumeration value="SabtSherkat__PublicCompany"/>
+			<enumeration value="SabtSherkat__PrivateCompany"/>
+			<enumeration value="SabtSherkat__LimitedCompany"/>
+			<enumeration value="SabtSherkat__CooperativeCompany"/>
+			<enumeration value="SabtSherkat__Organization"/>
+			<!-- Registered as a Publication Organization -->
+			<enumeration value="Ershad__Publication"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="identGovidCategoryType">
+		<restriction base="token">
+			<!-- Iranian Governmental Organizations -->
+			<enumeration value="Leader__Any"/>
+			<enumeration value="Judiciary__Any"/>
+			<enumeration value="Legislative__Any"/>
+			<enumeration value="Executive__Ministry"/>
+			<enumeration value="Executive__Company"/>
+			<enumeration value="Executive__Organization"/>
+			<enumeration value="Executive__President"/>
+			<enumeration value="Executive__Province"/>
+			<enumeration value="Executive__Municipality"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="identEduidCategoryType">
+		<restriction base="token">
+			<!-- Registered by Ministry of Education -->
+			<enumeration value="MoEdu__PrimarySch"/>
+			<enumeration value="MoEdu__SecondarySch"/>
+			<enumeration value="MoEdu__HighSch"/>
+			<enumeration value="MoEdu__PreUni"/>
+			<enumeration value="MoEdu__Vocational"/>
+			<enumeration value="MoEdu__OtherSch"/>
+			<enumeration value="MoEdu__Center"/>
+			<!-- Registered by Ministry of Science, Research and Technology -->
+			<enumeration value="MoSRT__PublicUni"/>
+			<enumeration value="MoSRT__AzadUni"/>
+			<enumeration value="MoSRT__PayameNoorUni"/>
+			<enumeration value="MoSRT__AppSciTechUni"/>
+			<enumeration value="MoSRT__OtherUni"/>
+			<enumeration value="MoSRT__Center"/>
+			<enumeration value="MoSRT__ResearchInst"/>
+			<!-- Registered by Ministry of Health and Medical Science -->
+			<enumeration value="MOHMS__MedPublicUni"/>
+			<enumeration value="MoHMS__MedResearchInst"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="addrType">
+		<sequence>
+			<element name="street" type="contact:postalLineType"/>
+			<element name="city" type="irnic_contact:cityStateType"/>
+			<element name="sp" type="irnic_contact:cityStateType"/>
+			<element name="pc" type="contact:pcType"/>
+			<element name="cc" type="contact:ccType"/>
+		</sequence>
+	</complexType>
+
+	<simpleType name="cityStateType">
+		<restriction base="normalizedString">
+			<minLength value="1"/>
+			<maxLength value="50"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="postalInfoEnumType">
+		<restriction base="token">
+			<enumeration value="int"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="telType">
+		<restriction base="token">
+			<pattern value="[0-9 \-+]{1,17}(x[0-9]{1,5}){0,1}"/>
+			<maxLength value="17"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="faxType">
+		<restriction base="token">
+			<pattern value="[0-9 \-+]{0,17}(x[0-9]{1,5}){0,1}"/>
+			<maxLength value="17"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="emailType">
+		<restriction base="token">
+			<pattern value="[a-zA-Z0-9._\-]+@([a-zA-Z0-9\-]+.)*[a-zA-Z]+"/>
+			<maxLength value="255"/>
+		</restriction>
+	</simpleType>
+
+	<!--
+	Child elements of the <info/> commands.
+	-->
+	<complexType name="infoType">
+		<sequence>
+			<element name="id" type="irnic_contact:contactIdentifierType"/>
+			<element name="authInfo" type="irnic_contact:authInfoType"/>
+		</sequence>
+	</complexType>
+
+	<simpleType name="contactIdentifierType">
+		<restriction base="token">
+			<pattern value="([a-zA-Z0-9._\-]+@([a-zA-Z0-9\-]+.)*[a-zA-Z]+|[a-zA-Z0-9\-]{8,16})"/>
+			<maxLength value="255"/>
+		</restriction>
+	</simpleType>
+
+	<!--
+	Child elements of the <update/> command.
+	-->
+	<complexType name="updateType">
+		<sequence>
+			<element name="id" type="irnic_common:handleType"/>
+			<element name="chg" type="irnic_contact:chgType"/>
+			<element name="authInfo" type="irnic_contact:authInfoType"/>
+		</sequence>
+	</complexType>
+
+	<!--
+	Data elements that can be changed.
+	-->
+	<complexType name="chgType">
+		<sequence>
+			<element name="postalInfo" type="irnic_contact:chgPostalInfoType" minOccurs="0"/>
+			<element name="voice" type="irnic_contact:telType" minOccurs="0"/>
+			<element name="fax" type="irnic_contact:faxType" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="chgPostalInfoType">
+		<sequence>
+			<element name="addr" type="irnic_contact:addrType"/>
+		</sequence>
+		<attribute name="type" type="irnic_contact:postalInfoEnumType" use="required"/>
+	</complexType>
+
+
+	<!--
+	Child response elements.
+	-->
+	<element name="chkData" type="irnic_contact:chkDataType"/>
+	<element name="creData" type="irnic_contact:creDataType"/>
+	<element name="infData" type="irnic_contact:infDataType"/>
+	<element name="polData" type="irnic_contact:polDataType"/>
+
+	<!--
+	<check/> response elements.
+	-->
+	<complexType name="chkDataType">
+		<sequence>
+			<element name="cd" type="irnic_contact:cdType" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="cdType">
+		<sequence>
+			<element name="id" type="contact:checkIDType"/>
+			<element name="position" type="irnic_contact:positionType" minOccurs="0" maxOccurs="4"/>
+		</sequence>
+	</complexType>
+
+	<simpleType name="positionTypeAttrType">
+		<restriction base="token">
+			<enumeration value="holder"/>
+			<enumeration value="admin"/>
+			<enumeration value="tech"/>
+			<enumeration value="bill"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="positionType">
+		<complexContent>
+			<restriction base="anyType">
+				<attribute name="type" type="irnic_contact:positionTypeAttrType"/>
+				<attribute name="allowed" type="boolean"/>
+			</restriction>
+		</complexContent>
+	</complexType>
+
+	<!--
+	<create/> response elements.
+	-->
+	<complexType name="creDataType">
+		<sequence>
+			<element name="id" type="irnic_common:handleType"/>
+			<element name="crDate" type="dateTime"/>
+		</sequence>
+	</complexType>
+
+	<!--
+	<info/> response elements.
+	-->
+	<complexType name="infDataType">
+		<sequence>
+			<element name="id" type="irnic_contact:contactIdentifierType"/>
+			<element name="roid" type="eppcom:roidType"/>
+			<element name="status" type="irnic_contact:statusType" maxOccurs="unbounded"/>
+			<element name="position" type="irnic_contact:positionType" minOccurs="0" maxOccurs="4"/>
+			<element name="postalInfo" type="irnic_contact:resPostalInfoType" minOccurs="0" maxOccurs="2"/>
+			<element name="voice" type="irnic_contact:telType" minOccurs="0"/>
+			<element name="fax" type="irnic_contact:faxType" minOccurs="0"/>
+			<element name="ident" type="irnic_contact:resIdentType" minOccurs="0"/>
+			<element name="signature" type="irnic_contact:nameType" minOccurs="0"/>
+			<element name="email" type="irnic_contact:emailType"/>
+			<element name="crID" type="eppcom:clIDType" minOccurs="0"/>
+			<element name="crDate" type="dateTime" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="resPostalInfoType">
+		<sequence>
+			<element name="firstname" type="irnic_contact:nameType" minOccurs="0"/>
+			<element name="lastname" type="irnic_contact:nameType" minOccurs="0"/>
+			<element name="org" type="irnic_contact:nameType" minOccurs="0"/>
+			<element name="addr" type="irnic_contact:addrType"/>
+		</sequence>
+		<attribute name="type" type="irnic_contact:postalInfoEnumType" use="required"/>
+	</complexType>
+
+	<complexType name="resIdentType">
+		<choice>
+			<sequence>
+				<element name="idcard" type="irnic_contact:resIdentIdcardType" minOccurs="0"/>
+				<element name="passport" type="irnic_contact:resIdentPassportType" minOccurs="0"/>
+			</sequence>
+			<sequence>
+				<element name="privatereg" type="irnic_contact:resIdentPrivateregType"/>
+			</sequence>
+			<sequence>
+				<element name="govid" type="irnic_contact:resIdentGovidType"/>
+			</sequence>
+			<sequence>
+				<element name="eduid" type="irnic_contact:resIdentEduidType"/>
+			</sequence>
+		</choice>
+	</complexType>
+
+	<complexType name="resIdentIdcardType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="resIdentPassportType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="resIdentPrivateregType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+				<attribute name="sp" type="irnic_contact:cityStateType"/>
+				<attribute name="issuer" type="irnic_contact:cityStateType"/>
+				<attribute name="category" type="irnic_contact:identPrivateregCategoryType"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="resIdentGovidType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+				<attribute name="sp" type="irnic_contact:cityStateType"/>
+				<attribute name="city" type="irnic_contact:cityStateType"/>
+				<attribute name="category" type="irnic_contact:identGovidCategoryType"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="resIdentEduidType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="cc" type="contact:ccType" use="required"/>
+				<attribute name="sp" type="irnic_contact:cityStateType"/>
+				<attribute name="city" type="irnic_contact:cityStateType"/>
+				<attribute name="category" type="irnic_contact:identEduidCategoryType"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<!--
+	Status is a combination of attributes and an optional human-readable
+	message that may be expressed in languages other than English.
+	-->
+	<complexType name="statusType">
+		<simpleContent>
+			<extension base="normalizedString">
+				<attribute name="s" type="irnic_contact:statusValueType" use="required"/>
+				<attribute name="lang" type="language" default="en"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="statusValueType">
+		<restriction base="token">
+			<enumeration value="pendingUpdate"/>
+			<enumeration value="serverDeleteProhibited"/>
+			<enumeration value="serverUpdateProhibited"/>
+			<enumeration value="ok"/>
+			<enumeration value="linked"/>
+			<enumeration value="irnicUnapproved"/>
+			<enumeration value="irnicRequest"/>
+			<enumeration value="irnicQueued"/>
+			<enumeration value="irnicApproved"/>
+			<enumeration value="irnicRejected"/>
+			<enumeration value="irnicLimited"/>
+		</restriction>
+	</simpleType>
+
+	<!--
+	<poll/> response elements.
+	-->
+	<complexType name="polDataType">
+		<sequence>
+			<element name="id" type="irnic_contact:contactIdentifierType"/>
+			<element name="roid" type="eppcom:roidType"/>
+			<element name="status" type="irnic_contact:statusType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="postalInfo" type="irnic_contact:resPostalInfoType" minOccurs="0" maxOccurs="2"/>
+			<element name="voice" type="irnic_contact:telType" minOccurs="0"/>
+			<element name="fax" type="irnic_contact:faxType" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+
+	<!--
+	End of schema.
+	-->
+</schema>

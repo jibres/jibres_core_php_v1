@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	>
+	<!--
+	targetNamespace="urn:ietf:params:xml:ns:epp-1.0"
+	-->
+
+	<import
+		namespace="urn:ietf:params:xml:ns:epp-1.0"
+		schemaLocation="epp-1.0.xsd"
+		/>
+
+	<import
+		namespace="http://epp.nic.ir/ns/contact-1.0"
+		schemaLocation="irnic-contact-1.0.xsd"
+		/>
+
+	<import
+		namespace="http://epp.nic.ir/ns/domain-1.0"
+		schemaLocation="irnic-domain-1.0.xsd"
+		/>
+
+	<annotation>
+		<documentation>
+			Extensible Provisioning Protocol v1.0 schema.
+			—
+			IRNIC Validation Schema v1.0
+			(Version 1.0.5.2)
+		</documentation>
+	</annotation>
+
+	<!--
+	End of schema.
+	-->
+</schema>

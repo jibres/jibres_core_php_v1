@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	targetNamespace="http://epp.nic.ir/ns/common-1.0"
+	xmlns:irnic_common="http://epp.nic.ir/ns/common-1.0"
+	xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	>
+
+	<!--
+	Import common element types.
+	-->
+	<import
+		namespace="urn:ietf:params:xml:ns:eppcom-1.0"
+		schemaLocation="eppcom-1.0.xsd"
+		/>
+
+	<annotation>
+		<documentation>
+			Extensible Provisioning Protocol v1.0
+			—
+			IRNIC Common Schema v1.0
+			(Version 1.0.5.2)
+		</documentation>
+	</annotation>
+
+
+	<!--
+	Common data types
+	-->
+
+	<simpleType name="handleType">
+		<restriction base="eppcom:roidType">
+			<minLength value="8"/>
+			<maxLength value="16"/>
+		</restriction>
+	</simpleType>
+
+
+	<!--
+	End of schema.
+	-->
+</schema>
