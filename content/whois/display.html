@@ -1,0 +1,20 @@
+{%extends display.main%}
+
+
+{%block page%}
+<div class="f justify-center">
+	<div class="c6 s12">
+		<form method="post" autocomplete="off">
+			<div class="input">
+				<input type="text" name="domain" placeholder='{%trans "Domain"%}' value="{{myDomain}}">
+				<button class="btn addon success">{%trans "Check domain"%}</button>
+			</div>
+		</form>
+		{%if domainError%}
+		<div class="msg danger mT20">{{domainError}}</div>
+		{%endif%}
+	</div>
+</div>
+
+{%endblock%}
+
