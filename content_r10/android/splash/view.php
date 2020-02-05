@@ -22,8 +22,8 @@ class view
 
 			'color' =>
 			[
-				'primary'   => '#fff',
-				'secondary' => '#eee',
+				'primary'   => '#ffffff',
+				'secondary' => '#eeeeee',
 			],
 		];
 
