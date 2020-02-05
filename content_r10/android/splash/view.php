@@ -13,6 +13,7 @@ class view
 			'title' => T_('Jibres'),
 			'desc'  => T_('Sell and Enjoy'),
 			'meta'  => 'Powered by Ermile',
+			'sleep' => 3000,
 
 			'bg' =>
 			[
