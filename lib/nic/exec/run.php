@@ -6,6 +6,8 @@ class run
 {
 	public static function send($_xml)
 	{
+		$certFolder = root. 'dash/setting/secret/pem/nic/'. 'test1/';
+
 		$_xml = trim($_xml);
 
 		// create a new cURL resource
@@ -13,8 +15,12 @@ class run
 
 		//FALSE to stop cURL from verifying the peer's certificate
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-		//The name of a file containing a PEM formatted certificate.
-		curl_setopt($ch, CURLOPT_SSLCERT, self::user_certificate_file());
+
+		curl_setopt($ch, CURLOPT_SSLCERT, $certFolder.'file.crt.pem');
+		curl_setopt($ch, CURLOPT_SSLKEY, $certFolder.'file.key.pem');
+		curl_setopt($ch, CURLOPT_SSLCERTPASSWD, token());
+		curl_setopt($ch, CURLOPT_SSLKEYPASSWD, token());
+
 		//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		//The contents of the "User-Agent: "
@@ -38,20 +44,6 @@ class run
 		// close cURL resource, and free up system resources
 		curl_close ($ch);
 
-
-	}
-
-
-	private static function user_certificate_file()
-	{
-		$addr = root. 'dash/setting/secret/pem/nic/20200204101606_ro52-irnic_T282.p12';
-		$addr = root. 'dash/setting/secret/pem/nic/20200204101606_ro52-irnic_T282.pem';
-		$addr = root. 'dash/setting/secret/pem/nic/20200204101606_ro52-irnic_T282.crt';
-		if(is_file($addr))
-		{
-			return $addr;
-		}
-		return null;
 
 	}
 
