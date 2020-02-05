@@ -1,5 +1,5 @@
 <?php
-namespace lib\nic\app\domain;
+namespace lib\app\nic_domain;
 
 
 class check

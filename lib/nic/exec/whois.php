@@ -26,13 +26,13 @@ class whois
 			'request_count' => 1,
 		];
 
-		$log_id = \lib\nic\db\log\insert::new_record($insert_log);
+		$log_id = \lib\db\nic_log\insert::new_record($insert_log);
 
 		$tracking_number = 'TEST-JIBRES-WHOIS-'. $log_id;
 
 		$xml = str_replace('JIBRES-TRACKING-NUMBER', $tracking_number, $xml);
 
-		\lib\nic\db\log\update::send($xml, $log_id);
+		\lib\db\nic_log\update::send($xml, $log_id);
 
 
 		$response = \lib\nic\exec\run::send($xml);

@@ -11,21 +11,23 @@ class controller
 			\dash\header::status(404);
 		}
 
+		\dash\open::get();
+		\dash\open::post();
+
 		$domain = \dash\url::child();
 		if($domain)
 		{
-			if(\lib\nic\app\domain\check::syntax($domain))
+			if(\lib\app\nic_domain\check::syntax($domain))
 			{
 				\dash\data::myDomain($domain);
-				$whois = \lib\nic\app\whois\who::is($domain);
-
+				$whois = \lib\app\nic_whois\who::is($domain);
+				\dash\data::whoisResult($whois);
 			}
 			else
 			{
 				\dash\data::domainError(T_("Invalid error syntax"));
 			}
 		}
-		\dash\open::get();
 	}
 }
 ?>

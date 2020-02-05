@@ -1,5 +1,5 @@
 <?php
-namespace lib\nic\db\log;
+namespace lib\db\nic_log;
 
 
 class insert

@@ -8,6 +8,7 @@ class run
 	{
 		$certFolder = root. 'dash/setting/secret/pem/nic/'. 'test1/';
 
+
 		$_xml = trim($_xml);
 
 		// create a new cURL resource

@@ -15,6 +15,18 @@
 		{%endif%}
 	</div>
 </div>
+{%if whoisResult%}
+<div class="f justify-center mT20">
+	<div class="c8 s12 mT10">
+		{%if whoisResult.available%}
+		<div class="msg success">{%trans "Domain is available"%}</div>
+		{%endif%}
+		<pre >
+		{{whoisResult.answer | raw}}
+		</pre>
+	</div>
+</div>
+{%endif%}
 
 {%endblock%}
 

@@ -13,13 +13,13 @@ class model
 			return false;
 		}
 
-		if(!\lib\nic\app\domain\check::syntax($domain))
+		if(!\lib\app\nic_domain\check::syntax($domain))
 		{
 			\dash\notif::error(T_("Please enter a valid domain"), 'domain');
 			return false;
 		}
 
-		$url = \dash\url::this(). '/'. $domain;
+		$url = \dash\url::kingdom(). '/whois/'. $domain;
 
 		\dash\redirect::to($url);
 
