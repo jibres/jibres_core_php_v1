@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+ <command>
+  <create>
+   <domain:create xmlns:domain="http://epp.nic.ir/ns/domain-1.0">
+    <domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>
+    <domain:period unit="m">60</domain:period>
+    <domain:ns>
+     <domain:hostAttr>
+      <domain:hostName>ns1.JIBRES-SAMPLE-DOMAIN.IR</domain:hostName>
+      <domain:hostAddr ip="v4">192.0.2.2</domain:hostAddr>
+     </domain:hostAttr>
+     <domain:hostAttr>
+      <domain:hostName>ns2.example.net</domain:hostName>
+     </domain:hostAttr>
+    </domain:ns>
+    <domain:contact type="holder">ex61-irnic</domain:contact>
+    <domain:contact type="admin">ex61-irnic</domain:contact>
+    <domain:contact type="tech">ex61-irnic</domain:contact>
+    <domain:contact type="bill">ex61-irnic</domain:contact>
+    <domain:agreement>true</domain:agreement>
+    <domain:authInfo>
+     <domain:pw>JIBRES-TOKEN</domain:pw>
+    </domain:authInfo>
+   </domain:create>
+  </create>
+  <clTRID>JIBRES-TRACKING-NUMBER</clTRID>
+ </command>
+</epp>

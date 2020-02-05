@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+  <command>
+    <update>
+      <domain:update xmlns:domain="http://epp.nic.ir/ns/domain-1.0">
+        <domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>
+        <domain:authInfo>
+          <domain:pw>JIBRES-TOKEN</domain:pw>
+        </domain:authInfo>
+      </domain:update>
+    </update>
+    <extension>
+      <pin op="req" />
+    </extension>
+    <clTRID>JIBRES-TRACKING-NUMBER</clTRID>
+  </command>
+</epp>
