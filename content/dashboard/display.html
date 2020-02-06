@@ -8,6 +8,7 @@
 <div class="pwa">
  <div class="cn">
    <h1>Browse</h1>
+   {%include "/content/dashboard/search.html"%}
 
   <section class="fs20 pT50">
    <h1>Hello!</h1>
@@ -23,6 +24,11 @@
 
 {%include "/content/dashboard/footer.html"%}
 <style>
+  .pwaSearch{background-color:#e4e3e9;border-radius:7px;height:35px;}
+  .pwaSearch:before{content:"\e03f";display:inline-block;vertical-align:middle;font-family:siftal!important;font-size: 20px;padding:0 10px;line-height: 35px;opacity: 0.2}
+  .pwaSearch input{display:inline-block;border:none;background-color:transparent;line-height:30px;padding: 2px 35px;font-size:16px;}
+  .pwaSearch span{display:inline-block;width:0;overflow: hidden;transition:0.3s}
+  .pwaSearch input:focus +span{width:auto;}
 
  .superAdmin{display: none;}
 </style>
