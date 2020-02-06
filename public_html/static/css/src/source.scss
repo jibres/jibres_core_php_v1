@@ -136,13 +136,14 @@ Version       1.0.0
 @import 'new-elements/product';
 @import 'new-elements/jbox';
 
-// add app style
-@import 'app/layout';
-@import 'app/footer';
-@import 'app/header';
-@import 'app/language';
-@import 'app/dashboard';
-@import 'app/store_dashboard';
+// add pwa style
+@import 'pwa/pwa_var';
+@import 'pwa/layout';
+@import 'pwa/footer';
+@import 'pwa/header';
+@import 'pwa/language';
+@import 'pwa/dashboard';
+@import 'pwa/store_dashboard';
 
 
 // add responsive styles
