@@ -9,7 +9,7 @@
 
  <div class="f">
   <div class="c6 pRa5">
-   <a href="jibres://language/en" data-direct class="langItem{%if requestGET.device == 'en'%} device{%endif%}">
+   <a href="jibres://language/en" data-direct class="ltr langItem{%if requestGET.device == 'en'%} device{%endif%}">
     <p class="hello">Hello!</p>
     <p  class="iam">I'm Jibres!</p>
     <div class="lang">English</div>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="c6 pLa5">
-   <a href="jibres://language/fa" data-direct class="langItem{%if requestGET.device == 'fa'%} device{%endif%}">
+   <a href="jibres://language/fa" data-direct class="rtl langItem{%if requestGET.device == 'fa'%} device{%endif%}">
     <p class="hello">سلام</p>
     <p class="iam">من جیبرس هستم</p>
     <div class="lang">فارسی</div>
@@ -40,7 +40,7 @@
  #android_chooseLang .langItem.device{border-color:#82b984 }
  #android_chooseLang .langItem p{font-weight:900;color: #444;font-size: 16px;}
  #android_chooseLang .langItem p.hello{margin-bottom:5px;line-height: 30px;}
- #android_chooseLang .langItem p.iam{margin-bottom:10px;line-height: 25px;height:50px;font-style:15px;}
+ #android_chooseLang .langItem p.iam{margin-bottom:10px;line-height: 25px;height:50px;font-size:15px;}
  #android_chooseLang .langItem .lang{color:#f7ab8d;font-size:14px;line-height: 20px;}
 </style>
 {%endblock%}
