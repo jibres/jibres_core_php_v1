@@ -1,1 +1,8 @@
-.pwaItem{}
+.pwaItems{background-color: #fff;border-radius:$pwaRadius;font-size:16px;}
+.pwaItems li a{padding: 10px;color: #111!important;}
+.pwaItems li img{max-width: 50px;max-height: 50px;}
+.pwaItems li div{display: inline-block;padding:0 10px;}
+.pwaItems li div::after{content: "\e0c2";font-family:siftal!important;vertical-align:middle;}
+.ltr .pwaItems li div::after{float: right}
+.rtl .pwaItems li div::after{float: left}
+
