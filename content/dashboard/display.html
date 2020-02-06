@@ -2,9 +2,9 @@
 
 
 {%block body%}
-<div class="JibresDashboard">
-  <a href="{{url.this}}#stores">
-    <img src="{{url.static}}/img/app/opening.jpg">
+<div class="pwa">
+  <a href="{{url.this}}#stores" class="hide">
+    <img src="{{url.static}}/img/app/opening.jpg" alt="addNewStore">
   </a>
  <div class="cn">
   <section class="fs20 pT50">
@@ -21,35 +21,35 @@
  <footer class="appFooter">
   <nav class="f">
    <div class="c">
-    <a href="{{url.this}}#aa">
+    <a href="{{url.this}}#dashboard" class="selected">
      <div class="icon"><i class="sf-gauge"></i></div>
      <div class="title">{%trans "Dashboard"%}</div>
     </a>
    </div>
 
    <div class="c">
-    <a href="{{url.this}}#aa">
+    <a href="{{url.this}}#messages">
      <div class="icon"><i class="sf-comments"></i></div>
      <div class="title">{%trans "Messages"%}</div>
     </a>
    </div>
 
    <div class="c">
-    <a href="{{url.this}}#stores" class="selected">
+    <a href="{{url.this}}#stores">
      <div class="icon"><i class="sf-money"></i></div>
      <div class="title">{%trans "Stores"%}</div>
     </a>
    </div>
 
    <div class="c">
-    <a href="{{url.this}}#aa">
+    <a href="{{url.this}}#helpcenter">
      <div class="icon"><i class="sf-info-circle"></i></div>
      <div class="title">{%trans "Help Center"%}</div>
     </a>
    </div>
 
    <div class="c">
-    <a href="{{url.this}}#aa">
+    <a href="{{url.this}}#profile">
      <div class="icon"><i class="sf-user"></i></div>
      <div class="title">{%trans "Profile"%}</div>
     </a>
@@ -60,13 +60,14 @@
 
 
 <style>
-.appFooter{position: fixed;background-color:#fff;bottom:0;right:0;left:0;width: 100%;height: 50px;border-top:1px solid transparent;border-color: #eee;text-align: center;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-tap-highlight-color:transparent;}
-.appFooter a{display:block;color: #959595!important}
-.appFooter .selected{color: #2ea5ff!important}
-.appFooter .icon{display: block;width:100%;height: 30px;line-height: 1;font-size: 20px;padding-top:2px;}
-.appFooter .title{display: block;width:100%;height: 20px;line-height: 1;font-size:11px;}
+  body{background-color: #f3f2f8;padding-bottom:50px;}
 
+.pwa h1{font-size: 32px;font-weight: 900;}
+.pwa h2{font-size: 20px;}
+.pwa h3{font-size: 18px;}
+.pwa h4{font-size: 16px;}
 
+ .superAdmin{display: none;}
 </style>
 {%endblock%}
 
