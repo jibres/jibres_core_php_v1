@@ -43,12 +43,12 @@ class run
 
 	private static function curl_token()
 	{
-		return '123';
+		return \dash\setting\nic::curl_token();
 	}
 
 	public static function token()
 	{
-		return '5955591014200204';
+		return \dash\setting\nic::token();
 	}
 }
 ?>
