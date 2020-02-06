@@ -4,7 +4,7 @@
 .pwaItems li img{max-width: 40px;max-height: 40px;}
 .pwaItems li div{display: inline-block;padding:0 10px;}
 .pwaItems li div::after{content: "\e0c2";font-family:siftal!important;vertical-align:middle;color:#ccc;opacity: 0.5;float: right}
-.rtl .pwaItems li div::after{float: left}
+.rtl .pwaItems li div::after{content: "\e0c1";float: left}
 
 .pwaItems li:after{content:"";position:absolute;width:100%;height:1px;bottom:0;right:0;left:10px;background-color:#eee;}
 .rtl .pwaItems li:after{right:10px;left:0;}
