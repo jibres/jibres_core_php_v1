@@ -9,6 +9,10 @@ class run
 
 		$_xml = trim($_xml);
 
+		$data          = [];
+		$data['xml']   = $_xml;
+		$data['token'] = self::curl_token();
+
 		// create a new cURL resource
 		$ch = curl_init();
 
@@ -22,7 +26,7 @@ class run
 		//The URL to fetch.
 		curl_setopt($ch, CURLOPT_URL,"http://7.7.7.25/nic/");
 		//The full data to post in a HTTP "POST" operation.
-		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['xml' => $_xml]));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
 
 		// grab URL and pass it to the browser
 		$response = curl_exec($ch);
@@ -35,8 +39,11 @@ class run
 		curl_close ($ch);
 
 		return $response;
+	}
 
-
+	private static function curl_token()
+	{
+		return '123';
 	}
 
 	public static function token()
