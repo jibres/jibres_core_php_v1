@@ -36,7 +36,7 @@ class whois
 
 
 		$response = \lib\nic\exec\run::send($xml);
-		j($response);
+
 
 
 	}

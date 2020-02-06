@@ -38,7 +38,13 @@ class run
 		// close cURL resource, and free up system resources
 		curl_close ($ch);
 
-		return $response;
+
+		return self::response($response);
+	}
+
+	private static function response($_response)
+	{
+		return $_response;
 	}
 
 	private static function curl_token()
