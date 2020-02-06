@@ -1,8 +1,10 @@
-.pwaItems{background-color: #fff;border-radius:$pwaRadius;font-size:16px;}
+.pwaItems{background-color: #fff;border-radius:$pwaRadius;font-size:16px;overflow: hidden;}
+.pwaItems li{position: relative;}
 .pwaItems li a{padding: 10px;color: #111!important;}
-.pwaItems li img{max-width: 50px;max-height: 50px;}
+.pwaItems li img{max-width: 40px;max-height: 40px;}
 .pwaItems li div{display: inline-block;padding:0 10px;}
-.pwaItems li div::after{content: "\e0c2";font-family:siftal!important;vertical-align:middle;color:#ccc;opacity: 0.5}
-.ltr .pwaItems li div::after{float: right}
+.pwaItems li div::after{content: "\e0c2";font-family:siftal!important;vertical-align:middle;color:#ccc;opacity: 0.5;float: right}
 .rtl .pwaItems li div::after{float: left}
 
+.pwaItems li:after{content:"";position:absolute;width:100%;height:1px;bottom:0;right:0;left:10px;background-color:#eee;}
+.rtl .pwaItems li:after{right:10px;left:0;}
