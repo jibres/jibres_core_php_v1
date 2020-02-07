@@ -7,8 +7,7 @@ class controller
 	{
 		if(\dash\url::child() === null)
 		{
-			\dash\code::pretty(\dash\detect\device::onset());
-			\dash\code::boom();
+			\dash\code::jsonBoom(\dash\detect\device::onset());
 		}
 
 	}

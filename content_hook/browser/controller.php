@@ -7,8 +7,7 @@ class controller
 	{
 		if(\dash\url::child() === null)
 		{
-			\dash\code::pretty(\dash\utility\browserDetection::browser_detection('full_assoc'));
-			\dash\code::boom();
+			\dash\code::jsonBoom(\dash\utility\browserDetection::browser_detection('full_assoc'));
 		}
 
 	}
