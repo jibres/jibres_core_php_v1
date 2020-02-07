@@ -1,0 +1,97 @@
+{%extends display.jibresControlLayout%}
+
+
+{%block pageContent%}
+
+<div class="f">
+  <div class="c s12">{{block('iBuyDomain')}}</div>
+  <div class="c s12">{{block('iTransferDomain')}}</div>
+</div>
+<div class="cbox">
+	{{block('iDomainWhois')}}
+	{{block('iDomainList')}}
+</div>
+
+{%endblock%}
+
+
+
+{%block iBuyDomain%}
+<a class="dcard x1" href='{{url.this}}/buy'>
+ <div class="statistic blue">
+  <div class="value"><i class="sf-cart-plus"></i></div>
+  <div class="label">{%trans "Buy domain"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+{%block iTransferDomain%}
+<a class="dcard x1" href='{{url.this}}/transfer'>
+ <div class="statistic green">
+  <div class="value"><i class="sf-exchange"></i></div>
+  <div class="label">{%trans "Transfer domain"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block iDomainWhois%}
+<form method="post" autocomplete="off" class="mB20">
+	<div class="input ltr">
+		<input type="text" name="domain" placeholder='{%trans "Domain"%}' value="{{myDomain}}">
+		<button class="btn addon success">{%trans "Check domain"%}</button>
+	</div>
+</form>
+
+
+{%if domainError%}
+<div class="msg danger">{{domainError}}</div>
+{%endif%}
+
+{%if whoisResult%}
+
+	{%if whoisResult.available%}
+	<div class="msg success2">{%trans "Domain is available"%}
+		<span class="floatL">
+			<a class="btn success" href="{{url.here}}/buy/{{url.module}}">{%trans "Buy"%}</a>
+		</span>
+	</div>
+	{%else%}
+	<div class="msg warn2">{%trans "Domain is occupied"%}
+		<span class="floatL">
+			<a class="btn warn" target="_blank" href="{{url.kingdom}}/whois/{{url.module}}">{%trans "Whois"%}</a>
+		</span>
+	</div>
+	{%endif%}
+
+{%endif%}
+{%endblock%}
+
+
+{%block iDomainList%}
+
+<div class="tblBox">
+	<table class="tbl1 v4">
+		<thead>
+			<tr>
+				<th>{%trans "Domain"%}</th>
+				<th class="">{%trans "Expire date"%}</th>
+				<th class="collapsing">{%trans "Action"%}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for i in 1..10%}
+			<tr>
+				<td><a target="_blank" href="http://rezamohiti.ir"><i class="sf-link"></i></a> <span>rezamohiti{{i}}.ir</span></td>
+				<td class="">{{"2021-1-20" | dt(null, 'date')}} <br><small class="sf-mute">{{945 | fitNumber}} {%trans "Days left"%}</small></td>
+				<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage domain"%}</a></td>
+			</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+</div>
+{%endblock%}
+
+
