@@ -20,8 +20,7 @@
 
 {%block eAllInput%}
    <div class='flex fix'>
-    <!-- <label for='usernameormobile' title='{%trans "Username or Mobile or email"%}'></label> -->
-    <input id='usernameormobile' name="usernameormobile" type='text' data-disallowFaNum maxlength="50" placeholder='{%trans "Mobile"%}' data-invalid='{%trans "Please enter valid mobile or username or email number"%}' value="{{getUsernamemobile}}" data-pl-user='{%trans "Username or Mobile or Email"%}' autocomplete="off" required {%if mobileReadonly%} readonly {%endif%} {%if not mobileReadonly%}autofocus title='{%trans "Username or Mobile or email"%}'{%endif%} {%if user.id%}{%else%}pattern=".{5,50}"{%endif%}>
+    <input id='usernameormobile' name="usernameormobile" type='tel' data-disallowFaNum maxlength="15" placeholder='{%trans "Mobile"%}' data-invalid='{%trans "Please enter valid mobile or username or email number"%}' value="{{getUsernamemobile}}" data-pl-user='{%trans "Username or Mobile or Email"%}' autocomplete="off" required {%if mobileReadonly%} readonly {%endif%} {%if not mobileReadonly%} autofocus title='{%trans "Username or Mobile or email"%}'{%endif%} {%if user.id%}{%else%}pattern=".{5,50}"{%endif%}>
    </div>
 {%endblock%}
 
