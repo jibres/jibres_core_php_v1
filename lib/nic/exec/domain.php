@@ -97,21 +97,13 @@ class domain
 		}
 
 		$detail = null;
-		foreach ($check as $key => $value)
-		{
-			if(isset($value[0]['string']) && $value[0]['string'] == $_domain)
-			{
-				$detail = $value[0];
-			}
-		}
 
-		if(!$detail)
+		if(isset($check[$_domain]))
 		{
-			return false;
+			$detail = $check[$_domain];
 		}
 
 		$available = false;
-
 		if(isset($detail['attr']['avail']) && $detail['attr']['avail'] == '1')
 		{
 			$available = true;
@@ -144,31 +136,34 @@ class domain
 			return false;
 		}
 
-		foreach ($objec_result->response->resData->xpath('domain:chkData') as $key => $value)
+		foreach ($objec_result->response->resData->xpath('domain:chkData') as $domainchkData)
 		{
 			$temp = [];
-
-			foreach ($value->xpath('domain:cd') as $k => $v)
+			$myKey = null;
+			foreach ($domainchkData->xpath('domain:cd') as $k => $v)
 			{
-				foreach ($v->xpath('domain:reason') as $kk => $vv)
+				foreach ($v->xpath('domain:name') as $domainname)
 				{
-					$temp[$k]['reason'] = $vv->__toString();
-				}
+					$myKey = $domainname->__toString();
+					$temp[$myKey]['name'] = $myKey;
 
-				foreach ($v->xpath('domain:name') as $kk => $vv)
-				{
-					$attr             = $vv->attributes();
+					$attr             = $domainname->attributes();
 					$attr             = (array) $attr;
 					if(isset($attr['@attributes']))
 					{
 						$attr = $attr['@attributes'];
 					}
-					$temp[$k]['attr']   = $attr;
-					$temp[$k]['string'] = $vv->__toString();
+					$temp[$myKey]['attr']   = $attr;
 				}
+
+				foreach ($v->xpath('domain:reason') as $domainreason)
+				{
+					$temp[$myKey]['reason'] = $domainreason->__toString();
+				}
+
 			}
 
-			$result[] = $temp;
+			$result = array_merge($result, $temp);
 		}
 
 		return $result;
