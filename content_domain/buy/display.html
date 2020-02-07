@@ -2,57 +2,103 @@
 
 
 {%block pageContent%}
+<div class="f justify-center">
+	<div class="c6 m8 s12">
+		<div class="cbox">
+		{%if myDomain%}
+		<div class="msg txtC txtB">
+			{{myDomain}}
+		</div>
+		{%endif%}
 
-<div class="cbox">
-	{{block('iDomainWhois')}}
+
+		{%if checkResult%}
+
+			{%if checkResult.available%}
+				{{block('buyForm')}}
+			{%else%}
+			<div class="msg warn2">
+				{%trans "Domain is occupied"%}
+				<span class="floatL">
+					<a class="btn warn" target="_blank" href="{{url.kingdom}}/whois/{{myDomain}}">{%trans "Whois"%}</a>
+				</span>
+			</div>
+			<div class="txtRa">
+				<a href="{{url.here}}" class="btn secondary">{%trans "Never mind"%}</a>
+			</div>
+			{%endif%}
+
+		{%endif%}
+		</div>
+	</div>
 </div>
 
 {%endblock%}
 
 
 
+{%block buyForm%}
+<form method="post" autocomplete="off">
+	<label for="irnic">{%trans "IRNIC account"%} <small><a href="{{url.here}}/nic/account">{%trans "Create new nic account"%}</a></small></label>
+	<div class="input">
+		<input type="text" name="irnic" id="irnic">
+	</div>
 
-{%block iTransferDomain%}
-<a class="dcard x1" href='{{url.this}}/transfer'>
- <div class="statistic green">
-  <div class="value"><i class="sf-exchange"></i></div>
-  <div class="label">{%trans "Transfer domain"%}</div>
- </div>
-</a>
-{%endblock%}
+	<div class="f mB10">
+      <div class="c pRa5">
+          <div class="radio3">
+            <input type="radio" name="period" value="1year" id="period1year">
+            <label for="period1year">{%trans "1 Year"%}</label>
+          </div>
+      </div>
+      <div class="c">
+          <div class="radio3">
+            <input type="radio" name="period" value="5year" id="period5year">
+            <label for="period5year">{%trans "5 Year"%}</label>
+          </div>
+      </div>
+    </div>
+    <div class="f">
+    	<div class="c6 s12">
+		    <label for="ns1">{%trans "DNS #1"%}</label>
+			<div class="input">
+				<input type="text" name="ns1" id="ns1" maxlength="100">
+			</div>
+    	</div>
 
+    	<div class="c6 s12">
+    		<div class="mLa5">
+				<label for="ns2">{%trans "DNS #2"%}</label>
+				<div class="input">
+					<input type="text" name="ns2" id="ns2" maxlength="100">
+				</div>
+    		</div>
+    	</div>
 
+    	<div class="c6 s12">
+			<label for="ns3">{%trans "DNS #3"%}</label>
+			<div class="input">
+				<input type="text" name="ns3" id="ns3" maxlength="100">
+			</div>
+    	</div>
 
-{%block iDomainWhois%}
-<form method="post" autocomplete="off" class="mB20">
-	<div class="input ltr">
-		<input type="text" name="domain" placeholder='{%trans "Domain"%}' value="{{myDomain}}">
-		<button class="btn addon success">{%trans "Check domain"%}</button>
+    	<div class="c6 s12">
+    		<div class="mLa5">
+				<label for="ns4">{%trans "DNS #4"%}</label>
+				<div class="input">
+					<input type="text" name="ns4" id="ns4" maxlength="100">
+				</div>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="check1">
+      <input type="checkbox" name="agree" id="agree">
+      <label for="agree">{%trans "I agree the privacy terms"%} <small><a href="{{url.kingdom}}/support/nic/privacy">{%trans "Show privacy"%}</a></small></label>
+    </div>
+
+	<div class="txtRa">
+		<button class="btn success">{%trans "Buy"%}</button>
 	</div>
 </form>
-
-
-{%if domainError%}
-<div class="msg danger">{{domainError}}</div>
-{%endif%}
-
-{%if checkResult%}
-
-	{%if checkResult.available%}
-	<div class="msg success2">{%trans "Domain is available"%}
-		<span class="floatL">
-			<a class="btn success" href="{{url.here}}/buy/{{url.module}}">{%trans "Buy"%}</a>
-		</span>
-	</div>
-	{%else%}
-	<div class="msg warn2">{%trans "Domain is occupied"%}
-		<span class="floatL">
-			<a class="btn warn" target="_blank" href="{{url.kingdom}}/whois/{{url.module}}">{%trans "Whois"%}</a>
-		</span>
-	</div>
-	{%endif%}
-
-{%endif%}
 {%endblock%}
-
-
