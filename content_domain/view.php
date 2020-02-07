@@ -14,6 +14,9 @@ class view
 		\dash\data::include_adminPanel(true);
 		\dash\data::include_highcharts(true);
 
+		// enable title box
+		\dash\data::page_titleBox(true);
+
 
 		\dash\data::display_jibresControlLayout('content_domain/layout.html');
 	}

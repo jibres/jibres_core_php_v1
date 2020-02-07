@@ -1,0 +1,32 @@
+{%extends display.jibresControlLayout%}
+
+{%block pageContent%}
+<div class="cbox">
+	{{block('myAccountList')}}
+</div>
+{%endblock%}
+
+{%block myAccountList%}
+
+<div class="tblBox">
+	<table class="tbl1 v4">
+		<thead>
+			<tr>
+				<th>{%trans "Account"%}</th>
+
+				<th class="collapsing">{%trans "Action"%}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for i in 1..10%}
+			<tr>
+				<td><code>ji128{{i}}-irnic</code></td>
+				<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage account"%}</a></td>
+			</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+</div>
+
+{%endblock%}
+
