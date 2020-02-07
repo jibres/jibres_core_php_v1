@@ -134,6 +134,15 @@ class domain
 		}
 
 		$result = [];
+		if(!isset($objec_result->response->resData))
+		{
+			return false;
+		}
+
+		if(!$objec_result->response->resData->xpath('domain:chkData'))
+		{
+			return false;
+		}
 
 		foreach ($objec_result->response->resData->xpath('domain:chkData') as $key => $value)
 		{
