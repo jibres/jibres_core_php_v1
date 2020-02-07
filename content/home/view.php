@@ -15,8 +15,12 @@ class view
 		$homepageShortDesc .= T_('Social Marketing'). ' + ';
 		$homepageShortDesc .= T_('POS Software'). '. ';
 
-		$homepageShortDesc .= T_('Jibres is a next generation technology for integrated eCommerce platform software.'). ' ';
-		$homepageShortDesc .= T_('Easiest way to make money in digital age.'). ' ';
+		if(\dash\language::current() == 'en')
+		{
+			$homepageShortDesc .= T_('Jibres is a next generation technology for integrated eCommerce platform software.'). ' ';
+			$homepageShortDesc .= T_('Easiest way to make money in digital age.'). ' ';
+		}
+
 		$homepageShortDesc .= T_('Sell more and more.'). ' ';
 
 

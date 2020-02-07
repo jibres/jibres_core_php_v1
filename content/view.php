@@ -16,11 +16,15 @@ class view
 		$jibresDesc .= T_('Social Marketing'). T_(' & ');
 		$jibresDesc .= T_('POS Software'). ' | ';
 
-		$jibresDesc .= T_('Accept Credit Cards'). '. ';
-		$jibresDesc .= T_('Fully Hosted'). '. ';
-		$jibresDesc .= T_('SEO Optimized'). '. ';
-		$jibresDesc .= T_('SSL Certificate'). '. ';
+		if(\dash\language::current() == 'en')
+		{
+			$jibresDesc .= T_('Accept Credit Cards'). '. ';
+			$jibresDesc .= T_('Fully Hosted'). '. ';
+			$jibresDesc .= T_('SEO Optimized'). '. ';
+			$jibresDesc .= T_('SSL Certificate'). '. ';
+		}
 		$jibresDesc .= T_('Fully API');
+
 
 		\dash\data::site_title(T_("Jibres"));
 		\dash\data::site_desc($jibresDesc);
