@@ -32,13 +32,14 @@ class sms
 
 		// create complete message
 		$sms_header = T_('Jibres');
+		$sms_footer = T_('Sell and Enjoy'). "\n";
 		if(\dash\url::tld() === 'ir')
 		{
-			$sms_footer = T_('Jibres.ir');
+			$sms_footer .= T_('Jibres.ir');
 		}
 		else
 		{
-			$sms_footer = T_('Jibres.com');
+			$sms_footer .= T_('Jibres.com');
 		}
 
 		$message = '';
@@ -46,7 +47,7 @@ class sms
 		if($sms_header && $_options['header'])
 		{
 			$message    .= $sms_header;
-			$message    .= "\n\n";
+			$message    .= "\n";
 		}
 
 		$message .= $_message;
@@ -62,7 +63,7 @@ class sms
 		{
 			if($sms_header && $_options['header'])
 			{
-				$message = $sms_header. "\n\n". $_message;
+				$message = $sms_header. "\n". $_message;
 			}
 
 			if(mb_strlen($message) > self::is_rtl($message, true))
