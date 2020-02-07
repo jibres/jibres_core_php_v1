@@ -50,9 +50,9 @@
 <div class="msg danger">{{domainError}}</div>
 {%endif%}
 
-{%if whoisResult%}
+{%if checkResult%}
 
-	{%if whoisResult.available%}
+	{%if checkResult.available%}
 	<div class="msg success2">{%trans "Domain is available"%}
 		<span class="floatL">
 			<a class="btn success" href="{{url.here}}/buy/{{url.module}}">{%trans "Buy"%}</a>

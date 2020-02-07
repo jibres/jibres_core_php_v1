@@ -20,8 +20,8 @@ class controller
 			if(\lib\app\nic_domain\check::syntax($domain))
 			{
 				\dash\data::myDomain($domain);
-				$whois = \lib\app\nic_domain\check::check($domain);
-				\dash\data::whoisResult($whois);
+				$check = \lib\app\nic_domain\check::check($domain);
+				\dash\data::checkResult($check);
 			}
 			else
 			{

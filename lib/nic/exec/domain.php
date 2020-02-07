@@ -6,6 +6,43 @@ class domain
 {
 	public static function check($_domain)
 	{
+		$check = self::analyze_domain($_domain);
+		if(!$check || !is_array($check))
+		{
+			return false;
+		}
+
+		$detail = null;
+		foreach ($check as $key => $value)
+		{
+			if(isset($value[0]['string']) && $value[0]['string'] == $_domain)
+			{
+				$detail = $value[0];
+			}
+		}
+
+		if(!$detail)
+		{
+			return false;
+		}
+
+		$available = false;
+
+		if(isset($detail['attr']['avail']) && $detail['attr']['avail'] == '1')
+		{
+			$available = true;
+		}
+
+		$result              = [];
+		$result['available'] = $available;
+
+		return $result;
+	}
+
+
+
+	private static function analyze_domain($_domain)
+	{
 		$objec_result = self::get_response($_domain);
 		if(!$objec_result)
 		{
@@ -17,23 +54,31 @@ class domain
 		foreach ($objec_result->response->resData->xpath('domain:chkData') as $key => $value)
 		{
 			$temp = [];
+
 			foreach ($value->xpath('domain:cd') as $k => $v)
 			{
+				foreach ($v->xpath('domain:reason') as $kk => $vv)
+				{
+					$temp[$k]['reason'] = $vv->__toString();
+				}
+
 				foreach ($v->xpath('domain:name') as $kk => $vv)
 				{
-					$attr = $vv->attributes();
-					$attr = (array) $attr;
-					$temp[] = $attr;
+					$attr             = $vv->attributes();
+					$attr             = (array) $attr;
+					if(isset($attr['@attributes']))
+					{
+						$attr = $attr['@attributes'];
+					}
+					$temp[$k]['attr']   = $attr;
+					$temp[$k]['string'] = $vv->__toString();
 				}
 			}
+
 			$result[] = $temp;
-
 		}
 
-		if(!isset($objec_result->response->resData))
-		{
-			return false;
-		}
+		return $result;
 	}
 
 

@@ -25,6 +25,7 @@ class check
 
 		$result = \lib\nic\exec\domain::check($_domain);
 
+		return $result;
 
 	}
 }
