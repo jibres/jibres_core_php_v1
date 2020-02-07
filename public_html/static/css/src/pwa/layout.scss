@@ -1,6 +1,15 @@
 .pwa{height:100%;overflow-y:scroll;padding:50px 15px;background-color: $pwaBg;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-tap-highlight-color:transparent;}
 
-.pwa h1{font-size:32px;line-height:1;margin-top:0;margin-bottom:10px;font-weight:900;}
-.pwa h2{font-size:20px;line-height:1;margin-top:40px;margin-bottom:10px;font-weight:800;}
-.pwa h3{font-size:18px;line-height:1;margin-top:30px;margin-bottom:10px;font-weight:700;}
-.pwa h4{font-size:16px;line-height:1;margin-top:20px;margin-bottom:10px;font-weight:700;}
+.pwa h1{font-size:32px;line-height:1;margin-bottom:10px;font-weight:900;}
+.pwa h2{font-size:20px;line-height:1;margin-bottom:10px;font-weight:800;}
+.pwa h3{font-size:20px;line-height:1;margin-bottom:10px;font-weight:700;color:#777}
+.pwa h4{font-size:18px;line-height:1;margin-bottom:10px;font-weight:700;color:#aaa}
+
+
+// zeroSize
+.pwa.zeroSide{padding-right:0;padding-left:0}
+.pwa.zeroSide h1{padding: 0 20px;}
+.pwa.zeroSide h2{padding: 0 20px;}
+.pwa.zeroSide h3{padding: 0 20px;}
+.pwa.zeroSide h4{padding: 0 20px;}
+
