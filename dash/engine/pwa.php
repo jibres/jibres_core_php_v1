@@ -60,12 +60,28 @@ class pwa
 			'src'   => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-32.png',
 		];
 
+		// check icon48
+		$iconsArr[] =
+		[
+			'type'  => 'image/png',
+			'sizes' => '48x48',
+			'src'   => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-48.png',
+		];
+
 		// check icon64
 		$iconsArr[] =
 		[
 			'type'  => 'image/png',
 			'sizes' => '64x64',
 			'src'   => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-64.png',
+		];
+
+		// check icon72
+		$iconsArr[] =
+		[
+			'type'  => 'image/png',
+			'sizes' => '72x72',
+			'src'   => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-72.png',
 		];
 
 		// check icon96
@@ -116,6 +132,22 @@ class pwa
 			'src'   => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-256.png',
 		];
 
+		// check icon384
+		$iconsArr[] =
+		[
+			'type'  => 'image/png',
+			'sizes' => '384x384',
+			'src'   => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-384.png',
+		];
+
+		// check icon500
+		$iconsArr[] =
+		[
+			'type'  => 'image/png',
+			'sizes' => '500x500',
+			'src'   => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-500.png',
+		];
+
 		// check icon512
 		$iconsArr[] =
 		[
@@ -123,7 +155,6 @@ class pwa
 			'sizes' => '512x512',
 			'src'   => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-512.png',
 		];
-
 
 		// check icon1024
 		$iconsArr[] =
@@ -133,13 +164,7 @@ class pwa
 			'src'   => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-1024.png',
 		];
 
-		// check default logo
-		$iconsArr[] =
-		[
-			'type' => 'image/png',
-			'src'  => \dash\url::static(). '/logo/icon/png/Jibres-Logo-icon-zero-500.png',
-		]
-	}
+
 		if($iconsArr)
 		{
 			$manifest['icons'] = $iconsArr;
