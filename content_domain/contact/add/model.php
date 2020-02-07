@@ -9,6 +9,10 @@ class model
 		if(\dash\request::post('oldcontact'))
 		{
 			$check = \lib\app\nic_contact\add::exists_contact(\dash\request::post('oldcontact'));
+			if($check)
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
 		}
 
 	}
