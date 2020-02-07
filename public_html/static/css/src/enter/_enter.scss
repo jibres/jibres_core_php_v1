@@ -22,13 +22,8 @@ body.enter{
 	background-attachment:fixed;
 	position:relative;
 	min-height:100%;
-	-webkit-touch-callout:none;
-	-webkit-user-select:none;
-	-khtml-user-select:none;
-	-moz-user-select:none;
-	-ms-user-select:none;
-	user-select:none;
-	cursor:default;
+
+	@include select-none();
 }
 body.enter.bg1{background-image:url('../siftal/images/bg/1.jpg')}
 body.enter.bg2{background-image:url('../siftal/images/bg/2.jpg')}
@@ -171,7 +166,8 @@ body.enter.bg15{background-image:url('../siftal/images/bg/15.jpg')}
 .enter .radio1 label:first-of-type:hover::before{border-color:#fff}
 
 /*langlist*/
-.enter .langlist{position:absolute;bottom:0;left:0;padding:1em}
+.enter .langlist{position:absolute;bottom:0;left:0;padding:1em;display: none}
+.enter[data-page="home"] .langlist{display: block}
 .enter.rtl .langlist{left:inherit;right:0;}
 .enter .langlist a{display:inline-block;padding:1em 2em;color:#fff;background-color:#000;transition:0.3s;opacity:0.3;margin:0 0.5em;}
 .enter .langlist a:hover{opacity:0.6;}
@@ -200,6 +196,7 @@ body.enter.bg15{background-image:url('../siftal/images/bg/15.jpg')}
  .enter .langlist{position:absolute;}
  .enter #eMethods a{height:30px;line-height:30px;}
  .enter form .flex label{line-height: 40px;}
+ .enter form .flex label a{line-height: 40px;}
  .enter form #eramz label, .enter form #eramzNew label, .enter form #displaynameBox label, .enter form #eusername label{line-height:40px;}
  .enter form .flex button{padding:5px 10px;}
  .enter form .flex input{line-height:40px;}

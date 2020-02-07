@@ -1,4 +1,4 @@
-.pwaHeader{position: fixed;z-index:10;top:0;right:0;left:0;background-color:$pwaBg;line-height:40px;padding:5px 5px;font-size:16px;width: 100%;height: 50px;border-bottom:1px solid transparent;overflow:hidden;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-tap-highlight-color:transparent;}
+.pwaHeader{position: fixed;z-index:10;top:0;right:0;left:0;background-color:$pwaBg;line-height:40px;padding:5px 5px;font-size:16px;width: 100%;height: 50px;border-bottom:1px solid transparent;overflow:hidden;@include select-none();}
 .pwaHeader.border{border-bottom-color: #c5c4c9;}
 .pwaHeader a{display:block;color: #0a7ce7!important}
 .ltr .pwaHeader .back a::before{content: "\e0c1";padding:0 5px;;font-family:siftal!important;vertical-align:middle;}
