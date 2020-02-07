@@ -13,6 +13,8 @@
 		<thead>
 			<tr>
 				<th>{%trans "Account"%}</th>
+				<th>{%trans "Permission"%}</th>
+				<th>{%trans "Date"%}</th>
 
 				<th class="collapsing">{%trans "Action"%}</th>
 			</tr>
@@ -21,6 +23,16 @@
 			{%for key, value in dataTable%}
 			<tr>
 				<td><code>{{value.nic_id}}</code></td>
+				<td>
+
+					<span class="badge light">{%trans "Holder" %} {%if value.holder%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
+					<span class="badge light">{%trans "Admin" %} {%if value.admin%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
+					<span class="badge light">{%trans "Technical" %} {%if value.tech%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
+					<span class="badge light">{%trans "billing" %} {%if value.bill%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
+				</td>
+				<td>
+					{{value.datecreated |dt}}
+				</td>
 				<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage contact"%}</a></td>
 			</tr>
 			{%endfor%}

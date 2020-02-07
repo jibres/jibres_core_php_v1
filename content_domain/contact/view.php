@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Add contact"));
+		\dash\data::page_title(T_("Contact list"));
 
 		\dash\data::page_special(true);
 
