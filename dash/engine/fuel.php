@@ -15,7 +15,7 @@ class fuel
 		{
 			self::set_header($_request);
 
-			if(\dash\url::isLocal() && $_request !== 'master' && $_request !== 'nic_log')
+			if(\dash\url::isLocal() && $_request !== 'master' && $_request !== 'nic_log' && $_request !== 'nic')
 			{
 				return self::myStoreLocal();
 			}
@@ -86,6 +86,17 @@ class fuel
 		}
 
 		return \dash\setting\fuel::server('nic_log');
+	}
+
+
+	private static function nic()
+	{
+		if(\dash\url::isLocal())
+		{
+			return \dash\setting\fuel::server('nic_local');
+		}
+
+		return \dash\setting\fuel::server('nic');
 	}
 
 
