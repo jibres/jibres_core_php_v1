@@ -2,9 +2,10 @@
 .pwaItems li{position: relative;}
 .pwaItems li a{padding: 10px;color: #111!important;}
 .pwaItems li img{max-width: 40px;max-height: 40px;}
-.pwaItems li div{display: inline-block;padding:0 10px;}
-.pwaItems li div::after{content: "\e0c2";font-family:siftal!important;vertical-align:middle;color:#ccc;opacity: 0.5;float: right}
-.rtl .pwaItems li div::after{content: "\e0c1";float: left}
+.pwaItems li .title{padding:0 10px;}
+.pwaItems li .go{color:#aaa;-webkit-box-flex:0;-webkit-flex:0 0 auto;-ms-flex:0 0 auto;-moz-box-flex:0;flex:0 0 auto;width:auto}
+.pwaItems li .go::after{content: "\e0c2";padding:0 10px;;font-family:siftal!important;vertical-align:middle;color:#ccc;opacity: 0.5;float: right}
+.rtl .pwaItems li .go::after{content: "\e0c1";float: left;}
 
-.pwaItems li:after{content:"";position:absolute;width:100%;height:1px;bottom:0;right:0;left:10px;background-color:#eee;}
-.rtl .pwaItems li:after{right:10px;left:0;}
+.pwaItems li:after{content:"";position:absolute;width:100%;height:1px;bottom:0;right:0;left:60px;background-color:#eee;}
+.rtl .pwaItems li:after{right:60px;left:0;}
