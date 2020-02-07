@@ -1,5 +1,5 @@
 <?php
-namespace content_domain\account;
+namespace content_domain\contact;
 
 
 class model

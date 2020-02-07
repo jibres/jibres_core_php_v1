@@ -4,6 +4,7 @@
 {%block pageContent%}
 
 <div class="f">
+  <div class="c s12">{{block('iContact')}}</div>
   <div class="c s12">{{block('iBuyDomain')}}</div>
   <div class="c s12">{{block('iTransferDomain')}}</div>
 </div>
@@ -15,6 +16,14 @@
 {%endblock%}
 
 
+{%block iContact%}
+<a class="dcard x1" href='{{url.this}}/contact'>
+ <div class="statistic blue">
+  <div class="value"><i class="sf-vcard"></i></div>
+  <div class="label">{%trans "Domain contact"%}</div>
+ </div>
+</a>
+{%endblock%}
 
 {%block iBuyDomain%}
 <a class="dcard x1" href='{{url.this}}/buy'>

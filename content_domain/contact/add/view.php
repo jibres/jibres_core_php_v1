@@ -1,12 +1,12 @@
 <?php
-namespace content_domain\account\add;
+namespace content_domain\contact\add;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Add account"));
+		\dash\data::page_title(T_("Add contact"));
 
 		\dash\data::page_special(true);
 

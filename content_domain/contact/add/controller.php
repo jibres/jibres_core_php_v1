@@ -1,5 +1,5 @@
 <?php
-namespace content_domain\account\add;
+namespace content_domain\contact\add;
 
 
 class controller
