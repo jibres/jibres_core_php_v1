@@ -39,24 +39,52 @@ class run
 		// close cURL resource, and free up system resources
 		curl_close ($ch);
 
-		return self::response($response);
+		return $response;
 	}
 
 
-	private static function response($_response)
+	public static function result_code($_response)
 	{
-		if(!$_response)
+		if(!$_response || !is_object($_response))
 		{
 			return false;
 		}
 
-		$json = new \SimpleXMLElement($_response);
+		if(isset($_response->response->result))
+		{
+			foreach ($_response->response->result->attributes() as $key => $value)
+			{
+				if($key === 'code')
+				{
+					$value = (array) $value;
+					if(isset($value[0]))
+					{
+						return $value[0];
+					}
+				}
+			}
+		}
+
+		return null;
+	}
 
 
-		$result         = [];
-		$result['xml']  = $_response;
-		$result['json'] = $json;
-		return $result;
+	public static function server_id($_response)
+	{
+		if(!$_response || !is_object($_response))
+		{
+			return false;
+		}
+		if(isset($_response->response->trID->svTRID))
+		{
+			$svTRID = (array) $_response->response->trID->svTRID;
+			if(isset($svTRID[0]))
+			{
+				return $svTRID[0];
+			}
+		}
+
+		return null;
 	}
 
 

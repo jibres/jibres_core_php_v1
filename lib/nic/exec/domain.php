@@ -6,6 +6,22 @@ class domain
 {
 	public static function check($_domain)
 	{
+		$objec_result = self::get_response($_domain);
+		if(!$objec_result)
+		{
+			return false;
+		}
+
+		if(!isset($objec_result->response->resData))
+		{
+			return false;
+		}
+	}
+
+
+
+	private static function get_response($_domain)
+	{
 		$addr = root. 'lib/nic/exec/samples/domain_check.xml';
 		$xml = \dash\file::read($addr);
 
@@ -46,19 +62,20 @@ class domain
 
 		$update_after_send['dateresponse'] = date("Y-m-d H:i:s");
 
-		if(isset($response['xml']))
+		if(isset($response))
 		{
-			$update_after_send['response'] = addslashes($response['xml']);
+			$update_after_send['response'] = addslashes($response);
 		}
 
-		if(isset($response['json']['response']['result']['@attributes']['code']))
-		{
-			$update_after_send['result_code'] = $response['json']['response']['result']['@attributes']['code'];
-		}
+		$object = new \SimpleXMLElement($response);
+
+		$update_after_send['result_code'] = \lib\nic\exec\run::result_code($object);
+		$update_after_send['server_id'] = \lib\nic\exec\run::server_id($object);
+
 
 		\lib\db\nic_log\update::update($update_after_send, $log_id);
 
-
+		return $object;
 
 	}
 
