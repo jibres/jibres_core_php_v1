@@ -137,21 +137,21 @@ class intro
 			1 =>
 			[
 				'title' => T_("Jibres"),
-				'desc'  => T_("Sale and Enjoy"),
+				'desc'  => T_("Sell and Enjoy"),
 				'file'  => \dash\url::icon(),
 			],
 
 			2 =>
 			[
 				'title' => T_("Jibres"),
-				'desc'  => T_("Sale and Enjoy"),
+				'desc'  => T_("Sell and Enjoy"),
 				'file'  => \dash\url::icon(),
 			],
 
 			3 =>
 			[
 				'title' => T_("Jibres"),
-				'desc'  => T_("Sale and Enjoy"),
+				'desc'  => T_("Sell and Enjoy"),
 				'file'  => \dash\url::icon(),
 			],
 		];
