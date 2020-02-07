@@ -51,7 +51,7 @@ class device
 
 	public static function onset()
 	{
-		require_once(core.'detect/Mobile_Detect.php');
+		require_once(core.'detect/mobile_detect.php');
 		$detect = new \Mobile_Detect;
 
 		$device =
