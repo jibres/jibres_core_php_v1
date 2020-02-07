@@ -12,6 +12,24 @@ class domain
 			return false;
 		}
 
+		$result = [];
+
+		foreach ($objec_result->response->resData->xpath('domain:chkData') as $key => $value)
+		{
+			$temp = [];
+			foreach ($value->xpath('domain:cd') as $k => $v)
+			{
+				foreach ($v->xpath('domain:name') as $kk => $vv)
+				{
+					$attr = $vv->attributes();
+					$attr = (array) $attr;
+					$temp[] = $attr;
+				}
+			}
+			$result[] = $temp;
+
+		}
+
 		if(!isset($objec_result->response->resData))
 		{
 			return false;
