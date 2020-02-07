@@ -34,11 +34,11 @@ class sms
 		$sms_header = T_('Jibres');
 		if(\dash\url::tld() === 'ir')
 		{
-			$sms_footer = T_('Jibres.ir'));
+			$sms_footer = T_('Jibres.ir');
 		}
 		else
 		{
-			$sms_footer = T_('Jibres.com'));
+			$sms_footer = T_('Jibres.com');
 		}
 
 		$message = '';
