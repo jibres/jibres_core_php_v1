@@ -30,7 +30,7 @@ class device
 
 		];
 
-		// var_dump($device);
+		return $device;
 	}
 }
 ?>
