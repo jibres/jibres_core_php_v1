@@ -46,8 +46,6 @@ class view
 		\dash\data::user($user_detail);
 		\dash\data::login($user_detail);
 
-		// set detail of browser
-		\dash\data::browser(\dash\utility\browserDetection::browser_detection('full_assoc'));
 		\dash\detect\device::onset();
 		\dash\data::visitor('not ready!');
 
