@@ -46,21 +46,13 @@ class view
 		\dash\data::user($user_detail);
 		\dash\data::login($user_detail);
 
-		\dash\detect\device::onset();
+
 		\dash\data::visitor('not ready!');
+		\dash\data::runPWA(\dash\detect\device::data('mobile'));
 
 		$is_app = \dash\request::is_app();
 		\dash\data::xAppRequest($is_app);
 
-		if($is_app === 'android')
-		{
-			\dash\data::isAndroid(true);
-		}
-
-		if($is_app === 'ios')
-		{
-			\dash\data::isIos(true);
-		}
 
 		// define default value for global
 		\dash\data::global_title(null);

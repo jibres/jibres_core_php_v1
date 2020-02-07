@@ -3,6 +3,32 @@ namespace dash\detect;
 
 class device
 {
+	private static $DATA = null;
+
+	public static function data($_arg = null)
+	{
+		if(!self::$DATA)
+		{
+			self::onset();
+		}
+
+		if($_arg)
+		{
+			if(array_key_exists($_arg, self::$DATA))
+			{
+				return self::$DATA[$_arg];
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		// return all of array
+		return self::$DATA;
+	}
+
+
 	public static function onset()
 	{
 		require_once(core.'detect/Mobile_Detect.php');
@@ -30,6 +56,7 @@ class device
 
 		];
 
+		self::$DATA = $device;
 		return $device;
 	}
 }
