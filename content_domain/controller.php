@@ -10,5 +10,11 @@ class controller
 		\dash\redirect::remove_subdomain();
 
 	}
+
+
+	public static function check_login()
+	{
+		\dash\redirect::to_login();
+	}
 }
 ?>

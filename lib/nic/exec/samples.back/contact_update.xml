@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+ <command>
+  <update>
+   <contact:update xmlns:contact="http://epp.nic.ir/ns/contact-1.0">
+    <contact:id>ex61-irnic</contact:id>
+    <contact:chg>
+     <contact:postalInfo type="int">
+      <contact:addr>
+       <contact:street>123 Example st.</contact:street>
+       <contact:city>Tehran</contact:city>
+       <contact:sp>Tehran</contact:sp>
+       <contact:pc>20166-6503</contact:pc>
+       <contact:cc>IR</contact:cc>
+      </contact:addr>
+     </contact:postalInfo>
+    </contact:chg>
+    <contact:authInfo>
+     <contact:pw>JIBRES-TOKEN</contact:pw>
+    </contact:authInfo>
+   </contact:update>
+  </update>
+  <clTRID>JIBRES-TRACKING-NUMBER</clTRID>
+ </command>
+</epp>

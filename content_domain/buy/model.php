@@ -23,6 +23,8 @@ class model
 			return false;
 		}
 
+		$result = \lib\app\nic_domain\create::new_domain($post);
+
 	}
 }
 ?>

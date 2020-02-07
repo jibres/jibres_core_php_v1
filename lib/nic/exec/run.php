@@ -97,5 +97,13 @@ class run
 	{
 		return \dash\setting\nic::token();
 	}
+
+
+	public static function jibres_nic_account()
+	{
+		return \dash\setting\nic::jibres_nic_account();
+	}
+
+
 }
 ?>

@@ -51,5 +51,20 @@ class nic
 		return null;
 	}
 
+
+	public static function jibres_nic_account()
+	{
+		self::load();
+		if(isset(self::$load['jibres_nic_account']))
+		{
+			return self::$load['jibres_nic_account'];
+		}
+
+		return null;
+	}
+
+
+
+
 }
 ?>

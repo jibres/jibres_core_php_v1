@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+ <command>
+  <create>
+   <contact:create xmlns:contact="http://epp.nic.ir/ns/contact-1.0">
+    <contact:postalInfo type="int">
+     <contact:firstname>Emad</contact:firstname>
+     <contact:lastname>Xayami</contact:lastname>
+     <contact:org>Iran Example Co.</contact:org>
+     <contact:addr>
+      <contact:street>123 Example st.</contact:street>
+      <contact:city>Tehran</contact:city>
+      <contact:sp>Tehran</contact:sp>
+      <contact:pc>20166-6503</contact:pc>
+      <contact:cc>IR</contact:cc>
+     </contact:addr>
+    </contact:postalInfo>
+    <contact:voice>+982170555555</contact:voice>
+    <contact:fax>+982170555555</contact:fax>
+    <contact:ident>
+     <contact:privatereg cc="IR" sp="Tehran" issuer="Tehran" category="SabtSherkat__PrivateCompany" number="1234" number2="12345678901"/>
+    </contact:ident>
+    <contact:signature>Alireza Mohammadi</contact:signature>
+    <contact:email>info@JIBRES-SAMPLE-DOMAIN.IR</contact:email>
+    <contact:authInfo>
+     <contact:pw>JIBRES-TOKEN</contact:pw>
+    </contact:authInfo>
+   </contact:create>
+  </create>
+  <clTRID>JIBRES-TRACKING-NUMBER</clTRID>
+ </command>
+</epp>
