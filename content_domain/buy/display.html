@@ -1,0 +1,58 @@
+{%extends display.jibresControlLayout%}
+
+
+{%block pageContent%}
+
+<div class="cbox">
+	{{block('iDomainWhois')}}
+</div>
+
+{%endblock%}
+
+
+
+
+{%block iTransferDomain%}
+<a class="dcard x1" href='{{url.this}}/transfer'>
+ <div class="statistic green">
+  <div class="value"><i class="sf-exchange"></i></div>
+  <div class="label">{%trans "Transfer domain"%}</div>
+ </div>
+</a>
+{%endblock%}
+
+
+
+{%block iDomainWhois%}
+<form method="post" autocomplete="off" class="mB20">
+	<div class="input ltr">
+		<input type="text" name="domain" placeholder='{%trans "Domain"%}' value="{{myDomain}}">
+		<button class="btn addon success">{%trans "Check domain"%}</button>
+	</div>
+</form>
+
+
+{%if domainError%}
+<div class="msg danger">{{domainError}}</div>
+{%endif%}
+
+{%if checkResult%}
+
+	{%if checkResult.available%}
+	<div class="msg success2">{%trans "Domain is available"%}
+		<span class="floatL">
+			<a class="btn success" href="{{url.here}}/buy/{{url.module}}">{%trans "Buy"%}</a>
+		</span>
+	</div>
+	{%else%}
+	<div class="msg warn2">{%trans "Domain is occupied"%}
+		<span class="floatL">
+			<a class="btn warn" target="_blank" href="{{url.kingdom}}/whois/{{url.module}}">{%trans "Whois"%}</a>
+		</span>
+	</div>
+	{%endif%}
+
+{%endif%}
+{%endblock%}
+
+
