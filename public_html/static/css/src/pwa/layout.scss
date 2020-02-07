@@ -3,7 +3,7 @@
 .pwa h1{font-size:32px;line-height:2;margin-top:20px;margin-bottom:10px;font-weight:900;}
 .pwa h2{font-size:20px;line-height:2;margin-top:20px;margin-bottom:10px;font-weight:800;}
 .pwa h3{font-size:20px;line-height:2;margin-top:20px;margin-bottom:10px;font-weight:700;color:#777;}
-.pwa h4{font-size:18px;line-height:2;margin-top:20px;margin-bottom:10px;font-weight:700;color:#aaa;padding: 0 15px;}
+.pwa h4{font-size:18px;line-height:2;margin-top:20px;margin-bottom:10px;font-weight:700;color:#aaa;}
 
 .pwa br{line-height: 20px;}
 
@@ -14,7 +14,8 @@
 .pwa.zeroSide h3{padding: 0 20px;}
 .pwa.zeroSide h4{padding: 0 20px;}
 
-.pwa .meta{color: #7f7e84;font-size: 12px;line-height: 20px;}
+.pwa .meta{color: #7f7e84;font-size: 14px;line-height: 1.5;}
+.pwa.zeroSide .meta{padding: 0 20px;}
 .pwa br{display:block;content:"";height:25px;vertical-align:top;}
 
 

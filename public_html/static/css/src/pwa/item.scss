@@ -15,5 +15,7 @@
 .rtl .pwaItems li:after{right:20px;left:0;}
 
 
-.pwaText{background-color: #fff;border-radius:$pwaRadius;font-size:18px;line-height:1.5;padding:30px 20px;overflow: hidden;margin-top:10px;margin-bottom:40px;}
+.pwaText{background-color: #fff;border-radius:$pwaRadius;font-size:18px;line-height:1.6;padding:30px 20px;overflow: hidden;margin-top:10px;margin-bottom:10px;}
 .pwaText p{line-height: 1.6;}
+.rtl .pwaText{font-size:16px;line-height: 2;}
+.rtl .pwaText p{line-height: 2;}
