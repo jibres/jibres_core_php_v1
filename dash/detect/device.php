@@ -29,6 +29,27 @@ class device
 	}
 
 
+	public static function detectPWA()
+	{
+
+		$device = self::data();
+		if($device['mobile'])
+		{
+			if($device['ios'])
+			{
+				return 'ios';
+			}
+			else if($device['android'])
+			{
+				return 'android';
+			}
+			return true;
+		}
+
+		return false;
+	}
+
+
 	public static function onset()
 	{
 		require_once(core.'detect/Mobile_Detect.php');

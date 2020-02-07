@@ -48,7 +48,7 @@ class view
 
 
 		\dash\data::visitor('not ready!');
-		\dash\data::runPWA(\dash\detect\device::data('mobile'));
+		\dash\data::runPWA(\dash\detect\device::detectPWA());
 
 		$is_app = \dash\request::is_app();
 		\dash\data::xAppRequest($is_app);
