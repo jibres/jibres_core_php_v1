@@ -46,6 +46,14 @@ class controller
 	// for routing check
 	public static function routing()
 	{
+		if(\dash\user::id())
+		{
+			if(\dash\detect\device::detectPWA())
+			{
+				\dash\redirect::to(\dash\url::kingdom(). '/dashboard');
+			}
+		}
+
 		// if on homepage return false
 		$url = \dash\url::directory();
 		if(!$url)
@@ -57,6 +65,7 @@ class controller
 		{
 			return;
 		}
+
 	}
 }
 ?>
