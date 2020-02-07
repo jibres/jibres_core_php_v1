@@ -20,9 +20,12 @@ class view
 			\dash\data::codeSendMsg(T_('Send ":code" to :num',
 				[
 					'code' => \dash\data::codeSend(),
-					'num' => '<b><code>'. \dash\data::codeSendNum(). '</code></b>'
+					'num'  => '<b><code>'. \dash\data::codeSendNum(). '</code></b>'
 				]
 				));
+
+			$send = '<a class="btn" href="sms://'. \dash\data::codeSendNum(). ';?&body='.\dash\data::codeSend(). '">'. T_('Press here to send'). '</a>';
+			\dash\data::codeSendSMS($send);
 		}
 	}
 }
