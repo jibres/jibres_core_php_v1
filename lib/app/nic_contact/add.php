@@ -69,6 +69,13 @@ class add
 			'status'      => 'enable',
 		];
 
+		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $id);
+		if($check_duplicate)
+		{
+			\dash\notif::error(T_("This contact already added to your contact list"));
+			return false;
+		}
+
 		$contact = \lib\db\nic_contact\insert::new_record($insert);
 		if($contact)
 		{

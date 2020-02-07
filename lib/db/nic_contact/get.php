@@ -10,5 +10,13 @@ class get
 		$result = \dash\db::get($query, null, false, 'nic');
 		return $result;
 	}
+
+
+	public static function check_duplicate($_user_id, $_nic_id)
+	{
+		$query  = "SELECT * FROM contact WHERE contact.user_id = $_user_id AND contact.nic_id = '$_nic_id' LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
 }
 ?>
