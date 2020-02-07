@@ -138,6 +138,7 @@ Version       1.0.0
 
 // add pwa style
 @import 'pwa/pwa_var';
+@import 'pwa/app';
 @import 'pwa/layout';
 @import 'pwa/item';
 @import 'pwa/footer';
@@ -154,7 +155,6 @@ Version       1.0.0
 @import 'responsive/mobile';
 @import 'responsive/dev';
 @import 'responsive/print';
-@import 'responsive/app';
 @import 'responsive/standalone';
 
 // add shame style temporary

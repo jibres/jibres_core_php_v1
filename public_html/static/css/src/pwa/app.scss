@@ -1,0 +1,11 @@
+
+// design for apps in enter
+[data-pwa] .enter #enter{margin-bottom:10px;}
+[data-pwa] .siftal #sidebar{display:none}
+[data-pwa] .siftal .dashHead{display:none}
+[data-pwa] .siftal #main{margin:0!important}
+[data-pwa] #xaccess{display:none}
+[data-pwa] .tbox .breadcrumb{display:none}
+
+[data-pwa]{@include select-none();}
+

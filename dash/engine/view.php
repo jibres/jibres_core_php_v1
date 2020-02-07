@@ -46,13 +46,9 @@ class view
 		\dash\data::user($user_detail);
 		\dash\data::login($user_detail);
 
-
 		\dash\data::visitor('not ready!');
+		// check run progressive web app or not
 		\dash\data::runPWA(\dash\detect\device::detectPWA());
-
-		$is_app = \dash\request::is_app();
-		\dash\data::xAppRequest($is_app);
-
 
 		// define default value for global
 		\dash\data::global_title(null);

@@ -31,7 +31,6 @@ class device
 
 	public static function detectPWA()
 	{
-
 		$device = self::data();
 		if($device['mobile'])
 		{
