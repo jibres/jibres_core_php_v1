@@ -1,0 +1,14 @@
+User-Agent: *
+Disallow: /cgi-bin/
+Disallow: /static/
+Disallow: /enter/
+Disallow: /account/
+Disallow: /a/
+Disallow: /cp/
+Disallow: /su/
+Disallow: /crm/
+Disallow: /cms/
+Disallow: /tmp/
+Disallow: /*.txt$
+
+Sitemap: /sitemap.xml
