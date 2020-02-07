@@ -34,3 +34,29 @@ CREATE TABLE IF NOT EXISTS `log` (
 PRIMARY KEY (`id`),
 KEY `log_index_search_type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE DATABASE IF NOT EXISTS `jibres_nic` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+USE `jibres_nic`;
+
+CREATE TABLE IF NOT EXISTS `contact` (
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+`user_id` int(10) UNSIGNED NULL,
+`nic_id` varchar(100) NULL DEFAULT NULL,
+`roid` varchar(100) NULL DEFAULT NULL,
+`holder` bit(1) NULL DEFAULT NULL,
+`admin` bit(1) NULL DEFAULT NULL,
+`tech` bit(1) NULL DEFAULT NULL,
+`bill` bit(1) NULL DEFAULT NULL,
+`email` varchar(200) NULL DEFAULT NULL,
+`isdefault` bit(1) NULL DEFAULT NULL,
+`datecreated` timestamp NULL DEFAULT NULL,
+`status` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `contact_index_search_nic_id` (`nic_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
