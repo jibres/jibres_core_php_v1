@@ -14,6 +14,9 @@ class view
 		// btn
 		\dash\data::page_btnText(T_('Add contact'));
 		\dash\data::page_btnLink(\dash\url::this(). '/add');
+
+		$list = \lib\app\nic_contact\search::my_list();
+		\dash\data::dataTable($list);
 	}
 }
 ?>

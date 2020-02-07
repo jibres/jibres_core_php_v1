@@ -7,7 +7,7 @@
 {%endblock%}
 
 {%block myAccountList%}
-
+{%if dataTable%}
 <div class="tblBox">
 	<table class="tbl1 v4">
 		<thead>
@@ -18,15 +18,18 @@
 			</tr>
 		</thead>
 		<tbody>
-			{%for i in 1..10%}
+			{%for key, value in dataTable%}
 			<tr>
-				<td><code>ji128{{i}}-irnic</code></td>
+				<td><code>{{value.nic_id}}</code></td>
 				<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage contact"%}</a></td>
 			</tr>
 			{%endfor%}
 		</tbody>
 	</table>
 </div>
+{%else%}
+<div class="msg">{%trans "No contact founded"%}</div>
+{%endif%}
 
 {%endblock%}
 
