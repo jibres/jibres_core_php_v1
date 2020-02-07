@@ -14,7 +14,7 @@
   {%endif%}
 
   {%if not siteMapFile.sitemap and not siteMapFile.base%}
-   <a class="btn txtC xl success" href="{{url.this}}?run=yes">{%trans "Create sitemap now!"%} </a>
+   <div class="btn txtC xl success" data-confirm data-data='{"run" : "yes"}'>{%trans "Create sitemap now!"%} </div>
   {%else%}
    <div data-confirm data-data='{"run" : "yes"}' class="btn floatRa secondary" >{%trans "Create it Again"%}</div>
   {%endif%}
