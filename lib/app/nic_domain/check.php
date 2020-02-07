@@ -15,5 +15,17 @@ class check
 		return true;
 
 	}
+
+	public static function check($_domain)
+	{
+		if(!\lib\app\nic_domain\check::syntax($_domain))
+		{
+			return false;
+		}
+
+		$result = \lib\nic\exec\domain::check($_domain);
+
+
+	}
 }
 ?>

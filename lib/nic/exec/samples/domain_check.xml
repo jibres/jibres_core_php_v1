@@ -4,8 +4,6 @@
   <check>
    <domain:check xmlns:domain="http://epp.nic.ir/ns/domain-1.0">
     <domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>
-    <domain:name>example.net.ir</domain:name>
-    <domain:name>مثال.ایران</domain:name>
     <domain:authInfo>
      <domain:pw>JIBRES-TOKEN</domain:pw>
     </domain:authInfo>

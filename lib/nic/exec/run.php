@@ -33,19 +33,32 @@ class run
 
 		if($response === false)	{
 			// echo Errors
-			echo 'Curl error: ' . curl_error($ch);
+			\dash\notif::error(curl_error($ch));
+			return false;
 		}
 		// close cURL resource, and free up system resources
 		curl_close ($ch);
 
-
 		return self::response($response);
 	}
 
+
 	private static function response($_response)
 	{
-		return $_response;
+		if(!$_response)
+		{
+			return false;
+		}
+
+		$json = new \SimpleXMLElement($_response);
+
+
+		$result         = [];
+		$result['xml']  = $_response;
+		$result['json'] = $json;
+		return $result;
 	}
+
 
 	private static function curl_token()
 	{

@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `log` (
 `dateresponse` timestamp NULL DEFAULT NULL,
 `nic_id` varchar(100) DEFAULT NULL,
 `server_id` varchar(100) DEFAULT NULL,
+`client_id` varchar(100) DEFAULT NULL,
 `result_code` varchar(100) DEFAULT NULL,
 `result` text CHARACTER SET utf8mb4 DEFAULT NULL,
 `request_count` smallint(5) DEFAULT NULL,

@@ -12,5 +12,18 @@ class update
 		$result = \dash\db::query($query, 'nic_log');
 		return $result;
 	}
+
+	public static function update($_args, $_log_id)
+	{
+		$set = \dash\db\config::make_set($_args);
+		if(!$set)
+		{
+			return false;
+		}
+
+		$query  = "UPDATE log SET $set WHERE log.id = $_log_id LIMIT 1";
+		$result = \dash\db::query($query, 'nic_log');
+		return $result;
+	}
 }
 ?>
