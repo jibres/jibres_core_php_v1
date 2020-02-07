@@ -91,7 +91,7 @@
 
 {%block enumberSend%}
    <div class='flex fix' id='enumberSend'>
-    <label for='ErmileMobileNumber'>SMS</label>
+    <label for='ErmileMobileNumber'><a href="sms://{{codeSendNumSMS}};?&body={{codeSend}}">SMS </a></label>
     <input id='ErmileMobileNumber' name="ErmileMobileNumber" type='tel' readonly placeholder='{%trans "send to this number"%}' title='{%trans "Send code to this number!"%}' value="{{codeSendNum}}">
    </div>
 {%endblock%}
