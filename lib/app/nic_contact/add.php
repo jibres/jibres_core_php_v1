@@ -14,7 +14,15 @@ class add
 		}
 
 		$result = \lib\nic\exec\contact::check($_old_contact);
-		j($result);
+		if(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '1')
+		{
+			j($result);
+		}
+		else
+		{
+			\dash\notif::error(T_("Contact is not available"), 'oldcontact');
+			return false;
+		}
 
 	}
 }
