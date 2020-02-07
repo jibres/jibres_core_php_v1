@@ -17,10 +17,6 @@
  <meta name     ="twitter:url"             content="{{url.pwd}}"/>
  <meta name     ="twitter:image"           content="{{page.cover}}"/>
 {%endblock%}
-{%if browser.ua_type == 'mobile' and options.tabColor.value%}
- <!-- Chrome, Firefox OS and Opera -->
- <meta name="theme-color" content="#{{options.tabColor.value}}">
-{%endif%}
 {%block facebook%}
  <meta property ="og:title"                content="{{global.title}}"/>
  <meta property ="og:description"          content="{{page.desc | raw}}"/>
