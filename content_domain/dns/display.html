@@ -1,0 +1,52 @@
+{%extends display.jibresControlLayout%}
+
+{%block pageContent%}
+<div class="fs12">
+	{{block('myAccountList')}}
+</div>
+{%endblock%}
+
+{%block myAccountList%}
+{%if dataTable%}
+<div class="tblBox">
+	<table class="tbl1 v4">
+		<thead>
+			<tr>
+				<th class="collapsing">#</th>
+				<th>{%trans "Account"%}</th>
+				<th>{%trans "Permission"%}</th>
+				<th class="s0">{%trans "Date"%}</th>
+
+				{%if false%}<th class="collapsing">{%trans "Action"%}</th>{%endif%}
+			</tr>
+		</thead>
+		<tbody>
+			{%for key, value in dataTable%}
+			<tr>
+				<td class="collapsing">{{(key + 1) | fitNumber}}</td>
+				<td><code>{{value.nic_id}}</code></td>
+				<td>
+
+					<span class="badge light">{%trans "Holder" %} {%if value.holder%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
+					<span class="badge light">{%trans "Admin" %} {%if value.admin%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
+					<span class="badge light">{%trans "Technical" %} {%if value.tech%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
+					<span class="badge light">{%trans "billing" %} {%if value.bill%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
+				</td>
+				<td class="s0">
+					{{value.datecreated |dt}}
+				</td>
+				{%if false%}<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage dns"%}</a></td>{%endif%}
+			</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+</div>
+{%else%}
+<div class="msg info2">{%trans "No dns founded"%}
+	<br>
+	<a href="{{url.this}}/add">{%trans "Try to add new dns!"%}</a>
+</div>
+{%endif%}
+
+{%endblock%}
+

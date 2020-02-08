@@ -7,6 +7,7 @@
   <div class="c s12">{{block('iContact')}}</div>
   <div class="c s12">{{block('iBuyDomain')}}</div>
   <div class="c s12">{{block('iTransferDomain')}}</div>
+  <div class="c s12">{{block('iDnsList')}}</div>
 </div>
 <div class="cbox">
 	{{block('iDomainWhois')}}
@@ -15,6 +16,14 @@
 
 {%endblock%}
 
+{%block iDnsList%}
+<a class="dcard x1" href='{{url.this}}/dns'>
+ <div class="statistic blue">
+  <div class="value"><i class="sf-internet"></i></div>
+  <div class="label">{%trans "DNS list"%}</div>
+ </div>
+</a>
+{%endblock%}
 
 {%block iContact%}
 <a class="dcard x1" href='{{url.this}}/contact'>

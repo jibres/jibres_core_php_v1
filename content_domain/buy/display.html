@@ -6,7 +6,7 @@
 	<div class="c6 m8 s12">
 		<div class="cbox">
 		{%if myDomain%}
-		<div class="msg txtC txtB">
+		<div class="msg success2 txtC txtB">
 			{{myDomain}}
 		</div>
 		{%endif%}
@@ -39,10 +39,14 @@
 
 {%block buyForm%}
 <form method="post" autocomplete="off">
-	<label for="irnic">{%trans "IRNIC account"%} <small><a href="{{url.here}}/nic/account">{%trans "Create new nic account"%}</a></small></label>
-	<div class="input">
-		<input type="text" name="irnic" id="irnic" maxlength="50">
-	</div>
+	<label for="irnic">{%trans "IRNIC contact"%} <small><a href="{{url.here}}/contact/add">{%trans "Create new IRNIC contact"%}</a></small></label>
+
+	  <select name="irnicid" class="select ui dropdown search addition" id="irnicid">
+	    <option value="">{%trans "IRNIC contact id"%}</option>
+	    {%for key, value in myContactList%}
+	      <option value="{{value.nic_id}}">{{value.nic_id}}</option>
+	    {%endfor%}
+	  </select>
 
 	<div class="f mB10">
       <div class="c pRa5">
