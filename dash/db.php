@@ -79,7 +79,7 @@ class db
 		$qry_exec_time = microtime(true) - $qry_exec_time;
 
 		// if debug mod is true save all string query
-		if(\dash\engine\error::debug_mode())
+		if(\dash\engine\error::debug_mode() && !\dash\temp::get('force_stop_query_log'))
 		{
 			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time);
 		}

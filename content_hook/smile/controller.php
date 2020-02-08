@@ -8,6 +8,7 @@ class controller
 	public static function routing()
 	{
 		\dash\temp::set('force_stop_visitor', true);
+		\dash\temp::set('force_stop_query_log', true);
 
 
 		$myResult  = [];
