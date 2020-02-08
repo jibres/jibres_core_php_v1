@@ -47,7 +47,7 @@
 
 
 {%block iDomainWhois%}
-<form method="post" autocomplete="off" class="mB20">
+<form method="post" autocomplete="off" class="mB20" action="{{url.here}}">
 	<div class="input ltr">
 		<input type="text" name="domain" placeholder='{%trans "Domain"%}' value="{{myDomain}}">
 		<button class="btn addon success">{%trans "Check domain"%}</button>
