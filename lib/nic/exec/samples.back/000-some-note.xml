@@ -1,0 +1,112 @@
+<info>account infor request </info>
+<contact:id> irnic id or email</contact:id>
+<contact:roid> irnic roid </contact:roid>
+<contact:status s="linked"> status</contact:status>
+<contact:status s="irnicApproved"> status</contact:status>
+<contact:status s="serverUpdateProhibited"> status</contact:status>
+<contact:status s="ok"> status</contact:status>
+
+
+<contact:postalInfo type="init" >
+	<contact:firstname > firstname</contact:firstname>
+	<contact:lastname > lastname</contact:lastname>
+		<contact:addr>
+			<contact:street > street</contact:street>
+			<contact:city > city</contact:city>
+			<contact:cc > country</contact:cc>
+			<contact:sp > province</contact:sp>
+			<contact:pc > postal code</contact:pc>
+		</contact:addr>
+</contact:postalInfo>
+	<contact:voice > phone</contact:voice>
+	<contact:fax > fax</contact:fax>
+
+
+<contact:ident >
+	<contact:org > org</contact:org>
+	<contact:email > email</contact:email>
+	<contact:crDate > date created</contact:crDate>
+	<contact:idCard cc="IR"> country personal user</contact:idCard>
+	<contact:passport cc="EN"> country personal user</contact:passport>
+	<contact:privateReg cc="EN" sp="Provice" issuer="vahede sabt konnande" category="typ of company"> non goverment company</contact:privateReg>
+	<contact:govId cc="EN" sp="Provice" issuer="vahede sabt konnande" category="typ of company"> goverment company</contact:govId>
+	<contact:eduId cc="EN" sp="Provice" issuer="vahede sabt konnande" category="typ of company"> goverment company</contact:eduId>
+</contact:ident>
+
+<!-- *////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<personal:account type="to createaccount something is requred">
+	<required>firstname</required>
+	<required>lastname</required>
+	<required>nationalcode | passport code</required>
+	<required>email</required>
+	<required>country</required>
+	<required>province</required>
+	<required>city</required>
+	<required>address</required>
+	<required>postcode</required>
+	<required>phone</required>
+	<required>signator</required>
+	<tld>.ir</tld>
+	<tld>.ایران</tld>
+	<tld>.id.ir</tld>
+</personal:account>
+
+
+<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<epp xmlns=\"urn:ietf:params:xml:ns:epp-1.0\" xmlns:contact=\"http://epp.nic.ir/ns/contact-1.0\">
+  <response xmlns:contact=\"http://epp.nic.ir/ns/contact-1.0\">
+  <result code=\"1000\">
+  <msg>Command completed successfully</msg>
+  </result>
+  <resData xmlns:contact=\"http://epp.nic.ir/ns/contact-1.0\">
+  <contact:creData xmlns:contact=\"http://epp.nic.ir/ns/contact-1.0\">
+    <contact:id>rm52-irnic</contact:id>
+    <contact:crDate>2020-02-08T11:31:38</contact:crDate>
+  </contact:creData>
+  </resData>
+  <trID>
+  <clTRID>TEST-JIBRES-LOCAL-CREATE-909</clTRID>
+  <svTRID>IRNIC_2020-02-08T11:31:38+03:30_i2p</svTRID>
+  </trID>
+  </response>
+</epp>
+<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<epp xmlns=\"urn:ietf:params:xml:ns:epp-1.0\" xmlns:contact=\"http://epp.nic.ir/ns/contact-1.0\">
+  <response xmlns:contact=\"http://epp.nic.ir/ns/contact-1.0\">
+  <result code=\"1000\">
+  <msg>Command completed successfully</msg>
+  </result>
+  <resData xmlns:contact=\"http://epp.nic.ir/ns/contact-1.0\">
+  <contact:infData xmlns:contact=\"http://epp.nic.ir/ns/contact-1.0\">
+    <contact:id>rm52-irnic</contact:id>
+    <contact:roid>rm52-irnic</contact:roid>
+    <contact:status s=\"ok\"/>
+    <contact:position type=\"holder\" allowed=\"1\"/>
+    <contact:position type=\"admin\" allowed=\"1\"/>
+    <contact:position type=\"tech\" allowed=\"1\"/>
+    <contact:position type=\"bill\" allowed=\"1\"/>
+    <contact:postalInfo type=\"int\">
+    <contact:org/>
+    <contact:addr>
+    <contact:street>St mahallaty. number 288</contact:street>
+    <contact:city>Qom</contact:city>
+    <contact:sp>Qom</contact:sp>
+    <contact:pc>4564555887</contact:pc>
+    <contact:cc>IR</contact:cc>
+    </contact:addr>
+    </contact:postalInfo>
+    <contact:voice>989109610612</contact:voice>
+    <contact:ident>
+    <contact:idcard cc=\"IR\"/>
+    </contact:ident>
+    <contact:signature>Reza Mohiti</contact:signature>
+    <contact:email>info@dddsssff.com</contact:email>
+    <contact:crDate>2020-02-08T11:31:38</contact:crDate>
+  </contact:infData>
+  </resData>
+  <trID>
+  <clTRID>TEST-JIBRES-LOCAL-INFO-912</clTRID>
+  <svTRID>IRNIC_2020-02-08T11:38:38+03:30_vep</svTRID>
+  </trID>
+  </response>
+</epp>
