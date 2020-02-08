@@ -65,24 +65,32 @@ div{
 }
 span{
   outline: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+  box-sizing: inherit;
 }
 span:focus{
   outline: none;
 }
 
-body ::-webkit-selection {
-  background-color: #cce0ff;
-  color: rgba(0,0,0,.87)
-}
+// body ::-webkit-selection {
+//   background-color: #cce0ff;
+//   color: rgba(0,0,0,.87)
+// }
 
-body ::-moz-selection {
-  background-color: #cce0ff;
-  color: rgba(0,0,0,.87)
-}
+// body ::-moz-selection {
+//   background-color: #cce0ff;
+//   color: rgba(0,0,0,.87)
+// }
 
-body ::selection {
-  background-color: #cce0ff;
-  color: rgba(0,0,0,.87)
-}
+// body ::selection {
+//   background-color: #cce0ff;
+//   color: rgba(0,0,0,.87)
+// }
 
 

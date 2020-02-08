@@ -1,4 +1,4 @@
-span, object, iframe, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, time, mark, audio, video{
+object, iframe, blockquote, pre, abbr, address, cite, code, del, dfn, em, ins, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, time, mark, audio, video{
   margin: 0;
   padding: 0;
   border: 0;
@@ -9,7 +9,7 @@ span, object, iframe, blockquote, pre, abbr, address, cite, code, del, dfn, em, 
   box-sizing: inherit;
 }
 
-main, article, aside, figure, figcaption, footer, header, nav, section, details, menu, summary {
+article, aside, figure, figcaption, nav, section, details, menu, summary {
   display: block;
   margin: 0;
   padding: 0;
@@ -76,6 +76,47 @@ img {
   max-height: 100%;
   height:auto;
   margin:0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+
+main{
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+  box-sizing: inherit;
+}
+header{
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+  box-sizing: inherit;
+}
+footer{
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+  box-sizing: inherit;
 }
 
 /*
