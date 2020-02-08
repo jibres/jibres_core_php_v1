@@ -36,27 +36,118 @@ class contact_create
 			return false;
 		}
 
-		if(!$objec_result->response->resData->xpath('contact:creData'))
+		if(!$objec_result->response->resData->xpath('contact:infData'))
 		{
 			return false;
 		}
 
-		foreach ($objec_result->response->resData->xpath('contact:creData') as  $contactcreData)
+		foreach ($objec_result->response->resData->xpath('contact:infData') as  $contactinfData)
 		{
 			$temp  = [];
 			$myKey = null;
 
-			foreach ($contactcreData->xpath('contact:id') as $contactid)
+			foreach ($contactinfData->xpath('contact:id') as $contactid)
 			{
 				$myKey = $contactid->__toString();
 				$temp[$myKey]['id']   = $myKey;
 			}
 
-			foreach ($contactcreData->xpath('contact:crDate') as $contactcrDate)
+
+			foreach ($contactinfData->xpath('contact:roid') as $contactroid)
 			{
-				$temp[$myKey]['date_created']   = $contactcrDate->__toString();
+				$temp[$myKey]['roid']   = $contactroid->__toString();
 			}
 
+			foreach ($contactinfData->xpath('contact:voice') as $contactvoice)
+			{
+				$temp[$myKey]['mobile']   = $contactvoice->__toString();
+			}
+
+			foreach ($contactinfData->xpath('contact:signature') as $contactsignature)
+			{
+				$temp[$myKey]['signature']   = $contactsignature->__toString();
+			}
+
+			foreach ($contactinfData->xpath('contact:email') as $contactemail)
+			{
+				$temp[$myKey]['email']   = $contactemail->__toString();
+			}
+
+			foreach ($contactinfData->xpath('contact:crDate') as $contactcrDate)
+			{
+				$temp[$myKey]['datecreated']   = $contactcrDate->__toString();
+			}
+
+
+			foreach ($contactinfData->xpath('contact:status') as $contactstatus)
+			{
+				$attr             = $contactstatus->attributes();
+				$attr             = (array) $attr;
+
+				if(isset($attr['@attributes']))
+				{
+					$attr = $attr['@attributes'];
+				}
+
+				if(isset($attr['s']))
+				{
+					$temp[$myKey]['status'][]   = $attr['s'];
+				}
+
+			}
+
+			foreach ($contactinfData->xpath('contact:position') as $contactposition)
+			{
+				$attr             = $contactposition->attributes();
+				$attr             = (array) $attr;
+
+				if(isset($attr['@attributes']))
+				{
+					$attr = $attr['@attributes'];
+				}
+
+				if(isset($attr['type']) && isset($attr['allowed']))
+				{
+					$temp[$myKey][$attr['type']] = $attr['allowed'];
+				}
+			}
+
+			foreach ($contactinfData->xpath('contact:postalInfo') as $contactpostalInfo)
+			{
+
+				foreach ($contactpostalInfo->xpath('contact:org') as $contactorg)
+				{
+					$temp[$myKey]['company']   = $contactorg->__toString();
+				}
+
+				foreach ($contactpostalInfo->xpath('contact:addr') as $contactaddr)
+				{
+					foreach ($contactaddr->xpath('contact:street') as $contactstreet)
+					{
+						$temp[$myKey]['address']   = $contactstreet->__toString();
+					}
+
+					foreach ($contactaddr->xpath('contact:city') as $contactcity)
+					{
+						$temp[$myKey]['city']   = $contactcity->__toString();
+					}
+
+					foreach ($contactaddr->xpath('contact:sp') as $contactsp)
+					{
+						$temp[$myKey]['province']   = $contactsp->__toString();
+					}
+
+					foreach ($contactaddr->xpath('contact:pc') as $contactpc)
+					{
+						$temp[$myKey]['postalcode']   = $contactpc->__toString();
+					}
+
+					foreach ($contactaddr->xpath('contact:cc') as $contactcc)
+					{
+						$temp[$myKey]['country']   = $contactcc->__toString();
+					}
+				}
+			}
 
 			$result = $temp;
 		}
@@ -134,13 +225,25 @@ class contact_create
 			$update_after_send['response'] = addslashes($response);
 		}
 
+		if(!$response)
+		{
+			\dash\notif::error(T_("IRNIC server is not available at this time"));
+			return false;
+		}
+
 		$object = new \SimpleXMLElement($response);
 
-		$update_after_send['result_code'] = \lib\nic\exec\run::result_code($object);
-		$update_after_send['server_id'] = \lib\nic\exec\run::server_id($object);
+		$result_code = \lib\nic\exec\run::result_code($object);
 
+		$update_after_send['result_code'] = $result_code;
+		$update_after_send['server_id']   = \lib\nic\exec\run::server_id($object);
 
 		\lib\db\nic_log\update::update($update_after_send, $log_id);
+
+		if($result_code != 1000)
+		{
+			\dash\notif::error(\lib\nic\exec\run::code_msg($result_code));
+		}
 
 		return $object;
 

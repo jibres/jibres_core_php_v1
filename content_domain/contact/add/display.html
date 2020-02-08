@@ -7,9 +7,9 @@
 		<div class="cbox">
 			<h3>{%trans "Add an existing account"%}</h3>
 			<form method="post" autocomplete="off">
-				<label for="oldcontact">{%trans "Account id"%}</label>
+				<label for="ioldcontact">{%trans "Account id"%}</label>
 				<div class="input ltr">
-					<input type="text" name="oldcontact">
+					<input type="text" name="oldcontact" id="ioldcontact">
 				</div>
 
 				<div class="txtRa">
@@ -23,15 +23,15 @@
 			<form method="post" autocomplete="off">
 				<div class="f">
 					<div class="c6 s12">
-						<label for="ifirstname">{%trans "Firstname"%}</label>
-						<div class="input">
+						<label for="ifirstname">{%trans "Firstname"%} <small class="fc-mute">{%trans "Enter in Latin characters"%}</small></label>
+						<div class="input ltr">
 							<input type="text" name="firstname" id="ifirstname" maxlength="100">
 						</div>
 					</div>
 					<div class="c6 s12">
 						<div class="mLa5">
-							<label for="ilastname">{%trans "Lastname"%}</label>
-							<div class="input">
+							<label for="ilastname">{%trans "Lastname"%} <small class="fc-mute">{%trans "Enter in Latin characters"%}</small></label>
+							<div class="input ltr">
 								<input type="text" name="lastname" id="ilastname" maxlength="100">
 							</div>
 						</div>
@@ -77,7 +77,7 @@
 
 				<div class="check1">
 			      <input type="checkbox" name="agree" id="agree">
-			      <label for="agree">{%trans "I agree the privacy terms"%} <small><a href="{{url.kingdom}}/support/nic/privacy">{%trans "Show privacy"%}</a></small></label>
+			      <label for="agree">{%trans "I have read and agree to the terms and conditions"%} <small><a target="_blank" href="{{url.kingdom}}/support/nic/privacy">{%trans "Show terms"%}</a></small></label>
 			    </div>
 
 
@@ -95,10 +95,10 @@
 {%block iCountry%}
 <div class="mB10">
   <label for='country'>{%trans "Country"%}</label>
-  <select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='{{dataRow.province}}'>
+  <select class="select22" name="country" id="country" data-model='country' data-next='#province' >
     <option value="">{%trans "Choose your country"%}</option>
 {%for key, value in countryList%}
-      <option value="{{key}}" {%if dataRow.country == key%} selected {%endif%}>{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}</option>
+      <option value="{{key}}" >{%set myCountry = value.name | capitalize%}{{myCountry}}{%if lang.current != 'en'%} - {%trans myCountry%}{%endif%}</option>
 {%endfor%}
   </select>
 </div>
@@ -108,9 +108,9 @@
 {%block iProvince%}
 <div class="mB10" data-status='hide'>
   <label for='province'>{%trans "Province"%}</label>
-  <select name="province" id="province" class="select22" data-next='#city' data-next-default='{{dataRow.city}}'>
+  <select name="province" id="province" class="select22" data-next='#city' >
     <option value="0">{%trans "Please choose country"%}</option>
-    <option selected>{{dataRow.province}}</option>
+
   </select>
 </div>
 {%endblock%}
@@ -144,7 +144,7 @@
 
 {%block iAddress%}
 <label for="address">{%trans "Address"%}</label>
-<textarea class="txt mB10 pB25" name="address" id="address" maxlength='300' rows="2">{{dataRow.address}}</textarea>
+<textarea class="txt mB10" name="address" id="address" maxlength='300' rows="2"></textarea>
 {%endblock%}
 
 

@@ -134,15 +134,15 @@ class add
 		// }
 
 
-		$firstname    = 'Reza';
-		$lastname     = 'Mohiti';
-		$nationalcode = '2754854460';
-		$email        = 'info@dddsssff.com';
-		$country      = 'IR';
-		$province     = 'Qom';
-		$city         = 'Qom';
-		$postcode     = '4564555887';
-		$address      = 'St mahallaty. number 288';
+		// $firstname    = 'Reza';
+		// $lastname     = 'Mohiti';
+		// $nationalcode = '2754854460';
+		// $email        = 'info@dddsssff.com';
+		// $country      = 'IR';
+		// $province     = 'Qom';
+		// $city         = 'Qom';
+		// $postcode     = '4564555887';
+		// $address      = 'St mahallaty. number 288';
 
 
 		$ready =
@@ -163,6 +163,13 @@ class add
 
 
 		$result = \lib\nic\exec\contact_create::create($ready);
+
+		j($result);
+
+		if(isset($result['nic_id']))
+		{
+
+		}
 
 		if(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '1')
 		{
