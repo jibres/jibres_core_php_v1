@@ -1,1 +1,0 @@
-ALTER TABLE `jibres_XXXXXXX`.`setting` CHANGE `platform` `platform` enum('android', 'ios', 'telegram', 'website') DEFAULT NULL;

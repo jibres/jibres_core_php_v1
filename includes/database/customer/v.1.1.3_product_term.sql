@@ -3,6 +3,7 @@ CREATE TABLE `jibres_XXXXXXX`.`producttag` (
 `title` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
 `slug` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
 `url` varchar(1000) CHARACTER SET utf8mb4 DEFAULT NULL,
+`language` CHAR(2) DEFAULT NULL,
 `desc` mediumtext CHARACTER SET utf8mb4,
 `creator` int(10) UNSIGNED DEFAULT NULL,
 `status` enum('enable','disable','delete') NOT NULL DEFAULT 'enable',
