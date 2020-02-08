@@ -1,7 +1,7 @@
 <header class="pwaHeader border">
  <nav class="f">
-  <div class="c4 back"><a href="{{url.this}}" data-direct>{%trans "Dashboard"%}</a></div>
+  <div class="c4 back"><a href="{%if url.child is null%}{{url.here}}{%else%}{{url.this}}{%endif%}" data-direct>{%trans "Back"%}</a></div>
   <div class="c title">{%trans "Sample"%}</div>
-  <div class="c4 action"><a href="{{url.that}}" data-direct>{%trans "Edit"%}</a></div>
+  <div class="c4 action"><a href="{{url.here}}" data-direct>{%trans "Dashboard"%}</a></div>
  </nav>
 </header>
