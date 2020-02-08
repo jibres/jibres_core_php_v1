@@ -8,6 +8,7 @@ class view
 	{
 		// default display value
 		\dash\data::display_mvc("includes/html/display-mvc.html");
+		\dash\data::display_pwa("includes/html/pwa/pwa.html");
 		\dash\data::display_dash("includes/html/display-dash.html");
 		\dash\data::display_enter("includes/html/display-enter.html");
 		// add special pages to display array to use without name
