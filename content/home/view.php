@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::bodyclass('unselectable vflex');
+		\dash\data::bodyclass('vflex');
 
 		$homepageShortDesc = '';
 		$homepageShortDesc .= T_('All-in-One Ecommerce Software'). '. ';

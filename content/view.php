@@ -36,8 +36,6 @@ class view
 		// add page cover to all pages
 		\dash\data::page_cover(\dash\url::static(). '/img/cover/Jibres-cover-fa-1.jpg');
 
-		\dash\data::bodyclass('unselectable');
-
 
 		// if(\dash\url::content() === null)
 		// {

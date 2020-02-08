@@ -14,7 +14,6 @@ class view
 		\dash\data::badge_link(\dash\url::here());
 		\dash\data::badge_text(T_('Dashboard'));
 
-		\dash\data::bodyclass('unselectable');
 		\dash\data::include_adminPanel(true);
 
 		$sms = \dash\session::get('verify_sms_send');

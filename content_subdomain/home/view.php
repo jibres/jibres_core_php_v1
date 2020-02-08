@@ -31,7 +31,7 @@ class view
 		// else
 		// {
 		// }
-			\dash\data::bodyclass('unselectable flex align-center justify-center txtC');
+			\dash\data::bodyclass('flex align-center justify-center txtC');
 	}
 }
 ?>

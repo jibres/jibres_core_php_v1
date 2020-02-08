@@ -13,7 +13,6 @@ class view
 		\dash\data::page_desc(T_("check and update some options on template sms"));
 		\dash\data::badge_link(\dash\url::here());
 		\dash\data::badge_text(T_('Back to dashboard'));
-		\dash\data::bodyclass('unselectable');
 		\dash\data::include_adminPanel(true);
 
 		$list = \dash\app\smstemplate::list();

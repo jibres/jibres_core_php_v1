@@ -15,7 +15,6 @@ class view
 		\dash\data::badge_link(\dash\url::here());
 		\dash\data::badge_text(T_('Dashboard'));
 
-		\dash\data::bodyclass('unselectable');
 		\dash\data::include_adminPanel(true);
 
 		$mobile = \dash\request::get('mobile');
