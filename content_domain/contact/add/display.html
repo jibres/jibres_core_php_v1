@@ -5,8 +5,34 @@
 	<div class="c6 m8 s12">
 
 		<div class="cbox">
+			<h3>{%trans "Add an existing account"%}</h3>
 			<form method="post" autocomplete="off">
-				<label for="oldcontact">OLD contact</label>
+				<label for="oldcontact">{%trans "Account id"%}</label>
+				<div class="input ltr">
+					<input type="text" name="oldcontact">
+				</div>
+
+				<div class="txtRa">
+					<button class="btn success">{%trans "Add contact"%}</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="cbox">
+			<required>firstname</required>
+	<required>lastname</required>
+	<required>nationalcode | passport code</required>
+	<required>email</required>
+	<required>country</required>
+	<required>province</required>
+	<required>city</required>
+	<required>address</required>
+	<required>postcode</required>
+	<required>phone</required>
+	<required>signator</required>
+			<h3>{%trans "Create new account"%}</h3>
+			<form method="post" autocomplete="off">
+				<label for="oldcontact">email</label>
 				<div class="input ltr">
 					<input type="text" name="oldcontact">
 				</div>

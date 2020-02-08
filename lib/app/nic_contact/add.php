@@ -21,7 +21,9 @@ class add
 		$result = \lib\nic\exec\contact::check($_old_contact);
 		if(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '1')
 		{
-			$result = self::add_account($result[$_old_contact]);
+			$info = \lib\nic\exec\contact::info($_old_contact);
+
+			$result = self::add_account($result[$_old_contact], $info);
 			if($result)
 			{
 				\dash\notif::ok(T_("Contact added to your contact list"));
@@ -37,8 +39,9 @@ class add
 	}
 
 
-	private static function add_account($_detail)
+	private static function add_account($_detail, $_info)
 	{
+		j($_info);
 		$id     = isset($_detail['id']) ? $_detail['id'] : null;
 		$roid   = isset($_detail['roid']) ? $_detail['roid'] : null;
 		$email  = isset($_detail['email']) ? $_detail['email'] : null;
