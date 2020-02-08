@@ -67,17 +67,17 @@ span:focus{
   outline: none;
 }
 
-::-webkit-selection {
+body ::-webkit-selection {
   background-color: #cce0ff;
   color: rgba(0,0,0,.87)
 }
 
-::-moz-selection {
+body ::-moz-selection {
   background-color: #cce0ff;
   color: rgba(0,0,0,.87)
 }
 
-::selection {
+body ::selection {
   background-color: #cce0ff;
   color: rgba(0,0,0,.87)
 }

@@ -52,14 +52,14 @@ body{
   font-weight: normal;
   vertical-align: baseline;
   background: transparent;
+  direction:ltr;font-family:$fontNameEn;
 }
 
 body.rtl{direction:rtl;font-family:$fontNameFa;}
-body.ltr{direction:ltr;font-family:$fontNameEn;}
 
-*,
-*:before,
-*:after {
+body *,
+body *:before,
+body *:after {
   box-sizing: inherit;
 }
 
