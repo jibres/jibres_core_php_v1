@@ -6,7 +6,7 @@ object, iframe, blockquote, pre, abbr, address, cite, code, del, dfn, em, ins, q
   font-weight: normal;
   vertical-align: baseline;
   background: transparent;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 article, aside, figure, figcaption, nav, section, details, menu, summary {
@@ -18,7 +18,7 @@ article, aside, figure, figcaption, nav, section, details, menu, summary {
   font-weight: normal;
   vertical-align: baseline;
   background: transparent;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 /* Handle box-sizing while better addressing child elements:
@@ -70,7 +70,7 @@ embed {max-width: 100%;}
 
 img {
   border-style: none;
-  box-sizing: inherit;
+  box-sizing: border-box;
   outline: none;
   max-width: 100%;
   max-height: 100%;
@@ -94,7 +94,7 @@ main{
   font-weight: normal;
   vertical-align: baseline;
   background: transparent;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 header{
   display: block;
@@ -105,7 +105,7 @@ header{
   font-weight: normal;
   vertical-align: baseline;
   background: transparent;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 footer{
   display: block;
@@ -116,7 +116,7 @@ footer{
   font-weight: normal;
   vertical-align: baseline;
   background: transparent;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 /*
@@ -132,9 +132,9 @@ footer{
 /* we use a lot of ULs that aren't bulleted.
   you'll have to restore the bullets within content,
   which is fine because they're probably customized anyway */
-ul {list-style: none;box-sizing: inherit;}
+ul {list-style: none;box-sizing: border-box;}
 
-blockquote, q {quotes: none;box-sizing: inherit;}
+blockquote, q {quotes: none;box-sizing: border-box;}
 
 blockquote:before,
 blockquote:after,
@@ -147,7 +147,7 @@ a {
   font-size: 100%;
   vertical-align: baseline;
   background: transparent;
-  box-sizing: inherit;
+  box-sizing: border-box;
 
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
@@ -169,19 +169,19 @@ mark{background-color:#ff0;color:#000}
 
 abbr[title], dfn[title] {
   cursor: help;
-  box-sizing: inherit;
+  box-sizing: border-box;
   border-bottom: none;
   text-decoration: underline;
   text-decoration: underline dotted;
 }
 
 /* tables still need cellspacing="0" in the markup */
-table {font-size: inherit; font: 100%;border-collapse: separate; border-spacing: 0;box-sizing: inherit;}
-th {font-weight: bold; vertical-align: middle;box-sizing: inherit;}
-td {font-weight: normal; vertical-align: middle;box-sizing: inherit;}
+table {font-size: inherit; font: 100%;border-collapse: separate; border-spacing: 0;box-sizing: border-box;}
+th {font-weight: bold; vertical-align: middle;box-sizing: border-box;}
+td {font-weight: normal; vertical-align: middle;box-sizing: border-box;}
 td img {vertical-align: middle;}
 
-hr {display: block; height: 0; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;box-sizing: content-box;overflow: visible;box-sizing: inherit;}
+hr {display: block; height: 0; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;box-sizing: content-box;overflow: visible;box-sizing: border-box;}
 
 
 
@@ -190,13 +190,13 @@ hr {display: block; height: 0; border: 0; border-top: 1px solid #ccc; margin: 1e
 
 
 
-small {font-size: 80%;box-sizing: inherit;}
+small {font-size: 80%;box-sizing: border-box;}
 
 b,
 strong {
   font-weight: inherit;
   font-weight: bolder;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 
@@ -206,7 +206,7 @@ sup {top: -0.5em;}
 sub {middle: -0.25em;}
 
 /* standardize any monospaced elements */
-code, samp {font-family: monospace, sans-serif;font-size: 1em;display:inline-block;direction:ltr;box-sizing: inherit;}
+code, samp {font-family: monospace, sans-serif;font-size: 1em;display:inline-block;direction:ltr;box-sizing: border-box;}
 pre {
   white-space: pre; /* CSS2 */
   white-space: pre-wrap; /* CSS 2.1 */
@@ -217,7 +217,7 @@ pre {
   font-family: monospace, sans-serif;
   font-size: 1em;
   overflow: auto;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 kbd{
   margin: 0;
@@ -227,7 +227,7 @@ kbd{
   font-family: monospace, sans-serif;
   font-size: 1em;
   display:inline-block;
-  box-sizing: inherit;
+  box-sizing: border-box;
   direction:ltr;
   background-color:rgba(0,0,0,0.1);
   padding:2px 6px;
@@ -240,7 +240,7 @@ kbd:hover{background-color:rgba(0,0,0,0.2);}
 
 audio,
 video {
-  box-sizing: inherit;
+  box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
   outline: none;
@@ -253,7 +253,7 @@ audio:not([controls]) {
 svg:not(:root) {
   max-width:100%;
   overflow: hidden;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 
@@ -266,7 +266,7 @@ input{
   line-height: 1.15;
   margin: 0;
   vertical-align: middle;
-  box-sizing: inherit;
+  box-sizing: border-box;
   overflow: visible;
   outline: none;
 }
@@ -313,7 +313,7 @@ select{
   max-width:100%;
   margin: 0;
   vertical-align: middle;
-  box-sizing: inherit;
+  box-sizing: border-box;
   font-size: 100%;
   line-height: 1.15;
   text-transform: none;
@@ -322,7 +322,7 @@ select{
 
 optgroup{
   font-family:$fontNameFa;
-  box-sizing: inherit;
+  box-sizing: border-box;
   max-width:100%;
   font-size: 100%;
   line-height: 1.15;
@@ -337,7 +337,7 @@ button{
   margin: 0;
   width: auto;
   overflow: visible;
-  box-sizing: inherit;
+  box-sizing: border-box;
   cursor: pointer;
   text-transform: none;
   -webkit-appearance: button;
@@ -351,7 +351,7 @@ textarea{
   overflow: auto;
   font-size: 100%;
   line-height: 1.15;
-  box-sizing: inherit;
+  box-sizing: border-box;
   margin: 0;
   outline: none;
 }
@@ -382,7 +382,7 @@ fieldset {
 progress {
   display: inline-block; /* 1 */
   vertical-align: baseline; /* 2 */
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 /**
@@ -428,7 +428,7 @@ progress {
  */
 summary {
   display: list-item;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 /* Scripting
@@ -439,7 +439,7 @@ summary {
  */
 canvas {
   display: inline-block;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 /**
@@ -451,7 +451,7 @@ template {
 
 address{
   font-style:normal;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 /* Hidden
    ========================================================================== */
