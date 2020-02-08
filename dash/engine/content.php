@@ -18,6 +18,7 @@ class content
 			'su',
 			'cms',
 			'crm',
+			'dashboard',
 			'account',
 			'api',
 			'r10',
