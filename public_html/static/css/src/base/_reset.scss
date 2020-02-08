@@ -30,7 +30,6 @@ html {
   font-weight: normal;
   vertical-align: baseline;
   background: transparent;
-
   box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;
@@ -52,7 +51,9 @@ body{
   font-weight: normal;
   vertical-align: baseline;
   background: transparent;
-  direction:ltr;font-family:$fontNameEn;
+  box-sizing: border-box;
+  direction:ltr;
+  font-family:$fontNameEn;
 }
 
 body.rtl{direction:rtl;font-family:$fontNameFa;}
