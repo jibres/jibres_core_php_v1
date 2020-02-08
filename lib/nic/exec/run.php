@@ -55,6 +55,7 @@ class run
 			return false;
 		}
 
+		$code = null;
 		if(isset($_response->response->result))
 		{
 			foreach ($_response->response->result->attributes() as $key => $value)
@@ -64,13 +65,14 @@ class run
 					$value = (array) $value;
 					if(isset($value[0]))
 					{
-						return $value[0];
+						$code = $value[0];
+						break;
 					}
 				}
 			}
 		}
 
-		return null;
+		return $code;
 	}
 
 
@@ -107,6 +109,70 @@ class run
 	public static function jibres_nic_account()
 	{
 		return \dash\setting\nic::jibres_nic_account();
+	}
+
+
+
+	public static function code_msg($_code)
+	{
+		if(is_numeric($_code))
+		{
+			$_code = floatval($_code);
+		}
+
+		$msg = null;
+
+		switch ($_code)
+		{
+			case 2102:
+				$msg = T_("Unimplemented option");
+				break;
+
+			case 1000:
+				$msg = T_("Command completed successfully");
+				break;
+
+			case 1001:
+			case 1300:
+			case 1301:
+			case 1500:
+			case 2000:
+			case 2001:
+			case 2002:
+			case 2003:
+			case 2004:
+			case 2005:
+			case 2100:
+			case 2101:
+			case 2103:
+			case 2104:
+			case 2105:
+			case 2106:
+			case 2200:
+			case 2201:
+			case 2202:
+			case 2300:
+			case 2301:
+			case 2302:
+			case 2303:
+			case 2304:
+			case 2305:
+			case 2306:
+			case 2307:
+			case 2308:
+			case 2400:
+			case 2500:
+			case 2501:
+			case 2502:
+				$msg = 'Error code '. $_code;
+				break;
+
+			default:
+				$msg = 'Unknown error '. $_code;
+				break;
+		}
+
+		return $msg;
 	}
 
 

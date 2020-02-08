@@ -151,11 +151,18 @@ class contact_check
 
 		$object = new \SimpleXMLElement($response);
 
-		$update_after_send['result_code'] = \lib\nic\exec\run::result_code($object);
-		$update_after_send['server_id'] = \lib\nic\exec\run::server_id($object);
+		$result_code = \lib\nic\exec\run::result_code($object);
+
+		$update_after_send['result_code'] = $result_code;
+		$update_after_send['server_id']   = \lib\nic\exec\run::server_id($object);
 
 
 		\lib\db\nic_log\update::update($update_after_send, $log_id);
+
+		if($result_code != 1000)
+		{
+			\dash\notif::error(\lib\nic\exec\run::code_msg($result_code));
+		}
 
 		return $object;
 

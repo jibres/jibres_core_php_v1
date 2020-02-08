@@ -1,7 +1,7 @@
 {%extends display.jibresControlLayout%}
 
 {%block pageContent%}
-<div class="cbox">
+<div class="fs12">
 	{{block('myAccountList')}}
 </div>
 {%endblock%}
@@ -40,7 +40,10 @@
 	</table>
 </div>
 {%else%}
-<div class="msg">{%trans "No contact founded"%}</div>
+<div class="msg info2">{%trans "No contact founded"%}
+	<br>
+	<a href="{{url.this}}/add">{%trans "Try to add new contact!"%}</a>
+</div>
 {%endif%}
 
 {%endblock%}
