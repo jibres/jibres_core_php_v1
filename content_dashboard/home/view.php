@@ -1,5 +1,5 @@
 <?php
-namespace content\dashboard;
+namespace content_dashboard\home;
 
 
 class view
