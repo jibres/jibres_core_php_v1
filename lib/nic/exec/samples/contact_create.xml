@@ -17,7 +17,6 @@
     <contact:voice>JIBRES-MOBILE</contact:voice>
     <contact:ident>
      <contact:idcard cc="JIBRES-COUNTRY" number="JIBRES-NATIONALCODE"/>
-     <contact:passport cc="JIBRES-COUNTRY" issuer="Naja Passport Office" number="JIBRES-PASSPORTCODE"/>
     </contact:ident>
     <contact:signature>JIBRES-SIGNATURE</contact:signature>
     <contact:email>JIBRES-EMAIL</contact:email>

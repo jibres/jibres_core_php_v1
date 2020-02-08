@@ -23,7 +23,7 @@ class check
 			return false;
 		}
 
-		$result = \lib\nic\exec\domain::check($_domain);
+		$result = \lib\nic\exec\domain_check::check($_domain);
 
 		return $result;
 

@@ -22,6 +22,9 @@ class run
 		//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 7); // 7 time out of nic-broker
+		curl_setopt($ch, CURLOPT_TIMEOUT, 7); // 7 time out of nic-broker
+
 		curl_setopt($ch, CURLOPT_POST, false);
 		//The URL to fetch.
 		curl_setopt($ch, CURLOPT_URL,"http://7.7.7.25/nic/");
@@ -33,7 +36,8 @@ class run
 
 		if($response === false)	{
 			// echo Errors
-			\dash\notif::error(curl_error($ch));
+			\dash\log::set('IRNIC:CurlError', ['message' => curl_error($ch)]);
+			// \dash\notif::error(curl_error($ch));
 			return false;
 		}
 		// close cURL resource, and free up system resources

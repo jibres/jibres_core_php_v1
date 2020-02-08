@@ -88,7 +88,7 @@ class create
 			'ns2'    => $ns2,
 		];
 
-		$result = \lib\nic\exec\domain::create($ready);
+		$result = \lib\nic\exec\domain_create::create($ready);
 
 
 
