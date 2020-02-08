@@ -273,6 +273,7 @@
   pointer-events: none;
   display: flex;
   flex-direction: column;
+  touch-action: none;
 }
 .iziToast-wrapper .iziToast.iziToast-balloon:before {
   border-right: 0 solid transparent;
