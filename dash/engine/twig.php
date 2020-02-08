@@ -12,6 +12,7 @@ class twig
 			// set file name of static parts
 			\dash\data::display_dash("includes/html/display-dash-xhr.html");
 			\dash\data::display_enter("includes/html/display-enter-xhr.html");
+			\dash\data::display_pwa("includes/html/pwa/pwa-xhr.html");
 			// generate main filename automatically because used on various condition
 			$file_xhr_main = substr(\dash\data::display_main(), 0, -5). '-xhr.html';
 			\dash\data::display_main($file_xhr_main);
