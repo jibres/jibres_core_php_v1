@@ -11,7 +11,7 @@ class view
 
 		if(!\dash\detect\device::detectPWA())
 		{
-			\dash\redirect::to(\dash\url::kingdom(). '/store');
+			// \dash\redirect::to(\dash\url::kingdom(). '/store');
 		}
 
 	}
