@@ -98,6 +98,7 @@ class add
 			return false;
 		}
 
+
 		$firstname    = (isset($_args['firstname']) 	&& is_string($_args['firstname']))		 ? $_args['firstname'] 		: null;
 		$lastname     = (isset($_args['lastname']) 		&& is_string($_args['lastname']))		 ? $_args['lastname'] 		: null;
 		$nationalcode = (isset($_args['nationalcode']) 	&& is_string($_args['nationalcode']))	 ? $_args['nationalcode'] 	: null;
@@ -109,41 +110,153 @@ class add
 		$phone        = (isset($_args['phone']) 		&& is_string($_args['phone']))			 ? $_args['phone'] 			: null;
 		$address      = (isset($_args['address']) 		&& is_string($_args['address']))		 ? $_args['address'] 		: null;
 
-		// if(!$firstname)
-		// {
-		// 	\dash\notif::error(T_("Firstname is required"), 'firstname');
-		// 	return false;
-		// }
+		$nationalcode = \dash\number::clean($nationalcode);
+		$postcode     = \dash\number::clean($postcode);
+		$phone        = \dash\number::clean($phone);
 
-		// if(mb_strlen($firstname) > 70)
-		// {
-		// 	\dash\notif::error(T_("Firstname must be less than 70 character"), 'firstname');
-		// 	return false;
-		// }
+		if(!$firstname)
+		{
+			\dash\notif::error(T_("Firstname is required"), 'firstname');
+			return false;
+		}
 
-		// if(!$lastname)
-		// {
-		// 	\dash\notif::error(T_("Firstname is required"), 'lastname');
-		// 	return false;
-		// }
+		if(mb_strlen($firstname) > 70)
+		{
+			\dash\notif::error(T_("Firstname must be less than 70 character"), 'firstname');
+			return false;
+		}
 
-		// if(mb_strlen($lastname) > 70)
-		// {
-		// 	\dash\notif::error(T_("Firstname must be less than 70 character"), 'lastname');
-		// 	return false;
-		// }
+		if(!$lastname)
+		{
+			\dash\notif::error(T_("Firstname is required"), 'lastname');
+			return false;
+		}
+
+		if(mb_strlen($lastname) > 70)
+		{
+			\dash\notif::error(T_("Firstname must be less than 70 character"), 'lastname');
+			return false;
+		}
+
+		if(!preg_match("/^[a-zA-Z\s]+$/", $firstname))
+		{
+			\dash\notif::error(T_("Please set your firstname in latin characters"), 'firstname');
+			return false;
+		}
+
+		if(!preg_match("/^[a-zA-Z\s]+$/", $lastname))
+		{
+			\dash\notif::error(T_("Please set your lastname in latin characters"), 'lastname');
+			return false;
+		}
+
+		if($country && !\dash\utility\location\countres::check($country))
+		{
+			\dash\notif::error(T_("Invalid country"), 'country');
+			return false;
+		}
+
+		if(!$country)
+		{
+			\dash\notif::error(T_("Please choose your country"), 'country');
+			return false;
+		}
+
+		if($province && mb_strlen($province) > 100)
+		{
+			\dash\notif::error(T_("Please set province less than 100 character"), 'province');
+			return false;
+		}
+
+		if($province && !\dash\utility\location\provinces::check($province))
+		{
+			\dash\notif::error(T_("Invalid province"), 'province');
+			return false;
+		}
+
+		if($city && mb_strlen($city) > 100)
+		{
+			\dash\notif::error(T_("Please set city less than 100 character"), 'city');
+			return false;
+		}
 
 
-		// $firstname    = 'Reza';
-		// $lastname     = 'Mohiti';
-		// $nationalcode = '2754854460';
-		// $email        = 'info@dddsssff.com';
-		// $country      = 'IR';
-		// $province     = 'Qom';
-		// $city         = 'Qom';
-		// $postcode     = '4564555887';
-		// $address      = 'St mahallaty. number 288';
+		if($country === 'IR' && !$province)
+		{
+			\dash\notif::error(T_("Please choose your province"), 'province');
+			return false;
+		}
 
+		if($country === 'IR' && !$city)
+		{
+			\dash\notif::error(T_("Please choose your city"), 'city');
+			return false;
+		}
+
+		$province = \dash\utility\location\provinces::get_name($province);
+		$city = \dash\utility\location\cites::get_name($city);
+
+		if($country === 'IR')
+		{
+			if(!$nationalcode)
+			{
+				\dash\notif::error(T_("Please set your nationalcode"), 'nationalcode');
+				return false;
+			}
+
+			if(!\dash\utility\filter::nationalcode($nationalcode))
+			{
+				\dash\notif::error(T_("Invalid nationalcode"), 'nationalcode');
+				return false;
+			}
+		}
+		else
+		{
+			if(!$nationalcode)
+			{
+				\dash\notif::error(T_("Please set your passportcode"), 'nationalcode');
+				return false;
+			}
+
+			if(!preg_match("/^[a-zA-Z0-9]+$/", $nationalcode))
+			{
+				\dash\notif::error(T_("Invalid passportcode"), 'passportcode');
+				return false;
+			}
+		}
+
+		if(!$postcode)
+		{
+			\dash\notif::error(T_("Please set postcode"), 'postcode');
+			return false;
+		}
+
+		if(!is_numeric($postcode))
+		{
+			\dash\notif::error(T_("Please set pos code as a number"), 'postcode');
+			return false;
+		}
+
+
+		if(!$address)
+		{
+			\dash\notif::error(T_("Please set address"), 'address');
+			return false;
+		}
+
+		if(mb_strlen($address) > 100)
+		{
+			\dash\notif::error(T_("Please set address less than 100 characters"), 'address');
+			return false;
+		}
+
+		if(!preg_match("/^[a-zA-Z\s]+$/", $address))
+		{
+			\dash\notif::error(T_("Please set your address in latin characters"), 'address');
+			return false;
+		}
+
+		$signator = trim($firstname. ' '. $lastname);
 
 		$ready =
 		[
@@ -158,17 +271,77 @@ class add
 			'address'      => $address,
 			'mobile'       => \dash\user::detail('mobile'),
 			'passportcode' => null,
-			'signator'     => 'Reza Mohiti',
+			'signator'     => $signator,
 		];
 
 
 		$result = \lib\nic\exec\contact_create::create($ready);
 
-		j($result);
-
 		if(isset($result['nic_id']))
 		{
+				$id     = isset($result['nic_id']) ? $result['nic_id'] : null;
+				$roid   = null;
 
+				// i create it
+				$holder = 1;
+				$admin  = 1;
+				$tech   = 1;
+				$bill   = 1;
+
+				$insert =
+				[
+					'user_id'      => \dash\user::id(),
+					'nic_id'       => $id,
+					'roid'         => $id,
+					'holder'       => $holder,
+					'admin'        => $admin,
+					'tech'         => $tech,
+					'bill'         => $bill,
+					'email'        => $email,
+					'isdefault'    => null,
+					'datecreated'  => date("Y-m-d H:i:s"),
+					'status'       => 'enable',
+					'firstname'    => null,
+					'lastname'     => null,
+					'firstname_en' => $firstname,
+					'lastname_en'  => $lastname,
+					'nationalcode' => $nationalcode,
+					'passportcode' => $country === 'IR' ? $nationalcode : null,
+					'company'      => null,
+					'category'     => null,
+					'email'        => $email,
+					'country'      => $country,
+					'province'     => $province,
+					'city'         => $city,
+					'postcode'     => $postcode,
+					'address'      => $address,
+					'mobile'       => \dash\user::detail('mobile'),
+					'signator'     => $signator,
+
+				];
+
+				$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $id);
+				if($check_duplicate)
+				{
+					\dash\notif::error(T_("This contact already added to your contact list"));
+					return false;
+				}
+
+				$contact = \lib\db\nic_contact\insert::new_record($insert);
+				if($contact)
+				{
+					\dash\notif::ok(T_("Contact created"));
+					return true;
+				}
+				else
+				{
+					\dash\notif::error(T_("No way to insert data"));
+					return false;
+				}
+		}
+		else
+		{
+			return false;
 		}
 
 		if(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '1')

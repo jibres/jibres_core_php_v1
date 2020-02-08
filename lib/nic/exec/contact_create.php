@@ -8,13 +8,22 @@ class contact_create
 	public static function create($_args)
 	{
 		$create = self::analyze_contact_create($_args);
-		j($create);
+
 		if(!$create || !is_array($create))
 		{
 			return false;
 		}
 
-		return $create;
+		if(!isset($create['id']))
+		{
+			return false;
+		}
+
+		$result                = [];
+		$result['nic_id']      = $create['id'];
+		$result['datecreated'] = isset($create['crDate']) ? date("Y-m-d H:i:s", strtotime($create['crDate'])) : null;
+
+		return $result;
 	}
 
 
@@ -36,117 +45,25 @@ class contact_create
 			return false;
 		}
 
-		if(!$objec_result->response->resData->xpath('contact:infData'))
+		if(!$objec_result->response->resData->xpath('contact:creData'))
 		{
 			return false;
 		}
 
-		foreach ($objec_result->response->resData->xpath('contact:infData') as  $contactinfData)
+		foreach ($objec_result->response->resData->xpath('contact:creData') as  $contactcreData)
 		{
 			$temp  = [];
-			$myKey = null;
 
-			foreach ($contactinfData->xpath('contact:id') as $contactid)
+			foreach ($contactcreData->xpath('contact:id') as $contactid)
 			{
 				$myKey = $contactid->__toString();
-				$temp[$myKey]['id']   = $myKey;
+				$temp['id']   = $myKey;
 			}
 
 
-			foreach ($contactinfData->xpath('contact:roid') as $contactroid)
+			foreach ($contactcreData->xpath('contact:crDate') as $contactcrDate)
 			{
-				$temp[$myKey]['roid']   = $contactroid->__toString();
-			}
-
-			foreach ($contactinfData->xpath('contact:voice') as $contactvoice)
-			{
-				$temp[$myKey]['mobile']   = $contactvoice->__toString();
-			}
-
-			foreach ($contactinfData->xpath('contact:signature') as $contactsignature)
-			{
-				$temp[$myKey]['signature']   = $contactsignature->__toString();
-			}
-
-			foreach ($contactinfData->xpath('contact:email') as $contactemail)
-			{
-				$temp[$myKey]['email']   = $contactemail->__toString();
-			}
-
-			foreach ($contactinfData->xpath('contact:crDate') as $contactcrDate)
-			{
-				$temp[$myKey]['datecreated']   = $contactcrDate->__toString();
-			}
-
-
-			foreach ($contactinfData->xpath('contact:status') as $contactstatus)
-			{
-				$attr             = $contactstatus->attributes();
-				$attr             = (array) $attr;
-
-				if(isset($attr['@attributes']))
-				{
-					$attr = $attr['@attributes'];
-				}
-
-				if(isset($attr['s']))
-				{
-					$temp[$myKey]['status'][]   = $attr['s'];
-				}
-
-			}
-
-			foreach ($contactinfData->xpath('contact:position') as $contactposition)
-			{
-				$attr             = $contactposition->attributes();
-				$attr             = (array) $attr;
-
-				if(isset($attr['@attributes']))
-				{
-					$attr = $attr['@attributes'];
-				}
-
-				if(isset($attr['type']) && isset($attr['allowed']))
-				{
-					$temp[$myKey][$attr['type']] = $attr['allowed'];
-				}
-			}
-
-			foreach ($contactinfData->xpath('contact:postalInfo') as $contactpostalInfo)
-			{
-
-				foreach ($contactpostalInfo->xpath('contact:org') as $contactorg)
-				{
-					$temp[$myKey]['company']   = $contactorg->__toString();
-				}
-
-				foreach ($contactpostalInfo->xpath('contact:addr') as $contactaddr)
-				{
-					foreach ($contactaddr->xpath('contact:street') as $contactstreet)
-					{
-						$temp[$myKey]['address']   = $contactstreet->__toString();
-					}
-
-					foreach ($contactaddr->xpath('contact:city') as $contactcity)
-					{
-						$temp[$myKey]['city']   = $contactcity->__toString();
-					}
-
-					foreach ($contactaddr->xpath('contact:sp') as $contactsp)
-					{
-						$temp[$myKey]['province']   = $contactsp->__toString();
-					}
-
-					foreach ($contactaddr->xpath('contact:pc') as $contactpc)
-					{
-						$temp[$myKey]['postalcode']   = $contactpc->__toString();
-					}
-
-					foreach ($contactaddr->xpath('contact:cc') as $contactcc)
-					{
-						$temp[$myKey]['country']   = $contactcc->__toString();
-					}
-				}
+				$temp['crDate']   = $contactcrDate->__toString();
 			}
 
 			$result = $temp;

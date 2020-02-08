@@ -132,6 +132,14 @@ class run
 				$msg = T_("Command completed successfully");
 				break;
 
+			case 2005:
+				$msg = T_("Parameter value syntax error");
+				break;
+
+			case 2302:
+				$msg = T_('Object exists');
+				break;
+
 			case 1001:
 			case 1300:
 			case 1301:
@@ -141,7 +149,6 @@ class run
 			case 2002:
 			case 2003:
 			case 2004:
-			case 2005:
 			case 2100:
 			case 2101:
 			case 2103:
@@ -153,7 +160,6 @@ class run
 			case 2202:
 			case 2300:
 			case 2301:
-			case 2302:
 			case 2303:
 			case 2304:
 			case 2305:
