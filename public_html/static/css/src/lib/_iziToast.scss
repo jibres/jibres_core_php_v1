@@ -327,6 +327,9 @@
   right: 0;
   text-align: center;
 }
+[data-pwa] .iziToast-wrapper-bottomCenter{
+  margin-bottom: 60px;
+}
 .iziToast-wrapper-center {
   top: 0;
   bottom: 0;
@@ -369,6 +372,9 @@
 @media (min-width: 480px) {
   .iziToast-wrapper {
     padding: 10px 15px;
+  }
+  [data-pwa] .iziToast-wrapper{
+    margin-bottom: 60px;
   }
   .iziToast {
     margin: 5px 0;
