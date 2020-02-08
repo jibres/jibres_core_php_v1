@@ -1,11 +1,10 @@
-{%extends display.mvc%}
+{%extends display.pwa%}
 
 
-{%block body%}
+{%block pageContent%}
 
 {%include "/content_dashboard/test/header.html"%}
 
-<div class="pwa">
    <h1>Browse</h1>
    {%include "/content_dashboard/test/search.html"%}
 
@@ -177,15 +176,9 @@
    </nav>
 
    <br>
-
-
-
-
-
-
 </div>
 
-{%include "/content_dashboard/test/footer.html"%}
+
 <style>
   body{background-color: #f3f2f8;overflow:hidden;position:relative;}
 
