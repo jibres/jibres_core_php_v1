@@ -1,8 +1,17 @@
 {%extends display.pwa%}
 
 
-{%block pageContent%}
+{%block headerBox%}
+{%embed "/content_dashboard/test/header.html"%}{%endembed%}
+{%endblock%}
 
+
+{%block footerBox%}
+{%embed "/content_dashboard/test/footer.html"%}{%endembed%}
+{%endblock%}
+
+
+{%block pageContent%}
    <nav class="pwaItems">
      <ul>
        <li>
