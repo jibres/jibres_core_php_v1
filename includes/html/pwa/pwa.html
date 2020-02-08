@@ -2,14 +2,22 @@
 
 
 {%block body%}
-{%embed "includes/html/pwa/pwa-header.html"%}{%endembed%}
 
-<div class="pwa" data-xhr='pwa'>
-{%block pageContent%}
-Salam
+<div class="pwaHeader" data-xhr='pwaHeader'>
+{%block headerBox%}
+{%embed "includes/html/pwa/pwa-header.html"%}{%endembed%}
 {%endblock%}
 </div>
 
+<div class="pwa" data-xhr='pwa'>
+{%block pageContent%}PWA{%endblock%}
+</div>
+
+<div class="pwaFooter" data-xhr='pwaFooter'>
+{%block footerBox%}
 {%embed "includes/html/pwa/pwa-footer.html"%}{%endembed%}
+{%endblock%}
+</div>
+
 {%endblock%}
 
