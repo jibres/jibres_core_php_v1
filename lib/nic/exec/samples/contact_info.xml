@@ -3,7 +3,7 @@
  <command>
   <info>
    <contact:info xmlns:contact="http://epp.nic.ir/ns/contact-1.0">
-    <contact:id>ex61-irnic</contact:id>
+    <contact:id>JIBRES-CONACT-FOR-INFO</contact:id>
     <contact:authInfo>
      <contact:pw>JIBRES-TOKEN</contact:pw>
     </contact:authInfo>
