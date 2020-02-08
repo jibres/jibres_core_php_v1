@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS `log` (
 `server_id` varchar(100) DEFAULT NULL,
 `client_id` varchar(100) DEFAULT NULL,
 `result_code` varchar(100) DEFAULT NULL,
-`result` text CHARACTER SET utf8mb4 DEFAULT NULL,
 `request_count` smallint(5) DEFAULT NULL,
 PRIMARY KEY (`id`),
 KEY `log_index_search_type` (`type`)
@@ -46,8 +45,8 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 `user_id` int(10) UNSIGNED NULL,
 
-`nic_id` varchar(100) NULL DEFAULT NULL,
-`roid` varchar(100) NULL DEFAULT NULL,
+`nic_id` varchar(30) NULL DEFAULT NULL,
+`roid` varchar(50) NULL DEFAULT NULL,
 
 `holder` bit(1) NULL DEFAULT NULL,
 `admin` bit(1) NULL DEFAULT NULL,
@@ -125,17 +124,15 @@ CREATE TABLE IF NOT EXISTS `domain` (
 
 `user_id` int(10) UNSIGNED NULL,
 
-`registrarer` enum('irnic') NULL DEFAULT NULL,
+`registrar` enum('irnic') NULL DEFAULT NULL,
 
 `status` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
 
-`holder` int(10) UNSIGNED NULL DEFAULT NULL,
-`admin` int(10) UNSIGNED NULL DEFAULT NULL,
-`tech` int(10) UNSIGNED NULL DEFAULT NULL,
-`bill` int(10) UNSIGNED NULL DEFAULT NULL,
+`holder` varchar(30) NULL DEFAULT NULL,
+`admin` varchar(30) NULL DEFAULT NULL,
+`tech` varchar(30) NULL DEFAULT NULL,
+`bill` varchar(30) NULL DEFAULT NULL,
 
-`date` timestamp NULL DEFAULT NULL,
-`expire` timestamp NULL DEFAULT NULL,
 
 `autorenew` bit(1) NULL DEFAULT NULL,
 
@@ -144,7 +141,10 @@ CREATE TABLE IF NOT EXISTS `domain` (
 `dns` int(10) UNSIGNED NULL DEFAULT NULL,
 
 
+`dateregister` timestamp NULL DEFAULT NULL,
+`dateexpire` timestamp NULL DEFAULT NULL,
 `datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
 
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -160,11 +160,7 @@ CREATE TABLE IF NOT EXISTS `domain_action` (
 `user_id` int(10) UNSIGNED NULL,
 
 `status` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
-
 `action` enum('buy', 'renew', 'transfer', 'openlock', 'lock') NULL DEFAULT NULL,
-`mode` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
-
-`price` int(10) UNSIGNED NULL DEFAULT NULL,
 
 `date` timestamp NULL DEFAULT NULL,
 
@@ -173,6 +169,29 @@ CREATE TABLE IF NOT EXISTS `domain_action` (
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+
+
+CREATE TABLE IF NOT EXISTS `domain_bill` (
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+
+`domain_id` int(10) UNSIGNED NULL,
+`user_id` int(10) UNSIGNED NULL,
+
+`action` enum('buy', 'renew', 'transfer') NULL DEFAULT NULL,
+`mode` enum('auto', 'manual') NULL DEFAULT NULL,
+
+`price` int(10) UNSIGNED NULL DEFAULT NULL,
+`discount` int(10) UNSIGNED NULL DEFAULT NULL,
+`discountcode` int(10) UNSIGNED NULL DEFAULT NULL,
+`finalprice` int(10) UNSIGNED NULL DEFAULT NULL,
+
+`transaction_id` int(10) UNSIGNED NULL DEFAULT NULL,
+
+`date` timestamp NULL DEFAULT NULL,
+
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
