@@ -1,11 +1,7 @@
-{%extends display.mvc%}
+{%extends display.pwa%}
 
 
-{%block body%}
-
-{%include "/content_dashboard/test/header.html"%}
-
-<div class="pwa zeroSide">
+{%block pageContent%}
   <h4>System Services</h4>
    <nav class="pwaItems">
      <ul>
@@ -80,12 +76,6 @@
        </li>
      </ul>
    </nav>
-</div>
 
-<style>
-  body{background-color: #f3f2f8;}
-
- .superAdmin{display: none;}
-</style>
 {%endblock%}
 
