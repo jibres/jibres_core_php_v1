@@ -56,32 +56,33 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 `isdefault` bit(1) NULL DEFAULT NULL,
 
-`firstname` varchar(200) NULL DEFAULT NULL,
-`lastname` varchar(200) NULL DEFAULT NULL,
+`firstname` varchar(100) NULL DEFAULT NULL,
+`lastname` varchar(100) NULL DEFAULT NULL,
 
-`firstname_en` varchar(200) NULL DEFAULT NULL,
-`lastname_en` varchar(200) NULL DEFAULT NULL,
+`firstname_en` varchar(100) NULL DEFAULT NULL,
+`lastname_en` varchar(100) NULL DEFAULT NULL,
 
-`nationalcode` varchar(200) NULL DEFAULT NULL,
-`passportcode` varchar(200) NULL DEFAULT NULL,
+`nationalcode` varchar(20) NULL DEFAULT NULL,
+`passportcode` varchar(50) NULL DEFAULT NULL,
 
 `company` varchar(200) NULL DEFAULT NULL,
 `category` varchar(200) NULL DEFAULT NULL,
 
 `email` varchar(200) NULL DEFAULT NULL,
-`country` varchar(200) NULL DEFAULT NULL,
-`province` varchar(200) NULL DEFAULT NULL,
-`city` varchar(200) NULL DEFAULT NULL,
-`postcode` varchar(200) NULL DEFAULT NULL,
+`country` varchar(20) NULL DEFAULT NULL,
+`province` varchar(50) NULL DEFAULT NULL,
+`city` varchar(100) NULL DEFAULT NULL,
+`postcode` varchar(20) NULL DEFAULT NULL,
 `address` varchar(200) NULL DEFAULT NULL,
-`mobile` varchar(200) NULL DEFAULT NULL,
+`mobile` varchar(20) NULL DEFAULT NULL,
 `signator` varchar(200) NULL DEFAULT NULL,
 
+`status` enum('enable', 'disable', 'deleted') NULL DEFAULT NULL,
 
-`status` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
 `jsonstatus` text NULL DEFAULT NULL,
 
 `datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
 KEY `contact_index_search_nic_id` (`nic_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -161,18 +162,19 @@ CREATE TABLE IF NOT EXISTS `domain_action` (
 
 `status` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
 `action` enum('buy', 'renew', 'transfer', 'openlock', 'lock') NULL DEFAULT NULL,
-
+`meta` text NULL DEFAULT NULL,
 `date` timestamp NULL DEFAULT NULL,
 
 `datecreated` timestamp NULL DEFAULT NULL,
 
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id`),
+CONSTRAINT `domain_action_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domain` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 
-CREATE TABLE IF NOT EXISTS `domain_bill` (
+CREATE TABLE IF NOT EXISTS `domain_billing` (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 
 `domain_id` int(10) UNSIGNED NULL,
@@ -190,7 +192,8 @@ CREATE TABLE IF NOT EXISTS `domain_bill` (
 
 `date` timestamp NULL DEFAULT NULL,
 
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id`),
+CONSTRAINT `domain_billing_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domain` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
