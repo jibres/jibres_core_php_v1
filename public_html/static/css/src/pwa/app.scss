@@ -6,6 +6,7 @@
 [data-pwa] .siftal #main{margin:0!important}
 [data-pwa] #xaccess{display:none}
 [data-pwa] .tbox .breadcrumb{display:none}
+[data-pwa] .superAdmin{top:inherit;bottom:30px;left: 0;}
 
 [data-pwa]{@include select-none();}
 [data-pwa] body{background-color: #f3f2f8;}
