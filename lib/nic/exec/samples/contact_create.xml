@@ -4,25 +4,23 @@
   <create>
    <contact:create xmlns:contact="http://epp.nic.ir/ns/contact-1.0">
     <contact:postalInfo type="int">
-     <contact:firstname>Emad</contact:firstname>
-     <contact:lastname>Xayami</contact:lastname>
-     <contact:org>Iran Example Co.</contact:org>
+     <contact:firstname>JIBRES-FIRSTNAME</contact:firstname>
+     <contact:lastname>JIBRES-LASTNAME</contact:lastname>
      <contact:addr>
-      <contact:street>123 Example st.</contact:street>
-      <contact:city>Tehran</contact:city>
-      <contact:sp>Tehran</contact:sp>
-      <contact:pc>20166-6503</contact:pc>
-      <contact:cc>IR</contact:cc>
+      <contact:street>JIBRES-ADDRESS</contact:street>
+      <contact:city>JIBRES-CITY</contact:city>
+      <contact:sp>JIBRES-PROVINCE</contact:sp>
+      <contact:pc>JIBRES-POSTALCODE</contact:pc>
+      <contact:cc>JIBRES-COUNTRY</contact:cc>
      </contact:addr>
     </contact:postalInfo>
-    <contact:voice>+982170555555</contact:voice>
-    <contact:fax>+982170555555</contact:fax>
+    <contact:voice>JIBRES-MOBILE</contact:voice>
     <contact:ident>
-     <contact:idcard cc="IR" number="123-456789-0"/>
-     <contact:passport cc="IR" issuer="Naja Passport Office" number="H123456"/>
+     <contact:idcard cc="JIBRES-COUNTRY" number="JIBRES-NATIONALCODE"/>
+     <contact:passport cc="JIBRES-COUNTRY" issuer="Naja Passport Office" number="JIBRES-PASSPORTCODE"/>
     </contact:ident>
-    <contact:signature>Alireza Mohammadi</contact:signature>
-    <contact:email>info@JIBRES-SAMPLE-DOMAIN.IR</contact:email>
+    <contact:signature>JIBRES-SIGNATURE</contact:signature>
+    <contact:email>JIBRES-EMAIL</contact:email>
     <contact:authInfo>
      <contact:pw>JIBRES-TOKEN</contact:pw>
     </contact:authInfo>
