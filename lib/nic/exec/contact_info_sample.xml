@@ -1,0 +1,52 @@
+<info>account infor request </info>
+<contact:id> irnic id or email</contact:id>
+<contact:roid> irnic roid </contact:roid>
+<contact:status s="linked"> status</contact:status>
+<contact:status s="irnicApproved"> status</contact:status>
+<contact:status s="serverUpdateProhibited"> status</contact:status>
+<contact:status s="ok"> status</contact:status>
+
+
+<contact:postalInfo type="init" >
+	<contact:firstname > firstname</contact:firstname>
+	<contact:lastname > lastname</contact:lastname>
+		<contact:addr>
+			<contact:street > street</contact:street>
+			<contact:city > city</contact:city>
+			<contact:cc > country</contact:cc>
+			<contact:sp > province</contact:sp>
+			<contact:pc > postal code</contact:pc>
+		</contact:addr>
+</contact:postalInfo>
+	<contact:voice > phone</contact:voice>
+	<contact:fax > fax</contact:fax>
+
+
+<contact:ident >
+	<contact:org > org</contact:org>
+	<contact:email > email</contact:email>
+	<contact:crDate > date created</contact:crDate>
+	<contact:idCard cc="IR"> country personal user</contact:idCard>
+	<contact:passport cc="EN"> country personal user</contact:passport>
+	<contact:privateReg cc="EN" sp="Provice" issuer="vahede sabt konnande" category="typ of company"> non goverment company</contact:privateReg>
+	<contact:govId cc="EN" sp="Provice" issuer="vahede sabt konnande" category="typ of company"> goverment company</contact:govId>
+	<contact:eduId cc="EN" sp="Provice" issuer="vahede sabt konnande" category="typ of company"> goverment company</contact:eduId>
+</contact:ident>
+
+<!-- *////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<personal:account type="to createaccount something is requred">
+	<required>firstname</required>
+	<required>lastname</required>
+	<required>nationalcode | passport code</required>
+	<required>email</required>
+	<required>country</required>
+	<required>province</required>
+	<required>city</required>
+	<required>address</required>
+	<required>postcode</required>
+	<required>phone</required>
+	<required>signator</required>
+	<tld>.ir</tld>
+	<tld>.ایران</tld>
+	<tld>.id.ir</tld>
+</personal:account>
