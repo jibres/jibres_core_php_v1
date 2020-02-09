@@ -4,11 +4,79 @@ namespace lib\nic\exec;
 
 class domain_create
 {
+
+
 	public static function create($_args)
 	{
-		return;
-		$response = self::get_response_create($_args);
-		var_dump($response);exit();
+		$create = self::analyze_domain_create($_args);
+
+		if(!$create || !is_array($create))
+		{
+			return false;
+		}
+
+		if(!isset($create['name']))
+		{
+			return false;
+		}
+
+		$result                 = [];
+		$result['name']         = $create['name'];
+		$result['dateregister'] = isset($create['crDate']) ? date("Y-m-d H:i:s", strtotime($create['crDate'])) : null;
+		$result['dateexpire']  = isset($create['exDate']) ? date("Y-m-d H:i:s", strtotime($create['exDate'])) : null;
+
+		return $result;
+	}
+
+
+
+
+	private static function analyze_domain_create($_args)
+	{
+
+		$objec_result = self::get_response_create($_args);
+
+		if(!$objec_result)
+		{
+			return false;
+		}
+
+		$result = [];
+		if(!isset($objec_result->response->resData))
+		{
+			return false;
+		}
+
+		if(!$objec_result->response->resData->xpath('domain:creData'))
+		{
+			return false;
+		}
+
+		foreach ($objec_result->response->resData->xpath('domain:creData') as  $domaincreData)
+		{
+			$temp  = [];
+
+			foreach ($domaincreData->xpath('domain:name') as $domainname)
+			{
+				$myKey = $domainname->__toString();
+				$temp['name']   = $myKey;
+			}
+
+
+			foreach ($domaincreData->xpath('domain:crDate') as $domaincrDate)
+			{
+				$temp['crDate']   = $domaincrDate->__toString();
+			}
+
+			foreach ($domaincreData->xpath('domain:exDate') as $domainexDate)
+			{
+				$temp['exDate']   = $domainexDate->__toString();
+			}
+
+			$result = $temp;
+		}
+
+		return $result;
 	}
 
 
@@ -29,7 +97,7 @@ class domain_create
 		$xml = str_replace('PERIOD', $_args['period'], $xml);
 
 		// $xml = str_replace('JIBRES-NIC-ACCOUNT', \lib\nic\exec\run::jibres_nic_account(), $xml);
-		$xml = str_replace('JIBRES-NIC-ACCOUNT', 'ex61-irnic', $xml);
+		$xml = str_replace('JIBRES-NIC-ACCOUNT', $_args['nic_id'], $xml);
 
 		$insert_log =
 		[
@@ -71,6 +139,13 @@ class domain_create
 		if(isset($response))
 		{
 			$update_after_send['response'] = addslashes($response);
+		}
+
+
+		if(!$response)
+		{
+			\dash\notif::error(T_("IRNIC server is not available at this time"));
+			return false;
 		}
 
 		$object = new \SimpleXMLElement($response);

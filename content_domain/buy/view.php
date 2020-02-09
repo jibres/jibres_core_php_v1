@@ -12,6 +12,10 @@ class view
 
 		$list = \lib\app\nic_contact\search::my_list();
 		\dash\data::myContactList($list);
+
+		$list = \lib\app\nic_dns\search::my_list();
+
+		\dash\data::myDNSList($list);
 	}
 }
 ?>

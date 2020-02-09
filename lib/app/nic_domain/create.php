@@ -7,18 +7,20 @@ class create
 	public static function new_domain($_args)
 	{
 		$domain = isset($_args['domain']) 	? $_args['domain'] 	: null;
-		$irnic  = isset($_args['irnic']) 	? $_args['irnic'] 	: null;
+		$nic_id  = isset($_args['nic_id']) 	? $_args['nic_id'] 	: null;
 		$period = isset($_args['period']) 	? $_args['period'] 	: null;
 		$ns1    = isset($_args['ns1']) 		? $_args['ns1'] 	: null;
 		$ns2    = isset($_args['ns2']) 		? $_args['ns2'] 	: null;
 		$ns3    = isset($_args['ns3']) 		? $_args['ns3'] 	: null;
 		$ns4    = isset($_args['ns4']) 		? $_args['ns4'] 	: null;
+		$dnsid  = isset($_args['dnsid']) 	? $_args['dnsid'] 	: null;
 
 		if(!$domain)
 		{
 			\dash\notif::error(T_("Please set domain"));
 			return false;
 		}
+
 
 		if(!\lib\app\nic_domain\check::syntax($domain))
 		{
@@ -43,45 +45,29 @@ class create
 			$period_month = 5*12;
 		}
 
-		if(!$ns1)
+		if($dnsid)
 		{
-			\dash\notif::error(T_("DNS #1 is required"), 'ns1');
-			return false;
+			$load_dns = \lib\app\nic_dns\get::get($dnsid);
+
+			if(!$load_dns)
+			{
+				return false;
+			}
+
+			$dnsid = \dash\coding::decode($dnsid);
+
+			$ns1 = $load_dns['ns1'];
+			$ns2 = $load_dns['ns2'];
 		}
-
-		if(!$ns2)
+		else
 		{
-			\dash\notif::error(T_("DNS #2 is required"), 'ns2');
-			return false;
-		}
-
-		if(mb_strlen($ns1) > 100)
-		{
-			\dash\notif::error(T_("DNS #1 is out of range"), 'ns1');
-			return false;
-		}
-
-		if(mb_strlen($ns2) > 100)
-		{
-			\dash\notif::error(T_("DNS #2 is out of range"), 'ns2');
-			return false;
-		}
-
-
-		if(!filter_var($ns1, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME))
-		{
-			\dash\notif::error(T_("DNS #1 is invalid"), 'ns1');
-			return false;
-		}
-
-		if(!filter_var($ns2, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME))
-		{
-			\dash\notif::error(T_("DNS #2 is invalid"), 'ns2');
+			\dash\notif::error(T_("Choose dns"));
 			return false;
 		}
 
 		$ready =
 		[
+			'nic_id' => $nic_id,
 			'domain' => $domain,
 			'period' => $period_month,
 			'ns1'    => $ns1,
@@ -90,7 +76,52 @@ class create
 
 		$result = \lib\nic\exec\domain_create::create($ready);
 
+		if(isset($result['name']))
+		{
+			$insert =
+			[
+				'user_id'      => \dash\user::id(),
+				'name'         => $domain,
+				'registrar'    => 'irnic',
+				'status'       => 'enable',
+				'holder'       => $nic_id,
+				'admin'        => $nic_id,
+				'tech'         => $nic_id,
+				'bill'         => $nic_id,
+				'autorenew'    => null,
+				'lock'         => null,
+				'dns'          => $dnsid,
+				'dateregister' => $result['dateregister'],
+				'dateexpire'   => $result['dateexpire'],
+				'datecreated'  => date("Y-m-d H:i:s"),
+			];
 
+			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
+			if(!$domain_id)
+			{
+				// must be roolback money
+				\dash\notif::error(T_("Error"));
+				return false;
+			}
+
+			$insert_action =
+			[
+				'domain_id'   => $domain_id,
+				'user_id'     => \dash\user::id(),
+				'status'      => 'enable',
+				'action'      => 'buy',
+				'meta'        => null,
+				'date'        => date("Y-m-d H:i:s"),
+				'datecreated' => date("Y-m-d H:i:s"),
+			];
+
+			$domain_action_id = \lib\db\nic_domain_action\insert::new_record($insert_action);
+
+			\dash\notif::ok(T_("Your domain was registred"));
+
+			return true;
+
+		}
 
 	}
 }

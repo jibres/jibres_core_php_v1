@@ -9,6 +9,10 @@ class view
 		\dash\data::page_title(T_("Jibres Domans"));
 
 		\dash\data::page_special(true);
+
+
+		$list = \lib\app\nic_domain\search::my_list();
+		\dash\data::dataTable($list);
 	}
 }
 ?>

@@ -38,15 +38,21 @@
 
 
 {%block buyForm%}
-<form method="post" autocomplete="off">
-	<label for="irnic">{%trans "IRNIC contact"%} <small><a href="{{url.here}}/contact/add">{%trans "Create new IRNIC contact"%}</a></small></label>
+<form method="post" autocomplete="off" action="{{url.this}}">
 
-	  <select name="irnicid" class="select ui dropdown search addition" id="irnicid">
-	    <option value="">{%trans "IRNIC contact id"%}</option>
-	    {%for key, value in myContactList%}
-	      <option value="{{value.nic_id}}">{{value.nic_id}}</option>
-	    {%endfor%}
-	  </select>
+	{%if url.child%}
+		<input type="hidden" name="domain" value="{{url.child}}">
+	{%endif%}
+
+	<label for="irnicid">{%trans "IRNIC contact"%} <small><a href="{{url.here}}/contact/add">{%trans "Create new IRNIC contact"%}</a></small></label>
+	<select name="irnicid" class="select ui dropdown search addition" id="irnicid">
+	<option value="">{%trans "IRNIC contact id"%}</option>
+	{%for key, value in myContactList%}
+	  <option value="{{value.nic_id}}" {%if value.isdefault%} selected {%endif%}>{{value.nic_id}}</option>
+	{%endfor%}
+	</select>
+
+
 
 	<div class="f mB10">
       <div class="c pRa5">
@@ -62,39 +68,53 @@
           </div>
       </div>
     </div>
-    <div class="f">
-    	<div class="c6 s12">
-		    <label for="ns1">{%trans "DNS #1"%}</label>
-			<div class="input">
-				<input type="text" name="ns1" id="ns1" maxlength="100">
-			</div>
-    	</div>
 
-    	<div class="c6 s12">
-    		<div class="mLa5">
-				<label for="ns2">{%trans "DNS #2"%}</label>
+
+    <label for="dnsid">{%trans "DNS records"%} <small><a data-kerkere='.addNewDns' href-old="{{url.here}}/dns/add">{%trans "Create new DNS dns"%}</a></small></label>
+	<select name="dnsid" class="select ui dropdown search addition" id="dnsid">
+	<option value="">{%trans "DNS record"%}</option>
+	{%for key, value in myDNSList%}
+	  <option value="{{value.id | coding('encode')}}" {%if value.isdefault%} selected {%endif%}>{{value.title}} - {{value.ns1}}</option>
+	{%endfor%}
+	</select>
+
+	<div class='addNewDns' data-kerkere-content='hide'>
+
+	    <div class="f">
+	    	<div class="c6 s12">
+			    <label for="ns1">{%trans "DNS #1"%}</label>
 				<div class="input">
-					<input type="text" name="ns2" id="ns2" maxlength="100">
+					<input type="text" name="ns1" id="ns1" maxlength="100">
 				</div>
-    		</div>
-    	</div>
+	    	</div>
 
-    	<div class="c6 s12">
-			<label for="ns3">{%trans "DNS #3"%}</label>
-			<div class="input">
-				<input type="text" name="ns3" id="ns3" maxlength="100">
-			</div>
-    	</div>
+	    	<div class="c6 s12">
+	    		<div class="mLa5">
+					<label for="ns2">{%trans "DNS #2"%}</label>
+					<div class="input">
+						<input type="text" name="ns2" id="ns2" maxlength="100">
+					</div>
+	    		</div>
+	    	</div>
 
-    	<div class="c6 s12">
-    		<div class="mLa5">
-				<label for="ns4">{%trans "DNS #4"%}</label>
+	    	<div class="c6 s12">
+				<label for="ns3">{%trans "DNS #3"%}</label>
 				<div class="input">
-					<input type="text" name="ns4" id="ns4" maxlength="100">
+					<input type="text" name="ns3" id="ns3" maxlength="100">
 				</div>
-    		</div>
-    	</div>
-    </div>
+	    	</div>
+
+	    	<div class="c6 s12">
+	    		<div class="mLa5">
+					<label for="ns4">{%trans "DNS #4"%}</label>
+					<div class="input">
+						<input type="text" name="ns4" id="ns4" maxlength="100">
+					</div>
+	    		</div>
+	    	</div>
+	    </div>
+
+	</div>
 
     <div class="check1">
       <input type="checkbox" name="agree" id="agree">

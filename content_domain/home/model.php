@@ -9,8 +9,7 @@ class model
 		$domain = \dash\request::post('domain');
 		if(!$domain)
 		{
-			\dash\notif::error(T_("Please fill domain"), 'domain');
-			return false;
+			\dash\redirect::to(\dash\url::here());
 		}
 
 		if(!\lib\app\nic_domain\check::syntax($domain))

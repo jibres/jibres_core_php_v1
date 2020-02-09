@@ -100,11 +100,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			{%for i in 1..10%}
+			{%for key, value in dataTable%}
 			<tr>
-				<td><a target="_blank" href="http://rezamohiti.ir"><i class="sf-link"></i></a> <span>rezamohiti{{i}}.ir</span></td>
-				<td class="">{{"2021-1-20" | dt(null, 'date')}} <br><small class="sf-mute">{{945 | fitNumber}} {%trans "Days left"%}</small></td>
-				<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage domain"%}</a></td>
+				<td><a target="_blank" href="http://{{value.name}}"><i class="sf-link"></i></a> <span>{{value.name}}</span></td>
+				<td class="">{{value.dateexpire | dt}} <br><small class="sf-mute">{{value.expredate | dt}}</small></td>
+				<td class="collapsing"><a href="{{url.this}}/setting/{{value.name}}" class="btn info2">{%trans "Manage domain"%}</a></td>
 			</tr>
 			{%endfor%}
 		</tbody>

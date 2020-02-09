@@ -127,6 +127,7 @@ CREATE TABLE IF NOT EXISTS `domain` (
 `user_id` int(10) UNSIGNED NULL,
 
 `registrar` enum('irnic') NULL DEFAULT NULL,
+`name` varchar(200) NULL DEFAULT NULL,
 
 `status` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
 
@@ -148,7 +149,8 @@ CREATE TABLE IF NOT EXISTS `domain` (
 `datecreated` timestamp NULL DEFAULT NULL,
 `datemodified` timestamp NULL DEFAULT NULL,
 
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id`),
+KEY `domain_index_search_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
