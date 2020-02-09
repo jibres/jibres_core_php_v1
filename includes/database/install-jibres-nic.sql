@@ -13,6 +13,8 @@ CREATE TABLE IF NOT EXISTS `log` (
 	'contact_create',
 	'contact_update',
 	'domain_check',
+	'domain_lock',
+	'domain_unlock',
 	'domain_info',
 	'domain_create',
 	'domain_update',

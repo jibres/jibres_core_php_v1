@@ -20,6 +20,15 @@ class get
 	}
 
 
+	public static function domain_user($_domina, $_user_id)
+	{
+		$query  = "SELECT * FROM domain WHERE domain.name = '$_domina' AND domain.user_id = $_user_id LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+
+	}
+
+
 
 	public static function check_duplicate($_user_id, $_nic_id)
 	{

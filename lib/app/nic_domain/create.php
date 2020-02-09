@@ -89,7 +89,7 @@ class create
 				'tech'         => $nic_id,
 				'bill'         => $nic_id,
 				'autorenew'    => null,
-				'lock'         => null,
+				'lock'         => 1,
 				'dns'          => $dnsid,
 				'dateregister' => $result['dateregister'],
 				'dateexpire'   => $result['dateexpire'],

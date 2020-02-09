@@ -12,7 +12,7 @@
 
 				<div class="f fs06">
 					<div class="c6 s12">
-						<div class="dcard x1" data-confirm data-data='{"myaction" : "lock"}'>
+						<div class="dcard x1 {%if domainDetail.lock%} active {%endif%} " data-confirm data-data='{"myaction" : "lock"}'>
 						 <div class="statistic blue">
 						  <div class="value"><i class="sf-lock"></i></div>
 						  <div class="label">{%trans "Lock domain"%}</div>
@@ -21,7 +21,7 @@
 					</div>
 
 					<div class="c6 s12">
-						<div class="dcard x1" data-confirm data-data='{"myaction" : "lock"}'>
+						<div class="dcard x1 {%if not domainDetail.lock%} active {%endif%}" data-confirm data-data='{"myaction" : "unlock"}'>
 						 <div class="statistic red">
 						  <div class="value"><i class="sf-unlock"></i></div>
 						  <div class="label">{%trans "Unlock domain"%}</div>

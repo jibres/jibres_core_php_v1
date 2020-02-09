@@ -21,7 +21,13 @@ class controller
 		{
 			if(\lib\app\nic_domain\check::syntax($domain))
 			{
+				$load_domain = \lib\app\nic_domain\get::is_my_domain($domain);
+				if(!$load_domain)
+				{
+					\dash\header::status(403);
+				}
 				\dash\data::myDomain($domain);
+				\dash\data::domainDetail($load_domain);
 			}
 			else
 			{
