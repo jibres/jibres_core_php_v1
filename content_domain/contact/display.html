@@ -23,10 +23,10 @@
 		</thead>
 		<tbody>
 			{%for key, value in dataTable%}
-			<tr>
+			<tr {%if value.isdefault%} class="positive" {%endif%}>
 				<td class="collapsing">{{(key + 1) | fitNumber}}</td>
 				<td>{{value.title}}</td>
-				<td><code>{{value.nic_id}}</code></td>
+				<td><code>{{value.nic_id}}</code> {%if value.isdefault%} <span class="badge success">{%trans "Default"%}</span> {%endif%}</td>
 				<td>
 
 					<span class="badge light">{%trans "Holder" %} {%if value.holder%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
@@ -37,7 +37,7 @@
 				<td class="s0">
 					{{value.datecreated |dt}}
 				</td>
-				<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage contact"%}</a></td>
+				<td class="collapsing"><a href="{{url.this}}/edit?id={{value.id | coding('encode')}}" class="btn info2">{%trans "Edit"%}</a></td>
 			</tr>
 			{%endfor%}
 		</tbody>

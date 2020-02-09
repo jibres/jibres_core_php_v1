@@ -1,0 +1,32 @@
+{%extends display.jibresControlLayout%}
+
+{%block pageContent%}
+<div class="f justify-center">
+	<div class="c6 m8 s12">
+		<div class="cbox">
+
+			<form method="post" autocomplete="off">
+
+
+				<label for="ititle">{%trans "Title"%}</label>
+				<div class="input">
+					<input type="text" name="title" id="ititle" value="{{dataRow.title}}">
+				</div>
+
+				<div class="switch1">
+	              <input type="checkbox" name="isdefault" id="isdefault" {%if dataRow.isdefault%} checked {%endif%}>
+	              <label for="isdefault" data-on='{%trans "Yes"%}' data-off='{%trans "No"%}'></label>
+	              <label for="isdefault">{%trans "Is default?"%}</label>
+	            </div>
+
+				<div class="txtRa">
+					<button class="btn info">{%trans "Edit"%}</button>
+				</div>
+			</form>
+
+		</div>
+
+
+	</div>
+</div>
+{%endblock%}
