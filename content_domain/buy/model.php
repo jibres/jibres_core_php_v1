@@ -8,7 +8,7 @@ class model
 	{
 		$domain = \dash\request::post('domain');
 
-		if($domain)
+		if($domain && \dash\request::post('whois'))
 		{
 			if(!$domain)
 			{
