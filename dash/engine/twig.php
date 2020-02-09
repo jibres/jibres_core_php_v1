@@ -29,6 +29,8 @@ class twig
 			if(!is_file($tmpname_addr))
 			{
 				$tmpname = $module.'\\display.html';
+				// try to use pwa template file if exist instead of original file
+				\dash\data::display_dash(\dash\data::display_pwa());
 			}
 		}
 		// show error if display is not exist
