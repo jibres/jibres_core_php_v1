@@ -20,6 +20,17 @@ class twig
 
 		$module = str_replace('/', '\\', \dash\engine\mvc::get_dir_address());
 		$tmpname = $module.'\\display.html';
+		// on pwa try to read pwa.html
+		if(\dash\detect\device::detectPWA())
+		{
+			$tmpname = $module.'\\pwa.html';
+			// show error if display is not exist
+			$tmpname_addr = \autoload::fix_os_path(root. ltrim($tmpname, '\\'));
+			if(!is_file($tmpname_addr))
+			{
+				$tmpname = $module.'\\display.html';
+			}
+		}
 		// show error if display is not exist
 		$tmpname_addr = \autoload::fix_os_path(root. ltrim($tmpname, '\\'));
 		if(!is_file($tmpname_addr))
