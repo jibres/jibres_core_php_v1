@@ -144,6 +144,10 @@ class run
 				$msg = T_("Object status prohibits operation");
 				break;
 
+			case 2105:
+				$msg = T_("Object is not eligible for renewal");
+				break;
+
 			case 1001:
 			case 1300:
 			case 1301:
@@ -157,7 +161,6 @@ class run
 			case 2101:
 			case 2103:
 			case 2104:
-			case 2105:
 			case 2106:
 			case 2200:
 			case 2201:

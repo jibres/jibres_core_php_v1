@@ -29,14 +29,8 @@ class model
 
 		$post =
 		[
-			'domain' => \dash\request::post('domain'),
-			'nic_id'  => \dash\request::post('irnicid'),
+			'domain' => \dash\data::myDomain(),
 			'period' => \dash\request::post('period'),
-			'ns1'    => \dash\request::post('ns1'),
-			'ns2'    => \dash\request::post('ns2'),
-			'ns3'    => \dash\request::post('ns3'),
-			'ns4'    => \dash\request::post('ns4'),
-			'dnsid'  => \dash\request::post('dnsid'),
 		];
 
 		if(!\dash\request::post('agree'))
@@ -45,7 +39,7 @@ class model
 			return false;
 		}
 
-		$result = \lib\app\nic_domain\create::new_domain($post);
+		$result = \lib\app\nic_domain\renew::renew($post);
 
 		if(\dash\engine\process::status())
 		{

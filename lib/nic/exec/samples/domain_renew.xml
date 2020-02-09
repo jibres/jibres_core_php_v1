@@ -4,8 +4,8 @@
   <renew>
    <domain:renew xmlns:domain="http://epp.nic.ir/ns/domain-1.0">
     <domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>
-    <domain:curExpDate>2000-04-03</domain:curExpDate>
-    <domain:period unit="m">12</domain:period>
+    <domain:curExpDate>JIBRES-EXPIRE-DATE</domain:curExpDate>
+    <domain:period unit="m">PERIOD</domain:period>
     <domain:authInfo>
      <domain:pw>JIBRES-TOKEN</domain:pw>
     </domain:authInfo>
