@@ -79,9 +79,16 @@
       }
       else
       {
-        // hard redirect to new content
-        location.replace(obj.url);
-        return;
+        if($('html').attr('data-pwa') !== undefined)
+        {
+          // do nothing for pwa
+        }
+        else
+        {
+          // hard redirect to new content
+          location.replace(obj.url);
+          return;
+        }
       }
     }
 
