@@ -13,8 +13,12 @@
 		<thead>
 			<tr>
 				<th class="collapsing">#</th>
-				<th>{%trans "Account"%}</th>
-				<th>{%trans "Permission"%}</th>
+				<th>{%trans "Title"%}</th>
+				<th>{%trans "DNS #1"%}</th>
+				<th>{%trans "DNS #2"%}</th>
+				<th>{%trans "DNS #3"%}</th>
+				<th>{%trans "DNS #4"%}</th>
+
 				<th class="s0">{%trans "Date"%}</th>
 
 				{%if false%}<th class="collapsing">{%trans "Action"%}</th>{%endif%}
@@ -24,14 +28,12 @@
 			{%for key, value in dataTable%}
 			<tr>
 				<td class="collapsing">{{(key + 1) | fitNumber}}</td>
-				<td><code>{{value.nic_id}}</code></td>
-				<td>
+				<td><code>{{value.title}}</code></td>
+				<td>{{value.ip1}} <br> {{value.ns1}}</td>
+				<td>{{value.ip2}} <br> {{value.ns2}}</td>
+				<td>{{value.ip3}} <br> {{value.ns3}}</td>
+				<td>{{value.ip4}} <br> {{value.ns4}}</td>
 
-					<span class="badge light">{%trans "Holder" %} {%if value.holder%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
-					<span class="badge light">{%trans "Admin" %} {%if value.admin%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
-					<span class="badge light">{%trans "Technical" %} {%if value.tech%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
-					<span class="badge light">{%trans "billing" %} {%if value.bill%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</span>
-				</td>
 				<td class="s0">
 					{{value.datecreated |dt}}
 				</td>

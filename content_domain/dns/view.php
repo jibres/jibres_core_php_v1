@@ -19,8 +19,8 @@ class view
 		\dash\data::page_backText(T_('Back'));
 		\dash\data::page_backLink(\dash\url::here());
 
-		// $list = \lib\app\nic_dns\search::my_list();
-		// \dash\data::dataTable($list);
+		$list = \lib\app\nic_dns\search::my_list();
+		\dash\data::dataTable($list);
 	}
 }
 ?>
