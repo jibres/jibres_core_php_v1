@@ -6,7 +6,15 @@
 	<div class="c6 m8 s12">
 		<div class="cbox">
 
-			<form method="post" autocomplete="off" class="mB20" action="{{url.here}}/buy">
+			<form method="post" autocomplete="off" class="mB20" >
+
+				<label for="irnicid">{%trans "IRNIC contact"%} <small><a href="{{url.here}}/contact/add">{%trans "Create new IRNIC contact"%}</a></small></label>
+				<select name="irnicid" class="select ui dropdown search addition" id="irnicid">
+				<option value="">{%trans "IRNIC contact id"%}</option>
+				{%for key, value in myContactList%}
+				  <option value="{{value.nic_id}}" {%if value.isdefault%} selected {%endif%}>{{value.nic_id}}</option>
+				{%endfor%}
+				</select>
 
 				<label for="domain">{%trans "Domain"%}</label>
 				<div class="input ltr">
@@ -15,7 +23,7 @@
 
 				<label for="ips">{%trans "Transfer code"%}</label>
 				<div class="input ltr">
-					<input type="text" name="ps"  id="ips" maxlength="100">
+					<input type="text" name="pin"  id="ips" maxlength="100">
 				</div>
 
 			    <div class="check1">
@@ -32,4 +40,5 @@
 </div>
 
 {%endblock%}
+
 

@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS `log` (
 	'domain_update',
 	'domain_renew',
 	'domain_delete',
+	'domain_transfer',
 	'poll_request',
 	'poll_acknowledge'
 	) DEFAULT NULL,

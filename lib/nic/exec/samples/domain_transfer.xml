@@ -5,10 +5,10 @@
       <domain:update xmlns:domain="http://epp.nic.ir/ns/domain-1.0">
         <domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>
         <domain:chg>
-          <domain:contact type="holder">ex61-irnic</domain:contact>
-          <domain:contact type="admin">ex61-irnic</domain:contact>
-          <domain:contact type="tech">ex61-irnic</domain:contact>
-          <domain:contact type="bill">ex61-irnic</domain:contact>
+          <domain:contact type="holder">JIBRES-NIC-ACCOUNT</domain:contact>
+          <domain:contact type="admin">JIBRES-NIC-ACCOUNT</domain:contact>
+          <domain:contact type="tech">JIBRES-NIC-ACCOUNT</domain:contact>
+          <domain:contact type="bill">JIBRES-NIC-ACCOUNT</domain:contact>
         </domain:chg>
         <domain:authInfo>
           <domain:pw>JIBRES-TOKEN</domain:pw>
@@ -16,7 +16,7 @@
       </domain:update>
     </update>
     <extension>
-      <pin pinCode="PIN" />
+      <pin pinCode="JIBRES-PIN" />
     </extension>
     <clTRID>JIBRES-TRACKING-NUMBER</clTRID>
   </command>
