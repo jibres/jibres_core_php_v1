@@ -8,7 +8,7 @@ class model
 	{
 		if(\dash\request::post('oldcontact'))
 		{
-			$check = \lib\app\nic_contact\add::exists_contact(\dash\request::post('oldcontact'));
+			$check = \lib\app\nic_contact\add::exists_contact(\dash\request::post('oldcontact'), \dash\request::post('titleold'));
 			if($check)
 			{
 				\dash\redirect::to(\dash\url::this());
@@ -24,6 +24,7 @@ class model
 
 			$post =
 			[
+				'title'        => \dash\request::post('title'),
 				'firstname'    => \dash\request::post('firstname'),
 				'lastname'     => \dash\request::post('lastname'),
 				'nationalcode' => \dash\request::post('nationalcode'),

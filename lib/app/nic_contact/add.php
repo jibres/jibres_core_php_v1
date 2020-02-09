@@ -4,7 +4,7 @@ namespace lib\app\nic_contact;
 
 class add
 {
-	public static function exists_contact($_old_contact)
+	public static function exists_contact($_old_contact, $_title)
 	{
 		if(!\dash\user::id())
 		{
@@ -22,7 +22,7 @@ class add
 		if(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '1')
 		{
 			// $info = \lib\nic\exec\contact_info::info($_old_contact);
-			$result = self::add_account($result[$_old_contact]);
+			$result = self::add_account($result[$_old_contact], $_title);
 			if($result)
 			{
 				\dash\notif::ok(T_("Contact added to your contact list"));
@@ -37,7 +37,7 @@ class add
 	}
 
 
-	private static function add_account($_detail)
+	private static function add_account($_detail, $_title)
 	{
 
 		$id     = isset($_detail['id']) ? $_detail['id'] : null;
@@ -55,8 +55,15 @@ class add
 		$tech   = $tech ? 1 : null;
 		$bill   = $bill ? 1 : null;
 
+		if($_title && mb_strlen($_title) > 100)
+		{
+			\dash\notif::error(T_("Title is out of range"), 'titleold');
+			return false;
+		}
+
 		$insert =
 		[
+			'title'       => $_title,
 			'user_id'     => \dash\user::id(),
 			'nic_id'      => $id,
 			'roid'        => $id,
@@ -99,7 +106,8 @@ class add
 		}
 
 
-		$firstname    = (isset($_args['firstname']) 	&& is_string($_args['firstname']))		 ? $_args['firstname'] 		: null;
+		$title    	  = (isset($_args['title']) 	    && is_string($_args['title']))		     ? $_args['title'] 		    : null;
+		$firstname    = (isset($_args['firstname']) 	&& is_string($_args['firstname']))		 ? $_args['firstname'] 	 	: null;
 		$lastname     = (isset($_args['lastname']) 		&& is_string($_args['lastname']))		 ? $_args['lastname'] 		: null;
 		$nationalcode = (isset($_args['nationalcode']) 	&& is_string($_args['nationalcode']))	 ? $_args['nationalcode'] 	: null;
 		$email        = (isset($_args['email']) 		&& is_string($_args['email']))			 ? $_args['email'] 			: null;
@@ -113,6 +121,13 @@ class add
 		$nationalcode = \dash\number::clean($nationalcode);
 		$postcode     = \dash\number::clean($postcode);
 		$phone        = \dash\number::clean($phone);
+
+
+		if($title && mb_strlen($title) > 100)
+		{
+			\dash\notif::error(T_("Title must be less than 100 character"), 'title');
+			return false;
+		}
 
 		if(!$firstname)
 		{
@@ -260,6 +275,7 @@ class add
 
 		$ready =
 		[
+			'title'        => $title,
 			'firstname'    => $firstname,
 			'lastname'     => $lastname,
 			'nationalcode' => $nationalcode,
@@ -279,88 +295,71 @@ class add
 
 		if(isset($result['nic_id']))
 		{
-				$id     = isset($result['nic_id']) ? $result['nic_id'] : null;
-				$roid   = null;
+			$id     = isset($result['nic_id']) ? $result['nic_id'] : null;
+			$roid   = null;
 
-				// i create it
-				$holder = 1;
-				$admin  = 1;
-				$tech   = 1;
-				$bill   = 1;
+			// i create it
+			$holder = 1;
+			$admin  = 1;
+			$tech   = 1;
+			$bill   = 1;
 
-				$insert =
-				[
-					'user_id'      => \dash\user::id(),
-					'nic_id'       => $id,
-					'roid'         => $id,
-					'holder'       => $holder,
-					'admin'        => $admin,
-					'tech'         => $tech,
-					'bill'         => $bill,
-					'email'        => $email,
-					'isdefault'    => null,
-					'datecreated'  => date("Y-m-d H:i:s"),
-					'status'       => 'enable',
-					'firstname'    => null,
-					'lastname'     => null,
-					'firstname_en' => $firstname,
-					'lastname_en'  => $lastname,
-					'nationalcode' => $nationalcode,
-					'passportcode' => $country === 'IR' ? $nationalcode : null,
-					'company'      => null,
-					'category'     => null,
-					'email'        => $email,
-					'country'      => $country,
-					'province'     => $province,
-					'city'         => $city,
-					'postcode'     => $postcode,
-					'address'      => $address,
-					'mobile'       => \dash\user::detail('mobile'),
-					'signator'     => $signator,
+			$insert =
+			[
+				'title'        => $title,
+				'user_id'      => \dash\user::id(),
+				'nic_id'       => $id,
+				'roid'         => $id,
+				'holder'       => $holder,
+				'admin'        => $admin,
+				'tech'         => $tech,
+				'bill'         => $bill,
+				'email'        => $email,
+				'isdefault'    => null,
+				'datecreated'  => date("Y-m-d H:i:s"),
+				'status'       => 'enable',
+				'firstname'    => null,
+				'lastname'     => null,
+				'firstname_en' => $firstname,
+				'lastname_en'  => $lastname,
+				'nationalcode' => $nationalcode,
+				'passportcode' => $country === 'IR' ? $nationalcode : null,
+				'company'      => null,
+				'category'     => null,
+				'email'        => $email,
+				'country'      => $country,
+				'province'     => $province,
+				'city'         => $city,
+				'postcode'     => $postcode,
+				'address'      => $address,
+				'mobile'       => \dash\user::detail('mobile'),
+				'signator'     => $signator,
 
-				];
+			];
 
-				$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $id);
-				if($check_duplicate)
-				{
-					\dash\notif::error(T_("This contact already added to your contact list"));
-					return false;
-				}
-
-				$contact = \lib\db\nic_contact\insert::new_record($insert);
-				if($contact)
-				{
-					\dash\notif::ok(T_("Contact created"));
-					return true;
-				}
-				else
-				{
-					\dash\notif::error(T_("No way to insert data"));
-					return false;
-				}
-		}
-		else
-		{
-			return false;
-		}
-
-		if(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '1')
-		{
-			$info = \lib\nic\exec\contact::info($_old_contact);
-
-			$result = self::add_account($result[$_old_contact], $info);
-			if($result)
+			$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $id);
+			if($check_duplicate)
 			{
-				\dash\notif::ok(T_("Contact added to your contact list"));
+				\dash\notif::error(T_("This contact already added to your contact list"));
+				return false;
+			}
+
+			$contact = \lib\db\nic_contact\insert::new_record($insert);
+			if($contact)
+			{
+				\dash\notif::ok(T_("Contact created"));
 				return true;
+			}
+			else
+			{
+				\dash\notif::error(T_("No way to insert data"));
+				return false;
 			}
 		}
 		else
 		{
-			\dash\notif::error(T_("Contact is not available"), 'oldcontact');
 			return false;
 		}
-
 	}
 }
 ?>

@@ -3,94 +3,138 @@
 {%block pageContent%}
 <div class="f justify-center">
 	<div class="c6 m8 s12">
+		<div class="f">
+			<div class="c s12">
 
-		<div class="cbox">
-			<h3>{%trans "Add an existing account"%}</h3>
-			<form method="post" autocomplete="off">
-				<label for="ioldcontact">{%trans "Account id"%}</label>
-				<div class="input ltr">
-					<input type="text" name="oldcontact" id="ioldcontact">
-				</div>
+				<a class="dcard x1 {%if requestGET.type == 'old' or not requestGET.type %} active {%endif%}" href='{{url.that}}?type=old'>
+				 <div class="statistic blue">
+				  <div class="value"><i class="sf-arrow-circle-down"></i></div>
+				  <div class="label">{%trans "Add an existing account"%}</div>
+				 </div>
+				</a>
 
-				<div class="txtRa">
-					<button class="btn info">{%trans "Add contact"%}</button>
-				</div>
-			</form>
+			</div>
+
+			<div class="c s12">
+
+				<a class="dcard x1 {%if requestGET.type == 'new' %} active {%endif%}" href='{{url.that}}?type=new'>
+				 <div class="statistic green">
+				  <div class="value"><i class="sf-plus-circle"></i></div>
+				  <div class="label">{%trans "Create new account"%}</div>
+				 </div>
+				</a>
+
+			</div>
 		</div>
-
-		<div class="cbox">
-			<h3>{%trans "Create new account"%}</h3>
-			<form method="post" autocomplete="off">
-				<div class="f">
-					<div class="c6 s12">
-						<label for="ifirstname">{%trans "Firstname"%} <small class="fc-mute">{%trans "Enter in Latin characters"%}</small></label>
-						<div class="input ltr">
-							<input type="text" name="firstname" id="ifirstname" maxlength="100">
-						</div>
-					</div>
-					<div class="c6 s12">
-						<div class="mLa5">
-							<label for="ilastname">{%trans "Lastname"%} <small class="fc-mute">{%trans "Enter in Latin characters"%}</small></label>
-							<div class="input ltr">
-								<input type="text" name="lastname" id="ilastname" maxlength="100">
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="f">
-					<div class="c6 s12">
-						<label for="inationalcode">{%trans "Nationalcode or Passport number"%}</label>
-						<div class="input ltr">
-							<input type="text" name="nationalcode" id="inationalcode" maxlength="30">
-						</div>
-					</div>
-
-					<div class="c6 s12">
-						<div class="mLa5">
-							<label for="iemail">{%trans "Email"%}</label>
-							<div class="input ltr">
-								<input type="email" name="email" id="iemail" maxlength="100">
-							</div>
-						</div>
-					</div>
-				</div>
+		{%if requestGET.type == 'new'%}
+			{{block('iAddNewContact')}}
+		{%else%}
+			{{block('iOldNewContact')}}
+		{%endif%}
 
 
-				{{block('iCountry')}}
-				{{block('iProvince')}}
-				{{block('iCity')}}
-
-				<div class="f">
-					<div class="c6 s12">
-						{{block('iPostcode')}}
-					</div>
-					<div class="c6 s12">
-						<div class="mLa5">
-							{{block('iPhone')}}
-						</div>
-					</div>
-				</div>
-
-				{{block('iAddress')}}
-
-
-				<div class="check1">
-			      <input type="checkbox" name="agree" id="agree">
-			      <label for="agree">{%trans "I have read and agree to the terms and conditions"%} <small><a target="_blank" href="{{url.kingdom}}/support/nic/privacy">{%trans "Show terms"%}</a></small></label>
-			    </div>
-
-
-				<div class="txtRa">
-					<button class="btn success">{%trans "Add contact"%}</button>
-				</div>
-			</form>
-		</div>
 	</div>
 </div>
 {%endblock%}
 
+{%block iOldNewContact%}
 
+<div class="cbox">
+	<h3>{%trans "Add an existing account"%}</h3>
+	<form method="post" autocomplete="off">
+		<label for="ioldcontact">{%trans "Account id"%}</label>
+		<div class="input ltr">
+			<input type="text" name="oldcontact" id="ioldcontact">
+		</div>
+
+		<label for="ititle">{%trans "Title"%}</label>
+		<div class="input">
+			<input type="text" name="titleold" id="ititle">
+		</div>
+
+		<div class="txtRa">
+			<button class="btn info">{%trans "Add contact"%}</button>
+		</div>
+	</form>
+</div>
+{%endblock%}
+
+{%block iAddNewContact%}
+<div class="cbox">
+	<h3>{%trans "Create new account"%}</h3>
+	<form method="post" autocomplete="off">
+
+		<label for="intitle">{%trans "Title"%}</label>
+		<div class="input">
+			<input type="text" name="title" id="intitle">
+		</div>
+
+		<div class="f">
+			<div class="c6 s12">
+				<label for="ifirstname">{%trans "Firstname"%} <small class="fc-mute">{%trans "Enter in Latin characters"%}</small></label>
+				<div class="input ltr">
+					<input type="text" name="firstname" id="ifirstname" maxlength="100">
+				</div>
+			</div>
+			<div class="c6 s12">
+				<div class="mLa5">
+					<label for="ilastname">{%trans "Lastname"%} <small class="fc-mute">{%trans "Enter in Latin characters"%}</small></label>
+					<div class="input ltr">
+						<input type="text" name="lastname" id="ilastname" maxlength="100">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="f">
+			<div class="c6 s12">
+				<label for="inationalcode">{%trans "Nationalcode or Passport number"%}</label>
+				<div class="input ltr">
+					<input type="text" name="nationalcode" id="inationalcode" maxlength="30">
+				</div>
+			</div>
+
+			<div class="c6 s12">
+				<div class="mLa5">
+					<label for="iemail">{%trans "Email"%}</label>
+					<div class="input ltr">
+						<input type="email" name="email" id="iemail" maxlength="100">
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		{{block('iCountry')}}
+		{{block('iProvince')}}
+		{{block('iCity')}}
+
+		<div class="f">
+			<div class="c6 s12">
+				{{block('iPostcode')}}
+			</div>
+			<div class="c6 s12">
+				<div class="mLa5">
+					{{block('iPhone')}}
+				</div>
+			</div>
+		</div>
+
+		{{block('iAddress')}}
+
+
+		<div class="check1">
+	      <input type="checkbox" name="agree" id="agree">
+	      <label for="agree">{%trans "I have read and agree to the terms and conditions"%} <small><a target="_blank" href="{{url.kingdom}}/support/nic/privacy">{%trans "Show terms"%}</a></small></label>
+	    </div>
+
+
+		<div class="txtRa">
+			<button class="btn success">{%trans "Add contact"%}</button>
+		</div>
+	</form>
+</div>
+{%endblock%}
 
 {%block iCountry%}
 <div class="mB10">

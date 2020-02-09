@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 `nic_id` varchar(30) NULL DEFAULT NULL,
 `roid` varchar(50) NULL DEFAULT NULL,
+`title` varchar(100) NULL DEFAULT NULL,
 
 `holder` bit(1) NULL DEFAULT NULL,
 `admin` bit(1) NULL DEFAULT NULL,

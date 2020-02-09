@@ -13,17 +13,19 @@
 		<thead>
 			<tr>
 				<th class="collapsing">#</th>
+				<th>{%trans "Title"%}</th>
 				<th>{%trans "Account"%}</th>
 				<th>{%trans "Permission"%}</th>
 				<th class="s0">{%trans "Date"%}</th>
 
-				{%if false%}<th class="collapsing">{%trans "Action"%}</th>{%endif%}
+				<th class="collapsing">{%trans "Action"%}</th>
 			</tr>
 		</thead>
 		<tbody>
 			{%for key, value in dataTable%}
 			<tr>
 				<td class="collapsing">{{(key + 1) | fitNumber}}</td>
+				<td>{{value.title}}</td>
 				<td><code>{{value.nic_id}}</code></td>
 				<td>
 
@@ -35,7 +37,7 @@
 				<td class="s0">
 					{{value.datecreated |dt}}
 				</td>
-				{%if false%}<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage contact"%}</a></td>{%endif%}
+				<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage contact"%}</a></td>
 			</tr>
 			{%endfor%}
 		</tbody>
