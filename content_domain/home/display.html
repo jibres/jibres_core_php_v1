@@ -96,6 +96,7 @@
 			<tr>
 				<th>{%trans "Domain"%}</th>
 				<th class="">{%trans "Expire date"%}</th>
+				<th class="collapsing">{%trans "Setting"%}</th>
 				<th class="collapsing">{%trans "Action"%}</th>
 			</tr>
 		</thead>
@@ -104,6 +105,9 @@
 			<tr>
 				<td><a target="_blank" href="http://{{value.name}}"><i class="sf-link"></i></a> <span>{{value.name}}</span></td>
 				<td class="">{{value.dateexpire | dt}} <br><small class="sf-mute">{{value.expredate | dt}}</small></td>
+				<td class="collapsing">
+					{%if value.lock%} <i class="sf-lock fc-green"></i> {%else%} <i class="sf-unlock fc-red"></i> {%endif%}
+				</td>
 				<td class="collapsing"><a href="{{url.this}}/setting/{{value.name}}" class="btn info2">{%trans "Manage domain"%}</a></td>
 			</tr>
 			{%endfor%}

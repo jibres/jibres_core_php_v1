@@ -22,8 +22,9 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::here());
+				\dash\redirect::pwd();
 			}
+			return;
 		}
 
 		$post =

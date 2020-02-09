@@ -140,6 +140,10 @@ class run
 				$msg = T_('Object exists');
 				break;
 
+			case 2304:
+				$msg = T_("Object status prohibits operation");
+				break;
+
 			case 1001:
 			case 1300:
 			case 1301:
@@ -161,7 +165,6 @@ class run
 			case 2300:
 			case 2301:
 			case 2303:
-			case 2304:
 			case 2305:
 			case 2306:
 			case 2307:
