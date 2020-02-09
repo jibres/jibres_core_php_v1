@@ -1,0 +1,35 @@
+{%extends display.jibresControlLayout%}
+
+
+{%block pageContent%}
+<div class="f justify-center">
+	<div class="c6 m8 s12">
+		<div class="cbox">
+
+			<form method="post" autocomplete="off" class="mB20" action="{{url.here}}/buy">
+
+				<label for="domain">{%trans "Domain"%}</label>
+				<div class="input ltr">
+					<input type="text" name="domain"  id="domain" maxlength="100">
+				</div>
+
+				<label for="ips">{%trans "Transfer code"%}</label>
+				<div class="input ltr">
+					<input type="text" name="ps"  id="ips" maxlength="100">
+				</div>
+
+			    <div class="check1">
+			      <input type="checkbox" name="agree" id="agree">
+			      <label for="agree">{%trans "I have read and agree to the terms and conditions"%} <small><a target="_blank" href="{{url.kingdom}}/support/nic/privacy">{%trans "Show terms"%}</a></small></label>
+			    </div>
+
+				<div class="txtRa">
+					<button class="btn success">{%trans "Transfer"%}</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{%endblock%}
+

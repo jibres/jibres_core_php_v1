@@ -1,0 +1,58 @@
+{%extends display.jibresControlLayout%}
+
+
+{%block pageContent%}
+<div class="f justify-center">
+	<div class="c6 m8 s12">
+		<div class="cbox">
+
+			<div class="msg success txtB txtC fs14">{{myDomain}}</div>
+
+			<form method="post" autocomplete="off" class="mB20" action="{{url.here}}/buy">
+
+				<div class="f fs06">
+					<div class="c6 s12">
+						<div class="dcard x1" data-confirm data-data='{"myaction" : "lock"}'>
+						 <div class="statistic blue">
+						  <div class="value"><i class="sf-lock"></i></div>
+						  <div class="label">{%trans "Lock domain"%}</div>
+						 </div>
+						</div>
+					</div>
+
+					<div class="c6 s12">
+						<div class="dcard x1" data-confirm data-data='{"myaction" : "lock"}'>
+						 <div class="statistic red">
+						  <div class="value"><i class="sf-unlock"></i></div>
+						  <div class="label">{%trans "Unlock domain"%}</div>
+						 </div>
+						</div>
+					</div>
+
+				</div>
+
+				<h4>{%trans "Renew domain"%}</h4>
+				<div class="f mB10">
+			      <div class="c pRa5">
+			          <div class="radio3">
+			            <input type="radio" name="period" value="1year" id="period1year">
+			            <label for="period1year">{%trans "1 Year"%}</label>
+			          </div>
+			      </div>
+			      <div class="c">
+			          <div class="radio3">
+			            <input type="radio" name="period" value="5year" id="period5year">
+			            <label for="period5year">{%trans "5 Year"%}</label>
+			          </div>
+			      </div>
+			    </div>
+				<div class="txtRa">
+					<button class="btn success">{%trans "Renew"%}</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{%endblock%}
+
