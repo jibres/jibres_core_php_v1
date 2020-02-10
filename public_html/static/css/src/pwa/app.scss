@@ -1,4 +1,5 @@
 
+[data-pwa]{overflow: hidden;}
 [data-pwa] body{@include select-none();background-color: $pwaBg!important;overflow:hidden;position:relative;}
 
 // design for apps in enter
