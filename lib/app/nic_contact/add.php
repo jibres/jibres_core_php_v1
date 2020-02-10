@@ -4,6 +4,48 @@ namespace lib\app\nic_contact;
 
 class add
 {
+	public static function quick($_nic_id)
+	{
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		if(!$_nic_id || !is_string($_nic_id))
+		{
+			\dash\notif::error(T_("Invalid contact"));
+			return false;
+		}
+
+		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $_nic_id);
+		if($check_duplicate)
+		{
+			return true;
+		}
+
+		$result = \lib\nic\exec\contact_check::check($_nic_id);
+
+		if(isset($result[$_nic_id]['avail']) && $result[$_nic_id]['avail'] == '1')
+		{
+			$result = self::add_account($result[$_nic_id]);
+			if($result)
+			{
+				return true;
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not add your contact"));
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
 	public static function exists_contact($_old_contact, $_title)
 	{
 		if(!\dash\user::id())
@@ -37,7 +79,7 @@ class add
 	}
 
 
-	private static function add_account($_detail, $_title)
+	private static function add_account($_detail, $_title = null)
 	{
 
 		$id     = isset($_detail['id']) ? $_detail['id'] : null;

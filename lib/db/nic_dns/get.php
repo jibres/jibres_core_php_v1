@@ -18,5 +18,13 @@ class get
 		return $result;
 	}
 
+	public static function by_ns1_ns2($_user_id, $_ns1, $_ns2)
+	{
+		$query  = "SELECT dns.* FROM dns WHERE dns.user_id = $_user_id AND dns.status != 'deleted' AND dns.ns1 = '$_ns1' AND dns.ns2 = '$_ns2' LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
+
+
 }
 ?>

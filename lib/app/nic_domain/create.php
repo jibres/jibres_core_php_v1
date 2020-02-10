@@ -45,24 +45,49 @@ class create
 			$period_month = 5*12;
 		}
 
-		if($dnsid)
+		if($ns1 && $ns2)
 		{
-			$load_dns = \lib\app\nic_dns\get::get($dnsid);
-
-			if(!$load_dns)
+			$get_ns_record = \lib\db\nic_dns\get::by_ns1_ns2(\dash\user::id(), $ns1, $ns2);
+			if(!isset($get_ns_record['id']))
 			{
-				return false;
+				$dnsid = \lib\app\nic_dns\add::quick($ns1, $ns2);
+				if(!$dnsid)
+				{
+					return false;
+				}
 			}
-
-			$dnsid = \dash\coding::decode($dnsid);
-
-			$ns1 = $load_dns['ns1'];
-			$ns2 = $load_dns['ns2'];
 		}
 		else
 		{
-			\dash\notif::error(T_("Choose dns"));
-			return false;
+			if($dnsid)
+			{
+				$load_dns = \lib\app\nic_dns\get::get($dnsid);
+
+				if(!$load_dns)
+				{
+					return false;
+				}
+
+				$dnsid = \dash\coding::decode($dnsid);
+
+				$ns1 = $load_dns['ns1'];
+				$ns2 = $load_dns['ns2'];
+			}
+			else
+			{
+				\dash\notif::error(T_("Choose dns"));
+				return false;
+			}
+		}
+
+		$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
+		if(!isset($check_nic_id['id']))
+		{
+			$add_quick_contact = \lib\app\nic_contact\add::quick($nic_id);
+			if(!$add_quick_contact)
+			{
+				return false;
+			}
 		}
 
 		$ready =

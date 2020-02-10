@@ -4,6 +4,42 @@ namespace lib\app\nic_dns;
 
 class add
 {
+	public static function quick($_ns1, $_ns2)
+	{
+		$ns1 = self::validate_ns($_ns1, 'ns1');
+		$ns2 = self::validate_ns($_ns2, 'ns2');
+
+		if(!\dash\engine\process::status())
+		{
+			return false;
+		}
+
+		if(!$ns1 || !$ns2)
+		{
+			\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
+			return false;
+		}
+
+		$insert =
+		[
+			'user_id'     => \dash\user::id(),
+			'ns1'         => $ns1,
+			'ns2'         => $ns2,
+			'status'      => 'enable',
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		$dns_id = \lib\db\nic_dns\insert::new_record($insert);
+		if(!$dns_id)
+		{
+			\dash\notif::error(T_("No way to insert dns"));
+			return false;
+		}
+
+		return $dns_id;
+	}
+
+
 	public static function new_record($_args)
 	{
 

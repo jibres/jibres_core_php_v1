@@ -20,6 +20,14 @@ class get
 	}
 
 
+	public static function user_nic_id($_user_id, $_nic_id)
+	{
+		$query  = "SELECT * FROM contact WHERE contact.nic_id = '$_nic_id' AND contact.user_id = $_user_id AND contact.status != 'deleted' LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
+
+
 
 	public static function check_duplicate($_user_id, $_nic_id)
 	{

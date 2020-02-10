@@ -81,7 +81,7 @@
 		<input type="hidden" name="domain" value="{{url.child}}">
 	{%endif%}
 
-	<label for="irnicid">{%trans "IRNIC contact"%} <small><a href="{{url.here}}/contact/add">{%trans "Create new IRNIC contact"%}</a></small></label>
+	<label for="irnicid">{%trans "IRNIC contact"%} <small><a href="{{url.here}}/contact/add?type=new">{%trans "Create new IRNIC contact"%}</a></small></label>
 	<select name="irnicid" class="select ui dropdown search addition" id="irnicid">
 	<option value="">{%trans "IRNIC contact id"%}</option>
 	{%for key, value in myContactList%}
@@ -95,19 +95,19 @@
       <div class="c pRa5">
           <div class="radio3">
             <input type="radio" name="period" value="1year" id="period1year">
-            <label for="period1year">{%trans "1 Year"%}</label>
+            <label for="period1year">{%trans "1 Year"%} <span>{{3000 | fitNumber}} {%trans "Toman"%} </span></label>
           </div>
       </div>
       <div class="c">
           <div class="radio3">
             <input type="radio" name="period" value="5year" id="period5year">
-            <label for="period5year">{%trans "5 Year"%}</label>
+            <label for="period5year">{%trans "5 Year"%} <span>{{15000 | fitNumber}} {%trans "Toman"%} </span></label>
           </div>
       </div>
     </div>
 
 
-    <label for="dnsid">{%trans "DNS records"%} <small><a data-kerkere='.addNewDns' href-old="{{url.here}}/dns/add">{%trans "Create new DNS dns"%}</a></small></label>
+    <label for="dnsid">{%trans "DNS records"%} <small><a data-kerkere='.addNewDns' >{%trans "Create new DNS dns"%}</a></small></label>
 	<select name="dnsid" class="select ui dropdown search addition" id="dnsid">
 	<option value="">{%trans "DNS record"%}</option>
 	{%for key, value in myDNSList%}
