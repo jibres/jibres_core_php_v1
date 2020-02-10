@@ -8,4 +8,4 @@
 [data-pwa] .tbox .breadcrumb{display:none}
 [data-pwa] .superAdmin{top:inherit;bottom:30px;left: 0;}
 
-[data-pwa] body{@include select-none();background-color: #f3f2f8;overflow:hidden;position:relative;}
+[data-pwa] body{@include select-none();background-color: $pwaBg!important;overflow:hidden;position:relative;}
