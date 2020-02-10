@@ -42,6 +42,12 @@ class add
 			return false;
 		}
 
+		if(!$ns1 || !$ns2)
+		{
+			\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
+			return false;
+		}
+
 
 		$insert =
 		[
@@ -80,6 +86,12 @@ class add
 			return false;
 		}
 
+		if($_ip && !filter_var($_ip, FILTER_VALIDATE_IP))
+		{
+			\dash\notif::error(T_("Invalid ip"), $_element);
+			return true;
+		}
+
 		return $_ip;
 	}
 
@@ -91,6 +103,14 @@ class add
 			\dash\notif::error(T_("DNS must be less than 100 character"), $_element);
 			return false;
 		}
+
+
+		if($_ns && !preg_match("/^[a-zA-Z0-9\.]+$/", $_ns))
+		{
+			\dash\notif::error(T_("Invalid dns syntax"), $_element);
+			return false;
+		}
+
 
 		return $_ns;
 	}
