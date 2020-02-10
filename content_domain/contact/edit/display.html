@@ -7,7 +7,7 @@
 
 			<form method="post" autocomplete="off">
 
-
+				<div class="msg info2 txtB txtC">{{dataRow.nic_id}}</div>
 				<label for="ititle">{%trans "Title"%}</label>
 				<div class="input">
 					<input type="text" name="title" id="ititle" value="{{dataRow.title}}">
@@ -23,6 +23,54 @@
 					<button class="btn info">{%trans "Edit"%}</button>
 				</div>
 			</form>
+
+		</div>
+
+
+		<div class="cbox">
+
+			<form method="post" autocomplete="off">
+
+				<input type="hidden" name="check" value="again">
+
+				<div class="msg sm">{%trans "Holder" %} {%if dataRow.holder%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</div>
+				<div class="msg sm">{%trans "Admin" %} {%if dataRow.admin%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</div>
+				<div class="msg sm">{%trans "Technical" %} {%if dataRow.tech%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</div>
+				<div class="msg sm">{%trans "billing" %} {%if dataRow.bill%}<i class="sf-check fc-green"></i> {%else%} <i class="sf-times fc-red"></i> {%endif%}</div>
+
+				<p>
+					{%trans "Check data from IRNIC server and update contact"%}
+				</p>
+
+				{%if dataRow.datemodified%}
+				<p>
+					{%trans "Last checked"%} {{dataRow.datemodified | dt}}
+				</p>
+				{%endif%}
+
+
+				<div class="txtRa">
+					<button class="btn secondary">{%trans "Go"%}</button>
+				</div>
+
+			</form>
+
+		</div>
+
+
+		<div class="cbox">
+
+
+				<p>
+					{%trans "Remove contact"%}
+				</p>
+
+
+				<div class="txtRa">
+					<button data-confirm data-data='{"myaction": "remove"}' class="btn danger">{%trans "Remove"%}</button>
+				</div>
+
+
 
 		</div>
 

@@ -6,18 +6,39 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('check') === 'again')
+		{
+			$update = \lib\app\nic_contact\edit::update(\dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+			return;
+		}
+
+		if(\dash\request::post('myaction') === 'remove')
+		{
+			$remove = \lib\app\nic_contact\edit::remove(\dash\request::get('id'));
+
+			if(\dash\engine\process::status() && $remove)
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+			return;
+		}
 
 		$post =
 		[
-			'title'        => \dash\request::post('title'),
-			'isdefault'    => \dash\request::post('isdefault'),
+			'title'     => \dash\request::post('title'),
+			'isdefault' => \dash\request::post('isdefault'),
 		];
 
-		$create = \lib\app\nic_contact\edit::edit($post, \dash\request::get('id'));
+		$edit = \lib\app\nic_contact\edit::edit($post, \dash\request::get('id'));
 
-		if($create)
+		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this());
+			\dash\redirect::pwd();
 		}
 
 
