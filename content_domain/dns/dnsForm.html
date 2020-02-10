@@ -1,0 +1,77 @@
+<div class="cbox">
+			<h3>{%trans "New DNS record"%}</h3>
+			<form method="post" autocomplete="off">
+				<label for="title">{%trans "Title"%}</label>
+				<div class="input">
+					<input type="text" name="title" id="title" value="{{dataRow.title}}" maxlength="100">
+				</div>
+
+
+			    <div class="f">
+
+
+			    	<div class="c6 s12">
+					    <label for="ns1">{%trans "DNS #1"%}</label>
+						<div class="input ltr">
+							<input type="text" name="ns1" id="ns1" maxlength="50" value="{{dataRow.ns1}}">
+						</div>
+						<label for="ns2">{%trans "DNS #2"%}</label>
+						<div class="input ltr">
+							<input type="text" name="ns2" id="ns2" maxlength="50" value="{{dataRow.ns2}}">
+						</div>
+			    	</div>
+
+			    	<div class="c6 s12">
+			    		<div class="mLa5">
+							<label for="ip1">{%trans "IP #1"%}</label>
+							<div class="input ltr">
+								<input type="text" name="ip1" id="ip1" maxlength="50" value="{{dataRow.ip1}}">
+							</div>
+							<label for="ip2">{%trans "IP #2"%}</label>
+							<div class="input ltr">
+								<input type="text" name="ip2" id="ip2" maxlength="50" value="{{dataRow.ip2}}">
+							</div>
+			    		</div>
+			    	</div>
+
+			    	<div class="c6 s12">
+						<label for="ns3">{%trans "DNS #3"%}</label>
+						<div class="input ltr">
+							<input type="text" name="ns3" id="ns3" maxlength="50" value="{{dataRow.ns3}}">
+						</div>
+						<label for="ns4">{%trans "DNS #4"%}</label>
+						<div class="input ltr">
+							<input type="text" name="ns4" id="ns4" maxlength="50" value="{{dataRow.ns4}}">
+						</div>
+			    	</div>
+
+			    	<div class="c6 s12">
+			    		<div class="mLa5">
+							<label for="ip3">{%trans "IP #3"%}</label>
+							<div class="input ltr">
+								<input type="text" name="ip3" id="ip3" maxlength="50" value="{{dataRow.ip3}}">
+							</div>
+
+							<label for="ip4">{%trans "IP #4"%}</label>
+							<div class="input ltr">
+								<input type="text" name="ip4" id="ip4" maxlength="50" value="{{dataRow.ip4}}">
+							</div>
+			    		</div>
+			    	</div>
+			    </div>
+
+			    <div class="switch1">
+	              <input type="checkbox" name="isdefault" id="isdefault" {%if dataRow.isdefault%} checked {%endif%}>
+	              <label for="isdefault" data-on='{%trans "Yes"%}' data-off='{%trans "No"%}'></label>
+	              <label for="isdefault">{%trans "Is default?"%}</label>
+	            </div>
+
+				<div class="txtRa">
+		            {%if url.child == 'add'%}
+						<button class="btn info">{%trans "Add DNS record"%}</button>
+		            {%else%}
+						<button class="btn primary">{%trans "Edit DNS record"%}</button>
+		            {%endif%}
+				</div>
+			</form>
+		</div>

@@ -2,10 +2,15 @@
 namespace lib\app\nic_dns;
 
 
-class add
+class edit
 {
-	public static function new_record($_args)
+	public static function edit($_args, $_id)
 	{
+		$load = \lib\app\nic_dns\get::get($_id);
+		if(!$load || !isset($load['id']))
+		{
+			return false;
+		}
 
 		$title = isset($_args['title']) ? $_args['title']	: null;
 
@@ -30,15 +35,15 @@ class add
 			return false;
 		}
 
-		$ns1 = self::validate_ns($ns1, 'ns1');
-		$ns2 = self::validate_ns($ns2, 'ns2');
-		$ns3 = self::validate_ns($ns3, 'ns3');
-		$ns4 = self::validate_ns($ns4, 'ns4');
+		$ns1 = \lib\app\nic_dns\add::validate_ns($ns1, 'ns1');
+		$ns2 = \lib\app\nic_dns\add::validate_ns($ns2, 'ns2');
+		$ns3 = \lib\app\nic_dns\add::validate_ns($ns3, 'ns3');
+		$ns4 = \lib\app\nic_dns\add::validate_ns($ns4, 'ns4');
 
-		$ip1 = self::validate_ip($ip1, 'ip1');
-		$ip2 = self::validate_ip($ip2, 'ip2');
-		$ip3 = self::validate_ip($ip3, 'ip3');
-		$ip4 = self::validate_ip($ip4, 'ip4');
+		$ip1 = \lib\app\nic_dns\add::validate_ip($ip1, 'ip1');
+		$ip2 = \lib\app\nic_dns\add::validate_ip($ip2, 'ip2');
+		$ip3 = \lib\app\nic_dns\add::validate_ip($ip3, 'ip3');
+		$ip4 = \lib\app\nic_dns\add::validate_ip($ip4, 'ip4');
 
 		if(!\dash\engine\process::status())
 		{
@@ -57,9 +62,8 @@ class add
 		}
 
 
-		$insert =
+		$update =
 		[
-			'user_id'     => \dash\user::id(),
 			'title'       => $title,
 			'ns1'         => $ns1,
 			'ip1'         => $ip1,
@@ -71,56 +75,18 @@ class add
 			'ip4'         => $ip4,
 			'isdefault'   => $isdefault,
 			'status'      => 'enable',
-			'datecreated' => date("Y-m-d H:i:s"),
 		];
 
-		$dns_id = \lib\db\nic_dns\insert::new_record($insert);
-		if(!$dns_id)
+		$update_dns = \lib\db\nic_dns\update::update($update, $load['id']);
+		if($update_dns)
 		{
-			\dash\notif::error(T_("No way to insert dns"));
-		}
-
-		return true;
-
-
-	}
-
-
-	public static function validate_ip($_ip, $_element)
-	{
-		if(mb_strlen($_ip) >= 100)
-		{
-			\dash\notif::error(T_("IP must be less than 100 character"), $_element);
-			return false;
-		}
-
-		if($_ip && !filter_var($_ip, FILTER_VALIDATE_IP))
-		{
-			\dash\notif::error(T_("Invalid ip"), $_element);
+			\dash\notif::ok(T_("DNS record successfully updated"));
 			return true;
 		}
 
-		return $_ip;
-	}
+		\dash\notif::error(T_("No way to update dns"));
+		return false;
 
-
-	public static function validate_ns($_ns, $_element)
-	{
-		if(mb_strlen($_ns) >= 100)
-		{
-			\dash\notif::error(T_("DNS must be less than 100 character"), $_element);
-			return false;
-		}
-
-
-		if($_ns && !preg_match("/^[a-zA-Z0-9\.]+$/", $_ns))
-		{
-			\dash\notif::error(T_("Invalid dns syntax"), $_element);
-			return false;
-		}
-
-
-		return $_ns;
 	}
 }
 ?>

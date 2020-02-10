@@ -1,5 +1,5 @@
 <?php
-namespace content_domain\dns\add;
+namespace content_domain\dns\edit;
 
 
 class model
@@ -20,11 +20,12 @@ class model
 			'isdefault' => \dash\request::post('isdefault'),
 		];
 
-		$create = \lib\app\nic_dns\add::new_record($post);
+
+		$create = \lib\app\nic_dns\edit::edit($post, \dash\request::get('id'));
 
 		if($create && \dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this());
+			\dash\redirect::pwd();
 		}
 
 	}

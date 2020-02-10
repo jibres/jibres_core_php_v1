@@ -19,16 +19,16 @@
 				<th>{%trans "DNS #3"%}</th>
 				<th>{%trans "DNS #4"%}</th>
 
-				<th class="s0">{%trans "Date"%}</th>
+				<th class="s0">{%trans "Date created"%}</th>
 
-				{%if false%}<th class="collapsing">{%trans "Action"%}</th>{%endif%}
+				<th class="collapsing">{%trans "Action"%}</th>
 			</tr>
 		</thead>
 		<tbody>
 			{%for key, value in dataTable%}
-			<tr>
+			<tr {%if value.isdefault%} class="positive" {%endif%}>
 				<td class="collapsing">{{(key + 1) | fitNumber}}</td>
-				<td><code>{{value.title}}</code></td>
+				<td>{{value.title}} {%if value.isdefault%} <span class="badge success">{%trans "Default"%}</span> {%endif%}</td>
 				<td>{{value.ip1}} <br> {{value.ns1}}</td>
 				<td>{{value.ip2}} <br> {{value.ns2}}</td>
 				<td>{{value.ip3}} <br> {{value.ns3}}</td>
@@ -37,7 +37,7 @@
 				<td class="s0">
 					{{value.datecreated |dt}}
 				</td>
-				{%if false%}<td class="collapsing"><a href="{{url.this}}/setting/rezamohiti{{i}}.ir" class="btn info2">{%trans "Manage dns"%}</a></td>{%endif%}
+				<td class="collapsing"><a href="{{url.this}}/edit?id={{value.id | coding('encode')}}" class="btn info2">{%trans "Manage dns"%}</a></td>
 			</tr>
 			{%endfor%}
 		</tbody>
