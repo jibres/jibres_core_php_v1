@@ -126,9 +126,14 @@ class run
 		$class = substr(strrchr($_class_name, "\\"), 1);
 		$class = mb_strtoupper(str_replace('_', '-', $class));
 
+		$time = date("Y-m-d_H-i-s");
+
 		$tracking_number = $test;
-		$tracking_number .= 'JIBRES-';
 		$tracking_number .= $local;
+
+		$tracking_number .= 'JIBRES-';
+		$tracking_number .= $time;
+		$tracking_number .= '-';
 		$tracking_number .= $class;
 		$tracking_number .= '-';
 		$tracking_number .= $_log_id;
