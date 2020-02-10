@@ -13,6 +13,9 @@ class view
 		\dash\data::badge_link(\dash\url::kingdom(). '/a');
 		\dash\data::badge_text(T_('Back to dashbaord'));
 
+		// back
+		\dash\data::page_backText(T_('Personal info'));
+		\dash\data::page_backLink(\dash\url::this());
 
 
 		\dash\data::dataRow(\dash\app\user::ready($user_detail, true));
