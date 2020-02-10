@@ -1,5 +1,5 @@
  <nav class="f">
-  <div class="c3"></div>
-  <div class="c6"><img src="{{url.icon}}" alt='{%trans "Jibres"%}'></div>
-  <div class="c3"></div>
+  <div class="c4 back">{%if page.backLink%}<a href="{{page.backLink}}">{{page.backText}}</a>{%endif%}</div>
+  <div class="c4 title">{{page.title}}</div>
+  <div class="c4 action">{%if page.btnLink%}<a href="{{page.btnLink}}">{%if page.btnTextIcon%}<i class="sf-{{page.btnTextIcon}}"></i>{%else%}{{page.btnText}}{%endif%}</a>{%endif%}</div>
  </nav>

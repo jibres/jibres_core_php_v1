@@ -10,9 +10,13 @@ class view
 		\dash\data::page_title(T_('Products'));
 		\dash\data::page_desc(T_('You can search in list of products, add new product and edit existing.'));
 
+		// back
+		\dash\data::page_backText(T_('Dashboard'));
+		\dash\data::page_backLink(\dash\url::here());
 
 		// btn
 		\dash\data::page_btnText(T_('Add product'));
+		\dash\data::page_btnTextIcon('plus');
 		\dash\data::page_btnLink(\dash\url::this(). '/add');
 		// operations
 		\dash\data::page_import(\dash\url::this().'/import');
