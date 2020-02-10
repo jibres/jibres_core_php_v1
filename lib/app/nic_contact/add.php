@@ -60,6 +60,13 @@ class add
 			return false;
 		}
 
+		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $_old_contact);
+		if($check_duplicate)
+		{
+			\dash\notif::error(T_("This contact already added to your contact list"));
+			return false;
+		}
+
 		$result = \lib\nic\exec\contact_check::check($_old_contact);
 		if(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '1')
 		{
@@ -70,6 +77,11 @@ class add
 				\dash\notif::ok(T_("Contact added to your contact list"));
 				return true;
 			}
+		}
+		elseif(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '0')
+		{
+			\dash\notif::error(T_("Contact is not available"));
+			return false;
 		}
 		else
 		{
