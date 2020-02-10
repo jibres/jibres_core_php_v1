@@ -1,5 +1,5 @@
 .pwaFooter{position: fixed;z-index:10;background-color:#f8f8f8;bottom:0;right:0;left:0;width: 100%;height: 50px;overflow:hidden;border-top:1px solid transparent;border-color2: #bab9bf;text-align: center;@include select-none();}
-.pwaFooter a{display:block;color: #959595!important}
+.pwaFooter a{display:block;color: #959595!important;overflow:hidden;}
 .pwaFooter .selected{color: #2ea5ff!important}
-.pwaFooter .icon{display: block;width:100%;height: 30px;line-height: 1;font-size: 20px;padding-top:2px;}
-.pwaFooter .title{display: block;width:100%;height: 20px;line-height: 1;font-size:11px;}
+.pwaFooter .icon{display: block;width:100%;overflow:hidden;height: 30px;line-height: 1;font-size: 20px;padding-top:2px;}
+.pwaFooter .title{display: block;width:100%;overflow:hidden;height: 20px;line-height: 1;font-size:11px;}
