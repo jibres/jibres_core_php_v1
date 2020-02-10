@@ -112,6 +112,31 @@ class run
 	}
 
 
+	public static function make_tracking_number($_log_id, $_class_name)
+	{
+		$test  = '';
+		$local = '';
+
+		if(\dash\url::isLocal())
+		{
+			$test  = 'TEST-';
+			$local = 'LOCAL-';
+		}
+
+		$class = substr(strrchr($_class_name, "\\"), 1);
+		$class = mb_strtoupper(str_replace('_', '-', $class));
+
+		$tracking_number = $test;
+		$tracking_number .= 'JIBRES-';
+		$tracking_number .= $local;
+		$tracking_number .= $class;
+		$tracking_number .= '-';
+		$tracking_number .= $_log_id;
+
+		return $tracking_number;
+	}
+
+
 
 	public static function code_msg($_code)
 	{

@@ -109,14 +109,7 @@ class domain_renew
 		$log_id = \lib\db\nic_log\insert::new_record($insert_log);
 
 
-		if(\dash\url::isLocal())
-		{
-			$tracking_number = 'TEST-JIBRES-LOCAL-CHECK-'. $log_id;
-		}
-		else
-		{
-			$tracking_number = 'TEST-JIBRES-DOMAIN-CHECK-'. $log_id;
-		}
+		$tracking_number = \lib\nic\exec\run::make_tracking_number($log_id, get_class());
 
 		$xml = str_replace('JIBRES-TRACKING-NUMBER', $tracking_number, $xml);
 
