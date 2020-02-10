@@ -126,7 +126,7 @@ class run
 		$class = substr(strrchr($_class_name, "\\"), 1);
 		$class = mb_strtoupper(str_replace('_', '-', $class));
 
-		$time = date("Y-m-d_H-i-s");
+		$time = date("Y-m-d-H:i:s");
 
 		$tracking_number = $test;
 		$tracking_number .= $local;
