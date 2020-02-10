@@ -1,4 +1,6 @@
 
+[data-pwa] body{@include select-none();background-color: $pwaBg!important;overflow:hidden;position:relative;}
+
 // design for apps in enter
 [data-pwa] .enter #enter{margin-bottom:10px;}
 [data-pwa] .siftal #sidebar{display:none}
@@ -7,5 +9,4 @@
 [data-pwa] #xaccess{display:none}
 [data-pwa] .tbox .breadcrumb{display:none}
 [data-pwa] .superAdmin{top:inherit;bottom:30px;left: 0;}
-
-[data-pwa] body{@include select-none();background-color: $pwaBg!important;overflow:hidden;position:relative;}
+[data-pwa] #nprogress .spinner{display:none;}
