@@ -5,6 +5,20 @@
 	<div class="c6 m8 s12">
 
 		{%include 'content_domain/dns/dnsForm.html'%}
+
+		{%if dataRow.count_useage%}
+		{%else%}
+			<div class="cbox">
+				<p>
+					{%trans "Remove contact"%}
+				</p>
+
+				<div class="txtRa">
+					<button data-confirm data-data='{"myaction": "remove"}' class="btn danger">{%trans "Remove"%}</button>
+				</div>
+			</div>
+		{%endif%}
+
 	</div>
 </div>
 {%endblock%}

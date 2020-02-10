@@ -13,11 +13,11 @@
 			    	<div class="c6 s12">
 					    <label for="ns1">{%trans "DNS #1"%}</label>
 						<div class="input ltr">
-							<input type="text" name="ns1" id="ns1" maxlength="50" value="{{dataRow.ns1}}">
+							<input type="text" name="ns1" id="ns1" maxlength="50" value="{{dataRow.ns1}}" {%if dataRow.count_useage%} disabled {%endif%}>
 						</div>
 						<label for="ns2">{%trans "DNS #2"%}</label>
 						<div class="input ltr">
-							<input type="text" name="ns2" id="ns2" maxlength="50" value="{{dataRow.ns2}}">
+							<input type="text" name="ns2" id="ns2" maxlength="50" value="{{dataRow.ns2}}" {%if dataRow.count_useage%} disabled {%endif%}>
 						</div>
 			    	</div>
 
@@ -25,11 +25,11 @@
 			    		<div class="mLa5">
 							<label for="ip1">{%trans "IP #1"%}</label>
 							<div class="input ltr">
-								<input type="text" name="ip1" id="ip1" maxlength="50" value="{{dataRow.ip1}}">
+								<input type="text" name="ip1" id="ip1" maxlength="50" value="{{dataRow.ip1}}" {%if dataRow.count_useage%} disabled {%endif%}>
 							</div>
 							<label for="ip2">{%trans "IP #2"%}</label>
 							<div class="input ltr">
-								<input type="text" name="ip2" id="ip2" maxlength="50" value="{{dataRow.ip2}}">
+								<input type="text" name="ip2" id="ip2" maxlength="50" value="{{dataRow.ip2}}" {%if dataRow.count_useage%} disabled {%endif%}>
 							</div>
 			    		</div>
 			    	</div>
@@ -37,11 +37,11 @@
 			    	<div class="c6 s12">
 						<label for="ns3">{%trans "DNS #3"%}</label>
 						<div class="input ltr">
-							<input type="text" name="ns3" id="ns3" maxlength="50" value="{{dataRow.ns3}}">
+							<input type="text" name="ns3" id="ns3" maxlength="50" value="{{dataRow.ns3}}" {%if dataRow.count_useage%} disabled {%endif%}>
 						</div>
 						<label for="ns4">{%trans "DNS #4"%}</label>
 						<div class="input ltr">
-							<input type="text" name="ns4" id="ns4" maxlength="50" value="{{dataRow.ns4}}">
+							<input type="text" name="ns4" id="ns4" maxlength="50" value="{{dataRow.ns4}}" {%if dataRow.count_useage%} disabled {%endif%}>
 						</div>
 			    	</div>
 
@@ -49,12 +49,12 @@
 			    		<div class="mLa5">
 							<label for="ip3">{%trans "IP #3"%}</label>
 							<div class="input ltr">
-								<input type="text" name="ip3" id="ip3" maxlength="50" value="{{dataRow.ip3}}">
+								<input type="text" name="ip3" id="ip3" maxlength="50" value="{{dataRow.ip3}}" {%if dataRow.count_useage%} disabled {%endif%}>
 							</div>
 
 							<label for="ip4">{%trans "IP #4"%}</label>
 							<div class="input ltr">
-								<input type="text" name="ip4" id="ip4" maxlength="50" value="{{dataRow.ip4}}">
+								<input type="text" name="ip4" id="ip4" maxlength="50" value="{{dataRow.ip4}}" {%if dataRow.count_useage%} disabled {%endif%}>
 							</div>
 			    		</div>
 			    	</div>
@@ -70,6 +70,10 @@
 		            {%if url.child == 'add'%}
 						<button class="btn info">{%trans "Add DNS record"%}</button>
 		            {%else%}
+
+		            {%if dataRow.count_useage%}
+		            	<div class="msg warn2">{%trans "This dns useage in some domain."%} {%trans "Namesever and ip of this record can not be update"%}</div>
+					{%endif%}
 						<button class="btn primary">{%trans "Edit DNS record"%}</button>
 		            {%endif%}
 				</div>

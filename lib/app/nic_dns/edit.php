@@ -12,6 +12,12 @@ class edit
 			return false;
 		}
 
+		$inUse = false;
+		if(isset($load['count_useage']) && intval($load['count_useage']) > 0)
+		{
+			$inUse = true;
+		}
+
 		$title = isset($_args['title']) ? $_args['title']	: null;
 
 		$ns1   = isset($_args['ns1']) 	? $_args['ns1']		: null;
@@ -35,25 +41,28 @@ class edit
 			return false;
 		}
 
-		$ns1 = \lib\app\nic_dns\add::validate_ns($ns1, 'ns1');
-		$ns2 = \lib\app\nic_dns\add::validate_ns($ns2, 'ns2');
-		$ns3 = \lib\app\nic_dns\add::validate_ns($ns3, 'ns3');
-		$ns4 = \lib\app\nic_dns\add::validate_ns($ns4, 'ns4');
-
-		$ip1 = \lib\app\nic_dns\add::validate_ip($ip1, 'ip1');
-		$ip2 = \lib\app\nic_dns\add::validate_ip($ip2, 'ip2');
-		$ip3 = \lib\app\nic_dns\add::validate_ip($ip3, 'ip3');
-		$ip4 = \lib\app\nic_dns\add::validate_ip($ip4, 'ip4');
-
-		if(!\dash\engine\process::status())
+		if(!$inUse)
 		{
-			return false;
-		}
+			$ns1 = \lib\app\nic_dns\add::validate_ns($ns1, 'ns1');
+			$ns2 = \lib\app\nic_dns\add::validate_ns($ns2, 'ns2');
+			$ns3 = \lib\app\nic_dns\add::validate_ns($ns3, 'ns3');
+			$ns4 = \lib\app\nic_dns\add::validate_ns($ns4, 'ns4');
 
-		if(!$ns1 || !$ns2)
-		{
-			\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
-			return false;
+			$ip1 = \lib\app\nic_dns\add::validate_ip($ip1, 'ip1');
+			$ip2 = \lib\app\nic_dns\add::validate_ip($ip2, 'ip2');
+			$ip3 = \lib\app\nic_dns\add::validate_ip($ip3, 'ip3');
+			$ip4 = \lib\app\nic_dns\add::validate_ip($ip4, 'ip4');
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+
+			if(!$ns1 || !$ns2)
+			{
+				\dash\notif::error(T_("DNS #1 and DNS #2 is required"), ['element' => ['ns1', 'ns2']]);
+				return false;
+			}
 		}
 
 		if($isdefault)
@@ -61,21 +70,27 @@ class edit
 			\lib\db\nic_dns\update::remove_old_default(\dash\user::id());
 		}
 
-
 		$update =
 		[
-			'title'       => $title,
-			'ns1'         => $ns1,
-			'ip1'         => $ip1,
-			'ns2'         => $ns2,
-			'ip2'         => $ip2,
-			'ns3'         => $ns3,
-			'ip3'         => $ip3,
-			'ns4'         => $ns4,
-			'ip4'         => $ip4,
-			'isdefault'   => $isdefault,
-			'status'      => 'enable',
+			'title'     => $title,
+			'isdefault' => $isdefault,
+			'status'    => 'enable',
 		];
+
+		if(!$inUse)
+		{
+			$update = array_merge($update,
+			[
+				'ns1' => $ns1,
+				'ip1' => $ip1,
+				'ns2' => $ns2,
+				'ip2' => $ip2,
+				'ns3' => $ns3,
+				'ip3' => $ip3,
+				'ns4' => $ns4,
+				'ip4' => $ip4,
+			]);
+		}
 
 		$update_dns = \lib\db\nic_dns\update::update($update, $load['id']);
 		if($update_dns)
@@ -85,6 +100,46 @@ class edit
 		}
 
 		\dash\notif::error(T_("No way to update dns"));
+		return false;
+
+	}
+
+
+	public static function remove($_id)
+	{
+		$load = \lib\app\nic_dns\get::get($_id);
+		if(!$load || !isset($load['id']))
+		{
+			return false;
+		}
+
+		$inUse = false;
+		if(isset($load['count_useage']) && intval($load['count_useage']) > 0)
+		{
+			$inUse = true;
+		}
+
+		if($inUse)
+		{
+			\dash\notif::error(T_("This dns in use and can not be removed"));
+			return false;
+		}
+
+
+		$update =
+		[
+			'status'    => 'deleted',
+		];
+
+
+		$update_dns = \lib\db\nic_dns\update::update($update, $load['id']);
+		if($update_dns)
+		{
+			\dash\notif::ok(T_("DNS record successfully removed"));
+			return true;
+		}
+
+		\dash\notif::error(T_("No way to remove dns"));
 		return false;
 
 	}

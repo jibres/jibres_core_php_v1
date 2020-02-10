@@ -7,7 +7,9 @@ class get
 	public static function load()
 	{
 		$id = \dash\request::get('id');
-		return self::get($id);
+		$result = self::get($id);
+		return $result;
+
 	}
 
 
@@ -28,6 +30,11 @@ class get
 		}
 
 		$get = \lib\db\nic_dns\get::by_id_user_id($id, \dash\user::id());
+
+		if(isset($get['id']))
+		{
+			$get['count_useage'] = intval(\lib\db\nic_domain\get::count_usage_dns($get['id']));
+		}
 
 		return $get;
 

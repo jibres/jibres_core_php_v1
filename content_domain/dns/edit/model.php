@@ -6,6 +6,17 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('myaction') === 'remove')
+		{
+
+			$create = \lib\app\nic_dns\edit::remove(\dash\request::get('id'));
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+			return;
+		}
+
 		$post =
 		[
 			'title'     => \dash\request::post('title'),

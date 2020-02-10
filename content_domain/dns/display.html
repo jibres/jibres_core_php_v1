@@ -14,6 +14,7 @@
 			<tr>
 				<th class="collapsing">#</th>
 				<th>{%trans "Title"%}</th>
+				<th>{%trans "Usage"%}</th>
 				<th>{%trans "DNS #1"%}</th>
 				<th>{%trans "DNS #2"%}</th>
 				<th>{%trans "DNS #3"%}</th>
@@ -29,6 +30,7 @@
 			<tr {%if value.isdefault%} class="positive" {%endif%}>
 				<td class="collapsing">{{(key + 1) | fitNumber}}</td>
 				<td>{{value.title}} {%if value.isdefault%} <span class="badge success">{%trans "Default"%}</span> {%endif%}</td>
+				<td>{{value.count_useage | fitNumber}}</td>
 				<td>{{value.ip1}} <br> {{value.ns1}}</td>
 				<td>{{value.ip2}} <br> {{value.ns2}}</td>
 				<td>{{value.ip3}} <br> {{value.ns3}}</td>

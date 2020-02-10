@@ -29,6 +29,14 @@ class get
 	}
 
 
+	public static function count_usage_dns($_dns_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM domain WHERE domain.dns = '$_dns_id' ";
+		$result = \dash\db::get($query, 'count', true, 'nic');
+		return $result;
+	}
+
+
 
 	public static function check_duplicate($_user_id, $_nic_id)
 	{

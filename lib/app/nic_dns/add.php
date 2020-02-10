@@ -56,7 +56,6 @@ class add
 			\lib\db\nic_dns\update::remove_old_default(\dash\user::id());
 		}
 
-
 		$insert =
 		[
 			'user_id'     => \dash\user::id(),
@@ -81,8 +80,6 @@ class add
 		}
 
 		return true;
-
-
 	}
 
 
