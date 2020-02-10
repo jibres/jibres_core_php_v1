@@ -14,9 +14,9 @@
 			<tr>
 				<th class="collapsing">#</th>
 				<th>{%trans "Title"%}</th>
-				<th>{%trans "Account"%}</th>
+				<th>{%trans "NIC ID"%}</th>
 				<th>{%trans "Permission"%}</th>
-				<th class="s0">{%trans "Date"%}</th>
+				<th class="s0">{%trans "Date created"%}</th>
 
 				<th class="collapsing">{%trans "Action"%}</th>
 			</tr>
@@ -25,7 +25,7 @@
 			{%for key, value in dataTable%}
 			<tr {%if value.isdefault%} class="positive" {%endif%}>
 				<td class="collapsing">{{(key + 1) | fitNumber}}</td>
-				<td>{{value.title}}</td>
+				<td>{{value.title | slice(0, 50)}}</td>
 				<td><code>{{value.nic_id}}</code> {%if value.isdefault%} <span class="badge success">{%trans "Default"%}</span> {%endif%}</td>
 				<td>
 
@@ -36,6 +36,7 @@
 				</td>
 				<td class="s0">
 					{{value.datecreated |dt}}
+					{%if value.datemodified%}<br><span class="fc-mute fs09">{%trans "Modified"%}{{value.datemodified |dt('human','year')}}</span>{%endif%}
 				</td>
 				<td class="collapsing"><a href="{{url.this}}/edit?id={{value.id | coding('encode')}}" class="btn info2">{%trans "Edit"%}</a></td>
 			</tr>
