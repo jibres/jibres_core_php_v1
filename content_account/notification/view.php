@@ -13,6 +13,9 @@ class view
 		\dash\data::badge_link(\dash\url::here());
 		\dash\data::badge_text(T_('Back to account'));
 
+		// back
+		\dash\data::page_backText(T_('Account'));
+		\dash\data::page_backLink(\dash\url::here());
 
 		$args =
 		[
