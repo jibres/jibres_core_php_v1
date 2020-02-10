@@ -1,8 +1,21 @@
 {%extends display.dash%}
 
 
-{%block pageContent%}
+{%block foot_js%}
+<script type="text/javascript">
+  $('*').on('touchstart',function(e,data) {
+    var obj = e.target;
+    console.log(this);
+    window.alert(this);
+    obj = $(this);
+    // var id = obj.find....
+});
 
+</script>
+
+{%endblock%}
+
+{%block pageContent%}
 <div class="txtC fs14 mTB10">
   <div class="avatar">
     <a href="{{url.here}}/my/avatar" class="compact">
