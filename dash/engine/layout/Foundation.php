@@ -4,55 +4,55 @@
  <meta charset="UTF-8"/>
  <base href="<?php echo \dash\url::base();?>"/>
  <title><?php echo \dash\data::global_title(); ?></title>
+ <meta content="<?php echo \dash\data::page_desc(); ?>" name="description"/>
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
  <!--[if lte IE 9]><script>document.location = 'https://deadbrowser.com/{{lang.current}}';</script><![endif]-->
- <meta name     ="description"                  content="<?php echo \dash\data::page_desc(); ?>"/>
- <meta name     ="site:root"                    content="<?php echo \dash\url::kingdom();?>"/>
- <meta name     ="twitter:card"                 content="<?php echo \dash\data::page_twitterCard(); ?>"/>
- <meta name     ="twitter:title"                content="<?php echo \dash\data::global_title(); ?>"/>
- <meta name     ="twitter:description"          content="<?php echo \dash\data::page_desc(); ?>"/>
- <meta name     ="twitter:image"                content="<?php echo \dash\data::page_cover(); ?>"/>
- <meta name     ="twitter:site"                 content="@jibres_com"/>
- <meta name     ="twitter:creator"              content="@jibres_com">
- <meta name     ="twitter:url"                  content="<?php echo \dash\url::pwd();?>"/>
- <meta property ="og:type"                      content="website"/>
- <meta property ="og:title"                     content="<?php echo \dash\data::global_title(); ?>"/>
- <meta property ="og:description"               content="<?php echo \dash\data::page_desc(); ?>"/>
- <meta property ="og:image"                     content="<?php echo \dash\data::page_cover(); ?>"/>
- <meta property ="og:url"                       content="<?php echo \dash\url::pwd();?>"/>
- <meta property ="og:site_name"                 content="<?php echo \dash\data::site_title(); ?>" />
- <meta property ='og:locale'                    content='<?php echo \dash\language::current(); ?>'/>
- <meta name      ="robots"                      content="index, follow"/>
- <meta name     ="jibres:site"                  content="<?php echo \dash\url::site();?>">
- <meta name     ="jibres:api"                   content="<?php echo \dash\url::sitelang();?>/api/">
- <meta name     ="viewport"                     content="<?php
+ <meta content="<?php echo \dash\url::kingdom();?>" name="site:root"/>
+ <meta content="<?php echo \dash\data::page_twitterCard(); ?>" name="twitter:card"/>
+ <meta content="<?php echo \dash\data::global_title(); ?>" name="twitter:title"/>
+ <meta content="<?php echo \dash\data::page_desc(); ?>" name="twitter:description"/>
+ <meta content="<?php echo \dash\data::page_cover(); ?>" name="twitter:image"/>
+ <meta content="@jibres_com" name="twitter:site"/>
+ <meta content="@jibres_com" name="twitter:creator"/>
+ <meta content="<?php echo \dash\url::pwd();?>" name="twitter:url"/>
+ <meta content="website" property ="og:type"/>
+ <meta content="<?php echo \dash\data::global_title(); ?>" property ="og:title"/>
+ <meta content="<?php echo \dash\data::page_desc(); ?>" property ="og:description"/>
+ <meta content="<?php echo \dash\data::page_cover(); ?>" property ="og:image"/>
+ <meta content="<?php echo \dash\url::pwd();?>" property ="og:url"/>
+ <meta content="<?php echo \dash\data::site_title(); ?>" property ="og:site_name"/>
+ <meta content='<?php echo \dash\language::current(); ?>' property ='og:locale'/>
+ <meta content="index, follow" name ="robots"/>
+ <meta content="<?php echo \dash\url::site();?>" name="jibres:site"/>
+ <meta content="<?php echo \dash\url::sitelang();?>/api/" name="jibres:api"/>
+ <meta content="<?php
 if (\dash\detect\device::detectPWA())
   echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0';
 else
   echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0';
-?>">
- <meta name     ="application-name"             content="<?php echo \dash\data::site_title(); ?>"/>
- <meta name     ="msapplication-config"         content="<?php echo \dash\url::site();?>/browserconfig.xml?v=6">
- <meta name     ="theme-color"                  content="#c80a5a">
- <meta name     ="mobile-web-app-capable"       content="yes"/>
- <meta name     ="apple-touch-fullscreen"       content="yes"/>
- <meta name     ="apple-mobile-web-app-title"   content="<?php echo \dash\data::site_title(); ?>"/>
- <meta name     ="apple-mobile-web-app-capable" content="yes"/>
- <link rel      ="apple-touch-icon"             href="<?php echo \dash\url::site();?>/apple-touch-icon.png?v=6" sizes="180x180">
- <link rel      ="icon"                         href="<?php echo \dash\url::site();?>/favicon-64x64.png?v=6" sizes="64x64" type="image/png">
- <link rel      ="icon"                         href="<?php echo \dash\url::site();?>/favicon-32x32.png?v=6" sizes="32x32" type="image/png">
- <link rel      ="icon"                         href="<?php echo \dash\url::site();?>/favicon-16x16.png?v=6" sizes="16x16" type="image/png">
- <link rel      ="mask-icon"                    href="<?php echo \dash\url::site();?>/safari-pinned-tab.svg?v=6">
- <link rel      ="shortcut icon"                href="<?php echo \dash\url::site();?>/favicon.ico?v=6">
- <link rel      ="manifest"                     href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest">
- <link rel      ="apple-touch-startup-image"    href="<?php echo \dash\url::logo();?>">
+?>" name="viewport">
+ <meta content="<?php echo \dash\data::site_title(); ?>" name="application-name"/>
+ <meta content="<?php echo \dash\url::site();?>/browserconfig.xml?v=6" name="msapplication-config"/>
+ <meta content="#c80a5a" name="theme-color"/>
+ <meta content="yes" name="mobile-web-app-capable"/>
+ <meta content="yes" name="apple-touch-fullscreen"/>
+ <meta content="<?php echo \dash\data::site_title(); ?>" name="apple-mobile-web-app-title"/>
+ <meta content="yes" name="apple-mobile-web-app-capable"/>
+ <link href="<?php echo \dash\url::site();?>/apple-touch-icon.png?v=6" sizes="180x180" rel="apple-touch-icon"/>
+ <link href="<?php echo \dash\url::site();?>/favicon-64x64.png?v=6" sizes="64x64" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::site();?>/favicon-32x32.png?v=6" sizes="32x32" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::site();?>/favicon-16x16.png?v=6" sizes="16x16" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::site();?>/safari-pinned-tab.svg?v=6" rel="mask-icon"/>
+ <link href="<?php echo \dash\url::site();?>/favicon.ico?v=6" rel="shortcut icon"/>
+ <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
+ <link href="<?php echo \dash\url::logo();?>" rel="apple-touch-startup-image"/>
 <?php
 if (\dash\url::canonical())
-echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
+echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
 ?>
- <link rel      ="author"                       href="<?php echo \dash\url::kingdom();?>/humans.txt"/>
+ <link href="<?php echo \dash\url::kingdom();?>/humans.txt" rel="author"/>
 <?php // @todo add rel alternative ?>
- <link rel      ="stylesheet"                   href="<?php echo \dash\engine\template_engine::staticmtime('css/siftal.min.css');?>"/>
+ <link href="<?php echo \dash\engine\template_engine::staticmtime('css/siftal.min.css');?>" rel="stylesheet"/>
 </head>
 
 <body {%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' class='{{global.direction}}{%if include.adminPanel%} siftal{%endif%} preload {{bodyclass}}'{%if global.theme%} data-theme='{{global.theme}}'{%endif%}{%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if bodyel%} {{bodyel|raw}}{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
