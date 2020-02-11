@@ -50,7 +50,7 @@ class controller
 		{
 			if(\dash\detect\device::detectPWA())
 			{
-				\dash\redirect::to(\dash\url::kingdom(). '/dashboard');
+				// \dash\redirect::to(\dash\url::kingdom(). '/dashboard');
 			}
 		}
 
