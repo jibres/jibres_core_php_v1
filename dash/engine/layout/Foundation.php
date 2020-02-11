@@ -7,6 +7,16 @@
  <meta content="<?php echo \dash\data::page_desc(); ?>" name="description"/>
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
  <!--[if lte IE 9]><script>document.location = 'https://deadbrowser.com/{{lang.current}}';</script><![endif]-->
+ <meta content="<?php
+if (\dash\detect\device::detectPWA())
+  echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0';
+else
+  echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0';
+?>" name="viewport">
+<?php
+if (!\dash\data::pageWithLogin())
+{
+?>
  <meta content="<?php echo \dash\url::kingdom();?>" name="site:root"/>
  <meta content="<?php echo \dash\data::page_twitterCard(); ?>" name="twitter:card"/>
  <meta content="<?php echo \dash\data::global_title(); ?>" name="twitter:title"/>
@@ -22,15 +32,9 @@
  <meta content="<?php echo \dash\url::pwd();?>" property ="og:url"/>
  <meta content="<?php echo \dash\data::site_title(); ?>" property ="og:site_name"/>
  <meta content='<?php echo \dash\language::current(); ?>' property ='og:locale'/>
- <meta content="index, follow" name ="robots"/>
- <meta content="<?php echo \dash\url::site();?>" name="jibres:site"/>
- <meta content="<?php echo \dash\url::sitelang();?>/api/" name="jibres:api"/>
- <meta content="<?php
-if (\dash\detect\device::detectPWA())
-  echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0';
-else
-  echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0';
-?>" name="viewport">
+<?php
+}
+?>
  <meta content="<?php echo \dash\data::site_title(); ?>" name="application-name"/>
  <meta content="<?php echo \dash\url::site();?>/browserconfig.xml?v=6" name="msapplication-config"/>
  <meta content="#c80a5a" name="theme-color"/>
@@ -38,6 +42,9 @@ else
  <meta content="yes" name="apple-touch-fullscreen"/>
  <meta content="<?php echo \dash\data::site_title(); ?>" name="apple-mobile-web-app-title"/>
  <meta content="yes" name="apple-mobile-web-app-capable"/>
+ <meta content="index, follow" name ="robots"/>
+ <meta content="<?php echo \dash\url::site();?>" name="jibres:site"/>
+ <meta content="<?php echo \dash\url::sitelang();?>/api/" name="jibres:api"/>
  <link href="<?php echo \dash\url::site();?>/apple-touch-icon.png?v=6" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::site();?>/favicon-64x64.png?v=6" sizes="64x64" type="image/png" rel="icon"/>
  <link href="<?php echo \dash\url::site();?>/favicon-32x32.png?v=6" sizes="32x32" type="image/png" rel="icon"/>

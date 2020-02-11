@@ -109,7 +109,7 @@ class redirect
 		{
 			\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), 'direct');
 		}
-
+		\dash\data::pageWithLogin(true);
 	}
 }
 ?>
