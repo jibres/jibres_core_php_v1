@@ -11,12 +11,12 @@ class find
 	}
 
 
-	public static function header()
+	public static function main()
 	{
-		$myHeader = null;
+		$myPage = null;
 		if (\dash\detect\device::detectPWA())
 		{
-			$myHeader = core.'engine/layout/pwa/pwa-header.php';
+			$myPage = core.'engine/layout/pwa/pwa-main.php';
 		}
 		else
 		{
@@ -26,19 +26,51 @@ class find
 			}
 			elseif(\dash\url::content() === null)
 			{
-				$myHeader = root.'content/main/header.php';
+				$myPage = root.'content/main/main.php';
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
-				$myHeader = core.'engine/layout/admin/admin-header.php';
+				$myPage = core.'engine/layout/admin/admin-main.php';
 			}
 
 		}
 
-		if($myHeader)
+		if($myPage)
+		{
+			echo "\n <main id='pageContent' data-xhr='pageContent'>";
+			require_once $myPage;
+			echo "\n </main>";
+		}
+	}
+
+	public static function header()
+	{
+		$myPage = null;
+		if (\dash\detect\device::detectPWA())
+		{
+			$myPage = core.'engine/layout/pwa/pwa-header.php';
+		}
+		else
+		{
+			if(\dash\url::content() === 'enter')
+			{
+				// do nothing
+			}
+			elseif(\dash\url::content() === null)
+			{
+				$myPage = root.'content/main/header.php';
+			}
+			elseif(\dash\data::include_adminPanel())
+			{
+				$myPage = core.'engine/layout/admin/admin-header.php';
+			}
+
+		}
+
+		if($myPage)
 		{
 			echo "\n <header id='pageHeader' data-xhr='pageHeader'>";
-			require_once $myHeader;
+			require_once $myPage;
 			echo "\n </header>";
 		}
 	}
@@ -46,10 +78,10 @@ class find
 
 	public static function footer()
 	{
-		$myFooter = null;
+		$myPage = null;
 		if (\dash\detect\device::detectPWA())
 		{
-			// $myFooter = core.'engine/layout/pwa/pwa-footer.php';
+			// $myPage = core.'engine/layout/pwa/pwa-footer.php';
 		}
 		else
 		{
@@ -59,21 +91,69 @@ class find
 			}
 			elseif(\dash\url::content() === null)
 			{
-				$myFooter = root.'content/main/footer.php';
+				$myPage = root.'content/main/footer.php';
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
-				$myFooter = core.'engine/layout/admin/admin-footer.php';
+				$myPage = core.'engine/layout/admin/admin-footer.php';
 			}
 
 		}
 
-		if($myFooter)
+		if($myPage)
 		{
 			echo "\n <footer id='pageFooter' data-xhr='pageFooter'>";
-			require_once $myFooter;
+			require_once $myPage;
 			echo "\n </footer>";
 		}
 	}
+
+
+
+	public static function sidebar()
+	{
+		$myPage = null;
+		if (\dash\detect\device::detectPWA())
+		{
+			// $myPage = core.'engine/layout/pwa/pwa-sidebar.php';
+		}
+		else
+		{
+			if(\dash\url::content() === 'enter')
+			{
+				// do nothing
+			}
+			elseif(\dash\url::content() === null)
+			{
+				// do nothing
+			}
+			elseif(\dash\data::include_adminPanel())
+			{
+				$myPage = core.'engine/layout/admin/admin-sidebar.php';
+			}
+
+		}
+
+		if($myPage)
+		{
+			echo "\n <aside id='pageSidebar' data-xhr='pageSidebar'>";
+			require_once $myPage;
+			echo "\n </aside>";
+		}
+	}
+
+	public static function nav()
+	{
+		$myPage = null;
+		// do nothing
+
+		if($myPage)
+		{
+			echo "\n <nav id='pageNav' data-xhr='pageNav'>";
+			require_once $myPage;
+			echo "\n </nav>";
+		}
+	}
+
 }
 ?>

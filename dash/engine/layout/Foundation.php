@@ -132,34 +132,14 @@ if (\dash\detect\device::detectPWA())
 else
 {
  // aside
- echo "\n ";
- echo "<aside id='pageSidebar' data-xhr='pageSidebar'>";
  \dash\engine\layout\find::find('sidebar');
- echo "\n ";
- echo "</aside>";
  // page wrapper
  echo "\n ";
  echo "<div id='pageWrapper' data-xhr='pageWrapper'>";
- // header
  \dash\engine\layout\find::header();
- // nav
- echo "\n  ";
- echo "<nav id='pageNav' data-xhr='pageNav'>";
  \dash\engine\layout\find::find('nav');
- echo "\n  ";
- echo "</nav>";
- // main
- echo "\n  ";
- echo "<main id='pageContent' data-xhr='pageContent'>";
  \dash\engine\layout\find::find('main');
- echo "\n  ";
- echo "</main>";
- // footer
- echo "\n  ";
- echo "<footer id='pageFooter' data-xhr='pageFooter'>";
  \dash\engine\layout\find::find('footer');
- echo "\n  ";
- echo "</footer>";
  // close pageWrapper div
  echo "\n ";
  echo "</div>";
