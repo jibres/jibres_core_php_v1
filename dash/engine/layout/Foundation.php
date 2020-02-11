@@ -89,12 +89,14 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
 <?php
 if (\dash\data::include_highcharts())
 {
-  echo '  <script src="'. \dash\engine\template_engine::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
+  echo "\n  ";
+  echo '<script src="'. \dash\engine\template_engine::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
 }
 
 if (\dash\user::id() or 1)
 {
-  echo '  <noscript><div class="line top danger fs12"><span class="txtB mB10">';
+  echo "\n  ";
+  echo '<noscript><div class="line top danger fs12"><span class="txtB mB10">';
   echo T_('JavaScript is required to use our service.');
   echo '</span> ';
   echo T_('Enable JavaScript in your browser or use one which supports it.');
@@ -102,12 +104,16 @@ if (\dash\user::id() or 1)
 }
 // @todo Javad check browser and show live or dead
 // <div class="line warn fs20">YOU ARE DEAD!</div>
+
+if (\dash\data::include_editor() or 1)
+{
+  echo "\n  ";
+  echo '<script src="'. \dash\engine\template_engine::staticmtime('js/medium-editor.min.js'). '"></script>';
+  echo "\n  ";
+  echo '<link  href="'. \dash\engine\template_engine::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
+}
 ?>
 
-{%if include.editor%}
-  <script src="<?php echo \dash\engine\template_engine::staticmtime('js/medium-editor.min.js');?>"></script>
-  <link  href="<?php echo \dash\engine\template_engine::staticmtime('css/medium-editor.css');?>" rel="stylesheet" media="screen"/>
-{%endif%}
 {%if options.site.googleAnalytics and url.tld != "local" %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{options.site.googleAnalytics}}"></script>
 <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '{{options.site.googleAnalytics}}'); function pushStateGA() { var origin = window.location.protocol + '//' + window.location.host; var pathname = window.location.href.substr(origin.length); gtag('config', '{{options.site.googleAnalytics}}', {'page_path': pathname}); }</script>
