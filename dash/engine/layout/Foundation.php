@@ -112,14 +112,15 @@ if (\dash\data::include_editor() or 1)
   echo "\n  ";
   echo '<link  href="'. \dash\engine\template_engine::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
 }
+if(\dash\option::config('site', 'googleAnalytics'))
+{
+  $gAnalytics = \dash\option::config('site', 'googleAnalytics');
+  echo "<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '$gAnalytics'); function pushStateGA() { var origin = window.location.protocol + '//' + window.location.host; var pathname = window.location.href.substr(origin.length); gtag('config', '$gAnalytics', {'page_path': pathname}); }</script>";
+}
 ?>
 
-{%if options.site.googleAnalytics and url.tld != "local" %}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{options.site.googleAnalytics}}"></script>
-<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '{{options.site.googleAnalytics}}'); function pushStateGA() { var origin = window.location.protocol + '//' + window.location.host; var pathname = window.location.href.substr(origin.length); gtag('config', '{{options.site.googleAnalytics}}', {'page_path': pathname}); }</script>
-{%endif%}
-
   <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
+
 <?php
 if(\dash\permission::supervisor())
 {
