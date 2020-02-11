@@ -11,7 +11,7 @@ class template_engine
 
 		if(is_file($nativeTemplate))
 		{
-
+			require_once core.'engine\layout\Foundation.php';
 			return true;
 		}
 
