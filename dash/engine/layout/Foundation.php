@@ -91,8 +91,7 @@ if (\dash\data::include_highcharts())
 {
   echo '  <script src="'. \dash\engine\template_engine::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
 }
-?>
-<?php
+
 if (\dash\user::id() or 1)
 {
   echo '  <noscript><div class="line top danger fs12"><span class="txtB mB10">';
@@ -101,10 +100,10 @@ if (\dash\user::id() or 1)
   echo T_('Enable JavaScript in your browser or use one which supports it.');
   echo '</div></noscript>';
 }
+// @todo Javad check browser and show live or dead
+// <div class="line warn fs20">YOU ARE DEAD!</div>
 ?>
 
-{%if youAreDead%}<div class="line"><div class="warn pA10">{{youAreDead}}</div></div>{%endif%}
-{%block js%}{%endblock%}
 {%if include.editor%}
   <script src="<?php echo \dash\engine\template_engine::staticmtime('js/medium-editor.min.js');?>"></script>
   <link  href="<?php echo \dash\engine\template_engine::staticmtime('css/medium-editor.css');?>" rel="stylesheet" media="screen"/>
