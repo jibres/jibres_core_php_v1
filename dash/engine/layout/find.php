@@ -42,5 +42,38 @@ class find
 			echo "\n </header>";
 		}
 	}
+
+
+	public static function footer()
+	{
+		$myFooter = null;
+		if (\dash\detect\device::detectPWA())
+		{
+			// $myFooter = core.'engine/layout/pwa/pwa-footer.php';
+		}
+		else
+		{
+			if(\dash\url::content() === 'enter')
+			{
+				// do nothing
+			}
+			elseif(\dash\url::content() === null)
+			{
+				$myFooter = root.'content/main/footer.php';
+			}
+			elseif(\dash\data::include_adminPanel())
+			{
+				$myFooter = core.'engine/layout/admin/admin-footer.php';
+			}
+
+		}
+
+		if($myFooter)
+		{
+			echo "\n <footer id='pageFooter' data-xhr='pageFooter'>";
+			require_once $myFooter;
+			echo "\n </footer>";
+		}
+	}
 }
 ?>
