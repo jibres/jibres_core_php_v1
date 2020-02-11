@@ -26,7 +26,22 @@ class template_engine
 
 	public static function header()
 	{
-		require_once root.'content/main/header.php';
+		$myHeader = null;
+		if (\dash\detect\device::detectPWA())
+		{
+
+		}
+		else
+		{
+			$myHeader = root.'content/main/header.php';
+		}
+
+		if($myHeader)
+		{
+			echo "\n <header id='pageHeader' data-xhr='pageHeader'>";
+			require_once $myHeader;
+			echo "\n </header>";
+		}
 	}
 
 
