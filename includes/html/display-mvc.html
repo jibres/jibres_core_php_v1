@@ -68,10 +68,11 @@
   <header id="pageHeader" data-xhr='pageHeader'>
 {%block header%}{%if runPWA%}{%embed "includes/html/pwa/pwa-header.html"%}{%endembed%}{%endif%}{%endblock%}
   </header>
+{% if block('nav') is not empty%}
   <nav id="pageNav" data-xhr='pageNav'>
-{%block nav%}
-{%endblock%}
+{%block nav%}{%endblock%}
   </nav>
+{%endif%}
   <main id="pageContent" data-xhr='pageContent'>
 {%block content%}{%endblock%}
   </main>
