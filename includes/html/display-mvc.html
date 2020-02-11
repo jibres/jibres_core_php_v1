@@ -57,10 +57,14 @@
 
 <body{%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' class='{{global.direction}}{%if include.adminPanel%} siftal{%endif%} preload {{bodyclass}}'{%if global.theme%} data-theme='{{global.theme}}'{%endif%}{%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if bodyel%} {{bodyel|raw}}{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
 {%block body%}
+{% if block('sideBox') is not empty%}
  <aside id='pageSidebar' data-xhr='pageSidebar'>
 {%block sideBox%}{%endblock%}
  </aside>
+{%endif%}
+{% if block('sideBox') is not empty%}
  <div id='pageWrapper' data-xhr='pageWrapper'>
+{%endif%}
   <header id="pageHeader" data-xhr='pageHeader'>
 {%block header%}{%if runPWA%}{%embed "includes/html/pwa/pwa-header.html"%}{%endembed%}{%endif%}{%endblock%}
   </header>
@@ -74,7 +78,9 @@
   <footer id="pageFooter" data-xhr='pageFooter'>
 {%block footer%}{%endblock%}
   </footer>
+{% if block('sideBox') is not empty%}
  </div>
+{%endif%}
 {%endblock%}
 
  <div class="js">
