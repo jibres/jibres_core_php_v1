@@ -82,8 +82,8 @@
 <section id='pricingPlans'>
   <div class="cn">
     <div class="headline">
-      <h3>{%trans "Choose the plan that's right for you"%}</h3>
-      <p>{%trans "Plans to fit your budget"%}</p>
+      <h3><?php echo T_("Choose the plan that's right for you"); ?>%}</h3>
+      <p><?php echo T_('Plans to fit your budget'); ?></p>
     </div>
     <div class="f">
       <div class="c4 s12 pLR5">
@@ -134,7 +134,7 @@
     </div>
 
     <div class="headline">
-      <h3>{%trans "Get started with our <span class='txtB'>Free Plan</span>"%}</h3>
+      <h3><?php echo T_("Get started with our <span class='txtB'>Free Plan</span>"); ?></h3>
     </div>
     <div class="f justify-center">
       <div class="c4 s12">
@@ -164,15 +164,15 @@
     <h2 class="txtC txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span>❤️</span></h2>
     <div class="f txtC">
       <div class="c s12 pA10">
-          <div class="fs50" title='{%trans "Item"%}'><?php echo \dash\data::homepagenumber_product(); ?>+</div>
+          <div class="fs50"><?php echo \dash\data::homepagenumber_product(); ?>+</div>
           <h5><?php echo T_('Products'); ?></h5>
       </div>
       <div class="c s12 pA10">
-          <div class="fs50" title='{%trans "Qty"%}'><?php echo \dash\data::homepagenumber_factor(); ?>+</div>
+          <div class="fs50"><?php echo \dash\data::homepagenumber_factor(); ?>+</div>
           <h5><?php echo T_('Factor'); ?></h5>
       </div>
       <div class="c s12 pA10">
-          <div class="fs40" title='{%trans "Toman"%}'><?php echo \dash\data::homepagenumber_sum_factor(); ?>+</div>
+          <div class="fs40"><?php echo \dash\data::homepagenumber_sum_factor(); ?>+</div>
           <h5><?php echo T_('Sold on Jibres'); ?></h5>
       </div>
     </div>
