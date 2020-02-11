@@ -106,9 +106,6 @@ class view
 			\dash\data::userToggleSidebar(true);
 		}
 
-		// define default value for include
-		\dash\data::include_siftal(true);
-
 		// @todo Javad check browser via new lib
 		// \dash\detect\browser::deadbrowserDetection();
 	}
