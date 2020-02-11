@@ -78,3 +78,127 @@
 </section>
 
 
+
+<section id='pricingPlans'>
+  <div class="cn">
+    <div class="headline">
+      <h3>{%trans "Choose the plan that's right for you"%}</h3>
+      <p>{%trans "Plans to fit your budget"%}</p>
+    </div>
+    <div class="f">
+      <div class="c4 s12 pLR5">
+        <div class="pricing-card bronze">
+          <div class="name">{%trans "Bronze"%}</div>
+          <div class="price"><span>{{ 140 | fitNumber}}</span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
+          <div class="detail">
+            <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{{100 | fitNumber}}</span></div>
+            <div><span class="txtB">{%trans "Staff"%}</span> <span>{{1 | fitNumber}}</span></div>
+            <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Report"%}</span></div>
+            <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Permission"%}</span></div>
+            <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Personalization"%}</span></div>
+          </div>
+          <a href="{{url.kingdom}}/enter/signup" class="btn lg">{%trans "Get Bronze"%}</a>
+          <div class="meta">{%trans "Renews every year."%}</div>
+        </div>
+      </div>
+      <div class="c4 s12 pLR5">
+        <div class="pricing-card silver">
+          <div class="name">{%trans "Silver"%}</div>
+          <div class="price"><span>{{ 300 | fitNumber}}</span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
+          <div class="detail">
+            <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{{1000 | fitNumber}}</span></div>
+            <div><span class="txtB">{%trans "Staff"%}</span> <span>{{5 | fitNumber}}</span></div>
+            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Report"%}</span></div>
+            <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Permission"%}</span></div>
+            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Personalization"%}</span></div>
+          </div>
+          <a href="{{url.kingdom}}/enter/signup" class="btn lg">{%trans "Get Silver"%}</a>
+          <div class="meta">{%trans "Renews every year."%}</div>
+        </div>
+      </div>
+      <div class="c4 s12 pLR5">
+        <div class="pricing-card gold">
+          <div class="name">{%trans "Gold"%}</div>
+          <div class="price"><span>{{ 700 | fitNumber}}</span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
+          <div class="detail">
+            <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{%trans "Ultimate"%}</span></div>
+            <div><span class="txtB">{%trans "Staff"%}</span> <span>{{20 | fitNumber}}</span></div>
+            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Report"%}</span></div>
+            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Permission"%}</span></div>
+            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Personalization"%}</span></div>
+          </div>
+          <a href="{{url.kingdom}}/enter/signup" class="btn lg">{%trans "Get Gold"%}</a>
+          <div class="meta">{%trans "Renews every year."%}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="headline">
+      <h3>{%trans "Get started with our <span class='txtB'>Free Plan</span>"%}</h3>
+    </div>
+    <div class="f justify-center">
+      <div class="c4 s12">
+          <div class="pricing-card free">
+            <div class="name">{%trans "Free"%}</div>
+            <div class="price"><span>{{ 0 | fitNumber}}</span></div>
+            <div class="detail">
+              <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{{10 | fitNumber}}</span></div>
+              <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Report"%}</span></div>
+              <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Personalization"%}</span></div>
+            </div>
+            <a href="{{url.kingdom}}/enter/signup" class="btn lg">{%trans "Get Free"%}</a>
+            <div class="meta">{%trans "Free Forever."%}</div>
+          </div>
+      </div>
+      <div class="c6 s12">
+        <img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-free-plan.png" alt='{%trans "Jibres Free pricing"%}'>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id='statistic'>
+  <div class="cn">
+    <h2 class="txtC txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span>❤️</span></h2>
+    <div class="f txtC">
+      <div class="c s12 pA10">
+          <div class="fs50" title='{%trans "Item"%}'><?php echo \dash\data::homepagenumber_product(); ?>+</div>
+          <h5><?php echo T_('Products'); ?></h5>
+      </div>
+      <div class="c s12 pA10">
+          <div class="fs50" title='{%trans "Qty"%}'><?php echo \dash\data::homepagenumber_factor(); ?>+</div>
+          <h5><?php echo T_('Factor'); ?></h5>
+      </div>
+      <div class="c s12 pA10">
+          <div class="fs40" title='{%trans "Toman"%}'><?php echo \dash\data::homepagenumber_sum_factor(); ?>+</div>
+          <h5><?php echo T_('Sold on Jibres'); ?></h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id='roadmap'>
+  <div class="cn">
+    <div class="f align-center fix">
+      <div class="cauto s12"><img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-vision.png" alt='<?php echo T_('Jibres roadmap'); ?>'></div>
+      <div class="c s12">
+        <h2><?php echo T_('Roadmap'); ?></h2>
+        <h3><?php echo T_('World #1 Financial Platform'); ?></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id='quote'>
+  <div class="title">
+  <h4><?php echo T_('With Jibres we take less time of our customers and this means modern customer orientation'); ?></h4>
+  <h5><?php echo T_('Majid Sadeghi'); ?></h5>
+  <h5><?php echo T_('Sales Supervisor at SuperSaeed'); ?></h5>
+ </div>
+</section>
