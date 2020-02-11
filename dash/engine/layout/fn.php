@@ -15,7 +15,7 @@ class fn
 		if(is_file($nativeTemplate))
 		{
 			self::$DISPLAY = $nativeTemplate;
-			require_once core.'engine\layout\Foundation.php';
+			require_once core.'engine/layout/foundation.php';
 			return true;
 		}
 
