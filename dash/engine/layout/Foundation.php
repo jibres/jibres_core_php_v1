@@ -56,33 +56,48 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
 </head>
 
 <body{%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' class='{{global.direction}}{%if include.adminPanel%} siftal{%endif%} preload {{bodyclass}}'{%if global.theme%} data-theme='{{global.theme}}'{%endif%}{%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if bodyel%} {{bodyel|raw}}{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
-{%block body%}
-{%if not runPWA%}
- <aside id='pageSidebar' data-xhr='pageSidebar'>
-{%block sideBox%}{%endblock%}
- </aside>
-{%endif%}
-{%if not runPWA%}
- <div id='pageWrapper' data-xhr='pageWrapper'>
-{%endif%}
-  <header id="pageHeader" data-xhr='pageHeader'>
-{%block header%}{%if runPWA%}{%embed "includes/html/pwa/pwa-header.html"%}{%endembed%}{%endif%}{%endblock%}
-  </header>
-{%if not runPWA%}
-  <nav id="pageNav" data-xhr='pageNav'>
-{%block nav%}{%endblock%}
-  </nav>
-{%endif%}
-  <main id="pageContent" data-xhr='pageContent'>
-{%block content%}{%endblock%}
-  </main>
-  <footer id="pageFooter" data-xhr='pageFooter'>
-{%block footer%}{%endblock%}
-  </footer>
-{%if not runPWA%}
- </div>
-{%endif%}
-{%endblock%}
+
+
+<?php
+if (\dash\detect\device::detectPWA())
+{
+//   <header id="pageHeader" data-xhr='pageHeader'>
+// {%block header%}{%if runPWA%}{%embed "includes/html/pwa/pwa-header.html"%}{%endembed%}{%endif%}{%endblock%}
+//   <main id="pageContent" data-xhr='pageContent'>
+// {%block content%}{%endblock%}
+//   </main>
+//   <footer id="pageFooter" data-xhr='pageFooter'>
+// {%block footer%}{%endblock%}
+//   </footer>
+
+
+}
+else
+{
+ // aside
+ echo "<aside id='pageSidebar' data-xhr='pageSidebar'>";
+ echo "</aside>";
+ // page wrapper
+ echo "<div id='pageWrapper' data-xhr='pageWrapper'>";
+ // header
+ echo "<header id='pageHeader' data-xhr='pageHeader'>";
+ echo "</header>";
+ // nav
+ echo "<nav id='pageNav' data-xhr='pageNav'>";
+ echo "</nav>";
+ // main
+ echo "<main id='pageContent' data-xhr='pageContent'>";
+ echo "</main>";
+ // footer
+ echo "<footer id='pageFooter' data-xhr='pageFooter'>";
+ echo "</footer>";
+ // close pageWrapper div
+ echo "</div>";
+}
+?>
+
+
+
 
  <div class="js">
   <script src="<?php echo \dash\engine\template_engine::staticmtime('js/siftal.min.js');?>"></script>
@@ -93,7 +108,7 @@ if (\dash\data::include_highcharts())
   echo '<script src="'. \dash\engine\template_engine::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
 }
 
-if (\dash\user::id() or 1)
+if (\dash\user::id())
 {
   echo "\n  ";
   echo '<noscript><div class="line top danger fs12"><span class="txtB mB10">';
@@ -105,7 +120,7 @@ if (\dash\user::id() or 1)
 // @todo Javad check browser and show live or dead
 // <div class="line warn fs20">YOU ARE DEAD!</div>
 
-if (\dash\data::include_editor() or 1)
+if (\dash\data::include_editor())
 {
   echo "\n  ";
   echo '<script src="'. \dash\engine\template_engine::staticmtime('js/medium-editor.min.js'). '"></script>';
@@ -117,11 +132,10 @@ if(\dash\option::config('site', 'googleAnalytics'))
   $gAnalytics = \dash\option::config('site', 'googleAnalytics');
   echo "<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '$gAnalytics'); function pushStateGA() { var origin = window.location.protocol + '//' + window.location.host; var pathname = window.location.href.substr(origin.length); gtag('config', '$gAnalytics', {'page_path': pathname}); }</script>";
 }
-?>
+// @todo javad
+// foot_js
+// <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
 
-  <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
-
-<?php
 if(\dash\permission::supervisor())
 {
   if(\dash\url::isLocal())
