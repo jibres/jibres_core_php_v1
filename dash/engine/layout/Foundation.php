@@ -56,42 +56,65 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
 </head>
 
 <body{%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' class='{{global.direction}}{%if include.adminPanel%} siftal{%endif%} preload {{bodyclass}}'{%if global.theme%} data-theme='{{global.theme}}'{%endif%}{%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if bodyel%} {{bodyel|raw}}{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
-
-
 <?php
 if (\dash\detect\device::detectPWA())
 {
-//   <header id="pageHeader" data-xhr='pageHeader'>
-// {%block header%}{%if runPWA%}{%embed "includes/html/pwa/pwa-header.html"%}{%endembed%}{%endif%}{%endblock%}
-//   <main id="pageContent" data-xhr='pageContent'>
-// {%block content%}{%endblock%}
-//   </main>
-//   <footer id="pageFooter" data-xhr='pageFooter'>
-// {%block footer%}{%endblock%}
-//   </footer>
-
-
+ // header
+ echo "\n ";
+ echo "<header id='pageHeader' data-xhr='pageHeader'>";
+ \dash\engine\template_engine::find('header');
+ echo "\n ";
+ echo "</header>";
+ // main
+ echo "\n ";
+ echo "<main id='pageContent' data-xhr='pageContent'>";
+ \dash\engine\template_engine::find('main');
+ echo "\n ";
+ echo "</main>";
+ // footer
+ echo "\n ";
+ echo "<footer id='pageFooter' data-xhr='pageFooter'>";
+ \dash\engine\template_engine::find('footer');
+ echo "\n ";
+ echo "</footer>";
 }
 else
 {
  // aside
+ echo "\n ";
  echo "<aside id='pageSidebar' data-xhr='pageSidebar'>";
+ \dash\engine\template_engine::find('sidebar');
+ echo "\n ";
  echo "</aside>";
  // page wrapper
+ echo "\n ";
  echo "<div id='pageWrapper' data-xhr='pageWrapper'>";
  // header
+ echo "\n  ";
  echo "<header id='pageHeader' data-xhr='pageHeader'>";
+ \dash\engine\template_engine::find('header');
+ echo "\n  ";
  echo "</header>";
  // nav
+ echo "\n  ";
  echo "<nav id='pageNav' data-xhr='pageNav'>";
+ \dash\engine\template_engine::find('nav');
+ echo "\n  ";
  echo "</nav>";
  // main
+ echo "\n  ";
  echo "<main id='pageContent' data-xhr='pageContent'>";
+ \dash\engine\template_engine::find('main');
+ echo "\n  ";
  echo "</main>";
  // footer
+ echo "\n  ";
  echo "<footer id='pageFooter' data-xhr='pageFooter'>";
+ \dash\engine\template_engine::find('footer');
+ echo "\n  ";
  echo "</footer>";
  // close pageWrapper div
+ echo "\n ";
  echo "</div>";
 }
 ?>

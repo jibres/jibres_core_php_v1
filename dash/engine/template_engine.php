@@ -18,6 +18,11 @@ class template_engine
 		return false;
 	}
 
+	public static function find($_what)
+	{
+
+	}
+
 
 	public static function staticmtime($_fileAddr)
 	{
