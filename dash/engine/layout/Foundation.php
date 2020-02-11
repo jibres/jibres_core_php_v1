@@ -2,24 +2,24 @@
 <html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" prefix="og: http://ogp.me/ns#"<?php if (\dash\permission::supervisor()) echo ' data-debugger';?><?php if (\dash\detect\device::detectPWA()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}?>>
 <head>
  <meta charset="UTF-8"/>
- <base href="{{url.base}}"/>
- <title>{{global.title }}</title>
+ <base href="<?php echo \dash\url::base();?>"/>
+ <title><?php echo \dash\data::global_title(); ?></title>
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
  <!--[if lte IE 9]><script>document.location = 'https://deadbrowser.com/{{lang.current}}';</script><![endif]-->
- <meta name     ="description"                  content="{{page.desc | raw}}"/>
- <meta name     ="site:root"                    content="{{url.kingdom}}"/>
- <meta name     ="twitter:card"                 content="{{page.twitterCard}}"/>
- <meta name     ="twitter:site"                 content="@ermile_jibres"/>
- <meta name     ="twitter:title"                content="{{global.title}}"/>
- <meta name     ="twitter:description"          content="{{page.desc | raw}}"/>
- <meta name     ="twitter:url"                  content="{{url.pwd}}"/>
- <meta name     ="twitter:image"                content="{{page.cover}}"/>
- <meta property ="og:title"                     content="{{global.title}}"/>
- <meta property ="og:description"               content="{{page.desc | raw}}"/>
- <meta property ="og:url"                       content="{{url.pwd}}"/>
+ <meta name     ="description"                  content="<?php echo \dash\data::page_desc(); ?>"/>
+ <meta name     ="site:root"                    content="<?php echo \dash\url::kingdom();?>"/>
+ <meta name     ="twitter:card"                 content="<?php echo \dash\data::page_twitterCard(); ?>"/>
+ <meta name     ="twitter:site"                 content="@jibres_com"/>
+ <meta name     ="twitter:title"                content="<?php echo \dash\data::global_title(); ?>"/>
+ <meta name     ="twitter:description"          content="<?php echo \dash\data::page_desc(); ?>"/>
+ <meta name     ="twitter:url"                  content="<?php echo \dash\url::pwd();?>"/>
+ <meta name     ="twitter:image"                content="<?php echo \dash\data::page_cover(); ?>"/>
+ <meta property ="og:title"                     content="<?php echo \dash\data::global_title(); ?>"/>
+ <meta property ="og:description"               content="<?php echo \dash\data::page_desc(); ?>"/>
+ <meta property ="og:url"                       content="<?php echo \dash\url::pwd();?>"/>
  <meta property ="og:type"                      content="website"/>
- <meta property ='og:locale'                    content='{{global.lang}}'/>
- <meta property ="og:image"                     content="{{page.cover}}"/>
+ <meta property ='og:locale'                    content='<?php echo \dash\language::current(); ?>'/>
+ <meta property ="og:image"                     content="<?php echo \dash\data::page_cover(); ?>"/>
  <meta name     ="jibres:site"                  content="{{url.site}}">
  <meta name     ="jibres:api"                   content="{{url.sitelang}}/api/">
  <meta name     ="viewport"                     content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, {%if runPWA%}maximum-scale=1.0{%else%}maximum-scale=1.1{%endif%}, user-scalable=0"/>
@@ -36,15 +36,12 @@
  <link rel      ="icon"                         href="{{url.site}}/favicon-16x16.png?v=6" sizes="16x16" type="image/png">
  <link rel      ="mask-icon"                    href="{{url.site}}/safari-pinned-tab.svg?v=6">
  <link rel      ="shortcut icon"                href="{{url.site}}/favicon.ico?v=6">
- <link rel      ="manifest"                     href="{{url.kingdom}}/manifest.webmanifest">
+ <link rel      ="manifest"                     href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest">
  <link rel      ="apple-touch-startup-image"    href="{{url.logo}}">
 {%if url.canonical%}
  <link rel      ="canonical"                    href="{{url.canonical}}">
 {%endif%}
- <link rel       ="author"                      href="{{url.kingdom}}/humans.txt"/>
-{%if false%}
- <link rel      ="alternate"                    href="{{url.kingdom}}/feed" title="{{site.title}} RSS feed" type="application/rss+xml"/>
-{%endif%}
+ <link rel       ="author"                      href="<?php echo \dash\url::kingdom();?>/humans.txt"/>
 {%for key, lang in lang.list if lang.list|length > 1 and not url.subdomain and lang.current != key|slice(0, 2)%}
 {%set myLangUrl%}
 {{url.base}}{%if lang.default != key|slice(0, 2) %}/{{key|slice(0, 2)}}{%endif%}{%if url.content%}/{{url.content}}{%endif%}{%if url.path%}/{{url.path}}{%endif%}
