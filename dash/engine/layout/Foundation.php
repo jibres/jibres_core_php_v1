@@ -85,25 +85,14 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
 {%endblock%}
 
  <div class="js">
+  <script src="<?php echo \dash\engine\template_engine::staticmtime('js/siftal.min.js');?>"></script>
 <?php
-if(\dash\permission::supervisor())
+if (\dash\data::include_highcharts() or 1)
 {
-  if(\dash\url::isLocal())
-  {
-    echo '  <div class="superAdmin public"></div>';
-  }
-  else
-  {
-    echo '  <div class="superAdmin"></div>';
-  }
+  echo '  <script src="'. \dash\engine\template_engine::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
 }
 ?>
 
-{%block foot_css%}{%endblock%}
-  <script src="<?php echo \dash\engine\template_engine::staticmtime('js/siftal.min.js');?>"></script>
-{%if include.highcharts %}
-  <script src="<?php echo \dash\engine\template_engine::staticmtime('js/highcharts/highcharts.min.js');?>"></script>
-{%endif%}
 {%if user.id%}  <noscript><div class="line top danger fs16"><div class="txtB">{%trans "JavaScript is required to use our service."%}</div> {%trans "Enable JavaScript in your browser or use one which supports it."%}</div></noscript>{%endif%}
 {%if youAreDead%}<div class="line"><div class="warn pA10">{{youAreDead}}</div></div>{%endif%}
 {%block js%}{%endblock%}
@@ -117,6 +106,19 @@ if(\dash\permission::supervisor())
 {%endif%}
 
   <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
+<?php
+if(\dash\permission::supervisor())
+{
+  if(\dash\url::isLocal())
+  {
+    echo '  <div class="superAdmin public"></div>';
+  }
+  else
+  {
+    echo '  <div class="superAdmin"></div>';
+  }
+}
+?>
  </div>
 </body>
 </html>
