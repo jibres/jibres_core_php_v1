@@ -23,11 +23,11 @@ class find
 			}
 			elseif(\dash\url::content() === null)
 			{
-				// $myPage = root.'content/main/main.php';
+				$myPage = root.'content/main/main.php';
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
-				// $myPage = core.'engine/layout/admin/admin-main.php';
+				$myPage = core.'engine/layout/admin/admin-main.php';
 			}
 		}
 
