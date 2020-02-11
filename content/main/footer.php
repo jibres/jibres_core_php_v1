@@ -48,36 +48,20 @@
    <div class="f bottom align-center">
     <div class="cauto s12">
       <nav class="langlist" data-xhr="langlist">
-{%if lang.current =='fa'%}
-        <a hreflang="en" data-direct href="https://jibres.com">English</a>
-{%else%}
-        <a hreflang="fa" data-direct href="https://jibres.ir">فارسی</a>
-{%endif%}
+<?php
+if(\dash\language::current() == 'fa')
+{
+  echo "<a hreflang='en' data-direct href='https://jibres.com'>English</a>";
+}
+else
+{
+  echo "<a hreflang='fa' data-direct href='https://jibres.ir'>فارسی</a>";
+}
+?>
       </nav>
     </div>
-
-      <nav class="c s12 txtC">
-{%if lang.current =='fa'%}
-        <div class="certification">
-         <div class="f">
-          <div title='{%trans "Iran NSR Certification"%}'><a target="_blank" href="http://qom.irannsr.org/index.php?module=cdk&func=loadmodule&system=cdk&sismodule=user/content_view.php&cnt_id=225820&ctp_id=61&id=17394&sisOp=view"><img src="<?php echo \dash\url::static(); ?>/siftal/images/cert/irannsr.png" alt='{%trans "Iran NSR"%} Jibres'></a></div>
-{%if url.domain == 'jibres.ir' or url.tld == "local"%}
-          <div title='{%trans "Enamad Certification"%}'><img src="<?php echo \dash\url::static(); ?>/siftal/images/cert/enamad2.png" alt='{%trans "Enamad"%} Jibres' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=118387&amp;p=ZXabMoTvlxGEFbR7", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=720, top=30")'></div>
-
-          <div title='{%trans "Samandehi Certification"%}'><img src="<?php echo \dash\url::static(); ?>/siftal/images/cert/samandehi.png" alt='{%trans "Samandehi"%} Jibres' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=460, height=600, top=30")'></div>
-{%elseif url.domain == 'jibres.com' or url.tld == "local"%}
-          <div title='{%trans "Enamad Certification"%}'><img src="<?php echo \dash\url::static(); ?>/siftal/images/cert/enamad2.png" alt='{%trans "Enamad"%} Jibres' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=77836&p=JOoynuxYPaV1q5Zq", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=720, top=30")'></div>
-
-          <div title='{%trans "Samandehi Certification"%}'><img src="<?php echo \dash\url::static(); ?>/siftal/images/cert/samandehi.png" alt='{%trans "Samandehi"%} Jibres' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=110459&p=rfthrfthobpdaodsdshwpfvl", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=460, height=600, top=30")'></div>
-
-{%endif%}
-          <div title='{%trans "Shamad Certification"%}'><img src="<?php echo \dash\url::static(); ?>/siftal/images/cert/shamad.png" alt='{%trans "Shamad"%} Jibres' onclick='window.open("https://logo.saramad.ir/verify.aspx?CodeShamad=1-2-709257-65-2-3", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=500, height=700, top=0")'></div>
-         </div>
-        </div>
-{%endif%}
-     </nav>
-
-    <div class="cauto s12 love"><a href="{%if lang.current =='fa'%}https://ermile.com/fa{%else%}https://ermile.com{%endif%}" target="_blank">{%trans "Proudly Made in IRAN"%}</a></div>
+    <div class="c"></div>
+    <div class="cauto s12 love"><?php echo T_('Proudly Made in IRAN'); ?></div>
    </div>
 
   </div>
