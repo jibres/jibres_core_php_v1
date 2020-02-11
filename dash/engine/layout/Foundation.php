@@ -87,13 +87,22 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
  <div class="js">
   <script src="<?php echo \dash\engine\template_engine::staticmtime('js/siftal.min.js');?>"></script>
 <?php
-if (\dash\data::include_highcharts() or 1)
+if (\dash\data::include_highcharts())
 {
   echo '  <script src="'. \dash\engine\template_engine::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
 }
 ?>
+<?php
+if (\dash\user::id() or 1)
+{
+  echo '  <noscript><div class="line top danger fs12"><span class="txtB mB10">';
+  echo T_('JavaScript is required to use our service.');
+  echo '</span> ';
+  echo T_('Enable JavaScript in your browser or use one which supports it.');
+  echo '</div></noscript>';
+}
+?>
 
-{%if user.id%}  <noscript><div class="line top danger fs16"><div class="txtB">{%trans "JavaScript is required to use our service."%}</div> {%trans "Enable JavaScript in your browser or use one which supports it."%}</div></noscript>{%endif%}
 {%if youAreDead%}<div class="line"><div class="warn pA10">{{youAreDead}}</div></div>{%endif%}
 {%block js%}{%endblock%}
 {%if include.editor%}
