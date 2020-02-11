@@ -5,6 +5,8 @@ namespace dash\engine\layout;
  */
 class find
 {
+	private static $need_box = null;
+
 	public static function find($_what)
 	{
 
@@ -16,7 +18,7 @@ class find
 		$myPage = null;
 		if (\dash\detect\device::detectPWA())
 		{
-			$myPage = core.'engine/layout/pwa/pwa-main.php';
+			// $myPage = core.'engine/layout/pwa/pwa-main.php';
 		}
 		else
 		{
@@ -32,7 +34,6 @@ class find
 			{
 				$myPage = core.'engine/layout/admin/admin-main.php';
 			}
-
 		}
 
 		if($myPage)
@@ -69,6 +70,7 @@ class find
 
 		if($myPage)
 		{
+			self::$need_box = true;
 			echo "\n <header id='pageHeader' data-xhr='pageHeader'>";
 			require_once $myPage;
 			echo "\n </header>";
@@ -152,6 +154,21 @@ class find
 			echo "\n <nav id='pageNav' data-xhr='pageNav'>";
 			require_once $myPage;
 			echo "\n </nav>";
+		}
+	}
+
+	public static function box($_mode)
+	{
+		if(self::$need_box)
+		{
+			if($_mode === 'start')
+			{
+				echo "\n <div id='pageWrapper' data-xhr='pageWrapper'>";
+			}
+			else
+			{
+				echo "\n </div>";
+			}
 		}
 	}
 

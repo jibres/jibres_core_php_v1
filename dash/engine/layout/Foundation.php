@@ -111,39 +111,13 @@ if(\dash\request::get('iframe'))
 }
 echo ">";
 
-
-if (\dash\detect\device::detectPWA())
-{
- // header
- \dash\engine\layout\find::header();
- // main
- echo "\n ";
- echo "<main id='pageContent' data-xhr='pageContent'>";
- \dash\engine\layout\find::find('main');
- echo "\n ";
- echo "</main>";
- // footer
- echo "\n ";
- echo "<footer id='pageFooter' data-xhr='pageFooter'>";
- \dash\engine\layout\find::find('footer');
- echo "\n ";
- echo "</footer>";
-}
-else
-{
- // aside
- \dash\engine\layout\find::find('sidebar');
- // page wrapper
- echo "\n ";
- echo "<div id='pageWrapper' data-xhr='pageWrapper'>";
- \dash\engine\layout\find::header();
- \dash\engine\layout\find::find('nav');
- \dash\engine\layout\find::find('main');
- \dash\engine\layout\find::find('footer');
- // close pageWrapper div
- echo "\n ";
- echo "</div>";
-}
+\dash\engine\layout\find::sidebar();
+\dash\engine\layout\find::box('start');
+\dash\engine\layout\find::header();
+\dash\engine\layout\find::nav();
+\dash\engine\layout\find::main();
+\dash\engine\layout\find::footer();
+\dash\engine\layout\find::box('end');
 ?>
 
 
