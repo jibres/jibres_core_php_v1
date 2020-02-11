@@ -89,16 +89,16 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
 {%if perm_su()%}  <div class='superAdmin{%if url.tld != "local"%} public{%endif%}'></div>{%endif%}
 
 {%block foot_css%}{%endblock%}
-  <script src="{{url.static}}{{'/js/siftal.min.js' | filemtime}}"></script>
+  <script src="<?php echo \dash\engine\template_engine::staticmtime('js/siftal.min.js');?>"></script>
 {%if include.highcharts %}
-  <script src="{{url.static}}{{'/js/highcharts/highcharts.min.js' | filemtime}}"></script>
+  <script src="<?php echo \dash\engine\template_engine::staticmtime('js/highcharts/highcharts.min.js');?>"></script>
 {%endif%}
 {%if user.id%}  <noscript><div class="line top danger fs16"><div class="txtB">{%trans "JavaScript is required to use our service."%}</div> {%trans "Enable JavaScript in your browser or use one which supports it."%}</div></noscript>{%endif%}
 {%if youAreDead%}<div class="line"><div class="warn pA10">{{youAreDead}}</div></div>{%endif%}
 {%block js%}{%endblock%}
 {%if include.editor%}
-  <script src="{{url.static}}{{'/js/medium-editor.min.js' | filemtime}}"></script>
-  <link  href="{{url.static}}{{'/css/medium-editor.css' | filemtime}}" rel="stylesheet" media="screen"/>
+  <script src="<?php echo \dash\engine\template_engine::staticmtime('js/medium-editor.min.js');?>"></script>
+  <link  href="<?php echo \dash\engine\template_engine::staticmtime('css/medium-editor.css');?>" rel="stylesheet" media="screen"/>
 {%endif%}
 {%if options.site.googleAnalytics and url.tld != "local" %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{options.site.googleAnalytics}}"></script>
