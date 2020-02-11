@@ -59,7 +59,7 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
 ?>
  <link href="<?php echo \dash\url::kingdom();?>/humans.txt" rel="author"/>
 <?php // @todo add rel alternative ?>
- <link href="<?php echo \dash\engine\template_engine::staticmtime('css/siftal.min.css');?>" rel="stylesheet"/>
+ <link href="<?php echo \dash\engine\layout\fn::staticmtime('css/siftal.min.css');?>" rel="stylesheet"/>
 </head>
 
 <body<?php
@@ -115,17 +115,17 @@ echo ">";
 if (\dash\detect\device::detectPWA())
 {
  // header
- \dash\engine\template_engine::header();
+ \dash\engine\layout\find::header();
  // main
  echo "\n ";
  echo "<main id='pageContent' data-xhr='pageContent'>";
- \dash\engine\template_engine::find('main');
+ \dash\engine\layout\find::find('main');
  echo "\n ";
  echo "</main>";
  // footer
  echo "\n ";
  echo "<footer id='pageFooter' data-xhr='pageFooter'>";
- \dash\engine\template_engine::find('footer');
+ \dash\engine\layout\find::find('footer');
  echo "\n ";
  echo "</footer>";
 }
@@ -134,30 +134,30 @@ else
  // aside
  echo "\n ";
  echo "<aside id='pageSidebar' data-xhr='pageSidebar'>";
- \dash\engine\template_engine::find('sidebar');
+ \dash\engine\layout\find::find('sidebar');
  echo "\n ";
  echo "</aside>";
  // page wrapper
  echo "\n ";
  echo "<div id='pageWrapper' data-xhr='pageWrapper'>";
  // header
- \dash\engine\template_engine::header();
+ \dash\engine\layout\find::header();
  // nav
  echo "\n  ";
  echo "<nav id='pageNav' data-xhr='pageNav'>";
- \dash\engine\template_engine::find('nav');
+ \dash\engine\layout\find::find('nav');
  echo "\n  ";
  echo "</nav>";
  // main
  echo "\n  ";
  echo "<main id='pageContent' data-xhr='pageContent'>";
- \dash\engine\template_engine::find('main');
+ \dash\engine\layout\find::find('main');
  echo "\n  ";
  echo "</main>";
  // footer
  echo "\n  ";
  echo "<footer id='pageFooter' data-xhr='pageFooter'>";
- \dash\engine\template_engine::find('footer');
+ \dash\engine\layout\find::find('footer');
  echo "\n  ";
  echo "</footer>";
  // close pageWrapper div
@@ -170,12 +170,12 @@ else
 
 
  <div class="js">
-  <script src="<?php echo \dash\engine\template_engine::staticmtime('js/siftal.min.js');?>"></script>
+  <script src="<?php echo \dash\engine\layout\fn::staticmtime('js/siftal.min.js');?>"></script>
 <?php
 if (\dash\data::include_highcharts())
 {
   echo "\n  ";
-  echo '<script src="'. \dash\engine\template_engine::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
+  echo '<script src="'. \dash\engine\layout\fn::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
 }
 
 if (\dash\user::id())
@@ -193,9 +193,9 @@ if (\dash\user::id())
 if (\dash\data::include_editor())
 {
   echo "\n  ";
-  echo '<script src="'. \dash\engine\template_engine::staticmtime('js/medium-editor.min.js'). '"></script>';
+  echo '<script src="'. \dash\engine\layout\fn::staticmtime('js/medium-editor.min.js'). '"></script>';
   echo "\n  ";
-  echo '<link  href="'. \dash\engine\template_engine::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
+  echo '<link  href="'. \dash\engine\layout\fn::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
 }
 if(\dash\option::config('site', 'googleAnalytics'))
 {

@@ -262,7 +262,7 @@ class mvc
 			}
 
 			\dash\engine\view::lastChanges();
-			$nativeTemplate = \dash\engine\template_engine::shoot();
+			$nativeTemplate = \dash\engine\layout\fn::shoot();
 			if(!$nativeTemplate)
 			{
 				\dash\engine\twig::init();
