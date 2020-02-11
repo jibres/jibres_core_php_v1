@@ -51,13 +51,8 @@ if (\dash\url::canonical())
 echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
 ?>
  <link rel      ="author"                       href="<?php echo \dash\url::kingdom();?>/humans.txt"/>
-{%for key, lang in lang.list if lang.list|length > 1 and not url.subdomain and lang.current != key|slice(0, 2)%}
-{%set myLangUrl%}
-{{url.base}}{%if lang.default != key|slice(0, 2) %}/{{key|slice(0, 2)}}{%endif%}{%if url.content%}/{{url.content}}{%endif%}{%if url.path%}/{{url.path}}{%endif%}
-{%endset%}
- <link rel      ="alternate"                    href="{{myLangUrl}}" hreflang="{{key|slice(0, 2)}}"/>
-{%endfor%}
- <link rel      ="stylesheet"                   href="{{url.static}}{{'/css/siftal.min.css' | filemtime}}"/>
+<?php // @todo add rel alternative ?>
+ <link rel      ="stylesheet"                   href="<?php echo \dash\engine\template_engine::staticmtime('css/siftal.min.css');?>"/>
 {%block head%}{%endblock%}
 </head>
 

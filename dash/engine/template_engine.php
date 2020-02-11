@@ -17,5 +17,24 @@ class template_engine
 
 		return false;
 	}
+
+
+	public static function staticmtime($_fileAddr)
+	{
+		$result       = $_fileAddr;
+		$lastTime     = null;
+		$complete_url = root.'public_html/static/'. $_fileAddr;
+		if($_fileAddr && \dash\file::exists($complete_url))
+		{
+			$lastTime = filemtime($complete_url);
+		}
+
+		if($lastTime)
+		{
+			$result .= '?'. $lastTime;
+		}
+
+		return \dash\url::static(). '/'. $result;
+	}
 }
 ?>
