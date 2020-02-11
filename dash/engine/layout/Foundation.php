@@ -62,8 +62,56 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
  <link href="<?php echo \dash\engine\template_engine::staticmtime('css/siftal.min.css');?>" rel="stylesheet"/>
 </head>
 
-<body {%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' class='{{global.direction}}{%if include.adminPanel%} siftal{%endif%} preload {{bodyclass}}'{%if global.theme%} data-theme='{{global.theme}}'{%endif%}{%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if bodyel%} {{bodyel|raw}}{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
-<?php
+<body<?php
+// subdomain
+if (\dash\url::subdomain())
+{
+  echo " data-subdomain='". \dash\url::subdomain(). "'";
+}
+// content
+if(\dash\url::content() === null)
+{
+  echo " data-in='site'";
+}
+else
+{
+  echo " data-in='". \dash\url::content(). "'";
+}
+// page
+echo " data-page='". \dash\data::global_page(). "'";
+// class
+echo " class='". \dash\language::dir();
+if(\dash\data::include_adminPanel())
+{
+  echo " siftal";
+}
+if(\dash\data::bodyclass())
+{
+  echo " ". \dash\data::bodyclass();
+}
+echo " preload";
+echo "'";
+// theme
+if(\dash\data::global_theme())
+{
+  echo " data-theme='". \dash\data::global_theme(). "'";
+}
+// sidebar
+if(!\dash\data::userToggleSidebar())
+{
+  echo " data-clean";
+}
+if(\dash\user::id())
+{
+  echo " data-user='". \dash\coding::encode(\dash\user::id()). "'";
+}
+if(\dash\request::get('iframe'))
+{
+  echo " data-iframe";
+}
+echo ">";
+
+
 if (\dash\detect\device::detectPWA())
 {
  // header
