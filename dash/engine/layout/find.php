@@ -7,11 +7,6 @@ class find
 {
 	private static $need_box = null;
 
-	public static function find($_what)
-	{
-
-	}
-
 
 	public static function main()
 	{
@@ -28,11 +23,11 @@ class find
 			}
 			elseif(\dash\url::content() === null)
 			{
-				$myPage = root.'content/main/main.php';
+				// $myPage = root.'content/main/main.php';
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
-				$myPage = core.'engine/layout/admin/admin-main.php';
+				// $myPage = core.'engine/layout/admin/admin-main.php';
 			}
 		}
 
