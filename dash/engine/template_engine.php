@@ -29,7 +29,11 @@ class template_engine
 		$myHeader = null;
 		if (\dash\detect\device::detectPWA())
 		{
-
+			$myHeader = core.'engine/layout/pwa-header.php';
+		}
+		elseif(\dash\data::include_adminPanel())
+		{
+			$myHeader = core.'engine/layout/admin-header.php';
 		}
 		else
 		{
