@@ -170,11 +170,11 @@ if(\dash\permission::supervisor())
 {
   if(\dash\url::isLocal())
   {
-    echo '  <div class="superAdmin public"></div>';
+    echo "\n  <div class='superAdmin public'></div>";
   }
   else
   {
-    echo '  <div class="superAdmin"></div>';
+    echo "\n  <div class='superAdmin'></div>";
   }
 }
 ?>
