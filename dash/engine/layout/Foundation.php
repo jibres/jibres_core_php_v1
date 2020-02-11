@@ -53,7 +53,6 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
  <link rel      ="author"                       href="<?php echo \dash\url::kingdom();?>/humans.txt"/>
 <?php // @todo add rel alternative ?>
  <link rel      ="stylesheet"                   href="<?php echo \dash\engine\template_engine::staticmtime('css/siftal.min.css');?>"/>
-{%block head%}{%endblock%}
 </head>
 
 <body{%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' class='{{global.direction}}{%if include.adminPanel%} siftal{%endif%} preload {{bodyclass}}'{%if global.theme%} data-theme='{{global.theme}}'{%endif%}{%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if bodyel%} {{bodyel|raw}}{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
@@ -86,7 +85,19 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
 {%endblock%}
 
  <div class="js">
-{%if perm_su()%}  <div class='superAdmin{%if url.tld != "local"%} public{%endif%}'></div>{%endif%}
+<?php
+if(\dash\permission::supervisor())
+{
+  if(\dash\url::isLocal())
+  {
+    echo '  <div class="superAdmin public"></div>';
+  }
+  else
+  {
+    echo '  <div class="superAdmin"></div>';
+  }
+}
+?>
 
 {%block foot_css%}{%endblock%}
   <script src="<?php echo \dash\engine\template_engine::staticmtime('js/siftal.min.js');?>"></script>
@@ -102,19 +113,7 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
 {%endif%}
 {%if options.site.googleAnalytics and url.tld != "local" %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{options.site.googleAnalytics}}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{options.site.googleAnalytics}}');
-
-  function pushStateGA()
-  {
-    var origin = window.location.protocol + '//' + window.location.host;
-    var pathname = window.location.href.substr(origin.length);
-    gtag('config', '{{options.site.googleAnalytics}}', {'page_path': pathname});
-  }
-</script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '{{options.site.googleAnalytics}}'); function pushStateGA() { var origin = window.location.protocol + '//' + window.location.host; var pathname = window.location.href.substr(origin.length); gtag('config', '{{options.site.googleAnalytics}}', {'page_path': pathname}); }</script>
 {%endif%}
 
   <div data-xhr='foot_js' class="foot_js">{%block foot_js%}{%endblock%}</div>
