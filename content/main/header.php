@@ -7,7 +7,7 @@
      <span><?php echo \dash\data::site_title(); ?></span> <small class="fs05 pLa5 s0"> <?php echo T_('Beta');?></small>
     </a>
    </h1>
-
+   <div class="c"></div>
    <nav class="cauto os">
     <a class="s0" href="{{url.kingdom}}/pricing"><?php echo T_("Pricing"); ?></a>
     <a class="s0" href="{{url.kingdom}}/contact"><?php echo T_("Contact"); ?></a>
