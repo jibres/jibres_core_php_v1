@@ -20,9 +20,14 @@
  <meta property ="og:type"                      content="website"/>
  <meta property ='og:locale'                    content='<?php echo \dash\language::current(); ?>'/>
  <meta property ="og:image"                     content="<?php echo \dash\data::page_cover(); ?>"/>
- <meta name     ="jibres:site"                  content="{{url.site}}">
- <meta name     ="jibres:api"                   content="{{url.sitelang}}/api/">
- <meta name     ="viewport"                     content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, {%if runPWA%}maximum-scale=1.0{%else%}maximum-scale=1.1{%endif%}, user-scalable=0"/>
+ <meta name     ="jibres:site"                  content="<?php echo \dash\url::site();?>">
+ <meta name     ="jibres:api"                   content="<?php echo \dash\url::sitelang();?>/api/">
+ <meta name     ="viewport"                     content="<?php
+if (\dash\detect\device::detectPWA())
+  echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0';
+else
+  echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0';
+?>">
  <meta name     ="application-name"             content="{{site.title}}"/>
  <meta name     ="msapplication-config"         content="{{url.site}}/browserconfig.xml?v=6">
  <meta name     ="theme-color"                  content="#c80a5a">
