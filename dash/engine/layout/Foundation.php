@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo \dash\language::current();?>" dir="{{global.direction}}" prefix="og: http://ogp.me/ns#"{%if perm_su()%} data-debugger{%endif%}{%if runPWA%} data-pwa="{{runPWA}}"{%endif%}>
+<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" prefix="og: http://ogp.me/ns#"<?php if (\dash\permission::supervisor()) echo ' data-debugger';?><?php if (\dash\detect\device::detectPWA()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}?>>
 <head>
  <meta charset="UTF-8"/>
  <base href="{{url.base}}"/>
