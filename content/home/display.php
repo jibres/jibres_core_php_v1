@@ -66,3 +66,15 @@
   </div>
  </div>
 </section>
+
+
+
+<section id='keepitsimple'>
+ <div class="title">
+  <h2 title='{%trans "Simplest forever"%}'><?php echo T_('Keep it simple'); ?></h2>
+  <h3><?php echo T_('Simplicity is the ultimate sophistication'); ?></h3>
+  <h3><?php echo T_('No one can fullfill your e-commerce needs like us'); ?> <span>💪</span></h3>
+ </div>
+</section>
+
+
