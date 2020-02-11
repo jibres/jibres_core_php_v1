@@ -262,6 +262,7 @@ class mvc
 			}
 
 			\dash\engine\view::lastChanges();
+			\dash\engine\template_engine::shoot();
 			\dash\engine\twig::init();
 		}
 	}
