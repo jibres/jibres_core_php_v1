@@ -35,6 +35,10 @@ class template_engine
 		{
 			$myHeader = core.'engine/layout/admin-header.php';
 		}
+		elseif(\dash\url::content() === 'enter')
+		{
+			// do nothing
+		}
 		else
 		{
 			$myHeader = root.'content/main/header.php';

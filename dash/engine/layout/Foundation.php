@@ -115,11 +115,7 @@ echo ">";
 if (\dash\detect\device::detectPWA())
 {
  // header
- echo "\n ";
- echo "<header id='pageHeader' data-xhr='pageHeader'>";
  \dash\engine\template_engine::header();
- echo "\n ";
- echo "</header>";
  // main
  echo "\n ";
  echo "<main id='pageContent' data-xhr='pageContent'>";
@@ -145,11 +141,7 @@ else
  echo "\n ";
  echo "<div id='pageWrapper' data-xhr='pageWrapper'>";
  // header
- echo "\n  ";
- echo "<header id='pageHeader' data-xhr='pageHeader'>";
  \dash\engine\template_engine::header();
- echo "\n  ";
- echo "</header>";
  // nav
  echo "\n  ";
  echo "<nav id='pageNav' data-xhr='pageNav'>";
