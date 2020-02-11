@@ -16,21 +16,20 @@ class find
 		$myHeader = null;
 		if (\dash\detect\device::detectPWA())
 		{
-			$myHeader = core.'engine/layout/pwa-header.php';
+			$myHeader = core.'engine/layout/pwa/pwa-header.php';
 		}
 		elseif(\dash\data::include_adminPanel())
 		{
-			$myHeader = core.'engine/layout/admin-header.php';
+			$myHeader = core.'engine/layout/admin/admin-header.php';
 		}
 		elseif(\dash\url::content() === 'enter')
 		{
 			// do nothing
 		}
-		else
+		elseif(\dash\url::content() === null)
 		{
 			$myHeader = root.'content/main/header.php';
 		}
-
 		if($myHeader)
 		{
 			echo "\n <header id='pageHeader' data-xhr='pageHeader'>";
