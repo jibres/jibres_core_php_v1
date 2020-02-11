@@ -55,14 +55,14 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '">';
  <link rel      ="stylesheet"                   href="<?php echo \dash\engine\template_engine::staticmtime('css/siftal.min.css');?>"/>
 </head>
 
-<body{%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' class='{{global.direction}}{%if include.adminPanel%} siftal{%endif%} preload {{bodyclass}}'{%if global.theme%} data-theme='{{global.theme}}'{%endif%}{%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if bodyel%} {{bodyel|raw}}{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
+<body {%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' class='{{global.direction}}{%if include.adminPanel%} siftal{%endif%} preload {{bodyclass}}'{%if global.theme%} data-theme='{{global.theme}}'{%endif%}{%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if bodyel%} {{bodyel|raw}}{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
 <?php
 if (\dash\detect\device::detectPWA())
 {
  // header
  echo "\n ";
  echo "<header id='pageHeader' data-xhr='pageHeader'>";
- \dash\engine\template_engine::find('header');
+ \dash\engine\template_engine::header();
  echo "\n ";
  echo "</header>";
  // main
@@ -92,7 +92,7 @@ else
  // header
  echo "\n  ";
  echo "<header id='pageHeader' data-xhr='pageHeader'>";
- \dash\engine\template_engine::find('header');
+ \dash\engine\template_engine::header();
  echo "\n  ";
  echo "</header>";
  // nav

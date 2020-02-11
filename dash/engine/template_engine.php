@@ -24,6 +24,12 @@ class template_engine
 	}
 
 
+	public static function header()
+	{
+		require_once root.'content/main/header.php';
+	}
+
+
 	public static function staticmtime($_fileAddr)
 	{
 		$result       = $_fileAddr;
