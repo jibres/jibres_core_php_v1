@@ -23,7 +23,7 @@ class find
 			}
 			elseif(\dash\url::content() === null)
 			{
-				$myPage = root.'content/main/main.php';
+				$myPage = root.'content/home/layout/main.php';
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
@@ -54,7 +54,7 @@ class find
 			}
 			elseif(\dash\url::content() === null)
 			{
-				$myPage = root.'content/main/header.php';
+				$myPage = root.'content/home/layout/header.php';
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
@@ -88,7 +88,7 @@ class find
 			}
 			elseif(\dash\url::content() === null)
 			{
-				$myPage = root.'content/main/footer.php';
+				$myPage = root.'content/home/layout/footer.php';
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
