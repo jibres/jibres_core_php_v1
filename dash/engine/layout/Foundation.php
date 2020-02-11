@@ -9,11 +9,12 @@
  <meta name     ="description"                  content="<?php echo \dash\data::page_desc(); ?>"/>
  <meta name     ="site:root"                    content="<?php echo \dash\url::kingdom();?>"/>
  <meta name     ="twitter:card"                 content="<?php echo \dash\data::page_twitterCard(); ?>"/>
- <meta name     ="twitter:site"                 content="@jibres_com"/>
  <meta name     ="twitter:title"                content="<?php echo \dash\data::global_title(); ?>"/>
  <meta name     ="twitter:description"          content="<?php echo \dash\data::page_desc(); ?>"/>
- <meta name     ="twitter:url"                  content="<?php echo \dash\url::pwd();?>"/>
  <meta name     ="twitter:image"                content="<?php echo \dash\data::page_cover(); ?>"/>
+ <meta name     ="twitter:site"                 content="@jibres_com"/>
+ <meta name     ="twitter:creator"              content="@jibres_com">
+ <meta name     ="twitter:url"                  content="<?php echo \dash\url::pwd();?>"/>
  <meta property ="og:type"                      content="website"/>
  <meta property ="og:title"                     content="<?php echo \dash\data::global_title(); ?>"/>
  <meta property ="og:description"               content="<?php echo \dash\data::page_desc(); ?>"/>
