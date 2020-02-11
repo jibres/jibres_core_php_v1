@@ -1,73 +1,8 @@
-{%extends display.pwa%}
+{%extends display.mvc%}
 
 
-{%block pageContent%}
-   <h2>Jibres Services</h2>
-   <nav class="pwaItems">
-     <ul>
-       <li>
-        <a class="f align-center" href="{{url.this}}/domain">
-         <img src="{{url.icon}}" alt="jibres">
-         <div class="key">{%trans "Domain Center"%}</div>
-         <div class="go"></div>
-        </a>
-       </li>
 
-       <li>
-        <a class="f align-center disabled" href="">
-         <img src="{{url.icon}}" alt="jibres">
-         <div class="key">{%trans "Payment Gateway"%}</div>
-         <div class="go detail"></div>
-        </a>
-       </li>
-
-       <li>
-        <a class="f align-center disabled" href="">
-         <img src="{{url.icon}}" alt="jibres">
-         <div class="key">{%trans "Electronic Wallet"%}</div>
-         <div class="go"></div>
-        </a>
-       </li>
-
-       <li>
-        <a class="f align-center disabled" href="">
-         <img src="{{url.icon}}" alt="jibres">
-         <div class="key">{%trans "Pay bill"%}</div>
-         <div class="go"></div>
-        </a>
-       </li>
-
-     </ul>
-   </nav>
-
-   <nav class="pwaItems">
-     <ul>
-       <li>
-        <a class="f align-center" href="{{url.this}}/test">
-         <div class="key">Sample Pages</div>
-         <div class="go"></div>
-        </a>
-       </li>
-     </ul>
-   </nav>
-
-
-   <nav class="pwaItems">
-     <ul>
-       <li>
-        <a class="f align-center" href="{{url.kingdom}}">
-         <div class="key">Homepage</div>
-         <div class="go"></div>
-        </a>
-       </li>
-       <li>
-        <a class="f align-center" href="{{url.kingdom}}/contact">
-         <div class="key">Contact</div>
-         <div class="go"></div>
-        </a>
-       </li>
-     </ul>
-   </nav>
-
+{%block content%}
+<h2>DashBoard</h2>
 {%endblock%}
 
