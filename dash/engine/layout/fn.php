@@ -15,7 +15,19 @@ class fn
 		if(is_file($nativeTemplate))
 		{
 			self::$DISPLAY = $nativeTemplate;
-			require_once core.'engine/layout/foundation.php';
+
+			if(\dash\request::ajax())
+			{
+				\dash\data::global_debug(\dash\notif::get());
+
+				echo json_encode(\dash\data::get('global')). "\n";
+				// \dash\engine\layout\find::allBlocks();
+				require_once core.'engine/layout/foundation-xhr.php';
+			}
+			else
+			{
+				require_once core.'engine/layout/foundation.php';
+			}
 			return true;
 		}
 
