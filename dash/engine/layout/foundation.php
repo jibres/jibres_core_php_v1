@@ -111,16 +111,8 @@ if(\dash\request::get('iframe'))
 }
 echo ">";
 
-\dash\engine\layout\find::sidebar();
-\dash\engine\layout\find::box('start');
-\dash\engine\layout\find::header();
-\dash\engine\layout\find::nav();
-\dash\engine\layout\find::main();
-\dash\engine\layout\find::footer();
-\dash\engine\layout\find::box('end');
+\dash\engine\layout\find::allBlocks();
 ?>
-
-
 
 
  <div class="js">

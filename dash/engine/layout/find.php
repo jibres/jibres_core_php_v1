@@ -8,6 +8,18 @@ class find
 	private static $need_box = null;
 
 
+	public static function allBlocks()
+	{
+		self::sidebar();
+		self::box('start');
+		self::header();
+		self::nav();
+		self::main();
+		self::footer();
+		self::box('end');
+	}
+
+
 	public static function main()
 	{
 		$myPage = null;
