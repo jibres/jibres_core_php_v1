@@ -2,7 +2,8 @@
   <div id="jibresTopLine">
    <div class="cn">
     <div class="f">
-     <nav class="cauto os"><?php
+     <div class="c"><h1><?php echo T_("Jibres"); ?></h1></div>
+     <nav class="cauto"><?php
 if (\dash\user::id())
 {
  if (\dash\url::subdomain())
@@ -26,6 +27,25 @@ else
    </div>
   </div>
 
+  <div id="jibresHeader">
+   <div class="cn">
+    <div class="f">
+     <div class="cauto">
+      <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
+       <img src='<?php echo \dash\url::logo();?>' alt='<?php echo T_("Jibres"). ' | '. \dash\data::site_desc(); ?>'>
+      </a>
+     </div>
+     <div class="c"></div>
+     <div class="cauto">
+      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
+      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/contact"><?php echo T_("Contact"); ?></a>
+
+     </div>
+    </div>
+   </div>
+  </div>
+
+
    <div class="cn f">
 
     <h1 class="cauto logo">
@@ -36,8 +56,6 @@ else
     </h1>
     <div class="c"></div>
     <nav class="cauto os">
-    <a class="s0" href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
-    <a class="s0" href="<?php echo \dash\url::kingdom() ?>/contact"><?php echo T_("Contact"); ?></a>
   <?php
   if (\dash\user::id())
   {

@@ -1,17 +1,23 @@
 /* header*/
-[data-in='site'] #pageHeader{min-height:100px;font-size:1.4rem;overflow:hidden;transition:0.3s;}
-[data-in='site'] #pageHeader #jibresTopLine{background-color: #c80a5a;height:36px;overflow:hidden;transition:0.3s;text-align:center;}
+[data-in='site'] #pageHeader{min-height:100px;font-size:1.4rem;overflow:hidden;}
+[data-in='site'] #pageHeader #jibresTopLine{height:36px;background-color: #c80a5a;overflow:hidden;}
+[data-in='site'] #pageHeader #jibresTopLine nav{text-align:center;}
 [data-in='site'] #pageHeader #jibresTopLine a{line-height:36px;color:#fff;padding:0 1em;display:inline-block;transition:0.2s;position:relative;}
 [data-in='site'] #pageHeader #jibresTopLine a:hover{background-color:rgba(0,0,0,0.1); }
 [data-in='site'] #pageHeader #jibresTopLine a:focus{background-color:rgba(0,0,0,0.2); }
 [data-in='site'] #pageHeader #jibresTopLine a:active{background-color:rgba(0,0,0,0.3); }
 [data-in='site'] #pageHeader #jibresTopLine [data-to='signup']{min-width: 90px}
 [data-in='site'] #pageHeader #jibresTopLine [data-to='enter']{min-width: 70px}
+[data-in='site'] #pageHeader #jibresTopLine h1{display: none;line-height:36px;font-size:20px;color:#fff;margin:0;}
+
+[data-in='site'] #pageHeader #jibresHeader{height:64px;padding:7px 0;background-color:#f7f7f9;overflow:hidden;}
+[data-in='site'] #pageHeader #jibresHeader .logo{display:block;}
+[data-in='site'] #pageHeader #jibresHeader .logo img{display:block;height:50px;max-width:150px;}
 
 
 
 // body[data-page="homepage"] > #pageHeader{background-color:rgba(51, 51, 51, 1);}
-// [data-in='site'] #pageHeader .logo{transition:0.3s;padding:0;margin:0;}
+// [data-in='site'] #pageHeader .logo{transition:0.2s;padding:0;margin:0;}
 // [data-in='site'] #pageHeader .logo a{padding:0 1em;color:#000;font-weight:700;display:inline-block;line-height:60px;}
 // [data-in='site'] #pageHeader .logo a span{font-weight:900;}
 // [data-in='site'] #pageHeader .logo h1{display:inline-block;margin:0;line-height:60px;}
@@ -22,7 +28,7 @@
 // [data-in='site'] #pageHeader nav a{padding:0 1em;line-height:59px;color:#000;display:inline-block;transition:0.2s;font-weight:700;position:relative;border-bottom:1px solid transparent;}
 // [data-in='site'] #pageHeader nav a:hover{border-bottom-color:#000;}
 // /*[data-in='site'] #pageHeader nav a:focus{background-color:rgba(0,0,0,0.8);}*/
-// [data-in='site'] #pageHeader .btn{margin:10px;line-height:35px;color:#000;padding:0 1em;border:1px solid #000;background-color:transparent;transition:0.3s;min-width:100px;}
+// [data-in='site'] #pageHeader .btn{margin:10px;line-height:35px;color:#000;padding:0 1em;border:1px solid #000;background-color:transparent;transition:0.2s;min-width:100px;}
 // [data-in='site'] #pageHeader .btn:hover{box-shadow:0 0px 3px 0 #000;background-color:rgba(0,0,0,0.2);}
 // [data-in='site'] #pageHeader .btn:focus{background-color:rgba(0,0,0,0.5);}
 
