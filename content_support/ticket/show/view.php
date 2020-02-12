@@ -124,7 +124,7 @@ class view
 
 		if(isset($dataTable[0]['id']))
 		{
-			\dash\data::page_title(\dash\data::page_title() . ' '. \dash\utility\human::fitNumber($dataTable[0]['id'], false) );
+			\dash\data::page_title(\dash\data::page_title() . ' '. \dash\fit::text($dataTable[0]['id']) );
 		}
 
 		\dash\data::isMyTicket(self::is_my_ticket($main));
