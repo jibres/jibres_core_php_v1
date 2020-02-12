@@ -1,10 +1,12 @@
 /* header*/
 [data-in='site'] #pageHeader{height:90px;min-height:60px;font-size:1.4rem;overflow:hidden;transition:0.3s;}
-[data-in='site'] #pageHeader #topBar{background-color: #c80a5a;height:36px;overflow:hidden;transition:0.3s;}
-[data-in='site'] #pageHeader #topBar a{line-height:36px;color:#fff;padding:0 1em;display:inline-block;transition:0.2s;position:relative;}
-[data-in='site'] #pageHeader #topBar a:hover{background-color:rgba(0,0,0,0.1); }
-[data-in='site'] #pageHeader #topBar a:focus{background-color:rgba(0,0,0,0.2); }
-[data-in='site'] #pageHeader #topBar a:active{background-color:rgba(0,0,0,0.3); }
+[data-in='site'] #pageHeader #jibresTopLine{background-color: #c80a5a;height:36px;overflow:hidden;transition:0.3s;}
+[data-in='site'] #pageHeader #jibresTopLine a{line-height:36px;color:#fff;padding:0 1em;display:inline-block;transition:0.2s;position:relative;}
+[data-in='site'] #pageHeader #jibresTopLine a:hover{background-color:rgba(0,0,0,0.1); }
+[data-in='site'] #pageHeader #jibresTopLine a:focus{background-color:rgba(0,0,0,0.2); }
+[data-in='site'] #pageHeader #jibresTopLine a:active{background-color:rgba(0,0,0,0.3); }
+[data-in='site'] #pageHeader #jibresTopLine [data-to='signup']{min-width: 90px}
+[data-in='site'] #pageHeader #jibresTopLine [data-to='enter']{min-width: 70px}
 
 
 
