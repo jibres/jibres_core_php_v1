@@ -6,8 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::bodyclass('vflex');
-
 		$homepageShortDesc = '';
 		$homepageShortDesc .= T_('All-in-One Ecommerce Software'). '. ';
 		$homepageShortDesc .= T_('Online Store Website'). ' + ';

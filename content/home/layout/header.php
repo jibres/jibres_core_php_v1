@@ -18,8 +18,8 @@ if (\dash\user::id())
 }
 else
 {
- echo '<a data-to="enter" href="'. \dash\url::sitelang(). '/enter" data-direct>'. T_("Enter"). '</a>';
  echo '<a data-to="signup" href="'. \dash\url::sitelang(). '/enter/signup" data-direct>'. T_("SIGN UP"). '</a>';
+ echo '<a data-to="enter" href="'. \dash\url::sitelang(). '/enter" data-direct>'. T_("Enter"). '</a>';
 }
 ?></nav>
     </div>
