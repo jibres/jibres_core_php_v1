@@ -125,7 +125,7 @@ class view
 
 		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
-			$result['count'] = \dash\utility\human::fitNumber($_data['finalprice']);;
+			$result['count'] = \dash\fit::number($_data['finalprice']);;
 		}
 
 		if(isset($_data['barcode']))

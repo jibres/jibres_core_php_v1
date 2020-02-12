@@ -160,7 +160,7 @@ class site_list
 		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
 			$datalist['finalprice'] = $_data['finalprice'];
-			$priceTxt .= '<span class="txtB">'. \dash\utility\human::fitNumber($datalist['finalprice']). '</span>';
+			$priceTxt .= '<span class="txtB">'. \dash\fit::number($datalist['finalprice']). '</span>';
 		}
 
 		if(isset($_data['buyprice']))
@@ -173,7 +173,7 @@ class site_list
 			$datalist['price'] = floatval($_data['price']);
 			// if(floatval($datalist['price']) !== floatval($datalist['finalprice']))
 			// {
-			// 	$priceTxt .= ' <span class="badge light mLR10"><i class="sf-bolt"></i> '. \dash\utility\human::fitNumber($datalist['price']);
+			// 	$priceTxt .= ' <span class="badge light mLR10"><i class="sf-bolt"></i> '. \dash\fit::number($datalist['price']);
 			// }
 		}
 
@@ -185,7 +185,7 @@ class site_list
 		if(isset($_data['discount']))
 		{
 			$datalist['discount'] = $_data['discount'];
-			$priceTxt .= ' - '. \dash\utility\human::fitNumber($datalist['discount']). '</span>';
+			$priceTxt .= ' - '. \dash\fit::number($datalist['discount']). '</span>';
 		}
 
 
@@ -233,7 +233,7 @@ class site_list
 
 		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
-			$result['count'] = \dash\utility\human::fitNumber($_data['finalprice']);
+			$result['count'] = \dash\fit::number($_data['finalprice']);
 		}
 
 		if(isset($_data['barcode']))

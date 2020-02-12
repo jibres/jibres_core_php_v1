@@ -155,7 +155,7 @@ class view
 				}
 				if(is_numeric($value))
 				{
-					$value = \dash\utility\human::fitNumber($value);
+					$value = \dash\fit::number($value);
 				}
 				$result .= T_($key) . ' <b>'. T_(ucfirst($value)). '</b>';
 				$index++;

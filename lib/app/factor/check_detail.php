@@ -77,7 +77,7 @@ class check_detail
 
 			if($maxproductcount && floatval($value['count']) > floatval($maxproductcount))
 			{
-				\dash\notif::error(T_("The maximum count product in factor in your store is :val", ['val' => \dash\utility\human::fitNumber($maxproductcount)]), $key + 1);
+				\dash\notif::error(T_("The maximum count product in factor in your store is :val", ['val' => \dash\fit::number($maxproductcount)]), $key + 1);
 				return false;
 			}
 

@@ -36,7 +36,7 @@ class model
 				self::upgrade();
 				self::unlock();
 				self::remove_cache();
-				\dash\notif::info(T_("Operation complete at :val second", ['val' => \dash\utility\human::fitNumber(time() - $start)]));
+				\dash\notif::info(T_("Operation complete at :val second", ['val' => \dash\fit::number(time() - $start)]));
 				break;
 
 			default:

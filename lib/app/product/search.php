@@ -352,7 +352,7 @@ class search
 		foreach ($list as $key => $value)
 		{
 			$list[$key]['variants_detail'] = [];
-			$list[$key]['price_string']    = \dash\utility\human::fitNumber($value['finalprice']);
+			$list[$key]['price_string']    = \dash\fit::number($value['finalprice']);
 		}
 
 		$product_ids = array_column($list, 'id');
@@ -386,8 +386,8 @@ class search
 						$max_price = \lib\price::down($variants[$value['id']]['max_price']);
 						if($min_price !== $max_price)
 						{
-							$min_price = \dash\utility\human::fitNumber($min_price);
-							$max_price = \dash\utility\human::fitNumber($max_price);
+							$min_price = \dash\fit::number($min_price);
+							$max_price = \dash\fit::number($max_price);
 
 							$list[$key]['price_string'] = $min_price . ' ... '. $max_price;
 						}

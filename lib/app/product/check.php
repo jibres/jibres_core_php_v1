@@ -779,7 +779,7 @@ class check
 		// $store_max_buyprice = \lib\store::setting('maxbuyprice');
 		// if($buyprice && $store_max_buyprice && intval($buyprice) > intval($store_max_buyprice))
 		// {
-		// 	\dash\notif::error(T_("The maximum buyprice in your store is :val", ['val' => \dash\utility\human::fitNumber($store_max_buyprice)]), 'buyprice');
+		// 	\dash\notif::error(T_("The maximum buyprice in your store is :val", ['val' => \dash\fit::number($store_max_buyprice)]), 'buyprice');
 		// 	return false;
 		// }
 
@@ -826,7 +826,7 @@ class check
 		// $store_max_price = \lib\store::setting('maxprice');
 		// if($price && $store_max_price && intval($price) > intval($store_max_price))
 		// {
-		// 	\dash\notif::error(T_("The maximum price in your store is :val", ['val' => \dash\utility\human::fitNumber($store_max_price)]), 'price');
+		// 	\dash\notif::error(T_("The maximum price in your store is :val", ['val' => \dash\fit::number($store_max_price)]), 'price');
 		// 	return false;
 		// }
 
@@ -867,7 +867,7 @@ class check
 		// $store_max_discount = \lib\store::setting('maxdiscount');
 		// if($discountpercent && $store_max_discount && intval($discountpercent) > intval($store_max_discount))
 		// {
-		// 	\dash\notif::error(T_("The maximum discount in your store is :val", ['val' => \dash\utility\human::fitNumber($store_max_discount)]), 'discount');
+		// 	\dash\notif::error(T_("The maximum discount in your store is :val", ['val' => \dash\fit::number($store_max_discount)]), 'discount');
 		// 	return false;
 		// }
 

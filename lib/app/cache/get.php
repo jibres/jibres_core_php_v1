@@ -78,7 +78,7 @@ class get
 					$sum   = \lib\number::down($value['sum']);
 					$sum   = \lib\price::down($sum);
 
-					$temp[] = ['key' => \dash\utility\human::fitNumber($value['key']), 'count' => intval($count), 'sum' => intval($sum)];
+					$temp[] = ['key' => \dash\fit::number($value['key']), 'count' => intval($count), 'sum' => intval($sum)];
 				}
 			}
 			$hi_chart               = [];

@@ -132,9 +132,9 @@ class setup
 			$all = count(self::$levels);
 			// set stepDesc
 			$stepDesc = T_('Step') . ' ';
-			$stepDesc .= \dash\utility\human::fitNumber($current_step). ' ';
+			$stepDesc .= \dash\fit::number($current_step). ' ';
 			$stepDesc .= T_('of') . ' ';
-			$stepDesc .= \dash\utility\human::fitNumber($all);
+			$stepDesc .= \dash\fit::number($all);
 			\dash\data::stepDesc($stepDesc);
 		}
 
