@@ -6,8 +6,9 @@
 [data-in='site'] svg.circle-bottom-left{width: 600px;height:600px;fill:#fff;position:absolute;left:0;bottom:0;pointer-events:none;z-index: 2;}
 [data-in='site'] svg.circle-bottom-right{width: 600px;height:600px;fill:#fff;position:absolute;right:0;bottom:0;pointer-events:none;z-index: 2;}
 
-// [data-in='site'] svg.circle-top-left{width: 40vw;height:40vw;fill:#000;position:absolute;left:0;bottom:0;pointer-events:none;z-index: 2;}
-// [data-in='site'] svg.circle-top-right{width: 40vw;height:40vw;fill:#000;position:absolute;right:0;bottom:0;pointer-events:none;z-index: 2;}
+
+[data-in='site'] svg.circle-top-left{width: 600px;height:600px;fill:#f7f7f9;position:absolute;left:0;top:0;pointer-events:none;z-index: 2;}
+[data-in='site'] svg.circle-top-right{width: 600px;height:600px;fill:#f7f7f9;position:absolute;right:0;top:0;pointer-events:none;z-index: 2;}
 
 .typed-cursor{opacity: 1;font-weight: 100;animation: blink 0.7s infinite;}
 @keyframes blink{ 0% { opacity:1; } 50% { opacity:0.3; } 100% { opacity:1; } }
