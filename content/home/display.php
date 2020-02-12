@@ -27,7 +27,7 @@
  <div class="cn">
   <div class="title">
    <h2><?php echo T_('Jibres Sale Channels'); ?></h2>
-   <p><?php echo T_('Sales channels represent the different marketplaces where you sell your products.'); ?><br><?php echo T_('By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.'); ?> <a href="{{url.kingdom}}/about"><?php echo T_('Read more'); ?></a></p>
+   <p><?php echo T_('Sales channels represent the different marketplaces where you sell your products.'); ?><br><?php echo T_('By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.'); ?> <a href="<?php echo \dash\url::kingdom() ?>/about"><?php echo T_('Read more'); ?></a></p>
   </div>
 
   <div class="f">
@@ -82,13 +82,13 @@
 <section id='pricingPlans'>
   <div class="cn">
     <div class="headline">
-      <h3><?php echo T_("Choose the plan that's right for you"); ?>%}</h3>
+      <h3><?php echo T_("Choose the plan that's right for you"); ?></h3>
       <p><?php echo T_('Plans to fit your budget'); ?></p>
     </div>
     <div class="f">
       <div class="c4 s12 pLR5">
         <div class="pricing-card bronze">
-          <div class="name">{%trans "Bronze"%}</div>
+          <div class="name"><?php echo T_('Bronze') ?></div>
           <div class="price"><span>{{ 140 | fitNumber}}</span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
           <div class="detail">
             <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{{100 | fitNumber}}</span></div>
@@ -97,13 +97,13 @@
             <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Permission"%}</span></div>
             <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Personalization"%}</span></div>
           </div>
-          <a href="{{url.kingdom}}/enter/signup" class="btn lg">{%trans "Get Bronze"%}</a>
-          <div class="meta">{%trans "Renews every year."%}</div>
+          <a href="<?php echo \dash\url::kingdom() ?>/enter/signup" class="btn lg"><?php echo T_('Get Bronze'); ?></a>
+          <div class="meta"><?php echo T_('Renews every year.'); ?></div>
         </div>
       </div>
       <div class="c4 s12 pLR5">
         <div class="pricing-card silver">
-          <div class="name">{%trans "Silver"%}</div>
+          <div class="name"><?php echo T_('Silver') ?></div>
           <div class="price"><span>{{ 300 | fitNumber}}</span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
           <div class="detail">
             <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{{1000 | fitNumber}}</span></div>
@@ -112,13 +112,13 @@
             <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Permission"%}</span></div>
             <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Personalization"%}</span></div>
           </div>
-          <a href="{{url.kingdom}}/enter/signup" class="btn lg">{%trans "Get Silver"%}</a>
-          <div class="meta">{%trans "Renews every year."%}</div>
+          <a href="<?php echo \dash\url::kingdom() ?>/enter/signup" class="btn lg"><?php echo T_('Get Silver'); ?></a>
+          <div class="meta"><?php echo T_('Renews every year.'); ?></div>
         </div>
       </div>
       <div class="c4 s12 pLR5">
         <div class="pricing-card gold">
-          <div class="name">{%trans "Gold"%}</div>
+          <div class="name"><?php echo T_('Gold') ?></div>
           <div class="price"><span>{{ 700 | fitNumber}}</span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
           <div class="detail">
             <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{%trans "Ultimate"%}</span></div>
@@ -127,8 +127,8 @@
             <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Permission"%}</span></div>
             <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Personalization"%}</span></div>
           </div>
-          <a href="{{url.kingdom}}/enter/signup" class="btn lg">{%trans "Get Gold"%}</a>
-          <div class="meta">{%trans "Renews every year."%}</div>
+          <a href="<?php echo \dash\url::kingdom() ?>/enter/signup" class="btn lg"><?php echo T_('Get Gold'); ?></a>
+          <div class="meta"><?php echo T_('Renews every year.'); ?></div>
         </div>
       </div>
     </div>
@@ -139,14 +139,14 @@
     <div class="f justify-center">
       <div class="c4 s12">
           <div class="pricing-card free">
-            <div class="name">{%trans "Free"%}</div>
+            <div class="name"><?php echo T_('Free') ?></div>
             <div class="price"><span>{{ 0 | fitNumber}}</span></div>
             <div class="detail">
               <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{{10 | fitNumber}}</span></div>
               <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Report"%}</span></div>
               <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Personalization"%}</span></div>
             </div>
-            <a href="{{url.kingdom}}/enter/signup" class="btn lg">{%trans "Get Free"%}</a>
+            <a href="<?php echo \dash\url::kingdom() ?>/enter/signup" class="btn lg"><?php echo T_('Get Free'); ?></a>
             <div class="meta">{%trans "Free Forever."%}</div>
           </div>
       </div>
