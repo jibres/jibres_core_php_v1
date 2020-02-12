@@ -71,7 +71,7 @@
 
 <section id='keepitsimple'>
  <div class="title">
-  <h2 title='{%trans "Simplest forever"%}'><?php echo T_('Keep it simple'); ?></h2>
+  <h2 title='<?php echo T_('Simplest forever'); ?>'><?php echo T_('Keep it simple'); ?></h2>
   <h3><?php echo T_('Simplicity is the ultimate sophistication'); ?></h3>
   <h3><?php echo T_('No one can fullfill your e-commerce needs like us'); ?> <span>💪</span></h3>
  </div>
@@ -147,11 +147,12 @@
               <div><?php echo T_('Advanced Personalization'); ?></div>
             </div>
             <a href="<?php echo \dash\url::kingdom() ?>/enter/signup" class="btn lg"><?php echo T_('Get Free'); ?></a>
-            <div class="meta">{%trans "Free Forever."%}</div>
+            <div class="meta"><?php echo T_('Free Forever.'); ?></div>
           </div>
       </div>
       <div class="c6 s12">
-        <img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-free-plan.png" alt='{%trans "Jibres Free pricing"%}'>
+        <img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-free-plan.png" alt='<?php echo T_("Jibres Free Pricing
+      "); ?>'>
       </div>
     </div>
   </div>
