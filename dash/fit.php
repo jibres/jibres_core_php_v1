@@ -62,9 +62,15 @@ class fit{
 	}
 
 
-	public static function text($_txt, $_autoFormat = true, $_lang = null)
+	public static function text($_txt)
 	{
 		return self::number($_txt, false, $_lang);
+	}
+
+
+	public static function date($_txt)
+	{
+		return self::number($_txt, false);
 	}
 
 
