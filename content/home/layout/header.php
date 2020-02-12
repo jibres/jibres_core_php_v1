@@ -31,7 +31,7 @@ else
     <div class="f">
      <div class="cauto">
       <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
-       <img src='<?php echo \dash\url::logo();?>' alt='<?php echo T_("Jibres"). ' | '. \dash\data::site_desc(); ?>'>
+       <img src='<?php echo \dash\url::logo();?>' alt='<?php echo T_("Jibres"). ' | '. \dash\data::site_slogan(); ?>'>
       </a>
      </div>
      <div class="c"></div>
