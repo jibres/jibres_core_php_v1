@@ -123,7 +123,7 @@ class datetime
 		// step4 - change number to fa if need
 		if($_convertNumber !== false)
 		{
-			$finalDate = \dash\utility\human::number($finalDate, $_lang);
+			$finalDate = \dash\fit::date($finalDate);
 		}
 
 
