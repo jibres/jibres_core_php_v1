@@ -151,8 +151,7 @@
           </div>
       </div>
       <div class="c6 s12">
-        <img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-free-plan.png" alt='<?php echo T_("Jibres Free Pricing
-      "); ?>'>
+        <img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-free-plan.png" alt='<?php echo T_("Jibres Free Pricing"); ?>'>
       </div>
     </div>
   </div>
