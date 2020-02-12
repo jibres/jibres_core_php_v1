@@ -92,10 +92,10 @@
           <div class="price"><span><?php echo \dash\fit::number(140); ?></span><?php echo \dash\data::moneyUnit(); ?></div>
           <div class="detail">
             <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span><?php echo \dash\fit::number(100); ?></span></div>
-            <div><span class="txtB">{%trans "Staff"%}</span> <span><?php echo \dash\fit::number(1); ?></span></div>
-            <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Report"%}</span></div>
-            <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Permission"%}</span></div>
-            <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Personalization"%}</span></div>
+            <div><?php echo T_(':val Staff', ['val' => \dash\fit::number(1)]) ?></div>
+            <div><?php echo T_('Basic Report'); ?></div>
+            <div><?php echo T_('Basic Permission'); ?></div>
+            <div><?php echo T_('Basic Personalization'); ?></div>
           </div>
           <a href="<?php echo \dash\url::kingdom() ?>/enter/signup" class="btn lg"><?php echo T_('Get Bronze'); ?></a>
           <div class="meta"><?php echo T_('Renews every year.'); ?></div>
@@ -107,10 +107,10 @@
           <div class="price"><span><?php echo \dash\fit::number(300); ?></span><?php echo \dash\data::moneyUnit(); ?></div>
           <div class="detail">
             <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span><?php echo \dash\fit::number(1000); ?></span></div>
-            <div><span class="txtB">{%trans "Staff"%}</span> <span><?php echo \dash\fit::number(5); ?></span></div>
-            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Report"%}</span></div>
-            <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Permission"%}</span></div>
-            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Personalization"%}</span></div>
+            <div><?php echo T_(':val Staff', ['val' => \dash\fit::number(5)]) ?></div>
+            <div><?php echo T_('Advanced Report'); ?></div>
+            <div><?php echo T_('Basic Permission'); ?></div>
+            <div><?php echo T_('Advanced Personalization'); ?></div>
           </div>
           <a href="<?php echo \dash\url::kingdom() ?>/enter/signup" class="btn lg"><?php echo T_('Get Silver'); ?></a>
           <div class="meta"><?php echo T_('Renews every year.'); ?></div>
@@ -121,11 +121,11 @@
           <div class="name"><?php echo T_('Gold') ?></div>
           <div class="price"><span><?php echo \dash\fit::number(700); ?></span><?php echo \dash\data::moneyUnit(); ?></div>
           <div class="detail">
-            <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span>{%trans "Ultimate"%}</span></div>
-            <div><span class="txtB">{%trans "Staff"%}</span> <span><?php echo \dash\fit::number(20); ?></span></div>
-            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Report"%}</span></div>
-            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Permission"%}</span></div>
-            <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Personalization"%}</span></div>
+            <div><span class="txtB"><?php echo T_('Ultimate Order Limit'); ?></span></div>
+            <div><?php echo T_(':val Staff', ['val' => \dash\fit::number(20)]) ?></div>
+            <div><?php echo T_('Advanced Report'); ?></div>
+            <div><?php echo T_('Advanced Permission'); ?></div>
+            <div><?php echo T_('Advanced Personalization'); ?></div>
           </div>
           <a href="<?php echo \dash\url::kingdom() ?>/enter/signup" class="btn lg"><?php echo T_('Get Gold'); ?></a>
           <div class="meta"><?php echo T_('Renews every year.'); ?></div>
@@ -143,8 +143,8 @@
             <div class="price"><span><?php echo \dash\fit::number(0); ?></span></div>
             <div class="detail">
               <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span><?php echo \dash\fit::number(10); ?></span></div>
-              <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Report"%}</span></div>
-              <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Personalization"%}</span></div>
+              <div><?php echo T_('Basic Report'); ?></div>
+              <div><?php echo T_('Advanced Personalization'); ?></div>
             </div>
             <a href="<?php echo \dash\url::kingdom() ?>/enter/signup" class="btn lg"><?php echo T_('Get Free'); ?></a>
             <div class="meta">{%trans "Free Forever."%}</div>
