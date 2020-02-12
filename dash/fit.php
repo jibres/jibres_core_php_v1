@@ -61,7 +61,7 @@ class fit{
 		return $new_text;
 	}
 
-	public static function mobile12($_number)
+	public static function mobile($_number)
 	{
 		$new_text = $_number;
 		if(is_numeric($new_text))
