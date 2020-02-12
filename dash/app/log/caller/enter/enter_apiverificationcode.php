@@ -9,7 +9,7 @@ class enter_apiverificationcode
 		$code = isset($_args['data']['mycode']) ? $_args['data']['mycode'] : null;
 		$secret = isset($_args['data']['secret']) ? $_args['data']['secret'] : null;
 
-		$code = \dash\utility\human::fitNumber($code, false);
+		$code = \dash\fit::text($code);
 		$result              = [];
 		$result['title']     = T_("Verification code");
 		$result['icon']      = 'log-in';

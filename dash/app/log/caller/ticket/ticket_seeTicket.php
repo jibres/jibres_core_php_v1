@@ -21,7 +21,7 @@ class ticket_seeTicket
 		$excerpt .=	'<a href="'.\dash\url::kingdom(). '/!'. $masterid. '">';
 		$excerpt .= T_("Show ticket");
 		$excerpt .= ' ';
-		$excerpt .= \dash\utility\human::fitNumber($masterid, false);
+		$excerpt .= \dash\fit::text($masterid);
 		$excerpt .= '</a>';
 
 		$result['txt'] = $excerpt;

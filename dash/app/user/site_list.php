@@ -60,9 +60,9 @@ class site_list
 	{
 
 		// $myName = '<img class="ui avatar image" src="'.  $value['avatar'] .'">';
-		// $myName .= '<span class="pRa10">'. \dash\utility\human::fitNumber($value['code'], false). '</span>';
+		// $myName .= '<span class="pRa10">'. \dash\fit::number($value['code'], false). '</span>';
 		// $myName .= '   '. $value['firstname']. ' <b>'. $value['lastname']. '</b> <small class="badge light mLa5">'. $value['father'].'</small>';
-		// $myName .= '<span class="description">'. \dash\utility\human::fitNumber($value['nationalcode'], false). '</span>';
+		// $myName .= '<span class="description">'. \dash\fit::number($value['nationalcode'], false). '</span>';
 
 		$result   = [];
 		$id       = null;
@@ -91,7 +91,7 @@ class site_list
 		if(isset($_data['mobile']))
 		{
 			$datalist['desc'] = $_data['mobile'];
-			$name .= '<span class="badge light mRa5"><i class="sf-mobile"></i> '. \dash\utility\human::fitNumber($_data['mobile'], 'mobile'). '</span>';
+			$name .= '<span class="badge light mRa5"><i class="sf-mobile"></i> '. \dash\fit::mobile($_data['mobile']). '</span>';
 		}
 
 			// add price to name of item

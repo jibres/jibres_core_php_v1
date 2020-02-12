@@ -62,7 +62,7 @@ class sitemap
 		}
 
 		\dash\session::set('result_create_sitemap' , null);
-		\dash\notif::ok(\dash\utility\human::fitNumber($count). ' '. T_("File removed"));
+		\dash\notif::ok(\dash\fit::number($count). ' '. T_("File removed"));
 		return true;
 	}
 
@@ -102,7 +102,7 @@ class sitemap
 
 		self::sitemapIndex();
 
-		\dash\notif::info(\dash\utility\human::fitNumber(self::$count_all). ' '. T_("Link created"));
+		\dash\notif::info(\dash\fit::number(self::$count_all). ' '. T_("Link created"));
 
 		return self::$set_result;
 

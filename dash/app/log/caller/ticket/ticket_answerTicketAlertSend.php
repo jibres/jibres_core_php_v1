@@ -9,7 +9,7 @@ class ticket_answerTicketAlertSend
 		$masterid =  \dash\app\log\support_tools::masterid($_args);
 
 		$result              = [];
-		$result['title']     = T_("Regards"). "\n". T_("Ticket :val answered", ['val' => \dash\utility\human::fitNumber($masterid, false)]);;
+		$result['title']     = T_("Regards"). "\n". T_("Ticket :val answered", ['val' => \dash\fit::text($masterid)]);;
 		$result['icon']      = 'life-ring';
 		$result['cat']       = T_("Support");
 		$result['iconClass'] = 'fc-green';
@@ -19,7 +19,7 @@ class ticket_answerTicketAlertSend
 		$excerpt .=	'<a href="'.\dash\url::kingdom(). '/!'. $masterid. '">';
 		$excerpt .= T_("Show ticket");
 		$excerpt .= ' ';
-		$excerpt .= \dash\utility\human::fitNumber($masterid, false);
+		$excerpt .= \dash\fit::text($masterid);
 		$excerpt .= '</a>';
 
 		$result['txt'] = $excerpt;
@@ -51,7 +51,7 @@ class ticket_answerTicketAlertSend
 	public static function sms_text($_args, $_mobile)
 	{
 		$masterid  =  \dash\app\log\support_tools::masterid($_args);
-		$title = T_("Regards"). "\n". T_("Ticket :val answered", ['val' => \dash\utility\human::fitNumber($masterid, false)]);
+		$title = T_("Regards"). "\n". T_("Ticket :val answered", ['val' => \dash\fit::text($masterid)]);
 		$title .= "\n";
 		$title .= \dash\url::domain(). '/!'. $masterid;
 
@@ -73,7 +73,7 @@ class ticket_answerTicketAlertSend
 	{
 		$load  = \dash\app\log\support_tools::load($_args);
 		$masterid  = \dash\app\log\support_tools::masterid($_args);
-		$title = T_("Regards"). "\n". T_("Ticket :val answered", ['val' => \dash\utility\human::fitNumber($masterid, false)]);
+		$title = T_("Regards"). "\n". T_("Ticket :val answered", ['val' => \dash\fit::text($masterid)]);
 
 		$tg_msg = '';
 		$tg_msg .= "🆔#Ticket".$masterid;

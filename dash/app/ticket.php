@@ -558,7 +558,7 @@ class ticket
 				case 'ip':
 					if($value)
 					{
-						$result['prettyip'] = \dash\utility\human::fitNumber(long2ip($value));
+						$result['prettyip'] = \dash\fit::number(long2ip($value));
 					}
 					$result[$key] = $value;
 					break;

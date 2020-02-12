@@ -164,7 +164,7 @@ class header
 
 		if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::api_content())
 		{
-			$translatedDesc .= ' '. \dash\utility\human::fitNumber($_code);
+			$translatedDesc .= ' '. \dash\fit::number($_code);
 			// depending on title if exist or not
 			if($_text)
 			{

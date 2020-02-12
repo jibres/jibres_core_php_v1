@@ -30,7 +30,7 @@ class ticket_AnswerTicket
 		$excerpt .=	'<a href="'.\dash\url::kingdom(). '/!'. $code. '">';
 		$excerpt .= T_("Show ticket");
 		$excerpt .= ' ';
-		$excerpt .= \dash\utility\human::fitNumber($code, false);
+		$excerpt .= \dash\fit::text($code);
 		$excerpt .= '</a>';
 
 		$result['txt'] = $excerpt;

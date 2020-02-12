@@ -67,7 +67,7 @@ class visitor
 					$date = \dash\datetime::fit($key, true, 'date');
 					if($_args['period'] === 'hours24')
 					{
-						$date = \dash\utility\human::fitNumber($key);
+						$date = \dash\fit::number($key);
 					}
 
 					$chart[] =

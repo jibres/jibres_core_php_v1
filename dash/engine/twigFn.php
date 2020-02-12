@@ -112,7 +112,7 @@ class twigFn
 	{
 		return new \Twig\TwigFilter('fitNumber', function ($_number, $_autoFormat = true)
 		{
-			return \dash\utility\human::fitNumber($_number, $_autoFormat);
+			return \dash\fit::number($_number, $_autoFormat);
 		});
 	}
 

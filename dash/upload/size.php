@@ -80,7 +80,7 @@ class size
 
 			if(isset($prefix[$step]))
 			{
-				return \dash\utility\human::fitNumber(round($_filesize, 2)).' '.$prefix[$step];
+				return \dash\fit::number(round($_filesize, 2)).' '.$prefix[$step];
 			}
 			else
 			{

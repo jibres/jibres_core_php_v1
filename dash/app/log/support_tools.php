@@ -75,7 +75,7 @@ class support_tools
 		$plus = isset($_args['data']['plus']) ? $_args['data']['plus'] : null;
 		if($plus)
 		{
-			\dash\utility\human::fitNumber($plus);
+			\dash\fit::number($plus);
 		}
 
 		return $plus;

@@ -97,7 +97,7 @@ class sort
 				}
 				if(is_numeric($value))
 				{
-					$value = \dash\utility\human::fitNumber($value);
+					$value = \dash\fit::number($value);
 				}
 				if(is_string($value))
 				{

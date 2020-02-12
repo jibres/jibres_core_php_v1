@@ -6,7 +6,7 @@ class su_dayEventReport
 	public static function site($_args = [])
 	{
 		$sum_diff = isset($_args['data']['result']['sum_diff']) ? $_args['data']['result']['sum_diff'] : 0;
-		$excerpt  = '<span class="fc-green">'. \dash\utility\human::fitNumber($sum_diff). '</span> ';
+		$excerpt  = '<span class="fc-green">'. \dash\fit::number($sum_diff). '</span> ';
 		$excerpt .= T_("new record!");
 
 		$result              = [];
@@ -34,7 +34,7 @@ class su_dayEventReport
 				{
 					continue;
 				}
-				$txt .= T_($key). " ". \dash\utility\human::fitNumber($value['now']). " <br> +".\dash\utility\human::fitNumber($value['daydiff'])." <hr>";
+				$txt .= T_($key). " ". \dash\fit::number($value['now']). " <br> +".\dash\fit::number($value['daydiff'])." <hr>";
 			}
 			$result['txt']   = $txt;
 		}
@@ -71,7 +71,7 @@ class su_dayEventReport
 		$tg_msg  = '';
 		$tg_msg .= "📺#ReportDaily \n";
 		$tg_msg .= T_("What was yesterday"). "\n";
-		$tg_msg .= \dash\utility\human::fitNumber($sum_diff);;
+		$tg_msg .= \dash\fit::number($sum_diff);;
 		$tg_msg .= ' '. T_("new record!"). "\n";
 
 
@@ -91,7 +91,7 @@ class su_dayEventReport
 				{
 					continue;
 				}
-				$tg_msg .= T_($key). " -> ". \dash\utility\human::fitNumber($value['now']). " | +".\dash\utility\human::fitNumber($value['daydiff'])." \n";
+				$tg_msg .= T_($key). " -> ". \dash\fit::number($value['now']). " | +".\dash\fit::number($value['daydiff'])." \n";
 			}
 
 		}

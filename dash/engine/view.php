@@ -302,7 +302,7 @@ class view
 			}
 			if(\dash\data::user_mobile())
 			{
-				$txtDesc .= \dash\utility\human::fitNumber(\dash\data::user_mobile(), 'mobile12');
+				$txtDesc .= \dash\fit::mobile(\dash\data::user_mobile());
 			}
 
 			$txtFooter = '';
