@@ -91,7 +91,7 @@
           <div class="name"><?php echo T_('Bronze') ?></div>
           <div class="price"><span>{{ 140 | fitNumber}}</span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
           <div class="detail">
-            <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{{100 | fitNumber}}</span></div>
+            <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span>{{100 | fitNumber}}</span></div>
             <div><span class="txtB">{%trans "Staff"%}</span> <span>{{1 | fitNumber}}</span></div>
             <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Report"%}</span></div>
             <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Permission"%}</span></div>
@@ -106,7 +106,7 @@
           <div class="name"><?php echo T_('Silver') ?></div>
           <div class="price"><span>{{ 300 | fitNumber}}</span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
           <div class="detail">
-            <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{{1000 | fitNumber}}</span></div>
+            <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span>{{1000 | fitNumber}}</span></div>
             <div><span class="txtB">{%trans "Staff"%}</span> <span>{{5 | fitNumber}}</span></div>
             <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Report"%}</span></div>
             <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Permission"%}</span></div>
@@ -121,7 +121,7 @@
           <div class="name"><?php echo T_('Gold') ?></div>
           <div class="price"><span>{{ 700 | fitNumber}}</span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
           <div class="detail">
-            <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{%trans "Ultimate"%}</span></div>
+            <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span>{%trans "Ultimate"%}</span></div>
             <div><span class="txtB">{%trans "Staff"%}</span> <span>{{20 | fitNumber}}</span></div>
             <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Report"%}</span></div>
             <div><span class="txtB">{%trans "Advanced"%}</span> <span>{%trans "Permission"%}</span></div>
@@ -142,7 +142,7 @@
             <div class="name"><?php echo T_('Free') ?></div>
             <div class="price"><span>{{ 0 | fitNumber}}</span></div>
             <div class="detail">
-              <div><span class="txtB">{%trans "Order Limit"%}</span> <span>{{10 | fitNumber}}</span></div>
+              <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span>{{10 | fitNumber}}</span></div>
               <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Report"%}</span></div>
               <div><span class="txtB">{%trans "Basic"%}</span> <span>{%trans "Personalization"%}</span></div>
             </div>

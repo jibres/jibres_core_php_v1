@@ -35,7 +35,13 @@ class homepage
 
 		if(!is_array($result))
 		{
-			$result = [];
+			$result =
+			[
+			'product'     => 12000,
+			'factor'      => 275000,
+			'sum_factor'  => 3856000000,
+			'last_update' => date("Y-m-d H:i:s"),
+			];
 		}
 		return $result;
 	}
