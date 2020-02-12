@@ -45,10 +45,10 @@ if (\dash\language::current() === 'fa')
 }
 else
 {
-	echo T_('<p>');
+	echo '<p>';
 	echo T_('Advancement of technology and development of Web-based business Cause Need new tools to resolve the daily needs and that’s the goal of making Jibres.');
 	echo T_('Jibres have a set of simple and practical tools on a regular basis for modern businesses.');
-	echo T_('</p>');
+	echo '</p>';
 }
 ?>
 
