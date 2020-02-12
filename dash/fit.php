@@ -61,6 +61,11 @@ class fit{
 		return $new_text;
 	}
 
+	public static function text($_txt, $_autoFormat = true, $_lang = null)
+	{
+		return self::number($_txt, false, $_lang);
+	}
+
 	public static function mobile($_number)
 	{
 		$new_text = $_number;
