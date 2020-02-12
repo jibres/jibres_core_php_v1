@@ -32,6 +32,11 @@ class view
 
 		\dash\data::homepagenumber(\lib\app\statistics\homepage::get());
 
+		\dash\data::moneyUnit('$');
+		if(\dash\language::current() === 'fa')
+		{
+			\dash\data::moneyUnit(T_('Hezar Toman'));
+		}
 
 	}
 }

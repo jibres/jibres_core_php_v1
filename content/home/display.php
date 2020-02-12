@@ -89,7 +89,7 @@
       <div class="c4 s12 pLR5">
         <div class="pricing-card bronze">
           <div class="name"><?php echo T_('Bronze') ?></div>
-          <div class="price"><span><?php echo \dash\fit::number(140); ?></span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
+          <div class="price"><span><?php echo \dash\fit::number(140); ?></span><?php echo \dash\data::moneyUnit(); ?></div>
           <div class="detail">
             <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span><?php echo \dash\fit::number(100); ?></span></div>
             <div><span class="txtB">{%trans "Staff"%}</span> <span><?php echo \dash\fit::number(1); ?></span></div>
@@ -104,7 +104,7 @@
       <div class="c4 s12 pLR5">
         <div class="pricing-card silver">
           <div class="name"><?php echo T_('Silver') ?></div>
-          <div class="price"><span><?php echo \dash\fit::number(300); ?></span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
+          <div class="price"><span><?php echo \dash\fit::number(300); ?></span><?php echo \dash\data::moneyUnit(); ?></div>
           <div class="detail">
             <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span><?php echo \dash\fit::number(1000); ?></span></div>
             <div><span class="txtB">{%trans "Staff"%}</span> <span><?php echo \dash\fit::number(5); ?></span></div>
@@ -119,7 +119,7 @@
       <div class="c4 s12 pLR5">
         <div class="pricing-card gold">
           <div class="name"><?php echo T_('Gold') ?></div>
-          <div class="price"><span><?php echo \dash\fit::number(700); ?></span> {%if lang.current == 'fa'%}{%trans "Hezar Toman"%}{%else%}${%endif%}</div>
+          <div class="price"><span><?php echo \dash\fit::number(700); ?></span><?php echo \dash\data::moneyUnit(); ?></div>
           <div class="detail">
             <div><span class="txtB"><?php echo T_('Order Limit'); ?></span> <span>{%trans "Ultimate"%}</span></div>
             <div><span class="txtB">{%trans "Staff"%}</span> <span><?php echo \dash\fit::number(20); ?></span></div>
