@@ -1,8 +1,8 @@
 /* header*/
-[data-in='site'] #pageHeader{min-height:100px;font-size:1.4rem;overflow:hidden;}
-[data-in='site'] #pageHeader #jibresTopLine{height:36px;background-color: #c80a5a;overflow:hidden;}
+[data-in='site'] #pageHeader{min-height:100px;font-size:1.4rem;overflow:hidden;@include select-none();}
+[data-in='site'] #pageHeader #jibresTopLine{height:36px;background-color:#c80a5a;overflow:hidden;}
 [data-in='site'] #pageHeader #jibresTopLine nav{text-align:center;}
-[data-in='site'] #pageHeader #jibresTopLine a{line-height:36px;color:#fff;padding:0 1em;display:inline-block;transition:0.2s;position:relative;}
+[data-in='site'] #pageHeader #jibresTopLine a{line-height:36px;color:#fff;padding:0 1rem;display:inline-block;transition:0.2s;position:relative;}
 [data-in='site'] #pageHeader #jibresTopLine a:hover{background-color:rgba(0,0,0,0.1); }
 [data-in='site'] #pageHeader #jibresTopLine a:focus{background-color:rgba(0,0,0,0.2); }
 [data-in='site'] #pageHeader #jibresTopLine a:active{background-color:rgba(0,0,0,0.3); }
@@ -13,7 +13,10 @@
 [data-in='site'] #pageHeader #jibresHeader{height:64px;padding:7px 0;background-color:#f7f7f9;overflow:hidden;}
 [data-in='site'] #pageHeader #jibresHeader .logo{display:block;}
 [data-in='site'] #pageHeader #jibresHeader .logo img{display:block;height:50px;max-width:150px;}
-
+[data-in='site'] #pageHeader #jibresHeader nav a{line-height:50px;color:#0b0b30;padding:0 1rem;display:inline-block;transition:0.2s;position:relative;min-width: 70px;text-align:center;}
+[data-in='site'] #pageHeader #jibresHeader nav a:hover{color:#444; }
+[data-in='site'] #pageHeader #jibresHeader nav a:focus{color:#000; }
+[data-in='site'] #pageHeader #jibresHeader nav a:active{color:#c80a5a; }
 
 
 // body[data-page="homepage"] > #pageHeader{background-color:rgba(51, 51, 51, 1);}
