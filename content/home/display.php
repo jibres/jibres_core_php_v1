@@ -38,7 +38,7 @@
   <div class="f">
     <div class="c3 m6 s12">
       <div class="item">
-        <img src="<?php echo \dash\url::icon(); ?>" alt="<?php echo T_('Jibres'); ?>">
+        <img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-saleChannels-step1.png" alt="<?php echo T_('Jibres'); ?>">
         <h3><?php echo T_('Point of Sale Software'); ?></h3>
         <p><?php echo T_('Barcode reader'). T_(','). T_('Receipt printer'). T_(','). T_('PC POS'). T_(','). T_('Label Printing Scale'). T_(','). T_('Invoice Software'); ?></p>
       </div>
@@ -46,7 +46,7 @@
 
     <div class="c3 m6 s12">
       <div class="item">
-        <img src="<?php echo \dash\url::icon(); ?>" alt='<?php echo T_('Jibres'); ?>'>
+        <img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-saleChannels-step2.png" alt='<?php echo T_('Jibres'); ?>'>
         <h3><?php echo T_('Mobile Online Store'); ?></h3>
         <p><?php echo T_('Create mobile app for your online store.'); ?> <?php echo T_('Free'). T_(','). T_('Fully Customizable'); ?></p>
       </div>
@@ -54,7 +54,7 @@
 
     <div class="c3 m6 s12">
       <div class="item">
-        <img src="<?php echo \dash\url::icon(); ?>" alt='<?php echo T_('Jibres'); ?>'>
+        <img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-saleChannels-step3.png" alt='<?php echo T_('Jibres'); ?>'>
         <h3><?php echo T_('Social Marketing'); ?></h3>
         <p><?php echo T_('Easily add ecommerce to any website and social networks by embedding a single buy button.'); ?></p>
       </div>
@@ -62,7 +62,7 @@
 
     <div class="c3 m6 s12">
       <div class="item">
-        <img src="<?php echo \dash\url::icon(); ?>" alt='<?php echo T_('Jibres'); ?>'>
+        <img src="<?php echo \dash\url::static(); ?>/img/homepage/jibres-saleChannels-step4.png" alt='<?php echo T_('Jibres'); ?>'>
         <h3><?php echo T_('Online Store Website'); ?></h3>
         <p><?php echo T_('Online store builder allow you robust your business in a faster way, simpler way!'); ?></p>
       </div>
