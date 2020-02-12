@@ -18,16 +18,19 @@ class fn
 
 			if(\dash\request::ajax())
 			{
+				// read all notif
 				\dash\data::global_debug(\dash\notif::get());
-
+				// send global on line1 of xhr
 				echo json_encode(\dash\data::get('global')). "\n";
-				// \dash\engine\layout\find::allBlocks();
-				require_once core.'engine/layout/foundation-xhr.php';
+				// create all blocks
+				\dash\engine\layout\find::allBlocks();
 			}
 			else
 			{
+				// read main foundation file
 				require_once core.'engine/layout/foundation.php';
 			}
+			// it's okay, dont run Twig!
 			return true;
 		}
 
