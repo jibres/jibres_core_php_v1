@@ -1,11 +1,9 @@
 
-#landing{position:relative;background-image:url(/static/images/homepage/desk.jpg);min-height:700px;height:100vh;height:calc(100vh - 60px);max-height:1000px;background-position:center;background-repeat:no-repeat;background-size:cover;color:#fff}
-/*#landing .title{position:absolute;top:70px;bottom:0;left:0;right:0;text-align:center;padding-top:200px;min-width:280px;width:70%;margin:0 auto}
-#landing .title h2{font-size:5em;line-height:2em}
-#landing .title h3{line-height:2em;padding:0 2%;font-weight:100}*/
-#landing .title{position:absolute;top:70px;bottom:0;left:0;right:0;padding-top:160px;min-width:280px;width:70%;margin:0 auto}
-#landing .title .h2{font-size:4.8em;line-height:1.5em;min-height:2em;}
-#landing .title .h2 span{font-weight:800;}
-#landing .title h3{line-height:2em;font-weight:100;font-size: 1.6em}
+[data-in='site'] #landing{position:relative;padding: 100px 0;overflow:hidden;font-size:1.6em;background-color:#f7f7f9}
+[data-in='site'] #landing .h2{font-size:40px;line-height:40px;min-height:2em;}
+[data-in='site'] #landing .h2 span{font-weight:800;}
+[data-in='site'] #landing svg.circle-left{width: 40vw;height:40vw;fill:#fff;position:absolute;left:0;bottom:0;pointer-events:none;z-index: 2;}
+[data-in='site'] #landing svg.circle-right{width: 40vw;height:40vw;fill:#fff;position:absolute;right:0;bottom:0;pointer-events:none;z-index: 2;}
+
 .typed-cursor{opacity: 1;font-weight: 100;animation: blink 0.7s infinite;}
 @keyframes blink{ 0% { opacity:1; } 50% { opacity:0.3; } 100% { opacity:1; } }
