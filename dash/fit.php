@@ -10,8 +10,19 @@ class fit{
 	 * @param  [type] $_txt input text or numbers
 	 * @return [type]       [description]
 	 */
-	public static function number($_txt, $_lang = null)
+	public static function number($_txt, $_autoFormat = true, $_lang = null)
 	{
+		$new_text = $_txt;
+
+		// auto format
+		if($_autoFormat)
+		{
+			if(is_numeric($new_text))
+			{
+				$new_text = number_format($new_text);
+			}
+		}
+
 		$persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 		$arabic  = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
 		$english = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -27,76 +38,71 @@ class fit{
 			case 'farsi':
 			case 'fa':
 				// convert english and arabic numbers to persian number
-				$_txt = str_replace($english, $persian, $_txt);
-				$_txt = str_replace($arabic, $persian, $_txt);
+				$new_text = str_replace($english, $persian, $new_text);
+				$new_text = str_replace($arabic, $persian, $new_text);
 				break;
 
 			case 'arabic':
 			case 'ar':
 				// convert english and arabic numbers to persian number
-				$_txt = str_replace($persian, $arabic, $_txt);
-				$_txt = str_replace($english, $arabic, $_txt);
+				$new_text = str_replace($persian, $arabic, $new_text);
+				$new_text = str_replace($english, $arabic, $new_text);
 				break;
 
 			case 'english':
 			case 'en':
 			default:
 				// convert english and arabic numbers to persian number
-				$_txt = str_replace($persian, $english, $_txt);
-				$_txt = str_replace($arabic, $english, $_txt);
+				$new_text = str_replace($persian, $english, $new_text);
+				$new_text = str_replace($arabic, $english, $new_text);
 				break;
 		}
 		// return result in selected language
-		return $_txt;
+		return $new_text;
 	}
 
-
-
-	/**
-	 * change numbers to rtl and fitNumber
-	 * @param  [type] $_txt  [description]
-	 * @param  [type] $_lang [description]
-	 * @return [type]        [description]
-	 */
-	public static function fitNumber($_number, $_autoFormat = true)
+	public static function mobile12($_number)
 	{
 		$new_text = $_number;
 		if(is_numeric($new_text))
 		{
-			if($_autoFormat === 'mobile12')
+			if(strlen($new_text) == 12)
 			{
-				if(strlen($new_text) == 12)
-				{
-					$country     = substr($new_text, 0, 2);
-					$firstChain  = substr($new_text, 2, 3);
-					$secondChain = substr($new_text, 5, 3);
-					$thirdChain  = substr($new_text, 8, 4);
-					$new_text    = ''. $country . '-'. $firstChain . '-' . $secondChain . '-' . $thirdChain;
-				}
-			}
-			elseif($_autoFormat === 'mobile')
-			{
-				if(strlen($new_text) == 12)
-				{
-					$country     = substr($new_text, 0, 2);
-					$firstChain  = substr($new_text, 2, 3);
-					$secondChain = substr($new_text, 5, 3);
-					$thirdChain  = substr($new_text, 8, 4);
-					$new_text    = $firstChain . '-' . $secondChain . '-' . $thirdChain;
-				}
-				elseif(strlen($new_text) == 10)
-				{
-					$firstChain  = substr($new_text, 0, 3);
-					$secondChain = substr($new_text, 3, 3);
-					$thirdChain  = substr($new_text, 6, 4);
-					$new_text     = $firstChain . '-' . $secondChain . '-' . $thirdChain;
-				}
-			}
-			elseif($_autoFormat)
-			{
-				$new_text = number_format($new_text);
+				$country     = substr($new_text, 0, 2);
+				$firstChain  = substr($new_text, 2, 3);
+				$secondChain = substr($new_text, 5, 3);
+				$thirdChain  = substr($new_text, 8, 4);
+				$new_text    = ''. $country . '-'. $firstChain . '-' . $secondChain . '-' . $thirdChain;
 			}
 		}
+
+		$new_text = self::number($new_text);
+		return $new_text;
+	}
+
+
+	public static function tel($_number)
+	{
+		$new_text = $_number;
+		if(is_numeric($new_text))
+		{
+			if(strlen($new_text) == 12)
+			{
+				$country     = substr($new_text, 0, 2);
+				$firstChain  = substr($new_text, 2, 3);
+				$secondChain = substr($new_text, 5, 3);
+				$thirdChain  = substr($new_text, 8, 4);
+				$new_text    = $firstChain . '-' . $secondChain . '-' . $thirdChain;
+			}
+			elseif(strlen($new_text) == 10)
+			{
+				$firstChain  = substr($new_text, 0, 3);
+				$secondChain = substr($new_text, 3, 3);
+				$thirdChain  = substr($new_text, 6, 4);
+				$new_text     = $firstChain . '-' . $secondChain . '-' . $thirdChain;
+			}
+		}
+
 		$new_text = self::number($new_text);
 		return $new_text;
 	}
