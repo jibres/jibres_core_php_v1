@@ -1,7 +1,7 @@
-<div id="certificates">
+<div id="jibresCertificates">
   <div class="fit">
     <h2><?php echo T_('Jibres Certificates'); ?></h2>
-    <div class="f" id="jibresCertificates">
+    <div class="f">
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-bank-markazi.png"alt=''></a></div>
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-bmn.png"alt=''></a></div>
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-brand.png"alt=''></a></div>
@@ -14,9 +14,17 @@
     </div>
   </div>
   <div>
-    <svg class="circle-bottom-left" width="100%" height="100%" viewBox="0 0 100 100" data-color="white" data-position="bottomLeft"><defs><mask id="bottomLeftCorner" x="0" y="0" width="100%" height="100%"><rect x="0" y="50%" width="50%" height="50%" fill="white"></rect><circle cx="50%" cy="50%" r="50%" fill="black"></circle></mask></defs><rect x="0" y="0" width="100%" height="100%" mask="url(#bottomLeftCorner)"></rect></svg>
+    <svg class="circle-bottom-left" width="100%" height="100%" viewBox="0 0 100 100"><defs><mask id="A" x="0" y="0" width="100%" height="100%"><path fill="#fff" d="M0 50h50v50H0z"/><circle cx="50%" cy="50%" r="50%" fill="#000"/></mask></defs><path mask="url(#A)" d="M0 0h100v100H0z"/></svg>
+
     <svg class="circle-bottom-right" width="100%" height="100%" viewBox="0 0 100 100" data-color="white" data-position="bottomRight"><defs><mask id="bottomRightCorner" x="0" y="0" width="100%" height="100%"><rect x="50%" y="50%" width="50%" height="50%" fill="white"></rect><circle cx="50%" cy="50%" r="50%" fill="black"></circle></mask></defs><rect x="0" y="0" width="100%" height="100%" mask="url(#bottomRightCorner)"></rect></svg>
   </div>
+</div>
+
+<div id="jibresFooter">
+
+</div>
+<div  class="cn">
+
 </div>
 
 
