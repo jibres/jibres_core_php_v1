@@ -26,9 +26,13 @@
   <div  class="fit">
     <div class="f">
       <div class="c6 s12" id="footerInfo">
-        <a href="/">
-          <picture class="logo"><img src="<?php echo \dash\url::logo(); ?>" alt='<?php echo T_("Jibres") ?>'></picture>
-        </a>
+        <picture class="logo">
+          <a href="/">
+            <img src="<?php echo \dash\url::logo(); ?>" alt='<?php echo T_("Jibres") ?>'>
+          </a>
+        </picture>
+        <p><?php echo \dash\data::site_desc(); ?></p>
+
       </div>
       <div class="c6 s12" id="footerMenu">
         <div class="f">
