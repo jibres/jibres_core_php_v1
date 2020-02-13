@@ -17,10 +17,12 @@
   </div>
 </div>
 
+
 <div id="jibresSupportLine">
     <h3><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h3>
     <a class="btn lg success" href="/contact"><?php echo T_('Contact with a Live Person'); ?></a>
 </div>
+
 
 <div id="jibresFooter">
   <div class="fit">
@@ -51,10 +53,11 @@ else
         </nav>
 
         <nav class="share1">
-          <a data-direct href="https://www.facebook.com/jibres" class="facebook">Jibres facebook</a>
-          <a data-direct href="https://twitter.com/jibres_com" class="twitter">Twitter of Jibres</a>
-          <a data-direct href="https://t.me/jibres" class="telegram">Telegram channel of Jibres</a>
-          <a data-direct href="https://instagram.com/jibres_com" class="instagram">Jibres on Instagram</a>
+          <a target="_blank" href="https://www.facebook.com/jibres" class="facebook">Become a Jibres fan on facebook</a>
+          <a target="_blank" href="https://twitter.com/jibres_com" class="twitter">Follow Jibres on Twitter</a>
+          <a target="_blank" href="https://linkedin.com/jibres_com" class="linkedin">Connect to Jibres on Linkedin</a>
+          <a target="_blank" href="https://t.me/jibres" class="telegram">Join Jibres Telegram Channel</a>
+          <a target="_blank" href="https://instagram.com/jibres_com" class="instagram">Follow Jibres on Instagram</a>
         </nav>
 
       </div>
