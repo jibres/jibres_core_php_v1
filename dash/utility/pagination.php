@@ -393,5 +393,47 @@ class pagination
 
 		return $result;
 	}
+
+
+
+	public static function html()
+	{
+		$page_number = self::page_number();
+		if($page_number)
+		{
+			echo "<nav class='pagination f fs11 mTB5' data-xhr='pagination'>";
+			echo "<a class='cauto s0' title='". self::detail('desc'). "'>". T_("Total") ." <span class='txtB'>". \dash\fit::number($page_number[0]['total_rows']) ."</span></a>";
+			echo "<div class='c flex justify-center'>";
+			foreach ($page_number as $key => $value)
+			{
+				$link = '';
+				$link .= '<a ';
+
+				if(isset($value['link']) && $value['link'])
+				{
+					$link .= ' href="'. $value['link']. '"';
+				}
+
+				if(isset($value['title']) && $value['title'])
+				{
+					$link .= ' title="'. $value['title']. '"';
+				}
+
+				if(isset($value['class']) && $value['class'])
+				{
+					$link .= ' class="'. $value['class']. '"';
+				}
+
+				$link .= '>';
+				$link .= $value['text'];
+				$link .= '</a>';
+
+				echo $link;
+
+			}
+
+			echo "</div></nav>";
+		}
+	}
 }
 ?>
