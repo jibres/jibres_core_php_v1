@@ -33,6 +33,19 @@
           <figcaption><?php echo \dash\data::site_desc(); ?></figcaption>
         </figure>
 
+        <nav class="langlist" data-xhr="langlist">
+<?php
+if(\dash\language::current() == 'fa')
+{
+  echo "<a hreflang='en' data-direct href='https://jibres.com'>English</a>";
+}
+else
+{
+  echo "<a hreflang='fa' data-direct href='https://jibres.ir'>فارسی</a>";
+}
+?>
+        </nav>
+
       </div>
       <div class="c1 s0"></div>
       <div class="c6 s12" id="footerMenu">
@@ -40,19 +53,19 @@
           <div class="c4 s12 pRa10">
             <nav>
               <h3>Domains</h3>
-              <a href="/domain/search">Domain Name Search</a>
-              <a href="/domain/transfer">Transfer Domain</a>
-              <a href="/domain/whois">Whois Lookup</a>
+              <a href="/domain/search"><?php echo T_('Domain Name Search'); ?></a>
+              <a href="/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
+              <a href="/domain/whois"><?php echo T_('Whois Lookup'); ?></a>
             </nav>
           </div>
           <div class="c4 s12 pRa10">
             <nav>
               <h3>Jibres</h3>
-              <a href="/domain/search">About</a>
-              <a href="/domain/search">Logo</a>
-              <a href="/domain/search">Brand Styleguide</a>
-              <a href="/domain/transfer">Careers</a>
-              <a href="/domain/whois">Certificates</a>
+              <a href="/about"><?php echo T_('About'); ?></a>
+              <a href="/logo"><?php echo T_('Logo'); ?></a>
+              <a href="/brand"><?php echo T_('Brand Styleguide'); ?></a>
+              <a href="/careers"><?php echo T_('Careers'); ?></a>
+              <a href="/certificates"><?php echo T_('Certificates'); ?></a>
             </nav>
 
             <nav>
@@ -67,12 +80,18 @@
           <div class="c4 s12 pRa10">
             <nav>
               <h3>Support</h3>
-              <a href="/support">Support Center</a>
-              <a href="/support/faq">FAQ</a>
+              <a href="/support"><?php echo T_('Support Center'); ?></a>
+              <a href="/support/faq"><?php echo T_('FAQ'); ?></a>
               <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
-              <a href="/support/ticket/new">Submit Ticket</a>
-              <a href="/support/ticket/new?type=bug">Report Bug</a>
-              <a href="/support/ticket/new?type=feedback">Send us Feedback</a>
+              <a href="/support/ticket/new"><?php echo T_('Submit Ticket'); ?></a>
+              <a href="/support/ticket/new?type=bug"><?php echo T_('Report Bug'); ?></a>
+              <a href="/support/ticket/new?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
+
+
+        <a href="/contact"><?php echo T_('Contact'); ?></a>
+        <a href="/help/faq"></a>
+
+
             </nav>
 
             <nav>
@@ -96,12 +115,7 @@
   <div class="cn">
 
    <nav class="f top">
-    <a class="cauto link_home" href="/"><?php echo T_('Home'); ?></a>
-    <a class="cauto" href="/about"><?php echo T_('About'); ?></a>
     <a class="cauto hide" href="/press"><?php echo T_('Press and Media'); ?></a>
-    <a class="cauto" href="/careers" target="_blank"><?php echo T_('Careers'); ?></a>
-    <a class="cauto" href="/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
-    <a class="cauto" href="/help/faq"><?php echo T_('FAQ'); ?></a>
    </nav>
 
    <div class="f middle">
@@ -110,14 +124,6 @@
         <a href="/benefits"><?php echo T_('Benefits'); ?></a>
         <a href="/pricing"><?php echo T_('Pricing'); ?></a>
         <a href="/changelog"><?php echo T_('Changelog'); ?></a>
-      </nav>
-
-      <nav class="c3 s12">
-       <h4><?php echo T_('Support'); ?></h4>
-        <a href="/contact"><?php echo T_('Contact'); ?></a>
-        <a href="/help/faq"><?php echo T_('FAQ'); ?></a>
-        <a href="/logo"><?php echo T_('Logo'); ?></a>
-        <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
       </nav>
 
       <div class="c s12 os">
@@ -133,21 +139,6 @@
    </div>
 
    <div class="f bottom align-center">
-    <div class="cauto s12">
-      <nav class="langlist" data-xhr="langlist">
-<?php
-if(\dash\language::current() == 'fa')
-{
-  echo "<a hreflang='en' data-direct href='https://jibres.com'>English</a>";
-}
-else
-{
-  echo "<a hreflang='fa' data-direct href='https://jibres.ir'>فارسی</a>";
-}
-?>
-      </nav>
-    </div>
-    <div class="c"></div>
     <div class="cauto s12 love"><?php echo T_('Proudly Made in IRAN'); ?></div>
    </div>
 
