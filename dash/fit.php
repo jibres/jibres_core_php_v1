@@ -64,13 +64,13 @@ class fit{
 
 	public static function text($_txt)
 	{
-		return self::number($_txt, false, $_lang);
+		return self::number($_txt, false);
 	}
 
 
-	public static function date($_txt)
+	public static function date($_date)
 	{
-		return self::number($_txt, false);
+		return \dash\datetime::fit($_date, null, 'date');
 	}
 
 
