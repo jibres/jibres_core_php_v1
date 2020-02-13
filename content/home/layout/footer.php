@@ -1,5 +1,5 @@
 <div id="jibresCertificates">
-  <div class="fit">
+  <div class="fit-md">
     <h2><?php echo T_('Jibres Certificates'); ?></h2>
     <div class="f">
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-daneshbonyan.png"alt=''></a></div>
@@ -16,16 +16,16 @@
   <div>
   </div>
 </div>
+
 <div id="jibresSupportLine">
     <h3><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h3>
     <a class="btn lg success" href="/contact"><?php echo T_('Contact with a Live Person'); ?></a>
 </div>
 
 <div id="jibresFooter">
+  <div  class="fit-lg">
 
-</div>
-<div  class="cn">
-
+  </div>
 </div>
 
 
