@@ -17,7 +17,8 @@
   </div>
 </div>
 <div id="jibresSupportLine">
-    <h2><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h2>
+    <h3><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h3>
+    <a class="btn lg success" href="/contact"><?php echo T_('Contact with a Live Person'); ?></a>
 </div>
 
 <div id="jibresFooter">
