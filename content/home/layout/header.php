@@ -44,24 +44,38 @@ else
    </div>
   </div>
 
-  <section id='landing'>
+  <section id='jibresType'>
    <div class="cn">
     <div class="h2"><span class="typed"></span></div>
 
     <div id="typed-strings" class="hide">
-      <h3><?php echo T_('Invoice Software'); ?></h3>
-      <h4><?php echo T_('Easy Invoicing Software'); ?></h4>
-      <h3><?php echo T_('Online Invoicing Software'); ?></h3>
-      <h2><?php echo T_('Free Invoicing Software'); ?></h2>
+<?php
+var_dump(\dash\url::module());
+if (\dash\url::module())
+{
+?>
+     <h2><?php echo \dash\data::page_title(); ?></h2>
+<?php
+}
+else
+{
+?>
+     <h3><?php echo T_('Invoice Software'); ?></h3>
+     <h4><?php echo T_('Easy Invoicing Software'); ?></h4>
+     <h3><?php echo T_('Online Invoicing Software'); ?></h3>
+     <h2><?php echo T_('Free Invoicing Software'); ?></h2>
 
-      <h3><?php echo T_('Accounting Software'); ?></h3>
-      <h2><?php echo T_('Online Accounting Software'); ?></h2>
+     <h3><?php echo T_('Accounting Software'); ?></h3>
+     <h2><?php echo T_('Online Accounting Software'); ?></h2>
 
-      <h3><?php echo T_('Sales'); ?></h3>
-      <h3><?php echo T_('Sales Software'); ?></h3>
-      <h4><?php echo T_('Integrated Sales'); ?></h4>
-      <h2 class="bold"><?php echo T_('Integrated Ecommerce Platform'); ?></h2>
+     <h3><?php echo T_('Sales'); ?></h3>
+     <h3><?php echo T_('Sales Software'); ?></h3>
+     <h4><?php echo T_('Integrated Sales'); ?></h4>
+     <h2 class="bold"><?php echo T_('Integrated Ecommerce Platform'); ?></h2>
+<?php
+}
+?>
     </div>
-    <p><?php echo \dash\data::page_desc2(); ?></p>
+    <p><?php echo \dash\data::page_desc(); ?></p>
    </div>
   </section>
