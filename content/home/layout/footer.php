@@ -23,16 +23,19 @@
 </div>
 
 <div id="jibresFooter">
-  <div  class="fit">
+  <div class="fit">
+    <figure class="f align-center logo">
+      <a class="cauto" href="/">
+        <img src="<?php echo \dash\url::logo(); ?>" alt='<?php echo T_("Jibres") ?>'>
+      </a>
+      <figcaption class="c s12"><?php echo \dash\data::site_desc(); ?> <a href="/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
+    </figure>
+
+
     <div class="f">
-      <div class="c5 s12" id="footerInfo">
-        <figure class="logo">
-            <a href="/">
-              <img src="<?php echo \dash\url::logo(); ?>" alt='<?php echo T_("Jibres") ?>'>
-            </a>
-          <figcaption><?php echo \dash\data::site_desc(); ?></figcaption>
-        </figure>
-        <a href="/about"><?php echo T_('Learn more about Jibres'); ?></a>
+      <div class="c12" id="footerInfo">
+
+
 
         <nav class="langlist" data-xhr="langlist">
 <?php

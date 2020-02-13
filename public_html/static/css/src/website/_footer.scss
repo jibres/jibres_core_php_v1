@@ -20,17 +20,17 @@ svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute
 
 
 #jibresFooter{position:relative;font-size: 1.6em;overflow:hidden;background-color:#2c2a2b;color: #f7f7f9;padding: 60px 0 30px;line-height:25px;}
-#jibresFooter nav{margin-bottom: 40px;}
-#jibresFooter #footerInfo figure{display:block;overflow: hidden;margin-bottom: 40px;}
-#jibresFooter #footerInfo figure a{display:block;overflow: hidden;}
-#jibresFooter #footerInfo figure img{height: 50px;display:block;margin-bottom:30px;}
-#jibresFooter #footerInfo figure figcaption{font-size: 0.9em;line-height: 2;}
+#jibresFooter figure{overflow: hidden;margin-bottom: 40px;}
+#jibresFooter figure img{height: 80px;display:block;margin:5px 0}
+#jibresFooter figure figcaption{font-size: 0.9em;line-height: 2;padding: 0 1.5em;}
 
+#jibresFooter nav{margin-bottom: 40px;}
 #jibresFooter nav h3{border-bottom: 1px solid #333;display: block;color: #f7f7f9;padding:5px 0;font-weight:900;font-size:1em;}
-#jibresFooter nav a{display: block;color: #f7f7f9;padding:5px 0;font-weight:100;transition:0.3s;}
-#jibresFooter nav a:hover{display: block;color: #efdab9;}
-#jibresFooter nav a:focus{display: block;color: #ffd050;}
-#jibresFooter nav a:active{display: block;color: #D36E2D;}
+#jibresFooter nav a{display: block;padding:5px 0;}
+#jibresFooter a{color: #f7f7f9;transition:0.3s;font-weight:100;}
+#jibresFooter a:hover{color: #efdab9;}
+#jibresFooter a:focus{color: #ffd050;}
+#jibresFooter a:active{color: #D36E2D;}
 
 
 
