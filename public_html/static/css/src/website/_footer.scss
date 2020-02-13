@@ -20,9 +20,10 @@ svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute
 
 
 #jibresFooter{position:relative;font-size: 1.6em;overflow:hidden;background-color:#2c2a2b;color: #f7f7f9;padding: 60px 0 30px;line-height:25px;}
-#jibresFooter #footerInfo .logo{display:block;overflow: hidden;}
-#jibresFooter #footerInfo .logo a{display:block;overflow: hidden;}
-#jibresFooter #footerInfo .logo img{height: 50px;display:block;margin-bottom:30px;}
+#jibresFooter #footerInfo figure{display:block;overflow: hidden;}
+#jibresFooter #footerInfo figure a{display:block;overflow: hidden;}
+#jibresFooter #footerInfo figure img{height: 50px;display:block;margin-bottom:30px;}
+#jibresFooter #footerInfo figure figcaption{font-size: 0.9em;line-height: 2;}
 
 #jibresFooter #footerMenu nav{margin-bottom: 25px;}
 #jibresFooter #footerMenu a{display: block;color: #f7f7f9;padding:5px 0;font-weight:100;transition:0.3s;}

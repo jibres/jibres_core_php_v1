@@ -26,12 +26,12 @@
   <div  class="fit">
     <div class="f">
       <div class="c6 s12" id="footerInfo">
-        <picture class="logo">
-          <a href="/">
-            <img src="<?php echo \dash\url::logo(); ?>" alt='<?php echo T_("Jibres") ?>'>
-          </a>
-        </picture>
-        <p><?php echo \dash\data::site_desc(); ?></p>
+        <figure class="logo">
+            <a href="/">
+              <img src="<?php echo \dash\url::logo(); ?>" alt='<?php echo T_("Jibres") ?>'>
+            </a>
+          <figcaption><?php echo \dash\data::site_desc(); ?></figcaption>
+        </figure>
 
       </div>
       <div class="c6 s12" id="footerMenu">
