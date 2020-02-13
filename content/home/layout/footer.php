@@ -23,8 +23,15 @@
 </div>
 
 <div id="jibresFooter">
-  <div  class="fit-lg">
+  <div  class="fit">
+    <div class="f">
+      <div class="c6">
 
+      </div>
+      <div class="c6">
+
+      </div>
+    </div>
   </div>
 </div>
 
