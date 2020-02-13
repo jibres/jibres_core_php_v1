@@ -78,4 +78,18 @@ class hive
 		return true;
 	}
 
+
+	public static function html()
+	{
+		echo '<div class="hide">';
+		echo '<div>';
+		echo '<input type="hidden" name="hiveCheck3" value="'. \dash\data::hive_check3(). '">';
+		echo '</div>';
+		echo '</div>';
+		echo '<input type="hidden" name="hiveCheck1" value="'. \dash\data::hive_check1(). '">';
+		echo '<div class="hide">';
+		echo '<input type="text" name="hiveCheck2" value="'. \dash\data::hive_check2(). '">';
+		echo '</div>';
+	}
+
 }
