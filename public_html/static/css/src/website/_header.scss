@@ -21,7 +21,7 @@
 [data-in='site'] #pageHeader #jibresHeader nav a:active{color:#ddd;}
 
 /* page loading effect*/
-[data-in='site'].loading-page #pageHeader #jibresTopLine{
+[data-in='site'].loading-page2 #pageHeader #jibresTopLine{
 	background: linear-gradient(-45deg, #c80a5a, #e73c7e, #da2873, #c80a5a);
 	animation: bgGradient 2s ease infinite;
 }
