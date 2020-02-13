@@ -46,21 +46,35 @@ else
 ?>
         </nav>
 
+        <nav class="share1">
+          <a data-direct href="https://www.facebook.com/jibres" class="facebook">Jibres facebook</a>
+          <a data-direct href="https://twitter.com/jibres_com" class="twitter">Twitter of Jibres</a>
+          <a data-direct href="https://t.me/jibres" class="telegram">Telegram channel of Jibres</a>
+          <a data-direct href="https://instagram.com/jibres_com" class="instagram">Jibres on Instagram</a>
+        </nav>
+
       </div>
       <div class="c1 s0"></div>
       <div class="c6 s12" id="footerMenu">
         <div class="f">
-          <div class="c4 s12 pRa10">
+          <div class="c4 s12 pLR10">
             <nav>
-              <h3>Domains</h3>
+              <h3><?php echo T_('eCommerce'); ?></h3>
+              <a href="/domain/search"><?php echo T_('Domain Name Search'); ?></a>
+              <a href="/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
+              <a href="/domain/whois"><?php echo T_('Whois Lookup'); ?></a>
+            </nav>
+
+            <nav>
+              <h3><?php echo T_('Domains'); ?></h3>
               <a href="/domain/search"><?php echo T_('Domain Name Search'); ?></a>
               <a href="/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
               <a href="/domain/whois"><?php echo T_('Whois Lookup'); ?></a>
             </nav>
           </div>
-          <div class="c4 s12 pRa10">
+          <div class="c4 s12 pLR10">
             <nav>
-              <h3>Jibres</h3>
+              <h3><?php echo T_('Jibres'); ?></h3>
               <a href="/about"><?php echo T_('About'); ?></a>
               <a href="/logo"><?php echo T_('Logo'); ?></a>
               <a href="/brand"><?php echo T_('Brand Styleguide'); ?></a>
@@ -69,7 +83,7 @@ else
             </nav>
 
             <nav>
-              <h3>Resources</h3>
+              <h3><?php echo T_('Resources'); ?></h3>
               <a href="/blog"><?php echo T_('Blog'); ?></a>
               <a href="/terms"><?php echo T_('Terms of Service'); ?></a>
               <a href="/privacy"><?php echo T_('Privacy Policy'); ?></a>
@@ -77,10 +91,11 @@ else
             </nav>
 
           </div>
-          <div class="c4 s12 pRa10">
+          <div class="c4 s12 pLR10">
             <nav>
-              <h3>Support</h3>
+              <h3><?php echo T_('Support'); ?></h3>
               <a href="/support"><?php echo T_('Support Center'); ?></a>
+              <a href="/contact"><?php echo T_('Contact'); ?></a>
               <a href="/support/faq"><?php echo T_('FAQ'); ?></a>
               <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
               <a href="/support/ticket/new"><?php echo T_('Submit Ticket'); ?></a>
@@ -88,14 +103,12 @@ else
               <a href="/support/ticket/new?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
 
 
-        <a href="/contact"><?php echo T_('Contact'); ?></a>
-        <a href="/help/faq"></a>
 
 
             </nav>
 
             <nav>
-              <h3>Contact</h3>
+              <h3><?php echo T_('Contact'); ?></h3>
               <a href="/support">+98-21-2842-2590</a>
               <a href="/support">+98-25-3650-5460</a>
               <a href="/support">+98-25-3650-5281</a>
@@ -126,14 +139,6 @@ else
         <a href="/changelog"><?php echo T_('Changelog'); ?></a>
       </nav>
 
-      <div class="c s12 os">
-        <nav class="share1">
-          <a data-direct href="https://www.facebook.com/jibres" class="facebook">Jibres facebook</a>
-          <a data-direct href="https://twitter.com/jibres_com" class="twitter">Twitter of Jibres</a>
-          <a data-direct href="https://t.me/jibres" class="telegram">Telegram channel of Jibres</a>
-          <a data-direct href="https://instagram.com/jibres_com" class="instagram">Jibres on Instagram</a>
-        </nav>
-      </div>
 
 
    </div>
