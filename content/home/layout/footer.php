@@ -25,7 +25,7 @@
 <div id="jibresFooter">
   <div  class="fit">
     <div class="f">
-      <div class="c6 s12" id="footerInfo">
+      <div class="c5 s12" id="footerInfo">
         <figure class="logo">
             <a href="/">
               <img src="<?php echo \dash\url::logo(); ?>" alt='<?php echo T_("Jibres") ?>'>
@@ -34,28 +34,44 @@
         </figure>
 
       </div>
+      <div class="c1 s0"></div>
       <div class="c6 s12" id="footerMenu">
         <div class="f">
           <div class="c4 s12 pRa10">
-
+            <nav>
+              <h3>Domains</h3>
+              <a href="/domain/search">Domain Name Search</a>
+              <a href="/domain/transfer">Transfer Domain</a>
+              <a href="/domain/whois">Whois Lookup</a>
+            </nav>
           </div>
           <div class="c4 s12 pRa10">
             <nav>
-              <a href="/domain" class="txtB">Domains</a>
-              <a href="/domain/search" class="txtb">Domain Name Search</a>
-              <a href="/domain/transfer" class="txtb">Transfer Domain</a>
-              <a href="/domain/whois" class="txtb">Whois Lookup</a>
+              <h3>Company</h3>
+              <a href="/domain/search">About</a>
+              <a href="/domain/transfer">Careers</a>
+              <a href="/domain/whois">Events</a>
+              <a href="/domain/whois">Certificates</a>
+            </nav>
+          </div>
+          <div class="c4 s12 pRa10">
+            <nav>
+              <h3>Support</h3>
+              <a href="/support">Support Center</a>
+              <a href="/support/faq">FAQ</a>
+              <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
+              <a href="/support/ticket/new">Submit Ticket</a>
+              <a href="/support/ticket/new?type=bug">Report Bug</a>
+              <a href="/support/ticket/new?type=feedback">Send us Feedback</a>
             </nav>
 
-          </div>
-          <div class="c4 s12 pRa10">
             <nav>
-              <a href="/support" class="txtB">Support</a>
-              <a href="/support" class="txtb">Support Center</a>
-              <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
-              <a href="/support/ticket/new" class="txtb">Submit Ticket</a>
-              <a href="/support/ticket/new?type=bug" class="txtb">Report Bug</a>
-              <a href="/support/ticket/new?type=feedback" class="txtb">Send us Feedback</a>
+              <h3>Contact</h3>
+              <a href="/support">+98-21-2842-2590</a>
+              <a href="/support">+98-25-3650-5460</a>
+              <a href="/support">+98-25-3650-5281</a>
+              <a href="/support">info@Jibres.com</a>
+              <a href="/support">2th Floor<br>Haft-e-tir 1 St<br>Qom, IRAN</a>
             </nav>
           </div>
         </div>
