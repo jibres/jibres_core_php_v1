@@ -32,6 +32,7 @@
             </a>
           <figcaption><?php echo \dash\data::site_desc(); ?></figcaption>
         </figure>
+        <a href="/about"><?php echo T_('Learn more about Jibres'); ?></a>
 
         <nav class="langlist" data-xhr="langlist">
 <?php
@@ -125,6 +126,4 @@ else
   </div>
 </div>
 
- <div id="jibresBottomLine">
-
- </div>
+<div id="jibresBottomLine"></div>
