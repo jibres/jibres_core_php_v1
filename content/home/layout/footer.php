@@ -47,12 +47,22 @@
           </div>
           <div class="c4 s12 pRa10">
             <nav>
-              <h3>Company</h3>
+              <h3>Jibres</h3>
               <a href="/domain/search">About</a>
+              <a href="/domain/search">Logo</a>
+              <a href="/domain/search">Brand Styleguide</a>
               <a href="/domain/transfer">Careers</a>
-              <a href="/domain/whois">Events</a>
               <a href="/domain/whois">Certificates</a>
             </nav>
+
+            <nav>
+              <h3>Resources</h3>
+              <a href="/blog"><?php echo T_('Blog'); ?></a>
+              <a href="/terms"><?php echo T_('Terms of Service'); ?></a>
+              <a href="/privacy"><?php echo T_('Privacy Policy'); ?></a>
+              <a href="/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
+            </nav>
+
           </div>
           <div class="c4 s12 pRa10">
             <nav>
@@ -86,34 +96,27 @@
   <div class="cn">
 
    <nav class="f top">
-    <a class="cauto link_home" href="<?php echo \dash\url::kingdom(); ?>"><?php echo T_('Home'); ?></a>
-    <a class="cauto" href="<?php echo \dash\url::kingdom(); ?>/about"><?php echo T_('About'); ?></a>
-    <a class="cauto hide" href="<?php echo \dash\url::kingdom(); ?>/press"><?php echo T_('Press and Media'); ?></a>
-    <a class="cauto" href="<?php echo \dash\url::kingdom(); ?>/careers" target="_blank"><?php echo T_('Careers'); ?></a>
-    <a class="cauto" href="<?php echo \dash\url::kingdom(); ?>/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
-    <a class="cauto" href="<?php echo \dash\url::kingdom(); ?>/help/faq"><?php echo T_('FAQ'); ?></a>
+    <a class="cauto link_home" href="/"><?php echo T_('Home'); ?></a>
+    <a class="cauto" href="/about"><?php echo T_('About'); ?></a>
+    <a class="cauto hide" href="/press"><?php echo T_('Press and Media'); ?></a>
+    <a class="cauto" href="/careers" target="_blank"><?php echo T_('Careers'); ?></a>
+    <a class="cauto" href="/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
+    <a class="cauto" href="/help/faq"><?php echo T_('FAQ'); ?></a>
    </nav>
 
    <div class="f middle">
      <nav class="c3 s12">
        <h4><?php echo T_('Jibres'); ?></h4>
-        <a href="<?php echo \dash\url::kingdom(); ?>/benefits"><?php echo T_('Benefits'); ?></a>
-        <a href="<?php echo \dash\url::kingdom(); ?>/pricing"><?php echo T_('Pricing'); ?></a>
-        <a href="<?php echo \dash\url::kingdom(); ?>/changelog"><?php echo T_('Changelog'); ?></a>
-      </nav>
-
-      <nav class="c3 s12">
-       <h4><?php echo T_('Learn More'); ?></h4>
-        <a href="<?php echo \dash\url::kingdom(); ?>/terms"><?php echo T_('Terms of Service'); ?></a>
-        <a href="<?php echo \dash\url::kingdom(); ?>/privacy"><?php echo T_('Privacy Policy'); ?></a>
-        <a href="<?php echo \dash\url::kingdom(); ?>/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
+        <a href="/benefits"><?php echo T_('Benefits'); ?></a>
+        <a href="/pricing"><?php echo T_('Pricing'); ?></a>
+        <a href="/changelog"><?php echo T_('Changelog'); ?></a>
       </nav>
 
       <nav class="c3 s12">
        <h4><?php echo T_('Support'); ?></h4>
-        <a href="<?php echo \dash\url::kingdom(); ?>/contact"><?php echo T_('Contact'); ?></a>
-        <a href="<?php echo \dash\url::kingdom(); ?>/help/faq"><?php echo T_('FAQ'); ?></a>
-        <a href="<?php echo \dash\url::kingdom(); ?>/logo"><?php echo T_('Logo'); ?></a>
+        <a href="/contact"><?php echo T_('Contact'); ?></a>
+        <a href="/help/faq"><?php echo T_('FAQ'); ?></a>
+        <a href="/logo"><?php echo T_('Logo'); ?></a>
         <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
       </nav>
 
