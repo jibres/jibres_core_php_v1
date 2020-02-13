@@ -1,31 +1,5 @@
 
-<section id='landing'>
-  <div class="cn">
-    <div class="h2"><span class="typed"></span></div>
 
-    <div id="typed-strings" class="hide">
-      <h3><?php echo T_('Invoice Software'); ?></h3>
-      <h4><?php echo T_('Easy Invoicing Software'); ?></h4>
-      <h3><?php echo T_('Online Invoicing Software'); ?></h3>
-      <h2><?php echo T_('Free Invoicing Software'); ?></h2>
-
-      <h3><?php echo T_('Accounting Software'); ?></h3>
-      <h2><?php echo T_('Online Accounting Software'); ?></h2>
-
-      <h3><?php echo T_('Sales'); ?></h3>
-      <h3><?php echo T_('Sales Software'); ?></h3>
-      <h4><?php echo T_('Integrated Sales'); ?></h4>
-      <h2 class="bold"><?php echo T_('Integrated Ecommerce Platform'); ?></h2>
-    </div>
-    <p><?php echo \dash\data::page_desc2(); ?></p>
-  </div>
-  <div>
-    <!-- <svg class="circle-bottom-left" width="100%" height="100%" viewBox="0 0 100 100" data-color="white" data-position="bottomLeft"><defs><mask id="bottomLeftCorner" x="0" y="0" width="100%" height="100%"><rect x="0" y="50%" width="50%" height="50%" fill="white"></rect><circle cx="50%" cy="50%" r="50%" fill="black"></circle></mask></defs><rect x="0" y="0" width="100%" height="100%" mask="url(#bottomLeftCorner)"></rect></svg> -->
-    <!-- <svg class="circle-bottom-right" width="100%" height="100%" viewBox="0 0 100 100" data-color="white" data-position="bottomRight"><defs><mask id="bottomRightCorner" x="0" y="0" width="100%" height="100%"><rect x="50%" y="50%" width="50%" height="50%" fill="white"></rect><circle cx="50%" cy="50%" r="50%" fill="black"></circle></mask></defs><rect x="0" y="0" width="100%" height="100%" mask="url(#bottomRightCorner)"></rect></svg> -->
-  </div>
-
-
-</section>
 
 
 <section id='saleChannels'>
