@@ -60,9 +60,9 @@ else
           <div class="c4 s12 pLR10">
             <nav>
               <h3><?php echo T_('eCommerce'); ?></h3>
-              <a href="/domain/search"><?php echo T_('Domain Name Search'); ?></a>
-              <a href="/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
-              <a href="/domain/whois"><?php echo T_('Whois Lookup'); ?></a>
+              <a href="/benefits"><?php echo T_('All-in-One'); ?></a>
+              <a href="/pricing"><?php echo T_('Pricing'); ?></a>
+              <a href="/changelog"><?php echo T_('Changelog'); ?></a>
             </nav>
 
             <nav>
@@ -80,6 +80,7 @@ else
               <a href="/brand"><?php echo T_('Brand Styleguide'); ?></a>
               <a href="/careers"><?php echo T_('Careers'); ?></a>
               <a href="/certificates"><?php echo T_('Certificates'); ?></a>
+              <a href="/press"><?php echo T_('Press and Media'); ?></a>
             </nav>
 
             <nav>
@@ -89,6 +90,7 @@ else
               <a href="/privacy"><?php echo T_('Privacy Policy'); ?></a>
               <a href="/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
             </nav>
+
 
           </div>
           <div class="c4 s12 pLR10">
@@ -114,6 +116,7 @@ else
               <a href="/support">+98-25-3650-5281</a>
               <a href="/support">info@Jibres.com</a>
               <a href="/support">2th Floor<br>Haft-e-tir 1 St<br>Qom, IRAN</a>
+              <div class="cauto s12 love"><?php echo T_('Proudly Made in IRAN'); ?></div>
             </nav>
           </div>
         </div>
@@ -121,37 +124,6 @@ else
     </div>
   </div>
 </div>
-
-
-
- <footer id='tfooter'>
-  <div class="cn">
-
-   <nav class="f top">
-    <a class="cauto hide" href="/press"><?php echo T_('Press and Media'); ?></a>
-   </nav>
-
-   <div class="f middle">
-     <nav class="c3 s12">
-       <h4><?php echo T_('Jibres'); ?></h4>
-        <a href="/benefits"><?php echo T_('Benefits'); ?></a>
-        <a href="/pricing"><?php echo T_('Pricing'); ?></a>
-        <a href="/changelog"><?php echo T_('Changelog'); ?></a>
-      </nav>
-
-
-
-   </div>
-
-   <div class="f bottom align-center">
-    <div class="cauto s12 love"><?php echo T_('Proudly Made in IRAN'); ?></div>
-   </div>
-
-  </div>
- </footer>
-
-
-
 
  <div id="jibresBottomLine">
 
