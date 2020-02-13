@@ -1,12 +1,12 @@
 
-#certificates{position: relative;overflow: hidden;background-color: #2d3748;font-size: 1.4em;}
+#certificates{position: relative;overflow: hidden;background-color: #000;font-size: 1.4em;}
 #certificates .fit{max-width: 800px;width:90%; margin: 50px auto;}
 #certificates h2{color:#fff;text-align: center;border-bottom: 1px solid #fff;line-height: 50px;font-weight: 100;margin-bottom: 50px;}
 #certificates a{display: block;overflow: hidden;}
 #certificates img{display: block;margin:0 auto;margin-bottom: 20px;}
 
-[data-in='site'] svg.circle-bottom-left{width: 600px;height:600px;fill:#2d3748;position:absolute;left:0;bottom:0;pointer-events:none;z-index: 2;}
-[data-in='site'] svg.circle-bottom-right{width: 600px;height:600px;fill:#2d3748;position:absolute;right:0;bottom:0;pointer-events:none;z-index: 2;}
+[data-in='site'] svg.circle-bottom-left{width: 400px;height:400px;fill:#333;position:absolute;left:0;bottom:0;pointer-events:none;z-index: 2;}
+[data-in='site'] svg.circle-bottom-right{width: 400px;height:400px;fill:#333;position:absolute;right:0;bottom:0;pointer-events:none;z-index: 2;}
 
 #jibresBottomLine{height:6px;background-color:#c80a5a;overflow:hidden;transition:0.3s;}
 

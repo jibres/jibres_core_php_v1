@@ -14,8 +14,8 @@
     </div>
   </div>
   <div>
-    <!-- <svg class="circle-bottom-left" width="100%" height="100%" viewBox="0 0 100 100" data-color="white" data-position="bottomLeft"><defs><mask id="bottomLeftCorner" x="0" y="0" width="100%" height="100%"><rect x="0" y="50%" width="50%" height="50%" fill="white"></rect><circle cx="50%" cy="50%" r="50%" fill="black"></circle></mask></defs><rect x="0" y="0" width="100%" height="100%" mask="url(#bottomLeftCorner)"></rect></svg> -->
-    <!-- <svg class="circle-bottom-right" width="100%" height="100%" viewBox="0 0 100 100" data-color="white" data-position="bottomRight"><defs><mask id="bottomRightCorner" x="0" y="0" width="100%" height="100%"><rect x="50%" y="50%" width="50%" height="50%" fill="white"></rect><circle cx="50%" cy="50%" r="50%" fill="black"></circle></mask></defs><rect x="0" y="0" width="100%" height="100%" mask="url(#bottomRightCorner)"></rect></svg> -->
+    <svg class="circle-bottom-left" width="100%" height="100%" viewBox="0 0 100 100" data-color="white" data-position="bottomLeft"><defs><mask id="bottomLeftCorner" x="0" y="0" width="100%" height="100%"><rect x="0" y="50%" width="50%" height="50%" fill="white"></rect><circle cx="50%" cy="50%" r="50%" fill="black"></circle></mask></defs><rect x="0" y="0" width="100%" height="100%" mask="url(#bottomLeftCorner)"></rect></svg>
+    <svg class="circle-bottom-right" width="100%" height="100%" viewBox="0 0 100 100" data-color="white" data-position="bottomRight"><defs><mask id="bottomRightCorner" x="0" y="0" width="100%" height="100%"><rect x="50%" y="50%" width="50%" height="50%" fill="white"></rect><circle cx="50%" cy="50%" r="50%" fill="black"></circle></mask></defs><rect x="0" y="0" width="100%" height="100%" mask="url(#bottomRightCorner)"></rect></svg>
   </div>
 </div>
 
