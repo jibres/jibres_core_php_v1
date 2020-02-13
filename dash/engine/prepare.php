@@ -662,18 +662,56 @@ class prepare
 			return;
 		}
 
-		$cookie = \dash\utility\cookie::read('emergencydomain');
-		if($cookie)
+		// our domains
+		switch ($domain)
 		{
-			return;
+			case 'g2j.ir':
+			case '2jr.ir':
+			case 'jeebres.ir':
+				\dash\redirect::to('https://jibres.ir');
+				break;
+
+			case 'jeebres.com':
+				\dash\redirect::to('https://jibres.com');
+				break;
 		}
 
-		if(\dash\url::module() !== 'emergencydomain')
+		// emergency domain
+		if($domain === 'jibres.xyz' || $domain === 'jibres.icu')
 		{
-			\dash\redirect::to(\dash\url::kingdom(). '/emergencydomain');
+
+			$is_bot = false;
+			if($is_bot)
+			{
+				$emergencydomain = root. 'public_html/static/page/domain/bot.php';
+				require_once ($emergencydomain);
+				\dash\code::boom();
+			}
+			else
+			{
+				$cookie = \dash\utility\cookie::read('emergencydomain');
+				if($cookie)
+				{
+					return;
+				}
+
+				if(isset($_POST['emergencydomain']) && $_POST['emergencydomain'] === 'emergencydomain')
+				{
+					\dash\utility\cookie::write('emergencydomain', 'ok');
+					\dash\redirect::pwd();
+					return true;
+				}
+
+				$emergencydomain = root. 'public_html/static/page/domain/index.php';
+				require_once ($emergencydomain);
+				\dash\code::boom();
+			}
 		}
 
 
+		$emergencydomain = root. 'public_html/static/page/domain/unknown.php';
+		require_once ($emergencydomain);
+		\dash\code::boom();
 	}
 }
 ?>
