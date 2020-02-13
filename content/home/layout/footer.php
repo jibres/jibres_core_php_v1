@@ -23,6 +23,10 @@
     <a class="btn lg success" href="/contact"><?php echo T_('Contact with a Live Person'); ?></a>
 </div>
 
+<div id="jibresSocialLine">
+
+</div>
+
 
 <div id="jibresFooter">
   <div class="fit">
