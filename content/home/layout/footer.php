@@ -25,11 +25,36 @@
 <div id="jibresFooter">
   <div  class="fit">
     <div class="f">
-      <div class="c6">
-
+      <div class="c6 s12" id="footerInfo">
+        <a href="/">
+          <picture class="logo"><img src="<?php echo \dash\url::logo(); ?>" alt='<?php echo T_("Jibres") ?>'></picture>
+        </a>
       </div>
-      <div class="c6">
+      <div class="c6 s12" id="footerMenu">
+        <div class="f">
+          <div class="c4 s12 pRa10">
 
+          </div>
+          <div class="c4 s12 pRa10">
+            <nav>
+              <a href="/domain" class="txtB">Domains</a>
+              <a href="/domain/search" class="txtb">Domain Name Search</a>
+              <a href="/domain/transfer" class="txtb">Transfer Domain</a>
+              <a href="/domain/whois" class="txtb">Whois Lookup</a>
+            </nav>
+
+          </div>
+          <div class="c4 s12 pRa10">
+            <nav>
+              <a href="/support" class="txtB">Support</a>
+              <a href="/support" class="txtb">Support Center</a>
+              <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
+              <a href="/support/ticket/new" class="txtb">Submit Ticket</a>
+              <a href="/support/ticket/new?type=bug" class="txtb">Report Bug</a>
+              <a href="/support/ticket/new?type=feedback" class="txtb">Send us Feedback</a>
+            </nav>
+          </div>
+        </div>
       </div>
     </div>
   </div>
