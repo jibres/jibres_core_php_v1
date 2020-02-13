@@ -1,13 +1,17 @@
+.fit{max-width: 800px;width:90%;margin:0 auto;}
 
-#jibresCertificates{position: relative;overflow: hidden;background-color: #000;font-size: 1.4em;}
-#jibresCertificates .fit{max-width: 800px;width:90%; margin: 50px auto;}
+// certificates
+#jibresCertificates{position: relative;overflow: hidden;background-color: #000;font-size: 1.4em;padding: 50px 0;border-radius: 0 0 100px 100px;}
 #jibresCertificates h2{color:#fff;text-align: center;border-bottom: 1px solid #fff;line-height: 50px;font-weight: 100;margin-bottom: 50px;}
 #jibresCertificates a{display: block;overflow: hidden;}
 #jibresCertificates img{display: block;margin:0 auto;margin-bottom: 20px;}
+svg.circle-bottom-left{width: 400px;height:400px;fill:#f7f7f9;position:absolute;left:0;bottom:0;pointer-events:none;z-index: 2;}
+svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute;right:0;bottom:0;pointer-events:none;z-index: 2;}
 
-[data-in='site'] svg.circle-bottom-left{width: 400px;height:400px;fill:#2c2a2b;position:absolute;left:0;bottom:0;pointer-events:none;z-index: 2;}
-[data-in='site'] svg.circle-bottom-right{width: 400px;height:400px;fill:#2c2a2b;position:absolute;right:0;bottom:0;pointer-events:none;z-index: 2;}
+// support line
+#jibresSupportLine{background-color: #f7f7f9;position:relative;overflow:hidden;padding: 60px 0;color:#c80a5a;text-align: center;font-size: 1.4em;}
 
+// jibres bottom line
 #jibresBottomLine{height:6px;background-color:#c80a5a;overflow:hidden;transition:0.3s;}
 
 

@@ -1,4 +1,5 @@
 /* header*/
+[data-in='site']{background-color:#f7f7f9;}
 [data-in='site'] #pageHeader{min-height:100px;font-size:1.4rem;overflow:hidden;@include select-none();}
 [data-in='site'] #pageHeader #jibresTopLine{height:36px;background-color:#c80a5a;overflow:hidden;transition:0.3s;background: linear-gradient(-45deg, #c80a5a, #c80a5a);background-size: 400% 400%;}
 [data-in='site'] #pageHeader #jibresTopLine nav{text-align:center;}
