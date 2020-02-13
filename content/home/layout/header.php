@@ -1,6 +1,32 @@
+  <div id="jibresHeader">
+   <div class="fit">
+    <div class="f">
+     <div class="cauto">
+      <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
+       <img src='<?php echo \dash\url::static();
+       if (\dash\language::current() === 'fa')
+       {
+        echo "/logo/fa-white/svg/Jibres-Logo-fa-white.svg";
+       }
+       else
+       {
+        echo "/logo/en-white/svg/Jibres-Logo-en-white.svg";
+       }
+       ?>' alt='<?php echo T_("Jibres"). ' | '. \dash\data::site_slogan(); ?>'>
+      </a>
+     </div>
+     <div class="c"></div>
+     <nav class="cauto">
+      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
+      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/domain"><?php echo T_("Domains"); ?></a>
+      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
+     </nav>
+    </div>
+   </div>
+  </div>
 
   <div id="jibresTopLine">
-   <div class="cn">
+   <div class="fit">
     <div class="f">
      <div class="c"><h1><?php echo T_("Jibres"); ?></h1></div>
      <nav class="cauto"><?php
@@ -26,23 +52,7 @@ else
     </div>
    </div>
   </div>
-  <div id="jibresHeader">
-   <div class="cn">
-    <div class="f">
-     <div class="cauto">
-      <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
-       <img src='<?php echo \dash\url::logo();?>' alt='<?php echo T_("Jibres"). ' | '. \dash\data::site_slogan(); ?>'>
-      </a>
-     </div>
-     <div class="c"></div>
-     <nav class="cauto">
-      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
-      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/domain"><?php echo T_("Domains"); ?></a>
-      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
-     </nav>
-    </div>
-   </div>
-  </div>
+
 
   <section id='jibresType'>
    <div class="cn">

@@ -11,14 +11,14 @@
 [data-in='site'] #pageHeader #jibresTopLine [data-to='enter']{min-width: 70px}
 [data-in='site'] #pageHeader #jibresTopLine h1{display: none;line-height:36px;font-size:20px;color:#fff;margin:0;}
 
-[data-in='site'] #pageHeader #jibresHeader{height:64px;padding:7px 0;background-color:#f7f7f9;overflow:hidden;}
+[data-in='site'] #pageHeader #jibresHeader{height:64px;padding:7px 0;background-color:#c80a5a;overflow:hidden;}
 [data-in='site'] #pageHeader #jibresHeader .logo{display:block;}
 [data-in='site'] #pageHeader #jibresHeader .logo:focus{opacity:0.8;}
 [data-in='site'] #pageHeader #jibresHeader .logo img{display:block;height:50px;max-width:150px;transition:0.3s;}
-[data-in='site'] #pageHeader #jibresHeader nav a{line-height:50px;color:#0b0b30;padding:0 1rem;display:inline-block;transition:0.2s;position:relative;min-width: 70px;text-align:center;}
-[data-in='site'] #pageHeader #jibresHeader nav a:hover{color:#444;}
-[data-in='site'] #pageHeader #jibresHeader nav a:focus{color:#c80a5a;}
-[data-in='site'] #pageHeader #jibresHeader nav a:active{color:#c80a5a;}
+[data-in='site'] #pageHeader #jibresHeader nav a{line-height:50px;color:#fff;padding:0 1rem;display:inline-block;transition:0.2s;position:relative;min-width: 70px;text-align:center;}
+[data-in='site'] #pageHeader #jibresHeader nav a:hover{color:#f7f7f9;}
+[data-in='site'] #pageHeader #jibresHeader nav a:focus{color:#eee;}
+[data-in='site'] #pageHeader #jibresHeader nav a:active{color:#ddd;}
 
 /* page loading effect*/
 [data-in='site'].loading-page #pageHeader #jibresTopLine{
