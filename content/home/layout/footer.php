@@ -32,7 +32,16 @@
   <div class="fit">
     <figure class="f align-center logo">
       <a class="cauto" href="/">
-        <img src="<?php echo \dash\url::logo(); ?>" alt='<?php echo T_("Jibres") ?>'>
+        <img src="<?php echo \dash\url::static();
+       if (\dash\language::current() === 'fa')
+       {
+        echo "/logo/fa-white/svg/Jibres-Logo-fa-white.svg";
+       }
+       else
+       {
+        echo "/logo/en-white/svg/Jibres-Logo-en-white.svg";
+       }
+       ?>" alt='<?php echo T_("Jibres") ?>'>
       </a>
       <figcaption class="c s12"><?php echo \dash\data::site_desc(); ?> <a href="/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
     </figure>
