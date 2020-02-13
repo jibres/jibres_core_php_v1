@@ -66,7 +66,6 @@ else
             <h3><?php echo T_('eCommerce'); ?></h3>
             <a href="/benefits"><?php echo T_('All-in-One'); ?></a>
             <a href="/pricing"><?php echo T_('Pricing'); ?></a>
-            <a href="/changelog"><?php echo T_('Changelog'); ?></a>
           </nav>
 
           <nav class="c2 s6 pLR10">
@@ -91,6 +90,7 @@ else
             <a href="/blog"><?php echo T_('Blog'); ?></a>
             <a href="/terms"><?php echo T_('Terms of Service'); ?></a>
             <a href="/privacy"><?php echo T_('Privacy Policy'); ?></a>
+            <a href="/changelog"><?php echo T_('Changelog'); ?></a>
             <a href="/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
           </nav>
 
