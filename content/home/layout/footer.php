@@ -35,7 +35,6 @@
 
 
     <div class="f">
-      <div class="c12" id="footerInfo">
 
 
 
@@ -60,74 +59,63 @@ else
           <a target="_blank" href="https://instagram.com/jibres_com" class="instagram">Follow Jibres on Instagram</a>
         </nav>
 
-      </div>
-      <div class="c1 s0"></div>
-      <div class="c6 s12" id="footerMenu">
-        <div class="f">
-          <div class="c4 s12 pLR10">
-            <nav>
-              <h3><?php echo T_('eCommerce'); ?></h3>
-              <a href="/benefits"><?php echo T_('All-in-One'); ?></a>
-              <a href="/pricing"><?php echo T_('Pricing'); ?></a>
-              <a href="/changelog"><?php echo T_('Changelog'); ?></a>
-            </nav>
 
-            <nav>
-              <h3><?php echo T_('Domains'); ?></h3>
-              <a href="/domain/search"><?php echo T_('Domain Name Search'); ?></a>
-              <a href="/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
-              <a href="/domain/whois"><?php echo T_('Whois Lookup'); ?></a>
-            </nav>
-          </div>
-          <div class="c4 s12 pLR10">
-            <nav>
-              <h3><?php echo T_('Jibres'); ?></h3>
-              <a href="/about"><?php echo T_('About'); ?></a>
-              <a href="/logo"><?php echo T_('Logo'); ?></a>
-              <a href="/brand"><?php echo T_('Brand Styleguide'); ?></a>
-              <a href="/careers"><?php echo T_('Careers'); ?></a>
-              <a href="/certificates"><?php echo T_('Certificates'); ?></a>
-              <a href="/press"><?php echo T_('Press and Media'); ?></a>
-            </nav>
+        <div class="f" id="footerMenu">
 
-            <nav>
-              <h3><?php echo T_('Resources'); ?></h3>
-              <a href="/blog"><?php echo T_('Blog'); ?></a>
-              <a href="/terms"><?php echo T_('Terms of Service'); ?></a>
-              <a href="/privacy"><?php echo T_('Privacy Policy'); ?></a>
-              <a href="/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
-            </nav>
+          <nav class="c2 s6 pLR10">
+            <h3><?php echo T_('eCommerce'); ?></h3>
+            <a href="/benefits"><?php echo T_('All-in-One'); ?></a>
+            <a href="/pricing"><?php echo T_('Pricing'); ?></a>
+            <a href="/changelog"><?php echo T_('Changelog'); ?></a>
+          </nav>
 
+          <nav class="c2 s6 pLR10">
+            <h3><?php echo T_('Domains'); ?></h3>
+            <a href="/domain/search"><?php echo T_('Domain Name Search'); ?></a>
+            <a href="/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
+            <a href="/domain/whois"><?php echo T_('Whois Lookup'); ?></a>
+          </nav>
 
-          </div>
-          <div class="c4 s12 pLR10">
-            <nav>
-              <h3><?php echo T_('Support'); ?></h3>
-              <a href="/support"><?php echo T_('Support Center'); ?></a>
-              <a href="/contact"><?php echo T_('Contact'); ?></a>
-              <a href="/support/faq"><?php echo T_('FAQ'); ?></a>
-              <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
-              <a href="/support/ticket/new"><?php echo T_('Submit Ticket'); ?></a>
-              <a href="/support/ticket/new?type=bug"><?php echo T_('Report Bug'); ?></a>
-              <a href="/support/ticket/new?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
+          <nav class="c2 s6 pLR10">
+            <h3><?php echo T_('Jibres'); ?></h3>
+            <a href="/about"><?php echo T_('About'); ?></a>
+            <a href="/logo"><?php echo T_('Logo'); ?></a>
+            <a href="/brand"><?php echo T_('Brand Styleguide'); ?></a>
+            <a href="/careers"><?php echo T_('Careers'); ?></a>
+            <a href="/certificates"><?php echo T_('Certificates'); ?></a>
+            <a href="/press"><?php echo T_('Press and Media'); ?></a>
+          </nav>
 
+          <nav class="c2 s6 pLR10">
+            <h3><?php echo T_('Resources'); ?></h3>
+            <a href="/blog"><?php echo T_('Blog'); ?></a>
+            <a href="/terms"><?php echo T_('Terms of Service'); ?></a>
+            <a href="/privacy"><?php echo T_('Privacy Policy'); ?></a>
+            <a href="/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
+          </nav>
 
+          <nav class="c2 s6 pLR10">
+            <h3><?php echo T_('Support'); ?></h3>
+            <a href="/support"><?php echo T_('Support Center'); ?></a>
+            <a href="/contact"><?php echo T_('Contact'); ?></a>
+            <a href="/support/faq"><?php echo T_('FAQ'); ?></a>
+            <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
+            <a href="/support/ticket/new"><?php echo T_('Submit Ticket'); ?></a>
+            <a href="/support/ticket/new?type=bug"><?php echo T_('Report Bug'); ?></a>
+            <a href="/support/ticket/new?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
+          </nav>
 
+          <nav class="c2 s6 pLR10">
+            <h3><?php echo T_('Contact'); ?></h3>
+            <a href="/support">+98-21-2842-2590</a>
+            <a href="/support">+98-25-3650-5460</a>
+            <a href="/support">+98-25-3650-5281</a>
+            <a href="/support">info@Jibres.com</a>
+            <a href="/support">2th Floor<br>Haft-e-tir 1 St<br>Qom, IRAN</a>
+            <div class="cauto s12 love"><?php echo T_('Proudly Made in IRAN'); ?></div>
+          </nav>
 
-            </nav>
-
-            <nav>
-              <h3><?php echo T_('Contact'); ?></h3>
-              <a href="/support">+98-21-2842-2590</a>
-              <a href="/support">+98-25-3650-5460</a>
-              <a href="/support">+98-25-3650-5281</a>
-              <a href="/support">info@Jibres.com</a>
-              <a href="/support">2th Floor<br>Haft-e-tir 1 St<br>Qom, IRAN</a>
-              <div class="cauto s12 love"><?php echo T_('Proudly Made in IRAN'); ?></div>
-            </nav>
-          </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
