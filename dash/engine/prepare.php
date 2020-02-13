@@ -37,6 +37,9 @@ class prepare
 
 		// check need redirect for lang or www or https or main domain
 		self::fix_url_host();
+
+		self::check_domain();
+
 		self::account_urls();
 
 		// generate static files
@@ -626,6 +629,50 @@ class prepare
 		@header("X-Powered-By: Jibres");
 		$server_code_name = \dash\engine\fuel::server_code_name(\dash\server::server_ip());
 		@header("X-Node: ". $server_code_name);
+
+	}
+
+
+
+	/**
+	 * check customer domain
+	 * if domain != jibres check cookie to load it
+	 * for social robots
+	 */
+	public static function check_domain()
+	{
+
+		$domain = \dash\url::domain();
+
+		switch ($domain)
+		{
+			case 'jibres.com':
+			case 'jibres.ir':
+			case 'jibres.local':
+				// nothing
+				return;
+				break;
+		}
+
+		// check is customer domain or no
+		$is_customer_domain = false;
+
+		if($is_customer_domain)
+		{
+			return;
+		}
+
+		$cookie = \dash\utility\cookie::read('emergencydomain');
+		if($cookie)
+		{
+			return;
+		}
+
+		if(\dash\url::module() !== 'emergencydomain')
+		{
+			\dash\redirect::to(\dash\url::kingdom(). '/emergencydomain');
+		}
+
 
 	}
 }
