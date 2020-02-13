@@ -6,3 +6,31 @@
 
 .typed-cursor{opacity: 1;font-weight: 100;animation: blink 0.7s infinite;}
 @keyframes blink{ 0% { opacity:1; } 50% { opacity:0.3; } 100% { opacity:1; } }
+
+
+
+.box::after {
+  content: '';
+  background: #c80a5a;
+  background: -moz-linear-gradient(top, #c80a5a 0%, #ca0e5e 100%);
+  background: -webkit-linear-gradient(top, #c80a5a 0%,#ca0e5e 100%);
+  background: linear-gradient(to bottom, #c80a5a 0%,#ca0e5e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c80a5a', endColorstr='#ca0e5e',GradientType=0 );
+  height: 300px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.box .fit {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 50px 5% 20px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+  text-align: center;
+}

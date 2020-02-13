@@ -2,9 +2,9 @@
 
 
 
-<section id='saleChannels'>
+<section class="box" id='saleChannels'>
 
- <div class="cn">
+ <div class="fit">
   <div class="title">
    <h2><?php echo T_('Jibres Sale Channels'); ?></h2>
    <p><?php echo T_('Sales channels represent the different marketplaces where you sell your products.'); ?><br><?php echo T_('By use each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.'); ?> <a href="<?php echo \dash\url::kingdom() ?>/about"><?php echo T_('Read more'); ?></a></p>
