@@ -1,26 +1,25 @@
 /* header*/
 [data-in='site']{background-color:#f7f7f9;}
 
-#jibresTopLine{height:36px;font-size:1.4rem;background-color:#c80a5a;overflow:hidden;transition:0.3s;@include select-none();}
-#jibresTopLine nav{text-align:center;}
-#jibresTopLine a{line-height:36px;color:#fff;padding:0 1rem;display:inline-block;transition:0.2s;position:relative;}
-#jibresTopLine a:hover{background-color:rgba(255,255,255,0.1);}
-#jibresTopLine a:focus{background-color:rgba(255,255,255,0.2);}
-#jibresTopLine a:active{background-color:rgba(255,255,255,0.3);}
-
-
-#jibresTopLine h1{display: none;line-height:36px;font-size:20px;color:#fff;margin:0;}
 
 #jibresHeader{min-height:70px;font-size:1.4rem;padding:10px 0;background-color:#f7f7f9;overflow:hidden;@include select-none();}
+// logo
 #jibresHeader .logo{display:block;}
 #jibresHeader .logo:focus{opacity:0.8;}
 #jibresHeader .logo img{display:block;height:50px;max-width:160px;transition:0.3s;}
+#jibresHeader h1{display: none;font-size:20px;color:#c80a5a;margin:0;}
+// nav
 #jibresHeader nav a{line-height:45px;color:#000;padding:0 1rem;display:inline-block;transition:0.2s;position:relative;min-width: 80px;text-align:center;}
-#jibresHeader nav a:hover{color:#444;}
-#jibresHeader nav a:focus{color:#c80a5a;}
+#jibresHeader nav a:hover{color:#c80a5a;}
+#jibresHeader nav a:focus{color:#444;}
 #jibresHeader nav a:active{color:#C8A050;}
 
-#jibresHeader [data-to='signup']{min-width: 90px}
+// signup
+#jibresHeader [data-to='signup']{min-width: 90px;background-color: #c80a5a;color:#fff}
+#jibresHeader [data-to='signup']:hover{color:#fff;background-color: #c80a5a;}
+#jibresHeader [data-to='signup']:focus{color:#fff;border-color:#F31271}
+#jibresHeader [data-to='signup']:active{color:#fff;background-color: #C8190A;}
+// enter
 #jibresHeader [data-to='enter']{min-width: 70px;box-shadow: inset 0 0 0 2px rgba(14,19,24,.15)}
 #jibresHeader [data-to='enter']:hover{box-shadow: inset 0 0 0 2px rgba(14,19,24,.45)}
 #jibresHeader [data-to='enter']:focus{box-shadow: inset 0 0 0 2px rgba(14,19,24,.45)}
