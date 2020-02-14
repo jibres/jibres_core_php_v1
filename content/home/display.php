@@ -2,8 +2,7 @@
 
 
 
-<section class="box" id='saleChannels'>
-
+<section class="banner" id='saleChannels'>
  <div class="fit">
   <div class="f">
     <div class="c3 m6 s12">
