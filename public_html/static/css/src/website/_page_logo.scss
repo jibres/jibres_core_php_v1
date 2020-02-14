@@ -3,6 +3,7 @@
 .logoEffect{
   height: 400px;
   position: relative;
+  overflow: hidden;
   background-color: #0a0118;
 }
 .logoEffect .shadow{
@@ -61,7 +62,6 @@
 article.logo{
   color: #333;
   background-color:#fff;
-  font-size: 1.8em;
 }
 article.logo section:nth-child(even){
   background-color:#f2f2f2;

@@ -1,5 +1,5 @@
 <div class="jibresBanner">
- <div class="fit">
+ <div class="fit zero">
 
 <div class="logoEffect">
   <img alt="Shadow of Jibres logo" class="shadow" src="<?php echo \dash\url::static(); ?>/images/logo/bg-logo-shadow.png">
@@ -9,18 +9,6 @@
   </video>
 </div>
 
-
-
-
-  <section class="page-title">
-   <div class="cn">
-    <div id="typed-strings" class="hide">
-      <h1><?php echo \dash\data::page_title(); ?></h1>
-    </div>
-    <div class="h1"><span class="typed"></span></div>
-    <h2><?php echo \dash\data::page_desc(); ?></h2>
-   </div>
-  </section>
 
 
 
