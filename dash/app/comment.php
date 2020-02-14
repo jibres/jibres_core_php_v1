@@ -16,6 +16,41 @@ class comment
 		'email',
 	];
 
+	public static function get_post_comment()
+	{
+		$comments = [];
+		$args = func_get_args();
+		if(isset($args[0]))
+		{
+			$args = $args[0];
+		}
+
+		// get post id
+		if(!isset($args['post_id']))
+		{
+			if(\dash\data::datarow_id())
+			{
+				$args['post_id'] = \dash\data::datarow_id();
+			}
+		}
+		// count of show comments
+		$limit = 6;
+		if(isset($args['limit']))
+		{
+			$limit = $args['limit'];
+		}
+
+		// get comments
+		if(isset($args['post_id']))
+		{
+			$post_id = \dash\coding::decode($args['post_id']);
+			if($post_id)
+			{
+				$comments = \dash\db\comments::get_comment($post_id, $limit, \dash\user::id());
+			}
+		}
+		return $comments;
+	}
 
 	public static  function get_comment_counter($_args)
 	{
