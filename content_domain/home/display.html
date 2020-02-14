@@ -142,6 +142,8 @@
 				<th>{%trans "Domain"%}</th>
 				<th class="">{%trans "Expire date"%}</th>
 				<th class="collapsing">{%trans "Setting"%}</th>
+				<th class="collapsing">{%trans "Last change"%}</th>
+				<th class="collapsing">{%trans "DNS"%}</th>
 				<th class="collapsing">{%trans "Action"%}</th>
 			</tr>
 		</thead>
@@ -152,6 +154,18 @@
 				<td class="">{{value.dateexpire | dt}} <br><small class="sf-mute">{{value.expredate | dt}}</small></td>
 				<td class="collapsing">
 					{%if value.lock%} <i class="sf-lock fc-green"></i> {%else%} <i class="sf-unlock fc-red"></i> {%endif%}
+				</td>
+				<td class="collapsing">
+					{%if value.datemodified%}
+					{{value.datemodified | dt('human', 'year')}}
+					{%else%}
+						<span class="sf-mute fs09">{%trans "Without change"%}</span>
+					{%endif%}
+				</td>
+				<td class="collapsing">
+					<code>{{value.ns1}}</code>
+					<br>
+					<code>{{value.ns2}}</code>
 				</td>
 				<td class="collapsing"><a href="{{url.this}}/setting/{{value.name}}" class="btn info2">{%trans "Manage domain"%}</a></td>
 			</tr>
