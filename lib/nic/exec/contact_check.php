@@ -20,26 +20,26 @@ class contact_check
 	private static function analyze_contact_check($_contact)
 	{
 
-		$objec_result = self::get_response_check($_contact);
+		$object_result = self::get_response_check($_contact);
 
-		if(!$objec_result)
+		if(!$object_result)
 		{
 			return false;
 		}
 
 		$result = [];
-		if(!isset($objec_result->response->resData))
+		if(!isset($object_result->response->resData))
 		{
 			return false;
 		}
 
 
-		if(!$objec_result->response->resData->xpath('contact:chkData'))
+		if(!$object_result->response->resData->xpath('contact:chkData'))
 		{
 			return false;
 		}
 
-		foreach ($objec_result->response->resData->xpath('contact:chkData') as  $contactchkData)
+		foreach ($object_result->response->resData->xpath('contact:chkData') as  $contactchkData)
 		{
 			$temp  = [];
 			$myKey = null;

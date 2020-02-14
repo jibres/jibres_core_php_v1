@@ -34,25 +34,25 @@ class domain_transfer
 	private static function analyze_domain_transfer($_args)
 	{
 
-		$objec_result = self::get_response_transfer($_args);
+		$object_result = self::get_response_transfer($_args);
 
-		if(!$objec_result)
+		if(!$object_result)
 		{
 			return false;
 		}
 
 		$result = [];
-		if(!isset($objec_result->response->resData))
+		if(!isset($object_result->response->resData))
 		{
 			return false;
 		}
 
-		if(!$objec_result->response->resData->xpath('domain:creData'))
+		if(!$object_result->response->resData->xpath('domain:creData'))
 		{
 			return false;
 		}
 
-		foreach ($objec_result->response->resData->xpath('domain:creData') as  $domaincreData)
+		foreach ($object_result->response->resData->xpath('domain:creData') as  $domaincreData)
 		{
 			$temp  = [];
 

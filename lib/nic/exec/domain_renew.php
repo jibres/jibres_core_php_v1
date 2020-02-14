@@ -34,25 +34,25 @@ class domain_renew
 	private static function analyze_domain_renew($_args)
 	{
 
-		$objec_result = self::get_response_renew($_args);
+		$object_result = self::get_response_renew($_args);
 
-		if(!$objec_result)
+		if(!$object_result)
 		{
 			return false;
 		}
 
 		$result = [];
-		if(!isset($objec_result->response->resData))
+		if(!isset($object_result->response->resData))
 		{
 			return false;
 		}
 
-		if(!$objec_result->response->resData->xpath('domain:creData'))
+		if(!$object_result->response->resData->xpath('domain:creData'))
 		{
 			return false;
 		}
 
-		foreach ($objec_result->response->resData->xpath('domain:creData') as  $domaincreData)
+		foreach ($object_result->response->resData->xpath('domain:creData') as  $domaincreData)
 		{
 			$temp  = [];
 

@@ -39,24 +39,24 @@ class domain_check
 
 	private static function analyze_domain_check($_domain)
 	{
-		$objec_result = self::get_response_check($_domain);
-		if(!$objec_result)
+		$object_result = self::get_response_check($_domain);
+		if(!$object_result)
 		{
 			return false;
 		}
 
 		$result = [];
-		if(!isset($objec_result->response->resData))
+		if(!isset($object_result->response->resData))
 		{
 			return false;
 		}
 
-		if(!$objec_result->response->resData->xpath('domain:chkData'))
+		if(!$object_result->response->resData->xpath('domain:chkData'))
 		{
 			return false;
 		}
 
-		foreach ($objec_result->response->resData->xpath('domain:chkData') as $domainchkData)
+		foreach ($object_result->response->resData->xpath('domain:chkData') as $domainchkData)
 		{
 			$temp = [];
 			$myKey = null;

@@ -32,25 +32,25 @@ class contact_create
 	private static function analyze_contact_create($_args)
 	{
 
-		$objec_result = self::get_response_create($_args);
+		$object_result = self::get_response_create($_args);
 
-		if(!$objec_result)
+		if(!$object_result)
 		{
 			return false;
 		}
 
 		$result = [];
-		if(!isset($objec_result->response->resData))
+		if(!isset($object_result->response->resData))
 		{
 			return false;
 		}
 
-		if(!$objec_result->response->resData->xpath('contact:creData'))
+		if(!$object_result->response->resData->xpath('contact:creData'))
 		{
 			return false;
 		}
 
-		foreach ($objec_result->response->resData->xpath('contact:creData') as  $contactcreData)
+		foreach ($object_result->response->resData->xpath('contact:creData') as  $contactcreData)
 		{
 			$temp  = [];
 

@@ -22,25 +22,25 @@ class contact_info
 	private static function analyze_contact_info($_args)
 	{
 
-		$objec_result = self::get_response_info($_args);
+		$object_result = self::get_response_info($_args);
 
-		if(!$objec_result)
+		if(!$object_result)
 		{
 			return false;
 		}
 
 		$result = [];
-		if(!isset($objec_result->response->resData))
+		if(!isset($object_result->response->resData))
 		{
 			return false;
 		}
 
-		if(!$objec_result->response->resData->xpath('contact:infData'))
+		if(!$object_result->response->resData->xpath('contact:infData'))
 		{
 			return false;
 		}
 
-		foreach ($objec_result->response->resData->xpath('contact:infData') as  $contactinfData)
+		foreach ($object_result->response->resData->xpath('contact:infData') as  $contactinfData)
 		{
 			$temp  = [];
 			$myKey = null;

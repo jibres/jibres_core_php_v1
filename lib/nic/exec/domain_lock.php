@@ -9,9 +9,9 @@ class domain_lock
 	public static function lock($_domain)
 	{
 
-		$objec_result = self::get_response_lock($_domain);
+		$object_result = self::get_response_lock($_domain);
 
-		if(!$objec_result)
+		if(!$object_result)
 		{
 			return false;
 		}
@@ -23,9 +23,9 @@ class domain_lock
 
 	public static function unlock($_domain)
 	{
-		$objec_result = self::get_response_unlock($_domain);
+		$object_result = self::get_response_unlock($_domain);
 
-		if(!$objec_result)
+		if(!$object_result)
 		{
 			return false;
 		}
