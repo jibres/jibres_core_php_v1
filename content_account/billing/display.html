@@ -2,14 +2,11 @@
 
 {%block pageContent%}
 
-  {%if options.parsian.status or options.zarinpal.status or options.irkish.status or options.payir.status or options.asanpardakht.status or options.mellat.status%}
-    {% set HaveOnePayment = true%}
-  {%endif%}
 
 <div class="f">
 
     <div class="c8 s12 pA10">
-    {%if HaveOnePayment %}
+
       <div class="cbox">
         <h2>{%trans "Charge your account"%}</h2>
         <p>{%trans "Enter an amount to charge your account"%}</p>
@@ -18,15 +15,15 @@
 
 
          <div class="input pA5">
-          <label class="addon" for="amount-number">{%trans userUnit%}</label>
+          <label class="addon" for="amount-number">{%trans "Toman"%}</label>
           <input id="amount-number" type="number" name="amount" value="{{amount}}" placeholder='{%trans "Amount"%}' required min=0 max="9999999999">
           <button class="addon btn primary">{%trans "Checkout"%}</button>
          </div>
         </form>
       </div>
-    {%endif%}
 
-    {%if options.billing_promo %}
+
+
        <div class="cbox">
         <h2>{%trans "Promo code"%}</h2>
         <p>{%trans "If you have a promo code, please enter it below to receive your credit."%}</p>
@@ -40,7 +37,7 @@
         </form>
 
        </div>
-       {%endif%}
+
 
     </div>
 
@@ -51,7 +48,7 @@
           <i class="sf-credit-card"></i>
           <span>{{userCash|number_format| fitNumber}}</span>
         </div>
-        <div class="label">{%trans "Your credit"%} <small>{%trans userUnit%}</small></div>
+        <div class="label">{%trans "Your credit"%} <small>{%trans "Toman"%}</small></div>
        </div>
       </div>
 
@@ -81,11 +78,11 @@
       <tbody>
 
 {% for key, value in history %}
-{%set my_unit = value.unit%}
-{%set my_title = value.title%}
+
+
 
          <tr>
-          <td class="s0">{%trans my_title%}</td>
+          <td class="s0">{{value.title}}</td>
 
   <td title='{{value.date | dt(true)}}'>{{value.date|dt('human', 'month')}}</td>
 
@@ -95,9 +92,9 @@
 + {{value.plus|number_format|fitNumber}}
 {%else%}
 - {{value.minus|number_format|fitNumber}}
-{%endif%}{%trans my_unit%}
+{%endif%}
           </td>
-          <td>{{value.budget|number_format|fitNumber}} {%trans my_unit%}</td>
+          <td>{{value.budget|number_format|fitNumber}} {%trans "Toman"%}</td>
           <td>
 {%if value.invoice_id%}
             <a href="{{url.here}}/billing/invoice?id={{value.invoice_id}}"><i class="sf-file-text"></i></a>
