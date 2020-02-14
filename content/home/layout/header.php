@@ -47,7 +47,6 @@ if (\dash\url::module())
 ?>
     <div id="typed-strings">
      <h2><?php echo \dash\data::page_title(); ?></h2>
-     <p><?php echo \dash\data::page_desc(); ?></p>
     </div>
 <?php
 }
