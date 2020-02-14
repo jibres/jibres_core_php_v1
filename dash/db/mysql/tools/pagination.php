@@ -17,33 +17,19 @@ class pagination
 	}
 
 
-	public static function pagination_query($_query, $_length = 10, $_array = false)
+	public static function pagination_query($_query, $_length = 10, $_fuel = null)
 	{
-		$total_rows = \dash\db::get($_query, 'count', true);
+		$total_rows = \dash\db::get($_query, 'count', true, $_fuel);
 		$total_rows = intval($total_rows);
 		$result     = self::pagnation($total_rows, $_length);
 
 		if($result)
 		{
-			if($_array)
-			{
-				return $result;
-			}
-			else
-			{
-				return "LIMIT ". implode(',', $result);
-			}
+			return "LIMIT ". implode(',', $result);
 		}
 		else
 		{
-			if($_array)
-			{
-				return $result;
-			}
-			else
-			{
-				return null;
-			}
+			return null;
 		}
 	}
 }
