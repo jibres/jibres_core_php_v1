@@ -1,6 +1,6 @@
-<div class="pricingQuick">
-  <div class="cn">
-    <div class="box f">
+<div class="pricingQuick jibresBanner txtC">
+  <div class="fit">
+    <div class="f">
 
       <div class="c3 m6 s12 col1">
         <img src="<?php echo \dash\url::static(); ?>/images/pricing/plan1-free.png" alt='<?php echo \dash\data::site_title(); ?> <?php echo T_("Free Plan"); ?>'>
