@@ -4,19 +4,6 @@
      <div class="cauto pRa10">
       <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
        <img <?php
-       if (\dash\url::module() === null)
-       {
-        if (\dash\language::current() === 'fa')
-        {
-         echo "src='". \dash\url::static(). "/logo/fa-white/svg/Jibres-Logo-fa-white.svg". "' alt='". T_('Jibres White Logo'). "'";
-        }
-        else
-        {
-         echo "src='". \dash\url::static(). "/logo/en-white/svg/Jibres-Logo-en-white.svg". "' alt='". T_('Jibres White Logo'). "'";
-        }
-       }
-       else
-       {
         if (\dash\language::current() === 'fa')
         {
          echo "src='". \dash\url::static(). "/logo/fa/svg/Jibres-Logo-fa.svg". "' alt='". T_('Jibres Logo'). "'";
@@ -25,7 +12,6 @@
         {
          echo "src='". \dash\url::static(). "/logo/en/svg/Jibres-Logo-en.svg". "' alt='". T_('Jibres Logo'). "'";
         }
-       }
        ?>>
        <h1><?php echo T_("Jibres"); ?></h1>
       </a>

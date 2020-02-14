@@ -3,7 +3,7 @@
 
 
 
-#jibresHeader{min-height:70px;font-size:1.4rem;padding:10px 0;background-color:$jibresBack;overflow:hidden;transition:0.3s;@include select-none();}
+#jibresHeader{min-height:70px;font-size:1.4rem;padding:10px 0;background-color:$white;overflow:hidden;transition:0.3s;@include select-none();}
 // logo
 #jibresHeader .logo{display:block;}
 #jibresHeader .logo:focus{opacity:0.8;}
@@ -25,11 +25,6 @@
 #jibresHeader [data-to='enter']:hover{box-shadow: inset 0 0 0 2px rgba(14,19,24,.45)}
 #jibresHeader [data-to='enter']:focus{box-shadow: inset 0 0 0 2px rgba(14,19,24,.45)}
 #jibresHeader [data-to='enter']:active{background-color: rgba(14,19,24,.15)}
-
-
-// special style for homepage
-[data-page="home"] #jibresHeader{background-color:$jibres;}
-
 
 
 
