@@ -187,9 +187,9 @@ class template
 		{
 			self::$display_name	= 'default'. self::$file_ext;
 		}
-		elseif( is_file($contentAddr. 'template/display.php') )
+		elseif( is_file($contentAddr. 'template/default.php') )
 		{
-			self::$display_name	= 'display.php';
+			self::$display_name	= 'default.php';
 		}
 
 		// if find template for this url
