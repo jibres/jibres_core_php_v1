@@ -27,18 +27,18 @@ if (\dash\user::id())
 {
  if (\dash\url::subdomain())
  {
-  echo '<a data-to="store" href="'. \dash\url::sitelang(). '/a" data-direct>'. T_("Store Panel"). '</a>';
+  echo '<a class="master" href="'. \dash\url::sitelang(). '/a" data-direct>'. T_("Store Panel"). '</a>';
  }
  else
  {
-  echo '<a data-to="dashboard" href="'. \dash\url::sitelang(). '/dashboard" data-direct>'. T_("Dashboard"). '</a>';
+  echo '<a class="master" href="'. \dash\url::sitelang(). '/dashboard" data-direct>'. T_("Dashboard"). '</a>';
  }
 
 }
 else
 {
- echo '<a data-to="enter" href="'. \dash\url::sitelang(). '/enter" data-direct>'. T_("Enter"). '</a>';
- echo '<a data-to="signup" href="'. \dash\url::sitelang(). '/enter/signup" data-direct>'. T_("SIGN UP"). '</a>';
+ echo '<a class="slave" href="'. \dash\url::sitelang(). '/enter" data-direct>'. T_("Enter"). '</a>';
+ echo '<a class="master" href="'. \dash\url::sitelang(). '/enter/signup" data-direct>'. T_("SIGN UP"). '</a>';
 }
 ?>
      </div>
