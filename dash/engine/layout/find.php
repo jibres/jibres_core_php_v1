@@ -23,7 +23,7 @@ class find
 	public static function main()
 	{
 		$myPage = null;
-		if (\dash\detect\device::detectPWA())
+		if (\dash\detect\device::detectPWA() && false)
 		{
 			// $myPage = core.'engine/layout/pwa/pwa-main.php';
 		}
@@ -54,7 +54,7 @@ class find
 	public static function header()
 	{
 		$myPage = null;
-		if (\dash\detect\device::detectPWA())
+		if (\dash\detect\device::detectPWA() && false)
 		{
 			$myPage = core.'engine/layout/pwa/pwa-header.php';
 		}
@@ -87,7 +87,7 @@ class find
 	public static function footer()
 	{
 		$myPage = null;
-		if (\dash\detect\device::detectPWA())
+		if (\dash\detect\device::detectPWA() && false)
 		{
 			// $myPage = core.'engine/layout/pwa/pwa-footer.php';
 		}
@@ -121,7 +121,7 @@ class find
 	public static function sidebar()
 	{
 		$myPage = null;
-		if (\dash\detect\device::detectPWA())
+		if (\dash\detect\device::detectPWA() && false)
 		{
 			// $myPage = core.'engine/layout/pwa/pwa-sidebar.php';
 		}
