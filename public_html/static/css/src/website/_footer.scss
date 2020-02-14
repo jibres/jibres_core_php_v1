@@ -8,14 +8,12 @@ svg.circle-bottom-left{width: 400px;height:400px;fill:#f7f7f9;position:absolute;
 svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute;right:0;bottom:0;pointer-events:none;z-index: 2;}
 
 // support line
-#jibresSupportLine{background-color: #f7fafc;position:relative;overflow:hidden;padding: 60px 0;color:$jibres;text-align: center;font-size: 1.4em;}
-
-// social line
-#jibresSocialLine:after{content:"";display:block;background-color: #f7fafc;position:relative;overflow:hidden;width:100%;height: 190px;background-size: 4320px 190px;background-image: url(../img/homepage/footer-wave.svg);}
-#jibresSocialLine{background-color: #f7fafc;position:relative;overflow:hidden;padding: 60px 0 0;color:#000;text-align: center;font-size: 1.4em;}
+#jibresSupportLine{background-color: #f7fafc;position:relative;overflow:hidden;padding: 100px 0 0;color:$jibres;text-align: center;font-size: 1.4em;}
+#jibresSupportLine .btn{margin: 20px auto 70px;}
+#jibresSupportLine:after{content:"";display:block;background-color: #f7fafc;position:relative;overflow:hidden;width:100%;height: 190px;background-size: 4320px 190px;background-image: url(../img/homepage/footer-wave.svg);}
 
 // jibres bottom line
-#jibresBottomLine{height:6px;background-color:$jibres;overflow:hidden;transition:0.3s;}
+#jibresBottomLine{height:20px;background-color:$jibres;overflow:hidden;transition:0.3s;}
 
 
 

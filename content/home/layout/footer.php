@@ -1,4 +1,4 @@
-<div id="jibresCertificates">
+<section id="jibresCertificates">
   <div class="fit-md">
     <h2><?php echo T_('Jibres Certificates'); ?></h2>
     <div class="f">
@@ -10,23 +10,14 @@
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-nsr.png" alt=''></a></div>
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-brand.png" alt=''></a></div>
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-samandehi.png" alt=''></a></div>
-
     </div>
   </div>
-  <div>
-  </div>
-</div>
+</section>
 
-
-<div id="jibresSupportLine">
+<section id="jibresSupportLine">
     <h3><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h3>
     <a class="btn lg success" href="/contact"><?php echo T_('Contact with a Live Person'); ?></a>
-</div>
-
-<div id="jibresSocialLine">
-
-</div>
-
+</section>
 
 <div id="jibresFooter">
   <div class="fit">
@@ -62,14 +53,6 @@ else
   echo "<a hreflang='fa' data-direct href='https://jibres.ir'>فارسی</a>";
 }
 ?>
-        </nav>
-
-        <nav class="share1">
-          <a target="_blank" href="https://www.facebook.com/jibres" class="facebook">Become a Jibres fan on facebook</a>
-          <a target="_blank" href="https://twitter.com/jibres_com" class="twitter">Follow Jibres on Twitter</a>
-          <a target="_blank" href="https://linkedin.com/jibres_com" class="linkedin">Connect to Jibres on Linkedin</a>
-          <a target="_blank" href="https://t.me/jibres" class="telegram">Join Jibres Telegram Channel</a>
-          <a target="_blank" href="https://instagram.com/jibres_com" class="instagram">Follow Jibres on Instagram</a>
         </nav>
 
 
@@ -132,5 +115,15 @@ else
     </div>
   </div>
 </div>
+
+
+  <nav class="share1">
+    <a target="_blank" href="https://www.facebook.com/jibres" class="facebook">Become a Jibres fan on facebook</a>
+    <a target="_blank" href="https://twitter.com/jibres_com" class="twitter">Follow Jibres on Twitter</a>
+    <a target="_blank" href="https://linkedin.com/jibres_com" class="linkedin">Connect to Jibres on Linkedin</a>
+    <a target="_blank" href="https://t.me/jibres" class="telegram">Join Jibres Telegram Channel</a>
+    <a target="_blank" href="https://instagram.com/jibres_com" class="instagram">Follow Jibres on Instagram</a>
+  </nav>
+
 
 <div id="jibresBottomLine"></div>
