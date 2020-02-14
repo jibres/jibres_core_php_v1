@@ -1,1 +1,0 @@
-<?php \dash\engine\layout\find::allBlocks(); ?>

@@ -77,7 +77,6 @@ class find
 
 		if($myPage)
 		{
-			self::$need_box = true;
 			echo "\n <header id='pageHeader' data-xhr='pageHeader'>";
 			require_once $myPage;
 			echo "\n </header>";
@@ -145,6 +144,7 @@ class find
 
 		if($myPage)
 		{
+			self::$need_box = true;
 			echo "\n <aside id='pageSidebar' data-xhr='pageSidebar'>";
 			require_once $myPage;
 			echo "\n </aside>";
@@ -172,7 +172,7 @@ class find
 			{
 				echo "\n <div id='pageWrapper' data-xhr='pageWrapper'>";
 			}
-			else
+			elseif($_mode === 'end')
 			{
 				echo "\n </div>";
 			}
