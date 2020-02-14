@@ -15,7 +15,7 @@
      </div>
      <nav class="c s0">
        <a href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
-       <a href="<?php echo \dash\url::kingdom() ?>/domain" data-direct><?php echo T_("Domains"); ?></a>
+       <?php if(false) { ?><a href="<?php echo \dash\url::kingdom() ?>/domain" data-direct><?php echo T_("Domains"); ?></a> <?php } // endif ?>
        <a href="<?php echo \dash\url::kingdom() ?>/support" data-direct><?php echo T_("Help Center"); ?></a>
      </nav>
      <div class="cauto s12"><?php
