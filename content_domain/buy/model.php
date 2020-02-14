@@ -41,7 +41,7 @@ class model
 
 		if(!\dash\request::post('agree'))
 		{
-			\dash\notif::warn(T_("Please view the privacy polici and check 'I agree' check box"), 'agree');
+			\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
 			return false;
 		}
 
