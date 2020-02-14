@@ -58,18 +58,20 @@ else
    <div class="cn">
     <div class="h2"><span class="typed"></span></div>
 
-    <div id="typed-strings" class="hide">
 <?php
-var_dump(\dash\url::module());
 if (\dash\url::module())
 {
 ?>
+    <div id="typed-strings" class="hide">
      <h2><?php echo \dash\data::page_title(); ?></h2>
+     <p><?php echo \dash\data::page_desc(); ?></p>
+    </div>
 <?php
 }
 else
 {
 ?>
+    <div id="typed-strings" class="hide">
      <h3><?php echo T_('Invoice Software'); ?></h3>
      <h4><?php echo T_('Easy Invoicing Software'); ?></h4>
      <h3><?php echo T_('Online Invoicing Software'); ?></h3>
@@ -82,10 +84,9 @@ else
      <h3><?php echo T_('Sales Software'); ?></h3>
      <h4><?php echo T_('Integrated Sales'); ?></h4>
      <h2 class="bold"><?php echo T_('Integrated Ecommerce Platform'); ?></h2>
+    </div>
 <?php
 }
 ?>
-    </div>
-    <p><?php echo \dash\data::page_desc(); ?></p>
    </div>
   </section>
