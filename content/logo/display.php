@@ -22,6 +22,12 @@
     </div>
   </div>
 
+<?php
+require_once ('section-standard.php');
+require_once ('section-vertical.php');
+require_once ('section-icon.php');
+?>
+
 </article>
 
 
