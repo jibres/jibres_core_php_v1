@@ -23,7 +23,11 @@ class view
 
 
 		\dash\data::page_seotitle(\dash\data::site_title(). ' - '. T_('Sell and Enjoy'). ' :)');
-		\dash\data::page_title(\dash\data::site_title(). ' - '. T_('Sell and Enjoy'). ' :)');
+		\dash\data::page_title(\dash\data::site_title());
+		if (!\dash\detect\device::detectPWA())
+		{
+			\dash\data::page_title(\dash\data::site_title(). ' - '. T_('Sell and Enjoy'). ' :)');
+		}
 		// dash\data::page_seotitle()
 		\dash\data::page_desc2($homepageShortDesc);
 		\dash\data::page_special(true);
@@ -35,6 +39,11 @@ class view
 		{
 			\dash\data::moneyUnit(T_('Hezar Toman'));
 		}
+
+
+		// btn
+		\dash\data::page_btnText(T_('Enter'));
+		\dash\data::page_btnLink(\dash\url::this(). '/enter');
 
 	}
 }
