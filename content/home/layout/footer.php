@@ -100,6 +100,17 @@
   </div>
 </div>
 
+<div class="jibresLastLine">
+  <div class="fit">
+    <div class="f">
+      <div class="c">
+
+      </div>
+      <div class="c">&copy; <?php echo \dash\datetime::fit(null, 'Y'). '. '. T_('All rights reserved.'). ' '. T_('Jibres, LLC'). ' ' ; ?>&reg;</div>
+      <div class="c"></div>
+    </div>
+  </div>
+</div>
 
         <nav class="langlist" data-xhr="langlist">
 <?php
