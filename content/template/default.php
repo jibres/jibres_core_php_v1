@@ -1,6 +1,7 @@
+<div class="jibresBanner">
+ <div class="fit">
 
-
-<div class="blogEx box">
+<div class="blogEx">
 <?php
 if(\dash\data::datarow_type() === 'post' || \dash\data::datarow_type() === 'page')
 {
@@ -290,3 +291,6 @@ function showCommentList()
   } // end if
 } // endfunction
 ?>
+
+</div>
+</div>

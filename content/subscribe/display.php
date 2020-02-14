@@ -1,3 +1,5 @@
+<div class="jibresBanner">
+ <div class="fit">
 
  <div class="f content">
   <div class="c6 s12">
@@ -25,3 +27,6 @@
    </form>
   </div>
  </div>
+
+ </div>
+</div>

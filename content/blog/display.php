@@ -1,3 +1,5 @@
+<div class="jibresBanner">
+ <div class="fit">
 <?php
 if(\dash\data::allPostList())
 {
@@ -44,3 +46,6 @@ foreach (\dash\data::allPostList() as $key => $value)
 } // end if
 \dash\utility\pagination::html();
 ?>
+
+</div>
+</div>

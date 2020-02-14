@@ -1,4 +1,5 @@
-
+<div class="jibresBanner">
+ <div class="fit">
 <div class="f justify-center">
 	<div class="c6 s12">
 		<form method="post" autocomplete="off">
@@ -41,3 +42,6 @@ if(\dash\data::whoisResult())
 <?php
 } // endif
 ?>
+
+ </div>
+</div>

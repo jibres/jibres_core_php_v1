@@ -1,3 +1,5 @@
+<div class="jibresBanner">
+ <div class="fit">
 
 <table class="tbl1 v10 fs09">
  <thead>
@@ -110,3 +112,5 @@
 <p class="msg pain txtC mT50"><?php echo T_("Be patient..."); ?></p>
 
 
+ </div>
+</div>

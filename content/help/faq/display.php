@@ -1,3 +1,5 @@
+<div class="jibresBanner">
+ <div class="fit">
 
   <div class="faq">
 
@@ -53,3 +55,6 @@
     </ul>
 
   </div>
+
+</div>
+</div>

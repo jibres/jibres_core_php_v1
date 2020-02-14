@@ -1,3 +1,5 @@
+<div class="jibresBanner">
+ <div class="fit">
 
 <div class="logoEffect">
   <img alt="Shadow of Jibres logo" class="shadow" src="<?php echo \dash\url::static(); ?>/images/logo/bg-logo-shadow.png">
@@ -241,3 +243,8 @@ else
 <?php
 require_once ('section-styleguide.php');
 ?>
+
+
+
+ </div>
+</div>

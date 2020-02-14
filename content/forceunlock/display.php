@@ -1,4 +1,5 @@
-
+<div class="jibresBanner">
+ <div class="fit">
 
 <div class="f justify-center txtC mB50">
 	<div class="c6 s12 fs18">
@@ -22,3 +23,6 @@
 
 </div>
 
+
+ </div>
+</div>

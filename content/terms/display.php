@@ -1,4 +1,5 @@
-
+<div class="jibresBanner">
+ <div class="fit">
 
    <p><?php echo T_("Utilizing Jibres's services means the acceptance of and commitment to observing all the tenors of this agreement."); ?></p>
 
@@ -18,3 +19,5 @@
 
    <p class="msg primary txtC"><?php echo T_("It should be mentioned that in case there would be any modifications in the above-mentioned tenors, an updated version will be available for the public, and as well, all the users will be informed."); ?></p>
 
+ </div>
+</div>

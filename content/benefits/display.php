@@ -1,3 +1,5 @@
+<div class="jibresBanner">
+ <div class="fit">
 <?php
 if (\dash\language::current() === 'fa')
 {
@@ -44,3 +46,6 @@ else
 <?php
 }
 ?>
+
+  </div>
+</div>
