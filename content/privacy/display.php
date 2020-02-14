@@ -1,4 +1,6 @@
-  <h2><?php echo T_("What is Privacy?"); ?></h2>
+<section class="jibresBanner">
+ <div class="fit">
+   <h2><?php echo T_("What is Privacy?"); ?></h2>
    <p class="msg dark txtC"><?php echo T_("Privacy means that any individual is entitled to choose the information related to them, and selectively, share it with others."); ?></p>
    <p><?php echo T_("privacy is so important for mental peace as well as a peaceful personality that some experts have considered invasion of privacy disrespectful to human dignity."); ?></p>
 
@@ -13,4 +15,5 @@
 
    <p class="msg success txtC"><?php echo T_("As the final remark, we wish to assure you that our main concern is to secure your privacy and protect your information against impermissible access."); ?></p>
 
-
+ </div>
+</section>
