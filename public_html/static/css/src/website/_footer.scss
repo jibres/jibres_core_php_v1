@@ -1,6 +1,6 @@
 
 // certificates
-#jibresCertificates{position: relative;overflow: hidden;background-color: #000;font-size: 1.4em;padding: 50px 0;border-radius2: 0 0 100px 100px;}
+#jibresCertificates{position: relative;overflow: hidden;background-color: $black;font-size: 1.4em;padding: 50px 0;border-radius2: 0 0 100px 100px;}
 #jibresCertificates h2{color:#fff;text-align: center;border-bottom: 1px solid #fff;line-height: 50px;font-weight: 100;margin-bottom: 50px;}
 #jibresCertificates a{display: block;overflow: hidden;}
 #jibresCertificates img{display: block;margin:0 auto;margin-bottom: 20px;}
@@ -17,18 +17,19 @@ svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute
 
 
 
-#jibresFooter{position:relative;font-size: 1.6em;overflow:hidden;background-color:#fff;color: #333;padding: 60px 0 30px;line-height:25px;}
+#jibresFooter{position:relative;font-size: 1.4em;overflow:hidden;background-color:#fff;color: #444;padding: 70px 0 30px;line-height:30px;}
 #jibresFooter figure{overflow: hidden;margin-bottom: 40px;}
-#jibresFooter figure img{height: 100px;display:block;margin:5px 0}
-#jibresFooter figure figcaption{font-size: 0.9em;line-height: 2;padding: 0 1.5em;}
+#jibresFooter figure img{height: 100px;display:block;margin:5px}
+#jibresFooter figure figcaption{padding: 0 1.5em;}
 
 #jibresFooter nav{margin-bottom: 40px;}
-#jibresFooter nav h3{border-bottom: 1px solid #333;display: block;color: #000;padding:5px 0;font-weight:900;font-size:1em;}
-#jibresFooter nav a{display: block;padding:5px 0;}
-#jibresFooter a{color: #000;transition:0.3s;font-weight:100;}
-#jibresFooter a:hover{color: #efdab9;}
-#jibresFooter a:focus{color: #ffd050;}
-#jibresFooter a:active{color: #D36E2D;}
+#jibresFooter nav h3{border-bottom: 1px solid #eee;display: block;color: #777;padding:5px 0;font-weight:900;font-size:1em;}
+#jibresFooter nav a{display: block;padding:6px 5px;margin-bottom:5px;}
+#jibresFooter nav a:hover{background-color:rgba(0,0,0,0.02)};
+#jibresFooter a{color: $black;transition:0.3s;font-weight:300;}
+#jibresFooter a:hover{color: $jibres;}
+#jibresFooter a:focus{color: $jibresMono;}
+#jibresFooter a:active{color: $jibresDark;}
 
 
 
@@ -36,7 +37,7 @@ svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute
 
 /* xaccess*/
 #tfooter #xaccess{position:fixed;left:0;bottom:17%;z-index:3;}
-#tfooter #xaccess a{display:block;background-color:#000;opacity:0.3;padding:0.5em 1em;transition:0.3s;margin-top:0.2em;margin-right:2em;color:#fff;}
+#tfooter #xaccess a{display:block;background-color:$black;opacity:0.3;padding:0.5em 1em;transition:0.3s;margin-top:0.2em;margin-right:2em;color:#fff;}
 #tfooter #xaccess a:hover{opacity:0.8;padding:0.5em 2em;margin-right:0;}
 .rtl #tfooter #xaccess{right:0;left:initial;}
 .rtl #tfooter #xaccess a{right:0;left:initial;margin-right:0;margin-left:2em;}

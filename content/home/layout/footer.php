@@ -40,22 +40,6 @@
 
     <div class="f">
 
-
-
-        <nav class="langlist" data-xhr="langlist">
-<?php
-if(\dash\language::current() == 'fa')
-{
-  echo "<a hreflang='en' data-direct href='https://jibres.com'>English</a>";
-}
-else
-{
-  echo "<a hreflang='fa' data-direct href='https://jibres.ir'>فارسی</a>";
-}
-?>
-        </nav>
-
-
         <div class="f" id="footerMenu">
 
           <nav class="c2 s6 pLR10">
@@ -72,7 +56,7 @@ else
           </nav>
 
           <nav class="c2 s6 pLR10">
-            <h3><?php echo T_('Jibres'); ?></h3>
+            <h3><?php echo T_('Jibres Company'); ?></h3>
             <a href="/about"><?php echo T_('About'); ?></a>
             <a href="/logo"><?php echo T_('Logo'); ?></a>
             <a href="/brand"><?php echo T_('Brand Styleguide'); ?></a>
@@ -115,6 +99,20 @@ else
     </div>
   </div>
 </div>
+
+
+        <nav class="langlist" data-xhr="langlist">
+<?php
+if(\dash\language::current() == 'fa')
+{
+  echo "<a hreflang='en' data-direct href='https://jibres.com'>English</a>";
+}
+else
+{
+  echo "<a hreflang='fa' data-direct href='https://jibres.ir'>فارسی</a>";
+}
+?>
+        </nav>
 
 
   <nav class="share1">
