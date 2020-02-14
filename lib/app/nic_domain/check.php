@@ -28,5 +28,16 @@ class check
 		return $result;
 
 	}
+
+
+	public static function variable()
+	{
+		$autorenew = \dash\app::request('autorenew') ? 1 : null;
+
+
+		$args              = [];
+		$args['autorenew'] = $autorenew;
+		return $args;
+	}
 }
 ?>
