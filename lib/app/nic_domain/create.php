@@ -35,14 +35,17 @@ class create
 		}
 
 		$period_month = 0;
+		$price = 0;
 
 		if($period === '1year')
 		{
 			$period_month = 12;
+			$price = 3000;
 		}
 		elseif($period === '5year')
 		{
 			$period_month = 5*12;
+			$price = 15000;
 		}
 
 		if($ns1 && $ns2)
@@ -89,6 +92,22 @@ class create
 				return false;
 			}
 		}
+
+		// go to bank
+
+		$meta =
+		[
+			'msg_go'        => null,
+			'auto_go'       => false,
+			'turn_back'     => \dash\url::kingdom(). '/domain',
+			'user_id'       => \dash\user::id(),
+			'amount'        => abs($price),
+			'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
+			'final_fn_args' => $_args,
+		];
+
+		\dash\utility\pay\start::site($meta);
+
 
 		$ready =
 		[
