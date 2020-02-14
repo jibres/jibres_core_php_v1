@@ -46,16 +46,6 @@ class renew
 			$period_month = 5*12;
 		}
 
-		$expiredate = date("Y-m-d", strtotime("+$period_month month"));
-
-		$ready =
-		[
-			'domain' => $domain,
-			'period' => $period_month,
-			'expiredate' => $expiredate,
-
-		];
-
 		$load_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
 		if(!isset($load_domain['id']))
 		{
@@ -63,8 +53,33 @@ class renew
 			return false;
 		}
 
-		$result = \lib\nic\exec\domain_renew::renew($ready);
+		$current_date_expire      = $load_domain['dateexpire'];
 
+		$current_date_expire_time = time() - strtotime($current_date_expire);
+
+		$new_date_expire          = strtotime("+$period_month month");
+
+		$new_date_expire          = $current_date_expire_time + $new_date_expire;
+
+		$expiredate               = date("Y-m-d", $new_date_expire);
+
+		$year_6 = time() + (60*60*24*365*6);
+
+		if($new_date_expire >= $year_6)
+		{
+			\dash\notif::error(T_("Maximum renew date is 6 year"));
+			return false;
+		}
+
+		$ready =
+		[
+			'domain'     => $domain,
+			'period'     => $period_month,
+			'expiredate' => $expiredate,
+
+		];
+
+		$result = \lib\nic\exec\domain_renew::renew($ready);
 
 		if($result)
 		{

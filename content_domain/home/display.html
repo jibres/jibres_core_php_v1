@@ -146,9 +146,10 @@
 			{%for key, value in dataTable%}
 			<tr>
 				<td><a target="_blank" href="http://{{value.name}}"><i class="sf-link"></i></a> <span>{{value.name}}</span></td>
-				<td class="">{{value.dateexpire | dt}} <br><small class="sf-mute">{{value.expredate | dt}}</small></td>
+				<td class="">{{value.dateexpire | dt}}</td>
 				<td class="collapsing">
 					{%if value.lock%} <i class="sf-lock fc-green"></i> {%else%} <i class="sf-unlock fc-red"></i> {%endif%}
+					{%if value.autorenew%} <i class="sf-refresh fc-blue" title='{%trans "Auto renew enabled"%}'></i> {%endif%}
 				</td>
 				<td class="collapsing">
 					{%if value.datemodified%}
