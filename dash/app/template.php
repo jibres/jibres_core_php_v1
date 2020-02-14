@@ -187,11 +187,11 @@ class template
 		{
 			self::$display_name	= 'default'. self::$file_ext;
 		}
-		// below line is depreacted and remove on next release!
-		elseif( is_file($contentAddr. 'template/dafault'. self::$file_ext) )
+		elseif( is_file($contentAddr. 'template/display.php') )
 		{
-			self::$display_name	= 'dafault'. self::$file_ext;
+			self::$display_name	= 'display.php';
 		}
+
 		// if find template for this url
 		// then if template for current lang is exist, set it
 		if(self::$display_name)
@@ -208,7 +208,7 @@ class template
 
 		if($finded_template)
 		{
-			self::$datarow = $data;
+			self::$datarow         = $data;
 			self::$finded_template = $finded_template;
 		}
 	}

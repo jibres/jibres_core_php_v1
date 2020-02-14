@@ -10,7 +10,17 @@ class fn
 
 	public static function shoot()
 	{
-		$nativeTemplate = \autoload::fix_os_path(root. ltrim(\dash\engine\mvc::get_dir_address().'\display.php', '\\'));
+		$nativeTemplate = \dash\engine\mvc::get_dir_address();
+
+		// load template contain filename and needless to add display.php of end of addr
+		if(substr($nativeTemplate, -4) !== '.php')
+		{
+			$nativeTemplate = $nativeTemplate. '\\display.php';
+		}
+
+		$nativeTemplate = ltrim($nativeTemplate, '\\');
+		$nativeTemplate = root. $nativeTemplate;
+		$nativeTemplate = \autoload::fix_os_path($nativeTemplate);
 
 		if(is_file($nativeTemplate))
 		{
