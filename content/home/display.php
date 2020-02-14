@@ -2,7 +2,7 @@
 
 
 
-<section class="banner" id='saleChannels'>
+<section class="jibresBanner" id='saleChannels'>
  <div class="fit">
   <div class="f">
     <div class="c3 m6 s12">
