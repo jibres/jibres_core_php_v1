@@ -22,6 +22,12 @@ class search
 
 	public static function list($_query_string, $_args)
 	{
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
 		$default_args =
 		[
 			'order'  => null,

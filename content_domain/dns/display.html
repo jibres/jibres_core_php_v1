@@ -1,13 +1,52 @@
 {%extends display.jibresControlLayout%}
 
+
 {%block pageContent%}
+
+{%if dataTable%}
+ {%if isFiltered%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%else%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlTable')}}
+
+ {%endif%}
+{%else%}
+
+ {%if isFiltered%}
+
+  {{block('htmlSearchBox')}}
+  {{block('htmlFilter')}}
+
+ {%else%}
+
+  {{block('htmlStartAddNew')}}
+
+ {%endif%}
+{%endif%}
+
+{%endblock%}
+
+
+
+
+{%block htmlSearchBox%}
 <div class="fs12">
-	{{block('myAccountList')}}
+	<form method="get" autocomplete="off" class="mB20" action="{{url.this}}">
+		<div class="input search{%if requestGET.q%} apply{%endif%}">
+			<input type="text" name="q" placeholder='{%trans "Search"%}' value="{{requestGET.q}}">
+			<button class="btn addon success">{%trans "Search"%}</button>
+		</div>
+	</form>
 </div>
 {%endblock%}
 
-{%block myAccountList%}
-{%if dataTable%}
+
+{%block htmlTable%}
 <div class="tblBox">
 	<table class="tbl1 v4">
 		<thead>
@@ -45,12 +84,36 @@
 		</tbody>
 	</table>
 </div>
-{%else%}
-<div class="msg info2">{%trans "No dns founded"%}
-	<br>
-	<a href="{{url.this}}/add">{%trans "Try to add new dns!"%}</a>
-</div>
-{%endif%}
-
+{%include display.pagination%}
 {%endblock%}
 
+
+
+
+{%block htmlFilter%}
+<p class="f fs14 msg warn2">
+  <span class="c">{{filterBox | raw}}</span>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+{%block htmlFilterNoResult%}
+<p class="f fs14 msg warn2">
+  <span class="c s12">{%trans "Result not found!"%} {%trans "Search with new keywords."%} </span>
+  <a class="cauto" href="{{url.that}}">{%trans "Clear filters"%}</a>
+</p>
+{%endblock%}
+
+
+
+{%block htmlStartAddNew%}
+
+<div class="fs14 msg info2 pTB20">
+  <p>{%trans "Hi!"%}</p>
+  <p><a href="{{url.that}}/add">{%trans "Try to start with add new dns!"%}</a></p>
+
+</div>
+
+
+{%endblock%}
