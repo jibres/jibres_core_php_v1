@@ -37,16 +37,16 @@ class twigTransTerms
 
 	//-----------------------------------------content_subdomain/products/display.html
 	echo T_("Search in products");                                                    // Line 46
-	echo T_("Search");                                                                // Line 102
+	echo T_("Search");                                                                // Line 125
 	echo T_("Title");                                                                 // Line 67
 	echo T_("Category");                                                              // Line 23
 	echo T_("Discount");                                                              // Line 169
 	echo T_("Final price");                                                           // Line 15
-	echo T_("Clear filters");                                                         // Line 247
-	echo T_("Result not found!");                                                     // Line 246
-	echo T_("Search with new keywords.");                                             // Line 246
+	echo T_("Clear filters");                                                         // Line 181
+	echo T_("Result not found!");                                                     // Line 102
+	echo T_("Search with new keywords.");                                             // Line 102
 	echo T_("Add new product");                                                       // Line 95
-	echo T_("Hi!");                                                                   // Line 253
+	echo T_("Hi!");                                                                   // Line 214
 	echo T_("Try to start with add new product!");                                    // Line 106
 
 	//-------------------------------------------content_subdomain/main/visitcard.html
@@ -67,138 +67,13 @@ class twigTransTerms
 
 	//----------------------------------------content_v2/android/language/display.html
 
-	//------------------------------------------------content/forceunlock/display.html
-	echo T_("Start lock");                                                            // Line 8
-	echo T_("Force unlock");                                                          // Line 21
-
-	//--------------------------------------------------content/subscribe/display.html
-	echo T_("Subscribe to Jibres world");                                             // Line 8
-	echo T_("Mobile");                                                                // Line 411
-	echo T_("Please enter valid mobile number. `:val` is incorrect");                 // Line 162
-	echo T_("Name");                                                                  // Line 154
-	echo T_("Full Name");                                                             // Line 155
-	echo T_("Email");                                                                 // Line 99
-	echo T_("Send");                                                                  // Line 177
-
-	//-------------------------------------------------content/enterprise/display.html
-	echo T_("Big companies simply don’t work like small companies, and they don’t use Jibres the same way either. That’s why there’s Enterprise.");// Line 6
-
-	//------------------------------------------------------content/press/display.html
-	echo T_("Soon");                                                                  // Line 335
-
-	//-------------------------------------------------------content/help/display.html
-
-	//---------------------------------------------------content/help/faq/display.html
-	echo T_("General questions");                                                     // Line 325
-	echo T_("How does Jibres work?");                                                 // Line 328
-	echo T_("The easiest way to learn how to use Jibres is enter to it, which takes less than 3 minutes to setup your team.");// Line 329
-	echo T_("What is your privacy and security policy?");                             // Line 332
-	echo T_("View Jibres's privacy and security policy at");                          // Line 333
-	echo T_("Where can I find your Terms of Service (TOS)?");                         // Line 336
-	echo T_("You can find them at");                                                  // Line 337
-	echo T_("What are your bandwidth fees?");                                         // Line 340
-	echo T_("There are none. All Jibres plans include unlimited bandwidth for free.");// Line 341
-	echo T_("Do I need a web host?");                                                 // Line 344
-	echo T_("No! Jibres includes secure, unlimited hosting on all plans with free bandwith.");// Line 345
-	echo T_("Billing & Invoicing");                                                   // Line 297
-	echo T_("Is there a setup fee?");                                                 // Line 300
-	echo T_("No. There are no setup fees on any of our plans!");                      // Line 301
-	echo T_("Can I cancel my account at any time?");                                  // Line 305
-	echo T_("Yes. If you ever decide that Jibres isn’t the best platform for your business, simply cancel your account.");// Line 306
-	echo T_("How long are your contracts?");                                          // Line 310
-	echo T_("All Jibres plans are month to month. simple.");                          // Line 311
-	echo T_("Can I change my plan later on?");                                        // Line 314
-	echo T_("Absolutely! You can upgrade or downgrade your plan at any time.");       // Line 315
-	echo T_("When is my billing date?");                                              // Line 318
-	echo T_("The date you first select a paid plan will be the recurring billing date. For example: If you sign up for the first time on July 15, all future charges will be billed on the 15th of every month.");// Line 319
-
-	//---------------------------------------------------content/benefits/display.html
-
-	//--------------------------------------------content/logo/section-styleguide.html
-	echo T_("Download Jibres Brand Styleguide");                                      // Line 3
-	echo T_("Download Jibres Persian Brand Styleguide");                              // Line 27
-
-	//--------------------------------------------------content/logo/section-icon.html
-	echo T_("ICON BY ITSELF");                                                        // Line 5
-	echo T_("Use the icon only when 'Jibres' has been well established elsewhere on the page or in the design. When in doubt, use the full logotype.");// Line 6
-	echo T_("Jibres Icon");                                                           // Line 9
-	echo T_("Download Jibres Logo");                                                  // Line 120
-	echo T_("Icon");                                                                  // Line 88
-	echo T_("Jibres Logo");                                                           // Line 157
-	echo T_("Black");                                                                 // Line 205
-	echo T_("White");                                                                 // Line 255
-
-	//----------------------------------------------content/logo/section-standard.html
-	echo T_("STANDARD LOCKUP");                                                       // Line 255
-	echo T_("Our standard horizontal lockup is our official logotype, consisting of the icon and our wordmark. If you aren't sure which logo to use in your materials, use this one.");// Line 6
-	echo T_("Jibres");                                                                // Line 61
-	echo T_("Download Jibres Persian Logo");                                          // Line 255
-	echo T_("Jibres Persian Logo");                                                   // Line 265
-
-	//-------------------------------------------------------content/logo/display.html
-	echo T_("Jibres logo");                                                           // Line 17
-	echo T_("Download Logo Pack");                                                    // Line 43
-	echo T_("All type of Jibres logos are available!");                               // Line 45
-	echo T_("Download latest Jibres logo pack.");                                     // Line 45
-	echo T_("Also you can browse to find our logo based on your need.");              // Line 46
-	echo T_("Jibres logo repository.");                                               // Line 46
-	echo T_("MEET THE LOGO");                                                         // Line 54
-	echo T_("Our logo represents simplicity, vivacity, agility, scalability and reliability; Values that we believe them as a company.");// Line 55
-	echo T_("These guidelines are here to help ensure that your use of the Jibres logo is consistent with the way we present ourselves.");// Line 56
-	echo T_("SAFE SPACE");                                                            // Line 82
-	echo T_("Safe space acts as a buffer between the logo and other visual elements on a page, including text.");// Line 75
-	echo T_("This space is the minimum distance needed and is equal to third the height of the icon.");// Line 76
-	echo T_("MINIMAL SIZE");                                                          // Line 100
-	echo T_("Here’s the recommended minimum size at which the logo may be reproduced. For legibility reasons, we ask that you stick to these dimensions.");// Line 94
-	echo T_("JIBRES RED");                                                            // Line 115
-	echo T_("The Jibres red is bright and vibrant and we want it to stand out clearly. To that end, here are the color values you can use for both digital and print.");// Line 112
-	echo T_("USING GRAYSCALE");                                                       // Line 133
-	echo T_("If the color logotype isn’t an option for technical reasons, use the black or white versions instead.");// Line 126
-	echo T_("You can create a version using any value on the grayscale.");            // Line 127
-	echo T_("BACKGROUND COLOR");                                                      // Line 153
-	echo T_("Our logo must always have good contrast with the background to ensure maximum impact and accessibility.");// Line 145
-	echo T_("Use the black or white versions if the logo is to be presented on a background color.");// Line 146
-	echo T_("If you’re going with grayscale, make sure you choose a version where the contrast between the logo and the background is strong.");// Line 147
-	echo T_("WORDMARK");                                                              // Line 176
-	echo T_("Here’s what you need to know about the wordmark:");                      // Line 165
-	echo T_("The font used for the wordmark is Acre Medium.");                        // Line 167
-	echo T_("This font is only used in the logo.");                                   // Line 168
-	echo T_("'Jibres' is written as one word, with the letters'J' capitalized in all instances.");// Line 169
-	echo T_("LOGO DON'TS");                                                           // Line 187
-	echo T_("Use the Jibres logos as provided and please do not make any changes to them :)");// Line 188
-	echo T_("LOGO DO NOTS");                                                          // Line 194
-
-	//----------------------------------------------content/logo/section-vertical.html
-	echo T_("VERTICAL LOCKUP");                                                       // Line 12
-	echo T_("The vertical lockup can be used when the provided space is square and use of the horizontal lockup will make the logo look too small.");// Line 6
-
-	//------------------------------------------------------content/brand/display.html
-
-	//------------------------------------------------------content/about/display.html
-	echo T_("Advancement of technology and development of Web-based business Cause Need new tools to resolve the daily needs and that’s the goal of making Jibres.");// Line 48
-	echo T_("Jibres have a set of simple and practical tools on a regular basis for modern businesses.");// Line 48
-
-	//------------------------------------------------------content/terms/display.html
-	echo T_("Utilizing Jibres's services means the acceptance of and commitment to observing all the tenors of this agreement.");// Line 6
-	echo T_("It is worth mentioning that due to the insecurity of cyberspace, you should never post your vital information on either Jibres or any other services!");// Line 9
-	echo T_("User's personal information is strictly confidential in our service. Jibres preserves the information as encoded and will not under any conditions transfer it to another person.");// Line 10
-	echo T_("In case there is a request for receiving user's information by the competent authorities, according to the country the user lives in, Jibres will cooperate with them only upon receiving the judicial order issued by the country submitting the request.");// Line 11
-	echo T_("Jibres will not offer any guarantee as to the quality of the products or services presented by the stores and will not accept any responsibility in this regard!");// Line 12
-	echo T_("Users should assume responsibility for any harm, both material and immaterial, caused by direct, indirect or penal factors and due to their utilization of this service; and, Jibres bears no responsibility accordingly.");// Line 13
-	echo T_("Jibres accepts no responsibility, under any conditions, for the harms caused by users' mutual trust in each other or by the disclosure of information by users.");// Line 14
-	echo T_("Jibres will do its best to protect both the users' information and the service; however, regarding the lack of certainty within the cyberspace, it will not assume any responsibility for the loss of the information entered on the service.");// Line 15
-	echo T_("We will publicize our information and news only via Jibres's formal website. Accordingly, those who publicize any attributed news and claims, within social media and networks, must assume the responsibility and Jibres will not assume any responsibility.");// Line 16
-	echo T_("Jibres will bear no responsibility for whatsoever messages sent to users, including those indicating winning a lottery, and all our information dissemination will be through the ways of Jibres's contact with users.");// Line 17
-	echo T_("Any misuse of Jibres's trade name is prohibited and will be suable by making a complaint to the legal competent authorities.");// Line 18
-	echo T_("Furthermore, this agreement, under the name Terms and Conditions, will be available and observable, in all pages of the website. Users will be responsible for a lack of information on the most recent changes.");// Line 19
-	echo T_("It should be mentioned that in case there would be any modifications in the above-mentioned tenors, an updated version will be available for the public, and as well, all the users will be informed.");// Line 22
-
 	//----------------------------------------------------content/template/footer.html
 	echo T_("Home");                                                                  // Line 5
 	echo T_("Press and Media");                                                       // Line 7
 	echo T_("Careers");                                                               // Line 8
 	echo T_("Social Responsibility");                                                 // Line 25
 	echo T_("FAQ");                                                                   // Line 31
+	echo T_("Jibres");                                                                // Line 61
 	echo T_("Benefits");                                                              // Line 16
 	echo T_("Pricing");                                                               // Line 15
 	echo T_("Changelog");                                                             // Line 18
@@ -219,30 +94,9 @@ class twigTransTerms
 	echo T_("Shamad");                                                                // Line 72
 	echo T_("Proudly Made in IRAN");                                                  // Line 78
 
-	//--------------------------------------------------content/template/shareBox.html
-
 	//----------------------------------------------------content/template/header.html
 	echo T_("Beta");                                                                  // Line 7
 	echo T_("Admin Panel");                                                           // Line 18
-
-	//------------------------------------------------------content/whois/display.html
-	echo T_("Domain");                                                                // Line 19
-	echo T_("Check domain");                                                          // Line 62
-	echo T_("Domain is available");                                                   // Line 74
-
-	//----------------------------------------------------content/contact/display.html
-	echo T_("Thank you for choosing us.");                                            // Line 8
-	echo T_("We do our best to improve jibres's quality. So, knowing your valuable comments about bugs and problems and more importantly your precious offers will help us in this way.");// Line 8
-	echo T_("Your Message");                                                          // Line 171
-	echo T_("How to contact us");                                                     // Line 38
-	echo T_("jibres");                                                                // Line 42
-	echo T_("Ermile, Floor2, Yas Building");                                          // Line 45
-	echo T_("1st alley, Haft-e-tir St");                                              // Line 52
-	echo T_("Qom");                                                                   // Line 51
-	echo T_("Iran");                                                                  // Line 50
-	echo T_("Floor2, Yas Building");                                                  // Line 53
-	echo T_("Postal Code");                                                           // Line 55
-	echo T_("Our location on map");                                                   // Line 63
 
 	//-------------------------------------------------------content/home/display.html
 	echo T_("Invoice Software");                                                      // Line 59
@@ -280,20 +134,20 @@ class twigTransTerms
 	echo T_("No one can fullfill your e-commerce needs like us");                     // Line 114
 	echo T_("Choose the plan that's right for you");                                  // Line 124
 	echo T_("Plans to fit your budget");                                              // Line 125
-	echo T_("Bronze");                                                                // Line 38
-	echo T_("Hezar Toman");                                                           // Line 83
+	echo T_("Bronze");                                                                // Line 130
+	echo T_("Hezar Toman");                                                           // Line 161
 	echo T_("Order Limit");                                                           // Line 184
 	echo T_("Staff");                                                                 // Line 34
 	echo T_("Basic");                                                                 // Line 186
 	echo T_("Report");                                                                // Line 185
-	echo T_("Permission");                                                            // Line 18
+	echo T_("Permission");                                                            // Line 57
 	echo T_("Personalization");                                                       // Line 57
 	echo T_("Get Bronze");                                                            // Line 139
 	echo T_("Renews every year.");                                                    // Line 170
-	echo T_("Silver");                                                                // Line 39
+	echo T_("Silver");                                                                // Line 145
 	echo T_("Advanced");                                                              // Line 167
 	echo T_("Get Silver");                                                            // Line 154
-	echo T_("Gold");                                                                  // Line 40
+	echo T_("Gold");                                                                  // Line 160
 	echo T_("Ultimate");                                                              // Line 163
 	echo T_("Get Gold");                                                              // Line 169
 	echo T_("Get started with our <span class='txtB'>Free Plan</span>");              // Line 176
@@ -305,7 +159,7 @@ class twigTransTerms
 	echo T_("Item");                                                                  // Line 57
 	echo T_("Qty");                                                                   // Line 80
 	echo T_("Factor");                                                                // Line 57
-	echo T_("Toman");                                                                 // Line 104
+	echo T_("Toman");                                                                 // Line 108
 	echo T_("Sold on Jibres");                                                        // Line 216
 	echo T_("Jibres roadmap");                                                        // Line 228
 	echo T_("Roadmap");                                                               // Line 230
@@ -313,139 +167,11 @@ class twigTransTerms
 	echo T_("With Jibres we take less time of our customers and this means modern customer orientation");// Line 263
 	echo T_("Majid Sadeghi");                                                         // Line 264
 
-	//-------------------------------------------------content/pricing/priceTable.html
-	echo T_("Free Plan");                                                             // Line 6
-	echo T_("All the basics for personal use.");                                      // Line 256
-	echo T_("Also <span class='txtB'>sell on social networks</span> with easy online payment.");// Line 8
-	echo T_("Beta Version");                                                          // Line 9
-	echo T_("Free Invoicing");                                                        // Line 55
-	echo T_("Online Accounting");                                                     // Line 56
-	echo T_("Signup");                                                                // Line 21
-	echo T_("Starter Plan");                                                          // Line 25
-	echo T_("Special choice for starting a new business.");                           // Line 27
-	echo T_("vCard Website");                                                         // Line 96
-	echo T_("Staff Accounts");                                                        // Line 97
-	echo T_("Increase Basic Limits");                                                 // Line 98
-	echo T_("Monthly");                                                               // Line 33
-	echo T_("Annually");                                                              // Line 205
-	echo T_("Simple Plan");                                                           // Line 49
-	echo T_("For who want try to change!");                                           // Line 51
-	echo T_("Enjoy modern era.");                                                     // Line 51
-	echo T_("Advance Reports");                                                       // Line 153
-	echo T_("All Invoice Types");                                                     // Line 154
-	echo T_("Product Intro Website");                                                 // Line 155
-	echo T_("Without Limit");                                                         // Line 156
-	echo T_("Standard Plan");                                                         // Line 74
-	echo T_("For someones ready to use Jibres as hero.");                             // Line 76
-	echo T_("<span class='bold'>Everything you need</span> for a growing business."); // Line 76
-	echo T_("Online Store");                                                          // Line 211
-	echo T_("News website");                                                          // Line 212
-	echo T_("Shop with Your Domain");                                                 // Line 213
-	echo T_("Full Permission Control");                                               // Line 214
-	echo T_("Search Engine Optimized");                                               // Line 215
-	echo T_("Start your free trial");                                                 // Line 97
-
-	//----------------------------------------------------content/pricing/display.html
-	echo T_("only team admin");                                                       // Line 10
-	echo T_("Unlimited");                                                             // Line 122
-	echo T_("Price");                                                                 // Line 20
-	echo T_("Pay monthly");                                                           // Line 163
-	echo T_("FREE");                                                                  // Line 46
-	echo T_("Pay yearly");                                                            // Line 169
-	echo T_("Two month free");                                                        // Line 60
-	echo T_("First Year");                                                            // Line 205
-	echo T_("More than 50 percent off");                                              // Line 78
-	echo T_("Data max limit");                                                        // Line 94
-	echo T_("Max product");                                                           // Line 97
-	echo T_("Max third party");                                                       // Line 104
-	echo T_("Max invoice each day");                                                  // Line 111
-	echo T_("Max item in each invoice");                                              // Line 118
-	echo T_("Basic Features");                                                        // Line 127
-	echo T_("Each SMS cost");                                                         // Line 131
-	echo T_("Optional");                                                              // Line 39
-	echo T_("Sale on social networks");                                               // Line 160
-	echo T_("Starter Features");                                                      // Line 176
-	echo T_("Simple Features");                                                       // Line 202
-	echo T_("Advance Settings");                                                      // Line 226
-	echo T_("Standard Features");                                                     // Line 235
-	echo T_("Online Shop with Your Domain");                                          // Line 252
-	echo T_("Ready to use Jibres Enterprise?");                                       // Line 283
-	echo T_("Get started with our Enterprise plan.");                                 // Line 284
-	echo T_("Get in Touch");                                                          // Line 287
-	echo T_("30 day satisfaction guarantee");                                         // Line 363
-	echo T_("no questions asked!");                                                   // Line 364
-	echo T_("We stand behind our service and we mean it!");                           // Line 365
-	echo T_("Despite our offer 14 days free trial to start use Jibres,");             // Line 365
-	echo T_("if at any time within the first 30 days period you are not happy with Jibres, you can request money back and we will refund it.");// Line 365
-	echo T_("30 day Guarantee");                                                      // Line 370
-
-	//----------------------------------------------------content/privacy/display.html
-	echo T_("What is Privacy?");                                                      // Line 6
-	echo T_("Privacy means that any individual is entitled to choose the information related to them, and selectively, share it with others.");// Line 7
-	echo T_("privacy is so important for mental peace as well as a peaceful personality that some experts have considered invasion of privacy disrespectful to human dignity.");// Line 8
-	echo T_("Controversies over the Invasion of Privacy");                            // Line 10
-	echo T_("Within e-commerce, privacy has always been from among the most controversial topics and continues to be.");// Line 11
-	echo T_("Accordingly, formulating privacy policies is regarded as one of the crucial concerns of technology companies.");// Line 11
-	echo T_("Meanwhile, widespread controversies have been provoked over invasion of privacy in e-commerce so that, occasionally, the regulations have to be revised to eliminate the existing weaknesses.");// Line 11
-	echo T_("Privacy from Our Point of View");                                        // Line 13
-	echo T_("Let us be straightforward! Cyberspace is not a safe location for personal information.");// Line 14
-	echo T_("For that reason, Jibres makes no request for important information of yours and allow to save some general information including age, gender, education, interests, etc is only for private use of your team or company.");// Line 15
-	echo T_("It is worth mentioning that recording the aforementioned points is totally voluntary.");// Line 15
-	echo T_("However, taking the nature of cyberspace into account, we should remember that offering an absolute assurance might not be possible.");// Line 16
-	echo T_("Assuring privacy and security, with that ideal concept we bear in mind, does not exist; and if somebody gives you an assurance of securing your privacy, he has certainly abused your trust.");// Line 16
-	echo T_("Upon buying any digital or the so-called smart device, you have invaded your own privacy yourself.");// Line 17
-	echo T_("If you want your privacy not to be invaded, you should depart from technology and say goodbye to any digital and smart device.");// Line 17
-	echo T_("In fact, we have employed all updated technologies of the world to provide you with the maximum security.");// Line 17
-	echo T_("As the final remark, we wish to assure you that our main concern is to secure your privacy and protect your information against impermissible access.");// Line 19
-
-	//---------------------------------------content/socialresponsibility/display.html
-	echo T_("Social responsibility refers to our role in maintaining, caring about and helping our society, while having set as its goal a responsibility-centered enterprise along with wealth production.");// Line 6
-	echo T_("The issue of the social responsibility of organizations and corporations towards the society is from among the important issues being focused on in recent years.");// Line 8
-	echo T_("The social responsibility of organizations relates to the organization's responsibility towards society, human beings and the environment in which they are active.");// Line 8
-	echo T_("Based on the mentioned definitions of social responsibility, Jibres considers itself committed to society. Accordingly, besides attempting to offer creative and effective services, Jibres has invariably had social responsibility as one of its most important missions and, God willing, will continue to do so.");// Line 10
-	echo T_("Environmentalist");                                                      // Line 12
-	echo T_("In spite of technological advancements, paper usage is unfortunately preferred to modern ways. One of Jibres's objectives is trying to change this habit and contribute to the elimination of paper from the routine life and, therefore, to save the environment.");// Line 13
-	echo T_("Philanthropist Activities");                                             // Line 15
-	echo T_("One of the most valuable resources of charity organizations is the voluntary and active participation of the individuals who, without any expectations, provide them with their skillfulness and capital.");// Line 16
-	echo T_("Jibres as well, with regard to its contribution to philanthropist activities, will honorably provide them with its services free of charge. To make use of these services, send your identity documents along with your request to Jibres's support center.");// Line 17
-	echo T_("Recruiting Motivated Staff");                                            // Line 19
-	echo T_("An outstanding characteristic of any organization is its specialized and highly motivated staff, playing a vital role in growth and development.");// Line 20
-	echo T_("By the same token, we are always looking for creative and motivated Iranian youths in order to make the best and be effective in cooperation with them.");// Line 20
-	echo T_("Join us and grow in a different location.");                             // Line 20
-	echo T_("Customer Care and Complete Satisfaction");                               // Line 23
-	echo T_("Attracting people's participation as well as having their valuable presence has always been a great honor for Jibres and to appreciate your support, in return, Jibres presents services to promote customer satisfaction.");// Line 24
-	echo T_("These services are presented in different time intervals and are aimed at costomer care mission and appreciation of your valuable presence.");// Line 24
-
 	//--------------------------------------------------------content/main/layout.html
 	echo T_("Next →");                                                                // Line 33
 	echo T_("← Back");                                                                // Line 33
 	echo T_("Skip");                                                                  // Line 27
 	echo T_("Done");                                                                  // Line 33
-
-	//--------------------------------------------------content/changelog/display.html
-	echo T_("Date");                                                                  // Line 48
-	echo T_("Description");                                                           // Line 230
-	echo T_("We are Developers, please wait!");                                       // Line 18
-	echo T_("Version 1 of Jibres will be released.");                                 // Line 24
-	echo T_("add support of digital scale barcode and get weight of product automatically.");// Line 30
-	echo T_("We reach 1B+ Toman sold on Jibres.");                                    // Line 36
-	echo T_("We reach 100M+ Toman sold on Jibres.");                                  // Line 42
-	echo T_("We reach 10000 factor records.");                                        // Line 48
-	echo T_("First factor of first store is generated.");                             // Line 54
-	echo T_("Our first store on web is created and start add product to store.");     // Line 60
-	echo T_("Beta version is released.");                                             // Line 66
-	echo T_("Alfa version is released.");                                             // Line 72
-	echo T_("We restart plans to run Jibres at Ermile.");                             // Line 78
-	echo T_("The name of project selected as Jibres and <a href='https://Jibres.ir' target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> domains are registered.");// Line 84
-	echo T_("Create git repository and first commit is pushed.");                     // Line 90
-	echo T_("Database is completely designed and implementated.");                    // Line 96
-	echo T_("02:00 AM");                                                              // Line 101
-	echo T_("Start database analysis of Jibres.");                                    // Line 102
-	echo T_("We were born to do Best!");                                              // Line 108
-	echo T_("Be patient...");                                                         // Line 114
-
-	//-------------------------------------------------------content/blog/display.html
-	echo T_("View your current location and navigate to parent of it");               // Line 7
 
 	//-----------------------------------------------------content_p/home/display.html
 	echo T_("Product Code");                                                          // Line 41
@@ -461,11 +187,13 @@ class twigTransTerms
 	echo T_("Cancel");                                                                // Line 41
 	echo T_("Back");                                                                  // Line 31
 	echo T_("Track id");                                                              // Line 139
+	echo T_("Date");                                                                  // Line 48
 	echo T_("Payment");                                                               // Line 118
 	echo T_("Parsian");                                                               // Line 45
 	echo T_("Detail");                                                                // Line 36
 
 	//-----------------------------------------includes/html/display-enter-blocks.html
+	echo T_("Mobile");                                                                // Line 411
 	echo T_("Please enter valid mobile number");                                      // Line 16
 	echo T_("Enter correct iranian mobile starting with zero like 0935");             // Line 16
 	echo T_("Enter your mobile number");                                              // Line 16
@@ -483,8 +211,10 @@ class twigTransTerms
 	echo T_("Send this code to our number!");                                         // Line 87
 	echo T_("send to this number");                                                   // Line 94
 	echo T_("Send code to this number!");                                             // Line 94
+	echo T_("Name");                                                                  // Line 154
 	echo T_("We will call you with this name");                                       // Line 103
 	echo T_("Full name");                                                             // Line 110
+	echo T_("Email");                                                                 // Line 99
 	echo T_("email");                                                                 // Line 32
 	echo T_("Enter a valid eamil!");                                                  // Line 373
 	echo T_("username");                                                              // Line 127
@@ -558,6 +288,9 @@ class twigTransTerms
 	echo T_("Payir");                                                                 // Line 201
 
 	//-----------------------------------------------includes/html/inc_commentadd.html
+	echo T_("Full Name");                                                             // Line 155
+	echo T_("Please enter valid mobile number. `:val` is incorrect");                 // Line 162
+	echo T_("Send");                                                                  // Line 177
 
 	//-------------------------------------------------includes/html/display-dash.html
 	echo T_("Edit your profile");                                                     // Line 49
@@ -596,7 +329,7 @@ class twigTransTerms
 	echo T_("Reports");                                                               // Line 239
 	echo T_("Daily report");                                                          // Line 20
 	echo T_("Monthly report");                                                        // Line 20
-	echo T_("Setting");                                                               // Line 99
+	echo T_("Setting");                                                               // Line 139
 	echo T_("Store plans");                                                           // Line 49
 	echo T_("Factor settings");                                                       // Line 50
 	echo T_("Shift transformation");                                                  // Line 56
@@ -1280,11 +1013,12 @@ class twigTransTerms
 	//----------------------------------------------content_a/setting/sms/display.html
 	echo T_("Charge your sms account");                                               // Line 11
 	echo T_("Enter an amount to charge your sms account");                            // Line 12
-	echo T_("Amount");                                                                // Line 22
-	echo T_("Checkout");                                                              // Line 23
+	echo T_("Amount");                                                                // Line 19
+	echo T_("Checkout");                                                              // Line 20
 	echo T_("Your sms balance");                                                      // Line 33
 
 	//------------------------------------------content_a/setting/general/display.html
+	echo T_("Description");                                                           // Line 230
 	echo T_("Stroe settings");                                                        // Line 35
 	echo T_("Set your store address");                                                // Line 38
 	echo T_("Store legal information");                                               // Line 39
@@ -1309,7 +1043,7 @@ class twigTransTerms
 	echo T_("Fund title");                                                            // Line 102
 	echo T_("Enter a valid name from 3 to 40 character");                             // Line 79
 	echo T_("Status");                                                                // Line 217
-	echo T_("Action");                                                                // Line 100
+	echo T_("Action");                                                                // Line 142
 	echo T_("Pos");                                                                   // Line 443
 	echo T_("Select pos");                                                            // Line 159
 	echo T_("Select city");                                                           // Line 147
@@ -1383,12 +1117,14 @@ class twigTransTerms
 	echo T_("Period");                                                                // Line 332
 	echo T_("Plan expire date");                                                      // Line 295
 	echo T_("Require");                                                               // Line 160
-	echo T_("Promo code");                                                            // Line 31
+	echo T_("Promo code");                                                            // Line 28
 	echo T_("If you have promo code, enter it to give some discount!");               // Line 124
 	echo T_("Choose your plan");                                                      // Line 252
 	echo T_("Simple");                                                                // Line 274
 	echo T_("Standard");                                                              // Line 244
 	echo T_("Choose your plan period");                                               // Line 159
+	echo T_("Pay monthly");                                                           // Line 163
+	echo T_("Pay yearly");                                                            // Line 169
 	echo T_("two month is free");                                                     // Line 169
 
 	//------------------------------------------content_a/setting/plan/choosePlan.html
@@ -1400,11 +1136,29 @@ class twigTransTerms
 	echo T_("Cancel plan change process");                                            // Line 15
 	echo T_("Trial");                                                                 // Line 269
 	echo T_("14 days free trial");                                                    // Line 39
+	echo T_("FREE");                                                                  // Line 46
 	echo T_("Totaly Free");                                                           // Line 51
+	echo T_("Free Invoicing");                                                        // Line 55
+	echo T_("Online Accounting");                                                     // Line 56
 	echo T_("Starter");                                                               // Line 70
-	echo T_("Renew");                                                                 // Line 54
+	echo T_("Monthly");                                                               // Line 33
+	echo T_("Annually");                                                              // Line 205
+	echo T_("First Year");                                                            // Line 205
+	echo T_("vCard Website");                                                         // Line 96
+	echo T_("Staff Accounts");                                                        // Line 97
+	echo T_("Increase Basic Limits");                                                 // Line 98
+	echo T_("Renew");                                                                 // Line 71
 	echo T_("Choose plan");                                                           // Line 226
 	echo T_("Yearly");                                                                // Line 267
+	echo T_("Advance Reports");                                                       // Line 153
+	echo T_("All Invoice Types");                                                     // Line 154
+	echo T_("Product Intro Website");                                                 // Line 155
+	echo T_("Without Limit");                                                         // Line 156
+	echo T_("Online Store");                                                          // Line 211
+	echo T_("News website");                                                          // Line 212
+	echo T_("Shop with Your Domain");                                                 // Line 213
+	echo T_("Full Permission Control");                                               // Line 214
+	echo T_("Search Engine Optimized");                                               // Line 215
 	echo T_("Change plan manual");                                                    // Line 247
 
 	//----------------------------------------content_a/setting/plan/choosePeriod.html
@@ -1464,6 +1218,7 @@ class twigTransTerms
 	echo T_("Slug of team for board url");                                            // Line 213
 	echo T_("Link your logo on board for visitors");                                  // Line 220
 	echo T_("For show in factors");                                                   // Line 245
+	echo T_("All the basics for personal use.");                                      // Line 256
 	echo T_("Everything you need for a growing business.");                           // Line 262
 	echo T_("Everything in Free plus automatic report via Telegram.");                // Line 274
 	echo T_("Full");                                                                  // Line 278
@@ -1507,7 +1262,7 @@ class twigTransTerms
 	echo T_("Pos issuer bank");                                                       // Line 28
 	echo T_("Add pos");                                                               // Line 46
 	echo T_("Bank");                                                                  // Line 58
-	echo T_("Default");                                                               // Line 29
+	echo T_("Default");                                                               // Line 68
 	echo T_("Is default");                                                            // Line 112
 	echo T_("PcPos");                                                                 // Line 76
 	echo T_("Set as default");                                                        // Line 90
@@ -1563,6 +1318,7 @@ class twigTransTerms
 	echo T_("Customer");                                                              // Line 56
 	echo T_("Supplier");                                                              // Line 116
 	echo T_("Items");                                                                 // Line 118
+	echo T_("Price");                                                                 // Line 20
 	echo T_("VAT");                                                                   // Line 279
 	echo T_("Invoice Date");                                                          // Line 124
 	echo T_("Operation");                                                             // Line 128
@@ -1570,7 +1326,7 @@ class twigTransTerms
 	echo T_("Quick");                                                                 // Line 148
 	echo T_("More");                                                                  // Line 183
 	echo T_("Sale");                                                                  // Line 270
-	echo T_("Buy");                                                                   // Line 76
+	echo T_("Buy");                                                                   // Line 191
 	echo T_("Prefactor");                                                             // Line 308
 	echo T_("Lending");                                                               // Line 320
 	echo T_("Backbuy");                                                               // Line 215
@@ -1726,7 +1482,7 @@ class twigTransTerms
 	echo T_("Key");                                                                   // Line 78
 	echo T_("cat");                                                                   // Line 166
 	echo T_("Add or select");                                                         // Line 67
-	echo T_("Value");                                                                 // Line 71
+	echo T_("Value");                                                                 // Line 68
 
 	//--------------------------------------------------content_a/category/layout.html
 	echo T_("Property");                                                              // Line 22
@@ -1853,7 +1609,7 @@ class twigTransTerms
 	echo T_("Your input file contains a number of records that have ID, and if you import this file your existing products by this ids will be replaced with new data");// Line 65
 	echo T_("Count record have ID");                                                  // Line 67
 	echo T_("Founded id");                                                            // Line 69
-	echo T_("Never mind");                                                            // Line 29
+	echo T_("Never mind");                                                            // Line 35
 	echo T_("I sure. I want to overwrite that products");                             // Line 81
 	echo T_("import products");                                                       // Line 71
 
@@ -1926,6 +1682,7 @@ class twigTransTerms
 	echo T_("Min stock");                                                             // Line 314
 	echo T_("Max stock");                                                             // Line 323
 	echo T_("Available");                                                             // Line 334
+	echo T_("Soon");                                                                  // Line 335
 	echo T_("Unavailable");                                                           // Line 336
 	echo T_("Discountinued");                                                         // Line 337
 	echo T_("Oversale");                                                              // Line 350
@@ -2038,6 +1795,7 @@ class twigTransTerms
 	echo T_("The ticket content");                                                    // Line 33
 	echo T_("Required");                                                              // Line 111
 	echo T_("The ticket title");                                                      // Line 46
+	echo T_("Optional");                                                              // Line 39
 
 	//----------------------------content_api/v1/doc/045-ticket/030-ticket-solved.html
 	echo T_("Set solved ticket");                                                     // Line 3
@@ -2130,7 +1888,7 @@ class twigTransTerms
 	echo T_("Requests should be made using the HTTPS protocol so that traffic is encrypted.");// Line 5
 	echo T_("The interface responds to different methods depending on the action required.");// Line 5
 	echo T_("Method");                                                                // Line 114
-	echo T_("Usage");                                                                 // Line 17
+	echo T_("Usage");                                                                 // Line 56
 	echo T_("For simple retrieval of information about your something you should use the GET method.");// Line 19
 	echo T_("The information you request will be returned to you as a JSON object."); // Line 19
 	echo T_("The attributes defined by the JSON object can be used to form additional requests.");// Line 21
@@ -2755,9 +2513,9 @@ class twigTransTerms
 	echo T_("National card photo");                                                   // Line 37
 
 	//-----------------------------------------content_crm/member/billing/display.html
-	echo T_("Billing History");                                                       // Line 65
-	echo T_("Budget After");                                                          // Line 72
-	echo T_("Invoice");                                                               // Line 73
+	echo T_("Billing History");                                                       // Line 62
+	echo T_("Budget After");                                                          // Line 69
+	echo T_("Invoice");                                                               // Line 70
 	echo T_("The user have not payment history yet!");                                // Line 77
 
 	//-------------------------------------------content_crm/member/notif/display.html
@@ -2766,6 +2524,7 @@ class twigTransTerms
 	echo T_("Sub text");                                                              // Line 26
 	echo T_("Sender");                                                                // Line 34
 	echo T_("Large icon");                                                            // Line 39
+	echo T_("Icon");                                                                  // Line 88
 	echo T_("Select one item");                                                       // Line 232
 	echo T_("On click");                                                              // Line 63
 	echo T_("Link");                                                                  // Line 33
@@ -2919,7 +2678,7 @@ class twigTransTerms
 	echo T_("Subdomain");                                                             // Line 12
 	echo T_("Url");                                                                   // Line 14
 	echo T_("Send to");                                                               // Line 67
-	echo T_("Date created");                                                          // Line 19
+	echo T_("Date created");                                                          // Line 58
 	echo T_("Date modified");                                                         // Line 92
 	echo T_("Try to start with add new record!");                                     // Line 165
 
@@ -3300,6 +3059,7 @@ class twigTransTerms
 	echo T_("Agent");                                                                 // Line 60
 	echo T_("Avg time");                                                              // Line 104
 	echo T_("Status code");                                                           // Line 116
+	echo T_("Domain");                                                                // Line 19
 	echo T_("Referer url");                                                           // Line 134
 	echo T_("All publish visitor");                                                   // Line 176
 	echo T_("All draft visitor");                                                     // Line 185
@@ -3348,7 +3108,7 @@ class twigTransTerms
 	echo T_("Number of times your link has been opened.");                            // Line 51
 	echo T_("REFERRALS");                                                             // Line 55
 	echo T_("People who enter to Jibres using your link.");                           // Line 56
-	echo T_("Promo Code");                                                            // Line 37
+	echo T_("Promo Code");                                                            // Line 34
 	echo T_("People who connected to you with promo code.");                          // Line 61
 	echo T_("Total you refed");                                                       // Line 66
 	echo T_("Sum of people referred from you.");                                      // Line 67
@@ -3443,11 +3203,11 @@ class twigTransTerms
 
 	//--------------------------------------------content_account/billing/display.html
 	echo T_("Charge your account");                                                   // Line 25
-	echo T_("Enter an amount to charge your account");                                // Line 15
-	echo T_("If you have a promo code, please enter it below to receive your credit.");// Line 32
-	echo T_("Apply Code");                                                            // Line 38
-	echo T_("Your credit");                                                           // Line 54
-	echo T_("You are not have payment history yet!");                                 // Line 121
+	echo T_("Enter an amount to charge your account");                                // Line 12
+	echo T_("If you have a promo code, please enter it below to receive your credit.");// Line 29
+	echo T_("Apply Code");                                                            // Line 35
+	echo T_("Your credit");                                                           // Line 51
+	echo T_("You are not have payment history yet!");                                 // Line 118
 
 	//-----------------------------------------------content_account/home/display.html
 	echo T_("Welcome");                                                               // Line 15
@@ -3781,6 +3541,7 @@ class twigTransTerms
 	//-----------------------------------------------content_support/home/article.html
 	echo T_("In this section");                                                       // Line 24
 	echo T_("Short link");                                                            // Line 445
+	echo T_("Your Message");                                                          // Line 171
 
 	//---------------------------------------------content_support/home/dashboard.html
 	echo T_("Search result");                                                         // Line 33
@@ -3860,32 +3621,37 @@ class twigTransTerms
 	//------------------------------------------------content_support/tag/display.html
 
 	//---------------------------------------------content_domain/setting/display.html
-	echo T_("Lock domain");                                                           // Line 18
-	echo T_("Unlock domain");                                                         // Line 27
-	echo T_("Renew domain");                                                          // Line 34
-	echo T_("1 Year");                                                                // Line 98
-	echo T_("5 Year");                                                                // Line 104
+	echo T_("Expire date");                                                           // Line 138
+	echo T_("Lock domain");                                                           // Line 19
+	echo T_("Unlock domain");                                                         // Line 28
+	echo T_("Disalbe Auto renew");                                                    // Line 39
+	echo T_("Enable Auto renew");                                                     // Line 46
+	echo T_("Renew domain");                                                          // Line 51
+	echo T_("1 Year");                                                                // Line 102
+	echo T_("5 Year");                                                                // Line 108
 	echo T_("I have read and agree to the terms and conditions");                     // Line 31
 	echo T_("Show terms");                                                            // Line 31
 
 	//-------------------------------------------------content_domain/buy/display.html
-	echo T_("Domain is occupied");                                                    // Line 80
+	echo T_("Domain is occupied");                                                    // Line 195
 	echo T_("Whois");                                                                 // Line 6
+	echo T_("Invalid domain");                                                        // Line 33
+	echo T_("Check domain");                                                          // Line 85
+	echo T_("Domain is available");                                                   // Line 188
 	echo T_("IRNIC contact");                                                         // Line 11
 	echo T_("Create new IRNIC contact");                                              // Line 11
 	echo T_("IRNIC contact id");                                                      // Line 13
-	echo T_("DNS records");                                                           // Line 110
-	echo T_("Create new DNS");                                                        // Line 110
-	echo T_("DNS record");                                                            // Line 112
+	echo T_("DNS records");                                                           // Line 114
+	echo T_("Create new DNS");                                                        // Line 114
+	echo T_("DNS record");                                                            // Line 116
 	echo T_("DNS #1");                                                                // Line 14
 	echo T_("DNS #2");                                                                // Line 18
 	echo T_("DNS #3");                                                                // Line 38
 	echo T_("DNS #4");                                                                // Line 42
 
 	//-------------------------------------------------content_domain/dns/display.html
-	echo T_("Manage dns");                                                            // Line 42
-	echo T_("No dns founded");                                                        // Line 49
-	echo T_("Try to add new dns!");                                                   // Line 51
+	echo T_("Manage dns");                                                            // Line 81
+	echo T_("Try to start with add new dns!");                                        // Line 114
 
 	//--------------------------------------------content_domain/dns/edit/display.html
 	echo T_("Remove contact");                                                        // Line 63
@@ -3902,14 +3668,13 @@ class twigTransTerms
 	echo T_("Edit DNS record");                                                       // Line 77
 
 	//---------------------------------------------content_domain/contact/display.html
-	echo T_("NIC ID");                                                                // Line 17
+	echo T_("NIC ID");                                                                // Line 56
 	echo T_("Holder");                                                                // Line 36
 	echo T_("Admin");                                                                 // Line 37
 	echo T_("Technical");                                                             // Line 38
 	echo T_("billing");                                                               // Line 39
-	echo T_("Modified");                                                              // Line 39
-	echo T_("No contact founded");                                                    // Line 48
-	echo T_("Try to add new contact!");                                               // Line 50
+	echo T_("Modified");                                                              // Line 78
+	echo T_("Try to start with add new contact!");                                    // Line 113
 
 	//----------------------------------------content_domain/contact/edit/display.html
 	echo T_("Check data from IRNIC server and update contact");                       // Line 42
@@ -3917,19 +3682,24 @@ class twigTransTerms
 
 	//-----------------------------------------content_domain/contact/add/display.html
 	echo T_("Add an existing account");                                               // Line 43
-	echo T_("Create new account");                                                    // Line 64
+	echo T_("Create new contact");                                                    // Line 23
 	echo T_("Account id");                                                            // Line 45
 	echo T_("Add contact");                                                           // Line 133
+	echo T_("Create new account");                                                    // Line 64
 	echo T_("Enter in Latin characters");                                             // Line 190
 	echo T_("Nationalcode or Passport number");                                       // Line 91
 
 	//------------------------------------------------content_domain/home/display.html
-	echo T_("DNS list");                                                              // Line 23
-	echo T_("Domain contact");                                                        // Line 32
+	echo T_("DNS list");                                                              // Line 46
+	echo T_("Domain contact");                                                        // Line 55
 	echo T_("Buy domain");                                                            // Line 7
 	echo T_("Transfer domain");                                                       // Line 8
-	echo T_("Expire date");                                                           // Line 98
-	echo T_("Manage domain");                                                         // Line 111
+	echo T_("Last change");                                                           // Line 140
+	echo T_("DNS");                                                                   // Line 141
+	echo T_("Auto renew enabled");                                                    // Line 152
+	echo T_("Without change");                                                        // Line 158
+	echo T_("Manage domain");                                                         // Line 166
+	echo T_("Try to start with add new domain!");                                     // Line 215
 
 	//------------------------------------------------------content_domain/layout.html
 

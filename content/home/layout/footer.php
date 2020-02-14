@@ -47,7 +47,7 @@ $kingdom = \dash\url::kingdom();
 
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('eCommerce'); ?></h3>
-            <a href="<?php echo $kingdom; ?>/benefits"><?php echo T_('All-in-One'); ?></a>
+            <a href="<?php echo $kingdom; ?>/benefits"><?php echo T_('Benefits'); ?></a>
             <a href="<?php echo $kingdom; ?>/pricing"><?php echo T_('Pricing'); ?></a>
           </nav>
 
