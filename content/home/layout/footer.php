@@ -110,10 +110,11 @@
           echo "<a hreflang='fa' data-direct href='https://jibres.ir'>فارسی</a>";
         }
       ?></nav>
-      <nav class="c3 share1">
+      <nav class="cauto os share1">
         <a target="_blank" href="https://www.facebook.com/jibres" class="facebook">Become a Jibres fan on facebook</a>
         <a target="_blank" href="https://twitter.com/jibres_com" class="twitter">Follow Jibres on Twitter</a>
         <a target="_blank" href="https://linkedin.com/jibres_com" class="linkedin">Connect to Jibres on Linkedin</a>
+        <a target="_blank" href="https://github.com/jibres" class="github">Connect to Jibres on Github</a>
         <a target="_blank" href="https://t.me/jibres" class="telegram">Join Jibres Telegram Channel</a>
         <a target="_blank" href="https://instagram.com/jibres_com" class="instagram">Follow Jibres on Instagram</a>
       </nav>

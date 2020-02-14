@@ -38,8 +38,8 @@ svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute
 
 // last line
 #jibresLastLine{position:relative;overflow:hidden;background-color:#fff;color: #444;line-height:30px;padding: 20px 0 30px;border-top:1px solid rgba(14,19,24,.15);}
-#jibresLastLine .langlist{text-align:center;}
-#jibresLastLine .langlist a{background-color: rgba(0,0,0,0.1);border-radius:3px;display:inline-block;padding:5px 10px;}
+#jibresLastLine .langlist{}
+#jibresLastLine .langlist a{background-color: rgba(0,0,0,0.03);border-radius:3px;display:inline-block;padding:5px 10px;min-width:70px;text-align: center;margin:0 10px;}
 #jibresLastLine nav.share1 a{display: inline-block;border-radius:50%;}
 // share links
 .share1 a{position:relative;display:inline-block;vertical-align:top;overflow:hidden;margin:5px;width:35px;height:35px;font-size:0;line-height:0;background-color:#333;}
