@@ -153,7 +153,9 @@ CREATE TABLE IF NOT EXISTS `domain` (
 `datemodified` timestamp NULL DEFAULT NULL,
 
 PRIMARY KEY (`id`),
-KEY `domain_index_search_name` (`name`)
+KEY `domain_index_search_name` (`name`),
+CONSTRAINT `domain_dns` FOREIGN KEY (`dns`) REFERENCES `dns` (`id`) ON UPDATE CASCADE
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
