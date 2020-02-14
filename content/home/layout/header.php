@@ -1,7 +1,7 @@
   <div id="jibresHeader">
    <div class="fit">
     <div class="f">
-     <div class="cauto pRa10">
+     <div class="cauto">
       <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
        <img <?php
         if (\dash\language::current() === 'fa')
@@ -21,7 +21,7 @@
        <a class="s0" href="<?php echo \dash\url::kingdom() ?>/domain"><?php echo T_("Domains"); ?></a>
        <a class="s0" href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
      </nav>
-     <nav class="cauto">
+     <div class="cauto">
       <?php
 if (\dash\user::id())
 {
@@ -41,7 +41,7 @@ else
  echo '<a data-to="signup" href="'. \dash\url::sitelang(). '/enter/signup" data-direct>'. T_("SIGN UP"). '</a>';
 }
 ?>
-     </nav>
+     </div>
     </div>
    </div>
   </div>
