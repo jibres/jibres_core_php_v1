@@ -197,14 +197,14 @@ function addNewComment()
 
           <div class="input">
            <label class="addon" for="name"><?php echo T_("Name"); ?></label>
-           <input type="text" name="name" id="name" placeholder='<?php echo T_("Full Name"); ?>' maxlength='40' value="{{user.displayname}}">
+           <input type="text" name="name" id="name" placeholder='<?php echo T_("Full Name"); ?>' maxlength='40' value="<?php echo \dash\user::detail('displayname'); ?>">
           </div>
 
         </div>
         <div class="c">
           <div class="input">
            <label class="addon" for="mobile"><?php echo T_("Mobile"); ?></label>
-           <input type="tel" name="mobile" id="mobile" placeholder='<?php echo T_("Mobile"); ?>' maxlength="13" autocomplete="off" data-validity='<?php echo T_("Please enter valid mobile number. `:val` is incorrect"); ?>' value="{{user.mobile}}">
+           <input type="tel" name="mobile" id="mobile" placeholder='<?php echo T_("Mobile"); ?>' maxlength="13" autocomplete="off" data-validity='<?php echo T_("Please enter valid mobile number. `:val` is incorrect"); ?>' value="<?php echo \dash\user::detail('mobile'); ?>">
           </div>
         </div>
 

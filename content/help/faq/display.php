@@ -11,11 +11,11 @@
      </li>
      <li>
       <h4><?php echo T_("What is your privacy and security policy?"); ?></h4>
-      <p><?php echo T_("View Jibres's privacy and security policy at"); ?> <a href='{{url.here}}/privacy'>{{url.here}}/privacy</a></p>
+      <p><?php echo T_("View Jibres's privacy and security policy at"); ?> <a href='<?php echo \dash\url::here(); ?>/privacy'><?php echo \dash\url::here(); ?>/privacy</a></p>
      </li>
      <li>
       <h4><?php echo T_("Where can I find your Terms of Service (TOS)?"); ?></h4>
-      <p><?php echo T_("You can find them at"); ?>  <a href='{{url.here}}/terms'>{{url.here}}/terms</a></p>
+      <p><?php echo T_("You can find them at"); ?>  <a href='<?php echo \dash\url::here(); ?>/terms'><?php echo \dash\url::here(); ?>/terms</a></p>
      </li>
      <li>
       <h4><?php echo T_("What are your bandwidth fees?"); ?></h4>
