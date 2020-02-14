@@ -4,13 +4,27 @@
      <div class="cauto pRa10">
       <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
        <img src='<?php echo \dash\url::static();
-       if (\dash\language::current() === 'fa')
+       if (\dash\url::module() === null)
        {
-        echo "/logo/fa/svg/Jibres-Logo-fa.svg";
+        if (\dash\language::current() === 'fa')
+        {
+         echo "/logo/fa-white/svg/Jibres-Logo-fa-white.svg";
+        }
+        else
+        {
+         echo "/logo/en-white/svg/Jibres-Logo-en-white.svg";
+        }
        }
        else
        {
-        echo "/logo/en/svg/Jibres-Logo-en.svg";
+        if (\dash\language::current() === 'fa')
+        {
+         echo "/logo/fa/svg/Jibres-Logo-fa.svg";
+        }
+        else
+        {
+         echo "/logo/en/svg/Jibres-Logo-en.svg";
+        }
        }
        ?>' alt='<?php echo T_("Jibres"). ' | '. \dash\data::site_slogan(); ?>'>
        <h1><?php echo T_("Jibres"); ?></h1>
