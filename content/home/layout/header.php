@@ -1,7 +1,7 @@
   <div id="jibresHeader">
    <div class="fit">
     <div class="f">
-     <div class="cauto">
+     <div class="cauto s12">
       <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
        <img <?php
         if (\dash\language::current() === 'fa')
@@ -16,12 +16,12 @@
        <h1><?php echo T_("Jibres"); ?></h1>
       </a>
      </div>
-     <nav class="c">
-       <a class="s0" href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
-       <a class="s0" href="<?php echo \dash\url::kingdom() ?>/domain"><?php echo T_("Domains"); ?></a>
-       <a class="s0" href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
+     <nav class="c s0">
+       <a href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
+       <a href="<?php echo \dash\url::kingdom() ?>/domain"><?php echo T_("Domains"); ?></a>
+       <a href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
      </nav>
-     <div class="cauto">
+     <div class="cauto s12">
       <?php
 if (\dash\user::id())
 {
