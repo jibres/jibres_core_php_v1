@@ -228,11 +228,5 @@ else
 </article>
 
 
-<?php
-require_once ('section-styleguide.php');
-?>
-
-
-
  </div>
 </div>

@@ -1,7 +1,5 @@
 <div class="jibresBanner">
- <div class="fit">
-<?php
-echo T_("Soon");
-?>
+ <div class="fit zero">
+<?php require_once ('section-styleguide.php'); ?>
  </div>
 </div>
