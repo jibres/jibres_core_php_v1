@@ -178,9 +178,12 @@ class run
 				$msg = T_("Object is not eligible for renewal");
 				break;
 
+			case 1301:
+				$msg = T_("Command completed successfully; ack to dequeue");
+				break;
+
 			case 1001:
 			case 1300:
-			case 1301:
 			case 1500:
 			case 2000:
 			case 2001:
