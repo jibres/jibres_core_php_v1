@@ -1,137 +1,162 @@
-{%extends display.main%}
 
-
-{%block page%}
 
 <div class="blogEx box">
-{%if datarow.type == 'post' or datarow.type == 'page' %}
-  {{block('posts')}}
-{%else%}
-  {{block('terms')}}
-{%endif%}
+<?php
+if(\dash\data::datarow_type() === 'post' || \dash\data::datarow_type() === 'page')
+{
+  loadPostTemplate();
+}
+else
+{
+  loadTermsTemplate();
+}
+?>
 </div>
 
-{%endblock%}
+
+<?php
+function loadPostTemplate()
+{
+?>
 
 
-
-{%block posts%}
 <article>
   <section>
-{%if datarow.meta.thumb%}
-  <a href="{{datarow.link}}" class="thumb">
-      <img src="{{datarow.meta.thumb}}" alt="{{datarow.title}}">
+
+  <?php
+  $meta = \dash\data::datarow_meta();
+  if(isset($meta['thumb']))
+  {
+  ?>
+
+  <a href="<?php echo \dash\data::datarow_link(); ?>" class="thumb">
+      <img src="<?php echo $meta['thumb']; ?>" alt="<?php echo \dash\data::datarow_title(); ?>">
   </a>
-{%endif%}
-    <div>
-{{datarow.content | raw}}
-    </div>
 
-{{block('imagegallery')}}
+  <?php
+  }  // endif
+  ?>
 
-{%if datarow.type == 'post' and datarow.datemodified%}
-    <div class='msg simple f mT20'>
-      <div class="c"><time datetime="{{datarow.datemodified}}">{{datarow.publishdate | dt(true)}}</time></div>
-      <div class="cauto os"><a href="{{url.base}}/n/{{datarow.id}}" title='{%trans "For share via social networks"%}'>{%trans "News Code"%} <span class="txtB">{{datarow.id}}</span></a></div>
-    </div>
-{%endif%}
-    <div class="tagBox msg simple">{{tags({"format" : 'html'})}}</div>
-    <div class="msg">
-{%include 'content/template/shareBox.html'%}
-    </div>
-{{block('postSimilar')}}
-{{block('setPostComment')}}
+  <div><?php echo \dash\data::datarow_content(); ?></div>
+
+  <?php
+  if(isset($meta['gallery']) && is_array($meta['gallery']))
+  {
+    echo '<div class="gallery" id="lightgallery">';
+    foreach ($meta['gallery'] as $key => $myUrl)
+    {
+      $endUrl = substr($myUrl, -4);
+      if(in_array($endUrl, ['.jpg', '.png', '.gif']))
+      {
+        echo '<a data-action href="'. $myUrl.'"><img src="'. $myUrl. '" alt="'. \dash\data::datarow_title(). '"></a>';
+      }
+    }
+    echo '</div>';
+
+    echo '<div class="gallery2">';
+    foreach ($meta['gallery'] as $key => $myUrl)
+    {
+      $endUrl = substr($myUrl, -4);
+      if(in_array($endUrl, ['.mp4']))
+      {
+        echo '<video controls><source src="'. $myUrl. '" type="video/mp4"></video>';
+      }
+      elseif(in_array($endUrl, ['.mp3']))
+      {
+        echo '<audio controls><source src="'. $myUrl .'" type="audio/mpeg"></audio>';
+      }
+      elseif(in_array($endUrl, ['.pdf']))
+      {
+        echo '<a href="'. $myUrl .'" class="btn lg mT25 primary">'. T_("Download"). ' '. T_("PDF"). '</a>';
+      }
+    }
+    echo '</div>';
+  }
+  ?>
+
+
+  <?php
+  if(\dash\data::datarow_type() === 'post' && \dash\data::datarow_datemodified())
+  {
+  ?>
+  <div class='msg simple f mT20'>
+    <div class="c"><time datetime="<?php echo \dash\data::datarow_datemodified(); ?>"><?php echo \dash\fit::date(\dash\data::datarow_publishdate()); ?></time></div>
+    <div class="cauto os"><a href="<?php echo \dash\url::base(). '/n/'. \dash\data::datarow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("News Code"); ?> <span class="txtB"><?php echo \dash\data::datarow_id(); ?></span></a></div>
+  </div>
+
+  <?php
+  } // endif
+  ?>
+
+  <div class="tagBox msg simple">
+    <?php \dash\app\term::load_tag_html(['format' => 'html']) ?>
+  </div>
+
+    <div class="msg"><?php require_once ('shareBox.php');?></div>
+
+    <?php
+      $myPostSimilar = \dash\app\posts::get_post_list(['mode' => 'similar', 'post_id' => \dash\data::datarow_id()]);
+      if($myPostSimilar)
+      {
+        echo '<nav class="msg">';
+        echo '<h4 class="mB20-f">'. T_("Recommended for you"). '</h4>';
+        foreach ($myPostSimilar as $key => $value)
+        {
+          echo '<a class="block" href="'. \dash\url::kingdom().'/n/'. \dash\data::datarow_id().'">'. $value['title']. '</a>';
+        }
+        echo '</nav>';
+      }
+    ?>
+
+
+<?php
+/**
+ * { need to fix }
+ * {%include display.commentadd%}
+ * {%include display.commentlist%}
+ */
+?>
 
   </section>
 </article>
-{%endblock%}
 
-
-
-{%block postSimilar%}
-    {%set myPostSimilar = posts({"mode" : "similar", "post_id" : datarow.id})%}
-
-    {%if myPostSimilar%}
-      <nav class="msg">
-        <h4 class="mB20-f">{%trans "Recommended for you"%}</h4>
-
-        {%for key, value in myPostSimilar%}
-        <a class="block" href="{{url.kingdom}}/n/{{value.id}}">{{value.title}}</a>
-
-        {%endfor%}
-      </nav>
-    {%endif%}
-{%endblock%}
-
-
-
-{%block terms%}
-{%if datarow.type == 'cat'%}
-
-  {%set myPostByThisCat = posts({"cat" : datarow.slug})%}
-
-{%elseif datarow.type == 'tag' %}
-
-  {%set myPostByThisCat = posts({"tag" : datarow.slug})%}
-
-{%endif%}
-
-{%if myPostByThisCat %}
-<article class="postListPreview">
-  {%for key, value in myPostByThisCat%}
-    <section class="f">
-{%if value.meta.thumb%}
-      <div class="cauto s12 pRa10 txtC">
-        <a href="{{value.link}}"><img src="{{value.meta.thumb}}" alt="{{value.title}}" width="150px"></a>
-      </div>
-{%endif%}
-      <div class="c s12">
-        <h3><a href="{{value.link}}">{{value.title}}</a></h3>
-        <p>{{value.excerpt}}</p>
-      </div>
-    </section>
-  {%endfor%}
-</article>
-{%endif%}
-{%endblock%}
-
-
-
-{%block imagegallery%}
-  {%if datarow.meta.gallery%}
-    <div class="gallery" id="lightgallery">
-      {%for key, myUrl in datarow.meta.gallery%}
-        {%if myUrl ends with '.jpg' or myUrl ends with '.png' or myUrl ends with '.gif'%}
-          <a data-action href="{{myUrl}}"><img src="{{myUrl}}" alt="{{datarow.title | raw}}"></a>
-        {%endif%}
-      {%endfor%}
-    </div>
-  {%endif%}
-
-
-    <div class="gallery2">
-      {%for key, myUrl in datarow.meta.gallery%}
-        {%if myUrl ends with '.mp4' %}
-        <video controls>
-            <source src="{{myUrl}}" type="video/mp4">
-        </video>
-        {%elseif myUrl ends with '.mp3' %}
-          <audio controls><source src="{{myUrl}}" type="audio/mpeg"></audio>
-        {%elseif myUrl ends with '.pdf' %}
-        <a href="{{myUrl}}" class="btn lg mT25 primary">{%trans "Download"%} {%trans "PDF"%}</a>
-        {%else%}
-        {%endif%}
-      {%endfor%}
-    </div>
-
-{%endblock%}
+<?php
+} // end function
+?>
 
 
 
 
 
-{%block setPostComment%}
-{%include display.commentadd%}
-{%include display.commentlist%}
-{%endblock%}
 
+<?php
+function loadTermsTemplate()
+{
+  if(\dash\data::datarow_type() === 'cat')
+  {
+    $myPostByThisCat = \dash\app\posts::get_post_list(['cat' => \dash\data::datarow_slug()]);
+  }
+  elseif(\dash\data::datarow_type() === 'tag')
+  {
+    $myPostByThisCat = \dash\app\posts::get_post_list(['tag' => \dash\data::datarow_slug()]);
+  }
+
+  if($myPostByThisCat)
+  {
+    echo "<article class='postListPreview'>";
+
+    foreach ($myPostByThisCat as $key => $value)
+    {
+      echo "<section class='f'>";
+      if(isset($value['meta']['thumb']))
+      {
+        echo "<div class='cauto s12 pRa10 txtC'><a href='$value[link]'><img src='". $value['meta']['thumb']. "' alt='$value[title]' width='100px'></a></div>";
+      }
+      echo "<div class='c s12'><h3><a href='$value[link]'>$value[title]</a></h3><p>$value[excerpt]</p></div>";
+
+      echo "</section>";
+    }
+    echo "</article>";
+  }
+} // end function
+?>
