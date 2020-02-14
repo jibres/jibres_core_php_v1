@@ -35,13 +35,13 @@
         <img src="<?php echo \dash\url::static();
        if (\dash\language::current() === 'fa')
        {
-        echo "/logo/fa-vertical-white/svg/Jibres-Logo-fa-vertical-white.svg";
+        echo "/logo/fa-vertical/svg/Jibres-Logo-fa-vertical.svg";
        }
        else
        {
-        echo "/logo/en-vertical-white/svg/Jibres-Logo-en-vertical-white.svg";
+        echo "/logo/en-vertical/svg/Jibres-Logo-en-vertical.svg";
        }
-       ?>" alt='<?php echo T_("Jibres") ?>'>
+       ?>" alt='<?php echo T_("Jibres Vertical Logo") ?>'>
       </a>
       <figcaption class="c s12"><?php echo \dash\data::site_desc(); ?> <a href="/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
     </figure>

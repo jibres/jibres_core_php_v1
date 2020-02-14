@@ -8,30 +8,26 @@ svg.circle-bottom-left{width: 400px;height:400px;fill:#f7f7f9;position:absolute;
 svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute;right:0;bottom:0;pointer-events:none;z-index: 2;}
 
 // support line
-#jibresSupportLine{background-color: #f7fafc;position:relative;overflow:hidden;padding: 60px 0;color:#c80a5a;text-align: center;font-size: 1.4em;}
+#jibresSupportLine{background-color: #f7fafc;position:relative;overflow:hidden;padding: 60px 0;color:$jibres;text-align: center;font-size: 1.4em;}
 
 // social line
-#jibresSocialLine{background-color: #f7fafc;position:relative;overflow:hidden;padding: 60px 0;color:#c80a5a;text-align: center;font-size: 1.4em;
-	height: 190px;
-    background-size: 4322px 190px;
-    background-image: url(../img/homepage/footer-wave.svg);
-}
-
+#jibresSocialLine:after{content:"";display:block;background-color: #f7fafc;position:relative;overflow:hidden;width:100%;height: 190px;background-size: 4320px 190px;background-image: url(../img/homepage/footer-wave.svg);}
+#jibresSocialLine{background-color: #f7fafc;position:relative;overflow:hidden;padding: 60px 0 0;color:#000;text-align: center;font-size: 1.4em;}
 
 // jibres bottom line
-#jibresBottomLine{height:6px;background-color:#c80a5a;overflow:hidden;transition:0.3s;}
+#jibresBottomLine{height:6px;background-color:$jibres;overflow:hidden;transition:0.3s;}
 
 
 
-#jibresFooter{position:relative;font-size: 1.6em;overflow:hidden;background-color:#2c2a2b;color: #f7f7f9;padding: 60px 0 30px;line-height:25px;}
+#jibresFooter{position:relative;font-size: 1.6em;overflow:hidden;background-color:#fff;color: #333;padding: 60px 0 30px;line-height:25px;}
 #jibresFooter figure{overflow: hidden;margin-bottom: 40px;}
 #jibresFooter figure img{height: 100px;display:block;margin:5px 0}
 #jibresFooter figure figcaption{font-size: 0.9em;line-height: 2;padding: 0 1.5em;}
 
 #jibresFooter nav{margin-bottom: 40px;}
-#jibresFooter nav h3{border-bottom: 1px solid #333;display: block;color: #f7f7f9;padding:5px 0;font-weight:900;font-size:1em;}
+#jibresFooter nav h3{border-bottom: 1px solid #333;display: block;color: #000;padding:5px 0;font-weight:900;font-size:1em;}
 #jibresFooter nav a{display: block;padding:5px 0;}
-#jibresFooter a{color: #f7f7f9;transition:0.3s;font-weight:100;}
+#jibresFooter a{color: #000;transition:0.3s;font-weight:100;}
 #jibresFooter a:hover{color: #efdab9;}
 #jibresFooter a:focus{color: #ffd050;}
 #jibresFooter a:active{color: #D36E2D;}
