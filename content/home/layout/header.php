@@ -3,30 +3,30 @@
     <div class="f">
      <div class="cauto pRa10">
       <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
-       <img src='<?php echo \dash\url::static();
+       <img <?php
        if (\dash\url::module() === null)
        {
         if (\dash\language::current() === 'fa')
         {
-         echo "/logo/fa-white/svg/Jibres-Logo-fa-white.svg";
+         echo "src='". \dash\url::static(). "/logo/fa-white/svg/Jibres-Logo-fa-white.svg". "' alt='". T_('Jibres White Logo'). "'";
         }
         else
         {
-         echo "/logo/en-white/svg/Jibres-Logo-en-white.svg";
+         echo "src='". \dash\url::static(). "/logo/en-white/svg/Jibres-Logo-en-white.svg". "' alt='". T_('Jibres White Logo'). "'";
         }
        }
        else
        {
         if (\dash\language::current() === 'fa')
         {
-         echo "/logo/fa/svg/Jibres-Logo-fa.svg";
+         echo "src='". \dash\url::static(). "/logo/fa/svg/Jibres-Logo-fa.svg". "' alt='". T_('Jibres Logo'). "'";
         }
         else
         {
-         echo "/logo/en/svg/Jibres-Logo-en.svg";
+         echo "src='". \dash\url::static(). "/logo/en/svg/Jibres-Logo-en.svg". "' alt='". T_('Jibres Logo'). "'";
         }
        }
-       ?>' alt='<?php echo T_("Jibres"). ' | '. \dash\data::site_slogan(); ?>'>
+       ?>>
        <h1><?php echo T_("Jibres"); ?></h1>
       </a>
      </div>
