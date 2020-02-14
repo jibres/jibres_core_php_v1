@@ -21,7 +21,7 @@ trait set
 			'title'       => null,
 			'status'      => 'enable',
 			'verify'      => 0,
-			'unit'        => null,
+			'unit'        => 1,
 			'minus'       => null,
 			'plus'        => null,
 			'type'        => null,
@@ -215,7 +215,7 @@ trait set
 
 		if(intval($insert['verify']) === 1)
 		{
-			$budget_before           = self::budget($_args['user_id'], ['type' => $_args['type'], 'unit' => $unit_id]);
+			$budget_before           = self::budget($_args['user_id'], ['type' => $_args['type'], 'unit' => $insert['unit_id']]);
 			$budget_before           = floatval($budget_before);
 
 			$budget                  = $budget_before + (floatval($plus) - floatval($minus));

@@ -93,20 +93,42 @@ class create
 			}
 		}
 
-		// go to bank
+		if(\dash\user::budget() >= $price)
+		{
+			$insert_transaction =
+			[
+				'user_id' => \dash\user::id(),
+				'title'   => T_("Buy domian :val", ['val' => $domain]),
+				'verify'  => 1,
+				'minus'   => $price,
+				'type'    => 'money',
+			];
 
-		$meta =
-		[
-			'msg_go'        => null,
-			'auto_go'       => false,
-			'turn_back'     => \dash\url::kingdom(). '/domain',
-			'user_id'       => \dash\user::id(),
-			'amount'        => abs($price),
-			'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
-			'final_fn_args' => $_args,
-		];
+			$transaction = \dash\db\transactions::set($insert_transaction);
+			if(!$transaction)
+			{
+				\dash\notif::error(T_("No way to insert data"));
+				return false;
+			}
+		}
+		else
+		{
+			// go to bank
 
-		\dash\utility\pay\start::site($meta);
+			$meta =
+			[
+				'msg_go'        => null,
+				'auto_go'       => false,
+				'turn_back'     => \dash\url::kingdom(). '/domain',
+				'user_id'       => \dash\user::id(),
+				'amount'        => abs($price),
+				'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
+				'final_fn_args' => $_args,
+			];
+
+			\dash\utility\pay\start::site($meta);
+
+		}
 
 
 		$ready =

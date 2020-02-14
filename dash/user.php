@@ -325,6 +325,20 @@ class user
 	}
 
 
+
+	public static function budget()
+	{
+		if(!self::id())
+		{
+			return 0;
+		}
+
+		$budget = floatval(\dash\db\transactions::budget(self::id()));
+
+		return $budget;
+	}
+
+
 	public static function fullName($_detail = null)
 	{
 		if(!$_detail || !is_array($_detail))
