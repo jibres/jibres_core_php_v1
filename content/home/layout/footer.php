@@ -2,13 +2,13 @@
   <div class="fit-md">
     <h2><?php echo T_('Jibres Certificates'); ?></h2>
     <div class="f">
-      <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt=''></a></div>
-      <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-bank-markazi.png" alt=''></a></div>
-      <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-shaparak.png" alt=''></a></div>
+      <!-- <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt=''></a></div> -->
+      <!-- <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-bank-markazi.png" alt=''></a></div> -->
+      <!-- <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-shaparak.png" alt=''></a></div> -->
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-bmn.png" alt=''></a></div>
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-enamad.png" alt=''></a></div>
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-nsr.png" alt=''></a></div>
-      <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-brand.png" alt=''></a></div>
+      <!-- <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-brand.png" alt=''></a></div> -->
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-samandehi.png" alt=''></a></div>
     </div>
   </div>

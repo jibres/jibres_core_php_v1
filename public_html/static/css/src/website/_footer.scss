@@ -19,13 +19,13 @@ svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute
 // jibres bottom line
 #jibresBottomLine{height:20px;background-color:$jibres;overflow:hidden;transition:0.3s;}
 
-
-
+// jibres Footer
 #jibresFooter{position:relative;font-size: 1.4em;overflow:hidden;background-color:#fff;color: #444;padding: 70px 0 30px;line-height:30px;}
+// footer jibres info
 #jibresFooter figure{overflow: hidden;margin-bottom: 40px;}
 #jibresFooter figure img{height: 100px;display:block;margin:5px}
 #jibresFooter figure figcaption{padding: 0 1.5em;}
-
+// footer nav links
 #jibresFooter nav{margin-bottom: 40px;}
 #jibresFooter nav h3{border-bottom: 1px solid #eee;display: block;color: #777;padding:5px 0;font-weight:900;font-size:1em;}
 #jibresFooter nav a{display: block;padding:6px 5px;margin-bottom:5px;}
