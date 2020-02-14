@@ -12,7 +12,14 @@ class payir
 	{
 		if(self::$load === null)
 		{
-			$json = \dash\file::read(__DIR__. '/secret/payment_payir.secret.json');
+			if(\dash\url::isLocal())
+			{
+				$json = \dash\file::read(__DIR__. '/secret/payment_payir_local.secret.json');
+			}
+			else
+			{
+				$json = \dash\file::read(__DIR__. '/secret/payment_payir.secret.json');
+			}
 			if($json && is_string($json))
 			{
 				$json = json_decode($json, true);
