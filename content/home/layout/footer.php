@@ -51,12 +51,21 @@ $kingdom = \dash\url::kingdom();
             <a href="<?php echo $kingdom; ?>/pricing"><?php echo T_('Pricing'); ?></a>
           </nav>
 
+          <?php
+          if (false)
+          {
+          ?>
+
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('Domains'); ?></h3>
             <a href="<?php echo $kingdom; ?>/domain"><?php echo T_('Domain Name Search'); ?></a>
             <a href="<?php echo $kingdom; ?>/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
             <a href="<?php echo $kingdom; ?>/whois"><?php echo T_('Whois Lookup'); ?></a>
           </nav>
+
+          <?php
+          } // endif
+          ?>
 
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('Jibres Company'); ?></h3>
