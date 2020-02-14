@@ -1,35 +1,27 @@
   <div id="jibresHeader">
    <div class="fit">
     <div class="f">
-     <div class="cauto">
+     <div class="cauto pRa10">
       <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'>
        <img src='<?php echo \dash\url::static();
        if (\dash\language::current() === 'fa')
        {
-        echo "/logo/fa-white/svg/Jibres-Logo-fa-white.svg";
+        echo "/logo/fa/svg/Jibres-Logo-fa.svg";
        }
        else
        {
-        echo "/logo/en-white/svg/Jibres-Logo-en-white.svg";
+        echo "/logo/en/svg/Jibres-Logo-en.svg";
        }
        ?>' alt='<?php echo T_("Jibres"). ' | '. \dash\data::site_slogan(); ?>'>
       </a>
      </div>
-     <div class="c"></div>
-     <nav class="cauto">
-      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
-      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/domain"><?php echo T_("Domains"); ?></a>
-      <a class="s0" href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
+     <nav class="c">
+       <a class="s0" href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
+       <a class="s0" href="<?php echo \dash\url::kingdom() ?>/domain"><?php echo T_("Domains"); ?></a>
+       <a class="s0" href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
      </nav>
-    </div>
-   </div>
-  </div>
-
-  <div id="jibresTopLine">
-   <div class="fit">
-    <div class="f">
-     <div class="c"><h1><?php echo T_("Jibres"); ?></h1></div>
-     <nav class="cauto"><?php
+     <nav class="cauto">
+      <?php
 if (\dash\user::id())
 {
  if (\dash\url::subdomain())
@@ -38,7 +30,6 @@ if (\dash\user::id())
  }
  else
  {
-  echo '<a data-to="adminPanel" href="'. \dash\url::sitelang(). '/store" data-direct>'. T_("Admin Panel"). '</a>';
   echo '<a data-to="dashboard" href="'. \dash\url::sitelang(). '/dashboard" data-direct>'. T_("Dashboard"). '</a>';
  }
 
@@ -48,7 +39,8 @@ else
  echo '<a data-to="signup" href="'. \dash\url::sitelang(). '/enter/signup" data-direct>'. T_("SIGN UP"). '</a>';
  echo '<a data-to="enter" href="'. \dash\url::sitelang(). '/enter" data-direct>'. T_("Enter"). '</a>';
 }
-?></nav>
+?>
+     </nav>
     </div>
    </div>
   </div>
