@@ -29,7 +29,11 @@
 				<a href="{{url.this}}" class="btn secondary">{%trans "Never mind"%}</a>
 			</div>
 			{%endif%}
-
+		{%else%}
+			<div class="msg warn2">{%trans "No response from NIC server at this time"%}</div>
+			<div class="txtRa">
+				<a href="{{url.this}}" class="btn secondary">{%trans "Never mind"%}</a>
+			</div>
 		{%endif%}
 		</div>
 	</div>
