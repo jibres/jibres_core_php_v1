@@ -20,24 +20,28 @@ svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute
 #jibresBottomLine{height:20px;background-color:$jibres;overflow:hidden;transition:0.3s;}
 
 // jibres Footer
-#jibresFooter{position:relative;font-size: 1.4em;overflow:hidden;background-color:#fff;color: #444;padding: 70px 0 30px;line-height:30px;}
+#jibresFooter{position:relative;font-size: 1.4em;overflow:hidden;background-color:#fff;color: #444;padding: 70px 0 0;line-height:30px;}
 // footer jibres info
 #jibresFooter figure{overflow: hidden;margin-bottom: 40px;}
 #jibresFooter figure img{height: 120px;display:block;padding:10px; margin: 0 auto;}
 #jibresFooter figure figcaption{padding: 0 1.5em;}
 // footer nav links
-#jibresFooter nav{margin-bottom: 40px;}
-#jibresFooter nav h3{border-bottom: 1px solid #eee;display: block;color: #777;padding:5px 0;font-weight:900;font-size:1em;}
-#jibresFooter nav a{display: block;padding:6px 5px;margin-bottom:5px;}
-#jibresFooter nav a:hover{background-color:rgba(0,0,0,0.02)};
+#jibresFooter #footerMenu nav{margin-bottom: 40px;}
+#jibresFooter #footerMenu nav h3{border-bottom: 1px solid #eee;display: block;color: #777;padding:5px 0;font-weight:900;font-size:1em;}
+#jibresFooter #footerMenu nav a{display: block;padding:6px 5px;margin-bottom:5px;}
+#jibresFooter #footerMenu nav a:hover{background-color:rgba(0,0,0,0.02)};
 #jibresFooter a{color: $black;transition:0.3s;font-weight:300;}
 #jibresFooter a:hover{color: $jibres;}
 #jibresFooter a:focus{color: $jibresMono;}
 #jibresFooter a:active{color: $jibresDark;}
 
 
-
-
+// last line
+#jibresLastLine{position:relative;overflow:hidden;background-color:#fff;color: #444;line-height:30px;padding: 20px 0 30px;border-top:1px solid rgba(14,19,24,.15);}
+#jibresLastLine .langlist{text-align:center;}
+#jibresLastLine .langlist a{background-color: rgba(0,0,0,0.1);border-radius:3px;display:inline-block;padding:5px 10px;}
+#jibresLastLine nav.share1 a{display: inline-block;border-radius:50%;}
+#jibresLastLine .share1 a::after{padding:0;line-height:35px;}
 
 /* xaccess*/
 #tfooter #xaccess{position:fixed;left:0;bottom:17%;z-index:3;}
