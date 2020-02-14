@@ -40,6 +40,9 @@ class view
 			\dash\data::moneyUnit(T_('Hezar Toman'));
 		}
 
+		// btn
+		\dash\data::page_backText(T_('About'));
+		\dash\data::page_backLink(\dash\url::kingdom(). '/about');
 
 		// btn
 		\dash\data::page_btnText(T_('Enter'));
