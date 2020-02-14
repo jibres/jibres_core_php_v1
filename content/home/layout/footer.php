@@ -99,10 +99,10 @@ $kingdom = \dash\url::kingdom();
 
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('Contact'); ?></h3>
-            <a href="te:+982128422590" class=""><?php echo \dash\fit::text('+98-21-2842-2590'); ?></a>
-            <a href="te:+982536505460" class=""><?php echo \dash\fit::text('+98-25-3650-5460'); ?></a>
-            <a href="te:+982536505281" class=""><?php echo \dash\fit::text('+98-25-3650-5281'); ?></a>
-            <a href="mail:info@Jibres.com">info@Jibres.com</a>
+            <a href="tel:+982128422590" class="ltr"><?php echo \dash\fit::text('+98-21-2842-2590'); ?></a>
+            <a href="tel:+982536505460" class="ltr"><?php echo \dash\fit::text('+98-25-3650-5460'); ?></a>
+            <a href="tel:+982536505281" class="ltr"><?php echo \dash\fit::text('+98-25-3650-5281'); ?></a>
+            <a href="mailto:info@Jibres.com" class="ltr">info@Jibres.com</a>
             <?php
               echo '<a href="<?php echo $kingdom; ?>/support">'. T_('2th Floor'). '<br>'. T_('Haft-e-tir 1 St'). '<br>'. T_('Qom, IRAN'). '</a>';
             ?>
