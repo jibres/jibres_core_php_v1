@@ -35,11 +35,11 @@
         <img src="<?php echo \dash\url::static();
        if (\dash\language::current() === 'fa')
        {
-        echo "/logo/fa-white/svg/Jibres-Logo-fa-white.svg";
+        echo "/logo/fa-vertical-white/svg/Jibres-Logo-fa-vertical-white.svg";
        }
        else
        {
-        echo "/logo/en-white/svg/Jibres-Logo-en-white.svg";
+        echo "/logo/en-vertical-white/svg/Jibres-Logo-en-vertical-white.svg";
        }
        ?>" alt='<?php echo T_("Jibres") ?>'>
       </a>
