@@ -22,7 +22,7 @@
 <div id="jibresFooter">
   <div class="fit">
     <figure class="f align-center logo">
-      <a class="cauto" href="/">
+      <a class="cauto s12" href="/">
         <img src="<?php echo \dash\url::static();
        if (\dash\language::current() === 'fa')
        {
