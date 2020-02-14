@@ -22,3 +22,14 @@
 #jibresHeader .slave:hover{border-color:rgba(14,19,24,.45)}
 #jibresHeader .slave:focus{border-color:rgba(14,19,24,.7)}
 #jibresHeader .slave:active{background-color: rgba(14,19,24,.15)}
+
+
+
+#jibresPageTitle{position:relative;padding:40px 0 40px;font-size:40px;line-height:70px;height:150px;overflow: hidden;text-align:center;background-color:#c80a5a;color:#fff;}
+#jibresPageTitle .typing{height: 70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;}
+#jibresPageTitle .typing span{display:inline-block;vertical-align:middle;}
+#jibresPageTitle .typing .typed{font-weight:800;margin:0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;}
+#jibresPageTitle #typed-strings{display:none;}
+
+.typed-cursor{opacity: 1;font-weight: 100;animation: blink 0.7s infinite;}
+@keyframes blink{ 0% { opacity:1; } 50% { opacity:0.3; } 100% { opacity:1; } }

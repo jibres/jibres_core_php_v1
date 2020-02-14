@@ -47,15 +47,14 @@ else
   </div>
 
 
-  <section id='jibresType'>
-   <div class="cn">
-    <div class="h2"><span class="typed"></span></div>
+  <section id='jibresPageTitle'>
+    <div class="typing"><span class="typed"></span></div>
 
 <?php
 if (\dash\url::module())
 {
 ?>
-    <div id="typed-strings" class="hide">
+    <div id="typed-strings">
      <h2><?php echo \dash\data::page_title(); ?></h2>
      <p><?php echo \dash\data::page_desc(); ?></p>
     </div>
@@ -64,7 +63,7 @@ if (\dash\url::module())
 else
 {
 ?>
-    <div id="typed-strings" class="hide">
+    <div id="typed-strings">
      <h3><?php echo T_('Invoice Software'); ?></h3>
      <h4><?php echo T_('Easy Invoicing Software'); ?></h4>
      <h3><?php echo T_('Online Invoicing Software'); ?></h3>
@@ -81,5 +80,4 @@ else
 <?php
 }
 ?>
-   </div>
   </section>
