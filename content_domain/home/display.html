@@ -96,13 +96,13 @@
 	{%if checkResult.available%}
 	<div class="msg success2">{%trans "Domain is available"%}
 		<span class="floatL">
-			<a class="btn success" href="{{url.here}}/buy/{{url.module}}">{%trans "Buy"%}</a>
+			<a class="btn success" href="{{url.here}}/buy/{{myDomain}}">{%trans "Buy"%}</a>
 		</span>
 	</div>
 	{%else%}
 	<div class="msg warn2">{%trans "Domain is occupied"%}
 		<span class="floatL">
-			<a class="btn warn" target="_blank" href="{{url.kingdom}}/whois/{{url.module}}">{%trans "Whois"%}</a>
+			<a class="btn warn" target="_blank" href="{{url.kingdom}}/whois/{{myDomain}}">{%trans "Whois"%}</a>
 		</span>
 	</div>
 	{%endif%}
@@ -110,11 +110,6 @@
 {%endif%}
 {%endblock%}
 
-
-{%block iDomainList%}
-
-
-{%endblock%}
 
 
 
@@ -184,15 +179,31 @@
   <span class="c">{{filterBox | raw}}</span>
   <a class="cauto" href="{{url.here}}">{%trans "Clear filters"%}</a>
 </p>
+
+{%if checkResult%}
+<div class="cbox">
+
+	{%if checkResult.available%}
+	<div class="msg success2">{%trans "Domain is available"%}
+		<b>{{myDomain}}</b>
+		<span class="floatL">
+			<a class="btn success" href="{{url.here}}/buy/{{myDomain}}">{%trans "Buy"%}</a>
+		</span>
+	</div>
+	{%else%}
+	<div class="msg warn2">{%trans "Domain is occupied"%}
+		<span class="floatL">
+			<a class="btn warn" target="_blank" href="{{url.kingdom}}/whois/{{myDomain}}">{%trans "Whois"%}</a>
+		</span>
+	</div>
+	{%endif%}
+
+{%endif%}
+</div>
+
 {%endblock%}
 
 
-{%block htmlFilterNoResult%}
-<p class="f fs14 msg warn2">
-  <span class="c s12">{%trans "Result not found!"%} {%trans "Search with new keywords."%} </span>
-  <a class="cauto" href="{{url.here}}">{%trans "Clear filters"%}</a>
-</p>
-{%endblock%}
 
 
 
