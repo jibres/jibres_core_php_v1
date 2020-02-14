@@ -1,3 +1,6 @@
+<?php
+$kingdom = \dash\url::kingdom();
+?>
 <section id="jibresCertificates">
   <div class="fit-md">
     <h2><?php echo T_('Jibres Certificates'); ?></h2>
@@ -16,7 +19,7 @@
 
 <section id="jibresSupportLine">
     <h3><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h3>
-    <a class="btn lg success" href="/contact"><?php echo T_('Contact with a Live Person'); ?></a>
+    <a class="btn lg success" href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact with a Live Person'); ?></a>
 </section>
 
 <div id="jibresFooter">
@@ -34,7 +37,7 @@
        }
        ?>" alt='<?php echo T_("Jibres Vertical Logo") ?>'>
       </a>
-      <figcaption class="c s12"><?php echo \dash\data::site_desc(); ?> <a href="/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
+      <figcaption class="c s12"><?php echo \dash\data::site_desc(); ?> <a href="<?php echo $kingdom; ?>/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
     </figure>
 
 
@@ -44,54 +47,57 @@
 
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('eCommerce'); ?></h3>
-            <a href="/benefits"><?php echo T_('All-in-One'); ?></a>
-            <a href="/pricing"><?php echo T_('Pricing'); ?></a>
+            <a href="<?php echo $kingdom; ?>/benefits"><?php echo T_('All-in-One'); ?></a>
+            <a href="<?php echo $kingdom; ?>/pricing"><?php echo T_('Pricing'); ?></a>
           </nav>
 
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('Domains'); ?></h3>
-            <a href="/domain/search"><?php echo T_('Domain Name Search'); ?></a>
-            <a href="/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
-            <a href="/domain/whois"><?php echo T_('Whois Lookup'); ?></a>
+            <a href="<?php echo $kingdom; ?>/domain"><?php echo T_('Domain Name Search'); ?></a>
+            <a href="<?php echo $kingdom; ?>/domain/transfer"><?php echo T_('Transfer Domain'); ?></a>
+            <a href="<?php echo $kingdom; ?>/whois"><?php echo T_('Whois Lookup'); ?></a>
           </nav>
 
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('Jibres Company'); ?></h3>
-            <a href="/about"><?php echo T_('About'); ?></a>
-            <a href="/logo"><?php echo T_('Logo'); ?></a>
-            <a href="/brand"><?php echo T_('Brand Styleguide'); ?></a>
-            <a href="/careers"><?php echo T_('Careers'); ?></a>
-            <a href="/certificates"><?php echo T_('Certificates'); ?></a>
-            <a href="/press"><?php echo T_('Press and Media'); ?></a>
+            <a href="<?php echo $kingdom; ?>/about"><?php echo T_('About'); ?></a>
+            <a href="<?php echo $kingdom; ?>/logo"><?php echo T_('Logo'); ?></a>
+            <a href="<?php echo $kingdom; ?>/brand"><?php echo T_('Brand Styleguide'); ?></a>
+            <a href="<?php echo $kingdom; ?>/careers"><?php echo T_('Careers'); ?></a>
+            <a href="<?php echo $kingdom; ?>/certificates"><?php echo T_('Certificates'); ?></a>
+            <a href="<?php echo $kingdom; ?>/press"><?php echo T_('Press and Media'); ?></a>
           </nav>
 
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('Resources'); ?></h3>
-            <a href="/blog"><?php echo T_('Blog'); ?></a>
-            <a href="/terms"><?php echo T_('Terms of Service'); ?></a>
-            <a href="/privacy"><?php echo T_('Privacy Policy'); ?></a>
-            <a href="/changelog"><?php echo T_('Changelog'); ?></a>
-            <a href="/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
+            <a href="<?php echo $kingdom; ?>/blog"><?php echo T_('Blog'); ?></a>
+            <a href="<?php echo $kingdom; ?>/terms"><?php echo T_('Terms of Service'); ?></a>
+            <a href="<?php echo $kingdom; ?>/privacy"><?php echo T_('Privacy Policy'); ?></a>
+            <a href="<?php echo $kingdom; ?>/changelog"><?php echo T_('Changelog'); ?></a>
+            <a href="<?php echo $kingdom; ?>/socialresponsibility"><?php echo T_('Social Responsibility'); ?></a>
           </nav>
 
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('Support'); ?></h3>
-            <a href="/support"><?php echo T_('Support Center'); ?></a>
-            <a href="/contact"><?php echo T_('Contact'); ?></a>
-            <a href="/support/faq"><?php echo T_('FAQ'); ?></a>
+            <a href="<?php echo $kingdom; ?>/support"><?php echo T_('Support Center'); ?></a>
+            <a href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact'); ?></a>
+            <a href="<?php echo $kingdom; ?>/support/faq"><?php echo T_('FAQ'); ?></a>
             <a href="https://status.jibres.com" target="_blank"><?php echo T_('System Status'); ?></a>
-            <a href="/support/ticket/new"><?php echo T_('Submit Ticket'); ?></a>
-            <a href="/support/ticket/new?type=bug"><?php echo T_('Report Bug'); ?></a>
-            <a href="/support/ticket/new?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
+            <a href="<?php echo $kingdom; ?>/support/ticket/new"><?php echo T_('Submit Ticket'); ?></a>
+            <a href="<?php echo $kingdom; ?>/support/ticket/new?type=bug"><?php echo T_('Report Bug'); ?></a>
+            <a href="<?php echo $kingdom; ?>/support/ticket/new?type=feedback"><?php echo T_('Send us Feedback'); ?></a>
           </nav>
 
           <nav class="c2 s6 pLR10">
             <h3><?php echo T_('Contact'); ?></h3>
-            <a href="/support">+98-21-2842-2590</a>
-            <a href="/support">+98-25-3650-5460</a>
-            <a href="/support">+98-25-3650-5281</a>
-            <a href="/support">info@Jibres.com</a>
-            <a href="/support">2th Floor<br>Haft-e-tir 1 St<br>Qom, IRAN</a>
+            <a href="te:+982128422590" class=""><?php echo \dash\fit::text('+98-21-2842-2590'); ?></a>
+            <a href="te:+982536505460" class=""><?php echo \dash\fit::text('+98-25-3650-5460'); ?></a>
+            <a href="te:+982536505281" class=""><?php echo \dash\fit::text('+98-25-3650-5281'); ?></a>
+            <a href="mail:info@Jibres.com">info@Jibres.com</a>
+            <?php
+              echo '<a href="<?php echo $kingdom; ?>/support">'. T_('2th Floor'). '<br>'. T_('Haft-e-tir 1 St'). '<br>'. T_('Qom, IRAN'). '</a>';
+            ?>
+
             <div class="cauto s12 love"><?php echo T_('Proudly Made in IRAN'); ?></div>
           </nav>
 
