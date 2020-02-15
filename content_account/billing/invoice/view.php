@@ -9,6 +9,10 @@ class view
 		\dash\data::page_desc(T_("Check invoice and detail of it"));
 		$invoice_detail = \dash\db\invoices::load(\dash\request::get('id'), \dash\user::id());
 		\dash\data::invoice($invoice_detail);
+
+		\dash\data::back_link(\dash\url::here(). '/billing');
+		\dash\data::back_text(T_('Back'));
+
 	}
 }
 ?>

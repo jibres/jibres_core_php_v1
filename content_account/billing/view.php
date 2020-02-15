@@ -13,6 +13,10 @@ class view
 		\dash\data::badge_link(\dash\url::here());
 		\dash\data::badge_text(T_('Back to Account'));
 
+		\dash\data::back_link(\dash\url::here());
+		\dash\data::back_text(T_('Account'));
+
+
 		// back
 		\dash\data::back_text(T_('Account'));
 		\dash\data::back_link(\dash\url::here());
