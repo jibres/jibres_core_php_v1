@@ -31,6 +31,7 @@ class find
 		{
 			if(\dash\url::content() === 'enter')
 			{
+				$myPage = root.'content_enter/home/layout/main.php';
 				// do nothing
 			}
 			elseif(\dash\url::content() === null)
