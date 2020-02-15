@@ -106,11 +106,11 @@ class find
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
-				$myPage = core.'engine/layout/admin/admin-footer.php';
+				// do nothing
+				// $myPage = core.'engine/layout/admin/admin-footer.php';
 			}
 
 		}
-
 
 		echo "\n  <footer id='pageFooter' data-xhr='pageFooter'>";
 		if($myPage)
