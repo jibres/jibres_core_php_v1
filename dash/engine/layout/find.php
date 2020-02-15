@@ -9,18 +9,11 @@ class find
 	public static function allBlocks()
 	{
 		self::sidebar();
-		if(!\dash\request::ajax())
-		{
-			echo "\n <div id='pageWrapper'>";
-		}
 		self::header();
 		// self::nav();
 		self::main();
 		self::footer();
-		if(!\dash\request::ajax())
-		{
-			echo "\n </div>";
-		}
+
 	}
 
 
