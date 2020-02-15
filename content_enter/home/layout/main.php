@@ -15,11 +15,11 @@ else
 <?php
 if(\dash\url::module() === null)
 {
- echo "<h2 class='flex justify-center align-center'>". T_("Jibres"). "</h2>";
+ echo "<h2>". T_("Jibres"). "</h2>";
 }
 else
 {
-   echo "<h2 class='flex justify-center align-center'>". \dash\data::page_desc(). "</h2>";
+   echo "<h2>". \dash\data::page_desc(). "</h2>";
 }
 
  ?>

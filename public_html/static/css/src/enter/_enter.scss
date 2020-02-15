@@ -1,30 +1,5 @@
 /* Initial CSS */
-body[data-in='enter']{
-	background-color:#d7d8d8;
-	background-image:url('../siftal/images/bg/1.jpg');
-	background-repeat:repeat;
-	background-size:cover;
-	display:-webkit-box !important;
-	display:-webkit-flex !important;
-	display:-ms-flexbox !important;
-	display:-moz-box !important;
-	display:flex !important;
-	-webkit-box-pack:center !important;
-	-webkit-justify-content:center !important;
-	-ms-flex-pack:center !important;
-	-moz-box-pack:center !important;
-	justify-content:center !important;
-	-webkit-box-align:center !important;
-	-webkit-align-items:center !important;
-	-ms-flex-align:center !important;
-	-moz-box-align:center !important;
-	align-items:center!important;
-	background-attachment:fixed;
-	position:relative;
-	min-height:100%;
-
-	@include select-none();
-}
+[data-in='enter']{overflow-x:hidden;background-color:#d7d8d8;background-image:url('../siftal/images/bg/1.jpg');background-repeat:repeat;background-size:cover;background-attachment:fixed;position:relative;min-height:100%;@include select-none();}
 [data-in='enter'].bg1{background-image:url('../siftal/images/bg/1.jpg')}
 [data-in='enter'].bg2{background-image:url('../siftal/images/bg/2.jpg')}
 [data-in='enter'].bg3{background-image:url('../siftal/images/bg/3.jpg')}
@@ -43,7 +18,7 @@ body[data-in='enter']{
 [data-in='enter'].bg15{background-image:url('../siftal/images/bg/15.jpg')}
 
 /* Layout */
-[data-in='enter'] #pageContent{width:20%;min-width:380px;max-width:450px;min-height:370px;margin:5px auto 50px;padding:30px;background-color:rgba(255,255,255,0.2);border-radius:5px;box-shadow:0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0, 0, 0, 0.05);transition:0.3s;color:#fff;}
+[data-in='enter'] #pageContent{width:20%;min-width:380px;max-width:450px;min-height:370px;margin-top:20px;margin:10vh auto 20px;padding:30px;background-color:rgba(255,255,255,0.2);border-radius:5px;box-shadow:0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0, 0, 0, 0.05);transition:0.3s;color:#fff;}
 [data-in='enter'] #pageContent.large{height:400px}
 [data-in='enter'] .logo{margin:0}
 [data-in='enter'] .logo a{display:block;border-radius:50%}
@@ -52,9 +27,9 @@ body[data-in='enter']{
 [data-in='enter'] .logo a:active img{background-color:rgba(0,0,0,0.3);}
 [data-in='enter'] .logo img{display:block;max-width:100%;height:90px;width:90px;margin:0 auto;transition:0.3s;overflow:hidden;text-align:center;background-color:rgba(0,0,0,0.05);padding:2px;border-radius:50%;}
 [data-in='enter'] .logo span{display:none !important}
-[data-in='enter'] h2{font-size:1.1em;overflow:hidden;margin:10px 0;text-align:center;color:#fff;line-height:1.7em;}
+[data-in='enter'] h2{font-size:1.4em;overflow:hidden;margin:10px 0;text-align:center;color:#fff;line-height:1.7em;}
 [data-in='enter'] h2 abbr{cursor:pointer;}
-[data-in='enter'] .text p{font-size:1.2em;line-height:2em;margin-bottom:2em;transition:0.3s;padding:0.5em}
+[data-in='enter'] .text p{transition:0.3s;padding:0.5em}
 [data-in='enter'] .text p:hover{background-color:rgba(0,0,0,0.1);}
 [data-in='enter'] .text a{color:#eee;padding:1em 0.5em;display:inline-block;transition:0.3s;}
 [data-in='enter'] .text a:hover{background-color:rgba(255,255,255,0.1);}
@@ -141,7 +116,7 @@ body[data-in='enter']{
 
 
 [data-in='enter'] hr{margin-bottom:1em;}
-[data-in='enter'] #eMethods{font-size:0.5em;font-weight:100;}
+[data-in='enter'] #eMethods{font-size:1rem;font-weight:100;}
 [data-in='enter'] #eMethods p{font-size:1.4em;}
 [data-in='enter'] #eMethods a{height:40px;line-height:40px;margin:5px;background-color:rgba(0,0,0,0.5);transition:0.3s;display:inline-block;color:#eee;border-radius:3px;overflow:hidden;min-width:40%;}
 [data-in='enter'] #eMethods a:hover{opacity:0.8}
