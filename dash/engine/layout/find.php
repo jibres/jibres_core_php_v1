@@ -44,7 +44,7 @@ class find
 			}
 		}
 
-		if($myPage)
+		if($myPage !== null)
 		{
 			echo "\n <main id='pageContent' data-xhr='pageContent'>";
 			require_once $myPage;
@@ -76,7 +76,7 @@ class find
 
 		}
 
-		if($myPage)
+		if($myPage !== null)
 		{
 			echo "\n <header id='pageHeader' data-xhr='pageHeader'>";
 			require_once $myPage;
@@ -109,7 +109,7 @@ class find
 
 		}
 
-		if($myPage)
+		if($myPage !== null)
 		{
 			echo "\n <footer id='pageFooter' data-xhr='pageFooter'>";
 			require_once $myPage;
@@ -143,7 +143,7 @@ class find
 
 		}
 
-		if($myPage)
+		if($myPage !== null)
 		{
 			self::$need_box = true;
 			echo "\n <aside id='pageSidebar' data-xhr='pageSidebar'>";
@@ -157,7 +157,7 @@ class find
 		$myPage = null;
 		// do nothing
 
-		if($myPage)
+		if($myPage !== null)
 		{
 			echo "\n <nav id='pageNav' data-xhr='pageNav'>";
 			require_once $myPage;
