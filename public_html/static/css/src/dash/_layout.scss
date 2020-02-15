@@ -25,18 +25,18 @@
 
 //----------------------------------- clean mode style
 // main
-.siftal[data-clean].ltr #main {margin-left:0;}
-.siftal[data-clean].rtl #main {margin-right:0;}
+[dir="ltr"] .siftal[data-clean] #main {margin-left:0;}
+[dir="rtl"] .siftal[data-clean] #main {margin-right:0;}
 // sidebar
 .siftal[data-clean] #sidebar {display:block;position:fixed;top:0;bottom:0;left:-250px!important;}
-.siftal[data-clean].rtl #sidebar{right:-250px;left:initial;}
+[dir="rtl"] .siftal[data-clean] #sidebar{right:-250px;left:initial;}
 .siftal[data-clean] #sidebar figure{margin:2em 0;}
 .siftal[data-clean] .dashHead .sidenavHandler{-webkit-box-flex: 0;-webkit-flex: 0 0 auto;-ms-flex: 0 0 auto;-moz-box-flex: 0;flex: 0 0 auto;max-width: initial;display: flex !important;}
 
 //----------------------------------- slideout mode
 // sidebar
-.siftal[data-sidebar].ltr #sidebar{left:0!important}
-.siftal[data-sidebar].rtl #sidebar{right:0!important}
+[dir="ltr"] .siftal[data-sidebar] #sidebar{left:0!important}
+[dir="rtl"] .siftal[data-sidebar] #sidebar{right:0!important}
 .siftal[data-sidebar] #main:before{bottom:0;height:100%;}
 .siftal[data-sidebar] #main:after{top:0;}
 
@@ -363,8 +363,8 @@ body.siftal .full .middle{width:100%;max-height:100%;}
 .siftal[data-theme="light"] #sidebar{background-color:#fff;}
 .siftal[data-theme="light"] #sidebar figure{color: #3c4040}
 .siftal[data-theme="light"] #sidebar ul > li > a{color: #3c4040;margin-bottom: 5px;border: none!important;}
-.siftal[data-theme="light"].ltr #sidebar ul > li > a{-webkit-border-radius: 0 50px 50px 0;border-radius: 0 50px 50px 0;margin-right: 5px;}
-.siftal[data-theme="light"].rtl #sidebar ul > li > a{-webkit-border-radius: 50px 0 0 50px;border-radius:50px 0 0 50px;margin-left: 5px;}
+[dir="ltr"] .siftal[data-theme="light"] #sidebar ul > li > a{-webkit-border-radius: 0 50px 50px 0;border-radius: 0 50px 50px 0;margin-right: 5px;}
+[dir="rtl"] .siftal[data-theme="light"] #sidebar ul > li > a{-webkit-border-radius: 50px 0 0 50px;border-radius:50px 0 0 50px;margin-left: 5px;}
 .siftal[data-theme="light"] #sidebar ul > li > a.weAreHere{background-color: #e8f0fe;color:#1a73e8;}
 .siftal[data-theme="light"] #sidebar ul > li > a.activeContent{background-color: #d1e0f9;color:#1a73e8;}
 .siftal[data-theme="light"] #sidebar ul > li > a:hover{background-color: #f5f5f5;}

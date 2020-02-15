@@ -106,7 +106,7 @@
 [data-in='enter'] form .flex button:focus{opacity:1}
 [data-in='enter'] form .flex button:disabled{opacity:0.5;cursor:not-allowed;background-color:#0d3050;}
 [data-in='enter'].loading-form form .flex button:after{content:"\e188";font-family:"siftal","tahoma" !important;display:inline-block;float:right; padding:5px;font-size:1.2em;line-height:1;vertical-align:middle;animation:spiner 1s ease infinite;animation:spiner 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;}
-[data-in='enter'].loading-form.rtl form .flex button:after{float:left;}
+[dir="rtl"] [data-in='enter'].loading-form form .flex button:after{float:left;}
 [data-in='enter'] form .link{color:#eee;font-size:11px;padding:5px 10px;transition:0.3s;display:block;}
 [data-in='enter'] form .link:hover{background-color:rgba(0,0,0,0.1)}
 [data-in='enter'] form .link:focus{background-color:rgba(0,0,0,0.2)}

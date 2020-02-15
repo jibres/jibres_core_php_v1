@@ -100,10 +100,10 @@
   .siftal .tbox i{
     display: none;
   }
-  .ltr .tbox.pictogram{
+  [dir="ltr"] .tbox.pictogram{
     padding-right:1em;
   }
-  .rtl .tbox.pictogram{
+  [dir="rtl"] .tbox.pictogram{
     padding-left: 1em;
   }
   .tbox.pictogram > span[class^="sf-"]{

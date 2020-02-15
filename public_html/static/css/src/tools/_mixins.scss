@@ -166,10 +166,10 @@
   .pTB#{$val} {padding-top: #{$val}px; padding-bottom: #{$val}px;}
   .pLR#{$val} {padding-left: #{$val}px; padding-right: #{$val}px;}
 
-  .ltr .pRa#{$val} {padding-right: #{$val}px;}
-  .rtl .pRa#{$val} {padding-left: #{$val}px;}
-  .ltr .pLa#{$val} {padding-left: #{$val}px;}
-  .rtl .pLa#{$val} {padding-right: #{$val}px;}
+  [dir="ltr"]  .pRa#{$val} {padding-right: #{$val}px;}
+  [dir="rtl"]  .pRa#{$val} {padding-left: #{$val}px;}
+  [dir="ltr"]  .pLa#{$val} {padding-left: #{$val}px;}
+  [dir="rtl"]  .pLa#{$val} {padding-right: #{$val}px;}
 
   // force
   .pA#{$val}-f {padding: #{$val}px #{$val}px!important;}
@@ -180,10 +180,10 @@
   .pTB#{$val}-f {padding-top: #{$val}px!important;; padding-bottom: #{$val}px!important;}
   .pLR#{$val}-f {padding-left: #{$val}px!important;; padding-right: #{$val}px!important;}
 
-  .ltr .pRa#{$val}-f {padding-right: #{$val}px!important;}
-  .rtl .pRa#{$val}-f {padding-left: #{$val}px!important;}
-  .ltr .pLa#{$val}-f {padding-left: #{$val}px!important;}
-  .rtl .pLa#{$val}-f {padding-right: #{$val}px!important;}
+  [dir="ltr"]  .pRa#{$val}-f {padding-right: #{$val}px!important;}
+  [dir="rtl"]  .pRa#{$val}-f {padding-left: #{$val}px!important;}
+  [dir="ltr"]  .pLa#{$val}-f {padding-left: #{$val}px!important;}
+  [dir="rtl"]  .pLa#{$val}-f {padding-right: #{$val}px!important;}
 }
 
 @mixin marginAll($val) {
@@ -195,10 +195,10 @@
   .mTB#{$val} {margin-top: #{$val}px; margin-bottom: #{$val}px;}
   .mLR#{$val} {margin-left: #{$val}px; margin-right: #{$val}px;}
 
-  .ltr .mRa#{$val} {margin-right: #{$val}px;}
-  .rtl .mRa#{$val} {margin-left: #{$val}px;}
-  .ltr .mLa#{$val} {margin-left: #{$val}px;}
-  .rtl .mLa#{$val} {margin-right: #{$val}px;}
+  [dir="ltr"]  .mRa#{$val} {margin-right: #{$val}px;}
+  [dir="rtl"]  .mRa#{$val} {margin-left: #{$val}px;}
+  [dir="ltr"]  .mLa#{$val} {margin-left: #{$val}px;}
+  [dir="rtl"]  .mLa#{$val} {margin-right: #{$val}px;}
 
   // force
   .mA#{$val}-f {margin: #{$val}px #{$val}px!important;}
@@ -209,10 +209,10 @@
   .mTB#{$val}-f {margin-top: #{$val}px!important;; margin-bottom: #{$val}px!important;}
   .mLR#{$val}-f {margin-left: #{$val}px!important;; margin-right: #{$val}px!important;}
 
-  .ltr .mRa#{$val}-f {margin-right: #{$val}px!important;}
-  .rtl .mRa#{$val}-f {margin-left: #{$val}px!important;}
-  .ltr .mLa#{$val}-f {margin-left: #{$val}px!important;}
-  .rtl .mLa#{$val}-f {margin-right: #{$val}px!important;}
+  [dir="ltr"]  .mRa#{$val}-f {margin-right: #{$val}px!important;}
+  [dir="rtl"]  .mRa#{$val}-f {margin-left: #{$val}px!important;}
+  [dir="ltr"]  .mLa#{$val}-f {margin-left: #{$val}px!important;}
+  [dir="rtl"]  .mLa#{$val}-f {margin-right: #{$val}px!important;}
 }
 
 @mixin margin($val) {

@@ -42,7 +42,7 @@ $tblPadCell: 0.7em 0.7em;
 .tbl.fixAlign th{
 	text-align: left;
 }
-.rtl.fixAlign .tbl th{
+[dir="rtl"] .fixAlign .tbl th{
 	text-align:right;
 }
 

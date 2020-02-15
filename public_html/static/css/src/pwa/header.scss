@@ -1,9 +1,9 @@
 [data-pwa] #pageHeader{position: fixed;z-index:10;top:0;right:0;left:0;background-color:$pwaBg;line-height:40px;padding:5px 5px;font-size:16px;width: 100%;height: 50px;border-bottom:1px solid transparent;overflow:hidden;@include select-none();}
 [data-pwa] #pageHeader.border{border-bottom-color: #c5c4c9;}
 [data-pwa] #pageHeader a{display:block;color: #0a7ce7!important}
-[data-pwa] .ltr #pageHeader .back a::before{content: "\e0c1";padding-right:5px;;font-family:siftal!important;vertical-align:middle;}
-[data-pwa] .rtl #pageHeader .back a::before{content: "\e0c2";padding-left:5px;;font-family:siftal!important;vertical-align:middle;}
+[data-pwa][dir="ltr"] #pageHeader .back a::before{content: "\e0c1";padding-right:5px;;font-family:siftal!important;vertical-align:middle;}
+[data-pwa][dir="rtl"]  #pageHeader .back a::before{content: "\e0c2";padding-left:5px;;font-family:siftal!important;vertical-align:middle;}
 [data-pwa] #pageHeader img{max-height:40px;display:inline-block}
 [data-pwa] #pageHeader .title{font-weight:700;text-align: center;}
-[data-pwa] .ltr #pageHeader .action{text-align: right;padding-right:10px;}
-[data-pwa] .rtl #pageHeader .action{text-align: left;padding-left:10px;}
+[data-pwa][dir="ltr"]  #pageHeader .action{text-align: right;padding-right:10px;}
+[data-pwa][dir="rtl"]  #pageHeader .action{text-align: left;padding-left:10px;}

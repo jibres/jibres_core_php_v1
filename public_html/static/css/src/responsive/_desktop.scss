@@ -57,7 +57,7 @@
   [dir="rtl"] .siftal #main:after{left:initial;right:300px;}
   .siftal .dashHead.cloner{width:calc( 100% - 300px)};
   .siftal #sidebar{width:300px;}
-  .siftal[data-clean].ltr #sidebar {left:-300px;}
-  .siftal[data-clean].rtl #sidebar{right:-300px;}
+  [dir="ltr"] .siftal[data-clean] #sidebar {left:-300px;}
+  [dir="rtl"] .siftal[data-clean] #sidebar{right:-300px;}
 }
 
