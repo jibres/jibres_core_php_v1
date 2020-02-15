@@ -3,21 +3,34 @@
 <?php
 if(\dash\user::id())
 {
-// {%set avatarLink%}{%if dash.avatarLink is empty%}{{url.kingdom}}/account{%else%}{{dash.avatarLink}}{%endif%}{%endset%}
-  echo "<a href='{{avatarLink}}' title='{%trans 'Edit your profile'%}' class='avatar'>";
-// {%if login.avatar%}
-//      <img src="{{login.avatar}}" alt='{%trans "Avatar of you"%} {{login.displayname}}'>
-// {%elseif login%}
-//      <img src="{{url.static}}/siftal/images/default/avatar.png" alt='{%trans "Default Avatar"%}'>
-// {%endif%}
-   // </a>
-//    <figcaption>{%trans "Hello"%} <b>{{login.displayname}}</b></figcaption>
+  $avatarLink = \dash\data::avatarLink();
+  if(!$avatarLink)
+  {
+    $avatarLink = \dash\url::kingdom(). '/account';
+  }
+
+  echo "<a href='$avatarLink' title='". T_('Edit your profile'). "' class='avatar'>";
+  if(\dash\user::detail('avatar'))
+  {
+    echo '<img src="'. \dash\user::detail('avatar'). '" alt="'. T_("Avatar of you"). ' '. \dash\user::detail('displayname') .'">';
+  }
+  elseif(\dash\user::id())
+  {
+      echo '<img src="'. \dash\url::static().'/siftal/images/default/avatar.png" alt='. T_("Default Avatar").'>';
+  }
+  else
+  {
+
+  }
+  echo '</a>';
+  echo '<figcaption>'. T_("Hello").' <b>'. \dash\user::detail('displayname'). '</b></figcaption>';
+
 }
 else
 {
-  echo "<a href='{{url.kingdom}}/enter?referer={{url.pwd}}' class='avatar'>";
-//      <img src="{{url.static}}/siftal/images/avatar/guest.png" alt='{%trans "Default Avatar"%}'>
-   // <figcaption>{%trans "Hello "%} <b>{%trans "dear GUEST!"%}</b></figcaption>
+  echo "<a href='". \dash\url::kingdom(). "/enter?referer=". \dash\url::pwd(). "' class='avatar'>";
+  echo '<img src="'. \dash\url::static().'/siftal/images/avatar/guest.png" alt="'. T_("Default Avatar").'">';
+  echo '<figcaption> '. T_("Hello ").  ' <b> '. T_("dear GUEST!"). '</b></figcaption>';
 }
 
 ?>

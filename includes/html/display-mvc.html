@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{global.lang|replace({'_': '-'}) }}" dir="{{global.direction}}" prefix="og: http://ogp.me/ns#"{%if perm_su()%} data-debugger{%endif%}{%if runPWA%} data-pwa="{{runPWA}}"{%endif%}>
+<html lang="{{lang.current}}" dir="{{lang.currentDir}}" prefix="og: http://ogp.me/ns#"{%if perm_su()%} data-debugger{%endif%}{%if runPWA%} data-pwa="{{runPWA}}"{%endif%}>
 <head>
  <meta charset="UTF-8"/>
  <base href="{{url.base}}"/>
@@ -55,7 +55,7 @@
 {%block head%}{%endblock%}
 </head>
 
-<body{%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' class='{{global.direction}}{%if include.adminPanel%} siftal{%endif%} preload'{%if global.theme%} data-theme='{{global.theme}}'{%endif%}{%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
+<body{%if global.subdomain%} data-subdomain='{{global.subdomain}}'{%endif%} data-in='{{global.content}}' data-page='{{global.page}}' {%if include.adminPanel%} data-panel{%endif%} data-reloading {%if userToggleSidebar %}{%else%} data-clean{%endif%}{%if user.id%} data-user='{{user.id | coding("encode")}}'{%endif%}{%if requestGET.iframe%} data-iframe{%endif%}>
 {%block body%}
 {%if not runPWA%}
  <aside id='pageSidebar' data-xhr='pageSidebar'>
