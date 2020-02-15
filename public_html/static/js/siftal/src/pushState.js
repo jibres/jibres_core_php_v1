@@ -12,8 +12,6 @@ function pushStateSiftal(_direct)
   runCounterUp();
   // run notif from html
   runHtmlNotif();
-  // check here links
-  weAreHereChecker();
   // detect id and try to scroll to it
   scrollSmoothDetector(_direct);
   // run watchScroll func to watch all elements
