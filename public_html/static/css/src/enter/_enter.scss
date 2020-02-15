@@ -18,7 +18,7 @@
 [data-in='enter'].bg15{background-image:url('../siftal/images/bg/15.jpg')}
 
 /* Layout */
-[data-in='enter'] #pageContent{width:20%;min-width:380px;max-width:450px;min-height:370px;margin-top:20px;margin:10vh auto 20px;padding:30px;background-color:rgba(255,255,255,0.2);border-radius:5px;box-shadow:0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0, 0, 0, 0.05);transition:0.3s;color:#fff;}
+[data-in='enter'] #pageContent{width:20%;min-width:380px;max-width:450px;min-height:370px;margin-top:20px auto;margin:10vh auto 30px;padding:30px;background-color:rgba(255,255,255,0.2);border-radius:5px;box-shadow:0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0, 0, 0, 0.05);transition:0.3s;color:#fff;}
 [data-in='enter'] #pageContent.large{height:400px}
 [data-in='enter'] .logo{margin:0}
 [data-in='enter'] .logo a{display:block;border-radius:50%}
@@ -87,16 +87,14 @@
 }
 
 [data-in='enter'] .agreement{
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.03);
 	font-size: 1.1rem;
 	line-height: 2rem;
 	padding: 5px 1em;
 	color: #ddd;
 }
-[data-in='enter'] .agreement a{
-	color: #fff;
-	font-weight: 700;
-}
+[data-in='enter'] .agreement a{color: #fff;font-weight: 700;}
+[data-in='enter'] .agreement a:focus{color:$jibres;}
 
 [data-in='enter'] form #email, [data-in='enter'] form #emailNew{font-size:0.8em;}
 
@@ -118,7 +116,7 @@
 [data-in='enter'] hr{margin-bottom:1em;}
 [data-in='enter'] #eMethods{font-size:1rem;font-weight:100;}
 [data-in='enter'] #eMethods p{font-size:1.4em;}
-[data-in='enter'] #eMethods a{height:40px;line-height:40px;margin:5px;background-color:rgba(0,0,0,0.5);transition:0.3s;display:inline-block;color:#eee;border-radius:3px;overflow:hidden;min-width:40%;}
+[data-in='enter'] #eMethods a{height:40px;line-height:40px;margin:5px 0;background-color:rgba(0,0,0,0.4);transition:0.3s;display:inline-block;color:#eee;border-radius:3px;overflow:hidden;min-width:40%;}
 [data-in='enter'] #eMethods a:hover{opacity:0.8}
 [data-in='enter'] #eMethods a:focus{opacity:0.7}
 [data-in='enter'] #eMethods a i{width:40px;height:40px;min-width:40px;float:left;margin:0 10px 0 0;font-size:18px;}
