@@ -13,6 +13,14 @@ function handleEnterEvents()
 	runTimer();
 	// add check handler to all data-require elements
 	runDataRequire(true);
+
+	var myDate = new Date();
+	var myHour = myDate.getHours();
+	if(myHour > 12)
+	{
+		myHour -= 12;
+	}
+	$('body').attr('data-enterBg', myHour);
 }
 
 

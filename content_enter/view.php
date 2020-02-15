@@ -7,8 +7,6 @@ class view
 
 	public static function config()
 	{
-		// \dash\data::bodyclass(' bg'. date('g'));
-
 		// get mobile number to show in mobile input
 		$session_mobile = \dash\utility\enter::get_session('usernameormobile');
 		$temp_mobile    = \dash\utility\enter::get_session('temp_mobile');
