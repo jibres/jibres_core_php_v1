@@ -14,11 +14,17 @@ else
   <span><?php echo T_("Jibres") ?></span>
  </a></h1>
  <div data-xhr='enter'>
-{%if url.module == ""%}
-   <h2 class='flex justify-center align-center'>{{page.title}}</h2>
-{%else%}
-   <h2 class='flex justify-center align-center'>{{page.desc|raw}}</h2>
-{%endif%}
+<?php
+if(\dash\url::module() === null)
+{
+ echo "<h2 class='flex justify-center align-center'>". T_("Jibres"). "</h2>";
+}
+else
+{
+   echo "<h2 class='flex justify-center align-center'>". \dash\data::page_desc(). "</h2>";
+}
+
+ ?>
   <form method="post" autocomplete="off">
   </form>
  </div>
