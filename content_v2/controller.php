@@ -7,22 +7,23 @@ class controller
 	public static function routing()
 	{
 		self::check_subdomain_and_content();
-		self::check_module_is_stroe();
+		self::check_store();
 	}
 
 
-	private static function check_module_is_stroe()
+	private static function check_store()
 	{
-		$module = \dash\url::module();
-		if(!$module)
+		$header = \dash\header::get('store');
+		if(!$header)
 		{
+			\dash\header::status(404, T_("Store not found in header"));
 			return;
 		}
 
-		$store_id = \dash\coding::decode($module);
+		$store_id = \dash\coding::decode($header);
 		if(!$store_id)
 		{
-			\dash\header::status(404, T_("Invalid store code in url"));
+			\dash\header::status(404, T_("Invalid store code in header"));
 		}
 
 		if(intval($store_id) < 1000000 || \dash\number::is_larger($store_id, 9999999))
