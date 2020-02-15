@@ -33,8 +33,8 @@ if (\dash\user::id())
 }
 else
 {
- echo '<a class="slave" href="'. \dash\url::sitelang(). '/enter" data-direct>'. T_("Enter"). '</a>';
- echo '<a class="master" href="'. \dash\url::sitelang(). '/enter/signup" data-direct>'. T_("SIGN UP"). '</a>';
+ echo '<a class="slave" href="'. \dash\url::sitelang(). '/enter">'. T_("Enter"). '</a>';
+ echo '<a class="master" href="'. \dash\url::sitelang(). '/enter/signup">'. T_("SIGN UP"). '</a>';
 }
 ?></div>
     </div>
