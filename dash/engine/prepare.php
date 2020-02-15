@@ -34,6 +34,8 @@ class prepare
 
 		// check service is locked
 		self::server_lock();
+		// check run site in iframe
+		// self::server_iframe();
 
 		// check need redirect for lang or www or https or main domain
 		self::fix_url_host();
@@ -119,6 +121,25 @@ class prepare
 			}
 		}
 
+	}
+
+
+	private static function server_iframe()
+	{
+		if(isset($_SERVER['HTTP_SEC_FETCH_DEST']) && $_SERVER['HTTP_SEC_FETCH_DEST'] == 'iframe' )
+		{
+			// open in iframe, show simple Jibres page
+			$iframePage = \dash\file::read(root. 'public_html/static/page/iframe/index.html');
+			if($iframePage)
+			{
+				echo $iframePage;
+				\dash\code::boom();
+			}
+			else
+			{
+				\dash\redirect::to(\dash\url::static(). '/page/iframe/', true, 302);
+			}
+		}
 	}
 
 
