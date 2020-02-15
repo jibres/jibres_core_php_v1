@@ -43,43 +43,43 @@ body[data-in='enter']{
 [data-in='enter'].bg15{background-image:url('../siftal/images/bg/15.jpg')}
 
 /* Layout */
-[data-in='enter'] #enter{width:20%;min-width:380px;max-width:450px;min-height:370px;margin:5px 0 50px;padding:30px;background-color:rgba(255,255,255,0.2);border-radius:5px;box-shadow:0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0, 0, 0, 0.05);transition:0.3s;color:#fff;}
+[data-in='enter'] #enter{width:20%;min-width:380px;max-width:450px;min-height:370px;margin:5px auto 50px;padding:30px;background-color:rgba(255,255,255,0.2);border-radius:5px;box-shadow:0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0, 0, 0, 0.05);transition:0.3s;color:#fff;}
 [data-in='enter'] #enter.large{height:400px}
-[data-in='enter'] #enter #band{position:relative;width:100px;height:10px;margin:0 auto 20px;border-radius:5px;background-color:rgba(0,0,0,.25)}
-[data-in='enter'] #enter #band::before{position:absolute;right:0;bottom:10px;left:0;width:50%;height:3000px;margin:auto;content:'';background-color:rgba(255,255,255,0.7);box-shadow:0px -5px 5px #757575;border-radius:0}
-[data-in='enter'] #enter .logo{margin:0}
-[data-in='enter'] #enter .logo a{display:block;border-radius:50%}
-[data-in='enter'] #enter .logo a:hover img{background-color:rgba(0,0,0,0.1);}
-[data-in='enter'] #enter .logo a:focus img{background-color:rgba(0,0,0,0.2);}
-[data-in='enter'] #enter .logo a:active img{background-color:rgba(0,0,0,0.3);}
-[data-in='enter'] #enter .logo img{display:block;max-width:100%;height:90px;width:90px;margin:0 auto;transition:0.3s;overflow:hidden;text-align:center;background-color:rgba(0,0,0,0.05);padding:2px;border-radius:50%;}
-[data-in='enter'] #enter .logo span{display:none !important}
-[data-in='enter'] #enter h2{font-size:1.1em;overflow:hidden;margin:10px 0;text-align:center;color:#fff;line-height:1.7em;}
-[data-in='enter'] #enter h2 abbr{cursor:pointer;}
-[data-in='enter'] #enter .text p{font-size:1.2em;line-height:2em;margin-bottom:2em;transition:0.3s;padding:0.5em}
-[data-in='enter'] #enter .text p:hover{background-color:rgba(0,0,0,0.1);}
-[data-in='enter'] #enter .text a{color:#eee;padding:1em 0.5em;display:inline-block;transition:0.3s;}
-[data-in='enter'] #enter .text a:hover{background-color:rgba(255,255,255,0.1);}
+[data-in='enter'] #band{position:relative;width:100px;height:10px;margin:0 auto 20px;border-radius:5px;background-color:rgba(0,0,0,.25)}
+[data-in='enter'] #band::before{position:absolute;right:0;bottom:10px;left:0;width:50%;height:3000px;margin:auto;content:'';background-color:rgba(255,255,255,0.7);box-shadow:0px -5px 5px #757575;border-radius:0}
+[data-in='enter'] .logo{margin:0}
+[data-in='enter'] .logo a{display:block;border-radius:50%}
+[data-in='enter'] .logo a:hover img{background-color:rgba(0,0,0,0.1);}
+[data-in='enter'] .logo a:focus img{background-color:rgba(0,0,0,0.2);}
+[data-in='enter'] .logo a:active img{background-color:rgba(0,0,0,0.3);}
+[data-in='enter'] .logo img{display:block;max-width:100%;height:90px;width:90px;margin:0 auto;transition:0.3s;overflow:hidden;text-align:center;background-color:rgba(0,0,0,0.05);padding:2px;border-radius:50%;}
+[data-in='enter'] .logo span{display:none !important}
+[data-in='enter'] h2{font-size:1.1em;overflow:hidden;margin:10px 0;text-align:center;color:#fff;line-height:1.7em;}
+[data-in='enter'] h2 abbr{cursor:pointer;}
+[data-in='enter'] .text p{font-size:1.2em;line-height:2em;margin-bottom:2em;transition:0.3s;padding:0.5em}
+[data-in='enter'] .text p:hover{background-color:rgba(0,0,0,0.1);}
+[data-in='enter'] .text a{color:#eee;padding:1em 0.5em;display:inline-block;transition:0.3s;}
+[data-in='enter'] .text a:hover{background-color:rgba(255,255,255,0.1);}
 /* sessions style*/
-[data-in='enter'] #enter .sessions > div{font-size:1.1em;line-height:2em;margin-bottom:2em;transition:0.3s;padding:0.5em;position:relative;}
-[data-in='enter'] #enter .sessions > div:hover{background-color:rgba(0,0,0,0.1);}
-[data-in='enter'] #enter .sessions > div abbr{float:right;}
-[data-in='enter'] #enter .sessions .browser{font-weight:700;}
-[data-in='enter'] #enter .sessions .os{color:#eee}
-[data-in='enter'] #enter .sessions .ip{color:#ddd}
-[data-in='enter'] #enter .sessions .lastseen{color:#ddd;position:absolute;right:0.5em;top:0.5em;}
-[data-in='enter'] #enter .sessions a{background-color:#eee;opacity:0;padding:0.2em 1em;display:inline-block;color:#333;border:2px solid transparent;position:absolute;right:0.5em;bottom:0.5em;transition:0.3s}
-[data-in='enter'] #enter .sessions > div:hover a{opacity:0.5}
-[data-in='enter'] #enter .sessions a:hover{border-color:#cab530;opacity:0.6;}
-[data-in='enter'] #enter .sessions a:focus{border-color:#444;opacity:0.8;}
-[data-in='enter'].rtl #enter .sessions .lastseen{left:0.5em;right:inherit;}
-[data-in='enter'].rtl #enter .sessions a{left:0.5em;right:inherit;}
+[data-in='enter'] .sessions > div{font-size:1.1em;line-height:2em;margin-bottom:2em;transition:0.3s;padding:0.5em;position:relative;}
+[data-in='enter'] .sessions > div:hover{background-color:rgba(0,0,0,0.1);}
+[data-in='enter'] .sessions > div abbr{float:right;}
+[data-in='enter'] .sessions .browser{font-weight:700;}
+[data-in='enter'] .sessions .os{color:#eee}
+[data-in='enter'] .sessions .ip{color:#ddd}
+[data-in='enter'] .sessions .lastseen{color:#ddd;position:absolute;right:0.5em;top:0.5em;}
+[data-in='enter'] .sessions a{background-color:#eee;opacity:0;padding:0.2em 1em;display:inline-block;color:#333;border:2px solid transparent;position:absolute;right:0.5em;bottom:0.5em;transition:0.3s}
+[data-in='enter'] .sessions > div:hover a{opacity:0.5}
+[data-in='enter'] .sessions a:hover{border-color:#cab530;opacity:0.6;}
+[data-in='enter'] .sessions a:focus{border-color:#444;opacity:0.8;}
+[data-in='enter'].rtl .sessions .lastseen{left:0.5em;right:inherit;}
+[data-in='enter'].rtl .sessions a{left:0.5em;right:inherit;}
 
-[data-in='enter'] #enter footer a{color:#eee;font-size:1em;padding:1em 1em;transition:0.3s;display:block;}
-[data-in='enter'] #enter footer a:hover{background-color:rgba(0,0,0,0.1)}
-[data-in='enter'] #enter footer a:focus{background-color:rgba(0,0,0,0.2)}
-[data-in='enter'] #enter footer a:last-child{text-align:right;}
-[data-in='enter'].rtl #enter footer a:last-child{text-align:left;}
+[data-in='enter'] footer a{color:#eee;font-size:1em;padding:1em 1em;transition:0.3s;display:block;}
+[data-in='enter'] footer a:hover{background-color:rgba(0,0,0,0.1)}
+[data-in='enter'] footer a:focus{background-color:rgba(0,0,0,0.2)}
+[data-in='enter'] footer a:last-child{text-align:right;}
+[data-in='enter'].rtl footer a:last-child{text-align:left;}
 
 /* form new styles*/
 [data-in='enter'] form{line-height:30px;font-size:1.8em;overflow:hidden;}
@@ -129,7 +129,7 @@ body[data-in='enter']{
 
 /* change style of autocomplete*/
 [data-in='enter'] input:-webkit-autofill,[data-in='enter'] input:-webkit-autofill:hover,[data-in='enter'] input:-webkit-autofill:focus,[data-in='enter'] input:-webkit-autofill{border: none;-webkit-text-fill-color: #fff;-webkit-box-shadow: 0 0 0px 1000px #000 inset;transition: background-color 0.3 ease-in-out 0s;}
-[data-in='enter'].loading-form #enter{cursor:progress;}
+[data-in='enter'].loading-form{cursor:progress;}
 [data-in='enter'] form .flex button{line-height:30px;width:100%;padding:10px;cursor:pointer;border:none;border-radius:3px;outline:none;background-color:#0275d8;color:#fff;opacity:0.6;transition:0.3s}
 [data-in='enter'] form .flex button:hover{opacity:0.8}
 [data-in='enter'] form .flex button:focus{opacity:1}
@@ -195,7 +195,6 @@ body[data-in='enter']{
 
 @media all and (max-width:767px) {
  [data-in='enter'] #enter{min-width:300px;min-height:300px; padding:10px 20px;width:50%;margin-bottom:42px;}
- [data-in='enter'] #enter .logo{}
  [data-in='enter'] form .flex{margin: 5px 0;height:40px;}
  [data-in='enter'] .langlist{position:absolute;}
  [data-in='enter'] #eMethods a{height:30px;line-height:30px;}
