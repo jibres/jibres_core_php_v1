@@ -48,11 +48,11 @@
 
 
   // custom style for another part of siftal
-  .siftal.ltr #main{margin-left:0}
-  .siftal.rtl #main{margin-right:0}
+  [dir="ltr"] .siftal #main{margin-left:0}
+  [dir="rtl"] .siftal #main{margin-right:0}
   // sidebar
-  .siftal.ltr #sidebar{left:-250px;}
-  .siftal.rtl #sidebar{right:-250px;}
+  [dir="ltr"] .siftal #sidebar{left:-250px;}
+  [dir="rtl"] .siftal #sidebar{right:-250px;}
   .siftal .dashHead.cloner{width:100%;}
   .siftal .toggleClean{display:none}
 

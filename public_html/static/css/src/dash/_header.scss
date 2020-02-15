@@ -36,10 +36,10 @@
 .siftal .dashHead .vm nav > a:focus{background-color:rgba(255,255,255,0.4);}
 .siftal .dashHead .vm nav .isActive, .siftal .dashHead .vm nav .active{cursor:alias;}
 .siftal .dashHead .vm nav .isActive::after, .siftal .dashHead .vm nav .active::after{content:"\6f";display:inline-block;color:#5cb85c;font:normal normal normal 14px/11px siftal;padding:0 5px;float:right;vertical-align:bottom;}
-.siftal.rtl .dashHead .vm nav .isActive::after, .siftal.rtl .dashHead .vm nav .active::after{float:left;}
+[dir="rtl"] .siftal .dashHead .vm nav .isActive::after, [dir="rtl"] .siftal .dashHead .vm nav .active::after{float:left;}
 .siftal .dashHead .vm:hover nav{opacity:1;visibility:visible;}
-.siftal.ltr .dashHead .right{margin-left:auto;}
-.siftal.rtl .dashHead .right{margin-right:auto;}
+[dir="ltr"] .siftal .dashHead .right{margin-left:auto;}
+[dir="rtl"] .siftal .dashHead .right{margin-right:auto;}
 
 .siftal .dashHead .profileShow img{height:40px;width:40px;max-width:40px;border-radius:50%;overflow:hidden;margin:5px;position:relative}
 
