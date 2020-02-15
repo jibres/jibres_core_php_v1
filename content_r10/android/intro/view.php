@@ -14,31 +14,30 @@ class view
 					'title' => T_('Hello'),
 					'desc'  => T_('Welcome to Jibres world'),
 					'image' => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
-					'next'  => T_('Next'),
-					// 'prev'  => T_('Skip'),
 				],
 				[
 					'title' => T_('Sell and Enjoy'),
 					'desc'  => T_('All-in-one ecommerce platform'),
 					// 'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
-					'next'  => T_('Next'),
-					'prev'  => T_('Prev'),
 				],
 				[
 					'title' => T_('Sometimes you need a big change.'),
 					// 'desc'  => T_('Jibres'),
 					'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
-					'next'  => T_('Continue'),
-					'prev'  => T_('Prev'),
 				],
 				[
 					// 'title' => T_('Sometimes you need a big change.'),
 					// 'desc'  => T_('Jibres'),
 					// 'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
-					// 'next'  => T_('Next'),
-					'prev'  => T_('Prev'),
 				],
 			],
+			'translation' =>
+			[
+				'next'  => T_('Next'),
+				'prev'  => T_('Prev'),
+				'skip'  => T_('Skip'),
+				'start' => T_('Get Start'),
+			]
 
 			'theme' => 'Jibres',
 			'bg' =>
