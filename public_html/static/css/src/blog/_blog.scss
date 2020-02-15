@@ -23,7 +23,7 @@
 	font-weight: 300;
 	transition: 0.3s;
 }
-.rtl .blogEx > header h1 a{
+[dir="rtl"] .blogEx > header h1 a{
 	font-weight: 900;
 }
 .blogEx > header h2{
@@ -101,7 +101,7 @@
 .blogEx article .meta time{
 	font-weight: 100;
 }
-.ltr .blogEx article p{
+[dir="ltr"] .blogEx article p{
 	font-weight: 100;
 }
 .blogEx article p{

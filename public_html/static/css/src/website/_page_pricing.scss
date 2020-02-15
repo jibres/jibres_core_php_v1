@@ -7,7 +7,7 @@
 .prBox .price sub{font-size:0.2em;vertical-align:middle;}
 .prBox .price abbr{display:block;}
 .prBox p{font-size:1em;padding:1em 1.5em;font-weight:100;margin:0;text-align:center!important;line-height:2em}
-.rtl .prBox p{padding:1em 0.5em;}
+[dir="rtl"] .prBox p{padding:1em 0.5em;}
 .prBox ul{padding:1em 0;font-weight:100;}
 .prBox ul li{padding:0.5em 2em;line-height:1.3em;}
 .bold{font-weight:bold}
@@ -70,10 +70,10 @@ body[data-page="pricing"] .page-title h2{
 .pricingQuick .box > .c3{
     padding: 2em 2em;
 }
-.ltr .pricingQuick .col1, .ltr .pricingQuick .col2, .ltr .pricingQuick .col3{
+[dir="ltr"] .pricingQuick .col1, [dir="ltr"] .pricingQuick .col2, [dir="ltr"] .pricingQuick .col3{
     border-right: 1px solid #e0f0ff;
 }
-.rtl .pricingQuick .col1, .rtl .pricingQuick .col2, .rtl .pricingQuick .col3{
+[dir="rtl"] .pricingQuick .col1, [dir="rtl"] .pricingQuick .col2, [dir="rtl"] .pricingQuick .col3{
     border-left: 1px solid #e0f0ff;
 }
 .pricingQuick img{
@@ -169,9 +169,9 @@ body[data-page="pricing"] .page-title h2{
 .tbl1.pricingTable th, .tbl1.pricingTable td{
   text-align: center;
 }
-.ltr .pricingTable tr > *:first-child{
+[dir="ltr"] .pricingTable tr > *:first-child{
   text-align: left;
 }
-.rtl .pricingTable tr > *:first-child{
+[dir="rtl"] .pricingTable tr > *:first-child{
   text-align: right;
 }

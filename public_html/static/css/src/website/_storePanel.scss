@@ -10,10 +10,10 @@
 .siftal .priceBox .final span{line-height:75px;height:70px;}
 .siftal .priceBox .final abbr{font-size:1rem;display:inline-block;transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);vertical-align:middle;}
 .siftal .priceBox .desc{padding:0.4em 0.2em;color:#fff;font-size:1.1rem;font-weight:100;min-height:30px;line-height:1.4}
-.siftal.ltr  .priceBox .desc{display:none;}
+[dir="ltr"] .siftal .priceBox .desc{display:none;}
 .siftal .priceBox .detail{padding:0.5em;text-align:initial;}
 .siftal .priceBox .detail span{float:right;font-size:1.2em;}
-.siftal.rtl  .priceBox .detail span{float:left;}
+[dir="rtl"] .siftal .priceBox .detail span{float:left;}
 .siftal .priceBox .count{display:none;}
 .siftal .priceBox .discount{background-color:#50aacc;cursor:pointer;display:none;overflow:hidden;}
 .siftal .priceBox .discountPercent{display:none;}
