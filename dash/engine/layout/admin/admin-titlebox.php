@@ -1,57 +1,97 @@
 
-{%if page.titleBox%}
+<?php if(\dash\data::page_titleBox()) { ?>
+
 <div class="titleBox">
   <div class="f align-center">
-{%if back.text and back.link%}
-    <div class="cauto pRa10">
-      <a class="btn master back" href="{{back.link}}"><i class="pRa5 sf-chevron-{%if global.direction == 'rtl'%}right{%else%}left{%endif%}"></i><span class="s0">{{back.text}}</span></a>
-    </div>
-{%endif%}
+    <?php if(\dash\data::back_text() && \dash\data::back_link()) { ?>
+      <div class="cauto pRa10">
+        <a class="btn master back" href="<?php echo \dash\data::back_link(); ?>"><i class="pRa5 sf-chevron-<?php if(\dash\data::global_direction() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i><span class="s0"><?php echo \dash\data::back_text(); ?></span></a>
+      </div>
+    <?php } // ?>
 
     <div class="c s10 pRa10 pageTitle">
-      <h2>{{page.title | raw}}</h2>
+      <h2><?php echo \dash\data::page_title(); ?></h2>
     </div>
     <nav class="cauto actions">
-{%if page.import%}
-      <a class="btn light" href="{{page.import}}"><i class="pRa5 compact sf-in"></i><span>{%trans "Import"%}</span></a>
-{%endif%}
-{%if page.export%}
-      <a class="btn light" href="{{page.export}}"><i class="pRa5 compact sf-out"></i><span>{%trans "Export"%}</span></a>
-{%endif%}
-{%if page.duplicate%}
-      <a class="btn light" href="{{page.duplicate}}"><i class="pRa5 compact sf-files-o"></i><span>{%trans "Duplicate"%}</span></a>
-{%endif%}
-{%if page.view%}
-      <a class="btn light" href="{{page.view}}" target="_blank"><i class="pRa5 compact sf-eye"></i><span>{%trans "View"%}</span></a>
-{%endif%}
-{%if page.help%}
-      <a class="btn light" href="{{page.help}}" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span>{%trans "Help"%}</span></a>
-{%endif%}
+
+<?php if(\dash\data::page_import()) { ?>
+      <a class="btn light" href="<?php echo \dash\data::page_import(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
+<?php } // endif ?>
+<?php if(\dash\data::page_export()) { ?>
+      <a class="btn light" href="<?php echo \dash\data::page_export(); ?>"><i class="pRa5 compact sf-out"></i><span><?php echo T_("Export"); ?></span></a>
+<?php } // endif ?>
+<?php if(\dash\data::page_duplicate()) { ?>
+      <a class="btn light" href="<?php echo \dash\data::page_duplicate(); ?>"><i class="pRa5 compact sf-files-o"></i><span><?php echo T_("Duplicate"); ?></span></a>
+<?php } // endif ?>
+<?php if(\dash\data::page_view()) { ?>
+      <a class="btn light" href="<?php echo \dash\data::page_view(); ?>" target="_blank"><i class="pRa5 compact sf-eye"></i><span><?php echo T_("View"); ?></span></a>
+<?php } // endif ?>
+<?php if(\dash\data::page_help()) { ?>
+      <a class="btn light" href="<?php echo \dash\data::page_help(); ?>" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span><?php echo T_("Help"); ?></span></a>
+<?php } // endif ?>
     </nav>
 
-{%if page.prev or page.next%}
+<?php if(\dash\data::page_prev() || \dash\data::page_next()) { ?>
+
     <nav class="cauto os pLa10 nav">
-       <a class="btn{%if page.prev == 'disabled'%} disabled{%endif%}" {%if page.prev == 'disabled'%}{%else%}href="{{page.prev}}"{%endif%} title='{%trans "Previous item"%}'><i class="sf-arrow-{%if global.direction == 'rtl'%}right{%else%}left{%endif%}"></i></a>
-       <a class="btn{%if page.next == 'disabled'%} disabled{%endif%}" {%if page.next == 'disabled'%}{%else%}href="{{page.next}}"{%endif%} title='{%trans "Next item"%}'><i class="sf-arrow-{%if global.direction == 'rtl'%}left{%else%}right{%endif%}"></i></a>
+       <a class="btn <?php if(\dash\data::page_prev() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\data::page_prev() !== 'disabled') { echo 'href="'. \dash\data::page_prev().'"'; } ?> title='<?php echo T_("Previous item"); ?>'><i class="sf-arrow-<?php if(\dash\data::global_direction() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i></a>
+       <a class="btn <?php if(\dash\data::page_next() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\data::page_next() !== 'disabled') { echo 'href="'. \dash\data::page_next().'"'; } ?>  title='<?php echo T_("Next item"); ?>'><i class="sf-arrow-<?php if(\dash\data::global_direction() === 'rtl') { echo 'left'; } else { echo 'right'; } ?>"></i></a>
     </nav>
-{%endif%}
+<?php } // endif ?>
 
-{%if action.text and action.link%}
+
+<?php if(\dash\data::action_text() && \dash\data::action_link()) { ?>
     <nav class="cauto os pLa10">
-       <a class="btn master" href="{{action.link}}" data-shortkey="120"{%if page.btnDirect%} data-direct{%endif%}><span>{{action.text}}</span> <kbd>F9</kbd></a>
+       <a class="btn master" href="<?php echo \dash\data::action_link(); ?>" data-shortkey="120"><span><?php echo \dash\data::action_text(); ?></span> <kbd>F9</kbd></a>
     </nav>
-{%endif%}
+<?php } // endif ?>
   </div>
 
-{%if page.breadcrumb%}
+<?php if(\dash\data::page_breadcrumb())  {?>
+
   <nav class="breadcrumb">
-{%for key, value in page.breadcrumb%}
-   <a{%if value.link%} href="{{value.link}}"{%endif%}{%if value.title%} title="{{value.title}}"{%endif%}{%if value.attr%} {{value.attr}}{%endif%}>{%if value.icon%}<span class="sf-{{value.icon}} mRa5"></span>{%endif%}{{value.text}}</a>
-{%endfor%}
+    <?php foreach (\dash\data::page_breadcrumb() as $key => $value)
+    {
+      echo '<a';
+      if(isset($value['link']) && $value['link'])
+      {
+        echo ' href="'. $value['link']. '"';
+      }
+
+      if(isset($value['title']) && $value['title'])
+      {
+        echo ' title="'. $value['title']. '"';
+      }
+
+
+      if(isset($value['attr']) && $value['attr'])
+      {
+        echo $value['attr'];
+      }
+
+      echo '>';
+
+      if(isset($value['icon']) && $value['icon'])
+      {
+        echo '<span class="sf-'. $value['icon'].' mRa5"></span>';
+      }
+
+      if(isset($value['text']))
+      {
+        echo $value['text'];
+      }
+
+      echo '</a>';
+    }
+    ?>
+
   </nav>
-{%endif%}
+
+<?php } // endif ?>
+
 </div>
 
 
-{%endif%}
+<?php } // endif ?>
+
 
