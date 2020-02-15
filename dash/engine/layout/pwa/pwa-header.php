@@ -1,21 +1,21 @@
  <nav class="f">
   <div class="c4 back"><?php
-if(\dash\data::page_backLink() && \dash\data::page_backText())
+if(\dash\data::back_link() && \dash\data::back_text())
 {
-	echo "<a href='". \dash\data::page_backLink(). "'>". \dash\data::page_backText(). "</a>";
+	echo "<a href='". \dash\data::back_link(). "'>". \dash\data::back_text(). "</a>";
 }
 ?></div>
   <div class="c4 title"><?php echo \dash\data::page_title(); ?></div>
   <div class="c4 action"><?php
-if(\dash\data::page_btnLink() && \dash\data::page_btnText())
+if(\dash\data::action_link() && \dash\data::action_text())
 {
-	if(\dash\data::page_btnTextIcon())
+	if(\dash\data::action_icon())
 	{
-		echo "<a href='". \dash\data::page_btnLink(). "'><i class='sf-". \dash\data::page_btnTextIcon(). "'></i></a>";
+		echo "<a href='". \dash\data::action_link(). "'><i class='sf-". \dash\data::action_icon(). "'></i></a>";
 	}
 	else
 	{
-		echo "<a href='". \dash\data::page_btnLink(). "'>". \dash\data::page_btnText(). "</a>";
+		echo "<a href='". \dash\data::action_link(). "'>". \dash\data::action_text(). "</a>";
 	}
 }
 ?></div>

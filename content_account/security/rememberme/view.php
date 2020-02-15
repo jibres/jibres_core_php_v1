@@ -13,8 +13,8 @@ class view
 		\dash\data::badge_text(T_('Back to Account security'));
 
 		// back
-		\dash\data::page_backText(T_('Security'));
-		\dash\data::page_backLink(\dash\url::this());
+		\dash\data::back_text(T_('Security'));
+		\dash\data::back_link(\dash\url::this());
 
 
 		\dash\data::isLtr(\dash\language::dir() === 'ltr' ? true : false);

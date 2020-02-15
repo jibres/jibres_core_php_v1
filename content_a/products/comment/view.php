@@ -10,8 +10,8 @@ class view
 		\dash\data::page_desc(T_('Check price change of this product like buy, sale and profit.'));
 
 		// back
-		\dash\data::page_backText(T_('Back'));
-		\dash\data::page_backLink(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
 
 
 

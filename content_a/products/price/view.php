@@ -12,8 +12,8 @@ class view
 		\dash\data::page_pictogram('box');
 
 		// btn
-		\dash\data::page_btnText(T_('Add product'));
-		\dash\data::page_btnLink(\dash\url::this(). '/add');
+		\dash\data::action_text(T_('Add product'));
+		\dash\data::action_link(\dash\url::this(). '/add');
 		// operations
 		\dash\data::page_import(\dash\url::this().'/import');
 		\dash\data::page_export(\dash\url::this().'/export');

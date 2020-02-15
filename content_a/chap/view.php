@@ -11,8 +11,8 @@ class view
 
 
 		// back
-		\dash\data::page_backText(T_('Factors'));
-		\dash\data::page_backLink(\lib\backlink::factor());
+		\dash\data::back_text(T_('Factors'));
+		\dash\data::back_link(\lib\backlink::factor());
 
 		$id = \dash\request::get('id');
 

@@ -11,8 +11,8 @@ class view
 
 		if(\dash\permission::check('categoryAdd'))
 		{
-			\dash\data::page_btnText(T_('Add new category'));
-			\dash\data::page_btnLink(\dash\url::this(). '/add');
+			\dash\data::action_text(T_('Add new category'));
+			\dash\data::action_link(\dash\url::this(). '/add');
 		}
 
 

@@ -8,8 +8,8 @@ class view
 	{
 		\dash\data::page_title(T_('Setting up shipping rates'));
 
-		\dash\data::page_backText(T_('Back'));
-		\dash\data::page_backLink(\dash\url::this());
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this());
 
 		$myCountryName = null;
 		if(\dash\data::dataRow_country())

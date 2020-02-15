@@ -18,8 +18,8 @@ class view
 			\dash\data::page_title(T_("Store Lists"));
 
 			// btn to add new store
-			\dash\data::page_btnText(T_('Add new store'));
-			\dash\data::page_btnLink(\dash\url::this(). '/start');
+			\dash\data::action_text(T_('Add new store'));
+			\dash\data::action_link(\dash\url::this(). '/start');
 			\dash\data::page_btnDirect(true);
 		}
 		else

@@ -1,5 +1,5 @@
  <nav class="f">
-  <div class="c4 back">{%if page.backLink and page.backText%}<a href="{{page.backLink}}">{{page.backText}}</a>{%endif%}</div>
+  <div class="c4 back">{%if back.link and back.text%}<a href="{{back.link}}">{{back.text}}</a>{%endif%}</div>
   <div class="c4 title">{{page.title}}</div>
-  <div class="c4 action">{%if page.btnLink and page.btnText%}<a href="{{page.btnLink}}">{%if page.btnTextIcon%}<i class="sf-{{page.btnTextIcon}}"></i>{%else%}{{page.btnText}}{%endif%}</a>{%endif%}</div>
+  <div class="c4 action">{%if action.link and action.text%}<a href="{{action.link}}">{%if action.icon%}<i class="sf-{{action.icon}}"></i>{%else%}{{action.text}}{%endif%}</a>{%endif%}</div>
  </nav>

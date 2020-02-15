@@ -14,8 +14,8 @@ class view
 		\dash\data::badge_link(\dash\url::this());
 
 		// back
-		\dash\data::page_backText(T_('Products'));
-		\dash\data::page_backLink(\lib\backlink::products());
+		\dash\data::back_text(T_('Products'));
+		\dash\data::back_link(\lib\backlink::products());
 
 		// \dash\data::page_help(\dash\url::support().'/product');
 

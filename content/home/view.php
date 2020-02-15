@@ -41,12 +41,12 @@ class view
 		}
 
 		// btn
-		\dash\data::page_backText(T_('About'));
-		\dash\data::page_backLink(\dash\url::kingdom(). '/about');
+		\dash\data::back_text(T_('About'));
+		\dash\data::back_link(\dash\url::kingdom(). '/about');
 
 		// btn
-		\dash\data::page_btnText(T_('Enter'));
-		\dash\data::page_btnLink(\dash\url::this(). '/enter');
+		\dash\data::action_text(T_('Enter'));
+		\dash\data::action_link(\dash\url::this(). '/enter');
 
 	}
 }

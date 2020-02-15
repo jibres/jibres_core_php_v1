@@ -10,8 +10,8 @@ class view
 		\dash\data::page_pictogram('plus');
 
 
-		\dash\data::page_backText(T_('Category list'));
-		\dash\data::page_backLink(\dash\url::this());
+		\dash\data::back_text(T_('Category list'));
+		\dash\data::back_link(\dash\url::this());
 
 	}
 }

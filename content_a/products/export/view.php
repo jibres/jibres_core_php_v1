@@ -9,8 +9,8 @@ class view
 		// page title
 		\dash\data::page_title(T_("Export products"));
 		// back
-		\dash\data::page_backText(T_('Products'));
-		\dash\data::page_backLink(\dash\url::this());
+		\dash\data::back_text(T_('Products'));
+		\dash\data::back_link(\dash\url::this());
 		// support link
 		\dash\data::page_help(\dash\url::support().'/products/export');
 

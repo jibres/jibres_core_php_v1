@@ -19,8 +19,8 @@ class view
 
 
 		// back
-		\dash\data::page_backText(T_('Back'));
-		\dash\data::page_backLink(\dash\url::this(). '/edit?id='. $id);
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this(). '/edit?id='. $id);
 
 		// \dash\data::page_help(\dash\url::support().'/product/duplicate');
 

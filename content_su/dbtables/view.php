@@ -15,8 +15,8 @@ class view
 
 		\dash\data::page_titleBox(true);
 
-		\dash\data::page_backText(T_('Select table'));
-		\dash\data::page_backLink(\dash\url::this());
+		\dash\data::back_text(T_('Select table'));
+		\dash\data::back_link(\dash\url::this());
 
 		$search_string            = \dash\request::get('q');
 		if($search_string)

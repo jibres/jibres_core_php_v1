@@ -12,12 +12,12 @@ class view
 
 
 		// btn
-		\dash\data::page_btnText(T_('Add dns'));
-		\dash\data::page_btnLink(\dash\url::this(). '/add');
+		\dash\data::action_text(T_('Add dns'));
+		\dash\data::action_link(\dash\url::this(). '/add');
 
 		// btn
-		\dash\data::page_backText(T_('Back'));
-		\dash\data::page_backLink(\dash\url::here());
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here());
 
 		$args =
 		[

@@ -11,13 +11,13 @@ class view
 		\dash\data::page_desc(T_('You can search in list of products, add new product and edit existing.'));
 
 		// back
-		\dash\data::page_backText(T_('Dashboard'));
-		\dash\data::page_backLink(\dash\url::here());
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::here());
 
 		// btn
-		\dash\data::page_btnText(T_('Add product'));
-		\dash\data::page_btnTextIcon('plus');
-		\dash\data::page_btnLink(\dash\url::this(). '/add');
+		\dash\data::action_text(T_('Add product'));
+		\dash\data::action_icon('plus');
+		\dash\data::action_link(\dash\url::this(). '/add');
 		// operations
 		\dash\data::page_import(\dash\url::this().'/import');
 		\dash\data::page_export(\dash\url::this().'/export');

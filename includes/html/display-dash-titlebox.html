@@ -2,9 +2,9 @@
 {%if page.titleBox%}
 <div class="titleBox">
   <div class="f align-center">
-{%if page.backText and page.backLink%}
+{%if back.text and back.link%}
     <div class="cauto pRa10">
-      <a class="btn master back" href="{{page.backLink}}"><i class="pRa5 sf-chevron-{%if global.direction == 'rtl'%}right{%else%}left{%endif%}"></i><span class="s0">{{page.backText}}</span></a>
+      <a class="btn master back" href="{{back.link}}"><i class="pRa5 sf-chevron-{%if global.direction == 'rtl'%}right{%else%}left{%endif%}"></i><span class="s0">{{back.text}}</span></a>
     </div>
 {%endif%}
 
@@ -36,9 +36,9 @@
     </nav>
 {%endif%}
 
-{%if page.btnText and page.btnLink%}
+{%if action.text and action.link%}
     <nav class="cauto os pLa10">
-       <a class="btn master" href="{{page.btnLink}}" data-shortkey="120"{%if page.btnDirect%} data-direct{%endif%}><span>{{page.btnText}}</span> <kbd>F9</kbd></a>
+       <a class="btn master" href="{{action.link}}" data-shortkey="120"{%if page.btnDirect%} data-direct{%endif%}><span>{{action.text}}</span> <kbd>F9</kbd></a>
     </nav>
 {%endif%}
   </div>

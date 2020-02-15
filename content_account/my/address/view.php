@@ -16,8 +16,8 @@ class view
 		\dash\data::badge_text(T_('Back to personal info'));
 
 		// back
-		\dash\data::page_backText(T_('Personal info'));
-		\dash\data::page_backLink(\dash\url::this());
+		\dash\data::back_text(T_('Personal info'));
+		\dash\data::back_link(\dash\url::this());
 
 
 		$args               = [];

@@ -11,8 +11,8 @@ class view
 		\dash\data::page_pictogram('chart-line');
 
 		// back
-		\dash\data::page_backText(T_('Dashboard'));
-		\dash\data::page_backLink(\dash\url::here());
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::here());
 
 		$id = \content_a\pricehistory\controller::myId();
 		if($id)
