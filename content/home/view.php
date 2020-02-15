@@ -41,10 +41,6 @@ class view
 		}
 
 		// btn
-		\dash\data::back_text(T_('About'));
-		\dash\data::back_link(\dash\url::kingdom(). '/about');
-
-		// btn
 		\dash\data::action_text(T_('Enter'));
 		\dash\data::action_link(\dash\url::this(). '/enter');
 

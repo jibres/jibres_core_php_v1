@@ -9,6 +9,10 @@ class view
 		\dash\data::page_title(T_('Jibres Logo'));
 		\dash\data::page_special(true);
 		\dash\data::page_desc(T_('Know more about Jibres Logo'));
+
+		// btn
+		\dash\data::back_text(T_('Home'));
+		\dash\data::back_link(\dash\url::kingdom());
 	}
 }
 ?>

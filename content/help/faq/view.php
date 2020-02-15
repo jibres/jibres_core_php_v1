@@ -8,6 +8,10 @@ class view
 	{
 		\dash\data::page_title(T_('Frequently Asked Questions'));
 		\dash\data::page_desc(T_('This FAQ provides answers to basic questions about Jibres.'));
+
+		// btn
+		\dash\data::back_text(T_('Help Center'));
+		\dash\data::back_link(\dash\url::kingdom(). '/help');
 	}
 }
 ?>
