@@ -7048,7 +7048,7 @@ msgid "TEAM"
 msgstr "تیم"
 
 #: dash/engine/static_files.php:24
-msgid "Javad Evazzadeh Kakroudi"
+msgid "Javad Adib"
 msgstr "جواد عوض‌زاده کاکرودی"
 
 #: dash/engine/static_files.php:27 dash/engine/static_files.php:36

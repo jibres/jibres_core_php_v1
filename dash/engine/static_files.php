@@ -20,12 +20,13 @@ class static_files
 		// teams member
 		$contributors .= "\n\n". "/* ". T_('TEAM'). "*/";
 
-		// Javad Evazzadeh Kakroudi
-		$contributors .= "\n\t". T_("Javad Evazzadeh Kakroudi");
+		// Javad Adib
+		$contributors .= "\n\t". T_("Javad Adib");
 		$contributors .= "\n\t". T_('Website'). ": https://evazzadeh.com";
-		$contributors .= "\n\t". T_('Contact'). ": J.Evazzadeh [at] live.com";
-		$contributors .= "\n\t". T_('Twitter'). ": @evazzadeh";
-		$contributors .= "\n\t". T_('Github'). ": @evazzadeh";
+		$contributors .= "\n\t". T_('Website'). ": https://mradib.com";
+		$contributors .= "\n\t". T_('Contact'). ": CEO [at] Jibres.com";
+		$contributors .= "\n\t". T_('Twitter'). ": @MrAdib";
+		$contributors .= "\n\t". T_('Github'). ": @MrJavadAdib";
 		$contributors .= "\n\t". T_('Location'). ": Iran";
 		$contributors .= "\n";
 
