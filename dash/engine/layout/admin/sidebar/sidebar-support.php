@@ -1,81 +1,79 @@
 
 
 <li>
-  <a href="{{url.here}}/ticket{{accessGet}}"><i class="sf-question-circle"></i>{%trans "Tickets"%}</a>
+  <a href="<?php echo \dash\url::here(); ?>/ticket<?php echo \dash\data::accessGet(); ?>"><i class="sf-question-circle"></i><?php echo T_("Tickets"); ?></a>
 
     <ul>
-      <li><a href="{{url.here}}/ticket/add{{accessGet}}"><i class="floatLa mRa10 fc-mute sf-plus"></i>{%trans "New Ticket"%}</a></li>
-{%if sidebarDetail.all%}
-      <li><a href="{{url.here}}/ticket?status=all{{accessGetAnd}}"><span class="floatLa mRa10 fc-mute badge dark">{{sidebarDetail.all | fitNumber}}</span>{%trans "All"%}</a></li>
-{%endif%}
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket/ad<?php echo \dash\data::accessGet(); ?>"><i class="floatLa mRa10 fc-mute sf-plus"></i><?php echo T_("New Ticket"); ?></a></li>
+<?php if(\dash\data::sidebarDetail_all()) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=all<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_all()); ?></span><?php echo T_("All"); ?></a></li>
+<?php } //endif ?>
 
-{%if sidebarDetail.awaiting%}
-      <li><a href="{{url.here}}/ticket?status=awaiting{{accessGetAnd}}"><span class="floatLa mRa10 fc-mute badge dark">{{sidebarDetail.awaiting | fitNumber}}</span>{%trans "Awaiting answer"%}</a></li>
-{%endif%}
+<?php if(\dash\data::sidebarDetail_awaiting()) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=awaitin<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_awaiting()); ?></span><?php echo T_("Awaiting answer"); ?></a></li>
+<?php } //endif ?>
 
-{%if sidebarDetail.answered%}
-      <li><a href="{{url.here}}/ticket?status=answered{{accessGetAnd}}"><span class="floatLa mRa10 fc-mute badge dark">{{sidebarDetail.answered | fitNumber}}</span>{%trans "Answered"%}</a></li>
-{%endif%}
+<?php if(\dash\data::sidebarDetail_answered()) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=answere<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_answered()); ?></span><?php echo T_("Answered"); ?></a></li>
+<?php } //endif ?>
 
-{%if (sidebarDetail.all or sidebarDetail.awaiting or sidebarDetail.answered) and ((perm('supportTicketAnswer') and sidebarDetail.unsolved) or (perm('supportTicketAnswer') and sidebarDetail.solved))%}
+<?php if((\dash\data::sidebarDetail_all() || \dash\data::sidebarDetail_awaiting()) && ((\dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_unsolved()) || \dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_solved())) {?>
 <li class="hr"></li>
-{%endif%}
+<?php } //endif ?>
 
-{%if perm('supportTicketAnswer') and sidebarDetail.unsolved%}
-{%set haveBeforeLink = true%}
-      <li><a href="{{url.here}}/ticket?status=unsolved{{accessGetAnd}}"><span class="floatLa mRa10 fc-mute badge dark">{{sidebarDetail.unsolved | fitNumber}}</span>{%trans "Unsolved"%}</a></li>
-{%endif%}
+<?php if(\dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_unsolved()) {?>
+<?php $haveBeforeLink = true; ?>
 
-{%if perm('supportTicketAnswer') and sidebarDetail.solved%}
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=unsolve<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_unsolved()); ?></span><?php echo T_("Unsolved"); ?></a></li>
+<?php } //endif ?>
 
-{%set haveBeforeLink = true%}
-      <li><a href="{{url.here}}/ticket?status=solved{{accessGetAnd}}"><span class="floatLa mRa10 fc-mute badge dark">{{sidebarDetail.solved | fitNumber}}</span>{%trans "Solved"%}</a></li>
-{%endif%}
+<?php if(\dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_solved()) {?>
+<?php $haveBeforeLink = true; ?>
 
-{%if haveBeforeLink and (sidebarDetail.open or sidebarDetail.archived)%}
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=solve<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_solved()); ?></span><?php echo T_("Solved"); ?></a></li>
+<?php } //endif ?>
+
+<?php if((isset($haveBeforeLink) && $haveBeforeLink) && (\dash\data::sidebarDetail_open() || \dash\data::sidebarDetail_archived())) {?>
+
 <li class="hr"></li>
-{%endif%}
+<?php } //endif ?>
 
-{%if sidebarDetail.open%}
-      <li><a href="{{url.here}}/ticket?status=open{{accessGetAnd}}"><span class="floatLa mRa10 fc-mute badge dark">{{sidebarDetail.open | fitNumber}}</span>{%trans "Open tickets"%}</a></li>
-{%endif%}
+<?php if(\dash\data::sidebarDetail_open()) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=ope<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_open()); ?></span><?php echo T_("Open tickets"); ?></a></li>
+<?php } //endif ?>
 
-{%if sidebarDetail.archived%}
-      <li><a href="{{url.here}}/ticket?status=archived{{accessGetAnd}}"><span class="floatLa mRa10 fc-mute badge dark">{{sidebarDetail.archived | fitNumber}}</span>{%trans "Archived"%}</a></li>
-{%endif%}
+<?php if(\dash\data::sidebarDetail_archived()) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=archive<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_archived()); ?></span><?php echo T_("Archived"); ?></a></li>
+<?php } //endif ?>
 
-{%if perm('supportTicketTrash') and sidebarDetail.trash%}
-      <li><a href="{{url.here}}/ticket?status=deleted{{accessGetAnd}}"><span class="floatLa mRa10 fc-mute badge dark">{{sidebarDetail.trash | fitNumber}}</span>{%trans "Trash"%}</a></li>
-      <li><a href="{{url.here}}/ticket?status=spam{{accessGetAnd}}"><span class="floatLa mRa10 fc-mute badge dark">{{sidebarDetail.spam | fitNumber}}</span>{%trans "Spam"%}</a></li>
-{%endif%}
+<?php if(\dash\permission::check('supportTicketAnswer') && \dash\data::sidebarDetail_trash()) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=deleted<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_trash()); ?></span><?php echo T_("Trash"); ?></a></li>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=spa<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_spam()); ?></span><?php echo T_("Spam"); ?></a></li>
+<?php } //endif ?>
     </ul>
-
 </li>
 
+<?php if(\dash\permission::check('cpTagSupportEdit')) {?>
+  <li><a href="<?php echo \dash\url::here(); ?>/ticket/tags"><i class='fc-mute sf-bug'></i> <?php echo T_("Ticket Topics"); ?></a></li>
+<?php } //endif ?>
 
 
-
-{%if perm('cpTagSupportEdit')%}
-  <li><a href="{{url.here}}/ticket/tags"><i class='fc-mute sf-bug'></i> {% trans "Ticket Topics" %}</a></li>
-{%endif%}
-{%if sidebarDetail.tags%}
+<?php if(\dash\data::sidebarDetail_tags()) {?>
 <li class="hr"></li>
 <li>
-  {%if perm('cpSupportTagAdd') and 0 %}
-    <a data-direct href="{{url.kingdom}}/cp/terms?type=support_tag"><i class='sf-tag'></i> {%trans "Tags"%}</a>
-  {%else%}
-    <a href="#" class="title"><i class='sf-tag'></i> {%trans "Tags"%}</a>
-  {%endif%}
     <ul>
-    {%for key, value in sidebarDetail.tags%}
-      {%if value.status == 'enable' or perm('cpTagSupportEdit')%}
+      <?php foreach (\dash\data::sidebarDetail_tags() as $key => $value)
+      {
+        if((isset($value['status']) && $value['status'] === 'enable') || \dash\permission::check('cpTagSupportEdit'))
+        {
+      ?>
           <li>
-            <a href="{{url.here}}/ticket?tag={{value.slug}}{{accessGetAnd}}">
-            <span class="floatLa mRa10 badge dark fc-mute"> {{value.useage_count | fitNumber}}</span>
-            <span class="mRa10 badge rounded {{value.meta.color}}">&nbsp;</span>{{value.title}}</a>
+            <a href="<?php echo \dash\url::here(); ?>/ticket?tag=<?php echo @$value['slug']; ?><?php echo \dash\data::accessGetAnd(); ?>">
+            <span class="floatLa mRa10 badge dark fc-mute"> <?php echo \dash\fit::number(@$value['useage_count']); ?></span>
+            <span class="mRa10 badge rounded <?php if(isset($value['meta']['color'])) {echo $value['meta']['color']; } ?>">&nbsp;</span><?php echo @$value['title']; ?></a>
           </li>
-      {%endif%}
-    {%endfor%}
+      <?php } // endif ?>
+    <?php } // endfor ?>
     </ul>
 </li>
-{%endif%}
+<?php } //endif ?>
