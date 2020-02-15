@@ -6,28 +6,30 @@ class view
 {
 	public static function config()
 	{
-		$result =
-		[
-			'logo'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
-			'theme' => 'Jibres',
-			'title' => T_('Jibres'),
-			'desc'  => T_('Sell and Enjoy'),
-			'meta'  => 'Powered by Ermile',
+		\content_r10\android\splash\view::config();
 
-			'bg' =>
-			[
-				'from' => '#4173cc',
-				'to'   => '#1da1f3',
-			],
+		// $result =
+		// [
+		// 	'logo'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+		// 	'theme' => 'Jibres',
+		// 	'title' => T_('Jibres'),
+		// 	'desc'  => T_('Sell and Enjoy'),
+		// 	'meta'  => 'Powered by Ermile',
 
-			'color' =>
-			[
-				'primary'   => '#fff',
-				'secondary' => '#eee',
-			],
-		];
+		// 	'bg' =>
+		// 	[
+		// 		'from' => '#4173cc',
+		// 		'to'   => '#1da1f3',
+		// 	],
 
-		\dash\notif::api($result);
+		// 	'color' =>
+		// 	[
+		// 		'primary'   => '#fff',
+		// 		'secondary' => '#eee',
+		// 	],
+		// ];
+
+		// \dash\notif::api($result);
 	}
 }
 ?>

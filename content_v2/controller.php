@@ -16,14 +16,14 @@ class controller
 		$header = \dash\header::get('store');
 		if(!$header)
 		{
-			\dash\header::status(404, T_("Store not found in header"));
+			\dash\header::status(403, T_("Store not found in header"));
 			return;
 		}
 
 		$store_id = \dash\coding::decode($header);
 		if(!$store_id)
 		{
-			\dash\header::status(404, T_("Invalid store code in header"));
+			\dash\header::status(403, T_("Invalid store code in header"));
 		}
 
 		if(intval($store_id) < 1000000 || \dash\number::is_larger($store_id, 9999999))
@@ -44,7 +44,7 @@ class controller
 
 			if(!\lib\store::id())
 			{
-				\dash\header::status(404, T_("Store not found"));
+				\dash\header::status(403, T_("Store not found"));
 			}
 		}
 		else
