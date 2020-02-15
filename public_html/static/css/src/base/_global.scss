@@ -14,8 +14,8 @@ body[data-preload] * {
 #ermileBadge h2:hover{color:#fff;}
 #ermileBadge h3{color:#eee;font-size:1em;margin:0;line-height:20px;transition:0.3s;overflow:hidden;white-space: nowrap;text-overflow:ellipsis;}
 #ermileBadge h3:hover{color:#fff;}
-.siftal #sidebar #ermileBadge h2{max-width:170px;}
-.siftal #sidebar #ermileBadge h3{max-width:170px;}
+[data-panel] #sidebar #ermileBadge h2{max-width:170px;}
+[data-panel] #sidebar #ermileBadge h3{max-width:170px;}
 
 
 /* list */

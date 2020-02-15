@@ -50,11 +50,11 @@
   right: initial;
   left: 15px;
 }
-.siftal #nprogress .spinner
+[data-panel] #nprogress .spinner
 {
   right: 50px;
 }
-[dir="rtl"] .siftal #nprogress .spinner {
+[dir="rtl"] [data-panel] #nprogress .spinner {
   right: initial;
   left: 50px;
 }

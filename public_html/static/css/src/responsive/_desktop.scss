@@ -51,13 +51,13 @@
   .xp0{padding:0}
   .xm0{padding:0}
 
-  [dir="ltr"] .siftal #main{margin-left:300px;}
-  [dir="rtl"] .siftal #main{margin-right:300px;}
-  [dir="ltr"] .siftal #main:after{left:300px;right:initial;}
-  [dir="rtl"] .siftal #main:after{left:initial;right:300px;}
-  .siftal .dashHead.cloner{width:calc( 100% - 300px)};
-  .siftal #sidebar{width:300px;}
-  [dir="ltr"] .siftal[data-clean] #sidebar {left:-300px;}
-  [dir="rtl"] .siftal[data-clean] #sidebar{right:-300px;}
+  [dir="ltr"] [data-panel] #main{margin-left:300px;}
+  [dir="rtl"] [data-panel] #main{margin-right:300px;}
+  [dir="ltr"] [data-panel] #main:after{left:300px;right:initial;}
+  [dir="rtl"] [data-panel] #main:after{left:initial;right:300px;}
+  [data-panel] .dashHead.cloner{width:calc( 100% - 300px)};
+  [data-panel] #sidebar{width:300px;}
+  [dir="ltr"] [data-panel][data-clean] #sidebar {left:-300px;}
+  [dir="rtl"] [data-panel][data-clean] #sidebar{right:-300px;}
 }
 

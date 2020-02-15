@@ -48,13 +48,13 @@
 
 
   // custom style for another part of siftal
-  [dir="ltr"] .siftal #main{margin-left:0}
-  [dir="rtl"] .siftal #main{margin-right:0}
+  [dir="ltr"] [data-panel] #main{margin-left:0}
+  [dir="rtl"] [data-panel] #main{margin-right:0}
   // sidebar
-  [dir="ltr"] .siftal #sidebar{left:-250px;}
-  [dir="rtl"] .siftal #sidebar{right:-250px;}
-  .siftal .dashHead.cloner{width:100%;}
-  .siftal .toggleClean{display:none}
+  [dir="ltr"] [data-panel] #sidebar{left:-250px;}
+  [dir="rtl"] [data-panel] #sidebar{right:-250px;}
+  [data-panel] .dashHead.cloner{width:100%;}
+  [data-panel] .toggleClean{display:none}
 
   // padding and margin
   .mp0{padding:0}

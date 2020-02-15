@@ -55,11 +55,11 @@
 
 
   // custom style for another part of siftal
-  .siftal .dashHead h1 a{padding:0;}
-  .siftal .wrapper{padding:2em 1em}
-  .siftal .card .card-data img{max-height:25px}
-  .siftal .card .card-data span{font-size:1.6em}
-  .siftal .card .card-desc{font-size:1.4em}
+  [data-panel] .dashHead h1 a{padding:0;}
+  [data-panel] .wrapper{padding:2em 1em}
+  [data-panel] .card .card-data img{max-height:25px}
+  [data-panel] .card .card-data span{font-size:1.6em}
+  [data-panel] .card .card-desc{font-size:1.4em}
 
   body .w100{min-width:75px;width:75px}
   body .w125{min-width:100px;width:100px}
@@ -72,21 +72,21 @@
   .pTB4x{padding-top: 50px;padding-bottom: 50px;}
   .pTB5x{padding-top: 75px;padding-bottom: 75px;}
 
-  .siftal .dashHead h1{max-width: 60%;max-width:calc( 100% - 110px);font-size:1.2em}
-  .siftal .dashHead .notification{display:none!important;}
+  [data-panel] .dashHead h1{max-width: 60%;max-width:calc( 100% - 110px);font-size:1.2em}
+  [data-panel] .dashHead .notification{display:none!important;}
 
-  [dir="ltr"] .siftal #main{margin-left:0}
-  [dir="rtl"] .siftal #main{margin-right:0}
-  .siftal .dashHead.cloner{width:100%;}
+  [dir="ltr"] [data-panel] #main{margin-left:0}
+  [dir="rtl"] [data-panel] #main{margin-right:0}
+  [data-panel] .dashHead.cloner{width:100%;}
   // sidebar
-  [dir="ltr"] .siftal #sidebar{left:-250px;}
-  [dir="rtl"] .siftal #sidebar{right:-250px;}
-  .siftal #sidebar figure{margin:0.5em 0;padding:0}
-  .siftal #sidebar figure .avatar{display:inline-block;vertical-align:middle;width:75px;height:75px;margin:1em;}
-  .siftal #sidebar figure figcaption{display:inline-block;max-width:140px;line-height:1.5;vertical-align:middle;}
-  .siftal #sidebar figure .avatar:after{line-height:70px;}
-  .siftal #sidebar ul > li > a {padding:1.2em 2em;}
-  .siftal .toggleClean{display:none}
+  [dir="ltr"] [data-panel] #sidebar{left:-250px;}
+  [dir="rtl"] [data-panel] #sidebar{right:-250px;}
+  [data-panel] #sidebar figure{margin:0.5em 0;padding:0}
+  [data-panel] #sidebar figure .avatar{display:inline-block;vertical-align:middle;width:75px;height:75px;margin:1em;}
+  [data-panel] #sidebar figure figcaption{display:inline-block;max-width:140px;line-height:1.5;vertical-align:middle;}
+  [data-panel] #sidebar figure .avatar:after{line-height:70px;}
+  [data-panel] #sidebar ul > li > a {padding:1.2em 2em;}
+  [data-panel] .toggleClean{display:none}
 
   .tbox2{padding:5px}
   .tbox2 .pageTitle{padding: 0}
@@ -94,10 +94,10 @@
   .btn.master.back{min-width:36px;margin-bottom:10px;}
   .titleBox h2{max-width: 100%;font-size: 1.8em;margin-bottom: 10px;}
 
-  .siftal .tbox p{
+  [data-panel] .tbox p{
     display:none;
   }
-  .siftal .tbox i{
+  [data-panel] .tbox i{
     display: none;
   }
   [dir="ltr"] .tbox.pictogram{
@@ -109,7 +109,7 @@
   .tbox.pictogram > span[class^="sf-"]{
     display: none;
   }
-  .siftal .tbox h2{
+  [data-panel] .tbox h2{
     font-size: 1.2em;
   }
 

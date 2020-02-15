@@ -27,12 +27,12 @@
   .alerty2-container{display:none!important;}
 
   // for siftal panel
-  body.siftal{background-color:transparent;}
-  .siftal #main:after{display:none}
-  .siftal > #sidebar{display:none;}
-  .siftal > #main > .dashHead{display:none;}
-  .siftal > #main > footer{display:none;}
-  .siftal .scr::-webkit-scrollbar{display:none;}
+  body[data-panel]{background-color:transparent;}
+  [data-panel] #main:after{display:none}
+  [data-panel] > #sidebar{display:none;}
+  [data-panel] > #main > .dashHead{display:none;}
+  [data-panel] > #main > footer{display:none;}
+  [data-panel] .scr::-webkit-scrollbar{display:none;}
   .highcharts-button{display: none;}
   .medium-editor-toolbar, .medium-editor-anchor-preview, .medium-editor-toolbar ul {display: none!important}
   // some default for dash
@@ -52,13 +52,13 @@
 
   #main {overflow: auto;}
   #content {overflow: auto;}
-  .siftal #content .tbox{display: none}
-  .siftal #content .titleBox{display: none}
+  [data-panel] #content .tbox{display: none}
+  [data-panel] #content .titleBox{display: none}
   .tbl1{color:#000!important;font-size:1.2em}
   .tbl1 thead{background-color:#ddd;color:#000}
   .tbl1 tfoot{background-color:#ddd;font-size:1.1em}
 
-  body.siftal #main #content{padding:0;}
+  [data-panel] #content{padding:0;}
   .factor.printArea{color:#000!important;}
 
 }

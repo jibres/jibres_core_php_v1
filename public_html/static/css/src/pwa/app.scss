@@ -3,9 +3,9 @@
 [data-pwa] body{@include select-none();background-color: $pwaBg!important;overflow:hidden;position:relative;}
 
 // design for apps in enter
-[data-pwa] .siftal #sidebar{display:none}
-[data-pwa] .siftal .dashHead{display:none}
-[data-pwa] .siftal #main{margin:0!important}
+[data-pwa] [data-panel] #sidebar{display:none}
+[data-pwa] [data-panel] .dashHead{display:none}
+[data-pwa] [data-panel] #main{margin:0!important}
 [data-pwa] #xaccess{display:none}
 [data-pwa] .tbox .breadcrumb{display:none}
 [data-pwa] .superAdmin{top:inherit;bottom:30px;left: 0;}

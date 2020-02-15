@@ -1,12 +1,12 @@
 
-.siftal[data-in="a"]{
+[data-panel][data-in="a"]{
   background-color: #fff;
 }
 
-.siftal[data-in="a"] .cbox{border:1px solid #eee;background-color: #fafafa;}
-.siftal[data-in="a"] .pbox{border:1px solid #eee;margin-bottom: 10px;}
-.siftal[data-in="a"] .pbox header{background-color: #eee;}
-.siftal[data-in="a"] .pbox .body{background-color: #fafafa;border:none;}
+[data-panel][data-in="a"] .cbox{border:1px solid #eee;background-color: #fafafa;}
+[data-panel][data-in="a"] .pbox{border:1px solid #eee;margin-bottom: 10px;}
+[data-panel][data-in="a"] .pbox header{background-color: #eee;}
+[data-panel][data-in="a"] .pbox .body{background-color: #fafafa;border:none;}
 
 img.banner{
   display: block;
