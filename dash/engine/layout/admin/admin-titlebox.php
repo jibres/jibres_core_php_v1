@@ -5,7 +5,7 @@
   <div class="f align-center">
     <?php if(\dash\data::back_text() && \dash\data::back_link()) { ?>
       <div class="cauto pRa10">
-        <a class="btn master back" href="<?php echo \dash\data::back_link(); ?>"><i class="pRa5 sf-chevron-<?php if(\dash\data::global_direction() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i><span class="s0"><?php echo \dash\data::back_text(); ?></span></a>
+        <a class="btn master back" href="<?php echo \dash\data::back_link(); ?>"><i class="pRa5 sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i><span class="s0"><?php echo \dash\data::back_text(); ?></span></a>
       </div>
     <?php } // ?>
 
@@ -34,8 +34,8 @@
 <?php if(\dash\data::page_prev() || \dash\data::page_next()) { ?>
 
     <nav class="cauto os pLa10 nav">
-       <a class="btn <?php if(\dash\data::page_prev() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\data::page_prev() !== 'disabled') { echo 'href="'. \dash\data::page_prev().'"'; } ?> title='<?php echo T_("Previous item"); ?>'><i class="sf-arrow-<?php if(\dash\data::global_direction() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i></a>
-       <a class="btn <?php if(\dash\data::page_next() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\data::page_next() !== 'disabled') { echo 'href="'. \dash\data::page_next().'"'; } ?>  title='<?php echo T_("Next item"); ?>'><i class="sf-arrow-<?php if(\dash\data::global_direction() === 'rtl') { echo 'left'; } else { echo 'right'; } ?>"></i></a>
+       <a class="btn <?php if(\dash\data::page_prev() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\data::page_prev() !== 'disabled') { echo 'href="'. \dash\data::page_prev().'"'; } ?> title='<?php echo T_("Previous item"); ?>'><i class="sf-arrow-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i></a>
+       <a class="btn <?php if(\dash\data::page_next() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\data::page_next() !== 'disabled') { echo 'href="'. \dash\data::page_next().'"'; } ?>  title='<?php echo T_("Next item"); ?>'><i class="sf-arrow-<?php if(\dash\language::dir() === 'rtl') { echo 'left'; } else { echo 'right'; } ?>"></i></a>
     </nav>
 <?php } // endif ?>
 

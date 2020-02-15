@@ -148,7 +148,6 @@ class view
 			\dash\data::page_special(true);
 		}
 
-		// \dash\data::global_short_title(substr(\dash\data::global_title(), 0, strrpos(substr(\dash\data::global_title(), 0, 120), ' ')). '...');
 
 		if(!\dash\data::page_desc() && \dash\data::page_desc() !== false && !\dash\url::content())
 		{
