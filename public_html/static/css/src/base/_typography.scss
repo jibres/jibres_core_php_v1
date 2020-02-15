@@ -39,8 +39,8 @@ p{
 }
 
 
-.rtl h1, .rtl h2, .rtl h3, .rtl h4, .rtl h5, .rtl h6{line-height:1.5;}
-.rtl p{line-height:2.2;margin-bottom:1.5em;}
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6{line-height:1.5;}
+[dir="rtl"] p{line-height:2.2;margin-bottom:1.5em;}
 
 
 
