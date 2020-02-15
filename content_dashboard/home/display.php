@@ -1,45 +1,36 @@
-{%extends display.mvc%}
 
 
-{%block footer%}
-{%if runPWA%}
-{%embed "content_dashboard/home/pwa-footer.html"%}{%endembed%}
-{%endif%}
-{%endblock%}
-
-
-{%block content%}
    <h2>Jibres Services</h2>
    <nav class="pwaItems">
      <ul>
        <li>
-        <a class="f align-center" href="{{url.this}}/domain">
-         <img src="{{url.icon}}" alt="jibres">
-         <div class="key">{%trans "Domain Center"%}</div>
+        <a class="f align-center" href="<?php echo \dash\url::this(); ?>/domain">
+         <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+         <div class="key"><?php echo T_("Domain Center"); ?></div>
          <div class="go"></div>
         </a>
        </li>
 
        <li>
         <a class="f align-center disabled" href="">
-         <img src="{{url.icon}}" alt="jibres">
-         <div class="key">{%trans "Payment Gateway"%}</div>
+         <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+         <div class="key"><?php echo T_("Payment Gateway"); ?></div>
          <div class="go detail"></div>
         </a>
        </li>
 
        <li>
         <a class="f align-center disabled" href="">
-         <img src="{{url.icon}}" alt="jibres">
-         <div class="key">{%trans "Electronic Wallet"%}</div>
+         <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+         <div class="key"><?php echo T_("Electronic Wallet"); ?></div>
          <div class="go"></div>
         </a>
        </li>
 
        <li>
         <a class="f align-center disabled" href="">
-         <img src="{{url.icon}}" alt="jibres">
-         <div class="key">{%trans "Pay bill"%}</div>
+         <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+         <div class="key"><?php echo T_("Pay bill"); ?></div>
          <div class="go"></div>
         </a>
        </li>
@@ -50,7 +41,7 @@
    <nav class="pwaItems">
      <ul>
        <li>
-        <a class="f align-center" href="{{url.this}}/test">
+        <a class="f align-center" href="<?php echo \dash\url::this(); ?>/test">
          <div class="key">Sample Pages</div>
          <div class="go"></div>
         </a>
@@ -62,13 +53,13 @@
    <nav class="pwaItems">
      <ul>
        <li>
-        <a class="f align-center" href="{{url.kingdom}}">
+        <a class="f align-center" href="<?php echo \dash\url::kingdom(); ?>">
          <div class="key">Homepage</div>
          <div class="go"></div>
         </a>
        </li>
        <li>
-        <a class="f align-center" href="{{url.kingdom}}/contact">
+        <a class="f align-center" href="<?php echo \dash\url::kingdom(); ?>/contact">
          <div class="key">Contact</div>
          <div class="go"></div>
         </a>
@@ -76,5 +67,4 @@
      </ul>
    </nav>
 
-{%endblock%}
 
