@@ -1,4 +1,3 @@
-<div id='enter'>
 
  <h1 class='logo'><a href="<?php
 if (\dash\detect\device::detectPWA())
@@ -29,5 +28,3 @@ else
 <?php require_once \dash\engine\layout\fn::display(); ?>
   </form>
  </div>
-
-</div>
