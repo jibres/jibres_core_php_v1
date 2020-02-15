@@ -77,7 +77,15 @@ class find
 
 		}
 
-		echo "\n  <header id='pageHeader' data-xhr='pageHeader'>";
+		if(\dash\data::include_adminPanel())
+		{
+			echo "\n  <header id='pageHeader' data-xhr='pageHeader' class='dashHead f'>";
+		}
+		else
+		{
+			echo "\n  <header id='pageHeader' data-xhr='pageHeader'>";
+		}
+
 		if($myPage)
 		{
 			require_once $myPage;
@@ -145,7 +153,7 @@ class find
 			}
 		}
 
-		echo "\n <aside id='pageSidebar' data-xhr='pageSidebar'>";
+		echo "\n <aside id='sidebar' data-xhr='sidebar'>";
 		if($myPage)
 		{
 			require_once $myPage;
