@@ -114,8 +114,6 @@
     }
     // set content on each request
     $('body').attr('data-in', obj.content);
-    // set theme
-    $('body').attr('data-theme', obj.theme);
     // set subdomain on body
     $('body').attr('data-subdomain', obj.subdomain);
     if(obj.bodyclass)
@@ -266,7 +264,7 @@
   {
     $window.trigger('navigate:fetch:start', props, md5);
     // add loading
-    $(document.body).addClass('loading-page');
+    $('body').attr('data-reloading', '');
     callFunc('loading_page', true);
 
     var options = $.extend(true, {}, props.ajax,
@@ -367,7 +365,7 @@
       // remove loading
       setTimeout (function()
       {
-        $(document.body).removeClass('loading-page');
+        $('body').attr('data-reloading', null);
       }, 500);
       callFunc('loading_page', false);
 
@@ -396,7 +394,7 @@
       // remove loading
       setTimeout (function()
       {
-        $(document.body).removeClass('loading-page');
+        $('body').attr('data-reloading', null);
       }, 500);
       callFunc('loading_page', false);
 
