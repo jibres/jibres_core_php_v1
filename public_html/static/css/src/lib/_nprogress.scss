@@ -54,7 +54,7 @@
 {
   right: 50px;
 }
-.rtl.siftal #nprogress .spinner {
+[dir="rtl"] .siftal #nprogress .spinner {
   right: initial;
   left: 50px;
 }
