@@ -83,13 +83,10 @@ else
 }
 // page
 echo " data-page='". \dash\data::global_page(). "'";
-// class
-echo " class='";
 if(\dash\data::include_adminPanel())
 {
-  echo "siftal";
+  echo " data-panel";
 }
-echo "'";
 // sidebar
 if(!\dash\data::userToggleSidebar())
 {
