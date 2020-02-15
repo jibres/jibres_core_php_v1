@@ -37,8 +37,7 @@ class view
 				'prev'  => T_('Prev'),
 				'skip'  => T_('Skip'),
 				'start' => T_('Get Start'),
-			]
-
+			],
 			'theme' => 'Jibres',
 			'bg' =>
 			[
