@@ -13,6 +13,7 @@ class view
 		{
 			// \dash\redirect::to(\dash\url::kingdom(). '/store');
 		}
+		\dash\data::include_adminPanel(true);
 
 	}
 }
