@@ -67,6 +67,7 @@
     var html = obj.html.trim();
     if(html.indexOf('data-xhr') === false)
     {
+      console.log('hard refresh! without xhr');
       // hard redirect to this address or change all html
       location.replace(obj.url);
       return;
@@ -85,9 +86,17 @@
         }
         else
         {
-          // hard redirect to new content
-          location.replace(obj.url);
-          return;
+          if($('html').attr('data-debugger') !== undefined)
+          {
+            // do nothing
+          }
+          else
+          {
+            console.log('hard refresh! content changed');
+            // hard redirect to new content
+            location.replace(obj.url);
+            return;
+          }
         }
       }
     }
@@ -147,6 +156,7 @@
     if(needHardRefreshOnEmptyNew)
     {
       // hard refresh to new location because new is not have xhr element
+      console.log('hard refresh! empty xhr');
       location.replace(obj.url);
       // need check if new is have something do this, else do nothing
       // need more time to check conditions!
@@ -158,6 +168,7 @@
       // if html contain doctype or head tag, need to hard refresh
       if(html.indexOf("<!DOCTYPE html>") === 0 || html.indexOf("<head>") > 0)
       {
+        console.log('hard refresh! doctype');
         location.replace(obj.url);
       }
     }
