@@ -34,6 +34,10 @@ if (!\dash\data::pageWithLogin())
  <meta content='<?php echo \dash\language::current(); ?>' property ='og:locale'/>
 <?php
 }
+if(\dash\user::id())
+{
+  echo " <meta content='". \dash\coding::encode(\dash\user::id()). "' name='user-Jibres'\n";
+}
 ?>
  <meta content="<?php echo \dash\data::site_title(); ?>" name="application-name"/>
  <meta content="<?php echo \dash\url::site();?>/browserconfig.xml?v=6" name="msapplication-config"/>
@@ -89,26 +93,17 @@ if(\dash\data::bodyclass())
 {
   echo " ". \dash\data::bodyclass();
 }
-echo " preload";
 echo "'";
-// theme
-if(\dash\data::global_theme())
-{
-  echo " data-theme2='". \dash\data::global_theme(). "'";
-}
 // sidebar
 if(!\dash\data::userToggleSidebar())
 {
   echo " data-clean";
 }
-if(\dash\user::id())
-{
-  echo " data-user='". \dash\coding::encode(\dash\user::id()). "'";
-}
 if(\dash\request::get('iframe'))
 {
   echo " data-iframe";
 }
+echo " data-preload";
 echo ">";
 
 \dash\engine\layout\find::allBlocks();

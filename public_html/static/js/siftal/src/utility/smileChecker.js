@@ -37,7 +37,7 @@ function checkSmile(_register)
       var notifResult = notifGenerator(smileResult);
 
       // if user is loginned on this page, try to check logout
-      if($('body').attr('data-user'))
+      if($('meta[name="user-Jibres"]').attr("content"))
       {
         if(checkSmileLogout(smileResult))
         {
