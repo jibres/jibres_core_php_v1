@@ -291,7 +291,7 @@ class view
 	{
 		if(\dash\data::include_adminPanel())
 		{
-			\dash\data::global_siftal(true);
+			\dash\data::global_panel(true);
 
 			$txtDesc   = '';
 			if(\dash\data::user_displayname())

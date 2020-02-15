@@ -74,7 +74,7 @@
     }
     if(obj.content && $('body').attr('data-in') !== obj.content)
     {
-      if($('body').attr('data-panel') !== undefined && obj.siftal)
+      if($('body').attr('data-panel') !== undefined && obj.panel)
       {
         // body is panel, dont worry, continue
       }
@@ -116,15 +116,12 @@
     $('body').attr('data-in', obj.content);
     // set subdomain on body
     $('body').attr('data-subdomain', obj.subdomain);
-    if(obj.bodyclass)
+    // set panel
+    if(obj.panel === undefined)
     {
-      $('body').addClass(obj.bodyclass);
+      obj.panel = null;
     }
-    else
-    {
-      $('body').removeClass('siftal');
-    }
-
+    $('body').attr('data-panel', obj.panel);
 
     $window.trigger('navigate:render:filter:before', obj.filter);
 
