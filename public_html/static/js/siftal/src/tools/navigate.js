@@ -118,7 +118,15 @@
     $('body').attr('data-theme', obj.theme);
     // set subdomain on body
     $('body').attr('data-subdomain', obj.subdomain);
-    $('body').addClass(obj.bodyclass);
+    if(obj.bodyclass)
+    {
+      $('body').addClass(obj.bodyclass);
+    }
+    else
+    {
+      $('body').removeClass('siftal');
+    }
+
 
     $window.trigger('navigate:render:filter:before', obj.filter);
 
