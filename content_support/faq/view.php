@@ -22,6 +22,10 @@ class view
 
 		\content_support\home\view::helpDashboard();
 
+		// btn
+		\dash\data::back_text(T_('Help center'));
+		\dash\data::back_link(\dash\url::support());
+
 	}
 }
 ?>

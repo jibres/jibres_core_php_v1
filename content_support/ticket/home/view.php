@@ -20,6 +20,10 @@ class view
 		\dash\data::badge2_link(\dash\url::here().\dash\data::accessGet());
 
 		self::load_ticket_list();
+
+		// btn
+		\dash\data::back_text(T_('Help center'));
+		\dash\data::back_link(\dash\url::support());
 	}
 
 

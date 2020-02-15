@@ -22,6 +22,10 @@ class view
 
 		\dash\data::uaseTelegram($uaseTelegram);
 
+		// btn
+		\dash\data::back_text(T_('Ticket'));
+		\dash\data::back_link(\dash\url::support(). '/ticket');
+
 	}
 
 

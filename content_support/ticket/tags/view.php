@@ -47,6 +47,10 @@ class view
 				\dash\header::status(404, T_("Id not found"));
 			}
 		}
+
+		// btn
+		\dash\data::back_text(T_('Ticket'));
+		\dash\data::back_link(\dash\url::support(). '/ticket');
 	}
 
 }

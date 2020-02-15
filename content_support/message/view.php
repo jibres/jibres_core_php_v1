@@ -34,6 +34,10 @@ class view
 
 		\dash\data::badge_text(T_('Tickets'));
 		\dash\data::badge_link(\dash\url::here(). '/ticket'. \dash\data::accessGet());
+
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::support().'/ticket');
+
 	}
 
 

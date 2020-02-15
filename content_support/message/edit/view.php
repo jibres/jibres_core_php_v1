@@ -16,6 +16,9 @@ class view
 		\dash\data::badge_text(T_('Back to tickets list'));
 		\dash\data::badge_link(\dash\url::this());
 
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this());
+
 
 		$parent = \dash\request::get('id');
 		if(!$parent || !is_numeric($parent))

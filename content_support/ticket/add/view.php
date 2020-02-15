@@ -13,6 +13,10 @@ class view
 		\dash\data::badge_link(\dash\url::this(). \dash\data::accessGet());
 
 		\dash\session::set('ticket_load_page_time', time());
+
+		// btn
+		\dash\data::back_text(T_('Ticket'));
+		\dash\data::back_link(\dash\url::support(). '/ticket');
 	}
 }
 ?>

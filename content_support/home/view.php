@@ -27,6 +27,10 @@ class view
 		{
 			\dash\data::display_supportAdmin('content_support/home/dashboard.html');
 			self::helpDashboard();
+			// btn
+			\dash\data::action_text(T_('Ticket'));
+			\dash\data::action_icon('plus');
+			\dash\data::action_link(\dash\url::support(). '/ticket/add');
 		}
 	}
 
