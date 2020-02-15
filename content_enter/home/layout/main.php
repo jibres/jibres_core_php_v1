@@ -26,8 +26,8 @@ else
 
  ?>
   <form method="post" autocomplete="off">
+<?php require_once \dash\engine\layout\fn::display(); ?>
   </form>
  </div>
-<?php require_once \dash\engine\layout\fn::display(); ?>
 
 </div>
