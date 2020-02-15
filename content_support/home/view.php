@@ -16,7 +16,7 @@ class view
 
 		if(\dash\data::isHelpCenter())
 		{
-			\dash\data::display_supportAdmin('content_support/home/article.html');
+			\dash\data::supportAdmin('article.php');
 			// btn
 			\dash\data::back_text(T_('Help center'));
 			\dash\data::back_link(\dash\url::support());
@@ -25,7 +25,7 @@ class view
 		}
 		else
 		{
-			\dash\data::display_supportAdmin('content_support/home/dashboard.html');
+			\dash\data::supportAdmin('dashboard.php');
 			self::helpDashboard();
 			// btn
 			\dash\data::action_text(T_('Ticket'));
