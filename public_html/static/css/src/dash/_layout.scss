@@ -73,7 +73,7 @@
 .ltr .tbox.pictogram{
   padding-right:5em;
 }
-.rtl .tbox.pictogram{
+[dir="rtl"] .tbox.pictogram{
   padding-left: 5em;
 }
 .tbox p{
@@ -111,7 +111,7 @@
   vertical-align:-webkit-baseline-middle;
   display: block;
 }
-.rtl .tbox.pictogram > span[class^="sf-"]{
+[dir="rtl"] .tbox.pictogram > span[class^="sf-"]{
   right:initial;
   left:10px;
 }
@@ -306,16 +306,16 @@ body.siftal .full .middle{width:100%;max-height:100%;}
   direction: ltr;
 }
 // rtl
-.rtl .ck.ck-content.ck-editor__editable{
+[dir="rtl"] .ck.ck-content.ck-editor__editable{
   direction: rtl;
 }
-.rtl .ck.ck-button .ck-button__label, a.ck.ck-button .ck-button__label{
+[dir="rtl"] .ck.ck-button .ck-button__label, a.ck.ck-button .ck-button__label{
   font-family: IRANSans, tahoma;
 }
-.rtl .ck.ck-tooltip .ck-tooltip__text{
+[dir="rtl"] .ck.ck-tooltip .ck-tooltip__text{
   font-family: IRANSans, tahoma;
 }
-.rtl .ck.ck-labeled-input .ck-labeled-input__status
+[dir="rtl"] .ck.ck-labeled-input .ck-labeled-input__status
 {
   font-family: IRANSans, tahoma;
 }

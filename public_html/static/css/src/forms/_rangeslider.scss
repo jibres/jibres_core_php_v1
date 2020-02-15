@@ -77,11 +77,11 @@
   border-bottom: 7px solid transparent;
   content: '';
 }
-.rtl .rangeSlider1 output {
+[dir="rtl"] .rangeSlider1 output {
   margin-left: initial;
   margin-right: 10px;
 }
-.rtl .rangeSlider1 output:after {
+[dir="rtl"] .rangeSlider1 output:after {
   left: initial;
   right: -7px;
   border-right: none;

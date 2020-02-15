@@ -1532,64 +1532,64 @@ select.ui.dropdown {
   width: 100%;
   min-width: 0em;
 }
-.rtl .ui.dropdown > .dropdown.icon {
+[dir="rtl"] .ui.dropdown > .dropdown.icon {
   float: right;
 }
-.rtl .ui.dropdown {
+[dir="rtl"] .ui.dropdown {
   text-align:right;
 }
-.rtl .ui.dropdown .menu {
+[dir="rtl"] .ui.dropdown .menu {
   text-align:right;
 }
-.rtl .ui.dropdown .menu > .item {
+[dir="rtl"] .ui.dropdown .menu > .item {
   text-align:right;
 }
-.rtl .ui.selection.dropdown > .search.icon,
-.rtl .ui.selection.dropdown > .delete.icon,
-.rtl .ui.selection.dropdown > .dropdown.icon {
+[dir="rtl"] .ui.selection.dropdown > .search.icon,
+[dir="rtl"] .ui.selection.dropdown > .delete.icon,
+[dir="rtl"] .ui.selection.dropdown > .dropdown.icon {
   right:initial;
   left:1em;
 }
-.rtl .ui.dropdown > .text > .icon,
-.rtl .ui.dropdown > .text > .label,
-.rtl .ui.dropdown > .text > .flag,
-.rtl .ui.dropdown > .text > img,
-.rtl .ui.dropdown > .text > .image,
-.rtl .ui.dropdown .menu > .item > .icon,
-.rtl .ui.dropdown .menu > .item > .label,
-.rtl .ui.dropdown .menu > .item > .flag,
-.rtl .ui.dropdown .menu > .item > .image,
-.rtl .ui.dropdown .menu > .item > img {
+[dir="rtl"] .ui.dropdown > .text > .icon,
+[dir="rtl"] .ui.dropdown > .text > .label,
+[dir="rtl"] .ui.dropdown > .text > .flag,
+[dir="rtl"] .ui.dropdown > .text > img,
+[dir="rtl"] .ui.dropdown > .text > .image,
+[dir="rtl"] .ui.dropdown .menu > .item > .icon,
+[dir="rtl"] .ui.dropdown .menu > .item > .label,
+[dir="rtl"] .ui.dropdown .menu > .item > .flag,
+[dir="rtl"] .ui.dropdown .menu > .item > .image,
+[dir="rtl"] .ui.dropdown .menu > .item > img {
   margin-right: 0em;
   margin-left: 0.78571429rem;
 }
-.rtl .ui.selection.dropdown {
+[dir="rtl"] .ui.selection.dropdown {
   padding-right: 1em;
   padding-left:2.1em;
 }
-.rtl .ui.dropdown .menu > .item > .flag{
+[dir="rtl"] .ui.dropdown .menu > .item > .flag{
   margin-right:1rem;
   margin-left: 0;
 }
-.rtl .ui.dropdown > .text > .description,
-.rtl .ui.dropdown .menu > .item > .description {
+[dir="rtl"] .ui.dropdown > .text > .description,
+[dir="rtl"] .ui.dropdown .menu > .item > .description {
   float: left;
   margin: 0em 1em 0em 0em;
 }
 .ui.dropdown > .text{
   display:block;
 }
-.rtl .ui.search.selection.dropdown > input.search{
+[dir="rtl"] .ui.search.selection.dropdown > input.search{
   padding:5px 1em 5px 2.1em;
 }
-.rtl .ui.multiple.search.dropdown > input.search{
+[dir="rtl"] .ui.multiple.search.dropdown > input.search{
   padding:0;
   margin: 0.45238095em 0.64285714em 0.45238095em 0;
 }
-.rtl .ui.multiple.search.dropdown > .text{
+[dir="rtl"] .ui.multiple.search.dropdown > .text{
   right:0;
 }
-.rtl .ui.multiple.dropdown > .label{
+[dir="rtl"] .ui.multiple.dropdown > .label{
   margin: 0.14285714rem 0em 0.14285714rem 0.28571429rem;
 }
 .ui.dropdown .text{

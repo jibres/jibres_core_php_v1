@@ -213,7 +213,7 @@ $tblPadCell: 0.7em 0.7em;
 	right: 0;
 	margin-top: -10px;
 }
-.rtl .tbl thead th[data-sort]::after{
+[dir="rtl"] .tbl thead th[data-sort]::after{
 	right: inherit;
 	left: 0;
 }

@@ -14,7 +14,7 @@ $inputBorder: 1px solid rgba(0,0,0,0.1);
 	@include flexbox;
 	@include flex-wrap(wrap);
 }
-.rtl .input.fix{
+[dir="rtl"] .input.fix{
 	@include flex-direction(row-reverse);
 }
 
@@ -156,11 +156,11 @@ span.input{
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
-.rtl .input:not(.fix) > :first-child{
+[dir="rtl"] .input:not(.fix) > :first-child{
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
-.rtl .input:not(.fix) > :not(div):last-child{
+[dir="rtl"] .input:not(.fix) > :not(div):last-child{
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
@@ -176,13 +176,13 @@ span.input{
 	border-left-width: 0;
 }
 // rtl
-.rtl .input:not(.fix) > .addon:first-child{
+[dir="rtl"] .input:not(.fix) > .addon:first-child{
 	border-left-width: 0;
 }
-.rtl .input:not(.fix) > .addon:last-child{
+[dir="rtl"] .input:not(.fix) > .addon:last-child{
 	border-right-width: 0;
 }
-.rtl .input:not(.fix) > .addon:not(:first-child):not(:last-child){
+[dir="rtl"] .input:not(.fix) > .addon:not(:first-child):not(:last-child){
 	border-right-width: 0;
 }
 
@@ -191,7 +191,7 @@ span.input{
 	border-radius: 0;
 	border-right-width:0;
 }
-.rtl .input:not(.fix) > :not(:first-child):not(:last-child){
+[dir="rtl"] .input:not(.fix) > :not(:first-child):not(:last-child){
 	border-radius: 0;
 	border-left-width:0;
 }

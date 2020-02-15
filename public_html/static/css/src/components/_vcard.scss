@@ -100,10 +100,10 @@
 .ltr .vcard .meta:last-child{
 	margin-right: 0;
 }
-.rtl .vcard .meta *{
+[dir="rtl"] .vcard .meta *{
 	margin-left: 0.2em;
 }
-.rtl .vcard .meta:last-child{
+[dir="rtl"] .vcard .meta:last-child{
 	margin-left: 0;
 }
 
@@ -145,7 +145,7 @@ img.avatar{
 .ltr .vcard .avatar{
 	margin-right: 0.3em;
 }
-.rtl .vcard .avatar{
+[dir="rtl"] .vcard .avatar{
 	margin-left: 0.3em;
 }
 
@@ -387,7 +387,7 @@ img.mini{
 	box-shadow:0 0 0 rgba(204,169,44,0.4);
 	animation:pulseOff 2s infinite;
 }
-.rtl .live .vcard:before{
+[dir="rtl"] .live .vcard:before{
 	right: inherit;
 	left: 0
 }

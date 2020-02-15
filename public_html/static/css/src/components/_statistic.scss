@@ -15,7 +15,7 @@
     margin-left:1.5em;
 }
 
-.rtl .statistic+.statistic {
+[dir="rtl"] .statistic+.statistic {
     margin-right:1.5em;
 }
 
@@ -263,7 +263,7 @@
     vertical-align: middle;
     margin: 0 0 0 .75em;
 }
-.rtl .horizontal.statistic>.label,.horizontal.statistics .statistic>.label {
+[dir="rtl"] .horizontal.statistic>.label,.horizontal.statistics .statistic>.label {
     margin: 0 .75em 0 0;
 }
 

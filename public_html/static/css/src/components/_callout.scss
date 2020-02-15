@@ -8,7 +8,7 @@
   border-radius: .25em;
   background-color: transparent!important;
 }
-.rtl .callout{
+[dir="rtl"] .callout{
   border-right-width: .25em;
 }
 
@@ -32,7 +32,7 @@
   h4 { color: $color; }
 }
 
-.rtl .callout.#{$name} {
+[dir="rtl"] .callout.#{$name} {
   border-right-color: $color;
   h3 { color: $color; }
   h4 { color: $color; }

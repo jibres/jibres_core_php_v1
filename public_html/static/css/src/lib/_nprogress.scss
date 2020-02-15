@@ -14,7 +14,7 @@
   width: 100%;
   height: 2px;
 }
-.rtl #nprogress .bar{
+[dir="rtl"] #nprogress .bar{
   left: initial;
   right: 0;
 }
@@ -46,7 +46,7 @@
   top: 15px;
   right: 15px;
 }
-.rtl #nprogress .spinner {
+[dir="rtl"] #nprogress .spinner {
   right: initial;
   left: 15px;
 }
@@ -72,7 +72,7 @@
   -webkit-animation: nprogress-spinner 400ms linear infinite;
           animation: nprogress-spinner 400ms linear infinite;
 }
-.rtl #nprogress .spinner-icon {
+[dir="rtl"] #nprogress .spinner-icon {
   border-right-color: #c80a5a;
   border-left-color: transparent;
 }

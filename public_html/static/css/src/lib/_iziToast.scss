@@ -1741,17 +1741,17 @@
 
 
 // rtl design
-.rtl .iziToast-wrapper-bottomLeft{
+[dir="rtl"] .iziToast-wrapper-bottomLeft{
   text-align: right;
 }
 
-.rtl .iziToast-wrapper-bottomRight {
+[dir="rtl"] .iziToast-wrapper-bottomRight {
   text-align: left;
 }
-.rtl .iziToast-wrapper-topLeft{
+[dir="rtl"] .iziToast-wrapper-topLeft{
   text-align: right;
 }
-.rtl .iziToast-wrapper-topRight{
+[dir="rtl"] .iziToast-wrapper-topRight{
   text-align: left;
 }
 

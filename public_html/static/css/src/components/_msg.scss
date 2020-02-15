@@ -25,7 +25,7 @@
   background-color:#f7f7f7;
   color: #333;
 }
-.rtl .msg{
+[dir="rtl"] .msg{
   line-height: 2;
 }
 .msg:empty{

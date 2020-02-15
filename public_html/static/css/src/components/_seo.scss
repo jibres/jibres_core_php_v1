@@ -29,7 +29,7 @@
   white-space: nowrap;
   text-align: left;
 }
-.rtl .seoPreview h3{
+[dir="rtl"] .seoPreview h3{
   direction: rtl;
 }
 .seoPreview a h3{
@@ -64,7 +64,7 @@
   text-align: left;
   color: #545454;
 }
-.rtl .seoPreview .desc{
+[dir="rtl"] .seoPreview .desc{
   direction: rtl;
 }
 .seoPreview .desc p{
@@ -75,7 +75,7 @@
   color: #777;
   display: inline-block;
 }
-.rtl .seoPreview .desc time{
+[dir="rtl"] .seoPreview .desc time{
   direction: rtl;
 }
 .jbox .seoData .txt{

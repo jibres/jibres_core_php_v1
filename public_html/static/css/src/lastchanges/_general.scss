@@ -72,14 +72,14 @@
 .ltr .txtRa{
 	text-align: right!important;
 }
-.rtl .txtRa{
+[dir="rtl"] .txtRa{
 	text-align: left!important;
 }
 
 .ltr .txtLa{
 	text-align: left!important;
 }
-.rtl .txtLa{
+[dir="rtl"] .txtLa{
 	text-align: right!important;
 }
 

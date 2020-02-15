@@ -111,8 +111,8 @@ body [data-response-hide]{display:none!important}
 #xaccess a{display:block;background-color:#000;opacity:0.3;transition:0.3s;margin-bottom:0.2em;color:#fff;width:35px;height:35px;line-height:35px;text-align:center;float:right;}
 #xaccess a:hover{opacity:0.8;width:50px;}
 #xaccess [class^="sf-"]:before{vertical-align:middle;}
-.rtl #xaccess{left:0;right:initial;}
-.rtl #xaccess a{left:0;right:initial;float:left;}
+[dir="rtl"] #xaccess{left:0;right:initial;}
+[dir="rtl"] #xaccess a{left:0;right:initial;float:left;}
 
 // for some bad guys, because they are use direct link!
 svg g[opacity="0.3"][style][filter]{display:none;}

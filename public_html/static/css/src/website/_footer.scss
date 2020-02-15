@@ -59,9 +59,9 @@ svg.circle-bottom-right{width: 400px;height:400px;fill:#f7f7f9;position:absolute
 #tfooter #xaccess{position:fixed;left:0;bottom:17%;z-index:3;}
 #tfooter #xaccess a{display:block;background-color:$black;opacity:0.3;padding:0.5em 1em;transition:0.3s;margin-top:0.2em;margin-right:2em;color:#fff;}
 #tfooter #xaccess a:hover{opacity:0.8;padding:0.5em 2em;margin-right:0;}
-.rtl #tfooter #xaccess{right:0;left:initial;}
-.rtl #tfooter #xaccess a{right:0;left:initial;margin-right:0;margin-left:2em;}
-.rtl #tfooter #xaccess a:hover{margin-right:0;margin-left:0;}
+[dir="rtl"] #tfooter #xaccess{right:0;left:initial;}
+[dir="rtl"] #tfooter #xaccess a{right:0;left:initial;margin-right:0;margin-left:2em;}
+[dir="rtl"] #tfooter #xaccess a:hover{margin-right:0;margin-left:0;}
 
 [data-page="homepage"] #tfooter .link_home{display:none;}
 
