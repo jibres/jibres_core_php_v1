@@ -45,14 +45,14 @@
 [data-in='enter'] .sessions > div:hover a{opacity:0.5}
 [data-in='enter'] .sessions a:hover{border-color:#cab530;opacity:0.6;}
 [data-in='enter'] .sessions a:focus{border-color:#444;opacity:0.8;}
-[data-in='enter'].rtl .sessions .lastseen{left:0.5em;right:inherit;}
-[data-in='enter'].rtl .sessions a{left:0.5em;right:inherit;}
+[dir="rtl"] [data-in='enter'] .sessions .lastseen{left:0.5em;right:inherit;}
+[dir="rtl"] [data-in='enter'] .sessions a{left:0.5em;right:inherit;}
 
 [data-in='enter'] footer a{color:#eee;font-size:1em;padding:1em 1em;transition:0.3s;display:block;}
 [data-in='enter'] footer a:hover{background-color:rgba(0,0,0,0.1)}
 [data-in='enter'] footer a:focus{background-color:rgba(0,0,0,0.2)}
 [data-in='enter'] footer a:last-child{text-align:right;}
-[data-in='enter'].rtl footer a:last-child{text-align:left;}
+[dir="rtl"] [data-in='enter'] footer a:last-child{text-align:left;}
 
 /* form new styles*/
 [data-in='enter'] form{line-height:30px;font-size:1.8em;overflow:hidden;}
@@ -123,7 +123,7 @@
 [data-in='enter'] #eMethods a span{display:block;width:100%;height:100%;font-size:1.2em;}
 [data-in='enter'] #eMethods a abbr{display:none}
 [data-in='enter'] #eMethods a.active{background-color:rgba(0,0,0,0.8);display:none;}
-[data-in='enter'].rtl #eMethods a i{float:right;margin:0 0 0 10px;}
+[dir="rtl"] [data-in='enter'] #eMethods a i{float:right;margin:0 0 0 10px;}
 
 [data-in='enter'] #eMethods #ebgoogle{min-width:150px;}
 [data-in='enter'] #eMethods #ebgoogle i{background-color:#DD4B39;padding-top:3px;}
@@ -131,9 +131,9 @@
 [data-in='enter'] #eMethods #ebmobile svg{margin:0;}
 [data-in='enter'] #eMethods #ebusername{min-width:170px;}
 
-[data-in='enter'].rtl #eMethods #ebgoogle{min-width:110px;}
-[data-in='enter'].rtl #eMethods #ebmobile{min-width:120px;}
-[data-in='enter'].rtl #eMethods #ebusername{min-width:160px;}
+[dir="rtl"] [data-in='enter'] #eMethods #ebgoogle{min-width:110px;}
+[dir="rtl"] [data-in='enter'] #eMethods #ebmobile{min-width:120px;}
+[dir="rtl"] [data-in='enter'] #eMethods #ebusername{min-width:160px;}
 
 [data-in='enter'] .radio1{background-color: rgba(255,255,255,0.1);padding:5px 10px;margin-bottom:5px;}
 [data-in='enter'] .radio1 label{font-size: 11px;font-weight:400;}
@@ -143,7 +143,7 @@
 /*langlist*/
 [data-in='enter'] .langlist{position:absolute;bottom:0;left:0;padding:1em;display: none}
 [data-in='enter'][data-page="home"] .langlist{display: block}
-[data-in='enter'].rtl .langlist{left:inherit;right:0;}
+[dir="rtl"] [data-in='enter'] .langlist{left:inherit;right:0;}
 [data-in='enter'] .langlist a{display:inline-block;padding:1em 2em;color:#fff;background-color:#000;transition:0.3s;opacity:0.3;margin:0 0.5em;}
 [data-in='enter'] .langlist a:hover{opacity:0.6;}
 [data-in='enter'] .langlist a:focus{opacity:8;background-color:#000;color:#fff;}
