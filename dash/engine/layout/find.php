@@ -5,18 +5,22 @@ namespace dash\engine\layout;
  */
 class find
 {
-	private static $need_box = null;
-
 
 	public static function allBlocks()
 	{
 		self::sidebar();
-		self::box('start');
+		if(!\dash\request::ajax())
+		{
+			echo "\n <div id='pageWrapper'>";
+		}
 		self::header();
-		self::nav();
+		// self::nav();
 		self::main();
 		self::footer();
-		self::box('end');
+		if(!\dash\request::ajax())
+		{
+			echo "\n </div>";
+		}
 	}
 
 
@@ -55,6 +59,7 @@ class find
 		}
 	}
 
+
 	public static function header()
 	{
 		$myPage = null;
@@ -66,7 +71,6 @@ class find
 		{
 			if(\dash\url::content() === 'enter')
 			{
-				$myPage = '';
 				// do nothing
 			}
 			elseif(\dash\url::content() === null)
@@ -80,15 +84,13 @@ class find
 
 		}
 
-		if($myPage !== null)
+		echo "\n  <header id='pageHeader' data-xhr='pageHeader'>";
+		if($myPage)
 		{
-			echo "\n <header id='pageHeader' data-xhr='pageHeader'>";
-			if($myPage)
-			{
-				require_once $myPage;
-			}
-			echo "\n </header>";
+			require_once $myPage;
+			echo "\n  ";
 		}
+		echo "</header>";
 	}
 
 
@@ -103,7 +105,6 @@ class find
 		{
 			if(\dash\url::content() === 'enter')
 			{
-				$myPage = '';
 				// do nothing
 			}
 			elseif(\dash\url::content() === null)
@@ -117,17 +118,15 @@ class find
 
 		}
 
-		if($myPage !== null)
-		{
-			echo "\n <footer id='pageFooter' data-xhr='pageFooter'>";
-			if($myPage)
-			{
-				require_once $myPage;
-			}
-			echo "\n </footer>";
-		}
-	}
 
+		echo "\n  <footer id='pageFooter' data-xhr='pageFooter'>";
+		if($myPage)
+		{
+			require_once $myPage;
+			echo "\n  ";
+		}
+		echo "</footer>";
+	}
 
 
 	public static function sidebar()
@@ -151,20 +150,17 @@ class find
 			{
 				$myPage = core.'engine/layout/admin/admin-sidebar.php';
 			}
-
 		}
 
-		if($myPage !== null)
+		echo "\n <aside id='pageSidebar' data-xhr='pageSidebar'>";
+		if($myPage)
 		{
-			self::$need_box = true;
-			echo "\n <aside id='pageSidebar' data-xhr='pageSidebar'>";
-			if($myPage)
-			{
-				require_once $myPage;
-			}
-			echo "\n </aside>";
+			require_once $myPage;
+			echo "\n";
 		}
+		echo "</aside>";
 	}
+
 
 	public static function nav()
 	{
@@ -181,21 +177,5 @@ class find
 			echo "\n </nav>";
 		}
 	}
-
-	public static function box($_mode)
-	{
-		if(self::$need_box)
-		{
-			if($_mode === 'start')
-			{
-				echo "\n <div id='pageWrapper' data-xhr='pageWrapper'>";
-			}
-			elseif($_mode === 'end')
-			{
-				echo "\n </div>";
-			}
-		}
-	}
-
 }
 ?>
