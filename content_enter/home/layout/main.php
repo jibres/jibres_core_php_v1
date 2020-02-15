@@ -8,11 +8,10 @@ else
 {
  echo \dash\url::kingdom();
 }
-?>" tabindex='1' data-direct>
+?>" tabindex='1'>
   <img src='<?php echo \dash\url::icon(); ?>' alt='<?php echo T_("Jibres") ?>'>
   <span><?php echo T_("Jibres") ?></span>
  </a></h1>
- <div data-xhr='enter'>
 <?php
 if(\dash\url::module() === null)
 {
@@ -27,4 +26,3 @@ else
   <form method="post" autocomplete="off">
 <?php require_once \dash\engine\layout\fn::display(); ?>
   </form>
- </div>
