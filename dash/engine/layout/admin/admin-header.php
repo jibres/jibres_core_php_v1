@@ -1,20 +1,20 @@
    <div class="sidenavHandler c0 sauto mauto"><i class="sf-ellipsis-v"></i></div>
 
 
-   <a class="cauto logo" href="<?php echo \dash\url::kingdom(); ?>" data-direct ><img src="<?php echo \dash\data::site_logo(); ?>" alt='<?php echo \dash\data::site_title(); ?>'></a>
-   <h1 class='c'><a href="<?php echo \dash\url::kingdom(); ?>" data-direct><?php echo \dash\data::site_title(); ?></a></h1>
+   <a class="cauto logo" href="<?php echo \dash\url::kingdom(); ?>" ><img src="<?php echo \dash\data::site_logo(); ?>" alt='<?php echo \dash\data::site_title(); ?>'></a>
+   <h1 class='c'><a href="<?php echo \dash\url::kingdom(); ?>"><?php echo \dash\data::site_title(); ?></a></h1>
 
 
 
 
    <div class='hm right flex cauto os'>
 
-    <a href="<?php echo \dash\url::kingdom(); ?>/support" data-tippy-animation="perspective" title='<?php echo T_("Help Center"); ?>' class="support s0"><i class="sf-life-ring"></i></a>
+    <a href="<?php echo \dash\url::kingdom(); ?>/support" title='<?php echo T_("Help Center"); ?>' class="support s0"><i class="sf-life-ring"></i></a>
 
 <?php if(\dash\user::id()) { ?>
-    <a href="<?php echo \dash\url::kingdom(); ?>/account/notification" data-tippy-animation="perspective" title='<?php echo T_("Notifications"); ?>' class="notification"><i class="sf-bell"></i></a>
+    <a href="<?php echo \dash\url::kingdom(); ?>/account/notification" title='<?php echo T_("Notifications"); ?>' class="notification"><i class="sf-bell"></i></a>
 
-    <div class="profileShow" data-tippy-animation="perspective" title='<?php echo \dash\data::site_title(); ?><br><?php echo \dash\data::userBadge_desc(); ?>'
+    <div class="profileShow" title='<?php echo \dash\data::site_title(); ?><br><?php echo \dash\data::userBadge_desc(); ?>'
     data-desc='<?php echo \dash\data::userBadge_desc(); ?>'
     data-footer='<?php echo \dash\data::userBadge_footer(); ?>'
     data-confirmTxt='<?php echo T_("Account"); ?> <i class="sf-user"></i>' data-confirmLink='<?php echo \dash\url::kingdom(); ?>/account'
@@ -33,7 +33,7 @@
 <?php } //endif ?>
     </div>
 <?php }else{ ?>
-    <a href="<?php echo \dash\url::kingdom(); ?>/enter?referer={{url.pwd}}" data-direct data-tippy-animation="perspective" title='<?php echo T_("Enter to have better experience"); ?>'><i class="sf-hand-stop"></i></a>
+    <a href="<?php echo \dash\url::kingdom(); ?>/enter?referer={{url.pwd}}" title='<?php echo T_("Enter to have better experience"); ?>'><i class="sf-hand-stop"></i></a>
 
 <?php } //endif ?>
 
