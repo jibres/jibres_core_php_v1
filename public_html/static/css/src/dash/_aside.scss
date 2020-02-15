@@ -1,8 +1,8 @@
 
 // sidebar
 .siftal #sidebar{overflow:hidden;overflow-y:auto;width:250px;height:100%;position:relative;background-color:#302b2b;@include user-select(none);-webkit-transition: all 0.2s ease-out; -moz-transition: all 0.2s ease-out; -ms-transition: all 0.2s ease-out; -o-transition: all 0.2s ease-out; transition: all 0.2s ease-out; transition: all 200ms cubic-bezier(.694, .0482, .335, 1);transition-property:right,left;transform: translateX(0)}
-.siftal.ltr #sidebar{float: left;}
-.siftal.rtl #sidebar{float: right;}
+[dir='ltr'] .siftal #sidebar{float: left;}
+[dir='rtl'] .siftal #sidebar{float: right;}
 
 /* sidebar */
 .siftal #sidebar .scr{overflow:hidden;overflow-y:auto;height:80%;height:calc(100% - 70px);}

@@ -41,11 +41,11 @@
 	max-width:600px;
 	text-overflow: ellipsis;
 }
-[dir="ltr"] .tbl1 th.collapsing, .ltr .tbl1 td.collapsing{
+[dir="ltr"] .tbl1 th.collapsing, [dir="ltr"] .tbl1 td.collapsing{
 	width:1px;
 	white-space: nowrap;
 }
-[dir="rtl"] .tbl1 th.collapsing, .rtl .tbl1 td.collapsing{
+[dir="rtl"] .tbl1 th.collapsing, [dir="rtl"] .tbl1 td.collapsing{
 	width:1px;
 	white-space: nowrap;
 }
@@ -85,10 +85,10 @@
 	padding-right: 0;
 	padding-left: 1rem;
 }
-[dir="ltr"] .tbl1 tr th:first-of-type, .ltr .tbl1 tr td:first-of-type{
+[dir="ltr"] .tbl1 tr th:first-of-type, [dir="ltr"] .tbl1 tr td:first-of-type{
 	padding-left: 3rem;
 }
-[dir="rtl"] .tbl1 tr th:first-of-type, .rtl .tbl1 tr td:first-of-type{
+[dir="rtl"] .tbl1 tr th:first-of-type, [dir="rtl"] .tbl1 tr td:first-of-type{
 	padding-right: 3rem;
 }
 
@@ -206,12 +206,12 @@
 [dir="rtl"] .tbl1.v4 tr td:first-of-type{
 	padding-right: 1rem;
 }
-[dir="ltr"] .tbl1.v4 th.collapsing, .ltr .tbl1.v4 td.collapsing{
+[dir="ltr"] .tbl1.v4 th.collapsing, [dir="ltr"] .tbl1.v4 td.collapsing{
 	width:1px;
 	white-space: nowrap;
 	padding-right: 1em;
 }
-[dir="rtl"] .tbl1.v4 th.collapsing, .rtl .tbl1.v4 td.collapsing{
+[dir="rtl"] .tbl1.v4 th.collapsing, [dir="rtl"] .tbl1.v4 td.collapsing{
 	width:1px;
 	white-space: nowrap;
 	padding-left: 1em;

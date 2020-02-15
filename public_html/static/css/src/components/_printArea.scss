@@ -26,9 +26,9 @@
 }
 
 
-[dir="ltr"] .printArea .tbl1 tr th:first-of-type, .ltr .printArea .tbl1 tr td:first-of-type{
+[dir="ltr"] .printArea .tbl1 tr th:first-of-type, [dir="ltr"] .printArea .tbl1 tr td:first-of-type{
   padding-left: 1rem;
 }
-[dir="rtl"] .printArea .tbl1 tr th:first-of-type, .rtl .printArea .tbl1 tr td:first-of-type{
+[dir="rtl"] .printArea .tbl1 tr th:first-of-type, [dir="rtl"] .printArea .tbl1 tr td:first-of-type{
   padding-right: 1rem;
 }
