@@ -11,7 +11,7 @@
     max-width:auto;
 }
 
-.ltr .statistic+.statistic {
+[dir="ltr"] .statistic+.statistic {
     margin-left:1.5em;
 }
 

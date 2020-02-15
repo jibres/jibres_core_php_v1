@@ -70,7 +70,7 @@
 .tbox:hover{
   border-color:#fff;
 }
-.ltr .tbox.pictogram{
+[dir="ltr"] .tbox.pictogram{
   padding-right:5em;
 }
 [dir="rtl"] .tbox.pictogram{

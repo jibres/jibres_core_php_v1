@@ -69,14 +69,14 @@
 	text-align: center!important;
 }
 
-.ltr .txtRa{
+[dir="ltr"] .txtRa{
 	text-align: right!important;
 }
 [dir="rtl"] .txtRa{
 	text-align: left!important;
 }
 
-.ltr .txtLa{
+[dir="ltr"] .txtLa{
 	text-align: left!important;
 }
 [dir="rtl"] .txtLa{

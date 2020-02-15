@@ -94,10 +94,10 @@
 	color:rgba(0,0,0,0.7);
 }
 
-.ltr .vcard .meta *{
+[dir="ltr"] .vcard .meta *{
 	margin-right: 0.2em;
 }
-.ltr .vcard .meta:last-child{
+[dir="ltr"] .vcard .meta:last-child{
 	margin-right: 0;
 }
 [dir="rtl"] .vcard .meta *{
@@ -142,7 +142,7 @@ img.avatar{
 	overflow:hidden;
 }
 
-.ltr .vcard .avatar{
+[dir="ltr"] .vcard .avatar{
 	margin-right: 0.3em;
 }
 [dir="rtl"] .vcard .avatar{

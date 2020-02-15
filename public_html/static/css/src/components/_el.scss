@@ -41,14 +41,14 @@
 .floatL-f{float:left!important}
 .floatN-f{float:none!important}
 
-.ltr .floatRa{float:right}
+[dir="ltr"] .floatRa{float:right}
 [dir="rtl"] .floatRa{float:left}
-.ltr .floatLa{float:left}
+[dir="ltr"] .floatLa{float:left}
 [dir="rtl"] .floatLa{float:right}
 
-.ltr .floatRa-f{float:right!important}
+[dir="ltr"] .floatRa-f{float:right!important}
 [dir="rtl"] .floatRa-f{float:left!important}
-.ltr .floatLa-f{float:left!important}
+[dir="ltr"] .floatLa-f{float:left!important}
 [dir="rtl"] .floatLa-f{float:right!important}
 
 

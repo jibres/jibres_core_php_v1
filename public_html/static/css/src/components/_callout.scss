@@ -26,7 +26,7 @@
 }
 
 @mixin callout-type($name, $color) {
-.ltr .callout.#{$name} {
+[dir="ltr"] .callout.#{$name} {
   border-left-color: $color;
   h3 { color: $color; }
   h4 { color: $color; }

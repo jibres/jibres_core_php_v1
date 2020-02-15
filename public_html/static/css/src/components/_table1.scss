@@ -41,7 +41,7 @@
 	max-width:600px;
 	text-overflow: ellipsis;
 }
-.ltr .tbl1 th.collapsing, .ltr .tbl1 td.collapsing{
+[dir="ltr"] .tbl1 th.collapsing, .ltr .tbl1 td.collapsing{
 	width:1px;
 	white-space: nowrap;
 }
@@ -85,7 +85,7 @@
 	padding-right: 0;
 	padding-left: 1rem;
 }
-.ltr .tbl1 tr th:first-of-type, .ltr .tbl1 tr td:first-of-type{
+[dir="ltr"] .tbl1 tr th:first-of-type, .ltr .tbl1 tr td:first-of-type{
 	padding-left: 3rem;
 }
 [dir="rtl"] .tbl1 tr th:first-of-type, .rtl .tbl1 tr td:first-of-type{
@@ -200,13 +200,13 @@
 .tbl1.v4 tr {
 	border-bottom: 1px solid #f2f2f2;
 }
-.ltr .tbl1.v4 tr td:first-of-type{
+[dir="ltr"] .tbl1.v4 tr td:first-of-type{
 	padding-left: 1rem;
 }
 [dir="rtl"] .tbl1.v4 tr td:first-of-type{
 	padding-right: 1rem;
 }
-.ltr .tbl1.v4 th.collapsing, .ltr .tbl1.v4 td.collapsing{
+[dir="ltr"] .tbl1.v4 th.collapsing, .ltr .tbl1.v4 td.collapsing{
 	width:1px;
 	white-space: nowrap;
 	padding-right: 1em;
@@ -252,12 +252,12 @@
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
-.ltr .tbl1.v5 tbody td:first-child {
+[dir="ltr"] .tbl1.v5 tbody td:first-child {
 	border-left-style: solid;
 	border-top-left-radius: 1rem;
 	border-bottom-left-radius: 1rem;
 }
-.ltr .tbl1.v5 tbody td:last-child {
+[dir="ltr"] .tbl1.v5 tbody td:last-child {
 	border-right-style: solid;
 	border-bottom-right-radius: 1rem;
 	border-top-right-radius: 1rem;
@@ -462,7 +462,7 @@
 
 
 // coloring style
-.ltr .tbl1 tr.positive {
+[dir="ltr"] .tbl1 tr.positive {
 	border-left:5px solid #10c000;
 }
 [dir="rtl"] .tbl1 tr.positive {
@@ -472,7 +472,7 @@
 	background-color:rgba(16, 192, 0, 0.2);
 }
 
-.ltr .tbl1 tr.negative {
+[dir="ltr"] .tbl1 tr.negative {
 	border-left:5px solid #f07040;
 }
 [dir="rtl"] .tbl1 tr.negative {
@@ -482,7 +482,7 @@
 	background-color:rgba(240, 64, 64, 0.3);
 }
 
-.ltr .tbl1 tr.active {
+[dir="ltr"] .tbl1 tr.active {
 	border-left:5px solid #50b5f0;
 }
 [dir="rtl"] .tbl1 tr.active {
@@ -493,7 +493,7 @@
 }
 
 
-.ltr .tbl1 tr.warning {
+[dir="ltr"] .tbl1 tr.warning {
 	border-left:5px solid #c0c010;
 }
 [dir="rtl"] .tbl1 tr.warning {
@@ -503,7 +503,7 @@
 	background-color:rgba(192, 192, 16, 0.3);
 }
 
-.ltr .tbl1 tr.disabled {
+[dir="ltr"] .tbl1 tr.disabled {
 	border-left:5px solid #807070;
 }
 [dir="rtl"] .tbl1 tr.disabled {

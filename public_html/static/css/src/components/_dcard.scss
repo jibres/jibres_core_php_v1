@@ -96,10 +96,10 @@ a.dcard:hover{
 .dcard img{width: 100%;}
 
 
-.ltr .f .c:first-child .dcard{
+[dir="ltr"] .f .c:first-child .dcard{
 	margin-left:0;
 }
-.ltr .f .c:last-child .dcard{
+[dir="ltr"] .f .c:last-child .dcard{
 	margin-right:0;
 }
 [dir="rtl"] .f .c:first-child .dcard{

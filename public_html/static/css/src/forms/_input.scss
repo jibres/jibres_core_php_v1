@@ -148,11 +148,11 @@ span.input{
 	padding:5px;
 }
 // for radius
-.ltr .input > :first-child{
+[dir="ltr"] .input > :first-child{
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
-.ltr .input > :not(div):last-child{
+[dir="ltr"] .input > :not(div):last-child{
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
@@ -166,13 +166,13 @@ span.input{
 }
 
 // for border
-.ltr .input > .addon:first-child{
+[dir="ltr"] .input > .addon:first-child{
 	border-right-width: 0;
 }
-.ltr .input > .addon:last-child{
+[dir="ltr"] .input > .addon:last-child{
 	border-left-width: 0;
 }
-.ltr .input > .addon:not(:first-child):not(:last-child){
+[dir="ltr"] .input > .addon:not(:first-child):not(:last-child){
 	border-left-width: 0;
 }
 // rtl
@@ -187,7 +187,7 @@ span.input{
 }
 
 // for all inputs
-.ltr .input > :not(:first-child):not(:last-child){
+[dir="ltr"] .input > :not(:first-child):not(:last-child){
 	border-radius: 0;
 	border-right-width:0;
 }
