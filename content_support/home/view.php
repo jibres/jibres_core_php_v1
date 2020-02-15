@@ -17,6 +17,10 @@ class view
 		if(\dash\data::isHelpCenter())
 		{
 			\dash\data::display_supportAdmin('content_support/home/article.html');
+			// btn
+			\dash\data::back_text(T_('Help center'));
+			\dash\data::back_link(\dash\url::support());
+
 			self::help_center();
 		}
 		else
@@ -41,17 +45,30 @@ class view
 		}
 
 		$master = \dash\app\posts::ready($master);
+
 		\dash\data::datarow($master);
 
-
-		// set back link
-		\dash\data::badge_text(T_('Return to help center'));
-		\dash\data::badge_link(\dash\url::here());
+		if(isset($master['url']))
+		{
+			$url = $master['url'];
+			if(strpos($url, '/') !== false)
+			{
+				$split_url = explode('/', $url);
+				if(count($split_url) > 1)
+				{
+					array_pop($split_url);
+					$url = implode('/', $split_url);
+					\dash\data::back_link(\dash\url::support(). '/'. $url);
+					\dash\data::back_text(T_('Back'));
+					// \dash\data::back_icon('chevron-left');
+				}
+			}
+		}
 
 		// set page title
 		if(isset($master['title']))
 		{
-			\dash\data::page_title($master['title']);
+			// \dash\data::page_title($master['title']);
 		}
 		// set page desc
 		if(isset($master['excerpt']))
