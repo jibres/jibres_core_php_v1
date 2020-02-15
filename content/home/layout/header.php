@@ -15,19 +15,19 @@
      </div>
      <nav class="c s0">
        <a href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
-       <?php if(false) { ?><a href="<?php echo \dash\url::kingdom() ?>/domain" data-direct><?php echo T_("Domains"); ?></a> <?php } // endif ?>
-       <a href="<?php echo \dash\url::kingdom() ?>/support" data-direct><?php echo T_("Help Center"); ?></a>
+       <?php if(false) { ?><a href="<?php echo \dash\url::kingdom() ?>/domain"><?php echo T_("Domains"); ?></a> <?php } // endif ?>
+       <a href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
      </nav>
      <div class="cauto s12"><?php
 if (\dash\user::id())
 {
  if (\dash\url::subdomain())
  {
-  echo '<a class="master" href="'. \dash\url::sitelang(). '/a" data-direct>'. T_("Store Panel"). '</a>';
+  echo '<a class="master" href="'. \dash\url::sitelang(). '/a">'. T_("Store Panel"). '</a>';
  }
  else
  {
-  echo '<a class="master" href="'. \dash\url::sitelang(). '/dashboard" data-direct>'. T_("Dashboard"). '</a>';
+  echo '<a class="master" href="'. \dash\url::sitelang(). '/dashboard">'. T_("Dashboard"). '</a>';
  }
 
 }
