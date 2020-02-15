@@ -118,6 +118,7 @@
     $('body').attr('data-theme', obj.theme);
     // set subdomain on body
     $('body').attr('data-subdomain', obj.subdomain);
+    $('body').addClass(obj.bodyclass);
 
     $window.trigger('navigate:render:filter:before', obj.filter);
 
