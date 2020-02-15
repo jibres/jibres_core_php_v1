@@ -224,7 +224,7 @@
   NProgress.render = function(fromStart) {
     if (NProgress.isRendered()) return document.getElementById('nprogress');
 
-    addClass(document.documentElement, 'nprogress-busy');
+    // addClass(document.documentElement, 'nprogress-busy');
 
     var progress = document.createElement('div');
     progress.id = 'nprogress';
@@ -258,7 +258,7 @@
    */
 
   NProgress.remove = function() {
-    removeClass(document.documentElement, 'nprogress-busy');
+    // removeClass(document.documentElement, 'nprogress-busy');
     removeClass(document.querySelector(Settings.parent), 'nprogress-custom-parent');
     var progress = document.getElementById('nprogress');
     progress && removeElement(progress);
