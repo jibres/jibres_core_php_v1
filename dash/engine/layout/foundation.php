@@ -89,10 +89,6 @@ if(\dash\data::include_adminPanel())
 {
   echo "siftal";
 }
-if(\dash\data::bodyclass())
-{
-  echo " ". \dash\data::bodyclass();
-}
 echo "'";
 // sidebar
 if(!\dash\data::userToggleSidebar())

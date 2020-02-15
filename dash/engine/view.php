@@ -291,7 +291,6 @@ class view
 	{
 		if(\dash\data::include_adminPanel())
 		{
-			\dash\data::bodyclass('siftal');
 			\dash\data::global_siftal(true);
 
 			$txtDesc   = '';
