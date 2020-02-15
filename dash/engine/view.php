@@ -50,27 +50,21 @@ class view
 		\dash\data::runPWA(\dash\detect\device::detectPWA());
 
 		// define default value for global
-		\dash\data::global_title(null);
-		\dash\data::global_login(\dash\user::login());
-		\dash\data::global_lang(\dash\language::current());
-		\dash\data::global_direction(\dash\language::dir());
-		\dash\data::global_page(implode('_', \dash\url::dir()));
-		if(!\dash\data::global_page() && \dash\url::module() === null)
-		{
-			\dash\data::global_page('home');
-		}
+		\dash\data::global_title(T_("Jibres"));
+		// \dash\data::global_login(\dash\user::login());
+		// \dash\data::global_lang(\dash\language::current());
+		// \dash\data::global_direction(\dash\language::dir());
 		\dash\data::global_subdomain(\dash\url::subdomain());
 		\dash\data::global_content(\dash\url::content());
 		if(\dash\data::global_content() === null)
 		{
 			\dash\data::global_content('site');
 		}
-
-		if(!\dash\url::subdomain())
+		\dash\data::global_page(implode('_', \dash\url::dir()));
+		if(!\dash\data::global_page() && \dash\url::module() === null)
 		{
-			\dash\data::global_theme('light');
+			\dash\data::global_page('home');
 		}
-
 
 		// make xaccess link
 		$xaccessLink = [];
@@ -154,7 +148,7 @@ class view
 			\dash\data::page_special(true);
 		}
 
-		\dash\data::global_short_title(substr(\dash\data::global_title(), 0, strrpos(substr(\dash\data::global_title(), 0, 120), ' ')). '...');
+		// \dash\data::global_short_title(substr(\dash\data::global_title(), 0, strrpos(substr(\dash\data::global_title(), 0, 120), ' ')). '...');
 
 		if(!\dash\data::page_desc() && \dash\data::page_desc() !== false && !\dash\url::content())
 		{
