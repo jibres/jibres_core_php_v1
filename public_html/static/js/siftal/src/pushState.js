@@ -82,6 +82,8 @@ $(document).ready(function()
 
   // call some static function without need to run with pushState
   inputChecker();
+  // check we are in iframe of not!
+  insideIframe();
   // check requirements of form and highlight them
   inputRequirement();
   // do something before unload page
