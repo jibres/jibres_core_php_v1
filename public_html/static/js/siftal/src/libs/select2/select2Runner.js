@@ -5,7 +5,7 @@ function selectRunner()
   {
     $.fn.select22.defaults.set("language", "fa");
   }
-  if($('body').attr('dir') === 'rtl')
+  if($('html').attr('dir') === 'rtl')
   {
     $.fn.select22.defaults.set("dir", "rtl");
   }

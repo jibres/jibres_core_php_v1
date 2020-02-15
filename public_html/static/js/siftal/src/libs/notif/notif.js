@@ -46,7 +46,7 @@ function notif(_type, _msg, _title, _timeout, _opt)
 
   notifOpt.transitionOut = 'fadeOutRight';
   // rtl design
-  if($('body').hasClass('rtl'))
+  if($('html').attr('dir') === 'rtl')
   {
     notifOpt.rtl = true;
     notifOpt.transitionOut = 'fadeOutLeft';
