@@ -80,10 +80,10 @@ else
 // page
 echo " data-page='". \dash\data::global_page(). "'";
 // class
-echo " class='". \dash\language::dir();
+echo " class='";
 if(\dash\data::include_adminPanel())
 {
-  echo " siftal";
+  echo "siftal";
 }
 if(\dash\data::bodyclass())
 {
