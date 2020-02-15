@@ -47,7 +47,10 @@ class find
 		if($myPage !== null)
 		{
 			echo "\n <main id='pageContent' data-xhr='pageContent'>";
-			require_once $myPage;
+			if($myPage)
+			{
+				require_once $myPage;
+			}
 			echo "\n </main>";
 		}
 	}
@@ -63,6 +66,7 @@ class find
 		{
 			if(\dash\url::content() === 'enter')
 			{
+				$myPage = '';
 				// do nothing
 			}
 			elseif(\dash\url::content() === null)
@@ -79,7 +83,10 @@ class find
 		if($myPage !== null)
 		{
 			echo "\n <header id='pageHeader' data-xhr='pageHeader'>";
-			require_once $myPage;
+			if($myPage)
+			{
+				require_once $myPage;
+			}
 			echo "\n </header>";
 		}
 	}
@@ -96,6 +103,7 @@ class find
 		{
 			if(\dash\url::content() === 'enter')
 			{
+				$myPage = '';
 				// do nothing
 			}
 			elseif(\dash\url::content() === null)
@@ -112,7 +120,10 @@ class find
 		if($myPage !== null)
 		{
 			echo "\n <footer id='pageFooter' data-xhr='pageFooter'>";
-			require_once $myPage;
+			if($myPage)
+			{
+				require_once $myPage;
+			}
 			echo "\n </footer>";
 		}
 	}
@@ -147,7 +158,10 @@ class find
 		{
 			self::$need_box = true;
 			echo "\n <aside id='pageSidebar' data-xhr='pageSidebar'>";
-			require_once $myPage;
+			if($myPage)
+			{
+				require_once $myPage;
+			}
 			echo "\n </aside>";
 		}
 	}
@@ -160,7 +174,10 @@ class find
 		if($myPage !== null)
 		{
 			echo "\n <nav id='pageNav' data-xhr='pageNav'>";
-			require_once $myPage;
+			if($myPage)
+			{
+				require_once $myPage;
+			}
 			echo "\n </nav>";
 		}
 	}
