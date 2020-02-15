@@ -94,7 +94,7 @@ echo "'";
 // theme
 if(\dash\data::global_theme())
 {
-  echo " data-theme='". \dash\data::global_theme(). "'";
+  echo " data-theme2='". \dash\data::global_theme(). "'";
 }
 // sidebar
 if(!\dash\data::userToggleSidebar())
