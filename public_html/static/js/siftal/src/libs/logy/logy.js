@@ -1,6 +1,6 @@
 /**
  * v1.0
- * used in Siftal and integrated with Dash
+ * integrated with Dash
  */
 
 

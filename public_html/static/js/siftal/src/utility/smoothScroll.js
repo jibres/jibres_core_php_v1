@@ -114,7 +114,7 @@ function scrollSmoothTo(_target, _hashtag, _timing, _arg)
       targetOffset = _target.offset().top;
     }
 
-    if($('body').hasClass('siftal'))
+    if($('body').attr('data-panel') !== undefined)
     {
       targetOffset -= 60;
     }
@@ -157,7 +157,7 @@ function scrollSmoothTo(_target, _hashtag, _timing, _arg)
   }
 
   var page = $("html, body");
-  if($('body').hasClass('siftal'))
+  if($('body').attr('data-panel') !== undefined)
   {
     page = $("html");
   }
@@ -175,9 +175,9 @@ function scrollSmoothTo(_target, _hashtag, _timing, _arg)
   {
     if(_hashtag)
     {
-      if($('body').hasClass('siftal'))
+      if($('body').attr('data-panel') !== undefined)
       {
-        // do not set hashtag of url in siftal because of jumping
+        // do not set hashtag of url in panel because of jumping
         if(window.location.hash)
         {
           window.location.hash = '';

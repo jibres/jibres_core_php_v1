@@ -62,12 +62,6 @@ function pushStateSiftal(_direct)
     calcProductMargin();
   }
 
-
-  if($('body').hasClass('siftal'))
-  {
-    // run on siftal admin panel
-
-  }
   callFunc('pushState', _direct);
   callFunc('pushStateFinal', _direct);
   callFunc('chartDrawer', _direct);
@@ -98,7 +92,7 @@ $(document).ready(function()
   // try to register service worker
   registerServiceWorker();
 
-  if($('body').hasClass('siftal'))
+  if($('body').attr('data-panel') !== undefined)
   {
     // bind userprofile to show detail
     showUserProfile();

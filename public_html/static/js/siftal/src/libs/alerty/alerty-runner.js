@@ -92,7 +92,7 @@ function deleteConfirmer(_this)
 
 function showUserProfile()
 {
-  $(document).on('click', '.siftal .profileShow', function(_e)
+  $(document).on('click', '[data-panel] .profileShow', function(_e)
   {
     var $this   = $(this);
 
@@ -131,7 +131,7 @@ function showUserProfile()
 
   });
 
-  $(document).on('click', '.siftal .alerty2-footer a', function(_e)
+  $(document).on('click', '[data-panel] .alerty2-footer a', function(_e)
   {
     say.close();
   });

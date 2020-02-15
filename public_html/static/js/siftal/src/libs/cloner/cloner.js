@@ -14,7 +14,7 @@ function cloner()
   $cloners.before($cloners.clone().addClass("cloner")).attr('data-cloner', null);
 
 
-  // on body scroll used in siftal
+  // on body scroll used
   $(window).on("scroll load", function()
   {
     var myScroll = $("html").scrollTop() || $("body").scrollTop();

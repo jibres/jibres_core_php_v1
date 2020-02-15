@@ -74,9 +74,9 @@
     }
     if(obj.content && $('body').attr('data-in') !== obj.content)
     {
-      if($('body').hasClass('siftal') && obj.siftal)
+      if($('body').attr('data-panel') !== undefined && obj.siftal)
       {
-        // body has class siftal, dont worry, continue
+        // body is panel, dont worry, continue
       }
       else
       {

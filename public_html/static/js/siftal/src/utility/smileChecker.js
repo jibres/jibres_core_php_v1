@@ -15,7 +15,7 @@ function checkSmile(_register)
     checkSmileLoop();
   }
   var aleadyIsNew = false;
-  if($('.siftal .dashHead .notification').attr('data-new') !== undefined)
+  if($('[data-panel] .dashHead .notification').attr('data-new') !== undefined)
   {
     aleadyIsNew = true;
   }
@@ -108,7 +108,7 @@ function checkSmileRedirect(_data)
 
 function checkNewNotification(_data)
 {
-  var notifEl = $('.siftal .dashHead .notification');
+  var notifEl = $('[data-panel] .dashHead .notification');
   if(_data.result && _data.result.notifNew)
   {
     if(notifEl.attr('data-new') === undefined)
