@@ -32,7 +32,7 @@ class fn
 				\dash\data::global_bodyclass(\dash\data::bodyclass());
 				\dash\data::global_debug(\dash\notif::get());
 				// send global on line1 of xhr
-				echo json_encode(\dash\data::get('global')). "\n";
+				echo json_encode(\dash\data::get('global'),  JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES). "\n";
 				// create all blocks
 				\dash\engine\layout\find::allBlocks();
 			}
