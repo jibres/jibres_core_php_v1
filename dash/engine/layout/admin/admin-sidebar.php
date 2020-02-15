@@ -1,37 +1,29 @@
  <div class="scr">
-{%block avatar%}
   <figure>
-{%set avatarLink%}{%if dash.avatarLink is empty%}{{url.kingdom}}/account{%else%}{{dash.avatarLink}}{%endif%}{%endset%}
 <?php
 if(\dash\user::id())
 {
+// {%set avatarLink%}{%if dash.avatarLink is empty%}{{url.kingdom}}/account{%else%}{{dash.avatarLink}}{%endif%}{%endset%}
   echo "<a href='{{avatarLink}}' title='{%trans 'Edit your profile'%}' class='avatar'>";
+// {%if login.avatar%}
+//      <img src="{{login.avatar}}" alt='{%trans "Avatar of you"%} {{login.displayname}}'>
+// {%elseif login%}
+//      <img src="{{url.static}}/siftal/images/default/avatar.png" alt='{%trans "Default Avatar"%}'>
+// {%endif%}
+   // </a>
+//    <figcaption>{%trans "Hello"%} <b>{{login.displayname}}</b></figcaption>
 }
 else
 {
   echo "<a href='{{url.kingdom}}/enter?referer={{url.pwd}}' class='avatar'>";
+//      <img src="{{url.static}}/siftal/images/avatar/guest.png" alt='{%trans "Default Avatar"%}'>
+   // <figcaption>{%trans "Hello "%} <b>{%trans "dear GUEST!"%}</b></figcaption>
 }
 
 ?>
-{%if login.avatar%}
-     <img src="{{login.avatar}}" alt='{%trans "Avatar of you"%} {{login.displayname}}'>
-{%elseif login%}
-     <img src="{{url.static}}/siftal/images/default/avatar.png" alt='{%trans "Default Avatar"%}'>
-{%else%}
-     <img src="{{url.static}}/siftal/images/avatar/guest.png" alt='{%trans "Default Avatar"%}'>
-{%endif%}
-   </a>
-{%if login%}
-   <figcaption>{%trans "Hello"%} <b>{{login.displayname}}</b></figcaption>
-{%else%}
-   <figcaption>{%trans "Hello "%} <b>{%trans "dear GUEST!"%}</b></figcaption>
-{%endif%}
   </figure>
-{%endblock%}
   <div class="menu">
    <ul class="sidenav" data-xhr='sidenav'>
-
-
 
 
 
