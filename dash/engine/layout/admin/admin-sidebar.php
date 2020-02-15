@@ -1,3 +1,39 @@
+ <div class="scr">
+{%block avatar%}
+  <figure>
+{%set avatarLink%}{%if dash.avatarLink is empty%}{{url.kingdom}}/account{%else%}{{dash.avatarLink}}{%endif%}{%endset%}
+<?php
+if(\dash\user::id())
+{
+  echo "<a href='{{avatarLink}}' title='{%trans 'Edit your profile'%}' class='avatar'>";
+}
+else
+{
+  echo "<a href='{{url.kingdom}}/enter?referer={{url.pwd}}' class='avatar'>";
+}
+
+?>
+{%if login.avatar%}
+     <img src="{{login.avatar}}" alt='{%trans "Avatar of you"%} {{login.displayname}}'>
+{%elseif login%}
+     <img src="{{url.static}}/siftal/images/default/avatar.png" alt='{%trans "Default Avatar"%}'>
+{%else%}
+     <img src="{{url.static}}/siftal/images/avatar/guest.png" alt='{%trans "Default Avatar"%}'>
+{%endif%}
+   </a>
+{%if login%}
+   <figcaption>{%trans "Hello"%} <b>{{login.displayname}}</b></figcaption>
+{%else%}
+   <figcaption>{%trans "Hello "%} <b>{%trans "dear GUEST!"%}</b></figcaption>
+{%endif%}
+  </figure>
+{%endblock%}
+  <div class="menu">
+   <ul class="sidenav" data-xhr='sidenav'>
+
+
+
+
 
 
 
@@ -69,3 +105,36 @@ if(\dash\url::content() === 'support')
 ?>
 
 <?php }//endif ?>
+
+
+
+
+
+
+
+
+
+
+
+   </ul>
+  </div>
+ </div>
+  <abbr class="toggleClean" title='{%trans "Click to toggle sidebar status"%}'><span class="sf-arrows-out"></span></abbr>
+
+  <a href="<?php echo \dash\url::kindgom() ?>" id='ermileBadge' class="f" target="_blank">
+   <div class="cauto pRa10">
+    <img src="<?php echo \dash\url::icon() ?>" alt='<?php echo T_("Jibres") ?>'>
+   </div>
+   <div class="c">
+    <h2><?php echo T_("Jibres") ?></h2>
+    <h3><?php echo T_("Sell & Enjoy") ?></h3>
+   </div>
+  </a>
+
+
+
+
+
+
+
+
