@@ -41,8 +41,6 @@ class view
 		\dash\data::page_desc(null);
 		\dash\data::page_special(null);
 
-		\dash\data::bodyclass(null);
-
 		$user_detail = \dash\user::detail();
 		\dash\data::user($user_detail);
 		\dash\data::login($user_detail);
