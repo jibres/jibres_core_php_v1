@@ -20,7 +20,7 @@
 
         <div class="f fc-mute mB20 fs09">
           <div class="c fs08"><?php echo T_("Current Time"); ?></div>
-          <div class="cauto os"><?php echo \dash\fit::date(date("Y-m-d H:i:s")); ?></div>
+          <div class="cauto os"><?php echo \dash\fit::date(date("Y-m-d")). ' '. \dash\fit::text(date("H:i")); ?></div>
         </div>
 
         <?php if(\dash\data::masterTicketDetail_ip()) {?>
@@ -219,7 +219,7 @@
             <?php
 
             $myID             = \dash\coding::encode(\dash\request::get('id'));
-            $myTag            = \dash\app\term::load_tag_html(["post_id" => $myID , "title" => true, "format" => 'csv', "type" => "support_tag", "related" => "tickets"]);
+            $myTag            = \dash\app\term::load_tag_html(["post_id" => $myID , "title" => true,  "type" => "support_tag", "related" => "tickets"]);
 
             ?>
 
@@ -228,15 +228,17 @@
 
 
               <div class="input mB10 hide">
-                <input type="text" class="input tagVals" name="tag" value="<?php echo \dash\data::postTag(); ?>" id="tagValues" placeholder='<?php echo T_("Tag"); ?>'>
+                <input type="text" class="input tagVals" name="tag" value="<?php if(is_array($myTag)) { echo implode(',', $myTag) ; }?>" id="tagValues" placeholder='<?php echo T_("Tag"); ?>'>
               </div>
 
               <datalist id="taglist">
 
+
                 <?php
-                if(is_array(\dash\data::tagList()))
+
+                if(isset($myTag) && is_array($myTag))
                 {
-                  foreach (\dash\data::tagList() as $key => $value)
+                  foreach ($myTag as $key => $value)
                   {
                     echo '<option value="'. @$value['title']. '">';
                   }
