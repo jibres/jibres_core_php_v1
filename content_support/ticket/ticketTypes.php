@@ -13,8 +13,8 @@
   <?php if(\dash\permission::check('supportTicketManage')) {?>
 
   <div class="c">
-    <a class="dcard {%if accessMode == 'manage'%} active{%endif%}" href='<?php echo \dash\url::this(); ?>?access=manage'>
-     <div class="statistic{%if accessMode == 'manage'%} blue{%else%} brown{%endif%}">
+    <a class="dcard <?php if(\dash\data::accessMode() === 'manage') {echo ' active'; }?>" href='<?php echo \dash\url::this(); ?>?access=manage'>
+     <div class="statistic <?php if(\dash\data::accessMode() === 'manage') { echo ' blue ';}else{ echo ' brown ';} ?>">
       <div class="value mB10"><i class="sf-users"></i></div>
       <div class="label"><?php echo T_("Manage tickets"); ?></div>
      </div>
@@ -25,8 +25,8 @@
   <?php if(\dash\permission::check('supportTicketManageSubdomain')) {?>
 
   <div class="c">
-    <a class="dcard {%if accessMode == 'all'%} active{%endif%}" href='<?php echo \dash\url::this(); ?>?access=all'>
-     <div class="statistic{%if accessMode == 'all'%} blue{%else%} brown{%endif%}">
+    <a class="dcard <?php if(\dash\data::accessMode() === 'all') {echo ' active'; }?>" href='<?php echo \dash\url::this(); ?>?access=all'>
+     <div class="statistic <?php if(\dash\data::accessMode() === 'all') { echo ' blue ';}else{ echo ' brown ';} ?>">
       <div class="value mB10"><i class="sf-user-secret"></i></div>
       <div class="label"><?php echo T_("Manage all tickets"); ?></div>
      </div>
