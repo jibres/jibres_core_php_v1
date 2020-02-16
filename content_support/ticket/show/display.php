@@ -140,7 +140,6 @@
     <div class="cbox">
       <h3><?php echo T_("Notification procedures"); ?></h3>
       <div>
-
         <div class="switch1">
          <input type="checkbox" disabled id="notifMobile" <?php if(\dash\data::masterTicketDetail_mobile()) { echo "checked";} ?> >
          <label for="notifMobile"></label>
