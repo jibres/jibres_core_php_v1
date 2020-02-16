@@ -79,7 +79,7 @@ class model
 
 		if(!empty($update_main))
 		{
-			$result = \dash\app\ticket::edit($update_main, \dash\coding::encode($_id));
+			$result = \dash\app\ticket::edit($update_main, $_id);
 		}
 
 		if($result)
