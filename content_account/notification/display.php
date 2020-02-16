@@ -11,7 +11,7 @@ if(\dash\data::dataTable())
       ?>
 
       <tr>
-        <td class="collapsing type"><i class="<?php if(isset($value['icon']) && $value['icon']) { echo 'sf-'. $value['icon']; }else{ echo 'sf-heart'; } if(isset($value['iconClass']) && $value['iconClass']) { echo $value['iconClass']; }?> style1" title='<?php if(isset($value['cat']))  { echo $value['cat']; }?>'></i></td>
+        <td class="collapsing type"><i class="<?php if(isset($value['icon']) && $value['icon']) { echo 'sf-'. $value['icon']. ' '; }else{ echo 'sf-heart '; } if(isset($value['iconClass']) && $value['iconClass']) { echo $value['iconClass']; }?> style1" title='<?php if(isset($value['cat']))  { echo $value['cat']; }?>'></i></td>
         <td class="subject">
           <div class="f">
             <div class="c s12">
