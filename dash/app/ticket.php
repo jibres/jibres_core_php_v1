@@ -21,6 +21,7 @@ class ticket
 					tickets.*,
 					users.avatar,
 					users.firstname,
+					users.mobile,
 					users.displayname
 				 ";
 	public static $master_join = "LEFT JOIN users ON users.id = tickets.user_id ";
