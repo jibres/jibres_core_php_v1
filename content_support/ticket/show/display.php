@@ -195,7 +195,7 @@
 <?php } //endif ?>
 
         <div class="input fs08" title='<?php echo T_("Short link"); ?>'>
-          <input type="text" id="shortLink" class="ltr" value="<?php echo \dash\url::base(); ?>/!<?php echo \dash\data::masterTicketDetail_id(); ?>" readonly>
+          <input type="text" id="shortLink" class="ltr txtL" value="<?php echo \dash\url::base(); ?>/!<?php echo \dash\data::masterTicketDetail_id(); ?>" readonly>
           <div class="addon btn" data-copy='#shortLink'><span class="sf-link pRa5"></span> <?php echo T_("Short link"); ?></div>
         </div>
 

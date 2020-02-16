@@ -75,7 +75,7 @@ else
 
 
 <?php function htmlStartAddNew() {?>
-<p class="fs14 msg success2 pTB20"><?php echo T_("No ticket was found"); ?> <a class="txtB" href="{{url.this}}/add"><?php echo T_("Add new ticket"); ?></a></p>
+<p class="fs14 msg success2 pTB20"><?php echo T_("No ticket was found"); ?> <a class="txtB" href="<?php echo \dash\url::this(); ?>/add"><?php echo T_("Add new ticket"); ?></a></p>
 <?php } //endfunction ?>
 
 

@@ -17,7 +17,7 @@ $urlThis = \dash\url::this();
 
 
 <div class="cbox">
-  <div class="msg <?php if(\dash\data::masterTicketDetail_colorClass()) { echo \dash\data::masterTicketDetail_colorClass(); }else{ echo 'pain';} ?> special fs10 f" title='<?php echo T_("Status"); ?> <b>{%trans myStatus%}</b>'>
+  <div class="msg <?php if(\dash\data::masterTicketDetail_colorClass()) { echo \dash\data::masterTicketDetail_colorClass(); }else{ echo 'pain';} ?> special fs10 f" title='<?php echo T_("Status"); ?> <b><?php echo T_(ucfirst($myStatus)); ?></b>'>
     <div class="cauto pRa10"><span class="badge rounded" title='<?php echo T_("Ticket No"); ?>'><?php echo \dash\fit::text(\dash\data::masterTicketDetail_id()); ?></span></div>
     <?php if(\dash\data::masterTicketDetail_subdomain()) {?>
       <div class="cauto pRa10"><a class="badge" href="<?php echo \dash\url::here(); ?>/ticket?access=all&subdomain=<?php echo \dash\data::masterTicketDetail_subdomain(); ?>"><?php echo ucfirst(\dash\data::masterTicketDetail_subdomain()); ?></a></div>
