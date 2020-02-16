@@ -5,7 +5,7 @@ $kingdom = \dash\url::kingdom();
   <div class="fit-md">
     <h2><?php echo T_('Jibres Certificates'); ?></h2>
     <div class="f">
-      <!-- <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt=''></a></div> -->
+      <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-daneshbonyan.png" alt=''></a></div>
       <!-- <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-bank-markazi.png" alt=''></a></div> -->
       <!-- <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-shaparak.png" alt=''></a></div> -->
       <div class="c3 s6"><a href=""><img src="<?php echo \dash\url::static(); ?>/img/certificates/jibres-certificate-bmn.png" alt=''></a></div>
@@ -104,7 +104,7 @@ $kingdom = \dash\url::kingdom();
             <a href="tel:+982536505281" class="ltr"><?php echo \dash\fit::text('+98-25-3650-5281'); ?></a>
             <a href="mailto:info@Jibres.com" class="ltr">info@Jibres.com</a>
             <?php
-              echo '<a href="<?php echo $kingdom; ?>/support">'. T_('2th Floor'). '<br>'. T_('Haft-e-tir 1 St'). '<br>'. T_('Qom, IRAN'). '</a>';
+              echo '<a href="'. $kingdom. '/support">'. T_('2th Floor'). '<br>'. T_('Haft-e-tir 1 St'). '<br>'. T_('Qom, IRAN'). '</a>';
             ?>
 
             <div class="cauto s12 love"><?php echo T_('Proudly Made in IRAN'); ?></div>
