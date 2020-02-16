@@ -88,7 +88,7 @@ Highcharts.Point.prototype.highlight = function (event) {
 
 // Get the data. The contents of the data file can be viewed at
 Highcharts.ajax({
-  url: '{{url.this}}/report?ajaxreport=json',
+  url: '<?php echo \dash\url::this(); ?>/report?ajaxreport=json',
   dataType: 'text',
   success: function (activity) {
 
