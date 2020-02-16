@@ -90,7 +90,7 @@ function loadPostTemplate()
   ?>
 
   <div class="tagBox msg simple">
-    <?php \dash\app\term::load_tag_html(['format' => 'html']) ?>
+    <?php \dash\app\term::load_tag_html(['format' => 'html']); ?>
   </div>
 
     <div class="msg"><?php require_once ('shareBox.php');?></div>
