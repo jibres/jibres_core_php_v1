@@ -17,7 +17,7 @@
           echo \dash\fit::number(\dash\data::sidebarDetail_all());
         }
       ?></span></div>
-  <div class="cauto os"><a href="<?php echo \dash\url::this();  echo \dash\data::accessGet(); ?>" class="btn dark sm"><?php echo T_("All Tickets"); ?></a></div>
+  <div class="cauto os"><a href="<?php echo \dash\url::here(). '/ticket';  echo \dash\data::accessGet(); ?>" class="btn dark sm"><?php echo T_("All Tickets"); ?></a></div>
 </div>
 
 <table class="tbl1 v1 cbox fs12" data-scroll>
@@ -37,11 +37,11 @@ foreach ($dataTable as $key => $value)
       <td class="collapsing txtB">
         <?php if(isset($value['parent'])) {?>
 
-        <a href="<?php echo \dash\url::this(); ?>/show?id=<?php echo @$value['parent'];  echo \dash\data::accessGetAnd(); ?>#<?php echo @$value['id'];  if(!\dash\user::id()) {?>&guest=<?php echo @$value['code'];  } //endif ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(@$value['parent']); ?></span> </a>
+        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo @$value['parent'];  echo \dash\data::accessGetAnd(); ?>#<?php echo @$value['id'];  if(!\dash\user::id()) {?>&guest=<?php echo @$value['code'];  } //endif ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(@$value['parent']); ?></span> </a>
 
         <?php }else{ ?>
 
-        <a href="<?php echo \dash\url::this(); ?>/show?id=<?php echo @$value['id'];  echo \dash\data::accessGetAnd(); if(!\dash\user::id()) { echo '&guest='. @$value['id'];} ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(@$value['id']); ?></span> <?php echo substr(@$value['title'], 0, 40); ?></a>
+        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo @$value['id'];  echo \dash\data::accessGetAnd(); if(!\dash\user::id()) { echo '&guest='. @$value['id'];} ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(@$value['id']); ?></span> <?php echo substr(@$value['title'], 0, 40); ?></a>
         <?php } // endif ?>
 
         <?php if(isset($value['tag']) && $value['tag'] && is_array($value['tag'])) {?>
@@ -50,7 +50,7 @@ foreach ($dataTable as $key => $value)
 
           <?php foreach ($value['tag'] as $Tkey => $Tvalue) {?>
 
-            <a class="badge" href="<?php echo \dash\url::this(); ?>?tag=<?php echo urlencode($Tvalue); ?>"><?php echo $Tvalue; ?></a>
+            <a class="badge" href="<?php echo \dash\url::here(). '/ticket'; ?>?tag=<?php echo urlencode($Tvalue); ?>"><?php echo $Tvalue; ?></a>
 
           <?php } // endfor ?>
 
@@ -60,7 +60,7 @@ foreach ($dataTable as $key => $value)
 
       </td>
 
-      <td class="s0 m0 pRa10"><a href="<?php echo \dash\url::this(); ?>/show?id=<?php echo @$value['id']; echo \dash\data::accessGetAnd(); ?><?php if(!\dash\user::id()) { echo '&guest='. @$value['code']; } ?>"><?php echo substr(strip_tags(@$value['content']), 0, 60); ?></a>
+      <td class="s0 m0 pRa10"><a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo @$value['id']; echo \dash\data::accessGetAnd(); ?><?php if(!\dash\user::id()) { echo '&guest='. @$value['code']; } ?>"><?php echo substr(strip_tags(@$value['content']), 0, 60); ?></a>
       </td>
 
       <?php if(\dash\data::haveSubdomain()) {?>
@@ -68,7 +68,7 @@ foreach ($dataTable as $key => $value)
     <td class="collapsing fs08 s0 ltr">
       <?php if(isset($value['subdomain']) && $value['subdomain']) {?>
 
-      <a href="<?php echo \dash\url::this(); ?>?access=all&subdomain=<?php echo $value['subdomain']; ?>"><?php echo ucfirst($value['subdomain']); ?></a>
+      <a href="<?php echo \dash\url::here(). '/ticket'; ?>?access=all&subdomain=<?php echo $value['subdomain']; ?>"><?php echo ucfirst($value['subdomain']); ?></a>
 
       <?php } //endif ?>
     </td>
@@ -85,7 +85,7 @@ foreach ($dataTable as $key => $value)
       <?php if(\dash\data::accessMode() !== 'mine') {?>
 
       <td class="collapsing fs08 txtRa s0">
-        <a href="<?php echo \dash\url::this(); ?>?user=<?php echo @$value['user_id']; ?><?php echo \dash\data::accessGetAnd(); ?>">
+        <a href="<?php echo \dash\url::here(). '/ticket'; ?>?user=<?php echo @$value['user_id']; ?><?php echo \dash\data::accessGetAnd(); ?>">
         <span class="txtB s0"><?php echo @$value['displayname']; ?></span>
         <img src="<?php echo @$value['avatar']; ?>" class="avatar mLa10" alt="<?php echo @$value['displayname']; if(isset($value['displayname']) && $value['displayname']) {?>"  title="<?php echo $value['displayname']; ?>" <?php } //endif ?>>
         </a>
