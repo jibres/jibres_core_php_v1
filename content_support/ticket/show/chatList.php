@@ -260,7 +260,7 @@ else
 <?php
 if(\dash\data::masterTicketDetail_solved())
 {
-  if(\dash\masterTicketDetail_status() === 'answered' || \dash\data::masterTicketDetail_status() === 'awaiting')
+  if(\dash\data::masterTicketDetail_status() === 'answered' || \dash\data::masterTicketDetail_status() === 'awaiting')
   {
 
 ?>

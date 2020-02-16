@@ -4,7 +4,7 @@
   <a href="<?php echo \dash\url::here(); ?>/ticket<?php echo \dash\data::accessGet(); ?>"><i class="sf-question-circle"></i><?php echo T_("Tickets"); ?></a>
 
     <ul>
-      <li><a href="<?php echo \dash\url::here(); ?>/ticket/ad<?php echo \dash\data::accessGet(); ?>"><i class="floatLa mRa10 fc-mute sf-plus"></i><?php echo T_("New Ticket"); ?></a></li>
+      <li><a href="<?php echo \dash\url::here(); ?>/ticket/add<?php echo \dash\data::accessGet(); ?>"><i class="floatLa mRa10 fc-mute sf-plus"></i><?php echo T_("New Ticket"); ?></a></li>
 <?php if(\dash\data::sidebarDetail_all()) {?>
       <li><a href="<?php echo \dash\url::here(); ?>/ticket?status=all<?php echo \dash\data::accessGetAnd(); ?>"><span class="floatLa mRa10 fc-mute badge dark"><?php echo \dash\fit::number(\dash\data::sidebarDetail_all()); ?></span><?php echo T_("All"); ?></a></li>
 <?php } //endif ?>

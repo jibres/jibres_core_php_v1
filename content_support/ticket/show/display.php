@@ -49,7 +49,7 @@
 
   <?php } // endif ?>
 
-<?php }elseif(\dash\masterTicketDetail_status() === 'close') {?>
+<?php }elseif(\dash\data::masterTicketDetail_status() === 'close') {?>
 
   <?php if(\dash\permission::check('supportTicketDelete')) {?>
 
@@ -64,7 +64,7 @@
       </form>
   <?php } //endif ?>
 
-<?php }elseif(\dash\masterTicketDetail_status() === 'deleted') {?>
+<?php }elseif(\dash\data::masterTicketDetail_status() === 'deleted') {?>
 
   <?php if(\dash\permission::check('supportTicketReOpen')) {?>
 
@@ -88,7 +88,7 @@
 
   <?php } //endif ?>
 
-<?php }elseif(\dash\masterTicketDetail_status() === 'spam') {?>
+<?php }elseif(\dash\data::masterTicketDetail_status() === 'spam') {?>
 
       <p class="fs08 msg danger txtC txtB">
         <?php echo T_("Spam"); ?>

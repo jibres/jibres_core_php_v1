@@ -149,6 +149,18 @@ class safe
 	}
 
 
+	public static function stripTags($_string)
+	{
+		$_string = strip_tags($_string);
+		$_string = str_replace('<p>', '', $_string);
+		$_string = str_replace('</p>', '', $_string);
+		$_string = str_replace('<br>', '', $_string);
+		$_string = str_replace('<br/>', '', $_string);
+		$_string = str_replace('<br />', '', $_string);
+		return $_string;
+	}
+
+
 	public static function forJson($_string)
 	{
 		$_string = preg_replace("/\<\/[\w]\>/", ' ', $_string);
