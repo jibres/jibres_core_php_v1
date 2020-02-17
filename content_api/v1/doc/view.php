@@ -58,6 +58,8 @@ class view
 			{
 				foreach ($list as $key => $value)
 				{
+
+
 					if(substr($value, -10) === '000-public')
 					{
 						continue;
@@ -70,9 +72,9 @@ class view
 						{
 							foreach ($folder_list as $k => $v)
 							{
-								if(substr($v, -5) === '.html')
+								if(substr($v, -4) === '.php')
 								{
-									if(in_array(basename($v), ['display.html', 'view.php']))
+									if(in_array(basename($v), ['view.php']))
 									{
 										continue;
 									}
@@ -86,9 +88,9 @@ class view
 					}
 					else
 					{
-						if(substr($value, -5) === '.html')
+						if(substr($value, -4) === '.php')
 						{
-							if(in_array(basename($value), ['display.html', 'view.php']))
+							if(in_array(basename($value), ['view.php']))
 							{
 								continue;
 							}
