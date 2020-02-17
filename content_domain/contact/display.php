@@ -84,7 +84,7 @@ else
 						<br><span class="fc-mute fs09"><?php echo T_("Modified"); ?> <?php echo \dash\fit::date_human($value['datemodified']); ?></span>
 					<?php } // endif ?>
 				</td>
-				<td class="collapsing"><a href="<?php echo \dash\url::this(); ?>/edit?id={{value.id | coding('encode')}}" class="btn info2"><?php echo T_("Edit"); ?></a></td>
+				<td class="collapsing"><a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\coding::encode(@$value['id']); ?>" class="btn info2"><?php echo T_("Edit"); ?></a></td>
 			</tr>
 			<?php } //endfor ?>
 		</tbody>
