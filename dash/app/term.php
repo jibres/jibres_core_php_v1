@@ -15,6 +15,99 @@ class term
 		'status',
 	];
 
+	public static function load_category_html()
+	{
+		$category = [];
+		$args     = func_get_args();
+		$class    = '';
+		$type     = 'cat';
+
+		if(isset($args[0]))
+		{
+			$args = $args[0];
+		}
+
+		if(isset($args['type']))
+		{
+			$type = $args['type'];
+		}
+
+		// get post id
+		if(!isset($args['post_id']))
+		{
+			if(\dash\data::datarow_id())
+			{
+				$args['post_id'] = \dash\data::datarow_id();
+			}
+		}
+		// get category
+		if(isset($args['post_id']))
+		{
+			$category = \dash\app\posts::get_category_tag($args['post_id'], $type);
+		}
+
+		if(isset($args['id']) && $args['id'] && is_array($category))
+		{
+			$category = array_column($category, 'term_id');
+		}
+
+		if(isset($args['class']) && $args['class'])
+		{
+			$class = $args['class'];
+		}
+
+		if(isset($args['format']) && $args['format'])
+		{
+			$outputFormat = $args['format'];
+
+			switch ($outputFormat)
+			{
+				case 'json':
+					if(is_array($category))
+					{
+						$category = json_encode($category, JSON_UNESCAPED_UNICODE);
+					}
+					break;
+
+				case 'csv':
+					if(is_array($category))
+					{
+						$category = implode(',', $category);
+					}
+					break;
+
+				case 'html':
+					$html      = '';
+					$baset_url = \dash\url::base();
+					foreach ($category as $key => $value)
+					{
+						if(array_key_exists('url', $value) && isset($value['title']))
+						{
+							if($class)
+							{
+								$html .= "<a href='$baset_url/category/$value[url]' class='$class'>$value[title]</a>";
+							}
+							else
+							{
+								$html .= "<a href='$baset_url/category/$value[url]'>$value[title]</a>";
+							}
+						}
+					}
+					echo $html;
+					// return and dont continue
+					return;
+					break;
+
+				default:
+					break;
+			}
+		}
+
+		return $category;
+	}
+
+
+
 	public static function load_tag_html()
 	{
 		$tags      = [];
