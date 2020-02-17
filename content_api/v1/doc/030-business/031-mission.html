@@ -1,6 +1,6 @@
 <h2 class="f" data-kerkere='#mission-detail' data-kerkere-icon='open'>
   <span class="cauto pRa10"><span class="badge success">GET</span></span>
-  <span class="c">{%trans "Get mission text"%}</span>
+  <span class="c"><?php echo T_("Get mission text"); ?></span>
 </h2>
 <div id="mission-detail">
 
@@ -8,18 +8,18 @@
 
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{CustomerApiURL}}<b>business/mission</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>business/mission</b></span>
     </div>
 
 
     <div class="tblBox">
-      <h3>{%trans "Required parameters"%} {%trans "on header"%}</h3>
+      <h3><?php echo T_("Required parameters"); ?> <?php echo T_("on header"); ?></h3>
       <table class="tbl1 v3">
         <thead>
           <tr>
-            <th>{%trans "Name"%} <small>{%trans "type"%}</small></th>
-            <th>{%trans "Description"%} <small>{%trans "example"%}</small></th>
-            <th>{%trans "Constraints"%}</th>
+            <th><?php echo T_("Name"); ?> <small><?php echo T_("type"); ?></small></th>
+            <th><?php echo T_("Description"); ?> <small><?php echo T_("example"); ?></small></th>
+            <th><?php echo T_("Constraints"); ?></th>
           </tr>
         </thead>
         <tbody>
@@ -29,12 +29,12 @@
               <i>string</i>
             </td>
             <td>
-              <div>{%trans "APP key generated on the user panel"%}</div>
-              <code>{{myAppKey}}</code>
+              <div><?php echo T_("APP key generated on the user panel"); ?></div>
+              <code><?php echo \dash\data::myAppKey(); ?></code>
             </td>
             <td>
-              <div class="fc-red"><i>{%trans "Required"%}</i></div>
-              {%trans "length"%} {{32 | fitNumber}}
+              <div class="fc-red"><i><?php echo T_("Required"); ?></i></div>
+              <?php echo T_("length"); ?> <?php echo \dash\fit::number(32); ?>
             </td>
           </tr>
 
@@ -42,10 +42,10 @@
       </table>
     </div>
 
-    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
-    <pre>curl -X GET {{CustomerApiURL}}business/mission -H 'appkey: {{myAppKey}}' </pre>
+    <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
+    <pre>curl -X GET <?php echo \dash\data::CustomerApiURL(); ?>business/mission -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' </pre>
 
-    <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
+    <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 {
   "ok": true,
@@ -53,7 +53,7 @@
     "language": "en",
     "title": "mission",
     "slug": "mission",
-    "url": "{{CustomerApiURL}}mission",
+    "url": "<?php echo \dash\data::CustomerApiURL(); ?>mission",
     "content": "Your mission text"
   }
 }

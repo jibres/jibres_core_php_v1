@@ -78,7 +78,7 @@ class view
 									}
 									else
 									{
-										$projectDoc[] = str_replace(root, '', $v);
+										$projectDoc[] = $v;
 									}
 								}
 							}
@@ -94,7 +94,7 @@ class view
 							}
 							else
 							{
-								$projectDoc[] = str_replace(root, '', $value);
+								$projectDoc[] = $value;
 							}
 						}
 					}

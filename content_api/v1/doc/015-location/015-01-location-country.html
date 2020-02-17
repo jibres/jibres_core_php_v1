@@ -1,19 +1,19 @@
 <h2 class="f" data-kerkere='#location-country-detail' data-kerkere-icon='open'>
   <span class="cauto pRa10"><span class="badge success">GET</span></span>
-  <span class="c">{%trans "Get list of country"%}</span>
+  <span class="c"><?php echo T_("Get list of country"); ?></span>
 </h2>
 <div id="location-country-detail">
   <div class="cbox" id='location-country'>
-    <p>{%trans "The endpoint for this method is different"%}</p>
+    <p><?php echo T_("The endpoint for this method is different"); ?></p>
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{JibresApiURL}}<b>location/country</b></span>
+      <span><?php echo \dash\data::JibresApiURL(); ?><b>location/country</b></span>
     </div>
 
-    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
-<pre>curl -X GET {{JibresApiURL}}location/country</pre>
+    <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
+<pre>curl -X GET <?php echo \dash\data::JibresApiURL(); ?>location/country</pre>
 
-    <h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
+    <h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 {
   "ok": true,
@@ -39,7 +39,7 @@
       "length": "-",
       "id": "IR",
       "text": "‫ایران",
-      "flag": "{{url.site}}/static/img/flags/png100px/ir.png"
+      "flag": "<?php echo \dash\url::site(); ?>/static/img/flags/png100px/ir.png"
     },
     ...
   ]

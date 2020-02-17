@@ -1,23 +1,23 @@
 <h2 class="f" data-kerkere='#category-list-detail' data-kerkere-icon='open'>
   <span class="cauto pRa10"><span class="badge success">GET</span></span>
-  <span class="c">{%trans "Get list of category"%}</span>
+  <span class="c"><?php echo T_("Get list of category"); ?></span>
 </h2>
 <div id="category-list-detail">
   <div class="cbox" id='category-list'>
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{CustomerApiURL}}<b>category/list</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>category/list</b></span>
     </div>
 
-         {%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
+         <?php require (root. 'content_api/v1/doc/000-public/header-appkey-apikey.html'); ?>
    <div class="tblBox">
-      <h3>{%trans "Parameters"%}</h3>
+      <h3><?php echo T_("Parameters"); ?></h3>
       <table class="tbl1 v3">
         <thead>
           <tr>
-            <th>{%trans "Name"%} <small>{%trans "type"%}</small></th>
-            <th>{%trans "Description"%} <small>{%trans "example"%}</small></th>
-            <th>{%trans "Constraints"%}</th>
+            <th><?php echo T_("Name"); ?> <small><?php echo T_("type"); ?></small></th>
+            <th><?php echo T_("Description"); ?> <small><?php echo T_("example"); ?></small></th>
+            <th><?php echo T_("Constraints"); ?></th>
           </tr>
         </thead>
         <tbody>
@@ -29,11 +29,11 @@
             </td>
             <td>
               <p>
-                {%trans "Query string"%}
+                <?php echo T_("Query string"); ?>
               </p>
             </td>
             <td>
-              <div class="fc-green"><i>{%trans "Optional"%}</i></div>
+              <div class="fc-green"><i><?php echo T_("Optional"); ?></i></div>
             </td>
           </tr>
 
@@ -43,12 +43,12 @@
     </div>
 
 
-    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
+    <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
-curl -X GET {{CustomerApiURL}}category/list -H 'appkey: {{myAppKey}}' -H 'apikey: {{myApiKey}}'
+curl -X GET <?php echo \dash\data::CustomerApiURL(); ?>category/list -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' -H 'apikey: <?php echo \dash\data::myApiKey(); ?>'
 </pre>
 
-<h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
+<h3><span class="mRa5 badge xs rounded success">&nbsp;</span><?php echo T_("Response"); ?> <small><?php echo T_("Example"); ?></small></h3>
 <pre>
 {
   "ok": true,

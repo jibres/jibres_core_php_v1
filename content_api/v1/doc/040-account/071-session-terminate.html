@@ -1,26 +1,26 @@
 <h2 class="f" data-kerkere='#session-terminate-detail' data-kerkere-icon='open'>
   <span class="cauto pRa10"><span class="badge primary">POST</span></span>
-  <span class="c">{%trans "Terminate session"%}</span>
+  <span class="c"><?php echo T_("Terminate session"); ?></span>
 </h2>
 <div id="session-terminate-detail">
   <div class="cbox" id='session-terminate'>
-    <p>{%trans "Terminate one session or all session"%}</p>
+    <p><?php echo T_("Terminate one session or all session"); ?></p>
     <div class="msg url">
       <i class="method">POST</i>
-      <span>{{CustomerApiURL}}<b>account/session</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/session</b></span>
     </div>
 
-   {%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
+   <?php require (root. 'content_api/v1/doc/000-public/header-appkey-apikey.html'); ?>
 
 
 
     <div class="tblBox">
-      <h3>{%trans "Parameters"%}</h3>
+      <h3><?php echo T_("Parameters"); ?></h3>
       <table class="tbl1 v3">
         <thead>
           <tr>
-            <th>{%trans "Name"%} <small>{%trans "type"%}</small></th>
-            <th>{%trans "Description"%} <small>{%trans "example"%}</small></th>
+            <th><?php echo T_("Name"); ?> <small><?php echo T_("type"); ?></small></th>
+            <th><?php echo T_("Description"); ?> <small><?php echo T_("example"); ?></small></th>
 
           </tr>
         </thead>
@@ -32,7 +32,7 @@
               <i>String</i>
             </td>
             <td>
-              <code>terminate</code> {%trans "Or"%} <code>terminateall</code>
+              <code>terminate</code> <?php echo T_("Or"); ?> <code>terminateall</code>
 
             </td>
           </tr>
@@ -43,9 +43,9 @@
               <i>String</i>
             </td>
             <td>
-              <div>{%trans "example"%}</div>
+              <div><?php echo T_("example"); ?></div>
               <code>3N</code>
-              <div>{%trans "If type is `terminate` the id is require"%}</div>
+              <div><?php echo T_("If type is `terminate` the id is require"); ?></div>
             </td>
           </tr>
 
@@ -54,16 +54,16 @@
     </div>
 
 
-    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
+    <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X POST \
-  {{CustomerApiURL}}account/session \
-  -H 'apikey: {{myApiKey}}' \
-  -H 'appkey: {{myAppKey}}' \
+  <?php echo \dash\data::CustomerApiURL(); ?>account/session \
+  -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
+  -H 'appkey: <?php echo \dash\data::myAppKey(); ?>' \
   -d '{"type":"terminate", "id": "3N"}'
 </pre>
 
-<h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
+<h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 {
   "ok": true,

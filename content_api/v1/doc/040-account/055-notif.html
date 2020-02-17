@@ -1,58 +1,25 @@
 <h2 class="f" data-kerkere='#notif-detail' data-kerkere-icon='open'>
   <span class="cauto pRa10"><span class="badge success">GET</span></span>
-  <span class="c">{%trans "Get notification list"%}</span>
+  <span class="c"><?php echo T_("Get notification list"); ?></span>
 </h2>
 <div id="notif-detail">
   <div class="cbox" id='notif'>
-    <p>{%trans "Get list of your notification"%}</p>
+    <p><?php echo T_("Get list of your notification"); ?></p>
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{CustomerApiURL}}<b>account/notif</b></span>
+      <span><?php echo \dash\data::CustomerApiURL(); ?><b>account/notif</b></span>
     </div>
-{%include 'content_api/v1/doc/000-public/header-appkey-apikey.html'%}
+<?php require (root. 'content_api/v1/doc/000-public/header-appkey-apikey.html'); ?>
 
-{%if false%}
-    <div class="tblBox">
-      <h3>{%trans "Parameters"%}</h3>
-      <table class="tbl1 v3">
-        <thead>
-          <tr>
-            <th>{%trans "Name"%} <small>{%trans "type"%}</small></th>
-            <th>{%trans "Description"%} <small>{%trans "example"%}</small></th>
-            <th>{%trans "Constraints"%}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="txtB">read</div>
-              <i>boolian</i>
-            </td>
-            <td>
-              <div class="fc-mute">{%trans "example"%}</div>
-              <code>true</code>
-              <p>
-                {%trans "If you want to set all notif of this user as read notif set this parameters as true"%}
-              </p>
-            </td>
-            <td>
-              <div class="fc-mute"><i>{%trans "Optional"%}</i></div>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-    {%endif%}
 
 
     <div class="tblBox">
-      <h3>{%trans "Response"%}</h3>
+      <h3><?php echo T_("Response"); ?></h3>
       <table class="tbl1 v3">
         <thead>
           <tr>
-            <th>{%trans "Name"%} <small>{%trans "type"%}</small></th>
-            <th>{%trans "Description"%} <small>{%trans "example"%}</small></th>
+            <th><?php echo T_("Name"); ?> <small><?php echo T_("type"); ?></small></th>
+            <th><?php echo T_("Description"); ?> <small><?php echo T_("example"); ?></small></th>
 
           </tr>
         </thead>
@@ -63,7 +30,7 @@
               <i>String</i>
             </td>
             <td>
-              <div>{%trans "example"%}</div>
+              <div><?php echo T_("example"); ?></div>
               <code>3NW</code>
             </td>
           </tr>
@@ -73,8 +40,8 @@
               <i>Date time</i>
             </td>
             <td>
-              {%trans "If user not read this notif, this response is null else see read date of this notif"%}
-              <div>{%trans "example"%}</div>
+              <?php echo T_("If user not read this notif, this response is null else see read date of this notif"); ?>
+              <div><?php echo T_("example"); ?></div>
               <code>2019-02-10 08:14:12</code>
             </td>
           </tr>
@@ -85,7 +52,7 @@
             </td>
             <td>
 
-              <div>{%trans "example"%}</div>
+              <div><?php echo T_("example"); ?></div>
               <code>2019-02-09 07:15:13</code>
             </td>
           </tr>
@@ -95,7 +62,7 @@
               <i>String</i>
             </td>
             <td>
-              <div>{%trans "example"%}</div>
+              <div><?php echo T_("example"); ?></div>
               <code>Notif title</code>
             </td>
           </tr>
@@ -105,9 +72,9 @@
               <i>String</i>
             </td>
             <td>
-              <div>{%trans "example"%}</div>
+              <div><?php echo T_("example"); ?></div>
               <code>home</code>
-              <a href="http://siftal.ir/examples/icon" target="_blank" data-direct>{%trans "Read more"%}</a>
+              <a href="http://siftal.ir/examples/icon" target="_blank" data-direct><?php echo T_("Read more"); ?></a>
             </td>
           </tr>
 
@@ -117,7 +84,7 @@
               <i>String</i>
             </td>
             <td>
-              <div>{%trans "example"%}</div>
+              <div><?php echo T_("example"); ?></div>
               <code>Notif category</code>
             </td>
           </tr>
@@ -127,7 +94,7 @@
               <i>String</i>
             </td>
             <td>
-              <div>{%trans "example"%}</div>
+              <div><?php echo T_("example"); ?></div>
               <code>Notif excerpt</code>
             </td>
           </tr>
@@ -137,7 +104,7 @@
               <i>String</i>
             </td>
             <td>
-              <div>{%trans "example"%}</div>
+              <div><?php echo T_("example"); ?></div>
               <code>Notif text</code>
             </td>
           </tr>
@@ -147,8 +114,8 @@
               <i>URL</i>
             </td>
             <td>
-              <div>{%trans "example"%}</div>
-              <code>{{url.static}}/images/logo.png</code>
+              <div><?php echo T_("example"); ?></div>
+              <code><?php echo \dash\url::static(); ?>/images/logo.png</code>
             </td>
           </tr>
           <tr>
@@ -157,7 +124,7 @@
               <i>String</i>
             </td>
             <td>
-              <div>{%trans "example"%}</div>
+              <div><?php echo T_("example"); ?></div>
               <code>Notif Footer</code>
             </td>
           </tr>
@@ -167,8 +134,8 @@
               <i>URL</i>
             </td>
             <td>
-               <div>{%trans "example"%}</div>
-              <code>{{url.site}}</code>
+               <div><?php echo T_("example"); ?></div>
+              <code><?php echo \dash\url::site(); ?></code>
             </td>
           </tr>
 
@@ -177,15 +144,15 @@
     </div>
 
 
-    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
+    <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 curl -X GET \
-  {{CustomerApiURL}}account/notif \
-  -H 'apikey: {{myApiKey}}' \
-  -H 'appkey: {{myAppKey}}'
+  <?php echo \dash\data::CustomerApiURL(); ?>account/notif \
+  -H 'apikey: <?php echo \dash\data::myApiKey(); ?>' \
+  -H 'appkey: <?php echo \dash\data::myAppKey(); ?>'
 </pre>
 
-<h3>{%trans "Response"%} <small>{%trans "example"%}</small></h3>
+<h3><?php echo T_("Response"); ?> <small><?php echo T_("example"); ?></small></h3>
 <pre>
 {
   "ok": true,
@@ -199,9 +166,9 @@ curl -X GET \
       "cat": "category of notif",
       "excerpt": "Notif excerpt",
       "text" : "Notif text",
-      "image" : "{{url.static}}/images/logo.png",
+      "image" : "<?php echo \dash\url::static(); ?>/images/logo.png",
       "footer" : "Notif footer",
-      "url" : "{{url.static}}"
+      "url" : "<?php echo \dash\url::static(); ?>"
     }
   ]
 }

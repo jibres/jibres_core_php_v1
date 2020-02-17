@@ -1,21 +1,21 @@
 <h2 class="f" data-kerkere='#store-add-question-detail' data-kerkere-icon='open'>
   <span class="cauto pRa10"><span class="badge success">GET</span></span>
-  <span class="c">{%trans "Get setup store question"%}</span>
+  <span class="c"><?php echo T_("Get setup store question"); ?></span>
 </h2>
 <div id="store-add-question-detail">
   <div class="cbox" id='store-add-question'>
 
-    <p>{%trans "You must be aware of the terms and conditions of the Jibres before adding the store"%}</p>
+    <p><?php echo T_("You must be aware of the terms and conditions of the Jibres before adding the store"); ?></p>
 
     <div class="msg url">
       <i class="method">GET</i>
-      <span>{{JibresApiURL}}<b>store/question</b></span>
+      <span><?php echo \dash\data::JibresApiURL(); ?><b>store/question</b></span>
     </div>
 
-    <h3>{%trans "cURL"%} <small>{%trans "example"%}</small></h3>
-<pre>curl -X GET {{JibresApiURL}}store/question</pre>
+    <h3><?php echo T_("cURL"); ?> <small><?php echo T_("example"); ?></small></h3>
+<pre>curl -X GET <?php echo \dash\data::JibresApiURL(); ?>store/question</pre>
 
-<h3><span class="mRa5 badge xs rounded success">&nbsp;</span>{%trans "Response"%} <small>{%trans "Example"%}</small></h3>
+<h3><span class="mRa5 badge xs rounded success">&nbsp;</span><?php echo T_("Response"); ?> <small><?php echo T_("Example"); ?></small></h3>
 <pre>
 {
   "ok": true,
