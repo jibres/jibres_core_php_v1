@@ -80,7 +80,7 @@ else
         <div class="f">
           <div class="c s12">
             <h3><?php echo T_("Profile"); ?></h3>
-            <p><?php echo T_("Some info may be visible to other people using our service."); ?> <a href="{{url.kingdom}}/privacy" target="_blank"><?php echo T_("Learn more"); ?></a></p>
+            <p><?php echo T_("Some info may be visible to other people using our service."); ?> <a href="<?php echo \dash\url::kingdom(); ?>/privacy" target="_blank"><?php echo T_("Learn more"); ?></a></p>
           </div>
         </div>
       </div>

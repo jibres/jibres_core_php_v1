@@ -77,7 +77,7 @@ else
         <tr>
           <th><?php echo T_("Recovery email"); ?></th>
           <td><?php echo \dash\data::dataRow_email(); ?></td>
-          <td class="collapsing txtRa"><a href="{{url.here}}/my/email" class="block <?php echo $arrow; ?>"></a></td>
+          <td class="collapsing txtRa"><a href="<?php echo \dash\url::here(); ?>/my/email" class="block <?php echo $arrow; ?>"></a></td>
         </tr>
         <tr>
           <th><?php echo T_("Recovery phone"); ?></th>
@@ -136,8 +136,8 @@ else
             <h3><?php echo T_("API key and Application key"); ?></h3>
             <p><?php echo T_("Protect this key like a password!"); ?></p>
             <p><?php echo T_("Keys used to access APIs in"); ?> <?php echo \dash\data::site_title(); ?></p>
-            <a href="{{url.here}}/api" class="btn primary outline"><?php echo T_("API key"); ?></a>
-            <a href="{{url.here}}/appkey" class="btn primary outline"><?php echo T_("Application key"); ?></a>
+            <a href="<?php echo \dash\url::here(); ?>/api" class="btn primary outline"><?php echo T_("API key"); ?></a>
+            <a href="<?php echo \dash\url::here(); ?>/appkey" class="btn primary outline"><?php echo T_("Application key"); ?></a>
           </div>
           <div class="cauto os">
             <img class="box300" src="<?php echo \dash\url::siftal(); ?>/images/account/data-collected.svg" alt='<?php echo T_("Sessions"); ?>'>
