@@ -301,6 +301,16 @@ class user
 	}
 
 
+	public static function code()
+	{
+		if(self::id())
+		{
+			return \dash\coding::encode(self::id());
+		}
+		return null;
+	}
+
+
 	public static function mobile()
 	{
 		$mobile = \dash\user::detail('mobile');
