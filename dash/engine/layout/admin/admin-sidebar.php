@@ -124,6 +124,14 @@ if(\dash\url::content() === 'domain')
 ?>
 
 
+<?php
+if(\dash\url::content() === 'api')
+{
+  require_once ('sidebar/sidebar-api.php');
+}
+?>
+
+
 
 
    </ul>
