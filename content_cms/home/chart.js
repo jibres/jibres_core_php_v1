@@ -24,8 +24,8 @@ function wordcloud()
     },
     series: [{
       type: 'wordcloud',
-      data: {{allWordCloud | raw}},
-      name: '{%trans "Count"%}'
+      data: <?php echo \dash\data::allWordCloud(); ?>,
+      name: '<?php echo T_("Count"); ?>'
     }],
     plotOptions: {
       series : {
@@ -43,8 +43,8 @@ function wordcloud()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             align: 'left',
@@ -58,14 +58,20 @@ function wordcloud()
         }
     },
     title: {
-      text: '{%trans "Word cloud"%}'
+      text: '<?php echo T_("Word cloud"); ?>'
     }
   }, function(_chart)
   {
-    _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).add();
+    _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).add();
   }
   );
 }
+
+
+<?php
+$dashboardDetail = \dash\data::dashboardDetail();
+?>
+
 
 function post_chart()
 {
@@ -79,10 +85,10 @@ function post_chart()
       }
     },
     title: {
-      text: '{%trans "Post count"%}'
+      text: '<?php echo T_("Post count"); ?>'
     },
     xAxis: {
-      categories: {{dashboardDetail.chart.post.categories | raw}},
+      categories: <?php echo @$dashboardDetail['chart']['post']['categories']; ?>,
       tickmarkPlacement: 'on',
       title: {
         enabled: false
@@ -90,7 +96,7 @@ function post_chart()
     },
     yAxis: {
       title: {
-        text: '{%trans "Post"%}'
+        text: '<?php echo T_("Post"); ?>'
       },
       labels: {
         formatter: function () {
@@ -102,7 +108,7 @@ function post_chart()
       useHTML: true,
       borderWidth: 0,
       shared: true,
-      valueSuffix: ' {%trans "post"%}'
+      valueSuffix: ' <?php echo T_("post"); ?>'
     },
     plotOptions: {
       area: {
@@ -126,8 +132,8 @@ function post_chart()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             x: -35,
@@ -137,10 +143,10 @@ function post_chart()
             fontWeight: 'bold'
         }
     },
-    series: {{dashboardDetail.chart.post.data | raw}}
+    series: <?php echo @$dashboardDetail['chart']['post']['data']; ?>
   }, function(_chart)
     {
-      _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+      _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
     }
   );
 }

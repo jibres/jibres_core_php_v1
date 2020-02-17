@@ -1,66 +1,69 @@
+<?php if(\dash\permission::check('cpPostsView') || \dash\permission::check('cpCategoryView') || \dash\permission::check('cpTagView') || \dash\permission::check('cpPageView')  ) { ?>
 
-{%if perm('cpPostsView') or perm('cpCategoryView') or perm('cpTagView') or perm('cpPageView')%}
   <li>
     <ul>
-{%if perm('cpPostsView') %}
-      <li><a href="{{url.here}}/posts"><i class='fc-mute sf-pinboard'></i> {% trans "News" %}</a></li>
-{%endif%}
-{%if perm('cpCategoryView') %}
-      <li><a href="{{url.here}}/terms?type=cat"><i class='fc-mute sf-grid'></i> {% trans "Categories" %}</a></li>
-{%endif%}
-{%if perm('cpTagView') %}
-      <li><a href="{{url.here}}/terms?type=tag"><i class='fc-mute sf-tags'></i> {% trans "Keywords" %}</a></li>
-{%endif%}
-{%if perm('cpPageView') %}
-      <li><a href="{{url.here}}/posts?type=page"><i class='fc-mute sf-files-o'></i> {% trans "Static Pages" %}</a></li>
-{%endif%}
+<?php if(\dash\permission::check('cpPostsView')) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/posts"><i class='fc-mute sf-pinboard'></i> <?php echo T_("News"); ?></a></li>
+<?php } //endif ?>
+<?php if(\dash\permission::check('cpCategoryView')) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/terms?type=cat"><i class='fc-mute sf-grid'></i> <?php echo T_("Categories"); ?></a></li>
+<?php } //endif ?>
+<?php if(\dash\permission::check('cpTagView')) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/terms?type=tag"><i class='fc-mute sf-tags'></i> <?php echo T_("Keywords"); ?></a></li>
+<?php } //endif ?>
+<?php if(\dash\permission::check('cpPageView')) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/posts?type=page"><i class='fc-mute sf-files-o'></i> <?php echo T_("Static Pages"); ?></a></li>
+<?php } //endif ?>
     </ul>
   </li>
-{%endif%}
+<?php } //endif ?>
 
 
 
 
+<?php if(\dash\permission::check('cpHelpCenterView') || \dash\permission::check('cpTagHelpAdd') || \dash\permission::check('cpTagHelpEdit')  ) { ?>
 
-{%if perm('cpHelpCenterView') or perm('cpTagHelpAdd') or perm('cpTagHelpEdit') or perm('cpTagSupportAdd') or perm('cpTagSupportEdit')  %}
   <li>
     <ul>
-{%if perm('cpHelpCenterView') %}
-      <li><a href="{{url.here}}/posts?type=help"><i class='fc-mute sf-info-circle'></i> {% trans "Help Center" %}</a></li>
-{%endif%}
-{%if perm('cpTagHelpAdd') or perm('cpTagHelpEdit')%}
-      <li><a href="{{url.here}}/terms?type=help_tag"><i class='fc-mute sf-clone'></i> {% trans "Help Center Keywords" %}</a></li>
-{%endif%}
+<?php if(\dash\permission::check('cpHelpCenterView')) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/posts?type=help"><i class='fc-mute sf-info-circle'></i> <?php echo T_("Help Center"); ?></a></li>
+<?php } //endif ?>
+
+
+<?php if(\dash\permission::check('cpTagHelpAdd') || \dash\permission::check('cpTagHelpEdit')   ) { ?>
+
+      <li><a href="<?php echo \dash\url::here(); ?>/terms?type=help_tag"><i class='fc-mute sf-clone'></i> <?php echo T_("Help Center Keywords"); ?></a></li>
+<?php } //endif ?>
 
       </ul>
     </li>
-{%endif%}
+<?php } //endif ?>
 
 
 
-{%if perm('cpCommentsView')%}
+<?php if(\dash\permission::check('cpCommentsView')) {?>
   <li>
     <ul>
-{%if perm('cpCommentsView')%}
-      <li><a href="{{url.here}}/comments"><i class='fc-mute sf-comments'></i> {% trans "All Comments" %}</a></li>
-{%endif%}
+
+      <li><a href="<?php echo \dash\url::here(); ?>/comments"><i class='fc-mute sf-comments'></i> <?php echo T_("All Comments"); ?></a></li>
+
     </ul>
   </li>
-{%endif%}
+<?php } //endif ?>
 
 
 
 
 
-{%if perm('cpPostsView') %}
+<?php if(\dash\permission::check('cpPostsView')) {?>
   <li>
     <ul>
-      {%if perm('cpPostsView') %}
-        <li><a href="{{url.here}}/attachment"><i class='fc-mute sf-file-o'></i> {% trans "Library" %}</a></li>
-      {%endif%}
-      {%if perm('cpPostsView') %}
-        <li><a href="{{url.here}}/attachment/add"><i class='fc-mute sf-plus'></i> {% trans "Add new file" %}</a></li>
-      {%endif%}
+
+        <li><a href="<?php echo \dash\url::here(); ?>/attachment"><i class='fc-mute sf-file-o'></i> <?php echo T_("Library"); ?></a></li>
+
+
+        <li><a href="<?php echo \dash\url::here(); ?>/attachment/add"><i class='fc-mute sf-plus'></i> <?php echo T_("Add new file"); ?></a></li>
+
     </ul>
   </li>
-{%endif%}
+<?php } //endif ?>
