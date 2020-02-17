@@ -132,6 +132,14 @@ if(\dash\url::content() === 'api')
 ?>
 
 
+<?php
+if(\dash\url::content() === 'm')
+{
+  require_once ('sidebar/sidebar-m.php');
+}
+?>
+
+
 
 
    </ul>
