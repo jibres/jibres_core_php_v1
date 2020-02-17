@@ -116,7 +116,12 @@ if(\dash\url::content() === 'support')
 
 
 
-
+<?php
+if(\dash\url::content() === 'domain')
+{
+  require_once ('sidebar/sidebar-domain.php');
+}
+?>
 
 
 
