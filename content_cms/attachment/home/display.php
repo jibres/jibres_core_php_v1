@@ -89,7 +89,7 @@ if(!is_array($dataTable))
 
       <tr>
         <td class="thumb">
-          <a href="{{value.path}}" target="_blank">
+          <a href="<?php echo $value['path']; ?>" target="_blank">
             <?php if(isset($value['type']) && $value['type'] === 'image') {?>
 
             <img src="<?php echo @$value['path']; ?>" alt="<?php echo @$value['title']; ?>">

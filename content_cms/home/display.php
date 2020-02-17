@@ -189,5 +189,5 @@
 
 <script type="text/javascript">
     <?php require_once(root. 'content_cms/home/chart.js'); ?>
-</script>{%endblock%
+</script>
 
