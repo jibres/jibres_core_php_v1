@@ -61,7 +61,7 @@
 			    </div>
 
 			    <div class="switch1">
-	              <input type="checkbox" name="isdefault" id="isdefault" {%if dataRow_isdefault%} checked {%endif%}>
+	              <input type="checkbox" name="isdefault" id="isdefault" <?php if(\dash\data::dataRow_isdefault()) { echo "checked";} ?>>
 	              <label for="isdefault" data-on='<?php echo T_("Yes"); ?>' data-off='<?php echo T_("No"); ?>'></label>
 	              <label for="isdefault"><?php echo T_("Is default?"); ?></label>
 	            </div>

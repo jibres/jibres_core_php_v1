@@ -65,7 +65,7 @@ else
 		<tbody>
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
-			<tr {%if value.isdefault%} class="positive" {%endif%}>
+			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive"'; } ?>>
 				<td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
 				<td><?php echo substr(@$value['title'], 0, 50); ?></td>
 
