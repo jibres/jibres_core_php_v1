@@ -86,7 +86,7 @@ myStores();
       </div>
       <div class="f meta">
         <div class="c">
-          <span class="badge {%if admin%}primary{%else%}light{%endif%}"><?php echo T_("Owner"); ?></span>
+          <span class="badge light"><?php echo T_("Owner"); ?></span>
         </div>
         <div class="cauto os">
           <div class="addr ltr"><b><?php echo @$value['subdomain']; ?></b><span>.Jibres.<?php echo \dash\url::tld(); ?></span></div>

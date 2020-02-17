@@ -10,7 +10,7 @@
             <?php foreach (\dash\data::polls_questions() as $key => $myQ) {?>
 
             <label for="<?php echo $myQ['id']; ?>"><?php echo $myQ['title']; ?></label>
-            <select class="select" id="{{myQ.id}}" name="{{myQ.id}}">
+            <select class="select" id="<?php echo $myQ['id']; ?>" name="<?php echo $myQ['id']; ?>">
               <option selected disabled><?php echo \dash\data::polls_placeholder(); ?></option>
 
             <?php foreach ($myQ['items'] as $itemKey => $myItem) {?>
