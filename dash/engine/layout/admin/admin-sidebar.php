@@ -71,7 +71,7 @@ else
     <?php
     if(\dash\url::content() === 'crm')
     {
-      require_once ('sidebar/sidebar-crm.php'); ?>
+      require_once ('sidebar/sidebar-crm.php');
     }
     ?>
 <?php }//endif ?>
@@ -108,9 +108,6 @@ if(\dash\url::content() === 'support')
   require_once ('sidebar/sidebar-support.php');
 }
 ?>
-
-<?php }//endif ?>
-
 
 
 

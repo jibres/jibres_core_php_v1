@@ -1,44 +1,45 @@
 
 
-  {%if perm('cpUsersView') or perm('cpUsersAdd') %}
+  <?php if(\dash\permission::check('cpUsersView') || \dash\permission::check('cpUsersAdd')) {?>
       <li>
-        {%if perm('cpUsersView') %}
-          <a href="{{url.here}}/member"><i class='sf-users'></i> <span>{% trans "Users" %}</span></a>
-        {%endif%}
+        <?php if(\dash\permission::check('cpUsersView')) {?>
+          <a href="<?php echo \dash\url::here(); ?>/member"><i class='sf-users'></i> <span><?php echo T_("Users"); ?></span></a>
+        <?php } //endif ?>
           <ul>
-            {%if perm('cpUsersAdd') %}
-              <li><a href="{{url.here}}/member/add">{% trans "Add new user" %} <i class='floatLa mRa10 fc-mute sf-user-plus'></i></a></li>
-            {%endif%}
+            <?php if(\dash\permission::check('cpUsersAdd')) {?>
+              <li><a href="<?php echo \dash\url::here(); ?>/member/add"><?php echo T_("Add new user"); ?> <i class='floatLa mRa10 fc-mute sf-user-plus'></i></a></li>
+            <?php } //endif ?>
           </ul>
       </li>
-  {%endif%}
-    {%if perm('cpPermissionView') %}
-      <li><a href="{{url.here}}/permission"><i class='sf-lock'></i> {% trans "Permissions" %}</a></li>
-    {%endif%}
+  <?php } //endif ?>
+    <?php if(\dash\permission::check('cpPermissionView')) {?>
+      <li><a href="<?php echo \dash\url::here(); ?>/permission"><i class='sf-lock'></i> <?php echo T_("Permissions"); ?></a></li>
+    <?php } //endif ?>
 
-  {%if perm('cpSMS') or perm('cpSmsSend') or perm('cpSmsSendGroup') or perm('cpTemplateSmsView') %}
+  <?php if(\dash\permission::check('cpSMS') || \dash\permission::check('cpSmsSend') || \dash\permission::check('cpSmsSendGroup') || \dash\permission::check('cpTemplateSmsView')) {?>
       <li>
-          {%if perm('cpSMS') %}
-          <a href="{{url.here}}/sms"><i class='sf-envelope'></i> <span>{% trans "SMS" %}</span></a>
-          {%endif%}
+          <?php if(\dash\permission::check('cpSMS')) {?>
+          <a href="<?php echo \dash\url::here(); ?>/sms"><i class='sf-envelope'></i> <span><?php echo T_("SMS"); ?></span></a>
+          <?php } //endif ?>
           <ul>
-            {%if perm('cpSmsSend') %}
-              <li><a href="{{url.here}}/sms/send">{% trans "Quick send" %} <i class='floatLa mRa10 fc-mute sf-paper-plane'></i></a></li>
-            {%endif%}
+            <?php if(\dash\permission::check('cpSmsSend')) {?>
+              <li><a href="<?php echo \dash\url::here(); ?>/sms/send"><?php echo T_("Quick send"); ?> <i class='floatLa mRa10 fc-mute sf-paper-plane'></i></a></li>
+            <?php } //endif ?>
           </ul>
       </li>
-  {%endif%}
+  <?php } //endif ?>
 
-  {%if perm('cpTransaction') or perm('cpTransactionAdd') %}
+  <?php if(\dash\permission::check('cpTransaction') || \dash\permission::check('cpTransactionAdd')) {?>
       <li>
-          {%if perm('cpSMS') %}
-          <a href="{{url.here}}/transactions"><i class='sf-card'></i> <span>{% trans "Transactions" %}</span></a>
-          {%endif%}
+          <?php if(\dash\permission::check('cpSMS')) {?>
+          <a href="<?php echo \dash\url::here(); ?>/transactions"><i class='sf-card'></i> <span><?php echo T_("Transactions"); ?></span></a>
+          <?php } //endif ?>
           <ul>
-            {%if perm('cpTransactionAdd') %}
-              <li><a href="{{url.here}}/transactions/add">{% trans "Plus charge account" %} <i class='floatLa mRa10 fc-mute sf-plus-circle'></i></a></li>
-              <li><a href="{{url.here}}/transactions/minus">{% trans "Minus charge account" %} <i class='floatLa mRa10 fc-mute sf-minus-circle'></i></a></li>
-            {%endif%}
+            <?php if(\dash\permission::check('cpTransactionAdd')) {?>
+              <li><a href="<?php echo \dash\url::here(); ?>/transactions/add"><?php echo T_("Plus charge account"); ?> <i class='floatLa mRa10 fc-mute sf-plus-circle'></i></a></li>
+              <li><a href="<?php echo \dash\url::here(); ?>/transactions/minus"><?php echo T_("Minus charge account"); ?> <i class='floatLa mRa10 fc-mute sf-minus-circle'></i></a></li>
+            <?php } //endif ?>
           </ul>
       </li>
-  {%endif%}
+<?php }  ?>
+
