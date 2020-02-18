@@ -18,8 +18,8 @@
 [data-in='enter'][data-enterBg='15']{background-image:url('../siftal/images/bg/15.jpg')}
 
 /* Layout */
-[data-in='enter'] #pageContent{width:20%;min-width:380px;max-width:450px;min-height:370px;margin-top:20px auto;margin:10vh auto 30px;padding:30px;background-color:rgba(255,255,255,0.2);border-radius:5px;box-shadow:0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0, 0, 0, 0.05);transition:0.3s;color:#fff;}
-[data-in='enter'] #pageContent.large{height:400px}
+[data-in='enter'] #enterBox{width:20%;min-width:380px;max-width:450px;min-height:370px;margin-top:20px auto;margin:10vh auto 30px;padding:30px;background-color:rgba(255,255,255,0.2);border-radius:5px;box-shadow:0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0, 0, 0, 0.05);transition:0.3s;color:#fff;}
+[data-in='enter'] #enterBox.large{height:400px}
 [data-in='enter'] .logo{margin:0}
 [data-in='enter'] .logo a{display:block;border-radius:50%}
 [data-in='enter'] .logo a:hover img{background-color:rgba(0,0,0,0.1);}
@@ -165,7 +165,7 @@
 }
 
 @media all and (max-width:767px) {
- [data-in='enter'] #pageContent{min-width:300px;min-height:300px; padding:10px 20px;width:50%;margin-bottom:42px;}
+ [data-in='enter'] #enterBox{min-width:300px;min-height:300px; padding:10px 20px;width:50%;margin-bottom:42px;}
  [data-in='enter'] form .flex{margin: 5px 0;height:40px;}
  [data-in='enter'] .langlist{position:absolute;}
  [data-in='enter'] #eMethods a{height:30px;line-height:30px;}
