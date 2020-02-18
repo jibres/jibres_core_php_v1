@@ -1,5 +1,5 @@
 /* Initial CSS */
-[data-in='enter']{overflow-x:hidden;background-color:#d7d8d8;background-image:url('../siftal/images/bg/1.jpg');background-repeat:repeat;background-size:cover;background-attachment:fixed;position:relative;min-height:100%;@include select-none();}
+[data-in='enter']{overflow-x:hidden;background-color:#d7d8d8;background-image:url('../siftal/images/bg/1.jpg');background-repeat:repeat;background-size:cover;background-attachment:fixed;position:relative;min-height:100%;}
 [data-in='enter'][data-enterBg='1']{background-image:url('../siftal/images/bg/1.jpg')}
 [data-in='enter'][data-enterBg='2']{background-image:url('../siftal/images/bg/2.jpg')}
 [data-in='enter'][data-enterBg='3']{background-image:url('../siftal/images/bg/3.jpg')}

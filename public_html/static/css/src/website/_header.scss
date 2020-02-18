@@ -1,5 +1,5 @@
 // header line
-#jibresHeader{font-size:1.4rem;padding:0;background-color:$white;overflow:hidden;transition:0.3s;@include select-none();}
+#jibresHeader{font-size:1.4rem;padding:0;background-color:$white;overflow:hidden;transition:0.3s;}
 // logo
 #jibresHeader .logo{display:block;overflow: hidden;transition:0.2s;}
 #jibresHeader .logo:hover{background-color: rgba(0,0,0,0.02)}
