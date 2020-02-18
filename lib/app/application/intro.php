@@ -152,11 +152,14 @@ class intro
 				'file'  => \dash\url::icon(),
 			],
 		];
+
+		$theme = null;
+
 		foreach ($result as $key => $value)
 		{
-			if($value['key'] == 'theme')
+			if($value['key'] === 'theme')
 			{
-				$intro['theme'] = $value['value'];
+				$theme = $value['value'];
 				continue;
 			}
 
@@ -184,6 +187,8 @@ class intro
 				$intro[$index]['file'] = \lib\filepath::fix($meta['file']);
 			}
 		}
+
+		$intro['theme'] = $theme;
 
 		return $intro;
 	}

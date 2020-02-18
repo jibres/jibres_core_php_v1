@@ -7,7 +7,29 @@ class view
 	public static function config()
 	{
 		$page = \lib\app\application\intro::get();
+
+		$theme = isset($page['theme']) ? $page['theme'] : null;
 		$page = array_values($page);
+
+
+		$from = '#c80a5a';
+		$to   = '#c80a5a';
+
+		switch ($theme)
+		{
+			case 'theme1':
+			case 'theme2':
+			case 'theme3':
+			case 'theme4':
+			case 'theme5':
+				$from = '#c'. rand(10, 99).'a5a';
+				$to   = '#c'. rand(10, 99).'a5a';
+				break;
+
+			default:
+				// nothing
+				break;
+		}
 
 		$result =
 		[
@@ -25,8 +47,8 @@ class view
 			'theme' => 'Jibres',
 			'bg' =>
 			[
-				'from' => '#c80a5a',
-				'to'   => '#c80a5a',
+				'from' => $from,
+				'to'   => $to,
 			],
 			'color' =>
 			[
