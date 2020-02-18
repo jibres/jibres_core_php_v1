@@ -27,7 +27,7 @@ class controller
 		// }
 
 
-		self::check_block_cookie();
+		// self::check_block_cookie();
 
 		self::check_unlock_page();
 		self::if_login_route();
