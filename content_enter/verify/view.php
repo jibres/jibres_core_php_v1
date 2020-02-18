@@ -17,9 +17,14 @@ class view
 			\dash\data::getUsername(\dash\utility\enter::get_session('username', 'temp_username'));
 		}
 
-
 		self::verifyPageTitle();
 
+		// back
+		\dash\data::back_link(\dash\url::here(). '/pass');
+		\dash\data::back_text(T_('Back'));
+		// action
+		// \dash\data::action_text(T_('Recovery'));
+		// \dash\data::action_link(\dash\url::here(). '/pass/recovery');
 
 	}
 
@@ -62,6 +67,12 @@ class view
 				break;
 		}
 
+		// back
+		\dash\data::back_link(\dash\url::here(). '/verify');
+		\dash\data::back_text(T_('Back'));
+		// action
+		// \dash\data::action_text(T_('Recovery'));
+		// \dash\data::action_link(\dash\url::here(). '/pass/recovery');
 
 
 		// swich verify from
