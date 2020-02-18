@@ -1,12 +1,12 @@
- <nav class="f">
-  <div class="c4 back"><?php
+
+   <div class="back"><?php
 if(\dash\data::back_link() && \dash\data::back_text())
 {
 	echo "<a href='". \dash\data::back_link(). "'>". \dash\data::back_text(). "</a>";
 }
 ?></div>
-  <div class="c4 title"><?php echo \dash\data::page_title(); ?></div>
-  <div class="c4 action"><?php
+   <div class="title"><?php echo \dash\data::page_title(); ?></div>
+   <div class="action"><?php
 if(\dash\data::action_link() && \dash\data::action_text())
 {
 	if(\dash\data::action_icon())
@@ -19,4 +19,3 @@ if(\dash\data::action_link() && \dash\data::action_text())
 	}
 }
 ?></div>
- </nav>
