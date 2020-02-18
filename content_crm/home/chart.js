@@ -9,6 +9,11 @@ function chartDrawer()
 
 }
 
+<?php
+$dashboardDetail = \dash\data::dashboardDetail();
+
+?>
+
 
 
 
@@ -24,10 +29,10 @@ function identifyChart()
       }
     },
     title: {
-      text: '{%trans "Users group by identify"%}'
+      text: '<?php echo T_("Users group by identify"); ?>'
     },
     xAxis: [{
-      categories: {{dashboardDetail.chart.identify.categories | raw}},
+      categories: <?php if(isset($dashboardDetail['chart']['identify']['categories'])) { echo $dashboardDetail['chart']['identify']['categories']; } else { echo '[]';} ?>,
       crosshair: true
     }],
     yAxis: [{ // Primary yAxis
@@ -38,7 +43,7 @@ function identifyChart()
         }
       },
       title: {
-        text: '{%trans "Person"%}',
+        text: '<?php echo T_("Person"); ?>',
         useHTML: Highcharts.hasBidiBug,
         style: {
           color: Highcharts.getOptions().colors[0]
@@ -47,7 +52,7 @@ function identifyChart()
     },
     { // Secondary yAxis
       title: {
-        text: '{%trans "Person"%}',
+        text: '<?php echo T_("Person"); ?>',
         useHTML: Highcharts.hasBidiBug,
         style: {
           color: Highcharts.getOptions().colors[1]
@@ -72,8 +77,8 @@ function identifyChart()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             x: -35,
@@ -94,18 +99,18 @@ function identifyChart()
     },
     series: [
     {
-      name: '{%trans "Count"%}',
+      name: '<?php echo T_("Count"); ?>',
       type: 'column',
-      data: {{dashboardDetail.chart.identify.value | raw}},
+      data: <?php if(isset($dashboardDetail['chart']['identify']['value'])) { echo $dashboardDetail['chart']['identify']['value']; } else { echo '[]';} ?>,
       tooltip: {
-        valueSuffix: ' {%trans "Person"%}'
+        valueSuffix: ' <?php echo T_("Person"); ?>'
       }
 
     }
     ]
   }, function(_chart)
     {
-      _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+      _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
     }
   );
 }
@@ -131,7 +136,7 @@ function gender_chart()
       type: 'pie'
     },
     title: {
-      text: '{%trans "Users group by"%} {%trans "gender"%}'
+      text: '<?php echo T_("Users group by"); ?> <?php echo T_("gender"); ?>'
     },
     tooltip: {
       useHTML: true,
@@ -159,8 +164,8 @@ function gender_chart()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             x: -35,
@@ -173,17 +178,17 @@ function gender_chart()
     series:
     [
     {
-      name: '{%trans "User Status"%}',
+      name: '<?php echo T_("User Status"); ?>',
       allowPointSelect: true,
-      data: {{dashboardDetail.chart.gender | raw}},
+      data: <?php if(isset($dashboardDetail['chart']['gender'])) { echo $dashboardDetail['chart']['gender']; } else { echo '[]';} ?>,
       tooltip: {
-        valueSuffix: ' {%trans "Person"%}'
+        valueSuffix: ' <?php echo T_("Person"); ?>'
       },
       showInLegend: true
     }]
   }, function(_chart)
   {
-    _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+    _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
   });
 }
 
@@ -203,7 +208,7 @@ function status_chart()
       type: 'pie'
     },
     title: {
-      text: '{%trans "Users group by"%} {%trans "Status"%}'
+      text: '<?php echo T_("Users group by"); ?> <?php echo T_("Status"); ?>'
     },
     tooltip: {
       useHTML: true,
@@ -231,8 +236,8 @@ function status_chart()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             x: -35,
@@ -245,17 +250,17 @@ function status_chart()
     series:
     [
     {
-      name: '{%trans "User Status"%}',
+      name: '<?php echo T_("User Status"); ?>',
       allowPointSelect: true,
-      data: {{dashboardDetail.chart.status | raw}},
+      data: <?php if(isset($dashboardDetail['chart']['status'])) { echo $dashboardDetail['chart']['status']; } else { echo '[]';} ?>,
       tooltip: {
-        valueSuffix: ' {%trans "Person"%}'
+        valueSuffix: ' <?php echo T_("Person"); ?>'
       },
       showInLegend: true
     }]
   }, function(_chart)
   {
-    _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+    _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
   });
 }
 
@@ -273,10 +278,10 @@ function log_chart()
       }
     },
     title: {
-      text: '{%trans "User logs group by date"%}'
+      text: '<?php echo T_("User logs group by date"); ?>'
     },
     xAxis: {
-      categories: {{dashboardDetail.chart.log.categories|raw}},
+      categories: <?php if(isset($dashboardDetail['chart']['log']['categories'])) { echo $dashboardDetail['chart']['log']['categories']; } else { echo '[]';} ?>,
       tickmarkPlacement: 'on',
       title: {
         enabled: false
@@ -284,14 +289,14 @@ function log_chart()
     },
     yAxis: {
       title: {
-        text: '{%trans "Records"%}'
+        text: '<?php echo T_("Records"); ?>'
       }
     },
     tooltip: {
       useHTML: true,
       borderWidth: 0,
       shared: true,
-      valueSuffix: ' {%trans "record"%}'
+      valueSuffix: ' <?php echo T_("record"); ?>'
     },
     legend:{
       enabled: false
@@ -302,8 +307,8 @@ function log_chart()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             x: -35,
@@ -319,12 +324,12 @@ function log_chart()
       }
     },
     series: [{
-      name: '{%trans "Count"%}',
-      data: {{dashboardDetail.chart.log.value |raw}}
+      name: '<?php echo T_("Count"); ?>',
+      data: <?php if(isset($dashboardDetail['chart']['log']['value'])) { echo $dashboardDetail['chart']['log']['value']; } else { echo '[]';} ?>
     }]
   }, function(_chart)
     {
-      _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+      _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
     }
   );
 }
@@ -341,10 +346,10 @@ function users_chart()
       }
     },
     title: {
-      text: '{%trans "Users group by date"%}'
+      text: '<?php echo T_("Users group by date"); ?>'
     },
     xAxis: {
-      categories: {{dashboardDetail.chart.dayevent.categories | raw}},
+      categories: <?php if(isset($dashboardDetail['chart']['dayevent']['categories'])) { echo $dashboardDetail['chart']['dayevent']['categories']; } else { echo '[]';} ?>,
       tickmarkPlacement: 'on',
       title: {
         enabled: false
@@ -352,7 +357,7 @@ function users_chart()
     },
     yAxis: {
       title: {
-        text: '{%trans "Members"%}'
+        text: '<?php echo T_("Members"); ?>'
       },
       labels: {
         formatter: function () {
@@ -364,7 +369,7 @@ function users_chart()
       useHTML: true,
       borderWidth: 0,
       shared: true,
-      valueSuffix: ' {%trans "member"%}'
+      valueSuffix: ' <?php echo T_("member"); ?>'
     },
     plotOptions: {
       area: {
@@ -388,8 +393,8 @@ function users_chart()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             x: -35,
@@ -399,10 +404,10 @@ function users_chart()
             fontWeight: 'bold'
         }
     },
-    series: {{dashboardDetail.chart.dayevent.data | raw}}
+    series: <?php if(isset($dashboardDetail['chart']['dayevent']['data'])) { echo $dashboardDetail['chart']['dayevent']['data']; } else { echo '[]';} ?>
   }, function(_chart)
     {
-      _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+      _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
     }
   );
 }
@@ -485,7 +490,7 @@ function users_guage()
     },
 
     title: {
-      text: '{%trans "Special user report"%}',
+      text: '<?php echo T_("Special user report"); ?>',
     },
 
     tooltip: {
@@ -553,8 +558,8 @@ function users_guage()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             x: -35,
@@ -570,7 +575,7 @@ function users_guage()
         color: Highcharts.getOptions().colors[0],
         radius: '112%',
         innerRadius: '88%',
-        y: {{dashboardDetail.identifyNumber.mobile | raw}}
+        y: <?php if(isset($dashboardDetail['chart']['identifyNumber']['mobile'])) { echo $dashboardDetail['chart']['identifyNumber']['mobile']; } else { echo '[]';} ?>
       }]
     }, {
       name: 'Telegram',
@@ -578,7 +583,7 @@ function users_guage()
         color: Highcharts.getOptions().colors[1],
         radius: '87%',
         innerRadius: '63%',
-        y: {{dashboardDetail.identifyNumber.chatid | raw}}
+        y: <?php if(isset($dashboardDetail['chart']['identifyNumber']['chatid'])) { echo $dashboardDetail['chart']['identifyNumber']['chatid']; } else { echo '[]';} ?>
       }]
     }, {
       name: 'Android',
@@ -586,12 +591,12 @@ function users_guage()
         color: Highcharts.getOptions().colors[2],
         radius: '62%',
         innerRadius: '38%',
-        y: {{dashboardDetail.identifyNumber.android | raw}}
+        y: <?php if(isset($dashboardDetail['chart']['identifyNumber']['android'])) { echo $dashboardDetail['chart']['identifyNumber']['android']; } else { echo '[]';} ?>
       }]
     }]
   }, function(_chart)
     {
-      _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+      _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
     }
   );
 
