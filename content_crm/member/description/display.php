@@ -13,7 +13,7 @@
 		    <div class="box">
 		      <form method="post" autocomplete="off" >
 		        <h2><?php echo T_("Add note"); ?></h2>
-		        <input type="hidden" name="redirecturl" value="{{url.pwd}}">
+		        <input type="hidden" name="redirecturl" value="<?php echo \dash\url::pwd(); ?>">
 		        <textarea class="txt " name="note" rows="3" autofocus placeholder='<?php echo T_("Write your note about user."); ?> <?php echo T_("Something like calls, favorites, hobbits, special approach or something else."); ?>'></textarea>
 		        <button class="btn secondary block mT5"><?php echo T_("Add new note"); ?></button>
 		      </form>

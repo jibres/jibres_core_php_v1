@@ -92,7 +92,7 @@ $sortLink = \dash\data::sortLink();
 
 		<td><a href="<?php echo \dash\url::here(); ?>/transactions?condition=<?php echo @$value['condition']; ?>"><?php echo T_(@$value['condition']); ?></a></td>
 		<td><?php if(isset($value['verify']) && $value['verify']) {?><i class="sf-check-1 fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php }//endif ?></td>
-		<td title="{{value.datecreated}}">
+		<td >
 			<?php echo \dash\fit::date($value['datecreated']); ?>
 
 		</td>

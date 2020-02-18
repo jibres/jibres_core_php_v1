@@ -217,8 +217,8 @@ if(\dash\request::get('status'))
 
 <?php function htmlFilter() {?>
 <p class="f fs14 msg info2">
-  <span class="c">{{dataFilter | raw}}</span>
-  <a class="cauto" href="<?php echo \dash\url::this(); ?>{%if requestGET.status%}?status={{requestGET.status}}{%endif%}"><?php echo T_("Clear filters"); ?></a>
+  <span class="c"><?php echo \dash\data::dataFilter(); ?></span>
+  <a class="cauto" href="<?php echo \dash\url::this(); ?><?php if(\dash\request::get('status')) { echo '?status='. \dash\request::get('status');} ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php } //endfunction ?>
 
@@ -226,7 +226,7 @@ if(\dash\request::get('status'))
 <?php function htmlFilterNoResult() {?>
 <p class="f fs14 msg warn2">
   <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::this(); ?>{%if requestGET.status%}?status={{requestGET.status}}{%endif%}"><?php echo T_("Clear filters"); ?></a>
+  <a class="cauto" href="<?php echo \dash\url::this(); ?><?php if(\dash\request::get('status')) { echo '?status='. \dash\request::get('status');} ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php } //endfunction ?>
 
