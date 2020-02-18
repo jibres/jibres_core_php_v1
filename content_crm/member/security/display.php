@@ -94,7 +94,7 @@
       <div data-response='password' data-response-hide data-response-effect='slide'>
         <label for="repassword"><?php echo T_("Confirm password"); ?> <small class="fc-red">* <?php echo T_("Require to change current password"); ?></small></label>
         <div class="input">
-        <input type="password" name="repassword" id="repassword" placeholder='{%if dataRowMember_password%}<?php echo T_("Password was set, enter to change it!"); ?>{%else%}<?php echo T_("Password not set, enter  to set it!"); ?>{%endif%}'  maxlength='50'>
+        <input type="password" name="repassword" id="repassword" placeholder='<?php if(\dash\data::dataRowMember_password())  { echo T_("Password was set, enter to change it!"); }else{ echo T_("Password not set, enter  to set it!"); }?>'  maxlength='50'>
       </div>
       </div>
   <?php } ?>
@@ -125,8 +125,8 @@
                 <?php foreach (\dash\data::chatIdList() as $key => $value) {?>
 
                   <br>
-                  <span class="badge mLR20">{{(key + 1) | fitNumber}}</span><b>{{value.chatid | fitNumber(false)}}</b>
-                  <span data-confirm data-data='{"removechatid" : "removechatid", "chatid" : "{{value.chatid}}"}' class="badge danger floatL"><?php echo T_("Remove chatid"); ?></span>
+                  <span class="badge mLR20"><?php echo \dash\fit::number($key + 1); ?></span><b><?php echo $value['chatid']; ?> </b>
+                  <span data-confirm data-data='{"removechatid" : "removechatid", "chatid" : "<?php echo $value['chatid']; ?>"}' class="badge danger floatL"><?php echo T_("Remove chatid"); ?></span>
                 <?php } ?>
               </div>
 
@@ -142,18 +142,19 @@
         </form>
 
 
-    {%if androidList%}
+    <?php if(\dash\data::androidList()) {?>
       <div class="cbox">
         <form method="post">
             <div class="msg success2">
               <?php echo T_("User have android"); ?>
-              {%for key, value in androidList%}
-                <span class="badge mLR20">{{(key + 1) | fitNumber}}</span><b>{{value | dump}}</b>
-              {%endfor%}
+              <?php foreach (\dash\data::androidList() as $key => $value) {?>
+                <span class="badge mLR20"><?php echo \dash\fit::number($key + 1); ?></span><b></b>
+              <?php } ?>
             </div>
           </div>
         </form>
-    {%endif%}
+    <?php } //endif ?>
+
 
     <?php } //endif ?>
 

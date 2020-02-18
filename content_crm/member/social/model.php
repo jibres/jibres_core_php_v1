@@ -17,6 +17,7 @@ class model
 			'facebook'    => \dash\request::post('facebook'),
 			'twitter'     => \dash\request::post('twitter'),
 			'email'       => \dash\request::post('email'),
+			'bio'       => \dash\request::post('bio'),
 		];
 
 
