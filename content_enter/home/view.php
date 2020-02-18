@@ -26,7 +26,7 @@ class view
 		\dash\data::back_text(T_('Home'));
 		// action
 		\dash\data::action_text(T_('Signup'));
-		\dash\data::action_link(\dash\url::this(). '/signup');
+		\dash\data::action_link(\dash\url::here(). '/signup');
 
 		$main_account = false;
 		if(isset($_SESSION['main_account']) && $_SESSION['main_account'])
