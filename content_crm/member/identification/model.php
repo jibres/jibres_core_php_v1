@@ -41,14 +41,14 @@ class model
 			$post['file2'] = $file2;
 		}
 
-		$post['nationality']  = \dash\request::post('nationality');
-		$post['birthcity']    = \dash\request::post('birthplace');
-		$post['issueplace']   = \dash\request::post('issueplace');
-		$post['shcode']       = \dash\request::post('shcode');
-		$post['pasportcode']  = \dash\request::post('pasportcode');
-		$post['pasportdate']  = \dash\request::post('passportdate');
-		$post['nationalcode'] = \dash\request::post('nationalcode');
-		$post['shfrom']       = \dash\request::post('shfrom');
+		// $post['nationality']  = \dash\request::post('nationality');
+		// $post['birthcity']    = \dash\request::post('birthplace');
+		// $post['issueplace']   = \dash\request::post('issueplace');
+		// $post['shcode']       = \dash\request::post('shcode');
+		// $post['pasportcode']  = \dash\request::post('pasportcode');
+		// $post['pasportdate']  = \dash\request::post('passportdate');
+		// $post['nationalcode'] = \dash\request::post('nationalcode');
+		// $post['shfrom']       = \dash\request::post('shfrom');
 
 		\dash\app\user::edit($post, \dash\request::get('id'));
 
