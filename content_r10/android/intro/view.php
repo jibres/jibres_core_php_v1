@@ -16,12 +16,27 @@ class view
 					'image' => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
 				[
-					'title' => T_('Sell and Enjoy'),
+					'subtitle' => T_('Sell and Enjoy'),
 					'desc'  => T_('All-in-one ecommerce platform'),
 					// 'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
 				[
-					'title' => T_('Sometimes you need a big change.'),
+					// 'subtitle' => T_('Sell and Enjoy'),
+					'desc'  => T_('All-in-one ecommerce platform'),
+					// 'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+				],
+				[
+					'title' => T_('Jibres'),
+					// 'desc'  => T_('Jibres'),
+					// 'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+				],
+				[
+					'subtitle' => T_('Sometimes you need a big change.'),
+					// 'desc'  => T_('Jibres'),
+					'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
+				],
+				[
+					// 'subtitle' => T_('Sometimes you need a big change.'),
 					// 'desc'  => T_('Jibres'),
 					'image'  => \dash\url::static(). '/logo/icon-white/png/Jibres-Logo-icon-white-1024.png',
 				],
@@ -41,8 +56,10 @@ class view
 			'theme' => 'Jibres',
 			'bg' =>
 			[
-				'from' => '#c80a5a',
-				'to'   => '#c80a5a',
+				'from'       => '#c80a5a',
+				'to'         => '#c80a5a',
+				'dot'        => '#dddddd',
+				'doSelected' => '#ffffff',
 			],
 			'color' =>
 			[
