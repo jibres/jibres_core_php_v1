@@ -21,6 +21,13 @@ class view
 		}
 		\dash\data::mobileReadonly(false);
 
+		// back
+		\dash\data::back_link(\dash\url::kingdom());
+		\dash\data::back_text(T_('Home'));
+		// action
+		\dash\data::action_text(T_('Signup'));
+		\dash\data::action_link(\dash\url::this(). '/signup');
+
 		$main_account = false;
 		if(isset($_SESSION['main_account']) && $_SESSION['main_account'])
 		{
