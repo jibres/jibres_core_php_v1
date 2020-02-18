@@ -12,120 +12,131 @@
 
   <form class="cbox" method="post" autocomplete="off">
 
-    {%if permGroup%}
+    <?php if(\dash\data::permGroup()) {?>
+
 
     <div class="mT10">
-      <label for="permission">{%trans "Permission"%}</label>
+      <label for="permission"><?php echo T_("Permission"); ?></label>
       <select name="permission" class="ui dropdown" id="permission">
-        <option value="" readonly>{%trans "No permission"%}</option>
-        <option value="0" readonly>{%trans "No permission"%}</option>
-        {%for key, value in permGroup%}
-          <option value="{{key}}" {%if dataRowMember.permission == key%} selected {%endif%} >{%set myValue = value.title%}{%trans myValue%}</option>
-        {%endfor%}
+        <option value="" readonly><?php echo T_("No permission"); ?></option>
+        <option value="0" readonly><?php echo T_("No permission"); ?></option>
+
+        <?php foreach (\dash\data::permGroup() as $key => $value) {?>
+
+          <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowMember_permission() == $key)  { echo 'selected'; }?> > <?php echo T_($value['title']); ?></option>
+
+        <?php } ?>
       </select>
     </div>
 
-  {%endif%}
+  <?php } ?>
 
 
     <div class="mTB10">
-      <label for="language">{%trans "Default language"%}</label>
+      <label for="language"><?php echo T_("Default language"); ?></label>
       <select name="language" class="ui dropdown" id="language">
-        <option value="" readonly>{%trans "Select one item"%}</option>
-        {%for key, lang in lang.list%}
-          <option value="{{key}}" {%if dataRowMember.language == key%} selected {%endif%} >{{lang}}</option>
-        {%endfor%}
+        <option value="" readonly><?php echo T_("Select one item"); ?></option>
+          <?php foreach (\dash\data::lang_list() as $key => $value) {?>
+
+            <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowMember_language() == $key || (!\dash\data::dataRowMember_language() && \dash\data::lang_current() == $key)) {echo 'selected';} ?>><?php echo $value; ?></option>
+
+          <?php } //endfor ?>
+
+
       </select>
     </div>
 
 
-    <label for="username">{%trans "Username"%}</label>
+    <label for="username"><?php echo T_("Username"); ?></label>
     <div class="input ltr">
-      <input type="text" name="username" id="username" placeholder='{%trans "Username"%}' value="{{dataRowMember.username}}" maxlength='40' minlength="1" pattern=".{1,40}" title='{%trans "Enter a valid username from 3 to 40 character"%}' autofocus>
+      <input type="text" name="username" id="username" placeholder='<?php echo T_("Username"); ?>' value="<?php echo \dash\data::dataRowMember_username(); ?>" maxlength='40' minlength="1" pattern=".{1,40}" title='<?php echo T_("Enter a valid username from 3 to 40 character"); ?>' autofocus>
     </div>
 
 
     <div class="switch1 mT20">
-     <input type="checkbox" name="twostep" id="twostep" {%if dataRowMember.twostep  %}checked{%endif%}>
+     <input type="checkbox" name="twostep" id="twostep" <?php if(\dash\data::dataRowMember_twostep()) { echo 'checked';} ?>>
      <label for="twostep"></label>
-     <label for="twostep">{%trans "Two step verification"%}</label>
+     <label for="twostep"><?php echo T_("Two step verification"); ?></label>
     </div>
 
 
     <div class="switch1 mT20">
-     <input type="checkbox" name="forceremember" id="forceremember" {%if dataRowMember.forceremember  %}checked{%endif%}>
+     <input type="checkbox" name="forceremember" id="forceremember" <?php if(\dash\data::dataRowMember_forceremember()) { echo 'checked';} ?>>
      <label for="forceremember"></label>
-     <label for="forceremember">{%trans "Save remember session"%}</label>
+     <label for="forceremember"><?php echo T_("Save remember session"); ?></label>
     </div>
 
     <div class="switch1 mTB0">
-      <input type="checkbox" name="sidebar" id="xsidebar" {%if dataRowMember.sidebar %}checked{%endif%}>
+      <input type="checkbox" name="sidebar" id="xsidebar" <?php if(\dash\data::dataRowMember_sidebar()) { echo 'checked';} ?>>
       <label for="xsidebar"></label>
-      <label for="xsidebar">{%trans "Show sidebar"%}</label>
+      <label for="xsidebar"><?php echo T_("Show sidebar"); ?></label>
     </div>
 
     <div class="mT10">
-    <label for="status">{%trans "Status"%}</label>
+    <label for="status"><?php echo T_("Status"); ?></label>
     <select name="status" class="ui dropdown" id="status">
-      <option value="" readonly>{%trans "Select one item"%} *</option>
-      <option value="active" {% if dataRowMember.status == 'active' %} selected {%endif%}>{%trans "Active"%}</option>
-      <option value="awaiting" {% if dataRowMember.status == 'awaiting' %} selected {%endif%}>{%trans "Awaiting"%}</option>
-      <option value="deactive" {% if dataRowMember.status == 'deactive' %} selected {%endif%}>{%trans "Deactive"%}</option>
-      <option value="removed" {% if dataRowMember.status == 'removed' %} selected {%endif%}>{%trans "Removed"%}</option>
-      <option value="filter" {% if dataRowMember.status == 'filter' %} selected {%endif%}>{%trans "Filter"%}</option>
-      <option value="unreachable" {% if dataRowMember.status == 'unreachable' %} selected {%endif%}>{%trans "Unreachable"%}</option>
+      <option value="" readonly><?php echo T_("Select one item"); ?> *</option>
+      <option value="active" <?php if(\dash\data::dataRowMember_status() == 'active') { echo 'selected';} ?> ><?php echo T_("Active"); ?></option>
+      <option value="awaiting" <?php if(\dash\data::dataRowMember_status() == 'awaiting') { echo 'selected';} ?> ><?php echo T_("Awaiting"); ?></option>
+      <option value="deactive" <?php if(\dash\data::dataRowMember_status() == 'deactive') { echo 'selected';} ?> ><?php echo T_("Deactive"); ?></option>
+      <option value="removed" <?php if(\dash\data::dataRowMember_status() == 'removed') { echo 'selected';} ?> ><?php echo T_("Removed"); ?></option>
+      <option value="filter" <?php if(\dash\data::dataRowMember_status() == 'filter') { echo 'selected';} ?> ><?php echo T_("Filter"); ?></option>
+      <option value="unreachable" <?php if(\dash\data::dataRowMember_status() == 'unreachable') { echo 'selected';} ?> ><?php echo T_("Unreachable"); ?></option>
     </select>
   </div>
 
-    {%if perm('cpUsersPasswordChange')%}
-      <label for="password">{%trans "Password"%} <small>{%trans "Enter to change pass"%}</small></label>
+  <?php if(\dash\permission::check('cpUsersPasswordChange')) {?>
+
+      <label for="password"><?php echo T_("Password"); ?> <small><?php echo T_("Enter to change pass"); ?></small></label>
       <div class="input">
-        <input type="password" name="password" id="password" placeholder='{%if dataRowMember.password%}{%trans "Password was set, enter to change it!"%}{%else%}{%trans "Password not set, enter  to set it!"%}{%endif%}' maxlength='50' data-response-realtime autocomplete="new-password">
+        <input type="password" name="password" id="password" placeholder='<?php if(\dash\data::dataRowMember_password())  { echo T_("Password was set, enter to change it!"); }else{ echo T_("Password not set, enter  to set it!"); }?>' maxlength='50' data-response-realtime autocomplete="new-password">
       </div>
       <div data-response='password' data-response-hide data-response-effect='slide'>
-        <label for="repassword">{%trans "Confirm password"%} <small class="fc-red">* {%trans "Require to change current password"%}</small></label>
+        <label for="repassword"><?php echo T_("Confirm password"); ?> <small class="fc-red">* <?php echo T_("Require to change current password"); ?></small></label>
         <div class="input">
-        <input type="password" name="repassword" id="repassword" placeholder='{%if dataRowMember.password%}{%trans "Password was set, enter to change it!"%}{%else%}{%trans "Password not set, enter  to set it!"%}{%endif%}'  maxlength='50'>
+        <input type="password" name="repassword" id="repassword" placeholder='{%if dataRowMember_password%}<?php echo T_("Password was set, enter to change it!"); ?>{%else%}<?php echo T_("Password not set, enter  to set it!"); ?>{%endif%}'  maxlength='50'>
       </div>
       </div>
-    {%endif%}
+  <?php } ?>
 
 
-    <button class="btn primary block mT20">{%trans "Save"%}</button>
+    <button class="btn primary block mT20"><?php echo T_("Save"); ?></button>
 
-    {%if perm_su()%}
-      <div class="badge mT10 mB10 danger" data-kerkere-icon data-kerkere='.DeleteUserYN'>{%trans "Delete user"%}</div>
+  <?php if(\dash\permission::supervisor()) {?>
+
+      <div class="badge mT10 mB10 danger" data-kerkere-icon data-kerkere='.DeleteUserYN'><?php echo T_("Delete user"); ?></div>
       <div class="DeleteUserYN" data-kerkere-content="hide">
         <div class="msg danger">
-          {%trans "Are you sure to delete this user?"%}
-          <span data-confirm data-data='{"deleteuser" : "DeleteUserYN"}' class="badge warn floatL">{%trans "Delete"%}</span>
+          <?php echo T_("Are you sure to delete this user?"); ?>
+          <span data-confirm data-data='{"deleteuser" : "DeleteUserYN"}' class="badge warn floatL"><?php echo T_("Delete"); ?></span>
         </div>
       </div>
-    {%endif%}
+    <?php } ?>
   </form>
 
+  <?php if(\dash\permission::supervisor()) {?>
 
-    {%if perm_su()%}
       <div class="cbox">
         <form method="post">
+            <?php if(\dash\data::chatIdList()) {?>
 
-            {%if chatIdList%}
               <div class="msg success2">
-                {%trans "User have chatid"%}
-              {%for key, value in chatIdList%}
-                <br>
-                <span class="badge mLR20">{{(key + 1) | fitNumber}}</span><b>{{value.chatid | fitNumber(false)}}</b>
-                <span data-confirm data-data='{"removechatid" : "removechatid", "chatid" : "{{value.chatid}}"}' class="badge danger floatL">{%trans "Remove chatid"%}</span>
-              {%endfor%}
+              <?php echo T_("User have chatid"); ?>
+                <?php foreach (\dash\data::chatIdList() as $key => $value) {?>
+
+                  <br>
+                  <span class="badge mLR20">{{(key + 1) | fitNumber}}</span><b>{{value.chatid | fitNumber(false)}}</b>
+                  <span data-confirm data-data='{"removechatid" : "removechatid", "chatid" : "{{value.chatid}}"}' class="badge danger floatL"><?php echo T_("Remove chatid"); ?></span>
+                <?php } ?>
               </div>
 
-            {%endif%}
+            <?php } ?>
 
             <input type="hidden" name="setChatid" value="1">
             <div class="input">
-              <label class="addon" for="ichatid">{%trans "chatid"%} {%trans "Telegram"%}</label>
+              <label class="addon" for="ichatid"><?php echo T_("chatid"); ?> <?php echo T_("Telegram"); ?></label>
               <input type="number" id="ichatid" name="chatid">
-              <button class="btn addon primary">{%trans "Add"%}</button>
+              <button class="btn addon primary"><?php echo T_("Add"); ?></button>
             </div>
           </div>
         </form>
@@ -135,7 +146,7 @@
       <div class="cbox">
         <form method="post">
             <div class="msg success2">
-              {%trans "User have android"%}
+              <?php echo T_("User have android"); ?>
               {%for key, value in androidList%}
                 <span class="badge mLR20">{{(key + 1) | fitNumber}}</span><b>{{value | dump}}</b>
               {%endfor%}
@@ -144,29 +155,62 @@
         </form>
     {%endif%}
 
-    {%endif%}
+    <?php } //endif ?>
 
   <div class="cbox">
 
-    <h4>{%trans "Active sessions"%} </h4>
-    {%for key, row in sessionsList%}
-    <div class="msg">
-        <div class="badge warn" title='{%trans "Browser"%}'>{{row.browser}} {{row.browserVer | fitNumber}}</div>
-        <div class="badge" title='{%trans "Operation System"%}'>{{row.os}} {{row.osVer | fitNumber}}</div>
-        <div class="badge" title='{%trans "IP"%}'>{{row.ip}}</div>
-        <div class="badge primary" title='{%trans "Date login"%}'>{{row.last | dt('human')}}</div>
-        {%if row.code == currentCookie %}
-        <div class="badge success">{%trans "Current session"%}</div>
-        {%endif%}
-        <a class="badge floatL danger" href="{{url.pwd}}" data-ajaxify data-method="post" data-data='{"id" : "{{row.id}}", "type": "terminate" }' tabindex='-1'>{%trans "Terminate"%}</a>
-    </div>
+    <h4><?php echo T_("Active sessions"); ?> </h4>
 
-  {%endfor%}
+
+      <?php
+      $sessionsList = \dash\data::sessionsList();
+      if(!is_array($sessionsList))
+      {
+        $sessionsList = [];
+      }
+
+      foreach ($sessionsList as $key => $row) {
+
+      ?>
+
+      <div class="panel mB10">
+        <div class="f align-center pad">
+          <div class="cauto s5 pRa10">
+            <div class="device72" data-device='<?php echo mb_strtolower(@$row['os']); ?>'></div>
+          </div>
+          <div class="pA5 c s7">
+            <div class="mB5"><b><?php echo @$row['osName']; ?></b> <?php echo \dash\fit::number(@$row['osVer']); ?></div>
+
+            <?php if(isset($row['code']) && $row['code'] === \dash\data::currentCookie()) {?>
+
+            <div class="badge success"><?php echo T_("This device"); ?></div>
+
+            <?php }//endif ?>
+
+          </div>
+          <div class="pA5 c s12 fs08">
+            <div class="mB10"><b><?php echo @$row['browser']; ?></b> <?php echo \dash\fit::number(@$row['browserVer']); ?></div>
+            <div><?php echo \dash\fit::date_human(@$row['last']); ?></div>
+          </div>
+          <div class="pA5 c3 s12">
+            <div class="mB5">
+              <a target="_blank" href="https://ipgeolocation.io/ip-location/<?php echo @$row['ip']; ?>" title='<?php echo T_("Check ip address"); ?>'><?php echo @$row['ip']; ?></a>
+            </div>
+            <div>
+              <a class="badge danger" data-confirm data-data='{"id" : "<?php echo @$row['id']; ?>", "type": "terminate" }'><?php echo T_("Terminate"); ?></a>
+            </div>
+          </div>
+
+          <?php if(\dash\permission::supervisor()) {?>
+
+          <div class="c12 fs05 pA5 ovh"><?php echo @$row['agent']; ?></div>
+
+          <?php } //endif ?>
+
+        </div>
+      </div>
+  <?php } //endfor ?>
   </div>
 
  </div>
 </div>
-{%endblock%}
-
-
-
