@@ -1,6 +1,4 @@
-
-[data-pwa]{overflow: hidden;}
-[data-pwa] body{background-color: $pwaBg!important;overflow:hidden;position:relative;}
+[data-pwa] body{background-color: $pwaBg!important;position:relative;}
 
 // design for apps in enter
 [data-pwa] [data-panel] #sidebar{display:none}
