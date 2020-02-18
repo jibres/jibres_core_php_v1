@@ -6,8 +6,36 @@ class view
 {
 	public static function config()
 	{
+		$page = \lib\app\application\intro::get();
+		$page = array_values($page);
 
-		\content_r10\android\intro\view::config();
+		$result =
+		[
+			'page' =>
+			[
+				$page,
+			],
+			'translation' =>
+			[
+				'next'  => T_('Next'),
+				'prev'  => T_('Prev'),
+				'skip'  => T_('Skip'),
+				'start' => T_('Get Start'),
+			],
+			'theme' => 'Jibres',
+			'bg' =>
+			[
+				'from' => '#c80a5a',
+				'to'   => '#c80a5a',
+			],
+			'color' =>
+			[
+				'primary'   => '#ffffff',
+				'secondary' => '#eeeeee',
+			],
+		];
+
+		\dash\notif::api($result);
 
 		// $result =
 		// [
