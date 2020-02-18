@@ -1,11 +1,9 @@
-{%extends display.dash%}
 
-{%block pageContent%}
 <div class="cbox">
 <form method="post">
   <div class="input mB20">
-    <label for="sudo">{%trans "Server password"%}</label>
-    <input type="password" id="sudo" name="sudo" placeholder='{%trans "Server password"%}'>
+    <label for="sudo"><?php echo T_("Server password"); ?></label>
+    <input type="password" id="sudo" name="sudo" placeholder='<?php echo T_("Server password"); ?>'>
   </div>
   <div class="f">
     <button type="submit" name="command" value="nginxrestart" class="c5 mLa50 mT10 btn primary outline"><code>sudo servie nginx restart</code></button>
@@ -15,4 +13,3 @@
   </div>
 </form>
 </div>
-{%endblock%}
