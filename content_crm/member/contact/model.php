@@ -11,7 +11,7 @@ class model
 		$post =
 		[
 			'phone'        => \dash\request::post('phone'),
-			'mobile'       => \dash\request::post('mobile'),
+			// 'mobile'       => \dash\request::post('mobile'),
 			'email'        => \dash\request::post('email'),
 		];
 

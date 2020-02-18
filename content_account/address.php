@@ -87,7 +87,7 @@
 
         <label for="iMobile"><?php echo T_("Mobile"); ?></label>
         <div class="input">
-          <input type="tel" name="mobile" id="iMobile" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); }elseif(\dash\data::dataRowMember()){ echo \dash\data::dataRowMember();}elseif(!\dash\data::dataRowAddress()){ echo \dash\user::detail('mobile');} ?>" pattern=".{1,20}">
+          <input type="tel" name="mobile" id="iMobile" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); }elseif(\dash\data::dataRowMember_mobile()){ echo \dash\data::dataRowMember_mobile();}elseif(!\dash\data::dataRowAddress()){ echo \dash\user::detail('mobile');} ?>" pattern=".{1,20}">
         </div>
 
 
