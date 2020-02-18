@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_('Intro setting'));
+		\dash\data::page_title(T_('Splash setting'));
 
 		// back
 		\dash\data::back_text(T_('Back'));

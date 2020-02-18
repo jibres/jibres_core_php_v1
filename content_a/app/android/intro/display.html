@@ -6,7 +6,7 @@
 <div class="f justify-center">
   <div class="c8 m12 s12">
     <div class="cbox">
-        <h4>{%trans "Splash setting"%}</h4>
+        <h4>{%trans "Intro setting"%}</h4>
         <div class="mB20">
          <div class="f">
           <div class="vcard shadow mA10 s12">
@@ -43,29 +43,34 @@
          <h4>{%trans "Intro theme"%}</h4>
 
         <div class="radio1">
-          <input type="radio" name="theme" value="blue" {% if introSaved.theme == 'blue' %} checked {%endif%} id="sRdc1">
-          <label for="sRdc1">Blue (Default)</label>
+          <input type="radio" name="theme" value="theme1" {% if introSaved.theme == 'theme1' %} checked {%endif%} id="sRdc1">
+          <label for="sRdc1">Theme 1</label>
         </div>
 
-        <div class="radio1 red">
-          <input type="radio" name="theme" value="red" {% if introSaved.theme == 'red' %} checked {%endif%} id="sRdc2">
-          <label for="sRdc2">Red</label>
+        <div class="radio1">
+          <input type="radio" name="theme" value="theme2" {% if introSaved.theme == 'theme2' %} checked {%endif%} id="sRdc1">
+          <label for="sRdc1">Theme 2</label>
         </div>
 
-        <div class="radio1 yellow">
-          <input type="radio" name="theme" value="yellow" {% if introSaved.theme == 'yellow' %} checked {%endif%} id="sRdc3">
-          <label for="sRdc3">Yellow</label>
+
+        <div class="radio1">
+          <input type="radio" name="theme" value="theme3" {% if introSaved.theme == 'theme3' %} checked {%endif%} id="sRdc1">
+          <label for="sRdc1">Theme 3</label>
         </div>
 
-        <div class="radio1 green">
-          <input type="radio" name="theme" value="green" {% if introSaved.theme == 'green' %} checked {%endif%} id="sRdc4">
-          <label for="sRdc4">Green</label>
+
+        <div class="radio1">
+          <input type="radio" name="theme" value="theme4" {% if introSaved.theme == 'theme4' %} checked {%endif%} id="sRdc1">
+          <label for="sRdc1">Theme 4</label>
         </div>
 
-        <div class="radio1 black">
-          <input type="radio" name="theme" value="balck" {% if introSaved.theme == 'balck' %} checked {%endif%} id="sRdc5">
-          <label for="sRdc5">Black</label>
+
+        <div class="radio1">
+          <input type="radio" name="theme" value="theme5" {% if introSaved.theme == 'theme5' %} checked {%endif%} id="sRdc1">
+          <label for="sRdc1">Theme 5</label>
         </div>
+
+
 
          <h4 class="mT20" data-kerkere='.intro1'  data-kerkere-icon='open'>{%trans "Edit intro page 1"%}</h4>
          <div class="intro1" >

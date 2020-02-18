@@ -72,7 +72,7 @@ class intro
 			return false;
 		}
 
-		if(!in_array($theme, ['blue','red','yellow','green','balck']))
+		if(!in_array($theme, ['theme1','theme2','theme3','theme4','theme5']))
 		{
 			\dash\notif::error(T_("Invalid intro theme"));
 			return false;
@@ -113,9 +113,6 @@ class intro
 
 				\lib\db\setting\insert::new_record($insert);
 			}
-
-
-
 		}
 
 
