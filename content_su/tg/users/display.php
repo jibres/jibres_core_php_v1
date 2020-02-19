@@ -104,7 +104,7 @@ if(!is_array($dataTable))
         </div>
         <nav class="txtRa">
           <a href="<?php echo \dash\url::that(); ?>?user_id=<?php echo @$value['user_id']; ?>" title='<?php echo T_("User logs"); ?>'><i class="sf-briefcase"></i></a>
-          <a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id={{value.user_id | coding('encode')}}" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a>
+          <a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo \dash\coding::encode(@$value['user_id']); ?>" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a>
 
         </nav>
       </td>
