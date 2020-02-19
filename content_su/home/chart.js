@@ -8,7 +8,7 @@ function getServerStat()
   if($('body').attr('data-in') === 'su' && $('body').attr('data-page') === 'home' && chart)
   {
     $.ajax({
-      url: '{{url.here}}?cmd=health',
+      url: '<?php echo \dash\url::here(); ?>?cmd=health',
       success: function (_response)
       {
         _response = JSON.parse(_response);
@@ -88,7 +88,7 @@ function highChart()
       useUTC: false
     },
     title: {
-      text: '{%trans "Server live resource usage"%} {{site.title}}'
+      text: '<?php echo T_("Server live resource usage") . ' '. \dash\data::site_title(); ?> '
     },
     xAxis: [{
       type: 'datetime',
@@ -103,7 +103,7 @@ function highChart()
         }
       },
       title: {
-        text: '{%trans "percentage"%}',
+        text: '<?php echo T_("percentage"); ?>',
         useHTML: Highcharts.hasBidiBug,
         style: {
           color: Highcharts.getOptions().colors[0]
@@ -134,8 +134,8 @@ function highChart()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             x: -35,
@@ -158,39 +158,39 @@ function highChart()
     series:
     [
       {
-        name: '{%trans "Disk usage"%}',
+        name: '<?php echo T_("Disk usage"); ?>',
         type: 'area',
         animation: Highcharts.svg,
         data: [],
         tooltip: {
-          valueSuffix: ' {%trans "percentage"%}'
+          valueSuffix: ' <?php echo T_("percentage"); ?>'
         }
       },
       {
-        name: '{%trans "CPU Usage"%}',
+        name: '<?php echo T_("CPU Usage"); ?>',
         type: 'areaspline',
         animation: Highcharts.svg,
         color: '#e66566',
         dashStyle: 'ShortDash',
         data: [],
         tooltip: {
-          valueSuffix: ' {%trans "percentage"%}'
+          valueSuffix: ' <?php echo T_("percentage"); ?>'
         }
       },
       {
-        name: '{%trans "Memory"%}',
+        name: '<?php echo T_("Memory"); ?>',
         type: 'spline',
         color: '#bda013',
         animation: Highcharts.svg,
         data: [],
         tooltip: {
-          valueSuffix: ' {%trans "percentage"%}'
+          valueSuffix: ' <?php echo T_("percentage"); ?>'
         }
       }
     ]
   }, function(_chart)
   {
-    _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+    _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
   });
 
   getServerStat();
