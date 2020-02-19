@@ -117,9 +117,10 @@ class run
 		$test  = '';
 		$local = '';
 
+		$test  = 'TEST-';
+
 		if(\dash\url::isLocal())
 		{
-			$test  = 'TEST-';
 			$local = 'LOCAL-';
 		}
 
