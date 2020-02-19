@@ -17,7 +17,7 @@ class view
 		$apikey = \dash\request::get('apikey');
 		if(!$apikey)
 		{
-			\dash\header::status(404);
+			// \dash\header::status(404);
 		}
 
 		// send sms
