@@ -10,7 +10,7 @@ $introSaved = \dash\data::introSaved();
         <div class="mB20">
          <div class="f">
           <div class="vcard shadow mA10 s12">
-            <img alt="siftal" src="<?php echo @$introSaved[1]['file']; ?>">
+            <img alt="siftal" src="<?php echo @$introSaved[1]['image']; ?>">
             <div class="content">
               <a class="header"><?php echo @$introSaved[1]['title']; ?></a>
               <div class="desc"><?php echo @$introSaved[1]['desc']; ?></div>
@@ -19,7 +19,7 @@ $introSaved = \dash\data::introSaved();
           </div>
 
           <div class="vcard shadow mA10 s12">
-            <img alt="siftal" src="<?php echo @$introSaved[2]['file']; ?>">
+            <img alt="siftal" src="<?php echo @$introSaved[2]['image']; ?>">
             <div class="content">
               <a class="header"><?php echo @$introSaved[2]['title']; ?></a>
               <div class="desc"><?php echo @$introSaved[2]['desc']; ?></div>
@@ -28,7 +28,7 @@ $introSaved = \dash\data::introSaved();
           </div>
 
           <div class="vcard shadow mA10 s12">
-            <img alt="siftal" src="<?php echo @$introSaved[3]['file']; ?>">
+            <img alt="siftal" src="<?php echo @$introSaved[3]['image']; ?>">
             <div class="content">
              <a class="header"><?php echo @$introSaved[3]['title']; ?></a>
               <div class="desc"><?php echo @$introSaved[3]['desc']; ?></div>
