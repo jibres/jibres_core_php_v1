@@ -135,21 +135,21 @@ class intro
 			[
 				'title' => T_("Jibres"),
 				'desc'  => T_("Sell and Enjoy"),
-				'file'  => \dash\url::icon(),
+				'image'  => \dash\url::icon(),
 			],
 
 			2 =>
 			[
 				'title' => T_("Jibres"),
 				'desc'  => T_("Sell and Enjoy"),
-				'file'  => \dash\url::icon(),
+				'image'  => \dash\url::icon(),
 			],
 
 			3 =>
 			[
 				'title' => T_("Jibres"),
 				'desc'  => T_("Sell and Enjoy"),
-				'file'  => \dash\url::icon(),
+				'image'  => \dash\url::icon(),
 			],
 		];
 
@@ -184,7 +184,7 @@ class intro
 
 			if(isset($meta['file']) && $meta['file'])
 			{
-				$intro[$index]['file'] = \lib\filepath::fix($meta['file']);
+				$intro[$index]['image'] = \lib\filepath::fix($meta['file']);
 			}
 		}
 
