@@ -90,7 +90,7 @@
   <?php } //endif ?>
   <?php } //endif ?>
   <?php if(\dash\request::get('subfolder') && \dash\request::get('folder')) {?>
-  {%if requestGET.subfolder and requestGET.folder%}
+
   <a href="<?php echo \dash\url::this(); ?>?folder=<?php echo \dash\request::get('folder'); ?>" tabindex="-1"><span class="fa fa-home"></span><?php echo \dash\request::get('folder'); ?></a>
   <a><?php echo \dash\request::get('subfolder'); ?></a>
   <?php } //endif ?>
@@ -109,7 +109,7 @@
   <tr>
     <td class="txtL">
       <span class="sf-database fs15 mR10"></span>
-      <a href="<?php echo \dash\url::here(); ?>/backup?download={{value.addr}}" title='<?php echo T_("Click to download"); ?>'><?php echo @$value['name']; ?></a>
+      <a href="<?php echo \dash\url::here(); ?>/backup?download=<?php echo @$value['addr']; ?>" title='<?php echo T_("Click to download"); ?>'><?php echo @$value['name']; ?></a>
     </td>
     <td class="rtl s0"><?php echo @$value['ago']; ?></td>
     <td class="pR25-f rtl s0"><?php echo \dash\fit::number(@$value['size']); ?> <?php echo T_("MB"); ?></td>

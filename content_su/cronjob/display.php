@@ -7,7 +7,7 @@
       <form method="post">
 
         <div class="switch1">
-         <input type="checkbox" name="active" id="active" {%if cronjob%} checked {%endif%}>
+         <input type="checkbox" name="active" id="active" <?php if(\dash\data::cronjob()) { echo 'checked';} ?>>
          <label for="active"></label>
          <label for="active"><?php echo T_("Run cronjob for this service"); ?>
          </label>
