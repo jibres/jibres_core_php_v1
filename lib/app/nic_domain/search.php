@@ -28,6 +28,8 @@ class search
 			return false;
 		}
 
+		$userId = \dash\user::id();
+
 		$default_args =
 		[
 			'order'  => null,
@@ -105,6 +107,8 @@ class search
 		}
 
 		$and[] = " domain.status != 'deleted' ";
+
+		$and[] = " domain.user_id = $userId ";
 
 
 		$list = \lib\db\nic_domain\search::list($and, $or, $order_sort, $meta);
