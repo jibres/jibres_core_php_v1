@@ -17,10 +17,10 @@ function highChart()
       }
     },
     title: {
-      text: '{%trans "Sum factor price and count of it group by hours"%}'
+      text: '<?php echo T_("Sum factor price and count of it group by hours"); ?>'
     },
     xAxis: [{
-      categories: {{dashboardData.chart.categories | raw}},
+      categories: <?php echo @$dashboardData['chart']['categories']; ?>,
       crosshair: true
     }],
     yAxis: [{ // Primary yAxis
@@ -31,7 +31,7 @@ function highChart()
         }
       },
       title: {
-        text: '{%trans "Sum price"%}',
+        text: '<?php echo T_("Sum price"); ?>',
         useHTML: Highcharts.hasBidiBug,
         style: {
           color: Highcharts.getOptions().colors[0]
@@ -40,7 +40,7 @@ function highChart()
     },
     { // Secondary yAxis
       title: {
-        text: '{%trans "Count"%}',
+        text: '<?php echo T_("Count"); ?>',
         useHTML: Highcharts.hasBidiBug,
         style: {
           color: Highcharts.getOptions().colors[1]
@@ -87,8 +87,8 @@ function highChart()
     },
     credits:
     {
-        text: '{{service.title}}',
-        href: '{{service.url}}',
+        text: '<?php echo \dash\data::service_title(); ?>',
+        href: '<?php echo \dash\data::service_url(); ?>',
         position:
         {
             x: -35,
@@ -100,26 +100,26 @@ function highChart()
     },
     series: [
     {
-      name: '{%trans "Sum price"%}',
+      name: '<?php echo T_("Sum price"); ?>',
       type: 'column',
-      data: {{dashboardData.chart.sum | raw}},
+      data: <?php echo @$dashboardData['chart']['sum']; ?>,
       tooltip: {
-        valueSuffix: ' {%trans "Toman"%}'
+        valueSuffix: ' <?php echo T_("Toman"); ?>'
       }
 
     },
     {
-      name: '{%trans "Count"%}',
+      name: '<?php echo T_("Count"); ?>',
       type: 'spline',
       yAxis: 1,
-      data: {{dashboardData.chart.count | raw}},
+      data: <?php echo @$dashboardData['chart']['count']; ?>,
       tooltip: {
-        valueSuffix: ' {%trans "Count"%}'
+        valueSuffix: ' <?php echo T_("Count"); ?>'
       }
     }
     ]
   }, function(_chart)
   {
-    _chart.renderer.image('{{service.logo}}', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+    _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
   });
 }
