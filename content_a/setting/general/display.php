@@ -8,7 +8,7 @@ $storeData = \dash\data::store_store_data();
 <div class="cbox normal">
 
 
-  <a class="vcard mA10 shadow" <?php if(\dash\permission::check('settingEditLogo'))  { ?>  href='<?php echo \dash\url::here(); ?>/logo' <?php } //endif ?>>
+  <a class="vcard mA10 shadow" <?php if(\dash\permission::check('settingEditLogo'))  { ?>  href='<?php echo \dash\url::here(); ?>/setting/logo' <?php } //endif ?>>
     <img src="<?php echo @$storeData['logo']; ?>" alt="<?php echo @$storeData['title']; ?>" class="pA10-f">
     <div class="content">
       <div class="header"><?php echo @$storeData['title']; ?></div>
