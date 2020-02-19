@@ -33,10 +33,8 @@ class view
 
 		$result =
 		[
-			'page' =>
-			[
-				$page,
-			],
+			'page' => $page,
+
 			'translation' =>
 			[
 				'next'  => T_('Next'),
