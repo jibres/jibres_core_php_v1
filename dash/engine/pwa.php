@@ -30,7 +30,7 @@ class pwa
 
 
 			'scope'            => '/',
-			'start_url'        => \dash\url::kingdom(). '/dashboard?utm_source=pwa',
+			'start_url'        => \dash\url::kingdom(). '/my?utm_source=pwa',
 			'orientation'      => 'portrait',
 
 
