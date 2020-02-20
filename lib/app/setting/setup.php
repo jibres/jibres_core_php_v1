@@ -75,12 +75,12 @@ class setup
 			$next_level = self::next_level($_fn);
 			if($next_level)
 			{
-				return \dash\url::this(). '/setup/'. $next_level;
+				return \dash\url::here(). '/setup/'. $next_level;
 			}
 			else
 			{
 				self::$is_end_level = true;
-				return \dash\url::this();
+				return \dash\url::here();
 			}
 
 		}
@@ -101,7 +101,7 @@ class setup
 
 		\lib\store::refresh();
 
-		if(\dash\url::child() === 'setup')
+		if(\dash\url::module() === 'setup')
 		{
 			$next_level = self::$_current_level();
 
