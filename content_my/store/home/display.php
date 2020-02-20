@@ -143,7 +143,7 @@ myStores();
   <h2><?php echo T_("#1 World Sales Engineering System"); ?></h2>
 
   <div class="buildBtn">
-    <a class="btn xl master" href="<?php echo \dash\url::here(); ?>/start" data-direct><?php echo T_("Build my own store"); ?></a>
+    <a class="btn xl master" href="<?php echo \dash\url::this(); ?>/start" data-direct><?php echo T_("Build my own store"); ?></a>
   </div>
 
   <div class="f salesChannel s0">
