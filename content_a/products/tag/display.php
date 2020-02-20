@@ -123,24 +123,21 @@ if(!is_array($dataTable))
 
         <th><?php echo T_("Description"); ?></th>
         <th data-sort="<?php echo @$sortLink['count']['order']; ?>"><a href="<?php echo @$sortLink['count']['link']; ?>"><?php echo T_("Used"); ?></a></th>
-        <th data-sort="<?php echo @$sortLink['status']['order']; ?>"><a href="<?php echo @$sortLink['status']['link']; ?>"><?php echo T_("Status"); ?></a></th>
+        <th class="collapsing" data-sort="<?php echo @$sortLink['status']['order']; ?>"><a href="<?php echo @$sortLink['status']['link']; ?>"><?php echo T_("Status"); ?></a></th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($dataTable as $key => $value) {?>
 
         <tr class="">
-          <td><a href="<?php echo \dash\url::this(); ?>?type=<?php echo @$value['type']; ?>&edit=<?php echo @$value['id']; ?>">
-            <?php if(isset($value['meta']['color'])) {?>
-              <span title=" <?php echo @$value['meta']['color']; ?>" class="mA3 floatRa badge rounded  <?php echo @$value['meta']['color']; ?>">&nbsp;</span>
-            <?php } // endif ?>
-
+          <td><a href="<?php echo \dash\url::that(); ?>?edit=<?php echo @$value['id']; ?>">
+          <i class="sf-edit"></i>
 
           <?php echo @$value['title']; ?></a></td>
 
 
 
-            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/<?php echo @$value['url']; ?>" target="_blank"><span class="sf-share"></span> <?php echo @$value['slug']; ?></a></td>
+            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/p/tag/<?php echo @$value['slug']; ?>" target="_blank"><span class="sf-share"></span> <?php echo @$value['slug']; ?></a></td>
 
 
 
@@ -173,7 +170,7 @@ if(!is_array($dataTable))
 <?php function iedit() {?>
 <button class="btn primary block mT25"><?php echo T_("Edit"); ?></button>
 <div class="ovh">
-  <a href="<?php echo \dash\url::pwd(); ?>" class="badge danger floatL mT5" data-ajaxify data-method='post' data-data='{"action": "remove"}'><?php echo T_("Remove"); ?></a>
+  <a href="<?php echo \dash\url::pwd(); ?>" class="badge danger floatL mT5" data-confirm data-method='post' data-data='{"action": "remove"}'><?php echo T_("Remove"); ?></a>
 </div>
 
 <?php }// endfunction ?>
@@ -264,7 +261,7 @@ if(!is_array($dataTable))
 <?php function htmlFilter() {?>
 <p class="f fs14 msg info2">
   <span class="c"><?php echo \dash\data::dataFilter(); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
+  <a class="cauto" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php }// endfunction ?>
 
@@ -272,7 +269,7 @@ if(!is_array($dataTable))
 <?php function htmlFilterNoResult() {?>
 <p class="f fs14 msg warn2">
   <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
+  <a class="cauto" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php }// endfunction ?>
 
