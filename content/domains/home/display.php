@@ -77,6 +77,15 @@ echo T_("Top-level domains were introduced to help organize the locations in the
   </div>
 
 
+  <h4 data-kerkere="[data-faq10]" data-kerkere-icon='close'><?php echo T_("What is a TLD?"); ?></h4>
+  <div data-kerkere-content='hide' data-faq10>
+   <p><?php
+echo T_('A Top-level Domain (TLD) is the part of a domain name to the right of the dot (e.g., the "com" in jibres.com).
+TLDs are part of the text-based interface assigned to numerical IP addresses that allows humans to more easily navigate the web without having to memorize long strings of numbers.');
+?></p>
+  </div>
+
+
   <h4 data-kerkere="[data-faq2]" data-kerkere-icon='close'><?php echo T_("What is the difference between various TLDs? Which ones are better?"); ?></h4>
   <div data-kerkere-content='hide' data-faq2>
    <p><?php
@@ -141,7 +150,6 @@ echo T_("");
   </div>
 
 
-
   <h4 data-kerkere="[data-faq8]" data-kerkere-icon='close'><?php echo T_("Is there a limit on how long or short my domain can be?"); ?></h4>
   <div data-kerkere-content='hide' data-faq8>
    <p><?php
@@ -153,63 +161,12 @@ echo T_("When choosing a domain name, keep it simple - a word that is difficult 
   </div>
 
 
-
-  <h4 data-kerkere="[data-faq8]" data-kerkere-icon='close'><?php echo T_(""); ?></h4>
-  <div data-kerkere-content='hide' data-faq8>
+  <h4 data-kerkere="[data-faq9]" data-kerkere-icon='close'><?php echo T_("What can I do with my domain name?"); ?></h4>
+  <div data-kerkere-content='hide' data-faq9>
    <p><?php
-echo T_("");
-?></p>
-   <p><?php
-echo T_("");
+echo T_("Once you have registered your domain name it's time to use it. Maybe you want to funnel visitors to a landing page built especially for sales, or forward them to your personal Twitter page - it's completely up to you how you use it. You can also create personalized email addresses based on your domain name. This helps to build trust in your brand and promote your company.");
 ?></p>
   </div>
-
-
-  <h4 data-kerkere="[data-faq8]" data-kerkere-icon='close'><?php echo T_(""); ?></h4>
-  <div data-kerkere-content='hide' data-faq8>
-   <p><?php
-echo T_("");
-?></p>
-   <p><?php
-echo T_("");
-?></p>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-What can I do with my domain name?
-Once you have registered your domain name it's time to use it. Maybe you want to funnel visitors to a landing page built especially for sales, or forward them to your personal Twitter page - it's completely up to you how you use it. You can also create personalized email addresses based on your domain name. This helps to build trust in your brand and promote your company.
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </section>
 
@@ -294,9 +251,7 @@ FAQ
 Frequently Asked Questions
 
 
-What is a TLD?
-A Top-level Domain (TLD) is the part of a domain name to the right of the dot (e.g., the "com" in jibres.com).
-TLDs are part of the text-based interface assigned to numerical IP addresses that allows humans to more easily navigate the web without having to memorize long strings of numbers.
+
 
 
 What TLD types exist?
