@@ -3,7 +3,7 @@
   <section>
    <h2><?php echo T_('What is a domain?'); ?></h2>
    <p><?php echo T_('Everything you need to know about domains'); ?></p>
-   <p><?php echo T_("Have you ever asked yourself, 'What is a domain, anyway?' Well, take a look up there at the top of the screen. See that part at the top of your browser window in the URL bar? It's the part that starts with '<span class='txtB'>http://</span>' in the address bar. The second part of the URL is the domain. In our case, it's <span class='txtB'>jibres.com</span."); ?></p>
+   <p><?php echo T_("Have you ever asked yourself, 'What is a domain, anyway?' Well, take a look up there at the top of the screen. See that part at the top of your browser window in the URL bar? It's the part that starts with '<span class='txtB'>http://</span>' in the address bar. The second part of the URL is the domain. In our case, it's <span class='txtB'>jibres.com</span>."); ?></p>
   </section>
   <hr class="mB50">
 
