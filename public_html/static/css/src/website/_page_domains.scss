@@ -10,7 +10,8 @@
 .forDevelopers img{width: 280px;display: block;margin:10px auto;}
 
 
-.faq h4{background-color: rgba(0,0,0,0.03);transition:0.3s;line-height: 36px;}
+.faq h4{background-color: rgba(0,0,0,0.03);transition:0.3s;line-height: 50px;font-weight:700;}
 .faq h4:hover{background-color: rgba(0,0,0,0.07);}
 .faq [data-kerkere-content]{padding:0 50px;}
+.faq [data-kerkere-content]:hover{background-color: rgba(0,0,0,0.02)}
 

@@ -39,7 +39,7 @@
 
  <section>
   <div class="f">
-   <div class="c6 pRa10">
+   <div class="c6 pRa20">
     <h3><?php echo T_('Find your winning domain'); ?></h3>
     <p><?php echo T_("When you register a domain, you're not just getting a web address. It's a vital piece of your online presence. Your domain name carries your brand, your public image, and your professional reputation. It's the first thing people see when they visit you, so buying a domain name registration means making some important decisions."); ?></p>
 
@@ -49,22 +49,6 @@
     <p><?php echo T_('A domain name represents your business or personal brand on the web, which means choosing the right one is important. Brainstorming is a great place to start, so grab your pen and jot down some words related to your idea.'); ?></p>
    </div>
   </div>
- </section>
-
-
-
-
-
-
-
-
- <section class="f fix align-center">
-   <div class="cauto">
-    <img class="dreamRider" src='<?php echo \dash\url::static() ?>/img/domain/jibres-domain-monitoring.gif'>
-
-   </div>
-   <div class="c">
-   </div>
  </section>
 
 
@@ -99,7 +83,7 @@ echo T_("Top-level domains were introduced to help organize the locations in the
 echo T_("When it comes to picking a top-level domain for your website, there are plenty of options. Yes, .com domain extensions are popular, but due to their popularity, you may find that your dream domain has already been taken. Why not consider choosing a generic (gTLD) like .club for your tennis club, or a country-code (ccTLDs) like .co.uk for your UK office?");
 ?></p>
    <p><?php
-echo T_("If you’re a new business it may be important to choose a familiar domain extension like .com, a localized domain or a well-known gTLD. As they are popular, they are perceived as more trustworthy. Don’t panic if you haven’t managed to get one. The web is changing all the time, and as the web grows, so will the familiarity of new TLDs.");
+echo T_("If you're a new business it may be important to choose a familiar domain extension like .com, a localized domain or a well-known gTLD. As they are popular, they are perceived as more trustworthy. Don't panic if you haven't managed to get one. The web is changing all the time, and as the web grows, so will the familiarity of new TLDs.");
 ?></p>
   </div>
 
@@ -115,20 +99,75 @@ echo T_("If you are looking for a fast and safe domain name checker, use Jibres.
   </div>
 
 
-  <h4 data-kerkere="[data-faq4]" data-kerkere-icon='close'><?php echo T_(""); ?></h4>
+  <h4 data-kerkere="[data-faq4]" data-kerkere-icon='close'><?php echo T_("Are .com domains better for search engine optimization (SEO)?"); ?></h4>
   <div data-kerkere-content='hide' data-faq4>
    <p><?php
-echo T_("");
-?></p>
-   <p><?php
-echo T_("");
+echo T_("No. All domain extensions are considered equal in the eyes of Google and there is no automatic preference given to a .com domain.
+When checking to see if a domain exists, it's important to note whether a large and recognizable company has the .com if it does, this can hurt your search results. It can also open you up to a potential trademark battle.");
 ?></p>
   </div>
 
 
-  <h4 data-kerkere="[data-faq5]" data-kerkere-icon='close'><?php echo T_(""); ?></h4>
+  <h4 data-kerkere="[data-faq5]" data-kerkere-icon='close'><?php echo T_("What is a premium domain?"); ?></h4>
   <div data-kerkere-content='hide' data-faq5>
    <p><?php
+echo T_("Premium domains are short domains, often made up of just one word or 3-5 letters. They are also known as 'aftermarket' or 'pre-registered' domains. Most premium domains have a .com extension, but many end with .org, .net, and .biz.");
+?></p>
+   <p><?php
+echo T_("As premium domains include common words they are often the most memorable. Additionally, companies value short domains that match their company name or products, meaning these domains are typically the most desirable. Sometimes certain domains sold by different registries are considered premium and can have a higher price point. With registry premium domains, both registration and renewal prices are set by the registry and are usually high.");
+?></p>
+  </div>
+
+
+  <h4 data-kerkere="[data-faq6]" data-kerkere-icon='close'><?php echo T_("What is a new TLD?"); ?></h4>
+  <div data-kerkere-content='hide' data-faq6>
+   <p><?php
+echo T_("If you're looking for something a little different for your business or personal website, why not consider a new TLD? There are hundreds of new fresh and exciting domain endings that can help bring your dream alive. Want a personal website? Share photos of your international trip with .travel, write your thoughts on the latest catwalk trends with .blog or get creative with a .is.");
+?></p>
+   <p><?php
+echo T_("Looking to conquer your industry? Set up a web developer startup with a .dev and get a .inc to show you mean business.");
+?></p>
+  </div>
+
+
+  <h4 data-kerkere="[data-faq7]" data-kerkere-icon='close'><?php echo T_("Should I register multiple extensions for the same domain?"); ?></h4>
+  <div data-kerkere-content='hide' data-faq7>
+   <p><?php
+echo T_("Yes. When you register a domain extension, no one else can use it. So, if you've already got mydomain.com, it's a good idea to register mydomain.net and mydomain.org and redirect them back to your original site. This helps to avoid confusion and makes capturing visitors easier.");
+?></p>
+   <p><?php
+echo T_("");
+?></p>
+  </div>
+
+
+
+  <h4 data-kerkere="[data-faq8]" data-kerkere-icon='close'><?php echo T_("Is there a limit on how long or short my domain can be?"); ?></h4>
+  <div data-kerkere-content='hide' data-faq8>
+   <p><?php
+echo T_("The maximum length a domain can be is 63 characters and the minimum is 1 character. The shorter your domain is, the easier it is to type and remember.");
+?></p>
+   <p><?php
+echo T_("When choosing a domain name, keep it simple - a word that is difficult to spell will be problematic for your visitors. Pick a name that reflects your brand, industry, or you if it's a personal project. Once you have a list of words, ask your friends and family for feedback. Have fun choosing!");
+?></p>
+  </div>
+
+
+
+  <h4 data-kerkere="[data-faq8]" data-kerkere-icon='close'><?php echo T_(""); ?></h4>
+  <div data-kerkere-content='hide' data-faq8>
+   <p><?php
+echo T_("");
+?></p>
+   <p><?php
+echo T_("");
+?></p>
+  </div>
+
+
+  <h4 data-kerkere="[data-faq8]" data-kerkere-icon='close'><?php echo T_(""); ?></h4>
+  <div data-kerkere-content='hide' data-faq8>
+   <p><?php
 echo T_("");
 ?></p>
    <p><?php
@@ -152,34 +191,12 @@ echo T_("");
 
 
 
-Are .com domains better for search engine optimization (SEO)?
-No. All domain extensions are considered equal in the eyes of Google and there is no automatic preference given to a .com domain.
-When checking to see if a domain exists, it’s important to note whether a large and recognizable company has the .com - if it does, this can hurt your search results. It can also open you up to a potential trademark battle.
 
 
-What is a premium domain?
-Premium domains are short domains, often made up of just one word or 3-5 letters. They are also known as ‘aftermarket’ or ‘pre-registered’ domains. Most premium domains have a .com extension, but many end with .org, .net, and .biz.
-As premium domains include common words they are often the most memorable. Additionally, companies value short domains that match their company name or products, meaning these domains are typically the most desirable.
-Sometimes certain domains sold by different registries are considered premium and can have a higher price point. With registry premium domains, both registration and renewal prices are set by the registry and are usually high.
-
-
-What is a new TLD?
-If you’re looking for something a little different for your business or personal website, why not consider a new TLD? There are hundreds of new fresh and exciting domain endings that can help bring your dream alive.
-Want a personal website? Share photos of your international trip with .travel, write your thoughts on the latest catwalk trends with .blog or get creative with a .is.
-Looking to conquer your industry? Set up a web developer startup with a .dev and get a .inc to show you mean business.
-
-
-Should I register multiple extensions for the same domain?
-Yes. When you register a domain extension, no one else can use it. So, if you’ve already got mydomain.com, it’s a good idea to register mydomain.net and mydomain.org and redirect them back to your original site. This helps to avoid confusion and makes capturing visitors easier.
-
-
-Is there a limit on how long or short my domain can be?
-The maximum length a domain can be is 63 characters and the minimum is 1 character. The shorter your domain is, the easier it is to type and remember.
-When choosing a domain name, keep it simple - a word that is difficult to spell will be problematic for your visitors. Pick a name that reflects your brand, industry, or you if it’s a personal project. Once you have a list of words, ask your friends and family for feedback. Have fun choosing!
 
 
 What can I do with my domain name?
-Once you have registered your domain name it’s time to use it. Maybe you want to funnel visitors to a landing page built especially for sales, or forward them to your personal Twitter page - it’s completely up to you how you use it. You can also create personalized email addresses based on your domain name. This helps to build trust in your brand and promote your company.
+Once you have registered your domain name it's time to use it. Maybe you want to funnel visitors to a landing page built especially for sales, or forward them to your personal Twitter page - it's completely up to you how you use it. You can also create personalized email addresses based on your domain name. This helps to build trust in your brand and promote your company.
 
 
 
@@ -251,7 +268,7 @@ Find your dream domain.
 
 Remember to come up with words that are easy to spell and reflect the purpose of your website. Ask friends and family for their opinions - the more the merrier in your search for the perfect website domain name.
 
-Once you’ve come up with an exciting idea, it’s time to see if your domain name has been taken.
+Once you've come up with an exciting idea, it's time to see if your domain name has been taken.
 
 
 
@@ -323,6 +340,17 @@ Finally, add the top choices to your cart and complete the domain registration.
 
 
 </p>
+
+
+ <section class="f fix align-center">
+   <div class="cauto">
+    <img class="dreamRider" src='<?php echo \dash\url::static() ?>/img/domain/jibres-domain-monitoring.gif'>
+
+   </div>
+   <div class="c">
+   </div>
+ </section>
+
 
 
  </div>
