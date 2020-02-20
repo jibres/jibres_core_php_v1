@@ -27,7 +27,7 @@ if (\dash\user::id())
  }
  else
  {
-  echo '<a class="master" href="'. \dash\url::sitelang(). '/store">'. T_("Dashboard"). '</a>';
+  echo '<a class="master" href="'. \dash\url::sitelang(). '/my/store">'. T_("Dashboard"). '</a>';
  }
 
 }

@@ -1,7 +1,22 @@
 <div class="jibresBanner">
  <div class="fit">
 
- 	Search
+  <form class="domainSearchBox" action='<?php echo \dash\url::kindgom() ?>/domains/search' method='get' autocomplete='off'>
+   <h3 class="txtC"><?php echo T_('Every website starts with a great domain name'); ?></h3>
+  <div class="input ltr">
+   <input type="text" name="q" id='domainFirstSearch' maxlength='63' autocomplete='off' <?php if (!\dash\detect\device::detectPWA() && 0) echo 'autofocus'?>>
+   <button class="addon btn primary"><?php echo T_('Search'); ?></button>
+  </div>
+ </form>
+
+ 	<h2>Buy a domain name and create your website today.</h2>
+ 	<p><?php echo T_('Welcome to the domain registrar that has everything you need to get the right domain name for your personal or business website.')?></p>
+ 	<p><?php echo T_("You can choose from the most in-demand and recognizable domain names at great prices, with new choices added regularly. So you can register a domain that helps your online presence either take off, or hit new heights. That's where Jibres comes in.")?></p>
+ 	<p><?php echo T_('')?></p>
+ 	<p><?php echo T_('')?></p>
+
+
+ 	<p class="fc-mute hide"><?php echo T_('*ICANN (the Internet Corporation for Assigned Names and Numbers) charges a mandatory annual fee of $0.18 for each domain registration, renewal or transfer. This will be added to the listed price for some domains, at the time of purchase.'); ?></p>
 
  </div>
 
@@ -75,10 +90,10 @@ echo T_("Think of the name you want to register. The answer is typically your co
 
 
 <hr>
-    <h2>Buy a domain name and create your website today.</h2>
+
 <p>
 
-Every website starts with a great domain name.
+
 Register Your Dream Domain Today.
 
 
@@ -86,12 +101,7 @@ Register Your Dream Domain Today.
 
 
 
-That's where Jibres comes in.
-Welcome to the domain registrar that has everything you need to get the right domain name for your personal or business website, including answers to questions like:
 
-
-You can choose from the most in-demand and recognizable domain names at great prices, with new choices added regularly.
-So you can register a domain that helps your online presence either take off, or hit new heights.
 
 
 Register
@@ -102,30 +112,11 @@ Find that perfect domain name and get it registered today!
 Why register a domain name with Jibres?
 Our customers are our top priority
 
-*ICANN (the Internet Corporation for Assigned Names and Numbers) charges a mandatory annual fee of $0.18 for each domain registration, renewal or transfer.
-This will be added to the listed price for some domains, at the time of purchase.
-
-
-</p>
-
-
-
-<p>
-
-Find your dream domain.
-
-
-
 
 
 Remember to come up with words that are easy to spell and reflect the purpose of your website. Ask friends and family for their opinions - the more the merrier in your search for the perfect website domain name.
 
 Once you've come up with an exciting idea, it's time to see if your domain name has been taken.
-
-
-
-Search for your dream domain
-Discover the perfect domain now
 
 </p>
 
