@@ -1,8 +1,9 @@
 
 // sidebar
-[data-panel] #sidebar{overflow:hidden;overflow-y:auto;width:250px;height:100%;position:relative;background-color:#302b2b;@include user-select(none);-webkit-transition: all 0.2s ease-out; -moz-transition: all 0.2s ease-out; -ms-transition: all 0.2s ease-out; -o-transition: all 0.2s ease-out; transition: all 0.2s ease-out; transition: all 200ms cubic-bezier(.694, .0482, .335, 1);transition-property:right,left;transform: translateX(0)}
-[dir='ltr'] [data-panel] #sidebar{float: left;}
-[dir='rtl'] [data-panel] #sidebar{float: right;}
+[data-panel] #sidebar{overflow:hidden;overflow-y:auto;width:250px;height:100%;position:relative;background-color:#302b2b;position:fixed;top:0;bottom:0;z-index:10;@include user-select(none);-webkit-transition: all 0.2s ease-out; -moz-transition: all 0.2s ease-out; -ms-transition: all 0.2s ease-out; -o-transition: all 0.2s ease-out; transition: all 0.2s ease-out; transition: all 200ms cubic-bezier(.694, .0482, .335, 1);transition-property:right,left;transform: translateX(0)}
+[dir='ltr'] [data-panel] #sidebar{left:0}
+[dir='rtl'] [data-panel] #sidebar{right:0}
+
 
 /* sidebar */
 [data-panel] #sidebar .scr{overflow:hidden;overflow-y:auto;height:80%;height:calc(100% - 70px);}
