@@ -9,6 +9,9 @@
   	user-select:none;
   	z-index:1;
 }
+[dir='ltr'] [data-panel] .dashHead{margin-left: 250px;}
+[dir='rtl'] [data-panel] .dashHead{margin-right: 250px;}
+
 [data-panel] .dashHead:hover{overflow:visible;}
 [data-panel] .dashHead .sidenavHandler{width:50px;text-align:center;font-size:1.2em;cursor:pointer!important;}
 [data-panel] .dashHead .sidenavHandler:hover{background-color:rgba(0,0,0,0.2)}
