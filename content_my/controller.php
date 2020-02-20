@@ -1,0 +1,14 @@
+<?php
+namespace content_my;
+
+
+class controller
+{
+	public static function routing()
+	{
+		\dash\redirect::to_login();
+
+		\dash\redirect::remove_subdomain();
+	}
+}
+?>
