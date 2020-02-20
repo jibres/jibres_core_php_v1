@@ -151,7 +151,7 @@
     <?php echo T_("You have not product unit yet!"); ?>
     <br>
     <?php echo T_("To add a product unit you must set unit when registering or editing a product"); ?>
-    <a href="<?php echo \dash\url::this(); ?>" class="btn secondary xs"><?php echo T_("Product list"); ?></a>
+    <a href="<?php echo \dash\url::here(). '/products'; ?>" class="btn secondary xs"><?php echo T_("Product list"); ?></a>
 
 </div>
 <?php } //endif ?>
