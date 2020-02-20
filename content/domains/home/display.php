@@ -16,30 +16,43 @@
    <div class="item">
     <h3><?php echo T_('Register'); ?></h3>
     <p><?php echo T_('Been dreaming of a .com or .dev that says exactly what you want to say about your business? Find that perfect domain name and get it registered today!'); ?></p>
+    <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/domains/search"><?php echo T_('Find my Domain'); ?></a>
    </div>
   </div>
   <div class="c4 s12 pRa10">
    <div class="item">
     <h3><?php echo T_('Transfer'); ?></h3>
     <p><?php echo T_('Transfer your domains to Jibres and save on renewals. Most domains come with an extra year of registration added during the transfer process free of charge.'); ?></p>
+    <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/domains/transfer"><?php echo T_('Transfer Now'); ?></a>
    </div>
   </div>
   <div class="c4 s12">
    <div class="item">
     <h3><?php echo T_('Renew'); ?></h3>
     <p><?php echo T_("Searching for the lowest domain renew price? That's it. Jibres offer exclusive offer on renew domains at prices that won't break your budget. We are the best of best:)"); ?></p>
+    <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/domains/renew"><?php echo T_('Renew Domain'); ?></a>
    </div>
   </div>
  </div>
 </section>
 
 
- <p><?php echo T_("When you register a domain, you're not just getting a web address. Your domain name carries your brand, your public image, and your professional reputation. It's a vital piece of your online presence. It's the first thing people see when they visit you, so buying a domain name registration means making some important decisions."); ?></p>
+ <section>
+  <div class="f">
+   <div class="c6 pRa10">
+    <h3><?php echo T_('Find your winning domain'); ?></h3>
+    <p><?php echo T_("When you register a domain, you're not just getting a web address. It's a vital piece of your online presence. Your domain name carries your brand, your public image, and your professional reputation. It's the first thing people see when they visit you, so buying a domain name registration means making some important decisions."); ?></p>
+
+   </div>
+   <div class="c6">
+    <h2><?php echo T_('How to find a good domain name'); ?></h2>
+    <p><?php echo T_('A domain name represents your business or personal brand on the web, which means choosing the right one is important. Brainstorming is a great place to start, so grab your pen and jot down some words related to your idea.'); ?></p>
+   </div>
+  </div>
+ </section>
 
 
 
- <h2><?php echo T_('How to find a good domain name'); ?></h2>
- <p><?php echo T_('A domain name represents your business or personal brand on the web, which means choosing the right one is important. Brainstorming is a great place to start, so grab your pen and jot down some words related to your idea.'); ?></p>
 
 
 
@@ -54,12 +67,21 @@
    </div>
  </section>
 
+
+
+
+<section>
+ <h3><?php echo T_('Built By Developers, For Developers.'); ?></h3>
+</section>
+
+
 <hr>
     <h2>Buy a domain name and create your website today.</h2>
 <p>
 
 Every website starts with a great domain name.
 Register Your Dream Domain Today.
+
 
 
 
@@ -90,7 +112,7 @@ This will be added to the listed price for some domains, at the time of purchase
 
 
 <p>
-Find your winning domain
+
 Find your dream domain.
 
 
