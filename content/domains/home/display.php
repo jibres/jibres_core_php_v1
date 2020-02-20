@@ -1,5 +1,6 @@
 <div class="jibresBanner">
  <div class="fit">
+
   <form class="domainSearchBox" action='<?php echo \dash\url::kindgom() ?>/domains/search' method='get' autocomplete='off'>
    <h2 class="txtC"><?php echo T_('Search for your dream domain'); ?></h2>
   <div class="input ltr">
@@ -9,17 +10,59 @@
  </form>
 
 
-  <h2>Buy a domain name and create your website today.</h2>
+<section class="tripleDomainService">
+ <div class="f">
+  <div class="c4 s12 pRa10">
+   <div class="item">
+    <h3><?php echo T_('Register'); ?></h3>
+    <p><?php echo T_('Been dreaming of a .com or .dev that says exactly what you want to say about your business? Find that perfect domain name and get it registered today!'); ?></p>
+   </div>
+  </div>
+  <div class="c4 s12 pRa10">
+   <div class="item">
+    <h3><?php echo T_('Transfer'); ?></h3>
+    <p><?php echo T_('Transfer your domains to Jibres and save on renewals. Most domains come with an extra year of registration added during the transfer process free of charge.'); ?></p>
+   </div>
+  </div>
+  <div class="c4 s12">
+   <div class="item">
+    <h3><?php echo T_('Renew'); ?></h3>
+    <p><?php echo T_("Searching for the lowest domain renew price? That's it. Jibres offer exclusive offer on renew domains at prices that won't break your budget. We are the best of best:)"); ?></p>
+   </div>
+  </div>
+ </div>
+</section>
+
+
+ <p><?php echo T_("When you register a domain, you're not just getting a web address. Your domain name carries your brand, your public image, and your professional reputation. It's a vital piece of your online presence. It's the first thing people see when they visit you, so buying a domain name registration means making some important decisions."); ?></p>
+
+
+
+ <h2><?php echo T_('How to find a good domain name'); ?></h2>
+ <p><?php echo T_('A domain name represents your business or personal brand on the web, which means choosing the right one is important. Brainstorming is a great place to start, so grab your pen and jot down some words related to your idea.'); ?></p>
+
+
+
+
+
+ <section class="f fix align-center">
+   <div class="cauto">
+    <img class="dreamRider" src='<?php echo \dash\url::static() ?>/img/domain/jibres-domain-monitoring.gif'>
+
+   </div>
+   <div class="c">
+   </div>
+ </section>
+
+<hr>
+    <h2>Buy a domain name and create your website today.</h2>
 <p>
 
 Every website starts with a great domain name.
 Register Your Dream Domain Today.
 
 
-When you register a domain, you're not just getting a web address.
-Your domain name carries your brand, your public image, and your professional reputation.
-It's a vital piece of your online presence.
-It's the first thing people see when they visit you, so buying a domain name registration means making some important decisions.
+
 
 
 That's where Jibres comes in.
@@ -51,13 +94,10 @@ Find your winning domain
 Find your dream domain.
 
 
-How to find a good domain name
-A domain name represents your business or personal brand on the web, which means choosing the right one is important.
-Brainstorming is a great place to start, so grab your pen and jot down some words related to your idea.
 
 
-Remember to come up with words that are easy to spell and reflect the purpose of your website.
-Ask friends and family for their opinions - the more the merrier in your search for the perfect website domain name.
+
+Remember to come up with words that are easy to spell and reflect the purpose of your website. Ask friends and family for their opinions - the more the merrier in your search for the perfect website domain name.
 
 Once you’ve come up with an exciting idea, it’s time to see if your domain name has been taken.
 
@@ -96,7 +136,7 @@ The Business Name Generator helps you discover the perfect name for your busines
 
 How do I check domain name availability status?
 To verify domain availability, use the search bar at the top of the page. Your website name will either be available or taken. If your domain is taken, this means that it is either reserved by the Registry or registered by someone else. At this point, you can choose to make an offer for that domain name.
-If you are looking for a fast and safe domain name checker, use Namecheap. We never have and never will sell any information on our clients.
+If you are looking for a fast and safe domain name checker, use Jibres. We never have and never will sell any information on our clients.
 
 
 
