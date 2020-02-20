@@ -263,9 +263,11 @@ class mvc
 
 			\dash\engine\view::lastChanges();
 			$nativeTemplate = \dash\engine\layout\fn::shoot();
+
 			if(!$nativeTemplate)
 			{
-				\dash\engine\twig::init();
+				\dash\header::status(206, "Without display");
+				return false;
 			}
 		}
 	}
