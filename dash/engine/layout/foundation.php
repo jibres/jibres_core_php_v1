@@ -12,7 +12,7 @@ if (\dash\detect\device::detectPWA())
   echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0';
 else
   echo 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0';
-?>" name="viewport">
+?>" name="viewport"/>
 <?php
 if (!\dash\data::pageWithLogin())
 {
@@ -36,7 +36,7 @@ if (!\dash\data::pageWithLogin())
 }
 if(\dash\user::id())
 {
-  echo " <meta content='". \dash\coding::encode(\dash\user::id()). "' name='user-Jibres'\n";
+  echo " <meta content='". \dash\coding::encode(\dash\user::id()). "' name='user-Jibres'/>\n";
 }
 ?>
  <meta content="<?php echo \dash\data::site_title(); ?>" name="application-name"/>
