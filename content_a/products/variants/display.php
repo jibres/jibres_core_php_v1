@@ -2,6 +2,7 @@
 $variantsList = \dash\data::variantsList();
 ?>
 
+
 <div class="f justify-center">
   <div class="jPage c9 s12 m12" >
     <div class="c8 x9 s12 pRa10">
@@ -11,7 +12,7 @@ $variantsList = \dash\data::variantsList();
           <header><h2><?php echo T_("Variants"); ?></h2></header>
           <div class="pad jboxVariants">
 
-            <?php if(\dash\data::productDataRow_variant_child() && !\dash\data::productDataRow_parent()) {?>
+            <?php if(!\dash\data::productDataRow_variant_child() && !\dash\data::productDataRow_parent()) {?>
 
 
             <form method="post" autocomplete="off">
