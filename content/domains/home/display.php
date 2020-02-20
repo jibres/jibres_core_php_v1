@@ -3,7 +3,7 @@
   <form class="domainSearchBox" action='<?php echo \dash\url::kindgom() ?>/domains/search' method='get' autocomplete='off'>
    <h2 class="txtC"><?php echo T_('Search for your dream domain'); ?></h2>
   <div class="input ltr">
-   <input type="text" name="q" id='domainFirstSearch' max-lenght='63' autocomplete='off'>
+   <input type="text" name="q" id='domainFirstSearch' maxlength='63' autocomplete='off' <?php if (!\dash\detect\device::detectPWA()) echo 'autofocus'?>>
    <button class="addon btn primary"><?php echo T_('Search'); ?></button>
   </div>
  </form>
