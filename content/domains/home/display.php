@@ -1,6 +1,6 @@
 <div class="jibresBanner">
  <div class="fit">
-  <form class="domainSearchBox" action='<?php echo \dash\url::kindgom() ?>/domain/search' method='get' autocomplete='off'>
+  <form class="domainSearchBox" action='<?php echo \dash\url::kindgom() ?>/domains/search' method='get' autocomplete='off'>
    <h2 class="txtC"><?php echo T_('Search for your dream domain'); ?></h2>
   <div class="input ltr">
    <input type="text" name="q" id='domainFirstSearch' max-lenght='63' autocomplete='off'>
