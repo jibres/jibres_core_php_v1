@@ -72,34 +72,35 @@
       location.replace(obj.url);
       return;
     }
-    if(obj.content && $('body').attr('data-in') !== obj.content)
-    {
-      if($('body').attr('data-panel') !== undefined && obj.panel)
-      {
-        // body is panel, dont worry, continue
-      }
-      else
-      {
-        if($('html').attr('data-pwa') !== undefined)
-        {
-          // do nothing for pwa
-        }
-        else
-        {
-          if($('html').attr('data-debugger') !== undefined)
-          {
-            // do nothing
-          }
-          else
-          {
-            console.log('hard refresh! content changed');
-            // hard redirect to new content
-            location.replace(obj.url);
-            return;
-          }
-        }
-      }
-    }
+
+    // if(obj.content && $('body').attr('data-in') !== obj.content)
+    // {
+    //   if($('body').attr('data-panel') !== undefined && obj.panel)
+    //   {
+    //     // body is panel, dont worry, continue
+    //   }
+    //   else
+    //   {
+    //     if($('html').attr('data-pwa') !== undefined)
+    //     {
+    //       // do nothing for pwa
+    //     }
+    //     else
+    //     {
+    //       if($('html').attr('data-debugger') !== undefined)
+    //       {
+    //         // do nothing
+    //       }
+    //       else
+    //       {
+    //         console.log('hard refresh! content changed');
+    //         // hard redirect to new content
+    //         location.replace(obj.url);
+    //         return;
+    //       }
+    //     }
+    //   }
+    // }
 
     var $html = $(html);
 
