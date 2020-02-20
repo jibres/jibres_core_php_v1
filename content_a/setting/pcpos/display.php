@@ -308,7 +308,7 @@
 
 
         <tr <?php if(isset($value['isdefault']) && $value['isdefault']) {?> title='<?php echo T_("Is default"); ?>' class="positive" <?php } //endif ?>>
-          <td class="collapsing"><span class="spay-32-{{value.slug}}"></span></td>
+          <td class="collapsing"><span class="spay-32-<?php echo @$value['slug']; ?>"></span></td>
           <td class="collapsing txtLa">
             <span class="txtB"><?php echo T_(ucfirst(@$value['slug'])); ?></span>
             <?php if(isset($value['pcpos']) && $value['pcpos']) {?>

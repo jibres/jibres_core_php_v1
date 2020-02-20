@@ -594,7 +594,7 @@ $productDataRow = \dash\data::productDataRow();
     <?php foreach (\dash\data::productFamily() as $key => $value) {?>
 
 
-      <div class="msg f {%if value.id == requestGET.id%} primary2{%endif%}">
+      <div class="msg f <?php if(\dash\request::get('id') == $value['id']) { echo 'primary2';} ?>">
         <div class="cauto"><span class="mRa10"><?php echo \dash\fit::number($key + 1); ?></span></div>
         <div class="c">
           <small class="fc-mute"><?php echo @$value['optionname1']; ?></small> <b class="fc-red"><?php echo @$value['optionvalue1']; ?></b>

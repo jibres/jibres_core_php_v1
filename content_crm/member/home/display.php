@@ -666,7 +666,7 @@ if(\dash\request::get('status'))
   <div class="f">
 
    <div class="c s6">
-    <a class="dcard {%if not requestGET.status or requestGET.status == 'active' %}active{%endif%}" href='<?php echo \dash\url::this(); ?>?status=active' data-shortkey="49ctrlshift">
+    <a class="dcard <?php if(\dash\request::get('status') == 'active' || !\dash\request::get('status')) {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?status=active' data-shortkey="49ctrlshift">
      <div class="statistic green">
       <div class="value"><i class="sf-user-5"></i></div>
       <div class="label"><?php echo T_("Active"); ?> <kbd class=" hide mT5">Shift+1</kbd></div>
@@ -676,7 +676,7 @@ if(\dash\request::get('status'))
 
 
    <div class="c s6">
-    <a class="dcard {%if requestGET.status == 'awaiting' %}active{%endif%}" href='<?php echo \dash\url::this(); ?>?status=awaiting' data-shortkey="50ctrlshift">
+    <a class="dcard  <?php if(\dash\request::get('status') == 'awaiting') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?status=awaiting' data-shortkey="50ctrlshift">
      <div class="statistic blue">
       <div class="value"><i class="sf-person-stalker"></i></div>
       <div class="label"><?php echo T_("Awaiting"); ?> <kbd class=" hide mT5">Shift+1</kbd></div>
@@ -686,7 +686,7 @@ if(\dash\request::get('status'))
 
 
     <div class="c s6">
-      <a class="dcard {%if requestGET.status == 'deactive' %}active{%endif%}" href='<?php echo \dash\url::this(); ?>?status=deactive' data-shortkey="51ctrlshift">
+      <a class="dcard  <?php if(\dash\request::get('status') == 'deactive') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?status=deactive' data-shortkey="51ctrlshift">
        <div class="statistic">
         <div class="value"><i class="sf-user-close-security"></i></div>
         <div class="label"><?php echo T_("Deactive"); ?> <kbd class=" hide mT5">Shift+1</kbd></div>
@@ -695,7 +695,7 @@ if(\dash\request::get('status'))
     </div>
 
     <div class="c s6">
-      <a class="dcard {%if requestGET.status == 'removed' %}active{%endif%}" href='<?php echo \dash\url::this(); ?>?status=removed' data-shortkey="52ctrlshift">
+      <a class="dcard  <?php if(\dash\request::get('status') == 'removed') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?status=removed' data-shortkey="52ctrlshift">
        <div class="statistic">
         <div class="value"><i class="sf-trash-can"></i></div>
         <div class="label"><?php echo T_("Removed"); ?> <kbd class=" hide mT5">Shift+1</kbd></div>
@@ -705,7 +705,7 @@ if(\dash\request::get('status'))
 
 
     <div class="c s6">
-      <a class="dcard {%if requestGET.status == 'filter' %}active{%endif%}" href='<?php echo \dash\url::this(); ?>?status=filter' data-shortkey="53ctrlshift">
+      <a class="dcard  <?php if(\dash\request::get('status') == 'filter') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?status=filter' data-shortkey="53ctrlshift">
        <div class="statistic">
         <div class="value"><i class="sf-group-full-security"></i></div>
         <div class="label"><?php echo T_("Filter"); ?> <kbd class=" hide mT5">Shift+1</kbd></div>
@@ -715,7 +715,7 @@ if(\dash\request::get('status'))
 
 
      <div class="c s6">
-      <a class="dcard {%if requestGET.status == 'unreachable' %}active{%endif%}" href='<?php echo \dash\url::this(); ?>?status=unreachable' data-shortkey="54ctrlshift">
+      <a class="dcard  <?php if(\dash\request::get('status') == 'unreachable') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?status=unreachable' data-shortkey="54ctrlshift">
        <div class="statistic">
         <div class="value"><i class="sf-exclamation-circle"></i></div>
         <div class="label"><?php echo T_("Unreachable"); ?> <kbd class=" hide mT5">Shift+1</kbd></div>
@@ -725,7 +725,7 @@ if(\dash\request::get('status'))
 
 
      <div class="c s6">
-      <a class="dcard {%if requestGET.status == 'all' %}active{%endif%}" href='<?php echo \dash\url::this(); ?>?status=all' data-shortkey="54ctrlshift">
+      <a class="dcard  <?php if(\dash\request::get('status') == 'all') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?status=all' data-shortkey="54ctrlshift">
        <div class="statistic">
         <div class="value"><i class="sf-group-full"></i></div>
         <div class="label"><?php echo T_("All"); ?> <kbd class=" hide mT5">Shift+1</kbd></div>

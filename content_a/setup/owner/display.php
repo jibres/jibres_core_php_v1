@@ -1,7 +1,4 @@
-{%extends display.dash%}
 
-
-{%block pageContent%}
 
 <div id="get_started_card">
   <div class="body">

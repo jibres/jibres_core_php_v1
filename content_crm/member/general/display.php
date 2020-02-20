@@ -76,7 +76,7 @@
 	  <div class="mB10">
 	  <label for='nationality'><?php echo T_("Nationality"); ?></label>
 	  <div class="ui fluid search selection dropdown">
-	    <input type="hidden" name="nationality" value="{%if dataRowMember_nationality%}<?php echo \dash\data::dataRowMember_nationality(); ?>{%else%}IR{%endif%}">
+	    <input type="hidden" name="nationality" value="<?php if(\dash\data::dataRowMember_nationality()) {?><?php echo \dash\data::dataRowMember_nationality(); ?><?php }else{ ?>IR<?php } //endif ?>">
 	    <i class="dropdown icon"></i>
 	    <div class="default text"><?php echo T_("Choose your nationality"); ?></div>
 	    <div class="menu">

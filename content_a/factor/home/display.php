@@ -3,7 +3,7 @@
 <div class="f">
   <?php if(\dash\permission::check('factorAccess')) {?>
   <div class="c s12">
-    <a class="dcard {%if not requestGET.type %}active{%endif%}" href='<?php echo \dash\url::this(); ?>' data-shortkey="49shift">
+    <a class="dcard <?php if(!\dash\request::get('type')) {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_all()); ?></div>
       <div class="label"><i class="fs16 mRa5 sf-shop"></i> <?php echo T_("All"); ?></div>
@@ -14,7 +14,7 @@
 
   <?php if(\dash\permission::check('factorSaleList')) {?>
   <div class="c s6">
-    <a class="dcard {%if requestGET.type == 'sale' %}active{%endif%}" href='<?php echo \dash\url::this(); ?>?type=sale' data-shortkey="49shift">
+    <a class="dcard <?php if(\dash\request::get('type') == 'sale') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?type=sale' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_sale()); ?></div>
       <div class="label"><i class="fs16 mRa5 sf-cloud-upload"></i> <?php echo T_("Sale"); ?></div>
@@ -25,7 +25,7 @@
 
   <?php if(\dash\permission::check('factorBuyList')) {?>
   <div class="c s6">
-    <a class="dcard {%if requestGET.type == 'buy' %}active{%endif%}" href='<?php echo \dash\url::this(); ?>?type=buy' data-shortkey="49shift">
+    <a class="dcard <?php if(\dash\request::get('type') == 'buy') {echo 'active';}  ?>" href='<?php echo \dash\url::this(); ?>?type=buy' data-shortkey="49shift">
      <div class="statistic gray">
       <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_buy()); ?></div>
       <div class="label"><i class="fs16 mRa5 sf-cloud-download"></i> <?php echo T_("Buy"); ?></div>
@@ -231,7 +231,7 @@ $sortLink = \dash\data::sortLink();
                 <div class="openDetailFactor_<?php echo @$value['id']; ?>" data-kerkere-content='hide'>
               <?php } //endif ?>
 
-                <a class="badge {%if requestGET.product == myValue.id%}primary{%else%}secondary outline{%endif%} " href="<?php echo \dash\url::this(); ?>?product=<?php echo @$myValue['id']; ?>"><?php echo @$myValue['title']; ?> <span class="mLR5"><?php echo \dash\fit::number(@$myValue['count']); ?></span></a>
+                <a class="badge <?php if(\dash\request::get('product') == $myValue['id'])  {echo 'primary';}else{ echo 'secondary outline';}?> " href="<?php echo \dash\url::this(); ?>?product=<?php echo @$myValue['id']; ?>"><?php echo @$myValue['title']; ?> <span class="mLR5"><?php echo \dash\fit::number(@$myValue['count']); ?></span></a>
 
             <?php } //endfor ?>
 
@@ -360,7 +360,7 @@ if(
 
 
     <h6 data-kerkere=".showFilterByitem" data-kerkere-icon><?php echo T_("Filter by item"); ?></h6>
-    <div class="showFilterByitem" {%if not requestGET.itemlarger and not requestGET.itemless and not  <?php if(!\dash\request::get('itemequal') && !\dash\request::get('itemlarger') && !\dash\request::get('itemless')) { echo "data-kerkere-content='hide' ";} ?>>
+    <div class="showFilterByitem"  <?php if(!\dash\request::get('itemequal') && !\dash\request::get('itemlarger') && !\dash\request::get('itemless')) { echo "data-kerkere-content='hide' ";} ?>>
       <?php iFilteritem(); ?>
     </div>
 
@@ -370,7 +370,7 @@ if(
     </div>
 
     <h6 data-kerkere=".showFilterBysum" data-kerkere-icon><?php echo T_("Filter by count"); ?></h6>
-    <div class="showFilterBysum"  {%if not requestGET.qtylarger and not requestGET.qtyless and not  <?php if(!\dash\request::get('qtyequal') && !\dash\request::get('qtylarger')  && !\dash\request::get('qtyless')) { echo "data-kerkere-content='hide' ";} ?>>
+    <div class="showFilterBysum"  <?php if(!\dash\request::get('qtyequal') && !\dash\request::get('qtylarger')  && !\dash\request::get('qtyless')) { echo "data-kerkere-content='hide' ";} ?>>
       <?php iFiltersum(); ?>
     </div>
 
@@ -412,14 +412,14 @@ if(
 <div class="f">
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="weekday" value="saturday" id="weekdaysaturday" {%if requestGET.weekday == 'saturday'  %} checked {%endif%}>
+      <input type="radio" name="weekday" value="saturday" id="weekdaysaturday" <?php if(\dash\request::get('weekday') == 'saturday') {echo 'checked';} ?>>
       <label for="weekdaysaturday"><?php echo T_("saturday"); ?></label>
     </div>
   </div>
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="weekday" value="sunday" id="weekdaysunday" {%if requestGET.weekday == 'sunday'  %} checked {%endif%}>
+      <input type="radio" name="weekday" value="sunday" id="weekdaysunday" <?php if(\dash\request::get('weekday') == 'sunday') {echo 'checked';} ?>>
       <label for="weekdaysunday"><?php echo T_("sunday"); ?></label>
     </div>
   </div>
@@ -427,7 +427,7 @@ if(
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="weekday" value="monday" id="weekdaymonday" {%if requestGET.weekday == 'monday'  %} checked {%endif%}>
+      <input type="radio" name="weekday" value="monday" id="weekdaymonday" <?php if(\dash\request::get('weekday') == 'monday') {echo 'checked';} ?>>
       <label for="weekdaymonday"><?php echo T_("monday"); ?></label>
     </div>
   </div>
@@ -436,7 +436,7 @@ if(
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="weekday" value="tuesday" id="weekdaytuesday" {%if requestGET.weekday == 'tuesday'  %} checked {%endif%}>
+      <input type="radio" name="weekday" value="tuesday" id="weekdaytuesday" <?php if(\dash\request::get('weekday') == 'tuesday') {echo 'checked';} ?>>
       <label for="weekdaytuesday"><?php echo T_("tuesday"); ?></label>
     </div>
   </div>
@@ -444,7 +444,7 @@ if(
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="weekday" value="wednesday" id="weekdaywednesday" {%if requestGET.weekday == 'wednesday'  %} checked {%endif%}>
+      <input type="radio" name="weekday" value="wednesday" id="weekdaywednesday" <?php if(\dash\request::get('weekday') == 'wednesday') {echo 'checked';} ?>>
       <label for="weekdaywednesday"><?php echo T_("wednesday"); ?></label>
     </div>
   </div>
@@ -452,7 +452,7 @@ if(
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="weekday" value="thursday" id="weekdaythursday" {%if requestGET.weekday == 'thursday'  %} checked {%endif%}>
+      <input type="radio" name="weekday" value="thursday" id="weekdaythursday" <?php if(\dash\request::get('weekday') == 'thursday') {echo 'checked';} ?>>
       <label for="weekdaythursday"><?php echo T_("thursday"); ?></label>
     </div>
   </div>
@@ -460,7 +460,7 @@ if(
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="weekday" value="friday" id="weekdayfriday" {%if requestGET.weekday == 'friday'  %} checked {%endif%}>
+      <input type="radio" name="weekday" value="friday" id="weekdayfriday" <?php if(\dash\request::get('weekday') == 'friday') {echo 'checked';} ?>>
       <label for="weekdayfriday"><?php echo T_("friday"); ?></label>
     </div>
   </div>
@@ -473,7 +473,7 @@ if(
 
 <?php function iFilterdate() {?>
 <div class="input ltr">
-  <input class="datepicker" type="text" name="date" title='<?php echo T_("Date"); ?>' placeholder='<?php echo T_("Special date"); ?>' id="date"  value="{{dateEn}}" maxlength='20' data-format="YYYYMMDD"data-view="month">
+  <input class="datepicker" type="text" name="date" title='<?php echo T_("Date"); ?>' placeholder='<?php echo T_("Special date"); ?>' id="date"  value="<?php echo \dash\data::dateEn(); ?>" maxlength='20' data-format="YYYYMMDD"data-view="month">
 </div>
 <?php } // endfunction ?>
 
@@ -491,13 +491,13 @@ if(
 
       <div class="c s12 mB5 pRa5">
         <div class="input ltr">
-          <input class="datepicker" type="text" name="startdate" title='<?php echo T_("Start date"); ?>' placeholder='<?php echo T_("Start date"); ?>' id="startdate"  value="{{startdateEn}}" maxlength='20' data-format="YYYYMMDD"data-view="month">
+          <input class="datepicker" type="text" name="startdate" title='<?php echo T_("Start date"); ?>' placeholder='<?php echo T_("Start date"); ?>' id="startdate"  value="<?php echo \dash\data::startdateEn(); ?>" maxlength='20' data-format="YYYYMMDD"data-view="month">
         </div>
       </div>
 
       <div class="c s12 mB5 pRa5">
         <div class="input ltr">
-          <input class="datepicker" type="text" name="enddate" title='<?php echo T_("End date"); ?>' placeholder='<?php echo T_("End date"); ?>' id="enddate"  value="{{enddateEn}}" maxlength='20' data-format="YYYYMMDD"data-view="month">
+          <input class="datepicker" type="text" name="enddate" title='<?php echo T_("End date"); ?>' placeholder='<?php echo T_("End date"); ?>' id="enddate"  value="<?php echo \dash\data::enddateEn(); ?>" maxlength='20' data-format="YYYYMMDD"data-view="month">
         </div>
       </div>
 

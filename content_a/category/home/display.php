@@ -90,7 +90,7 @@ if(!is_array($dataTable))
     <tbody>
       <?php foreach ($dataTable as $key => $value) {?>
 
-      <tr  {%if value.isdefault%} class="positive" title='<?php echo T_("Is a default category"); ?>' {%endif%}>
+      <tr>
         <td class="collapsing">
           <?php if(isset($value['file']) && $value['file']) {?><img src="<?php echo @$value['file']; ?>" class="avatar"><?php } //endif ?>
         </td>

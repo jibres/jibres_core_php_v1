@@ -80,9 +80,9 @@ if(!is_array($dataTable))
    <table class="tbl1 v1 cbox fs12">
     <thead>
       <tr>
-        <th>{%trans "Product"%}</th>
-        <th>{%trans "Count"%}</th>
-        <th>{%trans "Date"%}</th>
+        <th><?php echo T_("Product"); ?></th>
+        <th><?php echo T_("Count"); ?></th>
+        <th><?php echo T_("Date"); ?></th>
       </tr>
     </thead>
 
