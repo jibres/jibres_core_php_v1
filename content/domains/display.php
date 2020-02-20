@@ -1,6 +1,15 @@
 <div class="jibresBanner">
  <div class="fit">
- 	<h2>Buy a domain name and create your website today.</h2>
+  <form class="domainSearchBox" action='<?php echo \dash\url::kindgom() ?>/domain/search' method='get' autocomplete='off'>
+   <h2 class="txtC"><?php echo T_('Search for your dream domain'); ?></h2>
+  <div class="input ltr">
+   <input type="text" name="q" id='domainFirstSearch' max-lenght='63' autocomplete='off'>
+   <button class="addon btn primary"><?php echo T_('Search'); ?></button>
+  </div>
+ </form>
+
+
+  <h2>Buy a domain name and create your website today.</h2>
 <p>
 
 Every website starts with a great domain name.
