@@ -27,11 +27,11 @@
 
    <div class="f">
     <figure class="c6 s12 pRa5">
-     <img src='<?php echo \dash\url::static() ?>/img/domain/second-level-domain.png' alt=''>
+     <img src='<?php echo \dash\url::static() ?>/img/domain/second-level-domain.png' alt='second level domain on Jibres'>
      <figcaption><?php echo T_("To the left of the dot is the second level domain, which might be your name, the name of your business, blog, or store. It's the 'identity' of your site. In our case, the second level domain is 'jibres'."); ?></figcaption>
     </figure>
     <figure class="c6 s12 pLa5">
-     <img src='<?php echo \dash\url::static() ?>/img/domain/top-level-domain.png' alt=''>
+     <img src='<?php echo \dash\url::static() ?>/img/domain/top-level-domain.png' alt='top level domain on Jibres'>
      <figcaption><?php echo T_("To the right of the dot is the top-level domain (or TLD), in this case the TLD is '.com', but you may have also seen TLDs like .net, or .org, or country identifiers like .ir or .us."); ?></figcaption>
     </figure>
    </div>
@@ -54,19 +54,27 @@
    <p class="txtB fs11 mB5"><?php echo T_("There's also custom email."); ?></p>
    <p><?php echo T_("Want an email address like me@cosmohedgehog.rocks? To get such a slick, personalized address, you'll need to reserve the domain first, then attach it to email hosting. This is a smart move especially if you're running a business site. That way, your customers can easily remember info@mybusiness as easily as they remember your domain itself."); ?></p>
   </section>
-  <hr class="mB50">
+  <hr>
 
 
-  <section>
-   <h3><?php echo T_("Don't have a website?"); ?> <?php echo T_("No problem!"); ?></h3>
-   <p><?php echo T_("You can point your domain to your Instagram, Facebook, Twitter, Telegram or other social media account. I don't know about you, but I'd much rather tell people to friend me at CosmoHedgehog.rocks than give out some long, convoluted URL. That reminds me, I should really register that domain now."); ?></p>
-  </section>
 
+  <div class="f">
+   <div class="c s12">
+    <section class="mT50">
+     <h3><?php echo T_("Don't have a website?"); ?> <?php echo T_("No problem!"); ?></h3>
+     <p><?php echo T_("You can point your domain to your Instagram, Facebook, Twitter, Telegram or other social media account. I don't know about you, but I'd much rather tell people to friend me at CosmoHedgehog.rocks than give out some long, convoluted URL. That reminds me, I should really register that domain now."); ?></p>
+    </section>
+   </div>
+   <div class="c7 s12">
+    <img class="block" src='<?php echo \dash\url::static() ?>/img/domain/jibres-domain-dot-com.gif' alt='Jibres dot com animation'>
+   </div>
+  </div>
 
   <section>
    <h3><?php echo T_("What's the difference between a domain and hosting?"); ?></h3>
    <p><?php echo T_("To have a website, you need both a domain and hosting. Your domain gives people a way to find your website, and your hosting is space on a server (a remote computer) where all of your website content resides."); ?></p>
    <p><?php echo T_("Think of a domain like it's your website's street address, and hosting is like the website's house. You can have your address before you build your house, but to show off all your photos on your website, you'll need a place to put them."); ?></p>
   </section>
+
 
  </blockquote>
