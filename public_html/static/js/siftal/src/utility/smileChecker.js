@@ -15,7 +15,7 @@ function checkSmile(_register)
     checkSmileLoop();
   }
   var aleadyIsNew = false;
-  if($('[data-panel] .dashHead .notification').attr('data-new') !== undefined)
+  if($('[data-panel] #pageHeader .notification').attr('data-new') !== undefined)
   {
     aleadyIsNew = true;
   }
@@ -108,7 +108,7 @@ function checkSmileRedirect(_data)
 
 function checkNewNotification(_data)
 {
-  var notifEl = $('[data-panel] .dashHead .notification');
+  var notifEl = $('[data-panel] #pageHeader .notification');
   if(_data.result && _data.result.notifNew)
   {
     if(notifEl.attr('data-new') === undefined)
