@@ -1,1 +1,1 @@
-<?php require_once (root . '/content_subdomain/main/visitcard.php'); ?>
+<?php require_once ('layout/visitcard.php'); ?>
