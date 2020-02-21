@@ -40,8 +40,10 @@ html, body{
   z-index: 1;
   flex:initial;
   min-width:280px!important;
-  width: auto;
-  max-width: 90%;
+  width: 80%;
+  max-width: 500px;
+  padding-top: 10vh
+
 }
 .cbox h2{
   font-size: 1em;

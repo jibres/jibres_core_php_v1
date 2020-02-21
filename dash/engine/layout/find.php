@@ -68,7 +68,14 @@ class find
 			}
 			elseif(\dash\url::content() === null)
 			{
-				$myPage = root.'content/home/layout/header.php';
+				if(\dash\engine\content::get() === 'content_subdomain')
+				{
+					// do nothing
+				}
+				else
+				{
+					$myPage = root.'content/home/layout/header.php';
+				}
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
@@ -102,7 +109,14 @@ class find
 			}
 			elseif(\dash\url::content() === null)
 			{
-				$myPage = root.'content/home/layout/footer.php';
+				if(\dash\engine\content::get() === 'content_subdomain')
+				{
+					// do nothing
+				}
+				else
+				{
+					$myPage = root.'content/home/layout/footer.php';
+				}
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
