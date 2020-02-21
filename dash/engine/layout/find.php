@@ -100,7 +100,7 @@ class find
 		$myPage = null;
 		if (\dash\detect\device::detectPWA())
 		{
-			// $myPage = core.'engine/layout/pwa/pwa-footer.php';
+			$myPage = core.'engine/layout/pwa/pwa-footer.php';
 		}
 		else
 		{
