@@ -13,6 +13,10 @@ class pwa_menu
 					return null;
 					break;
 
+				case 'a':
+					return self::store();
+					break;
+
 				default:
 					return self::primary();
 					break;
@@ -66,29 +70,35 @@ class pwa_menu
 	{
 		$myFooter =
 		[
+			'dashboard' =>
+			[
+				'href' => \dash\url::kingdom(). '/a',
+				'selected' => true,
+				'icon' => 'home',
+				'title' => T_('Home'),
+			],
 			'product' =>
 			[
-				'href' => \dash\url::kingdom(). '/a/product',
-				'selected' => true,
-				// 'icon' => 'gauge',
+				'href' => \dash\url::kingdom(). '/a/products',
+				'icon' => 'box',
 				'title' => T_('product'),
 			],
 			'orders' =>
 			[
-				'href' => \dash\url::kingdom(). '/a/order',
-				// 'icon' => 'comments',
+				'href' => \dash\url::kingdom(). '/a/factor',
+				'icon' => 'print',
 				'title' => T_('Orders'),
 			],
-			'reports' =>
-			[
-				'href' => \dash\url::kingdom(). '/a/report',
-				// 'icon' => 'money',
-				'title' => T_('Reports'),
-			],
+			// 'reports' =>
+			// [
+			// 	'href' => \dash\url::kingdom(). '/a/report',
+			// 	'icon' => 'money',
+			// 	'title' => T_('Reports'),
+			// ],
 			'settings' =>
 			[
 				'href' => \dash\url::kingdom(). '/a/setting',
-				// 'icon' => 'info-circle',
+				'icon' => 'cogs',
 				'title' => T_('Settings'),
 			],
 		];
