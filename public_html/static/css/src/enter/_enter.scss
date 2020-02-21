@@ -49,11 +49,11 @@
 [dir="rtl"] [data-in='enter'] .sessions .lastseen{left:0.5em;right:inherit;}
 [dir="rtl"] [data-in='enter'] .sessions a{left:0.5em;right:inherit;}
 
-[data-in='enter'] footer a{color:#eee;font-size:1em;padding:1em 1em;transition:0.3s;display:block;}
-[data-in='enter'] footer a:hover{background-color:rgba(0,0,0,0.1)}
-[data-in='enter'] footer a:focus{background-color:rgba(0,0,0,0.2)}
-[data-in='enter'] footer a:last-child{text-align:right;}
-[dir="rtl"] [data-in='enter'] footer a:last-child{text-align:left;}
+// [data-in='enter'] footer a{color:#eee;font-size:1em;padding:1em 1em;transition:0.3s;display:block;}
+// [data-in='enter'] footer a:hover{background-color:rgba(0,0,0,0.1)}
+// [data-in='enter'] footer a:focus{background-color:rgba(0,0,0,0.2)}
+// [data-in='enter'] footer a:last-child{text-align:right;}
+// [dir="rtl"] [data-in='enter'] footer a:last-child{text-align:left;}
 
 /* form new styles*/
 [data-in='enter'] form{line-height:30px;font-size:1.8em;overflow:hidden;}
