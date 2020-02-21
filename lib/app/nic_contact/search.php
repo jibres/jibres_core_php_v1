@@ -126,7 +126,7 @@ class search
 		}
 
 		$and[] = " contact.status != 'deleted' ";
-
+		$and[] = " contact.user_id = ". \dash\user::id();
 
 		$list = \lib\db\nic_contact\search::list($and, $or, $order_sort, $meta);
 

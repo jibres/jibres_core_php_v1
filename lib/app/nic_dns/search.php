@@ -101,6 +101,8 @@ class search
 		}
 
 		$and[] = " dns.status != 'deleted' ";
+		$and[] = " contact.user_id = ". \dash\user::id();
+
 
 
 		$list = \lib\db\nic_dns\search::list($and, $or, $order_sort, $meta);
