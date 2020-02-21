@@ -104,18 +104,17 @@ class pwa_menu
 	{
 		$myFooter =
 		[
-			'dashboard' =>
+			'home' =>
 			[
 				'href' => \dash\url::kingdom(). '/a',
-				'selected' => true,
 				'icon' => 'home',
 				'title' => T_('Home'),
 			],
-			'product' =>
+			'products' =>
 			[
 				'href' => \dash\url::kingdom(). '/a/products',
 				'icon' => 'box',
-				'title' => T_('product'),
+				'title' => T_('products'),
 			],
 			'orders' =>
 			[
@@ -123,19 +122,43 @@ class pwa_menu
 				'icon' => 'print',
 				'title' => T_('Orders'),
 			],
-			// 'reports' =>
+			// 'report' =>
 			// [
 			// 	'href' => \dash\url::kingdom(). '/a/report',
 			// 	'icon' => 'money',
-			// 	'title' => T_('Reports'),
+			// 	'title' => T_('Report'),
 			// ],
-			'settings' =>
+			'setting' =>
 			[
 				'href' => \dash\url::kingdom(). '/a/setting',
 				'icon' => 'cogs',
-				'title' => T_('Settings'),
+				'title' => T_('Setting'),
 			],
 		];
+
+		// select module if user select them
+		switch (\dash\url::module())
+		{
+			case 'products':
+				$myFooter['products']['selected'] = true;
+				break;
+
+			case 'factor':
+				$myFooter['orders']['selected'] = true;
+				break;
+
+			case 'report':
+				$myFooter['reports']['selected'] = true;
+				break;
+
+			case 'setting':
+				$myFooter['setting']['selected'] = true;
+				break;
+
+			default:
+				$myFooter['home']['selected'] = true;
+				break;
+		}
 
 		return $myFooter;
 	}
