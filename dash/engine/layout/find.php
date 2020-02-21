@@ -124,7 +124,6 @@ class find
 		if($myPage)
 		{
 			require_once $myPage;
-			echo "\n  ";
 		}
 		echo "</footer>";
 	}

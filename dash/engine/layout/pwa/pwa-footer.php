@@ -25,6 +25,6 @@ if(\dash\data::pwa_footer())
     }
     echo "</div>";
   }
-  echo "\n  </nav>\n";
+  echo "\n  </nav>\n ";
 }
 ?>
