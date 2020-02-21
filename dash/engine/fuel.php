@@ -128,7 +128,7 @@ class fuel
 		}
 		else
 		{
-			return 'Unknow bedroom';
+			return 'Unknown bedroom';
 		}
 	}
 

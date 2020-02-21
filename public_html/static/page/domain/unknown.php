@@ -17,7 +17,7 @@
 
    <div class="wedbox">
     <div class="wed-title">Jibres <span>is amazing</span></div>
-    <div class="wed-date">Unknow domain pin</div>
+    <div class="wed-date">Unknown domain pin</div>
 
    </div>
 
