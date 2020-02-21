@@ -16,7 +16,6 @@ class view
 		\dash\data::badge_link(\dash\url::this());
 
 		\content_crm\member\main\view::static_var();
-		\dash\data::display_donateMember('content_crm/member/layout.html');
 	}
 }
 ?>

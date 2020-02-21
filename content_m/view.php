@@ -13,9 +13,6 @@ class view
 
 		\dash\data::include_adminPanel(true);
 		\dash\data::include_highcharts(true);
-
-
-		\dash\data::display_jibresControlLayout('content_m/layout.html');
 	}
 }
 ?>

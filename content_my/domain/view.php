@@ -16,9 +16,6 @@ class view
 
 		// enable title box
 		\dash\data::page_titleBox(true);
-
-
-		\dash\data::display_jibresControlLayout('content_my\domain/layout.html');
 	}
 }
 ?>

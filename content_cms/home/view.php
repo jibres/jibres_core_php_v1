@@ -7,10 +7,6 @@ class view
 	public static function config()
 	{
 
-
-		\dash\data::display_cp_posts("content_cms/posts/layout.html");
-		\dash\data::display_cpSample("content_cms/sample/layout.html");
-
 		\dash\data::dash_version(\dash\engine\version::get());
 		\dash\data::dash_lastUpdate(\dash\utility\git::getLastUpdate());
 

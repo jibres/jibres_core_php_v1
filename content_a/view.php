@@ -11,9 +11,6 @@ class view
 		\dash\data::site_slogan(T_("Integrated Sales and Online Accounting"));
 
 
-		// transfer to new location on root of content
-		\dash\data::display_admin('content_a/layout.html');
-
 		// enable title box
 		\dash\data::page_titleBox(true);
 		if(\dash\url::module() == 'setup')
