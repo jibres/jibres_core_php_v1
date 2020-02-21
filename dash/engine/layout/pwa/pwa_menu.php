@@ -32,7 +32,7 @@ class pwa_menu
 			'dashboard' =>
 			[
 				'href' => \dash\url::kingdom(). '/my',
-				'selected' => true,
+				// 'selected' => true,
 				'icon' => 'gauge',
 				'title' => T_('Dashboard'),
 			],
@@ -42,11 +42,11 @@ class pwa_menu
 				'icon' => 'comments',
 				'title' => T_('Messages'),
 			],
-			'stores' =>
+			'store' =>
 			[
 				'href' => \dash\url::kingdom(). '/my/store',
 				'icon' => 'money',
-				'title' => T_('Stores'),
+				'title' => T_('Store'),
 			],
 			'support' =>
 			[
@@ -61,6 +61,40 @@ class pwa_menu
 				'title' => T_('Profile'),
 			],
 		];
+
+		// select module if user select them
+		switch (\dash\url::content())
+		{
+			case 'account':
+				if(\dash\url::module() === 'notification')
+				{
+					$myFooter['messages']['selected'] = true;
+				}
+				else
+				{
+					$myFooter['account']['selected'] = true;
+				}
+				break;
+
+			case 'support':
+				$myFooter['support']['selected'] = true;
+				break;
+
+			case 'my':
+				if(\dash\url::module() === 'store')
+				{
+					$myFooter['store']['selected'] = true;
+				}
+				else
+				{
+					$myFooter['dashboard']['selected'] = true;
+				}
+				break;
+
+			default:
+				# code...
+				break;
+		}
 
 		return $myFooter;
 	}
