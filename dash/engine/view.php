@@ -6,25 +6,6 @@ class view
 
 	public static function variable()
 	{
-		// default display value
-		\dash\data::display_mvc("includes/html/display-mvc.html");
-		\dash\data::display_pwa("includes/html/pwa/pwa.html");
-		\dash\data::display_dash("includes/html/display-dash.html");
-		\dash\data::display_enter("includes/html/display-enter.html");
-		// add special pages to display array to use without name
-		\dash\data::display_main("content/main/layout.html");
-
-		\dash\data::display_pagination("includes/html/inc_pagination.html");
-		\dash\data::display_hive("includes/html/inc_hive.html");
-		\dash\data::display_spay("includes/html/inc_spay.html");
-
-		\dash\data::display_commentadd("includes/html/inc_commentadd.html");
-		\dash\data::display_commentlist("includes/html/inc_commentlist.html");
-
-		// return all url detail
-		\dash\data::url(\dash\url::all());
-		self::set_canonical();
-
 		// return all parameters and clean it
 		\dash\data::requestGET(\dash\request::get());
 
@@ -226,59 +207,6 @@ class view
 			\dash\data::page_cover(\dash\data::site_logo());
 			\dash\data::page_twitterCard('summary');
 		}
-	}
-
-	private static function set_canonical()
-	{
-		$myCanonical = \dash\url::protocol(). '://';
-		if(\dash\url::subdomain())
-		{
-			$myCanonical .= \dash\url::subdomain(). '.';
-		}
-		$myCanonical .= \dash\url::root();
-
-		if(\dash\url::tld() === 'ir')
-		{
-			if(\dash\url::lang() === 'en')
-			{
-				$myCanonical .= '.com/';
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else if(\dash\url::tld() === 'com')
-		{
-			if(\dash\url::lang() === 'fa')
-			{
-				$myCanonical .= '.ir/';
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
-
-		if(\dash\url::content())
-		{
-			$myCanonical .= \dash\url::content(). '/';
-		}
-		if(\dash\url::directory())
-		{
-			$myCanonical .= \dash\url::directory();
-		}
-		if(\dash\url::query())
-		{
-			$myCanonical .= '?'. \dash\url::query();
-		}
-
-		// set canonical
-		\dash\data::url_canonical($myCanonical);
 	}
 
 

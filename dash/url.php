@@ -796,6 +796,58 @@ class url
 	}
 
 
+	public static function canonical()
+	{
+		$myCanonical = self::protocol(). '://';
+		if(self::subdomain())
+		{
+			$myCanonical .= self::subdomain(). '.';
+		}
+		$myCanonical .= self::root();
+
+		if(self::tld() === 'ir')
+		{
+			if(self::lang() === 'en')
+			{
+				$myCanonical .= '.com/';
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else if(self::tld() === 'com')
+		{
+			if(self::lang() === 'fa')
+			{
+				$myCanonical .= '.ir/';
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return null;
+		}
+
+		if(self::content())
+		{
+			$myCanonical .= self::content(). '/';
+		}
+		if(self::directory())
+		{
+			$myCanonical .= self::directory();
+		}
+		if(self::query())
+		{
+			$myCanonical .= '?'. self::query();
+		}
+
+		return $myCanonical;
+	}
+
 	public static function urlfilterer($_input, $_strip = true)
 	{
 		$_input = urldecode($_input);
