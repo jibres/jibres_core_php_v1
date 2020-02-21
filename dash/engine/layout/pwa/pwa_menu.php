@@ -3,6 +3,15 @@ namespace dash\engine\layout\pwa;
 
 class pwa_menu
 {
+	public static function get()
+	{
+		if(\dash\url::content())
+		{
+			return self::primary();
+		}
+	}
+
+
 	public static function primary()
 	{
 		$myFooter =
