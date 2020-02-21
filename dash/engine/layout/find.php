@@ -77,15 +77,7 @@ class find
 
 		}
 
-		if(\dash\data::include_adminPanel())
-		{
-			echo "\n  <header id='pageHeader' data-xhr='pageHeader' class='f'>";
-		}
-		else
-		{
-			echo "\n  <header id='pageHeader' data-xhr='pageHeader'>";
-		}
-
+		echo "\n  <header id='pageHeader' data-xhr='pageHeader'>";
 		if($myPage)
 		{
 			require_once $myPage;
