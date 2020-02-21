@@ -25,6 +25,10 @@ class controller
 			\content_v2\home\view::config();
 			return;
 		}
+		elseif(\dash\url::subdomain() === 'shop')
+		{
+			// this is special page for shop aname
+		}
 		elseif(in_array(\dash\url::subdomain(), ['developers']))
 		{
 
