@@ -57,7 +57,7 @@
 
 
   // custom style for another part of siftal
-  [data-panel] .dashHead h1 a{padding:0;}
+  [data-panel] #pageHeader h1 a{padding:0;}
   [data-panel] .wrapper{padding:2em 1em}
   [data-panel] .card .card-data img{max-height:25px}
   [data-panel] .card .card-data span{font-size:1.6em}
@@ -74,12 +74,12 @@
   .pTB4x{padding-top: 50px;padding-bottom: 50px;}
   .pTB5x{padding-top: 75px;padding-bottom: 75px;}
 
-  [data-panel] .dashHead h1{max-width: 60%;max-width:calc( 100% - 110px);font-size:1.2em}
-  [data-panel] .dashHead .notification{display:none!important;}
+  [data-panel] #pageHeader h1{max-width: 60%;max-width:calc( 100% - 110px);font-size:1.2em}
+  [data-panel] #pageHeader .notification{display:none!important;}
 
   [dir="ltr"] [data-panel] #main{margin-left:0}
   [dir="rtl"] [data-panel] #main{margin-right:0}
-  [data-panel] .dashHead.cloner{width:100%;}
+  [data-panel] #pageHeader.cloner{width:100%;}
   // sidebar
   [dir="ltr"] [data-panel] #sidebar{left:-250px;}
   [dir="rtl"] [data-panel] #sidebar{right:-250px;}

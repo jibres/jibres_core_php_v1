@@ -79,7 +79,7 @@ class find
 
 		if(\dash\data::include_adminPanel())
 		{
-			echo "\n  <header id='pageHeader' data-xhr='pageHeader' class='dashHead f'>";
+			echo "\n  <header id='pageHeader' data-xhr='pageHeader' class='f'>";
 		}
 		else
 		{
