@@ -72,9 +72,6 @@ echo T_("Looking to conquer your industry? Set up a web developer startup with a
      <p><?php
 echo T_("Yes. When you register a domain extension, no one else can use it. So, if you've already got mydomain.com, it's a good idea to register mydomain.net and mydomain.org and redirect them back to your original site. This helps to avoid confusion and makes capturing visitors easier.");
 ?></p>
-    <p><?php
-echo T_("");
-?></p>
     </div>
 
     <h4 data-kerkere="[data-faq8]" data-kerkere-icon='close'><?php echo T_("Is there a limit on how long or short my domain can be?"); ?></h4>
