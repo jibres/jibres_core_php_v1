@@ -14,7 +14,7 @@ class company_sign_person
 
 			// require
 			'firstNameEn'             => 'Javad',
-			'lastNameEn'              => 'Evazzadeh',
+			'lastNameEn'              => 'Adib',
 			'fatherNameEn'            => 'KhosroAli',
 
 			// foreign must fill, for iranian is auto

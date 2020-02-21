@@ -7,13 +7,8 @@ class TransStatic
 	echo T_("Dash");
 	echo T_("dash");
 	echo T_("Powered by Dash");
-	echo T_("Javad Evazzadeh");
-	echo T_("Hasan Salehi");
-	echo T_("Ahmad Karimi");
+	echo T_("Javad Adib");
 	echo T_("Reza Mohiti");
-	echo T_("Another Project with Dash");
-	echo T_("Dash is an artichokes for PHP programming!!");
-	echo T_("Dash is powerfull.");
 	echo T_("Insert Successfully");
 	echo T_("Insert Failed!");
 	echo T_("Update Successfully");

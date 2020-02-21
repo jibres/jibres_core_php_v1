@@ -19,7 +19,7 @@ class customer_irani
 
 			// english
 			'firstNameEn'     => 'Javad',
-			'lastNameEn'      => 'Evazzadeh',
+			'lastNameEn'      => 'Adib',
 			'fatherNameEn'    => 'KhosroAli',
 
 			// extra
