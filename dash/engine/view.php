@@ -6,21 +6,11 @@ class view
 
 	public static function variable()
 	{
-		// save all options to use in display
-		\dash\data::options(\dash\option::config());
-
 		\dash\data::page_title(null);
 		\dash\data::page_seotitle(null);
 		\dash\data::page_desc(null);
 		\dash\data::page_special(null);
 
-		$user_detail = \dash\user::detail();
-		\dash\data::user($user_detail);
-		\dash\data::login($user_detail);
-
-		\dash\data::visitor('not ready!');
-		// check run progressive web app or not
-		\dash\data::runPWA(\dash\detect\device::detectPWA());
 
 		// define default value for global
 		\dash\data::global_title(T_("Jibres"));
@@ -36,13 +26,6 @@ class view
 			\dash\data::global_page('home');
 		}
 
-		// make xaccess link
-		$xaccessLink = [];
-		$xaccessLink['cms'] = \dash\url::kingdom(). '/cms';
-		\dash\data::xaccessLink($xaccessLink);
-
-
-		\dash\data::dev(\dash\option::config('dev'));
 
 		\dash\data::site_title(T_(\dash\option::config('site', 'title')));
 		\dash\data::site_desc(T_(\dash\option::config('site', 'desc')));
