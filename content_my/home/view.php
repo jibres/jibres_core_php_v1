@@ -14,43 +14,6 @@ class view
 			// \dash\redirect::to(\dash\url::kingdom(). '/store');
 		}
 		\dash\data::include_adminPanel(true);
-
-		$myFooter =
-		[
-			'dashboard' =>
-			[
-				'href' => \dash\url::kingdom(). '/my',
-				'selected' => true,
-				'icon' => 'gauge',
-				'title' => T_('Dashboard'),
-			],
-			'messages' =>
-			[
-				'href' => \dash\url::kingdom(). '/account/notification',
-				'icon' => 'comments',
-				'title' => T_('Messages'),
-			],
-			'stores' =>
-			[
-				'href' => \dash\url::kingdom(). '/my/store',
-				'icon' => 'money',
-				'title' => T_('Stores'),
-			],
-			'support' =>
-			[
-				'href' => \dash\url::kingdom(). '/support',
-				'icon' => 'info-circle',
-				'title' => T_('Help Center'),
-			],
-			'account' =>
-			[
-				'href' => \dash\url::kingdom(). '/account',
-				'icon' => 'user',
-				'title' => T_('Profile'),
-			],
-		];
-		\dash\data::pwa_footer($myFooter);
-
 	}
 }
 ?>
