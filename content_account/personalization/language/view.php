@@ -15,12 +15,6 @@ class view
 		// back
 		\dash\data::back_text(T_('Personalization'));
 		\dash\data::back_link(\dash\url::this());
-
-
-		$langList = \dash\language::all();
-
-		\dash\data::langList($langList);
-
 	}
 }
 ?>

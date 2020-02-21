@@ -6,16 +6,6 @@ class view
 
 	public static function variable()
 	{
-		// return all parameters and clean it
-		\dash\data::requestGET(\dash\request::get());
-
-		// ----- language variable
-		\dash\data::lang_list(\dash\language::all(true));
-		\dash\data::lang_current(\dash\language::currentAll());
-		\dash\data::lang_currentDir(\dash\language::dir());
-
-		\dash\data::lang_default(\dash\language::primary());
-
 		// save all options to use in display
 		\dash\data::options(\dash\option::config());
 

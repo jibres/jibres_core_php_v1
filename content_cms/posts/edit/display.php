@@ -665,10 +665,10 @@ $myFirstURL = '';
     <select name="language" class="ui dropdown select">
       <option value=""><i><?php echo T_("Please select one item"); ?></i></option>
 
-      <?php foreach (\dash\data::lang_list() as $key => $value) {?>
+      <?php foreach (\dash\language::all(true) as $key => $value) {?>
 
 
-        <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_language() == $key || (!\dash\data::dataRow_language() && \dash\data::lang_current() == $key)) {echo 'selected';} ?>><?php echo $value; ?></option>
+        <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_language() == $key || (!\dash\data::dataRow_language() && \dash\language::currentAll() == $key)) {echo 'selected';} ?>><?php echo $value; ?></option>
 
       <?php } //endfor ?>
 

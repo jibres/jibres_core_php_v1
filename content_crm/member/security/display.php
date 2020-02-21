@@ -36,9 +36,9 @@
       <label for="language"><?php echo T_("Default language"); ?></label>
       <select name="language" class="ui dropdown" id="language">
         <option value="" readonly><?php echo T_("Select one item"); ?></option>
-          <?php foreach (\dash\data::lang_list() as $key => $value) {?>
+          <?php foreach (\dash\language::all(true) as $key => $value) {?>
 
-            <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowMember_language() == $key || (!\dash\data::dataRowMember_language() && \dash\data::lang_current() == $key)) {echo 'selected';} ?>><?php echo $value; ?></option>
+            <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRowMember_language() == $key || (!\dash\data::dataRowMember_language() && \dash\language::currentAll() == $key)) {echo 'selected';} ?>><?php echo $value; ?></option>
 
           <?php } //endfor ?>
 
