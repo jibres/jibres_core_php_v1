@@ -6,6 +6,8 @@ class view
 
 	public static function variable()
 	{
+		\dash\engine\history::save();
+
 		\dash\data::page_title(null);
 		\dash\data::page_seotitle(null);
 		\dash\data::page_desc(null);
