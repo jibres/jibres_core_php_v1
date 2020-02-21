@@ -7,7 +7,16 @@ class pwa_menu
 	{
 		if(\dash\url::content())
 		{
-			return self::primary();
+			switch (\dash\url::content())
+			{
+				case 'enter':
+					return null;
+					break;
+
+				default:
+					return self::primary();
+					break;
+			}
 		}
 	}
 
