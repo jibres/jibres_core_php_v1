@@ -3,12 +3,12 @@
 
 
 <div class="cn">
-  <a href="<?php echo \dash\url::sitelang(); ?>" id='ermileBadge' class="f" target="_blank" title='<?php echo \dash\data::service_desc(); ?>' data-tippy-inertia="true" data-tippy-animation="perspective" data-tippy-duration="[600, 300]">
+  <a href="<?php echo \dash\url::sitelang(); ?>" id='ermileBadge' class="f" target="_blank" title='<?php echo T_("Sell and Enjoy"); ?>' data-tippy-inertia="true" data-tippy-animation="perspective" data-tippy-duration="[600, 300]">
    <div class="cauto pRa10">
-    <img src="<?php echo \dash\data::service_logo(); ?>" alt='<?php echo \dash\data::service_title(); ?>' class="cauto">
+    <img src="<?php echo \dash\url::icon(); ?>" alt='<?php echo T_('Jibres'); ?>' class="cauto">
    </div>
    <div class="c">
-    <h2><?php echo \dash\data::service_title(); ?></h2>
+    <h2><?php echo T_('Jibres'); ?></h2>
     <h3><?php echo \dash\data::service_slogan(); ?></h3>
    </div>
   </a>

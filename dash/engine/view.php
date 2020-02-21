@@ -24,9 +24,6 @@ class view
 
 		// define default value for global
 		\dash\data::global_title(T_("Jibres"));
-		// \dash\data::global_login(\dash\user::login());
-		// \dash\data::global_lang(\dash\language::current());
-		// \dash\data::global_direction(\dash\language::dir());
 		\dash\data::global_subdomain(\dash\url::subdomain());
 		\dash\data::global_content(\dash\url::content());
 		if(\dash\data::global_content() === null)
@@ -56,14 +53,6 @@ class view
 		{
 			\dash\data::site_logo(\dash\url::site(). \dash\option::config('site', 'logo'));
 		}
-
-		// add service detail
-		\dash\data::service_title(T_('Jibres'));
-		\dash\data::service_desc(T_('As easy as ABC is our slogan!'). '<br>'. T_('If you are not finded a solution for your problem, call us.'));
-		\dash\data::service_slogan(T_('#1 World Sales Engineering System'));
-		\dash\data::service_slogan(T_('Sell and enjoy'));
-		\dash\data::service_logo(\dash\url::icon());
-		\dash\data::service_url('https://jibres.com');
 
 		// toggle side bar
 		if(\dash\user::sidebar() === null || \dash\user::sidebar() === true)

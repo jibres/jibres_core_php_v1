@@ -134,8 +134,8 @@ function highChart()
     },
     credits:
     {
-        text: '<?php echo \dash\data::service_title(); ?>',
-        href: '<?php echo \dash\data::service_url(); ?>',
+        text: '<?php echo T_('Jibres'); ?>',
+        href: '<?php echo 'https://jibres.com'; ?>',
         position:
         {
             x: -35,
@@ -190,7 +190,7 @@ function highChart()
     ]
   }, function(_chart)
   {
-    _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+    _chart.renderer.image('<?php echo \dash\url::icon(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
   });
 
   getServerStat();

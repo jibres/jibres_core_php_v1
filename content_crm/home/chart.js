@@ -77,8 +77,8 @@ function identifyChart()
     },
     credits:
     {
-        text: '<?php echo \dash\data::service_title(); ?>',
-        href: '<?php echo \dash\data::service_url(); ?>',
+        text: '<?php echo T_('Jibres'); ?>',
+        href: '<?php echo 'https://jibres.com'; ?>',
         position:
         {
             x: -35,
@@ -110,7 +110,7 @@ function identifyChart()
     ]
   }, function(_chart)
     {
-      _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+      _chart.renderer.image('<?php echo \dash\url::icon(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
     }
   );
 }
@@ -164,8 +164,8 @@ function gender_chart()
     },
     credits:
     {
-        text: '<?php echo \dash\data::service_title(); ?>',
-        href: '<?php echo \dash\data::service_url(); ?>',
+        text: '<?php echo T_('Jibres'); ?>',
+        href: '<?php echo 'https://jibres.com'; ?>',
         position:
         {
             x: -35,
@@ -188,7 +188,7 @@ function gender_chart()
     }]
   }, function(_chart)
   {
-    _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+    _chart.renderer.image('<?php echo \dash\url::icon(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
   });
 }
 
@@ -236,8 +236,8 @@ function status_chart()
     },
     credits:
     {
-        text: '<?php echo \dash\data::service_title(); ?>',
-        href: '<?php echo \dash\data::service_url(); ?>',
+        text: '<?php echo T_('Jibres'); ?>',
+        href: '<?php echo 'https://jibres.com'; ?>',
         position:
         {
             x: -35,
@@ -260,7 +260,7 @@ function status_chart()
     }]
   }, function(_chart)
   {
-    _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+    _chart.renderer.image('<?php echo \dash\url::icon(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
   });
 }
 
@@ -307,8 +307,8 @@ function log_chart()
     },
     credits:
     {
-        text: '<?php echo \dash\data::service_title(); ?>',
-        href: '<?php echo \dash\data::service_url(); ?>',
+        text: '<?php echo T_('Jibres'); ?>',
+        href: '<?php echo 'https://jibres.com'; ?>',
         position:
         {
             x: -35,
@@ -329,7 +329,7 @@ function log_chart()
     }]
   }, function(_chart)
     {
-      _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+      _chart.renderer.image('<?php echo \dash\url::icon(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
     }
   );
 }
@@ -393,8 +393,8 @@ function users_chart()
     },
     credits:
     {
-        text: '<?php echo \dash\data::service_title(); ?>',
-        href: '<?php echo \dash\data::service_url(); ?>',
+        text: '<?php echo T_('Jibres'); ?>',
+        href: '<?php echo 'https://jibres.com'; ?>',
         position:
         {
             x: -35,
@@ -407,7 +407,7 @@ function users_chart()
     series: <?php if(isset($dashboardDetail['chart']['dayevent']['data'])) { echo $dashboardDetail['chart']['dayevent']['data']; } else { echo '[]';} ?>
   }, function(_chart)
     {
-      _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+      _chart.renderer.image('<?php echo \dash\url::icon(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
     }
   );
 }
@@ -558,8 +558,8 @@ function users_guage()
     },
     credits:
     {
-        text: '<?php echo \dash\data::service_title(); ?>',
-        href: '<?php echo \dash\data::service_url(); ?>',
+        text: '<?php echo T_('Jibres'); ?>',
+        href: '<?php echo 'https://jibres.com'; ?>',
         position:
         {
             x: -35,
@@ -596,7 +596,7 @@ function users_guage()
     }]
   }, function(_chart)
     {
-      _chart.renderer.image('<?php echo \dash\data::service_logo(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
+      _chart.renderer.image('<?php echo \dash\url::icon(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();
     }
   );
 
