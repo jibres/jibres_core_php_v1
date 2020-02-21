@@ -50,6 +50,7 @@ function escPressed()
 		if(myPage === 'home')
 		{
 			myPage = null;
+			return false;
 		}
 
 		// try to remove path if exist
@@ -66,7 +67,7 @@ function escPressed()
 		else
 		{
 			myNewAddr    += myHost + '/';
-			hardRedirect = true;
+			// hardRedirect = true;
 		}
 
 	}
@@ -76,7 +77,7 @@ function escPressed()
 		{
 			// we dont have path, try to remove subdomain if exist
 			myNewAddr    += myHost.replace(/^[^.]+\./g, "");
-			hardRedirect = true;
+			// hardRedirect = true;
 		}
 		else
 		{
@@ -86,6 +87,7 @@ function escPressed()
 
 	if(myNewAddr)
 	{
+		console.log('Esc Pressed! Go to ' + myNewAddr + ' - hard is ' + hardRedirect);
 		if(pressCounter === 1)
 		{
 			// show info message
