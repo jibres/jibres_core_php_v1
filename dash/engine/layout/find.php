@@ -77,7 +77,7 @@ class find
 
 		}
 
-		echo "\n  <header id='pageHeader' data-xhr='pageHeader'>";
+		echo "\n  <header id='pageHeader' data-xhr='pageHeader' data-scroll>";
 		if($myPage)
 		{
 			require_once $myPage;
