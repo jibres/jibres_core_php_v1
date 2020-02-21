@@ -27,6 +27,7 @@ class controller
 		}
 		elseif(\dash\url::subdomain() === 'shop')
 		{
+			\dash\data::externalShop(true);
 			// this is special page for shop aname
 		}
 		elseif(in_array(\dash\url::subdomain(), ['developers']))

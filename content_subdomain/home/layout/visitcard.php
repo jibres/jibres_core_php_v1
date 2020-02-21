@@ -1,7 +1,10 @@
 
  <link rel="stylesheet"       href="<?php echo \dash\url::static(). '/css/subdomain.css'; ?>"/>
 
-
+<?php
+if (!\dash\data::externalShop())
+{
+?>
 <div class="cn">
   <a href="<?php echo \dash\url::sitelang(); ?>" id='ermileBadge' class="f" target="_blank" title='<?php echo T_("Sell and Enjoy"); ?>' data-tippy-inertia="true" data-tippy-animation="perspective" data-tippy-duration="[600, 300]">
    <div class="cauto pRa10">
@@ -44,7 +47,9 @@ $store = \dash\data::store();
 <?php } //endif ?>
   </div>
 </div>
-
+<?php
+}
+?>
  <div id="nodes"></div>
 
 
