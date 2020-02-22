@@ -18,13 +18,8 @@ class view
 		\dash\data::myDomain($q);
 		if(\lib\app\nic_domain\check::syntax($q))
 		{
-			$whois = \lib\app\nic_whois\who::is($q);
-			\dash\data::whoisResult($whois);
-		}
-		else
-		{
-			\dash\data::whoisResult_answer(T_("Invalid domain syntax"));
-
+			$info = \lib\app\nic_domain\check::check($q);
+			\dash\data::infoResult($info);
 		}
 
 

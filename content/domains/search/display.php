@@ -9,7 +9,7 @@
   </div>
  </form>
 
- 	<?php if(\dash\data::whoisResult_available()) {?>
+ 	<?php if(\dash\data::infoResult_available()) {?>
  		<div class="msg success">
  			<div class="f">
  				<div class="c">
@@ -22,13 +22,26 @@
  			</div>
  		</div>
 
+ 	<?php }elseif(\dash\request::get('q')){ ?>
+
+		<div class="msg warn2">
+ 			<div class="f">
+ 				<div class="c">
+
+ 					<?php echo T_("Can not register this domain"); ?>
+ 				</div>
+ 				<div class="cauto">
+ 					<a class="btn pain mLR10" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Who is?"); ?></a>
+ 				</div>
+ 				<div class="cauto">
+ 					<a class="btn warn" href="<?php echo \dash\url::kingdom(); ?>/domains/search"><?php echo T_("Try another"); ?></a>
+ 				</div>
+ 			</div>
+ 		</div>
+
  	<?php } //endif ?>
 
- 	<?php if(\dash\data::whoisResult_answer()) {?>
 
-<pre><?php echo \dash\data::whoisResult_answer(); ?></pre>
-
- 	<?php } //endif ?>
 
  	<h2><?php echo T_('Buy a domain name and create your website today.'); ?></h2>
  	<p><?php echo T_('Welcome to the domain registrar that has everything you need to get the right domain name for your personal or business website.')?></p>

@@ -26,16 +26,17 @@ if(\dash\data::whoisResult())
 
 	<div class="c8 s12 mT10">
 
-		<?php
-		if(\dash\data::whoisResult_available())
-		{
-			echo '<div class="msg success">'. T_("Domain is available"). '</div>';
-		}
-		?>
+		<?php if(\dash\data::whoisResult_available()) {?>
+			<div class="f msg success">
+				<div class="c"><?php echo T_("Domain is available"); ?></div>
+				<div class="cauto"><a class="btn success2" href="<?php echo \dash\url::kingdom() ?>/domains/search?q=<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Register domain"); ?></a></div>
+			</div>
 
-		<pre>
-			<?php echo \dash\data::whoisResult_answer(); ?>
-		</pre>
+
+		<?php } //endif ?>
+
+
+<pre><?php echo \dash\data::whoisResult_answer(); ?></pre>
 	</div>
 </div>
 

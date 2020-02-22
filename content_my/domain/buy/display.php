@@ -54,7 +54,7 @@
 
 				<div class="msg warn2"><?php echo T_("Domain is occupied"); ?>
 					<span class="floatL">
-						<a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/domains/search?q=<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Whois"); ?></a>
+						<a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Whois"); ?></a>
 					</span>
 				</div>
 
@@ -215,7 +215,7 @@
 						<?php echo T_("Domain is occupied"); ?>
 					</div>
 					<div class="cauto">
-						<a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/domains/search?q=<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Whois"); ?></a>
+						<a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Who is?"); ?></a>
 					</div>
 				</div>
 			</div>
