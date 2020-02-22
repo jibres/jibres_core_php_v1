@@ -36,39 +36,47 @@ class domain_check
 			if(isset($value['attr']['tld']))
 			{
 				$result[$key]['tld'] = $value['attr']['tld'];
-				// set Paperwork access for tld
+				// set paperwork access for tld
 				switch ($value['attr']['tld'])
 				{
 					case 'id.ir':
-						$result[$key]['Paperwork'] = 'person';
+						$result[$key]['paperwork'] = 'irinic-person';
 						break;
 
 					case 'co.ir':
 					case 'net.ir':
-						$result[$key]['Paperwork'] = 'private';
+						$result[$key]['paperwork'] = 'irnic-private';
 						break;
 
 					case 'gov.ir':
 					case 'co.ir':
-						$result[$key]['Paperwork'] = 'gov';
+						$result[$key]['paperwork'] = 'irnic-gov';
 						break;
 
 					case 'sch.ir':
 					case 'ac.ir':
-						$result[$key]['Paperwork'] = 'edu';
+						$result[$key]['paperwork'] = 'irnic-edu';
 						break;
 
 					case 'org.ir':
-						$result[$key]['Paperwork'] = 'private or edu';
+						$result[$key]['paperwork'] = 'irnic-private or edu';
 						break;
 
 					case 'ایران':
-						$result[$key]['Paperwork'] = 'unavailable';
+						$result[$key]['paperwork'] = 'unavailable';
 						break;
 
 					default:
-						$result[$key]['Paperwork'] = null;
+						$result[$key]['paperwork'] = null;
 						break;
+				}
+			}
+			else
+			{
+				if(mb_substr($result[$key]['name'], -6) === '.ایران')
+				{
+					$result[$key]['tld'] = 'ایران';
+					$result[$key]['paperwork'] = 'unavailable';
 				}
 			}
 		}

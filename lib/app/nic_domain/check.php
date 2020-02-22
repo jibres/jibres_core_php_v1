@@ -33,15 +33,18 @@ class check
 	{
 		$check_tld =
 		[
+			// person
 			'ir',
 			'id.ir',
-			'co.ir',
-			'ac.ir',
-			'org.ir',
-			'net.ir',
-			'sch.ir',
-			'gov.ir',
 			'ایران',
+			// gov
+			'gov.ir',
+			'co.ir',
+			'net.ir',
+			'org.ir',
+			// edu
+			'sch.ir',
+			'ac.ir',
 		];
 
 		if(!$_domain || !is_string($_domain))

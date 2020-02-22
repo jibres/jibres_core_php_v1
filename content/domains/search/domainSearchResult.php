@@ -4,7 +4,7 @@
             <?php if(isset($value['soon']) && $value['soon']) {?>
                 <div class="msg minimal mB5">
                     <div class="f align-center pL10">
-                        <div class="c pR10"><?php echo $key; ?> </div>
+                        <div class="c pR10"><span class="name"><?php if(isset($value['name'])) {echo $value['name'];} else {echo $key;} ?></span> <span class="tld txtB"><?php if(isset($value['tld'])) echo '.'.$value['tld'] ?></span><?php if(isset($value['paperwork'])) echo '<span class="badge light mLa10">'.$value['paperwork']. '</span>'; ?></div>
                         <div class="cauto pR20"></div>
                         <div class="cauto">
                             <a class="btn"><?php echo T_("Coming Soon"); ?></a>
@@ -18,9 +18,8 @@
 
                 <div class="msg minimal mB5 success2">
                     <div class="f align-center pL10">
-                        <div class="c pR10 txtB"><?php echo $key; ?><?php
-                         ?></div>
-                        <div class="cauto pR20"><span class="compact"><?php echo T_('Toman'). ' '. \dash\fit::number('2000') ?></span> / <del class="compact fc-mute"><?php echo \dash\fit::number('5000'); ?></del></div>
+                        <div class="c pR10"><span class="name"><?php if(isset($value['name'])) {echo $value['name'];} else {echo $key;} ?></span> <span class="tld txtB"><?php if(isset($value['tld'])) echo '.'.$value['tld'] ?></span><?php if(isset($value['paperwork'])) echo '<span class="badge light mLa10">'.$value['paperwork']. '</span>'; ?></div>
+                        <div class="cauto pR20"><span class="compact"><?php echo T_($value['unit']). ' '. \dash\fit::number($value['price']) ?></span> / <del class="compact fc-mute"><?php echo \dash\fit::number($value['compareAtPrice']); ?></del></div>
                         <div class="cauto">
                             <a class="btn success" href="<?php echo \dash\url::kingdom(); ?>/my/domain/buy/<?php echo $key; ?>"><?php echo T_("Buy"); ?></a>
                         </div>
@@ -29,12 +28,12 @@
 
             <?php }else{ ?>
 
-                <div class="msg minimal mB5 danger2">
+                <div class="msg minimal mB5 danger2<?php if(isset($value['paperwork']) && $value['paperwork'] ==='unavailable') echo ' disabled'?>">
                     <div class="f align-center pL10">
-                        <div class="c pR10"><?php echo $key; ?> </div>
-                        <div class="cauto pR20"><?php echo T_("Taken"); ?></div>
+                        <div class="c pR10"><span class="name"><?php if(isset($value['name'])) {echo $value['name'];} else {echo $key;} ?></span> <span class="tld txtB"><?php if(isset($value['tld'])) echo '.'.$value['tld'] ?></span><?php if(isset($value['paperwork'])) echo '<span class="badge light mLa10">'.$value['paperwork']. '</span>'; ?></div>
+                        <div class="cauto pR20"><?php if(isset($value['tld']) && $value['tld'] === 'ایران') echo T_("unavailable"); else echo T_("Taken"); ?></div>
                         <div class="cauto">
-                            <a class="btn light" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo $key; ?>"><?php echo T_("Whois taken?"); ?></a>
+                            <a class="btn light" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo urlencode($key); ?>"><?php echo T_("Whois taken?"); ?></a>
                         </div>
                     </div>
                 </div>
