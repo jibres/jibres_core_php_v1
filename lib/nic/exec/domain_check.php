@@ -36,6 +36,40 @@ class domain_check
 			if(isset($value['attr']['tld']))
 			{
 				$result[$key]['tld'] = $value['attr']['tld'];
+				// set Paperwork access for tld
+				switch ($value['attr']['tld'])
+				{
+					case 'id.ir':
+						$result[$key]['Paperwork'] = 'person';
+						break;
+
+					case 'co.ir':
+					case 'net.ir':
+						$result[$key]['Paperwork'] = 'private';
+						break;
+
+					case 'gov.ir':
+					case 'co.ir':
+						$result[$key]['Paperwork'] = 'gov';
+						break;
+
+					case 'sch.ir':
+					case 'ac.ir':
+						$result[$key]['Paperwork'] = 'edu';
+						break;
+
+					case 'org.ir':
+						$result[$key]['Paperwork'] = 'private or edu';
+						break;
+
+					case 'ایران':
+						$result[$key]['Paperwork'] = 'unavailable';
+						break;
+
+					default:
+						$result[$key]['Paperwork'] = null;
+						break;
+				}
 			}
 		}
 
