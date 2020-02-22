@@ -11,7 +11,7 @@
 
  	<?php if(\dash\data::infoResult()) {?>
  		<?php foreach (\dash\data::infoResult() as $key => $value) {?>
- 			<?php if($value['available']) {?>
+ 			<?php if(@$value['available']) {?>
 
 		 		<div class="msg success2">
 		 			<div class="f">
