@@ -36,7 +36,7 @@ else
 ?>
   </figure>
   <div class="menu">
-   <ul class="sidenav" data-xhr='sidenav'>
+   <ul class="sidenav">
 
 
 
