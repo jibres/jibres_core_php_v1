@@ -262,7 +262,7 @@ class mvc
 			}
 
 			\dash\engine\view::lastChanges();
-			$nativeTemplate = \dash\engine\layout\fn::shoot();
+			$nativeTemplate = \dash\layout\fn::shoot();
 
 			if(!$nativeTemplate)
 			{

@@ -63,7 +63,7 @@ echo '<link rel ="canonical" href="'. \dash\url::canonical(). '"/>';
 ?>
  <link href="<?php echo \dash\url::kingdom();?>/humans.txt" rel="author"/>
 <?php // @todo add rel alternative ?>
- <link href="<?php echo \dash\engine\layout\fn::staticmtime('css/siftal.min.css');?>" rel="stylesheet"/>
+ <link href="<?php echo \dash\layout\fn::staticmtime('css/siftal.min.css');?>" rel="stylesheet"/>
 </head>
 
 <body<?php
@@ -99,17 +99,17 @@ if(\dash\request::get('iframe'))
 echo " data-preload";
 echo ">";
 
-\dash\engine\layout\find::allBlocks();
+\dash\layout\find::allBlocks();
 ?>
 
 
  <div class="js">
-  <script src="<?php echo \dash\engine\layout\fn::staticmtime('js/siftal.min.js');?>"></script>
+  <script src="<?php echo \dash\layout\fn::staticmtime('js/siftal.min.js');?>"></script>
 <?php
 if (\dash\data::include_highcharts())
 {
   echo "\n  ";
-  echo '<script src="'. \dash\engine\layout\fn::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
+  echo '<script src="'. \dash\layout\fn::staticmtime('js/highcharts/highcharts.min.js'). '"></script>';
 }
 
 if (\dash\user::id())
@@ -127,9 +127,9 @@ if (\dash\user::id())
 if (\dash\data::include_editor())
 {
   echo "\n  ";
-  echo '<script src="'. \dash\engine\layout\fn::staticmtime('js/medium-editor.min.js'). '"></script>';
+  echo '<script src="'. \dash\layout\fn::staticmtime('js/medium-editor.min.js'). '"></script>';
   echo "\n  ";
-  echo '<link  href="'. \dash\engine\layout\fn::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
+  echo '<link  href="'. \dash\layout\fn::staticmtime('css/medium-editor.css'). '" rel="stylesheet" media="screen"/>';
 }
 if(\dash\option::config('site', 'googleAnalytics'))
 {

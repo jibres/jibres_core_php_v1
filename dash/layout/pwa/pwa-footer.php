@@ -1,8 +1,8 @@
 <?php
-if(\dash\engine\layout\pwa\pwa_menu::get())
+if(\dash\layout\pwa\pwa_menu::get())
 {
   echo "\n   <nav class='f'>";
-  foreach (\dash\engine\layout\pwa\pwa_menu::get() as $item)
+  foreach (\dash\layout\pwa\pwa_menu::get() as $item)
   {
     echo "\n    <div class='c'>";
     if(isset($item['href']))

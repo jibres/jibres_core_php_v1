@@ -1,5 +1,5 @@
 <?php
-namespace dash\engine\layout;
+namespace dash\layout;
 /**
  * dash main configure
  */
@@ -22,7 +22,7 @@ class find
 		$myPage = null;
 		if (\dash\detect\device::detectPWA() && false)
 		{
-			// $myPage = core.'engine/layout/pwa/pwa-main.php';
+			// $myPage = core.'layout/pwa/pwa-main.php';
 		}
 		else
 		{
@@ -37,7 +37,7 @@ class find
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
-				$myPage = core.'engine/layout/admin/admin-main.php';
+				$myPage = core.'layout/admin/admin-main.php';
 			}
 		}
 
@@ -58,7 +58,7 @@ class find
 		$myPage = null;
 		if (\dash\detect\device::detectPWA())
 		{
-			$myPage = core.'engine/layout/pwa/pwa-header.php';
+			$myPage = core.'layout/pwa/pwa-header.php';
 		}
 		else
 		{
@@ -79,7 +79,7 @@ class find
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
-				$myPage = core.'engine/layout/admin/admin-header.php';
+				$myPage = core.'layout/admin/admin-header.php';
 			}
 
 		}
@@ -99,7 +99,7 @@ class find
 		$myPage = null;
 		if (\dash\detect\device::detectPWA())
 		{
-			$myPage = core.'engine/layout/pwa/pwa-footer.php';
+			$myPage = core.'layout/pwa/pwa-footer.php';
 		}
 		else
 		{
@@ -121,7 +121,7 @@ class find
 			elseif(\dash\data::include_adminPanel())
 			{
 				// do nothing
-				// $myPage = core.'engine/layout/admin/admin-footer.php';
+				// $myPage = core.'layout/admin/admin-footer.php';
 			}
 
 		}
@@ -140,7 +140,7 @@ class find
 		$myPage = null;
 		if (\dash\detect\device::detectPWA())
 		{
-			// $myPage = core.'engine/layout/pwa/pwa-sidebar.php';
+			// $myPage = core.'layout/pwa/pwa-sidebar.php';
 		}
 		else
 		{
@@ -154,7 +154,7 @@ class find
 			}
 			elseif(\dash\data::include_adminPanel())
 			{
-				$myPage = core.'engine/layout/admin/admin-sidebar.php';
+				$myPage = core.'layout/admin/admin-sidebar.php';
 			}
 		}
 

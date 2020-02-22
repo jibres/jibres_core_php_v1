@@ -1,5 +1,5 @@
 <?php
-namespace dash\engine\layout\pwa;
+namespace dash\layout\pwa;
 
 class pwa_menu
 {

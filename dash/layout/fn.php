@@ -1,5 +1,5 @@
 <?php
-namespace dash\engine\layout;
+namespace dash\layout;
 /**
  * dash main configure
  */
@@ -37,12 +37,12 @@ class fn
 				// send global on line1 of xhr
 				echo json_encode(\dash\data::get('global'),  JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES). "\n";
 				// create all blocks
-				\dash\engine\layout\find::allBlocks();
+				\dash\layout\find::allBlocks();
 			}
 			else
 			{
 				// read main foundation file
-				require_once core.'engine/layout/foundation.php';
+				require_once core.'/layout/foundation.php';
 			}
 			// it's okay, dont run Twig!
 			return true;
