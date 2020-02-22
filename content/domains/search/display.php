@@ -73,6 +73,8 @@
  	<?php } //endif ?>
 
 
+ </div>
+ <div class="fit">
 
  	<h2><?php echo T_('Buy a domain name and create your website today.'); ?></h2>
  	<p><?php echo T_('Welcome to the domain registrar that has everything you need to get the right domain name for your personal or business website.')?></p>
