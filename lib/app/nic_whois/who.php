@@ -2,6 +2,7 @@
 namespace lib\app\nic_whois;
 
 
+
 class who
 {
 	public static function is_quick($_domain)
@@ -23,6 +24,38 @@ class who
 
 
 	public static function is($_domain)
+	{
+		if(!\lib\app\nic_domain\check::syntax($_domain))
+		{
+			return false;
+		}
+
+		$result = [];
+
+		// Creating default configured client
+		$whois = \lib\nic\Iodev\Whois\Whois::create();
+
+
+		// Checking availability
+		if ($whois->isDomainAvailable($_domain))
+		{
+			$result['available'] = true;
+		}
+		else
+		{
+			$result['available'] = false;
+
+		}
+
+		$response = $whois->lookupDomain($_domain);
+		$result['answer'] = $response->getText();
+
+		return $result;
+
+	}
+
+
+		public static function is_old($_domain)
 	{
 		if(!\lib\app\nic_domain\check::syntax($_domain))
 		{
@@ -55,5 +88,7 @@ class who
 		return $result;
 
 	}
+
+
 }
 ?>
