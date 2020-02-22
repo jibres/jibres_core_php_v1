@@ -183,6 +183,10 @@ class run
 				$msg = T_("Command completed successfully; ack to dequeue");
 				break;
 
+			case 2303:
+				$msg  = T_("Object does not exist");
+				break;
+
 			case 1001:
 			case 1300:
 			case 1500:
@@ -201,7 +205,6 @@ class run
 			case 2202:
 			case 2300:
 			case 2301:
-			case 2303:
 			case 2305:
 			case 2306:
 			case 2307:

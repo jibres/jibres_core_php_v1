@@ -11,19 +11,28 @@ class who
 			return false;
 		}
 
-		// @javad run this code to run nic curl
-		// $result = \lib\nic\exec\whois::run($_domain);
 		$result = null;
 
 		$domain = new \lib\nic\phpwhois\whois($_domain);
 		if(\dash\engine\process::status())
 		{
-			$whois_answer = $domain->info();
-			$result = [];
-			$result['answer'] = $whois_answer;
-			$result['available'] = $domain->isAvailable();
+			$whois_answer                  = $domain->info();
+			$result                        = [];
+			$result['answer']              = $whois_answer;
+			$result['php_whois_available'] = $domain->isAvailable();
 
 		}
+
+		$check_domain = \lib\app\nic_domain\check::check($_domain);
+		if(isset($check_domain['available']) && $check_domain['available'])
+		{
+			$result['available'] = true;
+		}
+		else
+		{
+			$result['available'] = false;
+		}
+
 
 		return $result;
 

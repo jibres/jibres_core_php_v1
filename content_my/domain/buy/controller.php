@@ -17,6 +17,7 @@ class controller
 		\dash\open::post();
 
 		$domain = \dash\url::subchild();
+		$domain = urldecode($domain);
 		if($domain)
 		{
 			if(\lib\app\nic_domain\check::syntax($domain))

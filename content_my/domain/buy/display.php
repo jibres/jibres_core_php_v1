@@ -204,14 +204,16 @@
 			<?php }else{ ?>
 
 			<div class="msg warn2">
-				<?php echo T_("Domain is occupied"); ?>
-				<span class="floatL">
-					<a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Whois"); ?></a>
-				</span>
+				<div class="f">
+					<div class="c">
+						<?php echo T_("Domain is occupied"); ?>
+					</div>
+					<div class="cauto">
+						<a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/domains/search?q=<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Whois"); ?></a>
+					</div>
+				</div>
 			</div>
-			<div class="txtRa">
-				<a href="<?php echo \dash\url::that(); ?>" class="btn secondary"><?php echo T_("Never mind"); ?></a>
-			</div>
+
 			<?php } //endif ?>
 
 

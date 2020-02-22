@@ -8,7 +8,7 @@ class check
 	{
 		if(!$_domain || !is_string($_domain))
 		{
-			\dash\notif::error(T_("Please fill domain"), 'domain');
+			// \dash\notif::error(T_("Please fill domain"), 'domain');
 			return false;
 		}
 
@@ -21,7 +21,7 @@ class check
 			$split_domain = explode('.', $_domain);
 			if(count($split_domain) > 2)
 			{
-				\dash\notif::error(T_("Invalid domain"), 'domain');
+				// \dash\notif::error(T_("Invalid domain"), 'domain');
 				return false;
 			}
 		}
