@@ -93,18 +93,22 @@
 			    </div>
 
 
-			    <label for="dnsid"><?php echo T_("DNS records"); ?> <small><a data-kerkere='.addNewDns' ><?php echo T_("Create new DNS"); ?></a></small></label>
-				<select name="dnsid" class="select ui dropdown search addition" id="dnsid">
-				<option value=""><?php echo T_("DNS record"); ?></option>
-				<?php foreach (\dash\data::myContactList() as $key => $value) {?>
+			    <?php if(\dash\data::myDNSList() && is_array(\dash\data::myDNSList())) {?>
+				    <label for="dnsid"><?php echo T_("DNS records"); ?> <small><a data-kerkere='.addNewDns' ><?php echo T_("Create new DNS"); ?></a></small></label>
+					<select name="dnsid" class="select ui dropdown search addition" id="dnsid">
+					<option value=""><?php echo T_("DNS record"); ?></option>
+					<?php foreach (\dash\data::myDNSList() as $key => $value) {?>
 
 
-				  <option value="<?php echo \dash\coding::encode(@$value['id']); ?>" <?php if(isset($value['isdefault']) && $value['isdefault']) { echo "selected"; } ?>><?php echo @$value['title']. ' - '. @$value['ns1']; ?></option>
+					  <option value="<?php echo \dash\coding::encode(@$value['id']); ?>" <?php if(isset($value['isdefault']) && $value['isdefault']) { echo "selected"; } ?>><?php echo @$value['title']. ' - '. @$value['ns1']; ?></option>
 
-				<?php } //endfor ?>
-				</select>
+					<?php } //endfor ?>
+					</select>
+			    <?php } //endif ?>
 
-				<div class='addNewDns' data-kerkere-content='hide'>
+
+
+				<div class='addNewDns' <?php if(\dash\data::myDNSList() && is_array(\dash\data::myDNSList())) {?> data-kerkere-content='hide' <?php } //endif ?>>
 
 				    <div class="f">
 				    	<div class="c6 s12">
@@ -123,6 +127,8 @@
 				    		</div>
 				    	</div>
 
+				    	<?php if(false) {?>
+
 				    	<div class="c6 s12">
 							<label for="ns3"><?php echo T_("DNS #3"); ?></label>
 							<div class="input">
@@ -138,6 +144,7 @@
 								</div>
 				    		</div>
 				    	</div>
+				    	<?php } //endif ?>
 				    </div>
 
 				</div>

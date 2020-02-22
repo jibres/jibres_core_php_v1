@@ -101,7 +101,7 @@ class search
 		}
 
 		$and[] = " dns.status != 'deleted' ";
-		$and[] = " contact.user_id = ". \dash\user::id();
+		$and[] = " dns.user_id = ". \dash\user::id();
 
 
 
