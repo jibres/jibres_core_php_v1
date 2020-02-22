@@ -121,6 +121,8 @@ class create
 			return false;
 		}
 
+		$transaction_id = null;
+
 		if($user_budget >= $price && $pay === 'budget')
 		{
 			$insert_transaction =
@@ -132,8 +134,8 @@ class create
 				'type'    => 'money',
 			];
 
-			$transaction = \dash\db\transactions::set($insert_transaction);
-			if(!$transaction)
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+			if(!$transaction_id)
 			{
 				\dash\notif::error(T_("No way to insert data"));
 				return false;
@@ -220,6 +222,25 @@ class create
 			];
 
 			$domain_action_id = \lib\db\nic_domain_action\insert::new_record($insert_action);
+
+
+
+			$insert_billing =
+			[
+				'domain_id'      => $domain_id,
+				'user_id'        => \dash\user::id(),
+				'action'         => 'buy',
+				'mode'           => 'manual',
+				'price'          => $price,
+				'discount'       => 0,
+				'discountcode'   => null,
+				'finalprice'     => $price,
+				'transaction_id' => $transaction_id,
+				'date'           => date("Y-m-d H:i:s"),
+
+			];
+
+			$domain_billing_id = \lib\db\nic_domain_billing\insert::new_record($insert_billing);
 
 			\dash\notif::ok(T_("Your domain was registred"));
 
