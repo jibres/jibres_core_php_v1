@@ -13,7 +13,7 @@ class view
 		{
 			// \dash\redirect::to(\dash\url::kingdom(). '/store');
 		}
-		\dash\data::include_adminPanel(true);
+		\dash\data::page_titleBox(false);
 	}
 }
 ?>

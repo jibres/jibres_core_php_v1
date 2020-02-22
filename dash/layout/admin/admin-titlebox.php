@@ -1,5 +1,5 @@
 
-<?php if(\dash\data::page_titleBox() || 1) { ?>
+<?php if(\dash\data::page_titleBox()) { ?>
 
 <div class="titleBox">
   <div class="f align-center">
