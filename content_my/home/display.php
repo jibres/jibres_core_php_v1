@@ -55,13 +55,15 @@
      <ul>
        <li>
         <a class="f align-center" href="<?php echo \dash\url::kingdom(); ?>">
-         <div class="key">Homepage</div>
+          <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+         <div class="key"><?php echo T_('Homepage'); ?></div>
          <div class="go"></div>
         </a>
        </li>
        <li>
         <a class="f align-center" href="<?php echo \dash\url::kingdom(); ?>/contact">
-         <div class="key">Contact</div>
+          <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+         <div class="key"><?php echo T_('Contact Jibres'); ?></div>
          <div class="go"></div>
         </a>
        </li>
