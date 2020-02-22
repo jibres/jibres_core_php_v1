@@ -1,5 +1,5 @@
 
-<?php if(\dash\data::page_titleBox()) { ?>
+<?php if(\dash\data::page_titleBox() || 1) { ?>
 
 <div class="titleBox">
   <div class="f align-center">
@@ -47,7 +47,7 @@
 <?php } // endif ?>
   </div>
 
-<?php if(\dash\data::page_breadcrumb())  {?>
+<?php if(\dash\data::page_breadcrumb() && false)  {?>
 
   <nav class="breadcrumb">
     <?php foreach (\dash\data::page_breadcrumb() as $key => $value)
