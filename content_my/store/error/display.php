@@ -11,9 +11,9 @@
               <code>Error <?php echo \dash\data::StoreCreateErrorCode(); ?></code>
             </div>
           <?php } //endif ?>
-          <a data-direct href='<?php echo \dash\url::this(); ?>' class="btn mTB20 block success2 outline"><?php echo T_("Try again"); ?></a>
+          <a href='<?php echo \dash\url::this(); ?>' class="btn mTB20 block success2 outline"><?php echo T_("Try again"); ?></a>
 
-          <a data-direct href='<?php echo \dash\url::support(); ?>/setup/error' class="btn block secondary"><?php echo T_("Read about this problem"); ?></a>
+          <a href='<?php echo \dash\url::support(); ?>/setup/error' class="btn block secondary"><?php echo T_("Read about this problem"); ?></a>
 
         </div>
 

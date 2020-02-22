@@ -19,6 +19,6 @@
         <img src="<?php echo \dash\url::static(); ?>/img/store/choose-subdomain.svg" alt='<?php echo T_("choose subdomain on Jibres"); ?>'>
       </div>
       <div class="f align-center">
-        <div class="cauto os"><a href="<?php echo \dash\url::this(); ?>" class="btn" data-direct><?php echo T_("Cancel"); ?></a></div>
+        <div class="cauto os"><a href="<?php echo \dash\url::this(); ?>" class="btn"><?php echo T_("Cancel"); ?></a></div>
       </div>
     </div>

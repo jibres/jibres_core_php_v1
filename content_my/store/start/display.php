@@ -24,16 +24,16 @@
 
             <?php if(\dash\data::canAddStore_type() === 'price') {?>
 
-              <a data-direct href="<?php echo \dash\url::kingdom(); ?>/account/billing" class="btn block outline mT10 primary"><?php echo T_("Charge your account"); ?></a>
+              <a href="<?php echo \dash\url::kingdom(); ?>/account/billing" class="btn block outline mT10 primary"><?php echo T_("Charge your account"); ?></a>
 
             <?php }elseif(\dash\data::canAddStore_type() === 'store3') {?>
 
-              <a data-direct href='<?php echo \dash\url::support(); ?>/ticket/add?title=<?php echo T_("Create more store"); ?>' class="btn block outline mT10 primary"><?php echo T_("Contact Us"); ?></a>
+              <a href='<?php echo \dash\url::support(); ?>/ticket/add?title=<?php echo T_("Create more store"); ?>' class="btn block outline mT10 primary"><?php echo T_("Contact Us"); ?></a>
 
             <?php } //endif ?>
 
 
-            <a data-direct href="<?php echo \dash\url::this(); ?>" class="btn block outline mT10 success"><?php echo T_("Back"); ?></a>
+            <a href="<?php echo \dash\url::this(); ?>" class="btn block outline mT10 success"><?php echo T_("Back"); ?></a>
 
             <img src="<?php echo \dash\url::static(); ?>/img/store/limit1.gif" alt='<?php echo T_("Limit of create store"); ?>'>
 
@@ -47,7 +47,7 @@
 
         <div class="f align-center msg">
           <div class="c pRa10"><?php echo \dash\data::termOfService(); ?></div>
-          <div class="cauto os"><a href="<?php echo \dash\url::this(); ?>" class="btn" data-direct><?php echo T_("Cancel"); ?></a></div>
+          <div class="cauto os"><a href="<?php echo \dash\url::this(); ?>" class="btn"><?php echo T_("Cancel"); ?></a></div>
         </div>
       <?php }//endif ?>
     </div>
