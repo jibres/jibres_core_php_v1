@@ -117,7 +117,7 @@ class create
 
 		if($pay === 'budget' && $price > $user_budget)
 		{
-			\dash\notif::warn(T_("Your budget is low for register domain"));
+			\dash\notif::error(T_("Your budget is low for register domain"));
 			return false;
 		}
 

@@ -2,6 +2,7 @@
 <div class="f justify-center">
 	<div class="c6 m8 s12">
 		<div class="cbox">
+			<p><?php echo T_("Enter you domain to check and register"); ?></p>
 			<form method="post" autocomplete="off" class="mB20" action="<?php echo \dash\url::this(); ?>/buy">
 				<input type="hidden" name="whois" value="1">
 				<div class="input ltr">

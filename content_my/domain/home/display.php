@@ -2,16 +2,7 @@
 
 
 <div class="f">
-  <div class="c s12">
 
-  	<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/contact'>
-	 <div class="statistic blue">
-	  <div class="value"><i class="sf-vcard"></i></div>
-	  <div class="label"><?php echo T_("Domain contact"); ?></div>
-	 </div>
-	</a>
-
-  </div>
 
   <div class="c s12">
 
@@ -27,10 +18,33 @@
 
   <div class="c s12">
 
+  	<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/renew'>
+	 <div class="statistic blue">
+	  <div class="value"><i class="sf-retweet"></i></div>
+	  <div class="label"><?php echo T_("Renew domain"); ?></div>
+	 </div>
+	</a>
+
+  </div>
+
+
+  <div class="c s12">
+
 	<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/transfer'>
 	 <div class="statistic green">
 	  <div class="value"><i class="sf-exchange"></i></div>
 	  <div class="label"><?php echo T_("Transfer domain"); ?></div>
+	 </div>
+	</a>
+
+  </div>
+
+   <div class="c s12">
+
+  	<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/contact'>
+	 <div class="statistic blue">
+	  <div class="value"><i class="sf-vcard"></i></div>
+	  <div class="label"><?php echo T_("Domain contact"); ?></div>
 	 </div>
 	</a>
 

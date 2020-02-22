@@ -18,11 +18,9 @@ class check
 		}
 		else
 		{
-			$split_domain = explode('.', $_domain);
-			if(count($split_domain) > 2)
+			if(!preg_match("/^[\w\d]+\.(ir)$/", $_domain))
 			{
-				// \dash\notif::error(T_("Invalid domain"), 'domain');
-				return false;
+				// return false;
 			}
 		}
 
