@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2020-02-22 13:25+0330\n"
-"PO-Revision-Date: 2020-02-22 13:45+0330\n"
+"PO-Revision-Date: 2020-02-22 13:51+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -841,10 +841,8 @@ msgid ""
 msgstr ""
 
 #: content/domains/home/display.php:5
-#, fuzzy
-#| msgid "Can not renew your domain"
 msgid "Search for your dream domain"
-msgstr "نمی‌توانید دامنه را تمدید کنید"
+msgstr "به دنبال دامنه‌ی رویایی خودتان بگردید"
 
 #: content/domains/home/display.php:6
 msgid "Every website starts with a great domain name"
@@ -890,10 +888,8 @@ msgid ""
 msgstr ""
 
 #: content/domains/home/display.php:20
-#, fuzzy
-#| msgid "Domain"
 msgid "Find my Domain"
-msgstr "دامنه"
+msgstr "دامنه من را بیاب"
 
 #: content/domains/home/display.php:25 content_crm/transactions/add/display.php:44
 #: content_crm/transactions/minus/display.php:44
@@ -908,10 +904,8 @@ msgid ""
 msgstr ""
 
 #: content/domains/home/display.php:27
-#, fuzzy
-#| msgid "Transfer code"
 msgid "Transfer Now"
-msgstr "کد انتقال"
+msgstr "همین الان منتقل کن"
 
 #: content/domains/home/display.php:32 content_my/domain/setting/display.php:72
 msgid "Renew"
@@ -925,8 +919,6 @@ msgid ""
 msgstr ""
 
 #: content/domains/home/display.php:34
-#, fuzzy
-#| msgid "Renew domain"
 msgid "Renew Domain"
 msgstr "تمدید دامنه"
 
@@ -1135,10 +1127,8 @@ msgid ""
 msgstr ""
 
 #: content/domains/home/view.php:9
-#, fuzzy
-#| msgid "Domain setting"
 msgid "Domain Registration"
-msgstr "تنظیمات دامنه"
+msgstr "ثبت دامنه"
 
 #: content/domains/home/view.php:11
 msgid "Jibres offers cheap domain names with the most reliable service."
@@ -2605,27 +2595,29 @@ msgstr ""
 
 #: content/pwa/display.php:2
 msgid "Jibres Progressive Web Application"
-msgstr ""
+msgstr "برنامه وب پیشرفته‌ی جیبرس"
 
 #: content/pwa/display.php:3
 msgid "With PWA version, you can use Jibres like native app."
 msgstr ""
+"با نسخه‌ی پی‌دبل‌یو‌ای، شما می‌توانید مثل یک برنامه معمولی در گوشی خودتان از جیبرس "
+"استفاده کنید."
 
 #: content/pwa/display.php:5
 msgid "Tap on at :val the bottom of the page."
-msgstr ""
+msgstr "در پایین صفحه روی گزینه :val بزنید."
 
 #: content/pwa/display.php:6
 msgid "Swipe left and tap on :val"
-msgstr ""
+msgstr "در منوی باز شده کمی به پایین بروید و گزینه :val را انتخاب کنید."
 
 #: content/pwa/display.php:7
 msgid "Tap on the \"Add\" at the top of the page."
-msgstr ""
+msgstr "در بالای صفحه گزینه Add را انتخاب کنید."
 
 #: content/pwa/display.php:8
 msgid "Jibres icon has been added on your home screen."
-msgstr ""
+msgstr "به همین راحتی آیکن برنامه جیبرس به صفحه نخست گوشی شما اضافه شد."
 
 #: content/socialresponsibility/display.php:4
 #: content/socialresponsibility/view.php:10
@@ -11523,11 +11515,11 @@ msgstr "ایجاد کننده"
 
 #: content_my/domain/buy/display.php:19
 msgid "Domain ready to registered"
-msgstr ""
+msgstr "دامنه آماده ثبت است"
 
 #: content_my/domain/buy/display.php:27
 msgid "Can not register this domain"
-msgstr ""
+msgstr "نمی‌توان این دامنه را ثبت کرد"
 
 #: content_my/domain/buy/display.php:54 content_my/domain/buy/display.php:209
 #: content_my/domain/home/display.php:163
@@ -12121,20 +12113,16 @@ msgid "Hello"
 msgstr "سلام"
 
 #: content_r10/android/intro/view.php:20 content_r10/android/intro/view.php:25
-#, fuzzy
-#| msgid "All-in-One Ecommerce Software"
 msgid "All-in-one ecommerce platform"
-msgstr "همه‌ی نیازهای تجارت الکترونیک در یک نرم‌افزار"
+msgstr "پلتفرم تجارت الکترونیک همه کاره"
 
 #: content_r10/android/intro/view.php:34
 msgid "Sometimes you need a big change."
-msgstr ""
+msgstr "برخی اوقات شما نیاز به یک تغییر بزرگ دارید."
 
 #: content_r10/android/intro/view.php:54 content_v2/android/intro/view.php:43
-#, fuzzy
-#| msgid "Git Status"
 msgid "Get Start"
-msgstr "وضعیت گیت"
+msgstr "بریم شروع کنیم"
 
 #: content_r10/android/language/view.php:9 content_v2/android/language/view.php:9
 msgid "Choose your language"
@@ -13430,16 +13418,12 @@ msgid "Invalid access in url"
 msgstr "دسترسی نادرست در آدرس"
 
 #: content_v2/controller.php:19
-#, fuzzy
-#| msgid "Store not found"
 msgid "Store not found in header"
-msgstr "فروشگاه یافت نشد"
+msgstr "فروشگاه در هدر یافت نشد"
 
 #: content_v2/controller.php:26
-#, fuzzy
-#| msgid "Invalid store code in url"
 msgid "Invalid store code in header"
-msgstr "شناسه فروشگاه در آدرس اشتباه است"
+msgstr "شناسه فروشگاه در هدر اشتباه است"
 
 #: dash/app/address.php:58 dash/app/user.php:630
 msgid "Please set title less than 100 character"
