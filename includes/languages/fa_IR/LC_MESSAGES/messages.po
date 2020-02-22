@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-02-21 15:28+0330\n"
-"PO-Revision-Date: 2020-02-21 15:28+0330\n"
+"POT-Creation-Date: 2020-02-22 13:25+0330\n"
+"PO-Revision-Date: 2020-02-22 13:45+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -122,9 +122,10 @@ msgstr ""
 #: content_enter/home/layout/main.php:16 content_enter/home/view.php:19
 #: content_r10/android/intro/view.php:29 content_r10/android/splash/view.php:13
 #: content_r10/android/view.php:12 content_su/update/display.php:82
-#: content_subdomain/main/visitcard.php:8 content_subdomain/main/visitcard.php:11
-#: content_v2/android/view.php:12 dash/engine/layout/admin/admin-sidebar.php:149
-#: dash/engine/layout/admin/admin-sidebar.php:152 dash/engine/view.php:16
+#: content_subdomain/home/layout/visitcard.php:11
+#: content_subdomain/home/layout/visitcard.php:14 content_v2/android/view.php:12
+#: dash/engine/layout/admin/admin-sidebar.php:149
+#: dash/engine/layout/admin/admin-sidebar.php:152 dash/engine/view.php:18
 #: dash/utility/sms.php:34 includes/languages/trans_static.php:7
 #: lib/app/application/intro.php:136 lib/app/application/intro.php:143
 #: lib/app/application/intro.php:150
@@ -682,11 +683,11 @@ msgstr ""
 
 #: content/domains/home/definition.php:4
 msgid "What is a domain?"
-msgstr ""
+msgstr "دامنه چیست؟"
 
 #: content/domains/home/definition.php:5
 msgid "Everything you need to know about domains"
-msgstr ""
+msgstr "تمام آنچه که نیاز است درباره دامنه بدانید"
 
 #: content/domains/home/definition.php:6
 msgid ""
@@ -699,7 +700,7 @@ msgstr ""
 
 #: content/domains/home/definition.php:12
 msgid "Let's take a look at what goes on behind that domain."
-msgstr ""
+msgstr "بیایید نگاهی به آنچه در پس زمینه‌ی دامنه رخ می‌دهد بیندازیم."
 
 #: content/domains/home/definition.php:15
 msgid ""
@@ -720,7 +721,7 @@ msgstr ""
 
 #: content/domains/home/definition.php:25
 msgid "What are the parts of a domain?"
-msgstr ""
+msgstr "دامنه از چه بخش‌هایی تشکیل شده است؟"
 
 #: content/domains/home/definition.php:26
 msgid ""
@@ -760,7 +761,7 @@ msgstr ""
 
 #: content/domains/home/definition.php:46
 msgid "What's the purpose of a domain?"
-msgstr ""
+msgstr "هدف استفاده از دامنه چیست؟"
 
 #: content/domains/home/definition.php:47
 msgid ""
@@ -776,7 +777,7 @@ msgstr ""
 
 #: content/domains/home/definition.php:50
 msgid "But there are other good reasons to register a domain too."
-msgstr ""
+msgstr "اما دلایل خوب دیگری هم برای ثبت دامنه وجود دارد."
 
 #: content/domains/home/definition.php:51
 msgid ""
@@ -794,7 +795,7 @@ msgstr ""
 
 #: content/domains/home/definition.php:54
 msgid "There's also custom email."
-msgstr ""
+msgstr "هم‌چنین استفاده از ایمیل سفارشی."
 
 #: content/domains/home/definition.php:55
 msgid ""
@@ -823,7 +824,7 @@ msgstr ""
 
 #: content/domains/home/definition.php:74
 msgid "What's the difference between a domain and hosting?"
-msgstr ""
+msgstr "تفاوت بین دامنه و هاستینگ یا میزبانی وب چیست؟"
 
 #: content/domains/home/definition.php:75
 msgid ""
@@ -847,7 +848,7 @@ msgstr "نمی‌توانید دامنه را تمدید کنید"
 
 #: content/domains/home/display.php:6
 msgid "Every website starts with a great domain name"
-msgstr ""
+msgstr "داستان هر وب‌سایت با یک دامنه فوق العاده شروع می‌شود."
 
 #: content/domains/home/display.php:9 content/domains/search/display.php:8
 #: content_a/cart/home/display.php:49 content_a/cart/home/display.php:57
@@ -931,7 +932,7 @@ msgstr "تمدید دامنه"
 
 #: content/domains/home/display.php:44
 msgid "Find your winning domain"
-msgstr ""
+msgstr "دامنه‌ای که برد شما را رقم می‌زند بیابید"
 
 #: content/domains/home/display.php:45
 msgid ""
@@ -944,7 +945,7 @@ msgstr ""
 
 #: content/domains/home/display.php:49
 msgid "How to find a good domain name"
-msgstr ""
+msgstr "چطور نام دامنه مناسب انتخاب کنیم؟"
 
 #: content/domains/home/display.php:50
 msgid ""
@@ -955,7 +956,7 @@ msgstr ""
 
 #: content/domains/home/display.php:58
 msgid "Built By Developers, For Developers."
-msgstr ""
+msgstr "ساخته‌شده توسط توسعه‌دهندگان، برای توسعه‌دهندگان"
 
 #: content/domains/home/faq.php:4 content/domains/search/faq.php:4
 #: content/help/faq/view.php:9 content_support/home/dashboard.php:73
@@ -964,7 +965,7 @@ msgstr "سوالات متداول"
 
 #: content/domains/home/faq.php:6
 msgid "What is a domain? What is a TLD?"
-msgstr ""
+msgstr "دامنه چیست؟ تی‌ال‌دی چیست؟"
 
 #: content/domains/home/faq.php:9
 msgid ""
@@ -987,7 +988,7 @@ msgstr ""
 
 #: content/domains/home/faq.php:16
 msgid "What is a TLD?"
-msgstr ""
+msgstr "تی‌ال‌دی چیست؟"
 
 #: content/domains/home/faq.php:19
 msgid ""
@@ -999,7 +1000,7 @@ msgstr ""
 
 #: content/domains/home/faq.php:23
 msgid "What is the difference between various TLDs? Which ones are better?"
-msgstr ""
+msgstr "تفاوت بین تی‌ال‌دی‌های مختلف چیست؟ کدام یکی بهتر است؟"
 
 #: content/domains/home/faq.php:26
 msgid ""
@@ -1021,7 +1022,7 @@ msgstr ""
 
 #: content/domains/home/faq.php:33
 msgid "How do I check domain name availability status?"
-msgstr ""
+msgstr "چطوری وضعیت موجود بودن یک دامنه را بررسی کنم؟"
 
 #: content/domains/home/faq.php:36
 msgid ""
@@ -1039,7 +1040,7 @@ msgstr ""
 
 #: content/domains/home/faq.php:43
 msgid "Are .com domains better for search engine optimization (SEO)?"
-msgstr ""
+msgstr "آیا دامنه‌ی دات کام برای سئو و موتورهای جستجو بهتر است؟"
 
 #: content/domains/home/faq.php:46
 msgid ""
@@ -1052,7 +1053,7 @@ msgstr ""
 
 #: content/domains/home/faq.php:50
 msgid "What is a premium domain?"
-msgstr ""
+msgstr "دامنه پرمیوم چیست؟"
 
 #: content/domains/home/faq.php:53
 msgid ""
@@ -1073,7 +1074,7 @@ msgstr ""
 
 #: content/domains/home/faq.php:60
 msgid "What is a new TLD?"
-msgstr ""
+msgstr "تی‌ال‌دی جدید چی داریم؟"
 
 #: content/domains/home/faq.php:63
 msgid ""
@@ -1092,7 +1093,7 @@ msgstr ""
 
 #: content/domains/home/faq.php:70
 msgid "Should I register multiple extensions for the same domain?"
-msgstr ""
+msgstr "آیا باید چندین پسوند یک دامنه را هم ثبت کنم؟"
 
 #: content/domains/home/faq.php:73
 msgid ""
@@ -1104,7 +1105,7 @@ msgstr ""
 
 #: content/domains/home/faq.php:77
 msgid "Is there a limit on how long or short my domain can be?"
-msgstr ""
+msgstr "آیا محدودیتی در کوتاه و بلند بودن دامنه وجود دارد؟"
 
 #: content/domains/home/faq.php:80
 msgid ""
@@ -1122,7 +1123,7 @@ msgstr ""
 
 #: content/domains/home/faq.php:87
 msgid "What can I do with my domain name?"
-msgstr ""
+msgstr "با دامنه خودم چه کارهایی می‌توانم بکنم؟"
 
 #: content/domains/home/faq.php:90
 msgid ""
@@ -1142,26 +1143,36 @@ msgstr "تنظیمات دامنه"
 #: content/domains/home/view.php:11
 msgid "Jibres offers cheap domain names with the most reliable service."
 msgstr ""
+"جیبرس در کنار ارائه‌ی یک سرویس مطمئنِ، ارزان‌ترین قیمت دامنه را به شما پیشنهاد می‌کند."
 
 #: content/domains/home/view.php:11
 msgid "Buy or transfer a domain name today!"
-msgstr ""
+msgstr "همین امروز دامنه خودتان را بخرید یا منتقل کنید!"
 
 #: content/domains/search/display.php:5
 msgid "Discover the perfect domain now"
-msgstr ""
+msgstr "همین الان به دنبال یک دامنه‌ی عالی بگردید"
 
-#: content/domains/search/display.php:12
+#: content/domains/search/display.php:17
+msgid "Domain ready to register"
+msgstr "دامنه آماده ثبت است"
+
+#: content/domains/search/display.php:20
+#: dash/engine/layout/admin/sidebar/sidebar-api.php:108
+msgid "Add to cart"
+msgstr "افزودن به سبد خرید"
+
+#: content/domains/search/display.php:33
 msgid "Buy a domain name and create your website today."
-msgstr ""
+msgstr "یک دامنه بخرید و همین امروز وب‌سایت خودتان را راه بندازید."
 
-#: content/domains/search/display.php:13
+#: content/domains/search/display.php:34
 msgid ""
 "Welcome to the domain registrar that has everything you need to get the right "
 "domain name for your personal or business website."
 msgstr ""
 
-#: content/domains/search/display.php:14
+#: content/domains/search/display.php:35
 msgid ""
 "You can choose from the most in-demand and recognizable domain names at great "
 "prices, with new choices added regularly. So you can register a domain that helps "
@@ -1169,11 +1180,11 @@ msgid ""
 "comes in."
 msgstr ""
 
-#: content/domains/search/display.php:16
+#: content/domains/search/display.php:37
 msgid "Register Your Dream Domain Today."
-msgstr ""
+msgstr "دامنه‌ی رویایی خودتان را امروز ثبت کنید."
 
-#: content/domains/search/display.php:17
+#: content/domains/search/display.php:38
 msgid ""
 "Remember to come up with words that are easy to spell and reflect the purpose of "
 "your website. Ask friends and family for their opinions - the more the merrier in "
@@ -1181,7 +1192,7 @@ msgid ""
 "exciting idea, it's time to see if your domain name has been taken."
 msgstr ""
 
-#: content/domains/search/display.php:20
+#: content/domains/search/display.php:41
 msgid ""
 "*ICANN (the Internet Corporation for Assigned Names and Numbers) charges a "
 "mandatory annual fee of $0.18 for each domain registration, renewal or transfer. "
@@ -1190,7 +1201,7 @@ msgstr ""
 
 #: content/domains/search/faq.php:6
 msgid "What TLD types exist?"
-msgstr ""
+msgstr "انواع تی‌ال‌دی موجود کدامند؟"
 
 #: content/domains/search/faq.php:9
 msgid ""
@@ -1202,7 +1213,7 @@ msgstr ""
 
 #: content/domains/search/faq.php:13
 msgid "How do I renew a domain?"
-msgstr ""
+msgstr "چطور یک دامنه را تمدید کنم؟"
 
 #: content/domains/search/faq.php:16
 msgid ""
@@ -1212,7 +1223,7 @@ msgstr ""
 
 #: content/domains/search/faq.php:20
 msgid "Can I renew an expired domain?"
-msgstr ""
+msgstr "آیا می‌توانم یک دامنه منقضی شده را تمدید کنم؟"
 
 #: content/domains/search/faq.php:23
 msgid ""
@@ -1222,7 +1233,7 @@ msgstr ""
 
 #: content/domains/search/faq.php:27
 msgid "Why buy a domain name from Jibres?"
-msgstr ""
+msgstr "چرا از جیبرس دامنه بخرم؟"
 
 #: content/domains/search/faq.php:30
 msgid ""
@@ -1235,7 +1246,7 @@ msgstr ""
 
 #: content/domains/search/faq.php:34
 msgid "Why is domain name registration required?"
-msgstr ""
+msgstr "چرا ثبت یک دامنه لازم است؟"
 
 #: content/domains/search/faq.php:37
 msgid ""
@@ -1248,7 +1259,7 @@ msgstr ""
 
 #: content/domains/search/faq.php:42
 msgid "How does domain registration work?"
-msgstr ""
+msgstr "ثبت یک دامنه چطوری است؟"
 
 #: content/domains/search/faq.php:45
 msgid ""
@@ -1266,11 +1277,17 @@ msgstr "جستجو نام دامنه"
 
 #: content/domains/search/view.php:11
 msgid "Every website starts with a great domain name."
-msgstr ""
+msgstr "داستان هر وب‌سایت با یک دامنه فوق العاده شروع می‌شود."
 
 #: content/domains/search/view.php:11
 msgid "Find your dream domain."
-msgstr ""
+msgstr "دامنه‌ی رویایی خودتان را بیابید."
+
+#: content/domains/search/view.php:26 lib/app/nic_domain/create.php:27
+#: lib/app/nic_domain/lock.php:24 lib/app/nic_domain/lock.php:68
+#: lib/app/nic_domain/renew.php:28 lib/app/nic_domain/transfer.php:23
+msgid "Invalid domain syntax"
+msgstr "ساختار دامنه اشتباه است"
 
 #: content/enterprise/display.php:3
 msgid ""
@@ -1417,7 +1434,7 @@ msgstr ""
 
 #: content/help/faq/view.php:13 content/help/view.php:9
 #: content/home/layout/header.php:19 content_cms/posts/home/view.php:44
-#: dash/engine/layout/admin/admin-header.php:12
+#: dash/engine/layout/admin/admin-header.php:13
 #: dash/engine/layout/admin/admin-sidebar.php:104
 #: dash/engine/layout/admin/sidebar/sidebar-cms.php:29
 #: dash/engine/layout/pwa/pwa_menu.php:55
@@ -1871,7 +1888,7 @@ msgstr "جیبرس"
 msgid "Jibres Logo"
 msgstr "لوگوی جیبرس"
 
-#: content/home/layout/header.php:26 content_subdomain/main/visitcard.php:38
+#: content/home/layout/header.php:26 content_subdomain/home/layout/visitcard.php:41
 msgid "Store Panel"
 msgstr "پنل فروشگاه"
 
@@ -1889,7 +1906,7 @@ msgstr "داشبورد"
 #: content_api/v1/app/controller.php:154 content_crm/member/glance/display.php:45
 #: content_crm/member/glance/display.php:71 content_enter/pass/display.php:36
 #: content_enter/pass/recovery/model.php:34 content_enter/signup/view.php:20
-#: content_subdomain/main/visitcard.php:43
+#: content_subdomain/home/layout/visitcard.php:46
 #: dash/app/log/caller/enter/enter_VerificationCode.php:16
 #: dash/app/log/caller/enter/enter_apiverificationcode.php:16
 msgid "Enter"
@@ -1960,9 +1977,10 @@ msgstr "بیشتر و بیشتر بفروش."
 
 #: content/home/view.php:25 content/home/view.php:29 content/view.php:32
 #: content_my/home/view.php:10 content_r10/android/intro/view.php:19
-#: content_r10/android/splash/view.php:14 content_subdomain/main/visitcard.php:6
-#: dash/utility/sms.php:35 lib/app/application/intro.php:137
-#: lib/app/application/intro.php:144 lib/app/application/intro.php:151
+#: content_r10/android/splash/view.php:14
+#: content_subdomain/home/layout/visitcard.php:9 dash/utility/sms.php:35
+#: lib/app/application/intro.php:137 lib/app/application/intro.php:144
+#: lib/app/application/intro.php:151
 msgid "Sell and Enjoy"
 msgstr "بفروش و لذت ببر"
 
@@ -2273,7 +2291,7 @@ msgstr "اختیاری"
 #: content_crm/transactions/add/display.php:69
 #: content_crm/transactions/minus/display.php:54
 #: content_crm/transactions/minus/display.php:69
-#: content_my/domain/buy/display.php:84 content_my/domain/buy/display.php:90
+#: content_my/domain/buy/display.php:97 content_my/domain/buy/display.php:103
 #: content_pay/home/display.php:64
 msgid "Toman"
 msgstr "تومان"
@@ -2584,6 +2602,30 @@ msgid ""
 msgstr ""
 "ما این اطمینان را به شما می‌دهیم که دغدغه‌ی ما، حفظ حریم‌خصوصی و محافظت از اطلاعات "
 "شما در برابر دسترسی‌های غیرمجاز هست."
+
+#: content/pwa/display.php:2
+msgid "Jibres Progressive Web Application"
+msgstr ""
+
+#: content/pwa/display.php:3
+msgid "With PWA version, you can use Jibres like native app."
+msgstr ""
+
+#: content/pwa/display.php:5
+msgid "Tap on at :val the bottom of the page."
+msgstr ""
+
+#: content/pwa/display.php:6
+msgid "Swipe left and tap on :val"
+msgstr ""
+
+#: content/pwa/display.php:7
+msgid "Tap on the \"Add\" at the top of the page."
+msgstr ""
+
+#: content/pwa/display.php:8
+msgid "Jibres icon has been added on your home screen."
+msgstr ""
 
 #: content/socialresponsibility/display.php:4
 #: content/socialresponsibility/view.php:10
@@ -2962,28 +3004,27 @@ msgstr "ای‌پی‌آی کامل"
 msgid "#1 World Sales Engineering System"
 msgstr "#1 جهان در سیستم مهندسی فروش"
 
-#: content/whois/controller.php:28 content_my/domain/buy/controller.php:30
+#: content/whois/controller.php:28 content_my/domain/buy/controller.php:31
 #: content_my/domain/setting/controller.php:34
 msgid "Invalid error syntax"
 msgstr "خطای ساختار اشتباه"
 
-#: content/whois/display.php:7 content_my/domain/buy/display.php:18
+#: content/whois/display.php:7 content_my/domain/buy/display.php:8
 #: content_my/domain/home/display.php:94 content_my/domain/transfer/display.php:20
 msgid "Domain"
 msgstr "دامنه"
 
 #: content/whois/display.php:8 content/whois/view.php:10
-#: content_my/domain/buy/display.php:19
+#: content_my/domain/buy/display.php:9
 msgid "Check domain"
 msgstr "بررسی دامنه"
 
-#: content/whois/display.php:32 content_my/domain/buy/display.php:33
+#: content/whois/display.php:32 content_my/domain/buy/display.php:46
 #: content_my/domain/home/display.php:154
 msgid "Domain is available"
 msgstr "دامنه موجود است"
 
-#: content/whois/model.php:12 lib/app/nic_domain/check.php:11
-#: lib/app/nic_domain/get.php:11
+#: content/whois/model.php:12 lib/app/nic_domain/get.php:11
 msgid "Please fill domain"
 msgstr "لطفا دامنه را وارد کنید"
 
@@ -2992,8 +3033,8 @@ msgstr "لطفا دامنه را وارد کنید"
 msgid "Please enter a valid domain"
 msgstr "لطفا دامنه را به صورت صحیح وارد کنید"
 
-#: content/whois/view.php:9 content_my/domain/buy/display.php:43
-#: content_my/domain/buy/display.php:160 content_my/domain/home/display.php:165
+#: content/whois/view.php:9 content_my/domain/buy/display.php:56
+#: content_my/domain/buy/display.php:212 content_my/domain/home/display.php:165
 #: dash/engine/layout/admin/sidebar/sidebar-domain.php:5
 msgid "Whois"
 msgstr "کیست"
@@ -3423,7 +3464,7 @@ msgid "Address"
 msgstr "آدرس"
 
 #: content_a/chap/size-receipt/receipt.php:63
-#: content_subdomain/main/visitcard.php:29
+#: content_subdomain/home/layout/visitcard.php:32
 msgid "Tel"
 msgstr "تلفن"
 
@@ -3552,8 +3593,9 @@ msgstr "ویرایش"
 #: content_a/company/display.php:244 content_a/units/display.php:78
 #: content_a/units/display.php:202 content_a/units/display.php:257
 #: content_account/address.php:10 content_enter/loginas/display.php:29
-#: content_my/store/ask/display.php:45 content_my/store/start/display.php:50
-#: content_my/store/subdomain/display.php:22 content_pay/home/display.php:150
+#: content_my/domain/buy/display.php:191 content_my/store/ask/display.php:45
+#: content_my/store/start/display.php:50 content_my/store/subdomain/display.php:22
+#: content_pay/home/display.php:150
 #: dash/social/telegram/commands/step_ticketAnswer.php:42
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketCreate.php:44
@@ -3707,7 +3749,7 @@ msgstr "بازگشت به لیست شرکت‌های سازنده"
 
 #: content_a/controller.php:16 content_api/v1/tools.php:55
 #: content_api/v1/tools.php:90 content_r10/tools.php:55 content_r10/tools.php:90
-#: content_subdomain/controller.php:36 content_v2/controller.php:47
+#: content_subdomain/controller.php:41 content_v2/controller.php:47
 #: lib/app/category/add.php:12 lib/app/category/edit.php:13
 #: lib/app/category/get.php:32 lib/app/category/get.php:62
 #: lib/app/category/search.php:11 lib/app/category/search.php:88
@@ -3734,8 +3776,8 @@ msgstr "همه"
 msgid "Sale"
 msgstr "فروش"
 
-#: content_a/factor/home/display.php:31 content_my/domain/buy/display.php:35
-#: content_my/domain/buy/display.php:151 content_my/domain/home/display.php:157
+#: content_a/factor/home/display.php:31 content_my/domain/buy/display.php:48
+#: content_my/domain/buy/display.php:197 content_my/domain/home/display.php:157
 #: includes/languages/trans_static.php:25 includes/languages/trans_static.php:544
 msgid "Buy"
 msgstr "خرید"
@@ -4004,17 +4046,17 @@ msgid "Add new :type"
 msgstr "افزودن :type جدید"
 
 #: content_a/filter.php:14 content_cms/view.php:87 content_crm/view.php:88
-#: content_su/view.php:133 dash/app/sort.php:74
+#: content_su/view.php:130 dash/app/sort.php:74
 msgid "Search with keyword :search"
 msgstr "جستجو با کلیدواژه‌ی :search"
 
 #: content_a/filter.php:21 content_cms/view.php:92 content_crm/view.php:93
-#: content_su/view.php:138 dash/app/sort.php:82
+#: content_su/view.php:135 dash/app/sort.php:82
 msgid "with condition"
 msgstr "به شرط"
 
 #: content_a/filter.php:27 content_cms/view.php:98 content_crm/view.php:99
-#: content_su/view.php:144 dash/app/sort.php:88
+#: content_su/view.php:141 dash/app/sort.php:88
 #: includes/languages/trans_static_public.php:35
 msgid ", "
 msgstr "،"
@@ -4736,8 +4778,7 @@ msgstr "تعداد ردیف‌های دارای شناسه"
 msgid "Founded id"
 msgstr "شناسه‌های یافت شده"
 
-#: content_a/products/import/display.php:92 content_my/domain/buy/display.php:164
-#: content_my/domain/buy/display.php:171
+#: content_a/products/import/display.php:92
 msgid "Never mind"
 msgstr "بی‌خیال"
 
@@ -6199,17 +6240,17 @@ msgstr "بازگشت به حساب کاربری"
 #: content_account/home/view.php:9 content_account/my/home/display.php:31
 #: content_account/my/home/view.php:18 content_account/notification/view.php:17
 #: content_account/personalization/home/view.php:17
-#: content_account/security/view.php:18 dash/engine/layout/admin/admin-header.php:20
+#: content_account/security/view.php:18 dash/engine/layout/admin/admin-header.php:21
 msgid "Account"
 msgstr "حساب کاربری"
 
-#: content_account/home/display.php:8 dash/engine/layout/admin/admin-header.php:26
+#: content_account/home/display.php:8 dash/engine/layout/admin/admin-header.php:27
 #: dash/engine/layout/admin/admin-sidebar.php:15
 msgid "Avatar of you"
 msgstr "آواتار شما"
 
-#: content_account/home/display.php:10 dash/engine/layout/admin/admin-header.php:28
-#: dash/engine/layout/admin/admin-header.php:31
+#: content_account/home/display.php:10 dash/engine/layout/admin/admin-header.php:29
+#: dash/engine/layout/admin/admin-header.php:32
 #: dash/engine/layout/admin/admin-sidebar.php:19
 #: dash/engine/layout/admin/admin-sidebar.php:32
 msgid "Default Avatar"
@@ -6287,7 +6328,7 @@ msgstr "مدیریت داده‌های شما و شخصی‌سازی آن‌ها
 
 #: content_account/home/display.php:84 content_account/home/display.php:88
 #: content_account/notification/view.php:9
-#: dash/engine/layout/admin/admin-header.php:15
+#: dash/engine/layout/admin/admin-header.php:16
 msgid "Notifications"
 msgstr "اطلاع‌رسانی‌ها"
 
@@ -9135,16 +9176,16 @@ msgstr "آخرین مقالات مرکز راهنمایی"
 msgid "Latest tag"
 msgstr "آخرین تگ‌ها"
 
-#: content_cms/home/view.php:17 content_crm/home/view.php:12
+#: content_cms/home/view.php:13 content_crm/home/view.php:12
 #: includes/languages/trans_static_public.php:145
 msgid "Control Panel"
 msgstr "کنترل پنل"
 
-#: content_cms/home/view.php:18 content_crm/home/view.php:13
+#: content_cms/home/view.php:14 content_crm/home/view.php:13
 msgid "See all detail about your website in a quick view."
 msgstr "تمام جزئیات وب‌سایت خود را در یک نگاه ببینید."
 
-#: content_cms/home/view.php:18 content_crm/home/view.php:13
+#: content_cms/home/view.php:14 content_crm/home/view.php:13
 msgid "You can manage all parts of site from cms and news until user and logs."
 msgstr ""
 "شما می‌توانید تمام بخش‌ها را از مدیریت محتوا و اخبار گرفته تا کاربران و لاگ را "
@@ -9725,11 +9766,11 @@ msgstr ""
 msgid "Back to list of users"
 msgstr "بازگشت به لیست کاربران"
 
-#: content_crm/member/address/view.php:23 content_crm/member/ticket/view.php:31
+#: content_crm/member/address/view.php:21 content_crm/member/ticket/view.php:29
 msgid "Member address"
 msgstr "آدرس عضو"
 
-#: content_crm/member/address/view.php:24 content_crm/member/ticket/view.php:32
+#: content_crm/member/address/view.php:22 content_crm/member/ticket/view.php:30
 msgid "set current location and full address"
 msgstr "تنظیم آدرس و جزئیات موقعیت فعلی دانش‌آموز"
 
@@ -10713,7 +10754,7 @@ msgid "You"
 msgstr "شما"
 
 #: content_enter/app/display.php:20 content_enter/loginas/display.php:36
-#: dash/engine/layout/admin/admin-header.php:21
+#: dash/engine/layout/admin/admin-header.php:22
 #: includes/languages/trans_static.php:566
 #: includes/languages/trans_static_public.php:100
 msgid "Logout"
@@ -11480,84 +11521,102 @@ msgstr "تاریخ نسخه پایگاه داده"
 msgid "creator"
 msgstr "ایجاد کننده"
 
-#: content_my/domain/buy/display.php:41 content_my/domain/buy/display.php:158
+#: content_my/domain/buy/display.php:19
+msgid "Domain ready to registered"
+msgstr ""
+
+#: content_my/domain/buy/display.php:27
+msgid "Can not register this domain"
+msgstr ""
+
+#: content_my/domain/buy/display.php:54 content_my/domain/buy/display.php:209
 #: content_my/domain/home/display.php:163
 msgid "Domain is occupied"
 msgstr "این دامنه اشغال است"
 
-#: content_my/domain/buy/display.php:66 content_my/domain/transfer/display.php:8
-msgid "IRNIC contact"
-msgstr "مخاطبان نیک"
+#: content_my/domain/buy/display.php:79
+msgid "IRNIC contact admin"
+msgstr ""
 
-#: content_my/domain/buy/display.php:66 content_my/domain/transfer/display.php:8
+#: content_my/domain/buy/display.php:79 content_my/domain/transfer/display.php:8
 msgid "Create new IRNIC contact"
 msgstr "افزودن مخاطب جدید در نیک"
 
-#: content_my/domain/buy/display.php:68 content_my/domain/transfer/display.php:10
+#: content_my/domain/buy/display.php:81 content_my/domain/transfer/display.php:10
 msgid "IRNIC contact id"
 msgstr "شناسه کاربری نیک"
 
-#: content_my/domain/buy/display.php:84 content_my/domain/setting/display.php:57
+#: content_my/domain/buy/display.php:92
+msgid "Choose period of pay domain"
+msgstr ""
+
+#: content_my/domain/buy/display.php:97 content_my/domain/setting/display.php:57
 msgid "1 Year"
 msgstr "یک سال"
 
-#: content_my/domain/buy/display.php:90 content_my/domain/setting/display.php:63
+#: content_my/domain/buy/display.php:103 content_my/domain/setting/display.php:63
 msgid "5 Year"
 msgstr "پنج سال"
 
-#: content_my/domain/buy/display.php:96
+#: content_my/domain/buy/display.php:110
 msgid "DNS records"
 msgstr "رکورد‌های دی‌ان‌اس"
 
-#: content_my/domain/buy/display.php:96
+#: content_my/domain/buy/display.php:110
 msgid "Create new DNS"
 msgstr "ساخت دی‌ان‌اس جدید"
 
-#: content_my/domain/buy/display.php:98
+#: content_my/domain/buy/display.php:112
 msgid "DNS record"
 msgstr "رکورد دی‌ان‌اس"
 
-#: content_my/domain/buy/display.php:111 content_my/domain/dns/display.php:59
+#: content_my/domain/buy/display.php:128 content_my/domain/dns/display.php:59
 #: content_my/domain/dns/dnsForm.php:14
 msgid "DNS #1"
 msgstr "دی‌ان‌اس ۱"
 
-#: content_my/domain/buy/display.php:119 content_my/domain/dns/display.php:60
+#: content_my/domain/buy/display.php:136 content_my/domain/dns/display.php:60
 #: content_my/domain/dns/dnsForm.php:18
 msgid "DNS #2"
 msgstr "دی‌ان‌اس ۲"
 
-#: content_my/domain/buy/display.php:127 content_my/domain/dns/display.php:61
+#: content_my/domain/buy/display.php:145 content_my/domain/dns/display.php:61
 #: content_my/domain/dns/dnsForm.php:38
 msgid "DNS #3"
 msgstr "دی‌ان‌اس ۳"
 
-#: content_my/domain/buy/display.php:135 content_my/domain/dns/display.php:62
+#: content_my/domain/buy/display.php:153 content_my/domain/dns/display.php:62
 #: content_my/domain/dns/dnsForm.php:42
 msgid "DNS #4"
 msgstr "دی‌ان‌اس ۴"
 
-#: content_my/domain/buy/display.php:147
+#: content_my/domain/buy/display.php:166
+msgid "Pay type"
+msgstr "روش پرداخت"
+
+#: content_my/domain/buy/display.php:171
+msgid "Pay by your budget"
+msgstr ""
+
+#: content_my/domain/buy/display.php:177
+msgid "Bank payment"
+msgstr ""
+
+#: content_my/domain/buy/display.php:185
 #: content_my/domain/contact/add/display.php:135
 #: content_my/domain/setting/display.php:69
 #: content_my/domain/transfer/display.php:32
 msgid "I have read and agree to the terms and conditions"
 msgstr "من شرایط و قوانین را مطالعه کرده و با آن موافقم"
 
-#: content_my/domain/buy/display.php:147
+#: content_my/domain/buy/display.php:185
 #: content_my/domain/contact/add/display.php:135
 #: content_my/domain/setting/display.php:69
 #: content_my/domain/transfer/display.php:32
 msgid "Show terms"
 msgstr "مشاهده شرایط"
 
-#: content_my/domain/buy/display.php:169 lib/app/nic_domain/get.php:25
-#: lib/app/nic_domain/lock.php:31 lib/app/nic_domain/lock.php:75
-#: lib/app/nic_domain/renew.php:52
-msgid "Invalid domain"
-msgstr "دامنه اشتباه است"
-
-#: content_my/domain/buy/model.php:44 content_my/domain/contact/add/model.php:21
+#: content_my/domain/buy/model.php:45 content_my/domain/contact/add/model.php:21
 #: content_my/domain/setting/model.php:50 content_my/domain/transfer/model.php:18
 msgid "Please view the privacy policy and check 'I agree' check box"
 msgstr "لطفا شرایط و قوانین را مطالعه کرده و موافقت خود را با آن اعلام کنید"
@@ -11784,6 +11843,10 @@ msgstr "تمدید دامنه"
 #: content_my/domain/setting/view.php:9
 msgid "Domain setting"
 msgstr "تنظیمات دامنه"
+
+#: content_my/domain/transfer/display.php:8
+msgid "IRNIC contact"
+msgstr "مخاطبان نیک"
 
 #: content_my/domain/transfer/display.php:25
 msgid "Transfer code"
@@ -14465,15 +14528,15 @@ msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 msgid "Return to Homepage"
 msgstr "بازگشت به صفحه‌نخست"
 
-#: dash/engine/layout/admin/admin-header.php:22
+#: dash/engine/layout/admin/admin-header.php:23
 msgid "You really want to go?"
 msgstr "واقعا میخوای بری؟"
 
-#: dash/engine/layout/admin/admin-header.php:23
+#: dash/engine/layout/admin/admin-header.php:24
 msgid "We are waiting for you to come back:)"
 msgstr "ما در انتظار بازگشت دوباره شما هستیم:)"
 
-#: dash/engine/layout/admin/admin-header.php:36
+#: dash/engine/layout/admin/admin-header.php:37
 msgid "Enter to have better experience"
 msgstr "وارد شوید تا تجربه بهتری داشته باشید"
 
@@ -14738,10 +14801,6 @@ msgstr "لیست شرکت‌های سازنده"
 msgid "Collection list"
 msgstr "لیست مجموعه‌ها"
 
-#: dash/engine/layout/admin/sidebar/sidebar-api.php:108
-msgid "Add to cart"
-msgstr "افزودن به سبد خرید"
-
 #: dash/engine/layout/admin/sidebar/sidebar-api.php:109
 msgid "Get cart detail"
 msgstr "دریافت اطلاعات سبد خرید"
@@ -14921,7 +14980,7 @@ msgstr "سایت"
 msgid "Homepage"
 msgstr "صفحه نخست"
 
-#: dash/engine/view.php:113
+#: dash/engine/view.php:115
 msgid "Latest news"
 msgstr "آخرین اخبار"
 
@@ -21779,12 +21838,6 @@ msgstr "هیچ راهی برای حذف دی‌ان‌اس وجود ندارد"
 msgid "Please set domain"
 msgstr "لطفا دامنه را وارد کنید"
 
-#: lib/app/nic_domain/create.php:27 lib/app/nic_domain/lock.php:24
-#: lib/app/nic_domain/lock.php:68 lib/app/nic_domain/renew.php:28
-#: lib/app/nic_domain/transfer.php:23
-msgid "Invalid domain syntax"
-msgstr "ساختار دامنه اشتباه است"
-
 #: lib/app/nic_domain/create.php:33 lib/app/nic_domain/renew.php:34
 msgid "Invalid period"
 msgstr "بازه زمانی نامعتبر است"
@@ -21804,6 +21857,11 @@ msgstr "دامنه شما با موفقیت ثبت شد"
 #: lib/app/nic_domain/edit.php:32
 msgid "Detail updated"
 msgstr "جزئیات به‌روزرسانی شد"
+
+#: lib/app/nic_domain/get.php:25 lib/app/nic_domain/lock.php:31
+#: lib/app/nic_domain/lock.php:75 lib/app/nic_domain/renew.php:52
+msgid "Invalid domain"
+msgstr "دامنه اشتباه است"
 
 #: lib/app/nic_domain/get.php:66
 msgid "Domain not found"
@@ -23340,6 +23398,10 @@ msgstr "شیء برای تمدید واجد شرایط نیست"
 #: lib/nic/exec/run.php:183
 msgid "Command completed successfully; ack to dequeue"
 msgstr "فرمان با موفقیت انجام شد. دریافت پیام‌ را به نیک اطلاع دهید"
+
+#: lib/nic/exec/run.php:187
+msgid "Object does not exist"
+msgstr ""
 
 #: lib/pardakhtyar/app/acceptor.php:37
 msgid "No way to insert Acceptor"
