@@ -16,11 +16,10 @@ class view
 
 		$q = \dash\request::get('q');
 		\dash\data::myDomain($q);
-		if(\lib\app\nic_domain\check::syntax($q))
-		{
-			$info = \lib\app\nic_domain\check::check($q);
-			\dash\data::infoResult($info);
-		}
+		$info = \lib\app\nic_domain\check::multi_check($q);
+
+		\dash\data::infoResult($info);
+
 
 
 	}

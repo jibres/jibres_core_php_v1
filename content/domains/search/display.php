@@ -9,18 +9,36 @@
   </div>
  </form>
 
- 	<?php if(\dash\data::infoResult_available()) {?>
- 		<div class="msg success">
- 			<div class="f">
- 				<div class="c">
+ 	<?php if(\dash\data::infoResult()) {?>
+ 		<?php foreach (\dash\data::infoResult() as $key => $value) {?>
+ 			<?php if($value['available']) {?>
 
- 					<?php echo T_("Domain ready to register"); ?>
- 				</div>
- 				<div class="cauto">
- 					<a class="btn primary" href="<?php echo \dash\url::kingdom(); ?>/my/domain/buy/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Add to cart"); ?></a>
- 				</div>
- 			</div>
- 		</div>
+		 		<div class="msg success2">
+		 			<div class="f">
+		 				<div class="c"><?php echo $key; ?> </div>
+		 				<div class="c"><?php echo T_("Domain ready to register"); ?></div>
+		 				<div class="cauto">
+		 					<a class="btn primary" href="<?php echo \dash\url::kingdom(); ?>/my/domain/buy/<?php echo $key; ?>"><?php echo T_("Add to cart"); ?></a>
+		 				</div>
+		 			</div>
+		 		</div>
+
+ 			<?php }else{ ?>
+
+ 				<div class="msg">
+		 			<div class="f">
+		 				<div class="c"><?php echo $key; ?> </div>
+		 				<div class="c"><?php echo T_("Can not register this domain"); ?></div>
+		 				<div class="cauto">
+		 					<a class="btn" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo $key; ?>"><?php echo T_("Who is?"); ?></a>
+		 				</div>
+		 			</div>
+		 		</div>
+
+ 			<?php } ?>
+
+ 		<?php } //endforeach ?>
+
 
  	<?php }elseif(\dash\request::get('q')){ ?>
 

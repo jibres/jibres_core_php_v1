@@ -5,6 +5,34 @@ namespace lib\nic\exec;
 class domain_check
 {
 
+	public static function multi_check($_domains)
+	{
+		$check = self::analyze_domain_check($_domains);
+
+		if(!$check || !is_array($check))
+		{
+			return false;
+		}
+
+		$result = [];
+		foreach ($check as $key => $value)
+		{
+			$result[$key]         = [];
+			$result[$key]['name'] = $key;
+			if(isset($value['attr']['avail']))
+			{
+				$result[$key]['available'] = boolval($value['attr']['avail']);
+			}
+
+			if(isset($value['attr']['tld']))
+			{
+				$result[$key]['tld'] = $value['attr']['tld'];
+			}
+		}
+
+		return $result;
+	}
+
 
 
 
@@ -100,8 +128,23 @@ class domain_check
 		{
 			return false;
 		}
+		if(is_array($_domain))
+		{
+			$temp_string_xml = '<domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>';
+			$string_xml = '';
+			foreach ($_domain as $key => $one_domain)
+			{
+				$string_xml .= str_replace('JIBRES-SAMPLE-DOMAIN.IR', $one_domain, $temp_string_xml);
+			}
 
-		$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_domain, $xml);
+			$xml = str_replace($temp_string_xml, $string_xml, $xml);
+
+		}
+		elseif(is_string($_domain))
+		{
+			$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_domain, $xml);
+		}
+
 		$xml = str_replace('JIBRES-TOKEN', \lib\nic\exec\run::token(), $xml);
 
 		$insert_log =

@@ -28,6 +28,46 @@ class check
 
 	}
 
+
+	public static function multi_check($_domain)
+	{
+		$check_tld =
+		[
+			'ir',
+			'id.ir',
+			'co.ir',
+			'ac.ir',
+			'org.ir',
+			'net.ir',
+			'sch.ir',
+			'gov.ir',
+			'ایران',
+		];
+
+		if(!$_domain || !is_string($_domain))
+		{
+			return false;
+		}
+
+		$myDomainName = $_domain;
+
+		if(strpos($_domain, '.') !== false)
+		{
+			$domain_tld = substr($_domain, strpos($_domain, '.'));
+			$myDomainName = str_replace($domain_tld, '', $_domain);
+		}
+
+		$domains = [];
+		foreach ($check_tld as $tld)
+		{
+			$domains[] = $myDomainName. '.'. $tld;
+		}
+
+		$result = \lib\nic\exec\domain_check::multi_check($domains);
+
+		return $result;
+	}
+
 	public static function check($_domain)
 	{
 		if(!\lib\app\nic_domain\check::syntax($_domain))
