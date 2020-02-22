@@ -49,7 +49,7 @@ class renew
 		$load_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
 		if(!isset($load_domain['id']))
 		{
-			\dash\notif::error(T_("Invalid domain"));
+			\dash\notif::error(T_("This domain is not found in your domain list!"));
 			return false;
 		}
 
