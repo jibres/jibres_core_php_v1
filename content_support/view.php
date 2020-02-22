@@ -30,7 +30,7 @@ class view
 			"link"  => \dash\url::sitelang(),
 			'title' => \dash\data::site_desc(),
 			"icon"  => "home",
-			'attr'  => 'data-direct',
+			'attr'  => '',
 		];
 
 		if(\dash\url::module())

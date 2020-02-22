@@ -118,11 +118,11 @@ $kingdom = \dash\url::kingdom();
       <nav class="c langlist"><?php
         if(\dash\language::current() == 'fa')
         {
-          echo "<a hreflang='en' target='_blank' data-direct href='https://jibres.com'>English</a>";
+          echo "<a hreflang='en' target='_blank'  href='https://jibres.com'>English</a>";
         }
         else
         {
-          echo "<a hreflang='fa' target='_blank' data-direct href='https://jibres.ir'>فارسی</a>";
+          echo "<a hreflang='fa' target='_blank'  href='https://jibres.ir'>فارسی</a>";
         }
       ?></nav>
       <nav class="cauto os share1">

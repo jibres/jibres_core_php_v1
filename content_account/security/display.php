@@ -157,7 +157,7 @@ else
           <div class="c">
             <h3><?php echo T_("Delete Account"); ?></h3>
             <p><?php echo T_("You can permanently delete your Account and all your data."); ?></p>
-            <a class="btn danger outline sm" href="<?php echo \dash\url::kingdom(); ?>/enter/delete" data-direct target="_blank"><?php echo T_("Delete my Account"); ?></a>
+            <a class="btn danger outline sm" href="<?php echo \dash\url::kingdom(); ?>/enter/delete"  target="_blank"><?php echo T_("Delete my Account"); ?></a>
           </div>
           <div class="cauto os">
             <img class="box100" src="<?php echo \dash\url::siftal(); ?>/images/account/account-delete.png" alt='<?php echo T_("Security Event"); ?>'>

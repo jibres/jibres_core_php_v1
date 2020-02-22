@@ -147,7 +147,7 @@ if(\dash\data::payDetail_final_msg())
 					<?php if(\dash\data::payDetail_turn_back()) {?>
 
 						<div class="f mT5">
-							<a data-direct href="<?php echo $myTurnBackUrl; ?>" class="cauto os btn light sm"><?php echo T_("Cancel"); ?></a>
+							<a  href="<?php echo $myTurnBackUrl; ?>" class="cauto os btn light sm"><?php echo T_("Cancel"); ?></a>
 						</div>
 
 					<?php }  ?>
@@ -155,7 +155,7 @@ if(\dash\data::payDetail_final_msg())
 				<?php }else{ ?>
 
 					<?php if(\dash\data::payDetail_turn_back()) {?>
-						<a data-direct class="btn success block mT10" href="<?php echo $myTurnBackUrl; ?>"><?php echo T_("Back"); ?></a>
+						<a  class="btn success block mT10" href="<?php echo $myTurnBackUrl; ?>"><?php echo T_("Back"); ?></a>
 					<?php }  ?>
 
 

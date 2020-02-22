@@ -16,7 +16,7 @@
     </li>
     {%endif%}
 
-    <li><a data-direct href="{{url.here}}/start"><i class='sf-plus'></i> <span>{%trans "Add new store"%}</span></a></li>
+    <li><a  href="{{url.here}}/start"><i class='sf-plus'></i> <span>{%trans "Add new store"%}</span></a></li>
 
 
     <li><a href="{{url.kingdom}}/account/billing"><i class="sf-credit-card"></i>{%trans "Billing"%}</a></li>

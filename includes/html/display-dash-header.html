@@ -1,7 +1,7 @@
    <div class="sidenavHandler c0 sauto mauto"><i class="sf-ellipsis-v"></i></div>
 
    {%block headerTitle%}
-   <a class="cauto logo" href="{{url.kingdom}}" data-direct ><img src="{{site.logo}}" alt='{{site.title}}'></a>
+   <a class="cauto logo" href="{{url.kingdom}}"  ><img src="{{site.logo}}" alt='{{site.title}}'></a>
    <h1 class='c'><a href="{{url.kingdom}}">{{site.title}}</a></h1>
    {%endblock%}
 
@@ -30,7 +30,7 @@
 {%endif%}
     </div>
 {%else%}
-    <a href="{{url.kingdom}}/enter?referer={{url.pwd}}" data-direct data-tippy-animation="perspective" title='{%trans "Enter to have better experience"%}'><i class="sf-hand-stop"></i></a>
+    <a href="{{url.kingdom}}/enter?referer={{url.pwd}}"  data-tippy-animation="perspective" title='{%trans "Enter to have better experience"%}'><i class="sf-hand-stop"></i></a>
 
 {%endif%}
 {%endblock%}

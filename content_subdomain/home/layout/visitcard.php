@@ -38,12 +38,12 @@ $store = \dash\data::store();
 <?php if(\dash\user::id()) {?>
 
     <?php if(\dash\permission::check('contentA')) {?>
-      <a href="<?php echo \dash\url::here(); ?>/a" data-direct class="btn block primary"><?php echo T_("Store Panel"); ?></a>
+      <a href="<?php echo \dash\url::here(); ?>/a"  class="btn block primary"><?php echo T_("Store Panel"); ?></a>
     <?php } // endif ?>
 
 <?php }else{ ?>
 
-    <a href="<?php echo \dash\url::base(); ?>/enter" data-direct class="btn block info"><?php echo T_("Enter"); ?></a>
+    <a href="<?php echo \dash\url::base(); ?>/enter"  class="btn block info"><?php echo T_("Enter"); ?></a>
 <?php } //endif ?>
   </div>
 </div>
