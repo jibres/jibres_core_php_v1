@@ -40,30 +40,30 @@ class domain_check
 				switch ($value['attr']['tld'])
 				{
 					case 'id.ir':
-						$result[$key]['paperwork'] = 'irinic-person';
+						$result[$key]['paperwork'] = T_('irnic person');
 						break;
 
 					case 'co.ir':
 					case 'net.ir':
-						$result[$key]['paperwork'] = 'irnic-private';
+						$result[$key]['paperwork'] = T_('irnic private');
 						break;
 
 					case 'gov.ir':
 					case 'co.ir':
-						$result[$key]['paperwork'] = 'irnic-gov';
+						$result[$key]['paperwork'] = T_('irnic gov');
 						break;
 
 					case 'sch.ir':
 					case 'ac.ir':
-						$result[$key]['paperwork'] = 'irnic-edu';
+						$result[$key]['paperwork'] = T_('irnic edu');
 						break;
 
 					case 'org.ir':
-						$result[$key]['paperwork'] = 'irnic-private or edu';
+						$result[$key]['paperwork'] = T_('irnic private or edu');
 						break;
 
 					case 'ایران':
-						$result[$key]['paperwork'] = 'unavailable';
+						// $result[$key]['paperwork'] = T_('unavailable');
 						break;
 
 					default:
@@ -77,7 +77,6 @@ class domain_check
 				{
 					$result[$key]['tld'] = 'ایران';
 					$result[$key]['name'] = mb_substr($result[$key]['name'], 0, -6);
-					$result[$key]['paperwork'] = 'unavailable';
 				}
 			}
 		}

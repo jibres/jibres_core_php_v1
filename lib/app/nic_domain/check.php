@@ -35,8 +35,8 @@ class check
 		[
 			// person
 			'ir',
-			'id.ir',
 			'ایران',
+			'id.ir',
 			// gov
 			'gov.ir',
 			'co.ir',
