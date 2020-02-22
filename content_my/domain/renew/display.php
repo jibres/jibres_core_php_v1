@@ -77,7 +77,7 @@
 
 		    <div class="check1">
 		      <input type="checkbox" name="agree" id="agree">
-		      <label for="agree"><?php echo T_("I have read and agree to the terms and conditions"); ?> <small><a target="_blank" href="https://www.nic.ir/Rules_and_Contracts"><?php echo T_("Show terms"); ?></a></small></label>
+		      <label for="agree"><?php echo T_("I have read and agree to the terms and conditions"); ?> <small><a target="_blank" href="https://www.nic.ir/Domain_Register_Policy.html"><?php echo T_("Show terms"); ?></a></small></label>
 		    </div>
 
 		    <div class="f mT20">
