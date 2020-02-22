@@ -16,7 +16,7 @@
     </div>
     <div class="cauto m12 s12"><img src='<?php echo \dash\url::static() ?>/img/domain/jibres-ip-address.png' alt='domain ip address'></div>
    </div>
-   <p><?php echo T_("Numbers are great for a computer, but it's easier for hedgehogs (and people) to use words they can remember. The words used to identify a website are known as the domain or URL, and like the IP address, they're unique to each website. Think of it like a mobile phone: you want to call your mother, so you simply click on your contact 'Mom' and your phone dials your mother's phone number. Domains are connected to IP addresses in much the same way."); ?></p>
+   <p><?php echo T_("Numbers are great for a computer, but it's easier for people to use words they can remember. The words used to identify a website are known as the domain or URL, and like the IP address, they're unique to each website. Think of it like a mobile phone: you want to call your mother, so you simply click on your contact 'Mom' and your phone dials your mother's phone number. Domains are connected to IP addresses in much the same way."); ?></p>
   </section>
   <hr class="mB50">
 
