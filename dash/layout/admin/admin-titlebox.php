@@ -1,5 +1,8 @@
 
-<?php if(\dash\data::page_titleBox()) { ?>
+<?php
+if(\dash\data::page_titleBox() && !\dash\detect\device::detectPWA())
+{
+?>
 
 <div class="titleBox">
   <div class="f align-center">
