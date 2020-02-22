@@ -19,9 +19,6 @@ class view
 		$info = \lib\app\nic_domain\check::multi_check($q);
 
 		\dash\data::infoResult($info);
-
-
-
 	}
 }
 ?>

@@ -24,6 +24,15 @@ class domain_check
 				$result[$key]['available'] = boolval($value['attr']['avail']);
 			}
 
+			$result[$key]['price'] = 2000;
+			$result[$key]['compareAtPrice'] = 5000;
+			$result[$key]['unit'] = T_('Toman');
+
+			if(isset($value['attr']['normalized_name']))
+			{
+			$result[$key]['name'] = $value['attr']['normalized_name'];
+			}
+
 			if(isset($value['attr']['tld']))
 			{
 				$result[$key]['tld'] = $value['attr']['tld'];

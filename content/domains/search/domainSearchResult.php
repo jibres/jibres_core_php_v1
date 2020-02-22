@@ -18,7 +18,8 @@
 
                 <div class="msg minimal mB5 success2">
                     <div class="f align-center pL10">
-                        <div class="c pR10 txtB"><?php echo $key; ?> </div>
+                        <div class="c pR10 txtB"><?php echo $key; ?><?php
+                         ?></div>
                         <div class="cauto pR20"><span class="compact"><?php echo T_('Toman'). ' '. \dash\fit::number('2000') ?></span> / <del class="compact fc-mute"><?php echo \dash\fit::number('5000'); ?></del></div>
                         <div class="cauto">
                             <a class="btn success" href="<?php echo \dash\url::kingdom(); ?>/my/domain/buy/<?php echo $key; ?>"><?php echo T_("Buy"); ?></a>
