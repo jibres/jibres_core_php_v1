@@ -33,7 +33,7 @@ if(\dash\data::infoResult())
                 }
                 if(isset($value['paperwork']))
                 {
-                    echo '<span class="badge light mLa10">'. $value['paperwork']. '</span>';
+                    echo '<span class="badge light mL10">'. $value['paperwork']. '</span>';
                 }
                 echo '</div>';
 
