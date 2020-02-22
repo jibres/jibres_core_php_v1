@@ -1,7 +1,7 @@
 <div class="jibresBanner">
  <div class="fit">
 
-  <form class="domainSearchBox" action='<?php echo \dash\url::kindgom() ?>/domains/search' method='get' autocomplete='off'>
+  <form class="domainSearchBox" action='<?php echo \dash\url::kingdom() ?>/domains/search' method='get' autocomplete='off'>
    <h4 class="txtC"><?php echo T_('Discover the perfect domain now'); ?></h4>
   <div class="input ltr">
    <input type="text" name="q" id='domainFirstSearch' maxlength='63' value="<?php echo \dash\data::myDomain(); ?>" autocomplete='off' <?php if (!\dash\detect\device::detectPWA() && 0) echo 'autofocus'?>>
@@ -17,7 +17,7 @@
  					<?php echo T_("Domain ready to register"); ?>
  				</div>
  				<div class="cauto">
- 					<a class="btn primary" href="<?php echo \dash\url::kindgom(); ?>/my/domain/buy/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Add to cart"); ?></a>
+ 					<a class="btn primary" href="<?php echo \dash\url::kingdom(); ?>/my/domain/buy/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Add to cart"); ?></a>
  				</div>
  			</div>
  		</div>

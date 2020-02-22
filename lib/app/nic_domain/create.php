@@ -7,13 +7,14 @@ class create
 	public static function new_domain($_args)
 	{
 		$domain = isset($_args['domain']) 	? $_args['domain'] 	: null;
-		$nic_id  = isset($_args['nic_id']) 	? $_args['nic_id'] 	: null;
+		$nic_id = isset($_args['nic_id']) 	? $_args['nic_id'] 	: null;
 		$period = isset($_args['period']) 	? $_args['period'] 	: null;
 		$ns1    = isset($_args['ns1']) 		? $_args['ns1'] 	: null;
 		$ns2    = isset($_args['ns2']) 		? $_args['ns2'] 	: null;
 		$ns3    = isset($_args['ns3']) 		? $_args['ns3'] 	: null;
 		$ns4    = isset($_args['ns4']) 		? $_args['ns4'] 	: null;
 		$dnsid  = isset($_args['dnsid']) 	? $_args['dnsid'] 	: null;
+		$pay    = isset($_args['pay']) 		? $_args['pay'] 	: null;
 
 		if(!$domain)
 		{
@@ -21,13 +22,18 @@ class create
 			return false;
 		}
 
-
 		if(!\lib\app\nic_domain\check::syntax($domain))
 		{
+			\dash\notif::warn('ssss');
 			\dash\notif::error(T_("Invalid domain syntax"));
 			return false;
 		}
 
+		if(!$period)
+		{
+			\dash\notif::error(T_("Please choose your period of register domain"));
+			return false;
+		}
 		if(!in_array($period, ['1year', '5year']))
 		{
 			\dash\notif::error(T_("Invalid period"));
@@ -78,10 +84,24 @@ class create
 			}
 			else
 			{
-				\dash\notif::error(T_("Choose dns"));
+				\dash\notif::error(T_("Please enter the dns records"), ['element' => ['ns1', 'ns2']]);
 				return false;
 			}
 		}
+
+
+		if(!$pay)
+		{
+			\dash\notif::error(T_("Please choose your pay type register domain"));
+			return false;
+		}
+
+		if(!in_array($pay, ['budget', 'gateway']))
+		{
+			\dash\notif::error(T_("Please choose a valid pay type!"));
+			return false;
+		}
+
 
 		$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
 		if(!isset($check_nic_id['id']))
@@ -93,7 +113,15 @@ class create
 			}
 		}
 
-		if(\dash\user::budget() >= $price)
+		$user_budget = \dash\user::budget();
+
+		if($pay === 'budget' && $price > $user_budget)
+		{
+			\dash\notif::warn(T_("Your budget is low for register domain"));
+			return false;
+		}
+
+		if($user_budget >= $price && $pay === 'budget')
 		{
 			$insert_transaction =
 			[
@@ -110,23 +138,33 @@ class create
 				\dash\notif::error(T_("No way to insert data"));
 				return false;
 			}
+
+			// insert price domain log table
+
 		}
 		else
 		{
-			// go to bank
+			$temp_args = $_args;
 
+			// turn back from bank by type budget to register domain
+			$temp_args['pay'] = 'budget';
+
+			// go to bank
 			$meta =
 			[
 				'msg_go'        => null,
 				'auto_go'       => false,
-				'turn_back'     => \dash\url::kingdom(). '/domain',
+				'turn_back'     => \dash\url::kingdom(). '/my/domain',
 				'user_id'       => \dash\user::id(),
 				'amount'        => abs($price),
 				'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
-				'final_fn_args' => $_args,
+				'final_fn_args' => $temp_args,
 			];
 
 			\dash\utility\pay\start::site($meta);
+
+			// redirect to bank payment
+			return ;
 
 		}
 
@@ -187,6 +225,11 @@ class create
 
 			return true;
 
+		}
+		else
+		{
+			// have error
+			// need to back money
 		}
 
 	}

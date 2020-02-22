@@ -45,7 +45,7 @@
 
 				<div class="msg success2"><?php echo T_("Domain is available"); ?>
 					<span class="floatL">
-						<a class="btn success" href="<?php echo \dash\url::this(); ?>/buy/<?php echo \dash\url::child(); ?>"><?php echo T_("Buy"); ?></a>
+						<a class="btn success" href="<?php echo \dash\url::this(); ?>/buy/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Buy"); ?></a>
 					</span>
 				</div>
 
@@ -53,7 +53,7 @@
 
 				<div class="msg warn2"><?php echo T_("Domain is occupied"); ?>
 					<span class="floatL">
-						<a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo \dash\url::child(); ?>"><?php echo T_("Whois"); ?></a>
+						<a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/domains/search?q=<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Whois"); ?></a>
 					</span>
 				</div>
 
@@ -70,9 +70,9 @@
 
 				<form method="post" autocomplete="off" action="<?php echo \dash\url::that(); ?>">
 
-				<?php if(\dash\url::child()) {?>
+				<?php if(\dash\data::myDomain()) {?>
 
-					<input type="hidden" name="domain" value="<?php echo \dash\url::child(); ?>">
+					<input type="hidden" name="domain" value="<?php echo \dash\data::myDomain(); ?>">
 
 				<?php }//endif ?>
 
@@ -113,7 +113,7 @@
 					<?php foreach (\dash\data::myDNSList() as $key => $value) {?>
 
 
-					  <option value="<?php echo \dash\coding::encode(@$value['id']); ?>" <?php if(isset($value['isdefault']) && $value['isdefault']) { echo "selected"; } ?>><?php echo @$value['title']. ' - '. @$value['ns1']; ?></option>
+					  <option value="<?php echo \dash\coding::encode(@$value['id']); ?>" <?php if(isset($value['isdefault']) && $value['isdefault']) { echo "selected"; } ?>><?php echo implode(' - ', [@$value['title'], @$value['ns1'], @$value['ns2']]); ?></option>
 
 					<?php } //endfor ?>
 					</select>
@@ -165,15 +165,20 @@
 
 				<h4><?php echo T_("Pay type"); ?></h4>
 				<div class="f mB10">
+
+
 			      <div class="c pRa5">
 			          <div class="radio3">
-			            <input type="radio" name="pay" value="budget" id="paybudget">
-			            <label for="paybudget"><?php echo T_("Pay by your budget"); ?> </label>
+			            <input type="radio" name="pay" value="budget" id="paybudget" <?php if(!\dash\user::budget()) { echo 'disabled';} ?>>
+			            <label for="paybudget"><?php echo T_("Pay by your budget"); ?> <small><?php echo \dash\fit::number(\dash\user::budget()); ?> <span class="sf-mute"><?php echo T_("Toman"); ?></span></small></label>
 			          </div>
 			      </div>
+
+
+
 			      <div class="c">
 			          <div class="radio3">
-			            <input type="radio" name="pay" value="gateway" id="paygateway">
+			            <input type="radio" name="pay" value="gateway" id="paygateway" <?php if(!\dash\user::budget()) { echo 'checked';} ?>>
 			            <label for="paygateway"><?php echo T_("Bank payment"); ?> <span> </label>
 			          </div>
 			      </div>

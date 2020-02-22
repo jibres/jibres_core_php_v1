@@ -343,9 +343,17 @@ class user
 			return 0;
 		}
 
-		$budget = floatval(\dash\db\transactions::budget(self::id()));
-
-		return $budget;
+		$temp = \dash\temp::get('USER_BUDGET');
+		if($temp)
+		{
+			return $temp;
+		}
+		else
+		{
+			$budget = floatval(\dash\db\transactions::budget(self::id()));
+			\dash\temp::set('USER_BUDGET', $budget);
+			return $budget;
+		}
 	}
 
 
