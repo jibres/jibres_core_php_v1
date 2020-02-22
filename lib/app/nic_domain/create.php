@@ -96,7 +96,7 @@ class create
 			return false;
 		}
 
-		if(!in_array($pay, ['budget', 'gateway']))
+		if(!in_array($pay, ['budget', 'gateway', 'auto']))
 		{
 			\dash\notif::error(T_("Please choose a valid pay type!"));
 			return false;
@@ -115,15 +115,8 @@ class create
 
 		$user_budget = \dash\user::budget();
 
-		if($pay === 'budget' && $price > $user_budget)
-		{
-			\dash\notif::error(T_("Your budget is low for register domain"));
-			return false;
-		}
 
-		$transaction_id = null;
-
-		if($user_budget >= $price && $pay === 'budget')
+		if($user_budget >= $price)
 		{
 			$insert_transaction =
 			[
@@ -147,9 +140,6 @@ class create
 		else
 		{
 			$temp_args = $_args;
-
-			// turn back from bank by type budget to register domain
-			$temp_args['pay'] = 'budget';
 
 			// go to bank
 			$meta =
