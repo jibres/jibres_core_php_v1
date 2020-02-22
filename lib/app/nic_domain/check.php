@@ -6,10 +6,24 @@ class check
 {
 	public static function syntax($_domain)
 	{
-		if(!$_domain)
+		if(!$_domain || !is_string($_domain))
 		{
 			\dash\notif::error(T_("Please fill domain"), 'domain');
 			return false;
+		}
+
+		if(strpos($_domain, '.') === false)
+		{
+			return false;
+		}
+		else
+		{
+			$split_domain = explode('.', $_domain);
+			if(count($split_domain) > 2)
+			{
+				\dash\notif::error(T_("Invalid domain"), 'domain');
+				return false;
+			}
 		}
 
 		return true;

@@ -4,10 +4,20 @@
   <form class="domainSearchBox" action='<?php echo \dash\url::kindgom() ?>/domains/search' method='get' autocomplete='off'>
    <h4 class="txtC"><?php echo T_('Discover the perfect domain now'); ?></h4>
   <div class="input ltr">
-   <input type="text" name="q" id='domainFirstSearch' maxlength='63' autocomplete='off' <?php if (!\dash\detect\device::detectPWA() && 0) echo 'autofocus'?>>
+   <input type="text" name="q" id='domainFirstSearch' maxlength='63' value="<?php echo \dash\data::myDomain(); ?>" autocomplete='off' <?php if (!\dash\detect\device::detectPWA() && 0) echo 'autofocus'?>>
    <button class="addon btn primary"><?php echo T_('Search'); ?></button>
   </div>
  </form>
+
+ 	<?php if(\dash\data::whoisResult_available()) {?>
+ 		<div class="msg success"><?php echo T_("Domain ready to register"); ?></div>
+ 	<?php } //endif ?>
+
+ 	<?php if(\dash\data::whoisResult_answer()) {?>
+
+<pre><?php echo \dash\data::whoisResult_answer(); ?></pre>
+
+ 	<?php } //endif ?>
 
  	<h2><?php echo T_('Buy a domain name and create your website today.'); ?></h2>
  	<p><?php echo T_('Welcome to the domain registrar that has everything you need to get the right domain name for your personal or business website.')?></p>

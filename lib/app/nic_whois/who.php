@@ -12,15 +12,18 @@ class who
 		}
 
 		// @javad run this code to run nic curl
-		$result = \lib\nic\exec\whois::run($_domain);
-
+		// $result = \lib\nic\exec\whois::run($_domain);
+		$result = null;
 
 		$domain = new \lib\nic\phpwhois\whois($_domain);
-		$whois_answer = $domain->info();
+		if(\dash\engine\process::status())
+		{
+			$whois_answer = $domain->info();
+			$result = [];
+			$result['answer'] = $whois_answer;
+			$result['available'] = $domain->isAvailable();
 
-		$result = [];
-		$result['answer'] = $whois_answer;
-		$result['available'] = $domain->isAvailable();
+		}
 
 		return $result;
 
