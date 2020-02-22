@@ -2,16 +2,6 @@
 <div class="f justify-center">
 	<div class="c6 m8 s12">
 		<div class="cbox">
-		<?php if(\dash\data::myDomain()) {?>
-
-		<div class="msg success2 txtC txtB">
-
-			<?php echo \dash\data::myDomain(); ?>
-
-		</div>
-
-		<?php }else{ ?>
-
 			<form method="post" autocomplete="off" class="mB20" action="<?php echo \dash\url::this(); ?>/buy">
 				<input type="hidden" name="whois" value="1">
 				<div class="input ltr">
@@ -19,6 +9,29 @@
 					<button class="btn addon success"><?php echo T_("Check domain"); ?></button>
 				</div>
 			</form>
+
+		<?php if(\dash\data::myDomain()) {?>
+
+			<?php if(\dash\data::checkResult_available()) {?>
+
+			<div class="msg success2 txtC txtB">
+
+				<p><?php echo T_("Domain ready to registered"); ?></p>
+				<?php echo \dash\data::myDomain(); ?>
+
+			</div>
+
+			<?php }else{ ?>
+
+			<div class="msg warn2 txtC txtB">
+				<p><?php echo T_("Can not register this domain"); ?></p>
+				<?php echo \dash\data::myDomain(); ?>
+
+			</div>
+
+			<?php } //endif ?>
+
+		<?php }else{ ?>
 
 
 
@@ -63,7 +76,7 @@
 
 				<?php }//endif ?>
 
-				<label for="irnicid"><?php echo T_("IRNIC contact"); ?> <small><a target="_blank" href="<?php echo \dash\url::this(); ?>/contact/add?type=new"><?php echo T_("Create new IRNIC contact"); ?></a></small></label>
+				<label for="irnicid"><?php echo T_("IRNIC contact admin"); ?> <small><a target="_blank" href="<?php echo \dash\url::this(); ?>/contact/add?type=new"><?php echo T_("Create new IRNIC contact"); ?></a></small></label>
 				<select name="irnicid" class="select ui dropdown search addition" id="irnicid">
 				<option value=""><?php echo T_("IRNIC contact id"); ?></option>
 
@@ -76,7 +89,7 @@
 				</select>
 
 
-
+				<h4><?php echo T_("Choose period of pay domain"); ?></h4>
 				<div class="f mB10">
 			      <div class="c pRa5">
 			          <div class="radio3">
@@ -127,7 +140,6 @@
 				    		</div>
 				    	</div>
 
-				    	<?php if(false) {?>
 
 				    	<div class="c6 s12">
 							<label for="ns3"><?php echo T_("DNS #3"); ?></label>
@@ -144,19 +156,49 @@
 								</div>
 				    		</div>
 				    	</div>
-				    	<?php } //endif ?>
+
 				    </div>
 
 				</div>
+
+
+
+				<h4><?php echo T_("Pay type"); ?></h4>
+				<div class="f mB10">
+			      <div class="c pRa5">
+			          <div class="radio3">
+			            <input type="radio" name="pay" value="budget" id="paybudget">
+			            <label for="paybudget"><?php echo T_("Pay by your budget"); ?> </label>
+			          </div>
+			      </div>
+			      <div class="c">
+			          <div class="radio3">
+			            <input type="radio" name="pay" value="gateway" id="paygateway">
+			            <label for="paygateway"><?php echo T_("Bank payment"); ?> <span> </label>
+			          </div>
+			      </div>
+			    </div>
+
 
 			    <div class="check1">
 			      <input type="checkbox" name="agree" id="agree">
 			      <label for="agree"><?php echo T_("I have read and agree to the terms and conditions"); ?> <small><a target="_blank" href="https://www.nic.ir/Rules_and_Contracts"><?php echo T_("Show terms"); ?></a></small></label>
 			    </div>
 
-				<div class="txtRa">
-					<button class="btn success"><?php echo T_("Buy"); ?></button>
-				</div>
+			    <div class="f mT20">
+			    	<div class="cauto">
+
+						<a href="<?php echo \dash\url::that() ?>" class="btn secondary"><?php echo T_("Cancel"); ?></a>
+			    	</div>
+
+			    	<div class="c"></div>
+
+			    	<div class="cauto">
+						<button class="btn success"><?php echo T_("Buy"); ?></button>
+
+			    	</div>
+			    </div>
+
 			</form>
 
 			<?php }else{ ?>
@@ -172,11 +214,7 @@
 			</div>
 			<?php } //endif ?>
 
-		<?php }elseif(\dash\url::subchild()) {?>
-			<div class="msg warn2"><?php echo T_("Invalid domain"); ?></div>
-			<div class="txtRa">
-				<a href="<?php echo \dash\url::that(); ?>" class="btn secondary"><?php echo T_("Never mind"); ?></a>
-			</div>
+
 		<?php } //endif ?>
 		</div>
 	</div>
