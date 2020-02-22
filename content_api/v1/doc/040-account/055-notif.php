@@ -74,7 +74,7 @@
             <td>
               <div><?php echo T_("example"); ?></div>
               <code>home</code>
-              <a href="http://siftal.ir/examples/icon" target="_blank" data-direct><?php echo T_("Read more"); ?></a>
+              <a href="http://siftal.ir/examples/icon" target="_blank"><?php echo T_("Read more"); ?></a>
             </td>
           </tr>
 

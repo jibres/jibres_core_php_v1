@@ -42,7 +42,7 @@
                     <?php echo $value; ?>
                     <?php if(\dash\permission::supervisor()) {?>
                       <div title='<?php echo T_("Decode"); ?>' class="badge mLR10"><?php echo \dash\fit::text(\dash\coding::decode($value)); ?></div>
-                      <a class="btn" href="<?php echo \dash\url::kingdom(); ?>/enter?userid=<?php echo \dash\coding::decode($value); ?>" data-direct><i class="sf-user"></i> <?php echo T_("Enter"); ?></a>
+                      <a class="btn" href="<?php echo \dash\url::kingdom(); ?>/enter?userid=<?php echo \dash\coding::decode($value); ?>"><i class="sf-user"></i> <?php echo T_("Enter"); ?></a>
                     <?php } ?>
                   </td>
                 </tr>
@@ -68,7 +68,7 @@
                 <?php }//endif ?>
                 <?php if(\dash\permission::supervisor()) {?>
 
-                  <a class="btn" href="<?php echo \dash\url::kingdom(); ?>/enter?mobile=<?php echo $value; ?>" data-direct><i class="sf-user"></i> <?php echo T_("Enter"); ?></a>
+                  <a class="btn" href="<?php echo \dash\url::kingdom(); ?>/enter?mobile=<?php echo $value; ?>"><i class="sf-user"></i> <?php echo T_("Enter"); ?></a>
                 <?php }//endif ?>
                 </td>
               </tr>

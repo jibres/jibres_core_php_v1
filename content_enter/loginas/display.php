@@ -33,5 +33,5 @@
 </div>
 
 <footer class='f'>
-	<a href="<?php echo \dash\url::kingdom(); ?>/logout" data-direct><?php echo T_("Logout"); ?></a>
+	<a href="<?php echo \dash\url::kingdom(); ?>/logout"><?php echo T_("Logout"); ?></a>
 </footer>
