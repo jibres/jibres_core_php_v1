@@ -10,7 +10,18 @@
  </form>
 
  	<?php if(\dash\data::whoisResult_available()) {?>
- 		<div class="msg success"><?php echo T_("Domain ready to register"); ?></div>
+ 		<div class="msg success">
+ 			<div class="f">
+ 				<div class="c">
+
+ 					<?php echo T_("Domain ready to register"); ?>
+ 				</div>
+ 				<div class="cauto">
+ 					<a class="btn primary" href="<?php echo \dash\url::kindgom(); ?>/my/domain/buy/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Add to cart"); ?></a>
+ 				</div>
+ 			</div>
+ 		</div>
+
  	<?php } //endif ?>
 
  	<?php if(\dash\data::whoisResult_answer()) {?>
