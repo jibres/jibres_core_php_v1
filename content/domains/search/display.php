@@ -11,6 +11,19 @@
 
  	<?php if(\dash\data::infoResult()) {?>
  		<?php foreach (\dash\data::infoResult() as $key => $value) {?>
+ 			<?php if(@$value['soon']) {?>
+ 				<div class="msg success2">
+		 			<div class="f">
+		 				<div class="c"><?php echo $key; ?> </div>
+		 				<div class="c"><?php echo T_("Domain ready to register"); ?></div>
+		 				<div class="cauto">
+		 					<a class="btn"><?php echo T_("Soon"); ?></a>
+		 				</div>
+		 			</div>
+		 		</div>
+ 			<?php continue; ?>
+ 			<?php }// endif ?>
+
  			<?php if(@$value['available']) {?>
 
 		 		<div class="msg success2">
