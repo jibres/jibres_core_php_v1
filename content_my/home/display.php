@@ -12,6 +12,14 @@
        </li>
 
        <li>
+        <a class="f align-center" href="<?php echo \dash\url::this(); ?>/store">
+         <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+         <div class="key"><?php echo T_("Stores"); ?></div>
+         <div class="go"></div>
+        </a>
+       </li>
+
+       <li>
         <a class="f align-center disabled" href="">
          <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
          <div class="key"><?php echo T_("Payment Gateway"); ?></div>

@@ -6,8 +6,10 @@ class view
 {
 	public static function config()
 	{
+		// btn
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::here());
 
-		\dash\data::page_titleBox(true);
 		// \dash\data::page_help(\dash\url::support().'/store');
 
 		$myStore = \dash\data::listStore();
