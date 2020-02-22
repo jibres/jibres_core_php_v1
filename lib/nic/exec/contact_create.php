@@ -141,7 +141,17 @@ class contact_create
 			return false;
 		}
 
-		$object = new \SimpleXMLElement($response);
+
+		try
+		{
+			$object = new \SimpleXMLElement($response);
+		}
+		catch (\Exception $e)
+		{
+			\dash\notif::error(T_("Can not connect to domain server"));
+			\lib\db\nic_log\update::update($update_after_send, $log_id);
+			return false;
+		}
 
 		$result_code = \lib\nic\exec\run::result_code($object);
 
