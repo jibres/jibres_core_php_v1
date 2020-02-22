@@ -76,6 +76,7 @@ class domain_check
 				if(mb_substr($result[$key]['name'], -6) === '.ایران')
 				{
 					$result[$key]['tld'] = 'ایران';
+					$result[$key]['name'] = mb_substr($result[$key]['name'], 0, -6);
 					$result[$key]['paperwork'] = 'unavailable';
 				}
 			}
