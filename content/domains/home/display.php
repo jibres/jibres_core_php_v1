@@ -15,7 +15,7 @@
    <div class="f">
     <div class="c4 s12 mB10 pRa10">
      <div class="item">
-      <h3><?php echo T_('Register'); ?></h3>
+      <h3><?php echo T_('Register Domain'); ?></h3>
       <p><?php echo T_('Been dreaming of a .com or .dev that says exactly what you want to say about your business? Find that perfect domain name and get it registered today!'); ?></p>
       <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/domains/search"><?php echo T_('Find my Domain'); ?></a>
      </div>
@@ -24,14 +24,14 @@
      <div class="item">
       <h3><?php echo T_('Transfer'); ?></h3>
       <p><?php echo T_('Transfer your domains to Jibres and save on renewals. Most domains come with an extra year of registration added during the transfer process free of charge.'); ?></p>
-      <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/domains/transfer"><?php echo T_('Transfer Now'); ?></a>
+      <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/my/domain/transfer"><?php echo T_('Transfer Now'); ?></a>
      </div>
     </div>
     <div class="c4 s12 mB10">
      <div class="item">
       <h3><?php echo T_('Renew'); ?></h3>
       <p><?php echo T_("Searching for the lowest domain renew price? That's it. Jibres offer exclusive offer on renew domains at prices that won't break your budget. We are the best of best:)"); ?></p>
-      <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/domains/renew"><?php echo T_('Renew Domain'); ?></a>
+      <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/my/domain/renew"><?php echo T_('Renew Domain'); ?></a>
      </div>
     </div>
    </div>
