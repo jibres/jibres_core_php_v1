@@ -19,25 +19,30 @@
         </a>
        </li>
 
+     </ul>
+   </nav>
+
+   <nav class="pwaItems">
+     <ul>
        <li>
-        <a class="f align-center disabled" href="">
-         <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+        <a class="f align-center disabled" href="<?php echo \dash\url::this(); ?>/ipg">
+         <img src="<?php echo \dash\url::static(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
          <div class="key"><?php echo T_("Payment Gateway"); ?></div>
          <div class="go detail"></div>
         </a>
        </li>
 
        <li>
-        <a class="f align-center disabled" href="">
-         <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+        <a class="f align-center disabled" href="<?php echo \dash\url::this(); ?>/wallet">
+         <img src="<?php echo \dash\url::static(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
          <div class="key"><?php echo T_("Electronic Wallet"); ?></div>
          <div class="go"></div>
         </a>
        </li>
 
        <li>
-        <a class="f align-center disabled" href="">
-         <img src="<?php echo \dash\url::icon(); ?>" alt="jibres">
+        <a class="f align-center disabled" href="<?php echo \dash\url::this(); ?>/bill">
+         <img src="<?php echo \dash\url::static(); ?>/img/pwa/calendar-future.png" alt="Jibres do it in future">
          <div class="key"><?php echo T_("Pay bill"); ?></div>
          <div class="go"></div>
         </a>
@@ -45,18 +50,6 @@
 
      </ul>
    </nav>
-
-   <nav class="pwaItems">
-     <ul>
-       <li>
-        <a class="f align-center" href="<?php echo \dash\url::this(); ?>/test">
-         <div class="key">Sample Pages</div>
-         <div class="go"></div>
-        </a>
-       </li>
-     </ul>
-   </nav>
-
 
    <nav class="pwaItems">
      <ul>
