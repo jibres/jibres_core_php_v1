@@ -118,10 +118,6 @@
     // set subdomain on body
     $('body').attr('data-subdomain', obj.subdomain);
     // set panel
-    if(obj.panel === undefined)
-    {
-      obj.panel = null;
-    }
     $('body').attr('data-panel', obj.panel);
 
     $window.trigger('navigate:render:filter:before', obj.filter);

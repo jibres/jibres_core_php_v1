@@ -18,6 +18,7 @@ class view
 		\dash\data::global_title(T_("Jibres"));
 		\dash\data::global_subdomain(\dash\url::subdomain());
 		\dash\data::global_content(\dash\url::content());
+		\dash\data::global_panel(null);
 		if(\dash\data::global_content() === null)
 		{
 			\dash\data::global_content('site');
