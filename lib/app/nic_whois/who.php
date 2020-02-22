@@ -4,6 +4,24 @@ namespace lib\app\nic_whois;
 
 class who
 {
+	public static function is_quick($_domain)
+	{
+		$result = self::is($_domain);
+
+		if(!is_array($result))
+		{
+			return false;
+		}
+
+		if(array_key_exists('available', $result))
+		{
+			return ['available' => $result['available']];
+		}
+
+		return false;
+	}
+
+
 	public static function is($_domain)
 	{
 		if(!\lib\app\nic_domain\check::syntax($_domain))

@@ -69,7 +69,7 @@ class whois
                 } else {
 
                     // Getting whois information
-                    $fp = fsockopen($whois_server, 43);
+                    $fp = @fsockopen($whois_server, 43);
                     if (!$fp) {
                         return "Connection error!";
                     }
@@ -94,7 +94,7 @@ class whois
                             }
                         }
                         // Getting whois information
-                        $fp = fsockopen($whois_server, 43);
+                        $fp = @fsockopen($whois_server, 43);
                         if (!$fp) {
                             return "Connection error!";
                         }

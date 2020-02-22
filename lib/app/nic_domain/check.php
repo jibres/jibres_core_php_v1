@@ -65,6 +65,24 @@ class check
 
 		$result = \lib\nic\exec\domain_check::multi_check($domains);
 
+
+		$check_tld =
+		[
+			'com',
+			'net',
+			'org',
+		];
+
+		foreach ($check_tld as  $tld)
+		{
+			$temp_domain = $myDomainName. '.'. $tld;
+			$check_result = \lib\app\nic_whois\who::is_quick($temp_domain);
+			$check_result['soon'] = true;
+			$check_result['name'] = $temp_domain;
+			$check_result['tld'] = $tld;
+			$result[$temp_domain] = $check_result;
+		}
+
 		return $result;
 	}
 
