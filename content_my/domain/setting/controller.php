@@ -34,6 +34,10 @@ class controller
 				\dash\data::domainError(T_("Invalid error syntax"));
 			}
 		}
+		else
+		{
+			\dash\redirect::to(\dash\url::this());
+		}
 
 
 	}
