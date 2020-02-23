@@ -26,7 +26,7 @@ class cronjob
 		$index_php_addr = $jibres_addr. "public_html/index.php";
 
 		// the domain (this domain is safe and nobody can use this domain)
-		$SERVER_NAME = 'jibres.WorldSalesEngineeringSystem';
+		$SERVER_NAME = 'jibres.ir';
 
 		// fake $_SERVER
 		$server =

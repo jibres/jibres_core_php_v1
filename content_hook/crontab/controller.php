@@ -16,12 +16,6 @@ class controller
 			return;
 		}
 
-		// only by run php can set this tld :)
-		if(\dash\url::tld() !== 'WorldSalesEngineeringSystem')
-		{
-			\dash\header::status(416, 'tld!');
-		}
-
 		$child = \dash\url::child();
 		if(!$child)
 		{
