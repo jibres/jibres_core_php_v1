@@ -22,7 +22,7 @@ class get
 
 	public static function domain_user($_domina, $_user_id)
 	{
-		$query  = "SELECT * FROM domain WHERE domain.name = '$_domina' AND domain.user_id = $_user_id LIMIT 1";
+		$query  = "SELECT domain.*, dns.ns1, dns.ns2, dns.ns3, dns.ns4, dns.ip1, dns.ip2, dns.ip3, dns.ip4 FROM domain LEFT JOIN dns ON dns.id = domain.dns WHERE domain.name = '$_domina' AND domain.user_id = $_user_id LIMIT 1";
 		$result = \dash\db::get($query, null, true, 'nic');
 		return $result;
 
