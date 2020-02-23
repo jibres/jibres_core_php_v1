@@ -10,22 +10,7 @@ class domain_update
 	{
 		$update = self::analyze_domain_update($_args);
 
-		if(!$update || !is_array($update))
-		{
-			return false;
-		}
-
-		if(!isset($update['name']))
-		{
-			return false;
-		}
-
-		$result                 = [];
-		$result['name']         = $update['name'];
-		$result['dateregister'] = isset($update['crDate']) ? date("Y-m-d H:i:s", strtotime($update['crDate'])) : null;
-		$result['dateexpire']  = isset($update['exDate']) ? date("Y-m-d H:i:s", strtotime($update['exDate'])) : null;
-
-		return $result;
+		return $update;
 	}
 
 
@@ -41,42 +26,15 @@ class domain_update
 			return false;
 		}
 
-		$result = [];
-		if(!isset($object_result->response->resData))
+		if(\lib\nic\exec\run::result_code($object_result) == 1000)
+		{
+			return true;
+		}
+		else
 		{
 			return false;
 		}
 
-		if(!$object_result->response->resData->xpath('domain:creData'))
-		{
-			return false;
-		}
-
-		foreach ($object_result->response->resData->xpath('domain:creData') as  $domaincreData)
-		{
-			$temp  = [];
-
-			foreach ($domaincreData->xpath('domain:name') as $domainname)
-			{
-				$myKey = $domainname->__toString();
-				$temp['name']   = $myKey;
-			}
-
-
-			foreach ($domaincreData->xpath('domain:crDate') as $domaincrDate)
-			{
-				$temp['crDate']   = $domaincrDate->__toString();
-			}
-
-			foreach ($domaincreData->xpath('domain:exDate') as $domainexDate)
-			{
-				$temp['exDate']   = $domainexDate->__toString();
-			}
-
-			$result = $temp;
-		}
-
-		return $result;
 	}
 
 
@@ -90,11 +48,14 @@ class domain_update
 			return false;
 		}
 
-		// NEW-NS1.JIBRES.TLD
-		// NEW-NS2.JIBRES.TLD
-		// OLD-NS1.JIBRES.TLD
-		// OLD-NS2.JIBRES.TLD
-		//
+
+		$xml = str_replace('NEW-NS1.JIBRES.TLD', $_args['new_ns1'], $xml);
+		$xml = str_replace('NEW-NS2.JIBRES.TLD', $_args['new_ns2'], $xml);
+
+
+		$xml = str_replace('OLD-NS1.JIBRES.TLD', $_args['old_ns1'], $xml);
+		$xml = str_replace('OLD-NS2.JIBRES.TLD', $_args['old_ns2'], $xml);
+
 		// HOLDER-JIBRES-NIC-ACCOUNT
 		// ADMIN-JIBRES-NIC-ACCOUNT
 		// TECH-JIBRES-NIC-ACCOUNT

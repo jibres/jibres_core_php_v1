@@ -41,21 +41,15 @@ class model
 
 		$post =
 		[
-			'domain' => \dash\data::myDomain(),
-			'period' => \dash\request::post('period'),
+			'ns1' => \dash\request::post('ns1'),
+			'ns2' => \dash\request::post('ns2'),
 		];
 
-		if(!\dash\request::post('agree'))
-		{
-			\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
-			return false;
-		}
-
-		$result = \lib\app\nic_domain\renew::renew($post);
+		$result = \lib\app\nic_domain\edit::dns($post, \dash\data::domainDetail_id());
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this());
+			\dash\redirect::to(\dash\url::pwd());
 		}
 	}
 }

@@ -24,12 +24,6 @@
       </domain:hostAttr>
      </domain:ns>
     </domain:rem>
-    <domain:chg>
-     <domain:contact type="holder">HOLDER-JIBRES-NIC-ACCOUNT</domain:contact>
-     <domain:contact type="admin">ADMIN-JIBRES-NIC-ACCOUNT</domain:contact>
-     <domain:contact type="tech">TECH-JIBRES-NIC-ACCOUNT</domain:contact>
-     <domain:contact type="bill">BILL-JIBRES-NIC-ACCOUNT</domain:contact>
-    </domain:chg>
     <domain:authInfo>
      <domain:pw>JIBRES-TOKEN</domain:pw>
     </domain:authInfo>

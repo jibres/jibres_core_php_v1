@@ -6,7 +6,7 @@
 			<div class="msg success txtB txtC fs14"><?php echo \dash\data::myDomain(); ?></div>
 			<div class="msg txtC"><?php echo T_("Expire date"); ?> <?php echo \dash\fit::date(\dash\data::domainDetail_dateexpire()); ?></div>
 
-			<form method="post" autocomplete="off" class="mB20" >
+			<div class="mB20" >
 
 				<div class="f fs06">
 					<div class="c6 s12">
@@ -49,29 +49,26 @@
 
 				<?php } //endif ?>
 
-				<h4><?php echo T_("Renew domain"); ?></h4>
-				<div class="f mB10">
-			      <div class="c pRa5">
-			          <div class="radio3">
-			            <input type="radio" name="period" value="1year" id="period1year">
-			            <label for="period1year"><?php echo T_("1 Year"); ?></label>
-			          </div>
-			      </div>
-			      <div class="c">
-			          <div class="radio3">
-			            <input type="radio" name="period" value="5year" id="period5year">
-			            <label for="period5year"><?php echo T_("5 Year"); ?></label>
-			          </div>
-			      </div>
-			    </div>
-			      <div class="check1">
-			      <input type="checkbox" name="agree" id="agree">
-			      <label for="agree"><?php echo T_("I have read and agree to the terms and conditions"); ?> <small><a target="_blank" href="https://www.nic.ir/Domain_Register_Policy.html"><?php echo T_("Show terms"); ?></a></small></label>
-			    </div>
-				<div class="txtRa">
-					<button class="btn success"><?php echo T_("Renew"); ?></button>
-				</div>
-			</form>
+
+
+				<form method="post" autocomplete="off" class="mB20" >
+
+					<div class="c6 s12">
+					    <label for="ns1"><?php echo T_("DNS #1"); ?></label>
+						<div class="input ltr">
+							<input type="text" name="ns1" id="ns1" maxlength="50" value="<?php echo \dash\data::domainDetail_ns1(); ?>" >
+						</div>
+						<label for="ns2"><?php echo T_("DNS #2"); ?></label>
+						<div class="input ltr">
+							<input type="text" name="ns2" id="ns2" maxlength="50" value="<?php echo \dash\data::domainDetail_ns2(); ?>" >
+						</div>
+			    	</div>
+
+					<div class="txtRa">
+						<button class="btn success"><?php echo T_("Update"); ?></button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
