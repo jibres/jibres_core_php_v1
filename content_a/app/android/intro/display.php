@@ -10,28 +10,28 @@ $introSaved = \dash\data::introSaved();
         <div class="mB20">
          <div class="f">
           <div class="vcard shadow mA10 s12">
-            <img alt="siftal" src="<?php echo @$introSaved[1]['image']; ?>">
+            <img alt="siftal" src="<?php echo \dash\get::index($introSaved, 1, 'image'); ?>">
             <div class="content">
-              <a class="header"><?php echo @$introSaved[1]['title']; ?></a>
-              <div class="desc"><?php echo @$introSaved[1]['desc']; ?></div>
+              <a class="header"><?php echo \dash\get::index($introSaved, 1, 'title'); ?></a>
+              <div class="desc"><?php echo \dash\get::index($introSaved, 1, 'desc'); ?></div>
             </div>
             <div class="footer"><?php echo T_("Page"); ?> <?php echo \dash\fit::number(1); ?></div>
           </div>
 
           <div class="vcard shadow mA10 s12">
-            <img alt="siftal" src="<?php echo @$introSaved[2]['image']; ?>">
+            <img alt="siftal" src="<?php echo \dash\get::index($introSaved, 2, 'image'); ?>">
             <div class="content">
-              <a class="header"><?php echo @$introSaved[2]['title']; ?></a>
-              <div class="desc"><?php echo @$introSaved[2]['desc']; ?></div>
+              <a class="header"><?php echo \dash\get::index($introSaved, 2, 'title'); ?></a>
+              <div class="desc"><?php echo \dash\get::index($introSaved, 2, 'desc'); ?></div>
             </div>
             <div class="footer"><?php echo T_("Page"); ?> <?php echo \dash\fit::number(2); ?></div>
           </div>
 
           <div class="vcard shadow mA10 s12">
-            <img alt="siftal" src="<?php echo @$introSaved[3]['image']; ?>">
+            <img alt="siftal" src="<?php echo \dash\get::index($introSaved, 3, 'image'); ?>">
             <div class="content">
-             <a class="header"><?php echo @$introSaved[3]['title']; ?></a>
-              <div class="desc"><?php echo @$introSaved[3]['desc']; ?></div>
+             <a class="header"><?php echo \dash\get::index($introSaved, 3, 'title'); ?></a>
+              <div class="desc"><?php echo \dash\get::index($introSaved, 3, 'desc'); ?></div>
             </div>
             <div class="footer"><?php echo T_("Page"); ?> <?php echo \dash\fit::number(3); ?></div>
           </div>
@@ -76,12 +76,12 @@ $introSaved = \dash\data::introSaved();
          <div class="intro1" >
          	<label for="title1"><?php echo T_("Title"); ?></label>
          	<div class="input">
-         		<input type="text" name="title1" id="title1" value="<?php echo @$introSaved[1]['title']; ?>" maxlength="50">
+         		<input type="text" name="title1" id="title1" value="<?php echo \dash\get::index($introSaved, 1, 'title'); ?>" maxlength="50">
          	</div>
 
          	<label for="desc1"><?php echo T_("Description"); ?></label>
          	<div class="input">
-         		<input type="text" name="desc1" id="desc1" value="<?php echo @$introSaved[1]['desc']; ?>" maxlength="100">
+         		<input type="text" name="desc1" id="desc1" value="<?php echo \dash\get::index($introSaved, 1, 'desc'); ?>" maxlength="100">
          	</div>
 
          	<label for="file1"><?php echo T_("Image"); ?></label>
@@ -94,12 +94,12 @@ $introSaved = \dash\data::introSaved();
          <div class="intro2" >
          	<label for="title2"><?php echo T_("Title"); ?></label>
          	<div class="input">
-         		<input type="text" name="title2" id="title2" value="<?php echo @$introSaved[2]['title']; ?>" maxlength="50">
+         		<input type="text" name="title2" id="title2" value="<?php echo \dash\get::index($introSaved, 2, 'title'); ?>" maxlength="50">
          	</div>
 
          	<label for="desc2"><?php echo T_("Description"); ?></label>
          	<div class="input">
-         		<input type="text" name="desc2" id="desc2" value="<?php echo @$introSaved[2]['desc']; ?>" maxlength="100">
+         		<input type="text" name="desc2" id="desc2" value="<?php echo \dash\get::index($introSaved, 2, 'desc'); ?>" maxlength="100">
          	</div>
 
          	<label for="file2"><?php echo T_("Image"); ?></label>
@@ -112,12 +112,12 @@ $introSaved = \dash\data::introSaved();
          <div class="intro3" >
          	<label for="title3"><?php echo T_("Title"); ?></label>
          	<div class="input">
-         		<input type="text" name="title3" id="title3" value="<?php echo @$introSaved[3]['title']; ?>" maxlength="50">
+         		<input type="text" name="title3" id="title3" value="<?php echo \dash\get::index($introSaved, 3, 'title'); ?>" maxlength="50">
          	</div>
 
          	<label for="desc3"><?php echo T_("Description"); ?></label>
          	<div class="input">
-         		<input type="text" name="desc3" id="desc3" value="<?php echo @$introSaved[3]['desc']; ?>" maxlength="100">
+         		<input type="text" name="desc3" id="desc3" value="<?php echo \dash\get::index($introSaved, 3, 'desc'); ?>" maxlength="100">
          	</div>
 
          	<label for="file3"><?php echo T_("Image"); ?></label>

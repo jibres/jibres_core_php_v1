@@ -16,11 +16,7 @@
 <form method="post" class="cbox" autocomplete="off">
   <?php iTitle(); ?>
   <?php iSlug(); ?>
-<?php if(\dash\request::get('type') === 'category') {?>
 
-  <?php iParent(); ?>
-
-<?php }//endif ?>
 
   <?php iDescription(); ?>
   <?php iLanguage(); ?>
@@ -70,7 +66,7 @@
 
 <label><?php echo T_("Tag color"); ?></label>
 <div class="ui fluid selection dropdown">
-  <input type="hidden" name="color" value="<?php $meta = \dash\data::datarow_meta(); echo @$meta['color']; ?>">
+  <input type="hidden" name="color" value="<?php $meta = \dash\data::datarow_meta(); echo \dash\get::index($meta, 'color'); ?>">
   <i class="dropdown icon"></i>
   <div class="default text"><?php echo T_("Select tag color"); ?></div>
   <div class="menu">
@@ -117,13 +113,13 @@ if(!is_array($dataTable))
   <table class="tbl1 v2 fs12">
     <thead>
       <tr class="primary ">
-        <th data-sort="<?php echo @$sortLink['title']['order']; ?>"><a href="<?php echo @$sortLink['title']['link']; ?>"><?php echo T_("Title"); ?></a></th>
-        <th data-sort="<?php echo @$sortLink['slug']['order']; ?>"><a href="<?php echo @$sortLink['slug']['link']; ?>"><?php echo T_("Slug"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($sortLink, 'title', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($sortLink, 'slug', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'slug', 'link'); ?>"><?php echo T_("Slug"); ?></a></th>
 
 
         <th><?php echo T_("Description"); ?></th>
-        <th data-sort="<?php echo @$sortLink['count']['order']; ?>"><a href="<?php echo @$sortLink['count']['link']; ?>"><?php echo T_("Used"); ?></a></th>
-        <th class="collapsing" data-sort="<?php echo @$sortLink['status']['order']; ?>"><a href="<?php echo @$sortLink['status']['link']; ?>"><?php echo T_("Status"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($sortLink, 'count', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'count', 'link'); ?>"><?php echo T_("Used"); ?></a></th>
+        <th class="collapsing" data-sort="<?php echo \dash\get::index($sortLink, 'status', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'status', 'link'); ?>"><?php echo T_("Status"); ?></a></th>
       </tr>
     </thead>
     <tbody>
@@ -192,20 +188,6 @@ if(!is_array($dataTable))
 <?php }// endfunction ?>
 
 
-
-<?php function iParent() {?>
-
-<label for="parent"><?php echo T_("Parent Category"); ?></label>
-<select name="parent" class="input select">
-  <option value=""><?php echo T_("Please select one itme"); ?></option>
-  <?php foreach (\dash\data::dataTable() as $key => $item) {?>
-  <?php if(isset($item['id']) && $item['id'] == \dash\request::get("edit")) {}else{?>
-
-    <option value="<?php echo $item['id']; ?>" <?php if(\dash\data::datarow_parent() == $item['id']) {echo 'selected';} ?>><?php echo @$item['title']; ?></option>
-  <?php }//endif ?>
-  <?php } //endfor ?>
-</select>
-<?php }// endfunction ?>
 
 
 <?php function iDescription() {?>

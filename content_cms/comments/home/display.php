@@ -78,11 +78,11 @@ if(!is_array($dataTable))
   <table class="tbl1 v1 cbox fs12">
     <thead>
       <tr>
-        <th data-sort="<?php echo @$sortLink['author']['order']; ?>"><a href="<?php echo @$sortLink['author']['link']; ?>"><?php echo T_("Author"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($sortLink, 'author', 'order') ; ?>"><a href="<?php echo \dash\get::index($sortLink, 'author', 'link') ; ?>"><?php echo T_("Author"); ?></a></th>
         <th class="s0"><?php echo T_("Detail"); ?></th>
-        <th data-sort="<?php echo @$sortLink['content']['order']; ?>"><a href="<?php echo @$sortLink['content']['link']; ?>"><?php echo T_("Comment"); ?></a></th>
-        <th class="s0" data-sort="<?php echo @$sortLink['status']['order']; ?>"><a href="<?php echo @$sortLink['status']['link']; ?>"><?php echo T_("Status"); ?></a></th>
-        <th class="m0 s0" data-sort="<?php echo @$sortLink['datecreated']['order']; ?>"><a href="<?php echo @$sortLink['datecreated']['link']; ?>"><?php echo T_("Date"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($sortLink, 'content', 'order') ; ?>"><a href="<?php echo \dash\get::index($sortLink, 'content', 'link') ; ?>"><?php echo T_("Comment"); ?></a></th>
+        <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'status', 'order') ; ?>"><a href="<?php echo \dash\get::index($sortLink, 'status', 'link') ; ?>"><?php echo T_("Status"); ?></a></th>
+        <th class="m0 s0" data-sort="<?php echo \dash\get::index($sortLink, 'datecreated', 'order') ; ?>"><a href="<?php echo \dash\get::index($sortLink, 'datecreated', 'link') ; ?>"><?php echo T_("Date"); ?></a></th>
       </tr>
     </thead>
 

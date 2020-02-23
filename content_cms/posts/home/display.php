@@ -92,13 +92,13 @@ $sortLink = \dash\data::sortLink();
   <table class="tbl1 v1 fs11">
     <thead>
       <tr>
-        <th data-sort="<?php echo @$sortLink['title']['order']; ?>"><a href='<?php echo @$sortLink['title']['link']; ?>'><?php echo T_("Title"); ?></a></th>
-        <th class="s0 max-w200" data-sort="<?php echo @$sortLink['slug']['order']; ?>"><a href='<?php echo @$sortLink['slug']['link']; ?>'><?php echo T_("Slug"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($value, 'title', 'order'); ?>"><a href='<?php echo \dash\get::index($value, 'title', 'link'); ?>'><?php echo T_("Title"); ?></a></th>
+        <th class="s0 max-w200" data-sort="<?php echo \dash\get::index($value, 'slug', 'order'); ?>"><a href='<?php echo \dash\get::index($value, 'slug', 'link'); ?>'><?php echo T_("Slug"); ?></a></th>
         <?php if(!\dash\request::get('type') || \dash\request::get('type') == 'post') {?>
-          <th data-sort="<?php echo @$sortLink['commentcount']['order']; ?>"><a href='<?php echo @$sortLink['commentcount']['link']; ?>'><i class="sf-comments fs16"></i></a></th>
+          <th data-sort="<?php echo \dash\get::index($value, 'commentcount', 'order'); ?>"><a href='<?php echo \dash\get::index($value, 'commentcount', 'link'); ?>'><i class="sf-comments fs16"></i></a></th>
         <?php } ?>
-        <th data-sort="<?php echo @$sortLink['publishdate']['order']; ?>"><a href='<?php echo @$sortLink['publishdate']['link']; ?>'><?php echo T_("Publish date"); ?></a></th>
-        <th data-sort="<?php echo @$sortLink['status']['order']; ?>"><a href='<?php echo @$sortLink['status']['link']; ?>'><?php echo T_("Status"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($value, 'publishdate', 'order'); ?>"><a href='<?php echo \dash\get::index($value, 'publishdate', 'link'); ?>'><?php echo T_("Publish date"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($value, 'status', 'order'); ?>"><a href='<?php echo \dash\get::index($value, 'status', 'link'); ?>'><?php echo T_("Status"); ?></a></th>
       </tr>
     </thead>
 

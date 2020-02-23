@@ -76,10 +76,10 @@ if(!is_array($dataTable))
     <thead>
       <tr>
         <th></th>
-        <th data-sort="<?php echo @$sortLink['title']['order']; ?>"><a href='<?php echo @$sortLink['title']['link']; ?>'><?php echo T_("File Name"); ?></a></th>
-        <th class="max-w200 s0 m0" data-sort="<?php echo @$sortLink['type']['order']; ?>"><a href='<?php echo @$sortLink['type']['link']; ?>'><?php echo T_("Type"); ?></a></th>
-        <th class="max-w200" data-sort="<?php echo @$sortLink['size']['order']; ?>"><a href='<?php echo @$sortLink['size']['link']; ?>'><?php echo T_("Size"); ?></a></th>
-        <th class="max-w200 s0" data-sort="<?php echo @$sortLink['date']['order']; ?>"><a href='<?php echo @$sortLink['date']['link']; ?>'><?php echo T_("Date"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($sortLink, 'title', 'order'); ?>"><a href='<?php echo \dash\get::index($sortLink, 'title', 'link'); ?>'><?php echo T_("File Name"); ?></a></th>
+        <th class="max-w200 s0 m0" data-sort="<?php echo \dash\get::index($sortLink, 'type', 'order'); ?>"><a href='<?php echo \dash\get::index($sortLink, 'type', 'link'); ?>'><?php echo T_("Type"); ?></a></th>
+        <th class="max-w200" data-sort="<?php echo \dash\get::index($sortLink, 'size', 'order'); ?>"><a href='<?php echo \dash\get::index($sortLink, 'size', 'link'); ?>'><?php echo T_("Size"); ?></a></th>
+        <th class="max-w200 s0" data-sort="<?php echo \dash\get::index($sortLink, 'date', 'order'); ?>"><a href='<?php echo \dash\get::index($sortLink, 'date', 'link'); ?>'><?php echo T_("Date"); ?></a></th>
       </tr>
     </thead>
 

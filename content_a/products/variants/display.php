@@ -22,7 +22,7 @@ $variantsList = \dash\data::variantsList();
               <div class="f">
                 <div class="cauto mB10">
                   <div class="input">
-                  <input type="text" name="optionname1" placeholder='<?php echo T_("Color"); ?>' value="<?php echo @$variantsList['variants']['option1']['name']; ?>">
+                  <input type="text" name="optionname1" placeholder='<?php echo T_("Color"); ?>' value="<?php echo \dash\get::index($variantsList, 'variants', 'option1', 'name'); ?>">
                 </div>
                 </div>
 
@@ -41,7 +41,7 @@ $variantsList = \dash\data::variantsList();
               <div class="f">
                 <div class="cauto mB10">
                   <div class="input">
-                  <input type="text" name="optionname2" placeholder='<?php echo T_("Size"); ?>' value="<?php echo @$variantsList['variants']['option2']['name']; ?>">
+                  <input type="text" name="optionname2" placeholder='<?php echo T_("Size"); ?>' value="<?php echo \dash\get::index($variantsList, 'variants', 'option2', 'name'); ?>">
                 </div>
                 </div>
 
@@ -60,7 +60,7 @@ $variantsList = \dash\data::variantsList();
               <div class="f">
                 <div class="cauto mB10">
                   <div class="input">
-                  <input type="text" name="optionname3" placeholder='<?php echo T_("Material"); ?>' value="<?php echo @$variantsList['variants']['option3']['name']; ?>">
+                  <input type="text" name="optionname3" placeholder='<?php echo T_("Material"); ?>' value="<?php echo \dash\get::index($variantsList, 'variants', 'option3', 'name'); ?>">
                 </div>
                 </div>
 
@@ -94,9 +94,9 @@ $variantsList = \dash\data::variantsList();
                   <thead>
                     <tr>
                       <th class="collapsing"><?php echo T_("Avalible?"); ?></th>
-                      <th class="collapsing"><?php echo @$variantsList['variants']['option1']['name']; ?></th>
-                      <?php if(isset($variantsList['variants']['option2']['value']) && $variantsList['variants']['option2']['value']) {?><th class="collapsing"><?php echo @$variantsList['variants']['option2']['name']; ?></th><?php } //endif ?>
-                      <?php if(isset($variantsList['variants']['option3']['value']) && $variantsList['variants']['option3']['value']) {?><th class="collapsing"><?php echo @$variantsList['variants']['option3']['name']; ?></th><?php } //endif ?>
+                      <th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option1', 'name'); ?></th>
+                      <?php if(isset($variantsList['variants']['option2']['value']) && $variantsList['variants']['option2']['value']) {?><th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option2', 'name'); ?></th><?php } //endif ?>
+                      <?php if(isset($variantsList['variants']['option3']['value']) && $variantsList['variants']['option3']['value']) {?><th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option3', 'name'); ?></th><?php } //endif ?>
                       <th><?php echo T_("Stock"); ?></th>
                       <th><?php echo T_("Price"); ?></th>
                       <th><?php echo T_("SKU"); ?></th>

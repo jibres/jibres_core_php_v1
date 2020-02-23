@@ -34,7 +34,7 @@ $dashboardData = \dash\data::dashboardData();
   <div class="c6 s6">
     <a class="dcard x1" href='<?php echo \dash\url::here(); ?>/products'>
      <div class="statistic">
-      <div class="value"><span><?php echo \dash\fit::number(@$dashboardData['product_count']); ?></span></div>
+      <div class="value"><span><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'product_count')); ?></span></div>
       <div class="label"><?php echo T_("Product"); ?></div>
      </div>
     </a>
@@ -61,7 +61,7 @@ $dashboardData = \dash\data::dashboardData();
   <div class="c4 s6">
     <a class="dcard" href='<?php echo \dash\url::kingdom(); ?>/crm'>
      <div class="statistic gray">
-      <div class="value"><i class="sf-user"></i><span><?php echo \dash\fit::number(@$dashboardData['customer_count']); ?></span></div>
+      <div class="value"><i class="sf-user"></i><span><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'customer_count')); ?></span></div>
       <div class="label"><?php echo T_("Customer"); ?></div>
      </div>
     </a>
@@ -73,7 +73,7 @@ $dashboardData = \dash\data::dashboardData();
   <div class="c4 s6">
     <a class="dcard" href='<?php echo \dash\url::kingdom(); ?>/crm'>
      <div class="statistic orange">
-      <div class="value"><i class="sf-user-4"></i><span><?php echo \dash\fit::number(@$dashboardData['staff_count']); ?></span></div>
+      <div class="value"><i class="sf-user-4"></i><span><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'staff_count')); ?></span></div>
       <div class="label"><?php echo T_("Staff"); ?></div>
      </div>
     </a>
@@ -89,7 +89,7 @@ $dashboardData = \dash\data::dashboardData();
         <h4 class="cauto fc-info fs30 txtra"><?php echo \dash\datetime::fit("now", 'd'); ?></h4>
       </div>
       <div class="f">
-       <div class="progress" data-percent='<?php echo @$dashboardData['month_detail']['left']; ?>'>
+       <div class="progress" data-percent='<?php echo \dash\get::index($dashboardData, 'month_detail' ,'left'); ?>'>
         <div class="bar"></div>
        </div>
       </div>

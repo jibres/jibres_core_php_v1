@@ -88,7 +88,7 @@ function post_chart()
       text: '<?php echo T_("Post count"); ?>'
     },
     xAxis: {
-      categories: <?php echo @$dashboardDetail['chart']['post']['categories']; ?>,
+      categories: <?php echo \dash\get::index($dashboardDetail, 'chart', 'post', 'categories'); ?>,
       tickmarkPlacement: 'on',
       title: {
         enabled: false
@@ -143,7 +143,7 @@ function post_chart()
             fontWeight: 'bold'
         }
     },
-    series: <?php echo @$dashboardDetail['chart']['post']['data']; ?>
+    series: <?php echo \dash\get::index($dashboardDetail, 'chart', 'post', 'data'); ?>
   }, function(_chart)
     {
       _chart.renderer.image('<?php echo \dash\url::icon(); ?>', 10, 5, 30, 30).attr({class: 'chartServiceLogo'}).add();

@@ -82,7 +82,7 @@ $awaitingImport = \dash\data::awaitingImport();
 			<?php echo T_("Count record have ID"); ?> <b><?php echo \dash\fit::number($awaitingImport['meta']['overwrite_count']); ?></b>
 			<br>
 			<small data-copy="#haveId"><?php echo T_("Founded id"); ?></small>
-			<textarea class="txt" rows="2" id="haveId"><?php @implode(',', @$awaitingImport['meta']['overwrite']); ?></textarea>
+			<textarea class="txt" rows="2" id="haveId"><?php @implode(',', \dash\get::index($awaitingImport, 'meta', 'overwrite')); ?></textarea>
 
 		</div>
 	<?php } //endif ?>
@@ -90,10 +90,10 @@ $awaitingImport = \dash\data::awaitingImport();
 	<div class="txtRa">
 
 	<div class="btn secondary" data-ajaxify data-data='{"cancel": "cancel"}' data-method='post'><?php echo T_("Never mind"); ?></div>
-	<?php if(!@$awaitingImport['meta']['allErrorCount']) {?>
+	<?php if(!\dash\get::index($awaitingImport, 'meta', 'allErrorCount')) {?>
 
 
-		<?php if(@$awaitingImport['meta']['overwrite_count']) {?>
+		<?php if(\dash\get::index($awaitingImport, 'meta', 'overwrite_count')) {?>
 
 			<div class="btn warn" data-confirm data-data='{"import": "ok"}'><?php echo T_("I sure. I want to overwrite that products"); ?></div>
 		<?php }else{ ?>

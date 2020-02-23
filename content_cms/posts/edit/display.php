@@ -427,7 +427,7 @@ $myFirstURL = '';
     <?php if(isset($dataRow['meta']['download']['url']) && $dataRow['meta']['download']['url']) {?>
 
     <span class="floatRa">
-      <a <?php if(isset($dataRow['meta']['download']['title']) && $dataRow['meta']['download']['title']) { echo 'title="'. $dataRow['meta']['download']['title']. '"'; }?> href="<?php echo @$dataRow['meta']['download']['url']; ?>" class="badge <?php echo @$dataRow['meta']['download']['color']; ?>"  target="_blank" >
+      <a <?php if(isset($dataRow['meta']['download']['title']) && $dataRow['meta']['download']['title']) { echo 'title="'. $dataRow['meta']['download']['title']. '"'; }?> href="<?php echo \dash\get::index($dataRow, 'meta', 'download', 'url'); ?>" class="badge <?php echo \dash\get::index($dataRow, 'meta', 'download', 'color'); ?>"  target="_blank" >
         <i class="sf-ellipsis-h"></i></a>
     </span>
 
@@ -437,12 +437,12 @@ $myFirstURL = '';
 
     <label for="ibtntitle"><?php echo T_("Button title"); ?></label>
     <div class="input">
-      <input type="text" name="btntitle" maxlength="5000" id="ibtntitle" value="<?php echo @$dataRow['meta']['download']['title']; ?>">
+      <input type="text" name="btntitle" maxlength="5000" id="ibtntitle" value="<?php echo \dash\get::index($dataRow, 'meta', 'download', 'title'); ?>">
     </div>
 
     <label for="ibtnurl"><?php echo T_("URL"); ?></label>
     <div class="input">
-      <input type="url" name="btnurl" maxlength="5000" id="ibtnurl" value="<?php echo @$dataRow['meta']['download']['url']; ?>">
+      <input type="url" name="btnurl" maxlength="5000" id="ibtnurl" value="<?php echo \dash\get::index($dataRow, 'meta', 'download', 'url'); ?>">
     </div>
 
     <div class="check1">
@@ -452,7 +452,7 @@ $myFirstURL = '';
 
     <label><?php echo T_("Button color"); ?></label>
     <div class="ui fluid selection dropdown">
-      <input type="hidden" name="btncolor" value="<?php echo @$dataRow['meta']['download']['color']; ?>">
+      <input type="hidden" name="btncolor" value="<?php echo \dash\get::index($dataRow, 'meta', 'download', 'color'); ?>">
       <i class="dropdown icon"></i>
       <div class="default text"><?php echo T_("Select button color"); ?></div>
       <div class="menu">
@@ -499,7 +499,7 @@ $myFirstURL = '';
     <?php if(isset($dataRow['meta']['source']['title']) && $dataRow['meta']['source']['title']) {?>
 
     <span class="floatRa">
-      <a <?php if(isset($dataRow['meta']['source']['title']) && $dataRow['meta']['source']['title']) {?> title="<?php echo $dataRow['meta']['source']['title']; ?>"  <?php } ?> target="_blank" href="<?php echo @$dataRow['meta']['source']['url']; ?>" class="badge primary">
+      <a <?php if(isset($dataRow['meta']['source']['title']) && $dataRow['meta']['source']['title']) {?> title="<?php echo $dataRow['meta']['source']['title']; ?>"  <?php } ?> target="_blank" href="<?php echo \dash\get::index($dataRow, 'meta', 'source', 'url'); ?>" class="badge primary">
         <i class="sf-check"></i></a>
     </span>
     <?php } //endif ?>
@@ -508,12 +508,12 @@ $myFirstURL = '';
 
      <label for="isrctitle"><?php echo T_("Sourse title"); ?></label>
     <div class="input">
-      <input type="text" name="srctitle" maxlength="5000" id="isrctitle" value="<?php echo @$dataRow['meta']['source']['title']; ?>">
+      <input type="text" name="srctitle" maxlength="5000" id="isrctitle" value="<?php echo \dash\get::index($dataRow, 'meta', 'source', 'title'); ?>">
     </div>
 
     <label for="isrcurl"><?php echo T_("Sourse URL"); ?></label>
     <div class="input">
-      <input type="url" name="srcurl" maxlength="5000" id="isrcurl" value="<?php echo @$dataRow['meta']['source']['url']; ?>">
+      <input type="url" name="srcurl" maxlength="5000" id="isrcurl" value="<?php echo \dash\get::index($dataRow, 'meta', 'source', 'url'); ?>">
     </div>
 
   </div>
@@ -546,7 +546,7 @@ $myFirstURL = '';
 
      <label for="iredirecturl"><?php echo T_("Set post redirect"); ?></label>
     <div class="input">
-      <input type="url" name="redirecturl" maxlength="5000" id="iredirecturl" value="<?php echo @$dataRow['meta']['redirect']; ?>">
+      <input type="url" name="redirecturl" maxlength="5000" id="iredirecturl" value="<?php echo \dash\get::index($dataRow, 'meta', 'redirect'); ?>">
     </div>
 
 
@@ -850,7 +850,7 @@ $myFirstURL = '';
   <div class="body iconPanel" data-kerkere-content='hide'>
 
 <div class="ui fluid selection dropdown search fs12">
-<input type="hidden" name="icon" value="<?php $meta = \dash\data::dataRow_meta(); echo @$meta['icon']; ?>">
+<input type="hidden" name="icon" value="<?php $meta = \dash\data::dataRow_meta(); echo \dash\get::index($meta, 'icon'); ?>">
 <i class="dropdown icon"></i>
 <div class="default text"><?php echo T_("Choose icon"); ?></div>
 <div class="menu">

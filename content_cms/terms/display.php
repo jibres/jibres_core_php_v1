@@ -118,18 +118,18 @@ if(!is_array($dataTable))
   <table class="tbl1 v2 fs12">
     <thead>
       <tr class="primary ">
-        <th data-sort="<?php echo @$sortLink['title']['order']; ?>"><a href="<?php echo @$sortLink['title']['link']; ?>"><?php echo T_("Title"); ?></a></th>
-        <th data-sort="<?php echo @$sortLink['slug']['order']; ?>"><a href="<?php echo @$sortLink['slug']['link']; ?>"><?php echo T_("Slug"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($value, 'title', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($value, 'slug', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'slug', 'link'); ?>"><?php echo T_("Slug"); ?></a></th>
 
         <?php if(!\dash\request::get('type')) {?>
 
-          <th data-sort="<?php echo @$sortLink['type']['order']; ?>"><a href="<?php echo @$sortLink['type']['link']; ?>"><?php echo T_("Type"); ?></a></th>
+          <th data-sort="<?php echo \dash\get::index($value, 'type', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'type', 'link'); ?>"><?php echo T_("Type"); ?></a></th>
 
         <?php } //endif?>
 
         <th><?php echo T_("Description"); ?></th>
-        <th data-sort="<?php echo @$sortLink['count']['order']; ?>"><a href="<?php echo @$sortLink['count']['link']; ?>"><?php echo T_("Used"); ?></a></th>
-        <th data-sort="<?php echo @$sortLink['status']['order']; ?>"><a href="<?php echo @$sortLink['status']['link']; ?>"><?php echo T_("Status"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($value, 'count', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'count', 'link'); ?>"><?php echo T_("Used"); ?></a></th>
+        <th data-sort="<?php echo \dash\get::index($value, 'status', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'status', 'link'); ?>"><?php echo T_("Status"); ?></a></th>
       </tr>
     </thead>
     <tbody>

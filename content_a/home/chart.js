@@ -20,7 +20,7 @@ function highChart()
       text: '<?php echo T_("Sum factor price and count of it group by hours"); ?>'
     },
     xAxis: [{
-      categories: <?php echo @$dashboardData['chart']['categories']; ?>,
+      categories: <?php echo \dash\get::index($dashboardData, 'chart', 'categories'); ?>,
       crosshair: true
     }],
     yAxis: [{ // Primary yAxis
@@ -102,7 +102,7 @@ function highChart()
     {
       name: '<?php echo T_("Sum price"); ?>',
       type: 'column',
-      data: <?php echo @$dashboardData['chart']['sum']; ?>,
+      data: <?php echo \dash\get::index($dashboardData, 'chart', 'sum'); ?>,
       tooltip: {
         valueSuffix: ' <?php echo T_("Toman"); ?>'
       }
@@ -112,7 +112,7 @@ function highChart()
       name: '<?php echo T_("Count"); ?>',
       type: 'spline',
       yAxis: 1,
-      data: <?php echo @$dashboardData['chart']['count']; ?>,
+      data: <?php echo \dash\get::index($dashboardData, 'chart', 'count'); ?>,
       tooltip: {
         valueSuffix: ' <?php echo T_("Count"); ?>'
       }
