@@ -52,7 +52,7 @@ else
   ?>
 <?php }//endif ?>
 
-  <li><a href="<?php echo \dash\url::kingdom(); ?>/my/store" <?php if(\dash\url::content() === 'store') {?> class="activeContent"<?php }//endif ?>><i class='sf-atom'></i> <?php echo T_("Jibres Panel"); ?></a></li>
+  <li><a href="<?php echo \dash\url::sitelang(); ?>/my/store" <?php if(\dash\url::content() === 'store') {?> class="activeContent"<?php }//endif ?>><i class='sf-atom'></i> <?php echo T_("Jibres Panel"); ?></a></li>
 
 <?php if(\dash\permission::check('contentCp')) {?>
       <li><a href="<?php echo \dash\url::kingdom(); ?>/cms" <?php if(\dash\url::content() === 'cms') {?> class="activeContent"<?php }//endif ?> data-shortkey="67+77" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-align-left'></i> <?php echo T_("CMS"); ?></a></li>
@@ -79,7 +79,7 @@ else
 
 <?php if(\dash\permission::supervisor()) {?>
 
-  <li><a href="<?php echo \dash\url::kingdom(); ?>/su" <?php if(\dash\url::content() === 'su') {?> class="activeContent"<?php }//endif ?> data-shortkey="83+85" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-heartbeat'></i> <span><?php echo T_("Supervisor Panel"); ?></span></a></li>
+  <li><a href="<?php echo \dash\url::sitelang(); ?>/su" <?php if(\dash\url::content() === 'su') {?> class="activeContent"<?php }//endif ?> data-shortkey="83+85" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-heartbeat'></i> <span><?php echo T_("Supervisor Panel"); ?></span></a></li>
   <?php
   if(\dash\url::content() === 'su')
   {
@@ -91,7 +91,7 @@ else
 
 
 <?php if(\dash\user::id()) {?>
-    <li><a href="<?php echo \dash\url::kingdom(); ?>/account" <?php if(\dash\url::content() === 'account') {?> class="activeContent"<?php }//endif ?> data-shortkey="77+69" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-user'></i> <span><?php echo T_("My Account"); ?></span></a></li>
+    <li><a href="<?php echo \dash\url::sitelang(); ?>/account" <?php if(\dash\url::content() === 'account') {?> class="activeContent"<?php }//endif ?> data-shortkey="77+69" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-user'></i> <span><?php echo T_("My Account"); ?></span></a></li>
   <?php
   if(\dash\url::content() === 'account')
   {
@@ -101,7 +101,7 @@ else
 
 <?php }//endif ?>
 
-  <li><a href="<?php echo \dash\url::kingdom(); ?>/support" <?php if(\dash\url::content() === 'support') {?> class="activeContent"<?php }//endif ?> data-shortkey="112" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-life-ring'></i> <span><?php echo T_("Help Center"); ?></span></a></li>
+  <li><a href="<?php echo \dash\url::sitelang(); ?>/support" <?php if(\dash\url::content() === 'support') {?> class="activeContent"<?php }//endif ?> data-shortkey="112" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-life-ring'></i> <span><?php echo T_("Help Center"); ?></span></a></li>
 <?php
 if(\dash\url::content() === 'support')
 {

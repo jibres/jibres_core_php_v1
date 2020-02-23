@@ -10,10 +10,10 @@
 
    <div class='hm right flex cauto os'>
 
-    <a href="<?php echo \dash\url::kingdom(); ?>/support" title='<?php echo T_("Help Center"); ?>' class="support s0"><i class="sf-life-ring"></i></a>
+    <a href="<?php echo \dash\url::sitelang(); ?>/support" title='<?php echo T_("Help Center"); ?>' class="support s0"><i class="sf-life-ring"></i></a>
 
 <?php if(\dash\user::id()) { ?>
-    <a href="<?php echo \dash\url::kingdom(); ?>/account/notification" title='<?php echo T_("Notifications"); ?>' class="notification"><i class="sf-bell"></i></a>
+    <a href="<?php echo \dash\url::sitelang(); ?>/account/notification" title='<?php echo T_("Notifications"); ?>' class="notification"><i class="sf-bell"></i></a>
 
     <div class="profileShow" title='<?php echo \dash\data::site_title(); ?><br><?php echo \dash\data::userBadge_desc(); ?>'
     data-desc='<?php echo \dash\data::userBadge_desc(); ?>'
