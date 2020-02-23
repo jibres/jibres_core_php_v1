@@ -32,6 +32,8 @@ class who
 
 		$result = [];
 
+		$_domain = urldecode($_domain);
+
 		// Creating default configured client
 		$whois = \lib\nic\Iodev\Whois\Whois::create();
 
