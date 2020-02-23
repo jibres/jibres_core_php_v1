@@ -1,3 +1,3 @@
 <?php
-require_once \dash\layout\fn::display();
+require_once \dash\layout\func::display();
  ?>

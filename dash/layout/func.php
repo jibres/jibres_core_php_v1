@@ -3,7 +3,7 @@ namespace dash\layout;
 /**
  * dash main configure
  */
-class fn
+class func
 {
 	private static $DISPLAY = null;
 

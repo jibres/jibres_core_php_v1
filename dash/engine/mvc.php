@@ -17,7 +17,6 @@ class mvc
 	{
 		// get best controller
 		$finded_controller  = self::find_ctrl();
-
 		if($finded_controller)
 		{
 			self::load_controller();
@@ -262,7 +261,7 @@ class mvc
 			}
 
 			\dash\engine\view::lastChanges();
-			$nativeTemplate = \dash\layout\fn::shoot();
+			$nativeTemplate = \dash\layout\func::shoot();
 
 			if(!$nativeTemplate)
 			{

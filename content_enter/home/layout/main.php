@@ -21,6 +21,6 @@ else
 }
 ?>
    <form method="post" autocomplete="off">
-<?php require_once \dash\layout\fn::display(); ?>
+<?php require_once \dash\layout\func::display(); ?>
    </form>
 </section>
