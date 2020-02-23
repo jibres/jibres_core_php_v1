@@ -13,6 +13,7 @@ class controller
 			\dash\header::status(404, T_("Invalid url"));
 		}
 
+
 		\dash\open::get();
 		\dash\open::post();
 
@@ -30,6 +31,10 @@ class controller
 			{
 				\dash\data::domainError(T_("Invalid error syntax"));
 			}
+		}
+		else
+		{
+			\dash\redirect::to(\dash\url::this(). '/choose');
 		}
 	}
 }
