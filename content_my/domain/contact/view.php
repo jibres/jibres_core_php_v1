@@ -13,7 +13,7 @@ class view
 		\dash\data::action_link(\dash\url::that(). '/add');
 
 		// btn
-		\dash\data::back_text(T_('Back'));
+		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::this());
 
 		$args =

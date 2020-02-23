@@ -6,10 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Add contact"));
-
-		\dash\data::page_special(true);
-
+		\dash\data::page_title(T_("Add IRNIC handle"));
 
 		// btn
 		\dash\data::back_text(T_('Back'));
