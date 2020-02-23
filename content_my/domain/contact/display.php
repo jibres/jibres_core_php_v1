@@ -46,7 +46,7 @@ else
 
 
 <?php function htmlTable() {?>
-<div class="tblBox fs12">
+<div class="fs12 mT20">
 	<table class="tbl1 v1">
 		<tbody>
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
