@@ -1,5 +1,5 @@
 <?php
-namespace content_my\domain\contact\edit;
+namespace content_my\domain\irnic\edit;
 
 
 class model

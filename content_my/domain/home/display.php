@@ -41,10 +41,10 @@
 
    <div class="c s12">
 
-  	<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/contact'>
+  	<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irnic'>
 	 <div class="statistic blue">
 	  <div class="value"><i class="sf-vcard"></i></div>
-	  <div class="label"><?php echo T_("Domain contact"); ?></div>
+	  <div class="label"><?php echo T_("IRNIC Handle"); ?></div>
 	 </div>
 	</a>
 

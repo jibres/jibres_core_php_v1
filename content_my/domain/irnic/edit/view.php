@@ -1,12 +1,14 @@
 <?php
-namespace content_my\domain\contact\add;
+namespace content_my\domain\irnic\edit;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Add IRNIC handle"));
+		\dash\data::page_title(T_("Edit IRNIC handle"));
+
+
 
 		// btn
 		\dash\data::back_text(T_('Back'));

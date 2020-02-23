@@ -1,5 +1,5 @@
 <?php
-namespace content_my\domain\contact\add;
+namespace content_my\domain\irnic;
 
 
 class controller
