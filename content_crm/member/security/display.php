@@ -177,10 +177,10 @@
       <div class="panel mB10">
         <div class="f align-center pad">
           <div class="cauto s5 pRa10">
-            <div class="device72" data-device='<?php echo mb_strtolower(@$row['os']); ?>'></div>
+            <div class="device72" data-device='<?php echo mb_strtolower(\dash\get::index($row, 'os')); ?>'></div>
           </div>
           <div class="pA5 c s7">
-            <div class="mB5"><b><?php echo \dash\get::index($row, 'osName'); ?></b> <?php echo \dash\fit::number(@$row['osVer']); ?></div>
+            <div class="mB5"><b><?php echo \dash\get::index($row, 'osName'); ?></b> <?php echo \dash\fit::number(\dash\get::index($row, 'osVer')); ?></div>
 
             <?php if(isset($row['code']) && $row['code'] === \dash\data::currentCookie()) {?>
 
@@ -190,8 +190,8 @@
 
           </div>
           <div class="pA5 c s12 fs08">
-            <div class="mB10"><b><?php echo \dash\get::index($row, 'browser'); ?></b> <?php echo \dash\fit::number(@$row['browserVer']); ?></div>
-            <div><?php echo \dash\fit::date_human(@$row['last']); ?></div>
+            <div class="mB10"><b><?php echo \dash\get::index($row, 'browser'); ?></b> <?php echo \dash\fit::number(\dash\get::index($row, 'browserVer')); ?></div>
+            <div><?php echo \dash\fit::date_human(\dash\get::index($row, 'last')); ?></div>
           </div>
           <div class="pA5 c3 s12">
             <div class="mB5">

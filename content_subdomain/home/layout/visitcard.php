@@ -29,7 +29,7 @@ $store = \dash\data::store();
 
    <address class="mB20">
     <div class="street-address fs08 mB10"><?php echo $store['store_data']['address']; ?></div>
-    <div class="tel ltr fs09"><?php echo T_("Tel"); ?> <a href="tel:<?php echo $store['store_data']['phone']; ?>"><?php echo \dash\fit::text(@$store['store_data']['phone']); ?></a></div>
+    <div class="tel ltr fs09"><?php echo T_("Tel"); ?> <a href="tel:<?php echo $store['store_data']['phone']; ?>"><?php echo \dash\fit::text(\dash\get::index($store, 'store_data', 'phone')); ?></a></div>
    </address>
 
 <?php } //endif ?>

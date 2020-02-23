@@ -18,7 +18,7 @@ if(!is_array($groupPos))
 
 
         <th title='<?php echo $slug; ?> <?php if(in_array($myGroup, $groupPos)){?> <br><b><?php echo T_("Customized"); ?></b><?php }//endif ?>' class="txtC">
-          <a href="<?php echo \dash\url::this(); ?>/add?id=<?php echo $slug; ?>"><?php echo T_(@$myGroup['title']); ?>
+          <a href="<?php echo \dash\url::this(); ?>/add?id=<?php echo $slug; ?>"><?php echo T_(\dash\get::index($myGroup, 'title')); ?>
           <br>
           <small class="badge mT5"><?php echo T_("Edit"); ?></small>
           </a>
