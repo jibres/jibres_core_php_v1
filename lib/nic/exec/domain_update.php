@@ -2,28 +2,28 @@
 namespace lib\nic\exec;
 
 
-class domain_create
+class domain_update
 {
 
 
-	public static function create($_args)
+	public static function update($_args)
 	{
-		$create = self::analyze_domain_create($_args);
+		$update = self::analyze_domain_update($_args);
 
-		if(!$create || !is_array($create))
+		if(!$update || !is_array($update))
 		{
 			return false;
 		}
 
-		if(!isset($create['name']))
+		if(!isset($update['name']))
 		{
 			return false;
 		}
 
 		$result                 = [];
-		$result['name']         = $create['name'];
-		$result['dateregister'] = isset($create['crDate']) ? date("Y-m-d H:i:s", strtotime($create['crDate'])) : null;
-		$result['dateexpire']  = isset($create['exDate']) ? date("Y-m-d H:i:s", strtotime($create['exDate'])) : null;
+		$result['name']         = $update['name'];
+		$result['dateregister'] = isset($update['crDate']) ? date("Y-m-d H:i:s", strtotime($update['crDate'])) : null;
+		$result['dateexpire']  = isset($update['exDate']) ? date("Y-m-d H:i:s", strtotime($update['exDate'])) : null;
 
 		return $result;
 	}
@@ -31,10 +31,10 @@ class domain_create
 
 
 
-	private static function analyze_domain_create($_args)
+	private static function analyze_domain_update($_args)
 	{
 
-		$object_result = self::get_response_create($_args);
+		$object_result = self::get_response_update($_args);
 
 		if(!$object_result)
 		{
@@ -80,9 +80,9 @@ class domain_create
 	}
 
 
-	private static function get_response_create($_args)
+	private static function get_response_update($_args)
 	{
-		$addr = root. 'lib/nic/exec/samples/domain_create.xml';
+		$addr = root. 'lib/nic/exec/samples/domain_update.xml';
 		$xml = \dash\file::read($addr);
 
 		if(!$xml)
@@ -90,18 +90,23 @@ class domain_create
 			return false;
 		}
 
+		// NEW-NS1.JIBRES.TLD
+		// NEW-NS2.JIBRES.TLD
+		// OLD-NS1.JIBRES.TLD
+		// OLD-NS2.JIBRES.TLD
+		//
+		// HOLDER-JIBRES-NIC-ACCOUNT
+		// ADMIN-JIBRES-NIC-ACCOUNT
+		// TECH-JIBRES-NIC-ACCOUNT
+		// BILL-JIBRES-NIC-ACCOUNT
+
 		$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_args['domain'], $xml);
 		$xml = str_replace('JIBRES-TOKEN', \lib\nic\exec\run::token(), $xml);
-		$xml = str_replace('NS1.JIBRES.TLD', $_args['ns1'], $xml);
-		$xml = str_replace('NS2.JIBRES.TLD', $_args['ns2'], $xml);
-		$xml = str_replace('PERIOD', $_args['period'], $xml);
 
-
-		$xml = str_replace('JIBRES-NIC-ACCOUNT', $_args['nic_id'], $xml);
 
 		$insert_log =
 		[
-			'type'          => 'domain_create',
+			'type'          => 'domain_update',
 			'user_id'       => \dash\user::id(),
 			'send'          => null,
 			'datesend'      => date("Y-m-d H:i:s"),

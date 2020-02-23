@@ -7,20 +7,28 @@
     <domain:add>
      <domain:ns>
       <domain:hostAttr>
-       <domain:hostName>ns2.example.net</domain:hostName>
-       <domain:hostAddr ip="v4">192.0.2.2</domain:hostAddr>
+       <domain:hostName>NEW-NS1.JIBRES.TLD</domain:hostName>
+      </domain:hostAttr>
+      <domain:hostAttr>
+       <domain:hostName>NEW-NS2.JIBRES.TLD</domain:hostName>
       </domain:hostAttr>
      </domain:ns>
     </domain:add>
     <domain:rem>
      <domain:ns>
       <domain:hostAttr>
-       <domain:hostName>ns1.JIBRES-SAMPLE-DOMAIN.IR</domain:hostName>
+       <domain:hostName>OLD-NS1.JIBRES.TLD</domain:hostName>
+      </domain:hostAttr>
+      <domain:hostAttr>
+       <domain:hostName>OLD-NS2.JIBRES.TLD</domain:hostName>
       </domain:hostAttr>
      </domain:ns>
     </domain:rem>
     <domain:chg>
-     <domain:contact type="tech">ex61-irnic</domain:contact>
+     <domain:contact type="holder">HOLDER-JIBRES-NIC-ACCOUNT</domain:contact>
+     <domain:contact type="admin">ADMIN-JIBRES-NIC-ACCOUNT</domain:contact>
+     <domain:contact type="tech">TECH-JIBRES-NIC-ACCOUNT</domain:contact>
+     <domain:contact type="bill">BILL-JIBRES-NIC-ACCOUNT</domain:contact>
     </domain:chg>
     <domain:authInfo>
      <domain:pw>JIBRES-TOKEN</domain:pw>
