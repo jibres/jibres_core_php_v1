@@ -32,7 +32,7 @@ class view
 				'intro'    => \content_r10\get::endpoint('android/intro'),
 				'menu'     => \content_r10\get::endpoint('android/menu'),
 				'ad'       => \content_r10\get::endpoint('android/ad'),
-				'homepage' => \content_r10\get::homepage('dashboard'),
+				'homepage' => \content_r10\get::homepage('my'),
 			]
 		];
 
