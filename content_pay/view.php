@@ -7,7 +7,7 @@ class view
 	{
 		\dash\data::include_adminPanel(true);
 
-		\dash\data::userToggleSidebar(false);
+		// \dash\data::userToggleSidebar(false);
 	}
 }
 ?>
