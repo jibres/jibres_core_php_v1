@@ -25,17 +25,12 @@ class model
 				self::unlock();
 				break;
 
-			case 'remove_cache':
-				self::remove_cache();
-				break;
-
 			case 'all':
 				$start = time();
 				self::lock();
 				self::pull();
 				self::upgrade();
 				self::unlock();
-				self::remove_cache();
 				\dash\notif::info(T_("Operation complete at :val second", ['val' => \dash\fit::number(time() - $start)]));
 				break;
 
@@ -76,13 +71,6 @@ class model
 	{
 		\dash\engine\lock::unlock();
 		\dash\notif::ok(T_("System unlock successfully"));
-	}
-
-
-	private static function remove_cache()
-	{
-		exec("rm -r ". root. '/tmp/twig');
-		\dash\notif::ok(T_("Twig temp cache removed"));
 	}
 
 }
