@@ -182,13 +182,13 @@ class view
 			\dash\data::global_panel(true);
 
 			$txtDesc   = '';
-			if(\dash\data::user_displayname())
+			if(\dash\user::detail('displayname'))
 			{
-				$txtDesc .= "<b>". \dash\data::user_displayname(). "</b><br>";
+				$txtDesc .= "<b>". \dash\user::detail('displayname'). "</b><br>";
 			}
-			if(\dash\data::user_mobile())
+			if(\dash\user::detail('mobile'))
 			{
-				$txtDesc .= \dash\fit::mobile(\dash\data::user_mobile());
+				$txtDesc .= \dash\fit::mobile(\dash\user::detail('mobile'));
 			}
 
 			$txtFooter = '';
