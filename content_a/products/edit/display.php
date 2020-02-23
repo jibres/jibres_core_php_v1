@@ -16,10 +16,10 @@ $productDataRow = \dash\data::productDataRow();
       <header class="hide" data-kerkere='.jboxCodes' data-kerkere-icon='open'><h2><?php echo T_("Title"); ?></h2></header>
 
       <div class="input mB10">
-       <input type="text" name="title" id="title" placeholder='<?php echo T_("Product Title"); ?> *' value="<?php echo @$productDataRow['title']; ?>" maxlength='200' autofocus <?php if(\dash\data::productDataRow_parent()) { echo 'disabled';} ?>>
+       <input type="text" name="title" id="title" placeholder='<?php echo T_("Product Title"); ?> *' value="<?php echo \dash\get::index($productDataRow,'title'); ?>" maxlength='200' autofocus <?php if(\dash\data::productDataRow_parent()) { echo 'disabled';} ?>>
       </div>
 
-      <textarea name="desc" data-editor class="txt" rows="6" maxlength="2000" data-placeholder='<?php echo T_("Description"); ?>'><?php echo @$productDataRow['desc']; ?></textarea>
+      <textarea name="desc" data-editor class="txt" rows="6" maxlength="2000" data-placeholder='<?php echo T_("Description"); ?>'><?php echo \dash\get::index($productDataRow,'desc'); ?></textarea>
     </section>
 
 
@@ -32,7 +32,7 @@ $productDataRow = \dash\data::productDataRow();
 
             <label for='buyprice'><?php echo T_("Buy cost"); ?></label>
             <div class="input fix ltr">
-             <input type="text" name="buyprice" id="buyprice" data-format='price' value="<?php echo @$productDataRow['buyprice']; ?>" maxlength="15" data-run-input='calcProductMargin'>
+             <input type="text" name="buyprice" id="buyprice" data-format='price' value="<?php echo \dash\get::index($productDataRow,'buyprice'); ?>" maxlength="15" data-run-input='calcProductMargin'>
             </div>
 
 
@@ -60,7 +60,7 @@ $productDataRow = \dash\data::productDataRow();
 
             <label for='price'><?php echo T_("Sale Price"); ?></label>
             <div class="input fix ltr mB5-f">
-             <input type="text" name="price" id="price" data-format='price' value="<?php echo @$productDataRow['price']; ?>" maxlength="15" data-run-input='calcProductMargin'>
+             <input type="text" name="price" id="price" data-format='price' value="<?php echo \dash\get::index($productDataRow,'price'); ?>" maxlength="15" data-run-input='calcProductMargin'>
             </div>
 
           </div>
@@ -70,7 +70,7 @@ $productDataRow = \dash\data::productDataRow();
 
             <label for='discount'><?php echo T_("Discount"); ?></label>
             <div class="input fix ltr mB5-f">
-             <input type="text" name="discount" id="discount" data-format='price' value="<?php echo @$productDataRow['discount']; ?>" maxlength="15" data-run-input='calcProductMargin'>
+             <input type="text" name="discount" id="discount" data-format='price' value="<?php echo \dash\get::index($productDataRow,'discount'); ?>" maxlength="15" data-run-input='calcProductMargin'>
              <div class="addon fs09" id='discountRate'></div>
             </div>
 
@@ -90,7 +90,7 @@ $productDataRow = \dash\data::productDataRow();
               </div>
               <div class="cauto"><?php echo T_("VAT"); ?></div>
               <div class="cauto ltr txtL pLR5" id="vatCost"></div>
-              <div class="cauto"><?php echo @$storData['currency_detail']['symbol_native']; ?></div>
+              <div class="cauto"><?php echo \dash\get::index($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>
 
@@ -100,8 +100,8 @@ $productDataRow = \dash\data::productDataRow();
           <div class="msg mT10">
             <div class="f">
               <div class="cauto"><?php echo T_("Final Price"); ?></div>
-              <div class="c ltr txtL pLR5" id="finalPrice"><?php echo @$productDataRow['finalprice']; ?></div>
-              <div class="cauto" id="moneyUnit"><?php echo @$storData['currency_detail']['symbol_native']; ?></div>
+              <div class="c ltr txtL pLR5" id="finalPrice"><?php echo \dash\get::index($productDataRow,'finalprice'); ?></div>
+              <div class="cauto" id="moneyUnit"><?php echo \dash\get::index($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>
 
@@ -135,7 +135,7 @@ $productDataRow = \dash\data::productDataRow();
          <div class="c s12">
             <label for="barcode2"><?php echo T_("Barcode2"); ?></label>
             <div class="input">
-             <input type="text" name="barcode2" id="barcode2" placeholder='<?php echo T_("Scan Barcode2 here..."); ?>' value="<?php echo @$productDataRow['barcode2']; ?>" class="barCode txtC ltr" data-lock autocomplete="off" maxlength="30">
+             <input type="text" name="barcode2" id="barcode2" placeholder='<?php echo T_("Scan Barcode2 here..."); ?>' value="<?php echo \dash\get::index($productDataRow,'barcode2'); ?>" class="barCode txtC ltr" data-lock autocomplete="off" maxlength="30">
              <span class="addon flag"><img class="none" src="<?php echo \dash\url::icon(); ?>" alt="Jibres"/></span>
             </div>
           <div class="txtC mB10">
@@ -149,7 +149,7 @@ $productDataRow = \dash\data::productDataRow();
          <div class="c s12 pRa5">
           <label for='sku'><?php echo T_("Stock keeping unit - SKU"); ?></label>
           <div class="input">
-           <input type="text" name="sku" id="sku" value="<?php echo @$productDataRow['sku']; ?>" maxlength="16" class="txtC ltr">
+           <input type="text" name="sku" id="sku" value="<?php echo \dash\get::index($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
           </div>
          </div>
 
@@ -159,7 +159,7 @@ $productDataRow = \dash\data::productDataRow();
            <div class="c6 s12">
             <label for="codeOnScale"><?php echo T_("Code on scale"); ?></label>
             <div class="input">
-             <input type="text" name="scalecode" id="codeOnScale" value="<?php echo @$productDataRow['scalecode']; ?>" class="txtC ltr" autocomplete="off" data-format='int' maxlength="5">
+             <input type="text" name="scalecode" id="codeOnScale" value="<?php echo \dash\get::index($productDataRow,'scalecode'); ?>" class="txtC ltr" autocomplete="off" data-format='int' maxlength="5">
             </div>
            </div>
         </div>
@@ -189,13 +189,13 @@ $productDataRow = \dash\data::productDataRow();
             <div class="c s12 pRa10">
               <label for='minstock'><?php echo T_("Min stock"); ?></label>
               <div class="input">
-               <input type="text" name="minstock" id="minstock" data-format='number' value="<?php echo @$productDataRow['minstock']; ?>" maxlength="7">
+               <input type="text" name="minstock" id="minstock" data-format='number' value="<?php echo \dash\get::index($productDataRow,'minstock'); ?>" maxlength="7">
               </div>
             </div>
             <div class="c s12">
               <label for='maxstock'><?php echo T_("Max stock"); ?></label>
               <div class="input">
-               <input type="text" name="maxstock" id="maxstock" data-format='number' value="<?php echo @$productDataRow['maxstock']; ?>" maxlength="11">
+               <input type="text" name="maxstock" id="maxstock" data-format='number' value="<?php echo \dash\get::index($productDataRow,'maxstock'); ?>" maxlength="11">
               </div>
             </div>
           </div>
@@ -215,13 +215,13 @@ $productDataRow = \dash\data::productDataRow();
   <div class="pad">
 
     <div class="seoPreview">
-      <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/p/<?php echo @$productDataRow['id']; ?>/<?php echo @$productDataRow['slug']; ?>">
-        <cite><span><?php echo \dash\url::kingdom(); ?>/p/</span><?php echo @$productDataRow['id']; ?>/<?php echo @$productDataRow['slug']; ?></cite>
+      <a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/p/<?php echo \dash\get::index($productDataRow,'id'); ?>/<?php echo \dash\get::index($productDataRow,'slug'); ?>">
+        <cite><span><?php echo \dash\url::kingdom(); ?>/p/</span><?php echo \dash\get::index($productDataRow,'id'); ?>/<?php echo \dash\get::index($productDataRow,'slug'); ?></cite>
       </a>
       <div class="f">
         <div class="c s12 pLa10">
           <h3><?php if(\dash\data::productDataRow_seotitle()) { echo \dash\data::productDataRow_seotitle(); }else{ echo \dash\data::productDataRow_title(); } ?> | <?php echo \dash\data::site_title(); ?></h3>
-          <p class="desc"><?php echo @$productDataRow['seodesc']; ?></p>
+          <p class="desc"><?php echo \dash\get::index($productDataRow,'seodesc'); ?></p>
         </div>
         <div class="cauto os s12">
           <img src="<?php echo \dash\url::siftal(); ?>/images/logo/google.png" alt='<?php echo T_("Google"); ?>'>
@@ -234,7 +234,7 @@ $productDataRow = \dash\data::productDataRow();
         <div>
           <label for='seoTitle'><?php echo T_("SEO Title"); ?> <small><?php echo T_("Recommended being more than 40 character."); ?></small></label>
           <div class="input">
-            <input type="text" name="seotitle" id="seoTitle" placeholder='<?php if(!\dash\data::productDataRow_seotitle()) {echo \dash\data::productDataRow_title();} ?>' value="<?php echo @$productDataRow['seotitle']; ?>"  maxlength='200' minlength="1" pattern=".{1,200}">
+            <input type="text" name="seotitle" id="seoTitle" placeholder='<?php if(!\dash\data::productDataRow_seotitle()) {echo \dash\data::productDataRow_title();} ?>' value="<?php echo \dash\get::index($productDataRow,'seotitle'); ?>"  maxlength='200' minlength="1" pattern=".{1,200}">
             <label class="addon"> | <?php echo \dash\data::site_title(); ?></label>
           </div>
         </div>
@@ -243,13 +243,13 @@ $productDataRow = \dash\data::productDataRow();
         <div>
           <label for="seoSlug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your product url."); ?></small></label>
           <div class="input ltr mB10">
-            <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo @$productDataRow['slug']; ?>" maxlength='100' minlength="1" pattern=".{1,100}">
+            <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo \dash\get::index($productDataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
           </div>
         </div>
 
         <div>
           <label for='seoDesc'><?php echo T_("SEO Description"); ?> <small><?php echo T_("If leave it empty we are generate it automatically"); ?></small></label>
-          <textarea class="txt" name="seodesc" id="seoDesc" maxlength='300' rows='3' placeholder='<?php echo T_("Excerpt used for social media and search engines"); ?>'><?php echo @$productDataRow['seodesc']; ?></textarea>
+          <textarea class="txt" name="seodesc" id="seoDesc" maxlength='300' rows='3' placeholder='<?php echo T_("Excerpt used for social media and search engines"); ?>'><?php echo \dash\get::index($productDataRow,'seodesc'); ?></textarea>
         </div>
     </div>
 
@@ -456,13 +456,13 @@ $productDataRow = \dash\data::productDataRow();
   <div class="pad unitsgPanel hideIn">
 
     <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() == 'product'){}else{ echo 'data-response-hide';} ?>>
-        <div><?php echo T_("Dimensions"); ?> <span class="fc-mute"> <?php echo @$storData['length_detail']['name']; ?></span></div>
+        <div><?php echo T_("Dimensions"); ?> <span class="fc-mute"> <?php echo \dash\get::index($storData,'length_detail','name'); ?></span></div>
       <div class="f">
 
         <div class="c">
           <label for="iLength"><?php echo T_("Length"); ?></label>
           <div class="input">
-           <input type="text" name="length" id="iLength" value="<?php echo @$productDataRow['length']; ?>"  autocomplete="off" maxlength="11" data-format='number'>
+           <input type="text" name="length" id="iLength" value="<?php echo \dash\get::index($productDataRow,'length'); ?>"  autocomplete="off" maxlength="11" data-format='number'>
           </div>
         </div>
 
@@ -471,7 +471,7 @@ $productDataRow = \dash\data::productDataRow();
         <div class="c mLa5">
           <label for="iWidth"><?php echo T_("Width"); ?></label>
           <div class="input">
-           <input type="text" name="width" id="iWidth" value="<?php echo @$productDataRow['width']; ?>"  autocomplete="off" maxlength="11" data-format='number'>
+           <input type="text" name="width" id="iWidth" value="<?php echo \dash\get::index($productDataRow,'width'); ?>"  autocomplete="off" maxlength="11" data-format='number'>
           </div>
         </div>
 
@@ -480,7 +480,7 @@ $productDataRow = \dash\data::productDataRow();
         <div class="c mLa5">
           <label for="iHeight"><?php echo T_("Height"); ?></label>
           <div class="input">
-           <input type="text" name="height" id="iHeight" value="<?php echo @$productDataRow['height']; ?>"  autocomplete="off" maxlength="11" data-format='number'>
+           <input type="text" name="height" id="iHeight" value="<?php echo \dash\get::index($productDataRow,'height'); ?>"  autocomplete="off" maxlength="11" data-format='number'>
           </div>
         </div>
 
@@ -489,8 +489,8 @@ $productDataRow = \dash\data::productDataRow();
 
       <label for="iweight"><?php echo T_("Weight"); ?></label>
       <div class="input">
-       <input type="text" name="weight" id="iweight" value="<?php echo @$productDataRow['weight']; ?>"  autocomplete="off" maxlength="7" data-format='number'>
-       <div class="addon"><?php echo @$storData['mass_detail']['name']; ?></div>
+       <input type="text" name="weight" id="iweight" value="<?php echo \dash\get::index($productDataRow,'weight'); ?>"  autocomplete="off" maxlength="7" data-format='number'>
+       <div class="addon"><?php echo \dash\get::index($storData,'mass_detail','name'); ?></div>
       </div>
 
     </div>
@@ -498,12 +498,12 @@ $productDataRow = \dash\data::productDataRow();
     <div data-response='type' data-response-where='file' <?php if(\dash\data::productDataRow_type() == 'file'){}else{echo 'data-response-hide';} ?>>
       <label for="iFileSize"><?php echo T_("File Size"); ?></label>
       <div class="input">
-       <input type="text" name="filesize" id="iFileSize" value="<?php echo @$productDataRow['filesize']; ?>"  autocomplete="off" maxlength="11" data-format='number'>
+       <input type="text" name="filesize" id="iFileSize" value="<?php echo \dash\get::index($productDataRow,'filesize'); ?>"  autocomplete="off" maxlength="11" data-format='number'>
        <div class="addon"><?php echo T_("MB"); ?></div>
       </div>
       <label for="iFileAddress"><?php echo T_("File Address"); ?></label>
       <div class="input">
-       <input type="url" name="fileaddress" id="iFileAddress" value="<?php echo @$productDataRow['fileaddress']; ?>"   maxlength="500">
+       <input type="url" name="fileaddress" id="iFileAddress" value="<?php echo \dash\get::index($productDataRow,'fileaddress'); ?>"   maxlength="500">
       </div>
     </div>
 
@@ -519,19 +519,19 @@ $productDataRow = \dash\data::productDataRow();
         <div class="c s12 pRa5">
           <label for='minsale'><?php echo T_("Min quantity per order"); ?></label>
           <div class="input">
-           <input type="text" name="minsale" id="minsale" data-format='number' value="<?php echo @$productDataRow['minsale']; ?>" maxlength="7">
+           <input type="text" name="minsale" id="minsale" data-format='number' value="<?php echo \dash\get::index($productDataRow,'minsale'); ?>" maxlength="7">
           </div>
         </div>
         <div class="c s12">
           <label for='maxsale'><?php echo T_("Max quantity per order"); ?></label>
           <div class="input">
-           <input type="text" name="maxsale" id="maxsale" data-format='number' value="<?php echo @$productDataRow['maxsale']; ?>" maxlength="7">
+           <input type="text" name="maxsale" id="maxsale" data-format='number' value="<?php echo \dash\get::index($productDataRow,'maxsale'); ?>" maxlength="7">
           </div>
         </div>
       </div>
       <label for='salestep'><?php echo T_("Step quantity"); ?></label>
       <div class="input">
-       <input type="text" name="salestep" id="salestep" data-format='number' value="<?php echo @$productDataRow['salestep']; ?>" maxlength="7">
+       <input type="text" name="salestep" id="salestep" data-format='number' value="<?php echo \dash\get::index($productDataRow,'salestep'); ?>" maxlength="7">
       </div>
     </div>
   </section>
@@ -542,7 +542,7 @@ $productDataRow = \dash\data::productDataRow();
       <section class="jbox">
         <header data-kerkere='.variantPanelLink' data-kerkere-icon='close'><h2><?php echo T_("Variants"); ?></h2></header>
         <div class="pad variantPanelLink" data-kerkere-content='hide'>
-            <a href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo @$productDataRow['id']; ?>"><?php echo T_("This product has multiple options, like different sizes or colors"); ?></a>
+            <a href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>"><?php echo T_("This product has multiple options, like different sizes or colors"); ?></a>
         </div>
       </section>
   </div>
