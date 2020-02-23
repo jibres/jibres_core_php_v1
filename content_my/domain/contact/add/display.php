@@ -3,7 +3,7 @@
 
 <div class="f justify-center">
 	<div class="c6 m8 s12">
-		<div class="f">
+		<div class="f hide">
 			<div class="c s12">
 
 				<a class="dcard x1 <?php if(\dash\request::get('type') === 'old' || !\dash\request::get('type')) { echo 'active'; } ?>" href='<?php echo \dash\url::current(); ?>?type=old'>
@@ -137,7 +137,7 @@
 
 
 				<div class="txtRa">
-					<button class="btn success"><?php echo T_("Add contact"); ?></button>
+					<button class="btn success"><?php echo T_("Create IRNIC handle"); ?></button>
 				</div>
 			</form>
 		</div>
@@ -149,20 +149,16 @@
 
 
 			<div class="cbox">
-				<h3><?php echo T_("Add an existing account"); ?></h3>
 				<form method="post" autocomplete="off">
-					<label for="ioldcontact"><?php echo T_("Account id"); ?></label>
+					<label for="ioldcontact"><?php echo T_("IRNIC Handle"); ?></label>
 					<div class="input ltr">
 						<input type="text" name="oldcontact" id="ioldcontact">
 					</div>
-
-					<label for="ititle"><?php echo T_("Title"); ?></label>
-					<div class="input">
-						<input type="text" name="titleold" id="ititle">
-					</div>
+					<p class="fc-mute"><?php echo T_('Please enter your IRNIC handle that registerd on nic.ir'); ?></p>
+					<p class="fc-mute"><?php echo T_("If you don't know about IRNIC, you can register via Jibres or directly on nic.ir website."); ?> <a href="<?php echo \dash\url::current(); ?>?type=new"><?php echo T_('Register IRNIC handle'); ?></a></p>
 
 					<div class="txtRa">
-						<button class="btn info"><?php echo T_("Add contact"); ?></button>
+						<button class="btn success"><?php echo T_("Add IRNIC handle"); ?></button>
 					</div>
 				</form>
 			</div>
