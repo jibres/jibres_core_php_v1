@@ -47,22 +47,27 @@ else
 
 <?php function htmlTable() {?>
 <div class="fs12 mT20">
-	<table class="tbl1 v1">
+	<table class="tbl1 v1 responsive">
 		<tbody>
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
 			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive2"'; } ?>>
 				<td>
-					<code><?php echo \dash\get::index($value, 'nic_id'); ?></code> <?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success mLa10"><?php echo T_("Default"); ?></span> <?php }// endif ?>
+
+					<a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="link"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></a>
+					<?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success mLR10"><?php echo T_("Default"); ?></span> <?php }// endif ?>
 					<div class="mT10"><?php echo substr(\dash\get::index($value, 'title'), 0, 50); ?></div>
+
 				</td>
 				<td class="collapsing">
-					<div class="ibtn mRa10"><?php echo '<span>'.T_("Holder"). '</span>'; if(isset($value['holder']) && $value['holder']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
-					<div class="ibtn mRa10"><?php echo '<span>'.T_("Admin"). '</span>'; if(isset($value['admin']) && $value['admin']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
-					<div class="ibtn mRa10"><?php echo '<span>'.T_("Technical"). '</span>'; if(isset($value['tech']) && $value['tech']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
-					<div class="ibtn"><?php echo '<span>'.T_("billing"). '</span>'; if(isset($value['bill']) && $value['bill']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
+					<div class="ibtn wide"><?php echo '<span>'.T_("Holder"). '</span>'; if(isset($value['holder']) && $value['holder']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div></td>
+				<td class="collapsing">
+					<div class="ibtn wide"><?php echo '<span>'.T_("Admin"). '</span>'; if(isset($value['admin']) && $value['admin']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div></td>
+				<td class="collapsing">
+					<div class="ibtn wide"><?php echo '<span>'.T_("Technical"). '</span>'; if(isset($value['tech']) && $value['tech']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div></td>
+				<td class="collapsing">
+					<div class="ibtn wide"><?php echo '<span>'.T_("billing"). '</span>'; if(isset($value['bill']) && $value['bill']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
 				</td>
-				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="btn outline primary"><?php echo T_("Edit"); ?></a></td>
 			</tr>
 			<?php } //endfor ?>
 		</tbody>

@@ -154,6 +154,9 @@
     border: none!important;
     background-color: transparent!important;
   }
+  .tbl1.responsive th.collapsing, .tbl1.responsive td.collapsing{
+    display: inline-block!important;
+  }
   .s12 .cbox{padding: 1em 0.5em;}
 
 

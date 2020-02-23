@@ -40,7 +40,10 @@
 .ibtn span{
 	padding: 5px 10px;
 	display:inline-block;
-	min-width: 64px;
+	min-width: 62px;
+}
+.ibtn.wide span{
+	min-width: 82px;
 }
 .ibtn:hover{
 	background-color:#e2e2e2;
