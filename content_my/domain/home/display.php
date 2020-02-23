@@ -49,17 +49,6 @@
 	</a>
 
   </div>
-
-  <div class="c s12">
-
-  	<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/dns'>
-	 <div class="statistic blue">
-	  <div class="value"><i class="sf-internet"></i></div>
-	  <div class="label"><?php echo T_("DNS list"); ?></div>
-	 </div>
-	</a>
-
-  </div>
 </div>
 
 <?php
@@ -195,7 +184,7 @@ else
 
 <div class="fs14 msg info2 pTB20">
   <p><?php echo T_("Hi!"); ?></p>
-  <p><a href="<?php echo \dash\url::this(); ?>/buy"><?php echo T_("Try to start with add new domain!"); ?></a></p>
+  <p><a href="<?php echo \dash\url::this(); ?>/buy"><?php echo T_("Buy your first winning domain!"); ?></a></p>
 
 </div>
 
