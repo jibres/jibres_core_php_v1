@@ -6,13 +6,10 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::page_title(T_("Contact list"));
-
-		\dash\data::page_special(true);
-
+		\dash\data::page_title(T_("IRNIC handle list"));
 
 		// btn
-		\dash\data::action_text(T_('Add contact'));
+		\dash\data::action_text(T_('Add New IRNIC Handle'));
 		\dash\data::action_link(\dash\url::that(). '/add');
 
 		// btn

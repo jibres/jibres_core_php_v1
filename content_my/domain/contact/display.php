@@ -3,13 +3,11 @@ if(\dash\data::dataTable())
 {
 	if(\dash\data::isFiltered())
 	{
-		htmlSearchBox();
 		htmlTable();
 		htmlFilter();
 	}
 	else
 	{
-		htmlSearchBox();
 		htmlTable();
 
 	}
@@ -19,7 +17,6 @@ else
 {
 	if(\dash\data::isFiltered())
 	{
-		htmlSearchBox();
 		htmlTable();
 		htmlFilter();
 	}
@@ -49,16 +46,15 @@ else
 
 
 <?php function htmlTable() {?>
-<div class="tblBox">
-	<table class="tbl1 v4">
+<div class="tblBox fs12">
+	<table class="tbl1 v1">
 		<thead>
 			<tr>
-				<th class="collapsing">#</th>
-				<th><?php echo T_("Title"); ?></th>
-				<th><?php echo T_("NIC ID"); ?></th>
-				<th><?php echo T_("Permission"); ?></th>
-				<th class="s0"><?php echo T_("Date created"); ?></th>
-
+				<th><?php echo T_("IRNIC handle"); ?></th>
+				<th class="collapsing txtC"><?php echo T_("Holder");; ?></th>
+				<th class="collapsing txtC"><?php echo T_("Admin");; ?></th>
+				<th class="collapsing txtC"><?php echo T_("Technical");; ?></th>
+				<th class="collapsing txtC"><?php echo T_("billing");; ?></th>
 				<th class="collapsing"><?php echo T_("Action"); ?></th>
 			</tr>
 		</thead>
@@ -66,25 +62,18 @@ else
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
 			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive"'; } ?>>
-				<td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
-				<td><?php echo substr(\dash\get::index($value, 'title'), 0, 50); ?></td>
-
-				<td><code><?php echo \dash\get::index($value, 'nic_id'); ?></code> <?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success"><?php echo T_("Default"); ?></span> <?php }// endif ?></td>
 				<td>
+					<a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>">
+						<code><?php echo \dash\get::index($value, 'nic_id'); ?></code> <?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success mLa10"><?php echo T_("Default"); ?></span> <?php }// endif ?>
+						<div class="mT10"><?php echo substr(\dash\get::index($value, 'title'), 0, 50); ?></div>
+					</a>
 
-					<span class="badge light"><?php echo T_("Holder"); ?> <?php if(isset($value['holder']) && $value['holder']) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></span>
-					<span class="badge light"><?php echo T_("Admin"); ?> <?php if(isset($value['admin']) && $value['admin']) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></span>
-					<span class="badge light"><?php echo T_("Technical"); ?> <?php if(isset($value['tech']) && $value['tech']) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></span>
-					<span class="badge light"><?php echo T_("billing"); ?> <?php if(isset($value['bill']) && $value['bill']) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></span>
 				</td>
-				<td class="s0">
-					<?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?>
-
-					<?php if(isset($value['datemodified']) && $value['datemodified']) {?>
-						<br><span class="fc-mute fs09"><?php echo T_("Modified"); ?> <?php echo \dash\fit::date_human($value['datemodified']); ?></span>
-					<?php } // endif ?>
-				</td>
-				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="btn info2"><?php echo T_("Edit"); ?></a></td>
+				<td class="txtC"><?php if(isset($value['holder']) && $value['holder']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></td>
+				<td class="txtC"><?php if(isset($value['admin']) && $value['admin']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></td>
+				<td class="txtC"><?php if(isset($value['tech']) && $value['tech']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></td>
+				<td class="txtC"><?php if(isset($value['bill']) && $value['bill']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></td>
+				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="btn outline primary"><?php echo T_("Edit"); ?></a></td>
 			</tr>
 			<?php } //endfor ?>
 		</tbody>
