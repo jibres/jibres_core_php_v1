@@ -4,8 +4,8 @@ $tg = \dash\data::tg();
 <div class="f mB25">
   <div class="c3 s12">
     <div class="dcard x4 mB10 ">
-      <h2><a href="https://t.me/<?php echo @$tg['info']['bot']; ?>" target="_blank"><?php echo @$tg['info']['bot']; ?></a></h2>
-      <pre class="mT25"><?php echo @$tg['info']['token']; ?></pre>
+      <h2><a href="https://t.me/<?php echo \dash\get::index($tg, 'info', 'bot'); ?>" target="_blank"><?php echo \dash\get::index($tg, 'info', 'bot'); ?></a></h2>
+      <pre class="mT25"><?php echo \dash\get::index($tg, 'info', 'token'); ?></pre>
       <a class="btn dark outline mT25" href="<?php echo \dash\url::this(); ?>/log"><?php echo T_("Logs"); ?></a>
       <a class="btn dark outline mT25" href="<?php echo \dash\url::this(); ?>/users"><?php echo T_("Users"); ?></a>
       <a class="btn dark outline mT25" href="<?php echo \dash\url::this(); ?>/system"><?php echo T_("System"); ?></a>

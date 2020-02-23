@@ -94,7 +94,7 @@
 
 	   	<label for='id'><?php echo T_("Id number"); ?></label>
 		<div class="input">
-		 <input type="tel" name='shcode' id='id' value="<?php $shcode = \dash\data::dataRowMember_detail(); echo @$shcode['shcode']; ?>" placeholder='<?php echo T_("Id number"); ?>' />
+		 <input type="tel" name='shcode' id='id' value="<?php $shcode = \dash\data::dataRowMember_detail(); echo \dash\get::index($shcode, 'shcode'); ?>" placeholder='<?php echo T_("Id number"); ?>' />
 		</div>
 
 	   </div>

@@ -95,17 +95,17 @@ if($myTag)
 
 
 
-      <tr class="<?php echo @$record['value']['rowColor']; ?> <?php if(@$record['value']['type'] === 'ticket_note') { echo  ' disabled ';} ?>" id='msg<?php echo @$record['value']['id']; ?>'>
+      <tr class="<?php echo \dash\get::index($record, 'value', 'rowColor'); ?> <?php if(@$record['value']['type'] === 'ticket_note') { echo  ' disabled ';} ?>" id='msg<?php echo \dash\get::index($record, 'value', 'id'); ?>'>
         <td class="collapsing pRa10">
-          <img src="<?php echo @$record['value']['avatar']; ?>" class="avatar mRa10" alt="<?php echo @$record['value']['displayname']; ?>">
-          <span class="txtB s0 fs08"><?php echo @$record['value']['displayname']; ?></span>
+          <img src="<?php echo \dash\get::index($record, 'value', 'avatar'); ?>" class="avatar mRa10" alt="<?php echo \dash\get::index($record, 'value', 'displayname'); ?>">
+          <span class="txtB s0 fs08"><?php echo \dash\get::index($record, 'value', 'displayname'); ?></span>
           <?php if(\dash\permission::check('supportTicketShowMobile')) {?>
 
           <div class="txtRa fs08"><?php echo \dash\fit::mobile(@$record['value']['mobile']); ?></div>
 
           <nav class="txtRa">
             <?php if(\dash\permission::check('supportTicketManage')) {?><a href="<?php echo $urlThis; ?>?user_id=<?php echo @$record['value']['user_id']. \dash\data::accessGetAnd(); ?>" title='<?php echo T_("User tickets"); ?>'><i class="sf-question-circle"></i></a><?php } ?>
-            <?php if(\dash\permission::check('cpUsersView')) {?><a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo @$record['value']['user_id']; ?>" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a><?php } ?>
+            <?php if(\dash\permission::check('cpUsersView')) {?><a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo \dash\get::index($record, 'value', 'user_id'); ?>" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a><?php } ?>
           </nav>
         <?php }//endif ?>
         </td>
@@ -127,7 +127,7 @@ if($myTag)
 
         <?php if(\dash\permission::check('supportEditMessage')) {?>
 
-            <a class="fs08 mLa10" href="<?php echo \dash\url::here(); ?>/message/edit?id=<?php echo @$record['value']['id']; ?>"><?php echo T_("Edit"); ?></a>
+            <a class="fs08 mLa10" href="<?php echo \dash\url::here(); ?>/message/edit?id=<?php echo \dash\get::index($record, 'value', 'id'); ?>"><?php echo T_("Edit"); ?></a>
 
             <?php if(isset($record['value']['type']) && $record['value']['type'] === 'ticket_note') {?>
 
@@ -159,24 +159,24 @@ elseif(isset($record['xtype']) && $record['xtype'] === 'log')
 
 <tr>
   <td class="collapsing pRa10">
-      <img src="<?php echo @$record['value']['avatar']; ?>" class="avatar mRa10" alt="<?php echo @$record['value']['displayname']; ?>">
-      <span class="txtB s0 fs08"><?php echo @$record['value']['displayname']; ?></span>
+      <img src="<?php echo \dash\get::index($record, 'value', 'avatar'); ?>" class="avatar mRa10" alt="<?php echo \dash\get::index($record, 'value', 'displayname'); ?>">
+      <span class="txtB s0 fs08"><?php echo \dash\get::index($record, 'value', 'displayname'); ?></span>
 
       <div class="txtRa fs08"><?php echo \dash\fit::mobile(@$record['value']['mobile']); ?></div>
 
       <nav class="txtRa">
-        <a href="<?php echo $urlThis; ?>?user_id=<?php echo @$record['value']['user_id']; ?>" title='<?php echo T_("User tickets"); ?>'><i class="sf-question-circle"></i></a>
-        <a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo @$record['value']['user_id']; ?>" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a>
+        <a href="<?php echo $urlThis; ?>?user_id=<?php echo \dash\get::index($record, 'value', 'user_id'); ?>" title='<?php echo T_("User tickets"); ?>'><i class="sf-question-circle"></i></a>
+        <a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo \dash\get::index($record, 'value', 'user_id'); ?>" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a>
 
       </nav>
   </td>
   <td class="mLa10">
     <div class="msg info2 mRa10 mB0 ovh pA5">
       <div class="txtB">
-        <?php echo @$record['value']['title']; ?>
+        <?php echo \dash\get::index($record, 'value', 'title'); ?>
       </div>
     <br>
-    <?php echo @$record['value']['content']; ?>
+    <?php echo \dash\get::index($record, 'value', 'content'); ?>
 
     <small class="floatL">
       <?php echo \dash\fit::date(@$record['value']['datecreated']); ?>

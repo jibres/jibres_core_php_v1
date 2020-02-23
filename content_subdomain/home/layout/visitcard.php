@@ -22,8 +22,8 @@ $store = \dash\data::store();
 ?>
 
   <div class="cbox txtC">
-   <h1><a href="<?php echo \dash\url::here(); ?>"><?php echo @$store['store_data']['title']; ?></a></h1>
-   <h2><?php echo @$store['store_data']['desc']; ?></h2>
+   <h1><a href="<?php echo \dash\url::here(); ?>"><?php echo \dash\get::index($store, 'store_data', 'title'); ?></a></h1>
+   <h2><?php echo \dash\get::index($store, 'store_data', 'desc'); ?></h2>
 
    <?php if(isset($store['store_data']['address']) && $store['store_data']['address']) {?>
 

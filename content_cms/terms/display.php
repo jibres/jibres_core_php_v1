@@ -71,7 +71,7 @@
 
 <label><?php echo T_("Tag color"); ?></label>
 <div class="ui fluid selection dropdown">
-  <input type="hidden" name="color" value="<?php $meta = \dash\data::datarow_meta(); echo @$meta['color']; ?>">
+  <input type="hidden" name="color" value="<?php $meta = \dash\data::datarow_meta(); echo \dash\get::index($meta, 'color'); ?>">
   <i class="dropdown icon"></i>
   <div class="default text"><?php echo T_("Select tag color"); ?></div>
   <div class="menu">
@@ -225,7 +225,7 @@ if(!is_array($dataTable))
   <?php foreach (\dash\data::dataTable() as $key => $item) {?>
   <?php if(isset($item['id']) && $item['id'] == \dash\request::get("edit")) {}else{?>
 
-    <option value="<?php echo $item['id']; ?>" <?php if(\dash\data::datarow_parent() == $item['id']) {echo 'selected';} ?>><?php echo @$item['title']; ?></option>
+    <option value="<?php echo $item['id']; ?>" <?php if(\dash\data::datarow_parent() == $item['id']) {echo 'selected';} ?>><?php echo \dash\get::index($item, 'title'); ?></option>
   <?php }//endif ?>
   <?php } //endfor ?>
 </select>
@@ -327,7 +327,7 @@ if(!is_array($dataTable))
 
 <label class="mT10"><?php echo T_("Category icon"); ?></label>
 <div class="ui fluid selection dropdown mB10 search">
-  <input type="hidden" name="icon" value="<?php $meta = \dash\data::datarow_meta(); echo @$meta['icon']; ?>">
+  <input type="hidden" name="icon" value="<?php $meta = \dash\data::datarow_meta(); echo \dash\get::index($meta, 'icon'); ?>">
   <i class="dropdown icon"></i>
   <div class="default text"><?php echo T_("Select category icon"); ?></div>
   <div class="menu">

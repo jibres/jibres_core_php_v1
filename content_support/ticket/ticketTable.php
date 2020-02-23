@@ -96,7 +96,7 @@ foreach ($dataTable as $key => $value)
     <td class="collapsing fs08 s0" title2='<?php echo T_("Active in this ticket"); ?>'>
       <?php if(isset($value['user_in_ticket_detail']) && is_array($value['user_in_ticket_detail'])) {?>
         <?php  foreach ($value['user_in_ticket_detail'] as $myvalue)  {?>
-          <img src="<?php echo @$myvalue['avatar']; ?>" class="avatar mRa5" alt="<?php echo @$myvalue['displayname']; ?>" <?php if(isset($myvalue['displayname']) && $value['displayname']) {?> title="<?php echo $myvalue['displayname']; ?>" <?php } //endif ?>>
+          <img src="<?php echo \dash\get::index($myvalue, 'avatar'); ?>" class="avatar mRa5" alt="<?php echo \dash\get::index($myvalue, 'displayname'); ?>" <?php if(isset($myvalue['displayname']) && $value['displayname']) {?> title="<?php echo $myvalue['displayname']; ?>" <?php } //endif ?>>
         <?php } //endfor ?>
       <?php } //endif ?>
       </td>

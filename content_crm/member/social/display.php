@@ -20,7 +20,7 @@
 
 <label for="email"><?php echo T_("Email"); ?></label>
 <div class="input">
-  <input type="email" name="email" id="email" placeholder='<?php echo T_("Like"); ?> abc@example.com' value="<?php $mail = \dash\data::dataRowMember_detail(); echo @$mail['email']; ?>" maxlength='50'>
+  <input type="email" name="email" id="email" placeholder='<?php echo T_("Like"); ?> abc@example.com' value="<?php $mail = \dash\data::dataRowMember_detail(); echo \dash\get::index($mail, 'email'); ?>" maxlength='50'>
 </div>
 
 

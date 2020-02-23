@@ -21,7 +21,7 @@
 
 		<label for="email"><?php echo T_("Email"); ?></label>
 		<div class="input">
-		  <input type="text" name="email" id="email" placeholder='<?php echo T_("Like abc@example.com"); ?>' value="<?php $email = \dash\data::dataRowMember_detail(); echo @$email['email']; ?>" maxlength='30'>
+		  <input type="text" name="email" id="email" placeholder='<?php echo T_("Like abc@example.com"); ?>' value="<?php $email = \dash\data::dataRowMember_detail(); echo \dash\get::index($email, 'email'); ?>" maxlength='30'>
 		</div>
 
 

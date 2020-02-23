@@ -25,7 +25,7 @@ if(!is_array($permLoad))
     </div>
     <div class="c6 s12 input">
       <label><?php echo T_("Title"); ?> <small class="fc-red"><?php echo T_("Require"); ?> *</small></label>
-      <input type="text" name="label" title='<?php echo T_("The permission label is used to represent your permission in user management"); ?>' placeholder='<?php echo T_("Label of your permission"); ?> *' autocomplete="off" value="<?php echo @$permLoad['title']; ?>">
+      <input type="text" name="label" title='<?php echo T_("The permission label is used to represent your permission in user management"); ?>' placeholder='<?php echo T_("Label of your permission"); ?> *' autocomplete="off" value="<?php echo \dash\get::index($permLoad, 'title'); ?>">
     </div>
   </div>
 </div>

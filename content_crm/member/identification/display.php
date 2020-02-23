@@ -21,14 +21,14 @@ $detail = \dash\data::dataRowMember_detail();
 			 <input type="file" accept="image/gif, image/jpeg, image/png" name="file1" id="file1" data-preview data-max="500">
 			</div>
 
-		    <?php if(isset($detail['file1'])) {?><a href="<?php echo @$detail['file1']; ?>" target="_blank"><img class="size-we200 block mLRa" src="<?php echo @$detail['file1']; ?>"></a><?php } // endif ?>
+		    <?php if(isset($detail['file1'])) {?><a href="<?php echo \dash\get::index($detail, 'file1'); ?>" target="_blank"><img class="size-we200 block mLRa" src="<?php echo \dash\get::index($detail, 'file1'); ?>"></a><?php } // endif ?>
 
 			<label for="file2"><?php echo T_("National card photo"); ?></label>
 			<div class="input ">
 			 <input type="file" accept="image/gif, image/jpeg, image/png" name="file2" id="file2" data-preview data-max="500">
 			</div>
 
-		    <?php if(isset($detail['file2'])) {?><a href="<?php echo @$detail['file2']; ?>" target="_blank"><img class="size-we200 block mLRa" src="<?php echo @$detail['file2']; ?>"></a><?php } // endif ?>
+		    <?php if(isset($detail['file2'])) {?><a href="<?php echo \dash\get::index($detail, 'file2'); ?>" target="_blank"><img class="size-we200 block mLRa" src="<?php echo \dash\get::index($detail, 'file2'); ?>"></a><?php } // endif ?>
 
 
 

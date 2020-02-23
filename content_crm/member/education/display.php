@@ -18,7 +18,7 @@
 
 				<label for="education"><?php echo T_("Education"); ?></label>
 				<div class="input">
-				  <input type="education" name="education" id="education" placeholder='<?php echo T_("Education"); ?>' value="<?php $detail = \dash\data::dataRowMember_detail(); echo @$detail['education']; ?>" maxlength='50'>
+				  <input type="education" name="education" id="education" placeholder='<?php echo T_("Education"); ?>' value="<?php $detail = \dash\data::dataRowMember_detail(); echo \dash\get::index($detail, 'education'); ?>" maxlength='50'>
 				</div>
 
 
@@ -28,7 +28,7 @@
 
 				<label for="educationcourse"><?php echo T_("Education Course"); ?></label>
 				<div class="input">
-				  <input type="educationcourse" name="educationcourse" id="educationcourse" placeholder='<?php echo T_("Education Course"); ?>' value="<?php $detail = \dash\data::dataRowMember_detail(); echo @$detail['educationcourse']; ?>" maxlength='50'>
+				  <input type="educationcourse" name="educationcourse" id="educationcourse" placeholder='<?php echo T_("Education Course"); ?>' value="<?php $detail = \dash\data::dataRowMember_detail(); echo \dash\get::index($detail, 'educationcourse'); ?>" maxlength='50'>
 				</div>
 
 			</div>
