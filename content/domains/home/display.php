@@ -1,7 +1,7 @@
 <div class="jibresBanner">
  <div class="fit">
 
-  <form class="domainSearchBox" action='<?php echo \dash\url::kindgom() ?>/domains/search' method='get' autocomplete='off'>
+  <form class="domainSearchBox" action='<?php echo \dash\url::kingdom() ?>/domains/search' method='get' autocomplete='off'>
    <h2 class="txtC"><?php echo T_('Search for your dream domain'); ?></h2>
    <p class="txtC"><?php echo T_('Every website starts with a great domain name'); ?></p>
   <div class="input ltr">
@@ -17,21 +17,21 @@
      <div class="item">
       <h3><?php echo T_('Register Domain'); ?></h3>
       <p><?php echo T_('Been dreaming of a .com or .dev that says exactly what you want to say about your business? Find that perfect domain name and get it registered today!'); ?></p>
-      <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/domains/search"><?php echo T_('Find my Domain'); ?></a>
+      <a class="btn block light" href="<?php echo \dash\url::kingdom() ?>/domains/search"><?php echo T_('Find my Domain'); ?></a>
      </div>
     </div>
     <div class="c4 s12 mB10 pRa10">
      <div class="item">
       <h3><?php echo T_('Transfer'); ?></h3>
       <p><?php echo T_('Transfer your domains to Jibres and save on renewals. Most domains come with an extra year of registration added during the transfer process free of charge.'); ?></p>
-      <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/my/domain/transfer"><?php echo T_('Transfer Now'); ?></a>
+      <a class="btn block light" href="<?php echo \dash\url::kingdom() ?>/my/domain/transfer"><?php echo T_('Transfer Now'); ?></a>
      </div>
     </div>
     <div class="c4 s12 mB10">
      <div class="item">
       <h3><?php echo T_('Renew'); ?></h3>
       <p><?php echo T_("Searching for the lowest domain renew price? That's it. Jibres offer exclusive offer on renew domains at prices that won't break your budget. We are the best of best:)"); ?></p>
-      <a class="btn block light" href="<?php echo \dash\url::kindgom() ?>/my/domain/renew"><?php echo T_('Renew Domain'); ?></a>
+      <a class="btn block light" href="<?php echo \dash\url::kingdom() ?>/my/domain/renew"><?php echo T_('Renew Domain'); ?></a>
      </div>
     </div>
    </div>

@@ -144,7 +144,7 @@ if(\dash\url::content() === 'm')
  </div>
   <abbr class="toggleClean" title='{%trans "Click to toggle sidebar status"%}'><span class="sf-arrows-out"></span></abbr>
 
-  <a href="<?php echo \dash\url::kindgom() ?>" id='ermileBadge' class="f" target="_blank">
+  <a href="<?php echo \dash\url::kingdom() ?>" id='ermileBadge' class="f" target="_blank">
    <div class="cauto pRa10">
     <img src="<?php echo \dash\url::icon() ?>" alt='<?php echo T_("Jibres") ?>'>
    </div>
