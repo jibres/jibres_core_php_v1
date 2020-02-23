@@ -22,10 +22,10 @@
   <tr>
     <td class="txtL">
       <span class="sf-database fs15 mR10"></span>
-      <a href="<?php echo \dash\url::site(); ?>/files/ip/<?php echo @$value['name']; ?>" title='<?php echo T_("Click to download"); ?>'><?php echo @$value['name']; ?></a>
+      <a href="<?php echo \dash\url::site(); ?>/files/ip/<?php echo \dash\get::index($value, 'name'); ?>" title='<?php echo T_("Click to download"); ?>'><?php echo \dash\get::index($value, 'name'); ?></a>
     </td>
-    <td class="rtl s0"><?php echo @$value['ago']; ?></td>
-    <td class="rtl pR25-f"><?php echo \dash\fit::text(@$value['size']); ?> <?php echo T_("MB"); ?></td>
+    <td class="rtl s0"><?php echo \dash\get::index($value, 'ago'); ?></td>
+    <td class="rtl pR25-f"><?php echo \dash\fit::text(\dash\get::index($value, 'size')); ?> <?php echo T_("MB"); ?></td>
 
   </tr>
 <?php } //endfor ?>

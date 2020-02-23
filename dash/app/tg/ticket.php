@@ -40,7 +40,7 @@ class ticket
 		{
 			foreach ($dataTable as $key => $value)
 			{
-				$msg .= "🗣 ". @$value['displayname']. " #user". @$value['user_id'];
+				$msg .= "🗣 ". \dash\get::index($value, 'displayname'). " #user". \dash\get::index($value, 'user_id');
 
 				if(isset($value['title']))
 				{

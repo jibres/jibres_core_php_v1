@@ -240,7 +240,7 @@
                 {
                   foreach ($myTag as $key => $value)
                   {
-                    echo '<option value="'. @$value['title']. '">';
+                    echo '<option value="'. \dash\get::index($value, 'title'). '">';
                   }
                 }
                 ?>

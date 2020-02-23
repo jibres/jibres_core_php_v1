@@ -81,7 +81,7 @@
 
 				    <?php foreach (\dash\data::countryList() as $key => $value) {?>
 
-				      <option value="<?php echo $key; ?>" > <?php echo @$value['name']; if(\dash\language::current() !== 'en') { echo ' - '. T_(ucfirst(@$value['name'])); } ?></option>
+				      <option value="<?php echo $key; ?>" > <?php echo \dash\get::index($value, 'name'); if(\dash\language::current() !== 'en') { echo ' - '. T_(ucfirst(\dash\get::index($value, 'name'))); } ?></option>
 
 					<?php } //endif ?>
 

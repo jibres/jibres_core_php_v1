@@ -67,9 +67,9 @@ else
 
 			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive"'; } ?>>
 				<td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
-				<td><?php echo substr(@$value['title'], 0, 50); ?></td>
+				<td><?php echo substr(\dash\get::index($value, 'title'), 0, 50); ?></td>
 
-				<td><code><?php echo @$value['nic_id']; ?></code> <?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success"><?php echo T_("Default"); ?></span> <?php }// endif ?></td>
+				<td><code><?php echo \dash\get::index($value, 'nic_id'); ?></code> <?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success"><?php echo T_("Default"); ?></span> <?php }// endif ?></td>
 				<td>
 
 					<span class="badge light"><?php echo T_("Holder"); ?> <?php if(isset($value['holder']) && $value['holder']) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></span>
@@ -78,13 +78,13 @@ else
 					<span class="badge light"><?php echo T_("billing"); ?> <?php if(isset($value['bill']) && $value['bill']) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></span>
 				</td>
 				<td class="s0">
-					<?php echo \dash\fit::date(@$value['datecreated']); ?>
+					<?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?>
 
 					<?php if(isset($value['datemodified']) && $value['datemodified']) {?>
 						<br><span class="fc-mute fs09"><?php echo T_("Modified"); ?> <?php echo \dash\fit::date_human($value['datemodified']); ?></span>
 					<?php } // endif ?>
 				</td>
-				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(@$value['id']); ?>" class="btn info2"><?php echo T_("Edit"); ?></a></td>
+				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="btn info2"><?php echo T_("Edit"); ?></a></td>
 			</tr>
 			<?php } //endfor ?>
 		</tbody>

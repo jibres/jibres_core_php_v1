@@ -216,8 +216,8 @@ $myFirstURL = '';
           <?php foreach (\dash\data::postAdder() as $key => $value) {?>
 
             <div class="item <?php if(\dash\data::dataRow_user_id() == $value['id']) { echo 'active selected';}  ?>" data-value="<?php echo $value['id']; ?>">
-              <img class="ui mini avatar image" src="<?php echo @$value['avatar']; ?>">
-              <?php echo @$value['displayname']; ?> <small class="floatRa"><?php echo @$value['mobile']; ?></small>
+              <img class="ui mini avatar image" src="<?php echo \dash\get::index($value, 'avatar'); ?>">
+              <?php echo \dash\get::index($value, 'displayname'); ?> <small class="floatRa"><?php echo \dash\get::index($value, 'mobile'); ?></small>
             </div>
           <?php } //endfor ?>
         </div>
@@ -260,8 +260,8 @@ $myFirstURL = '';
             <?php foreach (\dash\data::listCats() as $key => $value) {?>
 
             <div class="check1">
-              <input type="checkbox" name="cat_<?php echo @$value['id']; ?>" value="<?php echo @$value['title']; ?>" id="cat_<?php echo @$value['id']; ?>" <?php if(in_array($value['id'], $postCat)) { echo 'checked';} ?>>
-              <label for="cat_<?php echo @$value['id']; ?>"><?php echo @$value['title']; ?></label>
+              <input type="checkbox" name="cat_<?php echo \dash\get::index($value, 'id'); ?>" value="<?php echo \dash\get::index($value, 'title'); ?>" id="cat_<?php echo \dash\get::index($value, 'id'); ?>" <?php if(in_array($value['id'], $postCat)) { echo 'checked';} ?>>
+              <label for="cat_<?php echo \dash\get::index($value, 'id'); ?>"><?php echo \dash\get::index($value, 'title'); ?></label>
             </div>
 
           <?php } //endfor ?>
@@ -802,7 +802,7 @@ $myFirstURL = '';
     <?php foreach ($dataRow['meta']['gallery']['files'] as $key => $value) {?>
 
       <div class="vcard mA10">
-        <?php $myUrl = @$value['path']; ?>
+        <?php $myUrl = \dash\get::index($value, 'path'); ?>
 
         <?php if(in_array(substr($myUrl, -4), ['.jpg', '.png', '.gif'])) {?>
 
@@ -832,7 +832,7 @@ $myFirstURL = '';
         <div class="content title"><a href="<?php echo $myUrl; ?>" title='<?php echo T_("Click to download"); ?>'><?php echo T_("Without preview"); ?></a></div>
         <?php } ?>
         <div class="footer f">
-          <button class="btn block secondary" data-ajaxify data-data='{"type" : "remove_gallery", "fileid": "<?php echo @$value['id']; ?>"}' data-method='post'><?php echo T_("Remove"); ?></button>
+          <button class="btn block secondary" data-ajaxify data-data='{"type" : "remove_gallery", "fileid": "<?php echo \dash\get::index($value, 'id'); ?>"}' data-method='post'><?php echo T_("Remove"); ?></button>
         </div>
       </div>
     <?php } //endfor ?>

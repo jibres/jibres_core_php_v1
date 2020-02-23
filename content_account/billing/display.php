@@ -87,9 +87,9 @@
 
 
          <tr>
-          <td class="s0"><?php echo @$value['title']; ?></td>
+          <td class="s0"><?php echo \dash\get::index($value, 'title'); ?></td>
 
-  <td title='<?php echo \dash\fit::date(@$value['date']); ?>'><?php echo \dash\fit::date_human(@$value['date']); ?></td>
+  <td title='<?php echo \dash\fit::date(\dash\get::index($value, 'date')); ?>'><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></td>
 
 
           <td>
@@ -105,12 +105,12 @@
             ?>
 
           </td>
-          <td><?php echo \dash\fit::number(@$value['budget']); ?> <?php if(isset($value['budget']) && $value['budget']){ echo T_("Toman");  }?></td>
+          <td><?php echo \dash\fit::number(\dash\get::index($value, 'budget')); ?> <?php if(isset($value['budget']) && $value['budget']){ echo T_("Toman");  }?></td>
 
           <?php if(\dash\permission::supervisor()) {?>
-            <td title="<?php echo \dash\fit::date(@$value['datecreated']); ?>"><?php echo \dash\fit::date_human(@$value['datecreated']); ?></td>
+            <td title="<?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?>"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?></td>
             <td><?php if(isset($value['verify']) && $value['verify']) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } //endif ?></td>
-            <td><a title="<?php echo @$value['token']; ?>" class="btn xs warn" href="<?php echo \dash\url::kingdom(); ?>/pay/<?php echo @$value['token']; ?>"><?php echo T_("Detail"); ?></a></td>
+            <td><a title="<?php echo \dash\get::index($value, 'token'); ?>" class="btn xs warn" href="<?php echo \dash\url::kingdom(); ?>/pay/<?php echo \dash\get::index($value, 'token'); ?>"><?php echo T_("Detail"); ?></a></td>
           <?php }//endif ?>
          </tr>
 <?php }//endfor ?>

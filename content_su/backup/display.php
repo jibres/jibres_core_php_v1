@@ -109,10 +109,10 @@
   <tr>
     <td class="txtL">
       <span class="sf-database fs15 mR10"></span>
-      <a href="<?php echo \dash\url::here(); ?>/backup?download=<?php echo @$value['addr']; ?>" title='<?php echo T_("Click to download"); ?>'><?php echo @$value['name']; ?></a>
+      <a href="<?php echo \dash\url::here(); ?>/backup?download=<?php echo \dash\get::index($value, 'addr'); ?>" title='<?php echo T_("Click to download"); ?>'><?php echo \dash\get::index($value, 'name'); ?></a>
     </td>
-    <td class="rtl s0"><?php echo @$value['ago']; ?></td>
-    <td class="pR25-f rtl s0"><?php echo \dash\fit::number(@$value['size']); ?> <?php echo T_("MB"); ?></td>
+    <td class="rtl s0"><?php echo \dash\get::index($value, 'ago'); ?></td>
+    <td class="pR25-f rtl s0"><?php echo \dash\fit::number(\dash\get::index($value, 'size')); ?> <?php echo T_("MB"); ?></td>
 
   </tr>
 <?php }elseif(isset($value['type']) && $value['type'] == 'folder') {?>
@@ -120,9 +120,9 @@
   <tr>
     <td class="txtL">
       <span class="sf-folder fs15 mR10"></span>
-      <a href="<?php echo \dash\url::this(); ?>/?folder=<?php echo @$value['folder']; ?>&subfolder=<?php echo @$value['subfolder']; ?>"><?php echo @$value['name']; ?></a>
+      <a href="<?php echo \dash\url::this(); ?>/?folder=<?php echo \dash\get::index($value, 'folder'); ?>&subfolder=<?php echo \dash\get::index($value, 'subfolder'); ?>"><?php echo \dash\get::index($value, 'name'); ?></a>
     </td>
-    <td class="rtl s0 pR25-f"><i class="sf-briefcase"></i> <a target="_blank" href="<?php echo \dash\url::here(); ?>/backup?zipdownload=<?php echo @$value['addr']; ?>" ><?php echo T_("Download zip"); ?></div></td>
+    <td class="rtl s0 pR25-f"><i class="sf-briefcase"></i> <a target="_blank" href="<?php echo \dash\url::here(); ?>/backup?zipdownload=<?php echo \dash\get::index($value, 'addr'); ?>" ><?php echo T_("Download zip"); ?></div></td>
 
   </tr>
 <?php }//endif ?>

@@ -40,7 +40,7 @@
             <?php foreach (\dash\data::countryList() as $key => $value) {?>
 
             <div class="item" data-value="<?php echo $key; ?>">
-              <i class="<?php echo mb_strtolower(@$value['iso2']); ?> flag"></i><?php echo T_(@$value['name']); ?><small class="description"><?php echo ucfirst(@$value['name']); ?></small>
+              <i class="<?php echo mb_strtolower(\dash\get::index($value, 'iso2')); ?> flag"></i><?php echo T_(\dash\get::index($value, 'name')); ?><small class="description"><?php echo ucfirst(\dash\get::index($value, 'name')); ?></small>
             </div>
 
             <?php } //endfor ?>
@@ -153,13 +153,13 @@
           </td>
           <td class="txtB pRa10">
 
-          <span ><?php echo @$value['title']; ?></span>
+          <span ><?php echo \dash\get::index($value, 'title'); ?></span>
           </td>
           <td class="pRa10"><?php if(isset($value['country']) && $value['country']) {?><i class="flag <?php echo mb_strtolower($value['country']); ?>"></i><?php } //endif ?></td>
           <td class="pRa10">
-            <span ><?php echo @$value['location_string']; ?></span>
+            <span ><?php echo \dash\get::index($value, 'location_string'); ?></span>
             <div>
-              <span><?php echo @$value['address']; ?></span>
+              <span><?php echo \dash\get::index($value, 'address'); ?></span>
 
               <?php if(isset($value['postcode']) && $value['postcode']) {?>
 
@@ -170,7 +170,7 @@
             </div>
 
           </td>
-          <td class="pRa10"><?php echo @$value['name']; ?></td>
+          <td class="pRa10"><?php echo \dash\get::index($value, 'name'); ?></td>
           <td class="collapsing pRa10">
             <?php if(isset($value['phone']) && $value['phone']) {?>
 
@@ -184,7 +184,7 @@
 
           </td>
           <td class="pRa10">
-            <a class="badge light" href="<?php echo \dash\data::myUrlAddress(). '?addressid='. @$value['id']; if(\dash\request::get('id')) { echo '&id='. \dash\request::get('id'); }?>"><i class="sf-pencil-square-o fs16"></i> <?php echo T_("Edit"); ?></a>
+            <a class="badge light" href="<?php echo \dash\data::myUrlAddress(). '?addressid='. \dash\get::index($value, 'id'); if(\dash\request::get('id')) { echo '&id='. \dash\request::get('id'); }?>"><i class="sf-pencil-square-o fs16"></i> <?php echo T_("Edit"); ?></a>
           </td>
         </tr>
       <?php } //endfor ?>

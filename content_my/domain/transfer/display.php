@@ -11,7 +11,7 @@
 
 				<?php foreach (\dash\data::myContactList() as $key => $value) {?>
 
-				  <option value="<?php echo @$value['nic_id']; ?>" <?php if(isset($value['isdefault']) && $value['isdefault']) { echo "selected"; } ?>><?php echo @$value['nic_id']; ?></option>
+				  <option value="<?php echo \dash\get::index($value, 'nic_id'); ?>" <?php if(isset($value['isdefault']) && $value['isdefault']) { echo "selected"; } ?>><?php echo \dash\get::index($value, 'nic_id'); ?></option>
 
 				<?php } //endfor ?>
 

@@ -308,9 +308,9 @@
 
 
         <tr <?php if(isset($value['isdefault']) && $value['isdefault']) {?> title='<?php echo T_("Is default"); ?>' class="positive" <?php } //endif ?>>
-          <td class="collapsing"><span class="spay-32-<?php echo @$value['slug']; ?>"></span></td>
+          <td class="collapsing"><span class="spay-32-<?php echo \dash\get::index($value, 'slug'); ?>"></span></td>
           <td class="collapsing txtLa">
-            <span class="txtB"><?php echo T_(ucfirst(@$value['slug'])); ?></span>
+            <span class="txtB"><?php echo T_(ucfirst(\dash\get::index($value, 'slug'))); ?></span>
             <?php if(isset($value['pcpos']) && $value['pcpos']) {?>
 
           <span class="badge primary"><?php echo T_("PcPos"); ?></span>
@@ -325,7 +325,7 @@
             </div>
             <?php } //endif ?>
           </td>
-          <td><?php echo @$value['title']; ?></td>
+          <td><?php echo \dash\get::index($value, 'title'); ?></td>
           <td class="collapsing s0">
             <?php if(isset($value['isdefault']) && $value['isdefault']) {?>
                 <a class="badge success"> <?php echo T_("Is default"); ?></a>

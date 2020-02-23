@@ -33,7 +33,7 @@ if(\dash\data::dataTable())
               <?php } // endif ?>
             </div>
             <div class="cauto s12">
-              <?php if(\dash\permission::supervisor()) {?><pre class="mT10 badge light fs08 floatRa"><?php echo @$value['caller']; ?></pre><?php }//endif ?>
+              <?php if(\dash\permission::supervisor()) {?><pre class="mT10 badge light fs08 floatRa"><?php echo \dash\get::index($value, 'caller'); ?></pre><?php }//endif ?>
             </div>
           </div>
 

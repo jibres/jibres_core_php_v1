@@ -100,7 +100,7 @@
 
           <a class="msg f" href="<?php echo \dash\url::this(); ?>/log">
             <div><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Unknown");} ?></div>
-            <div><?php if(isset($value['title']) && $value['title']) { echo $value['title']; }else{ echo @$value['caller'];} ?></div>
+            <div><?php if(isset($value['title']) && $value['title']) { echo $value['title']; }else{ echo \dash\get::index($value, 'caller');} ?></div>
             <div class="cauto"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
           </a>
 

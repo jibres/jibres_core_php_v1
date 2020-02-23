@@ -52,8 +52,8 @@ $awaitingImport = \dash\data::awaitingImport();
 
 			<div class="msg danger2">
 				<div class="f">
-					<div class="c s12"><small><?php echo T_("Error"); ?></small>: <?php echo @$value['msg']; ?></div>
-					<div class="c s12"><small><?php echo T_("Count error"); ?></small> <b><?php echo \dash\fit::number(@$value['count']); ?></b></div>
+					<div class="c s12"><small><?php echo T_("Error"); ?></small>: <?php echo \dash\get::index($value, 'msg'); ?></div>
+					<div class="c s12"><small><?php echo T_("Count error"); ?></small> <b><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?></b></div>
 					<?php if(isset($value['index']) && is_array($value['index']) && count($value['index']) > 5) {?>
 
 						<div class="c s12"><small data-copy="#error<?php echo $key; ?>"><?php echo T_("Error in index records"); ?></small>
@@ -62,7 +62,7 @@ $awaitingImport = \dash\data::awaitingImport();
 
 					<?php }else{ ?>
 
-						<div class="c s12"><small><?php echo T_("Error in index record"); ?></small> <b>php<?php echo @implode(',', @$value['index']); ?></b></div>
+						<div class="c s12"><small><?php echo T_("Error in index record"); ?></small> <b>php<?php echo @implode(',', \dash\get::index($value, 'index')); ?></b></div>
 
 					<?php } //endif ?>
 				</div>

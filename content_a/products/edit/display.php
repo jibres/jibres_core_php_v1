@@ -271,9 +271,9 @@ $productDataRow = \dash\data::productDataRow();
 
       <div class="cauto pA5 pB10">
         <div class="w150">
-          <img src="<?php echo @$value['path']; ?>" alt="<?php echo @$value['id']; ?>">
+          <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
           <div>
-            <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "<?php echo @$value['id']; ?>"}'><i class="sf-times fc-red"></i></a>
+            <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
           </div>
         </div>
       </div>
@@ -288,10 +288,10 @@ $productDataRow = \dash\data::productDataRow();
 
         <div class="cauto pA5 pB10">
           <div class="w150">
-            <img src="<?php echo @$value['path']; ?>" alt="<?php echo @$value['id']; ?>">
+            <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
             <div>
-              <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "<?php echo @$value['id']; ?>"}'><i class="sf-times fc-red"></i></a>
-              <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "<?php echo @$value['id']; ?>"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5"><?php echo T_("Set as cover"); ?></span></a>
+              <a data-ajaxify data-method='post' data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-red"></i></a>
+              <a data-ajaxify data-method='post' data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}' class="floatRa btn sm"><i class="sf-monitor-screen-1"></i> <span class="pRa5"><?php echo T_("Set as cover"); ?></span></a>
             </div>
           </div>
         </div>
@@ -376,7 +376,7 @@ $productDataRow = \dash\data::productDataRow();
 
         <?php foreach (\dash\data::listCategory() as $key => $value) {?>
 
-          <option value="<?php echo @$value['id']; ?>" <?php if(\dash\data::productDataRow_cat_id() == $value['id']) { echo 'selected'; } ?> ><?php echo @$value['full_title']; ?></option>
+          <option value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\data::productDataRow_cat_id() == $value['id']) { echo 'selected'; } ?> ><?php echo \dash\get::index($value, 'full_title'); ?></option>
 
         <?php } //endfor ?>
 
@@ -578,12 +578,12 @@ $productDataRow = \dash\data::productDataRow();
       <div class="msg f">
         <div class="cauto"><span class="mRa10"><?php echo \dash\fit::number($key + 1); ?></span></div>
         <div class="c">
-          <small class="fc-mute"><?php echo @$value['optionname1']; ?></small> <b class="fc-red"><?php echo @$value['optionvalue1']; ?></b>
-          <small class="fc-mute"><?php echo @$value['optionname2']; ?></small> <b class="fc-green"><?php echo @$value['optionvalue2']; ?></b>
-          <small class="fc-mute"><?php echo @$value['optionname3']; ?></small> <b class="fc-blue"><?php echo @$value['optionvalue3']; ?></b>
+          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname1'); ?></small> <b class="fc-red"><?php echo \dash\get::index($value, 'optionvalue1'); ?></b>
+          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-green"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
+          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blue"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
         </div>
         <div class="cauto">
-          <a href="<?php echo \dash\url::that(); ?>?id=<?php echo @$value['id']; ?>" class="btn xs outline primary"><?php echo T_("Edit"); ?></a>
+          <a href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn xs outline primary"><?php echo T_("Edit"); ?></a>
         </div>
       </div>
     <?php } //endfor ?>
@@ -597,9 +597,9 @@ $productDataRow = \dash\data::productDataRow();
       <div class="msg f <?php if(\dash\request::get('id') == $value['id']) { echo 'primary2';} ?>">
         <div class="cauto"><span class="mRa10"><?php echo \dash\fit::number($key + 1); ?></span></div>
         <div class="c">
-          <small class="fc-mute"><?php echo @$value['optionname1']; ?></small> <b class="fc-red"><?php echo @$value['optionvalue1']; ?></b>
-          <small class="fc-mute"><?php echo @$value['optionname2']; ?></small> <b class="fc-green"><?php echo @$value['optionvalue2']; ?></b>
-          <small class="fc-mute"><?php echo @$value['optionname3']; ?></small> <b class="fc-blue"><?php echo @$value['optionvalue3']; ?></b>
+          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname1'); ?></small> <b class="fc-red"><?php echo \dash\get::index($value, 'optionvalue1'); ?></b>
+          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-green"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
+          <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blue"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
         </div>
         <?php if(\dash\request::get('id') == $value['id']) {?>
 
@@ -608,7 +608,7 @@ $productDataRow = \dash\data::productDataRow();
         <?php }else{ ?>
 
           <div class="cauto">
-            <a href="<?php echo \dash\url::that(); ?>?id=<?php echo @$value['id']; ?>" class="btn xs outline primary"><?php echo T_("Edit"); ?></a>
+            <a href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn xs outline primary"><?php echo T_("Edit"); ?></a>
           </div>
 
         <?php } //endif ?>

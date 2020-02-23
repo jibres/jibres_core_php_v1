@@ -99,76 +99,76 @@ else
 
       <tr>
         <td>
-          <a class="badge danger" href="<?php echo \dash\url::this(); ?>/view?id=<?php echo @$value['id']; ?>"><?php echo T_("Detail"); ?></a>
-          <a class="badge primary" target="_blank" href="<?php echo \dash\url::this(); ?>/download?id=<?php echo @$value['id']; ?>"><?php echo T_("Download"); ?></a>
+          <a class="badge danger" href="<?php echo \dash\url::this(); ?>/view?id=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Detail"); ?></a>
+          <a class="badge primary" target="_blank" href="<?php echo \dash\url::this(); ?>/download?id=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Download"); ?></a>
 
         </td>
       <td>
-      <a href="<?php echo \dash\url::this(); ?>?user_id=<?php echo @$value['user_id']; ?>"><?php echo @$value['user_id']; ?></a>
-      <span class="badge">token: <b><a href="<?php echo \dash\url::this(); ?>?token=<?php echo @$value['token']; ?>"><?php echo @$value['token']; ?></a></b></span>
-      <span class="badge">apikey: <b><a href="<?php echo \dash\url::this(); ?>?apikey=<?php echo @$value['apikey']; ?>"><?php echo @$value['apikey']; ?></a></b></span>
-      <span class="badge">appkey: <b><a href="<?php echo \dash\url::this(); ?>?appkey=<?php echo @$value['appkey']; ?>"><?php echo @$value['appkey']; ?></a></b></span>
-      <span class="badge">zoneid: <b><a href="<?php echo \dash\url::this(); ?>?zoneid=<?php echo @$value['zoneid']; ?>"><?php echo @$value['zoneid']; ?></a></b></span>
+      <a href="<?php echo \dash\url::this(); ?>?user_id=<?php echo \dash\get::index($value, 'user_id'); ?>"><?php echo \dash\get::index($value, 'user_id'); ?></a>
+      <span class="badge">token: <b><a href="<?php echo \dash\url::this(); ?>?token=<?php echo \dash\get::index($value, 'token'); ?>"><?php echo \dash\get::index($value, 'token'); ?></a></b></span>
+      <span class="badge">apikey: <b><a href="<?php echo \dash\url::this(); ?>?apikey=<?php echo \dash\get::index($value, 'apikey'); ?>"><?php echo \dash\get::index($value, 'apikey'); ?></a></b></span>
+      <span class="badge">appkey: <b><a href="<?php echo \dash\url::this(); ?>?appkey=<?php echo \dash\get::index($value, 'appkey'); ?>"><?php echo \dash\get::index($value, 'appkey'); ?></a></b></span>
+      <span class="badge">zoneid: <b><a href="<?php echo \dash\url::this(); ?>?zoneid=<?php echo \dash\get::index($value, 'zoneid'); ?>"><?php echo \dash\get::index($value, 'zoneid'); ?></a></b></span>
       </td>
 
-      <td><a href="<?php echo \dash\url::this(); ?>?subdomain=<?php echo @$value['subdomain']; ?>"><?php echo @$value['subdomain']; ?></a></td>
+      <td><a href="<?php echo \dash\url::this(); ?>?subdomain=<?php echo \dash\get::index($value, 'subdomain'); ?>"><?php echo \dash\get::index($value, 'subdomain'); ?></a></td>
 
-      <td><a href="<?php echo \dash\url::this(); ?>?version=<?php echo @$value['version']; ?>"><?php echo @$value['version']; ?></a></td>
+      <td><a href="<?php echo \dash\url::this(); ?>?version=<?php echo \dash\get::index($value, 'version'); ?>"><?php echo \dash\get::index($value, 'version'); ?></a></td>
 
       <td>
-        <?php echo @$value['url']; ?>
+        <?php echo \dash\get::index($value, 'url'); ?>
 
-        <span><a href="<?php echo \dash\url::this(); ?>?urlmd5=<?php echo @$value['urlmd5']; ?>"><?php echo @$value['urlmd5']; ?></a></span>
+        <span><a href="<?php echo \dash\url::this(); ?>?urlmd5=<?php echo \dash\get::index($value, 'urlmd5'); ?>"><?php echo \dash\get::index($value, 'urlmd5'); ?></a></span>
       </td>
       <td>
-        <b><a href="<?php echo \dash\url::this(); ?>?method=<?php echo @$value['method']; ?>"><?php echo @$value['method']; ?></a></b>
+        <b><a href="<?php echo \dash\url::this(); ?>?method=<?php echo \dash\get::index($value, 'method'); ?>"><?php echo \dash\get::index($value, 'method'); ?></a></b>
       </td>
       <td>
-        <span data-kerkere='.showHeader<?php echo @$value['id']; ?>'><i class="sf-plus"></i></span>
-        <div class="showHeader<?php echo @$value['id']; ?>" data-kerkere-content='hide'>
-          <?php echo nl2br(@$value['header']); ?>
+        <span data-kerkere='.showHeader<?php echo \dash\get::index($value, 'id'); ?>'><i class="sf-plus"></i></span>
+        <div class="showHeader<?php echo \dash\get::index($value, 'id'); ?>" data-kerkere-content='hide'>
+          <?php echo nl2br(\dash\get::index($value, 'header')); ?>
         </div>
       </td>
-      <td><?php echo \dash\fit::number(@$value['headerlen']); ?></td>
+      <td><?php echo \dash\fit::number(\dash\get::index($value, 'headerlen')); ?></td>
       <td>
-        <span data-kerkere='.showBody<?php echo @$value['id']; ?>'><i class="sf-plus"></i></span>
-        <div class="showBody<?php echo @$value['id']; ?>" data-kerkere-content='hide'>
-          <?php echo @$value['body']; ?>
+        <span data-kerkere='.showBody<?php echo \dash\get::index($value, 'id'); ?>'><i class="sf-plus"></i></span>
+        <div class="showBody<?php echo \dash\get::index($value, 'id'); ?>" data-kerkere-content='hide'>
+          <?php echo \dash\get::index($value, 'body'); ?>
         </div>
       </td>
-      <td><?php echo \dash\fit::number(@$value['bodylen']); ?></td>
+      <td><?php echo \dash\fit::number(\dash\get::index($value, 'bodylen')); ?></td>
       <td>
-          <?php echo \dash\fit::date(@$value['datesend']); ?>
+          <?php echo \dash\fit::date(\dash\get::index($value, 'datesend')); ?>
         <br>
-          <?php echo \dash\fit::date_human(@$value['datesend']); ?>
+          <?php echo \dash\fit::date_human(\dash\get::index($value, 'datesend')); ?>
       </td>
-      <td><a href="<?php echo \dash\url::this(); ?>?pagestatus=<?php echo @$value['pagestatus']; ?>"><?php echo \dash\fit::number(@$value['pagestatus']); ?></a></td>
-      <td><a href="<?php echo \dash\url::this(); ?>?resultstatus=<?php echo @$value['resultstatus']; ?>"><?php echo @$value['resultstatus']; ?></a></td>
+      <td><a href="<?php echo \dash\url::this(); ?>?pagestatus=<?php echo \dash\get::index($value, 'pagestatus'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'pagestatus')); ?></a></td>
+      <td><a href="<?php echo \dash\url::this(); ?>?resultstatus=<?php echo \dash\get::index($value, 'resultstatus'); ?>"><?php echo \dash\get::index($value, 'resultstatus'); ?></a></td>
       <td>
-        <span data-kerkere='.showResponseHeader<?php echo @$value['id']; ?>'><i class="sf-plus"></i></span>
-        <div class="showResponseHeader<?php echo @$value['id']; ?>" data-kerkere-content='hide'>
-          <?php echo nl2br(@$value['responseheader']); ?>
+        <span data-kerkere='.showResponseHeader<?php echo \dash\get::index($value, 'id'); ?>'><i class="sf-plus"></i></span>
+        <div class="showResponseHeader<?php echo \dash\get::index($value, 'id'); ?>" data-kerkere-content='hide'>
+          <?php echo nl2br(\dash\get::index($value, 'responseheader')); ?>
 
         </div>
       </td>
       <td>
-        <span data-kerkere='.showResponseBody<?php echo @$value['id']; ?>'><i class="sf-plus"></i></span>
-        <div class="showResponseBody<?php echo @$value['id']; ?>" data-kerkere-content='hide'>
-          <?php echo nl2br(@$value['responsebody']); ?>
+        <span data-kerkere='.showResponseBody<?php echo \dash\get::index($value, 'id'); ?>'><i class="sf-plus"></i></span>
+        <div class="showResponseBody<?php echo \dash\get::index($value, 'id'); ?>" data-kerkere-content='hide'>
+          <?php echo nl2br(\dash\get::index($value, 'responsebody')); ?>
         </div>
       </td>
       <td>
-        <?php echo \dash\fit::date(@$value['dateresponse']); ?>
+        <?php echo \dash\fit::date(\dash\get::index($value, 'dateresponse')); ?>
         <br>
-        <?php echo \dash\fit::date_human(@$value['dateresponse']); ?>
+        <?php echo \dash\fit::date_human(\dash\get::index($value, 'dateresponse')); ?>
       </td>
       <td>
-        <span data-kerkere='.showNotif<?php echo @$value['id']; ?>'><i class="sf-plus"></i></span>
-        <div class="showNotif<?php echo @$value['id']; ?>" data-kerkere-content='hide'>
-          <?php echo \dash\fit::date(@$value['notif']); ?>
+        <span data-kerkere='.showNotif<?php echo \dash\get::index($value, 'id'); ?>'><i class="sf-plus"></i></span>
+        <div class="showNotif<?php echo \dash\get::index($value, 'id'); ?>" data-kerkere-content='hide'>
+          <?php echo \dash\fit::date(\dash\get::index($value, 'notif')); ?>
         </div>
     </td>
-      <td><?php echo \dash\fit::number(@$value['responselen']); ?></td>
+      <td><?php echo \dash\fit::number(\dash\get::index($value, 'responselen')); ?></td>
 
 
       </tr>

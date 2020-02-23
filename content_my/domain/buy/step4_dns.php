@@ -49,7 +49,7 @@
 					<?php foreach (\dash\data::myDNSList() as $key => $value) {?>
 
 
-					  <option value="<?php echo \dash\coding::encode(@$value['id']); ?>" <?php if(isset($value['isdefault']) && $value['isdefault']) { echo "selected"; } ?>><?php echo implode(' - ', [@$value['title'], @$value['ns1'], @$value['ns2']]); ?></option>
+					  <option value="<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" <?php if(isset($value['isdefault']) && $value['isdefault']) { echo "selected"; } ?>><?php echo implode(' - ', [\dash\get::index($value, 'title'), \dash\get::index($value, 'ns1'), \dash\get::index($value, 'ns2')]); ?></option>
 
 					<?php } //endfor ?>
 					</select>

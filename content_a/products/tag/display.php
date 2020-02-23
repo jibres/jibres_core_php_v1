@@ -130,29 +130,29 @@ if(!is_array($dataTable))
       <?php foreach ($dataTable as $key => $value) {?>
 
         <tr class="">
-          <td><a href="<?php echo \dash\url::that(); ?>?edit=<?php echo @$value['id']; ?>">
+          <td><a href="<?php echo \dash\url::that(); ?>?edit=<?php echo \dash\get::index($value, 'id'); ?>">
           <i class="sf-edit"></i>
 
-          <?php echo @$value['title']; ?></a></td>
+          <?php echo \dash\get::index($value, 'title'); ?></a></td>
 
 
 
-            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/p/tag/<?php echo @$value['slug']; ?>" target="_blank"><span class="sf-share"></span> <?php echo @$value['slug']; ?></a></td>
+            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/p/tag/<?php echo \dash\get::index($value, 'slug'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
 
 
 
-          <td><?php echo @$value['desc']; ?></td>
+          <td><?php echo \dash\get::index($value, 'desc'); ?></td>
           <?php if(isset($value['type']) && $value['type'] === 'help_tag') {?>
 
-            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?type=help&term=<?php echo @$value['slug']; ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
+            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?type=help&term=<?php echo \dash\get::index($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
 
           <?php }elseif(isset($value['type']) && $value['type'] === 'support_tag') {?>
 
-            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/support/ticket?tag=<?php echo @$value['slug']; ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
+            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/support/ticket?tag=<?php echo \dash\get::index($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
           <?php }else{ ?>
-            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?term=<?php echo @$value['slug']; ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
+            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?term=<?php echo \dash\get::index($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
           <?php } //endif ?>
-          <td class="collapsing txtC"><?php echo T_(@$value['status']); ?></td>
+          <td class="collapsing txtC"><?php echo T_(\dash\get::index($value, 'status')); ?></td>
         </tr>
       <?php } //endfor ?>
     </tbody>

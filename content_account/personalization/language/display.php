@@ -12,7 +12,7 @@
 
           <?php foreach (\dash\language::all(true) as $key => $value) {?>
 
-            <option value="<?php echo @$value['name']; ?>" <?php if(\dash\data::dataRow_language() === @$value['name']) {echo 'selected';} ?>><?php echo @$value['localname']; ?></option>
+            <option value="<?php echo \dash\get::index($value, 'name'); ?>" <?php if(\dash\data::dataRow_language() === \dash\get::index($value, 'name')) {echo 'selected';} ?>><?php echo \dash\get::index($value, 'localname'); ?></option>
 
           <?php } //endfor ?>
 

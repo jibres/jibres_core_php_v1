@@ -106,7 +106,7 @@
           <span class="sf-<?php echo $value['meta']['icon']; ?> mRa10"></span>
         <?php } //endif ?>
         <a href="<?php echo \dash\url::here(). '/'. $value['slug']; ?>"><?php echo $value['title']; ?></a>
-        <a href="#" class="floatRa"><?php echo @$value['cat']; ?></a>
+        <a href="#" class="floatRa"><?php echo \dash\get::index($value, 'cat'); ?></a>
       </div>
 
   <?php } //endfor ?>

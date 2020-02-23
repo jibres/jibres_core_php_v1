@@ -60,12 +60,12 @@
 			<?php foreach (\dash\data::specialDate() as $key => $value) {?>
 
 				<tr>
-					<td><?php echo \dash\fit::number(@$value['buyprice']); ?></td>
-					<td><?php echo \dash\fit::number(@$value['price']); ?></td>
-					<td><?php echo \dash\fit::number(@$value['discount']); ?></td>
-					<td><?php echo \dash\fit::number(@$value['finalprice']); ?></td>
-					<td><?php echo \dash\fit::date(@$value['startdate']); ?></td>
-					<td><?php echo \dash\fit::date(@$value['enddate']); ?></td>
+					<td><?php echo \dash\fit::number(\dash\get::index($value, 'buyprice')); ?></td>
+					<td><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></td>
+					<td><?php echo \dash\fit::number(\dash\get::index($value, 'discount')); ?></td>
+					<td><?php echo \dash\fit::number(\dash\get::index($value, 'finalprice')); ?></td>
+					<td><?php echo \dash\fit::date(\dash\get::index($value, 'startdate')); ?></td>
+					<td><?php echo \dash\fit::date(\dash\get::index($value, 'enddate')); ?></td>
 				</tr>
 			<?php } //endfor ?>
 		</tbody>

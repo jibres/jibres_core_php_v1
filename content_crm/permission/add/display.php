@@ -52,7 +52,7 @@ if(!is_array($permLoad))
      data-require="<?php if(isset($value['require']) && is_array($value['require'])) { echo implode('|', $value['require']); }?>"
      <?php if(in_array($key, $permLoad) || \dash\request::get('id') === 'admin') { echo 'checked';} ?>>
      <label for="<?php echo $key; ?>"></label>
-     <label for="<?php echo $key; ?>" title='<?php echo $key; ?>'><?php echo T_(@$value['title']); ?></label>
+     <label for="<?php echo $key; ?>" title='<?php echo $key; ?>'><?php echo T_(\dash\get::index($value, 'title')); ?></label>
     </div>
     <?php if(isset($value['breakAfter']) && $value['breakAfter']) {?><div class='c12 mT10'></div><?php } //endif ?>
 <?php }//endfor ?>

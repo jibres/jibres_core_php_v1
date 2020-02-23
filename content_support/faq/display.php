@@ -22,8 +22,8 @@ if(\dash\data::postTag() && is_array(\dash\data::postTag()))
 
     <div class="msg">
       <span class="sf-info mRa10"></span>
-      <a href="<?php echo \dash\url::kingdom(); ?>/support/<?php echo @$value['url']; ?>"><?php echo @$value['title']; ?></a>
-      <a href="<?php echo \dash\url::kingdom(); ?>/support/<?php echo @$value['url']; ?>" class="floatRa"><?php echo @$value['type']; ?></a>
+      <a href="<?php echo \dash\url::kingdom(); ?>/support/<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a>
+      <a href="<?php echo \dash\url::kingdom(); ?>/support/<?php echo \dash\get::index($value, 'url'); ?>" class="floatRa"><?php echo \dash\get::index($value, 'type'); ?></a>
     </div>
     <?php }//endfor ?>
   </div>

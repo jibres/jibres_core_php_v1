@@ -27,10 +27,10 @@
 		    <div class="box">
 
 		      <div class="detail f">
-		          <div class="cauto"><i class="sf-certificate"></i><?php echo @$value['firstname']; ?> <b><?php echo @$value['lastname']; ?></b></div>
+		          <div class="cauto"><i class="sf-certificate"></i><?php echo \dash\get::index($value, 'firstname'); ?> <b><?php echo \dash\get::index($value, 'lastname'); ?></b></div>
 		          <div class="cauto os"><i class="sf-calendar-o pRa5"></i><?php echo \dash\fit::date($value['datecreated']); ?></div>
 		        </div>
-		      <p><?php echo @$value['text']; ?></p>
+		      <p><?php echo \dash\get::index($value, 'text'); ?></p>
 		    </div>
 		  </div>
 

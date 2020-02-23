@@ -104,7 +104,7 @@ if(!is_array($dataTable))
 
 
 
-      <tr class="<?php echo $statusClass; ?> <?php echo @$value['status']; ?>">
+      <tr class="<?php echo $statusClass; ?> <?php echo \dash\get::index($value, 'status'); ?>">
         <td class="collapsing sauto">
           <?php if(isset($value['avatar']) && $value['avatar']) {?>
             <img src="<?php echo $value['avatar']; ?>" class="avatar">
@@ -138,22 +138,22 @@ if(!is_array($dataTable))
 
           <?php if(isset($value['post_title']) && $value['post_title']) {?>
 
-          <div class="badge light"><a href="<?php echo \dash\url::kingdom(); ?>/n/<?php echo @$value['post_id']; ?>"><?php echo $value['post_title']; ?></a></div>
+          <div class="badge light"><a href="<?php echo \dash\url::kingdom(); ?>/n/<?php echo \dash\get::index($value, 'post_id'); ?>"><?php echo $value['post_title']; ?></a></div>
 
           <?php } //endfi ?>
 
-          <p><?php echo @$value['content']; ?></p>
+          <p><?php echo \dash\get::index($value, 'content'); ?></p>
 
           <div class="rowAction floatRa">
-            <a class="mRa5 fc-green" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo @$value['id']; ?>", "status":"approved"}'><?php echo T_("Approve"); ?></a>
-            <a class="mRa5 fc-mute" href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo @$value['id']; ?>"><?php echo T_("Edit"); ?></a>
-            <a class="mRa5 fc-black" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo @$value['id']; ?>", "status":"unapproved"}'><?php echo T_("Unapprove"); ?></a>
-            <a class="mRa5 fc-red" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo @$value['id']; ?>", "status":"deleted"}'><?php echo T_("Trash"); ?></a>
-            <a class="mRa5 fc-red" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo @$value['id']; ?>", "status":"spam"}'><?php echo T_("Spam"); ?></a>
+            <a class="mRa5 fc-green" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo \dash\get::index($value, 'id'); ?>", "status":"approved"}'><?php echo T_("Approve"); ?></a>
+            <a class="mRa5 fc-mute" href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit"); ?></a>
+            <a class="mRa5 fc-black" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo \dash\get::index($value, 'id'); ?>", "status":"unapproved"}'><?php echo T_("Unapprove"); ?></a>
+            <a class="mRa5 fc-red" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo \dash\get::index($value, 'id'); ?>", "status":"deleted"}'><?php echo T_("Trash"); ?></a>
+            <a class="mRa5 fc-red" href="<?php echo \dash\url::pwd(); ?>" data-ajaxify data-method='post' data-data='{"id":"<?php echo \dash\get::index($value, 'id'); ?>", "status":"spam"}'><?php echo T_("Spam"); ?></a>
           </div>
         </td>
-        <td class="collapsing s0" ><?php echo T_(ucfirst(@$value['status'])); ?></td>
-        <td class="collapsing s0 m0" ><?php echo \dash\fit::date(@$value['datecreated']); ?></td>
+        <td class="collapsing s0" ><?php echo T_(ucfirst(\dash\get::index($value, 'status'))); ?></td>
+        <td class="collapsing s0 m0" ><?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?></td>
       </tr>
       <?php } //endfor ?>
     </tbody>

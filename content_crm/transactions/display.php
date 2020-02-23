@@ -77,20 +77,20 @@ $sortLink = \dash\data::sortLink();
       <tr <?php if(isset($value['verify']) && $value['verify']) {?> class="positive" <?php } ?>>
 		<td>
 			<div>
-				<img src="<?php echo @$value['avatar']; ?>" class="avatar">
-				<?php echo @$value['displayname']; ?>
+				<img src="<?php echo \dash\get::index($value, 'avatar'); ?>" class="avatar">
+				<?php echo \dash\get::index($value, 'displayname'); ?>
 			</div>
-			<?php if(isset($value['user_id']) && $value['user_id']) {?><a href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo $value['user_id']; ?>"><?php echo \dash\fit::mobile(@$value['mobile']); ?></a><?php }else{ ?><small class="hidden"><?php echo T_("Anonymous"); ?></small><?php } ?>
+			<?php if(isset($value['user_id']) && $value['user_id']) {?><a href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo $value['user_id']; ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></a><?php }else{ ?><small class="hidden"><?php echo T_("Anonymous"); ?></small><?php } ?>
 		</td>
 
-		<td><?php echo @$value['title']; ?></td>
+		<td><?php echo \dash\get::index($value, 'title'); ?></td>
 
 		<td><?php if(isset($value['plus']) && $value['plus']) {?><b>+<?php echo \dash\fit::number($value['plus']); ?></b><?php }//endif ?></td>
 		<td><?php if(isset($value['minus']) && $value['minus']) {?><b>-<?php echo \dash\fit::number($value['minus']); ?></b><?php }//endif ?></td>
 
 		<td title='<?php echo T_("Budget before"); ?> <?php echo \dash\fit::number($value['budget_before']); ?>'><?php echo \dash\fit::number($value['budget']) ?></td>
 
-		<td><a href="<?php echo \dash\url::here(); ?>/transactions?condition=<?php echo @$value['condition']; ?>"><?php echo T_(@$value['condition']); ?></a></td>
+		<td><a href="<?php echo \dash\url::here(); ?>/transactions?condition=<?php echo \dash\get::index($value, 'condition'); ?>"><?php echo T_(\dash\get::index($value, 'condition')); ?></a></td>
 		<td><?php if(isset($value['verify']) && $value['verify']) {?><i class="sf-check-1 fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php }//endif ?></td>
 		<td >
 			<?php echo \dash\fit::date($value['datecreated']); ?>

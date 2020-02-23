@@ -19,7 +19,7 @@
 
               <?php foreach (\dash\data::parentList() as $key => $value) {?>
 
-                  <option value="<?php echo @$value['id']; ?>" <?php if(isset($value['id']) && $value['id'] == \dash\data::dataRow_last_parent()) { echo 'selected'; } ?>><?php echo @$value['full_title']; ?></option>
+                  <option value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(isset($value['id']) && $value['id'] == \dash\data::dataRow_last_parent()) { echo 'selected'; } ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
               <?php }//endfor ?>
 
             </select>

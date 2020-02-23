@@ -23,27 +23,27 @@
 
 
       <tr>
-        <td class="collapsing"><img src="<?php echo @$value['thumb']; ?>" class="avatar fs14"></td>
+        <td class="collapsing"><img src="<?php echo \dash\get::index($value, 'thumb'); ?>" class="avatar fs14"></td>
         <td>
-          <div><a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo @$value['id']; ?>"><i class="sf-edit-write mRa10"></i><?php echo @$value['title']; ?></a></div>
+          <div><a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit-write mRa10"></i><?php echo \dash\get::index($value, 'title'); ?></a></div>
           <?php if(isset($value['optionvalue1']) && $value['optionvalue1']) {?>
-            <div><?php echo @$value['optionname1']; ?> <b><?php echo @$value['optionvalue1']; ?></b></div>
+            <div><?php echo \dash\get::index($value, 'optionname1'); ?> <b><?php echo \dash\get::index($value, 'optionvalue1'); ?></b></div>
           <?php } //endif ?>
 
           <?php if(isset($value['optionvalue2']) && $value['optionvalue2']) {?>
-            <div><?php echo @$value['optionname2']; ?> <b><?php echo @$value['optionvalue2']; ?></b></div>
+            <div><?php echo \dash\get::index($value, 'optionname2'); ?> <b><?php echo \dash\get::index($value, 'optionvalue2'); ?></b></div>
           <?php } //endif ?>
 
           <?php if(isset($value['optionvalue3']) && $value['optionvalue3']) {?>
-            <div><?php echo @$value['optionname3']; ?> <b><?php echo @$value['optionvalue3']; ?></b></div>
+            <div><?php echo \dash\get::index($value, 'optionname3'); ?> <b><?php echo \dash\get::index($value, 'optionvalue3'); ?></b></div>
           <?php } //endif ?>
         </td>
 
-        <td><?php echo \dash\fit::number(@$value['buyprice']); ?></td>
-        <td><?php echo \dash\fit::number(@$value['price']); ?></td>
-        <td><?php echo \dash\fit::number(@$value['discount']); ?></td>
-        <td><?php echo \dash\fit::number(@$value['discountpercent']); ?></td>
-        <td><?php echo \dash\fit::number(@$value['finalprice']); ?></td>
+        <td><?php echo \dash\fit::number(\dash\get::index($value, 'buyprice')); ?></td>
+        <td><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></td>
+        <td><?php echo \dash\fit::number(\dash\get::index($value, 'discount')); ?></td>
+        <td><?php echo \dash\fit::number(\dash\get::index($value, 'discountpercent')); ?></td>
+        <td><?php echo \dash\fit::number(\dash\get::index($value, 'finalprice')); ?></td>
 
       </tr>
       <?php } //endfor ?>

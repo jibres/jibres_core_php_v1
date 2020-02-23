@@ -30,16 +30,16 @@
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
     <tr>
-      <td><code><?php echo @$value['id']; ?></code></td>
-      <td><div class=""><?php echo @$value['subdomain']; ?></div></td>
-      <td><?php echo @$value['title']; ?></td>
-      <td><?php echo @$value['owner']; ?></td>
-      <td><?php echo @$value['t_status']; ?></td>
-      <td><?php echo @$value['t_plan']; ?></td>
-      <td><?php echo \dash\fit::date(@$value['datecreated']); ?></td>
-      <td><?php echo @$value['dbversion']; ?></td>
-      <td><?php echo \dash\fit::date(@$value['dbversiondate']); ?></td>
-      <td><?php echo @$value['creator']; ?></td>
+      <td><code><?php echo \dash\get::index($value, 'id'); ?></code></td>
+      <td><div class=""><?php echo \dash\get::index($value, 'subdomain'); ?></div></td>
+      <td><?php echo \dash\get::index($value, 'title'); ?></td>
+      <td><?php echo \dash\get::index($value, 'owner'); ?></td>
+      <td><?php echo \dash\get::index($value, 't_status'); ?></td>
+      <td><?php echo \dash\get::index($value, 't_plan'); ?></td>
+      <td><?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?></td>
+      <td><?php echo \dash\get::index($value, 'dbversion'); ?></td>
+      <td><?php echo \dash\fit::date(\dash\get::index($value, 'dbversiondate')); ?></td>
+      <td><?php echo \dash\get::index($value, 'creator'); ?></td>
     </tr>
 
     <?php } //endfor ?>

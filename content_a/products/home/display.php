@@ -76,10 +76,10 @@ if(\dash\url::child() === 'price')
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
       <tr>
-        <td class="collapsing"><img src="<?php echo @$value['thumb']; ?>" class="avatar" alt="<?php echo @$value['title']; ?>"></td>
-        <td><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo @$value['id']; ?>"><i class="sf-edit-write mRa10"></i><?php echo @$value['title']; ?></a></td>
-        <td class=""><?php echo \dash\fit::number(@$value['price_string']); ?></td>
-        <td class=""><?php echo @$value['category']; ?></td>
+        <td class="collapsing"><img src="<?php echo \dash\get::index($value, 'thumb'); ?>" class="avatar" alt="<?php echo \dash\get::index($value, 'title'); ?>"></td>
+        <td><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit-write mRa10"></i><?php echo \dash\get::index($value, 'title'); ?></a></td>
+        <td class=""><?php echo \dash\fit::number(\dash\get::index($value, 'price_string')); ?></td>
+        <td class=""><?php echo \dash\get::index($value, 'category'); ?></td>
         <td>
           <?php if(isset($value['variants_detail']['stock'])) {?>
 

@@ -90,9 +90,9 @@ if(!is_array($dataTable))
       <?php foreach ($dataTable as $key => $value) {?>
 
       <tr class="">
-        <td><?php echo @$value['title']; ?></td>
-        <td><?php echo \dash\fit::number(@$value['count']); ?></td>
-        <td><?php echo \dash\fit::date(@$value['date']); ?></td>
+        <td><?php echo \dash\get::index($value, 'title'); ?></td>
+        <td><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?></td>
+        <td><?php echo \dash\fit::date(\dash\get::index($value, 'date')); ?></td>
       </tr>
       <?php } //endfor ?>
     </tbody>

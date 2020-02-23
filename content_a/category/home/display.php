@@ -92,15 +92,15 @@ if(!is_array($dataTable))
 
       <tr>
         <td class="collapsing">
-          <?php if(isset($value['file']) && $value['file']) {?><img src="<?php echo @$value['file']; ?>" class="avatar"><?php } //endif ?>
+          <?php if(isset($value['file']) && $value['file']) {?><img src="<?php echo \dash\get::index($value, 'file'); ?>" class="avatar"><?php } //endif ?>
         </td>
-        <td ><a class="txtB" href="<?php echo \dash\url::here(); ?>/category/edit?id=<?php echo @$value['id']; ?>"><i class="sf-edit-write mRa10"></i><?php echo @$value['title']; ?></a>
+        <td ><a class="txtB" href="<?php echo \dash\url::here(); ?>/category/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit-write mRa10"></i><?php echo \dash\get::index($value, 'title'); ?></a>
           <br>
-          <span class="fc-mute fs09"><?php echo @$value['parent_title']; ?></span>
+          <span class="fc-mute fs09"><?php echo \dash\get::index($value, 'parent_title'); ?></span>
         </td>
-        <td class="s0"><?php echo @$value['full_slug']; ?></td>
+        <td class="s0"><?php echo \dash\get::index($value, 'full_slug'); ?></td>
         <td class="s0 collapsing">
-          <a href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo @$value['id']; ?>"><?php echo \dash\fit::number(@$value['count']); ?> <small class="fc-mute"><?php echo T_("Product"); ?></small></a>
+          <a href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?> <small class="fc-mute"><?php echo T_("Product"); ?></small></a>
         </td>
 
       </tr>

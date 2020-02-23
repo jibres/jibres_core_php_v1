@@ -38,15 +38,15 @@ myStores();
   <?php foreach (\dash\data::listStore_staff() as $key => $value) {?>
 
   <div class="c4 xauto s12 pRa10">
-    <a href='<?php echo @$value['url']; ?>/a' class="scard">
-      <img src="<?php echo @$value['logo']; ?>" alt="<?php echo @$value['title']; ?>">
+    <a href='<?php echo \dash\get::index($value, 'url'); ?>/a' class="scard">
+      <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
       <div class="body">
-        <h2><?php echo @$value['title']; ?></h2>
+        <h2><?php echo \dash\get::index($value, 'title'); ?></h2>
         <div class="position txtRa">
-          <span class="badge light s0"><?php echo T_("From"); ?> <?php echo \dash\fit::date(@$value['datecreated']); ?></span>
+          <span class="badge light s0"><?php echo T_("From"); ?> <?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?></span>
           <span class="badge light"><?php echo T_("Staff"); ?></span>
         </div>
-        <div class="addr"><b><?php echo @$value['subdomain']; ?></b><span class="fc-mute fs09">.Jibres.<?php echo \dash\url::tld(); ?></span></div>
+        <div class="addr"><b><?php echo \dash\get::index($value, 'subdomain'); ?></b><span class="fc-mute fs09">.Jibres.<?php echo \dash\url::tld(); ?></span></div>
       </div>
     </a>
   </div>
@@ -72,24 +72,24 @@ myStores();
     <?php foreach (\dash\data::listStore_owner() as $key => $value) {?>
 
   <div class="c6 x4 s12 pRa10">
-    <a href='<?php echo @$value['url']; ?>/a' class="scardLarge grBlue3">
-      <img src="<?php echo @$value['logo']; ?>" alt="<?php echo @$value['title']; ?>">
-      <h2><?php echo @$value['title']; ?></h2>
+    <a href='<?php echo \dash\get::index($value, 'url'); ?>/a' class="scardLarge grBlue3">
+      <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
+      <h2><?php echo \dash\get::index($value, 'title'); ?></h2>
       <div class="f summary">
-        <div class="c4"><?php echo \dash\fit::number(@$value['product']). ' '. T_("Product"); ?></div>
-        <div class="c4 pLR5"><?php echo \dash\fit::number(@$value['customer']). ' '. T_("Customer"); ?></div>
-        <div class="c4"><?php echo \dash\fit::number(@$value['factor']). ' '. T_("Factor"); ?></div>
+        <div class="c4"><?php echo \dash\fit::number(\dash\get::index($value, 'product')). ' '. T_("Product"); ?></div>
+        <div class="c4 pLR5"><?php echo \dash\fit::number(\dash\get::index($value, 'customer')). ' '. T_("Customer"); ?></div>
+        <div class="c4"><?php echo \dash\fit::number(\dash\get::index($value, 'factor')). ' '. T_("Factor"); ?></div>
       </div>
       <div class="f meta">
         <div class="c6 s12 txtLa"><?php if(isset($value['lastactivity'])) { echo \dash\fit::date_human($value['lastactivity']); }?></div>
-        <div class="c6 s12 txtRa"><?php echo T_("Created on"). ' '. \dash\fit::date(@$value['datecreated']); ?></div>
+        <div class="c6 s12 txtRa"><?php echo T_("Created on"). ' '. \dash\fit::date(\dash\get::index($value, 'datecreated')); ?></div>
       </div>
       <div class="f meta">
         <div class="c">
           <span class="badge light"><?php echo T_("Owner"); ?></span>
         </div>
         <div class="cauto os">
-          <div class="addr ltr"><b><?php echo @$value['subdomain']; ?></b><span>.Jibres.<?php echo \dash\url::tld(); ?></span></div>
+          <div class="addr ltr"><b><?php echo \dash\get::index($value, 'subdomain'); ?></b><span>.Jibres.<?php echo \dash\url::tld(); ?></span></div>
         </div>
       </div>
     </a>
@@ -118,15 +118,15 @@ myStores();
   <?php foreach (\dash\data::listStore_owner() as $key => $value) {?>
 
   <div class="c4 xauto s12 pRa10">
-    <a href='<?php echo @$value['url']; ?>/a' class="scard">
-      <img src="<?php echo @$value['logo']; ?>" alt="<?php echo @$value['title']; ?>">
+    <a href='<?php echo \dash\get::index($value, 'url'); ?>/a' class="scard">
+      <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
       <div class="body">
-        <h2><?php echo @$value['title']; ?></h2>
+        <h2><?php echo \dash\get::index($value, 'title'); ?></h2>
         <div class="position txtRa">
-          <span class="badge light s0"><?php echo T_("From"); ?> <?php echo \dash\fit::date(@$value['datecreated']); ?></span>
+          <span class="badge light s0"><?php echo T_("From"); ?> <?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?></span>
           <span class="badge light"><?php echo T_("Owner"); ?></span>
         </div>
-        <div class="addr"><b><?php echo @$value['subdomain']; ?></b><span class="fc-mute fs09">.Jibres.<?php echo \dash\url::tld(); ?></span></div>
+        <div class="addr"><b><?php echo \dash\get::index($value, 'subdomain'); ?></b><span class="fc-mute fs09">.Jibres.<?php echo \dash\url::tld(); ?></span></div>
       </div>
     </a>
   </div>

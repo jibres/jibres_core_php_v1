@@ -59,7 +59,7 @@ $andQ = \dash\request::get('q') ? '&q='. \dash\request::get('q') : null;
           <option><i class="sf-sort mRa5"></i><span><?php echo T_("Sort"); ?></span></div>
             <?php foreach (\dash\data::sortList() as $key => $value) {?>
 
-              <option value="<?php echo \dash\url::that(). '?'. @$value['query_string']; ?>" <?php if(\dash\request::get('sort') == @$value['query']['sort'] && \dash\request::get('order') == @$value['query']['order']) { echo 'selected'; }?> ><?php echo @$value['title']; ?></a>
+              <option value="<?php echo \dash\url::that(). '?'. \dash\get::index($value, 'query_string'); ?>" <?php if(\dash\request::get('sort') == \dash\get::index($value, 'query')['sort'] && \dash\request::get('order') == \dash\get::index($value, 'query')['order']) { echo 'selected'; }?> ><?php echo \dash\get::index($value, 'title'); ?></a>
             <?php } //endfor ?>
         </select>
       </div>

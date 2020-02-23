@@ -127,12 +127,12 @@
           </td>
 
           <td class="txtC">
-            <a href="<?php echo \dash\url::here(); ?>/products?unitid=<?php echo @$value['id']; ?>" title='<?php echo T_("Click to check products in this unit"); ?>'><?php echo \dash\fit::number(@$value['count']); ?></a>
+            <a href="<?php echo \dash\url::here(); ?>/products?unitid=<?php echo \dash\get::index($value, 'id'); ?>" title='<?php echo T_("Click to check products in this unit"); ?>'><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?></a>
           </td>
           <td class="txtC"><?php if(isset($value['int']) && $value['int']) { ?><i class="sf-check fc-green"></i><?php }else{ echo '-';} ?></td>
           <td class="collapsing">
-            <a class="block" href="<?php echo \dash\url::this(); ?>?id=<?php echo @$value['id']; ?>"><i class="sf-edit-write fs11  mRa10"></i><span class="sm"><?php echo T_("Edit"); ?></span></a>
-            <a class="block" href="<?php echo \dash\url::this(); ?>/remove?id=<?php echo @$value['id']; ?>"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm"><?php echo T_("Remove"); ?></span></a>
+            <a class="block" href="<?php echo \dash\url::this(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit-write fs11  mRa10"></i><span class="sm"><?php echo T_("Edit"); ?></span></a>
+            <a class="block" href="<?php echo \dash\url::this(); ?>/remove?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm"><?php echo T_("Remove"); ?></span></a>
 
           </td>
         </tr>
@@ -234,7 +234,7 @@
 
                     <?php if(isset($value['title']) && $value['title'] !== \dash\request::get('id')) {?>
 
-                    <option value="<?php echo @$value['id']; ?>"><?php echo $value['title']; ?></option>
+                    <option value="<?php echo \dash\get::index($value, 'id'); ?>"><?php echo $value['title']; ?></option>
 
                     <?php } //endif ?>
 

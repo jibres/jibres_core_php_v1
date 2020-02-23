@@ -117,8 +117,8 @@ else
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
 			<tr>
-				<td><a target="_blank" href="http://<?php echo @$value['name']; ?>"><i class="sf-link"></i></a> <span><?php echo @$value['name']; ?></span></td>
-				<td class=""><?php echo \dash\fit::date(@$value['dateexpire']); ?></td>
+				<td><a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> <span><?php echo \dash\get::index($value, 'name'); ?></span></td>
+				<td class=""><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
 				<td class="collapsing">
 					<?php if(isset($value['lock']) && $value['lock']) {?><i class="sf-lock fc-green"></i> <?php }else{ ?> <i class="sf-unlock fc-red"></i> <?php } ?>
 					<?php if(isset($value['autorenew']) && $value['autorenew']) {?><i class="sf-refresh fc-blue" title='<?php echo T_("Auto renew enabled"); ?>'></i> <?php } ?>
@@ -126,7 +126,7 @@ else
 				<td class="collapsing">
 					<?php if(isset($value['datemodified']) && $value['datemodified']) {?>
 
-						<?php echo \dash\fit::date_human(@$value['datemodified']); ?>
+						<?php echo \dash\fit::date_human(\dash\get::index($value, 'datemodified')); ?>
 
 					<?php }else{ ?>
 
@@ -136,11 +136,11 @@ else
 
 				</td>
 				<td class="collapsing">
-					<code><?php echo @$value['ns1']; ?></code>
+					<code><?php echo \dash\get::index($value, 'ns1'); ?></code>
 					<br>
-					<code><?php echo @$value['ns2']; ?></code>
+					<code><?php echo \dash\get::index($value, 'ns2'); ?></code>
 				</td>
-				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/setting/<?php echo @$value['name']; ?>" class="btn info2"><?php echo T_("Manage domain"); ?></a></td>
+				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/setting/<?php echo \dash\get::index($value, 'name'); ?>" class="btn info2"><?php echo T_("Manage domain"); ?></a></td>
 			</tr>
 			<?php } //endfor ?>
 		</tbody>

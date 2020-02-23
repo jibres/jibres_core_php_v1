@@ -100,12 +100,12 @@ if(!is_array($dataTable))
           <?php }//endif ?>
 
 
-          <a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo @$value['user_id']; ?>">
+          <a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo \dash\get::index($value, 'user_id'); ?>">
             <span class="sf-user fc-mute"></span>
 
             <?php if(isset($value['displayname']) && $value['displayname']) {?>
 
-            <?php echo @$value['displayname']; ?>
+            <?php echo \dash\get::index($value, 'displayname'); ?>
 
             <?php }else{ ?>
 
@@ -117,13 +117,13 @@ if(!is_array($dataTable))
 
         </td>
         <td>
-          <?php echo \dash\fit::number(@$value['product_count']); ?> <small><?php echo T_("Product"); ?></small>
+          <?php echo \dash\fit::number(\dash\get::index($value, 'product_count')); ?> <small><?php echo T_("Product"); ?></small>
         </td>
         <td>
-          <?php echo \dash\fit::number(@$value['item_count']); ?> <small><?php echo T_("Item"); ?></small>
+          <?php echo \dash\fit::number(\dash\get::index($value, 'item_count')); ?> <small><?php echo T_("Item"); ?></small>
         </td>
-        <td><?php echo \dash\fit::date_human(@$value['date']); ?></td>
-        <td class="collapsing"><a href="<?php echo \dash\url::this(); ?>/view?user=<?php echo @$value['user_id']; ?>"><i class="sf-list"></i> <?php echo T_("Detail"); ?></a></td>
+        <td><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></td>
+        <td class="collapsing"><a href="<?php echo \dash\url::this(); ?>/view?user=<?php echo \dash\get::index($value, 'user_id'); ?>"><i class="sf-list"></i> <?php echo T_("Detail"); ?></a></td>
       </tr>
       <?php } //endif ?>
     </tbody>

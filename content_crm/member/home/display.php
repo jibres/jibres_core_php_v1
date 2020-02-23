@@ -79,7 +79,7 @@ else
 
       <tr>
         <td><?php echo @$value[\dash\request::get('duplicate')]; ?></td>
-        <td><?php echo \dash\fit::number(@$value['count']); ?></td>
+        <td><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?></td>
         <td><a href="<?php echo \dash\url::this(); ?>?find<?php echo \dash\request::get('duplicate'); ?>=<?php echo @$value[\dash\request::get('duplicate')]; ?>&showlog=1" class="badge warn"><?php echo T_("Detail"); ?></a></td>
       </tr>
       <?php } //endfor ?>

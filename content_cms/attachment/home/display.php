@@ -92,28 +92,28 @@ if(!is_array($dataTable))
           <a href="<?php echo $value['path']; ?>" target="_blank">
             <?php if(isset($value['type']) && $value['type'] === 'image') {?>
 
-            <img src="<?php echo @$value['path']; ?>" alt="<?php echo @$value['title']; ?>">
+            <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
 
             <?php }else{ ?>
 
-            <div><span>.<?php echo @$value['ext']; ?></span></div>
+            <div><span>.<?php echo \dash\get::index($value, 'ext'); ?></span></div>
 
             <?php } //endif ?>
 
           </a>
         </td>
         <td>
-            <div class="fileName" title="<?php echo @$value['title']; ?>"><?php echo substr(@$value['title'], 0, 70); ?></div>
+            <div class="fileName" title="<?php echo \dash\get::index($value, 'title'); ?>"><?php echo substr(\dash\get::index($value, 'title'), 0, 70); ?></div>
             <div class="f">
               <div class="c">
-                <a class="badge primary" href="<?php echo @$value['path']; ?>" target="_blank"><?php echo T_("View"); ?></a>
+                <a class="badge primary" href="<?php echo \dash\get::index($value, 'path'); ?>" target="_blank"><?php echo T_("View"); ?></a>
               </div>
 
             </div>
         </td>
-        <td class="s0 m0 ltr txtL collapsing"><i class="sf-file-<?php echo @$value['type']; ?>-o fs16 mR5"></i> <?php echo @$value['mime']; ?></td>
-        <td><?php echo \dash\fit::number(@$value['size']); ?></td>
-        <td class="s0 ltr txtL collapsing"><div><?php echo \dash\fit::date(@$value['datecreated']); ?></div></td>
+        <td class="s0 m0 ltr txtL collapsing"><i class="sf-file-<?php echo \dash\get::index($value, 'type'); ?>-o fs16 mR5"></i> <?php echo \dash\get::index($value, 'mime'); ?></td>
+        <td><?php echo \dash\fit::number(\dash\get::index($value, 'size')); ?></td>
+        <td class="s0 ltr txtL collapsing"><div><?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?></div></td>
       </tr>
       <?php }//endfor ?>
     </tbody>

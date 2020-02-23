@@ -19,7 +19,7 @@
             <?php foreach (\dash\data::currencyList() as $key => $value) {?>
 
 
-                <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_currency() == $key) { echo 'selected';}elseif(\dash\data::dataRow_country() == 'IR' && $key == 'IRT' && !\dash\data::dataRow_currency()) {echo 'selected';} ?> ><?php echo @$value['name']; ?> - <?php echo @$value['symbol_native']; ?></option>
+                <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_currency() == $key) { echo 'selected';}elseif(\dash\data::dataRow_country() == 'IR' && $key == 'IRT' && !\dash\data::dataRow_currency()) {echo 'selected';} ?> ><?php echo \dash\get::index($value, 'name'); ?> - <?php echo \dash\get::index($value, 'symbol_native'); ?></option>
 
               <?php } //endfor ?>
           </select>
@@ -37,7 +37,7 @@
 
             <?php foreach (\dash\data::massList() as $key => $value) {?>
 
-            <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_mass_unit() == $key) { echo 'selected'; } ?> ><?php echo @$value['name']; ?></option>
+            <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_mass_unit() == $key) { echo 'selected'; } ?> ><?php echo \dash\get::index($value, 'name'); ?></option>
 
             <?php } //endfor ?>
 
@@ -54,7 +54,7 @@
             <?php } //endif ?>
 
             <?php foreach (\dash\data::lengthList() as $key => $value) {?>
-            <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_length_unit() == $key) { echo 'selected'; } ?> ><?php echo @$value['name']; ?></option>
+            <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_length_unit() == $key) { echo 'selected'; } ?> ><?php echo \dash\get::index($value, 'name'); ?></option>
             <?php } //endfor ?>
 
           </select>

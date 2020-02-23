@@ -113,20 +113,20 @@ $sortLink = \dash\data::sortLink();
               <a target="_blank" title='<?php echo T_("Parent"); ?> <?php echo \dash\fit::number($pKey + 1); ?>' href="<?php echo \dash\url::kingdom(); ?>/<?php echo $pValue; ?>"><i class="sf-angle-double-up"></i></a>
             <?php }//endfor ?>
           <?php } //endif ?>
-          <a href="<?php echo \dash\url::here(); ?>/posts/edit?id=<?php echo @$value['id']; ?>&type=<?php echo @$value['type']; ?>"><?php echo @$value['title']; ?></a>
+          <a href="<?php echo \dash\url::here(); ?>/posts/edit?id=<?php echo \dash\get::index($value, 'id'); ?>&type=<?php echo \dash\get::index($value, 'type'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a>
         </td>
-        <td class="s0 m0 fs09 ltr txtL pRa10" title="<?php echo @$value['url']; ?>">
+        <td class="s0 m0 fs09 ltr txtL pRa10" title="<?php echo \dash\get::index($value, 'url'); ?>">
 
-          <a href="<?php echo \dash\url::kingdom(); ?>/<?php echo @$value['url']; ?>" target="_blank"><span class="sf-share"></span> <?php echo @$value['slug']; ?></a></td>
+          <a href="<?php echo \dash\url::kingdom(); ?>/<?php echo \dash\get::index($value, 'url'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
         <?php if(!\dash\request::get('type') || \dash\request::get('type') == 'post') {?>
 
 
 
-        <td class="collapsing txtC"><?php if(isset($value['commentcount']) && $value['commentcount']) {?><a href="<?php echo \dash\url::here(); ?>/comments?post_id=<?php echo @$value['id']; ?>"><?php echo \dash\fit::number($value['commentcount']); ?></a><?php }else{ ?><span class="sf-mute">-</span><?php } ?></td>
+        <td class="collapsing txtC"><?php if(isset($value['commentcount']) && $value['commentcount']) {?><a href="<?php echo \dash\url::here(); ?>/comments?post_id=<?php echo \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number($value['commentcount']); ?></a><?php }else{ ?><span class="sf-mute">-</span><?php } ?></td>
         <?php } ?>
 
-        <td class="collapsing" ><?php echo \dash\fit::date_human(@$value['publishdate']); ?></td>
-        <td class="collapsing"><a href="<?php echo \dash\url::here(); ?>/posts?status=<?php echo @$value['status']; ?>&type=<?php echo @$value['type']; ?>"><?php echo T_(@$value['status']); ?></a></td>
+        <td class="collapsing" ><?php echo \dash\fit::date_human(\dash\get::index($value, 'publishdate')); ?></td>
+        <td class="collapsing"><a href="<?php echo \dash\url::here(); ?>/posts?status=<?php echo \dash\get::index($value, 'status'); ?>&type=<?php echo \dash\get::index($value, 'type'); ?>"><?php echo T_(\dash\get::index($value, 'status')); ?></a></td>
       </tr>
       <?php }//endfor ?>
     </tbody>

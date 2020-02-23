@@ -12,7 +12,7 @@
 
             <?php foreach (\dash\data::themeList() as $key => $value) {?>
 
-            <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_theme() === $key) { echo "selected";} ?>><?php echo @$value['name']; ?></option>
+            <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_theme() === $key) { echo "selected";} ?>><?php echo \dash\get::index($value, 'name'); ?></option>
 
             <?php }//endfor ?>
 

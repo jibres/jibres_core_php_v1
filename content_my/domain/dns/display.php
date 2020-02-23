@@ -72,17 +72,17 @@ else
 
 			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive"';} ?>>
 				<td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
-				<td><?php echo @$value['title']; ?> <?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success"><?php echo T_("Default"); ?></span> <?php } //endif ?></td>
-				<td><?php echo \dash\fit::number(@$value['count_useage']); ?></td>
-				<td><?php echo @$value['ip1']; ?> <br> <?php echo @$value['ns1']; ?></td>
-				<td><?php echo @$value['ip2']; ?> <br> <?php echo @$value['ns2']; ?></td>
-				<td><?php echo @$value['ip3']; ?> <br> <?php echo @$value['ns3']; ?></td>
-				<td><?php echo @$value['ip4']; ?> <br> <?php echo @$value['ns4']; ?></td>
+				<td><?php echo \dash\get::index($value, 'title'); ?> <?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success"><?php echo T_("Default"); ?></span> <?php } //endif ?></td>
+				<td><?php echo \dash\fit::number(\dash\get::index($value, 'count_useage')); ?></td>
+				<td><?php echo \dash\get::index($value, 'ip1'); ?> <br> <?php echo \dash\get::index($value, 'ns1'); ?></td>
+				<td><?php echo \dash\get::index($value, 'ip2'); ?> <br> <?php echo \dash\get::index($value, 'ns2'); ?></td>
+				<td><?php echo \dash\get::index($value, 'ip3'); ?> <br> <?php echo \dash\get::index($value, 'ns3'); ?></td>
+				<td><?php echo \dash\get::index($value, 'ip4'); ?> <br> <?php echo \dash\get::index($value, 'ns4'); ?></td>
 
 				<td class="s0">
-					<?php echo \dash\fit::date(@$value['datecreated']); ?>
+					<?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?>
 				</td>
-				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(@$value['id']); ?>" class="btn info2"><?php echo T_("Manage dns"); ?></a></td>
+				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="btn info2"><?php echo T_("Manage dns"); ?></a></td>
 			</tr>
 			<?php } //endfor ?>
 		</tbody>
