@@ -108,6 +108,11 @@ class domain_lock
 
 		\lib\db\nic_log\update::update($update_after_send, $log_id);
 
+		if($update_after_send['result_code'] != '1000')
+		{
+			return false;
+		}
+
 		return $object;
 
 	}
@@ -187,12 +192,12 @@ class domain_lock
 		$update_after_send['result_code'] = \lib\nic\exec\run::result_code($object);
 		$update_after_send['server_id'] = \lib\nic\exec\run::server_id($object);
 
+		\lib\db\nic_log\update::update($update_after_send, $log_id);
+
 		if($update_after_send['result_code'] != '1000')
 		{
 			return false;
 		}
-
-		\lib\db\nic_log\update::update($update_after_send, $log_id);
 
 		return $object;
 

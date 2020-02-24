@@ -29,22 +29,24 @@ class model
 
 		$post =
 		[
-			'domain' => \dash\data::myDomain(),
-			'nic_id' => \dash\request::get('irnicid'),
-			'period' => \dash\request::get('period'),
-			'ns1'    => \dash\request::post('ns1'),
-			'ns2'    => \dash\request::post('ns2'),
-			'ns3'    => \dash\request::post('ns3'),
-			'ns4'    => \dash\request::post('ns4'),
-			'dnsid'  => \dash\request::post('dnsid'),
-			'pay'    => 'auto',
+			'domain'    => \dash\data::myDomain(),
+			'nic_id'    => \dash\request::post('irnicid'),
+			'period'    => \dash\request::post('period'),
+			'irnic_new' => \dash\request::post('irnicid-new'),
+			'ns1'       => \dash\request::post('ns1'),
+			'ns2'       => \dash\request::post('ns2'),
+			// 'ns3'    => \dash\request::post('ns3'),
+			// 'ns4'    => \dash\request::post('ns4'),
+			'dnsid'     => \dash\request::post('dnsid'),
+
 		];
 
-		if(!\dash\request::post('agree'))
-		{
-			\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
-			return false;
-		}
+
+		// if(!\dash\request::post('agree'))
+		// {
+		// 	\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
+		// 	return false;
+		// }
 
 		$result = \lib\app\nic_domain\create::new_domain($post);
 

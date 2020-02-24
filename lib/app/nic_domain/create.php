@@ -14,7 +14,9 @@ class create
 		$ns3    = isset($_args['ns3']) 		? $_args['ns3'] 	: null;
 		$ns4    = isset($_args['ns4']) 		? $_args['ns4'] 	: null;
 		$dnsid  = isset($_args['dnsid']) 	? $_args['dnsid'] 	: null;
-		$pay    = isset($_args['pay']) 		? $_args['pay'] 	: null;
+
+		$irnic_new = isset($_args['irnic_new']) 	? $_args['irnic_new'] 	: null;
+
 
 		if(!$domain)
 		{
@@ -90,27 +92,26 @@ class create
 		}
 
 
-		if(!$pay)
+		if($irnic_new)
 		{
-			\dash\notif::error(T_("Please choose your pay type register domain"));
-			return false;
-		}
-
-		if(!in_array($pay, ['budget', 'gateway', 'auto']))
-		{
-			\dash\notif::error(T_("Please choose a valid pay type!"));
-			return false;
-		}
-
-
-		$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
-		if(!isset($check_nic_id['id']))
-		{
-			$add_quick_contact = \lib\app\nic_contact\add::quick($nic_id);
+			$add_quick_contact = \lib\app\nic_contact\add::quick($irnic_new);
 			if(!$add_quick_contact)
 			{
 				return false;
 			}
+
+			$nic_id = $add_quick_contact;
+		}
+		else
+		{
+			$check_nic_id = \lib\db\nic_contact\get::user_nic_id(\dash\user::id(), $nic_id);
+			if(!isset($check_nic_id['nic_id']))
+			{
+				\dash\notif::error(T_("IRNIC handle not fount in your list"));
+				return false;
+			}
+
+			$nic_id = $check_nic_id['nic_id'];
 		}
 
 
@@ -240,6 +241,7 @@ class create
 		{
 			$update =
 			[
+				'status'       => 'enable',
 				'dateregister' => $result['dateregister'],
 				'dateexpire'   => $result['dateexpire'],
 				'datecreated'  => date("Y-m-d H:i:s"),
@@ -303,6 +305,13 @@ class create
 				\dash\notif::error(T_("No way to insert data"));
 				return false;
 			}
+
+			$update =
+			[
+				'status'       => 'failed',
+			];
+
+			\lib\db\nic_domain\update::update($update, $domain_id);
 
 			\dash\notif::warn(T_("Can not register your domain, Money back to your account"));
 		}

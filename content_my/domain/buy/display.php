@@ -66,7 +66,7 @@ if (\dash\data::myContactList())
      <div data-response='irnicid' data-response-where='something-else' data-response-effect='slide' data-response-hide>
       <label for="irnicid"><?php echo T_("Enter Your new IRNIC Handle"); ?></label>
       <div class="input ltr">
-       <input type="text" name="irnicid" id="irnicid" maxlength="15">
+       <input type="text" name="irnicid-new" id="irnicid" maxlength="15">
       </div>
      </div>
 
@@ -77,7 +77,7 @@ else
 ?>
       <label for="irnicid"><?php echo T_("IRNIC Handle"); ?> <a href="<?php echo \dash\url::this() ?>/irnic/add?type=new" target="_blank" ><?php echo T_("Don't have IRNIC Handle? Create one."); ?></a></label>
       <div class="input ltr">
-       <input type="text" name="irnicid" id="irnicid" maxlength="15">
+       <input type="text" name="irnicid-new" id="irnicid" maxlength="15">
       </div>
 <?php
 }
@@ -110,7 +110,7 @@ else
      <div class="f">
       <div class="c6 s12">
        <label for="ns1"><?php echo T_("DNS #1"); ?></label>
-       <div class="input">
+       <div class="input ltr">
         <input type="text" name="ns1" id="ns1" maxlength="100">
        </div>
       </div>
@@ -118,7 +118,7 @@ else
       <div class="c6 s12">
        <div class="mLa5">
         <label for="ns2"><?php echo T_("DNS #2"); ?></label>
-        <div class="input">
+        <div class="input ltr">
          <input type="text" name="ns2" id="ns2" maxlength="100">
         </div>
        </div>

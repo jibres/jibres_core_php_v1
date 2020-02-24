@@ -18,6 +18,11 @@ class add
 			return false;
 		}
 
+		if(substr($_nic_id, -6) !== '-irnic')
+		{
+			$_nic_id = $_nic_id. '-irnic';
+		}
+
 		$check_duplicate = \lib\db\nic_contact\get::check_duplicate(\dash\user::id(), $_nic_id);
 		if($check_duplicate)
 		{
@@ -31,7 +36,7 @@ class add
 			$result = self::add_account($result[$_nic_id]);
 			if($result)
 			{
-				return true;
+				return $_nic_id;
 			}
 			else
 			{
