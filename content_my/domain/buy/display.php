@@ -92,7 +92,7 @@ else
 
        <div class="c12 s12 pB5 pRa5">
         <div class="radio3">
-       <input type="radio" name="dnsid" value="<?php echo \dash\get::index($value, 'id'); ?>" id="dns-<?php echo $key; ?>">
+       <input type="radio" name="dnsid" value="<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" id="dns-<?php echo $key; ?>">
        <label for="dns-<?php echo $key; ?>"><?php echo \dash\get::index($value, 'ns1') . ' - '. \dash\get::index($value, 'ns2'); ?></label>
         </div>
        </div>
