@@ -1,5 +1,4 @@
 <div class="cbox">
-			<h3><?php echo T_("New DNS record"); ?></h3>
 			<form method="post" autocomplete="off">
 				<label for="title"><?php echo T_("Title"); ?></label>
 				<div class="input">

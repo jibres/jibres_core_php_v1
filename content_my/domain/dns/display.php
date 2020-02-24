@@ -114,10 +114,8 @@ else
 
 <?php function htmlStartAddNew() {?>
 
-<div class="fs14 msg info2 pTB20">
-  <p><?php echo T_("Hi!"); ?></p>
-  <p><a href="<?php echo \dash\url::current(); ?>/add"><?php echo T_("Try to start with add new dns!"); ?></a></p>
-
+<div class="fs14 msg info2 mT20">
+  <a href="<?php echo \dash\url::current(); ?>/add"><?php echo T_("Add your DNS to list, then you can register domain faster and safer!"); ?></a>
 </div>
 
 
