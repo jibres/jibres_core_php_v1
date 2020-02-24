@@ -158,26 +158,16 @@ else
 
 
 
+ <p class="fc-mute"><?php
+  echo T_("By clicking Register, you are indicating that you have read the :nic and agree to the :terms.",
+    [
+      'nic' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms/irnic">'. T_('IRNIC agreement') .'</a>',
+      'terms' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms">'. T_('Jibres Terms of Service') .'</a>'
+    ])
+?></p>
 
-
-    <div class="check1">
-      <input type="checkbox" name="agree" id="agree">
-      <label for="agree"><?php echo T_("I have read and agree to the terms and conditions"); ?> <small><a target="_blank" href="https://www.nic.ir/Domain_Register_Policy.html"><?php echo T_("Show terms"); ?></a></small></label>
-    </div>
-
-
-    <div class="f mT20">
-     <div class="cauto">
-
-      <a href="<?php echo \dash\url::that() ?>" class="btn secondary"><?php echo T_("Cancel"); ?></a>
-     </div>
-
-     <div class="c"></div>
-
-     <div class="cauto">
-      <button class="btn success"><?php echo T_("Continue"); ?></button>
-
-     </div>
+    <div class="txtRa mT10">
+     <button class="btn success"><?php echo T_("Register Domain"); ?></button>
     </div>
 
    </form>
