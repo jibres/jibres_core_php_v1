@@ -2,7 +2,7 @@
 			<form method="post" autocomplete="off">
 				<label for="title"><?php echo T_("Title"); ?></label>
 				<div class="input">
-					<input type="text" name="title" id="title" value="<?php echo \dash\data::dataRow_title(); ?>" maxlength="100">
+					<input type="text" name="title" id="title" value="<?php echo \dash\data::dataRow_title(); ?>" maxlength="99">
 				</div>
 
 
