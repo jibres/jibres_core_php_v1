@@ -21,9 +21,9 @@
 
 			<?php }//endif ?>
 
-			<label for="irnicid"><?php echo T_("IRNIC contact admin"); ?> <small><a target="_blank" href="<?php echo \dash\url::this(); ?>/contact/add?type=new"><?php echo T_("Create new IRNIC contact"); ?></a></small></label>
+			<label for="irnicid"><?php echo T_("IRNIC Handle admin"); ?> <small><a target="_blank" href="<?php echo \dash\url::this(); ?>/contact/add?type=new"><?php echo T_("Create new IRNIC Handle"); ?></a></small></label>
 			<select name="irnicid" class="select ui dropdown search addition" id="irnicid">
-			<option value=""><?php echo T_("IRNIC contact id"); ?></option>
+			<option value=""><?php echo T_("IRNIC Handle id"); ?></option>
 
 			<?php foreach (\dash\data::myContactList() as $key => $value) {?>
 
