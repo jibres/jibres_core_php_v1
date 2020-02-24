@@ -23,7 +23,7 @@ class setting
 
     public static function get_callbck_url($_payment)
     {
-        $callback_url =  \dash\url::base();
+        $callback_url =  \dash\url::kingdom();
 
         if($_payment === 'redirect_page')
         {
