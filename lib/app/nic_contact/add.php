@@ -314,7 +314,7 @@ class add
 			return false;
 		}
 
-		if(!preg_match("/^[a-zA-Z0-9\s]+$/", $address))
+		if(!preg_match("/^[a-zA-Z0-9\s\,\-]+$/", $address))
 		{
 			\dash\notif::error(T_("Please set your address in latin characters"), 'address');
 			return false;
