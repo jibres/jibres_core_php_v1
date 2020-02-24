@@ -19,7 +19,7 @@
    <?php if(\dash\data::checkResult_available()) {?>
 
     <form method="get" autocomplete="off" action="<?php echo \dash\url::current(); ?>">
-    <label><?php echo T_("Choose register time based on price!"); ?></label>
+    <label><?php echo T_("Choose register time"); ?></label>
     <div class="f">
       <div class="c pB10 pRa5">
        <div class="radio3">
@@ -35,12 +35,14 @@
       </div>
     </div>
 
-    <label for="irnicid"><?php echo T_("IRNIC Handle"); ?></label>
 
-    <div class="f">
 <?php
 if (\dash\data::myContactList())
 {
+?>
+    <label for="irnicid"><?php echo T_("IRNIC Handle"); ?></label>
+    <div class="f">
+<?php
  foreach (\dash\data::myContactList() as $key => $value)
  {
 ?>
@@ -52,29 +54,35 @@ if (\dash\data::myContactList())
        </div>
 <?php
  }
+?>
+      <div class="c6 s12 pB5 pRa5">
+        <div class="radio3">
+        <input type="radio" name="irnicid" value="something-else" id="ir-something-else">
+        <label for="ir-something-else"><?php echo T_("Something else") ?></label>
+        </div>
+      </div>
+     <div data-response='irnicid' data-response-where='something-else' data-response-hide>
+      <label for="irnicid"><?php echo T_("IRNIC id"); ?> <small><a href="<?php echo \dash\url::this() ?>/irnic/add?type=new" target="_blank" ><?php echo T_("Create new contact"); ?></a></small></label>
+      <div class="input">
+       <input type="text" name="irnicid" id="irnicid" maxlength="100">
+      </div>
+     </div>
+
+    </div>
+<?php
 }
 else
 {
 ?>
-    <a target="_blank" href="<?php echo \dash\url::this(); ?>/irnic/add?type=new"><?php echo T_("Create new IRNIC Handle"); ?></a>
+      <label for="irnicid"><?php echo T_("IRNIC Handle"); ?> <a href="<?php echo \dash\url::this() ?>/irnic/add?type=new" target="_blank" ><?php echo T_("Don't have IRNIC Handle? Create one."); ?></a></label>
+      <div class="input">
+       <input type="text" name="irnicid" id="irnicid" maxlength="100">
+      </div>
 <?php
 }
 ?>
 
-     <div class="c6 s12 pB5 pRa5">
-        <div class="radio3">
-       <input type="radio" name="irnicid" value="something-else" id="ir-something-else">
-       <label for="ir-something-else"><?php echo T_("Something else") ?></label>
-        </div>
-       </div>
-    </div>
 
-    <div data-response='irnicid' data-response-where='something-else' data-response-hide>
-     <label for="irnicid"><?php echo T_("IRNIC id"); ?> <small><a href="<?php echo \dash\url::this() ?>/irnic/add?type=new" target="_blank" ><?php echo T_("Create new contact"); ?></a></small></label>
-     <div class="input">
-      <input type="text" name="irnicid" id="irnicid" maxlength="100">
-     </div>
-    </div>
 
 
 
