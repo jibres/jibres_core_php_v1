@@ -215,13 +215,13 @@ class add
 			return false;
 		}
 
-		if(!preg_match("/^[a-zA-Z\s]+$/", $firstname))
+		if(!preg_match("/^[a-zA-Z0-9\s]+$/", $firstname))
 		{
 			\dash\notif::error(T_("Please set your firstname in latin characters"), 'firstname');
 			return false;
 		}
 
-		if(!preg_match("/^[a-zA-Z\s]+$/", $lastname))
+		if(!preg_match("/^[a-zA-Z0-9\s]+$/", $lastname))
 		{
 			\dash\notif::error(T_("Please set your lastname in latin characters"), 'lastname');
 			return false;
@@ -245,11 +245,12 @@ class add
 			return false;
 		}
 
-		if($province && !\dash\utility\location\provinces::check($province))
+		if(!preg_match("/^[a-zA-Z0-9\s]+$/", $province))
 		{
-			\dash\notif::error(T_("Invalid province"), 'province');
+			\dash\notif::error(T_("Please set your province in latin characters"), 'province');
 			return false;
 		}
+
 
 		if($city && mb_strlen($city) > 100)
 		{
@@ -258,48 +259,34 @@ class add
 		}
 
 
-		if($country === 'IR' && !$province)
+		if(!$province)
 		{
 			\dash\notif::error(T_("Please choose your province"), 'province');
 			return false;
 		}
 
-		if($country === 'IR' && !$city)
+		if(!$city)
 		{
 			\dash\notif::error(T_("Please choose your city"), 'city');
 			return false;
 		}
 
-		$province = \dash\utility\location\provinces::get_name($province);
-		$city = \dash\utility\location\cites::get_name($city);
-
-		if($country === 'IR')
+		if(!preg_match("/^[a-zA-Z0-9\s]+$/", $city))
 		{
-			if(!$nationalcode)
-			{
-				\dash\notif::error(T_("Please set your nationalcode"), 'nationalcode');
-				return false;
-			}
-
-			if(!\dash\utility\filter::nationalcode($nationalcode))
-			{
-				\dash\notif::error(T_("Invalid nationalcode"), 'nationalcode');
-				return false;
-			}
+			\dash\notif::error(T_("Please set your city in latin characters"), 'city');
+			return false;
 		}
-		else
-		{
-			if(!$nationalcode)
-			{
-				\dash\notif::error(T_("Please set your passportcode"), 'nationalcode');
-				return false;
-			}
 
-			if(!preg_match("/^[a-zA-Z0-9]+$/", $nationalcode))
-			{
-				\dash\notif::error(T_("Invalid passportcode"), 'passportcode');
-				return false;
-			}
+		if(!$nationalcode)
+		{
+			\dash\notif::error(T_("Please set your nationalcode"), 'nationalcode');
+			return false;
+		}
+
+		if(!\dash\utility\filter::nationalcode($nationalcode))
+		{
+			\dash\notif::error(T_("Invalid nationalcode"), 'nationalcode');
+			return false;
 		}
 
 		if(!$postcode)
@@ -327,7 +314,7 @@ class add
 			return false;
 		}
 
-		if(!preg_match("/^[a-zA-Z\s]+$/", $address))
+		if(!preg_match("/^[a-zA-Z0-9\s]+$/", $address))
 		{
 			\dash\notif::error(T_("Please set your address in latin characters"), 'address');
 			return false;
@@ -385,7 +372,7 @@ class add
 				'firstname_en' => $firstname,
 				'lastname_en'  => $lastname,
 				'nationalcode' => $nationalcode,
-				'passportcode' => $country === 'IR' ? $nationalcode : null,
+				'passportcode' => $nationalcode,
 				'company'      => null,
 				'category'     => null,
 				'email'        => $email,
