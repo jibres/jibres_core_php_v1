@@ -19,6 +19,7 @@ class controller
 
 		$domain = \dash\url::subchild();
 		$domain = urldecode($domain);
+		$domain = mb_strtolower($domain);
 		if($domain)
 		{
 			if(\lib\app\nic_domain\check::syntax($domain))
@@ -35,6 +36,8 @@ class controller
 		else
 		{
 			$q = \dash\request::get('q');
+			$q = urldecode($q);
+			$q = mb_strtolower($q);
 
 			$info = \lib\app\nic_domain\check::multi_check($q);
 
