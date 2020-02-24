@@ -61,6 +61,7 @@ if (\dash\data::myContactList())
         <label for="ir-something-else"><?php echo T_("Another IRNIC Handle") ?></label>
         </div>
       </div>
+    </div>
      <div data-response='irnicid' data-response-where='something-else' data-response-effect='slide' data-response-hide>
       <label for="irnicid"><?php echo T_("New IRNIC Handle"); ?></label>
       <div class="input ltr">
@@ -68,7 +69,6 @@ if (\dash\data::myContactList())
       </div>
      </div>
 
-    </div>
 <?php
 }
 else
@@ -84,25 +84,27 @@ else
 
 
 
+<?php if(\dash\data::myDNSList() && is_array(\dash\data::myDNSList())) {?>
+    <label><?php echo T_("DNS record"); ?></label>
+    <div class="f">
+<?php foreach (\dash\data::myDNSList() as $key => $value) {?>
 
+       <div class="c6 s12 pB5 pRa5">
+        <div class="radio3">
+       <input type="radio" name="dnsid" value="<?php echo \dash\get::index($value, 'id'); ?>" id="dns-<?php echo $key; ?>">
+       <label for="dns-<?php echo $key; ?>"><?php echo \dash\get::index($value, 'ns1') . ' - '. \dash\get::index($value, 'ns2'); ?></label>
+        </div>
+       </div>
 
-
-     <?php if(\dash\data::myDNSList() && is_array(\dash\data::myDNSList())) {?>
-     <label for="dnsid"><?php echo T_("DNS records"); ?> <small><a data-kerkere='.addNewDns' ><?php echo T_("Create new DNS"); ?></a></small></label>
-     <select name="dnsid" class="select ui dropdown search addition" id="dnsid">
-     <option value=""><?php echo T_("DNS record"); ?></option>
-     <?php foreach (\dash\data::myDNSList() as $key => $value) {?>
-
-
-       <option value="<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" <?php if(isset($value['isdefault']) && $value['isdefault']) { echo "selected"; } ?>><?php echo implode(' - ', [\dash\get::index($value, 'title'), \dash\get::index($value, 'ns1'), \dash\get::index($value, 'ns2')]); ?></option>
-
-     <?php } //endfor ?>
-     </select>
-    <?php } //endif ?>
-
-
-
-    <div class='addNewDns' <?php if(\dash\data::myDNSList() && is_array(\dash\data::myDNSList())) {?> data-kerkere-content='hide' <?php } //endif ?>>
+<?php } //endfor ?>
+      <div class="c6 s12 pB5 pRa5">
+        <div class="radio3">
+        <input type="radio" name="dnsid" value="something-else" id="dns-something-else">
+        <label for="dns-something-else"><?php echo T_("Another DNS") ?></label>
+        </div>
+      </div>
+    </div>
+     <div data-response='dnsid' data-response-where='something-else' data-response-effect='slide' data-response-hide>
 
      <div class="f">
       <div class="c6 s12">
@@ -120,27 +122,41 @@ else
         </div>
        </div>
       </div>
+    </div>
 
-
-      <div class="c6 s12">
-       <label for="ns3"><?php echo T_("DNS #3"); ?></label>
-       <div class="input">
-        <input type="text" name="ns3" id="ns3" maxlength="100">
-       </div>
-      </div>
-
-      <div class="c6 s12">
-       <div class="mLa5">
-        <label for="ns4"><?php echo T_("DNS #4"); ?></label>
-        <div class="input">
-         <input type="text" name="ns4" id="ns4" maxlength="100">
-        </div>
-       </div>
-      </div>
 
      </div>
 
+
+
+<?php }else{ ?>
+
+
+  <label for="dnsid"><?php echo T_("New DNS record"); ?></label>
+  <div class="f">
+    <div class="c6 s12">
+     <label for="ns1"><?php echo T_("DNS #1"); ?></label>
+     <div class="input">
+      <input type="text" name="ns1" id="ns1" maxlength="100">
+     </div>
     </div>
+
+    <div class="c6 s12">
+     <div class="mLa5">
+      <label for="ns2"><?php echo T_("DNS #2"); ?></label>
+      <div class="input">
+       <input type="text" name="ns2" id="ns2" maxlength="100">
+      </div>
+     </div>
+    </div>
+  </div>
+
+
+
+<?php } //endif ?>
+
+
+
 
 
 
