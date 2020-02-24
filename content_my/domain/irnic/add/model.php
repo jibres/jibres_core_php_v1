@@ -16,11 +16,11 @@ class model
 		}
 		else
 		{
-			if(!\dash\request::post('agree'))
-			{
-				\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
-				return false;
-			}
+			// if(!\dash\request::post('agree'))
+			// {
+			// 	\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
+			// 	return false;
+			// }
 
 			$post =
 			[
