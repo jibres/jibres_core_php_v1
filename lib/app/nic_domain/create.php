@@ -113,12 +113,70 @@ class create
 			}
 		}
 
-		// user try to register new domain
-		\dash\session::set('register_domain_result', null);
 
+		$check_duplicate_domain = \lib\db\nic_domain\get::domain_user($domain, \dash\user::id());
+		if(isset($check_duplicate_domain['id']))
+		{
+			if(isset($check_duplicate_domain['status']))
+			{
+				switch ($check_duplicate_domain['status'])
+				{
+					case 'enable':
+					case 'disable':
+					case 'deleted':
+					case 'expire':
+						\dash\notif::error(T_("This domain is already in your list"));
+						return false;
+						break;
+
+					case 'failed':
+					case 'pending':
+					case 'awiting':
+					default:
+						$domain_id = $check_duplicate_domain['id'];
+						break;
+				}
+			}
+			else
+			{
+				$domain_id = $check_duplicate_domain['id'];
+			}
+		}
+		else
+		{
+			$insert =
+			[
+				'user_id'      => \dash\user::id(),
+				'name'         => $domain,
+				'registrar'    => 'irnic',
+				'status'       => 'awaiting',
+				'holder'       => $nic_id,
+				'admin'        => $nic_id,
+				'tech'         => $nic_id,
+				'bill'         => $nic_id,
+				'autorenew'    => null,
+				'lock'         => 1,
+				'dns'          => $dnsid,
+				'dateregister' => null,
+				'dateexpire'   => null,
+				'datecreated'  => date("Y-m-d H:i:s"),
+			];
+
+			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
+
+			if(!$domain_id)
+			{
+				// must be roolback money
+				\dash\notif::error(T_("Error! Can not create your domain data"));
+				return false;
+			}
+		}
+
+
+		$domain_code = \dash\coding::encode($domain_id);
+		\dash\temp::set('domain_code_url', $domain_code);
 
 		$user_budget = \dash\user::budget();
-
 
 		if($user_budget >= $price)
 		{
@@ -139,7 +197,6 @@ class create
 			}
 
 			// insert price domain log table
-
 		}
 		else
 		{
@@ -150,7 +207,7 @@ class create
 			[
 				'msg_go'        => null,
 				'auto_go'       => false,
-				'turn_back'     => \dash\url::kingdom(). '/my/domain/result',
+				'turn_back'     => \dash\url::kingdom(). '/my/domain/result?id='. $domain_code,
 				'user_id'       => \dash\user::id(),
 				'amount'        => abs($price),
 				'final_fn'      => ['/lib/app/nic_domain/create', 'new_domain'],
@@ -174,41 +231,21 @@ class create
 			'ns2'    => $ns2,
 		];
 
-		$result = \lib\nic\exec\domain_create::create($ready);
-
+		// need to show result page
 		\dash\temp::set('need_show_domain_result', true);
+
+		$result = \lib\nic\exec\domain_create::create($ready);
 
 		if(isset($result['name']))
 		{
-			$insert =
+			$update =
 			[
-				'user_id'      => \dash\user::id(),
-				'name'         => $domain,
-				'registrar'    => 'irnic',
-				'status'       => 'enable',
-				'holder'       => $nic_id,
-				'admin'        => $nic_id,
-				'tech'         => $nic_id,
-				'bill'         => $nic_id,
-				'autorenew'    => null,
-				'lock'         => 1,
-				'dns'          => $dnsid,
 				'dateregister' => $result['dateregister'],
 				'dateexpire'   => $result['dateexpire'],
 				'datecreated'  => date("Y-m-d H:i:s"),
 			];
 
-			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
-			if(!$domain_id)
-			{
-				// must be roolback money
-				\dash\notif::error(T_("Error! Can not create your domain data"));
-				self::save_result_session();
-				return false;
-			}
-
-			$insert['id'] = $domain_id;
-			\dash\notif::result($insert);
+			\lib\db\nic_domain\update::update($update, $domain_id);
 
 			$insert_action =
 			[
@@ -242,7 +279,7 @@ class create
 			$domain_billing_id = \lib\db\nic_domain_billing\insert::new_record($insert_billing);
 
 			\dash\notif::ok(T_("Your domain was registred"));
-			self::save_result_session();
+
 
 			return true;
 
@@ -264,21 +301,13 @@ class create
 			if(!$transaction_id)
 			{
 				\dash\notif::error(T_("No way to insert data"));
-				self::save_result_session();
 				return false;
 			}
 
 			\dash\notif::warn(T_("Can not register your domain, Money back to your account"));
-			self::save_result_session();
 		}
 
 	}
 
-
-
-	private static function save_result_session()
-	{
-		\dash\session::set('register_domain_result', \dash\notif::get());
-	}
 }
 ?>

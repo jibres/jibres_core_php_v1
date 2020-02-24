@@ -6,13 +6,16 @@ class controller
 {
 	public static function routing()
 	{
-		$dataResult = \dash\session::get('register_domain_result');
-		if(!$dataResult)
+		$id = \dash\request::get('id');
+		$id = \dash\coding::decode($id);
+		$detail = \lib\app\nic_domain\get::by_id($id);
+
+		if(!$detail)
 		{
 			\dash\redirect::to(\dash\url::this());
 		}
 
-		\dash\data::dataResult($dataResult);
+		\dash\data::dataRow($detail);
 	}
 }
 ?>
