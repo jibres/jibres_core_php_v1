@@ -45,13 +45,9 @@
       <label for='country'><?php echo T_("Country"); ?></label>
       <select class="select22" name="country" id="country" data-model='country'>
         <option value=""><?php echo T_("Choose your country"); ?></option>
-
         <?php foreach (\dash\data::countryList() as $key => $value) {?>
-
           <option value="<?php echo $key; ?>" > <?php echo \dash\get::index($value, 'name'); if(\dash\language::current() !== 'en') { echo ' - '. T_(ucfirst(\dash\get::index($value, 'name'))); } ?></option>
-
      <?php } //endif ?>
-
       </select>
     </div>
 
@@ -104,8 +100,8 @@
     <p class="fc-mute"><?php
   echo T_("By clicking Create IRNIC Handle, you are indicating that you have read the :nic and agree to the :terms.",
     [
-      'nic' => '<a rel="nofollow" target="_blank href="'. \dash\url::kingdom(). '/terms/irnic"">'. T_('IRNIC agreement') .'</a>',
-      'terms' => '<a rel="nofollow" target="_blank href="'. \dash\url::kingdom(). '/terms"">'. T_('Jibres Terms of Service') .'</a>'
+      'nic' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms/irnic">'. T_('IRNIC agreement') .'</a>',
+      'terms' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms">'. T_('Jibres Terms of Service') .'</a>'
     ])
 ?></p>
 
