@@ -101,7 +101,13 @@
      </div>
     </div>
 
-    <p class="fc-mute"><?php echo T_("By clicking Create IRNIC Handle, you are indicating that you have read the :nic and agree to the :terms.", ['nic' => '<a href="'. \dash\url::kingdom(). '/terms/irnic" target="_blank">'. T_('IRNIC agreement') .'</a>', 'terms' => '<a href="'. \dash\url::kingdom(). '/terms" target="_blank">'. T_('Jibres Terms of Service') .'</a>']) ?></p>
+    <p class="fc-mute"><?php
+  echo T_("By clicking Create IRNIC Handle, you are indicating that you have read the :nic and agree to the :terms.",
+    [
+      'nic' => '<a href="'. \dash\url::kingdom(). '/terms/irnic" target="_blank">'. T_('IRNIC agreement') .'</a>',
+      'terms' => '<a href="'. \dash\url::kingdom(). '/terms" target="_blank">'. T_('Jibres Terms of Service') .'</a>'
+    ])
+?></p>
 
 
     <div class="txtRa">
