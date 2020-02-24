@@ -41,11 +41,15 @@ class model
 
 		$post =
 		[
-			'ns1' => \dash\request::post('ns1'),
-			'ns2' => \dash\request::post('ns2'),
+			'holder' => \dash\request::post('holder'),
+			'admin' => \dash\request::post('admin'),
+			'tech'  => \dash\request::post('tech'),
+			'bill'  => \dash\request::post('bill'),
+			'ns1'   => \dash\request::post('ns1'),
+			'ns2'   => \dash\request::post('ns2'),
 		];
 
-		$result = \lib\app\nic_domain\edit::dns($post, \dash\data::domainDetail_id());
+		$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id());
 
 		if(\dash\engine\process::status())
 		{

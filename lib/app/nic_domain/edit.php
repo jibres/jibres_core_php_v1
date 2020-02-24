@@ -4,7 +4,7 @@ namespace lib\app\nic_domain;
 
 class edit
 {
-	public static function dns($_args, $_id)
+	public static function domain($_args, $_id)
 	{
 		$load_domain = \lib\app\nic_domain\get::by_id($_id);
 		if(!$load_domain || !isset($load_domain['id']))
@@ -24,6 +24,11 @@ class edit
 		$ns4   = isset($_args['ns4']) 	? $_args['ns4']		: null;
 		$ip4   = isset($_args['ip4']) 	? $_args['ip4']		: null;
 
+
+		$holder = isset($_args['holder']) 	? $_args['holder']		: null;
+		$admin  = isset($_args['admin']) 	? $_args['admin']		: null;
+		$tech   = isset($_args['tech']) 	? $_args['tech']		: null;
+		$bill   = isset($_args['bill']) 	? $_args['bill']		: null;
 
 		$ns1 = \lib\app\nic_dns\add::validate_ns($ns1, 'ns1');
 		$ns2 = \lib\app\nic_dns\add::validate_ns($ns2, 'ns2');
@@ -46,20 +51,53 @@ class edit
 			return false;
 		}
 
+		$args = [];
+		$update_domian_record = [];
+
 		if(isset($load_domain['ns1']) && $load_domain['ns1'] == $ns1 && isset($load_domain['ns2']) && $load_domain['ns2'] == $ns2)
 		{
-			\dash\notif::info(T_("No change in your dns record"));
+			// no chaange in dns record
+		}
+		else
+		{
+			$args['old_ns1'] = $load_domain['ns1'];
+			$args['old_ns2'] = $load_domain['ns2'];
+			$args['new_ns1'] = $ns1;
+			$args['new_ns2'] = $ns2;
+		}
+
+		if(isset($load_domain['holder']) && $load_domain['holder'] != $holder)
+		{
+			$args['holder']                 = $holder;
+			$update_domian_record['holder'] = $holder;
+		}
+
+		if(isset($load_domain['admin']) && $load_domain['admin'] != $admin)
+		{
+			$args['admin']                 = $admin;
+			$update_domian_record['admin'] = $admin;
+		}
+
+		if(isset($load_domain['tech']) && $load_domain['tech'] != $tech)
+		{
+			$args['tech']                 = $tech;
+			$update_domian_record['tech'] = $tech;
+
+		}
+
+		if(isset($load_domain['bill']) && $load_domain['bill'] != $bill)
+		{
+			$args['bill']                 = $bill;
+			$update_domian_record['bill'] = $bill;
+		}
+
+		if(empty($args))
+		{
+			\dash\notif::info(T_("No change in domain"));
 			return true;
 		}
 
-		$args =
-		[
-			'domain'  => $load_domain['name'],
-			'old_ns1' => $load_domain['ns1'],
-			'old_ns2' => $load_domain['ns2'],
-			'new_ns1' => $ns1,
-			'new_ns2' => $ns2,
-		];
+		$args['domain']  = $load_domain['name'];
 
 		$update_domian = \lib\nic\exec\domain_update::update($args);
 		if(!$update_domian)
@@ -68,20 +106,29 @@ class edit
 			return false;
 		}
 
-		$dns_id = \lib\app\nic_dns\add::quick($ns1, $ns2);
-		if(!$dns_id)
+		if($ns1 && $ns2)
 		{
-			return false;
+			$dns_id = \lib\app\nic_dns\add::quick($ns1, $ns2);
+			if(!$dns_id)
+			{
+				return false;
+			}
+
+			$update_domian_record['dns'] = $dns_id;
 		}
 
-		$update_domian_record =
-		[
-			'dns' => $dns_id,
-		];
+		if(!empty($update_domian_record))
+		{
+			\lib\db\nic_domain\update::update($update_domian_record, $_id);
+			\dash\notif::ok(T_("Domain detail updated"));
+			return true;
+		}
+		else
+		{
+			\dash\notif::wan(T_("No change in you domain detail"));
+			return true;
+		}
 
-		\lib\db\nic_domain\update::update($update_domian_record, $_id);
-		\dash\notif::ok(T_("Domain detail updated"));
-		return true;
 
 
 	}

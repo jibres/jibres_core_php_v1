@@ -48,18 +48,71 @@ class domain_update
 			return false;
 		}
 
+		if(isset($_args['new_ns1']) && $_args['new_ns1'])
+		{
 
-		$xml = str_replace('NEW-NS1.JIBRES.TLD', $_args['new_ns1'], $xml);
-		$xml = str_replace('NEW-NS2.JIBRES.TLD', $_args['new_ns2'], $xml);
+			$change_dns_xml =
+			'<domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>
+			<domain:add>
+		     <domain:ns>
+		      <domain:hostAttr>
+		       <domain:hostName>NEW-NS1.JIBRES.TLD</domain:hostName>
+		      </domain:hostAttr>
+		      <domain:hostAttr>
+		       <domain:hostName>NEW-NS2.JIBRES.TLD</domain:hostName>
+		      </domain:hostAttr>
+		     </domain:ns>
+		    </domain:add>
+		    <domain:rem>
+		     <domain:ns>
+		      <domain:hostAttr>
+		       <domain:hostName>OLD-NS1.JIBRES.TLD</domain:hostName>
+		      </domain:hostAttr>
+		      <domain:hostAttr>
+		       <domain:hostName>OLD-NS2.JIBRES.TLD</domain:hostName>
+		      </domain:hostAttr>
+		     </domain:ns>
+		    </domain:rem>';
+
+			$xml = str_replace('<domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>', $change_dns_xml, $xml);
+
+			$xml = str_replace('NEW-NS1.JIBRES.TLD', $_args['new_ns1'], $xml);
+			$xml = str_replace('NEW-NS2.JIBRES.TLD', $_args['new_ns2'], $xml);
 
 
-		$xml = str_replace('OLD-NS1.JIBRES.TLD', $_args['old_ns1'], $xml);
-		$xml = str_replace('OLD-NS2.JIBRES.TLD', $_args['old_ns2'], $xml);
+			$xml = str_replace('OLD-NS1.JIBRES.TLD', $_args['old_ns1'], $xml);
+			$xml = str_replace('OLD-NS2.JIBRES.TLD', $_args['old_ns2'], $xml);
+		}
 
-		// HOLDER-JIBRES-NIC-ACCOUNT
-		// ADMIN-JIBRES-NIC-ACCOUNT
-		// TECH-JIBRES-NIC-ACCOUNT
-		// BILL-JIBRES-NIC-ACCOUNT
+		if(isset($_args['holder']) || isset($_args['bill']) || isset($_args['tech']) || isset($_args['admin']))
+		{
+			$temp_xml = '<domain:chg>';
+
+			if(isset($_args['holder']))
+			{
+				$temp_xml .= '<domain:contact type="holder">'. $_args['holder'].'</domain:contact>';
+			}
+
+			if(isset($_args['admin']))
+			{
+				$temp_xml .= '<domain:contact type="admin">'. $_args['admin'].'</domain:contact>';
+			}
+
+			if(isset($_args['tech']))
+			{
+				$temp_xml .= '<domain:contact type="tech">'. $_args['tech'].'</domain:contact>';
+			}
+
+			if(isset($_args['bill']))
+			{
+				$temp_xml .= '<domain:contact type="bill">'. $_args['bill'].'</domain:contact>';
+			}
+
+    		$temp_xml.= '</domain:chg><domain:authInfo>';
+
+			$xml = str_replace('<domain:authInfo>', $temp_xml, $xml);
+		}
+
 
 		$xml = str_replace('JIBRES-SAMPLE-DOMAIN.IR', $_args['domain'], $xml);
 		$xml = str_replace('JIBRES-TOKEN', \lib\nic\exec\run::token(), $xml);

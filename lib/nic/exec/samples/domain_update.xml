@@ -4,26 +4,6 @@
   <update>
    <domain:update xmlns:domain="http://epp.nic.ir/ns/domain-1.0">
     <domain:name>JIBRES-SAMPLE-DOMAIN.IR</domain:name>
-    <domain:add>
-     <domain:ns>
-      <domain:hostAttr>
-       <domain:hostName>NEW-NS1.JIBRES.TLD</domain:hostName>
-      </domain:hostAttr>
-      <domain:hostAttr>
-       <domain:hostName>NEW-NS2.JIBRES.TLD</domain:hostName>
-      </domain:hostAttr>
-     </domain:ns>
-    </domain:add>
-    <domain:rem>
-     <domain:ns>
-      <domain:hostAttr>
-       <domain:hostName>OLD-NS1.JIBRES.TLD</domain:hostName>
-      </domain:hostAttr>
-      <domain:hostAttr>
-       <domain:hostName>OLD-NS2.JIBRES.TLD</domain:hostName>
-      </domain:hostAttr>
-     </domain:ns>
-    </domain:rem>
     <domain:authInfo>
      <domain:pw>JIBRES-TOKEN</domain:pw>
     </domain:authInfo>
