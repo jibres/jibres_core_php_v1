@@ -1,5 +1,5 @@
 <?php
-namespace content\domains\irnic;
+namespace content\terms\irnic;
 
 
 class view

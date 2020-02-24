@@ -101,10 +101,7 @@
      </div>
     </div>
 
-    <div class="check1 mB10">
-     <input type="checkbox" name="agree" id="agree">
-     <label for="agree"><?php echo T_("I have read and agree to the terms and conditions"); ?> <small><a target="_blank" rel="nofollow" href="https://www.nic.ir/Domain_Register_Policy.html"><?php echo T_("Show terms"); ?></a></small></label>
-    </div>
+    <p class="fc-mute"><?php echo T_("By clicking Create IRNIC Handle, you are indicating that you have read the :nic and agree to the :terms.", ['nic' => '<a href="'. \dash\url::kingdom(). '/terms/irnic" target="_blank">'. T_('IRNIC agreement') .'</a>', 'terms' => '<a href="'. \dash\url::kingdom(). '/terms" target="_blank">'. T_('Jibres Terms of Service') .'</a>']) ?></p>
 
 
     <div class="txtRa">
