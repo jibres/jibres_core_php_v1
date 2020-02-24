@@ -7,7 +7,7 @@
 
 			<form method="post" autocomplete="off">
 
-				<div class="msg txtL txtB"><?php echo \dash\data::dataRow_nic_id(); ?></div>
+				<div class="msg minimal info2 txtC txtB fs16 mB10 "><?php echo \dash\data::dataRow_nic_id(); ?></div>
 				<label for="ititle"><?php echo T_("Title"); ?></label>
 				<div class="input">
 					<input type="text" name="title" id="ititle" value="<?php echo \dash\data::dataRow_title(); ?>" maxlength="50">
@@ -20,25 +20,25 @@
 	              <label for="isdefault"><?php echo T_("Is default?"); ?></label>
 	            </div>
 
-				<div class="txtRa">
-					<button class="btn info"><?php echo T_("Edit"); ?></button>
-				</div>
+	            <div class="f align-center mT50">
+	            	<div class="c pRa10"><div data-confirm data-data='{"myaction": "remove"}' class="btn outline danger"><?php echo T_("Remove"); ?></div></div>
+	            	<div class="cauto os"><button class="btn info"><?php echo T_("Edit"); ?></button></div>
+	            </div>
+
 			</form>
+
 
 		</div>
 
 
 
-
-
+<?php if (\dash\permission::supervisor() && false) { ?>
 		<div class="cbox">
-
 			<form method="post" autocomplete="off">
 				<input type="hidden" name="check" value="again">
 
 				<?php if(\dash\data::dataRow_firstname_en()) { echo '<h4>'. T_("Holder information"). '</h4>'; }?>
 				<ul class="ltr">
-
 					<?php
 					 if(\dash\data::dataRow_firstname_en()) 	{ echo '<li>'. 'Firstname '		. '<b>' .  \dash\data::dataRow_firstname_en() 	. '</b></li>'; }
 					 if(\dash\data::dataRow_lastname_en()) 		{ echo '<li>'. 'Lastname '		. '<b>' .  \dash\data::dataRow_lastname_en() 	. '</b></li>'; }
@@ -50,10 +50,7 @@
 					 if(\dash\data::dataRow_postcode()) 		{ echo '<li>'. 'Postcode '		. '<b>' .  \dash\data::dataRow_postcode() 		. '</b></li>'; }
 					 if(\dash\data::dataRow_address()) 			{ echo '<li>'. 'Address '		. '<b>' .  \dash\data::dataRow_address() 		. '</b></li>'; }
 					?>
-
 				</ul>
-
-
 				<div class="f mT20">
 					<div class="c">
 						<div class="ibtn wide">
@@ -75,43 +72,24 @@
 							<?php echo '<span>'.T_("billing"). '</span>'; if(\dash\data::dataRow_bill()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?>
 						</div>
 					</div>
-
 				</div>
-
 
 				<p class="mT20">
 					<?php echo T_("If you update your contact detail in nic.ir website") ?>
 					<br>
 					<?php echo T_("You can Check data from IRNIC server and update contact"); ?>
 				</p>
-
 				<?php if(\dash\data::dataRow_datemodified()) {?>
-
 				<p>
 					<?php echo T_("Last checked"); ?> <b><?php echo \dash\fit::date_human(\dash\data::dataRow_datemodified()); ?></b>
 				</p>
-
 				<?php } //endif ?>
-
-
 				<div class="txtRa">
 					<button class="btn secondary"><?php echo T_("Check"); ?></button>
 				</div>
-
 			</form>
-
 		</div>
-
-
-		<div class="cbox">
-			<p>
-				<?php echo T_("You can remove this contanc if don't need") ?>
-			</p>
-
-			<div class="txtRa">
-				<button data-confirm data-data='{"myaction": "remove"}' class="btn danger"><?php echo T_("Remove"); ?></button>
-			</div>
-		</div>
+<?php } ?>
 
 
 	</div>
