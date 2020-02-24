@@ -241,6 +241,21 @@ class create
 		{
 			// have error
 			// need to back money
+			$insert_transaction =
+			[
+				'user_id' => \dash\user::id(),
+				'title'   => T_("Register failed :val", ['val' => $domain]),
+				'verify'  => 1,
+				'plus'    => $price,
+				'type'    => 'money',
+			];
+
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+			if(!$transaction_id)
+			{
+				\dash\notif::error(T_("No way to insert data"));
+				return false;
+			}
 		}
 
 	}

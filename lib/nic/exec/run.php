@@ -187,6 +187,10 @@ class run
 				$msg  = T_("Object does not exist");
 				break;
 
+			case 2104:
+				$msg = T_("Currency type of your contract is different with currency type of the holder.");
+				break;
+
 			case 1001:
 			case 1300:
 			case 1500:
@@ -198,7 +202,6 @@ class run
 			case 2100:
 			case 2101:
 			case 2103:
-			case 2104:
 			case 2106:
 			case 2200:
 			case 2201:
