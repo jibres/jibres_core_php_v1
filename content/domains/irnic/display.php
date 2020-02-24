@@ -45,29 +45,25 @@
 </div>
 <?php } ?>
 
-
-</li>
-
-
-
  <div class="fit ltr">
 
   <p class="txtC txtB"> IRNIC - Dot-IR (.ir) ccTLD Registry<br/>Text of agreement for registering domains under .ir and &lrm;.ایران.ir </p>
-  <p> By submitting this form the registrant agrees to the following
+  <p> By submitting this form the registrant agrees to the following</p>
    <ul>
     <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir">Terms and Conditions</a> for the registration of an Internet domain (under .ir) including</li>
-    <ul class="list2 mTB20-f">
-     <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir,_Appendix_1_Domain_Rules">Appendix 1: Domain Rules</a></li>
-     <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir,_Appendix_2_WHOIS_Policy">Appendix 2: WHOIS Policy</a></li>
-     <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir,_Appendix_3_Registration_Fee">Appendix 3: Registration Fee</a></li>
-     <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir,_Appendix_4_Renewal_Policy_and_Procedure">Appendix 4: Renewal Policy and Procedure</a></li>
-    </ul>
+    <li>
+     <ul class="list2 mTB20-f">
+      <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir,_Appendix_1_Domain_Rules">Appendix 1: Domain Rules</a></li>
+      <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir,_Appendix_2_WHOIS_Policy">Appendix 2: WHOIS Policy</a></li>
+      <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir,_Appendix_3_Registration_Fee">Appendix 3: Registration Fee</a></li>
+      <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir,_Appendix_4_Renewal_Policy_and_Procedure">Appendix 4: Renewal Policy and Procedure</a></li>
+     </ul>
+    </li>
     <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Dispute_Resolution_Policy_ir">Dispute Resolution Policy</a> and <a target="_blank" rel="sponsored" href="https://www.nic.ir/Rules_for_Dispute_Resolution_ir">Rules for Dispute Resolution</a> of domains registered under .ir </li>
     <li class="mTB20">
      <span class="badge danger">new</span> If it turns out that the registered domain name was, at the time of registration, the name of a city or a county, IRNIC will have the right to transfer the registered domain name to the related municipality at any time.</li>
     <li>a domain holder who registers a domain through a reseller or appoints a reseller contact for the domain agrees to delegate to the reseller the right to change technical and billing contacts, change domain name servers, and to transfer or delete the domain name on holder's request. IRNIC will ask the domain holder for verification before performing a transfer or deletion.</li>
    </ul>
-  </p>
 
  </div>
 </div>
