@@ -35,6 +35,10 @@ class view
 		$list = \lib\app\nic_domain\search::list($search_string, $args);
 		\dash\data::dataTable($list);
 
+		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire'], \dash\url::this());
+		\dash\data::sortLink($sortLink);
+
+
 		\dash\data::filterBox(\lib\app\nic_domain\search::filter_message());
 
 		$isFiltered = \lib\app\nic_domain\search::is_filtered();

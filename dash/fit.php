@@ -73,6 +73,11 @@ class fit{
 		return \dash\datetime::fit($_date, null, 'date');
 	}
 
+	public static function date_time($_date)
+	{
+		return \dash\datetime::fit($_date);
+	}
+
 	public static function date_human($_date)
 	{
 		return \dash\datetime::fit($_date, 'human', 'year');

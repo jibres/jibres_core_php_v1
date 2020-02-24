@@ -87,7 +87,7 @@ class search
 
 		if($_args['sort'] && !$order_sort)
 		{
-			if(in_array($_args['sort'], [ 'status']))
+			if(in_array($_args['sort'], ['name', 'dateexpire']))
 			{
 
 				$sort = mb_strtolower($_args['sort']);

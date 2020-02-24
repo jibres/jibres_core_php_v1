@@ -51,7 +51,7 @@ else
 		<tbody>
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
-			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive2"'; } ?>>
+			<tr <?php if(isset($value['isdefault']) && $value['isdefault']) { echo 'class="positive"'; } ?>>
 				<td>
 
 					<a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\coding::encode(\dash\get::index($value, 'id')); ?>" class="link"><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></a>

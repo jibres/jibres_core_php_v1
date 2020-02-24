@@ -80,15 +80,26 @@
 <?php
 if(\dash\data::dataTable())
 {
-	htmlSearchBox();
-	htmlTable();
+	if(\dash\data::isFiltered())
+	{
+		htmlSearchBox();
+		htmlTable();
+		htmlFilter();
+	}
+	else
+	{
+		htmlSearchBox();
+		htmlTable();
+	}
+
 }
 else
 {
 	if(\dash\data::isFiltered())
 	{
 		htmlSearchBox();
-		htmlTable();
+
+		htmlFilter();
 	}
 	else
 	{
@@ -116,46 +127,42 @@ else
 
 
 <?php function htmlTable() {?>
-<div class="tblBox">
-	<table class="tbl1 v4">
+<?php $sortLink = \dash\data::sortLink(); ?>
+
+<div class="fs12">
+	<table class="tbl1 v1 responsive">
 		<thead>
 			<tr>
-				<th><?php echo T_("Domain"); ?></th>
-				<th class=""><?php echo T_("Expire date"); ?></th>
-				<th class="collapsing"><?php echo T_("Setting"); ?></th>
-				<th class="collapsing"><?php echo T_("Last change"); ?></th>
+				<th data-sort="<?php echo \dash\get::index($sortLink, 'name', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'name', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
+				<th data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"  class=""><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
 				<th class="collapsing"><?php echo T_("DNS"); ?></th>
-				<th class="collapsing"><?php echo T_("Action"); ?></th>
+				<th class="collapsing" colspan="2"></th>
 			</tr>
 		</thead>
 		<tbody>
+
 			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
 			<tr>
-				<td><a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> <span><?php echo \dash\get::index($value, 'name'); ?></span></td>
+				<td>
+					<!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
+					<a href="<?php echo \dash\url::that(); ?>/setting/<?php echo \dash\get::index($value, 'name'); ?>" class="link"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
+				</td>
 				<td class=""><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
-				<td class="collapsing">
-					<?php if(isset($value['lock']) && $value['lock']) {?><i class="sf-lock fc-green"></i> <?php }else{ ?> <i class="sf-unlock fc-red"></i> <?php } ?>
-					<?php if(isset($value['autorenew']) && $value['autorenew']) {?><i class="sf-refresh fc-blue" title='<?php echo T_("Auto renew enabled"); ?>'></i> <?php } ?>
-				</td>
-				<td class="collapsing">
-					<?php if(isset($value['datemodified']) && $value['datemodified']) {?>
-
-						<?php echo \dash\fit::date_human(\dash\get::index($value, 'datemodified')); ?>
-
-					<?php }else{ ?>
-
-						<span class="sf-mute fs09"><?php echo T_("Without change"); ?></span>
-
-					<?php } ?>
-
-				</td>
 				<td class="collapsing">
 					<code><?php echo \dash\get::index($value, 'ns1'); ?></code>
 					<br>
 					<code><?php echo \dash\get::index($value, 'ns2'); ?></code>
 				</td>
-				<td class="collapsing"><a href="<?php echo \dash\url::that(); ?>/setting/<?php echo \dash\get::index($value, 'name'); ?>" class="btn info2"><?php echo T_("Manage domain"); ?></a></td>
+
+				<td class="collapsing">
+					<div class="ibtn wide"><?php echo '<span>'.T_("Lock"). '</span>'; if(isset($value['lock']) && $value['lock']) { echo '<i class="sf-lock fc-green"></i>'; } else{ echo '<i class="sf-unlock fc-red"></i>'; }?></div>
+				</td>
+
+				<td class="collapsing">
+					<div class="ibtn wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(isset($value['autorenew']) && $value['autorenew']) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
+				</td>
+
 			</tr>
 			<?php } //endfor ?>
 		</tbody>
@@ -173,32 +180,6 @@ else
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
-
-<?php if(\dash\data::checkResult()) {?>
-
-<div class="cbox">
-
-	<?php if(\dash\data::checkResult_available()) {?>
-
-	<div class="msg success2"><?php echo T_("Domain is available"); ?>
-		<b><?php echo \dash\data::myDomain(); ?></b>
-		<span class="floatL">
-			<a class="btn success" href="<?php echo \dash\url::this(); ?>/buy/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Buy"); ?></a>
-		</span>
-	</div>
-
-	<?php }else{ ?>
-
-	<div class="msg warn2"><?php echo T_("Domain is occupied"); ?>
-		<span class="floatL">
-			<a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Whois"); ?></a>
-		</span>
-	</div>
-
-	<?php }//endif ?>
-
-<?php } //endif ?>
-</div>
 
 <?php } //endfunction ?>
 
