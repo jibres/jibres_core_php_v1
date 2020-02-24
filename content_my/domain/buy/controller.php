@@ -34,8 +34,13 @@ class controller
 		}
 		else
 		{
-			\dash\redirect::to(\dash\url::this(). '/choose');
+			$q = \dash\request::get('q');
+
+			$info = \lib\app\nic_domain\check::multi_check($q);
+
+			\dash\data::infoResult($info);
 		}
+
 	}
 }
 ?>
