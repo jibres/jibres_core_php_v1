@@ -20,7 +20,8 @@
 
     <form method="post" autocomplete="off">
     <label><?php echo T_("Choose register time"); ?></label>
-    <div class="f">
+
+    <div class="f mB10">
       <div class="c pB10 pRa5">
        <div class="radio3">
       <input type="radio" name="period" value="1year" id="period1year">
@@ -63,7 +64,7 @@ if (\dash\data::myContactList())
       </div>
     </div>
      <div data-response='irnicid' data-response-where='something-else' data-response-effect='slide' data-response-hide>
-      <label for="irnicid"><?php echo T_("New IRNIC Handle"); ?></label>
+      <label for="irnicid"><?php echo T_("Enter Your new IRNIC Handle"); ?></label>
       <div class="input ltr">
        <input type="text" name="irnicid" id="irnicid" maxlength="15">
       </div>
@@ -85,11 +86,11 @@ else
 
 
 <?php if(\dash\data::myDNSList() && is_array(\dash\data::myDNSList())) {?>
-    <label><?php echo T_("DNS record"); ?></label>
+    <label class="mT20"><?php echo T_("Enter your domain initial DNS record"); ?></label>
     <div class="f">
 <?php foreach (\dash\data::myDNSList() as $key => $value) {?>
 
-       <div class="c6 s12 pB5 pRa5">
+       <div class="c12 s12 pB5 pRa5">
         <div class="radio3">
        <input type="radio" name="dnsid" value="<?php echo \dash\get::index($value, 'id'); ?>" id="dns-<?php echo $key; ?>">
        <label for="dns-<?php echo $key; ?>"><?php echo \dash\get::index($value, 'ns1') . ' - '. \dash\get::index($value, 'ns2'); ?></label>
@@ -97,10 +98,10 @@ else
        </div>
 
 <?php } //endfor ?>
-      <div class="c6 s12 pB5 pRa5">
+      <div class="c12 s12 pB5 pRa5">
         <div class="radio3">
         <input type="radio" name="dnsid" value="something-else" id="dns-something-else">
-        <label for="dns-something-else"><?php echo T_("Another DNS") ?></label>
+        <label for="dns-something-else"><?php echo T_("Enter New DNS for this domain") ?></label>
         </div>
       </div>
     </div>
@@ -132,11 +133,10 @@ else
 <?php }else{ ?>
 
 
-  <label for="dnsid"><?php echo T_("New DNS record"); ?></label>
-  <div class="f">
+  <div class="f mT20">
     <div class="c6 s12">
      <label for="ns1"><?php echo T_("DNS #1"); ?></label>
-     <div class="input">
+     <div class="input ltr">
       <input type="text" name="ns1" id="ns1" maxlength="100">
      </div>
     </div>
@@ -144,7 +144,7 @@ else
     <div class="c6 s12">
      <div class="mLa5">
       <label for="ns2"><?php echo T_("DNS #2"); ?></label>
-      <div class="input">
+      <div class="input ltr">
        <input type="text" name="ns2" id="ns2" maxlength="100">
       </div>
      </div>
