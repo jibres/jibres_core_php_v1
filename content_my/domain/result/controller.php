@@ -6,6 +6,8 @@ class controller
 {
 	public static function routing()
 	{
+		\content_my\domain\controller::check_login();
+
 		$id = \dash\request::get('id');
 		$id = \dash\coding::decode($id);
 		$detail = \lib\app\nic_domain\get::by_id($id);

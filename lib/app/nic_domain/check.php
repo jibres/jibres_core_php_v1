@@ -103,6 +103,24 @@ class check
 	}
 
 
+	public static function info($_domain)
+	{
+		if(!\lib\app\nic_domain\check::syntax($_domain))
+		{
+			return false;
+		}
+
+		$result = \lib\nic\exec\domain_info::info($_domain);
+		if(!isset($result[$_domain]))
+		{
+			\dash\notif::error(T_("Domain not found"));
+			return false;
+		}
+		return $result[$_domain];
+
+	}
+
+
 	public static function variable()
 	{
 		$autorenew = \dash\app::request('autorenew') ? 1 : null;
