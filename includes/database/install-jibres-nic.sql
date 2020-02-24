@@ -132,13 +132,14 @@ CREATE TABLE IF NOT EXISTS `domain` (
 `registrar` enum('irnic') NULL DEFAULT NULL,
 `name` varchar(200) NULL DEFAULT NULL,
 
-`status` enum('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
+`status` enum('awaiting','failed','pending','enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
 
 `holder` varchar(30) NULL DEFAULT NULL,
 `admin` varchar(30) NULL DEFAULT NULL,
 `tech` varchar(30) NULL DEFAULT NULL,
 `bill` varchar(30) NULL DEFAULT NULL,
 
+`result` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
 
 `autorenew` bit(1) NULL DEFAULT NULL,
 
@@ -154,6 +155,8 @@ CREATE TABLE IF NOT EXISTS `domain` (
 
 PRIMARY KEY (`id`),
 KEY `domain_index_search_name` (`name`),
+KEY `domain_index_search_user_id` (`user_id`),
+KEY `domain_index_search_dns` (`dns`),
 CONSTRAINT `domain_dns` FOREIGN KEY (`dns`) REFERENCES `dns` (`id`) ON UPDATE CASCADE
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
